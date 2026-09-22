@@ -27,6 +27,7 @@ import urllib.request
 
 
 VIDEO_EXTENSIONS = {".mp4", ".mov", ".mxf", ".m4v", ".avi", ".mts", ".m2ts", ".insv"}
+EDITED_EXPORT_DIR_PREFIXES = ("edited ads", "edited longform", "claude edited long form content")
 SAMPLE_BYTES = 64 * 1024 * 1024
 SCHEMA_VERSION = 1
 DEFAULT_MODEL = "gemini-3.1-flash-lite"
@@ -78,6 +79,10 @@ def shoot_name(clip):
     if folder in {"main camera", "screen recordings", "screen-recordings"} or "gopro" in folder:
         return parent.parent.name + " - " + parent.name
     return parent.name
+
+
+def in_edited_export_folder(path):
+    return any(part.lower().startswith(EDITED_EXPORT_DIR_PREFIXES) for part in Path(path).parts)
 
 
 def clip_paths(clip):
@@ -474,6 +479,27 @@ def parse_json_text(text):
     return json.loads(text)
 
 
+def record_description_attempt(contact, model, attempt, status, usage):
+    ledger = Path(os.environ.get("ROLL_USAGE_LEDGER", str(mirror_root() / "_gemini_usage.jsonl")))
+    ledger.parent.mkdir(parents=True, exist_ok=True)
+    row = {"at": now_iso(), "contact": str(contact), "model": model, "attempt": attempt, "status": status, **usage}
+    with ledger.open("a", encoding="utf-8") as handle:
+        handle.write(json.dumps(row, sort_keys=True) + "\n")
+        handle.flush()
+        os.fsync(handle.fileno())
+
+
+def description_token_usage(body):
+    usage = body.get("usageMetadata", {})
+    input_tokens = int(usage.get("promptTokenCount") or 0)
+    output_tokens = int(usage.get("candidatesTokenCount") or 0)
+    thinking_tokens = int(usage.get("thoughtsTokenCount") or 0)
+    cost = input_tokens * DESCRIPTION_INPUT_USD_PER_M / 1000000.0
+    cost += (output_tokens + thinking_tokens) * DESCRIPTION_OUTPUT_USD_PER_M / 1000000.0
+    return {"input_tokens": input_tokens, "output_tokens": output_tokens,
+            "thinking_tokens": thinking_tokens, "estimated_actual_usd": round(cost, 6)}
+
+
 def describe_contact(contact, interval, model=None):
     key = secret_value("GEMINI_API_KEY")
     if not key:
@@ -497,30 +523,42 @@ def describe_contact(contact, interval, model=None):
     }
     url = "https://generativelanguage.googleapis.com/v1beta/models/{}:generateContent?key={}".format(model, key)
     request = urllib.request.Request(url, data=json.dumps(payload).encode("utf-8"), headers={"Content-Type": "application/json"})
-    try:
-        with urllib.request.urlopen(request, timeout=180) as response:
-            body = json.loads(response.read().decode("utf-8"))
-    except urllib.error.HTTPError as exc:
-        detail = exc.read().decode("utf-8", errors="replace")
-        raise RuntimeError("Gemini HTTP {}: {}".format(exc.code, detail[-1000:]))
-    text = "".join(
-        part.get("text", "")
-        for candidate in body.get("candidates", [])
-        for part in candidate.get("content", {}).get("parts", [])
-    )
-    parsed = parse_json_text(text)
-    usage = body.get("usageMetadata", {})
-    input_tokens = int(usage.get("promptTokenCount") or 0)
-    output_tokens = int(usage.get("candidatesTokenCount") or 0)
-    cost = input_tokens * DESCRIPTION_INPUT_USD_PER_M / 1000000.0 + output_tokens * DESCRIPTION_OUTPUT_USD_PER_M / 1000000.0
-    return parsed, {
-        "provider": "Google Gemini",
-        "model": model,
-        "input_tokens": input_tokens,
-        "output_tokens": output_tokens,
-        "estimated_actual_usd": round(cost, 6),
-        "pricing_assumption": "${:.2f}/1M input and ${:.2f}/1M output".format(DESCRIPTION_INPUT_USD_PER_M, DESCRIPTION_OUTPUT_USD_PER_M),
-    }
+    totals = {"input_tokens": 0, "output_tokens": 0, "thinking_tokens": 0, "estimated_actual_usd": 0.0}
+    for attempt in range(1, 4):
+        try:
+            with urllib.request.urlopen(request, timeout=180) as response:
+                body = json.loads(response.read().decode("utf-8"))
+        except urllib.error.HTTPError as exc:
+            detail = exc.read().decode("utf-8", errors="replace")
+            raise RuntimeError("Gemini HTTP {}: {}".format(exc.code, detail[-1000:]))
+        usage = description_token_usage(body)
+        for field in ("input_tokens", "output_tokens", "thinking_tokens", "estimated_actual_usd"):
+            totals[field] += usage[field]
+        block_reason = (body.get("promptFeedback") or {}).get("blockReason")
+        if block_reason:
+            record_description_attempt(contact, model, attempt, "blocked:" + str(block_reason), usage)
+            raise RuntimeError("Gemini blocked contact sheet {}: {}".format(contact, block_reason))
+        content = "".join(
+            part.get("text", "")
+            for candidate in body.get("candidates", [])
+            for part in candidate.get("content", {}).get("parts", [])
+        )
+        try:
+            parsed = parse_json_text(content)
+            if not isinstance(parsed, dict) or not isinstance(parsed.get("shots"), list):
+                raise ValueError("description has no shots list")
+        except (ValueError, TypeError) as exc:
+            record_description_attempt(contact, model, attempt, "invalid-response: " + str(exc)[:120], usage)
+            print("Gemini description attempt {}/3 invalid for {}: {}".format(attempt, contact.name, exc), file=sys.stderr, flush=True)
+            if attempt == 3:
+                raise RuntimeError("Gemini returned three invalid descriptions for {}".format(contact)) from exc
+            time.sleep(attempt)
+            continue
+        record_description_attempt(contact, model, attempt, "ok", usage)
+        return parsed, {"provider": "Google Gemini", "model": model, **totals,
+                        "attempts": attempt,
+                        "estimated_actual_usd": round(totals["estimated_actual_usd"], 6),
+                        "pricing_assumption": "${:.2f}/1M input and ${:.2f}/1M output".format(DESCRIPTION_INPUT_USD_PER_M, DESCRIPTION_OUTPUT_USD_PER_M)}
 
 
 def transcript_text(words):
@@ -690,6 +728,19 @@ def save_sidecar(data, paths, words):
 
 
 def resolve_clips(target):
+    if target.startswith("@"):
+        manifest = Path(target[1:]).expanduser().resolve()
+        clips = []
+        for line in manifest.read_text(encoding="utf-8").splitlines():
+            if not line.strip():
+                continue
+            clip = Path(line).expanduser().resolve()
+            if not clip.is_file() or clip.suffix.lower() not in VIDEO_EXTENSIONS or clip.name.startswith("._"):
+                raise RuntimeError("manifest contains a missing or unsupported source video: " + str(clip))
+            clips.append(clip)
+        if len(clips) != len(set(clips)):
+            raise RuntimeError("manifest contains duplicate clip paths: " + str(manifest))
+        return clips
     path = Path(target).expanduser().resolve()
     if path.is_file():
         if path.suffix.lower() not in VIDEO_EXTENSIONS or path.name.startswith("._"):
@@ -699,7 +750,8 @@ def resolve_clips(target):
         raise RuntimeError("not found: " + str(path))
     return sorted(
         item for item in path.rglob("*")
-        if item.is_file() and item.suffix.lower() in VIDEO_EXTENSIONS and not item.name.startswith("._")
+        if item.is_file() and item.suffix.lower() in VIDEO_EXTENSIONS
+        and not item.name.startswith("._") and not in_edited_export_folder(item.relative_to(path))
     )
 
 
@@ -901,6 +953,8 @@ def command_find(args):
         except (OSError, ValueError):
             continue
         shoot = str(data.get("identity", {}).get("shoot", ""))
+        if not args.include_edited and in_edited_export_folder(data.get("identity", {}).get("current_path", "")):
+            continue
         if args.shoot and args.shoot.lower() not in shoot.lower():
             continue
         used = data.get("used_in", [])
@@ -1016,6 +1070,7 @@ def parser():
     find.add_argument("--shoot")
     find.add_argument("--framing", choices=["front", "45", "profile"])
     find.add_argument("--unused", action="store_true")
+    find.add_argument("--include-edited", action="store_true", help="include old finished-edit sidecars")
     find.set_defaults(func=command_find)
     show = sub.add_parser("show", help="show the sidecar for a clip")
     show.add_argument("clip")

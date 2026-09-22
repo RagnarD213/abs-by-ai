@@ -22,11 +22,17 @@ python3 .claude/skills/_shared/rolls/roll_sidecar.py mark-used "/path/to/C1677.M
 python3 .claude/skills/_shared/rolls/roll_sidecar.py verify
 ```
 
+For a backfill, list exact source-video paths, one per line, in a manifest and run `build @/absolute/path/to/manifest`. This avoids recursing into finished edited exports inside a shoot folder. Include full `.insv` sources, exclude `.lrv` previews, and never include the asset library's quarantined folder 08. The worker in `backfill_worker.py` runs one manifest under a supervisor, writes a status file and log, and stops for review if individual clips fail. It returns a retryable error only if the source drive disappears or the tool crashes.
+
+Folder builds also skip directories named `EDITED ADS`, `EDITED LONGFORM`, or `claude edited long form content`. Old sidecars from those folders remain on disk, but `find` hides them by default. Use `find --include-edited` only when searching those old finished edits deliberately.
+
 Always run `show` before starting a new transcript, mic analysis, or contact sheet. When an edit's EDL is final, run `mark-used` for every source range it uses.
 
 `build` is idempotent. It hashes the first and last 64 MB plus file size, so a renamed or moved clip still finds the same record. Use `--force` to refresh generated facts. Any JSON object with `"locked": true` is treated as a human correction and survives a forced rebuild.
 
 Use `--no-describe` when the paid Gemini picture description is not needed, including all tests. Before a real description batch, state the estimated Gemini cost. The tool records the returned token counts and estimated actual charge in each JSON sidecar.
+
+Gemini description calls are recorded individually in `Media/footage-index/_gemini_usage.jsonl`, including malformed responses and provider blocks. Empty or malformed descriptions get at most three attempts. A provider content block stops immediately. If that happens, build the clip with `--no-describe`, inspect the contact sheet, and add a human-reviewed, locked description and shot list to both the drive and mirror sidecars. Do not keep paying to retry a blocked sheet.
 
 ## How a build works
 

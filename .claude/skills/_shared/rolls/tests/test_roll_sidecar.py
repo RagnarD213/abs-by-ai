@@ -1,17 +1,80 @@
 #!/usr/bin/env python3
 import json
+import io
+import importlib.util
 import os
 from pathlib import Path
 import shutil
 import subprocess
 import tempfile
 import unittest
+from unittest import mock
 
 
 HERE = Path(__file__).resolve().parent
 TOOL = HERE.parent / "roll_sidecar.py"
 REPO = TOOL.parents[4]
 FFMPEG = REPO / "Media" / "video_edit" / "bin" / "ffmpeg"
+SPEC = importlib.util.spec_from_file_location("roll_sidecar", TOOL)
+ROLL = importlib.util.module_from_spec(SPEC)
+SPEC.loader.exec_module(ROLL)
+
+
+class GeminiDescriptionRetryTest(unittest.TestCase):
+    def test_empty_response_retries_and_records_both_charges(self):
+        with tempfile.TemporaryDirectory(prefix="roll-gemini-retry-") as directory:
+            contact = Path(directory) / "contact.jpg"
+            contact.write_bytes(b"test contact")
+            ledger = Path(directory) / "usage.jsonl"
+            empty = {"candidates": [], "usageMetadata": {"promptTokenCount": 1000}}
+            valid = {"candidates": [{"content": {"parts": [{"text": '{"summary":"camera roll","shots":[]}' }]}}],
+                     "usageMetadata": {"promptTokenCount": 1000, "candidatesTokenCount": 100, "thoughtsTokenCount": 50}}
+            responses = [io.BytesIO(json.dumps(row).encode("utf-8")) for row in (empty, valid)]
+            with mock.patch.dict(os.environ, {"GEMINI_API_KEY": "test-key", "ROLL_USAGE_LEDGER": str(ledger)}), \
+                 mock.patch.object(ROLL.urllib.request, "urlopen", side_effect=responses), \
+                 mock.patch.object(ROLL.time, "sleep"):
+                parsed, usage = ROLL.describe_contact(contact, 5)
+            self.assertEqual("camera roll", parsed["summary"])
+            self.assertEqual(2, usage["attempts"])
+            self.assertEqual(2000, usage["input_tokens"])
+            self.assertEqual(50, usage["thinking_tokens"])
+            self.assertEqual(0.000725, usage["estimated_actual_usd"])
+            rows = [json.loads(line) for line in ledger.read_text(encoding="utf-8").splitlines()]
+            self.assertEqual(2, len(rows))
+            self.assertTrue(rows[0]["status"].startswith("invalid-response"))
+            self.assertEqual("ok", rows[1]["status"])
+
+
+    def test_three_malformed_responses_stop_after_bounded_attempts(self):
+        with tempfile.TemporaryDirectory(prefix="roll-gemini-retry-") as directory:
+            contact = Path(directory) / "contact.jpg"
+            contact.write_bytes(b"test contact")
+            ledger = Path(directory) / "usage.jsonl"
+            malformed = {"candidates": [{"content": {"parts": [{"text": "{"}]}}],
+                         "usageMetadata": {"promptTokenCount": 1000}}
+            responses = [io.BytesIO(json.dumps(malformed).encode("utf-8")) for _ in range(3)]
+            with mock.patch.dict(os.environ, {"GEMINI_API_KEY": "test-key", "ROLL_USAGE_LEDGER": str(ledger)}), \
+                 mock.patch.object(ROLL.urllib.request, "urlopen", side_effect=responses), \
+                 mock.patch.object(ROLL.time, "sleep"):
+                with self.assertRaisesRegex(RuntimeError, "three invalid descriptions"):
+                    ROLL.describe_contact(contact, 5)
+            self.assertEqual(3, len(ledger.read_text(encoding="utf-8").splitlines()))
+
+    def test_provider_content_block_does_not_retry(self):
+        with tempfile.TemporaryDirectory(prefix="roll-gemini-block-") as directory:
+            contact = Path(directory) / "contact.jpg"
+            contact.write_bytes(b"test contact")
+            ledger = Path(directory) / "usage.jsonl"
+            blocked = {"promptFeedback": {"blockReason": "PROHIBITED_CONTENT"},
+                       "usageMetadata": {"promptTokenCount": 1000}}
+            response = io.BytesIO(json.dumps(blocked).encode("utf-8"))
+            with mock.patch.dict(os.environ, {"GEMINI_API_KEY": "test-key", "ROLL_USAGE_LEDGER": str(ledger)}), \
+                 mock.patch.object(ROLL.urllib.request, "urlopen", return_value=response) as urlopen:
+                with self.assertRaisesRegex(RuntimeError, "PROHIBITED_CONTENT"):
+                    ROLL.describe_contact(contact, 5)
+            self.assertEqual(1, urlopen.call_count)
+            row = json.loads(ledger.read_text(encoding="utf-8").strip())
+            self.assertEqual("blocked:PROHIBITED_CONTENT", row["status"])
 
 
 class RollSidecarTest(unittest.TestCase):
@@ -107,6 +170,18 @@ class RollSidecarTest(unittest.TestCase):
         found = self.run_tool("find", "dramatic vacuum")
         self.assertIn("CTEST.MP4", found.stdout)
         self.assertIn("drive unplugged", found.stdout)
+
+    def test_find_hides_finished_exports_by_default(self):
+        self.build()
+        mirror_json = next(self.mirror.glob("*/*.roll.json"))
+        data = json.loads(mirror_json.read_text(encoding="utf-8"))
+        data["identity"]["current_path"] = str(self.shoot / "EDITED LONGFORM 8-20-26" / "CTEST.MP4")
+        mirror_json.write_text(json.dumps(data), encoding="utf-8")
+        hidden = self.run_tool("find", "dramatic vacuum", check=False)
+        self.assertEqual(1, hidden.returncode)
+        self.assertIn("No matches", hidden.stdout)
+        shown = self.run_tool("find", "dramatic vacuum", "--include-edited")
+        self.assertIn("CTEST.MP4", shown.stdout)
 
 
 if __name__ == "__main__":
