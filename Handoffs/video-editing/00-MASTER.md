@@ -98,7 +98,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [RO-01](RO-01-keep-your-muscle-on-zepbound.md) | How To Keep Your Muscle On Zepbound | 8/14 C1605–08 (27 min) | DELIVERED — awaiting Dan | L |
 | [RO-02](RO-02-the-vacuum-explainer.md) | The Vacuum: Best Ab Exercise For Belly Fat | 8/14 C1614–29 (26 min) | READY | L |
 | [RO-03](RO-03-the-vacuum-workout-only.md) | The Vacuum — Workout Only | 8/14 C1625 | READY (best after RO-02) | S |
-| [RO-04](RO-04-arms-shoulders-workout-only.md) | Arms & Shoulders — Workout Only | 8/3 C1586 | BLOCKED: Zeeshan's Arms & Shoulders final | S |
+| [RO-04](RO-04-arms-shoulders-workout-only.md) | Arms & Shoulders — Workout Only | 8/3 C1586 | READY | S |
 | [RO-05](RO-05-how-i-make-my-daily-salad.md) | How I Make My Daily Salad | 8/3 C1533–56 (50 min) | READY | L |
 | [RO-06](RO-06-work-out-at-home-on-a-budget.md) | How To Work Out At Home On A Budget | 8/3 C1557–81 (31 min) | READY | L |
 | [RO-07](RO-07-why-you-must-work-out-every-day.md) | Why You MUST Work Out Every Day | 7/8 C1484–85 (30 min) | READY | L |
@@ -120,9 +120,9 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [SL-01](SL-01-ab-wheel-workout-shorts.md) | Ab Wheel Workout: 3 Sets (Zeeshan, public 09-20) | READY | S |
 | [SL-02](SL-02-v1-channel-intro-shorts.md) | V1 Welcome To Abs By AI (channel intro) | READY (low priority) | S |
 | [SL-03](SL-03-meal-prep-app-demo-shorts.md) | 05 Meal Prep Macro Tracking (app demo) | BLOCKED: fold into RO-05 first | S |
+| [SL-04](SL-04-arms-shoulders-shorts.md) | Arms & Shoulders Home Workout (Zeeshan, 11:00) | READY | S |
 
 **Will need shorts once final (no handoff yet; add one when the long-form is approved):**
-* Arms & Shoulders Home Workout (Zeeshan, revision round 2; his music question is waiting on you)
 * Your Belly Fat Is An Emergency (Codex, revision in progress)
 * 04 Why You Should Invest More In Your Health (waiting on your pick: dry vs dereverb audio, and which length)
 * Zeeshan's batch videos not delivered yet: STOP Deadlifting, My Honest Oura Ring Review, Getting Abs At 40 vs 25 (due 09-24)
@@ -174,6 +174,7 @@ handoff (`handoff-20260909-audio-match-muhammad.md`, waiting on your spray-tan s
 | [AV-10](AV-10-ad9-vertical.md) | Ad 9: ChatGPT (round 4 source, 09-21) | READY | M |
 | [AV-11](AV-11-ad13-vertical.md) | Ad 13: Cost Of Getting Abs (round 4 source, 09-21) | READY | M |
 | [AV-12](AV-12-ad15-vertical.md) | Ad 15: T-Shirt Dad | READY | M |
+| [AV-13](AV-13-arms-shoulders-vertical.md) | Arms & Shoulders Home Workout (Zeeshan, ORGANIC, not an ad) | READY | L |
 
 **Squares (each builds full + ≤0:59, from the approved vertical)**
 
@@ -190,6 +191,7 @@ handoff (`handoff-20260909-audio-match-muhammad.md`, waiting on your spray-tan s
 | [AS-09](AS-09-ad9-square.md) | Ad 9 | BLOCKED: AV-10 approved | M |
 | [AS-10](AS-10-ad13-square.md) | Ad 13 | BLOCKED: AV-11 approved | M |
 | [AS-11](AS-11-ad15-square.md) | Ad 15 | BLOCKED: AV-12 approved | M |
+| [AS-12](AS-12-arms-shoulders-square.md) | Arms & Shoulders Home Workout (Zeeshan, ORGANIC, not an ad) | BLOCKED: AV-13 approved | L |
 
 Ads 8, 9, 13 and 15 were finalized and installed on YouTube + Demand Gen 09-16; their AV + AS jobs above now carry
 the remaining vertical, square and ≤0:59 variants. Also every RA-01 … RA-16 once approved needs its square + any hook variants.
@@ -204,6 +206,6 @@ the remaining vertical, square and ≤0:59 variants. Also every RA-01 … RA-16 
 | Codex | Ad 14 trial re-edit (C1603), private; a trial, not a production ad |
 | Codex (reserved) | The Real Reason You Don't Have Abs (C1653): trial phase 07's organic video; no edit started |
 | Muhammad | Ad 7 typo fix + HD · Ads 8, 9, 13, 15 HDs delivered 09-16 for your check · Ad 3 round-6 re-export only if you send it |
-| Zeeshan | Arms & Shoulders round 2 · STOP Deadlifting · Oura Ring Review · Abs At 40 vs 25 (contract due 09-24) |
+| Zeeshan | STOP Deadlifting · Oura Ring Review · Abs At 40 vs 25 (contract due 09-24) |
 | Waleed | nothing: contract ended 09-15; his Ad 1 cut stays unfinished |
 | not filmed yet | /start VSL (`handoff-20260910-start-vsl-edit-and-install.md`) · Shoot 5 long-form outlines (Zepbound tips, Future Body, Alcohol, Not Losing Weight, Lockscreen Trick, What I Eat) · Pushup Masterclass · M100s long-form · Members' Area intro |

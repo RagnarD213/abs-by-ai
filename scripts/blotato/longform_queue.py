@@ -67,13 +67,13 @@ def posts(v: dict) -> list:
                "thumbnailUrl": v["youtube_cover_url"]}
     return [
         (FACEBOOK, "facebook", v["main"], {"targetType": "facebook", "pageId": FB_PAGE},
-         lede + f"See what you'd look like with a six-pack — free AI preview:\n{link('facebook')}\n\n{v['tags']}",
+         lede + f"See what you'd look like with a six-pack. Free AI preview:\n{link('facebook')}\n\n{v['tags']}",
          v["video_url"]),
         (IG_MAIN, "instagram", v["main"], dict(ig),
          lede + f"Comment {v['keyword']} and I'll send you the free AI preview 👇\n\n{v['tags']}",
          v["video_url"]),
         (TIKTOK, "tiktok", v["main"], tiktok,
-         lede + f"Free AI preview of your own six-pack — link in bio at AbsByAI.com 👇\n\n{link('tiktok')}\n\n{v['tags']}",
+         lede + f"Free AI preview of your own six-pack, link in bio at AbsByAI.com 👇\n\n{link('tiktok')}\n\n{v['tags']}",
          v.get("tiktok_video_url", v["video_url"])),
         (IG_MIRROR, "instagram", v["mirror"], dict(ig),
          lede + f"{v['mirror_cta']}\n\n{v['tags']}",
