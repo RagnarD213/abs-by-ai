@@ -269,7 +269,7 @@
     },
     {
       "text": "Clean Master Bathroom & Guest Bathroom",
-      "priority": "high",
+      "priority": "med",
       "recurring": false,
       "addedAt": "2026-09-01"
     },
