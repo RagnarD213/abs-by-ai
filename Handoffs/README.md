@@ -13,6 +13,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
+| [handoff-20260922-install-approved-breakfast-short-thumbnail.md](handoff-20260922-install-approved-breakfast-short-thumbnail.md) | **Ready 2026-09-22, Codex GPT-5.6 Sol / Medium.** Install Dan's approved revised studio cover on existing Short `UFga137pseM`; back up old cover and test results, save and verify in Studio. No redesign or re-upload. |
 | [handoff-20260918-edit-queue-phase2-asset-approval-automation.md](handoff-20260918-edit-queue-phase2-asset-approval-automation.md) | **Ready 2026-09-18 — Codex GPT-5.6 Sol / High. Fire first.** Build and isolate-test the existing queue's early AI/B-roll approval, labelled-placeholder pause/resume and hard placeholder delivery check. Software only; no real edit or provider spend. |
 | [handoff-20260918-edit-queue-phase2-ds05-production-pilot.md](handoff-20260918-edit-queue-phase2-ds05-production-pilot.md) | **After the Phase 2 automation handoff passes — Codex GPT-5.6 Sol / High.** Run one real DS-05 pilot through early frame approval and queue resume, measure usage/cost/reuse/revisions, then seed exact approved clips only if Dan finalizes it. No upload or publication. |
 | [handoff-20260920-finish-roll-sidecar-backfill.md](handoff-20260920-finish-roll-sidecar-backfill.md) | **Ready 2026-09-20, Codex GPT-5.6 Sol / High.** Resume the stopped raw-footage index, retry the failed C1579 camera roll, exclude finished exports, and prove complete coverage. The tool and 8/28 pilot are already done. |
