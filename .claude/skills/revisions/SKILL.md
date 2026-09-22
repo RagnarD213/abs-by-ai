@@ -1060,7 +1060,7 @@ vertical/square versions, add its AV/AS jobs. Procedure: `.claude/skills/_shared
     contained the **deadlift video's** `.srt`, byte-identical to the one in the deadlift folder, so the two-word .srt fix
     from the previous round was silently unanswered. This is lesson 39a (md5 the re-delivered video) extended to the
     sidecars — the .srt, the music mp3 and the thumbnail are where a wrong-file drop hides, because nobody opens them.
-55. **Envelope cross-correlation settles "which track is this?" to a yes or a no (2026-09-18).** Log-envelope at 400 Hz,
+55. ⚠ SEE 66: a NO from this test is not proof. **Envelope cross-correlation settles "which track is this?" to a yes or a no (2026-09-18).** Log-envelope at 400 Hz,
     mean-removed, slid over the candidate with a cumulative-sum normalised correlation
     (`revisions-20260918/music_match.py`): the real match read **r = +0.941** with the implied track start agreeing to
     1.5 s across two overlapping windows; every non-match read **r = 0.06–0.16** with offsets that did not line up. The
@@ -1119,7 +1119,7 @@ vertical/square versions, add its AV/AS jobs. Procedure: `.claude/skills/_shared
     variation of a movement is still that movement. This is the false-positive protocol (step 3b) applied to exercise
     form: name what makes it wrong in two clearly-readable frames, or do not write it. Dan does the exercises; on form
     he is the authority and a wrong call costs credibility with him and with the editor.
-62. **A track the editor supplied answers only the sections it is actually under — say WHICH sections are still unknown
+62. ⚠ SUPERSEDED IN PART BY 66: never report an "unidentified" track from our own tests. **A track the editor supplied answers only the sections it is actually under — say WHICH sections are still unknown
     (Dan, 2026-09-18).** Lesson 60 had this half right. After Dan deleted the music item, the correlation numbers went to
     him in chat and he put it straight back: *"Good catch with that music. Add that note back in. I thought that was the
     only music track in there, but just add in the specific music that wasn't identified into the document."* So the
@@ -1154,3 +1154,19 @@ vertical/square versions, add its AV/AS jobs. Procedure: `.claude/skills/_shared
     archive clip Claude had cut for him: *"avoid mentioning very nitpicky small edits in these types of messages… Those
     are in the document. The message is really only for the big-picture things that we need to communicate, not the
     tiny tactical things."* Even an asset Dan is HANDING the editor does not need a paragraph if the doc carries it.
+66. ⚠ **Our music tests can prove a track IS there. They cannot prove a track is NOT there (2026-09-22).** Rounds 2 and 3
+    of Zeeshan's arms and shoulders video told him a third, unidentified track ran under the talking. There was none. His
+    "no music" export, subtracted from the full export, left exactly the trip hop track (r 0.99) under the talking and
+    Energy Gym Thunder (r 0.999) under the live round. Three things went wrong: (a) the envelope test (55) cannot see a
+    flat, quiet bed at -27 dB under a loudened voice-over, and "no match" was read as "not this track"; (b) the positive
+    control mixed the track back in at -15 to -25 dB, louder than his real -27 dB, and even at -25 dB it read r 0.155,
+    inside the noise range of the real windows, so it proved nothing and was reported as proof; (c) "a bed is present"
+    (gap floor) was treated as evidence of a DIFFERENT bed. It only ever showed that A bed was there. Dan: this cost the
+    editor real time over a problem that did not exist.
+    **The rule:** (1) If the editor names a clean track, believe him unless a test POSITIVELY identifies a different one.
+    A failure to match is "unconfirmed", never an item. (2) If a claim still matters for Content ID, the only test is
+    subtraction: ask for the same export with the music muted, subtract it sample for sample, and match the difference
+    against his named tracks (waveform correlation, not envelope; `/Volumes/Extreme/_edit_work/music-check-20260922/chk.py`).
+    One export request costs him two minutes; a disputed item costs him three rounds. (3) Any positive control must be run
+    at or below the editor's stated level, and must read clearly apart from the noise, or it is not reported. (4) Before
+    telling an editor he is wrong a second time on the same point, show Dan the evidence and its weakest link first.
