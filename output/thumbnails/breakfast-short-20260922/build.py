@@ -76,15 +76,28 @@ def pool():
         im.convert("RGB").save(ROOT / "A-pool-shoot.jpg", quality=94, subsampling=0)
 
 
-def studio():
+def studio(filename="B-studio-design.jpg", breakfast_shift=0, person_x=-62, person_y=397):
     with Image.open(ROOT / "studio-breakfast-background.png") as bg:
-        im = ImageOps.fit(bg.convert("RGB"), (W, H), method=Image.Resampling.LANCZOS).convert("RGBA")
+        bg = ImageOps.fit(bg.convert("RGB"), (W, H), method=Image.Resampling.LANCZOS)
+        if breakfast_shift:
+            # Raise the breakfast plate and coffee within the same artwork.
+            # Fade the lower table into a solid dark field behind the cutout.
+            extended = Image.new("RGB", (W, H), (39, 32, 28))
+            extended.paste(bg, (0, -breakfast_shift))
+            fade = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+            fd = ImageDraw.Draw(fade)
+            fade_start = H - breakfast_shift - 220
+            for row in range(fade_start, H):
+                alpha = min(255, round(255 * (row - fade_start) / 220))
+                fd.line((0, row, W, row), fill=(39, 32, 28, alpha))
+            bg = Image.alpha_composite(extended.convert("RGBA"), fade).convert("RGB")
+        im = bg.convert("RGBA")
     with Image.open(PROJECT / "photos/finalized social media photos/_cutouts/studio-gray-67_CUTOUT.png") as original:
         person = original.convert("RGBA")
         # Keep the original studio portrait pixels. The cutout already has alpha.
         person = person.resize((round(person.width * 0.365), round(person.height * 0.365)),
                                Image.Resampling.LANCZOS)
-    x, y = -62, 397
+    x, y = person_x, person_y
     alpha = Image.new("L", (W, H))
     alpha.paste(person.getchannel("A"), (x, y))
     outline = alpha.filter(ImageFilter.MaxFilter(17))
@@ -95,15 +108,21 @@ def studio():
     fg.paste(person, (x, y))
     im = Image.alpha_composite(im, fg)
     im = draw_copy(im, "EVERY DAY", outlined=True)
-    im.convert("RGB").save(ROOT / "B-studio-design.jpg", quality=94, subsampling=0)
+    im.convert("RGB").save(ROOT / filename, quality=94, subsampling=0)
 
 
 if __name__ == "__main__":
     pool()
     studio()
+    studio("B2-studio-breakfast-raised.jpg", breakfast_shift=300, person_x=-20, person_y=410)
     a = Image.open(ROOT / "A-pool-shoot.jpg")
     b = Image.open(ROOT / "B-studio-design.jpg")
     preview = Image.new("RGB", (540, 480), (16, 16, 16))
     preview.paste(a.resize((270, 480), Image.Resampling.LANCZOS), (0, 0))
     preview.paste(b.resize((270, 480), Image.Resampling.LANCZOS), (270, 0))
     preview.save(ROOT / "phone-size-comparison.jpg", quality=92)
+    b2 = Image.open(ROOT / "B2-studio-breakfast-raised.jpg")
+    revision = Image.new("RGB", (540, 480), (16, 16, 16))
+    revision.paste(b.resize((270, 480), Image.Resampling.LANCZOS), (0, 0))
+    revision.paste(b2.resize((270, 480), Image.Resampling.LANCZOS), (270, 0))
+    revision.save(ROOT / "studio-revision-comparison.jpg", quality=92)
