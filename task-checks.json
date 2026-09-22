@@ -1,6 +1,7 @@
 {
   "checked": [
-    "assistant::Set up filming room https://claude.ai/artifact/6KuxQDocTNAQDCboc7Byh5"
+    "assistant::Set up filming room https://claude.ai/artifact/6KuxQDocTNAQDCboc7Byh5",
+    "assistant::Wash dishes"
   ],
   "log": {
     "health::Shower": [
@@ -224,6 +225,7 @@
     ]
   },
   "checkedAt": {
-    "assistant::Set up filming room https://claude.ai/artifact/6KuxQDocTNAQDCboc7Byh5": "2026-09-22"
+    "assistant::Set up filming room https://claude.ai/artifact/6KuxQDocTNAQDCboc7Byh5": "2026-09-22",
+    "assistant::Wash dishes": "2026-09-22"
   }
 }
