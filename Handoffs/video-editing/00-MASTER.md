@@ -60,22 +60,22 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 
 | job | short | roll | status | size |
 |---|---|---|---|---|
-| [DS-01](DS-01-top-5-ab-exercises.md) | Top 5 Ab Exercises | C1654 | BLOCKED | S |
-| [DS-02](DS-02-how-getting-abs-looksmaxxes-your-face.md) | How Getting Abs Looksmaxxes Your Face | C1654 | BLOCKED | S |
-| [DS-03](DS-03-3-most-important-supplements-for-men.md) | The 3 Most Important Supplements For Men | C1655 | BLOCKED | S |
+| [DS-01](DS-01-top-5-ab-exercises.md) | Top 5 Ab Exercises | C1654 | IN PROGRESS | S |
+| [DS-02](DS-02-how-getting-abs-looksmaxxes-your-face.md) | How Getting Abs Looksmaxxes Your Face | C1654 | IN PROGRESS | S |
+| [DS-03](DS-03-3-most-important-supplements-for-men.md) | The 3 Most Important Supplements For Men | C1655 | IN PROGRESS | S |
 | [DS-04](DS-04-only-ab-exercise-that-shrinks-belly-fat.md) | The Only Ab Exercise That Shrinks Your Belly Fat | C1656 | UPLOADED | S |
-| [DS-05](DS-05-abs-beat-being-a-fat-millionaire.md) | Why Having Abs Beats Being A Fat Millionaire | C1657 | BLOCKED | S |
-| [DS-06](DS-06-what-every-body-fat-percentage-looks-like.md) | What Every Body Fat Percentage Looks Like | C1657 | BLOCKED | S |
-| [DS-07](DS-07-top-3-ways-to-use-ai-to-get-abs.md) | Top 3 Ways To Use AI To Get Abs | C1657 + C1658 | BLOCKED | S |
-| [DS-08](DS-08-i-was-200-pounds-at-38.md) | I Was 200 Pounds At 38 | C1658 | BLOCKED | S |
-| [DS-09](DS-09-how-to-make-time-to-work-out.md) | How To Make Time To Work Out | C1659 | BLOCKED | S |
-| [DS-10](DS-10-3-unexpected-ways-zepbound-helped-me.md) | 3 Unexpected Ways Zepbound Helped Me | C1660 | BLOCKED | S |
-| [DS-11](DS-11-why-you-must-weigh-yourself-daily.md) | Why You Must Weigh Yourself Daily | C1660 | BLOCKED | S |
-| [DS-12](DS-12-top-3-ways-to-looksmax.md) | Top 3 Ways To Looksmax | C1660 | BLOCKED | S |
-| [DS-13](DS-13-number-1-change-to-get-abs-at-40.md) | The #1 Change I Made To Get Abs At 40 | C1661 | BLOCKED | S |
-| [DS-14](DS-14-3-ways-to-reduce-alcohol.md) | 3 Ways To Reduce Alcohol | C1662 | BLOCKED | S |
-| [DS-15](DS-15-does-jiu-jitsu-get-you-abs.md) | Does Jiu Jitsu Get You Abs? | C1662 | BLOCKED | S |
-| [DS-16](DS-16-how-to-lose-the-last-ten-pounds.md) | How To Lose The Last Ten Pounds Of Fat | C1662 | BLOCKED | S |
+| [DS-05](DS-05-abs-beat-being-a-fat-millionaire.md) | Why Having Abs Beats Being A Fat Millionaire | C1657 | IN PROGRESS | S |
+| [DS-06](DS-06-what-every-body-fat-percentage-looks-like.md) | What Every Body Fat Percentage Looks Like | C1657 | IN PROGRESS | S |
+| [DS-07](DS-07-top-3-ways-to-use-ai-to-get-abs.md) | Top 3 Ways To Use AI To Get Abs | C1657 + C1658 | IN PROGRESS | S |
+| [DS-08](DS-08-i-was-200-pounds-at-38.md) | I Was 200 Pounds At 38 | C1658 | IN PROGRESS | S |
+| [DS-09](DS-09-how-to-make-time-to-work-out.md) | How To Make Time To Work Out | C1659 | IN PROGRESS | S |
+| [DS-10](DS-10-3-unexpected-ways-zepbound-helped-me.md) | 3 Unexpected Ways Zepbound Helped Me | C1660 | IN PROGRESS | S |
+| [DS-11](DS-11-why-you-must-weigh-yourself-daily.md) | Why You Must Weigh Yourself Daily | C1660 | IN PROGRESS | S |
+| [DS-12](DS-12-top-3-ways-to-looksmax.md) | Top 3 Ways To Looksmax | C1660 | IN PROGRESS | S |
+| [DS-13](DS-13-number-1-change-to-get-abs-at-40.md) | The #1 Change I Made To Get Abs At 40 | C1661 | IN PROGRESS | S |
+| [DS-14](DS-14-3-ways-to-reduce-alcohol.md) | 3 Ways To Reduce Alcohol | C1662 | IN PROGRESS | S |
+| [DS-15](DS-15-does-jiu-jitsu-get-you-abs.md) | Does Jiu Jitsu Get You Abs? | C1662 | IN PROGRESS | S |
+| [DS-16](DS-16-how-to-lose-the-last-ten-pounds.md) | How To Lose The Last Ten Pounds Of Fat | C1662 | IN PROGRESS | S |
 
 **Workout shorts**
 
@@ -83,13 +83,13 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 |---|---|---|---|---|
 | [DS-17](DS-17-how-to-jump-rope.md) | How To Jump Rope | C1670 | UPLOADED | S |
 | [DS-18](DS-18-how-to-kettlebell-deadlift.md) | How To Kettlebell Deadlift | C1671 | **NEEDS DAN** | S |
-| [DS-19](DS-19-how-to-use-battle-ropes.md) | How To Use Battle Ropes | C1671 | BLOCKED | S |
-| [DS-20](DS-20-five-levels-of-pushups.md) | The Five Levels Of Pushups | C1671 | BLOCKED | S |
-| [DS-21](DS-21-how-to-do-hammer-curls.md) | How To Do Hammer Curls | C1672 | BLOCKED | S |
-| [DS-22](DS-22-how-to-use-the-ab-wheel.md) | How To Use The Ab Wheel | C1672 | BLOCKED | S |
-| [DS-23](DS-23-how-to-do-side-laterals.md) | How To Do Side Laterals | C1672 | BLOCKED | S |
-| [DS-24](DS-24-how-to-do-rear-delt-flys.md) | How To Do Rear Delt Flys | C1672 | BLOCKED | S |
-| [DS-25](DS-25-how-to-do-m100s.md) | How To Do M100s | C1672 | BLOCKED | S |
+| [DS-19](DS-19-how-to-use-battle-ropes.md) | How To Use Battle Ropes | C1671 | IN PROGRESS | S |
+| [DS-20](DS-20-five-levels-of-pushups.md) | The Five Levels Of Pushups | C1671 | IN PROGRESS | S |
+| [DS-21](DS-21-how-to-do-hammer-curls.md) | How To Do Hammer Curls | C1672 | IN PROGRESS | S |
+| [DS-22](DS-22-how-to-use-the-ab-wheel.md) | How To Use The Ab Wheel | C1672 | IN PROGRESS | S |
+| [DS-23](DS-23-how-to-do-side-laterals.md) | How To Do Side Laterals | C1672 | IN PROGRESS | S |
+| [DS-24](DS-24-how-to-do-rear-delt-flys.md) | How To Do Rear Delt Flys | C1672 | IN PROGRESS | S |
+| [DS-25](DS-25-how-to-do-m100s.md) | How To Do M100s | C1672 | IN PROGRESS | S |
 
 ### 1C · Organic long-form (9)
 
