@@ -290,6 +290,13 @@
       "priority": "high",
       "recurring": false,
       "addedAt": "2026-09-22"
+    },
+    {
+      "text": "Take out kitchen trash",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-09-22",
+      "addedBy": "assistant"
     }
   ],
   "handoffs": [
