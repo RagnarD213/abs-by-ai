@@ -1,6 +1,15 @@
 # Handoff: social profile links, sixpackabs.com first, absbyai.com second
 
-Written 2026-09-22 by Claude (Opus 5.5). Status: NOT EXECUTED.
+Written 2026-09-22 by Claude (Opus 5.5). Status: PARTLY EXECUTED 2026-09-22.
+
+## Progress 2026-09-22 (Opus 5.5)
+
+- Done and verified: YouTube @danrosefit (titles "SixPackAbs.com" / "Abs By AI"; 30-char title limit), Facebook Page Abs by AI
+  (was absbyai.com only), Dan's personal Facebook danroseninja (had no links). Facebook sorts newly added links first, so check order after saving.
+- Left: Instagram @danrosefit and @abs.by.ai (web says link editing is mobile-only), TikTok @absbyai (97 followers, no
+  website link now; likely below TikTok's link threshold). All need the phone; iPhone Mirroring access was declined this session.
+- Skipped on purpose: Facebook Page "SixPackAbs.com" (id 100087281805044, 3.9K followers, links shop.sixpackabs.com,
+  supplement cover). Looks like the legacy page from the buyers dispute (memory `harter-sixpackabs-dispute`); Dan decides.
 
 ## Goal
 
