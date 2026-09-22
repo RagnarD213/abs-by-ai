@@ -89,6 +89,8 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # ACTIVE
 
+**Raw footage index: ACTIVE 2026-09-22, Codex.** C1579 indexed after Gemini block; 91 clips in low-priority `screen`. Next: check `/Volumes/Extreme/_edit_work/roll-sidecar-backfill-20260922-status.json`, resolve errors, verify coverage and cost. No Git sidecars.
+
 **Arms & Shoulders Home Workout setup - NEEDS DAN 2026-09-22, Claude.** Zeeshan Rev 3 filed, YouTube Private `QHWOoWbgWcY` (read back) + Blotato media done; release Sun 09-27 9 AM CT (mirror 09-28). Next: Dan picks thumbnail (1-5), then fill covers in `scripts/blotato/configs/arms-shoulders-home-workout.json`, `longform_queue.py --apply`, TikTok cover, set thumbnail. Variants queued: AV-13, AS-12, SL-04; RO-04 unblocked.
 
 **Ads 9 + 13 round 4 swap - REVIEW 2026-09-21, Claude.** New unlisted `zvVk680kSfo` / `-SuKGXGcbIg`; 4 new DGen ads REVIEW_IN_PROGRESS, 4 old ads paused. Next: `client.js policy 24243839443`; once approved remove the paused ads, mark old videos retired. ⚠ Budget reads $50/day, not $40. Detail: `Docs/DGEN_CONVERSION_CAMPAIGN.md`.
@@ -161,7 +163,6 @@ Memory `google-ads-ui-automation`.
 - `handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md` [dash]: PHONE ONLY, 3 TikTok covers (updated 09-22). Sonnet 5 or Fable 5.1 / Medium.
 - `handoff-20260915-finalized-ads-6-14-youtube-and-google-ads.md` — Ads 6, 7, 10, 14 → YouTube + DGen (2026-09-15). Codex, high.
 - **`video-editing/00-MASTER.md` — THE video-editing list (2026-09-16):** 16 raw short ads, 25 dedicated shorts, 8 long-forms, 3 shorts-from-long-form, 15 ad variants; one doc per job, Claude + Codex prompts. Supersedes the J1–J18 ad-variants queue. Dan picks the order.
-- **Footage index continuation, Codex (09-20):** `handoff-20260920-finish-roll-sidecar-backfill.md` (resume stopped raw-roll backfill, retry C1579, verify coverage; Sol/High).
 - **Token savings, all Codex (09-18):** `handoff-20260918-claude-video-freeze-and-codex-routing.md` (fire first), `…-shrink-always-loaded-instructions.md`, `…-move-routines-to-codex.md`.
 - `handoff-20260917-overnight-edit-queue.md` — Phase 1 built; **Phase 2** next (placeholder flow). Fable or Astra, high.
 - `codex-video-trial/06h-organic-r4-motion-graphics-and-variety.md` — C1652 R4, ready09-17; supersedes executed06f. Astra/High.
