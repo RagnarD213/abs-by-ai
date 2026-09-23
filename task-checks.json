@@ -7,7 +7,8 @@
     "assistant::Tidy kitchen",
     "assistant::Change robot mop water & sweep corners that robot cannot get to.",
     "assistant::Do laundry",
-    "assistant::Dust"
+    "assistant::Dust",
+    "assistant::Put dishes away (other one glitch)"
   ],
   "log": {
     "health::Shower": [
@@ -239,6 +240,7 @@
     "assistant::Tidy kitchen": "2026-09-22",
     "assistant::Change robot mop water & sweep corners that robot cannot get to.": "2026-09-22",
     "assistant::Do laundry": "2026-09-22",
-    "assistant::Dust": "2026-09-22"
+    "assistant::Dust": "2026-09-22",
+    "assistant::Put dishes away (other one glitch)": "2026-09-22"
   }
 }
