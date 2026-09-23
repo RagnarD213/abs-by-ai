@@ -961,14 +961,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/RO-05-how-i-make-my-daily-salad.md`: transcribe the rolls, map the takes to the script, and cut \"How I Make My Daily Salad\" into a finished 16:9 first cut with /longform-edit to the approved organic standard (Zeeshan's ab wheel videos). Fill the B-roll and graphics cues, audio through the shared chain, every gate, independent audit, deliver master + SRT + chapters, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-05-how-i-make-my-daily-salad.md` with `$abs-edit-organic` and the frozen organic recipe. Deliver master + SRT + chapters, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "delivered",
-   "note": "r10 review copy delivered 09-23: 15:06, audio gate PASS; 42 open watch defects (mostly handheld operator framing) for Dan's call",
+   "state": "ready",
+   "note": "Claude r10 REJECTED by Dan 09-23 (colour, swipe SFX, graphics, no hook, hair). Recut from scratch: Fable handoff-20260923-ro05-recut-fable.md + Astra handoff-20260923-ro05-recut-astra.md",
    "sub": "",
    "order": 46,
    "updated": "2026-09-23",
    "by": "Claude",
-   "rev": 3,
-   "syncedRev": 3
+   "rev": 4,
+   "syncedRev": 4
   },
   {
    "id": "RO-06",

@@ -29,6 +29,39 @@
 - For a dedicated talking Short, default to a tight measured portrait composition: only a little space above the top of Dan's hair, with the lower edge around the middle of his thighs/shorts. Centre each shot and inspect the whole moving take so gestures are not needlessly clipped. A native-portrait recording must be treated as portrait even when its encoded width/height appear landscape because of rotation metadata.
 - Titles and captions adapt to the full-frame picture; the picture is not reduced to make room for them. Place compact graphics in measured clear space and keep them off Dan's face and abs. If a full-screen crop is genuinely impossible, record the specific containment reason before using an inset or black field.
 
+## RO-05 rejection: colour, transitions, graphics, hook, hair (Dan, 2026-09-23)
+
+Dan on Claude's RO-05 "How I Make My Daily Salad" first cut (r10): *"this is not up to standard. This is not usable. This is not
+something that we can publish."* Every point below is a standing rule for every video from now on.
+
+- **No swipe sound effect, ever.** *"I really hate that swiping sound effect. We need to remember this going forward: never, ever use
+  that swiping sound effect for anything."* `sfxlib.whoosh()` and `sfxlib.riser()` now raise an error; do not re-create them by hand,
+  and do not use any whoosh/swish/swipe sample from anywhere else. Muhammad's own flash transitions are silent.
+- **Transitions are Muhammad's.** *"We need to make the transitions like Muhammad's transitions in the AbWheel video."* Reference:
+  `YouTube Long Form Video Content/The $17 Ab Wheel Beats Every Crunch - READY FOR UPLOAD/Muhammad edit/The $17 Ab Wheel Beats
+  Every Crunch - Muhammad edit v2 HD - READY FOR UPLOAD.mp4` (his white/blue bloom flashes with a double-pulse envelope, whip-pans with
+  real directional blur inside cards; measured in `/Volumes/Extreme/_edit_work/abwheel/mrepro/notes.md`). Dan has more examples of his
+  transitions; ask for them before building transitions if the handoff does not already link them.
+- **Colour must look like Muhammad's, not washed out.** *"It looks a little bit washed out. The colors aren't as saturated. I want this
+  to look like Muhammad's video as much as possible."* Measured on 2026-09-23 (median luma / median saturation): Muhammad Ad 1
+  0.22 / 0.23, Muhammad Ad 6 0.27 / 0.39, the approved Codex C1652 kitchen cut 0.23 / 0.32; the rejected RO-05 r10 0.38 / 0.27 (mids
+  lifted, flat). Grade toward his numbers, then prove it with side-by-side stills against his frames BEFORE any full render.
+- **Graphics are Muhammad's actual graphics.** *"The graphics also look very basic and very bad... We need to make the graphics the
+  same as Muhammad's, not inventing graphics."* Rebuild his components from his frames (pills with the typewriter line-2 reveal, olive
+  tab + white pill, gradient pills, numbered chips, frosted stack panels built one item at a time, grid/bracket title cards with the
+  motion-blur wipe, glow cards). Generic white bars, "KEY POINT" tabs and home-made stat cards were rejected. Show a graphics style
+  board side by side with his frames before placing any graphic.
+- **Recipe / how-to videos open on the finished product.** *"For the intro, I want an attention-getting clip... I want to see the
+  finished product right at the beginning of the video."*
+- **Never crop hair that the camera captured.** *"Double-check that we're not unnecessarily cropping out my hair when it was in frame
+  in the filming."* Where the operator already cut his hair, keep as much head as the source has; never crop further. Measure the hair
+  top densely across the WHOLE shot (every 0.25 s), not from a few samples; a punch-in whose top edge would cut hair on any frame is
+  not used.
+- **Effort before tokens.** *"Putting effort into it, not doing the color correction, not getting the cropping right, not doing the
+  graphics right, that's a big waste of tokens. We need to avoid making any videos like this in the future."* Style (grade, graphics,
+  transitions) is proven on stills and one finished 60-90 s sample section against Muhammad side by side BEFORE the full video is
+  built. Ten rounds of reactive defect-fixing on a cut whose style was never right is the waste he means.
+
 ## A before and after picture are the SAME PERSON (Dan, 2026-09-12)
 
 - **Never mix people across a before/after pair.** Dan, on the Ad 5 vertical's app demo, which uploaded one man's photo and

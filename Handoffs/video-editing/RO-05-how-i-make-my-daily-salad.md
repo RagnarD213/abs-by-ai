@@ -1,6 +1,11 @@
 # RO-05 — "How I Make My Daily Salad": organic first cut from raw footage
 
-**List 1 · organic long-form · READY.** Read `00-RULES.md` first.
+**List 1 · organic long-form · READY (recut).** Read `00-RULES.md` first.
+
+> ⚠ **2026-09-23: Claude's cut was rejected as unpublishable.** Do not execute this doc's starter prompts. Use the from-scratch recut
+> handoffs instead: `Handoffs/handoff-20260923-ro05-recut-fable.md` (Claude, Fable 5.1 high) and
+> `Handoffs/handoff-20260923-ro05-recut-astra.md` (Codex, GPT-6 Astra high). They carry Dan's verdict, the mistakes, and every
+> verified asset.
 
 ## Source
 8/3 shoot (`/Volumes/Extreme/abs by ai 8:3 jeff chagrin shoot/main camera/`): **C1533–C1556** (24 clips, 0:18–5:45 each, about 50 min raw, kitchen set). C1556 is the outro. **C1541 (5:45) is the app macro-tracking demo**, already used in `claude edited long form content/05 - Meal Prep Macro Tracking (app demo)/` (3:48). Reuse that edit's split-screen as this video's tracking section instead of recutting it. 8/3 GoPro angles (`gopro 2/`) are unmapped. Check whether any cover the counter.

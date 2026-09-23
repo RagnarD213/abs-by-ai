@@ -91,8 +91,6 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # ACTIVE
 
-**RO-05 Daily Salad first cut - NEEDS DAN 2026-09-23, Claude.** r10 review copy delivered (15:06; audio gate PASS; gate FAIL on framing/splice/caption-detector rows + 42 open judge defects, mostly handheld operator framing). Next: Dan watches and gives one verdict. Detail: `claude edited long form content/07 - How I Make My Daily Salad/notes-RO-05.md`.
-
 **STOP Deadlifting clip - NEEDS DAN 2026-09-20, Codex.** R3 review copy delivered to the shared Drive folder: `1dXUbQajUzM-uO_Xl92telO0qsa-Ob7uV`. Full head visible; measured bar path rises once without reversing. Silent B-roll has no matching full-film delivery gate, so no gate PASS is claimed. Next: Dan reviews R3 and approves or names any corrections. Detail: `Media/ai-frames/stop-deadlifting-opening-20260918/motion-v2/R3_DELIVERY.json`.
 
 **AV-07 Ad 10 vertical kit build — ACTIVE 2026-09-18, Codex.** Claimed; building the full 9:16 and ≤0:59 cutdown from Muhammad’s finalized master with the locked kit. Next: recover Ad 10’s edit/grade, author the fresh content sheet, render, then run three fresh-session strip/sheet reviews and require GATE PASS 36/36. Detail: `/Volumes/Extreme/_edit_work/kit9x16/ad10-master/`.
@@ -155,6 +153,7 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
+- `handoff-20260923-ro05-recut-fable.md` + `handoff-20260923-ro05-recut-astra.md` (09-23): RO-05 salad recut from scratch after Dan rejected Claude's cut; run both in parallel (bake-off). Fable 5.1 high / Astra high.
 - `handoff-20260922-social-profile-links-sixpackabs-first.md` (PARTLY DONE 09-22): YouTube + both FB profiles done. Left: IG @danrosefit, IG @abs.by.ai, TikTok (phone only; iPhone Mirroring declined 09-22). Sonnet 5/Medium.
 - `handoff-20260918-kit-first-production-ad10-vertical.md` — kit builds AV-07. Codex Astra/high.
 - `handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md` [dash]: PHONE ONLY, 3 TikTok covers (updated 09-22). Sonnet 5 or Fable 5.1 / Medium.

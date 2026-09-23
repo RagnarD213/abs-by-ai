@@ -1,4 +1,4 @@
-# RO-05 recipe: organic long-form from a HANDHELD multi-roll kitchen shoot (8/3, C1535-C1556 + GoPro)
+# RO-05 recipe (REJECTED by Dan 2026-09-23, kept for its verified facts, not its style): organic long-form from a HANDHELD multi-roll kitchen shoot (8/3, C1535-C1556 + GoPro)
 
 First Claude build on the Codex/Muhammad organic component kit (06-organic-r4 muhammad_graphics.py). Work dir
 `/Volumes/Extreme/_edit_work/ro05/` (media stays there). Order: `ranges.py` -> longform-edit `build_edl_multisource.py ro05
@@ -16,3 +16,12 @@ What this build learned (fold into the skill when it is approved):
   face, change the content (move onto a cutaway, or make it a full-screen stat card), never accept the overlap.
 - A cutaway longer than its remaining source makes ffmpeg pad frames; every scene is frame-counted after encode.
 - Clipped lav transients overshoot after AAC even with --oversample 4; --tp -4.0 fixed true peak; the bed then needed -40.
+
+## Rejected 2026-09-23: what not to copy from this recipe
+- `render_ro05.py` GRADE (the old 8/3 "lift the mids" curve): washed out. Grade to Muhammad's measured numbers instead.
+- `build_beds.py` SFX (whoosh/riser on every graphic and cutaway): banned forever.
+- `ro05_gfx.py` layouts (white bars, KEY POINT tabs, stat card): rejected as basic. Rebuild Muhammad's graphics from his frames.
+- `framing.py` punch-ins anchored to 3-5 hair samples: cropped hair the camera had captured. Measure densely or do not punch.
+- No finished-product hook at the top.
+What IS reusable (verified): the take map in `ranges.py`, lav = channel 1 on every roll, GoPro sync offsets, the 05 screen-sync BEATS
+map, banned-screen / Undo Typing timings, the audio chain settings that passed the audio gate, the B-roll inventory.

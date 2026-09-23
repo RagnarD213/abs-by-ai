@@ -46,7 +46,18 @@ def _biquad_bp(x, fc, q=1.6):
         y[i] = yi
     return y
 
-def whoosh(dur=0.42, f0=420.0, f1=4200.0, f2=900.0, q=1.2, seed=7, gain=1.0):
+BANNED_SWIPE = ("BANNED (Dan, 2026-09-23, on the RO-05 salad cut): \"I really hate that swiping sound effect. "
+                "We need to remember this going forward: never, ever use that swiping sound effect for anything.\" "
+                "whoosh/whoosh_soft/whoosh_out and riser are the swipe family. Transitions follow Muhammad's own "
+                "(see _shared/VIDEO-RULES.md, 'No swipe sound effect').")
+
+def whoosh(*a, **k):
+    raise RuntimeError(BANNED_SWIPE)
+
+def riser(*a, **k):
+    raise RuntimeError(BANNED_SWIPE)
+
+def _whoosh_banned_reference(dur=0.42, f0=420.0, f1=4200.0, f2=900.0, q=1.2, seed=7, gain=1.0):
     """Noise through a band-pass that sweeps up then back down -- an air movement."""
     n = int(dur * SR)
     rng = np.random.default_rng(seed)
@@ -71,7 +82,7 @@ def pop(freq=880.0, dur=0.11, drop=0.45, gain=0.85):
     y = (np.sin(ph) + 0.28 * np.sin(2 * ph)) * _env(n, 0.002, 1.0, 4.5)
     return _norm(y) * gain
 
-def riser(dur=0.9, f0=180.0, f1=2600.0, gain=0.8, seed=3):
+def _riser_banned_reference(dur=0.9, f0=180.0, f1=2600.0, gain=0.8, seed=3):
     """Noise sweeping upward with no fall -- points at the thing that lands next."""
     n = int(dur * SR)
     rng = np.random.default_rng(seed)
@@ -108,12 +119,8 @@ def build_pack(outdir="."):
     import os
     os.makedirs(outdir, exist_ok=True)
     pack = {
-        "whoosh":      whoosh(0.42, 420, 4200, 900, gain=1.0),
-        "whoosh_soft": whoosh(0.34, 500, 2600, 800, q=1.0, seed=11, gain=0.62),
-        "whoosh_out":  whoosh(0.36, 3200, 900, 320, q=1.1, seed=19, gain=0.7),
         "pop":         pop(920),
         "pop_soft":    pop(700, 0.10, 0.40, gain=0.55),
-        "riser":       riser(0.75),
         "sub":         sub_drop(),
     }
     return {k: save(os.path.join(outdir, f"sfx_{k}.wav"), v) for k, v in pack.items()}

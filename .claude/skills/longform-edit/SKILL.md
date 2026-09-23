@@ -15,6 +15,18 @@ Read `_shared/VIDEO-RULES.md` first.
 
 > **READ FIRST: [`_shared/EDITOR-CARD.md`](../_shared/EDITOR-CARD.md)** — what Codex's approved C1652 R4 long-form and DS-17 short did that Claude's cuts did not (2026-09-17). Hold them for the whole build; start from the last approved recipe, not a blank directory.
 
+> ## ⚠ RO-05 WAS REJECTED AS UNPUBLISHABLE (Dan, 2026-09-23). Read `_shared/VIDEO-RULES.md` "RO-05 rejection" first.
+>
+> Claude's salad cut passed the audio gate 13/13 and went through ten revision rounds, and Dan still called it *"not usable"*:
+> washed-out colour (mids lifted to 0.38 against Muhammad's 0.22-0.27, saturation low), a synthesised swipe on every transition
+> (now banned in `sfxlib`), home-made graphics instead of Muhammad's, no finished-product hook, and punch-ins that cropped hair the
+> camera had captured. **None of those is measured by the delivery gate, and all of them decide whether Dan can publish.**
+> The order of work is now: (1) grade stills side by side with Muhammad's frames at his measured numbers, (2) a graphics and
+> transitions style board built from his actual frames, (3) ONE finished 60-90 s sample section judged side by side against
+> Muhammad, (4) only then the full cut. The failed build's recipe and lessons: `reference/ro05/README.md`; the from-scratch recut
+> handoffs: `Handoffs/handoff-20260923-ro05-recut-fable.md`, `Handoffs/handoff-20260923-ro05-recut-astra.md`.
+> The SFX guidance further down ("SFX on transitions", `riser` + `whoosh`) is superseded: no swipe sound effect, ever.
+
 # Editing a longform video from raw shoot footage
 
 ## Edit queue status — REQUIRED when this video is a job on Dan's edit queue
