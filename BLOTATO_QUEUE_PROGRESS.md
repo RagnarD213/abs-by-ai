@@ -12,6 +12,21 @@ Last updated 2026-09-22.
   imports `scripts/blotato/ad_guard.py`; audit with `python3 scripts/blotato/ad_guard.py --scan`. See the incident below.
 - **NEW PERMANENT RULE (Dan, 2026-09-16): Blotato owns future organic YouTube releases.** Upload organic videos to YouTube as Private and leave them Private; queue the release through connected YouTube account `46963`. Never upload Public or use YouTube native scheduling. Ads remain Unlisted and are not released publicly on YouTube. Existing native schedules are historical and must not be copied into new work; avoid double-posting anything already queued under the old process.
 
+## DONE: C1652 "Your Belly Fat Is an Emergency" RE-RELEASE moved to Sunday Oct 4 (2026-09-23)
+
+The 09-18 setup put it on a Wednesday (Sep 23), off the every-Sunday long-form cadence. It published at 9 AM on YouTube `YkrhNBTssPU` (Dan set it Private), Facebook reel `1073904172168151`, IG @danrosefit `Ddoecsjkhp3` and TikTok `7688730236640365855`. Those three are still live. Dan asked for a slightly different file re-released on Sunday.
+
+- New files: the two 09-18 Blotato derivatives with a 5 s silent freeze of the last frame appended (stream-copied concat, 679.39 s). `Media/codex-video-trial/06-organic-r4/platform-derivatives/rerelease-20260923/C1652_BLOTATO_RR.mp4` (252,581,940 bytes) and `..._TIKTOK_COVER_RR.mp4` (252,705,658 bytes, cover still frame 0). Both byte-verified on Blotato.
+- Sun Sep 27 already holds Arms & Shoulders, so this went to the next free Sunday.
+
+| FB · IG @danrosefit · TikTok · YouTube | IG @abs.by.ai |
+|---|---|
+| Sun Oct 4, 9 AM CDT (`4757780` / `4757781` / `4757782` / `4757785`) | Mon Oct 5, 9 AM (`4757783`) |
+
+- Old unposted mirror `4578150` (Thu Sep 24) deleted. Config `scripts/blotato/configs/belly-fat-emergency-rerelease.json`. Queue 162; ad-guard clean.
+- sixpackabs.com page 784 (embedded the now-private `YkrhNBTssPU`) set to **draft**; the Oct 4 release makes a new page.
+- Captions: the 236-cue SRT lives only on the private holding copy `1mHgnH1GVtg`; the Blotato-created YouTube video gets none unless added in Studio after Oct 4.
+
 ## DONE: Arms & Shoulders Home Workout (Zeeshan "Video2 Rev 3", 11:00) (2026-09-22)
 
 Master `Zeeshan Content Videos/arms and shoulders home workout - video 2/arms and shoulders home workout | zeeshan | 16x9 | video 2.mp4`, MD5 `49c7dfb3d189043dbb2bc4b326e8fd81` (858,396,944 bytes). YouTube **Private** holding copy `QHWOoWbgWcY`, read back private, no publishAt, with Dan's own thumbnail "2 Min Home Arm Workout" (`social media graphics/youtube/thumbnails/Arms And Shoulders Home Workout/arms-shoulders-workout_DAN-2-min-home-arm-workout-FINAL.jpg`). Blotato copy re-encoded to 313 MB (videotoolbox 4 Mbps, audio stream-copied). Queue 157 to 162; ad-guard clean before and after.
