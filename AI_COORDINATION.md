@@ -95,7 +95,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **AV-07 Ad 10 vertical kit build — ACTIVE 2026-09-18, Codex.** Claimed; building the full 9:16 and ≤0:59 cutdown from Muhammad’s finalized master with the locked kit. Next: recover Ad 10’s edit/grade, author the fresh content sheet, render, then run three fresh-session strip/sheet reviews and require GATE PASS 36/36. Detail: `/Volumes/Extreme/_edit_work/kit9x16/ad10-master/`.
 
-**DS-18 kettlebell-deadlift short - NEEDS DAN 2026-09-23, Codex.** Dan approved the R2 clip choices, trims, crops and R5 cover. The R3 arrow reel is ready with paired red arrows on mistakes and paired green arrows on corrections, aimed at the kettlebell, feet, back or hips. Next: Dan approves or revises the arrow treatment, then Codex cuts the approved B-roll into the full video. Detail: `/Volumes/Extreme/_edit_work/ds18-kettlebell-deadlift/`.
+**DS-18 kettlebell-deadlift short - NEEDS DAN 2026-09-23, Codex.** R4 arrow reel is ready: Correct Form has no arrows; weight, feet and back arrows sit outside their targets; the earlier clean rounded-back trim is restored; approved hip treatments are unchanged. Next: Dan approves or revises R4, then Codex cuts it into the full video. Detail: `/Volumes/Extreme/_edit_work/ds18-kettlebell-deadlift/`.
 
 **Overnight edit queue — LIVE 2026-09-18, all groups on Codex until 2026-09-24 (Claude allowance freeze); revisit after reset.** `Handoffs/handoff-20260918-claude-video-freeze-and-codex-routing.md` executed: `config.json` routes every group + review to Codex; dry-run confirms no launch resolves to Claude. Idle until an eligible job (SL-01/02 need picks). Pause: `dispatcher.py pause`.
 

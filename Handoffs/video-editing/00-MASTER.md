@@ -27,7 +27,7 @@ Replaces `Handoffs/handoff-20260913-ad-variants-master-queue.md` (jobs J1–J18)
 | DS-25 | "How To Do M100s" pulls b-roll from an M100 long-form that was never filmed. RX-01 confirmed 2026-09-18 that no roll anywhere shows the three moves. On the shoot list now: `Docs/NEXT_SHOOT_LIST.md`. Film 30 s of each move, or use stock? |
 | RA-06, RA-07, RA-15 (+ RA-08, RA-16) | Spoken lines say *"thousands of guys"* / *"far better than any human trainer"*. They stay off on-screen text either way. OK to run as spoken? |
 | AS-01 | A square for **Zeeshan's** Ad 1, when Muhammad's Ad 1 square is already live. Still wanted? |
-| DS-18 | R3 B-roll arrow treatment is ready. Approve the paired red arrows on mistakes and paired green arrows on corrections, or give placement changes. The clip choices, trims, crops and cover are approved. |
+| DS-18 | R4 B-roll arrow treatment is ready. Correct Form has no arrows; the other arrow pairs sit outside their targets; the clean rounded-back trim is restored. Approve the graphics or give placement changes. |
 
 ---
 
