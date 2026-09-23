@@ -91,7 +91,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # ACTIVE
 
-**RO-05 Daily Salad organic first cut - ACTIVE 2026-09-22, Claude.** Building 16:9 from 8/3 C1533-C1556 (+ counter GoPro GH0x0270). Next: take map, audio, graphics, gates, audit, review copy to Dan. Workdir `/Volumes/Extreme/_edit_work/ro05/`.
+**RO-05 Daily Salad first cut - NEEDS DAN 2026-09-23, Claude.** r10 review copy delivered (15:06; audio gate PASS; gate FAIL on framing/splice/caption-detector rows + 42 open judge defects, mostly handheld operator framing). Next: Dan watches and gives one verdict. Detail: `claude edited long form content/07 - How I Make My Daily Salad/notes-RO-05.md`.
 
 **STOP Deadlifting clip - NEEDS DAN 2026-09-20, Codex.** R3 review copy delivered to the shared Drive folder: `1dXUbQajUzM-uO_Xl92telO0qsa-Ob7uV`. Full head visible; measured bar path rises once without reversing. Silent B-roll has no matching full-film delivery gate, so no gate PASS is claimed. Next: Dan reviews R3 and approves or names any corrections. Detail: `Media/ai-frames/stop-deadlifting-opening-20260918/motion-v2/R3_DELIVERY.json`.
 
