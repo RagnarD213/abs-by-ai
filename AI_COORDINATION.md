@@ -26,7 +26,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # DAN'S DECISIONS
 
-- **Belly Fat Emergency early copies (09-23):** re-release queued Sun Oct 4 (BLOTATO_QUEUE_PROGRESS.md), but the Sep 23 FB reel, IG @danrosefit reel and TikTok post are still live. Delete or hide them before Oct 4, or leave them?
+- **Belly Fat Emergency early copies (09-23):** re-release queued Sun Oct 4. Dan: take down the Sep 23 posts yourself (Claude can only permanently delete, not hide): IG @danrosefit reel ⋯ → Archive; TikTok ⋯ → Privacy → Only me (app only); FB reel via Business Suite → Delete post.
 - **TikTok covers on older posts (09-22):** every post before Sep 16 still shows a screenshot; TikTok's
   7-day edit window has closed on them, so the only fix is delete + re-upload (loses views/comments). Do it, or leave them? `Docs/TIKTOK_COVERS.md`
 - **sixpackabs.com Search Console (09-22):** danroseconsulting@gmail.com has no property, so the 25 new /videos/ articles
@@ -50,7 +50,6 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
   campaigns stay OFF. Report: https://claude.ai/code/artifact/18397bc8-efc4-4554-a440-7961cbaa423d
 - **Fire the phone handoff (updated 09-22):** installs 3 TikTok covers already in Photos. ⏰ Sep 15 train-abs closes
   TODAY 5 PM CT; the 2 long-forms close Sep 27/28. Ad 5 delete already done. `Handoffs/handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md`
-- **Chrome's Instagram is signed in as @abs.by.ai (09-17)** — switched to delete the mirror; Chrome hung before switching back.
 - **Google Ads remarketing `24169507109` (baseline 09-15)** — ~$2.50/day, 0 clicks/conversions ever. Pause?
 - **Ad 3: (baseline 2026-09-15; age unknown)** delete empty husk `J-fOMvEJwDs` in Studio; campaign budget reads $40/day (docs said $20); label his 200 lb
   BEFORE pictures?; paste Muhammad round-6 ask `revision docs/ad3-revisions-muhammad-round6-9-14-26.md`.
