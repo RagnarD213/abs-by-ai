@@ -13,7 +13,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
-| [handoff-20260923-install-five-approved-shorts-covers.md](handoff-20260923-install-five-approved-shorts-covers.md) | **Ready 2026-09-23. Codex GPT-6 Sol / Medium.** Install Dan's five finalized portrait covers on the existing YouTube Shorts through Studio. First Short is due September 24 at 5 PM CT. Exact JPEGs and hashes are in the handoff. |
 | [handoff-20260923-ro05-recut-fable.md](handoff-20260923-ro05-recut-fable.md) | **Ready 2026-09-23. Claude Fable 5.1 / High (Opus 5.5 high if Fable's spend limit is still hit).** Recut RO-05 "How I Make My Daily Salad" from scratch after Dan rejected Claude's cut: grade stills + Muhammad graphics/transitions board + one sample section first, then the full 16:9. Runs in parallel with the Astra handoff (Dan's bake-off). |
 | [handoff-20260923-ro05-recut-astra.md](handoff-20260923-ro05-recut-astra.md) | **Ready 2026-09-23. Codex GPT-6 Astra / High.** Same RO-05 recut, starting from the approved C1652 R4 recipe. Runs in parallel with the Fable handoff. |
 | [handoff-20260922-social-profile-links-sixpackabs-first.md](handoff-20260922-social-profile-links-sixpackabs-first.md) | **PARTLY DONE 2026-09-22 (YouTube, FB Page, FB personal done; IG x2 + TikTok left, phone only). Sonnet 5 / Medium.** sixpackabs.com first, absbyai.com second (UTM-tagged) on every social profile Dan owns; verify on the public profiles. |
