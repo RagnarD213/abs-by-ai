@@ -93,8 +93,6 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **RO-05 Daily Salad organic first cut - ACTIVE 2026-09-22, Claude.** Building 16:9 from 8/3 C1533-C1556 (+ counter GoPro GH0x0270). Next: take map, audio, graphics, gates, audit, review copy to Dan. Workdir `/Volumes/Extreme/_edit_work/ro05/`.
 
-**Raw footage index: ACTIVE 2026-09-22, Codex.** C1579 indexed after Gemini block; 91 clips in low-priority `screen`. Next: check `/Volumes/Extreme/_edit_work/roll-sidecar-backfill-20260922-status.json`, resolve errors, verify coverage and cost. No Git sidecars.
-
 **STOP Deadlifting clip - NEEDS DAN 2026-09-20, Codex.** R3 review copy delivered to the shared Drive folder: `1dXUbQajUzM-uO_Xl92telO0qsa-Ob7uV`. Full head visible; measured bar path rises once without reversing. Silent B-roll has no matching full-film delivery gate, so no gate PASS is claimed. Next: Dan reviews R3 and approves or names any corrections. Detail: `Media/ai-frames/stop-deadlifting-opening-20260918/motion-v2/R3_DELIVERY.json`.
 
 **AV-07 Ad 10 vertical kit build — ACTIVE 2026-09-18, Codex.** Claimed; building the full 9:16 and ≤0:59 cutdown from Muhammad’s finalized master with the locked kit. Next: recover Ad 10’s edit/grade, author the fresh content sheet, render, then run three fresh-session strip/sheet reviews and require GATE PASS 36/36. Detail: `/Volumes/Extreme/_edit_work/kit9x16/ad10-master/`.
