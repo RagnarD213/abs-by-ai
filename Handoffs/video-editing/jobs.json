@@ -1672,16 +1672,17 @@
    "file": "SL-04-arms-shoulders-shorts.md",
    "claudeModel": "Opus 5.5, high",
    "codexModel": "GPT-6 Astra, high",
-   "state": "ready",
-   "note": "",
+   "state": "needs",
+   "note": "09-24: 5 segments proposed in chat; Dan picks, then build on the Mac (cloud has no Drive/media). Parent public Sep 27.",
    "unattended": false,
    "unattended_why": "Job doc says show Dan the segment list and wait for picks.",
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/SL-04-arms-shoulders-shorts.md`: propose the shorts segments from Zeeshan's Arms & Shoulders Home Workout and wait for my picks, then cut them with /shorts, with covers, gates and an independent audit. Deliver, send me the review copies, update the master list.",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/SL-04-arms-shoulders-shorts.md` using `.claude/skills/shorts/SKILL.md` as the method: propose segments, wait for Dan's picks, cut, gate, deliver, update `00-MASTER.md`.",
    "order": 80,
-   "updated": "2026-09-22",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-09-24",
+   "rev": 2,
+   "syncedRev": 1,
+   "by": "Claude"
   }
  ]
 }
