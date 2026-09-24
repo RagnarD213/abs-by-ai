@@ -152,7 +152,7 @@ Each line is a revision that happened. If any line is not a measured yes, it is 
 - [ ] Audio gate PASS on the delivered file, room ≤ 50 ms, damage row PASS, fidelity ≥ 99 %, A/B built. (rev 1, rev 5)
 - [ ] No `loudnorm` anywhere; bed ≤ −44 dB or absent; compressor off. (rev 1)
 - [ ] Hair: proof sheet at native scale looked at; hairgate PASS incl. the detector-free test; no wide level, no light. (rev 2, rev 3)
-- [ ] `repeat_scan.py` + `orphan_scan.py` clean on the transcript — no stitched restart, no abandoned take. (rev 2)
+- [ ] The junk pass (`_shared/cut/junk.py`, the old `repeat_scan.py` + `orphan_scan.py` as one report) clean on the transcript: no confirmed restart, no abandoned take. (rev 2; shared 2026-09-24)
 - [ ] Captions clear every lower third and PiP by ≥ 20 px, measured; none on a card. (rev 2)
 - [ ] Every AI clip: first/last-second strips looked at; no smoke/breath, no drifting objects, no baked dissolve, no
       static hold at the end, no look-to-camera grin, whole figure in frame, movement reads as the named exercise. (rev 4, rev 5)

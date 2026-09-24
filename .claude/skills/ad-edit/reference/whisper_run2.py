@@ -4,7 +4,7 @@
 The default (True) feeds the previous window's text back as a prompt, and on a roll with
 repeated takes that makes the decoder skip a whole retake as "already said". On C1592 it
 silently discarded a COMPLETE SECOND HOOK TAKE (32.2-46.9 s) and emitted one word in its
-place. Always transcribe ad rolls with this off, then verify with orphan_scan.py.
+place. Always transcribe ad rolls with this off, then verify with the junk pass (`_shared/cut/junk.py`, its ORPHAN rows; was orphan_scan.py).
 """
 import sys, json, time, whisper
 src, out = sys.argv[1], sys.argv[2]

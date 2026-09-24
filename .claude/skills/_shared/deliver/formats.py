@@ -49,6 +49,7 @@ ALL_ROWS = (
     "compliance:banned_screen", "compliance:labels", "compliance:drug_names",
     "compliance:negative_events", "compliance:script_fidelity", "compliance:placeholder",
     "watch:pass", "srt:present", "srt:shape",
+    "junk:repeated_take", "junk:dead_air",
 )
 
 # ---------------------------------------------------------------------------- shared fragments
@@ -160,6 +161,19 @@ def _common(drop=(), **over):
         "compliance:negative_events": dict(_NEGEV),
         "compliance:script_fidelity": dict(min_ratio=0.95),
         "compliance:placeholder": dict(required=True),
+        "junk:repeated_take": dict(model="small", verify_model="medium.en"),
+        # the detectors' proven settings (repeat_scan.py / orphan_scan.py, 2026-08/09) are inside
+        # _shared/cut/junk.py; the bound here is ZERO confirmed restarts, and "confirmed" means the
+        # 4 s isolated medium.en re-transcription heard it too. Measured 2026-09-24 on the rev-0
+        # spray-tan reconstruction: Dan's 4:00 junk take reads RESTART high (hesitation 1.6 s +
+        # 1.46 s inside the second copy); his eleven rhetorical repeats in the same file read
+        # ANAPHORA and do not count.
+        "junk:dead_air": dict(max_gap_s=1.0),
+        # 1.0 s: the longest silence inside the speech of any APPROVED ad-shaped file, measured
+        # 2026-09-24 on the delivered mixes (threshold min(-30 dBFS, speech - 13)): Codex Ad 14 R4
+        # 0.94, Zeeshan Ad 1 0.84, website rev 6 0.72, rev 4 0.68, RA-01 0.60; Muhammad's masters
+        # and the approved verticals never exceed 0.56. Dan flagged 1.21 s ("slight pause here,
+        # cut this", spray-tan rev 0) and the shorts pause-capper's own 1.3 s missed it.
         # 0.95: website-video/recipe/qc.py and ad-edit/rev5/qc5.py both landed here independently;
         # below it a dropped half-sentence at a join stops being visible.
         "captions:graphic_clearance": dict(min_px=20, min_state_corr=0.60),
@@ -389,6 +403,14 @@ FORMATS = {
                 "container:frames": dict(),
                 "audio:stamp": dict(),
                 "audio:stream_integrity": dict(length_tolerance_s=0.15, silent_second_dbfs=-50.0),
+                "junk:dead_air": dict(max_gap_s=2.0),
+                # 2.0 s, NOT the ad formats' 1.0: the approved organic longform C1652 R4 (Codex,
+                # approved-with-notes 2026-09-17) carries 1.7 / 1.1 / 1.1 s silences inside its
+                # speech -- under cutaways -- and a 1.0 s bound would block it. The rejected 8/20
+                # ab-wheel cut reads 6.46 s (45 silences over 1.0). ⚠ Dan's 1.21 s spray-tan pause
+                # sits BELOW this bound: on a longform the pre-render junk report (PAUSE rows, high
+                # at ≥ 1.0 s) is where that is caught, not this row. Re-measure when an organic
+                # longform of ours is approved without notes.
                 "style:coverage": dict(min=0.40),
                 # longform-edit/qc_style.MIN_COVERAGE, unchanged. Its provenance: the outside
                 # editor's 6:58 ab-wheel cut 64.6%, our rebuild 58.2%, the 8/20 cut Dan rejected
@@ -576,7 +598,7 @@ FORMATS = {
             drop=("audio:lipsync", "audio:click_at_joins", "cut:min_segment", "cut:jump_cut",
                   "cut:splice_visibility", "captions:graphic_clearance", "captions:within_runtime",
                   "compliance:drug_names", "compliance:negative_events",
-                  "compliance:script_fidelity"),
+                  "compliance:script_fidelity", "junk:repeated_take", "junk:dead_air"),
             **{
                 "container:size": dict(size="960x540"),
                 "container:fps": dict(fps="24/1"),
@@ -601,6 +623,10 @@ FORMATS = {
                 # off, and stated rather than silently absent.
             }),
         not_applicable={
+            "junk:repeated_take": "the narration is Dan's cloned voice reading a form cue: there are "
+                                  "no takes, so there is no restart to catch",
+            "junk:dead_air": "the narration ends and the rep keeps looping on purpose; the "
+                             "silence after the cue is the format, not dead air",
             "style:coverage": "there is nothing to cut away TO: the deliverable is one looping rep "
                               "of one movement, by design (exercisegeneration/SKILL.md)",
             "style:static_run": "same: the shot is the demo, and it is 15-28 s long",

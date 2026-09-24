@@ -90,15 +90,42 @@ not cut.** Dan sees the list before a cut is built on it.
 
 * The rev-0 spray-tan cut (the file Dan rejected with *"junk footage and repeated takes were kept
   in here"*) is not on disk; its recipe is (`rev0/ranges.py`) and the source roll is on the Extreme
-  SSD, so the report was run in pre-render mode on that recipe. Both defects Dan named reproduce:
-  the 4:00 junk take reads `REPEAT RESTART high` (3:57.5 → 4:02.6) with `STRETCH you 1.6 s` and
-  `PAUSE 1.46 s high` inside the second copy; the 11:08 pause reads `PAUSE 1.66 s high`.
+  SSD, so the report was run in pre-render mode on that recipe, with verification. Both defects
+  Dan named reproduce: the 4:00 junk take reads `REPEAT RESTART high, confirmed` (3:57.7 → 4:04.6,
+  the isolated pass hears "If you have someone who can help you do it. Let's say… if you have
+  someone who can help you apply") with `PAUSE 1.46 s high` and `STRETCH you 1.6 s` inside the
+  second copy; the 11:08 pause reads `PAUSE 1.66 s high`. The same run confirms two `ORPHAN` runs
+  (6:11 "my tanning", 10:33 "he takes": words the roll transcript dropped) and the 12:29 restart
+  rev 1 left in, and reads all eleven of his rhetorical repeats as `ANAPHORA`.
 * Corpus entry `spraytan-longform-rev0` points at the rev-2 master (`FINAL_spraytan_PRE_REBUILD.mp4`),
   which rev 1 had already cleaned of both. What that file still carries is the stumble its own
   recipe marks *"kept (no clean internal cut)"*: *"if you are super pale. Now, if you are super
   pale"* at 12:23, RESTART high, confirmed by the isolated pass: so `junk:repeated_take` fails it
   honestly. See the entry's `measured`.
 * `tests/test_junk.py`: the shapes above as synthetic fixtures, no Whisper, run by `qc_corpus/run.py`.
+
+## The picture-cut half of this folder (VQC-C, Opus 5.5, 2026-09-24, same day)
+
+`_shared/cut/` is one folder for two halves of the same problem. This README's top half is the
+AUDIO side (what to cut: junk, pauses, takes). The other half, shipped the same afternoon from
+`Handoffs/handoff-20260909-vqc-C-phase4-cut-technique.md`, is the PICTURE side (how to cut it so
+the join does not read):
+
+* `piccuts.py`: the pose-matched picture cut, the only copy. The audio splice stays; the picture
+  cut moves 1-15 frames to where Dan's head is in the same place and size on both sides (Muhammad's
+  J/L-cut), against `piccuts_calibration.json` (his trusted Ad 2 cuts median 17.9 px of head jump;
+  Ad 1 attempt 1 median 39.0).
+* `landing.py`: the crop-track smoother with a 0 px landing after every cut (the per-segment median
+  that used to look into the next take is gone).
+* `deadair.py`: pause shortening with per-format presets, every removal decided by `piccuts.py` and
+  flagged `cover` + `watch` when the head still jumps. It honours the same two measurements this
+  half does: a pause removal is as visible as the fault (4.97-12.46 vs a 1.30 baseline) and
+  0.55-0.65 s is breath.
+
+How they meet: the junk report's `PAUSE` and `PAUSEJUMP` rows say WHERE the dead air is and how
+visible its removal would be; `deadair.py` + `piccuts.py` make the removal and place the picture
+cut. `junk:dead_air` on the delivered file then checks nothing was left. Each module's docstring
+is its manual; `tests/test_piccuts.py` is that half's fixture.
 
 ## Where the old copies are
 

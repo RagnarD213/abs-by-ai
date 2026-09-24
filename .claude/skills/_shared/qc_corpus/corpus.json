@@ -1,7 +1,7 @@
 {
  "_README": "THE STANDARD IS DAN'S WORDS, NOT OUR PARAPHRASE. Every entry quotes him verbatim. See README.md.",
  "version": 2,
- "updated": "2026-09-23",
+ "updated": "2026-09-24",
  "roots": {
   "repo": ".",
   "ssd": "/Volumes/Extreme/_edit_work"
@@ -105,10 +105,12 @@
     "framing:hair_top",
     "framing:headroom",
     "audio_gate",
-    "cut:naked_splices"
+    "cut:naked_splices",
+    "junk:repeated_take",
+    "junk:dead_air"
    ],
    "measured": "the file the hair-anchored framing standard is locked to (memory: framing-standard-hair-anchored).",
-   "notes": "APPROVED ON FRAMING. Three AI-artifact fixes followed in rev 5 -- those are content, not gate rows.",
+   "notes": "APPROVED ON FRAMING. Three AI-artifact fixes followed in rev 5 -- those are content, not gate rows. junk:* must_pass added 2026-09-24: the file transcribed and verified clean, so the junk rows are pinned against blocking approved work.",
    "sha256": "47d883314c6b55d102111a931623f84ca97cf5de7fae8cbf1a1787a316bbba50",
    "bytes": 308846126,
    "known_gap": [
@@ -173,10 +175,12 @@
     "framing:hair_top",
     "framing:headroom",
     "audio_gate",
-    "cut:naked_splices"
+    "cut:naked_splices",
+    "junk:repeated_take",
+    "junk:dead_air"
    ],
    "measured": "the shipped master (version A, tan-corrected). Re-gated on the delivered file 2026-09-09.",
-   "notes": "The current best example of the whole pipeline. Any gate change that fails this file is wrong until proven otherwise.",
+   "notes": "The current best example of the whole pipeline. Any gate change that fails this file is wrong until proven otherwise. junk:* must_pass added 2026-09-24: the file transcribed and verified clean, so the junk rows are pinned against blocking approved work.",
    "sha256": "eb34eb2d9fda1808fa81b5a38b12c14200cc80ae5950209e91fcbb520d59a443",
    "bytes": 443945383,
    "known_gap": [
@@ -233,8 +237,8 @@
     "cut:uncovered_joins",
     "compliance:banned_screen"
    ],
-   "measured": "junk at 4:00 (a 1.6 s stretched word Whisper folded a pause into, kept as a self-correction); 41 uncovered joins; the banned side-by-side before/after screen on-screen for 5.6 s at 18:04.",
-   "notes": "The banned-screen template scan exists in /ad-edit only, which is how the side-by-side reached a delivered longform.",
+   "measured": "⚠ THIS FILE IS THE REV-2 MASTER (18:53), not the rev-0 cut Dan rejected (19:00, not kept on disk; recipe in rev0/ranges.py). Rev 1 had already removed the two defects he named. Re-measured 2026-09-24 with _shared/cut/junk.py: on the rev-0 RECIPE (pre-render mode over the source roll C1512) the 4:00 junk take reads REPEAT RESTART high at 3:57.5 -> 4:02.6 with STRETCH 'you' 1.6 s and PAUSE 1.46 s inside the second copy, and the 11:08 pause reads PAUSE 1.66 s high. THIS FILE still carries the stumble its own recipe marks 'kept (no clean internal cut)': 'if you are super pale. Now, if you are super pale' at 12:23, RESTART high, confirmed by the isolated medium.en pass -- which is what junk:repeated_take fails it on. Also: 41 uncovered joins (3.2/min); the banned side-by-side before/after screen on-screen for 5.6 s at 18:04. Dead air: longest 1.10 s, under the longform bound of 2.0 (approved C1652 R4 carries 1.7 s).",
+   "notes": "The banned-screen template scan exists in /ad-edit only, which is how the side-by-side reached a delivered longform. junk:repeated_take registered 2026-09-24 (handoff-20260911-junk-footage-pass.md); the rev-0 file itself is gone, so Dan's two named defects are proven on its recipe, not on this file.",
    "sha256": "5f39b9c4c6cba98563011fe3ce2c61dde32994ae5775134bfe582f6cf33cbcd4",
    "bytes": 994075328,
    "deliver": {
@@ -445,10 +449,12 @@
    "dan": "For ad 1, the vertical version for Muhammad's ad is approved.",
    "must_pass": [
     "audio_gate",
-    "cut:naked_splices"
+    "cut:naked_splices",
+    "junk:repeated_take",
+    "junk:dead_air"
    ],
    "measured": "the 2026-09-02 rebuild: Muhammad's own mix at a CONSTANT +4.2 dB into alimiter 0.85 (level=disabled) -> -14.5 LUFS, -1.3 dBTP; picture stream copied untouched (6977 frames). Stamped PASS 09-02 against the pinned Ad 1 reference. Uploaded to YouTube as Iz0u8KHRbyE.",
-   "notes": "The approved answer to the 09-02 rejection, which was loudnorm silently falling back to DYNAMIC mode (+1.2..+9.5 dB per second). Constant gain on the editor's mix is the pattern Dan approves; compare the rejected Zeeshan vertical (ad1zee-*), where +9.9 dB into the limiter shaved 52 s by > 1 dB.",
+   "notes": "The approved answer to the 09-02 rejection, which was loudnorm silently falling back to DYNAMIC mode (+1.2..+9.5 dB per second). Constant gain on the editor's mix is the pattern Dan approves; compare the rejected Zeeshan vertical (ad1zee-*), where +9.9 dB into the limiter shaved 52 s by > 1 dB. junk:* must_pass added 2026-09-24: the file transcribed and verified clean, so the junk rows are pinned against blocking approved work.",
    "sha256": "b71cd6610f26aa82a30246fb3ae6e78ef22cad1b8f9f3cbdd382ef72fc9782eb",
    "bytes": 351240913,
    "known_gap": [
@@ -519,10 +525,12 @@
     "audio_gate:verbatim_level",
     "audio_gate:verbatim_image",
     "audio_gate:verbatim_lufs",
-    "cut:naked_splices"
+    "cut:naked_splices",
+    "junk:repeated_take",
+    "junk:dead_air"
    ],
    "measured": "-23.5 LUFS, -1.7 dBTP, LRA 5.9, L/R +0.970, early decay 89 ms (the pinned reference's 40). It FAILS our -14 LUFS row and qc.py's L/R > 0.98 -- which is why those rows are declared not applicable to an editor's mix delivered verbatim, and why bending his audio to pass them was the rejected build.",
-   "notes": "The identity case: gated against itself in --verbatim mode it must pass every row, which also proves verbatim mode does not smuggle our targets back in. The re-delivered vertical carries this file's audio stream bit for bit (md5 5051f4f40a7c3a7a944bf1763c05a888).",
+   "notes": "The identity case: gated against itself in --verbatim mode it must pass every row, which also proves verbatim mode does not smuggle our targets back in. The re-delivered vertical carries this file's audio stream bit for bit (md5 5051f4f40a7c3a7a944bf1763c05a888). junk:* must_pass added 2026-09-24: the file transcribed and verified clean, so the junk rows are pinned against blocking approved work.",
    "sha256": "c7234b18f7997b2cb39d0b3909f09987f8e440fde167f8fdbfb3d0ddeb534859",
    "bytes": 289333241,
    "deliver": {
@@ -668,10 +676,12 @@
    ],
    "must_pass": [
     "audio_gate",
-    "cut:naked_splices"
+    "cut:naked_splices",
+    "junk:repeated_take",
+    "junk:dead_air"
    ],
    "measured": "Render 12 = r11 (ad3-vertical-r11-approved) with story shot 3 regenerated (frames 2202-2338); every other frame identical or >=48.6 dB vs r11; audio stream md5 = his. qc.py 20/20; deliver gate 1.2.0 28 PASS / FAIL compliance:labels (per-card chip, known limit) / 6 NOT MEASURED (window-layout framing, graphic_clearance, captions:sync). Two independent audits: first take rejected, this take ships.",
-   "notes": "The pairing a future compliance:ai_artifact_giveaways row must reproduce: FLAG ad3-vertical-r11-approved at 76.6-78.1 s, PASS this file. Excerpt 60-90 s covers the replaced shot.",
+   "notes": "The pairing a future compliance:ai_artifact_giveaways row must reproduce: FLAG ad3-vertical-r11-approved at 76.6-78.1 s, PASS this file. Excerpt 60-90 s covers the replaced shot. junk:* must_pass added 2026-09-24: the file transcribed and verified clean, so the junk rows are pinned against blocking approved work.",
    "sha256": "6ef0538cf055183a028eb888769c751fd5281c04b912143fce9778a5d404c9a6",
    "bytes": 613646735,
    "deliver": {

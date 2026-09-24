@@ -1,3 +1,8 @@
+> ✅ **EXECUTED 2026-09-24** (Fable 5.1, one session). Result: `.claude/skills/_shared/cut/` (`junk.py`, `takes.py`,
+> `speech.py`, `tests/test_junk.py`, `README.md`); gate rows `junk:repeated_take` and `junk:dead_air` in
+> `_shared/deliver` (gate 2.3.0); corpus entry `spraytan-longform-rev0` measured honestly (see its `measured`);
+> take selection proven on C1512, list for Dan in `Docs/TAKE_SELECTION_C1512_20260924.md`. Kept for history.
+
 # Junk-footage pass — the six detectors run as one report, plus take selection
 
 **Extracted 2026-09-11 from `handoff-20260909-vqc-D-phase5-6-framing-and-junk.md` Phase 6**, because

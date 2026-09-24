@@ -91,7 +91,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # ACTIVE
 
-**Junk-footage pass — ACTIVE 2026-09-24, Claude Fable.** Executing `Handoffs/handoff-20260911-junk-footage-pass.md`: promote the six detectors into `_shared/cut/`, one `junk_report.json` per cut, gate rows, take selection. Test: corpus `spraytan-longform-rev0`. Next: build, run on the corpus entry, commit, push. No dashboard row.
+**Junk-footage pass - NEEDS DAN 2026-09-24, Claude Fable.** Shipped: `_shared/cut/` junk report + take selection, gate rows `junk:repeated_take` / `junk:dead_air`, corpus green. Next: Dan reads `Docs/TAKE_SELECTION_C1512_20260924.md` and says whether the picks match his ear; then delete this entry.
 
 **VQC-C picture cuts - NEEDS DAN 2026-09-24, Claude Opus 5.5.** Shipped `_shared/cut/` piccuts (head-matched picture cuts), landing, deadair and `_shared/reference/luma_lift.py`; wired into all five video skills. Ad 1 attempt 1: exposed cuts 50 to 10 of 72. Next: Dan watches `/Volumes/Extreme/_edit_work/vqc-c/AB_join_69s.mp4` and says if NEW reads as continuity; then delete this entry.
 

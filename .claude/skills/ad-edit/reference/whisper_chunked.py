@@ -14,9 +14,13 @@ orphan_scan.py -- speech that no word covers is the tell.
 
   whisper_chunked.py <wav16k> <out.json> [model] [win] [step]
 """
-import json, re, subprocess, sys, time, wave
+import json, os, re, subprocess, sys, time, wave
 import whisper
-FF = "/Volumes/Extreme/_edit_work/bin/ffmpeg"
+# ffmpeg is FOUND, never only hardcoded (2026-09-24): $FF, then the repo build, the SSD build, $PATH.
+_HERE = os.path.dirname(os.path.abspath(__file__))
+_REPO = os.path.abspath(os.path.join(_HERE, "..", "..", "..", ".."))
+FF = next((p for p in (os.environ.get("FF"), os.path.join(_REPO, "Media/video_edit/bin/ffmpeg"),
+                       "/Volumes/Extreme/_edit_work/bin/ffmpeg", "ffmpeg") if p and (os.path.exists(p) or p == "ffmpeg")), "ffmpeg")
 src, out = sys.argv[1], sys.argv[2]
 model = sys.argv[3] if len(sys.argv) > 3 else "small"
 WIN = float(sys.argv[4]) if len(sys.argv) > 4 else 70.0

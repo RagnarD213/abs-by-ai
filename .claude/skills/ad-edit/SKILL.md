@@ -863,13 +863,13 @@ Ad 2 (2026-08-27) — "Stop paying human nutritionists", cut from C1592 straight
    windows stepped 60 s, each decoded with fresh short context, words kept only inside
    their own span, plus a seam de-dup (the same word can be timed 119.9 in one window and
    120.1 in the next). Result on C1592: 0 orphan speech runs, against 17 and 15.
-63. **`reference/orphan_scan.py` is the completeness proof, and it is not optional.** It
+63. **The orphan scan (`ORPHAN` rows of `_shared/cut/junk.py`, 2026-09-24; was `reference/orphan_scan.py`) is the completeness proof, and it is not optional.** It
    flags any run of speech-level energy that no word interval covers. It is what exposed
    the missing hook take, and on C1593 it found the one real defect in that roll — an
    abandoned re-attempt Whisper had stitched over, which would have shipped as a stutter.
    Run it after transcribing and before building the EDL. Zero orphans = complete.
 64. **Force punch boundaries on the splices that are MEASURABLY visible, before rendering.**
-   `reference/hard_splices.py` measures the frame difference across every pause-removal
+   `_shared/cut/junk.py --ranges tight_cuts.json --tight tight.mov` (`HARD_SPLICE` rows; was `reference/hard_splices.py`) measures the frame difference across every pause-removal
    splice on the tight cut and reports the ones above the file's own p99 control. Intersect
    that with "not under a graphic and not already a punch boundary" and force those. On
    Ad 2: 135 splices, 76 measurably hard, 37 uncovered, and only **22** were both — 15
@@ -1057,9 +1057,13 @@ rules from it, each of which must be a measurement or an assertion, not prose:
 98. **A STRETCHED WORD IS A HIDDEN RESTART UNTIL PROVEN OTHERWISE.** Whisper stitched "Now, I've been
    out of shape, — I've been out of shape, and now at 40" into one 1.75 s `and`, and `orphan_scan.py`
    passed because the stretched interval covered the energy. Dan heard the repeat at 0:32. Run
-   `reference/repeat_scan.py` (words > 0.7 s, repeated 4-grams within 25 s) after every transcription
-   and before the EDL, and re-transcribe every flagged span IN ISOLATION (4 s window, medium.en,
-   `condition_on_previous_text=False`). Cut the first attempt, keep the fluent restart.
+   the junk pass, `python3 .claude/skills/_shared/cut/junk.py <roll> --ranges tight_cuts.json`
+   (`STRETCH` = words > 0.7 s, `REPEAT` = repeated 4-grams within 25 s classified RESTART / REINTRO /
+   ANAPHORA, `ORPHAN`, `PAUSE`, `SWALLOWED`; since 2026-09-24 it replaces `repeat_scan.py` +
+   `orphan_scan.py`) after every transcription and before the EDL. It re-transcribes every flagged
+   span IN ISOLATION itself (4 s window, medium.en, `condition_on_previous_text=False`) and marks
+   it confirmed or not. Cut the first attempt, keep the fluent restart -- the WHOLE restated
+   sentence, not the flub inside it. Take selection by the four written rules: `_shared/cut/takes.py`.
 99. **CAPTIONS NEVER OVERLAP A GRAPHIC — measured in pixels, asserted in QC.** All six lower thirds
    sat at y 757–905 and the "lifted" captions (MarginV 300) inked at 727–806: 49 px of overlap on
    every lower-third beat, and QC only checked captions against full cards. Dan: "move the graphics

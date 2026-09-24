@@ -48,6 +48,7 @@ from _shared.deliver.checks import audio as A                # noqa: E402
 from _shared.deliver.checks import captions as CAP           # noqa: E402
 from _shared.deliver.checks import container as CON        # noqa: E402
 from _shared.deliver.checks import framing as FR           # noqa: E402
+from _shared.deliver.checks import junk as JK              # noqa: E402
 from _shared.deliver.checks import compliance as COMP        # noqa: E402
 from _shared.deliver.checks import picture as PIC            # noqa: E402
 from _shared.deliver.checks import process as PROC           # noqa: E402
@@ -57,7 +58,7 @@ from _shared.deliver.common import Row                       # noqa: E402
 #   1.0.0  2026-09-11  first version. Folds in the rows of the seventeen per-video QC forks, adds
 #                      audio:lipsync and the compliance rows, and moves every bound into formats.py
 #                      with the file and date it was measured on.
-GATE_VERSION = "2.2.0"        # 1.1.0: an insert may declare its own label chip + position
+GATE_VERSION = "2.3.0"        # 1.1.0: an insert may declare its own label chip + position
                               # (a card hangs its chip off the card, not at the full-bleed waistline)
                               # 1.2.0  2026-09-12  Phase 2: five framing: rows on a portable tracker
                               # (FaceMesh + Apple Vision, no set-specific background) and stage 3 of
@@ -71,6 +72,10 @@ GATE_VERSION = "2.2.0"        # 1.1.0: an insert may declare its own label chip 
                               # test); cut:black_frames now scans every frame, not 6 fps.
                               # 2.2.0  2026-09-18: compliance:placeholder is a hard, hash-bound
                               # all-format row for the queue's two-stage asset approval flow.
+                              # 2.3.0  2026-09-24  junk pass: junk:repeated_take (a confirmed
+                              # restart in the delivered audio) and junk:dead_air (a silence
+                              # inside the speech over the format's bound), both measured off the
+                              # delivered file's own transcript (_shared/cut/junk.py).
 
 STAMP_SUFFIX = ".deliver_gate.json"
 
@@ -115,6 +120,9 @@ PLAN_KEYS = """
   source_picture                   the render BEFORE graphics were composited, for the watch
                                    pass's graphic-presence check (a `graphics[].mov` also serves)
   negative_events_scan             {sha256, when, frames_checked, findings}
+  junk_report                      junk_report.json from _shared/cut/junk.py, produced BEFORE the
+                                   render; informational here -- the junk:* rows re-measure the
+                                   delivered audio and take `speech_words` when bound to this sha
   declare          {row: reason}   this BUILD declares one row inapplicable, with a written reason
 """
 
@@ -159,6 +167,8 @@ ROWS = {
     "compliance:negative_events": ("work", COMP.negative_events),
     "compliance:script_fidelity": ("work", COMP.script_fidelity),
     "compliance:placeholder":     ("work", COMP.placeholder),
+    "junk:repeated_take":         ("work", JK.repeated_take),
+    "junk:dead_air":              ("work", JK.dead_air),
     "watch:pass":                 ("work", PROC.watch_pass),
     "srt:present":                ("work", PROC.srt_present),
     "srt:shape":                  ("work", PROC.srt_shape),

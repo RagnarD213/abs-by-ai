@@ -93,6 +93,10 @@ IMPLEMENTED = {
     # native-rate grid plus a global-alignment test (see _shared/deliver/watch.py).
     "cut:naked_splices": "deliver_gate",
     "cut:black_frames": "deliver_gate",
+    # junk pass (2026-09-24, handoff-20260911-junk-footage-pass.md): the six detectors as one
+    # report in _shared/cut/junk.py, and these two rows measured off the delivered audio.
+    "junk:repeated_take": "deliver_gate",
+    "junk:dead_air": "deliver_gate",
 }
 # Row key by human name, so an entry can name either.
 ROWKEY = {"one voice": "lr_corr", "no comb": "comb", "dry room": "edt", "tone": "tone",
@@ -106,7 +110,9 @@ ROWKEY = {"one voice": "lr_corr", "no comb": "comb", "dry room": "edt", "tone": 
 PENDING_OWNER = {
     "cut:": "nothing implements this yet -- VQC-C phase 4 (pose-matched picture cuts); "
             "cut:naked_splices and cut:black_frames landed in Phase 3 (2026-09-16)",
-    "junk:": "nothing implements this yet -- handoff-20260911-junk-footage-pass.md",
+    "junk:": "junk:repeated_take and junk:dead_air landed 2026-09-24 (_shared/cut/junk.py); the "
+             "VISUAL junk items (a cropped head, a half rep) have no audio signature and belong to "
+             "the watch pass -- handoff-20260911-video-quality-engine.md Phase 3",
     "style:": "nothing implements this yet -- Phase 1 (_shared/deliver)",
     "captions:": "nothing implements this yet -- Phase 1 (_shared/deliver)",
     "compliance:": "nothing implements this yet -- Phase 1 (_shared/deliver)",
@@ -379,6 +385,20 @@ def main():
         if not ok_:
             print((r.stdout + r.stderr)[-3000:])
             print("\nCORPUS FAIL -- the watch scan's own fixture is failing; fix that first.")
+            return 1
+        # ---- step 0c (2026-09-24, junk pass): the junk detectors' own fixture -- a restart, a
+        # deliberate anaphora, a swallowed pause, dead air and an orphan run, all synthetic, so a
+        # broken classifier cannot make spraytan-longform-rev0 green by flagging nothing.
+        t_ = os.path.join(REPO, ".claude/skills/_shared/cut/tests/test_junk.py")
+        print("_shared/cut/tests/test_junk.py ...", flush=True)
+        r = subprocess.run([sys.executable, t_], capture_output=True, text=True,
+                           cwd=os.path.dirname(SHARED_DELIVER))
+        ok_ = r.returncode == 0
+        tail = [l for l in (r.stdout + r.stderr).splitlines() if l.strip()][-1:]
+        print(f"  {'PASS' if ok_ else 'FAIL'}  {tail[0].strip() if tail else ''}", flush=True)
+        if not ok_:
+            print((r.stdout + r.stderr)[-3000:])
+            print("\nCORPUS FAIL -- the junk detectors' own fixture is failing; fix that first.")
             return 1
         t_ = os.path.join(SHARED_DELIVER, "tests", "test_placeholder_gate.py")
         print("_shared/deliver/tests/test_placeholder_gate.py ...", flush=True)
