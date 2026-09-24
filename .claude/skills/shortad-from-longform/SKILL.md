@@ -538,6 +538,8 @@ each one was arrived at by getting it wrong first.
 
 ## Step 6 — BUILD ORDER
 
+**⚠ PICTURE CUTS AND PAUSES: `_shared/cut/` (REQUIRED, VQC-C 2026-09-24).** Never cut the picture ON the audio splice; that is what reads as a jump cut. Once the EDL is final, run `python3 .claude/skills/_shared/cut/piccuts.py decide --build <work> --mode raw --raw <roll> [--rolls rolls.json] --grade <grade> --edl <edl> [--talk talk_spans.json]` and conform the PICTURE from `edl_picture.json` (the audio stays on the EDL; length is unchanged). It cuts each join on the frame within ±15 where Dan's head matches; a join still over the calibrated head jump comes back `cover: push` + `watch: true`, so give it the zoom step or an insert and put it on the watch list. Shorten pauses with `deadair.py --preset ad --pair` so every removal is a decided picture cut, never a bare one. Smooth any crop track with `landing.py` (`landing.track`: 0 px landing at every cut). Check with `piccuts.py strips`, by eye, not by a frame-difference score. The kit (`kit9x16/build_kit.py`) already calls it: `--mode master --reference` his render when conforming to an editor's cut. See `_shared/cut/README.md`.
+
 ```
 a2/edl_words.py    re-derive every src_in from WORD alignment  <-- run this FIRST
 a2/edl_resplit.py  split segments at the pause trims he made INSIDE sentences
@@ -1014,7 +1016,7 @@ invoked the skill with nothing but a screenshot. Twelve lessons, each paid for:
     away from the sound cut (a J-/L-cut) — at 96.00 s his picture switches takes 8 frames before the
     audio does, at 114.75 s 15 frames before, at 32.90 s 6 frames after. Rev 3's note that those were "his
     own cuts" was wrong: his picture is continuous within ±3 frames of ours precisely because his cut is
-    elsewhere. **Method (`piccuts.py`):** for each talk splice render BOTH takes from the raw at the grade
+    elsewhere. **Method (`_shared/cut/piccuts.py --mode master`, the only copy since 2026-09-24):** for each talk splice render BOTH takes from the raw at the grade
     over ±15–30 frames, fit each frame to his framing (scale/fy search as `cover.py`), high-pass NCC
     against his frame, and take the crossover frame; then conform the base to a PICTURE EDL
     (`edl_picture.json`, `build_base_pic.py`) whose segments start at his frames while the take alignment
@@ -1024,7 +1026,7 @@ invoked the skill with nothing but a screenshot. Twelve lessons, each paid for:
 14. ⚠ **A per-segment median window must SHRINK to zero at the segment ends.** Smoothed with a full
     window, the crop at a cut sat where he WOULD be half a second later (median over the future only):
     the audit measured him landing 78–190 px off after our cuts and the crop panning him back over up to
-    1 s. `facetrack3.py`: `k_eff = min(k, j, n-1-j)` plus a forward/backward slope-limited blend weighted
+    1 s. `_shared/cut/landing.py` (was `facetrack3.py`): `k_eff = min(k, j, n-1-j)` plus a forward/backward slope-limited blend weighted
     toward the pass that is exact at each end — landing error at every cut 0 px, exit error 0, and the
     crop follows at ≤ 200 px/s from there. Verify by printing raw-vs-track at the first and last sample of
     every segment; a mean statistic cannot see this.

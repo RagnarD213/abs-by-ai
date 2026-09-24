@@ -2,30 +2,19 @@
 """Face track on EXACT frame indices (raw_torso.npy + raw_torso_n.npy), smoothed per picture segment,
 zero-phase, endpoint-anchored (median window shrinks to zero at the segment ends), slope-limited.
 Writes facetrack.json = {n: [frame indices], x: [crop x per sample]} -- render.py interpolates in frame time."""
-import json, numpy as np
+import json, os, sys, numpy as np
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "_shared", "cut"))
+import landing
 raw = np.load('raw_torso.npy'); n = np.load('raw_torso_n.npy').astype(int)
 FPS = 30000/1001; CROP_W = 608
 SLOPE_PXS = 170.0                         # source px/s (~300 px/s on the phone), the re-audit's cap
 ok = ~np.isnan(raw); r = np.interp(n, n[ok], raw[ok])
 S = json.load(open('edl_picture.json'))
-out = np.empty_like(r)
-def limit_fwd(x, t, lim):
-    o = [x[0]]
-    for i in range(1, len(x)):
-        dt = (t[i]-t[i-1])/FPS
-        o.append(o[-1] + float(np.clip(x[i]-o[-1], -lim*dt, lim*dt)))
-    return np.array(o)
+out = r.copy()
 for s in S:
     m = (n >= s['n0']) & (n < s['n1'])
-    idx = np.where(m)[0]
-    if len(idx) == 0: continue
-    seg = r[idx]; t = n[idx]; L = len(seg)
-    if L < 4: out[idx] = seg; continue
-    k = 3
-    med = np.array([np.median(seg[j-min(k, j, L-1-j):j+min(k, j, L-1-j)+1]) for j in range(L)])
-    f = limit_fwd(med, t, SLOPE_PXS); b = limit_fwd(med[::-1], (-t)[::-1], SLOPE_PXS)[::-1]
-    w = (t - t[0])/max(1, t[-1]-t[0])
-    out[idx] = (1-w)*f + w*b
+    if m.any():
+        out[m] = landing.smooth_segment(n[m], r[m], SLOPE_PXS)     # the shared smoother (_shared/cut/landing.py)
 cx = np.clip(out - CROP_W/2, 0, 1920-CROP_W)
 json.dump(dict(n=[int(v) for v in n], x=[round(float(v),1) for v in cx], crop_w=CROP_W), open('facetrack.json','w'))
 land, exit_ = [], []

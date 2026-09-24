@@ -15,7 +15,7 @@ Dan judges it blind (`blind/`). Never grade the kit yourself.
 | `template.json` | the beat grammar: opening hold, push schedule (ramp / hold / cadence / coverage), insert cadence and max bare stretch, lower-third and CTA timing, flash rule, caption band, label placement rule, the cut rule's numbers. Every value names the `_shared/reference/picture.json` key it is checked against |
 | `panels/measure_panels.py` → `measurements.json` | his panel tokens measured off the two masters (BT.709 decode): field, card olive, grid pitch, card hole and its radius, lower-third geometry and opacity, CTA pill — each with the frame it came from and its delta against `vlib.py` |
 | `panels/render_panels.py` → `layers/` | his panel system as 1080×1920 layers, rendered by the same `vlib` calls the renderer makes |
-| `cut_rules.md` + `kit_cuts.py` | THE POSE-MATCHED CUT: at every talk splice the picture cuts on his frame (from a master, `piccuts.py`'s method) or on the pose-matched frame within ±15 (from raw); what will not match is covered by a push. `calibrate` measures the cover threshold on the corpus |
+| `cut_rules.md` + `_shared/cut/piccuts.py` (`kit_cuts.py` is a shim) | THE POSE-MATCHED CUT: at every talk splice the picture cuts on his frame (from a master) or on the head-matched frame within ±15 (from raw); what will not match is covered by a push. `calibrate` measures the cover threshold on the corpus |
 | `build_kit.py` | template + `content.json` (WHAT goes where, phrase-anchored) + the audio EDL → `beats.json`, `beats.py` (shim), `edl_picture.json`, `piccuts.json`, `kit_report.json` (the generated design scored against picture.json's lo/hi BEFORE rendering) |
 | `content_from_beats.py` | lifts the content decisions out of an approved hand-written beats.py, with phrase anchors and label kinds |
 | `kit_beats.py` | the `beats` module the pipeline imports, reading `beats.json` |
@@ -34,7 +34,7 @@ kit_deliver.py setup  --build B --from-build <an approved build dir with grade.p
 content_from_beats.py --beats <approved beats.py> --cwd <its dir> --words m.whisper.json --treat sqassets.py --out B/content.json
 kit_deliver.py audio  --build B --mode master --approved <the approved vertical>      # his mix, untouched
 build_kit.py --from-master --build B --edl edl_final.json --content content.json --words m.whisper.json
-             --reference <his 16:9 master> --raw <roll> --grade grade.py             # runs kit_cuts decide
+             --reference <his 16:9 master> --raw <roll> --grade grade.py             # runs _shared/cut/piccuts.py decide
 kit_base.py  --build B --raw <roll> --grade grade.py
 kit_track.py --build B
 kit_labels.py --build B                                                             # renders labelled bleeds chip-less, measures, places

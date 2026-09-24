@@ -103,6 +103,8 @@ The standard Dan locked on rev 4 ("lock that in and crop all the videos like thi
 
 ### 3. Pacing and graphics — calm, sparse, real
 
+**⚠ PICTURE CUTS AND PAUSES: `_shared/cut/` (REQUIRED, VQC-C 2026-09-24).** Never cut the picture ON the audio splice; that is what reads as a jump cut. Once the EDL is final, run `python3 .claude/skills/_shared/cut/piccuts.py decide --build <work> --mode raw --raw <roll> [--rolls rolls.json] --grade <grade> --edl <edl> [--talk talk_spans.json]` and conform the PICTURE from `edl_picture.json` (the audio stays on the EDL; length is unchanged). It cuts each join on the frame within ±15 where Dan's head matches; a join still over the calibrated head jump comes back `cover: push` + `watch: true`, so give it the zoom step or an insert and put it on the watch list. Shorten pauses with `deadair.py --preset website --pair` so every removal is a decided picture cut, never a bare one. Smooth any crop track with `landing.py` (`landing.track`: 0 px landing at every cut). Check with `piccuts.py strips`, by eye, not by a frame-difference score. For a new build this replaces the recipe's own `tight.py` pause pass. See `_shared/cut/README.md`.
+
 - Trust cut: holds ≥ 9 s, pauses shortened to ~0.30 s (not 0.16), punch boundaries land on splices, NEAR/FAR alternate
   across every visible join, the hook opens on FAR, hardest splices covered first inside a 3.5 s floor. Nothing sits
   unchanged > 25 s. No SFX, no whooshes, cards fade 0.5 s. Median hold on rev 6: 3.75 s; longest 9.9 s.

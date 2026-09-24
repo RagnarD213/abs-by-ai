@@ -9,7 +9,7 @@ a frame where the outgoing and incoming takes match in pose. Attempt 1 cut the p
 Dan: *"truly awful… definitely won't work."* The gate cannot catch a single splice placed on the audio; only the
 rule can. So the kit cuts the way he cuts, and writes down the numbers.
 
-## The rule (`kit_cuts.py`)
+## The rule (`_shared/cut/piccuts.py`, the only copy since 2026-09-24; `kit_cuts.py` is a shim)
 
 For every audio splice `s` whose both sides are TALK (not hidden under a card, a bleed, a window plate or a
 flash), the picture cut is placed at `s + k` frames, `k ∈ [−15, +15]`:
@@ -19,7 +19,10 @@ flash), the picture cut is placed at `s + k` frames, `k ∈ [−15, +15]`:
    match against his frame with a high-passed NCC; the crossover frame (last frame that matches the outgoing
    take, first that matches the incoming) is his picture cut. Confidence = min(mean NCC before, mean NCC after).
    Below **0.60** the recovery is not trusted and rule 2 decides.
-2. **From raw** (`--from-raw`, no render to recover from): `k` is the frame where the two takes **look most
+2. **From raw** (`--from-raw`, no render to recover from). ⚠ **Superseded 2026-09-24 (VQC-C): `k` is now the
+   frame where Dan's HEAD matches** (face-box centre shift + height change, ties within 4 px to the higher NCC);
+   on attempt 1 the NCC rule below left 39 of 72 cuts over the 28.5 px head-jump bound, the head rule 10, and
+   NCC picked frames worse than the audio cut. The NCC rule stays as the no-face fallback. Old text: `k` is the frame where the two takes **look most
    alike** — the outgoing take's frame at `src_out + k` against the incoming take's frame at `src_in + k`,
    high-passed NCC over the head-and-torso box at the grade, both frames cropped to the same 9:16 window the
    render will use. Search `k` over −15..+15 in steps of one frame. Pick the maximum; **ties within 0.02 go to
@@ -39,7 +42,7 @@ flash), the picture cut is placed at `s + k` frames, `k ∈ [−15, +15]`:
    as a flash of a different take. `k` is clamped to the room that exists.
 3c. **The similarity cover trigger stays as a warning.** Where the best match is below `cut.cover_below`
    the cut is additionally covered as before: If the best similarity is below the
-   **cover threshold** — calibrated, not guessed, by `kit_cuts.py calibrate`, which measures the same
+   **cover threshold** — calibrated, not guessed, by `piccuts.py calibrate`, which measures the same
    self-similarity on Muhammad's trusted Ad 2 cuts (corpus `muhammad-ad2-16x9`, at HIS recovered `k`) and on
    attempt 1's naked splices (corpus `ad1-vertical-attempt1`, at `k = 0`) and writes both distributions to
    `piccuts_calibration.json`; the threshold is the midpoint of the two medians and is stored in
@@ -78,7 +81,8 @@ flash), the picture cut is placed at `s + k` frames, `k ∈ [−15, +15]`:
 | search window | ±15 frames | `piccuts.py` W=15; his Ad 2 cuts landed in −15..+10 |
 | trusted recovery | confidence ≥ 0.60 | `piccuts.py` (corpus `muhammad-ad2-16x9`: 22 of 33 ≥ 0.6) |
 | match box | head + torso, hp-NCC (Gaussian 1.2) | `piccuts.py` (`his_hp[30:200,120:360]` of a 480×270 fit) |
-| cover threshold | **0.44** (`template.json` `cut.cover_below`) | `kit_cuts.py calibrate` 2026-09-16: his trusted cuts at his k median 0.501 (p10 0.439); attempt 1 at k=0 median 0.379 (p90 0.517). **They overlap** — similarity is the cover trigger, not the discriminator (rule 3) |
+| cover threshold (head) | **28.5 px** head jump (`_shared/cut/piccuts_calibration.json` `summary.head`) | `piccuts.py calibrate` 2026-09-24: his trusted Ad 2 cuts median 17.9 px, attempt 1 at k=0 median 39.0 px; midpoint. **These separate** |
+| cover threshold (no face) | **0.44** (`template.json` `cut.cover_below`) | `kit_cuts.py calibrate` 2026-09-16: his trusted cuts at his k median 0.501 (p10 0.439); attempt 1 at k=0 median 0.379 (p90 0.517). **They overlap** — similarity is the cover trigger, not the discriminator (rule 3) |
 | push ramp | 0.50 s in, 1.5–3.5 s hold, 0.5–0.8 s out | `_shared/reference/picture.json` `pushes_hand_per_min`; Ad 1 `beats.PUSHES` |
 | his same-scene cut rate | 7.6–9.5 / min (no plan) | `_shared/reference/picture.json` `naked_splices_per_min` |
 | the gate's bound | 12 / min | `_shared/deliver/formats.py` `cut:naked_splices` |

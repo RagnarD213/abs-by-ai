@@ -13,8 +13,11 @@ BACKWARD pass at the segment end (w = i/(n-1)), so out[0] == m[0] and out[-1] ==
 and the middle is still the zero-phase average. Both passes obey the slope limit; the blend adds
 at most |fwd-bwd|/n per sample, which is negligible.
 """
-import json
+import json, os, sys
 import numpy as np
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "_shared", "cut"))
+import landing
+FPS = 30000/1001
 raw = np.load('raw_torso.npy')
 idx = np.arange(len(raw)); ok = ~np.isnan(raw)
 r = np.interp(idx, idx[ok], raw[ok])
@@ -23,29 +26,12 @@ CROP_W = 608
 SLOPE = 200.0/FPS_T                      # px per sample
 S = json.load(open('edl_picture.json'))   # picture segments, not audio
 
-def limit_fwd(x, lim):
-    out = [x[0]]
-    for v in x[1:]: out.append(out[-1] + float(np.clip(v-out[-1], -lim, lim)))
-    return np.array(out)
-
-out = np.empty_like(r)
+out = r.copy()
 for s in S:
     i0 = int(round(s['cut_in']*FPS_T)); i1 = int(round(s['cut_out']*FPS_T))
     i0 = max(0, i0); i1 = min(len(r), max(i1, i0+1))
-    seg = r[i0:i1]
-    if len(seg) < 4:
-        out[i0:i1] = np.median(seg); continue
-    # The median window SHRINKS toward the segment ends (k_eff = min(k, j, n-1-j)), so the first
-    # and last samples are the raw anchor itself. A full window at the start is a median over the
-    # FUTURE only: at 20.98 s he lands at 920 and walks to 824 within 0.75 s, and the full-window
-    # median parked the crop at 848 -- 72 source px (128 on the phone) right of him on the landing
-    # frame, with him sliding into the frame afterwards. Now the crop lands ON him and follows.
-    k = 3; n = len(seg)
-    m = np.array([np.median(seg[j-min(k, j, n-1-j):j+min(k, j, n-1-j)+1]) for j in range(n)])
-    f = limit_fwd(m, SLOPE)
-    b = limit_fwd(m[::-1], SLOPE)[::-1]
-    w = np.linspace(0.0, 1.0, len(seg))
-    out[i0:i1] = (1-w)*f + w*b                                                   # exact at both ends
+    t = np.arange(i0, i1) * (FPS/FPS_T)                  # sample index -> frame index
+    out[i0:i1] = landing.smooth_segment(t, r[i0:i1], SLOPE*FPS_T, fps=FPS)   # the shared smoother (_shared/cut/landing.py)
 cx = np.clip(out - CROP_W/2, 0, 1920-CROP_W)
 json.dump(dict(fps=FPS_T, crop_w=CROP_W, x=[round(float(v),1) for v in cx]),
           open('facetrack.json','w'))

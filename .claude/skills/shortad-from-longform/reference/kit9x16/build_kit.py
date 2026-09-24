@@ -28,6 +28,7 @@ import subprocess
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+PICCUTS = os.path.join(HERE, "..", "..", "..", "_shared", "cut", "piccuts.py")   # the pose-matched cut (shared)
 REPO = os.path.abspath(os.path.join(HERE, "..", "..", "..", "..", ".."))
 PICREF = os.path.join(REPO, ".claude/skills/_shared/reference/picture.json")
 FPS = 30000 / 1001
@@ -466,7 +467,7 @@ def main():
     in_talk = [s for s in splices if any(x + 0.05 <= s <= y - 0.05 for x, y in talk_spans)]
     pc_path = a.piccuts or os.path.join(a.build, "piccuts.json")
     if not a.plan_only and not (a.piccuts and os.path.exists(a.piccuts)):
-        cmd = [sys.executable, os.path.join(HERE, "kit_cuts.py"), "decide", "--build", a.build,
+        cmd = [sys.executable, PICCUTS, "decide", "--build", a.build,
                "--mode", "master" if a.from_master else "raw", "--raw", a.raw, "--edl", a.edl,
                "--talk", os.path.join(a.build, "talk_spans.json"), "--search", str(T["cut"]["search_frames"]),
                "--trusted", str(T["cut"]["trusted_conf"]), "--cover-below", str(T["cut"]["cover_below"])]
@@ -498,7 +499,7 @@ def main():
     wc_path = os.path.join(wc_dir, "piccuts.json")
     if win_spans and not a.plan_only and not os.path.exists(wc_path):
         os.makedirs(wc_dir, exist_ok=True)
-        wcmd = [sys.executable, os.path.join(HERE, "kit_cuts.py"), "decide", "--build", wc_dir,
+        wcmd = [sys.executable, PICCUTS, "decide", "--build", wc_dir,
                 "--mode", "master" if a.from_master else "raw", "--raw", a.raw, "--edl", a.edl,
                 "--talk", os.path.join(a.build, "window_spans.json"), "--search", str(T["cut"]["search_frames"]),
                 "--trusted", str(T["cut"]["trusted_conf"]), "--cover-below", str(T["cut"]["cover_below"])]

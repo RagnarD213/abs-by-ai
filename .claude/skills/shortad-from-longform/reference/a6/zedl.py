@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Zeeshan's PICTURE EDL, recovered two ways and reconciled:
+"""FROZEN RECIPE (Zeeshan Ad 1 vertical). For any new picture-cut work use `_shared/cut/piccuts.py` (2026-09-24).
+Zeeshan's PICTURE EDL, recovered two ways and reconciled:
   * every segment's OFFSET comes from the dense acoustic profile (his mix vs the raw lav, r~0.99, +-1 ms) -- the
     picture matcher alone jitters +-0.2 s in low-motion stretches because the mouth is a few pixels at 256x144;
   * every CUT FRAME comes from the picture: at each audio join inside a talk range, his frames are scored against the

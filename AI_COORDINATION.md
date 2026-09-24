@@ -93,7 +93,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **Junk-footage pass — ACTIVE 2026-09-24, Claude Fable.** Executing `Handoffs/handoff-20260911-junk-footage-pass.md`: promote the six detectors into `_shared/cut/`, one `junk_report.json` per cut, gate rows, take selection. Test: corpus `spraytan-longform-rev0`. Next: build, run on the corpus entry, commit, push. No dashboard row.
 
-**VQC-C cut technique — ACTIVE 2026-09-24, Claude Opus 5.5.** Executing `Handoffs/handoff-20260909-vqc-C-phase4-cut-technique.md` (rescoped): `_shared/cut/piccuts.py` (pose-matched picture cuts), landing fix, dead-air pairing, grade. Shares `_shared/cut/` with the junk-footage session; distinct file names only. Scratch work only. Next: build, corpus green, A/B join to Dan.
+**VQC-C picture cuts - NEEDS DAN 2026-09-24, Claude Opus 5.5.** Shipped `_shared/cut/` piccuts (head-matched picture cuts), landing, deadair and `_shared/reference/luma_lift.py`; wired into all five video skills. Ad 1 attempt 1: exposed cuts 50 to 10 of 72. Next: Dan watches `/Volumes/Extreme/_edit_work/vqc-c/AB_join_69s.mp4` and says if NEW reads as continuity; then delete this entry.
 
 **STOP Deadlifting clip - NEEDS DAN 2026-09-20, Codex.** R3 review copy delivered to the shared Drive folder: `1dXUbQajUzM-uO_Xl92telO0qsa-Ob7uV`. Full head visible; measured bar path rises once without reversing. Silent B-roll has no matching full-film delivery gate, so no gate PASS is claimed. Next: Dan reviews R3 and approves or names any corrections. Detail: `Media/ai-frames/stop-deadlifting-opening-20260918/motion-v2/R3_DELIVERY.json`.
 
@@ -168,7 +168,6 @@ Memory `google-ads-ui-automation`.
 - `codex-video-trial/06h-organic-r4-motion-graphics-and-variety.md` — C1652 R4, ready09-17; supersedes executed06f. Astra/High.
 - `handoff-20260912-ad5-vertical-revisions-round2.md` (spec for AV-04) — same man before/after (after picture `13_AFTER_ai-generated_app-demo-man.jpg`
   named, no spend); real-picture label on every real photo. ⚠ `g5.real_chip` is shared with Ad 4. Opus high.
-- `handoff-20260909-vqc-C-phase4-cut-technique.md` — before engine Phase 4. Fable 5.1 high.
 - `handoff-20260911-video-quality-engine.md` — master plan; Phases 1–4 done. VQC-B/VQC-D superseded, do not fire.
 - `handoff-20260910-start-vsl-edit-and-install.md` — after Dan records the VSL. Fable 5.1 high.
 - `handoff-20260909-audio-match-muhammad.md` — Zepbound + supplements, after Dan OKs the spray-tan sound.

@@ -157,6 +157,8 @@ whose ending flows into the next line's chosen take beats one that doesn't.
 
 ## Step 3 — no jump cuts: the zoom-cut system
 
+**⚠ PICTURE CUTS AND PAUSES: `_shared/cut/` (REQUIRED, VQC-C 2026-09-24).** Never cut the picture ON the audio splice; that is what reads as a jump cut. Once the EDL is final, run `python3 .claude/skills/_shared/cut/piccuts.py decide --build <work> --mode raw --raw <roll> [--rolls rolls.json] --grade <grade> --edl <edl> [--talk talk_spans.json]` and conform the PICTURE from `edl_picture.json` (the audio stays on the EDL; length is unchanged). It cuts each join on the frame within ±15 where Dan's head matches; a join still over the calibrated head jump comes back `cover: push` + `watch: true`, so give it the zoom step or an insert and put it on the watch list. Shorten pauses with `deadair.py --preset ad --pair` so every removal is a decided picture cut, never a bare one. Smooth any crop track with `landing.py` (`landing.track`: 0 px landing at every cut). Check with `piccuts.py strips`, by eye, not by a frame-difference score. The zoom step still goes on every bare talk cut; the matched frame is what makes the step read as a re-frame. See `_shared/cut/README.md`.
+
 Adjacent takes from one locked camera = a jump cut unless disguised. Two tools,
 in preference order:
 
