@@ -93,6 +93,8 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **Junk-footage pass — ACTIVE 2026-09-24, Claude Fable.** Executing `Handoffs/handoff-20260911-junk-footage-pass.md`: promote the six detectors into `_shared/cut/`, one `junk_report.json` per cut, gate rows, take selection. Test: corpus `spraytan-longform-rev0`. Next: build, run on the corpus entry, commit, push. No dashboard row.
 
+**VQC-C cut technique — ACTIVE 2026-09-24, Claude Opus 5.5.** Executing `Handoffs/handoff-20260909-vqc-C-phase4-cut-technique.md` (rescoped): `_shared/cut/piccuts.py` (pose-matched picture cuts), landing fix, dead-air pairing, grade. Shares `_shared/cut/` with the junk-footage session; distinct file names only. Scratch work only. Next: build, corpus green, A/B join to Dan.
+
 **STOP Deadlifting clip - NEEDS DAN 2026-09-20, Codex.** R3 review copy delivered to the shared Drive folder: `1dXUbQajUzM-uO_Xl92telO0qsa-Ob7uV`. Full head visible; measured bar path rises once without reversing. Silent B-roll has no matching full-film delivery gate, so no gate PASS is claimed. Next: Dan reviews R3 and approves or names any corrections. Detail: `Media/ai-frames/stop-deadlifting-opening-20260918/motion-v2/R3_DELIVERY.json`.
 
 **AV-07 Ad 10 vertical kit build — ACTIVE 2026-09-18, Codex.** Claimed; building the full 9:16 and ≤0:59 cutdown from Muhammad’s finalized master with the locked kit. Next: recover Ad 10’s edit/grade, author the fresh content sheet, render, then run three fresh-session strip/sheet reviews and require GATE PASS 36/36. Detail: `/Volumes/Extreme/_edit_work/kit9x16/ad10-master/`.
@@ -155,6 +157,7 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
+- `handoff-20260924-generator-consult-call-outreach.md` (09-24): fire by 09-26.
 - `handoff-20260923-ro05-recut-fable.md` + `handoff-20260923-ro05-recut-astra.md` (09-23): RO-05 salad recut from scratch after Dan rejected Claude's cut; run both in parallel (bake-off). Fable 5.1 high / Astra high.
 - `handoff-20260918-kit-first-production-ad10-vertical.md` — kit builds AV-07. Codex Astra/high.
 - `handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md` [dash]: PHONE ONLY, 3 TikTok covers (updated 09-22). Sonnet 5 or Fable 5.1 / Medium.
@@ -174,9 +177,6 @@ Memory `google-ads-ui-automation`.
 - `handoff-20260812-purchase-before-account.md` [dash] — after approval and the RevenueCat audit.
 - `handoff-20260818-android-public-build-swap.md` [dash] — needs Dan's Android on adb.
 - `handoff-20260826-danrosefit-abs-image-gap-fill.md` [dash] — once Blotato has 7 free slots.
-
-Dead, do not run: `handoff-20260901-danrosefit-ad-identity-fix.md`, `handoff-20260902-shorts-centering-queue-fix.md`,
-`handoff-20260902-google-ads-engagement-champion-automation.md` (live; `Docs/YTADS.md`).
 
 ## ACTIVE
 - **Grok / AV-05 Ad 6 vertical** (2026-09-17 17:36 CT): building 9x16 + ≤0:59 from Muhammad Ad 6 via shortad-from-longform; workdir `/Volumes/Extreme/_edit_work/av05-ad6-vert/`.
