@@ -135,6 +135,42 @@
       "priority": "key",
       "addedAt": "2026-09-18",
       "why": "HeyGen open-sourced HyperFrames (Apache-2.0, free, no per-render fees): HTML+CSS+GSAP composed by Claude Code or Codex, rendered deterministically to MP4 or a TRANSPARENT overlay via headless Chrome + FFmpeg. It ships a /motion-graphics skill for lower-thirds and kinetic type and a /talking-head-recut skill for overlaying an existing cut. Our graphics are PIL-drawn panels, which is exactly the 'slides, not moving graphics' note that got C1652 R3 rejected. Overlay-only means Dan's approved picture and the editor's audio are untouched. github.com/heygen-com/hyperframes"
+    },
+    {
+      "text": "Edit the two VSLs from the 9/23 shoot: Codex cuts the /start VSL first, Muhammad cuts the long VSL and redoes /start later",
+      "priority": "key",
+      "addedAt": "2026-09-24",
+      "why": "Dan 09-24 prioritize. Footage C1692-C1703 on the Seagate (Docs/SHOOT_923_FOOTAGE_REPORT.md). Install slot: window.ABS_START_VIDEO in public/site-video.js. Spec: Handoffs/handoff-20260910-start-vsl-edit-and-install.md."
+    },
+    {
+      "text": "Decide fix or fold on the AI offer: why the ads produce zero sales, cost per generation vs price, and a sales-first test before folding",
+      "priority": "key",
+      "addedAt": "2026-09-24",
+      "why": "Dan 09-24 prioritize. Zero paid sales so far; 09-10 Demand Gen: 17 clicks, 0 photo uploads. Decide before building a new offer."
+    },
+    {
+      "text": "Research a supplement offer: product, supplier, margins, and the SixPackAbs trademark risk, before building any store",
+      "priority": "high",
+      "addedAt": "2026-09-24",
+      "why": "Dan 09-24 prioritize. Gates the existing Shopify store row. Trademark: memory sixpackabs-trademark-exposure."
+    },
+    {
+      "text": "TikTok covers: fix the posts still inside the edit window and set up a daily automated cover check",
+      "priority": "high",
+      "addedAt": "2026-09-24",
+      "why": "Dan 09-24 prioritize. Cause and fix: Docs/TIKTOK_COVERS.md, scripts/blotato/tiktok_cover.py. Long-forms' edit windows close Sep 27/28."
+    },
+    {
+      "text": "Close the @abs.by.ai Instagram and consolidate everything to @danrosefit",
+      "priority": "med",
+      "addedAt": "2026-09-24",
+      "why": "Dan 09-24 prioritize. Audit what still posts to or depends on @abs.by.ai (Blotato mirror, /video-setup, ManyChat, Meta ads identity) first; deactivate, do not delete."
+    },
+    {
+      "text": "Grow Instagram followers and YouTube subscribers: pick one growth plan",
+      "priority": "med",
+      "addedAt": "2026-09-24",
+      "why": "Dan 09-24 prioritize."
     }
   ],
   "health": [
