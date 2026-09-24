@@ -99,7 +99,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **DS-18 kettlebell-deadlift short - NEEDS DAN 2026-09-23, Codex.** R4 arrow reel is ready: Correct Form has no arrows; weight, feet and back arrows sit outside their targets; the earlier clean rounded-back trim is restored; approved hip treatments are unchanged. Next: Dan approves or revises R4, then Codex cuts it into the full video. Detail: `/Volumes/Extreme/_edit_work/ds18-kettlebell-deadlift/`.
 
-**Overnight edit queue — LIVE, UNFROZEN 2026-09-24.** Freeze lifted on Dan's call: AV/AS/SL back to Claude (Opus high), RA/RO/DS stay Codex, cross-review restored. Dry-run clean. Idle until an eligible job (SL-01/02 need picks). Pause: `dispatcher.py pause`.
+**Overnight edit queue — PAUSED 2026-09-24, Dan's call.** He fires every edit by hand now to save tokens; nothing launches unattended. Routing left correct underneath (AV/AS/SL Claude, RA/RO/DS Codex, cross-review) so a resume needs no config work. Resume only if Dan says: `dispatcher.py resume`.
 
 **RO-01 REVIEW PENDING 2026-09-18, Codex.** Dan received the private R3 review under his explicit exception for 2 recorded gate failures. Audio/visual review pass. Next: Dan watches and gives one consolidated verdict. `/Volumes/Extreme/_edit_work/ro01/STATE.md`.
 
