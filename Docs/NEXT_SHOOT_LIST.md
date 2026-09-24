@@ -53,11 +53,9 @@ the "fired my trainer" material, the Oura ring, and the busy-dad shots.
 ## 4. Pickups owed from the 9/23 shoot
 
 Both VSLs, all 9 long-forms and all 7 Make Time shorts were filmed on 9/23 (roll map:
-`Docs/SHOOT_923_FOOTAGE_REPORT.md`). Still owed, all on the vertical tabletop set:
+`Docs/SHOOT_923_FOOTAGE_REPORT.md`). Still owed:
 
-- **Self-Driving Car short, two lines:** "The Tesla does check that you're watching the road, so do all
-  of that with your voice." and "So for about $150 a month more, you get a car that drives you everywhere."
-- **Alternate hook takes** for the six shorts other than Wispr Flow (two each), if the hooks are to be A/B tested.
+- **Hook takes, from the next shoot on:** film all three openers for every short and pick the winner by watching them.
 - **The `[FILM]` cold opens and b-roll** in the short-form scripts: thumb-typing on the phone, Dan at the
   stove, in the Tesla hands-off, at the desk with Claude, the six pieces of home equipment, meal prep
   containers, robotaxi ride.

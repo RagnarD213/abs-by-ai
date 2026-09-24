@@ -46,8 +46,8 @@ Audited 2026-09-23 by Claude from the files on the drive (frames at native 4K, a
 
 Everything on the shoot checklist that is a talking piece was filmed: both VSLs, all 9 long-forms, all 7
 shorts. **Not on this card:** M100 pickups, countertop pushups, robot mower footage, the cold opens and
-`[FILM]` b-roll cues, the short-form alternate hook takes (only Wispr Flow has them), and the Wispr Flow
-ScreenFlow demo recording (Dan starts it at C1719 1:14; the file is not on the drive).
+`[FILM]` b-roll cues, and the short-form alternate hook takes (only Wispr Flow has them; Dan will film hook
+takes at the next shoot). The Wispr Flow ScreenFlow demo (started at C1719 1:14) is with Dan, to be uploaded.
 
 ## Measurements
 
@@ -65,12 +65,8 @@ ScreenFlow demo recording (Dan starts it at C1719 1:14; the file is not on the d
 
 ## Editor warnings
 
-- **Self-Driving Car short (C1720, about 3:16 to 5:22): no usable take of two scripted lines.** The
-  attention line is ad-libbed as "you can look away from the road 20 to 30 seconds... go on your computer
-  even" (safety and platform-policy risk; do not use). The cost line was delivered as "A base Camry is about
-  $48,000, so you're saving money", which contradicts the $57,000 Model 3 figure said just before. The
-  script's lines ("The Tesla does check that you're watching the road, so do all of that with your voice"
-  and "So for about $150 a month more, you get a car that drives you everywhere") need pickups.
+- Self-Driving Car short: the Model 3 vs Camry cost lines and the look-away-from-the-road lines are Dan's
+  intended ad-libs (he compares against a comparable Camry trim). Use his final takes; not a pickup.
 - Robot Lawn Mower short: Dan changed the lawn-service numbers from the script ($55 a visit, $1,500 a
   year) to "$100 to $200 a visit, about $3,000 a year or more". Use his final take.
 - Home Workouts short: "you're seeing it on screen right now" needs the equipment b-roll, which is not filmed.
