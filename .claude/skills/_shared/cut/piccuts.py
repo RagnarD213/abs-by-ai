@@ -22,6 +22,8 @@ Two modes:
    matching hands and background texture, not where the head is. The eye reads the head. Head choice:
    median 13 px, 4 of 72 over 40 px (NCC: 27); over the 28.5 px cover bound 10 (audio cut 50, NCC 39).
 
+⚠ DAN'S VERDICT 2026-09-24 (the A/B this handoff asked for, one Ad 1 join at 1:09, head jump 48 px on the audio cut vs 6 px on the matched frame): "They both look bad. I wouldn't use either of these cuts. They both look like jump cuts." A matched frame alone does NOT hide a same-framing cut. The fix that passed his eye is the kit's: a framing STEP (instant punch-in or pull-out) on every bare talk cut, or an insert over it (blind tie with Muhammad, 2026-09-18). This tool only picks the least-bad frame for that stepped cut.
+
 Every cut reports its head jump and similarity; a head jump above --cover-above-px (or, with no face, a
 similarity below --cover-below) is flagged `cover: "push"` and `watch: true`, so the render covers it and
 the watch pass looks at it, instead of guessing.

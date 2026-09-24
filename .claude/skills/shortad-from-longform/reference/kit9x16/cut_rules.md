@@ -27,7 +27,9 @@ flash), the picture cut is placed at `s + k` frames, `k ∈ [−15, +15]`:
    high-passed NCC over the head-and-torso box at the grade, both frames cropped to the same 9:16 window the
    render will use. Search `k` over −15..+15 in steps of one frame. Pick the maximum; **ties within 0.02 go to
    the smaller |k|**, so the picture stays as close to the audio as the pose allows.
-3. **EVERY bare talk-to-talk cut gets a framing LEVEL STEP on the cut frame** — the zoom-cut system of
+3. **EVERY bare talk-to-talk cut gets a framing LEVEL STEP on the cut frame** (⚠ confirmed by Dan 2026-09-24: on an A/B
+   of one join, the head-matched frame alone and the audio cut both *"look like jump cuts"*. Never drop this step
+   because the frame matched): the zoom-cut system of
    the studied ads (`/ad-edit` Step 3: *"alternate strictly — never two identical framings across a
    join"*). **Measured 2026-09-16 on the kit's first Ad 1 render:** the pose-matched frame alone left eight
    cuts reading as jump cuts on the phone, at self-similarities 0.46–0.67, two of them on HIS recovered

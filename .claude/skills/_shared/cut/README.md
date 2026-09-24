@@ -141,8 +141,11 @@ recipe files, not the live tool. Do not fix a bug in one of them: fix it here.
 
 # The picture cut (VQC-C, 2026-09-24): `piccuts.py`, `landing.py`, `deadair.py`
 
-Our cuts read as jump cuts because we cut the PICTURE on the AUDIO splice. Muhammad cuts it 1-15 frames
-away on a frame where Dan's pose matches (a J- or L-cut). These three files are the only copy of that
+Muhammad cuts the PICTURE 1-15 frames away from the AUDIO splice, on a frame where Dan's pose matches (a J- or
+L-cut).
+
+> ⚠ **DAN'S VERDICT 2026-09-24 (the A/B this handoff asked for, one Ad 1 join at 1:09, head jump 48 px on the audio cut vs 6 px on the matched frame): "They both look bad. I wouldn't use either of these cuts. They both look like jump cuts." A matched frame alone does NOT hide a same-framing cut. The fix that passed his eye is the kit's: a framing STEP (instant punch-in or pull-out) on every bare talk cut, or an insert over it (blind tie with Muhammad, 2026-09-18). This tool only picks the least-bad frame for that stepped cut.**
+ These three files are the only copy of that
 technique; every video skill calls them. `Handoffs/handoff-20260909-vqc-C-phase4-cut-technique.md`.
 
 ```bash
