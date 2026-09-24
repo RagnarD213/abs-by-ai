@@ -1929,12 +1929,12 @@
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-26-wispr-flow-short.md` with `$abs-edit-organic`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
    "state": "blocked",
    "note": "Alternate hooks on the roll. Needs the Wispr Flow ScreenFlow demo, which Dan still has to upload.",
-   "sub": "",
+   "sub": "9/23 shoot",
    "order": 92,
    "updated": "2026-09-24",
    "by": "claude",
-   "rev": 1,
-   "syncedRev": 1
+   "rev": 2,
+   "syncedRev": 2
   },
   {
    "id": "DS-27",
@@ -1950,12 +1950,12 @@
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-27-home-workouts-short.md` with `$abs-edit-organic`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
    "state": "blocked",
    "note": "'You're seeing it on screen right now' needs equipment b-roll, not filmed.",
-   "sub": "",
+   "sub": "9/23 shoot",
    "order": 93,
    "updated": "2026-09-24",
    "by": "claude",
-   "rev": 1,
-   "syncedRev": 1
+   "rev": 2,
+   "syncedRev": 2
   },
   {
    "id": "DS-28",
@@ -1971,12 +1971,12 @@
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-28-meal-prep-short.md` with `$abs-edit-organic`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
    "state": "ready",
    "note": "",
-   "sub": "",
+   "sub": "9/23 shoot",
    "order": 94,
    "updated": "2026-09-24",
    "by": "claude",
-   "rev": 1,
-   "syncedRev": 1
+   "rev": 2,
+   "syncedRev": 2
   },
   {
    "id": "DS-29",
@@ -1992,12 +1992,12 @@
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-29-robot-lawn-mower-short.md` with `$abs-edit-organic`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
    "state": "blocked",
    "note": "Robot mower b-roll not filmed. Use Dan's final numbers ($100-$200 a visit, about $3,000 a year), not the script's.",
-   "sub": "",
+   "sub": "9/23 shoot",
    "order": 95,
    "updated": "2026-09-24",
    "by": "claude",
-   "rev": 1,
-   "syncedRev": 1
+   "rev": 2,
+   "syncedRev": 2
   },
   {
    "id": "DS-30",
@@ -2013,12 +2013,12 @@
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-30-self-driving-car-short.md` with `$abs-edit-organic`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
    "state": "ready",
    "note": "Model 3 vs Camry cost lines and look-away lines are intended ad-libs; use his final takes.",
-   "sub": "",
+   "sub": "9/23 shoot",
    "order": 96,
    "updated": "2026-09-24",
    "by": "claude",
-   "rev": 1,
-   "syncedRev": 1
+   "rev": 2,
+   "syncedRev": 2
   },
   {
    "id": "DS-31",
@@ -2034,12 +2034,12 @@
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-31-ai-homework-short.md` with `$abs-edit-organic`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
    "state": "ready",
    "note": "",
-   "sub": "",
+   "sub": "9/23 shoot",
    "order": 97,
    "updated": "2026-09-24",
    "by": "claude",
-   "rev": 1,
-   "syncedRev": 1
+   "rev": 2,
+   "syncedRev": 2
   },
   {
    "id": "DS-32",
@@ -2055,12 +2055,12 @@
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-32-ai-job-short.md` with `$abs-edit-organic`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
    "state": "ready",
    "note": "",
-   "sub": "",
+   "sub": "9/23 shoot",
    "order": 98,
    "updated": "2026-09-24",
    "by": "claude",
-   "rev": 1,
-   "syncedRev": 1
+   "rev": 2,
+   "syncedRev": 2
   }
  ]
 }
