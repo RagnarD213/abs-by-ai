@@ -84,3 +84,10 @@ Three 1080 x 1350 sRGB JPEG variants and the labeled contact sheet were built an
 Local delivery: `social media graphics/instagram/abs-by-ai-final-post/`. Rebuild recipe and exact source/copy records: `build.py` and `README.md` in that gitignored folder. No photographs or generated outputs were added to Git.
 
 [Public Drive folder](https://drive.google.com/drive/folders/1iE7KxVSUZhHoGhU7DL3HvqXUCBMUqPOv) contains A/B/C and the contact sheet. Anyone with the link can view. Nothing was published or scheduled. Handoff 2 is ready once Dan picks A/B/C.
+
+
+## Revision 2 delivered 2026-09-24
+
+Dan preferred original A, requested headline `I've moved.` and supporting copy `Follow me there to get my workouts, nutrition tips, and life updates`, and asked for four options. Revised A uses the original smiling pool photo; B uses a different pool portrait; C uses a smiling studio portrait on dark blue; D is an AI-assisted editorial composition with cream/red art direction. The handle remains `@danrosefit`.
+
+Latest files and rebuild recipe: `social media graphics/instagram/abs-by-ai-final-post/revision-2/`. [Public revision-2 Drive folder](https://drive.google.com/drive/folders/1ALQ-KZfEmGc0_7S-9EpBHwH0Z1PrqKqM). All four 1080 x 1350 sRGB JPEGs and the contact sheet delivered. Full images and 3:4 grid crops checked. Nothing published or scheduled. Await Dan's final revision-2 A/B/C/D choice; original A preference is not final approval of a revision.

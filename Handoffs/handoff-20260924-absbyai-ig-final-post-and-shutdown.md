@@ -2,8 +2,7 @@
 
 **Date:** 2026-09-24
 **Executor:** Claude, Sonnet 5 / Medium (Opus 5.5 / Medium if the Instagram web steps get fiddly)
-**Fire when:** handoff 1 (`handoff-20260924-absbyai-ig-final-post-image.md`, Codex) is done **and Dan has
-picked image A, B or C**. If he has not picked, stop and ask for the pick. That is the only question allowed.
+**Fire when:** Dan chooses a final image from revision 2 (A/B/C/D) and invokes this publishing task. His earlier preference for original A was followed by a revision request and is not approval of the new images. The latest images and public Drive link are recorded in `handoff-20260924-absbyai-ig-final-post-image.md`, under Revision 2, and in the gitignored `social media graphics/instagram/abs-by-ai-final-post/revision-2/README.md`. Nothing has been published or scheduled by the image task.
 
 ## Goal
 
