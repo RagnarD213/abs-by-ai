@@ -105,6 +105,10 @@ Full rule: read `.claude/skills/_shared/VIDEO-RULES.md`.
 
 Full rule: read `.claude/skills/_shared/VIDEO-RULES.md`.
 
+## Google Drive sharing: always public (Dan, 2026-09-24)
+
+- Everything a session creates or uploads on Google Drive is set to "anyone with the link can view" at creation. Never leave work files private; it blocks editors. Personal or sensitive documents (keys, legal, IDs) are the only exception. Mechanics: memory `drive-always-public`.
+
 ## Delivery and deployment
 
 - Do not leave changes made for a task only on the local computer.
