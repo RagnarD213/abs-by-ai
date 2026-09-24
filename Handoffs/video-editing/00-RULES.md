@@ -101,3 +101,6 @@ Follow the Codex branch rule in `Handoffs/codex-video-trial/00-start-here.md`.
 4. **No dashboard rows** unless Dan asks (his 09-08 rule). Commit + push the doc changes to `main`.
 5. After an ad variant is approved, it goes into Google Ads through `/ad-setup` step 6 as one more `videos` entry on that
    ad's existing Demand Gen ad groups. **That's a separate step. Don't do it inside the edit job unless Dan asks.**
+
+## Edit Queue page is Dan's working list (Dan, 2026-09-24)
+A queue change is not done until it shows on https://claude.ai/artifact/1r1T8Znf96XH24zHZhybHs. After `queue.py add` or `set`: push to Drive, mirror to the artifact db, and check the job's `group` (and a Dedicated-shorts `sub`) is one the page renders (its `LISTS` array; subs "9/23 shoot", "Talking", "Workout"). A new group or sub means republishing the page first.
