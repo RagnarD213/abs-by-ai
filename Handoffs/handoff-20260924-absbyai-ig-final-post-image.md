@@ -75,3 +75,12 @@ and put the folder link in the README.
 - Update `Handoffs/README.md` and the HANDOFFS section of `AI_COORDINATION.md`: mark this one done
   (delete its line) and leave handoff 2 as "ready once Dan picks A/B/C". Commit only those two files plus
   this handoff; push to `main`.
+
+
+## Completed 2026-09-24
+
+Three 1080 x 1350 sRGB JPEG variants and the labeled contact sheet were built and visually checked, including the 3:4 center crop. A uses the smiling towel/pool portrait; B uses the flag portrait; C groups the announcement below the torso on the flag portrait. Recommendation: A.
+
+Local delivery: `social media graphics/instagram/abs-by-ai-final-post/`. Rebuild recipe and exact source/copy records: `build.py` and `README.md` in that gitignored folder. No photographs or generated outputs were added to Git.
+
+[Public Drive folder](https://drive.google.com/drive/folders/1iE7KxVSUZhHoGhU7DL3HvqXUCBMUqPOv) contains A/B/C and the contact sheet. Anyone with the link can view. Nothing was published or scheduled. Handoff 2 is ready once Dan picks A/B/C.

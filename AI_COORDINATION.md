@@ -153,7 +153,7 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
-- `handoff-20260924-absbyai-ig-final-post-image.md` (09-24): Codex builds 3 farewell-post images for @abs.by.ai; Dan picks. Sol medium. Then `…-absbyai-ig-final-post-and-shutdown.md`: Claude publishes, pins, clears mirror queue, stops mirroring. Sonnet medium.
+- `handoff-20260924-absbyai-ig-final-post-and-shutdown.md` (09-24): ready once Dan picks A/B/C. Claude Sonnet medium. Images and public Drive link are recorded in the completed image handoff. No publishing performed.
 - `handoff-20260924-queue-cover-thumbnail-bakeoff.md` (09-24): 19 frozen queue images, four new alternatives each. Next: new task builds side-by-side gallery; Dan selects replacements. Astra high.
 - `handoff-20260924-generator-consult-call-outreach.md` (09-24): fire by 09-26.
 - `handoff-20260923-ro05-recut-fable.md` + `handoff-20260923-ro05-recut-astra.md` (09-23): RO-05 salad recut from scratch after Dan rejected Claude's cut; run both in parallel (bake-off). Fable 5.1 high / Astra high.
