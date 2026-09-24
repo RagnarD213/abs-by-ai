@@ -1,7 +1,8 @@
 # Handoff: Phase 2 production pilot on RA-11 (2026-09-22)
 
-**Status:** ready for preflight, not executed. This replaces the DS-05 pilot handoff because Muhammad owns DS-05. Do not
-start RA-11 until its ownership, source, claims, queue eligibility and current product claims pass the checks below.
+**Status:** superseded on 2026-09-24, not executed. RA-11 promotes free image generation as an entry hook, which
+conflicts with Dan's 2026-09-24 marketing decision. Do not launch this ad for the efficiency pilot. Use
+`Handoffs/handoff-20260924-edit-queue-phase2-ro17-production-pilot.md` instead.
 
 ## Goal
 
