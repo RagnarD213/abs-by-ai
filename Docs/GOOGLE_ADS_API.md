@@ -170,3 +170,19 @@ Task 3 of the same handoff. **Not created.**
 - 09-11 rep tasks: every enabled Search ad points at `/start` (5 home originals paused); homepage + How It Works
   sitelinks added (ids in `Docs/VSL_LANDING.md`); callouts need nothing. A final-URL change re-triggers policy review:
   `node scripts/ads/api/client.js policy 24148587722` and `… 24086091285`.
+
+## Brand campaign tightened + Dan Rose name group (2026-09-24)
+
+- Why: in 30 days Brand spent $142.94 and no search contained "abs by ai". Exact-match close variants had turned
+  "abs by ai" into "ai abs", so the campaign served "ai six pack", "abs editor" and "ai ab generator" (up to $12/click).
+- Brand campaign `24086091285` now bids **Maximize Clicks with a $2.00 CPC ceiling** (TARGET_SPEND). If Google
+  auto-apply switches it back to Maximize Conversions, restore it.
+- Ad groups: `204012081332` **Brand - Abs By AI** (the old "Ad group 1"; generic negatives now at ad-group level so they
+  can't block the name group) and `204225636687` **Brand - Dan Rose** (name + Abs By AI / SixPackAbs / Six Pack
+  Shortcuts / abs / fitness / danrosefit / Social Response Marketing / YouTube-marketing book; bare name exact-negated;
+  ~120 negatives for the chef, the NYC developer, the ex-Facebook VP, athletes, etc.). RSA `825832641576` → `/start`.
+- The 7 generic terms that converted in Brand (six pack ai, ai six pack, ai sixpack, give me abs ai, abs editor ai,
+  abs creator ai, six pack generator) are exact + phrase keywords in Non-Brand "AI Abs Generator".
+- **`brand-guard` Railway cron** (daily 12:00 UTC, `scripts/ads/brand-guard.js`, rules tested in `brand-guard.test.js`)
+  adds an EXACT negative for any brand-campaign search term that fails its ad group's rule. Builder:
+  `scripts/ads/oneoff/brand-tighten-20260924.js`.
