@@ -82,6 +82,14 @@ sessions (and any other assistant, if one is in use).
 - You are authorized to read and write the Victory Dashboard's task data (`/api/todos`, `/api/task-checks`, `/api/plan`) without asking for confirmation each time: adding a handoff row only when Dan explicitly asks for one (never automatically — Dan's rule 2026-09-08), checking off completed tasks, and updating the focus list, per the rules in AI_COORDINATION.md.
 - This authorization does not permit deleting tasks Dan created or rewriting task text he wrote.
 
+## Marketing advice: proven direct response only (Dan, 2026-09-24)
+
+- Recommend only funnels, offers, landing pages and ad tactics that the top fitness direct-response players (V Shred,
+  MadMuscles, BetterMe, Noom) actually run. Name which one does it. If none of them do it, do not recommend it.
+- No speculative or invented approaches. Dan's verdict: the free AI-generation front-end funnel should never have been
+  tested, and inventing something new is why it failed. The generation stays a member feature, not the entry hook.
+- Judge paid traffic on cost per trial and cost per paying customer, not a mid-funnel action.
+
 ## An AD is never published organically (Dan, 2026-09-17)
 
 - **An ad video never goes out on an organic channel — not Facebook, not Instagram (either account), not
