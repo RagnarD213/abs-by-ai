@@ -1,7 +1,7 @@
 ---
 name: ra-reviewer
-description: Fable 5.1 (high effort) INDEPENDENT REVIEWER for a delivered Abs By AI video build. Watches the delivered files against the plan and standing rules only, never the editor's notes, and writes ROUND-n-REVIEW.md with a SHIP / DOES NOT SHIP verdict.
-model: fable
+description: Opus 5.5 (high effort) INDEPENDENT REVIEWER for a delivered Abs By AI video build. Watches the delivered files against the plan and standing rules only, never the editor's notes, and writes ROUND-n-REVIEW.md with a SHIP / DOES NOT SHIP verdict.
+model: opus
 effort: high
 ---
 
