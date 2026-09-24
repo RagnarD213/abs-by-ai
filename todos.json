@@ -171,6 +171,24 @@
       "priority": "med",
       "addedAt": "2026-09-24",
       "why": "Dan 09-24 prioritize."
+    },
+    {
+      "text": "Run the Opus 5.5 vs GPT-6 Sol editing bake-off: Opus 5.5 recuts the C1652 belly fat video blind against Codex's approved R4; Codex Sol recuts RO-05 salad",
+      "priority": "key",
+      "addedAt": "2026-09-24",
+      "why": "Dan 09-24 /prioritize: wants a definitive read on whether Opus 5.5 beats GPT-6 Sol at editing. One Claude long-form build per week fits the allowance; style checkpoint before any full render (RO-05 lesson)."
+    },
+    {
+      "text": "Claim the Claude Code cloud-sessions credit (claude.ai/code/claim-credit) before Oct 7; it expires Nov 4",
+      "priority": "high",
+      "addedAt": "2026-09-24",
+      "why": "Dan 09-24 /prioritize. Dan-only (GitHub link + claim). Credit is separate from the subscription limits and applies only to cloud sessions."
+    },
+    {
+      "text": "Finish the Victory Dashboard redo in Grokbot",
+      "priority": "med",
+      "addedAt": "2026-09-24",
+      "why": "Dan 09-24 /prioritize: in progress on the $60/mo Grokbot subscription; Grokbot also takes lower-priority tasks."
     }
   ],
   "health": [
