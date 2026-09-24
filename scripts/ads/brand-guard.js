@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /* eslint-disable no-console */
 //
-// BRAND GUARD — keeps the Brand - Search - US campaign on brand searches only.
+// BRAND GUARD: keeps the Brand - Search - US campaign on brand searches only.
 //
 // Google's exact and phrase match serve "close variants", and on 2026-09-24 that meant the
 // brand campaign had spent $142.94 in 30 days with not one search containing "abs by ai"

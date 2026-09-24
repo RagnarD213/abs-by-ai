@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 //
-// BRAND GUARD — rule tests. Real search terms from the brand campaign, 2026-08-25 to 09-23,
+// BRAND GUARD: rule tests. Real search terms from the brand campaign, 2026-08-25 to 09-23,
 // plus the name searches Dan listed on 2026-09-24.
 //
 // RUN: node scripts/ads/brand-guard.test.js
