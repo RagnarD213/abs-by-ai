@@ -1,6 +1,10 @@
 # WV-01: "VSL 1: Analysis-page video (version A + version B intro)", first cut from raw footage
 
-**Website VSLs · 9/23 shoot · READY.** Added 2026-09-24 at Dan's request. Read `00-RULES.md` first.
+**Website VSLs · 9/23 shoot · PLAN REVIEW.** Added 2026-09-24 at Dan's request. Read `00-RULES.md` first.
+
+## Current handoff, September 24
+
+Dan requested extensive competitive research and a detailed editing plan before editing in a separate task. That planning package is delivered. Read local `WV-01-EDIT-PLAN-20260924.md`, `WV-01-RESEARCH-20260924.md` and `WV-01-SOURCE-MAP-20260924.md` before using the starter prompts below. The package is also in Dan's Drive review folder; its detailed contents are kept off the public repository. WV-01 is parked as `needs` for plan review, with no edited video or finalized result. The new handoff includes complete A/B treatment and all six B callbacks.
 
 ## Source (9/23 shoot)
 Folder: `/Volumes/Extreme/dan rose fitness 9:23 shoot - vsls, long form content, short form content/`

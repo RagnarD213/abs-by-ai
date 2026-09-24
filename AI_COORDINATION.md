@@ -91,6 +91,8 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # ACTIVE
 
+**WV-01 VSL plan - NEEDS DAN 2026-09-24, Codex.** Next: Dan reviews the planning package, then starts a separate editing task with `Handoffs/video-editing/WV-01-EDIT-PLAN-20260924.md` and its research/source-map appendices. Queue parked as `needs`; no video rendered. Detailed handoff: private Git and Drive.
+
 **STOP Deadlifting clip - NEEDS DAN 2026-09-20, Codex.** R3 review copy delivered to the shared Drive folder: `1dXUbQajUzM-uO_Xl92telO0qsa-Ob7uV`. Full head visible; measured bar path rises once without reversing. Silent B-roll has no matching full-film delivery gate, so no gate PASS is claimed. Next: Dan reviews R3 and approves or names any corrections. Detail: `Media/ai-frames/stop-deadlifting-opening-20260918/motion-v2/R3_DELIVERY.json`.
 
 **AV-07 Ad 10 vertical kit build — ACTIVE 2026-09-18, Codex.** Claimed; building the full 9:16 and ≤0:59 cutdown from Muhammad’s finalized master with the locked kit. Next: recover Ad 10’s edit/grade, author the fresh content sheet, render, then run three fresh-session strip/sheet reviews and require GATE PASS 36/36. Detail: `/Volumes/Extreme/_edit_work/kit9x16/ad10-master/`.
