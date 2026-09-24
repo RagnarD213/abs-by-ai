@@ -50,11 +50,17 @@ the "fired my trainer" material, the Oura ring, and the busy-dad shots.
 |---|---|
 | BJJ / jiu jitsu b-roll | DS-15 "Does Jiu Jitsu Get You Abs?" has no martial arts footage. Film it at the academy, pull from your own archive, or buy stock? Filming it is the only option that looks like you. |
 
-## 4. Scripted and ready to shoot
+## 4. Pickups owed from the 9/23 shoot
 
-- **/start VSL.** Scripted and planned for filming. Both teleprompter scripts (hero cut and full
-  cut, plus the four hook takes and three pickup lines) are in the shoot Google Doc above, ready
-  to load into the prompter. Highest revenue item on this list.
+Both VSLs, all 9 long-forms and all 7 Make Time shorts were filmed on 9/23 (roll map:
+`Docs/SHOOT_923_FOOTAGE_REPORT.md`). Still owed, all on the vertical tabletop set:
+
+- **Self-Driving Car short, two lines:** "The Tesla does check that you're watching the road, so do all
+  of that with your voice." and "So for about $150 a month more, you get a car that drives you everywhere."
+- **Alternate hook takes** for the six shorts other than Wispr Flow (two each), if the hooks are to be A/B tested.
+- **The `[FILM]` cold opens and b-roll** in the short-form scripts: thumb-typing on the phone, Dan at the
+  stove, in the Tesla hands-off, at the desk with Claude, the six pieces of home equipment, meal prep
+  containers, robotaxi ride.
 
 ## 5. Needs a script written first
 
