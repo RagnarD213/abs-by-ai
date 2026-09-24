@@ -1,20 +1,29 @@
 # VQC-C — Phase 4: the cut technique that is actually Muhammad's advantage
 
-> ⚠ **SCOPE CORRECTED 2026-09-11 — still live, but two of its six items moved.** Read this before firing.
+> ⚠ **RESCOPED 2026-09-24, verified against the repo. Two of the six items are BUILT. Read this before firing.**
+> The video-quality engine (Phases 1 to 4) finished 2026-09-18, so this document's blocking condition is gone
+> and part of its work landed along the way. What survives is four items, and one of them is the reason to fire it.
 >
-> * **Item 2 (≥25 % push coverage / never one fixed crop) is now owned by
->   `handoff-20260911-video-quality-engine.md` Phase 1** — it registers the corpus checks `style:coverage`
->   and `style:static_run`. This document already said "or hand the row to VQC-B". **Do not build that row
->   here; verify it exists and move on.**
-> * **Item 6 (`picture.json`, the picture reference) is the input to that document's Phase 4 (the locked
->   kit)** — same measurements: talking-head luma, shot-length distribution, cut rate, insert coverage,
->   graphic density, push coverage and ramp shape. **Build it here, and build it FIRST**, so Phase 4 can
->   consume it instead of re-deriving it.
-> * **Items 1, 3, 4 and 5 are untouched and are the reason to fire this** — pose-matched picture cuts
->   (`piccuts.py`), 0 px landing, dead air paired with a picture cut, and the grade. Nothing else covers them.
+> **DONE, do not rebuild:**
+> * **Item 2 (≥25 % push coverage / never one fixed crop).** Built. `style:coverage` and `style:static_run`
+>   are registered corpus checks in `_shared/qc_corpus/`. Confirm they are green and move on.
+> * **Item 6 (`picture.json`, the picture reference).** Built, at `.claude/skills/_shared/reference/picture.json`,
+>   carrying `shot_lengths`, `luma`, `push_coverage`, `naked_splices`, `ramp` and a `gate_version`. Read it,
+>   do not re-derive it. Extend it only if an item below needs a number it does not already hold.
 >
-> **Fire after Phase 1 of the engine document and before its Phase 4.** The related check `landing_check.py`
-> is folded into the engine's Phase 1 gate; the *fix* for it (item 3) is still here.
+> **STILL OPEN, this is the job:**
+> * **Item 1, pose-matched picture cuts. The whole reason to fire this.** `piccuts.py` still exists in exactly
+>   one place, `shortad-from-longform/reference/a2/piccuts.py`, and `_shared/cut/` does not exist at all. The
+>   09-18 kit built its own `kit_cuts.py` inside `reference/kit9x16/` rather than promoting the shared tool,
+>   so no other skill can reach either one. Promote, generalise to the no-reference-cut case, wire into all
+>   five video skills. Memory `shared-fix-may-not-reach-the-pipeline` is exactly this failure.
+> * **Item 3, 0 px landing.** Open. `landing_check.py` and the `facetrack3` shrinking end-window live only in
+>   `shortad-from-longform/reference/a10_sq/`. The CHECK is in the shared gate; the FIX is not shared.
+> * **Item 4, dead air paired with a picture cut.** Open. `pausejump.py` exists only under `shorts/reference/`.
+> * **Item 5, grade.** Open. The ~6 luma gap is already measured in `picture.json`; nothing acts on it.
+>
+> **Scale after the rescope: ~1 session, not 2.** Item 1 is most of it. If the session runs short, items 1
+> and 3 alone are worth shipping; 4 and 5 can be a follow-up.
 
 
 **Part 3 of 4 of the video-quality programme.** Evidence and the full plan:
@@ -128,7 +137,10 @@ warning, not a win.**
 * Re-cutting **Ad 1 vertical attempt 1** (the corpus's worst cut-quality entry, 23 of 72 splices naked)
   with the new `piccuts.py` measurably reduces the exposed-splice count, verified by frame strips at
   −2/−1/0/+1/+2 — **not** by a frame-difference score.
-* `picture.json` exists and the two Muhammad references pass every bound derived from them.
+* `picture.json` (already built) still passes on the two Muhammad references, and any bound this session
+  adds to it is measured, not guessed.
+* `_shared/cut/` exists and is the ONLY copy of the pose-matching code: the `a2/` and `kit9x16/` forks
+  import it or are deleted. A grep for a second implementation returns nothing.
 * An A/B clip of one join, old versus new, is sent to Dan. **He decides whether it reads as continuity.**
   Doctrine does not.
 
@@ -150,18 +162,21 @@ warning, not a win.**
 ## Starter prompt
 
 ```
-Read Handoffs/handoff-20260909-vqc-C-phase4-cut-technique.md and execute it. Read
-Handoffs/handoff-20260909-video-quality-to-muhammad-standard.md first for context.
+Read Handoffs/handoff-20260909-vqc-C-phase4-cut-technique.md and execute it. Read its RESCOPED 2026-09-24
+header first: items 2 and 6 are already built, so do not rebuild them. Read
+Handoffs/handoff-20260909-video-quality-to-muhammad-standard.md for context.
 
-This is the phase that fixes why our cuts read as jump cuts and Muhammad's don't: he cuts the picture
-1-15 frames off the audio splice on a pose-matched frame. piccuts.py already does this for one ad —
-promote it to _shared/cut/, generalise it to work without a reference cut, and wire it into all five
-video skills. Then: the ≥25% push coverage rule, the 0 px landing fix, dead air paired with picture cuts,
-the grade, and a picture reference measured off Muhammad's two finished edits.
+The job is item 1 above all: our cuts read as jump cuts because we cut the picture at the audio splice,
+and Muhammad cuts it 1-15 frames away on a pose-matched frame. piccuts.py does this for exactly one ad and
+lives in shortad-from-longform/reference/a2/. Promote it to _shared/cut/, generalise it to the case where
+there is no reference cut to match against, and wire it into all five video skills. The 09-18 kit built its
+own kit_cuts.py instead of sharing one: reconcile them into the shared tool rather than leaving a third fork.
+Then items 3, 4 and 5: the 0 px landing fix, dead air paired with a picture cut, and the grade.
 
-Confirm _shared/qc_corpus/run.py exists and is green first. Work in scratch copies — do not touch any
-delivered master. Respect the two-concurrent-build cap. Send Dan an A/B of one join, old vs new, and let
-him judge it. Commit, push, verify. No dashboard row.
+Confirm _shared/qc_corpus/run.py is green first and read _shared/reference/picture.json rather than
+re-measuring Muhammad. Work in scratch copies, never in another session's build directory. Respect the
+two-concurrent-build cap. Send Dan an A/B of one join, old versus new, and let him judge it. Commit, push,
+verify. No dashboard row.
 ```
 
 **Model:** Fable 5.1, high. Opus 5 at high effort is an acceptable substitute.
