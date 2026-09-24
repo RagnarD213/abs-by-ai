@@ -83,8 +83,11 @@ A take is a run of speech with no gap ≥ 1.0 s; a group is a take plus the take
 Proof on C1512 (the spray-tan roll, 60 takes): the picks agree with the human edit at the intro
 (take 9 at 2:15.7; the edit used 2:15.85) and the outro (take 60; the edit's *"final take, 3 earlier
 outros dropped"*), and rule 3 finds the same *"in my normal life"* restatement the edit's own
-comment records. Its list is in `Docs/TAKE_SELECTION_C1512_20260924.md`. **It recommends; it does
-not cut.** Dan sees the list before a cut is built on it.
+comment records. Its list is in `Docs/TAKE_SELECTION_C1512_20260924.md`. **Dan reviewed the picks on
+a labelled clip of every take (2026-09-24) and agreed with all three**: intro take 5, closing take 4,
+and the stumble cut as the whole sentence. His words for rule 1: "usually the last take is clean. If
+there's no problem with it, keep the last take", with the caveat "not all the time, maybe there's a
+stronger take before", which is why fluency decides. **It recommends; it does not cut.**
 
 ## Proof
 

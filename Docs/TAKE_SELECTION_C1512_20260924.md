@@ -1,5 +1,7 @@
 # Take selection on the spray-tan roll (C1512), 2026-09-24
 
+**Dan's verdict (2026-09-24, on a labelled review clip of every take):** agreed with the intro pick (take 5 of 5), the closing pick (take 4 of 4) and the 4:00 stumble cut. Rule of thumb in his words: keep the last take if there is no problem with it; sometimes an earlier take is stronger.
+
 Produced by `python3 .claude/skills/_shared/cut/takes.py` from the roll's own sidecar transcript. This is the list the handoff asked for: the tool's choices on a real roll, shown to Dan before any cut is built on them. The rev-0/1/2 spray-tan edit was cut by hand from this roll; where the tool agrees or disagrees with that edit is noted below the table.
 
 

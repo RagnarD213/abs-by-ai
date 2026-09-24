@@ -91,8 +91,6 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # ACTIVE
 
-**Junk-footage pass - NEEDS DAN 2026-09-24, Claude Fable.** Shipped: `_shared/cut/` junk report + take selection, gate rows `junk:repeated_take` / `junk:dead_air`, corpus green. Next: Dan reads `Docs/TAKE_SELECTION_C1512_20260924.md` and says whether the picks match his ear; then delete this entry.
-
 **VQC-C picture cuts - NEEDS DAN 2026-09-24, Claude Opus 5.5.** Shipped `_shared/cut/` piccuts (head-matched picture cuts), landing, deadair and `_shared/reference/luma_lift.py`; wired into all five video skills. Ad 1 attempt 1: exposed cuts 50 to 10 of 72. Next: Dan watches `/Volumes/Extreme/_edit_work/vqc-c/AB_join_69s.mp4` and says if NEW reads as continuity; then delete this entry.
 
 **STOP Deadlifting clip - NEEDS DAN 2026-09-20, Codex.** R3 review copy delivered to the shared Drive folder: `1dXUbQajUzM-uO_Xl92telO0qsa-Ob7uV`. Full head visible; measured bar path rises once without reversing. Silent B-roll has no matching full-film delivery gate, so no gate PASS is claimed. Next: Dan reviews R3 and approves or names any corrections. Detail: `Media/ai-frames/stop-deadlifting-opening-20260918/motion-v2/R3_DELIVERY.json`.

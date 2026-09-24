@@ -542,6 +542,14 @@ shows a stretched word inside a candidate take, LISTEN to the isolated span
 before keeping it; a later take with internal silences loses to a clean earlier
 take.** Rule updated: later-take-wins only when the later take is fluent.
 
+Spray-tan roll C1512, 2026-09-24 (the first run of `_shared/cut/takes.py`, reviewed by Dan on a
+labelled clip of every take): he agreed with all three picks -- intro take 5 of 5, closing take 4 of
+4, and the 4:00 stumble cut as the WHOLE restated sentence ("the second one is definitely better").
+His rule of thumb, in his words: **"usually the last take is clean. If there's no problem with it,
+keep the last take"** -- but "not all the time, maybe there's a stronger take before." That is
+exactly rule 1 as implemented: the last take wins only when it is fluent; a hesitation, restart or
+noise inside it hands the pick to the latest clean take before it.
+
 ## Graphics-placement lessons (LEARNING — append every Dan-directed placement)
 
 Ad #1 rev-1 (2026-08-20), Dan's directed placements and the patterns behind them:
