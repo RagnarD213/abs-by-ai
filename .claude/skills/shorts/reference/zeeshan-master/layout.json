@@ -1,0 +1,64 @@
+{
+ "canvas": [
+  1080,
+  1920
+ ],
+ "note": "SL-04 geometry, Zeeshan Arms & Shoulders master. See plan_shots.py for every window and why.",
+ "talk": {
+  "cropW": 608,
+  "note": "9:16 on 1920x1080 is 607.5; 608 keeps it even.",
+  "zoomH": 790,
+  "zoomW": 530,
+  "zoomNote": "zoom:true crops 740 of the 1080 source rows from the TOP, dropping his lower third entirely. 740 is set by the TWO-LINE lower third (top edge row 745 at 0:22 and 1:35), not the one-line version at row 805 - one number for every zoom shot beats two. Costs 2.6x upscale against 1.78x for a full-height crop, which is why only the three talking-head shots that actually carry a lower third use it; a horizontal ab-wheel rollout under a lower third is a card instead.",
+  "dropW": 724,
+  "dropZoomW": 496,
+  "dropNote": "dropW/dropZoomW are the source crop widths that fill 1080x1610 exactly. 724x1080 -> 1080x1610 (1.49x). Zoom shots crop 740 source rows, so 496x740 -> 1080x1610 (2.15x, against 2.60x before the drop).",
+  "fullW": 724,
+  "fullH": 1080,
+  "winNote": "SL-04: full 724x1080 (1.49x) and zoom 530x790 (2.04x, excludes Zeeshan lower-third rows 804-907). Both from row 0: his hair touches rows 0-12 on every shot. mid 604x900 (1.79x): a 1.2x punch between them, only where no lower third is up (it includes rows 804-907).",
+  "midW": 604,
+  "midH": 900
+ },
+ "card": {
+  "w": 1080,
+  "h": 608,
+  "x": 0,
+  "y": 700,
+  "chipY": 1340,
+  "chipH": 64,
+  "note": "SL-04: stage centred low so the caption band (text bottom y1600, MarginV 320) sits just under it; live-round cards carry an EXERCISE n OF 3 chip at y1340 where there is no speech.",
+  "labels": {
+   "F-s07": "EXERCISE 1 OF 3",
+   "F-s08": "EXERCISE 2 OF 3",
+   "F-s09": "EXERCISE 3 OF 3"
+  }
+ },
+ "pip": {
+  "gfxTop": 88,
+  "gfxH": 700,
+  "danX": 140,
+  "danY": 826,
+  "danW": 800,
+  "danH": 1000
+ },
+ "wordmark": {
+  "x": 74,
+  "y": 1786
+ },
+ "titleSeconds": null,
+ "pipBoxes": {},
+ "audio": {
+  "fadeIn": 0.05,
+  "fadeOut": 0.15,
+  "joinFade": 0.015,
+  "note": "SL-04: Zeeshan's mix verbatim. De-click fades only; the verbatim gate allows every second within +/-0.5 dB of his own cut, so the old 0.18/0.45/0.06 scored-source fades are too long here."
+ },
+ "titleMaxLines": 2,
+ "titleScrimH": 310,
+ "dropTop": 310,
+ "dropNote": "STANDING RULE (Dan, 2026-08-28): the title must never sit on his face or his abs. 'move me down or if not possible move title to bottom of captions.' On a full-bleed 9:16 crop there is no vertical slack - his head starts at source row 35, i.e. y62 in the delivered frame, and a 2-line Impact headline runs to y300 - so the picture is DROPPED to start at y=310 and the J2 field carries the title above it. Measured: his head then starts at y362, clear by 62px. Costs 16% of picture height and BUYS sharpness - the source crop widens from 608 to 724, so the upscale falls from 1.78x to 1.49x. Cards are unaffected: their stage top is y170 and the title only ever overlaps the sky at the top of a card.",
+ "titleScrimNote": "The scrim ends exactly where the dropped picture starts, so it can never reach the picture. It still earns its place on CARD shots, whose stage top is y170 - there the title crosses the top of the card, which is sky.",
+ "titlePersists": true,
+ "titleNote": "STANDING RULE (Dan, 2026-08-28): the title stays on screen for the WHOLE short, on the black field only, never over the picture - vertical or horizontal source, every short. His reason is composition, not branding: a horizontal frame leaves too much empty black, and a title that fades at 3.2s leaves the top band dead for the rest of the video. So the title holds and the picture moves down to make room. This replaces the old 'a title must not sit on screen for the whole video' rule from V4, which was written when the title sat on his FACE.",
+ "captionMarginV": 320
+}

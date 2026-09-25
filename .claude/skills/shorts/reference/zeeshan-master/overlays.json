@@ -1,0 +1,40 @@
+{
+ "note": "J2 mission chips, one at a time, synced to the spoken list (F source words 469.88 / 471.50 / 473.30 / 476.14 / 477.60 / 480.36, mapped to output = 14.40 + (src - 458.0)). They carry the workout structure that Zeeshan's 22 px chip stack cannot carry on a phone. y1110: on the black field under the 469.7-479.0 card (card ends y1025), never on Dan; the reviewer found y1290 landing under his navel on the NEAR framing. The last chip runs into the full-body wide (35.4-36.9) where y1110 is his thighs. F-o5 ends with the card at 35.40 (reviewer rev 2: past it the chip landed across his shorts on the full-body wide).",
+ "F": [
+  {
+   "id": "F-o1",
+   "text": "30 SEC  \u00b7  BICEP CURLS",
+   "t0": 26.28,
+   "t1": 27.9,
+   "y": 1110
+  },
+  {
+   "id": "F-o2",
+   "text": "30 SEC  \u00b7  SIDE LATERALS",
+   "t0": 27.9,
+   "t1": 29.7,
+   "y": 1110
+  },
+  {
+   "id": "F-o3",
+   "text": "30 SEC  \u00b7  TRICEP EXTENSIONS",
+   "t0": 29.7,
+   "t1": 32.54,
+   "y": 1110
+  },
+  {
+   "id": "F-o4",
+   "text": "30 SEC  \u00b7  REST",
+   "t0": 32.54,
+   "t1": 34.0,
+   "y": 1110
+  },
+  {
+   "id": "F-o5",
+   "text": "THEN 2 TO 3 MORE ROUNDS",
+   "t0": 34.0,
+   "t1": 35.4,
+   "y": 1110
+  }
+ ]
+}

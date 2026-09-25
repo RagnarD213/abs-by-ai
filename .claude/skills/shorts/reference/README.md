@@ -11,6 +11,7 @@ rewrite from scratch.
 
 | directory | built for | status |
 |---|---|---|
+| **`zeeshan-master/`** | SL-04 Arms & Shoulders, cut from an EDITOR'S finished 16:9 master (2026-09-24) | **CURRENT for editor masters.** His audio verbatim at 320k, three row-0 windows + inset cards for his graphics, CTC caption timing, delivered-ASR gate evidence. Read its README |
 | **`clean-master/`** | supplements (03) batch, 8/3 shoot, cut from the NO-GRAPHICS master | **CURRENT.** Multi-segment, raw-roll inserts, bleeps, `syncgate.py`, `finishaudio.py` = the shared audio chain + gate per short, `qc.js` requires the stamp |
 | **`zepbound/`** | Zepbound (02) batch | **CURRENT** — clean-master plus the title-ink clearance check (his head sits at source row 0) |
 | **`spray-tan/`** | spray-tan (01) batch, rev 1 | the audio lessons: room measurement (EDT), dereverb, bounds scan. Its `audiogate.py`/`dereverb.py` are now shims to `_shared/audio` |

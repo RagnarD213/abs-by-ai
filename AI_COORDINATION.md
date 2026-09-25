@@ -97,7 +97,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **RO-05 Fable recut - ACTIVE 2026-09-24, Claude.** Building Dan's style approval packet. `/Volumes/Extreme/_edit_work/ro05-fable/`
 
-**SL-04 - ACTIVE 2026-09-24, Claude.** Awaiting picks.
+**SL-04 - NEEDS DAN 2026-09-24, Claude.** Reviewing.
 
 **STOP Deadlifting clip - NEEDS DAN 2026-09-20, Codex.** R3 review copy delivered to the shared Drive folder: `1dXUbQajUzM-uO_Xl92telO0qsa-Ob7uV`. Full head visible; measured bar path rises once without reversing. Silent B-roll has no matching full-film delivery gate, so no gate PASS is claimed. Next: Dan reviews R3 and approves or names any corrections. Detail: `Media/ai-frames/stop-deadlifting-opening-20260918/motion-v2/R3_DELIVERY.json`.
 
