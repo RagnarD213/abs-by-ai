@@ -4,9 +4,9 @@ Written 2026-09-25 from Dan's complete round-2 review. Recommended model: **GPT-
 
 ## Goal and sequence
 
-Lock the framing and a professional Blue Glass graphics system, then revise the first three minutes for one consolidated review. Dan wants the next sample to settle the opening before the rest of A/B is edited. Do not rebuild the complete films yet.
+Use the locked W2 wide and T2 tight crops, establish a professional Blue Glass graphics system, then revise the first three minutes for one consolidated review. Dan wants the next sample to settle the opening before the rest of A/B is edited. Do not rebuild the complete films yet.
 
-1. **Crop first.** Read the saved crop choices and any subsequent reply from Dan. Show the existing screenshots or a five-second proof. Get his wide/tight choice before rendering another complete opening sample. Do not interpret a recommendation as approval.
+1. **Crops are locked: W2 wide and T2 tight, approved by Dan on 2026-09-25.** Apply these exact crops and perform the normal moving-footage hair-clearance check. Do not reopen the crop choice or ask for approval again. Proceed to the Blue Glass motion templates.
 2. Establish several genuinely moving Blue Glass variants across full screen, phone/left third and lower third. Show real content with motion, not static cards described as motion graphics. Lock the system with Dan.
 3. Generate the three explicitly approved AI concepts, prepare new requested frame pairs and exact existing-source previews, and build the revised opening using approved assets or exact-duration placeholders where choices remain pending. Keep the recorded story and subtitle timing correct.
 4. Deliver one consolidated opening/asset package. The full-film finish follows Dan's review of this round.
@@ -24,7 +24,7 @@ Read `.claude/skills/_shared/VIDEO-RULES.md` in full, `Handoffs/video-editing/00
 
 Work root below is `/Volumes/Extreme/_edit_work/wv01-edit/`, abbreviated W. Preserve `round2/` as reviewed history. Use a new round-3 work directory for revisions. Raw footage is read-only.
 
-## Crop question answered, screenshots prepared
+## Crops approved and locked: W2 wide, T2 tight
 
 C1697 is **3840 x 2160**. The current wide crop is `3680:2070:80:90` (width:height:x:y). Its bottom is already **2160**, the full recorded bottom edge. There are **zero additional source pixels beneath the current wide crop**. Do not promise more desk or synthesize an extension.
 
@@ -34,7 +34,7 @@ Dan's final instruction: keep that bottom edge, zoom in very slightly to remove 
 |---|---|---|
 | W0 | 3680:2070:80:90 | Current comparison |
 | W1 | 3616:2034:112:126 | About 1.8% tighter |
-| W2 | 3552:1998:144:162 | About 3.6% tighter, editor recommendation |
+| **W2, APPROVED** | **3552:1998:144:162** | About 3.6% tighter, locked by Dan |
 | W3 | 3488:1962:176:198 | About 5.5% tighter, least headroom |
 
 All three retain bottom y=2160. Keep blue side light and the captured lamp/base visible. W3 is closest to the head and needs particularly careful movement checks.
@@ -42,10 +42,10 @@ All three retain bottom y=2160. Keep blue side light and the captured lamp/base 
 Dan likes the tight zoom at **01:15**. Keep its size `2608 x 1466` and fixed x=616, but move it down a little. Unlike the wide shot, this tight crop has unused recorded space below it. Screenshots at exactly 01:15:
 
 - T0: current y=120.
-- T1: y=160, 40 source pixels lower; editor recommendation.
-- T2: y=184, 64 source pixels lower.
+- T1: y=160, 40 source pixels lower; unselected alternative.
+- **T2, APPROVED: `2608:1466:616:184`, 64 source pixels lower; locked by Dan.**
 
-Gallery: `W/round3-crop-review/index.html`, served at `http://127.0.0.1:8766/round3-crop-review/index.html`. Full-size individual JPEGs, `wide-comparison.jpg`, `tight-comparison.jpg`, `crop-options.json` and `build_crops.py` are alongside it. **W2/T1 is only recommended, not approved as of this handoff.** Record any subsequent crop reply in the decision file before proceeding. The stills are not complete-motion clearance: measure hair every 0.25 seconds across affected source ranges before applying crops. Keep each presenter crop fixed, with no animated drift.
+Gallery: `W/round3-crop-review/index.html`, served at `http://127.0.0.1:8766/round3-crop-review/index.html`. Full-size individual JPEGs, `wide-comparison.jpg`, `tight-comparison.jpg`, `crop-options.json` and `build_crops.py` are alongside it. **Dan approved W2 and T2 on 2026-09-25:** "Okay for the crops, let's lock in W2. That looks perfect to me and then for the tight crop let's use T2. Let's lock in those crops." This supersedes the earlier W2/T1 recommendation. The saved decision file records the selected screenshot hashes. Do not ask Dan to choose these crops again. The stills are not complete-motion clearance: measure hair every 0.25 seconds across affected source ranges before applying crops. Keep each presenter crop fixed, with no animated drift.
 
 ## Approved choices to preserve
 
@@ -68,7 +68,7 @@ Do not treat these as new source timecodes. Fixing the 01:53 pause will move lat
 | About 00:24, P06-early | Remove the list-of-numbers salmon placeholder at this early position. Propose an existing generated clip of the white adult male prospect with six-pack abs working out or meal prepping. Search existing approved AI assets first; show an exact short moving preview before inserting a new selection. This does not reject the later native food-tracking clip. |
 | About 00:36 | Keep before-photo timing; replace layout with the approved moving Blue Glass system once selected. |
 | About 01:04 | Use both approved shirt-on father/daughter photos consecutively, inside the new graphics treatment. |
-| About 01:15 | Keep the tight zoom; reduce headroom by lowering the crop as selected in the crop checkpoint. |
+| About 01:15 | Use approved T2: same tight zoom, crop `2608:1466:616:184`. |
 | About 01:47 | Add an AI illustration of Dan at an impressive multi-screen computer setup, prompting and reprompting and comparing five AI models, working out the formula. Preserve recognizable Dan identity from real reference imagery. Produce START and END frames for approval, then motion only after those new frames are approved. |
 | About 01:53 | Dan identifies junk: an unnecessary pause before speech resumes. Inspect the exact footage/audio, remove the dead pause while preserving complete words and the thought, smooth the join. Run the shared junk-footage checks and an actual listen across the entire revised sample so similar pauses are caught. Do not confuse the older verified false-start repairs with this new rejection. |
 | About 02:29 | Real-result photo placement/timing approved; keep the selected photos in improved Blue Glass. |
@@ -146,4 +146,4 @@ Preserve recipes, media and private production records on the SSD and local `cod
 
 ## Ready-to-paste starter prompt
 
-Read `Handoffs/handoff-20260925-wv01-round3-lock-crop-and-graphics.md` and required production rules. Execute WV-01 round 3 with `$abs-edit-organic` as a 16:9 website VSL. First lock Dan's wide/tight crop using the saved screenshots and any subsequent choice. Preserve approved color C and audio B. Establish professional moving Blue Glass full-screen, left-third phone and lower-third templates, then revise only the opening sample. Generate the expressly approved H2, B01 and G03 motion, prepare the new customer-journey, body-scan and Dan-at-computer frame concepts, apply all asset/phone-UI and junk-pause feedback, and retain approved sources plus six B callbacks. Respect budgets, the two-build cap and unresolved gates. Do not build the full films, publish, replace site videos or deploy app features.
+Read `Handoffs/handoff-20260925-wv01-round3-lock-crop-and-graphics.md` and required production rules. Execute WV-01 round 3 with `$abs-edit-organic` as a 16:9 website VSL. Use the already approved W2 wide and T2 tight crops without another crop-approval step. Preserve approved color C and audio B. Establish professional moving Blue Glass full-screen, left-third phone and lower-third templates, then revise only the opening sample. Generate the expressly approved H2, B01 and G03 motion, prepare the new customer-journey, body-scan and Dan-at-computer frame concepts, apply all asset/phone-UI and junk-pause feedback, and retain approved sources plus six B callbacks. Respect budgets, the two-build cap and unresolved gates. Do not build the full films, publish, replace site videos or deploy app features.
