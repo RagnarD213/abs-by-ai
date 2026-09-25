@@ -153,6 +153,7 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
+- `handoff-20260924-vsl-landing-page-five-mockups.md` (09-24): five VSL landing page mockups from the competitor research (`Docs/VSL_LANDING_RESEARCH_2026-09-24.md`). Run on Dan's Mac (VidTao). Opus 5.5 high. Dan picks one after.
 - `handoff-20260924-absbyai-ig-final-post-and-shutdown.md` (09-24): ready once Dan picks A/B/C. Claude Sonnet medium. Images and public Drive link are recorded in the completed image handoff. No publishing performed.
 - `handoff-20260924-queue-cover-thumbnail-bakeoff.md` (09-24): 19 frozen queue images, four new alternatives each. Next: new task builds side-by-side gallery; Dan selects replacements. Astra high.
 - `handoff-20260924-generator-consult-call-outreach.md` (09-24): fire by 09-26.
