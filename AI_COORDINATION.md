@@ -99,7 +99,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **STOP Deadlifting clip - NEEDS DAN 2026-09-20, Codex.** R3 review copy delivered to the shared Drive folder: `1dXUbQajUzM-uO_Xl92telO0qsa-Ob7uV`. Full head visible; measured bar path rises once without reversing. Silent B-roll has no matching full-film delivery gate, so no gate PASS is claimed. Next: Dan reviews R3 and approves or names any corrections. Detail: `Media/ai-frames/stop-deadlifting-opening-20260918/motion-v2/R3_DELIVERY.json`.
 
-**DS-18 corner title - ACTIVE 2026-09-25, Codex.** R8 removes the upper-right title from all five presenter spans; R7 timing, B-roll, arrows, audio, captions, lower mark, CTA and cover stay locked. Next: render, verify, independently review and deliver a private copy. No upload or publishing.
+**DS-18 corner title - NEEDS DAN 2026-09-25, Codex.** R8 private review copy delivered at `/Volumes/Extreme/_edit_work/ds18-kettlebell-deadlift/review/DS-18-R8-full-video-review.mp4`. Title removed from all five presenter spans; independent picture review passed. Exact-file gate retains R7's six failures. Next: Dan reviews R8 and approves or names corrections. No upload or publishing.
 
 **Overnight edit queue — PAUSED 2026-09-24, Dan's call.** He fires every edit by hand now to save tokens; nothing launches unattended. Routing left correct underneath (AV/AS/SL Claude, RA/RO/DS Codex, cross-review) so a resume needs no config work. Resume only if Dan says: `dispatcher.py resume`.
 
