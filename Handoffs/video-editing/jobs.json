@@ -1260,13 +1260,13 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/AV-07-ad10-vertical.md`: build the 9:16 vertical and ≤0:59 cutdown of Muhammad's finalized Ad 10 with /shortad-from-longform, decoding his master as BT.709 from the start, his audio untouched, the real-picture chip off my face and abs, before and after the same person. Every gate, independent audit, deliver, send me the review copies, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/AV-07-ad10-vertical.md` using `.claude/skills/shortad-from-longform/SKILL.md` as the method and `Handoffs/handoff-20260914-ad3-square-codex.md` as the model of a Codex variant build. Deliver, send Dan the review copies, update `00-MASTER.md`.",
-   "state": "finalized",
-   "note": "Dan finalized both Ad 10 vertical versions on 2026-09-25: This is looking great. This ad is finalized.",
+   "state": "uploaded",
+   "note": "Both approved Ad 10 verticals uploaded Unlisted, processed HD, and added to the existing Demand Gen groups on 2026-09-25.",
    "sub": "",
    "order": 60,
    "updated": "2026-09-25",
-   "by": "Codex GPT-5.6",
-   "rev": 4,
+   "by": "Codex",
+   "rev": 5,
    "syncedRev": 2
   },
   {

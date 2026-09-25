@@ -433,3 +433,14 @@ not changed by this work.
 
 2026-09-22: both new ads read APPROVED, so the old ads `825050916875` (/start) and `824925650094` (home), on
 `TqXD2dGgAPs`, were PAUSED via `dgen-ads/ad15-pause-0916-ads.json`; new ads ENABLED. YouTube `TqXD2dGgAPs` kept for Dan to delete.
+
+## 2026-09-25: Ad 10 approved verticals
+
+The exact AV-07 masters (SHA256 `b25b6e50e106cc4c6407fc949ff6edda25ceab8b1c75a559eff6427b0fc32cc6` and `36ae2f6d528ebf34692e81040343c88d17046eff27a25bc1c266f2fd816dd00f`) were uploaded to YouTube as Unlisted. Both processed in HD, are embeddable, and have the matching 9:16 thumbnail set and read back. The uploads were made with `containsSyntheticMedia=true`, category 26, and not made for kids. No organic publication.
+
+| version | YouTube | video asset | `/start` group / ad | home group / ad |
+|---|---|---|---|---|
+| Claude 9:16 | `4nDWFmdjzQQ` | `424707539263` | `206979993984` / `825998531965` | `206979994264` / `825998531971` |
+| Claude 9:16 59s | `CR4WAVmSuXY` | `424707544210` | `206979993984` / `825998531968` | `206979994264` / `825998531974` |
+
+The live Ad 10 copy matched `ad10.json`, so it was reused. All four new ads are ENABLED and `REVIEW_IN_PROGRESS` as of 2026-09-25. Recheck policy on 2026-09-26. `/start` URLs use `https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad10&utm_content=claude-9x16[-59s]-start`; home URLs use `https://absbyai.com/?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad10&utm_content=claude-9x16[-59s]-home`. Exact per-ad URLs and IDs are in `scripts/ads/api/dgen-ads/ad10.result.json`. The original 16:9 asset `421589398534` and ads `824793606450` and `824793582135` remain enabled. Both ad groups retain their $30 target CPA and audience `359638252`. The live shared campaign budget read $50/day before the change, versus $40/day in the earlier record. It was preserved at $50/day and is now shared by these additional ads.

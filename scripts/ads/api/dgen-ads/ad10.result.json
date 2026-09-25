@@ -1,22 +1,83 @@
 {
- "at": "2026-09-15T23:30:46.358Z",
+ "at": "2026-09-25T15:37:41.916Z",
  "results": [
-  "customers/3427170837/assets/421589398534",
-  "customers/3427170837/audiences/359638252",
-  "customers/3427170837/adGroups/206979993984",
-  "customers/3427170837/adGroupCriteria/206979993984~2840",
-  "customers/3427170837/adGroupCriteria/206979993984~2124",
-  "customers/3427170837/adGroupCriteria/206979993984~1000",
-  "customers/3427170837/adGroupCriteria/206979993984~2501809717596",
-  "customers/3427170837/adGroupAds/206979993984~824793606450",
-  "customers/3427170837/adGroups/206979994264",
-  "customers/3427170837/adGroupCriteria/206979994264~2840",
-  "customers/3427170837/adGroupCriteria/206979994264~2124",
-  "customers/3427170837/adGroupCriteria/206979994264~1000",
-  "customers/3427170837/adGroupCriteria/206979994264~2501995234465",
-  "customers/3427170837/adGroupAds/206979994264~824793582135"
+  "customers/3427170837/assets/424707539263",
+  "customers/3427170837/assets/424707544210",
+  "customers/3427170837/adGroupAds/206979993984~825998531965",
+  "customers/3427170837/adGroupAds/206979993984~825998531968",
+  "customers/3427170837/adGroupAds/206979994264~825998531971",
+  "customers/3427170837/adGroupAds/206979994264~825998531974"
  ],
  "readBack": [
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/206979993984",
+    "id": "206979993984",
+    "name": "Ad 10 Busy Dad Fitness | /start",
+    "targetCpaMicros": "30000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/206979993984~824793606450",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/824793606450",
+     "id": "824793606450",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad10&utm_content=muhammad-16x9-start"
+     ],
+     "name": "Ad 10 Busy Dad Fitness | Muhammad 16:9 | /start"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEWED"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/206979993984",
+    "id": "206979993984",
+    "name": "Ad 10 Busy Dad Fitness | /start",
+    "targetCpaMicros": "30000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/206979993984~825998531965",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/825998531965",
+     "id": "825998531965",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad10&utm_content=claude-9x16-start"
+     ],
+     "name": "Ad 10 Busy Dad Fitness | Claude 9:16 | /start"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/206979993984",
+    "id": "206979993984",
+    "name": "Ad 10 Busy Dad Fitness | /start",
+    "targetCpaMicros": "30000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/206979993984~825998531968",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/825998531968",
+     "id": "825998531968",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad10&utm_content=claude-9x16-59s-start"
+     ],
+     "name": "Ad 10 Busy Dad Fitness | Claude 9:16 59s | /start"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS"
+    }
+   }
+  },
   {
    "adGroup": {
     "resourceName": "customers/3427170837/adGroups/206979994264",
@@ -36,27 +97,50 @@
      "name": "Ad 10 Busy Dad Fitness | Muhammad 16:9 | home"
     },
     "policySummary": {
+     "reviewStatus": "REVIEWED"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/206979994264",
+    "id": "206979994264",
+    "name": "Ad 10 Busy Dad Fitness | home",
+    "targetCpaMicros": "30000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/206979994264~825998531971",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/825998531971",
+     "id": "825998531971",
+     "finalUrls": [
+      "https://absbyai.com/?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad10&utm_content=claude-9x16-home"
+     ],
+     "name": "Ad 10 Busy Dad Fitness | Claude 9:16 | home"
+    },
+    "policySummary": {
      "reviewStatus": "REVIEW_IN_PROGRESS"
     }
    }
   },
   {
    "adGroup": {
-    "resourceName": "customers/3427170837/adGroups/206979993984",
-    "id": "206979993984",
-    "name": "Ad 10 Busy Dad Fitness | /start",
+    "resourceName": "customers/3427170837/adGroups/206979994264",
+    "id": "206979994264",
+    "name": "Ad 10 Busy Dad Fitness | home",
     "targetCpaMicros": "30000000"
    },
    "adGroupAd": {
-    "resourceName": "customers/3427170837/adGroupAds/206979993984~824793606450",
+    "resourceName": "customers/3427170837/adGroupAds/206979994264~825998531974",
     "status": "ENABLED",
     "ad": {
-     "resourceName": "customers/3427170837/ads/824793606450",
-     "id": "824793606450",
+     "resourceName": "customers/3427170837/ads/825998531974",
+     "id": "825998531974",
      "finalUrls": [
-      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad10&utm_content=muhammad-16x9-start"
+      "https://absbyai.com/?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad10&utm_content=claude-9x16-59s-home"
      ],
-     "name": "Ad 10 Busy Dad Fitness | Muhammad 16:9 | /start"
+     "name": "Ad 10 Busy Dad Fitness | Claude 9:16 59s | home"
     },
     "policySummary": {
      "reviewStatus": "REVIEW_IN_PROGRESS"
