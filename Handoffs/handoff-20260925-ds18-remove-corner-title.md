@@ -2,7 +2,7 @@
 
 Prepared September 25, 2026. This is a brief for the next editing task. Do not edit, render, upload, publish or schedule DS-18 while preparing this handoff.
 
-Recommended model: GPT-6 Astra, high effort.
+Recommended model: GPT-6 Sol, medium effort. This is a bounded picture-only revision using an existing recipe and locked R7 decisions. Luna could handle a separable graphic-layer edit, but the title is baked into five presenter spans and the final CTA needs its existing ripple cut preserved.
 
 ## Dan's final revision request
 
@@ -48,4 +48,4 @@ Open R7 and `assets/title-fullscreen.png`. Confirm the title on the five present
 
 ## Ready-to-paste starter prompt
 
-> Read `Handoffs/handoff-20260925-ds18-remove-corner-title.md` and execute it exactly. Remove the upper-right `KETTLEBELL DEADLIFT` graphic from every DS-18 R7 presenter span, while preserving the lower AbsByAI.com mark and everything else Dan approved, especially the synchronized B-roll, arrows, audio, captions, opening, Start Today deletion, CTA and cover. Verify every affected join and the whole finished file, get an independent review, deliver a new private review copy, update tracking, and do not upload or publish. Use GPT-6 Astra at high effort.
+> Read `Handoffs/handoff-20260925-ds18-remove-corner-title.md` and execute it exactly. Remove the upper-right `KETTLEBELL DEADLIFT` graphic from every DS-18 R7 presenter span, while preserving the lower AbsByAI.com mark and everything else Dan approved, especially the synchronized B-roll, arrows, audio, captions, opening, Start Today deletion, CTA and cover. Verify every affected join and the whole finished file, get an independent review, deliver a new private review copy, update tracking, and do not upload or publish. Use GPT-6 Sol at medium effort.

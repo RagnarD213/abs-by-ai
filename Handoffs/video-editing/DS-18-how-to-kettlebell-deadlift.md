@@ -1,5 +1,7 @@
 # DS-18 — "How To Kettlebell Deadlift": dedicated workout short, first cut from raw footage
 
+**Current revision, 2026-09-25:** Use `Handoffs/handoff-20260925-ds18-remove-corner-title.md` with GPT-6 Sol at medium effort. The first-cut instructions below are historical and must not replace the approved R7 edit.
+
 **List 1 · organic dedicated short (raw only) · READY.** Read `00-RULES.md` first. Filmed on 8/28 **as a short**, not
 cut from a long-form. It's a vertical original, so there's no parent video to wait for.
 
@@ -31,5 +33,5 @@ REVIEW copy, audio A/B, stamps, `notes.md` (take map + choices), `recipe/`.
 **Claude (Fable 5.1, high; Opus 5 high is enough when every b-roll cue already exists):**
 > Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/DS-18-how-to-kettlebell-deadlift.md`: cut the dedicated short "How To Kettlebell Deadlift" from its 8/28 raw takes. Best take of every line, 1080×1920, 45–66 s, J2 captions, every b-roll cue filled and labelled, the 8/28 S-Log3 conversion, lav picked per file, cover image. Every gate, independent audit, deliver, send me the review copy, update the master list.
 
-**Codex (GPT-6 Astra, high):**
+**Codex original first-cut prompt (historical; choose a model from `00-RULES.md` for future work):**
 > Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-18-how-to-kettlebell-deadlift.md` with `$abs-edit-organic` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Deliver, send Dan the review copy, update `00-MASTER.md`.
