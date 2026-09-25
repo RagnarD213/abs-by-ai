@@ -91,13 +91,11 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # ACTIVE
 
-**Queue cover redesign R2 - HANDOFF 2026-09-25, Codex.** Dan rejected round 1 and specified 25 new variants. Next: new task builds the review gallery from `Handoffs/handoff-20260925-queue-cover-revisions-r2.md`. Queues unchanged.
+**Queue cover redesign R2 - NEEDS DAN 2026-09-25, Codex task 01a0da53.** 25 new variants and original comparisons are ready in `Short-form video content/covers/review/queue-bakeoff-20260924/round2-20260925/index.html`. Next: Dan chooses replacements. Rollout footage only shows Dan from the side or back for rows 12-14. Queues unchanged.
 
-**WV-01 round 3 - READY 2026-09-25, Codex.** W2 wide and T2 tight locked by Dan. C color and B audio approved; H2/B01/G03 motion authorized. Next task: moving Blue Glass templates and revised opening only. Full films wait. Handoff: `Handoffs/handoff-20260925-wv01-round3-lock-crop-and-graphics.md`. No publishing/deployment.
+**WV-01 round 3 - ACTIVE 2026-09-25, Codex.** Building moving Blue Glass templates and revised opening from the round-3 handoff. W2/T2 crops, C color and B audio locked; H2/B01/G03 motion authorized. Next: motion-template previews, source approval packet and opening draft. No full films, publishing or deployment.
 
-**RO-05 Fable recut - ACTIVE 2026-09-24, Claude.** Building Dan's style approval packet. `/Volumes/Extreme/_edit_work/ro05-fable/`
-
-**SL-04 - NEEDS DAN 2026-09-24, Claude.** Reviewing.
+**RO-05 Fable recut - ACTIVE 2026-09-25, Claude.** Round 4 master built (15:06); final independent review running, then delivery gate and review copy to Dan. `/Volumes/Extreme/_edit_work/ro05-fable/`
 
 **STOP Deadlifting clip - NEEDS DAN 2026-09-20, Codex.** R3 review copy delivered to the shared Drive folder: `1dXUbQajUzM-uO_Xl92telO0qsa-Ob7uV`. Full head visible; measured bar path rises once without reversing. Silent B-roll has no matching full-film delivery gate, so no gate PASS is claimed. Next: Dan reviews R3 and approves or names any corrections. Detail: `Media/ai-frames/stop-deadlifting-opening-20260918/motion-v2/R3_DELIVERY.json`.
 
@@ -159,6 +157,7 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
+- `handoff-20260925-sl04-arms-shoulders-shorts-revisions.md` (09-25): SL-04 round 2 fixes. Opus 5.5 high.
 - `handoff-20260924-vsl-landing-five-mockups.md` (09-24): five VSL landing page mockups from VidTao research. Opus 5.5 high. Mockups only.
 - `handoff-20260924-generator-consult-call-outreach.md` (09-24): fire by 09-26.
 - `handoff-20260923-ro05-recut-fable.md` + `handoff-20260923-ro05-recut-astra.md` (09-23): RO-05 salad recut from scratch after Dan rejected Claude's cut; run both in parallel (bake-off). Fable 5.1 high / Astra high.

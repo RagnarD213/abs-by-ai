@@ -10,7 +10,7 @@ Scripts: teleprompter doc `1qt47J2sWcdLXIQYQ055dooKPad8cOJrFMsYhj0VWrIQ` (what D
 ## This video
 Roll: **C1720**. Robot mower b-roll not filmed. Use Dan's final numbers ($100-$200 a visit, about $3,000 a year), not the script's.
 
-Deliverable: 1080x1920, 45-66 s, J2 captions, cover image. **Portrait roll**: stored 3840x2160 rotation -90, decodes to 2160x3840; do not add a transpose. No alternate hook takes except Wispr Flow.
+Deliverable: 1080x1920, 45-66 s, J2 captions. No cover image (a separate Codex task, Dan 2026-09-25). **Portrait roll**: stored 3840x2160 rotation -90, decodes to 2160x3840; do not add a transpose. No alternate hook takes except Wispr Flow.
 
 ## Starter prompts
 **Claude (Opus 5.5, high):**

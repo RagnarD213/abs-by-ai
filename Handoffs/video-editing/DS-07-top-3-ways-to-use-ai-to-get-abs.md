@@ -11,7 +11,7 @@ cut from a long-form. It's a vertical original, so there's no parent video to wa
 
 ## Deliverable
 **One 1080×1920 short, 45–66 s** (Dan's measured target; memory `shorts-organic-research`; `/shorts-scripting` sets a hard 66 s ceiling). Cold open, no greeting.
-Word-timed captions in the J2 tactical style, AbsByAI.com mark where the script cues it, and a comment-prompt CTA as filmed. Cover image with `/coverimage` (two variants).
+Word-timed captions in the J2 tactical style, AbsByAI.com mark where the script cues it, and a comment-prompt CTA as filmed. No cover image: covers are a separate Codex task (Dan, 2026-09-25).
 REVIEW copy, audio A/B, stamps, `notes.md` (take map + choices), `recipe/`.
 
 ## Build
@@ -25,7 +25,7 @@ REVIEW copy, audio A/B, stamps, `notes.md` (take map + choices), `recipe/`.
 * Cues: three app screen recordings, phone in hand: generating the goal picture (same-person rule), photographing a meal with macros coming back, and a supplement audit reading a label. Check `Media/` and the website-video assets for existing app recordings before recording new ones.
 
 ## Deliver
-`Short-form video content/ds-07_top-3-ways-to-use-ai-to-get-abs.mp4` + stamps + covers. **Don't upload or queue.** Organic shorts go out through Blotato, uploaded Private (`/video-setup` step, separate). Send Dan the review copy. Update `00-MASTER.md`.
+`Short-form video content/ds-07_top-3-ways-to-use-ai-to-get-abs.mp4` + stamps (no covers: separate Codex task). **Don't upload or queue.** Organic shorts go out through Blotato, uploaded Private (`/video-setup` step, separate). Send Dan the review copy. Update `00-MASTER.md`.
 
 ## Starter prompts
 **Claude (Fable 5.1, high; Opus 5 high is enough when every b-roll cue already exists):**

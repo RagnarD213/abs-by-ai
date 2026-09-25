@@ -12,7 +12,7 @@
   45–60 s for organic (memory `shorts-organic-research`), the J2 tactical style, AbsByAI.com on screen (memory `shorts-production-style`).
 * Snap cuts to silence, handle every graphic so nothing is sliced or covers Dan, word-timed captions, steady framing
   (`_shared/framing-motion.md`). **Audio:** an editor's mix is cut only, never re-processed; our own mix goes through the shared gate.
-* Each short gets a cover (`/coverimage`, two variants).
+* No covers in this job: covers are a separate Codex task (Dan, 2026-09-25).
 * **Don't upload or queue.** Organic shorts go out through Blotato, uploaded Private on YouTube (`00-RULES.md`). A short
   never posts before its parent long-form is public.
 
@@ -23,7 +23,7 @@
 * It shares its topic with the dedicated workout short "How To Use The Ab Wheel", (DS-22, filmed 8/28).
 
 ## Deliver
-`Short-form video content/<slug>-short<N>_<title>.mp4` (1080×1920) + stamps + covers, and a `<slug>-SHORTS.md` listing each short's
+`Short-form video content/<slug>-short<N>_<title>.mp4` (1080×1920) + stamps, and a `<slug>-SHORTS.md` listing each short's
 in/out, title and parent. Send Dan the REVIEW copies. Update `00-MASTER.md`.
 
 ## Starter prompts

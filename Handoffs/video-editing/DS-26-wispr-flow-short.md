@@ -10,7 +10,7 @@ Scripts: teleprompter doc `1qt47J2sWcdLXIQYQ055dooKPad8cOJrFMsYhj0VWrIQ` (what D
 ## This video
 Roll: **C1719**. Alternate hooks on the roll. Needs the Wispr Flow ScreenFlow demo, which Dan still has to upload.
 
-Deliverable: 1080x1920, 45-66 s, J2 captions, cover image. **Portrait roll**: stored 3840x2160 rotation -90, decodes to 2160x3840; do not add a transpose. No alternate hook takes except Wispr Flow.
+Deliverable: 1080x1920, 45-66 s, J2 captions. No cover image (a separate Codex task, Dan 2026-09-25). **Portrait roll**: stored 3840x2160 rotation -90, decodes to 2160x3840; do not add a transpose. No alternate hook takes except Wispr Flow.
 
 ## Starter prompts
 **Claude (Opus 5.5, high):**

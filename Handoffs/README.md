@@ -13,6 +13,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
+| [handoff-20260925-sl04-arms-shoulders-shorts-revisions.md](handoff-20260925-sl04-arms-shoulders-shorts-revisions.md) | **Ready 2026-09-25. Claude Opus 5.5 / High.** SL-04 round 2: flush top graphic on all five shorts, short 1 colour + hair, short 2 new centred pill text, short 3 "side laterals" context opener, short 5 hair recrop. No covers (Codex). |
 | [handoff-20260925-wv01-round3-lock-crop-and-graphics.md](handoff-20260925-wv01-round3-lock-crop-and-graphics.md) | **Ready 2026-09-25. GPT-6 Astra / High.** W2 wide/T2 tight locked. Next: moving Blue Glass templates and revised opening. C color/B audio approved; H2/B01/G03 motion authorized. Full films and publishing held. |
 | [handoff-20260924-vsl-landing-five-mockups.md](handoff-20260924-vsl-landing-five-mockups.md) | **Ready 2026-09-24. Claude Opus 5.5 / High.** Design five mockups of a straight VSL landing page (video then 7-day free trial) from the VidTao research; screenshots in `Media/research/vsl-landing-references-20260924/`. Mockups only, no live page. |
 | [handoff-20260924-generator-consult-call-outreach.md](handoff-20260924-generator-consult-call-outreach.md) | **SENT 2026-09-24 (14 emails, Resend from dan@absbyai.com); follow-up auto-runs 09-28; results report 10-08.** Email everyone who generated (about 15 to 20 people) inviting a free 15-minute call with Dan; Gmail drafts, one approval from Dan before sending; list kept outside the repo. The fold-or-fix sales test. |

@@ -14,6 +14,8 @@ Read `_shared/VIDEO-RULES.md` first.
 
 # Cover images for Shorts
 
+**Run this as its own task, never inside a shorts editing task (Dan, 2026-09-25).** Codex runs most cover work; an editing session only lists the shorts that still need covers.
+
 Instagram defaults a Reel's cover to frame 0, which on our shorts is the black
 opening frame — an empty tile in the profile grid. Every short needs a built cover.
 

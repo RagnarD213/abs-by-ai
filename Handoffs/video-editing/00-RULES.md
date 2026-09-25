@@ -85,7 +85,7 @@ Follow the Codex branch rule in `Handoffs/codex-video-trial/00-start-here.md`.
   `<title> | <claude|codex> | <16x9|9x16|9x16 59s|1x1|1x1 59s> | <ad N or job id>.mp4`.
 * **Organic long-form:** `claude edited long form content/NN - <Title>/` (Claude) or `Codex Content Videos/<title>/`
   (Codex): the master, `.srt` (uploaded, not burned in), chapters, stamps, notes, recipe.
-* **Shorts:** `Short-form video content/<slug>_<title>.mp4` + stamps, 1080×1920.
+* **Shorts:** `Short-form video content/<slug>_<title>.mp4` + stamps, 1080×1920. **No cover images in an editing job** (Dan, 2026-09-25): covers are a separate, smaller task that Codex runs, to save tokens. An editing job never runs `/coverimage`.
 * Every delivery also includes a `REVIEW 540p` copy for Dan's phone, the audio A/B clip, the `.audio_gate.json` +
   `.deliver_gate.json` stamps, a `notes-*.md` (every deliberate choice and deviation) and a `recipe-*/` folder that can rebuild it.
 * **Report to Dan in plain language:** what you made, where the review copy is, what his call is. No jargon.

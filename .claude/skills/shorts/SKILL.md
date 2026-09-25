@@ -50,6 +50,8 @@ Built from three passes: V1 channel-intro (2026-08-04, none cut — Dan's call),
 1-minute ab workout (2026-08-06, 5 shorts), V2 six-ways-AI-abs (2026-08-10, 7 shorts),
 and the V4 short1 rebuild (2026-08-10) that produced the band layout.
 
+**No cover images in a shorts editing task (Dan, 2026-09-25).** Covers are a separate, smaller task that Codex runs (to save tokens and keep the editing context small). Do not run `/coverimage` or build covers while cutting shorts; list the shorts that need covers in the delivery notes instead.
+
 **Cutting from an editor's FINISHED master (Zeeshan, Muhammad, Waleed)? Start from `reference/zeeshan-master/` and read its README first** (SL-04, 2026-09-24: audio verbatim at 320k, pill fades outlast the scan, CTC caption timing, framing steps that must be real size changes).
 
 **Working pipelines are preserved in `reference/`.** Copy one and adapt, do NOT rewrite
