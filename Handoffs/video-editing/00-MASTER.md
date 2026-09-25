@@ -142,7 +142,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 
 | job | what | status | size |
 |---|---|---|---|
-| [RX-01](RX-01-unmapped-footage-audit.md) | Map the rolls nobody has identified (welcome-video shoot, stray 7/8, 8/3 and 8/28 clips, unchecked b-roll). Adds any video it finds to this list. | DONE 2026-09-18, approved. No unlisted videos found. `Docs/RAW_FOOTAGE_MAP.md` | S |
+| [RX-01](RX-01-unmapped-footage-audit.md) | Map the rolls nobody has identified (welcome-video shoot, stray 7/8, 8/3 and 8/28 clips, unchecked b-roll). Adds any video it finds to this list. | FINALIZED 2026-09-18, approved. No unlisted videos found. `Docs/RAW_FOOTAGE_MAP.md` | S |
 
 ---
 

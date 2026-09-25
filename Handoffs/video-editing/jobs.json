@@ -1045,13 +1045,13 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md` §1, then execute `Handoffs/video-editing/RX-01-unmapped-footage-audit.md`: transcribe or contact-sheet every unmapped roll, match them to the script docs, write `Docs/RAW_FOOTAGE_MAP.md`, and add any filmed-but-unlisted video to the master list with its own job doc. Report what you found.",
    "codexModel": "GPT-5.6 Sol, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` §1 and §3, then execute `Handoffs/video-editing/RX-01-unmapped-footage-audit.md`. Write the footage map, add any missing videos to `00-MASTER.md` with job docs, report to Dan.",
-   "state": "delivered",
-   "note": "Audit complete 2026-09-18: footage map written; no filmed-but-unlisted videos found; DS-25 has no M100 b-roll",
+   "state": "finalized",
+   "note": "Footage audit approved 2026-09-18 per 00-MASTER; corrected stale delivered state so it no longer occupies a video review slot.",
    "sub": "",
    "order": 50,
-   "updated": "2026-09-18",
+   "updated": "2026-09-25",
    "by": "Codex",
-   "rev": 3,
+   "rev": 4,
    "syncedRev": 3
   },
   {

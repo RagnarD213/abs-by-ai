@@ -63,7 +63,7 @@ elif mode.startswith("phase2") and "THIS LAUNCH IS FINISHING" in prompt:
                "sheets":["sheet.jpg"],"strips":[],"judged":[{"image":"sheet.jpg","verdict":"clean"}],
                "judged_by":"fake","checklist":["placeholder"]},open(watch,"w"))
     asset.mark_complete(pp,{"AI-1":clip},final,wd,watch_log=watch)
-    json.dump({"gate_version":"2.2.0","format":"ad16x9","verdict":"PASS","sha256":sha(final),
+    json.dump({"gate_version":os.environ["EDIT_QUEUE_TEST_GATE_VERSION"],"format":"ad16x9","verdict":"PASS","sha256":sha(final),
                "rows":{"compliance:placeholder":{"ok":True}}},open(final+".deliver_gate.json","w"))
     json.dump({"status":"not_applicable","reason":"synthetic fixture"},open(os.path.join(wd,"PRE_RENDER_CHECK.json"),"w"))
     json.dump({"files":[final],"review_copy":final,"gate":"PASS","generation_spend_usd":0,
@@ -101,6 +101,10 @@ class EndToEnd(unittest.TestCase):
                         EDIT_QUEUE_SCOREBOARD=os.path.join(self.tmp, "scoreboard.json"), EDIT_QUEUE_PKG=PKG,
                         EDIT_QUEUE_PAUSE_FILE=os.path.join(self.tmp, "PAUSE"),
                         EDIT_QUEUE_SNAPSHOT=os.path.join(self.tmp,"review-snapshot.html"))
+        gate_file = os.path.join(PKG, "..", "..", ".claude", "skills", "_shared", "deliver", "gate.py")
+        gate_text = open(gate_file, encoding="utf-8").read()
+        import re
+        self.env["EDIT_QUEUE_TEST_GATE_VERSION"] = re.search(r'^GATE_VERSION\s*=\s*"([^"]+)"', gate_text, re.M).group(1)
 
     def go(self, mode, no_budget=False):
         env = dict(self.env, FAKE_MODE=mode)
