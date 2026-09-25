@@ -1696,13 +1696,13 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/WV-01-vsl-1-analysis-page-video-version-a-version-b-intr.md`: cut \"VSL 1: Analysis-page video (version A + version B intro)\" from 9/23 roll C1692-C1700 with /website-video. Best take of every line, every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/WV-01-vsl-1-analysis-page-video-version-a-version-b-intr.md` with `$abs-edit-organic`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "needs",
-   "note": "Research and detailed A/B edit plan delivered Sep 24. Dan to review the planning package, then start editing in a separate task using WV-01-EDIT-PLAN-20260924.md and its research/source-map appendices. No video rendered or finalized.",
+   "state": "in_progress",
+   "note": "A/B speech selections prepared with six B callbacks. Serial source, crop, voice and internal-cut preparation waits for the two-build cap. Asset packet and final review copies not delivered.",
    "sub": "",
    "order": 81,
    "updated": "2026-09-24",
    "by": "Codex",
-   "rev": 3,
+   "rev": 5,
    "syncedRev": 1
   },
   {
