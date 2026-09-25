@@ -101,7 +101,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **STOP Deadlifting clip - NEEDS DAN 2026-09-20, Codex.** R3 review copy delivered to the shared Drive folder: `1dXUbQajUzM-uO_Xl92telO0qsa-Ob7uV`. Full head visible; measured bar path rises once without reversing. Silent B-roll has no matching full-film delivery gate, so no gate PASS is claimed. Next: Dan reviews R3 and approves or names any corrections. Detail: `Media/ai-frames/stop-deadlifting-opening-20260918/motion-v2/R3_DELIVERY.json`.
 
-**DS-18 final cut - READY 2026-09-25, Codex.** Dan approved the video overall and requested one final change: remove the silent Start Today deadlift clip around 39 seconds and ripple-close the timeline. Next: a new task executes `Handoffs/handoff-20260925-ds18-remove-start-today.md`, reruns exact-file checks and delivers the shortened review copy.
+**DS-18 final cut - NEEDS DAN 2026-09-25, Codex.** R9 review copy removes the 101-frame Start Today scene. Independent review passed; shared gate has recorded inherited and requested-cut failures. Next: Dan reviews the shortened copy and approves or names a final correction. No upload or publishing. Work: `/Volumes/Extreme/_edit_work/ds18-kettlebell-deadlift/`.
 
 **Overnight edit queue — PAUSED 2026-09-24, Dan's call.** He fires every edit by hand now to save tokens; nothing launches unattended. Routing left correct underneath (AV/AS/SL Claude, RA/RO/DS Codex, cross-review) so a resume needs no config work. Resume only if Dan says: `dispatcher.py resume`.
 

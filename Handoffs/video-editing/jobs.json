@@ -709,13 +709,13 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/DS-18-how-to-kettlebell-deadlift.md`: cut the dedicated short \"How To Kettlebell Deadlift\" from its 8/28 raw takes. Best take of every line, 1080×1920, 45–66 s, J2 captions, every b-roll cue filled and labelled, the 8/28 S-Log3 conversion, lav picked per file, cover image. Every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-18-how-to-kettlebell-deadlift.md` with `$abs-edit-organic` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "ready",
-   "note": "Final revision handoff ready: remove only the silent Start Today clip around 39s, ripple-close the timeline, rerun exact-file checks, and deliver the shortened review copy",
+   "state": "delivered",
+   "note": "R9 final-cut review copy delivered 2026-09-25; awaiting Dan approval; no upload or publishing",
    "sub": "Workout",
    "order": 34,
    "updated": "2026-09-25",
    "by": "Codex",
-   "rev": 15,
+   "rev": 17,
    "syncedRev": 8
   },
   {
