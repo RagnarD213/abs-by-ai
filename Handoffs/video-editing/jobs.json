@@ -1697,12 +1697,12 @@
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/WV-01-vsl-1-analysis-page-video-version-a-version-b-intr.md` with `$abs-edit-organic`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
    "state": "needs",
-   "note": "Round 2 sample (3:09) and complete creative asset review ready: /Volumes/Extreme/_edit_work/wv01-edit/round2/index.html. Await Dan color, graphics, hook and asset revisions. Full A/B rebuild and AI motion held; unresolved full-film gates preserved.",
+   "note": "Round-3 handoff ready: handoff-20260925-wv01-round3-lock-crop-and-graphics.md. Crop stills await choice. C color and B audio approved; H2/B01/G03 motion authorized. Next task: moving Blue Glass and revised opening only. No full-film build or publishing.",
    "sub": "",
    "order": 81,
    "updated": "2026-09-25",
    "by": "Codex",
-   "rev": 11,
+   "rev": 12,
    "syncedRev": 1
   },
   {

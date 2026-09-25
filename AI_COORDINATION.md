@@ -93,7 +93,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **Queue cover redesign R2 - HANDOFF 2026-09-25, Codex.** Dan rejected round 1 and specified 25 new variants. Next: new task builds the review gallery from `Handoffs/handoff-20260925-queue-cover-revisions-r2.md`. Queues unchanged.
 
-**WV-01 round 2 - NEEDS DAN 2026-09-25, Codex.** Review ready: 3:09 sample, three graphics systems, grade/bass comparisons, five hook pairs and all unresolved assets. Next: Dan consolidated revisions before full A/B edit. Six B callbacks preserved. No AI motion/publishing. Full-film gates remain open. Package: `/Volumes/Extreme/_edit_work/wv01-edit/round2/index.html`.
+**WV-01 round 3 - NEEDS DAN 2026-09-25, Codex.** Crop screenshots ready, W2/T1 recommended but pending. C color and B audio approved; H2/B01/G03 motion authorized. Next task: moving Blue Glass templates and revised opening only. Full films wait. Handoff: `Handoffs/handoff-20260925-wv01-round3-lock-crop-and-graphics.md`. No publishing/deployment.
 
 **RO-05 Fable recut - ACTIVE 2026-09-24, Claude.** Building Dan's style approval packet. `/Volumes/Extreme/_edit_work/ro05-fable/`
 
