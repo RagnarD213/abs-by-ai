@@ -1697,12 +1697,12 @@
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/WV-01-vsl-1-analysis-page-video-version-a-version-b-intr.md` with `$abs-edit-organic`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
    "state": "in_progress",
-   "note": "A/B speech selections prepared with six B callbacks. Serial source, crop, voice and internal-cut preparation waits for the two-build cap. Asset packet and final review copies not delivered.",
+   "note": "A/B selections and working SRTs prepared, including all six B callbacks. Internal auditions, voice tests and 79-second opening sample queued under the two-build cap. Asset approval packet and finished review copies remain incomplete. No publishing.",
    "sub": "",
    "order": 81,
    "updated": "2026-09-24",
    "by": "Codex",
-   "rev": 5,
+   "rev": 6,
    "syncedRev": 1
   },
   {
