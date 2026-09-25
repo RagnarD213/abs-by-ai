@@ -1696,13 +1696,13 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/WV-01-vsl-1-analysis-page-video-version-a-version-b-intr.md`: cut \"VSL 1: Analysis-page video (version A + version B intro)\" from 9/23 roll C1692-C1700 with /website-video. Best take of every line, every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/WV-01-vsl-1-analysis-page-video-version-a-version-b-intr.md` with `$abs-edit-organic`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "in_progress",
-   "note": "Opening R3 and consolidated asset preview batch delivered for review. Audio and framing sample checks pass. Full A/B placeholder drafts are building; all six B callbacks retained. Awaiting style/asset decisions and archive, recipe and sleep-source choices. No final A/B delivery or publishing.",
+   "state": "draft_review",
+   "note": "Opening and consolidated asset batch ready for Dan. Both full A/B placeholder drafts built; all six B callbacks verified. Two confirmed audio-boundary repairs are rendering. Awaiting style, archive, recipe and sleep decisions. Final placeholder-free videos, exact-file checks and independent review remain. No publishing.",
    "sub": "",
    "order": 81,
    "updated": "2026-09-25",
    "by": "Codex",
-   "rev": 7,
+   "rev": 8,
    "syncedRev": 1
   },
   {

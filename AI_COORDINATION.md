@@ -93,7 +93,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **Queue cover bake-off - NEEDS DAN 2026-09-24, Codex.** 19 five-way comparisons ready. Next: Dan chooses replacements. Queues unchanged. Gallery: `Short-form video content/covers/review/queue-bakeoff-20260924/index.html`.
 
-**WV-01 VSL edit - ACTIVE 2026-09-25, Codex.** Opening/asset batch delivered for review. A/B placeholder drafts building; six B callbacks kept. Next: full-draft QA and Dan's asset/style decisions. State: `/Volumes/Extreme/_edit_work/wv01-edit/STATE.json`. Final videos not delivered.
+**WV-01 VSL edit - NEEDS DAN 2026-09-25, Codex.** Opening/asset batch awaiting approval. Full A/B placeholder drafts built; six B callbacks verified. Two audio-boundary repairs rendering, gate regression running. Next: inspect saved worker results and Dan's consolidated decisions. State: `/Volumes/Extreme/_edit_work/wv01-edit/STATE.json`. No final delivery or publishing.
 
 **RO-05 Fable recut - ACTIVE 2026-09-24, Claude.** Building Dan's style approval packet. `/Volumes/Extreme/_edit_work/ro05-fable/`
 
