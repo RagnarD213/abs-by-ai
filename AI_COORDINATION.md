@@ -91,7 +91,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # ACTIVE
 
-**Queue cover bake-off - NEEDS DAN 2026-09-24, Codex.** 19 five-way comparisons ready. Next: Dan chooses replacements. Queues unchanged. Gallery: `Short-form video content/covers/review/queue-bakeoff-20260924/index.html`.
+**Queue cover redesign R2 - HANDOFF 2026-09-25, Codex.** Dan rejected round 1 and specified 25 new variants. Next: new task builds the review gallery from `Handoffs/handoff-20260925-queue-cover-revisions-r2.md`. Queues unchanged.
 
 **WV-01 round 2 - NEEDS DAN 2026-09-25, Codex.** Review ready: 3:09 sample, three graphics systems, grade/bass comparisons, five hook pairs and all unresolved assets. Next: Dan consolidated revisions before full A/B edit. Six B callbacks preserved. No AI motion/publishing. Full-film gates remain open. Package: `/Volumes/Extreme/_edit_work/wv01-edit/round2/index.html`.
 
