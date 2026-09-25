@@ -91,7 +91,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # ACTIVE
 
-**Queue covers platform layouts R3 - HANDOFF 2026-09-25, Codex.** Dan requested separate Instagram and YouTube layouts for each round 2 candidate. Next: new task builds the platform gallery from `Handoffs/handoff-20260925-queue-cover-platform-layouts-r3.md`. Row 04 subtitle goes directly beneath its headline. Queues unchanged.
+**Queue covers platform layouts R3 - NEEDS DAN 2026-09-25, Codex.** 25 candidates now have separate Instagram and YouTube covers plus exact Instagram grid crops. Next: Dan reviews `Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925/index.html` and picks replacements or revisions. Rows 12-14 lack front-facing abs; row 16 portrait layouts are concepts; row 09 retains a baked-in URL. Queues unchanged.
 
 **WV-01 round 3 - NEEDS DAN 2026-09-25, Codex.** Opening and motion review: `http://127.0.0.1:8766/round3/index.html`. W2/T2, C color and B audio locked. Next: choose Blue Glass and new frame/source options. G03 still lacks clear tool actions. Private records: `/Volumes/Extreme/_edit_work/wv01-edit/round3/WORK_PACKET.json`. No full-film delivery or publishing.
 
