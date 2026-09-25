@@ -2,11 +2,29 @@
   "adNumber": 10,
   "label": "Ad 10 Busy Dad Fitness",
   "videos": [
-    { "youtubeId": "Sg3vcEY2P_8", "version": "Muhammad 16:9", "utm": "muhammad-16x9" }
+    {
+      "youtubeId": "Sg3vcEY2P_8",
+      "version": "Muhammad 16:9",
+      "utm": "muhammad-16x9"
+    },
+    {
+      "youtubeId": "4nDWFmdjzQQ",
+      "version": "Claude 9:16",
+      "utm": "claude-9x16"
+    },
+    {
+      "youtubeId": "CR4WAVmSuXY",
+      "version": "Claude 9:16 59s",
+      "utm": "claude-9x16-59s"
+    }
   ],
   "audience": {
     "label": "AI fitness + competitor apps + get abs belly fat",
-    "segments": ["1011510739", "1011514645", "1013657228"]
+    "segments": [
+      "1011510739",
+      "1011514645",
+      "1013657228"
+    ]
   },
   "copy": {
     "headlines": [
