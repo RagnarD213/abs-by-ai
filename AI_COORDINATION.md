@@ -93,7 +93,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **Queue cover redesign R2 - NEEDS DAN 2026-09-25, Codex task 01a0da53.** 25 new variants and original comparisons are ready in `Short-form video content/covers/review/queue-bakeoff-20260924/round2-20260925/index.html`. Next: Dan chooses replacements. Rollout footage only shows Dan from the side or back for rows 12-14. Queues unchanged.
 
-**WV-01 round 3 - ACTIVE 2026-09-25, Codex.** Building moving Blue Glass templates and revised opening from the round-3 handoff. W2/T2 crops, C color and B audio locked; H2/B01/G03 motion authorized. Next: motion-template previews, source approval packet and opening draft. No full films, publishing or deployment.
+**WV-01 round 3 - NEEDS DAN 2026-09-25, Codex.** Opening and motion review: `http://127.0.0.1:8766/round3/index.html`. W2/T2, C color and B audio locked. Next: choose Blue Glass and new frame/source options. G03 still lacks clear tool actions. Private records: `/Volumes/Extreme/_edit_work/wv01-edit/round3/WORK_PACKET.json`. No full-film delivery or publishing.
 
 **RO-05 Fable recut - ACTIVE 2026-09-25, Claude.** Round 4 master built (15:06); final independent review running, then delivery gate and review copy to Dan. `/Volumes/Extreme/_edit_work/ro05-fable/`
 

@@ -135,7 +135,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 
 | job | video | rolls | status | size |
 |---|---|---|---|---|
-| [WV-01](WV-01-vsl-1-analysis-page-video-version-a-version-b-intr.md) | VSL 1: Analysis-page video (version A + version B intro) | C1692-C1700 | IN PROGRESS | L |
+| [WV-01](WV-01-vsl-1-analysis-page-video-version-a-version-b-intr.md) | VSL 1: Analysis-page video (version A + version B intro) | C1692-C1700 | DELIVERED: awaiting Dan | L |
 | [WV-02](WV-02-vsl-2-start-landing-page-video.md) | VSL 2: /start landing-page video | C1701-C1703 | READY | M |
 
 ### 1D · Housekeeping
