@@ -84,34 +84,28 @@ Above the fold, in this order, on a phone:
    also ships a no-eyebrow variant and Dan decides.
 2. **Headline = the result + the objection it removes.** R1: "How thousands of men with YOUR body type are dropping
    weight fast WHILE enjoying pizza, pasta, and beer." R3: "5 surprising foods that can plummet T-levels... in guys over
-   50." We write ours in Dan's voice, Title Case, with no unbelievable claims and no invented numbers.
+   50." We write ours in Dan's voice, Title Case.
 3. **The video starts within the first screen, full width.** Poster frame shows the presenter's face and a play cue.
 4. **"Make sure your sound is on" line** directly above or below the player (R1, R2, R3, R4). Muted autoplay with a
    big "Tap to turn on sound" overlay (R2, R4 via Vidalytics).
 5. **Presenter card** under the video: photo + name + one credential line (R1, R3, R4, R5).
-6. **Press strip** ("As seen in") on R2, R4, R5. ⚠ We have no press. Replace with proof we actually own (see 6.3).
+6. **Proof strip** ("As seen in" logos on R2, R4, R5). Ours: Dan's before/after.
 
 The offer, when it appears:
 - One clean card. Price anchor on V Shred and Fit Father is a crossed-out "value". Ours is: **7 days free, $0 today,
   then $19.99/month, cancel any time in the app.** Annual $69.99 can be shown BODi-style as "about $5.83/month".
-- Terms sit next to the button in readable type (Noom, BODi). This is non-negotiable: the FTC shut down MadMuscles'
-  parent in June 2026 over hidden renewals and blocked cancellation (memory `madmuscles-deep-dive`).
+- Trial terms sit next to the button (Noom, BODi).
 - **Risk reversal**: V Shred's 30-day guarantee, Gundry's 90-day "risk-free", Fit Father's 30-day money-back. Ours is the
   trial itself: "Try it free for 7 days. We email you before day 7. Cancel in the app and you pay nothing."
 - Big button, repeated after every section (V Shred repeats it 5 times, Fit Father 6).
 
 Below the offer (long-page concepts):
 - "This is for you if..." list (R1).
-- "What's included" stack with each part named and explained (R1, R6). ⚠ The WV-01 plan forbids inventing dollar
-  values for the roles, so no "$197 value" labels. The honest version is the support-gap comparison in the video:
+- "What's included" stack with each part named and explained (R1, R6), plus the video's support-gap comparison:
   a trainer, a nutritionist and meal prep are each a monthly bill; the membership is $19.99.
-- Before/after proof with name and a results-vary line under each (R1). Ours: Dan's own real before and after only.
+- Before/after proof with name under each (R1). Ours: Dan's own before and after.
 - FAQ with blunt answers, including who it is NOT for (R7) and "is there a catch?" (R1).
 - Legal footer only. No site navigation anywhere (every VSL page inspected has none).
-
-**Do not copy:** fake countdown timers (R1 has one; it is a dark pattern), invented member counts ("thousands of guys" is
-banned on screen, board 09-15; ~75 people have ever generated), press logos we have not earned, "trick"/"secret"
-framing (memory `ad-retry-rule-and-no-trick`), unbelievable claims (memory `ad-copy-no-unbelievable-claims`), any em dash.
 
 ## 6. The five concepts
 
@@ -134,7 +128,7 @@ Wireframe (phone):
 6. Presenter card: Dan's face circle, "Dan Rose, founder of Abs By AI. Down from about 200 lb at 38 to abs at 40."
 7. Nothing else is visible until the pitch.
 8. **Revealed at the offer timestamp** (and immediately for a returning visitor): offer card, then short proof strip
-   (Dan's before/after, real-photo labels), "What you get" (five helpers, one line each), FAQ (5 questions), second CTA.
+   (Dan's before/after), "What you get" (five helpers, one line each), FAQ (5 questions), second CTA.
    Mock both states side by side: "before reveal" and "after reveal".
 
 ### Concept 2: "Video + Offer Hybrid" (Gundry BC3, Fit Father)
@@ -149,7 +143,7 @@ Wireframe:
 4. **Offer card immediately under the video**: "Try Abs By AI free for 7 days", three check lines (the five helpers
    grouped into three), the big CTA, the terms line.
 5. One quote from Dan, card style with his photo (Gundry's "doctor quote" block).
-6. Before/after proof block (Dan only, labeled real photos).
+6. Before/after proof block (Dan).
 7. "How it works in 3 steps": start trial → answer 5 questions → get your plan and your goal picture.
 8. Plan selector: Monthly $19.99 (pre-selected) / Annual $69.99 "about $5.83/month" (Gundry package selector, BODi
    framing).
@@ -168,9 +162,9 @@ Wireframe:
    the trainer covers 3 hours a week, you are alone for the other 165.
 4. "This is for you if..." (5 bullets, V Shred style).
 5. "What you get": five cards, one per helper, each with a real app screenshot and one sentence. No dollar values.
-6. "What it would cost to hire this": trainer, nutritionist, meal prep as three rows with no invented prices, just
+6. "What it would cost to hire this": trainer, nutritionist, meal prep as three rows, just
    "monthly bill", against "$19.99/month, all five" (WV-01 plan B insertion P5 wording rule).
-7. Proof: Dan's before/after, large, with the real-photo label and a results-vary line.
+7. Proof: Dan's before/after, large.
 8. Offer card with trial terms, then FAQ, then final CTA. CTA repeats after sections 3, 5 and 7.
 
 ### Concept 4: "The Membership Tour" (BODi subscription, Noom trial)
@@ -214,8 +208,6 @@ Wireframe:
   CTA may use a high-contrast action color (V Shred and Fit Father green, Gundry orange); show the mockups in red first
   and note one alternate.
 - Headlines Title Case in Dan's words (his /start review, memory `vsl-landing-page`).
-- Every real photo of Dan carries the real-photo chip; every AI goal image carries the AI label; before/after is always
-  the same person (memory `before-after-same-person`).
 - The player must not send people to YouTube. A YouTube embed shows "More videos" and a YouTube link. Mock a custom
   player (poster, unmute overlay, no scrub bar) and note in the build notes that the build task chooses the host.
 - No em dashes anywhere in mockup copy (the AGENTS.md check must return 0 on every file).

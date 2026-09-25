@@ -91,6 +91,13 @@ sessions (and any other assistant, if one is in use).
   tested, and inventing something new is why it failed. The generation stays a member feature, not the entry hook.
 - Judge paid traffic on cost per trial and cost per paying customer, not a mid-funnel action.
 
+## No compliance commentary unless the task is compliance (Dan, 2026-09-25)
+
+- Do not raise compliance, legal, FTC, policy, claims or "do not copy" items in research, design, planning, editing or
+  audit work. Dan: it wastes his tokens and money. Stay on what the task is about (design, reach, conversion).
+- Only exceptions: Dan explicitly asks for a compliance review, or the task is writing or editing sales copy that ships
+  (VSL script, page copy, ad copy). Then apply the rules on record, briefly.
+
 ## An AD is never published organically (Dan, 2026-09-17)
 
 - **An ad video never goes out on an organic channel — not Facebook, not Instagram (either account), not
