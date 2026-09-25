@@ -1,6 +1,6 @@
 # Handoffs
 
-Every handoff document for Abs By AI, in one place. 163 documents (index updated 2026-09-25).
+Every handoff document for Abs By AI, in one place. 164 documents (index updated 2026-09-25).
 
 A handoff is a self-contained brief written so a fresh session can pick up work with no prior context.
 
@@ -13,6 +13,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
+| [handoff-20260925-vertical-kit-autofill-no-model-session.md](handoff-20260925-vertical-kit-autofill-no-model-session.md) | **Ready 2026-09-25. Claude Opus 5.5 / High, on the Mac mini.** Make the 9:16 kit fill in its own content sheet (graphics found, read and matched automatically) and run a vertical as one command with no editing session. Proofs: Ad 10 + Ad 1 answer keys, then fresh AV-09. Editors are not asked for anything. |
 | [handoff-20260925-wv01-round3-lock-crop-and-graphics.md](handoff-20260925-wv01-round3-lock-crop-and-graphics.md) | **Ready 2026-09-25. GPT-6 Astra / High.** W2 wide/T2 tight locked. Next: moving Blue Glass templates and revised opening. C color/B audio approved; H2/B01/G03 motion authorized. Full films and publishing held. |
 | [handoff-20260924-vsl-landing-five-mockups.md](handoff-20260924-vsl-landing-five-mockups.md) | **Ready 2026-09-24. Claude Opus 5.5 / High.** Design five mockups of a straight VSL landing page (video then 7-day free trial) from the VidTao research; screenshots in `Media/research/vsl-landing-references-20260924/`. Mockups only, no live page. |
 | [handoff-20260924-generator-consult-call-outreach.md](handoff-20260924-generator-consult-call-outreach.md) | **SENT 2026-09-24 (14 emails, Resend from dan@absbyai.com); follow-up auto-runs 09-28; results report 10-08.** Email everyone who generated (about 15 to 20 people) inviting a free 15-minute call with Dan; Gmail drafts, one approval from Dan before sending; list kept outside the repo. The fold-or-fix sales test. |
