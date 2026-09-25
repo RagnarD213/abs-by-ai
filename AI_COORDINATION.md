@@ -95,7 +95,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **WV-01 round 3 - NEEDS DAN 2026-09-25, Codex.** Opening and motion review: `http://127.0.0.1:8766/round3/index.html`. W2/T2, C color and B audio locked. Next: choose Blue Glass and new frame/source options. G03 still lacks clear tool actions. Private records: `/Volumes/Extreme/_edit_work/wv01-edit/round3/WORK_PACKET.json`. No full-film delivery or publishing.
 
-**RO-05 Fable recut - ACTIVE 2026-09-25, Claude.** Round 4 master built (15:06); final independent review running, then delivery gate and review copy to Dan. `/Volumes/Extreme/_edit_work/ro05-fable/`
+**RO-05 Fable recut - NEEDS DAN 2026-09-25, Claude.** 15:06 review copy delivered; 4 reviews, 0 picture defects; gate fails explained in notes. Next: Dan's verdict. `claude edited long form content/08 - How I Make My Daily Salad (Fable recut)/`
 
 **STOP Deadlifting clip - NEEDS DAN 2026-09-20, Codex.** R3 review copy delivered to the shared Drive folder: `1dXUbQajUzM-uO_Xl92telO0qsa-Ob7uV`. Full head visible; measured bar path rises once without reversing. Silent B-roll has no matching full-film delivery gate, so no gate PASS is claimed. Next: Dan reviews R3 and approves or names any corrections. Detail: `Media/ai-frames/stop-deadlifting-opening-20260918/motion-v2/R3_DELIVERY.json`.
 

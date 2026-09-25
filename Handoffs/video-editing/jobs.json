@@ -961,14 +961,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/RO-05-how-i-make-my-daily-salad.md`: transcribe the rolls, map the takes to the script, and cut \"How I Make My Daily Salad\" into a finished 16:9 first cut with /longform-edit to the approved organic standard (Zeeshan's ab wheel videos). Fill the B-roll and graphics cues, audio through the shared chain, every gate, independent audit, deliver master + SRT + chapters, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-05-how-i-make-my-daily-salad.md` with `$abs-edit-organic` and the frozen organic recipe. Deliver master + SRT + chapters, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "in_progress",
-   "note": "Claude r10 REJECTED by Dan 09-23 (colour, swipe SFX, graphics, no hook, hair). Recut from scratch: Fable handoff-20260923-ro05-recut-fable.md + Astra handoff-20260923-ro05-recut-astra.md",
+   "state": "delivered",
+   "note": "Fable-handoff recut delivered 09-25: 15:06, 4 independent review rounds (picture 0 defects), gate 29/39 with 10 explained fails. Review copy in claude edited long form content/08",
    "sub": "",
    "order": 46,
-   "updated": "2026-09-24",
+   "updated": "2026-09-25",
    "by": "Claude (Fable recut)",
-   "rev": 5,
-   "syncedRev": 5
+   "rev": 6,
+   "syncedRev": 6
   },
   {
    "id": "RO-06",
@@ -1885,21 +1885,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/RO-17-3-healthy-foods-that-made-me-fat.md`: cut \"3 Healthy Foods That Made Me Fat\" from 9/23 roll C1713 with /longform-edit. Best take of every line, every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-17-3-healthy-foods-that-made-me-fat.md` with `$abs-edit-organic`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "in_progress",
-   "note": "C1711, C1712 are prompter false starts.",
+   "state": "draft_review",
+   "note": "DRAFT only — asset choices are waiting on the review page. Packet: /Volumes/Extreme/_edit_work/RO-17/placeholders.json",
    "sub": "",
    "order": 90,
    "updated": "2026-09-25",
    "by": "edit queue (codex)",
-   "rev": 2,
+   "rev": 3,
    "syncedRev": 1,
-   "claim": {
-    "by": "codex",
-    "pid": 35448,
-    "started": "2026-09-25T16:02:26",
-    "heartbeat": "2026-09-25T16:37:27",
-    "launch_state": "ready"
-   },
    "queue_owned": true
   },
   {

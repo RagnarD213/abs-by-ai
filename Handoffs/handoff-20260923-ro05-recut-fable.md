@@ -81,8 +81,7 @@ Read first: `Handoffs/video-editing/00-RULES.md`, `.claude/skills/_shared/VIDEO-
 6. **Hair:** measure the hair top every 0.25 s across each whole shot (Vision person mask, `shorts/reference/recentre/personmask`);
    a crop's top edge must sit above the highest hair point of the shot or the shot is not punched. Where the operator cut the hair, show
    everything the source has. Horizontal footage stays static (no tracking).
-7. **Calories:** Dan will upload a new app clip. Use its numbers; do not show per-ingredient calories from the old recording. If the new
-   clip is not available when you reach graphics, ask Dan once, and meanwhile build ingredient pills with names only.
+7. **Calories (Dan, 2026-09-24): the old app recording and its numbers ARE correct** ("that was the correct clip, and those calories were correct"). Use the existing `screen_capture_TAKE2.MP4` demo and its figures (683 per salad; per-ingredient values in section 2 item 8). No new clip is coming.
 8. **Beat fixes:** 3:56 broccolini: replace the handheld hold-up (C1543 ~141-147) with the broccolini on the board (C1543 ~150-195) or the
    GoPro angle. Cucumber: keep C1543 230.18-240.3 AND 244.44-252.44 ("A traditional cucumber, an American cucumber, is going to get kind
    of mushy seven days from now. This is going to be rock solid seven days from now..."). Onion tips look-away (C1544 ~137-145): there

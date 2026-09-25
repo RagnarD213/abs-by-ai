@@ -26,6 +26,9 @@ Read `_shared/VIDEO-RULES.md` first.
 > Muhammad, (4) only then the full cut. The failed build's recipe and lessons: `reference/ro05/README.md`; the from-scratch recut
 > handoffs: `Handoffs/handoff-20260923-ro05-recut-fable.md`, `Handoffs/handoff-20260923-ro05-recut-astra.md`.
 > The SFX guidance further down ("SFX on transitions", `riser` + `whoosh`) is superseded: no swipe sound effect, ever.
+>
+> **The from-scratch recut that followed** (grade stills, Muhammad component board, sample packet, then the full cut on one
+> code path) and every trap it hit: `reference/ro05-fable/README.md`. Start a Muhammad-style long-form from that recipe.
 
 # Editing a longform video from raw shoot footage
 
