@@ -39,6 +39,25 @@ FIX = {('your','gold','picture'):    ('your','goal','picture'),
        ('six','fat','abs.'):         ('six-pack','abs.',''),
        ('six','back','abs,'):        ('six-pack','abs,',''),
        ('uses','a','specific'):      ('uses','the','specific'),
+       # Ad 10 has spoken full stops here; without punctuation the three-word
+       # caption groups burn visible run-ons across the sentence boundaries.
+       ('story','really','is',"It's"): ('story','really','is.',"It's"),
+       ('being','unhealthy',"It's"):   ('being','unhealthy.',"It's"),
+       ("you're",'a','dad','But'):      ("you're",'a','dad.','But'),
+       ('family','already','eats','So'): ('family','already','eats.','So'),
+       ('two','dinners','snap','a'):     ('two','dinners.','Snap','a'),
+       ('for','you','No','weighing'):   ('for','you.','No','weighing'),
+       ("don't",'have','bad','week','It'):("don't",'have.','Bad','week?','It'),
+       ('off','completely','and',"here's"):('off','completely.','And',"here's"),
+       ("here's",'what','changes','your'):("here's",'what','changes:','Your'),
+       ('wife','notices','your','kids'): ('wife','notices.','Your','kids'),
+       ('kids','see','it','And'):        ('kids','see','it.','And'),
+       ('you','differently','and',"you'll"):('you','differently.','And',"you'll"),
+       ('years','younger','So','generate'):('years','younger.','So','generate'),
+       ('actually','have','Tap','the'):  ('actually','have.','Tap','the'),
+       # Ad 10's approved delivery says "it was AI"; Whisper split the initialism into
+       # an article and pronoun, which burned the junk caption "it was a I".
+       ('was','a','I'):              ('was','AI',''),
        ('six','-pack'):              ('six-pack',''),
        ('38','-year','-old'):        ('38-year-old','',''),      # the 3-token form first: patterns apply in this order
        ('38','-year'):               ('38-year',''),
@@ -144,7 +163,7 @@ def groups(words, mute):
     if cur: gs.append(cur)
     return gs
 
-def render(gs, out='captions.mov', capdir='cap'):
+def render(gs, out='captions.mov', capdir='cap', stops=None):
     os.makedirs(capdir, exist_ok=True)
     blank = f'{capdir}/_blank.png'
     if not os.path.exists(blank):
@@ -152,7 +171,9 @@ def render(gs, out='captions.mov', capdir='cap'):
     entries, states, n, t = [], [], 0, 0.0
     # HARD STOPS (2026-09-10, lesson A6.14): a line's last word is held up to 0.8 s, and that hold must never run into a
     # graphic that mutes the captions nor across a cutdown seam (beats.SEAMS, when the build defines it).
-    STOPS = sorted(set([a_ for a_, b_ in suppressed()] + list(getattr(BT, 'SEAMS', []))))
+    if stops is None:
+        stops = [a_ for a_, b_ in suppressed()] + list(getattr(BT, 'SEAMS', []))
+    STOPS = sorted(set(stops))
     next_start = {id(g): (gs[i+1][0][1] if i + 1 < len(gs) else None) for i, g in enumerate(gs)}
     for g in gs:
         txt = ' '.join(x[0] for x in g)

@@ -286,6 +286,8 @@ def burned(key, pr, cfg, plan, video, work):
     cw, cy = int(W * band[2]), int(H * band[1])
     cx, ch = int(W * band[0]), int(H * band[3])
     dur = pr["vdur"]
+    states = plan.get("caption_states") or []
+    highlight = plan.get("caption_highlight_rgb")
     hits = n = 0
     for t in np.linspace(dur * 0.05, dur * 0.95, cfg.get("samples", 36)):
         raw = subprocess.run([C.FF, "-v", "error", "-ss", f"{t:.2f}", "-i", video, "-frames:v", "1",
@@ -295,7 +297,18 @@ def burned(key, pr, cfg, plan, video, work):
             continue
         b = np.frombuffer(raw, dtype=np.uint8)
         n += 1
-        if 0.004 < (b > 225).mean() < 0.20 and (b < 40).mean() > 0.01:
+        present = 0.004 < (b > 225).mean() < 0.20 and (b < 40).mean() > 0.01
+        active = any(float(s["beat"][0]) <= t <= float(s["beat"][1]) for s in states)
+        if not present and active and isinstance(highlight, list) and len(highlight) == 3:
+            rgb = subprocess.run([C.FF, "-v", "error", "-ss", f"{t:.2f}", "-i", video,
+                                  "-frames:v", "1",
+                                  "-vf", f"crop={cw}:{ch}:{cx}:{cy},format=rgb24",
+                                  "-f", "rawvideo", "-"], capture_output=True).stdout
+            if rgb:
+                px = np.frombuffer(rgb, dtype=np.uint8).reshape(-1, 3).astype(np.int16)
+                target = np.asarray(highlight, dtype=np.int16)
+                present = float((np.linalg.norm(px - target, axis=1) < 45).mean()) > 0.001
+        if present:
             hits += 1
     frac = hits / max(n, 1)
     if want:

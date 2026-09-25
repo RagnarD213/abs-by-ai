@@ -202,7 +202,7 @@ handoff (`handoff-20260909-audio-match-muhammad.md`, waiting on your spray-tan s
 | [AV-04](AV-04-ad5-vertical-round2-and-regrade.md) | Ad 5: your round-2 revisions + re-grade | READY | M |
 | [AV-05](AV-05-ad6-vertical.md) | Ad 6 | **NEEDS DAN** | M |
 | [AV-06](AV-06-ad7-vertical.md) | Ad 7 | READY | M |
-| [AV-07](AV-07-ad10-vertical.md) | Ad 10 | IN PROGRESS | M |
+| [AV-07](AV-07-ad10-vertical.md) | Ad 10 | DELIVERED: awaiting Dan | M |
 | [AV-08](AV-08-ad14-vertical.md) | Ad 14 | READY (file the 09-16 HD first) | M |
 | [AV-09](AV-09-ad8-vertical.md) | Ad 8: Two Futures | READY | M |
 | [AV-10](AV-10-ad9-vertical.md) | Ad 9: ChatGPT (round 4 source, 09-21) | READY | M |

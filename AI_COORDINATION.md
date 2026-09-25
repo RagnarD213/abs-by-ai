@@ -101,7 +101,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **STOP Deadlifting clip - NEEDS DAN 2026-09-20, Codex.** R3 review copy delivered to the shared Drive folder: `1dXUbQajUzM-uO_Xl92telO0qsa-Ob7uV`. Full head visible; measured bar path rises once without reversing. Silent B-roll has no matching full-film delivery gate, so no gate PASS is claimed. Next: Dan reviews R3 and approves or names any corrections. Detail: `Media/ai-frames/stop-deadlifting-opening-20260918/motion-v2/R3_DELIVERY.json`.
 
-**AV-07 Ad 10 vertical kit build — ACTIVE 2026-09-18, Codex.** Claimed; building the full 9:16 and ≤0:59 cutdown from Muhammad’s finalized master with the locked kit. Next: recover Ad 10’s edit/grade, author the fresh content sheet, render, then run three fresh-session strip/sheet reviews and require GATE PASS 36/36. Detail: `/Volumes/Extreme/_edit_work/kit9x16/ad10-master/`.
+**AV-07 Ad 10 vertical kit build: DELIVERED 2026-09-24, Codex.** Full 9:16 and 57-second cutdown passed 39 of 39 gate rows with zero defects. Review copies, proofs, and recipe are packaged. Next: Dan reviews both copies. Record his exact verdict in the quality corpus, then finalize or revise. AS-06 stays blocked pending approval.
 
 **DS-18 kettlebell-deadlift short - NEEDS DAN 2026-09-24, Codex.** Full 45.31-second review cut delivered. Start Today has no arrows; approved B-roll is installed; visual audit passed 30/30 images and 14/14 boundaries. Gate exceptions are recorded for the requested mute and automated full-body style checks. Next: Dan approves the full cut or gives final revisions. Detail: `/Volumes/Extreme/_edit_work/ds18-kettlebell-deadlift/`.
 

@@ -6,7 +6,10 @@ B="$1"; V="$2"; WHO="${3:-Claude Opus 5 x3 (independent watch judges, thirds)}";
 python3 - <<'PY'
 import json, glob
 parts=[json.load(open(p)) for p in sorted(glob.glob('logs/findings_part*.json'))]
-ent=[e for p in parts for e in p['entries'] if 'negscan' not in str(e.get('image',''))]   # the negscan sheet is recorded by kit_negscan, not the watch pass
+ent=[e for p in parts for e in p['entries']
+     if 'negscan' not in str(e.get('image','')) and str(e.get('image','')) != 'sheet.jpg']
+# The negative-event sheet is recorded by kit_negscan, not the watch pass. Judges use
+# basenames, so accept either a negscan path or its bare sheet.jpg basename here.
 json.dump(dict(judge=' | '.join(p.get('judge','?') for p in parts), video=parts[0]['video'], method=' || '.join(p.get('method','') for p in parts), entries=ent), open('logs/findings.json','w'), indent=1)
 d=[e for e in ent if e.get('verdict')=='defect']; print(len(ent),'entries,',len(d),'defects', [(x.get('t'),x.get('item')) for x in d])
 PY

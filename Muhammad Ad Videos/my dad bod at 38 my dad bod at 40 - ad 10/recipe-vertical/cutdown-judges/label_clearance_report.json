@@ -1,0 +1,22 @@
+{
+  "candidate": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/ad10_vertical_59s.mp4",
+  "sha256": "36ae2f6d528ebf34692e81040343c88d17046eff27a25bc1c266f2fd816dd00f",
+  "judge": "Codex fresh independent label-clearance judge",
+  "method": "Verified the exact SHA-256, then decoded the 1080x1920, 30000/1001 fps candidate sequentially from the beginning with no input seek. Inspected full-resolution PNG frames at decoded PTS 8.6086 and 46.8134 seconds, the frames corresponding to requested times 8.608 and 46.814 seconds. Also inspected neighboring decoded frames from 8.47513 through 8.74207 seconds and 46.6800 through 46.9469 seconds.",
+  "checked": 2,
+  "frames": [
+    {
+      "name": "real_towel",
+      "time": 8.608,
+      "verdict": "PASS",
+      "note": "Exactly one correct real-picture label is visible and fully readable. Its black rectangle is above Dan's head with clear separation from his hair and face, and it is far above his abs. It does not touch or cover his face or abs. Neighboring checked frames also keep the rectangle spatially clear during the text wipe."
+    },
+    {
+      "name": "real_pool_stand",
+      "time": 46.814,
+      "verdict": "PASS",
+      "note": "Exactly one correct real-picture label is visible and fully readable. Its black rectangle is above Dan's head with clear separation from his hair and face, and it is far above his abs. It does not touch or cover his face or abs. Neighboring checked frames also keep the rectangle spatially clear during the text wipe."
+    }
+  ],
+  "obstructions": []
+}

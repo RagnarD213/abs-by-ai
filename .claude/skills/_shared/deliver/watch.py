@@ -71,7 +71,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(HERE)))
 
 from _shared.deliver import common as C                      # noqa: E402
 
-WATCH_VERSION = "1.1.0"   # 2026-09-18: placeholder is an explicit, non-waivable checklist item
+WATCH_VERSION = "1.2.0"   # 2026-09-23: exact-frame grabs decode two seconds of lead-in
 
 # ---------------------------------------------------------------------------- the scan settings
 # ⚠ These are part of the naked-splice calibration in formats.py. Change one and re-measure.
@@ -161,10 +161,10 @@ been looked at by a person yet; you are that person. Be skeptical: the session t
    stop early. An image you did not open cannot be `clean`.
 3. A strip is five CONSECUTIVE frames at -2/-1/0/+1/+2 around a boundary. A jump cut is visible ONLY here: same
    scene both sides, the subject moves. Sheets are for framing, cards, labels and junk; a sheet cannot show a cut.
-4. When something looks wrong on a sheet, grab the exact frames before you call it a defect:
-   `ffmpeg -ss <t> -copyts -i "<video>" -frames:v 3 -vf showinfo <out>.png` (never judge a defect from a
-   downscaled tile). `personmask` (shorts/reference/recentre/personmask) gives a person mask if you need to
-   measure where he sits.
+4. When something looks wrong on a sheet, grab the exact frames before you call it a defect. Decode at least
+   two seconds before the target or put `-ss` after `-i`; a short input seek can expose undecoded H.264 delta
+   blocks that are not in sequential playback. Never judge a defect from a downscaled tile. `personmask`
+   (shorts/reference/recentre/personmask) gives a person mask if you need to measure where he sits.
 5. Write `{os.path.dirname(os.path.abspath(log))}/findings.json`:
    {{"entries": [{{"image": "<file name>", "verdict": "clean"|"defect"|"expected", "item": "<checklist key, for a
    defect>", "t": <seconds>, "note": "<what you saw; for expected, what the plan declares there>"}}, ...]}}
@@ -225,11 +225,13 @@ def grab(video, k, n, fps, w, h, pix="gray"):
     """n consecutive frames starting at frame index k, EXACT (never a sampled sheet).
 
     `-ss` lands within a frame of where it is asked to (measured 2026-09-16: one frame early on
-    some indices, exact on others), so the seek starts three frames early, every output frame's
-    pts is read back from `showinfo`, and the run is sliced to the indices actually wanted.
+    some indices, exact on others), so every output frame's pts is read back from `showinfo` and
+    the run is sliced to the indices actually wanted. The decoder gets two seconds of lead-in.
+    Three frames was not enough for H.264 delta reconstruction after an input seek: isolated
+    labels and card regions appeared sliced even though sequential playback was clean (AV-07).
     """
     ch = 3 if pix == "rgb24" else 1
-    lead = 3
+    lead = max(3, int(round(fps * 2.0)))
     t = max(0.0, (k - lead - 0.5) / fps)
     r = subprocess.run([C.FF, "-v", "info", "-nostdin", "-ss", f"{t:.5f}", "-copyts", "-i", video,
                         "-frames:v", str(n + 2 * lead), "-vf", f"scale={w}:{h},showinfo", "-an",
@@ -808,13 +810,13 @@ def run(video, plan_path=None, out=None, log=None, want_clips=False, quiet=False
 
 
 def judge(log_path, findings_path, by):
-    """Fold a judge's findings into the log. Every sheet and strip needs a verdict."""
+    """Fold a judge's findings into the log. Every sheet, strip and pair needs a verdict."""
     d = json.load(open(log_path))
     f = json.load(open(findings_path))
     entries = f.get("entries") if isinstance(f, dict) else f
     if not isinstance(entries, list):
         raise SystemExit("findings.json must be {\"entries\": [{image, verdict, item?, note?, t?, disposition?}]}")
-    names = set(d.get("sheets", [])) | set(d.get("strips", []))
+    names = set(d.get("sheets", [])) | set(d.get("strips", [])) | set(d.get("pairs", []))
     seen, bad = {}, []
     for e in entries:
         img = os.path.basename(str(e.get("image", "")))

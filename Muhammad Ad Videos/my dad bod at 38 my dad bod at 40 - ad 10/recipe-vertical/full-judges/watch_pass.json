@@ -1,0 +1,2658 @@
+{
+ "watch_version": "1.2.0",
+ "tool": "_shared/deliver/watch.py",
+ "video": "ad10_9x16_review.mp4",
+ "path": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/ad10_9x16_review.mp4",
+ "sha256": "b25b6e50e106cc4c6407fc949ff6edda25ceab8b1c75a559eff6427b0fc32cc6",
+ "bytes": 172461205,
+ "size": "1080x1920",
+ "fps": 29.97,
+ "duration": 181.615,
+ "when": "2026-09-23T15:10:42-0500",
+ "plan": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/plan.json",
+ "out": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/watch",
+ "boundaries": 116,
+ "boundary_list": [
+  {
+   "t": 3.14,
+   "label": "before_deckchair out / card@0.000 out / cards out / covered out / talk-1 in",
+   "strip": "strip_000_00-03.14_before_deckchair_out___card_0_000_out___.jpg"
+  },
+  {
+   "t": 8.11,
+   "label": "card@8.108 in / cards in / covered in / real_red_shorts in / talk-1 out",
+   "strip": "strip_001_00-08.11_card_8_108_in___cards_in___covered_in___.jpg"
+  },
+  {
+   "t": 8.44,
+   "label": "cards in / cards out / covered in / covered out / real_red_shorts out / real_towel in",
+   "strip": "strip_002_00-08.44_cards_in___cards_out___covered_in___cove.jpg"
+  },
+  {
+   "t": 8.48,
+   "label": "card@8.108 out / card@8.442 in",
+   "strip": "strip_003_00-08.48_card_8_108_out___card_8_442_in.jpg"
+  },
+  {
+   "t": 8.78,
+   "label": "card@8.442 out / card@8.775 in / cards in / cards out / covered in / covered out / real_park_close in / real_towel out",
+   "strip": "strip_004_00-08.78_card_8_442_out___card_8_775_in___cards_i.jpg"
+  },
+  {
+   "t": 9.11,
+   "label": "card@8.775 out / card@9.109 in / cards in / cards out / covered in / covered out / join / real_flag in / real_park_close out",
+   "strip": "strip_005_00-09.11_card_8_775_out___card_9_109_in___cards_i.jpg"
+  },
+  {
+   "t": 10.84,
+   "label": "card@9.109 out / cards out / covered out / join / real_flag out / talk-6 in",
+   "strip": "strip_006_00-10.84_card_9_109_out___cards_out___covered_out.jpg"
+  },
+  {
+   "t": 12.91,
+   "label": "join / punch:NEAR",
+   "strip": "strip_007_00-12.91_join___punch_NEAR.jpg"
+  },
+  {
+   "t": 14.35,
+   "label": "punch:FAR",
+   "strip": "strip_008_00-14.35_punch_FAR.jpg"
+  },
+  {
+   "t": 15.92,
+   "label": "cards in / covered in / join / talk-6 out / window-7 in / card@15.916 in",
+   "strip": "strip_009_00-15.92_cards_in___covered_in___join___talk-6_ou.jpg"
+  },
+  {
+   "t": 18.45,
+   "label": "join / punch:NEAR",
+   "strip": "strip_010_00-18.45_join___punch_NEAR.jpg"
+  },
+  {
+   "t": 20.12,
+   "label": "card@15.916 out / cards out / covered out / join / punch:FAR / talk-8 in / window-7 out",
+   "strip": "strip_011_00-20.12_card_15_916_out___cards_out___covered_ou.jpg"
+  },
+  {
+   "t": 22.9,
+   "label": "cards in / lt@22.90 in / card@22.900 in",
+   "strip": "strip_012_00-22.90_cards_in___lt_22_90_in___card_22_900_in.jpg"
+  },
+  {
+   "t": 23.29,
+   "label": "join / punch:NEAR",
+   "strip": "strip_013_00-23.29_join___punch_NEAR.jpg"
+  },
+  {
+   "t": 24.02,
+   "label": "join / punch:FAR",
+   "strip": "strip_014_00-24.02_join___punch_FAR.jpg"
+  },
+  {
+   "t": 26.0,
+   "label": "cards out / lt@22.90 out",
+   "strip": "strip_015_00-26.00_cards_out___lt_22_90_out.jpg"
+  },
+  {
+   "t": 26.03,
+   "label": "card@22.900 out / lt@22.90 out",
+   "strip": "strip_016_00-26.03_card_22_900_out___lt_22_90_out.jpg"
+  },
+  {
+   "t": 27.06,
+   "label": "card@27.060 in / cards in / covered in / real_red_shorts in / talk-8 out",
+   "strip": "strip_017_00-27.06_card_27_060_in___cards_in___covered_in__.jpg"
+  },
+  {
+   "t": 28.63,
+   "label": "cards in / cards out / covered in / covered out / real_park_close in / real_red_shorts out",
+   "strip": "strip_018_00-28.63_cards_in___cards_out___covered_in___cove.jpg"
+  },
+  {
+   "t": 28.66,
+   "label": "card@27.060 out / card@28.629 in",
+   "strip": "strip_019_00-28.66_card_27_060_out___card_28_629_in.jpg"
+  },
+  {
+   "t": 30.06,
+   "label": "card@28.629 out / cards out / covered out / join / real_park_close out / talk-11 in",
+   "strip": "strip_020_00-30.06_card_28_629_out___cards_out___covered_ou.jpg"
+  },
+  {
+   "t": 33.03,
+   "label": "join / punch:NEAR",
+   "strip": "strip_021_00-33.03_join___punch_NEAR.jpg"
+  },
+  {
+   "t": 35.27,
+   "label": "punch:FAR",
+   "strip": "strip_022_00-35.27_punch_FAR.jpg"
+  },
+  {
+   "t": 37.87,
+   "label": "card@37.871 in / cards in / covered in / join / talk-11 out / window-12 in",
+   "strip": "strip_023_00-37.87_card_37_871_in___cards_in___covered_in__.jpg"
+  },
+  {
+   "t": 41.74,
+   "label": "join / punch:NEAR",
+   "strip": "strip_024_00-41.74_join___punch_NEAR.jpg"
+  },
+  {
+   "t": 47.51,
+   "label": "card@37.871 out / cards out / covered out / join / punch:FAR / talk-13 in / window-12 out",
+   "strip": "strip_025_00-47.51_card_37_871_out___cards_out___covered_ou.jpg"
+  },
+  {
+   "t": 50.68,
+   "label": "join / punch:NEAR",
+   "strip": "strip_026_00-50.68_join___punch_NEAR.jpg"
+  },
+  {
+   "t": 52.12,
+   "label": "punch:FAR",
+   "strip": "strip_027_00-52.12_punch_FAR.jpg"
+  },
+  {
+   "t": 54.22,
+   "label": "covered in / join / talk-13 out",
+   "strip": "strip_028_00-54.22_covered_in___join___talk-13_out.jpg"
+  },
+  {
+   "t": 57.89,
+   "label": "covered out / join / talk-15 in",
+   "strip": "strip_029_00-57.89_covered_out___join___talk-15_in.jpg"
+  },
+  {
+   "t": 59.13,
+   "label": "cards in / covered in / talk-15 out / card@59.126 in",
+   "strip": "strip_030_00-59.13_cards_in___covered_in___talk-15_out___ca.jpg"
+  },
+  {
+   "t": 61.09,
+   "label": "join",
+   "strip": "strip_031_01-01.09_join.jpg"
+  },
+  {
+   "t": 62.5,
+   "label": "join",
+   "strip": "strip_032_01-02.50_join.jpg"
+  },
+  {
+   "t": 63.13,
+   "label": "cards in / cards out / covered in / covered out / daughter_trip in / card@59.126 out / card@63.130 in",
+   "strip": "strip_033_01-03.13_cards_in___cards_out___covered_in___cove.jpg"
+  },
+  {
+   "t": 65.1,
+   "label": "card@63.130 out / card@65.098 in / cards in / cards out / covered in / covered out / daughter_event in / daughter_trip out",
+   "strip": "strip_034_01-05.10_card_63_130_out___card_65_098_in___cards.jpg"
+  },
+  {
+   "t": 67.23,
+   "label": "cards out / covered out / daughter_event out / join / talk-19 in",
+   "strip": "strip_035_01-07.23_cards_out___covered_out___daughter_event.jpg"
+  },
+  {
+   "t": 67.27,
+   "label": "card@65.098 out",
+   "strip": "strip_036_01-07.27_card_65_098_out.jpg"
+  },
+  {
+   "t": 68.23,
+   "label": "join / punch:NEAR",
+   "strip": "strip_037_01-08.23_join___punch_NEAR.jpg"
+  },
+  {
+   "t": 68.8,
+   "label": "card@68.800 in / cards in / lt@68.80 in",
+   "strip": "strip_038_01-08.80_card_68_800_in___cards_in___lt_68_80_in.jpg"
+  },
+  {
+   "t": 70.07,
+   "label": "punch:FAR",
+   "strip": "strip_039_01-10.07_punch_FAR.jpg"
+  },
+  {
+   "t": 72.04,
+   "label": "join / punch:NEAR",
+   "strip": "strip_040_01-12.04_join___punch_NEAR.jpg"
+  },
+  {
+   "t": 73.1,
+   "label": "cards out / lt@68.80 out / card@68.800 out",
+   "strip": "strip_041_01-13.10_cards_out___lt_68_80_out___card_68_800_o.jpg"
+  },
+  {
+   "t": 73.57,
+   "label": "join / punch:FAR",
+   "strip": "strip_042_01-13.57_join___punch_FAR.jpg"
+  },
+  {
+   "t": 74.1,
+   "label": "cards in / cta@74.10 in / card@74.100 in",
+   "strip": "strip_043_01-14.10_cards_in___cta_74_10_in___card_74_100_in.jpg"
+  },
+  {
+   "t": 76.58,
+   "label": "punch:NEAR",
+   "strip": "strip_044_01-16.58_punch_NEAR.jpg"
+  },
+  {
+   "t": 76.9,
+   "label": "cards out / cta@74.10 out / card@74.100 out",
+   "strip": "strip_045_01-16.90_cards_out___cta_74_10_out___card_74_100_.jpg"
+  },
+  {
+   "t": 78.28,
+   "label": "punch:FAR",
+   "strip": "strip_046_01-18.28_punch_FAR.jpg"
+  },
+  {
+   "t": 80.95,
+   "label": "join / punch:NEAR",
+   "strip": "strip_047_01-20.95_join___punch_NEAR.jpg"
+  },
+  {
+   "t": 82.38,
+   "label": "punch:FAR",
+   "strip": "strip_048_01-22.38_punch_FAR.jpg"
+  },
+  {
+   "t": 83.62,
+   "label": "join / punch:NEAR",
+   "strip": "strip_049_01-23.62_join___punch_NEAR.jpg"
+  },
+  {
+   "t": 85.45,
+   "label": "punch:FAR",
+   "strip": "strip_050_01-25.45_punch_FAR.jpg"
+  },
+  {
+   "t": 86.25,
+   "label": "join / punch:NEAR",
+   "strip": "strip_051_01-26.25_join___punch_NEAR.jpg"
+  },
+  {
+   "t": 88.49,
+   "label": "punch:FAR",
+   "strip": "strip_052_01-28.49_punch_FAR.jpg"
+  },
+  {
+   "t": 90.22,
+   "label": "ai_goal in / card@90.223 in / cards in / covered in / join / talk-19 out",
+   "strip": "strip_053_01-30.22_ai_goal_in___card_90_223_in___cards_in__.jpg"
+  },
+  {
+   "t": 93.23,
+   "label": "ai_goal out / card@90.223 out / card@93.226 in / cards in / cards out / covered in / covered out",
+   "strip": "strip_054_01-33.23_ai_goal_out___card_90_223_out___card_93_.jpg"
+  },
+  {
+   "t": 94.89,
+   "label": "join",
+   "strip": "strip_055_01-34.89_join.jpg"
+  },
+  {
+   "t": 95.39,
+   "label": "cards out / covered out / talk-22 in / card@93.226 out",
+   "strip": "strip_056_01-35.39_cards_out___covered_out___talk-22_in___c.jpg"
+  },
+  {
+   "t": 99.17,
+   "label": "cards in / covered in / join / talk-22 out",
+   "strip": "strip_057_01-39.17_cards_in___covered_in___join___talk-22_o.jpg"
+  },
+  {
+   "t": 99.2,
+   "label": "card@99.166 in",
+   "strip": "strip_058_01-39.20_card_99_166_in.jpg"
+  },
+  {
+   "t": 102.8,
+   "label": "join",
+   "strip": "strip_059_01-42.80_join.jpg"
+  },
+  {
+   "t": 103.2,
+   "label": "card@99.166 out / cards out / covered out / talk-24 in",
+   "strip": "strip_060_01-43.20_card_99_166_out___cards_out___covered_ou.jpg"
+  },
+  {
+   "t": 106.17,
+   "label": "cards in / covered in / join / real_pool_stand in / talk-24 out",
+   "strip": "strip_061_01-46.17_cards_in___covered_in___join___real_pool.jpg"
+  },
+  {
+   "t": 106.21,
+   "label": "card@106.173 in",
+   "strip": "strip_062_01-46.21_card_106_173_in.jpg"
+  },
+  {
+   "t": 107.17,
+   "label": "cards in / cards out / covered in / covered out / join / real_pool_flex in / real_pool_stand out",
+   "strip": "strip_063_01-47.17_cards_in___cards_out___covered_in___cove.jpg"
+  },
+  {
+   "t": 107.21,
+   "label": "card@106.173 out / card@107.174 in",
+   "strip": "strip_064_01-47.21_card_106_173_out___card_107_174_in.jpg"
+  },
+  {
+   "t": 108.58,
+   "label": "card@107.174 out / cards out / covered out / join / real_pool_flex out / talk-27 in",
+   "strip": "strip_065_01-48.58_card_107_174_out___cards_out___covered_o.jpg"
+  },
+  {
+   "t": 109.0,
+   "label": "cards in / cta@109.00 in / card@109.000 in",
+   "strip": "strip_066_01-49.00_cards_in___cta_109_00_in___card_109_000_.jpg"
+  },
+  {
+   "t": 111.8,
+   "label": "cards out / cta@109.00 out / card@109.000 out",
+   "strip": "strip_067_01-51.80_cards_out___cta_109_00_out___card_109_00.jpg"
+  },
+  {
+   "t": 112.01,
+   "label": "covered in / join / talk-27 out",
+   "strip": "strip_068_01-52.01_covered_in___join___talk-27_out.jpg"
+  },
+  {
+   "t": 114.98,
+   "label": "covered out / talk-29 in / cards in / lt@115.00 in",
+   "strip": "strip_069_01-54.98_covered_out___talk-29_in___cards_in___lt.jpg"
+  },
+  {
+   "t": 115.01,
+   "label": "card@115.000 in / lt@115.00 in",
+   "strip": "strip_070_01-55.01_card_115_000_in___lt_115_00_in.jpg"
+  },
+  {
+   "t": 118.1,
+   "label": "cards out / lt@115.00 out / card@115.000 out",
+   "strip": "strip_071_01-58.10_cards_out___lt_115_00_out___card_115_000.jpg"
+  },
+  {
+   "t": 118.75,
+   "label": "join / punch:NEAR",
+   "strip": "strip_072_01-58.75_join___punch_NEAR.jpg"
+  },
+  {
+   "t": 120.19,
+   "label": "punch:FAR",
+   "strip": "strip_073_02-00.19_punch_FAR.jpg"
+  },
+  {
+   "t": 120.82,
+   "label": "join / punch:NEAR",
+   "strip": "strip_074_02-00.82_join___punch_NEAR.jpg"
+  },
+  {
+   "t": 121.82,
+   "label": "app1_before in / cards in / covered in / talk-29 out",
+   "strip": "strip_075_02-01.82_app1_before_in___cards_in___covered_in__.jpg"
+  },
+  {
+   "t": 121.86,
+   "label": "card@121.822 in / punch:FAR",
+   "strip": "strip_076_02-01.86_card_121_822_in___punch_FAR.jpg"
+  },
+  {
+   "t": 122.82,
+   "label": "app1_before out / app1_form in / cards in / cards out / covered in / covered out",
+   "strip": "strip_077_02-02.82_app1_before_out___app1_form_in___cards_i.jpg"
+  },
+  {
+   "t": 122.86,
+   "label": "card@121.822 out / card@122.823 in",
+   "strip": "strip_078_02-02.86_card_121_822_out___card_122_823_in.jpg"
+  },
+  {
+   "t": 124.66,
+   "label": "join",
+   "strip": "strip_079_02-04.66_join.jpg"
+  },
+  {
+   "t": 125.66,
+   "label": "app1_form out / app1_goal_clean in / cards in / cards out / covered in / covered out",
+   "strip": "strip_080_02-05.66_app1_form_out___app1_goal_clean_in___car.jpg"
+  },
+  {
+   "t": 125.69,
+   "label": "card@122.823 out / card@125.659 in",
+   "strip": "strip_081_02-05.69_card_122_823_out___card_125_659_in.jpg"
+  },
+  {
+   "t": 127.06,
+   "label": "join",
+   "strip": "strip_082_02-07.06_join.jpg"
+  },
+  {
+   "t": 127.36,
+   "label": "app1_goal_clean out / cards in / cards out / covered in / covered out / window-33 in",
+   "strip": "strip_083_02-07.36_app1_goal_clean_out___cards_in___cards_o.jpg"
+  },
+  {
+   "t": 127.39,
+   "label": "card@125.659 out / card@127.361 in",
+   "strip": "strip_084_02-07.39_card_125_659_out___card_127_361_in.jpg"
+  },
+  {
+   "t": 133.77,
+   "label": "join / punch:NEAR",
+   "strip": "strip_085_02-13.77_join___punch_NEAR.jpg"
+  },
+  {
+   "t": 136.64,
+   "label": "join / punch:FAR",
+   "strip": "strip_086_02-16.64_join___punch_FAR.jpg"
+  },
+  {
+   "t": 139.04,
+   "label": "cards out / covered out / join / talk-34 in / window-33 out",
+   "strip": "strip_087_02-19.04_cards_out___covered_out___join___talk-34.jpg"
+  },
+  {
+   "t": 139.07,
+   "label": "card@127.361 out",
+   "strip": "strip_088_02-19.07_card_127_361_out.jpg"
+  },
+  {
+   "t": 141.3,
+   "label": "cards in / lt@141.30 in / card@141.300 in",
+   "strip": "strip_089_02-21.30_cards_in___lt_141_30_in___card_141_300_i.jpg"
+  },
+  {
+   "t": 142.24,
+   "label": "join / punch:NEAR",
+   "strip": "strip_090_02-22.24_join___punch_NEAR.jpg"
+  },
+  {
+   "t": 143.58,
+   "label": "join / punch:FAR",
+   "strip": "strip_091_02-23.58_join___punch_FAR.jpg"
+  },
+  {
+   "t": 144.6,
+   "label": "cards out / lt@141.30 out / card@141.300 out",
+   "strip": "strip_092_02-24.60_cards_out___lt_141_30_out___card_141_300.jpg"
+  },
+  {
+   "t": 146.01,
+   "label": "join / punch:NEAR",
+   "strip": "strip_093_02-26.01_join___punch_NEAR.jpg"
+  },
+  {
+   "t": 146.3,
+   "label": "cards in / lt@146.30 in / card@146.300 in",
+   "strip": "strip_094_02-26.30_cards_in___lt_146_30_in___card_146_300_i.jpg"
+  },
+  {
+   "t": 147.45,
+   "label": "punch:FAR",
+   "strip": "strip_095_02-27.45_punch_FAR.jpg"
+  },
+  {
+   "t": 150.9,
+   "label": "cards out / lt@146.30 out / card@146.300 out",
+   "strip": "strip_096_02-30.90_cards_out___lt_146_30_out___card_146_300.jpg"
+  },
+  {
+   "t": 151.59,
+   "label": "covered in / join / talk-34 out",
+   "strip": "strip_097_02-31.59_covered_in___join___talk-34_out.jpg"
+  },
+  {
+   "t": 152.85,
+   "label": "join",
+   "strip": "strip_098_02-32.85_join.jpg"
+  },
+  {
+   "t": 155.59,
+   "label": "join",
+   "strip": "strip_099_02-35.59_join.jpg"
+  },
+  {
+   "t": 156.6,
+   "label": "cards in / covered in / covered out / window-36 in / card@156.600 in",
+   "strip": "strip_100_02-36.60_cards_in___covered_in___covered_out___wi.jpg"
+  },
+  {
+   "t": 159.93,
+   "label": "card@156.600 out / card@159.926 in / cards in / cards out / covered out / join / lt@159.93 in / talk-37 in / window-36 out",
+   "strip": "strip_101_02-39.93_card_156_600_out___card_159_926_in___car.jpg"
+  },
+  {
+   "t": 163.53,
+   "label": "join / punch:NEAR",
+   "strip": "strip_102_02-43.53_join___punch_NEAR.jpg"
+  },
+  {
+   "t": 164.0,
+   "label": "cards out / lt@159.93 out",
+   "strip": "strip_103_02-44.00_cards_out___lt_159_93_out.jpg"
+  },
+  {
+   "t": 164.03,
+   "label": "card@159.926 out / lt@159.93 out",
+   "strip": "strip_104_02-44.03_card_159_926_out___lt_159_93_out.jpg"
+  },
+  {
+   "t": 165.03,
+   "label": "covered in / talk-37 out",
+   "strip": "strip_105_02-45.03_covered_in___talk-37_out.jpg"
+  },
+  {
+   "t": 165.06,
+   "label": "punch:FAR",
+   "strip": "strip_106_02-45.06_punch_FAR.jpg"
+  },
+  {
+   "t": 166.17,
+   "label": "join",
+   "strip": "strip_107_02-46.17_join.jpg"
+  },
+  {
+   "t": 167.3,
+   "label": "covered in / covered out / join",
+   "strip": "strip_108_02-47.30_covered_in___covered_out___join.jpg"
+  },
+  {
+   "t": 169.47,
+   "label": "covered in / covered out / join",
+   "strip": "strip_109_02-49.47_covered_in___covered_out___join.jpg"
+  },
+  {
+   "t": 172.84,
+   "label": "app2_before in / card@172.839 in / cards in / covered in / covered out / join",
+   "strip": "strip_110_02-52.84_app2_before_in___card_172_839_in___cards.jpg"
+  },
+  {
+   "t": 173.87,
+   "label": "app2_before out / app2_form in / cards in / cards out / covered in / covered out",
+   "strip": "strip_111_02-53.87_app2_before_out___app2_form_in___cards_i.jpg"
+  },
+  {
+   "t": 173.91,
+   "label": "card@172.839 out / card@173.874 in",
+   "strip": "strip_112_02-53.91_card_172_839_out___card_173_874_in.jpg"
+  },
+  {
+   "t": 176.74,
+   "label": "app2_form out / app2_goal_clean in / card@173.874 out / card@176.743 in / cards in / cards out / covered in / covered out",
+   "strip": "strip_113_02-56.74_app2_form_out___app2_goal_clean_in___car.jpg"
+  },
+  {
+   "t": 177.81,
+   "label": "join",
+   "strip": "strip_114_02-57.81_join.jpg"
+  },
+  {
+   "t": 178.28,
+   "label": "app2_goal_clean out / card@176.743 out / card@178.278 in / cards in / cards out / covered out / cta@178.28 in / talk-44 in",
+   "strip": "strip_115_02-58.28_app2_goal_clean_out___card_176_743_out__.jpg"
+  }
+ ],
+ "reviewed": 116,
+ "inspected": true,
+ "judged": [
+  {
+   "image": "sheet_00_00-00.00_to_00-23.99.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 0.0,
+   "note": "Framing, labels, cards, captions, hair, limbs, and picture quality are clean across the sheet."
+  },
+  {
+   "image": "sheet_01_00-24.99_to_00-49.02.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 24.99,
+   "note": "Framing, labels, window card, captions, hair, limbs, and picture quality are clean across the sheet."
+  },
+  {
+   "image": "sheet_02_00-50.02_to_01-14.01.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 50.02,
+   "note": "Cards, photo labels, lower third, flash frames, framing, and picture quality are clean across the sheet."
+  },
+  {
+   "image": "sheet_03_01-15.01_to_01-39.00.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 75.01,
+   "note": "CTA, AI disclosure, phone card, framing, captions, hair, limbs, and picture quality are clean across the sheet."
+  },
+  {
+   "image": "sheet_04_01-40.00_to_02-03.99.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 100.0,
+   "note": "Statement card, real-photo labels, AI labels, CTA, lower third, app cards, framing, and picture quality are clean across the sheet."
+  },
+  {
+   "image": "sheet_05_02-04.99_to_02-29.02.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 124.99,
+   "note": "App sequence, labels, window card, lower thirds, framing, and picture quality are clean. The apparent risk area at 125.600 was separately decoded sequentially with output seek after input and is clean."
+  },
+  {
+   "image": "sheet_06_02-30.02_to_02-54.01.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 150.02,
+   "note": "Food card, AI clips and labels, window card, lower third, flash frames, framing, and picture quality are clean across the sheet."
+  },
+  {
+   "image": "sheet_07_02-55.01_to_03-01.01.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 175.01,
+   "note": "App sequence, labels, CTA, framing, and picture quality are clean. The apparent risk area at 176.643 was separately decoded sequentially with output seek after input and is clean."
+  },
+  {
+   "image": "strip_000_00-03.14_before_deckchair_out___card_0_000_out___.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 3.136,
+   "note": "Plan declares the full-bleed before photo ending and TALK beginning; the direct cut has no flash, as required for a full-bleed photo."
+  },
+  {
+   "image": "pair_000_00-03.14.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 3.136,
+   "note": "Declared full-bleed photo-to-TALK cut; label is clear of face and abs and no prohibited flash is present."
+  },
+  {
+   "image": "strip_001_00-08.11_card_8_108_in___cards_in___covered_in___.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 8.108,
+   "note": "Plan declares TALK ending and the real red-shorts photo beginning; clean direct cut with exactly one correctly placed real-photo label."
+  },
+  {
+   "image": "pair_001_00-08.11.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 8.108,
+   "note": "Declared TALK-to-photo cut; the photo label is above Dan and clear of face and abs."
+  },
+  {
+   "image": "strip_002_00-08.44_cards_in___cards_out___covered_in___cove.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 8.442,
+   "note": "Plan declares a full-bleed real-photo change; direct card-to-card cut has no flash and both images have one correct label."
+  },
+  {
+   "image": "pair_002_00-08.44.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 8.442,
+   "note": "Declared real-photo change with no prohibited flash; both labels are clear of face and abs."
+  },
+  {
+   "image": "strip_003_00-08.48_card_8_108_out___card_8_442_in.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 8.475,
+   "note": "Declared photo-card handoff lands within the five-frame strip; the succeeding labelled photo is stable and clean."
+  },
+  {
+   "image": "pair_003_00-08.48.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 8.475,
+   "note": "The declared card handoff has completed by this pair; the succeeding labelled photo is clean."
+  },
+  {
+   "image": "strip_004_00-08.78_card_8_442_out___card_8_775_in___cards_i.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 8.775,
+   "note": "Plan declares the next full-bleed real photo; direct photo-to-photo cut has no flash and the label stays off face and abs."
+  },
+  {
+   "image": "pair_004_00-08.78.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 8.775,
+   "note": "Declared real-photo change with no prohibited flash; the succeeding label is clear of face and abs."
+  },
+  {
+   "image": "strip_005_00-09.11_card_8_775_out___card_9_109_in___cards_i.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 9.109,
+   "note": "Plan declares the final full-bleed real-photo change in the sequence; clean direct cut and correct label placement."
+  },
+  {
+   "image": "pair_005_00-09.11.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 9.109,
+   "note": "Declared photo-to-photo cut with no flash; both real-photo labels are singular and clear of face and abs."
+  },
+  {
+   "image": "strip_006_00-10.84_card_9_109_out___cards_out___covered_out.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 10.844,
+   "note": "Plan declares the full-bleed photo ending and TALK resuming; no flash appears because the outgoing image is full bleed."
+  },
+  {
+   "image": "pair_006_00-10.84.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 10.844,
+   "note": "Declared full-bleed photo-to-TALK cut; label is correct and no prohibited flash is present."
+  },
+  {
+   "image": "strip_007_00-12.91_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 12.913,
+   "note": "Plan declares a bare TALK cut with a NEAR framing change; the roughly 20 percent instant step is allowed and hair remains clear."
+  },
+  {
+   "image": "pair_007_00-12.91.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 12.913,
+   "note": "Declared bare TALK cut to NEAR; framing step is intentional, centered, and does not clip hair or a limb asymmetrically."
+  },
+  {
+   "image": "strip_008_00-14.35_punch_FAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 14.348,
+   "note": "Plan declares a 0.5-second punch ramp back to FAR; adjacent frames show a smooth endpoint without an instant framing jump."
+  },
+  {
+   "image": "pair_008_00-14.35.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 14.348,
+   "note": "Declared FAR punch-ramp endpoint; framing is continuous across the pair."
+  },
+  {
+   "image": "strip_009_00-15.92_cards_in___covered_in___join___talk-6_ou.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 15.916,
+   "note": "Plan declares a TALK-to-window cut; the direct card/window entry has no flash, as required for card-to-window behavior."
+  },
+  {
+   "image": "pair_009_00-15.92.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 15.916,
+   "note": "Declared TALK-to-window change; the instant framing step is allowed and no prohibited flash appears."
+  },
+  {
+   "image": "strip_010_00-18.45_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 18.452,
+   "note": "Plan declares a cut within the window plus a NEAR framing change; the allowed step is centered and visually clean."
+  },
+  {
+   "image": "pair_010_00-18.45.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 18.452,
+   "note": "Declared window cut to NEAR; the framing change is intentional and does not create a naked same-size splice."
+  },
+  {
+   "image": "strip_011_00-20.12_card_15_916_out___cards_out___covered_ou.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 20.12,
+   "note": "Plan declares return from window/card to TALK; the expected white flash is present and covers the framing handoff."
+  },
+  {
+   "image": "pair_011_00-20.12.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 20.12,
+   "note": "Declared window/card-to-TALK return with the permitted flash visible."
+  },
+  {
+   "image": "strip_012_00-22.90_cards_in___lt_22_90_in___card_22_900_in.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 22.9,
+   "note": "Plan declares the lower-third graphic entering over TALK; its typewriter reveal begins cleanly with no junk or placeholder text."
+  },
+  {
+   "image": "pair_012_00-22.90.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 22.9,
+   "note": "Declared lower-third entry is beginning and does not cover Dan's face."
+  },
+  {
+   "image": "strip_013_00-23.29_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 23.29,
+   "note": "Plan declares a bare TALK cut with a NEAR framing change; the allowed instant step is clean and hair remains visible."
+  },
+  {
+   "image": "pair_013_00-23.29.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 23.29,
+   "note": "Declared bare TALK cut to NEAR; framing change is intentional and avoids an unmotivated same-size splice."
+  },
+  {
+   "image": "strip_014_00-24.02_join___punch_FAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 24.024,
+   "note": "Plan declares a bare TALK cut back to FAR; the allowed framing step is centered and clean."
+  },
+  {
+   "image": "pair_014_00-24.02.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 24.024,
+   "note": "Declared bare TALK cut to FAR; the roughly 20 percent step is intentional and hair remains clear."
+  },
+  {
+   "image": "strip_015_00-26.00_cards_out___lt_22_90_out.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 26.0,
+   "note": "Plan declares lower-third exit; the graphic fades away cleanly with no stray or garbled text."
+  },
+  {
+   "image": "pair_015_00-26.00.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 26.0,
+   "note": "Declared lower-third exit is clean and leaves the TALK frame intact."
+  },
+  {
+   "image": "strip_016_00-26.03_card_22_900_out___lt_22_90_out.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 26.026,
+   "note": "Declared graphic exit has completed; no residual card, black frame, or placeholder remains."
+  },
+  {
+   "image": "pair_016_00-26.03.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 26.026,
+   "note": "Declared lower-third completion is clean with continuous TALK picture."
+  },
+  {
+   "image": "strip_017_00-27.06_card_27_060_in___cards_in___covered_in__.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 27.06,
+   "note": "Plan declares entry to the full-bleed red-shorts photo; direct cut has no flash and exactly one correct label."
+  },
+  {
+   "image": "pair_017_00-27.06.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 27.06,
+   "note": "Declared TALK-to-photo cut; the real-photo label is above Dan and clear of face and abs."
+  },
+  {
+   "image": "strip_018_00-28.63_cards_in___cards_out___covered_in___cove.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 28.629,
+   "note": "Plan declares a full-bleed real-photo change; direct cut has no flash and each image carries one correct label."
+  },
+  {
+   "image": "pair_018_00-28.63.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 28.629,
+   "note": "Declared photo-to-photo change; labels are singular and clear of face and abs."
+  },
+  {
+   "image": "strip_019_00-28.66_card_27_060_out___card_28_629_in.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 28.662,
+   "note": "Declared photo-card handoff has completed by this strip center; the succeeding labelled photo is stable and clean."
+  },
+  {
+   "image": "pair_019_00-28.66.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 28.662,
+   "note": "The declared card handoff is complete; the succeeding full-bleed photo and label are clean."
+  },
+  {
+   "image": "strip_020_00-30.06_card_28_629_out___cards_out___covered_ou.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 30.063,
+   "note": "Plan declares the full-bleed photo ending and TALK resuming; no flash appears because the outgoing image is full bleed."
+  },
+  {
+   "image": "pair_020_00-30.06.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 30.063,
+   "note": "Declared full-bleed photo-to-TALK cut with correct label placement and no prohibited flash."
+  },
+  {
+   "image": "strip_021_00-33.03_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 33.033,
+   "note": "Plan declares a bare TALK cut with a NEAR framing change; the allowed step is centered and hair remains clear."
+  },
+  {
+   "image": "pair_021_00-33.03.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 33.033,
+   "note": "Declared bare TALK cut to NEAR; framing step is intentional and clean."
+  },
+  {
+   "image": "strip_022_00-35.27_punch_FAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 35.269,
+   "note": "Plan declares a 0.5-second ramp back to FAR; consecutive frames are continuous at the endpoint."
+  },
+  {
+   "image": "pair_022_00-35.27.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 35.269,
+   "note": "Declared FAR punch-ramp endpoint; no instant jump or clipping is visible."
+  },
+  {
+   "image": "strip_023_00-37.87_card_37_871_in___cards_in___covered_in__.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 37.871,
+   "note": "Plan declares TALK changing to the wide window/card; direct entry has no flash and the window composition is intentional."
+  },
+  {
+   "image": "pair_023_00-37.87.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 37.871,
+   "note": "Declared TALK-to-window cut; the framing step is allowed and no prohibited flash appears."
+  },
+  {
+   "image": "strip_024_00-41.74_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 41.742,
+   "note": "Plan declares a cut within the window plus a NEAR framing change; composition remains centered and readable."
+  },
+  {
+   "image": "pair_024_00-41.74.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 41.742,
+   "note": "Declared window cut to NEAR; the intentional step does not produce a same-size naked splice."
+  },
+  {
+   "image": "strip_025_00-47.51_card_37_871_out___cards_out___covered_ou.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 47.514,
+   "note": "Plan declares return from window/card to TALK; the expected white flash appears and covers the handoff."
+  },
+  {
+   "image": "pair_025_00-47.51.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 47.514,
+   "note": "Declared window/card-to-TALK return with the permitted flash visible."
+  },
+  {
+   "image": "strip_026_00-50.68_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 50.684,
+   "note": "Plan declares a bare TALK cut with a NEAR framing change; the allowed step is clean and hair remains inside frame."
+  },
+  {
+   "image": "pair_026_00-50.68.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 50.684,
+   "note": "Declared bare TALK cut to NEAR; framing change is intentional, centered, and unclipped."
+  },
+  {
+   "image": "strip_027_00-52.12_punch_FAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 52.119,
+   "note": "Plan declares a 0.5-second punch ramp back to FAR; the endpoint is continuous across adjacent frames."
+  },
+  {
+   "image": "pair_027_00-52.12.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 52.119,
+   "note": "Declared FAR punch-ramp endpoint is smooth and clean."
+  },
+  {
+   "image": "strip_028_00-54.22_covered_in___join___talk-13_out.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 54.221,
+   "note": "Plan declares TALK changing to a covered card/window; direct entry has no flash and the card content is clean."
+  },
+  {
+   "image": "pair_028_00-54.22.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 54.221,
+   "note": "Declared TALK-to-card/window cut; no prohibited entry flash or junk frame appears."
+  },
+  {
+   "image": "strip_029_00-57.89_covered_out___join___talk-15_in.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 57.891,
+   "note": "Plan declares return from the card/window to TALK; the expected white flash is present."
+  },
+  {
+   "image": "pair_029_00-57.89.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 57.891,
+   "note": "Declared card/window-to-TALK return with the permitted flash visible."
+  },
+  {
+   "image": "strip_030_00-59.13_cards_in___covered_in___talk-15_out___ca.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 59.126,
+   "note": "Plan declares the statement card entering; the first frames show the intentional typewriter build with no placeholder or garbled copy."
+  },
+  {
+   "image": "pair_030_00-59.13.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 59.126,
+   "note": "Declared TALK-to-statement-card cut; the empty first state is the planned start of the text reveal."
+  },
+  {
+   "image": "strip_031_01-01.09_join.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 61.094,
+   "note": "Plan declares a source join fully concealed by the statement card; card remains stable and readable across the join."
+  },
+  {
+   "image": "pair_031_01-01.09.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 61.094,
+   "note": "Declared concealed join; the statement card is continuous with no black or corrupt frame."
+  },
+  {
+   "image": "strip_032_01-02.50_join.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 62.496,
+   "note": "Plan declares another source join fully concealed by the statement card; picture remains stable and readable."
+  },
+  {
+   "image": "pair_032_01-02.50.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 62.496,
+   "note": "Declared concealed join; statement card continuity is clean."
+  },
+  {
+   "image": "strip_033_01-03.13_cards_in___cards_out___covered_in___cove.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 63.13,
+   "note": "Plan declares statement card changing to the daughter-trip photo card; direct card-to-card cut has no flash and one real-photo label."
+  },
+  {
+   "image": "pair_033_01-03.13.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 63.13,
+   "note": "Declared card-to-photo-card cut; no prohibited flash and the label is clear of the pictured people."
+  },
+  {
+   "image": "strip_034_01-05.10_card_63_130_out___card_65_098_in___cards.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 65.098,
+   "note": "Plan declares the daughter photo changing; direct card-to-card cut has no flash and the succeeding card has one clear real-photo label."
+  },
+  {
+   "image": "pair_034_01-05.10.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 65.098,
+   "note": "Declared daughter-photo card change; label remains below the image and clear of faces."
+  },
+  {
+   "image": "strip_035_01-07.23_cards_out___covered_out___daughter_event.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 67.234,
+   "note": "Plan declares return from the photo card to TALK; the expected white flash is present and covers the handoff."
+  },
+  {
+   "image": "pair_035_01-07.23.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 67.234,
+   "note": "Declared photo-card-to-TALK return with the permitted flash visible."
+  },
+  {
+   "image": "strip_036_01-07.27_card_65_098_out.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 67.267,
+   "note": "Plan-declared return flash continues through the card-out boundary; TALK remains visible beneath it with no corrupt block artifact."
+  },
+  {
+   "image": "pair_036_01-07.27.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 67.267,
+   "note": "Declared card-out flash continuation is clean and permitted on return to TALK."
+  },
+  {
+   "image": "strip_037_01-08.23_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 68.235,
+   "note": "Plan declares a bare TALK cut with a NEAR framing change; the allowed step is centered and hair remains inside frame."
+  },
+  {
+   "image": "pair_037_01-08.23.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 68.235,
+   "note": "Declared bare TALK cut to NEAR; framing step is intentional and clean."
+  },
+  {
+   "image": "strip_038_01-08.80_card_68_800_in___cards_in___lt_68_80_in.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 68.8,
+   "note": "Plan declares the lower-third graphic entering over TALK; the typewriter reveal begins cleanly and does not cover Dan's face."
+  },
+  {
+   "image": "pair_038_01-08.80.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 68.8,
+   "note": "Declared lower-third entry begins as planned with no junk or placeholder text."
+  },
+  {
+   "image": "pair_039_01-10.07.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 70.07,
+   "note": "Declared FAR punch boundary. Adjacent frames are coherent, centered, and caption-safe."
+  },
+  {
+   "image": "strip_039_01-10.07_punch_FAR.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 70.07,
+   "note": "Declared FAR punch. Five consecutive frames show clean motion and safe framing."
+  },
+  {
+   "image": "pair_040_01-12.04.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 72.039,
+   "note": "Declared bare TALK join with NEAR punch. The roughly 20 percent framing step is allowed here and masks the take change without a naked same-scale splice."
+  },
+  {
+   "image": "strip_040_01-12.04_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 72.039,
+   "note": "Declared TALK join and NEAR punch. Subject remains centered, hair is clear, and the intentional framing step reads cleanly."
+  },
+  {
+   "image": "pair_041_01-13.10.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 73.106,
+   "note": "Declared lower-third and card exit. The graphic clears without residue or a black frame."
+  },
+  {
+   "image": "strip_041_01-13.10_cards_out___lt_68_80_out___card_68_800_o.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 73.106,
+   "note": "Declared lower-third exit. All five frames remain clean and correctly framed."
+  },
+  {
+   "image": "pair_042_01-13.57.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 73.573,
+   "note": "Declared bare TALK join with FAR punch. The allowed framing step is intentional and pose continuity is acceptable."
+  },
+  {
+   "image": "strip_042_01-13.57_join___punch_FAR.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 73.573,
+   "note": "Declared TALK join and FAR punch. No naked same-scale splice, crop fault, or caption corruption is exposed."
+  },
+  {
+   "image": "pair_043_01-14.10.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 74.107,
+   "note": "Declared CTA entrance. The CTA is legible and remains clear of Dan's face."
+  },
+  {
+   "image": "strip_043_01-14.10_cards_in___cta_74_10_in___card_74_100_in.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 74.107,
+   "note": "Declared CTA entrance. The animation appears clean across all five frames."
+  },
+  {
+   "image": "pair_044_01-16.58.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 76.576,
+   "note": "Declared NEAR punch ramp boundary. Subject framing and continuity remain natural."
+  },
+  {
+   "image": "strip_044_01-16.58_punch_NEAR.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 76.576,
+   "note": "Declared NEAR punch. The planned ramp is smooth with no unintended jump."
+  },
+  {
+   "image": "pair_045_01-16.90.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 76.91,
+   "note": "Declared CTA exit. The graphic clears cleanly."
+  },
+  {
+   "image": "strip_045_01-16.90_cards_out___cta_74_10_out___card_74_100_.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 76.91,
+   "note": "Declared CTA exit. No residue, black frame, or framing fault is visible."
+  },
+  {
+   "image": "pair_046_01-18.28.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 78.278,
+   "note": "Declared FAR punch ramp boundary. Caption and framing remain clean."
+  },
+  {
+   "image": "strip_046_01-18.28_punch_FAR.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 78.278,
+   "note": "Declared FAR punch. Consecutive frames are stable and safely framed."
+  },
+  {
+   "image": "pair_047_01-20.95.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 80.948,
+   "note": "Declared bare TALK join with NEAR punch. The allowed framing step covers the take change and avoids an exposed same-scale splice."
+  },
+  {
+   "image": "strip_047_01-20.95_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 80.948,
+   "note": "Declared TALK join and NEAR punch. The energetic change reads as an intentional cut and stays caption-safe."
+  },
+  {
+   "image": "pair_048_01-22.38.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 82.382,
+   "note": "Declared FAR punch ramp boundary. Adjacent frames remain coherent."
+  },
+  {
+   "image": "strip_048_01-22.38_punch_FAR.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 82.382,
+   "note": "Declared FAR punch. Motion, crop, and captions remain clean."
+  },
+  {
+   "image": "pair_049_01-23.62.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 83.617,
+   "note": "Declared bare TALK join with NEAR punch. The intentional scale step prevents a naked same-scale splice."
+  },
+  {
+   "image": "strip_049_01-23.62_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 83.617,
+   "note": "Declared TALK join and NEAR punch. Subject placement and caption continuity remain safe."
+  },
+  {
+   "image": "pair_050_01-25.45.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 85.452,
+   "note": "Declared FAR punch ramp boundary. Adjacent frames are coherent and caption-safe."
+  },
+  {
+   "image": "strip_050_01-25.45_punch_FAR.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 85.452,
+   "note": "Declared FAR punch. The five frames show no framing, splice, or text defect."
+  },
+  {
+   "image": "pair_051_01-26.25.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 86.253,
+   "note": "Declared bare TALK join with NEAR punch. The intentional framing step masks the take change cleanly."
+  },
+  {
+   "image": "strip_051_01-26.25_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 86.253,
+   "note": "Declared TALK join and NEAR punch. No naked same-scale splice or crop fault is exposed."
+  },
+  {
+   "image": "pair_052_01-28.49.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 88.488,
+   "note": "Declared FAR punch ramp boundary. Caption and subject remain clean."
+  },
+  {
+   "image": "strip_052_01-28.49_punch_FAR.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 88.488,
+   "note": "Declared FAR punch. All five frames are stable and safely framed."
+  },
+  {
+   "image": "pair_053_01-30.22.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 90.223,
+   "note": "Declared full-bleed AI goal image entrance. Dan's picture has exactly one AI-GENERATED label, placed off his face and abs; no flash is expected on a full-bleed photo."
+  },
+  {
+   "image": "strip_053_01-30.22_ai_goal_in___card_90_223_in___cards_in__.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 90.223,
+   "note": "Declared AI goal entrance. The single label remains legible and correctly placed across the strip."
+  },
+  {
+   "image": "pair_054_01-33.23.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 93.226,
+   "note": "Declared transition from the full-bleed AI photo to the phone card. No flash is expected here, and each visible Dan picture has one appropriate label."
+  },
+  {
+   "image": "strip_054_01-33.23_ai_goal_out___card_90_223_out___card_93_.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 93.226,
+   "note": "Declared photo-to-card transition. No contradictory label, junk frame, or placement fault is visible."
+  },
+  {
+   "image": "pair_055_01-34.89.jpg",
+   "verdict": "clean",
+   "item": null,
+   "t": 94.895,
+   "note": "The declared join is visually continuous within the phone card. The AI disclosure remains stable and clear."
+  },
+  {
+   "image": "strip_055_01-34.89_join.jpg",
+   "verdict": "clean",
+   "item": null,
+   "t": 94.895,
+   "note": "All five phone-card frames are continuous with no splice, freeze, or label defect."
+  },
+  {
+   "image": "pair_056_01-35.39.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 95.395,
+   "note": "Declared white flash returning to TALK from the phone card. This is an allowed flash location and contains no black frame."
+  },
+  {
+   "image": "strip_056_01-35.39_cards_out___covered_out___talk-22_in___c.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 95.395,
+   "note": "Declared card exit and return flash. The multi-frame bloom is intentional and clean."
+  },
+  {
+   "image": "pair_057_01-39.17.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 99.166,
+   "note": "Declared title-card entrance. The blank rounded plate is the initial reveal state, not a placeholder."
+  },
+  {
+   "image": "strip_057_01-39.17_cards_in___covered_in___join___talk-22_o.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 99.166,
+   "note": "Declared covered title-card entrance. The animated plate appears cleanly without a black frame."
+  },
+  {
+   "image": "pair_058_01-39.20.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 99.199,
+   "note": "Declared title-card build. The blank plate is an intentional first animation frame before the type appears."
+  },
+  {
+   "image": "strip_058_01-39.20_card_99_166_in.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 99.199,
+   "note": "Declared title reveal. The first text stroke begins by +2 frames, confirming an animation rather than a placeholder."
+  },
+  {
+   "image": "pair_059_01-42.80.jpg",
+   "verdict": "clean",
+   "item": null,
+   "t": 102.803,
+   "note": "The completed title card is legible, centered, and visually continuous across the declared join."
+  },
+  {
+   "image": "strip_059_01-42.80_join.jpg",
+   "verdict": "clean",
+   "item": null,
+   "t": 102.803,
+   "note": "All five title-card frames are stable, readable, and free of visual junk."
+  },
+  {
+   "image": "pair_060_01-43.20.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 103.203,
+   "note": "Declared white flash returning to TALK from the title card. This is an allowed flash location."
+  },
+  {
+   "image": "strip_060_01-43.20_card_99_166_out___cards_out___covered_ou.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 103.203,
+   "note": "Declared title-card exit and return flash. No black frame, residue, or exposed splice is visible."
+  },
+  {
+   "image": "pair_061_01-46.17.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 106.173,
+   "note": "Declared full-bleed real photo entrance. Dan has exactly one real-photo label above his head, clear of his face and abs; no flash is expected on the photo."
+  },
+  {
+   "image": "strip_061_01-46.17_cards_in___covered_in___join___real_pool.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 106.173,
+   "note": "Declared real-photo entrance. The label is present exactly once and remains safely placed across the strip."
+  },
+  {
+   "image": "pair_062_01-46.21.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 106.206,
+   "note": "Declared card state on the real pool-standing photo. Sequential decode from before the target confirms a clean frame with one label and no H.264 corruption."
+  },
+  {
+   "image": "strip_062_01-46.21_card_106_173_in.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 106.206,
+   "note": "Declared real-photo card state. Sequentially decoded 106.139-106.273s frames are clean; label stays off face and abs."
+  },
+  {
+   "image": "pair_063_01-47.17.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 107.174,
+   "note": "Declared full-bleed real-photo change. Each photo has exactly one real-photo label above Dan, clear of face and abs, with no flash on the photo boundary."
+  },
+  {
+   "image": "strip_063_01-47.17_cards_in___cards_out___covered_in___cove.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 107.174,
+   "note": "Declared photo-to-photo transition. Both labels are correct and no junk or black frame appears."
+  },
+  {
+   "image": "pair_064_01-47.21.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 107.207,
+   "note": "Declared card state immediately after the real-photo change. Exactly one label is present above Dan and off his face and abs."
+  },
+  {
+   "image": "strip_064_01-47.21_card_106_173_out___card_107_174_in.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 107.207,
+   "note": "Declared card handoff. The outgoing and incoming real-photo states remain clean and correctly labeled."
+  },
+  {
+   "image": "pair_065_01-48.58.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 108.575,
+   "note": "Declared full-bleed real-photo exit to TALK. No flash is expected when returning from a full-bleed photo; the outgoing photo has one correctly placed label."
+  },
+  {
+   "image": "strip_065_01-48.58_card_107_174_out___cards_out___covered_o.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 108.575,
+   "note": "Declared photo-to-TALK transition. The no-flash treatment is correct and the talking frame is usable."
+  },
+  {
+   "image": "pair_066_01-49.00.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 109.009,
+   "note": "Declared CTA entrance. The CTA is legible and clear of Dan's face."
+  },
+  {
+   "image": "strip_066_01-49.00_cards_in___cta_109_00_in___card_109_000_.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 109.009,
+   "note": "Declared CTA entrance. Animation and typography are clean across the strip."
+  },
+  {
+   "image": "pair_067_01-51.80.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 111.812,
+   "note": "Declared CTA exit. The graphic clears without residue."
+  },
+  {
+   "image": "strip_067_01-51.80_cards_out___cta_109_00_out___card_109_00.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 111.812,
+   "note": "Declared CTA exit. No residue, black frame, or framing defect is visible."
+  },
+  {
+   "image": "pair_068_01-52.01.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 112.012,
+   "note": "Declared AI lifestyle card entrance. Its AI-GENERATED disclosure is visible and clear of the pictured person's face and abs."
+  },
+  {
+   "image": "strip_068_01-52.01_covered_in___join___talk-27_out.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 112.012,
+   "note": "Declared covered entrance to the AI lifestyle card. The disclosure is legible and correctly placed."
+  },
+  {
+   "image": "pair_069_01-54.98.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 114.982,
+   "note": "Declared white flash returning to TALK from the card, with lower-third entrance. This is an allowed flash location."
+  },
+  {
+   "image": "strip_069_01-54.98_covered_out___talk-29_in___cards_in___lt.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 114.982,
+   "note": "Declared card exit, return flash, and lower-third build. No black frame or label fault is visible."
+  },
+  {
+   "image": "pair_070_01-55.01.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 115.015,
+   "note": "Declared lower-third entrance during the return flash. The initial line and bar are intentional reveal states."
+  },
+  {
+   "image": "strip_070_01-55.01_card_115_000_in___lt_115_00_in.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 115.015,
+   "note": "Declared lower-third build. The animation progresses normally across the five frames."
+  },
+  {
+   "image": "pair_071_01-58.10.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 118.085,
+   "note": "Declared lower-third exit. It clears cleanly with safe talking-head framing."
+  },
+  {
+   "image": "strip_071_01-58.10_cards_out___lt_115_00_out___card_115_000.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 118.085,
+   "note": "Declared lower-third exit. No residue, splice, or crop issue is visible."
+  },
+  {
+   "image": "pair_072_01-58.75.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 118.752,
+   "note": "Declared bare TALK join with NEAR punch. The allowed roughly 20 percent framing step makes the take change intentional rather than a naked same-scale splice."
+  },
+  {
+   "image": "strip_072_01-58.75_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 118.752,
+   "note": "Declared TALK join and NEAR punch. The change remains centered, caption-safe, and clearly intentional."
+  },
+  {
+   "image": "pair_073_02-00.19.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 120.187,
+   "note": "Declared FAR punch ramp boundary. Caption and framing remain clean."
+  },
+  {
+   "image": "strip_073_02-00.19_punch_FAR.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 120.187,
+   "note": "Declared FAR punch. Consecutive frames are stable with no crop or text defect."
+  },
+  {
+   "image": "pair_074_02-00.82.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 120.821,
+   "note": "Declared bare TALK join with NEAR punch. The allowed framing step masks the take change without exposing a same-scale splice."
+  },
+  {
+   "image": "strip_074_02-00.82_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 120.821,
+   "note": "Declared TALK join and NEAR punch. The cut reads as intentional and remains safely framed."
+  },
+  {
+   "image": "pair_075_02-01.82.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 121.822,
+   "note": "Declared app before-photo card entrance. Dan's real photo has exactly one label below the phone, clear of his face and abs."
+  },
+  {
+   "image": "strip_075_02-01.82_app1_before_in___cards_in___covered_in__.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 121.822,
+   "note": "Declared app-card entrance. The before photo is labeled exactly once with clean app framing."
+  },
+  {
+   "image": "pair_076_02-01.86.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 121.855,
+   "note": "Declared card and FAR punch state. Sequential decode from before the target confirms the phone image, label, and background are clean with no H.264 corruption."
+  },
+  {
+   "image": "strip_076_02-01.86_card_121_822_in___punch_FAR.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 121.855,
+   "note": "Declared app-card state. Sequentially decoded 121.788-121.922s frames are clean; Dan's before photo remains labeled once and off face and abs."
+  },
+  {
+   "image": "pair_077_02-02.82.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 122.823,
+   "note": "Declared app flow change from photo adjustment to the form. The same real photo remains consistently labeled once, with no flash on the card-to-window change."
+  },
+  {
+   "image": "strip_077_02-02.82_app1_before_out___app1_form_in___cards_i.jpg",
+   "verdict": "expected",
+   "item": null,
+   "t": 122.823,
+   "note": "Declared app-state transition. No contradictory label, app-flow discontinuity, junk frame, or forbidden flash is visible."
+  },
+  {
+   "image": "pair_078_02-02.86.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 122.856,
+   "note": "The -1|0 pair confirms the planned change. Declared app-screen card change is clean. Dan has exactly one real-photo label, placed below the image and clear of his face and abs."
+  },
+  {
+   "image": "strip_078_02-02.86_card_121_822_out___card_122_823_in.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 122.856,
+   "note": "The five-frame strip confirms the planned interval. Declared app-screen card change is clean. Dan has exactly one real-photo label, placed below the image and clear of his face and abs."
+  },
+  {
+   "image": "pair_079_02-04.66.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 124.658,
+   "note": "The -1|0 pair confirms: declared join is clean, with continuous framing and no naked splice or visual junk."
+  },
+  {
+   "image": "strip_079_02-04.66_join.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 124.658,
+   "note": "The five-frame strip confirms the planned interval. Declared join is clean, with continuous framing and no naked splice or visual junk."
+  },
+  {
+   "image": "pair_080_02-05.66.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 125.659,
+   "note": "The -1|0 pair confirms the planned change. Declared form-to-goal change and label swap are clean. The real and AI pictures each have exactly one correct label clear of face and abs."
+  },
+  {
+   "image": "strip_080_02-05.66_app1_form_out___app1_goal_clean_in___car.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 125.659,
+   "note": "The five-frame strip confirms the planned interval. Declared form-to-goal change and label swap are clean. The real and AI pictures each have exactly one correct label clear of face and abs."
+  },
+  {
+   "image": "pair_081_02-05.69.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 125.692,
+   "note": "The -1|0 pair confirms the planned change. Declared goal-card boundary is clean. The AI picture of Dan has exactly one label below the image."
+  },
+  {
+   "image": "strip_081_02-05.69_card_122_823_out___card_125_659_in.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 125.692,
+   "note": "The five-frame strip confirms the planned interval. Declared goal-card boundary is clean. The AI picture of Dan has exactly one label below the image."
+  },
+  {
+   "image": "pair_082_02-07.06.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 127.06,
+   "note": "The -1|0 pair confirms: declared join is clean, with no naked splice, black frame, or visual junk."
+  },
+  {
+   "image": "strip_082_02-07.06_join.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 127.06,
+   "note": "The five-frame strip confirms the planned interval. Declared join is clean, with no naked splice, black frame, or visual junk."
+  },
+  {
+   "image": "pair_083_02-07.36.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 127.361,
+   "note": "The -1|0 pair confirms the planned change. Declared goal-card-to-Dan-window change is clean. This is not a return to TALK, so the no-flash change is expected. The photo has one AI label clear of face and abs."
+  },
+  {
+   "image": "strip_083_02-07.36_app1_goal_clean_out___cards_in___cards_o.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 127.361,
+   "note": "The five-frame strip confirms the planned interval. Declared goal-card-to-Dan-window change is clean. This is not a return to TALK, so the no-flash change is expected. The photo has one AI label clear of face and abs."
+  },
+  {
+   "image": "pair_084_02-07.39.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 127.394,
+   "note": "The -1|0 pair confirms the planned change. Declared card-to-window continuation is clean. No return flash is expected on this card-to-window change."
+  },
+  {
+   "image": "strip_084_02-07.39_card_125_659_out___card_127_361_in.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 127.394,
+   "note": "The five-frame strip confirms the planned interval. Declared card-to-window continuation is clean. No return flash is expected on this card-to-window change."
+  },
+  {
+   "image": "pair_085_02-13.77.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 133.767,
+   "note": "The -1|0 pair confirms the planned change. Declared join and punch NEAR are present. The instant roughly 20 percent framing step is expected on this bare TALK/window cut."
+  },
+  {
+   "image": "strip_085_02-13.77_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 133.767,
+   "note": "The five-frame strip confirms the planned interval. Declared join and punch NEAR are present. The instant roughly 20 percent framing step is expected on this bare TALK/window cut."
+  },
+  {
+   "image": "pair_086_02-16.64.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 136.637,
+   "note": "The -1|0 pair confirms the planned change. Declared join and punch FAR are present. The instant roughly 20 percent framing step is expected on this bare TALK/window cut."
+  },
+  {
+   "image": "strip_086_02-16.64_join___punch_FAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 136.637,
+   "note": "The five-frame strip confirms the planned interval. Declared join and punch FAR are present. The instant roughly 20 percent framing step is expected on this bare TALK/window cut."
+  },
+  {
+   "image": "pair_087_02-19.04.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 139.039,
+   "note": "The -1|0 pair confirms the planned change. Declared window return to TALK is covered by the expected white bloom flash."
+  },
+  {
+   "image": "strip_087_02-19.04_cards_out___covered_out___join___talk-34.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 139.039,
+   "note": "The five-frame strip confirms the planned interval. Declared window return to TALK is covered by the expected white bloom flash."
+  },
+  {
+   "image": "pair_088_02-19.07.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 139.072,
+   "note": "The -1|0 pair confirms the planned change. Declared flash tail and card exit are visible after the return to TALK."
+  },
+  {
+   "image": "strip_088_02-19.07_card_127_361_out.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 139.072,
+   "note": "The five-frame strip confirms the planned interval. Declared flash tail and card exit are visible after the return to TALK."
+  },
+  {
+   "image": "pair_089_02-21.30.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 141.308,
+   "note": "The -1|0 pair confirms the planned change. Declared lower-third and card entrance are visible and clean."
+  },
+  {
+   "image": "strip_089_02-21.30_cards_in___lt_141_30_in___card_141_300_i.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 141.308,
+   "note": "The five-frame strip confirms the planned interval. Declared lower-third and card entrance are visible and clean."
+  },
+  {
+   "image": "pair_090_02-22.24.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 142.242,
+   "note": "The -1|0 pair confirms the planned change. Declared join and punch NEAR are present. The instant framing step is expected on this bare TALK cut."
+  },
+  {
+   "image": "strip_090_02-22.24_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 142.242,
+   "note": "The five-frame strip confirms the planned interval. Declared join and punch NEAR are present. The instant framing step is expected on this bare TALK cut."
+  },
+  {
+   "image": "pair_091_02-23.58.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 143.577,
+   "note": "The -1|0 pair confirms the planned change. Declared join and punch FAR are present. The instant framing step is expected on this bare TALK cut."
+  },
+  {
+   "image": "strip_091_02-23.58_join___punch_FAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 143.577,
+   "note": "The five-frame strip confirms the planned interval. Declared join and punch FAR are present. The instant framing step is expected on this bare TALK cut."
+  },
+  {
+   "image": "pair_092_02-24.60.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 144.611,
+   "note": "The -1|0 pair confirms the planned change. Declared lower-third and card exit complete cleanly."
+  },
+  {
+   "image": "strip_092_02-24.60_cards_out___lt_141_30_out___card_141_300.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 144.611,
+   "note": "The five-frame strip confirms the planned interval. Declared lower-third and card exit complete cleanly."
+  },
+  {
+   "image": "pair_093_02-26.01.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 146.013,
+   "note": "The -1|0 pair confirms the planned change. Declared join and punch NEAR are present. The instant framing step is expected on this bare TALK cut."
+  },
+  {
+   "image": "strip_093_02-26.01_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 146.013,
+   "note": "The five-frame strip confirms the planned interval. Declared join and punch NEAR are present. The instant framing step is expected on this bare TALK cut."
+  },
+  {
+   "image": "pair_094_02-26.30.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 146.313,
+   "note": "The -1|0 pair confirms the planned change. Declared lower-third and card entrance are visible and clean."
+  },
+  {
+   "image": "strip_094_02-26.30_cards_in___lt_146_30_in___card_146_300_i.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 146.313,
+   "note": "The five-frame strip confirms the planned interval. Declared lower-third and card entrance are visible and clean."
+  },
+  {
+   "image": "pair_095_02-27.45.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 147.447,
+   "note": "The -1|0 pair confirms the planned change. Declared punch FAR moves progressively across consecutive frames, matching the planned 0.5-second ramp."
+  },
+  {
+   "image": "strip_095_02-27.45_punch_FAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 147.447,
+   "note": "The five-frame strip confirms the planned interval. Declared punch FAR moves progressively across consecutive frames, matching the planned 0.5-second ramp."
+  },
+  {
+   "image": "pair_096_02-30.90.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 150.884,
+   "note": "The -1|0 pair confirms the planned change. Declared lower-third and card exit complete cleanly."
+  },
+  {
+   "image": "strip_096_02-30.90_cards_out___lt_146_30_out___card_146_300.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 150.884,
+   "note": "The five-frame strip confirms the planned interval. Declared lower-third and card exit complete cleanly."
+  },
+  {
+   "image": "pair_097_02-31.59.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 151.585,
+   "note": "The -1|0 pair confirms the planned change. Declared TALK-to-food-card change is clean. No flash is expected on insert entry."
+  },
+  {
+   "image": "strip_097_02-31.59_covered_in___join___talk-34_out.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 151.585,
+   "note": "The five-frame strip confirms the planned interval. Declared TALK-to-food-card change is clean. No flash is expected on insert entry."
+  },
+  {
+   "image": "pair_098_02-32.85.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 152.853,
+   "note": "The -1|0 pair confirms: declared join is clean, with no naked splice, black frame, or visual junk."
+  },
+  {
+   "image": "strip_098_02-32.85_join.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 152.853,
+   "note": "The five-frame strip confirms the planned interval. Declared join is clean, with no naked splice, black frame, or visual junk."
+  },
+  {
+   "image": "pair_099_02-35.59.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 155.589,
+   "note": "The -1|0 pair confirms: declared join is clean, with no naked splice, black frame, or visual junk."
+  },
+  {
+   "image": "strip_099_02-35.59_join.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 155.589,
+   "note": "The five-frame strip confirms the planned interval. Declared join is clean, with no naked splice, black frame, or visual junk."
+  },
+  {
+   "image": "pair_100_02-36.60.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 156.59,
+   "note": "The -1|0 pair confirms the planned change. Declared food-card-to-Dan-window change is clean. No flash is expected on a card-to-window change."
+  },
+  {
+   "image": "strip_100_02-36.60_cards_in___covered_in___covered_out___wi.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 156.59,
+   "note": "The five-frame strip confirms the planned interval. Declared food-card-to-Dan-window change is clean. No flash is expected on a card-to-window change."
+  },
+  {
+   "image": "pair_101_02-39.93.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 159.926,
+   "note": "The -1|0 pair confirms the planned change. Declared window return to TALK is covered by the expected white bloom flash."
+  },
+  {
+   "image": "strip_101_02-39.93_card_156_600_out___card_159_926_in___car.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 159.926,
+   "note": "The five-frame strip confirms the planned interval. Declared window return to TALK is covered by the expected white bloom flash."
+  },
+  {
+   "image": "pair_102_02-43.53.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 163.53,
+   "note": "The -1|0 pair confirms the planned change. Declared join and punch NEAR are present. The instant framing step is expected on this bare TALK cut."
+  },
+  {
+   "image": "strip_102_02-43.53_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 163.53,
+   "note": "The five-frame strip confirms the planned interval. Declared join and punch NEAR are present. The instant framing step is expected on this bare TALK cut."
+  },
+  {
+   "image": "pair_103_02-44.00.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 163.997,
+   "note": "The -1|0 pair confirms the planned change. Declared lower-third exit is visible and clean."
+  },
+  {
+   "image": "strip_103_02-44.00_cards_out___lt_159_93_out.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 163.997,
+   "note": "The five-frame strip confirms the planned interval. Declared lower-third exit is visible and clean."
+  },
+  {
+   "image": "pair_104_02-44.03.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 164.031,
+   "note": "The -1|0 pair confirms the planned change. Declared card and lower-third exit continuation is visible and clean."
+  },
+  {
+   "image": "strip_104_02-44.03_card_159_926_out___lt_159_93_out.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 164.031,
+   "note": "The five-frame strip confirms the planned interval. Declared card and lower-third exit continuation is visible and clean."
+  },
+  {
+   "image": "pair_105_02-45.03.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 165.032,
+   "note": "The -1|0 pair confirms the planned change. Declared TALK-to-AI-window entry is clean. No flash is expected on insert entry."
+  },
+  {
+   "image": "strip_105_02-45.03_covered_in___talk-37_out.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 165.032,
+   "note": "The five-frame strip confirms the planned interval. Declared TALK-to-AI-window entry is clean. No flash is expected on insert entry."
+  },
+  {
+   "image": "pair_106_02-45.06.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 165.065,
+   "note": "The -1|0 pair confirms the planned change. Declared punch FAR is clean and follows the planned 0.5-second ramp. Robust sequential decoding from more than two seconds earlier confirms 165.065 and surrounding frames are free of H.264 delta-block corruption."
+  },
+  {
+   "image": "strip_106_02-45.06_punch_FAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 165.065,
+   "note": "The five-frame strip confirms the planned interval. Declared punch FAR is clean and follows the planned 0.5-second ramp. Robust sequential decoding from more than two seconds earlier confirms 165.065 and surrounding frames are free of H.264 delta-block corruption."
+  },
+  {
+   "image": "pair_107_02-46.17.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 166.166,
+   "note": "The -1|0 pair confirms: declared join is clean, with no naked splice, black frame, or visual junk."
+  },
+  {
+   "image": "strip_107_02-46.17_join.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 166.166,
+   "note": "The five-frame strip confirms the planned interval. Declared join is clean, with no naked splice, black frame, or visual junk."
+  },
+  {
+   "image": "pair_108_02-47.30.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 167.3,
+   "note": "The -1|0 pair confirms the planned change. Declared insert-to-insert change is clean. No return-to-TALK flash is expected."
+  },
+  {
+   "image": "strip_108_02-47.30_covered_in___covered_out___join.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 167.3,
+   "note": "The five-frame strip confirms the planned interval. Declared insert-to-insert change is clean. No return-to-TALK flash is expected."
+  },
+  {
+   "image": "pair_109_02-49.47.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 169.469,
+   "note": "The -1|0 pair confirms the planned change. Declared insert-to-insert change is clean. No return-to-TALK flash is expected."
+  },
+  {
+   "image": "strip_109_02-49.47_covered_in___covered_out___join.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 169.469,
+   "note": "The five-frame strip confirms the planned interval. Declared insert-to-insert change is clean. No return-to-TALK flash is expected."
+  },
+  {
+   "image": "pair_110_02-52.84.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 172.839,
+   "note": "The -1|0 pair confirms the planned change. Declared app before-card entrance is clean. Dan has exactly one real-photo label below the phone and clear of face and abs."
+  },
+  {
+   "image": "strip_110_02-52.84_app2_before_in___card_172_839_in___cards.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 172.839,
+   "note": "The five-frame strip confirms the planned interval. Declared app before-card entrance is clean. Dan has exactly one real-photo label below the phone and clear of face and abs."
+  },
+  {
+   "image": "pair_111_02-53.87.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 173.874,
+   "note": "The -1|0 pair confirms the planned change. Declared before-to-form app change is clean. Dan retains exactly one real-photo label clear of face and abs."
+  },
+  {
+   "image": "strip_111_02-53.87_app2_before_out___app2_form_in___cards_i.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 173.874,
+   "note": "The five-frame strip confirms the planned interval. Declared before-to-form app change is clean. Dan retains exactly one real-photo label clear of face and abs."
+  },
+  {
+   "image": "pair_112_02-53.91.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 173.907,
+   "note": "The -1|0 pair confirms the planned change. Declared card swap within the app sequence is clean. The single real-photo label remains correctly placed."
+  },
+  {
+   "image": "strip_112_02-53.91_card_172_839_out___card_173_874_in.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 173.907,
+   "note": "The five-frame strip confirms the planned interval. Declared card swap within the app sequence is clean. The single real-photo label remains correctly placed."
+  },
+  {
+   "image": "pair_113_02-56.74.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 176.743,
+   "note": "The -1|0 pair confirms the planned change. Declared form-to-goal change and label swap are clean. Robust sequential decoding from more than two seconds earlier confirms 176.643 and surrounding frames are free of H.264 delta-block corruption. Each Dan picture has one correct label clear of face and abs."
+  },
+  {
+   "image": "strip_113_02-56.74_app2_form_out___app2_goal_clean_in___car.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 176.743,
+   "note": "The five-frame strip confirms the planned interval. Declared form-to-goal change and label swap are clean. Robust sequential decoding from more than two seconds earlier confirms 176.643 and surrounding frames are free of H.264 delta-block corruption. Each Dan picture has one correct label clear of face and abs."
+  },
+  {
+   "image": "pair_114_02-57.81.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 177.811,
+   "note": "The -1|0 pair confirms: declared join is clean, with no naked splice, black frame, or visual junk."
+  },
+  {
+   "image": "strip_114_02-57.81_join.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 177.811,
+   "note": "The five-frame strip confirms the planned interval. Declared join is clean, with no naked splice, black frame, or visual junk."
+  },
+  {
+   "image": "pair_115_02-58.28.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 178.278,
+   "note": "The -1|0 pair confirms the planned change. Declared goal-card return to TALK and CTA entrance are covered by the expected white bloom flash. The AI picture has one label clear of face and abs, and the CTA stays off his face."
+  },
+  {
+   "image": "strip_115_02-58.28_app2_goal_clean_out___card_176_743_out__.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 178.278,
+   "note": "The five-frame strip confirms the planned interval. Declared goal-card return to TALK and CTA entrance are covered by the expected white bloom flash. The AI picture has one label clear of face and abs, and the CTA stays off his face."
+  }
+ ],
+ "judged_by": "GPT-5.6 x3 fresh independent judges",
+ "open_defects": 0,
+ "scan": {
+  "frames": 5443,
+  "fps": 29.97,
+  "median_diff": 1.727,
+  "mad": 1.02,
+  "p99": 36.245,
+  "threshold": 36.245,
+  "frozen": [
+   {
+    "t": 174.51,
+    "seconds": 0.3,
+    "inside_declared": true
+   }
+  ],
+  "black": [],
+  "jumps": [],
+  "explained_jumps": 31
+ },
+ "naked_splices": {
+  "count": 0,
+  "per_min": 0.0,
+  "candidates": 18,
+  "naked": [],
+  "settings": {
+   "grid": "90x160",
+   "blocks": "9x16",
+   "peak": 20.0,
+   "sharp": 2.0,
+   "still": 0.25,
+   "hot_min": 8,
+   "subject_rows": 0.7,
+   "tex_min": 6.0,
+   "palette": 0.1,
+   "align_explains": 0.4,
+   "align_margin_blocks": 1
+  }
+ },
+ "graphic_presence": [
+  {
+   "name": "lt@22.90",
+   "t": 24.82,
+   "method": "mov_alpha_corr",
+   "corr": 1.0,
+   "opaque_px": 34136,
+   "present": true
+  },
+  {
+   "name": "lt@68.80",
+   "t": 71.47,
+   "method": "mov_alpha_corr",
+   "corr": 1.0,
+   "opaque_px": 84116,
+   "present": true
+  },
+  {
+   "name": "lt@115.00",
+   "t": 116.92,
+   "method": "mov_alpha_corr",
+   "corr": 1.0,
+   "opaque_px": 82586,
+   "present": true
+  },
+  {
+   "name": "lt@141.30",
+   "t": 143.35,
+   "method": "mov_alpha_corr",
+   "corr": 1.0,
+   "opaque_px": 88196,
+   "present": true
+  },
+  {
+   "name": "lt@146.30",
+   "t": 149.15,
+   "method": "mov_alpha_corr",
+   "corr": 1.0,
+   "opaque_px": 97580,
+   "present": true
+  },
+  {
+   "name": "lt@159.93",
+   "t": 162.45,
+   "method": "mov_alpha_corr",
+   "corr": 1.0,
+   "opaque_px": 86462,
+   "present": true
+  },
+  {
+   "name": "cta@74.10",
+   "t": 75.84,
+   "method": "mov_alpha_corr",
+   "corr": 1.0,
+   "opaque_px": 130188,
+   "present": true
+  },
+  {
+   "name": "cta@109.00",
+   "t": 110.74,
+   "method": "mov_alpha_corr",
+   "corr": 1.0,
+   "opaque_px": 130188,
+   "present": true
+  },
+  {
+   "name": "cta@178.28",
+   "t": 180.35,
+   "method": "mov_alpha_corr",
+   "corr": 1.0,
+   "opaque_px": 130188,
+   "present": true
+  }
+ ],
+ "sheets": [
+  "sheet_00_00-00.00_to_00-23.99.jpg",
+  "sheet_01_00-24.99_to_00-49.02.jpg",
+  "sheet_02_00-50.02_to_01-14.01.jpg",
+  "sheet_03_01-15.01_to_01-39.00.jpg",
+  "sheet_04_01-40.00_to_02-03.99.jpg",
+  "sheet_05_02-04.99_to_02-29.02.jpg",
+  "sheet_06_02-30.02_to_02-54.01.jpg",
+  "sheet_07_02-55.01_to_03-01.01.jpg"
+ ],
+ "sheet_interval_s": 1.0,
+ "strips": [
+  "strip_000_00-03.14_before_deckchair_out___card_0_000_out___.jpg",
+  "strip_001_00-08.11_card_8_108_in___cards_in___covered_in___.jpg",
+  "strip_002_00-08.44_cards_in___cards_out___covered_in___cove.jpg",
+  "strip_003_00-08.48_card_8_108_out___card_8_442_in.jpg",
+  "strip_004_00-08.78_card_8_442_out___card_8_775_in___cards_i.jpg",
+  "strip_005_00-09.11_card_8_775_out___card_9_109_in___cards_i.jpg",
+  "strip_006_00-10.84_card_9_109_out___cards_out___covered_out.jpg",
+  "strip_007_00-12.91_join___punch_NEAR.jpg",
+  "strip_008_00-14.35_punch_FAR.jpg",
+  "strip_009_00-15.92_cards_in___covered_in___join___talk-6_ou.jpg",
+  "strip_010_00-18.45_join___punch_NEAR.jpg",
+  "strip_011_00-20.12_card_15_916_out___cards_out___covered_ou.jpg",
+  "strip_012_00-22.90_cards_in___lt_22_90_in___card_22_900_in.jpg",
+  "strip_013_00-23.29_join___punch_NEAR.jpg",
+  "strip_014_00-24.02_join___punch_FAR.jpg",
+  "strip_015_00-26.00_cards_out___lt_22_90_out.jpg",
+  "strip_016_00-26.03_card_22_900_out___lt_22_90_out.jpg",
+  "strip_017_00-27.06_card_27_060_in___cards_in___covered_in__.jpg",
+  "strip_018_00-28.63_cards_in___cards_out___covered_in___cove.jpg",
+  "strip_019_00-28.66_card_27_060_out___card_28_629_in.jpg",
+  "strip_020_00-30.06_card_28_629_out___cards_out___covered_ou.jpg",
+  "strip_021_00-33.03_join___punch_NEAR.jpg",
+  "strip_022_00-35.27_punch_FAR.jpg",
+  "strip_023_00-37.87_card_37_871_in___cards_in___covered_in__.jpg",
+  "strip_024_00-41.74_join___punch_NEAR.jpg",
+  "strip_025_00-47.51_card_37_871_out___cards_out___covered_ou.jpg",
+  "strip_026_00-50.68_join___punch_NEAR.jpg",
+  "strip_027_00-52.12_punch_FAR.jpg",
+  "strip_028_00-54.22_covered_in___join___talk-13_out.jpg",
+  "strip_029_00-57.89_covered_out___join___talk-15_in.jpg",
+  "strip_030_00-59.13_cards_in___covered_in___talk-15_out___ca.jpg",
+  "strip_031_01-01.09_join.jpg",
+  "strip_032_01-02.50_join.jpg",
+  "strip_033_01-03.13_cards_in___cards_out___covered_in___cove.jpg",
+  "strip_034_01-05.10_card_63_130_out___card_65_098_in___cards.jpg",
+  "strip_035_01-07.23_cards_out___covered_out___daughter_event.jpg",
+  "strip_036_01-07.27_card_65_098_out.jpg",
+  "strip_037_01-08.23_join___punch_NEAR.jpg",
+  "strip_038_01-08.80_card_68_800_in___cards_in___lt_68_80_in.jpg",
+  "strip_039_01-10.07_punch_FAR.jpg",
+  "strip_040_01-12.04_join___punch_NEAR.jpg",
+  "strip_041_01-13.10_cards_out___lt_68_80_out___card_68_800_o.jpg",
+  "strip_042_01-13.57_join___punch_FAR.jpg",
+  "strip_043_01-14.10_cards_in___cta_74_10_in___card_74_100_in.jpg",
+  "strip_044_01-16.58_punch_NEAR.jpg",
+  "strip_045_01-16.90_cards_out___cta_74_10_out___card_74_100_.jpg",
+  "strip_046_01-18.28_punch_FAR.jpg",
+  "strip_047_01-20.95_join___punch_NEAR.jpg",
+  "strip_048_01-22.38_punch_FAR.jpg",
+  "strip_049_01-23.62_join___punch_NEAR.jpg",
+  "strip_050_01-25.45_punch_FAR.jpg",
+  "strip_051_01-26.25_join___punch_NEAR.jpg",
+  "strip_052_01-28.49_punch_FAR.jpg",
+  "strip_053_01-30.22_ai_goal_in___card_90_223_in___cards_in__.jpg",
+  "strip_054_01-33.23_ai_goal_out___card_90_223_out___card_93_.jpg",
+  "strip_055_01-34.89_join.jpg",
+  "strip_056_01-35.39_cards_out___covered_out___talk-22_in___c.jpg",
+  "strip_057_01-39.17_cards_in___covered_in___join___talk-22_o.jpg",
+  "strip_058_01-39.20_card_99_166_in.jpg",
+  "strip_059_01-42.80_join.jpg",
+  "strip_060_01-43.20_card_99_166_out___cards_out___covered_ou.jpg",
+  "strip_061_01-46.17_cards_in___covered_in___join___real_pool.jpg",
+  "strip_062_01-46.21_card_106_173_in.jpg",
+  "strip_063_01-47.17_cards_in___cards_out___covered_in___cove.jpg",
+  "strip_064_01-47.21_card_106_173_out___card_107_174_in.jpg",
+  "strip_065_01-48.58_card_107_174_out___cards_out___covered_o.jpg",
+  "strip_066_01-49.00_cards_in___cta_109_00_in___card_109_000_.jpg",
+  "strip_067_01-51.80_cards_out___cta_109_00_out___card_109_00.jpg",
+  "strip_068_01-52.01_covered_in___join___talk-27_out.jpg",
+  "strip_069_01-54.98_covered_out___talk-29_in___cards_in___lt.jpg",
+  "strip_070_01-55.01_card_115_000_in___lt_115_00_in.jpg",
+  "strip_071_01-58.10_cards_out___lt_115_00_out___card_115_000.jpg",
+  "strip_072_01-58.75_join___punch_NEAR.jpg",
+  "strip_073_02-00.19_punch_FAR.jpg",
+  "strip_074_02-00.82_join___punch_NEAR.jpg",
+  "strip_075_02-01.82_app1_before_in___cards_in___covered_in__.jpg",
+  "strip_076_02-01.86_card_121_822_in___punch_FAR.jpg",
+  "strip_077_02-02.82_app1_before_out___app1_form_in___cards_i.jpg",
+  "strip_078_02-02.86_card_121_822_out___card_122_823_in.jpg",
+  "strip_079_02-04.66_join.jpg",
+  "strip_080_02-05.66_app1_form_out___app1_goal_clean_in___car.jpg",
+  "strip_081_02-05.69_card_122_823_out___card_125_659_in.jpg",
+  "strip_082_02-07.06_join.jpg",
+  "strip_083_02-07.36_app1_goal_clean_out___cards_in___cards_o.jpg",
+  "strip_084_02-07.39_card_125_659_out___card_127_361_in.jpg",
+  "strip_085_02-13.77_join___punch_NEAR.jpg",
+  "strip_086_02-16.64_join___punch_FAR.jpg",
+  "strip_087_02-19.04_cards_out___covered_out___join___talk-34.jpg",
+  "strip_088_02-19.07_card_127_361_out.jpg",
+  "strip_089_02-21.30_cards_in___lt_141_30_in___card_141_300_i.jpg",
+  "strip_090_02-22.24_join___punch_NEAR.jpg",
+  "strip_091_02-23.58_join___punch_FAR.jpg",
+  "strip_092_02-24.60_cards_out___lt_141_30_out___card_141_300.jpg",
+  "strip_093_02-26.01_join___punch_NEAR.jpg",
+  "strip_094_02-26.30_cards_in___lt_146_30_in___card_146_300_i.jpg",
+  "strip_095_02-27.45_punch_FAR.jpg",
+  "strip_096_02-30.90_cards_out___lt_146_30_out___card_146_300.jpg",
+  "strip_097_02-31.59_covered_in___join___talk-34_out.jpg",
+  "strip_098_02-32.85_join.jpg",
+  "strip_099_02-35.59_join.jpg",
+  "strip_100_02-36.60_cards_in___covered_in___covered_out___wi.jpg",
+  "strip_101_02-39.93_card_156_600_out___card_159_926_in___car.jpg",
+  "strip_102_02-43.53_join___punch_NEAR.jpg",
+  "strip_103_02-44.00_cards_out___lt_159_93_out.jpg",
+  "strip_104_02-44.03_card_159_926_out___lt_159_93_out.jpg",
+  "strip_105_02-45.03_covered_in___talk-37_out.jpg",
+  "strip_106_02-45.06_punch_FAR.jpg",
+  "strip_107_02-46.17_join.jpg",
+  "strip_108_02-47.30_covered_in___covered_out___join.jpg",
+  "strip_109_02-49.47_covered_in___covered_out___join.jpg",
+  "strip_110_02-52.84_app2_before_in___card_172_839_in___cards.jpg",
+  "strip_111_02-53.87_app2_before_out___app2_form_in___cards_i.jpg",
+  "strip_112_02-53.91_card_172_839_out___card_173_874_in.jpg",
+  "strip_113_02-56.74_app2_form_out___app2_goal_clean_in___car.jpg",
+  "strip_114_02-57.81_join.jpg",
+  "strip_115_02-58.28_app2_goal_clean_out___card_176_743_out__.jpg"
+ ],
+ "pairs": [
+  "pair_000_00-03.14.jpg",
+  "pair_001_00-08.11.jpg",
+  "pair_002_00-08.44.jpg",
+  "pair_003_00-08.48.jpg",
+  "pair_004_00-08.78.jpg",
+  "pair_005_00-09.11.jpg",
+  "pair_006_00-10.84.jpg",
+  "pair_007_00-12.91.jpg",
+  "pair_008_00-14.35.jpg",
+  "pair_009_00-15.92.jpg",
+  "pair_010_00-18.45.jpg",
+  "pair_011_00-20.12.jpg",
+  "pair_012_00-22.90.jpg",
+  "pair_013_00-23.29.jpg",
+  "pair_014_00-24.02.jpg",
+  "pair_015_00-26.00.jpg",
+  "pair_016_00-26.03.jpg",
+  "pair_017_00-27.06.jpg",
+  "pair_018_00-28.63.jpg",
+  "pair_019_00-28.66.jpg",
+  "pair_020_00-30.06.jpg",
+  "pair_021_00-33.03.jpg",
+  "pair_022_00-35.27.jpg",
+  "pair_023_00-37.87.jpg",
+  "pair_024_00-41.74.jpg",
+  "pair_025_00-47.51.jpg",
+  "pair_026_00-50.68.jpg",
+  "pair_027_00-52.12.jpg",
+  "pair_028_00-54.22.jpg",
+  "pair_029_00-57.89.jpg",
+  "pair_030_00-59.13.jpg",
+  "pair_031_01-01.09.jpg",
+  "pair_032_01-02.50.jpg",
+  "pair_033_01-03.13.jpg",
+  "pair_034_01-05.10.jpg",
+  "pair_035_01-07.23.jpg",
+  "pair_036_01-07.27.jpg",
+  "pair_037_01-08.23.jpg",
+  "pair_038_01-08.80.jpg",
+  "pair_039_01-10.07.jpg",
+  "pair_040_01-12.04.jpg",
+  "pair_041_01-13.10.jpg",
+  "pair_042_01-13.57.jpg",
+  "pair_043_01-14.10.jpg",
+  "pair_044_01-16.58.jpg",
+  "pair_045_01-16.90.jpg",
+  "pair_046_01-18.28.jpg",
+  "pair_047_01-20.95.jpg",
+  "pair_048_01-22.38.jpg",
+  "pair_049_01-23.62.jpg",
+  "pair_050_01-25.45.jpg",
+  "pair_051_01-26.25.jpg",
+  "pair_052_01-28.49.jpg",
+  "pair_053_01-30.22.jpg",
+  "pair_054_01-33.23.jpg",
+  "pair_055_01-34.89.jpg",
+  "pair_056_01-35.39.jpg",
+  "pair_057_01-39.17.jpg",
+  "pair_058_01-39.20.jpg",
+  "pair_059_01-42.80.jpg",
+  "pair_060_01-43.20.jpg",
+  "pair_061_01-46.17.jpg",
+  "pair_062_01-46.21.jpg",
+  "pair_063_01-47.17.jpg",
+  "pair_064_01-47.21.jpg",
+  "pair_065_01-48.58.jpg",
+  "pair_066_01-49.00.jpg",
+  "pair_067_01-51.80.jpg",
+  "pair_068_01-52.01.jpg",
+  "pair_069_01-54.98.jpg",
+  "pair_070_01-55.01.jpg",
+  "pair_071_01-58.10.jpg",
+  "pair_072_01-58.75.jpg",
+  "pair_073_02-00.19.jpg",
+  "pair_074_02-00.82.jpg",
+  "pair_075_02-01.82.jpg",
+  "pair_076_02-01.86.jpg",
+  "pair_077_02-02.82.jpg",
+  "pair_078_02-02.86.jpg",
+  "pair_079_02-04.66.jpg",
+  "pair_080_02-05.66.jpg",
+  "pair_081_02-05.69.jpg",
+  "pair_082_02-07.06.jpg",
+  "pair_083_02-07.36.jpg",
+  "pair_084_02-07.39.jpg",
+  "pair_085_02-13.77.jpg",
+  "pair_086_02-16.64.jpg",
+  "pair_087_02-19.04.jpg",
+  "pair_088_02-19.07.jpg",
+  "pair_089_02-21.30.jpg",
+  "pair_090_02-22.24.jpg",
+  "pair_091_02-23.58.jpg",
+  "pair_092_02-24.60.jpg",
+  "pair_093_02-26.01.jpg",
+  "pair_094_02-26.30.jpg",
+  "pair_095_02-27.45.jpg",
+  "pair_096_02-30.90.jpg",
+  "pair_097_02-31.59.jpg",
+  "pair_098_02-32.85.jpg",
+  "pair_099_02-35.59.jpg",
+  "pair_100_02-36.60.jpg",
+  "pair_101_02-39.93.jpg",
+  "pair_102_02-43.53.jpg",
+  "pair_103_02-44.00.jpg",
+  "pair_104_02-44.03.jpg",
+  "pair_105_02-45.03.jpg",
+  "pair_106_02-45.06.jpg",
+  "pair_107_02-46.17.jpg",
+  "pair_108_02-47.30.jpg",
+  "pair_109_02-49.47.jpg",
+  "pair_110_02-52.84.jpg",
+  "pair_111_02-53.87.jpg",
+  "pair_112_02-53.91.jpg",
+  "pair_113_02-56.74.jpg",
+  "pair_114_02-57.81.jpg",
+  "pair_115_02-58.28.jpg"
+ ],
+ "clips": [],
+ "checklist": [
+  "hair_top",
+  "out_of_frame",
+  "junk_card",
+  "naked_splice",
+  "label_over_face",
+  "black_or_frozen",
+  "wide_level",
+  "visual_junk",
+  "graphic_missing",
+  "ai_giveaway",
+  "placeholder"
+ ],
+ "seconds": 118.1,
+ "judged_at": "2026-09-24T18:37:42-0500",
+ "judge_problems": []
+}

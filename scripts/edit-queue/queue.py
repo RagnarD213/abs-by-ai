@@ -33,11 +33,11 @@ MASTER = os.path.join(DIR, "00-MASTER.md")
 EXPORT = os.path.join(ROOT, "tmp", "edit-queue-export")  # git-ignored; Artifact file_path must sit under the repo
 STATES = {
     "ready": "READY", "needs": "**NEEDS DAN**", "blocked": "BLOCKED",
-    "draft_review": "DRAFT — asset choices waiting for Dan",
-    "frames_approved": "ASSETS APPROVED — finishing queued",
-    "in_progress": "IN PROGRESS", "delivered": "DELIVERED — awaiting Dan",
+    "draft_review": "DRAFT: asset choices waiting for Dan",
+    "frames_approved": "ASSETS APPROVED: finishing queued",
+    "in_progress": "IN PROGRESS", "delivered": "DELIVERED: awaiting Dan",
     "finalized": "FINALIZED", "uploaded": "UPLOADED",
-    "stalled": "**STALLED — needs a look**",
+    "stalled": "**STALLED: needs a look**",
 }
 LAUNCHABLE = ("frames_approved", "ready")   # frames_approved arrives with Phase 2; it goes first
 LOCK = os.path.join(DIR, ".jobs.lock")

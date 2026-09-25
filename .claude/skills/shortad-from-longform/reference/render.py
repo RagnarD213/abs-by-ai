@@ -289,7 +289,20 @@ def _sig(b, nfr, t0):
     # ⚠ the MEDIA entry (path, in-point, rate, crop placement) is part of what was rendered: a crop
     # offset changed in assets.py served the stale segment on 2026-09-03 until this was added
     for mk in ('media', 'media_a', 'media_b'):
-        if mk in b: extra['_' + mk] = repr(MEDIA[b[mk]])
+        if mk in b:
+            spec = MEDIA[b[mk]]
+            extra['_' + mk] = repr(spec)
+            # A prepared asset can be rebuilt in place while keeping the same
+            # MEDIA tuple. Path-only signatures then serve an old segment even
+            # though the pixels changed (AV-07 food card, 2026-09-18). Include
+            # the source file's size and nanosecond mtime so that same-path
+            # revisions invalidate only the segments that actually use them.
+            src = spec[1]
+            if not os.path.isabs(src):
+                src = os.path.join(os.getcwd(), src)
+            if os.path.exists(src):
+                st = os.stat(src)
+                extra['_' + mk + '_file'] = [st.st_size, st.st_mtime_ns]
     if b.get('chip_png') and os.path.exists(b['chip_png']):
         extra['_chip'] = hashlib.md5(open(b['chip_png'], 'rb').read()).hexdigest()[:10]
     # ⚠ the PUSH SCHEDULE is part of what a talk segment rendered: a changed beats.PUSHES served stale

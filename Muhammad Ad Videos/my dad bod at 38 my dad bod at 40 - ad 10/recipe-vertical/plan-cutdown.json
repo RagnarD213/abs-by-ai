@@ -1,0 +1,4642 @@
+{
+ "target_seconds": 57.123733,
+ "target_frames": 1712,
+ "joins": [
+  9.109,
+  10.844,
+  12.913,
+  15.916,
+  18.452,
+  20.12,
+  23.29,
+  24.024,
+  30.063,
+  34.735,
+  39.006,
+  42.643,
+  46.013,
+  47.014,
+  48.015,
+  48.348,
+  53.32
+ ],
+ "covered": [
+  [
+   0.0,
+   3.136
+  ],
+  [
+   8.108,
+   8.442
+  ],
+  [
+   8.442,
+   8.775
+  ],
+  [
+   8.775,
+   9.109
+  ],
+  [
+   9.109,
+   10.844
+  ],
+  [
+   15.916,
+   20.12
+  ],
+  [
+   27.06,
+   28.629
+  ],
+  [
+   28.629,
+   30.063
+  ],
+  [
+   30.063,
+   33.066
+  ],
+  [
+   33.066,
+   35.235
+  ],
+  [
+   39.006,
+   43.043
+  ],
+  [
+   46.013,
+   47.014
+  ],
+  [
+   47.014,
+   48.015
+  ],
+  [
+   48.015,
+   48.348
+  ],
+  [
+   48.348,
+   49.383
+  ],
+  [
+   49.383,
+   52.252
+  ],
+  [
+   52.252,
+   53.787
+  ]
+ ],
+ "cards": [
+  [
+   0.0,
+   3.136
+  ],
+  [
+   8.108,
+   8.442
+  ],
+  [
+   8.442,
+   8.775
+  ],
+  [
+   8.775,
+   9.109
+  ],
+  [
+   9.109,
+   10.844
+  ],
+  [
+   15.916,
+   20.12
+  ],
+  [
+   27.06,
+   28.629
+  ],
+  [
+   28.629,
+   30.063
+  ],
+  [
+   30.063,
+   33.066
+  ],
+  [
+   33.066,
+   35.235
+  ],
+  [
+   39.006,
+   43.043
+  ],
+  [
+   46.013,
+   47.014
+  ],
+  [
+   47.014,
+   48.015
+  ],
+  [
+   48.348,
+   49.383
+  ],
+  [
+   49.383,
+   52.252
+  ],
+  [
+   52.252,
+   53.787
+  ],
+  [
+   22.9,
+   26.0
+  ],
+  [
+   53.787,
+   57.124
+  ]
+ ],
+ "punch": [
+  [
+   0.0,
+   3.136,
+   "FAR"
+  ],
+  [
+   3.136,
+   8.108,
+   "FAR"
+  ],
+  [
+   8.108,
+   8.442,
+   "FAR"
+  ],
+  [
+   8.442,
+   8.775,
+   "FAR"
+  ],
+  [
+   8.775,
+   9.109,
+   "FAR"
+  ],
+  [
+   9.109,
+   10.844,
+   "FAR"
+  ],
+  [
+   10.844,
+   12.913,
+   "FAR"
+  ],
+  [
+   12.913,
+   14.348,
+   "NEAR"
+  ],
+  [
+   14.348,
+   15.916,
+   "FAR"
+  ],
+  [
+   15.916,
+   18.452,
+   "FAR"
+  ],
+  [
+   18.452,
+   20.12,
+   "NEAR"
+  ],
+  [
+   20.12,
+   23.29,
+   "FAR"
+  ],
+  [
+   23.29,
+   24.024,
+   "NEAR"
+  ],
+  [
+   24.024,
+   27.06,
+   "FAR"
+  ],
+  [
+   27.06,
+   28.629,
+   "FAR"
+  ],
+  [
+   28.629,
+   30.063,
+   "FAR"
+  ],
+  [
+   30.063,
+   33.066,
+   "FAR"
+  ],
+  [
+   33.066,
+   35.235,
+   "FAR"
+  ],
+  [
+   35.235,
+   39.006,
+   "FAR"
+  ],
+  [
+   39.006,
+   43.043,
+   "FAR"
+  ],
+  [
+   43.043,
+   46.013,
+   "FAR"
+  ],
+  [
+   46.013,
+   47.014,
+   "FAR"
+  ],
+  [
+   47.014,
+   48.015,
+   "FAR"
+  ],
+  [
+   48.015,
+   48.348,
+   "FAR"
+  ],
+  [
+   48.348,
+   49.383,
+   "FAR"
+  ],
+  [
+   49.383,
+   52.252,
+   "FAR"
+  ],
+  [
+   52.252,
+   53.787,
+   "FAR"
+  ],
+  [
+   53.787,
+   57.124,
+   "FAR"
+  ]
+ ],
+ "punch_covered": [
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  false,
+  false,
+  true,
+  true,
+  true,
+  false,
+  false,
+  true,
+  true,
+  true,
+  true,
+  false,
+  true,
+  false,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true
+ ],
+ "real_photos": [
+  {
+   "name": "before_deckchair",
+   "beat": [
+    0.0,
+    3.136
+   ],
+   "chip": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/plan_assets/chip_real_before_deckchair.png",
+   "pos": [
+    52,
+    150
+   ]
+  },
+  {
+   "name": "real_red_shorts",
+   "beat": [
+    8.108,
+    8.442
+   ],
+   "chip": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/plan_assets/chip_real_real_red_shorts.png",
+   "pos": [
+    652,
+    162
+   ]
+  },
+  {
+   "name": "real_towel",
+   "beat": [
+    8.442,
+    8.775
+   ],
+   "chip": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/plan_assets/chip_real_real_towel.png",
+   "pos": [
+    310,
+    150
+   ]
+  },
+  {
+   "name": "real_park_close",
+   "beat": [
+    8.775,
+    9.109
+   ],
+   "chip": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/plan_assets/chip_real_real_park_close.png",
+   "pos": [
+    112,
+    528
+   ]
+  },
+  {
+   "name": "real_flag",
+   "beat": [
+    9.109,
+    10.844
+   ],
+   "chip": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/plan_assets/chip_real_real_flag.png",
+   "pos": [
+    418,
+    150
+   ]
+  },
+  {
+   "name": "real_red_shorts",
+   "beat": [
+    27.06,
+    28.629
+   ],
+   "chip": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/plan_assets/chip_real_real_red_shorts.png",
+   "pos": [
+    652,
+    162
+   ]
+  },
+  {
+   "name": "real_park_close",
+   "beat": [
+    28.629,
+    30.063
+   ],
+   "chip": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/plan_assets/chip_real_real_park_close.png",
+   "pos": [
+    112,
+    528
+   ]
+  },
+  {
+   "name": "real_pool_stand",
+   "beat": [
+    46.0129,
+    47.0139
+   ],
+   "chip": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/plan_assets/chip_real_real_pool_stand.png",
+   "pos": [
+    376,
+    150
+   ]
+  },
+  {
+   "name": "real_pool_flex",
+   "beat": [
+    47.0139,
+    48.01463
+   ],
+   "chip": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/plan_assets/chip_real_real_pool_flex.png",
+   "pos": [
+    424,
+    222
+   ]
+  },
+  {
+   "name": "app2_before",
+   "beat": [
+    48.34796,
+    49.38296
+   ],
+   "chip": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/plan_assets/chip_real_app2_before_card.png",
+   "pos": [
+    258,
+    1284
+   ]
+  },
+  {
+   "name": "app2_form",
+   "beat": [
+    49.38296,
+    52.25196
+   ],
+   "chip": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/plan_assets/chip_real_app2_form_card.png",
+   "pos": [
+    258,
+    1284
+   ]
+  }
+ ],
+ "ai_inserts": [
+  {
+   "name": "ai_goal",
+   "beat": [
+    30.06337,
+    33.0659
+   ],
+   "chip": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/plan_assets/chip_ai_ai_goal.png",
+   "pos": [
+    106,
+    426
+   ]
+  },
+  {
+   "name": "app2_goal_clean",
+   "beat": [
+    52.25196,
+    53.78696
+   ],
+   "chip": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/plan_assets/chip_ai_app2_goal_clean_card.png",
+   "pos": [
+    416,
+    1284
+   ]
+  }
+ ],
+ "graphics": [
+  {
+   "name": "lt@22.90",
+   "beat": [
+    22.9,
+    26.0
+   ],
+   "mov": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/gfx/ov_lt_1ff1676892.mov"
+  },
+  {
+   "name": "cta@178.28",
+   "beat": [
+    53.78696,
+    57.12373
+   ],
+   "mov": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/gfx/ov_cta_9634affc38.mov"
+  }
+ ],
+ "label_chips": {
+  "real": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/plan_assets/chip_real_before_deckchair.png",
+  "ai": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/plan_assets/chip_ai_ai_goal.png"
+ },
+ "label_pos": {
+  "real": [
+   52,
+   150
+  ],
+  "ai": [
+   106,
+   426
+  ]
+ },
+ "srt": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut_audit/plan_assets/captions.srt",
+ "words": [
+  {
+   "w": "This",
+   "t": 0.361,
+   "e": 0.601
+  },
+  {
+   "w": "is",
+   "t": 1.002,
+   "e": 1.063
+  },
+  {
+   "w": "my",
+   "t": 1.123,
+   "e": 1.223
+  },
+  {
+   "w": "dad",
+   "t": 1.303,
+   "e": 1.504
+  },
+  {
+   "w": "bottom",
+   "t": 1.564,
+   "e": 1.844
+  },
+  {
+   "w": "at",
+   "t": 2.065,
+   "e": 2.105
+  },
+  {
+   "w": "38.",
+   "t": 2.185,
+   "e": 2.646
+  },
+  {
+   "w": "I",
+   "t": 3.348,
+   "e": 3.368
+  },
+  {
+   "w": "was",
+   "t": 3.428,
+   "e": 3.508
+  },
+  {
+   "w": "eating",
+   "t": 3.629,
+   "e": 3.809
+  },
+  {
+   "w": "healthy",
+   "t": 3.869,
+   "e": 4.21
+  },
+  {
+   "w": "working",
+   "t": 4.731,
+   "e": 5.012
+  },
+  {
+   "w": "out",
+   "t": 5.092,
+   "e": 5.172
+  },
+  {
+   "w": "four",
+   "t": 5.273,
+   "e": 5.433
+  },
+  {
+   "w": "times",
+   "t": 5.493,
+   "e": 5.714
+  },
+  {
+   "w": "a",
+   "t": 5.794,
+   "e": 5.814
+  },
+  {
+   "w": "week",
+   "t": 5.854,
+   "e": 6.035
+  },
+  {
+   "w": "and",
+   "t": 6.435,
+   "e": 6.516
+  },
+  {
+   "w": "doing",
+   "t": 6.616,
+   "e": 6.856
+  },
+  {
+   "w": "my",
+   "t": 6.897,
+   "e": 6.977
+  },
+  {
+   "w": "absolute",
+   "t": 7.157,
+   "e": 7.538
+  },
+  {
+   "w": "best",
+   "t": 7.578,
+   "e": 7.839
+  },
+  {
+   "w": "And",
+   "t": 8.303,
+   "e": 8.383
+  },
+  {
+   "w": "this",
+   "t": 8.523,
+   "e": 8.824
+  },
+  {
+   "w": "is",
+   "t": 9.505,
+   "e": 9.566
+  },
+  {
+   "w": "my",
+   "t": 9.626,
+   "e": 9.706
+  },
+  {
+   "w": "dad",
+   "t": 9.786,
+   "e": 9.966
+  },
+  {
+   "w": "bottom",
+   "t": 10.047,
+   "e": 10.548
+  },
+  {
+   "w": "at",
+   "t": 10.548,
+   "e": 10.608
+  },
+  {
+   "w": "40",
+   "t": 10.794,
+   "e": 11.042
+  },
+  {
+   "w": "same",
+   "t": 11.229,
+   "e": 11.45
+  },
+  {
+   "w": "business",
+   "t": 11.51,
+   "e": 11.891
+  },
+  {
+   "w": "same",
+   "t": 12.312,
+   "e": 12.532
+  },
+  {
+   "w": "kid",
+   "t": 12.612,
+   "e": 12.853
+  },
+  {
+   "w": "same",
+   "t": 13.234,
+   "e": 13.454
+  },
+  {
+   "w": "stress",
+   "t": 13.535,
+   "e": 13.875
+  },
+  {
+   "w": "about",
+   "t": 14.397,
+   "e": 14.617
+  },
+  {
+   "w": "two",
+   "t": 14.717,
+   "e": 14.858
+  },
+  {
+   "w": "years",
+   "t": 14.918,
+   "e": 15.118
+  },
+  {
+   "w": "apart",
+   "t": 15.178,
+   "e": 15.439
+  },
+  {
+   "w": "I",
+   "t": 15.924,
+   "e": 15.944
+  },
+  {
+   "w": "didn't",
+   "t": 16.045,
+   "e": 16.246
+  },
+  {
+   "w": "get",
+   "t": 16.266,
+   "e": 16.386
+  },
+  {
+   "w": "younger",
+   "t": 16.446,
+   "e": 16.747
+  },
+  {
+   "w": "and",
+   "t": 17.109,
+   "e": 17.189
+  },
+  {
+   "w": "I",
+   "t": 17.249,
+   "e": 17.269
+  },
+  {
+   "w": "didn't",
+   "t": 17.35,
+   "e": 17.57
+  },
+  {
+   "w": "quit",
+   "t": 17.61,
+   "e": 17.771
+  },
+  {
+   "w": "my",
+   "t": 17.811,
+   "e": 17.891
+  },
+  {
+   "w": "job.",
+   "t": 17.972,
+   "e": 18.193
+  },
+  {
+   "w": "I",
+   "t": 18.534,
+   "e": 18.554
+  },
+  {
+   "w": "didn't",
+   "t": 18.694,
+   "e": 18.935
+  },
+  {
+   "w": "move",
+   "t": 18.995,
+   "e": 19.136
+  },
+  {
+   "w": "into",
+   "t": 19.176,
+   "e": 19.337
+  },
+  {
+   "w": "a",
+   "t": 19.417,
+   "e": 19.437
+  },
+  {
+   "w": "gym",
+   "t": 19.497,
+   "e": 19.638
+  },
+  {
+   "w": "So",
+   "t": 20.363,
+   "e": 20.483
+  },
+  {
+   "w": "how",
+   "t": 21.045,
+   "e": 21.145
+  },
+  {
+   "w": "did",
+   "t": 21.185,
+   "e": 21.285
+  },
+  {
+   "w": "I",
+   "t": 21.346,
+   "e": 21.366
+  },
+  {
+   "w": "get",
+   "t": 21.426,
+   "e": 21.546
+  },
+  {
+   "w": "my",
+   "t": 21.606,
+   "e": 21.686
+  },
+  {
+   "w": "abs",
+   "t": 21.847,
+   "e": 22.007
+  },
+  {
+   "w": "back",
+   "t": 22.047,
+   "e": 22.188
+  },
+  {
+   "w": "at",
+   "t": 22.268,
+   "e": 22.609
+  },
+  {
+   "w": "40?",
+   "t": 22.759,
+   "e": 22.959
+  },
+  {
+   "w": "I",
+   "t": 23.11,
+   "e": 23.13
+  },
+  {
+   "w": "used",
+   "t": 23.41,
+   "e": 23.651
+  },
+  {
+   "w": "AI",
+   "t": 23.992,
+   "e": 24.232
+  },
+  {
+   "w": "not",
+   "t": 24.593,
+   "e": 24.754
+  },
+  {
+   "w": "just",
+   "t": 24.834,
+   "e": 24.994
+  },
+  {
+   "w": "to",
+   "t": 25.014,
+   "e": 25.074
+  },
+  {
+   "w": "generate",
+   "t": 25.135,
+   "e": 25.475
+  },
+  {
+   "w": "a",
+   "t": 25.536,
+   "e": 25.556
+  },
+  {
+   "w": "picture",
+   "t": 25.616,
+   "e": 25.896
+  },
+  {
+   "w": "of",
+   "t": 25.937,
+   "e": 25.977
+  },
+  {
+   "w": "myself",
+   "t": 26.017,
+   "e": 26.358
+  },
+  {
+   "w": "with",
+   "t": 26.438,
+   "e": 26.558
+  },
+  {
+   "w": "abs",
+   "t": 26.698,
+   "e": 27.28
+  },
+  {
+   "w": "But",
+   "t": 27.28,
+   "e": 27.34
+  },
+  {
+   "w": "to",
+   "t": 27.401,
+   "e": 27.483
+  },
+  {
+   "w": "actually",
+   "t": 27.544,
+   "e": 27.844
+  },
+  {
+   "w": "get",
+   "t": 27.865,
+   "e": 27.985
+  },
+  {
+   "w": "real",
+   "t": 28.185,
+   "e": 28.406
+  },
+  {
+   "w": "abs",
+   "t": 28.586,
+   "e": 28.767
+  },
+  {
+   "w": "in",
+   "t": 29.168,
+   "e": 29.208
+  },
+  {
+   "w": "real",
+   "t": 29.389,
+   "e": 29.589
+  },
+  {
+   "w": "life.",
+   "t": 29.649,
+   "e": 29.87
+  },
+  {
+   "w": "I",
+   "t": 30.109,
+   "e": 30.13
+  },
+  {
+   "w": "generated",
+   "t": 30.29,
+   "e": 30.792
+  },
+  {
+   "w": "an",
+   "t": 30.852,
+   "e": 30.892
+  },
+  {
+   "w": "AI",
+   "t": 31.033,
+   "e": 31.213
+  },
+  {
+   "w": "picture",
+   "t": 31.354,
+   "e": 31.635
+  },
+  {
+   "w": "of",
+   "t": 31.675,
+   "e": 31.715
+  },
+  {
+   "w": "myself",
+   "t": 31.775,
+   "e": 32.076
+  },
+  {
+   "w": "with",
+   "t": 32.137,
+   "e": 32.217
+  },
+  {
+   "w": "the",
+   "t": 32.257,
+   "e": 32.317
+  },
+  {
+   "w": "body",
+   "t": 32.377,
+   "e": 32.578
+  },
+  {
+   "w": "I",
+   "t": 32.644,
+   "e": 32.664
+  },
+  {
+   "w": "wanted",
+   "t": 32.765,
+   "e": 33.026
+  },
+  {
+   "w": "and",
+   "t": 33.348,
+   "e": 33.429
+  },
+  {
+   "w": "I",
+   "t": 33.489,
+   "e": 33.509
+  },
+  {
+   "w": "made",
+   "t": 33.61,
+   "e": 33.771
+  },
+  {
+   "w": "it",
+   "t": 33.811,
+   "e": 33.851
+  },
+  {
+   "w": "my",
+   "t": 33.892,
+   "e": 33.972
+  },
+  {
+   "w": "phone",
+   "t": 34.053,
+   "e": 34.254
+  },
+  {
+   "w": "lock",
+   "t": 34.294,
+   "e": 34.475
+  },
+  {
+   "w": "screen",
+   "t": 34.535,
+   "e": 34.777
+  },
+  {
+   "w": "I",
+   "t": 35.124,
+   "e": 35.144
+  },
+  {
+   "w": "looked",
+   "t": 35.264,
+   "e": 35.465
+  },
+  {
+   "w": "at",
+   "t": 35.505,
+   "e": 35.545
+  },
+  {
+   "w": "it",
+   "t": 35.626,
+   "e": 35.666
+  },
+  {
+   "w": "dozens",
+   "t": 35.746,
+   "e": 36.087
+  },
+  {
+   "w": "of",
+   "t": 36.128,
+   "e": 36.168
+  },
+  {
+   "w": "times",
+   "t": 36.228,
+   "e": 36.429
+  },
+  {
+   "w": "a",
+   "t": 36.509,
+   "e": 36.529
+  },
+  {
+   "w": "day",
+   "t": 36.569,
+   "e": 36.75
+  },
+  {
+   "w": "every",
+   "t": 37.352,
+   "e": 37.533
+  },
+  {
+   "w": "day",
+   "t": 37.593,
+   "e": 37.754
+  },
+  {
+   "w": "for",
+   "t": 38.075,
+   "e": 38.175
+  },
+  {
+   "w": "over",
+   "t": 38.336,
+   "e": 38.517
+  },
+  {
+   "w": "a",
+   "t": 38.577,
+   "e": 38.597
+  },
+  {
+   "w": "year",
+   "t": 38.657,
+   "e": 38.838
+  },
+  {
+   "w": "It",
+   "t": 39.232,
+   "e": 39.272
+  },
+  {
+   "w": "stopped",
+   "t": 39.344,
+   "e": 39.625
+  },
+  {
+   "w": "being",
+   "t": 39.666,
+   "e": 39.846
+  },
+  {
+   "w": "a",
+   "t": 39.907,
+   "e": 39.927
+  },
+  {
+   "w": "wish",
+   "t": 39.967,
+   "e": 40.208
+  },
+  {
+   "w": "it",
+   "t": 40.69,
+   "e": 40.73
+  },
+  {
+   "w": "became",
+   "t": 40.81,
+   "e": 41.212
+  },
+  {
+   "w": "how",
+   "t": 41.694,
+   "e": 41.814
+  },
+  {
+   "w": "I'm",
+   "t": 41.915,
+   "e": 42.015
+  },
+  {
+   "w": "supposed",
+   "t": 42.095,
+   "e": 42.376
+  },
+  {
+   "w": "to",
+   "t": 42.417,
+   "e": 42.477
+  },
+  {
+   "w": "look",
+   "t": 42.517,
+   "e": 42.678
+  },
+  {
+   "w": "That's",
+   "t": 42.963,
+   "e": 43.183
+  },
+  {
+   "w": "how",
+   "t": 43.224,
+   "e": 43.304
+  },
+  {
+   "w": "I",
+   "t": 43.364,
+   "e": 43.384
+  },
+  {
+   "w": "locked",
+   "t": 43.484,
+   "e": 43.725
+  },
+  {
+   "w": "in",
+   "t": 43.825,
+   "e": 43.906
+  },
+  {
+   "w": "and",
+   "t": 44.227,
+   "e": 44.307
+  },
+  {
+   "w": "motivated",
+   "t": 44.427,
+   "e": 44.889
+  },
+  {
+   "w": "myself",
+   "t": 44.969,
+   "e": 45.25
+  },
+  {
+   "w": "to",
+   "t": 45.33,
+   "e": 45.37
+  },
+  {
+   "w": "get",
+   "t": 45.41,
+   "e": 45.531
+  },
+  {
+   "w": "abs",
+   "t": 45.651,
+   "e": 45.812
+  },
+  {
+   "w": "and",
+   "t": 46.213,
+   "e": 46.293
+  },
+  {
+   "w": "this",
+   "t": 46.393,
+   "e": 46.614
+  },
+  {
+   "w": "is",
+   "t": 47.156,
+   "e": 47.216
+  },
+  {
+   "w": "where",
+   "t": 47.256,
+   "e": 47.377
+  },
+  {
+   "w": "I'm",
+   "t": 47.417,
+   "e": 47.517
+  },
+  {
+   "w": "at",
+   "t": 47.557,
+   "e": 47.657
+  },
+  {
+   "w": "today",
+   "t": 47.698,
+   "e": 47.918
+  },
+  {
+   "w": "So",
+   "t": 48.24,
+   "e": 48.341
+  },
+  {
+   "w": "generate",
+   "t": 48.493,
+   "e": 48.914
+  },
+  {
+   "w": "your",
+   "t": 48.934,
+   "e": 49.054
+  },
+  {
+   "w": "future",
+   "t": 49.094,
+   "e": 49.375
+  },
+  {
+   "w": "self",
+   "t": 49.435,
+   "e": 49.596
+  },
+  {
+   "w": "image",
+   "t": 49.716,
+   "e": 49.937
+  },
+  {
+   "w": "and",
+   "t": 50.218,
+   "e": 50.298
+  },
+  {
+   "w": "let",
+   "t": 50.358,
+   "e": 50.498
+  },
+  {
+   "w": "AI",
+   "t": 50.639,
+   "e": 50.839
+  },
+  {
+   "w": "build",
+   "t": 50.94,
+   "e": 51.1
+  },
+  {
+   "w": "the",
+   "t": 51.16,
+   "e": 51.221
+  },
+  {
+   "w": "plan",
+   "t": 51.261,
+   "e": 51.501
+  },
+  {
+   "w": "that",
+   "t": 51.782,
+   "e": 51.903
+  },
+  {
+   "w": "fits",
+   "t": 52.023,
+   "e": 52.244
+  },
+  {
+   "w": "the",
+   "t": 52.324,
+   "e": 52.384
+  },
+  {
+   "w": "life",
+   "t": 52.444,
+   "e": 52.605
+  },
+  {
+   "w": "you",
+   "t": 52.645,
+   "e": 52.725
+  },
+  {
+   "w": "actually",
+   "t": 52.865,
+   "e": 53.146
+  },
+  {
+   "w": "have.",
+   "t": 53.206,
+   "e": 53.427
+  },
+  {
+   "w": "Tap",
+   "t": 53.955,
+   "e": 54.156
+  },
+  {
+   "w": "the",
+   "t": 54.236,
+   "e": 54.317
+  },
+  {
+   "w": "button",
+   "t": 54.357,
+   "e": 54.538
+  },
+  {
+   "w": "below",
+   "t": 54.578,
+   "e": 54.82
+  },
+  {
+   "w": "to",
+   "t": 55.302,
+   "e": 55.363
+  },
+  {
+   "w": "get",
+   "t": 55.403,
+   "e": 55.584
+  },
+  {
+   "w": "started",
+   "t": 55.644,
+   "e": 55.926
+  }
+ ],
+ "source_audio": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/his_mix.wav",
+ "watch_log": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut_audit/logs/watch_pass.json",
+ "banned_source": "/Volumes/Extreme/_edit_work/ad1-8-14/rev5/assets/clip_109_replacement.mp4",
+ "banned_times": [
+  26.4,
+  27.5,
+  29.6,
+  31.0
+ ],
+ "caption_states": [
+  {
+   "name": "caption-00000",
+   "word": "I",
+   "beat": [
+    3.3367,
+    3.4368
+   ],
+   "speech": [
+    3.348,
+    3.368
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00000_cc58b536f4.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "fa65df085978c3809a4cfd09eebc6ac40502039c7a7f0290c15ec2ece895fb8c"
+  },
+  {
+   "name": "caption-00001",
+   "word": "was",
+   "beat": [
+    3.4368,
+    3.637
+   ],
+   "speech": [
+    3.428,
+    3.508
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00001_ba043c4f5d.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "081b4370fbff2a2bcfb9909f8c359bc2ac2ec3af4fa1f84efc34aee0acbb0d2d"
+  },
+  {
+   "name": "caption-00002",
+   "word": "eating",
+   "beat": [
+    3.637,
+    3.8705
+   ],
+   "speech": [
+    3.629,
+    3.809
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00002_d88f6fcdaa.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "084aff862fda70fe86a5386a66d3809cff0a528aa41b9e60734a4e73a157f634"
+  },
+  {
+   "name": "caption-00003",
+   "word": "healthy",
+   "beat": [
+    3.8705,
+    4.7381
+   ],
+   "speech": [
+    3.869,
+    4.21
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00003_beef5dd106.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "04d722455d5314ea206f995b19a09209b0d5cbcf48e678b1779114e097fb95dd"
+  },
+  {
+   "name": "caption-00004",
+   "word": "working",
+   "beat": [
+    4.7381,
+    5.1051
+   ],
+   "speech": [
+    4.731,
+    5.012
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00004_350dd15e3e.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "f4fdf61a38c8bb22c0d1c348c967a2f56591d85097264d5553e19679a4acae08"
+  },
+  {
+   "name": "caption-00005",
+   "word": "out",
+   "beat": [
+    5.1051,
+    5.2719
+   ],
+   "speech": [
+    5.092,
+    5.172
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00005_1686bc8d78.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "761ce86f55e38dd6f487a1b1f0291a5014e31ea0ca8f5d89c28d8b952bb16b26"
+  },
+  {
+   "name": "caption-00006",
+   "word": "four",
+   "beat": [
+    5.2719,
+    5.5055
+   ],
+   "speech": [
+    5.273,
+    5.433
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00006_ae766036ce.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "8a75a113eed999f09e1158b59f4f31a28451a432a4de10fdbc906bc1ec0a6a60"
+  },
+  {
+   "name": "caption-00007",
+   "word": "times",
+   "beat": [
+    5.5055,
+    5.8058
+   ],
+   "speech": [
+    5.493,
+    5.714
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00007_3a3e1905a1.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "72c9e51b7e961db365fb07ae7daaaec8375de7bce60193c67c2d87cb4d15a2ab"
+  },
+  {
+   "name": "caption-00008",
+   "word": "a",
+   "beat": [
+    5.8058,
+    5.9059
+   ],
+   "speech": [
+    5.794,
+    5.814
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00008_433aacd6f4.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "96e0a4b11f5d3ee3dad7828040c930fc30757bd7109eb4ffeacf64e423bc9e41"
+  },
+  {
+   "name": "caption-00009",
+   "word": "week",
+   "beat": [
+    5.9059,
+    6.4398
+   ],
+   "speech": [
+    5.854,
+    6.035
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00009_52f2fecae0.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "d70e74b5d29a9ee825b08d10e286d5598329b66309b4401e0312a41704618c62"
+  },
+  {
+   "name": "caption-00010",
+   "word": "and",
+   "beat": [
+    6.4398,
+    6.6066
+   ],
+   "speech": [
+    6.435,
+    6.516
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00010_ea79af77c5.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "2973eb34ec4be9a04178f230a6ab5484f6feb5d51293f5357ca504f59620eb95"
+  },
+  {
+   "name": "caption-00011",
+   "word": "doing",
+   "beat": [
+    6.6066,
+    6.9069
+   ],
+   "speech": [
+    6.616,
+    6.856
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00011_7877095224.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "4e925379aca150022633d49fa9ab76d346aff24ddb6bf71aa11f70f381decd0b"
+  },
+  {
+   "name": "caption-00012",
+   "word": "my",
+   "beat": [
+    6.9069,
+    7.1405
+   ],
+   "speech": [
+    6.897,
+    6.977
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00012_720039c39f.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "21b83da4162d775d29de3eb3ce567b5cdcf9f1f362b80a57642d34584b46275e"
+  },
+  {
+   "name": "caption-00013",
+   "word": "absolute",
+   "beat": [
+    7.1405,
+    7.5742
+   ],
+   "speech": [
+    7.157,
+    7.538
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00013_f4d6f74f6a.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "f11d89d0418bb6465e844bd35b7199e6975cbbc540f0b7bc441607fda281503e"
+  },
+  {
+   "name": "caption-00014",
+   "word": "best",
+   "beat": [
+    7.5742,
+    8.1081
+   ],
+   "speech": [
+    7.578,
+    7.839
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00014_887c24b44b.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "6b32a085ab6beea557f2a6b79221fed603963e02fbd4613f4705c345ed63da28"
+  },
+  {
+   "name": "caption-00015",
+   "word": "same",
+   "beat": [
+    11.2446,
+    11.5115
+   ],
+   "speech": [
+    11.229,
+    11.45
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00015_76da736eb1.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "cfc598c03000200a1e51bc7495ec32da56567cb4d2fc6c0f4224385ee1f21862"
+  },
+  {
+   "name": "caption-00016",
+   "word": "business",
+   "beat": [
+    11.5115,
+    12.3123
+   ],
+   "speech": [
+    11.51,
+    11.891
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00016_671d2f76ea.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "454cae2ca533377da94c86d4950327157d01886b5e9bac7e959de12963e1b34d"
+  },
+  {
+   "name": "caption-00017",
+   "word": "same",
+   "beat": [
+    12.3123,
+    12.6126
+   ],
+   "speech": [
+    12.312,
+    12.532
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00017_301ca84f8e.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "8f5c26ae0fc50d49d511d28b1a46ec18a807fbeeb34fb9a61fd3400a2f355a98"
+  },
+  {
+   "name": "caption-00018",
+   "word": "kid",
+   "beat": [
+    12.6126,
+    13.2466
+   ],
+   "speech": [
+    12.612,
+    12.853
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00018_c4388c17f8.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "29e0238674adb23cd8b528f5038e60ca3658b28a8334ee21188d83328df608f4"
+  },
+  {
+   "name": "caption-00019",
+   "word": "same",
+   "beat": [
+    13.2466,
+    13.5469
+   ],
+   "speech": [
+    13.234,
+    13.454
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00019_eae14748f9.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "621b91cddd75cf26c3b7831e3eee990f0d848031b6adfde324150638e04fe242"
+  },
+  {
+   "name": "caption-00020",
+   "word": "stress",
+   "beat": [
+    13.5469,
+    14.381
+   ],
+   "speech": [
+    13.535,
+    13.875
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00020_8aa9d1f3fd.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "44932ec52770f5b9c99b66161c4e3010526cc4cda8eca744bd69d8190e3e8527"
+  },
+  {
+   "name": "caption-00021",
+   "word": "about",
+   "beat": [
+    14.381,
+    14.7147
+   ],
+   "speech": [
+    14.397,
+    14.617
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00021_618712872b.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "6d15d4364cbe0a585c224627da3e6fc6b76f32c031349360e00e530db43c165e"
+  },
+  {
+   "name": "caption-00022",
+   "word": "two",
+   "beat": [
+    14.7147,
+    14.9149
+   ],
+   "speech": [
+    14.717,
+    14.858
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00022_8930507de1.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "191077a17d62a6035e762c6e9d3af499d632c0a4ac1b0a742695e58af60946c2"
+  },
+  {
+   "name": "caption-00023",
+   "word": "years",
+   "beat": [
+    14.9149,
+    15.1818
+   ],
+   "speech": [
+    14.918,
+    15.118
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00023_64d36f7ce1.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "e9f01364b6685e3adc1f1a6d733a747b427a626d3912157c4df4d49206966239"
+  },
+  {
+   "name": "caption-00024",
+   "word": "apart",
+   "beat": [
+    15.1818,
+    15.9159
+   ],
+   "speech": [
+    15.178,
+    15.439
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00024_e5de936ae4.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "75df22b8e33e24387858c2cd2fef4b99b1cd2dc40444c6809780f60c67a21641"
+  },
+  {
+   "name": "caption-00025",
+   "word": "So",
+   "beat": [
+    20.3537,
+    21.0544
+   ],
+   "speech": [
+    20.363,
+    20.483
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00025_c085209fe1.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "456b4d5174c2ac5be7fe26878cd89905c95f2e2cfc2be9b4838a9d15c85d4645"
+  },
+  {
+   "name": "caption-00026",
+   "word": "how",
+   "beat": [
+    21.0544,
+    21.1878
+   ],
+   "speech": [
+    21.045,
+    21.145
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00026_25a5888899.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "54232eafd4a9e095366c1ecd9af5ed7582ab66c909e73c14553c19332128f87a"
+  },
+  {
+   "name": "caption-00027",
+   "word": "did",
+   "beat": [
+    21.1878,
+    21.3547
+   ],
+   "speech": [
+    21.185,
+    21.285
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00027_409b25e7e9.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "9ff83c0dc43a210d2c191fb30ab067c890c0e378cfd40a2514dea415b72583d4"
+  },
+  {
+   "name": "caption-00028",
+   "word": "I",
+   "beat": [
+    21.3547,
+    21.4548
+   ],
+   "speech": [
+    21.346,
+    21.366
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00028_2f534aec7c.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "5d1f6af13e1f22d1942260d083461a5c1413637c92d3f1dbe7befc816c97fc31"
+  },
+  {
+   "name": "caption-00029",
+   "word": "get",
+   "beat": [
+    21.4548,
+    21.6216
+   ],
+   "speech": [
+    21.426,
+    21.546
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00029_74f9a3ae28.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "8d4ab1e2a57b8d9cfde99496c6717074e979f8350fbc974d925e3b07d63ade32"
+  },
+  {
+   "name": "caption-00030",
+   "word": "my",
+   "beat": [
+    21.6216,
+    21.8552
+   ],
+   "speech": [
+    21.606,
+    21.686
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00030_5c142119f2.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "b1e34099981f24ccc53e5635a8f4233ad9c608780289a4481a169b4e156744a4"
+  },
+  {
+   "name": "caption-00031",
+   "word": "abs",
+   "beat": [
+    21.8552,
+    22.0554
+   ],
+   "speech": [
+    21.847,
+    22.007
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00031_142ec7efbf.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "3692b8750688355b4a7453ab241708fee23f02694ef0baa0ba5cf0e9f1ce9171"
+  },
+  {
+   "name": "caption-00032",
+   "word": "back",
+   "beat": [
+    22.0554,
+    22.2556
+   ],
+   "speech": [
+    22.047,
+    22.188
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00032_174ebf67d4.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "49e7f3bff69ba798a008c2e314740265a4c07df74b98802a6c432412943baa70"
+  },
+  {
+   "name": "caption-00033",
+   "word": "at",
+   "beat": [
+    22.2556,
+    22.8895
+   ],
+   "speech": [
+    22.268,
+    22.609
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00033_31d175721d.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "f4ea9e5ccda71bd4286394620e13b9611cf3ac99712086aa278bfe10bddccd10"
+  },
+  {
+   "name": "caption-00034",
+   "word": "with",
+   "beat": [
+    26.4264,
+    26.6933
+   ],
+   "speech": [
+    26.438,
+    26.558
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00034_dfc3c709ad.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "32b07a0cd3210431f6662e8db7d35dd9c8ea9e7a149463891bebf36fe3f656c6"
+  },
+  {
+   "name": "caption-00035",
+   "word": "abs",
+   "beat": [
+    26.6933,
+    27.0604
+   ],
+   "speech": [
+    26.698,
+    27.28
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00035_f97ca7f746.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "c465fbaf424a4d0f73ae9874b61160a036b3a776e8a37bb0347b00e5f5f6714a"
+  },
+  {
+   "name": "caption-00036",
+   "word": "at",
+   "beat": [
+    35.5021,
+    35.6356
+   ],
+   "speech": [
+    35.5049,
+    35.5449
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00036_4d287fc0c9.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "f5d93ccbe70b9be5a805d37101d96083933364d0a551ff4cdbe5602c13ba3610"
+  },
+  {
+   "name": "caption-00037",
+   "word": "it",
+   "beat": [
+    35.6356,
+    35.7357
+   ],
+   "speech": [
+    35.6259,
+    35.6659
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00037_e6d4a45040.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "69c5885f7735039d6682387649dd1ede6252d212552dd54da3b8314f0217f062"
+  },
+  {
+   "name": "caption-00038",
+   "word": "dozens",
+   "beat": [
+    35.7357,
+    36.1361
+   ],
+   "speech": [
+    35.7459,
+    36.0869
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00038_ccc08c9968.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "eb70180b081a64daeddde07586d0f7caad1d5bdb837bffff353d6ba3e5d7a41c"
+  },
+  {
+   "name": "caption-00039",
+   "word": "of",
+   "beat": [
+    36.1361,
+    36.2362
+   ],
+   "speech": [
+    36.1279,
+    36.1679
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00039_3a77655d0c.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "d3b411ca63387092ff6768761d417ed2d800487074309a9a5ad05886a3f18039"
+  },
+  {
+   "name": "caption-00040",
+   "word": "times",
+   "beat": [
+    36.2362,
+    36.5031
+   ],
+   "speech": [
+    36.2279,
+    36.4289
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00040_a04e0b18cd.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "bc2ec6a964a2af80148d8282a6f5f46dc1bf6f867391fe2499d1c779ae93d546"
+  },
+  {
+   "name": "caption-00041",
+   "word": "a",
+   "beat": [
+    36.5031,
+    36.6032
+   ],
+   "speech": [
+    36.5089,
+    36.5289
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00041_f8a74987c1.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "830bbb66a2f206402786905362b699995613266c463224b236b2151f07b84e73"
+  },
+  {
+   "name": "caption-00042",
+   "word": "day",
+   "beat": [
+    36.6032,
+    37.3373
+   ],
+   "speech": [
+    36.5689,
+    36.7499
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00042_9b4ae87571.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "e1172f6023eeb9b28d55e7109d5d2a34f76562fd800d30229ec0206f0624a158"
+  },
+  {
+   "name": "caption-00043",
+   "word": "every",
+   "beat": [
+    37.3373,
+    37.6042
+   ],
+   "speech": [
+    37.3519,
+    37.5329
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00043_4c9f408dbd.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "e75c445409cc707b64a1fbcf844d0b0d2914c9bac46795cdd3109693df5198dc"
+  },
+  {
+   "name": "caption-00044",
+   "word": "day",
+   "beat": [
+    37.6042,
+    38.0714
+   ],
+   "speech": [
+    37.5929,
+    37.7539
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00044_59a4b9c9f2.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "d2d6c019962b23bc4a5dbfac613dc93e1290ae45843e73c19e8f0eae1ab9702d"
+  },
+  {
+   "name": "caption-00045",
+   "word": "for",
+   "beat": [
+    38.0714,
+    38.3383
+   ],
+   "speech": [
+    38.0749,
+    38.1749
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00045_5d7f37853a.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "2d2139ee0982e08166e2a977710d1370c60b6ed5e5d9f84a3a149835c43495fc"
+  },
+  {
+   "name": "caption-00046",
+   "word": "over",
+   "beat": [
+    38.3383,
+    38.5719
+   ],
+   "speech": [
+    38.3359,
+    38.5169
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00046_047aec3ebb.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "d69419864a1f87f969746bd2c3d14ded05216cbdb676c08cf472221fc7332a21"
+  },
+  {
+   "name": "caption-00047",
+   "word": "a",
+   "beat": [
+    38.5719,
+    38.672
+   ],
+   "speech": [
+    38.5769,
+    38.5969
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00047_94046beb4c.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "d505e2a91933fbeee23c7c5a725e1151e8af2f8a108716dad8e38dbc3b3ee310"
+  },
+  {
+   "name": "caption-00048",
+   "word": "year",
+   "beat": [
+    38.672,
+    39.0056
+   ],
+   "speech": [
+    38.6569,
+    38.8379
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00048_3b9e8c81b3.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "0a09de717c8ab6e31617645f74ac71582da65b865826859a21907b6d4059b6aa"
+  },
+  {
+   "name": "caption-00049",
+   "word": "how",
+   "beat": [
+    43.2098,
+    43.3767
+   ],
+   "speech": [
+    43.2239,
+    43.3039
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00049_2fe31a601e.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "e842ec147d991d838340319adfb021a15757e8149a63573426892e6dc695edda"
+  },
+  {
+   "name": "caption-00050",
+   "word": "I",
+   "beat": [
+    43.3767,
+    43.4768
+   ],
+   "speech": [
+    43.3639,
+    43.3839
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00050_31a6b60a7f.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "d0bb52c64ff1e1acfaa74a731a8c5d1fcf4f119dfc0cebd841367f4a63c9bf27"
+  },
+  {
+   "name": "caption-00051",
+   "word": "locked",
+   "beat": [
+    43.4768,
+    43.8104
+   ],
+   "speech": [
+    43.4839,
+    43.7249
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00051_5f2772dd65.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "995a9fec451cab7d19be6eaf8f7b2fa32ada322befa6ab357adf1b08d2022ca3"
+  },
+  {
+   "name": "caption-00052",
+   "word": "in",
+   "beat": [
+    43.8104,
+    44.2108
+   ],
+   "speech": [
+    43.8249,
+    43.9059
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00052_379c522d05.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "baeba28bf91cce739dfb6c6b1942e1fe8bf4e7c3cda035ec7898d9fc38878f45"
+  },
+  {
+   "name": "caption-00053",
+   "word": "and",
+   "beat": [
+    44.2108,
+    44.411
+   ],
+   "speech": [
+    44.2269,
+    44.3069
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00053_5fb70d86e1.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "882d4379f6696e15d85a33c6cd7eb7645523e3006fa5602b21309636e831d5f8"
+  },
+  {
+   "name": "caption-00054",
+   "word": "motivated",
+   "beat": [
+    44.411,
+    44.9783
+   ],
+   "speech": [
+    44.4269,
+    44.8889
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00054_ef39b125a8.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "78995436e855db0d1a3f56164b2dcbdc0b555db0f12641bae28bd112ec0643f5"
+  },
+  {
+   "name": "caption-00055",
+   "word": "myself",
+   "beat": [
+    44.9783,
+    45.3453
+   ],
+   "speech": [
+    44.9689,
+    45.2499
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00055_cc726cee00.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "1c5c2cec70f5c0dc6798bbfd2dcfcb6834e6824fbb324714eac24273864ebb9d"
+  },
+  {
+   "name": "caption-00056",
+   "word": "to",
+   "beat": [
+    45.3453,
+    45.4454
+   ],
+   "speech": [
+    45.3299,
+    45.3699
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00056_fae283f6d8.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "5058a38a9107adb0239d8a0320cdd8a1b4c344b301748b7aed67e249cd3d4e23"
+  },
+  {
+   "name": "caption-00057",
+   "word": "get",
+   "beat": [
+    45.4454,
+    45.6456
+   ],
+   "speech": [
+    45.4099,
+    45.5309
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00057_909ae468f5.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "e3caac946ec84911fbadf03fd5931bad8a78c076fa0a8d64ef3ea4dd5a603d55"
+  },
+  {
+   "name": "caption-00058",
+   "word": "abs",
+   "beat": [
+    45.6456,
+    46.0126
+   ],
+   "speech": [
+    45.6509,
+    45.8119
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut/cap/c00058_7f4c643781.png",
+   "pos": [
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "image_sha256": "1bce9f037f7dfd366c7c60bc122bef7d1d25d4868063f8bb14d1fcf4969eff25"
+  }
+ ],
+ "caption_highlight_rgb": [
+  140,
+  153,
+  91
+ ],
+ "speech_words": [
+  {
+   "w": "This",
+   "t": 0.361,
+   "e": 0.601
+  },
+  {
+   "w": "is",
+   "t": 1.002,
+   "e": 1.063
+  },
+  {
+   "w": "my",
+   "t": 1.123,
+   "e": 1.223
+  },
+  {
+   "w": "dad",
+   "t": 1.303,
+   "e": 1.504
+  },
+  {
+   "w": "bottom",
+   "t": 1.564,
+   "e": 1.844
+  },
+  {
+   "w": "at",
+   "t": 2.065,
+   "e": 2.105
+  },
+  {
+   "w": "38.",
+   "t": 2.185,
+   "e": 2.646
+  },
+  {
+   "w": "I",
+   "t": 3.348,
+   "e": 3.368
+  },
+  {
+   "w": "was",
+   "t": 3.428,
+   "e": 3.508
+  },
+  {
+   "w": "eating",
+   "t": 3.629,
+   "e": 3.809
+  },
+  {
+   "w": "healthy",
+   "t": 3.869,
+   "e": 4.21
+  },
+  {
+   "w": "working",
+   "t": 4.731,
+   "e": 5.012
+  },
+  {
+   "w": "out",
+   "t": 5.092,
+   "e": 5.172
+  },
+  {
+   "w": "four",
+   "t": 5.273,
+   "e": 5.433
+  },
+  {
+   "w": "times",
+   "t": 5.493,
+   "e": 5.714
+  },
+  {
+   "w": "a",
+   "t": 5.794,
+   "e": 5.814
+  },
+  {
+   "w": "week",
+   "t": 5.854,
+   "e": 6.035
+  },
+  {
+   "w": "and",
+   "t": 6.435,
+   "e": 6.516
+  },
+  {
+   "w": "doing",
+   "t": 6.616,
+   "e": 6.856
+  },
+  {
+   "w": "my",
+   "t": 6.897,
+   "e": 6.977
+  },
+  {
+   "w": "absolute",
+   "t": 7.157,
+   "e": 7.538
+  },
+  {
+   "w": "best",
+   "t": 7.578,
+   "e": 7.839
+  },
+  {
+   "w": "And",
+   "t": 8.303,
+   "e": 8.383
+  },
+  {
+   "w": "this",
+   "t": 8.523,
+   "e": 8.824
+  },
+  {
+   "w": "is",
+   "t": 9.505,
+   "e": 9.566
+  },
+  {
+   "w": "my",
+   "t": 9.626,
+   "e": 9.706
+  },
+  {
+   "w": "dad",
+   "t": 9.786,
+   "e": 9.966
+  },
+  {
+   "w": "bottom",
+   "t": 10.047,
+   "e": 10.548
+  },
+  {
+   "w": "at",
+   "t": 10.548,
+   "e": 10.608
+  },
+  {
+   "w": "40",
+   "t": 10.794,
+   "e": 11.042
+  },
+  {
+   "w": "same",
+   "t": 11.229,
+   "e": 11.45
+  },
+  {
+   "w": "business",
+   "t": 11.51,
+   "e": 11.891
+  },
+  {
+   "w": "same",
+   "t": 12.312,
+   "e": 12.532
+  },
+  {
+   "w": "kid",
+   "t": 12.612,
+   "e": 12.853
+  },
+  {
+   "w": "same",
+   "t": 13.234,
+   "e": 13.454
+  },
+  {
+   "w": "stress",
+   "t": 13.535,
+   "e": 13.875
+  },
+  {
+   "w": "about",
+   "t": 14.397,
+   "e": 14.617
+  },
+  {
+   "w": "two",
+   "t": 14.717,
+   "e": 14.858
+  },
+  {
+   "w": "years",
+   "t": 14.918,
+   "e": 15.118
+  },
+  {
+   "w": "apart",
+   "t": 15.178,
+   "e": 15.439
+  },
+  {
+   "w": "I",
+   "t": 15.924,
+   "e": 15.944
+  },
+  {
+   "w": "didn't",
+   "t": 16.045,
+   "e": 16.246
+  },
+  {
+   "w": "get",
+   "t": 16.266,
+   "e": 16.386
+  },
+  {
+   "w": "younger",
+   "t": 16.446,
+   "e": 16.747
+  },
+  {
+   "w": "and",
+   "t": 17.109,
+   "e": 17.189
+  },
+  {
+   "w": "I",
+   "t": 17.249,
+   "e": 17.269
+  },
+  {
+   "w": "didn't",
+   "t": 17.35,
+   "e": 17.57
+  },
+  {
+   "w": "quit",
+   "t": 17.61,
+   "e": 17.771
+  },
+  {
+   "w": "my",
+   "t": 17.811,
+   "e": 17.891
+  },
+  {
+   "w": "job.",
+   "t": 17.972,
+   "e": 18.193
+  },
+  {
+   "w": "I",
+   "t": 18.534,
+   "e": 18.554
+  },
+  {
+   "w": "didn't",
+   "t": 18.694,
+   "e": 18.935
+  },
+  {
+   "w": "move",
+   "t": 18.995,
+   "e": 19.136
+  },
+  {
+   "w": "into",
+   "t": 19.176,
+   "e": 19.337
+  },
+  {
+   "w": "a",
+   "t": 19.417,
+   "e": 19.437
+  },
+  {
+   "w": "gym",
+   "t": 19.497,
+   "e": 19.638
+  },
+  {
+   "w": "So",
+   "t": 20.363,
+   "e": 20.483
+  },
+  {
+   "w": "how",
+   "t": 21.045,
+   "e": 21.145
+  },
+  {
+   "w": "did",
+   "t": 21.185,
+   "e": 21.285
+  },
+  {
+   "w": "I",
+   "t": 21.346,
+   "e": 21.366
+  },
+  {
+   "w": "get",
+   "t": 21.426,
+   "e": 21.546
+  },
+  {
+   "w": "my",
+   "t": 21.606,
+   "e": 21.686
+  },
+  {
+   "w": "abs",
+   "t": 21.847,
+   "e": 22.007
+  },
+  {
+   "w": "back",
+   "t": 22.047,
+   "e": 22.188
+  },
+  {
+   "w": "at",
+   "t": 22.268,
+   "e": 22.609
+  },
+  {
+   "w": "40?",
+   "t": 22.759,
+   "e": 22.959
+  },
+  {
+   "w": "I",
+   "t": 23.11,
+   "e": 23.13
+  },
+  {
+   "w": "used",
+   "t": 23.41,
+   "e": 23.651
+  },
+  {
+   "w": "AI",
+   "t": 23.992,
+   "e": 24.232
+  },
+  {
+   "w": "not",
+   "t": 24.593,
+   "e": 24.754
+  },
+  {
+   "w": "just",
+   "t": 24.834,
+   "e": 24.994
+  },
+  {
+   "w": "to",
+   "t": 25.014,
+   "e": 25.074
+  },
+  {
+   "w": "generate",
+   "t": 25.135,
+   "e": 25.475
+  },
+  {
+   "w": "a",
+   "t": 25.536,
+   "e": 25.556
+  },
+  {
+   "w": "picture",
+   "t": 25.616,
+   "e": 25.896
+  },
+  {
+   "w": "of",
+   "t": 25.937,
+   "e": 25.977
+  },
+  {
+   "w": "myself",
+   "t": 26.017,
+   "e": 26.358
+  },
+  {
+   "w": "with",
+   "t": 26.438,
+   "e": 26.558
+  },
+  {
+   "w": "abs",
+   "t": 26.698,
+   "e": 27.28
+  },
+  {
+   "w": "But",
+   "t": 27.28,
+   "e": 27.34
+  },
+  {
+   "w": "to",
+   "t": 27.401,
+   "e": 27.483
+  },
+  {
+   "w": "actually",
+   "t": 27.544,
+   "e": 27.844
+  },
+  {
+   "w": "get",
+   "t": 27.865,
+   "e": 27.985
+  },
+  {
+   "w": "real",
+   "t": 28.185,
+   "e": 28.406
+  },
+  {
+   "w": "abs",
+   "t": 28.586,
+   "e": 28.767
+  },
+  {
+   "w": "in",
+   "t": 29.168,
+   "e": 29.208
+  },
+  {
+   "w": "real",
+   "t": 29.389,
+   "e": 29.589
+  },
+  {
+   "w": "life.",
+   "t": 29.649,
+   "e": 29.87
+  },
+  {
+   "w": "I",
+   "t": 30.109,
+   "e": 30.13
+  },
+  {
+   "w": "generated",
+   "t": 30.29,
+   "e": 30.792
+  },
+  {
+   "w": "an",
+   "t": 30.852,
+   "e": 30.892
+  },
+  {
+   "w": "AI",
+   "t": 31.033,
+   "e": 31.213
+  },
+  {
+   "w": "picture",
+   "t": 31.354,
+   "e": 31.635
+  },
+  {
+   "w": "of",
+   "t": 31.675,
+   "e": 31.715
+  },
+  {
+   "w": "myself",
+   "t": 31.775,
+   "e": 32.076
+  },
+  {
+   "w": "with",
+   "t": 32.137,
+   "e": 32.217
+  },
+  {
+   "w": "the",
+   "t": 32.257,
+   "e": 32.317
+  },
+  {
+   "w": "body",
+   "t": 32.377,
+   "e": 32.578
+  },
+  {
+   "w": "I",
+   "t": 32.644,
+   "e": 32.664
+  },
+  {
+   "w": "wanted",
+   "t": 32.765,
+   "e": 33.026
+  },
+  {
+   "w": "and",
+   "t": 33.348,
+   "e": 33.429
+  },
+  {
+   "w": "I",
+   "t": 33.489,
+   "e": 33.509
+  },
+  {
+   "w": "made",
+   "t": 33.61,
+   "e": 33.771
+  },
+  {
+   "w": "it",
+   "t": 33.811,
+   "e": 33.851
+  },
+  {
+   "w": "my",
+   "t": 33.892,
+   "e": 33.972
+  },
+  {
+   "w": "phone",
+   "t": 34.053,
+   "e": 34.254
+  },
+  {
+   "w": "lock",
+   "t": 34.294,
+   "e": 34.475
+  },
+  {
+   "w": "screen",
+   "t": 34.535,
+   "e": 34.777
+  },
+  {
+   "w": "I",
+   "t": 35.124,
+   "e": 35.144
+  },
+  {
+   "w": "looked",
+   "t": 35.264,
+   "e": 35.465
+  },
+  {
+   "w": "at",
+   "t": 35.505,
+   "e": 35.545
+  },
+  {
+   "w": "it",
+   "t": 35.626,
+   "e": 35.666
+  },
+  {
+   "w": "dozens",
+   "t": 35.746,
+   "e": 36.087
+  },
+  {
+   "w": "of",
+   "t": 36.128,
+   "e": 36.168
+  },
+  {
+   "w": "times",
+   "t": 36.228,
+   "e": 36.429
+  },
+  {
+   "w": "a",
+   "t": 36.509,
+   "e": 36.529
+  },
+  {
+   "w": "day",
+   "t": 36.569,
+   "e": 36.75
+  },
+  {
+   "w": "every",
+   "t": 37.352,
+   "e": 37.533
+  },
+  {
+   "w": "day",
+   "t": 37.593,
+   "e": 37.754
+  },
+  {
+   "w": "for",
+   "t": 38.075,
+   "e": 38.175
+  },
+  {
+   "w": "over",
+   "t": 38.336,
+   "e": 38.517
+  },
+  {
+   "w": "a",
+   "t": 38.577,
+   "e": 38.597
+  },
+  {
+   "w": "year",
+   "t": 38.657,
+   "e": 38.838
+  },
+  {
+   "w": "It",
+   "t": 39.232,
+   "e": 39.272
+  },
+  {
+   "w": "stopped",
+   "t": 39.344,
+   "e": 39.625
+  },
+  {
+   "w": "being",
+   "t": 39.666,
+   "e": 39.846
+  },
+  {
+   "w": "a",
+   "t": 39.907,
+   "e": 39.927
+  },
+  {
+   "w": "wish",
+   "t": 39.967,
+   "e": 40.208
+  },
+  {
+   "w": "it",
+   "t": 40.69,
+   "e": 40.73
+  },
+  {
+   "w": "became",
+   "t": 40.81,
+   "e": 41.212
+  },
+  {
+   "w": "how",
+   "t": 41.694,
+   "e": 41.814
+  },
+  {
+   "w": "I'm",
+   "t": 41.915,
+   "e": 42.015
+  },
+  {
+   "w": "supposed",
+   "t": 42.095,
+   "e": 42.376
+  },
+  {
+   "w": "to",
+   "t": 42.417,
+   "e": 42.477
+  },
+  {
+   "w": "look",
+   "t": 42.517,
+   "e": 42.678
+  },
+  {
+   "w": "That's",
+   "t": 42.963,
+   "e": 43.183
+  },
+  {
+   "w": "how",
+   "t": 43.224,
+   "e": 43.304
+  },
+  {
+   "w": "I",
+   "t": 43.364,
+   "e": 43.384
+  },
+  {
+   "w": "locked",
+   "t": 43.484,
+   "e": 43.725
+  },
+  {
+   "w": "in",
+   "t": 43.825,
+   "e": 43.906
+  },
+  {
+   "w": "and",
+   "t": 44.227,
+   "e": 44.307
+  },
+  {
+   "w": "motivated",
+   "t": 44.427,
+   "e": 44.889
+  },
+  {
+   "w": "myself",
+   "t": 44.969,
+   "e": 45.25
+  },
+  {
+   "w": "to",
+   "t": 45.33,
+   "e": 45.37
+  },
+  {
+   "w": "get",
+   "t": 45.41,
+   "e": 45.531
+  },
+  {
+   "w": "abs",
+   "t": 45.651,
+   "e": 45.812
+  },
+  {
+   "w": "and",
+   "t": 46.213,
+   "e": 46.293
+  },
+  {
+   "w": "this",
+   "t": 46.393,
+   "e": 46.614
+  },
+  {
+   "w": "is",
+   "t": 47.156,
+   "e": 47.216
+  },
+  {
+   "w": "where",
+   "t": 47.256,
+   "e": 47.377
+  },
+  {
+   "w": "I'm",
+   "t": 47.417,
+   "e": 47.517
+  },
+  {
+   "w": "at",
+   "t": 47.557,
+   "e": 47.657
+  },
+  {
+   "w": "today",
+   "t": 47.698,
+   "e": 47.918
+  },
+  {
+   "w": "So",
+   "t": 48.24,
+   "e": 48.341
+  },
+  {
+   "w": "generate",
+   "t": 48.493,
+   "e": 48.914
+  },
+  {
+   "w": "your",
+   "t": 48.934,
+   "e": 49.054
+  },
+  {
+   "w": "future",
+   "t": 49.094,
+   "e": 49.375
+  },
+  {
+   "w": "self",
+   "t": 49.435,
+   "e": 49.596
+  },
+  {
+   "w": "image",
+   "t": 49.716,
+   "e": 49.937
+  },
+  {
+   "w": "and",
+   "t": 50.218,
+   "e": 50.298
+  },
+  {
+   "w": "let",
+   "t": 50.358,
+   "e": 50.498
+  },
+  {
+   "w": "AI",
+   "t": 50.639,
+   "e": 50.839
+  },
+  {
+   "w": "build",
+   "t": 50.94,
+   "e": 51.1
+  },
+  {
+   "w": "the",
+   "t": 51.16,
+   "e": 51.221
+  },
+  {
+   "w": "plan",
+   "t": 51.261,
+   "e": 51.501
+  },
+  {
+   "w": "that",
+   "t": 51.782,
+   "e": 51.903
+  },
+  {
+   "w": "fits",
+   "t": 52.023,
+   "e": 52.244
+  },
+  {
+   "w": "the",
+   "t": 52.324,
+   "e": 52.384
+  },
+  {
+   "w": "life",
+   "t": 52.444,
+   "e": 52.605
+  },
+  {
+   "w": "you",
+   "t": 52.645,
+   "e": 52.725
+  },
+  {
+   "w": "actually",
+   "t": 52.865,
+   "e": 53.146
+  },
+  {
+   "w": "have.",
+   "t": 53.206,
+   "e": 53.427
+  },
+  {
+   "w": "Tap",
+   "t": 53.955,
+   "e": 54.156
+  },
+  {
+   "w": "the",
+   "t": 54.236,
+   "e": 54.317
+  },
+  {
+   "w": "button",
+   "t": 54.357,
+   "e": 54.538
+  },
+  {
+   "w": "below",
+   "t": 54.578,
+   "e": 54.82
+  },
+  {
+   "w": "to",
+   "t": 55.302,
+   "e": 55.363
+  },
+  {
+   "w": "get",
+   "t": 55.403,
+   "e": 55.584
+  },
+  {
+   "w": "started",
+   "t": 55.644,
+   "e": 55.926
+  }
+ ],
+ "speech_words_evidence": {
+  "method": "verbatim_source_ctc"
+ },
+ "graphic_regions": [
+  {
+   "name": "card@0.000",
+   "beat": [
+    0.0,
+    3.136467
+   ],
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "card@8.108",
+   "beat": [
+    8.1081,
+    8.475133
+   ],
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "card@8.442",
+   "beat": [
+    8.475133,
+    8.775433
+   ],
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "card@8.775",
+   "beat": [
+    8.775433,
+    9.1091
+   ],
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "card@9.109",
+   "beat": [
+    9.1091,
+    10.844167
+   ],
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "card@15.916",
+   "beat": [
+    15.949267,
+    20.1201
+   ],
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "card@27.060",
+   "beat": [
+    27.060367,
+    28.661967
+   ],
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "card@28.629",
+   "beat": [
+    28.661967,
+    30.063367
+   ],
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "card@90.223",
+   "beat": [
+    30.06337,
+    33.066367
+   ],
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "card@93.226",
+   "beat": [
+    33.066367,
+    35.2352
+   ],
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "card@99.166",
+   "beat": [
+    39.039,
+    43.043
+   ],
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "card@106.173",
+   "beat": [
+    46.046,
+    47.047
+   ],
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "card@107.174",
+   "beat": [
+    47.047,
+    48.01463
+   ],
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "card@172.839",
+   "beat": [
+    48.348293,
+    49.416027
+   ],
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "card@173.874",
+   "beat": [
+    49.416027,
+    52.252193
+   ],
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "card@176.743",
+   "beat": [
+    52.252193,
+    53.78706
+   ],
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "card@22.900",
+   "beat": [
+    22.9229,
+    26.026
+   ],
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "card@178.278",
+   "beat": [
+    53.78706,
+    57.12373
+   ],
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "lt@22.90",
+   "beat": [
+    22.9229,
+    26.026
+   ],
+   "mov": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/gfx/ov_lt_1ff1676892.mov",
+   "mov_sha256": "8ea550ad7dcf9ac0f7926eee68f41cc56dc67c773a981a6db9d8a4c00356ecdf"
+  },
+  {
+   "name": "cta@178.28",
+   "beat": [
+    53.78706,
+    57.12373
+   ],
+   "mov": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/gfx/ov_cta_9634affc38.mov",
+   "mov_sha256": "56ffd88246545ea8c856aec5a69543e7d65457f59473afd9c70ee2628aa6e9b1"
+  }
+ ],
+ "talking_head_windows": [
+  {
+   "name": "talk-1",
+   "beat": [
+    3.136,
+    8.108
+   ],
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ],
+   "motion": "tracking"
+  },
+  {
+   "name": "talk-6",
+   "beat": [
+    10.844,
+    15.916
+   ],
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ],
+   "motion": "tracking"
+  },
+  {
+   "name": "window-7",
+   "beat": [
+    15.916,
+    20.12
+   ],
+   "rect": [
+    0,
+    60,
+    1080,
+    1220
+   ],
+   "motion": "fixed-wide"
+  },
+  {
+   "name": "talk-8",
+   "beat": [
+    20.12,
+    27.06
+   ],
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ],
+   "motion": "tracking"
+  },
+  {
+   "name": "talk-22",
+   "beat": [
+    35.2349,
+    39.0059
+   ],
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ],
+   "motion": "tracking"
+  },
+  {
+   "name": "talk-24",
+   "beat": [
+    43.0429,
+    46.0129
+   ],
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ],
+   "motion": "tracking"
+  },
+  {
+   "name": "talk-44",
+   "beat": [
+    53.78696,
+    57.12373
+   ],
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ],
+   "motion": "tracking"
+  }
+ ],
+ "label_tracks": [
+  {
+   "name": "ai-0-ai_goal",
+   "kind": "ai",
+   "beat": [
+    30.06337,
+    33.0659
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/plan_assets/chip_ai_ai_goal.png",
+   "image_sha256": "06ff9694c8fb34b6f326606cc8476f1b14740e16c1c7e5c16026e018d2bc42a5",
+   "wrong_image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/plan_assets/chip_real_before_deckchair.png",
+   "wrong_image_sha256": "0bfd471fe2fbe896273f60f6d44f38296496efd6fb01e430cd556c75cde1604d",
+   "pos": [
+    106,
+    426
+   ],
+   "search_px": 2,
+   "visibility": "full"
+  },
+  {
+   "name": "ai-2-app2_goal_clean",
+   "kind": "ai",
+   "beat": [
+    52.25196,
+    53.78696
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/plan_assets/chip_ai_app2_goal_clean_card.png",
+   "image_sha256": "77e4230cb5147cbad22b90ffe57ae4a2d97a6b4432a90c40825bb07ba176ffce",
+   "wrong_image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/plan_assets/chip_real_before_deckchair.png",
+   "wrong_image_sha256": "0bfd471fe2fbe896273f60f6d44f38296496efd6fb01e430cd556c75cde1604d",
+   "pos": [
+    416,
+    1284
+   ],
+   "search_px": 2,
+   "visibility": "full"
+  },
+  {
+   "name": "real-0-before_deckchair",
+   "kind": "real",
+   "beat": [
+    0.0,
+    3.136
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/plan_assets/chip_real_before_deckchair.png",
+   "image_sha256": "0bfd471fe2fbe896273f60f6d44f38296496efd6fb01e430cd556c75cde1604d",
+   "wrong_image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/plan_assets/chip_ai_ai_goal.png",
+   "wrong_image_sha256": "06ff9694c8fb34b6f326606cc8476f1b14740e16c1c7e5c16026e018d2bc42a5",
+   "pos": [
+    52,
+    150
+   ],
+   "search_px": 2,
+   "visibility": "full"
+  },
+  {
+   "name": "real-1-real_red_shorts",
+   "kind": "real",
+   "beat": [
+    8.108,
+    8.442
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/plan_assets/chip_real_real_red_shorts.png",
+   "image_sha256": "a10131ac27799241d2ac984eadd1b49ff1bad4af6807b87d746590764cd63273",
+   "wrong_image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/plan_assets/chip_ai_ai_goal.png",
+   "wrong_image_sha256": "06ff9694c8fb34b6f326606cc8476f1b14740e16c1c7e5c16026e018d2bc42a5",
+   "pos": [
+    652,
+    162
+   ],
+   "search_px": 2,
+   "visibility": "full"
+  },
+  {
+   "name": "real-2-real_towel",
+   "kind": "real",
+   "beat": [
+    8.442,
+    8.775
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/plan_assets/chip_real_real_towel.png",
+   "image_sha256": "6af839b3d0499b882af133735573e3b1235b6ea30d51fe14be4dc05404770b70",
+   "wrong_image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/plan_assets/chip_ai_ai_goal.png",
+   "wrong_image_sha256": "06ff9694c8fb34b6f326606cc8476f1b14740e16c1c7e5c16026e018d2bc42a5",
+   "pos": [
+    310,
+    150
+   ],
+   "search_px": 2,
+   "visibility": "full"
+  },
+  {
+   "name": "real-3-real_park_close",
+   "kind": "real",
+   "beat": [
+    8.775,
+    9.109
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/plan_assets/chip_real_real_park_close.png",
+   "image_sha256": "0bfd471fe2fbe896273f60f6d44f38296496efd6fb01e430cd556c75cde1604d",
+   "wrong_image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/plan_assets/chip_ai_ai_goal.png",
+   "wrong_image_sha256": "06ff9694c8fb34b6f326606cc8476f1b14740e16c1c7e5c16026e018d2bc42a5",
+   "pos": [
+    112,
+    528
+   ],
+   "search_px": 2,
+   "visibility": "full"
+  },
+  {
+   "name": "real-4-real_flag",
+   "kind": "real",
+   "beat": [
+    9.109,
+    10.844
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/plan_assets/chip_real_real_flag.png",
+   "image_sha256": "6af839b3d0499b882af133735573e3b1235b6ea30d51fe14be4dc05404770b70",
+   "wrong_image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/plan_assets/chip_ai_ai_goal.png",
+   "wrong_image_sha256": "06ff9694c8fb34b6f326606cc8476f1b14740e16c1c7e5c16026e018d2bc42a5",
+   "pos": [
+    418,
+    150
+   ],
+   "search_px": 2,
+   "visibility": "full"
+  },
+  {
+   "name": "real-5-real_red_shorts",
+   "kind": "real",
+   "beat": [
+    27.06,
+    28.629
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/plan_assets/chip_real_real_red_shorts.png",
+   "image_sha256": "a10131ac27799241d2ac984eadd1b49ff1bad4af6807b87d746590764cd63273",
+   "wrong_image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/plan_assets/chip_ai_ai_goal.png",
+   "wrong_image_sha256": "06ff9694c8fb34b6f326606cc8476f1b14740e16c1c7e5c16026e018d2bc42a5",
+   "pos": [
+    652,
+    162
+   ],
+   "search_px": 2,
+   "visibility": "full"
+  },
+  {
+   "name": "real-6-real_park_close",
+   "kind": "real",
+   "beat": [
+    28.629,
+    30.063
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/plan_assets/chip_real_real_park_close.png",
+   "image_sha256": "0bfd471fe2fbe896273f60f6d44f38296496efd6fb01e430cd556c75cde1604d",
+   "wrong_image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/plan_assets/chip_ai_ai_goal.png",
+   "wrong_image_sha256": "06ff9694c8fb34b6f326606cc8476f1b14740e16c1c7e5c16026e018d2bc42a5",
+   "pos": [
+    112,
+    528
+   ],
+   "search_px": 2,
+   "visibility": "full"
+  },
+  {
+   "name": "real-9-real_pool_stand",
+   "kind": "real",
+   "beat": [
+    46.0129,
+    47.0139
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/plan_assets/chip_real_real_pool_stand.png",
+   "image_sha256": "fc02785b76e47cd028dc54dc1f1bf6b395c76da73a870091893fe5bd36a96d83",
+   "wrong_image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/plan_assets/chip_ai_ai_goal.png",
+   "wrong_image_sha256": "06ff9694c8fb34b6f326606cc8476f1b14740e16c1c7e5c16026e018d2bc42a5",
+   "pos": [
+    376,
+    150
+   ],
+   "search_px": 2,
+   "visibility": "full"
+  },
+  {
+   "name": "real-10-real_pool_flex",
+   "kind": "real",
+   "beat": [
+    47.0139,
+    48.01463
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/plan_assets/chip_real_real_pool_flex.png",
+   "image_sha256": "6af839b3d0499b882af133735573e3b1235b6ea30d51fe14be4dc05404770b70",
+   "wrong_image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/plan_assets/chip_ai_ai_goal.png",
+   "wrong_image_sha256": "06ff9694c8fb34b6f326606cc8476f1b14740e16c1c7e5c16026e018d2bc42a5",
+   "pos": [
+    424,
+    222
+   ],
+   "search_px": 2,
+   "visibility": "full"
+  },
+  {
+   "name": "real-13-app2_before",
+   "kind": "real",
+   "beat": [
+    48.34796,
+    49.38296
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/plan_assets/chip_real_app2_before_card.png",
+   "image_sha256": "3ce34bc83190b8e508dd84ed7ec2cb93f7da7241d95dd146ffc6b61878abab03",
+   "wrong_image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/plan_assets/chip_ai_ai_goal.png",
+   "wrong_image_sha256": "06ff9694c8fb34b6f326606cc8476f1b14740e16c1c7e5c16026e018d2bc42a5",
+   "pos": [
+    258,
+    1284
+   ],
+   "search_px": 2,
+   "visibility": "full"
+  },
+  {
+   "name": "real-14-app2_form",
+   "kind": "real",
+   "beat": [
+    49.38296,
+    52.25196
+   ],
+   "image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/plan_assets/chip_real_app2_form_card.png",
+   "image_sha256": "3ce34bc83190b8e508dd84ed7ec2cb93f7da7241d95dd146ffc6b61878abab03",
+   "wrong_image": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/plan_assets/chip_ai_ai_goal.png",
+   "wrong_image_sha256": "06ff9694c8fb34b6f326606cc8476f1b14740e16c1c7e5c16026e018d2bc42a5",
+   "pos": [
+    258,
+    1284
+   ],
+   "search_px": 2,
+   "visibility": "full"
+  }
+ ],
+ "evidence_contract": {
+  "version": 2,
+  "video_sha256": "36ae2f6d528ebf34692e81040343c88d17046eff27a25bc1c266f2fd816dd00f",
+  "generated_at": "2026-09-25T00:22:52.661940+00:00"
+ },
+ "cut": {
+  "ranges": [
+   {
+    "src0": 0.0,
+    "src1": 30.06337,
+    "frames": 901,
+    "n0": 0,
+    "dst0": 0.0,
+    "dst1": 30.06337
+   },
+   {
+    "src0": 90.22347,
+    "src1": 108.17473,
+    "frames": 538,
+    "n0": 2704,
+    "dst0": 30.06337,
+    "dst1": 48.01463
+   },
+   {
+    "src0": 172.50567,
+    "src1": 181.61477,
+    "frames": 273,
+    "n0": 5170,
+    "dst0": 48.01463,
+    "dst1": 57.12373
+   }
+  ],
+  "source_video": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/ad10_9x16_review.mp4"
+ },
+ "transcript_words": [
+  {
+   "w": "This"
+  },
+  {
+   "w": "is"
+  },
+  {
+   "w": "my"
+  },
+  {
+   "w": "dad"
+  },
+  {
+   "w": "bottom"
+  },
+  {
+   "w": "at"
+  },
+  {
+   "w": "38."
+  },
+  {
+   "w": "I"
+  },
+  {
+   "w": "was"
+  },
+  {
+   "w": "eating"
+  },
+  {
+   "w": "healthy"
+  },
+  {
+   "w": "working"
+  },
+  {
+   "w": "out"
+  },
+  {
+   "w": "four"
+  },
+  {
+   "w": "times"
+  },
+  {
+   "w": "a"
+  },
+  {
+   "w": "week"
+  },
+  {
+   "w": "and"
+  },
+  {
+   "w": "doing"
+  },
+  {
+   "w": "my"
+  },
+  {
+   "w": "absolute"
+  },
+  {
+   "w": "best"
+  },
+  {
+   "w": "And"
+  },
+  {
+   "w": "this"
+  },
+  {
+   "w": "is"
+  },
+  {
+   "w": "my"
+  },
+  {
+   "w": "dad"
+  },
+  {
+   "w": "bottom"
+  },
+  {
+   "w": "at"
+  },
+  {
+   "w": "40"
+  },
+  {
+   "w": "same"
+  },
+  {
+   "w": "business"
+  },
+  {
+   "w": "same"
+  },
+  {
+   "w": "kid"
+  },
+  {
+   "w": "same"
+  },
+  {
+   "w": "stress"
+  },
+  {
+   "w": "about"
+  },
+  {
+   "w": "two"
+  },
+  {
+   "w": "years"
+  },
+  {
+   "w": "apart"
+  },
+  {
+   "w": "I"
+  },
+  {
+   "w": "didn't"
+  },
+  {
+   "w": "get"
+  },
+  {
+   "w": "younger"
+  },
+  {
+   "w": "and"
+  },
+  {
+   "w": "I"
+  },
+  {
+   "w": "didn't"
+  },
+  {
+   "w": "quit"
+  },
+  {
+   "w": "my"
+  },
+  {
+   "w": "job."
+  },
+  {
+   "w": "I"
+  },
+  {
+   "w": "didn't"
+  },
+  {
+   "w": "move"
+  },
+  {
+   "w": "into"
+  },
+  {
+   "w": "a"
+  },
+  {
+   "w": "gym"
+  },
+  {
+   "w": "So"
+  },
+  {
+   "w": "how"
+  },
+  {
+   "w": "did"
+  },
+  {
+   "w": "I"
+  },
+  {
+   "w": "get"
+  },
+  {
+   "w": "my"
+  },
+  {
+   "w": "abs"
+  },
+  {
+   "w": "back"
+  },
+  {
+   "w": "at"
+  },
+  {
+   "w": "40?"
+  },
+  {
+   "w": "I"
+  },
+  {
+   "w": "used"
+  },
+  {
+   "w": "AI"
+  },
+  {
+   "w": "not"
+  },
+  {
+   "w": "just"
+  },
+  {
+   "w": "to"
+  },
+  {
+   "w": "generate"
+  },
+  {
+   "w": "a"
+  },
+  {
+   "w": "picture"
+  },
+  {
+   "w": "of"
+  },
+  {
+   "w": "myself"
+  },
+  {
+   "w": "with"
+  },
+  {
+   "w": "abs"
+  },
+  {
+   "w": "But"
+  },
+  {
+   "w": "to"
+  },
+  {
+   "w": "actually"
+  },
+  {
+   "w": "get"
+  },
+  {
+   "w": "real"
+  },
+  {
+   "w": "abs"
+  },
+  {
+   "w": "in"
+  },
+  {
+   "w": "real"
+  },
+  {
+   "w": "life"
+  },
+  {
+   "w": "I"
+  },
+  {
+   "w": "generated"
+  },
+  {
+   "w": "an"
+  },
+  {
+   "w": "AI"
+  },
+  {
+   "w": "picture"
+  },
+  {
+   "w": "of"
+  },
+  {
+   "w": "myself"
+  },
+  {
+   "w": "with"
+  },
+  {
+   "w": "the"
+  },
+  {
+   "w": "body"
+  },
+  {
+   "w": "I"
+  },
+  {
+   "w": "wanted"
+  },
+  {
+   "w": "and"
+  },
+  {
+   "w": "I"
+  },
+  {
+   "w": "made"
+  },
+  {
+   "w": "it"
+  },
+  {
+   "w": "my"
+  },
+  {
+   "w": "phone"
+  },
+  {
+   "w": "lock"
+  },
+  {
+   "w": "screen"
+  },
+  {
+   "w": "I"
+  },
+  {
+   "w": "looked"
+  },
+  {
+   "w": "at"
+  },
+  {
+   "w": "it"
+  },
+  {
+   "w": "dozens"
+  },
+  {
+   "w": "of"
+  },
+  {
+   "w": "times"
+  },
+  {
+   "w": "a"
+  },
+  {
+   "w": "day"
+  },
+  {
+   "w": "every"
+  },
+  {
+   "w": "day"
+  },
+  {
+   "w": "for"
+  },
+  {
+   "w": "over"
+  },
+  {
+   "w": "a"
+  },
+  {
+   "w": "year"
+  },
+  {
+   "w": "It"
+  },
+  {
+   "w": "stopped"
+  },
+  {
+   "w": "being"
+  },
+  {
+   "w": "a"
+  },
+  {
+   "w": "wish"
+  },
+  {
+   "w": "it"
+  },
+  {
+   "w": "became"
+  },
+  {
+   "w": "how"
+  },
+  {
+   "w": "I'm"
+  },
+  {
+   "w": "supposed"
+  },
+  {
+   "w": "to"
+  },
+  {
+   "w": "look"
+  },
+  {
+   "w": "That's"
+  },
+  {
+   "w": "how"
+  },
+  {
+   "w": "I"
+  },
+  {
+   "w": "locked"
+  },
+  {
+   "w": "in"
+  },
+  {
+   "w": "and"
+  },
+  {
+   "w": "motivated"
+  },
+  {
+   "w": "myself"
+  },
+  {
+   "w": "to"
+  },
+  {
+   "w": "get"
+  },
+  {
+   "w": "abs"
+  },
+  {
+   "w": "and"
+  },
+  {
+   "w": "this"
+  },
+  {
+   "w": "is"
+  },
+  {
+   "w": "where"
+  },
+  {
+   "w": "I'm"
+  },
+  {
+   "w": "at"
+  },
+  {
+   "w": "today"
+  },
+  {
+   "w": "So"
+  },
+  {
+   "w": "generate"
+  },
+  {
+   "w": "your"
+  },
+  {
+   "w": "future"
+  },
+  {
+   "w": "self-image"
+  },
+  {
+   "w": "and"
+  },
+  {
+   "w": "let"
+  },
+  {
+   "w": "AI"
+  },
+  {
+   "w": "build"
+  },
+  {
+   "w": "a"
+  },
+  {
+   "w": "plan"
+  },
+  {
+   "w": "that"
+  },
+  {
+   "w": "fits"
+  },
+  {
+   "w": "the"
+  },
+  {
+   "w": "life"
+  },
+  {
+   "w": "you"
+  },
+  {
+   "w": "actually"
+  },
+  {
+   "w": "have"
+  },
+  {
+   "w": "Tap"
+  },
+  {
+   "w": "the"
+  },
+  {
+   "w": "button"
+  },
+  {
+   "w": "below"
+  },
+  {
+   "w": "to"
+  },
+  {
+   "w": "get"
+  },
+  {
+   "w": "started"
+  }
+ ],
+ "negative_events_scan": {
+  "sha256": "36ae2f6d528ebf34692e81040343c88d17046eff27a25bc1c266f2fd816dd00f",
+  "when": "2026-09-25T00:27:10.911054+00:00",
+  "frames_checked": 30,
+  "findings": [],
+  "by": "GPT-5.6 x3 fresh independent cutdown judges plus fresh exact-frame label judge (part 1)",
+  "method": "negscan/sheet.jpg: evenly spaced frames judged for body-shame framing"
+ },
+ "label_clearance": {
+  "sha256": "36ae2f6d528ebf34692e81040343c88d17046eff27a25bc1c266f2fd816dd00f",
+  "clearance_report": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/cut_audit/logs/label_clearance_report.json",
+  "clearance_report_sha256": "af35eb541d6ac2dc3aedc9098e0588e4d535cfdd93b1865fb157ae08eadd82c2",
+  "obstructions": [],
+  "checked": 2,
+  "by": "Codex fresh independent label-clearance judge"
+ }
+}

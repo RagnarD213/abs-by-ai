@@ -1,0 +1,512 @@
+{
+ "gate_version": "2.3.0",
+ "format": "ad9x16",
+ "verdict": "PASS",
+ "sha256": "b25b6e50e106cc4c6407fc949ff6edda25ceab8b1c75a559eff6427b0fc32cc6",
+ "bytes": 172461205,
+ "when": "2026-09-24T18:53:45-0500",
+ "size": "1080x1920",
+ "fps": "30000/1001",
+ "duration": 181.614767,
+ "rows": {
+  "container:size": {
+   "ok": true,
+   "detail": "frame size 1080x1920 (want 1080x1920)",
+   "value": {
+    "got": "1080x1920",
+    "want": "1080x1920"
+   }
+  },
+  "container:fps": {
+   "ok": true,
+   "detail": "frame rate 30000/1001 (want 30000/1001)",
+   "value": {
+    "got": "30000/1001",
+    "want": "30000/1001"
+   }
+  },
+  "container:codec": {
+   "ok": true,
+   "detail": "h264 / aac 48000 Hz 2 ch (want h264 / aac 48000 Hz 2 ch)",
+   "value": {
+    "vcodec": "h264",
+    "acodec": "aac",
+    "sr": 48000,
+    "ch": 2
+   }
+  },
+  "container:duration": {
+   "ok": true,
+   "detail": "video stream 181.615s vs target 181.615s (tolerance 0.1s)",
+   "value": {
+    "duration": 181.615,
+    "target": 181.615,
+    "tolerance": 0.1
+   }
+  },
+  "container:frames": {
+   "ok": true,
+   "detail": "5443 frames present, 5443 planned",
+   "value": {
+    "frames": 5443,
+    "planned": 5443
+   }
+  },
+  "audio:stamp": {
+   "ok": true,
+   "detail": "stamp present, matches this file, PASS"
+  },
+  "audio:stream_integrity": {
+   "ok": true,
+   "detail": "audio 181.615s vs picture 181.615s (gap -0.000s; allowed -0.15..+0.15s); 0 silent second(s); quietest -23.3 dBFS",
+   "value": {
+    "adur": 181.615,
+    "vdur": 181.615,
+    "gap": -0.0,
+    "silent": []
+   }
+  },
+  "audio:lipsync": {
+   "ok": true,
+   "detail": "finished audio vs source at 5 checkpoints: +0.000, +0.000, +0.000, +0.000, +0.000 ms (worst +0.000, max 1.0 ms)",
+   "value": {
+    "lags_ms": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "worst_ms": 0.0,
+    "tol": 1.0
+   }
+  },
+  "audio:click_at_joins": {
+   "ok": true,
+   "detail": "0/53 joins above 1.25x the file's own natural ceiling (0.3475): []",
+   "value": {
+    "bad": [],
+    "ceiling": 0.34749,
+    "joins": 53
+   }
+  },
+  "style:coverage": {
+   "ok": true,
+   "detail": "45% of runtime is off the main scene (min 38%)",
+   "value": {
+    "coverage": 0.449,
+    "min": 0.38
+   }
+  },
+  "style:static_run": {
+   "ok": true,
+   "detail": "longest stretch with no visual change 9.7s at 0:37.83 (max 31.6s)",
+   "value": {
+    "worst": 9.67,
+    "at": 37.83,
+    "max": 31.6
+   }
+  },
+  "style:change_rate": {
+   "ok": true,
+   "detail": "54 picture changes = 17.8/min (min 7.0/min)",
+   "value": {
+    "changes": 54,
+    "per_min": 17.84,
+    "min": 7.0
+   }
+  },
+  "framing:hair_top": {
+   "ok": true,
+   "detail": "hair top below the edge: min 0 px, median 42 (min 20 px, normalized to each 1080-high talking-head window); 0 sample(s) under it for >= 2 in a row []; independent top-rows test: 0 sample(s) with head in the top 12 rows (>= 0.2) []; 485/490 valid",
+   "value": {
+    "min": 0.0,
+    "median": 41.62,
+    "cut": [],
+    "edge": [],
+    "valid": 485,
+    "on_scene": 490,
+    "min_px": 20
+   }
+  },
+  "framing:headroom": {
+   "ok": true,
+   "detail": "26 tracked talking holds + 5 intentional fixed-wide; per-hold min hair top [36, 35, 31, 28, 40, 49, 33, 40, 28, 32, 48, 33]... (must sit in 20-70 normalized px inside its own window): 0 loose [], 0 tight []; median over the video 41 (max 75)",
+   "value": {
+    "holds": 26,
+    "fixed_wide": 5,
+    "mins": [
+     [
+      3.25,
+      36
+     ],
+     [
+      13.0,
+      35
+     ],
+     [
+      20.0,
+      31
+     ],
+     [
+      23.5,
+      28
+     ],
+     [
+      30.25,
+      40
+     ],
+     [
+      33.0,
+      49
+     ],
+     [
+      47.75,
+      33
+     ],
+     [
+      58.0,
+      40
+     ],
+     [
+      67.25,
+      28
+     ],
+     [
+      68.25,
+      32
+     ],
+     [
+      72.0,
+      48
+     ],
+     [
+      73.5,
+      33
+     ],
+     [
+      81.0,
+      39
+     ],
+     [
+      83.75,
+      43
+     ],
+     [
+      86.5,
+      39
+     ],
+     [
+      95.5,
+      39
+     ],
+     [
+      103.25,
+      37
+     ],
+     [
+      108.75,
+      28
+     ],
+     [
+      115.0,
+      37
+     ],
+     [
+      119.0,
+      38
+     ],
+     [
+      139.25,
+      40
+     ],
+     [
+      143.5,
+      39
+     ],
+     [
+      146.0,
+      28
+     ],
+     [
+      160.0,
+      30
+     ],
+     [
+      163.5,
+      42
+     ],
+     [
+      178.5,
+      32
+     ]
+    ],
+    "loose": [],
+    "tight": [],
+    "median": 41.06,
+    "seg_min": 20,
+    "seg_max": 70,
+    "median_max": 75
+   }
+  },
+  "framing:centering": {
+   "ok": true,
+   "detail": "27 tracked hold(s) + 5 intentional fixed-wide; head centre vs its window centre: worst +1.9% at 95.5s (max +-6%); 0 hold(s) off []",
+   "value": {
+    "worst": [
+     95.5,
+     0.01861
+    ],
+    "off": [],
+    "max_px": 0.06
+   }
+  },
+  "framing:no_wide_level": {
+   "ok": true,
+   "detail": "not applicable: Dan sits in a full-width WINDOW above the text (Step 5 rule 1 of /shortad-from-longform), so his head is ~22 % of the frame by layout, not by a wide crop: the approved Ad 1 vertical reads 427-436 px of 1920 on its window beats (2026-09-12). The window's own crop is graded by headroom and hair_top",
+   "na": "Dan sits in a full-width WINDOW above the text (Step 5 rule 1 of /shortad-from-longform), so his head is ~22 % of the frame by layout, not by a wide crop: the approved Ad 1 vertical reads 427-436 px of 1920 on its window beats (2026-09-12). The window's own crop is graded by headroom and hair_top"
+  },
+  "framing:push_coverage": {
+   "ok": true,
+   "detail": "31 talking holds on the dominant shot (head 35.9% of its window): per-hold median head height 35.3-43.3% = spread x1.226 (min x1.1); 26% of that talk sits >= 6 % off the dominant level; 0 hold(s) on other shots ignored",
+   "value": {
+    "spread": 1.2256,
+    "min_spread": 1.1,
+    "dominant_frac": 0.35943,
+    "off_frac": 0.258,
+    "holds": 31,
+    "other_shots": 0
+   }
+  },
+  "cut:uncovered_joins": {
+   "ok": true,
+   "detail": "0 same-scene picture jumps = 0.0/min (max 2.5/min, declared beats subtracted); first []",
+   "value": {
+    "bare": 0,
+    "per_min": 0.0,
+    "max": 2.5,
+    "times": [],
+    "declared_beats": 80
+   }
+  },
+  "cut:black_frames": {
+   "ok": true,
+   "detail": "0 frame(s) under luma 6.0 in the body (every frame scanned): []",
+   "value": {
+    "black": [],
+    "max_luma": 6.0,
+    "frames": 5443
+   }
+  },
+  "cut:min_segment": {
+   "ok": true,
+   "detail": "0 segment(s) under 0.2s: []",
+   "value": {
+    "short": [],
+    "min_seconds": 0.2
+   }
+  },
+  "cut:jump_cut": {
+   "ok": true,
+   "detail": "0 adjacent visible segment pair(s) at one framing: []",
+   "value": {
+    "same": []
+   }
+  },
+  "cut:splice_visibility": {
+   "ok": true,
+   "detail": "0/53 joins above the file's own p99 ceiling (65.47): []",
+   "value": {
+    "bare": [],
+    "p99": 65.47,
+    "joins": 53
+   }
+  },
+  "cut:naked_splices": {
+   "ok": true,
+   "detail": "0 naked splice(s) of 18 candidates = 0.00/min (max 12.0/min, declared beats subtracted); first []",
+   "value": {
+    "naked": 0,
+    "per_min": 0.0,
+    "max": 12.0,
+    "candidates": 18,
+    "times": [],
+    "declared_beats": 172,
+    "settings": {
+     "peak": 20.0,
+     "sharp": 2.0,
+     "still": 0.25,
+     "hot_min": 8,
+     "subject_rows": 0.7,
+     "palette": 0.1,
+     "align_explains": 0.4
+    }
+   }
+  },
+  "captions:graphic_clearance": {
+   "ok": true,
+   "detail": "252 compositor PNG state(s) verified in delivered pixels; 0 state/graphic pairs, tightest n/a px (min 20); 0 problem(s): []",
+   "value": {
+    "states": 252,
+    "verified": 252,
+    "min_state_corr": 0.9911803255009692,
+    "pairs": 0,
+    "tightest": null,
+    "bad": []
+   }
+  },
+  "captions:card_collision": {
+   "ok": true,
+   "detail": "76 cues, 34 cards, 0 on a card: []",
+   "value": {
+    "cues": 76,
+    "cards": 34,
+    "bad": []
+   }
+  },
+  "captions:burned": {
+   "ok": true,
+   "detail": "burned captions on 69% of 36 sampled frames (min 45%)",
+   "value": {
+    "frac": 0.694,
+    "min": 0.45,
+    "samples": 36
+   }
+  },
+  "captions:within_runtime": {
+   "ok": true,
+   "detail": "76 cues, last ends 172.69s against a 181.61s picture; 0 past the end: []",
+   "value": {
+    "cues": 76,
+    "over": []
+   }
+  },
+  "captions:sync": {
+   "ok": true,
+   "detail": "252/252 highlighted PNG word states aligned to 593 delivered-audio words (100.0%, min 97%); median +1 ms, worst +67 ms (max 120); 0 state(s) absent from delivered pixels, 0 timing miss(es)",
+   "value": {
+    "matched": 252,
+    "caption_words": 252,
+    "speech_words": 593,
+    "match_frac": 1.0,
+    "median_ms": 1.5,
+    "worst_ms": 67.1,
+    "absent": [],
+    "bad": []
+   }
+  },
+  "compliance:banned_screen": {
+   "ok": true,
+   "detail": "5443 frames x 28 layout templates (2 paired + 2 single screens); best consistent paired-screen match -1.000 at Nones None (needs both strips >= 0.55); best consistent single-screen match -1.000 at Nones None (needs both >= 0.62); and the band between the strips must be a photograph (white <= 0.5, sd >= 30.0); 0 frame(s) hit (t, kind, top, bottom, white, sd, scale): []",
+   "value": {
+    "frames": 5443,
+    "best_paired": [
+     -1.0,
+     null,
+     null
+    ],
+    "best_single": [
+     -1.0,
+     null,
+     null
+    ],
+    "hits": [],
+    "min_strip_ncc": {
+     "paired": 0.55,
+     "single": 0.62
+    },
+    "photo_white_max": 0.5,
+    "photo_sd_min": 30.0,
+    "prescreen": 0.45
+   }
+  },
+  "compliance:labels": {
+   "ok": true,
+   "detail": "18 renderer label state(s); min delivered-pixel correlation 0.9953457918764708 (min 0.6); 0 missing, 0 wrong-label, 0 face/abs obstruction(s); clearance checked on 54 state sample(s); 0 declared transition state(s) reported but not treated as missing",
+   "value": {
+    "missing": [],
+    "wrong": [],
+    "obstructions": [],
+    "partial": [],
+    "min_corr": 0.9953457918764708
+   }
+  },
+  "compliance:drug_names": {
+   "ok": true,
+   "detail": "0 banned name(s) spoken: []",
+   "value": {
+    "hits": []
+   }
+  },
+  "compliance:negative_events": {
+   "ok": true,
+   "detail": "scanned 30 frames on 2026-09-24T23:37:42.421219+00:00; no confirmed or unresolved negative-events finding (0 reviewer-cleared)",
+   "value": {
+    "frames": 30,
+    "confirmed": [],
+    "review": [],
+    "cleared": [],
+    "malformed": []
+   }
+  },
+  "compliance:script_fidelity": {
+   "ok": true,
+   "detail": "99.8% of the intended words are in the render (622 expected, 623 heard; min 95%)",
+   "value": {
+    "ratio": 0.9976,
+    "expected": 622,
+    "heard": 623,
+    "min": 0.95
+   }
+  },
+  "compliance:placeholder": {
+   "ok": true,
+   "detail": "asset-approval flow not used; watch checklist reports no visible placeholder"
+  },
+  "watch:pass": {
+   "ok": true,
+   "detail": "116/116 boundaries reviewed as consecutive frames, 240/124 images judged by GPT-5.6 x3 fresh independent judges (tied to this file by sha256)",
+   "value": {
+    "reviewed": 116,
+    "boundaries": 116,
+    "images": 124,
+    "judged": 240,
+    "open_defects": 0,
+    "accepted": 0,
+    "tied_by": "sha256",
+    "watch_version": "1.2.0"
+   }
+  },
+  "srt:present": {
+   "ok": true,
+   "detail": "not applicable: a vertical ad burns its captions; there is no sidecar deliverable",
+   "na": "a vertical ad burns its captions; there is no sidecar deliverable"
+  },
+  "srt:shape": {
+   "ok": true,
+   "detail": "not applicable: no sidecar -- see srt:present",
+   "na": "no sidecar -- see srt:present"
+  },
+  "junk:repeated_take": {
+   "ok": true,
+   "detail": "0 confirmed restart(s) in 593 words (plan:speech_words (delivered_asr)); 5 deliberate repeat(s) kept, 0 fluent re-said phrase(s) for a listen",
+   "value": {
+    "confirmed": [],
+    "listen": [],
+    "candidates": 5,
+    "words": 593,
+    "words_source": "plan:speech_words (delivered_asr)"
+   }
+  },
+  "junk:dead_air": {
+   "ok": true,
+   "detail": "longest silence inside the speech 0.56 s (max 1.00 s); 0 over the bound; threshold -30.0 dBFS against speech at -11.2",
+   "value": {
+    "longest": 0.56,
+    "bound": 1.0,
+    "over": [],
+    "gaps": 99
+   }
+  }
+ }
+}

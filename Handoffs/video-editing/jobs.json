@@ -1260,13 +1260,13 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/AV-07-ad10-vertical.md`: build the 9:16 vertical and ≤0:59 cutdown of Muhammad's finalized Ad 10 with /shortad-from-longform, decoding his master as BT.709 from the start, his audio untouched, the real-picture chip off my face and abs, before and after the same person. Every gate, independent audit, deliver, send me the review copies, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/AV-07-ad10-vertical.md` using `.claude/skills/shortad-from-longform/SKILL.md` as the method and `Handoffs/handoff-20260914-ad3-square-codex.md` as the model of a Codex variant build. Deliver, send Dan the review copies, update `00-MASTER.md`.",
-   "state": "in_progress",
-   "note": "Kit-first production build in /Volumes/Extreme/_edit_work/kit9x16/ad10-master",
+   "state": "delivered",
+   "note": "Full 9:16 and 57-second cutdown delivered for Dan review. Both exact masters GATE PASS 39/39 with zero open defects; fresh judges reviewed all evidence; Muhammad audio untouched.",
    "sub": "",
    "order": 60,
-   "updated": "2026-09-18",
-   "by": "Codex",
-   "rev": 2,
+   "updated": "2026-09-24",
+   "by": "Codex GPT-5.6",
+   "rev": 3,
    "syncedRev": 2
   },
   {

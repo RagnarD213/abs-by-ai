@@ -34,7 +34,7 @@ from motionlib import font, text_size  # noqa: E402
 
 FPS = 30000 / 1001
 VW, VH = 1080, 1920
-REAL_LABEL = "Real picture of me — not AI-generated"
+REAL_LABEL = "Real picture of me - not AI-generated"
 AI_LABEL = "AI-GENERATED"
 CLEAR = 16                    # px of clearance between the chip and any pixel of him (sqlabelplace)
 VERIFY_PX = 8                 # the delivered-file bound (sqlabelplace --verify)
@@ -51,8 +51,8 @@ def chip_parts(label, lines):
     if lines == 1 or label != REAL_LABEL:
         return [label]
     if lines == 2:
-        return ["Real picture of me", "— not AI-generated"]
-    return ["Real picture", "of me — not", "AI-generated"]
+        return ["Real picture of me", "- not AI-generated"]
+    return ["Real picture", "of me - not", "AI-generated"]
 
 
 def chip_dims(label, lines, size):
@@ -316,13 +316,47 @@ def verify(build, video):
     return bad
 
 
+def redraw_existing(build):
+    """Redraw chip text at already measured placements without rerunning masks.
+
+    This is for copy-only changes that make a chip no larger than the measured
+    one. The hyphenated real-photo disclosure is narrower than the former em-dash
+    copy, so its existing clear boxes remain conservative. A delivered-file
+    `--verify` is still mandatory after rendering.
+    """
+    os.chdir(build)
+    J = json.load(open("beats.json"))
+    res = json.load(open("label_place.json"))
+    for key, c in res.items():
+        label = REAL_LABEL if str(c.get("label", "")).startswith("Real picture") else AI_LABEL
+        old_w, old_h = int(c["w"]), int(c["h"])
+        w, h = chip_dims(label, int(c["lines"]), int(c["size"]))
+        if w > old_w or h > old_h:
+            raise SystemExit(f"{key}: redrawn chip {w}x{h} exceeds measured {old_w}x{old_h}; rerun placement")
+        c.update(label=label, w=w, h=h)
+        png = c.get("png") or os.path.abspath(f"labels/chip_{key}.png")
+        chip_at(label, int(c["x"]), int(c["y"]), int(c["lines"]), int(c["size"])).save(png)
+        for jb in J["beats"]:
+            if jb.get("media") == key and abs(float(jb["t1"]) - float(c["beat"][1])) < 0.01:
+                jb["chip_png"] = png
+                jb["chip_box"] = [int(c["x"]), int(c["y"]), w, h]
+                jb["chip_label"] = label
+    json.dump(J, open("beats.json", "w"), indent=1)
+    json.dump(res, open("label_place.json", "w"), indent=1)
+    print(f"{len(res)} chips redrawn at existing measured placements; delivered verify still required")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--build", required=True)
     ap.add_argument("--verify")
+    ap.add_argument("--redraw-existing", action="store_true")
     a = ap.parse_args()
     if a.verify:
         return 1 if verify(a.build, a.verify) else 0
+    if a.redraw_existing:
+        redraw_existing(a.build)
+        return 0
     place(a.build)
     return 0
 

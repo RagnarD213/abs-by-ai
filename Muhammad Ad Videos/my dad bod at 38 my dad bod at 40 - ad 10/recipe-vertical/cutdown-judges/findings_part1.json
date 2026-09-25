@@ -1,0 +1,218 @@
+{
+  "judge": "Codex independent visual judge /root/av07_cut1_fresh_j1",
+  "video": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/ad10_vertical_59s.mp4",
+  "method": "Read JUDGE_PROMPT.md and CHECKLIST.md, verified the candidate SHA256, then opened every one of the 30 assigned regular JPG files individually at original detail with view_image: all 3 watch sheets, the 30-tile negative-scan sheet, and strip plus pair images 000 through 012. Checked all checklist items, the locked transition facts, and one-label placement on every Dan picture. No sampling was used.",
+  "sha256": "36ae2f6d528ebf34692e81040343c88d17046eff27a25bc1c266f2fd816dd00f",
+  "entries": [
+    {
+      "image": "sheet_00_00-00.00_to_00-23.99.jpg",
+      "verdict": "clean",
+      "item": "all_checklist_items",
+      "t": 0.0,
+      "note": "Timeline sheet is clean. Hair remains inside frame, tight crops are balanced, declared graphics are present, and each Dan physique photo has exactly one readable label placed clear of his face and abs."
+    },
+    {
+      "image": "sheet_01_00-24.99_to_00-49.02.jpg",
+      "verdict": "clean",
+      "item": "all_checklist_items",
+      "t": 24.99,
+      "note": "Timeline sheet is clean. Cards and app windows are readable, no placeholder or junk is visible, and all real or AI Dan pictures carry exactly one correctly placed label clear of face and abs."
+    },
+    {
+      "image": "sheet_02_00-50.02_to_00-56.99.jpg",
+      "verdict": "clean",
+      "item": "all_checklist_items",
+      "t": 50.02,
+      "note": "Timeline sheet is clean. App screens, generated result, return flash, and CTA are present and readable; no hair, framing, label-placement, black-frame, or placeholder fault is visible."
+    },
+    {
+      "image": "sheet.jpg",
+      "verdict": "clean",
+      "item": "body_shame_scan",
+      "t": 0.0,
+      "note": "All 30 negative-scan tiles were checked specifically for body-shame framing. The relaxed before image is presented neutrally, with no demeaning crop, ridicule, disgust treatment, or shaming language."
+    },
+    {
+      "image": "strip_000_00-03.14_before_deckchair_out___card_0_000_out___.jpg",
+      "verdict": "clean",
+      "item": "all_checklist_items",
+      "t": 3.14,
+      "note": "Clean full-bleed real-photo to TALK cut. The photo has one label clear of face and abs, and no flash is present, as required for a full-bleed photo transition."
+    },
+    {
+      "image": "pair_000_00-03.14.jpg",
+      "verdict": "clean",
+      "item": "all_checklist_items",
+      "t": 3.14,
+      "note": "The -1|0 pair confirms a clean full-bleed photo to TALK cut with no black frame, corruption, or forbidden flash."
+    },
+    {
+      "image": "strip_001_00-08.11_card_8_108_in___cards_in___covered_in___.jpg",
+      "verdict": "clean",
+      "item": "all_checklist_items",
+      "t": 8.11,
+      "note": "Clean TALK to full-bleed real-photo cut. The picture has exactly one label above the head and clear of face and abs."
+    },
+    {
+      "image": "pair_001_00-08.11.jpg",
+      "verdict": "clean",
+      "item": "all_checklist_items",
+      "t": 8.11,
+      "note": "The -1|0 pair confirms the photo cut is clean, complete, and free of black or damaged frames."
+    },
+    {
+      "image": "strip_002_00-08.44_cards_in___cards_out___covered_in___cove.jpg",
+      "verdict": "clean",
+      "item": "all_checklist_items",
+      "t": 8.44,
+      "note": "Clean cut between two distinct real physique photos. Each visible photo has one label above the head, clear of face and abs."
+    },
+    {
+      "image": "pair_002_00-08.44.jpg",
+      "verdict": "clean",
+      "item": "all_checklist_items",
+      "t": 8.44,
+      "note": "The -1|0 pair confirms a clean photo-to-photo cut with no flash, black frame, corruption, or label fault."
+    },
+    {
+      "image": "strip_003_00-08.48_card_8_108_out___card_8_442_in.jpg",
+      "verdict": "clean",
+      "item": "all_checklist_items",
+      "t": 8.48,
+      "note": "Clean continuation on the same real photo. No visible discontinuity, duplicate label, frozen artifact, or transition fault."
+    },
+    {
+      "image": "pair_003_00-08.48.jpg",
+      "verdict": "clean",
+      "item": "all_checklist_items",
+      "t": 8.48,
+      "note": "The -1|0 frames are visually continuous and confirm the single correctly placed label remains stable."
+    },
+    {
+      "image": "strip_004_00-08.78_card_8_442_out___card_8_775_in___cards_i.jpg",
+      "verdict": "clean",
+      "item": "all_checklist_items",
+      "t": 8.78,
+      "note": "Clean cut between two distinct real photos. Each frame has exactly one label in clear background space, away from face and abs."
+    },
+    {
+      "image": "pair_004_00-08.78.jpg",
+      "verdict": "clean",
+      "item": "all_checklist_items",
+      "t": 8.78,
+      "note": "The -1|0 pair confirms a clean full-bleed photo cut with no forbidden flash or damaged frame."
+    },
+    {
+      "image": "strip_005_00-09.11_card_8_775_out___card_9_109_in___cards_i.jpg",
+      "verdict": "clean",
+      "item": "all_checklist_items",
+      "t": 9.11,
+      "note": "Clean cut to the flag photo. Both real photos carry one label placed clear of face and abs, with no flash between full-bleed photos."
+    },
+    {
+      "image": "pair_005_00-09.11.jpg",
+      "verdict": "clean",
+      "item": "all_checklist_items",
+      "t": 9.11,
+      "note": "The -1|0 pair confirms a clean photo-to-photo boundary with no black, corruption, or label overlap."
+    },
+    {
+      "image": "strip_006_00-10.84_card_9_109_out___cards_out___covered_out.jpg",
+      "verdict": "clean",
+      "item": "all_checklist_items",
+      "t": 10.84,
+      "note": "Clean full-bleed photo to TALK return. No flash is present, correctly following the rule that full-bleed photos do not use the return flash."
+    },
+    {
+      "image": "pair_006_00-10.84.jpg",
+      "verdict": "clean",
+      "item": "all_checklist_items",
+      "t": 10.84,
+      "note": "The -1|0 pair confirms a clean photo-to-TALK cut with intact frames and no forbidden flash."
+    },
+    {
+      "image": "strip_007_00-12.91_join___punch_NEAR.jpg",
+      "verdict": "expected",
+      "item": "planned_talk_cut",
+      "t": 12.91,
+      "note": "Declared TALK join into NEAR framing. The roughly 20 percent instantaneous scale step is an allowed bare TALK-cut treatment, not an undeclared naked splice. Hair remains inside frame."
+    },
+    {
+      "image": "pair_007_00-12.91.jpg",
+      "verdict": "expected",
+      "item": "planned_talk_cut",
+      "t": 12.91,
+      "note": "The -1|0 pair confirms the declared bare TALK cut and intentional NEAR framing step; no extra subject-position jump or frame damage is visible."
+    },
+    {
+      "image": "strip_008_00-14.35_punch_FAR.jpg",
+      "verdict": "expected",
+      "item": "planned_punch_ramp",
+      "t": 14.35,
+      "note": "Declared punch toward FAR begins here. Consecutive frames show a smooth small change consistent with the locked 0.5-second punch ramp, with no one-frame pop."
+    },
+    {
+      "image": "pair_008_00-14.35.jpg",
+      "verdict": "expected",
+      "item": "planned_punch_ramp",
+      "t": 14.35,
+      "note": "The -1|0 pair shows only the small first increment of the declared 0.5-second FAR ramp, not an abrupt framing defect."
+    },
+    {
+      "image": "strip_009_00-15.92_cards_in___covered_in___join___talk-6_ou.jpg",
+      "verdict": "expected",
+      "item": "planned_window_cut",
+      "t": 15.92,
+      "note": "Declared TALK-to-window cut. The instant change to the composed window level is allowed for a window cut; the window is complete, readable, and not a wide-level fault."
+    },
+    {
+      "image": "pair_009_00-15.92.jpg",
+      "verdict": "expected",
+      "item": "planned_window_cut",
+      "t": 15.92,
+      "note": "The -1|0 pair confirms the declared switch into the window composition with no black frame or broken card."
+    },
+    {
+      "image": "strip_010_00-18.45_join___punch_NEAR.jpg",
+      "verdict": "expected",
+      "item": "planned_window_cut",
+      "t": 18.45,
+      "note": "Declared join within the window plus NEAR treatment. The window cut may make an instant roughly 20 percent framing step, and the card remains stable and readable."
+    },
+    {
+      "image": "pair_010_00-18.45.jpg",
+      "verdict": "expected",
+      "item": "planned_window_cut",
+      "t": 18.45,
+      "note": "The -1|0 pair confirms the intentional window-level join and scale change; it is declared and not a naked splice defect."
+    },
+    {
+      "image": "strip_011_00-20.12_card_15_916_out___cards_out___covered_ou.jpg",
+      "verdict": "expected",
+      "item": "planned_return_flash",
+      "t": 20.12,
+      "note": "Expected white bloom while returning from the window/card to TALK. This is an allowed return-flash location and the frames retain visible image detail rather than going black."
+    },
+    {
+      "image": "pair_011_00-20.12.jpg",
+      "verdict": "expected",
+      "item": "planned_return_flash",
+      "t": 20.12,
+      "note": "The -1|0 pair confirms the expected return flash from the window/card to TALK, not corruption or a black frame."
+    },
+    {
+      "image": "strip_012_00-22.90_cards_in___lt_22_90_in___card_22_900_in.jpg",
+      "verdict": "expected",
+      "item": "declared_graphic_reveal",
+      "t": 22.90,
+      "note": "Declared lower-third/card reveal begins here. The small dark plate is the opening phase of the visible 'I used AI' graphic seen on the timeline sheet, not a placeholder or junk card."
+    },
+    {
+      "image": "pair_012_00-22.90.jpg",
+      "verdict": "expected",
+      "item": "declared_graphic_reveal",
+      "t": 22.90,
+      "note": "The -1|0 pair confirms the declared graphic onset over an otherwise continuous TALK shot; no naked splice or damaged frame is present."
+    }
+  ]
+}
