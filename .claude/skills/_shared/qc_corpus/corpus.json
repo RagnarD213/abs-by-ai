@@ -1913,6 +1913,76 @@
     "format": "longform",
     "_why": "organic long-form bounds; framing rows fail on hair the punch-ins and the operator cut"
    }
+  },
+  {
+   "id": "av07-ad10-vertical-full-final-approved-20260925",
+   "date": "2026-09-25",
+   "root": "repo",
+   "path": "Muhammad Ad Videos/my dad bod at 38 my dad bod at 40 - ad 10/my dad bod at 38 my dad bod at 40 | claude | 9x16 | ad 10.mp4",
+   "sha256": "b25b6e50e106cc4c6407fc949ff6edda25ceab8b1c75a559eff6427b0fc32cc6",
+   "bytes": 172461205,
+   "verdict": "approved",
+   "dan": "This is looking great. This ad is finalized. Create a handoff document to upload and set this ad up on YouTube and Google Ads in a new task",
+   "scope": "The entire exact 9:16 full master approved after Dan watched the review copy.",
+   "must_trigger": [],
+   "must_pass": [
+    "audio_gate",
+    "cut:naked_splices",
+    "framing:hair_top",
+    "framing:headroom",
+    "compliance:banned_screen",
+    "junk:repeated_take",
+    "junk:dead_air"
+   ],
+   "gate_args": [
+    "--reference-mix",
+    {
+     "root": "ssd",
+     "path": "kit9x16/ad10-master/his_mix.wav"
+    },
+    "--verbatim"
+   ],
+   "measured": "Exact master: 1080x1920, 30000/1001 fps, 5443 frames, 181.615 s. Shared delivery gate passed all 39 rows. Audio is verbatim against Muhammad's approved full mix. Three fresh GPT-5.6 review sessions inspected assigned evidence with zero open defects. All real pictures of Dan carry the required label, and every label is clear of his face and abs.",
+   "notes": "Approval proof, review evidence, stamps and production notes are in notes-vertical.md and recipe-vertical/. No media or gate was changed after Dan's approval.",
+   "deliver": {
+    "format": "ad9x16",
+    "plan": "../../../../Muhammad Ad Videos/my dad bod at 38 my dad bod at 40 - ad 10/recipe-vertical/plan-full.json"
+   }
+  },
+  {
+   "id": "av07-ad10-vertical-59s-final-approved-20260925",
+   "date": "2026-09-25",
+   "root": "repo",
+   "path": "Muhammad Ad Videos/my dad bod at 38 my dad bod at 40 - ad 10/my dad bod at 38 my dad bod at 40 | claude | 9x16 59s | ad 10.mp4",
+   "sha256": "36ae2f6d528ebf34692e81040343c88d17046eff27a25bc1c266f2fd816dd00f",
+   "bytes": 43503202,
+   "verdict": "approved",
+   "dan": "This is looking great. This ad is finalized. Create a handoff document to upload and set this ad up on YouTube and Google Ads in a new task",
+   "scope": "The entire exact 57.124-second 9:16 cutdown approved after Dan watched the review copy.",
+   "must_trigger": [],
+   "must_pass": [
+    "audio_gate",
+    "cut:naked_splices",
+    "framing:hair_top",
+    "framing:headroom",
+    "compliance:banned_screen",
+    "junk:repeated_take",
+    "junk:dead_air"
+   ],
+   "gate_args": [
+    "--reference-mix",
+    {
+     "root": "ssd",
+     "path": "kit9x16/ad10-master/cut/his_mix.wav"
+    },
+    "--verbatim"
+   ],
+   "measured": "Exact master: 1080x1920, 30000/1001 fps, 1712 frames, 57.124 s. Shared delivery gate passed all 39 rows. Audio is verbatim against Muhammad's approved cut mix. Three fresh GPT-5.6 review sessions plus a fresh exact-frame label review found zero open defects. All real pictures of Dan carry the required label, and every label is clear of his face and abs.",
+   "notes": "Approval proof, review evidence, stamps and production notes are in notes-vertical.md and recipe-vertical/. No media or gate was changed after Dan's approval.",
+   "deliver": {
+    "format": "ad9x16",
+    "plan": "../../../../Muhammad Ad Videos/my dad bod at 38 my dad bod at 40 - ad 10/recipe-vertical/plan-cutdown.json"
+   }
   }
  ]
 }

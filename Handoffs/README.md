@@ -1,6 +1,6 @@
 # Handoffs
 
-Every handoff document for Abs By AI, in one place. 160 documents (index updated 2026-09-18).
+Every handoff document for Abs By AI, in one place. 161 documents (index updated 2026-09-25).
 
 A handoff is a self-contained brief written so a fresh session can pick up work with no prior context.
 
@@ -13,12 +13,12 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
+| [handoff-20260925-ad10-verticals-youtube-google-ads.md](handoff-20260925-ad10-verticals-youtube-google-ads.md) | **Ready 2026-09-25. Codex GPT-6 Astra / High.** Upload the two exact approved AV-07 Ad 10 verticals to YouTube as Unlisted, create the matching 9:16 thumbnail, and add four new ads across the two existing Ad 10 Demand Gen groups. Preserve the live 16:9 ads and campaign settings. No organic posting. |
 | [handoff-20260924-vsl-landing-five-mockups.md](handoff-20260924-vsl-landing-five-mockups.md) | **Ready 2026-09-24. Claude Opus 5.5 / High.** Design five mockups of a straight VSL landing page (video then 7-day free trial) from the VidTao research; screenshots in `Media/research/vsl-landing-references-20260924/`. Mockups only, no live page. |
 | [handoff-20260924-generator-consult-call-outreach.md](handoff-20260924-generator-consult-call-outreach.md) | **SENT 2026-09-24 (14 emails, Resend from dan@absbyai.com); follow-up auto-runs 09-28; results report 10-08.** Email everyone who generated (about 15 to 20 people) inviting a free 15-minute call with Dan; Gmail drafts, one approval from Dan before sending; list kept outside the repo. The fold-or-fix sales test. |
 | [handoff-20260923-ro05-recut-fable.md](handoff-20260923-ro05-recut-fable.md) | **Ready 2026-09-23. Claude Fable 5.1 / High (Opus 5.5 high if Fable's spend limit is still hit).** Recut RO-05 "How I Make My Daily Salad" from scratch after Dan rejected Claude's cut: grade stills + Muhammad graphics/transitions board + one sample section first, then the full 16:9. Runs in parallel with the Astra handoff (Dan's bake-off). |
 | [handoff-20260923-ro05-recut-astra.md](handoff-20260923-ro05-recut-astra.md) | **Ready 2026-09-23. Codex GPT-6 Astra / High.** Same RO-05 recut, starting from the approved C1652 R4 recipe. Runs in parallel with the Fable handoff. |
 | [handoff-20260924-edit-queue-phase2-ro17-production-pilot.md](handoff-20260924-edit-queue-phase2-ro17-production-pilot.md) | **Ready for preflight, 2026-09-24. Codex GPT-6 Astra / High.** RO-17 replaces RA-11 because the free-generation ad hook is no longer a fit. Test early moving B-roll approval and placeholder editing on an unowned organic video. Keep Dan's overnight queue pause; use two deliberate queue launches. No upload or publication. |
-| [handoff-20260918-kit-first-production-ad10-vertical.md](handoff-20260918-kit-first-production-ad10-vertical.md) | **Ready 2026-09-18 — Codex GPT-6 Astra / High.** The 9:16 kit's first production job: Ad 10's vertical + ≤0:59 (AV-07) built by the kit from Muhammad's master, content sheet written fresh; judged by fresh sessions, GATE PASS before Dan sees it. |
 | [handoff-20260918-claude-video-freeze-and-codex-routing.md](handoff-20260918-claude-video-freeze-and-codex-routing.md) | **Ready, fire first, 2026-09-18 — Codex Sol / Medium.** Route every edit-queue group (editor + reviewer) to Codex until the Claude weekly reset 2026-09-24 11:00 CT; dry-run proof; no gate or master touched. |
 | [handoff-20260918-shrink-always-loaded-instructions.md](handoff-20260918-shrink-always-loaded-instructions.md) | **Ready, 2026-09-18 — Codex Sol / High.** Move the video rules verbatim out of `AGENTS.md`/`CLAUDE.md` into `_shared/VIDEO-RULES.md` with pointers; target ≤ 3,000 always-loaded words, zero rules lost. |
 | [handoff-20260918-move-routines-to-codex.md](handoff-20260918-move-routines-to-codex.md) | **Ready, 2026-09-18 — Codex Sol / Medium.** Rebuild editor-deliveries, watch-history (weekly) and the TWC payment reminder as Codex automations, prove one run each, then Dan toggles the Claude copies off. |

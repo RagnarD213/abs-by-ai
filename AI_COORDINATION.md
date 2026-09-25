@@ -101,8 +101,6 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **STOP Deadlifting clip - NEEDS DAN 2026-09-20, Codex.** R3 review copy delivered to the shared Drive folder: `1dXUbQajUzM-uO_Xl92telO0qsa-Ob7uV`. Full head visible; measured bar path rises once without reversing. Silent B-roll has no matching full-film delivery gate, so no gate PASS is claimed. Next: Dan reviews R3 and approves or names any corrections. Detail: `Media/ai-frames/stop-deadlifting-opening-20260918/motion-v2/R3_DELIVERY.json`.
 
-**AV-07 Ad 10 vertical kit build: DELIVERED 2026-09-24, Codex.** Full 9:16 and 57-second cutdown passed 39 of 39 gate rows with zero defects. Review copies, proofs, and recipe are packaged. Next: Dan reviews both copies. Record his exact verdict in the quality corpus, then finalize or revise. AS-06 stays blocked pending approval.
-
 **DS-18 final cut - READY 2026-09-25, Codex.** Dan approved the video overall and requested one final change: remove the silent Start Today deadlift clip around 39 seconds and ripple-close the timeline. Next: a new task executes `Handoffs/handoff-20260925-ds18-remove-start-today.md`, reruns exact-file checks and delivers the shortened review copy.
 
 **Overnight edit queue — PAUSED 2026-09-24, Dan's call.** He fires every edit by hand now to save tokens; nothing launches unattended. Routing left correct underneath (AV/AS/SL Claude, RA/RO/DS Codex, cross-review) so a resume needs no config work. Resume only if Dan says: `dispatcher.py resume`.
@@ -162,9 +160,9 @@ Memory `google-ads-ui-automation`.
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
 - `handoff-20260924-vsl-landing-five-mockups.md` (09-24): five VSL landing page mockups from VidTao research. Opus 5.5 high. Mockups only.
+- `handoff-20260925-ad10-verticals-youtube-google-ads.md` (09-25): upload both finalized Ad 10 verticals as YouTube Unlisted and add them to the existing Demand Gen groups. Preserve live settings and ads. Codex Astra high.
 - `handoff-20260924-generator-consult-call-outreach.md` (09-24): fire by 09-26.
 - `handoff-20260923-ro05-recut-fable.md` + `handoff-20260923-ro05-recut-astra.md` (09-23): RO-05 salad recut from scratch after Dan rejected Claude's cut; run both in parallel (bake-off). Fable 5.1 high / Astra high.
-- `handoff-20260918-kit-first-production-ad10-vertical.md` — kit builds AV-07. Codex Astra/high.
 - `handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md` [dash]: PHONE ONLY, 3 TikTok covers (updated 09-22). Sonnet 5 or Fable 5.1 / Medium.
 - `handoff-20260915-finalized-ads-6-14-youtube-and-google-ads.md` — Ads 6, 7, 10, 14 → YouTube + DGen (2026-09-15). Codex, high.
 - **`video-editing/00-MASTER.md` — THE video-editing list (2026-09-16):** 16 raw short ads, 25 dedicated shorts, 8 long-forms, 3 shorts-from-long-form, 15 ad variants; one doc per job, Claude + Codex prompts. Supersedes the J1–J18 ad-variants queue. Dan picks the order.
