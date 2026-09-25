@@ -103,7 +103,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **AV-07 Ad 10 vertical kit build: DELIVERED 2026-09-24, Codex.** Full 9:16 and 57-second cutdown passed 39 of 39 gate rows with zero defects. Review copies, proofs, and recipe are packaged. Next: Dan reviews both copies. Record his exact verdict in the quality corpus, then finalize or revise. AS-06 stays blocked pending approval.
 
-**DS-18 kettlebell-deadlift short - NEEDS DAN 2026-09-24, Codex.** Full 45.31-second review cut delivered. Start Today has no arrows; approved B-roll is installed; visual audit passed 30/30 images and 14/14 boundaries. Gate exceptions are recorded for the requested mute and automated full-body style checks. Next: Dan approves the full cut or gives final revisions. Detail: `/Volumes/Extreme/_edit_work/ds18-kettlebell-deadlift/`.
+**DS-18 final cut - READY 2026-09-25, Codex.** Dan approved the video overall and requested one final change: remove the silent Start Today deadlift clip around 39 seconds and ripple-close the timeline. Next: a new task executes `Handoffs/handoff-20260925-ds18-remove-start-today.md`, reruns exact-file checks and delivers the shortened review copy.
 
 **Overnight edit queue — PAUSED 2026-09-24, Dan's call.** He fires every edit by hand now to save tokens; nothing launches unattended. Routing left correct underneath (AV/AS/SL Claude, RA/RO/DS Codex, cross-review) so a resume needs no config work. Resume only if Dan says: `dispatcher.py resume`.
 
