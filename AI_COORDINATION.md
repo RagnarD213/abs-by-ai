@@ -93,7 +93,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **Queue cover bake-off - NEEDS DAN 2026-09-24, Codex.** 19 five-way comparisons ready. Next: Dan chooses replacements. Queues unchanged. Gallery: `Short-form video content/covers/review/queue-bakeoff-20260924/index.html`.
 
-**WV-01 round 2 - READY 2026-09-25, Codex.** Dan reviewed the checkpoint; next task executes `Handoffs/handoff-20260925-wv01-round2-creative-direction.md`. Start with grade/framing, graphics templates and five hook start/end pairs. No AI motion yet. Repairs complete; corpus and full-draft audio failures remain documented. No final delivery or publishing.
+**WV-01 round 2 - NEEDS DAN 2026-09-25, Codex.** Review ready: 3:09 sample, three graphics systems, grade/bass comparisons, five hook pairs and all unresolved assets. Next: Dan consolidated revisions before full A/B edit. Six B callbacks preserved. No AI motion/publishing. Full-film gates remain open. Package: `/Volumes/Extreme/_edit_work/wv01-edit/round2/index.html`.
 
 **RO-05 Fable recut - ACTIVE 2026-09-24, Claude.** Building Dan's style approval packet. `/Volumes/Extreme/_edit_work/ro05-fable/`
 
