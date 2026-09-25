@@ -93,7 +93,11 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **Queue cover bake-off - NEEDS DAN 2026-09-24, Codex.** 19 five-way comparisons ready. Next: Dan chooses replacements. Queues unchanged. Gallery: `Short-form video content/covers/review/queue-bakeoff-20260924/index.html`.
 
-**WV-01 VSL plan - NEEDS DAN 2026-09-24, Codex.** Next: Dan reviews the planning package, then starts a separate editing task with `Handoffs/video-editing/WV-01-EDIT-PLAN-20260924.md` and its research/source-map appendices. Queue parked as `needs`; no video rendered. Detailed handoff: private Git and Drive.
+**WV-01 VSL edit - ACTIVE 2026-09-24, Codex.** Executing approved A/B plan with six B callbacks. Take selection and consolidated asset preview first, then opening/voice/grade and app sample. Work: `/Volumes/Extreme/_edit_work/wv01-edit/`. No publishing or site replacement.
+
+**RO-05 Fable recut - ACTIVE 2026-09-24, Claude.** Building Dan's style approval packet. `/Volumes/Extreme/_edit_work/ro05-fable/`
+
+**SL-04 - ACTIVE 2026-09-24, Claude.** Awaiting picks.
 
 **STOP Deadlifting clip - NEEDS DAN 2026-09-20, Codex.** R3 review copy delivered to the shared Drive folder: `1dXUbQajUzM-uO_Xl92telO0qsa-Ob7uV`. Full head visible; measured bar path rises once without reversing. Silent B-roll has no matching full-film delivery gate, so no gate PASS is claimed. Next: Dan reviews R3 and approves or names any corrections. Detail: `Media/ai-frames/stop-deadlifting-opening-20260918/motion-v2/R3_DELIVERY.json`.
 
@@ -157,7 +161,7 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
-- `handoff-20260925-absbyai-pin-bio-local.md` (09-25): LOCAL task: pin the @abs.by.ai farewell post, set the bio, pre-approve Blotato queue tools, update memory. Sonnet 5 medium.
+- `handoff-20260925-absbyai-pin-bio-local.md` (09-25): PHONE ONLY: pin farewell post, set bio (permissions + memory done).
 - `handoff-20260924-generator-consult-call-outreach.md` (09-24): fire by 09-26.
 - `handoff-20260923-ro05-recut-fable.md` + `handoff-20260923-ro05-recut-astra.md` (09-23): RO-05 salad recut from scratch after Dan rejected Claude's cut; run both in parallel (bake-off). Fable 5.1 high / Astra high.
 - `handoff-20260918-kit-first-production-ad10-vertical.md` — kit builds AV-07. Codex Astra/high.
