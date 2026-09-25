@@ -34,7 +34,7 @@ Do not add `blotato_create_post` (that one publishes publicly).
 
 ## Finish
 
-- `grep -c '—'` on every file you wrote must be 0.
+- `grep -c $'\u2014'` on every file you wrote must be 0.
 - Commit `.claude/settings.json` if changed, push to `main`.
 - Delete this handoff's line from the HANDOFFS section of `AI_COORDINATION.md` (re-read from disk first) and its row in `Handoffs/README.md`; run `scripts/board-check.sh`.
 - Report to Dan in plain language: pinned, new bio, permissions done, memory updated.
