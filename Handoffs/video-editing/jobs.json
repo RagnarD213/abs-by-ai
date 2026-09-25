@@ -709,13 +709,13 @@
    "claude": "Read `Handoffs/handoff-20260925-ds18-remove-corner-title.md` and execute the final R8 revision only. Preserve the approved R7 picture, audio, captions, CTA and cover except for removing the upper-right title. Run exact-file checks and independent review; deliver a private copy. Do not upload or publish.",
    "codexModel": "GPT-6 Sol, medium",
    "codex": "Read `Handoffs/handoff-20260925-ds18-remove-corner-title.md` and execute the final R8 revision only. Preserve the approved R7 picture, audio, captions, CTA and cover except for removing the upper-right title. Run exact-file checks and independent review; deliver a private copy. Do not upload or publish.",
-   "state": "delivered",
-   "note": "R8 private review copy ready; title removed; six existing gate failures; no upload",
+   "state": "finalized",
+   "note": "Dan finalized R8 on 2026-09-25; upload and Google Ads handoff for Claude",
    "sub": "Workout",
    "order": 34,
    "updated": "2026-09-25",
    "by": "Codex",
-   "rev": 24,
+   "rev": 25,
    "syncedRev": 8
   },
   {
