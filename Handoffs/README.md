@@ -1,6 +1,6 @@
 # Handoffs
 
-Every handoff document for Abs By AI, in one place. 161 documents (index updated 2026-09-25).
+Every handoff document for Abs By AI, in one place. 162 documents (index updated 2026-09-25).
 
 A handoff is a self-contained brief written so a fresh session can pick up work with no prior context.
 
@@ -13,6 +13,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
+| [handoff-20260925-wv01-round2-creative-direction.md](handoff-20260925-wv01-round2-creative-direction.md) | **Ready 2026-09-25. GPT-6 Astra / High.** WV-01 round 2: Muhammad-matched grade/framing, graphics templates, five AI hook start/end pairs, approved-source replacements and planned-feature prototypes. No AI motion or publishing before the specified approvals. |
 | [handoff-20260924-vsl-landing-five-mockups.md](handoff-20260924-vsl-landing-five-mockups.md) | **Ready 2026-09-24. Claude Opus 5.5 / High.** Design five mockups of a straight VSL landing page (video then 7-day free trial) from the VidTao research; screenshots in `Media/research/vsl-landing-references-20260924/`. Mockups only, no live page. |
 | [handoff-20260924-generator-consult-call-outreach.md](handoff-20260924-generator-consult-call-outreach.md) | **SENT 2026-09-24 (14 emails, Resend from dan@absbyai.com); follow-up auto-runs 09-28; results report 10-08.** Email everyone who generated (about 15 to 20 people) inviting a free 15-minute call with Dan; Gmail drafts, one approval from Dan before sending; list kept outside the repo. The fold-or-fix sales test. |
 | [handoff-20260923-ro05-recut-fable.md](handoff-20260923-ro05-recut-fable.md) | **Ready 2026-09-23. Claude Fable 5.1 / High (Opus 5.5 high if Fable's spend limit is still hit).** Recut RO-05 "How I Make My Daily Salad" from scratch after Dan rejected Claude's cut: grade stills + Muhammad graphics/transitions board + one sample section first, then the full 16:9. Runs in parallel with the Astra handoff (Dan's bake-off). |

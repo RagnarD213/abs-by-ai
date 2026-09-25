@@ -1,3 +1,7 @@
+## Never show stick-figure exercise demos (Dan, 2026-09-25)
+
+- Never show the app's stick-figure exercise animations in any video. Use suitable, polished AI-generated exercise demonstration clips instead, matched to the displayed workout. Dan rejected the WV-01 workout preview and said: "Never ever show these stick figures in any video."
+
 ## Standing authorization for thumbnail replacement (Dan, 2026-09-16)
 
 - When Dan requests a thumbnail replacement, install the approved new thumbnail without asking again about removing the old thumbnail or its completed A/B test. Preserve available test results in the installation notes first. This does not authorize deleting the video or post itself.

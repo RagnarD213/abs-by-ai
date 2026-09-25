@@ -1696,13 +1696,13 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/WV-01-vsl-1-analysis-page-video-version-a-version-b-intr.md`: cut \"VSL 1: Analysis-page video (version A + version B intro)\" from 9/23 roll C1692-C1700 with /website-video. Best take of every line, every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/WV-01-vsl-1-analysis-page-video-version-a-version-b-intr.md` with `$abs-edit-organic`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "draft_review",
-   "note": "Opening and consolidated asset batch ready for Dan. Both full A/B placeholder drafts built; all six B callbacks verified. Two confirmed audio-boundary repairs are rendering. Awaiting style, archive, recipe and sleep decisions. Final placeholder-free videos, exact-file checks and independent review remain. No publishing.",
+   "state": "ready",
+   "note": "Dan reviewed all checkpoint assets. Round-2 handoff ready: Handoffs/handoff-20260925-wv01-round2-creative-direction.md. Next: Muhammad-matched grade/framing, graphics templates, five AI hook start/end pairs, source replacements and recipe/sleep prototypes. No AI motion yet. Final videos not delivered; no publishing.",
    "sub": "",
    "order": 81,
    "updated": "2026-09-25",
    "by": "Codex",
-   "rev": 8,
+   "rev": 9,
    "syncedRev": 1
   },
   {

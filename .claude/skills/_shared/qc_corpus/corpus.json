@@ -1983,6 +1983,73 @@
     "format": "ad9x16",
     "plan": "../../../../Muhammad Ad Videos/my dad bod at 38 my dad bod at 40 - ad 10/recipe-vertical/plan-cutdown.json"
    }
+  },
+  {
+   "id": "wv01-opening-r3-style-rejected-20260925",
+   "date": "2026-09-25",
+   "root": "ssd",
+   "path": "wv01-edit/samples/opening/DRAFT - WV-01 opening R3 - REVIEW 540p.mp4",
+   "sha256": "64336c9cd196a04fc04eb632d660f2a8400f5ba58ef27934b1869b2cdac510c6",
+   "bytes": 8856036,
+   "verdict": "rejected",
+   "dan": "This is a little washed-out looking. The saturation doesn't look as intense and the colors don't look as intense. // Overall these full-screen graphics are not acceptable. // The individual picture you chose is not good.",
+   "scope": "Grade, main wider framing, result-photo selection and graphics are rejected. Spoken story remains confirmed; voice broadly liked.",
+   "must_trigger": [
+    "style:reference_color_fidelity",
+    "style:source_framing",
+    "style:pool_photo_selection",
+    "style:instructional_graphic_value"
+   ],
+   "must_pass": [],
+   "notes": "Dan feedback and required replacements: Handoffs/handoff-20260925-wv01-round2-creative-direction.md. This is an early style/asset checkpoint, not final-film approval."
+  },
+  {
+   "id": "wv01-archive-source-approved-20260925",
+   "date": "2026-09-25",
+   "root": "ssd",
+   "path": "wv01-edit/assets/source-previews/P03-diet-SOURCE-CANDIDATE.mp4",
+   "sha256": "7104d26141d118b7928d3259239d7906cc856bf8323b57a4f6af5041b07cbacb",
+   "bytes": 278609,
+   "verdict": "approved",
+   "dan": "Archive candidate: this is looking good. Perfect clip for that.",
+   "scope": "Exact full-page Diet capture source approved for the founder-proof beat. Preserve visible views and subscriber count.",
+   "must_trigger": [],
+   "must_pass": [
+    "style:approved_organic_scene_asset"
+   ],
+   "notes": "Dan feedback and required replacements: Handoffs/handoff-20260925-wv01-round2-creative-direction.md. This is an early style/asset checkpoint, not final-film approval."
+  },
+  {
+   "id": "wv01-goal-source-approved-20260925",
+   "date": "2026-09-25",
+   "root": "ssd",
+   "path": "wv01-edit/assets/source-previews/P04-approved-goal-with-disclosures.mp4",
+   "sha256": "970891c6ddfd36f1fe0ef6c72a34f51016589644da7f653c33c322505030792c",
+   "bytes": 1255835,
+   "verdict": "approved",
+   "dan": "That's looking good.",
+   "scope": "Dan approved the previously approved goal demonstration shown in the review, not the separate rejected code-drawn lock-screen phone.",
+   "must_trigger": [],
+   "must_pass": [
+    "style:approved_organic_scene_asset"
+   ],
+   "notes": "Dan feedback and required replacements: Handoffs/handoff-20260925-wv01-round2-creative-direction.md. This is an early style/asset checkpoint, not final-film approval."
+  },
+  {
+   "id": "wv01-before-photo-approved-20260925",
+   "date": "2026-09-25",
+   "root": "ssd",
+   "path": "wv01-edit/assets/cards/P01-before-PLACEMENT-CANDIDATE.mp4",
+   "sha256": "b79a2ecea2a84103405184cbcded7ed20fe84f6ba0b013655dc8e50c14b478f8",
+   "bytes": 161075,
+   "verdict": "approved-with-notes",
+   "dan": "I like the label, I like the picture but this graphic just looks very basic and AI-generated.",
+   "scope": "Photograph and disclosure content only. Layout rejected and must be rebuilt; no full-card artistic approval.",
+   "must_trigger": [],
+   "must_pass": [
+    "style:approved_organic_scene_asset"
+   ],
+   "notes": "Dan feedback and required replacements: Handoffs/handoff-20260925-wv01-round2-creative-direction.md. This is an early style/asset checkpoint, not final-film approval."
   }
  ]
 }
