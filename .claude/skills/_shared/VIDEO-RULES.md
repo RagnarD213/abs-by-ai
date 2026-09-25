@@ -264,3 +264,9 @@ something that we can publish."* Every point below is a standing rule for every 
 - This applies to every video from here on, not just the one it was written on. When reviewing a cut, the graphics pass
   is: transcribe every chip, then ask of each one "does this distill something, or does it just echo the audio?" —
   and write the replacement key point, not a typo fix, for every chip that only echoes.
+
+## Exercise demonstration timing and visual cues (Dan, 2026-09-25)
+
+- Match each demonstration to the words being spoken. Show correct form while Dan gives the positive instruction, then show the mistake when he warns against it. If he returns to a positive instruction, return to correct form or the presenter. Set picture cuts from the heard words and check moving action on both sides of every cut. Swapping clips at their old boundaries is not enough if the result still contradicts the narration. DS-18 R7 demonstrates this for weight placement, toe direction, back position and glute squeeze versus hip thrust.
+- When a form detail is hard to see, point to the relevant body part or equipment with green arrows for correct form and red arrows for the mistake. The color, label and visible action must agree. Keep arrows on the target as it moves, clear of captions and the teaching action. Do not add arrows to a shot with no specific feature to point out.
+- A recurring overlay needs a clear teaching purpose. Check it against the narration, captions and action; omit it when it repeats information without helping the viewer. When removing one element from a combined graphic layer, preserve unrelated approved elements in that layer.

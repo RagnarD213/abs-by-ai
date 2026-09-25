@@ -12,6 +12,10 @@ description: >
 
 Read `_shared/VIDEO-RULES.md` first.
 
+## Exercise teaching pass from DS-18 (Dan, 2026-09-25)
+
+Before rendering an instructional Short, map each spoken positive cue and warning to the exact output frames and the visible demonstration. Correct form stays under the positive cue; the mistake begins with its warning. Recheck any return to a positive cue. Watch short moving proofs across every picture join, since a still frame or a simple pairwise clip swap can hide a mismatch. Use the shared green-for-correct and red-for-mistake arrow rule only where a form detail needs pointing out. Check every recurring corner graphic for actual teaching value before carrying it through presenter sections.
+
 > **READ FIRST: [`_shared/EDITOR-CARD.md`](../_shared/EDITOR-CARD.md)** — what Codex's approved C1652 R4 long-form and DS-17 short did that Claude's cuts did not (2026-09-17). Hold them for the whole build; start from the last approved recipe, not a blank directory.
 
 # Cutting Shorts from a long-form video
