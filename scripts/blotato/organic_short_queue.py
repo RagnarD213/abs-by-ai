@@ -92,14 +92,7 @@ def post_plan(v: dict) -> list[dict]:
             "text": lede + f"Free Abs By AI preview — link in bio 👇\n\n{link('tiktok')}\n\n{tags}",
             "media": v["tiktok_video_url"],
         },
-        {
-            "account": IG_MIRROR,
-            "platform": "instagram",
-            "when": v["mirror"],
-            "target": instagram_target,
-            "text": lede + f"More from @danrosefit 👇\n\n{tags}",
-            "media": v["video_url"],
-        },
+        # @abs.by.ai (65632) retired 2026-09-24: never queue it. No mirror post.
         {
             "account": YOUTUBE,
             "platform": "youtube",
@@ -122,7 +115,7 @@ def main() -> int:
     required = [
         "content_type", "source", "slug", "campaign", "title", "video_url",
         "tiktok_video_url", "instagram_cover_url", "youtube_cover_url", "main",
-        "mirror", "keyword", "ai_generated", "hook", "body", "close", "tags",
+        "keyword", "ai_generated", "hook", "body", "close", "tags",
         "youtube_description",
     ]
     missing = [key for key in required if key not in v or v[key] in (None, "")]

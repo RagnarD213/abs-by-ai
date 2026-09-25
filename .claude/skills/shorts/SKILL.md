@@ -579,8 +579,7 @@ scheduled YouTube copies "for Dan to decide". Nobody decided. **YouTube kept pub
 off-centre files on schedule** — four went live (`y0XIbNoA2Xo`, `P9VUGyWeNtY`, `VOlZHV1ibmU`,
 `rqyK5IDsxX0`) before Dan caught one on 2026-09-01. One Blotato post was also missed.
 
-1. **Inventory every queue before you re-cut**: Blotato (`fetch_schedules`, all four accounts —
-   IG `67203` + `65632`, Facebook `47105`, TikTok `58181`), YouTube Studio's Shorts list (read the
+1. **Inventory every queue before you re-cut**: Blotato (`fetch_schedules`, IG `67203`, Facebook `47105`, TikTok `58181`; @abs.by.ai retired 2026-09-24; never queue it), YouTube Studio's Shorts list (read the
    schedule with `row.polymerController.__data.video`), and anything Dan posts natively. Write
    the list down; the swap is done when every row on it is verified.
 2. **Blotato: create-then-delete, or delete-then-create at the 200 cap.** `scripts/blotato/swap_media.py MAP.json --apply`

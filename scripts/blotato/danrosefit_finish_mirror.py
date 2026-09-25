@@ -31,6 +31,7 @@ MAIN = "67203"
 
 
 def main() -> int:
+    sys.exit("REFUSING: @abs.by.ai (65632) retired 2026-09-24; never queue it. See BLOTATO_QUEUE_PROGRESS.md.")
     ap = argparse.ArgumentParser()
     ap.add_argument("--apply", action="store_true")
     args = ap.parse_args()

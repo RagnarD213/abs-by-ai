@@ -75,8 +75,7 @@ def posts() -> list:
          lede + f"Comment FOOD and I'll send you the free AI preview 👇\n\n{V['tags']}"),
         (TIKTOK, "tiktok", V["main"], dict(TIKTOK_TARGET),
          lede + f"Free AI preview of your own six-pack — link in bio at AbsByAI.com 👇\n\n{link('tiktok')}\n\n{V['tags']}"),
-        (IG_MIRROR, "instagram", V["mirror"], dict(ig),
-         lede + f"{V['mirror_cta']}\n\n{V['tags']}"),
+        # @abs.by.ai (65632) retired 2026-09-24: never queue it. No mirror post.
     ]
 
 

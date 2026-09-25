@@ -75,9 +75,7 @@ def posts(v: dict) -> list:
         (TIKTOK, "tiktok", v["main"], tiktok,
          lede + f"Free AI preview of your own six-pack, link in bio at AbsByAI.com 👇\n\n{link('tiktok')}\n\n{v['tags']}",
          v.get("tiktok_video_url", v["video_url"])),
-        (IG_MIRROR, "instagram", v["mirror"], dict(ig),
-         lede + f"{v['mirror_cta']}\n\n{v['tags']}",
-         v["video_url"]),
+        # @abs.by.ai (65632) retired 2026-09-24: never queue it. No mirror post.
         (YOUTUBE, "youtube", v["main"], youtube, v["youtube_description"], v["video_url"]),
     ]
 
@@ -120,7 +118,7 @@ def main() -> int:
     v = json.load(open(args.config))
 
     required = ["content_type", "source", "slug", "title", "video_url",
-                "youtube_cover_url", "main", "mirror", "keyword", "ai_generated",
+                "youtube_cover_url", "main", "keyword", "ai_generated",
                 "hook", "body", "close", "tags", "youtube_description"]
     missing = [key for key in required if key not in v or v[key] in (None, "")]
     if missing:

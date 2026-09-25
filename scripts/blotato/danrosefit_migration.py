@@ -571,6 +571,7 @@ def verify(key: str, account_id: str) -> int:
 
 # --------------------------------------------------------------------------- main
 def main() -> int:
+    sys.exit("REFUSING: @abs.by.ai (65632) retired 2026-09-24; never queue it. See BLOTATO_QUEUE_PROGRESS.md.")
     ap = argparse.ArgumentParser()
     ap.add_argument("--account-id", default=os.environ.get("DANROSEFIT_ACCOUNT_ID"),
                     help="Blotato accountId for @danrosefit")

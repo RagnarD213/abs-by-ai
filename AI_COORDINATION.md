@@ -157,7 +157,7 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
-- `handoff-20260924-absbyai-ig-final-post-and-shutdown.md` (09-24): await final revision-2 A/B/C/D pick. Claude Sonnet medium. New copy, four images and public Drive link in the image handoff. Nothing published.
+- `handoff-20260924-absbyai-ig-final-post-and-shutdown.md` (09-25): done except pin + bio. Dan, phone: pin https://www.instagram.com/p/DdsIKm8GPsv/, bio `Posts paused. Follow @danrosefit for everything new.` Then delete this line.
 - `handoff-20260924-generator-consult-call-outreach.md` (09-24): fire by 09-26.
 - `handoff-20260923-ro05-recut-fable.md` + `handoff-20260923-ro05-recut-astra.md` (09-23): RO-05 salad recut from scratch after Dan rejected Claude's cut; run both in parallel (bake-off). Fable 5.1 high / Astra high.
 - `handoff-20260918-kit-first-production-ad10-vertical.md` — kit builds AV-07. Codex Astra/high.
