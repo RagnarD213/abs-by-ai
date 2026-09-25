@@ -18,6 +18,8 @@ Read `Handoffs/handoff-20260924-edit-queue-phase2-ro17-production-pilot.md` and 
 
 The C1713 roll sidecar is now available beside the source. It identifies a restarted opening around 54.8 seconds and a wrap-up retake around 645.7 seconds. Verify the footage and speech before choosing takes. The spoken Chipotle protein-cup price is about $7, while the written script says $4; any on-screen price must follow the accepted spoken cut or be omitted. The roll is talking footage, so source footage for the planned food demonstrations still needs selection and Dan's approval.
 
+Preflight on September 25: all 70 queue, approval-page and placeholder tests passed when the four test files ran in separate processes. The full QC corpus finished 101/102 as expected. Its one mismatch is the intentionally retained `ds17-r4-final-approved` audio artifact check, documented in that corpus entry as an approved outdoor-lav exception that must stay visible. This is unrelated to RO-17; do not claim a corpus PASS or change any gate threshold. Run every current gate on RO-17's own final file.
+
 ## Starter prompts
 **Claude (Opus 5.5, high):**
 > Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/RO-17-3-healthy-foods-that-made-me-fat.md`: cut "3 Healthy Foods That Made Me Fat" from 9/23 roll C1713 with /longform-edit. Best take of every line, every gate, independent audit, deliver, send me the review copy, update the master list.
