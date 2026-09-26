@@ -5,6 +5,11 @@ description: Build a WEBSITE conversion video for absbyai.com — the trust vide
 
 Read `_shared/VIDEO-RULES.md` first.
 
+## Approval before the full render (Dan, 2026-09-26)
+
+Follow [PRE-RENDER-APPROVAL.md](../_shared/PRE-RENDER-APPROVAL.md): approve the first 30 seconds with color/audio, every graphic with surrounding speech, every selected clip in context, and AI start/end frames followed by finished clips before rendering the complete film. Preserve unchanged approvals and explicit sample waivers. Use [Soft Blue Light and the Motivation lower third](../_shared/GRAPHICS-STANDARDS.md). One useful point belongs in a compact lower third, not a large empty card. While approval is pending, prepare plans and isolated previews only; do not build a full placeholder film. This workflow supersedes older full-build and 60-90-second sample directions below.
+
+
 Read [the approved graphics standards](../_shared/GRAPHICS-STANDARDS.md) before any graphic or phone composition. Dan expanded Soft Blue Light to all videos on 2026-09-26; the Motivation format remains locked for all lower thirds. Use its portrait-photo, realistic-iPhone and fixed presenter-spacing rules. These current approvals supersede conflicting older layout examples below; camera color and audio still require source-specific calibration.
 
 # Website video: the last thing a visitor watches before they pay

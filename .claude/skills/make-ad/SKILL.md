@@ -11,6 +11,11 @@ description: >
 
 Read `_shared/VIDEO-RULES.md` first.
 
+## Approval before the full render (Dan, 2026-09-26)
+
+Follow [PRE-RENDER-APPROVAL.md](../_shared/PRE-RENDER-APPROVAL.md): approve the first 30 seconds with color/audio, every graphic with surrounding speech, every selected clip in context, and AI start/end frames followed by finished clips before rendering the complete film. Preserve unchanged approvals and explicit sample waivers. Use [Soft Blue Light and the Motivation lower third](../_shared/GRAPHICS-STANDARDS.md). One useful point belongs in a compact lower third, not a large empty card. While approval is pending, prepare plans and isolated previews only; do not build a full placeholder film. This workflow supersedes older full-build and 60-90-second sample directions below.
+
+
 # Make-Ad: AI Video Ad Production for Abs By AI
 
 ## Standing rule — label Dan's REAL pictures (Dan, 2026-09-11)

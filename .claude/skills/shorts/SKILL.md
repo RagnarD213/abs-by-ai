@@ -12,6 +12,11 @@ description: >
 
 Read `_shared/VIDEO-RULES.md` first.
 
+## Approval before the full render (Dan, 2026-09-26)
+
+Follow [PRE-RENDER-APPROVAL.md](../_shared/PRE-RENDER-APPROVAL.md): approve the first 30 seconds with color/audio, every graphic with surrounding speech, every selected clip in context, and AI start/end frames followed by finished clips before rendering the complete film. Preserve unchanged approvals and explicit sample waivers. Use [Soft Blue Light and the Motivation lower third](../_shared/GRAPHICS-STANDARDS.md). One useful point belongs in a compact lower third, not a large empty card. While approval is pending, prepare plans and isolated previews only; do not build a full placeholder film. This workflow supersedes older full-build and 60-90-second sample directions below.
+
+
 ## Exercise teaching pass from DS-18 (Dan, 2026-09-25)
 
 Before rendering an instructional Short, map each spoken positive cue and warning to the exact output frames and the visible demonstration. Correct form stays under the positive cue; the mistake begins with its warning. Recheck any return to a positive cue. Watch short moving proofs across every picture join, since a still frame or a simple pairwise clip swap can hide a mismatch. Use the shared green-for-correct and red-for-mistake arrow rule only where a form detail needs pointing out. Check every recurring corner graphic for actual teaching value before carrying it through presenter sections.

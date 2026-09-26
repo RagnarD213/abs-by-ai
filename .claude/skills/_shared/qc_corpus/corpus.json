@@ -2491,6 +2491,22 @@
    ],
    "must_pass": [],
    "notes": "Creative component review only. Semantic predicates are pending, not automated passes. Full feedback: Handoffs/handoff-20260925-wv01-round4-locked-style-and-iphone.md"
+  },
+  {
+   "id": "ro01-r3-graphics-rejection-20260926",
+   "date": "2026-09-26",
+   "root": "ssd",
+   "path": "ro01/RO01_MASTER_R3.mp4",
+   "sha256": "17f666fc1a54f078768f6bef902ee22219f46b92681da627bbf0c68ab27a6f4f",
+   "bytes": 766854929,
+   "verdict": "rejected",
+   "dan": "Okay overall feedback: the color correction, I think, was good. The audio, I think, was good. The biggest weakness of this was graphics. Graphics were awful. We cannot make any graphics like this.",
+   "scope": "Color and audio treatment approved. Sparse graphics rejected; pause/junk at 00:57 reported. Full R3 not finalized.",
+   "must_trigger": [
+    "style:graphic_information_density"
+   ],
+   "must_pass": [],
+   "notes": "Semantic graphic-density predicate is PENDING, not an implemented automatic detector. No gate or threshold changed. Full revision list: Handoffs/handoff-20260926-ro01-r4-graphics-and-clips-approval.md"
   }
  ]
 }

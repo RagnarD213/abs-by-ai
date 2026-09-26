@@ -1,10 +1,10 @@
 # Asset approval and placeholder editing
 
-Use this after the scene plan and before paying for AI motion or committing a new stock/existing-B-roll choice. It preserves the normal quality bar; it moves a costly source-selection mistake earlier.
+Use this clip-record workflow inside [PRE-RENDER-APPROVAL.md](PRE-RENDER-APPROVAL.md). The first-30-second treatment, all graphics and all clips must be locked before a full render. This file does not authorize building a full placeholder film.
 
 ## One early approval package
 
-The owning editor prepares and sends one compact package immediately, then continues the rest of the edit without waiting. Group items in timeline order and show enough context to judge each choice:
+The owning editor prepares one compact package and continues independent planning and isolated previews while awaiting the batch decision. Group items in timeline order and show enough context to judge each choice:
 
 - slot ID, exact in/out and spoken line or beat;
 - why the insert supports that beat;
@@ -64,11 +64,9 @@ path/hash. Each `final_clip` records its path/hash and the approved `inserted_fr
 The queue also requires the existing `PRE_RENDER_CHECK.json` motion evidence for every stock/existing-B-roll preview;
 a still or a preview outside 0.5–15 seconds parks stage one before it can wait for approval.
 
-## Placeholder draft
+## Plans and limited draft previews
 
-Build the rest of the video normally. Each unresolved slot has its exact planned duration and a conspicuous internal label such as `PLACEHOLDER — clip-01 — intended action`; AI slots may hold the proposed start frame. Keep the voice, timing and surrounding edit reviewable.
-
-Name the review copy `DRAFT - ...`. It may run diagnostics, but its overall status stays DRAFT while any item is pending or any placeholder remains. Never grant or copy a delivery PASS, present it as final, upload it, or ask the independent final reviewer to review it as a complete candidate.
+Keep unresolved slots in the edit plan and short contextual auditions. A visible placeholder label identifies any pending asset in an audition. Do not render a complete placeholder film. The sample and all proposed graphics/clips are the approval deliverables, not a full rough-cut export. A preview remains DRAFT and never receives a final-delivery PASS or independent complete-film review. A draft path may be absent before a preview exists; do not fabricate a path or hash merely to satisfy an old queue workflow.
 
 ## Resume after Dan's decision
 
@@ -76,7 +74,7 @@ Do not keep an AI session alive while waiting. Persist the packet, write the que
 The runner sets `draft_review`; a complete current approval batch sets `frames_approved`. Approval while stage one is
 still running updates only the packet and never changes or steals its claim.
 
-On approval, a fresh finishing session in the same work directory and logical revision verifies the stored hashes.
+After the broader creative packet is locked as well as the clip approvals, a fresh finishing session in the same work directory and logical revision verifies the stored hashes.
 Generate AI motion only from the approved frame pair and within the remaining per-video budget. Insert the exact
 approved stock/B-roll trim. Rebuild affected scenes and boundary joins only, remove all placeholder labels, and set
 the packet to `complete` only when every item has an approved final clip hash plus hash-bound delivery/watch evidence.

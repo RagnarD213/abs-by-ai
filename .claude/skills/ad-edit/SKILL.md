@@ -12,6 +12,11 @@ description: >
 
 Read `_shared/VIDEO-RULES.md` first.
 
+## Approval before the full render (Dan, 2026-09-26)
+
+Follow [PRE-RENDER-APPROVAL.md](../_shared/PRE-RENDER-APPROVAL.md): approve the first 30 seconds with color/audio, every graphic with surrounding speech, every selected clip in context, and AI start/end frames followed by finished clips before rendering the complete film. Preserve unchanged approvals and explicit sample waivers. Use [Soft Blue Light and the Motivation lower third](../_shared/GRAPHICS-STANDARDS.md). One useful point belongs in a compact lower third, not a large empty card. While approval is pending, prepare plans and isolated previews only; do not build a full placeholder film. This workflow supersedes older full-build and 60-90-second sample directions below.
+
+
 > **READ FIRST: [`_shared/EDITOR-CARD.md`](../_shared/EDITOR-CARD.md)** — what Codex's approved C1652 R4 long-form and DS-17 short did that Claude's cuts did not (2026-09-17). Hold them for the whole build; start from the last approved recipe, not a blank directory.
 
 # Ad-Edit: raw teleprompter footage → finished ad creative
@@ -26,7 +31,7 @@ the upload. Procedure (one script call + one `Artifact write_db`): `.claude/skil
 
 ## Default staffing and asset approval
 
-One editor owns planning through self-QA. Use one independent reviewer only after a complete, placeholder-free candidate exists; do not use a recurring planner/reviewer supervision loop. For every new AI-motion, stock or existing-B-roll choice, follow [`_shared/ASSET-APPROVAL.md`](../_shared/ASSET-APPROVAL.md): send one early batch of AI start/end frames and short moving source previews, then keep editing with exact-duration placeholders. Generate or insert only approved choices, rebuild only affected scenes/joins, and never deliver a placeholder draft.
+One editor owns planning through self-QA. Use one independent reviewer only after a complete, placeholder-free candidate exists; do not use a recurring planner/reviewer supervision loop. For clip records, follow [ASSET-APPROVAL.md](../_shared/ASSET-APPROVAL.md) within the complete pre-render approval workflow above. Keep pending slots in the plan or short auditions; do not render a full placeholder film.
 For an edit-queue run, schema-1 `placeholders.json` and the queue's `draft_review` → `frames_approved` states are the authority; do not invent a chat-only approval or keep the editor session alive while waiting.
 
 ## Square and vertical camera movement — updated 2026-09-16
