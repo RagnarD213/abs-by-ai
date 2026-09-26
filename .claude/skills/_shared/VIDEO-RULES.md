@@ -265,6 +265,10 @@ something that we can publish."* Every point below is a standing rule for every 
   is: transcribe every chip, then ask of each one "does this distill something, or does it just echo the audio?" —
   and write the replacement key point, not a typo fix, for every chip that only echoes.
 
+## Approved graphics and layout standards (Dan, 2026-09-25)
+
+Read [GRAPHICS-STANDARDS.md](GRAPHICS-STANDARDS.md) before designing or revising graphics. Soft Blue Light is locked for all website videos; the approved Motivation lower-third format is locked for lower thirds in all videos. That reference also defines three-portrait screens, sequential horizontal photos, credible iPhone framing, background-free website bullet lists and fixed presenter positioning with intact arms. These specific approvals supersede conflicting older graphic examples. Keep source-specific crop, color and audio settings scoped to their recordings.
+
 ## Exercise demonstration timing and visual cues (Dan, 2026-09-25)
 
 - Match each demonstration to the words being spoken. Show correct form while Dan gives the positive instruction, then show the mistake when he warns against it. If he returns to a positive instruction, return to correct form or the presenter. Set picture cuts from the heard words and check moving action on both sides of every cut. Swapping clips at their old boundaries is not enough if the result still contradicts the narration. DS-18 R7 demonstrates this for weight placement, toe direction, back position and glute squeeze versus hip thrust.

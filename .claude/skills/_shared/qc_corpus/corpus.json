@@ -1,7 +1,7 @@
 {
  "_README": "THE STANDARD IS DAN'S WORDS, NOT OUR PARAPHRASE. Every entry quotes him verbatim. See README.md.",
  "version": 2,
- "updated": "2026-09-24",
+ "updated": "2026-09-26",
  "roots": {
   "repo": ".",
   "ssd": "/Volumes/Extreme/_edit_work"
@@ -2050,6 +2050,447 @@
     "style:approved_organic_scene_asset"
    ],
    "notes": "Dan feedback and required replacements: Handoffs/handoff-20260925-wv01-round2-creative-direction.md. This is an early style/asset checkpoint, not final-film approval."
+  },
+  {
+   "id": "wv01-round3-opening-20260925",
+   "date": "2026-09-25",
+   "root": "ssd",
+   "path": "wv01-edit/round3/sample/DRAFT - WV-01 round 3 - REVIEW 540p.mp4",
+   "sha256": "de83b86a63614cf0bf92d83c192a21683da50826629d307ff18b304230c63ca7",
+   "bytes": 16980207,
+   "verdict": "approved-with-notes",
+   "dan": "Okay overall, that intro clip is looking real solid. I love the color correction, love the audio. The placeholders are all in the right spot.",
+   "scope": "Color C, audio B, overall intro and placeholder placement approved. Photo/layout/copy revisions still required.",
+   "next_action": "Preserve crops/color/audio and the completed pause fix. Apply only new requested changes.",
+   "must_trigger": [],
+   "must_pass": [],
+   "notes": "Creative component review only. Semantic predicates are pending, not automated passes. Full feedback: Handoffs/handoff-20260925-wv01-round4-locked-style-and-iphone.md"
+  },
+  {
+   "id": "wv01-round3-soft-blue-light-20260925",
+   "date": "2026-09-25",
+   "root": "ssd",
+   "path": "wv01-edit/round3/graphics/1-before.mp4",
+   "sha256": "d68ad482669171aff90d8fc9de4cd2a3181c056242c907bef0e89277100699b4",
+   "bytes": 1118558,
+   "verdict": "approved",
+   "dan": "I love the soft blue light look. That looks sophisticated and it's not distracting.",
+   "scope": "Soft Blue Light moving style approved for all website videos. Not blanket approval of all option1 layouts.",
+   "next_action": "Use style0 background in blueglass.py.",
+   "must_trigger": [],
+   "must_pass": [
+    "style:soft_blue_light_reference"
+   ],
+   "notes": "Creative component review only. Semantic predicates are pending, not automated passes. Full feedback: Handoffs/handoff-20260925-wv01-round4-locked-style-and-iphone.md"
+  },
+  {
+   "id": "wv01-round3-lower-third-20260925",
+   "date": "2026-09-25",
+   "root": "ssd",
+   "path": "wv01-edit/round3/graphics/G-motivation.mp4",
+   "sha256": "005bb538ff1b7c194652e81cbe47ffb5b53fe036d8521287a3708a90c8053a0f",
+   "bytes": 6382298,
+   "verdict": "approved-with-notes",
+   "dan": "Motivation lower third looks great. Let's lock this as our format for all lower thirds. I love this lower third",
+   "scope": "Format approved for all lower thirds, main gym copy changes to #1 AI got me back in the gym.",
+   "next_action": "Keep MOTIVATION pre-header and change One to #1.",
+   "must_trigger": [],
+   "must_pass": [],
+   "notes": "Creative component review only. Semantic predicates are pending, not automated passes. Full feedback: Handoffs/handoff-20260925-wv01-round4-locked-style-and-iphone.md"
+  },
+  {
+   "id": "wv01-round3-triptych-20260925",
+   "date": "2026-09-25",
+   "root": "ssd",
+   "path": "wv01-edit/round3/graphics/1-photos.mp4",
+   "sha256": "6555b081050adfc5565991daa6ddee81b7e2dbba915ecfb7723d05232907cc1d",
+   "bytes": 1128976,
+   "verdict": "approved-with-notes",
+   "dan": "Change that to three vertical images and let's always make it three vertical images when we use that format.",
+   "scope": "Format liked, mixed-aspect source selection rejected.",
+   "next_action": "Three vertical real portraits, maximally ripped, smiling or good expression.",
+   "must_trigger": [
+    "style:portrait_triptych_selection"
+   ],
+   "must_pass": [],
+   "notes": "Creative component review only. Semantic predicates are pending, not automated passes. Full feedback: Handoffs/handoff-20260925-wv01-round4-locked-style-and-iphone.md"
+  },
+  {
+   "id": "wv01-round3-j1-start-20260925",
+   "date": "2026-09-25",
+   "root": "ssd",
+   "path": "wv01-edit/round3/frames/J1-start.png",
+   "sha256": "2e10f7e63aaff49d8e3629cfc92032993e646d07b25853cbd6b1dde42bdf091a",
+   "bytes": 1946650,
+   "verdict": "approved-with-notes",
+   "dan": "The customer journey start and end frames are approved.",
+   "scope": "Endpoint approved. Intermediary images and visible calendar progression requested before motion.",
+   "next_action": "Preserve endpoint. Prepare intermediate storyboard frames for review.",
+   "must_trigger": [],
+   "must_pass": [],
+   "notes": "Creative component review only. Semantic predicates are pending, not automated passes. Full feedback: Handoffs/handoff-20260925-wv01-round4-locked-style-and-iphone.md"
+  },
+  {
+   "id": "wv01-round3-j1-end-20260925",
+   "date": "2026-09-25",
+   "root": "ssd",
+   "path": "wv01-edit/round3/frames/J1-end.png",
+   "sha256": "00d723c3739f02378512ee5f62fe6ce83cfd9a007388fbb6d0a4c5414b96de5e",
+   "bytes": 1888977,
+   "verdict": "approved-with-notes",
+   "dan": "The customer journey start and end frames are approved.",
+   "scope": "Endpoint approved. Intermediary images and visible calendar progression requested before motion.",
+   "next_action": "Preserve endpoint. Prepare intermediate storyboard frames for review.",
+   "must_trigger": [],
+   "must_pass": [],
+   "notes": "Creative component review only. Semantic predicates are pending, not automated passes. Full feedback: Handoffs/handoff-20260925-wv01-round4-locked-style-and-iphone.md"
+  },
+  {
+   "id": "wv01-round3-j2-start-20260925",
+   "date": "2026-09-25",
+   "root": "ssd",
+   "path": "wv01-edit/round3/frames/J2-start.png",
+   "sha256": "db45974a49d9be527695ebe8612f812007eec97f0a96379a80534549743c444d",
+   "bytes": 1884399,
+   "verdict": "approved-with-notes",
+   "dan": "The customer journey start and end frames are approved.",
+   "scope": "Endpoint approved. Intermediary images and visible calendar progression requested before motion.",
+   "next_action": "Preserve endpoint. Prepare intermediate storyboard frames for review.",
+   "must_trigger": [],
+   "must_pass": [],
+   "notes": "Creative component review only. Semantic predicates are pending, not automated passes. Full feedback: Handoffs/handoff-20260925-wv01-round4-locked-style-and-iphone.md"
+  },
+  {
+   "id": "wv01-round3-j2-end-20260925",
+   "date": "2026-09-25",
+   "root": "ssd",
+   "path": "wv01-edit/round3/frames/J2-end.png",
+   "sha256": "bae01193737c6da74a5280bb6c2aa3ef31550f4117e469fada8f0b487ae1d2f7",
+   "bytes": 1957978,
+   "verdict": "approved-with-notes",
+   "dan": "The customer journey start and end frames are approved.",
+   "scope": "Endpoint approved. Intermediary images and visible calendar progression requested before motion.",
+   "next_action": "Preserve endpoint. Prepare intermediate storyboard frames for review.",
+   "must_trigger": [],
+   "must_pass": [],
+   "notes": "Creative component review only. Semantic predicates are pending, not automated passes. Full feedback: Handoffs/handoff-20260925-wv01-round4-locked-style-and-iphone.md"
+  },
+  {
+   "id": "wv01-round3-c01-start-20260925",
+   "date": "2026-09-25",
+   "root": "ssd",
+   "path": "wv01-edit/round3/frames/C01-start.png",
+   "sha256": "f07d80eeddca9b4051aa532ffdebf1d963ad6f36010d0a9e3bd2c847864ae44d",
+   "bytes": 2000608,
+   "verdict": "approved",
+   "dan": "The 5 AI models clip is looking great. Let's go ahead and lock that. Generate that",
+   "scope": "Exact corrected frame pair approved; motion explicitly authorized.",
+   "next_action": "Generate motion from these approved endpoints.",
+   "must_trigger": [],
+   "must_pass": [
+    "style:approved_organic_scene_asset"
+   ],
+   "notes": "Creative component review only. Semantic predicates are pending, not automated passes. Full feedback: Handoffs/handoff-20260925-wv01-round4-locked-style-and-iphone.md"
+  },
+  {
+   "id": "wv01-round3-c01-end-20260925",
+   "date": "2026-09-25",
+   "root": "ssd",
+   "path": "wv01-edit/round3/frames/C01-end.png",
+   "sha256": "f3ffdd8260e59a642a1a1db5789b21db16911ae29d6d172b40df85effef71761",
+   "bytes": 1975236,
+   "verdict": "approved",
+   "dan": "The 5 AI models clip is looking great. Let's go ahead and lock that. Generate that",
+   "scope": "Exact corrected frame pair approved; motion explicitly authorized.",
+   "next_action": "Generate motion from these approved endpoints.",
+   "must_trigger": [],
+   "must_pass": [
+    "style:approved_organic_scene_asset"
+   ],
+   "notes": "Creative component review only. Semantic predicates are pending, not automated passes. Full feedback: Handoffs/handoff-20260925-wv01-round4-locked-style-and-iphone.md"
+  },
+  {
+   "id": "wv01-round3-scan-start-20260925",
+   "date": "2026-09-25",
+   "root": "ssd",
+   "path": "wv01-edit/round3/frames/SCAN-start.png",
+   "sha256": "18e07f661a899ad66eac873ffaa213078d634fae3cb40169fbca8490ddcdea53",
+   "bytes": 1739089,
+   "verdict": "approved",
+   "dan": "Alternative body scan concept, I like that.",
+   "scope": "Concept and start frame approved. End frame needs fourth callout.",
+   "next_action": "Generate motion after specifically authorized end-frame revision.",
+   "must_trigger": [],
+   "must_pass": [
+    "style:approved_organic_scene_asset"
+   ],
+   "notes": "Creative component review only. Semantic predicates are pending, not automated passes. Full feedback: Handoffs/handoff-20260925-wv01-round4-locked-style-and-iphone.md"
+  },
+  {
+   "id": "wv01-round3-scan-end-20260925",
+   "date": "2026-09-25",
+   "root": "ssd",
+   "path": "wv01-edit/round3/frames/SCAN-end.png",
+   "sha256": "30006bb43fedb76480afa5b6012a042614b0e0942ecc914526bb842b1d0bbcbe",
+   "bytes": 1858686,
+   "verdict": "approved-with-notes",
+   "dan": "Go ahead and add that into the end frame and then you can generate that",
+   "scope": "Add lower-right callout Train transverse abdominis to tighten waist. Existing three callouts stay.",
+   "next_action": "Edit endpoint, QA exact text and arrow, generate without asking again.",
+   "must_trigger": [],
+   "must_pass": [],
+   "notes": "Creative component review only. Semantic predicates are pending, not automated passes. Full feedback: Handoffs/handoff-20260925-wv01-round4-locked-style-and-iphone.md"
+  },
+  {
+   "id": "wv01-round3-h2-20260925",
+   "date": "2026-09-25",
+   "root": "ssd",
+   "path": "wv01-edit/round3/motion/H2.mp4",
+   "sha256": "28c9bedfe3308c473bc0531344fa1081225b5a02dbacdfc1d8482de4850a7ff4",
+   "bytes": 460856,
+   "verdict": "approved-with-notes",
+   "dan": "That life-size plan is looking good but I want to see that side by side with the body scan alternative.",
+   "scope": "Liked; final hook selection pending matched comparison.",
+   "next_action": "Show H2 versus revised SCAN in same opening context.",
+   "must_trigger": [],
+   "must_pass": [],
+   "notes": "Creative component review only. Semantic predicates are pending, not automated passes. Full feedback: Handoffs/handoff-20260925-wv01-round4-locked-style-and-iphone.md"
+  },
+  {
+   "id": "wv01-round3-early-workout-20260925",
+   "date": "2026-09-25",
+   "root": "ssd",
+   "path": "wv01-edit/round3/previews/P06-early-existing-option.mp4",
+   "sha256": "fcfc552ee9a90d7276e72c5c766a5db273b4213396d84077c3d63e633a8d592c",
+   "bytes": 1172385,
+   "verdict": "reference",
+   "dan": "Show me the context for this in the next round. Put this in the video, the 10 seconds around it, so I can see what this looks like",
+   "scope": "Context audition authorized. Not final source approval.",
+   "next_action": "Use exact excerpt with roughly ten seconds of surrounding narration/presenter.",
+   "must_trigger": [],
+   "must_pass": [],
+   "notes": "Creative component review only. Semantic predicates are pending, not automated passes. Full feedback: Handoffs/handoff-20260925-wv01-round4-locked-style-and-iphone.md"
+  },
+  {
+   "id": "wv01-round3-b01-20260925",
+   "date": "2026-09-25",
+   "root": "ssd",
+   "path": "wv01-edit/round3/motion/B01.mp4",
+   "sha256": "726b4e1610cff40173390d251e2ef705d331b9fb9807ec1ee19766ae8a37d47a",
+   "bytes": 469265,
+   "verdict": "rejected",
+   "dan": "What I want now is a cyborg AI trainer, a cyborg AI chef, and a cyborg AI sleep coach.",
+   "scope": "Replace original role interpretation with three distinct cyborg coaches emerging from phone.",
+   "next_action": "New START/END frames for review before motion.",
+   "must_trigger": [
+    "style:three_cyborg_coaches"
+   ],
+   "must_pass": [],
+   "notes": "Creative component review only. Semantic predicates are pending, not automated passes. Full feedback: Handoffs/handoff-20260925-wv01-round4-locked-style-and-iphone.md"
+  },
+  {
+   "id": "wv01-round3-g03-20260925",
+   "date": "2026-09-25",
+   "root": "ssd",
+   "path": "wv01-edit/round3/previews/G03-progress-and-trial.mp4",
+   "sha256": "b8b4f3bf9355a97d1df4f093293510187b1249c08e46aa6b9aec8f0578512d6b",
+   "bytes": 4654572,
+   "verdict": "rejected",
+   "dan": "I don't like how GO3 turned out. This doesn't really illustrate the idea that we're trying to get across.",
+   "scope": "Calendar corridor does not clearly illustrate script.",
+   "next_action": "Re-ground in actual narration and create new START/END concept.",
+   "must_trigger": [
+    "style:script_grounded_progression"
+   ],
+   "must_pass": [],
+   "notes": "Creative component review only. Semantic predicates are pending, not automated passes. Full feedback: Handoffs/handoff-20260925-wv01-round4-locked-style-and-iphone.md"
+  },
+  {
+   "id": "wv01-round3-p05-20260925",
+   "date": "2026-09-25",
+   "root": "ssd",
+   "path": "wv01-edit/round3/previews/P05-workout.mp4",
+   "sha256": "1d06d7df13b4306f72a075786aa8d6f741973b139372e27917edb6511005ad0e",
+   "bytes": 8254564,
+   "verdict": "approved-with-notes",
+   "dan": "Use that same clip inside the modified graphic // I want this to look like a real phone with rounded edges.",
+   "scope": "Inner content approved. Outer device rejected.",
+   "next_action": "Preserve exact content, replace with credible rounded iPhone and Dynamic Island.",
+   "must_trigger": [
+    "style:credible_iphone_composite"
+   ],
+   "must_pass": [],
+   "notes": "Creative component review only. Semantic predicates are pending, not automated passes. Full feedback: Handoffs/handoff-20260925-wv01-round4-locked-style-and-iphone.md"
+  },
+  {
+   "id": "wv01-round3-p06-20260925",
+   "date": "2026-09-25",
+   "root": "ssd",
+   "path": "wv01-edit/round3/previews/P06-log-meal.mp4",
+   "sha256": "88f43bdebc73c9a77d0f3a998d1d62be21613bbd7185b7a9c82db6cdb5eb9934",
+   "bytes": 9100394,
+   "verdict": "approved-with-notes",
+   "dan": "Food tracking, that clip looks perfect. // I want this to look like a real phone with rounded edges.",
+   "scope": "Inner content approved. Outer device rejected.",
+   "next_action": "Preserve exact content, replace with credible rounded iPhone and Dynamic Island.",
+   "must_trigger": [
+    "style:credible_iphone_composite"
+   ],
+   "must_pass": [],
+   "notes": "Creative component review only. Semantic predicates are pending, not automated passes. Full feedback: Handoffs/handoff-20260925-wv01-round4-locked-style-and-iphone.md"
+  },
+  {
+   "id": "wv01-round3-p07-20260925",
+   "date": "2026-09-25",
+   "root": "ssd",
+   "path": "wv01-edit/round3/previews/P07-recipes.mp4",
+   "sha256": "2b7bacdee905750c83fbf30d4106565f9b21bb977840367b25c4d39280aa892f",
+   "bytes": 9830489,
+   "verdict": "approved-with-notes",
+   "dan": "Recipes, that clip looks perfect. // I want this to look like a real phone with rounded edges.",
+   "scope": "Inner content approved. Outer device rejected.",
+   "next_action": "Preserve exact content, replace with credible rounded iPhone and Dynamic Island.",
+   "must_trigger": [
+    "style:credible_iphone_composite"
+   ],
+   "must_pass": [],
+   "notes": "Creative component review only. Semantic predicates are pending, not automated passes. Full feedback: Handoffs/handoff-20260925-wv01-round4-locked-style-and-iphone.md"
+  },
+  {
+   "id": "wv01-round3-p09-20260925",
+   "date": "2026-09-25",
+   "root": "ssd",
+   "path": "wv01-edit/round3/previews/P09-home.mp4",
+   "sha256": "e02766887a692af2d1efb512be4eac4ae97eabb535b6cc6492b65d56bf04da3b",
+   "bytes": 7398073,
+   "verdict": "approved-with-notes",
+   "dan": "Homepage clip is looking good. // I want this to look like a real phone with rounded edges.",
+   "scope": "Inner content approved. Outer device rejected.",
+   "next_action": "Preserve exact content, replace with credible rounded iPhone and Dynamic Island.",
+   "must_trigger": [
+    "style:credible_iphone_composite"
+   ],
+   "must_pass": [],
+   "notes": "Creative component review only. Semantic predicates are pending, not automated passes. Full feedback: Handoffs/handoff-20260925-wv01-round4-locked-style-and-iphone.md"
+  },
+  {
+   "id": "wv01-round3-p08-20260925",
+   "date": "2026-09-25",
+   "root": "ssd",
+   "path": "wv01-edit/round3/previews/P08-sleep.mp4",
+   "sha256": "d331ef9ab20d6d6e11914d9a6d45b822f4efbe4ab43dcbf81692bbb6a3e5b6f0",
+   "bytes": 9695390,
+   "verdict": "approved-with-notes",
+   "dan": "Show all of the horizontal bars that Oura shows within a colorful graph like you did.",
+   "scope": "Graph concept liked. Add complete Oura bar set, enlarge graph/first bubble, lead-in at bottom with actual tips offscreen; replace phone shell.",
+   "next_action": "Show Here are a few tips to improve your sleep for tonight without visible tips.",
+   "must_trigger": [
+    "style:sleep_viewport_and_iphone"
+   ],
+   "must_pass": [],
+   "notes": "Creative component review only. Semantic predicates are pending, not automated passes. Full feedback: Handoffs/handoff-20260925-wv01-round4-locked-style-and-iphone.md"
+  },
+  {
+   "id": "wv01-round3-oldwork-20260925",
+   "date": "2026-09-25",
+   "root": "ssd",
+   "path": "wv01-edit/round3/graphics/G-oldwork.mp4",
+   "sha256": "2aebd1ebd3739169537a3422b6468cd2314b7e02d81495117db0e441ac8ba288",
+   "bytes": 2336514,
+   "verdict": "approved",
+   "dan": "The manual food tracking graphic that's looking good",
+   "scope": "Manual-work graphic approved.",
+   "next_action": "Reuse unchanged.",
+   "must_trigger": [],
+   "must_pass": [
+    "style:approved_organic_scene_asset"
+   ],
+   "notes": "Creative component review only. Semantic predicates are pending, not automated passes. Full feedback: Handoffs/handoff-20260925-wv01-round4-locked-style-and-iphone.md"
+  },
+  {
+   "id": "wv01-round3-preferences-20260925",
+   "date": "2026-09-25",
+   "root": "ssd",
+   "path": "wv01-edit/round3/graphics/G-preferences.mp4",
+   "sha256": "338646d292c8255cd9227439464f5120fc637cdb2caaa47a49903b377936fdfc",
+   "bytes": 4625131,
+   "verdict": "approved",
+   "dan": "Food preferences look good",
+   "scope": "Food-preferences graphic approved.",
+   "next_action": "Reuse unchanged.",
+   "must_trigger": [],
+   "must_pass": [
+    "style:approved_organic_scene_asset"
+   ],
+   "notes": "Creative component review only. Semantic predicates are pending, not automated passes. Full feedback: Handoffs/handoff-20260925-wv01-round4-locked-style-and-iphone.md"
+  },
+  {
+   "id": "wv01-round3-hours-20260925",
+   "date": "2026-09-25",
+   "root": "ssd",
+   "path": "wv01-edit/round3/graphics/G01-hours.mp4",
+   "sha256": "69d6acefb42c6704ec94d61248beba1af0e2307b9902d196cbc314020f98ba8d",
+   "bytes": 1423823,
+   "verdict": "rejected",
+   "dan": "I want this to be like the one we did in the earlier round with 165 little horizontal bars. Only 3 of them are highlighted.",
+   "scope": "Restore little-bars illustration, moving Soft Blue Light background, remove bottom bar.",
+   "next_action": "Use literal requested165 glyphs/3 highlighted; keep3vs165 labels.",
+   "must_trigger": [
+    "style:hours_grid"
+   ],
+   "must_pass": [],
+   "notes": "Creative component review only. Semantic predicates are pending, not automated passes. Full feedback: Handoffs/handoff-20260925-wv01-round4-locked-style-and-iphone.md"
+  },
+  {
+   "id": "wv01-round3-benefits-20260925",
+   "date": "2026-09-25",
+   "root": "ssd",
+   "path": "wv01-edit/round3/graphics/G02-benefits.mp4",
+   "sha256": "7cb460d86d83aa1c585a3fd1cf99c548cffea5f1c73c57dbb37f3098c67799f6",
+   "bytes": 5756096,
+   "verdict": "rejected",
+   "dan": "For the five benefits I want you to eliminate the background behind this, make it a bullet point list, and then I want you to center me in the remaining space on the right.",
+   "scope": "Bigger bolder bullets, no panel, fixed presenter centered right with intact arm/body.",
+   "next_action": "Recompose with safe moving arm/head clearance.",
+   "must_trigger": [
+    "style:side_list_presenter_clearance"
+   ],
+   "must_pass": [],
+   "notes": "Creative component review only. Semantic predicates are pending, not automated passes. Full feedback: Handoffs/handoff-20260925-wv01-round4-locked-style-and-iphone.md"
+  },
+  {
+   "id": "wv01-round3-gap-20260925",
+   "date": "2026-09-25",
+   "root": "ssd",
+   "path": "wv01-edit/round3/graphics/G-lagging.mp4",
+   "sha256": "730b078f7de704707e7c55cfc8c66a8ddbf0cfe5c4572a151cb5cc52c8d4f394",
+   "bytes": 5754478,
+   "verdict": "rejected",
+   "dan": "Make the text a little bigger and bolder. // Eliminate the background. // Center me in the remaining space. // Make it a bullet point list.",
+   "scope": "Find the Gap gets same transparent bullet treatment and fixed centered presenter.",
+   "next_action": "Recompose safely.",
+   "must_trigger": [
+    "style:side_list_presenter_clearance"
+   ],
+   "must_pass": [],
+   "notes": "Creative component review only. Semantic predicates are pending, not automated passes. Full feedback: Handoffs/handoff-20260925-wv01-round4-locked-style-and-iphone.md"
+  },
+  {
+   "id": "wv01-round3-one-app-20260925",
+   "date": "2026-09-25",
+   "root": "ssd",
+   "path": "wv01-edit/round3/graphics/G-simple.mp4",
+   "sha256": "1d243ce0e96043a77a8ba5a3748f1b38d2efb8b76b8c650156d6dc01f523cdd4",
+   "bytes": 6444264,
+   "verdict": "rejected",
+   "dan": "For one app eliminate the title and eliminate the background. Just make it a phone graphic next to me.",
+   "scope": "Phone only, credible iPhone, Dan centered right without clipped arm.",
+   "next_action": "Remove title/panel and recompose phone/presenter.",
+   "must_trigger": [
+    "style:credible_iphone_composite"
+   ],
+   "must_pass": [],
+   "notes": "Creative component review only. Semantic predicates are pending, not automated passes. Full feedback: Handoffs/handoff-20260925-wv01-round4-locked-style-and-iphone.md"
   }
  ]
 }

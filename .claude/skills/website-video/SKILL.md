@@ -5,6 +5,8 @@ description: Build a WEBSITE conversion video for absbyai.com — the trust vide
 
 Read `_shared/VIDEO-RULES.md` first.
 
+Read [the approved graphics standards](../_shared/GRAPHICS-STANDARDS.md) before any graphic or phone composition. Dan locked Soft Blue Light for all website videos and the Motivation format for all lower thirds on 2026-09-25. Use its portrait-photo, realistic-iPhone and fixed presenter-spacing rules. These current approvals supersede conflicting older layout examples below; camera color and audio still require source-specific calibration.
+
 # Website video: the last thing a visitor watches before they pay
 
 ## Square and vertical camera movement — updated 2026-09-16

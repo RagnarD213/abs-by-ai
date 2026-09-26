@@ -93,7 +93,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **Queue covers platform layouts R3 - NEEDS DAN 2026-09-25, Codex.** 25 candidates now have separate Instagram and YouTube covers plus exact Instagram grid crops. Next: Dan reviews `Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925/index.html` and picks replacements or revisions. Rows 12-14 lack front-facing abs; row 16 portrait layouts are concepts; row 09 retains a baked-in URL. Queues unchanged.
 
-**WV-01 round 3 - NEEDS DAN 2026-09-25, Codex.** Opening and motion review: `http://127.0.0.1:8766/round3/index.html`. W2/T2, C color and B audio locked. Next: choose Blue Glass and new frame/source options. G03 still lacks clear tool actions. Private records: `/Volumes/Extreme/_edit_work/wv01-edit/round3/WORK_PACKET.json`. No full-film delivery or publishing.
+**WV-01 round 4 - HANDOFF READY 2026-09-26, Codex.** Execute `Handoffs/handoff-20260925-wv01-round4-locked-style-and-iphone.md` in the next task. Soft Blue Light and Motivation lower thirds locked; W2/T2, C color and B audio preserved. Next: revised opening/iPhones, authorized C01/SCAN motion, new journey/cyborg/G03 frames. Full films held; dispatcher paused.
 
 **RO-05 Fable recut - NEEDS DAN 2026-09-25, Claude.** 15:06 review copy delivered; 4 reviews, 0 picture defects; gate fails explained in notes. Next: Dan's verdict. `claude edited long form content/08 - How I Make My Daily Salad (Fable recut)/`
 
