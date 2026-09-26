@@ -1697,12 +1697,12 @@
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/WV-01-vsl-1-analysis-page-video-version-a-version-b-intr.md` with `$abs-edit-organic`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
    "state": "delivered",
-   "note": "Round4 creative checkpoint: http://127.0.0.1:8766/round4/index.html. Revised opening, C01/SCAN motion, credible phones, photos and graphics, new J/B01/G03 storyboard frames. Choose H2/SCAN and early workout; review new frames before motion. Full A/B held. Dispatcher paused. Not a final-film PASS.",
+   "note": "Round4 feedback recorded. Round5 handoff ready: Handoffs/handoff-20260926-wv01-round5-final-creative-lock.md. SCAN/C01, J1/J2/B01 frames, iPhones and most graphics locked. Final review: trim walking tail, replace photos, fix G03 phones and local blue text cards; approved storyboards to motion. Full A/B held. Dispatcher paused. No new task launched.",
    "sub": "",
    "order": 81,
    "updated": "2026-09-26",
    "by": "Codex",
-   "rev": 18,
+   "rev": 19,
    "syncedRev": 1
   },
   {
