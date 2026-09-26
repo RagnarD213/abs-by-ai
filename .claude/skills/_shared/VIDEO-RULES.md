@@ -265,9 +265,9 @@ something that we can publish."* Every point below is a standing rule for every 
   is: transcribe every chip, then ask of each one "does this distill something, or does it just echo the audio?" —
   and write the replacement key point, not a typo fix, for every chip that only echoes.
 
-## Approved graphics and layout standards (Dan, 2026-09-25)
+## Approved graphics and layout standards (Dan, updated 2026-09-26)
 
-Read [GRAPHICS-STANDARDS.md](GRAPHICS-STANDARDS.md) before designing or revising graphics. Soft Blue Light is locked for all website videos; the approved Motivation lower-third format is locked for lower thirds in all videos. That reference also defines three-portrait screens, sequential horizontal photos, credible iPhone framing, background-free website bullet lists and fixed presenter positioning with intact arms. These specific approvals supersede conflicting older graphic examples. Keep source-specific crop, color and audio settings scoped to their recordings.
+Read [GRAPHICS-STANDARDS.md](GRAPHICS-STANDARDS.md) before designing or revising graphics. Soft Blue Light is now the standard graphic family for all videos, including website VSLs, ads, organic videos, Shorts and newly revised square/vertical graphics; the approved Motivation lower-third format is locked for lower thirds in all videos. This 2026-09-26 expansion supersedes older Muhammad graphic palettes and website-only scope. Preserve already approved exports unless their graphics are explicitly being revised. Muhammad sound, camera color and transition references retain their separate scopes. That reference also defines three-portrait screens, sequential horizontal photos, credible iPhone framing, background-free website bullet lists and fixed presenter positioning with intact arms. These specific approvals supersede conflicting older graphic examples. Keep source-specific crop, color and audio settings scoped to their recordings.
 
 ## Exercise demonstration timing and visual cues (Dan, 2026-09-25)
 

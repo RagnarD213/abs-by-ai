@@ -1,14 +1,14 @@
-# Approved video graphics, 2026-09-25
+# Approved video graphics, updated 2026-09-26
 
-Dan locked these treatments while reviewing WV-01 round 3. Apply them prospectively in every editing workflow, within the scopes below. These specific approvals supersede older conflicting graphic examples. Do not reopen an approved film or treat approval of a style as approval of every source or layout in its demonstration.
+Dan locked these treatments while reviewing WV-01 round 3. On 2026-09-26 he expanded Soft Blue Light from website videos to all videos. Apply this family prospectively to website VSLs, paid ads, organic long-form, dedicated Shorts, extracted Shorts and square/vertical adaptations when creating or revising graphics. These specific approvals supersede older conflicting graphic examples. Do not reopen an approved film or treat approval of a style as approval of every source or layout in its demonstration.
 
-## Soft Blue Light: all website videos
+## Soft Blue Light: all videos
 
-Use **Soft Blue Light**, option 1 from WV-01 round 3, for this video and future website videos. The reference has a deep navy field, restrained drifting blue light, soft depth, pale readable type and purposeful entrances. Motion should be visible but quiet. This is a selected treatment, not permission to invent another Blue Glass variation.
+Use **Soft Blue Light**, option 1 from WV-01 round 3, for graphics across all videos going forward. The reference has a deep navy field, restrained drifting blue light, soft depth, pale readable type and purposeful entrances. Motion should be visible but quiet. This is a selected treatment, not permission to invent another Blue Glass variation.
 
 Reference root: `/Volumes/Extreme/_edit_work/wv01-edit/round3/`. Moving examples: `graphics/1-before.mp4`, `1-family.mp4` and `1-cta.mp4`. Renderer: `recipe/blueglass.py`, `background(t, style=0)`. The three-photo source choices and phone frame in this review were rejected separately; do not copy those defects. Use the shared field for full-screen graphics, but do not automatically put a blue panel behind every list or phone alongside Dan.
 
-This color/style approval covers website video graphics. It does not impose this background on every ad or organic video, change a website's design, or establish source-independent camera grading coefficients.
+This is the standard graphic family across all video formats. Use the moving navy field for full-screen graphic scenes and translucent blue glass for appropriate cards and overlays. It does not put a full-screen background behind ordinary presenter footage or every side list/phone. Keep background-free lists and standalone phones where the layout calls for them. Adapt composition, scale and line wrapping for 16:9, 9:16 and 1:1 while preserving the family. Keep meaningful teaching colors, including green correct-form arrows and red mistake arrows; the brand palette does not erase their meaning. Short-form footage still fills the portrait frame when a clean crop is possible. Existing approved exports stay approved; a format-only conversion preserves their graphics unless Dan requests a graphics revision. Camera grading, audio, captions, transition timing and website design remain governed by their own rules.
 
 ## Motivation lower third: all videos
 
@@ -37,6 +37,6 @@ Place Dan in a fixed composition centered in the space remaining to the right of
 
 ## Evidence and reuse
 
-Approval scopes and exact reference hashes: `/Volumes/Extreme/_edit_work/wv01-edit/round4-plan/decisions.json`. The related next-round brief is `Handoffs/handoff-20260925-wv01-round4-locked-style-and-iphone.md`. Private renderer/history snapshots live on local Git ref `codex/video-trial-plan-private`; do not publish private media or production recipes.
+Approval scopes and exact reference hashes: `/Volumes/Extreme/_edit_work/wv01-edit/round4-plan/decisions.json`. The prospective Claude rollout brief is `Handoffs/handoff-20260926-soft-blue-light-all-video-graphics-claude.md`. The related WV-01 next-round brief is `Handoffs/handoff-20260925-wv01-round4-locked-style-and-iphone.md`. Private renderer/history snapshots live on local Git ref `codex/video-trial-plan-private`; do not publish private media or production recipes.
 
 Preserve the approved visual references and adapt their content. New renderings still require actual moving-picture inspection and applicable audio/delivery checks. These are creative standards, not claims that an automated detector exists. WV-01 crop, grade and audio settings remain scoped to that recording.

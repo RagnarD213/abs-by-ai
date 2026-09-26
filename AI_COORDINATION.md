@@ -155,6 +155,8 @@ Memory `google-ads-ui-automation`.
 
 # HANDOFFS WRITTEN, NOT EXECUTED
 
+- `handoff-20260926-soft-blue-light-all-video-graphics-claude.md`: graphics rollout. Opus 5.5 / High.
+
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
 - `handoff-20260925-sl04-arms-shoulders-shorts-revisions.md` (09-25): SL-04 round 2 fixes. Opus 5.5 high.

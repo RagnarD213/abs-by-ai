@@ -1,6 +1,6 @@
 # Handoffs
 
-Every handoff document for Abs By AI, in one place. 165 documents (index updated 2026-09-26).
+Every handoff document for Abs By AI, in one place. 166 documents (index updated 2026-09-26).
 
 A handoff is a self-contained brief written so a fresh session can pick up work with no prior context.
 
@@ -13,6 +13,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
+| [handoff-20260926-soft-blue-light-all-video-graphics-claude.md](handoff-20260926-soft-blue-light-all-video-graphics-claude.md) | **Ready 2026-09-26. Claude Opus 5.5 / High.** Carry the approved Soft Blue Light family and Motivation lower thirds into every Claude video workflow and reusable component. Prospective rollout, no bulk re-edit or publishing. |
 | [handoff-20260926-queue-covers-r4-unfinished-only.md](handoff-20260926-queue-covers-r4-unfinished-only.md) | **Ready 2026-09-26. GPT-6 Astra / High.** Only rows 12-14 start/end rollout frames and arrows, plus Instagram 16. Other selections locked; show only unfinished rows. Keep queues unchanged. |
 | [handoff-20260925-sl04-arms-shoulders-shorts-revisions.md](handoff-20260925-sl04-arms-shoulders-shorts-revisions.md) | **Ready 2026-09-25. Claude Opus 5.5 / High.** SL-04 round 2: flush top graphic on all five shorts, short 1 colour + hair, short 2 new centred pill text, short 3 "side laterals" context opener, short 5 hair recrop. No covers (Codex). |
 | [handoff-20260925-wv01-round4-locked-style-and-iphone.md](handoff-20260925-wv01-round4-locked-style-and-iphone.md) | **Ready 2026-09-26. GPT-6 Astra / High.** Round-3 feedback recorded. Soft Blue Light and Motivation lower thirds locked. Next: credible iPhones, revised opening/photos/graphics, authorized C01/SCAN motion and new storyboard frames. Supersedes round 3. |
