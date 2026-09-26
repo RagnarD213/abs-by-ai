@@ -9,6 +9,12 @@ Read `_shared/VIDEO-RULES.md` first.
 
 Follow [PRE-RENDER-APPROVAL.md](../_shared/PRE-RENDER-APPROVAL.md): approve the first 30 seconds with color/audio, every graphic with surrounding speech, every selected clip in context, and AI start/end frames followed by finished clips before rendering the complete film. Preserve unchanged approvals and explicit sample waivers. Use [Soft Blue Light and the Motivation lower third](../_shared/GRAPHICS-STANDARDS.md). One useful point belongs in a compact lower third, not a large empty card. While approval is pending, prepare plans and isolated previews only; do not build a full placeholder film. This workflow supersedes older full-build and 60-90-second sample directions below.
 
+## Graphics: Soft Blue Light in every video (Dan, 2026-09-26)
+
+Every new or revised graphic uses the approved Soft Blue Light family, and every lower third uses the Motivation format with a topic that fits the narration. Spec: [GRAPHICS-STANDARDS.md](../_shared/GRAPHICS-STANDARDS.md). Build with [`_shared/softblue.py`](../_shared/softblue.py); calls, placement and aspect handling are in [SOFTBLUE.md](../_shared/SOFTBLUE.md). Older palettes and graphic systems described further down (J2/olive, `motionlib` GREEN/J2AD/MIL/PAPER, graphics rebuilt from Muhammad's) are historical: use them only to reproduce or format-convert an approved export whose graphics are not being revised. Cutting, camera colour, audio, captions and transitions keep the rules below.
+
+For format conversions: reproducing an approved editor's finished style (this skill's main job) keeps that film's approved graphics. When Dan requests new or revised graphics in the vertical or square, build them with `softblue` instead of the editor's palette.
+
 
 # /shortad-from-longform — a finished long-form cut, rebuilt vertical
 

@@ -9,6 +9,12 @@ Read `_shared/VIDEO-RULES.md` first.
 
 Follow [PRE-RENDER-APPROVAL.md](../_shared/PRE-RENDER-APPROVAL.md): approve the first 30 seconds with color/audio, every graphic with surrounding speech, every selected clip in context, and AI start/end frames followed by finished clips before rendering the complete film. Preserve unchanged approvals and explicit sample waivers. Use [Soft Blue Light and the Motivation lower third](../_shared/GRAPHICS-STANDARDS.md). One useful point belongs in a compact lower third, not a large empty card. While approval is pending, prepare plans and isolated previews only; do not build a full placeholder film. This workflow supersedes older full-build and 60-90-second sample directions below.
 
+## Graphics: Soft Blue Light in every video (Dan, 2026-09-26)
+
+Every new or revised graphic uses the approved Soft Blue Light family, and every lower third uses the Motivation format with a topic that fits the narration. Spec: [GRAPHICS-STANDARDS.md](../_shared/GRAPHICS-STANDARDS.md). Build with [`_shared/softblue.py`](../_shared/softblue.py); calls, placement and aspect handling are in [SOFTBLUE.md](../_shared/SOFTBLUE.md). Older palettes and graphic systems described further down (J2/olive, `motionlib` GREEN/J2AD/MIL/PAPER, graphics rebuilt from Muhammad's) are historical: use them only to reproduce or format-convert an approved export whose graphics are not being revised. Cutting, camera colour, audio, captions and transitions keep the rules below.
+
+For website videos: `softblue.lower_third` replaces `lower_third_bar(bottom=1000)` in Step 3; fact cards, the three-portrait screen and the CTA come from `softblue` scenes. WV-01's own crops, colour C and audio B stay scoped to WV-01.
+
 
 Read [the approved graphics standards](../_shared/GRAPHICS-STANDARDS.md) before any graphic or phone composition. Dan expanded Soft Blue Light to all videos on 2026-09-26; the Motivation format remains locked for all lower thirds. Use its portrait-photo, realistic-iPhone and fixed presenter-spacing rules. These current approvals supersede conflicting older layout examples below; camera color and audio still require source-specific calibration.
 
@@ -116,7 +122,7 @@ The standard Dan locked on rev 4 ("lock that in and crop all the videos like thi
   across every visible join, the hook opens on FAR, hardest splices covered first inside a 3.5 s floor. Nothing sits
   unchanged > 25 s. No SFX, no whooshes, cards fade 0.5 s. Median hold on rev 6: 3.75 s; longest 9.9 s.
 - **Graphics sparingly** (Dan: "much more sparingly"). What is allowed: lower thirds at the bottom of the frame
-  (`lower_third_bar(bottom=1000)`), full-frame photo cards that fill the frame (before → Dan → after, never together),
+  (now `softblue.lower_third`, formerly `lower_third_bar(bottom=1000)`), full-frame photo cards that fill the frame (before → Dan → after, never together),
   the trial / price / CTA cards, and **phone PiPs beside Dan** (433×820 in `PIP_BOX`, Dan at 65 %) for every app
   screen. Never a graphic on a near-black field with one small element; never a screen that looks lame (stick-figure
   exercise icons got the trainer screen called "awful" — today every exercise in shot has a real AI demo).

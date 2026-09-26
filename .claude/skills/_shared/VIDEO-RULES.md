@@ -49,7 +49,7 @@ something that we can publish."* Every point below is a standing rule for every 
   to look like Muhammad's video as much as possible."* Measured on 2026-09-23 (median luma / median saturation): Muhammad Ad 1
   0.22 / 0.23, Muhammad Ad 6 0.27 / 0.39, the approved Codex C1652 kitchen cut 0.23 / 0.32; the rejected RO-05 r10 0.38 / 0.27 (mids
   lifted, flat). Grade toward his numbers, then prove it with side-by-side stills against his frames BEFORE any full render.
-- **Graphics are Muhammad's actual graphics.** *"The graphics also look very basic and very bad... We need to make the graphics the
+- (Graphic style superseded 2026-09-26 by Soft Blue Light, see GRAPHICS-STANDARDS.md; the effort and style-board points still apply.) **Graphics are Muhammad's actual graphics.** *"The graphics also look very basic and very bad... We need to make the graphics the
   same as Muhammad's, not inventing graphics."* Rebuild his components from his frames (pills with the typewriter line-2 reveal, olive
   tab + white pill, gradient pills, numbered chips, frosted stack panels built one item at a time, grid/bracket title cards with the
   motion-blur wipe, glow cards). Generic white bars, "KEY POINT" tabs and home-made stat cards were rejected. Show a graphics style

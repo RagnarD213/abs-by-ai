@@ -39,6 +39,8 @@ Place Dan in a fixed composition centered in the space remaining to the right of
 
 Approval scopes and exact reference hashes: `/Volumes/Extreme/_edit_work/wv01-edit/round4-plan/decisions.json`. The prospective Claude rollout brief is `Handoffs/handoff-20260926-soft-blue-light-all-video-graphics-claude.md`. The latest WV-01 decisions are in `/Volumes/Extreme/_edit_work/wv01-edit/round5-plan/decisions.json`; next-round brief: `Handoffs/handoff-20260926-wv01-round5-final-creative-lock.md`. Private renderer/history snapshots live on local Git ref `codex/video-trial-plan-private`; do not publish private media or production recipes.
 
+Reusable implementation for future builds (all aspects, configurable copy and placement): [`softblue.py`](softblue.py), usage and verification in [SOFTBLUE.md](SOFTBLUE.md).
+
 Preserve the approved visual references and adapt their content. New renderings still require actual moving-picture inspection and applicable audio/delivery checks. These are creative standards, not claims that an automated detector exists. WV-01 crop, grade and audio settings remain scoped to that recording.
 
 ## Content density and approval (Dan, RO-01 review, 2026-09-26)

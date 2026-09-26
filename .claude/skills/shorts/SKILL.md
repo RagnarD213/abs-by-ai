@@ -16,6 +16,12 @@ Read `_shared/VIDEO-RULES.md` first.
 
 Follow [PRE-RENDER-APPROVAL.md](../_shared/PRE-RENDER-APPROVAL.md): approve the first 30 seconds with color/audio, every graphic with surrounding speech, every selected clip in context, and AI start/end frames followed by finished clips before rendering the complete film. Preserve unchanged approvals and explicit sample waivers. Use [Soft Blue Light and the Motivation lower third](../_shared/GRAPHICS-STANDARDS.md). One useful point belongs in a compact lower third, not a large empty card. While approval is pending, prepare plans and isolated previews only; do not build a full placeholder film. This workflow supersedes older full-build and 60-90-second sample directions below.
 
+## Graphics: Soft Blue Light in every video (Dan, 2026-09-26)
+
+Every new or revised graphic uses the approved Soft Blue Light family, and every lower third uses the Motivation format with a topic that fits the narration. Spec: [GRAPHICS-STANDARDS.md](../_shared/GRAPHICS-STANDARDS.md). Build with [`_shared/softblue.py`](../_shared/softblue.py); calls, placement and aspect handling are in [SOFTBLUE.md](../_shared/SOFTBLUE.md). Older palettes and graphic systems described further down (J2/olive, `motionlib` GREEN/J2AD/MIL/PAPER, graphics rebuilt from Muhammad's) are historical: use them only to reproduce or format-convert an approved export whose graphics are not being revised. Cutting, camera colour, audio, captions and transitions keep the rules below.
+
+For Shorts: full-frame portrait footage stays full frame; graphics reflow for 9:16 (`softblue` handles the portrait layouts). A card that must show a burned 16:9 graphic sits on `softblue.field`, not the J2 field. Extracting shorts from an approved long-form keeps that film's approved graphics unless Dan asks for a restyle.
+
 
 ## Exercise teaching pass from DS-18 (Dan, 2026-09-25)
 
@@ -440,7 +446,7 @@ window drawn on**, and classify every one:
 |---|---|---|
 | **talk** | subject on a locked camera | full-bleed 9:16 crop at one offset that covers every talking-head shot in the video |
 | **broll** | stock footage, **no text** | full-bleed crop at a per-shot offset |
-| **card** | anything with text, numbers, UI or a designed graphic | the **whole 16:9 frame** scaled into the vertical frame on the J2 background, with an olive mission chip beneath |
+| **card** | anything with text, numbers, UI or a designed graphic | the **whole 16:9 frame** scaled into the vertical frame on the Soft Blue field (`softblue.field`; J2 background with an olive chip only on approved legacy re-cuts) |
 | **pip** | subject + a corner graphic that falls outside the crop | crop to the subject, re-composite the graphic inside the vertical frame |
 
 **Never crop through a graphic.** Cropping plain footage looks like a vertical video;
@@ -985,6 +991,8 @@ before it goes PUBLIC.** Treat "cover built" and "cover live" as two separate ch
 
 ## Locked design system (do not redesign)
 
+> **Superseded for new graphics on 2026-09-26 by Soft Blue Light** (see the Graphics section at the top of this skill); kept for approved legacy films.
+
 From `shorts-production-style` memory, settled 2026-08-06 after ~4 rounds of mockups.
 
 - One **1080×1920, 24fps** master per clip, **uploaded natively** to each platform — never
@@ -1239,7 +1247,7 @@ session with the file path, size and *ready to review*. Helper that does all of 
 - **The caption band sits on the stomach on a torso-framed how-to.** The gate's 9:16 caption band is 70–84 % of the
   frame; a hair-to-thigh crop of a standing vacuum puts the drawn-in stomach under it. Frame the how-to b-roll
   hair-to-below-the-knee so the stomach lands above the band, and prove the clearance with the person mask.
-- **A card never sits on a blurred copy of its own footage** (Dan rejected blur-pad fill); the J2 field only, and the
+- **A card never sits on a blurred copy of its own footage** (Dan rejected blur-pad fill); the Soft Blue field only (J2 on approved legacy re-cuts), and the
   card window must contain the whole body and both mat ends with ≥ 4 % margin.
 - **The outdoor 8/28 lav fails the audio gate's `artifacts` row untreated** (flux 0.102 vs 0.079; the chain lowers it
   to 0.088). RA-01 and DS-04 both hit it. It is Dan's call, never a threshold change and never harder processing.

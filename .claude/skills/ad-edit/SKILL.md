@@ -16,6 +16,12 @@ Read `_shared/VIDEO-RULES.md` first.
 
 Follow [PRE-RENDER-APPROVAL.md](../_shared/PRE-RENDER-APPROVAL.md): approve the first 30 seconds with color/audio, every graphic with surrounding speech, every selected clip in context, and AI start/end frames followed by finished clips before rendering the complete film. Preserve unchanged approvals and explicit sample waivers. Use [Soft Blue Light and the Motivation lower third](../_shared/GRAPHICS-STANDARDS.md). One useful point belongs in a compact lower third, not a large empty card. While approval is pending, prepare plans and isolated previews only; do not build a full placeholder film. This workflow supersedes older full-build and 60-90-second sample directions below.
 
+## Graphics: Soft Blue Light in every video (Dan, 2026-09-26)
+
+Every new or revised graphic uses the approved Soft Blue Light family, and every lower third uses the Motivation format with a topic that fits the narration. Spec: [GRAPHICS-STANDARDS.md](../_shared/GRAPHICS-STANDARDS.md). Build with [`_shared/softblue.py`](../_shared/softblue.py); calls, placement and aspect handling are in [SOFTBLUE.md](../_shared/SOFTBLUE.md). Older palettes and graphic systems described further down (J2/olive, `motionlib` GREEN/J2AD/MIL/PAPER, graphics rebuilt from Muhammad's) are historical: use them only to reproduce or format-convert an approved export whose graphics are not being revised. Cutting, camera colour, audio, captions and transitions keep the rules below.
+
+For ads: the persistent CTA device, end card and product-demo labels are built from `softblue` components (`lower_third`, `scene_cta`, `glass`). Step 5's J2 lock and lessons 25/83 describe approved historical ads.
+
 
 > **READ FIRST: [`_shared/EDITOR-CARD.md`](../_shared/EDITOR-CARD.md)** — what Codex's approved C1652 R4 long-form and DS-17 short did that Claude's cuts did not (2026-09-17). Hold them for the whole build; start from the last approved recipe, not a blank directory.
 
@@ -292,6 +298,8 @@ that thickens or thins between clips gives the edit away faster than any visual
 mismatch does.
 
 ## Step 5 — graphics
+
+> **Superseded for new graphics on 2026-09-26 by Soft Blue Light** (see the Graphics section at the top of this skill); kept for approved legacy films.
 
 **LOCKED (ad #1 verdict, 2026-08-20): the J2 tactical system for graphics —
 panels, tags, green/olive outlines, and the J2 CTA bar — with MadMuscles-style
@@ -695,7 +703,7 @@ Modern-edit sample rev-2 (2026-08-22) — Dan: "the audio is still much worse th
 
 Modern-edit sample rev-1 (2026-08-22) — Dan compared our screens against the trial
 edit's directly and picked HIS. These are the rules that difference came down to:
-25. **A full-screen graphic is a solid brand FIELD, not a white page with a card on it.**
+25. **A full-screen graphic is a solid brand FIELD, not a white page with a card on it.** (Field for new graphics since 2026-09-26: `softblue.field`.)
    Photographs sit straight on the field; the field IS the card. Type is bigger and
    heavier than feels right, leading is TIGHT (~0.95 body, 0.88 display), blocks are
    TOP-aligned not vertically centred, headings carry a solid accent rule at their own
@@ -986,7 +994,7 @@ of it, all three of which now fail a build rather than living in prose:
    bunch of text, generic… horrible." Rule: no graphic with more than ~40 % empty field; an app
    screen goes NEXT TO DAN over the footage (a phone-shaped inset in a slightly wider crop), not on a
    plate; when a full-frame card is used it fills the frame the way Muhammad's title cards do. His
-   panel field is the mid-olive gradient (`orglib.py` / `motionlib.MIL`), not near-black.
+   panel field is the mid-olive gradient (`orglib.py` / `motionlib.MIL`), not near-black. (New graphics since 2026-09-26: `softblue.field`.)
 84. **IF A FEATURE LOOKS LAME ON SCREEN, DON'T SHOW IT.** The trainer workout screen with stick-figure
    exercise icons was called "awful". The choice is not "which screen" but "screen or Dan"; Dan wins
    unless the screen is genuinely good. Before/after and body-fat stats live on the viewer's own
@@ -1313,7 +1321,7 @@ filmed ads the same way:
 | No 1.2x pass, no hook variants (for now) | LOCKED |
 | Music bed ON for filmed ads, CC0/Pixabay (no attribution), chosen by measurement | LOCKED 2026-08-23 (Dan) |
 | Persistent CTA bar DROPPED for ad 1 rev-5; burned captions KEPT | Dan, 2026-08-23 |
-| Paid-ad graphics palette = `motionlib.J2AD`: black field, olive/dark-green headers, white body | LOCKED 2026-08-23 (Dan's revision doc) |
+| Paid-ad graphics palette = `motionlib.J2AD`: black field, olive/dark-green headers, white body | Historical: superseded 2026-09-26 by Soft Blue Light (`_shared/softblue.py`) |
 | Minimal graphics first; Dan directs placements; learn | LOCKED |
 | Negative-imagery scan; remove certain violations, flag unsure ones | LOCKED |
 | NO before/after anywhere, incl. in-app UI; before → other → tagged after | LOCKED (2026-08-20, Dan's #1) |

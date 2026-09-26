@@ -3,7 +3,7 @@ name: longform-edit
 description: >
   Turn a folder of raw longform shoot footage into a finished YouTube-ready MP4 —
   rough cut (retakes/flubs/dead air removed), screen-recording split screen, color
-  correction, J2 graphics, and a subtitle file. Use whenever Dan asks to edit a
+  correction, Soft Blue Light graphics, and a subtitle file. Use whenever Dan asks to edit a
   longform video, cut down raw shoot footage, add the screen capture to a video,
   color correct a video, add graphics to a longform, or REVISE a longform that was
   already cut — even if he doesn't say "/longform-edit". For vertical Shorts use
@@ -16,6 +16,12 @@ Read `_shared/VIDEO-RULES.md` first.
 ## Approval before the full render (Dan, 2026-09-26)
 
 Follow [PRE-RENDER-APPROVAL.md](../_shared/PRE-RENDER-APPROVAL.md): approve the first 30 seconds with color/audio, every graphic with surrounding speech, every selected clip in context, and AI start/end frames followed by finished clips before rendering the complete film. Preserve unchanged approvals and explicit sample waivers. Use [Soft Blue Light and the Motivation lower third](../_shared/GRAPHICS-STANDARDS.md). One useful point belongs in a compact lower third, not a large empty card. While approval is pending, prepare plans and isolated previews only; do not build a full placeholder film. This workflow supersedes older full-build and 60-90-second sample directions below.
+
+## Graphics: Soft Blue Light in every video (Dan, 2026-09-26)
+
+Every new or revised graphic uses the approved Soft Blue Light family, and every lower third uses the Motivation format with a topic that fits the narration. Spec: [GRAPHICS-STANDARDS.md](../_shared/GRAPHICS-STANDARDS.md). Build with [`_shared/softblue.py`](../_shared/softblue.py); calls, placement and aspect handling are in [SOFTBLUE.md](../_shared/SOFTBLUE.md). Older palettes and graphic systems described further down (J2/olive, `motionlib` GREEN/J2AD/MIL/PAPER, graphics rebuilt from Muhammad's) are historical: use them only to reproduce or format-convert an approved export whose graphics are not being revised. Cutting, camera colour, audio, captions and transitions keep the rules below.
+
+For long-form: full-screen cards, lists and photo displays come from `softblue` scenes; lower thirds go on the graded, caption-free base with `lower_third_patch`. Step 7's J2 components and the Muhammad pill/title-card rebuild remain for approved legacy revisions only.
 
 
 > **READ FIRST: [`_shared/EDITOR-CARD.md`](../_shared/EDITOR-CARD.md)** — what Codex's approved C1652 R4 long-form and DS-17 short did that Claude's cuts did not (2026-09-17). Hold them for the whole build; start from the last approved recipe, not a blank directory.
@@ -116,6 +122,9 @@ cut breaches Dan's own 30-second rule once, at 5:37. The gate is not "be like hi
 the floor below which a cut is not finished.
 
 > ## ⚠ THE ORGANIC HOUSE STYLE IS NOW MUHAMMAD'S, NOT J2 — 2026-08-27
+>
+> **Superseded for new graphics on 2026-09-26 by Soft Blue Light** (see the Graphics section at the top of this skill); kept for approved legacy films. Muhammad stays the reference for colour, audio and transitions.
+>
 >
 > Dan compared Muhammad Arsalan's organic ab-wheel round-2 (Drive
 > `1lu_Im9st8XtDNXPnFOhpKyc7IA2Whf_J`) against this skill's 13/13-gate rebuild and
@@ -1017,6 +1026,8 @@ post-concat.
 ---
 
 ## Step 7 — graphics: the J2 system, reused not reinvented
+
+> **Superseded for new graphics on 2026-09-26 by Soft Blue Light** (see the Graphics section at the top of this skill); kept for approved legacy films. New graphics: `_shared/softblue.py` ([SOFTBLUE.md](../_shared/SOFTBLUE.md)). The overlay-pass mechanics and traps below still apply.
 
 Constants are lifted **verbatim** from `.claude/skills/shorts/reference/band/assets.py`
 into `reference/build_gfx.py`: `BG=(13,14,11)`, `OLIVE=(140,152,88)`, Impact headlines,
