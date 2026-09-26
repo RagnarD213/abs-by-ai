@@ -32,3 +32,7 @@ The package includes `manifest.json`, `quality-checks.json`, `preservation-befor
 Rows 12-14 still show side/back views that cannot reveal front-facing abs. Keep their current originals for physique. Row 16 is a portrait concept beside the unchanged wide thumbnail. Row 07's small anatomy labels need full-size viewing. Row 09 inherits a recovered flattened source's limited sharpness. Row 10's tall crop cannot retain complete legs while keeping the torso large. Rows 11 and 15 end at the upper thighs because the source does.
 
 Next: Dan reviews the gallery and selects candidates or requests revisions. This is a completed review package, not a blanket claim that every candidate beats its original. No publishing approval is implied.
+
+## Dan's selections recorded 2026-09-26
+
+The next-round brief is `Handoffs/handoff-20260926-queue-covers-r4-unfinished-only.md`. Exact approved files and hashes are frozen in `Docs/QUEUE_COVERS_APPROVALS_20260926.json`. Only rows 12-14 and Instagram row 16 need further review. The original horizontal row 16 stays. Spiderman Planks is 10-A, following Dan's explicit correction. No images or queues were changed while recording these decisions.

@@ -91,7 +91,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # ACTIVE
 
-**Queue covers platform layouts R3 - NEEDS DAN 2026-09-25, Codex.** 25 candidates now have separate Instagram and YouTube covers plus exact Instagram grid crops. Next: Dan reviews `Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925/index.html` and picks replacements or revisions. Rows 12-14 lack front-facing abs; row 16 portrait layouts are concepts; row 09 retains a baked-in URL. Queues unchanged.
+**Queue covers R4 - HANDOFF READY 2026-09-26, Codex.** Final choices recorded. Next: execute `Handoffs/handoff-20260926-queue-covers-r4-unfinished-only.md`; show only revised rows 12-14 and Instagram 16. Keep row 16 original YouTube thumbnail and every other locked choice. Queues unchanged.
 
 **WV-01 round 4 - HANDOFF READY 2026-09-26, Codex.** Execute `Handoffs/handoff-20260925-wv01-round4-locked-style-and-iphone.md` in the next task. Soft Blue Light and Motivation lower thirds locked; W2/T2, C color and B audio preserved. Next: revised opening/iPhones, authorized C01/SCAN motion, new journey/cyborg/G03 frames. Full films held; dispatcher paused.
 
