@@ -93,7 +93,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **Queue covers round 4 - NEEDS DAN 2026-09-26, Codex.** Only rows 12-14 and Instagram 16 are revised in `Short-form video content/covers/review/queue-bakeoff-20260924/round4-unfinished-20260926/index.html`. Seven covers and four literal grid crops checked; 28 locked hashes unchanged. Next: Dan reviews these four unfinished items. All queues and installed covers unchanged. Detail: `Docs/QUEUE_COVERS_R4_REVIEW_20260926.md`.
 
-**WV-01 round 4 - HANDOFF READY 2026-09-26, Codex.** Execute `Handoffs/handoff-20260925-wv01-round4-locked-style-and-iphone.md` in the next task. Soft Blue Light and Motivation lower thirds locked; W2/T2, C color and B audio preserved. Next: revised opening/iPhones, authorized C01/SCAN motion, new journey/cyborg/G03 frames. Full films held; dispatcher paused.
+**WV-01 round 4 - NEEDS DAN 2026-09-26, Codex.** Review `http://127.0.0.1:8766/round4/index.html`. Next: choose H2/SCAN and early workout; review J1/J2 intermediates and B01/G03 frame pairs plus revised phones/photos/graphics. Full films held; dispatcher paused. Records: `/Volumes/Extreme/_edit_work/wv01-edit/round4/`.
 
 **RO-05 Fable recut - NEEDS DAN 2026-09-25, Claude.** 15:06 review copy delivered; 4 reviews, 0 picture defects; gate fails explained in notes. Next: Dan's verdict. `claude edited long form content/08 - How I Make My Daily Salad (Fable recut)/`
 
