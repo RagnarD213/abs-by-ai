@@ -1,20 +1,23 @@
 # YouTube engagement champion — every new video gets a $5 test ad in each Demand Gen campaign, one champion per campaign
 
-## RETIRED 2026-09-27: Dan manages the three engagement campaigns by hand
+## CURRENT BEHAVIOR (Dan 2026-09-27): instant creation, never pause
 
-Dan's call (2026-09-27): no automation creates, pauses or enables ads in tier2 / tier1 / rmktg any more.
-Switched off two ways: `YTADS_ENABLED=0` on Railway `abs-by-ai` (server only dry-runs), and the Ads Script
-named "YouTube engagement champion" set to **Disabled** in Tools → Bulk actions → Scripts (not deleted).
-Why it was misbehaving before retirement: the live script copy was last edited 2026-09-08, so it ignored
-library mode's `PAUSED` status and the long-form in-feed-only preference (new ads went live, running).
-Do not re-enable either switch unless Dan asks. `manual.js` / `client.js` still work for one-off edits.
-New long-form ads Dan makes should still get in-feed only (recipe below).
+Dan does all pausing and enabling by hand. Automation only ADDS: every new public video gets an
+**ENABLED** ad in tier2, tier1 and rmktg within about a minute of going live.
 
-**Built 2026-09-03** from `Handoffs/handoff-20260902-google-ads-engagement-champion-automation.md`.
-The design decisions in that handoff are Dan's and are final; this doc is how the built thing works
-and how to operate it. The Meta twin is `Docs/AUTO_BOOST.md`.
+- `scripts/ads/ytads/instant.js`, started from `routes.js` when `YTADS_INSTANT=1` (Railway `abs-by-ai`).
+  Every 60 s it reads the RSS feed; for videos from the last 72 h with no ad (any status, removed
+  included) in a campaign it writes headlines (same writer and lint), then creates the ad through the
+  Google Ads API (`scripts/ads/api/client.js`), copying business name, URL, logo and CTA from the
+  campaign's newest ad. Long-form gets in-feed only at creation. Each creation is a `created` event
+  with `via: "instant"`. A Postgres advisory lock stops double creation during deploy overlap.
+- It never pauses, enables or removes anything. Failures retry every 5 min, 12 times, as `error` events.
+- The hourly Ads Script "YouTube engagement champion" is **Disabled** in Google Ads (not deleted) and
+  `YTADS_ENABLED=0`, so the old engine below (library/champion modes, policy pauses, retry chain) no
+  longer acts. Do not re-enable either unless Dan asks. It was retired because its live copy dated from
+  2026-09-08 and ignored the paused-status and in-feed rules.
 
-## LIBRARY MODE — the current standing behavior (Dan 2026-09-13)
+## LIBRARY MODE (Dan 2026-09-13; superseded 2026-09-27, see above)
 
 Dan is trying a new approach: **advertise the newest long-form video only.** He manually paused every
 ad in the three engagement campaigns except one (`AT · The $17 Ab Wheel Beats Every Crunch · yt:bkzT-3ENpoU

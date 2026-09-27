@@ -367,4 +367,12 @@ module.exports = function mountYtads(app, { pool }) {
       res.status(500).json({ ok: false, reason: e.message });
     }
   });
+
+  // Dan 2026-09-27: new videos get ENABLED ads within a minute of going live; nothing is
+  // ever paused by automation. The hourly Ads Script above is disabled in Google Ads.
+  if (process.env.YTADS_INSTANT === '1' && pool) {
+    ensureSchema()
+      .then(() => require('./instant.js').start({ pool, db, writeHeadlinesFor, config }))
+      .catch(e => console.error('YTADS instant: not started:', e.message));
+  }
 };
