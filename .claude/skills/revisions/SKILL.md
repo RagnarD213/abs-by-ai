@@ -321,6 +321,47 @@ about label construction, compliance and demo identity. What the deletions say:
     instead of the black pill chip — three ads in one batch), a before picture running into an after picture, a demo
     that shows the wrong person for the line under it, and text panels that do not match the script.
 
+### Calibration pass 7: Dan's edits to Muhammad's first dedicated shorts (DS-01/02/03, 2026-09-27)
+
+Doc `1cz-DY55xJ70wtAsZmVbsnDFQKEXC8R9xiGH3pVcyxCc`, md copy `revision docs/short-form-content-and-ads-revisions-muhammad-9-26-26.md`.
+He kept audio, caption words, the empty-screen items, bigger b-roll and the clean spiderman clip. He deleted all three
+title-bar items and our face-picture block, and added an AI opener to two videos and a graphics-lock step. His
+instruction with it: *"frequently, but not always, I want these to start off with an AI-generated clip… lock the
+graphic style first before editing any videos."*
+
+44. **Look for an AI-generated opening clip on every video, and write one in when it fits.** He added a 0:00 opener to
+    Getting Abs (a linked clip: "Use 0:02 - 0:05 from this clip") and to Supplements. Not every video: a strong cold
+    open on camera can stay. When it fits, the item is **three concepts for the editor to render as start and end
+    frames, not a finished clip**: two specific concepts that literally show the video's subject, plus "1 additional
+    concept of your choice, significantly different from the other two". His Supplements wording is the template:
+    *"Show me start and end frames for these intro variation AI clips. I will choose the one to generate from your
+    start and end frames. Be sure all start and end frames are generated in vertical 9:16 orientation"* (or 16:9 for a
+    horizontal video). If an existing AI clip in the library already fits, link it with the source range instead.
+45. **Every AI clip, for human editors as well as our pipeline, is approved as start and end frames before the motion
+    is generated** (Dan, 2026-09-27). Any item that directs a NEW AI clip says "show me the start and end frames first,
+    I pick before you generate", with the orientation. VIDEO-RULES "Video clip generation budget and frame approval"
+    now binds editors too.
+46. **When the format has no locked graphic style, lock it BEFORE fixing graphics.** On one video (the first in the
+    batch), direct variations of the recurring graphic (for shorts, the top text graphic) to build a template for the
+    whole format. His item: *"Show me 4 different variations for top text graphics for this video, to develop a template
+    to use in all short form content: Existing graphic / Blue liquid glass graphics imitating this style / 2 other
+    significantly different graphic styles of your choice. Should look masculine, bold, modern, and trustworthy."* Every
+    other graphic item in the batch then ends with "Wait until the graphic style is locked before making this" (he wrote
+    it under every graphic item in the other two videos). **Do not itemise cosmetic fixes to a graphic in an unlocked
+    style** (our three "the first line of the title bar can't be read" items were all deleted, since the bar is being
+    replaced). How to tell whether a style is locked: `_shared/GRAPHICS-STANDARDS.md` lists the locked families; an
+    editor's own style on a format Dan has never approved is not locked. When it IS locked, link the locked references
+    in the doc (moving examples, not a description) and write items against them.
+47. **Shorts: key points go in the top graphic, above the head, over camera scene, not as full-screen graphic cards.**
+    He replaced the Supplements full-screen section cards (0:10, 0:15, 0:30) with "camera scene, with top graphic above
+    my head" and changed "key point here" to "key point top graphic here".
+48. **Organic shorts follow the script's picture cue, and Dan picks the pictures.** Getting Abs' script cued the before
+    and after face photos "full frame, sequential". He deleted our block (face crop, camera scene between, one after
+    picture, the real-picture label and both STANDING RULE lines) and wrote "Show these two images, one after another"
+    with his own two images pasted in, plus a face close-up he chose for 0:19. So on an organic short: no Google Ads
+    adjacency item where the script itself asks for sequential pictures, and a picture beat gets empty image slots for
+    him (rule 26), not our picks or crops. The Google Ads rules still apply to anything that is, or will run as, an ad.
+
 **Dan's vocabulary — use his words:** "camera scene" (the talking head), "motion effect" (the
 Ken Burns move on stills), "accelerate footage to fit duration", "clip", "bro", "douchey". A simple
 item is one line in that register; keep the longer form only where the editor needs exact text,
@@ -587,6 +628,11 @@ vertical/square versions, add its AV/AS jobs. Procedure: `.claude/skills/_shared
    Then the pass-6 checks (rules 38–43): the finalized line is Dan's current wording and the bitrate went in the summary
    as a measurement rather than a conclusion; no section reopens an ad Dan has FINALIZED for anything cosmetic; no item
    about how long a picture holds; nothing raised late that has been on screen unchanged since a round he reviewed.
+   Then the pass-7 checks (rules 44–48): the opening was considered for an AI clip, and where one fits there are three
+   concepts to render as start/end frames in the video's orientation; every new AI clip asks for start and end frames
+   first; if the graphic style is not locked, one video carries the four-variation lock item and every other graphic
+   item says to wait for it, with no cosmetic graphic fixes; if it is locked, the locked references are linked; shorts
+   key points are top graphics over camera scene; organic picture beats follow the script, with empty slots for Dan.
 8. **Write the Google Doc** via the Google Drive MCP `create_file` with
    `contentMimeType: text/markdown` — it converts cleanly to a Doc, including links.
    Keep Dan's `\*\*…\*\*` literal-asterisk look for THROUGHOUT headers. Save the
@@ -607,6 +653,11 @@ vertical/square versions, add its AV/AS jobs. Procedure: `.claude/skills/_shared
   on an exhale, melting hands or faces, morphing objects, gibberish text, mismatched reflections. Checked by the
   step 3b AI-artifact pass, frame by frame, never from the contact sheet. A disclosure label does not excuse an
   artifact: the clip is labelled AI, but it must still read as a plausible real moment.
+- **AI clips: frames first** (Dan, 2026-09-27): every new AI clip, from any editor, is shown to Dan as start and end
+  frames in the video's orientation, and generated only after he picks. **AI opener**: consider one on every video
+  (calibration rule 44).
+- **Graphic style locked before graphics are fixed** (Dan, 2026-09-27): no locked style for the format = a variations
+  item on one video and "wait until the graphic style is locked" on every other graphic item (rule 46).
 - **Disclosure**: "*AI Generated" on every AI visual, full duration; upper-left and
   ~50% larger on full-frame AI clips; centered small tag on panel inserts.
 - **Brand graphics**: black bg (or #162118 dark green field), headers large dark

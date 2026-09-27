@@ -98,6 +98,28 @@ this section in plain words, with the numbers:
 - **Workout music is upbeat and high energy**: electronic, hip-hop or rock, never chill, relaxing or elevator-like.
   Pixabay only, and never a track whose page says "Content ID Registered".
 
+### 4b. Graphics: send the locked style, or lock it first (Dan, 2026-09-27)
+Dan: *"we're wasting a lot of time, both with human and AI editors, where we don't have a locked graphic style. They
+render the whole video, then we change the graphic, then we render it again. I want to lock graphic styles before the
+videos go forward."*
+- **Style locked for this format** (check `_shared/GRAPHICS-STANDARDS.md`; Soft Blue Light and the Motivation lower
+  third are locked for all videos as of 2026-09-26): put the locked graphics IN the brief. Link the moving reference
+  files and still frames of each component (title/top graphic, lower third, key point, numbered chip, label chips), and
+  say "build every graphic in this style; do not invent new ones". Share the files so he can open them.
+- **No locked style for this format** (a new format, or one Dan has never approved): the brief's FIRST deliverable is a
+  graphics lock, not a video. He sends variations of the recurring graphics on ONE video's frames: his own style, one
+  imitating our locked style, and two significantly different styles of his choice ("masculine, bold, modern and
+  trustworthy"). Dan picks, then the batch is cut in the chosen style. Say plainly that no full video is rendered
+  until the style is locked.
+
+### 4c. AI clips: start and end frames before any motion (Dan, 2026-09-27)
+- Every new AI clip the editor makes is shown to Dan as **start and end frames first, in the video's orientation**
+  (9:16 for shorts), plus a one-line description of the action. Dan picks, then the editor generates the motion.
+  Unapproved motion is not paid for as a revision. Existing clips we supply need no approval.
+- **AI opening clips:** Dan frequently (not always) wants a video to open on an AI-generated clip. Where the script
+  allows one, the brief lists two or three opener concepts per video in the scripts doc cue, for frame approval like
+  any other AI clip.
+
 ### 5. Raw footage table
 One row per video: number, title, roll id, raw length, script word count, **expected finished
 runtime**, and a direct Drive link.

@@ -1,3 +1,9 @@
+## Lock the graphic style before editing; AI clip frames first; AI openers (Dan, 2026-09-27)
+
+- **Lock the graphic style before any full video is edited.** Dan: *"They render the whole video, then we change the graphic, then we render it again. I want to lock graphic styles before the videos go forward."* This binds human editors, Codex and Claude. If the format has a locked style (`GRAPHICS-STANDARDS.md`), every brief and revision doc links its moving references and the editor builds in it. If not, the first deliverable is graphic variations on one video's frames (the editor's own style, one imitating our locked style, two significantly different ones: masculine, bold, modern, trustworthy); Dan picks; only then are full videos cut or revised.
+- **Every new AI clip is approved as start and end frames before the motion is generated, for human editors as well as our pipeline**, in the video's orientation (9:16 for shorts). This extends the frame-approval rule below to every editor.
+- **Frequently, not always, a video opens on an AI-generated clip.** Look for the opportunity on every video; offer two or three opener concepts for frame approval. A strong on-camera cold open can stay.
+
 ## Speedo photos: always crop at the shorts line (Dan, 2026-09-27)
 
 - **Any photo of Dan in the Speedo/briefs is cropped so it reads as regular shorts, never a Speedo.** Crop the bottom edge at the top of the waistband, leaving only a thin band of black showing (Dan's reference: the @danrosefit "version 2.0" post `DbobNx6gQPM`). Keep posting these photos; only the crop changes.
