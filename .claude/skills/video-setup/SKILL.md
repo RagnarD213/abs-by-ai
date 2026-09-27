@@ -102,7 +102,8 @@ node scripts/youtube/upload.js --file "<filed mp4>" --title "<title>" \
   a second run makes a second video.** Read the output file; only retry after a clear failure.
 - Read back the completed record and require `privacyStatus: private`. Do not add a YouTube `publishAt` value or
   schedule it in Studio. A Public, Scheduled or unknown result fails the workflow and must be corrected.
-- `--synthetic true` whenever an AI image of Dan appears on screen (the absbyai.com CTA usually shows one).
+- `--synthetic true` ONLY when the video contains realistic AI-generated footage (AI clips/scenes, AI-Dan demos, AI music).
+  A labeled AI goal still or the absbyai.com CTA alone is `false`. Rule: `_shared/VIDEO-RULES.md` "AI label on uploads".
 - Two thumbnails picked → the second goes in via Studio's **Test & Compare** (Studio-only; the token has no
   `youtube.force-ssl`). See Step 6.
 
@@ -118,7 +119,7 @@ incomplete organic setup. Confirm the schedule by reading it back before reporti
    (`h264_videotoolbox` ~4 Mbps, audio stream-copied) for Blotato only; YouTube still gets the master.
 2. Write `scripts/blotato/configs/<slug>.json` (fields documented at the top of `scripts/blotato/longform_queue.py`):
    hook / body / close in Dan's voice, ManyChat keyword per topic (`ABS` for ab content; the table is in
-   `Docs/MANYCHAT_KEYWORDS.md`), `ai_generated` same as YouTube's synthetic flag.
+   `Docs/MANYCHAT_KEYWORDS.md`), `ai_generated` same as YouTube's synthetic flag (same rule: AI footage only, not a labeled AI still).
 3. `python3 scripts/blotato/longform_queue.py <config>` (dry run: slot clashes + the 200-post cap), then `--apply`.
    The current helper covers the four non-YouTube accounts. Queue the connected YouTube account through Blotato too,
    using the same release time and media, and verify all five schedules on a fresh pull. Do not fall back to YouTube

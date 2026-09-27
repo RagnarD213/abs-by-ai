@@ -148,7 +148,7 @@ file). It imports the Ad 5 clean builder — never copy that code.
 
 ```bash
 node scripts/youtube/upload.js --file "<master>" --title "<title>" --description-file "<folder>/youtube-description.md" \
-  --privacy unlisted --category 26 --made-for-kids false --synthetic true --tags "<tags>" > "<folder>/youtube-upload.log" 2>&1
+  --privacy unlisted --category 26 --made-for-kids false --synthetic <true|false> --tags "<tags>" > "<folder>/youtube-upload.log" 2>&1
 node scripts/youtube/set-thumbnail.js --video <id> --file "<thumb FINAL.jpg>" --out "<build dir>/readback-<id>.jpg"
 ```
 
@@ -158,7 +158,8 @@ node scripts/youtube/set-thumbnail.js --video <id> --file "<thumb FINAL.jpg>" --
   failed one.
 - Read back with `videos?part=status,processingDetails` until `processingStatus: succeeded`, `embeddable: true`,
   privacy `unlisted`. Google Ads accepts the id before processing finishes, but check before you report.
-- `--synthetic true` is required: the ads show AI goal images of Dan.
+- `--synthetic true` ONLY when the ad contains realistic AI-generated footage (AI clips/scenes, AI-Dan motion, AI music).
+  An ad whose only AI content is a labeled AI goal still is `false`. Rule: `_shared/VIDEO-RULES.md` "AI label on uploads".
 
 ## 6. Google Ads — the Demand Gen conversion campaign
 

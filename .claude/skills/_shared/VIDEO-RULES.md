@@ -1,3 +1,9 @@
+## AI label on uploads: only for real AI footage (Dan, 2026-09-27)
+
+- YouTube's altered/synthetic flag (`--synthetic`, Blotato `containsSyntheticMedia`) and TikTok's `isAiGenerated` (Blotato config `ai_generated`) are set to **true ONLY when the video contains realistic AI-generated footage**: AI video clips or scenes, AI-Dan exercise demos, AI B-roll of people or places, AI-generated music, or an AI voice of someone other than Dan.
+- **A still AI goal image that carries the on-screen AI-GENERATED label does NOT trigger the flag**, and neither does the absbyai.com CTA showing one. YouTube exempts AI-written scripts, titles, thumbnails, captions, infographics, color or upscaling, and cloning Dan's own voice. Keep the one-line AI-image sentence in the description.
+- Before 2026-09-27 every video with an AI goal picture was flagged, so plain workout videos showed YouTube's "AI" badge. Decide per video from the actual edit; when unsure, check the edit recipe or contact sheet for AI clips.
+
 ## Never show stick-figure exercise demos (Dan, 2026-09-25)
 
 - Never show the app's stick-figure exercise animations in any video. Use suitable, polished AI-generated exercise demonstration clips instead, matched to the displayed workout. Dan rejected the WV-01 workout preview and said: "Never ever show these stick figures in any video."

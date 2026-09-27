@@ -16,7 +16,7 @@ Config (JSON):
     "main": "2026-09-20T14:00:00.000Z",        # FB / IG main / TikTok
     "mirror": "2026-09-21T14:00:00.000Z",      # IG @abs.by.ai
     "keyword": "ABS",                          # ManyChat keyword, Docs/MANYCHAT_KEYWORDS.md
-    "ai_generated": true,                      # TikTok isAiGenerated (any AI image on screen)
+    "ai_generated": true,                      # YouTube + TikTok AI label: realistic AI footage only, not a labeled AI still (VIDEO-RULES.md)
     "hook": "...", "body": "...", "close": "...",
     "tags": "#a #b",
     "youtube_description": "...",

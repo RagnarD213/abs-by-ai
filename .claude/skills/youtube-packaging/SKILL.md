@@ -33,7 +33,8 @@ Working example output: `YouTube Content/channel-intro/` (PACKAGING.md, thumbnai
 5. **Thumbnails** — see rules below.
 6. **Shorts** — see rules below.
 7. **Upload checklist:** Not made for kids; **altered/synthetic content disclosure
-   box = YES** (AI transformation imagery qualifies); custom thumbnail; pinned
+   box = YES only when the video has realistic AI-generated footage** (a labeled AI goal still does not
+   qualify; rule in `_shared/VIDEO-RULES.md` "AI label on uploads"); custom thumbnail; pinned
    comment posted + pinned; end screens once a second video exists.
 
 ## Thumbnail rules
