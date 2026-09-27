@@ -1,5 +1,15 @@
 # YouTube engagement champion — every new video gets a $5 test ad in each Demand Gen campaign, one champion per campaign
 
+## RETIRED 2026-09-27: Dan manages the three engagement campaigns by hand
+
+Dan's call (2026-09-27): no automation creates, pauses or enables ads in tier2 / tier1 / rmktg any more.
+Switched off two ways: `YTADS_ENABLED=0` on Railway `abs-by-ai` (server only dry-runs), and the Ads Script
+named "YouTube engagement champion" set to **Disabled** in Tools → Bulk actions → Scripts (not deleted).
+Why it was misbehaving before retirement: the live script copy was last edited 2026-09-08, so it ignored
+library mode's `PAUSED` status and the long-form in-feed-only preference (new ads went live, running).
+Do not re-enable either switch unless Dan asks. `manual.js` / `client.js` still work for one-off edits.
+New long-form ads Dan makes should still get in-feed only (recipe below).
+
 **Built 2026-09-03** from `Handoffs/handoff-20260902-google-ads-engagement-champion-automation.md`.
 The design decisions in that handoff are Dan's and are final; this doc is how the built thing works
 and how to operate it. The Meta twin is `Docs/AUTO_BOOST.md`.
