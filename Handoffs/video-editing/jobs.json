@@ -1696,13 +1696,13 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/WV-01-vsl-1-analysis-page-video-version-a-version-b-intr.md`: cut \"VSL 1: Analysis-page video (version A + version B intro)\" from 9/23 roll C1692-C1700 with /website-video. Best take of every line, every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/WV-01-vsl-1-analysis-page-video-version-a-version-b-intr.md` with `$abs-edit-organic`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "delivered",
-   "note": "Round 5 contextual review ready at http://127.0.0.1:8766/round5/index.html. Photos, row tail, cards and J1/J2/B01 motion completed. Corrected G03 frames await Dan approval before motion. Full A/B held; dispatcher paused.",
+   "state": "needs",
+   "note": "Round 6 A-only handoff ready: Handoffs/handoff-20260927-wv01-round6-A-only-revisions.md. G03 frames and B01 motion approved. Execute remaining revisions in next user-started task; B deferred; dispatcher paused.",
    "sub": "",
    "order": 81,
    "updated": "2026-09-27",
    "by": "Codex",
-   "rev": 21,
+   "rev": 22,
    "syncedRev": 1
   },
   {
