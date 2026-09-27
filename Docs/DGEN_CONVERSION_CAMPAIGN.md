@@ -444,3 +444,27 @@ The exact AV-07 masters (SHA256 `b25b6e50e106cc4c6407fc949ff6edda25ceab8b1c75a55
 | Claude 9:16 59s | `CR4WAVmSuXY` | `424707544210` | `206979993984` / `825998531968` | `206979994264` / `825998531974` |
 
 The live Ad 10 copy matched `ad10.json`, so it was reused. All four new ads are ENABLED and `REVIEW_IN_PROGRESS` as of 2026-09-25. Recheck policy on 2026-09-26. `/start` URLs use `https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad10&utm_content=claude-9x16[-59s]-start`; home URLs use `https://absbyai.com/?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad10&utm_content=claude-9x16[-59s]-home`. Exact per-ad URLs and IDs are in `scripts/ads/api/dgen-ads/ad10.result.json`. The original 16:9 asset `421589398534` and ads `824793606450` and `824793582135` remain enabled. Both ad groups retain their $30 target CPA and audience `359638252`. The live shared campaign budget read $50/day before the change, versus $40/day in the earlier record. It was preserved at $50/day and is now shared by these additional ads.
+
+## 2026-09-27: DS-18 How To Kettlebell Deadlift added as a new ad
+
+Dan finalized Codex R8 on 09-25. The master `Short-form video content/ds-18_how-to-kettlebell-deadlift.mp4` matched the
+locked SHA256 `aa7fe8747dcb3a4a8b26e1b32b598c1c502606ee00efe878ee99aaf2d1b60ba2` (81,989,796 bytes) and was uploaded
+once, untouched, as **Unlisted** `CMsb0qbo2vM`. Readback: channel `UC236gjadarHAhEhOMYNGJ9g`, `privacyStatus=unlisted`,
+processing succeeded, embeddable, HD, 1080x1920, 29.97 fps, PT42S, file size identical to the master. The footage is
+all real camera (C1671/C1673) plus graphics, so the upload set `containsSyntheticMedia=false`. The thumbnail is a
+JPG export of Dan's approved cover C r5 (set + maxres read back). Metadata: `/Volumes/Extreme/_edit_work/ds18-kettlebell-deadlift/youtube/`.
+Delivery gate for this file remains **FAIL, 33 passed, 6 failed, 3 n/a** (`audio:stamp`, `framing:no_wide_level`,
+`framing:push_coverage`, `captions:burned`, `captions:sync`, `compliance:placeholder`); Dan finalized it knowing that.
+
+Config `scripts/ads/api/dgen-ads/ds18.json` (RA-01's three custom segments) passed `validateOnly` with 14 operations,
+then applied and read back:
+
+| version | YouTube → asset | audience | `/start` group → ad | home group → ad |
+|---|---|---|---|---|
+| Codex vertical R8 | `CMsb0qbo2vM` → **`425260237702`** | **`359808627`** | `201586678778` → **`826267702259`** | `200462519173` → **`826267702268`** |
+
+Both ads ENABLED, $30 target CPA, `REVIEW_IN_PROGRESS` on 09-27; recheck policy 09-28. URLs use
+`utm_campaign=dgen-conv-ds18&utm_content=codex-vertical-r8-<start|home>` (both return 200). Campaign `24243839443`
+read ENABLED, Target CPA, budget `15862488218` **$50/day** before and after; no budget operation sent. The 28 existing
+ad groups and 64 existing ads read back with identical statuses and target CPAs. The $50/day is now shared by two
+more ad groups. No organic copy.

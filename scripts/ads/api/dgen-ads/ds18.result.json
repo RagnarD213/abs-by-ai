@@ -1,0 +1,67 @@
+{
+ "at": "2026-09-27T18:08:22.585Z",
+ "results": [
+  "customers/3427170837/assets/425260237702",
+  "customers/3427170837/audiences/359808627",
+  "customers/3427170837/adGroups/201586678778",
+  "customers/3427170837/adGroupCriteria/201586678778~2840",
+  "customers/3427170837/adGroupCriteria/201586678778~2124",
+  "customers/3427170837/adGroupCriteria/201586678778~1000",
+  "customers/3427170837/adGroupCriteria/201586678778~2503834647800",
+  "customers/3427170837/adGroupAds/201586678778~826267702259",
+  "customers/3427170837/adGroups/200462519173",
+  "customers/3427170837/adGroupCriteria/200462519173~2840",
+  "customers/3427170837/adGroupCriteria/200462519173~2124",
+  "customers/3427170837/adGroupCriteria/200462519173~1000",
+  "customers/3427170837/adGroupCriteria/200462519173~2501639715334",
+  "customers/3427170837/adGroupAds/200462519173~826267702268"
+ ],
+ "readBack": [
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200462519173",
+    "id": "200462519173",
+    "name": "DS-18 Kettlebell Deadlift | home",
+    "targetCpaMicros": "30000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/200462519173~826267702268",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/826267702268",
+     "id": "826267702268",
+     "finalUrls": [
+      "https://absbyai.com/?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ds18&utm_content=codex-vertical-r8-home"
+     ],
+     "name": "DS-18 Kettlebell Deadlift | Codex vertical R8 | home"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201586678778",
+    "id": "201586678778",
+    "name": "DS-18 Kettlebell Deadlift | /start",
+    "targetCpaMicros": "30000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/201586678778~826267702259",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/826267702259",
+     "id": "826267702259",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ds18&utm_content=codex-vertical-r8-start"
+     ],
+     "name": "DS-18 Kettlebell Deadlift | Codex vertical R8 | /start"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS"
+    }
+   }
+  }
+ ]
+}

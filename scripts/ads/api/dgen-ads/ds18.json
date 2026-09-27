@@ -1,0 +1,31 @@
+{
+  "adNumber": "ds18",
+  "utmCampaign": "dgen-conv-ds18",
+  "label": "DS-18 Kettlebell Deadlift",
+  "videos": [
+    { "youtubeId": "CMsb0qbo2vM", "version": "Codex vertical R8", "utm": "codex-vertical-r8" }
+  ],
+  "audience": {
+    "label": "AI fitness + competitor apps + get abs belly fat",
+    "segments": ["1011510739", "1011514645", "1013657228"]
+  },
+  "copy": {
+    "headlines": [
+      "How I Got Abs At 40",
+      "Kettlebell Deadlifts Done Right",
+      "Four Kettlebell Deadlift Tips",
+      "Fix Your Kettlebell Deadlift",
+      "Train At Home With A Kettlebell"
+    ],
+    "longHeadlines": [
+      "Daniel Rose shows four tips for doing kettlebell deadlifts the right way at home.",
+      "Put the weight between your legs, keep your toes forward and look up as you lift.",
+      "Daniel Rose explains how to protect your back and squeeze your glutes on every rep."
+    ],
+    "descriptions": [
+      "Daniel Rose shows how to do kettlebell deadlifts at home with four simple form tips.",
+      "Kettlebell deadlift form explained by a guy who trains at home at 40 years old.",
+      "Get a personalized AI workout plan built around your goal with Abs By AI."
+    ]
+  }
+}
