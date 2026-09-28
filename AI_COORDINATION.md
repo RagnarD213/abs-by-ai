@@ -93,7 +93,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **Queue covers - HANDOFF 2026-09-28, Claude.** All installed; Dan approved the rest. Next: execute crops/grid-shift handoff before Sep 29 5 PM CT. Row 16 R5 re-post still Dan's call.
 
-**WV-01 round 11 - NEEDS DAN 2026-09-28, Codex.** Review: `http://127.0.0.1:8766/round11/index.html`. Requested V sit twist installed; benefit/closing contexts and3A preserved. Next: lock both remaining sections, then complete A, full QA and one independent review. B deferred; dispatcher paused. QC$0.123632; context gate incomplete.
+**WV-01 complete A - HANDOFF READY 2026-09-28, Codex.** All creative choices locked, including five benefits, mirror join/pool, V sit twist and3A. Next: execute `Handoffs/handoff-20260928-wv01-round12-complete-a-assembly-qa.md`: complete A, full QA and one independent review. B deferred; dispatcher paused. No build launched.
 
 **RO-05 Fable recut - NEEDS DAN 2026-09-25, Claude.** 15:06 review copy delivered; 4 reviews, 0 picture defects; gate fails explained in notes. Next: Dan's verdict. `claude edited long form content/08 - How I Make My Daily Salad (Fable recut)/`
 
