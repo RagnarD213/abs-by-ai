@@ -1,6 +1,6 @@
 # Handoffs
 
-Every handoff document for Abs By AI, in one place. 168 documents (index updated 2026-09-26).
+Every handoff document for Abs By AI, in one place. 170 documents (index updated 2026-09-28).
 
 A handoff is a self-contained brief written so a fresh session can pick up work with no prior context.
 
@@ -14,9 +14,9 @@ Anything not in the Open table is executed, superseded or dead — history only.
 | Document | Fire when |
 |---|---|
 | [handoff-20260928-wv01-round8-A-only-revisions.md](handoff-20260928-wv01-round8-A-only-revisions.md) | **Ready 2026-09-28. GPT-6 Astra / High.** A only: app sequence at0:26, M1004:48-4:55, integrated title variants, cumulative benefits, laptop angle, mirror pause and natural pool retry. $20 cumulative generation allowance. B deferred. |
+| [handoff-20260928-home-arm-workout-instagram-more-ripped.md](handoff-20260928-home-arm-workout-instagram-more-ripped.md) | **Ready 2026-09-28. GPT-6 Astra / High.** Only Instagram row 16: stronger, more ripped retouch with the R4 layout preserved. All other covers approved. Compare only current and stronger row 16; queues unchanged. |
 | [handoff-20260926-ro01-r4-graphics-and-clips-approval.md](handoff-20260926-ro01-r4-graphics-and-clips-approval.md) | **Ready 2026-09-26. GPT-6 Astra / High.** Preserve approved color/audio; prepare every revised graphic and clip in context for approval. Opening ideas only until selected; no full render. |
 | [handoff-20260926-soft-blue-light-all-video-graphics-claude.md](handoff-20260926-soft-blue-light-all-video-graphics-claude.md) | **Executed 2026-09-26 (Claude).** Skills updated; module `_shared/softblue.py`, usage `_shared/SOFTBLUE.md`; demos on the SSD in `_edit_work/softblue-rollout/`. Carried the approved Soft Blue Light family and Motivation lower thirds into every Claude video workflow and reusable component. Prospective rollout, no bulk re-edit or publishing. |
-| [handoff-20260926-queue-covers-r4-unfinished-only.md](handoff-20260926-queue-covers-r4-unfinished-only.md) | **Ready 2026-09-26. GPT-6 Astra / High.** Only rows 12-14 start/end rollout frames and arrows, plus Instagram 16. Other selections locked; show only unfinished rows. Keep queues unchanged. |
 | [handoff-20260925-sl04-arms-shoulders-shorts-revisions.md](handoff-20260925-sl04-arms-shoulders-shorts-revisions.md) | **Ready 2026-09-25. Claude Opus 5.5 / High.** SL-04 round 2: flush top graphic on all five shorts, short 1 colour + hair, short 2 new centred pill text, short 3 "side laterals" context opener, short 5 hair recrop. No covers (Codex). |
 | [handoff-20260924-vsl-landing-five-mockups.md](handoff-20260924-vsl-landing-five-mockups.md) | **Ready 2026-09-24. Claude Opus 5.5 / High.** Design five mockups of a straight VSL landing page (video then 7-day free trial) from the VidTao research; screenshots in `Media/research/vsl-landing-references-20260924/`. Mockups only, no live page. |
 | [handoff-20260924-generator-consult-call-outreach.md](handoff-20260924-generator-consult-call-outreach.md) | **SENT 2026-09-24 (14 emails, Resend from dan@absbyai.com); follow-up auto-runs 09-28; results report 10-08.** Email everyone who generated (about 15 to 20 people) inviting a free 15-minute call with Dan; Gmail drafts, one approval from Dan before sending; list kept outside the repo. The fold-or-fix sales test. |

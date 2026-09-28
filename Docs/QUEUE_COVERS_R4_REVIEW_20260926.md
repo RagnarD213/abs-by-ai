@@ -24,3 +24,7 @@ Private package records: `manifest.json`, `quality-checks.json`, `source-evidenc
 | 14 | instagram | a1b40fd4c54e862047d3d9626e7385136efeb95c0ec153473672f414b5a7986a |
 | 14 | youtube | 3507babcc2d77f656bfeb8bf96084dd044dbe32679606f167351d79b47c90a62 |
 | 16 | instagram | 061cf2b4949862cc61ad099e9243ef6d8c3150dc1c52934e4d4ff21f3dde5ed6 |
+
+## Dan's review, 2026-09-28
+
+Rows 12-14 are approved for both platform exports. Only Instagram row 16 remains open: Dan requested a more aggressively retouched, more ripped variation. All other selections stay locked. Current authority: `Docs/QUEUE_COVERS_APPROVALS_20260928.json`. Next brief: `Handoffs/handoff-20260928-home-arm-workout-instagram-more-ripped.md`. No image, queue or installed cover changed while recording this decision.

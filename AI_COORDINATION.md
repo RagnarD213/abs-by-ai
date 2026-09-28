@@ -91,7 +91,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # ACTIVE
 
-**Queue covers round 4 - NEEDS DAN 2026-09-26, Codex.** Only rows 12-14 and Instagram 16 are revised in `Short-form video content/covers/review/queue-bakeoff-20260924/round4-unfinished-20260926/index.html`. Seven covers and four literal grid crops checked; 28 locked hashes unchanged. Next: Dan reviews these four unfinished items. All queues and installed covers unchanged. Detail: `Docs/QUEUE_COVERS_R4_REVIEW_20260926.md`.
+**Queue covers - HANDOFF 2026-09-28, Codex.** All covers approved except Instagram 16. Next: execute `Handoffs/handoff-20260928-home-arm-workout-instagram-more-ripped.md` for one stronger physique retouch, keeping the R4 layout. Only row 16 appears in the next comparison. Approval hashes: `Docs/QUEUE_COVERS_APPROVALS_20260928.json`. Queues unchanged.
 
 **WV-01 round 8 - HANDOFF READY 2026-09-28, Codex.** `Handoffs/handoff-20260928-wv01-round8-A-only-revisions.md`. A only; accepted direction and mirror preserved. Next: app flow at0:26, exact M100 excerpt, integrated title variants, cumulative benefits, laptop angle, mirror pause and natural pool retry. Dan raised cumulative generation allowance to $20. No media work started. B deferred; dispatcher paused.
 
