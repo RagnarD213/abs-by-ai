@@ -91,7 +91,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # ACTIVE
 
-**Queue covers - NEEDS DAN 2026-09-28, Codex.** Instagram 16 stronger retouch delivered: `http://127.0.0.1:8795/index.html#row-16`. Only current/new row16 Instagram covers and actual grid crops shown; exact R4 title/layout preserved. All 34 locked hashes verified unchanged before/after. Next: Dan picks current R4 or stronger R5. Package: `Short-form video content/covers/review/queue-bakeoff-20260924/round5-row16-retouch-20260928/`. Queues unchanged.
+**Queue cover installation - HANDOFF 2026-09-28, Codex.** All selections final, including Instagram16 R5; 35 hashes verified. Next: Claude executes `Handoffs/handoff-20260928-install-finalized-queue-covers-claude.md`. Final authority: `Docs/QUEUE_COVERS_FINAL_20260928.json`. Installation deferred to the new task; accounts and queues untouched.
 
 **WV-01 round 8 - HANDOFF READY 2026-09-28, Codex.** `Handoffs/handoff-20260928-wv01-round8-A-only-revisions.md`. A only; accepted direction and mirror preserved. Next: app flow at0:26, exact M100 excerpt, integrated title variants, cumulative benefits, laptop angle, mirror pause and natural pool retry. Dan raised cumulative generation allowance to $20. No media work started. B deferred; dispatcher paused.
 

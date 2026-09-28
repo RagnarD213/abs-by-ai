@@ -1,0 +1,273 @@
+{
+  "decision_date": "2026-09-28",
+  "supersedes": "Docs/QUEUE_COVERS_APPROVALS_20260928.json",
+  "approval_scope": "All selections finalized by Dan on 2026-09-28. Instagram row16 uses stronger R5. Install exact finalized selections in a separate Claude task when Dan launches that handoff. No installation done by the approval/handoff task.",
+  "locked_exports": [
+    {
+      "row": 4,
+      "variant": "A",
+      "platform": "instagram",
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/04-A-instagram.jpg",
+      "sha256": "bbab07daa9bdd0bd46ffa025572df38c644b07eb291178d493e6d5f7f8c1d049"
+    },
+    {
+      "row": 4,
+      "variant": "A",
+      "platform": "youtube",
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/04-A-youtube.jpg",
+      "sha256": "19f9e32cd20af81e4932806a613af628b73b1fef77abf368bc70ae29d40a0ccb"
+    },
+    {
+      "row": 5,
+      "variant": "A",
+      "platform": "instagram",
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/05-A-instagram.jpg",
+      "sha256": "333b677119411b54f16afdd35849deff16892e733784a71123c3aa4af7f9169e"
+    },
+    {
+      "row": 5,
+      "variant": "A",
+      "platform": "youtube",
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/05-A-youtube.jpg",
+      "sha256": "d7e97a1bee9c8e9784e7e8e460703d16151af301d6c504510fcba83ee22d9a0b"
+    },
+    {
+      "row": 6,
+      "variant": "A",
+      "platform": "instagram",
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/06-A-instagram.jpg",
+      "sha256": "25a03b33523280c7ca53be06c2006fd7e68b7a9e915993687b474cc82042979b"
+    },
+    {
+      "row": 6,
+      "variant": "A",
+      "platform": "youtube",
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/06-A-youtube.jpg",
+      "sha256": "96602c697c4c06a6e9d5ae86326cf56ae729d95d9e58fcefb8713748729ae739"
+    },
+    {
+      "row": 7,
+      "variant": "A",
+      "platform": "instagram",
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/07-A-instagram.jpg",
+      "sha256": "003fe288ebe0278dee21e500b0c197fbf5f20ec0f6b8f8fc87a4f46ffd3a9cda"
+    },
+    {
+      "row": 7,
+      "variant": "A",
+      "platform": "youtube",
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/07-A-youtube.jpg",
+      "sha256": "06dcdc8b0c116e55178e13424b99436dba0c41d7d36b777696e1855b9e9662e0"
+    },
+    {
+      "row": 8,
+      "variant": "A",
+      "platform": "instagram",
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/08-A-instagram.jpg",
+      "sha256": "1ff82513ecfd7f6cd52736184f7fee3ebeaa738222a80fe3819b36de99544bfd"
+    },
+    {
+      "row": 8,
+      "variant": "A",
+      "platform": "youtube",
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/08-A-youtube.jpg",
+      "sha256": "b82626f45cc7f1c5d4819c4135d422566e102899861ee9c11f021e6d4320335b"
+    },
+    {
+      "row": 9,
+      "variant": "A",
+      "platform": "instagram",
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/09-A-instagram.jpg",
+      "sha256": "8df57b879535c3311bbb1dfbda0bb7a97933fdac46a64b14fc56a6d1ac074e0d"
+    },
+    {
+      "row": 9,
+      "variant": "A",
+      "platform": "youtube",
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/09-A-youtube.jpg",
+      "sha256": "7c66d2a4da300ce5c572244e872c4e3cb2335f9a860e85f4d503c950f11889eb"
+    },
+    {
+      "row": 10,
+      "variant": "A",
+      "platform": "instagram",
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/10-A-instagram.jpg",
+      "sha256": "3296e6db7934820cd1e94e64b0de867bffccce966614815e47259c628aa8258e"
+    },
+    {
+      "row": 10,
+      "variant": "A",
+      "platform": "youtube",
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/10-A-youtube.jpg",
+      "sha256": "4f9daeda187c0d28040c03379c662f1aa29d5b781491f6b3a660e1e8ecf56051"
+    },
+    {
+      "row": 11,
+      "variant": "A",
+      "platform": "instagram",
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/11-A-instagram.jpg",
+      "sha256": "456503cab6411f867b000f48c1353a4ffc0c2d97476c1991f8c8aaf974764313"
+    },
+    {
+      "row": 11,
+      "variant": "A",
+      "platform": "youtube",
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/11-A-youtube.jpg",
+      "sha256": "0f1d7cc2cdefc83e34b8216a899f2b1d713ec2a376a7b86185a2a810a5b019d7"
+    },
+    {
+      "row": 12,
+      "variant": "A",
+      "platform": "instagram",
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round4-unfinished-20260926/covers/12-A-instagram.jpg",
+      "sha256": "34fa8435a28d45dc1552fcb32a96c750fff82ef09ba233e6d30e68ba1db3ee6c",
+      "approved_date": "2026-09-28",
+      "review_round": 4
+    },
+    {
+      "row": 12,
+      "variant": "A",
+      "platform": "youtube",
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round4-unfinished-20260926/covers/12-A-youtube.jpg",
+      "sha256": "deb1f5e38dd00d09058133bd2602a7817c9666dab42c394522e4d9a7579b5e0d",
+      "approved_date": "2026-09-28",
+      "review_round": 4
+    },
+    {
+      "row": 13,
+      "variant": "A",
+      "platform": "instagram",
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round4-unfinished-20260926/covers/13-A-instagram.jpg",
+      "sha256": "c1f1b26d351def10dc6754d9d42b041437573caf531dc107131007b553422b40",
+      "approved_date": "2026-09-28",
+      "review_round": 4
+    },
+    {
+      "row": 13,
+      "variant": "A",
+      "platform": "youtube",
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round4-unfinished-20260926/covers/13-A-youtube.jpg",
+      "sha256": "590e773d09f0cd299d70efefc0bef61a4b6da1fb86fcfccd27648d3216b98e48",
+      "approved_date": "2026-09-28",
+      "review_round": 4
+    },
+    {
+      "row": 14,
+      "variant": "A",
+      "platform": "instagram",
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round4-unfinished-20260926/covers/14-A-instagram.jpg",
+      "sha256": "a1b40fd4c54e862047d3d9626e7385136efeb95c0ec153473672f414b5a7986a",
+      "approved_date": "2026-09-28",
+      "review_round": 4
+    },
+    {
+      "row": 14,
+      "variant": "A",
+      "platform": "youtube",
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round4-unfinished-20260926/covers/14-A-youtube.jpg",
+      "sha256": "3507babcc2d77f656bfeb8bf96084dd044dbe32679606f167351d79b47c90a62",
+      "approved_date": "2026-09-28",
+      "review_round": 4
+    },
+    {
+      "row": 15,
+      "variant": "A",
+      "platform": "instagram",
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/15-A-instagram.jpg",
+      "sha256": "d2261f8029f731b79b0115cee8c4b9cb3b04ced299f1836ee932d185b567f18a"
+    },
+    {
+      "row": 15,
+      "variant": "A",
+      "platform": "youtube",
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/15-A-youtube.jpg",
+      "sha256": "5e9d234a36fb2a46b028c7ad540720c1f9ca11ed33f70d9c0e696f5391f21547"
+    },
+    {
+      "row": 16,
+      "variant": "R5",
+      "platform": "instagram",
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round5-row16-retouch-20260928/covers/16-more-ripped-instagram.jpg",
+      "sha256": "3103f7d401776211ecc522ec9a7d5f6d5ab8b401532d9f46504ccb61170e1d4a",
+      "approved_date": "2026-09-28",
+      "review_round": 5,
+      "title": "2-minute home arm workout"
+    },
+    {
+      "row": 17,
+      "variant": "A",
+      "platform": "instagram",
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/17-A-instagram.jpg",
+      "sha256": "722f4fbd404e3dbe4ea5496041395ea7c29a69b83785f7c501ea81570375b284"
+    },
+    {
+      "row": 17,
+      "variant": "A",
+      "platform": "youtube",
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/17-A-youtube.jpg",
+      "sha256": "a97823d61e6218709558697cba1ad7043789292bda4d955646efc61b143b7915"
+    },
+    {
+      "row": 18,
+      "variant": "A",
+      "platform": "instagram",
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/18-A-instagram.jpg",
+      "sha256": "de65b41b0880268b7406052d9635b6539b2029b6c79877e97ff2a87850ccc804"
+    },
+    {
+      "row": 18,
+      "variant": "A",
+      "platform": "youtube",
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/18-A-youtube.jpg",
+      "sha256": "308611c31ec28ef701ea88196cfabadb358b6cf7511414cf74143021c4298cda"
+    },
+    {
+      "row": 19,
+      "variant": "A",
+      "platform": "instagram",
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/19-A-instagram.jpg",
+      "sha256": "70767bf07e225681531981ef3e13954be9d51c39581da3adb9cfcd05e5c5ba6e"
+    },
+    {
+      "row": 19,
+      "variant": "A",
+      "platform": "youtube",
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/19-A-youtube.jpg",
+      "sha256": "8d4203056c61b418bf726cfc66c558fa46797ba02808c860694a25da84e8318a"
+    }
+  ],
+  "keep_original": [
+    {
+      "row": 1,
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/baselines/blotato-01.jpg",
+      "sha256": "66534aa6e66f97f1a59939c5a93668431e1b1d854f24c0438c3ab91bf6c7adb4"
+    },
+    {
+      "row": 2,
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/baselines/blotato-02.jpg",
+      "sha256": "32164207569110b03b666f7d40e29c0cf6bce9f5977e65f00970c8f2875e33df"
+    },
+    {
+      "row": 3,
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/baselines/blotato-03.jpg",
+      "sha256": "9ad03457781d8eef71226ad1d7f07033c93d3e562b1a147f42a303626f379e99"
+    },
+    {
+      "row": 16,
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/baselines/youtube-01.jpg",
+      "sha256": "45bf3d5746753d472513c3ce7cbc9313b7e5e1a5e8c9776a9b23cab9aac56644"
+    }
+  ],
+  "needs_review": [],
+  "dan_feedback": [
+    "The biggest ab wheel mistake looks good.",
+    "How to do ab wheel rollout looks good.",
+    "Ab wheel workout tip looks good.",
+    "For 2-minute home arm workout I want you to try a variation where you touch me up a little bit more aggressively and make me look a little bit more ripped. That's the only one. All the rest are approved."
+  ],
+  "previous_correction": "Spiderman Planks is row 10-A. Dan corrected the earlier spoken 9A reference to 10A.",
+  "finalization_feedback": "I like the more ripped R5. Let's go with that and lock that in. Everything is finalized. Create a handoff document for Claude to install all of these in a new task",
+  "verified_file_count": 35,
+  "replacement_export_count": 31,
+  "protected_original_count": 4
+}
