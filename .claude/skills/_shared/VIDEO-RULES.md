@@ -1,3 +1,22 @@
+## Ad or organic? Classify every video from its own ending before any upload (Dan, 2026-09-28)
+
+- **Before any upload or setup, decide from the finished video itself whether it is an AD or ORGANIC.** Read the
+  last 15 seconds of the finished file's transcript (the `finished-asr*.json` beside the build, or transcribe the
+  ending with `.claude/skills/ad-setup/transcribe.js`). Record the verdict and the exact closing words in the setup notes.
+  - **AD:** a definite direct-response call to action telling the viewer to act on the ad itself, e.g. *"tap the
+    button below"*, *"click the button below"*. Ads go through `/ad-setup` only: Unlisted YouTube + Google Ads.
+  - **ORGANIC:** a softer end call to action (*"go to AbsByAI.com"*, *"leave me a comment"*, *"follow for more"*)
+    with no "tap/click the button below". Organic goes through `/video-setup` only: Private YouTube holding copy +
+    Blotato release on every platform.
+- **If the request, handoff or queue label disagrees with the video, STOP before uploading anything and ask Dan**,
+  quoting the closing line: *"This handoff sets it up as an ad, but the video ends with 'leave me a comment' and has no
+  tap-the-button CTA, so it reads as organic. Set it up as organic instead?"* The same applies in reverse. Do the
+  read-only prep meanwhile; no YouTube, Google Ads or Blotato write until he answers.
+- **Why:** on 2026-09-27 a handoff sent DS-18 "How To Kettlebell Deadlift" (a dedicated organic Short ending *"Leave
+  me a comment"*) through the ad path: Unlisted upload plus two Google Ads groups that spent $0.62 before Dan caught
+  it. Job prefixes are a hint, not proof: `DS-`/`RO-`/`SL-` are normally organic and `RA-`/`AV-`/`AS-`/Ad N normally
+  ads, but the CTA in the video decides.
+
 ## Approved workout-app format, M100 excerpt and future clip placeholders (Dan, 2026-09-28)
 
 - **Workout-functionality demonstrations:** WV-01 round8's upright phone, exercise list, visible tap, then natural-speed landscape exercise video above its description is the approved impressive presentation format. Reference: `/Volumes/Extreme/_edit_work/wv01-edit/round8/graphics/early-app-flow.mp4`, reviewed at about0:30. Preserve phone shell, side presenter, readable UI and intact exercise action. Its documented review composition is not a live interaction recording. For WV-01, replace leg press with an at-home, minimal-equipment exercise, preferably toe touches or another ab exercise; bodyweight squat is the fallback.

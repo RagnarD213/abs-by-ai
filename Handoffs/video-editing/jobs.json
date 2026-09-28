@@ -710,13 +710,13 @@
    "codexModel": "GPT-6 Sol, medium",
    "codex": "Read `Handoffs/handoff-20260925-ds18-remove-corner-title.md` and execute the final R8 revision only. Preserve the approved R7 picture, audio, captions, CTA and cover except for removing the upper-right title. Run exact-file checks and independent review; deliver a private copy. Do not upload or publish.",
    "state": "uploaded",
-   "note": "Unlisted CMsb0qbo2vM + DGen ads 826267702259/826267702268 on 2026-09-27",
+   "note": "Organic: Private CMsb0qbo2vM + Blotato Sat Oct 3 9 AM CT (4938171-75); ad setup paused 09-28",
    "sub": "Workout",
    "order": 34,
-   "updated": "2026-09-27",
+   "updated": "2026-09-28",
    "by": "Claude",
-   "rev": 26,
-   "syncedRev": 26
+   "rev": 27,
+   "syncedRev": 27
   },
   {
    "id": "DS-19",

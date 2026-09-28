@@ -1,0 +1,4 @@
+[
+  { "adGroupOperation": { "update": { "resourceName": "customers/3427170837/adGroups/201586678778", "status": "PAUSED" }, "updateMask": "status" } },
+  { "adGroupOperation": { "update": { "resourceName": "customers/3427170837/adGroups/200462519173", "status": "PAUSED" }, "updateMask": "status" } }
+]

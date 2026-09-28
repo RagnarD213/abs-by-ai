@@ -1,6 +1,6 @@
 ---
 name: video-setup
-description: Take a FINISHED organic/content long-form video (usually an editor's final shared as a Google Drive link) all the way to scheduled on every platform: download and file it, build thumbnail variations for Dan to pick from, write the title, description with chapters and tags, upload the YouTube holding copy Private, and queue YouTube, Facebook, Instagram @danrosefit, and TikTok for release through Blotato. Use whenever Dan says a content video is "finished", "done", "final", sends a Drive link and asks to "queue it up", "set it up on all platforms", "put it in Blotato", "schedule it", or "get it on YouTube and everything else", even if he doesn't say "/video-setup". Paid ads go through /ad-setup; reviewing a cut is /revisions; thumbnails alone are /youtube-packaging; cutting Shorts is /shorts.
+description: Take a FINISHED organic/content video, long-form or a dedicated Short (usually an editor's final shared as a Google Drive link) all the way to scheduled on every platform: download and file it, build thumbnail variations for Dan to pick from, write the title, description with chapters and tags, upload the YouTube holding copy Private, and queue YouTube, Facebook, Instagram @danrosefit, and TikTok for release through Blotato. Use whenever Dan says a content video is "finished", "done", "final", sends a Drive link and asks to "queue it up", "set it up on all platforms", "put it in Blotato", "schedule it", or "get it on YouTube and everything else", even if he doesn't say "/video-setup". Paid ads go through /ad-setup; reviewing a cut is /revisions; thumbnails alone are /youtube-packaging; cutting Shorts is /shorts.
 ---
 
 Read `_shared/VIDEO-RULES.md` first.
@@ -19,6 +19,9 @@ Blotato owns the scheduled release, including YouTube. Never upload Public and n
 
 ## Step 0 — before anything
 
+- **CLASSIFY IT FIRST from the video's own ending** (`_shared/VIDEO-RULES.md`, "Ad or organic?", Dan 2026-09-28):
+  a "tap/click the button below" CTA = ad; "go to AbsByAI.com" / "leave me a comment" with no button CTA =
+  organic. If that verdict disagrees with how the request or handoff labels it, tell Dan and wait before any upload.
 - **IS THIS AN AD? If yes, STOP — this skill does not apply.** Ads are never published organically (Dan,
   2026-09-17; `AGENTS.md`); they go through `/ad-setup` only. Check the filed path (`<Editor> Ad Videos/…` = ad,
   `<Editor> Content Videos/…` = content) and `Docs/AD_VIDEO_IDS.md`. Dan asking to "set it up on all platforms" does
@@ -31,6 +34,21 @@ Blotato owns the scheduled release, including YouTube. Never upload Public and n
 - ffmpeg is NOT on PATH. Use `Media/video_edit/bin/ffmpeg` / `ffprobe` (absolute path from the project root).
 - Video builds cap is two across sessions — a frame extraction is trivial, but check
   `ps -Ao command | grep -E 'ffmpeg|render\.py|whisper'` before a contact sheet of a long video.
+
+## Shorts (DS-/SL- jobs): the same flow, the Shorts helper
+
+A dedicated Short is already filed in `Short-form video content/` and its cover is already approved, so skip Steps 1-2.
+Worked examples: DS-04, DS-17, DS-18 (`Docs/DS*_SETUP_RECEIPT_*.md`). Private holding upload (Step 4), then:
+build the TikTok cover-first copy with `tiktok_cover.build()` (absolute paths: relative ones break its concat list),
+upload master + TikTok copy + cover PNG with `blotato_create_presigned_upload_url` and hash-check each download,
+write `scripts/blotato/configs/<slug>.json` (copy `ds18-kettlebell-deadlift.json`), then
+`python3 scripts/blotato/organic_short_queue.py <config>` and `--apply`. It queues FB, IG @danrosefit, TikTok and the
+public YouTube release (Blotato account 46963) and verifies all four. Shorts go out Tue/Thu/Sat; pick a slot with no
+same-minute post on those accounts.
+
+**Fixing a wrong-path upload:** the upload token cannot change an existing video's visibility (no `youtube` scope).
+Switch it in Studio (`studio.youtube.com/video/<id>/edit` → Visibility → Private → Done → Save), then read back
+`privacyStatus: private` by API.
 
 ## Step 1 — download, verify, file
 

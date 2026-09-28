@@ -13,6 +13,17 @@ Last updated 2026-09-22.
   imports `scripts/blotato/ad_guard.py`; audit with `python3 scripts/blotato/ad_guard.py --scan`. See the incident below.
 - **NEW PERMANENT RULE (Dan, 2026-09-16): Blotato owns future organic YouTube releases.** Upload organic videos to YouTube as Private and leave them Private; queue the release through connected YouTube account `46963`. Never upload Public or use YouTube native scheduling. Ads remain Unlisted and are not released publicly on YouTube. Existing native schedules are historical and must not be copied into new work; avoid double-posting anything already queued under the old process.
 
+## DONE: DS-18 "How to Do Kettlebell Deadlifts the Right Way at Home" (2026-09-28)
+
+Organic Short, first set up as an ad by mistake on 09-27 (ads paused, $0.62 spent). Master SHA-256 `aa7fe874…` (41.9 s).
+YouTube holding copy `CMsb0qbo2vM` switched to **Private**. Keyword `TRAIN`, cover C r5, TikTok cover-first copy.
+
+| FB · IG @danrosefit · TikTok · YouTube |
+|---|
+| Sat Oct 3, 9 AM CDT (`4938171` / `4938172` / `4938174` / `4938175`) |
+
+- Full evidence: `Docs/DS18_SETUP_RECEIPT_20260928.md`.
+
 ## DONE: C1652 "Your Belly Fat Is an Emergency" RE-RELEASE moved to Sunday Oct 4 (2026-09-23)
 
 The 09-18 setup put it on a Wednesday (Sep 23), off the every-Sunday long-form cadence. It published at 9 AM on YouTube `YkrhNBTssPU` (Dan set it Private), Facebook reel `1073904172168151`, IG @danrosefit `Ddoecsjkhp3` and TikTok `7688730236640365855`. Those three are still live. Dan asked for a slightly different file re-released on Sunday.

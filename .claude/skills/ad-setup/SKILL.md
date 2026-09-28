@@ -34,6 +34,12 @@ stop to ask. The one thing Claude never does here: enable a paused campaign (`AD
 
 ## 0. Preconditions — 2 minutes, never skip
 
+- **It really is an AD** (`_shared/VIDEO-RULES.md`, "Ad or organic?", Dan 2026-09-28). Read the finished file's
+  closing words. A definite "tap/click the button below" CTA = ad. A "go to AbsByAI.com" / "leave me a comment"
+  ending with no button CTA = organic → `/video-setup`, not this skill. If the handoff calls it an ad but the video
+  reads organic (or the reverse), tell Dan with the quoted line and wait before any upload. DS-18 went through this
+  skill by mistake on 2026-09-27 because nobody checked.
+
 - **It is really final.** Use the exact review export Dan explicitly called finalized as the authority. A revision
   document is supporting history only: an old, abandoned or deliberately declined revision must never override Dan's
   finalization of a file. If the exact finalized reference cannot be identified, say that the HD export is unverified
