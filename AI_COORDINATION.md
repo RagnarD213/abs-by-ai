@@ -93,7 +93,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **Queue covers round 4 - NEEDS DAN 2026-09-26, Codex.** Only rows 12-14 and Instagram 16 are revised in `Short-form video content/covers/review/queue-bakeoff-20260924/round4-unfinished-20260926/index.html`. Seven covers and four literal grid crops checked; 28 locked hashes unchanged. Next: Dan reviews these four unfinished items. All queues and installed covers unchanged. Detail: `Docs/QUEUE_COVERS_R4_REVIEW_20260926.md`.
 
-**WV-01 round 7 - NEEDS DAN 2026-09-27, Codex.** A review: `http://127.0.0.1:8766/round7/index.html`. Opening, titles, laptop frames and mirror ready; approved locks preserved. Pool remains unresolved after three clothing-artifact failures. Motion estimate $4.984/$5; proposed different-model attempt $2.24 extra. Next: creative choices and pool budget decision. B deferred; dispatcher paused.
+**WV-01 round 7 - NEEDS DAN 2026-09-28, Codex.** A review (server restored, auto-restarts): `http://127.0.0.1:8766/round7/index.html`. Opening, titles, laptop frames and mirror ready; approved locks preserved. Pool remains unresolved after three clothing-artifact failures. Motion estimate $4.984/$5; proposed different-model attempt $2.24 extra. Next: creative choices and pool budget decision. B deferred; dispatcher paused.
 
 **RO-05 Fable recut - NEEDS DAN 2026-09-25, Claude.** 15:06 review copy delivered; 4 reviews, 0 picture defects; gate fails explained in notes. Next: Dan's verdict. `claude edited long form content/08 - How I Make My Daily Salad (Fable recut)/`
 
