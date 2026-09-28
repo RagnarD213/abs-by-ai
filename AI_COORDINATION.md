@@ -93,7 +93,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **Queue covers - NEEDS DAN 2026-09-28, Claude.** 24 installed, verified. Row 16 R5: Sep 27 IG arm-workout reel failed to post. Next: Dan: re-post with R5? `final-installation-20260928/installation/`.
 
-**WV-01 round 8 - NEEDS DAN 2026-09-28, Codex.** A-only contextual review: `http://127.0.0.1:8766/round8/index.html` (Chrome). Prior approvals and full mirror action preserved. Next: choose custom card, approve laptop endpoints and review revised scenes before full A assembly. Known cumulative motion $11.48; still charges unavailable. B deferred; dispatcher paused. Detail: `Handoffs/handoff-20260928-wv01-round8-A-only-revisions.md`.
+**WV-01 round 9 - READY 2026-09-28, Codex handoff.** Workout format and M100 approved; laptop endpoints approved for generation. Next: execute home-ab exercise swap, two natural smiling portrait/title variants and laptop motion. Other round8 choices remain pending. B deferred; dispatcher paused; cumulative generation allowance $20. Detail: `Handoffs/handoff-20260928-wv01-round9-home-exercise-portraits-laptop.md`.
 
 **RO-05 Fable recut - NEEDS DAN 2026-09-25, Claude.** 15:06 review copy delivered; 4 reviews, 0 picture defects; gate fails explained in notes. Next: Dan's verdict. `claude edited long form content/08 - How I Make My Daily Salad (Fable recut)/`
 
