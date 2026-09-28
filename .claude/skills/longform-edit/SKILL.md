@@ -33,9 +33,11 @@ For long-form: full-screen cards, lists and photo displays come from `softblue` 
 > washed-out colour (mids lifted to 0.38 against Muhammad's 0.22-0.27, saturation low), a synthesised swipe on every transition
 > (now banned in `sfxlib`), home-made graphics instead of Muhammad's, no finished-product hook, and punch-ins that cropped hair the
 > camera had captured. **None of those is measured by the delivery gate, and all of them decide whether Dan can publish.**
-> The order of work is now: (1) grade stills side by side with Muhammad's frames at his measured numbers, (2) a graphics and
-> transitions style board built from his actual frames, (3) ONE finished 60-90 s sample section judged side by side against
-> Muhammad, (4) only then the full cut. The failed build's recipe and lessons: `reference/ro05/README.md`; the from-scratch recut
+> The order of work is now the ROUND METHOD at the top of this file (Dan, 2026-09-28). The Fable recut that followed this banner
+> (grade stills, style board, one 75 s sample, then the full 15-minute cut in one go) was rejected too: *"that intro is fucking
+> awful"*, graphics to be redone one by one in Soft Blue Light, grade *"still looks washed out"* at median luma 0.28 / saturation
+> 0.33 (push saturation and vividness further, show 2-3 grade options). A recipe video opens ON CAMERA ("What's up guys, today I'm
+> going to show you how I make my daily salad"), then cuts to the finished dish and someone eating it, his audio running underneath. The failed build's recipe and lessons: `reference/ro05/README.md`; the from-scratch recut
 > handoffs: `Handoffs/handoff-20260923-ro05-recut-fable.md`, `Handoffs/handoff-20260923-ro05-recut-astra.md`.
 > The SFX guidance further down ("SFX on transitions", `riser` + `whoosh`) is superseded: no swipe sound effect, ever.
 >

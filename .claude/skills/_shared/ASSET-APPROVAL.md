@@ -1,6 +1,6 @@
 # Asset approval and placeholder editing
 
-Use this clip-record workflow inside [PRE-RENDER-APPROVAL.md](PRE-RENDER-APPROVAL.md). The first-30-second treatment, all graphics and all clips must be locked before a full render. This file does not authorize building a full placeholder film.
+Use this clip-record workflow inside [PRE-RENDER-APPROVAL.md](PRE-RENDER-APPROVAL.md). The look, every graphic (as a still screenshot, then in motion), every clip and the first minute must be locked before a full render. This file does not authorize building a full placeholder film.
 
 ## One early approval package
 
@@ -12,7 +12,7 @@ The owning editor prepares one compact package and continues independent plannin
 - stock or existing B-roll: a 0.5–15 second moving preview of the exact proposed source trim, crop and basic treatment, plus source ID/path, usage-rights evidence and hash;
 - whether the choice is new, previously approved and hash-matching, or reused without another approval.
 
-Prefer one strong AI frame pair. Offer alternatives only when a real creative choice cannot be resolved by the editor. Check the approved-clip library and exact existing assets before proposing new generation. Do not resubmit an unchanged approved asset merely because a later revision touches another scene.
+For an opener or other creative choice, offer 2-3 concepts (text first when Dan asks for ideas), then one strong frame pair per chosen concept; otherwise prefer one strong AI frame pair. AI clips pass three gates: concept, start/end frames, finished motion in context (round method, 2026-09-28). Check the approved-clip library and exact existing assets before proposing new generation. Do not resubmit an unchanged approved asset merely because a later revision touches another scene.
 
 ## Durable packet
 

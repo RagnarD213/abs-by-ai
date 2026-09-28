@@ -66,8 +66,8 @@ Before transcribing, picking a lav, or building a contact sheet for a source cli
 
 ## C. Claude's RO-05 salad cut, rejected 2026-09-23 (read `VIDEO-RULES.md` "RO-05 rejection")
 
-17. **Style before length.** Grade, graphics and transitions are proven on stills and one finished 60-90 s section side by side with
-    Muhammad before the full cut exists. RO-05 spent ten rounds fixing defects on a cut whose style Dan rejected on sight.
+17. **Style before length, in small rounds.** Look options, every graphic as a still screenshot, every clip, then the finished
+    FIRST MINUTE, and only then the full cut (`PRE-RENDER-APPROVAL.md`, the round method, Dan 2026-09-28). RO-05 spent ten rounds fixing defects on a cut whose style Dan rejected on sight.
 18. **Colour: match his numbers.** Median luma ~0.22-0.28 and median saturation ~0.32-0.39 on kitchen footage (his Ads 1 and 6, the
     approved C1652). A legacy "lift the mids" grade reads as washed out.
 19. **No swipe SFX; his transitions.** Silent bloom flashes and in-card whip-pans, measured off his ab-wheel HD master.

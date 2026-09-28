@@ -95,7 +95,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **WV-01 complete A - HANDOFF READY 2026-09-28, Codex.** All creative choices locked, including five benefits, mirror join/pool, V sit twist and3A. Next: execute `Handoffs/handoff-20260928-wv01-round12-complete-a-assembly-qa.md`: complete A, full QA and one independent review. B deferred; dispatcher paused. No build launched.
 
-**RO-05 Fable recut - NEEDS DAN 2026-09-25, Claude.** 15:06 review copy delivered; 4 reviews, 0 picture defects; gate fails explained in notes. Next: Dan's verdict. `claude edited long form content/08 - How I Make My Daily Salad (Fable recut)/`
+**RO-05 salad - ROUND 2 READY 2026-09-28, Claude.** Intro, graphics, grade rejected; cut good. Next: fire `Handoffs/handoff-20260928-ro05-round2-first-minute-and-graphics.md`.
 
 **STOP Deadlifting clip - NEEDS DAN 2026-09-20, Codex.** R3 review copy delivered to the shared Drive folder: `1dXUbQajUzM-uO_Xl92telO0qsa-Ob7uV`. Full head visible; measured bar path rises once without reversing. Silent B-roll has no matching full-film delivery gate, so no gate PASS is claimed. Next: Dan reviews R3 and approves or names any corrections. Detail: `Media/ai-frames/stop-deadlifting-opening-20260918/motion-v2/R3_DELIVERY.json`.
 
@@ -160,7 +160,7 @@ Memory `google-ads-ui-automation`.
 - `handoff-20260925-sl04-arms-shoulders-shorts-revisions.md` (09-25): SL-04 round 2 fixes. Opus 5.5 high.
 - `handoff-20260924-vsl-landing-five-mockups.md` (09-24): five VSL landing page mockups from VidTao research. Opus 5.5 high. Mockups only.
 - `handoff-20260924-generator-consult-call-outreach.md` (09-24): fire by 09-26.
-- `handoff-20260923-ro05-recut-fable.md` + `handoff-20260923-ro05-recut-astra.md` (09-23): RO-05 salad recut from scratch after Dan rejected Claude's cut; run both in parallel (bake-off). Fable 5.1 high / Astra high.
+- `handoff-20260928-ro05-round2-first-minute-and-graphics.md` (09-28): RO-05 round 2, first minute + Soft Blue Light graphic screenshots. Opus 5.5 high. (`handoff-20260923-ro05-recut-astra.md`: Codex bake-off half.)
 - `handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md` [dash]: PHONE ONLY, 3 TikTok covers (updated 09-22). Sonnet 5 or Fable 5.1 / Medium.
 - `handoff-20260915-finalized-ads-6-14-youtube-and-google-ads.md` — Ads 6, 7, 10, 14 → YouTube + DGen (2026-09-15). Codex, high.
 - **`video-editing/00-MASTER.md` — THE video-editing list (2026-09-16):** 16 raw short ads, 25 dedicated shorts, 8 long-forms, 3 shorts-from-long-form, 15 ad variants; one doc per job, Claude + Codex prompts. Supersedes the J1–J18 ad-variants queue. Dan picks the order.

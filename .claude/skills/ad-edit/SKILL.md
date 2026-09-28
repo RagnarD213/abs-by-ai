@@ -515,15 +515,15 @@ assertions, re-transcribe flagged joints from the FINISHED render) **plus:**
   check at both ratios.
 - The compliance scan above.
 
-**Review loop (the polish bar for ad #1, per Dan):** the fundamentals — clean
-script-true rough cut, zoom cuts everywhere, demo inserts and clearly-called-for
-graphics — done right in v1, then **expect significant revision rounds** where
-Dan specifies graphics/AI-clip placements. That's the design, not a failure.
-Sequence per ad:
+**Review loop = the round method (Dan, 2026-09-28; `_shared/PRE-RENDER-APPROVAL.md`).** Never a full v1 followed by
+revision rounds on graphics and clips: every graphic and clip is approved before the full render. Sequence per ad, each step
+its own small round closed by a handoff:
 
-1. Take reel for the first minute → Dan's picks.
-2. Full v1 (ad #1: both style variants) → Dan's notes.
-3. Revisions off the segment cache — a one-beat change re-renders in minutes.
+1. Take reel for the first minute, plus the look (2-3 grade options, crop stills, audio) → Dan's picks.
+2. Every graphic as a still screenshot on its real frame (exact copy, times, speech around it) and every clip in context;
+   AI clips concept, then start/end frames, then motion → Dan approves each; then the moving previews.
+3. The first minute (30 s for an ad under two minutes) finished with the approved parts → Dan's approval.
+4. Only then the full v1, from locked parts; revisions off the segment cache (a one-beat change re-renders in minutes).
    Deliver both ratios only once the 16:9 is approved (don't double every
    revision render).
 
@@ -1323,7 +1323,7 @@ filmed ads the same way:
 | Music bed ON for filmed ads, CC0/Pixabay (no attribution), chosen by measurement | LOCKED 2026-08-23 (Dan) |
 | Persistent CTA bar DROPPED for ad 1 rev-5; burned captions KEPT | Dan, 2026-08-23 |
 | Paid-ad graphics palette = `motionlib.J2AD`: black field, olive/dark-green headers, white body | Historical: superseded 2026-09-26 by Soft Blue Light (`_shared/softblue.py`) |
-| Minimal graphics first; Dan directs placements; learn | LOCKED |
+| Every graphic approved as a still screenshot, then in motion, before the full render (round method) | LOCKED 2026-09-28 |
 | Negative-imagery scan; remove certain violations, flag unsure ones | LOCKED |
 | NO before/after anywhere, incl. in-app UI; before → other → tagged after | LOCKED (2026-08-20, Dan's #1) |
 | Style: J2 graphics + CTA bar, MadMuscles captions, "abs" lowercase | LOCKED (2026-08-20) |

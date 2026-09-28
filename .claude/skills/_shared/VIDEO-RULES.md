@@ -59,6 +59,15 @@
 - Show Dan the **start and end frames plus the intended action** for approval before generating motion. Budget authorization does not replace frame approval. Materially different replacement frames require approval again.
 - Current stock choice (Dan, 2026-09-15): **Pexels and existing assets with known usage rights only; no paid stock service or subscription.** Use AI where the intended scene needs it. Keep a per-video generation total, including paid unsuccessful attempts. Gemini quality-review spend remains governed by its separate standing authorization.
 
+## The round method: small approval rounds, full render last (Dan, 2026-09-28)
+
+- *"The reason why Codex is making way better videos than you is that it's taking a way more stepwise approach. Rather than trying
+  to one-shot it and edit the video all in one, there are many small rounds of approval. I want you to copy this approach going
+  forward."* Every video skill follows [PRE-RENDER-APPROVAL.md](PRE-RENDER-APPROVAL.md): look options, then EVERY graphic as a still
+  screenshot on its real frame (Dan edits the text and approves each), then moving previews, every clip (AI: concept, frames,
+  motion), then the finished FIRST MINUTE, and only when nothing is pending the full video. One round per session, decisions
+  recorded with hashes and Dan's words, a handoff at the end of each round. This supersedes the 30-second and 60-90 s sample rules below.
+
 ## Approve the opening, all graphics and clips before a full render (Dan, 2026-09-26)
 
 - Read [PRE-RENDER-APPROVAL.md](PRE-RENDER-APPROVAL.md). Every video editing workflow uses the VSL round-4 approach: first 30 seconds to lock source-specific color/audio and opening treatment, all planned graphics with before/during/after speech, every clip in context, and proposed AI start/end frames. Finished AI clips are approved before full assembly unless their exact use was already explicitly authorized.
@@ -107,8 +116,8 @@ something that we can publish."* Every point below is a standing rule for every 
   not used.
 - **Effort before tokens.** *"Putting effort into it, not doing the color correction, not getting the cropping right, not doing the
   graphics right, that's a big waste of tokens. We need to avoid making any videos like this in the future."* Style (grade, graphics,
-  transitions) is proven on stills and one finished 60-90 s sample section against Muhammad side by side BEFORE the full video is
-  built. Ten rounds of reactive defect-fixing on a cut whose style was never right is the waste he means.
+  transitions) is proven in small rounds (look options, each graphic as a screenshot, the finished first minute) BEFORE the full
+  video is built (the round method above). Ten rounds of reactive defect-fixing on a cut whose style was never right is the waste he means.
 
 ## A before and after picture are the SAME PERSON (Dan, 2026-09-12)
 
@@ -283,7 +292,7 @@ something that we can publish."* Every point below is a standing rule for every 
 - **No added camera movement in horizontal16:9 presenter footage.** Do not pan, drift, track or recenter just because Dan shifts slightly. Keep a fixed composition within the shot; preserve approved framing sizes and deliberate cuts unless separately rejected. Check rendered footage, not just a fixed-center setting.
 - **Requested AI narrative clips require actual motion.** A static frame, start/end montage, slow image pan or brief motion fragment followed by a held endpoint is not a completed clip. Generate and validate the intended motion from approved assets; do not ask again for unchanged approved frames. This does not prohibit real photo displays or specifically approved scientific still illustrations.
 - **Three-photo screen template:** use three vertical real studio portraits with distinct poses and consistent presentation proportions; plural disclosure “Real pictures of me — not AI-generated,” clear of faces/abs. Save the tested layout for reuse.
-- **Organic graphics:** imitate Muhammad’s actual moving graphics, including lower-thirds and full-screen treatments. Use self-contained titles that name the topic. Specific approvals with limited requested edits take precedence over a general redesign; for C1652's Zepbound/stakes lists, enlarge text as requested and preserve the otherwise approved panel design.
+- **Organic graphics:** Soft Blue Light (GRAPHICS-STANDARDS.md, 2026-09-26) replaced the Muhammad graphics rebuild; lower thirds and full-screen treatments come from `softblue.py`. Use self-contained titles that name the topic. Specific approvals with limited requested edits take precedence over a general redesign; for C1652's Zepbound/stakes lists, enlarge text as requested and preserve the otherwise approved panel design.
 
 ## Horizontal footage stays completely static — Dan, 2026-09-17
 

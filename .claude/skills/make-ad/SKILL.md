@@ -108,8 +108,10 @@ Steps marked **[GATE]** stop and wait for Dan.
    Generate per the shot list: Veo for dialogue shots (pass the character
    stills as reference images + the bible in the prompt), Kling/Seedance for B-roll.
    QC each clip by extracting 3–4 frames (ffmpeg) and inspecting them: anatomy,
-   outfit match, setting match, no text artifacts. Auto-retry duds — pilot measured 10/10
-   first-try passes when every clip animates from a face-locked start frame. Only surviving clips go to Dan.
+   outfit match, setting match, no text artifacts. Auto-retry duds (pilot measured 10/10
+   first-try passes when every clip animates from a face-locked start frame).
+   **[GATE, round method 2026-09-28] Before any motion, Dan approves each clip's START and END frames with the action,
+   duration and cost; after generation he approves each finished clip in context.** Never generate motion from unapproved frames.
 9. **Assembly (ffmpeg, NOT CapCut).** Build `assembly/build.sh` per ad: concat clips
    in shot order, trim cuts to narration beats, lay the VO, duck a royalty-free
    music bed under it, burn bold captions (ASS subtitles, MadMuscles style: large,
@@ -117,7 +119,7 @@ Steps marked **[GATE]** stop and wait for Dan.
    any tweak is a one-line change + re-render, which is what makes variants cheap.
    Caption spec + word-timestamp method: see Lessons (canonical). If a cut feels flat,
    the clips + VO folder can go to a human editor (Romeysa) for polish instead.
-10. **[GATE] Dan approves the assembled ad** (send the MP4). He judges motion, lip
+10. **[GATE] Dan approves the first 30 seconds, then the assembled ad** (send the MP4; every graphic was approved as a screenshot first). He judges motion, lip
     sync, and pacing — frame QC can't catch those.
 11. **Variants.** Swap ONLY the hook (new 5s opening clip and/or first narration
     line), re-render via the assembly script. Name `<slug>_v1..vN` like MadMuscles.

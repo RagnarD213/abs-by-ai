@@ -1,6 +1,6 @@
 ---
 name: website-video
-description: Build a WEBSITE conversion video for absbyai.com — the trust video a visitor watches on the post-lock-in analysis page or the /start landing page right before they buy — from Dan's teleprompter shoot footage into a finished, gated 16:9 master, in ONE shot. Use this whenever Dan asks for a website video, a conversion video, a "video for the analysis page", a VSL / landing-page video, the "post-generation video", a re-cut or revision of the website video, or any video whose home is a page on absbyai.com rather than YouTube or an ad platform — even if he doesn't say "/website-video". It locks in the audio that sounds like Muhammad's, the hair-anchored framing, the slow trustworthy pacing, real app screens beside Dan, and AI clips re-rendered until perfect, and it QCs harder than any other video skill. For paid ads use /ad-edit; for YouTube content use /longform-edit; for Shorts use /shorts.
+description: Build a WEBSITE conversion video for absbyai.com — the trust video a visitor watches on the post-lock-in analysis page or the /start landing page right before they buy — from Dan's teleprompter shoot footage into a finished, gated 16:9 master, in small approval rounds (Codex's WV-01 method). Use this whenever Dan asks for a website video, a conversion video, a "video for the analysis page", a VSL / landing-page video, the "post-generation video", a re-cut or revision of the website video, or any video whose home is a page on absbyai.com rather than YouTube or an ad platform — even if he doesn't say "/website-video". It locks in the audio that sounds like Muhammad's, the hair-anchored framing, the slow trustworthy pacing, real app screens beside Dan, and AI clips re-rendered until perfect, and it QCs harder than any other video skill. For paid ads use /ad-edit; for YouTube content use /longform-edit; for Shorts use /shorts.
 ---
 
 Read `_shared/VIDEO-RULES.md` first.
@@ -123,7 +123,7 @@ The standard Dan locked on rev 4 ("lock that in and crop all the videos like thi
 - Trust cut: holds ≥ 9 s, pauses shortened to ~0.30 s (not 0.16), punch boundaries land on splices, NEAR/FAR alternate
   across every visible join, the hook opens on FAR, hardest splices covered first inside a 3.5 s floor. Nothing sits
   unchanged > 25 s. No SFX, no whooshes, cards fade 0.5 s. Median hold on rev 6: 3.75 s; longest 9.9 s.
-- **Graphics sparingly** (Dan: "much more sparingly"). What is allowed: lower thirds at the bottom of the frame
+- **Graphics are approved one by one in the rounds** (Soft Blue Light; WV-01 2026-09-28 is the current reference and supersedes the rev-6 "much more sparingly" note where Dan approved more). What is allowed: lower thirds at the bottom of the frame
   (now `softblue.lower_third`, formerly `lower_third_bar(bottom=1000)`), full-frame photo cards that fill the frame (before → Dan → after, never together),
   the trial / price / CTA cards, and **phone PiPs beside Dan** (433×820 in `PIP_BOX`, Dan at 65 %) for every app
   screen. Never a graphic on a near-black field with one small element; never a screen that looks lame (stick-figure
@@ -143,7 +143,7 @@ Read `reference/AI_CLIPS.md`. The short version: stills first (nano-banana from 
 frame, then Veo 3.1 Fast 8 s 1080p. **Every clip passes the acceptance checklist on frame strips of its first
 second, last second and whole length before it goes in — and a clip that fails is regenerated, not trimmed around,
 up to three attempts.** Trimming is for a clean clip that is too long, not for hiding a flaw (rev 4 shipped two
-tails that way). Same man, same ambience density, tagged AI-GENERATED upper-left at 1.5×, captions stay on.
+tails that way). Same man, same ambience density, tagged AI-GENERATED upper-left at 1.5×; captions follow the video's approved caption decision (WV-01 ships an SRT sidecar, no burned captions).
 
 ### 5. QC and delivery — more thorough than any other video
 
@@ -160,7 +160,7 @@ look, with `reference/REVIEW_HISTORY.md` open beside them — that list is exact
 retouch (a skin patch, a colour choice) ships as **two masters** (`_A` / `_B`) plus a region A/B clip so he can judge
 in twenty seconds instead of watching twice.
 
-## The one-shot pre-flight (run through this before you send anything)
+## The final-assembly pre-flight (the last round, only after every item is locked; run it before you send the full film)
 
 Each line is a revision that happened. If any line is not a measured yes, it is not ready.
 
@@ -236,9 +236,9 @@ cannot upload > 10 MB and the stored Google token is calendar-only — say so in
 | decision | status |
 |---|---|
 | Audio = the rev-2 chain + the 2026-09-09 approved dereverb, gated against Muhammad incl. the damage row; A/B every delivery | LOCKED 2026-09-02 / 09-09 |
-| Framing = hair-anchored NEAR/FAR/PIP, 4 % headroom, hairgate + detector-free test on delivered frames, never wide, never the light | LOCKED 2026-09-08 |
+| Framing = hair-anchored NEAR/FAR/PIP, 4 % headroom, hairgate + detector-free test on delivered frames, never the light; the crop itself is locked per source in the look round (WV-01: W2 wide / T2 tight, Dan 2026-09-25) | LOCKED 2026-09-08, updated 2026-09-28 |
 | Trust pacing: ≥ 9 s holds, ~0.30 s pauses, no SFX, cards fade 0.5 s | LOCKED 2026-09-01 |
-| Graphics sparingly; app screens as phone PiPs beside Dan; never a plate on black; never a lame screen | LOCKED 2026-09-02 |
+| Graphics approved one by one in Soft Blue Light (round method); app screens in the approved iPhone shell beside Dan; never a plate on black; never a lame screen | LOCKED 2026-09-02, updated 2026-09-28 |
 | Before → Dan → after, never side by side; no email form; no goal-image card at the close (emphasis on the prospect) | LOCKED 2026-08-20 / 09-08 |
 | AI inserts to break up the talking head, tagged, captions on; regenerate until perfect | LOCKED 2026-09-08 / 09-09 |
 | Steak, not chicken, in meal clips; home exercise clips without weights | Dan, 2026-09-09 |
