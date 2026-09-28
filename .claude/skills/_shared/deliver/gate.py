@@ -58,7 +58,7 @@ from _shared.deliver.common import Row                       # noqa: E402
 #   1.0.0  2026-09-11  first version. Folds in the rows of the seventeen per-video QC forks, adds
 #                      audio:lipsync and the compliance rows, and moves every bound into formats.py
 #                      with the file and date it was measured on.
-GATE_VERSION = "2.3.0"        # 1.1.0: an insert may declare its own label chip + position
+GATE_VERSION = "2.3.2"        # 1.1.0: an insert may declare its own label chip + position
                               # (a card hangs its chip off the card, not at the full-bleed waistline)
                               # 1.2.0  2026-09-12  Phase 2: five framing: rows on a portable tracker
                               # (FaceMesh + Apple Vision, no set-specific background) and stage 3 of
@@ -76,6 +76,10 @@ GATE_VERSION = "2.3.0"        # 1.1.0: an insert may declare its own label chip 
                               # restart in the delivered audio) and junk:dead_air (a silence
                               # inside the speech over the format's bound), both measured off the
                               # delivered file's own transcript (_shared/cut/junk.py).
+                              # 2.3.2  2026-09-28  audio:stamp honours a format's `synthetic_ok`
+                              # key; only exercise-demo sets it (cloned-voice narration gated with
+                              # audio_gate.py --synthetic). Every other format still rejects a
+                              # synthetic stamp. (2.3.1 is the uncommitted WV-01 caption_mode work.)
 
 STAMP_SUFFIX = ".deliver_gate.json"
 
