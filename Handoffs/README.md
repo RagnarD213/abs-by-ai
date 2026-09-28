@@ -13,6 +13,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
+| [handoff-20260928-queue-cover-crops-and-grid-shift.md](handoff-20260928-queue-cover-crops-and-grid-shift.md) | **Ready 2026-09-28. Claude Opus 5.5 / Medium. Due Sep 29 5 PM CT.** Shift 3 Codex covers grid-safe on IG/TikTok; tighten carbs and weigh-in photo crops. |
 | [handoff-20260928-install-finalized-queue-covers-claude.md](handoff-20260928-install-finalized-queue-covers-claude.md) | **Ready 2026-09-28. Claude Opus 5.5 / High.** Install the finalized Instagram/YouTube selections. Instagram 16 is stronger R5; 31 approved exports and four originals protected. Exact destinations, hashes and verification in the handoff. |
 | [handoff-20260928-wv01-round10-graphics-crops-photo.md](handoff-20260928-wv01-round10-graphics-crops-photo.md) | **Ready 2026-09-28. GPT-6 Sol / High.** Supersedes round9 handoff. Crunch approved as-is; revise before card/hold, crop approved laptop motion without generation, install selected portrait2 with studio-blue-173 and earlier entry, show three left-third variations with balanced top/bottom padding. B deferred; dispatcher paused. |
 | [handoff-20260926-ro01-r4-graphics-and-clips-approval.md](handoff-20260926-ro01-r4-graphics-and-clips-approval.md) | **Ready 2026-09-26. GPT-6 Astra / High.** Preserve approved color/audio; prepare every revised graphic and clip in context for approval. Opening ideas only until selected; no full render. |

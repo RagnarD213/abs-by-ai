@@ -91,7 +91,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # ACTIVE
 
-**Queue covers - NEEDS DAN 2026-09-28, Claude.** 24 installed, verified. Row 16 R5: Sep 27 IG arm-workout reel failed to post. Next: Dan: re-post with R5? `final-installation-20260928/installation/`.
+**Queue covers - HANDOFF 2026-09-28, Claude.** All installed; Dan approved the rest. Next: execute crops/grid-shift handoff before Sep 29 5 PM CT. Row 16 R5 re-post still Dan's call.
 
 **WV-01 round 10 - HANDOFF READY 2026-09-28, Codex.** Crunch approved, laptop crop-only, portrait2 locked with studio-blue-173 middle. Next: revise before card/hold, install earlier portraits, crop laptop10-15%, show three tighter left-third styles with equal padding. B deferred; dispatcher paused. Motion estimate $12.82/$20. Detail: `Handoffs/handoff-20260928-wv01-round10-graphics-crops-photo.md`.
 
@@ -156,6 +156,7 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
+- `handoff-20260928-queue-cover-crops-and-grid-shift.md` (09-28): 8 Hours cover due Sep 29 5 PM CT. Opus 5.5 medium.
 - `handoff-20260925-sl04-arms-shoulders-shorts-revisions.md` (09-25): SL-04 round 2 fixes. Opus 5.5 high.
 - `handoff-20260924-vsl-landing-five-mockups.md` (09-24): five VSL landing page mockups from VidTao research. Opus 5.5 high. Mockups only.
 - `handoff-20260924-generator-consult-call-outreach.md` (09-24): fire by 09-26.
