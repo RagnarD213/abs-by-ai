@@ -12,10 +12,11 @@
 
 ## Speedo photos: always crop at the shorts line (Dan, 2026-09-27)
 
-- **Any photo of Dan in the Speedo/briefs is cropped so it reads as regular shorts, never a Speedo.** Crop the bottom edge at the top of the waistband, leaving only a thin band of black showing (Dan's reference: the @danrosefit "version 2.0" post `DbobNx6gQPM`). Keep posting these photos; only the crop changes.
-- Applies to every surface: Instagram (both accounts), Facebook, TikTok photo posts, covers, thumbnails, site images and in-video real-photo displays. Real shorts (board shorts, Thai shorts, black gym shorts) are untouched.
-- Crop the bottom and sides only, never the hair (headroom rule). Instagram needs aspect 0.8 to 1.91; trim the sides to stay inside it. On a diagonal pose (lying, seated) crop the side instead of the bottom when a horizontal cut would lose the abs.
-- Before queuing any photo post, look at it for the Speedo. First sweep 2026-09-27 swapped 11 queued posts (9 photos); crops and boxes in `photos/finalized social media photos/_speedo-crops-20260927/`. Swap mechanics: `scripts/blotato/swap_media.py` (its "new schedule not found" line is read lag; re-fetch and MD5-check).
+- **Any standing photo of Dan in the Speedo/briefs is cropped so it reads as regular shorts, never a Speedo.** Show as much of the waistband as possible: put the bottom edge at the waistband's lower seam, stopping just before the leg openings (where the brief shape starts) appear at either hip. Keep posting these photos; only the crop changes.
+- **Leave seated and lying photos uncropped** (Dan: "It's not really possible to crop those"). The lying med-ball photo also stays as shot.
+- Trim unnecessary space above his head, keeping a little headroom and never cutting hair. On the extended-arm (pointing) pose, cropping the outstretched arm past the elbow is fine.
+- Applies to every surface: Instagram, Facebook, TikTok photo posts, covers, thumbnails, site images and in-video real-photo displays. Real shorts are untouched. Instagram needs aspect 0.8 to 1.91.
+- Before queuing any photo post, check it for the Speedo. Crops, boxes and swap maps from 2026-09-27: `photos/finalized social media photos/_speedo-crops-20260927/`. Swap mechanics: `scripts/blotato/swap_media.py` (its "new schedule not found" line is read lag; re-fetch and MD5-check).
 
 ## AI label on uploads: only for real AI footage (Dan, 2026-09-27)
 
