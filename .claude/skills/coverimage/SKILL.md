@@ -330,6 +330,15 @@ Impact and Copperplate live in `/System/Library/Fonts/Supplemental/`.
 - Upload the JPG with `blotato_create_presigned_upload_url`, PUT the bytes, then confirm the public URL serves the same SHA-256.
 - Back up the full schedule list first and diff every record after; nothing but the cover should differ.
 
+## TikTok and Facebook covers on the queue (2026-09-28)
+
+- TikTok: rebuild the frame-0 video with `tiktok_cover.build()` from the ORIGINAL uncovered source (the pre-cover
+  post body in `scripts/blotato/cover_backup/`), never from the queued file, or the old cover stacks under the new one.
+  Upload it, then `blotato_update_schedule` in place with the new `mediaUrls` and `videoCoverTimestamp: 0`.
+- Facebook: Blotato has no cover field, but the Graph API sets one on a LIVE reel. `scripts/blotato/fb_reel_covers.py`
+  does it via the LaunchAgent `com.absbyai.fb-reel-covers` every 20 minutes, from a copy in `~/.absbyai/fb-reel-covers/`
+  (launchd cannot read ~/Documents). Add a row to `fb_reel_covers.json` for every new FB reel and refresh the copy.
+
 ## Instagram: fixing the cover on a reel that is already posted (2026-09-10)
 
 - **Cause seen:** a Blotato post created without `coverImageUrl` (the 08-24 @danrosefit
