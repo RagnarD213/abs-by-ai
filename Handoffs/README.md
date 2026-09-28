@@ -1,6 +1,6 @@
 # Handoffs
 
-Every handoff document for Abs By AI, in one place. 170 documents (index updated 2026-09-28).
+Every handoff document for Abs By AI, in one place. 171 documents (index updated 2026-09-28).
 
 A handoff is a self-contained brief written so a fresh session can pick up work with no prior context.
 
@@ -14,7 +14,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 | Document | Fire when |
 |---|---|
 | [handoff-20260928-install-finalized-queue-covers-claude.md](handoff-20260928-install-finalized-queue-covers-claude.md) | **Ready 2026-09-28. Claude Opus 5.5 / High.** Install the finalized Instagram/YouTube selections. Instagram 16 is stronger R5; 31 approved exports and four originals protected. Exact destinations, hashes and verification in the handoff. |
-| [handoff-20260928-wv01-round9-home-exercise-portraits-laptop.md](handoff-20260928-wv01-round9-home-exercise-portraits-laptop.md) | **Executed 2026-09-28 by Codex.** Focused [round9 review](http://127.0.0.1:8766/round9/index.html): home-ab Crunch in approved format, two smiling three-photo variants, approved-endpoint laptop motion and left-third1/2. Awaiting choices, not finalized. Prior approvals preserved; B deferred. Delete this row once Dan approves. |
+| [handoff-20260928-wv01-round10-graphics-crops-photo.md](handoff-20260928-wv01-round10-graphics-crops-photo.md) | **Ready 2026-09-28. GPT-6 Sol / High.** Supersedes round9 handoff. Crunch approved as-is; revise before card/hold, crop approved laptop motion without generation, install selected portrait2 with studio-blue-173 and earlier entry, show three left-third variations with balanced top/bottom padding. B deferred; dispatcher paused. |
 | [handoff-20260926-ro01-r4-graphics-and-clips-approval.md](handoff-20260926-ro01-r4-graphics-and-clips-approval.md) | **Ready 2026-09-26. GPT-6 Astra / High.** Preserve approved color/audio; prepare every revised graphic and clip in context for approval. Opening ideas only until selected; no full render. |
 | [handoff-20260926-soft-blue-light-all-video-graphics-claude.md](handoff-20260926-soft-blue-light-all-video-graphics-claude.md) | **Executed 2026-09-26 (Claude).** Skills updated; module `_shared/softblue.py`, usage `_shared/SOFTBLUE.md`; demos on the SSD in `_edit_work/softblue-rollout/`. Carried the approved Soft Blue Light family and Motivation lower thirds into every Claude video workflow and reusable component. Prospective rollout, no bulk re-edit or publishing. |
 | [handoff-20260925-sl04-arms-shoulders-shorts-revisions.md](handoff-20260925-sl04-arms-shoulders-shorts-revisions.md) | **Ready 2026-09-25. Claude Opus 5.5 / High.** SL-04 round 2: flush top graphic on all five shorts, short 1 colour + hair, short 2 new centred pill text, short 3 "side laterals" context opener, short 5 hair recrop. No covers (Codex). |
