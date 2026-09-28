@@ -53,6 +53,67 @@ delivered mix → `ref.whisper.json`, `ln -s audio_final.wav his_mix.wav`, `kit_
 evidence the gate's `captions:sync` / `script_fidelity` rows need when the audio is ours). The worked chains are in
 `/Volumes/Extreme/_edit_work/kit9x16/ad1-raw/run_raw*.sh`.
 
+
+## For Dan: a vertical as one command (2026-09-28)
+
+A vertical of Muhammad's finished ad used to need a long AI editing session, mostly to write one sheet by hand:
+which graphic appears when, what it says, which picture, and whether that picture is real or AI. The kit now
+writes that sheet itself by laying Dan's graded raw footage over Muhammad's master frame by frame (wherever they
+stop matching, he added something), reading the text on screen with the Mac's own text reader, and finding the
+clean original of every picture in our libraries (the library it lives in says real or AI). It stops and asks
+("escalates") whenever it is not sure, instead of guessing. Muhammad and the other editors are never asked for
+anything. The only AI left is three small calls: "is this picture a bare physique?" (a fraction of a cent), which
+sentences make the <=0:59 cutdown (about 2 cents), and an optional second-opinion judge. The judged watch pass is
+still done by fresh reviewer sessions, because the model judge missed defects they catch (below).
+
+## Build order (automatic, from a master) -- `kit_run.py`
+
+```
+kit_run.py --master HIS.mp4 --build B --name "<title> | claude | 9x16 | ad N" --shoot <shoot folder> [--deliver <ad folder>]
+```
+
+| stage | script | what it does (no model unless named) |
+|---|---|---|
+| recover | `kit_recover.py` | his transcript (local Whisper), which roll(s) he cut from (>= 95 % of his words), the audio EDL (every window of his mix locked against every place his words occur in the roll, GCC-PHAT), his grade as a 33^3 LUT from matched pixels, then the EDL re-placed on his PICTURE every 3rd frame (split where the take offset steps) |
+| measure | `auto_measure.py` | every master frame vs Dan's graded raw: framing fit (interpolated through his push ramps), cell-by-cell agreement, head-box match, scene-change score |
+| content | `auto_content.py` | `content.json` + `assets.py` + `auto_content_report.json` (evidence and confidence per entry). Escalations stop the run (exit 3) |
+| setup .. mux | the kit's existing stages | unchanged (README build order above) |
+| prewatch | `kit_deliver.py gate` | audio gate `--verbatim`, plan, watch pass; then the run stops (exit 4) for the judged watch pass |
+| judge | fresh session judges (`watch/JUDGE_PROMPT.md`, thirds) -> `logs/findings_part1..3.json`; `--judge both` adds `gemini_judge.py` as a second opinion |
+| fold | `kit_fold.sh` | gate PASS or the run stops |
+| pick, cutdown | `cutdown_pick.py` (one text call), `kit_cutdown.py` | the <=0:59: model picks sentences; seams snapped, word tails kept, never opens inside an overlay, every seam proven on pixels; his mix only cut |
+| cutgate, cutfold, deliver | the same gates on the cutdown; copies masters, review copies, stamps, recipe |
+
+`run_report.json` in the build dir: every stage with its wall-clock, every AI call with its cost (`ai_ledger.jsonl`),
+every escalation, both gate verdicts.
+
+## What escalates (never guessed)
+
+* a banned screen read in his master (email capture, "Meet the new you"): trim or replace is Dan's call
+* a physique still with no provenance (no library file, no label in his master): every physique picture needs
+  exactly one correct label
+* two library copies of one picture that disagree on real vs AI; a library label that disagrees with his burned one
+* window, title or overlay text that two reads do not confirm, or that matches nothing he says
+* fewer than 95 % of his words found on the raw roll(s) (wrong shoot)
+
+REAL vs AI is never a model's call: a Gemini Flash classifier read three of Ad 1's AI clips as real at 0.95
+confidence (2026-09-28). The model is asked only "is this a bare physique?". Motion lifted from his master carries
+his own (Dan-approved) labelling; a picture never gets a second chip over his burned one.
+
+## Rules the measurement learned (2026-09-28, Ad 10 + Ad 1)
+
+* Agreement is judged cell by cell over the whole frame, never by a head-box score alone (a plain fridge scores 0.82
+  on a wrong framing). Talk agrees ~98 %, an insert ~15 %.
+* His framing ramps (Ad 1 opens on a 1.09 -> 1.26 zoom): interpolate between samples, never hold.
+* His window can hold a shifted Dan crop: a window is "text side dead + head box >= 0.88", not only cell agreement.
+* A shot whose panel words match the window beside it IS that window (judge the last settled read, not a half-typed one).
+* A white flash, a whip burst (< 0.4 s, every frame new) or an empty grid is a transition: its time goes to the
+  picture it leads into.
+* A phone is a tall card hole clearly bigger than the picture in it (the bezel); an app demo stays in cards.
+* Full bleed is for a physique photo; a clothed family snapshot goes in the card (both answer keys).
+* Vision reads "AI" as "Al"; its confidence is always 1.0, so a line counts only when two reads agree; a read
+  taken mid type-on misspells, so the fullest reads are ranked by how well they match what he says.
+
 ## Rules carried (do not re-open)
 
 * One format. Bound to his ranges in BOTH directions (`picture.json` lo/hi; overshoot is a warning).

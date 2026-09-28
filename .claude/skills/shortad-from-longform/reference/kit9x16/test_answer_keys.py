@@ -16,6 +16,9 @@ for ad, B in (("ad10", a.ad10), ("ad1", a.ad1)):
     cmd = [sys.executable, os.path.join(HERE, "compare_content.py"), "--auto", os.path.join(B, "content.json"),
            "--auto-assets", os.path.join(B, "assets.py"), "--key", os.path.join(K, "content.json"),
            "--key-assets", os.path.join(K, "assets.py"), "--out", out]
+    kr = os.path.join(K, "key_root.txt")
+    if os.path.exists(kr) and os.path.isdir(open(kr).read().strip()):
+        cmd += ["--key-root", open(kr).read().strip()]       # the key's relative media (its build dir's crops)
     if os.path.exists(base) and not a.accept:
         cmd += ["--baseline", base]
     r = subprocess.run(cmd, capture_output=True, text=True)

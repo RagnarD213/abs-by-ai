@@ -30,6 +30,9 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.abspath(os.path.join(HERE, "..", "..", "..", "..", ".."))
 FF = os.path.join(REPO, "Media/video_edit/bin/ffmpeg")
 SR = 16000
+KIT_VIGNETTE = [(0.05, 1.000), (0.15, 0.994), (0.24, 0.987), (0.34, 0.986), (0.44, 0.980), (0.53, 0.972),
+                (0.63, 0.941), (0.72, 0.881), (0.82, 0.791), (0.92, 0.696), (1.01, 0.633), (1.11, 0.469),
+                (1.21, 0.345), (1.30, 0.259), (1.40, 0.260)]
 LOCK = 0.30          # plain correlation at the found lag that counts as a lock (his mix has a music bed under it)
 PY = sys.executable
 
@@ -340,6 +343,9 @@ def fit_grade(B, master, E, rolls, fps):
         'CURVES = (\n    "scale=in_color_matrix=bt709:in_range=tv:flags=accurate_rnd+full_chroma_int,"\n'
         '    f"format=rgb48le,lut3d=file=\'{LUT}\':interp=tetrahedral,"\n'
         '    "scale=out_color_matrix=bt709:out_range=tv:flags=accurate_rnd+full_chroma_int"\n)\n\n'
+        "# The kit's output-coordinate vignette (vlib.vignette_mask): the same measured profile in every approved kit\n"
+        "# grade (Ad 1, Ad 10). It is the KIT'S constant, not a per-ad fit, and the LUT fit above excludes it.\n"
+        f"VIGNETTE = {KIT_VIGNETTE!r}\n\n"
         f"SUBJECT_CX = {sx}\n")
     return dict(pairs=int(len(X)), median_err_levels=round(err, 2), ungraded_err_levels=round(base_err, 2), subject_cx=sx)
 

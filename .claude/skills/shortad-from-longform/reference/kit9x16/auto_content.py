@@ -773,6 +773,34 @@ def main():
         if agree < 2:
             esc.append(dict(t0=ent["t0"], t1=ent["t1"], what=f"{'CTA' if is_cta else 'lower third'} text read only once", text=mode))
 
+    ctas.sort(key=lambda x: x["t0"])
+    # ---- the kit's grammar asks for template cta.count pills (his measured range); a master with fewer gets the
+    #      missing ones AT HIS OWN MEASURED POSITIONS (Ad 1: 0.43 and 0.77 of the runtime, the last one runs to the
+    #      end), each on a sentence start inside plain talk, clear of every graphic. Recorded as a deviation.
+    TPL = json.load(open(os.path.join(HERE, "template.json")))["cta"]
+    added_ctas = []
+    need = int(TPL.get("count", 3)) - len(ctas)
+    if need > 0:
+        busy = [(b["t0"], b["t1"]) for b in beats] + [(o["t0"], o["t1"]) for o in lts + ctas]
+        starts = [W[i][1] for i in range(1, len(W)) if W[i][1] - W[i - 1][2] >= 0.12 or W[i - 1][0][-1:] in ".?!,"]
+        for frac in (0.43, 0.77):
+            if need <= 0:
+                break
+            target = frac * dur
+            if any(abs(c["t0"] - target) < 15 for c in ctas):
+                continue
+            cands = [t for t in starts if all(t + TPL["dur_s"] + 0.3 < a_ or t - 0.3 > b_ for a_, b_ in busy)
+                     and all(st[int(q * fps)] == "talk" for q in np.arange(t, t + TPL["dur_s"], 0.1) if int(q * fps) < N)]
+            cands = [t for t in cands if abs(t - target) <= 20]
+            if cands:
+                t0 = min(cands, key=lambda t: abs(t - target))
+                c = dict(t0=round(t0, 3), t1=round(t0 + TPL["dur_s"], 3))
+                ctas.append(c); added_ctas.append(c); busy.append((c["t0"], c["t1"])); need -= 1
+        ctas.sort(key=lambda x: x["t0"])
+        for c in added_ctas:
+            rep_beats.append(dict(entry=dict(kind="cta", **c), confidence="high",
+                                  evidence=dict(source="added by the kit's grammar (template cta.count): not in his master")))
+
     beats.sort(key=lambda b: b["t0"])
     # an insert ENTRANCE that ended up as its own beat (the blurred phone zooming in, < 0.5 s, fast) followed at once
     # by the landed picture: it is not content (the kit draws its own entrance)
@@ -806,6 +834,9 @@ def main():
         ],
         beats=beats, lower_thirds=sorted(lts, key=lambda x: x["t0"]), ctas=sorted(ctas, key=lambda x: x["t0"]),
     )
+    for c in added_ctas:
+        C["deviations"].append([f"CTA {c['t0']:.2f}", "his master has fewer CTA pills than the kit's measured range; "
+                                "this one is added at his Ad 1 position on a sentence start in plain talk"])
     out = a.out or os.path.join(B, "content.json")
     json.dump(C, open(out, "w"), indent=1)
     write_assets(B, master, media, prep)

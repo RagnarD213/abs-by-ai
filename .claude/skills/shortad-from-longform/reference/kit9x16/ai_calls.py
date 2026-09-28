@@ -118,7 +118,12 @@ class Gemini:
         usd = cost_of(model, tin, tout)
         self.ledger.add(purpose=purpose, provider=self.name, model=model, tokens_in=tin, tokens_out=tout, usd=usd,
                         answer=txt[:2000])
-        return json.loads(txt) if json_out else txt
+        if not json_out:
+            return txt
+        try:
+            return json.loads(txt)
+        except json.JSONDecodeError:
+            return None                                          # a cut-off answer: the caller retries or escalates
 
     def classify_picture(self, image, question, choices, purpose="leftover"):
         prompt = (f"{question}\nAnswer with JSON: {{\"answer\": one of {json.dumps(choices)}, \"confidence\": 0..1, "
@@ -134,7 +139,7 @@ class Gemini:
         return self._call(model or self.model_judge, parts, purpose, max_tokens=32768)
 
     def text(self, prompt, purpose="cutdown", model=None):
-        return self._call(model or self.model_small, [{"text": prompt}], purpose)
+        return self._call(model or self.model_small, [{"text": prompt}], purpose, max_tokens=32768)
 
 
 class NoModel:

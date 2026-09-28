@@ -121,7 +121,9 @@ def crop_x_expr(t0, t1):
         dt = tb - ta
         if dt <= 1e-9 or abs(xb - xa) < 0.01: continue
         s = (xb - xa)/dt
-        terms.append(f'{s:+.6f}*clip(t-{ta:.4f}\\,0\\,{dt:.6f})')
+        # ta at 6 decimals: at a size step (thousands of px/s) 4-decimal rounding is ~0.25 px per step, and a beat
+        # with several picture cuts summed past the self-test's 0.5 px (kit9x16 autofill, Ad 10 30.13 s, 2026-09-28)
+        terms.append(f'{s:+.6f}*clip(t-{ta:.6f}\\,0\\,{dt:.6f})')
     e = ''.join(terms)
     return f'max(0\\,min({1920-CROP_W}\\,{e}))'
 
