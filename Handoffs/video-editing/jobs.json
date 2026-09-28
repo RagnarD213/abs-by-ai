@@ -1696,13 +1696,13 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/WV-01-vsl-1-analysis-page-video-version-a-version-b-intr.md`: cut \"VSL 1: Analysis-page video (version A + version B intro)\" from 9/23 roll C1692-C1700 with /website-video. Best take of every line, every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/WV-01-vsl-1-analysis-page-video-version-a-version-b-intr.md` with `$abs-edit-organic`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "delivered",
-   "note": "Round12 complete A review package: http://127.0.0.1:8766/round12/index.html . 1080p,540p,SRT,comparisons,QA and recipe. Sound/decode PASS; one independent audit confirmed source-splice jump04:31.071, full gate FAIL. Parked awaiting Dan complete-film verdict. B deferred, dispatcher paused. No generation or publishing.",
+   "state": "ready",
+   "note": "Round12 reviewed by Dan; round13 handoff ready at Handoffs/handoff-20260928-wv01-round13-individual-revision-approvals.md. Prepare changes-only individual approvals and audit all jump cuts. No full render until every revision approved. B deferred; dispatcher paused. Handoff preparation only, no generation or rendering.",
    "sub": "",
    "order": 81,
    "updated": "2026-09-28",
    "by": "Codex",
-   "rev": 39,
+   "rev": 40,
    "syncedRev": 1
   },
   {

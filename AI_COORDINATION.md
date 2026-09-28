@@ -93,7 +93,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **Queue covers - HANDOFF 2026-09-28, Claude.** All installed; Dan approved the rest. Next: execute crops/grid-shift handoff before Sep 29 5 PM CT. Row 16 R5 re-post still Dan's call.
 
-**WV-01 complete A - NEEDS DAN 2026-09-28, Codex.** Round12 package: http://127.0.0.1:8766/round12/index.html . Complete12:34 A; sound/decodePASS, independent jump4:31 and fullgateFAIL documented. Parked awaiting full-film verdict. B deferred; dispatcher paused. No generation/publishing.
+**WV-01 complete A - HANDOFF READY 2026-09-28, Codex.** Dan requested individual revisions after round12 review. Next: execute `Handoffs/handoff-20260928-wv01-round13-individual-revision-approvals.md`, show changes only and approve every item before a full render. B deferred; dispatcher paused. No generation or rendering during handoff preparation.
 
 **RO-05 salad - NEEDS DAN 2026-09-28, Claude.** Round 2 sent: grade A/B/C, new opening, first minute, 47 Soft Blue graphic stills at `http://127.0.0.1:8775/index.html`. Next: Dan's decisions, then fire `Handoffs/handoff-20260928-ro05-round3-graphics-motion-and-clips.md`.
 
