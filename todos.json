@@ -189,6 +189,30 @@
       "priority": "med",
       "addedAt": "2026-09-24",
       "why": "Dan 09-24 /prioritize: in progress on the $60/mo Grokbot subscription; Grokbot also takes lower-priority tasks."
+    },
+    {
+      "text": "Buy the filming lights: 2 Amaran 200x S + 2 NEEWER 35\" parabolic softboxes + NEEWER 7 ft stand 2-pack (~$735)",
+      "priority": "high",
+      "addedAt": "2026-09-28",
+      "why": "Dan 09-28 /prioritize. From the 09-23 footage review: face ~1.5 stops dark; big soft key light fixes it, both light the green screen. Links: amazon.com/dp/B08RMS1GZV, /B0FHH5XXCZ, /B00WS9XSSC. Then book Jeff's shoot for after delivery."
+    },
+    {
+      "text": "Get Claude pinned chats down to 1-2: finish or close each pinned session, then unpin",
+      "priority": "high",
+      "addedAt": "2026-09-28",
+      "why": "Dan 09-28 /prioritize: 9 pinned on 09-28."
+    },
+    {
+      "text": "Fix the SocialResponse account so its marketing email sends again",
+      "priority": "low",
+      "addedAt": "2026-09-28",
+      "why": "Dan 09-28 /prioritize: low priority, should be done eventually."
+    },
+    {
+      "text": "Get socialresponse.com working again",
+      "priority": "low",
+      "addedAt": "2026-09-28",
+      "why": "Dan 09-28 /prioritize: not a priority today."
     }
   ],
   "health": [
@@ -215,6 +239,12 @@
       "priority": "high",
       "recurring": true,
       "addedAt": "2026-09-22"
+    },
+    {
+      "text": "Reorder liquid vitamin D from Athletic Greens (AG1)",
+      "priority": "med",
+      "addedAt": "2026-09-28",
+      "why": "Dan 09-28 /prioritize."
     }
   ],
   "personal": [
