@@ -43,13 +43,11 @@ import sys; sys.path.insert(0, ".claude/skills/_shared"); import softblue as B
 approved `round10-opacity/recipe/build.py` overlay on four frames spanning the item reveals, including
 `shift_presenter()` at its defaults (the WV-01 W2 shift). For another source, pick `dx` (shift), `c0`
 (where the moved picture starts) and `wall_w` (empty wall only) so Dan's head sits centred between the
-card edge (x752) and the frame edge. 9:16 and 1:1 use the full-width adaptation described in
-GRAPHICS-STANDARDS: by default the card sits at the bottom (`anchor=("bottom", y)` or `("top", y)` to
-override). Stacked 9:16 layouts: `B.stack_vertical(horizontal_frame, t, heading, points, graphic="top"
-| "bottom", dur=d)` puts a 16:9 crop of Dan and the card in separate zones on the moving field. Samples
-with speech: `/Volumes/Extreme/_edit_work/softblue-rollout/left3a/left3a_r2_{v1_graphic_top_horizontal_crop,
-v2_graphic_bottom_horizontal_crop,v3_full_frame_graphic_bottom,sq_graphic_bottom}.mp4` (builder
-`make_left3a_r2.py` beside them; the round-1 `left3a_sample_*` files had the card mid-frame, rejected).
+card edge (x752) and the frame edge. 9:16 and 1:1 use the full-width adaptation locked by Dan on 2026-09-28: `B.left_third(frame, t, heading,
+points, dur=d)` on the full-frame portrait (or square) footage puts the card at the bottom by default.
+Approved samples: `/Volumes/Extreme/_edit_work/softblue-rollout/left3a/left3a_r2_v3_full_frame_graphic_bottom.mp4`
+and `left3a_r2_sq_graphic_bottom.mp4` (builder `make_left3a_r2.py` beside them). `B.stack_vertical()` (card
+above or below a horizontal crop) was shown and NOT selected; use it only if Dan asks for that layout.
 
 ## What is historical now
 

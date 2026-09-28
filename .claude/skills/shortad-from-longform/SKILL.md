@@ -15,7 +15,7 @@ Every new or revised graphic uses the approved Soft Blue Light family, and every
 
 For format conversions: reproducing an approved editor's finished style (this skill's main job) keeps that film's approved graphics. When Dan requests new or revised graphics in the vertical or square, build them with `softblue` instead of the editor's palette.
 
-**Left-third text/list graphics (Dan, 2026-09-28):** use the approved 3A card exactly in every horizontal video (`softblue.left_third`, fixed presenter via `softblue.shift_presenter`); squares put the full-width card at the bottom; verticals use one of the three approved-direction layouts (card on top or below a horizontal crop, or full-frame footage with the card at the bottom), never the card mid-frame over Dan. Spec and references: the 3A section of [GRAPHICS-STANDARDS.md](../_shared/GRAPHICS-STANDARDS.md). Adapt only the heading and points, and show one short contextual sample before a full edit.
+**Left-third text/list graphics (Dan, 2026-09-28):** use the approved 3A card exactly in every horizontal video (`softblue.left_third`, fixed presenter via `softblue.shift_presenter`); squares put the full-width card at the bottom; verticals keep the full-frame camera crop with the card over it at the bottom (locked 2026-09-28); never the card mid-frame over Dan. Spec and references: the 3A section of [GRAPHICS-STANDARDS.md](../_shared/GRAPHICS-STANDARDS.md). Adapt only the heading and points, and show one short contextual sample before a full edit.
 
 # /shortad-from-longform — a finished long-form cut, rebuilt vertical
 

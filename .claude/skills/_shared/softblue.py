@@ -355,7 +355,8 @@ def left_third(im, t, heading, items, dur=None, anchor=None):
 
 
 def stack_vertical(foot, t, heading, items, graphic="top", w=1080, h=1920, dur=None, gap=40):
-    """9:16 stacked layout: a horizontal (16:9) crop of Dan as a full-width band plus the 3A card in its
+    """NOT SELECTED (Dan, 2026-09-28 chose full-frame + card at the bottom for 9:16). Kept only for an
+    explicit request. 9:16 stacked layout: a horizontal (16:9) crop of Dan as a full-width band plus the 3A card in its
     own zone on the moving Soft Blue field, never over Dan. graphic="top": card above the footage;
     "bottom": footage above the card. The group is centred vertically and nudged up so the bottom
     ~16 % stays free for captions/platform UI. `foot` is the footage frame (any size, scaled to w
