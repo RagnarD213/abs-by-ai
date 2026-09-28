@@ -160,7 +160,10 @@ def main():
             if lk or la or k.get("media"):
                 r.update(key_label=lk, auto_label=la, label_ok=(lk == la))
                 if lk and la and lk != la:
-                    hard.append(dict(t=k["t0"], key=lk, auto=la))
+                    if r.get("media_ok") in (True, "same picture"):
+                        hard.append(dict(t=k["t0"], key=lk, auto=la))
+                    else:
+                        r["label_note"] = "different pictures: the key substituted another picture here, so the labels answer different pictures"
             rows.append(r)
         for i in ea:
             rows.append(dict(section=name, t=A[i]["t0"], auto_only=True, auto_kind=A[i].get("kind", name), auto_text=text_of(A[i]),

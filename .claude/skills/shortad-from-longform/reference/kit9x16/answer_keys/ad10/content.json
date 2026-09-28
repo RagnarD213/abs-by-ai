@@ -1,0 +1,68 @@
+{
+  "source": "Ad 10 approved 16:9 master, rebuilt with the locked kit9x16 grammar",
+  "words": "m.whisper.json",
+  "dur": 181.615,
+  "cta_top": "Get A FREE AI Image Of Yourself",
+  "cta_big": "With Abs",
+  "no_caps_kinds": ["cta", "stmt", "title", "window", "winmedia"],
+  "deviations": [
+    ["all talking head", "Recovered from C1601 raw camera with Muhammad's picture EDL; approved audio stream is untouched."],
+    ["all photos of Dan", "Clean source photos replace the 16:9 master's italic labels; kit labels are measured and kept off Dan's face and abs."],
+    ["app demonstrations", "The approved Dan-before to Dan-goal sequence is retained and split so real and AI labels never overlap."],
+    ["captions", "Word-timed captions are added for muted vertical feeds and suppressed under text-heavy plates."],
+    ["16:9 inserts", "Approved-master 16:9 motion inserts are shown in Muhammad's olive card rather than upscaled to full-bleed 9:16."]
+  ],
+  "beats": [
+    {"kind": "bleed", "media": "before_deckchair", "label_kind": "real", "caps": false, "t0": 0.000, "t1": 3.136},
+
+    {"kind": "bleed", "media": "real_red_shorts", "label_kind": "real", "caps": false, "t0": 8.108, "t1": 8.442},
+    {"kind": "bleed", "media": "real_towel", "label_kind": "real", "caps": false, "t0": 8.442, "t1": 8.775},
+    {"kind": "bleed", "media": "real_park_close", "label_kind": "real", "caps": false, "t0": 8.775, "t1": 9.109},
+    {"kind": "bleed", "media": "real_flag", "label_kind": "real", "caps": false, "t0": 9.109, "t1": 10.844},
+
+    {"kind": "window", "header": null, "bullets": ["I didn't get younger", "I didn't quit my job", "I didn't move into a gym"], "t0": 15.916, "t1": 20.120},
+
+    {"kind": "bleed", "media": "real_red_shorts", "label_kind": "real", "caps": false, "t0": 27.060, "t1": 28.629},
+    {"kind": "bleed", "media": "real_park_close", "label_kind": "real", "caps": false, "t0": 28.629, "t1": 30.063},
+
+    {"kind": "window", "header": "In today's episode", "bullets": ["What that story actually cost me", "The one thing that finally broke it", "How to generate a picture of yourself with six-pack abs for free"], "t0": 37.871, "t1": 47.514},
+    {"kind": "card", "media": "family_kitchen", "t0": 54.221, "t1": 57.891},
+    {"kind": "title", "headline": "Life would be so much better", "sub": "for you and your kids if you got in shape", "t0": 59.126, "t1": 63.130},
+    {"kind": "card", "media": "daughter_trip", "label_kind": "real", "caps": false, "t0": 63.130, "t1": 65.098},
+    {"kind": "card", "media": "daughter_event", "label_kind": "real", "caps": false, "t0": 65.098, "t1": 67.234},
+
+    {"kind": "bleed", "media": "ai_goal", "label_kind": "ai", "caps": false, "t0": 90.223, "t1": 93.226},
+    {"kind": "card", "media": "phone_goal", "caps": false, "t0": 93.226, "t1": 95.395},
+    {"kind": "title", "headline": "It stopped being a wish", "sub": "It became how I'm supposed to look", "t0": 99.166, "t1": 103.203},
+    {"kind": "bleed", "media": "real_pool_stand", "label_kind": "real", "caps": false, "t0": 106.173, "t1": 107.174},
+    {"kind": "bleed", "media": "real_pool_flex", "label_kind": "real", "caps": false, "t0": 107.174, "t1": 108.575},
+    {"kind": "card", "media": "ai_beach", "t0": 112.012, "t1": 114.982},
+
+    {"kind": "card", "media": "app1_before", "label_kind": "real", "caps": false, "t0": 121.822, "t1": 122.823},
+    {"kind": "card", "media": "app1_form", "label_kind": "real", "caps": false, "t0": 122.823, "t1": 125.659},
+    {"kind": "card", "media": "app1_goal_clean", "label_kind": "ai", "caps": false, "t0": 125.659, "t1": 127.361},
+    {"kind": "window", "header": null, "bullets": ["The AI scans both your current body fat and training status and exactly where you want to be.", "It builds a workout plan around the time you actually have and the equipment you actually own."], "t0": 127.361, "t1": 139.039},
+
+    {"kind": "card", "media": "food_snap", "t0": 151.585, "t1": 156.600},
+    {"kind": "window", "header": null, "bullets": ["No weighing", "No spreadsheets", "No hour of tracking you don't have"], "t0": 156.600, "t1": 159.926},
+    {"kind": "card", "media": "wife_notices", "t0": 165.032, "t1": 167.300},
+    {"kind": "card", "media": "gym_respect", "t0": 167.300, "t1": 169.469},
+    {"kind": "card", "media": "ai_beach_end", "t0": 169.469, "t1": 172.839},
+    {"kind": "card", "media": "app2_before", "label_kind": "real", "caps": false, "t0": 172.839, "t1": 173.874},
+    {"kind": "card", "media": "app2_form", "label_kind": "real", "caps": false, "t0": 173.874, "t1": 176.743},
+    {"kind": "card", "media": "app2_goal_clean", "label_kind": "ai", "caps": false, "t0": 176.743, "t1": 178.278}
+  ],
+  "lower_thirds": [
+    {"t0": 22.900, "t1": 26.000, "lines": ["I used AI"]},
+    {"t0": 68.800, "t1": 73.100, "lines": ["My Daughter Was Watching"]},
+    {"t0": 115.000, "t1": 118.100, "lines": ["Lose The Dad Bod For Good"]},
+    {"t0": 141.300, "t1": 144.600, "lines": ["It Works Around Your Injuries"]},
+    {"t0": 146.300, "t1": 150.900, "lines": ["One Dinner For The Whole Family"]},
+    {"t0": 159.926, "t1": 164.000, "lines": ["It Adjusts. You Don't Fall Off."]}
+  ],
+  "ctas": [
+    {"t0": 74.100, "t1": 76.900},
+    {"t0": 109.000, "t1": 111.800},
+    {"t0": 178.278, "t1": 181.615}
+  ]
+}

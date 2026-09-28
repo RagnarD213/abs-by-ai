@@ -25,12 +25,14 @@ import urllib.request
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.abspath(os.path.join(HERE, "..", "..", "..", "..", ".."))
 
-# USD per 1M tokens (input, output). Google AI pricing pages, paid tier, checked 2026-09-28. Output includes thinking.
+# USD per 1M tokens (input, output), ai.google.dev/gemini-api/docs/pricing, standard tier, checked 2026-09-28.
+# Output includes thinking. gemini-2.5-pro is closed to new users (404, 2026-09-28).
 PRICES = {
     "gemini-2.5-flash": (0.30, 2.50),
     "gemini-2.5-flash-lite": (0.10, 0.40),
-    "gemini-2.5-pro": (1.25, 10.00),          # prompts <= 200k tokens
-    "gemini-2.5-pro>200k": (2.50, 15.00),
+    "gemini-3.8-flash": (0.75, 3.75),          # through 2026-12-31; doubles 2027-01-01
+    "gemini-3.1-pro-preview": (2.00, 12.00),    # prompts <= 200k tokens
+    "gemini-3.1-pro-preview>200k": (4.00, 18.00),
 }
 
 
@@ -49,9 +51,9 @@ def _key():
 
 def cost_of(model, tin, tout):
     key = model
-    if model == "gemini-2.5-pro" and tin > 200_000:
-        key = "gemini-2.5-pro>200k"
-    pin, pout = PRICES.get(key, PRICES["gemini-2.5-pro"])      # unknown model: price it as the dearest we use
+    if model == "gemini-3.1-pro-preview" and tin > 200_000:
+        key = "gemini-3.1-pro-preview>200k"
+    pin, pout = PRICES.get(key, PRICES["gemini-3.1-pro-preview>200k"])   # unknown model: price it as the dearest
     return round(tin / 1e6 * pin + tout / 1e6 * pout, 6)
 
 
@@ -86,7 +88,7 @@ def _img_part(path):
 class Gemini:
     name = "gemini"
 
-    def __init__(self, ledger, model_small="gemini-2.5-flash", model_judge="gemini-2.5-pro"):
+    def __init__(self, ledger, model_small="gemini-2.5-flash", model_judge="gemini-3.1-pro-preview"):
         self.ledger, self.model_small, self.model_judge = ledger, model_small, model_judge
         self.key = _key()
 

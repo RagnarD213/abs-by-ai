@@ -56,6 +56,8 @@ CACHE = os.path.expanduser("~/.cache/kit9x16")
 T_TALK = 0.50          # whole-frame cell agreement at/above which Dan's graded raw picture is on screen
 T_INSERT = 0.45        # below which the editor covered him
 WIN_DEAD, WIN_LIVE = 0.25, 0.75   # a window: one side's agreement below DEAD, the other's above LIVE
+WIN_HEAD = 0.88                   # ... or Dan's head box on the live side matching at/above this (NCC)
+WIN_SOFT = 0.20                   # ... or above SOFT for most of 15 frames (the window's own push)
 CUT_SPIKE = 12.0       # scene-change score (mean |d| on 64x36 grey) of a hard cut
 MIN_SHOT = 6           # frames: shorter runs are a flash or a transition, absorbed
 OCR_EVERY = 5          # frames between Vision reads
@@ -64,7 +66,10 @@ MATCH_MIN_INLIERS = 25
 OLIVE = np.array([91, 97, 57], np.float32)
 REAL_RX = re.compile(r"real\s+picture|not\s+a[il]\W*generated", re.I)
 AI_RX = re.compile(r"^\W*a[il]\W*generated\W*$", re.I)
-CTA_RX = re.compile(r"image\s+of\s+yourself|with\s+abs|tap\s+the\s+button", re.I)
+# screens banned from a paid ad on sight: the email-capture form and the in-app BEFORE/AFTER split (AGENTS.md,
+# skill [A2]): a picture that reads like one escalates; the kit never ships it
+BANNED_RX = re.compile(r"enter\s+your\s+e-?mail|your\s+e-?mail|e-?mail\s+address|get\s+my\s+download|meet\s+the\s+new\s+you", re.I)
+CTA_RX = re.compile(r"image\s+of\s+yourself|^\W*with\s+abs\W*$|tap\s+the\s+button", re.I | re.M)
 NAME_AI = re.compile(r"(^|[^a-z])(ai|goal|generated|gag|veo|kling|seedream|flux)([^a-z]|$)", re.I)
 NAME_REAL = re.compile(r"before|original|photoshoot|photo-shoot|shoot|photo-\d", re.I)
 
@@ -144,6 +149,28 @@ def repair_with_speech(text, W, t0, t1):
         key = (m.group(1) + m.group(2)).lower()
         return words.get(key, m.group(0))
     text = re.sub(r"\b(\w+) (t|s|re|ve|ll|d|m)\b", fix, text)
+    near = [w.strip(",.?!\"") for w, a, b in W if b >= t0 - 6 and a <= t1 + 6]
+    # a word the editor typed without its apostrophe ("Its") or split in two ("Chat GPT") takes the spoken spelling
+    apo = {w.replace("'", "").replace("’", "").lower(): w for w in near if "'" in w or "’" in w}
+    toks = text.split(" ")
+    out_t, i = [], 0
+    while i < len(toks):
+        if i + 1 < len(toks):
+            joined = (toks[i] + toks[i + 1]).lower()
+            hit = next((w for w in near if w.lower() == joined and len(w) > 4), None)
+            if hit:
+                out_t.append(hit if toks[i][:1].isupper() == hit[:1].isupper() else hit[:1].swapcase() + hit[1:])
+                i += 2
+                continue
+        t_ = toks[i]
+        core = t_.strip(",.?!").lower()
+        if core in apo and core not in ("its",) or (core == "its" and "it's" in apo.values()):
+            rep = apo.get(core, "it's")
+            rep = rep[:1].upper() + rep[1:] if t_[:1].isupper() else rep
+            t_ = t_.replace(t_.strip(",.?!"), rep)
+        out_t.append(t_)
+        i += 1
+    text = " ".join(out_t)
     hy = {w.lower().strip(",.?!").replace("-", " "): w.strip(",.?!") for w, a, b in W if b >= t0 - 6 and a <= t1 + 6 and "-" in w}
     for plain, hyph in hy.items():
         text = re.sub(r"\b" + re.escape(plain) + r"\b", hyph, text, flags=re.I)
@@ -179,8 +206,11 @@ def frame_states(D):
     st = np.full(len(frac), "talk", dtype=object)
     st[frac < T_INSERT] = "insert"
     st[(frac >= T_INSERT) & (frac < T_TALK)] = "talk?"
-    winR = (left < WIN_DEAD) & (right > WIN_LIVE)
-    winL = (right < WIN_DEAD) & (left > WIN_LIVE)
+    rb, bx = D["r_box"], D["box"]
+    # ... or the text side is dead and Dan's HEAD box on the other side matches his raw picture closely (his window
+    # can hold a pushed or shifted crop that lowers the cell agreement: Ad 1 14-22 s; a photo card's box reads ~0.56)
+    winR = ((left < WIN_DEAD) & (right > WIN_LIVE)) | ((left < 0.15) & (bx == 1) & (rb >= WIN_HEAD))
+    winL = ((right < WIN_DEAD) & (left > WIN_LIVE)) | ((right < 0.15) & (bx == 2) & (rb >= WIN_HEAD))
     st[winR] = "window"
     st[winL] = "windowL"
     # "talk?" (between the two thresholds) joins whichever neighbour it sits next to
@@ -294,6 +324,8 @@ class Library:
                     prov = src["prov"]
                     if prov == "by-name":
                         prov = name_prov(p)
+                    elif prov == "by-name-else-real":            # a build's own asset folder: AI files are named so
+                        prov = "ai" if name_prov(p) == "ai" else "real"
                     files.append((p, typ, prov, si))
         self.files = files
         sig = hashlib.md5(json.dumps([(p, os.path.getmtime(p), si) for p, _, _, si in files]).encode()).hexdigest()[:12]
@@ -511,6 +543,82 @@ def main():
     if R:
         R[0].append("start")
 
+    def split_shots(n0, n1):
+        cuts = [n0] + isolated_spikes(cut, n0, n1) + [n1]
+        for b0, b1, c in B_:
+            if n0 + MIN_SHOT < c < n1 - MIN_SHOT and not any(abs(c - x) < MIN_SHOT for x in cuts):
+                cuts.append(c)
+        cuts = sorted(set(cuts))
+        shots = [[cuts[i], cuts[i + 1]] for i in range(len(cuts) - 1)]
+        merged = []
+        for s_ in shots:
+            if merged and s_[1] - s_[0] < MIN_SHOT:
+                merged[-1][1] = s_[1]
+            elif not merged and s_[1] - s_[0] < MIN_SHOT and len(shots) > 1:
+                shots[1][0] = s_[0]
+            else:
+                merged.append(s_)
+        return merged
+
+    def side_words(n0, n1, kind):
+        ws = set()
+        for n in sorted(O):
+            if n0 <= n < n1:
+                for l in O[n]:
+                    if (l["box"][2] < 1280 * 0.58) if kind != "windowL" else (l["box"][0] > 1280 * 0.42):
+                        ws |= set(norm(l["text"]).split())
+        return ws
+
+    def last_side_words(n0, n1, kind):
+        """The panel's words on the shot's LAST read that has any: a type-on reads 'INTODAY'S E P' first."""
+        for n in sorted((n for n in O if n0 <= n < n1), reverse=True):
+            ws = set()
+            for l in O[n]:
+                if (l["box"][2] < 1280 * 0.58) if kind != "windowL" else (l["box"][0] > 1280 * 0.42):
+                    ws |= set(norm(l["text"]).split())
+            if len(ws) >= 2:
+                return ws
+        return set()
+
+    # every insert run -> its shots; a SHOT that carries the same panel words as the window beside it is that
+    # window (his window's Dan crop can drift off the raw picture for a second or two, and his window slides in
+    # over a flash: Ad 1 13.7-14.8 s). The panel's words decide, not the picture agreement.
+    S_ = []
+    for r in R:
+        if r[0] == "insert":
+            for k_, (s0, s1) in enumerate(split_shots(r[1], r[2])):
+                S_.append(["insert", s0, s1, r[3] if k_ == 0 and len(r) > 3 else "his cut inside an insert"])
+        else:
+            S_.append(list(r))
+    changed = True
+    while changed:
+        changed = False
+        for i, r in enumerate(S_):
+            if r[0] != "insert":
+                continue
+            for j in (i - 1, i + 1):
+                if 0 <= j < len(S_) and S_[j][0] in ("window", "windowL"):
+                    a_, b_ = last_side_words(r[1], r[2], S_[j][0]), side_words(S_[j][1], S_[j][2], S_[j][0])
+                    if len(a_) >= 2 and len(a_ & b_) >= 0.6 * len(a_):
+                        r[0] = S_[j][0]; changed = True
+                        break
+        m_ = [S_[0]]
+        for r in S_[1:]:
+            if r[0] == m_[-1][0] and r[0] != "insert":
+                m_[-1][2] = r[2]
+            else:
+                m_.append(r)
+        S_ = m_
+    # consecutive insert shots form one insert group (the app-demo and entrance rules look across the group)
+    R = []
+    for r in S_:
+        if r[0] == "insert" and R and R[-1][0] == "insert" and R[-1][2] == r[1]:
+            R[-1][2] = r[2]; R[-1][4].append([r[1], r[2]])
+        elif r[0] == "insert":
+            R.append(["insert", r[1], r[2], r[3] if len(r) > 3 else "", [[r[1], r[2]]]])
+        else:
+            R.append(r)
+
     def samples_in(n0, n1, pad=0):
         return [(n, O[n]) for n in sorted(O) if n0 + pad <= n < n1 - pad]
 
@@ -539,80 +647,72 @@ def main():
         if kind == "talk":
             continue
         if kind in ("window", "windowL"):
-            dead = slice(0, 7) if kind == "window" else slice(9, 16)
-            S = samples_in(n0, n1)
-            text_side = (lambda b: b[2] < 1280 * 0.55) if kind == "window" else (lambda b: b[0] > 1280 * 0.45)
-            reads = []
-            for n, lines in S:
-                L = [l for l in lines if text_side(l["box"]) and cell_mean(n, l["box"]) < 0.5]
-                reads.append((n, L))
-            # the final state: the read with the most text in the last half, confirmed by another read
-            tail = [r for r in reads if r[0] >= n0 + (n1 - n0) // 2] or reads
-            best = max(tail, key=lambda r: sum(len(l["text"]) for l in r[1])) if tail else (n0, [])
-            key = lambda L: [norm(l["text"]) for l in L]
-            agree = sum(1 for r in reads if key(r[1]) == key(best[1]))
-            lines = sorted(best[1], key=lambda l: l["box"][1])
-            header, bullets = None, []
-            hts = [l["box"][3] - l["box"][1] for l in lines]
-            for l in lines:
-                t_ = l["text"]
-                glyph = bool(re.match(r"^[•▪■◾●\-–·]\s*", t_))
-                clean = re.sub(r"^[•▪■◾●\-–·]\s*", "", t_)
-                if not bullets and not glyph and (t_.isupper() or l["box"][1] < 150) and header is None:
-                    header = sentence_case(clean) if clean.isupper() else clean
-                    continue
-                if glyph or not bullets:
-                    bullets.append(clean)
+            # a window run can hold several plates back to back (Ad 1: the app window, then the statement): split
+            # it at his hard cuts / flash centres, then describe each plate
+            cuts_w = [n0] + isolated_spikes(cut, n0, n1) + [c for _, _, c in B_ if n0 + MIN_SHOT < c < n1 - MIN_SHOT] + [n1]
+            # ... and where the panel's words change completely between two reads (a new plate, no cut under it)
+            prev_r = None
+            for n, lines in samples_in(n0, n1):
+                ws = set(norm(" ".join(l["text"] for l in lines if (l["box"][2] < 1280 * 0.58) == (kind == "window"))).split())
+                if len(ws) >= 3:
+                    if prev_r and len(ws & prev_r[1]) < 0.25 * min(len(ws), len(prev_r[1])):
+                        lo, hi = prev_r[0], n
+                        cuts_w.append(max(range(lo + 1, hi + 1), key=lambda q: cut[q]))
+                    prev_r = (n, ws)
+            cuts_w = sorted(set(cuts_w))
+            plates = []
+            for i in range(len(cuts_w) - 1):
+                if plates and cuts_w[i + 1] - cuts_w[i] < 3 * MIN_SHOT:
+                    plates[-1][1] = cuts_w[i + 1]
                 else:
-                    prev_l = lines[lines.index(l) - 1]
-                    gap = l["box"][1] - prev_l["box"][3]
-                    if gap > 0.8 * (prev_l["box"][3] - prev_l["box"][1]):
-                        bullets.append(clean)
-                    else:
-                        bullets[-1] = bullets[-1] + " " + clean
-            bullets = [repair_with_speech(b, W, T(n0), T(n1)) for b in bullets]
-            checks = [best_spoken_match(b, W, T(n0), T(n1)) for b in bullets]
-            conf = "high" if agree >= 2 and bullets and min(c[0] for c in checks) >= 0.5 else "medium" if bullets else "low"
-            ent = dict(kind="window", header=header, bullets=bullets, t0=T(n0), t1=T(n1))
-            if kind == "windowL":
-                ent["dan_side"] = "left"
-            beats.append(ent)
-            rep_beats.append(dict(entry=ent, confidence=conf, evidence=dict(
-                frames=[n0, n1], boundary=how0, reads_agreeing=agree, read_frame=best[0],
-                transcript_check=[dict(line=b, ratio=c[0], spoken=c[1]) for b, c in zip(bullets, checks)],
-                left_agreement=round(float(left[n0:n1].mean()), 3), right_agreement=round(float(right[n0:n1].mean()), 3))))
-            if not bullets:
-                esc.append(dict(t0=T(n0), t1=T(n1), what="window with no readable bullets"))
-            elif agree < 2 or min(c[0] for c in checks) < 0.3:
-                esc.append(dict(t0=T(n0), t1=T(n1), what="window text not confirmed (reads disagree or no spoken match)",
-                                bullets=bullets, checks=checks))
+                    plates.append([cuts_w[i], cuts_w[i + 1]])
+            for p0, p1 in plates:
+                ent, ev_, e_ = describe_window(master, frames_dir, D, O, W, p0, p1, kind, T, cell_mean, media, prep, left, right)
+                ev_["boundary"] = how0 if p0 == n0 else "his cut inside the window run"
+                # consecutive plates that share their text are ONE plate: a cut on Dan's side under an unchanged or
+                # still-revealing panel (his bullets type on one by one). Only a panel whose words change is new.
+                prev = beats[-1] if beats and abs(beats[-1]["t1"] - ent["t0"]) < 0.05 else None
+                if prev is not None and prev.get("kind") in ("window", "stmt", "winmedia") and \
+                        (same_plate(prev, ent) or (ent["kind"] != "winmedia" and not text_key(ent))):
+                    keep_new = len(text_key(ent) or "") > len(text_key(prev) or "")
+                    if keep_new and prev["kind"] == ent["kind"]:
+                        for k_ in ("bullets", "header", "parts"):
+                            if k_ in ent:
+                                prev[k_] = ent[k_]
+                    prev["t1"] = ent["t1"]
+                    esc.extend(x for x in e_ if "no readable" not in x["what"])     # an empty read inside a merged plate is not a plate
+                    continue
+                beats.append(ent)
+                rep_beats.append(dict(entry=ent, confidence=ev_.pop("confidence"), evidence=ev_))
+                for x in e_:
+                    x["_plate"] = id(ent)
+                esc.extend(e_)
+            # a plate that was empty on its own and filled by a merge is fine
+            esc[:] = [x for x in esc if not ("no readable" in x["what"] and any(id(b) == x.get("_plate") and
+                                                                                   (b.get("bullets") or b.get("parts")) for b in beats))]
             continue
 
-        # ---- an insert: split into his shots
-        cuts = [n0] + isolated_spikes(cut, n0, n1) + [n1]
-        for b0, b1, c in B_:
-            if n0 + MIN_SHOT < c < n1 - MIN_SHOT and not any(abs(c - x) < MIN_SHOT for x in cuts):
-                cuts.append(c)
-        cuts = sorted(set(cuts))
-        shots = [[cuts[i], cuts[i + 1]] for i in range(len(cuts) - 1)]
-        merged = []
-        for s in shots:
-            if merged and s[1] - s[0] < MIN_SHOT:
-                merged[-1][1] = s[1]
-            elif not merged and s[1] - s[0] < MIN_SHOT and len(shots) > 1:
-                shots[1][0] = s[0]
-            else:
-                merged.append(s)
+        # ---- an insert group: his shots
+        merged = [list(x) for x in run_[4]]
         # a card's ENTRANCE (a short, fast-moving first shot straight out of talk: the phone zooming in blurred) is
         # not content: the beat starts when the picture has landed; the kit draws its own entrance
-        if len(merged) > 1 and merged[0][1] - merged[0][0] < 15 and float(np.median(cut[merged[0][0] + 1:merged[0][1]])) > 5.0:
+        if len(merged) > 1 and merged[0][1] - merged[0][0] < 18 and float(np.median(cut[merged[0][0] + 1:merged[0][1]])) > 5.0:
             merged = merged[1:]
-        run_beats = []
+        run_beats, trans = [], []
         for s0, s1 in merged:
             beat, ev = describe_shot(master, A, frames_dir, D, O, W, s0, s1, fps, T, lambda: lib_get(), AI, esc, media, prep, B)
             if beat:
                 beats.append(beat); run_beats.append((beat, ev))
                 rep_beats.append(dict(entry=beat, confidence=ev.pop("confidence"), evidence=ev))
+            elif ev.get("transition"):
+                trans.append((T(s0), T(s1)))
+                rep_beats.append(dict(entry=dict(kind="transition", t0=T(s0), t1=T(s1)), confidence="high", evidence=ev,
+                                      dropped="a transition: its time goes to the picture beside it"))
+        for a_, b_ in trans:                          # the picture it leads into takes it; out of a picture it is talk
+            nxt = next((bt for bt, _ in run_beats if abs(bt["t0"] - b_) < 0.02), None)
+            prv = next((bt for bt, _ in run_beats if abs(bt["t1"] - a_) < 0.02), None)
+            if nxt is not None:
+                nxt["t0"] = a_
         # an APP DEMO stays in one layout: a clean still between phone shots of the same insert is a card too
         if any(ev_.get("phone") for _, ev_ in run_beats):
             for b_, ev_ in run_beats:
@@ -626,7 +726,7 @@ def main():
             continue
         L = [l for l in O[n] if l["box"][1] > 720 * LT_TOP and cell_mean(n, l["box"]) < 0.5]
         if L:
-            L = sorted(L, key=lambda l: l["box"][1])
+            L = sorted(L, key=lambda l: (round(((l["box"][1] + l["box"][3]) / 2) / 30), l["box"][0]))
             ov.append((n, [l["text"] for l in L], [min(l["box"][0] for l in L), min(l["box"][1] for l in L),
                                                     max(l["box"][2] for l in L), max(l["box"][3] for l in L)]))
     # one overlay = consecutive reads whose text boxes overlap in height (a typewriter reveal reads "MyDaughte"
@@ -681,7 +781,7 @@ def main():
     for i, b_ in enumerate(beats):
         r_ = evs.get(id(b_))
         nxt = beats[i + 1] if i + 1 < len(beats) else None
-        if b_["kind"] in ("card", "bleed") and b_["t1"] - b_["t0"] < 0.5 and r_ and r_["evidence"].get("motion", 0) > 5.0 \
+        if b_["kind"] in ("card", "bleed") and b_["t1"] - b_["t0"] < 0.6 and r_ and r_["evidence"].get("motion", 0) > 5.0 \
                 and nxt and abs(nxt["t0"] - b_["t1"]) < 0.05:
             if keep and abs(keep[-1]["t1"] - b_["t0"]) < 0.05:
                 keep[-1]["t1"] = b_["t1"]              # out of another insert: that insert holds through it
@@ -721,6 +821,160 @@ def main():
     return 3 if esc else 0
 
 
+def banned_reads(O, n0, n1):
+    return [(n, l["text"]) for n in sorted(O) if n0 <= n < n1 for l in O[n] if BANNED_RX.search(l["text"])]
+
+
+def text_key(b):
+    if b.get("bullets"):
+        return norm(" ".join(b["bullets"]))
+    if b.get("parts"):
+        return norm(" ".join(p[0] for p in b["parts"]))
+    return None
+
+
+def same_plate(a, b):
+    """Two plates are one if they are the same kind and their words overlap (a reveal adds words, never replaces)."""
+    if a.get("kind") != b.get("kind"):
+        return False
+    if a["kind"] == "winmedia":
+        return True
+    ka, kb = set((text_key(a) or "").split()), set((text_key(b) or "").split())
+    if not ka or not kb:
+        return True
+    return len(ka & kb) >= 0.5 * min(len(ka), len(kb))
+
+
+OLIVE_INK = lambda rgb: (rgb[..., 1] > rgb[..., 2] + 35) & (rgb[..., 0] > rgb[..., 2] + 20) & (rgb[..., 1] > 110)
+WHITE_INK = lambda rgb: (rgb.min(axis=-1) > 150) & (rgb.max(axis=-1) - rgb.min(axis=-1) < 45)
+
+
+def line_styles(img, line, scale=1.5):
+    """-> [(word, "olive"|"white")] for one OCR line: the olive part of a two-colour line ("Chat GPT" in olive, "Or
+    Any" in white on the same line) found from the columns' ink colour, words placed by character count."""
+    x0, y0, x1, y1 = [int(v * scale) for v in line["box"]]
+    crop = img[max(0, y0):y1, max(0, x0):x1][..., ::-1].astype(np.int32)
+    words = line["text"].split()
+    if crop.size == 0 or not words:
+        return [(w, "white") for w in words]
+    ol, wh = OLIVE_INK(crop).sum(axis=0), WHITE_INK(crop).sum(axis=0)
+    total = len(line["text"])
+    out, pos = [], 0
+    for w in words:
+        a_, b_ = pos / total, (pos + len(w)) / total
+        c0, c1 = int(a_ * crop.shape[1]), max(int(a_ * crop.shape[1]) + 1, int(b_ * crop.shape[1]))
+        out.append((w, "olive" if ol[c0:c1].sum() > 1.2 * wh[c0:c1].sum() else "white"))
+        pos += len(w) + 1
+    return out
+
+
+def describe_window(master, frames_dir, D, O, W, n0, n1, kind, T, cell_mean, media, prep, left, right):
+    """A plate beside live Dan -> window (bullets), stmt (styled statement) or winmedia (a phone/app beside him)."""
+    esc = []
+    fps = float(D["fps"])
+    S = [(n, O[n]) for n in sorted(O) if n0 <= n < n1]
+    text_side = (lambda b: b[2] < 1280 * 0.58) if kind == "window" else (lambda b: b[0] > 1280 * 0.42)
+    reads = [(n, [l for l in lines if text_side(l["box"]) and cell_mean(n, l["box"]) < 0.5]) for n, lines in S]
+    tail = [r for r in reads if r[0] >= n0 + (n1 - n0) // 2] or reads
+    mx = max((sum(len(l["text"]) for l in r[1]) for r in tail), default=0)
+    full = [r for r in tail if sum(len(l["text"]) for l in r[1]) >= 0.9 * mx] or [(n0, [])]
+    # a read taken mid-animation misspells ("nelps otner"): of the full reads, the one closest to what he says
+    t0_, t1_ = T(n0), T(n1)
+    best = max(full, key=lambda r: best_spoken_match(" ".join(l["text"] for l in r[1]), W, t0_, t1_, pad=8.0)[0])
+    key = lambda L: norm(" ".join(l["text"] for l in L))
+    agree = sum(1 for r in reads if key(r[1]) and ratio(key(r[1]), key(best[1])) > 0.97)
+    lines = sorted(best[1], key=lambda l: l["box"][1])
+    rep_n = best[0]
+    fp = grab(master, rep_n / fps, os.path.join(frames_dir, f"f{rep_n:06d}.png"))
+    img = cv2.imread(fp)
+    t0, t1 = T(n0), T(n1)
+    ev = dict(frames=[n0, n1], reads_agreeing=agree, read_frame=rep_n, rep_frame=fp,
+              left_agreement=round(float(left[n0:n1].mean()), 3), right_agreement=round(float(right[n0:n1].mean()), 3))
+    # ---- winmedia: a PICTURE on the text side (a phone), its words small app chrome
+    side = img[:, :int(img.shape[1] * 0.58)] if kind == "window" else img[:, int(img.shape[1] * 0.42):]
+    tb = [[v * 1.5 for v in l["box"]] for l in lines]
+    bbox, olive_frac, pic_frac, hole = picture_bbox(side, tb if kind == "window" else [])
+    hts = [l["box"][3] - l["box"][1] for l in lines]
+    small_text = not hts or np.median(hts) < 26
+    if bbox is not None and pic_frac > 0.08 and small_text:
+        off = 0 if kind == "window" else int(img.shape[1] * 0.42)
+        cx = off + (bbox[0] + bbox[2]) // 2
+        x = int(min(max(cx - 304, 0), 1920 - 608))
+        mk = f"auto_{n0:05d}"
+        out = os.path.join("assets_auto", f"{mk}.mp4")
+        prep.append((out, t0, round(t1 - t0, 3), x))
+        media[mk] = ("vid", out, 0.0)
+        ent = dict(kind="winmedia", media=mk, t0=t0, t1=t1)
+        bad = banned_reads(O, n0, n1)
+        if bad:
+            esc.append(dict(t0=t0, t1=t1, what="a banned screen in his master (email capture / in-app before-after): trim or replace",
+                            first_seen=T(bad[0][0]), text=bad[0][1]))
+            ev["banned"] = bad[:3]
+        ev.update(source=f"portrait crop of his master at x={x} (the phone beside Dan)", picture_area=round(pic_frac, 3),
+                  ui_text=[l["text"] for l in lines], confidence="high")
+        return ent, ev, esc
+    glyphs = [bool(re.match(r"^[•▪■◾●\-–·]\s*", l["text"])) for l in lines]
+    styled = lines and not any(glyphs) and len(lines) >= 2
+    colours = []
+    if styled:
+        for l in lines:
+            colours.append(line_styles(img, l))
+        has_olive = any(c == "olive" for ws in colours for _, c in ws)
+        styled = has_olive or (max(hts) > 1.3 * min(hts))
+    if styled:
+        # ---- stmt: parts in reading order, each "ink" (small), "olive" (his accent colour) or "big"
+        small = min(hts)
+        parts = []
+        for l, ws in zip(lines, colours):
+            h = l["box"][3] - l["box"][1]
+            for w, c in ws:
+                st_ = "olive" if c == "olive" else ("big" if h > 1.3 * small else "ink")
+                if parts and parts[-1][1] == st_:
+                    parts[-1][0] += " " + w
+                else:
+                    parts.append([w, st_])
+        parts = [[repair_with_speech(p_, W, t0, t1), s_] for p_, s_ in parts]
+        full = " ".join(p_ for p_, _ in parts)
+        chk = best_spoken_match(full, W, t0, t1)
+        ent = dict(kind="stmt", parts=parts, t0=t0, t1=t1)
+        ev.update(transcript_check=dict(ratio=chk[0], spoken=chk[1]),
+                  confidence="high" if agree >= 2 and chk[0] >= 0.5 else "low")
+        if agree < 2 or chk[0] < 0.3:
+            esc.append(dict(t0=t0, t1=t1, what="statement text not confirmed", text=full))
+        return ent, ev, esc
+    # ---- window: header + bullets
+    header, bullets = None, []
+    for i, l in enumerate(lines):
+        t_ = l["text"]
+        glyph = glyphs[i]
+        clean = re.sub(r"^[•▪■◾●\-–·]\s*", "", t_)
+        if not bullets and not glyph and (t_.isupper() or l["box"][1] < 150) and header is None:
+            header = sentence_case(clean) if clean.isupper() else clean
+            continue
+        if glyph or not bullets:
+            bullets.append(clean)
+        else:
+            prev_l = lines[i - 1]
+            gap = l["box"][1] - prev_l["box"][3]
+            if gap > 0.8 * (prev_l["box"][3] - prev_l["box"][1]):
+                bullets.append(clean)
+            else:
+                bullets[-1] = bullets[-1] + " " + clean
+    bullets = [repair_with_speech(b, W, t0, t1) for b in bullets]
+    checks = [best_spoken_match(b, W, t0, t1) for b in bullets]
+    ent = dict(kind="window", header=header, bullets=bullets, t0=t0, t1=t1)
+    if kind == "windowL":
+        ent["dan_side"] = "left"
+    ev.update(transcript_check=[dict(line=b, ratio=c[0], spoken=c[1]) for b, c in zip(bullets, checks)],
+              confidence="high" if agree >= 2 and bullets and min(c[0] for c in checks) >= 0.5 else "medium" if bullets else "low")
+    if not bullets:
+        esc.append(dict(t0=t0, t1=t1, what="window with no readable bullets"))
+    elif agree < 2 or min(c[0] for c in checks) < 0.3:
+        esc.append(dict(t0=t0, t1=t1, what="window text not confirmed (reads disagree or no spoken match)",
+                        bullets=bullets, checks=checks))
+    return ent, ev, esc
+
+
 def describe_shot(master, A, frames_dir, D, O, W, s0, s1, fps, T, lib_get, AI, esc, media, prep, B):
     """One insert shot -> a content beat (title / card / bleed) + its evidence."""
     samp = [(n, O[n]) for n in sorted(O) if s0 <= n < s1]
@@ -743,6 +997,17 @@ def describe_shot(master, A, frames_dir, D, O, W, s0, s1, fps, T, lib_get, AI, e
     ev = dict(frames=[s0, s1], rep_frame=fp, olive=round(olive_frac, 3), picture_area=round(pic_frac, 3), motion=round(motion, 2),
               text=[l["text"] for l in text_lines], burned_label=burned)
     t0, t1 = T(s0), T(s1)
+    # a TRANSITION, not content: his white flash, or the empty grid a card flies in over
+    flash = float(img.mean()) > 185 and float(img.std()) < 40 and (s1 - s0) < 0.6 * fps      # a sunny beach is bright, not flat
+    whip = (s1 - s0) < 0.4 * fps and motion > 20                                             # every frame a new picture
+    if flash or whip or (pic_frac < 0.02 and words == 0 and olive_frac < 0.05):
+        ev.update(transition=True, confidence="high", why="white flash" if flash else "whip/flash burst" if whip else "empty field")
+        return None, ev
+    bad = banned_reads(O, s0, s1)
+    if bad:
+        esc.append(dict(t0=t0, t1=t1, what="a banned screen in his master (email capture / in-app before-after): trim or replace",
+                        first_seen=T(bad[0][0]), text=bad[0][1]))
+        ev["banned"] = bad[:3]
 
     # ---- a text plate (title)
     if words >= 3 and pic_frac < 0.03:
@@ -772,7 +1037,9 @@ def describe_shot(master, A, frames_dir, D, O, W, s0, s1, fps, T, lib_get, AI, e
     crop = img if bbox is None else img[bbox[1]:bbox[3], bbox[0]:bbox[2]]
     m = lib_get().match(crop) if crop.size else []
     ev["matches"] = [dict(file=r[1], inliers=r[0], typ=r[2], prov=r[3], t=round(r[4], 2), coverage=round(r[8], 3)) for r in m[:3]]
-    top = m[0] if m and m[0][0] >= MATCH_MIN_INLIERS else None
+    # a match counts when it is strong, or fair AND the library picture actually covers his (a 29-inlier "match" with
+    # 0 % coverage is two unrelated gym pictures sharing texture: Ad 1 136.3 s)
+    top = m[0] if m and (m[0][0] >= 40 or (m[0][0] >= MATCH_MIN_INLIERS and m[0][8] >= 0.3)) else None
     ui = [l["text"] for l in near[1] if not REAL_RX.search(l["text"]) and not AI_RX.search(l["text"])]
     tall = bbox is not None and (bbox[2] - bbox[0]) / max(1, bbox[3] - bbox[1]) < 0.75
     area = lambda b: max(1, (b[2] - b[0]) * (b[3] - b[1]))
@@ -795,7 +1062,11 @@ def describe_shot(master, A, frames_dir, D, O, W, s0, s1, fps, T, lib_get, AI, e
         prov, conf = None, "low"
     if top and top[2] == "img" and not phone:
         w, h = top[5], top[6]
-        beat["kind"] = "bleed" if (h > w or h >= 1440) else "card"
+        # full bleed is for a PHYSIQUE photo that is portrait or tall enough; a clothed family snapshot (Dan with his
+        # daughter) goes in the card, where the cover crop cannot make the child the subject (both answer keys)
+        tall_enough = h > w or h >= 1440
+        phys = is_physique(AI, top[1], ev) if tall_enough else None
+        beat["kind"] = "bleed" if tall_enough and phys is not False else "card"
         media[key] = ("img", top[1], 0, 1.0, {"oy": 0.0})
         ev["source"] = "clean library still"
         label = prov if prov in ("real", "ai") else burned
@@ -803,14 +1074,10 @@ def describe_shot(master, A, frames_dir, D, O, W, s0, s1, fps, T, lib_get, AI, e
             esc.append(dict(t0=t0, t1=t1, what=f"label conflict: library says {prov}, his burned label says {burned}", file=top[1]))
             conf = "low"
         if label is None:
-            ans = AI.classify_picture(fp, "This is a frame of a fitness ad. Does the picture show a man's physique "
-                                          "(bare torso/abs)? And is the picture a real photograph or AI-generated?",
-                                      ["real_physique", "ai_physique", "real_other", "ai_other"])
-            ev["ai_answer"] = ans
-            if ans and ans.get("confidence", 0) >= 0.8 and ans["answer"].endswith("other"):
-                label = "ai" if ans["answer"].startswith("ai") else None
+            if (phys if tall_enough else is_physique(AI, fp, ev)) is False:
+                ev["label"] = "no label: not a physique picture, no provenance"
             else:
-                esc.append(dict(t0=t0, t1=t1, what="a picture with no provenance and no label (every physique picture needs exactly one)", file=top[1]))
+                esc.append(dict(t0=t0, t1=t1, what="a physique still with no provenance and no label (every physique picture needs exactly one)", file=top[1]))
                 conf = "low"
         if label:
             beat["label_kind"] = label
@@ -827,7 +1094,7 @@ def describe_shot(master, A, frames_dir, D, O, W, s0, s1, fps, T, lib_get, AI, e
         else:
             media[key] = ("vid", master, t0)
             ev["source"] = "his master, lifted into the olive card"
-        still = motion < 2.0
+        still = is_still(B, D, s0, s1, bbox)
         ev["still"] = still
         if phone and top is not None and prov in ("real", "ai") and top[2] == "img":
             # the photo inside the app screen is a known picture of Dan: the kit's chip names it
@@ -846,30 +1113,73 @@ def describe_shot(master, A, frames_dir, D, O, W, s0, s1, fps, T, lib_get, AI, e
                 conf = "low"
         elif prov == "ai":
             beat["label_kind"] = "ai"; beat["caps"] = False
-        elif prov is None:
-            ans = AI.classify_picture(fp, "This is a frame of a fitness ad. Is the main picture AI-generated or a real "
-                                          "photo/video? Does it show a man's bare torso/physique?",
-                                      ["real_physique", "ai_physique", "real_other", "ai_other"])
-            ev["ai_answer"] = ans
-            if ans and ans.get("confidence", 0) >= 0.8:
-                if ans["answer"].startswith("ai"):
-                    beat["label_kind"] = "ai"; beat["caps"] = False
-                elif ans["answer"] == "real_physique" and still:
-                    esc.append(dict(t0=t0, t1=t1, what="a real physique still with no provenance"))
-                    conf = "low"
-            elif still and pic_can_be_dan(ev):
-                esc.append(dict(t0=t0, t1=t1, what="an unmatched still with no label and no classifier answer"))
-                conf = "low"
+            ev["label"] = "AI label: the matched file lives in an AI-generated library"
+        elif prov == "real":
+            ev["label"] = "no label: real footage (the real-picture label is for still photos of his physique)"
+        elif still:
+            # REAL vs AI is never a model's call (a Flash classifier read three of Ad 1's AI clips as real at 0.95);
+            # the model only answers "is this a physique?", and a physique still with no provenance escalates
+            if is_physique(AI, fp, ev) is False:
+                ev["label"] = "no label: a still that is not a physique picture, no provenance"
             else:
-                conf = "medium"
+                esc.append(dict(t0=t0, t1=t1, what="a physique still with no provenance: which library file is it (real or AI)?"))
+                conf = "low"
+        else:
+            ev["label"] = "carried as his approved master shows it: motion, no provenance, no label in his master"
+            conf = "medium"
     beat["media"] = key
     ev["confidence"] = conf
     ev["provenance"] = prov
     return beat, ev
 
 
-def pic_can_be_dan(ev):
-    return True
+_PHYS = {}
+
+
+def is_physique(AI, fp, ev):
+    """The ONE picture question a model is asked: does it show a bare male torso? True / False / None (unsure)."""
+    if fp in _PHYS:
+        ev["ai_answer"] = _PHYS[fp]
+        ans = _PHYS[fp]
+        return None if not ans or ans.get("confidence", 0) < 0.8 else ans.get("answer") == "physique"
+    ans = _PHYS[fp] = AI.classify_picture(fp, "This is a frame of a fitness ad. Does the main picture show a man's bare torso or "
+                                  "physique (shirtless, abs or chest visible)?", ["physique", "not_physique"])
+    ev["ai_answer"] = ans
+    if not ans or ans.get("confidence", 0) < 0.8:
+        return None
+    return ans.get("answer") == "physique"
+
+
+_MCACHE = {}
+
+
+def is_still(B, D, s0, s1, bbox):
+    """A still (a photo, maybe pushed in slowly) vs motion: align the shot's frames at 20 % and 80 % with an affine
+    ECC fit on the 256x144 master cache; a still leaves almost nothing once the push is taken out."""
+    path = os.path.join(B, "auto", "m256.rgb")
+    if path not in _MCACHE:
+        n = os.path.getsize(path) // (256 * 144 * 3)
+        _MCACHE[path] = np.memmap(path, np.uint8, "r").reshape(n, 144, 256, 3)
+    M = _MCACHE[path]
+    a, b = s0 + int(0.2 * (s1 - s0)), s0 + int(0.8 * (s1 - s0))
+    if b - a < 3:
+        return True
+    x0, y0, x1, y1 = (0, 0, 1920, 1080) if bbox is None else bbox
+    sl = (slice(int(y0 / 7.5) + 2, max(int(y0 / 7.5) + 6, int(y1 / 7.5) - 2)), slice(int(x0 / 7.5) + 2, max(int(x0 / 7.5) + 6, int(x1 / 7.5) - 2)))
+    g0 = cv2.cvtColor(np.ascontiguousarray(M[a]), cv2.COLOR_RGB2GRAY)[sl].astype(np.float32)
+    g1 = cv2.cvtColor(np.ascontiguousarray(M[b]), cv2.COLOR_RGB2GRAY)[sl].astype(np.float32)
+    if g0.size < 400:
+        return True
+    warp = np.eye(2, 3, dtype=np.float32)
+    try:
+        _, warp = cv2.findTransformECC(g0, g1, warp, cv2.MOTION_AFFINE,
+                                       (cv2.TERM_CRITERIA_EPS | cv2.TERM_CRITERIA_COUNT, 100, 1e-5), None, 5)
+    except cv2.error:
+        return False
+    w1 = cv2.warpAffine(g1, warp, (g1.shape[1], g1.shape[0]), flags=cv2.INTER_LINEAR + cv2.WARP_INVERSE_MAP)
+    m = 4
+    res = float(np.abs(w1[m:-m, m:-m] - g0[m:-m, m:-m]).mean())
+    return res < 5.0
 
 
 def write_assets(B, master, media, prep):

@@ -1,5 +1,5 @@
 {
- "about": "Where auto_content.py looks for the CLEAN original of a picture it finds in an editor's master, and what each place tells it about provenance. prov: real = Dan's real photos/footage, ai = AI-generated, app = product screens, by-name = decided from the file name (auto_content.NAME_RULES), none = unknown (a physique picture from here escalates). Order is priority: on a tie (same picture in two files) the larger file wins, then the earlier source.",
+ "about": "Where auto_content.py looks for the CLEAN original of a picture it finds in an editor's master, and what each place tells it about provenance. prov: real = Dan's real photos/footage, ai = AI-generated, app = product screens, by-name = decided from the file name (auto_content.NAME_RULES), none = unknown (a physique picture from here escalates). Order is priority: on a tie (same picture in two files) the larger file wins, then the earlier source. by-name-else-real = a build's own asset folder, where every AI file is named as AI (ai_*.mp4).",
  "sources": [
   {
    "dir": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/01 Before and After Images",
@@ -29,6 +29,30 @@
    "dir": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos",
    "prov": "real",
    "top_only": true
+  },
+  {
+   "dir": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/abs by ai images",
+   "prov": "ai"
+  },
+  {
+   "dir": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/abs by ai gemini clips",
+   "prov": "ai"
+  },
+  {
+   "dir": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/dan future visualizations",
+   "prov": "ai"
+  },
+  {
+   "dir": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/ad-assets",
+   "prov": "by-name"
+  },
+  {
+   "dir": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/B roll",
+   "prov": "real"
+  },
+  {
+   "dir": "/Volumes/Extreme/_edit_work/ad1-8-14/rev5/assets",
+   "prov": "by-name-else-real"
   },
   {
    "dir": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/00 ASSETS USED IN THE REFERENCE AD",

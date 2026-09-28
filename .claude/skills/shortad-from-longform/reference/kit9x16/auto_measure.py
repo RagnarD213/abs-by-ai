@@ -183,15 +183,18 @@ def main():
     fits = []
     prev = None
     prev_fr = 0.0
+    koff = 0                 # his picture's offset from the audio EDL: he HOLDS a take across an audio splice (A12.2)
     for n in range(0, N, a.step):
-        roll, k, _ = raw_of(n)
+        roll, k0, _ = raw_of(n)
         arr = R[roll][0]
+        k = min(max(k0 + koff, 0), len(arr) - 1)
         Mg = gray(M[n])
         same_shot = prev is not None and cut[max(1, n - a.step + 1):n + 1].max() < 6.0
         if prev is not None:
             fr, kk, _ = frac_at(Mg, arr, k, prev, span=2)
             if fr >= 0.75 or (same_shot and prev_fr < 0.35 and fr < 0.35):
-                fits.append(dict(n=n, frac=round(fr, 3), s=prev[1], dx=prev[2], dy=prev[3], box=prev[4], k=kk, reuse=True))
+                fits.append(dict(n=n, frac=round(fr, 3), s=prev[1], dx=prev[2], dy=prev[3], box=prev[4], k=kk,
+                                 koff=kk - k0, reuse=True))
                 prev_fr = fr
                 continue
         Mh = cv2.resize(Mg, (W // 2, H // 2), interpolation=cv2.INTER_AREA)
@@ -216,10 +219,22 @@ def main():
             cands.append(prev)
         best, best_fr, best_k = (0.0, 1.0, 0.0, 0.0, "c"), -1.0, k
         for c_ in cands:
-            fr, kk, _ = frac_at(Mg, arr, k, c_, span=3)
-            if fr > best_fr:
-                best, best_fr, best_k = c_, fr, kk
-        fits.append(dict(n=n, frac=round(best_fr, 3), s=best[1], dx=best[2], dy=best[3], box=best[4], k=best_k, reuse=False))
+            for kc in {k, k0}:
+                fr, kk, _ = frac_at(Mg, arr, kc, c_, span=3)
+                if fr > best_fr:
+                    best, best_fr, best_k = c_, fr, kk
+        # still poor: is it a held take? search ~2 s of raw either side with the candidate framings
+        if best_fr < 0.5 and cands and not (same_shot and prev_fr < 0.35):
+            for c_ in cands:
+                for dk in range(-60, 61, 3):
+                    kc = k0 + dk
+                    if 0 <= kc < len(arr):
+                        fr, kk, _ = frac_at(Mg, arr, kc, c_, span=1)
+                        if fr > best_fr + 0.12 and fr >= 0.45:
+                            best, best_fr, best_k = c_, fr, kk
+        koff = best_k - k0 if best_fr >= 0.45 else koff
+        fits.append(dict(n=n, frac=round(best_fr, 3), s=best[1], dx=best[2], dy=best[3], box=best[4], k=best_k,
+                         koff=best_k - k0, reuse=False))
         prev, prev_fr = best, best_fr
     json.dump(fits, open(os.path.join(A, "framing.json"), "w"))
 
@@ -234,11 +249,19 @@ def main():
         Mg = gray(M[n])
         base = n - n % a.step
         opts = [fs[x] for x in (base, base + a.step) if x in fs]
+        # his pushes are RAMPS (Ad 1 opens on a 1.09 -> 1.26 zoom; windows push slowly): between two samples the
+        # framing is interpolated, never held
+        if len(opts) == 2 and n != base and opts[0]["box"] == opts[1]["box"]:
+            w_ = (n - base) / a.step
+            opts.append(dict(box=opts[0]["box"], **{q: (1 - w_) * opts[0][q] + w_ * opts[1][q] for q in ("s", "dx", "dy")}))
         best = (-1.0, k, None, opts[0])
+        offs = {0} | {int(f_.get("koff", 0)) for f_ in (fs.get(base), fs.get(base + a.step)) if f_}
         for f in opts:
-            fr, kk, c = frac_at(Mg, arr, k, (0, f["s"], f["dx"], f["dy"], f["box"]), span=3)
-            if fr > best[0]:
-                best = (fr, kk, c, f)
+            for o_ in offs:
+                kc = min(max(k + o_, 0), len(arr) - 1)
+                fr, kk, c = frac_at(Mg, arr, kc, (0, f["s"], f["dx"], f["dy"], f["box"]), span=3)
+                if fr > best[0]:
+                    best = (fr, kk, c, f)
         frac[n], ks[n], cells[n] = best[0], best[1], best[2]
         f = best[3]
         boxid[n] = bmap[f["box"]]; scl[n] = f["s"]

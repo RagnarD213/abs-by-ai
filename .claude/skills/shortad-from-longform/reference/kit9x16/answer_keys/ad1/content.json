@@ -1,0 +1,566 @@
+{
+ "source": "/Volumes/Extreme/_edit_work/ad1-sq/beats.py",
+ "words": "/Volumes/Extreme/_edit_work/ad1-sq/m.whisper.json",
+ "dur": 232.768,
+ "cta_top": "Get A FREE AI Image Of Yourself",
+ "cta_big": "With Abs",
+ "no_caps_kinds": [
+  "cta",
+  "stmt",
+  "title",
+  "window",
+  "winmedia"
+ ],
+ "deviations": [
+  [
+   "2.80-6.75",
+   "His card is a SIDE-BY-SIDE before/after with a dashed arrow. Banned in our paid ads. Cut sequentially: the 200-lb photo with his '200 POUNDS' kicker, then the phone holding the goal image."
+  ],
+  [
+   "68.45-75.80 and 187.30-199.75",
+   "His product recording runs to its own end, which reaches the in-app BEFORE/AFTER at 26 s and the email-capture form at 29 s. Ours is held to the 0-25.0 s window and asserted in QC."
+  ],
+  [
+   "0.00-2.75",
+   "His callout frames the print taped to the door, which is outside the 9:16 crop. ATTEMPT 3: per Dan's rewrite the goal picture is shown as an inset GRAPHIC with his callout stroke instead (INSETS)."
+  ],
+  [
+   "11.45-14.30",
+   "Dan's rev 5: the 'today' photos hold 1.55 s longer than his cut -- the one authorised duration deviation. Time taken from the preceding talk ('And this is where I'm at today') and 0.70 s of the episode window."
+  ],
+  [
+   "73.60-75.80 and 197.30-199.75",
+   "Dan's rev 3: his cut never shows the generation's result. The app's own after-reveal screen (cropped above the email form) is added as a card at both product beats' ends."
+  ],
+  [
+   "all AI clips",
+   "AI-GENERATED labels added; his cut labels only some of them. His four\n                  AI clips also run FULL FRAME; ours are 1280x720, which is a 2.67x\n                  upscale at full bleed, so they go in his olive card instead -- a\n                  downscale, and still his own design language."
+  ],
+  [
+   "captions",
+   "His cut has none. Dan asked for full word-timed captions (his call from attempt 1); suppressed under every graphic that carries its own words."
+  ],
+  [
+   "captions",
+   "kit 2026-09-16: captions suppressed on the full-screen app recording and the phone-beside-Dan split (white type over the app's own white text was unreadable, judged), and on the three real 'today' photos (the caption band crossed his abs; the picture is the point, the line is short)"
+  ],
+  [
+   "171.80 statement",
+   "kit 2026-09-16: his card reads 'Its ... Chat GPT'; corrected to It's / ChatGPT (judged junk_card: a missing apostrophe in Dan's ad is an error whoever typed it)"
+  ],
+  [
+   "before pictures",
+   "kit 2026-09-17: the real BEFORE photographs of Dan carry the real-picture chip below the card too (AGENTS.md: every picture of his physique carries exactly one label; two judges flagged the unlabelled 200-lb card). The approved square left them unlabelled and Dan's board question on it is still open -- a real label on a real photo cannot be wrong"
+  ],
+  [
+   "ai_busydad",
+   "kit 2026-09-17: the AI 'stressed dad' clip is dropped (judged ai_giveaway: a forearm dissolves into a smear, the child's arms fuse); Dan's two REAL dad photos hold across its time instead. $0."
+  ]
+ ],
+ "beats": [
+  {
+   "kind": "bleed",
+   "media": "ai_goal_still",
+   "label_kind": "ai",
+   "t0": 0.0,
+   "t1": 2.95,
+   "at": "This picture got",
+   "until": "even real. I",
+   "pad_pre": 0.0,
+   "pad_post": 0.0
+  },
+  {
+   "kind": "card",
+   "media": "before_200lb",
+   "kicker": "200 pounds",
+   "caps": false,
+   "t0": 2.95,
+   "t1": 6.75,
+   "at": "generated this picture",
+   "until": "was 200 pounds.",
+   "pad_pre": 0.05,
+   "pad_post": 0.19,
+   "label_kind": "real"
+  },
+  {
+   "kind": "bleed",
+   "media": "today_towel",
+   "label_kind": "real",
+   "t0": 11.45,
+   "t1": 12.4,
+   "at": "And this is",
+   "until": "And this is",
+   "pad_pre": 0.15,
+   "pad_post": 0.0,
+   "caps": false
+  },
+  {
+   "kind": "bleed",
+   "media": "today_trees",
+   "label_kind": "real",
+   "t0": 12.4,
+   "t1": 13.35,
+   "at": "where I'm at",
+   "until": "I'm at today.",
+   "pad_pre": 0.02,
+   "pad_post": 0.25,
+   "caps": false
+  },
+  {
+   "kind": "bleed",
+   "media": "today_flag",
+   "label_kind": "real",
+   "t0": 13.35,
+   "t1": 14.3,
+   "at": "In today's episode,",
+   "until": "In today's episode,",
+   "pad_pre": 0.07,
+   "pad_post": 0.08,
+   "caps": false
+  },
+  {
+   "kind": "window",
+   "header": "In today's episode",
+   "bullets": [
+    "How I got limitless motivation to work out, to eat healthy.",
+    "What I needed to do to lose my belly fat and get six-pack abs.",
+    "How you can generate a goal picture of yourself with abs for free."
+   ],
+   "t0": 14.3,
+   "t1": 26.95,
+   "at": "I'm going to",
+   "until": "abs for free.",
+   "pad_pre": 0.08,
+   "pad_post": 0.03
+  },
+  {
+   "kind": "title",
+   "headline": "Visualizing your goal",
+   "sub": "One of the most powerful ways to motivate yourself",
+   "t0": 43.9,
+   "t1": 47.95,
+   "at": "Visualizing your goal",
+   "until": "to motivate yourself",
+   "pad_pre": 0.18,
+   "pad_post": 0.15
+  },
+  {
+   "kind": "card",
+   "media": "bodybuilder",
+   "label_kind": "real",
+   "t0": 47.95,
+   "t1": 50.45,
+   "at": "to attract the",
+   "until": "want into your",
+   "pad_pre": 0.21,
+   "pad_post": 0.25
+  },
+  {
+   "kind": "bleed",
+   "media": "photoshop_gag",
+   "label_kind": "ai",
+   "t0": 61.45,
+   "t1": 66.3,
+   "at": "The problem is,",
+   "until": "wasn't really you.",
+   "pad_pre": 0.13,
+   "pad_post": 0.1,
+   "flash_after": true
+  },
+  {
+   "kind": "winmedia",
+   "media": "app_flow_a",
+   "t0": 68.45,
+   "t1": 73.6,
+   "at": "With AI, you",
+   "until": "body, with the",
+   "pad_pre": 0.01,
+   "pad_post": 0.0
+  },
+  {
+   "kind": "card",
+   "media": "after_reveal",
+   "label_kind": "ai",
+   "t0": 73.6,
+   "t1": 75.8,
+   "at": "ripped six pack",
+   "until": "you've always wanted.",
+   "pad_pre": 0.02,
+   "pad_post": 0.06
+  },
+  {
+   "kind": "bleed",
+   "media": "bl_home_abs",
+   "t0": 81.2,
+   "t1": 86.9,
+   "at": "You'd realize how",
+   "until": "life would be.",
+   "pad_pre": 0.04,
+   "pad_post": 0.12
+  },
+  {
+   "kind": "window",
+   "header": null,
+   "bullets": [
+    "You can generate an AI image of yourself with ripped six-pack abs",
+    "COMPLETELY FREE"
+   ],
+   "t0": 91.85,
+   "t1": 97.05,
+   "at": "you can generate",
+   "until": "abs, completely free.",
+   "pad_pre": 0.01,
+   "pad_post": 0.19
+  },
+  {
+   "kind": "card",
+   "media": "ai_women_pool",
+   "label": "AI-GENERATED",
+   "label_kind": "ai",
+   "t0": 101.5,
+   "t1": 106.25,
+   "at": "and getting six",
+   "until": "attractive to women.",
+   "pad_pre": 0.0,
+   "pad_post": 0.19
+  },
+  {
+   "kind": "card",
+   "media": "ai_respect_gym",
+   "label": "AI-GENERATED",
+   "label_kind": "ai",
+   "t0": 106.25,
+   "t1": 107.6,
+   "at": "Men respect you",
+   "until": "respect you more.",
+   "pad_pre": 0.17,
+   "pad_post": 0.06
+  },
+  {
+   "kind": "card",
+   "media": "ai_beachrun",
+   "label": "AI-GENERATED",
+   "label_kind": "ai",
+   "t0": 107.6,
+   "t1": 111.0,
+   "at": "You feel better.",
+   "until": "your health improves.",
+   "pad_pre": 0.22,
+   "pad_post": 0.48
+  },
+  {
+   "kind": "bleed",
+   "media": "bl_older_man",
+   "t0": 113.95,
+   "t1": 116.3,
+   "at": "If you're not",
+   "until": "days a week",
+   "pad_pre": 0.09,
+   "pad_post": 0.1
+  },
+  {
+   "kind": "bleed",
+   "media": "bl_salad",
+   "t0": 116.3,
+   "t1": 117.95,
+   "at": "eating healthy right",
+   "until": "healthy right now,",
+   "pad_pre": 0.22,
+   "pad_post": 0.29
+  },
+  {
+   "kind": "card",
+   "media": "before_200lb",
+   "t0": 126.4,
+   "t1": 128.75,
+   "at": "I wanted to",
+   "until": "back so bad,",
+   "pad_pre": 0.08,
+   "pad_post": 0.07,
+   "label_kind": "real"
+  },
+  {
+   "kind": "card",
+   "media": "dad_ride",
+   "t0": 132.4,
+   "t1": 134.35,
+   "at": "a 38 year",
+   "until": "a 38 year",
+   "pad_pre": 0.14,
+   "pad_post": 0.0,
+   "label_kind": "real"
+  },
+  {
+   "kind": "card",
+   "media": "dad_standing",
+   "t0": 134.35,
+   "t1": 136.3,
+   "at": "old dad",
+   "until": "old dad",
+   "pad_pre": 0.01,
+   "pad_post": 0.28,
+   "label_kind": "real"
+  },
+  {
+   "kind": "bleed",
+   "media": "bl_alone_gym",
+   "t0": 136.3,
+   "t1": 137.9,
+   "at": "Nothing worked to",
+   "until": "to motivate me",
+   "pad_pre": 0.08,
+   "pad_post": 0.14
+  },
+  {
+   "kind": "card",
+   "media": "phone_mock",
+   "t0": 137.9,
+   "t1": 142.85,
+   "at": "I generated this",
+   "until": "times a day,",
+   "pad_pre": 0.3,
+   "pad_post": 0.05
+  },
+  {
+   "kind": "card",
+   "media": "outdoor_abs",
+   "t0": 148.8,
+   "t1": 152.45,
+   "at": "And that's what",
+   "until": "and consistently to",
+   "pad_pre": 0.02,
+   "pad_post": 0.07
+  },
+  {
+   "kind": "bleed",
+   "media": "bl_mealprep",
+   "t0": 152.45,
+   "t1": 153.75,
+   "at": "prep every week,",
+   "until": "prep every week,",
+   "pad_pre": 0.21,
+   "pad_post": 0.15
+  },
+  {
+   "kind": "bleed",
+   "media": "bl_track",
+   "t0": 153.75,
+   "t1": 155.1,
+   "at": "track my calories,",
+   "until": "track my calories,",
+   "pad_pre": 0.11,
+   "pad_post": 0.32
+  },
+  {
+   "kind": "bleed",
+   "media": "bl_crunch_gym",
+   "t0": 155.1,
+   "t1": 159.5,
+   "at": "do the simple",
+   "until": "your belly fat.",
+   "pad_pre": 0.18,
+   "pad_post": 0.14
+  },
+  {
+   "kind": "card",
+   "media": "p_goal",
+   "t0": 159.5,
+   "t1": 162.4,
+   "at": "This one AI",
+   "until": "me so much",
+   "pad_pre": 0.06,
+   "pad_post": 0.32
+  },
+  {
+   "kind": "window",
+   "header": null,
+   "bullets": [
+    "I created an app that helps other guys generate a picture of their fitness goal for free.",
+    "It\u2019s designed purely for making fitness transformation images of men like you."
+   ],
+   "t0": 162.4,
+   "t1": 171.8,
+   "at": "I created an",
+   "until": "men like you.",
+   "pad_pre": 0.14,
+   "pad_post": 0.2
+  },
+  {
+   "kind": "stmt",
+   "parts": [
+    [
+     "It's far superior at making these images than",
+     "ink"
+    ],
+    [
+     "ChatGPT",
+     "olive"
+    ],
+    [
+     "or any general-purpose AI",
+     "big"
+    ]
+   ],
+   "t0": 171.8,
+   "t1": 177.25,
+   "at": "So it's far",
+   "until": "general purpose AI.",
+   "pad_pre": 0.02,
+   "pad_post": 0.25
+  },
+  {
+   "kind": "bleed",
+   "media": "app_flow_b",
+   "t0": 187.3,
+   "t1": 197.3,
+   "at": "we build you",
+   "until": "it scans your",
+   "pad_pre": 0.06,
+   "pad_post": 0.04,
+   "caps": false
+  },
+  {
+   "kind": "card",
+   "media": "after_reveal",
+   "label_kind": "ai",
+   "t0": 197.3,
+   "t1": 199.75,
+   "at": "goal picture to",
+   "until": "want to be.",
+   "pad_pre": 0.0,
+   "pad_post": 0.07
+  },
+  {
+   "kind": "bleed",
+   "media": "bl_gym_workout",
+   "t0": 208.1,
+   "t1": 213.1,
+   "at": "It targets your",
+   "until": "you actually have.",
+   "pad_pre": 0.0,
+   "pad_post": 0.2
+  },
+  {
+   "kind": "bleed",
+   "media": "bl_eating",
+   "t0": 216.3,
+   "t1": 220.75,
+   "at": "it's built around",
+   "until": "stick to it.",
+   "pad_pre": 0.16,
+   "pad_post": 0.19
+  },
+  {
+   "kind": "window",
+   "header": null,
+   "bullets": [
+    "Generating an image of yourself with abs is the first step.",
+    "Our personalized AI fitness program helps you make it real."
+   ],
+   "t0": 220.75,
+   "t1": 228.5,
+   "at": "Generating an image",
+   "until": "make it real.",
+   "pad_pre": 0.05,
+   "pad_post": 0.2
+  }
+ ],
+ "lower_thirds": [
+  {
+   "lines": [
+    "The Problem",
+    "No time, no motivation"
+   ],
+   "t0": 36.9,
+   "t1": 43.9,
+   "at": "The problem is",
+   "until": "busy, stressful life."
+  },
+  {
+   "lines": [
+    "If you saw yourself with abs, you'd be MOTIVATED",
+    "to make your dream body a reality"
+   ],
+   "t0": 86.9,
+   "t1": 91.85,
+   "at": "And you'd be",
+   "until": "And right now,"
+  },
+  {
+   "lines": [
+    "You will probably live longer too"
+   ],
+   "t0": 111.0,
+   "t1": 113.95,
+   "at": "And you'll probably",
+   "until": "here's the truth."
+  },
+  {
+   "lines": [
+    "You don't need more knowledge",
+    "You need motivation to execute what you know"
+   ],
+   "t0": 118.6,
+   "t1": 126.4,
+   "at": "need more knowledge.",
+   "until": "few years ago."
+  },
+  {
+   "lines": [
+    "Your AI generated picture is just step 1"
+   ],
+   "t0": 183.0,
+   "t1": 185.04,
+   "at": "The picture is",
+   "until": "just step one."
+  },
+  {
+   "lines": [
+    "It builds you a customized",
+    "Workout & Nutrition Plan"
+   ],
+   "t0": 200.0,
+   "t1": 203.4,
+   "at": "it builds your",
+   "until": "and nutrition plan"
+  },
+  {
+   "lines": [
+    "Your Nutrition Plan",
+    "Is calibrated exactly for your goal"
+   ],
+   "t0": 213.2,
+   "t1": 216.3,
+   "at": "nutrition plan is",
+   "until": "for your goal"
+  }
+ ],
+ "ctas": [
+  {
+   "t0": 99.0,
+   "t1": 100.62,
+   "at": "yourself with abs.",
+   "top": "Get A FREE AI Image Of Yourself",
+   "big": "With Abs"
+  },
+  {
+   "t0": 179.7,
+   "t1": 181.3,
+   "at": "tap the button",
+   "top": "Get A FREE AI Image Of Yourself",
+   "big": "With Abs"
+  },
+  {
+   "t0": 231.4,
+   "t1": 232.768,
+   "at": "tap the button",
+   "top": "Get A FREE AI Image Of Yourself",
+   "big": "With Abs"
+  }
+ ],
+ "caption_fixes": {
+  "WuWu": "woo-woo",
+  "wuwu": "woo-woo",
+  "lacking": "lagging"
+ }
+}
