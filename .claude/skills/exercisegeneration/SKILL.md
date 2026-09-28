@@ -716,6 +716,11 @@ V-sit twist, toe touches, V-up, reverse crunch. Scripts at `Media/exercise-demos
   silence/length rows AND the delivery gate's -50 dBFS silent-second line.
 - **`qc.py --suffix=-AIDAN-narrated-FINAL-CANDIDATE.mp4`** gates the batch-4+ file names (use `=`; a value starting
   with `-` breaks argparse otherwise).
+- **Approved and reusable (Dan, 2026-09-28):** all four approved. russian-twist (the V-sit twist, also the WV-01 VSL clip)
+  and reverse-crunch are installed in the app. Toe touches and V-up have no library entry and are SAVED FOR REUSE:
+  when Dan asks for either again, start from `Media/exercise-demos/<id>/` (`<id>-AIDAN-narrated-FINAL.mp4`, the silent
+  cut, the approved `b5-start/end.jpg` stills and `b5-leg.mp4`), and generate only what the new request changes.
+  Index: `Media/exercise-demos/_batch5/LIBRARY.md`.
 - ⚠ **Delivery gate `audio:stamp` cannot pass an exercise demo** (2026-09-28, gate 2.3.1): `checks/audio.py` calls
   `require_stamp` without `synthetic_ok`, and every demo is a cloned voice. All 38 other rows pass on the 960x540 app
   encodes. Needs a `synthetic_ok` key on the `exercise-demo` format + a version bump + the qc corpus; reported, not

@@ -87,11 +87,9 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
   VIVO stand return: UPS pickup was Mon 09-14 (# 298404F1F6B) — confirm it went. After install a session builds the look-A telemetry file.
 - **Native retest (one phone session): (baseline 2026-09-15; age unknown)** analysis page YouTube iframe (inline vs fullscreen, pauses on leaving); `10eda3b`
   member screens; lock-in → sliders → trial CTA and locked result → analysis → unlock; iOS sandbox Restore purchases
-  (`549946a`); native still shows IAP + account-first.
+  (`549946a`); native still shows IAP + account-first; new demo videos on the russian-twist + reverse-crunch exercise sheets (09-28).
 
 # ACTIVE
-
-**Home ab demos batch 5 - NEEDS DAN 2026-09-28, Claude.** Dan picked the V-sit twist for the WV-01 VSL: `Media/exercise-demos/_batch5/review-set/1-v-sit-twist-SILENT-VSL.mp4` (silent, 1080p). Next: Dan approves app install (russian-twist, reverse-crunch) and the "V-sit" vs "Russian" VO name.
 
 **Queue covers - HANDOFF 2026-09-28, Claude.** All installed; Dan approved the rest. Next: execute crops/grid-shift handoff before Sep 29 5 PM CT. Row 16 R5 re-post still Dan's call.
 

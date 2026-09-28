@@ -13,7 +13,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
-| [handoff-20260928-vsl-home-ab-demos-batch5.md](handoff-20260928-vsl-home-ab-demos-batch5.md) | **Executed 2026-09-28. Install pending Dan.** All four demos generated and gated; review set + silent VSL versions in `Media/exercise-demos/_batch5/review-set/`, app encodes staged in `_batch5/app-staging/`. On approval: install russian-twist and/or reverse-crunch (handoff step 4). |
 | [handoff-20260928-queue-cover-crops-and-grid-shift.md](handoff-20260928-queue-cover-crops-and-grid-shift.md) | **Ready 2026-09-28. Claude Opus 5.5 / Medium. Due Sep 29 5 PM CT.** Shift 3 Codex covers grid-safe on IG/TikTok; tighten carbs and weigh-in photo crops. |
 | [handoff-20260928-install-finalized-queue-covers-claude.md](handoff-20260928-install-finalized-queue-covers-claude.md) | **Ready 2026-09-28. Claude Opus 5.5 / High.** Install the finalized Instagram/YouTube selections. Instagram 16 is stronger R5; 31 approved exports and four originals protected. Exact destinations, hashes and verification in the handoff. |
 | [handoff-20260928-wv01-round11-remaining-approvals-full-a.md](handoff-20260928-wv01-round11-remaining-approvals-full-a.md) | **Ready2026-09-28. GPT-6 Sol / High.** Opening and3A locked. One remaining benefit/mirror/pool approval packet, then complete A after all locks with full QA and one independent review. Existing assets only. B deferred; dispatcher paused. |
