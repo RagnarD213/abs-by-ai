@@ -1697,12 +1697,12 @@
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/WV-01-vsl-1-analysis-page-video-version-a-version-b-intr.md` with `$abs-edit-organic`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
    "state": "delivered",
-   "note": "Round7 A-only contextual review; pool unresolved at motion budget limit; B deferred; dispatcher paused",
+   "note": "Round 8 A-only contextual review: http://127.0.0.1:8766/round8/index.html in Chrome. Prior approvals preserved. Card selection, laptop endpoints and revised scenes await Dan. B deferred; dispatcher paused.",
    "sub": "",
    "order": 81,
-   "updated": "2026-09-27",
+   "updated": "2026-09-28",
    "by": "Codex",
-   "rev": 26,
+   "rev": 28,
    "syncedRev": 1
   },
   {

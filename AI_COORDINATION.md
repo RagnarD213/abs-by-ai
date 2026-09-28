@@ -93,7 +93,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **Queue cover installation - HANDOFF 2026-09-28, Codex.** All selections final, including Instagram16 R5; 35 hashes verified. Next: Claude executes `Handoffs/handoff-20260928-install-finalized-queue-covers-claude.md`. Final authority: `Docs/QUEUE_COVERS_FINAL_20260928.json`. Installation deferred to the new task; accounts and queues untouched.
 
-**WV-01 round 8 - HANDOFF READY 2026-09-28, Codex.** `Handoffs/handoff-20260928-wv01-round8-A-only-revisions.md`. A only; accepted direction and mirror preserved. Next: app flow at0:26, exact M100 excerpt, integrated title variants, cumulative benefits, laptop angle, mirror pause and natural pool retry. Dan raised cumulative generation allowance to $20. No media work started. B deferred; dispatcher paused.
+**WV-01 round 8 - NEEDS DAN 2026-09-28, Codex.** A-only contextual review: `http://127.0.0.1:8766/round8/index.html` (Chrome). Prior approvals and full mirror action preserved. Next: choose custom card, approve laptop endpoints and review revised scenes before full A assembly. Known cumulative motion $11.48; still charges unavailable. B deferred; dispatcher paused. Detail: `Handoffs/handoff-20260928-wv01-round8-A-only-revisions.md`.
 
 **RO-05 Fable recut - NEEDS DAN 2026-09-25, Claude.** 15:06 review copy delivered; 4 reviews, 0 picture defects; gate fails explained in notes. Next: Dan's verdict. `claude edited long form content/08 - How I Make My Daily Salad (Fable recut)/`
 
