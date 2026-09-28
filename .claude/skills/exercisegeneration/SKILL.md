@@ -688,3 +688,35 @@ model, same prompts, no quality difference seen.
 - VO from `minimax/speech-02-hd` comes back at 32 kHz AAC after mux (requested 44.1 k) — harmless, noted.
 - Skill-wide: the walking lunge cannot loop on a locked camera (the subject travels) — left out of the
   library sweep deliberately; 54 library exercises still have no demo after this batch.
+
+---
+
+## Batch 5 findings (4 home ab moves for the VSL, 2026-09-28)
+
+V-sit twist, toe touches, V-up, reverse crunch. Scripts at `Media/exercise-demos/_batch5/` (`spec.js`, `mux.py`,
+`finish.sh`, `run-kling-i2v.js`, plus the batch-4 tools re-prefixed `b5-`). ~$7.60 total (22 stills, 24 s of
+`veo-3.1-fast`, 2 Kling 5 s legs, 4 VO clips).
+
+- **Twists: shoot them from the FRONT, keyframe-locked.** From a 3/4 or side view the image model will not draw the
+  twist to the far hip (4 attempts: hands stay at the chest or the near hip), Veo i2v with no end frame invents an
+  "airplane" (hands unclasp, arms spread) or a boat pose, and Kling i2v turns his BACK to the camera on the far side.
+  What worked: a TRUE FRONT still (knees and feet toward the camera, hands beside one hip), an EDIT to the mirror side
+  (the model manages it when both hips are visible), then `veo-3.1-fast` with `image` + `last_frame`. Palindrome is
+  legitimate for a twist.
+- **Kling garbles the tank-top logo** when the chest faces the camera mid-move ("RYV" letters). Veo 1080p kept it
+  readable. Check the logo on every frame where the chest is square to the camera.
+- **Distance-vs-frame-0 saturates on floor crunches**: toe touches read "done" at 1.0 s while the curl ran to 1.5 s;
+  the velocity minimum found the true top. qcunit's integer signal then flagged a 1-unit wobble; a skin-tone head
+  landmark proved the rise strictly monotonic. Trust velocity + a landmark over the saturated distance signal.
+- **Veo overshoots the V-up top to a tighter V** (legs near vertical, hands at the toes). It reads better than the
+  60-degree end still and matches the VO; cut at the velocity minimum, not at the end still.
+- **Audio: the narrated file now passes `audio_gate.py`.** The old mux left 1 s of digital silence and an audio stream
+  ~3 s shorter than the picture, which is why no earlier demo carries a stamp. `_batch5/mux.py` lays a low-passed
+  brown-noise room tone (~-46 dBFS, 24 dB under the voice) for the full picture length: passes the audio gate's
+  silence/length rows AND the delivery gate's -50 dBFS silent-second line.
+- **`qc.py --suffix=-AIDAN-narrated-FINAL-CANDIDATE.mp4`** gates the batch-4+ file names (use `=`; a value starting
+  with `-` breaks argparse otherwise).
+- ⚠ **Delivery gate `audio:stamp` cannot pass an exercise demo** (2026-09-28, gate 2.3.1): `checks/audio.py` calls
+  `require_stamp` without `synthetic_ok`, and every demo is a cloned voice. All 38 other rows pass on the 960x540 app
+  encodes. Needs a `synthetic_ok` key on the `exercise-demo` format + a version bump + the qc corpus; reported, not
+  bypassed.

@@ -91,6 +91,8 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # ACTIVE
 
+**Home ab demos batch 5 - NEEDS DAN 2026-09-28, Claude.** V-sit twist, toe touches, V-up, reverse crunch built and gated; silent VSL cuts for WV-01. Next: Dan picks the VSL clip, approves app install (russian-twist, reverse-crunch). `Media/exercise-demos/_batch5/review-set/`
+
 **Queue covers - HANDOFF 2026-09-28, Claude.** All installed; Dan approved the rest. Next: execute crops/grid-shift handoff before Sep 29 5 PM CT. Row 16 R5 re-post still Dan's call.
 
 **WV-01 round 10 - NEEDS DAN 2026-09-28, Codex.** Focused review: `http://127.0.0.1:8766/round10/index.html`. Before card extended, laptop cropped12%, finalized portrait installed earlier, three equal-padding left-thirds. Next: choose style1/2/3. Other pending choices retained. B deferred; dispatcher paused. Opening audio PASS; broader gate FAIL retained.
