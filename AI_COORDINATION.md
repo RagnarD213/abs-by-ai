@@ -156,6 +156,8 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
+- `handoff-20260928-vsl-home-ab-demos-batch5.md` (09-28): 4 home ab demos for the VSL (V-sit twist, toe touches, V-up, reverse crunch). Mac only: cloud session has no generation keys. Opus 5.5 high.
+
 - `handoff-20260925-sl04-arms-shoulders-shorts-revisions.md` (09-25): SL-04 round 2 fixes. Opus 5.5 high.
 - `handoff-20260924-vsl-landing-five-mockups.md` (09-24): five VSL landing page mockups from VidTao research. Opus 5.5 high. Mockups only.
 - `handoff-20260924-generator-consult-call-outreach.md` (09-24): fire by 09-26.
