@@ -18,6 +18,8 @@ For website videos: `softblue.lower_third` replaces `lower_third_bar(bottom=1000
 
 Read [the approved graphics standards](../_shared/GRAPHICS-STANDARDS.md) before any graphic or phone composition. Dan expanded Soft Blue Light to all videos on 2026-09-26; the Motivation format remains locked for all lower thirds. Use its portrait-photo, realistic-iPhone and fixed presenter-spacing rules. These current approvals supersede conflicting older layout examples below; camera color and audio still require source-specific calibration.
 
+**Left-third text/list graphics (Dan, 2026-09-28):** use the approved 3A card exactly in every horizontal video (`softblue.left_third`, fixed presenter via `softblue.shift_presenter`); verticals and squares use its full-width adaptation above the captions. Spec and references: the 3A section of [GRAPHICS-STANDARDS.md](../_shared/GRAPHICS-STANDARDS.md). Adapt only the heading and points, and show one short contextual sample before a full edit.
+
 # Website video: the last thing a visitor watches before they pay
 
 ## Square and vertical camera movement — updated 2026-09-16

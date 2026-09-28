@@ -21,6 +21,7 @@ Every new or revised graphic uses the approved Soft Blue Light family, and every
 
 For AI-generated ads: end cards, CTA and any text card use `softblue` (`scene_cta`, `glass`, `field`) in 9:16. The caption spec and the persistent micro-disclaimer below are unchanged.
 
+**Left-third text/list graphics (Dan, 2026-09-28):** use the approved 3A card exactly in every horizontal video (`softblue.left_third`, fixed presenter via `softblue.shift_presenter`); verticals and squares use its full-width adaptation above the captions. Spec and references: the 3A section of [GRAPHICS-STANDARDS.md](../_shared/GRAPHICS-STANDARDS.md). Adapt only the heading and points, and show one short contextual sample before a full edit.
 
 # Make-Ad: AI Video Ad Production for Abs By AI
 

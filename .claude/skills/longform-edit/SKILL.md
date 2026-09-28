@@ -23,6 +23,7 @@ Every new or revised graphic uses the approved Soft Blue Light family, and every
 
 For long-form: full-screen cards, lists and photo displays come from `softblue` scenes; lower thirds go on the graded, caption-free base with `lower_third_patch`. Step 7's J2 components and the Muhammad pill/title-card rebuild remain for approved legacy revisions only.
 
+**Left-third text/list graphics (Dan, 2026-09-28):** use the approved 3A card exactly in every horizontal video (`softblue.left_third`, fixed presenter via `softblue.shift_presenter`); verticals and squares use its full-width adaptation above the captions. Spec and references: the 3A section of [GRAPHICS-STANDARDS.md](../_shared/GRAPHICS-STANDARDS.md). Adapt only the heading and points, and show one short contextual sample before a full edit.
 
 > **READ FIRST: [`_shared/EDITOR-CARD.md`](../_shared/EDITOR-CARD.md)** — what Codex's approved C1652 R4 long-form and DS-17 short did that Claude's cuts did not (2026-09-17). Hold them for the whole build; start from the last approved recipe, not a blank directory.
 

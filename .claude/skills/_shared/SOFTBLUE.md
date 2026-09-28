@@ -18,6 +18,7 @@ import sys; sys.path.insert(0, ".claude/skills/_shared"); import softblue as B
 | One photo (horizontal photos: one scene each, cut in sequence) | `B.scene_photo(t, w, h, photo, label)` | frame |
 | CTA | `B.scene_cta(t, w, h, eyebrow, "Line one\nline two", button)` | frame |
 | Custom full-screen graphic (list, diagram, comparison) | start from `B.field(t, w, h)`, add `B.glass(...)`, `B.text(...)`, `B.photo_card(...)`, `B.disclosure(...)` | frame |
+| Left-third text/list card (3A, all videos) | `B.left_third(B.shift_presenter(im, dx, c0, wall_w), t, heading, [points], dur=d)` per frame via `render_over_footage`; `B.left_third_box(w, h, heading, points)` gives the card box for placement checks | footage with graphic |
 | Lower third on a short clip | `B.render_over_footage(src, out, dur, lambda im, t: B.lower_third(im, t, TOPIC, POINT, dur=d), start, w, h, vf=crop)` | footage with graphic |
 | Lower third inside a long film | `path, x, y = B.lower_third_patch(base, out, start, dur, TOPIC, POINT, w, h)` then `-itsoffset start -i path` and `overlay=x:y:enable='between(t,start,start+dur)'` | opaque patch of the band only |
 
@@ -35,6 +36,17 @@ import sys; sys.path.insert(0, ".claude/skills/_shared"); import softblue as B
 - Not in the module on purpose: the phone shell (round 3's was rejected; wait for an approved WV-01
   round-4 shell), background panels behind side lists (lists beside Dan are bold text straight over the
   shot), and any presenter movement.
+
+## 3A left-third card (2026-09-28)
+
+`left_third()` reproduces WV-01 option3-A pixel for pixel at 1920x1080: 0.0 mean difference against the
+approved `round10-opacity/recipe/build.py` overlay on four frames spanning the item reveals, including
+`shift_presenter()` at its defaults (the WV-01 W2 shift). For another source, pick `dx` (shift), `c0`
+(where the moved picture starts) and `wall_w` (empty wall only) so Dan's head sits centred between the
+card edge (x752) and the frame edge. 9:16 and 1:1 use the full-width adaptation described in
+GRAPHICS-STANDARDS. Samples with speech:
+`/Volumes/Extreme/_edit_work/softblue-rollout/left3a/left3a_sample_{16x9,9x16,1x1}.mp4`
+(builder `make_left3a_demo.py` beside them).
 
 ## What is historical now
 

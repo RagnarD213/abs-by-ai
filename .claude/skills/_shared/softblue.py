@@ -259,6 +259,116 @@ def lower_third_band(w, h, point, box=None):
     return xa - xa % 2, y0 - y0 % 2, (xb - xa + xa % 2 + 1) // 2 * 2, (y1 - y0 + y0 % 2 + 1) // 2 * 2
 
 
+# ------------------------------------------------------------------ 3A left-third card
+# Dan's final pick for left-third text/list graphics (WV-01 round10-opacity option3-A, "Let's go with 3A",
+# 2026-09-28). Reference: wv01-edit/round10-opacity/graphics/option3-A.jpg, previews/option3-A-context.mp4
+# (sha256 34aedf99...), renderer recipe/build.py. At 1920x1080 the geometry below is the reference's, pixel
+# for pixel. One local navy card, presenter visible outside it and faintly through it.
+LT_FILL = (10, 38, 72, 232)          # alpha 232, about 91 % opaque. 218 (3B) and 249 were NOT selected.
+LT_EDGE = (99, 176, 224, 180)
+LT_CYAN = (151, 223, 253)            # heading and plain numbers
+LT_WHITE = (255, 255, 255)           # body and divider (always fully opaque)
+
+
+def _lt_geom(w, h):
+    """Card geometry for a canvas. 16:9: the approved left card. 9:16 and 1:1: the same card design
+    spanning the width, anchored above the caption band (9:16 bottom at 68 % of the height; 1:1 at
+    86 %), type scaled 1.25 (9:16) / 1.0 (1:1) for phone legibility. Check the card top against Dan's
+    face on the moving shot; shorten the points rather than let it climb."""
+    if w > h * 1.2:
+        k = h / 1080
+        return dict(k=k, x0=36 * k, top=42 * k, x1=752 * k, bottom=None, head_w=658 * k, body_w=590 * k)
+    k = w / 1080 * (1.25 if h > w * 1.2 else 1.0)
+    x0, x1 = 36 * w / 1080, w - 36 * w / 1080
+    return dict(k=k, x0=x0, top=None, x1=x1, bottom=h * (.68 if h > w * 1.2 else .86),
+                head_w=x1 - x0 - 58 * k, body_w=x1 - x0 - 126 * k)
+
+
+def _lt_text(size, w, h, heading, items, t, g):
+    """Heading, divider and list on a transparent layer whose card top is at y=0 (card-relative).
+    Returns (layer, divider_y, ink_bbox). Items reveal whole at 0, 0.25, 0.50 s (no typing, no motion)."""
+    k = g["k"]; x0 = g["x0"]
+    lay = Image.new("RGBA", size)
+    d = ImageDraw.Draw(lay)
+    fh, fb = font(60 * k), font(38 * k)
+    hl = []
+    for part in (heading if isinstance(heading, (list, tuple)) else [heading]):
+        hl += wrap(part, fh, g["head_w"])
+    ox = x0 - 36 * k                                  # the reference card starts at x36
+    for i, ln in enumerate(hl):
+        d.text((ox + 64 * k, (22 + i * 75) * k), ln, font=fh, fill=LT_CYAN)
+    div = (22 + 75 * len(hl) + 14) * k                # 2 heading lines -> y228 at 16:9
+    y = div + 32 * k
+    for i, s in enumerate(items):
+        lines = wrap(s, fb, g["body_w"])
+        if t >= i * .25:
+            d.text((ox + 68 * k, y + 4 * k), f"{i + 1}.", font=fb, fill=LT_CYAN)
+            for j, ln in enumerate(lines):
+                d.text((ox + 113 * k, y + j * 49 * k), ln, font=fb, fill=LT_WHITE)
+        y += (len(lines) * 49 + 30) * k
+    return lay, div, hl, y
+
+
+def left_third_box(w, h, heading, items):
+    """Pixel box (x0, y0, x1, y1) the card will occupy, sized to its content with the approved equal
+    ~37 px padding above and below the actual text ink. Use it to place Dan and check clearance."""
+    g = _lt_geom(w, h)
+    full = _lt_text((w, h), w, h, heading, items, 99, g)[0]
+    ink = full.getchannel("A").getbbox()
+    pad = ink[1]                                      # card-relative top of ink == top padding
+    ch = ink[3] + pad
+    if g["top"] is not None:
+        y0 = g["top"]
+    else:
+        y0 = g["bottom"] - ch
+    y1 = y0 + ch
+    if y1 > h - 20 * g["k"] or y0 < 0:
+        raise ValueError("left_third: content does not fit; shorten the points or split the card")
+    return (g["x0"], y0, g["x1"], y1)
+
+
+def left_third(im, t, heading, items, dur=None):
+    """The approved 3A left-third card composited on a footage frame (RGB).
+
+    heading: self-contained title, a string or a list of line strings (e.g. ["How AI Customizes",
+    "The Plan Just For You"]); long lines wrap. items: the distilled points, numbered 1., 2., 3.
+    The card, heading and divider appear at t=0; each item appears whole at i*0.25 s. It leaves
+    with the cut at `dur` (the approved clip has no exit animation). Returns the image."""
+    if t < 0 or (dur is not None and t >= dur): return im
+    w, h = im.size
+    g = _lt_geom(w, h)
+    x0, y0, x1, y1 = left_third_box(w, h, heading, items)
+    k = g["k"]
+    card = Image.new("RGBA", im.size)
+    ImageDraw.Draw(card).rounded_rectangle((round(x0), round(y0), round(x1), round(y1)), round(32 * k),
+                                           fill=LT_FILL, outline=LT_EDGE, width=max(1, round(2 * k)))
+    out = Image.alpha_composite(im.convert("RGBA"), card)
+    layer, div, _, _ = _lt_text(im.size, w, h, heading, items, t, g)
+    ImageDraw.Draw(out).rounded_rectangle((round(x0 + 29 * k), round(y0 + div), round(x1 - 30 * k),
+                                           round(y0 + div + 3 * k)), max(1, round(k)), fill=LT_WHITE)
+    shifted = Image.new("RGBA", im.size); shifted.paste(layer, (0, round(y0)))
+    return Image.alpha_composite(out, shifted).convert("RGB")
+
+
+def shift_presenter(im, dx=300, c0=350, wall_w=500, feather=50):
+    """Fixed (never animated) presenter shift to the right for a 16:9 left-third layout, generalised
+    from the approved WV-01 helper: the picture from x=c0 moves right by dx; the empty left wall
+    (x < wall_w) is stretched to fill, with a short feather inside wall-only pixels. The defaults
+    reproduce WV-01 W2 exactly; choose dx/c0/wall_w per source so no subject pixel is stretched and
+    Dan's head sits centred between the card edge and the right frame edge."""
+    w, h = im.size
+    out = Image.new("RGB", (w, h))
+    fill_w = c0 + dx + feather - 20
+    wall = im.crop((0, 0, wall_w, h)).resize((fill_w, h), Image.Resampling.LANCZOS)
+    out.paste(wall, (0, 0))
+    out.paste(im.crop((c0, 0, w - dx, h)), (c0 + dx, 0))
+    left = wall.crop((fill_w - feather, 0, fill_w, h))
+    right = im.crop((c0 - 20, 0, c0 - 20 + feather, h))
+    mask = Image.fromarray(np.tile(np.linspace(0, 255, feather, dtype=np.uint8), (h, 1)))
+    out.paste(Image.composite(right, left, mask), (fill_w - feather, 0))
+    return out
+
+
 # ------------------------------------------------------------------ full-screen scenes
 def scene_fact(t, w, h, photo, eyebrow, headline, detail=None, label=None, fit=False):
     """Photo + glass fact card (reference 1-before). 16:9: photo left, card right. 9:16 and 1:1:
