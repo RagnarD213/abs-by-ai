@@ -27,6 +27,8 @@ import shutil
 import subprocess
 import sys
 
+import numpy as np
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 PICCUTS = os.path.join(HERE, "..", "..", "..", "_shared", "cut", "piccuts.py")   # the pose-matched cut (shared)
 REPO = os.path.abspath(os.path.join(HERE, "..", "..", "..", "..", ".."))
@@ -291,7 +293,11 @@ def pushes_for(tl, splices, cover, words, T, flashes):
         guard += 1
         gaps = []
         for b in talk:
-            edges = [b["t0"]] + sorted([q for p in clean for q in (p[0], p[3]) if b["t0"] < q < b["t1"]]) + [b["t1"]]
+            # a picture cut is a wall too: a ramp that contains one is dropped below (it would hide that cut's size
+            # step), so the top-up must place its pushes BETWEEN cuts or they never survive (kit9x16 autofill, Ad 8:
+            # a finer picture EDL left 10 hand pushes, 2.85/min under his 2.92, with the top-up placing and losing them)
+            edges = [b["t0"]] + sorted([q for p in clean for q in (p[0], p[3]) if b["t0"] < q < b["t1"]] +
+                                       [c for c in splices_all if b["t0"] < c < b["t1"]]) + [b["t1"]]
             for x, y in zip(edges[:-1], edges[1:]):
                 if not any(p[0] <= x and y <= p[3] for p in clean):
                     gaps.append((y - x, x, y))
@@ -309,7 +315,8 @@ def pushes_for(tl, splices, cover, words, T, flashes):
             b1 = round(a2 + hold, 3)
             b2 = round(min(b1 + ro, y), 3)
             b1 = min(b1, b2)
-            if b2 - a1 < rin + 1.0 or any(p[0] - 0.4 < b2 and a1 < p[3] + 0.4 for p in clean):
+            if b2 - a1 < rin + 1.0 or any(p[0] - 0.4 < b2 and a1 < p[3] + 0.4 for p in clean) \
+                    or any(a1 - 0.2 <= c <= b2 + 0.2 for c in splices_all):
                 continue
             clean.append((round(a1, 3), a2, b1, b2))
             n += 1
@@ -345,6 +352,57 @@ def pushes_for(tl, splices, cover, words, T, flashes):
                 continue
         out.append(p)
     return out
+
+
+def final_topup(pushes, tl, cuts, words, T, flashes, dur, ref):
+    """THE LAST WORD ON HIS PUSH COUNT. pushes_for tops up to his count, then its own clean-up (ramp ends pulled to
+    beat edges, ramps dropped that would hide a cut's step) can take pushes back out. When the FINAL schedule is under
+    his range (picture.json lo), ramped pushes go into the longest talk gaps that hold no cut, no step and no flash,
+    on a sentence start -- the same rules, applied after the clean-up so nothing removes them. (kit9x16 autofill,
+    Ad 8: 10 hand pushes = 2.85/min under his 2.92 after a finer picture EDL.)"""
+    lo = ref["numbers"].get("pushes_hand_per_min", {}).get("lo") if ref else None
+    if lo is None:
+        return pushes
+    P = T["push"]
+    holds = list(P["hold_s"]) if isinstance(P["hold_s"], list) else [P["hold_s"]]
+    outs = list(P["ramp_out_s"]) if isinstance(P["ramp_out_s"], list) else [P["ramp_out_s"]]
+    rin, fl_guard = P["ramp_in_s"], P.get("min_gap_to_flash_s", 0.3)
+    flash_pts = [a + T["flash"]["pre_s"] for a, b in flashes]
+    sents = sorted(w["e"] for w in words if w["w"].rstrip().endswith((".", "?", "!", ",")))
+    like = lambda ps: sum(1 for p in ps if p[1] > p[0] or p[3] > p[2])
+    need = int(np.ceil(lo * dur / 60.0 + 1e-9)) - like(pushes)
+    out = list(pushes)
+    n = 0
+    while need > 0:
+        gaps = []
+        for b in tl:
+            if b["kind"] != "talk":
+                continue
+            walls = sorted([b["t0"], b["t1"]] + [c for c in cuts if b["t0"] < c < b["t1"]] +
+                           [q for p in out for q in (p[0], p[3]) if b["t0"] < q < b["t1"]])
+            for x, y in zip(walls[:-1], walls[1:]):
+                if not any(p[0] <= x + 1e-3 and y - 1e-3 <= p[3] for p in out):
+                    gaps.append((y - x, x, y))
+        gaps.sort(reverse=True)
+        placed = False
+        for ln, x, y in gaps:
+            hold, ro = holds[n % len(holds)], outs[n % len(outs)]
+            if ln < rin + hold + ro + 0.8:
+                break
+            lo_t, hi_t = x + 0.4, y - (rin + hold + ro + 0.4)
+            c = [q for q in sents if lo_t <= q <= hi_t]
+            a1 = min(c, key=lambda q: abs(q - (x + y) / 2 + (rin + hold + ro) / 2)) if c else lo_t + (hi_t - lo_t) / 2
+            if any(abs(a1 - f) < fl_guard for f in flash_pts):
+                a1 += fl_guard
+            a2, b1 = round(a1 + rin, 3), round(a1 + rin + hold, 3)
+            b2 = round(b1 + ro, 3)
+            if b2 > y - 0.2 or any(a1 - 0.2 <= q <= b2 + 0.2 for q in cuts) or any(abs(b2 - f) < fl_guard for f in flash_pts):
+                continue
+            out.append((round(a1, 3), a2, b1, b2)); n += 1; need -= 1; placed = True
+            break
+        if not placed:
+            break
+    return sorted(out)
 
 
 def push_at(t, pushes, z):
@@ -625,6 +683,7 @@ def main():
     # ---- the push schedule and the design's own numbers
     pushes = pushes_for(tl, pic_cuts if T["cut"].get("step_every_bare_cut") else [round(s, 3) for s in in_talk],
                         cover, words, T, flashes)
+    pushes = final_topup(pushes, tl, pic_cuts, words, T, flashes, dur, ref)
     steps = [p for p in pushes if p[1] <= p[0]]                  # instant-in on a cut = a level step
     ramped = [p for p in pushes if p[1] > p[0]]                   # a ramped emphasis push (the top-up)
     # his hand-counted pushes are punch-ins on the talking head that also hide his trims; a step-in that

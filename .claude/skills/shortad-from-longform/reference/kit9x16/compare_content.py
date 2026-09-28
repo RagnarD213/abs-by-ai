@@ -38,7 +38,9 @@ def load_media(path, root):
         p = v[1]
         lift = master is not None and os.path.abspath(p) == os.path.abspath(master)
         full = p if os.path.isabs(p) else os.path.join(root or os.path.dirname(path), p)
-        out[k] = dict(typ=v[0], file=os.path.basename(p), path=full, lift=lift or "muhammad" in os.path.basename(p).lower(),
+        # a clip cut from HIS master (auto_content's assets_auto/, AV-07's assets_ad10/ crops) counts as a lift of it
+        derived = v[0] == "vid" and any(x in full for x in ("/assets_auto/", "/assets_ad10/"))
+        out[k] = dict(typ=v[0], file=os.path.basename(p), path=full, lift=derived or lift or "muhammad" in os.path.basename(p).lower(),
                       t=v[2] if len(v) > 2 else 0)
     return out
 
