@@ -321,6 +321,15 @@ Impact and Copperplate live in `/System/Library/Fonts/Supplemental/`.
   release, run the audit above and upload the 1080x1920 JPG through the Studio file input
   on the PUBLIC id. The audit flips to `sardefault` within a minute.
 
+## Instagram: changing the cover on a SCHEDULED reel (2026-09-28)
+
+- The Blotato MCP `blotato_update_schedule` edits `coverImageUrl` in place: pass the WHOLE post (accountId, platform,
+  text, mediaUrls, every target field) with only the cover URL changed. Schedule ID, time and all other fields survive.
+  Proven on 12 @danrosefit reels on 2026-09-28. The REST `PATCH /v2/schedules/{id}` still returns 500 for any content
+  change, so do not recreate-and-delete for a cover swap anymore.
+- Upload the JPG with `blotato_create_presigned_upload_url`, PUT the bytes, then confirm the public URL serves the same SHA-256.
+- Back up the full schedule list first and diff every record after; nothing but the cover should differ.
+
 ## Instagram: fixing the cover on a reel that is already posted (2026-09-10)
 
 - **Cause seen:** a Blotato post created without `coverImageUrl` (the 08-24 @danrosefit

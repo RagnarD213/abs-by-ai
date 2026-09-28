@@ -91,7 +91,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # ACTIVE
 
-**Queue cover installation - HANDOFF 2026-09-28, Codex.** All selections final, including Instagram16 R5; 35 hashes verified. Next: Claude executes `Handoffs/handoff-20260928-install-finalized-queue-covers-claude.md`. Final authority: `Docs/QUEUE_COVERS_FINAL_20260928.json`. Installation deferred to the new task; accounts and queues untouched.
+**Queue covers - NEEDS DAN 2026-09-28, Claude.** 24 installed, verified. Row 16 R5: Sep 27 IG arm-workout reel failed to post. Next: Dan: re-post with R5? `final-installation-20260928/installation/`.
 
 **WV-01 round 8 - NEEDS DAN 2026-09-28, Codex.** A-only contextual review: `http://127.0.0.1:8766/round8/index.html` (Chrome). Prior approvals and full mirror action preserved. Next: choose custom card, approve laptop endpoints and review revised scenes before full A assembly. Known cumulative motion $11.48; still charges unavailable. B deferred; dispatcher paused. Detail: `Handoffs/handoff-20260928-wv01-round8-A-only-revisions.md`.
 
