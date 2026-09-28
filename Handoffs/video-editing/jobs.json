@@ -1697,12 +1697,12 @@
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/WV-01-vsl-1-analysis-page-video-version-a-version-b-intr.md` with `$abs-edit-organic`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
    "state": "delivered",
-   "note": "Round10 opening, before card and portrait trio locked by Dan2026-09-28. Option3 style selected. Two backing-only transparency contexts ready at http://127.0.0.1:8766/round10-opacity/index.html. Awaiting3A/3B before next-round handoff. Other pending choices retained. B deferred; dispatcher paused. No new generation/spend; accepted audio byte-identical. Historical broader gateFAIL retained.",
+   "note": "Round10 opening, before card, portrait trio and option3A locked by Dan2026-09-28. Exact3A backing alpha232. Next scope discussion requested before writing handoff. Recommendation: remaining benefit/mirror/pool approvals, then full A. B deferred; dispatcher paused. No media changes, generation or spend. Historical gates retained.",
    "sub": "",
    "order": 81,
    "updated": "2026-09-28",
    "by": "Codex",
-   "rev": 32,
+   "rev": 33,
    "syncedRev": 1
   },
   {
