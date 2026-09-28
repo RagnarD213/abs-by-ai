@@ -83,7 +83,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 - **ManyChat: (baseline 2026-09-15; age unknown)** OK to close the keywords task; switch Chrome's Instagram back to @danrosefit; turn off Blotato's IG auto
   first-comment? (ask before touching). ⚠ Account shows TRIAL — lapse kills all six keywords. `Docs/MANYCHAT_KEYWORDS.md`
 - **Resend (baseline 09-15):** create a full-access key → `RESEND_READ_API_KEY` in `~/.absbyai-secrets.env`.
-- **VSL landing mockups (09-25):** https://claude.ai/artifact/GM8Han9hMfSHNf625vqtyu. Pick one or two to build (rec: 1 vs 2, 50/50); eyebrow (rec keep); monthly only on the page (rec yes)? Member testimonial with permission? A build session follows.
+- **VSL landing mockups (09-28):** https://claude.ai/artifact/GM8Han9hMfSHNf625vqtyu, Round 2 page. Locked: hybrid top + sales letter, green buttons, top stripe. Dan picks: with or without the 7-day list, sound box color (rec yellow). Then a build session.
 - **Home filming set:** pick an installer, share the work order (https://claude.ai/code/artifact/2b21b748-62f0-455f-aafb-ac9a6a23ad44).
   VIVO stand return: UPS pickup was Mon 09-14 (# 298404F1F6B) — confirm it went. After install a session builds the look-A telemetry file.
 - **Native retest (one phone session): (baseline 2026-09-15; age unknown)** analysis page YouTube iframe (inline vs fullscreen, pauses on leaving); `10eda3b`
