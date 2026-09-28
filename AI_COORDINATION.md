@@ -93,7 +93,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **Queue covers - HANDOFF 2026-09-28, Claude.** All installed; Dan approved the rest. Next: execute crops/grid-shift handoff before Sep 29 5 PM CT. Row 16 R5 re-post still Dan's call.
 
-**WV-01 round 10 - HANDOFF READY 2026-09-28, Codex.** Crunch approved, laptop crop-only, portrait2 locked with studio-blue-173 middle. Next: revise before card/hold, install earlier portraits, crop laptop10-15%, show three tighter left-third styles with equal padding. B deferred; dispatcher paused. Motion estimate $12.82/$20. Detail: `Handoffs/handoff-20260928-wv01-round10-graphics-crops-photo.md`.
+**WV-01 round 10 - NEEDS DAN 2026-09-28, Codex.** Focused review: `http://127.0.0.1:8766/round10/index.html`. Before card extended, laptop cropped12%, finalized portrait installed earlier, three equal-padding left-thirds. Next: choose style1/2/3. Other pending choices retained. B deferred; dispatcher paused. Opening audio PASS; broader gate FAIL retained.
 
 **RO-05 Fable recut - NEEDS DAN 2026-09-25, Claude.** 15:06 review copy delivered; 4 reviews, 0 picture defects; gate fails explained in notes. Next: Dan's verdict. `claude edited long form content/08 - How I Make My Daily Salad (Fable recut)/`
 

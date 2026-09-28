@@ -1697,12 +1697,12 @@
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/WV-01-vsl-1-analysis-page-video-version-a-version-b-intr.md` with `$abs-edit-organic`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
    "state": "delivered",
-   "note": "Round9 focused A-only creative review ready at http://127.0.0.1:8766/round9/index.html. Home Crunch swap, two smiling three-photo title variants, approved-endpoint laptop motion, left-third1/2. Awaiting Dan choices, not finalized. B deferred; dispatcher paused. Known motion estimate12.824USD of20USD; no new still calls.",
+   "note": "Round10 focused A-only creative review ready at http://127.0.0.1:8766/round10/index.html. Before card extended, approved laptop fixed12percent crop, finalized portrait2 with173 installed near143s, three balanced left-thirds. Awaiting style1/2/3, not finalized. B deferred; dispatcher paused. No new generation; separate QC estimate0.213838USD. Opening audio PASS, broader website gate FAIL retained.",
    "sub": "",
    "order": 81,
    "updated": "2026-09-28",
    "by": "Codex",
-   "rev": 30,
+   "rev": 31,
    "syncedRev": 1
   },
   {
