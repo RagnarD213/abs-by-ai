@@ -1,5 +1,22 @@
 # Queue covers: photo crops and grid-safe shift for three Codex covers
 
+> **EXECUTED 2026-09-28 by Claude (Opus 5.5).**
+> - Job 1 is done. Grid versions `03-sleep-…-grid.jpg`, `04-vacuum-…-grid.jpg` and `05-knee-…-grid.jpg` are beside
+>   the originals (shift 200 px; builder `next-five-redesign-20260922/build-grid.py`). They are installed as the
+>   Instagram `coverImageUrl` on 3793987, 3876754 and 3876763, and as TikTok frame 0 on 4553182, 4553187 and 4553194.
+>   Each TikTok build shows frames +1, identical audio packets and cover PSNR 48 to 51. The live files are
+>   byte-identical to the builds (Blotato re-hosts them under a new uuid). Every record differs from the backup only
+>   in that field, and schedule times are unchanged.
+> - Job 2 was superseded. At 15:13 another Claude session swapped these same photo posts to Dan's approved round-2
+>   Speedo crops: full waistband, trimmed headroom and sides (commit 07fdc29, `_speedo-crops-20260927/approved/`). The
+>   schedules were recreated as 4934255 (IG carbs), 4934265 (FB carbs), 4934269 (IG weigh) and 4934277 (FB weigh).
+>   They were left as Dan approved them. Those crops were cut from the small queued copies (600 to 780 px wide);
+>   photo-172 and photo-180 exist at 4096 px if a sharper re-render at the same boxes is ever wanted.
+> - Backups: `schedules_before_grid_crops_20260928.json` / `schedules_after_grid_crops_20260928.json` in the
+>   installation `backup/` folder. Ad guard is clean before and after. Review page republished (version 3).
+> - Still open for Dan: row 16 (below).
+
+
 Prepared 2026-09-28 by Claude at Dan's request. Recommended model: Claude Opus 5.5, medium effort.
 
 **Deadline: the 8 Hours in Bed reel and TikTok release Tue Sep 29, 5:00 PM CT. Do that one first.**
