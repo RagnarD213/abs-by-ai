@@ -113,6 +113,18 @@ his own (Dan-approved) labelling; a picture never gets a second chip over his bu
 * Full bleed is for a physique photo; a clothed family snapshot goes in the card (both answer keys).
 * Vision reads "AI" as "Al"; its confidence is always 1.0, so a line counts only when two reads agree; a read
   taken mid type-on misspells, so the fullest reads are ranked by how well they match what he says.
+* A library can hold AI-edited near-duplicates of a real photo (`01_LIGHT_plus8lb` = the real deckchair photo with
+  8 lb painted on): candidates are ranked by their pixels after alignment (the worst 24x24 block), provenance is
+  shared only among identical copies. A feature-point match alone put an AI image under "Real picture of me".
+* Of two crops of one photo, use the one he showed (all of it on screen): the uncropped original showed the Speedo.
+* A lift from his master never plays his transition or his next shot: it stops before his flash burst and holds or
+  gently stretches its last clean frame (judged one-frame leaks at 57.9, 95.2, 114.9, 155.7, 172.5, 176.7 s, Ad 10).
+* His picture can hold another take of a repeated line for a second or two under a window's music: the picture
+  refinement tries every place those words are spoken in the roll and keeps a take while it keeps winning.
+* The push count is checked AFTER the schedule's own clean-up (`final_topup`); a cut inside a return flash may
+  snap onto the insert edge (the flash's length counts as reach).
+* Captions: Whisper's mid-sentence capitals are lowercased (names and acronyms kept); AI clips of other people keep
+  their captions, only labelled pictures of Dan and phone screens drop them.
 
 ## Rules carried (do not re-open)
 

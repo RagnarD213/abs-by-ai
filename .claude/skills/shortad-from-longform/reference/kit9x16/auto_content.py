@@ -794,6 +794,14 @@ def main():
             for b_, ev_ in run_beats:
                 if b_["kind"] == "bleed":
                     b_["kind"] = "card"; ev_["layout"] = "card: part of an app-demo sequence"
+            # the photo he UPLOADS stays on the app's next screen (the form shows it large): a phone screen right after
+            # a real-labelled upload screen, with no label of its own, keeps the label (three judges, Ad 10 122.8 /
+            # 173.9 s: "a real photo of Dan shown for ~2.8 s with no chip")
+            for (pb, pe), (b_, ev_) in zip(run_beats[:-1], run_beats[1:]):
+                if pe.get("phone") and ev_.get("phone") and pb.get("label_kind") in ("real", "ai") and not b_.get("label_kind") \
+                        and not ev_.get("burned_label"):
+                    b_["label_kind"] = pb["label_kind"]; b_["caps"] = False
+                    ev_["label"] = f"{pb['label_kind']} label: the uploaded photo stays on this app screen"
 
     # ---- 5. overlays over live Dan: lower thirds and the CTA pill
     ov = []

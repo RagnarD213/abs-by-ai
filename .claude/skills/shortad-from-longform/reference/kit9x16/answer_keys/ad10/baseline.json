@@ -55,7 +55,7 @@
    25
   ],
   "label_correct": [
-   23,
+   25,
    25
   ],
   "label_hard_failures": []
@@ -425,8 +425,8 @@
    "auto_lift": true,
    "media_ok": true,
    "key_label": "real",
-   "auto_label": null,
-   "label_ok": false
+   "auto_label": "real",
+   "label_ok": true
   },
   {
    "section": "beats",
@@ -581,8 +581,8 @@
    "auto_lift": true,
    "media_ok": true,
    "key_label": "real",
-   "auto_label": null,
-   "label_ok": false
+   "auto_label": "real",
+   "label_ok": true
   },
   {
    "section": "beats",
