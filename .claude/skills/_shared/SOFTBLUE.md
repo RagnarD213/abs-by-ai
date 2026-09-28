@@ -44,9 +44,12 @@ approved `round10-opacity/recipe/build.py` overlay on four frames spanning the i
 `shift_presenter()` at its defaults (the WV-01 W2 shift). For another source, pick `dx` (shift), `c0`
 (where the moved picture starts) and `wall_w` (empty wall only) so Dan's head sits centred between the
 card edge (x752) and the frame edge. 9:16 and 1:1 use the full-width adaptation described in
-GRAPHICS-STANDARDS. Samples with speech:
-`/Volumes/Extreme/_edit_work/softblue-rollout/left3a/left3a_sample_{16x9,9x16,1x1}.mp4`
-(builder `make_left3a_demo.py` beside them).
+GRAPHICS-STANDARDS: by default the card sits at the bottom (`anchor=("bottom", y)` or `("top", y)` to
+override). Stacked 9:16 layouts: `B.stack_vertical(horizontal_frame, t, heading, points, graphic="top"
+| "bottom", dur=d)` puts a 16:9 crop of Dan and the card in separate zones on the moving field. Samples
+with speech: `/Volumes/Extreme/_edit_work/softblue-rollout/left3a/left3a_r2_{v1_graphic_top_horizontal_crop,
+v2_graphic_bottom_horizontal_crop,v3_full_frame_graphic_bottom,sq_graphic_bottom}.mp4` (builder
+`make_left3a_r2.py` beside them; the round-1 `left3a_sample_*` files had the card mid-frame, rejected).
 
 ## What is historical now
 

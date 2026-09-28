@@ -270,18 +270,22 @@ LT_CYAN = (151, 223, 253)            # heading and plain numbers
 LT_WHITE = (255, 255, 255)           # body and divider (always fully opaque)
 
 
-def _lt_geom(w, h):
+def _lt_geom(w, h, anchor=None):
     """Card geometry for a canvas. 16:9: the approved left card. 9:16 and 1:1: the same card design
-    spanning the width, anchored above the caption band (9:16 bottom at 68 % of the height; 1:1 at
-    86 %), type scaled 1.25 (9:16) / 1.0 (1:1) for phone legibility. Check the card top against Dan's
-    face on the moving shot; shorten the points rather than let it climb."""
+    spanning the width with 36 px side margins, type 1.25x (9:16) / 1.0x (1:1) for phone legibility.
+    Placement (Dan, 2026-09-28): never mid-frame over Dan. 1:1 and full-frame 9:16 sit at the BOTTOM
+    (default); a stacked 9:16 layout passes anchor=("top", y) or ("bottom", y) for its graphic zone.
+    anchor=("top", y) pins the card top at y; ("bottom", y) pins the card bottom at y."""
     if w > h * 1.2:
         k = h / 1080
         return dict(k=k, x0=36 * k, top=42 * k, x1=752 * k, bottom=None, head_w=658 * k, body_w=590 * k)
     k = w / 1080 * (1.25 if h > w * 1.2 else 1.0)
     x0, x1 = 36 * w / 1080, w - 36 * w / 1080
-    return dict(k=k, x0=x0, top=None, x1=x1, bottom=h * (.68 if h > w * 1.2 else .86),
-                head_w=x1 - x0 - 58 * k, body_w=x1 - x0 - 126 * k)
+    if anchor is None:
+        anchor = ("bottom", h * .87) if h > w * 1.2 else ("bottom", h - 36 * w / 1080)
+    top = anchor[1] if anchor[0] == "top" else None
+    bottom = anchor[1] if anchor[0] == "bottom" else None
+    return dict(k=k, x0=x0, top=top, x1=x1, bottom=bottom, head_w=x1 - x0 - 58 * k, body_w=x1 - x0 - 126 * k)
 
 
 def _lt_text(size, w, h, heading, items, t, g):
@@ -309,10 +313,10 @@ def _lt_text(size, w, h, heading, items, t, g):
     return lay, div, hl, y
 
 
-def left_third_box(w, h, heading, items):
+def left_third_box(w, h, heading, items, anchor=None):
     """Pixel box (x0, y0, x1, y1) the card will occupy, sized to its content with the approved equal
     ~37 px padding above and below the actual text ink. Use it to place Dan and check clearance."""
-    g = _lt_geom(w, h)
+    g = _lt_geom(w, h, anchor)
     full = _lt_text((w, h), w, h, heading, items, 99, g)[0]
     ink = full.getchannel("A").getbbox()
     pad = ink[1]                                      # card-relative top of ink == top padding
@@ -327,7 +331,7 @@ def left_third_box(w, h, heading, items):
     return (g["x0"], y0, g["x1"], y1)
 
 
-def left_third(im, t, heading, items, dur=None):
+def left_third(im, t, heading, items, dur=None, anchor=None):
     """The approved 3A left-third card composited on a footage frame (RGB).
 
     heading: self-contained title, a string or a list of line strings (e.g. ["How AI Customizes",
@@ -336,8 +340,8 @@ def left_third(im, t, heading, items, dur=None):
     with the cut at `dur` (the approved clip has no exit animation). Returns the image."""
     if t < 0 or (dur is not None and t >= dur): return im
     w, h = im.size
-    g = _lt_geom(w, h)
-    x0, y0, x1, y1 = left_third_box(w, h, heading, items)
+    g = _lt_geom(w, h, anchor)
+    x0, y0, x1, y1 = left_third_box(w, h, heading, items, anchor)
     k = g["k"]
     card = Image.new("RGBA", im.size)
     ImageDraw.Draw(card).rounded_rectangle((round(x0), round(y0), round(x1), round(y1)), round(32 * k),
@@ -348,6 +352,27 @@ def left_third(im, t, heading, items, dur=None):
                                            round(y0 + div + 3 * k)), max(1, round(k)), fill=LT_WHITE)
     shifted = Image.new("RGBA", im.size); shifted.paste(layer, (0, round(y0)))
     return Image.alpha_composite(out, shifted).convert("RGB")
+
+
+def stack_vertical(foot, t, heading, items, graphic="top", w=1080, h=1920, dur=None, gap=40):
+    """9:16 stacked layout: a horizontal (16:9) crop of Dan as a full-width band plus the 3A card in its
+    own zone on the moving Soft Blue field, never over Dan. graphic="top": card above the footage;
+    "bottom": footage above the card. The group is centred vertically and nudged up so the bottom
+    ~16 % stays free for captions/platform UI. `foot` is the footage frame (any size, scaled to w
+    wide at 16:9). While the card is off (t outside 0..dur) the footage band stays put on the field."""
+    im = field(t, w, h)
+    fw, fh = w, round(w * 9 / 16)
+    band = foot.resize((fw, fh), Image.Resampling.LANCZOS) if foot.size != (fw, fh) else foot
+    _, cy0, _, cy1 = left_third_box(w, h, heading, items, ("top", 0))
+    ch = cy1 - cy0
+    total = ch + gap + fh
+    top = max(60, (h * .84 - total) / 2 + 20)
+    if graphic == "top":
+        card_top, foot_y = top, top + ch + gap
+    else:
+        foot_y, card_top = top, top + fh + gap
+    im.paste(band, (0, round(foot_y)))
+    return left_third(im, t, heading, items, dur, ("top", card_top))
 
 
 def shift_presenter(im, dx=300, c0=350, wall_w=500, feather=50):
