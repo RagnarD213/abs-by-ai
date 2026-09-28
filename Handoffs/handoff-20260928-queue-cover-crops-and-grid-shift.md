@@ -11,7 +11,8 @@
 >   Speedo crops: full waistband, trimmed headroom and sides (commit 07fdc29, `_speedo-crops-20260927/approved/`). The
 >   schedules were recreated as 4934255 (IG carbs), 4934265 (FB carbs), 4934269 (IG weigh) and 4934277 (FB weigh).
 >   They were left as Dan approved them. Those crops were cut from the small queued copies (600 to 780 px wide);
->   photo-172 and photo-180 exist at 4096 px if a sharper re-render at the same boxes is ever wanted.
+>   On Dan's go-ahead (same day) the four were re-rendered at the same framing from the 4096 px photo-172 and
+>   photo-180 (1080 px wide) and swapped in place, image only. Files and boxes: `_speedo-crops-20260927/approved/sharp-from-4096/`.
 > - Backups: `schedules_before_grid_crops_20260928.json` / `schedules_after_grid_crops_20260928.json` in the
 >   installation `backup/` folder. Ad guard is clean before and after. Review page republished (version 3).
 > - Still open for Dan: row 16 (below).
