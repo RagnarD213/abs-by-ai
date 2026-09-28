@@ -351,7 +351,7 @@ def fit_grade(B, master, E, rolls, fps):
 
 
 # ------------------------------------------------------------------------------------------------ picture refinement
-def refine_edl(B, E, rolls, fps, span=20, wide=45):
+def refine_edl(B, E, rolls, fps, span=20, wide=45, cands_by_roll=None):
     """The audio lock places each segment on HIS MIX; his PICTURE is what the vertical reproduces, and where his
     graphics cover the voice-lock (music under a card) a segment can span two takes. So the picture decides, every
     3rd frame (zpic2's method): the raw offset dk (+-span frames, +-wide when poor) where Dan's head box agrees best
@@ -364,7 +364,7 @@ def refine_edl(B, E, rolls, fps, span=20, wide=45):
     M = am.mm(os.path.join(Aa, "m256.rgb"))
     raws = {n: am.mm(os.path.join(Aa, f"r_{os.path.splitext(os.path.basename(p))[0]}.rgb")) for n, p in rolls.items()}
 
-    def best_dk(e, f):
+    def best_dk(e, f, prefer=None):
         Rr = raws[e.get("roll") or list(rolls)[0]]
         n = f["n"]
         k0 = int(round((e["src_in"] + n / fps - e["cut_in"]) * fps))
@@ -383,14 +383,42 @@ def refine_edl(B, E, rolls, fps, span=20, wide=45):
                 d1 = max(s1, key=s1.get)
                 if s1[d1] > s0[d] + 0.05:
                     d = d1; s0[d] = s1[d1]
-        return d, s0[d], s0.get(0, -1)
+        if True:
+            # ANOTHER TAKE (always asked: the wrong take of a repeated line still scores 0.86-0.94 on a still head,
+            # the right one 0.965; Ad 10 18.3-19.9 s): every place in the roll where his words here are spoken, and every take the EDL already
+            # uses. Under a window's music the voice lock can miss a 1.4 s take 8 s away (Ad 10 18.6-20.0 s)
+            t = n / fps
+            offs = set(seg_offsets)
+            if cands_by_roll:
+                offs |= set(cands_by_roll.get(e.get("roll") or list(rolls)[0], lambda t_: [])(t))
+            for o in offs:
+                kc = int(round((t + o) * fps)) - k0
+                for dk in range(kc - 3, kc + 4):
+                    if abs(dk) > wide:
+                        v = sc(dk)
+                        if v > s0[d] + 0.01:
+                            s0[dk] = v; d = dk
+        # CONTINUITY: he holds a take; the previous sample's offset stays unless another is clearly better
+        if prefer is not None and prefer != d:
+            for pd in (prefer - 1, prefer, prefer + 1):
+                v = s0[pd] if pd in s0 else sc(pd)
+                if v >= s0[d] - 0.006:
+                    s0[pd] = v; d = pd
+                    break
+        return d, s0[d], s0.get(0, -1) if 0 in s0 else sc(0)
 
+    seg_offsets = sorted({round(x["src_in"] - x["cut_in"], 3) for x in E})
     out, log = [], []
     for e in E:
-        samp = [f for f in F if e["cut_in"] * fps <= f["n"] < e["cut_out"] * fps and f.get("frac", 0) >= 0.6]
+        # >= 0.4: a window frame agrees only ~0.5 (its text side is his panel) and is judged on Dan's head box
+        samp = [f for f in F if e["cut_in"] * fps <= f["n"] < e["cut_out"] * fps and f.get("frac", 0) >= 0.4]
         if len(samp) < 3:
             out.append(e); log.append(dict(i=e["i"], samples=len(samp), runs=[])); continue
-        est = [(f["n"],) + best_dk(e, f) for f in samp]
+        est, last = [], None
+        for f in samp:
+            r_ = best_dk(e, f, prefer=last)
+            est.append((f["n"],) + r_)
+            last = r_[0] if r_[1] > r_[2] + 0.005 else None
         # a sample counts when the picture clearly prefers it (a still head agrees with everything)
         ds = np.array([x[1] if x[2] > x[3] + 0.005 else 0 for x in est], float)
         sm = np.array([np.median(ds[max(0, i - 2):i + 3]) for i in range(len(ds))])
@@ -479,7 +507,7 @@ def main():
     his16 = os.path.join(B, "his_mix16.wav")
     wav16(master, his16)
     H = rd(his16)
-    prof_by_roll, cover = {}, {}
+    prof_by_roll, cover, cands_by_roll = {}, {}, {}
     for name, path in rolls.items():
         lav = os.path.join(B, f"lav16_{name}.wav")
         idx = os.path.splitext(path)[0] + ".roll.json"
@@ -493,8 +521,9 @@ def main():
         pairs = align([w for w, _, _ in Wh], [w for w, _, _ in RW])
         cover[name] = round(len(pairs) / max(1, len(Wh)), 3)
         pf = os.path.join(B, f"offset_profile_{name}.json")
+        cands_by_roll[name] = candidates(Wh, RW, pairs)
         if not os.path.exists(pf):
-            json.dump(profile(H, R, candidates(Wh, RW, pairs)), open(pf, "w"))
+            json.dump(profile(H, R, cands_by_roll[name]), open(pf, "w"))
         prof_by_roll[name] = json.load(open(pf))
     rep["word_coverage"] = cover
     total = max(cover.values()) if len(cover) == 1 else min(1.0, sum(cover.values()))
@@ -519,7 +548,7 @@ def main():
     if not os.path.exists(os.path.join(B, "edl_audio.json")):
         json.dump(E, open(os.path.join(B, "edl_audio.json"), "w"), indent=1)
     if not any("picture_shift_frames" in e for e in E):
-        E, rlog = refine_edl(B, json.load(open(os.path.join(B, "edl_audio.json"))), rolls, fps)
+        E, rlog = refine_edl(B, json.load(open(os.path.join(B, "edl_audio.json"))), rolls, fps, cands_by_roll=cands_by_roll)
         json.dump(E, open(ep, "w"), indent=1)
         rep["picture_refinement"] = dict(audio_segments=len(rlog), picture_segments=len(E), log=rlog)
     json.dump(rep, open(os.path.join(B, "recover_report.json"), "w"), indent=1)

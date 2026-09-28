@@ -52,6 +52,28 @@ STAGES = ["recover", "measure", "content", "setup", "audio", "kit", "base", "tra
           "cutjudge", "cutfold", "deliver"]
 
 
+KEEP_CAPS = {"I", "I'm", "I'll", "I've", "I'd", "AI", "Dan", "ChatGPT", "Abs", "Zepbound", "Google", "Instagram", "YouTube",
+             "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday", "OK", "Okay"}
+
+
+def caption_case(d):
+    """The captions read the transcript's words. Whisper capitalises some mid-sentence words ("of the Excuses",
+    Ad 10 88.2 s, a judged junk_card): a Capitalised word that is not a sentence start, a name or an acronym is
+    lowercased. Only the case changes; timings are untouched."""
+    prev = "."
+    for s in d.get("segments", []):
+        for w in s.get("words", []):
+            raw = w["word"]
+            core = raw.strip()
+            bare = core.strip(",.?!:;\"'")
+            if bare and bare[0].isupper() and not bare.isupper() and prev[-1:] not in ".?!" and bare not in KEEP_CAPS \
+                    and not any(bare.startswith(k + "'") for k in ("I",)):
+                w["word"] = raw.replace(bare, bare[0].lower() + bare[1:], 1)
+            if core:
+                prev = core
+    return d
+
+
 class Stop(Exception):
     def __init__(self, code, why):
         self.code, self.why = code, why
@@ -140,7 +162,8 @@ def main():
             empty = os.path.join(B, "_no_source"); os.makedirs(empty, exist_ok=True)
             sh(D("setup", "--build", B, "--from-build", empty))
             if not os.path.exists(os.path.join(B, "ref.whisper.json")):
-                shutil.copy(os.path.join(B, "m.whisper.json"), os.path.join(B, "ref.whisper.json"))
+                d = json.load(open(os.path.join(B, "m.whisper.json")))
+                json.dump(caption_case(d), open(os.path.join(B, "ref.whisper.json"), "w"))
         elif name == "audio":
             sh(D("audio", "--build", B, "--mode", "master", "--approved", master))
         elif name == "kit":

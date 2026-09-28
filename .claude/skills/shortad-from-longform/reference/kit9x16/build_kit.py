@@ -572,6 +572,15 @@ def main():
         # flash) then hides it. Round 2's gate: the join at 50.72 s, 8 frames after a card -> talk return, read
         # 86.3 against the file's own 66.5 ceiling.
         near = [e for e in talk_edges if 0 < abs(e - n0) <= int(T["cut"]["search_frames"]) and e not in (0, round(dur * FPS))]
+        # ... or it lies under the RETURN FLASH that starts at that edge: the flash's own length counts as reach. A cut
+        # 16.5 frames after a window's end, inside its flash tail, missed the 15-frame reach, kept no size step and read
+        # as a naked splice through a 30 % flash (kit9x16 autofill, Ad 10 139.1 s, 2026-09-28)
+        if not near:
+            for f0, f1 in flashes:
+                e_ = [e for e in talk_edges if round(f0 * FPS) - 2 <= e <= round(f1 * FPS) + 2 and e not in (0, round(dur * FPS))]
+                if e_ and round(f0 * FPS) <= n0 <= round(f1 * FPS) + int(T["cut"]["search_frames"]):
+                    near = [min(e_, key=lambda e: abs(e - n0))]
+                    break
         if near:
             e = min(near, key=lambda x: abs(x - n0))
             r["k_unsnapped"], r["k"], r["snapped_to_boundary"] = k, e - n0, True

@@ -328,7 +328,7 @@ class Library:
                         prov = "ai" if name_prov(p) == "ai" else "real"
                     files.append((p, typ, prov, si))
         self.files = files
-        sig = hashlib.md5(json.dumps([(p, os.path.getmtime(p), si) for p, _, _, si in files]).encode()).hexdigest()[:12]
+        sig = hashlib.md5(json.dumps([(p, os.path.getmtime(p), si, pv) for p, _, pv, si in files]).encode()).hexdigest()[:12]   # provenance in the key: a rule change must re-index
         self.cache = os.path.join(CACHE, f"libindex_{sig}.npz")
         self._load()
 
@@ -393,6 +393,63 @@ class Library:
             return 0.0
         return float(max(0.0, area) / (qw * qh))
 
+    def _fit(self, r, gq):
+        """How far the library picture, warped onto his frame, is from his frame where they differ MOST: the 98th
+        percentile of 24x24-block mean |difference| after a level match (grey levels; identical copies ~2-5)."""
+        path, typ, t, w, h, H = r[1], r[2], r[4], r[5], r[6], r[10]
+        if H is None:
+            return 99.0
+        if typ == "img":
+            im = cv2.imread(path, cv2.IMREAD_COLOR)
+        else:
+            cap = cv2.VideoCapture(path); cap.set(cv2.CAP_PROP_POS_MSEC, t * 1000); ok, im = cap.read(); cap.release()
+            im = im if ok else None
+        if im is None:
+            return 99.0
+        sc = min(1.0, 1000 / max(im.shape[:2]))
+        g = cv2.cvtColor(cv2.resize(im, None, fx=sc, fy=sc, interpolation=cv2.INTER_AREA), cv2.COLOR_BGR2GRAY)
+        try:
+            Hi = np.linalg.inv(H)
+        except np.linalg.LinAlgError:
+            return 99.0
+        wq, hq = gq.shape[1], gq.shape[0]
+        warped = cv2.warpPerspective(g, Hi, (wq, hq), flags=cv2.INTER_LINEAR, borderValue=0)
+        valid = cv2.warpPerspective(np.full_like(g, 255), Hi, (wq, hq), flags=cv2.INTER_NEAREST, borderValue=0) > 0
+        valid = cv2.erode(valid.astype(np.uint8), np.ones((9, 9), np.uint8)) > 0
+        if valid.sum() < 500:
+            return 99.0
+        wb = cv2.GaussianBlur(warped, (0, 0), 2.0).astype(np.float32)
+        a = gq[valid]; b = wb[valid]
+        # his grade and compression change levels, not shapes: match b's levels to a's (least squares), then look
+        # for the WORST 24x24 block. An edited belly lives in a few blocks; a whole-frame score dilutes it.
+        A = np.vstack([b, np.ones_like(b)]).T
+        gain, off = np.linalg.lstsq(A, a, rcond=None)[0]
+        diff = np.zeros_like(gq); diff[valid] = np.abs(gq[valid] - (gain * wb[valid] + off))
+        bs = 24
+        worst = []
+        for y in range(0, gq.shape[0] - bs + 1, bs):
+            for x in range(0, gq.shape[1] - bs + 1, bs):
+                vm = valid[y:y + bs, x:x + bs]
+                if vm.mean() > 0.9:
+                    worst.append(float(diff[y:y + bs, x:x + bs][vm].mean()))
+        return float(np.percentile(worst, 98)) if worst else 99.0
+
+    @staticmethod
+    def _lib_coverage(H, e, qsize):
+        """Fraction of the LIBRARY picture that his frame shows. A tighter crop of the same photo reads ~1; the
+        uncropped original he did not use reads less (Ad 10 8.8 s: the full photo-180 jpg shows the Speedo he
+        cropped away; the png he used is the crop)."""
+        sc = min(1.0, 1000 / max(e["w"], e["h"]))
+        w, h = e["w"] * sc, e["h"] * sc
+        qw, qh = qsize
+        quad = cv2.perspectiveTransform(np.float32([[[0, 0]], [[qw, 0]], [[qw, qh]], [[0, qh]]]), H).reshape(-1, 2)
+        rect = np.float32([[0, 0], [w, 0], [w, h], [0, h]])
+        try:
+            area, _ = cv2.intersectConvexConvex(quad.astype(np.float32), rect)
+        except cv2.error:
+            return 0.0
+        return float(max(0.0, area) / (w * h))
+
     def match(self, img):
         qp, qd = self._feat(img)
         hq, wq = img.shape[:2]
@@ -412,21 +469,40 @@ class Library:
             H, mask = cv2.findHomography(src, dst, cv2.RANSAC, 6.0)
             inl = int(mask.sum()) if mask is not None else 0
             cov = self._coverage(H, e, qsize) if H is not None and inl >= 12 else 0.0
-            res.append((inl, e["path"], e["typ"], e["prov"], e["t"], e["w"], e["h"], e.get("si", 0), cov))
+            lcov = self._lib_coverage(H, e, qsize) if H is not None and inl >= 12 else 0.0
+            res.append((inl, e["path"], e["typ"], e["prov"], e["t"], e["w"], e["h"], e.get("si", 0), cov, lcov, H))
         res.sort(key=lambda r: -r[0])
         # the same picture often lives in two files (the library's and a reference-ad copy, a jpg and a png): among
         # matches within 10 % of the best, the LARGEST file wins (the clean full-resolution original), then the
         # earlier source in auto_sources.json
         if res:
             top = res[0][0]
-            tied = [r for r in res if r[0] >= 0.9 * top]
-            rest = [r for r in res if r[0] < 0.9 * top]
-            tied.sort(key=lambda r: (-(r[5] * r[6]), r[7]))
-            provs = {r[3] for r in tied if r[3] in ("real", "ai")} if top >= MATCH_MIN_INLIERS else set()
+            # the same picture in several files: every match with half the best inliers that covers his picture
+            tied = [r for r in res if r[0] >= 0.5 * top and r[8] >= 0.5] or [res[0]]
+            rest = [r for r in res if r not in tied]
+            # ⚠ NEAR-DUPLICATES ARE NOT THE SAME PICTURE. The library holds AI-edited variants of Dan's real photos
+            # ("01_LIGHT_plus8lb" = the real deckchair photo with 8 lb painted on): same feature points, different
+            # body. So the candidates are ranked by their PIXELS after alignment (NCC against his frame); only files
+            # within 0.02 of the best fit count as copies of one picture, and provenance is shared only among those.
+            gq = cv2.GaussianBlur(cv2.cvtColor(cv2.resize(img, (int(qsize[0]), int(qsize[1])), interpolation=cv2.INTER_AREA),
+                                               cv2.COLOR_BGR2GRAY), (0, 0), 2.0).astype(np.float32)
+            fits = []
+            for r in tied[:8]:
+                fits.append(self._fit(r, gq))
+            fits += [99.0] * (len(tied) - len(fits))
+            tied = [r + (f,) for r, f in zip(tied, fits)]
+            best_fit = min(fits)                     # the worst block's mean |difference|, grey levels (lower = closer)
+            same = [r for r in tied if r[11] <= best_fit * 1.5 + 2.0]
+            others = [r for r in tied if r not in same]
+            # of the copies: the file he actually showed (all of it on screen), then the largest (clean full resolution)
+            same.sort(key=lambda r: (-round(min(r[9], 1.0), 1), -(r[5] * r[6]), r[7]))
+            provs = {r[3] for r in same if r[3] in ("real", "ai")} if top >= MATCH_MIN_INLIERS else set()
             if len(provs) > 1:                       # two copies of one picture disagree on real vs AI
-                tied = [r[:3] + ("conflict",) + r[4:] for r in tied]
-            elif provs and tied[0][3] not in provs:  # a copy with no provenance inherits its twin's
-                tied = [r[:3] + (next(iter(provs)),) + r[4:] for r in tied]
+                same = [r[:3] + ("conflict",) + r[4:] for r in same]
+            elif provs and same[0][3] not in provs:  # a copy with no provenance inherits its identical twin's
+                same = [r[:3] + (next(iter(provs)),) + r[4:] for r in same]
+            tied = same + sorted(others, key=lambda r: r[11])
+            rest = [r + (None,) for r in rest]
             res = tied + rest
         # one row per file, best frame
         seen, out = set(), []
@@ -856,6 +932,24 @@ def banned_reads(O, n0, n1):
     return [(n, l["text"]) for n in sorted(O) if n0 <= n < n1 for l in O[n] if BANNED_RX.search(l["text"])]
 
 
+def clean_range(D, s0, s1, fps):
+    """The part of a shot that is HIS PICTURE ONLY: his flash / whip transitions sit at the shot's edges and the
+    boundary is placed at a burst's centre, so the last frames before it are already his transition and his next
+    shot (Ad 10 57.86 s: one frame of his talking head in the card). -> (c0, c1) seconds."""
+    cut = D["cut"]
+    B = bursts(cut)
+    c0, c1 = s0, s1
+    for a, b, c in B:
+        if a - 3 <= s1 <= b + 3:
+            c1 = min(c1, a - 1)
+        if a - 3 <= s0 <= b + 3:
+            c0 = max(c0, b + 2)
+    if c1 - c0 < 6:                                   # nothing clean enough: keep the middle of the shot
+        m = (s0 + s1) // 2
+        c0, c1 = max(s0, m - 3), min(s1, m + 3)
+    return c0 / fps, c1 / fps
+
+
 def text_key(b):
     if b.get("bullets"):
         return norm(" ".join(b["bullets"]))
@@ -933,9 +1027,10 @@ def describe_window(master, frames_dir, D, O, W, n0, n1, kind, T, cell_mean, med
         x = int(min(max(cx - 304, 0), 1920 - 608))
         mk = f"auto_{n0:05d}"
         out = os.path.join("assets_auto", f"{mk}.mp4")
-        prep.append((out, t0, round(t1 - t0, 3), x))
-        media[mk] = ("vid", out, 0.0)
         ent = dict(kind="winmedia", media=mk, t0=t0, t1=t1)
+        c0, c1 = clean_range(D, n0, n1, fps)
+        prep.append(dict(out=out, beat=ent, c0=c0, c1=c1, x=x))
+        media[mk] = ("vid", out, 0.0)
         bad = banned_reads(O, n0, n1)
         if bad:
             esc.append(dict(t0=t0, t1=t1, what="a banned screen in his master (email capture / in-app before-after): trim or replace",
@@ -1067,7 +1162,8 @@ def describe_shot(master, A, frames_dir, D, O, W, s0, s1, fps, T, lib_get, AI, e
     # ---- a picture: find the clean original
     crop = img if bbox is None else img[bbox[1]:bbox[3], bbox[0]:bbox[2]]
     m = lib_get().match(crop) if crop.size else []
-    ev["matches"] = [dict(file=r[1], inliers=r[0], typ=r[2], prov=r[3], t=round(r[4], 2), coverage=round(r[8], 3)) for r in m[:3]]
+    ev["matches"] = [dict(file=r[1], inliers=r[0], typ=r[2], prov=r[3], t=round(r[4], 2), coverage=round(r[8], 3),
+                          shown=round(r[9], 3), fit=(round(r[11], 3) if len(r) > 11 and r[11] is not None else None)) for r in m[:3]]
     # a match counts when it is strong, or fair AND the library picture actually covers his (a 29-inlier "match" with
     # 0 % coverage is two unrelated gym pictures sharing texture: Ad 1 136.3 s)
     top = m[0] if m and (m[0][0] >= 40 or (m[0][0] >= MATCH_MIN_INLIERS and m[0][8] >= 0.3)) else None
@@ -1119,12 +1215,16 @@ def describe_shot(master, A, frames_dir, D, O, W, s0, s1, fps, T, lib_get, AI, e
             cx = (bbox[0] + bbox[2]) // 2
             x = int(min(max(cx - 304, 0), 1920 - 608))
             out = os.path.join("assets_auto", f"{key}.mp4")
-            prep.append((out, t0, round(t1 - t0, 3), x))
+            c0, c1 = clean_range(D, s0, s1, fps)
+            prep.append(dict(out=out, beat=beat, c0=c0, c1=c1, x=x))
             media[key] = ("vid", out, 0.0)
-            ev["source"] = f"portrait crop of his master at x={x} (a phone)"
+            ev["source"] = f"portrait crop of his master at x={x} (a phone), his picture {c0:.3f}-{c1:.3f} s"
         else:
-            media[key] = ("vid", master, t0)
-            ev["source"] = "his master, lifted into the olive card"
+            out = os.path.join("assets_auto", f"{key}.mp4")
+            c0, c1 = clean_range(D, s0, s1, fps)
+            prep.append(dict(out=out, beat=beat, c0=c0, c1=c1, x=None))
+            media[key] = ("vid", out, 0.0)
+            ev["source"] = f"his master {c0:.3f}-{c1:.3f} s (his transitions trimmed), lifted into the olive card"
         still = is_still(B, D, s0, s1, bbox)
         ev["still"] = still
         if phone and top is not None and prov in ("real", "ai") and top[2] == "img":
@@ -1143,7 +1243,9 @@ def describe_shot(master, A, frames_dir, D, O, W, s0, s1, fps, T, lib_get, AI, e
                 esc.append(dict(t0=t0, t1=t1, what="a real physique still with no clean original: his burned label may cross the abs"))
                 conf = "low"
         elif prov == "ai":
-            beat["label_kind"] = "ai"; beat["caps"] = False
+            beat["label_kind"] = "ai"
+            if still:
+                beat["caps"] = False                 # an AI picture held still (his goal image): the picture is the point
             ev["label"] = "AI label: the matched file lives in an AI-generated library"
         elif prov == "real":
             ev["label"] = "no label: real footage (the real-picture label is for still photos of his physique)"
@@ -1215,13 +1317,23 @@ def is_still(B, D, s0, s1, bbox):
 
 def write_assets(B, master, media, prep):
     os.makedirs(os.path.join(B, "assets_auto"), exist_ok=True)
-    for out, t0, d, x in prep:
-        p = os.path.join(B, out)
-        if not os.path.exists(p):
-            run([FF, "-nostdin", "-v", "error", "-y", "-ss", f"{t0:.4f}", "-t", f"{d:.4f}", "-i", master, "-an",
-                 "-vf", f"crop=608:1080:{x}:0,setpts=PTS-STARTPTS,tpad=stop_mode=clone:stop_duration=0.25",
-                 "-r", "30000/1001", "-c:v", "libx264", "-preset", "medium", "-crf", "16", "-pix_fmt", "yuv420p",
-                 "-color_primaries", "bt709", "-color_trc", "bt709", "-colorspace", "bt709", p])
+    for q in prep:
+        if q["out"] not in [v[1] for v in media.values() if v[0] == "vid"]:
+            continue                                  # its beat was dropped (an entrance)
+        p = os.path.join(B, q["out"])
+        b = q["beat"]
+        dur = b["t1"] - b["t0"]
+        clen = max(1 / 29.97, q["c1"] - q["c0"])
+        # his clean picture fills the beat: stretched gently when it is a little short (AV-07's food shot), else
+        # its first / last clean frame holds -- never his transition, never his next shot
+        stretch = min(1.30, max(1.0, dur / clen))
+        lead = max(0.0, q["c0"] - b["t0"]) if stretch * clen < dur else 0.0
+        tail = max(0.25, dur - lead - stretch * clen + 0.25)
+        vf = (f"crop=608:1080:{q['x']}:0," if q["x"] is not None else "") + \
+             f"setpts={stretch:.4f}*(PTS-STARTPTS),tpad=start_mode=clone:start_duration={lead:.3f}:stop_mode=clone:stop_duration={tail:.3f}"
+        run([FF, "-nostdin", "-v", "error", "-y", "-ss", f"{q['c0']:.4f}", "-t", f"{clen:.4f}", "-i", master, "-an",
+             "-vf", vf, "-r", "30000/1001", "-c:v", "libx264", "-preset", "medium", "-crf", "16", "-pix_fmt", "yuv420p",
+             "-color_primaries", "bt709", "-color_trc", "bt709", "-colorspace", "bt709", p])
     with open(os.path.join(B, "assets.py"), "w") as f:
         f.write('#!/usr/bin/env python3\n"""Media map written by kit9x16/auto_content.py. Every entry cites its source in '
                 'auto_content_report.json."""\n\n')
