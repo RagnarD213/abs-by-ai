@@ -16,6 +16,8 @@ Cuts reviewed (sent on Upwork 09-29 9:57 AM, no note; both 1080x1920, about 3.3 
 | Grade vs his Getting Abs | blacks lifted (p1 0.12 vs 0.00), luma 0.37 vs 0.30 | same |
 | Script match | word for word | word for word plus a stray "You're alright" at 0:13.0 |
 
+Dating clip (Dan's 09-29 note): cut from the approved C1652 master 86.04-96.735 s, muted, cropped 9:16 to the phone, Drive `1g9wt3_MuggGK5DPVZhst_CgTBMQzqG9L` in "AI clips for Muhammad". Its "Illustrative reconstruction" disclosure is outside the crop, so the doc asks for the AI-GENERATED label.
+
 AI CLIPS FLAGGED: none. The Hinge and fat-rich-guy clips are placeholders ("AI footage not provided"); the hospital clip is start/end frames only. The doc approves the hospital frames on your behalf. Delete that line if you want to pick them yourself.
 
 ## For Dan's call (not in the doc)
@@ -30,6 +32,6 @@ Hey Muhammad, thanks for these! The audio is way better, the compression is fixe
 
 All my notes are here: https://docs.google.com/document/d/1Wcxa3ou3Kw8cfm-ZJTqJY8Yd3LKxfN8hAKoiutcWV3o/edit
 
-Three big things on both videos. First, crop in a lot closer, about 40%, like you did on Getting Abs. Right now it's full body with my shoes in frame. Second, switch between a wide and a tight shot at every cut between takes so I don't jump on screen. Third, for the dating app clips and the two body fat pictures that need redoing, send me the frames first like you did with the hospital one.
+Three big things on both videos. First, crop in a lot closer, about 40%, like you did on Getting Abs. Right now it's full body with my shoes in frame. Second, switch between a wide and a tight shot at every cut between takes so I don't jump on screen. Third, I put a dating app clip we already made in the doc for the fat millionaire video, so no need to generate that one. For the two body fat pictures that need redoing, send me the new stills first like you did with the hospital frames.
 
 The rest is small stuff in the doc. Thanks!
