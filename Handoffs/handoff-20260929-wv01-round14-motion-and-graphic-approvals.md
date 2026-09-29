@@ -109,3 +109,7 @@ No independent complete-candidate reviewer ran. Inherited website gate FAIL rema
 Continue WV-01 round14 from this execution checkpoint using `$abs-edit-organic`. Record my explicit $5.38 incremental batch-budget answer before motion calls. Prepare exercise A and both exact family motions, inspect them, and add their moving contexts to the existing round14 individual-approval page. Preserve the three prepared graphic previews and existing approvals. No full render until every remaining moving item is approved. Keep B deferred, dispatcher paused and publishing off.
 
 Recommended model: **GPT-6 Sol, High effort**.
+
+## Superseding decision, 2026-09-29
+
+Dan approved all three delivered moving graphics and authorized a $50 cumulative video-generation budget, with no further spending permission requests below the cap. The earlier budget hold is resolved. Exact approvals and authorization are in `round15-plan/decisions.json` and `budget-authorization.json`. Continue with `Handoffs/handoff-20260929-wv01-round15-approved-motion-generation.md`. No motion calls occurred during handoff preparation. Finished-motion approvals remain pending; no full render, B deferred, dispatcher paused, no publishing.
