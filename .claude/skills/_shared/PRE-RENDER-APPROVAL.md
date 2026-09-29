@@ -9,6 +9,20 @@ The model is Codex's WV-01 website video: its first one-shot attempt was rejecte
 locked (study: `/Volumes/Extreme/_edit_work/ro05-fable/CODEX_METHOD_STUDY.md`). Claude's RO-05 salad recut was built in one shot,
 passed four reviews, and was still rejected on sight for its intro, graphics and grade (2026-09-28).
 
+## Decision budget: Claude decides, Dan gets 10 to 15 real decisions per video at most (Dan, 2026-09-29)
+
+**This overrides every "Dan approves each item" line below.** RO-05 round 3 put about 50 items in front of him (every graphic
+and clip, one by one). Dan: *"This is way too complicated... I can't be approving this much stuff per video... Just go with what
+you think is best for most of this and reduce it to 10 to 15 decisions max. Only for things that legitimately need my decision."*
+
+- Claude still builds and checks everything in steps (stills, moving previews, first minute), but **Claude approves what it checked**:
+  sync, face/hair clearance, copy against the speech, the standing rules. Those are not questions for Dan.
+- Ask Dan only what Claude genuinely cannot call: taste choices between close options he has strong views on (grade, the opening,
+  a new look), facts only he knows, and anything that changes something he already locked. **At most 10 to 15 decisions per video, in
+  total, not per round.** Fewer is better; zero is fine.
+- Every packet opens with a short "what I decided" list (one line each) so he can overrule while watching, never item-by-item forms.
+- Dan still sees the first minute and the finished film; his notes there are the check on Claude's calls.
+
 ## The approval order
 
 Each step is its own round unless the items are ready together. Nothing later starts rendering before the items it depends on are locked.
@@ -19,8 +33,8 @@ Each step is its own round unless the items are ready together. Nothing later st
 2. **Graphic style.** Soft Blue Light is locked for all videos ([GRAPHICS-STANDARDS.md](GRAPHICS-STANDARDS.md), [SOFTBLUE.md](SOFTBLUE.md)).
    Do not invent another style. Only if Dan asks for a new style: 3 directions, each built from the same 5-6 real components.
 3. **Every graphic, as a still screenshot first.** One screenshot per graphic, in timeline order, rendered on the real graded frame it
-   will sit on, with: its ID (G01, G02...), output time range, the exact copy, and the speech before, under and after it. Dan edits the
-   text and approves or rejects each one. Only approved stills become moving previews (entrance, reveal, exit), shown in context with
+   will sit on, with: its ID (G01, G02...), output time range, the exact copy, and the speech before, under and after it. Claude checks and
+   locks each one (Dan sees the sheet as a record and may edit copy; the decision budget above applies). Only locked stills become moving previews (entrance, reveal, exit), shown in context with
    about 5 s of narration either side. A style approval never approves an individual graphic.
 4. **Every clip.** Stock, existing B-roll, photos and app demos: the exact moving trim and crop, in context (about 5 s either side),
    plus the isolated source when useful. AI clips have three gates: the concept (text only when Dan asks for ideas; offer 2-3 opener
@@ -35,8 +49,8 @@ Each step is its own round unless the items are ready together. Nothing later st
 
 - **One round is one session.** It starts from the previous round's handoff, reads the decisions file, and re-hashes every locked file
   (record expected vs actual) before touching anything. It builds in a new `roundN/` folder and never overwrites a reviewed round.
-- **Show only what changed or is still pending.** Locked items appear as a record list, never as a question. Batches shrink as locks
-  build up (about 40 items early, 3-7 late). A one-variable question (a crop, a transparency) gets its own tiny page so it can be
+- **Show only what changed or is still pending.** Locked items appear as a record list, never as a question. Stay inside the decision
+  budget above (10 to 15 per video in total); items Claude checked are listed as decided, not asked. A one-variable question (a crop, a transparency) gets its own tiny page so it can be
   answered the same day. Send a small frame page early and keep working on everything that does not depend on it.
 - **Choices are 2-3 options at most**, on the same frame or the same narration.
 - **Present it like Codex:** one review page (copy `wv01-edit/round11/index.html` or `ro01/revision4/index.html`), a header stating what

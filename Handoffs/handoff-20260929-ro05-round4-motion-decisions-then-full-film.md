@@ -1,11 +1,13 @@
-# RO-05 "How I Make My Daily Salad": round 4, record Dan's round-3 answers, fix only what he flags, then the full film
+# RO-05 "How I Make My Daily Salad": round 4, the full film (every decision already locked)
 
 **Written 2026-09-29 by Claude (Opus 5.5) at the close of round 3.** Job RO-05 on `Handoffs/video-editing/00-MASTER.md`. One round of
 the round method (`.claude/skills/_shared/PRE-RENDER-APPROVAL.md`). Supersedes `handoff-20260928-ro05-round3-graphics-motion-and-clips.md`.
 
 ## 1. Where things stand
-Round 3 packet sent to Dan 2026-09-29. **Round 4 starts only once his answer exists** (he downloads `RO05-R3-batch-decisions.json`
-from the page, or answers in chat).
+Round 3 packet sent to Dan 2026-09-29. He found the ~50 per-item approvals far too many and delegated: *"Just go with what you think is
+best for most of this and reduce it to 10 to 15 decisions max."* Claude locked every item (all checked: sync 55/55, graphics clear of the
+face) and decided both open questions. **Nothing is pending: round 4 builds the full film now, no answer from Dan needed.** New standing rule:
+the Decision budget section at the top of `PRE-RENDER-APPROVAL.md` (max 10 to 15 Dan decisions per video in total).
 
 - Review page: `/Volumes/Extreme/_edit_work/ro05-fable/round3/index.html`, served at `http://127.0.0.1:8776/index.html` with
   `python3 -m http.server 8776 --bind 127.0.0.1` from `round3/` (restart it if the port is dead).
@@ -23,7 +25,8 @@ other decisions, that is set"; re-exported only to drop G02). Section titles **A
 Dan's own rewrites of G05 item 4, T05, G19, T06, G22, T08, G29 (exact strings in `round3-plan/decisions.json` `dan_copy`). **G02 and G14 removed.**
 The cut, audio chain, bed, framing and flash transitions from round 4 of the old build. B01/B02/B03 (opening shots) locked with the opening.
 
-## 3. What round 3 asked (record Dan's words per item into round4-plan/decisions.json, verbatim)
+## 3. What round 3 decided (all recorded in `round4-plan/decisions.json`, verdict `claude-approved` / `claude-decided`)
+**Decided: list cards = option B, G15 topic = `INGREDIENT 5 OF 11`, every other preview locked as built.** Background:
 1. **Question 1, the three list cards on moving footage.** The 3A left card, clear on its approved still, covers Dan on the handheld
    kitchen takes (per-piece check in `round3/shifts.json`, sheet `round3/tmp/l3_sheet.jpg`): G05 pieces 20-21 (1:56.7 to 2:25.3, camera on
    the chicken bag and olives), G20 pieces 76-77 (8:14 to 8:25.6), G27 piece 117 (11:47 to 11:57, close-up). Option A = card as approved
@@ -36,10 +39,9 @@ The cut, audio chain, bed, framing and flash transitions from round 4 of the old
 
 ## 4. What round 4 builds
 1. Re-hash every locked file (round2 `locked_hashes.json` + round-3 hashes in section 7) before touching anything; record expected vs actual.
-2. New `round4/` folder; copy `round3/recipe/`; never edit round3 in place. Apply Q1 (edit `gfx_r3.py` into `gfx_r4.py`: for B, drop the
-   three l3 items and use `L3_ALT`), Q2, and any per-item notes.
-3. **If anything is "Changes requested":** rebuild only those previews (`build ctx <ID>`) and send a small page with just them. No full film.
-4. **If nothing is pending:** the full film. Build from the locked components with the round-3 machinery: all pieces are cached in
+2. New `round4/` folder; copy `round3/recipe/`; never edit round3 in place. `gfx_r4.py`: drop the three l3 items (G05, G20, G27) and use
+   `L3_ALT` (that is `load("B")` in `build_r3.py`); G15 `topic="INGREDIENT 5 OF 11"`.
+3. The full film. Build from the locked components with the round-3 machinery: all pieces are cached in
    `round3/segs_B/` (link them), overlay every approved item with `paint()`, flashes via `B.Overlay`. Audio: run the locked chain once on the
    full timeline (the old `firstmin()` path in `round2/recipe/build_r2.py` generalised to the full length; `voice_chain.py` settings unchanged)
    so the opening's new audio joins the rest; the round-4 old film's mix is not reusable for the first 12.5 s. Then exact-file gates
@@ -77,4 +79,4 @@ Record decisions, build, send Dan the page (or the delivered film), write the ro
 ## 9. Model and starter prompt
 Claude Opus 5.5, effort high.
 
-> Read `Handoffs/handoff-20260929-ro05-round4-motion-decisions-then-full-film.md` in full, then `.claude/skills/_shared/PRE-RENDER-APPROVAL.md`, `.claude/skills/_shared/SOFTBLUE.md` and `.claude/skills/_shared/GRAPHICS-STANDARDS.md`. My round-3 decisions are in ~/Downloads/RO05-R3-batch-decisions.json (plus any notes I add here). Record them in round4-plan/decisions.json, then run RO-05 round 4: rebuild only what I flagged; if nothing is pending, build the full video and run every gate. Send me the page or the film, then write the next handoff if anything is left.
+> Read `Handoffs/handoff-20260929-ro05-round4-motion-decisions-then-full-film.md` in full, then `.claude/skills/_shared/PRE-RENDER-APPROVAL.md` (Decision budget section first), `.claude/skills/_shared/SOFTBLUE.md` and `.claude/skills/_shared/GRAPHICS-STANDARDS.md`. Every RO-05 decision is locked in round4-plan/decisions.json. Build the full video, run every gate and the independent review, deliver it, and send me the film with a short list of anything you decided along the way.
