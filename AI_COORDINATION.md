@@ -156,6 +156,7 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
+- `handoff-20260929-ig-autoboost-cost-per-follower.md` (09-29): IG ads per-follower. Opus high.
 - `handoff-20260928-queue-cover-crops-and-grid-shift.md` (09-28): 8 Hours cover due Sep 29 5 PM CT. Opus 5.5 medium.
 - `handoff-20260925-sl04-arms-shoulders-shorts-revisions.md` (09-25): SL-04 round 2 fixes. Opus 5.5 high.
 - `handoff-20260924-vsl-landing-five-mockups.md` (09-24): five VSL landing page mockups from VidTao research. Opus 5.5 high. Mockups only.
