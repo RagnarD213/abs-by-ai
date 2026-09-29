@@ -364,6 +364,25 @@ def overlay_callout(rect, dur, fps=FPS, draw_dur=0.5):
 #   3. eight beat changes are covered by a WHITE LIGHT-LEAK FLASH, not a hard cut.
 # ==============================================================================
 
+def _fade_char(d, xy, ch, f, fill, a):
+    """One arriving letter at opacity `a`, in ITS OWN COLOUR (Ad 10 round 3 judge, 99.8 s: the old reveal scaled the
+    RGB with the alpha, so every arriving letter was drawn dark and sat black on the green card for 2-3 frames before
+    it turned white). The glyph becomes a coverage mask, the mask is scaled by `a`, and the solid colour is
+    alpha-composited: correct on a transparent layer and on an opaque frame alike."""
+    im = getattr(d, "_image", None)
+    if im is None or im.mode != "RGBA":
+        d.text(xy, ch, font=f, fill=tuple(int(v * a) for v in fill[:3]) + tuple(fill[3:]), anchor="ls"); return
+    x0, y0, x1, y1 = [int(v) for v in d.textbbox(xy, ch, font=f, anchor="ls")]
+    x0, y0 = max(0, x0 - 2), max(0, y0 - 2)
+    x1, y1 = min(im.width, x1 + 2), min(im.height, y1 + 2)
+    if x1 <= x0 or y1 <= y0: return
+    m = Image.new("L", (x1 - x0, y1 - y0), 0)
+    ImageDraw.Draw(m).text((xy[0] - x0, xy[1] - y0), ch, font=f, fill=255, anchor="ls")
+    fa = (fill[3] if len(fill) > 3 else 255) / 255.0 * a
+    solid = Image.new("RGBA", m.size, tuple(fill[:3]) + (0,))
+    solid.putalpha(m.point(lambda v: int(v * fa)))
+    im.alpha_composite(solid, dest=(x0, y0))
+
 def draw_type(d, txt, f, x, y, fill, k, tail=5, spread=0.75, anchor_w=None):
     """Type-on reveal. Returns the settled width.
 
@@ -393,8 +412,10 @@ def draw_type(d, txt, f, x, y, fill, k, tail=5, spread=0.75, anchor_w=None):
         else:
             a = clamp01(lead / tail)
             extra = int(w * spread * (1 - a))
-        col = tuple(int(v * a) for v in fill[:3]) + ((int(fill[3]*a),) if len(fill) > 3 else ())
-        d.text((ax, y), ch, font=f, fill=col, anchor="ls")
+        if a >= 1.0:
+            d.text((ax, y), ch, font=f, fill=fill, anchor="ls")
+        else:
+            _fade_char(d, (ax, y), ch, f, fill, a)
         ax += w + extra
     return ax - x
 

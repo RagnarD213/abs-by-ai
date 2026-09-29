@@ -210,13 +210,14 @@ def main():
         elif name == "pick":
             sh([PY, K("cutdown_pick.py"), "--build", B, "--ai", a.ai, "--ledger", ledger])
         elif name == "cutdown":
-            shutil.copy(K("kit_cutdown.py"), os.path.join(B, "kit_cutdown.py"))
-            sh([PY, "kit_cutdown.py", "--build", "--out", cut])
+            sh([PY, K("kit_cutdown.py"), "--build", "--out", cut])            # run from the kit, in the build dir
         elif name == "cutgate":
             audit = os.path.join(B, "cut_audit")
             os.makedirs(audit, exist_ok=True)
-            sh([PY, os.path.join(SHARED, "audio/audio_gate.py"), cut, "--reference-mix", os.path.join(B, "his_mix.wav"),
-                "--verbatim"], check=False)
+            # the cutdown's reference is HIS MIX CUT AT THE SAME SEAMS (cut/his_mix.wav, kit_cutdown.py), never his
+            # full mix: a selection's loudness is not the whole film's (AV-07's cutdown gate)
+            sh([PY, os.path.join(SHARED, "audio/audio_gate.py"), cut, "--reference-mix", os.path.join(B, "cut", "his_mix.wav"),
+                "--verbatim"])
             sh([PY, K("kit_plan_cutdown.py"), "--build", B, "--video", cut, "--audit", audit, "--source", full, "--transcribe"])
             sh([PY, os.path.join(SHARED, "deliver/watch.py"), cut, "--plan", os.path.join(audit, "plan.json"),
                 "--out", os.path.join(audit, "watch"), "--log", os.path.join(audit, "logs", "watch_pass.json")], cwd=audit)

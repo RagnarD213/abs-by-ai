@@ -41,6 +41,8 @@ FIX = {('your','gold','picture'):    ('your','goal','picture'),
        # Ad 8 (kit autofill, 2026-09-28, judged junk_card at 61.6 s): "with defined six pack abs" heard as "the fine"
        ('the','fine','six','pack'):  ('defined','','six-pack',''),
        ('uses','a','specific'):      ('uses','the','specific'),
+       # Ad 10 (kit autofill round 3, 141.9 s): "a real plan and it'll build you one" heard as "on" (Flash ASR too; Pro hears one)
+       ('build','you','on'):         ('build','you','one.'),
        # Ad 10 has spoken full stops here; without punctuation the three-word
        # caption groups burn visible run-ons across the sentence boundaries.
        ('story','really','is',"It's"): ('story','really','is.',"It's"),
