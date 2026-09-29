@@ -8,8 +8,10 @@ works on **tier1 `24163535721` and tier2 `24122099676` only** (remarketing is le
 - every Short's ad is left exactly as it is;
 - every ENABLED long-form ad is PAUSED except the ads for the newest public long-form (from the feed);
 - if every ad for the newest long-form in a campaign is paused, the best one is ENABLED;
-- if the newest long-form has no APPROVED / APPROVED_LIMITED ad in a campaign, a second ad is created
-  with tamer copy (`generateHeadlines` tame mode, name ` · r2 · `), ENABLED, once;
+- **6 hours after the pause run** (about 4 PM; Dan 2026-09-29), a second check: if the newest long-form
+  has no fully APPROVED ad in a campaign (still in review, DISAPPROVED, or APPROVED_LIMITED), a second ad
+  is created with tamer copy (`generateHeadlines` tame mode, name ` · r2 · `), ENABLED, once
+  (`sunday:tame` event);
 - every ad it paused gets the Google Ads label **"Sunday pause"** (moved each week). **Dan re-enables by
   hand on Tuesday**: filter by that label so ads he paused himself stay paused.
 

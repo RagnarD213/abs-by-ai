@@ -49,6 +49,10 @@ p = S.plan({ newestLong: newest, kindOf, ads: [ad('tier1', '3', 'L_NEW', 'ENABLE
   ad('tier1', '9', 'L_NEW', 'ENABLED', 'UNDER_REVIEW', 'AT · x · yt:L_NEW · r2 · tier1 · 2026-10-04')] });
 check('tamer copy made once (r2 exists)', !p.tame.some(t => t.key === 'tier1'));
 
+p = S.plan({ newestLong: newest, kindOf, ads: [ad('tier1', '3', 'L_NEW', 'ENABLED', 'APPROVED_LIMITED'), ad('tier2', '7', 'L_NEW', 'ENABLED', 'APPROVED')] });
+check('approved-limited newest → tamer copy; fully approved → none', p.tame.map(t => t.key).join() === 'tier1', p.tame);
+
+
 p = S.plan({ newestLong: newest, kindOf, ads: [ad('tier1', '3', 'L_NEW', 'PAUSED'), ad('tier1', '10', 'L_NEW', 'PAUSED', 'DISAPPROVED')] });
 check('newest all paused → enable the approved one', p.enable.map(a => a.adId).join() === '3', p.enable);
 
@@ -58,6 +62,14 @@ check('missing newest ad → warning', p.warnings.some(w => /tier2: no ad exists
 
 p = S.plan({ newestLong: null, kindOf, ads: [ad('tier1', '2', 'L_OLD')] });
 check('no newest long-form → nothing paused', p.pause.length === 0 && p.warnings.length === 1);
+
+console.log('tameDueFor: 6 hours after the pause run, once');
+const run = [{ d: '2026-10-04', at: '2026-10-04T15:00:00Z' }];
+check('5h59m after: not due', S.tameDueFor(new Date('2026-10-04T20:59:00Z'), run, new Set()) === null);
+check('6h after: due', S.tameDueFor(new Date('2026-10-04T21:00:00Z'), run, new Set()) === '2026-10-04');
+check('already checked: not due', S.tameDueFor(new Date('2026-10-04T22:00:00Z'), run, new Set(['2026-10-04'])) === null);
+check('late pause (9:30 PM) → check after midnight Monday', S.tameDueFor(new Date('2026-10-05T08:30:00Z'), [{ d: '2026-10-04', at: '2026-10-05T02:30:00Z' }], new Set()) === '2026-10-04');
+check('stale run (over 24h): not due', S.tameDueFor(new Date('2026-10-05T16:00:00Z'), run, new Set()) === null);
 
 console.log(`\n${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

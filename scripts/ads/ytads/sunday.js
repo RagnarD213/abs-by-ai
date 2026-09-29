@@ -6,8 +6,9 @@
 //   - every ENABLED long-form ad is PAUSED, except the ads for the newest public long-form;
 //   - if every ad for the newest long-form in a campaign is paused, the best one is ENABLED
 //     (the point is that the newest long-form runs);
-//   - if the newest long-form has no approved ad in a campaign yet (in review or disapproved),
-//     a second ad for it is created with tamer copy (" · r2 · " in the name), ENABLED.
+//   - 6 HOURS after that run (about 4 PM), a second check: if the newest long-form has no fully
+//     APPROVED ad in a campaign (still in review, disapproved, or approved-limited), a second ad
+//     for it is created with tamer copy (" · r2 · " in the name), ENABLED (Dan 2026-09-29).
 // Dan re-enables the paused ads by hand on Tuesday. Every ad this pauses carries the Google Ads
 // label "Sunday pause" (moved each week), so he can filter to exactly this week's pauses and
 // never re-enable one he paused himself. Purpose: every new long-form gets the traffic for
@@ -16,10 +17,11 @@
 // This is the ONLY automation that pauses engagement ads. instant.js still only creates.
 //
 // Server: started from routes.js when YTADS_SUNDAY=1 (Railway abs-by-ai). Ticks every minute;
-// runs once per Sunday, any time from 10:00 to 21:59 CT, so a server that was down at 10
-// catches up the same day. A 'sunday:run' event per date makes it run once.
-// CLI (read-only unless --apply; --apply pauses and labels but writes no tamer copy locally):
-//   node scripts/ads/ytads/sunday.js --dry-run
+// the pause runs once per Sunday, any time from 10:00 to 21:59 CT, so a server that was down at
+// 10 catches up the same day ('sunday:run' event per date). The tamer-copy check runs once,
+// TAME_DELAY_HOURS after that event ('sunday:tame' event per date).
+// CLI (read-only unless --apply; --apply runs the pause phase only):
+//   node scripts/ads/ytads/sunday.js --dry-run        (shows both phases as of now)
 //   node scripts/ads/ytads/sunday.js --apply
 
 const engine = require('./engine.js');
@@ -32,7 +34,9 @@ const RUN_HOUR = 10, LAST_HOUR = 21;
 const POLL_MS = 60 * 1000;
 const LOCK_KEY = 71630929;
 const LABEL = 'Sunday pause';
-const APPROVED = new Set(['APPROVED', 'APPROVED_LIMITED']);
+const TAME_DELAY_HOURS = 6;
+const RUNNING = new Set(['APPROVED', 'APPROVED_LIMITED']);   // can serve: preferred when one must be enabled
+const FULLY_APPROVED = 'APPROVED';                          // anything else at the 6-hour check gets a tamer copy
 
 // Pure: Central-time parts of an instant.
 function central(now) {
@@ -45,6 +49,16 @@ function central(now) {
 function due(now, lastDates) {
   const c = central(now);
   return c.weekday === 'Sun' && c.hour >= RUN_HOUR && c.hour <= LAST_HOUR && !lastDates.has(c.date);
+}
+
+// Pure: the date of a pause run whose 6-hour tamer-copy check is due now, or null.
+// runs: [{ d: 'YYYY-MM-DD', at }] ('sunday:run' events); tamed: Set of dates already checked.
+function tameDueFor(now, runs, tamed) {
+  for (const r of runs) {
+    const age = (now - new Date(r.at)) / 3600e3;
+    if (age >= TAME_DELAY_HOURS && age < 24 && !tamed.has(r.d)) return r.d;
+  }
+  return null;
 }
 
 // Pure: what to do.
@@ -66,10 +80,10 @@ function plan({ ads, newestLong, kindOf }) {
     const mine = ads.filter(a => a.key === key && a.videoIds.includes(newestLong.id));
     if (!mine.length) { out.warnings.push(`${key}: no ad exists for the newest long-form ${newestLong.id} (instant.js should have made one)`); continue; }
     if (!mine.some(a => a.status === 'ENABLED')) {
-      const best = [...mine].sort((x, y) => (APPROVED.has(y.approval) - APPROVED.has(x.approval)) || (Number(y.adId) - Number(x.adId)))[0];
+      const best = [...mine].sort((x, y) => (RUNNING.has(y.approval) - RUNNING.has(x.approval)) || (Number(y.adId) - Number(x.adId)))[0];
       out.enable.push(best);
     }
-    if (mine.some(a => APPROVED.has(a.approval))) continue;
+    if (mine.some(a => a.approval === FULLY_APPROVED)) continue;
     if (mine.some(a => / · r2 · /.test(a.name || ''))) continue;     // tamer copy already made
     out.tame.push({ key, from: [...mine].sort((x, y) => Number(y.adId) - Number(x.adId))[0] });
   }
@@ -133,7 +147,8 @@ async function relabel(ads, paused) {
 }
 
 // One run. writeTameCopy(video, prior) → set | null (null: no copy, reported).
-async function runOnce({ ads, now = new Date(), apply, writeTameCopy, fetchImpl, log = console.log }) {
+// phase: 'pause' (10 AM: pause, enable newest, label) | 'tame' (6 h later: tamer copy) | 'both' (dry-run view).
+async function runOnce({ ads, now = new Date(), apply, phase = 'both', writeTameCopy, fetchImpl, log = console.log }) {
   const feed = await fetchVideos();
   const newestLong = feed.filter(v => !v.isShort).sort((a, b) => new Date(b.published) - new Date(a.published))[0] || null;
   const all = await readAds(ads);
@@ -141,7 +156,7 @@ async function runOnce({ ads, now = new Date(), apply, writeTameCopy, fetchImpl,
   await cls.load([...new Set(all.flatMap(a => a.videoIds))]);
   const p = plan({ ads: all, newestLong, kindOf: cls.kindOf });
   const summary = {
-    date: central(now).date, apply: !!apply, newestLong: newestLong && { id: newestLong.id, title: newestLong.title, published: newestLong.published },
+    date: central(now).date, phase, apply: !!apply, newestLong: newestLong && { id: newestLong.id, title: newestLong.title, published: newestLong.published },
     paused: p.pause.map(a => ({ key: a.key, adId: a.adId, name: a.name })), enabled: p.enable.map(a => ({ key: a.key, adId: a.adId, name: a.name })), kept: p.keep.map(a => ({ key: a.key, adId: a.adId, name: a.name, approval: a.approval })),
     tame: [], warnings: p.warnings,
   };
@@ -153,15 +168,18 @@ async function runOnce({ ads, now = new Date(), apply, writeTameCopy, fetchImpl,
   for (const w of p.warnings) log(`  WARN  ${w}`);
   if (!apply) return summary;
 
-  if (p.pause.length) {
-    await ads.mutate(p.pause.map(a => ({ adGroupAdOperation: { update: { resourceName: `customers/${ads.CID}/adGroupAds/${a.adGroupId}~${a.adId}`, status: 'PAUSED' }, updateMask: 'status' } })),
-                     { note: `sunday: pause ${p.pause.length} long-form ad(s) except newest ${newestLong.id}`, reason: 'ytads-sunday' });
+  if (phase === 'pause' || phase === 'both') {
+    if (p.pause.length) {
+      await ads.mutate(p.pause.map(a => ({ adGroupAdOperation: { update: { resourceName: `customers/${ads.CID}/adGroupAds/${a.adGroupId}~${a.adId}`, status: 'PAUSED' }, updateMask: 'status' } })),
+                       { note: `sunday: pause ${p.pause.length} long-form ad(s) except newest ${newestLong.id}`, reason: 'ytads-sunday' });
+    }
+    if (p.enable.length) {
+      await ads.mutate(p.enable.map(a => ({ adGroupAdOperation: { update: { resourceName: `customers/${ads.CID}/adGroupAds/${a.adGroupId}~${a.adId}`, status: 'ENABLED' }, updateMask: 'status' } })),
+                       { note: `sunday: enable the newest long-form ${newestLong.id}`, reason: 'ytads-sunday' });
+    }
+    try { await relabel(ads, p.pause); } catch (e) { summary.warnings.push(`label "${LABEL}" not applied: ${e.message}`); }
   }
-  if (p.enable.length) {
-    await ads.mutate(p.enable.map(a => ({ adGroupAdOperation: { update: { resourceName: `customers/${ads.CID}/adGroupAds/${a.adGroupId}~${a.adId}`, status: 'ENABLED' }, updateMask: 'status' } })),
-                     { note: `sunday: enable the newest long-form ${newestLong.id}`, reason: 'ytads-sunday' });
-  }
-  try { await relabel(ads, p.pause); } catch (e) { summary.warnings.push(`label "${LABEL}" not applied: ${e.message}`); }
+  if (phase === 'pause') return summary;
 
   for (const t of p.tame) {
     try {
@@ -183,7 +201,8 @@ function start({ pool, db, writeTameCopy, ads = require('../api/client.js') }) {
     if (busy) return;
     const now = new Date();
     const c = central(now);
-    if (c.weekday !== 'Sun' || c.hour < RUN_HOUR || c.hour > LAST_HOUR) return;
+    // Sunday (pause window) or the day after (a late pause pushes the 6-hour check past midnight).
+    if (!(c.weekday === 'Sun' && c.hour >= RUN_HOUR) && c.weekday !== 'Mon') return;
     busy = true;
     const lock = await pool.connect().catch(() => null);
     if (!lock) { busy = false; return; }
@@ -191,9 +210,17 @@ function start({ pool, db, writeTameCopy, ads = require('../api/client.js') }) {
     try {
       locked = (await lock.query('SELECT pg_try_advisory_lock($1) AS ok', [LOCK_KEY])).rows[0].ok;
       if (!locked) return;
-      const ran = (await pool.query("SELECT detail->>'date' AS d FROM ytads_events WHERE event = 'sunday:run' AND at > now() - interval '3 days'")).rows.map(r => r.d);
-      if (!due(now, new Set(ran))) return;
-      const summary = await runOnce({ ads, now, apply: true, writeTameCopy });
+      const recent = (await pool.query("SELECT event, detail->>'date' AS d, at FROM ytads_events WHERE event IN ('sunday:run', 'sunday:tame') AND at > now() - interval '3 days'")).rows;
+      const ran = recent.filter(r => r.event === 'sunday:run');
+      const tamed = new Set(recent.filter(r => r.event === 'sunday:tame').map(r => r.d));
+      const tameDue = tameDueFor(now, ran, tamed);
+      if (tameDue) {
+        const summary = await runOnce({ ads, now, apply: true, phase: 'tame', writeTameCopy });
+        await db.event(summary.newestLong && summary.newestLong.id, null, null, 'sunday:tame', { ...summary, date: tameDue });
+        return;
+      }
+      if (!due(now, new Set(ran.map(r => r.d)))) return;
+      const summary = await runOnce({ ads, now, apply: true, phase: 'pause', writeTameCopy });
       await db.event(summary.newestLong && summary.newestLong.id, null, null, 'sunday:run', summary);
     } catch (e) {
       console.error('YTADS sunday:', e.message);
@@ -205,15 +232,15 @@ function start({ pool, db, writeTameCopy, ads = require('../api/client.js') }) {
     }
   }
   setInterval(tick, POLL_MS).unref?.();
-  console.log('YTADS sunday: Sundays 10 AM CT, pause long-form ads except the newest (tier1 + tier2)');
+  console.log(`YTADS sunday: Sundays 10 AM CT, pause long-form ads except the newest (tier1 + tier2); tamer-copy check ${TAME_DELAY_HOURS} h later`);
   return { tick };
 }
 
-module.exports = { start, runOnce, plan, due, central, classifier, CAMPAIGNS, LABEL };
+module.exports = { start, runOnce, plan, due, tameDueFor, central, classifier, CAMPAIGNS, LABEL, TAME_DELAY_HOURS };
 
 if (require.main === module) {
   const apply = process.argv.includes('--apply');
-  runOnce({ ads: require('../api/client.js'), apply })
+  runOnce({ ads: require('../api/client.js'), apply, phase: apply ? 'pause' : 'both' })
     .then(s => { console.log(JSON.stringify({ paused: s.paused.length, tame: s.tame, warnings: s.warnings }, null, 1)); process.exit(0); })
     .catch(e => { console.error(e.message); process.exit(1); });
 }
