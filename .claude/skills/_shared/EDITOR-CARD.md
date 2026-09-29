@@ -8,7 +8,7 @@ where *"Codex significantly exceeded you."* Compared with Claude's long-form `04
 Health`. Second: Codex's DS-17 short (approved; Dan rates it about equal to Claude's work) vs Claude's DS-04 round 1
 (9 defects). **Codex used our audio chain, our gates and our skills. It won on editorial judgment and method.**
 Watch the winner before a long-form build: `Media/codex-video-trial/06-organic-r4/C1652_FINAL_APPROVED.mp4`; its
-methods: `Media/codex-video-trial/skills/abs-edit-organic/references/c1652-r3-methods.md` and `c1652-r4-methods.md`.
+methods: `Media/codex-video-trial/skills/long-form-content-edit/references/c1652-r3-methods.md` and `c1652-r4-methods.md`.
 
 ## A. What the picture must do (the part Codex won on)
 

@@ -66,8 +66,8 @@ same; only the tools differ (section 3).
 |---|---|---|
 | ad first cut from raw | `/ad-edit` | `$abs-edit-ad` |
 | website VSL first cut or revision | `/website-video` | `$vsl-edit` |
-| organic long-form first cut | `/longform-edit` | `$abs-edit-organic` |
-| dedicated short from raw (vertical) | `/shorts` for the vertical finishing rules + `/ad-edit` Steps 1–4 for take selection | `$abs-edit-organic` (take selection, audio, colour), then the vertical rules in `.claude/skills/shorts/SKILL.md` |
+| organic long-form first cut | `/longform-edit` | `$long-form-content-edit` |
+| dedicated short from raw (vertical) | `/shorts` for the vertical finishing rules + `/ad-edit` Steps 1-4 for take selection | `$long-form-content-edit` (take selection, audio, colour), then the vertical rules in `.claude/skills/shorts/SKILL.md` |
 | shorts cut from a finished long-form | `/shorts` | read `.claude/skills/shorts/SKILL.md` and follow it with Codex tools |
 | ad vertical / square / ≤0:59 | `/shortad-from-longform` | read `.claude/skills/shortad-from-longform/SKILL.md` in full; model: `Handoffs/handoff-20260914-ad3-square-codex.md` (the Ad 3 square Codex built and Dan shipped) |
 

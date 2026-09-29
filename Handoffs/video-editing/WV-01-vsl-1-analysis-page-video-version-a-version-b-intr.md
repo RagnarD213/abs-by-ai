@@ -21,4 +21,4 @@ Deliverable: gated 16:9 master for absbyai.com via `/website-video`. Do not use 
 > Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/WV-01-vsl-1-analysis-page-video-version-a-version-b-intr.md`: cut "VSL 1: Analysis-page video (version A + version B intro)" from 9/23 roll C1692-C1700 with /website-video. Best take of every line, every gate, independent audit, deliver, send me the review copy, update the master list.
 
 **Codex (GPT-6 Astra, high):**
-> Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/WV-01-vsl-1-analysis-page-video-version-a-version-b-intr.md` with `$abs-edit-organic`. Deliver, send Dan the review copy, update `00-MASTER.md`.
+> Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/WV-01-vsl-1-analysis-page-video-version-a-version-b-intr.md` with `$vsl-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.

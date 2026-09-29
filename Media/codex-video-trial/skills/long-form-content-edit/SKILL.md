@@ -1,6 +1,6 @@
 ---
-name: abs-edit-organic
-description: Edit or revise organic Abs By AI long-form instructional and story videos from raw footage, with teaching demonstrations, graphics and subtitle sidecars. Use for original long-form editing; paid ads, extracting Shorts and reframing approved masters use their own workflows.
+name: long-form-content-edit
+description: Edit or revise organic Abs By AI long-form instructional and story videos from raw footage, with teaching demonstrations, graphics and subtitle sidecars. Use for original long-form content editing; website VSLs, paid ads, extracting Shorts and reframing approved masters use their own workflows.
 ---
 
 ## Default jump-cut and junk-footage QC (Dan, 2026-09-29)

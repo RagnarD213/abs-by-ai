@@ -28,7 +28,7 @@ continues to guide organic videos and other formats.
 - Every packet opens with a short "what I decided" list (one line each) so he can overrule while watching, never item-by-item forms.
 - Dan still sees the first minute and the finished film; his notes there are the check on Claude's calls.
 
-**Organic path (Dan, 2026-09-29):** use `$abs-edit-organic` with GPT-6 Sol throughout. Reuse the approved studio
+**Organic path (Dan, 2026-09-29):** use `$long-form-content-edit` with GPT-6 Sol throughout. Reuse the approved studio
 framing, color, audio and graphic family after a source-specific check. Build still and motion checks internally for
 every new graphic and clip, but group only material new choices into one early look-and-assets packet. Show the
 finished first minute next, then the complete film after all assets are locked. Keep the AI start/end-frame approval

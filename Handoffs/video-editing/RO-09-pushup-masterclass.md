@@ -42,7 +42,7 @@ The six levels: 1 incline (couch/table/wall), 2 knee, 3 standard floor, 4 standa
 * C1680 and C1681 are also named as b-roll for DS-20 ("Five Levels Of Pushups"). Keep both cuts consistent.
 
 ## Build
-* Codex first cut per the queue routing (`scripts/edit-queue/config.json`), `$abs-edit-organic`. Model the structure on the
+* Codex first cut per the queue routing (`scripts/edit-queue/config.json`), `$long-form-content-edit`. Model the structure on the
   approved organic standard (Zeeshan's ab wheel videos).
 * 16:9 master + SRT. Level title cards (LEVEL 1 to 6), on-screen rep counter or set label, the "3 x 15 clean reps" rule as a
   card, AbsByAI.com CTA end card. Labels per `00-RULES.md` section 2.
@@ -54,4 +54,4 @@ The six levels: 1 incline (couch/table/wall), 2 knee, 3 standard floor, 4 standa
 > Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/RO-09-pushup-masterclass.md`: first list the gaps (level 1, level 5, any on-camera talking), then cut the Pushup Masterclass from 8/28 rolls C1680, C1681 and the extras to the approved organic standard. Every gate, independent audit, deliver, send me the review copy, update the master list.
 
 **Codex (GPT-6 Astra, high):**
-> Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-09-pushup-masterclass.md` with `$abs-edit-organic`. List the gaps first, deliver, send Dan the review copy, update `00-MASTER.md`.
+> Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-09-pushup-masterclass.md` with `$long-form-content-edit`. List the gaps first, deliver, send Dan the review copy, update `00-MASTER.md`.

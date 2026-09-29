@@ -134,7 +134,7 @@ Read first: `Handoffs/video-editing/00-RULES.md`, `.claude/skills/_shared/VIDEO-
 - **Also wanted:** the handoff for DS-16 "How To Lose The Last Ten Pounds" uses this shoot's salad footage; note good ranges in your notes.
 
 ## 5. Tools, work dir, delivery (Codex)
-- Skill: `$abs-edit-organic` (`Media/codex-video-trial/skills/abs-edit-organic/SKILL.md`) and its references; start from the approved
+- Skill: `$long-form-content-edit` (`Media/codex-video-trial/skills/long-form-content-edit/SKILL.md`) and its references; start from the approved
   C1652 R4 recipe (`Media/codex-video-trial/06-organic-r4/`: renderer, `muhammad_graphics.py`, `palette.py`, `design.py`,
   `assets/source-grade.cube`), which is the closest approved look. The Codex environment traps table is in
   `Handoffs/handoff-20260914-ad3-square-codex.md` section 2 (quoted paths with spaces, the project ffmpeg at `Media/video_edit/bin/`,
@@ -147,4 +147,4 @@ Read first: `Handoffs/video-editing/00-RULES.md`, `.claude/skills/_shared/VIDEO-
   chapters, REVIEW 540p, audio A/B, stamps, notes, recipe. Tell Dan where the review copy is; set `delivered`.
 
 ## 6. Starter prompt
-> Read `Handoffs/handoff-20260923-ro05-recut-astra.md` in full, then `Handoffs/video-editing/00-RULES.md` (Codex column + environment table) and `.claude/skills/_shared/VIDEO-RULES.md` (the "RO-05 rejection" section). Recut "How I Make My Daily Salad" (RO-05) from scratch with `$abs-edit-organic`, starting from the approved C1652 R4 recipe, in the order the handoff sets: grade stills, then a Muhammad graphics and transitions style board, then one finished 60-90 s sample section, sent to Dan in one approval packet with the B-roll previews, then the full 16:9 cut. Match Muhammad's colour, graphics and transitions; no swipe sound; open on the finished salad; never crop hair the camera captured. Every gate, watch pass, independent full review, then deliver master + SRT + chapters, tell Dan where the review copy is, update `00-MASTER.md`.
+> Read `Handoffs/handoff-20260923-ro05-recut-astra.md` in full, then `Handoffs/video-editing/00-RULES.md` (Codex column + environment table) and `.claude/skills/_shared/VIDEO-RULES.md` (the "RO-05 rejection" section). Recut "How I Make My Daily Salad" (RO-05) from scratch with `$long-form-content-edit`, starting from the approved C1652 R4 recipe, in the order the handoff sets: grade stills, then a Muhammad graphics and transitions style board, then one finished 60-90 s sample section, sent to Dan in one approval packet with the B-roll previews, then the full 16:9 cut. Match Muhammad's colour, graphics and transitions; no swipe sound; open on the finished salad; never crop hair the camera captured. Every gate, watch pass, independent full review, then deliver master + SRT + chapters, tell Dan where the review copy is, update `00-MASTER.md`.
