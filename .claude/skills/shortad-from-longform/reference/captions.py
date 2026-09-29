@@ -38,6 +38,8 @@ FIX = {('your','gold','picture'):    ('your','goal','picture'),
        # of "six-pack", one article, and Whisper's split of a hyphenated word into "six -pack" / "38 -year"
        ('six','fat','abs.'):         ('six-pack','abs.',''),
        ('six','back','abs,'):        ('six-pack','abs,',''),
+       # Ad 8 (kit autofill, 2026-09-28, judged junk_card at 61.6 s): "with defined six pack abs" heard as "the fine"
+       ('the','fine','six','pack'):  ('defined','','six-pack',''),
        ('uses','a','specific'):      ('uses','the','specific'),
        # Ad 10 has spoken full stops here; without punctuation the three-word
        # caption groups burn visible run-ons across the sentence boundaries.

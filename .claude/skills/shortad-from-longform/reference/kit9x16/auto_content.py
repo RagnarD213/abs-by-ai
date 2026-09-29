@@ -775,7 +775,9 @@ def main():
             for n, lines in samples_in(n0, n1):
                 ws = set(norm(" ".join(l["text"] for l in lines if (l["box"][2] < 1280 * 0.58) == (kind == "window"))).split())
                 if len(ws) >= 3:
-                    if prev_r and len(ws & prev_r[1]) < 0.25 * min(len(ws), len(prev_r[1])):
+                    # a new plate unless one read's words are mostly inside the other's (a reveal ADDS words; one
+                    # shared "your" between an app screen and a bullet header is not the same plate, Ad 8 190.9 s)
+                    if prev_r and len(ws & prev_r[1]) < 0.5 * min(len(ws), len(prev_r[1])):
                         lo, hi = prev_r[0], n
                         cuts_w.append(max(range(lo + 1, hi + 1), key=lambda q: cut[q]))
                     prev_r = (n, ws)
@@ -1002,6 +1004,20 @@ def banned_reads(O, n0, n1):
     return [(n, l["text"]) for n in sorted(O) if n0 <= n < n1 for l in O[n] if BANNED_RX.search(l["text"])]
 
 
+def olive_ring(img, hole, pad=40):
+    """Share of his olive colour in a band just outside the hole: ~1 around his card, low around a picture that
+    merely has grass or olive tones in it (Ad 8 150.4 s: a lawn read as his card and the clip was cut to a strip)."""
+    h, w = img.shape[:2]
+    x0, y0, x1, y1 = hole
+    X0, Y0, X1, Y1 = max(0, x0 - pad), max(0, y0 - pad), min(w, x1 + pad), min(h, y1 + pad)
+    rgb = img[Y0:Y1, X0:X1][..., ::-1].astype(np.float32)
+    mask = np.ones(rgb.shape[:2], bool)
+    mask[y0 - Y0:y1 - Y0, x0 - X0:x1 - X0] = False
+    if not mask.any():
+        return 0.0
+    return float((np.linalg.norm(rgb - OLIVE, axis=2) < 32)[mask].mean())
+
+
 def clean_range(D, s0, s1, fps):
     """The part of a shot that is HIS PICTURE ONLY: his flash / whip transitions sit at the shot's edges and the
     boundary is placed at a burst's centre, so the last frames before it are already his transition and his next
@@ -1014,6 +1030,12 @@ def clean_range(D, s0, s1, fps):
             c1 = min(c1, a - 1)
         if a - 3 <= s0 <= b + 3:
             c0 = max(c0, b + 2)
+    # a single hard cut at the very edge: the first frame of his NEXT shot (or the last of the one before) got in
+    # (Ad 8 122.09 s: one frame of his wide shot before the flash)
+    while c1 - c0 > 8 and cut[min(c1 - 1, len(cut) - 1)] >= CUT_SPIKE:
+        c1 -= 1
+    while c1 - c0 > 8 and cut[min(c0 + 1, len(cut) - 1)] >= CUT_SPIKE:
+        c0 += 1
     if c1 - c0 < 6:                                   # nothing clean enough: keep the middle of the shot
         m = (s0 + s1) // 2
         c0, c1 = max(s0, m - 3), min(s1, m + 3)
@@ -1086,14 +1108,23 @@ def describe_window(master, frames_dir, D, O, W, n0, n1, kind, T, cell_mean, med
     ev = dict(frames=[n0, n1], reads_agreeing=agree, read_frame=rep_n, rep_frame=fp,
               left_agreement=round(float(left[n0:n1].mean()), 3), right_agreement=round(float(right[n0:n1].mean()), 3))
     # ---- winmedia: a PICTURE on the text side (a phone), its words small app chrome
-    side = img[:, :int(img.shape[1] * 0.58)] if kind == "window" else img[:, int(img.shape[1] * 0.42):]
+    # the panel's width from the agreement map (dead columns), never a fixed share: a fixed 58 % took in a strip
+    # of live Dan and the phone crop centred on him (Ad 8 183.4 s)
+    colm = D["cells"][min(rep_n, len(D["cells"]) - 1)].mean(axis=0)
+    if kind == "window":
+        live = [j for j in range(16) if colm[j] > 0.6]
+        x1_ = (min(live) if live else 9) * 120
+        side, off_ = img[:, :max(240, x1_)], 0
+    else:
+        live = [j for j in range(16) if colm[j] > 0.6]
+        x0_ = (max(live) + 1 if live else 7) * 120
+        side, off_ = img[:, min(1680, x0_):], min(1680, x0_)
     tb = [[v * 1.5 for v in l["box"]] for l in lines]
     bbox, olive_frac, pic_frac, hole = picture_bbox(side, tb if kind == "window" else [])
     hts = [l["box"][3] - l["box"][1] for l in lines]
     small_text = not hts or np.median(hts) < 26
     if bbox is not None and pic_frac > 0.08 and small_text:
-        off = 0 if kind == "window" else int(img.shape[1] * 0.42)
-        cx = off + (bbox[0] + bbox[2]) // 2
+        cx = off_ + (bbox[0] + bbox[2]) // 2
         x = int(min(max(cx - 304, 0), 1920 - 608))
         mk = f"auto_{n0:05d}"
         out = os.path.join("assets_auto", f"{mk}.mp4")
@@ -1293,7 +1324,7 @@ def describe_shot(master, A, frames_dir, D, O, W, s0, s1, fps, T, lib_get, AI, e
             out = os.path.join("assets_auto", f"{key}.mp4")
             c0, c1 = clean_range(D, s0, s1, fps)
             crop = None
-            if hole is not None and olive_frac > 0.15 and area(hole) < 0.8 * img.shape[0] * img.shape[1]:
+            if hole is not None and olive_frac > 0.15 and area(hole) < 0.8 * img.shape[0] * img.shape[1] and olive_ring(img, hole) > 0.6:
                 # his OWN card around the picture: lift only the picture inside it (a card inside our card read as a
                 # nested panel, Ad 8 58.6 s), and his label/callout outside the hole goes with it -- so the burned
                 # label only counts when it sits inside the hole
@@ -1416,9 +1447,12 @@ def write_assets(B, master, media, prep):
         vf = (f"crop=608:1080:{q['x']}:0," if q["x"] is not None else "") + \
              ("crop={}:{}:{}:{},".format(*q["crop"]) if q.get("crop") else "") + \
              f"setpts={stretch:.4f}*(PTS-STARTPTS),tpad=start_mode=clone:start_duration={lead:.3f}:stop_mode=clone:stop_duration={tail:.3f}"
-        run([FF, "-nostdin", "-v", "error", "-y", "-ss", f"{q['c0']:.4f}", "-t", f"{clen:.4f}", "-i", master, "-an",
-             "-vf", vf, "-r", "30000/1001", "-c:v", "libx264", "-preset", "medium", "-crf", "16", "-pix_fmt", "yuv420p",
-             "-color_primaries", "bt709", "-color_trc", "bt709", "-colorspace", "bt709", p])
+        # FRAME-EXACT: seek half a frame early and take exactly the clean frames (a time seek + duration let his next
+        # shot's first frame in: Ad 8 122.09 s, the vcutdown lesson)
+        f0 = int(round(q["c0"] * 30000 / 1001)); nf = max(1, int(round(q["c1"] * 30000 / 1001)) - f0)
+        run([FF, "-nostdin", "-v", "error", "-y", "-ss", f"{(f0 - 0.5) * 1001 / 30000:.6f}", "-i", master, "-an",
+             "-vf", f"trim=end_frame={nf}," + vf, "-r", "30000/1001", "-c:v", "libx264", "-preset", "medium", "-crf", "16",
+             "-pix_fmt", "yuv420p", "-color_primaries", "bt709", "-color_trc", "bt709", "-colorspace", "bt709", p])
     with open(os.path.join(B, "assets.py"), "w") as f:
         f.write('#!/usr/bin/env python3\n"""Media map written by kit9x16/auto_content.py. Every entry cites its source in '
                 'auto_content_report.json."""\n\n')
