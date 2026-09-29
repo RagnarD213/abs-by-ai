@@ -1221,3 +1221,19 @@ vertical/square versions, add its AV/AS jobs. Procedure: `.claude/skills/_shared
     One export request costs him two minutes; a disputed item costs him three rounds. (3) Any positive control must be run
     at or below the editor's stated level, and must read clearly apart from the noise, or it is not reported. (4) Before
     telling an editor he is wrong a second time on the same point, show Dan the evidence and its weakest link first.
+67. **When Dan asks us to "build him a file he can drop in", hand the editor a graphics kit, not a description (2026-09-28,
+    Zeeshan Video 4).** Shared Drive folder "Zeeshan Soft Blue Light graphics kit" (`1ispvFqk9CAv-WqZ_hBgVed3cedRWBLGJ`), builder
+    scripts in `/Volumes/Extreme/_edit_work/revisions-20260928/kit/` and `ouraapp/phone.py`. What worked: (a) a finished ProRes
+    422 HQ of the graphic ON HIS OWN export, named with its start timecode or frame, for any stretch he does not need to touch;
+    (b) an Apple Animation (qtrle) alpha overlay for stretches where his old chips are burned in, with a STILL wall patch
+    ("plate") covering the gap the 280 px presenter shift opens on the left, and "move my shot right by exactly 280 px" in the
+    doc; qtrle, not ProRes 4444 (3.3 GB vs 781 MB), and never live footage inside the alpha (2.5 GB vs 300 MB); (c) a READ ME
+    Google Doc with every size, color and timing; (d) the example image pasted under each doc item. Simulate his workflow
+    (pad the shifted clip, overlay the alpha) before shipping. Traps: an odd crop height (955) is rounded to 954 by ffmpeg, so
+    a raw reader expecting 955 rows rolls the picture; the Drive rclone copy of a multi-GB ProRes 4444 never finishes, kill and
+    re-encode; and **Google Docs find traps, again (lesson 42a):** a `triple_click` on the find box when it has closed selects a
+    DOCUMENT paragraph, and typing replaced one of our own new paragraphs; `form_input` into the find box does not trigger a
+    search, so the following Return lands in the doc and split a line. Only `left_click` on the find box's ref, `cmd+a`, zoom to
+    confirm focus, then type. After any browser session in a doc, diff a text export of the whole doc against the pre-edit
+    export (whitespace-normalised) before reporting. Python 3.9's newest yt-dlp (2025.10.14) is now blocked by YouTube; the
+    standalone `yt-dlp_macos` from the official GitHub release works (kept in `revisions-20260928/ouraapp/`).
