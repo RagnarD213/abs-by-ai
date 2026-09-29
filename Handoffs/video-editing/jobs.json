@@ -1716,7 +1716,7 @@
    "claudeModel": "Fable 5.1, high",
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/WV-02-vsl-2-start-landing-page-video.md`: cut \"VSL 2: /start landing-page video\" from 9/23 roll C1701-C1703 with /website-video. Best take of every line, every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
-   "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/WV-02-vsl-2-start-landing-page-video.md` with `$abs-edit-organic`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
+   "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/WV-02-vsl-2-start-landing-page-video.md` with `$vsl-edit`. Follow its asset approvals before the complete render. Deliver, send Dan the review copy, update `00-MASTER.md`.",
    "state": "ready",
    "note": "Full cut C1701, hook takes C1702, pickups P1-P3 C1703. Install per handoff-20260910-start-vsl-edit-and-install.md.",
    "sub": "",

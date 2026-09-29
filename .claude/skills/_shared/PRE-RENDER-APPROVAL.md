@@ -9,11 +9,16 @@ The model is Codex's WV-01 website video: its first one-shot attempt was rejecte
 locked (study: `/Volumes/Extreme/_edit_work/ro05-fable/CODEX_METHOD_STUDY.md`). Claude's RO-05 salad recut was built in one shot,
 passed four reviews, and was still rejected on sight for its intro, graphics and grade (2026-09-28).
 
-## Decision budget: Claude decides, Dan gets 10 to 15 real decisions per video at most (Dan, 2026-09-29)
+## Decision budget for organic and other non-VSL videos (Dan, 2026-09-29)
 
-**This overrides every "Dan approves each item" line below.** RO-05 round 3 put about 50 items in front of him (every graphic
+**For these formats, this overrides every "Dan approves each item" line below.** RO-05 round 3 put about 50 items in front of him (every graphic
 and clip, one by one). Dan: *"This is way too complicated... I can't be approving this much stuff per video... Just go with what
 you think is best for most of this and reduce it to 10 to 15 decisions max. Only for things that legitimately need my decision."*
+
+**Website VSL exception (Dan, 2026-09-29):** use `$vsl-edit` for the deeper WV-01 approval cadence. Dan wants extensive
+approval of material VSL assets before the complete render. Do not force a 10 to 15 decision or round cap on a VSL;
+group routine checks, reuse locked approvals, and take as many focused rounds as the film needs. The budget below
+continues to guide organic videos and other formats.
 
 - Claude still builds and checks everything in steps (stills, moving previews, first minute), but **Claude approves what it checked**:
   sync, face/hair clearance, copy against the speech, the standing rules. Those are not questions for Dan.
@@ -22,6 +27,12 @@ you think is best for most of this and reduce it to 10 to 15 decisions max. Only
   total, not per round.** Fewer is better; zero is fine.
 - Every packet opens with a short "what I decided" list (one line each) so he can overrule while watching, never item-by-item forms.
 - Dan still sees the first minute and the finished film; his notes there are the check on Claude's calls.
+
+**Organic path (Dan, 2026-09-29):** use `$abs-edit-organic` with GPT-6 Sol throughout. Reuse the approved studio
+framing, color, audio and graphic family after a source-specific check. Build still and motion checks internally for
+every new graphic and clip, but group only material new choices into one early look-and-assets packet. Show the
+finished first minute next, then the complete film after all assets are locked. Keep the AI start/end-frame approval
+gate before new motion. Revisions reuse locked work and need only the affected previews.
 
 ## The approval order
 
@@ -34,7 +45,7 @@ Each step is its own round unless the items are ready together. Nothing later st
    Do not invent another style. Only if Dan asks for a new style: 3 directions, each built from the same 5-6 real components.
 3. **Every graphic, as a still screenshot first.** One screenshot per graphic, in timeline order, rendered on the real graded frame it
    will sit on, with: its ID (G01, G02...), output time range, the exact copy, and the speech before, under and after it. Claude checks and
-   locks each one (Dan sees the sheet as a record and may edit copy; the decision budget above applies). Only locked stills become moving previews (entrance, reveal, exit), shown in context with
+   locks each one. Dan sees material new VSL graphics and the selected organic graphics that need his judgment. Only locked stills become moving previews (entrance, reveal, exit), shown in context with
    about 5 s of narration either side. A style approval never approves an individual graphic.
 4. **Every clip.** Stock, existing B-roll, photos and app demos: the exact moving trim and crop, in context (about 5 s either side),
    plus the isolated source when useful. AI clips have three gates: the concept (text only when Dan asks for ideas; offer 2-3 opener
