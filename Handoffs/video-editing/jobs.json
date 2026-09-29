@@ -1697,12 +1697,12 @@
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/WV-01-vsl-1-analysis-page-video-version-a-version-b-intr.md` with `$vsl-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
    "state": "finalized",
-   "note": "Dan approved complete A as final on 2026-09-29. Final 1080p: /Volumes/Extreme/_edit_work/wv01-edit/round17/final/WV-01 FINAL Website VSL A 1080p.mp4. Complete B deferred. Delivery gate FAIL is disclosed in round17/review/QA.md; no upload or website installation yet.",
+   "note": "Dan approved complete A as final on 2026-09-29. Original 1080p: /Volumes/Extreme/_edit_work/wv01-edit/round17/final/WV-01 FINAL Website VSL A 1080p.mp4. Dan approved the 1.2x speed variation as final on 2026-09-29. Variation 1080p: /Volumes/Extreme/_edit_work/wv01-edit/speed-1p2/WV-01 Website VSL A 1.2x 1080p.mp4; SHA-256 54d5523560920bcdc764beb6e051c6400330471b0b525795a6be5360f595e2d6; 540p review: /Volumes/Extreme/_edit_work/wv01-edit/speed-1p2/WV-01 Website VSL A 1.2x REVIEW 540p.mp4. Complete B deferred. Delivery gate FAIL disclosed in round17/review/QA.md and speed-1p2/REVIEW.md. Dispatcher paused; no platform upload or website installation.",
    "sub": "",
    "order": 81,
    "updated": "2026-09-29",
    "by": "Codex",
-   "rev": 43,
+   "rev": 44,
    "syncedRev": 1
   },
   {
