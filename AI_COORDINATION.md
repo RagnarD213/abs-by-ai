@@ -93,7 +93,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **Queue covers - HANDOFF 2026-09-28, Claude.** All installed; Dan approved the rest. Next: execute crops/grid-shift handoff before Sep 29 5 PM CT. Row 16 R5 re-post still Dan's call.
 
-**WV-01 round15 - HANDOFF READY 2026-09-29, Codex.** Graphics approved; generation cap $50 cumulative, no permission below cap. Next: exercise A and both family motions, individual approval. `Handoffs/handoff-20260929-wv01-round15-approved-motion-generation.md`. No full render; B deferred; dispatcher paused; no publishing.
+**WV-01 round15 - NEEDS DAN 2026-09-29, Codex.** Review exercise A and both family motions: http://127.0.0.1:8766/round15/index.html. Family sleeve QC unresolved. Motion estimate $29.01 of $50, unknown still charges. Next: decisions. No full render; B deferred; dispatcher paused; no publishing.
 
 **RO-05 salad - NEEDS DAN 2026-09-28, Claude.** Round 2 sent: grade A/B/C, new opening, first minute, 47 Soft Blue graphic stills at `http://127.0.0.1:8775/index.html`. Next: Dan's decisions, then fire `Handoffs/handoff-20260928-ro05-round3-graphics-motion-and-clips.md`.
 
