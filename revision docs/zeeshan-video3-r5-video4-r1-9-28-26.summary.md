@@ -37,7 +37,10 @@ Delivered Sep 23. Work dir: `/Volumes/Extreme/_edit_work/revisions-20260928/`.
 - ⚠ Shared checkout: `.claude/skills/_shared/softblue.py` is UU (another session's unresolved merge); renders used the
   origin/main copy in `/Volumes/Extreme/_edit_work/revisions-20260928/kit/sb/`.
 
-## Decisions for Dan
+## Status 09-29
+- Dan sent the message and the doc to Zeeshan himself. Video 3 finalized (set up on YouTube + Blotato by another session). Swearing stays (Dan: never ask again).
+
+## Decisions for Dan (historical)
 1. Swearing in Video 4: "bullshit" twice (8:14 - 8:20), "don't listen to that shit" (about 12:10), "the shittiest solution" (12:24). The brief told him to leave it in for your call; the doc does not answer it yet.
 2. Toxic people section (16:29 - 17:22): you told him on 09-22 you'd send Oura charts. No chart is in the cut. If you have the sleep score screenshots, they go at about 16:48.
 3. Graphic style: the doc keeps his batch style (olive chips, as in the finalized Video 2 and Video 3). Soft Blue Light has been the standard since 09-26; switching Video 4 would mean rebuilding every graphic.
