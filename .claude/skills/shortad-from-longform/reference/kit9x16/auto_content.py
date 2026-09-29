@@ -585,7 +585,7 @@ class Library:
         # photo when all of it lies inside his picture: Ad 8 16.2 s put the 4:3 original in a card that cut his head
         # and hid his stomach, the framing Dan had already rejected on Ad 1
         if res and res[0][2] == "img" and res[0][7] not in getattr(self, "curated", ()):
-            cur = [r for r in res if r[7] in self.curated and r[2] == "img" and r[0] >= max(20, 0.25 * res[0][0]) and r[9] >= 0.85]
+            cur = [r for r in res if r[7] in self.curated and r[2] == "img" and r[0] >= max(20, 0.1 * res[0][0]) and r[9] >= 0.85]
             if cur:
                 c = max(cur, key=lambda r: r[0])
                 res = [c[:3] + (res[0][3] if res[0][3] in ("real", "ai") else c[3],) + c[4:]] + [r for r in res if r is not c]
