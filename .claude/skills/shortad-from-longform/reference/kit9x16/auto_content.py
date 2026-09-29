@@ -65,7 +65,18 @@ LT_TOP = 0.55          # an overlay's text box starts below this fraction of the
 MATCH_MIN_INLIERS = 25
 OLIVE = np.array([91, 97, 57], np.float32)
 REAL_RX = re.compile(r"real\s+picture|not\s+a[il]\W*generated", re.I)
-AI_RX = re.compile(r"^\W*a[il]\W*generated\W*$", re.I)
+_AI_RX = re.compile(r"(^|[^a-z])a[il][\s-]?generated([^a-z]|$)", re.I)
+
+
+class _AILabel:
+    """A burned AI tag is a short CHIP ("AI-GENERATED", "[AI-generated]", "AI-generated Video"); an app screen's
+    sentence that mentions AI-generated images is UI text, not a label (Ad 10 122.8 s)."""
+    @staticmethod
+    def search(t):
+        return _AI_RX.search(t) if len(t.split()) <= 3 else None
+
+
+AI_RX = _AILabel()
 # screens banned from a paid ad on sight: the email-capture form and the in-app BEFORE/AFTER split (AGENTS.md,
 # skill [A2]): a picture that reads like one escalates; the kit never ships it
 BANNED_RX = re.compile(r"enter\s+your\s+e-?mail|your\s+e-?mail|e-?mail\s+address|get\s+my\s+download|meet\s+the\s+new\s+you", re.I)
@@ -491,11 +502,15 @@ class Library:
                 fits.append(self._fit(r, gq))
             fits += [99.0] * (len(tied) - len(fits))
             tied = [r + (f,) for r, f in zip(tied, fits)]
-            best_fit = min(fits)                     # the worst block's mean |difference|, grey levels (lower = closer)
-            same = [r for r in tied if r[11] <= best_fit * 1.5 + 2.0]
+            fits_img = [f for r, f in zip(tied, fits) if r[2] == "img"]
+            best_fit = min(fits_img) if fits_img else min(fits)    # the worst block's mean |difference|, grey levels (lower = closer)
+            same = [r for r in tied if r[2] == "vid" or r[11] <= best_fit * 1.3 + 1.5]   # a clip is sampled at 1 fps: its fit is timing, not content
             others = [r for r in tied if r not in same]
-            # of the copies: the file he actually showed (all of it on screen), then the largest (clean full resolution)
-            same.sort(key=lambda r: (-round(min(r[9], 1.0), 1), -(r[5] * r[6]), r[7]))
+            # of the copies (pixel fit only EXCLUDES a different picture; as a ranking it favours blurry re-saves):
+            # the curated library first (auto_sources.json order: a re-saved doc copy in an old ad folder lost the
+            # 27.1 s chip placement), then the file he actually showed (all of it on screen: the cropped png over the
+            # uncropped jpg), then the largest (clean full resolution)
+            same.sort(key=lambda r: (r[7], -(r[9] >= 0.85), -(r[5] * r[6])))   # "on screen" is a yes/no at 85 %, so the bigger file of a tie wins
             provs = {r[3] for r in same if r[3] in ("real", "ai")} if top >= MATCH_MIN_INLIERS else set()
             if len(provs) > 1:                       # two copies of one picture disagree on real vs AI
                 same = [r[:3] + ("conflict",) + r[4:] for r in same]
@@ -1230,9 +1245,23 @@ def describe_shot(master, A, frames_dir, D, O, W, s0, s1, fps, T, lib_get, AI, e
         else:
             out = os.path.join("assets_auto", f"{key}.mp4")
             c0, c1 = clean_range(D, s0, s1, fps)
-            prep.append(dict(out=out, beat=beat, c0=c0, c1=c1, x=None))
+            crop = None
+            if hole is not None and olive_frac > 0.15 and area(hole) < 0.8 * img.shape[0] * img.shape[1]:
+                # his OWN card around the picture: lift only the picture inside it (a card inside our card read as a
+                # nested panel, Ad 8 58.6 s), and his label/callout outside the hole goes with it -- so the burned
+                # label only counts when it sits inside the hole
+                hx0, hy0, hx1, hy1 = hole
+                cw_, ch_ = (hx1 - hx0) // 2 * 2, (hy1 - hy0) // 2 * 2
+                crop = (cw_, ch_, hx0, hy0)
+                inside = [l for _, L in samp for l in L
+                          if hx0 <= l["box"][0] * 1.5 and l["box"][2] * 1.5 <= hx1 and hy0 <= l["box"][1] * 1.5 and l["box"][3] * 1.5 <= hy1]
+                burned = "real" if any(REAL_RX.search(l["text"]) for l in inside) else \
+                    "ai" if any(AI_RX.search(l["text"]) for l in inside) else None
+                ev["burned_label"] = burned
+            prep.append(dict(out=out, beat=beat, c0=c0, c1=c1, x=None, crop=crop))
             media[key] = ("vid", out, 0.0)
-            ev["source"] = f"his master {c0:.3f}-{c1:.3f} s (his transitions trimmed), lifted into the olive card"
+            ev["source"] = (f"his master {c0:.3f}-{c1:.3f} s (his transitions trimmed)"
+                            + (f", the picture inside his card {crop}" if crop else "") + ", lifted into the olive card")
         still = is_still(B, D, s0, s1, bbox)
         ev["still"] = still
         if phone and top is not None and prov in ("real", "ai") and top[2] == "img":
@@ -1338,6 +1367,7 @@ def write_assets(B, master, media, prep):
         lead = max(0.0, q["c0"] - b["t0"]) if stretch * clen < dur else 0.0
         tail = max(0.25, dur - lead - stretch * clen + 0.25)
         vf = (f"crop=608:1080:{q['x']}:0," if q["x"] is not None else "") + \
+             ("crop={}:{}:{}:{},".format(*q["crop"]) if q.get("crop") else "") + \
              f"setpts={stretch:.4f}*(PTS-STARTPTS),tpad=start_mode=clone:start_duration={lead:.3f}:stop_mode=clone:stop_duration={tail:.3f}"
         run([FF, "-nostdin", "-v", "error", "-y", "-ss", f"{q['c0']:.4f}", "-t", f"{clen:.4f}", "-i", master, "-an",
              "-vf", vf, "-r", "30000/1001", "-c:v", "libx264", "-preset", "medium", "-crf", "16", "-pix_fmt", "yuv420p",
