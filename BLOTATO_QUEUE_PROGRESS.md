@@ -15,16 +15,16 @@ Last updated 2026-09-22.
 
 ## DONE: "Why I Stopped Deadlifting at 40 (Do These 4 Exercises Instead)", Zeeshan Video 3 (2026-09-29)
 
-Master `Zeeshan Content Videos/stop deadlifting - video 3/stop deadlifting | zeeshan | 16x9 | video 3.mp4` ("Video 3 rev 4", 9:16.5), MD5 `fb149f2c508ed84077a6973ea3531856` (726,437,795 bytes); same file on the Extreme drive and Google Drive (`Zeeshan Content Videos/stop deadlifting - video 3`, folder `13hMGts3Lck398OMrStF1j3Ajfwp1Q0qT`, anyone with the link). YouTube **Private** holding copy `FMRe6BR4WmI`, read back private, thumbnail 1 (pool p172), synthetic on (AI clips at 0:44, 3:44, 4:56, 6:20).
+Master = Zeeshan's **"Video 3 Rev 5"** (delivered 09-29, answers round 5: Rev 3 skin restored, Rev 4 blacks kept; audio identical to Rev 4, r 0.9999999, -13.9 LUFS / -1.0 dBTP; same 9:16.5 cut). `Zeeshan Content Videos/stop deadlifting - video 3/stop deadlifting | zeeshan | 16x9 | video 3.mp4`, MD5 `e98bbb9bace1085df31950e9e51fd326` (728,005,370 bytes); same file on the Extreme drive and Google Drive (`Zeeshan Content Videos/stop deadlifting - video 3`, folder `13hMGts3Lck398OMrStF1j3Ajfwp1Q0qT`, anyone with the link). YouTube **Private** holding copy `INLsTVVybJA`, read back private, thumbnail 1 (pool p172), synthetic on (AI clips at 0:44, 3:44, 4:56, 6:20).
 
 | FB · IG @danrosefit · TikTok · YouTube |
 |---|
-| Sun Oct 11, 9 AM CDT (`4973547` / `4973549` / `4973829` / `4973552`) |
+| Sun Oct 11, 9 AM CDT (`4976695` / `4976700` / `4976709` / `4976708`) |
 
-- Blotato copy re-encoded to 223 MB (4 Mbps VideoToolbox, audio stream-copied): master is over the 400 MB cap.
+- Set up first from Rev 4 by mistake (Dan sent the Rev 4 link); swapped to Rev 5 the same day with `swap_media.py`. The stale Rev 4 private holding copy `FMRe6BR4WmI` is still on YouTube (Private, unused).
+- Blotato copy re-encoded to 264 MB (4 Mbps VideoToolbox, audio stream-copied): master is over the 400 MB cap. Re-hosted files MD5-matched.
 - TikTok: cover prepended as frame 0, `videoCoverTimestamp: 0` (frames 16678 to 16679, audio packets 26086 unchanged, cover match 54.0 dB).
 - Keyword `TRAIN`; UTM `utm_content=stop-deadlifting`. Config `scripts/blotato/configs/stop-deadlifting.json`.
-- ⚠ Dan sent rev 4 for setup although the 09-28 round-5 note (skin too orange) was open: treated as his final call.
 - Owes: SL-05 shorts (edit queue); sixpackabs article `sixpackabs/articles/TBD-stop-deadlifting.md` to publish after Oct 11 (rename to the public id).
 
 ## DONE: DS-18 "How to Do Kettlebell Deadlifts the Right Way at Home" (2026-09-28)

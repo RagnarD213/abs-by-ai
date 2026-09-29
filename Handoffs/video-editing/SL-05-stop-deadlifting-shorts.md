@@ -3,7 +3,7 @@
 **List 2 · shorts from a finished long-form · READY.** Read `00-RULES.md` first. Added 2026-09-29 when Dan sent the final for setup.
 
 ## Source
-`Zeeshan Content Videos/stop deadlifting - video 3/stop deadlifting | zeeshan | 16x9 | video 3.mp4` (Zeeshan's final, "Video 3 rev 4", 9:16.5, MD5 `fb149f2c508ed84077a6973ea3531856`). Also on the Extreme drive (`/Volumes/Extreme/Zeeshan Content Videos/stop deadlifting - video 3/`) and Google Drive (`Zeeshan Content Videos/stop deadlifting - video 3`). Zeeshan's audio: cut only, never re-processed.
+`Zeeshan Content Videos/stop deadlifting - video 3/stop deadlifting | zeeshan | 16x9 | video 3.mp4` (Zeeshan's final, "Video 3 Rev 5", 9:16.5, MD5 `e98bbb9bace1085df31950e9e51fd326`). Also on the Extreme drive (`/Volumes/Extreme/Zeeshan Content Videos/stop deadlifting - video 3/`) and Google Drive (`Zeeshan Content Videos/stop deadlifting - video 3`). Zeeshan's audio: cut only, never re-processed.
 The .srt beside it is Zeeshan's Sep 21 file; the cut has not changed since Rev 3, so it lines up. Transcribe your segments anyway.
 
 ## How to cut them
