@@ -126,6 +126,22 @@ his own (Dan-approved) labelling; a picture never gets a second chip over his bu
 * Captions: Whisper's mid-sentence capitals are lowercased (names and acronyms kept); AI clips of other people keep
   their captions, only labelled pictures of Dan and phone screens drop them.
 
+## Round-4 lessons (2026-09-29, Ad 10 + Ad 8 judges)
+
+* An uploaded photo's label on the app's next screens lasts only while the photo is ON the phone: the screen is
+  matched against the uploaded file every 3rd frame (its own 3000-point detector; the library-wide one spends its
+  points on the UI text) and the clip splits where the photo scrolls away.
+* When his cut frame cannot be confirmed on the pixels, the picture cuts at HIS cut (the audio cut), moved only by
+  the measured pose / head-jump tests. A free pose-match moved 22 of Ad 10's cuts into the other take's pre-roll,
+  where Dan's mouth moves with no sound (a lip-lick opened the 142.0 s shot).
+* A lifted card clip starts when his picture has LANDED in its hole (no olive band along an edge beyond the
+  picture's own olive tones) and stops 4 frames early at a dissolve edge; the last clean frame holds.
+* A ramp-out that the next insert would cut short is not a ramp: the push holds to the insert.
+* An AI clip whose library file names Dan is a labelled picture of Dan: no captions under it.
+* Type-on letters fade in their own colour (never from black); a word right after a lower third is captioned.
+* A judge's identity call is checked against the library match before acting: the round-4 judge called Dan's own
+  deckchair photo "a stranger" from an old memory about a different recording.
+
 ## Rules carried (do not re-open)
 
 * One format. Bound to his ranges in BOTH directions (`picture.json` lo/hi; overshoot is a warning).

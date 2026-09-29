@@ -390,21 +390,25 @@ def final_topup(pushes, tl, cuts, words, T, flashes, dur, ref):
                     gaps.append((y - x, x, y))
         gaps.sort(reverse=True)
         placed = False
-        for ln, x, y in gaps:
-            hold, ro = holds[n % len(holds)], outs[n % len(outs)]
-            if ln < rin + hold + ro + 0.8:
+        # the scheduled hold first; where no gap is long enough, his shortest hold and ramp-out (the hold cycle is
+        # his, so is the count: Ad 10 round 5 kept his cut frames and had one 3.3 s cut-free stretch too few)
+        for hold, ro in ((holds[n % len(holds)], outs[n % len(outs)]), (min(holds), min(outs))):
+            for ln, x, y in gaps:
+                if ln < rin + hold + ro + 0.8:
+                    break
+                lo_t, hi_t = x + 0.4, y - (rin + hold + ro + 0.4)
+                c = [q for q in sents if lo_t <= q <= hi_t]
+                a1 = min(c, key=lambda q: abs(q - (x + y) / 2 + (rin + hold + ro) / 2)) if c else lo_t + (hi_t - lo_t) / 2
+                if any(abs(a1 - f) < fl_guard for f in flash_pts):
+                    a1 += fl_guard
+                a2, b1 = round(a1 + rin, 3), round(a1 + rin + hold, 3)
+                b2 = round(b1 + ro, 3)
+                if b2 > y - 0.2 or any(a1 - 0.2 <= q <= b2 + 0.2 for q in cuts) or any(abs(b2 - f) < fl_guard for f in flash_pts):
+                    continue
+                out.append((round(a1, 3), a2, b1, b2)); n += 1; need -= 1; placed = True
                 break
-            lo_t, hi_t = x + 0.4, y - (rin + hold + ro + 0.4)
-            c = [q for q in sents if lo_t <= q <= hi_t]
-            a1 = min(c, key=lambda q: abs(q - (x + y) / 2 + (rin + hold + ro) / 2)) if c else lo_t + (hi_t - lo_t) / 2
-            if any(abs(a1 - f) < fl_guard for f in flash_pts):
-                a1 += fl_guard
-            a2, b1 = round(a1 + rin, 3), round(a1 + rin + hold, 3)
-            b2 = round(b1 + ro, 3)
-            if b2 > y - 0.2 or any(a1 - 0.2 <= q <= b2 + 0.2 for q in cuts) or any(abs(b2 - f) < fl_guard for f in flash_pts):
-                continue
-            out.append((round(a1, 3), a2, b1, b2)); n += 1; need -= 1; placed = True
-            break
+            if placed:
+                break
         if not placed:
             break
     return sorted(out)
