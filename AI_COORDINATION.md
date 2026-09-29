@@ -91,6 +91,8 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # ACTIVE
 
+**Stashed edits - NEEDS OWNER 2026-09-29, Claude.** A rebase kept upstream versions of softblue.py, SOFTBLUE.md, GRAPHICS-STANDARDS.md, deliver/gate.py, coverimage SKILL.md, 00-MASTER.md, jobs.json. Uncommitted edits: `stash@{0}` (5d8284a). Next: owner re-applies.
+
 **Queue covers - HANDOFF 2026-09-28, Claude.** All installed; Dan approved the rest. Next: execute crops/grid-shift handoff before Sep 29 5 PM CT. Row 16 R5 re-post still Dan's call.
 
 **WV-01 round17 - HANDOFF READY 2026-09-29, Codex.** Dan approved opening and CTA tail, authorized complete A render in next task. Next: execute `Handoffs/handoff-20260929-wv01-round17-full-A-render-and-QA.md` with exact-file QA. B deferred; dispatcher paused; no publishing.
@@ -156,7 +158,6 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
-- `handoff-20260929-ig-autoboost-cost-per-follower.md` (09-29): IG ads per-follower. Opus high.
 - `handoff-20260928-queue-cover-crops-and-grid-shift.md` (09-28): 8 Hours cover due Sep 29 5 PM CT. Opus 5.5 medium.
 - `handoff-20260925-sl04-arms-shoulders-shorts-revisions.md` (09-25): SL-04 round 2 fixes. Opus 5.5 high.
 - `handoff-20260924-vsl-landing-five-mockups.md` (09-24): five VSL landing page mockups from VidTao research. Opus 5.5 high. Mockups only.
