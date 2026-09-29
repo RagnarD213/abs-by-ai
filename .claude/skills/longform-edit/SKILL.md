@@ -890,8 +890,9 @@ of a bound is exactly how the 2026-09-09 dereverb fix reached one pipeline and m
             [--bed music.mp3 --bed-db -30] [--extra sfx/bed.wav]
 
 `voice_chain.py` takes the lav mono (from `audio_source.json`, or a WAV the frame-locked builders
-below produced), dereverbs only when the room measures > 55 ms early decay, FITS the EQ to
-Muhammad's file per roll on the gate's own metric (never a pasted curve — see below for why), runs
+below produced), does NOT dereverb unless you opt in (2026-09-29: `--dereverb-because "<what you heard>"`,
+refused unless the room measures > 55 ms early decay), FITS the EQ to Muhammad's file per roll on
+the gate's own metric (never a pasted curve; see below for why), runs
 a downward expander between words, keeps the compressor OFF (his LRA is 3.5), folds to centred
 stereo, ducks the bed at ≤ −30 dB, and finishes with measured gain + `alimiter` to −14 LUFS /
 −2.5 dBTP in PCM (never `loudnorm`, which went dynamic on the website video). `finish_audio.py`
@@ -1239,7 +1240,7 @@ dBTP after the encoder. Then, on the EXACT file that ships:
 
     python3 .claude/skills/_shared/audio/audio_gate.py FINAL.mp4 --ab AB_his-vs-ours.mp4
 
-Ten rows against Muhammad's pinned reference: L/R image ≥ +0.97, comb ripple, early decay ≤ 80 ms (the chain dereverbs above 55),
+Ten rows against Muhammad's pinned reference: L/R image ≥ +0.97, comb ripple, early decay ≤ 80 ms (the chain no longer dereverbs by itself; a fail is half of an opt-in),
 10-band tone (mean ≤ 1.2 / max ≤ 2.5 dB), floor between words within 3 dB of his, dryness, −14 ±1
 LUFS, speech spread, TP ≤ −1.0 dBTP, zero silent seconds, audio length = picture. It writes
 `FINAL.mp4.audio_gate.json` with the file's sha256; **`qc_style.py`, the batch QCs and

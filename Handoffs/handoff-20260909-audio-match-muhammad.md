@@ -3,6 +3,11 @@
 **Created** 2026-09-09 by Claude Code (Opus 5) · **For** a fresh session · **Not executed**
 **Blocking:** nothing may ship from the 8/3 shoot until this passes Dan's ear, not just the gate.
 
+> ⚠ **2026-09-29: `voice_chain.py` no longer dereverbs by itself** (`_shared/audio/README.md`). These 8/3 rolls are
+> the case the opt-in exists for: the room measures wet (85 ms) AND Dan heard it ("echoey"). Once he approves the
+> three-way A/B, render with `--dereverb-because "Dan 09-02 'echoey'; approved <A/B file> <date>"`. Without that
+> flag the chain now leaves the room alone.
+
 ## What happened
 
 On 2026-09-02 Dan rejected the spray-tan Shorts' audio as "echoey". The diagnosis was correct —

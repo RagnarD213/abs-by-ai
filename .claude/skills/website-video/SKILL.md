@@ -86,7 +86,10 @@ ad graphics/caption vocabulary is /ad-edit; do not re-derive either.
 `_shared/audio` is the standard; this skill adds the one thing rev 5 was missing and forbids the thing rev 1 did.
 
 - Lav only, mono, centred (`pick_lav.py` → `audio_source.json`). Never `-ac 1`, never a stacked `pan`.
-- **Dereverb with the parameters Dan approved by ear on 2026-09-09** (alpha 0.30, d1 22, d2 70 ms, floor −10 dB,
+- ⚠ **2026-09-29: the dereverb is opt-in for every pipeline** (`_shared/audio/README.md`). Rev 6 is the model of
+  a justified opt-in: rev 5 had none, the room measured 77 ms AND Dan heard it ("room for improvement"). On a new
+  shoot, start with the light touch, A/B it against Muhammad, and add the dereverb only if the room is audible.
+- **When it is justified, dereverb with the parameters Dan approved by ear on 2026-09-09** (alpha 0.30, d1 22, d2 70 ms, floor −10 dB,
   smooth 0.45 — the `_shared/audio` defaults). The strong setting (alpha .62 / floor −24) is what he called
   "underwater"; it is not a dial to turn when the room reads high. Room target: ≤ 50 ms (his 40; rev 6 measured 45).
 - The rev-2 fitted EQ (`reference/recipe/audio3_rev2chain.py`, the curve he approved: "you got it nailed"), the

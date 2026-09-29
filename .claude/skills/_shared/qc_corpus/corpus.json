@@ -279,12 +279,20 @@
    ],
    "dan": "absolutely awful... It sounds underwater. We can never, ever strip audio like this.",
    "must_trigger": [
-    "audio_gate:artifacts"
+    "audio_gate:artifacts",
+    "audio_gate:do_no_harm"
    ],
-   "measured": "flux 1.31x Muhammad's against a 1.10 limit.",
+   "measured": "flux 1.31x Muhammad's against a 1.10 limit. 2026-09-29, gated WITH its real untreated baseline (same voice_raw.wav, EDT 74.7 ms): flux 0.094 vs untreated 0.075, so processing ADDED it and artifacts still FAILS under the 2.0.0 attribution; do_no_harm swirl x1.37 > 1.35.",
    "notes": "⚠ THE VERSIONED-GATE CASE. This file was stamped PASS on 2026-09-03 and nothing re-checked it when the dereverb settings were rejected six days later. Phase 1's gate version would have invalidated the stamp automatically.",
    "sha256": "88934ee363142c57ef9041ec98a76b56099818efd3914372e3a516e58eaacca9",
-   "bytes": 1615810595
+   "bytes": 1615810595,
+   "gate_args": [
+    "--untreated",
+    {
+     "root": "repo",
+     "path": "claude edited long form content/04 - Why You Should Invest More In Your Health/FINAL_invest_health.mp4.audio_untreated.json"
+    }
+   ]
   },
   {
    "id": "v2-short3-offcentre",
@@ -1715,10 +1723,17 @@
    "scope": "Entire final R4, including sunny two-angle opening and exact R3 AAC.",
    "must_trigger": [],
    "must_pass": [
-    "audio_gate:artifacts"
+    "audio_gate"
    ],
-   "measured": "Dan approved after review. Current exact-file audio artifact check remains FAIL (flux0.0901/reference0.072; swirl0.9556/reference0.835). Delivery35PASS/1FAIL/0NOTMEASURED/3N/A; Astra visual0defects; caption50/50 within34ms.",
-   "notes": "Explicit approval despite retained measurement failure: future corpus should expose TIGHT, not hide it with a known_gap or relaxed bound. No gate/threshold changes made at finalization. Approval record in support/records/dan-final-approval-20260917.json."
+   "measured": "Dan approved after review. 2026-09-29, audio gate 2.0.0 with this file's own untreated baseline (the R3 voice.wav pull; R4 carries the exact R3 AAC): PASS. flux 0.090 / swirl 0.956 sit past Muhammad x1.10, but the untreated lav already read 0.104 / 0.961, so the chain lowered both (do_no_harm x0.87 / x0.99). Before 2.0.0 the artifacts row FAILED this file, which is what made the corpus red. Delivery 35 PASS/1 FAIL (audio:stamp)/0 NOT MEASURED/3 N/A at finalization; Astra visual 0 defects; caption 50/50 within 34 ms.",
+   "notes": "THE FILE THAT FIXED THE ARTIFACTS ROW (2026-09-29). Its flux and swirl come from the recording (C1670, outdoor 8/28 portrait roll), not from processing; the row now attributes them against the untreated baseline instead of reading a recording difference as damage. No bound was raised. Approval record in support/records/dan-final-approval-20260917.json.",
+   "gate_args": [
+    "--untreated",
+    {
+     "root": "repo",
+     "path": "Short-form video content/ds-17-support/voice.wav.audio_untreated.json"
+    }
+   ]
   },
   {
    "date": "2026-09-17",
@@ -1858,16 +1873,8 @@
    "must_pass": [
     "audio_gate"
    ],
-   "known_gap": [
-    {
-     "check": "audio_gate:artifacts",
-     "since": "2026-09-18",
-     "why": "OUTDOOR lav against the INDOOR pinned reference: spectral flux 0.090 vs bound 0.079 (his 0.072 x1.1). The UNTREATED source already reads 0.096, the chain lowers it (do_no_harm x0.94) and cannot pass without over-processing (memory audio-never-over-strip). Dan listened and approved the audio: 'Audio sounded good'. DS-17 (same shoot) hits the same row. A fact about open-air speech vs an indoor reference, not processing damage.",
-     "clears_when": "the audio gate carries an approved OUTDOOR reference (or an outdoor-aware artifacts bound) proven through this corpus -- this file and Dan's words are the approved anchor for it. Delete this known_gap when that lands; never raise the indoor bound to clear it."
-    }
-   ],
    "measured": "1080x1920, 30000/1001, 1714 frames, 57.190 s. Audio gate 12/13 rows PASS (-14.2 LUFS, -2.1 dBTP, EDT 29 ms, tone 0.74/1.9 dB); artifacts FAIL flux 0.090. Delivery gate 2.1.0: 35 PASS, 1 FAIL (audio:stamp, same cause), 0 NOT MEASURED, 3 n/a. Independent round-3 review: everything the editor controls SHIP-clean, three cosmetic minors.",
-   "notes": "Plan + rulings: Handoffs/video-editing/RA-01-plan.md. Approval record: APPROVAL.md beside the file. Lessons: ad-edit SKILL.md 'RA-01 lessons'; footage: Docs/SHOOT_828_FOOTAGE_REPORT.md. The 16:9 master carries the byte-identical mix."
+   "notes": "Plan + rulings: Handoffs/video-editing/RA-01-plan.md. Approval record: APPROVAL.md beside the file. Lessons: ad-edit SKILL.md 'RA-01 lessons'; footage: Docs/SHOOT_828_FOOTAGE_REPORT.md. The 16:9 master carries the byte-identical mix. 2026-09-29: the artifacts known_gap (outdoor lav, flux 0.090 vs untreated 0.096) HEALED under audio gate 2.0.0, which excuses flux/swirl past his x1.10 only when this file's untreated recording already carried it. Deleted."
   },
   {
    "id": "stop-deadlifting-opening-v1-r1-rejected-20260920",

@@ -103,6 +103,9 @@ ROWKEY = {"one voice": "lr_corr", "no comb": "comb", "dry room": "edt", "tone": 
           "clean between words": "floor", "words stop cleanly": "dryness", "loudness": "lufs",
           "not crushed": "spread", "no clipping": "tp", "nothing missing": "silence",
           "no processing damage": "artifacts", "do no harm": "do_no_harm", "audio": "length",
+          # the MEASURED do_no_harm row prints "no worse than untreated: ..."; only its NOT MEASURED form
+          # starts "do no harm:". Unmapped, a measured do_no_harm FAIL was invisible to must_trigger (2026-09-29).
+          "no worse than untreated": "do_no_harm",
           "reference mix": "provenance", "verbatim level": "verbatim_level",
           "verbatim image": "verbatim_image", "verbatim loudness": "verbatim_lufs"}
 

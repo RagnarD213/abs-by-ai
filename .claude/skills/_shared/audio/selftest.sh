@@ -9,14 +9,17 @@
 #   4 pick_lav picks a:1 on an 8/28 four-track roll, c1 on an 8/3 roll and on the 8/14 ad roll
 #     (polarity inverted), and the single live channel on an 8/14 ab-wheel roll (dead left input)
 #   5 voice_chain REFUSES a stacked `pan` pull (ffmpeg renders it as silence, not an error)
-#   6 voice_chain end-to-end on an 8/28 excerpt (4 tracks, wet room) -> the gate PASSES the output,
-#     the untreated baseline is written, and the do_no_harm row actually runs
+#   6 voice_chain end-to-end with the DEFAULT light touch on an excerpt of C1670 (the DS-17 roll Dan
+#     finalized, dual-mono, dry room) -> no dereverb, the gate PASSES the output incl. artifacts and
+#     do_no_harm, the untreated baseline is written, the stamp verifies
+#   6b the dereverb is OPT-IN (2026-09-29): the default does not dereverb a WET room (C1650, 4 tracks),
+#     --dereverb without --dereverb-because is refused, and opting in on a DRY room is refused
 #   7 the do-no-harm row REFUSES the dereverb Dan rejected on 2026-09-09 and accepts the one he
 #     approved, from the same source through the same chain; a MISSING baseline FAILS the file
 #     (2026-09-09: it used to pass as "not measured"), and --untreated can restore it
 #   8 a --synthetic stamp does NOT satisfy a caller that needs the full camera gate (require_stamp
 #     is strict by default since 2026-09-09; --allow-synthetic is the explicit, visible opt-in)
-# Steps 4 and 6 need the Seagate mounted; they are skipped (loudly) if it is not.
+# Steps 4, 6, 6b and 7 need the Seagate mounted; they are skipped (loudly) if it is not.
 set -u
 # ⚠ ZSH ONLY, AND IT MUST SAY SO. Run under bash, `${0:A:h}` below expands to nothing and the script
 # dies with "A: unbound variable" -- which is indistinguishable from a real bug, and is how this
@@ -104,19 +107,41 @@ if [[ -d "$R828" ]]; then
 else echo "  ⚠ SKIPPED: Seagate not mounted"; fi
 echo "== 5 stacked pan refused"
 if python3 voice_chain.py --in "$AD1V" --out "$S/doublepan.wav" --pull "pan=mono|c0=c1,pan=mono|c0=c1" --work "$S/_dp" >"$S/5.log" 2>&1; then bad "double pan was NOT refused"; else grep -q "SILENT" "$S/5.log" && ok "stacked pan refused as silence" || { bad "refused for another reason"; tail -2 "$S/5.log"; }; fi
-echo "== 6 chain end-to-end on an 8/28 excerpt"
+echo "== 6 the DEFAULT chain end-to-end on the DS-17 roll (C1670, dual-mono, dry): no dereverb, gate PASS"
+# 2026-09-29: this used to chain the WET C1650 excerpt and assert "EDT 83 > 55 -> dereverb -> 45 ms".
+# The dereverb is opt-in now, so the default end-to-end fixture is the roll whose light-touch
+# treatment Dan finalized (DS-17 R4: "All right this works and this is finalized").
+if [[ -d "$R828" ]]; then
+  "$FF" -nostdin -y -v error -ss 7 -t 70 -i "$R828/C1670.MP4" -vn -map 0:a -c:a copy "$S/c1670_ex.mov" \
+  && python3 pick_lav.py "$S/c1670_ex.mov" >"$S/6a.log" 2>&1 \
+  && python3 voice_chain.py --in "$S/c1670_ex.mov" --out "$S/c1670_chain.mp4" --work "$S/_vc" >"$S/6b.log" 2>&1 \
+  && python3 audio_gate.py "$S/c1670_chain.mp4" >"$S/6c.log" 2>&1 \
+  && python3 require_stamp.py "$S/c1670_chain.mp4" >/dev/null 2>&1 \
+  && grep -q "PASS  no worse than untreated" "$S/6c.log" \
+  && grep -q "PASS  no processing damage" "$S/6c.log" \
+  && grep -q "no dereverb (the default)" "$S/6b.log" \
+  && [[ -f "$S/c1670_chain.mp4.audio_untreated.json" ]] \
+  && ok "C1670 excerpt: $(grep -o 'EDT [0-9]* ms' "$S/6b.log" | head -1), no dereverb; gate PASS incl. artifacts + do_no_harm; stamp verified" \
+  || { bad "default chain/gate on the C1670 excerpt"; tail -3 "$S/6b.log"; grep FAIL "$S/6c.log"; }
+  # and the stamp must fail once the file changes
+  cp "$S/c1670_chain.mp4" "$S/c1670_chain_copy.mp4"; python3 require_stamp.py "$S/c1670_chain_copy.mp4" >/dev/null 2>&1 && bad "an unstamped copy passed require_stamp" || ok "unstamped copy refused"
+else echo "  ⚠ SKIPPED: Seagate not mounted"; fi
+echo "== 6b the dereverb is OPT-IN: not by default on a wet room, never without a reason, never on a dry room"
 if [[ -d "$R828" ]]; then
   "$FF" -nostdin -y -v error -ss 40 -t 90 -i "$R828/C1650.MP4" -vn -map 0:a -c:a copy "$S/c1650_ex.mov" \
-  && python3 pick_lav.py "$S/c1650_ex.mov" >"$S/6a.log" 2>&1 \
-  && python3 voice_chain.py --in "$S/c1650_ex.mov" --out "$S/c1650_chain.mp4" --work "$S/_vc" >"$S/6b.log" 2>&1 \
-  && python3 audio_gate.py "$S/c1650_chain.mp4" >"$S/6c.log" 2>&1 \
-  && python3 require_stamp.py "$S/c1650_chain.mp4" >/dev/null 2>&1 \
-  && grep -q "PASS  no worse than untreated" "$S/6c.log" \
-  && [[ -f "$S/c1650_chain.mp4.audio_untreated.json" ]] \
-  && ok "excerpt: $(grep -o 'EDT [0-9]* ms > 55 -> dereverb -> [0-9]* ms' "$S/6b.log"); gate PASS incl. do_no_harm; stamp verified" \
-  || { bad "chain/gate on the excerpt"; tail -3 "$S/6b.log" "$S/6c.log"; }
-  # and the stamp must fail once the file changes
-  cp "$S/c1650_chain.mp4" "$S/c1650_chain_copy.mp4"; python3 require_stamp.py "$S/c1650_chain_copy.mp4" >/dev/null 2>&1 && bad "an unstamped copy passed require_stamp" || ok "unstamped copy refused"
+  && python3 pick_lav.py "$S/c1650_ex.mov" >"$S/6d.log" 2>&1
+  python3 voice_chain.py --in "$S/c1650_ex.mov" --out "$S/c1650_default.mp4" --work "$S/_vcw" >"$S/6e.log" 2>&1 \
+    && python3 -c "import json,sys;d=json.load(open(sys.argv[1]));sys.exit(0 if d.get('dereverb') is None and d['edt_raw']>55 else 1)" "$S/c1650_default.mp4.voice_chain.json" \
+    && ok "wet C1650 ($(grep -o 'EDT [0-9]* ms' "$S/6e.log" | head -1)): the default leaves the room alone" \
+    || { bad "the default dereverbed a wet room, or the chain failed"; tail -3 "$S/6e.log"; }
+  python3 voice_chain.py --in "$S/c1650_ex.mov" --out "$S/c1650_noreason.mp4" --work "$S/_vcn" --dereverb "alpha=0.30" >"$S/6f.log" 2>&1 \
+    && bad "--dereverb without --dereverb-because was accepted" \
+    || { grep -q "needs --dereverb-because" "$S/6f.log" && ok "--dereverb without a reason refused" || { bad "refused for another reason"; tail -2 "$S/6f.log"; }; }
+  if [[ -f "$S/c1670_ex.mov" ]]; then
+    python3 voice_chain.py --in "$S/c1670_ex.mov" --out "$S/c1670_optin.mp4" --work "$S/_vco" --dereverb-because "selftest: opting in on a dry room" >"$S/6g.log" 2>&1 \
+      && bad "opting in on a DRY room was accepted" \
+      || { grep -q "not wet" "$S/6g.log" && ok "opting in on a dry room refused (no measured room problem)" || { bad "refused for another reason"; tail -2 "$S/6g.log"; }; }
+  fi
 else echo "  ⚠ SKIPPED: Seagate not mounted"; fi
 echo "== 7 do-no-harm: the SETTING DAN REJECTED must FAIL, the one he APPROVED must PASS"
 # ⚠ THE POINT OF THIS STEP. On 2026-09-02 the gate PASSED the build Dan later called "underwater",
@@ -126,6 +151,7 @@ echo "== 7 do-no-harm: the SETTING DAN REJECTED must FAIL, the one he APPROVED m
 # (EDT ~37 ms against his 40, floor +33 dB) and must be refused anyway.
 if [[ -f "$S/c1650_ex.mov" ]]; then
   python3 voice_chain.py --in "$S/c1650_ex.mov" --out "$S/harm_rejected.mp4" --work "$S/_harm" \
+      --dereverb-because "selftest: reproduce the build Dan rejected as underwater" \
       --dereverb "alpha=0.62,d1_ms=20,d2_ms=150,floor_db=-24,smooth=0.30" >"$S/7a.log" 2>&1
   if python3 audio_gate.py "$S/harm_rejected.mp4" --no-stamp >"$S/7b.log" 2>&1; then
     bad "the dereverb Dan rejected PASSED the gate"; else
@@ -152,8 +178,8 @@ echo "== 8 a --synthetic stamp must not satisfy a camera-audio caller"
 # ⚠ require_stamp defaulted to synthetic_ok=True and required an opt-IN --strict that NO SKILL.md
 # ever passed, so a weakened 4-row stamp silently satisfied every full-gate caller. Strict is the
 # default now; --allow-synthetic is the explicit opt-in for the three AI-voice skills.
-if [[ -f "$S/c1650_chain.mp4" ]]; then
-  cp "$S/c1650_chain.mp4" "$S/synth.mp4"
+if [[ -f "$S/c1670_chain.mp4" ]]; then
+  cp "$S/c1670_chain.mp4" "$S/synth.mp4"
   python3 audio_gate.py "$S/synth.mp4" --synthetic >"$S/8a.log" 2>&1
   if python3 require_stamp.py "$S/synth.mp4" >"$S/8b.log" 2>&1; then
     bad "a --synthetic stamp satisfied the default (camera-audio) require_stamp"

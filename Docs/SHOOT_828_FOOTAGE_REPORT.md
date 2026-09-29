@@ -65,7 +65,10 @@ same row. **Dan listened to RA-01 and approved it on 2026-09-18 ("Audio sounded 
 good")**, so RA-01 shipped on his approval with the row recorded as a `known_gap` in the regression corpus; the standing
 ruling for the other rolls is still open. Every outdoor 8/28 roll will hit it: this is a property of open-air speech against an indoor reference, and it
 needs Dan's ruling (accept outdoors as-is, or have the gate carry an outdoor reference through the regression
-corpus) — not a per-video workaround.
+corpus), not a per-video workaround.
+**Resolved 2026-09-29 (audio gate 2.0.0):** the row now attributes. Flux or swirl past his ×1.10 fails only when processing
+added it, measured against the file's own untreated baseline. RA-01 and DS-17 pass with their baselines; the RA-01 `known_gap`
+is deleted. No bound was raised.
 
 ## 4. Vertical-crop headroom and how big Dan is in frame
 

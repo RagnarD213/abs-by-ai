@@ -294,8 +294,10 @@ the audio still be wrong.**
 **The room is row 2 of `_shared/audio/audio_gate.py`, which `finishaudio.py` runs on every delivered
 file and which `qc.js` and `deliver.js` REQUIRE a PASS stamp from** (⚠ the earlier claim here that
 `audiogate.py` was "wired into qc.js" was false — nothing referenced it; corrected 2026-09-02). It fails
-over 80 ms — the approved/rejected boundary (website rev 2 approved at 75, this batch rejected at 85). The fix is automatic: `voice_chain.py` runs `_shared/audio/dereverb.py` — spectral
-subtraction of the late field — whenever the raw lav measures > 55 ms, and re-fits the EQ after it.
+over 80 ms (website rev 2 approved at 75, this batch rejected at 85; C1652 R4 approved at 88). ⚠ **The fix
+is NOT automatic any more (2026-09-29, Dan: copy Codex's light touch).** `voice_chain.py` runs
+`_shared/audio/dereverb.py` (spectral subtraction of the late field) only when you pass
+`--dereverb-because "<what you heard, on which A/B>"` AND the raw lav measures > 55 ms. Listen first.
 ffmpeg cannot do this: there is no dereverb filter, `arnndn` has no model here, and a broadband
 expander only reached 63 ms and pumped.
 

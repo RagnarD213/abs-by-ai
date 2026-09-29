@@ -30,7 +30,8 @@ same; only the tools differ (section 3).
 
 * **Audio.** Our own mixes go through `.claude/skills/_shared/audio/`: `pick_lav.py` picks the lav **per file**. The
   8/28 rolls have four mono tracks and the 8/3 + 8/14 rolls differ, so never hard-code a channel. `voice_chain.py` is
-  the only voice chain, and `audio_gate.py` stamps the delivered file. **An editor's finished mix is used untouched**
+  the only voice chain, and `audio_gate.py` stamps the delivered file. **Since 2026-09-29 its default is Codex's light
+  touch: no dereverb** unless the room measures wet AND a listener heard it (`--dereverb-because "<what, on which A/B>"`). **An editor's finished mix is used untouched**
   (`--verbatim`); a cutdown only cuts it at the seams. No loudness change, never mono. Run `selftest.sh` before a batch.
 * **Colour.** Editor masters carry no colour tags. **Decode as BT.709** (`scale=in_color_matrix=bt709:in_range=tv`),
   never ffmpeg's BT.601 default, and verify against the reference decoded the same way (memory `untagged-video-bt601-trap`).

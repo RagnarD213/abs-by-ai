@@ -118,12 +118,12 @@ a batch.
    filter. `base.py` reads that JSON. **No script writes `pan=mono|c0=c1` again** — on an 8/28 roll
    that takes the far mic or renders silence. It exits non-zero on ambiguity; do not guess.
 2. **`voice_chain.py --in <tight cut> --out <out.mov> [--bed music --bed-db -30] [--extra sfx.wav]`** —
-   the approved rev-2 chain (`audio3.py` is now a shim to it): dereverb only if the room measures
-   > 55 ms, EQ FITTED to his file per roll (never a pasted curve), expander, compressor OFF (his LRA
+   the approved rev-2 chain (`audio3.py` is now a shim to it): NO dereverb by default (opt-in since
+   2026-09-29, `--dereverb-because` on a room measuring > 55 ms that a listener heard), EQ FITTED to his file per roll (never a pasted curve), expander, compressor OFF (his LRA
    is 3.5), centred, bed ≤ −30 dB ducked, measured gain + `alimiter` (never `loudnorm`, which went
    dynamic on rev 1) to −14 LUFS / −2.5 dBTP in PCM. It refuses silent input (a stacked `pan`).
 3. **`audio_gate.py <delivered file> --ab AB.mp4`** on the EXACT delivered file: L/R image, comb
-   ripple, early decay ≤ 80 ms (the chain dereverbs above 55), 10-band tone (mean ≤ 1.2 / max ≤ 2.5 dB), floor between words within
+   ripple, early decay ≤ 80 ms (a fail is the measured half of a dereverb opt-in, not an order to dereverb), 10-band tone (mean ≤ 1.2 / max ≤ 2.5 dB), floor between words within
    3 dB of his, dryness, −14 ±1 LUFS, speech spread, true peak ≤ −1.0 dBTP, zero silent seconds,
    length. It writes `<file>.audio_gate.json` with the file's sha256. **A FAIL is not deliverable**,
    and a re-render without a re-gate fails `require_stamp` on its sha256. Send the A/B (his three
@@ -732,7 +732,7 @@ edit's directly and picked HIS. These are the rules that difference came down to
    thin at 400–700 Hz (which makes a voice read as distant). Fix the tilt first, then
    add a gentle downward expander for the tails, then light compression if the reference
    is "flatter" (LRA 3.8 → 1.9 LU here). Note the presence lift we had been adding at
-   3.6 kHz was making the room WORSE. → the gate's tone, dryness and EDT rows; `voice_chain.py` dereverbs when EDT > 55 ms.
+   3.6 kHz was making the room WORSE. → the gate's tone, dryness and EDT rows; `voice_chain.py` dereverbed when EDT > 55 ms until 2026-09-29; it is opt-in now (`_shared/audio/README.md`).
 29. **Re-transcription is the audio QC, and it earns its keep.** An expander at
    threshold 0.030 / ratio 2.4 ate the /f/ in "for free" and the "n't" in "isn't" —
    inaudible in a spot check, obvious as 97.9 % → 96.0 % fidelity. After fixing that,

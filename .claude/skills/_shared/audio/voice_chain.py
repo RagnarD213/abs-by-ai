@@ -1,18 +1,20 @@
 #!/usr/bin/env python3
 """THE ONE VOICE CHAIN -- the approved audio3.py chain (website video rev 2: "you got it nailed"),
-with the source track taken from pick_lav's JSON, dereverb when the room measures wet, and the
-EQ FITTED to the reference per roll (voicefit lineage) instead of copied.
+with the source track taken from pick_lav's JSON and the EQ FITTED to the reference per roll
+(voicefit lineage) instead of copied. LIGHT TOUCH BY DEFAULT: no dereverb, no compressor, no bed.
 
   python3 voice_chain.py --in <video|wav> --out <out.wav|.mov|.mp4> [--source audio_source.json]
          [--video picture.mp4] [--bed music.mp3 --bed-db -30] [--extra sfx.wav] [--comp]
          [--target -14] [--tp -2.5] [--no-fit] [--eq "<af>"] [--frame-lock picture.mp4]
+         [--dereverb-because "<what you heard, on which A/B>"]
 
 Stages (length-preserving, so pictures stay frame-locked):
   pull      lav track only, mono, per `audio_source.json` (refuses without it unless --in is a WAV
             or --pull is given); refuses SILENT input -- a stacked `pan` asks for a channel that no
             longer exists and ffmpeg renders silence, not an error (it blanked 4.48 s of a short)
-  dereverb  only if the raw lav's early decay > 55 ms (spray-tan params alpha .62 d1 20 d2 150
-            floor -24 smooth .30); EDT before/after is logged and written to the sidecar
+  dereverb  OFF BY DEFAULT (2026-09-29, Dan: Codex's audio approach works better; copy it). Opt-in
+            with --dereverb-because, and only on a room that measures wet (raw EDT > EDT_WET);
+            both the measurement and the reason are written to the sidecar
   fit       highpass 70 + 9 parametric bands + a treble shelf, iterated against the reference on the
             gate's own metric, damped and smoothed so it is a voice EQ and never a comb
   dynamics  downward expander between words (audio3 EXPAND); compressor OFF unless --comp (<= 1.5:1)
@@ -35,6 +37,22 @@ COMPRESS = "acompressor=threshold=0.126:ratio=1.5:attack=12:release=220:makeup=1
 # past Muhammad's 40, and cost 1.29x his spectral flux, 1.19x his HF swirl and a floor 14 dB
 # deeper than his. These are the SAME numbers as dereverb.py's defaults - keep them in step.
 DEREVERB = dict(alpha=0.30, d1_ms=22, d2_ms=70, floor_db=-10.0, smooth=0.45)
+# ⚠ DEREVERB IS OPT-IN (2026-09-29). Until then the chain dereverbed any room over 55 ms by itself.
+# What Dan approved and rejected, side by side:
+#   APPROVED  website rev 2 ("you got it nailed")  audio3 chain, NO dereverb, room 75 ms
+#   APPROVED  DS-17 R4 ("this works ... finalized")  this chain, no dereverb, room 29 ms, fitted EQ
+#   APPROVED  C1652 R4 voice ("the voice is sounding good")  this chain, --no-dereverb on a room
+#             measuring 61-83 ms raw, a gentle fixed warm EQ, no compressor, no bed
+#   REJECTED  invest-health + spray-tan shorts ("underwater")  dereverb alpha 0.62 / floor -24
+#   REJECTED  C1652 R1 ("Muhammad's audio is significantly, significantly better")  THIS chain's
+#             auto-dereverb at the approved alpha 0.30, plus --comp and a bed; it PASSED the gate
+#   APPROVED  website rev 6 ("you nailed it")  the ONE justified dereverb: rev 5 had no dereverb, the
+#             room measured 77 ms AND Dan heard it ("room for improvement... more like Muhammad's"),
+#             so rev 6 added alpha 0.30. That is the opt-in below, done right.
+# Every dereverb Dan rejected was applied because a number said so; the one he approved was applied
+# because he heard the room. So the default is the light touch, and a dereverb needs BOTH halves:
+# the raw room measures wet (EDT > EDT_WET, measured here) AND someone listened to an A/B and heard
+# the room (--dereverb-because "<what, on which A/B>").
 EDT_WET = 55.0
 
 
@@ -125,11 +143,16 @@ def main():
     ap.add_argument("--comp", action="store_true"); ap.add_argument("--target", type=float, default=-14.0)
     ap.add_argument("--tp", type=float, default=-2.5); ap.add_argument("--no-fit", action="store_true")
     ap.add_argument("--eq", help="use this EQ chain instead of fitting")
-    ap.add_argument("--no-dereverb", action="store_true")
-    ap.add_argument("--dereverb", help="override the approved dereverb params, 'alpha=0.62,floor_db=-24' "
-                                       "(TESTING ONLY - the defaults are what Dan approved by ear on "
-                                       "2026-09-09; the selftest uses this to prove the gate still fails "
-                                       "the build he rejected)")
+    ap.add_argument("--no-dereverb", action="store_true",
+                    help="accepted for old callers; a no-op since 2026-09-29 (no dereverb is the default)")
+    ap.add_argument("--dereverb-because", metavar="WHAT_YOU_HEARD",
+                    help="OPT IN to the dereverb: what a listener heard on which A/B (e.g. 'room audible on the "
+                         "untreated vs Muhammad A/B at 0:40'). Refused unless the raw room also measures wet "
+                         "(EDT > %d ms). Written to the sidecar." % EDT_WET)
+    ap.add_argument("--dereverb", help="with --dereverb-because only: override the approved params, "
+                                       "'alpha=0.62,floor_db=-24' (TESTING ONLY - the defaults are what Dan "
+                                       "approved by ear on 2026-09-09; the selftest uses this to prove the gate "
+                                       "still fails the build he rejected)")
     ap.add_argument("--frame-lock", help="pad/trim the output to exactly this picture's duration")
     ap.add_argument("--finish-only", action="store_true",
                     help="input is an already-finished STEREO mix (e.g. the reference's own mix): no pull/dereverb/fit/expander, just measured gain + limiter to target")
@@ -139,6 +162,10 @@ def main():
                     help="finish-only: sum a near-mono stereo mix to centred mono (L/R >= ~0.95 at lag 0 only)")
     ap.add_argument("--work", help="work dir (default beside --out)")
     A = ap.parse_args()
+    if A.dereverb and not A.dereverb_because:
+        raise SystemExit("--dereverb PARAMS needs --dereverb-because: the dereverb is opt-in (2026-09-29)")
+    if A.dereverb_because is not None and len(A.dereverb_because.strip()) < 12:
+        raise SystemExit("--dereverb-because needs a real reason: what was heard, on which A/B")
     work = A.work or os.path.join(os.path.dirname(os.path.abspath(A.out)), "_voice_chain"); os.makedirs(work, exist_ok=True)
     ref_audio, ref = R.resolve()
     log = dict(version=C.STAMP_VERSION, src=os.path.abspath(A.src), out=os.path.abspath(A.out))
@@ -169,18 +196,26 @@ def main():
         print(f"  untreated baseline: flux {b['flux']:.3f}  swirl {b['swirl']:.3f}  EDT {b['edt_ms']:.0f} ms"
               f"  -> {os.path.basename(C.untreated_path(A.out))}")
 
-        # ---- dereverb if wet
+        # ---- dereverb: OPT-IN ONLY (2026-09-29) -- a wet room by measurement AND by ear, see EDT_WET
         e0 = b["edt_ms"]; log["edt_raw"] = e0
-        if e0 > EDT_WET and not A.no_dereverb:
+        if A.dereverb_because is not None:
+            if e0 <= EDT_WET:
+                raise SystemExit(f"--dereverb-because refused: the raw room measures EDT {e0:.0f} ms, not wet "
+                                 f"(> {EDT_WET:.0f} ms). There is no measured room problem to treat.")
             kw = dict(DEREVERB)
             if A.dereverb:
                 kw.update({k: float(v) for k, v in (t.split("=") for t in A.dereverb.split(","))})
                 print(f"  !! --dereverb OVERRIDE {kw} (testing only; approved defaults {DEREVERB})")
             y = dereverb(x, sr=C.SR, **kw); write_wav(lav, y)
             e1 = C.edt(C.pcm(lav, ss=ss, dur=dur)); log["edt_dereverb"] = round(e1, 1); log["dereverb"] = kw
-            print(f"  room: EDT {e0:.0f} ms > {EDT_WET:.0f} -> dereverb -> {e1:.0f} ms (his {ref['edt_ms']:.0f})")
+            log["dereverb_because"] = A.dereverb_because.strip()
+            print(f"  room: EDT {e0:.0f} ms > {EDT_WET:.0f}, opted in ({A.dereverb_because.strip()!r}) "
+                  f"-> dereverb -> {e1:.0f} ms (his {ref['edt_ms']:.0f})")
         else:
-            print(f"  room: EDT {e0:.0f} ms (<= {EDT_WET:.0f}, his {ref['edt_ms']:.0f}) -- no dereverb")
+            log["dereverb"] = None
+            print(f"  room: EDT {e0:.0f} ms (his {ref['edt_ms']:.0f}) -- no dereverb (the default)"
+                  + (f"; the room measures wet, so if the A/B sounds roomy, listen before opting in "
+                     f"with --dereverb-because" if e0 > EDT_WET else ""))
 
         # ---- EQ
         if A.eq: eq, gains, fstep = A.eq, None, None

@@ -4,7 +4,7 @@
 render.js writes lossless out/<id>_<slug>.mov whose audio is the LAV TRACK pulled per the source's
 audio_source.json (pick_lav) -- no EQ, no pan. This stage runs, on each .mov:
   pick_lav      proves the intermediate is one signal (dual-mono) and refuses if it is not
-  voice_chain   dereverb if the room measures > 55 ms, EQ fitted to Muhammad's ad on the gate's own
+  voice_chain   no dereverb (opt-in only since 2026-09-29), EQ fitted to Muhammad's ad on the gate's own
                 metric, expander, centred stereo, measured gain + alimiter -> -14 LUFS (never loudnorm)
   audio_gate    the nine rows on the delivered .mp4, and the STAMP qc.js and deliver.js require
 Video is copied, never re-encoded. This is the only AAC encode.
