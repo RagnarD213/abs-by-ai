@@ -15,7 +15,9 @@
 >   photo-180 (1080 px wide) and swapped in place, image only. Files and boxes: `_speedo-crops-20260927/approved/sharp-from-4096/`.
 > - Backups: `schedules_before_grid_crops_20260928.json` / `schedules_after_grid_crops_20260928.json` in the
 >   installation `backup/` folder. Ad guard is clean before and after. Review page republished (version 3).
-> - Still open for Dan: row 16 (below).
+> - Row 16 (2026-09-29): Dan approved R5. The Sep 27 failure was the 313 MB file (Instagram's reel API caps at 300 MB). Re-queued on
+>   @danrosefit as Blotato 4962222 for Sep 30 14:00 UTC: a 266 MB re-encode of Zeeshan's master (audio stream-copied, MD5 identical,
+>   SSIM 0.983), R5 cover byte-matched to the approved export, same caption and first comment.
 
 
 Prepared 2026-09-28 by Claude at Dan's request. Recommended model: Claude Opus 5.5, medium effort.
