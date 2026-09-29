@@ -1,7 +1,8 @@
 {
   "checked": [
     "assistant::Take out trash",
-    "assistant::Do laundry"
+    "assistant::Do laundry",
+    "assistant::Load and empty dishwasher"
   ],
   "log": {
     "health::Shower": [
@@ -227,6 +228,7 @@
   },
   "checkedAt": {
     "assistant::Take out trash": "2026-09-29",
-    "assistant::Do laundry": "2026-09-29"
+    "assistant::Do laundry": "2026-09-29",
+    "assistant::Load and empty dishwasher": "2026-09-29"
   }
 }
