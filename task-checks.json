@@ -1,5 +1,7 @@
 {
-  "checked": [],
+  "checked": [
+    "assistant::Take out trash"
+  ],
   "log": {
     "health::Shower": [
       "2026-06-25",
@@ -222,5 +224,7 @@
       "2026-09-14"
     ]
   },
-  "checkedAt": {}
+  "checkedAt": {
+    "assistant::Take out trash": "2026-09-29"
+  }
 }
