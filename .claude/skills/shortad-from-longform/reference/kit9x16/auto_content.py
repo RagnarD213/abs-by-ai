@@ -368,6 +368,7 @@ class Library:
                         prov = "ai" if name_prov(p) == "ai" else "real"
                     files.append((p, typ, prov, si))
         self.files = files
+        self.curated = {si for si, src in enumerate(S["sources"]) if src.get("curated_crop")}
         sig = hashlib.md5(json.dumps([(p, os.path.getmtime(p), si, pv) for p, _, pv, si in files]).encode()).hexdigest()[:12]   # provenance in the key: a rule change must re-index
         self.cache = os.path.join(CACHE, f"libindex_{sig}.npz")
         self._load()
@@ -580,6 +581,14 @@ class Library:
             tied = same + sorted(others, key=lambda r: r[11])
             rest = [r + (None,) for r in rest]
             res = tied + rest
+        # a Dan-APPROVED crop of the matched photo (head and stomach framed, Ad 1 attempt 3 item 8) replaces the full
+        # photo when all of it lies inside his picture: Ad 8 16.2 s put the 4:3 original in a card that cut his head
+        # and hid his stomach, the framing Dan had already rejected on Ad 1
+        if res and res[0][2] == "img" and res[0][7] not in getattr(self, "curated", ()):
+            cur = [r for r in res if r[7] in self.curated and r[2] == "img" and r[0] >= max(20, 0.25 * res[0][0]) and r[9] >= 0.85]
+            if cur:
+                c = max(cur, key=lambda r: r[0])
+                res = [c[:3] + (res[0][3] if res[0][3] in ("real", "ai") else c[3],) + c[4:]] + [r for r in res if r is not c]
         # one row per file, best frame
         seen, out = set(), []
         for r in res:

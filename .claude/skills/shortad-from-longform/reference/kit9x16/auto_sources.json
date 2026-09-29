@@ -1,6 +1,11 @@
 {
- "about": "Where auto_content.py looks for the CLEAN original of a picture it finds in an editor's master, and what each place tells it about provenance. prov: real = Dan's real photos/footage, ai = AI-generated, app = product screens, by-name = decided from the file name (auto_content.NAME_RULES), none = unknown (a physique picture from here escalates). Order is priority: on a tie (same picture in two files) the larger file wins, then the earlier source. by-name-else-real = a build's own asset folder, where every AI file is named as AI (ai_*.mp4).",
+ "about": "Where auto_content.py looks for the CLEAN original of a picture it finds in an editor's master, and what each place tells it about provenance. prov: real = Dan's real photos/footage, ai = AI-generated, app = product screens, by-name = decided from the file name (auto_content.NAME_RULES), none = unknown (a physique picture from here escalates). Order is priority: on a tie (same picture in two files) the larger file wins, then the earlier source. by-name-else-real = a build's own asset folder, where every AI file is named as AI (ai_*.mp4). curated_crop: Dan-approved crops of real photos (head and stomach framed); a crop that lies wholly inside the matched picture replaces it.",
  "sources": [
+  {
+   "dir": "/Volumes/Extreme/_edit_work/kit9x16/approved_crops",
+   "prov": "real",
+   "curated_crop": true
+  },
   {
    "dir": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/01 Before and After Images",
    "prov": "by-name"
