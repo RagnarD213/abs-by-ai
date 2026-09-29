@@ -57,6 +57,12 @@ Switch it in Studio (`studio.youtube.com/video/<id>/edit` → Visibility → Pri
   `/Volumes/Extreme/_edit_work/<slug>-publish/`. (The rclone "shared client_id" NOTICE is harmless.)
 - Editors' folders hold several files — pick the newest `Rev` by name and modified date; a `.srt` beside it may
   belong to an earlier cut (check its last cue against the video's duration).
+- **Even when Dan sends a single-file link, list its parent folder (`search_files` `parentId = '<parent>'`) and read
+  the live revision doc before downloading.** If a newer Rev exists, or the doc's latest round asks for changes the
+  linked file does not have, the newer file is the final. Verify it answers that round (measure the fix, confirm
+  audio and cut unchanged) and set THAT one up. 2026-09-29: Dan linked "Video 3 rev 4" while Zeeshan's "Video 3 Rev 5"
+  (the round-5 skin fix) was already in the folder; Rev 4 got queued everywhere and had to be swapped with
+  `swap_media.py`.
 - `ffprobe` duration + resolution; `md5 -q`.
 - File a copy per `/editor-deliveries`: `<Editor> Content Videos/<title> - video N/<title> | <editor> | 16x9 | video N.mp4`
   (content numbers are per editor, in delivery order). md5 must match the download.
