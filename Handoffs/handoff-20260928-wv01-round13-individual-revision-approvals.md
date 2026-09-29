@@ -113,3 +113,20 @@ Private plan: `/Volumes/Extreme/_edit_work/wv01-edit/round13-plan/WORK_PACKET.js
 ## Ready-to-paste starter prompt
 
 Execute `Handoffs/handoff-20260928-wv01-round13-individual-revision-approvals.md` with `$abs-edit-organic`. Find the existing happy walking six-pack clip and prepare all requested changes as individual approval previews, including two start/end frame variations each for the exercise-screen and family scenes. Audit and fix every jump cut. Show changes only and record each approval. Do not generate motion before its frames are approved or render the full film before every revision is approved. Keep B deferred and dispatcher paused. No publishing.
+
+## Execution checkpoint, 2026-09-28
+
+The handoff has been executed through the individual-approval boundary. Changes-only review: http://127.0.0.1:8766/round13/index.html. R01-R12 are prepared. Every decision remains pending.
+
+- Exact existing clip found using Dan's YouTube 1:48 clue and Muhammad's Drive revision doc. Source and proposed4-second contextual trim are presented. No replacement clip generated.
+- Two exercise START/END pairs and two family START/END pairs are presented, each with intended action, duration and historical motion estimate. No new motion calls.
+- Food, left-third five-benefit and Greek Yogurt Berry Bowl graphics are stills awaiting approval. Their moving contexts remain gated.
+- Source-word, noise and pause repairs are presented before/after. Owner-assisted isolated audio QA passed for the three repairs; the final R04 picture correction and direct original-source audio comparison are documented separately, including conflicting model output and its disposition.
+- All51 source splices and141 visible boundaries inspected. Sixteen separate cut repair previews are presented, including4:31,7:27 and8:10. This is a native join audit, not a claim of full human playback.
+- All43 moving files in the packet decoded completely. The existing persistent local server serves57 exact files and verified byte ranges. Browser playback and frame-pair layout checked. All39 protected inputs, including both round12 exports, remain unchanged.
+
+Private execution packet: `/Volumes/Extreme/_edit_work/wv01-edit/round13/WORK_PACKET.json`. Exact approval scopes and hashes: `round13/decisions.json` and `round13/review/approval-registry.json`. Recipes, evidence, source provenance, costs and conditional old/new timing crosswalk are in `round13/recipe` and `round13/review`. OpenCV random master seeks produced invalid picture proofs; those early Jxx images are retired and excluded from the review page. Use native ffmpeg boundary pairs and rebuilt contexts.
+
+Nine built-in still calls were made in this task, bringing the historical total to56; actual charges remain unavailable. No new motion spend. Owner-assisted isolated QC estimate is $0.209889, separate from generation accounting. The cumulative $20 generation allowance has not reset and its remaining balance is unconfirmed because of unknown still charges. Future motion estimates use the historical Kling rate and require a fresh price/budget check.
+
+Next: Dan reviews each item, choosing one exact pair per new scene. After specific still/pair approvals, prepare only the corresponding moving contexts or selected motion, then return those for separate approval. No full assembly until every revision is approved. B remains deferred, dispatcher stays paused, inherited full-film website gate FAIL remains, and nothing was published, uploaded or deployed.
