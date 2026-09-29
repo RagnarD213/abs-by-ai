@@ -383,6 +383,13 @@
       "recurring": false,
       "addedAt": "2026-09-29",
       "addedBy": "assistant"
+    },
+    {
+      "text": "Tidy bathrooms",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-09-29",
+      "addedBy": "assistant"
     }
   ],
   "handoffs": [
