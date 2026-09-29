@@ -350,65 +350,6 @@
       "priority": "high",
       "recurring": false,
       "addedAt": "2026-09-01"
-    },
-    {
-      "text": "Clean Master Bathroom & Guest Bathroom",
-      "priority": "med",
-      "recurring": false,
-      "addedAt": "2026-09-01"
-    },
-    {
-      "text": "Set up filming room https://claude.ai/artifact/6KuxQDocTNAQDCboc7Byh5",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-09-15"
-    },
-    {
-      "text": "Wash dishes",
-      "priority": "high",
-      "recurring": false,
-      "addedAt": "2026-09-22"
-    },
-    {
-      "text": "Do laundry",
-      "priority": "high",
-      "recurring": false,
-      "addedAt": "2026-09-22"
-    },
-    {
-      "text": "Take out kitchen trash",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-09-22",
-      "addedBy": "assistant"
-    },
-    {
-      "text": "Tidy kitchen",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-09-22",
-      "addedBy": "assistant"
-    },
-    {
-      "text": "Change robot mop water & sweep corners that robot cannot get to.",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-09-22",
-      "addedBy": "assistant"
-    },
-    {
-      "text": "Dust",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-09-22",
-      "addedBy": "assistant"
-    },
-    {
-      "text": "Put dishes away (other one glitch)",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-09-23",
-      "addedBy": "assistant"
     }
   ],
   "handoffs": [
