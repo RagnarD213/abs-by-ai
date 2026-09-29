@@ -3,7 +3,8 @@
     "assistant::Take out trash",
     "assistant::Do laundry",
     "assistant::Load and empty dishwasher",
-    "assistant::Tidy bathrooms"
+    "assistant::Tidy bathrooms",
+    "assistant::Tidy kitchen"
   ],
   "log": {
     "health::Shower": [
@@ -231,6 +232,7 @@
     "assistant::Take out trash": "2026-09-29",
     "assistant::Do laundry": "2026-09-29",
     "assistant::Load and empty dishwasher": "2026-09-29",
-    "assistant::Tidy bathrooms": "2026-09-29"
+    "assistant::Tidy bathrooms": "2026-09-29",
+    "assistant::Tidy kitchen": "2026-09-29"
   }
 }
