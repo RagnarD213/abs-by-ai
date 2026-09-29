@@ -5,6 +5,12 @@ description: Review a video cut delivered by an editor (human or a cheaper-model
 
 Read `_shared/VIDEO-RULES.md` first.
 
+## Default jump-cut and junk-footage QC (Dan, 2026-09-29)
+
+Follow [CUT-CONTINUITY-QC.md](../_shared/CUT-CONTINUITY-QC.md) during source selection, before approval previews, and on the exact final candidate. Inspect every actual source/picture join, including reused composites, for a presenter jump without a distinct fixed wide/tight cut or complete approved clip cover. Fix uncovered jumps and recheck every boundary the repair creates. Detect and remove confirmed unscripted noises, empty lead-ins, unnecessary pauses and off-camera resets while protecting complete words, natural breaths and teaching action. Native consecutive frames plus moving/audio context are required; sparse scans and ASR alone cannot clear a join or authorize deletion. Keep the current still/frame, motion and full-render approval boundaries. This dated rule supersedes older suggestions that a pose match or audio fade alone clears a naked cut.
+
+For a review-only task, report each required repair with timecodes. Do not render or send editor messages.
+
 # /revisions — review a delivered cut and write Dan-style revision notes
 
 The deliverable is a **Google Doc in Dan's Drive**, written in Dan's voice and format,
