@@ -1,6 +1,6 @@
 ---
 name: video-setup
-description: Take a FINISHED organic/content video, long-form or a dedicated Short (usually an editor's final shared as a Google Drive link) all the way to scheduled on every platform: download and file it, build thumbnail variations for Dan to pick from, write the title, description with chapters and tags, upload the YouTube holding copy Private, and queue YouTube, Facebook, Instagram @danrosefit, and TikTok for release through Blotato. Use whenever Dan says a content video is "finished", "done", "final", sends a Drive link and asks to "queue it up", "set it up on all platforms", "put it in Blotato", "schedule it", or "get it on YouTube and everything else", even if he doesn't say "/video-setup". Paid ads go through /ad-setup; reviewing a cut is /revisions; thumbnails alone are /youtube-packaging; cutting Shorts is /shorts.
+description: Take a FINISHED organic/content video, long-form or a dedicated Short (usually an editor's final shared as a Google Drive link) all the way to scheduled on every platform: download and file it (project folder, Extreme drive and Google Drive), add it to the Edit Queue, build thumbnail variations for Dan to pick from, write the title, description with chapters and tags, upload the YouTube holding copy Private, and queue YouTube, Facebook, Instagram @danrosefit, and TikTok for release through Blotato. Use whenever Dan says a content video is "finished", "done", "final", sends a Drive link and asks to "queue it up", "set it up on all platforms", "put it in Blotato", "schedule it", or "get it on YouTube and everything else", even if he doesn't say "/video-setup". Paid ads go through /ad-setup; reviewing a cut is /revisions; thumbnails alone are /youtube-packaging; cutting Shorts is /shorts.
 ---
 
 Read `_shared/VIDEO-RULES.md` first.
@@ -61,6 +61,14 @@ Switch it in Studio (`studio.youtube.com/video/<id>/edit` → Visibility → Pri
 - File a copy per `/editor-deliveries`: `<Editor> Content Videos/<title> - video N/<title> | <editor> | 16x9 | video N.mp4`
   (content numbers are per editor, in delivery order). md5 must match the download.
 - If a revision round for this video is open in `AI_COORDINATION.md`, note that Dan has called it final.
+- **Three copies, every time (Dan, 2026-09-29).** Besides the project folder, put the same final (plus its `.srt`) in:
+  1. **Extreme drive:** `/Volumes/Extreme/<Editor> Content Videos/<title> - video N/<same file name>` (Codex finals use
+     `/Volumes/Extreme/Codex Content Videos/`). md5 must match.
+  2. **Google Drive:** `gdrive:<Editor> Content Videos/<title> - video N/` at the My Drive root, beside `Codex Content Videos`:
+     `~/bin/rclone copy "<project folder>" "gdrive:<Editor> Content Videos/<title> - video N" --include "*.mp4" --include "*.srt"`
+     (in the background; 700 MB takes a few minutes), then `rclone link` on the folder so it is anyone-with-the-link
+     (memory `drive-always-public`), then `rclone lsl` to confirm the byte count. Give Dan the folder link.
+  - A dedicated Short gets the same two copies under `Short-form video content/` on each drive.
 
 ## Step 2 — five thumbnail variations, then STOP for Dan's pick
 
@@ -196,9 +204,15 @@ scripts: `sixpackabs/articles/README.md`. Read it, and one finished article ther
   it posts" (or delete it if Dan has nothing left to do). No dashboard row unless Dan asks.
 - Tell Dan in plain words: when it goes live where, which thumbnail(s), and anything he might want to do in Studio.
 
-## Edit queue: mark it UPLOADED
+## Edit queue: always update it (not optional, Dan 2026-09-29)
 
-After the Private YouTube upload is read back **and** the Blotato posts exist: if the video is a job on
-`Handoffs/video-editing/00-MASTER.md` (`RO-` long-form, `DS-` dedicated short, `SL-` shorts set), set it to `uploaded` on
-Dan's pinned Abs By AI Edit Queue page (`queue.py set <ID> uploaded` + `Artifact write_db`; procedure
-`.claude/skills/_shared/edit-queue/README.md`). A newly final long-form owes shorts: add its `SL-` job in the same session.
+Every setup touches Dan's pinned Abs By AI Edit Queue page (procedure `.claude/skills/_shared/edit-queue/README.md`):
+
+- **The video is a job on `Handoffs/video-editing/00-MASTER.md`** (`RO-` long-form, `DS-` dedicated short, `SL-` shorts
+  set): after the Private YouTube upload is read back **and** the Blotato posts exist, `queue.py set <ID> uploaded` +
+  `ArtifactData set` of the printed file + `queue.py mark-synced <ID>`.
+- **A newly final long-form (any editor's, including Zeeshan's own 16:9 finals that were never a job) owes shorts: add
+  its `SL-` job in the same session.** Write `Handoffs/video-editing/SL-NN-<slug>-shorts.md` (copy SL-05), add the row
+  under LIST 2 in `00-MASTER.md` (and drop the title from the "not delivered yet" line), `queue.py add <json>`, then
+  `ArtifactData set` + `mark-synced`. Worked example: SL-05 Stop Deadlifting (2026-09-29).
+- Tell Dan which job ID it is on the page.

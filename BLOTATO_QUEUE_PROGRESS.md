@@ -13,6 +13,20 @@ Last updated 2026-09-22.
   imports `scripts/blotato/ad_guard.py`; audit with `python3 scripts/blotato/ad_guard.py --scan`. See the incident below.
 - **NEW PERMANENT RULE (Dan, 2026-09-16): Blotato owns future organic YouTube releases.** Upload organic videos to YouTube as Private and leave them Private; queue the release through connected YouTube account `46963`. Never upload Public or use YouTube native scheduling. Ads remain Unlisted and are not released publicly on YouTube. Existing native schedules are historical and must not be copied into new work; avoid double-posting anything already queued under the old process.
 
+## DONE: "Why I Stopped Deadlifting at 40 (Do These 4 Exercises Instead)", Zeeshan Video 3 (2026-09-29)
+
+Master `Zeeshan Content Videos/stop deadlifting - video 3/stop deadlifting | zeeshan | 16x9 | video 3.mp4` ("Video 3 rev 4", 9:16.5), MD5 `fb149f2c508ed84077a6973ea3531856` (726,437,795 bytes); same file on the Extreme drive and Google Drive (`Zeeshan Content Videos/stop deadlifting - video 3`, folder `13hMGts3Lck398OMrStF1j3Ajfwp1Q0qT`, anyone with the link). YouTube **Private** holding copy `FMRe6BR4WmI`, read back private, thumbnail 1 (pool p172), synthetic on (AI clips at 0:44, 3:44, 4:56, 6:20).
+
+| FB · IG @danrosefit · TikTok · YouTube |
+|---|
+| Sun Oct 11, 9 AM CDT (`4973547` / `4973549` / `4973829` / `4973552`) |
+
+- Blotato copy re-encoded to 223 MB (4 Mbps VideoToolbox, audio stream-copied): master is over the 400 MB cap.
+- TikTok: cover prepended as frame 0, `videoCoverTimestamp: 0` (frames 16678 to 16679, audio packets 26086 unchanged, cover match 54.0 dB).
+- Keyword `TRAIN`; UTM `utm_content=stop-deadlifting`. Config `scripts/blotato/configs/stop-deadlifting.json`.
+- ⚠ Dan sent rev 4 for setup although the 09-28 round-5 note (skin too orange) was open: treated as his final call.
+- Owes: SL-05 shorts (edit queue); sixpackabs article `sixpackabs/articles/TBD-stop-deadlifting.md` to publish after Oct 11 (rename to the public id).
+
 ## DONE: DS-18 "How to Do Kettlebell Deadlifts the Right Way at Home" (2026-09-28)
 
 Organic Short, first set up as an ad by mistake on 09-27 (ads paused, $0.62 spent). Master SHA-256 `aa7fe874…` (41.9 s).

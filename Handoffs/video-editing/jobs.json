@@ -2062,6 +2062,28 @@
    "by": "claude",
    "rev": 2,
    "syncedRev": 2
+  },
+  {
+   "id": "SL-05",
+   "list": "2",
+   "group": "Shorts from long-forms",
+   "sub": "",
+   "title": "Stop Deadlifting (Zeeshan, 9:16, public Oct 11)",
+   "roll": "",
+   "size": "S",
+   "file": "SL-05-stop-deadlifting-shorts.md",
+   "claudeModel": "Opus 5.5, high",
+   "codexModel": "GPT-6 Astra, high",
+   "state": "ready",
+   "note": "Parent final filed 2026-09-29; no short posts before Oct 11",
+   "unattended": false,
+   "unattended_why": "Job doc says show Dan the segment list and wait for picks.",
+   "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/SL-05-stop-deadlifting-shorts.md`: propose the shorts segments from Zeeshan's Stop Deadlifting and wait for my picks, then cut them with /shorts, with gates and an independent audit. Deliver, send me the review copies, update the master list.",
+   "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/SL-05-stop-deadlifting-shorts.md` using `.claude/skills/shorts/SKILL.md` as the method: propose segments, wait for Dan's picks, cut, gate, deliver, update `00-MASTER.md`.",
+   "order": 81,
+   "updated": "2026-09-29",
+   "rev": 1,
+   "syncedRev": 1
   }
  ]
 }
