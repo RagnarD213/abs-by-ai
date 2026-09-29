@@ -1,6 +1,18 @@
 {
   "business": [
     {
+      "text": "Analyze /start performance and decide: fold it into the VSL page or keep advertising it",
+      "priority": "high",
+      "addedAt": "2026-09-29",
+      "why": "Zero sales since 09-09 but it played an ad, not a VSL, so maybe unfair. Handoffs/handoff-20260929-start-page-performance-verdict.md"
+    },
+    {
+      "text": "Ship the VSL sales page live: C2 design + WV-01 video + sales letter, replacing /start for paid traffic",
+      "priority": "key",
+      "addedAt": "2026-09-29",
+      "why": "Dan 09-29 top priority: VSL, then sales letter, then page. Getting the real sales page up today is the big win."
+    },
+    {
       "text": "Send documents to AMEX",
       "priority": "high",
       "addedAt": "2026-08-03"
