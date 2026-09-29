@@ -1,22 +1,22 @@
 # Proof 1: the automatic content sheet against the two answer keys (2026-09-28)
 
-`auto_content.py` with Gemini leftover calls; tolerance 0.2 s. Ad 10 ran from `kit_recover.py`'s own recovery (no
+`auto_content.py` with Gemini leftover calls; tolerance 0.2 s. Final numbers 2026-09-29 (kit at round 5). Ad 10 ran from `kit_recover.py`'s own recovery (no
 hand-recovered input anywhere); Ad 1 from the approved build's recovered EDL and grade (its key is a revised,
 approved vertical, so its sheet was never going to be reproducible from the master alone).
 
 | | Ad 10 (AV-07 key) | Ad 1 (approved-vertical key) |
 |---|---|---|
-| beats found / expected (paired) | 31 / 31 (31), 0 extra | 34 / 35 (30) |
+| beats found / expected (paired) | 35 / 31 (31); the 4 extra are app screens split where the uploaded photo scrolls away | 34 / 35 (30) |
 | lower thirds | 6 / 6 | 7 / 7 |
 | CTA pills | 3 / 3 (2 his, 1 by the kit's grammar) | 3 / 3 |
 | kinds correct | 39 / 39 | 26 / 40 |
-| t0 and t1 within 0.2 s | 30 / 39 | 24 / 40 |
+| t0 and t1 within 0.2 s | 28 / 39 | 24 / 40 |
 | text, exact / ignoring case and punctuation | 10 / 12, 12 / 12 | 7 / 13, 12 / 13 |
-| media: same file, or the same picture in another file | 20 / 25 | 2 / 24 |
-| label_kind equal | 21 / 25 | 20 / 24 |
+| media: same file, or the same picture in another file | 20 / 25 same file, 22 / 25 same picture | 0 / 24 same file, 6 / 24 same picture |
+| label_kind equal | 25 / 25 | 20 / 24 |
 | **real vs AI swapped on the same picture** | **0** | **0** |
 | escalations | 0 | 2, both correct (the email-capture screen at 74.9 s and "Meet the new you" at 197.9 s in his master) |
-| AI calls / cost (one clean run) | 11 / $0.005 | 8 / $0.004 |
+| AI calls / cost (one clean run) | about 10 / $0.005 | about 8 / $0.004 |
 
 ## Every Ad 10 difference, explained
 
@@ -29,8 +29,9 @@ approved vertical, so its sheet was never going to be reproducible from the mast
   found: a key error. 63.1 / 65.1 the auto sheet found the clean originals (`fatdad_ride.jpg`,
   `fatdad_standing.jpg`) where the key lifted his frame. 93.2 the key used one still frame of his phone clip, the
   auto sheet the moving clip. 151.6 the key built a stretched hold, the auto sheet lifts his clip.
-* **Labels (4)**: the two family snapshots (clothed) and the two app form screens: key `real`, auto no chip.
-  Neither is a physique picture; no label is swapped.
+* **Labels**: all 25 agree. The uploaded deckchair photo's "real picture" chip now stays on the app's next screen
+  only while the photo is on it (the key keeps it for the whole screen; the round-4 judge flagged a chip under a form
+  with no photo), which is why two of the timing rows moved.
 * **CTA**: his master has two pills; the kit's measured range wants three. The key added one at 74.1 s, the auto
   sheet at 80.4 s (his Ad 1 position, 0.43 of the runtime, on a sentence start in plain talk).
 

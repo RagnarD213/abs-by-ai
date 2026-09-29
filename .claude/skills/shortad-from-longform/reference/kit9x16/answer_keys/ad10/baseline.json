@@ -2,9 +2,9 @@
  "summary": {
   "beats": {
    "expected": 31,
-   "found": 31,
+   "found": 35,
    "paired": 31,
-   "auto_only": 0,
+   "auto_only": 4,
    "missed": 0
   },
   "lower_thirds": {
@@ -26,7 +26,7 @@
    39
   ],
   "times_within_tol": [
-   30,
+   28,
    39
   ],
   "t0_within_tol": [
@@ -34,7 +34,7 @@
    39
   ],
   "t1_within_tol": [
-   32,
+   30,
    39
   ],
   "median_abs_dt": 0.0,
@@ -47,7 +47,7 @@
    12
   ],
   "media_same_file": [
-   19,
+   20,
    25
   ],
   "media_correct": [
@@ -177,10 +177,10 @@
    "dt1": 0.0,
    "iou": 1.0,
    "key_media": "photo-137_FINAL_PRIMARY.jpg",
-   "auto_media": "08_shoot_d.jpg",
+   "auto_media": "photo-137_FINAL_PRIMARY.jpg",
    "key_lift": false,
    "auto_lift": false,
-   "media_ok": "same picture",
+   "media_ok": true,
    "key_label": "real",
    "auto_label": "real",
    "label_ok": true
@@ -417,8 +417,8 @@
    "auto_kind": "card",
    "kind_ok": true,
    "dt0": 0.0,
-   "dt1": 0.0,
-   "iou": 1.0,
+   "dt1": -1.635,
+   "iou": 0.423,
    "key_media": "app1_form.mp4",
    "auto_media": "auto_03681.mp4",
    "key_lift": true,
@@ -427,6 +427,24 @@
    "key_label": "real",
    "auto_label": "real",
    "label_ok": true
+  },
+  {
+   "section": "beats",
+   "t": 124.024,
+   "auto_only": true,
+   "auto_kind": "card",
+   "auto_text": null,
+   "auto_t1": 124.825,
+   "auto_media": "auto_03717.mp4"
+  },
+  {
+   "section": "beats",
+   "t": 124.825,
+   "auto_only": true,
+   "auto_kind": "card",
+   "auto_text": null,
+   "auto_t1": 125.659,
+   "auto_media": "auto_03741.mp4"
   },
   {
    "section": "beats",
@@ -468,8 +486,8 @@
    "auto_kind": "card",
    "kind_ok": true,
    "dt0": 0.0,
-   "dt1": -0.744,
-   "iou": 0.852,
+   "dt1": -0.344,
+   "iou": 0.931,
    "key_media": "food_snap_hold.mp4",
    "auto_media": "auto_04543.mp4",
    "key_lift": true,
@@ -485,9 +503,9 @@
    "key_kind": "window",
    "auto_kind": "window",
    "kind_ok": true,
-   "dt0": -0.744,
+   "dt0": -0.344,
    "dt1": -0.1,
-   "iou": 0.793,
+   "iou": 0.879,
    "key_text": "No weighing | No spreadsheets | No hour of tracking you don't have",
    "auto_text": "No weighing | No spreadsheets | No hour of tracking you don't have",
    "text_exact": true,
@@ -573,8 +591,8 @@
    "auto_kind": "card",
    "kind_ok": true,
    "dt0": 0.0,
-   "dt1": 0.067,
-   "iou": 0.977,
+   "dt1": -1.668,
+   "iou": 0.419,
    "key_media": "app2_form.mp4",
    "auto_media": "auto_05211.mp4",
    "key_lift": true,
@@ -583,6 +601,24 @@
    "key_label": "real",
    "auto_label": "real",
    "label_ok": true
+  },
+  {
+   "section": "beats",
+   "t": 175.075,
+   "auto_only": true,
+   "auto_kind": "card",
+   "auto_text": null,
+   "auto_t1": 175.976,
+   "auto_media": "auto_05247.mp4"
+  },
+  {
+   "section": "beats",
+   "t": 175.976,
+   "auto_only": true,
+   "auto_kind": "card",
+   "auto_text": null,
+   "auto_t1": 176.81,
+   "auto_media": "auto_05274.mp4"
   },
   {
    "section": "beats",
