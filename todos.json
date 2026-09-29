@@ -369,6 +369,13 @@
       "recurring": false,
       "addedAt": "2026-09-29",
       "addedBy": "assistant"
+    },
+    {
+      "text": "Do laundry",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-09-29",
+      "addedBy": "assistant"
     }
   ],
   "handoffs": [
