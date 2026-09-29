@@ -397,6 +397,13 @@
       "recurring": false,
       "addedAt": "2026-09-29",
       "addedBy": "assistant"
+    },
+    {
+      "text": "Fill Recycling can/empty some cardboard in spare room.",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-09-29",
+      "addedBy": "assistant"
     }
   ],
   "handoffs": [
