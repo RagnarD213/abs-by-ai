@@ -27,6 +27,16 @@ Delivered Sep 23. Work dir: `/Volumes/Extreme/_edit_work/revisions-20260928/`.
   cropped, three moving stretches. Oura's own "fresh new look" video is a stylised promo, not a clean screen.
 - Removed our 17:59 two-column item: Dan's 17:48 verdict card replaces it.
 
+## 09-29
+- Dan picked option B. Motion generated: Veo 3.1 fast, start+end frames, 6 s, 24 fps -> 29.97 ProRes
+  `F_AI-sleep-clip_0-24_6s_NEEDS-AI-LABEL.mov` in the kit (Zeeshan accelerates to 5 s, adds the AI label). Checked at full
+  res through the phone hand-off: phone stays a phone, hands and face hold. Spend on this video: about $0.60 frames + about
+  $0.60-0.90 motion. Option A frames removed from the doc.
+- Dan sent the Oura screenshot (Sleep Health, Typical Sleep Score 14-day median, dip around May 19, back to 75). Built
+  `D_oura-sleep-score-fullscreen_16-47.mov` (17 s, graph crop only), placeholder image in the doc replaced.
+- ⚠ Shared checkout: `.claude/skills/_shared/softblue.py` is UU (another session's unresolved merge); renders used the
+  origin/main copy in `/Volumes/Extreme/_edit_work/revisions-20260928/kit/sb/`.
+
 ## Decisions for Dan
 1. Swearing in Video 4: "bullshit" twice (8:14 - 8:20), "don't listen to that shit" (about 12:10), "the shittiest solution" (12:24). The brief told him to leave it in for your call; the doc does not answer it yet.
 2. Toxic people section (16:29 - 17:22): you told him on 09-22 you'd send Oura charts. No chart is in the cut. If you have the sleep score screenshots, they go at about 16:48.
