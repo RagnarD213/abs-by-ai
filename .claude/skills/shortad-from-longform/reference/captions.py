@@ -43,6 +43,8 @@ FIX = {('your','gold','picture'):    ('your','goal','picture'),
        ('uses','a','specific'):      ('uses','the','specific'),
        # Ad 10 (kit autofill round 3, 141.9 s): "a real plan and it'll build you one" heard as "on" (Flash ASR too; Pro hears one)
        ('build','you','on'):         ('build','you','one.'),
+       # Ad 8 (kit autofill round 4, 47.8 s): "but 'get in shape' is fog" heard as "getting shape" (Gemini Pro by ear)
+       ('but','getting','shape','is'): ('but','get in','shape','is'),
        # Ad 10 has spoken full stops here; without punctuation the three-word
        # caption groups burn visible run-ons across the sentence boundaries.
        ('story','really','is',"It's"): ('story','really','is.',"It's"),
@@ -123,7 +125,7 @@ def suppressed():
 
 def groups(words, mute):
     # ⚠ THE MUTE SLACK MUST NOT REACH ACROSS A CUTDOWN SEAM (2026-09-12, Ad 1 square audit 2).
-    # A word is treated as muted if it starts within [a - 0.15, b + 0.05] of a suppressed span --
+    # A word is treated as muted if it starts within [a - 0.15, b + 0.02] of a suppressed span --
     # slack that stops a caption flashing on the first or last frames of a graphic. At a SEAM the
     # graphic is not there any anymore: the next range's picture is a different part of the film.
     # Measured on this cutdown: the first CTA pill's mute ends exactly on the 34.10 s seam and its
@@ -136,7 +138,7 @@ def groups(words, mute):
 
     def muted(t):
         for a, b in mute:
-            lo, hi = a - 0.15, b + 0.05
+            lo, hi = a - 0.15, b + 0.02   # 0.02 < one frame: the word right after a lower third is captioned (Ad 8 66.61 s "That", kit autofill round 4)
             # ⚠ COMPARE WITH A TOLERANCE. A span clamped to a range edge and the seam itself are
             # computed by two different sums (dst0 + (a1 - src0) vs the next range's dst0) and came
             # out 1e-5 apart on this cut -- so an exact `s >= b` never matched, the slack stayed at

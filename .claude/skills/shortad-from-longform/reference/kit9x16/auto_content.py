@@ -490,6 +490,38 @@ class Library:
             return 0.0
         return float(max(0.0, area) / (w * h))
 
+    def shows(self, img, path):
+        """How much of ONE library picture this frame shows (0..1): the uploaded photo on a scrolling app screen. Its
+        own detector (3000 points, the file at 720 px): on an app screen the library-wide 1500 points all go to the
+        UI text and a 200 px photo gets none (Ad 10 122.8 s read 0 on a frame that shows it whole)."""
+        if not hasattr(self, "_shows"):
+            self._shows, self._orb3 = {}, cv2.ORB_create(nfeatures=3000)
+        if path not in self._shows:
+            L = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
+            sc = 720 / max(L.shape)
+            L = cv2.resize(L, (int(L.shape[1] * sc), int(L.shape[0] * sc)), interpolation=cv2.INTER_AREA)
+            self._shows[path] = (L.shape,) + self._orb3.detectAndCompute(L, None)
+        (lh, lw), kl, dl = self._shows[path]
+        q = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) if img.ndim == 3 else img
+        kq, dq = self._orb3.detectAndCompute(q, None)
+        if dq is None or dl is None or len(kq) < 20:
+            return 0.0
+        m = self.bf.knnMatch(dq, dl, k=2)
+        good = [a for a, b in (x for x in m if len(x) == 2) if a.distance < 0.75 * b.distance]
+        if len(good) < 12:
+            return 0.0
+        H, mask = cv2.findHomography(np.float32([kq[g.queryIdx].pt for g in good]),
+                                     np.float32([kl[g.trainIdx].pt for g in good]), cv2.RANSAC, 6.0)
+        if H is None or int(mask.sum()) < 15:
+            return 0.0
+        h, w = q.shape[:2]
+        quad = cv2.perspectiveTransform(np.float32([[[0, 0]], [[w, 0]], [[w, h]], [[0, h]]]), H).reshape(-1, 2)
+        try:
+            area, _ = cv2.intersectConvexConvex(quad.astype(np.float32), np.float32([[0, 0], [lw, 0], [lw, lh], [0, lh]]))
+        except cv2.error:
+            return 0.0
+        return float(max(0.0, area) / (lw * lh))
+
     def match(self, img):
         qp, qd = self._feat(img)
         hq, wq = img.shape[:2]
@@ -846,8 +878,75 @@ def main():
             for (pb, pe), (b_, ev_) in zip(run_beats[:-1], run_beats[1:]):
                 if pe.get("phone") and ev_.get("phone") and pb.get("label_kind") in ("real", "ai") and not b_.get("label_kind") \
                         and not ev_.get("burned_label"):
-                    b_["label_kind"] = pb["label_kind"]; b_["caps"] = False
-                    ev_["label"] = f"{pb['label_kind']} label: the uploaded photo stays on this app screen"
+                    # ... but only while the photo is ON the screen: the form scrolls it away (Ad 10 round 4 judge,
+                    # 124.4 / 175.2 s: "Real picture of me" under a form with no photo). The screen is sampled every
+                    # 3rd frame against the uploaded file; where it is gone the clip splits and the rest has no chip.
+                    up = (pe.get("matches") or [{}])[0].get("file")
+                    shown = []
+                    if up:
+                        hole = ev_.get("hole")
+                        for n in range(int(round(b_["t0"] * fps)), int(round(b_["t1"] * fps)), 3):
+                            fp_ = grab(master, n / fps, os.path.join(frames_dir, f"up{n:06d}.png"))
+                            im_ = cv2.imread(fp_)
+                            if hole:
+                                im_ = im_[max(0, hole[1]):hole[3], max(0, hole[0]):hole[2]]
+                            shown.append((n, lib_get().shows(im_, up) >= 0.35))
+                    # runs of on / off, a run under 12 frames joins the one before it (no chip flicker)
+                    runs = []
+                    for n, v in shown:
+                        if runs and runs[-1][2] == v:
+                            runs[-1][1] = n + 3
+                        else:
+                            runs.append([n, n + 3, v])
+                    for i in range(len(runs) - 1, 0, -1):
+                        if runs[i][1] - runs[i][0] < 12:
+                            runs[i - 1][1] = runs[i][1]; del runs[i]
+                    k = 0
+                    while k < len(runs) - 1:
+                        if runs[k][2] == runs[k + 1][2]:
+                            runs[k][1] = runs[k + 1][1]; del runs[k + 1]
+                        else:
+                            k += 1
+                    if not up or all(v for _, _, v in runs):
+                        b_["label_kind"] = pb["label_kind"]; b_["caps"] = False
+                        ev_["label"] = f"{pb['label_kind']} label: the uploaded photo stays on this app screen"
+                        continue
+                    if not any(v for _, _, v in runs):
+                        ev_["label"] = "no label: the uploaded photo is not on this app screen"
+                        continue
+                    q = next((q_ for q_ in prep if q_["beat"] is b_), None)
+                    if q is None:
+                        b_["label_kind"] = pb["label_kind"]; b_["caps"] = False
+                        continue
+                    # split the clip where the photo comes and goes; each piece keeps his picture frame-exact
+                    t1_all, c1_all = b_["t1"], q["c1"]
+                    parts = [b_]
+                    for r0, _, _ in runs[1:]:
+                        ts = T(r0)
+                        prev_b = parts[-1]
+                        nb = {k_: v_ for k_, v_ in b_.items() if k_ != "label_kind"}
+                        key2 = f"auto_{r0:05d}"
+                        nb["t0"] = ts; nb["media"] = key2; nb["caps"] = False
+                        out2 = os.path.join("assets_auto", f"{key2}.mp4")
+                        prep.append(dict(q, out=out2, beat=nb, c0=max(q["c0"], ts), c1=c1_all))
+                        media[key2] = ("vid", out2, 0.0)
+                        prev_b["t1"] = ts
+                        parts.append(nb)
+                    parts[-1]["t1"] = t1_all
+                    for i_, q_ in enumerate([x for x in prep if any(x["beat"] is p_ for p_ in parts)]):
+                        q_["c1"] = min(c1_all, q_["beat"]["t1"])
+                    for p_, (r0, r1, v) in zip(parts, runs):
+                        p_["caps"] = False
+                        if v:
+                            p_["label_kind"] = pb["label_kind"]
+                        else:
+                            p_.pop("label_kind", None)
+                    ev_["label"] = (f"{pb['label_kind']} label only while the uploaded photo is on screen; the screen is split at "
+                                    + ", ".join(f"{p_['t0']:.3f}" for p_ in parts[1:]))
+                    at = beats.index(b_)
+                    for j_, p_ in enumerate(parts[1:]):
+                        beats.insert(at + 1 + j_, p_)
+                        rep_beats.append(dict(entry=p_, confidence="high", evidence=dict(ev_, source="split from the app screen before it at the photo's edge")))
 
     # ---- 5. overlays over live Dan: lower thirds and the CTA pill
     ov = []
@@ -1036,10 +1135,52 @@ def clean_range(D, s0, s1, fps):
         c1 -= 1
     while c1 - c0 > 8 and cut[min(c0 + 1, len(cut) - 1)] >= CUT_SPIKE:
         c0 += 1
+    # a DISSOLVE edge (no hard cut within 2 frames, no burst): his next picture is already fading in over the last
+    # frames (Ad 8 190.82 s: the next card's header smeared over the phone for 3 frames). Stop 4 frames early; the
+    # last clean frame holds
+    near = lambda n: float(np.max(cut[max(0, n - 2):min(len(cut), n + 3)])) if len(cut) else 0.0
+    if c1 == s1 and c1 - c0 > 20 and near(s1) < CUT_SPIKE:
+        c1 -= 4
+    if c0 == s0 and c1 - c0 > 20 and near(s0) < CUT_SPIKE:
+        c0 += 4
     if c1 - c0 < 6:                                   # nothing clean enough: keep the middle of the shot
         m = (s0 + s1) // 2
         c0, c1 = max(s0, m - 3), min(s1, m + 3)
     return c0 / fps, c1 / fps
+
+
+def landed_range(A, c0, c1, fps, hole, src_w=1920):
+    """Trim a lifted card clip to the frames where his picture has LANDED in its hole: while his card slides in (or
+    out) the fixed crop shows his olive card background along one edge and a motion-blurred picture (Ad 8 58.59 /
+    142.81 s: three frames of olive band down the left, judged a stutter). Read on the 256-wide master cache: the
+    share of olive in each 2-px edge strip of the hole; an edge that is mostly olive means not landed yet."""
+    p = os.path.join(A, "m256.rgb")
+    if not os.path.exists(p):
+        return c0, c1
+    n_ = os.path.getsize(p) // (256 * 144 * 3)
+    M = np.memmap(p, np.uint8, "r").reshape(n_, 144, 256, 3)
+    s = 256 / src_w
+    x0, y0, x1, y1 = [int(round(v * s)) for v in hole]
+    x0, y0 = max(0, x0 + 1), max(0, y0 + 1)
+    x1, y1 = min(255, x1 - 1), min(143, y1 - 1)
+    if x1 - x0 < 8 or y1 - y0 < 8:
+        return c0, c1
+
+    def strips(n):
+        f = M[min(max(n, 0), n_ - 1)].astype(np.float32)
+        return np.array([float((np.linalg.norm(st - OLIVE, axis=2) < 40).mean()) for st in
+                         (f[y0:y1, x0:x0 + 2], f[y0:y1, x1 - 2:x1], f[y0:y0 + 2, x0:x1], f[y1 - 2:y1, x0:x1])])
+    a, b = int(round(c0 * fps)), int(round(c1 * fps))
+    mid = range(a + (b - a) // 4, b - (b - a) // 4, max(1, (b - a) // 16))
+    base = np.median(np.array([strips(n) for n in mid]), axis=0)      # his picture's own olive tones (a lawn, a wall)
+    band = lambda n: bool(((strips(n) > 0.5) & (strips(n) > base + 0.3)).any())
+    k = 0
+    while k < 20 and b - a > 12 and band(a):
+        a += 1; k += 1
+    k = 0
+    while k < 20 and b - a > 12 and band(b - 1):
+        b -= 1; k += 1
+    return a / fps, b / fps
 
 
 def text_key(b):
@@ -1336,6 +1477,8 @@ def describe_shot(master, A, frames_dir, D, O, W, s0, s1, fps, T, lib_get, AI, e
                 burned = "real" if any(REAL_RX.search(l["text"]) for l in inside) else \
                     "ai" if any(AI_RX.search(l["text"]) for l in inside) else None
                 ev["burned_label"] = burned
+            if crop:
+                c0, c1 = landed_range(A, c0, c1, fps, hole, img.shape[1])
             prep.append(dict(out=out, beat=beat, c0=c0, c1=c1, x=None, crop=crop))
             media[key] = ("vid", out, 0.0)
             ev["source"] = (f"his master {c0:.3f}-{c1:.3f} s (his transitions trimmed)"
@@ -1361,6 +1504,9 @@ def describe_shot(master, A, frames_dir, D, O, W, s0, s1, fps, T, lib_get, AI, e
             beat["label_kind"] = "ai"
             if still:
                 beat["caps"] = False                 # an AI picture held still (his goal image): the picture is the point
+            elif top is not None and re.search(r"(^|[^a-z])dan([^a-z]|$)", os.path.basename(top[1]).lower()):
+                beat["caps"] = False                 # an AI clip OF DAN is a labelled picture of Dan (Ad 8 58.6 / 142.8 s:
+                                                     # captions ran under "fat Dan sees ripped Dan" beside its chip)
             ev["label"] = "AI label: the matched file lives in an AI-generated library"
         elif prov == "real":
             ev["label"] = "no label: real footage (the real-picture label is for still photos of his physique)"

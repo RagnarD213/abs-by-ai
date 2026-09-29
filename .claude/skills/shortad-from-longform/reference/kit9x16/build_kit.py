@@ -336,6 +336,11 @@ def pushes_for(tl, splices, cover, words, T, flashes):
                 # the window's end, had been moved to the end)
                 if 0 < b["t1"] - p[3] < 0.6 and p[3] > p[2]:
                     p[2] = p[3] = round(b["t1"], 4)
+                # a ramp-out the beat's end cuts short (it reaches the insert mid-ramp) is not a ramp: the push
+                # holds to the edge and the insert takes it (Ad 8 150.23-150.38 s: two frames of a half zoom-out
+                # then the cut, judged a blip, kit autofill round 4)
+                elif p[2] < b["t1"] <= p[3] + 0.02 and p[3] > p[2] and b["t1"] - p[2] < 0.6:
+                    p[2] = p[3] = round(b["t1"], 4)
                 if 0 < p[0] - b["t0"] < 0.6 and p[1] > p[0]:
                     p[0] = p[1] = round(b["t0"], 4)
         fixed.append(tuple(p))
