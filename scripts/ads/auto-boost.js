@@ -1,13 +1,22 @@
 #!/usr/bin/env node
 /* eslint-disable no-console */
 //
-// IG AUTO-BOOST — every new @danrosefit post gets a $5 lifetime "profile visits"
-// test ad on the REAL post; one champion ad runs at $6.50/day; tests are ranked on
-// cost per profile visit, the champion is judged on cost per follow, a test that
-// beats the champion replaces it. Caps: $300/month on tests, $500/month total.
+// IG AUTO-BOOST: every new @danrosefit post gets a $10 lifetime "profile visits"
+// test ad on the REAL post; one champion ad runs at $6.50/day; tests and the
+// champion are ranked on ESTIMATED COST PER FOLLOWER, a test that beats the
+// champion replaces it. Caps: $300/month on tests, $500/month total.
 //
 // Design locked with Dan 2026-09-02: Handoffs/handoff-20260902-ig-auto-boost.md.
+// Changed by Dan 2026-09-29 ($10 tests, champion on cost per follower):
+// Handoffs/handoff-20260929-ig-autoboost-cost-per-follower.md.
 // The numbers below are HIS decisions, not tunables — change them only if he does.
+//
+// HOW FOLLOWS ARE ESTIMATED (method B, Docs/AUTO_BOOST.md): Meta's ads insights
+// carry no follow count, and Instagram's per-post `follows` counts organic follows
+// only (and is refused on reels). So each day's new followers (IG `follower_count`,
+// period=day, persisted to Postgres because the API only keeps ~30 days) are split
+// across that day's running ads in proportion to their profile visits. Organic
+// follows are spread the same way, so the number RANKS posts; it is not a true cost.
 //
 // RUN:   node scripts/ads/auto-boost.js [--dry-run] [--verify] [--out PATH] [--print]
 //   Hourly Railway cron ("15 * * * *", service `auto-boost`, must exit when done).
@@ -15,6 +24,8 @@
 //               The run report is still written locally (brief-autoboost.json) and
 //               to Postgres flagged dry_run=true, so the morning brief can show what
 //               the system WOULD have done while it is switched off.
+//   --backfill  read-only: estimated cost per follower for every post the campaign
+//               ran in the last 30 days, by post and by type (IMAGE vs REEL).
 //   --verify    print every insights action type Meta returns for the campaign, per
 //               ad, next to the pinned metric names — for matching the API strings
 //               to Ads Manager's "Instagram profile visits" and "Follows or likes"
@@ -68,16 +79,19 @@ const SYSTEM_START = '2026-09-02';
 // never get TEST ad sets of their own.
 const FIRST_RUN_PAIR = ['18188183254395331', '18192762022391478'];
 
-const TEST_BUDGET_CENTS   = 500;     // $5 lifetime per post
+const TEST_BUDGET_CENTS   = 1000;    // $10 lifetime per post (Dan, 2026-09-29; was $5)
 const TEST_WINDOW_DAYS    = 5;       // evaluate at end_time at the latest
-const TEST_EVAL_SPEND     = 4.50;    // ...or as soon as this much is spent
+const TEST_EVAL_SPEND     = 9.00;    // ...or as soon as this much is spent
 const CHAMPION_DAILY_CENTS = 650;    // $6.50/day ≈ $200/month — verified, not set, here
 const CAP_TESTS_MTD       = 300;     // stop creating tests past this
 const CAP_TOTAL_MTD       = 500;     // ...or this, champion included
-const PROMOTE_MIN_VISITS  = 10;      // a test needs this many visits to be believed
+const PROMOTE_MIN_FOLLOWS = 2;       // estimated follows a test needs to be believed (Claude's default, 2026-09-29:
+                                     // at ~$3 a follower $10 buys ~3, so fewer is noise)
+const FOLLOW_SETTLE_DAYS  = 2;       // a day's follower count is trusted once it is this many days old
+const FOLLOWER_HISTORY_DAYS = 29;    // IG returns at most 30 days of follower_count per call
 const CHAMPION_MIN_SPEND  = 35;      // 7-day spend before the champion is judged
-const CHAMPION_KILL_CPF   = 5.00;    // pause at > $5/follow
-const CHAMPION_SCALE_CPF  = 3.00;    // report as scale candidate at < $3/follow (never auto-scaled)
+const CHAMPION_KILL_CPF   = 5.00;    // pause at > $5 per estimated follower
+const CHAMPION_SCALE_CPF  = 3.00;    // report as scale candidate at < $3 per follower (never auto-scaled)
 const PAIR_MIN_SPEND      = 10;      // each of the first-run pair needs this before one is retired
 const CHAMPION_WINDOW_DAYS = 7;
 
@@ -205,53 +219,105 @@ function testPhase(test, now = new Date()) {
   return 'running';
 }
 
-// The verdict on one finished test against the champion's trailing window.
-//   champion = { costPerVisit: number|null, hasActive: boolean }
-function verdict(test, champion) {
-  const cpv = test.visits > 0 ? round2(test.spend / test.visits) : null;
-  if (test.spend >= 1 && test.visits === 0 && test.visitsReadable === false) {
-    return { result: 'unmeasured', costPerVisit: null,
-             reason: 'profile-visit metric not readable on this account yet — not judged' };
+// IG `follower_count` (period=day) values -> { 'YYYY-MM-DD': new followers }.
+// Meta stamps each value with the END of its day (07:00 UTC = midnight Pacific),
+// so the day a value counts is the calendar day before its end_time.
+function followerDaysFrom(values) {
+  const out = {};
+  for (const v of values || []) {
+    if (!v || !v.end_time) continue;
+    out[ymd(new Date(v.end_time).getTime() - 86400e3)] = num(v.value);
   }
-  if (test.visits < PROMOTE_MIN_VISITS) {
-    return { result: 'lose', costPerVisit: cpv,
-             reason: `${test.visits} visits on ${usd(test.spend)} — needs ${PROMOTE_MIN_VISITS} to be believed` };
-  }
-  if (!champion || !champion.hasActive || champion.costPerVisit === null) {
-    return { result: 'win', costPerVisit: cpv,
-             reason: `${usd(cpv)}/visit on ${test.visits} visits and the champion slot is empty` };
-  }
-  if (cpv < champion.costPerVisit) {
-    return { result: 'win', costPerVisit: cpv,
-             reason: `${usd(cpv)}/visit beats the champion's ${usd(champion.costPerVisit)}/visit (${test.visits} visits)` };
-  }
-  return { result: 'lose', costPerVisit: cpv,
-           reason: `${usd(cpv)}/visit does not beat the champion's ${usd(champion.costPerVisit)}/visit (ties keep the champion)` };
+  return out;
 }
 
-// Champion health over the trailing window.
-//   stats = { spend, visits, follows, followsReadable }
+// Method B. Each settled day's new followers are split across that day's ads in
+// proportion to their profile visits. adDays = [{ day, spend, visits, ... }].
+// Returns the rows with `estFollows` set, or null when the day is not settled
+// yet (younger than FOLLOW_SETTLE_DAYS) or has no follower reading.
+function attributeFollows(adDays, followsByDay, settledThrough) {
+  const visitsByDay = {};
+  for (const r of adDays || []) visitsByDay[r.day] = (visitsByDay[r.day] || 0) + num(r.visits);
+  return (adDays || []).map(r => {
+    const f = (followsByDay || {})[r.day];
+    if (r.day > settledThrough || f === undefined) return { ...r, estFollows: null };
+    return { ...r, estFollows: visitsByDay[r.day] > 0 ? f * num(r.visits) / visitsByDay[r.day] : 0 };
+  });
+}
+
+// Sum attributed rows for one post / ad set. Cost per follower divides only the
+// spend on SETTLED days by the follows estimated for those days.
+function followStats(rows) {
+  let spend = 0, visits = 0, settledSpend = 0, unsettledSpend = 0, estFollows = 0, lastSpendDay = null;
+  for (const r of rows || []) {
+    spend += num(r.spend); visits += num(r.visits);
+    if (num(r.spend) > 0 && (!lastSpendDay || r.day > lastSpendDay)) lastSpendDay = r.day;
+    if (r.estFollows === null || r.estFollows === undefined) unsettledSpend += num(r.spend);
+    else { settledSpend += num(r.spend); estFollows += r.estFollows; }
+  }
+  return {
+    spend: round2(spend), visits, settledSpend: round2(settledSpend), unsettledSpend: round2(unsettledSpend),
+    estFollows: Math.round(estFollows * 10) / 10,
+    costPerFollow: estFollows > 0 ? round2(settledSpend / estFollows) : null,
+    costPerVisit: visits > 0 ? round2(spend / visits) : null,
+    settled: unsettledSpend === 0, lastSpendDay,
+  };
+}
+
+// The verdict on one finished test against the champion's trailing window.
+//   test     = followStats(...) + { followsReadable }
+//   champion = { costPerFollow: number|null, hasActive: boolean }
+// Results: win / lose (recorded, final), wait / unmeasured (not recorded, re-judged next run).
+function verdict(test, champion) {
+  const est = Math.round(num(test.estFollows) * 10) / 10;
+  const cpf = est > 0 ? round2(test.settledSpend / test.estFollows) : null;
+  const base = { costPerFollow: cpf, estFollows: est, costPerVisit: test.visits > 0 ? round2(test.spend / test.visits) : null };
+  if (!test.followsReadable) {
+    return { ...base, result: 'unmeasured', reason: 'follower counts not readable from Instagram, not judged' };
+  }
+  if (!test.settled) {
+    return { ...base, result: 'wait',
+             reason: `follower count for ${test.lastSpendDay || 'its last day'} not settled yet (${FOLLOW_SETTLE_DAYS}-day lag), judged when it is` };
+  }
+  if (est < PROMOTE_MIN_FOLLOWS) {
+    return { ...base, result: 'lose',
+             reason: `${est} estimated follows on ${usd(test.spend)}, needs ${PROMOTE_MIN_FOLLOWS} to be believed` };
+  }
+  if (!champion || !champion.hasActive || champion.costPerFollow === null || champion.costPerFollow === undefined) {
+    return { ...base, result: 'win',
+             reason: `${usd(cpf)}/follower on ${est} estimated follows and the champion slot is empty` };
+  }
+  if (cpf < champion.costPerFollow) {
+    return { ...base, result: 'win',
+             reason: `${usd(cpf)}/follower beats the champion's ${usd(champion.costPerFollow)}/follower (${est} estimated follows)` };
+  }
+  return { ...base, result: 'lose',
+           reason: `${usd(cpf)}/follower does not beat the champion's ${usd(champion.costPerFollow)}/follower (ties keep the champion)` };
+}
+
+// Champion health over the trailing settled window.
+//   stats = { spend, visits, follows, followsReadable }: follows are ESTIMATED (method B)
 function championHealth(stats) {
   const cpv = stats.visits > 0 ? round2(stats.spend / stats.visits) : null;
   const cpf = stats.followsReadable && stats.follows > 0 ? round2(stats.spend / stats.follows) : null;
   const base = { costPerVisit: cpv, costPerFollow: cpf, followsReadable: !!stats.followsReadable };
   if (!stats.followsReadable) {
     return { ...base, action: 'unjudged',
-             reason: 'follows metric not readable yet — judged on cost/visit only, no kill rule applied' };
+             reason: 'follower counts not readable from Instagram, no kill rule applied' };
   }
   if (stats.spend < CHAMPION_MIN_SPEND) {
-    return { ...base, action: 'ok', reason: `${usd(stats.spend)} in ${CHAMPION_WINDOW_DAYS} days — under the ${usd(CHAMPION_MIN_SPEND)} judging floor` };
+    return { ...base, action: 'ok', reason: `${usd(stats.spend)} in ${CHAMPION_WINDOW_DAYS} settled days, under the ${usd(CHAMPION_MIN_SPEND)} judging floor` };
   }
   const effectiveCpf = stats.follows > 0 ? stats.spend / stats.follows : Infinity;
   if (effectiveCpf > CHAMPION_KILL_CPF) {
     return { ...base, action: 'pause',
-             reason: `${stats.follows === 0 ? 'zero follows' : usd(effectiveCpf) + '/follow'} on ${usd(stats.spend)} — over the ${usd(CHAMPION_KILL_CPF)}/follow kill line` };
+             reason: `${stats.follows === 0 ? 'zero estimated follows' : usd(effectiveCpf) + '/follower'} on ${usd(stats.spend)}, over the ${usd(CHAMPION_KILL_CPF)}/follower kill line` };
   }
   if (effectiveCpf < CHAMPION_SCALE_CPF) {
     return { ...base, action: 'scale_candidate',
-             reason: `${usd(effectiveCpf)}/follow on ${usd(stats.spend)} — under the ${usd(CHAMPION_SCALE_CPF)}/follow scale line (budget cap is fixed; reported only)` };
+             reason: `${usd(effectiveCpf)}/follower (estimated) on ${usd(stats.spend)}, under the ${usd(CHAMPION_SCALE_CPF)}/follower scale line (budget cap is fixed; reported only)` };
   }
-  return { ...base, action: 'ok', reason: `${usd(effectiveCpf)}/follow on ${usd(stats.spend)}` };
+  return { ...base, action: 'ok', reason: `${usd(effectiveCpf)}/follower (estimated) on ${usd(stats.spend)}` };
 }
 
 // First-run pair: both original ads run until each has PAIR_MIN_SPEND, then the
@@ -351,6 +417,11 @@ function makeDb(url) {
           enabled BOOLEAN NOT NULL,
           report  JSONB NOT NULL
         );
+        CREATE TABLE IF NOT EXISTS auto_boost_follows_daily (
+          day        DATE PRIMARY KEY,
+          follows    INTEGER NOT NULL,
+          fetched_at TIMESTAMPTZ NOT NULL DEFAULT now()
+        );
       `);
     },
     async events() {
@@ -360,6 +431,18 @@ function makeDb(url) {
     async event(mediaId, event, detail) {
       await pool.query('INSERT INTO auto_boost_events (media_id, event, detail) VALUES ($1, $2, $3)',
                        [mediaId, event, JSON.stringify(detail || {})]);
+    },
+    // Instagram keeps ~30 days of follower_count; every run upserts what it can
+    // see (late data overwrites the provisional value) so the history outlives it.
+    async saveFollows(byDay) {
+      for (const [day, follows] of Object.entries(byDay || {})) {
+        await pool.query(`INSERT INTO auto_boost_follows_daily (day, follows) VALUES ($1, $2)
+                          ON CONFLICT (day) DO UPDATE SET follows = EXCLUDED.follows, fetched_at = now()`, [day, follows]);
+      }
+    },
+    async follows() {
+      const r = await pool.query("SELECT to_char(day, 'YYYY-MM-DD') AS day, follows FROM auto_boost_follows_daily");
+      return Object.fromEntries(r.rows.map(x => [x.day, Number(x.follows)]));
     },
     async run(report, dryRun, enabled) {
       await pool.query('INSERT INTO auto_boost_runs (dry_run, enabled, report) VALUES ($1, $2, $3)',
@@ -371,6 +454,45 @@ function makeDb(url) {
     close: () => pool.end(),
   };
 }
+
+// ============================================================
+// FOLLOWS + DAILY AD ROWS (method B inputs)
+// ============================================================
+
+// New followers per day: Instagram's last 30 days, persisted and merged with the
+// stored history. readable=false (and a reason) when Instagram refuses.
+async function loadFollowerDays({ meta, db, now }) {
+  let fresh = {}, error = null;
+  try {
+    const r = await meta.get(`${IG_USER_ID}/insights`, {
+      metric: 'follower_count', period: 'day',
+      since: Math.floor(daysAgo(FOLLOWER_HISTORY_DAYS, now).getTime() / 1000), until: Math.floor(now.getTime() / 1000),
+    });
+    fresh = followerDaysFrom(((r.data || [])[0] || {}).values);
+  } catch (e) { error = e.message; }
+  let byDay = fresh;
+  if (db) {
+    if (Object.keys(fresh).length) await db.saveFollows(fresh);
+    byDay = { ...(await db.follows()), ...fresh };
+  }
+  return { byDay, readable: !error && Object.keys(byDay).length > 0, error };
+}
+
+// Spend + profile visits per ad per day for the whole campaign, last 30 days.
+async function loadAdDays({ meta, now }) {
+  const rows = await meta.all(`${CAMPAIGN_ID}/insights`, {
+    level: 'ad', time_increment: 1,
+    time_range: { since: ymd(daysAgo(FOLLOWER_HISTORY_DAYS, now)), until: ymd(now) },
+    fields: `ad_id,ad_name,adset_id,adset_name,spend,actions,${VISITS_FIELD}`,
+  });
+  return rows.map(r => {
+    const m = metricsFrom(r);
+    return { day: r.date_start, adId: r.ad_id, adsetId: r.adset_id, adsetName: r.adset_name,
+             mediaId: mediaIdOf(r.ad_name) || mediaIdOf(r.adset_name), spend: m.spend, visits: m.visits };
+  });
+}
+
+const settledThroughFor = (now) => ymd(daysAgo(FOLLOW_SETTLE_DAYS, now));
 
 // ============================================================
 // THE JOB
@@ -433,11 +555,20 @@ async function runJob({ meta, db, dryRun, enabled, verify, now = new Date() }) {
   // The metric is "readable" once the account has ever reported it. Before that
   // a zero is ignorance, not a result, and no test is judged a loser on it.
   const visitsReadable  = campTotals.visits > 0;
-  const followsReadable = campTotals.follows > 0;
+  // Follows: method B (see the header). Tests and the champion are judged only on
+  // days whose follower count has settled.
+  const [followerDays, adDaysRaw] = await Promise.all([loadFollowerDays({ meta, db, now }), loadAdDays({ meta, now })]);
+  const settledThrough  = settledThroughFor(now);
+  const adDays          = attributeFollows(adDaysRaw, followerDays.byDay, settledThrough);
+  const followsReadable = followerDays.readable && visitsReadable;
+  const recentFollowDays = Object.keys(followerDays.byDay).sort().slice(-14).map(d => ({ day: d, follows: followerDays.byDay[d] }));
   report.metrics = {
-    visitsField: VISITS_FIELD, visitsReadable, followsType: campTotals.followsType, followsReadable,
-    campaignLifetime: { spend: campTotals.spend, visits: campTotals.visits, follows: campTotals.follows },
+    visitsField: VISITS_FIELD, visitsReadable, followsReadable,
+    followsSource: 'Instagram follower_count per day, split across that day\'s ads by profile-visit share (estimate, for ranking)',
+    settledThrough, followerDays: recentFollowDays, followerError: followerDays.error,
+    campaignLifetime: { spend: campTotals.spend, visits: campTotals.visits },
   };
+  if (!followerDays.readable) warn(`follower counts not readable from Instagram (${followerDays.error || 'no rows'}), no test is judged and no kill rule applies`);
   if (!visitsReadable && campTotals.spend >= 5) {
     warn(`campaign has spent ${usd(campTotals.spend)} and "${VISITS_FIELD}" is still 0 — run --verify and check the metric name`);
   }
@@ -475,7 +606,7 @@ async function runJob({ meta, db, dryRun, enabled, verify, now = new Date() }) {
   for (const m of candidates) {
     if (runningCaps.capReached) break;
     const label = nameFor(m, 'TEST');
-    const line = `create "${label}" ($5 lifetime, ${TEST_WINDOW_DAYS}d) ${m.permalink}`;
+    const line = `create "${label}" (${usd(TEST_BUDGET_CENTS / 100)} lifetime, ${TEST_WINDOW_DAYS}d) ${m.permalink}`;
     const created = await act(line, async () => {
       const start = Math.floor(now.getTime() / 1000);
       const adset = await meta.post(`${ACT}/adsets`, {
@@ -515,11 +646,12 @@ async function runJob({ meta, db, dryRun, enabled, verify, now = new Date() }) {
     { fields: 'id,name,status,effective_status,created_time,creative{source_instagram_media_id}' });
   const adMedia = (a) => (a.creative && a.creative.source_instagram_media_id) || mediaIdOf(a.name);
   const activeChampionAds = championAds.filter(a => a.status === 'ACTIVE');
-  const since = ymd(daysAgo(CHAMPION_WINDOW_DAYS - 1, now)), until = ymd(now);
-  const champ7 = await meta.get(`${CHAMPION_ADSET_ID}/insights`,
-    { time_range: { since, until }, fields: `spend,impressions,actions,${VISITS_FIELD}` });
-  const c7 = metricsFrom((champ7.data || [])[0] || {});
-  const championCpv = c7.visits > 0 ? round2(c7.spend / c7.visits) : null;
+  // The champion's window is the last 7 SETTLED days, so its cost per follower is
+  // measured on the same footing as a test's.
+  const until = settledThrough;
+  const since = ymd(daysAgo(CHAMPION_WINDOW_DAYS - 1, new Date(`${until}T12:00:00Z`)));
+  const c7 = followStats(adDays.filter(r => r.adsetId === CHAMPION_ADSET_ID && r.day >= since && r.day <= until));
+  const championCpf = followsReadable ? c7.costPerFollow : null;
   // The raw media object for any id — from this run's /media page when it is
   // there, otherwise fetched once and cached. `{ id }` alone when Meta cannot
   // return it (deleted post), which names as "POST | untitled | TAG::id".
@@ -562,14 +694,13 @@ async function runJob({ meta, db, dryRun, enabled, verify, now = new Date() }) {
   report.champion = {
     adsetStatus: champ.effective_status, dailyBudget: num(champ.daily_budget) / 100,
     window: { since, until, days: CHAMPION_WINDOW_DAYS },
-    spend: c7.spend, visits: c7.visits, follows: c7.follows, costPerVisit: championCpv,
-    costPerFollow: followsReadable && c7.follows > 0 ? round2(c7.spend / c7.follows) : null,
-    followsReadable,
+    spend: c7.spend, visits: c7.visits, follows: c7.estFollows, followsEstimated: true, costPerVisit: c7.costPerVisit,
+    costPerFollow: championCpf, followsReadable,
     activeAds: await Promise.all(activeChampionAds.map(async a => ({ adId: a.id, name: a.name, media: await describeMedia(adMedia(a)) }))),
   };
 
   // ── 4 + 5. Evaluate finished tests, promote winners ───────────────────
-  let championForVerdicts = { costPerVisit: championCpv, hasActive: activeChampionAds.length > 0 };
+  let championForVerdicts = { costPerFollow: championCpf, hasActive: activeChampionAds.length > 0 };
   const promote = async (mediaId, source) => {
     const label = nameFor(await mediaFull(mediaId), 'CHAMPION');
     const line = `promote "${label}"; pause + retire ${activeChampionAds.length} other champion ad(s)`;
@@ -590,11 +721,11 @@ async function runJob({ meta, db, dryRun, enabled, verify, now = new Date() }) {
     // Later tests judged in this same run must beat the test that just won — not
     // an empty window (which `verdict` treats as a win by default). Tests are also
     // ranked cheapest-first below, so the best of a batch wins and the rest lose.
-    const winnerCpv = source && source.visits > 0 ? round2(source.spend / source.visits) : null;
-    championForVerdicts = { costPerVisit: winnerCpv, hasActive: true };
+    championForVerdicts = { costPerFollow: (source && source.costPerFollow) || null, hasActive: true };
   };
-  const cpvOf = (t) => { const l = lifeBy.get(t.id); return l && l.visits > 0 ? l.spend / l.visits : Infinity; };
-  testAdsets.sort((a, b) => cpvOf(a) - cpvOf(b));
+  const statsBy = new Map(testAdsets.map(t => [t.id, followStats(adDays.filter(r => r.adsetId === t.id))]));
+  const cpfOf = (t) => { const st = statsBy.get(t.id); return st.costPerFollow === null ? Infinity : st.costPerFollow; };
+  testAdsets.sort((a, b) => cpfOf(a) - cpfOf(b));
 
   for (const t of testAdsets) {
     const mediaId = mediaIdOf(t.name);
@@ -603,6 +734,7 @@ async function runJob({ meta, db, dryRun, enabled, verify, now = new Date() }) {
       adsetId: t.id, mediaId, label: t.name, status: t.effective_status, createdAt: t.created_time, endTime: t.end_time,
       spend: life.spend, visits: life.visits, impressions: life.impressions,
       costPerVisit: life.visits > 0 ? round2(life.spend / life.visits) : null,
+      estFollows: statsBy.get(t.id).estFollows, costPerFollow: followsReadable ? statsBy.get(t.id).costPerFollow : null,
       media: await describeMedia(mediaId), phase: null, verdict: null,
     };
     if (verdictIds.has(mediaId)) {
@@ -612,11 +744,11 @@ async function runJob({ meta, db, dryRun, enabled, verify, now = new Date() }) {
     }
     row.phase = testPhase({ spend: life.spend, endTime: t.end_time }, now);
     if (row.phase === 'ready') {
-      const v = verdict({ spend: life.spend, visits: life.visits, visitsReadable }, championForVerdicts);
+      const v = verdict({ ...statsBy.get(t.id), followsReadable }, championForVerdicts);
       row.verdict = v;
-      report.verdicts.push({ mediaId, adsetId: t.id, ...v, spend: life.spend, visits: life.visits, permalink: row.media && row.media.permalink });
-      if (v.result === 'win') await promote(mediaId, { testAdset: t.id, spend: life.spend, visits: life.visits });
-      if (v.result !== 'unmeasured') {
+      if (v.result === 'win' || v.result === 'lose') {
+        report.verdicts.push({ mediaId, adsetId: t.id, ...v, spend: life.spend, visits: life.visits, permalink: row.media && row.media.permalink });
+        if (v.result === 'win') await promote(mediaId, { testAdset: t.id, spend: life.spend, visits: life.visits, estFollows: v.estFollows, costPerFollow: v.costPerFollow });
         if (t.status !== 'PAUSED') await act(`pause finished "${t.name}" (${v.result})`, () => meta.post(t.id, { status: 'PAUSED' }));
         await record(mediaId, 'verdict', { ...v, spend: life.spend, visits: life.visits, adsetId: t.id });
       }
@@ -643,7 +775,7 @@ async function runJob({ meta, db, dryRun, enabled, verify, now = new Date() }) {
   }
 
   // ── 6. Champion health ────────────────────────────────────────────────
-  const health = championHealth({ spend: c7.spend, visits: c7.visits, follows: c7.follows, followsReadable });
+  const health = championHealth({ spend: c7.settledSpend, visits: c7.visits, follows: c7.estFollows, followsReadable });
   report.champion.health = health;
   if (health.action === 'pause' && activeChampionAds.length) {
     await act(`PAUSE champion ad(s) ${activeChampionAds.map(a => a.id).join(', ')} — ${health.reason}`, async () => {
@@ -676,6 +808,51 @@ async function runJob({ meta, db, dryRun, enabled, verify, now = new Date() }) {
 }
 
 // ============================================================
+// BACKFILL: estimated cost per follower for every post, last 30 days (read-only)
+// ============================================================
+
+// Group attributed rows by post and by post type. `typeOf(mediaId)` -> 'IMAGE' | 'REEL' | ...
+function backfillTable(adDays, typeOf) {
+  const byPost = new Map();
+  for (const r of adDays) {
+    if (!r.mediaId) continue;
+    if (!byPost.has(r.mediaId)) byPost.set(r.mediaId, []);
+    byPost.get(r.mediaId).push(r);
+  }
+  const posts = [...byPost].map(([mediaId, rows]) => ({ mediaId, type: typeOf(mediaId), ...followStats(rows) }))
+                           .filter(p => p.spend > 0)
+                           .sort((a, b) => (a.costPerFollow ?? Infinity) - (b.costPerFollow ?? Infinity));
+  const byType = {};
+  for (const p of posts) {
+    const t = (byType[p.type] = byType[p.type] || { type: p.type, posts: 0, spend: 0, settledSpend: 0, visits: 0, estFollows: 0 });
+    t.posts++; t.spend += p.spend; t.settledSpend += p.settledSpend; t.visits += p.visits; t.estFollows += p.estFollows;
+  }
+  const types = Object.values(byType).map(t => ({
+    ...t, spend: round2(t.spend), settledSpend: round2(t.settledSpend), estFollows: Math.round(t.estFollows * 10) / 10,
+    costPerFollow: t.estFollows > 0 ? round2(t.settledSpend / t.estFollows) : null,
+    costPerVisit: t.visits > 0 ? round2(t.spend / t.visits) : null,
+    followsPer100Visits: t.visits > 0 ? Math.round(1000 * t.estFollows / t.visits) / 10 : null,
+  }));
+  return { posts, types };
+}
+
+async function runBackfill({ meta, db, now = new Date() }) {
+  const [followerDays, adDaysRaw] = await Promise.all([loadFollowerDays({ meta, db, now }), loadAdDays({ meta, now })]);
+  if (!followerDays.readable) throw new Error(`follower counts not readable: ${followerDays.error || 'no rows'}`);
+  const settledThrough = settledThroughFor(now);
+  const adDays = attributeFollows(adDaysRaw, followerDays.byDay, settledThrough);
+  const nameBy = new Map(adDaysRaw.map(r => [r.mediaId, r.adsetName]));
+  const media = new Map();
+  for (const id of new Set(adDaysRaw.map(r => r.mediaId).filter(Boolean))) {
+    try { media.set(id, await meta.get(id, { fields: 'id,media_type,caption' })); } catch { media.set(id, { id }); }
+  }
+  const typeOf = (id) => typeLabel(media.get(id));
+  const table = backfillTable(adDays, typeOf);
+  for (const p of table.posts) p.title = titleOf(media.get(p.mediaId)) || nameBy.get(p.mediaId);
+  return { settledThrough, followerDays: followerDays.byDay, ...table };
+}
+
+// ============================================================
 // HUMAN SUMMARY
 // ============================================================
 
@@ -685,20 +862,22 @@ function summarise(r) {
   const c = r.caps;
   L.push(`Caps: tests ${usd(c.testsMtd)} spent + ${usd(c.testsCommitted - c.testsMtd)} committed of ${usd(c.testsCap)}; total ${usd(c.totalMtd)} of ${usd(c.totalCap)}${c.capReached ? ` — CAP REACHED (${c.reason})` : ''}`);
   const ch = r.champion;
-  L.push(`Champion (${ch.window.days}d): ${usd(ch.spend)} spend, ${ch.visits} visits${ch.costPerVisit !== null ? ` (${usd(ch.costPerVisit)}/visit)` : ''}, `
-       + `${ch.followsReadable ? `${ch.follows} follows${ch.costPerFollow !== null ? ` (${usd(ch.costPerFollow)}/follow)` : ''}` : 'follows not readable yet'}; `
+  L.push(`Champion (${ch.window.days} settled days to ${ch.window.until}): ${usd(ch.spend)} spend, `
+       + `${ch.followsReadable ? `${ch.follows} est. follows${ch.costPerFollow !== null ? ` (${usd(ch.costPerFollow)}/follower)` : ''}` : 'follows not readable'}, `
+       + `${ch.visits} visits${ch.costPerVisit !== null ? ` (${usd(ch.costPerVisit)}/visit)` : ''}; `
        + `active ads: ${ch.activeAds.length ? ch.activeAds.map(a => a.name).join(', ') : 'NONE'}; health: ${ch.health.action} — ${ch.health.reason}`);
   if (r.pair) L.push(`First-run pair: ${r.pair.resolved ? 'RESOLVED' : 'open'} — ${r.pair.reason}`);
   L.push(`Candidates (new posts since ${SYSTEM_START} with no test): ${r.candidates.length}`);
   for (const m of r.candidates) L.push(`   ${m.label} (${m.postedAt.slice(0, 10)})`);
   L.push(`Tests in flight: ${r.tests.filter(t => t.phase === 'running').length}, judged this run: ${r.verdicts.length}, done before: ${r.tests.filter(t => t.phase === 'done').length}`);
-  for (const t of r.tests) L.push(`   ${t.label || `TEST::${t.mediaId}`} ${t.phase} ${usd(t.spend)} ${t.visits} visits${t.costPerVisit !== null ? ` ${usd(t.costPerVisit)}/visit` : ''}${t.verdict ? ` → ${t.verdict.result}: ${t.verdict.reason}` : ''}`);
+  for (const t of r.tests) L.push(`   ${t.label || `TEST::${t.mediaId}`} ${t.phase} ${usd(t.spend)}, ${t.estFollows ?? '?'} est. follows${t.costPerFollow != null ? ` ${usd(t.costPerFollow)}/follower` : ''}, ${t.visits} visits${t.verdict ? ` → ${t.verdict.result}: ${t.verdict.reason}` : ''}`);
   if (r.skips.length) for (const s of r.skips) L.push(`   SKIP ${s.mediaId}: ${s.reason}`);
   L.push(`Actions (${r.actions.length}):`);
   for (const a of r.actions) L.push(`   ${a}`);
   if (!r.actions.length) L.push('   none');
   for (const w of r.warnings) L.push(`⚠ ${w}`);
-  L.push(`Metrics: visits via "${r.metrics.visitsField}" (${r.metrics.visitsReadable ? 'readable' : 'NOT YET OBSERVED'}), follows via ${r.metrics.followsType || 'no follow-type action observed yet'}`);
+  L.push(`Metrics: visits via "${r.metrics.visitsField}" (${r.metrics.visitsReadable ? 'readable' : 'NOT YET OBSERVED'}); follows ${r.metrics.followsReadable ? `estimated from follower_count, settled through ${r.metrics.settledThrough}` : `NOT READABLE (${r.metrics.followerError || 'no rows'})`}`);
+  if (r.metrics.followerDays && r.metrics.followerDays.length) L.push(`New followers by day: ${r.metrics.followerDays.map(d => `${d.day.slice(5)} ${d.follows}`).join(', ')}`);
   return L.join('\n');
 }
 
@@ -713,6 +892,7 @@ async function main() {
   const enabled = process.env.AUTO_BOOST_ENABLED === '1';
   const dryRun  = argv.includes('--dry-run') || !enabled;
   const verify  = argv.includes('--verify');
+  const backfill = argv.includes('--backfill');
   const outPath = argOf('--out') || OUT_DEFAULT;
 
   const token = process.env.META_ADS_TOKEN, secret = process.env.META_APP_SECRET;
@@ -724,6 +904,16 @@ async function main() {
   const db = makeDb(process.env.DATABASE_PUBLIC_URL || process.env.DATABASE_URL);
   if (!db) console.log('  ⚠ no DATABASE_URL — skips and verdicts will not persist this run');
   if (db) await db.ensureSchema();
+
+  if (backfill) {
+    const b = await runBackfill({ meta, db });
+    if (db) await db.close();
+    if (argv.includes('--print')) { console.log(JSON.stringify(b, null, 2)); return; }
+    console.log(`ESTIMATED COST PER FOLLOWER: follows settled through ${b.settledThrough} (method B: day's new followers split by visit share)`);
+    for (const t of b.types) console.log(`  ${t.type.padEnd(8)} ${t.posts} posts  ${usd(t.spend)}  ${t.visits} visits (${usd(t.costPerVisit)}/visit)  ${t.estFollows} est. follows  ${t.costPerFollow !== null ? usd(t.costPerFollow) + '/follower' : 'n/a'}  ${t.followsPer100Visits}/100 visits`);
+    for (const p of b.posts) console.log(`  ${usd(p.costPerFollow ?? 0).padStart(7)}/f  ${String(p.estFollows).padStart(5)} f  ${usd(p.spend).padStart(7)}  ${String(p.visits).padStart(4)} v  ${p.type.padEnd(8)} ${p.title}  (${p.mediaId})${p.settled ? '' : '  [part unsettled]'}`);
+    return;
+  }
 
   let report;
   try {
@@ -744,8 +934,9 @@ async function main() {
 module.exports = {
   metricsFrom, capState, findCandidates, testPhase, verdict, championHealth, pairDecision, summarise,
   nameFor, titleOf, typeLabel, tagOf, isTest,
+  followerDaysFrom, attributeFollows, followStats, backfillTable,
   CONFIG: { SYSTEM_START, FIRST_RUN_PAIR, TEST_BUDGET_CENTS, TEST_WINDOW_DAYS, TEST_EVAL_SPEND, CAP_TESTS_MTD, CAP_TOTAL_MTD,
-            PROMOTE_MIN_VISITS, CHAMPION_MIN_SPEND, CHAMPION_KILL_CPF, CHAMPION_SCALE_CPF, PAIR_MIN_SPEND, VISITS_FIELD, FOLLOW_ACTION_TYPES },
+            PROMOTE_MIN_FOLLOWS, FOLLOW_SETTLE_DAYS, CHAMPION_MIN_SPEND, CHAMPION_KILL_CPF, CHAMPION_SCALE_CPF, PAIR_MIN_SPEND, VISITS_FIELD, FOLLOW_ACTION_TYPES },
 };
 
 if (require.main === module) main().catch(e => { console.error('auto-boost crashed:', e.stack || e.message); process.exit(1); });
