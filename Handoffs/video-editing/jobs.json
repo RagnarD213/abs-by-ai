@@ -1696,13 +1696,13 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/WV-01-vsl-1-analysis-page-video-version-a-version-b-intr.md`: cut \"VSL 1: Analysis-page video (version A + version B intro)\" from 9/23 roll C1692-C1700 with /website-video. Best take of every line, every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/WV-01-vsl-1-analysis-page-video-version-a-version-b-intr.md` with `$abs-edit-organic`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "draft_review",
-   "note": "Round13 updated decisions verified. Round14 handoff ready: Handoffs/handoff-20260929-wv01-round14-motion-and-graphic-approvals.md. Exercise A and both family pairs authorized for motion after budget preflight; three graphic stills approved, moving contexts pending. All16 cuts and photo/audio revisions approved. No full render, B deferred, dispatcher paused, no publishing.",
+   "state": "finalized",
+   "note": "Dan approved complete A as final on 2026-09-29. Final 1080p: /Volumes/Extreme/_edit_work/wv01-edit/round17/final/WV-01 FINAL Website VSL A 1080p.mp4. Complete B deferred. Delivery gate FAIL is disclosed in round17/review/QA.md; no upload or website installation yet.",
    "sub": "",
    "order": 81,
    "updated": "2026-09-29",
    "by": "Codex",
-   "rev": 42,
+   "rev": 43,
    "syncedRev": 1
   },
   {
