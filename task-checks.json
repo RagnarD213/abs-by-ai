@@ -4,7 +4,8 @@
     "assistant::Do laundry",
     "assistant::Load and empty dishwasher",
     "assistant::Tidy bathrooms",
-    "assistant::Tidy kitchen"
+    "assistant::Tidy kitchen",
+    "assistant::Fill Recycling can/empty some cardboard in spare room."
   ],
   "log": {
     "health::Shower": [
@@ -233,6 +234,7 @@
     "assistant::Do laundry": "2026-09-29",
     "assistant::Load and empty dishwasher": "2026-09-29",
     "assistant::Tidy bathrooms": "2026-09-29",
-    "assistant::Tidy kitchen": "2026-09-29"
+    "assistant::Tidy kitchen": "2026-09-29",
+    "assistant::Fill Recycling can/empty some cardboard in spare room.": "2026-09-29"
   }
 }
