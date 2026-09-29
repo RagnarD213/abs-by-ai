@@ -49,6 +49,8 @@ REPO = os.path.abspath(os.path.join(HERE, "..", "..", "..", "..", ".."))
 FF = os.path.join(REPO, "Media/video_edit/bin/ffmpeg")
 FP = FF.replace("ffmpeg", "ffprobe")
 OCR_BIN = os.path.expanduser("~/.cache/kit9x16/vision_ocr")
+FACE_BIN = os.path.expanduser("~/.cache/kit9x16/vision_face")
+FACE_SRC = os.path.join(HERE, "vision_face.swift")
 OCR_SRC = os.path.join(HERE, "vision_ocr.swift")
 CACHE = os.path.expanduser("~/.cache/kit9x16")
 
@@ -119,6 +121,33 @@ def ocr(paths):
             d = json.loads(line)
             out[d["image"]] = [dict(text=fix_ocr(x["text"]), box=x["box"]) for x in d["lines"] if x["text"].strip()]
     return out
+
+
+def turned_until(master, t, A, span=0.6):
+    """Dan's head TURNED AWAY at a return from a picture (Vision face yaw > 25 deg on the first frames) that faces
+    the camera again within `span` s: -> the time he faces camera (the picture before holds until then), else None.
+    His Ad 10 window opened on a 0.35 s look to the side; the hand-built AV-07 held the food shot over it and three
+    judges read our copy of it as visual junk (155.86 s)."""
+    if not os.path.exists(FACE_BIN) or os.path.getmtime(FACE_BIN) < os.path.getmtime(FACE_SRC):
+        os.makedirs(CACHE, exist_ok=True)
+        run(["swiftc", "-O", FACE_SRC, "-o", FACE_BIN])
+    d = os.path.join(A, "yaw", f"{t:.3f}")
+    os.makedirs(d, exist_ok=True)
+    if not glob.glob(os.path.join(d, "*.jpg")):
+        run([FF, "-nostdin", "-v", "error", "-y", "-ss", f"{t:.3f}", "-i", master, "-t", f"{span + 0.1:.2f}",
+             "-vf", "fps=15,scale=960:-2:in_color_matrix=bt709:in_range=tv", os.path.join(d, "%03d.jpg")])
+    files = sorted(glob.glob(os.path.join(d, "*.jpg")))
+    r = subprocess.run([FACE_BIN] + files, capture_output=True, text=True)
+    yaws = []
+    for line in r.stdout.splitlines():
+        f = json.loads(line)["faces"]
+        yaws.append(abs(f[0]["yaw"]) if f else None)
+    if len(yaws) < 3 or yaws[0] is None or yaws[0] < 25 or (yaws[1] or 0) < 25:
+        return None
+    for i, y in enumerate(yaws):
+        if y is not None and y < 12:
+            return round(t + i / 15.0, 3)
+    return None
 
 
 def load_words(path):
@@ -901,6 +930,24 @@ def main():
                                   evidence=dict(source="added by the kit's grammar (template cta.count): not in his master")))
 
     beats.sort(key=lambda b: b["t0"])
+    # a return to Dan that opens on him TURNED AWAY: the picture before holds until he faces the camera
+    for i, b_ in enumerate(beats[:-1]):
+        nxt = beats[i + 1]
+        if b_["kind"] in ("card", "bleed") and (nxt["kind"] in ("window", "windowL") and abs(nxt["t0"] - b_["t1"]) < 0.05):
+            tt = turned_until(master, b_["t1"], A)
+            if tt and tt < nxt["t1"] - 0.5:
+                rep_beats.append(dict(entry=dict(kind="hold", t0=b_["t1"], t1=tt), confidence="high",
+                                      evidence=dict(why="his head is turned away as the window opens (face yaw > 25 deg)")))
+                b_["t1"] = tt; nxt["t0"] = tt
+    for i, b_ in enumerate(beats):
+        if b_["kind"] in ("card", "bleed"):
+            nxt_t0 = beats[i + 1]["t0"] if i + 1 < len(beats) else dur
+            if nxt_t0 - b_["t1"] > 0.3:              # a return to plain talk
+                tt = turned_until(master, b_["t1"], A)
+                if tt and tt < nxt_t0:
+                    rep_beats.append(dict(entry=dict(kind="hold", t0=b_["t1"], t1=tt), confidence="high",
+                                          evidence=dict(why="his head is turned away as the talk resumes (face yaw > 25 deg)")))
+                    b_["t1"] = tt
     # an insert ENTRANCE that ended up as its own beat (the blurred phone zooming in, < 0.5 s, fast) followed at once
     # by the landed picture: it is not content (the kit draws its own entrance)
     evs = {id(r["entry"]): r for r in rep_beats}
