@@ -87,3 +87,25 @@ Keep the shared two-build limit. Do not unpause the dispatcher, create a new tas
 ## Ready-to-paste starter prompt
 
 Execute `Handoffs/handoff-20260929-wv01-round14-motion-and-graphic-approvals.md` with `$abs-edit-organic`. Use the verified updated decision export: exercise A approved; generate both exact family frame pairs as requested; all 16 cut repairs and other round13 contexts approved. After current price/cumulative-budget preflight, prepare the selected exercise motion, both family motions and moving contexts for the three approved graphic stills. Apply the new default jump-cut and junk-footage QC. Show changes only for individual approval. No full render before all remaining moving approvals. Keep version B deferred and dispatcher paused. No publishing.
+
+## Execution checkpoint, 2026-09-29
+
+Review: http://127.0.0.1:8766/round14/index.html. R05, R07 and R09 moving contexts are delivered for individual approval. They retain the exact approved layouts, copy, imagery, source-specific grade/audio and the approved fixed presenter seam pattern. All three decisions remain pending. Exercise A and both family motion calls are held for one concrete budget decision. No full render or new generation call occurred.
+
+Current Replicate Kling v3 pro/no-audio price was verified at $0.224/second. The exact6+9+9-second batch estimates $5.376. The historical56 still calls still have unavailable charges. The cumulative $20 allowance did not reset, so the user was asked once to authorize up to $5.38 additional for this exact batch with no paid retries. No budget answer is recorded yet. Do not infer one from elapsed time or frame approval.
+
+Private execution: `/Volumes/Extreme/_edit_work/wv01-edit/round14/WORK_PACKET.json`, `decisions.json`, `review/approval-registry.json`, `review/EDITOR-QA.md`, `review/cost-ledger.json`, `review/junk-dispositions.json`. Both historical review pages and the persistent launch agent are preserved.
+
+Verification:34 imported artifact records and39 protected inputs match prior hashes. All three moving files decoded fully. All13 actual joins were inspected in native strips. R07's248 sequential samples were viewed at7-frame intervals, about0.234seconds, including tight compositions, hair and gestures. Numeric face-assisted hair measurement was unavailable because OpenCV's cascade asset is missing; no numeric certificate is claimed. Shared audio selftest passed. Owner-assisted exact moving audiovisual QC passed all three items. Browser playback and one lazy player with baseline clock were verified;8 served files and byte ranges match.
+
+The shared junk pass ran on15 selected source pieces and returned43 unverified detector leads. Source-assisted QA's alleged Stanford reset overlapped complete speech and was not supported by native frames, so no cut was made from that report. Its contradictory suggestion to retain R11 did not override Dan's approved24-frame removal. Natural words, breaths and list cadence remain. Focused QC estimates total $0.250684, separate from generation; provider invoices and editor token usage are unavailable.
+
+The motion runner is prepared in `round14/recipe/generate_motion.py` and refuses execution without `review/budget-authorization.json`. Only create that authorization record after Dan's explicit budget answer. It rehashes the exact approved pairs, persists prediction IDs, permits one attempt per item and has no automatic paid retry. After motion succeeds, `build_previews.py` can build isolated R03-A/R12-A/R12-B contexts. Preserve the mirror and apply R11 once. Inspect actual shirt removal and family activity before recommending A or B. Regenerate the page and served packet with six separate moving controls and a family selection. All new motion and existing moving graphics require Dan's approval before full assembly.
+
+No independent complete-candidate reviewer ran. Inherited website gate FAIL remains. B deferred, dispatcher PAUSE verified, no publishing or application changes.
+
+### Continuation prompt
+
+Continue WV-01 round14 from this execution checkpoint using `$abs-edit-organic`. Record my explicit $5.38 incremental batch-budget answer before motion calls. Prepare exercise A and both exact family motions, inspect them, and add their moving contexts to the existing round14 individual-approval page. Preserve the three prepared graphic previews and existing approvals. No full render until every remaining moving item is approved. Keep B deferred, dispatcher paused and publishing off.
+
+Recommended model: **GPT-6 Sol, High effort**.
