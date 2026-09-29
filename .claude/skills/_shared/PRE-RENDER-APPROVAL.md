@@ -67,6 +67,12 @@ maps drop lines of reasoning. Check every handheld piece's first and last second
 signature. If timing changes, regenerate the time maps, graphic timing, subtitles and chapters. Approval of a look survives a clean cut;
 exact-file stamps do not. Transcribe every music bed before use and require zero words.
 
+**Check a side card over every piece it spans before proposing it, not only on its still.** A 3A left card that was clear on
+its approved still covered Dan in RO-05 round 3 (2026-09-29): handheld kitchen takes swing to products, punch in, and he walks
+to the left edge, so no fixed `shift_presenter` clears him. Sample about 8 frames per piece with the person mask and measure the
+head's left edge against the card edge (x752). If any piece fails, propose one Motivation lower third per item, on as he names it,
+beside the card option. Recipe: `/Volumes/Extreme/_edit_work/ro05-fable/round3/recipe/build_r3.py shifts`.
+
 ## Queue and records
 
 `placeholders.json` keeps its schema for clip identities and approval fingerprints; the opening, graphics and broader creative
