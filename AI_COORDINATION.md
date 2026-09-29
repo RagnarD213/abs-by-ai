@@ -93,7 +93,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **Queue covers - HANDOFF 2026-09-28, Claude.** All installed; Dan approved the rest. Next: execute crops/grid-shift handoff before Sep 29 5 PM CT. Row 16 R5 re-post still Dan's call.
 
-**WV-01 round16 - NEEDS DAN 2026-09-29, Codex.** Combined opening through 1:10 and 14-frame CTA tail repair: http://127.0.0.1:8766/round16/index.html. Next: Dan approves or requests changes on both. `Handoffs/handoff-20260929-wv01-round16-first-minute-review.md`. No full render; B deferred; dispatcher paused; no publishing.
+**WV-01 round17 - HANDOFF READY 2026-09-29, Codex.** Dan approved opening and CTA tail, authorized complete A render in next task. Next: execute `Handoffs/handoff-20260929-wv01-round17-full-A-render-and-QA.md` with exact-file QA. B deferred; dispatcher paused; no publishing.
 
 **RO-05 salad - NEEDS DAN 2026-09-28, Claude.** Round 2 sent: grade A/B/C, new opening, first minute, 47 Soft Blue graphic stills at `http://127.0.0.1:8775/index.html`. Next: Dan's decisions, then fire `Handoffs/handoff-20260928-ro05-round3-graphics-motion-and-clips.md`.
 
