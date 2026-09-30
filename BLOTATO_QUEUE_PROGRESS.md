@@ -92,7 +92,7 @@ Master `Zeeshan Content Videos/arms and shoulders home workout - video 2/arms an
 - TikTok: cover prepended as frame 0, `videoCoverTimestamp: 0` (frames 19784 to 19785, audio packets 30944 unchanged, cover match 51.7 dB).
 - Keyword `ABS`; AI disclosure on (goal image at 10:48). Config `scripts/blotato/configs/arms-shoulders-home-workout.json`.
 - Zeeshan's 09-22 "Video 2 No music" was NOT used: it strips the approved live-round track too.
-- Owes: AV-13 vertical, AS-12 square, RO-04 follow-along. SL-04 shorts queued 09-30 (see below). Parent is public (YouTube `ZxsFnsv7mLo`); its IG post `739230` reads failed.
+- Owes: AV-13 vertical, AS-12 square, RO-04 follow-along. SL-04 shorts queued 09-30 (see below). Parent is public (YouTube `ZxsFnsv7mLo`); IG went live 09-30 via re-queue `4962222`: instagram.com/reel/Dd6f-bJgXNJ.
 
 ## DONE — DS-04 “How to Do a Stomach Vacuum to Shrink Your Waist” (2026-09-18)
 

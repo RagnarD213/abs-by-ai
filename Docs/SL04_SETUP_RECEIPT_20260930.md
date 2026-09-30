@@ -6,7 +6,7 @@ Handoff `Handoffs/handoff-20260930-sl04-shorts-video-setup.md`, run by Claude Op
 - All five masters re-hashed: SHA-256 prefixes match the handoff (952f3596..., 8dc39f0e..., 2931ce4f..., f052cd54..., d5e9f096...).
 - Covers: short 2 `cover-B` (approved earlier); shorts 1, 3, 4, 5 `cover-D` from `Short-form video content/covers/approved-sl04-D-for-Claude/`, MD5-identical to `posted covers/` and `posted covers/youtube/`.
 - Classification: all five ORGANIC. Closing words from `/Volumes/Extreme/_edit_work/sl04/build/gate/*_asr_clean.json`: "like this at the top", "do three or four rounds", "whichever way works the best for you is perfectly valid", "just make sure there's no rocking", "no swinging, no rocking, no momentum". No "tap the button".
-- Parent "Arms & Shoulders Home Workout" is public: YouTube `ZxsFnsv7mLo`, FB reel and TikTok posted 2026-09-27. Its IG @danrosefit post (`739230`) reads **failed** ("internal server error"); not re-checked on Instagram.
+- Parent "Arms & Shoulders Home Workout" is public: YouTube `ZxsFnsv7mLo`, FB reel and TikTok posted 2026-09-27. Its first IG @danrosefit post (`739230`) failed (file over Instagram's 300 MB cap); the 266 MB re-queue `4962222` went live 2026-09-30: https://www.instagram.com/reel/Dd6f-bJgXNJ/
 - Content ID on the parent: claim "Heavy Metal Thunder" (Birthday PAPA, claimant Elite Alliance Music), 8:25-9:57, the live-round song. Studio says no impact on reach or channel, only potential earnings. Shorts 1 and 2 end on this track; queued anyway and flagged to Dan (first one posts Oct 6).
 - ad_guard `--scan` CLEAN before and after.
 
