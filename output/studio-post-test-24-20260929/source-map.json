@@ -1,0 +1,506 @@
+[
+  {
+    "id": "S01-A",
+    "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/studio-blue-100_FINAL_PRIMARY.jpg",
+    "sha256": "07fce4ae701370df72efbc5ceca22efc4722961f82b95028094a05086a68442e",
+    "crop": {
+      "person_box": [
+        107,
+        521,
+        2682,
+        5056
+      ],
+      "photographic_box": [
+        0,
+        411,
+        3368,
+        4621
+      ],
+      "waistband_crop": false
+    },
+    "shirtless": true
+  },
+  {
+    "id": "S01-B",
+    "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/studio-blue-145_FINAL_PRIMARY.jpg",
+    "sha256": "4ee2e21efe70cbb4ea02bc1ae3bfaba26fd4db2fe64e560cdc171faf0c26e7e7",
+    "crop": {
+      "person_box": [
+        409,
+        458,
+        3110,
+        5056
+      ],
+      "photographic_box": [
+        0,
+        348,
+        3368,
+        4558
+      ],
+      "waistband_crop": false
+    },
+    "shirtless": true
+  },
+  {
+    "id": "S01-C",
+    "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/studio-blue-11_FINAL_PRIMARY.jpg",
+    "sha256": "b8303f4719d27c04415e84a043d4684852a4ceec769d2b6415b56a371dd0827f",
+    "crop": {
+      "person_box": [
+        350,
+        441,
+        3038,
+        3650
+      ],
+      "photographic_box": [
+        366,
+        331,
+        3021,
+        3650
+      ],
+      "waistband_crop": true
+    },
+    "shirtless": true
+  },
+  {
+    "id": "S02-A",
+    "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/studio-blue-247_FINAL_PRIMARY.jpg",
+    "sha256": "f71d3b74b9bca3bedce88e0b1914eab686238a7c405239dc78896889772c0d43",
+    "crop": {
+      "person_box": [
+        436,
+        259,
+        2727,
+        5056
+      ],
+      "photographic_box": [
+        0,
+        149,
+        3368,
+        4359
+      ],
+      "waistband_crop": false
+    },
+    "shirtless": true
+  },
+  {
+    "id": "S02-B",
+    "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/studio-blue-175_FINAL_PRIMARY.jpg",
+    "sha256": "794e2531186f3f404cb0bdda4757e3500ee4c41dfee1aee2507d9155fc782621",
+    "crop": {
+      "person_box": [
+        414,
+        562,
+        2838,
+        5056
+      ],
+      "photographic_box": [
+        0,
+        452,
+        3368,
+        4662
+      ],
+      "waistband_crop": false
+    },
+    "shirtless": true
+  },
+  {
+    "id": "S02-C",
+    "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/studio-white-42_FINAL_PRIMARY.jpg",
+    "sha256": "325ce6365ba9ee6803c4b345369d773b277772a4b7210796e915cbf07abd6119",
+    "crop": {
+      "person_box": [
+        690,
+        182,
+        2917,
+        5056
+      ],
+      "photographic_box": [
+        0,
+        72,
+        3368,
+        4282
+      ],
+      "waistband_crop": false
+    },
+    "shirtless": true
+  },
+  {
+    "id": "S03-A",
+    "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/studio-blue-110_FINAL_PRIMARY.jpg",
+    "sha256": "a132f8b56747f0f4f4365341c943a613bc3d80c356e2d43de749189d3e939f02",
+    "crop": {
+      "person_box": [
+        495,
+        189,
+        3137,
+        5056
+      ],
+      "photographic_box": [
+        0,
+        79,
+        3368,
+        4289
+      ],
+      "waistband_crop": false
+    },
+    "shirtless": true
+  },
+  {
+    "id": "S03-B",
+    "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/studio-gray-2_FINAL_PRIMARY.jpg",
+    "sha256": "e687221a4209783db78008730e9613975e2e797cfc4617aac0d7a6bfd39e23b9",
+    "crop": {
+      "person_box": [
+        473,
+        660,
+        2682,
+        5056
+      ],
+      "photographic_box": [
+        0,
+        550,
+        3368,
+        4760
+      ],
+      "waistband_crop": false
+    },
+    "shirtless": true
+  },
+  {
+    "id": "S03-C",
+    "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/studio-gray-4_FINAL_PRIMARY.jpg",
+    "sha256": "2c3d1272582a58b1a12a12fe0d53f9937ded904f2e174dd3df3444e297ab7f9c",
+    "crop": {
+      "person_box": [
+        422,
+        527,
+        3107,
+        5056
+      ],
+      "photographic_box": [
+        0,
+        417,
+        3368,
+        4627
+      ],
+      "waistband_crop": false
+    },
+    "shirtless": true
+  },
+  {
+    "id": "S04-A",
+    "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/studio-blue-269_FINAL_PRIMARY.jpg",
+    "sha256": "af84b2fd96adc94fbdf2df490128ddeedec756e668de745de2bbed8cb82033ff",
+    "crop": {
+      "person_box": [
+        307,
+        468,
+        2937,
+        5056
+      ],
+      "photographic_box": [
+        0,
+        358,
+        3368,
+        4568
+      ],
+      "waistband_crop": false
+    },
+    "shirtless": true
+  },
+  {
+    "id": "S04-B",
+    "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/studio-gray-38_FINAL_PRIMARY.jpg",
+    "sha256": "5a15c207e01be0c5cec0fae0de6417c9477b9440d91df4dae43888827273ee0e",
+    "crop": {
+      "person_box": [
+        9,
+        394,
+        2735,
+        5056
+      ],
+      "photographic_box": [
+        0,
+        284,
+        3368,
+        4494
+      ],
+      "waistband_crop": false
+    },
+    "shirtless": true
+  },
+  {
+    "id": "S04-C",
+    "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/studio-blue-76_FINAL_PRIMARY.jpg",
+    "sha256": "f74c6e1242131c055f975e8f22eeea115c8981467292fa64beb625bc91e65bfe",
+    "crop": {
+      "person_box": [
+        105,
+        417,
+        2808,
+        5056
+      ],
+      "photographic_box": [
+        0,
+        307,
+        3368,
+        4517
+      ],
+      "waistband_crop": false
+    },
+    "shirtless": true
+  },
+  {
+    "id": "S05-A",
+    "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/studio-white-34_FINAL_PRIMARY.jpg",
+    "sha256": "3c2d2ba6dd5b9a887200868b071ba7b771942185bfe0072c171c0ad21377a2c7",
+    "crop": {
+      "person_box": [
+        629,
+        694,
+        2745,
+        5056
+      ],
+      "photographic_box": [
+        0,
+        584,
+        3368,
+        4794
+      ],
+      "waistband_crop": false
+    },
+    "shirtless": true
+  },
+  {
+    "id": "S05-B",
+    "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/studio-blue-177_FINAL_PRIMARY.jpg",
+    "sha256": "add68c71dc66727998346ab1888e712f3c0f1e3d1a389f87bee02786a85863d8",
+    "crop": {
+      "person_box": [
+        621,
+        841,
+        2413,
+        5056
+      ],
+      "photographic_box": [
+        0,
+        731,
+        3368,
+        4941
+      ],
+      "waistband_crop": false
+    },
+    "shirtless": true
+  },
+  {
+    "id": "S05-C",
+    "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/studio-white-25_FINAL_PRIMARY.jpg",
+    "sha256": "6facdf80b6b67cf9c44c4eecd66a5a24a5917de683d21512b7511e7ca3d08cd9",
+    "crop": {
+      "person_box": [
+        303,
+        453,
+        2966,
+        5056
+      ],
+      "photographic_box": [
+        0,
+        343,
+        3368,
+        4553
+      ],
+      "waistband_crop": false
+    },
+    "shirtless": true
+  },
+  {
+    "id": "S06-A",
+    "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/studio-blue-139_FINAL_PRIMARY.jpg",
+    "sha256": "e410ad8c25490b9b70cdb3d20fbc87e6f406d5cb6f04917f63077061a6aecb8d",
+    "crop": {
+      "person_box": [
+        236,
+        527,
+        2865,
+        5056
+      ],
+      "photographic_box": [
+        0,
+        417,
+        3368,
+        4627
+      ],
+      "waistband_crop": false
+    },
+    "shirtless": true
+  },
+  {
+    "id": "S06-B",
+    "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/studio-blue-127_FINAL_PRIMARY.jpg",
+    "sha256": "54680538a341b29d3da50a21f6897357129f08c363e567da1d31bf69360d4b50",
+    "crop": {
+      "person_box": [
+        552,
+        615,
+        2631,
+        5056
+      ],
+      "photographic_box": [
+        0,
+        505,
+        3368,
+        4715
+      ],
+      "waistband_crop": false
+    },
+    "shirtless": true
+  },
+  {
+    "id": "S06-C",
+    "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/studio-blue-5_FINAL_PRIMARY.jpg",
+    "sha256": "e26793c9189c5b2065bd7a9b24ceeecb5b7d0047f308eb72440e445050e098c5",
+    "crop": {
+      "person_box": [
+        488,
+        318,
+        3182,
+        3570
+      ],
+      "photographic_box": [
+        490,
+        208,
+        3180,
+        3570
+      ],
+      "waistband_crop": true
+    },
+    "shirtless": true
+  },
+  {
+    "id": "S07-A",
+    "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/studio-blue-109_FINAL_PRIMARY.jpg",
+    "sha256": "253926b6a7888e5ebdea08f9cf56c0122b9004a3977416e6728a0e8c8039fc37",
+    "crop": {
+      "person_box": [
+        110,
+        315,
+        2729,
+        5056
+      ],
+      "photographic_box": [
+        0,
+        205,
+        3368,
+        4415
+      ],
+      "waistband_crop": false
+    },
+    "shirtless": true
+  },
+  {
+    "id": "S07-B",
+    "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/studio-blue-164_FINAL_PRIMARY.jpg",
+    "sha256": "f0c74fdffdab0e42beb21b239a2021080235229e94929a5408a3442b5f26c207",
+    "crop": {
+      "person_box": [
+        271,
+        382,
+        2830,
+        5056
+      ],
+      "photographic_box": [
+        0,
+        272,
+        3368,
+        4482
+      ],
+      "waistband_crop": false
+    },
+    "shirtless": true
+  },
+  {
+    "id": "S07-C",
+    "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/studio-blue-221_FINAL_PRIMARY.jpg",
+    "sha256": "9ee755f823e94c1057b8fb41d9503380753836c01230e94066c312e834d5b36e",
+    "crop": {
+      "person_box": [
+        280,
+        285,
+        2878,
+        5056
+      ],
+      "photographic_box": [
+        0,
+        175,
+        3368,
+        4385
+      ],
+      "waistband_crop": false
+    },
+    "shirtless": true
+  },
+  {
+    "id": "S08-A",
+    "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/studio-blue-249_FINAL_PRIMARY.jpg",
+    "sha256": "2a71d42972534441ae5fb206a1731923033084b604236373d050d068c111bee5",
+    "crop": {
+      "person_box": [
+        182,
+        204,
+        2962,
+        5056
+      ],
+      "photographic_box": [
+        0,
+        94,
+        3368,
+        4304
+      ],
+      "waistband_crop": false
+    },
+    "shirtless": true
+  },
+  {
+    "id": "S08-B",
+    "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/studio-blue-192_FINAL_PRIMARY.jpg",
+    "sha256": "1c98ba32135782c0ef968413ab087bc8653b03e21b2bed8d0e68b409972ad68b",
+    "crop": {
+      "person_box": [
+        202,
+        624,
+        2801,
+        5056
+      ],
+      "photographic_box": [
+        0,
+        514,
+        3368,
+        4724
+      ],
+      "waistband_crop": false
+    },
+    "shirtless": true
+  },
+  {
+    "id": "S08-C",
+    "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/studio-gray-67_FINAL_PRIMARY.jpg",
+    "sha256": "460f533bf021f7cf32f7487b758bd7870d58b439fe9700ee10e94a1aec7a9b9d",
+    "crop": {
+      "person_box": [
+        120,
+        611,
+        2751,
+        3810
+      ],
+      "photographic_box": [
+        112,
+        501,
+        2759,
+        3810
+      ],
+      "waistband_crop": true
+    },
+    "shirtless": true
+  }
+]
