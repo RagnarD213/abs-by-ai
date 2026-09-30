@@ -13,6 +13,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
+| [handoff-20260930-hyperframes-pilot.md](handoff-20260930-hyperframes-pilot.md) | **Ready 2026-09-30. Claude Opus 5.5 / High.** HyperFrames pilot: install the plugin, rebuild the C1652 "downward spiral" cycle as a Soft Blue Light transparent overlay with real motion, show Dan old vs new. Graphics layer only. Research: `Docs/HYPERFRAMES_RESEARCH.md`. |
 | [handoff-20260930-sl04-short1-side-lateral-ending.md](handoff-20260930-sl04-short1-side-lateral-ending.md) | **Ready 2026-09-30. Claude Opus 5.5 / High.** SL-04 short 1: replace 0:35-0:57 arm-angle demo with a side-lateral cue, thumbs tip and live-round reps. Shorts 2-5 finalized. |
 | [handoff-20260930-ro16-round2-opener-motion-then-full-film.md](handoff-20260930-ro16-round2-opener-motion-then-full-film.md) | **With Dan's G03 pick. Opus 5.5 / High.** Round 1 approved; build, gate, review and deliver the full RO-16 film. |
 | [handoff-20260930-codex-adopt-review-page-format.md](handoff-20260930-codex-adopt-review-page-format.md) | **Ready 2026-09-30. Codex, GPT-6 Sol / Medium.** Adopt the RO-16 review-page layout and "What I decided" list in every Codex video skill and page builder. |

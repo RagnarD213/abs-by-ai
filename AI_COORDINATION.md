@@ -160,6 +160,7 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
+- `handoff-20260930-hyperframes-pilot.md` (09-30): HyperFrames pilot. Opus 5.5 high.
 - `handoff-20260930-sl04-short1-side-lateral-ending.md` (09-30): SL-04 short 1 new ending; shorts 2-5 finalized. Opus 5.5 high.
 - `handoff-20260930-ro16-round2-opener-motion-then-full-film.md` (09-30): with Dan's G03 pick. Opus 5.5 high.
 - `handoff-20260930-codex-adopt-review-page-format.md` (09-30): Codex adopts the RO-16 review page. GPT-6 Sol medium.
