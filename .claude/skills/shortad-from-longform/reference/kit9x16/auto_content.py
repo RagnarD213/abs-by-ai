@@ -923,39 +923,13 @@ def main():
                     if not any(v for _, _, v in runs):
                         ev_["label"] = "no label: the uploaded photo is not on this app screen"
                         continue
-                    q = next((q_ for q_ in prep if q_["beat"] is b_), None)
-                    if q is None:
-                        b_["label_kind"] = pb["label_kind"]; b_["caps"] = False
-                        continue
-                    # split the clip where the photo comes and goes; each piece keeps his picture frame-exact
-                    t1_all, c1_all = b_["t1"], q["c1"]
-                    parts = [b_]
-                    for r0, _, _ in runs[1:]:
-                        ts = T(r0)
-                        prev_b = parts[-1]
-                        nb = {k_: v_ for k_, v_ in b_.items() if k_ != "label_kind"}
-                        key2 = f"auto_{r0:05d}"
-                        nb["t0"] = ts; nb["media"] = key2; nb["caps"] = False
-                        out2 = os.path.join("assets_auto", f"{key2}.mp4")
-                        prep.append(dict(q, out=out2, beat=nb, c0=max(q["c0"], ts), c1=c1_all))
-                        media[key2] = ("vid", out2, 0.0)
-                        prev_b["t1"] = ts
-                        parts.append(nb)
-                    parts[-1]["t1"] = t1_all
-                    for i_, q_ in enumerate([x for x in prep if any(x["beat"] is p_ for p_ in parts)]):
-                        q_["c1"] = min(c1_all, q_["beat"]["t1"])
-                    for p_, (r0, r1, v) in zip(parts, runs):
-                        p_["caps"] = False
-                        if v:
-                            p_["label_kind"] = pb["label_kind"]
-                        else:
-                            p_.pop("label_kind", None)
-                    ev_["label"] = (f"{pb['label_kind']} label only while the uploaded photo is on screen; the screen is split at "
-                                    + ", ".join(f"{p_['t0']:.3f}" for p_ in parts[1:]))
-                    at = beats.index(b_)
-                    for j_, p_ in enumerate(parts[1:]):
-                        beats.insert(at + 1 + j_, p_)
-                        rep_beats.append(dict(entry=p_, confidence="high", evidence=dict(ev_, source="split from the app screen before it at the photo's edge")))
+                    # ONE clip, one card size; the chip shows only while the photo is on screen (splitting the clip
+                    # resized the phone at every split: a labelled card's hole is smaller, Ad 10 round 6 124.02 s)
+                    b_["label_kind"] = pb["label_kind"]; b_["caps"] = False
+                    b_["label_spans"] = [[round(max(0.0, T(r0) - b_["t0"]), 3), round(min(b_["t1"], T(r1)) - b_["t0"], 3)]
+                                         for r0, r1, v in runs if v]
+                    ev_["label"] = (f"{pb['label_kind']} label only while the uploaded photo is on screen: "
+                                    + ", ".join(f"{b_['t0'] + x:.2f}-{b_['t0'] + y:.2f}" for x, y in b_["label_spans"]))
 
     # ---- 5. overlays over live Dan: lower thirds and the CTA pill
     ov = []
