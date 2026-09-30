@@ -144,6 +144,13 @@ const SEGMENTS = [
       // opening played the hook over his back while he set the weights down, and "the next mistake"
       // referred to a mistake this Short never set up. CTC puts "is" at 263.87-263.93 and "when" at
       // 264.37, and VAD measures silence 264.03-264.25.
+      // Context first (Dan 2026-09-25: "it's not even obvious what exercise we're talking about"). The 245.5 "common
+      // mistakes I see with the side laterals" line was rejected: the camera cuts his hair on 67% of its frames
+      // (hair/Cctx.json). This line has room above his hair. In 208.90 drops "Alright," (measured dip 208.88-208.95,
+      // -39 dB vs -11 speech) and clears Zeeshan's zoom blur (208.1-208.7); out 211.37 sits between the "s" of
+      // "laterals" (to 211.33) and "For" (from 211.40).
+      // fadeOut 0.03: round-2 review heard a low rumble (105-137 Hz) cut to silence at the join; a 30 ms fade ends it
+      Object.assign(piece("let's talk about the next exercise", 'the side laterals', { inAt: 208.90, outAt: 211.37 }), { fadeOut: 0.03 }),
       piece('when they go to the top', 'make sure there\'s no rocking', { inAt: 264.22, outAt: 292.62 }),
     ],
   },

@@ -91,6 +91,8 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # ACTIVE
 
+**SL-04 arms shorts round 2 - DELIVERED 2026-09-29, Claude.** Five review copies in `Short-form video content/arms-shoulders REVIEW/`; all gate 2.3.2 PASS, fresh reviewers SHIP. Next: Dan reviews; rules on hair (camera framed it at the edge, no crop fixes it). Detail: `arms-shoulders-SHORTS.md`.
+
 **Studio batch - NEEDS DAN 2026-09-29, Codex.** Review 24 posts: `http://127.0.0.1:8791/`. Nothing scheduled. Package and Drive link: `output/studio-post-test-24-20260929/README.txt`.
 
 **Stashed edits - NEEDS OWNER 2026-09-29, Claude.** A rebase kept upstream versions of softblue.py, SOFTBLUE.md, GRAPHICS-STANDARDS.md, deliver/gate.py, coverimage SKILL.md, 00-MASTER.md, jobs.json. Uncommitted edits: `stash@{0}` (5d8284a). Next: owner re-applies.
@@ -159,7 +161,6 @@ Memory `google-ads-ui-automation`.
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
 - `handoff-20260928-queue-cover-crops-and-grid-shift.md` (09-28): 8 Hours cover due Sep 29 5 PM CT. Opus 5.5 medium.
-- `handoff-20260925-sl04-arms-shoulders-shorts-revisions.md` (09-25): SL-04 round 2 fixes. Opus 5.5 high.
 - `handoff-20260924-vsl-landing-five-mockups.md` (09-24): five VSL landing page mockups from VidTao research. Opus 5.5 high. Mockups only.
 - `handoff-20260924-generator-consult-call-outreach.md` (09-24): fire by 09-26.
 - `handoff-20260929-ro05-round4-motion-decisions-then-full-film.md` (09-29): RO-05 full film, all decisions locked. Opus 5.5 high. (`handoff-20260923-ro05-recut-astra.md`: Codex bake-off half.)

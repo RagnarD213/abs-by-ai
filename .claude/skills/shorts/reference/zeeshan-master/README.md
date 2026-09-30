@@ -48,3 +48,27 @@ watch.py -> fresh-subagent judge -> watch.py --judge -> gate.py --format short
 - Framing rows `hair_top` and `no_wide_level` are declared per build (his source framing); single-piece shorts
   declare `click_at_joins` / `splice_visibility`; a rep-cadence repeat in his approved cut declares
   `junk:repeated_take`. Every declaration carries its reason in `gate/<S>/declare.json`.
+
+## Round 2 (2026-09-29): what Dan's notes taught
+
+- **Measure the hair before promising a recrop.** `hair/measure.py` (Vision mask every 0.25 s) over every talking shot:
+  on this shoot the CAMERA framed Dan's hair at source row 0 on most wides and mediums, and the 8/3 main-camera
+  originals (C1582-C1587) have the same framing. No window can add rows above row 0; a card shows the same cut edge.
+  Check the source (and the raw camera file) first, then pick context lines by their measured headroom.
+- **Replace an editor's pill by cropping, not covering.** Zeeshan's lower-third pills live in source rows 804-907 on
+  every frame, entry and fade included. `cardCrop` y 0-0.739 (rows 0-798) removes his pill whole; our pill
+  (`pill/make_pill.py`, his olive (77,86,49), text (230,237,216), measured padding) goes on the black field under the
+  card with an alpha fade (`overlays.json` entries with `png`).
+- **A still-image grade test under-reads saturation.** `grade/skin.py` on RGB stills predicted skin sat 0.75 for
+  `eq=saturation=1.18`; the rendered file measured 0.79 (the YUV-RGB round trip inside `curves`). Always re-measure
+  the rendered file, then trim. Short 1's final grade: `curves 0.25/0.155 0.5/0.335 0.75/0.56 1/0.84, eq sat 1.08`.
+- **zsh does not word-split `${@:-A F C}`**: `deliver_all.sh` with no arguments ran one bogus id. Fixed with `set --`.
+- **Title band frame is flush with the canvas edge** (`INSET = 0`), Dan 2026-09-25: the frame must share the video's edge.
+- **Reviewer rounds this batch needed (2026-09-29): three.** Fixes that came from the fresh reviewers, all now plan
+  options in `plan_shots.py` / `render.js`: `cw`/`ch` (a custom window, e.g. 536x800 to stay above his pill band),
+  `slideFrom`/`slideDelay`/`slideFrames` (glide between two of our windows inside an editor's own zoom, instead of a
+  one-frame sideways jump), `xKeys` (keyframed window when a demo's arm span is wider than the window), card `slow`
+  (retime a card's last clean second across a label slide-out and a zoom blur, so nothing freezes while he talks),
+  piece `fadeOut` (a longer seam fade where a rumble was cut to silence), and a caption never runs past its audio join.
+  Per-shot grade saturation (`GRADE_SAT`): one overall grade made the editor's own shot-to-shot shift worse.
+- **The title scrim is gone**: it darkened the band's white corner brackets to grey (~65/255).

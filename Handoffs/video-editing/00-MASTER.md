@@ -153,7 +153,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [SL-01](SL-01-ab-wheel-workout-shorts.md) | Ab Wheel Workout: 3 Sets (Zeeshan, public 09-20) | READY | S |
 | [SL-02](SL-02-v1-channel-intro-shorts.md) | V1 Welcome To Abs By AI (channel intro) | READY (low priority) | S |
 | [SL-03](SL-03-meal-prep-app-demo-shorts.md) | 05 Meal Prep Macro Tracking (app demo) | BLOCKED: fold into RO-05 first | S |
-| [SL-04](SL-04-arms-shoulders-shorts.md) | Arms & Shoulders Home Workout (Zeeshan, 11:00) | READY | S |
+| [SL-04](SL-04-arms-shoulders-shorts.md) | Arms & Shoulders Home Workout (Zeeshan, 11:00) | DELIVERED: awaiting Dan | S |
 | [SL-05](SL-05-stop-deadlifting-shorts.md) | Stop Deadlifting (Zeeshan, 9:16, public Oct 11) | READY | S |
 
 **Will need shorts once final (no handoff yet; add one when the long-form is approved):**

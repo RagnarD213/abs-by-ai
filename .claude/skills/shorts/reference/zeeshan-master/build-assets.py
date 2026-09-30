@@ -13,7 +13,7 @@ W, H = 1080, 1920
 BG = (13, 14, 11)             # #0D0E0B
 OLIVE = (140, 152, 88)        # #8C9858
 GRID = (27, 30, 19)
-INSET = 28
+INSET = 0   # flush with the canvas edge (Dan 2026-09-25: frame must share the video edge, not sit inside it)
 
 IMPACT = '/System/Library/Fonts/Supplemental/Impact.ttf'
 COPPER = '/System/Library/Fonts/Supplemental/Copperplate.ttc'
@@ -83,7 +83,8 @@ def title_overlay(seg, meta):
         a = int(196 * f)
         for x in range(W):
             sp[x, y] = (6, 7, 5, a)
-    im.alpha_composite(scrim, (0, 0))
+    # Round-2 review (2026-09-29): the scrim darkened the band's white corner brackets to grey (~65/255). Every
+    # picture and card now starts at y>=310, so the band behind the title is always the solid J2 field: no scrim.
     d = ImageDraw.Draw(im)
     eyebrow = ImageFont.truetype(COPPER, 36)
     head = ImageFont.truetype(IMPACT, 98)
@@ -164,6 +165,7 @@ OV = json.load(open(os.path.join(HERE, 'overlays.json')))
 for seg, items in OV.items():
     if seg == 'note': continue
     for o in items:
+        if o.get('png'): continue   # a pre-built graphic (pill/make_pill.py), not a J2 chip
         p = chip(o['id'], o['text'], W, 84, size=44)
         assert Image.open(p).width <= W - 80, f"{o['id']} chip too wide"
         print(p)

@@ -40,6 +40,7 @@ function segWords(seg) {
       out.push({
         first: !out.some((o) => o.piece === p) ,
         piece: p,
+        pieceEnd: offset + (p.end - p.start),
         text: w.text,
         timestamp: [offset + Math.max(0, a - p.start), offset + Math.min(p.end - p.start, b - p.start)],
       });
@@ -62,7 +63,7 @@ function buildAss(seg) {
       prev.text = prev.text.replace(/\s+$/, '') + w.text.trim();
       prev.timestamp = [prev.timestamp[0], w.timestamp[1]];
     } else {
-      ws.push({ text: w.text, timestamp: [...w.timestamp], first: w.first });
+      ws.push({ text: w.text, timestamp: [...w.timestamp], first: w.first, pieceEnd: w.pieceEnd });
     }
   }
   // Per-WORD fixes before chunking (a two-word fix can straddle a chunk boundary).
@@ -105,6 +106,9 @@ function buildAss(seg) {
     // overlaps two cues and libass stacks the second one above the first.
     if (end - start < 0.3) end = start + 0.3;
     if (i + 1 < chunks.length) end = Math.min(end, chunks[i + 1][0].timestamp[0]);
+    // a cue never runs past the audio join its last word ends at (round-2 review, short 3: "the side laterals."
+    // held 3 frames into the next piece's picture)
+    if (c[c.length - 1].pieceEnd) end = Math.min(end, c[c.length - 1].pieceEnd - 0.02);
     // never past the picture (gate captions:within_runtime): the last cue ends 2 frames early
     end = Math.min(end, seg.pieces.reduce((a, p) => a + (p.end - p.start), 0) - 0.07);
     let text = c.map((w) => w.text.trim()).join(' ');
