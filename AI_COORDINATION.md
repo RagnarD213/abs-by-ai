@@ -100,6 +100,8 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **Queue covers - HANDOFF 2026-09-28, Claude.** All installed; Dan approved the rest. Next: execute crops/grid-shift handoff before Sep 29 5 PM CT. Row 16 R5 re-post still Dan's call.
 
+**SL-04 short 1 - NEEDS DAN 2026-09-30, Claude.** Round 3 delivered.
+
 **RO-05 salad - QUEUED 2026-09-30, Claude.** Posts Oct 18; then `TBD-daily-salad.md`+captions.
 
 **STOP Deadlifting clip - NEEDS DAN 2026-09-20, Codex.** R3 review copy delivered to the shared Drive folder: `1dXUbQajUzM-uO_Xl92telO0qsa-Ob7uV`. Full head visible; measured bar path rises once without reversing. Silent B-roll has no matching full-film delivery gate, so no gate PASS is claimed. Next: Dan reviews R3 and approves or names any corrections. Detail: `Media/ai-frames/stop-deadlifting-opening-20260918/motion-v2/R3_DELIVERY.json`.
@@ -162,7 +164,6 @@ Memory `google-ads-ui-automation`.
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
 - `handoff-20260930-hyperframes-templates-round2.md` (09-30): HyperFrames lower third, before card, 3A list templates. Opus 5.5 high.
-- `handoff-20260930-sl04-short1-side-lateral-ending.md` (09-30): SL-04 short 1 new ending; shorts 2-5 finalized. Opus 5.5 high.
 - `handoff-20260930-ro16-round2-opener-motion-then-full-film.md` (09-30): with Dan's G03 pick. Opus 5.5 high.
 - `handoff-20260930-codex-adopt-review-page-format.md` (09-30): Codex adopts the RO-16 review page. GPT-6 Sol medium.
 

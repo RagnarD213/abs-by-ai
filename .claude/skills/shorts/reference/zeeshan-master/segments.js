@@ -110,7 +110,7 @@ const SEGMENTS = [
     // REV 2 (Dan 2026-09-24): shoulders only. "Let's kill number one because of the triceps issue
     // and redo that one to make it focus on shoulders only" -> he picked option 2: the shoulders
     // talk plus the side-lateral SET-UP (weight + arm angle). The triceps talk is gone.
-    id: 'A', slug: 'make-your-waist-look-smaller',
+    id: 'A', slug: 'make-your-waist-look-smaller', joinShortEnd: true,
     title: 'Train Your Shoulders To Make Your Waist Look Smaller',
     pieces: [
       // inAt 27.60: "So, first of all," is dropped; VAD gap 27.57-27.71 sits before "you".
@@ -118,7 +118,32 @@ const SEGMENTS = [
             'make your abs and your waist look better', { inAt: 27.60, outAt: 59.80 }),
       // inAt 213.15: gap 213.09-213.22 after "dumbbells."; "for this" resolves two lines later
       // ("So, with the side laterals"). outAt: gap 238.07-238.69 after "is what you want."
-      piece("I'm doing 15 pounds", 'About that angle in your arms is what you want', { inAt: 213.15, outAt: 238.10 }),
+      // ROUND 3 (Dan 2026-09-30: "from 35 seconds to 57 seconds ... it's not clear why I'm showing them the arm angle
+      // when I don't show the complete exercise ... just tell them to do side laterals and show a few reps").
+      // The arm-angle demo (220.7-238.1) is gone. Piece 2 now runs on through "So, with the side laterals," and cuts
+      // before "I'll demonstrate". No VAD gap there, so the out-point is MEASURED (envelope + spectrogram,
+      // master48.wav): the "s" of "laterals" hisses to ~220.62, the level trough (-40 dB, the music floor) is at
+      // 220.655 and "I'll" voices from 220.67. Whisper small.en on the splice hears "laterals," at 220.63 and 220.655
+      // and "lateral," at 220.60, so 220.645. Written as an explicit piece because piece() asserts a VAD gap.
+      { start: 213.15, end: 220.645, from: "I'm doing 15 pounds", to: 'So, with the side laterals', measuredOut: true },
+      // The brief how-to: "if you guys look at my thumbs right now, I'm going to be like this at the top" (unused in any
+      // short). In 239.67: the "d" release of "and" is at ~239.55 (Whisper heard "and if" from 239.62, "if" from 239.66);
+      // "if" voices from 239.77. Out 244.74: "top" ends ~244.65, the next sentence starts 245.0 and the rise from
+      // 244.8 is its breath; no VAD gap (it merged the breath), so measured, like piece 2's out-point.
+      // The 1.34 s pause between "be" (CTC end 242.23) and "like" (243.57) is over the gate's 1.0 s dead-air bound and
+      // shows his arms swinging up over his head (a Y, not the top of a lateral raise). It is cut inside VAD gap
+      // 242.23-243.50: out 242.40 (arms level), in 243.42 (arms coming down to level); 0.29 s of pause remains. The
+      // picture never shows the in-point pose (his arms overhead): the arm-raise card holds its last level frame over the
+      // pause and the reps card enters on "like" (plan_shots.py).
+      Object.assign(piece('if you guys look at my thumbs', "I'm going to be", { inAt: 239.67, outAt: 242.40 }), { continues: true }),
+      { start: 243.42, end: 244.74, from: 'like this at the top', to: 'like this at the top', measuredOut: true, continues: true },
+      // Reps: the live round of side laterals (music only, his timer + "Side Lateral Raises" pill). The picture
+      // L-cuts to the reps on the top of a rep at 550.048 (short 2 owns source to 550.0) and runs continuously into the music.
+      // It ends at 559.47 (total 51.99 s: the verbatim gate checks whole seconds 1..N-1, so at 52.01 s the 0.7 s fade fell inside the last checked second, -2.1 dB): his pill starts fading at 559.57 (olive-pixel scan), and
+      // the weights are coming down to his sides. fadeOut 0.7 (review: a 0.15 s fade stopped the song dead mid-lyric).
+      // Round-3c review: "like this at the top" is the whole how-to, so the reps now start ON "like" (CTC 243.566), not
+      // at the pause join: 550.048 + (244.74 - 243.566) = 551.22.
+      Object.assign(musicPiece(551.22, 559.47, 'live round: side lateral raises (reps)'), { fadeOut: 0.7 }),
     ],
   },
   {

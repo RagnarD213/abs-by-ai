@@ -13,28 +13,28 @@
   },
   {
    "id": "F-o1",
-   "text": "30 SEC  \u00b7  BICEP CURLS",
+   "text": "30 SEC  ·  BICEP CURLS",
    "t0": 26.28,
    "t1": 27.9,
    "y": 1110
   },
   {
    "id": "F-o2",
-   "text": "30 SEC  \u00b7  SIDE LATERALS",
+   "text": "30 SEC  ·  SIDE LATERALS",
    "t0": 27.9,
    "t1": 29.7,
    "y": 1110
   },
   {
    "id": "F-o3",
-   "text": "30 SEC  \u00b7  TRICEP EXTENSIONS",
+   "text": "30 SEC  ·  TRICEP EXTENSIONS",
    "t0": 29.7,
    "t1": 32.54,
    "y": 1110
   },
   {
    "id": "F-o4",
-   "text": "30 SEC  \u00b7  REST",
+   "text": "30 SEC  ·  REST",
    "t0": 32.54,
    "t1": 34.0,
    "y": 1110
@@ -45,6 +45,16 @@
    "t0": 34.0,
    "t1": 35.4,
    "y": 1110
+  }
+ ],
+ "A": [
+  {
+   "id": "A-o1",
+   "text": "DO SIDE LATERALS  ·  5-10 LB",
+   "t0": 43.75,
+   "t1": 52.1,
+   "y": 1340,
+   "why": "Round 3 (Dan 2026-09-30: 'just tell them to do side laterals and show a few reps'). J2 chip on the black field under the reps card (card y470-1168), at short 2's live-round chip height y1340; on from 43.75, just after the last caption ('like this at the top.') and the music join (43.73), to the end (52.02); carries the instruction plus the weight he gave at 33-37 s."
   }
  ]
 }

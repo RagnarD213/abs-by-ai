@@ -34,8 +34,12 @@ const SRC_W = 1920, SRC_H = 1080;
 // crushed the blacks to 1-2. Now one curve with a lifted black point and a per-shot saturation that brings every
 // shot's measured skin sat to ~0.62 (r2chk/ps, grade/skin.py on the rendered file).
 const GRADE_CURVE = "curves=all='0/0.025 0.25/0.165 0.5/0.335 0.75/0.56 1/0.84'";
-const GRADE_SAT = { 'A-s00': 1.23, 'A-s01': 1.15, 'A-s02': 0.89, 'A-s03': 0.86, 'A-s04': 0.78, 'A-s05': 0.82, 'A-s06': 0.76 };
-const gradeFor = (s) => (s.seg === 'A' ? `${GRADE_CURVE},eq=saturation=${GRADE_SAT[s.name] ?? 1.0},` : '');
+const GRADE_SAT = { 'A-s00': 1.23, 'A-s01': 1.15, 'A-s02': 0.89, 'A-s03': 0.86, 'A-s04': 0.78, 'A-s05': 0.82, 'A-s06': 0.76, 'A-s07': 0.76, 'A-s08': 1.35 };  // round 3: s06-s08 are the new ending (measured below)
+// Round 3: the reps card (A-s08, the evening live round) is not sun-blown: its skin is already at luma 0.41-0.45 like
+// the graded talk (0.42-0.44), and the curve took it to 0.29. So saturation only: 1.35 measured skin sat 0.52-0.57 on
+// stills (the render reads a little higher); more pushed the pool blues.
+const NO_CURVE = new Set(['A-s08']);
+const gradeFor = (s) => (s.seg === 'A' ? `${NO_CURVE.has(s.name) ? '' : GRADE_CURVE + ','}eq=saturation=${GRADE_SAT[s.name] ?? 1.0},` : '');
 
 const ff = (args, label) => {
   const r = spawnSync(FF, ['-hide_banner', '-loglevel', 'error', '-y', ...args], { encoding: 'utf8' });

@@ -41,8 +41,18 @@ PLAN = {
   # wide too. The picture cuts from the medium straight to the wide that precedes piece 2 (source
   # 212.582-), so there is one picture cut, medium -> wide, instead of wide | wide.
   ('lcut:59.232:212.582', 'talk', 'zoom', 925, 'wide NEAR across the join (L-cut picture). Round 2b: he is bent over picking up the dumbbells 212.58-213.8 (body x594-1112), then upright; the old fixed zoom left him off the left edge (reviewer) and a FULL window showed Zeeshan\'s "Exercise #2" pill sliced (rows 804-907, from 210.97). Custom 536x800 window ends above the pill band holds x825 while he is bent (per-frame person mask: >= 27 px margin both sides, hair/ab) (round-2b review: a glide from the first frame drifted off him), then glides to x925 over 16 frames from 213.80 as he stands', None, {'cw': 536, 'ch': 800, 'slideFrom': 825, 'slideDelay': 36, 'slideFrames': 16}),
-  (218.94, 'talk', 'full', 925, 'full body while he sets the weights down (bends to the mat ~220-222); gap 218.34-218.94'),
-  (223.327, 'card', None, None, "Zeeshan's medium where he shows the arm angle: his arm reaches x328-1202, wider than any 9:16 window, and the angle IS the lesson; inset card x230-1306 at 1.0x", None, {'cardCrop': [0.12, 0.68, 0, 1], 'cardY': 310, 'cam': 'medium'}),
+  (218.94, 'talk', 'full', 925, 'full body, upright with the dumbbells through "for this. So, with the side laterals," (person mask 218.9-220.7: x740-1144, window x563-1287); gap 218.34-218.94'),
+  # ROUND 3: the arm-angle demo rows (218.94 set-down, 223.327 card) are gone with piece 2's new out-point.
+  (239.67, 'talk', 'full', 945, 'Zeeshan\'s medium, thumbs up at his chest for "if you guys look at my thumbs right now" (person mask 239.6-241.6: x728-1162, window x583-1307). A real size step from the wide (his medium is ~2x the wide)', None, {'cam': 'medium'}),
+  (241.70, 'card', None, None, 'he raises his arms for "I\'m going to be": arm span x392-1490 (person mask 241.85-242.35), wider than any 9:16 window, so a loose card x0-1670 (0.65x). The cut lands as the raise starts (arms still at x728-1154 at 241.6): 1.49x -> 0.65x. Round-3b review: the card box is IDENTICAL to the reps card that follows (crop [0, 0.87], y470-1168); a different box jumped 28-38 px on that cut. holdTail 5: 21 real frames (to source 242.367, arms level, thumbs turned down) then that frame held over the silent pause to "like"', None, {'cardCrop': [0, 0.87, 0, 1], 'cardY': 470, 'cam': 'medium', 'holdTail': 5}),
+  # ROUND-3C REVIEW: the level-arms pose "like this at the top" refers to was on screen ~5 frames. His own demo never
+  # holds it (hands sweep from overhead at 243.58, y56, through level at ~243.9, to below level by 244.33: person-mask
+  # extremes, scratch fist/), so the loose card above holds its last level frame (242.367: fists x396,y292 / x1490,y332)
+  # across the silent pause (holdTail, <= 7 frames) and the reps enter on "like" at the top of a rep.
+  # ROUND-3 REVIEW: the in-point 243.42 is the top of his overhead Y (thumbs down, fists cut by the card edge for 5
+  # frames), the pose Dan should not see. So the picture L-cuts to the reps at that join instead: "like this at the top"
+  # plays over his live-round reps, from the top of a rep (550.048).
+  ('lcut:243.566:550.048', 'card', None, None, 'reps: live round of side laterals, his timer (top left) and "Side Lateral Raises" pill whole on every frame; arms+dumbbells span x208-1592 (person mask 550.0-556.5) and x386-1330 (556.5-560.25), card x0-1670. Zeeshan\'s own smooth push-out at 552.2-552.7 stays (no blur, timer and pill whole). Ends 559.47, before his pill fades (559.57)', None, {'cardCrop': [0, 0.87, 0, 1], 'cardY': 470}),
  ],
  'F': [
   (100.40, 'talk', 'full', 937, 'wide full body opening; frames 0-6 would carry the tail of Zeeshan\'s zoom-blur transition (reviewer, 2026-09-24), so the first clean frame (source 100.634) is held for 7 frames while Dan is still silent (speech from 100.57)', None, {'holdHead': 7}),

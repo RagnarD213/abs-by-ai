@@ -38,7 +38,9 @@ function segWords(seg) {
       const ov = Math.min(b, p.end) - Math.max(a, p.start);
       if (ov / Math.max(1e-6, b - a) <= 0.5) continue;
       out.push({
-        first: !out.some((o) => o.piece === p) ,
+        // a piece marked `continues` carries on the previous piece's sentence (SL-04 round 3: "laterals, | if you guys"):
+        // its first word is not capitalised, and the mid-sentence lower-casing below applies to it
+        first: !p.continues && !out.some((o) => o.piece === p) ,
         piece: p,
         pieceEnd: offset + (p.end - p.start),
         text: w.text,
@@ -90,7 +92,11 @@ function buildAss(seg) {
     const [start] = w.timestamp;
     if (cur.length) {
       const prevEnd = cur[cur.length - 1].timestamp[1];
-      if (start - prevEnd > 0.6 || cur.length >= 4) flush();
+      // four words a cue, except that a short sentence-ending word joins a 4-word cue instead of flashing alone
+      // (SL-04 round-3 review: "top." was up for 6 frames after "like this at the"). Opt-in per short (seg.joinShortEnd)
+      // so the finalized shorts rebuild exactly as approved
+      const endsShort = seg.joinShortEnd && /[.?!…]$/.test(w.text.trim()) && w.text.trim().length <= 5;
+      if (start - prevEnd > 0.6 || (cur.length >= 4 && !(cur.length === 4 && endsShort))) flush();
     }
     cur.push(w);
     const txt = w.text.trim();
@@ -109,6 +115,9 @@ function buildAss(seg) {
     // a cue never runs past the audio join its last word ends at (round-2 review, short 3: "the side laterals."
     // held 3 frames into the next piece's picture)
     if (c[c.length - 1].pieceEnd) end = Math.min(end, c[c.length - 1].pieceEnd - 0.02);
+    // ASS times are centiseconds and libass rounds to nearest: 42.405 printed 42.41 and held the cue on the first frame
+    // (42.409) of the next shot (SL-04 round 3). Floor it for shorts that opt in, so finalized ones rebuild as approved.
+    if (seg.joinShortEnd && c[c.length - 1].pieceEnd) end = Math.min(end, Math.floor((c[c.length - 1].pieceEnd - 0.02) * 100) / 100);
     // never past the picture (gate captions:within_runtime): the last cue ends 2 frames early
     end = Math.min(end, seg.pieces.reduce((a, p) => a + (p.end - p.start), 0) - 0.07);
     let text = c.map((w) => w.text.trim()).join(' ');
