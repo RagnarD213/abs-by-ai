@@ -1,0 +1,20 @@
+[
+  {
+    "style": 2,
+    "prompt": "Use case: photorealistic-natural. Create a photographic BACKGROUND PLATE ONLY for compositing a real standing fitness portrait. Vertical 4:5. Empty warm neutral architectural interior, fine beige lime plaster wall, restrained editorial photography, subtly curved wall recess on far right, understated limestone floor at bottom 10 percent. Soft broad window light from camera left, mild window shadows only at far right, calm warm beige palette. 85mm portrait perspective, camera level at adult chest height. Center 75 percent must be plain unobstructed wall, softly focused. No people, no bodies, no text, no objects in foreground, no dramatic light, no vignette. Premium natural photographic finish.",
+    "tool": "built-in image_gen",
+    "reported_cost": null
+  },
+  {
+    "style": 3,
+    "prompt": "Use case: photorealistic-natural. Vertical 4:5 photographic background plate ONLY, empty boutique functional training studio for a real portrait composite. Chest-height level camera with 85mm lens, shallow depth of field. Restrained warm oak vertical slats rear wall, large softly glowing windows off left, black rubber floor. A few softly blurred dumbbells on a low rack at far left and a cable machine at far right edge. Center 70 percent spacious uncluttered negative space for a standing man, shot cropped at thighs; background several meters behind subject. Natural broad soft light from camera left/front, no theatrical lighting, believable premium gym, no people, no human figures, no text, no logos.",
+    "tool": "built-in image_gen",
+    "reported_cost": null
+  },
+  {
+    "style": 4,
+    "prompt": "Use case: photorealistic-natural. Vertical 4:5 photo, empty outdoor boxing training courtyard BACKGROUND PLATE ONLY for compositing a real portrait in Thai boxing shorts. Chest-height level camera, 85mm portrait lens, softly focused background 4 meters away. Muted warm plaster wall at back, blurred tropical leaves at far upper right, a black heavy punching bag hanging far behind at extreme left. Soft open shade illumination from front left to match studio softbox portrait, no direct sun on subject area, no harsh rim light, restrained greens and warm stone, very believable contemporary outdoor training space. Empty center 70 percent for standing portrait head to thighs. No people, no faces, no figures, no text or logos, no foreground obstructions.",
+    "tool": "built-in image_gen",
+    "reported_cost": null
+  }
+]

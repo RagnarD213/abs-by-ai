@@ -91,6 +91,8 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # ACTIVE
 
+**Studio batch - NEEDS DAN 2026-09-29, Codex.** 24 posts, 48 images, captions, templates and gallery complete. Next: Dan reviews at `http://127.0.0.1:8791/`. No scheduling or publishing. Files: `output/studio-post-test-24-20260929/`; Drive backup `19en-2zvk9LWgeItK51A4pZeGzfP189Ih`.
+
 **Queue covers - HANDOFF 2026-09-28, Claude.** All installed; Dan approved the rest. Next: execute crops/grid-shift handoff before Sep 29 5 PM CT. Row 16 R5 re-post still Dan's call.
 
 **WV-01 round17 - HANDOFF READY 2026-09-29, Codex.** Dan approved opening and CTA tail, authorized complete A render in next task. Next: execute `Handoffs/handoff-20260929-wv01-round17-full-A-render-and-QA.md` with exact-file QA. B deferred; dispatcher paused; no publishing.
