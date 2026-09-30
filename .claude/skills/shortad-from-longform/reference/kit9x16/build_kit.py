@@ -709,6 +709,23 @@ def main():
         kk = max(lo_n - n0, min(hi_n - n0, k)) if lo_n <= hi_n else 0
         if kk != k:
             r["k_unclamped"], r["k"], r["clamped_k"] = k, kk, True
+    # ---- LIP SYNC: a picture cut moves off the audio cut only inside the pause between his words. Moved earlier,
+    #      the incoming take's pre-roll plays over the outgoing words; moved later, the outgoing take plays over the
+    #      incoming words (Ad 8 207.39 s: a 14-frame head-match move put his lips 8 frames ahead of "future.",
+    #      kit autofill round 8). Cuts snapped under an insert edge are hidden by the insert and keep their move.
+    ends = sorted(w["e"] for w in words); starts = sorted(w["t"] for w in words)
+    for r in piccuts:
+        if r.get("method") == "edge-snap" or r.get("snapped_to_boundary") or not int(r["k"]):
+            continue
+        t_ = n_audio[r["i"]] / FPS; k = int(r["k"])
+        if k < 0:
+            e_prev = max([e for e in ends if e <= t_ + 0.05] or [0.0])
+            kk = max(k, -int((t_ - e_prev) * FPS))
+        else:
+            s_next = min([s_ for s_ in starts if s_ >= t_ - 0.05] or [dur])
+            kk = min(k, int((s_next - t_) * FPS))
+        if kk != k:
+            r["k_unsynced"], r["k"], r["lip_sync_clamped"] = k, kk, True
     P = [dict(s) for s in E]
     for i in range(1, len(P)):
         k = int(byi[i]["k"]) if i in byi else 0
