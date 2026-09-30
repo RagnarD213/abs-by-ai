@@ -254,6 +254,20 @@ class ContractV2Tests(unittest.TestCase):
         self.assertFalse(row.ok)
         self.assertEqual(row.value["tightest"], -10)
 
+    def test_timed_pairs_repeat_word_after_muted_stretch_pairs_by_time(self):
+        # captions off over a card: "it was AI" ... (muted: "I generated ... screen.") ... "I looked"
+        speech = [dict(w=w, t=t) for w, t in (("it", 89.29), ("was", 89.39), ("AI", 89.65), ("I", 90.27),
+                                               ("generated", 90.45), ("screen", 94.69), ("I", 95.29), ("looked", 95.43))]
+        states = [dict(word=w, beat=[t, t + 0.1]) for w, t in (("it", 89.29), ("was", 89.39), ("AI", 89.66),
+                                                              ("I", 95.30), ("looked", 95.43))]
+        pairs, _, _ = CT.timed_word_pairs(states, speech)
+        worst = max(abs(d) for d, _c, _s in pairs)
+        self.assertLess(worst, 0.05)
+        # a caption that really is late keeps its measured offset (no nearer same word to take instead)
+        late = [dict(word=w, beat=[t, t + 0.1]) for w, t in (("it", 89.29), ("was", 89.39), ("AI", 89.66), ("I", 91.30))]
+        pairs, _, _ = CT.timed_word_pairs(late, speech[:5])
+        self.assertGreater(max(abs(d) for d, _c, _s in pairs), 1.0)
+
 
 if __name__ == "__main__":
     unittest.main()
