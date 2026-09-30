@@ -91,9 +91,9 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **Shared checkout cannot push - NEEDS OWNER 2026-09-30, Claude.** Checkout is 11 commits ahead (41bb43b..9982b49), 47 behind, with other sessions' dirty files; pull/merge/rebase refuse. Next: fire `Handoffs/handoff-20260930-fix-stuck-main-checkout.md` when no session runs here.
 
-**HyperFrames pilot - IN PROGRESS 2026-09-30, Claude.** C1652 spiral graphics, `Media/hyperframes/`. Next: Dan reviews.
-
 **RO-12 - IN PROGRESS 2026-09-30, Claude.** First cut from C1706. Dir `/Volumes/Extreme/_edit_work/ro12/`.
+
+**HyperFrames templates r2 - NEEDS DAN 2026-09-30, Claude.** Review page: `/Volumes/Extreme/_edit_work/hyperframes-r2/review/index.html`. Commit 110eacb local (checkout cannot push). Next: Dan approves; then README, SOFTBLUE.md, first-full-video handoff.
 
 **RO-16 - IN PROGRESS 2026-09-30, Claude.** Round 2 (G03 option 2): full film rendering, `/Volumes/Extreme/_edit_work/ro16/round2/`. Next: gates, review, deliver.
 
@@ -105,9 +105,11 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **Vertical kit autofill - IN PROGRESS 2026-09-28, Claude.** Executing `Handoffs/handoff-20260925-vertical-kit-autofill-no-model-session.md` in worktree `/private/tmp/abs-kit-autofill`. Builds: `/Volumes/Extreme/_edit_work/kit9x16/auto-*`. Next: answer keys, Ad 10 rebuild, AV-09.
 
-**Stop Deadlifting - QUEUED 2026-09-29, Claude.** Blotato Oct 11 9AM CT, 4 platforms. Next: once posted, publish `sixpackabs/articles/TBD-stop-deadlifting.md`, then delete. SL-05 picks pending: `_edit_work/sl05`.
+**SL-04 short 1 - IN PROGRESS 2026-09-30, Claude.** Re-cutting ending.
 
-**RO-05 salad - APPROVED 2026-09-30, Claude.** Queue `finalized`. Next: Codex thumbnail handoff, then Claude setup handoff with Dan's final thumbnail.
+**Stop Deadlifting - QUEUED 2026-09-29, Claude.** Blotato Oct 11 9AM CT, 4 platforms. Next: once posted, publish `sixpackabs/articles/TBD-stop-deadlifting.md`, then delete. SL-05: round 1 handoff below.
+
+**RO-05 salad - QUEUED 2026-09-30, Claude.** Posts Oct 18; then publish `sixpackabs/articles/TBD-daily-salad.md`.
 
 **STOP Deadlifting clip - NEEDS DAN 2026-09-20, Codex.** R3 review copy in shared Drive folder `1dXUbQajUzM-uO_Xl92telO0qsa-Ob7uV`: full head visible, bar path rises once. Silent B-roll has no full-film gate, so no PASS claimed. Next: Dan approves R3 or names corrections. Detail: `Media/ai-frames/stop-deadlifting-opening-20260918/motion-v2/R3_DELIVERY.json`.
 
@@ -165,7 +167,8 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
-- `handoff-20260930-sl04-short1-side-lateral-ending.md` (09-30): SL-04 short 1 new ending; shorts 2-5 finalized. Opus 5.5 high.
+- `handoff-20260930-sl05-round1-look-and-intro-packet.md` (09-30): SL-05 review page. Opus high.
+- `handoff-20260930-hyperframes-templates-round2.md` (09-30): executing (ACTIVE).
 - `handoff-20260930-ro16-round2-opener-motion-then-full-film.md` (09-30): with Dan's G03 pick. Opus 5.5 high.
 - `handoff-20260930-codex-adopt-review-page-format.md` (09-30): Codex adopts the RO-16 review page. GPT-6 Sol medium.
 
@@ -173,7 +176,6 @@ Memory `google-ads-ui-automation`.
 - `handoff-20260929-start-page-performance-verdict.md` (09-29): /start keep-or-fold.
 - `handoff-20260924-vsl-landing-five-mockups.md` (09-24): five VSL landing page mockups from VidTao research. Opus 5.5 high. Mockups only.
 - `handoff-20260924-generator-consult-call-outreach.md` (09-24): fire by 09-26.
-- `handoff-20260930-ro05-thumbnails-codex.md` (Codex), then `…-ro05-video-setup.md` (Claude, needs the thumbnail).
 - `handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md` [dash]: PHONE ONLY, 3 TikTok covers (updated 09-22). Sonnet 5 or Fable 5.1 / Medium.
 - `handoff-20260915-finalized-ads-6-14-youtube-and-google-ads.md` — Ads 6, 7, 10, 14 → YouTube + DGen (2026-09-15). Codex, high.
 - **`video-editing/00-MASTER.md` — THE video-editing list (2026-09-16):** 16 raw short ads, 25 dedicated shorts, 8 long-forms, 3 shorts-from-long-form, 15 ad variants; one doc per job, Claude + Codex prompts. Supersedes the J1–J18 ad-variants queue. Dan picks the order.

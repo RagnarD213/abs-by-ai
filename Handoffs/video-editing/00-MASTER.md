@@ -95,11 +95,11 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 
 | job | video | rolls | status | size |
 |---|---|---|---|---|
-| [RO-01](RO-01-keep-your-muscle-on-zepbound.md) | How To Keep Your Muscle On Zepbound | 8/14 C1605–08 (27 min) | **NEEDS DAN** | L |
+| [RO-01](RO-01-keep-your-muscle-on-zepbound.md) | How To Keep Your Muscle On Zepbound | 8/14 C1605–08 (27 min) | DRAFT: asset choices waiting for Dan | L |
 | [RO-02](RO-02-the-vacuum-explainer.md) | The Vacuum: Best Ab Exercise For Belly Fat | 8/14 C1614–29 (26 min) | READY | L |
 | [RO-03](RO-03-the-vacuum-workout-only.md) | The Vacuum — Workout Only | 8/14 C1625 | READY (best after RO-02) | S |
 | [RO-04](RO-04-arms-shoulders-workout-only.md) | Arms & Shoulders — Workout Only | 8/3 C1586 | READY | S |
-| [RO-05](RO-05-how-i-make-my-daily-salad.md) | How I Make My Daily Salad | 8/3 C1533–56 (50 min) | READY | L |
+| [RO-05](RO-05-how-i-make-my-daily-salad.md) | How I Make My Daily Salad | 8/3 C1533–56 (50 min) | UPLOADED | L |
 | [RO-06](RO-06-work-out-at-home-on-a-budget.md) | How To Work Out At Home On A Budget | 8/3 C1557–81 (31 min) | READY | L |
 | [RO-07](RO-07-why-you-must-work-out-every-day.md) | Why You MUST Work Out Every Day | 7/8 C1484–85 (30 min) | READY | L |
 | [RO-08](RO-08-intermittent-fasting.md) | Intermittent Fasting: Best Way To Get Abs | 7/8 C1486 (23 min) | READY | L |
@@ -123,11 +123,11 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 |---|---|---|---|---|
 | [RO-10](RO-10-calories-the-reason-you-re-not-losing-weight.md) | Calories: The Reason You're Not Losing Weight | 9/23 C1704 | READY | L |
 | [RO-11](RO-11-when-calories-don-t-matter-for-fat-loss.md) | When Calories Don't Matter For Fat Loss | 9/23 C1705 | READY | L |
-| [RO-12](RO-12-top-5-zepbound-tips.md) | Top 5 Zepbound Tips | 9/23 C1706 | READY | L |
+| [RO-12](RO-12-top-5-zepbound-tips.md) | Top 5 Zepbound Tips | 9/23 C1706 | IN PROGRESS | L |
 | [RO-13](RO-13-can-you-drink-alcohol-and-still-have-abs.md) | Can You Drink Alcohol And Still Have Abs? | 9/23 C1707 | READY | L |
 | [RO-14](RO-14-why-you-re-not-losing-weight.md) | Why You're Not Losing Weight | 9/23 C1708 | READY | L |
 | [RO-15](RO-15-sleep-better-with-glycine.md) | Sleep Better With Glycine | 9/23 C1709 | READY | L |
-| [RO-16](RO-16-if-i-had-belly-fat-here-s-how-i-d-lose-it-in-90-da.md) | If I Had Belly Fat, Here's How I'd Lose It In 90 Days | 9/23 C1710 | READY | L |
+| [RO-16](RO-16-if-i-had-belly-fat-here-s-how-i-d-lose-it-in-90-da.md) | If I Had Belly Fat, Here's How I'd Lose It In 90 Days | 9/23 C1710 | IN PROGRESS | L |
 | [RO-17](RO-17-3-healthy-foods-that-made-me-fat.md) | 3 Healthy Foods That Made Me Fat | 9/23 C1713 | DRAFT: asset choices waiting for Dan | L |
 | [RO-18](RO-18-how-to-make-time-for-exercise-nutrition.md) | How To Make Time For Exercise & Nutrition | 9/23 C1714-C1715 | READY | L |
 
@@ -135,7 +135,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 
 | job | video | rolls | status | size |
 |---|---|---|---|---|
-| [WV-01](WV-01-vsl-1-analysis-page-video-version-a-version-b-intr.md) | VSL 1: Analysis-page video (version A + version B intro) | C1692-C1700 | NEEDS DAN: round14 moving previews | L |
+| [WV-01](WV-01-vsl-1-analysis-page-video-version-a-version-b-intr.md) | VSL 1: Analysis-page video (version A + version B intro) | C1692-C1700 | FINALIZED | L |
 | [WV-02](WV-02-vsl-2-start-landing-page-video.md) | VSL 2: /start landing-page video | C1701-C1703 | READY | M |
 
 ### 1D · Housekeeping
@@ -152,9 +152,9 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 |---|---|---|---|
 | [SL-01](SL-01-ab-wheel-workout-shorts.md) | Ab Wheel Workout: 3 Sets (Zeeshan, public 09-20) | READY | S |
 | [SL-02](SL-02-v1-channel-intro-shorts.md) | V1 Welcome To Abs By AI (channel intro) | READY (low priority) | S |
-| [SL-03](SL-03-meal-prep-app-demo-shorts.md) | 05 Meal Prep Macro Tracking (app demo) | BLOCKED: fold into RO-05 first | S |
-| [SL-04](SL-04-arms-shoulders-shorts.md) | Arms & Shoulders Home Workout (Zeeshan, 11:00) | READY | S |
-| [SL-05](SL-05-stop-deadlifting-shorts.md) | Stop Deadlifting (Zeeshan, 9:16, public Oct 11) | READY | S |
+| [SL-03](SL-03-meal-prep-app-demo-shorts.md) | How I Make My Daily Salad (RO-05, public Oct 18) | READY | S |
+| [SL-04](SL-04-arms-shoulders-shorts.md) | Arms & Shoulders Home Workout (Zeeshan, 11:00) | IN PROGRESS | S |
+| [SL-05](SL-05-stop-deadlifting-shorts.md) | Stop Deadlifting (Zeeshan, 9:16, public Oct 11) | IN PROGRESS | S |
 
 **Will need shorts once final (no handoff yet; add one when the long-form is approved):**
 * Your Belly Fat Is An Emergency (Codex, revision in progress)
@@ -204,7 +204,7 @@ handoff (`handoff-20260909-audio-match-muhammad.md`, waiting on your spray-tan s
 | [AV-06](AV-06-ad7-vertical.md) | Ad 7 | READY | M |
 | [AV-07](AV-07-ad10-vertical.md) | Ad 10 | UPLOADED | M |
 | [AV-08](AV-08-ad14-vertical.md) | Ad 14 | READY (file the 09-16 HD first) | M |
-| [AV-09](AV-09-ad8-vertical.md) | Ad 8: Two Futures | READY | M |
+| [AV-09](AV-09-ad8-vertical.md) | Ad 8: Two Futures | IN PROGRESS | M |
 | [AV-10](AV-10-ad9-vertical.md) | Ad 9: ChatGPT (round 4 source, 09-21) | READY | M |
 | [AV-11](AV-11-ad13-vertical.md) | Ad 13: Cost Of Getting Abs (round 4 source, 09-21) | READY | M |
 | [AV-12](AV-12-ad15-vertical.md) | Ad 15: T-Shirt Dad | READY | M |

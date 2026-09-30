@@ -1,6 +1,6 @@
 # Blotato IG + Facebook queue — progress
 
-Last updated 2026-09-22.
+Last updated 2026-09-30.
 
 ## Account state
 
@@ -12,6 +12,20 @@ Last updated 2026-09-22.
 - **PERMANENT RULE (Dan, 2026-09-17): ADS ARE NEVER QUEUED HERE.** Blotato is organic-only. Every queue script
   imports `scripts/blotato/ad_guard.py`; audit with `python3 scripts/blotato/ad_guard.py --scan`. See the incident below.
 - **NEW PERMANENT RULE (Dan, 2026-09-16): Blotato owns future organic YouTube releases.** Upload organic videos to YouTube as Private and leave them Private; queue the release through connected YouTube account `46963`. Never upload Public or use YouTube native scheduling. Ads remain Unlisted and are not released publicly on YouTube. Existing native schedules are historical and must not be copied into new work; avoid double-posting anything already queued under the old process.
+
+## DONE: RO-05 "How I Make My Daily Salad: 700 Calories, $4 a Bowl, Fresh for 7 Days" (2026-09-30)
+
+Master `claude edited long form content/08 - How I Make My Daily Salad (Fable recut)/How I Make My Daily Salad | claude round 4 | 16x9 | RO-05.mp4`, SHA-256 `23fdcb0c…b11378e` (1,905,547,451 bytes, 14:53.86); same file + .srt on the Extreme drive and Google Drive (`Claude Content Videos/How I Make My Daily Salad - RO-05`, folder `1QNZ2bk-z63l_TdzqpmXlPxnNz-SsLbjD`, anyone with the link). YouTube **Private** holding copy `mfoSLivtvdQ`, read back private, Dan's FINAL thumbnail (Codex option 5), synthetic off (no AI footage).
+
+| FB · IG @danrosefit · TikTok · YouTube |
+|---|
+| Sun Oct 18, 9 AM CDT (`5014529` / `5014531` / `5014533` / `5014534`) |
+
+- Blotato copy 290 MB (h264_videotoolbox 2.8 Mbps, audio stream-copied: audio packets identical to the master, 26,789 frames, 893.86 s). Re-hosted files MD5-matched.
+- TikTok: cover prepended as frame 0, `videoCoverTimestamp: 0` (frames 26789 to 26790, audio packets 41901 unchanged, cover match 54.2 dB).
+- Keyword `FOOD`; UTM `utm_content=ro05-daily-salad`. Config `scripts/blotato/configs/ro05-daily-salad.json`.
+- Captions: the 277-cue SRT is not on YouTube (the token has no captions scope); add it in Studio to the Blotato-created video after Oct 18 if wanted.
+- Owes: SL-03 shorts (edit queue, READY); sixpackabs article `sixpackabs/articles/TBD-daily-salad.md` to publish after Oct 18.
 
 ## DONE: "Why I Stopped Deadlifting at 40 (Do These 4 Exercises Instead)", Zeeshan Video 3 (2026-09-29)
 
