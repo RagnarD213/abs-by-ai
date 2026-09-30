@@ -82,5 +82,15 @@
  "video_ext": [
   ".mp4",
   ".mov"
- ]
+ ],
+ "banned_screens": {
+  "source": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/00 ASSETS USED IN THE REFERENCE AD/09_CLIP_app-generate-future-self.mp4",
+  "times": [
+   26.5,
+   27.5,
+   29.5,
+   31.0
+  ],
+  "about": "the app recording that holds the banned screens (email capture, in-app before/after); the delivery gate's compliance:banned_screen scans every delivered vertical for them (the Ad 3 vertical convention)"
+ }
 }

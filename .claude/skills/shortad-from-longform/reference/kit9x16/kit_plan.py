@@ -123,6 +123,17 @@ def main():
                         q = f"plan_assets/chip_{kind}_{_name(b)}_card.png"
                         lay.crop(bb).save(q)
                         item.update(chip=os.path.abspath(q), pos=[bb[0], bb[1]])
+            spans = b.get("label_spans")
+            if spans:
+                # a TIMED chip (uploaded photo on an app screen): one track per stretch it is shown, its fades
+                # (0.12 s, vlib.plate_card) left out of the stretch; the gaps are planned, not missing
+                dur_ = b["t1"] - b["t0"]
+                for j_, (s_, e_) in enumerate(spans):
+                    a_ = b["t0"] + s_ + (0.1 if s_ > 0 else 0.0)
+                    z_ = b["t0"] + e_ - (0.1 if e_ < dur_ - 0.01 else 0.0)
+                    if z_ - a_ > 0.1:
+                        out.append(dict(item, name=f"{item['name']}~{j_}", beat=[round(a_, 3), round(z_, 3)]))
+                continue
             out.append(item)
         return out
     real_photos = insert_list("real")

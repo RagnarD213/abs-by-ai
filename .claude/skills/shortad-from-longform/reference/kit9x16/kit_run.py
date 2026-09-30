@@ -56,6 +56,28 @@ KEEP_CAPS = {"I", "I'm", "I'll", "I've", "I'd", "AI", "Dan", "ChatGPT", "Abs", "
              "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday", "OK", "Okay"}
 
 
+def label_obstructions(B, video):
+    """The delivery gate's own compliance:labels clearance measurement on the delivered file -> {media key: [(t, px)]}
+    for the full-bleed chips (kit_labels places those; a card's chip hangs under its hole)."""
+    sys.path.insert(0, SHARED)
+    from deliver.checks import compliance as CMP
+    from deliver import formats as FMT
+    plan = json.load(open(os.path.join(B, "plan.json")))
+    tracks = [t for t in plan.get("label_tracks") or [] if t.get("visibility", "full") == "full"]
+    px = getattr(FMT, "_LABELS", {}).get("clearance_px", 8)
+    obs, _n, err = CMP._measure_label_clearance(video, tracks, px)
+    if err:
+        print("  label clearance not measured:", err, flush=True)
+        return {}
+    bleed = {b.get("media") for b in json.load(open(os.path.join(B, "beats.json")))["beats"] if b.get("kind") == "bleed"}
+    out = {}
+    for name, t, v in obs or []:
+        key = name.split("-", 2)[-1].split("~")[0]
+        if key in bleed:
+            out.setdefault(key, []).append((t, v))
+    return out
+
+
 def caption_case(d):
     """The captions read the transcript's words. Whisper capitalises some mid-sentence words ("of the Excuses",
     Ad 10 88.2 s, a judged junk_card): a Capitalised word that is not a sentence start, a name or an acronym is
@@ -180,7 +202,31 @@ def main():
         elif name == "mux":
             sh(D("mux", "--build", B, "--out", full))
         elif name == "prewatch":
-            sh(D("gate", "--build", B, "--video", full, "--reference-cut", master))
+            bs = json.load(open(K("auto_sources.json"))).get("banned_screens") or {}
+            extra = (["--banned-source", bs["source"], "--banned-times"] + [str(t) for t in bs["times"]]) \
+                if bs.get("source") and os.path.exists(bs["source"]) else []
+            # THE GATE'S LABEL CLEARANCE, CHECKED ON THE DELIVERED FILE BEFORE ANY JUDGE LOOKS: the person mask can
+            # read a chip as part of him on a single compressed frame it reads as clear everywhere else (Ad 10
+            # 29.83 s, kit autofill 2026-09-30). A chip that trips it is re-placed away from that spot, the changed
+            # segments re-render, and the file is checked again (at most 3 times).
+            for attempt in range(4):
+                sh(D("gate", "--build", B, "--video", full, "--reference-cut", master, *extra))
+                obs = label_obstructions(B, full)
+                if not obs:
+                    break
+                if attempt == 3:
+                    raise Stop(1, f"label chips still touch him on the delivered file after 3 re-placements: {obs}")
+                keys = sorted(obs)
+                ep = os.path.join(B, "labels", "exclude.json")
+                ex = json.load(open(ep)) if os.path.exists(ep) else {}
+                lp = json.load(open(os.path.join(B, "label_place.json")))
+                for k_ in keys:
+                    c_ = lp.get(k_, {})
+                    ex.setdefault(k_, []).append([c_.get("x"), c_.get("y"), c_.get("lines"), c_.get("size")])
+                json.dump(ex, open(ep, "w"), indent=1)
+                print(f"  label clearance on the delivered file: {obs} -> re-placing {keys}", flush=True)
+                sh([PY, K("kit_labels.py"), "--build", B, "--only", *keys])
+                sh(D("picture", "--build", B)); sh(D("captions", "--build", B)); sh(D("mux", "--build", B, "--out", full))
             sh([PY, K("kit_negscan.py"), "sheet", "--build", B, "--video", full])
         elif name in ("judge", "cutjudge"):
             wd = os.path.join(B, "watch") if name == "judge" else os.path.join(B, "cut_audit", "watch")

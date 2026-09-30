@@ -154,9 +154,11 @@ def groups(words, mute):
     def ends_after(w):
         """The end of the span a word STARTS under, when most of the word plays after it (Ad 10 138.66 s: "30" of
         "30 minutes in the garage" began 0.18 s before the window closed and was never captioned, kit autofill
-        round 6). The word is then captioned from the span's end."""
+        round 6). The word is then captioned from the span's end, but only when that is at most 0.10 s after the
+        word starts (the delivery gate's caption sync bound is 120 ms: "30" shown 212 ms late failed it); a longer
+        overlap is fixed by the kit ending the graphic before the word (build_kit.py)."""
         for a, b in mute:
-            if a - 0.15 <= w[1] <= b + 0.02 and w[2] > b + 0.10 and (w[2] - b) >= 0.5 * (w[2] - w[1]) \
+            if a - 0.15 <= w[1] <= b + 0.02 and b + 0.034 - w[1] <= 0.10 and w[2] > b + 0.10 and (w[2] - b) >= 0.5 * (w[2] - w[1]) \
                     and not any(a2 <= b + 0.034 < b2 for a2, b2 in mute if (a2, b2) != (a, b)) \
                     and not any(s_ > b - 1e-3 and s_ < w[2] for s_ in _seams):
                 return b
