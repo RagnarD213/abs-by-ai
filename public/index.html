@@ -1175,7 +1175,6 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
 }
 .intake-chip.selected { border-color: var(--acc); background: rgba(47,95,224,0.08); color: var(--acc); }
 .intake-back { margin-top: 18px; }
-.ex-anim-wrap { display: flex; justify-content: center; margin: 2px 0; }
 .consent-row { display: flex; align-items: flex-start; gap: 10px; padding: 13px 14px; border: 1.5px solid var(--line); border-radius: 13px; margin-top: 14px; cursor: pointer; }
 .consent-row input { margin-top: 2px; }
 .consent-row .intake-opt-sub { margin-top: 3px; }
@@ -1239,7 +1238,16 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
 .ex-sheet-hdr { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px; }
 .ex-sheet-title { font-size: 19px; font-weight: 800; letter-spacing: -0.3px; }
 .ex-sheet-muscles { font-size: 12.5px; color: var(--mute); font-weight: 600; margin-bottom: 14px; }
-.ex-demo { width: 100%; aspect-ratio: 16/9; border-radius: 12px; display: block; background: #000; margin: 6px 0 14px; }
+.ex-demo { width: 100%; aspect-ratio: 16/9; border-radius: 12px; display: block; background: #000; }
+/* AI-Dan exercise demos: poster card on the day view, video in the sheet.
+   Always carries the AI-GENERATED chip (Dan's labeling rule). */
+.ex-demo-box { position: relative; margin: 6px 0 14px; }
+.ex-card .ex-demo-box { margin: 8px 0 6px; }
+.ex-demo-thumb { position: relative; display: block; width: 100%; aspect-ratio: 16/9; border: 0; padding: 0; border-radius: 12px; overflow: hidden; background: #000; cursor: pointer; }
+.ex-demo-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ex-demo-play { position: absolute; left: 50%; top: 50%; width: 52px; height: 52px; margin: -26px 0 0 -26px; border-radius: 50%; background: rgba(0,0,0,0.55); display: flex; align-items: center; justify-content: center; }
+.ex-demo-play svg { margin-left: 3px; }
+.ex-ai-chip { position: absolute; top: 8px; left: 8px; z-index: 1; pointer-events: none; font-size: 9.5px; font-weight: 800; letter-spacing: 0.6px; color: #fff; background: rgba(0,0,0,0.6); padding: 3px 7px; border-radius: 999px; }
 .ex-sheet-sec { margin-bottom: 13px; }
 .ex-sheet-sec-lbl { font-size: 11px; font-weight: 800; letter-spacing: 0.7px; text-transform: uppercase; color: var(--mute); margin-bottom: 3px; }
 .ex-sheet-sec-txt { font-size: 13.5px; line-height: 1.5; }
@@ -3114,7 +3122,6 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
 
 <script src="/vendor/cropperjs/cropper.min.js"></script>
 <script src="/exercises.js"></script>
-<script src="/exercise-anims.js"></script>
 <script>
 // ============================================================
 //  CONSTANTS
@@ -9375,13 +9382,15 @@ function renderDayView(stored) {
     const pills = Array.from({ length: sets }, (_, s) =>
       `<button class="set-pill${done[`${key}s${s}`] ? ' done' : ''}" data-key="${key}" data-set="${s}">${done[`${key}s${s}`] ? '✓' : `Set ${s + 1}`}</button>`
     ).join('');
-    const anim = typeof getExerciseAnim === 'function' ? getExerciseAnim(eff.id, 68) : '';
+    const demo = EXERCISE_DEMO_IDS.has(eff.id)
+      ? `<div class="ex-demo-box"><span class="ex-ai-chip">AI-GENERATED</span><button class="ex-demo-thumb" data-demo="${eff.id}" aria-label="Play ${escapeHtml(lib.name || eff.id)} demo"><img src="/exercise-demos/${eff.id}.jpg" loading="lazy" alt=""><span class="ex-demo-play"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></button></div>`
+      : '';
     return `<div class="ex-card">
       <div class="ex-card-top">
         <span class="ex-name" data-ex="${eff.id}" data-cue="${escapeHtml(ex.cue || '')}" data-mistake="${escapeHtml(ex.common_mistake || '')}">${escapeHtml(lib.name || eff.id)}${eff.swapped ? ' ·<span style="color:var(--acc);font-size:11.5px"> swapped</span>' : ''}</span>
         <span class="ex-rx">${sets} × ${escapeHtml(String(ex.reps))} · rest ${ex.rest_sec}s</span>
       </div>
-      ${anim ? `<div class="ex-anim-wrap" style="color:var(--acc)">${anim}</div>` : ''}
+      ${demo}
       ${ex.cue ? `<div class="ex-cue">💡 ${escapeHtml(ex.cue)}</div>` : ''}
       <div class="set-pills">${pills}</div>
       <div class="ex-actions">
@@ -9424,10 +9433,8 @@ function renderDayView(stored) {
   html += `<div class="ex-group-lbl">Warm-up</div>`;
   html += (day.warmup || []).map(w => {
     const lib = EXERCISE_BY_ID[w.exercise_id] || {};
-    const wAnim = typeof getExerciseAnim === 'function' ? getExerciseAnim(w.exercise_id, 52) : '';
     return `<div class="ex-card"><div class="ex-card-top">
       <span class="ex-name" data-detail-inline data-ex="${w.exercise_id}">${escapeHtml(lib.name || w.exercise_id)}</span>
-      ${wAnim ? `<span style="color:var(--acc)">${wAnim}</span>` : ''}
       <span class="ex-rx">${escapeHtml(w.prescription || '')}</span></div></div>`;
   }).join('');
   }
@@ -9454,6 +9461,19 @@ function renderDayView(stored) {
     saveProgress(progress2);
     pill.classList.toggle('done', progress2.done[k]);
     pill.textContent = progress2.done[k] ? '✓' : `Set ${parseInt(pill.dataset.set, 10) + 1}`;
+  }));
+
+  wrap.querySelectorAll('.ex-demo-thumb').forEach(btn => btn.addEventListener('click', () => {
+    const id = btn.dataset.demo;
+    const v = document.createElement('video');
+    v.className = 'ex-demo';
+    v.src = `/exercise-demos/${id}.mp4`;
+    v.poster = `/exercise-demos/${id}.jpg`;
+    v.muted = true; v.loop = true; v.playsInline = true; v.controls = true; v.preload = 'none';
+    v.setAttribute('playsinline', '');
+    btn.replaceWith(v);
+    v.play().catch(() => {});
+    if (window.posthog) posthog.capture('exercise_demo_played', { exercise_id: id, surface: 'day_view' });
   }));
 
   wrap.querySelectorAll('[data-detail], .ex-name[data-ex]').forEach(el => el.addEventListener('click', () => {
@@ -9503,8 +9523,8 @@ function openExerciseSheet(exId, cue, mistake) {
     </div>
     <div class="ex-sheet-muscles">${escapeHtml(lib.muscles || '')}</div>
     ${EXERCISE_DEMO_IDS.has(lib.id)
-      ? `<video class="ex-demo" id="exSheetDemo" src="/exercise-demos/${lib.id}.mp4" poster="/exercise-demos/${lib.id}.jpg" controls playsinline preload="none"></video>`
-      : (typeof getExerciseAnim === 'function' && getExerciseAnim(lib.id, 120) ? `<div style="text-align:center;color:var(--acc);margin:6px 0 2px">${getExerciseAnim(lib.id, 120)}</div>` : '')}
+      ? `<div class="ex-demo-box"><span class="ex-ai-chip">AI-GENERATED</span><video class="ex-demo" id="exSheetDemo" src="/exercise-demos/${lib.id}.mp4" poster="/exercise-demos/${lib.id}.jpg" controls playsinline preload="none"></video></div>`
+      : ''}
     <div class="ex-sheet-sec"><div class="ex-sheet-sec-lbl">Setup</div><div class="ex-sheet-sec-txt">${escapeHtml(lib.setup)}</div></div>
     <div class="ex-sheet-sec"><div class="ex-sheet-sec-lbl">How to do it</div><div class="ex-sheet-sec-txt">${escapeHtml(lib.execution)}</div></div>
     <div class="ex-sheet-sec"><div class="ex-sheet-sec-lbl">Most common mistake</div><div class="ex-sheet-sec-txt">${escapeHtml(mistake || lib.mistake)}</div></div>
