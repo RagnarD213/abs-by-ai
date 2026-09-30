@@ -573,7 +573,11 @@ class Library:
             # 27.1 s chip placement), then the file he actually showed (all of it on screen: the cropped png over the
             # uncropped jpg), then the largest (clean full resolution)
             same.sort(key=lambda r: (r[7], -(r[9] >= 0.85), -(r[5] * r[6])))   # "on screen" is a yes/no at 85 %, so the bigger file of a tie wins
-            provs = {r[3] for r in same if r[3] in ("real", "ai")} if top >= MATCH_MIN_INLIERS else set()
+            # a VIDEO that holds the still (a screen recording of the app showing his AI goal image, filed under real
+            # footage) is not a copy of it: when a still file matches, only stills vote on real vs AI (Ad 8 103.5 s,
+            # a new library recording B0036 read as a real/AI conflict)
+            voters = [r for r in same if r[2] == "img"] or same
+            provs = {r[3] for r in voters if r[3] in ("real", "ai")} if top >= MATCH_MIN_INLIERS else set()
             if len(provs) > 1:                       # two copies of one picture disagree on real vs AI
                 same = [r[:3] + ("conflict",) + r[4:] for r in same]
             elif provs and same[0][3] not in provs:  # a copy with no provenance inherits its identical twin's
