@@ -215,6 +215,22 @@ async function initDb() {
       extra           JSONB NOT NULL DEFAULT '{}',
       updated_at      TIMESTAMPTZ NOT NULL DEFAULT now()
     );
+    -- Customer feedback / testimonials from /review. consent = the person agreed
+    -- we may quote them in marketing; publish only consent rows, and only from
+    -- people whose \`usage\` shows they actually used the app.
+    CREATE TABLE IF NOT EXISTS testimonials (
+      id             SERIAL PRIMARY KEY,
+      created_at     TIMESTAMPTZ NOT NULL DEFAULT now(),
+      name           TEXT,
+      email          TEXT NOT NULL,
+      usage          TEXT,
+      why_tried      TEXT,
+      first_reaction TEXT,
+      most_useful    TEXT,
+      tell_friend    TEXT,
+      video_ok       BOOLEAN NOT NULL DEFAULT false,
+      consent        BOOLEAN NOT NULL DEFAULT false
+    );
   `);
   // Membership columns (added after the users table shipped). ADD COLUMN IF NOT
   // EXISTS keeps this idempotent across deploys; pg-mem supports it too.

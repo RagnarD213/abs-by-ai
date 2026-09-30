@@ -4654,6 +4654,63 @@ async function handleUnsubscribe(req, res) {
 }
 
 app.get('/api/unsubscribe', handleUnsubscribe);
+
+// ============================================================
+// FEEDBACK / TESTIMONIALS (/review page)
+// ============================================================
+// Saves the form, then emails Dan a copy so nothing waits on someone checking
+// the database. Rewards (free month, gift card) are sent by hand.
+const reviewLimiter = rateLimit({ windowMs: 60 * 60 * 1000, max: 10, standardHeaders: true, legacyHeaders: false });
+const REVIEW_USAGE = { signed_up: 'Signed up, have not really used it yet', result: 'Got my AI result', week: 'Used it for about a week', month: 'Used it for a month or more' };
+
+app.post('/api/review', reviewLimiter, async (req, res) => {
+  if (!db) return res.status(503).json({ error: 'Unavailable, please try again later.' });
+  const t = (v, n) => String(v || '').trim().slice(0, n);
+  const email = t(req.body?.email, 254).toLowerCase();
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return res.status(400).json({ error: 'Please enter a valid email.' });
+  const r = {
+    name: t(req.body?.name, 80),
+    usage: REVIEW_USAGE[req.body?.usage] ? req.body.usage : null,
+    why_tried: t(req.body?.why_tried, 2000),
+    first_reaction: t(req.body?.first_reaction, 2000),
+    most_useful: t(req.body?.most_useful, 2000),
+    tell_friend: t(req.body?.tell_friend, 2000),
+    video_ok: req.body?.video_ok === true,
+    consent: req.body?.consent === true,
+  };
+  if (!r.usage) return res.status(400).json({ error: 'Please pick how much you have used the app.' });
+  if (!r.why_tried && !r.first_reaction && !r.most_useful && !r.tell_friend) {
+    return res.status(400).json({ error: 'Please answer at least one question.' });
+  }
+  try {
+    await db.query(
+      `INSERT INTO testimonials (name, email, usage, why_tried, first_reaction, most_useful, tell_friend, video_ok, consent)
+       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9)`,
+      [r.name, email, r.usage, r.why_tried, r.first_reaction, r.most_useful, r.tell_friend, r.video_ok, r.consent]);
+  } catch (e) {
+    console.error('review save failed:', e.message);
+    return res.status(500).json({ error: 'Could not save, please try again.' });
+  }
+  res.json({ ok: true });
+  if (!RESEND_API_KEY) return;
+  const esc = s => String(s || '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const row = (q, a) => `<p style="margin:0 0 4px;color:#888;font-size:13px">${q}</p><p style="margin:0 0 16px;font-size:15px;white-space:pre-wrap">${esc(a) || '<i>(blank)</i>'}</p>`;
+  fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: { 'Authorization': `Bearer ${RESEND_API_KEY}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      from: RESET_FROM, to: MARKETING_REPLY_TO, reply_to: email,
+      subject: `New feedback: ${r.name || email}${r.video_ok ? ' (open to video)' : ''}`,
+      html: `<div style="font-family:-apple-system,Helvetica,Arial,sans-serif;max-width:560px">
+${row('Name', r.name)}${row('Email', email)}${row('How much they used it', REVIEW_USAGE[r.usage])}
+${row('What made you try Abs By AI?', r.why_tried)}${row('What did you think when you saw your AI result?', r.first_reaction)}
+${row('Most useful part so far?', r.most_useful)}${row('What would you tell a friend?', r.tell_friend)}
+${row('Open to a selfie video', r.video_ok ? 'Yes' : 'No')}${row('OK to quote in marketing', r.consent ? 'Yes' : 'No')}
+<p style="color:#888;font-size:13px">Owed: free month + $20 gift card${r.video_ok ? ' (+$30 if they send a video)' : ''}.</p></div>`,
+    }),
+  }).then(async x => { if (!x.ok) console.error('review notify failed:', x.status, (await x.text()).slice(0, 200)); })
+    .catch(e => console.error('review notify failed:', e.message));
+});
 app.post('/api/unsubscribe', handleUnsubscribe);
 
 // Serves a subscriber's stored before/after image for the welcome email.
@@ -10977,7 +11034,7 @@ app.get('/privacy', (req, res) => {
 // guideline 1.4.1 — it is linked from every in-app report that contains a
 // health calculation or recommendation, and must stay reachable.
 // `start` is the paid-traffic landing page (VSL + one-tap photo hand-off into the app).
-for (const slug of ['terms', 'refunds', 'contact', 'disclaimer', 'faq', 'about', 'how-it-works', 'sources', 'start']) {
+for (const slug of ['terms', 'refunds', 'contact', 'disclaimer', 'faq', 'about', 'how-it-works', 'sources', 'start', 'review']) {
   app.get(`/${slug}`, (req, res) => {
     res.sendFile(path.join(__dirname, 'public', `${slug}.html`));
   });
