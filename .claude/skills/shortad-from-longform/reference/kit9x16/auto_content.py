@@ -1520,7 +1520,12 @@ def describe_shot(master, A, frames_dir, D, O, W, s0, s1, fps, T, lib_get, AI, e
                 beat.pop("label_kind")            # his own chip is already on this picture: never two
                 ev["label"] = f"his burned {burned} label is carried in the lifted picture"
         elif burned:
-            beat["caps"] = False
+            # captions drop only under a labelled picture OF DAN (a still, a phone screen, or a clip the library
+            # names as Dan); his AI clips of other people keep them (Ad 10 round 8: 10.8 s of the payoff lines,
+            # "Your wife notices...", played uncaptioned under stock AI clips)
+            of_dan = top is not None and re.search(r"(^|[^a-z])dan([^a-z]|$)", os.path.basename(top[1]).lower())
+            if phone or still or of_dan:
+                beat["caps"] = False
             ev["label"] = f"his burned {burned} label is carried in the lifted picture"
             if burned == "real" and still and not phone:
                 esc.append(dict(t0=t0, t1=t1, what="a real physique still with no clean original: his burned label may cross the abs"))

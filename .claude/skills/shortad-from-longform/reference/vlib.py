@@ -249,7 +249,8 @@ def plate_card(dur, caption=None, label=None, portrait=False, fps=FPS,
             draw_lines(d, lines, fc, MARGIN, ty+int((1-k)*18),
                        tuple(int(v*k) for v in INK), lead=1.14, align="c", w=VW-2*MARGIN)
         out.append(_punch(im, h, 20))
-        la = 1.0 if not label_spans else max([clamp01(min(t - s_, e_ - t) / 0.12 + 0.5) for s_, e_ in label_spans] + [0.0])
+        la = 1.0 if not label_spans else max([clamp01(min(t - s_ if s_ > 0 else 9.0, e_ - t if e_ < dur - 0.01 else 9.0) / 0.12 + 0.5)
+                                              for s_, e_ in label_spans] + [0.0])
         if label and la > 0:                          # the label chip, BELOW the card's hole (never over the picture)
             lw, lh_ = text_size(label, fl)
             lay = Image.new("RGBA", (VW, VH), (0,0,0,0))
