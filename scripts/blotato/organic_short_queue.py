@@ -89,7 +89,7 @@ def post_plan(v: dict) -> list[dict]:
             "platform": "tiktok",
             "when": v["main"],
             "target": tiktok_target,
-            "text": lede + f"Free Abs By AI preview — link in bio 👇\n\n{link('tiktok')}\n\n{tags}",
+            "text": lede + f"Free Abs By AI preview, link in bio 👇\n\n{link('tiktok')}\n\n{tags}",
             "media": v["tiktok_video_url"],
         },
         # @abs.by.ai (65632) retired 2026-09-24: never queue it. No mirror post.

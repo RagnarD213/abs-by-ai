@@ -144,6 +144,8 @@ stamp). Next: after Dan approves, deliver masters and check off the verticals ro
 ⚠⚠ **Vertical build owners (Ads 4/5): the BT.601 colour fault is in your builds (baseline 2026-09-15; age unknown)** — memory `untagged-video-bt601-trap`;
 decode with `accurate_rnd`. Re-copy the skill's `caption_sync_check.py` into `ad3-vert/` / `ad4-vert/` (fixed `/tmp` paths collide).
 
+**SL-04 shorts - QUEUED 2026-09-30, Claude.** Blotato Oct 6-15; delete once posted. `Docs/SL04_SETUP_RECEIPT_20260930.md`.
+
 # BLOCKED — external
 
 **iOS `ccc7a7ae` — REJECTED 2026-09-17: 4.3(b) Spam + 1.1, account warning.** ⚠ No resubmit/reply until Dan
@@ -162,7 +164,6 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
-- `handoff-20260930-sl04-shorts-video-setup.md` (09-30): upload after cover picks.
 - `handoff-20260930-hyperframes-templates-round2.md` (09-30): HyperFrames lower third, before card, 3A list templates. Opus 5.5 high.
 - `handoff-20260930-ro16-round2-opener-motion-then-full-film.md` (09-30): with Dan's G03 pick. Opus 5.5 high.
 - `handoff-20260930-codex-adopt-review-page-format.md` (09-30): Codex adopts the RO-16 review page. GPT-6 Sol medium.
