@@ -204,8 +204,14 @@ def pushes_for(tl, splices, cover, words, T, flashes):
         # (instant) if it is inside a punch. Consecutive cuts alternate. Ramped pushes then fill only the
         # stretches with no cut. Reported separately as level steps; they are not his ramped pushes.
         hold_i = 0
+        DW = ("window", "stmt", "winmedia")
+        kind_at = lambda x: next((b["kind"] for b in tl if b["t0"] <= x < b["t1"]), None)
+        # a boundary between two Dan-WINDOW plates is not a cover: his head keeps its size across it (Ad 8 190.92 s,
+        # phone split -> bullet window on a source cut, judged a naked splice, kit autofill round 6)
+        covers = lambda e: not (kind_at(e - 0.05) in DW and kind_at(e + 0.05) in DW)
         for c in sorted(splices):
-            if near_flash(c) or any(abs(c - b["t0"]) < 0.3 or abs(c - b["t1"]) < 0.3 for b in tl):
+            if near_flash(c) or any((abs(c - b["t0"]) < 0.3 and covers(b["t0"])) or (abs(c - b["t1"]) < 0.3 and covers(b["t1"]))
+                                    for b in tl):
                 continue                                          # a beat boundary or a flash already covers it
             fr = round((round(c * FPS) - 0.5) / FPS, 4)          # half a frame before the cut frame
             live = steps[-1] if steps and steps[-1][0] < fr < steps[-1][3] else None
@@ -213,6 +219,8 @@ def pushes_for(tl, splices, cover, words, T, flashes):
                 live[2] = fr; live[3] = fr                        # inside a punch: the cut pulls out, instantly
                 continue
             win = next((b for b in steppable if b["kind"] != "talk" and b["t0"] <= c < b["t1"]), None)
+            if win is not None and fr < win["t0"]:
+                fr = round(win["t0"], 4)                          # a cut ON a window-to-window boundary steps with the new plate
             if win is not None:
                 # inside a Dan WINDOW the step is a pure framing change: in on this cut, out on the next cut or
                 # with the window (the plate transition hides it) -- never a hold that ramps out, which counts

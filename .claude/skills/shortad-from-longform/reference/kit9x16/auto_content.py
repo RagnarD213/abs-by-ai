@@ -926,8 +926,10 @@ def main():
                     # ONE clip, one card size; the chip shows only while the photo is on screen (splitting the clip
                     # resized the phone at every split: a labelled card's hole is smaller, Ad 10 round 6 124.02 s)
                     b_["label_kind"] = pb["label_kind"]; b_["caps"] = False
-                    b_["label_spans"] = [[round(max(0.0, T(r0) - b_["t0"]), 3), round(min(b_["t1"], T(r1)) - b_["t0"], 3)]
-                                         for r0, r1, v in runs if v]
+                    # 3 frames either side: the photo is sampled every 3rd frame, and a chip that lags the photo
+                    # leaves it unlabelled (Ad 10 round 6, 175.91 s: two frames)
+                    b_["label_spans"] = [[round(max(0.0, T(r0 - 3) - b_["t0"]), 3),
+                                          round(min(b_["t1"], T(r1 + 3)) - b_["t0"], 3)] for r0, r1, v in runs if v]
                     ev_["label"] = (f"{pb['label_kind']} label only while the uploaded photo is on screen: "
                                     + ", ".join(f"{b_['t0'] + x:.2f}-{b_['t0'] + y:.2f}" for x, y in b_["label_spans"]))
 
@@ -940,20 +942,21 @@ def main():
         if L:
             L = sorted(L, key=lambda l: (round(((l["box"][1] + l["box"][3]) / 2) / 30), l["box"][0]))
             ov.append((n, [l["text"] for l in L], [min(l["box"][0] for l in L), min(l["box"][1] for l in L),
-                                                    max(l["box"][2] for l in L), max(l["box"][3] for l in L)]))
+                                                    max(l["box"][2] for l in L), max(l["box"][3] for l in L)],
+                       [l["box"][3] - l["box"][1] for l in L]))
     # one overlay = consecutive reads whose text boxes overlap in height (a typewriter reveal reads "MyDaughte"
     # before "My Daughter Was Watching"; the text is not what ties the reads together, the place is)
     groups = []
-    for n, lines, box in ov:
+    for n, lines, box, hs in ov:
         txt = " / ".join(lines)
         if groups:
             g = groups[-1]
             ov_y = min(box[3], g["box"][3]) - max(box[1], g["box"][1])
             if n - g["n1"] <= 2 * OCR_EVERY and ov_y > 0.5 * min(box[3] - box[1], g["box"][3] - g["box"][1]):
-                g["n1"] = n; g["reads"].append((n, txt, lines))
+                g["n1"] = n; g["reads"].append((n, txt, lines, hs))
                 g["box"] = [min(g["box"][0], box[0]), min(g["box"][1], box[1]), max(g["box"][2], box[2]), max(g["box"][3], box[3])]
                 continue
-        groups.append(dict(n0=n, n1=n, reads=[(n, txt, lines)], box=box))
+        groups.append(dict(n0=n, n1=n, reads=[(n, txt, lines, hs)], box=box))
     groups = [g for g in groups if g["n1"] - g["n0"] >= 2 * OCR_EVERY]      # a real overlay holds >= 10 frames
     for g in groups:
         texts = [r[1] for r in g["reads"]]
@@ -961,7 +964,11 @@ def main():
         full = [t for t in texts if len(norm(t)) >= 0.9 * L_]              # the revealed text, not a half-typed read
         mode = max(set(full), key=full.count)
         agree = texts.count(mode)
-        lines = next(r[2] for r in g["reads"] if r[1] == mode)
+        lines, hs = next((r[2], r[3]) for r in g["reads"] if r[1] == mode)
+        # two lines set in ONE size are one sentence he wrapped, not a headline + subtitle: the kit's second line is
+        # a small subtitle, so they join (Ad 8 44.2 s "Let's talk about why this / actually works.", round 6 judge)
+        if len(lines) == 2 and min(hs) >= 0.8 * max(hs):
+            lines = [" ".join(lines)]
         # in / out: walk from the reads to where the box stops disagreeing with Dan's raw picture
         a0, a1 = g["n0"], g["n1"]
         while a0 > 0 and cell_mean(a0 - 1, g["box"]) < 0.5 and st[a0 - 1] == "talk":
@@ -1014,6 +1021,25 @@ def main():
                                   evidence=dict(source="added by the kit's grammar (template cta.count): not in his master")))
 
     beats.sort(key=lambda b: b["t0"])
+    # HIS white flash on a return to Dan from a full-screen picture: the kit flashes on returns from cards and
+    # windows by rule, from a bleed only where his master does (Ad 8 177.98 s: his flash, ours missing, round 6
+    # judge). Read on the 256-wide cache: a frame near the return whose mean luma blows out
+    mp_ = os.path.join(A, "m256.rgb")
+    if os.path.exists(mp_):
+        nm_ = os.path.getsize(mp_) // (256 * 144 * 3)
+        M_ = np.memmap(mp_, np.uint8, "r").reshape(nm_, 144, 256, 3)
+        for i, b_ in enumerate(beats):
+            if b_["kind"] != "bleed":
+                continue
+            nxt = beats[i + 1] if i + 1 < len(beats) else None
+            if nxt is not None and nxt["t0"] - b_["t1"] < 0.3:
+                continue                                              # into another picture, not back to Dan
+            n1_ = int(round(b_["t1"] * fps))
+            lum = [float(M_[n].mean()) for n in range(max(0, n1_ - 5), min(nm_, n1_ + 6))]
+            if lum and max(lum) > 205:
+                b_["flash_after"] = True
+                rep_beats.append(dict(entry=dict(kind="flash", t0=b_["t1"], t1=b_["t1"]), confidence="high",
+                                      evidence=dict(why=f"his white flash on the return (mean luma {max(lum):.0f})")))
     # a return to Dan that opens on him TURNED AWAY: the picture before holds until he faces the camera
     for i, b_ in enumerate(beats[:-1]):
         nxt = beats[i + 1]

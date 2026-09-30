@@ -151,11 +151,25 @@ def groups(words, mute):
                 if s <= a + EPS: lo = max(lo, s); break
             if lo <= t <= hi: return True
         return False
+    def ends_after(w):
+        """The end of the span a word STARTS under, when most of the word plays after it (Ad 10 138.66 s: "30" of
+        "30 minutes in the garage" began 0.18 s before the window closed and was never captioned, kit autofill
+        round 6). The word is then captioned from the span's end."""
+        for a, b in mute:
+            if a - 0.15 <= w[1] <= b + 0.02 and w[2] > b + 0.10 and (w[2] - b) >= 0.5 * (w[2] - w[1]) \
+                    and not any(a2 <= b + 0.034 < b2 for a2, b2 in mute if (a2, b2) != (a, b)) \
+                    and not any(s_ > b - 1e-3 and s_ < w[2] for s_ in _seams):
+                return b
+        return None
     gs, cur = [], []
     for w in words:
         if muted(w[1]):
+            e_ = ends_after(w)
+            if e_ is None:
+                if cur: gs.append(cur); cur = []
+                continue
             if cur: gs.append(cur); cur = []
-            continue
+            w = (w[0], round(e_ + 0.034, 3), w[2])
         # never carry a group across a full stop: "life. You're more" reads as a mistake
         if cur and cur[-1][0].rstrip().endswith(('.', '?', '!')):
             gs.append(cur); cur = [w]; continue
