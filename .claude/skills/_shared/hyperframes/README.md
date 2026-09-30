@@ -15,9 +15,39 @@ Research and decision: `Docs/HYPERFRAMES_RESEARCH.md`. Style lock: [../SOFTBLUE.
 Round-2 samples, beat sheet, bases, compositor and review page: `Media/hyperframes/round2-templates/`
 (`BEATS.md`, `bases.py`, `composite.py`, `clearance.py`, `page.py`); heavy media in `/Volumes/Extreme/_edit_work/hyperframes-r2/`.
 Shared plumbing for the three: [`hfbuild.py`](hfbuild.py) (make_scene, lint + check, render; text placement matches PIL).
+Whole-video pass: [`from_plan.py`](from_plan.py) (plan + words -> configs -> renders), [`composite.py`](composite.py)
+(compositor), [`checks.py`](checks.py) (clearance, face, fill). See "One graphics pass for any video" below.
 
 Round 2 (lower third, before card, side list) approved by Dan 2026-09-30: "All three approved." Each `build.py`
 docstring has its config format; the approved configs are the `example-ro16-*.json` beside it.
+
+## One graphics pass for any video (2026-09-30, first used on RO-10)
+
+1. **`from_plan.py`** reads the video's resolved plan (`plan_resolved.json`: items with `t0`/`t1` and their copy) and its
+   mapped words (`words_out.json`: `w`, `t0`, `t1` on the film timeline), and writes one config per template scene, then
+   renders them: `python3 from_plan.py --plan plan_resolved.json --words words_out.json --shots shots.json --out hf --render`.
+   Kinds: `lt`, `scene` + `scene: "fact"`, `l3`, `cycle`; every other kind is ignored (it stays `softblue.py`). Inside an
+   item every time is a PHRASE Dan says (`parts: [["7 MONTHS.", "seven months"]]`, `reveal: ["beef jerky", ...]`), resolved to
+   its first word's start. Field list in the docstring. It asserts the copy fits (the lower third and the fact card are
+   one-line nowrap layouts) before rendering, skips a scene whose config and template are unchanged, and writes
+   `hf/manifest.json` (what the compositor needs) and `hf/BEATS.md` / `beats.json` (the beat sheet for the review page).
+   Side-card edges snap to a shot join within 0.7 s; do the same snap in the video's own resolve so both agree.
+2. **`composite.py`** composites every overlay into the film in RGB. In a video's per-frame render loop:
+   `C = Compositor(json.load(open("hf/manifest.json")))`, then `frame = C.apply(frame, g)` where `g` is the film frame index
+   (an opaque fact card replaces the frame). It decodes renders as BT.601 and bases by their own tags, blurs the base
+   inside a lower third's `_mask` alpha (GaussianBlur 14), and replaces exactly `fr(b) - fr(a)` frames for an opaque scene.
+   CLI for a finished base: `composite.py manifest.json --base base.mp4 --base-t0 <s> --out out.mp4`. Proven against
+   round 2: it reproduces the approved G04 composite at 69 dB.
+3. **`checks.py`** verifies a rendered composite (the film or a context clip): Vision person mask right of every side card
+   (clearance), Vision face box above every lower third (`facebox.swift`, compiled on first use to `~/.cache/absbyai/`),
+   and the card fill as the compositor decodes it (10,38,72 +/- 2, alpha 232) with the composite reading beside it (the
+   91 % card lets about 3 levels of footage through, which is correct). Reproduces round 2: G20 78 px clearance.
+
+**Framing under side cards (RO-10 recipe `build.py all_segments`).** A global W/T alternation cannot place side cards:
+fix one card's exit and the next shot flips too. Solve the whole film instead (dynamic programming over every picture
+segment, 2 options each): a join is a jump when the two framings are within 1.2x in size (W2/W2, and W4S/T2), unless a
+full-screen item covers one side; cards prefer W4S (the W4 crop slid left inside the 4K frame) and fall back to W2 + wall
+stretch where the slide would force a jump.
 
 ## Dan's verdict on the pilot (2026-09-30)
 

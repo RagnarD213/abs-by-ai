@@ -1738,14 +1738,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/RO-10-calories-the-reason-you-re-not-losing-weight.md`: cut \"Calories: The Reason You're Not Losing Weight\" from 9/23 roll C1704 with /longform-edit. Best take of every line, every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-10-calories-the-reason-you-re-not-losing-weight.md` with `$long-form-content-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "ready",
-   "note": "",
+   "state": "in_progress",
+   "note": "Round 1 (first all-HyperFrames film) with Dan 09-30: http://127.0.0.1:8801/",
    "sub": "",
    "order": 83,
-   "updated": "2026-09-24",
-   "by": "claude",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-09-30",
+   "by": "Claude",
+   "rev": 2,
+   "syncedRev": 2
   },
   {
    "id": "RO-11",
