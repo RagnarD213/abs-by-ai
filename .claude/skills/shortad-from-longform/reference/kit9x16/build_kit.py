@@ -156,6 +156,9 @@ def make_timeline(beats, dur):
 
 
 # ---------------------------------------------------------------------------- the grammar
+DROPPED_FLASHES = []
+
+
 def flashes_for(tl, T, cap=None):
     """A light-leak on every insert -> talk return (his rule), the content cut on the peak. A return from a
     full-screen picture flashes only where HIS master does (`flash_after` from auto_content) and only while the
@@ -180,6 +183,11 @@ def flashes_for(tl, T, cap=None):
         keep += sorted(extra)[::-1][:room]
         room = max(0, cap - len(keep))
         keep += bare[:room]
+        dropped = sorted(set(extra + bare) - set(keep))
+        if dropped:
+            DROPPED_FLASHES[:] = [dict(t=round(c, 3), why="his master flashes on this return, but his measured flash "
+                                       "range (picture.json flashes_per_min hi) is full; the returns he and the kit's rule "
+                                       "both flash, and his latest full-screen returns, came first") for c in dropped]
         cand = keep
     cand = sorted(cand)
     out = []
@@ -779,7 +787,7 @@ def main():
         no_caps_bodies=C.get("no_caps_bodies", []),
         base_kinds=list(BASE_KINDS), seams=[],
         cta_top=C.get("cta_top", "Get A FREE AI Image Of Yourself"), cta_big=C.get("cta_big", "With Abs"),
-        deviations=C.get("deviations", []),
+        deviations=C.get("deviations", []) + [dict(kind="flash_dropped", **x) for x in DROPPED_FLASHES],
         words=[dict(w=w["w"], t=round(w["t"], 3), e=round(w["e"], 3)) for w in words],
         picture_cuts=dict(talk_splices=len(in_talk), moved=len(moved), covered=len(cover), source="piccuts.json"),
     )
