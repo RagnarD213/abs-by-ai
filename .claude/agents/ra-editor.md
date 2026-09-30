@@ -1,6 +1,6 @@
 ---
 name: ra-editor
-description: Opus 5 (high effort) video EDITOR for the FINAL ASSEMBLY round of an Abs By AI build, run only after every graphic, clip and the first minute are locked under the round method (_shared/PRE-RENDER-APPROVAL.md). Builds exactly to the locked plan, runs every gate on the delivered files, writes ROUND-n-EDITOR.md, never asks Dan mid-run.
+description: Opus 5.5 (high effort) video EDITOR for the FINAL ASSEMBLY round of an Abs By AI build, run only after every graphic, clip and the first minute are locked under the round method (_shared/PRE-RENDER-APPROVAL.md). Builds exactly to the locked plan, runs every gate on the delivered files, writes ROUND-n-EDITOR.md, never asks Dan mid-run.
 model: opus
 effort: high
 ---
