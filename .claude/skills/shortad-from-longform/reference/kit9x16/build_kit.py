@@ -156,17 +156,27 @@ def make_timeline(beats, dur):
 
 
 # ---------------------------------------------------------------------------- the grammar
-def flashes_for(tl, T):
-    """A light-leak on every insert -> talk return (his rule), the content cut on the peak."""
+def flashes_for(tl, T, cap=None):
+    """A light-leak on every insert -> talk return (his rule), the content cut on the peak. A return from a
+    full-screen picture flashes only where HIS master does (`flash_after` from auto_content) and only while the
+    count stays inside his measured range (`cap`): Ad 8 and Ad 10 flash on every such return, which would put the
+    kit over his ceiling; the latest returns keep theirs (the round-6 judge flagged the one at 177.98 s)."""
     pre, dur, gap = T["flash"]["pre_s"], T["flash"]["dur_s"], T["flash"]["min_spacing_s"]
-    out = []
     frm = tuple(T["flash"].get("on_return_from", ["card", "window", "title", "stmt", "winmedia"]))
+    rule, extra = [], []
     for i in range(1, len(tl)):
-        if tl[i]["kind"] == "talk" and (tl[i - 1]["kind"] in frm or tl[i - 1].get("flash_after")) and tl[i]["t1"] - tl[i]["t0"] >= 0.6:
-            c = tl[i]["t0"]
-            if out and c - (out[-1][0] + pre) < gap:
-                continue
-            out.append((round(c - pre, 3), round(c - pre + dur, 3)))
+        if tl[i]["kind"] == "talk" and tl[i]["t1"] - tl[i]["t0"] >= 0.6:
+            if tl[i - 1]["kind"] in frm:
+                rule.append(tl[i]["t0"])
+            elif tl[i - 1].get("flash_after"):
+                extra.append(tl[i]["t0"])
+    room = len(extra) if cap is None else max(0, cap - len(rule))
+    cand = sorted(rule + sorted(extra)[len(extra) - min(room, len(extra)):])
+    out = []
+    for c in cand:
+        if out and c - (out[-1][0] + pre) < gap:
+            continue
+        out.append((round(c - pre, 3), round(c - pre + dur, 3)))
     return out
 
 
@@ -535,7 +545,8 @@ def main():
         last = t1 + 0.5
     if ctas and Cc.get("last_runs_to_end"):
         ctas[-1]["t1"] = dur
-    flashes = flashes_for(tl, T)
+    fl_hi = ref["numbers"].get("flashes_per_min", {}).get("hi") if ref else None
+    flashes = flashes_for(tl, T, cap=int(fl_hi * dur / 60.0) if fl_hi else None)
 
     # ---- the talk splices and the picture cuts
     talk_spans = [[b["t0"], b["t1"]] for b in tl if b["kind"] == "talk"]
