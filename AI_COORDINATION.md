@@ -62,8 +62,6 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
   re-upload — both are live ad destinations.
 - **Upload the welcome-video shoot (114 GB) to Drive (baseline 09-15)** as its only second copy? ⚠ Personal rclone client_id first
   (the shared one hit a 403 quota). Memory `drive-backup-capability`.
-- **Zeeshan (09-22):** Video 2 finalized (music was fine, our error). Video 3 round 4 at top of doc
-  `13uu4k9y2ttOWD9sp3KU-OLAeCNO74-3pWeIrBjcgVhk`; send the message in `revision docs/stop-deadlifting-revisions-zeeshan-round4-9-22-26.summary.md`. ⚠ Video 4 charts: do you have them?
 - **Forward, Waleed + Muhammad:** Waleed V1 r4 (doc `1Uxd6a2qSuazts6lSASbVhatNkvCFINhlLAtrcmXlFBw`; ⚠ new side-by-side
   before/after 0:06.6–0:08.1). Muhammad doc `1L2XJKLFrRJHKlcL4Iii70iFvZeiNNeplxYQw2aeAJ_A`: 09-10 (Ad 13 watermark;
   Ad 15 empty slot 0:25.5, an ad?) and 09-12 (Ads 6 + 7 same closing man; Ad 14 watermark 0:20).
@@ -91,19 +89,27 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # ACTIVE
 
+**Clip library - IN PROGRESS 2026-09-29, Claude.**
+
 **Studio batch - NEEDS DAN 2026-09-29, Codex.** 24 posts, 48 images, captions, templates and gallery complete. Next: Dan reviews at `http://127.0.0.1:8791/`. No scheduling or publishing. Files: `output/studio-post-test-24-20260929/`; Drive backup `19en-2zvk9LWgeItK51A4pZeGzfP189Ih`.
 
-**Queue covers - HANDOFF 2026-09-28, Claude.** All installed; Dan approved the rest. Next: execute crops/grid-shift handoff before Sep 29 5 PM CT. Row 16 R5 re-post still Dan's call.
+**Stashed edits - NEEDS OWNER 2026-09-29, Claude.** A rebase kept upstream versions of softblue.py, SOFTBLUE.md, GRAPHICS-STANDARDS.md, deliver/gate.py, coverimage SKILL.md, 00-MASTER.md, jobs.json. Uncommitted edits: `stash@{0}` (5d8284a). Next: owner re-applies.
 
-**WV-01 round17 - HANDOFF READY 2026-09-29, Codex.** Dan approved opening and CTA tail, authorized complete A render in next task. Next: execute `Handoffs/handoff-20260929-wv01-round17-full-A-render-and-QA.md` with exact-file QA. B deferred; dispatcher paused; no publishing.
+**SL-04 arms shorts round 2 - IN PROGRESS 2026-09-29, Claude.** Executing `Handoffs/handoff-20260925-sl04-arms-shoulders-shorts-revisions.md` in `/Volumes/Extreme/_edit_work/sl04/build/`. Next: flush title band, short 1 grade, hair, short 3 context, short 2 pill; gate + review.
 
-**RO-05 salad - READY 2026-09-29, Claude.** Dan delegated round 3; every decision locked (`round4-plan/decisions.json`). Next: fire `Handoffs/handoff-20260929-ro05-round4-motion-decisions-then-full-film.md` (full film).
+**Vertical kit autofill - IN PROGRESS 2026-09-28, Claude.** Executing `Handoffs/handoff-20260925-vertical-kit-autofill-no-model-session.md` in worktree `/private/tmp/abs-kit-autofill`. Builds: `/Volumes/Extreme/_edit_work/kit9x16/auto-*`. Next: answer keys, Ad 10 rebuild, AV-09.
+
+**Stop Deadlifting - QUEUED 2026-09-29, Claude.** Blotato Sun Oct 11 9 AM CT, 4 platforms. Next: after it posts, publish `sixpackabs/articles/TBD-stop-deadlifting.md`, then delete.
+
+**Queue covers - QUEUED 2026-09-29, Claude.** Arm-workout reel re-queued on @danrosefit with R5 (Blotato 4962222, Sep 30 9 AM CT, 266 MB copy). Next: confirm it is live on Instagram after 9 AM Sep 30.
+
+**RO-05 salad - NEEDS DAN 2026-09-29, Claude.** Round 4 film delivered; review SHIP. Next: Dan watches, rules on 3 decisions, then /video-setup. Detail: `/Volumes/Extreme/_edit_work/ro05-fable/round4/ROUND-4-BUILD.md`.
 
 **STOP Deadlifting clip - NEEDS DAN 2026-09-20, Codex.** R3 review copy delivered to the shared Drive folder: `1dXUbQajUzM-uO_Xl92telO0qsa-Ob7uV`. Full head visible; measured bar path rises once without reversing. Silent B-roll has no matching full-film delivery gate, so no gate PASS is claimed. Next: Dan reviews R3 and approves or names any corrections. Detail: `Media/ai-frames/stop-deadlifting-opening-20260918/motion-v2/R3_DELIVERY.json`.
 
 **Overnight edit queue — PAUSED 2026-09-24, Dan's call.** He fires every edit by hand now to save tokens; nothing launches unattended. Routing left correct underneath (AV/AS/SL Claude, RA/RO/DS Codex, cross-review) so a resume needs no config work. Resume only if Dan says: `dispatcher.py resume`.
 
-**RO-01 revision 4 - HANDOFF READY 2026-09-26, Codex.** Color/audio approved; graphics rejected. Next: opening concept choice, then all graphics/clips in context for approval before a full render. No new calibration sample. `Handoffs/handoff-20260926-ro01-r4-graphics-and-clips-approval.md`.
+**RO-01 round 7 - NEEDS DAN 2026-09-29, Codex.** H06/H04/B01 motion and narration-context previews ready at `http://127.0.0.1:8786/index.html`; hashes and estimated spend in `revision7/motion-QA.json`. Next: Dan chooses H06 or H04 and approves/corrects B01, then Codex renders first-minute checkpoint and full film. B02 removed; R3 look/audio and 23 R4 items locked. Dispatcher paused.
 
 **Ads 6, 7, 10, 14 YouTube + Google Ads — REVIEW 2026-09-15, owner: Codex 01a0a744.** Four unlisted uploads and eight enabled campaign ads are complete; shared budget stays $40/day. Google policy is `REVIEW_IN_PROGRESS`. Next: re-run policy 09-16; replace Ad 7 typo/Ad 14 low-bitrate exports when delivered. Detail: `Docs/DGEN_CONVERSION_CAMPAIGN.md`.
 
@@ -158,12 +164,10 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
-- `handoff-20260929-ig-autoboost-cost-per-follower.md` (09-29): IG ads per-follower. Opus high.
-- `handoff-20260928-queue-cover-crops-and-grid-shift.md` (09-28): 8 Hours cover due Sep 29 5 PM CT. Opus 5.5 medium.
-- `handoff-20260925-sl04-arms-shoulders-shorts-revisions.md` (09-25): SL-04 round 2 fixes. Opus 5.5 high.
+- `handoff-20260929-start-page-performance-verdict.md` (09-29): /start keep-or-fold. Opus high.
 - `handoff-20260924-vsl-landing-five-mockups.md` (09-24): five VSL landing page mockups from VidTao research. Opus 5.5 high. Mockups only.
 - `handoff-20260924-generator-consult-call-outreach.md` (09-24): fire by 09-26.
-- `handoff-20260929-ro05-round4-motion-decisions-then-full-film.md` (09-29): RO-05 full film, all decisions locked. Opus 5.5 high. (`handoff-20260923-ro05-recut-astra.md`: Codex bake-off half.)
+- `handoff-20260923-ro05-recut-astra.md`: RO-05 Codex half.
 - `handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md` [dash]: PHONE ONLY, 3 TikTok covers (updated 09-22). Sonnet 5 or Fable 5.1 / Medium.
 - `handoff-20260915-finalized-ads-6-14-youtube-and-google-ads.md` — Ads 6, 7, 10, 14 → YouTube + DGen (2026-09-15). Codex, high.
 - **`video-editing/00-MASTER.md` — THE video-editing list (2026-09-16):** 16 raw short ads, 25 dedicated shorts, 8 long-forms, 3 shorts-from-long-form, 15 ad variants; one doc per job, Claude + Codex prompts. Supersedes the J1–J18 ad-variants queue. Dan picks the order.
