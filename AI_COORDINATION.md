@@ -91,9 +91,9 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **Shared checkout cannot push - NEEDS OWNER 2026-09-30, Claude.** Checkout is 11 commits ahead (41bb43b..9982b49), 47 behind, with other sessions' dirty files; pull/merge/rebase refuse. Next: fire `Handoffs/handoff-20260930-fix-stuck-main-checkout.md` when no session runs here.
 
-**RO-12 - IN PROGRESS 2026-09-30, Claude.** First cut from C1706. Dir `/Volumes/Extreme/_edit_work/ro12/`.
+**RO-12 - NEEDS DAN 2026-09-30, Claude.** Delivered. Next: `handoff-20260930-ro12-round1-dan-review.md`.
 
-**HyperFrames templates r2 - NEEDS DAN 2026-09-30, Claude.** Review page: `/Volumes/Extreme/_edit_work/hyperframes-r2/review/index.html`. Commit 110eacb local (checkout cannot push). Next: Dan approves; then README, SOFTBLUE.md, first-full-video handoff.
+**HyperFrames templates r2 - NEEDS DAN 2026-09-30, Claude.** Review: `http://127.0.0.1:53355/` (launchd `com.absbyai.hyperframes-r2-review`). Commit 110eacb local (checkout cannot push). Next: Dan approves; then README, SOFTBLUE.md, first-full-video handoff.
 
 **RO-16 - IN PROGRESS 2026-09-30, Claude.** Round 2 (G03 option 2): full film rendering, `/Volumes/Extreme/_edit_work/ro16/round2/`. Next: gates, review, deliver.
 
@@ -105,11 +105,11 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **Vertical kit autofill - IN PROGRESS 2026-09-28, Claude.** Executing `Handoffs/handoff-20260925-vertical-kit-autofill-no-model-session.md` in worktree `/private/tmp/abs-kit-autofill`. Builds: `/Volumes/Extreme/_edit_work/kit9x16/auto-*`. Next: answer keys, Ad 10 rebuild, AV-09.
 
-**SL-04 short 1 - IN PROGRESS 2026-09-30, Claude.** Re-cutting ending.
+**SL-04 short 1 - NEEDS DAN 2026-09-30, Claude.** Round 3 delivered.
 
 **Stop Deadlifting - QUEUED 2026-09-29, Claude.** Blotato Oct 11 9AM CT, 4 platforms. Next: once posted, publish `sixpackabs/articles/TBD-stop-deadlifting.md`, then delete. SL-05: round 1 handoff below.
 
-**RO-05 salad - QUEUED 2026-09-30, Claude.** Posts Oct 18; then publish `sixpackabs/articles/TBD-daily-salad.md`.
+**RO-05 salad - QUEUED 2026-09-30, Claude.** Oct 18: fire `handoff-20260930-ro05-captions-and-article-after-release.md`.
 
 **STOP Deadlifting clip - NEEDS DAN 2026-09-20, Codex.** R3 review copy in shared Drive folder `1dXUbQajUzM-uO_Xl92telO0qsa-Ob7uV`: full head visible, bar path rises once. Silent B-roll has no full-film gate, so no PASS claimed. Next: Dan approves R3 or names corrections. Detail: `Media/ai-frames/stop-deadlifting-opening-20260918/motion-v2/R3_DELIVERY.json`.
 
