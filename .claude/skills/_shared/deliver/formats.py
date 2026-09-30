@@ -392,7 +392,7 @@ FORMATS = {
              "Dan, 2026-08-27 -- organic longforms carry NO burned captions and no watermark; the "
              ".srt sidecar is the deliverable.",
         rows=_common(
-            drop=("captions:graphic_clearance",),
+            drop=("captions:graphic_clearance", "compliance:drug_names"),
             **{
                 "container:size": dict(size="1920x1080"),
                 "container:fps": dict(fps="30000/1001"),
@@ -446,9 +446,10 @@ FORMATS = {
                 # a judge scores every sheet and strip, and no defect may be left open.
                 "srt:present": dict(required=True),
                 "srt:shape": dict(max_line_chars=48, max_lines=2,
-                                  banned_spellings=["GOP", "Zepbound", "Ozempic"]),
+                                  banned_spellings=["GOP"]),
                 # 48 chars / 2 lines: longform-edit/cutdown_final_gate.py. "GOP" is Whisper's
-                # mis-hearing of "GLP"; it has come back three times.
+                # mis-hearing of "GLP"; it has come back three times. "Zepbound"/"Ozempic" left
+                # this list 2026-09-30: organic videos may name the drug (Dan, RO-12 round 2).
             }),
         not_applicable={
             "framing:centering": "a 16:9 content video's layout may put Dan beside a graphic or a "
@@ -456,6 +457,8 @@ FORMATS = {
             "captions:sync": "an organic longform burns no captions, so there is no on-screen "
                              "highlight to synchronise; srt:shape covers the sidecar",
             "captions:graphic_clearance": "no burned captions -- nothing to clear a graphic by",
+            "compliance:drug_names": "Dan 2026-09-30: organic videos may name the drug; the "
+                                     "brand-name ban is an ad rule",
         },
     ),
 
@@ -463,6 +466,7 @@ FORMATS = {
     "short": dict(
         note="A vertical Short cut out of a video we ourselves rendered.",
         rows=_common(
+            drop=("compliance:drug_names",),
             **{
                 "container:size": dict(size="1080x1920"),
                 "container:fps": dict(fps="30000/1001"),
@@ -517,6 +521,8 @@ FORMATS = {
         not_applicable={
             "srt:present": "a Short burns its captions; there is no sidecar deliverable",
             "srt:shape": "no sidecar -- see srt:present",
+            "compliance:drug_names": "Dan 2026-09-30: organic videos may name the drug; the "
+                                     "brand-name ban is an ad rule",
         },
     ),
 

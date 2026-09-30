@@ -58,7 +58,7 @@ from _shared.deliver.common import Row                       # noqa: E402
 #   1.0.0  2026-09-11  first version. Folds in the rows of the seventeen per-video QC forks, adds
 #                      audio:lipsync and the compliance rows, and moves every bound into formats.py
 #                      with the file and date it was measured on.
-GATE_VERSION = "2.3.2"        # 1.1.0: an insert may declare its own label chip + position
+GATE_VERSION = "2.4.0"        # 1.1.0: an insert may declare its own label chip + position
                               # (a card hangs its chip off the card, not at the full-bleed waistline)
                               # 1.2.0  2026-09-12  Phase 2: five framing: rows on a portable tracker
                               # (FaceMesh + Apple Vision, no set-specific background) and stage 3 of
@@ -80,6 +80,10 @@ GATE_VERSION = "2.3.2"        # 1.1.0: an insert may declare its own label chip 
                               # key; only exercise-demo sets it (cloned-voice narration gated with
                               # audio_gate.py --synthetic). Every other format still rejects a
                               # synthetic stamp. (2.3.1 is the uncommitted WV-01 caption_mode work.)
+                              # 2.4.0  2026-09-30  organic formats (longform, short) declare
+                              # compliance:drug_names not applicable and drop "Zepbound"/"Ozempic"
+                              # from srt:shape banned_spellings. Dan, RO-12 round 2: organic videos
+                              # may name the drug; the brand-name ban is an ad rule.
 
 STAMP_SUFFIX = ".deliver_gate.json"
 
