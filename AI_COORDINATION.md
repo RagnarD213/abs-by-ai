@@ -46,7 +46,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 - **/start VSL: (baseline 2026-09-15; age unknown)** read script doc `1DL2V34wePN75m1XxAuhpC2nghvobgr4C9RnTyszqqlA`, decide §7 (on-screen line under real
   photos), record. ⚠ Live post-generation video
   says "thousands of guys" (3:16, 3:41); 75 people have ever generated.
-- **VSL letter (09-30):** on Round 2, https://claude.ai/artifact/GM8Han9hMfSHNf625vqtyu. Decide: sound box color, double plan picker, bottom sticky bar.
+- **VSL sales page (09-30):** mockup APPROVED. Fire `Handoffs/handoff-20260930-sales-page-build.md`; it asks you 5 things once.
 - **@danrosefit Meta ads: (baseline 2026-09-15; age unknown)** raise champion ad set `120250753601020682` $6.50 → $8/day? Confirm both [DAN] [ENGAGEMENT]
   campaigns stay OFF. Report: https://claude.ai/code/artifact/18397bc8-efc4-4554-a440-7961cbaa423d
 - **Fire the phone handoff (updated 09-22):** installs 3 TikTok covers already in Photos. ⏰ Sep 15 train-abs closes
@@ -165,6 +165,7 @@ Memory `google-ads-ui-automation`.
 - `handoff-20260930-hyperframes-templates-round2.md` (09-30): HyperFrames lower third, before card, 3A list templates. Opus 5.5 high.
 - `handoff-20260930-ro16-round2-opener-motion-then-full-film.md` (09-30): with Dan's G03 pick. Opus 5.5 high.
 - `handoff-20260930-codex-adopt-review-page-format.md` (09-30): Codex adopts the RO-16 review page. GPT-6 Sol medium.
+- `handoff-20260930-sales-page-build.md` (09-30): ship the approved sales page as /start. Opus 5.5 high.
 
 - `handoff-20260928-queue-cover-crops-and-grid-shift.md` (09-28): 8 Hours cover due Sep 29 5 PM CT. Opus 5.5 medium.
 - `handoff-20260924-generator-consult-call-outreach.md` (09-24): fire by 09-26.
