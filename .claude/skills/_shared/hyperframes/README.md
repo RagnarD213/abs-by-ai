@@ -8,13 +8,16 @@ Research and decision: `Docs/HYPERFRAMES_RESEARCH.md`. Style lock: [../SOFTBLUE.
 | Template | Status | Use for |
 |---|---|---|
 | [`cycle/`](cycle/) | **Approved by Dan 2026-09-30** (C1652 pilot) | a 4-step loop / vicious or virtuous cycle, and its reversal |
-| [`lower-third/`](lower-third/) | Built 2026-09-30, **waiting for Dan** (RO-16 G04 sample) | Motivation lower third; parts land on words; optional counter bar (long way vs short way) |
-| [`before-card/`](before-card/) | Built 2026-09-30, **waiting for Dan** (RO-16 G02 sample) | full-screen photo + glass fact card on the live field; number count-up |
-| [`side-list/`](side-list/) | Built 2026-09-30, **waiting for Dan** (RO-16 G20 sample) | the 3A left card; items land on their words |
+| [`lower-third/`](lower-third/) | **Approved by Dan 2026-09-30** (RO-16 G04 sample) | Motivation lower third; parts land on words; optional counter bar (long way vs short way) |
+| [`before-card/`](before-card/) | **Approved by Dan 2026-09-30** (RO-16 G02 sample) | full-screen photo + glass fact card on the live field; number count-up |
+| [`side-list/`](side-list/) | **Approved by Dan 2026-09-30** (RO-16 G20 sample) | the 3A left card; items land on their words |
 
 Round-2 samples, beat sheet, bases, compositor and review page: `Media/hyperframes/round2-templates/`
 (`BEATS.md`, `bases.py`, `composite.py`, `clearance.py`, `page.py`); heavy media in `/Volumes/Extreme/_edit_work/hyperframes-r2/`.
 Shared plumbing for the three: [`hfbuild.py`](hfbuild.py) (make_scene, lint + check, render; text placement matches PIL).
+
+Round 2 (lower third, before card, side list) approved by Dan 2026-09-30: "All three approved." Each `build.py`
+docstring has its config format; the approved configs are the `example-ro16-*.json` beside it.
 
 ## Dan's verdict on the pilot (2026-09-30)
 
