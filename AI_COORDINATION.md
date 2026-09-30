@@ -103,7 +103,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **Stop Deadlifting - QUEUED 2026-09-29, Claude.** Blotato Oct 11 9AM CT, 4 platforms. Next: once posted, publish `sixpackabs/articles/TBD-stop-deadlifting.md`, then delete. SL-05 picks pending: `_edit_work/sl05`.
 
-**RO-05 salad - APPROVED 2026-09-30, Claude.** Dan approved the round 4 film as is; queue `finalized`. Next: fire `Handoffs/handoff-20260930-ro05-video-setup.md`.
+**RO-05 salad - APPROVED 2026-09-30, Claude.** Queue `finalized`. Next: Codex thumbnail handoff, then Claude setup handoff with Dan's final thumbnail.
 
 **STOP Deadlifting clip - NEEDS DAN 2026-09-20, Codex.** R3 review copy delivered to the shared Drive folder: `1dXUbQajUzM-uO_Xl92telO0qsa-Ob7uV`. Full head visible; measured bar path rises once without reversing. Silent B-roll has no matching full-film delivery gate, so no gate PASS is claimed. Next: Dan reviews R3 and approves or names any corrections. Detail: `Media/ai-frames/stop-deadlifting-opening-20260918/motion-v2/R3_DELIVERY.json`.
 
@@ -168,7 +168,7 @@ Memory `google-ads-ui-automation`.
 - `handoff-20260929-start-page-performance-verdict.md` (09-29): /start keep-or-fold.
 - `handoff-20260924-vsl-landing-five-mockups.md` (09-24): five VSL landing page mockups from VidTao research. Opus 5.5 high. Mockups only.
 - `handoff-20260924-generator-consult-call-outreach.md` (09-24): fire by 09-26.
-- `handoff-20260930-ro05-video-setup.md` (09-30): RO-05 upload + Blotato, organic. Opus medium.
+- `handoff-20260930-ro05-thumbnails-codex.md` (Codex), then `…-ro05-video-setup.md` (Claude, needs the thumbnail).
 - `handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md` [dash]: PHONE ONLY, 3 TikTok covers (updated 09-22). Sonnet 5 or Fable 5.1 / Medium.
 - `handoff-20260915-finalized-ads-6-14-youtube-and-google-ads.md` — Ads 6, 7, 10, 14 → YouTube + DGen (2026-09-15). Codex, high.
 - **`video-editing/00-MASTER.md` — THE video-editing list (2026-09-16):** 16 raw short ads, 25 dedicated shorts, 8 long-forms, 3 shorts-from-long-form, 15 ad variants; one doc per job, Claude + Codex prompts. Supersedes the J1–J18 ad-variants queue. Dan picks the order.

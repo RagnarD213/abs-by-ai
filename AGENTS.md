@@ -113,6 +113,12 @@ Full rule: read `.claude/skills/_shared/VIDEO-RULES.md`.
 
 Full rule: read `.claude/skills/_shared/VIDEO-RULES.md`.
 
+## Organic video setup: Codex thumbnail, Claude upload (Dan, 2026-09-30)
+
+- For every finished organic content video, **Codex makes the YouTube thumbnail options in its own task** (spec: `/video-setup`
+  Step 2), Dan picks, and **a Claude task does the upload and setup** (`/video-setup` without the thumbnail step) from the
+  finalized thumbnail Dan hands it. Write the two as separate handoffs. Template: `Handoffs/handoff-20260930-ro05-*`.
+
 ## Google Drive sharing: always public (Dan, 2026-09-24)
 
 - Everything a session creates or uploads on Google Drive is set to "anyone with the link can view" at creation. Never leave work files private; it blocks editors. Personal or sensitive documents (keys, legal, IDs) are the only exception. Mechanics: memory `drive-always-public`.

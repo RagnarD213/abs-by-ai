@@ -1,7 +1,10 @@
-# RO-05 "How I Make My Daily Salad": upload and schedule (organic content video)
+# RO-05 "How I Make My Daily Salad": upload and schedule (organic content video), Claude half
 
 **Written 2026-09-30 by Claude (Opus 5.5).** Job RO-05 on the Edit Queue, state `finalized`. Run it with the `/video-setup`
-skill, start to finish.
+skill, **except the thumbnails**: Codex builds those in its own task (`Handoffs/handoff-20260930-ro05-thumbnails-codex.md`) and
+Dan gives this session the finalized thumbnail file when he fires it (standing split, Dan 2026-09-30: Codex makes the thumbnail,
+Claude uploads and sets up). Do not design, pick or edit a thumbnail here. If the starter prompt carries no thumbnail path, stop
+and ask Dan for it.
 
 ## 1. What is approved
 Dan, 2026-09-30, after watching the round-4 film in VLC: *"Okay, this video is approved and good to go."* That approves the film
@@ -29,20 +32,20 @@ so `ai_generated: false` and `--synthetic false`. Numbers Dan says on camera: ab
 salad bar $20 vs $4 homemade; the app estimated 683 calories vs about 720 weighed by hand.
 
 ## 3. The steps (per `/video-setup`)
-1. **Board + queue:** add the ACTIVE entry ("thumbnail pick pending"). Queue stays `finalized` until the YouTube upload, then `uploaded`
+1. **Board + queue:** add the ACTIVE entry. Queue stays `finalized` until the YouTube upload, then `uploaded`
    (`python3 scripts/edit-queue/queue.py set RO-05 uploaded ...`, then write_db the exported row to the Edit Queue artifact,
    pinned `if_version`, then `queue.py mark-synced RO-05`).
-2. **Backups:** copy the master to the Extreme drive and Google Drive (Drive: anyone-with-link viewer, memory `drive-always-public`).
-3. **Thumbnails, the only stop for Dan:** five variations per the skill, review sheet via `SendUserFile`, then stop and wait for his pick.
-   Prefer real shoot photos over video frames and never soft abs (memory `cover-photo-selection`); good frames include the finished
-   salad close-ups (0:05 to 0:08) and Dan holding the sealed glass bowl.
-4. **Packaging after the pick:** searchable title with no hype claims; description with the UTM link
+2. **Backups:** copy the master (and .srt) to the Extreme drive and Google Drive per the skill's "Three copies" rule
+   (Drive: anyone-with-link viewer, memory `drive-always-public`).
+3. **Thumbnail from Dan:** check the file he gives you: 1280x720 (16:9), JPEG or PNG under 2 MB (YouTube's limit), opens cleanly.
+   If it fails one of those, make a conforming copy (resize/re-encode only, never a design change) and say so.
+4. **Packaging:** searchable title with no hype claims; description with the UTM link
    (`utm_content=ro05-daily-salad`), the 10 chapters, a how-to paragraph, subscribe CTA, 3 to 5 hashtags. No em dashes anywhere.
 5. **YouTube holding upload, PRIVATE only** (`node scripts/youtube/upload.js ... --privacy private --synthetic false`, run in the
-   background, never re-run a slow upload). Read back `privacyStatus: private`. Never Public, never a `publishAt`.
+   background, never re-run a slow upload), with `--thumbnail <Dan's file>`. Read back `privacyStatus: private`. Never Public, never a `publishAt`.
 6. **Blotato:** the 1.91 GB master is far over Blotato's 400 MB cap (memory `blotato-false-failure-large-video`). Encode a
    platform copy under 400 MB (1080p H.264, video about 3 Mbps, audio copied) with `Media/video_edit/bin/ffmpeg`, check its
-   duration and loudness match the master, upload it with `blotato_create_presigned_upload_url`, hash-check the download, write
+   duration and loudness match the master, upload it and Dan's thumbnail (the config's `youtube_cover_url`) with `blotato_create_presigned_upload_url`, hash-check each download, write
    `scripts/blotato/configs/ro05-daily-salad.json` (`content_type: organic`, `source` = the master's path), dry-run
    `scripts/blotato/longform_queue.py`, then `--apply`. Accounts: YouTube release, Facebook, Instagram @danrosefit, TikTok.
    Never @abs.by.ai (retired 2026-09-24). ⚠ The film is 14:54: confirm each platform takes that length before queuing, and if
@@ -60,6 +63,6 @@ salad bar $20 vs $4 homemade; the app estimated 683 calories vs about 720 weighe
 - Swearing on camera stays; never flag it (memory `swearing-never-cut-never-ask`).
 
 ## 5. Model and starter prompt
-Claude Opus 5.5, effort medium (a known, scripted flow with one Dan stop).
+Claude Opus 5.5, effort medium (a known, scripted flow; no Dan stop once the thumbnail is in hand).
 
-> Read `Handoffs/handoff-20260930-ro05-video-setup.md` in full, then run `/video-setup` for RO-05 "How I Make My Daily Salad": it is an approved organic content video. Build the thumbnail options and stop for my pick; after I pick, package it, upload it to YouTube as Private, queue it in Blotato on the next free long-form slot in our release schedule, verify, and report.
+> Read `Handoffs/handoff-20260930-ro05-video-setup.md` in full, then run `/video-setup` for RO-05 "How I Make My Daily Salad" (approved organic content video), without the thumbnail step. The finalized thumbnail is: `<PASTE THUMBNAIL PATH>`. Package it, upload it to YouTube as Private with that thumbnail, queue it in Blotato on the next free long-form slot in our release schedule, verify, and report.

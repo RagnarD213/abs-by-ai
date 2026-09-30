@@ -13,7 +13,11 @@ descriptions and thumbnails… Before setting it up, though, make the thumbnail 
 Everything below ran end to end that day. Historical result: YouTube `b_bS9NdmL-g` (scheduled under the retired native-publication workflow for Sun 09-20 9 AM CT, thumbnails 5 vs 1 in Test & Compare), Blotato
 schedules 4413699 / 4413701 / 4413702 / 4413703; record in `BLOTATO_QUEUE_PROGRESS.md`.
 
-**One stop for Dan, and only one: the thumbnail pick.** Everything else is reversible and runs without asking.
+**Thumbnail split (Dan, 2026-09-30, every organic content video from now on): Codex makes the thumbnail, Claude does the
+upload and setup.** A Claude /video-setup session never designs thumbnails. It starts from the finalized thumbnail file Dan
+hands it. If none was given: write the Codex thumbnail handoff (copy `Handoffs/handoff-20260930-ro05-thumbnails-codex.md`;
+Step 2 below is its spec), give Dan its starter prompt, and stop, or ask Dan for the path if Codex already made it. The setup
+session then has no Dan stop; everything is reversible and runs without asking.
 **Permanent visibility rule (Dan, 2026-09-16): upload organic YouTube videos Private and leave them Private;
 Blotato owns the scheduled release, including YouTube. Never upload Public and never use YouTube native scheduling.**
 
@@ -30,7 +34,7 @@ Blotato owns the scheduled release, including YouTube. Never upload Public and n
 - Every config this skill writes carries `"content_type": "organic"` and a `"source"` path.
   `scripts/blotato/ad_guard.py` blocks the queue without them. Run `python3 scripts/blotato/ad_guard.py --scan`
   before and after the Blotato write.
-- `git status`; add an entry to `AI_COORDINATION.md` → ACTIVE TASK ("thumbnail pick pending").
+- `git status`; add an entry to `AI_COORDINATION.md` → ACTIVE TASK.
 - ffmpeg is NOT on PATH. Use `Media/video_edit/bin/ffmpeg` / `ffprobe` (absolute path from the project root).
 - Video builds cap is two across sessions — a frame extraction is trivial, but check
   `ps -Ao command | grep -E 'ffmpeg|render\.py|whisper'` before a contact sheet of a long video.
@@ -76,7 +80,12 @@ Switch it in Studio (`studio.youtube.com/video/<id>/edit` → Visibility → Pri
      (memory `drive-always-public`), then `rclone lsl` to confirm the byte count. Give Dan the folder link.
   - A dedicated Short gets the same two copies under `Short-form video content/` on each drive.
 
-## Step 2 — five thumbnail variations, then STOP for Dan's pick
+## Step 2: five thumbnail variations, then STOP for Dan's pick (CODEX's task since 2026-09-30)
+
+This step is done by Codex in its own task, never by the Claude setup session (split above). It stays here as Codex's
+spec. Codex delivers `<title> - thumbnail FINAL.jpg` (1280x720 JPEG, under 2 MB) in
+`social media graphics/youtube/thumbnails/<title>/` and Dan pastes the path into the Claude setup task, which only checks the
+file conforms (size, format, under 2 MB) and uses it for the YouTube upload and Blotato's `youtube_cover_url`.
 
 Dan's standing mix (09-13): **two pool-shoot photos on a natural background, two studio photos, one screenshot
 from the video** with big text above his head. Same copy on all five. Read `/youtube-packaging` first for the
@@ -110,7 +119,7 @@ It imports the Ad 5 `build_clean.py` for the studio looks and reuses assets, so 
 - `SendUserFile` the `REVIEW_*.jpg` sheet (display `render`), list the five in plain words, and **stop**. Dan may pick
   one, or two for an A/B test ("A/B test between 1 and 5").
 
-## Step 3 — packaging (after the pick)
+## Step 3: packaging (with Dan's finalized thumbnail in hand)
 
 - **Title:** searchable, no hype claims. 09-13: *"Ab Wheel Workout: 3 Sets For Stronger Abs (Do It With Me)"*.
 - **Description** → `<filed folder>/youtube-description.md`: one-line hook; absbyai.com link with
