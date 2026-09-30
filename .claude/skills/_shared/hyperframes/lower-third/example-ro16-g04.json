@@ -1,0 +1,7 @@
+[
+  {"id": "g04", "a": 56.24, "b": 67.8349, "topic": "THE MATH",
+   "parts": [["1 lb A Week =", 56.40], ["7 MONTHS.", 57.86], ["All In =", 65.24], ["90 DAYS.", 66.12]],
+   "bar": {"grow": 57.86, "grow_value": 7, "grow_unit": "MONTHS",
+           "shrink": 65.24, "land": 66.42, "from_value": 210, "value": 90, "unit": "DAYS", "ratio": 0.4286},
+   "drift": -4}
+]

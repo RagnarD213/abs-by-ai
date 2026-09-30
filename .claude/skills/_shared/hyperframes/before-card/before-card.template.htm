@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      /* Soft Blue Light before / fact card (softblue.scene_fact, 16:9, fit=True) on the moving field, with motion. */
+      @font-face { font-family: "Poppins"; src: url("assets/Poppins-Bold.ttf") format("truetype"); font-weight: 700; }
+      @font-face { font-family: "Poppins"; src: url("assets/Poppins-Regular.ttf") format("truetype"); font-weight: 400; }
+      :root {
+        --tint: rgba(22, 51, 81, 0.498);       /* glass over the field: 0.92 x the 0.54 tint blend */
+        --line: rgb(64, 112, 153);             /* GLASS_LINE */
+        --cyan: rgb(104, 197, 255);            /* CYAN headline */
+        --white: rgb(244, 250, 255);           /* WHITE eyebrow + detail */
+        --spec: rgb(135, 210, 248);            /* SPECULAR */
+        --chip: rgb(6, 17, 30);                /* disclosure chip */
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: rgb(5, 13, 28); }
+      #root { position: relative; width: 100%; height: 100%; font-family: "Poppins", sans-serif; font-weight: 700; background: rgb(5, 13, 28); }
+      #field { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+      #photoGroup, #cardGroup { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+      #shadow { position: absolute; border-radius: 36px; background: rgba(0, 2, 12, 0.43); filter: blur(10px); }
+      #frame { position: absolute; border-radius: 26px; background: rgb(42, 80, 113); border: 2px solid rgba(118, 183, 222, 0.59); }
+      #clip { position: absolute; overflow: hidden; }
+      #clip img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 0%; }
+      #chip { position: absolute; height: 80px; border-radius: 24px; background: var(--chip); }
+      #chip div { position: absolute; left: 40px; top: 14px; font-size: 46px; font-weight: 400; line-height: 1.4; color: var(--white); white-space: nowrap; }
+      #card { position: absolute; border-radius: 36px; background: var(--tint); border: 1px solid var(--line); overflow: hidden; }
+      #spec { position: absolute; top: 1px; width: 180px; height: 4px; border-radius: 2px; background: var(--spec); }
+      #sweep { position: absolute; top: -40%; width: 240px; height: 180%; transform: rotate(18deg);
+        background: linear-gradient(90deg, rgba(170, 225, 255, 0), rgba(170, 225, 255, 0.16) 50%, rgba(170, 225, 255, 0)); }
+      .t { position: absolute; white-space: nowrap; line-height: 1.4; }
+      .t span { display: inline-block; white-space: pre; }
+      #eyebrow { font-size: 64px; color: var(--white); }
+      .head { font-size: 84px; color: var(--cyan); }
+      #num { display: inline-block; text-align: right; }
+      #detail { font-size: 46px; font-weight: 400; color: var(--white); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="__ID__" data-start="0" data-duration="__DUR__" data-width="1920" data-height="1080">
+      <canvas id="field" width="1920" height="1080"></canvas>
+      <div id="photoGroup">
+        <div id="shadow"></div>
+        <div id="frame"></div>
+        <div id="clip"><img id="photo" alt="" /></div>
+        <div id="chip"><div id="chipText"></div></div>
+      </div>
+      <div id="cardGroup">
+        <div id="card"><div id="spec"></div><div id="sweep"></div></div>
+        <div id="eyebrow" class="t"></div>
+        <div id="heads"></div>
+        <div id="detail" class="t"></div>
+      </div>
+    </div>
+    <script>
+      const CFG = __CFG__;
+      const D = CFG.dur;
+      const px = v => v + "px";
+      const place = (e, x, y, w, h) => Object.assign(e.style, { left: px(x), top: px(y), width: w == null ? "" : px(w), height: h == null ? "" : px(h) });
+
+      // ---------- the moving Soft Blue field (softblue.field, same formula, 480x270 grid upscaled bilinear) ----------
+      const GW = 480, GH = 270, cv = document.getElementById("field"), ctx = cv.getContext("2d");
+      const off = document.createElement("canvas"); off.width = GW; off.height = GH;
+      const octx = off.getContext("2d"), img = octx.createImageData(GW, GH);
+      let seed = 8; const rnd = () => { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; };
+      const noise = new Float32Array(GW * GH);
+      for (let i = 0; i < noise.length; i++) { const u = Math.max(1e-9, rnd()), v = rnd(); noise[i] = 0.42 * Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v); }
+      function drawField(t) {
+        const gx = .14 + .13 * Math.sin(t * .65), gy = .2 + .13 * Math.cos(t * .4), hx = .83 + .12 * Math.cos(t * .6), hy = .88;
+        const d = img.data;
+        for (let y = 0; y < GH; y++) {
+          const yy = y / GH, gyv = (yy - gy) * (yy - gy) / .35, kyv = (yy - hy) * (yy - hy) / .18;
+          for (let x = 0; x < GW; x++) {
+            const xx = x / GW, i = y * GW + x;
+            const g = Math.exp(-((xx - gx) * (xx - gx) / .18 + gyv)), k = Math.exp(-((xx - hx) * (xx - hx) / .12 + kyv));
+            const n = noise[i], o = i * 4;
+            d[o] = Math.min(255, Math.max(0, 5 + g * 5 + k * 3 + n)) | 0;
+            d[o + 1] = Math.min(255, Math.max(0, 13 + g * 53 + k * 26 + n)) | 0;
+            d[o + 2] = Math.min(255, Math.max(0, 28 + g * 94 + k * 62 + n)) | 0;
+            d[o + 3] = 255;
+          }
+        }
+        octx.putImageData(img, 0, 0);
+        ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = "low";
+        ctx.drawImage(off, 0, 0, 1920, 1080);
+      }
+
+      // ---------- photo card ----------
+      const P = CFG.photo;
+      place(document.getElementById("shadow"), P.x - 4, P.y + 2, P.w + 24, P.h + 24);
+      place(document.getElementById("frame"), P.x - 10, P.y - 10, P.w + 20, P.h + 20);
+      place(document.getElementById("clip"), P.x, P.y, P.w, P.h);
+      document.getElementById("photo").src = P.src;
+      const chip = document.getElementById("chip");
+      if (CFG.chip) { place(chip, CFG.chip.x, CFG.chip.y, CFG.chip.w, 80); document.getElementById("chipText").textContent = CFG.chip.s; }
+      else chip.style.display = "none";
+
+      // ---------- glass card + text ----------
+      const [kx, ky, kw, kh] = CFG.card;
+      place(document.getElementById("card"), kx, ky, kw, kh);
+      const words = (e, s) => s.split(" ").map((w, i, a) => { const sp = document.createElement("span"); sp.textContent = w + (i < a.length - 1 ? " " : ""); e.appendChild(sp); return sp; });
+      const eb = document.getElementById("eyebrow"); place(eb, CFG.eyebrow.x, CFG.eyebrow.y);
+      const ebWords = words(eb, CFG.eyebrow.s);
+      const heads = CFG.head.map((h, i) => {
+        const e = document.createElement("div"); e.className = "t head"; place(e, h.x, h.y);
+        if (i === 0 && CFG.count) {
+          const n = document.createElement("span"); n.id = "num"; n.style.width = px(CFG.count.w); n.textContent = String(CFG.count.value);
+          e.appendChild(n); const r = document.createElement("span"); r.textContent = CFG.count.rest; e.appendChild(r);
+        } else words(e, h.s);
+        document.getElementById("heads").appendChild(e); return e;
+      });
+      const det = document.getElementById("detail");
+      if (CFG.detail) { place(det, CFG.detail.x, CFG.detail.y); det.textContent = CFG.detail.s; }
+
+      const tl = gsap.timeline({ paused: true });
+      // field: a pure function of the scene time
+      const clock = { t: 0 };
+      drawField(0);
+      tl.fromTo(clock, { t: 0 }, { t: D, duration: D, ease: "none", onUpdate: () => drawField(clock.t) }, 0);
+      // photo: rises and fades in; the disclosure chip is part of it, so it shows from the photo's first frame
+      tl.fromTo("#photoGroup", { opacity: 0, y: 36 }, { opacity: 1, y: 0, duration: 0.55, ease: "power2.out" }, 0);
+      tl.fromTo("#photo", { scale: 1 }, { scale: CFG.push, duration: D, ease: "power1.inOut", transformOrigin: "50% 50%" }, 0);
+      // card: fades and rises, then drifts a few px while up; specular line runs its top edge
+      tl.fromTo("#card", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 0.1);
+      tl.fromTo("#cardGroup", { y: 0 }, { y: CFG.drift, duration: D, ease: "sine.inOut" }, 0);
+      const specN = Math.max(1, Math.round(D / 2.4));
+      tl.fromTo("#spec", { x: 40 }, { x: kw - 40 - 180 - 40, duration: D / specN, ease: "sine.inOut", yoyo: true, repeat: specN - 1 }, 0);
+      tl.fromTo(ebWords, { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: 0.42, ease: "expo.out", stagger: 0.08 }, Math.max(0.15, CFG.eyebrow.t));
+      heads.forEach((e, i) => {
+        tl.fromTo(e, { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: 0.42, ease: "expo.out" }, CFG.head[i].t);
+      });
+      if (CFG.count) {
+        const n = document.getElementById("num"), c = { v: CFG.count.frm };
+        tl.fromTo(c, { v: CFG.count.frm }, { v: CFG.count.value, duration: CFG.count.dur, ease: "power2.out",
+          onUpdate: () => { n.textContent = String(Math.round(c.v)); } }, CFG.head[0].t);
+      }
+      if (CFG.detail) tl.fromTo(det, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.42, ease: "expo.out" }, CFG.detail.t);
+      if (CFG.sweep !== null) tl.fromTo("#sweep", { x: -320 }, { x: kw + 80, duration: 0.9, ease: "power1.inOut" }, CFG.sweep);
+      else tl.set("#sweep", { x: -400 }, 0);
+
+      window.__timelines["__ID__"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
