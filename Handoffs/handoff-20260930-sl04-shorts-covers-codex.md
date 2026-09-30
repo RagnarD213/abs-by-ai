@@ -49,7 +49,7 @@ Folder: `Short-form video content/`. Notes and the approved posting order: `Shor
 
 ## Review status, 2026-09-30
 
-Round 2 delivered for picks: 20 visual options, 40 RGB 1080x1920 platform files. Actual-render person-mask checks pass for all 40, minimum text clearance 49px. Instagram grid crops and phone-size layouts checked. Short 2 approved B is unchanged. No chosen finals, uploads or schedules yet.
+Dan approved option D for shorts 1, 3, 4 and 5 on 2026-09-30: "Basically option D for everything. Love what you did with the screenshots." All eight Instagram and YouTube finals were exported and verified to match the approved review files exactly. Short 2 approved B is unchanged. All eight chosen files are selected in Finder in `Short-form video content/covers/approved-sl04-D-for-Claude/`. No upload or scheduling was performed. Exact paths and hashes: `Docs/SL04_COVER_FINALS_20260930.md`.
 
 ## 4. Model and starter prompt
 Codex (GPT-6 Astra), effort medium (image work per `model-routing-plan`; a known recipe with a style reference).

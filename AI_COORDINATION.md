@@ -92,7 +92,6 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # ACTIVE
 
-**SL-04 NEEDS DAN 2026-09-30, Codex.** Pick: `http://127.0.0.1:8798/`.
 
 **RO-16 - NEEDS DAN 2026-09-30, Claude.** Round 1 approved; G03 pick pending. Next: round-2 handoff (Opus) builds the full film.
 
