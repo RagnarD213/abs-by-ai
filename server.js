@@ -4993,7 +4993,7 @@ async function sendSetPasswordEmail(email, userId) {
 <p>Set a password so you can log in on any device:</p>
 <p><a href="${link}" style="display:inline-block;padding:12px 22px;background:#111;color:#fff;border-radius:8px;text-decoration:none;font-weight:700">Set my password</a></p>
 <p>Or paste this link into your browser:<br>${link}</p>
-<p>This link works for 7 days. We'll email you 2 days before your trial ends; cancel any time before then from Manage membership and you won't be charged.</p>`,
+<p>This link works for 7 days. Cancel any time before your trial ends from Manage membership and you won't be charged.</p>`,
     }),
   });
   if (!res.ok) console.error('Resend error:', res.status, (await res.text()).slice(0, 300));
@@ -11023,6 +11023,49 @@ async function fulfillProductOrderInner(full, sid) {
 // only dotfile under public/ is .well-known/.
 app.use(express.static(path.join(__dirname, 'public'), { dotfiles: 'allow' }));
 
+// Videos bigger than GitHub's 100 MB file limit ship as numbered pieces in public/video/
+// (<name>.part1, <name>.part2, ...). They are joined once into the temp dir (at boot, or on
+// the first request), then sendFile serves the whole MP4 with Range support like any static
+// file. A whole file of the same name in public/video/ wins (express.static above).
+// Used by /start's WV-01 1080p source.
+const VIDEO_DIR = path.join(__dirname, 'public', 'video');
+const joinedVideos = new Map();
+function joinVideoParts(name) {
+  if (!joinedVideos.has(name)) {
+    const job = (async () => {
+      const partNo = (f) => Number(f.slice(f.lastIndexOf('.part') + 5));
+      const parts = (await fs.promises.readdir(VIDEO_DIR))
+        .filter((f) => f.startsWith(`${name}.part`) && partNo(f) > 0)
+        .sort((a, b) => partNo(a) - partNo(b));
+      if (!parts.length) return null;
+      const out = path.join(require('os').tmpdir(), `absbyai-${name}`);
+      const tmp = `${out}.${process.pid}.tmp`;
+      await fs.promises.writeFile(tmp, '');
+      for (const p of parts) {
+        await require('stream/promises').pipeline(fs.createReadStream(path.join(VIDEO_DIR, p)), fs.createWriteStream(tmp, { flags: 'a' }));
+      }
+      await fs.promises.rename(tmp, out);
+      return out;
+    })();
+    job.catch((e) => { joinedVideos.delete(name); console.error('video join failed:', name, e.message); });
+    joinedVideos.set(name, job);
+  }
+  return joinedVideos.get(name);
+}
+app.get('/video/:name', async (req, res, next) => {
+  if (!/^[\w-]+\.mp4$/.test(req.params.name)) return next();
+  try {
+    const file = await joinVideoParts(req.params.name);
+    if (!file) return next();
+    res.sendFile(file, { maxAge: '7d' });
+  } catch (e) { next(); }
+});
+setTimeout(() => {
+  fs.promises.readdir(VIDEO_DIR).then((files) => {
+    for (const f of files) if (f.endsWith('.part1')) joinVideoParts(f.slice(0, -'.part1'.length)).catch(() => {});
+  }).catch(() => {});
+}, 5 * 1000).unref?.();
+
 // Explicit route for the privacy page (linked as /privacy without .html).
 app.get('/privacy', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'privacy.html'));
@@ -11033,8 +11076,9 @@ app.get('/privacy', (req, res) => {
 // `sources` carries the medical/health citations required by App Store
 // guideline 1.4.1 — it is linked from every in-app report that contains a
 // health calculation or recommendation, and must stay reachable.
-// `start` is the paid-traffic landing page (VSL + one-tap photo hand-off into the app).
-for (const slug of ['terms', 'refunds', 'contact', 'disclaimer', 'faq', 'about', 'how-it-works', 'sources', 'start', 'review']) {
+// `start` is the paid-traffic landing page: Dan's sales letter with the WV-01 video (2026-09-30).
+// `start-v1` is the page it replaced (VSL + one-tap photo hand-off), kept for rollback.
+for (const slug of ['terms', 'refunds', 'contact', 'disclaimer', 'faq', 'about', 'how-it-works', 'sources', 'start', 'start-v1', 'review']) {
   app.get(`/${slug}`, (req, res) => {
     res.sendFile(path.join(__dirname, 'public', `${slug}.html`));
   });
@@ -11106,11 +11150,15 @@ setInterval(() => {
   fetch(KEEP_WARM_URL).catch(() => {});
 }, KEEP_WARM_MS).unref?.();
 
-// Trial-ending reminder sweep — hourly. Runs first pass shortly after boot so a
-// due reminder isn't delayed a full hour on deploy.
+// Trial-ending reminder sweep: hourly, first pass shortly after boot so a due
+// reminder isn't delayed a full hour on deploy. OFF since 2026-09-30 (Dan: no
+// reminder email before the trial charges). TRIAL_REMINDER_ENABLED=true on
+// Railway turns it back on.
 const TRIAL_REMINDER_MS = 60 * 60 * 1000;
-setTimeout(() => { trialReminderSweep(); }, 30 * 1000).unref?.();
-setInterval(() => { trialReminderSweep(); }, TRIAL_REMINDER_MS).unref?.();
+if (process.env.TRIAL_REMINDER_ENABLED === 'true') {
+  setTimeout(() => { trialReminderSweep(); }, 30 * 1000).unref?.();
+  setInterval(() => { trialReminderSweep(); }, TRIAL_REMINDER_MS).unref?.();
+}
 
 // Welcome-autoresponder sweep — hourly, first pass shortly after boot. No-op
 // until WELCOME_ENABLED=true (set on Railway once mail.absbyai.com is verified).

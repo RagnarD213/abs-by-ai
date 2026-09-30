@@ -21,7 +21,8 @@ Muscle Booster, Blinkist; ten patterns copied / adapted / refused. Spec: `Handof
    visitors, placeholder on localhost / `?vp=1` / `?demo=checkout`. Events `cart_video_play`, `cart_video_progress`.
 3. Recap: the goal image (blurred + lock when the result is locked) and one line of the analysis numbers.
 4. Plans: **Monthly $19.99 — pre-selected** (`selectedPlan = 'monthly'`), Annual $69.99 with "SAVE 71%".
-5. Trial timeline: today $0 → day 5 reminder email (real: `trialReminderSweep`) → day 7 first charge, follows the plan.
+5. Trial timeline: today $0 → day 7 first charge, follows the plan. The day-5 reminder row and the 48-hour reminder
+   email are OFF since 2026-09-30 (Dan); `TRIAL_REMINDER_ENABLED=true` on Railway turns `trialReminderSweep` back on.
 6. Four benefit lines. No timers, no discount devices, no invented social proof (FTC v. MadMuscles' parent, June 2026).
 7. Renewal disclosure in body-size type directly above the button, then **Start my free 7 days →**, then
    "Continue to my hub without a trial".

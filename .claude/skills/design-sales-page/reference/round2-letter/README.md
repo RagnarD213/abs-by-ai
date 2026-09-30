@@ -20,3 +20,9 @@ Rebuild from scratch (work folder with this folder's files and an empty sibling 
     python3 ../../scripts/verify_boards.py <latest blocks> "../root/project/R2-Letter*.dc.html" --assets assets.json --allow allow.txt --forbid "40-Year-Old" "Day 5"
 
 (Adjust the relative script paths to wherever you copied the folder.)
+
+**The live page (2026-09-30).** `build_live.py <repo>` writes `public/start.html` from the same sections: it renders
+phone and desktop, turns every style that differs into a class (phone base, desktop in `@media (min-width: 900px)`),
+makes board widths fluid, swaps in the real video, links and tracking (`tracking_head.html`), and applies Dan's build
+decisions (both plan pickers cut, the FAQ note cut). Images: `assets_live.json` -> `public/img/letter/`. Proof:
+`python3 verify_live.py <latest blocks> <repo>/public/start.html --allow allow_live.txt --forbid "Day 5" "_blob"`.

@@ -3018,7 +3018,6 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
       <div class="cart-timeline">
         <div class="cart-timeline-title">How your free trial works</div>
         <div class="cart-tl-row now"><div class="cart-tl-dot">✓</div><div><div class="cart-tl-when">Today</div><div class="cart-tl-what">$0 — everything unlocked<small>Your goal image, the AI trainer, the nutrition plan, the macro tracker.</small></div></div></div>
-        <div class="cart-tl-row"><div class="cart-tl-dot">5</div><div><div class="cart-tl-when">Day 5</div><div class="cart-tl-what">We email you a reminder<small>Two days before your trial ends, so nothing surprises you.</small></div></div></div>
         <div class="cart-tl-row"><div class="cart-tl-dot">7</div><div><div class="cart-tl-when">Day 7</div><div class="cart-tl-what" id="cartTlCharge">First charge: $19.99<small id="cartTlChargeSub">Cancel any time before then in Manage membership and you pay nothing.</small></div></div></div>
       </div>
 
@@ -8169,9 +8168,11 @@ function applyPurchaseDeepLink() {
   try { params = new URLSearchParams(window.location.search); } catch (e) { return false; }
 
   if (params.get('join') === '1') {
-    // On the web this screen shows the real plan cards and Stripe checkout.
+    // Web non-members get the cart (pay first); the apps and members get the
+    // membership screen. showMembershipScreen shows whichever screen it picked:
+    // a second showScreen('membership') here used to stack the old screen over
+    // the cart, so /start's buy buttons never reached the cart (fixed 2026-09-30).
     showMembershipScreen(() => showHub());
-    showScreen('membership');
     return true;
   }
   if (params.get('buy') === 'credits') {
@@ -8179,7 +8180,6 @@ function applyPurchaseDeepLink() {
     // 2026-08-12. Old links (and any native build still pointing here) land on
     // the membership screen, which is now the only way to get more generations.
     showMembershipScreen(() => showHub());
-    showScreen('membership');
     return true;
   }
   if (params.get('manage') === '1') {

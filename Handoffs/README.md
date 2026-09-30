@@ -13,7 +13,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
-| [handoff-20260930-sales-page-build.md](handoff-20260930-sales-page-build.md) | **Ready 2026-09-30. Claude Opus 5.5 / High.** Code and ship Dan's approved sales page (Round 2 canvas) as the new /start: letter word for word, self-hosted WV-01 with the tap-for-sound box, buttons into checkout with plan + click IDs, same tracking. Unblocks the pick-5 ads campaign. |
 | [handoff-20260929-cut-broll-into-clip-library.md](handoff-20260929-cut-broll-into-clip-library.md) | **Ready 2026-09-29. Opus 5.5 / Medium.** Cut the 68 ranked filmed B-roll moments (`Media/clip-library/broll-cut-list.json`) into graded clips and register each in the clip library. No AI spend. |
 | [handoff-20260930-sl04-shorts-covers-codex.md](handoff-20260930-sl04-shorts-covers-codex.md) | **Five-option review ready 2026-09-30. Awaiting Dan picks.** Shorts 1, 3, 4, 5: pool, two studio, screenshot, designer choice, both platforms. Review: `Short-form video content/covers/review/sl04-covers-20260930/round2-five-options/`. Export finals after picks. |
 | [handoff-20260930-sl04-shorts-video-setup.md](handoff-20260930-sl04-shorts-video-setup.md) | **Ready 2026-09-30, after the covers. Claude Opus 5.5 / Medium.** Upload and schedule all five SL-04 shorts (/video-setup Shorts flow): Private YouTube + Blotato Tue/Thu/Sat. |

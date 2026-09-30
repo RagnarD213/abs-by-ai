@@ -1,0 +1,92 @@
+{
+ "avatar": [
+  "/img/letter/dan-note.jpg",
+  400,
+  519
+ ],
+ "before1": [
+  "/img/letter/before-deckchair.jpg",
+  1200,
+  1600
+ ],
+ "before2": [
+  "/img/letter/before-standing.jpg",
+  800,
+  1000
+ ],
+ "before3": [
+  "/img/letter/before-ride.jpg",
+  800,
+  600
+ ],
+ "m100s": [
+  "/img/letter/sixpackabs-m100s.jpg",
+  1440,
+  726
+ ],
+ "abshot": [
+  "/img/letter/sixpackabs-3min-abs.jpg",
+  1440,
+  726
+ ],
+ "chatgpt": [
+  "/img/letter/chatgpt-laptop.jpg",
+  1440,
+  810
+ ],
+ "fivemodels": [
+  "/img/letter/five-ai-models.jpg",
+  1440,
+  810
+ ],
+ "goallock": [
+  "/img/letter/goal-lock-screen.jpg",
+  621,
+  1302
+ ],
+ "after": [
+  "/img/letter/dan-at-40.jpg",
+  1080,
+  1080
+ ],
+ "home": [
+  "/img/letter/app-home.jpg",
+  621,
+  1302
+ ],
+ "workday": [
+  "/img/letter/app-workout-day.jpg",
+  621,
+  1302
+ ],
+ "exercise": [
+  "/img/letter/app-exercise.jpg",
+  621,
+  1302
+ ],
+ "salmongif": [
+  "/img/letter/app-salmon.gif",
+  400,
+  839
+ ],
+ "foods": [
+  "/img/letter/app-foods.jpg",
+  621,
+  1302
+ ],
+ "tacos": [
+  "/img/letter/app-taco-bowls.jpg",
+  621,
+  1302
+ ],
+ "oura": [
+  "/img/letter/oura-readout.jpg",
+  621,
+  1302
+ ],
+ "briefing": [
+  "/img/letter/app-sleep-briefing.jpg",
+  621,
+  1302
+ ]
+}
