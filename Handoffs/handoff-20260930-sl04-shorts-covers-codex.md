@@ -26,7 +26,7 @@ Folder: `Short-form video content/`. Notes and the approved posting order: `Shor
   make your waist look smaller.
 
 ## 2. Rules (read these first)
-- `.claude/skills/coverimage/SKILL.md` in full: most ripped source image, grid-safe crop, locked J2 type, **two variants**, and
+- `.claude/skills/coverimage/SKILL.md` in full: most ripped source image, grid-safe crop, locked J2 type, **five visual options**, and
   the two outputs per short (`posted covers/` for Instagram/Facebook/TikTok, `posted covers/youtube/` for the YouTube Short,
   1080x1920 canvas).
 - `.claude/skills/_shared/VIDEO-RULES.md` cover rules: text never on Dan's face, hair or abs (measure with a person mask on the
@@ -34,23 +34,24 @@ Folder: `Short-form video content/`. Notes and the approved posting order: `Shor
   waistband; no "Real picture of me" label and no AbsByAI.com on covers; abs visible, never soft or undefined.
 - The latest approved queue-cover design and QC method: `Docs/QUEUE_COVERS_APPROVALS_20260926.json` and
   `Handoffs/handoff-20260926-queue-covers-r4-unfinished-only.md` (platform layouts, grid crops, quality-checks).
-- A frame from the short itself is allowed only if it is sharp and his abs are defined; real shoot photos are preferred
-  (`photos/finalized social media photos/`, cutouts in `_cutouts/`). These shorts were shot outdoors by the pool in black shorts.
-- Cost: $0 expected (existing assets). Any AI generation needs Dan first.
+- **Updated by Dan, 2026-09-30:** each short gets one pool photo, two different studio photos on topic-specific Jelly Beans style backgrounds, one enhanced screenshot from its approved finished parent video, and one designer choice. Keep the copy consistent. This supersedes the original two-option brief.
+- Reference: `Short-form video content/covers/review/jelly-bean-refresh/B3-jelly-beans-beat-soda-tight.png`.
+- Follow `.claude/skills/_shared/VIDEO-RULES.md`, "Five cover and thumbnail choices per video". Dan explicitly requested image/design alternatives and screenshot enhancement. Built-in image_gen was used for two scene plates and four screenshot enhancements; it did not report a dollar cost. Studio portraits were composited from existing real cutouts.
 
 ## 3. Deliver
-1. Build in `Short-form video content/covers/review/sl04-covers-20260930/` (recipe + outputs + `quality-checks.json`).
+1. Round 2 lives in `Short-form video content/covers/review/sl04-covers-20260930/round2-five-options/` (recipe, assets, prompts, outputs and `quality-checks.json`). Original A/B review remains in its parent folder.
 2. QC every cover on the rendered file: person-mask clearance of all text, abs visible, grid-safe crop checked at Instagram's
    profile-grid crop, legible at feed size.
-3. One review sheet `REVIEW_sl04_covers.jpg` showing, per short, variants A and B (Instagram and YouTube versions side by side),
-   with short 2's approved cover B placed beside them for comparison. Send it to Dan and stop for his picks.
-4. After the picks: export each chosen cover to `posted covers/arms-shoulders-short<N>_<slug>_cover-<A|B>.png` and its
-   `posted covers/youtube/` twin, and give Dan the exact paths for all four shorts in one list (he pastes them into the Claude
-   setup task).
+3. Show five options per short, each with separate Instagram and YouTube layouts. Letters: A pool, B red-gym studio, C blue-home-gym studio, D enhanced exercise screenshot, E clean editorial. Review sheets: `REVIEW_sl04_five-options_instagram.jpg` and `REVIEW_sl04_five-options_youtube.jpg`, with short 2 approved B beside them. Local paired gallery: `http://127.0.0.1:8798/`. Stop for Dan's four picks.
+4. After the picks: export each chosen cover to `posted covers/arms-shoulders-short<N>_<slug>_cover-<A|B|C|D|E>.png` and its `posted covers/youtube/` twin. Use the round-2 source files, because letters B-E differ from the original A/B review. Give Dan exact paths for all four shorts. No upload or scheduling.
 5. Update `Handoffs/README.md` (this row: executed, with the final paths) and your board entry; commit and push only your files
    (docs and scripts, never media: the repo is public). The shared checkout has other sessions' uncommitted work: never `git stash -u`.
+
+## Review status, 2026-09-30
+
+Round 2 delivered for picks: 20 visual options, 40 RGB 1080x1920 platform files. Actual-render person-mask checks pass for all 40, minimum text clearance 49px. Instagram grid crops and phone-size layouts checked. Short 2 approved B is unchanged. No chosen finals, uploads or schedules yet.
 
 ## 4. Model and starter prompt
 Codex (GPT-6 Astra), effort medium (image work per `model-routing-plan`; a known recipe with a style reference).
 
-> Read `Handoffs/handoff-20260930-sl04-shorts-covers-codex.md` in full and do only what it asks: build two cover variants each for SL-04 Arms & Shoulders shorts 1, 3, 4 and 5 to match short 2's approved cover B, send me the review sheet and stop for my picks, then export the finals (Instagram and YouTube versions) and give me the paths. Do not upload or schedule anything.
+> Read `Handoffs/handoff-20260930-sl04-shorts-covers-codex.md` in full and do only what it asks: build five visual options each for SL-04 Arms & Shoulders shorts 1, 3, 4 and 5: one pool, two studio photos with Jelly Beans style backgrounds, one enhanced video screenshot and one designer choice, send me the review sheet and stop for my picks, then export the finals (Instagram and YouTube versions) and give me the paths. Do not upload or schedule anything.

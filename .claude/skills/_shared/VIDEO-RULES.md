@@ -1,3 +1,27 @@
+## Five cover and thumbnail choices per video (Dan, 2026-09-30)
+
+Every cover-image or thumbnail review, including its handoff, must request and deliver
+five visual options for each video:
+
+1. One pool-shoot photo.
+2. Two different real studio photos, each composited into a bold, topic-specific
+   photographic environment in the Jelly Beans cover family: crisp white cutout
+   outline, large subject-related props, heavy type and one accent color.
+3. One authentic screenshot from that video's approved finished master, enhanced
+   for clarity as useful while preserving Dan's identity, physique and exercise.
+4. One additional option chosen by the designer, using the image and design that
+   best sells that video's topic.
+
+Use a different image or design for each choice. Keep the copy consistent across
+choices unless Dan requests copy alternatives. For Shorts, each choice includes
+separate Instagram and YouTube layouts; they count as one visual option, not two.
+Show the finished options and stop for Dan's picks. Export his selections, and
+upload or schedule only within the separate authorized setup task. Preserve locked
+covers and already approved selections. This replaces the old two-cover rule and
+any older five-thumbnail mix with two pool photos. In future handoffs, link this
+rule and spell out all five slots. Reference:
+`Short-form video content/covers/review/jelly-bean-refresh/B3-jelly-beans-beat-soda-tight.png`.
+
 ## Shorts stand alone: show the whole exercise, not a detail of it (Dan, 2026-09-30)
 
 - **A short must make complete sense to a viewer who never saw the long-form.** Leave out details that only work

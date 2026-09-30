@@ -1,6 +1,7 @@
 ---
 name: video-setup
-description: Take a FINISHED organic/content video, long-form or a dedicated Short (usually an editor's final shared as a Google Drive link) all the way to scheduled on every platform: download and file it (project folder, Extreme drive and Google Drive), add it to the Edit Queue, build thumbnail variations for Dan to pick from, write the title, description with chapters and tags, upload the YouTube holding copy Private, and queue YouTube, Facebook, Instagram @danrosefit, and TikTok for release through Blotato. Use whenever Dan says a content video is "finished", "done", "final", sends a Drive link and asks to "queue it up", "set it up on all platforms", "put it in Blotato", "schedule it", or "get it on YouTube and everything else", even if he doesn't say "/video-setup". Paid ads go through /ad-setup; reviewing a cut is /revisions; thumbnails alone are /youtube-packaging; cutting Shorts is /shorts.
+description: >
+  Take a FINISHED organic/content video, long-form or a dedicated Short (usually an editor's final shared as a Google Drive link) all the way to scheduled on every platform: download and file it (project folder, Extreme drive and Google Drive), add it to the Edit Queue, build thumbnail variations for Dan to pick from, write the title, description with chapters and tags, upload the YouTube holding copy Private, and queue YouTube, Facebook, Instagram @danrosefit, and TikTok for release through Blotato. Use whenever Dan says a content video is "finished", "done", "final", sends a Drive link and asks to "queue it up", "set it up on all platforms", "put it in Blotato", "schedule it", or "get it on YouTube and everything else", even if he doesn't say "/video-setup". Paid ads go through /ad-setup; reviewing a cut is /revisions; thumbnails alone are /youtube-packaging; cutting Shorts is /shorts.
 ---
 
 Read `_shared/VIDEO-RULES.md` first.
@@ -81,9 +82,7 @@ Switch it in Studio (`studio.youtube.com/video/<id>/edit` → Visibility → Pri
 
 ## Step 2 — five thumbnail variations, then STOP for Dan's pick
 
-Dan's standing mix (09-13): **two pool-shoot photos on a natural background, two studio photos, one screenshot
-from the video** with big text above his head. Same copy on all five. Read `/youtube-packaging` first for the
-type system, the frowning-photos rule, the waistline-crop rule and the text-never-on-Dan rule.
+Dan's standing mix (updated 2026-09-30): **one pool photo, two different studio photos on topic-specific Jelly Beans style photographic backgrounds, one enhanced screenshot from the video, and one designer choice.** Same copy on all five. Every Codex cover/thumbnail handoff must list these five slots and link `_shared/VIDEO-RULES.md`, "Five cover and thumbnail choices per video". Read `/youtube-packaging` for the photo, crop and text-clearance rules. The older recipe below is an asset reference; adapt its source count and studio backgrounds to this mix.
 
 Working build to copy: `social media graphics/youtube/thumbnails/Ab Wheel Workout/_build-2026-09-13/build.py`.
 It imports the Ad 5 `build_clean.py` for the studio looks and reuses assets, so it costs **$0**:

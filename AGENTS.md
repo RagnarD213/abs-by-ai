@@ -21,6 +21,10 @@ I am a non-technical user. Explain all tasks in simple terms that a non-technica
 **Video, photo, thumbnail, cover, audio and publishing work: read `.claude/skills/_shared/VIDEO-RULES.md` in full before
 doing anything.** It holds Dan's standing production rules. Not having read it is not an excuse.
 
+## Cover and thumbnail review mix (Dan, 2026-09-30)
+
+Every video gets five choices: one pool photo, two different studio photos on topic-specific Jelly Beans style backgrounds, one enhanced screenshot from the video, and one designer choice. This applies to covers, thumbnails and their handoffs. Show all five for Dan to pick before final exports. Full rule: `.claude/skills/_shared/VIDEO-RULES.md`, "Five cover and thumbnail choices per video".
+
 ## Context preservation
 
 - Dan prefers a proactive handoff over automatic context compaction. Do not intentionally continue a task until it nears the model context limit.
