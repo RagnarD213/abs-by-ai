@@ -91,8 +91,6 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # ACTIVE
 
-**HyperFrames pilot - NEEDS DAN 2026-09-30, Claude.** Review `http://127.0.0.1:8793/` (`Media/hyperframes/pilot-c1652-spiral/review/`). Next: approval, then handoff step 6.
-
 **RO-16 - NEEDS DAN 2026-09-30, Claude.** Round 1 approved; G03 pick pending. Next: round-2 handoff (Opus) builds the full film.
 
 **Studio batch - NEEDS DAN 2026-09-29, Codex.** Review 24 posts: `http://127.0.0.1:8791/`. Nothing scheduled. Package and Drive link: `output/studio-post-test-24-20260929/README.txt`.
@@ -162,6 +160,7 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
+- `handoff-20260930-hyperframes-templates-round2.md` (09-30): HyperFrames lower third, before card, 3A list templates. Opus 5.5 high.
 - `handoff-20260930-sl04-short1-side-lateral-ending.md` (09-30): SL-04 short 1 new ending; shorts 2-5 finalized. Opus 5.5 high.
 - `handoff-20260930-ro16-round2-opener-motion-then-full-film.md` (09-30): with Dan's G03 pick. Opus 5.5 high.
 - `handoff-20260930-codex-adopt-review-page-format.md` (09-30): Codex adopts the RO-16 review page. GPT-6 Sol medium.

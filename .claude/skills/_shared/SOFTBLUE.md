@@ -49,6 +49,15 @@ Approved samples: `/Volumes/Extreme/_edit_work/softblue-rollout/left3a/left3a_r2
 and `left3a_r2_sq_graphic_bottom.mp4` (builder `make_left3a_r2.py` beside them). `B.stack_vertical()` (card
 above or below a horizontal crop) was shown and NOT selected; use it only if Dan asks for that layout.
 
+## HyperFrames motion layer (Dan approved the pilot 2026-09-30)
+
+Graphics with real motion (arrows drawing, cards settling, loops pulsing) are built in HyperFrames as transparent
+overlays, same Soft Blue Light colours and geometry, composited on the graded base. Approved template: the cycle
+card, [`hyperframes/cycle/`](hyperframes/cycle/); how to call it, which words drive it and the easing values:
+[`hyperframes/README.md`](hyperframes/README.md). Dan: a diagram like this sits in the left-third card beside him,
+not full screen ("a little bit empty when it's full screen"). Lower third, before card and 3A list templates are next;
+until each is approved, build those with `softblue.py` as below.
+
 ## What is historical now
 
 `motionlib.py` palettes (`GREEN`, `J2AD`, `MIL`, `PAPER`), J2/olive panels and chips, and components
