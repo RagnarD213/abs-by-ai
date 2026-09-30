@@ -413,6 +413,13 @@ class Library:
                         entries.append(dict(path=p, typ=typ, prov=prov, si=si, t=f / fps, pts=pts, des=des, w=im.shape[1], h=im.shape[0]))
                 cap.release()
         np.savez(self.cache, entries=np.array(entries, dtype=object))
+        # one index at a time: every library change writes a new one (577 MB after the 2026-09-29 additions)
+        for old_ in glob.glob(os.path.join(CACHE, "libindex_*.npz")):
+            if os.path.abspath(old_) != os.path.abspath(self.cache):
+                try:
+                    os.remove(old_)
+                except OSError:
+                    pass
         self.entries = entries
 
     @staticmethod
