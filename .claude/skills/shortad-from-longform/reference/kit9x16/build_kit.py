@@ -504,6 +504,8 @@ def main():
         o = dict(kind="lt", t0=t0, t1=t1, lines=it["lines"])
         if "y_bottom" in it:
             o["y_bottom"] = it["y_bottom"]
+        if it.get("equal"):
+            o["equal"] = True
         lts.append(o)
         last = t1
     ctas, last = [], 0.0

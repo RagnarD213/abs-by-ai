@@ -549,7 +549,8 @@ def main():
         if not os.path.exists(mov):
             if kind == 'cta':   fr, _ = vlib.overlay_cta(spec['top'], spec['big'], d,
                                                          big_size=spec.get('big_size', 70))
-            elif kind == 'lt':  fr, _ = vlib.overlay_lower_third(spec['lines'], d, y_bottom=spec.get('y_bottom', 1600))
+            elif kind == 'lt':  fr, _ = vlib.overlay_lower_third(spec['lines'], d, y_bottom=spec.get('y_bottom', 1600),
+                                                                 equal=spec.get('equal', False))
             else:               fr, _ = vlib.overlay_flash(d)
             encode(fr, mov, alpha=True)
         open(mov + '.beat', 'w').write(f'{a:.4f}')

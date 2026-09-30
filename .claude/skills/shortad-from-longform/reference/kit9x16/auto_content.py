@@ -965,10 +965,11 @@ def main():
         mode = max(set(full), key=full.count)
         agree = texts.count(mode)
         lines, hs = next((r[2], r[3]) for r in g["reads"] if r[1] == mode)
-        # two lines set in ONE size are one sentence he wrapped, not a headline + subtitle: the kit's second line is
-        # a small subtitle, so they join (Ad 8 44.2 s "Let's talk about why this / actually works.", round 6 judge)
-        if len(lines) == 2 and min(hs) >= 0.8 * max(hs):
-            lines = [" ".join(lines)]
+        # a second line that CONTINUES the sentence (starts lower-case) is one sentence he wrapped, set in one size,
+        # not a headline + subtitle (Ad 8 44.2 s "Let's talk about why this / actually works.", round 6 judge: the
+        # kit's small subtitle line read as a different style). Vision's box heights are read mid-typewriter and
+        # cannot tell the sizes apart; the words can.
+        equal = len(lines) == 2 and lines[1][:1].islower()
         # in / out: walk from the reads to where the box stops disagreeing with Dan's raw picture
         a0, a1 = g["n0"], g["n1"]
         while a0 > 0 and cell_mean(a0 - 1, g["box"]) < 0.5 and st[a0 - 1] == "talk":
@@ -984,6 +985,8 @@ def main():
                 cta_top, cta_big = cta_top or lines[0], cta_big or lines[-1]
         else:
             ent["lines"] = lines
+            if equal:
+                ent["equal"] = True
             lts.append(ent)
         chk = best_spoken_match(mode, W, ent["t0"], ent["t1"])
         rep_beats.append(dict(entry=dict(kind="cta" if is_cta else "lower_third", **ent), confidence=conf,

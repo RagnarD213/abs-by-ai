@@ -551,7 +551,7 @@ def plate_title_card(headline, sub, dur, fps=FPS):
     return out, None
 
 # ------------------------------------------------------------------ overlays
-def overlay_lower_third(lines, dur, fps=FPS, y_bottom=1600, in_dur=0.55):
+def overlay_lower_third(lines, dur, fps=FPS, y_bottom=1600, in_dur=0.55, equal=False):
     """Olive tab + black bar + white type, revealed letter by letter. Seven of these
     carry his cut; captions are suppressed for their duration because the line they
     print IS the sentence being spoken."""
@@ -560,10 +560,13 @@ def overlay_lower_third(lines, dur, fps=FPS, y_bottom=1600, in_dur=0.55):
     AVAIL = VW - 2*40 - 96
     fs = []
     for n, t in enumerate(lines):
-        sz = 52 if n == 0 else 40
-        w8 = "ExtraBold" if n == 0 else "SemiBold"
+        sz = 52 if (n == 0 or equal) else 40
+        w8 = "ExtraBold" if (n == 0 or equal) else "SemiBold"
         while sz > 24 and text_size(t, font(sz, w8))[0] > AVAIL: sz -= 2
         fs.append(font(sz, w8))
+    if equal:                                   # one wrapped sentence: every line in the smallest fitted size
+        m_ = min(f.size for f in fs)
+        fs = [font(m_, "ExtraBold") for _ in fs]
     ws = [text_size(t, f)[0] for t, f in zip(lines, fs)]
     lhs = [int(f.size*1.30) for f in fs]
     bw = max(ws) + 96
