@@ -89,21 +89,21 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # ACTIVE
 
+**RO-16 belly fat 90 days - IN PROGRESS 2026-09-30, Claude.** First cut from C1710, round method (organic budget), reusing WV-01 studio look (Color C, W2/T2, audio B). Work dir `/Volumes/Extreme/_edit_work/ro16/`. Next: look-and-assets packet for Dan.
+
 **Clip library - IN PROGRESS 2026-09-29, Claude.**
 
-**Studio batch - NEEDS DAN 2026-09-29, Codex.** 24 posts, 48 images, captions, templates and gallery complete. Next: Dan reviews at `http://127.0.0.1:8791/`. No scheduling or publishing. Files: `output/studio-post-test-24-20260929/`; Drive backup `19en-2zvk9LWgeItK51A4pZeGzfP189Ih`.
+**Studio batch - NEEDS DAN 2026-09-29, Codex.** Review 24 posts: `http://127.0.0.1:8791/`. Nothing scheduled. Package and Drive link: `output/studio-post-test-24-20260929/README.txt`.
 
 **Stashed edits - NEEDS OWNER 2026-09-29, Claude.** A rebase kept upstream versions of softblue.py, SOFTBLUE.md, GRAPHICS-STANDARDS.md, deliver/gate.py, coverimage SKILL.md, 00-MASTER.md, jobs.json. Uncommitted edits: `stash@{0}` (5d8284a). Next: owner re-applies.
 
-**SL-04 arms shorts round 2 - IN PROGRESS 2026-09-29, Claude.** Executing `Handoffs/handoff-20260925-sl04-arms-shoulders-shorts-revisions.md` in `/Volumes/Extreme/_edit_work/sl04/build/`. Next: flush title band, short 1 grade, hair, short 3 context, short 2 pill; gate + review.
+**SL-04 arms shorts round 2 - DELIVERED 2026-09-29, Claude.** Five review copies in `Short-form video content/arms-shoulders REVIEW/`; all gate 2.3.2 PASS, fresh reviewers SHIP. Next: Dan reviews; rules on hair (camera framed it at the edge, no crop fixes it). Detail: `arms-shoulders-SHORTS.md`.
 
 **Vertical kit autofill - IN PROGRESS 2026-09-28, Claude.** Executing `Handoffs/handoff-20260925-vertical-kit-autofill-no-model-session.md` in worktree `/private/tmp/abs-kit-autofill`. Builds: `/Volumes/Extreme/_edit_work/kit9x16/auto-*`. Next: answer keys, Ad 10 rebuild, AV-09.
 
-**Stop Deadlifting - QUEUED 2026-09-29, Claude.** Blotato Sun Oct 11 9 AM CT, 4 platforms. Next: after it posts, publish `sixpackabs/articles/TBD-stop-deadlifting.md`, then delete.
+**Stop Deadlifting - QUEUED 2026-09-29, Claude.** Blotato Oct 11 9AM CT, 4 platforms. Next: once posted, publish `sixpackabs/articles/TBD-stop-deadlifting.md`, then delete. SL-05 picks pending: `_edit_work/sl05`.
 
-**Queue covers - QUEUED 2026-09-29, Claude.** Arm-workout reel re-queued on @danrosefit with R5 (Blotato 4962222, Sep 30 9 AM CT, 266 MB copy). Next: confirm it is live on Instagram after 9 AM Sep 30.
-
-**RO-05 salad - NEEDS DAN 2026-09-29, Claude.** Round 4 film delivered; review SHIP. Next: Dan watches, rules on 3 decisions, then /video-setup. Detail: `/Volumes/Extreme/_edit_work/ro05-fable/round4/ROUND-4-BUILD.md`.
+**RO-05 salad - APPROVED 2026-09-30, Claude.** Dan approved the round 4 film as is; queue `finalized`. Next: fire `Handoffs/handoff-20260930-ro05-video-setup.md`.
 
 **STOP Deadlifting clip - NEEDS DAN 2026-09-20, Codex.** R3 review copy delivered to the shared Drive folder: `1dXUbQajUzM-uO_Xl92telO0qsa-Ob7uV`. Full head visible; measured bar path rises once without reversing. Silent B-roll has no matching full-film delivery gate, so no gate PASS is claimed. Next: Dan reviews R3 and approves or names any corrections. Detail: `Media/ai-frames/stop-deadlifting-opening-20260918/motion-v2/R3_DELIVERY.json`.
 
@@ -164,10 +164,11 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
-- `handoff-20260929-start-page-performance-verdict.md` (09-29): /start keep-or-fold. Opus high.
+- `handoff-20260930-ad-performance-pick-5-for-vsl-campaign.md` (09-30): pick 5 ads, VSL campaign. Opus high. Replaces:
+- `handoff-20260929-start-page-performance-verdict.md` (09-29): /start keep-or-fold.
 - `handoff-20260924-vsl-landing-five-mockups.md` (09-24): five VSL landing page mockups from VidTao research. Opus 5.5 high. Mockups only.
 - `handoff-20260924-generator-consult-call-outreach.md` (09-24): fire by 09-26.
-- `handoff-20260923-ro05-recut-astra.md`: RO-05 Codex half.
+- `handoff-20260930-ro05-video-setup.md` (09-30): RO-05 upload + Blotato, organic. Opus medium.
 - `handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md` [dash]: PHONE ONLY, 3 TikTok covers (updated 09-22). Sonnet 5 or Fable 5.1 / Medium.
 - `handoff-20260915-finalized-ads-6-14-youtube-and-google-ads.md` — Ads 6, 7, 10, 14 → YouTube + DGen (2026-09-15). Codex, high.
 - **`video-editing/00-MASTER.md` — THE video-editing list (2026-09-16):** 16 raw short ads, 25 dedicated shorts, 8 long-forms, 3 shorts-from-long-form, 15 ad variants; one doc per job, Claude + Codex prompts. Supersedes the J1–J18 ad-variants queue. Dan picks the order.
