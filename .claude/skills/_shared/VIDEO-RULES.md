@@ -1,3 +1,9 @@
+## Organic videos may name the drug (Dan, 2026-09-30)
+
+- **Organic content videos may say and subtitle Zepbound, tirzepatide, GLP-1 and any other drug name.** Dan: *"I plan to make a lot of organic videos where the entire topic of the video is Zepbound. Organic videos can say Zepbound, Tirzepatide, GLP-1, or any of those."* The never-a-brand-name rule is an AD rule (ad-edit Step 9.3) and stays for ads only.
+- The delivery gate still carries the ad rule on organic formats (`compliance:drug_names` and the `srt:shape` banned spelling "Zepbound"/"Ozempic" on `longform`); until that is changed with the regression corpus and a `GATE_VERSION` bump, those two rows failing on an organic video are the known mismatch, not a defect. Spoken and subtitled drug names are correct. Brand names in on-screen graphics on organic videos: not yet ruled; keep them out until Dan says otherwise.
+- Related, same day: do not tell viewers to "empty the entire vial" (Dan cut that ad-lib from RO-12: people on non-standard doses do not).
+
 ## Ad or organic? Classify every video from its own ending before any upload (Dan, 2026-09-28)
 
 - **Before any upload or setup, decide from the finished video itself whether it is an AD or ORGANIC.** Read the
