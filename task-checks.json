@@ -5,7 +5,8 @@
     "assistant::Load and empty dishwasher",
     "assistant::Tidy bathrooms",
     "assistant::Tidy kitchen",
-    "assistant::Fill Recycling can/empty some cardboard in spare room."
+    "assistant::Fill Recycling can/empty some cardboard in spare room.",
+    "money::Test HyperFrames as our motion-graphics layer: rebuild one lower-third and one full-screen panel as transparent overlays"
   ],
   "log": {
     "health::Shower": [
@@ -235,6 +236,7 @@
     "assistant::Load and empty dishwasher": "2026-09-29",
     "assistant::Tidy bathrooms": "2026-09-29",
     "assistant::Tidy kitchen": "2026-09-29",
-    "assistant::Fill Recycling can/empty some cardboard in spare room.": "2026-09-29"
+    "assistant::Fill Recycling can/empty some cardboard in spare room.": "2026-09-29",
+    "money::Test HyperFrames as our motion-graphics layer: rebuild one lower-third and one full-screen panel as transparent overlays": "2026-09-30"
   }
 }
