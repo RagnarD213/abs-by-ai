@@ -13,7 +13,7 @@ ent=[e for p in parts for e in p['entries']
 json.dump(dict(judge=' | '.join(p.get('judge','?') for p in parts), video=parts[0]['video'], method=' || '.join(p.get('method','') for p in parts), entries=ent), open('logs/findings.json','w'), indent=1)
 d=[e for e in ent if e.get('verdict')=='defect']; print(len(ent),'entries,',len(d),'defects', [(x.get('t'),x.get('item')) for x in d])
 PY
-D="/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared/deliver"; K="/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/shortad-from-longform/reference/kit9x16"
+K="${0:A:h}"; D="${K:h:h:h}/_shared/deliver"   # this checkout's own gate tools (never a hard-wired main checkout)
 python3 "$D/watch.py" --judge logs/watch_pass.json --findings logs/findings.json --by "$WHO" | tail -4
 python3 "$K/kit_negscan.py" record --build "$B" --video "$V" --findings "$(cat logs/negscan_findings.json)" --by "$WHO (part 1)"
 python3 "$D/gate.py" "$V" --format ad9x16 --plan plan.json --json gate_final.json > gate_final.log 2>&1 || true
