@@ -293,6 +293,12 @@ something that we can publish."* Every point below is a standing rule for every 
 - **Measured 2026-08-27, not assumed.** Four concurrent builds drove the Mac mini (10 cores) to a load average of **242 with 0% idle**, and made `finish_audio.py` take **126 seconds against 13.6 seconds on a quiet machine — a 9.3x latency penalty.**
 - **It buys nothing.** x264 already threads across all 10 cores, so extra concurrent builds do not raise throughput; they only timeslice. The sole headroom is the ~19% of a build that is single-threaded Python (PIL graphics, Whisper), which is why **two** builds overlap usefully — one build's Python runs under another's encoding — and a third is pure loss.
 - This is the largest available speedup in the video pipeline: worth more than the three candidate software optimizations and a new Mac combined, and it costs nothing. Full numbers: `.claude/skills/_shared/timing/REPORT_20260827_build_timings.md`.
+- **Exception: upload and setup encodes run anyway, on the hardware encoder at lowest priority (Dan, 2026-09-30).** When a
+  `/video-setup` or `/ad-setup` task needs a platform copy (Blotato's 400 MB cap, a TikTok cover-first copy) and two or
+  more builds are already running, do not wait for a slot: run it as `nice -n 20 ffmpeg -hwaccel videotoolbox ...
+  -c:v h264_videotoolbox ... -c:a copy`. The Mac's media engine does the work, so it barely touches the CPU the cap
+  protects. Dan approved this on RO-05 (load ~300, four builds running). It covers setup/upload copies only; editing
+  renders, QC, transcription and x264 encodes still obey the two-build cap.
 - **Never run a pipeline script inside another session's live build directory** — it will overwrite intermediates that session is reading. Work in a scratch copy.
 
 ## Video review refinements — C1652 R3 (Dan, 2026-09-17)

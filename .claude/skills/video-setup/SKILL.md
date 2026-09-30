@@ -34,6 +34,9 @@ Blotato owns the scheduled release, including YouTube. Never upload Public and n
 - ffmpeg is NOT on PATH. Use `Media/video_edit/bin/ffmpeg` / `ffprobe` (absolute path from the project root).
 - Video builds cap is two across sessions — a frame extraction is trivial, but check
   `ps -Ao command | grep -E 'ffmpeg|render\.py|whisper'` before a contact sheet of a long video.
+- **Machine busy? Do not wait for a build slot (Dan, 2026-09-30).** The Blotato copy and the TikTok cover-first copy
+  run even when two or more builds are going: `nice -n 20`, `-hwaccel videotoolbox`, `-c:v h264_videotoolbox`, audio
+  stream-copied. Rule and reasoning: `_shared/VIDEO-RULES.md`, "Video builds: never run more than two at once".
 
 ## Shorts (DS-/SL- jobs): the same flow, the Shorts helper
 
@@ -148,7 +151,9 @@ incomplete organic setup. Confirm the schedule by reading it back before reporti
 1. `blotato_create_presigned_upload_url` (filename `.mp4`) → `curl -X PUT -H "Content-Type: video/mp4"
    --data-binary @<file> "<presignedUrl>"` in the background → `curl -sI <publicUrl>` and confirm
    `content-length` equals the local byte count. **Blotato caps uploads at 400 MB** — above that, re-encode
-   (`h264_videotoolbox` ~4 Mbps, audio stream-copied) for Blotato only; YouTube still gets the master.
+   (`nice -n 20`, `-hwaccel videotoolbox`, `h264_videotoolbox` ~4 Mbps, or ~2.8 Mbps for a film over 12 min, audio
+   stream-copied) for Blotato only; YouTube still gets the master. Confirm frame count, duration and audio packets
+   match the master.
 2. Write `scripts/blotato/configs/<slug>.json` (fields documented at the top of `scripts/blotato/longform_queue.py`):
    hook / body / close in Dan's voice, ManyChat keyword per topic (`ABS` for ab content; the table is in
    `Docs/MANYCHAT_KEYWORDS.md`), `ai_generated` same as YouTube's synthetic flag (same rule: AI footage only, not a labeled AI still).

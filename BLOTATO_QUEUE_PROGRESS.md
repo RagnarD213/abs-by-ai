@@ -25,7 +25,7 @@ Master `claude edited long form content/08 - How I Make My Daily Salad (Fable re
 - TikTok: cover prepended as frame 0, `videoCoverTimestamp: 0` (frames 26789 to 26790, audio packets 41901 unchanged, cover match 54.2 dB).
 - Keyword `FOOD`; UTM `utm_content=ro05-daily-salad`. Config `scripts/blotato/configs/ro05-daily-salad.json`.
 - Captions: the 277-cue SRT is not on YouTube (the token has no captions scope); add it in Studio to the Blotato-created video after Oct 18 if wanted.
-- Owes: SL-03 shorts (edit queue, READY); sixpackabs article `sixpackabs/articles/TBD-daily-salad.md` to publish after Oct 18.
+- Owes after Oct 18: publish sixpackabs article `sixpackabs/articles/TBD-daily-salad.md`; upload the RO-05 .srt as English captions in Studio to the Blotato-created public video (recommended 09-30). SL-03 shorts READY.
 
 ## DONE: "Why I Stopped Deadlifting at 40 (Do These 4 Exercises Instead)", Zeeshan Video 3 (2026-09-29)
 
