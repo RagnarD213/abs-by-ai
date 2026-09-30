@@ -77,6 +77,17 @@ For organic content videos, the newer approval budget below replaces older requi
 
 - When Dan requests a thumbnail replacement, install the approved new thumbnail without asking again about removing the old thumbnail or its completed A/B test. Preserve available test results in the installation notes first. This does not authorize deleting the video or post itself.
 
+## Clip library first: reuse before you generate, register what you make (Dan, 2026-09-29)
+
+- **Before generating any AI clip, searching stock, or hunting raw rolls for B-roll, search the clip library:**
+  `python3 .claude/skills/_shared/cliplib/clip_library.py find "<what the beat needs>" [--aspect 9x16] [--rolls]`,
+  then look at the top hits' `Media/clip-library/contact/<ID>.jpg` previews. If an existing clip fits, use it and cite
+  its ID (A#### AI, B#### B-roll). Generate only when nothing fits, and say so in the job notes.
+- **When a job finishes, register every new AI clip, stock clip or cut B-roll insert that made it into the approved
+  video** (and any clean unused keeper) with `clip_library.py add ... --status used-final --used-in "<job>"`, then
+  `clip_library.py sheet`. Rejected or defective takes never go in.
+- Human editors browse the same catalog as a Google Sheet in the Drive library folder. Full rules: `_shared/cliplib/README.md`.
+
 ## Video clip generation budget and frame approval (Dan, 2026-09-15)
 
 - **Reaffirmed by Dan, 2026-09-16:** Gemini and Replicate generation is standing-authorized up to **$5 total per video**. Use the project's Gemini/Replicate keys, including `bakeoff/.env`, for this authorized work without asking again. Ask for spend authorization only before exceeding $5 for that video; do not request separate approval for a batch within the remaining budget. Track costs and retries across revisions. Dan explicitly approved the pending C1652 three-clip batch (estimated $0.75) after being told the earlier built-in still costs were unreported; preserve those unknown costs honestly without repeating the same permission stop.

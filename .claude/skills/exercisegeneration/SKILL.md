@@ -12,6 +12,10 @@ Dan's cloned voice coaching the form. Proven end to end on `bw-squat` (2026-08-1
 batch 1 — `pushup`, `reverse-lunge`, `plank` (2026-08-19/20, all three Dan-approved after one revision
 round; finals at `Media/exercise-demos/<id>/<id>-AIDAN-narrated-FINAL.mp4`).
 
+When Dan approves a demo, register the `-FINAL` file in the clip library:
+`clip_library.py add FILE --kind ai --category exercise-demos --people ai-dan --status used-final --used-in "app trainer" ...`
+(`_shared/cliplib/README.md`).
+
 ## Fixed assets — never regenerate these
 
 | asset | path |

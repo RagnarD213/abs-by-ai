@@ -13,6 +13,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
+| [handoff-20260929-cut-broll-into-clip-library.md](handoff-20260929-cut-broll-into-clip-library.md) | **Ready 2026-09-29. Opus 5.5 / Medium.** Cut the 68 ranked filmed B-roll moments (`Media/clip-library/broll-cut-list.json`) into graded clips and register each in the clip library. No AI spend. |
 | [handoff-20260930-sl04-shorts-covers-codex.md](handoff-20260930-sl04-shorts-covers-codex.md) | **Ready 2026-09-30. Codex GPT-6 Astra / Medium.** SL-04 covers for shorts 1, 3, 4, 5 (short 2 cover B approved); review sheet, Dan picks, export. Fire first. |
 | [handoff-20260930-sl04-shorts-video-setup.md](handoff-20260930-sl04-shorts-video-setup.md) | **Ready 2026-09-30, after the covers. Claude Opus 5.5 / Medium.** Upload and schedule all five SL-04 shorts (/video-setup Shorts flow): Private YouTube + Blotato Tue/Thu/Sat. |
 | [handoff-20260930-ro05-captions-and-article-after-release.md](handoff-20260930-ro05-captions-and-article-after-release.md) | **Ready on/after 2026-10-18 10 AM CT. Claude Sonnet 5 / Medium.** RO-05: English SRT captions on the Blotato-created public YouTube video + publish the sixpackabs article. |

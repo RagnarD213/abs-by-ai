@@ -85,6 +85,9 @@ reference input, Veo's duration enum, the voice-clone file-ext check).
 
 Steps marked **[GATE]** stop and wait for Dan.
 
+Before generating any clip, search the clip library (`_shared/cliplib/clip_library.py find`) and reuse a fitting
+clip; after the ad is approved, register every new clip with `clip_library.py add` (`_shared/cliplib/README.md`).
+
 1. **Brainstorm.** Source concepts from memory `ai-ad-creation-research` (10 pitched
    concepts + MadMuscles theme data). Proven themes: military/respect, tai chi
    master, calisthenics elder, podcast story. Our unique angle: the product's own
