@@ -163,15 +163,25 @@ def flashes_for(tl, T, cap=None):
     kit over his ceiling; the latest returns keep theirs (the round-6 judge flagged the one at 177.98 s)."""
     pre, dur, gap = T["flash"]["pre_s"], T["flash"]["dur_s"], T["flash"]["min_spacing_s"]
     frm = tuple(T["flash"].get("on_return_from", ["card", "window", "title", "stmt", "winmedia"]))
-    rule, extra = [], []
+    rule, extra, bare = [], [], []
     for i in range(1, len(tl)):
         if tl[i]["kind"] == "talk" and tl[i]["t1"] - tl[i]["t0"] >= 0.6:
             if tl[i - 1]["kind"] in frm:
-                rule.append(tl[i]["t0"])
+                (bare if tl[i - 1].get("his_flash") is False else rule).append(tl[i]["t0"])
             elif tl[i - 1].get("flash_after"):
                 extra.append(tl[i]["t0"])
-    room = len(extra) if cap is None else max(0, cap - len(rule))
-    cand = sorted(rule + sorted(extra)[len(extra) - min(room, len(extra)):])
+    # priority inside his ceiling: rule returns HE flashes too, then his flashes on full-screen returns (latest
+    # first), then rule returns where his master has none
+    if cap is None:
+        cand = rule + extra + bare
+    else:
+        keep = rule[:cap]
+        room = max(0, cap - len(keep))
+        keep += sorted(extra)[::-1][:room]
+        room = max(0, cap - len(keep))
+        keep += bare[:room]
+        cand = keep
+    cand = sorted(cand)
     out = []
     for c in cand:
         if out and c - (out[-1][0] + pre) < gap:
@@ -545,6 +555,16 @@ def main():
         last = t1 + 0.5
     if ctas and Cc.get("last_runs_to_end"):
         ctas[-1]["t1"] = dur
+    # his own flash at each return (auto_content writes his_flash; an older sheet gets it here from the master cache)
+    mp_ = os.path.join(a.build, "auto", "m256.rgb")
+    if a.from_master and os.path.exists(mp_) and any("his_flash" not in b for b in tl if b["kind"] != "talk"):
+        nm_ = os.path.getsize(mp_) // (256 * 144 * 3)
+        M_ = np.memmap(mp_, np.uint8, "r").reshape(nm_, 144, 256, 3)
+        for b in tl:
+            if b["kind"] != "talk" and "his_flash" not in b:
+                n1_ = int(round(b["t1"] * FPS))
+                lum = [float(M_[n].mean()) for n in range(max(0, n1_ - 5), min(nm_, n1_ + 6))]
+                b["his_flash"] = bool(lum and max(lum) > 205)
     fl_hi = ref["numbers"].get("flashes_per_min", {}).get("hi") if ref else None
     flashes = flashes_for(tl, T, cap=int(fl_hi * dur / 60.0) if fl_hi else None)
 

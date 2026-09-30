@@ -1036,14 +1036,16 @@ def main():
         nm_ = os.path.getsize(mp_) // (256 * 144 * 3)
         M_ = np.memmap(mp_, np.uint8, "r").reshape(nm_, 144, 256, 3)
         for i, b_ in enumerate(beats):
-            if b_["kind"] != "bleed":
-                continue
             nxt = beats[i + 1] if i + 1 < len(beats) else None
             if nxt is not None and nxt["t0"] - b_["t1"] < 0.3:
                 continue                                              # into another picture, not back to Dan
             n1_ = int(round(b_["t1"] * fps))
             lum = [float(M_[n].mean()) for n in range(max(0, n1_ - 5), min(nm_, n1_ + 6))]
-            if lum and max(lum) > 205:
+            his = bool(lum and max(lum) > 205)
+            if b_["kind"] != "bleed":
+                b_["his_flash"] = his                                 # the kit flashes here by rule; kept first when his does
+                continue
+            if his:
                 b_["flash_after"] = True
                 rep_beats.append(dict(entry=dict(kind="flash", t0=b_["t1"], t1=b_["t1"]), confidence="high",
                                       evidence=dict(why=f"his white flash on the return (mean luma {max(lum):.0f})")))
