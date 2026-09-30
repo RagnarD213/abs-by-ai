@@ -1,0 +1,92 @@
+"""RO-16 visual plan. Every item is anchored to the words Dan says (phrase -> output time via words_out.json).
+kinds: ai (AI clip), clip (stock / library / Dan footage, full-frame cutaway, hard cuts), scene (full-screen Soft Blue),
+title (full-screen step card), lt (Motivation lower third), l3 (3A left-third card beside Dan), phone (app demo beside Dan).
+start = phrase whose first word starts the item; end = phrase whose last word ends it (or dur)."""
+LIB = "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library"
+ST = "/Volumes/Extreme/_edit_work/ro16/stock"
+PLAN = [
+ # ---------------- opening
+ dict(id="A01", kind="ai", start="If I woke up 30 pounds fatter", end="within three months", src="PENDING: AI opener concept A (mirror) or B (wakes up); frames for Dan", label="AI-GENERATED",
+      note="Dan's hook line runs under it; cut back to Dan on 'Here's how I'd do it'"),
+ dict(id="G01", kind="lt", start="I'm going to give you the eight things", dur=4.5, topic="IF I HAD BELLY FAT", point="My 8-Step Plan To Lose It In 90 DAYS"),
+ dict(id="G02", kind="scene", start="Two years ago", end="didn't have abs", scene="fact", photo="/Volumes/Extreme/_edit_work/ad1-8-14/rev5/assets/dan_before_200lb.jpg",
+      eyebrow="TWO YEARS AGO", headline="200 lb at 5'7\"", detail="No abs.", label="Real picture of me. Not AI-generated."),
+ dict(id="G03", kind="scene", start="Today, I'm 175", end="at 40", scene="portraits", photos=["studio-blue-123", "studio-gray-12", "studio-blue-80"],
+      label="Real pictures of me. Not AI-generated.", caption="TODAY: 175 LB, ABS AT 40"),
+ dict(id="G04", kind="lt", start="That is going to take you seven months", end="get it over with", topic="THE MATH", point="1 lb A Week = 7 MONTHS. All In = 90 DAYS."),
+ dict(id="C01x", kind="skip", start="far easier to go all in", dur=None, src=[f"{LIB}/04 AI-Generated Clips/*/A0049_*", f"{LIB}/04 AI-Generated Clips/*/A0052_*"],
+      label="AI-GENERATED", note="same man, Week 2 -> Month 3 calendar pair, hard cut; only if it lands after G04's card exit"),
+ # ---------------- step 1
+ dict(id="T1", kind="title", start="Number one", dur=2.4, step=1, headline="Quit Your Job,\nOr Take The Longest Vacation You Can"),
+ dict(id="C02", kind="clip", start="They work all day", end="take care of their family", src=[f"{ST}/p32909774.mp4", "A0063"], note="traffic (drive home) then overweight dad morning chaos (family)"),
+ dict(id="G05", kind="lt", start="I would make losing fat the number one priority", dur=5.0, topic="KEY POINT", point="Make Fat Loss THE PRIORITY For 90 Days"),
+ dict(id="C03", kind="clip", start="you're tired every afternoon", end="not thinking as clearly", src=[f"{ST}/p10344870.mp4"]),
+ dict(id="C04", kind="clip", start="everybody you do business with", end="how you look", src=["A0035"], label="AI-GENERATED"),
+ dict(id="C05", kind="clip", start="take a sabbatical", end="saved up", src=[f"{ST}/p4443741.mp4"]),
+ dict(id="C06", kind="clip", start="dead or debilitated", end="than you think", src=["B0275"]),
+ dict(id="C07", kind="clip", start="Cash out your 401k", end="use your savings", src=["B0207"]),
+ # ---------------- step 2 (no drug brand names on screen)
+ dict(id="T2", kind="title", start="here's the second thing", dur=2.4, step=2, headline="Get A GLP-1 Prescription\nIn The First Week"),
+ dict(id="C08", kind="clip", start="is an injection you take once a week", end="once a week", src=[f"{ST}/p6824226.mp4@1.0"]),
+ dict(id="C21", kind="clip", start="massive amount of willpower", end="most people don't have it", src=["A0069"], label="AI-GENERATED", zoom=1.12, note="1.12x push from the bottom-right crops out the clip's own baked-in label"),
+ dict(id="G06", kind="lt", start="It slows down how fast food leaves", dur=5.5, topic="HOW IT HELPS", point="You Feel FULL On Much Less Food"),
+ dict(id="G07", kind="lt", start="I went from 192", dur=5.0, topic="MY EXPERIENCE", point="192 lb To 175 lb In About 2 Months"),
+ dict(id="G08", kind="lt", start="I'm not a doctor", dur=5.0, topic="NOT MEDICAL ADVICE", point="Talk To Your Doctor Before You Start"),
+ dict(id="C23", kind="clip", start="So talk to your doctor", end="final decision", src=[f"{ST}/p6998077.mp4"]),
+ # ---------------- step 3
+ dict(id="T3", kind="title", start="Number three", dur=2.4, step=3, headline="Work Out Every Morning,\n7 Days A Week"),
+ dict(id="C09", kind="clip", start="They get really sore", end="not going at all", src=[f"{ST}/p7672119.mp4"]),
+ dict(id="G09", kind="lt", start="Short daily workouts are far better", dur=5.0, topic="KEY POINT", point="Short DAILY Workouts Beat Long Occasional Ones"),
+ dict(id="C10", kind="clip", start="You just get up and you do it", end="even on vacation", src=["B0030"], note="Dan's real ab-wheel rollout (finished graded footage)"),
+ dict(id="C11", kind="clip", start="So why first thing in the morning", dur=2.6, src=[f"{ST}/p38756590.mp4@0.2"]),
+ dict(id="G10", kind="lt", start="At 8 in the morning", dur=5.5, topic="WHY MORNINGS", point="The One Time Of Day NOBODY Needs You"),
+ dict(id="C12", kind="clip", start="I work out every morning", end="reason why", src=["/Users/danielrose/Documents/Claude/Projects/Abs By AI/YouTube Long Form Video Content/V4 + V5 - The Ultimate 1 Minute Ab Workout - UPLOADED/V4 - 1 Minute Ab Workout That Hits All 4 Ab Muscle Groups (At Home) - UPLOADED.mp4@0.4"], note="Dan's own workout from the finished V4 export"),
+ # ---------------- step 4
+ dict(id="T4", kind="title", start="Here's the next thing I would do", dur=2.4, step=4, headline="Get A Meal Prep Service"),
+ dict(id="C13", kind="clip", start="This is what I personally do", end="personally do", src=[f"{ST}/p6898012.mp4@3.0"], note="man unpacking a meal delivery (the AI chef read as Dan cooking; Dan orders from a service)"),
+ dict(id="G11", kind="lt", start="I ordered from a meal prep service", dur=5.0, topic="WHAT I USE", point="Clean Eatz In Austin: About $120 A Week"),
+ dict(id="G12", kind="lt", start="every meal comes with", dur=6.0, topic="WHY IT WORKS", point="Every Meal Is PRE-COUNTED: 300 To 500 Calories"),
+ dict(id="C14", kind="clip", start="spending $15 on a burrito", end="for lunch", src=[f"{ST}/p5848112.mp4"]),
+ dict(id="G13", kind="lt", start="They don't realize they can get", dur=4.5, topic="THE MATH", point="Meal Prep: About $9 A Meal Or LESS"),
+ # ---------------- step 5
+ dict(id="T5", kind="title", start="Number five", dur=2.4, step=5, headline="Track Your Calories\nWith AI"),
+ dict(id="G14", kind="lt", start="To lose 30 pounds in 90 days", dur=5.5, topic="THE MATH", point="30 lb In 90 Days = About 2.5 lb A WEEK"),
+ dict(id="C15", kind="clip", start="weigh your food on a scale", end="every ingredient", src=["B0017"]),
+ dict(id="C16", kind="clip", start="take a picture of your food and you get", dur=3.0, src=[f"{ST}/p4731130.mp4"]),
+ dict(id="P01", kind="phone", start="We have a free macro tracker", end="adds up your day for you", src=["B0038"], note="real AbsByAI meal-log screen in the approved phone, Dan beside it",
+      caption="AbsByAI.com"),
+ # ---------------- step 6
+ dict(id="T6", kind="title", start="so once you're tracking your calories", dur=2.4, step=6, headline="Eat 0.8 g Of Protein\nPer Pound Every Day"),
+ dict(id="G15", kind="lt", start="grams of protein per pound", dur=6.5, topic="YOUR PROTEIN TARGET", point="0.8 g Per Lb. At 210 lb, That's About 170 g A DAY"),
+ dict(id="C24", kind="clip", start="large serving of meat, fish, or eggs", end="or eggs", src=[f"{ST}/p34521396.mp4"]),
+ dict(id="G16", kind="scene", start="In a big study on this medication", end="like muscle", scene="study",
+      eyebrow="THE BIG TRIAL ON THIS MEDICATION", headline="About 1 in 4 pounds lost\nwas LEAN MASS, not fat",
+      detail="Body-composition substudy, SURMOUNT-1 (Jastreboff et al., NEJM 2022)"),
+ dict(id="C25", kind="clip", start="you lift weights", end="hold onto your muscle", src=["A0125@3"], label="AI-GENERATED", note="AI-Dan kettlebell deadlift (library, unused); the 2010 archive deadlift was rejected: Mike Chang dominates it and it predates the claim"),
+ dict(id="G17", kind="lt", start="protein fills you up", dur=5.5, topic="KEY POINT", point="Protein Burns 20-30% Of Its Calories In DIGESTION"),
+ dict(id="C17", kind="clip", start="hard boiled eggs", end="eggs", pad_to_next=True, src=[f"{ST}/p8858895.mp4"]),
+ dict(id="C18", kind="clip", start="sardines", end="sardines", pad_to_next=True, src=[f"{ST}/p6398611.mp4"]),
+ dict(id="C19", kind="clip", start="rotisserie chickens", end="chickens", tail=0.5, src=["B0281"]),
+ # ---------------- step 7
+ dict(id="T7", kind="title", start="Number 7", dur=2.4, step=7, headline="Weigh Yourself Every Day"),
+ dict(id="C20", kind="clip", start="Weigh yourself every morning", dur=3.5, src=[f"{ST}/p7555158.mp4"]),
+ dict(id="G18", kind="scene", start="In one study, the people who weighed", end="Now, your weight", end_at_start=True, scene="study",
+      eyebrow="ONE STUDY, 6 MONTHS", headline="Daily weighers lost\nabout 13 lb MORE",
+      detail="Steinberg et al., J Acad Nutr Diet 2015"),
+ dict(id="G19", kind="scene", start="your weight is going to bounce around", end="the week before", scene="chart",
+      eyebrow="WATCH THE 7-DAY AVERAGE", headline="Daily weight bounces. The average tells the truth."),
+ dict(id="G20", kind="l3", start="If my weekly average was dropping", end="keep going", heading="Your Weekly Check",
+      points=["Down 2+ lb: change NOTHING", "Stalled a week: CUT 200 cal"]),
+ # ---------------- step 8
+ dict(id="T8", kind="title", start="And then finally, number 8", dur=2.4, step=8, headline="Make A Plan To\nNever Do This Again"),
+ dict(id="C26", kind="clip", start="you can have a drink on the weekend", end="relax a little bit", src=[f"{ST}/p5847850.mp4"]),
+ dict(id="C27", kind="clip", start="I would keep weighing myself every day", end="every day", src=[f"{ST}/p6719385.mp4"]),
+ dict(id="G21", kind="lt", start="if I ever got more than three pounds", dur=5.5, topic="KEY POINT", point="More Than 3 lb Over Goal? Cut Back Down RIGHT AWAY"),
+ # ---------------- wrap
+ dict(id="C28", kind="scene", scene="photo", start="That microdose would ensure", end="gaining fat again", photo="studio-blue-84", label="Real picture of me. Not AI-generated."),
+ dict(id="G22", kind="scene", start="so that's exactly what I would do", end="never get there", scene="recap", eyebrow="THE 90-DAY PLAN",
+      items=["Make fat loss the #1 priority", "Get a GLP-1 prescription", "Work out every morning", "Get a meal prep service",
+             "Track calories with AI", "Eat 0.8 g protein per lb", "Weigh yourself every day", "Plan to never regain it"]),
+ dict(id="C01", kind="clip", start="Do all eight of these for 90 days", end="tremendous results", src=["A0049", "A0051", "A0052"], label="AI-GENERATED",
+      note="same man: Week 2 -> Week 6 -> Month 3, hard cuts; the 90-day payoff"),
+]

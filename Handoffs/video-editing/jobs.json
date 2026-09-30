@@ -1864,14 +1864,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/RO-16-if-i-had-belly-fat-here-s-how-i-d-lose-it-in-90-da.md`: cut \"If I Had Belly Fat, Here's How I'd Lose It In 90 Days\" from 9/23 roll C1710 with /longform-edit. Best take of every line, every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-16-if-i-had-belly-fat-here-s-how-i-d-lose-it-in-90-da.md` with `$long-form-content-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "ready",
-   "note": "",
+   "state": "needs",
+   "note": "Round 1 packet ready: opener frames (A or none), first minute, 59 graphics/clips. Page: /Volumes/Extreme/_edit_work/ro16/round1/index.html",
    "sub": "",
    "order": 89,
-   "updated": "2026-09-24",
-   "by": "claude",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-09-30",
+   "by": "Claude",
+   "rev": 3,
+   "syncedRev": 3
   },
   {
    "id": "RO-17",

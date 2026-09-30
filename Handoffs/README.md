@@ -13,6 +13,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
+| [handoff-20260930-ro16-round2-opener-motion-then-full-film.md](handoff-20260930-ro16-round2-opener-motion-then-full-film.md) | **After Dan answers the RO-16 round 1 packet. Opus 5.5 / High.** Generate the approved opener motion, apply first-minute notes, render, gate, review and deliver the full film. |
 | [handoff-20260929-wv01-round17-full-A-render-and-QA.md](handoff-20260929-wv01-round17-full-A-render-and-QA.md) | **Ready 2026-09-29. GPT-6 Sol / High.** Dan approved the integrated opening and CTA tail and authorized complete A rendering in the next task. Run exact-file QA and present A for review. B deferred; dispatcher paused; no publishing. |
 | [handoff-20260929-wv01-round14-motion-and-graphic-approvals.md](handoff-20260929-wv01-round14-motion-and-graphic-approvals.md) | **Executed, graphics approved 2026-09-29.** Budget raised to $50 cumulative. Next: [round15 motion generation](handoff-20260929-wv01-round15-approved-motion-generation.md). |
 | [handoff-20260928-wv01-round13-individual-revision-approvals.md](handoff-20260928-wv01-round13-individual-revision-approvals.md) | **Executed, decisions imported 2026-09-29.** Exact clip, photo/audio repairs, all 16 cuts and graphic stills approved. Next: [round14 moving previews](handoff-20260929-wv01-round14-motion-and-graphic-approvals.md). Baseline preserved. |
