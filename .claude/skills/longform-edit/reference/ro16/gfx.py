@@ -124,6 +124,15 @@ def scene(it, t):
         im = B.scene_portraits(t, 1920, 1080, ps, None)
         if it.get("label") and t > .05: B.disclosure(im, it["label"], (960, 876 + 26 * U), U, anchor="mt")
         return im
+    if k == "portraits_codex":
+        # Codex's WV-01 three-photo slate mechanics (round9/10 components): cutout on the blue-gray gradient panel,
+        # 526x730 panels, natural smiling photos; staggered rise; plural real-photo chip with the photos
+        im = B.field(t)
+        pw, ph = 526, 730; gap = 50; x0 = (1920 - (3 * pw + 2 * gap)) / 2; y0 = 110
+        for i, n in enumerate(it["photos"]):
+            B.photo_card(im, f"/Volumes/Extreme/_edit_work/ro16/assets/g03/{n}_panel.png", (x0 + i * (pw + gap), y0, pw, ph), t, i * .22, fit=True, u=U)
+        if it.get("label") and t > .05: B.disclosure(im, it["label"], (960, y0 + ph + 34), U, anchor="mt")
+        return im
     if k == "photo":
         im = B.scene_photo(t, 1920, 1080, f"{PHOTOS}/{it['photo']}_FINAL_PRIMARY.jpg", None)
         if it.get("label") and t > .05:
@@ -131,7 +140,7 @@ def scene(it, t):
             B.disclosure(im, it["label"], (960, (1080 - ph) / 2 - 10 * U + ph + 22 * U), U, anchor="mt")
         return im
     if k == "study" and it["id"] == "G16":
-        return split_bar_card(t, it["eyebrow"], it["headline"], it["detail"], [("Fat: about 3 in 4", .75, B.CYAN), ("Lean mass: about 1 in 4", .25, (255, 184, 92))])
+        return split_bar_card(t, it["eyebrow"], it["headline"], it["detail"], [("Fat: about 3 in 4", .75, B.GOOD), ("Lean mass: about 1 in 4", .25, B.BAD)])   # Dan 09-30: fat green, lean mass red
     if k == "study":
         return study_card(t, it["eyebrow"], it["headline"], it["detail"],
                           [("Weighed every day", 14.4, B.CYAN, "about 14 lb lost"), ("Didn't weigh daily", 0.8, (150, 170, 190), "about 1 lb lost")])

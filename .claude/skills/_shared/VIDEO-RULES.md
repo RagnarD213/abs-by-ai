@@ -1,3 +1,9 @@
+## Review page standard + "What I decided" (Dan, 2026-09-30)
+
+- Every approval packet opens with the first minute, then the AI frames, then a **"What I decided (overrule anything)"** list,
+  then every graphic and clip in order, three per row. Dan: *"I like this 'What I Decided' section. Let's make this the standard
+  way to do things going forward."* Layout and details: [PRE-RENDER-APPROVAL.md](PRE-RENDER-APPROVAL.md#the-review-page-one-layout-and-a-what-i-decided-list-on-every-packet-dan-2026-09-30).
+
 ## Organic content approval budget (Dan, 2026-09-29)
 
 For organic content videos, the newer approval budget below replaces older requirements for Dan to approve every graphic and clip separately and the shared 10 to 15 decisions per video guidance. Keep the stepwise internal checks and the real approval gates. The **first approval round has at most 20 decisions**. In later rounds, **aim for 10 or fewer decisions per round**. These are ceilings, not targets. Ask Dan only about materially uncertain choices that require his judgment. Choose and check routine assets yourself, summarize what you chose, and let him overrule while reviewing the first minute and the finished film. Never reopen unchanged approved items or infer approval from silence. New AI motion still needs approved start/end frames first; show materially uncertain finished motion in context before locking it. The website VSL approval cadence remains separate and more detailed.

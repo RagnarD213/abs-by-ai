@@ -34,6 +34,26 @@ every new graphic and clip, but group only material new choices into one early l
 finished first minute next, then the complete film after all assets are locked. Keep the AI start/end-frame approval
 gate before new motion. Revisions reuse locked work and need only the affected previews.
 
+## The review page: one layout, and a "What I decided" list on every packet (Dan, 2026-09-30)
+
+Dan, on the RO-16 round 1 page: *"I like this 'What I Decided' section. Let's make this the standard way to do things going
+forward... so I can look over your decisions just in case I need to revise any of them"* and *"the first minute is right on
+top, the AI opener frames are below that, and all graphics and clips are in order. That makes it significantly faster for me
+to review than looking at all this in the browser panel one at a time."* Every approval packet, Claude or Codex, uses this page:
+
+1. **Header:** one line on the video, then what is already locked (reused approvals), then **"Your decisions (N)"**: the few
+   genuine questions, numbered, 2-3 options each, recommendation first.
+2. **The first minute** (or the current finished section) in one lazy player at the top, with the 1080p master and audio A/B links.
+3. **AI opener / new AI clip frames** directly below: START and END side by side, the action, duration and cost under each pair.
+4. **"What I decided (overrule anything)":** one line per call Claude/Codex made without asking: take choices and restarts cut,
+   numbers used on screen, rejected assets and why, reviewer findings fixed, spend so far. Plain language, no jargon.
+5. **All graphics and clips, in timeline order, three per row:** each a still on its real graded frame, with its ID, output time
+   range, exact copy, source, and a collapsible speech before / during / after.
+6. **One reply box** with the decision lines pre-filled and a Copy button.
+
+Reference build: `/Volumes/Extreme/_edit_work/ro16/round1/index.html`, generator `.claude/skills/longform-edit/reference/ro16/page.py`.
+Dan reviews it in Chrome, so every media link must resolve over a local server (check each `src`/`href` returns 200 before sending).
+
 ## The approval order
 
 Each step is its own round unless the items are ready together. Nothing later starts rendering before the items it depends on are locked.
@@ -64,7 +84,7 @@ Each step is its own round unless the items are ready together. Nothing later st
   budget above (10 to 15 per video in total); items Claude checked are listed as decided, not asked. A one-variable question (a crop, a transparency) gets its own tiny page so it can be
   answered the same day. Send a small frame page early and keep working on everything that does not depend on it.
 - **Choices are 2-3 options at most**, on the same frame or the same narration.
-- **Present it like Codex:** one review page (copy `wv01-edit/round11/index.html` or `ro01/revision4/index.html`), a header stating what
+- **Present it on the standard review page** (layout and order: "The review page" section above, Dan 2026-09-30; older references: `wv01-edit/round11/index.html`, `ro01/revision4/index.html`), a header stating what
   is locked, one button per item ID feeding a single lazy player (`preload="none"`; several players crash the browser), one section per
   item with its still, copy, times and before/during/after speech, and a decision control (Approve / Changes requested / Remove) that
   saves a JSON file. Name clips `<ID>-context.mp4` with a matching `.jpg` poster; frames `frames/<ID>-start.png` and `-end.png`; drafts

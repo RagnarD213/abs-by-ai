@@ -6,12 +6,12 @@ LIB = "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library"
 ST = "/Volumes/Extreme/_edit_work/ro16/stock"
 PLAN = [
  # ---------------- opening
- dict(id="A01", kind="ai", start="If I woke up 30 pounds fatter", end="within three months", src="PENDING: AI opener concept A (mirror) or B (wakes up); frames for Dan", label="AI-GENERATED",
-      note="Dan's hook line runs under it; cut back to Dan on 'Here's how I'd do it'"),
+ dict(id="A01", kind="clip", start="If I woke up 30 pounds fatter", end="within three months", src=["/Volumes/Extreme/_edit_work/ro16/aiframes/A01_motion_v1.mp4@0.0"], label="AI-GENERATED",
+      note="Veo 3.1 fast from Dan-approved frames (09-30); Dan's hook line runs under it"),
  dict(id="G01", kind="lt", start="I'm going to give you the eight things", dur=4.5, topic="IF I HAD BELLY FAT", point="My 8-Step Plan To Lose It In 90 DAYS"),
  dict(id="G02", kind="scene", start="Two years ago", end="didn't have abs", scene="fact", photo="/Volumes/Extreme/_edit_work/ad1-8-14/rev5/assets/dan_before_200lb.jpg",
       eyebrow="TWO YEARS AGO", headline="200 lb at 5'7\"", detail="No abs.", label="Real picture of me. Not AI-generated."),
- dict(id="G03", kind="scene", start="Today, I'm 175", end="at 40", scene="portraits", photos=["studio-blue-123", "studio-gray-12", "studio-blue-80"],
+ dict(id="G03", kind="scene", start="Today, I'm 175", end="at 40", scene="portraits_codex", photos=["studio-white-23", "studio-blue-173", "studio-blue-240"], pending="Dan picks option 1 (studio-blue-11/127/247) or option 2 (this, the VSL final)",
       label="Real pictures of me. Not AI-generated.", caption="TODAY: 175 LB, ABS AT 40"),
  dict(id="G04", kind="lt", start="That is going to take you seven months", end="get it over with", topic="THE MATH", point="1 lb A Week = 7 MONTHS. All In = 90 DAYS."),
  dict(id="C01x", kind="skip", start="far easier to go all in", dur=None, src=[f"{LIB}/04 AI-Generated Clips/*/A0049_*", f"{LIB}/04 AI-Generated Clips/*/A0052_*"],
@@ -29,7 +29,7 @@ PLAN = [
  dict(id="T2", kind="title", start="here's the second thing", dur=2.4, step=2, headline="Get A GLP-1 Prescription\nIn The First Week"),
  dict(id="C08", kind="clip", start="is an injection you take once a week", end="once a week", src=[f"{ST}/p6824226.mp4@1.0"]),
  dict(id="C21", kind="clip", start="massive amount of willpower", end="most people don't have it", src=["A0069"], label="AI-GENERATED", zoom=1.12, note="1.12x push from the bottom-right crops out the clip's own baked-in label"),
- dict(id="G06", kind="lt", start="It slows down how fast food leaves", dur=5.5, topic="HOW IT HELPS", point="You Feel FULL On Much Less Food"),
+ dict(id="G06", kind="lt", start="It slows down how fast food leaves", dur=5.5, topic="HOW ZEPBOUND HELPS", point="You Feel FULL On Much Less Food"),
  dict(id="G07", kind="lt", start="I went from 192", dur=5.0, topic="MY EXPERIENCE", point="192 lb To 175 lb In About 2 Months"),
  dict(id="G08", kind="lt", start="I'm not a doctor", dur=5.0, topic="NOT MEDICAL ADVICE", point="Talk To Your Doctor Before You Start"),
  dict(id="C23", kind="clip", start="So talk to your doctor", end="final decision", src=[f"{ST}/p6998077.mp4"]),
@@ -52,7 +52,6 @@ PLAN = [
  dict(id="T5", kind="title", start="Number five", dur=2.4, step=5, headline="Track Your Calories\nWith AI"),
  dict(id="G14", kind="lt", start="To lose 30 pounds in 90 days", dur=5.5, topic="THE MATH", point="30 lb In 90 Days = About 2.5 lb A WEEK"),
  dict(id="C15", kind="clip", start="weigh your food on a scale", end="every ingredient", src=["B0017"]),
- dict(id="C16", kind="clip", start="take a picture of your food and you get", dur=3.0, src=[f"{ST}/p4731130.mp4"]),
  dict(id="P01", kind="phone", start="We have a free macro tracker", end="adds up your day for you", src=["B0038"], note="real AbsByAI meal-log screen in the approved phone, Dan beside it",
       caption="AbsByAI.com"),
  # ---------------- step 6
@@ -83,7 +82,6 @@ PLAN = [
  dict(id="C27", kind="clip", start="I would keep weighing myself every day", end="every day", src=[f"{ST}/p6719385.mp4"]),
  dict(id="G21", kind="lt", start="if I ever got more than three pounds", dur=5.5, topic="KEY POINT", point="More Than 3 lb Over Goal? Cut Back Down RIGHT AWAY"),
  # ---------------- wrap
- dict(id="C28", kind="scene", scene="photo", start="That microdose would ensure", end="gaining fat again", photo="studio-blue-84", label="Real picture of me. Not AI-generated."),
  dict(id="G22", kind="scene", start="so that's exactly what I would do", end="never get there", scene="recap", eyebrow="THE 90-DAY PLAN",
       items=["Make fat loss the #1 priority", "Get a GLP-1 prescription", "Work out every morning", "Get a meal prep service",
              "Track calories with AI", "Eat 0.8 g protein per lb", "Weigh yourself every day", "Plan to never regain it"]),
