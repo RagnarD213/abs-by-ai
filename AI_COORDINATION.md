@@ -89,7 +89,13 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # ACTIVE
 
-**RO-16 belly fat 90 days - IN PROGRESS 2026-09-30, Claude.** First cut from C1710, round method (organic budget), reusing WV-01 studio look (Color C, W2/T2, audio B). Work dir `/Volumes/Extreme/_edit_work/ro16/`. Next: look-and-assets packet for Dan.
+**Shared checkout cannot push - NEEDS OWNER 2026-09-30, Claude.** Checkout is 11 commits ahead (41bb43b..9982b49), 47 behind, with other sessions' dirty files; pull/merge/rebase refuse. Next: fire `Handoffs/handoff-20260930-fix-stuck-main-checkout.md` when no session runs here.
+
+**HyperFrames pilot - IN PROGRESS 2026-09-30, Claude.** C1652 spiral graphics, `Media/hyperframes/`. Next: Dan reviews.
+
+**RO-12 - IN PROGRESS 2026-09-30, Claude.** First cut from C1706. Dir `/Volumes/Extreme/_edit_work/ro12/`.
+
+**RO-16 - IN PROGRESS 2026-09-30, Claude.** Round 2 (G03 option 2): full film rendering, `/Volumes/Extreme/_edit_work/ro16/round2/`. Next: gates, review, deliver.
 
 **Clip library - IN PROGRESS 2026-09-29, Claude.**
 
@@ -97,21 +103,19 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **Stashed edits - NEEDS OWNER 2026-09-29, Claude.** A rebase kept upstream versions of softblue.py, SOFTBLUE.md, GRAPHICS-STANDARDS.md, deliver/gate.py, coverimage SKILL.md, 00-MASTER.md, jobs.json. Uncommitted edits: `stash@{0}` (5d8284a). Next: owner re-applies.
 
-**SL-04 arms shorts round 2 - DELIVERED 2026-09-29, Claude.** Five review copies in `Short-form video content/arms-shoulders REVIEW/`; all gate 2.3.2 PASS, fresh reviewers SHIP. Next: Dan reviews; rules on hair (camera framed it at the edge, no crop fixes it). Detail: `arms-shoulders-SHORTS.md`.
-
 **Vertical kit autofill - IN PROGRESS 2026-09-28, Claude.** Executing `Handoffs/handoff-20260925-vertical-kit-autofill-no-model-session.md` in worktree `/private/tmp/abs-kit-autofill`. Builds: `/Volumes/Extreme/_edit_work/kit9x16/auto-*`. Next: answer keys, Ad 10 rebuild, AV-09.
 
 **Stop Deadlifting - QUEUED 2026-09-29, Claude.** Blotato Oct 11 9AM CT, 4 platforms. Next: once posted, publish `sixpackabs/articles/TBD-stop-deadlifting.md`, then delete. SL-05 picks pending: `_edit_work/sl05`.
 
 **RO-05 salad - APPROVED 2026-09-30, Claude.** Queue `finalized`. Next: Codex thumbnail handoff, then Claude setup handoff with Dan's final thumbnail.
 
-**STOP Deadlifting clip - NEEDS DAN 2026-09-20, Codex.** R3 review copy delivered to the shared Drive folder: `1dXUbQajUzM-uO_Xl92telO0qsa-Ob7uV`. Full head visible; measured bar path rises once without reversing. Silent B-roll has no matching full-film delivery gate, so no gate PASS is claimed. Next: Dan reviews R3 and approves or names any corrections. Detail: `Media/ai-frames/stop-deadlifting-opening-20260918/motion-v2/R3_DELIVERY.json`.
+**STOP Deadlifting clip - NEEDS DAN 2026-09-20, Codex.** R3 review copy in shared Drive folder `1dXUbQajUzM-uO_Xl92telO0qsa-Ob7uV`: full head visible, bar path rises once. Silent B-roll has no full-film gate, so no PASS claimed. Next: Dan approves R3 or names corrections. Detail: `Media/ai-frames/stop-deadlifting-opening-20260918/motion-v2/R3_DELIVERY.json`.
 
-**Overnight edit queue — PAUSED 2026-09-24, Dan's call.** He fires every edit by hand now to save tokens; nothing launches unattended. Routing left correct underneath (AV/AS/SL Claude, RA/RO/DS Codex, cross-review) so a resume needs no config work. Resume only if Dan says: `dispatcher.py resume`.
+**Overnight edit queue - PAUSED 2026-09-24, Dan's call.** He fires every edit by hand to save tokens. Routing still correct (AV/AS/SL Claude, RO/RA/DS Codex, cross-review). Resume only if Dan says: `dispatcher.py resume`.
 
-**RO-01 round 7 - NEEDS DAN 2026-09-29, Codex.** H06/H04/B01 motion and narration-context previews ready at `http://127.0.0.1:8786/index.html`; hashes and estimated spend in `revision7/motion-QA.json`. Next: Dan chooses H06 or H04 and approves/corrects B01, then Codex renders first-minute checkpoint and full film. B02 removed; R3 look/audio and 23 R4 items locked. Dispatcher paused.
+**RO-01 round 7 - NEEDS DAN 2026-09-29, Codex.** H06/H04/B01 motion + narration previews at `http://127.0.0.1:8786/index.html`; spend in `revision7/motion-QA.json`. Next: Dan picks H06 or H04 and rules on B01; Codex then renders the first-minute checkpoint and full film. B02 removed; R3 look/audio and 23 R4 items locked.
 
-**Ads 6, 7, 10, 14 YouTube + Google Ads — REVIEW 2026-09-15, owner: Codex 01a0a744.** Four unlisted uploads and eight enabled campaign ads are complete; shared budget stays $40/day. Google policy is `REVIEW_IN_PROGRESS`. Next: re-run policy 09-16; replace Ad 7 typo/Ad 14 low-bitrate exports when delivered. Detail: `Docs/DGEN_CONVERSION_CAMPAIGN.md`.
+**Ads 6, 7, 10, 14 YouTube + Google Ads - REVIEW 2026-09-15, Codex 01a0a744.** Four unlisted uploads, eight enabled campaign ads, shared budget $40/day, policy `REVIEW_IN_PROGRESS`. Next: re-run policy; swap in Ad 7 typo / Ad 14 bitrate exports when delivered. Detail: `Docs/DGEN_CONVERSION_CAMPAIGN.md`.
 
 **Ads results follow-up — OPEN 2026-09-15.** Review Google Ads results after the 09-09 account fixes (`Docs/GOOGLE_ADS_API.md`). Meta $50 review: next reading 2026-09-18; last result $2.02/follow against <$3 target.
 
@@ -121,10 +125,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **Published cutdown audio — UNOWNED 2026-09-15.** 21 of 23 V2/V3/V6 cutdowns miss −14 LUFS. Next: scope remediation from `Docs/BOARD_REFERENCE.md`; preserve editor mixes under the standing audio rule.
 
-**Google Ads policy checks — OVERDUE, next session. (baseline 2026-09-15; age unknown)** `node scripts/ads/api/client.js policy 24243839443` (eight new Ad 3
-ads, including square 824906283483/824906283486; Demand Gen r2 ads 824329225648/824329225651; Ad 5 groups) and `… 24148587722` / `… 24086091285` (final-URL change).
-If r2 is limited again: attempt 3 = text-free thumbnail on `1oEcwdp21Fg`, then remove. ⚠ Ad 5 headline "Why My Diets Kept
-Failing" DISAPPROVED (clickbait). Add Zeeshan Ad 1 / Ad 5 verticals only after Dan approves. `Docs/DGEN_CONVERSION_CAMPAIGN.md`
+**Google Ads policy checks - OVERDUE, next session (baseline 2026-09-15).** `node scripts/ads/api/client.js policy 24243839443` (Ad 3 ads incl. squares 824906283483/824906283486; DGen r2 824329225648/824329225651; Ad 5 groups), then `… 24148587722` / `… 24086091285`. If r2 limited again: text-free thumbnail on `1oEcwdp21Fg`, then remove. ⚠ Ad 5 headline "Why My Diets Kept Failing" DISAPPROVED. Zeeshan Ad 1 / Ad 5 verticals only after Dan approves. `Docs/DGEN_CONVERSION_CAMPAIGN.md`
 
 **Ads 3 + 4 in Demand Gen — LIVE 09-11.** Watch spend/conversions on the new groups; delete once they have a few days of data.
 Dashboard row "Add the new finished ads…" stays open only for Zeeshan's Ad 1 verticals.
@@ -164,6 +165,10 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
+- `handoff-20260930-sl04-short1-side-lateral-ending.md` (09-30): SL-04 short 1 new ending; shorts 2-5 finalized. Opus 5.5 high.
+- `handoff-20260930-ro16-round2-opener-motion-then-full-film.md` (09-30): with Dan's G03 pick. Opus 5.5 high.
+- `handoff-20260930-codex-adopt-review-page-format.md` (09-30): Codex adopts the RO-16 review page. GPT-6 Sol medium.
+
 - `handoff-20260930-ad-performance-pick-5-for-vsl-campaign.md` (09-30): pick 5 ads, VSL campaign. Opus high. Replaces:
 - `handoff-20260929-start-page-performance-verdict.md` (09-29): /start keep-or-fold.
 - `handoff-20260924-vsl-landing-five-mockups.md` (09-24): five VSL landing page mockups from VidTao research. Opus 5.5 high. Mockups only.
@@ -172,7 +177,7 @@ Memory `google-ads-ui-automation`.
 - `handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md` [dash]: PHONE ONLY, 3 TikTok covers (updated 09-22). Sonnet 5 or Fable 5.1 / Medium.
 - `handoff-20260915-finalized-ads-6-14-youtube-and-google-ads.md` — Ads 6, 7, 10, 14 → YouTube + DGen (2026-09-15). Codex, high.
 - **`video-editing/00-MASTER.md` — THE video-editing list (2026-09-16):** 16 raw short ads, 25 dedicated shorts, 8 long-forms, 3 shorts-from-long-form, 15 ad variants; one doc per job, Claude + Codex prompts. Supersedes the J1–J18 ad-variants queue. Dan picks the order.
-- **Token savings, all Codex (09-18):** `handoff-20260918-claude-video-freeze-and-codex-routing.md` (fire first), `…-shrink-always-loaded-instructions.md`, `…-move-routines-to-codex.md`.
+- **Token savings, all Codex (09-30):** `handoff-20260918-claude-video-freeze-and-codex-routing.md` (fire first), `…-shrink-always-loaded-instructions.md`; routines now `handoff-20260930-codex-dot-00..04` (dot, free launch month). Sol.
 - `handoff-20260917-overnight-edit-queue.md` — Phase 1 built; **Phase 2** next (placeholder flow). Fable or Astra, high.
 - `codex-video-trial/06h-organic-r4-motion-graphics-and-variety.md` — C1652 R4, ready09-17; supersedes executed06f. Astra/High.
 - `handoff-20260912-ad5-vertical-revisions-round2.md` (spec for AV-04) — same man before/after (after picture `13_AFTER_ai-generated_app-demo-man.jpg`

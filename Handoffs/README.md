@@ -1,6 +1,6 @@
 # Handoffs
 
-Every handoff document for Abs By AI, in one place. 223 documents (index updated 2026-09-28).
+Every handoff document for Abs By AI, in one place. 225 documents (index updated 2026-09-30).
 
 A handoff is a self-contained brief written so a fresh session can pick up work with no prior context.
 
@@ -13,6 +13,12 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
+| [handoff-20260930-fix-stuck-main-checkout.md](handoff-20260930-fix-stuck-main-checkout.md) | **Ready 2026-09-30, only when no session is running in the main folder. Claude Opus 5.5 / Medium.** Sync the Mac checkout with GitHub: 5 stranded commits (RO-05 approval, thumbnail-split rule), 97 dirty files, 47 behind. Snapshot first, never `git stash -u`. |
+| [handoff-20260930-codex-dot-00-shared-setup.md](handoff-20260930-codex-dot-00-shared-setup.md) | **Ready 2026-09-30. Codex, GPT-6 Sol.** Shared setup for the four OpenAI dot routines (01 morning brief, 02 editor deliveries, 03 weekly watch review, 04 competitor ad monitoring). Dot work is free of allowance for the launch month; Codex delegation still counts. Each numbered doc has its own starter prompt. Supersedes the deliveries and watch-history rows of `handoff-20260918-move-routines-to-codex.md`. |
+| [handoff-20260930-hyperframes-pilot.md](handoff-20260930-hyperframes-pilot.md) | **Ready 2026-09-30. Claude Opus 5.5 / High.** HyperFrames pilot: install the plugin, rebuild the C1652 "downward spiral" cycle as a Soft Blue Light transparent overlay with real motion, show Dan old vs new. Graphics layer only. Research: `Docs/HYPERFRAMES_RESEARCH.md`. |
+| [handoff-20260930-sl04-short1-side-lateral-ending.md](handoff-20260930-sl04-short1-side-lateral-ending.md) | **Ready 2026-09-30. Claude Opus 5.5 / High.** SL-04 short 1: replace 0:35-0:57 arm-angle demo with a side-lateral cue, thumbs tip and live-round reps. Shorts 2-5 finalized. |
+| [handoff-20260930-ro16-round2-opener-motion-then-full-film.md](handoff-20260930-ro16-round2-opener-motion-then-full-film.md) | **With Dan's G03 pick. Opus 5.5 / High.** Round 1 approved; build, gate, review and deliver the full RO-16 film. |
+| [handoff-20260930-codex-adopt-review-page-format.md](handoff-20260930-codex-adopt-review-page-format.md) | **Ready 2026-09-30. Codex, GPT-6 Sol / Medium.** Adopt the RO-16 review-page layout and "What I decided" list in every Codex video skill and page builder. |
 | [handoff-20260930-ad-performance-pick-5-for-vsl-campaign.md](handoff-20260930-ad-performance-pick-5-for-vsl-campaign.md) | **Ready 2026-09-30. Opus 5.5 / High.** Rank every Demand Gen ad on cost per trial (stepping down the metric ladder if no trials), pick 5, build the VSL-page campaign PAUSED, swap budget over once the page is live. Supersedes the /start verdict handoff. |
 | [handoff-20260929-cut-broll-into-clip-library.md](handoff-20260929-cut-broll-into-clip-library.md) | **Ready 2026-09-29. Opus 5.5 / Medium.** Cut the 68 ranked filmed B-roll moments (`Media/clip-library/broll-cut-list.json`) into graded clips and register each in the clip library. No AI spend. |
 | [handoff-20260929-studio-posts-24-format-test.md](handoff-20260929-studio-posts-24-format-test.md) | **Dispatched 2026-09-29. Recommended GPT-6 Astra / High.** Three posts in each style 01-08, shirtless only, Speedo crops; full carousel sets, captions and review gallery. |
