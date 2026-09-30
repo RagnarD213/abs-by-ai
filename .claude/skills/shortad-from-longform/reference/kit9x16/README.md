@@ -142,6 +142,22 @@ his own (Dan-approved) labelling; a picture never gets a second chip over his bu
 * A judge's identity call is checked against the library match before acting: the round-4 judge called Dan's own
   deckchair photo "a stranger" from an old memory about a different recording.
 
+## Round-6 lessons (2026-09-29)
+
+* A label that must come and go on one clip is TIMED on the card (`label_spans`), never made by splitting the clip:
+  a labelled card's hole is smaller, so every split resized the phone.
+* Dan-approved crops of real photos live in `/Volumes/Extreme/_edit_work/kit9x16/approved_crops/` (listed first in
+  `auto_sources.json`, `curated_crop`); a crop that lies wholly inside the matched photo replaces it (the 4:3 dad
+  photo in a card cut his head, the framing Dan rejected on Ad 1).
+* A boundary between two Dan-window plates does not hide a cut (his head keeps its size): the cut gets its step.
+* A word that starts under a graphic but mostly plays after it is captioned from the graphic's end ("30 minutes").
+* A lower third whose second line continues the sentence sets both lines in one size.
+* His white flash on a return from a full-screen picture is followed, inside his measured flash range: rule returns
+  he also flashes first, then his full-screen returns (latest first), then rule-only returns.
+* A video that holds a still (a screen recording showing the AI goal image, filed under real footage) never votes on
+  the still's real vs AI. A library change re-indexes it (about 40 minutes at 1,434 files) and can surface a new
+  conflict; the run escalates rather than guessing.
+
 ## Rules carried (do not re-open)
 
 * One format. Bound to his ranges in BOTH directions (`picture.json` lo/hi; overshoot is a warning).
