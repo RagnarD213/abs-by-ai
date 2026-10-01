@@ -151,6 +151,7 @@ def main():
         target_seconds=round(cut_plan["seconds"], 6),
         target_frames=int(cut_plan["frames"]),
         joins=sorted(joins),
+        audio_joins=sorted(round(r["dst0"], 3) for r in ranges[1:]),      # the only places his mix is actually cut
         covered=mapped_covered,
         cards=map_plain(master.get("cards")),
         punch=punch,

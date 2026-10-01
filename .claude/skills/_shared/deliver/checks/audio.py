@@ -149,7 +149,11 @@ def click_at_joins(key, pr, cfg, plan, video):
     The control distribution is 150 random points in this same file, so a busy mix and a dry room
     are each graded against themselves rather than against a constant somebody picked once.
     """
-    joins = plan.get("joins")
+    # `audio_joins`, when the plan declares it, is where the AUDIO was actually joined. A cutdown of an editor's
+    # untouched mix cuts that mix only at its seams; his own picture cuts inside a kept range sit on continuous
+    # audio the full file already passed with, and a word onset there read 1.3x a 45 s file's control ceiling
+    # (kit autofill AV-09 cutdown, 2026-10-01). Absent, the row reads `joins` exactly as before.
+    joins = plan.get("audio_joins") if plan.get("audio_joins") is not None else plan.get("joins")
     if not joins:
         return unmeasured(key, "the plan declares no `joins`; declare them, or declare this row "
                                "not applicable (a single continuous take has none)")

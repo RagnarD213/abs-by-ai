@@ -62,7 +62,7 @@ def main():
     #      change of picture or of framing level across it, and may not sit in a flash or a graphic's fade
     pj = os.path.join(B, "plan.json")
     P = json.load(open(pj)) if os.path.exists(pj) else {}
-    inserts = [tuple(x) for x in (P.get("cards") or []) + (P.get("covered") or [])]
+    inserts = [tuple(x) for x in (P.get("covered") or [])]      # `cards` also lists lower thirds and CTA pills: not pictures
     punch = [(float(x[0]), float(x[1]), x[2]) for x in P.get("punch") or []]
 
     def level_at(t):
@@ -143,6 +143,9 @@ def main():
     for attempt in range(5):
         res = AI.text(prompt, purpose="cutdown", model=a.model)
         if not res or "ranges" not in res:
+            continue
+        if not all(isinstance(r_, (list, tuple)) and len(r_) == 2 for r_ in res["ranges"]):
+            prompt += f"\n\nYour last answer {res['ranges']} is not usable: every range is [first_sentence, last_sentence], two numbers. Fix it."
             continue
         R = [(max(0, int(x)), min(len(S) - 1, int(y))) for x, y in res["ranges"]]
         tot = sum(S[y]["t1"] - S[x]["t0"] + 0.15 for x, y in R)
