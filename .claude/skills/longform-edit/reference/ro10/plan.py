@@ -7,14 +7,20 @@ ends it (or dur). Inside a template item every time is a phrase too (resolved by
 LIB = "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library"
 ST = "/Volumes/Extreme/_edit_work/ro10/stock"
 PH = "/Volumes/Extreme/_edit_work/ro10/assets"
+AI = "/Volumes/Extreme/_edit_work/ro10/aiframes"
 PLAN = [
- # ---------------- hook (on camera; no AI opener, see What I decided)
+ # ---------------- hook: two AI clips of the same man under Dan's first two sentences (Dan 10-01: "Let's use both for the
+ # opener, the food clips first, before the scale"; frames and motion approved). Dan appears on "Most people".
+ dict(id="O1", kind="clip", start="If you're struggling", end="there's one", pad_to_next=True, src=[f"{AI}/O1_motion_v1.mp4@0.0"], label="AI-GENERATED",
+      note="Veo 3.1 fast, 4 s; only 0.0-3.25 s is clean (the spoon reappears and the glass jumps after that): never use past 3.25 s"),
+ dict(id="O2", kind="clip", start="why. You're eating", end="too many calories", tail=0.76, src=[f"{AI}/O2_motion_v1.mp4@0.3"], label="AI-GENERATED",
+      note="Veo 3.1 fast, 4 s, clean throughout; ends on the cut to Dan at 'Most people'"),
  dict(id="G01", kind="lt", start="Most people overcomplicate", end="than you are right now", topic="THE REAL REASON",
       point="Carbs, Insulin, Seed Oils? No. It's CALORIES.",
       parts=[["Carbs, Insulin, Seed Oils?", "argue about carbs"], ["No. It's CALORIES.", "it just comes down"]]),
  # ---------------- the proof
- dict(id="C01", kind="clip", start="a nutrition professor at Kansas State", end="for 10 weeks", src=[f"{ST}/p8844683.mp4@8.0"],
-      note="junk food laid out (chips, cola, chocolate); no person eating"),
+ dict(id="H01", kind="clip", start="a nutrition professor at Kansas State", end="for 10 weeks", src=[f"{AI}/H01_motion_v1.mp4@0.0"], label="AI-GENERATED",
+      note="Veo 3.1 fast, 8 s for a 7.8 s slot; Dan approved frames and motion 10-01; a generic man, not a likeness of the real professor; replaces the junk-food stock"),
  dict(id="G02", kind="scene", scene="fact", start="but he kept it under", end="eating less calories", photo=f"{PH}/haub_after.jpg", label="AI-GENERATED",
       eyebrow=["1,800 CAL A DAY", "but he kept it"], headline=[["27 lb", "27"], ["LOST", "pounds"]], count={"value": "27", "from": 0, "dur": 0.55},
       detail=["Cholesterol got BETTER.", "cholesterol"], sweep="junk food", push=1.06, drift=-8),

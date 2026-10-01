@@ -91,8 +91,6 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **SL-04 covers - IN PROGRESS 2026-09-30, Codex.** Next: picks. `Short-form video content/covers/review/sl04-covers-20260930/`.
 
-**RO-10 + HyperFrames - NEEDS DAN 2026-09-30, Claude.** Round 1 page http://127.0.0.1:8801/. Next: `handoff-20260930-ro10-round1-dan-review.md`.
-
 **Shared checkout cannot push - NEEDS OWNER 2026-09-30, Claude.** Checkout is 11 commits ahead (41bb43b..9982b49), 47 behind, with other sessions' dirty files; pull/merge/rebase refuse. Next: fire `Handoffs/handoff-20260930-fix-stuck-main-checkout.md` when no session runs here.
 
 **RO-12 - FINALIZED 2026-10-01, Claude.** Next: Dan fires `handoff-20261001-ro12-thumbnails-codex.md`, then `handoff-20261001-ro12-video-setup.md`.
@@ -168,7 +166,7 @@ Memory `google-ads-ui-automation`.
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
 - `handoff-20260930-sl04-shorts-video-setup.md` (09-30): upload after cover picks.
-- `handoff-20260930-ro10-round1-dan-review.md` (09-30): after Dan's RO-10 reply. Opus high.
+- `handoff-20261001-ro10-round2-build-full-film.md` (10-01): build RO-10. Opus high.
 - `handoff-20260930-ro16-round2-opener-motion-then-full-film.md` (09-30): with Dan's G03 pick. Opus 5.5 high.
 - `handoff-20260930-codex-adopt-review-page-format.md` (09-30): Codex adopts the RO-16 review page. GPT-6 Sol medium.
 
