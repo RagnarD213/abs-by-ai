@@ -13,6 +13,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
+| [handoff-20261001-prevent-stuck-checkout-safe-push-and-drift-alarm.md](handoff-20261001-prevent-stuck-checkout-safe-push-and-drift-alarm.md) | **Ready 2026-10-01. Claude Opus 5.5 / Medium, main folder only.** Stop the checkout getting stuck again: one safe push script (commit named files, merge, push, stop on conflict) plus a git drift alarm in the hook and morning brief. Safe to run beside other sessions. |
 | [handoff-20261001-vertical-kit-from-our-own-edits.md](handoff-20261001-vertical-kit-from-our-own-edits.md) | **Ready 2026-10-01. Claude Opus 5.5 / High.** The vertical kit builds from our own 16:9 edit sheet (no reverse-engineering), one sheet format for Claude and Codex, graphics redrawn in Soft Blue Light with HyperFrames; template page to Dan before any full build. |
 | [handoff-20261001-ro16-round3-two-join-fixes.md](handoff-20261001-ro16-round3-two-join-fixes.md) | **Opus 5.5 / Medium.** RO-16 round 3: remove the repeated "Most guys" at 5:00, fix the clipped "health benefits" join at 11:40, keep everything else identical, deliver. |
 | [handoff-20261001-ro12-thumbnails-codex.md](handoff-20261001-ro12-thumbnails-codex.md) | **Executed and approved 2026-10-01, Codex.** Dan picked R3 C (studio-blue-38, relaxed arms). Final: `social media graphics/youtube/thumbnails/Top 5 Zepbound Tips/Top 5 Zepbound Tips - thumbnail FINAL.jpg` (1280x720 JPEG, 516393 bytes). Revealed in Finder. No upload or scheduling. |
