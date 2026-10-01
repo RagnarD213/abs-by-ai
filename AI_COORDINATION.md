@@ -92,6 +92,8 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # ACTIVE
 
+**SL-05 covers - REVIEW 2026-10-01, Codex.** 50 checked covers. Next: Dan picks, then ten exports. Gallery: `http://127.0.0.1:8799/`. Detail: `Docs/SL05_COVER_REVIEW_20261001.md`.
+
 
 **RO-16 - NEEDS DAN 2026-09-30, Claude.** Round 1 approved; G03 pick pending. Next: round-2 handoff (Opus) builds the full film.
 
@@ -160,6 +162,8 @@ sale has happened; do not manufacture a row. Then map the `Email` column in Data
 Memory `google-ads-ui-automation`.
 
 # HANDOFFS WRITTEN, NOT EXECUTED
+
+- `handoff-20261001-sl05-shorts-covers-codex.md`: REVIEW READY 2026-10-01, awaiting Dan picks. `Docs/SL05_COVER_REVIEW_20261001.md`.
 
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.

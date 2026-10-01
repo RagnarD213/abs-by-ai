@@ -13,6 +13,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
+| [SL-05 cover review](../Docs/SL05_COVER_REVIEW_20261001.md) | **Review ready 2026-10-01.** Five choices for each of five Stop Deadlifting shorts, 50 checked covers. Awaiting Dan picks, then ten exports. Covers handoff: `handoff-20261001-sl05-shorts-covers-codex.md`. No upload. |
 | [handoff-20261001-vertical-kit-from-our-own-edits.md](handoff-20261001-vertical-kit-from-our-own-edits.md) | **Ready 2026-10-01. Claude Opus 5.5 / High.** The vertical kit builds from our own 16:9 edit sheet (no reverse-engineering), one sheet format for Claude and Codex, graphics redrawn in Soft Blue Light with HyperFrames; template page to Dan before any full build. |
 | [handoff-20260929-cut-broll-into-clip-library.md](handoff-20260929-cut-broll-into-clip-library.md) | **Ready 2026-09-29. Opus 5.5 / Medium.** Cut the 68 ranked filmed B-roll moments (`Media/clip-library/broll-cut-list.json`) into graded clips and register each in the clip library. No AI spend. |
 | [handoff-20260930-sl04-shorts-covers-codex.md](handoff-20260930-sl04-shorts-covers-codex.md) | **Executed and approved 2026-09-30.** Dan picked D for shorts 1, 3, 4, 5. Eight Instagram/YouTube final paths and hashes: [SL-04 cover finals](../Docs/SL04_COVER_FINALS_20260930.md). Short 2 B unchanged. Finder: `Short-form video content/covers/approved-sl04-D-for-Claude/`. No upload or scheduling. |
