@@ -28,6 +28,8 @@ import vertical as VT  # noqa: E402
 FPS = 30000 / 1001
 FF = VT.B.FF
 CAP_LIFT_GAP = 150            # px from the card's top edge up to the caption line's top (a 64 px line + its shadow)
+CAP_LIFT_MIN_Y = 1000         # a lifted caption line never starts above this: his chin reaches about 880 px in a punch-in.
+                              # A card tall enough to push the captions higher pauses them instead (RO-10 G13: 936 px, on his chin)
 
 
 def media_ar(spec):
@@ -57,7 +59,7 @@ def main():
     out = os.path.join(B, "hf")
     inr = lambda t0, t1: (not a.range) or (t0 < a.range[1] and t1 > a.range[0])
     render = not a.no_render
-    plates, manifest, lifts = {}, [], []
+    plates, manifest, lifts, muted = {}, [], [], []
     prev = 0
     for i, b in enumerate(tl):
         cum = round(b["t1"] * FPS); n = cum - prev; f0 = prev; prev = cum
@@ -96,13 +98,22 @@ def main():
             m["mask"] = os.path.join(out, "renders", gid + "_mask.mov")
         manifest.append(m)
         if o["kind"] == "hfov":
-            lifts.append([o["t0"], o["t1"], int(meta["box"][1] - CAP_LIFT_GAP)])
+            y = int(meta["box"][1] - CAP_LIFT_GAP)
+            if y >= CAP_LIFT_MIN_Y:
+                lifts.append([o["t0"], o["t1"], y])
+            else:
+                muted.append(gid)                              # a tall card: lifted captions would sit on his chin, so they pause
         if inr(o["t0"], o["t1"]):
             VT.build(scenes, out, render=render, snap=(max(0.5, o["t1"] - o["t0"] - 0.6) if a.snap else None))
             print(f"{gid:6s} overlay     {m['template']:22s} {o['t0']:8.2f} - {o['t1']:8.2f} {meta['kind']}", flush=True)
     json.dump(sorted(manifest, key=lambda m: m["a"]), open(os.path.join(out, "manifest.json"), "w"), indent=1)
     json.dump(plates, open(os.path.join(out, "plates.json"), "w"), indent=1)
     J["cap_lifts"] = lifts
+    for it in J.get("insets", []):
+        if it.get("gid") in muted:
+            it["caps"] = False
+        else:
+            it.pop("caps", None)
     json.dump(J, open("beats.json", "w"), indent=1)
     print(f"{len(plates)} plates, {len(manifest)} overlays, {len(lifts)} caption lifts -> {out}")
 
