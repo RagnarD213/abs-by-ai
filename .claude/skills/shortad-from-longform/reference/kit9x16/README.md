@@ -63,7 +63,7 @@ stop matching, he added something), reading the text on screen with the Mac's ow
 clean original of every picture in our libraries (the library it lives in says real or AI). It stops and asks
 ("escalates") whenever it is not sure, instead of guessing. Muhammad and the other editors are never asked for
 anything. The only AI left is three small calls: "is this picture a bare physique?" (a fraction of a cent), which
-sentences make the <=0:59 cutdown (about 2 cents), and an optional second-opinion judge. The judged watch pass is
+sentences make the <=0:59 cutdown (about a dime, checked and re-asked by the kit), and an optional second-opinion judge. The judged watch pass is
 still done by fresh reviewer sessions, because the model judge missed defects they catch (below).
 
 ## Build order (automatic, from a master) -- `kit_run.py`
@@ -174,6 +174,23 @@ his own (Dan-approved) labelling; a picture never gets a second chip over his bu
 * A phone lift is cropped to the phone, never a fixed column of his frame. Only Dan-window plates are declared as
   talking-head windows (a stale plate file made a full-bleed picture fail `framing:hair_top`).
 * The work tree lives at `~/abs-worktrees/kit-autofill`, never under `/private/tmp` (a restart wipes it).
+
+## Cutdown lessons (2026-10-01, AV-09 and Ad 10)
+
+* The picker (`cutdown_pick.py`, one Pro text call with a 6,000-token thinking budget, about a dime) sees, per
+  sentence, what is on screen where it starts and ends (FAR / NEAR / picture), whether captions are on, and whether
+  a range may end or start there. Its answer is VERIFIED and re-asked (5 tries, then the run escalates): starts on
+  sentence 0, in order, at most 4 ranges, 45 to 58.3 s with the tail pads, at least half captioned, and every seam
+  a change of picture or of level, never inside a flash, a graphic's fade-out, or just before a zoom change.
+* A zoom change that falls in the last word's tail: the audio keeps its tail, the picture HOLDS the last frame
+  before the change (`hold` in cut_plan.json), and the cutdown's plan drops the sliver.
+* A seam at a picture edge is not a talk join; `audio_joins` in the cutdown's plan lists the seams (the only places
+  his mix is cut), which is what the gate's click check reads.
+* The cutdown's review copy and gate stamps deliver beside the full's.
+* Run a gate DETACHED (`nohup ... &`, then read its json): in the foreground of an agent shell that backgrounds a
+  long command it never returns. Two gates at once also stall each other.
+* A re-judge after a small fix: `carry_verdicts.py` carries the judged verdicts onto pixel-identical watch images
+  and lists the changed ones for one fresh judge.
 
 ## Rules carried (do not re-open)
 
