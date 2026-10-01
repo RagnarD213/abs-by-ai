@@ -1,6 +1,8 @@
 # Handoff: SL-05 Stop Deadlifting shorts, round 3: Dan's two revisions, then finalize (written 2026-10-01)
 
-## STATUS 2026-10-01: both revisions built, reviewed (SHIP) and gated (PASS 39/39); review copies sent to Dan. Only "Close-out" below is left, after Dan says finalized.
+## EXECUTED 2026-10-01. Dan: "Both are finalized." Close-out done (queue finalized, clips A0138-A0142 registered, covers and setup handoffs written: `handoff-20261001-sl05-shorts-covers-codex.md`, `handoff-20261001-sl05-shorts-video-setup.md`).
+
+## Earlier status: both revisions built, reviewed (SHIP) and gated (PASS 39/39); review copies sent to Dan. Only "Close-out" below is left, after Dan says finalized.
 Short 2 as built: parent frames 123-188 (pull off the floor to lockout), then 207-224 (the X; the 18 identical still frames before it skipped), X at output 2.20 s. Reviews: `r2/review7/`. Gate logs: `gate/S2|S3/gate_out_r3.txt`.
 
 ## Goal
