@@ -93,7 +93,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 
 
-**Campaign images - NEEDS DAN 2026-10-01, Claude.** Next: Dan picks. `Docs/CAMPAIGN_IMAGES_RESEARCH.md`.
+**Campaign images - NEEDS DAN 2026-10-01, Claude.** Dan picks: `Docs/CAMPAIGN_IMAGES_RESEARCH.md`.
 
 **SL-05 shorts - QUEUED 2026-10-01, Claude.** Blotato Oct 17-27. Next: Oct 11, confirm parent posted, else hold these. `Docs/SL05_SETUP_RECEIPT_20261001.md`.
 
