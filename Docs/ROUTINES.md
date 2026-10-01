@@ -14,7 +14,7 @@ Status: **partial setup, disabled**. The local input collector and focused tests
 | Requirements and operation | `Docs/MORNING_BRIEF_INPUTS.md` |
 | Draft assignment | Below; not installed or scheduled |
 | Claude routine | Must remain disabled; its scheduler was not modified or independently verified here |
-| Open prerequisites | Trello board/access, Gmail/Calendar intake, outcome mappings, Daniel-only page access, private Mac-to-writer access and a reviewed dot proof |
+| Open prerequisites | Trello board/list access, exact outcome decisions, Daniel-only page access, private Mac-to-writer access and a reviewed dot proof; the parent writer can use its connected Gmail/Calendar |
 
 The September 30 interview supersedes the handoff's 6:05/6:30 timings, chat/text delivery, label-only Gmail scope and proposal to push input data to the repository. The repository can carry code and sanitized documentation; personal source data remains private. Board maintenance and old pinned reminders do not become priorities automatically.
 

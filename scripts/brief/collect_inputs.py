@@ -20,6 +20,13 @@ from planning import CHICAGO, read_planning, safe_text, timestamp
 CODE_ROOT = Path(__file__).resolve().parents[2]
 METRICS = ("free_generations", "email_leads", "trials", "paid")
 SITES = ("absbyai.com", "sixpackabs.com")
+# These existing browser events do not prove the requested business outcome.
+UNVERIFIED_EVENTS = {
+    "free_generations": {"generation_started", "generation_verifier", "generation_locked_in"},
+    "email_leads": {"email_subscribed", "newsletter_signup", "account_signup"},
+    "trials": {"trial_signup_started", "membership_subscribed", "iap_purchase_completed"},
+    "paid": {"paid_conversion_reported", "membership_subscribed", "iap_purchase_completed", "purchase_completed"},
+}
 
 
 def secrets(path):
@@ -202,6 +209,8 @@ def posthog(credentials, config, window):
         for metric, event in fields.items():
             if metric not in METRICS or not isinstance(event, str) or not re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*", event):
                 return {"status": "error", "reason": "Invalid site event mapping"}
+            if event in UNVERIFIED_EVENTS[metric]:
+                return {"status": "error", "reason": "Existing browser event does not verify this business outcome; use a precise stage signal or verified aggregate"}
         if len(set(fields.values())) != len(fields):
             return {"status": "error", "reason": "Site outcomes must map to distinct events"}
     output = {}
@@ -254,6 +263,34 @@ def run_ads(config, window, credentials):
         return {"status": "error", "reason": "Google Ads reader unavailable, timed out, or returned invalid output"}
 
 
+def subscriber_leads(project, window, credentials):
+    try:
+        p = subprocess.run(["node", str(CODE_ROOT / "scripts/brief/subscriber_leads.js"), str(project)],
+                           input=json.dumps(window), capture_output=True, text=True, timeout=35, env=credentials)
+        result = json.loads(p.stdout)
+        if not isinstance(result, dict) or result.get("status") not in ("ok", "missing", "error"):
+            raise ValueError()
+        if result["status"] == "ok":
+            for name in ("yesterday", "sameWeekdayLastWeek"):
+                data = result["windows"][name]
+                counts = [data["unattributed"], *(data["sites"][s]["value"] for s in SITES)]
+                if any(type(n) is not int or n < 0 for n in counts):
+                    raise ValueError()
+        return result
+    except (OSError, ValueError, TypeError, KeyError, subprocess.TimeoutExpired):
+        return {"status": "error", "reason": "Subscriber aggregate unavailable; no zero inferred"}
+
+
+def merge_verified_leads(sites, leads):
+    if leads.get("status") != "ok":
+        return
+    for name, data in sites.get("windows", {}).items():
+        if data.get("status") == "ok":
+            for site in SITES:
+                data["sites"][site]["email_leads"] = {**leads["windows"][name]["sites"][site], "source": "subscribers.subscribed_at"}
+            data["unattributedEmailLeads"] = leads["windows"][name]["unattributed"]
+
+
 def ad_guard(project_root):
     script = project_root / "scripts/blotato/ad_guard.py"
     if not script.is_file():
@@ -302,11 +339,13 @@ def collect(args):
         sources["watch_review"]["actions"] = [{k: safe_text(row.get(k, "")) for k in ("act", "why")} for row in data.get("actions", [])[:2]]
     if args.live:
         sources.update(dashboard=dashboard(credentials), google_ads=run_ads(config, window, credentials), sites=posthog(credentials, config, window), ad_guard=ad_guard(project))
+        sources["subscriber_leads"] = subscriber_leads(project, window, credentials)
+        merge_verified_leads(sources["sites"], sources["subscriber_leads"])
     else:
-        for name in ("dashboard", "google_ads", "sites", "ad_guard"):
+        for name in ("dashboard", "google_ads", "sites", "ad_guard", "subscriber_leads"):
             sources[name] = {"status": "not_checked", "reason": "Network reads require --live"}
     for name in ("gmail", "calendar"):
-        sources[name] = {"status": "missing", "reason": "Connected-source intake not configured in this local helper"}
+        sources[name] = {"status": "missing", "reason": "Local intake not configured; the brief writer can use its separately connected source"}
     result = {"schemaVersion": 1, "generatedAt": now.isoformat(), "forDate": str(now.astimezone(CHICAGO).date()),
               "timezone": "America/Chicago", "routineEnabled": False, "window": window,
               "priority": select_priority(planning, trello), "sources": sources}

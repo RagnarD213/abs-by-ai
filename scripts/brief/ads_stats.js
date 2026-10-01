@@ -1,6 +1,7 @@
 'use strict';
 // Only shared-client search is used. No campaign mutation, ledger, or generation.
 const fs = require('fs');
+const signals = require('./ads_signals');
 const OUTCOMES = ['free_generations', 'email_leads', 'trials', 'paid'];
 
 function validMap(mapping = {}) {
@@ -76,7 +77,7 @@ async function collect(config, day, weekFrom, search) {
   if (account[0]?.customer?.timeZone !== 'America/Chicago') throw new Error('Account timezone not verified as America/Chicago');
   const currency = account[0]?.customer?.currencyCode;
   if (!/^[A-Z]{3}$/.test(currency || '')) throw new Error('Account currency unavailable');
-  const actions = await search("SELECT conversion_action.id, conversion_action.name, conversion_action.status FROM conversion_action WHERE conversion_action.status != 'REMOVED'", options);
+  const actions = await search("SELECT conversion_action.id, conversion_action.name, conversion_action.status, conversion_action.type, conversion_action.category, conversion_action.primary_for_goal, conversion_action.counting_type, conversion_action.tag_snippets FROM conversion_action WHERE conversion_action.status != 'REMOVED'", options);
   const known = new Set(actions.map(r => String(r.conversionAction.id)));
   for (const ids of Object.values(config.conversion_actions || {})) {
     if (ids.some(id => !known.has(String(id)))) throw new Error('Mapped action unavailable');
@@ -84,12 +85,17 @@ async function collect(config, day, weekFrom, search) {
   const dateFilter = `segments.date BETWEEN '${weekFrom}' AND '${day}'`;
   const spend = await search(`SELECT campaign.id, campaign.name, campaign.status, segments.date, metrics.cost_micros, metrics.clicks, metrics.impressions FROM campaign WHERE ${dateFilter}`, options);
   const counts = await search(`SELECT campaign.id, campaign.name, campaign.status, segments.date, segments.conversion_action, segments.conversion_action_name, metrics.all_conversions FROM campaign WHERE ${dateFilter}`, options);
+  const paidImports = actions.map(row => row.conversionAction).filter(action => action.type === 'UPLOAD_CLICKS' && action.category === 'PURCHASE');
   return {status: Object.keys(config.conversion_actions || {}).length === OUTCOMES.length ? 'ok' : 'partial',
     customerId: cid, timezone: 'America/Chicago', currency, day, weekFrom,
     definition: 'Google-attributed conversion-action counts; may be fractional. Not backend customer totals.',
     unmapped: OUTCOMES.filter(name => !config.conversion_actions?.[name]),
-    availableActions: actions.map(r => ({id: String(r.conversionAction.id), name: r.conversionAction.name})),
-    campaigns: buildStats(spend, counts, config.conversion_actions || {}, day, weekFrom)};
+    availableActions: actions.map(r => ({id: String(r.conversionAction.id), name: r.conversionAction.name,
+      type: r.conversionAction.type, category: r.conversionAction.category, primaryForGoal: r.conversionAction.primaryForGoal,
+      countingType: r.conversionAction.countingType, tagTargets: signals.tagTargets(r.conversionAction)})),
+    paidImportActions: paidImports.map(action => ({id: String(action.id), name: action.name, primaryForGoal: action.primaryForGoal})),
+    paidImportWarning: paidImports.length > 1 ? 'Multiple offline purchase actions exist. Verify the import destination before aggregating paid conversions; none is assumed to be a separate sale.' : null,
+    campaigns: signals.attach(buildStats(spend, counts, config.conversion_actions || {}, day, weekFrom), signals.verified(actions.map(row => row.conversionAction)))};
 }
 
 module.exports = {buildStats, collect, validMap};
