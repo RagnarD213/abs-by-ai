@@ -1483,9 +1483,16 @@ def describe_shot(master, A, frames_dir, D, O, W, s0, s1, fps, T, lib_get, AI, e
             x = int(min(max(cx - 304, 0), 1920 - 608))
             out = os.path.join("assets_auto", f"{key}.mp4")
             c0, c1 = clean_range(D, s0, s1, fps)
-            prep.append(dict(out=out, beat=beat, c0=c0, c1=c1, x=x))
+            # THE PHONE ITSELF, not a fixed 608 px column: the column carried ~55 px of his dark grid above and below
+            # the phone and a line down one side into our olive card (Ad 10 121.8 / 172.8 s, gate-round judge)
+            pcrop = None
+            if hole is not None and (hole[3] - hole[1]) > 1.5 * (hole[2] - hole[0]) and (hole[2] - hole[0]) >= 300:
+                pw, ph = (hole[2] - hole[0] - 8) // 2 * 2, (hole[3] - hole[1] - 8) // 2 * 2
+                pcrop = (pw, ph, hole[0] + 4, hole[1] + 4)
+            prep.append(dict(out=out, beat=beat, c0=c0, c1=c1, x=None if pcrop else x, crop=pcrop))
             media[key] = ("vid", out, 0.0)
-            ev["source"] = f"portrait crop of his master at x={x} (a phone), his picture {c0:.3f}-{c1:.3f} s"
+            ev["source"] = (f"his phone {pcrop} lifted from his master" if pcrop else f"portrait crop of his master at x={x} (a phone)") \
+                + f", his picture {c0:.3f}-{c1:.3f} s"
         else:
             out = os.path.join("assets_auto", f"{key}.mp4")
             c0, c1 = clean_range(D, s0, s1, fps)
