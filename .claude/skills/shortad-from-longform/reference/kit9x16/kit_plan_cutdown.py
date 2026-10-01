@@ -106,6 +106,17 @@ def main():
                 punch.append([round(left, 3), round(right, 3), item[2]])
                 punch_covered.append(bool(covered or hidden))
 
+    # a range that HOLDS its last frames over a level change (kit_cutdown `hold`) shows the level before the change to
+    # the seam: the sliver the master's level list maps there is not on screen
+    for r in ranges:
+        if not r.get("hold"):
+            continue
+        for k in range(len(punch) - 1, 0, -1):
+            a_, b_, lv = punch[k]
+            if abs(b_ - r["dst1"]) < 0.02 and b_ - a_ < 0.25 and abs(punch[k - 1][1] - a_) < 0.02:
+                punch[k - 1][1] = b_
+                del punch[k]; del punch_covered[k]
+                break
     real_photos = map_items(master.get("real_photos"))
     ai_inserts = map_items(master.get("ai_inserts"))
     graphics = map_items(master.get("graphics"))

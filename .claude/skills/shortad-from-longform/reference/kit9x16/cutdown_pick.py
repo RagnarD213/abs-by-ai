@@ -116,6 +116,15 @@ def main():
             for o in overlays:
                 if o["t1"] - 0.4 < t1 < o["t1"] + 0.02:
                     prob = f"sentence {y} ends inside the fade-out of an on-screen graphic, so a range cannot end on it"
+        # ... nor a few frames after a zoom change: the word's tail (up to 0.3 s) would carry a sliver of the next
+        # level into the seam, which the gate's cut:min_segment row fails (AV-09 cutdown, 2 NEAR frames at 44.18 s)
+        pb = sorted({a_ for a_, b_, _ in punch} | {b_ for a_, b_, _ in punch})
+        # (a change in the word's own tail is fine: kit_cutdown holds the last frame before it; one BEFORE the word
+        # ends would freeze his mouth mid-word)
+        if y < len(S) - 1 and any(S[y]["t1"] - 0.20 < q < S[y]["t1"] - 0.02 for q in pb):
+            prob = prob or f"sentence {y} ends on a zoom change, so a range cannot end on it"
+        if x > 0 and any(t0 + 0.02 < q < t0 + 0.22 for q in pb):
+            prob = prob or f"sentence {x} starts just before a zoom change, so a range cannot start on it"
         return round(t0, 3), round(t1, 3), prob
 
     def seam_problems(R_):

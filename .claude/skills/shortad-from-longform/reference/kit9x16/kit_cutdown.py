@@ -131,6 +131,17 @@ def _master_frames():
     return MASTER_FRAMES
 
 
+def _level_changes():
+    """Frame indices where the full vertical's framing level changes (plan.json `punch`, written at its gate)."""
+    if not hasattr(_level_changes, 'v'):
+        try:
+            pn = json.load(open('plan.json')).get('punch') or []
+        except Exception:
+            pn = []
+        _level_changes.v = sorted({int(round(float(x[0])*FPS)) for x in pn} | {int(round(float(x[1])*FPS)) for x in pn})
+    return _level_changes.v
+
+
 def plan():
     """⚠ THE PLAN IS IN FRAMES, NOT SECONDS. A range expressed in seconds can ask for one
     frame more than the master holds (the last range's src1 is beats.DUR = 232.768 s, while
@@ -152,7 +163,15 @@ def plan():
         b = pad_tail(b, b_snapped)
         n1 = min(int(round(b*FPS) if b_snapped else math.ceil(b*FPS)), _master_frames())
         assert n1 > n0, (a, b, n0, n1)
-        out.append(dict(src0=round(n0/FPS, 5), src1=round(n1/FPS, 5), frames=n1-n0, n0=n0,
+        # ⚠ A LEVEL CHANGE IN THE LAST FEW FRAMES OF A RANGE: his zoom changes a frame or two before the word's sound
+        # has finished, so the padded tail carries 1-5 frames of the NEXT level into the seam (AV-09 cutdown, 2 NEAR
+        # frames at 44.18 s: the gate's cut:min_segment row). The audio keeps its tail; the picture HOLDS the last
+        # frame before the change for those frames (a short hold going into a cut is not seen).
+        hold = 0
+        for q in _level_changes():
+            if n1 - 6 <= q < n1 and q > n0 + 6:
+                hold = n1 - q
+        out.append(dict(src0=round(n0/FPS, 5), src1=round(n1/FPS, 5), frames=n1-n0, n0=n0, hold=hold,
                         dst0=round(prev/FPS, 5), dst1=round((prev+n1-n0)/FPS, 5)))
         prev += n1-n0
     return out, prev
@@ -257,7 +276,7 @@ def assert_range_lands(v, p):
     The seek above is correct by construction; this is what would have caught it when it was
     not. Encoder noise between a crf-16 re-encode and the master runs well under 1.0 mean gray
     level; a one-frame slip on this cut measures 1.4-122."""
-    for k, n in ((0, p['n0']), (p['frames']-1, p['n0']+p['frames']-1)):
+    for k, n in ((0, p['n0']), (p['frames']-1, p['n0']+p['frames']-1-p.get('hold', 0))):
         d = float(np.abs(_gray(v, k) - _gray('picture.mp4', n)).mean())
         assert d < 1.0, (f"{v} frame {k} is NOT master frame {n} (mean gray diff {d:.2f}) -- "
                          f"the selection has slipped; do not ship this cutdown")
@@ -286,7 +305,8 @@ def main():
     names = []
     for i, p in enumerate(P):
         v = f'cut/v{i:02d}.mp4'
-        if not os.path.exists(v) or nframes(v) != p['frames']:
+        hold = int(p.get('hold', 0))
+        if hold or not os.path.exists(v) or nframes(v) != p['frames']:
             # ⚠⚠ SEEK HALF A FRAME EARLY, NEVER TO THE FRAME'S OWN TIME (audit 2, 2026-09-12).
             # This read `-ss f"{src0:.4f}"`, and whenever the 4-decimal rounding landed ABOVE the
             # frame's pts ffmpeg dropped that frame and the range started ONE FRAME LATE: 4 of 9
@@ -297,7 +317,7 @@ def main():
             # n0-1 and n0, so the first decoded frame is always n0 -- and the assert below PROVES
             # it on the actual pixels rather than trusting the seek.
             sh([FF, '-nostdin', '-v', 'error', '-y', '-ss', f"{(p['n0'] - 0.5)/FPS:.6f}",
-                '-i', 'picture.mp4',
+                '-i', 'picture.mp4'] + (['-vf', f"trim=end_frame={p['frames'] - hold},tpad=stop_mode=clone:stop={hold}"] if hold else []) + [
                 '-frames:v', str(p['frames']), '-r', '30000/1001', '-c:v', 'libx264',
                 '-preset', 'medium', '-crf', '16', '-pix_fmt', 'yuv420p',
                 '-color_primaries', 'bt709', '-color_trc', 'bt709', '-colorspace', 'bt709', '-an', v])
