@@ -90,7 +90,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **Campaign Images Build AD - BUILDING 2026-10-01, Codex.** Next: review/picks. `output/campaign-images-20261001/`.
 
-**Trial thumbnails R2 - BUILDING 2026-10-01, Codex.** Applying nine revisions and two original comparisons in `_trial-campaign-20261001/round2/`. Next: one review page, then Dan picks. No installation.
+**Trial thumbnails R2 - NEEDS DAN 2026-10-01, Codex.** Review: http://127.0.0.1:8811/round2/. Next: Dan picks per ad; no exports or installation. Receipt: `Docs/TRIAL_THUMBNAIL_REVIEW_R2_20261001.md`.
 
 
 
