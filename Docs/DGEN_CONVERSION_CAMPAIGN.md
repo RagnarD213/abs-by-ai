@@ -571,8 +571,9 @@ YouTube lists.
 enabled in `24316364155`, re-run `node scripts/ads/api/dgen-rmktg-campaigns.js a --no-frequency-cap --apply`: it adds
 only the ads that are missing, to both groups. A headline change in the cold campaign does not carry over by itself.
 
-**Enable** (after review): put `[{"campaignOperation":{"update":{"resourceName":"customers/3427170837/campaigns/24305381214","status":"ENABLED"},"updateMask":"status"}}]`
-in a file and run `ADS_ALLOW_ENABLE_CAMPAIGN=1 node scripts/ads/api/client.js mutate <file> --note "enable trial remarketing"`.
+**Enable both** (after review; ads were still `REVIEW_IN_PROGRESS` when the build session ended):
+`ADS_ALLOW_ENABLE_CAMPAIGN=1 node scripts/ads/api/client.js mutate scripts/ads/api/dgen-ads/rmktg-enable.json --note "enable remarketing campaigns"`,
+then add a PostHog annotation.
 
 **Watch (report 2026-10-04):** the website group draws on about 110 to 430 people and may not deliver at all. Report its
 served status. Subscriber remarketing (Campaign B, `24316408288`) is documented in `Docs/YTADS.md`.

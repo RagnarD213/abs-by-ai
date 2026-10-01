@@ -302,8 +302,9 @@ nothing pauses ads here. To refresh by hand after tier 1 changes: `node scripts/
 adds every enabled tier 1 ad that is missing (it never pauses one). Wiring it into `instant.js` is not a one-line change:
 that code assumes one ad group per campaign, and this campaign has two.
 
-**Enable** (after review): put `[{"campaignOperation":{"update":{"resourceName":"customers/3427170837/campaigns/24316408288","status":"ENABLED"},"updateMask":"status"}}]`
-in a file and run `ADS_ALLOW_ENABLE_CAMPAIGN=1 node scripts/ads/api/client.js mutate <file> --note "enable subscriber remarketing"`.
+**Enable both** (after review; ads were still `REVIEW_IN_PROGRESS` when the build session ended):
+`ADS_ALLOW_ENABLE_CAMPAIGN=1 node scripts/ads/api/client.js mutate scripts/ads/api/dgen-ads/rmktg-enable.json --note "enable remarketing campaigns"`,
+then add a PostHog annotation.
 
 **Watch (report 2026-10-04):** $3 may be too low to spend at all. Report spend and cost per subscriber; do not raise the
 target. The trial remarketing campaign (Campaign A, `24305381214`) is documented in `Docs/DGEN_CONVERSION_CAMPAIGN.md`.
