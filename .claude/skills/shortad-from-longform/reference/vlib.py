@@ -213,7 +213,7 @@ def card_hole(media_ar, has_text):
     return (int(cx-w/2), int(cy-h/2), int(cx+w/2), int(cy+h/2))
 
 def plate_card(dur, caption=None, label=None, portrait=False, fps=FPS,
-               top_kicker=None, hole=None, media_ar=None, label_spans=None):
+               top_kicker=None, hole=None, media_ar=None, label_spans=None, label_dy=0):
     """A photo / clip / phone screen inside his olive-glow card on the field. `label_spans` ([[s, e], ...] seconds
     into the card): the chip shows only inside them (an uploaded photo that scrolls off the app screen), fading
     over 0.12 s; the hole keeps the labelled size throughout so the picture never resizes."""
@@ -255,7 +255,7 @@ def plate_card(dur, caption=None, label=None, portrait=False, fps=FPS,
             lw, lh_ = text_size(label, fl)
             lay = Image.new("RGBA", (VW, VH), (0,0,0,0))
             bx = (VW-(lw+34))//2
-            by = int(hole[3]) + 14 + 54                   # 54 px under the card frame (68 under the hole): a person cut off by the
+            by = int(hole[3]) + 14 + 54 + int(label_dy)   # 54 px under the card frame (68 under the hole; label_dy pushes it lower when the gate's person mask reads the chip as part of a person in the card): a person cut off by the
                                                           # photo's bottom edge bleeds ~20 px past it in the segmenter (dad_ride read
                                                           # 2,482 px at 14), and at 30 the dark chip itself reads as his shorts (see card_hole)
             ImageDraw.Draw(lay).rounded_rectangle([bx, by, bx+lw+34, by+lh_+22], radius=9,

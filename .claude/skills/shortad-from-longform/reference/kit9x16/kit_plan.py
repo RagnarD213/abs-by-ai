@@ -116,7 +116,7 @@ def main():
                         lw, lh_ = text_size(txt, fl)
                         lay = Image.new("RGBA", (1080, 1920), (0, 0, 0, 0))
                         bx = (1080 - (lw + 34)) // 2
-                        by = int(hole[3]) + 14 + 54                # vlib.plate_card: 54 px below the card frame, never over the picture
+                        by = int(hole[3]) + 14 + 54 + int(b.get("label_dy", 0))   # vlib.plate_card: 54 px below the card frame (+ label_dy), never over the picture
                         ImageDraw.Draw(lay).rounded_rectangle([bx, by, bx + lw + 34, by + lh_ + 22], radius=9, fill=(0, 0, 0, 215))
                         ImageDraw.Draw(lay).text((bx + 17, by + 11), txt, font=fl, fill=(255, 255, 255, 255), anchor="lt")
                         bb = lay.getchannel("A").getbbox()
@@ -258,6 +258,10 @@ def main():
         if b["kind"] == "talk":
             windows.append(dict(name=f"talk-{i}", beat=beat, rect=[0, 0, 1080, 1920], motion="tracking"))
             continue
+        if b["kind"] not in ("window", "stmt", "winmedia"):
+            continue                                          # only a Dan-window plate is a talking-head window: a stale
+                                                              # plate file of an earlier sheet at this index made a full-bleed
+                                                              # picture read as one (Ad 8 175.4 s, framing:hair_top 2 px)
         metas = sorted(glob.glob(f"gfx/p{i:03d}_*.mov.json"), key=os.path.getmtime)
         if metas:
             holes = json.load(open(metas[-1]))

@@ -443,7 +443,7 @@ def render_segment(i, b, nfr, t0):
         elif k == 'card':
             fr, hole = vlib.plate_card(dur, caption=b.get('caption'), label=b.get('label'),
                                        top_kicker=b.get('kicker'), media_ar=media_ar(b['media']),
-                                       label_spans=b.get('label_spans'))
+                                       label_spans=b.get('label_spans'), label_dy=b.get('label_dy', 0))
             holes = {'media': hole}
         elif k == 'title':
             fr, hole = vlib.plate_title_card(b['headline'], b.get('sub'), dur)

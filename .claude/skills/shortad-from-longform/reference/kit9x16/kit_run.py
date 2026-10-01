@@ -69,11 +69,11 @@ def label_obstructions(B, video):
     if err:
         print("  label clearance not measured:", err, flush=True)
         return {}
-    bleed = {b.get("media") for b in json.load(open(os.path.join(B, "beats.json")))["beats"] if b.get("kind") == "bleed"}
+    kinds = {b.get("media"): b.get("kind") for b in json.load(open(os.path.join(B, "beats.json")))["beats"]}
     out = {}
     for name, t, v in obs or []:
         key = name.split("-", 2)[-1].split("~")[0]
-        if key in bleed:
+        if kinds.get(key) in ("bleed", "card"):
             out.setdefault(key, []).append((t, v))
     return out
 
@@ -216,7 +216,21 @@ def main():
                     break
                 if attempt == 3:
                     raise Stop(1, f"label chips still touch him on the delivered file after 3 re-placements: {obs}")
-                keys = sorted(obs)
+                bj_p = os.path.join(B, "beats.json")
+                bj = json.load(open(bj_p))
+                cards = sorted(k_ for k_ in obs if any(b.get("media") == k_ and b.get("kind") == "card" for b in bj["beats"]))
+                if cards:
+                    # a CARD's chip hangs under its hole: the mask read it as part of a person inside the card (the
+                    # uploaded photo on a phone screen, Ad 10 122.0 s). It moves 48 px further below the card per try.
+                    for b in bj["beats"]:
+                        if b.get("media") in cards and b.get("kind") == "card":
+                            b["label_dy"] = int(b.get("label_dy", 0)) + 48
+                    json.dump(bj, open(bj_p, "w"), indent=1)
+                    print(f"  label clearance on the delivered file: card chips {cards} moved 48 px lower", flush=True)
+                keys = sorted(k_ for k_ in obs if k_ not in cards)
+                if not keys:
+                    sh(D("picture", "--build", B)); sh(D("captions", "--build", B)); sh(D("mux", "--build", B, "--out", full))
+                    continue
                 ep = os.path.join(B, "labels", "exclude.json")
                 ex = json.load(open(ep)) if os.path.exists(ep) else {}
                 lp = json.load(open(os.path.join(B, "label_place.json")))
