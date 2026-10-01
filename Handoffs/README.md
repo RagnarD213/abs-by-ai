@@ -13,6 +13,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
+| [handoff-20261001-pmax-campaign-build.md](handoff-20261001-pmax-campaign-build.md) | **After the picked campaign images exist. GPT-6 Sol / High.** Build the one Performance Max campaign for the $450 credit: /start, Trial Signup only, $15/day for 30 days, audience signal = website visitors 30 day only, brand terms not excluded. |
 | [handoff-20261001-pmax-image-research-and-plan.md](handoff-20261001-pmax-image-research-and-plan.md) | **EXECUTED 2026-10-01, waiting for Dan's picks** (`Docs/CAMPAIGN_IMAGES_RESEARCH.md`). Research which still images top fitness advertisers run on Google, then two image plans (cold, remarketing) for the $450 Performance Max credit; stops for Dan's picks. No images reused from thumbnails, no campaign changes. |
 | [handoff-20261001-trial-campaign-ad-thumbnails-install-claude.md](handoff-20261001-trial-campaign-ad-thumbnails-install-claude.md) | **After round 2, Dan's final picks and exports. Sonnet 5 / Medium.** Install the picked thumbnails on the 12 trial-campaign ad videos, read back, record policy status. |
 | [handoff-20261001-trial-campaign-ad-thumbnails-round2.md](handoff-20261001-trial-campaign-ad-thumbnails-round2.md) | **Ready 2026-10-01. GPT-6 Astra / High.** Dan's six revision briefs from round 1: photo swaps, Ad 13 robot and alternate design, Ad 4 expression variation, Ad 6 jeans/glasses and AI age edit. One review page, then stop for picks. No installation. |
