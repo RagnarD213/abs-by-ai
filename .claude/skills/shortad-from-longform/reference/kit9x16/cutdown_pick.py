@@ -56,6 +56,7 @@ def main():
     bj = json.load(open(os.path.join(B, "beats.json")))
     dur = float(bj["dur"])
     overlays = bj.get("lower_thirds", []) + bj.get("ctas", [])
+    flashes = [(float(f[0]), float(f[1])) for f in bj.get("flashes", [])]
     AI = ai_calls.provider(a.ai, a.ledger or os.path.join(B, "ai_ledger.jsonl"))
     listing = "\n".join(f"[{i}] ({s['t0']:.1f}-{s['t1']:.1f}s, {s['t1'] - s['t0']:.1f}s) {s['text']}" for i, s in enumerate(S))
     prompt = (
@@ -95,6 +96,16 @@ def main():
         for o in overlays:
             if o["t0"] < t0 < o["t1"] and t0 - o["t0"] < 3.0:
                 t0 = o["t0"]
+        # never cut INSIDE his flash: the flash is baked into the picture, so a seam in it leaves two frames of
+        # ramp-up and a hard cut (AV-09 cutdown seam at 19.94 s, flash 19.91-20.35, judged a truncated graphic).
+        # The range takes the whole flash when no word starts inside it, else it stops where the flash begins.
+        for f0, f1 in flashes:
+            if f0 < t1 < f1:
+                nxt_w = min([w_[1] for w_ in W if w_[1] > S[y]["t1"] + 0.01] or [dur])
+                t1 = f1 if nxt_w >= f1 - 0.02 else max(f0, S[y]["t1"] + 0.005)
+            if f0 < t0 < f1:
+                prv_w = max([w_[2] for w_ in W if w_[2] < S[x]["t0"] - 0.01] or [0.0])
+                t0 = f0 if prv_w <= f0 + 0.02 else f1
         ranges.append([round(t0, 3), round(t1, 3)])
     # contiguous or overlapping neighbours merge
     merged = [ranges[0]]
