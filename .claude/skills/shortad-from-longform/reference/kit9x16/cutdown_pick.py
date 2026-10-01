@@ -106,6 +106,13 @@ def main():
             if f0 < t0 < f1:
                 prv_w = max([w_[2] for w_ in W if w_[2] < S[x]["t0"] - 0.01] or [0.0])
                 t0 = f0 if prv_w <= f0 + 0.02 else f1
+        # ... nor inside an overlay's fade-out (its last 0.4 s): the range runs to the overlay's end when the next
+        # word allows it (AV-09 cutdown seam 3: "Abs In Less Than 10 Seconds" lost the last 3 frames of its fade)
+        for o in overlays:
+            if o["t1"] - 0.4 < t1 < o["t1"] + 0.02:
+                nxt_w = min([w_[1] for w_ in W if w_[1] > S[y]["t1"] + 0.01] or [dur])
+                if nxt_w - 0.03 >= o["t1"] + 0.02:
+                    t1 = o["t1"] + 0.02
         ranges.append([round(t0, 3), round(t1, 3)])
     # contiguous or overlapping neighbours merge
     merged = [ranges[0]]
