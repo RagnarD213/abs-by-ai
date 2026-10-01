@@ -524,3 +524,7 @@ settings pages in the Ads interface have no frequency setting for this campaign 
 almost nothing to learn from. If there is no delivery by 2026-10-04, report it to Dan with options.
 New formats of Ads 13, 4 and 6 go into these ad groups: add the video id to `ADS` in the script once its twin exists, or
 build the ad with `/ad-setup` pointed at campaign `24316364155`.
+
+**2026-10-01, Ad 10 headlines (Dan's own, trial campaign only):** all three Ad 10 ads in `24316364155` now carry
+"How Busy Dads Get Abs", "How 40+ Dads Can Get Abs", "A Busy Dad's Fitness System", "How I Got Abs At 40",
+"How I Lost Belly Fat With AI". Long headlines and descriptions unchanged. The old campaign's Ad 10 copy was not touched.
