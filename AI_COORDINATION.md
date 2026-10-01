@@ -89,23 +89,29 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # ACTIVE
 
-**SL-04 covers - IN PROGRESS 2026-09-30, Codex.** Next: picks. `Short-form video content/covers/review/sl04-covers-20260930/`.
+**SL-05 covers - IN PROGRESS 2026-10-01, Codex.** Building five visual options for all five shorts, each in Instagram and YouTube layouts. Next: review sheets and Dan's five picks. No upload or scheduling. Detail: `Short-form video content/covers/review/sl05-covers-20261001/`.
+
+
 
 **Shared checkout cannot push - NEEDS OWNER 2026-09-30, Claude.** Checkout is 11 commits ahead (41bb43b..9982b49), 47 behind, with other sessions' dirty files; pull/merge/rebase refuse. Next: fire `Handoffs/handoff-20260930-fix-stuck-main-checkout.md` when no session runs here.
 
-**RO-12 - FINALIZED 2026-10-01, Claude.** Next: Dan fires `handoff-20261001-ro12-thumbnails-codex.md`, then `handoff-20261001-ro12-video-setup.md`.
+**RO-11 - NEEDS DAN 2026-10-01, Claude.** Round 1 page http://127.0.0.1:8802/. Next: `handoff-20261001-ro11-round1-dan-review.md`.
 
-**RO-16 - IN PROGRESS 2026-09-30, Claude.** Round 2 (G03 option 2): full film rendering, `/Volumes/Extreme/_edit_work/ro16/round2/`. Next: gates, review, deliver.
+**RO-12 - QUEUED 2026-10-01, Claude.** Blotato Oct 25. Then: `Docs/RO12_SETUP_RECEIPT_20261001.md`, delete.
 
-**Clip library - IN PROGRESS 2026-09-29, Claude.**
+**RO-13 - IN PROGRESS 2026-10-01, Claude.** Round 1 in `_edit_work/ro13/`.
+
+**RO-10 - IN PROGRESS 2026-10-01, Claude.** Full film building per `handoff-20261001-ro10-round2-build-full-film.md`.
+
+**RO-16 - IN PROGRESS 2026-10-01, Claude.** Round 3 (two join fixes, 5:00 and 11:40) building in `/Volumes/Extreme/_edit_work/ro16/round3/`. Next: checks, review, deliver to Dan.
 
 **Studio batch - NEEDS DAN 2026-09-29, Codex.** Review 24 posts: `http://127.0.0.1:8791/`. Nothing scheduled. Package and Drive link: `output/studio-post-test-24-20260929/README.txt`.
 
 **Stashed edits - NEEDS OWNER 2026-09-29, Claude.** A rebase kept upstream versions of softblue.py, SOFTBLUE.md, GRAPHICS-STANDARDS.md, deliver/gate.py, coverimage SKILL.md, 00-MASTER.md, jobs.json. Uncommitted edits: `stash@{0}` (5d8284a). Next: owner re-applies.
 
-**Vertical kit autofill - IN PROGRESS 2026-09-30, Claude.** Worktree `~/abs-worktrees/kit-autofill` (branch claude/kit-autofill). Final Ad 10 + AV-09 renders, then review, deliver, merge.
+**SL-04 shorts - QUEUED 2026-09-30, Claude.** Blotato Oct 6-15; delete once posted. `Docs/SL04_SETUP_RECEIPT_20260930.md`.
 
-**Stop Deadlifting - QUEUED 2026-09-29, Claude.** Blotato Oct 11 9AM CT, 4 platforms. Next: once posted, publish `sixpackabs/articles/TBD-stop-deadlifting.md`, then delete. SL-05: round 1 page with Dan (`http://127.0.0.1:8797/`, 09-30); his reply -> round 2 handoff.
+**Stop Deadlifting - QUEUED 2026-09-29, Claude.** Blotato Oct 11 9AM CT, 4 platforms. Next: once posted, publish `sixpackabs/articles/TBD-stop-deadlifting.md`, then delete.
 
 **RO-05 salad - QUEUED 2026-09-30, Claude.** Oct 18: fire `handoff-20260930-ro05-captions-and-article-after-release.md`.
 
@@ -165,14 +171,13 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
-- `handoff-20260930-sl04-shorts-video-setup.md` (09-30): upload after cover picks.
-- `handoff-20261001-ro10-round2-build-full-film.md` (10-01): build RO-10. Opus high.
-- `handoff-20260930-ro16-round2-opener-motion-then-full-film.md` (09-30): with Dan's G03 pick. Opus 5.5 high.
+- `handoff-20261001-vertical-kit-from-our-own-edits.md` (10-01).
+- `handoff-20261001-sl05-shorts-covers-codex.md` (10-01): SL-05 covers, Astra medium. Then `…-sl05-shorts-video-setup.md` after Oct 11, Opus medium.
+- `handoff-20260929-cut-broll-into-clip-library.md` (09-29): cut 68 B-roll clips into the library. Opus 5.5 medium.
 - `handoff-20260930-codex-adopt-review-page-format.md` (09-30): Codex adopts the RO-16 review page. GPT-6 Sol medium.
 
-- `handoff-20260930-ad-performance-pick-5-for-vsl-campaign.md` (09-30): pick 5 ads, VSL campaign. Opus high. Replaces:
+- `handoff-20260930-ad-performance-pick-5-for-vsl-campaign.md` (09-30): pick 5 ads, VSL campaign. READY: /start is live (200, plays WV-01, 09-30). Opus high. Replaces:
 - `handoff-20260929-start-page-performance-verdict.md` (09-29): /start keep-or-fold.
-- `handoff-20260924-vsl-landing-five-mockups.md` (09-24): five VSL landing page mockups from VidTao research. Opus 5.5 high. Mockups only.
 - `handoff-20260924-generator-consult-call-outreach.md` (09-24): fire by 09-26.
 - `handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md` [dash]: PHONE ONLY, 3 TikTok covers (updated 09-22). Sonnet 5 or Fable 5.1 / Medium.
 - `handoff-20260915-finalized-ads-6-14-youtube-and-google-ads.md` — Ads 6, 7, 10, 14 → YouTube + DGen (2026-09-15). Codex, high.

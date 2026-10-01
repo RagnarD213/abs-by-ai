@@ -1,6 +1,6 @@
 # Blotato IG + Facebook queue — progress
 
-Last updated 2026-09-30.
+Last updated 2026-10-01.
 
 ## Account state
 
@@ -12,6 +12,19 @@ Last updated 2026-09-30.
 - **PERMANENT RULE (Dan, 2026-09-17): ADS ARE NEVER QUEUED HERE.** Blotato is organic-only. Every queue script
   imports `scripts/blotato/ad_guard.py`; audit with `python3 scripts/blotato/ad_guard.py --scan`. See the incident below.
 - **NEW PERMANENT RULE (Dan, 2026-09-16): Blotato owns future organic YouTube releases.** Upload organic videos to YouTube as Private and leave them Private; queue the release through connected YouTube account `46963`. Never upload Public or use YouTube native scheduling. Ads remain Unlisted and are not released publicly on YouTube. Existing native schedules are historical and must not be copied into new work; avoid double-posting anything already queued under the old process.
+
+## DONE: RO-12 "Top 5 Zepbound Tips To Lose Fat And Keep Your Muscle" (2026-10-01)
+
+Master `claude edited long form content/09 - Top 5 Zepbound Tips/Top 5 Zepbound Tips | claude | 16x9 | RO-12.mp4`, SHA-256 `7f6766c5…7cae67b` (2,419,960,621 bytes, 9:11.42); same file + .srt on the Extreme drive and Google Drive (`Claude Content Videos/Top 5 Zepbound Tips - RO-12`, folder `1nOpRxT9nusbHYNFMcBCKRUf7eGOgIuxN`, anyone with the link). No YouTube holding copy (Blotato-only rule, 2026-10-01): Blotato creates the public video with Dan's FINAL thumbnail (Codex R3 C), synthetic media on (three labelled AI clips).
+
+| FB · IG @danrosefit · TikTok · YouTube |
+|---|
+| Sun Oct 25, 9 AM CDT (`5046547` / `5046548` / `5046549` / `5046550`) |
+
+- Blotato copy 230 MB (h264_videotoolbox 4 Mbps, audio stream-copied, 16,526 frames, same as the master). Re-hosted files MD5-matched.
+- TikTok: cover prepended as frame 0, `videoCoverTimestamp: 0`, AI label on.
+- Keyword `FOOD`; UTM `utm_content=ro12-zepbound-tips`. Config `scripts/blotato/configs/ro12-zepbound-tips.json`. Receipt `Docs/RO12_SETUP_RECEIPT_20261001.md`.
+- Owes after Oct 25: English captions from the .srt in Studio; publish sixpackabs article `sixpackabs/articles/TBD-top-5-zepbound-tips.md`; WATCH NEXT card to RO-01 once RO-01 is public. Shorts job SL-06 READY.
 
 ## DONE: RO-05 "How I Make My Daily Salad: 700 Calories, $4 a Bowl, Fresh for 7 Days" (2026-09-30)
 
@@ -25,7 +38,7 @@ Master `claude edited long form content/08 - How I Make My Daily Salad (Fable re
 - TikTok: cover prepended as frame 0, `videoCoverTimestamp: 0` (frames 26789 to 26790, audio packets 41901 unchanged, cover match 54.2 dB).
 - Keyword `FOOD`; UTM `utm_content=ro05-daily-salad`. Config `scripts/blotato/configs/ro05-daily-salad.json`.
 - Captions: the 277-cue SRT is not on YouTube (the token has no captions scope); add it in Studio to the Blotato-created video after Oct 18 if wanted.
-- Owes: SL-03 shorts (edit queue, READY); sixpackabs article `sixpackabs/articles/TBD-daily-salad.md` to publish after Oct 18.
+- Owes after Oct 18: publish sixpackabs article `sixpackabs/articles/TBD-daily-salad.md`; upload the RO-05 .srt as English captions in Studio to the Blotato-created public video (recommended 09-30). SL-03 shorts READY.
 
 ## DONE: "Why I Stopped Deadlifting at 40 (Do These 4 Exercises Instead)", Zeeshan Video 3 (2026-09-29)
 
@@ -67,6 +80,20 @@ The 09-18 setup put it on a Wednesday (Sep 23), off the every-Sunday long-form c
 - sixpackabs.com page 784 (embedded the now-private `YkrhNBTssPU`) set to **draft**; the Oct 4 release makes a new page.
 - Captions: the 236-cue SRT lives only on the private holding copy `1mHgnH1GVtg`; the Blotato-created YouTube video gets none unless added in Studio after Oct 4.
 
+## DONE: SL-04 Arms & Shoulders shorts x5 (2026-09-30)
+
+FB, IG @danrosefit, TikTok and YouTube (Blotato creates it at release; no holding upload), 9 AM CDT, keyword `TRAIN`, no AI flag. Queue 113 to 133; ad-guard clean before and after.
+
+| short | date | FB / IG / TikTok / YouTube |
+|---|---|---|
+| 2 shirt-off pump | Tue Oct 6 | `5019222` / `5019223` / `5019224` / `5019225` |
+| 1 waist smaller | Thu Oct 8 | `5019226` / `5019227` / `5019228` / `5019229` |
+| 5 bicep curls | Sat Oct 10 | `5019232` / `5019233` / `5019234` / `5019235` |
+| 3 elbows | Tue Oct 13 | `5019237` / `5019238` / `5019240` / `5019241` |
+| 4 swinging | Thu Oct 15 | `5019247` / `5019250` / `5019251` / `5019252` |
+
+- Parent carries a Content ID claim on the live-round song (8:25-9:57) that shorts 1 and 2 end on; no reach impact. Receipt: `Docs/SL04_SETUP_RECEIPT_20260930.md`.
+
 ## DONE: Arms & Shoulders Home Workout (Zeeshan "Video2 Rev 3", 11:00) (2026-09-22)
 
 Master `Zeeshan Content Videos/arms and shoulders home workout - video 2/arms and shoulders home workout | zeeshan | 16x9 | video 2.mp4`, MD5 `49c7dfb3d189043dbb2bc4b326e8fd81` (858,396,944 bytes). YouTube **Private** holding copy `QHWOoWbgWcY`, read back private, no publishAt, with Dan's own thumbnail "2 Min Home Arm Workout" (`social media graphics/youtube/thumbnails/Arms And Shoulders Home Workout/arms-shoulders-workout_DAN-2-min-home-arm-workout-FINAL.jpg`). Blotato copy re-encoded to 313 MB (videotoolbox 4 Mbps, audio stream-copied). Queue 157 to 162; ad-guard clean before and after.
@@ -78,7 +105,7 @@ Master `Zeeshan Content Videos/arms and shoulders home workout - video 2/arms an
 - TikTok: cover prepended as frame 0, `videoCoverTimestamp: 0` (frames 19784 to 19785, audio packets 30944 unchanged, cover match 51.7 dB).
 - Keyword `ABS`; AI disclosure on (goal image at 10:48). Config `scripts/blotato/configs/arms-shoulders-home-workout.json`.
 - Zeeshan's 09-22 "Video 2 No music" was NOT used: it strips the approved live-round track too.
-- Owes: AV-13 vertical, AS-12 square, SL-04 shorts (no short posts before 09-27), RO-04 follow-along.
+- Owes: AV-13 vertical, AS-12 square, RO-04 follow-along. SL-04 shorts queued 09-30 (see below). Parent is public (YouTube `ZxsFnsv7mLo`); IG went live 09-30 via re-queue `4962222`: instagram.com/reel/Dd6f-bJgXNJ.
 
 ## DONE — DS-04 “How to Do a Stomach Vacuum to Shrink Your Waist” (2026-09-18)
 

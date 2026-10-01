@@ -121,10 +121,10 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 
 | job | video | rolls | status | size |
 |---|---|---|---|---|
-| [RO-10](RO-10-calories-the-reason-you-re-not-losing-weight.md) | Calories: The Reason You're Not Losing Weight | 9/23 C1704 | IN PROGRESS | L |
-| [RO-11](RO-11-when-calories-don-t-matter-for-fat-loss.md) | When Calories Don't Matter For Fat Loss | 9/23 C1705 | READY | L |
-| [RO-12](RO-12-top-5-zepbound-tips.md) | Top 5 Zepbound Tips | 9/23 C1706 | FINALIZED | L |
-| [RO-13](RO-13-can-you-drink-alcohol-and-still-have-abs.md) | Can You Drink Alcohol And Still Have Abs? | 9/23 C1707 | READY | L |
+| [RO-10](RO-10-calories-the-reason-you-re-not-losing-weight.md) | Calories: The Reason You're Not Losing Weight | 9/23 C1704 | READY | L |
+| [RO-11](RO-11-when-calories-don-t-matter-for-fat-loss.md) | When Calories Don't Matter For Fat Loss | 9/23 C1705 | IN PROGRESS | L |
+| [RO-12](RO-12-top-5-zepbound-tips.md) | Top 5 Zepbound Tips | 9/23 C1706 | UPLOADED | L |
+| [RO-13](RO-13-can-you-drink-alcohol-and-still-have-abs.md) | Can You Drink Alcohol And Still Have Abs? | 9/23 C1707 | IN PROGRESS | L |
 | [RO-14](RO-14-why-you-re-not-losing-weight.md) | Why You're Not Losing Weight | 9/23 C1708 | READY | L |
 | [RO-15](RO-15-sleep-better-with-glycine.md) | Sleep Better With Glycine | 9/23 C1709 | READY | L |
 | [RO-16](RO-16-if-i-had-belly-fat-here-s-how-i-d-lose-it-in-90-da.md) | If I Had Belly Fat, Here's How I'd Lose It In 90 Days | 9/23 C1710 | IN PROGRESS | L |
@@ -153,8 +153,9 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [SL-01](SL-01-ab-wheel-workout-shorts.md) | Ab Wheel Workout: 3 Sets (Zeeshan, public 09-20) | READY | S |
 | [SL-02](SL-02-v1-channel-intro-shorts.md) | V1 Welcome To Abs By AI (channel intro) | READY (low priority) | S |
 | [SL-03](SL-03-meal-prep-app-demo-shorts.md) | How I Make My Daily Salad (RO-05, public Oct 18) | READY | S |
-| [SL-04](SL-04-arms-shoulders-shorts.md) | Arms & Shoulders Home Workout (Zeeshan, 11:00) | FINALIZED | S |
-| [SL-05](SL-05-stop-deadlifting-shorts.md) | Stop Deadlifting (Zeeshan, 9:16, public Oct 11) | IN PROGRESS | S |
+| [SL-04](SL-04-arms-shoulders-shorts.md) | Arms & Shoulders Home Workout (Zeeshan, 11:00) | UPLOADED | S |
+| [SL-05](SL-05-stop-deadlifting-shorts.md) | Stop Deadlifting (Zeeshan, 9:16, public Oct 11) | FINALIZED | S |
+| [SL-06](SL-06-top-5-zepbound-tips-shorts.md) | Top 5 Zepbound Tips (RO-12, public Oct 25) | READY | S |
 
 **Will need shorts once final (no handoff yet; add one when the long-form is approved):**
 * Your Belly Fat Is An Emergency (Codex, revision in progress)
@@ -184,7 +185,7 @@ handoff (`handoff-20260909-audio-match-muhammad.md`, waiting on your spray-tan s
 | 5 Every Diet You've Tried Failed | ✅ | ❌ AV-04 (round 2) | ❌ AV-04 | ❌ AS-03 | ❌ AS-03 |
 | 6 You're Not Too Old To Get Abs | ✅ | ❌ AV-05 | ❌ AV-05 | ❌ AS-04 | ❌ AS-04 |
 | 7 In 2010 I Photoshopped My Face | ✅ (typo fix owed by Muhammad) | ❌ AV-06 | ❌ AV-06 | ❌ AS-05 | ❌ AS-05 |
-| 8 AI Showed Me Two Futures | ✅ (uploaded 09-16) | ❌ AV-09 | ❌ AV-09 | ❌ AS-08 | ❌ AS-08 |
+| 8 AI Showed Me Two Futures | ✅ (uploaded 09-16) | ✅ (uploaded 10-01) | ✅ (uploaded 10-01) | ❌ AS-08 | ❌ AS-08 |
 | 10 My Dad Bod At 38 / 40 | ✅ | ❌ AV-07 | ❌ AV-07 | ❌ AS-06 | ❌ AS-06 |
 | 14 I Watched 400 Workout Videos | ✅ (HD arrived 09-16, not yet filed) | ❌ AV-08 | ❌ AV-08 | ❌ AS-07 | ❌ AS-07 |
 | 9 I Tried To Get Abs With ChatGPT | ✅ (round 4 finalized 09-21) | ❌ AV-10 | ❌ AV-10 | ❌ AS-09 | ❌ AS-09 |
@@ -204,7 +205,7 @@ handoff (`handoff-20260909-audio-match-muhammad.md`, waiting on your spray-tan s
 | [AV-06](AV-06-ad7-vertical.md) | Ad 7 | READY | M |
 | [AV-07](AV-07-ad10-vertical.md) | Ad 10 | UPLOADED | M |
 | [AV-08](AV-08-ad14-vertical.md) | Ad 14 | READY (file the 09-16 HD first) | M |
-| [AV-09](AV-09-ad8-vertical.md) | Ad 8: Two Futures | IN PROGRESS | M |
+| [AV-09](AV-09-ad8-vertical.md) | Ad 8: Two Futures | UPLOADED | M |
 | [AV-10](AV-10-ad9-vertical.md) | Ad 9: ChatGPT (round 4 source, 09-21) | READY | M |
 | [AV-11](AV-11-ad13-vertical.md) | Ad 13: Cost Of Getting Abs (round 4 source, 09-21) | READY | M |
 | [AV-12](AV-12-ad15-vertical.md) | Ad 15: T-Shirt Dad | READY | M |
