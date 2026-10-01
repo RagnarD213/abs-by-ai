@@ -1,0 +1,134 @@
+{
+ "note": "SL-05 round 2: our key-point bars (pill/make_pill5.py), full width, at the rows of Zeeshan's pill. Output time, written by plan_shots.py.",
+ "S1": [
+  {
+   "id": "S1-kp1",
+   "png": "pill-S1-kp1.png",
+   "t0": 7.191,
+   "t1": 20.43,
+   "fadeIn": 0.001,
+   "fadeOut": 0.15,
+   "y": 1482,
+   "h": 239,
+   "why": "his pill rows 795-937 -> bar y1482-1721"
+  },
+  {
+   "id": "S1-kp2",
+   "png": "pill-S1-kp2.png",
+   "t0": 24.26,
+   "t1": 28.35,
+   "fadeIn": 0.15,
+   "fadeOut": 0.15,
+   "y": 1481,
+   "h": 240,
+   "why": "his pill rows 794-937 -> bar y1481-1721"
+  },
+  {
+   "id": "S1-kp3",
+   "png": "pill-S1-kp3.png",
+   "t0": 53.174,
+   "t1": 56.88,
+   "fadeIn": 0.15,
+   "fadeOut": 0.001,
+   "y": 1482,
+   "h": 239,
+   "why": "his pill rows 795-937 -> bar y1482-1721"
+  }
+ ],
+ "S2": [
+  {
+   "id": "S2-kp1",
+   "png": "pill-S2-kp1.png",
+   "t0": 11.56,
+   "t1": 23.86,
+   "fadeIn": 0.15,
+   "fadeOut": 0.15,
+   "y": 1499,
+   "h": 215,
+   "why": "his pill rows 806-932 -> bar y1499-1714"
+  },
+  {
+   "id": "S2-kp2",
+   "png": "pill-S2-kp2.png",
+   "t0": 34.28,
+   "t1": 50.2,
+   "fadeIn": 0.15,
+   "fadeOut": 0.001,
+   "y": 1433,
+   "h": 333,
+   "why": "his pill rows 762-967 -> bar y1433-1766"
+  }
+ ],
+ "S3": [
+  {
+   "id": "S3-kp1",
+   "png": "pill-S3-kp1.png",
+   "t0": 0.0,
+   "t1": 8.82,
+   "fadeIn": 0.001,
+   "fadeOut": 0.15,
+   "y": 1447,
+   "h": 213,
+   "why": "his pill rows 771-896 -> bar y1447-1660"
+  },
+  {
+   "id": "S3-kp2",
+   "png": "pill-S3-kp2.png",
+   "t0": 39.28,
+   "t1": 46.88,
+   "fadeIn": 0.15,
+   "fadeOut": 0.15,
+   "y": 1481,
+   "h": 240,
+   "why": "his pill rows 794-937 -> bar y1481-1721"
+  }
+ ],
+ "S4": [
+  {
+   "id": "S4-ex2",
+   "png": "pill-S4-ex2.png",
+   "t0": 32.86,
+   "t1": 33.855,
+   "fadeIn": 0.15,
+   "fadeOut": 0.001,
+   "y": 1532,
+   "h": 139,
+   "why": "his pill rows 828-903 -> bar y1532-1671"
+  },
+  {
+   "id": "S4-kp1",
+   "png": "pill-S4-kp1.png",
+   "t0": 50.74,
+   "t1": 59.14,
+   "fadeIn": 0.15,
+   "fadeOut": 0.001,
+   "y": 1481,
+   "h": 240,
+   "why": "his pill rows 794-937 -> bar y1481-1721"
+  }
+ ],
+ "S5": [
+  {
+   "id": "S5-kp1",
+   "png": "pill-S5-kp1.png",
+   "t0": 1.28,
+   "t1": 6.37,
+   "fadeIn": 0.15,
+   "fadeOut": 0.15,
+   "y": 1481,
+   "h": 240,
+   "why": "his pill rows 794-937 -> bar y1481-1721"
+  },
+  {
+   "id": "S5-ex3",
+   "png": "pill-S5-ex3.png",
+   "t0": 7.92,
+   "t1": 11.2,
+   "fadeIn": 0.15,
+   "fadeOut": 0.15,
+   "y": 1532,
+   "h": 139,
+   "why": "his pill rows 828-903 -> bar y1532-1671"
+  }
+ ]
+}
