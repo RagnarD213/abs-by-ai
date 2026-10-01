@@ -161,6 +161,13 @@ For organic content videos, the newer approval budget below replaces older requi
 
 ## Clip library first: reuse before you generate, register what you make (Dan, 2026-09-29)
 
+- **Order of preference (Dan, 2026-10-01): our real B-roll, then an existing AI clip of ours, then stock, and a new AI
+  clip last.** *"Always look for ways to use B-roll in our videos. Generally, it's better to use B-roll than stock or AI
+  clips when we have the B-roll. I also want you to look through our existing AI clips library and look for
+  opportunities to use those clips before requesting a new one."* This binds our own edits and every revision doc and
+  brief written for an editor: scan the library against each line of the video, link the clip, and only then direct
+  anything new.
+
 - **Before generating any AI clip, searching stock, or hunting raw rolls for B-roll, search the clip library:**
   `python3 .claude/skills/_shared/cliplib/clip_library.py find "<what the beat needs>" [--aspect 9x16] [--rolls]`,
   then look at the top hits' `Media/clip-library/contact/<ID>.jpg` previews. If an existing clip fits, use it and cite

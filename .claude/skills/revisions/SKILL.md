@@ -11,10 +11,17 @@ Read `_shared/VIDEO-RULES.md` first.
 **No AbsByAI.com end mark (Dan, 2026-10-01):** never write an item asking for the AbsByAI.com mark at the end of a video,
 even where the script cues it (VIDEO-RULES).
 
-**Graphics for an editor's shorts (Dan, 2026-10-01):** Dan prefers our Soft Blue Light graphics to an editor's own. Build
-the graphics for him as transparent 1080x1920 overlays (top strip above Dan's head), upload them to a public Drive folder
-and link each one in the doc. Builder and worked example: `/Volumes/Extreme/_edit_work/revisions-20261001/muhammad/kit/`
-(`kit.py`, `labels.py`, `READ ME.txt`); recipe copy in `revisions/reference/shorts-graphics-kit/`.
+**Graphics for an editor's shorts: we build them (Dan, 2026-10-01, look APPROVED: "Graphics look good... If the graphics
+are off, let's just generate the graphics").** When an editor's graphics are not our Soft Blue Light style, or are wrong,
+do not write items asking him to restyle them and do not run a "lock the style" variations round (this replaces rule 46
+for editors' shorts). Build every graphic the finished video needs and link each file in the doc. Procedure: workflow
+step 6b. Recipe: `revisions/reference/shorts-graphics-kit/`.
+
+**Our B-roll and AI clip library first (Dan, 2026-10-01).** *"Always look for ways to use B-roll in our videos. Generally,
+it's better to use B-roll than stock or AI clips when we have the B-roll... look through our existing AI clips library
+and look for opportunities to use those clips before requesting a new one."* Every review runs the library pass in
+workflow step 6. Order of preference for any picture beat: our real B-roll of Dan, then an existing AI clip of ours,
+then stock, and a NEW AI clip only when nothing in the library fits.
 
 ## Default jump-cut and junk-footage QC (Dan, 2026-09-29)
 
@@ -379,6 +386,49 @@ graphic style first before editing any videos."*
     adjacency item where the script itself asks for sequential pictures, and a picture beat gets empty image slots for
     him (rule 26), not our picks or crops. The Google Ads rules still apply to anything that is, or will run as, an ad.
 
+### Calibration pass 8: Dan's edits to Muhammad's second shorts batch (DS-05/06 V2, DS-07/09/10/11/13 V1, 2026-10-01)
+
+Doc `1ib0VbJ3dqnqci-8seSpzR2DNf0-kKolWlyVe_-flWus`, md copy `revision docs/shorts-revisions-muhammad-10-1-26.md`. He kept
+every jump-cut, fill-the-screen, caption and food-match item. He added seven AI-clip items of his own, deleted three of
+ours, then asked for our graphics and a B-roll pass. What that teaches:
+
+49. **Every dedicated short gets an AI opener item, and Dan writes it as ONE finished concept, not three options.** He
+    added a 0:00 - 0:03 opener to five of seven videos; our draft had proposed none ("the on-camera cold open is strong").
+    Rule 44's "not every video" now leans hard toward yes: write the opener unless the video already opens on a picture
+    he approved. His forms, to copy:
+    - **A list video ("Top 3 Ways", "3 Unexpected Ways", "How To Make Time": three points) opens on a three-way split
+      screen**: *"Insert an AI-generated clip here, which is a three-way vertical split screen: top third, middle third,
+      and bottom third. Each third will show one of the three ways to..."* then one sub-bullet per third describing a
+      literal little scene for that point (a ripped man doing pushups in his house; a calendar titled "Workout Calendar"
+      with every day checked off; a man photographing a supplement and throwing it in the trash).
+    - **A single-idea video opens on one scene that dramatizes the title**: the lean man walking past a miserable fat
+      millionaire in a Lamborghini with a woman attracted to him; a lean man weighing himself on a scale and smiling.
+    - **Reuse a third of the opener later, full screen**: *"This can be the same clip as what you use in the beginning,
+      but just generate this in full screen vertical orientation here."* When a point's own beat has a weak or wrong clip,
+      point it at that point's panel from the opener instead of directing a second new clip.
+    - He wrote these without the "show me start and end frames first" line. Rule 45 still stands for our own items; do
+      not append it to an item he wrote.
+50. **The man in his AI clips is "a ripped, lean man with six-pack abs", "not a bodybuilder", "a Kinobody body type",
+    and never an actual known person.** He flagged our approved 0:08 beach clip because the man looked like a specific
+    well-known fitness figure: *"Use a similar body type and generate a similar clip, but don't make the face his
+    face."* Check every AI person against recognizable fitness personalities and celebrities at full resolution; a
+    lookalike is an item. When describing a body type by naming someone, add "not him exactly".
+51. **Cast the clip for the audience of THAT line.** DS-09's homework line had a child and a toy robot; he replaced it:
+    *"a college-aged man doing schoolwork. We're talking to people who are college-aged and not small children."* And
+    on the white-collar line he replaced a stressed dad with a ripped man doing curls while a robot works at a computer:
+    the picture shows the BENEFIT (he is free to train), not the problem.
+52. **He will overrule a script cue for the open.** DS-06's script opens on the 30% picture; our round 1 item enforced
+    it, the editor complied, and Dan then wrote "0:00 - 0:03 Use camera scene". Do not write a "the script opens on a
+    picture" item again; the first three seconds are his face or an AI opener. When his edit contradicts a credit
+    sentence of ours, fix the sentence (rule 34).
+53. **Deleted: every AbsByAI.com mark item** (now a standing rule, top of this file) **and a title-bar spelling item**
+    ("Workout At Home" on a graphic we were about to replace). Do not itemise wording on a graphic that is being
+    replaced by ours; fix it in our graphic.
+54. **He edits the doc WHILE the session is still working.** His edits landed between our first upload and the rebuild.
+    Before any regeneration or in-place update of a doc: export it (`.../export?format=txt`), `cmp` against the export
+    saved right after our last write, and merge every difference of his VERBATIM into the section files first. Repeat
+    the `cmp` immediately before the upload.
+
 **Dan's vocabulary — use his words:** "camera scene" (the talking head), "motion effect" (the
 Ken Burns move on stills), "accelerate footage to fit duration", "clip", "bro", "douchey". A simple
 item is one line in that register; keep the longer form only where the editor needs exact text,
@@ -611,8 +661,42 @@ vertical/square versions, add its AV/AS jobs. Procedure: `.claude/skills/_shared
    found by the recipe in the asset library, plus the workout-music STANDING RULE. Dan's rule: when in doubt, put it in.
 5. **Check every standing rule** (below). Each violation becomes an item; new
    classes of violation also get a "hard rule for future videos" line.
-6. **Choose replacement assets from what already exists** before directing anything
-   new (see asset library). Only direct new AI generation when nothing fits.
+6. **Library pass: our B-roll first, then our existing AI clips, then stock, new AI last** (Dan, 2026-10-01). For every
+   video, walk the transcript line by line against the clip library (`Media/clip-library/catalog.json`, 635 clips on
+   2026-10-01: `B####` real footage and stock, `A####` AI clips; previews `Media/clip-library/contact/<ID>.jpg`; Drive ids
+   in the catalog) and write an item wherever a library clip beats what is on screen:
+   - a line that is plain camera scene and names something we have footage of (Dan cooking, training, drinking water,
+     his supplement counter, app screen recordings);
+   - a stock or AI clip of a stranger where real footage of Dan fits the literal words;
+   - before ANY "stock footage or an AI clip" direction, an existing `A####` clip that already shows it.
+   ⚠ `clip_library.py find` returns almost nothing for multi-word queries. Search one keyword at a time, or load
+   `catalog.json` and filter descriptions yourself. LOOK at the contact preview before proposing a clip, give the source
+   range inside the clip's catalogued duration, and check `width`/`height` (A0043 is 848x480: unusable full screen).
+   No clip twice in a video, and track clips across the batch so two videos do not share one. Real moving footage of
+   Dan gets no label; AI clips get AI-GENERATED. A clip cut from one of our finished videos may carry that video's burned
+   label or key point: say how to crop it out, or pick another. Still no padding (rule 9): two to five additions per
+   short, none over a strong on-camera line or the closing call to action. Only direct new AI generation when nothing
+   fits, and say in the summary what was searched.
+6b. **Graphics: build them when the editor's are off** (Dan, 2026-10-01). Inventory every graphic the FINISHED video
+   needs after the revisions (title, numbered section signposts, key points, info chips, label spans) as
+   `<name>.graphics.json` (format: `reference/shorts-graphics-kit/GRAPHICS_REQUEST.md`; have the reviewer of each cut
+   write it, with `hair_top_px` measured on full-resolution frames). Then `reference/shorts-graphics-kit/kit.py <name>
+   --render` (copy the folder into the batch work dir; it expects `out/<name>.graphics.json` beside it). What it makes:
+   the approved Motivation lower third, moved to the TOP of a 1080x1920 frame at 0.875 scale (x 60..1020, top at 96 px,
+   or raised so its bottom clears Dan's hair by 28 px), eyebrow + one or two lines, on a denser tint (rgba 14,40,70 at
+   0.86) because an editor's overlay cannot blur the footage under it; one transparent Apple Animation `.mov` per
+   graphic at its true duration, named `g04_0m10_3s_keypoint.mov`, plus a settled PNG. `labels.py` makes the
+   AI-GENERATED and "Real picture of me, not AI-generated" chips (top, below-top-graphic, chip-only). Rules that bit:
+   - Text: Title Capitalization with the punch words in FULL CAPS; a key point's eyebrow is "KEY POINT"; a numbered
+     chip that echoes the spoken sentence becomes a signpost (eyebrow "REASON 2 OF 3", text the 2 to 4 word name).
+     Two lines at most over camera scene (about 30 characters a line); the builder asserts the strip clears his hair.
+   - Never two top strips at once. No AbsByAI.com mark. No brand drug name in a graphic until Dan rules.
+   - HyperFrames renders are untagged BT.601: the builder converts to RGB qtrle, do not hand an editor the raw ProRes.
+   - Prove it: composite every PNG over its own frame of the cut into one proof image and send it to Dan.
+   - Upload with `rclone copy` to one public Drive folder (a subfolder per video, `stills/`, `0 Labels/`, `READ ME.txt`),
+     set anyone-with-link on the folder, `rclone lsjson -R` for the file ids, and generate a GRAPHICS list per video
+     (time, text, link) plus one opening section of the doc explaining how to use the files. Graphic items in the doc
+     then say "I made this graphic for you" instead of describing a graphic to build.
 7. **Self-check the draft against the calibration section above — the doc goes to the
    editor as written, Dan does not re-review.** For every item confirm: it fixes something
    wrong (not an upgrade of something acceptable); the asset matches the literal words under
@@ -1255,3 +1339,20 @@ vertical/square versions, add its AV/AS jobs. Procedure: `.claude/skills/_shared
     confirm focus, then type. After any browser session in a doc, diff a text export of the whole doc against the pre-edit
     export (whitespace-normalised) before reporting. Python 3.9's newest yt-dlp (2025.10.14) is now blocked by YouTube; the
     standalone `yt-dlp_macos` from the official GitHub release works (kept in `revisions-20260928/ouraapp/`).
+68. **A seven-short batch in one session (2026-10-01): the recipe.** Prep script per cut run one at a time (the Mac was at
+    load 90 from other sessions; whisper is the slow step), one reviewer agent per cut reading a shared `BRIEF.md`
+    (`/Volumes/Extreme/_edit_work/revisions-20261001/muhammad/BRIEF.md` is the shorts version of the template), then
+    the SAME agents re-used by message for the graphics inventory and the library pass (they keep their context, each
+    follow-up cost about 30 to 90 seconds). The doc is created and later replaced IN PLACE through the Drive API with
+    rclone's token: multipart `files.create` with `mimeType: application/vnd.google-apps.document` and a `text/markdown`
+    body, then `PATCH /upload/drive/v3/files/<id>?uploadType=media` to regenerate it under the same link, then a
+    permission POST `{type: anyone, role: reader}`. No browser, no clipboard. `muhammad/gen.py` is the generator.
+    Share the work dir: another session was using `revisions-20261001/` at the same time, so work in a subfolder
+    named for the editor.
+69. **`gateframing` returns 0 samples, or measures the wrong person, on a short with picture inserts** (it read the AI
+    man in the body fat pictures as Dan). On shorts, read hair-top off ruled full-resolution frames of camera shots and
+    say so.
+70. **A clip we supply is checked against the LINES before it is linked.** The dating app clip handed over on 09-29 ran
+    heavy man first, lean man second, the opposite of the script; the editor inserted it as told and round 2 had to
+    own the mistake and give the swap. Before linking any multi-beat clip, write down which seconds go under which
+    words.
