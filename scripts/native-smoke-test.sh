@@ -80,9 +80,13 @@ run_ios() {
     && ok "iOS app launched" || bad "iOS launch failed"
 
   sleep 12
-  xcrun simctl io "$IOS_SIM" screenshot "${OUT}/ios-01-launch.png" >/dev/null 2>&1 \
+  # The simulator service may not write into ~/Documents ("Operation not permitted",
+  # 2026-10-01), so capture to a temp file and copy it in.
+  local shot; shot="$(mktemp -t ios-smoke).png"
+  xcrun simctl io "$IOS_SIM" screenshot "$shot" >/dev/null 2>&1 && cp "$shot" "${OUT}/ios-01-launch.png" \
     && ok "iOS screenshot captured -> native-smoke-out/ios-01-launch.png" \
     || bad "iOS screenshot failed"
+  rm -f "$shot"
 
   echo "  NOTE  iOS purchase-gating is a visual check — open the screenshot and"
   echo "        confirm no credit packs / plan cards / 'Manage membership' button,"
@@ -125,7 +129,7 @@ run_android() {
   # and does not depend on the Mac having spare CPU.
   local serial
   serial=$("$ADB" devices | awk 'NR>1 && $2=="device" && $1 !~ /^emulator-/ {print $1; exit}')
-  if [ -n "$serial" ]; then
+  if [ -n "$serial" ] && [ "${SMOKE_USE_EMULATOR:-0}" != "1" ]; then  # SMOKE_USE_EMULATOR=1 forces the emulator
     export ANDROID_SERIAL="$serial"; PHYSICAL=1
     ok "using the plugged-in Android phone ($serial)"
   else
@@ -141,12 +145,14 @@ run_android() {
       echo "  booting $AVD ..."
       "$EMULATOR" -avd "$AVD" -no-snapshot-load -no-boot-anim \
         >"${OUT}/emulator.log" 2>&1 &
-      "$ADB" wait-for-device
+      "$ADB" -e wait-for-device
       for _ in $(seq 1 60); do
-        [ "$("$ADB" shell getprop sys.boot_completed 2>/dev/null | tr -d '\r')" = "1" ] && break
+        [ "$("$ADB" -e shell getprop sys.boot_completed 2>/dev/null | tr -d '\r')" = "1" ] && break
         sleep 3
       done
     fi
+    # Pin every later adb call to the emulator (a phone may be plugged in as well).
+    export ANDROID_SERIAL="$("$ADB" devices | awk '$1 ~ /^emulator-/ && $2=="device" {print $1; exit}')"
     ok "emulator ready"
 
     local apk="${REPO}/android/app/build/outputs/apk/release/app-release.apk"
@@ -158,6 +164,9 @@ run_android() {
   # Force-stop first so we always start from a fresh page load — a resumed task
   # would keep whatever DOM state a previous run left behind.
   "$ADB" shell am force-stop "$BUNDLE_ID" >/dev/null 2>&1
+  # On the emulator, restart Chrome too: a Chrome left over from an earlier boot showed the app
+  # as a blank page and never opened its DevTools socket (2026-10-01). Never on a real phone.
+  [ "$PHYSICAL" -eq 0 ] && "$ADB" shell am force-stop com.android.chrome >/dev/null 2>&1
   "$ADB" shell monkey -p "$BUNDLE_ID" -c android.intent.category.LAUNCHER 1 >/dev/null 2>&1
   # Wait for the page itself, not a fixed time: on a loaded Mac (video builds running) the TWA
   # sat on its splash screen past the old 20 s sleep and every check after it failed (2026-09-30).
