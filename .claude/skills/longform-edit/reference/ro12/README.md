@@ -28,4 +28,14 @@ transcript, chapters, gate plan incl. label chips and banned-screen source), `re
    yourself. A heavier man eating a burger (not a close-up) stays and goes to Dan as needs-review.
 10. **Gate rows that cannot pass on a Zepbound video:** `compliance:drug_names` and `srt:shape` (banned spelling "Zepbound") both
     carry the ad rule into organic long-form; `captions:burned` / `captions:card_collision` read Soft Blue lower thirds and cards as
-    burned captions (same as RO-05 round 4). Reported to Dan, not tuned.
+    burned captions (same as RO-05 round 4). Reported to Dan, not tuned. (2026-09-30, gate 2.4.0: the two drug-name rows no longer
+    apply to organic formats; the two caption rows remain.)
+11. **Veo first/last-frame cannot hold a small hand pose (round 2, $2.40 wasted).** The thigh-pinch clip was generated three times
+    from approved frames and rejected each time: the model wanders and reaches the end pose only in the last half second, and an
+    image-only "hold" lets go at once. For a held pose, approve a start and end frame that BOTH already show the pose, so there
+    is no travel to invent. Big body actions (eat, cover mouth, hold stomach) interpolate fine in one take.
+12. **Never `import` a generation script to reuse a helper.** A module with jobs at top level re-ran a paid Veo job and overwrote a
+    checked take. Guard the job launch with `if __name__ == "__main__":` before the first run.
+13. **Tell Dan what was paid for and not shown.** Round 1 generated 13 frames and showed 4; he asked where the other 9 were.
+    Every paid draft that is rejected internally gets one line and its cost in the report.
+14. **Whisper doubles a word across a removed insert's join** ("months and And now"): read the cue at every changed join.

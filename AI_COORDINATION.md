@@ -95,7 +95,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **Shared checkout cannot push - NEEDS OWNER 2026-09-30, Claude.** Checkout is 11 commits ahead (41bb43b..9982b49), 47 behind, with other sessions' dirty files; pull/merge/rebase refuse. Next: fire `Handoffs/handoff-20260930-fix-stuck-main-checkout.md` when no session runs here.
 
-**RO-12 - NEEDS DAN 2026-09-30, Claude.** Delivered. Next: `handoff-20260930-ro12-round1-dan-review.md`.
+**RO-12 - NEEDS DAN 2026-09-30, Claude.** Round 2 delivered; thigh clip not placed. Next: Dan's notes. Detail: delivery folder `notes-RO12.md`.
 
 **RO-16 - IN PROGRESS 2026-09-30, Claude.** Round 2 (G03 option 2): full film rendering, `/Volumes/Extreme/_edit_work/ro16/round2/`. Next: gates, review, deliver.
 

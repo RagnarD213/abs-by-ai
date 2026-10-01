@@ -1,5 +1,7 @@
 # RO-12 "Top 5 Zepbound Tips": round 2, generate the two approved clips, then remake the full video
 
+> **EXECUTED 2026-09-30.** Gate 2.4.0 committed (669352a). Nausea clip placed (library A0137); thigh-pinch clip NOT placed (three takes rejected, $5.55 spent, Dan on camera there). Remade, review round 4 SHIP, delivered. Outcome and open items: `claude edited long form content/09 - Top 5 Zepbound Tips/notes-RO12.md`.
+
 Written 2026-09-30 by Claude (Opus 5.5), updated the same day with Dan's approvals. Recipe and locks:
 `handoff-20260930-ro12-round1-dan-review.md`. Recommended model: **Claude Opus 5.5, medium** (two keyframe-locked clips and
 a rebuild on a working recipe; the gate change in step 0 is small and corpus-checked).

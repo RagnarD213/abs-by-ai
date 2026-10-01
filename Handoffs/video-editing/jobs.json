@@ -1780,14 +1780,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/RO-12-top-5-zepbound-tips.md`: cut \"Top 5 Zepbound Tips\" from 9/23 roll C1706 with /longform-edit. Best take of every line, every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-12-top-5-zepbound-tips.md` with `$long-form-content-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "ready",
-   "note": "Round 2 ready 09-30: Dan approved both AI clip frames (nausea, thigh pinch); burger + vial ad-lib cut. Handoff: handoff-20260930-ro12-round2-two-clips-then-full-remake.md",
+   "state": "delivered",
+   "note": "Round 2 delivered 09-30 (9:11, review SHIP round 4, audio gate PASS): new AI nausea clip, burger + vial ad-lib cut. Thigh-pinch clip NOT placed (3 takes rejected, $5.55 cap spent); Dan on camera there. Review copy: https://drive.google.com/open?id=1k3e7iko_6ugIMXcuRGbvPllLldeYpLo7. Waiting on Dan's watch.",
    "sub": "",
    "order": 85,
    "updated": "2026-09-30",
    "by": "Claude",
-   "rev": 4,
-   "syncedRev": 4
+   "rev": 5,
+   "syncedRev": 5
   },
   {
    "id": "RO-13",
