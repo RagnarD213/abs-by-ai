@@ -52,6 +52,8 @@ def main():
     ap.add_argument("ids", nargs="*")
     ap.add_argument("--all", action="store_true", help="every exercise dir under the root that has a unit")
     ap.add_argument("--dir", default=os.environ.get("DEMOS_DIR") or os.path.join(REPO, "Media/exercise-demos"))
+    ap.add_argument("--suffix", default="-AIDAN-narrated.mp4",
+                    help="narrated file to gate, <id><suffix> (batch 4+ deliver -AIDAN-narrated-FINAL-CANDIDATE.mp4)")
     A = ap.parse_args()
     D = A.dir
     ids = A.ids
@@ -69,7 +71,7 @@ def main():
     print(f"{'id':22}{'dur':>7}{'unit':>7}{'join':>7}{'range':>7}  {'vo_in':<6}{'stamp':<7}{'video'}")
     bad = []
     for eid in ids:
-        f = os.path.join(D, eid, f"{eid}-AIDAN-narrated.mp4")
+        f = os.path.join(D, eid, f"{eid}{A.suffix}")
         unit = next((os.path.join(D, eid, u) for u in ("r2-unit.mp4", "b2-unit.mp4")
                      if os.path.exists(os.path.join(D, eid, u))), None)
         if not (os.path.exists(f) and unit):
@@ -79,7 +81,7 @@ def main():
         a = frame(unit, 0, tmp + "/a.png"); b = frame(unit, max(0, ud - 0.05), tmp + "/b.png")
         m = frame(unit, ud / 2, tmp + "/m.png")
         join, rng = diff(a, b), diff(a, m)
-        vof = next((os.path.join(D, eid, v) for v in ("r2-vo.mp3", "b2-vo.mp3")
+        vof = next((os.path.join(D, eid, v) for v in ("r2-vo.mp3", "b5-vo.mp3", "b4-vo.mp3", "b3-vo.mp3", "b2-vo.mp3")
                     if os.path.exists(os.path.join(D, eid, v))), None)
         vo = float(probe(vof, "duration")) if vof else 0.0
         # THE AUDIO STAMP on the delivered narrated file. --allow-synthetic: an AI voice, no camera.

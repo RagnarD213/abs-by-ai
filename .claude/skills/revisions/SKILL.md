@@ -5,6 +5,12 @@ description: Review a video cut delivered by an editor (human or a cheaper-model
 
 Read `_shared/VIDEO-RULES.md` first.
 
+## Default jump-cut and junk-footage QC (Dan, 2026-09-29)
+
+Follow [CUT-CONTINUITY-QC.md](../_shared/CUT-CONTINUITY-QC.md) during source selection, before approval previews, and on the exact final candidate. Inspect every actual source/picture join, including reused composites, for a presenter jump without a distinct fixed wide/tight cut or complete approved clip cover. Fix uncovered jumps and recheck every boundary the repair creates. Detect and remove confirmed unscripted noises, empty lead-ins, unnecessary pauses and off-camera resets while protecting complete words, natural breaths and teaching action. Native consecutive frames plus moving/audio context are required; sparse scans and ASR alone cannot clear a join or authorize deletion. Keep the current still/frame, motion and full-render approval boundaries. This dated rule supersedes older suggestions that a pose match or audio fade alone clears a naked cut.
+
+For a review-only task, report each required repair with timecodes. Do not render or send editor messages.
+
 # /revisions — review a delivered cut and write Dan-style revision notes
 
 The deliverable is a **Google Doc in Dan's Drive**, written in Dan's voice and format,
@@ -709,6 +715,7 @@ vertical/square versions, add its AV/AS jobs. Procedure: `.claude/skills/_shared
   - AI realism (built from Dan's own 09-14 wording): `STANDING RULE: Check every AI clip frame by frame for anything that gives away that it is AI-generated and makes it seem like it's not a real clip, like smoke coming out when someone exhales. Replace or regenerate any shot that has one.`
   - Headroom (Dan's own words, 2026-09-14): `STANDING RULE: Do not crop out the top of my head or hair, leave a small amount of space above my hair so the top of my hair does not go out of frame`
   - Framing (built from Dan's own 09-11 item wording): `STANDING RULE: Crop in closer. In the wide shot, avoid excessive space above my head and towards the sides. In the tight shot, leave only a small amount of space above me and to the sides, almost as tight as possible without me going out of frame.`
+- **Swearing** (Dan, 2026-09-29): my on-camera swearing always stays. Never write an item, a question or a summary line about cutting or keeping it.
 - **Voice input caveat**: Dan dictates; if a quoted correction seems odd, check the
   transcript audio before flagging his script wording as a "typo".
 
@@ -1221,3 +1228,19 @@ vertical/square versions, add its AV/AS jobs. Procedure: `.claude/skills/_shared
     One export request costs him two minutes; a disputed item costs him three rounds. (3) Any positive control must be run
     at or below the editor's stated level, and must read clearly apart from the noise, or it is not reported. (4) Before
     telling an editor he is wrong a second time on the same point, show Dan the evidence and its weakest link first.
+67. **When Dan asks us to "build him a file he can drop in", hand the editor a graphics kit, not a description (2026-09-28,
+    Zeeshan Video 4).** Shared Drive folder "Zeeshan Soft Blue Light graphics kit" (`1ispvFqk9CAv-WqZ_hBgVed3cedRWBLGJ`), builder
+    scripts in `/Volumes/Extreme/_edit_work/revisions-20260928/kit/` and `ouraapp/phone.py`. What worked: (a) a finished ProRes
+    422 HQ of the graphic ON HIS OWN export, named with its start timecode or frame, for any stretch he does not need to touch;
+    (b) an Apple Animation (qtrle) alpha overlay for stretches where his old chips are burned in, with a STILL wall patch
+    ("plate") covering the gap the 280 px presenter shift opens on the left, and "move my shot right by exactly 280 px" in the
+    doc; qtrle, not ProRes 4444 (3.3 GB vs 781 MB), and never live footage inside the alpha (2.5 GB vs 300 MB); (c) a READ ME
+    Google Doc with every size, color and timing; (d) the example image pasted under each doc item. Simulate his workflow
+    (pad the shifted clip, overlay the alpha) before shipping. Traps: an odd crop height (955) is rounded to 954 by ffmpeg, so
+    a raw reader expecting 955 rows rolls the picture; the Drive rclone copy of a multi-GB ProRes 4444 never finishes, kill and
+    re-encode; and **Google Docs find traps, again (lesson 42a):** a `triple_click` on the find box when it has closed selects a
+    DOCUMENT paragraph, and typing replaced one of our own new paragraphs; `form_input` into the find box does not trigger a
+    search, so the following Return lands in the doc and split a line. Only `left_click` on the find box's ref, `cmd+a`, zoom to
+    confirm focus, then type. After any browser session in a doc, diff a text export of the whole doc against the pre-edit
+    export (whitespace-normalised) before reporting. Python 3.9's newest yt-dlp (2025.10.14) is now blocked by YouTube; the
+    standalone `yt-dlp_macos` from the official GitHub release works (kept in `revisions-20260928/ouraapp/`).

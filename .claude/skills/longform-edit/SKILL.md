@@ -13,9 +13,13 @@ description: >
 
 Read `_shared/VIDEO-RULES.md` first.
 
+## Default jump-cut and junk-footage QC (Dan, 2026-09-29)
+
+Follow [CUT-CONTINUITY-QC.md](../_shared/CUT-CONTINUITY-QC.md) during source selection, before approval previews, and on the exact final candidate. Inspect every actual source/picture join, including reused composites, for a presenter jump without a distinct fixed wide/tight cut or complete approved clip cover. Fix uncovered jumps and recheck every boundary the repair creates. Detect and remove confirmed unscripted noises, empty lead-ins, unnecessary pauses and off-camera resets while protecting complete words, natural breaths and teaching action. Native consecutive frames plus moving/audio context are required; sparse scans and ASR alone cannot clear a join or authorize deletion. Keep the current still/frame, motion and full-render approval boundaries. This dated rule supersedes older suggestions that a pose match or audio fade alone clears a naked cut.
+
 ## Approval before the full render (Dan, 2026-09-26)
 
-Follow [PRE-RENDER-APPROVAL.md](../_shared/PRE-RENDER-APPROVAL.md): approve the first 30 seconds with color/audio, every graphic with surrounding speech, every selected clip in context, and AI start/end frames followed by finished clips before rendering the complete film. Preserve unchanged approvals and explicit sample waivers. Use [Soft Blue Light and the Motivation lower third](../_shared/GRAPHICS-STANDARDS.md). One useful point belongs in a compact lower third, not a large empty card. While approval is pending, prepare plans and isolated previews only; do not build a full placeholder film. This workflow supersedes older full-build and 60-90-second sample directions below.
+> **ROUND METHOD, READ FIRST (updated by Dan, 2026-09-29):** follow [PRE-RENDER-APPROVAL.md](../_shared/PRE-RENDER-APPROVAL.md) and the newer organic approval budget in [VIDEO-RULES.md](../_shared/VIDEO-RULES.md#organic-content-approval-budget-dan-2026-09-29). Never one-shot a video. Inspect every graphic as a still on its real frame and every clip in context, but choose routine assets yourself. Ask Dan only about material uncertain choices: at most 20 decisions in the first approval round, aiming for 10 or fewer in each later round. Show the finished first minute, then the complete film after required choices are locked. New AI clips need start/end-frame approval before motion. Record Dan's actual decisions with hashes, reuse unchanged approvals, show at most 2-3 options per choice, and end each round with a handoff. Graphics are [Soft Blue Light](../_shared/GRAPHICS-STANDARDS.md) ([how](../_shared/SOFTBLUE.md)). This overrides older item-by-item approval and one-shot directions below.
 
 ## Graphics: Soft Blue Light in every video (Dan, 2026-09-26)
 
@@ -23,6 +27,7 @@ Every new or revised graphic uses the approved Soft Blue Light family, and every
 
 For long-form: full-screen cards, lists and photo displays come from `softblue` scenes; lower thirds go on the graded, caption-free base with `lower_third_patch`. Step 7's J2 components and the Muhammad pill/title-card rebuild remain for approved legacy revisions only.
 
+**Left-third text/list graphics (Dan, 2026-09-28):** use the approved 3A card exactly in every horizontal video (`softblue.left_third`, fixed presenter via `softblue.shift_presenter`); squares put the full-width card at the bottom; verticals keep the full-frame camera crop with the card over it at the bottom (locked 2026-09-28); never the card mid-frame over Dan. Spec and references: the 3A section of [GRAPHICS-STANDARDS.md](../_shared/GRAPHICS-STANDARDS.md). Adapt only the heading and points, and show one short contextual sample before a full edit.
 
 > **READ FIRST: [`_shared/EDITOR-CARD.md`](../_shared/EDITOR-CARD.md)** — what Codex's approved C1652 R4 long-form and DS-17 short did that Claude's cuts did not (2026-09-17). Hold them for the whole build; start from the last approved recipe, not a blank directory.
 
@@ -32,9 +37,11 @@ For long-form: full-screen cards, lists and photo displays come from `softblue` 
 > washed-out colour (mids lifted to 0.38 against Muhammad's 0.22-0.27, saturation low), a synthesised swipe on every transition
 > (now banned in `sfxlib`), home-made graphics instead of Muhammad's, no finished-product hook, and punch-ins that cropped hair the
 > camera had captured. **None of those is measured by the delivery gate, and all of them decide whether Dan can publish.**
-> The order of work is now: (1) grade stills side by side with Muhammad's frames at his measured numbers, (2) a graphics and
-> transitions style board built from his actual frames, (3) ONE finished 60-90 s sample section judged side by side against
-> Muhammad, (4) only then the full cut. The failed build's recipe and lessons: `reference/ro05/README.md`; the from-scratch recut
+> The order of work is now the ROUND METHOD at the top of this file (Dan, 2026-09-28). The Fable recut that followed this banner
+> (grade stills, style board, one 75 s sample, then the full 15-minute cut in one go) was rejected too: *"that intro is fucking
+> awful"*, graphics to be redone one by one in Soft Blue Light, grade *"still looks washed out"* at median luma 0.28 / saturation
+> 0.33 (push saturation and vividness further, show 2-3 grade options). A recipe video opens ON CAMERA ("What's up guys, today I'm
+> going to show you how I make my daily salad"), then cuts to the finished dish and someone eating it, his audio running underneath. The failed build's recipe and lessons: `reference/ro05/README.md`; the from-scratch recut
 > handoffs: `Handoffs/handoff-20260923-ro05-recut-fable.md`, `Handoffs/handoff-20260923-ro05-recut-astra.md`.
 > The SFX guidance further down ("SFX on transitions", `riser` + `whoosh`) is superseded: no swipe sound effect, ever.
 >
@@ -883,8 +890,9 @@ of a bound is exactly how the 2026-09-09 dereverb fix reached one pipeline and m
             [--bed music.mp3 --bed-db -30] [--extra sfx/bed.wav]
 
 `voice_chain.py` takes the lav mono (from `audio_source.json`, or a WAV the frame-locked builders
-below produced), dereverbs only when the room measures > 55 ms early decay, FITS the EQ to
-Muhammad's file per roll on the gate's own metric (never a pasted curve — see below for why), runs
+below produced), does NOT dereverb unless you opt in (2026-09-29: `--dereverb-because "<what you heard>"`,
+refused unless the room measures > 55 ms early decay), FITS the EQ to Muhammad's file per roll on
+the gate's own metric (never a pasted curve; see below for why), runs
 a downward expander between words, keeps the compressor OFF (his LRA is 3.5), folds to centred
 stereo, ducks the bed at ≤ −30 dB, and finishes with measured gain + `alimiter` to −14 LUFS /
 −2.5 dBTP in PCM (never `loudnorm`, which went dynamic on the website video). `finish_audio.py`
@@ -1232,7 +1240,7 @@ dBTP after the encoder. Then, on the EXACT file that ships:
 
     python3 .claude/skills/_shared/audio/audio_gate.py FINAL.mp4 --ab AB_his-vs-ours.mp4
 
-Ten rows against Muhammad's pinned reference: L/R image ≥ +0.97, comb ripple, early decay ≤ 80 ms (the chain dereverbs above 55),
+Ten rows against Muhammad's pinned reference: L/R image ≥ +0.97, comb ripple, early decay ≤ 80 ms (the chain no longer dereverbs by itself; a fail is half of an opt-in),
 10-band tone (mean ≤ 1.2 / max ≤ 2.5 dB), floor between words within 3 dB of his, dryness, −14 ±1
 LUFS, speech spread, TP ≤ −1.0 dBTP, zero silent seconds, audio length = picture. It writes
 `FINAL.mp4.audio_gate.json` with the file's sha256; **`qc_style.py`, the batch QCs and

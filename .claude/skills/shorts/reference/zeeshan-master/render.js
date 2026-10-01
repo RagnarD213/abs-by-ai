@@ -26,6 +26,20 @@ const L = JSON.parse(fs.readFileSync(path.join(__dirname, 'layout.json'), 'utf8'
 const CROPS = JSON.parse(fs.readFileSync(path.join(__dirname, 'shots', 'crops.json'), 'utf8'));
 const [CW, CH] = L.canvas;
 const SRC_W = 1920, SRC_H = 1080;
+// Per-short picture grade (Dan 2026-09-25, short 1 only: "the sunlight on me in this clip is very blown out and
+// overbrightened... Reduce the brightness. Increase the saturation."). Measured on 8 short-1 frames, BT.709 decode
+// (grade/skin.py): Dan's skin luma 0.54 -> 0.38, skin sat 0.59 -> ~0.72 on the rendered file (1.18 measured 0.79 after the render's colour conversion, too orange), skin with a clipped channel 22% -> 0%;
+// Muhammad Ad 1/Ad 6 skin 0.28-0.40 luma, 0.54-0.73 sat. Proof still: grade/grade_compare.jpg. Shorts 2-5: untouched.
+// Round-2 review: one overall grade left the first 14.5 s at skin sat 0.59 and the rest at 0.74-0.82 (orange), and
+// crushed the blacks to 1-2. Now one curve with a lifted black point and a per-shot saturation that brings every
+// shot's measured skin sat to ~0.62 (r2chk/ps, grade/skin.py on the rendered file).
+const GRADE_CURVE = "curves=all='0/0.025 0.25/0.165 0.5/0.335 0.75/0.56 1/0.84'";
+const GRADE_SAT = { 'A-s00': 1.23, 'A-s01': 1.15, 'A-s02': 0.89, 'A-s03': 0.86, 'A-s04': 0.78, 'A-s05': 0.82, 'A-s06': 0.76, 'A-s07': 0.76, 'A-s08': 1.35 };  // round 3: s06-s08 are the new ending (measured below)
+// Round 3: the reps card (A-s08, the evening live round) is not sun-blown: its skin is already at luma 0.41-0.45 like
+// the graded talk (0.42-0.44), and the curve took it to 0.29. So saturation only: 1.35 measured skin sat 0.52-0.57 on
+// stills (the render reads a little higher); more pushed the pool blues.
+const NO_CURVE = new Set(['A-s08']);
+const gradeFor = (s) => (s.seg === 'A' ? `${NO_CURVE.has(s.name) ? '' : GRADE_CURVE + ','}eq=saturation=${GRADE_SAT[s.name] ?? 1.0},` : '');
 
 const ff = (args, label) => {
   const r = spawnSync(FF, ['-hide_banner', '-loglevel', 'error', '-y', ...args], { encoding: 'utf8' });
@@ -44,17 +58,33 @@ function renderShots(segId) {
 function shotFilter(s) {
   if (s.t === 'talk') {
     const T = L.talk;
-    const cw = { zoom: T.zoomW, mid: T.midW, full: T.fullW }[s.win];
-    const ch = { zoom: T.zoomH, mid: T.midH, full: T.fullH }[s.win];
+    // a shot may carry its own window size (cw/ch) when the standard zoom is too tight for its action
+    const cw = s.cw ?? { zoom: T.zoomW, mid: T.midW, full: T.fullW }[s.win];
+    const ch = s.ch ?? { zoom: T.zoomH, mid: T.midH, full: T.fullH }[s.win];
     if (!cw) throw new Error(`${s.name}: unknown window ${s.win}`);
-    const x = Math.round(Math.min(Math.max(s.xc - cw / 2, 0), SRC_W - cw));
+    const clampX = (xc) => Math.round(Math.min(Math.max(xc - cw / 2, 0), SRC_W - cw));
+    // slideFrom/slideFrames: glide the window (cosine ease) from an earlier centre, used inside an editor's own zoom
+    // so the switch between two of our windows is not a one-frame sideways jump
+    // xKeys: [[frame, xc], ...] keyframed window centre, cosine ease between keys, held outside them
+    const keyed = (keys) => {
+      const k = keys.map(([f, xc]) => [f, clampX(xc)]);
+      let e = `${k[k.length - 1][1]}`;
+      for (let i = k.length - 2; i >= 0; i--) {
+        const [f0, x0] = k[i], [f1, x1] = k[i + 1];
+        e = `if(lt(n,${f1}),${x0}+(${x1 - x0})*(1-cos(PI*max(n-${f0},0)/${Math.max(f1 - f0, 1)}))/2,${e})`;
+      }
+      return `'${e}'`;
+    };
+    const x = s.xKeys ? keyed(s.xKeys) : s.slideFrom != null
+      ? `'${clampX(s.slideFrom)}+(${clampX(s.xc) - clampX(s.slideFrom)})*(1-cos(PI*min(max(n-${s.slideDelay || 0},0)/${s.slideFrames},1)))/2'`
+      : clampX(s.xc);
     const ph = CH - L.dropTop;
     // holdHead/holdTail: clone the first/last CLEAN frame over frames that carry Zeeshan's
     // transition blur, while Dan is silent. Frame count and sync are unchanged.
     const hold = (s.holdTail ? `trim=end_frame=${s.frames - s.holdTail},tpad=stop=${s.holdTail}:stop_mode=clone,` : '') +
                  (s.holdHead ? `tpad=start=${s.holdHead}:start_mode=clone,` : '');
     return { inputs: ['-loop', '1', '-framerate', FPS, '-i', path.join(A, 'j2-bg.png')],
-      fc: `[0:v]setpts=PTS-STARTPTS,${hold}crop=${cw}:${ch}:${x}:0,scale=${CW}:${ph}:flags=lanczos,setsar=1[pic];` +
+      fc: `[0:v]setpts=PTS-STARTPTS,${hold}${gradeFor(s)}crop=${cw}:${ch}:${x}:0,scale=${CW}:${ph}:flags=lanczos,setsar=1[pic];` +
           `[1:v][pic]overlay=0:${L.dropTop}:shortest=1,setsar=1[v]`,
       vf: null };
   }
@@ -97,8 +127,17 @@ function shotFilter(s) {
     // shot's own first frame, not a concat artefact.
     const hold = (s.holdTail ? `trim=end_frame=${s.frames - s.holdTail},tpad=stop=${s.holdTail}:stop_mode=clone,` : '') +
                  (s.holdHead ? `tpad=start=${s.holdHead}:start_mode=clone,` : '');
+    // slow: [a, b] (source seconds): play normally to a, then source a..b retimed to fill the rest of the shot
+    let head = `[0:v]setpts=PTS-STARTPTS,${hold}`;
+    if (s.slow) {
+      const [a, b] = s.slow, n1 = Math.round((a - s.absStart) * FPS_N), rest = s.frames - n1;
+      const f = (rest / FPS_N) / (b - a);
+      head = `[0:v]setpts=PTS-STARTPTS,split=2[sa][sb];[sa]trim=end_frame=${n1},setpts=PTS-STARTPTS[s1];` +
+             `[sb]trim=start=${(a - s.absStart).toFixed(4)}:end=${(b - s.absStart).toFixed(4)},setpts=(PTS-STARTPTS)*${f.toFixed(4)},fps=${FPS}[s2];` +
+             `[s1][s2]concat=n=2:v=1:a=0,fps=${FPS},`;
+    }
     let fc =
-      `[0:v]setpts=PTS-STARTPTS,${hold}${pre}scale=${c.w}:-2:flags=lanczos,setsar=1[fit];` +
+      `${head}${gradeFor(s)}${pre}scale=${c.w}:-2:flags=lanczos,setsar=1[fit];` +
       // shortest=1 is load-bearing. [1:v] is a `-loop 1` still, i.e. an INFINITE stream, and
       // overlay follows its FIRST input - so the last frame or two of every card shot rendered
       // as bare background. It showed up as a 2-frame black flash at 1.58s in short C.
@@ -199,7 +238,7 @@ function renderSegment(seg) {
     ff(['-ss', String(p.start), '-i', SRC, '-t', String((p.end - p.start).toFixed(3)), '-vn', '-map', SRCA.map, '-ar', '48000', '-ac', '2', '-c:a', 'pcm_s16le', path.join(dir, `his-${pi}.wav`)], `${seg.id} his piece ${pi}`);
     const pd = p.end - p.start;
     const fIn = pi === 0 ? AU.fadeIn : AU.joinFade;
-    const fOut = pi === seg.pieces.length - 1 ? AU.fadeOut : AU.joinFade;
+    const fOut = p.fadeOut ?? (pi === seg.pieces.length - 1 ? AU.fadeOut : AU.joinFade);
     const fade = `afade=t=in:st=0:d=${fIn},afade=t=out:st=${(pd - fOut).toFixed(3)}:d=${fOut}`;
     if (local.length) {
       // the bleep branch already built a filter_complex; append the fades to its [a] output
@@ -239,7 +278,7 @@ function renderSegment(seg) {
     '-loop', '1', '-framerate', FPS, '-i', path.join(A, 'wordmark.png'),
     '-loop', '1', '-framerate', FPS, '-i', path.join(A, `title-${seg.id}.png`),
     '-i', audio,
-    ...ovs.flatMap((o) => ['-loop', '1', '-framerate', FPS, '-i', path.join(A, `chip-${o.id}.png`)]),
+    ...ovs.flatMap((o) => ['-loop', '1', '-framerate', FPS, '-i', path.join(A, o.png || `chip-${o.id}.png`)]),
     '-filter_complex',
     // shortest=1 on both overlays is load-bearing: the wordmark and title are `-loop 1`
     // stills, i.e. INFINITE streams. Without it ffmpeg never reaches EOF and encodes forever.
@@ -247,7 +286,10 @@ function renderSegment(seg) {
     // picture, so it costs the picture nothing and it stops the top band reading as dead space.
     `[0:v][1:v]overlay=${L.wordmark.x}:${L.wordmark.y}:shortest=1[w];` +
     `[w][2:v]overlay=0:0:shortest=1[o0];` +
-    ovs.map((o, k) => `[o${k}][${4 + k}:v]overlay=(W-w)/2:${o.y}:shortest=1:enable='gte(t,${o.t0})*lt(t,${o.t1})'[o${k + 1}];`).join('') +
+    // a pre-built graphic (o.png) fades in/out on its own alpha; J2 chips cut on and off as before
+    ovs.map((o, k) => (o.png
+      ? `[${4 + k}:v]format=rgba,fade=t=in:st=${o.t0}:d=${o.fadeIn}:alpha=1,fade=t=out:st=${(o.t1 - o.fadeOut).toFixed(3)}:d=${o.fadeOut}:alpha=1[p${k}];[o${k}][p${k}]`
+      : `[o${k}][${4 + k}:v]`) + `overlay=(W-w)/2:${o.y}:shortest=1:enable='gte(t,${o.t0})*lt(t,${o.t1})'[o${k + 1}];`).join('') +
     `[o${ovs.length}]subtitles='${esc(assPath)}':fontsdir='${esc(FONTS)}'[v]`,
     '-map', '[v]', '-map', '3:a', '-frames:v', String(segFrames), '-t', String(segDur.toFixed(4)),
     ...VENC, '-movflags', '+faststart', final,

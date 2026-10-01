@@ -12,9 +12,29 @@ description: >
 
 Read `_shared/VIDEO-RULES.md` first.
 
+## Stand alone: show the whole exercise, not a detail of it (Dan, 2026-09-30)
+
+- **A short must make complete sense to a viewer who never saw the long-form.** Leave out details that only work
+  with the full video's context: a set-up step, a position check, a reference back to something said earlier.
+- **When a short tells the viewer to do an exercise, show the whole exercise briefly:** a few complete reps (a demo or
+  live-round clip from the same source), not an isolated detail of it. A detail cue (grip, thumbs, arm angle, elbow
+  height) stays only when the complete movement is also on screen in the same short.
+- Dan, approving SL-04 short 1 round 3: *"we want to avoid including details in it that won't be understood if the
+  viewer didn't watch a full long form... if we say to do a certain exercise, rather than just showing individual
+  details that don't make sense without full context, show the full exercise briefly."* Why: round 2 ended on the
+  side-lateral arm-angle set-up with no exercise shown (*"It's not clear why I'm showing them the arm angle when I
+  don't show the complete exercise"*); round 3 replaced it with his thumbs cue plus live-round reps and was approved.
+- How to apply: at segment selection, for every exercise a candidate names, write down where its complete movement is
+  (inside the segment, or another range of the same source to append, e.g. the live round). A candidate whose exercise
+  never appears whole is either paired with a range that shows it or dropped. The reviewer checks it on the delivered file.
+
+## Default jump-cut and junk-footage QC (Dan, 2026-09-29)
+
+Follow [CUT-CONTINUITY-QC.md](../_shared/CUT-CONTINUITY-QC.md) during source selection, before approval previews, and on the exact final candidate. Inspect every actual source/picture join, including reused composites, for a presenter jump without a distinct fixed wide/tight cut or complete approved clip cover. Fix uncovered jumps and recheck every boundary the repair creates. Detect and remove confirmed unscripted noises, empty lead-ins, unnecessary pauses and off-camera resets while protecting complete words, natural breaths and teaching action. Native consecutive frames plus moving/audio context are required; sparse scans and ASR alone cannot clear a join or authorize deletion. Keep the current still/frame, motion and full-render approval boundaries. This dated rule supersedes older suggestions that a pose match or audio fade alone clears a naked cut.
+
 ## Approval before the full render (Dan, 2026-09-26)
 
-Follow [PRE-RENDER-APPROVAL.md](../_shared/PRE-RENDER-APPROVAL.md): approve the first 30 seconds with color/audio, every graphic with surrounding speech, every selected clip in context, and AI start/end frames followed by finished clips before rendering the complete film. Preserve unchanged approvals and explicit sample waivers. Use [Soft Blue Light and the Motivation lower third](../_shared/GRAPHICS-STANDARDS.md). One useful point belongs in a compact lower third, not a large empty card. While approval is pending, prepare plans and isolated previews only; do not build a full placeholder film. This workflow supersedes older full-build and 60-90-second sample directions below.
+> **ROUND METHOD, READ FIRST (Dan, 2026-09-28):** follow [PRE-RENDER-APPROVAL.md](../_shared/PRE-RENDER-APPROVAL.md), Codex's stepwise approach. Never one-shot a video. In order, each its own small round with a handoff: (1) look: colour/crop/audio options; (2) EVERY graphic as a still screenshot on its real frame with exact copy, times and the speech around it, Dan edits and approves each, then moving previews; (3) every clip in context, AI clips concept, then start/end frames, then motion; (4) the FIRST MINUTE finished; (5) only then the full video. Record every decision with hashes; show only what changed; 2-3 options max. Graphics are [Soft Blue Light](../_shared/GRAPHICS-STANDARDS.md) ([how](../_shared/SOFTBLUE.md)). This overrides any older "one shot", "full v1 then revise" or "sample then full cut" instruction below. **For a batch of Shorts:** the first short's crop, look and every graphic screenshot are approved before the rest of the batch is cut.
 
 ## Graphics: Soft Blue Light in every video (Dan, 2026-09-26)
 
@@ -22,6 +42,7 @@ Every new or revised graphic uses the approved Soft Blue Light family, and every
 
 For Shorts: full-frame portrait footage stays full frame; graphics reflow for 9:16 (`softblue` handles the portrait layouts). A card that must show a burned 16:9 graphic sits on `softblue.field`, not the J2 field. Extracting shorts from an approved long-form keeps that film's approved graphics unless Dan asks for a restyle.
 
+**Left-third text/list graphics (Dan, 2026-09-28):** use the approved 3A card exactly in every horizontal video (`softblue.left_third`, fixed presenter via `softblue.shift_presenter`); squares put the full-width card at the bottom; verticals keep the full-frame camera crop with the card over it at the bottom (locked 2026-09-28); never the card mid-frame over Dan. Spec and references: the 3A section of [GRAPHICS-STANDARDS.md](../_shared/GRAPHICS-STANDARDS.md). Adapt only the heading and points, and show one short contextual sample before a full edit.
 
 ## Exercise teaching pass from DS-18 (Dan, 2026-09-25)
 
@@ -289,8 +310,10 @@ the audio still be wrong.**
 **The room is row 2 of `_shared/audio/audio_gate.py`, which `finishaudio.py` runs on every delivered
 file and which `qc.js` and `deliver.js` REQUIRE a PASS stamp from** (⚠ the earlier claim here that
 `audiogate.py` was "wired into qc.js" was false — nothing referenced it; corrected 2026-09-02). It fails
-over 80 ms — the approved/rejected boundary (website rev 2 approved at 75, this batch rejected at 85). The fix is automatic: `voice_chain.py` runs `_shared/audio/dereverb.py` — spectral
-subtraction of the late field — whenever the raw lav measures > 55 ms, and re-fits the EQ after it.
+over 80 ms (website rev 2 approved at 75, this batch rejected at 85; C1652 R4 approved at 88). ⚠ **The fix
+is NOT automatic any more (2026-09-29, Dan: copy Codex's light touch).** `voice_chain.py` runs
+`_shared/audio/dereverb.py` (spectral subtraction of the late field) only when you pass
+`--dereverb-because "<what you heard, on which A/B>"` AND the raw lav measures > 55 ms. Listen first.
 ffmpeg cannot do this: there is no dereverb filter, `arnndn` has no model here, and a broadband
 expander only reached 63 ms and pumped.
 
@@ -386,6 +409,8 @@ with, for each candidate: a title, the timecodes, and the **verbatim spoken text
 picks by letter. On V2 he chose 7 from a shortlist of 11.
 
 A short must **stand alone with its own reason to watch** — a complete idea, tip or story.
+**Every exercise it names is shown whole, briefly** (Dan, 2026-09-30, rule at the top of this file): list where each
+exercise's complete movement is in the source on the shortlist itself, and pair the segment with that range.
 "Random clips from the video" was explicitly rejected. Flag anything spicy in the text you
 send him (drug references, claims about named people, anything that would trip ad review)
 so he chooses with that in mind.

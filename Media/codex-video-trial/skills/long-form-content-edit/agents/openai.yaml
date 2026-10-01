@@ -1,0 +1,4 @@
+interface:
+  display_name: "Abs By AI long-form content edit"
+  short_description: "Edit raw footage using accepted trial recipes"
+  default_prompt: "Use $long-form-content-edit to edit this footage using the accepted treatment."

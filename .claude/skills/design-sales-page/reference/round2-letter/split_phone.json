@@ -1,0 +1,66 @@
+{
+ "parts": [
+  {
+   "file": "R2-Letter.dc.html",
+   "title": "Phone 1 of 4 \u00b7 top of page to The Old Way",
+   "keys": [
+    "stripe",
+    "hero",
+    "video",
+    "soundline",
+    "offer1",
+    "note",
+    "dadbod",
+    "millions",
+    "oldway"
+   ],
+   "h": 6800,
+   "content": 6583
+  },
+  {
+   "file": "R2-Letter-2.dc.html",
+   "title": "Phone 2 of 4 \u00b7 A Revolution In Technology to Introducing Abs By AI",
+   "keys": [
+    "revolution",
+    "whynot",
+    "awful",
+    "devoted",
+    "friends",
+    "introducing"
+   ],
+   "h": 6520,
+   "content": 6319
+  },
+  {
+   "file": "R2-Letter-3.dc.html",
+   "title": "Phone 3 of 4 \u00b7 The Five Ways, AI Hacks 1 to 4",
+   "keys": [
+    "fiveways",
+    "hack1",
+    "hack2",
+    "cta_h2",
+    "hack3",
+    "hack4",
+    "cta_h4"
+   ],
+   "h": 6580,
+   "content": 6374
+  },
+  {
+   "file": "R2-Letter-4.dc.html",
+   "title": "Phone 4 of 4 \u00b7 AI Hack 5, plans, questions, final button",
+   "keys": [
+    "hack5",
+    "try",
+    "s10",
+    "straight",
+    "cta_s11",
+    "faq",
+    "final",
+    "footer"
+   ],
+   "h": 5580,
+   "content": 5390
+  }
+ ]
+}

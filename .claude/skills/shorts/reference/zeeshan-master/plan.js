@@ -7,7 +7,7 @@ const { SEGMENTS } = require('./segments.js');
 // Benefit-first; the headline names the thing for someone who never saw the long-form.
 const META = {
   A: { eyebrow: 'TRAIN YOUR SHOULDERS', title: 'MAKE YOUR WAIST\nLOOK SMALLER' },
-  C: { eyebrow: 'SIDE LATERAL RAISES', title: 'RAISE YOUR ELBOWS,\nNOT YOUR HANDS' },
+  C: { eyebrow: 'SIDE LATERAL TIP', title: 'RAISE YOUR ELBOWS,\nNOT YOUR HANDS' },
   K: { eyebrow: 'BICEP CURL MISTAKE', title: 'STOP SWINGING\nYOUR CURLS' },
   H: { eyebrow: '2 WAYS TO DO THEM', title: 'HOW TO DO\nBICEP CURLS' },
   F: { eyebrow: '2-MINUTE HOME ARM WORKOUT', title: 'DO THIS BEFORE YOU\nTAKE YOUR SHIRT OFF' },

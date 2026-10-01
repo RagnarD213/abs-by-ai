@@ -48,3 +48,55 @@ watch.py -> fresh-subagent judge -> watch.py --judge -> gate.py --format short
 - Framing rows `hair_top` and `no_wide_level` are declared per build (his source framing); single-piece shorts
   declare `click_at_joins` / `splice_visibility`; a rep-cadence repeat in his approved cut declares
   `junk:repeated_take`. Every declaration carries its reason in `gate/<S>/declare.json`.
+
+## Round 2 (2026-09-29): what Dan's notes taught
+
+- **Measure the hair before promising a recrop.** `hair/measure.py` (Vision mask every 0.25 s) over every talking shot:
+  on this shoot the CAMERA framed Dan's hair at source row 0 on most wides and mediums, and the 8/3 main-camera
+  originals (C1582-C1587) have the same framing. No window can add rows above row 0; a card shows the same cut edge.
+  Check the source (and the raw camera file) first, then pick context lines by their measured headroom.
+- **Replace an editor's pill by cropping, not covering.** Zeeshan's lower-third pills live in source rows 804-907 on
+  every frame, entry and fade included. `cardCrop` y 0-0.739 (rows 0-798) removes his pill whole; our pill
+  (`pill/make_pill.py`, his olive (77,86,49), text (230,237,216), measured padding) goes on the black field under the
+  card with an alpha fade (`overlays.json` entries with `png`).
+- **A still-image grade test under-reads saturation.** `grade/skin.py` on RGB stills predicted skin sat 0.75 for
+  `eq=saturation=1.18`; the rendered file measured 0.79 (the YUV-RGB round trip inside `curves`). Always re-measure
+  the rendered file, then trim. Short 1's final grade: `curves 0.25/0.155 0.5/0.335 0.75/0.56 1/0.84, eq sat 1.08`.
+- **zsh does not word-split `${@:-A F C}`**: `deliver_all.sh` with no arguments ran one bogus id. Fixed with `set --`.
+- **Title band frame is flush with the canvas edge** (`INSET = 0`), Dan 2026-09-25: the frame must share the video's edge.
+- **Reviewer rounds this batch needed (2026-09-29): three.** Fixes that came from the fresh reviewers, all now plan
+  options in `plan_shots.py` / `render.js`: `cw`/`ch` (a custom window, e.g. 536x800 to stay above his pill band),
+  `slideFrom`/`slideDelay`/`slideFrames` (glide between two of our windows inside an editor's own zoom, instead of a
+  one-frame sideways jump), `xKeys` (keyframed window when a demo's arm span is wider than the window), card `slow`
+  (retime a card's last clean second across a label slide-out and a zoom blur, so nothing freezes while he talks),
+  piece `fadeOut` (a longer seam fade where a rumble was cut to silence), and a caption never runs past its audio join.
+  Per-shot grade saturation (`GRADE_SAT`): one overall grade made the editor's own shot-to-shot shift worse.
+- **The title scrim is gone**: it darkened the band's white corner brackets to grey (~65/255).
+
+## Round 3 (2026-09-30): short 1's new side-lateral ending
+
+- **Cut where the audio says, not where VAD says.** No VAD gap existed between "laterals," and "I'll": an envelope +
+  spectrogram of `master48.wav` found the trough (music floor, -40 dB) 35 ms after the "s" hiss. Test the candidate
+  out-points by splicing and running local Whisper (`import whisper`, `small.en`, numpy audio, `fp16=False`): 220.60 read
+  "lateral,", 220.63 read "laterals,". Such pieces are written as explicit `{start, end, ...}` objects with the reason.
+- **Whisper invents a leading "And" on a clip fed alone**; judge an in-point in context (splice it onto the previous piece).
+- **The watch gate's `junk:dead_air` bound is 1.0 s.** A demo pause over it is cut inside its VAD gap, and the picture must
+  change at that join. Check the pose on BOTH sides: a punch-in from arms level to his overhead Y was still the confusing
+  pose (reviewer). Dan's own demo never HOLDS the pose his words point at (hands sweep from overhead through level to
+  below; person-mask extremes per frame), so the card holds its last level frame over the silent pause (`holdTail`,
+  <= 7 frames) and the reps enter ON the word "like", at the top of a rep. Match the picture to the word, not the join.
+- **Find an editor's transition by per-frame sharpness** (Laplacian on a 480x270 grey decode): the whip started 244.37,
+  the last sharp frame was 244.334. A pill's fade by an olive-pixel count in its box: it started 559.57.
+- **A grade built for sun-blown footage wrecks evening footage.** Short 1's curve took the live round's skin from luma 0.44
+  to 0.29; `NO_CURVE` in `render.js` skips the curve per shot and keeps a saturation push (1.35).
+- **Captions:** a piece that continues the previous piece's sentence gets `continues: true` (no capital "If"); a short
+  sentence-ending word joins a 4-word cue instead of flashing alone, and a cue's end is floored to the centisecond at a
+  join (libass rounds 42.405 up to 42.41 and held it on the next shot's first frame). Both are opt-in per short
+  (`joinShortEnd: true`) so finalized shorts rebuild exactly as approved.
+- **Re-running `work/ctc_source.py` re-times every short's words** (it had never aligned short 3's opener). For a revision,
+  merge the new times for the revised pieces only and keep the rest (`work/words_aligned.r2.json` was the base).
+- **Two cards back to back share one box** (same crop and y), or the frame edge jumps 28-38 px on the cut (reviewer).
+- **The verbatim audio gate checks whole seconds 1..N-1.** A file that runs 0.01 s past a whole second pulls the tail
+  fade into the last checked second (-2.1 dB, FAIL); end the music a few frames earlier rather than touching the bound.
+- Reviewer rounds this revision needed: four (arm pose at the pause cut, one rep only, no tail fade, a 6-frame caption;
+  card box jump; the how-to pose on screen for 5 frames).

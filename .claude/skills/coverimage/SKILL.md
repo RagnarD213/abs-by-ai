@@ -3,7 +3,7 @@ name: coverimage
 description: >
   Build the cover image (grid thumbnail) for an Abs By AI Short/Reel — pick the
   most ripped source image, crop it grid-safe, set the locked J2 tactical type,
-  and deliver two variants. Use whenever Dan asks for a cover, a cover photo, a
+  and deliver five visual options. Use whenever Dan asks for a cover, a cover photo, a
   thumbnail for a short, or says a short's cover looks wrong — even if he doesn't
   say "/coverimage". For cutting the short itself use /shorts. For long-form
   YouTube thumbnails use /youtube-packaging. For retouching Dan's personal photos
@@ -23,6 +23,10 @@ opening frame — an empty tile in the profile grid. Every short needs a built c
 before it sells the topic. A technically clean, perfectly on-topic image is still a
 FAIL if the abs don't read. Reject and keep looking rather than shipping one.
 
+## Required five-choice review
+
+Follow `_shared/VIDEO-RULES.md`, "Five cover and thumbnail choices per video" (Dan, 2026-09-30): one pool photo, two distinct studio photos on Jelly Beans style topic backgrounds, one enhanced screenshot from this video, and one designer choice. This mix overrides the photo-first fallback restriction below: a screenshot is now required. Show each option in separate Instagram and YouTube layouts, then stop for picks. Handoffs must list all five slots.
+
 ## The rules, in priority order
 
 1. **Prefer a photograph over a video frame.** Shoot photography is lit, posed and
@@ -35,8 +39,8 @@ FAIL if the abs don't read. Reject and keep looking rather than shipping one.
 3. **Never hunched, folded or soft.** No frame where the torso compresses at the
    waist or the posture reads heavy. Dan rejected a V4 frame for exactly this on
    2026-08-13 — it was on-topic, eyes to camera, hands clear, and still a fail.
-4. **A video frame only when** no photo is relevant at all, or the video holds an
-   unusually good moment. Then still pick on abs first, and retouch it (below).
+4. **The required screenshot option** uses an authentic frame from this video.
+   Pick on abs, sharp face and exercise readability first; enhance it as useful (below).
 
 ## Preferred topic-backdrop studio-cutout template (Dan, 2026-09-18)
 
@@ -99,7 +103,7 @@ sheet.save('sheet.png')
 Colour-signature searches do **not** work — a greenness scan for the grass-and-mat
 toe-touch photo scored it below threshold and missed it entirely. Read the sheet.
 
-### 3. Or pull a video frame (fallback only)
+### 3. Pull the required screenshot option
 Frames come from the **original longform, never the finished short** — the short has
 burned-in word captions across the abs and there is no caption-free frame to steal.
 
@@ -169,8 +173,7 @@ seconds of the short and reuse what is burned in. Only write fresh copy when the
 short has no title card; then take the eyebrow from the category and the headline
 from `SHORTS_UPLOAD_PLAN.json`'s title.
 
-Deliver **two variants** — same photo, crop and frame, differing only in copy. No
-approval gate before building; Dan judges the finished covers.
+Deliver **five visual options** in the required mix above. Use distinct photos or designs and consistent copy so Dan can compare the visuals. Build the options, show the finished review, and stop for Dan's picks. Keep Instagram and YouTube layouts paired for each option.
 
 ### 6. Verify before sending
 - 1080×1920 RGB.
@@ -320,6 +323,24 @@ Impact and Copperplate live in `/System/Library/Fonts/Supplemental/`.
   DS-17 jump rope `LTkjlBr_3tg` and DS-04 vacuum `le2OyN3biW4`. After every Blotato Shorts
   release, run the audit above and upload the 1080x1920 JPG through the Studio file input
   on the PUBLIC id. The audit flips to `sardefault` within a minute.
+
+## Instagram: changing the cover on a SCHEDULED reel (2026-09-28)
+
+- The Blotato MCP `blotato_update_schedule` edits `coverImageUrl` in place: pass the WHOLE post (accountId, platform,
+  text, mediaUrls, every target field) with only the cover URL changed. Schedule ID, time and all other fields survive.
+  Proven on 12 @danrosefit reels on 2026-09-28. The REST `PATCH /v2/schedules/{id}` still returns 500 for any content
+  change, so do not recreate-and-delete for a cover swap anymore.
+- Upload the JPG with `blotato_create_presigned_upload_url`, PUT the bytes, then confirm the public URL serves the same SHA-256.
+- Back up the full schedule list first and diff every record after; nothing but the cover should differ.
+
+## TikTok and Facebook covers on the queue (2026-09-28)
+
+- TikTok: rebuild the frame-0 video with `tiktok_cover.build()` from the ORIGINAL uncovered source (the pre-cover
+  post body in `scripts/blotato/cover_backup/`), never from the queued file, or the old cover stacks under the new one.
+  Upload it, then `blotato_update_schedule` in place with the new `mediaUrls` and `videoCoverTimestamp: 0`.
+- Facebook: Blotato has no cover field, but the Graph API sets one on a LIVE reel. `scripts/blotato/fb_reel_covers.py`
+  does it via the LaunchAgent `com.absbyai.fb-reel-covers` every 20 minutes, from a copy in `~/.absbyai/fb-reel-covers/`
+  (launchd cannot read ~/Documents). Add a row to `fb_reel_covers.json` for every new FB reel and refresh the copy.
 
 ## Instagram: fixing the cover on a reel that is already posted (2026-09-10)
 

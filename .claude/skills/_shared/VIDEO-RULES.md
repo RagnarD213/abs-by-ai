@@ -1,3 +1,78 @@
+## Five cover and thumbnail choices per video (Dan, 2026-09-30)
+
+Every cover-image or thumbnail review, including its handoff, must request and deliver
+five visual options for each video:
+
+1. One pool-shoot photo.
+2. Two different real studio photos, each composited into a bold, topic-specific
+   photographic environment in the Jelly Beans cover family: crisp white cutout
+   outline, large subject-related props, heavy type and one accent color.
+3. One authentic screenshot from that video's approved finished master, enhanced
+   for clarity as useful while preserving Dan's identity, physique and exercise.
+4. One additional option chosen by the designer, using the image and design that
+   best sells that video's topic.
+
+Use a different image or design for each choice. Keep the copy consistent across
+choices unless Dan requests copy alternatives. For Shorts, each choice includes
+separate Instagram and YouTube layouts; they count as one visual option, not two.
+Show the finished options and stop for Dan's picks. Export his selections, and
+upload or schedule only within the separate authorized setup task. Preserve locked
+covers and already approved selections. This replaces the old two-cover rule and
+any older five-thumbnail mix with two pool photos. In future handoffs, link this
+rule and spell out all five slots. Reference:
+`Short-form video content/covers/review/jelly-bean-refresh/B3-jelly-beans-beat-soda-tight.png`.
+
+## Shorts stand alone: show the whole exercise, not a detail of it (Dan, 2026-09-30)
+
+- **A short must make complete sense to a viewer who never saw the long-form.** Leave out details that only work
+  with the full video's context: a set-up step, a position check, a reference back to something said earlier.
+- **When a short tells the viewer to do an exercise, show the whole exercise briefly:** a few complete reps (a demo or
+  live-round clip from the same source), not an isolated detail of it. A detail cue (grip, thumbs, arm angle, elbow
+  height) stays only when the complete movement is also on screen in the same short.
+- Dan, approving SL-04 short 1 round 3: *"we want to avoid including details in it that won't be understood if the
+  viewer didn't watch a full long form... if we say to do a certain exercise, rather than just showing individual
+  details that don't make sense without full context, show the full exercise briefly."* Why: round 2 ended on the
+  side-lateral arm-angle set-up with no exercise shown (*"It's not clear why I'm showing them the arm angle when I
+  don't show the complete exercise"*); round 3 replaced it with his thumbs cue plus live-round reps and was approved.
+- How to apply: at segment selection, for every exercise a candidate names, write down where its complete movement is
+  (inside the segment, or another range of the same source to append, e.g. the live round). A candidate whose exercise
+  never appears whole is either paired with a range that shows it or dropped. The reviewer checks it on the delivered file.
+
+## Review page standard + "What I decided" (Dan, 2026-09-30)
+
+- Every approval packet opens with the first minute, then the AI frames, then a **"What I decided (overrule anything)"** list,
+  then every graphic and clip in order, three per row. Dan: *"I like this 'What I Decided' section. Let's make this the standard
+  way to do things going forward."* Layout and details: [PRE-RENDER-APPROVAL.md](PRE-RENDER-APPROVAL.md#the-review-page-one-layout-and-a-what-i-decided-list-on-every-packet-dan-2026-09-30).
+
+## Organic content approval budget (Dan, 2026-09-29)
+
+For organic content videos, the newer approval budget below replaces older requirements for Dan to approve every graphic and clip separately and the shared 10 to 15 decisions per video guidance. Keep the stepwise internal checks and the real approval gates. The **first approval round has at most 20 decisions**. In later rounds, **aim for 10 or fewer decisions per round**. These are ceilings, not targets. Ask Dan only about materially uncertain choices that require his judgment. Choose and check routine assets yourself, summarize what you chose, and let him overrule while reviewing the first minute and the finished film. Never reopen unchanged approved items or infer approval from silence. New AI motion still needs approved start/end frames first; show materially uncertain finished motion in context before locking it. The website VSL approval cadence remains separate and more detailed.
+
+## Ad or organic? Classify every video from its own ending before any upload (Dan, 2026-09-28)
+
+- **Before any upload or setup, decide from the finished video itself whether it is an AD or ORGANIC.** Read the
+  last 15 seconds of the finished file's transcript (the `finished-asr*.json` beside the build, or transcribe the
+  ending with `.claude/skills/ad-setup/transcribe.js`). Record the verdict and the exact closing words in the setup notes.
+  - **AD:** a definite direct-response call to action telling the viewer to act on the ad itself, e.g. *"tap the
+    button below"*, *"click the button below"*. Ads go through `/ad-setup` only: Unlisted YouTube + Google Ads.
+  - **ORGANIC:** a softer end call to action (*"go to AbsByAI.com"*, *"leave me a comment"*, *"follow for more"*)
+    with no "tap/click the button below". Organic goes through `/video-setup` only: Private YouTube holding copy +
+    Blotato release on every platform.
+- **If the request, handoff or queue label disagrees with the video, STOP before uploading anything and ask Dan**,
+  quoting the closing line: *"This handoff sets it up as an ad, but the video ends with 'leave me a comment' and has no
+  tap-the-button CTA, so it reads as organic. Set it up as organic instead?"* The same applies in reverse. Do the
+  read-only prep meanwhile; no YouTube, Google Ads or Blotato write until he answers.
+- **Why:** on 2026-09-27 a handoff sent DS-18 "How To Kettlebell Deadlift" (a dedicated organic Short ending *"Leave
+  me a comment"*) through the ad path: Unlisted upload plus two Google Ads groups that spent $0.62 before Dan caught
+  it. Job prefixes are a hint, not proof: `DS-`/`RO-`/`SL-` are normally organic and `RA-`/`AV-`/`AS-`/Ad N normally
+  ads, but the CTA in the video decides.
+
+## Approved workout-app format, M100 excerpt and future clip placeholders (Dan, 2026-09-28)
+
+- **Workout-functionality demonstrations:** WV-01 round8's upright phone, exercise list, visible tap, then natural-speed landscape exercise video above its description is the approved impressive presentation format. Reference: `/Volumes/Extreme/_edit_work/wv01-edit/round8/graphics/early-app-flow.mp4`, reviewed at about0:30. Preserve phone shell, side presenter, readable UI and intact exercise action. Its documented review composition is not a live interaction recording. For WV-01, replace leg press with an at-home, minimal-equipment exercise, preferably toe touches or another ab exercise; bodyweight squat is the fallback.
+- **Old-channel exercise proof:** Dan approved the exact M100 original4:48-4:55 excerpt in WV-01 round8 for future exercise / Six Pack Shortcuts references outside diet context. Reuse `/Volumes/Extreme/_edit_work/wv01-edit/round8/graphics/m100-288-295.mp4`; full source `/Volumes/Extreme/_edit_work/wv01-edit/round7/assets/m100-complete.mp4`, original source288-295seconds, full YouTube-page treatment. This specific selection supersedes the older solo-Dan-only selection rule for this excerpt. Keep diet footage for diet references.
+- **Future contextual previews:** When planned AI motion is not ready, show labelled START/END-frame placeholders at its intended location within the opening/context review so Dan can judge the scene with surrounding speech. This is a preview convention, not a finished clip or authorization for a complete placeholder film. Dan explicitly exempts WV-01 and its next round: do not retrofit placeholders into this video. Approved actual motion can still be inserted normally.
+
 ## Lock the graphic style before editing; AI clip frames first; AI openers (Dan, 2026-09-27)
 
 - **Lock the graphic style before any full video is edited.** Dan: *"They render the whole video, then we change the graphic, then we render it again. I want to lock graphic styles before the videos go forward."* This binds human editors, Codex and Claude. If the format has a locked style (`GRAPHICS-STANDARDS.md`), every brief and revision doc links its moving references and the editor builds in it. If not, the first deliverable is graphic variations on one video's frames (the editor's own style, one imitating our locked style, two significantly different ones: masculine, bold, modern, trustworthy); Dan picks; only then are full videos cut or revised.
@@ -6,10 +81,11 @@
 
 ## Speedo photos: always crop at the shorts line (Dan, 2026-09-27)
 
-- **Any photo of Dan in the Speedo/briefs is cropped so it reads as regular shorts, never a Speedo.** Crop the bottom edge at the top of the waistband, leaving only a thin band of black showing (Dan's reference: the @danrosefit "version 2.0" post `DbobNx6gQPM`). Keep posting these photos; only the crop changes.
-- Applies to every surface: Instagram (both accounts), Facebook, TikTok photo posts, covers, thumbnails, site images and in-video real-photo displays. Real shorts (board shorts, Thai shorts, black gym shorts) are untouched.
-- Crop the bottom and sides only, never the hair (headroom rule). Instagram needs aspect 0.8 to 1.91; trim the sides to stay inside it. On a diagonal pose (lying, seated) crop the side instead of the bottom when a horizontal cut would lose the abs.
-- Before queuing any photo post, look at it for the Speedo. First sweep 2026-09-27 swapped 11 queued posts (9 photos); crops and boxes in `photos/finalized social media photos/_speedo-crops-20260927/`. Swap mechanics: `scripts/blotato/swap_media.py` (its "new schedule not found" line is read lag; re-fetch and MD5-check).
+- **Any standing photo of Dan in the Speedo/briefs is cropped so it reads as regular shorts, never a Speedo.** Show as much of the waistband as possible: put the bottom edge at the waistband's lower seam, stopping just before the leg openings (where the brief shape starts) appear at either hip. Keep posting these photos; only the crop changes.
+- **Leave seated and lying photos uncropped** (Dan: "It's not really possible to crop those"). The lying med-ball photo also stays as shot.
+- Trim unnecessary space above his head, keeping a little headroom and never cutting hair. On the extended-arm (pointing) pose, cropping the outstretched arm past the elbow is fine.
+- Applies to every surface: Instagram, Facebook, TikTok photo posts, covers, thumbnails, site images and in-video real-photo displays. Real shorts are untouched. Instagram needs aspect 0.8 to 1.91.
+- Before queuing any photo post, check it for the Speedo. Crops, boxes and swap maps from 2026-09-27: `photos/finalized social media photos/_speedo-crops-20260927/`. Swap mechanics: `scripts/blotato/swap_media.py` (its "new schedule not found" line is read lag; re-fetch and MD5-check).
 
 ## AI label on uploads: only for real AI footage (Dan, 2026-09-27)
 
@@ -25,6 +101,17 @@
 
 - When Dan requests a thumbnail replacement, install the approved new thumbnail without asking again about removing the old thumbnail or its completed A/B test. Preserve available test results in the installation notes first. This does not authorize deleting the video or post itself.
 
+## Clip library first: reuse before you generate, register what you make (Dan, 2026-09-29)
+
+- **Before generating any AI clip, searching stock, or hunting raw rolls for B-roll, search the clip library:**
+  `python3 .claude/skills/_shared/cliplib/clip_library.py find "<what the beat needs>" [--aspect 9x16] [--rolls]`,
+  then look at the top hits' `Media/clip-library/contact/<ID>.jpg` previews. If an existing clip fits, use it and cite
+  its ID (A#### AI, B#### B-roll). Generate only when nothing fits, and say so in the job notes.
+- **When a job finishes, register every new AI clip, stock clip or cut B-roll insert that made it into the approved
+  video** (and any clean unused keeper) with `clip_library.py add ... --status used-final --used-in "<job>"`, then
+  `clip_library.py sheet`. Rejected or defective takes never go in.
+- Human editors browse the same catalog as a Google Sheet in the Drive library folder. Full rules: `_shared/cliplib/README.md`.
+
 ## Video clip generation budget and frame approval (Dan, 2026-09-15)
 
 - **Reaffirmed by Dan, 2026-09-16:** Gemini and Replicate generation is standing-authorized up to **$5 total per video**. Use the project's Gemini/Replicate keys, including `bakeoff/.env`, for this authorized work without asking again. Ask for spend authorization only before exceeding $5 for that video; do not request separate approval for a batch within the remaining budget. Track costs and retries across revisions. Dan explicitly approved the pending C1652 three-clip batch (estimated $0.75) after being told the earlier built-in still costs were unreported; preserve those unknown costs honestly without repeating the same permission stop.
@@ -32,6 +119,15 @@
 - Before exceeding $5, discuss the specific clips, why existing assets or suitable stock will not do, and the estimated new total. Dan is generally open to **up to $10 with a reason**, but that is not automatic authorization to exceed $5.
 - Show Dan the **start and end frames plus the intended action** for approval before generating motion. Budget authorization does not replace frame approval. Materially different replacement frames require approval again.
 - Current stock choice (Dan, 2026-09-15): **Pexels and existing assets with known usage rights only; no paid stock service or subscription.** Use AI where the intended scene needs it. Keep a per-video generation total, including paid unsuccessful attempts. Gemini quality-review spend remains governed by its separate standing authorization.
+
+## The round method: small approval rounds, full render last (Dan, 2026-09-28)
+
+- *"The reason why Codex is making way better videos than you is that it's taking a way more stepwise approach. Rather than trying
+  to one-shot it and edit the video all in one, there are many small rounds of approval. I want you to copy this approach going
+  forward."* Every video skill follows [PRE-RENDER-APPROVAL.md](PRE-RENDER-APPROVAL.md): look options, then EVERY graphic as a still
+  screenshot on its real frame (Dan edits the text and approves each), then moving previews, every clip (AI: concept, frames,
+  motion), then the finished FIRST MINUTE, and only when nothing is pending the full video. One round per session, decisions
+  recorded with hashes and Dan's words, a handoff at the end of each round. This supersedes the 30-second and 60-90 s sample rules below.
 
 ## Approve the opening, all graphics and clips before a full render (Dan, 2026-09-26)
 
@@ -81,8 +177,8 @@ something that we can publish."* Every point below is a standing rule for every 
   not used.
 - **Effort before tokens.** *"Putting effort into it, not doing the color correction, not getting the cropping right, not doing the
   graphics right, that's a big waste of tokens. We need to avoid making any videos like this in the future."* Style (grade, graphics,
-  transitions) is proven on stills and one finished 60-90 s sample section against Muhammad side by side BEFORE the full video is
-  built. Ten rounds of reactive defect-fixing on a cut whose style was never right is the waste he means.
+  transitions) is proven in small rounds (look options, each graphic as a screenshot, the finished first minute) BEFORE the full
+  video is built (the round method above). Ten rounds of reactive defect-fixing on a cut whose style was never right is the waste he means.
 
 ## A before and after picture are the SAME PERSON (Dan, 2026-09-12)
 
@@ -248,6 +344,12 @@ something that we can publish."* Every point below is a standing rule for every 
 - **Measured 2026-08-27, not assumed.** Four concurrent builds drove the Mac mini (10 cores) to a load average of **242 with 0% idle**, and made `finish_audio.py` take **126 seconds against 13.6 seconds on a quiet machine — a 9.3x latency penalty.**
 - **It buys nothing.** x264 already threads across all 10 cores, so extra concurrent builds do not raise throughput; they only timeslice. The sole headroom is the ~19% of a build that is single-threaded Python (PIL graphics, Whisper), which is why **two** builds overlap usefully — one build's Python runs under another's encoding — and a third is pure loss.
 - This is the largest available speedup in the video pipeline: worth more than the three candidate software optimizations and a new Mac combined, and it costs nothing. Full numbers: `.claude/skills/_shared/timing/REPORT_20260827_build_timings.md`.
+- **Exception: upload and setup encodes run anyway, on the hardware encoder at lowest priority (Dan, 2026-09-30).** When a
+  `/video-setup` or `/ad-setup` task needs a platform copy (Blotato's 400 MB cap, a TikTok cover-first copy) and two or
+  more builds are already running, do not wait for a slot: run it as `nice -n 20 ffmpeg -hwaccel videotoolbox ...
+  -c:v h264_videotoolbox ... -c:a copy`. The Mac's media engine does the work, so it barely touches the CPU the cap
+  protects. Dan approved this on RO-05 (load ~300, four builds running). It covers setup/upload copies only; editing
+  renders, QC, transcription and x264 encodes still obey the two-build cap.
 - **Never run a pipeline script inside another session's live build directory** — it will overwrite intermediates that session is reading. Work in a scratch copy.
 
 ## Video review refinements — C1652 R3 (Dan, 2026-09-17)
@@ -257,7 +359,7 @@ something that we can publish."* Every point below is a standing rule for every 
 - **No added camera movement in horizontal16:9 presenter footage.** Do not pan, drift, track or recenter just because Dan shifts slightly. Keep a fixed composition within the shot; preserve approved framing sizes and deliberate cuts unless separately rejected. Check rendered footage, not just a fixed-center setting.
 - **Requested AI narrative clips require actual motion.** A static frame, start/end montage, slow image pan or brief motion fragment followed by a held endpoint is not a completed clip. Generate and validate the intended motion from approved assets; do not ask again for unchanged approved frames. This does not prohibit real photo displays or specifically approved scientific still illustrations.
 - **Three-photo screen template:** use three vertical real studio portraits with distinct poses and consistent presentation proportions; plural disclosure “Real pictures of me — not AI-generated,” clear of faces/abs. Save the tested layout for reuse.
-- **Organic graphics:** imitate Muhammad’s actual moving graphics, including lower-thirds and full-screen treatments. Use self-contained titles that name the topic. Specific approvals with limited requested edits take precedence over a general redesign; for C1652's Zepbound/stakes lists, enlarge text as requested and preserve the otherwise approved panel design.
+- **Organic graphics:** Soft Blue Light (GRAPHICS-STANDARDS.md, 2026-09-26) replaced the Muhammad graphics rebuild; lower thirds and full-screen treatments come from `softblue.py`. Use self-contained titles that name the topic. Specific approvals with limited requested edits take precedence over a general redesign; for C1652's Zepbound/stakes lists, enlarge text as requested and preserve the otherwise approved panel design.
 
 ## Horizontal footage stays completely static — Dan, 2026-09-17
 
@@ -292,3 +394,7 @@ Read [GRAPHICS-STANDARDS.md](GRAPHICS-STANDARDS.md) before designing or revising
 - Match each demonstration to the words being spoken. Show correct form while Dan gives the positive instruction, then show the mistake when he warns against it. If he returns to a positive instruction, return to correct form or the presenter. Set picture cuts from the heard words and check moving action on both sides of every cut. Swapping clips at their old boundaries is not enough if the result still contradicts the narration. DS-18 R7 demonstrates this for weight placement, toe direction, back position and glute squeeze versus hip thrust.
 - When a form detail is hard to see, point to the relevant body part or equipment with green arrows for correct form and red arrows for the mistake. The color, label and visible action must agree. Keep arrows on the target as it moves, clear of captions and the teaching action. Do not add arrows to a shot with no specific feature to point out.
 - A recurring overlay needs a clear teaching purpose. Check it against the narration, captions and action; omit it when it repeats information without helping the viewer. When removing one element from a combined graphic layer, preserve unrelated approved elements in that layer.
+
+## Default jump-cut and junk-footage pass (Dan, 2026-09-29)
+
+Every new video edit and revision runs [CUT-CONTINUITY-QC.md](CUT-CONTINUITY-QC.md) by default, starting with selected source footage before the first approval preview and repeated on the exact final candidate. Inspect every source/picture join, including composite internals and cutaway entrances/exits. Remove uncovered presenter jumps using distinct fixed wide/tight cuts or complete approved clip cover; pose matching alone does not clear a same-framing jump. Detect confirmed unscripted sounds, empty lead-ins, unnecessary pauses and looking away while resetting, then remove them without clipping words, stripping normal breaths or removing purposeful teaching pauses. Review native consecutive frames and moving/audio context, record each repair, and inspect every new boundary. Detector/ASR flags require actual source verification. This supplements existing gates and preserves still/frame, motion and full-render approval requirements. Do not retrofit already approved masters without scoped revision authorization.

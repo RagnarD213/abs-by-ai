@@ -32,4 +32,4 @@
 > Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/RO-02-the-vacuum-explainer.md`: transcribe the rolls, map the takes to the script, and cut "The Vacuum: The Best Ab Exercise For Belly Fat" into a finished 16:9 first cut with /longform-edit to the approved organic standard (Zeeshan's ab wheel videos). Fill the B-roll and graphics cues, audio through the shared chain, every gate, independent audit, deliver master + SRT + chapters, send me the review copy, update the master list.
 
 **Codex (GPT-6 Astra, high):**
-> Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-02-the-vacuum-explainer.md` with `$abs-edit-organic` and the frozen organic recipe. Deliver master + SRT + chapters, send Dan the review copy, update `00-MASTER.md`.
+> Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-02-the-vacuum-explainer.md` with `$long-form-content-edit` and the frozen organic recipe. Deliver master + SRT + chapters, send Dan the review copy, update `00-MASTER.md`.

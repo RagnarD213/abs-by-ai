@@ -29,7 +29,7 @@ run, and drops out of the totals — the gap is stated rather than papered over.
 
 Reads on `META_ADS_TOKEN` (system user `abs-automation`, never expires, `ads_read`
 among its scopes). The Business Settings token UI silently fails for ads scopes;
-it was minted via `POST /{system_user_id}/access_tokens` with `appsecret_proof`.
+it was minted via `POST /{system_user_id}/access_tokens` with `appsecret_proof`. Re-minted 2026-09-29 with `instagram_manage_insights` added (for the auto-boost follower counts); `public_profile` must now be left out of the scope list or the mint fails.
 The original diagnosis, kept for the day it has to be redone:
 
 #### Why the old stored token could not work

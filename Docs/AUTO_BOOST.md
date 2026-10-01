@@ -1,4 +1,9 @@
-# IG auto-boost — every new @danrosefit post gets a $5 test, one champion runs at $6.50/day
+# IG auto-boost: every new @danrosefit post gets a $10 test, one champion runs at $6.50/day
+
+**Changed 2026-09-29 (Dan's decisions):** tests are **$10** (was $5) and the champion is the post with the **lowest
+estimated cost per follower** (was cost per profile visit). Spec: `Handoffs/handoff-20260929-ig-autoboost-cost-per-follower.md`
+(executed). The paragraph below describes the original build; where it says $5, $4.50, 10 visits or cost per visit, read the
+"How follows are estimated" section instead.
 
 **Built 2026-09-02** from `Handoffs/handoff-20260902-ig-auto-boost.md`. **Switched LIVE 2026-09-08 ~21:00 UTC**
 (Dan's word; `AUTO_BOOST_ENABLED=1` on the `auto-boost` service). The first live pass renamed the campaign and
@@ -28,7 +33,8 @@ money already committed to running tests so the cap holds even when Meta's numbe
 | the ledger | **Meta.** The post id is in the ad-set / ad name — `REEL \| <title> \| TEST::<media_id>` (also `CHAMPION::`, `RETIRED::`) — so "was this post tested?" is answered by Meta and a re-run can never double-create |
 | the memory | Postgres `auto_boost_events` (skip / created / verdict / promote / pair_resolved / champion_paused / scale_candidate) and `auto_boost_runs` (one report per run; the brief reads the latest) — both created by the job itself, idempotently |
 | the brief | `scripts/ads/ads-digest.js` reads the latest run into `brief-ads.json` as `autoBoost`; the morning brief renders an **"Auto-boost"** block (spec in the morning-brief task's `SKILL.md`) |
-| the tests | `node scripts/ads/auto-boost.test.js` — 48 cases pinning every rule to Dan's numbers |
+| the tests | `node scripts/ads/auto-boost.test.js`: 69 cases pinning every rule to Dan's numbers |
+| follower history | Postgres `auto_boost_follows_daily` (day, new followers). Instagram keeps only ~30 days, so every run upserts what it can see |
 
 Campaign `120250753198730682` ("[AUTO] IG PROFILE VISITS - danrosefit"), champion ad set
 `120250753601020682` ("CHAMPION"), ad account `act_2143998876461525`, Page `1380236418500031`,
@@ -60,29 +66,58 @@ A dry run also records a `dry_run=true` row in `auto_boost_runs` so the brief ca
 
 To make a local run LIVE (it will spend): `AUTO_BOOST_ENABLED=1 node scripts/ads/auto-boost.js`.
 
-## Follower baseline — the manual check the job cannot do
+## How follows are estimated (method B, since 2026-09-29)
 
-Follows are not readable through the API (next section), so cost-per-follow is measured by hand from the
-account's follower count. **Baseline: @danrosefit had 566 followers on 2026-09-08 ~21:00 UTC at $40.02
-lifetime campaign spend** (read via `GET /17841401601139982?fields=followers_count`). No earlier baseline was
-ever recorded. Weekly: read the count again, subtract, divide the spend since by the follows since. Over $5 a
-follow with $35+ spent → pause the champion by hand (the job's rule, applied manually); under $3 → scale.
+`META_ADS_TOKEN` now carries `instagram_manage_insights` (added to app `1598463548528030` under Use cases →
+Instagram API → Permissions and features; token re-minted by API 2026-09-29 without `public_profile`, which the mint
+now rejects; never expires). What that unlocked, tested on the live account:
+
+- `GET /17841401601139982/insights?metric=follower_count&period=day` works: new followers per day, last 30 days.
+  Each value's `end_time` is the END of its day (07:00 UTC), so it counts for the calendar day before.
+- `GET /{media}/insights?metric=follows` works on IMAGE posts but counts **organic follows only** (the champion
+  image with 448 paid visits reads `follows=0`, `profile_visits=4`), and on REELS Meta refuses `follows`,
+  `profile_visits` and `profile_activity` outright. So method A (per-post follows) is **rejected**.
+
+**Method B, what the job uses:** each day's new followers are split across that day's running ads in proportion
+to their profile visits. A post's estimated follows = the sum of its daily shares; estimated cost per follower =
+its spend on settled days / its estimated follows. A day counts once it is **2 days old** (the newest value is
+often a provisional 0). Organic follows are spread the same way, so the number **ranks posts, it is not a true
+cost**. Within one day it reduces to cost per visit; it separates posts only across days.
+
+Rules: a test is judged at $9 spent or 5 days, and only once its last day has settled (`wait` until then). It
+needs **at least 2 estimated follows** (Claude's default, not Dan's: $10 at ~$3 a follower buys ~3) and must beat the
+champion's estimated cost per follower over its **last 7 settled days**; ties keep the champion. Champion health:
+over $5/follower with $35+ spent → paused; under $3 → reported as a scale candidate. `--backfill` prints the
+estimate for every post of the last 30 days, by post and by type.
+
+**Caveat (2026-09-29 analysis):** day to day, new followers barely move with ad visits (correlation about 0.1 to
+0.2 in either day alignment; roughly 5 a day whether visits were 50 or 180; 3 to 4 a day on Aug 31 and Sep 1,
+before ads). A large share of the "estimated follows" is organic, so treat small differences as noise.
+
+**Caps vs $10 tests:** at ~35 posts a month, tests alone would be ~$350, so the $300 test cap stops new tests in
+the last days of a month. Caps unchanged; raising them is Dan's call.
+
+## Follower readings
 
 | reading (UTC) | followers | lifetime spend | visits | since previous |
 |---|---|---|---|---|
 | 2026-09-08 ~21:00 | 566 | $40.02 | 418 | baseline |
-| 2026-09-11 14:49 | 586 | $80.45 | 747 | +20 follows / $40.43 = **$2.02/follow**, 6.1 % of visits followed → scale candidate |
+| 2026-09-11 14:49 | 586 | $80.45 | 747 | +20 follows / $40.43 = **$2.02/follow**, 6.1 % of visits followed |
+| 2026-09-29 19:20 | 654 | $298.37 | 2,999 | +68 / $217.92 = **$3.20/follow** all-in, 3.0 % of visits |
 
-Spend in the last column is ALL campaign spend (champion + tests), so cost/follow is all-in. Next reading compares
-against the latest row. The count is net of every source; organic IG photo posts report 0 follows each (Blotato
-analytics), so the ads account for nearly all of it.
+Net of unfollows and of every source. Gross new followers from `follower_count`: 138 in the 30 days to Sep 28.
 
-**The ads token cannot read Instagram insights.** `META_ADS_TOKEN` lacks `instagram_manage_insights`, so
-`/{ig-user}/insights` (follower_count, profile_views) and `/{media}/insights` both return error #10, and
-`business_discovery` is refused the same way. `followers_count` on the IG user still works. Per-post organic reach,
-watch time, shares and (photo posts only) follows come from Blotato: `blotato_list_top_posts` / `blotato_get_post_analytics`.
+**Backfill 2026-09-29** (settled through Sep 27): IMAGE 14 posts, $162.48, 62.8 est. follows = **$2.29/follower**
+(3.1 per 100 visits); REEL 18 posts, $134.64, 62.2 est. follows = **$2.13/follower** (6.5 per 100 visits). The reel
+total is carried by the retired first-run reel "A three-minute total body workout" ($1.31/follower on $61, mostly
+Sep 2 to 11); individual reel TESTS ran $3 to $20 per follower, image tests $1.40 to $4. Champion then: "Three-minute
+rounds at home" IMAGE, $1.80/follower lifetime, $2.04 over its last 7 settled days.
 
-## The two metric names — one verified, one still to match (read this before trusting a verdict)
+The Sep 26 reel test "Never start your day with carbs" had its creative refused ("Permissions error", subcode
+1487194) while the ad account was inactive for billing; relaunched by hand at $10 on 2026-09-29 (ad
+`120251239324840682`, event `relaunched`). If a skip reason is that error, retry once the account is active.
+
+## The two metric names (history: follows are now estimated as above, not read from ads insights)
 
 Probed against the live account on 2026-09-02, zero-spend, everything deleted afterwards:
 
@@ -134,7 +169,7 @@ skip list; the job adds a post to it only when Meta refuses that specific post.
 ## Switching it off
 
 Set `AUTO_BOOST_ENABLED=0` on the Railway `auto-boost` service (or delete the variable). Running
-tests keep spending to their $5 and then stop on their own — a lifetime budget needs no supervision.
+tests keep spending to their $10 and then stop on their own: a lifetime budget needs no supervision.
 The champion keeps running at $6.50/day until someone pauses ad set `120250753601020682`. Nothing the
 job does is a deletion: ads are paused and renamed, never removed, so the history stays in Meta.
 

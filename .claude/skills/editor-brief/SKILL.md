@@ -1,7 +1,13 @@
 ---
 name: editor-brief
-description: Write the job briefing document Dan sends to a freelance video editor for a BATCH of videos: the terms (never a price; the editor quotes first), links to every raw roll, the asset inventory, the scripts document, the quality standard stated as measurements, and the compliance rules. Use whenever Dan asks for a job brief, a project brief, an editor briefing, a "document for the editor", or to brief out the rest of a shoot, even if he doesn't say "/editor-brief". For reviewing a cut an editor has already delivered use /revisions; for cutting the video ourselves use /ad-edit or /longform-edit.
+description: >
+  Write the job briefing document Dan sends to a freelance video editor for a BATCH of videos: the terms (never a price; the editor quotes first), links to every raw roll, the asset inventory, the scripts document, the quality standard stated as measurements, and the compliance rules. Use whenever Dan asks for a job brief, a project brief, an editor briefing, a "document for the editor", or to brief out the rest of a shoot, even if he doesn't say "/editor-brief". For reviewing a cut an editor has already delivered use /revisions; for cutting the video ourselves use /ad-edit or /longform-edit.
 ---
+
+## Default cut and source cleanup requirements (Dan, 2026-09-29)
+
+Use [CUT-CONTINUITY-QC.md](../_shared/CUT-CONTINUITY-QC.md) when specifying the editor's quality checks. Require every source/picture splice to have a clean, distinct fixed framing cut or appropriate clip cover, with no uncovered presenter pose jump or brief framing flash. Require inspection/removal of confirmed unscripted noises, empty lead-ins, unnecessary pauses and camera-away resets while preserving full words, breaths and meaningful teaching action. Include these outcomes in the brief using ordinary language; the shared reference contains methods for pipeline sessions. Existing asset/frame and full-render approvals still apply.
+
 
 # /editor-brief — the job briefing document for a freelance editor
 

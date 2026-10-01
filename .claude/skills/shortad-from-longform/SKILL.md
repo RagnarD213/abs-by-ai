@@ -5,9 +5,31 @@ description: Rebuild a FINISHED, finalized long-form video as a vertical 9:16 sh
 
 Read `_shared/VIDEO-RULES.md` first.
 
+## Cutdowns stand alone: show the whole exercise, not a detail of it (Dan, 2026-09-30)
+
+Applies to every <=0:59 cutdown of a long-form ad. Full rule: [VIDEO-RULES.md](../_shared/VIDEO-RULES.md#shorts-stand-alone-show-the-whole-exercise-not-a-detail-of-it-dan-2026-09-30).
+
+- **A short must make complete sense to a viewer who never saw the long-form.** Leave out details that only work
+  with the full video's context: a set-up step, a position check, a reference back to something said earlier.
+- **When a short tells the viewer to do an exercise, show the whole exercise briefly:** a few complete reps (a demo or
+  live-round clip from the same source), not an isolated detail of it. A detail cue (grip, thumbs, arm angle, elbow
+  height) stays only when the complete movement is also on screen in the same short.
+- Dan, approving SL-04 short 1 round 3: *"we want to avoid including details in it that won't be understood if the
+  viewer didn't watch a full long form... if we say to do a certain exercise, rather than just showing individual
+  details that don't make sense without full context, show the full exercise briefly."* Why: round 2 ended on the
+  side-lateral arm-angle set-up with no exercise shown (*"It's not clear why I'm showing them the arm angle when I
+  don't show the complete exercise"*); round 3 replaced it with his thumbs cue plus live-round reps and was approved.
+- How to apply: at segment selection, for every exercise a candidate names, write down where its complete movement is
+  (inside the segment, or another range of the same source to append, e.g. the live round). A candidate whose exercise
+  never appears whole is either paired with a range that shows it or dropped. The reviewer checks it on the delivered file.
+
+## Default jump-cut and junk-footage QC (Dan, 2026-09-29)
+
+Follow [CUT-CONTINUITY-QC.md](../_shared/CUT-CONTINUITY-QC.md) during source selection, before approval previews, and on the exact final candidate. Inspect every actual source/picture join, including reused composites, for a presenter jump without a distinct fixed wide/tight cut or complete approved clip cover. Fix uncovered jumps and recheck every boundary the repair creates. Detect and remove confirmed unscripted noises, empty lead-ins, unnecessary pauses and off-camera resets while protecting complete words, natural breaths and teaching action. Native consecutive frames plus moving/audio context are required; sparse scans and ASR alone cannot clear a join or authorize deletion. Keep the current still/frame, motion and full-render approval boundaries. This dated rule supersedes older suggestions that a pose match or audio fade alone clears a naked cut.
+
 ## Approval before the full render (Dan, 2026-09-26)
 
-Follow [PRE-RENDER-APPROVAL.md](../_shared/PRE-RENDER-APPROVAL.md): approve the first 30 seconds with color/audio, every graphic with surrounding speech, every selected clip in context, and AI start/end frames followed by finished clips before rendering the complete film. Preserve unchanged approvals and explicit sample waivers. Use [Soft Blue Light and the Motivation lower third](../_shared/GRAPHICS-STANDARDS.md). One useful point belongs in a compact lower third, not a large empty card. While approval is pending, prepare plans and isolated previews only; do not build a full placeholder film. This workflow supersedes older full-build and 60-90-second sample directions below.
+> **ROUND METHOD, READ FIRST (Dan, 2026-09-28):** follow [PRE-RENDER-APPROVAL.md](../_shared/PRE-RENDER-APPROVAL.md), Codex's stepwise approach. Never one-shot a video. In order, each its own small round with a handoff: (1) look: colour/crop/audio options; (2) EVERY graphic as a still screenshot on its real frame with exact copy, times and the speech around it, Dan edits and approves each, then moving previews; (3) every clip in context, AI clips concept, then start/end frames, then motion; (4) the FIRST MINUTE finished; (5) only then the full video. Record every decision with hashes; show only what changed; 2-3 options max. Graphics are [Soft Blue Light](../_shared/GRAPHICS-STANDARDS.md) ([how](../_shared/SOFTBLUE.md)). This overrides any older "one shot", "full v1 then revise" or "sample then full cut" instruction below. **For a vertical or square adaptation:** before the full build, show the first minute (30 s for a cutdown under two minutes) in the new layout and one screenshot per re-laid graphic; a format-only conversion keeps the approved graphics and needs only the layout sample.
 
 ## Graphics: Soft Blue Light in every video (Dan, 2026-09-26)
 
@@ -15,6 +37,7 @@ Every new or revised graphic uses the approved Soft Blue Light family, and every
 
 For format conversions: reproducing an approved editor's finished style (this skill's main job) keeps that film's approved graphics. When Dan requests new or revised graphics in the vertical or square, build them with `softblue` instead of the editor's palette.
 
+**Left-third text/list graphics (Dan, 2026-09-28):** use the approved 3A card exactly in every horizontal video (`softblue.left_third`, fixed presenter via `softblue.shift_presenter`); squares put the full-width card at the bottom; verticals keep the full-frame camera crop with the card over it at the bottom (locked 2026-09-28); never the card mid-frame over Dan. Spec and references: the 3A section of [GRAPHICS-STANDARDS.md](../_shared/GRAPHICS-STANDARDS.md). Adapt only the heading and points, and show one short contextual sample before a full edit.
 
 # /shortad-from-longform — a finished long-form cut, rebuilt vertical
 

@@ -1,0 +1,371 @@
+{
+  "status": "PASS",
+  "posts": 24,
+  "images": 48,
+  "single_image_posts": 18,
+  "carousels": 6,
+  "distinct_shirtless_sources": 24,
+  "styles": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "caption_count": 24,
+  "waistband_crop_ids": [
+    "S01-C",
+    "S06-C",
+    "S08-C"
+  ],
+  "no_scheduling_or_publishing": true,
+  "visual_review": "Every final image reviewed at phone size. All six sequences reviewed in order. Both hips checked in three tight crops. Full hair, unobstructed face and abs, text placement, spelling and cutout edges inspected.",
+  "browser_review": "Style filter and full-size viewer verified. Next-slide navigation opens slide 2 of 5.",
+  "font_check": "Explicit glyph outlines used for export; all text within horizontal safe bound.",
+  "generation": {
+    "tool": "built-in image_gen",
+    "calls": 3,
+    "reported_cost": null
+  },
+  "files": [
+    {
+      "file": "S01-A-01.jpg",
+      "width": 1080,
+      "height": 1350,
+      "color_profile": "sRGB",
+      "sha256": "22632d3534ce42c62ac9f2588200f3dc19ba4c0555d3b78e5fe2c6d9c141b387"
+    },
+    {
+      "file": "S01-B-01.jpg",
+      "width": 1080,
+      "height": 1350,
+      "color_profile": "sRGB",
+      "sha256": "8d88cc3a87e313c3bc599afd03204de9ea4a26a88e0cebd8afbd15df2aa548d2"
+    },
+    {
+      "file": "S01-C-01.jpg",
+      "width": 1080,
+      "height": 1350,
+      "color_profile": "sRGB",
+      "sha256": "b1d33fcacb94c5973571d7a8813651fce9a9ab1e369011d2539a6c5142430d1c"
+    },
+    {
+      "file": "S02-A-01.jpg",
+      "width": 1080,
+      "height": 1350,
+      "color_profile": "sRGB",
+      "sha256": "dd5aa14e0696996b3554e53c4a3f7323889818421c0b249701ece9d96a09941c"
+    },
+    {
+      "file": "S02-B-01.jpg",
+      "width": 1080,
+      "height": 1350,
+      "color_profile": "sRGB",
+      "sha256": "bcf682387e15d28463be7d3a0b4b584ceb660d6f1c534ee7a56e5b585079e9da"
+    },
+    {
+      "file": "S02-C-01.jpg",
+      "width": 1080,
+      "height": 1350,
+      "color_profile": "sRGB",
+      "sha256": "989478b1d49b240e2eacc06e7b4e2e4b3f6a685f5a48cf6fc6df88f80411ed66"
+    },
+    {
+      "file": "S03-A-01.jpg",
+      "width": 1080,
+      "height": 1350,
+      "color_profile": "sRGB",
+      "sha256": "ee35c083867d0db45e16a86fbbc9fd87355da9682f44ecd15042eaae20a71e0f"
+    },
+    {
+      "file": "S03-B-01.jpg",
+      "width": 1080,
+      "height": 1350,
+      "color_profile": "sRGB",
+      "sha256": "b5a082335a1cfbdece73c87688c298373f869c52b40da71f1f6d567de6ef7509"
+    },
+    {
+      "file": "S03-C-01.jpg",
+      "width": 1080,
+      "height": 1350,
+      "color_profile": "sRGB",
+      "sha256": "f0b0d9b450b634aac6f408e7d1501eede1b38a773519651f02835bd40a707946"
+    },
+    {
+      "file": "S04-A-01.jpg",
+      "width": 1080,
+      "height": 1350,
+      "color_profile": "sRGB",
+      "sha256": "0055c97c7bfb9559701a385cb655d381ad6a28b1c46aa0a6d74522023f9b0146"
+    },
+    {
+      "file": "S04-B-01.jpg",
+      "width": 1080,
+      "height": 1350,
+      "color_profile": "sRGB",
+      "sha256": "95950c9158e91333422aaa7c80341de5c9585e8b43630f55554e6c002cf20e3d"
+    },
+    {
+      "file": "S04-C-01.jpg",
+      "width": 1080,
+      "height": 1350,
+      "color_profile": "sRGB",
+      "sha256": "8cda3084d5e0c3277ddb0e94ae460c07d77c1b8ecc23b2063356df054face94f"
+    },
+    {
+      "file": "S05-A-01.jpg",
+      "width": 1080,
+      "height": 1350,
+      "color_profile": "sRGB",
+      "sha256": "d1f6236a10d2d0dbdb960f3556182c3c33825e6a7c8fbe19275ac011e27e28bb"
+    },
+    {
+      "file": "S05-B-01.jpg",
+      "width": 1080,
+      "height": 1350,
+      "color_profile": "sRGB",
+      "sha256": "f07bdd4ab0acdb4968d890a9ac34864e9a68615a234f9e9a9aa7da7b77a0a1f1"
+    },
+    {
+      "file": "S05-C-01.jpg",
+      "width": 1080,
+      "height": 1350,
+      "color_profile": "sRGB",
+      "sha256": "40fd766e211680d72025d858c859a4c3d38d84e3c1b9acfcbb2c7f3568bfd1a2"
+    },
+    {
+      "file": "S06-A-01.jpg",
+      "width": 1080,
+      "height": 1350,
+      "color_profile": "sRGB",
+      "sha256": "10fa90bf8ca4ddc0fca042600b81ece2a900658d16d092e2ec7232f40cca14b6"
+    },
+    {
+      "file": "S06-B-01.jpg",
+      "width": 1080,
+      "height": 1350,
+      "color_profile": "sRGB",
+      "sha256": "a9da6a104ad0cab343032cc1f86570c9b9dad8fed54d904e4580679f9200a6bb"
+    },
+    {
+      "file": "S06-C-01.jpg",
+      "width": 1080,
+      "height": 1350,
+      "color_profile": "sRGB",
+      "sha256": "bc2fe6ae2a1c5eb4ba30b667889639f683921fbf2117a0ceadd62e97337bf324"
+    },
+    {
+      "file": "S07-A-01.jpg",
+      "width": 1080,
+      "height": 1350,
+      "color_profile": "sRGB",
+      "sha256": "47e2df07bfe4952d019dca4731b7acb3cf2569783389c5ae0feff5602d678d9e"
+    },
+    {
+      "file": "S07-A-02.jpg",
+      "width": 1080,
+      "height": 1350,
+      "color_profile": "sRGB",
+      "sha256": "17003caef30cf19e9b236a1ccf1086046ea962c0f545ccc38546fdd0ed786b9f"
+    },
+    {
+      "file": "S07-A-03.jpg",
+      "width": 1080,
+      "height": 1350,
+      "color_profile": "sRGB",
+      "sha256": "8563796a68c97db59b2d86a45e255c3598cbc8ee0cde7c2dd812cce62aecd0aa"
+    },
+    {
+      "file": "S07-A-04.jpg",
+      "width": 1080,
+      "height": 1350,
+      "color_profile": "sRGB",
+      "sha256": "147e1d97487f5c820851b2839c2b2624829389170f026da7b00221060ee3e8a7"
+    },
+    {
+      "file": "S07-A-05.jpg",
+      "width": 1080,
+      "height": 1350,
+      "color_profile": "sRGB",
+      "sha256": "7dc1b965a54ecbf9ca512afe347b4ee384f10c11a7317a500eeb98d45e2c75e2"
+    },
+    {
+      "file": "S07-B-01.jpg",
+      "width": 1080,
+      "height": 1350,
+      "color_profile": "sRGB",
+      "sha256": "68f8162f743fe42d37e42005b9f81e3519e7045c3885e5dbc98a4833670b8118"
+    },
+    {
+      "file": "S07-B-02.jpg",
+      "width": 1080,
+      "height": 1350,
+      "color_profile": "sRGB",
+      "sha256": "4c33bd67c0c428c1a8c51b59dfeac0abd6ed95b7051f9f8bb9b353385fe75a95"
+    },
+    {
+      "file": "S07-B-03.jpg",
+      "width": 1080,
+      "height": 1350,
+      "color_profile": "sRGB",
+      "sha256": "59957a91a241502d2ad0631e91825b55854afb98576190eab1eddceb50c94b7b"
+    },
+    {
+      "file": "S07-B-04.jpg",
+      "width": 1080,
+      "height": 1350,
+      "color_profile": "sRGB",
+      "sha256": "4e04df418d896d72c701a61ffdfbb6f612519f03d5ea2ab455a8e9a6df1fffa7"
+    },
+    {
+      "file": "S07-B-05.jpg",
+      "width": 1080,
+      "height": 1350,
+      "color_profile": "sRGB",
+      "sha256": "d92f00afe41a18fd05f44b95b5bdb4a6be4664d8deb99276d6b4c98dab0e6616"
+    },
+    {
+      "file": "S07-C-01.jpg",
+      "width": 1080,
+      "height": 1350,
+      "color_profile": "sRGB",
+      "sha256": "423369269b63691b37a5b3872da4fee99885836e016cf2bd6078d07e81de68ee"
+    },
+    {
+      "file": "S07-C-02.jpg",
+      "width": 1080,
+      "height": 1350,
+      "color_profile": "sRGB",
+      "sha256": "8a9781a48f0144ca29a83818c7c4b15fd37bf54b553d8fb8d8ed64054bdf40cf"
+    },
+    {
+      "file": "S07-C-03.jpg",
+      "width": 1080,
+      "height": 1350,
+      "color_profile": "sRGB",
+      "sha256": "96fe0796715aad7aba3bbc9266224eb560c49d80c89f5a7deadb29f8cfadb8b0"
+    },
+    {
+      "file": "S07-C-04.jpg",
+      "width": 1080,
+      "height": 1350,
+      "color_profile": "sRGB",
+      "sha256": "83b023319f65306769243657615b68385bbfe5faf9c74336c4be012c70d9f2b6"
+    },
+    {
+      "file": "S07-C-05.jpg",
+      "width": 1080,
+      "height": 1350,
+      "color_profile": "sRGB",
+      "sha256": "e6833c7742290defd845557cf0cf1585e3e1f9bb8e5967470709ed9854b1c972"
+    },
+    {
+      "file": "S08-A-01.jpg",
+      "width": 1080,
+      "height": 1350,
+      "color_profile": "sRGB",
+      "sha256": "033bc914d9ba4dbc3354fecd206c455849bb05f252dfa5f7ee3848e6caf99f6f"
+    },
+    {
+      "file": "S08-A-02.jpg",
+      "width": 1080,
+      "height": 1350,
+      "color_profile": "sRGB",
+      "sha256": "c5680c7d0439cf1a569786fc3fe49a0b7826f78e8cb987b7a6187230e4a6bb31"
+    },
+    {
+      "file": "S08-A-03.jpg",
+      "width": 1080,
+      "height": 1350,
+      "color_profile": "sRGB",
+      "sha256": "cd53df109c0950697c84a653f719f9103255be84b079016ac857f75d463cd625"
+    },
+    {
+      "file": "S08-A-04.jpg",
+      "width": 1080,
+      "height": 1350,
+      "color_profile": "sRGB",
+      "sha256": "9812cc04f18ac7371620f75bfa03c58ebbee3645c9df1ea0394a0a7fa7b3ca21"
+    },
+    {
+      "file": "S08-A-05.jpg",
+      "width": 1080,
+      "height": 1350,
+      "color_profile": "sRGB",
+      "sha256": "c2c24c1081eaeb0dc81556058a575c3771ff8a458ccef7c6b70b78ffe61c0779"
+    },
+    {
+      "file": "S08-B-01.jpg",
+      "width": 1080,
+      "height": 1350,
+      "color_profile": "sRGB",
+      "sha256": "5c16236ec16e644fd067493750c5ccc9445d2d3244d72a85752f533fab32a7a3"
+    },
+    {
+      "file": "S08-B-02.jpg",
+      "width": 1080,
+      "height": 1350,
+      "color_profile": "sRGB",
+      "sha256": "ba456989e5a4e0cf44ec087957a6a015167a0a8a533204cf174eef57237a5ab2"
+    },
+    {
+      "file": "S08-B-03.jpg",
+      "width": 1080,
+      "height": 1350,
+      "color_profile": "sRGB",
+      "sha256": "991efba091a1a83e583627dac5a0743f80ed220fd0f3aeed009de6e6c5b99f8f"
+    },
+    {
+      "file": "S08-B-04.jpg",
+      "width": 1080,
+      "height": 1350,
+      "color_profile": "sRGB",
+      "sha256": "fa62f79affc165f70cab3660b102d4731f3334125d14077eac17fce6111373c6"
+    },
+    {
+      "file": "S08-B-05.jpg",
+      "width": 1080,
+      "height": 1350,
+      "color_profile": "sRGB",
+      "sha256": "4f45214e22cf25e7a92d9f6521ce60635b8ce239393b2956ea61e26b7a3c6293"
+    },
+    {
+      "file": "S08-C-01.jpg",
+      "width": 1080,
+      "height": 1350,
+      "color_profile": "sRGB",
+      "sha256": "669573124b918978555d9ba9216c34c92f831566c7add2340e2e3fa88f41d499"
+    },
+    {
+      "file": "S08-C-02.jpg",
+      "width": 1080,
+      "height": 1350,
+      "color_profile": "sRGB",
+      "sha256": "84c1abff617a9cd926e7fd584be6d8cba185c08de989724d9c8d0e36be24f07b"
+    },
+    {
+      "file": "S08-C-03.jpg",
+      "width": 1080,
+      "height": 1350,
+      "color_profile": "sRGB",
+      "sha256": "51a664b93a18f6e4a437ce22b33cf1578829dd1b58557c9a445dacab58eb89e8"
+    },
+    {
+      "file": "S08-C-04.jpg",
+      "width": 1080,
+      "height": 1350,
+      "color_profile": "sRGB",
+      "sha256": "bdc635c343d27e6e5758e3e5911a7b0b119bca92a7f62b8b1d006becac45eb6b"
+    },
+    {
+      "file": "S08-C-05.jpg",
+      "width": 1080,
+      "height": 1350,
+      "color_profile": "sRGB",
+      "sha256": "3742b0d3fec15aaa43fd838cf0162fe3948efe36bc18d49b3ceb68658ea94da1"
+    }
+  ]
+}

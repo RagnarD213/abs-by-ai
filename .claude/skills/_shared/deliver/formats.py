@@ -608,7 +608,12 @@ FORMATS = {
                 # a real finding this gate would have caught, reported rather than accommodated.
                 "container:duration": dict(tolerance_s=0.25),
                 "container:frames": dict(),
-                "audio:stamp": dict(),
+                "audio:stamp": dict(synthetic_ok=True),
+                # 2026-09-28: every exercise demo is narrated by Dan's cloned MiniMax voice, and
+                # exercisegeneration/SKILL.md gates it with `audio_gate.py --synthetic --profile
+                # in-app-demo`, the only correct mode for it. A synthetic stamp is therefore the
+                # expected stamp here, not a weakened one; without this key the row failed all four
+                # batch-5 app encodes that passed the other 38 rows. Scoped to this format only.
                 "audio:stream_integrity": dict(length_tolerance_s=0.15, max_audio_short_s=6.5,
                                                silent_second_dbfs=-50.0, allow_silent_lead_s=1),
                 # Measured 2026-09-11 across the 33 shipped demos in public/exercise-demos:

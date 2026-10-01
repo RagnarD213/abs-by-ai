@@ -447,6 +447,8 @@ The live Ad 10 copy matched `ad10.json`, so it was reused. All four new ads are 
 
 ## 2026-09-27: DS-18 How To Kettlebell Deadlift added as a new ad
 
+**2026-09-28: RETIRED, it was never an ad.** DS-18 is an organic Short (ends "Leave me a comment", no tap-the-button CTA). Dan caught the mistake; both ad groups `201586678778` and `200462519173` were PAUSED via `dgen-ads/ds18-pause-organic.json` after 90 impressions and $0.62. Budget still $50/day. The YouTube upload was switched to Private and it now releases organically through Blotato (`Docs/DS18_SETUP_RECEIPT_20260928.md`).
+
 Dan finalized Codex R8 on 09-25. The master `Short-form video content/ds-18_how-to-kettlebell-deadlift.mp4` matched the
 locked SHA256 `aa7fe8747dcb3a4a8b26e1b32b598c1c502606ee00efe878ee99aaf2d1b60ba2` (81,989,796 bytes) and was uploaded
 once, untouched, as **Unlisted** `CMsb0qbo2vM`. Readback: channel `UC236gjadarHAhEhOMYNGJ9g`, `privacyStatus=unlisted`,

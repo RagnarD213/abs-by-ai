@@ -12,9 +12,13 @@ description: >
 
 Read `_shared/VIDEO-RULES.md` first.
 
+## Default jump-cut and junk-footage QC (Dan, 2026-09-29)
+
+Follow [CUT-CONTINUITY-QC.md](../_shared/CUT-CONTINUITY-QC.md) during source selection, before approval previews, and on the exact final candidate. Inspect every actual source/picture join, including reused composites, for a presenter jump without a distinct fixed wide/tight cut or complete approved clip cover. Fix uncovered jumps and recheck every boundary the repair creates. Detect and remove confirmed unscripted noises, empty lead-ins, unnecessary pauses and off-camera resets while protecting complete words, natural breaths and teaching action. Native consecutive frames plus moving/audio context are required; sparse scans and ASR alone cannot clear a join or authorize deletion. Keep the current still/frame, motion and full-render approval boundaries. This dated rule supersedes older suggestions that a pose match or audio fade alone clears a naked cut.
+
 ## Approval before the full render (Dan, 2026-09-26)
 
-Follow [PRE-RENDER-APPROVAL.md](../_shared/PRE-RENDER-APPROVAL.md): approve the first 30 seconds with color/audio, every graphic with surrounding speech, every selected clip in context, and AI start/end frames followed by finished clips before rendering the complete film. Preserve unchanged approvals and explicit sample waivers. Use [Soft Blue Light and the Motivation lower third](../_shared/GRAPHICS-STANDARDS.md). One useful point belongs in a compact lower third, not a large empty card. While approval is pending, prepare plans and isolated previews only; do not build a full placeholder film. This workflow supersedes older full-build and 60-90-second sample directions below.
+> **ROUND METHOD, READ FIRST (Dan, 2026-09-28):** follow [PRE-RENDER-APPROVAL.md](../_shared/PRE-RENDER-APPROVAL.md), Codex's stepwise approach. Never one-shot a video. In order, each its own small round with a handoff: (1) look: colour/crop/audio options; (2) EVERY graphic as a still screenshot on its real frame with exact copy, times and the speech around it, Dan edits and approves each, then moving previews; (3) every clip in context, AI clips concept, then start/end frames, then motion; (4) the FIRST MINUTE finished; (5) only then the full video. Record every decision with hashes; show only what changed; 2-3 options max. Graphics are [Soft Blue Light](../_shared/GRAPHICS-STANDARDS.md) ([how](../_shared/SOFTBLUE.md)). This overrides any older "one shot", "full v1 then revise" or "sample then full cut" instruction below.
 
 ## Graphics: Soft Blue Light in every video (Dan, 2026-09-26)
 
@@ -22,6 +26,7 @@ Every new or revised graphic uses the approved Soft Blue Light family, and every
 
 For ads: the persistent CTA device, end card and product-demo labels are built from `softblue` components (`lower_third`, `scene_cta`, `glass`). Step 5's J2 lock and lessons 25/83 describe approved historical ads.
 
+**Left-third text/list graphics (Dan, 2026-09-28):** use the approved 3A card exactly in every horizontal video (`softblue.left_third`, fixed presenter via `softblue.shift_presenter`); squares put the full-width card at the bottom; verticals keep the full-frame camera crop with the card over it at the bottom (locked 2026-09-28); never the card mid-frame over Dan. Spec and references: the 3A section of [GRAPHICS-STANDARDS.md](../_shared/GRAPHICS-STANDARDS.md). Adapt only the heading and points, and show one short contextual sample before a full edit.
 
 > **READ FIRST: [`_shared/EDITOR-CARD.md`](../_shared/EDITOR-CARD.md)** — what Codex's approved C1652 R4 long-form and DS-17 short did that Claude's cuts did not (2026-09-17). Hold them for the whole build; start from the last approved recipe, not a blank directory.
 
@@ -113,12 +118,12 @@ a batch.
    filter. `base.py` reads that JSON. **No script writes `pan=mono|c0=c1` again** — on an 8/28 roll
    that takes the far mic or renders silence. It exits non-zero on ambiguity; do not guess.
 2. **`voice_chain.py --in <tight cut> --out <out.mov> [--bed music --bed-db -30] [--extra sfx.wav]`** —
-   the approved rev-2 chain (`audio3.py` is now a shim to it): dereverb only if the room measures
-   > 55 ms, EQ FITTED to his file per roll (never a pasted curve), expander, compressor OFF (his LRA
+   the approved rev-2 chain (`audio3.py` is now a shim to it): NO dereverb by default (opt-in since
+   2026-09-29, `--dereverb-because` on a room measuring > 55 ms that a listener heard), EQ FITTED to his file per roll (never a pasted curve), expander, compressor OFF (his LRA
    is 3.5), centred, bed ≤ −30 dB ducked, measured gain + `alimiter` (never `loudnorm`, which went
    dynamic on rev 1) to −14 LUFS / −2.5 dBTP in PCM. It refuses silent input (a stacked `pan`).
 3. **`audio_gate.py <delivered file> --ab AB.mp4`** on the EXACT delivered file: L/R image, comb
-   ripple, early decay ≤ 80 ms (the chain dereverbs above 55), 10-band tone (mean ≤ 1.2 / max ≤ 2.5 dB), floor between words within
+   ripple, early decay ≤ 80 ms (a fail is the measured half of a dereverb opt-in, not an order to dereverb), 10-band tone (mean ≤ 1.2 / max ≤ 2.5 dB), floor between words within
    3 dB of his, dryness, −14 ±1 LUFS, speech spread, true peak ≤ −1.0 dBTP, zero silent seconds,
    length. It writes `<file>.audio_gate.json` with the file's sha256. **A FAIL is not deliverable**,
    and a re-render without a re-gate fails `require_stamp` on its sha256. Send the A/B (his three
@@ -514,15 +519,15 @@ assertions, re-transcribe flagged joints from the FINISHED render) **plus:**
   check at both ratios.
 - The compliance scan above.
 
-**Review loop (the polish bar for ad #1, per Dan):** the fundamentals — clean
-script-true rough cut, zoom cuts everywhere, demo inserts and clearly-called-for
-graphics — done right in v1, then **expect significant revision rounds** where
-Dan specifies graphics/AI-clip placements. That's the design, not a failure.
-Sequence per ad:
+**Review loop = the round method (Dan, 2026-09-28; `_shared/PRE-RENDER-APPROVAL.md`).** Never a full v1 followed by
+revision rounds on graphics and clips: every graphic and clip is approved before the full render. Sequence per ad, each step
+its own small round closed by a handoff:
 
-1. Take reel for the first minute → Dan's picks.
-2. Full v1 (ad #1: both style variants) → Dan's notes.
-3. Revisions off the segment cache — a one-beat change re-renders in minutes.
+1. Take reel for the first minute, plus the look (2-3 grade options, crop stills, audio) → Dan's picks.
+2. Every graphic as a still screenshot on its real frame (exact copy, times, speech around it) and every clip in context;
+   AI clips concept, then start/end frames, then motion → Dan approves each; then the moving previews.
+3. The first minute (30 s for an ad under two minutes) finished with the approved parts → Dan's approval.
+4. Only then the full v1, from locked parts; revisions off the segment cache (a one-beat change re-renders in minutes).
    Deliver both ratios only once the 16:9 is approved (don't double every
    revision render).
 
@@ -727,7 +732,7 @@ edit's directly and picked HIS. These are the rules that difference came down to
    thin at 400–700 Hz (which makes a voice read as distant). Fix the tilt first, then
    add a gentle downward expander for the tails, then light compression if the reference
    is "flatter" (LRA 3.8 → 1.9 LU here). Note the presence lift we had been adding at
-   3.6 kHz was making the room WORSE. → the gate's tone, dryness and EDT rows; `voice_chain.py` dereverbs when EDT > 55 ms.
+   3.6 kHz was making the room WORSE. → the gate's tone, dryness and EDT rows; `voice_chain.py` dereverbed when EDT > 55 ms until 2026-09-29; it is opt-in now (`_shared/audio/README.md`).
 29. **Re-transcription is the audio QC, and it earns its keep.** An expander at
    threshold 0.030 / ratio 2.4 ate the /f/ in "for free" and the "n't" in "isn't" —
    inaudible in a spot check, obvious as 97.9 % → 96.0 % fidelity. After fixing that,
@@ -1322,7 +1327,7 @@ filmed ads the same way:
 | Music bed ON for filmed ads, CC0/Pixabay (no attribution), chosen by measurement | LOCKED 2026-08-23 (Dan) |
 | Persistent CTA bar DROPPED for ad 1 rev-5; burned captions KEPT | Dan, 2026-08-23 |
 | Paid-ad graphics palette = `motionlib.J2AD`: black field, olive/dark-green headers, white body | Historical: superseded 2026-09-26 by Soft Blue Light (`_shared/softblue.py`) |
-| Minimal graphics first; Dan directs placements; learn | LOCKED |
+| Every graphic approved as a still screenshot, then in motion, before the full render (round method) | LOCKED 2026-09-28 |
 | Negative-imagery scan; remove certain violations, flag unsure ones | LOCKED |
 | NO before/after anywhere, incl. in-app UI; before → other → tagged after | LOCKED (2026-08-20, Dan's #1) |
 | Style: J2 graphics + CTA bar, MadMuscles captions, "abs" lowercase | LOCKED (2026-08-20) |

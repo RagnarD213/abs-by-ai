@@ -46,6 +46,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 - **/start VSL: (baseline 2026-09-15; age unknown)** read script doc `1DL2V34wePN75m1XxAuhpC2nghvobgr4C9RnTyszqqlA`, decide §7 (on-screen line under real
   photos), record. ⚠ Live post-generation video
   says "thousands of guys" (3:16, 3:41); 75 people have ever generated.
+- **VSL sales page (09-30):** mockup APPROVED. Fire `Handoffs/handoff-20260930-sales-page-build.md`; it asks you 5 things once.
 - **@danrosefit Meta ads: (baseline 2026-09-15; age unknown)** raise champion ad set `120250753601020682` $6.50 → $8/day? Confirm both [DAN] [ENGAGEMENT]
   campaigns stay OFF. Report: https://claude.ai/code/artifact/18397bc8-efc4-4554-a440-7961cbaa423d
 - **Fire the phone handoff (updated 09-22):** installs 3 TikTok covers already in Photos. ⏰ Sep 15 train-abs closes
@@ -87,15 +88,20 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
   VIVO stand return: UPS pickup was Mon 09-14 (# 298404F1F6B) — confirm it went. After install a session builds the look-A telemetry file.
 - **Native retest (one phone session): (baseline 2026-09-15; age unknown)** analysis page YouTube iframe (inline vs fullscreen, pauses on leaving); `10eda3b`
   member screens; lock-in → sliders → trial CTA and locked result → analysis → unlock; iOS sandbox Restore purchases
-  (`549946a`); native still shows IAP + account-first.
+  (`549946a`); native still shows IAP + account-first; new demo videos on the russian-twist + reverse-crunch exercise sheets (09-28).
 
 # ACTIVE
 
-**Queue cover installation - HANDOFF 2026-09-28, Codex.** All selections final, including Instagram16 R5; 35 hashes verified. Next: Claude executes `Handoffs/handoff-20260928-install-finalized-queue-covers-claude.md`. Final authority: `Docs/QUEUE_COVERS_FINAL_20260928.json`. Installation deferred to the new task; accounts and queues untouched.
 
-**WV-01 round 8 - HANDOFF READY 2026-09-28, Codex.** `Handoffs/handoff-20260928-wv01-round8-A-only-revisions.md`. A only; accepted direction and mirror preserved. Next: app flow at0:26, exact M100 excerpt, integrated title variants, cumulative benefits, laptop angle, mirror pause and natural pool retry. Dan raised cumulative generation allowance to $20. No media work started. B deferred; dispatcher paused.
+**RO-16 - NEEDS DAN 2026-09-30, Claude.** Round 1 approved; G03 pick pending. Next: round-2 handoff (Opus) builds the full film.
 
-**RO-05 Fable recut - NEEDS DAN 2026-09-25, Claude.** 15:06 review copy delivered; 4 reviews, 0 picture defects; gate fails explained in notes. Next: Dan's verdict. `claude edited long form content/08 - How I Make My Daily Salad (Fable recut)/`
+**Studio batch - NEEDS DAN 2026-09-29, Codex.** Review 24 posts: `http://127.0.0.1:8791/`. Nothing scheduled. Package and Drive link: `output/studio-post-test-24-20260929/README.txt`.
+
+**Stashed edits - NEEDS OWNER 2026-09-29, Claude.** A rebase kept upstream versions of softblue.py, SOFTBLUE.md, GRAPHICS-STANDARDS.md, deliver/gate.py, coverimage SKILL.md, 00-MASTER.md, jobs.json. Uncommitted edits: `stash@{0}` (5d8284a). Next: owner re-applies.
+
+**Queue covers - HANDOFF 2026-09-28, Claude.** All installed; Dan approved the rest. Next: execute crops/grid-shift handoff before Sep 29 5 PM CT. Row 16 R5 re-post still Dan's call.
+
+**RO-05 salad - QUEUED 2026-09-30, Claude.** Oct 18: fire `handoff-20260930-ro05-captions-and-article-after-release.md`.
 
 **STOP Deadlifting clip - NEEDS DAN 2026-09-20, Codex.** R3 review copy delivered to the shared Drive folder: `1dXUbQajUzM-uO_Xl92telO0qsa-Ob7uV`. Full head visible; measured bar path rises once without reversing. Silent B-roll has no matching full-film delivery gate, so no gate PASS is claimed. Next: Dan reviews R3 and approves or names any corrections. Detail: `Media/ai-frames/stop-deadlifting-opening-20260918/motion-v2/R3_DELIVERY.json`.
 
@@ -138,6 +144,8 @@ stamp). Next: after Dan approves, deliver masters and check off the verticals ro
 ⚠⚠ **Vertical build owners (Ads 4/5): the BT.601 colour fault is in your builds (baseline 2026-09-15; age unknown)** — memory `untagged-video-bt601-trap`;
 decode with `accurate_rnd`. Re-copy the skill's `caption_sync_check.py` into `ad3-vert/` / `ad4-vert/` (fixed `/tmp` paths collide).
 
+**SL-04 shorts - QUEUED 2026-09-30, Claude.** Blotato Oct 6-15; delete once posted. `Docs/SL04_SETUP_RECEIPT_20260930.md`.
+
 # BLOCKED — external
 
 **iOS `ccc7a7ae` — REJECTED 2026-09-17: 4.3(b) Spam + 1.1, account warning.** ⚠ No resubmit/reply until Dan
@@ -156,14 +164,18 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
-- `handoff-20260925-sl04-arms-shoulders-shorts-revisions.md` (09-25): SL-04 round 2 fixes. Opus 5.5 high.
-- `handoff-20260924-vsl-landing-five-mockups.md` (09-24): five VSL landing page mockups from VidTao research. Opus 5.5 high. Mockups only.
+- `handoff-20260930-hyperframes-templates-round2.md` (09-30): HyperFrames lower third, before card, 3A list templates. Opus 5.5 high.
+- `handoff-20260930-ro16-round2-opener-motion-then-full-film.md` (09-30): with Dan's G03 pick. Opus 5.5 high.
+- `handoff-20260930-codex-adopt-review-page-format.md` (09-30): Codex adopts the RO-16 review page. GPT-6 Sol medium.
+- `handoff-20260930-sales-page-build.md` (09-30): ship the approved sales page as /start. Opus 5.5 high.
+
+- `handoff-20260928-queue-cover-crops-and-grid-shift.md` (09-28): 8 Hours cover due Sep 29 5 PM CT. Opus 5.5 medium.
 - `handoff-20260924-generator-consult-call-outreach.md` (09-24): fire by 09-26.
-- `handoff-20260923-ro05-recut-fable.md` + `handoff-20260923-ro05-recut-astra.md` (09-23): RO-05 salad recut from scratch after Dan rejected Claude's cut; run both in parallel (bake-off). Fable 5.1 high / Astra high.
+- `handoff-20260929-ro05-round4-motion-decisions-then-full-film.md` (09-29): RO-05 full film, all decisions locked. Opus 5.5 high. (`handoff-20260923-ro05-recut-astra.md`: Codex bake-off half.)
 - `handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md` [dash]: PHONE ONLY, 3 TikTok covers (updated 09-22). Sonnet 5 or Fable 5.1 / Medium.
 - `handoff-20260915-finalized-ads-6-14-youtube-and-google-ads.md` — Ads 6, 7, 10, 14 → YouTube + DGen (2026-09-15). Codex, high.
 - **`video-editing/00-MASTER.md` — THE video-editing list (2026-09-16):** 16 raw short ads, 25 dedicated shorts, 8 long-forms, 3 shorts-from-long-form, 15 ad variants; one doc per job, Claude + Codex prompts. Supersedes the J1–J18 ad-variants queue. Dan picks the order.
-- **Token savings, all Codex (09-18):** `handoff-20260918-claude-video-freeze-and-codex-routing.md` (fire first), `…-shrink-always-loaded-instructions.md`, `…-move-routines-to-codex.md`.
+- **Token savings, all Codex (09-30):** `handoff-20260918-claude-video-freeze-and-codex-routing.md` (fire first), `…-shrink-always-loaded-instructions.md`; routines now `handoff-20260930-codex-dot-00..04` (dot, free launch month). Sol.
 - `handoff-20260917-overnight-edit-queue.md` — Phase 1 built; **Phase 2** next (placeholder flow). Fable or Astra, high.
 - `codex-video-trial/06h-organic-r4-motion-graphics-and-variety.md` — C1652 R4, ready09-17; supersedes executed06f. Astra/High.
 - `handoff-20260912-ad5-vertical-revisions-round2.md` (spec for AV-04) — same man before/after (after picture `13_AFTER_ai-generated_app-demo-man.jpg`

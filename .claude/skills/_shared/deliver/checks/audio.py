@@ -38,7 +38,7 @@ def stamp(key, pr, cfg, plan, video):
     except Exception as e:                                   # noqa: BLE001
         return unmeasured(key, f"_shared/audio/require_stamp.py not importable ({e})")
     try:
-        require_stamp(video, quiet=True)
+        require_stamp(video, synthetic_ok=cfg.get("synthetic_ok", False), quiet=True)
     except BaseException as e:                               # noqa: BLE001
         return Row(key, False, f"no valid audio-gate stamp: {e}")
     want_mode = cfg.get("mode")

@@ -1,0 +1,11 @@
+# Large reproducible media and QA previews are backed up on Drive.
+assets/
+images/
+templates/
+outlined/
+qa/*.jpg
+qa/*.png
+qa/text-bounds.json
+*.zip
+overview.jpg
+fonts.conf

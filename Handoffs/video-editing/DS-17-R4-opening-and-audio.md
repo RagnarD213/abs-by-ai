@@ -14,7 +14,7 @@ Keep the spoken cold open under the new B-roll. Preserve the remaining edit, scr
 
 ## Read first
 
-Read `AGENTS.md`, `AI_COORDINATION.md`, `Handoffs/video-editing/00-RULES.md` in full (Codex column), its linked environment table in `Handoffs/handoff-20260914-ad3-square-codex.md`, and the original `DS-17-how-to-jump-rope.md`. Use `$abs-edit-organic` for source selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Dan's requested full-screen opening overrides the existing header/inset treatment for those first seconds.
+Read `AGENTS.md`, `AI_COORDINATION.md`, `Handoffs/video-editing/00-RULES.md` in full (Codex column), its linked environment table in `Handoffs/handoff-20260914-ad3-square-codex.md`, and the original `DS-17-how-to-jump-rope.md`. Use `$long-form-content-edit` for source selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Dan's requested full-screen opening overrides the existing header/inset treatment for those first seconds.
 
 Read `.claude/skills/_shared/audio/README.md`, the organic adapter's shared standards/workflow, and the current delivery gate README. Check ownership and the two-build limit before any rendering, transcription or QC. Raw footage is read-only. Git contains docs/scripts only; this repository is public. Use `login:false` for shell calls and narrowly scoped Git status (the workspace has a huge unrelated untracked inventory).
 
@@ -98,7 +98,7 @@ The authoritative map is working-root `edit.json`, mirrored in support and `reci
 Deliver R4 master, phone review, audio comparisons, stamps, notes and reproducible recipe. Send Dan the review through the current task; no public posting. Update only DS-17 in `jobs.json`/`00-MASTER.md` through the queue helper and its own coordination entry. Status remains review/revisions, not finalized until Dan explicitly approves. Never add a dashboard row unless asked. Commit/push only this task's docs/scripts, not private media or other sessions' pending work.
 
 Starter prompt:
-> Read `Handoffs/video-editing/DS-17-R4-opening-and-audio.md` and the referenced rules. Continue from the reviewed R3 using `$abs-edit-organic` and `.claude/skills/shorts/SKILL.md`. Find the strongest real jump-rope footage and make the first approximately4 seconds full-screen B-roll. Test a cleaner, natural audio treatment closer to Muhammad, comparing against R3 and preserving it as the fallback. Verify, deliver the revised review and audio comparison, and update the master list. Do not upload or schedule.
+> Read `Handoffs/video-editing/DS-17-R4-opening-and-audio.md` and the referenced rules. Continue from the reviewed R3 using `$long-form-content-edit` and `.claude/skills/shorts/SKILL.md`. Find the strongest real jump-rope footage and make the first approximately4 seconds full-screen B-roll. Test a cleaner, natural audio treatment closer to Muhammad, comparing against R3 and preserving it as the fallback. Verify, deliver the revised review and audio comparison, and update the master list. Do not upload or schedule.
 
 
 ## R4 execution record — 2026-09-17

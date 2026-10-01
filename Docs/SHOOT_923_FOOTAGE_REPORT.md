@@ -61,7 +61,7 @@ takes at the next shoot). The Wispr Flow ScreenFlow demo (started at C1719 1:14)
 | headroom above hair | about 11% | about 23% |
 | recorded loudness / peak | -28 to -30 LUFS / -3 to -6 dBFS, 0 clipped | same |
 | noise floor (voice over floor) | 35 to 56 dB (Muhammad 28 to 35) | 53 to 62 dB |
-| room echo (EDT) | 59 to 64 ms (Muhammad 40; chain dereverbs above 55) | 64 to 67 ms |
+| room echo (EDT) | 59 to 64 ms (Muhammad 40; the chain no longer dereverbs by itself since 2026-09-29, opt-in after listening) | 64 to 67 ms |
 
 ## Editor warnings
 

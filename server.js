@@ -4654,6 +4654,63 @@ async function handleUnsubscribe(req, res) {
 }
 
 app.get('/api/unsubscribe', handleUnsubscribe);
+
+// ============================================================
+// FEEDBACK / TESTIMONIALS (/review page)
+// ============================================================
+// Saves the form, then emails Dan a copy so nothing waits on someone checking
+// the database. Rewards (free month, gift card) are sent by hand.
+const reviewLimiter = rateLimit({ windowMs: 60 * 60 * 1000, max: 10, standardHeaders: true, legacyHeaders: false });
+const REVIEW_USAGE = { signed_up: 'Signed up, have not really used it yet', result: 'Got my AI result', week: 'Used it for about a week', month: 'Used it for a month or more' };
+
+app.post('/api/review', reviewLimiter, async (req, res) => {
+  if (!db) return res.status(503).json({ error: 'Unavailable, please try again later.' });
+  const t = (v, n) => String(v || '').trim().slice(0, n);
+  const email = t(req.body?.email, 254).toLowerCase();
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return res.status(400).json({ error: 'Please enter a valid email.' });
+  const r = {
+    name: t(req.body?.name, 80),
+    usage: REVIEW_USAGE[req.body?.usage] ? req.body.usage : null,
+    why_tried: t(req.body?.why_tried, 2000),
+    first_reaction: t(req.body?.first_reaction, 2000),
+    most_useful: t(req.body?.most_useful, 2000),
+    tell_friend: t(req.body?.tell_friend, 2000),
+    video_ok: req.body?.video_ok === true,
+    consent: req.body?.consent === true,
+  };
+  if (!r.usage) return res.status(400).json({ error: 'Please pick how much you have used the app.' });
+  if (!r.why_tried && !r.first_reaction && !r.most_useful && !r.tell_friend) {
+    return res.status(400).json({ error: 'Please answer at least one question.' });
+  }
+  try {
+    await db.query(
+      `INSERT INTO testimonials (name, email, usage, why_tried, first_reaction, most_useful, tell_friend, video_ok, consent)
+       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9)`,
+      [r.name, email, r.usage, r.why_tried, r.first_reaction, r.most_useful, r.tell_friend, r.video_ok, r.consent]);
+  } catch (e) {
+    console.error('review save failed:', e.message);
+    return res.status(500).json({ error: 'Could not save, please try again.' });
+  }
+  res.json({ ok: true });
+  if (!RESEND_API_KEY) return;
+  const esc = s => String(s || '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const row = (q, a) => `<p style="margin:0 0 4px;color:#888;font-size:13px">${q}</p><p style="margin:0 0 16px;font-size:15px;white-space:pre-wrap">${esc(a) || '<i>(blank)</i>'}</p>`;
+  fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: { 'Authorization': `Bearer ${RESEND_API_KEY}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      from: RESET_FROM, to: MARKETING_REPLY_TO, reply_to: email,
+      subject: `New feedback: ${r.name || email}${r.video_ok ? ' (open to video)' : ''}`,
+      html: `<div style="font-family:-apple-system,Helvetica,Arial,sans-serif;max-width:560px">
+${row('Name', r.name)}${row('Email', email)}${row('How much they used it', REVIEW_USAGE[r.usage])}
+${row('What made you try Abs By AI?', r.why_tried)}${row('What did you think when you saw your AI result?', r.first_reaction)}
+${row('Most useful part so far?', r.most_useful)}${row('What would you tell a friend?', r.tell_friend)}
+${row('Open to a selfie video', r.video_ok ? 'Yes' : 'No')}${row('OK to quote in marketing', r.consent ? 'Yes' : 'No')}
+<p style="color:#888;font-size:13px">Owed: free month + $20 gift card${r.video_ok ? ' (+$30 if they send a video)' : ''}.</p></div>`,
+    }),
+  }).then(async x => { if (!x.ok) console.error('review notify failed:', x.status, (await x.text()).slice(0, 200)); })
+    .catch(e => console.error('review notify failed:', e.message));
+});
 app.post('/api/unsubscribe', handleUnsubscribe);
 
 // Serves a subscriber's stored before/after image for the welcome email.
@@ -4936,7 +4993,7 @@ async function sendSetPasswordEmail(email, userId) {
 <p>Set a password so you can log in on any device:</p>
 <p><a href="${link}" style="display:inline-block;padding:12px 22px;background:#111;color:#fff;border-radius:8px;text-decoration:none;font-weight:700">Set my password</a></p>
 <p>Or paste this link into your browser:<br>${link}</p>
-<p>This link works for 7 days. We'll email you 2 days before your trial ends; cancel any time before then from Manage membership and you won't be charged.</p>`,
+<p>This link works for 7 days. Cancel any time before your trial ends from Manage membership and you won't be charged.</p>`,
     }),
   });
   if (!res.ok) console.error('Resend error:', res.status, (await res.text()).slice(0, 300));
@@ -10966,6 +11023,49 @@ async function fulfillProductOrderInner(full, sid) {
 // only dotfile under public/ is .well-known/.
 app.use(express.static(path.join(__dirname, 'public'), { dotfiles: 'allow' }));
 
+// Videos bigger than GitHub's 100 MB file limit ship as numbered pieces in public/video/
+// (<name>.part1, <name>.part2, ...). They are joined once into the temp dir (at boot, or on
+// the first request), then sendFile serves the whole MP4 with Range support like any static
+// file. A whole file of the same name in public/video/ wins (express.static above).
+// Used by /start's WV-01 1080p source.
+const VIDEO_DIR = path.join(__dirname, 'public', 'video');
+const joinedVideos = new Map();
+function joinVideoParts(name) {
+  if (!joinedVideos.has(name)) {
+    const job = (async () => {
+      const partNo = (f) => Number(f.slice(f.lastIndexOf('.part') + 5));
+      const parts = (await fs.promises.readdir(VIDEO_DIR))
+        .filter((f) => f.startsWith(`${name}.part`) && partNo(f) > 0)
+        .sort((a, b) => partNo(a) - partNo(b));
+      if (!parts.length) return null;
+      const out = path.join(require('os').tmpdir(), `absbyai-${name}`);
+      const tmp = `${out}.${process.pid}.tmp`;
+      await fs.promises.writeFile(tmp, '');
+      for (const p of parts) {
+        await require('stream/promises').pipeline(fs.createReadStream(path.join(VIDEO_DIR, p)), fs.createWriteStream(tmp, { flags: 'a' }));
+      }
+      await fs.promises.rename(tmp, out);
+      return out;
+    })();
+    job.catch((e) => { joinedVideos.delete(name); console.error('video join failed:', name, e.message); });
+    joinedVideos.set(name, job);
+  }
+  return joinedVideos.get(name);
+}
+app.get('/video/:name', async (req, res, next) => {
+  if (!/^[\w-]+\.mp4$/.test(req.params.name)) return next();
+  try {
+    const file = await joinVideoParts(req.params.name);
+    if (!file) return next();
+    res.sendFile(file, { maxAge: '7d' });
+  } catch (e) { next(); }
+});
+setTimeout(() => {
+  fs.promises.readdir(VIDEO_DIR).then((files) => {
+    for (const f of files) if (f.endsWith('.part1')) joinVideoParts(f.slice(0, -'.part1'.length)).catch(() => {});
+  }).catch(() => {});
+}, 5 * 1000).unref?.();
+
 // Explicit route for the privacy page (linked as /privacy without .html).
 app.get('/privacy', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'privacy.html'));
@@ -10976,8 +11076,9 @@ app.get('/privacy', (req, res) => {
 // `sources` carries the medical/health citations required by App Store
 // guideline 1.4.1 — it is linked from every in-app report that contains a
 // health calculation or recommendation, and must stay reachable.
-// `start` is the paid-traffic landing page (VSL + one-tap photo hand-off into the app).
-for (const slug of ['terms', 'refunds', 'contact', 'disclaimer', 'faq', 'about', 'how-it-works', 'sources', 'start']) {
+// `start` is the paid-traffic landing page: Dan's sales letter with the WV-01 video (2026-09-30).
+// `start-v1` is the page it replaced (VSL + one-tap photo hand-off), kept for rollback.
+for (const slug of ['terms', 'refunds', 'contact', 'disclaimer', 'faq', 'about', 'how-it-works', 'sources', 'start', 'start-v1', 'review']) {
   app.get(`/${slug}`, (req, res) => {
     res.sendFile(path.join(__dirname, 'public', `${slug}.html`));
   });
@@ -11049,11 +11150,15 @@ setInterval(() => {
   fetch(KEEP_WARM_URL).catch(() => {});
 }, KEEP_WARM_MS).unref?.();
 
-// Trial-ending reminder sweep — hourly. Runs first pass shortly after boot so a
-// due reminder isn't delayed a full hour on deploy.
+// Trial-ending reminder sweep: hourly, first pass shortly after boot so a due
+// reminder isn't delayed a full hour on deploy. OFF since 2026-09-30 (Dan: no
+// reminder email before the trial charges). TRIAL_REMINDER_ENABLED=true on
+// Railway turns it back on.
 const TRIAL_REMINDER_MS = 60 * 60 * 1000;
-setTimeout(() => { trialReminderSweep(); }, 30 * 1000).unref?.();
-setInterval(() => { trialReminderSweep(); }, TRIAL_REMINDER_MS).unref?.();
+if (process.env.TRIAL_REMINDER_ENABLED === 'true') {
+  setTimeout(() => { trialReminderSweep(); }, 30 * 1000).unref?.();
+  setInterval(() => { trialReminderSweep(); }, TRIAL_REMINDER_MS).unref?.();
+}
 
 // Welcome-autoresponder sweep — hourly, first pass shortly after boot. No-op
 // until WELCOME_ENABLED=true (set on Railway once mail.absbyai.com is verified).

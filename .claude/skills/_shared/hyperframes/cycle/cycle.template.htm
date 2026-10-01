@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      /* Soft Blue Light, 3A card family (softblue.py LT_* constants), cycle-diagram variant. */
+      @font-face {
+        font-family: "Poppins";
+        src: url("assets/Poppins-Bold.ttf") format("truetype");
+        font-weight: 700;
+      }
+      :root {
+        --card-fill: rgba(10, 38, 72, 0.91);    /* LT_FILL (10,38,72,232) */
+        --card-edge: rgba(99, 176, 224, 0.706); /* LT_EDGE (99,176,224,180) */
+        --cyan: rgb(151, 223, 253);             /* LT_CYAN heading */
+        --white: rgb(255, 255, 255);            /* LT_WHITE body + divider */
+        --spec: rgb(135, 210, 248);             /* SPECULAR */
+        --red: 235, 64, 64;                     /* BAD: the spiral down */
+        --teal: 45, 212, 191;                   /* the turn around */
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: transparent; }
+      #root { position: relative; width: 100%; height: 100%; font-family: "Poppins", sans-serif; font-weight: 700; }
+      #stage { position: absolute; inset: 0; }
+      #drift { position: absolute; left: 36px; top: 42px; width: 740px; height: 488px; }
+      #card {
+        position: absolute; inset: 0; border-radius: 32px; overflow: hidden;
+        background: var(--card-fill); border: 2px solid var(--card-edge);
+        box-shadow: 0 18px 50px rgba(0, 8, 20, 0.45);
+      }
+      /* light over colour: a soft blue light drifting inside the card (field() blob, scaled down) */
+      #glow {
+        position: absolute; left: -160px; top: -200px; width: 620px; height: 520px; border-radius: 50%;
+        background: radial-gradient(closest-side, rgba(40, 110, 170, 0.42), rgba(40, 110, 170, 0) 100%);
+      }
+      #spec { position: absolute; top: 1px; left: 20px; width: 180px; height: 2px; border-radius: 1px;
+        background: linear-gradient(90deg, rgba(135,210,248,0), var(--spec) 30%, var(--spec) 70%, rgba(135,210,248,0)); }
+      #head { position: absolute; left: 37px; top: 22px; width: 666px; height: 75px; }
+      .title { position: absolute; left: 0; top: 0; white-space: nowrap; font-size: 56px; line-height: 75px; color: var(--cyan); }
+      .title span { display: inline-block; margin-right: 15px; }
+      #divider { position: absolute; left: 29px; top: 111px; width: 681px; height: 3px; border-radius: 1px; background: var(--white); }
+      #flash { position: absolute; left: 90px; top: 150px; width: 560px; height: 320px; border-radius: 50%; opacity: 0; }
+      svg#loop { position: absolute; left: 0; top: 0; width: 740px; height: 488px; overflow: visible; }
+      .arrow { fill: none; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+      .box {
+        position: absolute; width: 278px; height: 104px; border-radius: 16px;
+        background: rgba(6, 20, 40, 0.96); border: 2px solid rgba(var(--red), 0.9);
+        display: flex; align-items: center; justify-content: center;
+      }
+      .face { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+        font-size: 28px; line-height: 34px; color: var(--white); white-space: nowrap; }
+      .box .hue { position: absolute; left: 14px; top: 50%; width: 8px; height: 8px; margin-top: -4px; border-radius: 50%; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="__ID__" data-start="0" data-duration="__DUR__" data-width="1920" data-height="1080">
+      <div id="stage">
+        <div id="drift">
+          <div id="card">
+            <div id="glow" data-layout-allow-overflow></div>
+            <div id="spec"></div>
+            <div id="head"></div>
+            <div id="divider"></div>
+            <div id="flash"></div>
+            <svg id="loop" viewBox="0 0 740 488">
+              <defs>
+                <filter id="soft" x="-200%" y="-200%" width="500%" height="500%"><feGaussianBlur stdDeviation="7" /></filter>
+              </defs>
+              <g id="arrows"></g>
+              <g id="light" opacity="0">
+                <circle id="halo" r="15" filter="url(#soft)"></circle>
+                <circle id="core" r="5.5" fill="#ffffff"></circle>
+              </g>
+            </svg>
+            <div id="boxes"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const CFG = __CFG__;
+      const NS = "http://www.w3.org/2000/svg";
+      const RGB = { red: "235, 64, 64", teal: "45, 212, 191" };
+      const hue = (name, a) => `rgba(${RGB[name]}, ${a})`;
+
+      // ---------- geometry (card-relative px) ----------
+      const BW = 278, BH = 104;
+      const POS = { TL: [37, 151], TR: [425, 151], BR: [425, 347], BL: [37, 347] };
+      const C = k => [POS[k][0] + BW / 2, POS[k][1] + BH / 2];
+      const ORDER_CW = ["TL", "TR", "BR", "BL"];
+      const ORDER_CCW = ["TL", "BL", "BR", "TR"];
+      const GAP = 16; // arrow ends stop this far from a box edge
+
+      function arrowEnds(p, q) {
+        const [px, py] = C(p), [qx, qy] = C(q);
+        if (py === qy) { // horizontal
+          const s = Math.sign(qx - px), x0 = px + s * (BW / 2 + GAP), x1 = qx - s * (BW / 2 + GAP);
+          return [[x0, py], [x1, qy], [s, 0]];
+        }
+        const s = Math.sign(qy - py), y0 = py + s * (BH / 2 + GAP), y1 = qy - s * (BH / 2 + GAP);
+        return [[px, y0], [qx, y1], [0, s]];
+      }
+
+      function makeArrow(p, q, color) {
+        const [[x0, y0], [x1, y1], [dx, dy]] = arrowEnds(p, q);
+        const g = document.createElementNS(NS, "g");
+        const line = document.createElementNS(NS, "path");
+        line.setAttribute("d", `M ${x0} ${y0} L ${x1} ${y1}`);
+        line.setAttribute("class", "arrow"); line.setAttribute("stroke", color);
+        const len = Math.hypot(x1 - x0, y1 - y0);
+        line.setAttribute("stroke-dasharray", `${len} ${len}`);
+        const head = document.createElementNS(NS, "path");
+        const px = -dy, py = dx; // perpendicular
+        head.setAttribute("d", `M ${x1 - 13 * dx + 10 * px} ${y1 - 13 * dy + 10 * py} L ${x1} ${y1} L ${x1 - 13 * dx - 10 * px} ${y1 - 13 * dy - 10 * py}`);
+        head.setAttribute("class", "arrow"); head.setAttribute("stroke", color);
+        g.appendChild(line); g.appendChild(head);
+        document.getElementById("arrows").appendChild(g);
+        return { g, line, head, len };
+      }
+
+      // orbit path through the four box centres in loop order, rounded corners; the travelling light
+      // is under the boxes, so it only shows where it runs along the arrows
+      function orbitPoints(order) {
+        const pts = order.map(C);
+        return pts;
+      }
+      function pointOnLoop(pts, u) { // u in [0,1): constant speed around the closed polygon
+        const segs = pts.map((p, i) => [p, pts[(i + 1) % pts.length]]);
+        const lens = segs.map(([a, b]) => Math.hypot(b[0] - a[0], b[1] - a[1]));
+        let d = (u - Math.floor(u)) * lens.reduce((s, l) => s + l, 0);
+        for (let i = 0; i < segs.length; i++) {
+          if (d <= lens[i]) { const [a, b] = segs[i], f = d / lens[i]; return [a[0] + (b[0] - a[0]) * f, a[1] + (b[1] - a[1]) * f]; }
+          d -= lens[i];
+        }
+        return pts[0];
+      }
+
+      // ---------- build DOM ----------
+      const head = document.getElementById("head");
+      function makeTitle(text, id) {
+        const el = document.createElement("div"); el.className = "title"; el.id = id;
+        text.split(" ").forEach(w => { const s = document.createElement("span"); s.textContent = w; el.appendChild(s); });
+        head.appendChild(el); return el;
+      }
+      const boxes = {};
+      const keys = ["TL", "TR", "BR", "BL"];
+      keys.forEach((k, i) => {
+        const b = document.createElement("div"); b.className = "box"; b.id = "b-" + k;
+        b.style.left = POS[k][0] + "px"; b.style.top = POS[k][1] + "px";
+        const newF = document.createElement("div"); newF.className = "face new"; newF.textContent = CFG.boxes[i];
+        b.appendChild(newF);
+        let oldF = null;
+        if (CFG.old_boxes) { oldF = document.createElement("div"); oldF.className = "face old"; oldF.textContent = CFG.old_boxes[i]; b.appendChild(oldF); }
+        document.getElementById("boxes").appendChild(b);
+        boxes[k] = { el: b, newF, oldF };
+      });
+
+      const tl = gsap.timeline({ paused: true });
+      const D = CFG.dur;
+      const HUE = CFG.hue;
+
+      // ---------- always drifting ----------
+      tl.fromTo("#drift", { y: 0 }, { y: CFG.drift, duration: D, ease: "sine.inOut" }, 0);
+      const specN = Math.max(1, Math.round(D / 2.4));
+      tl.fromTo("#spec", { x: 0 }, { x: 740 - 20 - 180 - 30, duration: D / specN, ease: "sine.inOut", yoyo: true, repeat: specN - 1 }, 0);
+      tl.fromTo("#glow", { x: 0, y: 0 }, { x: 140, y: 90, duration: D, ease: "sine.inOut" }, 0);
+
+      // ---------- card enter / exit ----------
+      tl.fromTo("#card", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 0);
+      tl.fromTo("#divider", { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.45, ease: "power2.out" }, 0.15);
+      tl.to("#card", { opacity: 0, y: 10, duration: 0.33, ease: "power2.in" }, D - 0.33);
+
+      // ---------- loop arrows ----------
+      const order = CFG.direction === "cw" ? ORDER_CW : ORDER_CCW;
+      function drawArrow(a, t, dur = 0.42) {
+        tl.fromTo(a.line, { strokeDashoffset: a.len }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t);
+        tl.fromTo(a.head, { opacity: 0, scale: 0.4, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.22, ease: "back.out(1.5)" }, t + dur - 0.1);
+      }
+      function hideArrowInstant(a) { tl.set(a.line, { strokeDashoffset: a.len }, 0); tl.set(a.head, { opacity: 0 }, 0); }
+
+      function arrivals(times) { // arrow i (order[i] -> order[i+1]) draws once both ends exist
+        const out = []; let prev = -1;
+        for (let i = 0; i < 3; i++) {
+          let t = Math.max(times[order[i]], times[order[i + 1]]) + 0.2;
+          t = Math.max(t, prev + 0.3); out.push(t); prev = t;
+        }
+        out.push(CFG.close);
+        return out;
+      }
+
+      function pulseAndOrbit(color, arrows) {
+        const P = CFG.pulse;
+        keys.forEach(k => {
+          tl.to(boxes[k].el, { scale: 1.045, duration: 0.22, ease: "power2.out" }, P);
+          tl.to(boxes[k].el, { scale: 1, duration: 0.5, ease: "back.out(1.4)" }, P + 0.22);
+          tl.fromTo(boxes[k].el, { boxShadow: `0 0 0px ${hue(color, 0)}` }, { boxShadow: `0 0 34px ${hue(color, 0.7)}`, duration: 0.25, ease: "power2.out" }, P);
+          tl.to(boxes[k].el, { boxShadow: `0 0 14px ${hue(color, 0.3)}`, duration: 0.7, ease: "sine.inOut" }, P + 0.25);
+        });
+        arrows.forEach(a => {
+          tl.to([a.line, a.head], { strokeWidth: 6.5, duration: 0.22, ease: "power2.out" }, P);
+          tl.to([a.line, a.head], { strokeWidth: 4, duration: 0.6, ease: "sine.inOut" }, P + 0.22);
+        });
+        const fl = document.getElementById("flash");
+        fl.style.background = `radial-gradient(closest-side, ${hue(color, 0.55)}, ${hue(color, 0)})`;
+        tl.fromTo(fl, { opacity: 0, scale: 0.7 }, { opacity: 0.6, scale: 1.05, duration: 0.3, ease: "power2.out" }, P);
+        tl.to(fl, { opacity: 0.14, scale: 1, duration: 0.9, ease: "sine.inOut" }, P + 0.3);
+
+        // travelling light: constant speed around the loop from the pulse to the exit
+        document.getElementById("halo").setAttribute("fill", hue(color, 0.95));
+        const pts = orbitPoints(order), light = document.getElementById("light");
+        const st = { u: 0 };
+        const place = () => { const [x, y] = pointOnLoop(pts, st.u); light.setAttribute("transform", `translate(${x} ${y})`); };
+        place();
+        const runFor = D - P, perLap = 2.6;
+        tl.fromTo(light, { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, P);
+        tl.fromTo(st, { u: 0 }, { u: runFor / perLap, duration: runFor, ease: "none", onUpdate: place }, P);
+      }
+
+      // ---------- title ----------
+      function revealTitle(el, t) {
+        tl.fromTo(el.children, { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: 0.42, ease: "expo.out", stagger: 0.08 }, t);
+      }
+
+      if (CFG.direction === "cw") {
+        // ============ SCENE 1: the downward spiral ============
+        revealTitle(makeTitle(CFG.title, "t-new"), 0.12);
+        keys.forEach(k => {
+          const b = boxes[k].el, t = CFG.reveal[k];
+          tl.fromTo(b, { opacity: 0, scale: 0.88, y: 18 }, { opacity: 1, scale: 1, y: 0, duration: 0.5, ease: "back.out(1.4)" }, t);
+          tl.fromTo(b, { borderColor: hue(HUE, 1) }, { borderColor: hue(HUE, 0.9), duration: 0.6, ease: "power2.out" }, t);
+        });
+        const arrows = order.map((k, i) => makeArrow(k, order[(i + 1) % 4], hue(HUE, 0.95)));
+        arrows.forEach(a => hideArrowInstant(a));
+        arrivals(CFG.reveal).forEach((t, i) => drawArrow(arrows[i], t));
+        pulseAndOrbit(HUE, arrows);
+      } else {
+        // ============ SCENE 2: turn the spiral around ============
+        const oldT = makeTitle(CFG.old_title, "t-old"), newT = makeTitle(CFG.title, "t-new");
+        tl.set(newT.children, { opacity: 0 }, 0);
+        tl.to(oldT.children, { opacity: 0, y: -16, duration: 0.24, ease: "power2.in", stagger: 0.04 }, CFG.title_swap);
+        revealTitle(newT, CFG.title_swap + 0.2);
+
+        // the red loop is back as it was left, then its arrows retract and the red boxes dim
+        const redArrows = ORDER_CW.map((k, i) => makeArrow(k, ORDER_CW[(i + 1) % 4], hue("red", 0.95)));
+        const R0 = CFG.title_swap + 0.08;
+        redArrows.forEach((a, i) => {
+          tl.to(a.head, { opacity: 0, duration: 0.12, ease: "power2.in" }, R0 + i * 0.05);
+          tl.fromTo(a.line, { strokeDashoffset: 0 }, { strokeDashoffset: a.len, duration: 0.34, ease: "power2.in" }, R0 + i * 0.05);
+        });
+        keys.forEach(k => {
+          const { el, newF, oldF } = boxes[k];
+          tl.set(newF, { opacity: 0 }, 0);
+          tl.set(el, { borderColor: hue("red", 0.9) }, 0);
+          tl.to(el, { opacity: 0.5, duration: 0.3, ease: "power2.out" }, R0 + 0.15);
+          // flip on the word: rotate away, swap face and hue, spring back
+          const t = CFG.flip[k];
+          tl.to(el, { rotationX: 90, transformPerspective: 700, opacity: 0.8, duration: 0.17, ease: "power2.in" }, t);
+          tl.set(oldF, { opacity: 0 }, t + 0.17);
+          tl.set(newF, { opacity: 1 }, t + 0.17);
+          tl.set(el, { borderColor: hue(HUE, 1) }, t + 0.17);
+          tl.fromTo(el, { rotationX: -90 }, { rotationX: 0, transformPerspective: 700, opacity: 1, duration: 0.42, ease: "back.out(1.4)", immediateRender: false }, t + 0.17);
+          tl.to(el, { borderColor: hue(HUE, 0.9), duration: 0.5, ease: "power2.out" }, t + 0.6);
+        });
+        const arrows = order.map((k, i) => makeArrow(k, order[(i + 1) % 4], hue(HUE, 0.95)));
+        arrows.forEach(a => hideArrowInstant(a));
+        const flipDone = Object.fromEntries(keys.map(k => [k, CFG.flip[k] + 0.35]));
+        arrivals(flipDone).forEach((t, i) => drawArrow(arrows[i], t));
+        pulseAndOrbit(HUE, arrows);
+      }
+
+      window.__timelines["__ID__"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

@@ -11,9 +11,13 @@ description: >
 
 Read `_shared/VIDEO-RULES.md` first.
 
+## Default jump-cut and junk-footage QC (Dan, 2026-09-29)
+
+Follow [CUT-CONTINUITY-QC.md](../_shared/CUT-CONTINUITY-QC.md) during source selection, before approval previews, and on the exact final candidate. Inspect every actual source/picture join, including reused composites, for a presenter jump without a distinct fixed wide/tight cut or complete approved clip cover. Fix uncovered jumps and recheck every boundary the repair creates. Detect and remove confirmed unscripted noises, empty lead-ins, unnecessary pauses and off-camera resets while protecting complete words, natural breaths and teaching action. Native consecutive frames plus moving/audio context are required; sparse scans and ASR alone cannot clear a join or authorize deletion. Keep the current still/frame, motion and full-render approval boundaries. This dated rule supersedes older suggestions that a pose match or audio fade alone clears a naked cut.
+
 ## Approval before the full render (Dan, 2026-09-26)
 
-Follow [PRE-RENDER-APPROVAL.md](../_shared/PRE-RENDER-APPROVAL.md): approve the first 30 seconds with color/audio, every graphic with surrounding speech, every selected clip in context, and AI start/end frames followed by finished clips before rendering the complete film. Preserve unchanged approvals and explicit sample waivers. Use [Soft Blue Light and the Motivation lower third](../_shared/GRAPHICS-STANDARDS.md). One useful point belongs in a compact lower third, not a large empty card. While approval is pending, prepare plans and isolated previews only; do not build a full placeholder film. This workflow supersedes older full-build and 60-90-second sample directions below.
+> **ROUND METHOD, READ FIRST (Dan, 2026-09-28):** follow [PRE-RENDER-APPROVAL.md](../_shared/PRE-RENDER-APPROVAL.md), Codex's stepwise approach. Never one-shot a video. In order, each its own small round with a handoff: (1) look: colour/crop/audio options; (2) EVERY graphic as a still screenshot on its real frame with exact copy, times and the speech around it, Dan edits and approves each, then moving previews; (3) every clip in context, AI clips concept, then start/end frames, then motion; (4) the FIRST MINUTE finished; (5) only then the full video. Record every decision with hashes; show only what changed; 2-3 options max. Graphics are [Soft Blue Light](../_shared/GRAPHICS-STANDARDS.md) ([how](../_shared/SOFTBLUE.md)). This overrides any older "one shot", "full v1 then revise" or "sample then full cut" instruction below.
 
 ## Graphics: Soft Blue Light in every video (Dan, 2026-09-26)
 
@@ -21,6 +25,7 @@ Every new or revised graphic uses the approved Soft Blue Light family, and every
 
 For AI-generated ads: end cards, CTA and any text card use `softblue` (`scene_cta`, `glass`, `field`) in 9:16. The caption spec and the persistent micro-disclaimer below are unchanged.
 
+**Left-third text/list graphics (Dan, 2026-09-28):** use the approved 3A card exactly in every horizontal video (`softblue.left_third`, fixed presenter via `softblue.shift_presenter`); squares put the full-width card at the bottom; verticals keep the full-frame camera crop with the card over it at the bottom (locked 2026-09-28); never the card mid-frame over Dan. Spec and references: the 3A section of [GRAPHICS-STANDARDS.md](../_shared/GRAPHICS-STANDARDS.md). Adapt only the heading and points, and show one short contextual sample before a full edit.
 
 # Make-Ad: AI Video Ad Production for Abs By AI
 
@@ -80,6 +85,9 @@ reference input, Veo's duration enum, the voice-clone file-ext check).
 
 Steps marked **[GATE]** stop and wait for Dan.
 
+Before generating any clip, search the clip library (`_shared/cliplib/clip_library.py find`) and reuse a fitting
+clip; after the ad is approved, register every new clip with `clip_library.py add` (`_shared/cliplib/README.md`).
+
 1. **Brainstorm.** Source concepts from memory `ai-ad-creation-research` (10 pitched
    concepts + MadMuscles theme data). Proven themes: military/respect, tai chi
    master, calisthenics elder, podcast story. Our unique angle: the product's own
@@ -107,8 +115,10 @@ Steps marked **[GATE]** stop and wait for Dan.
    Generate per the shot list: Veo for dialogue shots (pass the character
    stills as reference images + the bible in the prompt), Kling/Seedance for B-roll.
    QC each clip by extracting 3–4 frames (ffmpeg) and inspecting them: anatomy,
-   outfit match, setting match, no text artifacts. Auto-retry duds — pilot measured 10/10
-   first-try passes when every clip animates from a face-locked start frame. Only surviving clips go to Dan.
+   outfit match, setting match, no text artifacts. Auto-retry duds (pilot measured 10/10
+   first-try passes when every clip animates from a face-locked start frame).
+   **[GATE, round method 2026-09-28] Before any motion, Dan approves each clip's START and END frames with the action,
+   duration and cost; after generation he approves each finished clip in context.** Never generate motion from unapproved frames.
 9. **Assembly (ffmpeg, NOT CapCut).** Build `assembly/build.sh` per ad: concat clips
    in shot order, trim cuts to narration beats, lay the VO, duck a royalty-free
    music bed under it, burn bold captions (ASS subtitles, MadMuscles style: large,
@@ -116,7 +126,7 @@ Steps marked **[GATE]** stop and wait for Dan.
    any tweak is a one-line change + re-render, which is what makes variants cheap.
    Caption spec + word-timestamp method: see Lessons (canonical). If a cut feels flat,
    the clips + VO folder can go to a human editor (Romeysa) for polish instead.
-10. **[GATE] Dan approves the assembled ad** (send the MP4). He judges motion, lip
+10. **[GATE] Dan approves the first 30 seconds, then the assembled ad** (send the MP4; every graphic was approved as a screenshot first). He judges motion, lip
     sync, and pacing — frame QC can't catch those.
 11. **Variants.** Swap ONLY the hook (new 5s opening clip and/or first narration
     line), re-render via the assembly script. Name `<slug>_v1..vN` like MadMuscles.

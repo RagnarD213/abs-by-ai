@@ -1,6 +1,7 @@
 ---
 name: video-setup
-description: Take a FINISHED organic/content long-form video (usually an editor's final shared as a Google Drive link) all the way to scheduled on every platform: download and file it, build thumbnail variations for Dan to pick from, write the title, description with chapters and tags, upload the YouTube holding copy Private, and queue YouTube, Facebook, Instagram @danrosefit, and TikTok for release through Blotato. Use whenever Dan says a content video is "finished", "done", "final", sends a Drive link and asks to "queue it up", "set it up on all platforms", "put it in Blotato", "schedule it", or "get it on YouTube and everything else", even if he doesn't say "/video-setup". Paid ads go through /ad-setup; reviewing a cut is /revisions; thumbnails alone are /youtube-packaging; cutting Shorts is /shorts.
+description: >
+  Take a FINISHED organic/content video, long-form or a dedicated Short (usually an editor's final shared as a Google Drive link) all the way to scheduled on every platform: download and file it (project folder, Extreme drive and Google Drive), add it to the Edit Queue, build thumbnail variations for Dan to pick from, write the title, description with chapters and tags, upload the YouTube holding copy Private, and queue YouTube, Facebook, Instagram @danrosefit, and TikTok for release through Blotato. Use whenever Dan says a content video is "finished", "done", "final", sends a Drive link and asks to "queue it up", "set it up on all platforms", "put it in Blotato", "schedule it", or "get it on YouTube and everything else", even if he doesn't say "/video-setup". Paid ads go through /ad-setup; reviewing a cut is /revisions; thumbnails alone are /youtube-packaging; cutting Shorts is /shorts.
 ---
 
 Read `_shared/VIDEO-RULES.md` first.
@@ -19,6 +20,9 @@ Blotato owns the scheduled release, including YouTube. Never upload Public and n
 
 ## Step 0 — before anything
 
+- **CLASSIFY IT FIRST from the video's own ending** (`_shared/VIDEO-RULES.md`, "Ad or organic?", Dan 2026-09-28):
+  a "tap/click the button below" CTA = ad; "go to AbsByAI.com" / "leave me a comment" with no button CTA =
+  organic. If that verdict disagrees with how the request or handoff labels it, tell Dan and wait before any upload.
 - **IS THIS AN AD? If yes, STOP — this skill does not apply.** Ads are never published organically (Dan,
   2026-09-17; `AGENTS.md`); they go through `/ad-setup` only. Check the filed path (`<Editor> Ad Videos/…` = ad,
   `<Editor> Content Videos/…` = content) and `Docs/AD_VIDEO_IDS.md`. Dan asking to "set it up on all platforms" does
@@ -31,6 +35,24 @@ Blotato owns the scheduled release, including YouTube. Never upload Public and n
 - ffmpeg is NOT on PATH. Use `Media/video_edit/bin/ffmpeg` / `ffprobe` (absolute path from the project root).
 - Video builds cap is two across sessions — a frame extraction is trivial, but check
   `ps -Ao command | grep -E 'ffmpeg|render\.py|whisper'` before a contact sheet of a long video.
+- **Machine busy? Do not wait for a build slot (Dan, 2026-09-30).** The Blotato copy and the TikTok cover-first copy
+  run even when two or more builds are going: `nice -n 20`, `-hwaccel videotoolbox`, `-c:v h264_videotoolbox`, audio
+  stream-copied. Rule and reasoning: `_shared/VIDEO-RULES.md`, "Video builds: never run more than two at once".
+
+## Shorts (DS-/SL- jobs): the same flow, the Shorts helper
+
+A dedicated Short is already filed in `Short-form video content/` and its cover is already approved, so skip Steps 1-2.
+Worked examples: DS-04, DS-17, DS-18 (`Docs/DS*_SETUP_RECEIPT_*.md`). Private holding upload (Step 4), then:
+build the TikTok cover-first copy with `tiktok_cover.build()` (absolute paths: relative ones break its concat list),
+upload master + TikTok copy + cover PNG with `blotato_create_presigned_upload_url` and hash-check each download,
+write `scripts/blotato/configs/<slug>.json` (copy `ds18-kettlebell-deadlift.json`), then
+`python3 scripts/blotato/organic_short_queue.py <config>` and `--apply`. It queues FB, IG @danrosefit, TikTok and the
+public YouTube release (Blotato account 46963) and verifies all four. Shorts go out Tue/Thu/Sat; pick a slot with no
+same-minute post on those accounts.
+
+**Fixing a wrong-path upload:** the upload token cannot change an existing video's visibility (no `youtube` scope).
+Switch it in Studio (`studio.youtube.com/video/<id>/edit` → Visibility → Private → Done → Save), then read back
+`privacyStatus: private` by API.
 
 ## Step 1 — download, verify, file
 
@@ -39,16 +61,28 @@ Blotato owns the scheduled release, including YouTube. Never upload Public and n
   `/Volumes/Extreme/_edit_work/<slug>-publish/`. (The rclone "shared client_id" NOTICE is harmless.)
 - Editors' folders hold several files — pick the newest `Rev` by name and modified date; a `.srt` beside it may
   belong to an earlier cut (check its last cue against the video's duration).
+- **Even when Dan sends a single-file link, list its parent folder (`search_files` `parentId = '<parent>'`) and read
+  the live revision doc before downloading.** If a newer Rev exists, or the doc's latest round asks for changes the
+  linked file does not have, the newer file is the final. Verify it answers that round (measure the fix, confirm
+  audio and cut unchanged) and set THAT one up. 2026-09-29: Dan linked "Video 3 rev 4" while Zeeshan's "Video 3 Rev 5"
+  (the round-5 skin fix) was already in the folder; Rev 4 got queued everywhere and had to be swapped with
+  `swap_media.py`.
 - `ffprobe` duration + resolution; `md5 -q`.
 - File a copy per `/editor-deliveries`: `<Editor> Content Videos/<title> - video N/<title> | <editor> | 16x9 | video N.mp4`
   (content numbers are per editor, in delivery order). md5 must match the download.
 - If a revision round for this video is open in `AI_COORDINATION.md`, note that Dan has called it final.
+- **Three copies, every time (Dan, 2026-09-29).** Besides the project folder, put the same final (plus its `.srt`) in:
+  1. **Extreme drive:** `/Volumes/Extreme/<Editor> Content Videos/<title> - video N/<same file name>` (Codex finals use
+     `/Volumes/Extreme/Codex Content Videos/`). md5 must match.
+  2. **Google Drive:** `gdrive:<Editor> Content Videos/<title> - video N/` at the My Drive root, beside `Codex Content Videos`:
+     `~/bin/rclone copy "<project folder>" "gdrive:<Editor> Content Videos/<title> - video N" --include "*.mp4" --include "*.srt"`
+     (in the background; 700 MB takes a few minutes), then `rclone link` on the folder so it is anyone-with-the-link
+     (memory `drive-always-public`), then `rclone lsl` to confirm the byte count. Give Dan the folder link.
+  - A dedicated Short gets the same two copies under `Short-form video content/` on each drive.
 
 ## Step 2 — five thumbnail variations, then STOP for Dan's pick
 
-Dan's standing mix (09-13): **two pool-shoot photos on a natural background, two studio photos, one screenshot
-from the video** with big text above his head. Same copy on all five. Read `/youtube-packaging` first for the
-type system, the frowning-photos rule, the waistline-crop rule and the text-never-on-Dan rule.
+Dan's standing mix (updated 2026-09-30): **one pool photo, two different studio photos on topic-specific Jelly Beans style photographic backgrounds, one enhanced screenshot from the video, and one designer choice.** Same copy on all five. Every Codex cover/thumbnail handoff must list these five slots and link `_shared/VIDEO-RULES.md`, "Five cover and thumbnail choices per video". Read `/youtube-packaging` for the photo, crop and text-clearance rules. The older recipe below is an asset reference; adapt its source count and studio backgrounds to this mix.
 
 Working build to copy: `social media graphics/youtube/thumbnails/Ab Wheel Workout/_build-2026-09-13/build.py`.
 It imports the Ad 5 `build_clean.py` for the studio looks and reuses assets, so it costs **$0**:
@@ -116,7 +150,9 @@ incomplete organic setup. Confirm the schedule by reading it back before reporti
 1. `blotato_create_presigned_upload_url` (filename `.mp4`) → `curl -X PUT -H "Content-Type: video/mp4"
    --data-binary @<file> "<presignedUrl>"` in the background → `curl -sI <publicUrl>` and confirm
    `content-length` equals the local byte count. **Blotato caps uploads at 400 MB** — above that, re-encode
-   (`h264_videotoolbox` ~4 Mbps, audio stream-copied) for Blotato only; YouTube still gets the master.
+   (`nice -n 20`, `-hwaccel videotoolbox`, `h264_videotoolbox` ~4 Mbps, or ~2.8 Mbps for a film over 12 min, audio
+   stream-copied) for Blotato only; YouTube still gets the master. Confirm frame count, duration and audio packets
+   match the master.
 2. Write `scripts/blotato/configs/<slug>.json` (fields documented at the top of `scripts/blotato/longform_queue.py`):
    hook / body / close in Dan's voice, ManyChat keyword per topic (`ABS` for ab content; the table is in
    `Docs/MANYCHAT_KEYWORDS.md`), `ai_generated` same as YouTube's synthetic flag (same rule: AI footage only, not a labeled AI still).
@@ -178,9 +214,15 @@ scripts: `sixpackabs/articles/README.md`. Read it, and one finished article ther
   it posts" (or delete it if Dan has nothing left to do). No dashboard row unless Dan asks.
 - Tell Dan in plain words: when it goes live where, which thumbnail(s), and anything he might want to do in Studio.
 
-## Edit queue: mark it UPLOADED
+## Edit queue: always update it (not optional, Dan 2026-09-29)
 
-After the Private YouTube upload is read back **and** the Blotato posts exist: if the video is a job on
-`Handoffs/video-editing/00-MASTER.md` (`RO-` long-form, `DS-` dedicated short, `SL-` shorts set), set it to `uploaded` on
-Dan's pinned Abs By AI Edit Queue page (`queue.py set <ID> uploaded` + `Artifact write_db`; procedure
-`.claude/skills/_shared/edit-queue/README.md`). A newly final long-form owes shorts: add its `SL-` job in the same session.
+Every setup touches Dan's pinned Abs By AI Edit Queue page (procedure `.claude/skills/_shared/edit-queue/README.md`):
+
+- **The video is a job on `Handoffs/video-editing/00-MASTER.md`** (`RO-` long-form, `DS-` dedicated short, `SL-` shorts
+  set): after the Private YouTube upload is read back **and** the Blotato posts exist, `queue.py set <ID> uploaded` +
+  `ArtifactData set` of the printed file + `queue.py mark-synced <ID>`.
+- **A newly final long-form (any editor's, including Zeeshan's own 16:9 finals that were never a job) owes shorts: add
+  its `SL-` job in the same session.** Write `Handoffs/video-editing/SL-NN-<slug>-shorts.md` (copy SL-05), add the row
+  under LIST 2 in `00-MASTER.md` (and drop the title from the "not delivered yet" line), `queue.py add <json>`, then
+  `ArtifactData set` + `mark-synced`. Worked example: SL-05 Stop Deadlifting (2026-09-29).
+- Tell Dan which job ID it is on the page.

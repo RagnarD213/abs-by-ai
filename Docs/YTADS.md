@@ -1,5 +1,26 @@
 # YouTube engagement champion — every new video gets a $5 test ad in each Demand Gen campaign, one champion per campaign
 
+## SUNDAY PAUSE (Dan 2026-09-29): newest long-form gets the traffic
+
+Every Sunday at 10 AM CT, `scripts/ads/ytads/sunday.js` (started from `routes.js` when `YTADS_SUNDAY=1`)
+works on **tier1 `24163535721` and tier2 `24122099676` only** (remarketing is left alone):
+
+- every Short's ad is left exactly as it is;
+- every ENABLED long-form ad is PAUSED except the ads for the newest public long-form (from the feed);
+- if every ad for the newest long-form in a campaign is paused, the best one is ENABLED;
+- **6 hours after the pause run** (about 4 PM; Dan 2026-09-29), a second check: if the newest long-form
+  has no fully APPROVED ad in a campaign (still in review, DISAPPROVED, or APPROVED_LIMITED), a second ad
+  is created with tamer copy (`generateHeadlines` tame mode, name ` · r2 · `), ENABLED, once
+  (`sunday:tame` event);
+- every ad it paused gets the Google Ads label **"Sunday pause"** (moved each week). **Dan re-enables by
+  hand on Tuesday**: filter by that label so ads he paused himself stay paused.
+
+Short vs long-form: the feed's flag, else `youtube.com/shorts/<id>` (200 = Short, redirect = long-form).
+An ad whose type cannot be told is left alone and warned. No newest long-form found: nothing paused.
+Runs once per date (`sunday:run` event, full summary in `detail`), any time 10:00-21:59 CT so a server
+that was down at 10 catches up. Preview any time: `node scripts/ads/ytads/sunday.js --dry-run`.
+Tests: `node scripts/ads/ytads/sunday.test.js`. instant.js still never pauses; this is the only path that does.
+
 ## CURRENT BEHAVIOR (Dan 2026-09-27): instant creation, never pause
 
 Dan does all pausing and enabling by hand. Automation only ADDS: every new public video gets an

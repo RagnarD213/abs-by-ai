@@ -1,0 +1,13 @@
+[
+  {"id": "down", "kind": "build", "a": 272.03843333333333, "b": 286.0858,
+   "title": "The downward spiral", "hue": "red", "direction": "cw",
+   "boxes": ["Less energy", "Less movement", "More food", "More belly fat"],
+   "reveal": {"TL": 272.41, "BR": 276.69, "TR": 278.59, "BL": 279.71},
+   "close": 281.55, "pulse": 281.97, "drift": 12},
+  {"id": "turn", "kind": "flip", "a": 289.3891, "b": 297.1969,
+   "title": "Turn the spiral around", "old_title": "The downward spiral", "hue": "teal", "direction": "ccw",
+   "old_boxes": ["Less energy", "Less movement", "More food", "More belly fat"],
+   "boxes": ["Take action", "Keep going", "Build motivation", "See progress"],
+   "title_swap": 289.55, "flip": {"TL": 290.11, "BL": 290.97, "BR": 292.51, "TR": 293.65},
+   "close": 295.29, "pulse": 295.73, "drift": -12}
+]

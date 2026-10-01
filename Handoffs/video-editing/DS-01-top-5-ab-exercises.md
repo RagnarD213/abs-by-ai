@@ -15,7 +15,7 @@ Word-timed captions in the J2 tactical style, AbsByAI.com mark where the script 
 REVIEW copy, audio A/B, stamps, `notes.md` (take map + choices), `recipe/`.
 
 ## Build
-* **Take selection:** best take of every line (Claude: `/ad-edit` Steps 1–4 method; Codex: `$abs-edit-organic`). Airtight, zoom cuts on word onsets, no naked jump cuts.
+* **Take selection:** best take of every line (Claude: `/ad-edit` Steps 1-4 method; Codex: `$long-form-content-edit`). Airtight, zoom cuts on word onsets, no naked jump cuts.
 * **Vertical finishing:** `/shorts` rules for captions, graphics, safe areas and steady framing (`_shared/framing-motion.md`).
 * **Colour:** the 8/28 S-Log3 conversion (memory `shoot-828-slog3-format`), decoded as BT.709. Build all dedicated shorts to one look.
 * **Audio:** `pick_lav.py` → `voice_chain.py` → `audio_gate.py` on the delivered file.
@@ -33,4 +33,4 @@ REVIEW copy, audio A/B, stamps, `notes.md` (take map + choices), `recipe/`.
 > Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/DS-01-top-5-ab-exercises.md`: cut the dedicated short "Top 5 Ab Exercises" from its 8/28 raw takes. Best take of every line, 1080×1920, 45–66 s, J2 captions, every b-roll cue filled and labelled, the 8/28 S-Log3 conversion, lav picked per file, cover image. Every gate, independent audit, deliver, send me the review copy, update the master list.
 
 **Codex (GPT-6 Astra, high):**
-> Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-01-top-5-ab-exercises.md` with `$abs-edit-organic` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Deliver, send Dan the review copy, update `00-MASTER.md`.
+> Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-01-top-5-ab-exercises.md` with `$long-form-content-edit` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Deliver, send Dan the review copy, update `00-MASTER.md`.

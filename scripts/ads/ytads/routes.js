@@ -369,10 +369,27 @@ module.exports = function mountYtads(app, { pool }) {
   });
 
   // Dan 2026-09-27: new videos get ENABLED ads within a minute of going live; nothing is
-  // ever paused by automation. The hourly Ads Script above is disabled in Google Ads.
+  // paused by instant.js. The hourly Ads Script above is disabled in Google Ads. The one
+  // pausing path is the Sunday routine below (Dan 2026-09-29).
   if (process.env.YTADS_INSTANT === '1' && pool) {
     ensureSchema()
       .then(() => require('./instant.js').start({ pool, db, writeHeadlinesFor, config }))
       .catch(e => console.error('YTADS instant: not started:', e.message));
+  }
+
+  // Dan 2026-09-29: Sundays 10 AM CT, pause every long-form ad in tier1 + tier2 except the
+  // newest long-form; Shorts untouched; tamer second ad if the newest is not approved yet.
+  if (process.env.YTADS_SUNDAY === '1' && pool) {
+    const writeTameCopy = async (video, prior) => {
+      const apiKey = process.env.ANTHROPIC_API_KEY;
+      if (!apiKey) return null;
+      const r = await generateHeadlines({ video, apiKey, tame: { prior, topics: [] } });
+      await db.event(video.id, null, null, r.ok ? 'retrycopy' : 'retrycopy:failed',
+                     { via: 'sunday', title: video.title, set: r.set, attempts: r.attempts, failures: r.failures, error: r.error });
+      return r.ok ? r.set : null;
+    };
+    ensureSchema()
+      .then(() => require('./sunday.js').start({ pool, db, writeTameCopy }))
+      .catch(e => console.error('YTADS sunday: not started:', e.message));
   }
 };

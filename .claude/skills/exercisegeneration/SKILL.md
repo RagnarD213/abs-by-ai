@@ -12,6 +12,10 @@ Dan's cloned voice coaching the form. Proven end to end on `bw-squat` (2026-08-1
 batch 1 — `pushup`, `reverse-lunge`, `plank` (2026-08-19/20, all three Dan-approved after one revision
 round; finals at `Media/exercise-demos/<id>/<id>-AIDAN-narrated-FINAL.mp4`).
 
+When Dan approves a demo, register the `-FINAL` file in the clip library:
+`clip_library.py add FILE --kind ai --category exercise-demos --people ai-dan --status used-final --used-in "app trainer" ...`
+(`_shared/cliplib/README.md`).
+
 ## Fixed assets — never regenerate these
 
 | asset | path |
@@ -688,3 +692,41 @@ model, same prompts, no quality difference seen.
 - VO from `minimax/speech-02-hd` comes back at 32 kHz AAC after mux (requested 44.1 k) — harmless, noted.
 - Skill-wide: the walking lunge cannot loop on a locked camera (the subject travels) — left out of the
   library sweep deliberately; 54 library exercises still have no demo after this batch.
+
+---
+
+## Batch 5 findings (4 home ab moves for the VSL, 2026-09-28)
+
+V-sit twist, toe touches, V-up, reverse crunch. Scripts at `Media/exercise-demos/_batch5/` (`spec.js`, `mux.py`,
+`finish.sh`, `run-kling-i2v.js`, plus the batch-4 tools re-prefixed `b5-`). ~$7.60 total (22 stills, 24 s of
+`veo-3.1-fast`, 2 Kling 5 s legs, 4 VO clips).
+
+- **Twists: shoot them from the FRONT, keyframe-locked.** From a 3/4 or side view the image model will not draw the
+  twist to the far hip (4 attempts: hands stay at the chest or the near hip), Veo i2v with no end frame invents an
+  "airplane" (hands unclasp, arms spread) or a boat pose, and Kling i2v turns his BACK to the camera on the far side.
+  What worked: a TRUE FRONT still (knees and feet toward the camera, hands beside one hip), an EDIT to the mirror side
+  (the model manages it when both hips are visible), then `veo-3.1-fast` with `image` + `last_frame`. Palindrome is
+  legitimate for a twist.
+- **Kling garbles the tank-top logo** when the chest faces the camera mid-move ("RYV" letters). Veo 1080p kept it
+  readable. Check the logo on every frame where the chest is square to the camera.
+- **Distance-vs-frame-0 saturates on floor crunches**: toe touches read "done" at 1.0 s while the curl ran to 1.5 s;
+  the velocity minimum found the true top. qcunit's integer signal then flagged a 1-unit wobble; a skin-tone head
+  landmark proved the rise strictly monotonic. Trust velocity + a landmark over the saturated distance signal.
+- **Veo overshoots the V-up top to a tighter V** (legs near vertical, hands at the toes). It reads better than the
+  60-degree end still and matches the VO; cut at the velocity minimum, not at the end still.
+- **Audio: the narrated file now passes `audio_gate.py`.** The old mux left 1 s of digital silence and an audio stream
+  ~3 s shorter than the picture, which is why no earlier demo carries a stamp. `_batch5/mux.py` lays a low-passed
+  brown-noise room tone (~-46 dBFS, 24 dB under the voice) for the full picture length: passes the audio gate's
+  silence/length rows AND the delivery gate's -50 dBFS silent-second line.
+- **`qc.py --suffix=-AIDAN-narrated-FINAL-CANDIDATE.mp4`** gates the batch-4+ file names (use `=`; a value starting
+  with `-` breaks argparse otherwise).
+- **Approved and reusable (Dan, 2026-09-28):** all four approved. russian-twist (the V-sit twist, also the WV-01 VSL clip)
+  and reverse-crunch are installed in the app. Toe touches and V-up have no library entry and are SAVED FOR REUSE:
+  when Dan asks for either again, start from `Media/exercise-demos/<id>/` (`<id>-AIDAN-narrated-FINAL.mp4`, the silent
+  cut, the approved `b5-start/end.jpg` stills and `b5-leg.mp4`), and generate only what the new request changes.
+  Index: `Media/exercise-demos/_batch5/LIBRARY.md`.
+- **Delivery gate `audio:stamp` now accepts the demo's synthetic stamp** (fixed 2026-09-28, gate 2.3.2). It used to
+  fail every demo because `checks/audio.py` called `require_stamp` without `synthetic_ok`. The `exercise-demo` format
+  now sets `"audio:stamp": dict(synthetic_ok=True)` (no other format does), so a demo stamped with `audio_gate.py
+  --synthetic --profile in-app-demo` passes. All four batch-5 app encodes in `_batch5/app-staging/` now print
+  DELIVERY GATE PASS. A demo that still fails this row has no stamp, or a stamp for a different render.

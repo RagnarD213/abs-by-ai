@@ -16,7 +16,8 @@ Rows (each traces to something Dan rejected on, or to the platform standard):
   7 not crushed                speech spread p90-p10 (speech frames)    >= his - 3.0 dB; LRA reported
   8 no clipping on phones      true peak of the delivered file          <= -1.0 dBTP (platform ceiling; the chain lands -2.5 in PCM)
   9 nothing missing            digitally silent seconds 0; audio length within 0.10 s of the picture
- 10 no processing damage        flux / HF swirl                          <= his x1.10
+ 10 no processing damage        flux / HF swirl                          <= his x1.10, unless THIS FILE UNTREATED
+                                 already carried it (processing added none; 2026-09-29)
  11 do no harm                  flux / HF swirl vs THIS FILE UNTREATED   <= x1.35
                                  ⚠ NOT MEASURED = FAIL (2026-09-09). "Nobody looked" is not "it is fine".
 
@@ -74,6 +75,11 @@ LIM = dict(corr=0.97, comb_margin=0.35, edt=80.0, tone_mean=1.2, tone_max=2.5, f
 # approved. This is a NAMED PROFILE, never a free --lufs-target: a dial anyone can turn to make a build
 # pass is not a gate. The profile is recorded in the stamp.
 PROFILES = dict({"in-app-demo": dict(lufs=-24.0, lufs_tol=1.5)})
+# THE AUDIO GATE'S BEHAVIOUR VERSION, written into every stamp (2026-09-29). Bump it when a row or a
+# bound changes, so a stamp says which rules judged it. (common.STAMP_VERSION is the file FORMAT.)
+#   2.0.0  2026-09-29  `artifacts` attributes flux/swirl: past his x1.10 fails unless the file's own
+#                      untreated recording already carried it (DS-17 R4, RA-01). First numbered version.
+GATE_VERSION = "2.0.0"
 HARM_KEYS = ("flux", "swirl")     # gated; gap + sfm are reported only -- see common.artifacts
 VERBATIM_WHY = "the editor's own mix, delivered untouched (Dan 2026-09-10: 'Use Zishan's audio')"
 
@@ -207,12 +213,40 @@ def gate(path, synthetic=False, ab=None, video=None, ref_override=None, stamp=Tr
         # change on speech (musical noise), swirl = modulation of the 3-9 kHz envelope. Both are
         # bounded against the reference, not against a constant, so a drier reference cannot make
         # this row unfailable. This single row would have blocked all three 09-02 batches.
+        #
+        # ⚠ ATTRIBUTION (2026-09-29). flux and swirl also move with the RECORDING, not only with
+        # processing: untreated lav tracks straight off the camera read flux 0.066 to 0.104 across
+        # rolls (Muhammad 0.072), and the approved DS-17 R4 (C1670, an outdoor 8/28 portrait roll)
+        # FAILED this row at flux 0.090 / swirl 0.956 while its own untreated lav read 0.104 / 0.961:
+        # the chain had LOWERED both. Same for RA-01 (C1663: 0.090 delivered, 0.096 untreated).
+        # So the row now asks the question its name asks. A metric past his x1.10 still FAILS unless
+        # this file's own untreated recording already carried at least that much, i.e. processing
+        # added none of it. The his x1.10 bound is unchanged, and with no baseline there is no
+        # attribution and the absolute bound stands alone. The rejected builds all ADDED it:
+        # invest-health underwater 0.0945 vs its untreated 0.0746, spray-tan x1.30-1.61 untreated.
+        base = C.load_untreated(untreated) if untreated else C.load_untreated(path)
+        have_base = bool(base and all(k in base for k in HARM_KEYS))
         art = C.artifacts(mono)
         fx, sw = art["flux"], art["swirl"]
-        row("artifacts", fx <= ref["flux"] * LIMP["artifact_x"] and sw <= ref["swirl"] * LIMP["artifact_x"],
-            f"no processing damage: flux {fx:.3f} (his {ref['flux']:.3f}), HF swirl {sw:.3f} "
-            f"(his {ref['swirl']:.3f}), both <= his x{LIMP['artifact_x']}",
-            {k: round(float(v), 4) for k, v in art.items()}, gated=G)
+        parts, art_ok, carried = [], True, {}
+        for k, v in (("flux", fx), ("swirl", sw)):
+            bound = ref[k] * LIMP["artifact_x"]
+            if v <= bound:
+                parts.append(f"{'HF ' if k == 'swirl' else ''}{k} {v:.3f} (his {ref[k]:.3f})")
+            elif have_base and v <= base[k]:
+                carried[k] = round(float(base[k]), 4)
+                parts.append(f"{'HF ' if k == 'swirl' else ''}{k} {v:.3f} (his {ref[k]:.3f}; the untreated "
+                             f"recording reads {base[k]:.3f}, so processing added none of it)")
+            else:
+                art_ok = False
+                parts.append(f"{'HF ' if k == 'swirl' else ''}{k} {v:.3f} (his {ref[k]:.3f}"
+                             + (f"; untreated {base[k]:.3f}, so processing ADDED it)" if have_base
+                                else "; no untreated baseline, so nothing can excuse it)"))
+        row("artifacts", art_ok,
+            f"no processing damage: {', '.join(parts)}; each <= his x{LIMP['artifact_x']} "
+            f"unless the untreated recording already carried it",
+            dict({k: round(float(v), 4) for k, v in art.items()}, **({"carried": carried} if carried else {})),
+            gated=G)
         # ⚠ DO NO HARM, THE SECOND HALF (2026-09-09). The row above bounds us against HIS room.
         # This one bounds us against OUR OWN UNTREATED SIGNAL, and it is the rule that would have
         # blocked all three 09-02 batches: measured, the untreated right channel was closer to
@@ -220,8 +254,7 @@ def gate(path, synthetic=False, ab=None, video=None, ref_override=None, stamp=Tr
         # file worse than doing nothing is not a trade-off, it is a bug - whatever EDT it buys.
         # The baseline is stashed by whichever stage held the untreated audio; see
         # common.stash_untreated (voice_chain calls it after the pull, dereverb.py on its input).
-        base = C.load_untreated(untreated) if untreated else C.load_untreated(path)
-        if base and all(k in base for k in HARM_KEYS):
+        if have_base:
             worst = max(art[k] / max(base[k], 1e-9) for k in HARM_KEYS)
             det = ", ".join(f"{k} {art[k]:.3f} vs untreated {base[k]:.3f} (x{art[k]/max(base[k],1e-9):.2f})"
                             for k in HARM_KEYS)
@@ -289,7 +322,7 @@ def gate(path, synthetic=False, ab=None, video=None, ref_override=None, stamp=Tr
         ab_path = os.path.abspath(ab); print("  A/B written (his, then ours):", ab)
     print(f"\nAUDIO GATE {verdict}" + (f" -- {len(fails)} row(s): " + ", ".join(r["key"] for r in fails) if fails else ""))
     if stamp and not ref_rows_only:
-        s = dict(version=C.STAMP_VERSION, file=os.path.abspath(path), sha256=C.sha256(path),
+        s = dict(version=C.STAMP_VERSION, gate_version=GATE_VERSION, file=os.path.abspath(path), sha256=C.sha256(path),
                  size=os.path.getsize(path), gated_at=time.strftime("%Y-%m-%d %H:%M:%S"),
                  reference=dict(name=ref["name"], sha256=ref.get("sha256")), synthetic=synthetic,
                  profile=profile, window=[ss, dur], limits=LIMP, rows=rows, verdict=verdict, ab=ab_path)

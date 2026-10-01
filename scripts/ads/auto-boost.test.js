@@ -15,9 +15,11 @@
 const {
   metricsFrom, capState, findCandidates, testPhase, verdict, championHealth, pairDecision, CONFIG,
   nameFor, titleOf, typeLabel, tagOf, isTest,
+  followerDaysFrom, attributeFollows, followStats, backfillTable,
 } = require('./auto-boost.js');
 
 let pass = 0, fail = 0;
+const round = (n) => Math.round(n * 100) / 100;
 function check(name, cond, extra) {
   if (cond) { pass++; console.log(`  ok   ${name}`); }
   else { fail++; console.log(`  FAIL ${name}${extra ? `\n       ${extra}` : ''}`); }
@@ -40,13 +42,13 @@ console.log('\n1. METRICS OUT OF AN INSIGHTS ROW');
 console.log('\n2. MONTHLY CAPS — $300 tests / $500 total, including money already committed');
 {
   check('fresh month: open', capState({ testsMtd: 0, totalMtd: 0, committedTests: 0 }).capReached === false);
-  check('$295 tests spent: the next $5 still fits', capState({ testsMtd: 295, totalMtd: 400, committedTests: 0 }).capReached === false);
-  check('$296 tests spent: the next $5 would breach → closed', capState({ testsMtd: 296, totalMtd: 400, committedTests: 0 }).capReached === true);
+  check('$290 tests spent: the next $10 still fits', capState({ testsMtd: 290, totalMtd: 400, committedTests: 0 }).capReached === false);
+  check('$291 tests spent: the next $10 would breach → closed', capState({ testsMtd: 291, totalMtd: 400, committedTests: 0 }).capReached === true);
   const c = capState({ testsMtd: 280, totalMtd: 380, committedTests: 20 });
   check('committed but unspent test budgets count against the cap', c.capReached === true && /tests/.test(c.reason), c.reason);
-  const t = capState({ testsMtd: 100, totalMtd: 496, committedTests: 0 });
+  const t = capState({ testsMtd: 100, totalMtd: 491, committedTests: 0 });
   check('total cap closes even when tests are under theirs', t.capReached === true && /total/.test(t.reason), t.reason);
-  check('the caps are Dan\'s numbers', CONFIG.CAP_TESTS_MTD === 300 && CONFIG.CAP_TOTAL_MTD === 500 && CONFIG.TEST_BUDGET_CENTS === 500);
+  check('the caps are Dan\'s numbers', CONFIG.CAP_TESTS_MTD === 300 && CONFIG.CAP_TOTAL_MTD === 500 && CONFIG.TEST_BUDGET_CENTS === 1000);
 }
 
 console.log('\n3. CANDIDATE DISCOVERY — new posts only, never twice, never the first-run pair');
@@ -69,29 +71,57 @@ console.log('\n3. CANDIDATE DISCOVERY — new posts only, never twice, never the
   check('empty media list is fine', findCandidates({ media: [] }).length === 0);
 }
 
-console.log('\n4. TEST WINDOW — judge at $4.50 spent or 5 days, whichever first');
+console.log('\n4. TEST WINDOW: judge at $9 spent or 5 days, whichever first');
 {
   const now = new Date('2026-09-05T12:00:00Z');
   check('$1.20 with 3 days left: running', testPhase({ spend: 1.2, endTime: '2026-09-08T12:00:00Z' }, now) === 'running');
-  check('$4.50 spent: ready', testPhase({ spend: 4.5, endTime: '2026-09-08T12:00:00Z' }, now) === 'ready');
+  check('$4.50 with time left: still running on a $10 budget', testPhase({ spend: 4.5, endTime: '2026-09-08T12:00:00Z' }, now) === 'running');
+  check('$9.00 spent: ready', testPhase({ spend: 9, endTime: '2026-09-08T12:00:00Z' }, now) === 'ready');
+  check('the eval point is $9 of a $10 test', CONFIG.TEST_EVAL_SPEND === 9 && CONFIG.TEST_BUDGET_CENTS === 1000);
   check('end_time passed at $0.00: ready (and will be judged, not ignored)', testPhase({ spend: 0, endTime: '2026-09-05T11:59:00Z' }, now) === 'ready');
   check('$0 with time left is NOT judged as a loser', testPhase({ spend: 0, endTime: '2026-09-07T00:00:00Z' }, now) === 'running');
 }
 
-console.log('\n5. VERDICT — beat the champion\'s cost/visit with at least 10 visits; ties keep the champion');
+console.log('\n5. VERDICT: beat the champion\'s estimated cost per follower with at least 2 estimated follows');
 {
-  const champ = { costPerVisit: 0.40, hasActive: true };
-  check('WIN: $0.25/visit on 20 visits beats $0.40', verdict({ spend: 5, visits: 20, visitsReadable: true }, champ).result === 'win');
-  check('LOSE: $0.50/visit on 10 visits does not beat $0.40', verdict({ spend: 5, visits: 10, visitsReadable: true }, champ).result === 'lose');
-  check('LOSE: an exact tie keeps the champion', verdict({ spend: 4, visits: 10, visitsReadable: true }, champ).result === 'lose');
-  const few = verdict({ spend: 5, visits: 9, visitsReadable: true }, champ);
-  check('LOSE: 9 visits at a great price is not enough evidence', few.result === 'lose' && /needs 10/.test(few.reason), few.reason);
-  check('WIN by default when the champion slot is empty', verdict({ spend: 5, visits: 12, visitsReadable: true }, { costPerVisit: null, hasActive: false }).result === 'win');
-  check('WIN by default when the champion has no visits in its window', verdict({ spend: 5, visits: 12, visitsReadable: true }, { costPerVisit: null, hasActive: true }).result === 'win');
-  const blind = verdict({ spend: 5, visits: 0, visitsReadable: false }, champ);
-  check('UNMEASURED, not lose, when the visit metric has never been observed on the account', blind.result === 'unmeasured', blind.reason);
-  check('...but 0 visits IS a loss once the metric is known to work', verdict({ spend: 5, visits: 0, visitsReadable: true }, champ).result === 'lose');
-  check('the promotion floor is 10 visits', CONFIG.PROMOTE_MIN_VISITS === 10);
+  const champ = { costPerFollow: 3.00, hasActive: true };
+  const T = (o) => ({ spend: 10, settledSpend: 10, visits: 100, estFollows: 4, settled: true, followsReadable: true, lastSpendDay: '2026-09-20', ...o });
+  const w = verdict(T({ estFollows: 5 }), champ);
+  check('WIN: $2.00/follower on 5 follows beats $3.00', w.result === 'win' && w.costPerFollow === 2, JSON.stringify(w));
+  check('LOSE: $5.00/follower on 2 follows does not beat $3.00', verdict(T({ estFollows: 2 }), champ).result === 'lose');
+  check('LOSE: an exact tie keeps the champion', verdict(T({ settledSpend: 9, spend: 9, estFollows: 3 }), champ).result === 'lose');
+  const few = verdict(T({ settledSpend: 1, spend: 1, estFollows: 1.5 }), champ);
+  check('LOSE: 1.5 follows at a great price is not enough evidence', few.result === 'lose' && /needs 2/.test(few.reason), few.reason);
+  check('WIN by default when the champion slot is empty', verdict(T({}), { costPerFollow: null, hasActive: false }).result === 'win');
+  check('WIN by default when the champion has no follows in its window', verdict(T({}), { costPerFollow: null, hasActive: true }).result === 'win');
+  const blind = verdict(T({ followsReadable: false }), champ);
+  check('UNMEASURED, not lose, when follower counts cannot be read', blind.result === 'unmeasured', blind.reason);
+  const wait = verdict(T({ settled: false }), champ);
+  check('WAIT, not lose, while its last day\'s follower count has not settled', wait.result === 'wait' && /settled/.test(wait.reason), wait.reason);
+  check('...but 0 follows IS a loss once settled and readable', verdict(T({ estFollows: 0 }), champ).result === 'lose');
+  check('visits never decide: 500 cheap visits with 1 follow still lose', verdict(T({ visits: 500, estFollows: 1 }), champ).result === 'lose');
+  check('the promotion floor is 2 estimated follows, settle lag 2 days', CONFIG.PROMOTE_MIN_FOLLOWS === 2 && CONFIG.FOLLOW_SETTLE_DAYS === 2);
+}
+
+console.log('\n5b. FOLLOW ATTRIBUTION: each day\'s new followers split by that day\'s visit share');
+{
+  const days = followerDaysFrom([{ value: 6, end_time: '2026-09-28T07:00:00+0000' }, { value: 4, end_time: '2026-09-27T07:00:00+0000' }]);
+  check('a follower_count value counts for the day BEFORE its end_time', days['2026-09-27'] === 6 && days['2026-09-26'] === 4, JSON.stringify(days));
+  const rows = attributeFollows([
+    { day: '2026-09-26', adsetId: 'A', spend: 5, visits: 30 },
+    { day: '2026-09-26', adsetId: 'B', spend: 5, visits: 10 },
+    { day: '2026-09-27', adsetId: 'A', spend: 5, visits: 0 },
+    { day: '2026-09-27', adsetId: 'B', spend: 5, visits: 20 },
+    { day: '2026-09-28', adsetId: 'B', spend: 2, visits: 5 },
+  ], days, '2026-09-27');
+  const a = followStats(rows.filter(r => r.adsetId === 'A')), b = followStats(rows.filter(r => r.adsetId === 'B'));
+  check('A gets 3 of the 26th\'s 4 follows and none of the 27th', a.estFollows === 3 && a.settled, JSON.stringify(a));
+  check('B gets 1 + all 6 of the 27th; the 28th is unsettled', b.estFollows === 7 && !b.settled && b.unsettledSpend === 2, JSON.stringify(b));
+  check('cost per follower divides settled spend only', a.costPerFollow === 3.33 && b.costPerFollow === round(10 / 7), `${a.costPerFollow} ${b.costPerFollow}`);
+  check('a day with no follower reading is unsettled, never zero', attributeFollows([{ day: '2026-09-20', spend: 1, visits: 5 }], days, '2026-09-27')[0].estFollows === null);
+  check('a day with follows but no visits credits nobody', attributeFollows([{ day: '2026-09-26', spend: 1, visits: 0 }], days, '2026-09-27')[0].estFollows === 0);
+  const bt = backfillTable(rows.map(r => ({ ...r, mediaId: r.adsetId })), id => (id === 'A' ? 'IMAGE' : 'REEL'));
+  check('backfill groups by type and ranks posts cheapest first', bt.types.length === 2 && bt.posts[0].mediaId === 'B', JSON.stringify(bt.posts.map(p => p.mediaId)));
 }
 
 console.log('\n6. CHAMPION HEALTH — pause > $5/follow after $35, flag < $3/follow, never auto-scale');
@@ -125,7 +155,7 @@ console.log('\n7. FIRST-RUN PAIR — both run to $10 each, then the cheaper visi
 
 console.log('\n8. NOTHING CRASHES ON DEGENERATE INPUT');
 {
-  check('verdict with no champion object', verdict({ spend: 5, visits: 15, visitsReadable: true }, null).result === 'win');
+  check('verdict with no champion object', verdict({ spend: 10, settledSpend: 10, visits: 15, estFollows: 3, settled: true, followsReadable: true }, null).result === 'win');
   check('pairDecision on empty list', pairDecision([]).resolved === false);
   check('capState with undefined committed', capState({ testsMtd: 0, totalMtd: 0 }).capReached === false);
 }

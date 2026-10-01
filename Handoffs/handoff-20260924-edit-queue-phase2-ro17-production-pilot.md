@@ -25,7 +25,7 @@ there is no new approval item and RO-17 is not a useful Phase 2 pilot. Stop and 
 ## Read first and protect active work
 
 Read `AGENTS.md`, `.claude/skills/_shared/VIDEO-RULES.md`, `.claude/skills/_shared/ASSET-APPROVAL.md`,
-`Handoffs/video-editing/00-RULES.md`, the RO-17 job doc, `$abs-edit-organic`,
+`Handoffs/video-editing/00-RULES.md`, the RO-17 job doc, `$long-form-content-edit`,
 `Docs/SHOOT_923_FOOTAGE_REPORT.md`, `scripts/edit-queue/README.md` and the current queue tests. Read the teleprompter
 and scripts plus B-roll documents named in the job doc. Use the Dan-edited long-form script as a cross-check, but
 verify what was actually spoken in C1713. Do not invent lines or portray stock footage as Dan.

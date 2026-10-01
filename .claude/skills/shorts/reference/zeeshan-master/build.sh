@@ -5,4 +5,5 @@ cd "${0:A:h}"
 python3 plan_shots.py > /dev/null
 rm -f assets/chip-*-s*.png
 python3 build-assets.py > /dev/null
+python3 pill/make_pill.py > /dev/null
 nice node render.js "$@"

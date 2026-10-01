@@ -1,3 +1,36 @@
+> # ⚠ 2026-09-29: THE DEREVERB IS OPT-IN. THE DEFAULT IS CODEX'S LIGHT TOUCH.
+>
+> Dan, 2026-09-28: *Codex's audio approach works better than Claude's; copy it.* Measured, the one setting
+> that separates them is the **dereverb**. Everything else Codex ran was this chain's own defaults.
+>
+> | file | Dan | dereverb | EQ | comp / bed |
+> |---|---|---|---|---|
+> | DS-17 R4 (C1670) | "All right this works and this is finalized" | none (room 29 ms) | fitted (default) | off / none |
+> | C1652 voice, candidate D | "The voice is sounding good" | **none, on a room reading 61-83 ms** | gentle fixed warm EQ | off / none |
+> | website rev 2 | "you got it nailed" | none (room 75 ms) | fitted | off / -44 dB |
+> | website rev 6 | "you nailed it" | alpha 0.30, **after Dan heard rev 5's room** | fitted | off / -44 dB |
+> | C1652 R1 | "Muhammad's audio is significantly, significantly better" | **auto**, alpha 0.30 | fitted, +2 dB treble | 1.5:1 / bed |
+> | spray-tan shorts, invest-health | "underwater" | alpha 0.62 / floor -24 | fitted | off |
+>
+> Every dereverb Dan rejected was applied because a number (EDT > 55 ms) said so; the one he approved was
+> applied because he heard the room. So `voice_chain.py` no longer dereverbs by itself. To opt in you need
+> **both halves**: the raw room measures wet (EDT > 55 ms, checked by the chain) **and** a listener heard
+> the room on an A/B, written as `--dereverb-because "<what, on which A/B>"` (it goes in the sidecar).
+> `--no-dereverb` still works and is now a no-op. Oversample, EQ fit, expander and the finish were the
+> same on both sides and are unchanged.
+>
+> ⚠ **The `edt` row (≤ 80 ms) was not changed and now bites harder.** C1652 R4 (approved, "Audio sounds
+> good") reads EDT 88 ms with no dereverb and fails it; the 09-02 spray-tan short Dan rejected read 85. A
+> wet room that fails `edt` is the *measured* half of the opt-in, never a reason to dereverb unheard.
+>
+> **`artifacts` now attributes (audio gate 2.0.0, 2026-09-29).** flux and swirl past his ×1.10 still FAIL,
+> unless this file's own untreated recording already carried at least that much, i.e. processing added
+> none of it. Untreated lav tracks straight off the camera read flux 0.066 to 0.104 across rolls (his
+> 0.072); DS-17 read 0.104 untreated and 0.090 delivered, so the old row blamed the chain for the
+> microphone. The bound is unchanged; with no baseline there is nothing to attribute and the absolute
+> bound stands. The underwater file still fails with its real baseline (0.094 delivered vs 0.075
+> untreated: added). Stamps now carry `gate_version`.
+
 > # ⚠ THE DEREVERB WAS RE-TUNED ON 2026-09-09 — DO NOT CHASE EDT AGAIN
 >
 > The first settings (alpha 0.62, d2 150, floor -24) were rejected by Dan as "underwater": they hit
@@ -34,14 +67,14 @@ let comb-filtered and roomy audio ship four times.
 | file | job |
 |---|---|
 | `pick_lav.py <file>` | **which track is the lav, measured per file.** Probes every stream and channel (2-ch rolls AND the 8/28 four-mono-track rolls), cross-correlates the live candidates ±20 ms, scores arrival / SNR / post-word decay / clipping, writes `<file>.audio_source.json` = `{map, filter, fc_label, lav, far, delay_ms, polarity, verdict}`. Exit 2 on ambiguity — refuse, never guess. Verdicts: `two-mics`, `single-live` (dead input), `dual-mono` (one signal → mid). |
-| `voice_chain.py --in X --out Y` | **the approved chain** (website video rev 2, "you got it nailed"): pull per `audio_source.json` (refuses SILENT input — a stacked `pan`), dereverb only if EDT > 55 ms, EQ **fitted** to the reference per file (9 bands + shelf, damped, smoothed, never a pasted curve), downward expander, compressor OFF (`--comp` ≤ 1.5:1), `pan=stereo|c0=c0|c1=c0`, `--bed` ≤ −30 dB ducked, `--extra` SFX, measured gain + `alimiter` (delay measured by xcorr) to −14 LUFS / −2.5 dBTP in PCM. The EQ fit uses an adaptive per-band step (the treble shelf moves the top band ~2.4x, and a fixed step oscillated), then **verifies the tone on the DELIVERED file and folds the residual back** (up to two extra renders, best kept) — the expander, limiter and AAC encode all move the spectrum, so a fit that only converges on the intermediate ships 0.5–1 dB worse. Length-preserving; `--frame-lock <picture>`; `--finish-only` for an already-finished mix (shortad's reference-mix path). Writes `Y.voice_chain.json`. |
+| `voice_chain.py --in X --out Y` | **the approved chain** (website video rev 2, "you got it nailed"): pull per `audio_source.json` (refuses SILENT input, a stacked `pan`), **no dereverb unless `--dereverb-because` on a room measuring EDT > 55 ms** (opt-in since 2026-09-29), EQ **fitted** to the reference per file (9 bands + shelf, damped, smoothed, never a pasted curve), downward expander, compressor OFF (`--comp` ≤ 1.5:1), `pan=stereo|c0=c0|c1=c0`, `--bed` ≤ −30 dB ducked, `--extra` SFX, measured gain + `alimiter` (delay measured by xcorr) to −14 LUFS / −2.5 dBTP in PCM. The EQ fit uses an adaptive per-band step (the treble shelf moves the top band ~2.4x, and a fixed step oscillated), then **verifies the tone on the DELIVERED file and folds the residual back** (up to two extra renders, best kept): the expander, limiter and AAC encode all move the spectrum, so a fit that only converges on the intermediate ships 0.5–1 dB worse. Length-preserving; `--frame-lock <picture>`; `--finish-only` for an already-finished mix (shortad's reference-mix path). Writes `Y.voice_chain.json`. |
 | `audio_gate.py <delivered> --reference-mix his_mix.wav` | **the editor's-own-mix path (shortad-from-longform).** Provenance is VERIFIED, not assumed: per-second level-normalised correlation against that mix must read ≥ 0.99 at the median (the number that separated his mix from a loudnorm'd one: 0.970) or the flag is refused. With provenance proven, comb / room / tone / floor / dryness / spread are measured and recorded but cannot fail the file — they measure HIS mixing (Ad 2's bed sits 6–7 dB hotter between words than the pinned Ad 1 reference, which is why "passes by construction" was only ever true for Ad 1). Loudness, true peak, silence, length and the L/R image still gate; the stamp carries `mode: reference-mix`, the mix's sha256 and the provenance number. Added 2026-09-03 on the Ad 2 V2 vertical. |
 | `audio_gate.py <delivered>` | **the one gate, on the exact delivered file**: L/R ≥ +0.97 · comb ripple ≤ his + 0.35 dB · EDT ≤ 80 ms · tone mean ≤ 1.2 / max ≤ 2.5 dB · floor within 3 dB of his · dryness ≥ his − 1.5 · −14 ±1 LUFS · speech spread ≥ his − 3 dB · TP ≤ −1.0 dBTP · 0 silent seconds · audio length = picture ± 0.10 s. Writes `<file>.audio_gate.json` (sha256 + every number + PASS/FAIL). `--synthetic` for AI voices keeps loudness/TP/silence/length/image. `--ab out.mp4` = his three sentences, then ours. |
 | `require_stamp.py <file>` / `qclib.js requireStamp()` | **the enforcement**: stamp exists, sha256 matches THIS file, verdict PASS, same pinned reference. Called by every QC and every deliver script. **Strict since 2026-09-09**: a `--synthetic` stamp no longer satisfies a camera-audio caller — the three AI-voice skills (`make-ad`, `exercisegeneration`, `findassets`) pass `--allow-synthetic` where a reader can see it. The old opt-IN `--strict` was passed by no SKILL.md anywhere, which is what made it useless. |
 | `reference.py` + `reference/` | the reference **pinned by fingerprint**: a mono 48 k FLAC of his audio + `reference.json` (sha256, bands, floor, EDT, dryness, spread, LUFS). Regenerates from the .mp4 wherever it lives and refuses a mismatch. Moving the file cannot silently break a gate again. |
 | `dereverb.py` | spectral subtraction of the late field. Defaults are the 2026-09-09 approved setting. Its CLI records the do-no-harm baseline on its INPUT; `stash=<delivered path>` parks it where the gate looks. |
 | `common.py` | the measurement functions, verbatim from the approved gates, so today's numbers are yesterday's numbers |
-| `selftest.sh` | **`zsh selftest.sh`** before any batch: identity on the reference, PASS on the Ad 1 vertical and the approved website rev 2, FAIL on rev 1 and on a synthetic both-mics render, `pick_lav` on all four roll types, stacked-pan refusal, chain end-to-end on an 8/28 excerpt, **step 7: the dereverb Dan rejected must FAIL `do_no_harm` while still passing the dry-room row, and a file with no baseline must FAIL**, and **step 8: a `--synthetic` stamp must not satisfy the default `require_stamp`** |
+| `selftest.sh` | **`zsh selftest.sh`** before any batch: identity on the reference, PASS on the Ad 1 vertical and the approved website rev 2, FAIL on rev 1 and on a synthetic both-mics render, `pick_lav` on all four roll types, stacked-pan refusal, the DEFAULT chain end-to-end on the DS-17 roll (C1670, no dereverb, gate PASS incl. artifacts), **step 6b: no dereverb by default on the wet C1650, none without a reason, none on a dry room**, **step 7: the dereverb Dan rejected must FAIL `do_no_harm` while still passing the dry-room row, and a file with no baseline must FAIL**, and **step 8: a `--synthetic` stamp must not satisfy the default `require_stamp`** |
 
 ## The standard, measured (20–140 s window)
 
@@ -49,7 +82,7 @@ let comb-filtered and roomy audio ship four times.
 |---|---|---|---|---|
 | one voice, not two mics | L/R correlation | +0.993 | +0.992 | ≥ +0.97 |
 | no comb | spectral ripple 300–6 k after de-tilt | 0.54 dB | 0.54 dB | ≤ his + 0.35 (a 7.5 ms sum reads 1.09–1.18) |
-| a dry room | early decay after a word | 40 ms | 45 ms | ≤ 80 ms (approved website rev 2: 75; the rejected spray-tan short: 85; the chain dereverbs above 55) |
+| a dry room | early decay after a word | 40 ms | 45 ms | ≤ 80 ms (approved website rev 2: 75; the rejected spray-tan short: 85; ⚠ approved C1652 R4: 88. The chain no longer dereverbs by itself) |
 | tone | 10-band speech spectrum vs his | 0 | mean 0.33 / max 0.67 | mean ≤ 1.2, max ≤ 2.5 dB |
 | clean between words | voice-over-floor 80–250 / 250–1k / 1–4k | 27.6 / 34.7 / 28.0 | −0.2 / −0.5 / −0.6 | within 3 dB |
 | words stop cleanly | drop 64 ms after a word | 7.4 dB | 7.4 dB | ≥ his − 1.5 |
@@ -57,7 +90,7 @@ let comb-filtered and roomy audio ship four times.
 | not crushed | speech spread p90−p10 (LRA reported) | 8.2 dB (3.5 LU) | 7.6 dB (2.9 LU) | ≥ his − 3.0 dB (approved website rev 2 reads 5.5) |
 | no clipping on phones | true peak, delivered file | +0.1 (his; too hot) | **−1.30** | ≤ −1.0 dBTP |
 | nothing missing | silent seconds; audio vs picture | 0; equal | 0; equal | 0; ± 0.10 s |
-| no processing damage | spectral flux / 3–9 k swirl | 0.072 / 0.835 | — | ≤ his × 1.10 |
+| no processing damage | spectral flux / 3–9 k swirl | 0.072 / 0.835 | n/a | ≤ his × 1.10, unless the untreated recording already carried it (2.0.0) |
 | **no worse than doing nothing** | the same two, vs **this file untreated** | — | — | **≤ × 1.35** (see below) |
 
 **Every limit traces to a file Dan approved or rejected** (see the comment above `LIM` in `audio_gate.py`).
