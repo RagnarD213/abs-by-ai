@@ -13,6 +13,9 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
+| [handoff-20261001-pmax-image-research-and-plan.md](handoff-20261001-pmax-image-research-and-plan.md) | **Ready 2026-10-01. Opus 5.5 / High.** Research which still images top fitness advertisers run on Google, then two image plans (cold, remarketing) for the $450 Performance Max credit; stops for Dan's picks. No images reused from thumbnails, no campaign changes. |
+| [handoff-20261001-trial-campaign-ad-thumbnails-install-claude.md](handoff-20261001-trial-campaign-ad-thumbnails-install-claude.md) | **After the Codex thumbnail task and Dan's picks. Sonnet 5 / Medium.** Install the picked thumbnails on the 12 trial-campaign ad videos, read back, record policy status. |
+| [handoff-20261001-trial-campaign-ad-thumbnails-codex.md](handoff-20261001-trial-campaign-ad-thumbnails-codex.md) | **Ready 2026-10-01. GPT-6 Astra / High.** Five new thumbnail options for each of the six trial-campaign ads (pool, studio design, three free), for click-through; stops for Dan's picks, then installs. |
 | [handoff-20261001-search-campaigns-to-vsl-page.md](handoff-20261001-search-campaigns-to-vsl-page.md) | **Ready 2026-10-01. GPT-6 Sol / High.** Both Search campaigns: audit every URL to /start, add UTMs, switch the goal to Trial Signup, report copy that no longer matches the page. |
 | [handoff-20261001-ad13-other-formats.md](handoff-20261001-ad13-other-formats.md) | **Ready 2026-10-01. Opus 5.5 / High.** Ad 13 The Cost Of Getting Abs: 9:16, 9:16 59s, 1:1, 1:1 59s from the approved 16:9. No upload. |
 | [handoff-20261001-ad4-other-formats.md](handoff-20261001-ad4-other-formats.md) | **Ready 2026-10-01. Opus 5.5 / High.** Ad 4 Stop Wasting Money On Supplements: 9:16, 9:16 59s, 1:1, 1:1 59s from the approved 16:9. No upload. |

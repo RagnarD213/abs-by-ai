@@ -89,6 +89,8 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # ACTIVE
 
+**Trial thumbnails - ACTIVE 2026-10-01, Codex.** 30 options; next: Dan picks. No installation.
+
 
 
 
@@ -123,6 +125,8 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 **Ads 6, 7, 10, 14 YouTube + Google Ads - REVIEW 2026-09-15, Codex 01a0a744.** Four unlisted uploads, eight enabled campaign ads, shared budget $40/day, policy `REVIEW_IN_PROGRESS`. Next: re-run policy; swap in Ad 7 typo / Ad 14 bitrate exports when delivered. Detail: `Docs/DGEN_CONVERSION_CAMPAIGN.md`.
 
 **Trial `24316364155` LIVE, remarketing `24305381214`/`24316408288` PAUSED, 2026-10-01, Claude.** 10-04: delivery+policy. `Docs/DGEN_CONVERSION_CAMPAIGN.md`.
+
+**Push blocked 2026-10-01, Claude.** `89191fc` + `f4b5759` (enhanced-conversions email, undeployed) local only; uncommitted `ad-edit` + `longform-edit` SKILL.md edits block it. Owner pushes first.
 
 **Ads results follow-up — OPEN 2026-09-15.** Review Google Ads results after the 09-09 account fixes (`Docs/GOOGLE_ADS_API.md`). Meta $50 review: next reading 2026-09-18; last result $2.02/follow against <$3 target.
 
@@ -173,6 +177,7 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
+- `handoff-20261001-pmax-image-research-and-plan.md` (10-01): PMax credit image research. Opus high.
 - `handoff-20261001-vertical-kit-from-our-own-edits.md` (10-01).
 - `handoff-20260929-cut-broll-into-clip-library.md` (09-29): cut 68 B-roll clips into the library. Opus 5.5 medium.
 - `handoff-20260930-codex-adopt-review-page-format.md` (09-30): Codex adopts the RO-16 review page. GPT-6 Sol medium.
