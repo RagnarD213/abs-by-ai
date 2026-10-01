@@ -12,8 +12,8 @@ function spa_img_uri( $file ) {
 }
 
 /**
- * Every destination the design links to. App links go to the SixPackAbs-skinned
- * app with the UTM pattern already in use; `$campaign` = header|bio|footer|menu.
+ * Every destination the design links to. App links go to the AbsByAI.com/start
+ * page with the UTM pattern already in use; `$campaign` = header|bio|footer|menu.
  */
 function spa_url( $key, $campaign = '' ) {
 	switch ( $key ) {
@@ -24,7 +24,7 @@ function spa_url( $key, $campaign = '' ) {
 		case 'instagram':
 			return 'https://www.instagram.com/danrosefit/';
 		case 'app':
-			return 'https://try.sixpackabs.com/?utm_source=sixpackabs&utm_medium=homepage&utm_campaign=' . rawurlencode( $campaign ? $campaign : 'header' );
+			return 'https://absbyai.com/start?utm_source=sixpackabs&utm_medium=homepage&utm_campaign=' . rawurlencode( $campaign ? $campaign : 'header' );
 		case 'videos':
 			return home_url( '/videos/' );
 		case 'shorts':

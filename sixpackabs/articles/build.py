@@ -23,7 +23,7 @@ def inline(t, vid):
     t = html.escape(t, quote=False)
     t = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', t)
     def link(mm):
-        url = mm.group(2).replace('{CTA}', 'https://try.sixpackabs.com/?' + CTA_UTM + vid)
+        url = mm.group(2).replace('{CTA}', 'https://absbyai.com/start?' + CTA_UTM + vid)
         return '<a href="%s">%s</a>' % (html.escape(url.replace('&amp;', '&')), mm.group(1))
     return re.sub(r'\[(.+?)\]\((.+?)\)', link, t)
 

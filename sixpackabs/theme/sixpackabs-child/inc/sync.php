@@ -380,6 +380,8 @@ function spa_description_to_blocks( $description ) {
 		$html = preg_replace_callback( '~https?://[^\s<]+~i', function ( $m ) {
 			$raw  = rtrim( $m[0], '.,;:!?)' );
 			$tail = substr( $m[0], strlen( $raw ) );
+			// Links to the app's home page go to the /start page (Dan, 2026-10-01).
+			$raw  = preg_replace( '~^https?://(?:www\.)?absbyai\.com/?(?=\?|$)~i', 'https://absbyai.com/start', $raw );
 			$href = esc_url( wp_specialchars_decode( $raw, ENT_QUOTES ) );
 			return '<a href="' . $href . '" rel="nofollow noopener">' . $raw . '</a>' . $tail;
 		}, esc_html( $para ) );
