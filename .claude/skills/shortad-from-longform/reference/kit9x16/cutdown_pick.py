@@ -67,6 +67,13 @@ def main():
     inserts = [tuple(x) for x in (P.get("covered") or [])]      # `cards` also lists lower thirds and CTA pills: not pictures
     punch = [(float(x[0]), float(x[1]), x[2]) for x in P.get("punch") or []]
 
+    caps = sorted((float(c["beat"][0]), float(c["beat"][1])) for c in P.get("caption_states") or [])
+
+    def captioned(t0, t1):
+        """Seconds of [t0, t1] with a burned caption on screen (the gate's captions:burned row wants 45 % of the
+        cutdown's frames; a selection made of labelled pictures, where captions are off, read 44 %: AV-09)."""
+        return sum(max(0.0, min(b_, t1) - max(a_, t0)) for a_, b_ in caps)
+
     def level_at(t):
         if any(a_ <= t < b_ for a_, b_ in inserts):
             return "picture"
@@ -131,7 +138,8 @@ def main():
         t0, t1, pr = edges(i, i)
         return (f" <starts {level_at(t0 + 0.03)}; ends {level_at(t1 - 0.03)}"
                 + ("; a range CANNOT END here" if pr and "end" in pr else "")
-                + ("; a range CANNOT START here" if pr and "start on" in pr else "") + ">")
+                + ("; a range CANNOT START here" if pr and "start on" in pr else "")
+                + ("; NO CAPTIONS on screen" if caps and captioned(S[i]["t0"], S[i]["t1"]) < 0.4 * (S[i]["t1"] - S[i]["t0"]) else "") + ">")
     listing = "\n".join(f"[{i}] ({s['t0']:.1f}-{s['t1']:.1f}s, {s['t1'] - s['t0']:.1f}s) {s['text']}{tag(i)}" for i, s in enumerate(S))
     prompt = (
         "You are cutting a <=0:59 vertical cutdown of a finished paid video ad for Abs By AI (an app that generates a "
@@ -148,7 +156,7 @@ def main():
         "tagged with what is on screen where it starts and ends (FAR / NEAR = the talking head at that zoom level, "
         "picture = a photo, clip or text card). Where one range ends and the next begins, the two tags must differ "
         "(FAR to NEAR, NEAR to FAR) or at least one must be 'picture'; never FAR to FAR or NEAR to NEAR. Never end a "
-        "range on a sentence tagged 'a range CANNOT END here', nor start one on 'a range CANNOT START here'.\n\n" + listing +
+        "range on a sentence tagged 'a range CANNOT END here', nor start one on 'a range CANNOT START here'. At least half of the cut's running time must be sentences NOT tagged 'NO CAPTIONS on screen'.\n\n" + listing +
         '\n\nAnswer JSON: {"ranges": [[first_sentence, last_sentence], ...], "total_seconds": <sum>, '
         '"story": "<the cutdown read as prose>", "why": "<one line per range: hook/problem/demo/payoff/CTA>"}')
     res, E_ = None, None
@@ -166,6 +174,11 @@ def main():
             probs.append(f"it measures {tot:.1f}s (limit {a.max:.0f}s)")
         if tot < 45.0:
             probs.append(f"it measures only {tot:.1f}s: use at least 45 s of the {a.max:.0f} s")
+        if caps and E_:
+            cov = sum(captioned(t0, t1) for t0, t1, _ in E_) / max(1e-6, sum(t1 - t0 for t0, t1, _ in E_))
+            if cov < 0.50:
+                probs.append(f"only {100 * cov:.0f}% of it has captions on screen (at least 50% needed): swap sentences "
+                             f"tagged 'NO CAPTIONS on screen' for captioned ones")
         if len(R) > 4:
             probs.append(f"it has {len(R)} ranges (at most 4)")
         if any(x > y for x, y in R) or any(R[i + 1][0] <= R[i][1] for i in range(len(R) - 1)):
