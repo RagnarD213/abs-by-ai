@@ -193,7 +193,12 @@ def groups(words, mute):
             return True
         # ... or the last word of a sentence whose other words a graphic covered ("age." alone for 0.7 s after the
         # "It works around your injuries" lower third, Ad 10 144.3 s)
-        return w[0].rstrip().endswith(('.', '?', '!')) and any(0 <= w[1] - b <= 0.35 for a, b in mute)
+        if not any(0 <= w[1] - b <= 0.35 for a, b in mute):
+            return False
+        i = next((k for k, x in enumerate(words) if x[1] == w[1] and x[0] == w[0]), None)
+        prev = words[i - 1] if i else None
+        # the word before it was hidden by the graphic and belongs to the same sentence: this one is its orphan
+        return prev is not None and muted(prev[1]) and not prev[0].rstrip().endswith(('.', '?', '!'))
     gs = [g for g in gs if not stray(g)]
     return gs
 
