@@ -1,0 +1,77 @@
+[
+  {
+    "option": 1,
+    "label": "Pool, relaxed smile",
+    "source": "photo-221",
+    "font_px": 102,
+    "clearance_px": 77,
+    "logo_overlap_px": 0,
+    "dimensions": [
+      1280,
+      720
+    ],
+    "bytes": 251746,
+    "sha256": "3a68a05656b3bb25bb21b7852b02dc4d25e785cf60ee2f6a4d4d31638f587e1c",
+    "file": "ro05-option-1.jpg"
+  },
+  {
+    "option": 2,
+    "label": "Pool, front-facing smile",
+    "source": "photo-247",
+    "font_px": 104,
+    "clearance_px": 81,
+    "logo_overlap_px": 0,
+    "dimensions": [
+      1280,
+      720
+    ],
+    "bytes": 266159,
+    "sha256": "469f62745e7e3b3b72e806becfa85001ee3a5303ab0aea493f9db657a9238e9d",
+    "file": "ro05-option-2.jpg"
+  },
+  {
+    "option": 3,
+    "label": "Dark studio",
+    "source": "studio-blue-192",
+    "font_px": 108,
+    "clearance_px": 84,
+    "logo_overlap_px": 0,
+    "dimensions": [
+      1280,
+      720
+    ],
+    "bytes": 244961,
+    "sha256": "7e86f75aab74f9b666f3972220dc9c6ee9f781400defe80e7d900012942ba061",
+    "file": "ro05-option-3.jpg"
+  },
+  {
+    "option": 4,
+    "label": "Light studio",
+    "source": "studio-white-84",
+    "font_px": 116,
+    "clearance_px": 72,
+    "logo_overlap_px": 0,
+    "dimensions": [
+      1280,
+      720
+    ],
+    "bytes": 159874,
+    "sha256": "9b84373ed15d6d9f7bb74a0b0eb40f81162da301ae825adc2f80e0c7dd6e99af",
+    "file": "ro05-option-4.jpg"
+  },
+  {
+    "option": 5,
+    "label": "Finished salad + real studio portrait",
+    "source": "studio-white-23 + approved master 00:05.000",
+    "font_px": 128,
+    "clearance_px": 89,
+    "logo_overlap_px": 0,
+    "dimensions": [
+      1280,
+      720
+    ],
+    "bytes": 266126,
+    "sha256": "cc2e12bbef1d3b28107debab4dcf6fbff95f95d6bd45a31a3dbb294835753f98",
+    "file": "ro05-option-5.jpg"
+  }
+]

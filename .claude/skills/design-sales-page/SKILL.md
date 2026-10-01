@@ -75,8 +75,8 @@ footer. No small avatar next to the sign-off. No photo sitting above a buy butto
   eyebrow and a title, or lifting a "[Start My 7-Day Free Trial]" marker out of a bullet into the real button, is layout.
   Anything that reads like a note to himself ("(Change when the stores list the app.)") stays, and you flag it.
 - **Never a day-by-day trial timeline or a "Day 5 reminder email" on the page** (Dan, 09-30: "I don't plan on sending a
-  day 5 reminder email"). Note the app's code still sends a trial-ending email 48 hours before the charge
-  (`trialReminderSweep` in `server.js`); whether to keep it is Dan's call in the build task, not a page decision.
+  day 5 reminder email"). Dan also turned the app's 48-hour trial-ending email off on 2026-09-30
+  (`TRIAL_REMINDER_ENABLED` in `server.js`), and the checkout timeline no longer shows a day 5.
 - **Every app screenshot sits in a phone frame** (09-30). The asset session delivers them already framed; show them as-is.
   **Never show the app's stick figures** anywhere.
 - **Real photos keep their burned-in "Real picture of me, not AI-generated" label; AI images keep AI-GENERATED.** Show
@@ -165,7 +165,9 @@ When Dan approves the mockup, write `Handoffs/handoff-YYYYMMDD-<page>-build.md` 
 `Handoffs/handoff-20260930-sales-page-build.md`: the canvas and board files as the spec, every locked rule above, the
 assets folder, the video slot, the checkout hand-off and plan choice, tracking, native-app gating, deploy and live
 verification, and the open decisions with their defaults. Record it in the HANDOFFS section of `AI_COORDINATION.md` and in
-`Handoffs/README.md` (dashboard row only if Dan asks). In chat, give the ready-to-paste starter prompt and the model +
+`Handoffs/README.md` (dashboard row only if Dan asks). The live page is built by a generator too:
+`reference/round2-letter/build_live.py` turns the approved boards into one responsive `public/start.html` (phone below
+900 px, desktop above) and `verify_live.py` proves the copy. A new page copies that pair. In chat, give the ready-to-paste starter prompt and the model +
 effort (memory `model-routing-plan`).
 
 ## Canvas traps (each cost time once)

@@ -27,6 +27,8 @@ import shutil
 import subprocess
 import sys
 
+import numpy as np
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 PICCUTS = os.path.join(HERE, "..", "..", "..", "_shared", "cut", "piccuts.py")   # the pose-matched cut (shared)
 REPO = os.path.abspath(os.path.join(HERE, "..", "..", "..", "..", ".."))
@@ -154,17 +156,45 @@ def make_timeline(beats, dur):
 
 
 # ---------------------------------------------------------------------------- the grammar
-def flashes_for(tl, T):
-    """A light-leak on every insert -> talk return (his rule), the content cut on the peak."""
+DROPPED_FLASHES = []
+
+
+def flashes_for(tl, T, cap=None):
+    """A light-leak on every insert -> talk return (his rule), the content cut on the peak. A return from a
+    full-screen picture flashes only where HIS master does (`flash_after` from auto_content) and only while the
+    count stays inside his measured range (`cap`): Ad 8 and Ad 10 flash on every such return, which would put the
+    kit over his ceiling; the latest returns keep theirs (the round-6 judge flagged the one at 177.98 s)."""
     pre, dur, gap = T["flash"]["pre_s"], T["flash"]["dur_s"], T["flash"]["min_spacing_s"]
-    out = []
     frm = tuple(T["flash"].get("on_return_from", ["card", "window", "title", "stmt", "winmedia"]))
+    rule, extra, bare = [], [], []
     for i in range(1, len(tl)):
-        if tl[i]["kind"] == "talk" and (tl[i - 1]["kind"] in frm or tl[i - 1].get("flash_after")) and tl[i]["t1"] - tl[i]["t0"] >= 0.6:
-            c = tl[i]["t0"]
-            if out and c - (out[-1][0] + pre) < gap:
-                continue
-            out.append((round(c - pre, 3), round(c - pre + dur, 3)))
+        if tl[i]["kind"] == "talk" and tl[i]["t1"] - tl[i]["t0"] >= 0.6:
+            if tl[i - 1]["kind"] in frm:
+                (bare if tl[i - 1].get("his_flash") is False else rule).append(tl[i]["t0"])
+            elif tl[i - 1].get("flash_after"):
+                extra.append(tl[i]["t0"])
+    # priority inside his ceiling: rule returns HE flashes too, then his flashes on full-screen returns (latest
+    # first), then rule returns where his master has none
+    if cap is None:
+        cand = rule + extra + bare
+    else:
+        keep = rule[:cap]
+        room = max(0, cap - len(keep))
+        keep += sorted(extra)[::-1][:room]
+        room = max(0, cap - len(keep))
+        keep += bare[:room]
+        dropped = sorted(set(extra + bare) - set(keep))
+        if dropped:
+            DROPPED_FLASHES[:] = [dict(t=round(c, 3), why="his master flashes on this return, but his measured flash "
+                                       "range (picture.json flashes_per_min hi) is full; the returns he and the kit's rule "
+                                       "both flash, and his latest full-screen returns, came first") for c in dropped]
+        cand = keep
+    cand = sorted(cand)
+    out = []
+    for c in cand:
+        if out and c - (out[-1][0] + pre) < gap:
+            continue
+        out.append((round(c - pre, 3), round(c - pre + dur, 3)))
     return out
 
 
@@ -202,8 +232,14 @@ def pushes_for(tl, splices, cover, words, T, flashes):
         # (instant) if it is inside a punch. Consecutive cuts alternate. Ramped pushes then fill only the
         # stretches with no cut. Reported separately as level steps; they are not his ramped pushes.
         hold_i = 0
+        DW = ("window", "stmt", "winmedia")
+        kind_at = lambda x: next((b["kind"] for b in tl if b["t0"] <= x < b["t1"]), None)
+        # a boundary between two Dan-WINDOW plates is not a cover: his head keeps its size across it (Ad 8 190.92 s,
+        # phone split -> bullet window on a source cut, judged a naked splice, kit autofill round 6)
+        covers = lambda e: not (kind_at(e - 0.05) in DW and kind_at(e + 0.05) in DW)
         for c in sorted(splices):
-            if near_flash(c) or any(abs(c - b["t0"]) < 0.3 or abs(c - b["t1"]) < 0.3 for b in tl):
+            if near_flash(c) or any((abs(c - b["t0"]) < 0.3 and covers(b["t0"])) or (abs(c - b["t1"]) < 0.3 and covers(b["t1"]))
+                                    for b in tl):
                 continue                                          # a beat boundary or a flash already covers it
             fr = round((round(c * FPS) - 0.5) / FPS, 4)          # half a frame before the cut frame
             live = steps[-1] if steps and steps[-1][0] < fr < steps[-1][3] else None
@@ -211,6 +247,8 @@ def pushes_for(tl, splices, cover, words, T, flashes):
                 live[2] = fr; live[3] = fr                        # inside a punch: the cut pulls out, instantly
                 continue
             win = next((b for b in steppable if b["kind"] != "talk" and b["t0"] <= c < b["t1"]), None)
+            if win is not None and fr < win["t0"]:
+                fr = round(win["t0"], 4)                          # a cut ON a window-to-window boundary steps with the new plate
             if win is not None:
                 # inside a Dan WINDOW the step is a pure framing change: in on this cut, out on the next cut or
                 # with the window (the plate transition hides it) -- never a hold that ramps out, which counts
@@ -291,7 +329,11 @@ def pushes_for(tl, splices, cover, words, T, flashes):
         guard += 1
         gaps = []
         for b in talk:
-            edges = [b["t0"]] + sorted([q for p in clean for q in (p[0], p[3]) if b["t0"] < q < b["t1"]]) + [b["t1"]]
+            # a picture cut is a wall too: a ramp that contains one is dropped below (it would hide that cut's size
+            # step), so the top-up must place its pushes BETWEEN cuts or they never survive (kit9x16 autofill, Ad 8:
+            # a finer picture EDL left 10 hand pushes, 2.85/min under his 2.92, with the top-up placing and losing them)
+            edges = [b["t0"]] + sorted([q for p in clean for q in (p[0], p[3]) if b["t0"] < q < b["t1"]] +
+                                       [c for c in splices_all if b["t0"] < c < b["t1"]]) + [b["t1"]]
             for x, y in zip(edges[:-1], edges[1:]):
                 if not any(p[0] <= x and y <= p[3] for p in clean):
                     gaps.append((y - x, x, y))
@@ -309,7 +351,8 @@ def pushes_for(tl, splices, cover, words, T, flashes):
             b1 = round(a2 + hold, 3)
             b2 = round(min(b1 + ro, y), 3)
             b1 = min(b1, b2)
-            if b2 - a1 < rin + 1.0 or any(p[0] - 0.4 < b2 and a1 < p[3] + 0.4 for p in clean):
+            if b2 - a1 < rin + 1.0 or any(p[0] - 0.4 < b2 and a1 < p[3] + 0.4 for p in clean) \
+                    or any(a1 - 0.2 <= c <= b2 + 0.2 for c in splices_all):
                 continue
             clean.append((round(a1, 3), a2, b1, b2))
             n += 1
@@ -329,6 +372,11 @@ def pushes_for(tl, splices, cover, words, T, flashes):
                 # the window's end, had been moved to the end)
                 if 0 < b["t1"] - p[3] < 0.6 and p[3] > p[2]:
                     p[2] = p[3] = round(b["t1"], 4)
+                # a ramp-out the beat's end cuts short (it reaches the insert mid-ramp) is not a ramp: the push
+                # holds to the edge and the insert takes it (Ad 8 150.23-150.38 s: two frames of a half zoom-out
+                # then the cut, judged a blip, kit autofill round 4)
+                elif p[2] < b["t1"] <= p[3] + 0.02 and p[3] > p[2] and b["t1"] - p[2] < 0.6:
+                    p[2] = p[3] = round(b["t1"], 4)
                 if 0 < p[0] - b["t0"] < 0.6 and p[1] > p[0]:
                     p[0] = p[1] = round(b["t0"], 4)
         fixed.append(tuple(p))
@@ -345,6 +393,61 @@ def pushes_for(tl, splices, cover, words, T, flashes):
                 continue
         out.append(p)
     return out
+
+
+def final_topup(pushes, tl, cuts, words, T, flashes, dur, ref):
+    """THE LAST WORD ON HIS PUSH COUNT. pushes_for tops up to his count, then its own clean-up (ramp ends pulled to
+    beat edges, ramps dropped that would hide a cut's step) can take pushes back out. When the FINAL schedule is under
+    his range (picture.json lo), ramped pushes go into the longest talk gaps that hold no cut, no step and no flash,
+    on a sentence start -- the same rules, applied after the clean-up so nothing removes them. (kit9x16 autofill,
+    Ad 8: 10 hand pushes = 2.85/min under his 2.92 after a finer picture EDL.)"""
+    lo = ref["numbers"].get("pushes_hand_per_min", {}).get("lo") if ref else None
+    if lo is None:
+        return pushes
+    P = T["push"]
+    holds = list(P["hold_s"]) if isinstance(P["hold_s"], list) else [P["hold_s"]]
+    outs = list(P["ramp_out_s"]) if isinstance(P["ramp_out_s"], list) else [P["ramp_out_s"]]
+    rin, fl_guard = P["ramp_in_s"], P.get("min_gap_to_flash_s", 0.3)
+    flash_pts = [a + T["flash"]["pre_s"] for a, b in flashes]
+    sents = sorted(w["e"] for w in words if w["w"].rstrip().endswith((".", "?", "!", ",")))
+    like = lambda ps: sum(1 for p in ps if p[1] > p[0] or p[3] > p[2])
+    need = int(np.ceil(lo * dur / 60.0 + 1e-9)) - like(pushes)
+    out = list(pushes)
+    n = 0
+    while need > 0:
+        gaps = []
+        for b in tl:
+            if b["kind"] != "talk":
+                continue
+            walls = sorted([b["t0"], b["t1"]] + [c for c in cuts if b["t0"] < c < b["t1"]] +
+                           [q for p in out for q in (p[0], p[3]) if b["t0"] < q < b["t1"]])
+            for x, y in zip(walls[:-1], walls[1:]):
+                if not any(p[0] <= x + 1e-3 and y - 1e-3 <= p[3] for p in out):
+                    gaps.append((y - x, x, y))
+        gaps.sort(reverse=True)
+        placed = False
+        # the scheduled hold first; where no gap is long enough, his shortest hold and ramp-out (the hold cycle is
+        # his, so is the count: Ad 10 round 5 kept his cut frames and had one 3.3 s cut-free stretch too few)
+        for hold, ro in ((holds[n % len(holds)], outs[n % len(outs)]), (min(holds), min(outs))):
+            for ln, x, y in gaps:
+                if ln < rin + hold + ro + 0.8:
+                    break
+                lo_t, hi_t = x + 0.4, y - (rin + hold + ro + 0.4)
+                c = [q for q in sents if lo_t <= q <= hi_t]
+                a1 = min(c, key=lambda q: abs(q - (x + y) / 2 + (rin + hold + ro) / 2)) if c else lo_t + (hi_t - lo_t) / 2
+                if any(abs(a1 - f) < fl_guard for f in flash_pts):
+                    a1 += fl_guard
+                a2, b1 = round(a1 + rin, 3), round(a1 + rin + hold, 3)
+                b2 = round(b1 + ro, 3)
+                if b2 > y - 0.2 or any(a1 - 0.2 <= q <= b2 + 0.2 for q in cuts) or any(abs(b2 - f) < fl_guard for f in flash_pts):
+                    continue
+                out.append((round(a1, 3), a2, b1, b2)); n += 1; need -= 1; placed = True
+                break
+            if placed:
+                break
+        if not placed:
+            break
+    return sorted(out)
 
 
 def push_at(t, pushes, z):
@@ -401,6 +504,20 @@ def main():
             b["label"] = T["labels"]["real"] if b["label_kind"] == "real" else T["labels"]["ai"]
         beats.append(b)
         last = t1
+    # (BEFORE the timeline is made: the talk beat after it, its flash and its cut all take the new end)
+    # a graphic that mutes captions never swallows the START of a word that plays on after it: its end moves to
+    # just before that word (Ad 10 138.66 s "30 minutes": the window ended 0.18 s into "30", which then either went
+    # uncaptioned, judged a defect, or was captioned 212 ms late, over the gate's 120 ms caption-sync bound)
+    wl = [(w["t"], w["e"]) for w in words]
+    for bi, b in enumerate(beats):
+        nxt = beats[bi + 1] if bi + 1 < len(beats) else None
+        if b["kind"] == "talk" or (nxt is not None and nxt["t0"] - b["t1"] < 0.3):
+            continue                                          # into another graphic: no caption there either
+        for ws, we in wl:
+            if b["t1"] - 0.30 <= ws < b["t1"] - 0.08 and we > b["t1"] + 0.10 and (we - b["t1"]) >= 0.5 * (we - ws):
+                if ws - 0.03 - b["t0"] >= 0.5:
+                    b["t1"] = round(ws - 0.03, 3)
+                break
     # carry a VALIDATED chip placement over from the previous beat sheet when the same picture sits on the
     # same beat (kit_labels.py is a segmenter pass per candidate; a re-plan that does not move the beat keeps it)
     prev_sheet = os.path.join(a.build, "beats.json")
@@ -421,6 +538,11 @@ def main():
         if "t0" not in it:
             t0 = round(t0 - L["lead_s"], 3)
             t1 = round(min(max(t1, t0 + L["min_s"]), t0 + L["max_s"]), 3)
+        elif t1 - t0 < L["min_s"]:
+            # HIS lower third shorter than the kit's minimum (Ad 10 142.3 s: 1.4 s, readable for 8 frames once it had
+            # typed on, judged unreadable): it holds to the minimum where no other overlay starts in that time
+            nxt_ov = [float(o["t0"]) for o in C.get("lower_thirds", []) + (C.get("ctas") or []) if "t0" in o and float(o["t0"]) > t0 + 0.01]
+            t1 = round(min([t0 + L["min_s"]] + [x - 0.15 for x in nxt_ov if x - 0.15 > t1]), 3)
         # never over a text plate: clip to the talk/insert beat it sits on
         for b in tl:
             if b["kind"] in TEXT_KINDS and b["t0"] < t1 and b["t1"] > t0:
@@ -429,6 +551,8 @@ def main():
         o = dict(kind="lt", t0=t0, t1=t1, lines=it["lines"])
         if "y_bottom" in it:
             o["y_bottom"] = it["y_bottom"]
+        if it.get("equal"):
+            o["equal"] = True
         lts.append(o)
         last = t1
     ctas, last = [], 0.0
@@ -458,7 +582,18 @@ def main():
         last = t1 + 0.5
     if ctas and Cc.get("last_runs_to_end"):
         ctas[-1]["t1"] = dur
-    flashes = flashes_for(tl, T)
+    # his own flash at each return (auto_content writes his_flash; an older sheet gets it here from the master cache)
+    mp_ = os.path.join(a.build, "auto", "m256.rgb")
+    if a.from_master and os.path.exists(mp_) and any("his_flash" not in b for b in tl if b["kind"] != "talk"):
+        nm_ = os.path.getsize(mp_) // (256 * 144 * 3)
+        M_ = np.memmap(mp_, np.uint8, "r").reshape(nm_, 144, 256, 3)
+        for b in tl:
+            if b["kind"] != "talk" and "his_flash" not in b:
+                n1_ = int(round(b["t1"] * FPS))
+                lum = [float(M_[n].mean()) for n in range(max(0, n1_ - 5), min(nm_, n1_ + 6))]
+                b["his_flash"] = bool(lum and max(lum) > 205)
+    fl_hi = ref["numbers"].get("flashes_per_min", {}).get("hi") if ref else None
+    flashes = flashes_for(tl, T, cap=int(fl_hi * dur / 60.0) if fl_hi else None)
 
     # ---- the talk splices and the picture cuts
     talk_spans = [[b["t0"], b["t1"]] for b in tl if b["kind"] == "talk"]
@@ -572,6 +707,15 @@ def main():
         # flash) then hides it. Round 2's gate: the join at 50.72 s, 8 frames after a card -> talk return, read
         # 86.3 against the file's own 66.5 ceiling.
         near = [e for e in talk_edges if 0 < abs(e - n0) <= int(T["cut"]["search_frames"]) and e not in (0, round(dur * FPS))]
+        # ... or it lies under the RETURN FLASH that starts at that edge: the flash's own length counts as reach. A cut
+        # 16.5 frames after a window's end, inside its flash tail, missed the 15-frame reach, kept no size step and read
+        # as a naked splice through a 30 % flash (kit9x16 autofill, Ad 10 139.1 s, 2026-09-28)
+        if not near:
+            for f0, f1 in flashes:
+                e_ = [e for e in talk_edges if round(f0 * FPS) - 2 <= e <= round(f1 * FPS) + 2 and e not in (0, round(dur * FPS))]
+                if e_ and round(f0 * FPS) <= n0 <= round(f1 * FPS) + int(T["cut"]["search_frames"]):
+                    near = [min(e_, key=lambda e: abs(e - n0))]
+                    break
         if near:
             e = min(near, key=lambda x: abs(x - n0))
             r["k_unsnapped"], r["k"], r["snapped_to_boundary"] = k, e - n0, True
@@ -584,6 +728,23 @@ def main():
         kk = max(lo_n - n0, min(hi_n - n0, k)) if lo_n <= hi_n else 0
         if kk != k:
             r["k_unclamped"], r["k"], r["clamped_k"] = k, kk, True
+    # ---- LIP SYNC: a picture cut moves off the audio cut only inside the pause between his words. Moved earlier,
+    #      the incoming take's pre-roll plays over the outgoing words; moved later, the outgoing take plays over the
+    #      incoming words (Ad 8 207.39 s: a 14-frame head-match move put his lips 8 frames ahead of "future.",
+    #      kit autofill round 8). Cuts snapped under an insert edge are hidden by the insert and keep their move.
+    ends = sorted(w["e"] for w in words); starts = sorted(w["t"] for w in words)
+    for r in piccuts:
+        if r.get("method") == "edge-snap" or r.get("snapped_to_boundary") or not int(r["k"]):
+            continue
+        t_ = n_audio[r["i"]] / FPS; k = int(r["k"])
+        if k < 0:
+            e_prev = max([e for e in ends if e <= t_ + 0.05] or [0.0])
+            kk = max(k, -int((t_ - e_prev) * FPS))
+        else:
+            s_next = min([s_ for s_ in starts if s_ >= t_ - 0.05] or [dur])
+            kk = min(k, int((s_next - t_) * FPS))
+        if kk != k:
+            r["k_unsynced"], r["k"], r["lip_sync_clamped"] = k, kk, True
     P = [dict(s) for s in E]
     for i in range(1, len(P)):
         k = int(byi[i]["k"]) if i in byi else 0
@@ -616,6 +777,7 @@ def main():
     # ---- the push schedule and the design's own numbers
     pushes = pushes_for(tl, pic_cuts if T["cut"].get("step_every_bare_cut") else [round(s, 3) for s in in_talk],
                         cover, words, T, flashes)
+    pushes = final_topup(pushes, tl, pic_cuts, words, T, flashes, dur, ref)
     steps = [p for p in pushes if p[1] <= p[0]]                  # instant-in on a cut = a level step
     ramped = [p for p in pushes if p[1] > p[0]]                   # a ramped emphasis push (the top-up)
     # his hand-counted pushes are punch-ins on the talking head that also hide his trims; a step-in that
@@ -661,7 +823,7 @@ def main():
         no_caps_bodies=C.get("no_caps_bodies", []),
         base_kinds=list(BASE_KINDS), seams=[],
         cta_top=C.get("cta_top", "Get A FREE AI Image Of Yourself"), cta_big=C.get("cta_big", "With Abs"),
-        deviations=C.get("deviations", []),
+        deviations=C.get("deviations", []) + [dict(kind="flash_dropped", **x) for x in DROPPED_FLASHES],
         words=[dict(w=w["w"], t=round(w["t"], 3), e=round(w["e"], 3)) for w in words],
         picture_cuts=dict(talk_splices=len(in_talk), moved=len(moved), covered=len(cover), source="piccuts.json"),
     )

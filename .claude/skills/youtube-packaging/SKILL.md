@@ -39,6 +39,11 @@ Working example output: `YouTube Content/channel-intro/` (PACKAGING.md, thumbnai
 
 ## Thumbnail rules
 
+### Required five-choice review (Dan, 2026-09-30)
+
+Follow `_shared/VIDEO-RULES.md`, "Five cover and thumbnail choices per video": one pool photo, two different studio photos on topic-specific Jelly Beans style photographic backgrounds, one enhanced screenshot from this video, and one designer choice. Handoffs list all five. Keep copy consistent, show the finished five choices and stop for Dan's picks. This supersedes older two-thumbnail counts and two-pool mixes below. If an A/B test is requested, Dan selects its contenders from the five.
+
+
 ### Source-photo variety (Dan, 2026-09-16)
 
 **Screenshot selection (Dan, 2026-09-16):** prioritize authentic frames where Dan’s abs look as clearly defined and ripped as possible. Compare torso definition at thumbnail size, keep face and equipment sharp, and prefer strong light and an extended or contracted torso over an arbitrary timestamp. Hunt the standing introduction as well as exercise reps when requested. Never fabricate definition or substitute a generic physique photo for a requested exercise frame.
@@ -51,9 +56,7 @@ match the **channel banner** instead. The style below is current; the Arial Blac
 recipe that used to live here is dead. V2's Aug-7 finals
 (`thumb-poolstand-*`, `thumb-redshorts-*`) are the reference, NOT its Aug-4/5 ones.
 
-**STANDING RULE (Dan, 2026-08-08): every video gets TWO thumbnails, built for a
-YouTube A/B test.** Not one final plus spares — two deliberate contenders, shown to
-him side by side before install, then both loaded as an A/B test after publish.
+**Review count updated 2026-09-30:** every video gets the five visual choices above. When Dan requests a YouTube A/B test, use his chosen contenders; the review mix does not authorize installation.
 
 **REVISED 2026-08-08 — the big black slab is out.** Dan's note on the first V4 pass:
 *"too much black, and I'm shoved over too much to the side… I want my image more
@@ -109,7 +112,7 @@ The type treatment stays; the **layout** changed:
   Never AI-generated bodies or video stills unless Dan says so.
 - **Never AI-repaint Dan's real photos** for thumbnails. Composite programmatically
   over the untouched photo. AI generation was tried 2026-08-04 and rejected.
-- **Two variations per video = two DIFFERENT photos, SAME text.**
+- **Five review choices per video use distinct images or designs and the SAME text, unless Dan requests copy alternatives.**
 - **Dan's hard rule: abs visible in every variation, and text must NEVER overlap them.**
 - **The 7-31-26 pool shoot is 2747×4096 portrait, so a straight 16:9 crop cannot hold
   face and abs at once** (needs ~3900px width). Thumbnails from it must be composites —

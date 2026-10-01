@@ -116,13 +116,24 @@ def main():
                         lw, lh_ = text_size(txt, fl)
                         lay = Image.new("RGBA", (1080, 1920), (0, 0, 0, 0))
                         bx = (1080 - (lw + 34)) // 2
-                        by = int(hole[3]) + 14 + 54                # vlib.plate_card: 54 px below the card frame, never over the picture
+                        by = int(hole[3]) + 14 + 54 + int(b.get("label_dy", 0))   # vlib.plate_card: 54 px below the card frame (+ label_dy), never over the picture
                         ImageDraw.Draw(lay).rounded_rectangle([bx, by, bx + lw + 34, by + lh_ + 22], radius=9, fill=(0, 0, 0, 215))
                         ImageDraw.Draw(lay).text((bx + 17, by + 11), txt, font=fl, fill=(255, 255, 255, 255), anchor="lt")
                         bb = lay.getchannel("A").getbbox()
                         q = f"plan_assets/chip_{kind}_{_name(b)}_card.png"
                         lay.crop(bb).save(q)
                         item.update(chip=os.path.abspath(q), pos=[bb[0], bb[1]])
+            spans = b.get("label_spans")
+            if spans:
+                # a TIMED chip (uploaded photo on an app screen): one track per stretch it is shown, its fades
+                # (0.12 s, vlib.plate_card) left out of the stretch; the gaps are planned, not missing
+                dur_ = b["t1"] - b["t0"]
+                for j_, (s_, e_) in enumerate(spans):
+                    a_ = b["t0"] + s_ + (0.1 if s_ > 0 else 0.0)
+                    z_ = b["t0"] + e_ - (0.1 if e_ < dur_ - 0.01 else 0.0)
+                    if z_ - a_ > 0.1:
+                        out.append(dict(item, name=f"{item['name']}~{j_}", beat=[round(a_, 3), round(z_, 3)]))
+                continue
             out.append(item)
         return out
     real_photos = insert_list("real")
@@ -247,6 +258,10 @@ def main():
         if b["kind"] == "talk":
             windows.append(dict(name=f"talk-{i}", beat=beat, rect=[0, 0, 1080, 1920], motion="tracking"))
             continue
+        if b["kind"] not in ("window", "stmt", "winmedia"):
+            continue                                          # only a Dan-window plate is a talking-head window: a stale
+                                                              # plate file of an earlier sheet at this index made a full-bleed
+                                                              # picture read as one (Ad 8 175.4 s, framing:hair_top 2 px)
         metas = sorted(glob.glob(f"gfx/p{i:03d}_*.mov.json"), key=os.path.getmtime)
         if metas:
             holes = json.load(open(metas[-1]))

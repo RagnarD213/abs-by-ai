@@ -213,8 +213,10 @@ def card_hole(media_ar, has_text):
     return (int(cx-w/2), int(cy-h/2), int(cx+w/2), int(cy+h/2))
 
 def plate_card(dur, caption=None, label=None, portrait=False, fps=FPS,
-               top_kicker=None, hole=None, media_ar=None):
-    """A photo / clip / phone screen inside his olive-glow card on the field."""
+               top_kicker=None, hole=None, media_ar=None, label_spans=None, label_dy=0):
+    """A photo / clip / phone screen inside his olive-glow card on the field. `label_spans` ([[s, e], ...] seconds
+    into the card): the chip shows only inside them (an uploaded photo that scrolls off the app screen), fading
+    over 0.12 s; the hole keeps the labelled size throughout so the picture never resizes."""
     if hole is None:
         if media_ar is None: media_ar = 0.62 if portrait else 16/9
         hole = card_hole(media_ar, "label" if label else bool(caption or top_kicker))
@@ -247,16 +249,20 @@ def plate_card(dur, caption=None, label=None, portrait=False, fps=FPS,
             draw_lines(d, lines, fc, MARGIN, ty+int((1-k)*18),
                        tuple(int(v*k) for v in INK), lead=1.14, align="c", w=VW-2*MARGIN)
         out.append(_punch(im, h, 20))
-        if label:                                     # the label chip, BELOW the card's hole (never over the picture)
+        la = 1.0 if not label_spans else max([clamp01(min(t - s_ if s_ > 0 else 9.0, e_ - t if e_ < dur - 0.01 else 9.0) / 0.12 + 0.5)
+                                              for s_, e_ in label_spans] + [0.0])
+        if label and la > 0:                          # the label chip, BELOW the card's hole (never over the picture)
             lw, lh_ = text_size(label, fl)
             lay = Image.new("RGBA", (VW, VH), (0,0,0,0))
             bx = (VW-(lw+34))//2
-            by = int(hole[3]) + 14 + 54                   # 54 px under the card frame (68 under the hole): a person cut off by the
+            by = int(hole[3]) + 14 + 54 + int(label_dy)   # 54 px under the card frame (68 under the hole; label_dy pushes it lower when the gate's person mask reads the chip as part of a person in the card): a person cut off by the
                                                           # photo's bottom edge bleeds ~20 px past it in the segmenter (dad_ride read
                                                           # 2,482 px at 14), and at 30 the dark chip itself reads as his shorts (see card_hole)
             ImageDraw.Draw(lay).rounded_rectangle([bx, by, bx+lw+34, by+lh_+22], radius=9,
                                                   fill=(0,0,0,215))
             ImageDraw.Draw(lay).text((bx+17, by+11), label, font=fl, fill=INK, anchor="lt")
+            if la < 1.0:
+                lay.putalpha(lay.getchannel("A").point(lambda v: int(v * la)))
             out[-1].alpha_composite(lay)
     return out, hole
 
@@ -364,6 +370,25 @@ def overlay_callout(rect, dur, fps=FPS, draw_dur=0.5):
 #   3. eight beat changes are covered by a WHITE LIGHT-LEAK FLASH, not a hard cut.
 # ==============================================================================
 
+def _fade_char(d, xy, ch, f, fill, a):
+    """One arriving letter at opacity `a`, in ITS OWN COLOUR (Ad 10 round 3 judge, 99.8 s: the old reveal scaled the
+    RGB with the alpha, so every arriving letter was drawn dark and sat black on the green card for 2-3 frames before
+    it turned white). The glyph becomes a coverage mask, the mask is scaled by `a`, and the solid colour is
+    alpha-composited: correct on a transparent layer and on an opaque frame alike."""
+    im = getattr(d, "_image", None)
+    if im is None or im.mode != "RGBA":
+        d.text(xy, ch, font=f, fill=tuple(int(v * a) for v in fill[:3]) + tuple(fill[3:]), anchor="ls"); return
+    x0, y0, x1, y1 = [int(v) for v in d.textbbox(xy, ch, font=f, anchor="ls")]
+    x0, y0 = max(0, x0 - 2), max(0, y0 - 2)
+    x1, y1 = min(im.width, x1 + 2), min(im.height, y1 + 2)
+    if x1 <= x0 or y1 <= y0: return
+    m = Image.new("L", (x1 - x0, y1 - y0), 0)
+    ImageDraw.Draw(m).text((xy[0] - x0, xy[1] - y0), ch, font=f, fill=255, anchor="ls")
+    fa = (fill[3] if len(fill) > 3 else 255) / 255.0 * a
+    solid = Image.new("RGBA", m.size, tuple(fill[:3]) + (0,))
+    solid.putalpha(m.point(lambda v: int(v * fa)))
+    im.alpha_composite(solid, dest=(x0, y0))
+
 def draw_type(d, txt, f, x, y, fill, k, tail=5, spread=0.75, anchor_w=None):
     """Type-on reveal. Returns the settled width.
 
@@ -393,8 +418,10 @@ def draw_type(d, txt, f, x, y, fill, k, tail=5, spread=0.75, anchor_w=None):
         else:
             a = clamp01(lead / tail)
             extra = int(w * spread * (1 - a))
-        col = tuple(int(v * a) for v in fill[:3]) + ((int(fill[3]*a),) if len(fill) > 3 else ())
-        d.text((ax, y), ch, font=f, fill=col, anchor="ls")
+        if a >= 1.0:
+            d.text((ax, y), ch, font=f, fill=fill, anchor="ls")
+        else:
+            _fade_char(d, (ax, y), ch, f, fill, a)
         ax += w + extra
     return ax - x
 
@@ -525,7 +552,7 @@ def plate_title_card(headline, sub, dur, fps=FPS):
     return out, None
 
 # ------------------------------------------------------------------ overlays
-def overlay_lower_third(lines, dur, fps=FPS, y_bottom=1600, in_dur=0.55):
+def overlay_lower_third(lines, dur, fps=FPS, y_bottom=1600, in_dur=0.55, equal=False):
     """Olive tab + black bar + white type, revealed letter by letter. Seven of these
     carry his cut; captions are suppressed for their duration because the line they
     print IS the sentence being spoken."""
@@ -534,10 +561,13 @@ def overlay_lower_third(lines, dur, fps=FPS, y_bottom=1600, in_dur=0.55):
     AVAIL = VW - 2*40 - 96
     fs = []
     for n, t in enumerate(lines):
-        sz = 52 if n == 0 else 40
-        w8 = "ExtraBold" if n == 0 else "SemiBold"
+        sz = 52 if (n == 0 or equal) else 40
+        w8 = "ExtraBold" if (n == 0 or equal) else "SemiBold"
         while sz > 24 and text_size(t, font(sz, w8))[0] > AVAIL: sz -= 2
         fs.append(font(sz, w8))
+    if equal:                                   # one wrapped sentence: every line in the smallest fitted size
+        m_ = min(f.size for f in fs)
+        fs = [font(m_, "ExtraBold") for _ in fs]
     ws = [text_size(t, f)[0] for t, f in zip(lines, fs)]
     lhs = [int(f.size*1.30) for f in fs]
     bw = max(ws) + 96
@@ -556,8 +586,11 @@ def overlay_lower_third(lines, dur, fps=FPS, y_bottom=1600, in_dur=0.55):
                             fill=OLIVE+(int(235*o*gw),))
         d.rounded_rectangle([bx, by, bx+int(bw*gw), by+bh], radius=8, fill=(0,0,0,int(232*o)))
         yy = by + 17
+        # a short lower third types on faster: the full line reads for at least half its time (his 1.4 s line had
+        # finished typing 8 frames before it faded, Ad 10 142.3 s)
+        sp = min(1.0, max(0.35, (dur * 0.5 - 0.32) / (0.20 + (len(lines) - 1) * 0.55 + 0.80)))
         for n, (txt, f, lh) in enumerate(zip(lines, fs, lhs)):
-            k = clamp01((t - 0.20 - n*0.55)/0.80)
+            k = clamp01((t - (0.20 + n*0.55) * sp)/(0.80 * sp))
             draw_type(d, txt, f, bx + (bw - text_size(txt, f)[0])//2, yy,
                       INK+(int(255*o),), k)
             yy += lh

@@ -17,4 +17,4 @@ Deliverable: 16:9 master + SRT to the approved organic standard (Zeeshan's ab wh
 > Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/RO-12-top-5-zepbound-tips.md`: cut "Top 5 Zepbound Tips" from 9/23 roll C1706 with /longform-edit. Best take of every line, every gate, independent audit, deliver, send me the review copy, update the master list.
 
 **Codex (GPT-6 Astra, high):**
-> Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-12-top-5-zepbound-tips.md` with `$abs-edit-organic`. Deliver, send Dan the review copy, update `00-MASTER.md`.
+> Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-12-top-5-zepbound-tips.md` with `$long-form-content-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.

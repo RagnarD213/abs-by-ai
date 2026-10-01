@@ -45,6 +45,9 @@ clip gets made only after he approves.
 
 ## Where the assets live
 
+**Search the clip library first** for any video cue: `python3 .claude/skills/_shared/cliplib/clip_library.py find "<cue>" --rolls`.
+A hit is linked by its Drive link and ID; only then fall through to the sources below.
+
 | Need | Source |
 |---|---|
 | Six Pack Shortcuts / SixPackAbs clips | `Media/B roll/` |

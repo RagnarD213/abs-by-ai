@@ -20,4 +20,4 @@ round (about 1:45 of live work); the explainer rolls C1582–C1587 belong to Zee
 > Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/RO-04-arms-shoulders-workout-only.md`: confirm Zeeshan's Arms & Shoulders is finalized and filed, then build the workout-only follow-along from C1586 matching his approved look. Gates, audit, deliver, send me the review copy, update the master list.
 
 **Codex (GPT-6 Astra, high):**
-> Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-04-arms-shoulders-workout-only.md` with `$abs-edit-organic`, after confirming the blocker is cleared. Deliver, send Dan the review copy, update `00-MASTER.md`.
+> Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-04-arms-shoulders-workout-only.md` with `$long-form-content-edit`, after confirming the blocker is cleared. Deliver, send Dan the review copy, update `00-MASTER.md`.

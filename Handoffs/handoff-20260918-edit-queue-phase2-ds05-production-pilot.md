@@ -22,7 +22,7 @@ and requires two new AI motion clips with a clear frame-approval decision. Its j
 ## Preflight — do not disturb active work
 
 Read `AGENTS.md`, `.claude/skills/_shared/VIDEO-RULES.md`, `.claude/skills/_shared/ASSET-APPROVAL.md`,
-`Handoffs/video-editing/00-RULES.md`, the DS-05 job doc, `$abs-edit-organic`, the vertical-short instructions it links,
+`Handoffs/video-editing/00-RULES.md`, the DS-05 job doc, `$long-form-content-edit`, the vertical-short instructions it links,
 and `scripts/edit-queue/README.md`.
 
 Then re-read `AI_COORDINATION.md`, live `jobs.json`, the dispatcher status and process/claim checks in

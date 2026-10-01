@@ -25,4 +25,4 @@ Preflight on September 25: all 70 queue, approval-page and placeholder tests pas
 > Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/RO-17-3-healthy-foods-that-made-me-fat.md`: cut "3 Healthy Foods That Made Me Fat" from 9/23 roll C1713 with /longform-edit. Best take of every line, every gate, independent audit, deliver, send me the review copy, update the master list.
 
 **Codex (GPT-6 Astra, high):**
-> Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-17-3-healthy-foods-that-made-me-fat.md` with `$abs-edit-organic`. Deliver, send Dan the review copy, update `00-MASTER.md`.
+> Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-17-3-healthy-foods-that-made-me-fat.md` with `$long-form-content-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.

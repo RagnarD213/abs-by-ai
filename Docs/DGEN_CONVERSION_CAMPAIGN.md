@@ -470,3 +470,20 @@ Both ads ENABLED, $30 target CPA, `REVIEW_IN_PROGRESS` on 09-27; recheck policy 
 read ENABLED, Target CPA, budget `15862488218` **$50/day** before and after; no budget operation sent. The 28 existing
 ad groups and 64 existing ads read back with identical statuses and target CPAs. The $50/day is now shared by two
 more ad groups. No organic copy.
+
+## 2026-10-01: Ad 8 approved verticals
+
+Dan approved both AV-09 masters on 2026-10-01 ("these ads are approved and good to publish"). Both files matched their
+recorded SHA256 (`320d14a3...795b5d` full, `e0b8cee1...a400c` 59s) and were uploaded once, untouched, as **Unlisted**
+with `containsSyntheticMedia=true`, category 26, not made for kids. Readback on both: channel
+`UC236gjadarHAhEhOMYNGJ9g`, `privacyStatus=unlisted`, processing succeeded, HD, embeddable (PT3M31S and PT57S). One
+9:16 thumbnail (option A, dark studio, `studio-white-42`, "AI SHOWED ME / TWO FUTURES") was set and read back on both.
+
+`validateOnly` passed with exactly 6 operations (2 video assets, 4 ads), then applied and read back:
+
+| version | YouTube | asset | `/start` group / ad | home group / ad |
+|---|---|---|---|---|
+| Claude 9:16 | `wsNG444pkNg` | `425910585172` | `201149830478` / `826574115981` | `203342192834` / `826574115987` |
+| Claude 9:16 59s | `DP5qT2E962o` | `425910599623` | `201149830478` / `826574115984` | `203342192834` / `826574115990` |
+
+The live Ad 8 copy matched `ad8.json`, so it was reused. All four new ads are ENABLED and `REVIEW_IN_PROGRESS` as of 2026-10-01. Recheck policy on 2026-10-02. `/start` URLs use `utm_campaign=dgen-conv-ad8&utm_content=claude-9x16[-59s]-start`; home URLs use `utm_content=claude-9x16[-59s]-home`. Exact per-ad URLs and IDs are in `scripts/ads/api/dgen-ads/ad8.result.json` (the 09-16 result is kept as `ad8.result.20260916.json`). The original 16:9 asset `422033285275` and ads `824925649893` and `824966555242` remain ENABLED and APPROVED. Both ad groups keep their $30 target CPA and audience `359424266`. The campaign budget `15862488218` read $50/day before and after (the handoff said $40/day; the live value was kept); no budget operation was sent. No organic copy.

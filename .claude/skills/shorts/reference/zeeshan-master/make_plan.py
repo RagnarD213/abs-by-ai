@@ -79,7 +79,7 @@ for m in cards:
         regions.append({'name': f"chip_{m['name']}", 'beat': beat(m), 'image': chip, 'pos': [(1080 - cw) // 2, L['card']['chipY']]})
 OV = json.load(open(f'{HERE}/overlays.json')).get(seg, [])
 for o in OV:
-    chip = f"{HERE}/assets/chip-{o['id']}.png"; cw, chh = Image.open(chip).size
+    chip = f"{HERE}/assets/{o.get('png') or 'chip-' + o['id'] + '.png'}"; cw, chh = Image.open(chip).size
     regions.append({'name': o['id'], 'beat': [o['t0'], o['t1']], 'image': chip, 'pos': [(1080 - cw) // 2, o['y']]})
 covered = []
 for j in joins:

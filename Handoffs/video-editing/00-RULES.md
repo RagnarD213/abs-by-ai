@@ -65,8 +65,9 @@ same; only the tools differ (section 3).
 | | Claude Code session | Codex session |
 |---|---|---|
 | ad first cut from raw | `/ad-edit` | `$abs-edit-ad` |
-| organic long-form first cut | `/longform-edit` | `$abs-edit-organic` |
-| dedicated short from raw (vertical) | `/shorts` for the vertical finishing rules + `/ad-edit` Steps 1–4 for take selection | `$abs-edit-organic` (take selection, audio, colour), then the vertical rules in `.claude/skills/shorts/SKILL.md` |
+| website VSL first cut or revision | `/website-video` | `$vsl-edit` |
+| organic long-form first cut | `/longform-edit` | `$long-form-content-edit` |
+| dedicated short from raw (vertical) | `/shorts` for the vertical finishing rules + `/ad-edit` Steps 1-4 for take selection | `$long-form-content-edit` (take selection, audio, colour), then the vertical rules in `.claude/skills/shorts/SKILL.md` |
 | shorts cut from a finished long-form | `/shorts` | read `.claude/skills/shorts/SKILL.md` and follow it with Codex tools |
 | ad vertical / square / ≤0:59 | `/shortad-from-longform` | read `.claude/skills/shortad-from-longform/SKILL.md` in full; model: `Handoffs/handoff-20260914-ad3-square-codex.md` (the Ad 3 square Codex built and Dan shipped) |
 
@@ -77,6 +78,8 @@ Python 3.9 process names, zsh word-splitting, `pgrep` self-matching, delivered n
 Follow the Codex branch rule in `Handoffs/codex-video-trial/00-start-here.md`.
 
 **Model recommendation:** Choose the Codex model for the actual work, not for the fact that the output is a video.
+For organic long-form, use **GPT-6 Sol throughout**, including the independent complete-candidate review and revisions;
+raise Sol's effort for harder sections. This current organic rule supersedes older model suggestions in organic job docs.
 Use **GPT-6 Luna, low or medium** for a tightly scoped, recipe-backed edit when the affected layer is separable and
 verification is routine. Use **GPT-6 Sol, medium** for a bounded revision that needs timeline, render and gate work,
 including DS-18's final corner-title removal. Raise Sol's effort for ambiguous joins or several interacting changes.

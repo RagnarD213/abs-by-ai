@@ -111,12 +111,28 @@ def timed_word_pairs(caption_states, speech_words):
     said = [(norm(s.get("w") or s.get("word")), s) for s in speech_words
             if norm(s.get("w") or s.get("word"))]
     sm = difflib.SequenceMatcher(None, [x[0] for x in caps], [x[0] for x in said], autojunk=False)
-    out = []
+    out, used = [], set()
+    for a0, b0, n in sm.get_matching_blocks():
+        for j in range(n):
+            used.add(b0 + j)
     for a0, b0, n in sm.get_matching_blocks():
         for j in range(n):
             c, s = caps[a0 + j][1], said[b0 + j][1]
             ct = float(c["beat"][0])
             st = float(s.get("t", s.get("start")))
+            # ⚠ SEQUENCE ALONE CAN PAIR A WORD WITH THE WRONG REPEAT OF IT. Where captions are deliberately off
+            # (a card over several sentences), a lone "I" after the gap can be glued to the words BEFORE the gap
+            # ("it was AI | I" matched "it was AI I" 5 s earlier: kit autofill Ad 10, 95.30 s read +5026 ms on a
+            # caption drawn 10 ms after its word). A pair more than 0.5 s apart takes the same word spoken
+            # nearest the caption's own time when that word is otherwise unpaired; the bound itself is unchanged.
+            if abs(ct - st) > 0.5:
+                cands = [k for k, (w, s2) in enumerate(said) if w == caps[a0 + j][0] and k not in used
+                         and abs(ct - float(s2.get("t", s2.get("start")))) < abs(ct - st)]
+                if cands:
+                    k = min(cands, key=lambda k: abs(ct - float(said[k][1].get("t", said[k][1].get("start")))))
+                    used.add(k)
+                    s = said[k][1]
+                    st = float(s.get("t", s.get("start")))
             out.append((ct - st, c, s))
     return out, len(caps), len(said)
 

@@ -134,7 +134,7 @@ Read first: `Handoffs/video-editing/00-RULES.md`, `.claude/skills/_shared/VIDEO-
 - **Also wanted:** the handoff for DS-16 "How To Lose The Last Ten Pounds" uses this shoot's salad footage; note good ranges in your notes.
 
 ## 5. Tools, work dir, delivery (Codex)
-- Skill: `$long-form-content-edit` (`Media/codex-video-trial/skills/abs-edit-organic/SKILL.md`) and its references; start from the approved
+- Skill: `$long-form-content-edit` (`Media/codex-video-trial/skills/long-form-content-edit/SKILL.md`) and its references; start from the approved
   C1652 R4 recipe (`Media/codex-video-trial/06-organic-r4/`: renderer, `muhammad_graphics.py`, `palette.py`, `design.py`,
   `assets/source-grade.cube`), which is the closest approved look. The Codex environment traps table is in
   `Handoffs/handoff-20260914-ad3-square-codex.md` section 2 (quoted paths with spaces, the project ffmpeg at `Media/video_edit/bin/`,

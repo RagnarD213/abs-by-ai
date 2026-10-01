@@ -169,6 +169,7 @@ Memory `google-ads-ui-automation`.
 # HANDOFFS WRITTEN, NOT EXECUTED
 
 
+
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
 - `handoff-20261001-vertical-kit-from-our-own-edits.md` (10-01).

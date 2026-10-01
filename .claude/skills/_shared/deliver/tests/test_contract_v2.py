@@ -254,6 +254,32 @@ class ContractV2Tests(unittest.TestCase):
         self.assertFalse(row.ok)
         self.assertEqual(row.value["tightest"], -10)
 
+    def test_timed_pairs_repeat_word_after_muted_stretch_pairs_by_time(self):
+        # captions off over a card: "it was AI" ... (muted: "I generated ... screen.") ... "I looked"
+        speech = [dict(w=w, t=t) for w, t in (("it", 89.29), ("was", 89.39), ("AI", 89.65), ("I", 90.27),
+                                               ("generated", 90.45), ("screen", 94.69), ("I", 95.29), ("looked", 95.43))]
+        states = [dict(word=w, beat=[t, t + 0.1]) for w, t in (("it", 89.29), ("was", 89.39), ("AI", 89.66),
+                                                              ("I", 95.30), ("looked", 95.43))]
+        pairs, _, _ = CT.timed_word_pairs(states, speech)
+        worst = max(abs(d) for d, _c, _s in pairs)
+        self.assertLess(worst, 0.05)
+        # a caption that really is late keeps its measured offset (no nearer same word to take instead)
+        late = [dict(word=w, beat=[t, t + 0.1]) for w, t in (("it", 89.29), ("was", 89.39), ("AI", 89.66), ("I", 91.30))]
+        pairs, _, _ = CT.timed_word_pairs(late, speech[:5])
+        self.assertGreater(max(abs(d) for d, _c, _s in pairs), 1.0)
+
+    def test_label_clearance_counts_bodies_not_specks(self):
+        m = np.zeros((400, 300), bool)
+        m[100:380, 80:220] = True            # him
+        m[20:26, 40:120] = True              # the segmenter reading a chip's lettering (480 px island)
+        m[300:380, 230:290] = True           # a second, smaller person (4,800 px = 12 % of him)
+        b = COMP._body_only(m)
+        self.assertFalse(b[20:26, 40:120].any())
+        self.assertTrue(b[100:380, 80:220].all())
+        self.assertTrue(b[300:380, 230:290].all())
+        one = np.zeros((50, 50), bool); one[10:20, 10:20] = True
+        self.assertTrue((COMP._body_only(one) == one).all())
+
 
 if __name__ == "__main__":
     unittest.main()

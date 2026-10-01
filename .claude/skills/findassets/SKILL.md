@@ -71,10 +71,11 @@ Search both places, in parallel:
   and cutdown footage lives on `/Volumes/Extreme/Abs By AI Photo Shoots/` and the
   per-shoot folders.
 - **Drive** — `search_files` with `title contains '...'`.
-- **The asset library** —
-  `/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/`, mirrored on
-  Drive at folder `1Hby8O4mB4HZS341qvrVKHSHyCGBgP8mi`. Read
-  `00 START HERE - asset index.txt` first; the answer may already be a file in there.
+- **The clip library (check it FIRST):** `python3 .claude/skills/_shared/cliplib/clip_library.py find "<Dan's words>" --rolls`
+  searches every catalogued AI clip and B-roll clip (IDs A####/B####, Drive links included) and the raw-roll index
+  in one go. Files live in `/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/`, mirrored on
+  Drive at folder `1Hby8O4mB4HZS341qvrVKHSHyCGBgP8mi`. Every clip you cut and deliver here gets registered with
+  `clip_library.py add` so the next search finds it (see `_shared/cliplib/README.md`).
 
 > ⚠ **The published master is usually the WRONG source.** Our uploaded YouTube videos
 > carry burned-in lower thirds from the old teal/pink branding ("Toe Touches / 10 Reps").

@@ -11,6 +11,8 @@ place in that session.
 
 ## The flow
 
+0. **Check the clip library first** (`python3 .claude/skills/_shared/cliplib/clip_library.py find "<the joke>"`).
+   If an existing clip already lands the line, offer it as idea #1 with its ID and preview; it costs nothing.
 1. **Ideas** — deliver ~5 ideas. Each idea is **one visual joke, not a scene with a story**:
    it must land in a single ~8-second clip, readable in one frame if possible.
 2. **Frames for ALL ideas, immediately, without being asked** — Dan's standing instruction:
@@ -22,6 +24,7 @@ place in that session.
    durably next to the target video, send it in chat.
 5. On his approval, splicing it into the video is an /ad-edit or /longform-edit revision job,
    not part of this skill.
+6. Once the clip is approved, register it: `clip_library.py add CLIP --kind ai ...` (see `_shared/cliplib/README.md`).
 
 ## Step 1 — ideas
 

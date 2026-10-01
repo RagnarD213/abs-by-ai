@@ -1,5 +1,14 @@
 {
-  "checked": [],
+  "checked": [
+    "assistant::Take out trash",
+    "assistant::Do laundry",
+    "assistant::Load and empty dishwasher",
+    "assistant::Tidy bathrooms",
+    "assistant::Tidy kitchen",
+    "assistant::Fill Recycling can/empty some cardboard in spare room.",
+    "money::Test HyperFrames as our motion-graphics layer: rebuild one lower-third and one full-screen panel as transparent overlays",
+    "money::Ship the VSL sales page live: C2 design + WV-01 video + sales letter, replacing /start for paid traffic"
+  ],
   "log": {
     "health::Shower": [
       "2026-06-25",
@@ -222,5 +231,14 @@
       "2026-09-14"
     ]
   },
-  "checkedAt": {}
+  "checkedAt": {
+    "assistant::Take out trash": "2026-09-29",
+    "assistant::Do laundry": "2026-09-29",
+    "assistant::Load and empty dishwasher": "2026-09-29",
+    "assistant::Tidy bathrooms": "2026-09-29",
+    "assistant::Tidy kitchen": "2026-09-29",
+    "assistant::Fill Recycling can/empty some cardboard in spare room.": "2026-09-29",
+    "money::Test HyperFrames as our motion-graphics layer: rebuild one lower-third and one full-screen panel as transparent overlays": "2026-09-30",
+    "money::Ship the VSL sales page live: C2 design + WV-01 video + sales letter, replacing /start for paid traffic": "2026-09-30"
+  }
 }

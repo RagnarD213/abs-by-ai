@@ -121,7 +121,9 @@ def crop_x_expr(t0, t1):
         dt = tb - ta
         if dt <= 1e-9 or abs(xb - xa) < 0.01: continue
         s = (xb - xa)/dt
-        terms.append(f'{s:+.6f}*clip(t-{ta:.4f}\\,0\\,{dt:.6f})')
+        # ta at 6 decimals: at a size step (thousands of px/s) 4-decimal rounding is ~0.25 px per step, and a beat
+        # with several picture cuts summed past the self-test's 0.5 px (kit9x16 autofill, Ad 10 30.13 s, 2026-09-28)
+        terms.append(f'{s:+.6f}*clip(t-{ta:.6f}\\,0\\,{dt:.6f})')
     e = ''.join(terms)
     return f'max(0\\,min({1920-CROP_W}\\,{e}))'
 
@@ -440,7 +442,8 @@ def render_segment(i, b, nfr, t0):
             holes = {'dan': rect, 'media': mh}
         elif k == 'card':
             fr, hole = vlib.plate_card(dur, caption=b.get('caption'), label=b.get('label'),
-                                       top_kicker=b.get('kicker'), media_ar=media_ar(b['media']))
+                                       top_kicker=b.get('kicker'), media_ar=media_ar(b['media']),
+                                       label_spans=b.get('label_spans'), label_dy=b.get('label_dy', 0))
             holes = {'media': hole}
         elif k == 'title':
             fr, hole = vlib.plate_title_card(b['headline'], b.get('sub'), dur)
@@ -546,7 +549,8 @@ def main():
         if not os.path.exists(mov):
             if kind == 'cta':   fr, _ = vlib.overlay_cta(spec['top'], spec['big'], d,
                                                          big_size=spec.get('big_size', 70))
-            elif kind == 'lt':  fr, _ = vlib.overlay_lower_third(spec['lines'], d, y_bottom=spec.get('y_bottom', 1600))
+            elif kind == 'lt':  fr, _ = vlib.overlay_lower_third(spec['lines'], d, y_bottom=spec.get('y_bottom', 1600),
+                                                                 equal=spec.get('equal', False))
             else:               fr, _ = vlib.overlay_flash(d)
             encode(fr, mov, alpha=True)
         open(mov + '.beat', 'w').write(f'{a:.4f}')

@@ -297,6 +297,20 @@ def decide(E, spans=None, *, raw, rolls=None, grade=None, mode="raw", reference=
                         rec.update(k=kn, method="pose-match (his frame jumped)")
                     elif not np.isnan(jr) and not np.isnan(jh) and jr > cover_above_px and jh <= jr - 12:
                         rec.update(k=kh, method="head-match (his frame jumped)")
+                elif 0 in sims:
+                    # His frame could not be confirmed on the pixels: keep HIS cut (the audio cut, recovered from his
+                    # master), moved only by the same measured pose / head tests as above. A free pose-match moved 22
+                    # of Ad 10's 57 cuts by up to 12 frames of the other take's pre-roll, where Dan's mouth moves
+                    # without the audio: a silent lip-lick opened the 142.0 s shot (kit autofill round 4 judge). The
+                    # kit's size step hides the pose change, as it does in his own cut (Dan, 2026-09-24).
+                    rec.update(k=0, conf=round(conf, 3), method="his cut (his frame untrusted)")
+                    kn = pick_k(sims)
+                    kh = pick_k(sims, jumps)
+                    j0, jh = jumps.get(0, np.nan), jumps.get(kh, np.nan)
+                    if sims[0] < cover_below and sims[kn] >= sims[0] + 0.12:
+                        rec.update(k=kn, method="pose-match (his cut jumped)")
+                    elif not np.isnan(j0) and not np.isnan(jh) and j0 > cover_above_px and jh <= j0 - 12:
+                        rec.update(k=kh, method="head-match (his cut jumped)")
                 else:
                     rec.update(k=pick_k(sims, jumps), conf=round(conf, 3), method="pose-match (his frame untrusted)")
         else:

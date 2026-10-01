@@ -38,7 +38,13 @@ FIX = {('your','gold','picture'):    ('your','goal','picture'),
        # of "six-pack", one article, and Whisper's split of a hyphenated word into "six -pack" / "38 -year"
        ('six','fat','abs.'):         ('six-pack','abs.',''),
        ('six','back','abs,'):        ('six-pack','abs,',''),
+       # Ad 8 (kit autofill, 2026-09-28, judged junk_card at 61.6 s): "with defined six pack abs" heard as "the fine"
+       ('the','fine','six','pack'):  ('defined','','six-pack',''),
        ('uses','a','specific'):      ('uses','the','specific'),
+       # Ad 10 (kit autofill round 3, 141.9 s): "a real plan and it'll build you one" heard as "on" (Flash ASR too; Pro hears one)
+       ('build','you','on'):         ('build','you','one.'),
+       # Ad 8 (kit autofill round 4, 47.8 s): "but 'get in shape' is fog" heard as "getting shape" (Gemini Pro by ear)
+       ('but','getting','shape','is'): ('but','get in','shape','is'),
        # Ad 10 has spoken full stops here; without punctuation the three-word
        # caption groups burn visible run-ons across the sentence boundaries.
        ('story','really','is',"It's"): ('story','really','is.',"It's"),
@@ -119,7 +125,7 @@ def suppressed():
 
 def groups(words, mute):
     # ⚠ THE MUTE SLACK MUST NOT REACH ACROSS A CUTDOWN SEAM (2026-09-12, Ad 1 square audit 2).
-    # A word is treated as muted if it starts within [a - 0.15, b + 0.05] of a suppressed span --
+    # A word is treated as muted if it starts within [a - 0.15, b + 0.02] of a suppressed span --
     # slack that stops a caption flashing on the first or last frames of a graphic. At a SEAM the
     # graphic is not there any anymore: the next range's picture is a different part of the film.
     # Measured on this cutdown: the first CTA pill's mute ends exactly on the 34.10 s seam and its
@@ -132,7 +138,7 @@ def groups(words, mute):
 
     def muted(t):
         for a, b in mute:
-            lo, hi = a - 0.15, b + 0.05
+            lo, hi = a - 0.15, b + 0.02   # 0.02 < one frame: the word right after a lower third is captioned (Ad 8 66.61 s "That", kit autofill round 4)
             # ⚠ COMPARE WITH A TOLERANCE. A span clamped to a range edge and the seam itself are
             # computed by two different sums (dst0 + (a1 - src0) vs the next range's dst0) and came
             # out 1e-5 apart on this cut -- so an exact `s >= b` never matched, the slack stayed at
@@ -145,11 +151,27 @@ def groups(words, mute):
                 if s <= a + EPS: lo = max(lo, s); break
             if lo <= t <= hi: return True
         return False
+    def ends_after(w):
+        """The end of the span a word STARTS under, when most of the word plays after it (Ad 10 138.66 s: "30" of
+        "30 minutes in the garage" began 0.18 s before the window closed and was never captioned, kit autofill
+        round 6). The word is then captioned from the span's end, but only when that is at most 0.10 s after the
+        word starts (the delivery gate's caption sync bound is 120 ms: "30" shown 212 ms late failed it); a longer
+        overlap is fixed by the kit ending the graphic before the word (build_kit.py)."""
+        for a, b in mute:
+            if a - 0.15 <= w[1] <= b + 0.02 and b + 0.034 - w[1] <= 0.10 and w[2] > b + 0.10 and (w[2] - b) >= 0.5 * (w[2] - w[1]) \
+                    and not any(a2 <= b + 0.034 < b2 for a2, b2 in mute if (a2, b2) != (a, b)) \
+                    and not any(s_ > b - 1e-3 and s_ < w[2] for s_ in _seams):
+                return b
+        return None
     gs, cur = [], []
     for w in words:
         if muted(w[1]):
+            e_ = ends_after(w)
+            if e_ is None:
+                if cur: gs.append(cur); cur = []
+                continue
             if cur: gs.append(cur); cur = []
-            continue
+            w = (w[0], round(e_ + 0.034, 3), w[2])
         # never carry a group across a full stop: "life. You're more" reads as a mistake
         if cur and cur[-1][0].rstrip().endswith(('.', '?', '!')):
             gs.append(cur); cur = [w]; continue
@@ -161,6 +183,23 @@ def groups(words, mute):
         else:
             cur = cand
     if cur: gs.append(cur)
+    # a lone short word left on screen for a few frames before a graphic takes the captions away reads as a stray
+    # tick ("I" for 6 frames before the "I used AI" lower third, Ad 10 23.1 s, kit autofill gate round judge)
+    def stray(g):
+        if len(g) != 1:
+            return False
+        w = g[0]
+        if any(0 <= a - 0.15 - w[1] <= 0.35 for a, b in mute):
+            return True
+        # ... or the last word of a sentence whose other words a graphic covered ("age." alone for 0.7 s after the
+        # "It works around your injuries" lower third, Ad 10 144.3 s)
+        if not any(0 <= w[1] - b <= 0.35 for a, b in mute):
+            return False
+        i = next((k for k, x in enumerate(words) if x[1] == w[1] and x[0] == w[0]), None)
+        prev = words[i - 1] if i else None
+        # the word before it was hidden by the graphic and belongs to the same sentence: this one is its orphan
+        return prev is not None and muted(prev[1]) and not prev[0].rstrip().endswith(('.', '?', '!'))
+    gs = [g for g in gs if not stray(g)]
     return gs
 
 def render(gs, out='captions.mov', capdir='cap', stops=None):

@@ -161,13 +161,21 @@ def validate(label, c, frames, tag):
     shutil.rmtree(d, ignore_errors=True)
     os.makedirs(d + "/m")
     lay = chip_at(label, c["x"], c["y"], c["lines"], c["size"])
-    ps = []
+    raw = []
     for i, f in enumerate(frames):
         im = Image.open(f).convert("RGBA")
         im.alpha_composite(lay)
-        q = f"{d}/{i:02d}.png"
+        q = f"{d}/c{i:03d}.png"
         im.convert("RGB").save(q)
-        ps.append(q)
+        raw.append(q)
+    # ⚠ THROUGH THE DELIVERY ENCODE: the segmenter reads the chip as part of him on single COMPRESSED frames that
+    # it reads as clear uncompressed (Ad 10 29.83 s: 0 px on the composited png, 2,425 px on the same frame of the
+    # delivered mp4, kit autofill 2026-09-30). The composites go through the render's encoder and back.
+    enc = f"{d}/enc.mp4"
+    subprocess.run([FF, "-nostdin", "-v", "error", "-y", "-framerate", "30000/1001", "-i", f"{d}/c%03d.png", "-c:v", "libx264",
+                    "-preset", "medium", "-crf", "16", "-pix_fmt", "yuv420p", enc], check=True)
+    subprocess.run([FF, "-nostdin", "-v", "error", "-y", "-i", enc, f"{d}/%04d.png"], check=True)
+    ps = sorted(glob.glob(f"{d}/[0-9][0-9][0-9][0-9].png"))
     subprocess.run([PERSONMASK, f"{d}/m"] + ps, check=True, capture_output=True)
     worst, worst8, worst16 = 0, 0, 0
     for q in ps:
@@ -187,13 +195,21 @@ def render_beats(build, idxs):
     subprocess.run([sys.executable, "render.py", "--only", ",".join(str(i) for i in idxs)], cwd=build, check=True)
 
 
-def place(build):
+def place(build, only=None):
+    """only: re-place just these media keys, never at a spot listed for them in labels/exclude.json (the kit's
+    post-encode clearance check writes it: a spot the gate's person mask read as touching him on the DELIVERED
+    file). Every other chip stays exactly where it is."""
     os.chdir(build)
     sys.path.insert(0, os.getcwd())
     J = json.load(open("beats.json"))
     import beats as B
     tl, _ = B.timeline()
     todo = [(i, b) for i, b in enumerate(tl) if b["kind"] == "bleed" and b.get("label_kind") in ("real", "ai")]
+    if only:
+        todo = [(i, b) for i, b in todo if (b.get("media") or f"beat{i}") in only]
+    excl = json.load(open("labels/exclude.json")) if os.path.exists("labels/exclude.json") else {}
+    keep = json.load(open("label_place.json")) if (only and os.path.exists("label_place.json")) else {}
+    todo_media = {b.get("media") for _, b in todo}
     if not todo:
         print("no labelled full-bleed beats")
         return
@@ -201,6 +217,8 @@ def place(build):
     for i, b in todo:
         b.pop("chip_png", None)
     for jb in J["beats"]:
+        if only and jb.get("media") not in todo_media:
+            continue
         jb.pop("chip_png", None); jb.pop("chip_box", None)
         # ⚠ a full-bleed beat must carry NO `label` text: render.py's pre-rule fallback draws a fixed-y chip
         # at the WAISTLINE for it. The kit's second pass measured "chip-less" frames that still had that bar
@@ -210,7 +228,7 @@ def place(build):
     json.dump(J, open("beats.json", "w"), indent=1)
     render_beats(build, [i for i, _ in todo])
     os.makedirs("labels", exist_ok=True)
-    res = {}
+    res = dict(keep)
     prev = 0
     starts = {}
     for i, b in enumerate(tl):
@@ -230,7 +248,8 @@ def place(build):
         hb = head_box(union)
         c, tried = None, []
         probe = list(fs)                                  # EVERY sampled frame (each 3rd + the last): the push moves him
-        allc = candidates(label, union, hb)
+        bad = {tuple(x) for x in excl.get(key, [])}
+        allc = [c_ for c_ in candidates(label, union, hb) if (c_["x"], c_["y"], c_["lines"], c_["size"]) not in bad]
         # a bounded, class-balanced try list: validation costs a segmenter pass per candidate
         tryl = [c_ for c_ in allc if c_["cls"] == "A"][:8] + [c_ for c_ in allc if c_["cls"] == "B"][:14] + \
                [c_ for c_ in allc if c_["cls"] == "C"][:14]
@@ -306,7 +325,19 @@ def verify(build, video):
         key = b.get("media") or f"beat{i}"
         idxs = sorted(set([n0 + k for k in range(0, nfr, 3)] + [n0 + nfr - 1]))
         fs, ms = masks_for(video, idxs, f"labels/verify_{key}")
-        worst = max(int(dilate(m, VERIFY_PX)[y:y + h, x:x + w].sum()) for m in ms)
+        # HIS BODY, not specks: on single compressed frames the segmenter marks a few px of the dark chip itself as
+        # "person" (Ad 8 10.3 s: 1,284 px on one frame of 26, on a chip a full head-height above him). The delivery
+        # gate's own measurement is the bound (kit_run's prewatch loop meets it); this stricter every-3rd-frame
+        # check counts only the mask's main connected region and anything at least a tenth its size.
+        from scipy.ndimage import label as _cc
+        def body(m):
+            lab, n = _cc(m)
+            if n <= 1:
+                return m
+            sizes = np.bincount(lab.ravel())[1:]
+            keep = [k + 1 for k, s_ in enumerate(sizes) if s_ >= 0.1 * sizes.max()]
+            return np.isin(lab, keep)
+        worst = max(int(dilate(body(m), VERIFY_PX)[y:y + h, x:x + w].sum()) for m in ms)
         ok = worst == 0
         bad += not ok
         out[key] = dict(box=[x, y, w, h], frames=len(ms), contact_px=worst, ok=ok)
@@ -351,13 +382,14 @@ def main():
     ap.add_argument("--build", required=True)
     ap.add_argument("--verify")
     ap.add_argument("--redraw-existing", action="store_true")
+    ap.add_argument("--only", nargs="*", help="media keys to re-place (the rest keep their chips)")
     a = ap.parse_args()
     if a.verify:
         return 1 if verify(a.build, a.verify) else 0
     if a.redraw_existing:
         redraw_existing(a.build)
         return 0
-    place(a.build)
+    place(a.build, only=set(a.only) if a.only else None)
     return 0
 
 

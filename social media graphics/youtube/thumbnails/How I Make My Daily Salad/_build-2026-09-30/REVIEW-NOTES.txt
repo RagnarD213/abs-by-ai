@@ -1,0 +1,11 @@
+RO-05 thumbnail review, 2026-09-30
+Status: approved. Dan picked option 5 on 2026-09-30; exported unchanged and revealed in Finder.
+Headline: MY DAILY / SALAD.
+Cost: $0. Existing real portraits, previously approved extended pool scenes, and approved video frame.
+Build: python3 build.py
+All five JPEGs: 1280x720, under 2 MB. Rendered person-mask text clearance 72 to 89 px. Logo overlap zero.
+Visual QC: smiling expressions, full hair with headroom, abs visible, pool photos cropped to waistband, studio portraits cropped at waistband, no text over the person, feed previews readable at 320px. No new blur added.
+Pool crops use the whole widened scenes because these specific assets already end at the waistband. The generic older 0.86 crop cuts lower abs.
+Food frame: approved round-4 master at 00:05.000. Lower-third removed by cropping above y=835; real finished bowl retained. Real studio-white-23 cutout added.
+Options use five distinct portraits: photo-221, photo-247, studio-blue-192, studio-white-84, studio-white-23. Studio choices differ from the recent Ab Wheel Workout and Belly Fat Emergency sets; existing pool choices necessarily reuse the non-frowning available extensions.
+After Dan picks: copy the selected JPEG unchanged to the parent folder as How I Make My Daily Salad - thumbnail FINAL.jpg. A second pick becomes How I Make My Daily Salad - thumbnail FINAL B.jpg. Verify dimensions, JPEG format, bytes and hash, update Handoffs/README.md, commit and push only task recipe and records. Keep media excluded from the public app repository. No upload or scheduling.

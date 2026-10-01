@@ -4,6 +4,27 @@ Built 2026-09-09. Send ad clicks to **`https://absbyai.com/start`** (plus the us
 home page `/` stays the organic front door. File: `public/start.html`, served by the slug route in
 `server.js`. It is `noindex` so it never competes with `/` in search.
 
+## Since 2026-09-30: Dan's sales letter (`letter-v1`)
+
+`/start` is now Dan's approved sales page ("I Fired My Personal Trainer And Used AI To Get Abs Instead"), built from the
+Round 2 canvas by `.claude/skills/design-sales-page/reference/round2-letter/build_live.py` (never hand-edit
+`public/start.html`: change the generator and rebuild, then run `verify_live.py`). The page below this section is the
+old two-variant page, kept at **`/start-v1`** (`public/start-v1.html`) for rollback.
+
+- **Video:** WV-01 version A at 1.2x, self-hosted (`public/video/`): 720p for phones, 1080p for desktop. The 1080p file is
+  over GitHub's 100 MB limit, so it ships as `.part1`/`.part2` and `server.js` joins them on boot (`/video/:name`).
+  Plays muted under the yellow "Tap to turn on sound" box; a tap unmutes and restarts from 0:00. The muted preview pauses
+  while scrolled away. A new cut = new file name (the route caches 7 days).
+- **Buttons (8):** all go to `/?join=1&from=vsl&v=letter-v1` plus `utm_*`, `gclid`, `gbraid`, `wbraid`, `fbclid`, `ttclid`,
+  `msclkid`, straight into the pay-first cart. No plan picker on the page (Dan cut both, 2026-09-30); Monthly is
+  pre-selected in the cart, Annual one tap away.
+- **Events:** `vsl_landing_seen`, `vsl_video_play` (`autoplay: true, muted: true` when the muted preview starts),
+  `vsl_sound_on` (the real "started watching"), `vsl_video_progress` 25/50/75/100 counted only after sound on,
+  `vsl_trial_cta_clicked {position}`. Every event carries `landing: 'vsl', landing_variant: 'letter-v1'`. No coin flip:
+  tests here are between videos, never layouts.
+- **Same tags as before:** one gtag loader (Ads `AW-18361229851` + GA4), Meta pixel, TikTok pixel, PostHog.
+- **Inside the Android/iOS app:** buy buttons, prices lines and the stripe button are hidden; "Open Abs By AI" shows instead.
+
 ## Why it exists — the funnel on 2026-09-09 (PostHog, last 30 days, absbyai.com only)
 
 | step | event | people | of previous step |
