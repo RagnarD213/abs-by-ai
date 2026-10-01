@@ -121,13 +121,13 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 
 | job | video | rolls | status | size |
 |---|---|---|---|---|
-| [RO-10](RO-10-calories-the-reason-you-re-not-losing-weight.md) | Calories: The Reason You're Not Losing Weight | 9/23 C1704 | READY | L |
+| [RO-10](RO-10-calories-the-reason-you-re-not-losing-weight.md) | Calories: The Reason You're Not Losing Weight | 9/23 C1704 | DELIVERED: awaiting Dan | L |
 | [RO-11](RO-11-when-calories-don-t-matter-for-fat-loss.md) | When Calories Don't Matter For Fat Loss | 9/23 C1705 | IN PROGRESS | L |
 | [RO-12](RO-12-top-5-zepbound-tips.md) | Top 5 Zepbound Tips | 9/23 C1706 | UPLOADED | L |
 | [RO-13](RO-13-can-you-drink-alcohol-and-still-have-abs.md) | Can You Drink Alcohol And Still Have Abs? | 9/23 C1707 | IN PROGRESS | L |
 | [RO-14](RO-14-why-you-re-not-losing-weight.md) | Why You're Not Losing Weight | 9/23 C1708 | READY | L |
 | [RO-15](RO-15-sleep-better-with-glycine.md) | Sleep Better With Glycine | 9/23 C1709 | READY | L |
-| [RO-16](RO-16-if-i-had-belly-fat-here-s-how-i-d-lose-it-in-90-da.md) | If I Had Belly Fat, Here's How I'd Lose It In 90 Days | 9/23 C1710 | IN PROGRESS | L |
+| [RO-16](RO-16-if-i-had-belly-fat-here-s-how-i-d-lose-it-in-90-da.md) | If I Had Belly Fat, Here's How I'd Lose It In 90 Days | 9/23 C1710 | DELIVERED: awaiting Dan | L |
 | [RO-17](RO-17-3-healthy-foods-that-made-me-fat.md) | 3 Healthy Foods That Made Me Fat | 9/23 C1713 | DRAFT: asset choices waiting for Dan | L |
 | [RO-18](RO-18-how-to-make-time-for-exercise-nutrition.md) | How To Make Time For Exercise & Nutrition | 9/23 C1714-C1715 | READY | L |
 
@@ -207,7 +207,7 @@ handoff (`handoff-20260909-audio-match-muhammad.md`, waiting on your spray-tan s
 | [AV-08](AV-08-ad14-vertical.md) | Ad 14 | READY (file the 09-16 HD first) | M |
 | [AV-09](AV-09-ad8-vertical.md) | Ad 8: Two Futures | UPLOADED | M |
 | [AV-10](AV-10-ad9-vertical.md) | Ad 9: ChatGPT (round 4 source, 09-21) | READY | M |
-| [AV-11](AV-11-ad13-vertical.md) | Ad 13: Cost Of Getting Abs (round 4 source, 09-21) | READY | M |
+| [AV-11](AV-11-ad13-vertical.md) | Ad 13: Cost Of Getting Abs (round 4 source, 09-21) | IN PROGRESS | M |
 | [AV-12](AV-12-ad15-vertical.md) | Ad 15: T-Shirt Dad | READY | M |
 | [AV-13](AV-13-arms-shoulders-vertical.md) | Arms & Shoulders Home Workout (Zeeshan, ORGANIC, not an ad) | READY | L |
 
@@ -224,7 +224,7 @@ handoff (`handoff-20260909-audio-match-muhammad.md`, waiting on your spray-tan s
 | [AS-07](AS-07-ad14-square.md) | Ad 14 | BLOCKED: AV-08 approved | M |
 | [AS-08](AS-08-ad8-square.md) | Ad 8 | BLOCKED | M |
 | [AS-09](AS-09-ad9-square.md) | Ad 9 | BLOCKED: AV-10 approved | M |
-| [AS-10](AS-10-ad13-square.md) | Ad 13 | BLOCKED: AV-11 approved | M |
+| [AS-10](AS-10-ad13-square.md) | Ad 13 | IN PROGRESS | M |
 | [AS-11](AS-11-ad15-square.md) | Ad 15 | BLOCKED: AV-12 approved | M |
 | [AS-12](AS-12-arms-shoulders-square.md) | Arms & Shoulders Home Workout (Zeeshan, ORGANIC, not an ad) | BLOCKED: AV-13 approved | L |
 

@@ -1,7 +1,11 @@
 # Campaign images: research and image plan (2026-10-01)
 
-Source handoff: `Handoffs/handoff-20261001-pmax-image-research-and-plan.md`. Status: **research and plan done, waiting
-for Dan's picks.** No finals generated, no campaign touched. Report page: https://claude.ai/artifact/NpsVQuSoxo7qXphK7ruyL7 . Evidence crops and rough mockups are embedded in the report page.
+Source handoff: `Handoffs/handoff-20261001-pmax-image-research-and-plan.md`. Status: **research done; direction approved; image build handed off.** No finals generated, no campaign touched. Report page: https://claude.ai/artifact/NpsVQuSoxo7qXphK7ruyL7 . Evidence crops and rough mockups are embedded in the report page.
+
+> **2026-10-01, later the same day: Dan approved a different creative direction after seeing mockups.** Sections 6
+> and 7 below (charts, price cards, offer cards, text-heavy cards) are replaced by
+> `Handoffs/handoff-20261001-campaign-images-build.md`: every image tells a small story with one short headline. The
+> research, the placement advice (remarketing in Demand Gen, cold in Performance Max) and the test design still stand.
 
 ## 1. What the top players run as still images on Google
 

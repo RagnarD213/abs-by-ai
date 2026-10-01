@@ -23,6 +23,9 @@ docstring has its config format; the approved configs are the `example-ro16-*.js
 
 ## One graphics pass for any video (2026-09-30, first used on RO-10)
 
+RO-10 is the first full film built this way (15 template graphics; delivered 2026-10-01, independent review SHIP,
+checks.py PASS on the whole film). Recipe: `longform-edit/reference/ro10/`.
+
 1. **`from_plan.py`** reads the video's resolved plan (`plan_resolved.json`: items with `t0`/`t1` and their copy) and its
    mapped words (`words_out.json`: `w`, `t0`, `t1` on the film timeline), and writes one config per template scene, then
    renders them: `python3 from_plan.py --plan plan_resolved.json --words words_out.json --shots shots.json --out hf --render`.

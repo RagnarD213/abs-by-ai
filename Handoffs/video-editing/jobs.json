@@ -1491,12 +1491,13 @@
    "claude": "Read Handoffs/video-editing/00-RULES.md, then execute Handoffs/video-editing/AV-11-ad13-vertical.md with /shortad-from-longform. Build the full 9:16 and 59-second cutdown, preserve Muhammad's finalized audio and picture decisions, run every gate and audit, and send Dan the review copies.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read Handoffs/video-editing/00-RULES.md, then execute Handoffs/video-editing/AV-11-ad13-vertical.md using .claude/skills/shortad-from-longform/SKILL.md. Deliver both review copies and update the queue.",
-   "state": "ready",
-   "note": "",
+   "state": "in_progress",
+   "note": "Round 1 (Soft Blue Light + HyperFrames lock) 10-01",
    "order": 71,
-   "updated": "2026-09-16",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-10-01",
+   "rev": 2,
+   "syncedRev": 2,
+   "by": "Claude"
   },
   {
    "id": "AV-12",
@@ -1573,12 +1574,13 @@
    "claude": "Confirm AV-11 is approved, then execute Handoffs/video-editing/AS-10-ad13-square.md as the full and 59-second 1:1 re-layout. Run every gate and audit and send Dan the review copies.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Confirm AV-11 is approved, then execute Handoffs/video-editing/AS-10-ad13-square.md with /shortad-from-longform as a square re-layout. Deliver both review copies and update the queue.",
-   "state": "blocked",
-   "note": "AV-11 approved",
+   "state": "in_progress",
+   "note": "Built with AV-11 in one task per handoff 10-01",
    "order": 75,
-   "updated": "2026-09-16",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-10-01",
+   "rev": 2,
+   "syncedRev": 2,
+   "by": "Claude"
   },
   {
    "id": "AS-11",
@@ -1738,14 +1740,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/RO-10-calories-the-reason-you-re-not-losing-weight.md`: cut \"Calories: The Reason You're Not Losing Weight\" from 9/23 roll C1704 with /longform-edit. Best take of every line, every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-10-calories-the-reason-you-re-not-losing-weight.md` with `$long-form-content-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "ready",
-   "note": "Round 1 + all assets approved by Dan 10-01. Fire handoff-20261001-ro10-round2-build-full-film.md to build the full film.",
+   "state": "delivered",
+   "note": "Round 2 full film delivered 10-01; review copy https://drive.google.com/open?id=13v0hDItM1QWdoNZaEUXPyr3vmfKeb3oZ",
    "sub": "",
    "order": 83,
    "updated": "2026-10-01",
    "by": "Claude",
-   "rev": 3,
-   "syncedRev": 3
+   "rev": 4,
+   "syncedRev": 4
   },
   {
    "id": "RO-11",
@@ -1864,13 +1866,13 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/RO-16-if-i-had-belly-fat-here-s-how-i-d-lose-it-in-90-da.md`: cut \"If I Had Belly Fat, Here's How I'd Lose It In 90 Days\" from 9/23 roll C1710 with /longform-edit. Best take of every line, every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-16-if-i-had-belly-fat-here-s-how-i-d-lose-it-in-90-da.md` with `$long-form-content-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "in_progress",
-   "note": "Dan approved round 2 except two joins: repeated 'Most guys' at 5:00 and clipped 'health benefits' at 11:40. Round 3 handoff: handoff-20261001-ro16-round3-two-join-fixes.md (Opus 5.5 medium).",
+   "state": "delivered",
+   "note": "Round 3 (two join fixes) review copy sent 10-01",
    "sub": "",
    "order": 89,
    "updated": "2026-10-01",
    "by": "Claude",
-   "rev": 8,
+   "rev": 9,
    "syncedRev": 7
   },
   {

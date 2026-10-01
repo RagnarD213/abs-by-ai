@@ -88,12 +88,12 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # ACTIVE
 
-**Trial thumbnails - NEEDS DAN 2026-10-01, Codex.** Review: http://127.0.0.1:8811/. Next: picks. No installation.
+**Campaign Images R2 - NEEDS DAN 2026-10-01, Codex.** Five revisions; 15 unchanged picks. Next: approve http://127.0.0.1:52737/round2/.
+
+**Trial thumbnails R3 - NEEDS DAN 2026-10-01, Codex.** Four locked. Next: confirm 13-R3B, pick 6-R2A/6-R3B. Review http://127.0.0.1:8811/round3/. Receipt: `Docs/TRIAL_THUMBNAIL_REVIEW_R3_20261001.md`.
 
 
 
-
-**Campaign images - NEEDS DAN 2026-10-01, Claude.** Dan picks: `Docs/CAMPAIGN_IMAGES_RESEARCH.md`.
 
 **SL-05 shorts - QUEUED 2026-10-01, Claude.** Blotato Oct 17-27. Next: Oct 11, confirm parent posted, else hold these. `Docs/SL05_SETUP_RECEIPT_20261001.md`.
 
@@ -103,9 +103,9 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **RO-13 - NEEDS DAN 2026-10-01, Claude.** Page http://127.0.0.1:8803/. Next: `handoff-20261001-ro13-round1-dan-review.md`.
 
-**RO-10 - IN PROGRESS 2026-10-01, Claude.** Full film building per `handoff-20261001-ro10-round2-build-full-film.md`.
+**RO-10 - NEEDS DAN 2026-10-01, Claude.** Delivered. Next: Dan reviews; `notes-RO10.md`.
 
-**RO-16 - IN PROGRESS 2026-10-01, Claude.** Round 3 (two join fixes, 5:00 and 11:40) building in `/Volumes/Extreme/_edit_work/ro16/round3/`. Next: checks, review, deliver to Dan.
+**RO-16 - NEEDS DAN 2026-10-01, Claude.** Round 3 sent. Next: Dan watches 5:00, 11:40.
 
 **Studio batch - NEEDS DAN 2026-09-29, Codex.** Review 24 posts: `http://127.0.0.1:8791/`. Nothing scheduled. Package and Drive link: `output/studio-post-test-24-20260929/README.txt`.
 
@@ -176,8 +176,8 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
+- `handoff-20261001-pmax-campaign-build.md` (10-01): after campaign images exist. Sol high.
 - `handoff-20261001-vertical-kit-round2-full-build-after-lock.md` http://127.0.0.1:8806/
-- `handoff-20260929-cut-broll-into-clip-library.md` (09-29): cut 68 B-roll clips into the library. Opus 5.5 medium.
 - `handoff-20260930-codex-adopt-review-page-format.md` (09-30): Codex adopts the RO-16 review page. GPT-6 Sol medium.
 
 - `handoff-20261001-move-project-out-of-icloud.md` (10-01): move the project out of iCloud's Documents sync (109k duplicates, 199 cloud-only files). Run when nothing else runs here. Opus 5.5 high.

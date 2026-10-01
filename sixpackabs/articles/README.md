@@ -28,7 +28,7 @@ thumbnail and length keep following YouTube.
 - **Length:** long-form 800 to 1,500 words (a 20+ minute video may run a bit over). Short: 300 to 500 words,
   and only when it answers a searchable question. Skip brag/teaser Shorts and Shorts that would compete with a
   page on the same topic.
-- **CTA:** exactly one, `[...]({CTA})` → `try.sixpackabs.com` with `utm_source=sixpackabs&utm_medium=blog&
+- **CTA:** exactly one, `[...]({CTA})` → `absbyai.com/start` with `utm_source=sixpackabs&utm_medium=blog&
   utm_campaign=video-article&utm_content=<video-id>`.
 - **Links:** 1 to 3 internal links (`/videos/...` pages or old posts). `build.py` enforces this.
 - **Excerpt = the meta description** (the theme feeds it to Yoast): under 155 characters, answers the question.

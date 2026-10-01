@@ -1,0 +1,196 @@
+{
+  "campaign": "24316364155",
+  "status": "review_only_awaiting_two_decisions",
+  "generation_count": 1,
+  "paid_image_api_calls": 0,
+  "generation_method": "codex-image.sh, ChatGPT subscription",
+  "prompt": "Use case: identity-preserve.\nEdit the attached studio-blue-171 full photo only with very subtle age detail on the hair, face and neck. Same man, exact same identity, blue glasses, expression, gaze, head angle, haircut shape, pose, necklace, lighting and framing. Keep dark hair clearly dominant, about 80 percent dark with scattered believable silver strands and slightly salt-and-pepper temples. Not white hair, not uniform gray. Add modest fine natural age texture around eyes and forehead and neck, like a fit man in his late 40s, no dramatic aging or sagging. Preserve his exact facial features and glasses geometry. All body, physique, abs, hands, fingers, jeans and belt must remain unchanged. Do not add muscle or change skin color. Keep the exact original canvas aspect ratio and identical pixel alignment of the subject. No repositioning, zooming or crop. Keep the blue studio background. No text. Output one edited image only.\n",
+  "inputs": [
+    {
+      "path": "photos/finalized social media photos/studio-blue-171_FINAL_PRIMARY.jpg",
+      "sha256": "d07f0f7fbfa0bfbbe96a6ec7094bb8c20bffcde50cdaae10fb2044a53ff68d99"
+    },
+    {
+      "path": "photos/finalized social media photos/_cutouts/studio-blue-171_CUTOUT.png",
+      "sha256": "5af72c3d16e313f8c97694027e409f1c2e78e686848e2b3c9c3c0bb3d761f0ae"
+    },
+    {
+      "path": "photos/finalized social media photos/photo-10_FINAL_PRIMARY.jpg",
+      "sha256": "45d392f84eb76bd1a316fb152be57093a900020190f3f9a8b6917ddf8eda5c37"
+    },
+    {
+      "path": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/masks/photo-10_FINAL_PRIMARY.mask.png",
+      "sha256": "a774335fe469fc52b158c071e4ed8825578c270f7b2914e2a81efdc593e55e4b"
+    },
+    {
+      "path": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/generated/ad13-B.png",
+      "sha256": "4656241bb419fd9b2539819e868d5808612c12928af0ba253e9676d86e193634"
+    },
+    {
+      "path": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/round2/generated/ad13-robot.png",
+      "sha256": "cd515c605a895dc8a8cd4fc4aa2f9f9700cbb024b729ee27e7ad656865895ace"
+    },
+    {
+      "path": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/generated/ad6-B.png",
+      "sha256": "8b2fca1b16ec28e6ab2659e7003320596a14737d8c5ab7d4a53261ad5127ff7b"
+    }
+  ],
+  "outputs": [
+    {
+      "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/photo-10_FINAL_PRIMARY.jpg",
+      "photo": "photo-10",
+      "crop": [
+        447,
+        937,
+        2106,
+        2920
+      ],
+      "output_box": [
+        657,
+        26,
+        1237,
+        720
+      ],
+      "scale": 0.34997478567826523,
+      "font_size": 84,
+      "text_bbox": [
+        58,
+        65,
+        635,
+        220
+      ],
+      "headline": "HUMAN TRAINERS HATE THIS AI",
+      "text_person_overlap": 0,
+      "choice": "13-R3B",
+      "path": "options/13-R3B-16x9.jpg",
+      "sha256": "c7a658be24588ed648a385dd689995c1cef44accf86e37e30978c9fb4ed53222",
+      "bytes": 337927,
+      "size": [
+        1280,
+        720
+      ],
+      "status": "awaiting_Dan"
+    },
+    {
+      "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/studio-blue-171_FINAL_PRIMARY.jpg",
+      "photo": "studio-blue-171",
+      "crop": [
+        346,
+        310,
+        3131,
+        3943
+      ],
+      "output_box": [
+        681,
+        26,
+        1213,
+        720
+      ],
+      "scale": 0.19102669969721991,
+      "font_size": 104,
+      "text_bbox": [
+        58,
+        65,
+        632,
+        259
+      ],
+      "headline": "HOW MEN 40+ GET ABS",
+      "text_person_overlap": 0,
+      "choice": "6-R3B",
+      "path": "options/6-R3B-16x9.jpg",
+      "sha256": "0274676e41943f61c470cca1b00d32641a2e9d1d09d780e262993b73f6f7dd6c",
+      "bytes": 332405,
+      "size": [
+        1280,
+        720
+      ],
+      "status": "awaiting_Dan"
+    }
+  ],
+  "locked_approvals": [
+    {
+      "choice": "RA-R2A",
+      "aspect": "16x9",
+      "source": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/round2/options/RA-R2A-16x9.jpg",
+      "path": "references/RA-R2A-16x9.jpg",
+      "sha256": "514127fe9f5c1afeee79d2f7a4f521cc20adf5978822c88f7e3fed56d068dfdf",
+      "approval": "Dan approved in round 2"
+    },
+    {
+      "choice": "RA-R2A",
+      "aspect": "9x16",
+      "source": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/round2/options/RA-R2A-9x16.jpg",
+      "path": "references/RA-R2A-9x16.jpg",
+      "sha256": "1dadf4e0e85e9124a0fe856e28aab4d653e07c75363a386565d9e259e2903244",
+      "approval": "Dan approved in round 2"
+    },
+    {
+      "choice": "10-R2A",
+      "aspect": "16x9",
+      "source": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/round2/options/10-R2A-16x9.jpg",
+      "path": "references/10-R2A-16x9.jpg",
+      "sha256": "b49416da12e97ed66232c0e19c4daae5a11b5f8700ae37645e72c199b2ba17db",
+      "approval": "Dan approved in round 2"
+    },
+    {
+      "choice": "10-R2A",
+      "aspect": "9x16",
+      "source": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/round2/options/10-R2A-9x16.jpg",
+      "path": "references/10-R2A-9x16.jpg",
+      "sha256": "fcaac2439dd4780d57618cc98469088e0d7510df94e2b807747c2852a8ab82fb",
+      "approval": "Dan approved in round 2"
+    },
+    {
+      "choice": "4-R2A",
+      "aspect": "16x9",
+      "source": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/round2/options/4-R2A-16x9.jpg",
+      "path": "references/4-R2A-16x9.jpg",
+      "sha256": "b4d114d4aaaed9866a836d775b1968db311d1b206fc1e2afc4902a948999ef9f",
+      "approval": "Dan approved in round 2"
+    },
+    {
+      "choice": "3-R2A",
+      "aspect": "16x9",
+      "source": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/round2/options/3-R2A-16x9.jpg",
+      "path": "references/3-R2A-16x9.jpg",
+      "sha256": "d7803e2bf1a4057c9d2bb0433684bdc68d75d8fbf23c70f5b1bf9f2b13d0c48e",
+      "approval": "Dan approved in round 2"
+    },
+    {
+      "choice": "3-R2A",
+      "aspect": "9x16",
+      "source": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/round2/options/3-R2A-9x16.jpg",
+      "path": "references/3-R2A-9x16.jpg",
+      "sha256": "9780a5feee0caa6c734462c5134f0b971dcf7724d3169ccaeeccc7065301bca2",
+      "approval": "Dan approved in round 2"
+    },
+    {
+      "choice": "3-R2A",
+      "aspect": "1x1",
+      "source": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/round2/options/3-R2A-1x1.jpg",
+      "path": "references/3-R2A-1x1.jpg",
+      "sha256": "2e3d7ced327bd68cc81d853ff09843d183863f47709ee9510648fe5bf9cf6449",
+      "approval": "Dan approved in round 2"
+    }
+  ],
+  "ad13_repair": {
+    "method": "Existing gray plate upper texture; smooth feather y100-245; unchanged robot below y245",
+    "robot_translate_y": 75
+  },
+  "age_edit": {
+    "source": "studio-blue-171",
+    "edited_region": "hair, face, neck only",
+    "original_pixels_unchanged_below_y_fraction": 0.326
+  },
+  "remaining_decisions": [
+    "Confirm 13-R3B",
+    "Choose original 6-R2A or AI age edit 6-R3B"
+  ],
+  "final_exports": false,
+  "installed": false,
+  "generation_output": {
+    "path": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/round3/generated/ad6-age.png",
+    "sha256": "a19dcb48397046bad30ebb3e3370a68a9df32e26b39c19852505505f6c5c9d12"
+  },
+  "generation_tokens": 17204
+}
