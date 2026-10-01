@@ -226,6 +226,7 @@ def main():
             # 29.83 s, kit autofill 2026-09-30). A chip that trips it is re-placed away from that spot, the changed
             # segments re-render, and the file is checked again (at most 3 times).
             for attempt in range(4):
+                shutil.rmtree(os.path.join(B, "watch"), ignore_errors=True)     # no stale strips from an earlier pass
                 sh(D("gate", "--build", B, "--video", full, "--reference-cut", master, *extra))
                 obs = label_obstructions(B, full)
                 if not obs:

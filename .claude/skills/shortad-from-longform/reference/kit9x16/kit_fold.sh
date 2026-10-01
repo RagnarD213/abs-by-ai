@@ -8,6 +8,15 @@ import json, glob
 parts=[json.load(open(p)) for p in sorted(glob.glob('logs/findings_part*.json'))]
 ent=[e for p in parts for e in p['entries']
      if 'negscan' not in str(e.get('image','')) and str(e.get('image','')) != 'sheet.jpg']
+# a verdict on an image this pass did not write (a stale strip left in the folder by an earlier pass) is not part of
+# the pass: watch.py refuses the whole judgment over it, so it is left out here and named
+import os
+wp=json.load(open('logs/watch_pass.json'))
+names={os.path.basename(x) for k in ('sheets','strips','pairs','clips') for x in wp.get(k,[])}
+stale=[e for e in ent if os.path.basename(str(e.get('image',''))) not in names]
+if names and stale:
+    print('left out (not an image of this pass):', sorted({os.path.basename(str(e.get('image',''))) for e in stale}))
+    ent=[e for e in ent if e not in stale]
 # The negative-event sheet is recorded by kit_negscan, not the watch pass. Judges use
 # basenames, so accept either a negscan path or its bare sheet.jpg basename here.
 json.dump(dict(judge=' | '.join(p.get('judge','?') for p in parts), video=parts[0]['video'], method=' || '.join(p.get('method','') for p in parts), entries=ent), open('logs/findings.json','w'), indent=1)
