@@ -15,7 +15,7 @@ PLAN = [
  # ---------------- the proof
  dict(id="C01", kind="clip", start="a nutrition professor at Kansas State", end="for 10 weeks", src=[f"{ST}/p8844683.mp4@8.0"],
       note="junk food laid out (chips, cola, chocolate); no person eating"),
- dict(id="G02", kind="scene", scene="fact", start="but he kept it under", end="eating less calories", photo=f"{PH}/cookies.jpg",
+ dict(id="G02", kind="scene", scene="fact", start="but he kept it under", end="eating less calories", photo=f"{PH}/haub_after.jpg", label="AI-GENERATED",
       eyebrow=["1,800 CAL A DAY", "but he kept it"], headline=[["27 lb", "27"], ["LOST", "pounds"]], count={"value": "27", "from": 0, "dur": 0.55},
       detail=["Cholesterol got BETTER.", "cholesterol"], sweep="junk food", push=1.06, drift=-8),
  dict(id="C02", kind="clip", start="Stanford put 609 people", end="for a full year", src=[f"{ST}/p8768892.mp4@0.3"],
