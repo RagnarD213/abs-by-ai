@@ -18,8 +18,8 @@ PIECES = [
  ("s2e",       490.15, 500.40, "I went from 192 to 175 in about two months ... in the description.", "third attempt, the only complete one (medium.en: 481 said 181, 486 stalled after 'in', 490.1 clean)", None, 490.07),
  ("s2f",       500.94, 531.82, "If you tried and failed ... from Zepbound.", "only take, ends before the abandoned 'So talk to your doctor... in my'"),
  ("s2g",       536.02, 552.64, "So, talk to your doctor ... the rest of my life.", "complete copy; first take of the last sentence (the retake at 554 has a 3.7 s stall)"),
- ("s3a",       563.78, 571.80, "Number three ... Most guys", "only take; 0.95 s stall after 'Most guys' removed", 571.97),
- ("s3a2",      572.90, 598.66, "do it the opposite way ... even on vacation", "resumes after the stall; ends before the abandoned 'And if all you can do is'", 598.97, 572.84),
+ ("s3a",       563.78, 570.44, "Number three ... seven days a week.", "only take; ends after 'week.' and his breath (mouth closed by src frame 17110), BEFORE the first 'Most guys' (571.00-571.90), which he abandons and restates (round 3, Dan: repeated words at 5:00)", 570.962),
+ ("s3a2",      572.90, 598.66, "Most guys do it the opposite way ... even on vacation", "the fluent second 'Most guys' carries the whole sentence (Whisper folded it into one long 'do'); ends before the abandoned 'And if all you can do is'", 598.97, 572.84),
  ("s3b",       602.25, 611.98, "and if all you can do at first ... getting skipped.", "clean copy after the stumble 599.0-601.0; starts after a 601.95 mouth click", None, 602.17),
  ("s3c",       612.84, 626.92, "So why first thing in the morning? ... getting skipped.", "only take"),
  ("s3d",       631.78, 640.04, "I work out every morning ... and your sleep.", "second copy of 'I work out every morning'"),
@@ -40,8 +40,8 @@ PIECES = [
  ("s7c",       982.10, 991.86, "What you want to look at ... wouldn't change anything.", "second copy; ends before the abandoned 'But let's say I stole that for a f-' 992.3-994.0", 991.97),
  ("s7d",       994.70, 1028.36, "But let's say it stalled out for a full week ... in the first place?", "complete copy, continuous into Number 8", None, 994.62),
  ("s8a",       1032.08, 1058.64, "It's because they're not weighing themselves ... 90 days of sacrifice.", "retake of the answer line"),
- ("s8b",       1059.34, 1072.94, "In addition to this ... health benefits.", "only take"),
- ("s8c",       1086.68, 1098.38, "If I ever were to start gaining weight ... belly fat.", "only take"),
+ ("s8b",       1059.34, 1072.94, "In addition to this ... health benefits.", "only take; out hand-set past the final 's' of 'benefits' (sibilant 1073.02-1073.16, room by 1073.20) plus 0.18 s of room (round 3, Dan: 'very slightly cut off' at 11:40; the snap stopped at 1072.905)", 1073.345),
+ ("s8c",       1086.68, 1098.38, "If I ever were to start gaining weight ... belly fat.", "only take; 'If' starts 1087.06 (measured), in hand-set 0.21 s before it so the join has a natural 0.39 s beat (round 3)", None, 1086.853),
  ("wrap",      1098.98, 1116.76, "Alright guys ... see you in the next one.", "first wrap take: fluent and has 'go all in'; the second restarts at 1140; out held to 1117.10 (round-2 review: 0.1 s tail; he smiles to camera until ~1117.15, then starts 'Roll it back')", 1117.10),
 ]
 FPS = 30000/1001

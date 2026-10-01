@@ -1,8 +1,91 @@
+## Five cover and thumbnail choices per video (Dan, 2026-09-30)
+
+Every cover-image or thumbnail review, including its handoff, must request and deliver
+five visual options for each video:
+
+1. One pool-shoot photo.
+2. Two different real studio photos, each composited into a bold, topic-specific
+   photographic environment in the Jelly Beans cover family: crisp white cutout
+   outline, large subject-related props, heavy type and one accent color.
+3. One authentic screenshot from that video's approved finished master, enhanced
+   for clarity as useful while preserving Dan's identity, physique and exercise.
+4. One additional option chosen by the designer, using the image and design that
+   best sells that video's topic.
+
+Use a different image or design for each choice. Keep the copy consistent across
+choices unless Dan requests copy alternatives. For Shorts, each choice includes
+separate Instagram and YouTube layouts; they count as one visual option, not two.
+Show the finished options and stop for Dan's picks. Export his selections, and
+upload or schedule only within the separate authorized setup task. Preserve locked
+covers and already approved selections. This replaces the old two-cover rule and
+any older five-thumbnail mix with two pool photos. In future handoffs, link this
+rule and spell out all five slots. Reference:
+`Short-form video content/covers/review/jelly-bean-refresh/B3-jelly-beans-beat-soda-tight.png`.
+
+## New shorts batches: Soft Blue Light + HyperFrames; first vertical and square get a full pre-approval round (Dan, 2026-10-01)
+
+- **SL-05 (Stop Deadlifting) was the last batch of shorts in the J2 / olive graphic set.** Dan, reviewing it: *"this is the
+  last round of shorts I want to see with this graphic set going forward for new batches. I want to see everything made
+  with the soft blue light and hyperframes graphics."* A batch already in revisions finishes in its current set.
+- **Every new batch of shorts** (cut from a long-form, or dedicated) uses Soft Blue Light graphics built from the
+  HyperFrames templates (`_shared/hyperframes/`, `GRAPHICS-STANDARDS.md`): title treatment, key-point bars, lower thirds,
+  labels, cards.
+- **The first time this is done in vertical, and the first time in square, Dan gets a thorough approval round with every
+  asset reviewed before anything is built:** *"show me a thorough round of approval with all the assets pre-reviewed
+  before you make it, and then we'll go ahead and make it."* That means each graphic as a still on its real frame, the
+  title treatment, the key-point bar over an editor's burned pill, card layouts and caption placement, per
+  [PRE-RENDER-APPROVAL.md](PRE-RENDER-APPROVAL.md). Later batches reuse what he approved.
+- This supersedes "extracting shorts from an approved long-form keeps that film's approved graphics" for the shorts'
+  OWN graphics (title band, bars, chips). An editor's graphics burned into the picture are still handled, not restyled.
+
+## A horizontal clip inside a vertical or square frame is never cropped shorter (Dan, 2026-10-01)
+
+- **When a 16:9 clip sits as a card inside a 9:16 or 1:1 frame, show its full height. Never crop rows off the top or
+  bottom, which only makes the card shorter and adds black space.** Dan, finalizing SL-05: *"There's not ever any reason for you to crop horizontal videos within a vertical frame and make them shorter than they already are. There's already too much black space, so avoid crops like you did on that first draft of the power lifter clip that unnecessarily make the video shorter when we have a horizontal within a vertical frame."*
+- What it cost: SL-05 short 3's first build cropped Zeeshan's AI powerlifter clip to its top 69% (a 1080x419 strip) to
+  remove his burned key-point pill. That cut the barbell out of a deadlift clip. Dan: *"it's a little bit cut off and
+  unnecessarily cropped on the bottom... It looks like it's cropped shorter than it needs to be."* The approved fix was
+  the whole frame, 1080x608.
+- How to apply: a card's crop may only keep the full source height. Cropping the SIDES so the card gets taller (a
+  1170 px wide window of a 1920 px frame, for example) is fine when nothing essential is lost, because it reduces black
+  space. An editor's burned graphic inside the clip stays whole inside the card, and our own bar or chip that would
+  duplicate it comes off for that shot. If the editor's graphic is unacceptable, pick a different part of the clip or a
+  different clip; do not crop the height. This replaces the older "replace an editor's pill by cropping" recipe.
+- Applies to `/shorts`, `/shortad-from-longform` (vertical and square), `/ad-edit` verticals and any other skill that
+  places horizontal footage in a taller frame. Reviewers check it on the delivered file: any card shorter than its
+  source's full height at that width is a defect.
+
+## Shorts stand alone: show the whole exercise, not a detail of it (Dan, 2026-09-30)
+
+- **A short must make complete sense to a viewer who never saw the long-form.** Leave out details that only work
+  with the full video's context: a set-up step, a position check, a reference back to something said earlier.
+- **When a short tells the viewer to do an exercise, show the whole exercise briefly:** a few complete reps (a demo or
+  live-round clip from the same source), not an isolated detail of it. A detail cue (grip, thumbs, arm angle, elbow
+  height) stays only when the complete movement is also on screen in the same short.
+- Dan, approving SL-04 short 1 round 3: *"we want to avoid including details in it that won't be understood if the
+  viewer didn't watch a full long form... if we say to do a certain exercise, rather than just showing individual
+  details that don't make sense without full context, show the full exercise briefly."* Why: round 2 ended on the
+  side-lateral arm-angle set-up with no exercise shown (*"It's not clear why I'm showing them the arm angle when I
+  don't show the complete exercise"*); round 3 replaced it with his thumbs cue plus live-round reps and was approved.
+- How to apply: at segment selection, for every exercise a candidate names, write down where its complete movement is
+  (inside the segment, or another range of the same source to append, e.g. the live round). A candidate whose exercise
+  never appears whole is either paired with a range that shows it or dropped. The reviewer checks it on the delivered file.
+
+## Review page standard + "What I decided" (Dan, 2026-09-30)
+
+- Every approval packet opens with the first minute, then the AI frames, then a **"What I decided (overrule anything)"** list,
+  then every graphic and clip in order, three per row. Dan: *"I like this 'What I Decided' section. Let's make this the standard
+  way to do things going forward."* Layout and details: [PRE-RENDER-APPROVAL.md](PRE-RENDER-APPROVAL.md#the-review-page-one-layout-and-a-what-i-decided-list-on-every-packet-dan-2026-09-30).
+
 ## Organic videos may name the drug (Dan, 2026-09-30)
 
 - **Organic content videos may say and subtitle Zepbound, tirzepatide, GLP-1 and any other drug name.** Dan: *"I plan to make a lot of organic videos where the entire topic of the video is Zepbound. Organic videos can say Zepbound, Tirzepatide, GLP-1, or any of those."* The never-a-brand-name rule is an AD rule (ad-edit Step 9.3) and stays for ads only.
 - The delivery gate still carries the ad rule on organic formats (`compliance:drug_names` and the `srt:shape` banned spelling "Zepbound"/"Ozempic" on `longform`); until that is changed with the regression corpus and a `GATE_VERSION` bump, those two rows failing on an organic video are the known mismatch, not a defect. Spoken and subtitled drug names are correct. Brand names in on-screen graphics on organic videos: not yet ruled; keep them out until Dan says otherwise.
 - Related, same day: do not tell viewers to "empty the entire vial" (Dan cut that ad-lib from RO-12: people on non-standard doses do not).
+
+## Organic content approval budget (Dan, 2026-09-29)
+
+For organic content videos, the newer approval budget below replaces older requirements for Dan to approve every graphic and clip separately and the shared 10 to 15 decisions per video guidance. Keep the stepwise internal checks and the real approval gates. The **first approval round has at most 20 decisions**. In later rounds, **aim for 10 or fewer decisions per round**. These are ceilings, not targets. Ask Dan only about materially uncertain choices that require his judgment. Choose and check routine assets yourself, summarize what you chose, and let him overrule while reviewing the first minute and the finished film. Never reopen unchanged approved items or infer approval from silence. New AI motion still needs approved start/end frames first; show materially uncertain finished motion in context before locking it. The website VSL approval cadence remains separate and more detailed.
 
 ## Ad or organic? Classify every video from its own ending before any upload (Dan, 2026-09-28)
 
@@ -56,6 +139,17 @@
 ## Standing authorization for thumbnail replacement (Dan, 2026-09-16)
 
 - When Dan requests a thumbnail replacement, install the approved new thumbnail without asking again about removing the old thumbnail or its completed A/B test. Preserve available test results in the installation notes first. This does not authorize deleting the video or post itself.
+
+## Clip library first: reuse before you generate, register what you make (Dan, 2026-09-29)
+
+- **Before generating any AI clip, searching stock, or hunting raw rolls for B-roll, search the clip library:**
+  `python3 .claude/skills/_shared/cliplib/clip_library.py find "<what the beat needs>" [--aspect 9x16] [--rolls]`,
+  then look at the top hits' `Media/clip-library/contact/<ID>.jpg` previews. If an existing clip fits, use it and cite
+  its ID (A#### AI, B#### B-roll). Generate only when nothing fits, and say so in the job notes.
+- **When a job finishes, register every new AI clip, stock clip or cut B-roll insert that made it into the approved
+  video** (and any clean unused keeper) with `clip_library.py add ... --status used-final --used-in "<job>"`, then
+  `clip_library.py sheet`. Rejected or defective takes never go in.
+- Human editors browse the same catalog as a Google Sheet in the Drive library folder. Full rules: `_shared/cliplib/README.md`.
 
 ## Video clip generation budget and frame approval (Dan, 2026-09-15)
 
@@ -228,7 +322,7 @@ something that we can publish."* Every point below is a standing rule for every 
 
 - **Never upload any video to YouTube as Public, and never use YouTube's native scheduling/publish-at path.** This applies to API uploads, Studio uploads, scripts and manual work. The upload-time visibility must always be non-public.
 - **Ad videos are always uploaded Unlisted.** No ad gets a separate Public YouTube copy, even if it will also be used on other platforms.
-- **Organic videos are always uploaded Private.** Blotato queues and releases the organic video at the intended time, including YouTube; do not schedule the Private upload to become Public from YouTube Studio or the YouTube API.
+- **Organic videos: Blotato only (Dan, 2026-10-01).** No Private holding upload. Blotato creates and releases the public YouTube video at the scheduled time; we never upload organic content to YouTube ourselves and never use YouTube native scheduling or publishAt. Ads stay Unlisted via `/ad-setup`.
 - Before reporting an upload complete, read back the saved visibility. It must be `unlisted` for an ad or `private` for organic content. A missing or different value is a failure; correct it before continuing. If the video type is unclear, use Private while resolving it—never Public.
 
 ## Audio: one standard, enforced by a stamp (2026-09-02)
@@ -289,6 +383,12 @@ something that we can publish."* Every point below is a standing rule for every 
 - **Measured 2026-08-27, not assumed.** Four concurrent builds drove the Mac mini (10 cores) to a load average of **242 with 0% idle**, and made `finish_audio.py` take **126 seconds against 13.6 seconds on a quiet machine — a 9.3x latency penalty.**
 - **It buys nothing.** x264 already threads across all 10 cores, so extra concurrent builds do not raise throughput; they only timeslice. The sole headroom is the ~19% of a build that is single-threaded Python (PIL graphics, Whisper), which is why **two** builds overlap usefully — one build's Python runs under another's encoding — and a third is pure loss.
 - This is the largest available speedup in the video pipeline: worth more than the three candidate software optimizations and a new Mac combined, and it costs nothing. Full numbers: `.claude/skills/_shared/timing/REPORT_20260827_build_timings.md`.
+- **Exception: upload and setup encodes run anyway, on the hardware encoder at lowest priority (Dan, 2026-09-30).** When a
+  `/video-setup` or `/ad-setup` task needs a platform copy (Blotato's 400 MB cap, a TikTok cover-first copy) and two or
+  more builds are already running, do not wait for a slot: run it as `nice -n 20 ffmpeg -hwaccel videotoolbox ...
+  -c:v h264_videotoolbox ... -c:a copy`. The Mac's media engine does the work, so it barely touches the CPU the cap
+  protects. Dan approved this on RO-05 (load ~300, four builds running). It covers setup/upload copies only; editing
+  renders, QC, transcription and x264 encodes still obey the two-build cap.
 - **Never run a pipeline script inside another session's live build directory** — it will overwrite intermediates that session is reading. Work in a scratch copy.
 
 ## Video review refinements — C1652 R3 (Dan, 2026-09-17)

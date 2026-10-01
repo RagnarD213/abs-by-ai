@@ -1,10 +1,10 @@
 #!/bin/zsh
-# RO-16 round 2 post-render chain on the exact master: audio gate, SRT/chapters/plan, watch pass, dense hair check.
-# usage: finish_chain.sh   (run after build.py wrote round2/RO16_MASTER.mp4)
+# RO-16 round 3 post-render chain on the exact master: audio gate, SRT/chapters/plan, watch pass, dense hair check.
+# usage: finish_chain.sh   (run after build.py wrote round3/RO16_MASTER.mp4)
 set -e
 P="/Users/danielrose/Documents/Claude/Projects/Abs By AI"
 export PATH="$P/Media/video_edit/bin:$PATH"
-cd /Volumes/Extreme/_edit_work/ro16/round2
+cd /Volumes/Extreme/_edit_work/ro16/round3
 mkdir -p logs
 cp ../tmp_base.mp4 base.mp4
 python3 "$P/.claude/skills/_shared/audio/audio_gate.py" RO16_MASTER.mp4 --untreated RO16_MASTER.mp4.audio_untreated.json --ab "RO-16 audio AB (Muhammad then ours).mp4" > logs/audio_gate.log 2>&1 || true

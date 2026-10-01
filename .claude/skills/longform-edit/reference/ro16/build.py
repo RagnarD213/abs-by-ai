@@ -114,7 +114,7 @@ def render_range(a, b, out, placeholder_ai=True):
     # ---- audio: lav on the shot timeline, audio B chain
     wv = wave.open(f"{W}/lav.wav"); L = np.frombuffer(wv.readframes(wv.getnframes()), np.int16).astype(np.float32)/32768
     N = int(round((f1-f0)/FPS*SR)); v = np.zeros(N, np.float32); r = int(0.010*SR)
-    TAILFADE = {"hook.0": 0.08, "s6d.0": 0.07, "s8b.0": 0.07}   # round-2 review: a breath / lip-noise onset in the last 50 ms before the cut after "carbs." (src 936.82) and "benefits." (src 1072.88); faded, no timeline change   # review r1: a breath starts in the hook take's last 50 ms (src 233.21); fade it, no timeline change
+    TAILFADE = {"hook.0": 0.08, "s6d.0": 0.07}   # round-2 review: a breath / lip-noise onset in the last 50 ms before the cut after "carbs." (src 936.82); faded, no timeline change. Round 3: the "s8b.0" fade is gone (that burst was the start of the "s" of "benefits", not a lip noise; the piece now runs past the word)   # review r1: a breath starts in the hook take's last 50 ms (src 233.21); fade it, no timeline change
     for s in S:
         o0, o1 = max(s["out_f0"], f0), min(s["out_f1"], f1)
         if o0 >= o1: continue

@@ -1,7 +1,7 @@
 {
  "_README": "THE STANDARD IS DAN'S WORDS, NOT OUR PARAPHRASE. Every entry quotes him verbatim. See README.md.",
  "version": 2,
- "updated": "2026-09-26",
+ "updated": "2026-09-28",
  "roots": {
   "repo": ".",
   "ssd": "/Volumes/Extreme/_edit_work"
@@ -2906,6 +2906,48 @@
    "must_pass": [],
    "must_trigger": [],
    "notes": "Scoped creative decision, not final-film PASS. Semantic checks pending, no new detector or gate result. Handoffs/handoff-20260926-wv01-round5-final-creative-lock.md"
+  },
+  {
+   "id": "wv01-round11-benefits-approved-20260928",
+   "date": "2026-09-28",
+   "root": "ssd",
+   "path": "wv01-edit/round11/previews/benefits-entire-build.mp4",
+   "sha256": "a6f5abf7d2a242241cce74cade86601aa3d78e57f4746bf06202a01ac91b36fa",
+   "bytes": 38420946,
+   "verdict": "approved",
+   "dan": "Five benefits build looks good. Let's lock this in",
+   "scope": "Complete sequential five-label build and returns to presenter. Existing design unchanged.",
+   "must_pass": [],
+   "must_trigger": [],
+   "notes": "Scoped component creative approval, not full-film PASS. Exact locks: wv01-edit/round11/review/dan-review-locks.json. No gate thresholds changed."
+  },
+  {
+   "id": "wv01-round11-payoff-approved-20260928",
+   "date": "2026-09-28",
+   "root": "ssd",
+   "path": "wv01-edit/round11/previews/mirror-pool-context.mp4",
+   "sha256": "f2de68a0676deefa0f03ff5c1db00d9ab07564475ee46faa20c8ecba9a29c4b3",
+   "bytes": 17281206,
+   "verdict": "approved",
+   "dan": "Mirror, joint, and pool closing look good. Let's lock this in",
+   "scope": "Revised spoken mirror join and complete round8 attempt3 pool motion. Mirror motion already approved. QC flagged the shirt/hand action near24-27seconds within this preview; source-frame inspection has not confirmed a defect. Judge the moving action before locking.",
+   "must_pass": [],
+   "must_trigger": [],
+   "notes": "Scoped component creative approval, not full-film PASS. Exact locks: wv01-edit/round11/review/dan-review-locks.json. No gate thresholds changed."
+  },
+  {
+   "id": "wv01-round11-exercise-approved-20260928",
+   "date": "2026-09-28",
+   "root": "ssd",
+   "path": "wv01-edit/round11/previews/v-sit-twist-context.mp4",
+   "sha256": "faab26aa9d9aa58a326f3a248770f3fbdf2685ad3bb6a397f4071058a7e3927b",
+   "bytes": 12194395,
+   "verdict": "approved",
+   "dan": "Viset twist clip looks good. Let's lock this in.",
+   "scope": "Exact user-selected existing file, natural speed in approved phone treatment. Exercise name and instructions updated to match.",
+   "must_pass": [],
+   "must_trigger": [],
+   "notes": "Scoped component creative approval, not full-film PASS. Exact locks: wv01-edit/round11/review/dan-review-locks.json. No gate thresholds changed."
   }
  ]
 }

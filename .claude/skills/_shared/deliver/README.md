@@ -117,6 +117,15 @@ Likewise **one pinned reference cannot grade every programme.** A trust video ho
 purpose; grading `website` against the long-form `style:coverage` of 0.40 would block the cut Dan
 approved (rev 4 measures 37%). That is per-format config — *not* a widened bound.
 
+## Explicit website subtitle mode
+
+Gate 2.3.1 accepts `"caption_mode": "srt"` in a website build plan when the brief explicitly
+requires subtitle sidecars. This requires a valid SRT and prohibits running burned captions.
+Only the caption rules and their applicable exemptions change. Every other website bound,
+including picture coverage, sound, framing and compliance, remains the website configuration.
+A website plan without this field keeps its existing burned-caption behavior. Other formats
+cannot request this override. The exact-file stamp records the selected mode.
+
 ## Verifying a change
 
 ```bash

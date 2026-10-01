@@ -22,3 +22,17 @@ Traps learned here:
 - A cutaway that starts on a join must cover the whole shot or leave at least 0.5 s of it; `resolve.py` now snaps both ends.
 - The segment cache key has no crop values: a changed crop needs a new framing name.
 - `finish.py` writes the SRT, chapters, label chips and the gate plan; `finish_chain.sh` runs audio gate, watch pass and `haircheck.py`.
+
+## Round 3 traps (2026-10-01, two join fixes on a locked film)
+- A revision that only moves joins does NOT re-transcribe: `words_round3.py` carries every round-2 word's source time onto the
+  new `shots.json` and hand-fixes the few words at the joins, so no graphic can move. A fresh ASR pass shifts word times by
+  tens of ms and moves graphics by a frame. Order for such a round: `edl.py` -> `shots.py` -> `assemble_audio.py` ->
+  `words_round3.py` -> `resolve.py`, then diff `plan_resolved.json` against the saved "before" set in frames.
+- Word times rounded to 1 ms can move an item by one frame after a shift; between joins whose shift is a whole number of
+  milliseconds (30 frames = 1.001 s) carry the old output time minus the shift instead of re-mapping.
+- A Whisper word longer than 0.7 s that ends a piece can hide a second copy of the phrase (the folded "Most guys ... do").
+  Cut the abandoned first copy, not the stall after it, and keep his breath so the pause before the restated line is natural.
+- A burst in the last 100 ms of a piece may be the word's own final consonant (the "s" of "benefits"), not a lip noise. Check
+  the band above 4 kHz before fading it; a sibilant is high-band, a lip click is broadband and under 20 ms.
+- Proof that nothing else changed: `pixel_diff.py` (here) compares every frame at the
+  mapped index and the untreated audio sample by sample.

@@ -42,7 +42,7 @@ MEDIA = "https://database.blotato.io/storage/v1/object/public/public_media/a836f
 TIKTOK_TARGET = {
     "targetType": "tiktok", "privacyLevel": "PUBLIC_TO_EVERYONE",
     "disabledComments": False, "disabledDuet": False, "disabledStitch": False,
-    "isBrandedContent": False, "isYourBrand": True, "isAiGenerated": True,
+    "isBrandedContent": False, "isYourBrand": False, "isAiGenerated": True,
 }
 
 V = {

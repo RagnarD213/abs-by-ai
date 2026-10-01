@@ -679,10 +679,32 @@ FORMATS = {
 }
 
 
-def config_for(fmt):
+def config_for(fmt, caption_mode=None):
     if fmt not in FORMATS:
         raise SystemExit(f"unknown format {fmt!r}; known: {', '.join(sorted(FORMATS))}")
-    return FORMATS[fmt]
+    if caption_mode is None:
+        return FORMATS[fmt]
+    if fmt != "website" or caption_mode != "srt":
+        raise ValueError(f"unsupported caption_mode {caption_mode!r} for {fmt!r}")
+    # WV-01 plan, 2026-09-24: website VSL using the explicitly requested organic
+    # adapter's SRT-only delivery. Preserve EVERY non-caption website bound.
+    # The source values below are the existing longform caption requirements,
+    # not relaxed values fitted to a new render.
+    import copy
+    config = copy.deepcopy(FORMATS[fmt])
+    organic = FORMATS["longform"]
+    for key in ("captions:burned", "captions:sync", "captions:graphic_clearance",
+                "srt:present", "srt:shape"):
+        config["rows"].pop(key, None)
+        config["not_applicable"].pop(key, None)
+        if key in organic["rows"]:
+            config["rows"][key] = copy.deepcopy(organic["rows"][key])
+        else:
+            config["not_applicable"][key] = (
+                "Website SRT mode, WV-01 plan 2026-09-24: "
+                + organic["not_applicable"][key])
+    config["note"] += " Explicit SRT mode: sidecar required; running burned captions prohibited."
+    return config
 
 
 def audit():

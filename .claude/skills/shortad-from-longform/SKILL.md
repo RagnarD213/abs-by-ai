@@ -5,6 +5,31 @@ description: Rebuild a FINISHED, finalized long-form video as a vertical 9:16 sh
 
 Read `_shared/VIDEO-RULES.md` first.
 
+## A horizontal clip in the vertical or square frame keeps its full height (Dan, 2026-10-01)
+
+Never crop rows off a 16:9 clip that sits as a card in a 9:16 or 1:1 frame: it only makes the card shorter and adds black
+space. Dan: *"There's not ever any reason for you to crop horizontal videos within a vertical frame and make them shorter than they already are. There's already too much black space, so avoid crops like you did on that first draft of the power lifter clip that unnecessarily make the video shorter when we have a horizontal within a vertical frame."* Crop the sides to make a card taller if nothing essential is lost; never the height. An editor's
+burned pill stays whole inside the card and our duplicate bar comes off for that shot (SL-05 short 3, round 3). In
+`plan_shots.py` terms: no `cardCrop` with a y range short of 0-1. Full rule: `_shared/VIDEO-RULES.md`.
+
+## Cutdowns stand alone: show the whole exercise, not a detail of it (Dan, 2026-09-30)
+
+Applies to every <=0:59 cutdown of a long-form ad. Full rule: [VIDEO-RULES.md](../_shared/VIDEO-RULES.md#shorts-stand-alone-show-the-whole-exercise-not-a-detail-of-it-dan-2026-09-30).
+
+- **A short must make complete sense to a viewer who never saw the long-form.** Leave out details that only work
+  with the full video's context: a set-up step, a position check, a reference back to something said earlier.
+- **When a short tells the viewer to do an exercise, show the whole exercise briefly:** a few complete reps (a demo or
+  live-round clip from the same source), not an isolated detail of it. A detail cue (grip, thumbs, arm angle, elbow
+  height) stays only when the complete movement is also on screen in the same short.
+- Dan, approving SL-04 short 1 round 3: *"we want to avoid including details in it that won't be understood if the
+  viewer didn't watch a full long form... if we say to do a certain exercise, rather than just showing individual
+  details that don't make sense without full context, show the full exercise briefly."* Why: round 2 ended on the
+  side-lateral arm-angle set-up with no exercise shown (*"It's not clear why I'm showing them the arm angle when I
+  don't show the complete exercise"*); round 3 replaced it with his thumbs cue plus live-round reps and was approved.
+- How to apply: at segment selection, for every exercise a candidate names, write down where its complete movement is
+  (inside the segment, or another range of the same source to append, e.g. the live round). A candidate whose exercise
+  never appears whole is either paired with a range that shows it or dropped. The reviewer checks it on the delivered file.
+
 ## Default jump-cut and junk-footage QC (Dan, 2026-09-29)
 
 Follow [CUT-CONTINUITY-QC.md](../_shared/CUT-CONTINUITY-QC.md) during source selection, before approval previews, and on the exact final candidate. Inspect every actual source/picture join, including reused composites, for a presenter jump without a distinct fixed wide/tight cut or complete approved clip cover. Fix uncovered jumps and recheck every boundary the repair creates. Detect and remove confirmed unscripted noises, empty lead-ins, unnecessary pauses and off-camera resets while protecting complete words, natural breaths and teaching action. Native consecutive frames plus moving/audio context are required; sparse scans and ASR alone cannot clear a join or authorize deletion. Keep the current still/frame, motion and full-render approval boundaries. This dated rule supersedes older suggestions that a pose match or audio fade alone clears a naked cut.

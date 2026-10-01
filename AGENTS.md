@@ -21,6 +21,10 @@ I am a non-technical user. Explain all tasks in simple terms that a non-technica
 **Video, photo, thumbnail, cover, audio and publishing work: read `.claude/skills/_shared/VIDEO-RULES.md` in full before
 doing anything.** It holds Dan's standing production rules. Not having read it is not an excuse.
 
+## Cover and thumbnail review mix (Dan, 2026-09-30)
+
+Every video gets five choices: one pool photo, two different studio photos on topic-specific Jelly Beans style backgrounds, one enhanced screenshot from the video, and one designer choice. This applies to covers, thumbnails and their handoffs. Show all five for Dan to pick before final exports. Full rule: `.claude/skills/_shared/VIDEO-RULES.md`, "Five cover and thumbnail choices per video".
+
 ## Context preservation
 
 - Dan prefers a proactive handoff over automatic context compaction. Do not intentionally continue a task until it nears the model context limit.
@@ -122,6 +126,10 @@ Full rule: read `.claude/skills/_shared/VIDEO-RULES.md`.
 - For every finished organic content video, **Codex makes the YouTube thumbnail options in its own task** (spec: `/video-setup`
   Step 2), Dan picks, and **a Claude task does the upload and setup** (`/video-setup` without the thumbnail step) from the
   finalized thumbnail Dan hands it. Write the two as separate handoffs. Template: `Handoffs/handoff-20260930-ro05-*`.
+
+## Video task names in the sidebar (Dan, 2026-10-01)
+
+- Every video editing session renames itself at the start: `<short video title> <type> R<round>`, e.g. `Calories Don't Matter LFC R1`. Types: `LFC` long-form content, `SFC` short-form content, `AD` ad. Use as much of the title as fits the sidebar. A new round gets the next R number. Handoff starter prompts state the name.
 
 ## Google Drive sharing: always public (Dan, 2026-09-24)
 
