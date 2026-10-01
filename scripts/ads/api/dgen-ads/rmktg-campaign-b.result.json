@@ -1,0 +1,3323 @@
+{
+ "at": "2026-10-01T21:00:26.662Z",
+ "campaignId": "24316408288",
+ "audiences": [
+  {
+   "audience": {
+    "resourceName": "customers/3427170837/audiences/360228120",
+    "id": "360228120",
+    "dimensions": [
+     {
+      "gender": {
+       "genders": [
+        "MALE"
+       ],
+       "includeUndetermined": true
+      }
+     },
+     {
+      "audienceSegments": {
+       "segments": [
+        {
+         "userList": {
+          "userList": "customers/3427170837/userLists/9452269226"
+         }
+        },
+        {
+         "userList": {
+          "userList": "customers/3427170837/userLists/9453532227"
+         }
+        }
+       ]
+      }
+     }
+    ],
+    "exclusionDimension": {
+     "exclusions": [
+      {
+       "userList": {
+        "userList": "customers/3427170837/userLists/9480144404"
+       }
+      },
+      {
+       "userList": {
+        "userList": "customers/3427170837/userLists/9441311426"
+       }
+      },
+      {
+       "userList": {
+        "userList": "customers/3427170837/userLists/9469016618"
+       }
+      },
+      {
+       "userList": {
+        "userList": "customers/3427170837/userLists/9452604668"
+       }
+      }
+     ]
+    },
+    "name": "RMKTG subs | MU 18-65+ | youtube viewers 7+30 day | excl members + subscribers"
+   }
+  },
+  {
+   "audience": {
+    "resourceName": "customers/3427170837/audiences/361149295",
+    "id": "361149295",
+    "dimensions": [
+     {
+      "gender": {
+       "genders": [
+        "MALE"
+       ],
+       "includeUndetermined": true
+      }
+     },
+     {
+      "audienceSegments": {
+       "segments": [
+        {
+         "userList": {
+          "userList": "customers/3427170837/userLists/9452257061"
+         }
+        },
+        {
+         "userList": {
+          "userList": "customers/3427170837/userLists/9452848282"
+         }
+        },
+        {
+         "userList": {
+          "userList": "customers/3427170837/userLists/9453529251"
+         }
+        }
+       ]
+      }
+     }
+    ],
+    "exclusionDimension": {
+     "exclusions": [
+      {
+       "userList": {
+        "userList": "customers/3427170837/userLists/9480144404"
+       }
+      },
+      {
+       "userList": {
+        "userList": "customers/3427170837/userLists/9441311426"
+       }
+      },
+      {
+       "userList": {
+        "userList": "customers/3427170837/userLists/9469016618"
+       }
+      },
+      {
+       "userList": {
+        "userList": "customers/3427170837/userLists/9452604668"
+       }
+      }
+     ]
+    },
+    "name": "RMKTG subs | MU 18-65+ | site visitors 7+30+365 day | excl members + subscribers"
+   }
+  }
+ ],
+ "campaign": [
+  {
+   "campaign": {
+    "resourceName": "customers/3427170837/campaigns/24316408288",
+    "status": "PAUSED",
+    "biddingStrategyType": "TARGET_CPA",
+    "targetCpa": {
+     "targetCpaMicros": "3000000"
+    },
+    "geoTargetTypeSetting": {
+     "positiveGeoTargetType": "PRESENCE_OR_INTEREST"
+    },
+    "name": "[DAN] [DGEN] [ENGAGEMENT] [RMKTG] geo tier 1 | ALL CONTENT | site visitors + youtube viewers",
+    "id": "24316408288"
+   },
+   "campaignBudget": {
+    "resourceName": "customers/3427170837/campaignBudgets/15911284550",
+    "amountMicros": "10000000"
+   }
+  }
+ ],
+ "goals": [
+  {
+   "campaignConversionGoal": {
+    "resourceName": "customers/3427170837/campaignConversionGoals/24316408288~PURCHASE~WEBSITE",
+    "category": "PURCHASE",
+    "origin": "WEBSITE"
+   }
+  },
+  {
+   "campaignConversionGoal": {
+    "resourceName": "customers/3427170837/campaignConversionGoals/24316408288~SIGNUP~WEBSITE",
+    "category": "SIGNUP",
+    "origin": "WEBSITE"
+   }
+  },
+  {
+   "campaignConversionGoal": {
+    "resourceName": "customers/3427170837/campaignConversionGoals/24316408288~SUBSCRIBE_PAID~WEBSITE",
+    "category": "SUBSCRIBE_PAID",
+    "origin": "WEBSITE"
+   }
+  },
+  {
+   "campaignConversionGoal": {
+    "resourceName": "customers/3427170837/campaignConversionGoals/24316408288~SUBMIT_LEAD_FORM~WEBSITE",
+    "category": "SUBMIT_LEAD_FORM",
+    "origin": "WEBSITE"
+   }
+  },
+  {
+   "campaignConversionGoal": {
+    "resourceName": "customers/3427170837/campaignConversionGoals/24316408288~ENGAGEMENT~YOUTUBE_HOSTED",
+    "category": "ENGAGEMENT",
+    "origin": "YOUTUBE_HOSTED",
+    "biddable": true
+   }
+  },
+  {
+   "campaignConversionGoal": {
+    "resourceName": "customers/3427170837/campaignConversionGoals/24316408288~YOUTUBE_FOLLOW_ON_VIEWS~YOUTUBE_HOSTED",
+    "category": "YOUTUBE_FOLLOW_ON_VIEWS",
+    "origin": "YOUTUBE_HOSTED"
+   }
+  }
+ ],
+ "goalLevel": [
+  {
+   "conversionGoalCampaignConfig": {
+    "resourceName": "customers/3427170837/conversionGoalCampaignConfigs/24316408288",
+    "goalConfigLevel": "CAMPAIGN"
+   }
+  }
+ ],
+ "groups": [
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "status": "ENABLED",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day",
+    "targetCpaMicros": "3000000",
+    "demandGenAdGroupSettings": {
+     "channelControls": {
+      "channelConfig": "SELECTED_CHANNELS",
+      "selectedChannels": {
+       "youtubeInFeed": true,
+       "youtubeShorts": true
+      }
+     }
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "status": "ENABLED",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day",
+    "targetCpaMicros": "3000000",
+    "demandGenAdGroupSettings": {
+     "channelControls": {
+      "channelConfig": "SELECTED_CHANNELS",
+      "selectedChannels": {
+       "youtubeInFeed": true,
+       "youtubeShorts": true
+      }
+     }
+    }
+   }
+  }
+ ],
+ "ads": [
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/200887799219~826637093020",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/826637093020",
+     "id": "826637093020",
+     "finalUrls": [
+      "https://absbyai.com"
+     ],
+     "name": "1 min ab workout workout only · rmktg-site"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/200887799219~826637093023",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/826637093023",
+     "id": "826637093023",
+     "finalUrls": [
+      "https://absbyai.com"
+     ],
+     "name": "truth about supplements · rmktg-site"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/200887799219~826637093026",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/826637093026",
+     "id": "826637093026",
+     "finalUrls": [
+      "https://absbyai.com"
+     ],
+     "name": "AT · Why I Train Abs Every Single Day · yt:Ub0BV4m5lMQ · rmktg-site · 2026-09-15"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/200887799219~826637093029",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/826637093029",
+     "id": "826637093029",
+     "finalUrls": [
+      "https://absbyai.com"
+     ],
+     "name": "AT · Jelly Beans Beat Soda - Here's The Study · yt:JuLnoU9NV28 · rmktg-site · 2026-09-17"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/200887799219~826637093032",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/826637093032",
+     "id": "826637093032",
+     "finalUrls": [
+      "https://absbyai.com"
+     ],
+     "name": "AT · Make AI Macro Estimates Way More Accurate · yt:3J_ZSNDkZSU · rmktg-site · 2026-09-18"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/200887799219~826637093035",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/826637093035",
+     "id": "826637093035",
+     "finalUrls": [
+      "https://absbyai.com"
+     ],
+     "name": "AT · Do This Instead Of Crunches · yt:1AnxJ5JCLa0 · rmktg-site · 2026-09-19"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/200887799219~826637093038",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/826637093038",
+     "id": "826637093038",
+     "finalUrls": [
+      "https://absbyai.com"
+     ],
+     "name": "AT · 8 Hours In Bed Is Not 8 Hours Of Sleep · yt:o1v3wPkNI2I · rmktg-site · 2026-09-29"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/209156230708~826720165598",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/826720165598",
+     "id": "826720165598",
+     "finalUrls": [
+      "https://absbyai.com"
+     ],
+     "name": "1 min ab workout workout only · rmktg-yt"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/209156230708~826720165601",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/826720165601",
+     "id": "826720165601",
+     "finalUrls": [
+      "https://absbyai.com"
+     ],
+     "name": "truth about supplements · rmktg-yt"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/209156230708~826720165604",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/826720165604",
+     "id": "826720165604",
+     "finalUrls": [
+      "https://absbyai.com"
+     ],
+     "name": "AT · Why I Train Abs Every Single Day · yt:Ub0BV4m5lMQ · rmktg-yt · 2026-09-15"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/209156230708~826720165607",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/826720165607",
+     "id": "826720165607",
+     "finalUrls": [
+      "https://absbyai.com"
+     ],
+     "name": "AT · Jelly Beans Beat Soda - Here's The Study · yt:JuLnoU9NV28 · rmktg-yt · 2026-09-17"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/209156230708~826720165610",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/826720165610",
+     "id": "826720165610",
+     "finalUrls": [
+      "https://absbyai.com"
+     ],
+     "name": "AT · Make AI Macro Estimates Way More Accurate · yt:3J_ZSNDkZSU · rmktg-yt · 2026-09-18"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/209156230708~826720165613",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/826720165613",
+     "id": "826720165613",
+     "finalUrls": [
+      "https://absbyai.com"
+     ],
+     "name": "AT · Do This Instead Of Crunches · yt:1AnxJ5JCLa0 · rmktg-yt · 2026-09-19"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/209156230708~826720165616",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/826720165616",
+     "id": "826720165616",
+     "finalUrls": [
+      "https://absbyai.com"
+     ],
+     "name": "AT · 8 Hours In Bed Is Not 8 Hours Of Sleep · yt:o1v3wPkNI2I · rmktg-yt · 2026-09-29"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  }
+ ],
+ "criteria": [
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~1000",
+    "type": "LANGUAGE",
+    "negative": false,
+    "language": {
+     "languageConstant": "languageConstants/1000"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2004",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2004"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2008",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2008"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2012",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2012"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2024",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2024"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2031",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2031"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2036",
+    "type": "LOCATION",
+    "negative": false,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2036"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2050",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2050"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2051",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2051"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2068",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2068"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2070",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2070"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2090",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2090"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2104",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2104"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2108",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2108"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2112",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2112"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2116",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2116"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2120",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2120"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2124",
+    "type": "LOCATION",
+    "negative": false,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2124"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2144",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2144"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2148",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2148"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2178",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2178"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2180",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2180"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2204",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2204"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2222",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2222"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2231",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2231"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2242",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2242"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2268",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2268"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2270",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2270"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2275",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2275"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2288",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2288"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2320",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2320"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2324",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2324"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2328",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2328"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2332",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2332"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2340",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2340"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2368",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2368"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2372",
+    "type": "LOCATION",
+    "negative": false,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2372"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2384",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2384"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2398",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2398"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2400",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2400"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2404",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2404"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2417",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2417"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2418",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2418"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2422",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2422"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2426",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2426"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2430",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2430"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2434",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2434"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2450",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2450"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2454",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2454"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2466",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2466"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2478",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2478"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2496",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2496"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2498",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2498"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2504",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2504"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2508",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2508"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2524",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2524"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2548",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2548"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2554",
+    "type": "LOCATION",
+    "negative": false,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2554"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2558",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2558"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2562",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2562"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2566",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2566"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2586",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2586"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2598",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2598"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2600",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2600"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2626",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2626"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2646",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2646"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2686",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2686"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2694",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2694"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2706",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2706"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2716",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2716"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2728",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2728"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2740",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2740"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2748",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2748"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2762",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2762"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2768",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2768"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2788",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2788"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2795",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2795"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2800",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2800"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2804",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2804"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2807",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2807"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2818",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2818"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2826",
+    "type": "LOCATION",
+    "negative": false,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2826"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2834",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2834"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2840",
+    "type": "LOCATION",
+    "negative": false,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2840"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2854",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2854"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2860",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2860"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2862",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2862"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2887",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2887"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2894",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2894"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2900",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2900"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~1026824",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/1026824"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200887799219~2557999382127",
+    "type": "AUDIENCE",
+    "negative": false,
+    "audience": {
+     "audience": "customers/3427170837/audiences/361149295"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~1000",
+    "type": "LANGUAGE",
+    "negative": false,
+    "language": {
+     "languageConstant": "languageConstants/1000"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2004",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2004"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2008",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2008"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2012",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2012"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2024",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2024"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2031",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2031"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2036",
+    "type": "LOCATION",
+    "negative": false,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2036"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2050",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2050"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2051",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2051"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2068",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2068"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2070",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2070"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2090",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2090"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2104",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2104"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2108",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2108"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2112",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2112"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2116",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2116"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2120",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2120"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2124",
+    "type": "LOCATION",
+    "negative": false,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2124"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2144",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2144"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2148",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2148"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2178",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2178"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2180",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2180"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2204",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2204"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2222",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2222"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2231",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2231"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2242",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2242"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2268",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2268"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2270",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2270"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2275",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2275"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2288",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2288"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2320",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2320"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2324",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2324"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2328",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2328"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2332",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2332"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2340",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2340"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2368",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2368"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2372",
+    "type": "LOCATION",
+    "negative": false,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2372"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2384",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2384"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2398",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2398"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2400",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2400"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2404",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2404"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2417",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2417"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2418",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2418"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2422",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2422"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2426",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2426"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2430",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2430"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2434",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2434"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2450",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2450"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2454",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2454"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2466",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2466"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2478",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2478"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2496",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2496"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2498",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2498"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2504",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2504"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2508",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2508"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2524",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2524"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2548",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2548"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2554",
+    "type": "LOCATION",
+    "negative": false,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2554"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2558",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2558"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2562",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2562"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2566",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2566"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2586",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2586"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2598",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2598"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2600",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2600"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2626",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2626"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2646",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2646"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2686",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2686"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2694",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2694"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2706",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2706"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2716",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2716"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2728",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2728"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2740",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2740"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2748",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2748"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2762",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2762"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2768",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2768"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2788",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2788"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2795",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2795"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2800",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2800"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2804",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2804"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2807",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2807"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2818",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2818"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2826",
+    "type": "LOCATION",
+    "negative": false,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2826"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2834",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2834"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2840",
+    "type": "LOCATION",
+    "negative": false,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2840"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2854",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2854"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2860",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2860"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2862",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2862"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2887",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2887"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2894",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2894"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2900",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2900"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~1026824",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/1026824"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/209156230708~2501309482686",
+    "type": "AUDIENCE",
+    "negative": false,
+    "audience": {
+     "audience": "customers/3427170837/audiences/360228120"
+    }
+   }
+  }
+ ]
+}

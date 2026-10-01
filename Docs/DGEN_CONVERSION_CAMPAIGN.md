@@ -532,3 +532,47 @@ build the ad with `/ad-setup` pointed at campaign `24316364155`.
 **2026-10-01, Ad 3 headlines (Dan's own, trial campaign only):** all four Ad 3 ads in `24316364155` now carry
 "Fire Your Personal Trainer", "How AI Replaces Personal Trainers", "Human Trainers Hate Him", "How I Got Abs At 40",
 "Trainers Hate This AI App". Long headlines and descriptions unchanged. The old campaign's Ad 3 copy was not touched.
+
+## 2026-10-01: conversion REMARKETING campaign to /start (campaign `24305381214`)
+
+Dan's spec: `Handoffs/handoff-20261001-remarketing-campaigns-conversion-and-subscriber.md`. Built by
+`scripts/ads/api/dgen-rmktg-campaigns.js a --no-frequency-cap --apply`; read-back in
+`scripts/ads/api/dgen-ads/rmktg-campaign-a.result.json`. It shows the cold trial campaign's ads only to people who
+already visited absbyai.com or already watched one of Dan's YouTube videos.
+
+- Name `[DAN] [DGEN] [TRIAL] [RMKTG] VSL page | 6 ads | US+CA | site visitors + youtube viewers`. **$10/day**, target
+  CPA **$40**, campaign goal **Trial Signup only** (SIGNUP / WEBSITE), US + Canada by presence, English, male + unknown,
+  25-54 + unknown, optimized targeting off. Built PAUSED.
+- Both groups exclude members and purchasers: `website | member hub | 540 day` `9480144404` (new, rule: URL contains
+  `/vp/hub`), `All Converters` `9441311426`, `Purchasers of Abs By AI` `9469016618`. The exclusions sit inside each
+  Audience object (`exclusionDimension`); the API accepts them there.
+
+| Ad group | Id | Audience | Lists | Ads |
+|---|---|---|---|---|
+| Website visitors, 7 + 30 + 365 day | `206411886211` | `361150564` | `9452848282`, `9453529251`, `9452257061` | 12: `826720144313`, `…316`, `…319`, `826720144442`, `…445`, `…448`, `…451`, `…454`, `…457`, `…460`, `…463`, `…466` |
+| YouTube viewers, watched any video 7 + 30 day | `201604959278` | `361150567` | `9453532227`, `9452269226` | 12: `826637064679` through `826637064712` (every third id) |
+
+Each group holds a copy of all 12 enabled ads of cold campaign `24316364155` (six ads, every format), with the copy that
+was live there at build time, including Dan's 10-01 headlines on Ad 10 and Ad 3. Ad names: the cold name plus
+`| rmktg-site` or `| rmktg-yt`. URLs: `utm_campaign=dgen-rmktg-<site|yt>&utm_content=<ad>-<version>-vsl`
+(the ad key is in `utm_content` because one campaign value now covers all six ads).
+
+**List windows fixed the same day.** Every list reported a 30 day membership whatever its name said. Now: website 7 day
+`9452848282` = 7 (lookback 7), website 365 day `9452257061` = 365 (lookback 365), YouTube 7 day `9453532227` = 7,
+subscribers 540 day `9452604668` = 540. The two 30 day lists were already right. The other mis-named lists (14 day,
+540 day, liked, channel page, paywall, generation) were not touched; fix one before using it. Update trap: the mask
+`rule_based_user_list.flexible_rule_user_list` is refused (`FIELD_HAS_SUBFIELDS`); use
+`…flexible_rule_user_list.inclusive_operands` for the lookback, and `membership_life_span` on its own works for
+YouTube lists.
+
+**No frequency cap**, same as the cold campaign: the API refuses it on Demand Gen.
+
+**Keeping it in step with the cold campaign.** This is a snapshot. When a new format of Ad 13, 4 or 6 (or any ad) is
+enabled in `24316364155`, re-run `node scripts/ads/api/dgen-rmktg-campaigns.js a --no-frequency-cap --apply`: it adds
+only the ads that are missing, to both groups. A headline change in the cold campaign does not carry over by itself.
+
+**Enable** (after review): put `[{"campaignOperation":{"update":{"resourceName":"customers/3427170837/campaigns/24305381214","status":"ENABLED"},"updateMask":"status"}}]`
+in a file and run `ADS_ALLOW_ENABLE_CAMPAIGN=1 node scripts/ads/api/client.js mutate <file> --note "enable trial remarketing"`.
+
+**Watch (report 2026-10-04):** the website group draws on about 110 to 430 people and may not deliver at all. Report its
+served status. Subscriber remarketing (Campaign B, `24316408288`) is documented in `Docs/YTADS.md`.
