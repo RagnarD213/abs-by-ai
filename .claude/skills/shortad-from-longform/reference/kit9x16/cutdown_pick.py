@@ -46,7 +46,9 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--build", required=True)
     ap.add_argument("--ai", default="gemini")
-    ap.add_argument("--model", default="gemini-2.5-flash")
+    ap.add_argument("--model", default="gemini-3.1-pro-preview",
+                    help="one text call, a few cents: Flash 2.5 could not hold the seam rules (out-of-order ranges, a 34 s cut "
+                         "without the demo, AV-09 2026-10-01)")
     ap.add_argument("--max", type=float, default=57.5)
     ap.add_argument("--ledger")
     a = ap.parse_args()
@@ -162,6 +164,12 @@ def main():
         probs, E_ = seam_problems(R) if R else (["no ranges"], None)
         if tot > a.max + 1.0:
             probs.append(f"it measures {tot:.1f}s (limit {a.max:.0f}s)")
+        if tot < 45.0:
+            probs.append(f"it measures only {tot:.1f}s: use at least 45 s of the {a.max:.0f} s")
+        if len(R) > 4:
+            probs.append(f"it has {len(R)} ranges (at most 4)")
+        if any(x > y for x, y in R) or any(R[i + 1][0] <= R[i][1] for i in range(len(R) - 1)):
+            probs.append("the ranges must be in the ad's own order and must not overlap")
         if not (R and R[-1][1] == len(S) - 1):
             probs.append("it does not end on the final sentence")
         if not probs:
