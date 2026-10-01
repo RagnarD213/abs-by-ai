@@ -64,9 +64,9 @@
    "id": "S3-kp1",
    "png": "pill-S3-kp1.png",
    "t0": 0.0,
-   "t1": 8.82,
+   "t1": 2.231,
    "fadeIn": 0.001,
-   "fadeOut": 0.15,
+   "fadeOut": 0.001,
    "y": 1447,
    "h": 213,
    "why": "his pill rows 771-896 -> bar y1447-1660"

@@ -76,15 +76,19 @@ PLAN = {
   (F(6717), 'card', None, None, "K: Zeeshan's AI clip (man quitting on a bench; '*AI Generated' top-left kept whole), bar 'Most People Who Quit The Gym Quit Because Of An INJURY'. The card is the left 1170 px (label and the man, who sits at x~860)", None, kx(0.0, grade='none')),
  ],
  'S2': [
-  (0.45, 'card', None, None, "W: Zeeshan's AI cold open (deadlift, '*AI Generated' top-left) on 'Stop doing deadlifts.'", None, w()),
-  (F(32), 'card', None, None, "W (same box): second AI deadlift shot. It runs 0.5 s past the piece join (source 2.95-3.45 of the same AI clip) so Zeeshan's zoom blur-in on Dan (240.74-241.25) is never shown; 'Now,' plays over it", None, w()),
+  # round 3 (Dan 2026-10-01: "cut the beginning where he's loading the weight. Just include the part where he's lifting the weight and where he gets X'd out at the end"):
+  # the card is the lift and the red X only, not lip-synced, audio untouched. Parent frames (r3 measure): bar leaves the floor ~4.2 s, he stops moving at frame 188,
+  # frames 189-206 are one still frame, the X is on 207-224 (it appears in one frame), Zeeshan's white flash starts on 225. Frames 189-206 are skipped (identical to 188, so the
+  # join is invisible) so the X lands at output 2.20 s, as "deadlifts." ends, and holds 0.83 s (its last frame cloned 7 frames; the frame is static). Nothing past frame 224 is shown.
+  ('lcut:0.45:%.4f' % F(123), 'card', None, None, "W: Zeeshan's AI deadlift clip from the pull off the floor to the lockout (parent 4.10-6.27 s), '*AI Generated' top-left, on 'Stop doing deadlifts.' The loading is cut (Dan, round 3)", None, w()),
+  ('lcut:%.4f:%.4f' % (F(13 + 66), F(207)), 'card', None, None, "W (same box, same clip): the red X over the lifter, on as 'deadlifts.' ends (parent 6.91-7.47 s, the still frames before it skipped). It runs 0.5 s past the piece join so Zeeshan's zoom blur-in on Dan (240.74-241.25) is never shown; 'Now,' plays over it", None, w(holdTail=7)),
   (241.27, 'talk', 'mid', 979, "medium, MID (1.2x), first sharp frame after the blur; head c 928-1020", None, med()),
   (249.40, 'talk', 'full', 979, "FULL from the speech gap 248.96-249.63, as the bar 'Over 40, One Bad Injury...' comes on (249.80-262.10): the one framing change of our own on his continuous take (the push_coverage gate row)", None, med()),
   (271.371, 'talk', 'full', 996, "Zeeshan's animated zoom to his close (271.37-271.9); glide 979 -> 996. Bar 'Lower Risk Exercises Build MORE MUSCLE...' from 272.52 to the end. The last 16 frames fade to the field over Zeeshan's blur-out (287.9 on) while 'exercises.' finishes", None, clo(**glide(979), fadeOutV=16)),
  ],
  'S3': [
   (295.68, 'talk', 'full', 1036, "medium; his KEY POINT pill is up at the in-point, so our bar is on from frame 0", None, med()),
-  (F(8929), 'card', None, None, "K (rows 0-745, above his pill's top row 771): Zeeshan's AI powerlifter clip, '*AI Generated' kept whole; the bar holds to 303.80", None, {'cardCrop': [0.0, 1.0, 0.0, 0.69], 'cardY': 420, 'grade': 'none'}),
+  (F(8929), 'card', None, None, "W, the whole frame (round 3, Dan 2026-10-01: 'it's a little bit cut off and unnecessarily cropped on the bottom. Show a little bit more of that clip so that the barbell is visible'): Zeeshan's AI powerlifter clip with the barbell and plates, '*AI Generated' whole. His own KEY POINT pill is whole inside the card until it fades (303.3), so our bar ends on the frame before the card", None, w()),
   (F(9161), 'broll', 'full', 1040, "Zeeshan's stock pec close-up, no text: a full-bleed window (x678-1402, right of the AI label that fades across the cut)", None, NONE),
   (F(9249), 'talk', 'mid', 1060, "medium after his one-frame white flash; head c 1033-1063", None, med()),
   (F(9311), 'card', None, None, "W: Zeeshan's AI 'fitness model' clip, '*AI Generated' whole", None, w()),
@@ -128,7 +132,7 @@ BARS = {
  'S1-kp3': ('S1', (795, 937), F(6717) - 0.03, None),
  'S2-kp1': ('S2', (806, 932), 249.80, 262.10),
  'S2-kp2': ('S2', (762, 967), 272.52, None),
- 'S3-kp1': ('S3', (771, 896), 295.68, 304.50),
+ 'S3-kp1': ('S3', (771, 896), 295.68, F(8929) - 0.02),   # round 3: off on the frame before the whole-frame card (his pill is whole inside it)
  'S3-kp2': ('S3', (794, 937), 351.90, 359.50),
  'S4-ex2': ('S4', (828, 903), 401.12, F(12052) - 0.02),
  'S4-kp1': ('S4', (794, 937), 419.00, None),
@@ -176,7 +180,7 @@ for pid, (seg, rows, on, off) in BARS.items():
     t0 = max(0.0, src2out(seg, on)); tot = sum(p_['end'] - p_['start'] for p_ in P[seg])
     t1 = tot if off is None else src2out(seg, off)
     y = round(310 + (rows[0] - 9) * 1080 / 724); h = round((rows[1] - rows[0] + 18) * 1080 / 724); bar_geo[pid] = [y, h]
-    hard_off = off is None or pid == 'S4-ex2'
+    hard_off = off is None or pid in ('S4-ex2', 'S3-kp1')
     OV.setdefault(seg, []).append({'id': pid, 'png': f'pill-{pid}.png', 't0': round(t0, 3), 't1': round(t1, 3),
         'fadeIn': 0.001 if t0 < 0.01 or pid in ('S1-kp1',) else 0.15, 'fadeOut': 0.001 if hard_off else 0.15, 'y': y, 'h': h,
         'why': f'his pill rows {rows[0]}-{rows[1]} -> bar y{y}-{y + h}'})

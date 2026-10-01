@@ -1,5 +1,8 @@
 # Handoff: SL-05 Stop Deadlifting shorts, round 3: Dan's two revisions, then finalize (written 2026-10-01)
 
+## STATUS 2026-10-01: both revisions built, reviewed (SHIP) and gated (PASS 39/39); review copies sent to Dan. Only "Close-out" below is left, after Dan says finalized.
+Short 2 as built: parent frames 123-188 (pull off the floor to lockout), then 207-224 (the X; the 18 identical still frames before it skipped), X at output 2.20 s. Reviews: `r2/review7/`. Gate logs: `gate/S2|S3/gate_out_r3.txt`.
+
 ## Goal
 Apply Dan's two notes from his review of the round-2 copies, re-review only shorts 2 and 3, re-gate, send him the two
 updated review copies, and finalize the batch. Nothing is uploaded or queued (the parent goes public Sun Oct 11; shorts
