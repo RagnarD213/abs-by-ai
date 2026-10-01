@@ -122,6 +122,8 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **Ads 6, 7, 10, 14 YouTube + Google Ads - REVIEW 2026-09-15, Codex 01a0a744.** Four unlisted uploads, eight enabled campaign ads, shared budget $40/day, policy `REVIEW_IN_PROGRESS`. Next: re-run policy; swap in Ad 7 typo / Ad 14 bitrate exports when delivered. Detail: `Docs/DGEN_CONVERSION_CAMPAIGN.md`.
 
+**Trial campaign `24316364155` - LIVE 2026-10-01, Claude.** 10-04: delivery, policy. `Docs/DGEN_CONVERSION_CAMPAIGN.md`.
+
 **Ads results follow-up — OPEN 2026-09-15.** Review Google Ads results after the 09-09 account fixes (`Docs/GOOGLE_ADS_API.md`). Meta $50 review: next reading 2026-09-18; last result $2.02/follow against <$3 target.
 
 **Web push storage — OPEN 2026-09-15.** Move `push-subs.json` to Postgres before enabling web push. Subscriber-list migration is already finished.
@@ -177,8 +179,8 @@ Memory `google-ads-ui-automation`.
 
 - `handoff-20261001-move-project-out-of-icloud.md` (10-01): move the project out of iCloud's Documents sync (109k duplicates, 199 cloud-only files). Run when nothing else runs here. Opus 5.5 high.
 - `handoff-20261001-rebuild-ios-project.md` (10-01): rebuild the iPhone project iCloud wiped. ⚠ iCloud recovery window closes about 10-17. No Apple upload. GPT-6 Sol high.
-- `handoff-20260930-ad-performance-pick-5-for-vsl-campaign.md` (09-30): pick 5 ads, VSL campaign. READY: /start is live (200, plays WV-01, 09-30). Opus high. Replaces:
-- `handoff-20260929-start-page-performance-verdict.md` (09-29): /start keep-or-fold.
+- `handoff-20261001-search-campaigns-to-vsl-page.md` (10-01). Sol high.
+- `handoff-20261001-ad13-other-formats.md`, `…-ad4-…`, `…-ad6-…` (10-01): vertical + square sets. Opus high.
 - `handoff-20260924-generator-consult-call-outreach.md` (09-24): fire by 09-26.
 - `handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md` [dash]: PHONE ONLY, 3 TikTok covers (updated 09-22). Sonnet 5 or Fable 5.1 / Medium.
 - `handoff-20260915-finalized-ads-6-14-youtube-and-google-ads.md` — Ads 6, 7, 10, 14 → YouTube + DGen (2026-09-15). Codex, high.
