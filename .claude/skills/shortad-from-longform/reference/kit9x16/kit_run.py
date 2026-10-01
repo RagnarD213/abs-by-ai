@@ -56,6 +56,22 @@ KEEP_CAPS = {"I", "I'm", "I'll", "I've", "I'd", "AI", "Dan", "ChatGPT", "Abs", "
              "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday", "OK", "Okay"}
 
 
+def level_card_chips(beats):
+    """One chip height across a run of back-to-back labelled cards (an app demo): a chip moved lower on one screen
+    and back up on the next reads as a jump."""
+    bs = sorted([b for b in beats if b.get("kind") == "card" and b.get("label")], key=lambda b: b["t0"])
+    run = []
+    for b in bs + [None]:
+        if b is not None and run and abs(b["t0"] - run[-1]["t1"]) < 0.05:
+            run.append(b); continue
+        if run:
+            dy = max(int(x.get("label_dy", 0)) for x in run)
+            for x in run:
+                if dy:
+                    x["label_dy"] = dy
+        run = [b] if b is not None else []
+
+
 def label_obstructions(B, video):
     """The delivery gate's own compliance:labels clearance measurement on the delivered file -> {media key: [(t, px)]}
     for the full-bleed chips (kit_labels places those; a card's chip hangs under its hole)."""
@@ -224,9 +240,10 @@ def main():
                     # uploaded photo on a phone screen, Ad 10 122.0 s). It moves 48 px further below the card per try.
                     for b in bj["beats"]:
                         if b.get("media") in cards and b.get("kind") == "card":
-                            b["label_dy"] = int(b.get("label_dy", 0)) + 48
+                            b["label_dy"] = int(b.get("label_dy", 0)) + 72
+                    level_card_chips(bj["beats"])
                     json.dump(bj, open(bj_p, "w"), indent=1)
-                    print(f"  label clearance on the delivered file: card chips {cards} moved 48 px lower", flush=True)
+                    print(f"  label clearance on the delivered file: card chips {cards} moved 72 px lower", flush=True)
                 keys = sorted(k_ for k_ in obs if k_ not in cards)
                 if not keys:
                     sh(D("picture", "--build", B)); sh(D("captions", "--build", B)); sh(D("mux", "--build", B, "--out", full))
