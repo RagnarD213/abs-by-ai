@@ -13,6 +13,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
+| [handoff-20261001-remarketing-campaigns-conversion-and-subscriber.md](handoff-20261001-remarketing-campaigns-conversion-and-subscriber.md) | **Ready 2026-10-01. GPT-6 Sol / High.** Two Demand Gen remarketing campaigns at $10/day each: trial signups to /start, and YouTube subscribers at a $3 target. Website Visitors + YouTube Viewers groups in each. |
 | [handoff-20261001-search-campaigns-to-vsl-page.md](handoff-20261001-search-campaigns-to-vsl-page.md) | **Ready 2026-10-01. GPT-6 Sol / High.** Both Search campaigns: audit every URL to /start, add UTMs, switch the goal to Trial Signup, report copy that no longer matches the page. |
 | [handoff-20261001-ad13-other-formats.md](handoff-20261001-ad13-other-formats.md) | **Ready 2026-10-01. Opus 5.5 / High.** Ad 13 The Cost Of Getting Abs: 9:16, 9:16 59s, 1:1, 1:1 59s from the approved 16:9. No upload. |
 | [handoff-20261001-ad4-other-formats.md](handoff-20261001-ad4-other-formats.md) | **Ready 2026-10-01. Opus 5.5 / High.** Ad 4 Stop Wasting Money On Supplements: 9:16, 9:16 59s, 1:1, 1:1 59s from the approved 16:9. No upload. |
