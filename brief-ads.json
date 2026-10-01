@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-09-16T11:07:18.877Z",
-  "day": "2026-09-15",
+  "generatedAt": "2026-09-29T19:12:51.573Z",
+  "day": "2026-09-28",
   "window": {
-    "from": "2026-09-08",
-    "to": "2026-09-15",
+    "from": "2026-09-21",
+    "to": "2026-09-28",
     "baselineDays": 7
   },
   "blind": [],
   "totals": {
-    "spendYesterday": 110.85,
-    "spend7dMean": 79.33,
-    "deltaPct": 0.4,
+    "spendYesterday": 93.04,
+    "spend7dMean": 112.8,
+    "deltaPct": -0.18,
     "platformsLive": [
       "meta",
       "google"
@@ -19,22 +19,42 @@
   "anomalies": [
     {
       "severity": "high",
-      "platform": "google",
-      "scope": "campaign",
-      "kind": "spend_spike",
-      "name": "[DAN] [DGEN] [CONVERSION] MU 25-54 | US+CA | ad 1 + ad 2 | start vs home",
-      "headline": "[DAN] [DGEN] [CONVERSION] MU 25-54 | US+CA | ad 1 + ad 2 | start vs home spent $47.28 — 2.22x its normal day",
-      "detail": "7-day average is $21.32/day.",
-      "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24243839443"
+      "platform": "meta",
+      "scope": "ad",
+      "kind": "ad_rejected",
+      "name": "POST | untitled | TEST::17928711516410181",
+      "headline": "Ad \"POST | untitled | TEST::17928711516410181\" is with issues",
+      "detail": "It is not delivering until this is resolved.",
+      "link": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=2143998876461525"
+    },
+    {
+      "severity": "high",
+      "platform": "meta",
+      "scope": "ad",
+      "kind": "ad_rejected",
+      "name": "POST | untitled | TEST::18410209768086969",
+      "headline": "Ad \"POST | untitled | TEST::18410209768086969\" is with issues",
+      "detail": "It is not delivering until this is resolved.",
+      "link": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=2143998876461525"
     },
     {
       "severity": "high",
       "platform": "google",
       "scope": "campaign",
-      "kind": "zero_results",
+      "kind": "spend_stopped",
+      "name": "Brand - Search - US",
+      "headline": "Brand - Search - US stopped spending",
+      "detail": "$0.00 yesterday against a 7-day average of $5.77/day — status reads ENABLED.",
+      "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24086091285"
+    },
+    {
+      "severity": "high",
+      "platform": "google",
+      "scope": "campaign",
+      "kind": "spend_stopped",
       "name": "[DAN] [DGEN] [ENGAGEMENT] [RMKTG] FMU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT | youtube viewers",
-      "headline": "[DAN] [DGEN] [ENGAGEMENT] [RMKTG] FMU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT | youtube viewers has spent $15.46 for zero conversions",
-      "detail": "Across the last 8 days.",
+      "headline": "[DAN] [DGEN] [ENGAGEMENT] [RMKTG] FMU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT | youtube viewers stopped spending",
+      "detail": "$0.00 yesterday against a 7-day average of $4.81/day — status reads PAUSED.",
       "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24169507109"
     }
   ],
@@ -45,9 +65,9 @@
       "platform": "meta",
       "account": "act_2143998876461525",
       "link": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=2143998876461525",
-      "spend": 10.45,
-      "spend7dMean": 13.46,
-      "deltaPct": -0.22,
+      "spend": 13.65,
+      "spend7dMean": 10.8,
+      "deltaPct": 0.26,
       "campaigns": [
         {
           "id": "120250753198730682",
@@ -55,22 +75,43 @@
           "status": "ACTIVE",
           "resultLabel": "profile visit",
           "link": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=2143998876461525&selected_campaign_ids=120250753198730682",
-          "spend": 10.45,
-          "results": 109,
-          "impressions": 1286,
-          "clicks": 110,
-          "costPerResult": 0.1,
+          "spend": 13.65,
+          "results": 149,
+          "impressions": 1499,
+          "clicks": 148,
+          "costPerResult": 0.09,
           "baseline": {
             "days": 7,
-            "meanSpend": 13.46,
-            "totalSpend": 94.2,
-            "clicks": 943,
-            "results": 976,
-            "costPerResult": 0.1
+            "meanSpend": 10.8,
+            "totalSpend": 75.63,
+            "clicks": 711,
+            "results": 711,
+            "costPerResult": 0.11
           }
         }
       ],
-      "anomalies": [],
+      "anomalies": [
+        {
+          "severity": "high",
+          "platform": "meta",
+          "scope": "ad",
+          "kind": "ad_rejected",
+          "name": "POST | untitled | TEST::17928711516410181",
+          "headline": "Ad \"POST | untitled | TEST::17928711516410181\" is with issues",
+          "detail": "It is not delivering until this is resolved.",
+          "link": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=2143998876461525"
+        },
+        {
+          "severity": "high",
+          "platform": "meta",
+          "scope": "ad",
+          "kind": "ad_rejected",
+          "name": "POST | untitled | TEST::18410209768086969",
+          "headline": "Ad \"POST | untitled | TEST::18410209768086969\" is with issues",
+          "detail": "It is not delivering until this is resolved.",
+          "link": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=2143998876461525"
+        }
+      ],
       "winners": []
     },
     "google": {
@@ -78,26 +119,26 @@
       "platform": "google",
       "account": "3427170837",
       "link": "https://ads.google.com/aw/campaigns?__c=3427170837",
-      "spend": 100.4,
-      "spend7dMean": 65.87,
-      "deltaPct": 0.52,
+      "spend": 79.39,
+      "spend7dMean": 102,
+      "deltaPct": -0.22,
       "yesterday": {
-        "from": "2026-09-15",
-        "to": "2026-09-15",
-        "spend": 100.4,
-        "clicks": 153,
-        "conversions": 92,
-        "estSubscribers": 46.94,
-        "estCostPerSubscriber": 2.14
+        "from": "2026-09-28",
+        "to": "2026-09-28",
+        "spend": 79.38,
+        "clicks": 103,
+        "conversions": 36,
+        "estSubscribers": 18.37,
+        "estCostPerSubscriber": 4.32
       },
       "last7d": {
-        "from": "2026-09-09",
-        "to": "2026-09-15",
-        "spend": 464.45,
-        "clicks": 601,
-        "conversions": 407,
-        "estSubscribers": 207.65,
-        "estCostPerSubscriber": 2.24
+        "from": "2026-09-22",
+        "to": "2026-09-28",
+        "spend": 696.21,
+        "clicks": 958,
+        "conversions": 290,
+        "estSubscribers": 147.96,
+        "estCostPerSubscriber": 4.71
       },
       "conversionInflation": 1.96,
       "conversionInflationBasis": "measured 2026-08-26: 1,553 reported conversions vs 792 earned subscribers on campaign 24122099676",
@@ -108,39 +149,39 @@
           "status": "ENABLED",
           "resultLabel": "conversion",
           "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24243839443",
-          "spend": 47.28,
-          "results": 1,
-          "impressions": 3841,
-          "clicks": 59,
-          "costPerResult": 47.28,
+          "spend": 47.35,
+          "results": 0,
+          "impressions": 7018,
+          "clicks": 66,
+          "costPerResult": null,
           "baseline": {
-            "days": 5,
-            "meanSpend": 21.32,
-            "totalSpend": 106.6,
-            "clicks": 121,
-            "results": 1,
-            "costPerResult": 106.6
+            "days": 7,
+            "meanSpend": 56.33,
+            "totalSpend": 394.28,
+            "clicks": 657,
+            "results": 10.061382,
+            "costPerResult": 39.19
           },
           "yesterday": {
-            "from": "2026-09-15",
-            "to": "2026-09-15",
-            "spend": 47.28,
-            "clicks": 59,
-            "conversions": 1,
-            "estSubscribers": 0.51,
+            "from": "2026-09-28",
+            "to": "2026-09-28",
+            "spend": 47.35,
+            "clicks": 66,
+            "conversions": 0,
+            "estSubscribers": 0,
             "estCostPerSubscriber": null
           },
           "last7d": {
-            "from": "2026-09-09",
-            "to": "2026-09-15",
-            "spend": 153.88,
-            "clicks": 180,
-            "conversions": 2,
-            "estSubscribers": 1.02,
-            "estCostPerSubscriber": 150.8
+            "from": "2026-09-22",
+            "to": "2026-09-28",
+            "spend": 404.39,
+            "clicks": 664,
+            "conversions": 10.06,
+            "estSubscribers": 5.13,
+            "estCostPerSubscriber": 78.78
           },
-          "estSubscribers": 1.02,
-          "estCostPerSubscriber": 150.8,
+          "estSubscribers": 5.13,
+          "estCostPerSubscriber": 78.78,
           "estimateBasis": "measured 2026-08-26: 1,553 reported conversions vs 792 earned subscribers on campaign 24122099676"
         },
         {
@@ -149,80 +190,39 @@
           "status": "ENABLED",
           "resultLabel": "conversion",
           "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24163535721",
-          "spend": 20.81,
-          "results": 10,
-          "impressions": 2028,
-          "clicks": 10,
-          "costPerResult": 2.08,
+          "spend": 25.07,
+          "results": 7,
+          "impressions": 2875,
+          "clicks": 9,
+          "costPerResult": 3.58,
           "baseline": {
             "days": 7,
-            "meanSpend": 20.74,
-            "totalSpend": 145.17,
-            "clicks": 80,
-            "results": 84,
-            "costPerResult": 1.73
+            "meanSpend": 25.26,
+            "totalSpend": 176.85,
+            "clicks": 68,
+            "results": 65,
+            "costPerResult": 2.72
           },
           "yesterday": {
-            "from": "2026-09-15",
-            "to": "2026-09-15",
-            "spend": 20.81,
-            "clicks": 10,
-            "conversions": 10,
-            "estSubscribers": 5.1,
-            "estCostPerSubscriber": 4.08
+            "from": "2026-09-28",
+            "to": "2026-09-28",
+            "spend": 25.07,
+            "clicks": 9,
+            "conversions": 7,
+            "estSubscribers": 3.57,
+            "estCostPerSubscriber": 7.02
           },
           "last7d": {
-            "from": "2026-09-09",
-            "to": "2026-09-15",
-            "spend": 146.01,
-            "clicks": 47,
-            "conversions": 50,
-            "estSubscribers": 25.51,
-            "estCostPerSubscriber": 5.72
+            "from": "2026-09-22",
+            "to": "2026-09-28",
+            "spend": 176.44,
+            "clicks": 64,
+            "conversions": 57,
+            "estSubscribers": 29.08,
+            "estCostPerSubscriber": 6.07
           },
-          "estSubscribers": 25.51,
-          "estCostPerSubscriber": 5.72,
-          "estimateBasis": "measured 2026-08-26: 1,553 reported conversions vs 792 earned subscribers on campaign 24122099676"
-        },
-        {
-          "id": "24086091285",
-          "name": "Brand - Search - US",
-          "status": "ENABLED",
-          "resultLabel": "conversion",
-          "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24086091285",
-          "spend": 11.59,
-          "results": 0,
-          "impressions": 4,
-          "clicks": 2,
-          "costPerResult": null,
-          "baseline": {
-            "days": 7,
-            "meanSpend": 8.34,
-            "totalSpend": 58.38,
-            "clicks": 11,
-            "results": 2,
-            "costPerResult": 29.19
-          },
-          "yesterday": {
-            "from": "2026-09-15",
-            "to": "2026-09-15",
-            "spend": 11.59,
-            "clicks": 2,
-            "conversions": 0,
-            "estSubscribers": 0,
-            "estCostPerSubscriber": null
-          },
-          "last7d": {
-            "from": "2026-09-09",
-            "to": "2026-09-15",
-            "spend": 59.2,
-            "clicks": 12,
-            "conversions": 2,
-            "estSubscribers": 1.02,
-            "estCostPerSubscriber": 58.02
-          },
-          "estSubscribers": 1.02,
-          "estCostPerSubscriber": 58.02,
+          "estSubscribers": 29.08,
+          "estCostPerSubscriber": 6.07,
           "estimateBasis": "measured 2026-08-26: 1,553 reported conversions vs 792 earned subscribers on campaign 24122099676"
         },
         {
@@ -231,80 +231,39 @@
           "status": "ENABLED",
           "resultLabel": "conversion",
           "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24122099676",
-          "spend": 10.48,
-          "results": 80,
-          "impressions": 9675,
-          "clicks": 78,
-          "costPerResult": 0.13,
+          "spend": 4.97,
+          "results": 29,
+          "impressions": 3511,
+          "clicks": 26,
+          "costPerResult": 0.17,
           "baseline": {
             "days": 7,
-            "meanSpend": 7.7,
-            "totalSpend": 53.87,
-            "clicks": 323,
-            "results": 327,
+            "meanSpend": 5.25,
+            "totalSpend": 36.74,
+            "clicks": 221,
+            "results": 230,
             "costPerResult": 0.16
           },
           "yesterday": {
-            "from": "2026-09-15",
-            "to": "2026-09-15",
-            "spend": 10.48,
-            "clicks": 78,
-            "conversions": 80,
-            "estSubscribers": 40.82,
-            "estCostPerSubscriber": 0.26
+            "from": "2026-09-28",
+            "to": "2026-09-28",
+            "spend": 4.97,
+            "clicks": 26,
+            "conversions": 29,
+            "estSubscribers": 14.8,
+            "estCostPerSubscriber": 0.34
           },
           "last7d": {
-            "from": "2026-09-09",
-            "to": "2026-09-15",
-            "spend": 53.55,
-            "clicks": 343,
-            "conversions": 346,
-            "estSubscribers": 176.53,
-            "estCostPerSubscriber": 0.3
+            "from": "2026-09-22",
+            "to": "2026-09-28",
+            "spend": 36.83,
+            "clicks": 204,
+            "conversions": 212,
+            "estSubscribers": 108.16,
+            "estCostPerSubscriber": 0.34
           },
-          "estSubscribers": 176.53,
-          "estCostPerSubscriber": 0.3,
-          "estimateBasis": "measured 2026-08-26: 1,553 reported conversions vs 792 earned subscribers on campaign 24122099676"
-        },
-        {
-          "id": "24169507109",
-          "name": "[DAN] [DGEN] [ENGAGEMENT] [RMKTG] FMU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT | youtube viewers",
-          "status": "ENABLED",
-          "resultLabel": "conversion",
-          "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24169507109",
-          "spend": 5.21,
-          "results": 0,
-          "impressions": 33,
-          "clicks": 0,
-          "costPerResult": null,
-          "baseline": {
-            "days": 7,
-            "meanSpend": 1.46,
-            "totalSpend": 10.25,
-            "clicks": 0,
-            "results": 0,
-            "costPerResult": null
-          },
-          "yesterday": {
-            "from": "2026-09-15",
-            "to": "2026-09-15",
-            "spend": 5.21,
-            "clicks": 0,
-            "conversions": 0,
-            "estSubscribers": 0,
-            "estCostPerSubscriber": null
-          },
-          "last7d": {
-            "from": "2026-09-09",
-            "to": "2026-09-15",
-            "spend": 14.08,
-            "clicks": 0,
-            "conversions": 0,
-            "estSubscribers": 0,
-            "estCostPerSubscriber": null
-          },
-          "estSubscribers": 0,
-          "estCostPerSubscriber": null,
+          "estSubscribers": 108.16,
+          "estCostPerSubscriber": 0.34,
           "estimateBasis": "measured 2026-08-26: 1,553 reported conversions vs 792 earned subscribers on campaign 24122099676"
         },
         {
@@ -313,39 +272,121 @@
           "status": "ENABLED",
           "resultLabel": "conversion",
           "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24148587722",
-          "spend": 5.03,
-          "results": 1,
-          "impressions": 35,
-          "clicks": 4,
-          "costPerResult": 5.03,
+          "spend": 2,
+          "results": 0,
+          "impressions": 6,
+          "clicks": 2,
+          "costPerResult": null,
           "baseline": {
             "days": 7,
-            "meanSpend": 6.31,
-            "totalSpend": 44.19,
-            "clicks": 17,
-            "results": 7,
-            "costPerResult": 6.31
+            "meanSpend": 4.58,
+            "totalSpend": 32.06,
+            "clicks": 19,
+            "results": 5,
+            "costPerResult": 6.41
           },
           "yesterday": {
-            "from": "2026-09-15",
-            "to": "2026-09-15",
-            "spend": 5.03,
-            "clicks": 4,
-            "conversions": 1,
-            "estSubscribers": 0.51,
+            "from": "2026-09-28",
+            "to": "2026-09-28",
+            "spend": 2,
+            "clicks": 2,
+            "conversions": 0,
+            "estSubscribers": 0,
             "estCostPerSubscriber": null
           },
           "last7d": {
-            "from": "2026-09-09",
-            "to": "2026-09-15",
-            "spend": 37.73,
-            "clicks": 19,
-            "conversions": 7,
-            "estSubscribers": 3.57,
-            "estCostPerSubscriber": 10.56
+            "from": "2026-09-22",
+            "to": "2026-09-28",
+            "spend": 27.1,
+            "clicks": 18,
+            "conversions": 4,
+            "estSubscribers": 2.04,
+            "estCostPerSubscriber": 13.28
           },
-          "estSubscribers": 3.57,
-          "estCostPerSubscriber": 10.56,
+          "estSubscribers": 2.04,
+          "estCostPerSubscriber": 13.28,
+          "estimateBasis": "measured 2026-08-26: 1,553 reported conversions vs 792 earned subscribers on campaign 24122099676"
+        },
+        {
+          "id": "24086091285",
+          "name": "Brand - Search - US",
+          "status": "ENABLED",
+          "resultLabel": "conversion",
+          "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24086091285",
+          "spend": 0,
+          "results": 0,
+          "impressions": 3,
+          "clicks": 0,
+          "costPerResult": null,
+          "baseline": {
+            "days": 6,
+            "meanSpend": 5.77,
+            "totalSpend": 34.64,
+            "clicks": 7,
+            "results": 5.938618,
+            "costPerResult": 5.83
+          },
+          "yesterday": {
+            "from": "2026-09-28",
+            "to": "2026-09-28",
+            "spend": 0,
+            "clicks": 0,
+            "conversions": 0,
+            "estSubscribers": 0,
+            "estCostPerSubscriber": null
+          },
+          "last7d": {
+            "from": "2026-09-22",
+            "to": "2026-09-28",
+            "spend": 22.89,
+            "clicks": 5,
+            "conversions": 4.94,
+            "estSubscribers": 2.52,
+            "estCostPerSubscriber": 9.08
+          },
+          "estSubscribers": 2.52,
+          "estCostPerSubscriber": 9.08,
+          "estimateBasis": "measured 2026-08-26: 1,553 reported conversions vs 792 earned subscribers on campaign 24122099676"
+        },
+        {
+          "id": "24169507109",
+          "name": "[DAN] [DGEN] [ENGAGEMENT] [RMKTG] FMU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT | youtube viewers",
+          "status": "PAUSED",
+          "resultLabel": "conversion",
+          "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24169507109",
+          "spend": 0,
+          "results": 0,
+          "impressions": 0,
+          "clicks": 0,
+          "costPerResult": null,
+          "baseline": {
+            "days": 7,
+            "meanSpend": 4.81,
+            "totalSpend": 33.67,
+            "clicks": 3,
+            "results": 2,
+            "costPerResult": 16.84
+          },
+          "yesterday": {
+            "from": "2026-09-28",
+            "to": "2026-09-28",
+            "spend": 0,
+            "clicks": 0,
+            "conversions": 0,
+            "estSubscribers": 0,
+            "estCostPerSubscriber": null
+          },
+          "last7d": {
+            "from": "2026-09-22",
+            "to": "2026-09-28",
+            "spend": 28.57,
+            "clicks": 3,
+            "conversions": 2,
+            "estSubscribers": 1.02,
+            "estCostPerSubscriber": 28
+          },
+          "estSubscribers": 1.02,
+          "estCostPerSubscriber": 28,
           "estimateBasis": "measured 2026-08-26: 1,553 reported conversions vs 792 earned subscribers on campaign 24122099676"
         }
       ],
@@ -354,20 +395,20 @@
           "severity": "high",
           "platform": "google",
           "scope": "campaign",
-          "kind": "spend_spike",
-          "name": "[DAN] [DGEN] [CONVERSION] MU 25-54 | US+CA | ad 1 + ad 2 | start vs home",
-          "headline": "[DAN] [DGEN] [CONVERSION] MU 25-54 | US+CA | ad 1 + ad 2 | start vs home spent $47.28 — 2.22x its normal day",
-          "detail": "7-day average is $21.32/day.",
-          "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24243839443"
+          "kind": "spend_stopped",
+          "name": "Brand - Search - US",
+          "headline": "Brand - Search - US stopped spending",
+          "detail": "$0.00 yesterday against a 7-day average of $5.77/day — status reads ENABLED.",
+          "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24086091285"
         },
         {
           "severity": "high",
           "platform": "google",
           "scope": "campaign",
-          "kind": "zero_results",
+          "kind": "spend_stopped",
           "name": "[DAN] [DGEN] [ENGAGEMENT] [RMKTG] FMU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT | youtube viewers",
-          "headline": "[DAN] [DGEN] [ENGAGEMENT] [RMKTG] FMU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT | youtube viewers has spent $15.46 for zero conversions",
-          "detail": "Across the last 8 days.",
+          "headline": "[DAN] [DGEN] [ENGAGEMENT] [RMKTG] FMU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT | youtube viewers stopped spending",
+          "detail": "$0.00 yesterday against a 7-day average of $4.81/day — status reads PAUSED.",
           "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24169507109"
         }
       ],
@@ -376,8 +417,8 @@
   },
   "autoBoost": {
     "ok": true,
-    "lastRunAt": "2026-09-16T10:17:44.144Z",
-    "ageHours": 0.83,
+    "lastRunAt": "2026-09-29T18:16:47.418Z",
+    "ageHours": 0.93,
     "stale": false,
     "dryRun": false,
     "enabled": true,
@@ -385,12 +426,12 @@
       "caps": {
         "reason": null,
         "testsCap": 300,
-        "testsMtd": 54.45,
+        "testsMtd": 129.21,
         "totalCap": 500,
-        "totalMtd": 143.36,
+        "totalMtd": 297.97,
         "capReached": false,
-        "testsCommitted": 67.88,
-        "totalCommitted": 156.79
+        "testsCommitted": 136.43,
+        "totalCommitted": 305.19
       },
       "pair": {
         "ads": [
@@ -416,6 +457,35 @@
       },
       "skips": [],
       "tests": [
+        {
+          "label": "IMAGE | Sodium is why the scale jumped 4 pounds overnight | TEST::17935154031127049",
+          "media": {
+            "id": "17935154031127049",
+            "type": "IMAGE",
+            "title": "Sodium is why the scale jumped 4 pounds overnight",
+            "caption": "Sodium is why the scale jumped 4 pounds overnight. You did not gain 4 pounds of ",
+            "postedAt": "2026-09-19T14:00:29+0000",
+            "permalink": "https://www.instagram.com/p/DdeLL1QFZUO/"
+          },
+          "phase": "done",
+          "spend": 4.62,
+          "status": "PAUSED",
+          "visits": 80,
+          "adsetId": "120251063435350682",
+          "endTime": "2026-09-24T09:18:57-0500",
+          "mediaId": "17935154031127049",
+          "verdict": {
+            "spend": 4.59,
+            "reason": "$0.06/visit beats the champion's $0.09/visit (80 visits)",
+            "result": "win",
+            "visits": 80,
+            "adsetId": "120251063435350682",
+            "costPerVisit": 0.06
+          },
+          "createdAt": "2026-09-19T09:18:59-0500",
+          "impressions": 605,
+          "costPerVisit": 0.06
+        },
         {
           "label": "IMAGE | Milk is not a health food if you want abs | TEST::17909933289467493",
           "media": {
@@ -475,6 +545,35 @@
           "costPerVisit": 0.06
         },
         {
+          "label": "IMAGE | Three-minute rounds at home, no equipment | TEST::18020502953723603",
+          "media": {
+            "id": "18020502953723603",
+            "type": "IMAGE",
+            "title": "Three-minute rounds at home, no equipment",
+            "caption": "Three-minute rounds at home, no equipment. Shadow boxing is free cardio that req",
+            "postedAt": "2026-09-19T22:00:26+0000",
+            "permalink": "https://www.instagram.com/p/DdfCHJIHa9q/"
+          },
+          "phase": "done",
+          "spend": 4.52,
+          "status": "PAUSED",
+          "visits": 70,
+          "adsetId": "120251067439560682",
+          "endTime": "2026-09-24T17:18:38-0500",
+          "mediaId": "18020502953723603",
+          "verdict": {
+            "spend": 4.52,
+            "reason": "$0.07/visit beats the champion's $0.09/visit (69 visits)",
+            "result": "win",
+            "visits": 69,
+            "adsetId": "120251067439560682",
+            "costPerVisit": 0.07
+          },
+          "createdAt": "2026-09-19T17:18:39-0500",
+          "impressions": 619,
+          "costPerVisit": 0.06
+        },
+        {
           "label": "IMAGE | Ten minutes of jump rope beats thirty on a treadmill | TEST::18144562216559806",
           "media": {
             "id": "18144562216559806",
@@ -513,17 +612,24 @@
             "postedAt": "2026-09-13T22:00:31+0000",
             "permalink": "https://www.instagram.com/p/DdPlWaxGG3u/"
           },
-          "phase": "running",
-          "spend": 2.57,
-          "status": "ACTIVE",
-          "visits": 34,
+          "phase": "done",
+          "spend": 4.51,
+          "status": "PAUSED",
+          "visits": 53,
           "adsetId": "120250956316700682",
           "endTime": "2026-09-18T17:16:37-0500",
           "mediaId": "17911245750466310",
-          "verdict": null,
+          "verdict": {
+            "spend": 4.51,
+            "reason": "$0.09/visit does not beat the champion's $0.07/visit (ties keep the champion)",
+            "result": "lose",
+            "visits": 52,
+            "adsetId": "120250956316700682",
+            "costPerVisit": 0.09
+          },
           "createdAt": "2026-09-13T17:16:38-0500",
-          "impressions": 295,
-          "costPerVisit": 0.08
+          "impressions": 475,
+          "costPerVisit": 0.09
         },
         {
           "label": "IMAGE | Train your abs every single day | TEST::18133073164657545",
@@ -564,16 +670,81 @@
             "postedAt": "2026-09-13T14:02:24+0000",
             "permalink": "https://www.instagram.com/reel/DdOubn3FFWS/"
           },
-          "phase": "running",
-          "spend": 3.36,
-          "status": "ACTIVE",
-          "visits": 33,
+          "phase": "done",
+          "spend": 4.5,
+          "status": "PAUSED",
+          "visits": 48,
           "adsetId": "120250952645250682",
           "endTime": "2026-09-18T09:17:38-0500",
           "mediaId": "17996865398991415",
-          "verdict": null,
+          "verdict": {
+            "spend": 4.5,
+            "reason": "$0.09/visit does not beat the champion's $0.07/visit (ties keep the champion)",
+            "result": "lose",
+            "visits": 48,
+            "adsetId": "120250952645250682",
+            "costPerVisit": 0.09
+          },
           "createdAt": "2026-09-13T09:17:40-0500",
-          "impressions": 329,
+          "impressions": 460,
+          "costPerVisit": 0.09
+        },
+        {
+          "label": "IMAGE | Make AI interview you before it writes your plan | TEST::18132309220641613",
+          "media": {
+            "id": "18132309220641613",
+            "type": "IMAGE",
+            "title": "Make AI interview you before it writes your plan",
+            "caption": "Make AI interview you before it writes your plan. Ask for a workout and you get ",
+            "postedAt": "2026-09-16T22:00:24+0000",
+            "permalink": "https://www.instagram.com/p/DdXTugnlu2c/"
+          },
+          "phase": "done",
+          "spend": 4.51,
+          "status": "PAUSED",
+          "visits": 45,
+          "adsetId": "120251013823880682",
+          "endTime": "2026-09-21T17:16:13-0500",
+          "mediaId": "18132309220641613",
+          "verdict": {
+            "spend": 4.5,
+            "reason": "$0.10/visit does not beat the champion's $0.08/visit (ties keep the champion)",
+            "result": "lose",
+            "visits": 44,
+            "adsetId": "120251013823880682",
+            "costPerVisit": 0.1
+          },
+          "createdAt": "2026-09-16T17:16:15-0500",
+          "impressions": 537,
+          "costPerVisit": 0.1
+        },
+        {
+          "label": "REEL | 3 sets of ab wheel rollouts | TEST::17999415380804402",
+          "media": {
+            "id": "17999415380804402",
+            "type": "VIDEO",
+            "title": "3 sets of ab wheel rollouts",
+            "caption": "3 sets of ab wheel rollouts. Grab a wheel and do this one with me. Kneel with th",
+            "postedAt": "2026-09-20T14:02:04+0000",
+            "permalink": "https://www.instagram.com/reel/DdgwBSXFgDJ/"
+          },
+          "phase": "done",
+          "spend": 4.59,
+          "status": "PAUSED",
+          "visits": 45,
+          "adsetId": "120251076818310682",
+          "endTime": "2026-09-25T09:16:44-0500",
+          "mediaId": "17999415380804402",
+          "verdict": {
+            "spend": 4.59,
+            "reason": "$0.10/visit does not beat the champion's $0.08/visit (ties keep the champion)",
+            "result": "lose",
+            "visits": 45,
+            "adsetId": "120251076818310682",
+            "costPerVisit": 0.1
+          },
+          "createdAt": "2026-09-20T09:16:48-0500",
+          "impressions": 511,
           "costPerVisit": 0.1
         },
         {
@@ -606,6 +777,130 @@
           "costPerVisit": 0.11
         },
         {
+          "label": "IMAGE | Eat your biggest meal earlier than you think | TEST::18171647218403973",
+          "media": {
+            "id": "18171647218403973",
+            "type": "IMAGE",
+            "title": "Eat your biggest meal earlier than you think",
+            "caption": "Eat your biggest meal earlier than you think. A huge meal right before bed means",
+            "postedAt": "2026-09-25T22:00:27+0000",
+            "permalink": "https://www.instagram.com/p/Ddue4d6oLQl/"
+          },
+          "phase": "running",
+          "spend": 4.15,
+          "status": "ACTIVE",
+          "visits": 34,
+          "adsetId": "120251180666670682",
+          "endTime": "2026-09-30T17:18:49-0500",
+          "mediaId": "18171647218403973",
+          "verdict": null,
+          "createdAt": "2026-09-25T17:18:52-0500",
+          "impressions": 393,
+          "costPerVisit": 0.12
+        },
+        {
+          "label": "IMAGE | Your abs have four muscle groups, not one | TEST::18144179356572775",
+          "media": {
+            "id": "18144179356572775",
+            "type": "IMAGE",
+            "title": "Your abs have four muscle groups, not one",
+            "caption": "Your abs have four muscle groups, not one. Rectus abdominis, obliques, transvers",
+            "postedAt": "2026-09-27T22:00:27+0000",
+            "permalink": "https://www.instagram.com/p/DdzoeJMD2vY/"
+          },
+          "phase": "running",
+          "spend": 2.3,
+          "status": "ACTIVE",
+          "visits": 18,
+          "adsetId": "120251203723280682",
+          "endTime": "2026-10-02T17:15:08-0500",
+          "mediaId": "18144179356572775",
+          "verdict": null,
+          "createdAt": "2026-09-27T17:15:11-0500",
+          "impressions": 203,
+          "costPerVisit": 0.13
+        },
+        {
+          "label": "IMAGE | Track how long you were asleep, not how long you were in bed | TEST::18129810488578491",
+          "media": {
+            "id": "18129810488578491",
+            "type": "IMAGE",
+            "title": "Track how long you were asleep, not how long you were in bed",
+            "caption": "Track how long you were asleep, not how long you were in bed. Almost every fitne",
+            "postedAt": "2026-09-28T22:00:27+0000",
+            "permalink": "https://www.instagram.com/p/Dd2NRIrEZuY/"
+          },
+          "phase": "running",
+          "spend": 1.33,
+          "status": "ACTIVE",
+          "visits": 10,
+          "adsetId": "120251223699360682",
+          "endTime": "2026-10-03T17:17:10-0500",
+          "mediaId": "18129810488578491",
+          "verdict": null,
+          "createdAt": "2026-09-28T17:17:12-0500",
+          "impressions": 111,
+          "costPerVisit": 0.13
+        },
+        {
+          "label": "IMAGE | Protein powder is food, not a supplement | TEST::18135403525712727",
+          "media": {
+            "id": "18135403525712727",
+            "type": "IMAGE",
+            "title": "Protein powder is food, not a supplement",
+            "caption": "Protein powder is food, not a supplement. It sits in the supplement aisle so it ",
+            "postedAt": "2026-09-20T22:00:27+0000",
+            "permalink": "https://www.instagram.com/p/Ddhm6GkoPz0/"
+          },
+          "phase": "done",
+          "spend": 4.54,
+          "status": "PAUSED",
+          "visits": 34,
+          "adsetId": "120251080532770682",
+          "endTime": "2026-09-25T17:19:28-0500",
+          "mediaId": "18135403525712727",
+          "verdict": {
+            "spend": 4.5,
+            "reason": "$0.13/visit does not beat the champion's $0.08/visit (ties keep the champion)",
+            "result": "lose",
+            "visits": 34,
+            "adsetId": "120251080532770682",
+            "costPerVisit": 0.13
+          },
+          "createdAt": "2026-09-20T17:19:30-0500",
+          "impressions": 397,
+          "costPerVisit": 0.13
+        },
+        {
+          "label": "IMAGE | Set an alarm for 11pm | TEST::18413323867084393",
+          "media": {
+            "id": "18413323867084393",
+            "type": "IMAGE",
+            "title": "Set an alarm for 11pm",
+            "caption": "Set an alarm for 11pm. Not to sleep. To tell you the kitchen is closed. The hour",
+            "postedAt": "2026-09-23T22:00:25+0000",
+            "permalink": "https://www.instagram.com/p/DdpVSrkla37/"
+          },
+          "phase": "done",
+          "spend": 4.58,
+          "status": "PAUSED",
+          "visits": 29,
+          "adsetId": "120251141142260682",
+          "endTime": "2026-09-28T17:18:07-0500",
+          "mediaId": "18413323867084393",
+          "verdict": {
+            "spend": 4.58,
+            "reason": "$0.16/visit does not beat the champion's $0.08/visit (ties keep the champion)",
+            "result": "lose",
+            "visits": 29,
+            "adsetId": "120251141142260682",
+            "costPerVisit": 0.16
+          },
+          "createdAt": "2026-09-23T17:18:09-0500",
+          "impressions": 451,
+          "costPerVisit": 0.16
+        },
+        {
           "label": "REEL | Stop doing ab exercises until you can actually see your abs | TEST::18624174223051709",
           "media": {
             "id": "18624174223051709",
@@ -633,6 +928,35 @@
           "createdAt": "2026-09-08T17:18:46-0500",
           "impressions": 438,
           "costPerVisit": 0.17
+        },
+        {
+          "label": "REEL | Hundreds of crunches, and your waist never changed shape | TEST::18142961083581796",
+          "media": {
+            "id": "18142961083581796",
+            "type": "VIDEO",
+            "title": "Hundreds of crunches, and your waist never changed shape",
+            "caption": "Hundreds of crunches, and your waist never changed shape. Because a crunch train",
+            "postedAt": "2026-09-21T22:02:43+0000",
+            "permalink": "https://www.instagram.com/reel/DdkLylujl5e/"
+          },
+          "phase": "done",
+          "spend": 4.52,
+          "status": "PAUSED",
+          "visits": 24,
+          "adsetId": "120251101329720682",
+          "endTime": "2026-09-26T17:15:07-0500",
+          "mediaId": "18142961083581796",
+          "verdict": {
+            "spend": 4.52,
+            "reason": "$0.19/visit does not beat the champion's $0.08/visit (ties keep the champion)",
+            "result": "lose",
+            "visits": 24,
+            "adsetId": "120251101329720682",
+            "costPerVisit": 0.19
+          },
+          "createdAt": "2026-09-21T17:15:09-0500",
+          "impressions": 368,
+          "costPerVisit": 0.19
         },
         {
           "label": "REEL | Your protein shake might be stopping your abs | TEST::18140555551597443",
@@ -693,6 +1017,64 @@
           "costPerVisit": 0.22
         },
         {
+          "label": "REEL | Train abs every single day | TEST::17978977431092975",
+          "media": {
+            "id": "17978977431092975",
+            "type": "VIDEO",
+            "title": "Train abs every single day",
+            "caption": "Train abs every single day. You've been told to rest them like legs. Abs aren't ",
+            "postedAt": "2026-09-15T22:00:43+0000",
+            "permalink": "https://www.instagram.com/reel/DdUu8YaFMZL/"
+          },
+          "phase": "done",
+          "spend": 4.61,
+          "status": "PAUSED",
+          "visits": 20,
+          "adsetId": "120250992837930682",
+          "endTime": "2026-09-20T17:20:00-0500",
+          "mediaId": "17978977431092975",
+          "verdict": {
+            "spend": 4.61,
+            "reason": "$0.23/visit does not beat the champion's $0.07/visit (ties keep the champion)",
+            "result": "lose",
+            "visits": 20,
+            "adsetId": "120250992837930682",
+            "costPerVisit": 0.23
+          },
+          "createdAt": "2026-09-15T17:20:03-0500",
+          "impressions": 340,
+          "costPerVisit": 0.23
+        },
+        {
+          "label": "REEL | Most people jump rope with both feet — and that's why… | TEST::18089968919673234",
+          "media": {
+            "id": "18089968919673234",
+            "type": "VIDEO",
+            "title": "Most people jump rope with both feet — and that's why…",
+            "caption": "Most people jump rope with both feet — and that's why they keep tripping. Skip o",
+            "postedAt": "2026-09-18T22:00:56+0000",
+            "permalink": "https://www.instagram.com/reel/DdcdWSFkU-0/"
+          },
+          "phase": "done",
+          "spend": 4.5,
+          "status": "PAUSED",
+          "visits": 19,
+          "adsetId": "120251053598720682",
+          "endTime": "2026-09-23T17:19:57-0500",
+          "mediaId": "18089968919673234",
+          "verdict": {
+            "spend": 4.5,
+            "reason": "$0.24/visit does not beat the champion's $0.09/visit (ties keep the champion)",
+            "result": "lose",
+            "visits": 19,
+            "adsetId": "120251053598720682",
+            "costPerVisit": 0.24
+          },
+          "createdAt": "2026-09-18T17:19:59-0500",
+          "impressions": 372,
+          "costPerVisit": 0.24
+        },
+        {
           "label": "REEL | You can have abs and still look wide | TEST::17991572051994947",
           "media": {
             "id": "17991572051994947",
@@ -702,17 +1084,53 @@
             "postedAt": "2026-09-14T22:00:48+0000",
             "permalink": "https://www.instagram.com/reel/DdSKJ3oDzg7/"
           },
-          "phase": "running",
-          "spend": 1.79,
-          "status": "ACTIVE",
-          "visits": 5,
+          "phase": "done",
+          "spend": 4.54,
+          "status": "PAUSED",
+          "visits": 13,
           "adsetId": "120250973830410682",
           "endTime": "2026-09-19T17:18:40-0500",
           "mediaId": "17991572051994947",
-          "verdict": null,
+          "verdict": {
+            "spend": 4.53,
+            "reason": "$0.35/visit does not beat the champion's $0.07/visit (ties keep the champion)",
+            "result": "lose",
+            "visits": 13,
+            "adsetId": "120250973830410682",
+            "costPerVisit": 0.35
+          },
           "createdAt": "2026-09-14T17:18:42-0500",
-          "impressions": 102,
-          "costPerVisit": 0.36
+          "impressions": 296,
+          "costPerVisit": 0.35
+        },
+        {
+          "label": "REEL | Why I skip breakfast every single day | TEST::17908740057508951",
+          "media": {
+            "id": "17908740057508951",
+            "type": "VIDEO",
+            "title": "Why I skip breakfast every single day",
+            "caption": "Why I skip breakfast every single day. Not because breakfast is evil. Because ea",
+            "postedAt": "2026-09-22T22:01:23+0000",
+            "permalink": "https://www.instagram.com/reel/Ddmwl0WCUH4/"
+          },
+          "phase": "done",
+          "spend": 4.55,
+          "status": "PAUSED",
+          "visits": 13,
+          "adsetId": "120251122219860682",
+          "endTime": "2026-09-27T17:19:59-0500",
+          "mediaId": "17908740057508951",
+          "verdict": {
+            "spend": 4.55,
+            "reason": "$0.35/visit does not beat the champion's $0.08/visit (ties keep the champion)",
+            "result": "lose",
+            "visits": 13,
+            "adsetId": "120251122219860682",
+            "costPerVisit": 0.35
+          },
+          "createdAt": "2026-09-22T17:20:02-0500",
+          "impressions": 281,
+          "costPerVisit": 0.35
         },
         {
           "label": "REEL | Milk is not a health food if you want abs | TEST::18104387519626708",
@@ -724,17 +1142,24 @@
             "postedAt": "2026-09-12T22:00:42+0000",
             "permalink": "https://www.instagram.com/reel/DdNAj64DnuW/"
           },
-          "phase": "running",
-          "spend": 3.85,
-          "status": "ACTIVE",
-          "visits": 10,
+          "phase": "done",
+          "spend": 4.54,
+          "status": "PAUSED",
+          "visits": 12,
           "adsetId": "120250945212710682",
           "endTime": "2026-09-17T17:15:37-0500",
           "mediaId": "18104387519626708",
-          "verdict": null,
+          "verdict": {
+            "spend": 4.54,
+            "reason": "$0.38/visit does not beat the champion's $0.07/visit (ties keep the champion)",
+            "result": "lose",
+            "visits": 12,
+            "adsetId": "120250945212710682",
+            "costPerVisit": 0.38
+          },
           "createdAt": "2026-09-12T17:15:41-0500",
-          "impressions": 274,
-          "costPerVisit": 0.39
+          "impressions": 324,
+          "costPerVisit": 0.38
         },
         {
           "label": "REEL | I lost the weight in the hour I wasn't training | TEST::17899133421377575",
@@ -766,6 +1191,93 @@
           "costPerVisit": 0.41
         },
         {
+          "label": "REEL | The stomach vacuum is the one ab exercise that can… | TEST::17903051604586737",
+          "media": {
+            "id": "17903051604586737",
+            "type": "VIDEO",
+            "title": "The stomach vacuum is the one ab exercise that can…",
+            "caption": "The stomach vacuum is the one ab exercise that can actually pull your waist in. ",
+            "postedAt": "2026-09-21T20:52:00+0000",
+            "permalink": "https://www.instagram.com/reel/DdkD2GvGLp4/"
+          },
+          "phase": "done",
+          "spend": 4.53,
+          "status": "PAUSED",
+          "visits": 9,
+          "adsetId": "120251100836070682",
+          "endTime": "2026-09-26T16:18:41-0500",
+          "mediaId": "17903051604586737",
+          "verdict": {
+            "spend": 4.53,
+            "reason": "9 visits on $4.53 — needs 10 to be believed",
+            "result": "lose",
+            "visits": 9,
+            "adsetId": "120251100836070682",
+            "costPerVisit": 0.5
+          },
+          "createdAt": "2026-09-21T16:18:43-0500",
+          "impressions": 308,
+          "costPerVisit": 0.5
+        },
+        {
+          "label": "REEL | Jelly beans beat soda | TEST::18092465420556985",
+          "media": {
+            "id": "18092465420556985",
+            "type": "VIDEO",
+            "title": "Jelly beans beat soda",
+            "caption": "Jelly beans beat soda. Here's the study. Same sugar. Same calories. Completely d",
+            "postedAt": "2026-09-17T22:00:43+0000",
+            "permalink": "https://www.instagram.com/reel/DdZ4iTWj9D0/"
+          },
+          "phase": "done",
+          "spend": 4.56,
+          "status": "PAUSED",
+          "visits": 7,
+          "adsetId": "120251033352920682",
+          "endTime": "2026-09-22T17:16:59-0500",
+          "mediaId": "18092465420556985",
+          "verdict": {
+            "spend": 4.54,
+            "reason": "7 visits on $4.54 — needs 10 to be believed",
+            "result": "lose",
+            "visits": 7,
+            "adsetId": "120251033352920682",
+            "costPerVisit": 0.65
+          },
+          "createdAt": "2026-09-17T17:17:01-0500",
+          "impressions": 316,
+          "costPerVisit": 0.65
+        },
+        {
+          "label": "REEL | Weigh yourself every single day | TEST::18432738010176499",
+          "media": {
+            "id": "18432738010176499",
+            "type": "VIDEO",
+            "title": "Weigh yourself every single day",
+            "caption": "Weigh yourself every single day. Here's why. Everyone tells you not to — that da",
+            "postedAt": "2026-09-24T22:01:07+0000",
+            "permalink": "https://www.instagram.com/reel/Ddr6GlZj_Gn/"
+          },
+          "phase": "done",
+          "spend": 4.58,
+          "status": "PAUSED",
+          "visits": 6,
+          "adsetId": "120251160480840682",
+          "endTime": "2026-09-29T17:19:05-0500",
+          "mediaId": "18432738010176499",
+          "verdict": {
+            "spend": 4.58,
+            "reason": "6 visits on $4.58 — needs 10 to be believed",
+            "result": "lose",
+            "visits": 6,
+            "adsetId": "120251160480840682",
+            "costPerVisit": 0.76
+          },
+          "createdAt": "2026-09-24T17:19:07-0500",
+          "impressions": 268,
+          "costPerVisit": 0.76
+        },
+        {
           "label": "REEL | Make AI macro estimates way more accurate | TEST::17909653590464795",
           "media": {
             "id": "17909653590464795",
@@ -795,25 +1307,79 @@
           "costPerVisit": 0.85
         },
         {
-          "label": "REEL | Train abs every single day | TEST::17978977431092975",
+          "label": "REEL | Never start your day with carbs | TEST::17901849270581189",
           "media": {
-            "id": "17978977431092975",
+            "id": "17901849270581189",
             "type": "VIDEO",
-            "title": "Train abs every single day",
-            "caption": "Train abs every single day. You've been told to rest them like legs. Abs aren't ",
-            "postedAt": "2026-09-15T22:00:43+0000",
-            "permalink": "https://www.instagram.com/reel/DdUu8YaFMZL/"
+            "title": "Never start your day with carbs",
+            "caption": "Never start your day with carbs. Cereal, toast, oatmeal, a banana on the way out",
+            "postedAt": "2026-09-26T22:01:25+0000",
+            "permalink": "https://www.instagram.com/reel/DdxDyUoDQdT/"
           },
           "phase": "running",
           "spend": 0,
-          "status": "ACTIVE",
+          "status": "WITH_ISSUES",
           "visits": 0,
-          "adsetId": "120250992837930682",
-          "endTime": "2026-09-20T17:20:00-0500",
-          "mediaId": "17978977431092975",
+          "adsetId": "120251192418570682",
+          "endTime": "2026-10-01T17:16:24-0500",
+          "mediaId": "17901849270581189",
           "verdict": null,
-          "createdAt": "2026-09-15T17:20:03-0500",
+          "createdAt": "2026-09-26T17:16:26-0500",
           "impressions": 0,
+          "costPerVisit": null
+        },
+        {
+          "label": "POST | untitled | TEST::17928711516410181",
+          "media": {
+            "id": "17928711516410181",
+            "type": null,
+            "title": "untitled",
+            "caption": ""
+          },
+          "phase": "done",
+          "spend": 0,
+          "status": "PAUSED",
+          "visits": 0,
+          "adsetId": "120251135458810682",
+          "endTime": "2026-09-28T09:19:04-0500",
+          "mediaId": "17928711516410181",
+          "verdict": {
+            "spend": 0,
+            "reason": "0 visits on $0.00 — needs 10 to be believed",
+            "result": "lose",
+            "visits": 0,
+            "adsetId": "120251135458810682",
+            "costPerVisit": null
+          },
+          "createdAt": "2026-09-23T09:19:06-0500",
+          "impressions": 1,
+          "costPerVisit": null
+        },
+        {
+          "label": "POST | untitled | TEST::18410209768086969",
+          "media": {
+            "id": "18410209768086969",
+            "type": null,
+            "title": "untitled",
+            "caption": ""
+          },
+          "phase": "done",
+          "spend": 1.25,
+          "status": "PAUSED",
+          "visits": 0,
+          "adsetId": "120251008037770682",
+          "endTime": "2026-09-21T09:18:45-0500",
+          "mediaId": "18410209768086969",
+          "verdict": {
+            "spend": 1.25,
+            "reason": "0 visits on $1.25 — needs 10 to be believed",
+            "result": "lose",
+            "visits": 0,
+            "adsetId": "120251008037770682",
+            "costPerVisit": null
+          },
+          "createdAt": "2026-09-16T09:18:48-0500",
+          "impressions": 107,
           "costPerVisit": null
         }
       ],
@@ -827,14 +1393,14 @@
         "visitsReadable": true,
         "followsReadable": false,
         "campaignLifetime": {
-          "spend": 143.34,
-          "visits": 1503,
+          "spend": 297.97,
+          "visits": 2999,
           "follows": 0
         }
       },
       "campaign": "120250753198730682",
       "champion": {
-        "spend": 40.43,
+        "spend": 37.26,
         "health": {
           "action": "unjudged",
           "reason": "follows metric not readable yet — judged on cost/visit only, no kill rule applied",
@@ -842,24 +1408,24 @@
           "costPerFollow": null,
           "followsReadable": false
         },
-        "visits": 535,
+        "visits": 484,
         "window": {
           "days": 7,
-          "since": "2026-09-10",
-          "until": "2026-09-16"
+          "since": "2026-09-23",
+          "until": "2026-09-29"
         },
         "follows": 0,
         "activeAds": [
           {
-            "adId": "120251002432770682",
-            "name": "IMAGE | Milk is not a health food if you want abs | CHAMPION::17909933289467493",
+            "adId": "120251145140170682",
+            "name": "IMAGE | Three-minute rounds at home, no equipment | CHAMPION::18020502953723603",
             "media": {
-              "id": "17909933289467493",
+              "id": "18020502953723603",
               "type": "IMAGE",
-              "title": "Milk is not a health food if you want abs",
-              "caption": "Milk is not a health food if you want abs. A glass with every meal is 400 calori",
-              "postedAt": "2026-09-11T22:00:26+0000",
-              "permalink": "https://www.instagram.com/p/DdKbwNFnXQN/"
+              "title": "Three-minute rounds at home, no equipment",
+              "caption": "Three-minute rounds at home, no equipment. Shadow boxing is free cardio that req",
+              "postedAt": "2026-09-19T22:00:26+0000",
+              "permalink": "https://www.instagram.com/p/DdfCHJIHa9q/"
             }
           }
         ],
@@ -873,49 +1439,32 @@
       "warnings": [],
       "events24h": [
         {
-          "at": "2026-09-15T22:20:13.151Z",
+          "at": "2026-09-28T22:17:20.781Z",
           "event": "created",
           "detail": {
-            "adId": "120250992838840682",
-            "adsetId": "120250992837930682",
-            "permalink": "https://www.instagram.com/reel/DdUu8YaFMZL/",
-            "creativeId": "1105651291884808"
+            "adId": "120251223700070682",
+            "adsetId": "120251223699360682",
+            "permalink": "https://www.instagram.com/p/Dd2NRIrEZuY/",
+            "creativeId": "1066399902870144"
           },
-          "mediaId": "17978977431092975"
+          "mediaId": "18129810488578491"
         },
         {
-          "at": "2026-09-16T08:19:40.640Z",
-          "event": "promote",
-          "detail": {
-            "adId": "120251002432770682",
-            "source": {
-              "spend": 4.53,
-              "visits": 74,
-              "testAdset": "120250931319700682"
-            },
-            "retired": [
-              "120250946416150682"
-            ],
-            "creativeId": "4405132649700828"
-          },
-          "mediaId": "17909933289467493"
-        },
-        {
-          "at": "2026-09-16T08:19:41.615Z",
+          "at": "2026-09-29T05:18:04.366Z",
           "event": "verdict",
           "detail": {
-            "spend": 4.53,
-            "reason": "$0.06/visit beats the champion's $0.08/visit (74 visits)",
-            "result": "win",
-            "visits": 74,
-            "adsetId": "120250931319700682",
-            "costPerVisit": 0.06
+            "spend": 4.58,
+            "reason": "6 visits on $4.58 — needs 10 to be believed",
+            "result": "lose",
+            "visits": 6,
+            "adsetId": "120251160480840682",
+            "costPerVisit": 0.76
           },
-          "mediaId": "17909933289467493"
+          "mediaId": "18432738010176499"
         }
       ],
       "candidates": [],
-      "generatedAt": "2026-09-16T10:17:41.283Z",
+      "generatedAt": "2026-09-29T18:16:37.599Z",
       "championAdset": "120250753601020682"
     }
   },
@@ -923,9 +1472,9 @@
     "ok": true,
     "enabled": true,
     "dryRun": false,
-    "lastRunAt": "2026-09-16T11:00:04.728Z",
-    "ageHours": 0.12,
-    "stale": false,
+    "lastRunAt": "2026-09-27T18:00:02.978Z",
+    "ageHours": 49.21,
+    "stale": true,
     "resultsPosted": true,
     "thresholds": {
       "testSpendUsd": 5,
@@ -956,23 +1505,7 @@
             "adId": "823968353731",
             "name": "AUTO test · Stop Doing Ab Exercises Until You Can See Your Abs · yt:GVNzvm5sUbk · rmktg · 2026-09-08",
             "topics": [
-              "YOUTUBE_AD_REQUIREMENTS_EXAGERRATED_OR_INACCURATE_CLAIMS:LIMITED"
-            ],
-            "limited": true
-          },
-          {
-            "adId": "823972446217",
-            "name": "AUTO test · Hire A Maid Instead Of A Personal Trainer · yt:LvOMn7IpuCI · rmktg · 2026-09-09",
-            "topics": [
-              "YOUTUBE_AD_REQUIREMENTS_EXAGERRATED_OR_INACCURATE_CLAIMS:LIMITED"
-            ],
-            "limited": true
-          },
-          {
-            "adId": "824195596555",
-            "name": "AT · Hire A Maid Instead Of A Personal Trainer · yt:LvOMn7IpuCI · r2 · rmktg · 2026-09-10",
-            "topics": [
-              "YOUTUBE_AD_REQUIREMENTS_EXAGERRATED_OR_INACCURATE_CLAIMS:LIMITED"
+              "YOUTUBE_AD_REQUIREMENTS_NEGATIVE_EVENTS_AND_IMAGERY:LIMITED"
             ],
             "limited": true
           },
@@ -988,7 +1521,7 @@
             "adId": "824277352232",
             "name": "AT · Stop Doing Ab Exercises Until You Can See Your Abs · yt:GVNzvm5sUbk · r2 · rmktg · 2026-09-10",
             "topics": [
-              "YOUTUBE_AD_REQUIREMENTS_EXAGERRATED_OR_INACCURATE_CLAIMS:LIMITED"
+              "YOUTUBE_AD_REQUIREMENTS_NEGATIVE_EVENTS_AND_IMAGERY:LIMITED"
             ],
             "limited": true
           },
@@ -996,15 +1529,7 @@
             "adId": "824368287319",
             "name": "AT · Stop Doing Ab Exercises Until You Can See Your Abs · yt:GVNzvm5sUbk · r3 · rmktg · 2026-09-12",
             "topics": [
-              "YOUTUBE_AD_REQUIREMENTS_EXAGERRATED_OR_INACCURATE_CLAIMS:LIMITED"
-            ],
-            "limited": true
-          },
-          {
-            "adId": "824368290652",
-            "name": "AT · Hire A Maid Instead Of A Personal Trainer · yt:LvOMn7IpuCI · r3 · rmktg · 2026-09-12",
-            "topics": [
-              "YOUTUBE_AD_REQUIREMENTS_EXAGERRATED_OR_INACCURATE_CLAIMS:LIMITED"
+              "YOUTUBE_AD_REQUIREMENTS_NEGATIVE_EVENTS_AND_IMAGERY:LIMITED"
             ],
             "limited": true
           },
@@ -1026,81 +1551,33 @@
           "adId": "822882636654",
           "name": "truth about supplements",
           "videoId": "P9VUGyWeNtY",
-          "spend30d": 7.38,
-          "conv30d": 8,
-          "costPerConv30d": 0.92,
-          "approxCostPerSubscriber30d": 1.8
+          "spend30d": 9.11,
+          "conv30d": 9,
+          "costPerConv30d": 1.01,
+          "approxCostPerSubscriber30d": 1.98
         },
         "testsRunning": [],
         "verdicts": [],
         "policy": [
           {
-            "adId": "822882639786",
-            "name": "late night eating",
-            "topics": [
-              "CLICKBAIT:PROHIBITED"
-            ],
-            "limited": true
-          },
-          {
             "adId": "823924422642",
             "name": "AUTO test · Stop Doing Ab Exercises Until You Can See Your Abs · yt:GVNzvm5sUbk · tier1 · 2026-09-08",
             "topics": [
-              "YOUTUBE_AD_REQUIREMENTS_EXAGERRATED_OR_INACCURATE_CLAIMS:LIMITED"
-            ],
-            "limited": true
-          },
-          {
-            "adId": "824051827874",
-            "name": "AUTO test · Hire A Maid Instead Of A Personal Trainer · yt:LvOMn7IpuCI · tier1 · 2026-09-09",
-            "topics": [
-              "YOUTUBE_AD_REQUIREMENTS_EXAGERRATED_OR_INACCURATE_CLAIMS:LIMITED"
-            ],
-            "limited": true
-          },
-          {
-            "adId": "824153198067",
-            "name": "AT · Stop Doing Ab Exercises Until You Can See Your Abs · yt:GVNzvm5sUbk · r2 · tier1 · 2026-09-10",
-            "topics": [
-              "YOUTUBE_AD_REQUIREMENTS_EXAGERRATED_OR_INACCURATE_CLAIMS:LIMITED"
-            ],
-            "limited": true
-          },
-          {
-            "adId": "824153242209",
-            "name": "AT · Hire A Maid Instead Of A Personal Trainer · yt:LvOMn7IpuCI · r2 · tier1 · 2026-09-10",
-            "topics": [
-              "YOUTUBE_AD_REQUIREMENTS_EXAGERRATED_OR_INACCURATE_CLAIMS:LIMITED"
-            ],
-            "limited": true
-          },
-          {
-            "adId": "824317084973",
-            "name": "AT · Your Protein Shake Might Be Stopping Your Abs · yt:B6Oku5GjrLs · tier1 · 2026-09-10",
-            "topics": [
-              "CLICKBAIT:PROHIBITED"
-            ],
-            "limited": true
-          },
-          {
-            "adId": "824325368367",
-            "name": "AT · Stop Doing Ab Exercises Until You Can See Your Abs · yt:GVNzvm5sUbk · r3 · tier1 · 2026-09-12",
-            "topics": [
-              "YOUTUBE_AD_REQUIREMENTS_EXAGERRATED_OR_INACCURATE_CLAIMS:LIMITED"
-            ],
-            "limited": true
-          },
-          {
-            "adId": "824368290634",
-            "name": "AT · Hire A Maid Instead Of A Personal Trainer · yt:LvOMn7IpuCI · r3 · tier1 · 2026-09-12",
-            "topics": [
-              "YOUTUBE_AD_REQUIREMENTS_EXAGERRATED_OR_INACCURATE_CLAIMS:LIMITED"
+              "YOUTUBE_AD_REQUIREMENTS_NEGATIVE_EVENTS_AND_IMAGERY:LIMITED"
             ],
             "limited": true
           },
           {
             "adId": "824831300791",
             "name": "AT · Why I Train Abs Every Single Day · yt:Ub0BV4m5lMQ · tier1 · 2026-09-15",
+            "topics": [
+              "CLICKBAIT:PROHIBITED"
+            ],
+            "limited": true
+          },
+          {
+            "adId": "825161619051",
+            "name": "AT · Your Protein Shake Might Be Stopping Your Abs · yt:B6Oku5GjrLs · tier1 · 2026-09-18",
             "topics": [
               "CLICKBAIT:PROHIBITED"
             ],
@@ -1116,73 +1593,25 @@
           "adId": "821125719022",
           "name": "top 10 ab tips",
           "videoId": "2T4LrQrmz9s",
-          "spend30d": 296.6,
-          "conv30d": 2733,
-          "costPerConv30d": 0.11,
-          "approxCostPerSubscriber30d": 0.22
+          "spend30d": 158.62,
+          "conv30d": 1322,
+          "costPerConv30d": 0.12,
+          "approxCostPerSubscriber30d": 0.24
         },
         "testsRunning": [],
         "verdicts": [],
         "policy": [
           {
-            "adId": "822882429006",
-            "name": "late night eating",
+            "adId": "825161624370",
+            "name": "AT · Stop Doing Ab Exercises Until You Can See Your Abs · yt:GVNzvm5sUbk · tier2 · 2026-09-18",
             "topics": [
-              "CLICKBAIT:PROHIBITED"
+              "YOUTUBE_AD_REQUIREMENTS_NEGATIVE_EVENTS_AND_IMAGERY:LIMITED"
             ],
             "limited": true
           },
           {
-            "adId": "823924427661",
-            "name": "AUTO test · Stop Doing Ab Exercises Until You Can See Your Abs · yt:GVNzvm5sUbk · tier2 · 2026-09-08",
-            "topics": [
-              "YOUTUBE_AD_REQUIREMENTS_EXAGERRATED_OR_INACCURATE_CLAIMS:LIMITED"
-            ],
-            "limited": true
-          },
-          {
-            "adId": "823972446160",
-            "name": "AUTO test · Hire A Maid Instead Of A Personal Trainer · yt:LvOMn7IpuCI · tier2 · 2026-09-09",
-            "topics": [
-              "YOUTUBE_AD_REQUIREMENTS_EXAGERRATED_OR_INACCURATE_CLAIMS:LIMITED"
-            ],
-            "limited": true
-          },
-          {
-            "adId": "824153278794",
-            "name": "AT · Stop Doing Ab Exercises Until You Can See Your Abs · yt:GVNzvm5sUbk · r2 · tier2 · 2026-09-10",
-            "topics": [
-              "YOUTUBE_AD_REQUIREMENTS_EXAGERRATED_OR_INACCURATE_CLAIMS:LIMITED"
-            ],
-            "limited": true
-          },
-          {
-            "adId": "824195573740",
-            "name": "AT · Hire A Maid Instead Of A Personal Trainer · yt:LvOMn7IpuCI · r2 · tier2 · 2026-09-10",
-            "topics": [
-              "YOUTUBE_AD_REQUIREMENTS_EXAGERRATED_OR_INACCURATE_CLAIMS:LIMITED"
-            ],
-            "limited": true
-          },
-          {
-            "adId": "824325319560",
-            "name": "AT · Stop Doing Ab Exercises Until You Can See Your Abs · yt:GVNzvm5sUbk · r3 · tier2 · 2026-09-12",
-            "topics": [
-              "YOUTUBE_AD_REQUIREMENTS_EXAGERRATED_OR_INACCURATE_CLAIMS:LIMITED"
-            ],
-            "limited": true
-          },
-          {
-            "adId": "824325771060",
-            "name": "AT · Hire A Maid Instead Of A Personal Trainer · yt:LvOMn7IpuCI · r3 · tier2 · 2026-09-12",
-            "topics": [
-              "YOUTUBE_AD_REQUIREMENTS_EXAGERRATED_OR_INACCURATE_CLAIMS:LIMITED"
-            ],
-            "limited": true
-          },
-          {
-            "adId": "824789285238",
-            "name": "AT · Why I Train Abs Every Single Day · yt:Ub0BV4m5lMQ · tier2 · 2026-09-15",
+            "adId": "825203165428",
+            "name": "AT · Why I Train Abs Every Single Day · yt:Ub0BV4m5lMQ · tier2 · 2026-09-18",
             "topics": [
               "CLICKBAIT:PROHIBITED"
             ],
@@ -1206,92 +1635,7 @@
       "createAd": 0
     },
     "events24h": {
-      "created": [
-        {
-          "at": "2026-09-15T23:00:25.318Z",
-          "campaign": "tier2",
-          "videoId": "Ub0BV4m5lMQ",
-          "adId": "824789285238",
-          "name": "AT · Why I Train Abs Every Single Day · yt:Ub0BV4m5lMQ · tier2 · 2026-09-15",
-          "attempt": 1,
-          "headlines": [
-            "Why I Train Abs Every Single Day",
-            "My Daily Ab Routine",
-            "Training Abs Daily - Here's Why",
-            "The Ab Set I Do Every Day",
-            "How Often To Train Abs"
-          ],
-          "videoTitle": "Why I Train Abs Every Single Day",
-          "labelErrors": [],
-          "descriptions": [
-            "Daniel Rose explains why he trains abs daily and shows the ab set he does.",
-            "Abs recover fast. Daniel Rose shows the daily ab set he does at 40 years old.",
-            "Men: see the daily ab set Daniel Rose does and why he trains abs every day."
-          ],
-          "resourceName": "customers/3427170837/adGroupAds/197884856303~824789285238",
-          "longHeadlines": [
-            "Here's why I train abs every day, and the ab set I do at 40 years old.",
-            "This video shows the daily ab set I do and why I train abs every day.",
-            "Abs recover fast. Here's the ab set I do at home every single day."
-          ]
-        },
-        {
-          "at": "2026-09-15T23:00:25.320Z",
-          "campaign": "tier1",
-          "videoId": "Ub0BV4m5lMQ",
-          "adId": "824831300791",
-          "name": "AT · Why I Train Abs Every Single Day · yt:Ub0BV4m5lMQ · tier1 · 2026-09-15",
-          "attempt": 1,
-          "headlines": [
-            "Why I Train Abs Every Single Day",
-            "My Daily Ab Routine",
-            "Training Abs Daily - Here's Why",
-            "The Ab Set I Do Every Day",
-            "How Often To Train Abs"
-          ],
-          "videoTitle": "Why I Train Abs Every Single Day",
-          "labelErrors": [],
-          "descriptions": [
-            "Daniel Rose explains why he trains abs daily and shows the ab set he does.",
-            "Abs recover fast. Daniel Rose shows the daily ab set he does at 40 years old.",
-            "Men: see the daily ab set Daniel Rose does and why he trains abs every day."
-          ],
-          "resourceName": "customers/3427170837/adGroupAds/206274722584~824831300791",
-          "longHeadlines": [
-            "Here's why I train abs every day, and the ab set I do at 40 years old.",
-            "This video shows the daily ab set I do and why I train abs every day.",
-            "Abs recover fast. Here's the ab set I do at home every single day."
-          ]
-        },
-        {
-          "at": "2026-09-15T23:00:25.321Z",
-          "campaign": "rmktg",
-          "videoId": "Ub0BV4m5lMQ",
-          "adId": "824915036297",
-          "name": "AT · Why I Train Abs Every Single Day · yt:Ub0BV4m5lMQ · rmktg · 2026-09-15",
-          "attempt": 1,
-          "headlines": [
-            "Why I Train Abs Every Single Day",
-            "My Daily Ab Routine",
-            "Training Abs Daily - Here's Why",
-            "The Ab Set I Do Every Day",
-            "How Often To Train Abs"
-          ],
-          "videoTitle": "Why I Train Abs Every Single Day",
-          "labelErrors": [],
-          "descriptions": [
-            "Daniel Rose explains why he trains abs daily and shows the ab set he does.",
-            "Abs recover fast. Daniel Rose shows the daily ab set he does at 40 years old.",
-            "Men: see the daily ab set Daniel Rose does and why he trains abs every day."
-          ],
-          "resourceName": "customers/3427170837/adGroupAds/203082125721~824915036297",
-          "longHeadlines": [
-            "Here's why I train abs every day, and the ab set I do at 40 years old.",
-            "This video shows the daily ab set I do and why I train abs every day.",
-            "Abs recover fast. Here's the ab set I do at home every single day."
-          ]
-        }
-      ],
+      "created": [],
       "verdicts": [],
       "promotes": [],
       "skips": [],
@@ -1309,7 +1653,7 @@
       "waitingCopy": []
     },
     "lastResults": {
-      "at": "2026-09-16T11:00:05.187Z",
+      "at": "2026-09-27T18:00:03.398Z",
       "dryRun": false,
       "results": []
     }

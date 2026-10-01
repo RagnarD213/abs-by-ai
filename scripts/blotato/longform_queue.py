@@ -58,7 +58,7 @@ def posts(v: dict) -> list:
         ig["coverImageUrl"] = v["instagram_cover_url"]
     tiktok = {"targetType": "tiktok", "privacyLevel": "PUBLIC_TO_EVERYONE",
               "disabledComments": False, "disabledDuet": False, "disabledStitch": False,
-              "isBrandedContent": False, "isYourBrand": True, "isAiGenerated": bool(v["ai_generated"])}
+              "isBrandedContent": False, "isYourBrand": False, "isAiGenerated": bool(v["ai_generated"])}
     if v.get("tiktok_video_url"):
         tiktok["videoCoverTimestamp"] = 0
     youtube = {"targetType": "youtube", "title": v["title"], "privacyStatus": "public",

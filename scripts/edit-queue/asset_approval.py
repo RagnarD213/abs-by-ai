@@ -217,8 +217,10 @@ def validate_packet(packet, workdir, allowed_roots=(), verify_hashes=True,
         if item.get("reuse_status", "new") == "exact_approved_reuse" and estimated != 0:
             raise PacketError(f"{iid}.estimated_usd must be 0 for an exact approved reuse")
         ph = item.get("placeholder")
-        if not isinstance(ph, dict) or not str(ph.get("label") or "").startswith(f"PLACEHOLDER — {iid}"):
-            raise PacketError(f"{iid}.placeholder.label must start with 'PLACEHOLDER — {iid}'")
+        # New packets use ASCII punctuation. Existing packets retain their exact labels.
+        prefixes = (f"PLACEHOLDER - {iid}", f"PLACEHOLDER \u2014 {iid}")
+        if not isinstance(ph, dict) or not str(ph.get("label") or "").startswith(prefixes):
+            raise PacketError(f"{iid}.placeholder.label must start with 'PLACEHOLDER - {iid}'")
         if ph.get("path"):
             _file_record(ph, f"{iid}.placeholder", workdir, allowed_roots,
                          verify_hashes=verify_hashes)

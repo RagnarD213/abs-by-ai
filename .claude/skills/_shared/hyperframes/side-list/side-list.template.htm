@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      /* Soft Blue Light 3A left-third card (softblue.py LT_* constants), with motion. Geometry comes from build.py. */
+      @font-face { font-family: "Poppins"; src: url("assets/Poppins-Bold.ttf") format("truetype"); font-weight: 700; }
+      :root {
+        --fill: rgba(10, 38, 72, 0.9098);      /* LT_FILL (10,38,72,232) */
+        --edge: rgba(99, 176, 224, 0.7059);    /* LT_EDGE (99,176,224,180) */
+        --cyan: rgb(151, 223, 253);            /* LT_CYAN heading + numbers */
+        --white: rgb(255, 255, 255);           /* LT_WHITE body + divider */
+        --spec: rgb(135, 210, 248);            /* SPECULAR */
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: transparent; }
+      #root { position: relative; width: 100%; height: 100%; font-family: "Poppins", sans-serif; font-weight: 700; }
+      #group, #inner { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+      #card { position: absolute; border-radius: 32px; background: var(--fill); border: 2px solid var(--edge); overflow: hidden; }
+      #spec { position: absolute; top: 1px; left: 24px; width: 170px; height: 2px; border-radius: 1px;
+        background: linear-gradient(90deg, rgba(135,210,248,0), var(--spec) 30%, var(--spec) 70%, rgba(135,210,248,0)); }
+      .t { position: absolute; white-space: nowrap; line-height: 1.4; }
+      .head { font-size: 60px; color: var(--cyan); }
+      .head span { display: inline-block; white-space: pre; }
+      #divider { position: absolute; border-radius: 1px; background: var(--white); }
+      .num { font-size: 38px; color: var(--cyan); }
+      .body { font-size: 38px; color: var(--white); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="__ID__" data-start="0" data-duration="__DUR__" data-width="1920" data-height="1080">
+      <div id="group">
+        <div id="inner">
+          <div id="card"><div id="spec"></div></div>
+          <div id="divider"></div>
+          <div id="text"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const CFG = __CFG__;
+      const D = CFG.dur;
+      const px = v => v + "px";
+      const card = document.getElementById("card");
+      const [cx, cy, cw, ch] = CFG.card;
+      Object.assign(card.style, { left: px(cx), top: px(cy), width: px(cw), height: px(ch) });
+      const dv = document.getElementById("divider");
+      const [dx, dy, dw, dh] = CFG.divider;
+      Object.assign(dv.style, { left: px(dx), top: px(dy), width: px(dw), height: px(dh) });
+      const text = document.getElementById("text");
+      function el(cls, x, y, s) {
+        const e = document.createElement("div"); e.className = "t " + cls;
+        e.style.left = px(x); e.style.top = px(y); if (s !== undefined) e.textContent = s;
+        text.appendChild(e); return e;
+      }
+      // heading: one span per word so the words can rise in turn
+      const headWords = [];
+      CFG.head.forEach(h => {
+        const e = el("head", h.x, h.y);
+        h.s.split(" ").forEach((w, i, a) => {
+          const s = document.createElement("span"); s.textContent = w + (i < a.length - 1 ? " " : "");
+          e.appendChild(s); headWords.push(s);
+        });
+      });
+      // items: number + lines grouped, so the whole item lands at once (3A: no typing)
+      const items = CFG.items.map(it => {
+        const g = [el("num", CFG.num_x, it.y + 4, it.n)];
+        it.lines.forEach((ln, j) => g.push(el("body", CFG.body_x, it.y + j * CFG.lh, ln)));
+        return g;
+      });
+
+      const tl = gsap.timeline({ paused: true });
+      // always drifting: the card group moves a few px over the scene; the specular line runs along the top edge
+      tl.fromTo("#group", { y: 0 }, { y: CFG.drift, duration: D, ease: "sine.inOut" }, 0);
+      const specN = Math.max(1, Math.round(D / 2.4));
+      tl.fromTo("#spec", { x: 0 }, { x: cw - 24 - 170 - 30, duration: D / specN, ease: "sine.inOut", yoyo: true, repeat: specN - 1 }, 0);
+      // enter: card fades and rises, divider wipes, heading words rise (pilot easing table)
+      tl.fromTo(card, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 0);
+      tl.fromTo(dv, { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.45, ease: "power2.out" }, 0.15);
+      tl.fromTo(headWords, { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: 0.42, ease: "expo.out", stagger: 0.08 }, 0.12);
+      // each item lands whole on its word: quiet settle, no bounce, no typing
+      items.forEach((g, i) => {
+        tl.fromTo(g, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" }, CFG.reveal[i]);
+      });
+      // exit: fade and drop, gone exactly on the out cut
+      tl.fromTo("#inner", { opacity: 1, y: 0 }, { opacity: 0, y: 10, duration: 0.33, ease: "power2.in", immediateRender: false }, D - 0.33);
+
+      window.__timelines["__ID__"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

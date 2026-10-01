@@ -54,7 +54,7 @@ def post_plan(v: dict) -> list[dict]:
         "disabledDuet": False,
         "disabledStitch": False,
         "isBrandedContent": False,
-        "isYourBrand": True,
+        "isYourBrand": False,
         "isAiGenerated": bool(v["ai_generated"]),
         "videoCoverTimestamp": 0,
     }

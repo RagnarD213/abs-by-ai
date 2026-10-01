@@ -3,6 +3,12 @@
 **Written 2026-09-30 by Claude (Opus 5.5). Fire on or after Sun Oct 18, 2026, 10 AM CT** (Blotato releases it at 9 AM CT;
 give the sixpackabs page up to an hour to appear). Firing it earlier does nothing: the video it targets does not exist yet.
 
+## 0. Update 2026-10-01 (Dan dropped the Private holding upload; Blotato-only YouTube now)
+The Private copy `mfoSLivtvdQ` is no longer needed. A session on 09-30 tried captions on it and failed (Studio
+"Upload captions failed"), and setting its language to English turned on YouTube auto-dubbing (~20 languages, still Private).
+Do NOT touch it again. Whether to delete it (with the dubs) is Dan's call. On Oct 18 upload captions ONLY to the public
+Blotato video, from the subtitle editor's Upload file route, never the Languages page.
+
 ## 1. Why
 Dan wants the film's accurate subtitle file on the public YouTube video. YouTube's automatic captions miss words like
 "broccolini", "adobo" and "AbsByAI.com". The upload token has no captions scope, so this is done in YouTube Studio.

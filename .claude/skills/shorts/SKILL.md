@@ -12,6 +12,17 @@ description: >
 
 Read `_shared/VIDEO-RULES.md` first.
 
+## Graphic set for new batches (Dan, 2026-10-01)
+
+SL-05 was the last batch in the J2 / olive set. Every new batch uses Soft Blue Light graphics from the HyperFrames templates; the first vertical and the first square made that way get a full approval round with every asset shown to Dan before the build. Full rule: `_shared/VIDEO-RULES.md`, "New shorts batches". The J2 title band, olive bars and `reference/zeeshan-master/` layouts below are for finishing or revising batches already delivered in that set.
+
+## A horizontal clip in the vertical or square frame keeps its full height (Dan, 2026-10-01)
+
+Never crop rows off a 16:9 clip that sits as a card in a 9:16 or 1:1 frame: it only makes the card shorter and adds black
+space. Dan: *"There's not ever any reason for you to crop horizontal videos within a vertical frame and make them shorter than they already are. There's already too much black space, so avoid crops like you did on that first draft of the power lifter clip that unnecessarily make the video shorter when we have a horizontal within a vertical frame."* Crop the sides to make a card taller if nothing essential is lost; never the height. An editor's
+burned pill stays whole inside the card and our duplicate bar comes off for that shot (SL-05 short 3, round 3). In
+`plan_shots.py` terms: no `cardCrop` with a y range short of 0-1. Full rule: `_shared/VIDEO-RULES.md`.
+
 ## Stand alone: show the whole exercise, not a detail of it (Dan, 2026-09-30)
 
 - **A short must make complete sense to a viewer who never saw the long-form.** Leave out details that only work

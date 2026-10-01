@@ -49,14 +49,18 @@ Approved samples: `/Volumes/Extreme/_edit_work/softblue-rollout/left3a/left3a_r2
 and `left3a_r2_sq_graphic_bottom.mp4` (builder `make_left3a_r2.py` beside them). `B.stack_vertical()` (card
 above or below a horizontal crop) was shown and NOT selected; use it only if Dan asks for that layout.
 
-## HyperFrames motion layer (Dan approved the pilot 2026-09-30)
+## HyperFrames motion layer (Dan approved the pilot and three templates 2026-09-30)
 
 Graphics with real motion (arrows drawing, cards settling, loops pulsing) are built in HyperFrames as transparent
-overlays, same Soft Blue Light colours and geometry, composited on the graded base. Approved template: the cycle
-card, [`hyperframes/cycle/`](hyperframes/cycle/); how to call it, which words drive it and the easing values:
-[`hyperframes/README.md`](hyperframes/README.md). Dan: a diagram like this sits in the left-third card beside him,
-not full screen ("a little bit empty when it's full screen"). Lower third, before card and 3A list templates are next;
-until each is approved, build those with `softblue.py` as below.
+overlays, same Soft Blue Light colours and geometry, composited on the graded base. **Approved templates (Dan,
+2026-09-30), use these for every new video:** the cycle card [`hyperframes/cycle/`](hyperframes/cycle/), the
+Motivation lower third with optional counter bar [`hyperframes/lower-third/`](hyperframes/lower-third/), the before /
+fact card [`hyperframes/before-card/`](hyperframes/before-card/) and the 3A side list
+[`hyperframes/side-list/`](hyperframes/side-list/). Text lands on Dan's words, not on a timer (this supersedes the 3A
+card's fixed 0 / 0.25 / 0.50 s item reveal). How to call them, which words drive them, the easing table, the glass
+mask pass and the BT.601 decode trap: [`hyperframes/README.md`](hyperframes/README.md). A diagram sits in the
+left-third card beside Dan, not full screen ("a little bit empty when it's full screen"). Graphic kinds without a
+template (title cards, study, chart, recap, phone) still use `softblue.py` as below.
 
 ## What is historical now
 

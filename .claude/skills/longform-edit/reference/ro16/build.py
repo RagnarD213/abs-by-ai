@@ -26,8 +26,14 @@ def segments(f0, f1):
         sh = next(s for s in S if s["out_f0"] <= a < s["out_f1"])
         card = next((c for c in cards if c[0] <= a < c[1]), None)
         if card:
+            # W2 and W4 (1.27x) alternate at every join inside a card. Round-2 review: the card's LAST framing must differ in
+            # size from the shot it cuts to when a join sits on the card's exit (W2 into a W2 shot read as a jump at P01's exit;
+            # W3, only 1.14x, read as a jump inside G20), so the parity is chosen from the exit.
             k = sum(1 for s in S if card[0] < s["out_f0"] <= a)        # joins passed inside this card
-            fm = "W2" if k % 2 == 0 else "W3"
+            m = sum(1 for s in S if card[0] < s["out_f0"] < card[1])  # joins inside the card
+            nxt = next((s for s in S if s["out_f0"] == card[1]), None)  # a shot that starts exactly at the card's exit
+            flip = 1 if (nxt is not None and nxt["framing"] == "W2") else 0   # end on W4 before a W2 shot, on W2 before T2
+            fm = "W2" if (k + m + flip) % 2 == 0 else "W4"
         else: fm = sh["framing"]
         segs.append(dict(o0=a, o1=b, src0=sh["src_f0"] + a - sh["out_f0"], framing=fm, shifted=bool(card)))
     return segs
@@ -108,7 +114,7 @@ def render_range(a, b, out, placeholder_ai=True):
     # ---- audio: lav on the shot timeline, audio B chain
     wv = wave.open(f"{W}/lav.wav"); L = np.frombuffer(wv.readframes(wv.getnframes()), np.int16).astype(np.float32)/32768
     N = int(round((f1-f0)/FPS*SR)); v = np.zeros(N, np.float32); r = int(0.010*SR)
-    TAILFADE = {"hook.0": 0.08}   # review r1: a breath starts in the hook take's last 50 ms (src 233.21); fade it, no timeline change
+    TAILFADE = {"hook.0": 0.08, "s6d.0": 0.07}   # round-2 review: a breath / lip-noise onset in the last 50 ms before the cut after "carbs." (src 936.82); faded, no timeline change. Round 3: the "s8b.0" fade is gone (that burst was the start of the "s" of "benefits", not a lip noise; the piece now runs past the word)   # review r1: a breath starts in the hook take's last 50 ms (src 233.21); fade it, no timeline change
     for s in S:
         o0, o1 = max(s["out_f0"], f0), min(s["out_f1"], f1)
         if o0 >= o1: continue

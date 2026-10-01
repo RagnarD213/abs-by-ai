@@ -55,7 +55,7 @@ watch.py -> fresh-subagent judge -> watch.py --judge -> gate.py --format short
   on this shoot the CAMERA framed Dan's hair at source row 0 on most wides and mediums, and the 8/3 main-camera
   originals (C1582-C1587) have the same framing. No window can add rows above row 0; a card shows the same cut edge.
   Check the source (and the raw camera file) first, then pick context lines by their measured headroom.
-- **Replace an editor's pill by cropping, not covering.** Zeeshan's lower-third pills live in source rows 804-907 on
+- **SUPERSEDED 2026-10-01 (Dan): never crop a card's height to remove an editor's pill; show the whole frame, his pill whole inside it, our bar off for that shot. See VIDEO-RULES, "A horizontal clip inside a vertical or square frame is never cropped shorter".** The old recipe, for the record: **Replace an editor's pill by cropping, not covering.** Zeeshan's lower-third pills live in source rows 804-907 on
   every frame, entry and fade included. `cardCrop` y 0-0.739 (rows 0-798) removes his pill whole; our pill
   (`pill/make_pill.py`, his olive (77,86,49), text (230,237,216), measured padding) goes on the black field under the
   card with an alpha fade (`overlays.json` entries with `png`).
@@ -100,3 +100,42 @@ watch.py -> fresh-subagent judge -> watch.py --judge -> gate.py --format short
   fade into the last checked second (-2.1 dB, FAIL); end the music a few frames earlier rather than touching the bound.
 - Reviewer rounds this revision needed: four (arm pose at the pause cut, one rep only, no tail fade, a 6-frame caption;
   card box jump; the how-to pose on screen for 5 frames).
+
+## SL-05 (2026-09-30): "Stop Deadlifting", five shorts. Scripts in `sl05/`
+
+Built in `/Volumes/Extreme/_edit_work/sl05/build/`; the SL-05 versions of every script are in `sl05/` beside this file
+(the files one level up are SL-04's). Five to six independent review rounds per short. What they taught:
+
+- **Never shrink Dan into a card to show a key point.** The round-1 plan put him in an inset card on black with the
+  editor's pill re-set under it. Every reviewer rejected it (up to 58% of a short was a small picture on black). What
+  shipped: Dan always full height, and OUR full-width bar (his colours, font and words) laid exactly over the rows of
+  the editor's burned pill, which any 9:16 window would slice. `pill/make_pill5.py` + `BARS` in `plan_shots.py`.
+  Measure his pill's rows per pill (a 3-line pill started at row 762, a 2-line at 794): a fixed crop sliced the tall one.
+- **A bar covers a fading pill for longer than a colour scan says.** On at first-5%-frame minus 0.35 s, off at
+  last-5%-frame plus 1.2 s (`r2/pilltime.py`). At plus 0.5 s his ghost showed through our fade.
+- **An editor's "cuts" between medium and close can be ANIMATED ZOOMS** (frame difference ramps over ~12 frames,
+  `r2/cutframe.py`). The window must not change size inside one; glide its centre (`slideFrom`, 14 frames) so Dan stays
+  centred in both framings. One shared centre left him 186 px off.
+- **`-ss` returns the frame AFTER a time that falls between frames.** Map every shot to an exact source frame
+  (`ss = (n - 0.3) / FPS`) and make each piece's output frames 1:1 with source frames, or a hard cut flashes one frame
+  of the next shot.
+- **The full-rate cut finder misses same-framing jump cuts** (whole-frame difference 3-7). `r2/jumps.py` (face-band
+  difference spike against its neighbours) found seven; its frame index was ONE LATE, so confirm each with a
+  max-difference check around it before planning. Cover each with a FULL<->PUNCH step on the exact frame.
+- **PUNCH = 527x786 (1.37x)** while his pill is up (rows 0-786 exclude it); 556x830 (1.30x) otherwise, which is what
+  the gate's push row counts as the same shot. A 1.2x step is the minimum that reads as a cut.
+- **Blur transitions at piece edges:** cover them with the neighbouring B-roll running long (an L-cut row,
+  `lcut:<out at>:<picture src>`) or start the piece after the blur. A held frame under a spoken word reads as a frozen
+  mouth; a slowed stock clip stutters (its 24p cadence doubles up). A fade of the last 16 frames to the field hides an
+  outgoing blur at the very end.
+- **Piece edges need the 5-12 kHz band, not only VAD.** VAD called 338.27-338.81 silence; it held the "-tion" of one
+  word and the "You" of the next. Three reviewers measured three different faults at one join. Check each edge on the
+  speech-band AND sibilant-band envelope in 20 ms steps and transcribe the splice.
+- **Tail fade 0.04 s, not 0.15:** the longer fade swallowed the last word of three shorts.
+- **Caption traps:** `t2ass` wrote 30.995 s as "30.100" and libass dropped the cue (round centiseconds first); a CTC
+  time can land a word before its predecessor ("no what matter"), so force onsets monotonic; never re-time words from
+  a delivered alignment made before a piece changed length; two-line cues reach his chin in a close shot under a bar
+  (`oneLine`, `breakBefore`, `capLow` per short).
+- **ffmpeg's AAC overshot his true peak by 0.3 dB at 320k** on one short; `aac_at` did not.
+- **`gate/ctc_delivered.py`:** split a long window at its largest gap, never mid-phrase, and keep each window's padding
+  inside the gap to its neighbour, or edge words align into the neighbour's speech.

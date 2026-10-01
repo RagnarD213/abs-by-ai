@@ -1,0 +1,83 @@
+[
+  {
+    "id": "A",
+    "label": "Pool: relaxed stance",
+    "source": "photo-223",
+    "source_file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/photo-223_FINAL_PRIMARY.jpg",
+    "crop_bottom_fraction": 0.701,
+    "file": "ro12-pool-R2-A.jpg",
+    "bytes": 531449,
+    "sha256": "495a53e2566062cfedcf936d3e7efc9417e92cf87460d94d90d859921fe95669",
+    "text_clearance_px": 315,
+    "headroom_px": 20,
+    "portrait_pixels": "Real source, resized uniformly; no physique or face alteration",
+    "text_boxes": [
+      [
+        67,
+        74,
+        620,
+        162
+      ],
+      [
+        67,
+        186,
+        579,
+        324
+      ]
+    ]
+  },
+  {
+    "id": "B",
+    "label": "Pool: candid towel shot",
+    "source": "photo-17",
+    "source_file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/photo-17_FINAL_PRIMARY.jpg",
+    "crop_bottom_fraction": 0.875,
+    "file": "ro12-pool-R2-B.jpg",
+    "bytes": 536021,
+    "sha256": "2e77b89c8852209ebb02d4106cba2f8bb1d21b8b92a7d7bd67c8e74eb318ba89",
+    "text_clearance_px": 172,
+    "headroom_px": 20,
+    "portrait_pixels": "Real source, resized uniformly; no physique or face alteration",
+    "text_boxes": [
+      [
+        67,
+        74,
+        620,
+        162
+      ],
+      [
+        67,
+        186,
+        579,
+        324
+      ]
+    ]
+  },
+  {
+    "id": "C",
+    "label": "Studio: jeans, hands behind head",
+    "source": "studio-blue-177",
+    "source_file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/_cutouts/studio-blue-177_CUTOUT.png",
+    "crop_bottom_fraction": 0.885,
+    "file": "ro12-pool-R2-C.jpg",
+    "bytes": 526436,
+    "sha256": "a0e81625737607987dd22724891dd782e5b008e4264a79b7e7682bf71ae967ef",
+    "text_clearance_px": 299,
+    "headroom_px": 20,
+    "portrait_pixels": "Real source, resized uniformly; no physique or face alteration",
+    "text_boxes": [
+      [
+        67,
+        74,
+        620,
+        162
+      ],
+      [
+        67,
+        186,
+        579,
+        324
+      ]
+    ]
+  }
+]

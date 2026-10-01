@@ -1,6 +1,6 @@
 # Blotato IG + Facebook queue — progress
 
-Last updated 2026-09-30.
+Last updated 2026-10-01.
 
 ## Account state
 
@@ -12,6 +12,19 @@ Last updated 2026-09-30.
 - **PERMANENT RULE (Dan, 2026-09-17): ADS ARE NEVER QUEUED HERE.** Blotato is organic-only. Every queue script
   imports `scripts/blotato/ad_guard.py`; audit with `python3 scripts/blotato/ad_guard.py --scan`. See the incident below.
 - **NEW PERMANENT RULE (Dan, 2026-09-16): Blotato owns future organic YouTube releases.** Upload organic videos to YouTube as Private and leave them Private; queue the release through connected YouTube account `46963`. Never upload Public or use YouTube native scheduling. Ads remain Unlisted and are not released publicly on YouTube. Existing native schedules are historical and must not be copied into new work; avoid double-posting anything already queued under the old process.
+
+## DONE: RO-12 "Top 5 Zepbound Tips To Lose Fat And Keep Your Muscle" (2026-10-01)
+
+Master `claude edited long form content/09 - Top 5 Zepbound Tips/Top 5 Zepbound Tips | claude | 16x9 | RO-12.mp4`, SHA-256 `7f6766c5…7cae67b` (2,419,960,621 bytes, 9:11.42); same file + .srt on the Extreme drive and Google Drive (`Claude Content Videos/Top 5 Zepbound Tips - RO-12`, folder `1nOpRxT9nusbHYNFMcBCKRUf7eGOgIuxN`, anyone with the link). No YouTube holding copy (Blotato-only rule, 2026-10-01): Blotato creates the public video with Dan's FINAL thumbnail (Codex R3 C), synthetic media on (three labelled AI clips).
+
+| FB · IG @danrosefit · TikTok · YouTube |
+|---|
+| Sun Oct 25, 9 AM CDT (`5046547` / `5046548` / `5046549` / `5046550`) |
+
+- Blotato copy 230 MB (h264_videotoolbox 4 Mbps, audio stream-copied, 16,526 frames, same as the master). Re-hosted files MD5-matched.
+- TikTok: cover prepended as frame 0, `videoCoverTimestamp: 0`, AI label on.
+- Keyword `FOOD`; UTM `utm_content=ro12-zepbound-tips`. Config `scripts/blotato/configs/ro12-zepbound-tips.json`. Receipt `Docs/RO12_SETUP_RECEIPT_20261001.md`.
+- Owes after Oct 25: English captions from the .srt in Studio; publish sixpackabs article `sixpackabs/articles/TBD-top-5-zepbound-tips.md`; WATCH NEXT card to RO-01 once RO-01 is public. Shorts job SL-06 READY.
 
 ## DONE: RO-05 "How I Make My Daily Salad: 700 Calories, $4 a Bowl, Fresh for 7 Days" (2026-09-30)
 

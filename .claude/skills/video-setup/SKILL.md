@@ -1,7 +1,7 @@
 ---
 name: video-setup
 description: >
-  Take a FINISHED organic/content video, long-form or a dedicated Short (usually an editor's final shared as a Google Drive link) all the way to scheduled on every platform: download and file it (project folder, Extreme drive and Google Drive), add it to the Edit Queue, build thumbnail variations for Dan to pick from, write the title, description with chapters and tags, upload the YouTube holding copy Private, and queue YouTube, Facebook, Instagram @danrosefit, and TikTok for release through Blotato. Use whenever Dan says a content video is "finished", "done", "final", sends a Drive link and asks to "queue it up", "set it up on all platforms", "put it in Blotato", "schedule it", or "get it on YouTube and everything else", even if he doesn't say "/video-setup". Paid ads go through /ad-setup; reviewing a cut is /revisions; thumbnails alone are /youtube-packaging; cutting Shorts is /shorts.
+  Take a FINISHED organic/content video, long-form or a dedicated Short (usually an editor's final shared as a Google Drive link) all the way to scheduled on every platform: download and file it (project folder, Extreme drive and Google Drive), add it to the Edit Queue, take the finalized thumbnail Dan hands over (Codex builds thumbnails in its own task since 2026-09-30; if none, write that Codex handoff and stop), write the title, description with chapters and tags, and queue YouTube, Facebook, Instagram @danrosefit, and TikTok for release through Blotato. Use whenever Dan says a content video is "finished", "done", "final", sends a Drive link and asks to "queue it up", "set it up on all platforms", "put it in Blotato", "schedule it", or "get it on YouTube and everything else", even if he doesn't say "/video-setup". Paid ads go through /ad-setup; reviewing a cut is /revisions; thumbnails alone are /youtube-packaging; cutting Shorts is /shorts.
 ---
 
 Read `_shared/VIDEO-RULES.md` first.
@@ -14,9 +14,15 @@ descriptions and thumbnails… Before setting it up, though, make the thumbnail 
 Everything below ran end to end that day. Historical result: YouTube `b_bS9NdmL-g` (scheduled under the retired native-publication workflow for Sun 09-20 9 AM CT, thumbnails 5 vs 1 in Test & Compare), Blotato
 schedules 4413699 / 4413701 / 4413702 / 4413703; record in `BLOTATO_QUEUE_PROGRESS.md`.
 
-**One stop for Dan, and only one: the thumbnail pick.** Everything else is reversible and runs without asking.
-**Permanent visibility rule (Dan, 2026-09-16): upload organic YouTube videos Private and leave them Private;
-Blotato owns the scheduled release, including YouTube. Never upload Public and never use YouTube native scheduling.**
+**Thumbnail split (Dan, 2026-09-30, every organic content video from now on): Codex makes the thumbnail, Claude does the
+upload and setup.** A Claude /video-setup session never designs thumbnails. It starts from the finalized thumbnail file Dan
+hands it. If none was given: write the Codex thumbnail handoff (copy `Handoffs/handoff-20260930-ro05-thumbnails-codex.md`;
+Step 2 below is its spec), give Dan its starter prompt, and stop, or ask Dan for the path if Codex already made it. The setup
+session then has no Dan stop; everything is reversible and runs without asking.
+**Blotato-only YouTube (Dan, 2026-10-01): there is NO Private holding upload any more. Blotato creates the one public
+YouTube video at release time (title, description, thumbnail, AI flag all travel in its YouTube target). Never upload to
+YouTube ourselves and never use YouTube native scheduling.** Anything that needs the YouTube id (thumbnail A/B test,
+English captions, the sixpackabs article page) happens after release: see Step 6 and Step 6b.
 
 ## Step 0 — before anything
 
@@ -31,7 +37,7 @@ Blotato owns the scheduled release, including YouTube. Never upload Public and n
 - Every config this skill writes carries `"content_type": "organic"` and a `"source"` path.
   `scripts/blotato/ad_guard.py` blocks the queue without them. Run `python3 scripts/blotato/ad_guard.py --scan`
   before and after the Blotato write.
-- `git status`; add an entry to `AI_COORDINATION.md` → ACTIVE TASK ("thumbnail pick pending").
+- `git status`; add an entry to `AI_COORDINATION.md` → ACTIVE TASK.
 - ffmpeg is NOT on PATH. Use `Media/video_edit/bin/ffmpeg` / `ffprobe` (absolute path from the project root).
 - Video builds cap is two across sessions — a frame extraction is trivial, but check
   `ps -Ao command | grep -E 'ffmpeg|render\.py|whisper'` before a contact sheet of a long video.
@@ -42,7 +48,7 @@ Blotato owns the scheduled release, including YouTube. Never upload Public and n
 ## Shorts (DS-/SL- jobs): the same flow, the Shorts helper
 
 A dedicated Short is already filed in `Short-form video content/` and its cover is already approved, so skip Steps 1-2.
-Worked examples: DS-04, DS-17, DS-18 (`Docs/DS*_SETUP_RECEIPT_*.md`). Private holding upload (Step 4), then:
+Worked examples: DS-04, DS-17, DS-18 (`Docs/DS*_SETUP_RECEIPT_*.md`). no holding upload, then:
 build the TikTok cover-first copy with `tiktok_cover.build()` (absolute paths: relative ones break its concat list),
 upload master + TikTok copy + cover PNG with `blotato_create_presigned_upload_url` and hash-check each download,
 write `scripts/blotato/configs/<slug>.json` (copy `ds18-kettlebell-deadlift.json`), then
@@ -80,7 +86,12 @@ Switch it in Studio (`studio.youtube.com/video/<id>/edit` → Visibility → Pri
      (memory `drive-always-public`), then `rclone lsl` to confirm the byte count. Give Dan the folder link.
   - A dedicated Short gets the same two copies under `Short-form video content/` on each drive.
 
-## Step 2 — five thumbnail variations, then STOP for Dan's pick
+## Step 2: five thumbnail variations, then STOP for Dan's pick (CODEX's task since 2026-09-30)
+
+This step is done by Codex in its own task, never by the Claude setup session (split above). It stays here as Codex's
+spec. Codex delivers `<title> - thumbnail FINAL.jpg` (1280x720 JPEG, under 2 MB) in
+`social media graphics/youtube/thumbnails/<title>/` and Dan pastes the path into the Claude setup task, which only checks the
+file conforms (size, format, under 2 MB) and uses it for the YouTube upload and Blotato's `youtube_cover_url`.
 
 Dan's standing mix (updated 2026-09-30): **one pool photo, two different studio photos on topic-specific Jelly Beans style photographic backgrounds, one enhanced screenshot from the video, and one designer choice.** Same copy on all five. Every Codex cover/thumbnail handoff must list these five slots and link `_shared/VIDEO-RULES.md`, "Five cover and thumbnail choices per video". Read `/youtube-packaging` for the photo, crop and text-clearance rules. The older recipe below is an asset reference; adapt its source count and studio backgrounds to this mix.
 
@@ -112,7 +123,7 @@ It imports the Ad 5 `build_clean.py` for the studio looks and reuses assets, so 
 - `SendUserFile` the `REVIEW_*.jpg` sheet (display `render`), list the five in plain words, and **stop**. Dan may pick
   one, or two for an A/B test ("A/B test between 1 and 5").
 
-## Step 3 — packaging (after the pick)
+## Step 3: packaging (with Dan's finalized thumbnail in hand)
 
 - **Title:** searchable, no hype claims. 09-13: *"Ab Wheel Workout: 3 Sets For Stronger Abs (Do It With Me)"*.
 - **Description** → `<filed folder>/youtube-description.md`: one-line hook; absbyai.com link with
@@ -123,23 +134,14 @@ It imports the Ad 5 `build_clean.py` for the studio looks and reuses assets, so 
 - **Schedule:** 9 AM CT (14:00Z during CDT, 15:00Z after Nov 1) on a day with no other long-form. Check
   `BLOTATO_QUEUE_PROGRESS.md` for the latest long-forms; recent pattern Sun / Wed. @abs.by.ai retired 2026-09-24; never queue it.
 
-## Step 4 — YouTube holding upload (Private only)
+## Step 4: RETIRED (2026-10-01), no YouTube holding upload
 
-```bash
-node scripts/youtube/upload.js --file "<filed mp4>" --title "<title>" \
-  --description-file "<filed folder>/youtube-description.md" --privacy private \
-  --tags "a,b,c" --made-for-kids false --synthetic true|false \
-  --thumbnail "<picked thumbnail A>"
-```
-
-- Run it in the background — a 300 MB file takes minutes. **Never re-run on a slow upload: YouTube does not dedupe,
-  a second run makes a second video.** Read the output file; only retry after a clear failure.
-- Read back the completed record and require `privacyStatus: private`. Do not add a YouTube `publishAt` value or
-  schedule it in Studio. A Public, Scheduled or unknown result fails the workflow and must be corrected.
-- `--synthetic true` ONLY when the video contains realistic AI-generated footage (AI clips/scenes, AI-Dan demos, AI music).
-  A labeled AI goal still or the absbyai.com CTA alone is `false`. Rule: `_shared/VIDEO-RULES.md` "AI label on uploads".
-- Two thumbnails picked → the second goes in via Studio's **Test & Compare** (Studio-only; the token has no
-  `youtube.force-ssl`). See Step 6.
+Dan dropped the Private holding copy: it duplicated what Blotato's YouTube target already carries (title, description,
+thumbnail via `youtube_cover_url`, `ai_generated`), and it was a separate video that nothing carried over to the public
+one. Do not run `scripts/youtube/upload.js` for organic content. Check the title, description, chapters and thumbnail
+file carefully before the Blotato write instead, since the first YouTube id exists only after release.
+(`--synthetic` rule still applies: `ai_generated` true ONLY for realistic AI footage, per `_shared/VIDEO-RULES.md`
+"AI label on uploads".)
 
 ## Step 5 — Blotato release queue (YouTube + Facebook + IG + TikTok)
 
@@ -159,7 +161,7 @@ incomplete organic setup. Confirm the schedule by reading it back before reporti
 3. `python3 scripts/blotato/longform_queue.py <config>` (dry run: slot clashes + the 200-post cap), then `--apply`.
    The current helper covers the four non-YouTube accounts. Queue the connected YouTube account through Blotato too,
    using the same release time and media, and verify all five schedules on a fresh pull. Do not fall back to YouTube
-   native scheduling if Blotato needs repair; leave the holding upload Private until the Blotato path works.
+   native scheduling if Blotato needs repair; leave the release unscheduled until the Blotato path works.
    - Facebook gets no `mediaType` (FB Reels cap at 90 s). TikTok long-form over ~10 min may exceed the account cap.
    - Organic links go to the absbyai.com root, never `/start` (keeps organic out of the `/start` A/B test).
 4. **Give the TikTok post its cover — this step is not optional and cannot be done later.**
@@ -171,7 +173,7 @@ incomplete organic setup. Confirm the schedule by reading it back before reporti
 
 ## Step 6 — thumbnail A/B in Studio (only when Dan picked two)
 
-Worked 09-13 through the Chrome MCP on a SCHEDULED (still private) video:
+Runs AFTER release, on the public Blotato-created video (Dan 2026-10-01). Worked 09-13 through the Chrome MCP:
 
 1. `navigate` to `https://studio.youtube.com/video/<id>/edit`, wait ~5 s.
 2. Click the **"A/B Testing"** chip directly under the Title field (the Thumbnail section itself has no test button in
@@ -182,8 +184,9 @@ Worked 09-13 through the Chrome MCP on a SCHEDULED (still private) video:
    click "Add thumbnail" itself; it opens a native picker.
 4. Footer reads "Thumbnail test ready" → **Set test** → back on the page click **Save** (top right).
 5. Verify by reloading: the Thumbnail section shows both images with a **"Test"** label.
-   - It reads **"Ineligible — Your video is not public"** until the publish time. That is expected; the test starts
-     once the video is public. Put a "check the test is running" line in the coordination entry for the publish day.
+   - Blotato's upload carries thumbnail A; this step only adds B once the video is public. Put a "set up the thumbnail
+     test and upload the English captions" line in the coordination entry for the publish day (captions: Studio
+     Subtitles, **Upload file**, never the Languages page: setting the video language there turned on auto-dubbing, 09-30).
 
 ## Step 6b: the sixpackabs.com article (write now, publish once the video is public)
 
@@ -219,7 +222,7 @@ scripts: `sixpackabs/articles/README.md`. Read it, and one finished article ther
 Every setup touches Dan's pinned Abs By AI Edit Queue page (procedure `.claude/skills/_shared/edit-queue/README.md`):
 
 - **The video is a job on `Handoffs/video-editing/00-MASTER.md`** (`RO-` long-form, `DS-` dedicated short, `SL-` shorts
-  set): after the Private YouTube upload is read back **and** the Blotato posts exist, `queue.py set <ID> uploaded` +
+  set): after the Blotato posts (including YouTube) exist and read back, `queue.py set <ID> uploaded` +
   `ArtifactData set` of the printed file + `queue.py mark-synced <ID>`.
 - **A newly final long-form (any editor's, including Zeeshan's own 16:9 finals that were never a job) owes shorts: add
   its `SL-` job in the same session.** Write `Handoffs/video-editing/SL-NN-<slug>-shorts.md` (copy SL-05), add the row

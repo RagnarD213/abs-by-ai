@@ -6,7 +6,8 @@ W = "/Volumes/Extreme/_edit_work/ro16"; FPS = 30000/1001
 FF = "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video_edit/bin/ffmpeg"
 SRC = "/Volumes/Extreme/dan rose fitness 9:23 shoot - vsls, long form content, short form content/C1710.MP4"
 LUT = "/Volumes/Extreme/_edit_work/wv01-edit/round2/recipe/grade-C.cube"
-CROP = {"W2": (3552, 1998, 144, 162), "T2": (2608, 1466, 616, 184), "W3": (3120, 1755, 360, 172)}   # W3: in-between size, only under side cards
+CROP = {"W2": (3552, 1998, 144, 162), "T2": (2608, 1466, 616, 184), "W3": (3120, 1755, 360, 172),   # W3: in-between size (retired round 2: only 1.14x W2, read as a jump cut under G20)
+        "W4": (2800, 1575, 520, 183)}  # W4: 1.27x W2, side cards only; hair 50-69 px, body x 517-1460 over s7d.0 (round-2 measure)
 def vf(framing):
     cw, ch, x, y = CROP[framing]
     return (f"crop={cw}:{ch}:{x}:{y},scale=1920:1080:flags=accurate_rnd+full_chroma_int:in_color_matrix=bt709:in_range=tv,"

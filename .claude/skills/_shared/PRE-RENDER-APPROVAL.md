@@ -49,9 +49,15 @@ to review than looking at all this in the browser panel one at a time."* Every a
    numbers used on screen, rejected assets and why, reviewer findings fixed, spend so far. Plain language, no jargon.
 5. **All graphics and clips, in timeline order, three per row:** each a still on its real graded frame, with its ID, output time
    range, exact copy, source, and a collapsible speech before / during / after.
+   **Every moving graphic gets a "Play it moving, in context" button** (Dan, 2026-09-30, on the RO-10 round 1 page: *"I really
+   like what you did with the review page, with the 'Play it moving in context' button. Let's lock that into the skill."*).
+   The button loads that graphic with about 3 s of speech either side into ONE shared player docked above the grid
+   (`preload="none"`; never one player per card). Name the clips `context/<ID>-context - REVIEW 540p.mp4`. A collapsible beat
+   sheet (film time, word, what moves) sits under each graphic whose parts land on words.
 6. **One reply box** with the decision lines pre-filled and a Copy button.
 
 Reference build: `/Volumes/Extreme/_edit_work/ro16/round1/index.html`, generator `.claude/skills/longform-edit/reference/ro16/page.py`.
+With the context player and beat sheets: `/Volumes/Extreme/_edit_work/ro10/round1/index.html`, generator `.claude/skills/longform-edit/reference/ro10/page.py` + `review_media.py` (start from this one).
 Dan reviews it in Chrome, so every media link must resolve over a local server (check each `src`/`href` returns 200 before sending).
 
 ## The approval order

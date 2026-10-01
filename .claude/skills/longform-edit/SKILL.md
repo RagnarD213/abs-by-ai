@@ -47,6 +47,8 @@ For long-form: full-screen cards, lists and photo displays come from `softblue` 
 >
 > **The from-scratch recut that followed** (grade stills, Muhammad component board, sample packet, then the full cut on one
 > code path) and every trap it hit: `reference/ro05-fable/README.md`. Start a Muhammad-style long-form from that recipe.
+>
+> **The 9/23 studio set (2026-09-30):** start from `reference/ro12/` (RO-12, review SHIP): the locked WV-01 look, word-anchored graphics, Gemini restart listen, bed/EQ traps, sliver and side-layout rules. Read its README first.
 
 # Editing a longform video from raw shoot footage
 

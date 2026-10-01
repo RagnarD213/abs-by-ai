@@ -167,6 +167,83 @@
    "log": "/Volumes/Extreme/_edit_work/AV-01/queue-run.log",
    "by_hand": true,
    "note": "Efficiency evidence incomplete before review: DELIVERY gate must be PASS before independent review (got 'FAIL') | 04:17-04:26 by-hand Codex review-1 (Phase 0 review-leg proof): DOES NOT SHIP; every defect is the approved master's own (strobing card exits, take-splice jumps, beach-clip orb, captions over tight photo/phone card). Dan's call."
+  },
+  {
+   "run_id": "RO-17-20260925-160226",
+   "job": "RO-17",
+   "group": "RO",
+   "title": "3 Healthy Foods That Made Me Fat",
+   "size": "L",
+   "executor": "codex",
+   "reviewer": "claude",
+   "started": "2026-09-25T16:02:26",
+   "ended": "2026-09-25T17:17:50",
+   "wall_hours": 1.26,
+   "outcome": "draft_review",
+   "reviewer_verdicts": [],
+   "first_pass_gate": "DRAFT",
+   "revision_number": 0,
+   "revision_rounds": 0,
+   "model_usage": [
+    {
+     "role": "stage-one editor",
+     "executor": "codex",
+     "model": "gpt-5.6-sol",
+     "effort": "high",
+     "total_tokens": 507960,
+     "input_tokens": null,
+     "cached_input_tokens": null,
+     "output_tokens": null,
+     "available_tokens": null,
+     "measurement": "available_total_only",
+     "reason": "CLI exposed only total tokens; input/output/cache split is unavailable.",
+     "available_tokens_reason": "The executors do not expose a per-session or per-video remaining-token allowance."
+    }
+   ],
+   "paid_provider_costs": [
+    {
+     "provider": "none",
+     "purpose": "No paid generation or provider calls. Pexels previews use the free license.",
+     "usd": 0
+    }
+   ],
+   "generation_spend_usd": 0.0,
+   "budget": {
+    "hours_allowed": 8.0,
+    "hours_used": 1.255969,
+    "renders_allowed": 3,
+    "renders_used": 2,
+    "review_hours_allowed": 1.5,
+    "review_hours_used": 0.0,
+    "exceeded": false,
+    "enabled": true,
+    "source": "size L"
+   },
+   "dan_verdict": null,
+   "dan_words": null,
+   "systemic_reason": null,
+   "corpus_entry": null,
+   "asset_flow": {
+    "schema": 1,
+    "launch_state": "ready",
+    "packet_visible_at": "2026-09-25T16:22:40-05:00",
+    "stage_one_ended": "2026-09-25T17:14:58-05:00",
+    "assets_approved_at": null,
+    "finishing_started": null,
+    "finishing_ended": null,
+    "human_wait_hours": null,
+    "approval_submissions": 0,
+    "approval_rejections": 0,
+    "full_render_count": 2,
+    "reused_scenes": [],
+    "rebuilt_scenes": [],
+    "reused_audio": null,
+    "reused_transcript": null,
+    "reused_assets": []
+   },
+   "log": "/Volumes/Extreme/_edit_work/RO-17/queue-run.log",
+   "by_hand": true,
+   "note": "DRAFT only — asset choices are waiting on the review page. Packet: /Volumes/Extreme/_edit_work/RO-17/placeholders.json"
   }
  ]
 }

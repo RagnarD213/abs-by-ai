@@ -9,7 +9,7 @@ import numpy as np
 FF = B.FF; FPS = B.FPS; U = 2.0      # unit at 1920x1080
 PHOTOS = "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos"
 LIB = "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library"
-SHIFT = {"W2": dict(dx=346, c0=560, wall_w=560), "W3": dict(dx=342, c0=520, wall_w=520)}
+SHIFT = {"W2": dict(dx=346, c0=560, wall_w=560), "W3": dict(dx=342, c0=520, wall_w=520), "W4": dict(dx=330, c0=450, wall_w=450)}
 
 def rise(t, d=.55): return B.ease(t, d)
 # ------------------------------------------------------------------ full-screen scenes
@@ -117,12 +117,12 @@ def scene(it, t):
     # labels arrive with their photos (review r1: a chip on screen before any photo, or a plural chip over one photo)
     if k == "fact":
         im = B.scene_fact(t, 1920, 1080, it["photo"], it["eyebrow"], it["headline"], it.get("detail"), None, fit=True)
-        if it.get("label") and t > .05: B.disclosure(im, it["label"], (162 * U, 484 * U), U)
+        if it.get("label") and t > 0: B.disclosure(im, it["label"], (162 * U, 484 * U), U)
         return im
     if k == "portraits":
         ps = [f"{PHOTOS}/{p}_FINAL_PRIMARY.jpg" for p in it["photos"]]
         im = B.scene_portraits(t, 1920, 1080, ps, None)
-        if it.get("label") and t > .05: B.disclosure(im, it["label"], (960, 876 + 26 * U), U, anchor="mt")
+        if it.get("label") and t > 0: B.disclosure(im, it["label"], (960, 876 + 26 * U), U, anchor="mt")
         return im
     if k == "portraits_codex":
         # Codex's WV-01 three-photo slate mechanics (round9/10 components): cutout on the blue-gray gradient panel,
@@ -131,11 +131,11 @@ def scene(it, t):
         pw, ph = 526, 730; gap = 50; x0 = (1920 - (3 * pw + 2 * gap)) / 2; y0 = 110
         for i, n in enumerate(it["photos"]):
             B.photo_card(im, f"/Volumes/Extreme/_edit_work/ro16/assets/g03/{n}_panel.png", (x0 + i * (pw + gap), y0, pw, ph), t, i * .22, fit=True, u=U)
-        if it.get("label") and t > .05: B.disclosure(im, it["label"], (960, y0 + ph + 34), U, anchor="mt")
+        if it.get("label") and t > 0: B.disclosure(im, it["label"], (960, y0 + ph + 34), U, anchor="mt")
         return im
     if k == "photo":
         im = B.scene_photo(t, 1920, 1080, f"{PHOTOS}/{it['photo']}_FINAL_PRIMARY.jpg", None)
-        if it.get("label") and t > .05:
+        if it.get("label") and t > 0:
             pw, ph = B.photo_size(f"{PHOTOS}/{it['photo']}_FINAL_PRIMARY.jpg", 1920 - 210 * U, 1080 - 115 * U)
             B.disclosure(im, it["label"], (960, (1080 - ph) / 2 - 10 * U + ph + 22 * U), U, anchor="mt")
         return im
@@ -195,13 +195,17 @@ def paint(frame, t, items, framing="W2", clip_img=None):
         if it["kind"] == "scene": return scene(it, tl)
         if it["kind"] == "title": return title_card(tl, it["step"], it["headline"])
         im = clip_img.copy() if clip_img is not None else Image.new("RGB", (1920, 1080))
-        if it.get("label"): ai_chip(im, *(it.get("chip", ((1866, 54), "rt"))))
+        lab = it.get("label")
+        if it.get("labels"):                     # per-source labels on a multi-source clip (same split as build.ClipReader)
+            FPS = 30000/1001; n = int(round(it["t1"]*FPS)) - int(round(it["t0"]*FPS)); per = n // len(it["labels"])
+            lab = it["labels"][min(int(round(tl*FPS)) // per, len(it["labels"]) - 1)]
+        if lab: ai_chip(im, *(it.get("chip", ((1866, 54), "rt"))))
         return im
     im = frame
     for it in act:
         tl = t - it["t0"]; dur = it["t1"] - it["t0"]
         if it["kind"] == "l3":
-            assert framing in ("W2", "W3"), "side cards sit on the wide framing only (T2 + shift pushes his arm off frame)"
+            assert framing in ("W2", "W3", "W4"), "side cards sit on the wide framing only (T2 + shift pushes his arm off frame)"
             im = B.shift_presenter(im, **SHIFT[framing])
             # the locked 3A reveal: card, heading and divider at 0, items whole at 0, 0.25, 0.50 s (review r1)
             im = B.left_third(im, tl, it["heading"], it["points"], dur=None)

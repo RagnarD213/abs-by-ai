@@ -27,9 +27,12 @@ for p in P:
     cuts[-1] = (cuts[-1][0], p["out"])
     for k, (a, b) in enumerate(cuts):
         S.append(dict(id=f"{p['id']}.{k}", piece=p["id"], src_f0=round(a*FPS), src_f1=round(b*FPS)))
+# round-2 review: P01's card (W2 + shift) exited into s5d.0 at W2 with a 147-frame source jump (same size, head moved
+# ~360 px). s5d.0 goes T2 so the exit is a W2 -> T2 cut; its own exit into s6a.0 (T2) is covered by the Step 6 card.
+OVERRIDE = {"s5d.0": "T2"}
 t = 0
 for i, s in enumerate(S):
-    s["framing"] = "W2" if i % 2 == 0 else "T2"
+    s["framing"] = OVERRIDE.get(s["id"], "W2" if i % 2 == 0 else "T2")
     n = s["src_f1"]-s["src_f0"]; s["out_f0"] = t; s["out_f1"] = t+n; t += n
 json.dump(S, open(f"{W}/shots.json", "w"), indent=1)
 print(len(S), "shots,", t, "frames =", round(t/FPS, 2), "s; shortest", round(min(s["src_f1"]-s["src_f0"] for s in S)/FPS, 2), "s")

@@ -56,6 +56,16 @@ class AssetApproval(unittest.TestCase):
         with self.assertRaisesRegex(asset.PacketError, "changed"):
             asset.read_packet(self.packet_path, self.wd, require_complete=True, delivered_video=final, watch_log=watch)
 
+    def test_ascii_and_legacy_placeholder_labels_are_accepted(self):
+        for separator in ("-", "\u2014"):
+            packet = self.packet()
+            packet["items"][0]["placeholder"]["label"] = f"PLACEHOLDER {separator} AI-1"
+            asset.validate_packet(packet, self.wd)
+        packet = self.packet()
+        packet["items"][0]["placeholder"]["label"] = "PENDING AI-1"
+        with self.assertRaisesRegex(asset.PacketError, "placeholder.label"):
+            asset.validate_packet(packet, self.wd)
+
     def test_partial_duplicate_and_wordless_rejection_are_refused(self):
         packet = self.packet([self.item("AI-1"), self.item("AI-2")])
         asset.write_packet(self.packet_path, packet, self.wd)

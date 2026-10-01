@@ -66,7 +66,7 @@ TIKTOK_TARGET = {
     "disabledDuet": False,
     "disabledStitch": False,
     "isBrandedContent": False,
-    "isYourBrand": True,
+    "isYourBrand": False,
     "isAiGenerated": False,
 }
 

@@ -5,6 +5,13 @@ description: Rebuild a FINISHED, finalized long-form video as a vertical 9:16 sh
 
 Read `_shared/VIDEO-RULES.md` first.
 
+## A horizontal clip in the vertical or square frame keeps its full height (Dan, 2026-10-01)
+
+Never crop rows off a 16:9 clip that sits as a card in a 9:16 or 1:1 frame: it only makes the card shorter and adds black
+space. Dan: *"There's not ever any reason for you to crop horizontal videos within a vertical frame and make them shorter than they already are. There's already too much black space, so avoid crops like you did on that first draft of the power lifter clip that unnecessarily make the video shorter when we have a horizontal within a vertical frame."* Crop the sides to make a card taller if nothing essential is lost; never the height. An editor's
+burned pill stays whole inside the card and our duplicate bar comes off for that shot (SL-05 short 3, round 3). In
+`plan_shots.py` terms: no `cardCrop` with a y range short of 0-1. Full rule: `_shared/VIDEO-RULES.md`.
+
 ## Cutdowns stand alone: show the whole exercise, not a detail of it (Dan, 2026-09-30)
 
 Applies to every <=0:59 cutdown of a long-form ad. Full rule: [VIDEO-RULES.md](../_shared/VIDEO-RULES.md#shorts-stand-alone-show-the-whole-exercise-not-a-detail-of-it-dan-2026-09-30).

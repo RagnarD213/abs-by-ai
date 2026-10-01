@@ -22,6 +22,39 @@ any older five-thumbnail mix with two pool photos. In future handoffs, link this
 rule and spell out all five slots. Reference:
 `Short-form video content/covers/review/jelly-bean-refresh/B3-jelly-beans-beat-soda-tight.png`.
 
+## New shorts batches: Soft Blue Light + HyperFrames; first vertical and square get a full pre-approval round (Dan, 2026-10-01)
+
+- **SL-05 (Stop Deadlifting) was the last batch of shorts in the J2 / olive graphic set.** Dan, reviewing it: *"this is the
+  last round of shorts I want to see with this graphic set going forward for new batches. I want to see everything made
+  with the soft blue light and hyperframes graphics."* A batch already in revisions finishes in its current set.
+- **Every new batch of shorts** (cut from a long-form, or dedicated) uses Soft Blue Light graphics built from the
+  HyperFrames templates (`_shared/hyperframes/`, `GRAPHICS-STANDARDS.md`): title treatment, key-point bars, lower thirds,
+  labels, cards.
+- **The first time this is done in vertical, and the first time in square, Dan gets a thorough approval round with every
+  asset reviewed before anything is built:** *"show me a thorough round of approval with all the assets pre-reviewed
+  before you make it, and then we'll go ahead and make it."* That means each graphic as a still on its real frame, the
+  title treatment, the key-point bar over an editor's burned pill, card layouts and caption placement, per
+  [PRE-RENDER-APPROVAL.md](PRE-RENDER-APPROVAL.md). Later batches reuse what he approved.
+- This supersedes "extracting shorts from an approved long-form keeps that film's approved graphics" for the shorts'
+  OWN graphics (title band, bars, chips). An editor's graphics burned into the picture are still handled, not restyled.
+
+## A horizontal clip inside a vertical or square frame is never cropped shorter (Dan, 2026-10-01)
+
+- **When a 16:9 clip sits as a card inside a 9:16 or 1:1 frame, show its full height. Never crop rows off the top or
+  bottom, which only makes the card shorter and adds black space.** Dan, finalizing SL-05: *"There's not ever any reason for you to crop horizontal videos within a vertical frame and make them shorter than they already are. There's already too much black space, so avoid crops like you did on that first draft of the power lifter clip that unnecessarily make the video shorter when we have a horizontal within a vertical frame."*
+- What it cost: SL-05 short 3's first build cropped Zeeshan's AI powerlifter clip to its top 69% (a 1080x419 strip) to
+  remove his burned key-point pill. That cut the barbell out of a deadlift clip. Dan: *"it's a little bit cut off and
+  unnecessarily cropped on the bottom... It looks like it's cropped shorter than it needs to be."* The approved fix was
+  the whole frame, 1080x608.
+- How to apply: a card's crop may only keep the full source height. Cropping the SIDES so the card gets taller (a
+  1170 px wide window of a 1920 px frame, for example) is fine when nothing essential is lost, because it reduces black
+  space. An editor's burned graphic inside the clip stays whole inside the card, and our own bar or chip that would
+  duplicate it comes off for that shot. If the editor's graphic is unacceptable, pick a different part of the clip or a
+  different clip; do not crop the height. This replaces the older "replace an editor's pill by cropping" recipe.
+- Applies to `/shorts`, `/shortad-from-longform` (vertical and square), `/ad-edit` verticals and any other skill that
+  places horizontal footage in a taller frame. Reviewers check it on the delivered file: any card shorter than its
+  source's full height at that width is a defect.
+
 ## Shorts stand alone: show the whole exercise, not a detail of it (Dan, 2026-09-30)
 
 - **A short must make complete sense to a viewer who never saw the long-form.** Leave out details that only work
@@ -43,6 +76,12 @@ rule and spell out all five slots. Reference:
 - Every approval packet opens with the first minute, then the AI frames, then a **"What I decided (overrule anything)"** list,
   then every graphic and clip in order, three per row. Dan: *"I like this 'What I Decided' section. Let's make this the standard
   way to do things going forward."* Layout and details: [PRE-RENDER-APPROVAL.md](PRE-RENDER-APPROVAL.md#the-review-page-one-layout-and-a-what-i-decided-list-on-every-packet-dan-2026-09-30).
+
+## Organic videos may name the drug (Dan, 2026-09-30)
+
+- **Organic content videos may say and subtitle Zepbound, tirzepatide, GLP-1 and any other drug name.** Dan: *"I plan to make a lot of organic videos where the entire topic of the video is Zepbound. Organic videos can say Zepbound, Tirzepatide, GLP-1, or any of those."* The never-a-brand-name rule is an AD rule (ad-edit Step 9.3) and stays for ads only.
+- The delivery gate still carries the ad rule on organic formats (`compliance:drug_names` and the `srt:shape` banned spelling "Zepbound"/"Ozempic" on `longform`); until that is changed with the regression corpus and a `GATE_VERSION` bump, those two rows failing on an organic video are the known mismatch, not a defect. Spoken and subtitled drug names are correct. Brand names in on-screen graphics on organic videos: not yet ruled; keep them out until Dan says otherwise.
+- Related, same day: do not tell viewers to "empty the entire vial" (Dan cut that ad-lib from RO-12: people on non-standard doses do not).
 
 ## Organic content approval budget (Dan, 2026-09-29)
 
@@ -283,7 +322,7 @@ something that we can publish."* Every point below is a standing rule for every 
 
 - **Never upload any video to YouTube as Public, and never use YouTube's native scheduling/publish-at path.** This applies to API uploads, Studio uploads, scripts and manual work. The upload-time visibility must always be non-public.
 - **Ad videos are always uploaded Unlisted.** No ad gets a separate Public YouTube copy, even if it will also be used on other platforms.
-- **Organic videos are always uploaded Private.** Blotato queues and releases the organic video at the intended time, including YouTube; do not schedule the Private upload to become Public from YouTube Studio or the YouTube API.
+- **Organic videos: Blotato only (Dan, 2026-10-01).** No Private holding upload. Blotato creates and releases the public YouTube video at the scheduled time; we never upload organic content to YouTube ourselves and never use YouTube native scheduling or publishAt. Ads stay Unlisted via `/ad-setup`.
 - Before reporting an upload complete, read back the saved visibility. It must be `unlisted` for an ad or `private` for organic content. A missing or different value is a failure; correct it before continuing. If the video type is unclear, use Private while resolving it—never Public.
 
 ## Audio: one standard, enforced by a stamp (2026-09-02)
