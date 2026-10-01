@@ -325,7 +325,19 @@ def verify(build, video):
         key = b.get("media") or f"beat{i}"
         idxs = sorted(set([n0 + k for k in range(0, nfr, 3)] + [n0 + nfr - 1]))
         fs, ms = masks_for(video, idxs, f"labels/verify_{key}")
-        worst = max(int(dilate(m, VERIFY_PX)[y:y + h, x:x + w].sum()) for m in ms)
+        # HIS BODY, not specks: on single compressed frames the segmenter marks a few px of the dark chip itself as
+        # "person" (Ad 8 10.3 s: 1,284 px on one frame of 26, on a chip a full head-height above him). The delivery
+        # gate's own measurement is the bound (kit_run's prewatch loop meets it); this stricter every-3rd-frame
+        # check counts only the mask's main connected region and anything at least a tenth its size.
+        from scipy.ndimage import label as _cc
+        def body(m):
+            lab, n = _cc(m)
+            if n <= 1:
+                return m
+            sizes = np.bincount(lab.ravel())[1:]
+            keep = [k + 1 for k, s_ in enumerate(sizes) if s_ >= 0.1 * sizes.max()]
+            return np.isin(lab, keep)
+        worst = max(int(dilate(body(m), VERIFY_PX)[y:y + h, x:x + w].sum()) for m in ms)
         ok = worst == 0
         bad += not ok
         out[key] = dict(box=[x, y, w, h], frames=len(ms), contact_px=worst, ok=ok)
