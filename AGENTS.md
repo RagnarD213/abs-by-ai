@@ -121,15 +121,22 @@ Full rule: read `.claude/skills/_shared/VIDEO-RULES.md`.
 
 Full rule: read `.claude/skills/_shared/VIDEO-RULES.md`.
 
-## Organic video setup: Codex thumbnail, Claude upload (Dan, 2026-09-30)
+## Thumbnails, covers and setup: one Claude handoff (Dan, 2026-10-01)
 
-- For every finished organic content video, **Codex makes the YouTube thumbnail options in its own task** (spec: `/video-setup`
-  Step 2), Dan picks, and **a Claude task does the upload and setup** (`/video-setup` without the thumbnail step) from the
-  finalized thumbnail Dan hands it. Write the two as separate handoffs. Template: `Handoffs/handoff-20260930-ro05-*`.
+- Claude can now generate Codex images on Dan's subscription. For a finished video, write **one Claude handoff** that makes
+  the thumbnail or cover options, stops for Dan's picks, then does the upload and setup. No separate Codex handoff.
+- The handoff and its starter prompt must say: **"Use the Codex subscription to generate the images."**
+- This replaces the 2026-09-30 Codex-thumbnail / Claude-upload split. Handoffs already written under the old split
+  (SL-05) finish as written. The five-choice mix and `/video-setup` rules are unchanged.
 
 ## Video task names in the sidebar (Dan, 2026-10-01)
 
-- Every video editing session renames itself at the start: `<short video title> <type> R<round>`, e.g. `Calories Don't Matter LFC R1`. Types: `LFC` long-form content, `SFC` short-form content, `AD` ad. Use as much of the title as fits the sidebar. A new round gets the next R number. Handoff starter prompts state the name.
+- Every video task renames itself at the start, and every handoff starter prompt states the name. The name **begins with
+  2-4 words that identify the video**, so Dan can tell which video it is from the first few words in the sidebar. Then
+  the type: `LFC` long-form content, `SFC` short-form content, `AD` ad.
+- Editing tasks end with the round: `<2-4 word title> <type> R<round>`, e.g. `Calories Don't Matter LFC R1`. A new round
+  gets the next R number.
+- Upload and setup tasks end with `Setup` instead: `<2-4 word title> <type> Setup`, e.g. `Stop Deadlifting SFC Setup`.
 
 ## Google Drive sharing: always public (Dan, 2026-09-24)
 

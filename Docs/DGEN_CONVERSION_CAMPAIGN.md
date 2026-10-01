@@ -487,3 +487,48 @@ with `containsSyntheticMedia=true`, category 26, not made for kids. Readback on 
 | Claude 9:16 59s | `DP5qT2E962o` | `425910599623` | `201149830478` / `826574115984` | `203342192834` / `826574115990` |
 
 The live Ad 8 copy matched `ad8.json`, so it was reused. All four new ads are ENABLED and `REVIEW_IN_PROGRESS` as of 2026-10-01. Recheck policy on 2026-10-02. `/start` URLs use `utm_campaign=dgen-conv-ad8&utm_content=claude-9x16[-59s]-start`; home URLs use `utm_content=claude-9x16[-59s]-home`. Exact per-ad URLs and IDs are in `scripts/ads/api/dgen-ads/ad8.result.json` (the 09-16 result is kept as `ad8.result.20260916.json`). The original 16:9 asset `422033285275` and ads `824925649893` and `824966555242` remain ENABLED and APPROVED. Both ad groups keep their $30 target CPA and audience `359424266`. The campaign budget `15862488218` read $50/day before and after (the handoff said $40/day; the live value was kept); no budget operation was sent. No organic copy.
+
+## 2026-10-01: new TRIAL campaign to the /start sales page (campaign `24316364155`)
+
+Dan's spec (`Handoffs/handoff-20261001-vsl-trial-campaign-six-ads.md`): `[DAN] [DGEN] [TRIAL] VSL page | 6 ads | MU 25-54 | US+CA`,
+$50/day, target CPA $40 on the campaign and on every ad group, Trial Signup (`7704441545`, SIGNUP / WEBSITE) as the only
+campaign-specific goal, one ad group per ad, every ad to `https://absbyai.com/start`. Built by
+`scripts/ads/api/dgen-trial-campaign.js` (44 operations, `validateOnly` then applied; readback in
+`scripts/ads/api/dgen-ads/trial-campaign.result.json`). Each ad is a clone of its approved twin in `24243839443`: same
+video asset, copy, logo, call to action and Audience. **ENABLED 2026-10-01 on Dan's instruction, not held for review.**
+Campaign `24243839443` was already PAUSED when this session started, so total Demand Gen budget is $50/day.
+
+**Trial conversion proved first.** `/start` buttons go to `/?join=1&from=vsl&v=letter-v1` plus the click id and UTMs; the
+cart opens; `create-cart-checkout` on production returned a live session whose metadata carried the click id (session
+expired unpaid, no card run); locally `handleCartComplete` sent one conversion to `AW-18361229851/AqLTCMnl4dkcEJvEqLNE`
+(value 20 USD, `gclaw` = the landing click id). There are no Stripe test keys, so the card step itself was not run.
+Google Ads: the action is ENABLED, last recorded 2026-09-19 (all conversions 1).
+
+| ad group | id | ads (version → ad id) |
+|---|---|---|
+| Ad 13 The Cost Of Getting Abs | `204553316830` | Muhammad 16:9 r4 `826635661894` |
+| RA-01 AI Got Me Abs | `206348100928` | Claude 16:9 `826595554299`, Claude vertical `826595554302` |
+| Ad 10 Busy Dad Fitness | `202248166482` | Muhammad 16:9 `826635657832`, Claude 9:16 `826635657835`, Claude 9:16 59s `826635657838` |
+| Ad 4 Stop Wasting Money On Supplements | `204553317030` | Muhammad 16:9 `826635661909` |
+| Ad 3 Stop Paying Human Trainers | `204320854441` | Muhammad 16:9 clean `826635679183`, Claude 9:16 `826635679186`, Claude 9:16 59s `826635679189`, Claude 1:1 R2.1 `826635679192` |
+| Ad 6 You're Not Too Old | `204444440607` | Muhammad 16:9 `826595554443` |
+
+URLs: `utm_campaign=dgen-trial-<ad13|ra01|ad10|ad4|ad3|ad6>&utm_content=<version>-vsl`. All 12 ads `REVIEW_IN_PROGRESS` at
+build; recheck with `node scripts/ads/api/client.js policy 24316364155`.
+
+**Frequency cap of 4 per user per day: NOT SET, Google does not offer it here.** The API refuses `frequency_caps` on a
+Demand Gen campaign on create and on update (`OPERATION_NOT_PERMITTED_FOR_CONTEXT`), and the campaign and ad group
+settings pages in the Ads interface have no frequency setting for this campaign type.
+
+**Watch:** the settings page warns that Trial Signup has had no conversions in the last 7 days, so target CPA bidding has
+almost nothing to learn from. If there is no delivery by 2026-10-04, report it to Dan with options.
+New formats of Ads 13, 4 and 6 go into these ad groups: add the video id to `ADS` in the script once its twin exists, or
+build the ad with `/ad-setup` pointed at campaign `24316364155`.
+
+**2026-10-01, Ad 10 headlines (Dan's own, trial campaign only):** all three Ad 10 ads in `24316364155` now carry
+"How Busy Dads Get Abs", "How 40+ Dads Can Get Abs", "A Busy Dad's Fitness System", "How I Got Abs At 40",
+"How I Lost Belly Fat With AI". Long headlines and descriptions unchanged. The old campaign's Ad 10 copy was not touched.
+
+**2026-10-01, Ad 3 headlines (Dan's own, trial campaign only):** all four Ad 3 ads in `24316364155` now carry
+"Fire Your Personal Trainer", "How AI Replaces Personal Trainers", "Human Trainers Hate Him", "How I Got Abs At 40",
+"Trainers Hate This AI App". Long headlines and descriptions unchanged. The old campaign's Ad 3 copy was not touched.
