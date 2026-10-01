@@ -93,8 +93,6 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 
 
-**Campaign images - NEEDS DAN 2026-10-01, Claude.** Dan picks: `Docs/CAMPAIGN_IMAGES_RESEARCH.md`.
-
 **SL-05 shorts - QUEUED 2026-10-01, Claude.** Blotato Oct 17-27. Next: Oct 11, confirm parent posted, else hold these. `Docs/SL05_SETUP_RECEIPT_20261001.md`.
 
 **RO-11 - NEEDS DAN 2026-10-01, Claude.** Round 1 page http://127.0.0.1:8802/. Next: `handoff-20261001-ro11-round1-dan-review.md`.
@@ -177,6 +175,7 @@ Memory `google-ads-ui-automation`.
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
 - `handoff-20261001-pmax-campaign-build.md` (10-01): after campaign images exist. Sol high.
+- `handoff-20261001-campaign-images-build.md` (10-01): 100 ad images. Opus high.
 - `handoff-20261001-vertical-kit-round2-full-build-after-lock.md` http://127.0.0.1:8806/
 - `handoff-20260930-codex-adopt-review-page-format.md` (09-30): Codex adopts the RO-16 review page. GPT-6 Sol medium.
 
