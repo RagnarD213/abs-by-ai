@@ -44,7 +44,7 @@ The eighth link (the first "Why Having Abs" link) is the old 09-29 V1 again, fra
 4. DS-13 steak start and end frames, on condition the potatoes come off the plate.
 
 ## For Dan's call (not in the doc)
-- Graphic style lock: the four top-graphic variations asked for on Getting Abs (09-26) are not in this delivery. All seven use his blue glass title bar and black chip with the olive tab. Every graphic item in the doc still says "wait until the graphic style is locked". If you already picked a style with him by message, those lines should come out.
+- Graphic style: superseded by the graphics kit below.
 - DS-10: both title bars read "MY GLP-1", not Zepbound. No graphic shows the brand name. Left alone.
 - DS-07 lock screen clip: an existing clip of a phone with YOUR goal image on the lock screen (A0074, Drive `1w7_cTaHHpWX4BDUQ-SFbfAEZc_FBH4Ic`) would avoid a new generation, but it follows another man's demo. The doc asks for a new clip of the demo man.
 - DS-09: the doc moves the app recording onto "Third, use AI to automate your life" (the script cue), which takes that line off camera.
@@ -52,14 +52,26 @@ The eighth link (the first "Why Having Abs" link) is the old 09-29 V1 again, fra
 - White flash transitions and the see-through gray AI label are unchanged from earlier shorts; left until the style lock.
 - Written as a new doc, like the 09-29 round.
 
+## Update, same day: graphics kit, B-roll pass, Dan's own edits, no end mark
+
+- **Graphics kit.** 46 Soft Blue Light graphics (titles, section titles, key points, chips) built as transparent 1080x1920 overlays placed above Dan's head, plus AI-GENERATED and real-picture label chips. Drive folder (public): https://drive.google.com/drive/folders/1L2Y1EfJTG4rYZNNtQXVieq4x2qbzENvk . Every graphic is linked under a GRAPHICS list in its video's section; the doc opens with a how-to section. Proof of every graphic over its frame: `revision docs/muhammad-graphics-proof-10-1-26.jpg`. Builder: `.claude/skills/revisions/reference/shorts-graphics-kit/`.
+- The strip is the approved Motivation lower third moved to the top at 0.875 scale, on a denser tint (an editor's overlay cannot blur the footage under it). This top placement and tint have not been approved by Dan as a locked 9:16 look.
+- DS-10's title graphic reads "3 UNEXPECTED Ways My GLP-1 Helped Me" (no brand name in a graphic until Dan rules).
+- **B-roll pass** (library clips added): DS-05 A0053 (AI man checking abs in mirror, 0:39.6); DS-06 A0141 + A0140 (AI lean man in gym, replaces the shirt-off stock man at 0:34.7); DS-07 A0074 (phone lock screen with the goal image, 0:08.1); DS-09 B0430 (Dan jumping rope, 0:52.0); DS-10 B0490 (hand grabbing chips on the junk food line, 0:12.3); DS-11 B0479 (Dan drinking water, 0:43.1); DS-13 B0441 (Dan sealing salad containers, 0:06.2) and B0443 (Dan pulling apart a rotisserie chicken, 0:32.7). Source ranges were read off the library previews, inside each clip's length, not checked frame by frame.
+- Dropped from the pass: A0043 AI-Dan desk clip (848x480, monitors fall outside a vertical crop), B0002 supplement counter (Dan wrote his own AI clip for that span), a second use of B0441 and B0490.
+- **Dan's own edits to the doc (kept word for word):** AI opener clips on DS-05, DS-07, DS-09, DS-10, DS-11 (three of them three-way split screens); DS-06 opens on camera scene; DS-05 0:08 clip must not look like a known fitness figure; DS-07 0:21 supplement-in-the-trash AI clip; DS-09 0:36 college-aged man, 0:39 robot clip; DS-09 "Workout At Home" title item removed.
+- **No AbsByAI.com end mark** (Dan, 10-01): removed from the doc and the kit; the doc tells him to take it off. Rule saved in VIDEO-RULES and memory.
+
 ## Paste-ready message to Muhammad
 
 Hey Muhammad, thanks for getting all of these over! This batch is a real step up. On the five new ones you nailed the framing and the audio without me having to ask, and showing me the AI clips as frames first is exactly how I want it done. The two V2s look way better too, and the new 20% and 15% body fat pictures are approved.
 
 All my notes are here: https://docs.google.com/document/d/1ib0VbJ3dqnqci-8seSpzR2DNf0-kKolWlyVe_-flWus/edit
 
+Big news on graphics: I locked the style for all short form videos and made every graphic for these seven videos myself, so you don't have to build any. They're transparent files you drop on the top track, and the doc links each one with its time. Just take your title bars and chips off.
+
 Two big things across every video. First, the cuts between takes still need a hard switch between a wide and a tight shot so I don't jump on screen. I listed the exact times for each video. Second, the pictures, clips and app screens are still playing in a card on the dark background, and I want every one of them full screen.
 
-One thing that's on me: the dating app clip I gave you for the millionaire video runs in the opposite order to what I'm saying, so I put the exact swap in the doc. And the captions can say Zepbound when I say it. My script note told you otherwise, so that's my fault too.
+I also added a few of my own clips and some AI opening clips to the doc. And one thing that's on me: the dating app clip I gave you for the millionaire video runs in the opposite order to what I'm saying, so I put the exact swap in the doc.
 
 The rest is small stuff in the doc. Thanks!

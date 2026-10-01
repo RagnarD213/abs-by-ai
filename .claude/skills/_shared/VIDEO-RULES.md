@@ -22,6 +22,12 @@ any older five-thumbnail mix with two pool photos. In future handoffs, link this
 rule and spell out all five slots. Reference:
 `Short-form video content/covers/review/jelly-bean-refresh/B3-jelly-beans-beat-soda-tight.png`.
 
+## No AbsByAI.com mark at the end of a video (Dan, 2026-10-01)
+
+- Do not put an "AbsByAI.com" mark graphic on screen at the end of a video, and do not ask an editor to add one. Dan:
+  *"I want to stop putting AbsByAI.com at the end of each video like that."* Older scripts that cue
+  "[AbsByAI.com mark on screen]" are overridden. The spoken call to action and description links are unchanged.
+
 ## New shorts batches: Soft Blue Light + HyperFrames; first vertical and square get a full pre-approval round (Dan, 2026-10-01)
 
 - **SL-05 (Stop Deadlifting) was the last batch of shorts in the J2 / olive graphic set.** Dan, reviewing it: *"this is the

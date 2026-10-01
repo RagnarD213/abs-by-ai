@@ -8,6 +8,14 @@ Read `_shared/VIDEO-RULES.md` first.
 **Task name (Dan, 2026-10-01):** every revisions task renames itself at the start to the editor's first name plus
 "revisions" (`Muhammad revisions`, `Zeeshan revisions`), so Dan can find it in the sidebar.
 
+**No AbsByAI.com end mark (Dan, 2026-10-01):** never write an item asking for the AbsByAI.com mark at the end of a video,
+even where the script cues it (VIDEO-RULES).
+
+**Graphics for an editor's shorts (Dan, 2026-10-01):** Dan prefers our Soft Blue Light graphics to an editor's own. Build
+the graphics for him as transparent 1080x1920 overlays (top strip above Dan's head), upload them to a public Drive folder
+and link each one in the doc. Builder and worked example: `/Volumes/Extreme/_edit_work/revisions-20261001/muhammad/kit/`
+(`kit.py`, `labels.py`, `READ ME.txt`); recipe copy in `revisions/reference/shorts-graphics-kit/`.
+
 ## Default jump-cut and junk-footage QC (Dan, 2026-09-29)
 
 Follow [CUT-CONTINUITY-QC.md](../_shared/CUT-CONTINUITY-QC.md) during source selection, before approval previews, and on the exact final candidate. Inspect every actual source/picture join, including reused composites, for a presenter jump without a distinct fixed wide/tight cut or complete approved clip cover. Fix uncovered jumps and recheck every boundary the repair creates. Detect and remove confirmed unscripted noises, empty lead-ins, unnecessary pauses and off-camera resets while protecting complete words, natural breaths and teaching action. Native consecutive frames plus moving/audio context are required; sparse scans and ASR alone cannot clear a join or authorize deletion. Keep the current still/frame, motion and full-render approval boundaries. This dated rule supersedes older suggestions that a pose match or audio fade alone clears a naked cut.

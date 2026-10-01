@@ -1,0 +1,15 @@
+SOFT BLUE LIGHT GRAPHICS FOR SHORT FORM VIDEOS
+
+These replace the title bar and the chips in every short form video. This is the locked graphic style from now on.
+
+HOW TO USE THEM
+1. Each video has its own folder. Every .mov is 1080x1920, 29.97 fps, with a transparent background (Apple Animation codec with alpha).
+2. Put each .mov on the top video track, lined up with the top left corner of the frame, at 100% scale. Do not move or resize it. It is already placed above my head.
+3. The file name gives the time it starts in the cut you sent me. Example: g04_0m10_3s_keypoint.mov starts at 0:10.3. Each file already runs the right length, with its own animation in and out.
+4. Take your own title bar and chips off. Captions stay.
+5. The "stills" folder has a PNG of each graphic, in case you need to hold one longer.
+6. The "0 Labels" folder has the two labels:
+   label_AI-GENERATED: on every AI picture and AI clip, for the whole time it is on screen.
+   label_REAL-PICTURE: on real photo shoot pictures of me.
+   Use the "top" version when no top graphic is on screen, and the "below-top-graphic" version when one is. If a label lands on a face or on abs, use the "chip-only" PNG and move it to a clear corner.
+7. If a start time moves after your changes, keep each graphic on the same words.
