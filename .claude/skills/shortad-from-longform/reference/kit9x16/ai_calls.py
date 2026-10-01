@@ -92,9 +92,11 @@ class Gemini:
         self.ledger, self.model_small, self.model_judge = ledger, model_small, model_judge
         self.key = _key()
 
-    def _call(self, model, parts, purpose, json_out=True, max_tokens=8192, temperature=0.0):
+    def _call(self, model, parts, purpose, json_out=True, max_tokens=8192, temperature=0.0, think=None):
         body = {"contents": [{"role": "user", "parts": parts}],
                 "generationConfig": {"temperature": temperature, "maxOutputTokens": max_tokens}}
+        if think is not None:                       # a cap on the model's thinking tokens (billed as output)
+            body["generationConfig"]["thinkingConfig"] = {"thinkingBudget": int(think)}
         if json_out:
             body["generationConfig"]["responseMimeType"] = "application/json"
         url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={self.key}"
@@ -138,8 +140,10 @@ class Gemini:
         parts.append({"text": prompt})
         return self._call(model or self.model_judge, parts, purpose, max_tokens=32768)
 
-    def text(self, prompt, purpose="cutdown", model=None):
-        return self._call(model or self.model_small, [{"text": prompt}], purpose, max_tokens=32768)
+    def text(self, prompt, purpose="cutdown", model=None, think=6000):
+        # Pro spent 20-30k thinking tokens on the cutdown pick ($0.26-0.39 a call, AV-09 2026-10-01); 6,000 is
+        # enough for a 50-sentence selection and keeps a call near a dime
+        return self._call(model or self.model_small, [{"text": prompt}], purpose, max_tokens=16384, think=think)
 
 
 class NoModel:
