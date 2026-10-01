@@ -82,12 +82,14 @@ def segments(f0, f1):
     return out
 
 def render_seg(sg):
-    key = hashlib.sha1(json.dumps([sg["src0"], sg["o1"]-sg["o0"], sg["framing"], F.LUT]).encode()).hexdigest()[:12]
+    key = hashlib.sha1(json.dumps([sg["src0"], sg["o1"]-sg["o0"], sg["framing"], F.CROP[sg["framing"]], F.LUT]).encode()).hexdigest()[:12]
     out = f"{W}/cache/seg_{sg['src0']}_{key}.mp4"
     if not os.path.exists(out):
         os.makedirs(f"{W}/cache", exist_ok=True)
-        ts = sg["src0"]/FPS
-        run([FF, "-v", "error", "-y", "-ss", f"{max(0, ts-1):.4f}", "-i", F.SRC, "-ss", f"{min(1, ts):.4f}", "-frames:v", str(sg["o1"]-sg["o0"]),
+        ts = sg["src0"]/FPS; ss_in = max(0, ts-1)
+        # round-2 review: the output seek is 0.4 frame EARLY. Seeking to the frame's exact time, rounded to 4 places, can land
+        # just past it; ffmpeg then drops that frame and repeats the next one (16 segments opened on a repeated frame).
+        run([FF, "-v", "error", "-y", "-ss", f"{ss_in:.4f}", "-i", F.SRC, "-ss", f"{max(0, ts-ss_in-0.4/FPS):.4f}", "-frames:v", str(sg["o1"]-sg["o0"]),
              "-vf", F.vf(sg["framing"]).replace("format=rgb24", "format=yuv420p"), "-an", "-c:v", "libx264", "-crf", "12", "-preset", "veryfast",
              "-colorspace", "bt709", "-color_primaries", "bt709", "-color_trc", "bt709", out + ".tmp.mp4"])
         os.rename(out + ".tmp.mp4", out)

@@ -88,7 +88,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # ACTIVE
 
-**Campaign Images R2 - BUILDING 2026-10-01, Codex.** Five revisions, 15 unchanged picks. Next: approval. `output/campaign-images-20261001/round2/`.
+**Campaign Images R2 - NEEDS DAN 2026-10-01, Codex.** Five revisions; 15 unchanged picks. Next: approve http://127.0.0.1:52737/round2/.
 
 **Trial thumbnails R3 - NEEDS DAN 2026-10-01, Codex.** Four locked. Next: confirm 13-R3B, pick 6-R2A/6-R3B. Review http://127.0.0.1:8811/round3/. Receipt: `Docs/TRIAL_THUMBNAIL_REVIEW_R3_20261001.md`.
 
@@ -103,7 +103,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **RO-13 - NEEDS DAN 2026-10-01, Claude.** Page http://127.0.0.1:8803/. Next: `handoff-20261001-ro13-round1-dan-review.md`.
 
-**RO-10 - IN PROGRESS 2026-10-01, Claude.** Full film building per `handoff-20261001-ro10-round2-build-full-film.md`.
+**RO-10 - NEEDS DAN 2026-10-01, Claude.** Delivered. Next: Dan reviews; `notes-RO10.md`.
 
 **RO-16 - NEEDS DAN 2026-10-01, Claude.** Round 3 sent. Next: Dan watches 5:00, 11:40.
 
