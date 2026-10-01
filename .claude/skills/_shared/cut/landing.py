@@ -13,7 +13,12 @@ The fix (facetrack3.py, then facetrack4.py and kit_track.py, now here as the onl
     segment start and the backward pass at the end, so out[0] == raw[0] and out[-1] == raw[-1] exactly and the
     middle is the zero-phase average;
   * optionally, a segment whose track wanders less than `fixed_under` px keeps ONE fixed centre (the least
-    correction that works, the shared framing rule of 2026-09-16).
+    correction that works, the shared framing rule of 2026-09-16);
+  * optionally, a `tolerance` (px): the crop still LANDS on him at the cut, then stays put until he is more than
+    `tolerance` off its centre, and only then follows, keeping him at the edge of that band (Dan, 2026-10-01: the
+    crop that follows him had become "excessive and distracting"; "a little bit more tolerance for going out of
+    center"). The exit is no longer anchored (the next take lands on him anyway). Off by default: every caller
+    that does not pass it gets exactly the track it got before.
 Measured result: landing error 0 px at every cut, exit error 0, the crop following at <= the slope cap.
 
   import landing
@@ -42,8 +47,17 @@ def limit_fwd(x, t, lim_px_s, fps=FPS):
     return np.array(o)
 
 
-def smooth_segment(n, x, slope_px_s, k=3, fixed_under=None, fps=FPS):
-    """One picture segment's track: endpoint-anchored, zero-phase, slope-limited. Returns the smoothed x."""
+def deadband(x, tol):
+    """Stay put until the target is more than `tol` away, then follow at the band's edge. Starts ON the target."""
+    o = [float(x[0])]
+    for v in x[1:]:
+        o.append(float(np.clip(o[-1], v - tol, v + tol)))
+    return np.array(o)
+
+
+def smooth_segment(n, x, slope_px_s, k=3, fixed_under=None, fps=FPS, tolerance=None, ease_s=0.75):
+    """One picture segment's track: endpoint-anchored, zero-phase, slope-limited. Returns the smoothed x.
+    With `tolerance`: lands on him, then a dead band of that many px, eased over `ease_s` (no exit anchor)."""
     n = np.asarray(n, float)
     x = np.asarray(x, float)
     L = len(x)
@@ -52,6 +66,14 @@ def smooth_segment(n, x, slope_px_s, k=3, fixed_under=None, fps=FPS):
     if L < 4:
         return x.copy()
     med = np.array([np.median(x[j - min(k, j, L - 1 - j):j + min(k, j, L - 1 - j) + 1]) for j in range(L)])
+    if tolerance:
+        h = deadband(med, tolerance)
+        # ease the band's corners: a centred mean over ease_s whose window shrinks to nothing at the first sample
+        # (so the landing stays 0 px), then the same slope cap, forward only
+        dt = float(np.median(np.diff(n))) / fps if L > 1 else 1.0
+        r = max(1, int(round(ease_s / 2 / max(dt, 1e-6))))
+        e = np.array([h[max(0, j - min(r, j)):j + min(r, j) + 1].mean() for j in range(L)])
+        return limit_fwd(e, n, slope_px_s, fps)
     f = limit_fwd(med, n, slope_px_s, fps)
     b = limit_fwd(med[::-1], (-n)[::-1], slope_px_s, fps)[::-1]
     w = (n - n[0]) / max(1.0, n[-1] - n[0])
@@ -68,7 +90,7 @@ def seg_bounds(segments, fps=FPS):
     return out
 
 
-def track(n, raw, segments, slope_px_s=170.0, k=3, fixed_under=None, fps=FPS):
+def track(n, raw, segments, slope_px_s=170.0, k=3, fixed_under=None, fps=FPS, tolerance=None):
     """The whole track: per picture segment, with a sample forced onto every segment's first and last frame
     (a renderer interpolating between samples must never interpolate across a cut). raw may hold NaN (no
     detection); it is interpolated first. Returns (frame indices, x, info)."""
@@ -92,12 +114,12 @@ def track(n, raw, segments, slope_px_s=170.0, k=3, fixed_under=None, fps=FPS):
             seg_n.append(n1 - 1)
             seg_x.append(float(np.interp(n1 - 1, src_n, src_x)))
         seg_x = np.array(seg_x, float)
-        out = smooth_segment(seg_n, seg_x, slope_px_s, k, fixed_under, fps)
+        out = smooth_segment(seg_n, seg_x, slope_px_s, k, fixed_under, fps, tolerance=tolerance)
         if fixed_under is not None and np.ptp(out) == 0 and len(out) > 1:
             fixed += 1
         n_all += [int(v) for v in seg_n]
         x_all += [float(v) for v in out]
-    return np.array(n_all), np.array(x_all), dict(segments=len(segments), fixed_segments=fixed, slope_px_s=slope_px_s)
+    return np.array(n_all), np.array(x_all), dict(segments=len(segments), fixed_segments=fixed, slope_px_s=slope_px_s, tolerance=tolerance)
 
 
 def errors(n, raw, x, segments, fps=FPS):
@@ -138,8 +160,20 @@ def selftest():
     v = [abs(xa[i + 1] - xa[i]) / max(1, na[i + 1] - na[i]) * FPS for i in range(len(na) - 1)
          if not any(na[i + 1] == s["n0"] for s in segs)]
     ok = e["landing"]["max"] == 0 and e["exit"]["max"] == 0 and max(v) <= 170 + 1e-6
-    print(json.dumps(dict(errors=e, max_pan_px_s=round(max(v), 1), verdict="PASS" if ok else "FAIL")))
-    return 0 if ok else 1
+    # with a tolerance: still lands on him (0 px), never further than the band + the easing's reach from him,
+    # never faster than the cap, and it travels less than the plain track
+    nt, xt, _ = track(n, raw, segs, slope_px_s=170, tolerance=30)
+    et = errors(nt, ra, xt, segs)
+    vt = [abs(xt[i + 1] - xt[i]) / max(1, nt[i + 1] - nt[i]) * FPS for i in range(len(nt) - 1)
+          if not any(nt[i + 1] == s["n0"] for s in segs)]
+    inside = lambda a_, x_: sum(abs(x_[i + 1] - x_[i]) for i in range(len(a_) - 1) if not any(a_[i + 1] == s["n0"] for s in segs))
+    off = float(np.max(np.abs(ra - xt)))
+    okt = et["landing"]["max"] == 0 and max(vt) <= 170 + 1e-6 and off <= 30 + 12 and inside(nt, xt) < inside(na, xa)
+    print(json.dumps(dict(errors=e, max_pan_px_s=round(max(v), 1),
+                          tolerance=dict(landing=et["landing"], max_off_px=round(off, 1), max_pan_px_s=round(max(vt), 1),
+                                         travel_px=[round(inside(na, xa)), round(inside(nt, xt))]),
+                          verdict="PASS" if ok and okt else "FAIL")))
+    return 0 if ok and okt else 1
 
 
 if __name__ == "__main__":

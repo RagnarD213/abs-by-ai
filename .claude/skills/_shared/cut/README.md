@@ -177,6 +177,9 @@ forward/backward slope-limited blend): landing and exit error 0 px. 2026-09-24 f
 forced onto a take's last frame used to be interpolated toward the NEXT take (kit_track /
 facetrack4), so the crop slid toward his post-cut position before the cut (selftest: exit error
 188 px median before, 0 after). `kit_track.py`, `facetrack3.py`, `facetrack4.py` import it.
+Optional `tolerance` px (2026-10-01, Dan: the crop following him had become "excessive and distracting"): the crop lands
+on him at the cut, holds until he is that far off its centre, then follows; no exit anchor. Off unless a caller passes
+it, so `facetrack3.py` / `facetrack4.py` are unchanged; `kit9x16/kit_track.py` passes 6 px by default.
 
 **`deadair.py`** presets: `ad` 0.22 s min, keeps 0.055 + 0.100 (ad-edit modern60); `website` 0.30,
 0.12 + 0.18 (the trust cut); `shorts` 0.66 (0.55-0.65 s is breath, never touched). On one uncut

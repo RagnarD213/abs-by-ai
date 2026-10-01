@@ -217,7 +217,7 @@ def main():
                 "--ledger", ledger])
         elif name == "sheet":
             sh([PY, os.path.join(SHARED, "edit-sheet", "validate.py"), SHEET, "--hash"])
-            sh([PY, K("sheet_to_kit.py"), "--sheet", SHEET, "--build", B])
+            sh([PY, K("sheet_to_kit.py"), "--sheet", SHEET, "--build", B, "--ai", a.ai, "--ledger", ledger])
         elif name == "graphics":
             sh([PY, K("sbl_graphics.py"), "--build", B, "--sheet", SHEET])
         elif name == "picture" and SHEET:

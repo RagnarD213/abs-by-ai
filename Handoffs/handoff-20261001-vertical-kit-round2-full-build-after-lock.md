@@ -47,15 +47,32 @@ square, 4 hard cut or flash, 5 proof film and which gate rows apply to an organi
   67 px/s, 0 of 25 takes held fixed), aim for about 30 % less, keep his head inside the frame on every sample and the
   gate's framing rows passing, and show the first minute before and after. `landing.py` is shared with `/shorts`:
   check who else calls it and say so; a gate-measured change needs the corpus entries that exercise framing.
-- **Still open: 1 (the 9:16 look of the graphics) and 5 (proof film and which gate rows apply).** Ask for both in one
-  line before the full build; everything above can be built and shown without them.
+- **Still open: 1 (the 9:16 look of the graphics) and 5 (proof film and which gate rows apply).** Dan's 10-01 evening
+  message left both as unfilled brackets. They are asked again on the round 2 page with two new ones (below).
+
+## Round 2a, done 2026-10-01 evening (clip rule + calmer camera; no full film)
+
+Page: `http://127.0.0.1:8807/` from `sbl-ro10/review2/` (restart: `cd` there, `python3 -m http.server 8807`). First
+minute before / after / calmest, the camera numbers, and all 19 clips with verdict, reason and the three crops.
+
+- **Clip rule built:** `kit9x16/clip_fit.py`, called by `sheet_to_kit.py` (the `--ai-clips` / `--card-shape` flags are
+  gone). RO-10: 6 fill (O2, H01, C04, C05, C08, C14), 12 square, 0 whole, P01 phone. Dan's flips go in
+  `sbl-ro10/clip_overrides.json` `{"C08": {"verdict": "square", "dan": "<his words>"}}`, then `--from sheet`.
+- **Calmer camera built:** `landing.py` `tolerance` (off by default; `facetrack3.py` / `facetrack4.py` unchanged),
+  `kit_track.py --tolerance` default 6 px. RO-10 travel 10,759 to 7,194 px (-33 %), p90 pan 62.9 to 36.4 px/s (-42 %).
+  `--tolerance 20` (-68 % / -64 %) is rendered as the CALMEST option. Tracks: `facetrack.tol0/6/20.json`.
+- **Dan owes four answers:** 1 camera (AFTER / CALMEST), 2 clip flips by ID, 3 the graphics look, 4 the proof film.
+- Round 1 state of the build is in `sbl-ro10/round1-state/`. Spend $0.55 (clip rule tuning; one pass is about 11 cents).
+- Timing note: the machine ran at load 70 to 140 all evening (four sessions). Conform 573 s, graphics 321 s, and
+  `kit_labels.py` 2,152 s for two chips (normally about 2 min). Do not put that labels number in the timing table.
+- NOT started: Work items 3 to 6 below (gate stages on a sheet build, the full film, cutdown, delivery).
 
 ## Work
 
 1. Record Dan's answers verbatim in `sbl-ro10/review/decisions.json` (id, verdict, his words, scope).
-2. Apply them: `kit_run.py --sheet ... --from sheet` passes nothing for clip treatment today; add `--ai-clips fill`,
-   `--card-shape square`, `--flash` as kit_run pass-through flags to `sheet_to_kit.py` (they exist there). Any look
-   note is fixed in the TEMPLATE or `vertical.py`, then `sbl_graphics.py` re-renders only what changed.
+2. Apply them: clip flips in `clip_overrides.json`; the camera choice is `kit_track.py --tolerance` (make CALMEST the
+   default there if he picks it). Any look note is fixed in the TEMPLATE or `vertical.py`, then `sbl_graphics.py`
+   re-renders only what changed.
 3. Make the gate stages work on a sheet build (not run yet): `kit_plan.py` (label tracks for card chips now come from
    `hf/plates.json` `chip`; graphic regions from `hf/manifest.json` boxes; talking-head windows: none), then
    prewatch, judges (three fresh sessions), fold. Run `gate.py` detached. Which format: per Dan's answer 5. No bound
@@ -77,8 +94,9 @@ square, 4 hard cut or flash, 5 proof film and which gate rows apply to an organi
 
 ## Starter prompt
 
-> Read `Handoffs/handoff-20261001-vertical-kit-round2-full-build-after-lock.md` and the files it lists. Dan's answers
-> to the RO-10 vertical graphic-lock page are: [paste the reply box]. Record them, apply them, make the gate stages
+> Name this task `Calories Reason AD-kit R3`. Read `Handoffs/handoff-20261001-vertical-kit-round2-full-build-after-lock.md`
+> and the files it lists. Dan's answers to the round 2 page (http://127.0.0.1:8807/) are: [paste the reply box: camera,
+> clip flips, the graphics look, the proof film]. Record them, apply them, make the gate stages
 > run on a sheet build, then build the full RO-10 9:16 and its 59 s cutdown from the edit sheet with no hand edit,
 > through the gate pre-check, three fresh judges, fold, cutdown and deliver, and send me the review copies with the
 > timing and cost against the old path. Explain the results in plain language.
