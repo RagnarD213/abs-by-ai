@@ -3725,9 +3725,11 @@ function fireAdConversion(label, opts) {
   // the sale to the ad click when the click cookie is gone (Safari, in-app
   // browsers, the iOS/Android WebViews). The tag SHA-256-hashes it in the
   // browser before anything leaves the page — no plaintext email reaches
-  // Google. Anonymous fires (Free Generation Started) carry nothing, as before.
+  // Google. A visitor with no account still carries the address they typed
+  // into the analysis page's email form (absbyai_email), if they left one. A
+  // first-time anonymous fire (Free Generation Started) has no email to send.
   try {
-    const email = String(opts.email || (isLoggedIn() ? auth.email : '') || '').trim().toLowerCase();
+    const email = String(opts.email || (isLoggedIn() ? auth.email : '') || localStorage.getItem('absbyai_email') || '').trim().toLowerCase();
     if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) gtag('set', 'user_data', { email });
   } catch (e) { /* attribution extra, never blocks the fire */ }
   try { gtag('event', 'conversion', payload); } catch (e) { return false; }
