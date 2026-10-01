@@ -142,3 +142,9 @@ changed (struck → replacement) because they did not say what the video is abou
    **"How I Got Abs At 40"**, **"How AI Got Me Abs"**, **"How I Got Abs With AI"** — first person, plain,
    the outcome stated as his own history, not as a reveal. Most viewers never read the copy (in-stream),
    but Google scrutinises it.
+
+7. **(2026-10-01) A headline names a person and the outcome he wants, not the product.** Dan rewrote 12 of 30
+   headlines in the trial campaign: every "plan / system / built around you / fitness" line went, replaced by
+   *How Busy Dads Get Abs*, *How Men 40+ Lose Belly Fat*, *How I Lost Belly Fat With AI* and the enemy shape
+   *Human Trainers Hate Him* / *Supplement Corps Hate Him*. Full table and the writing method: skill `/ad-copy`.
+   These are Dan's hand-written lines; the automatic generator's lint is unchanged.

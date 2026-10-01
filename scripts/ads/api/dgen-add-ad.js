@@ -49,6 +49,11 @@ const DAN_APPROVED = new Set([
   // Ad 1's own live, already-Google-approved headlines (read back from the account 2026-09-14).
   'See Yourself With Abs - Use AI', 'Abs by AI ®', "Abs By AI - Here's How It Works",
   'How I Got Abs With AI Workouts',
+  // Dan's own headlines, written in the Ads editor 2026-10-01 (trial campaign 24316364155). See /ad-copy.
+  'How Busy Dads Get Abs', 'How 40+ Dads Can Get Abs', 'How I Lost Belly Fat With AI', 'Human Trainers Hate Him',
+  'Trainers Hate This AI App', 'Human Trainers Hate This AI', 'Trainers Despise Him', 'Human Trainers Despise Him',
+  'How Men 40+ Lose Belly Fat', 'How To Get Abs After 40', 'How Busy 40+ Dads Lose Fat', 'How AI Got Me Abs At 40',
+  'Supplement Corps Hate Him',
 ]);
 
 // Lines Google has already refused in this account — never reuse them.

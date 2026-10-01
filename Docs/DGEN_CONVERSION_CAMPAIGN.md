@@ -577,3 +577,7 @@ then add a PostHog annotation.
 
 **Watch (report 2026-10-04):** the website group draws on about 110 to 430 people and may not deliver at all. Report its
 served status. Subscriber remarketing (Campaign B, `24316408288`) is documented in `Docs/YTADS.md`.
+
+**2026-10-01, Dan rewrote headlines on all six trial ads in the Ads editor.** RA-01, Ad 6, Ad 13 and Ad 4 as well as
+Ad 10 and Ad 3; his lines were then copied to every other format of each ad by API and read back (his editor Save
+had reverted the first sync). Live copy is the source of truth; the before and after table is in skill `/ad-copy`.
