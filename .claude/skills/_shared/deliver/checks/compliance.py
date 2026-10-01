@@ -319,6 +319,21 @@ def banned_screen(key, pr, cfg, plan, video, work):
 
 
 # ---------------------------------------------------------------------------- labels
+def _body_only(mask):
+    """The person mask without its specks. On single compressed frames Apple Vision marks a few hundred px of a dark
+    label chip's own lettering as "person" (kit autofill 2026-09-30: 632 to 6,822 px on chips a head-height away from
+    anyone, on one frame in ~26). A label can only cover a BODY, so the clearance is measured against the mask's
+    main connected region and every other region at least a tenth its size (a second person, a limb the frame cuts
+    off); smaller islands are the segmenter reading the graphic. The clearance bound itself is unchanged."""
+    from scipy.ndimage import label
+    lab, n = label(mask)
+    if n <= 1:
+        return mask
+    sizes = np.bincount(lab.ravel())[1:]
+    keep = [k + 1 for k, s in enumerate(sizes) if s >= 0.1 * sizes.max()]
+    return np.isin(lab, keep)
+
+
 def _measure_label_clearance(video, tracks, clearance_px):
     """Check each full label rectangle against an independent delivered-frame person mask."""
     from PIL import Image
@@ -383,6 +398,7 @@ def _measure_label_clearance(video, tracks, clearance_px):
             if not os.path.exists(mp):
                 return None, checked, f"person segmenter returned no mask for {os.path.basename(path)}"
             mask = np.asarray(Image.open(mp).convert("L").resize((W, H))) > 127
+            mask = _body_only(mask)
             mask = binary_dilation(mask, iterations=clearance_px)
             for _frame, name, t, (x, y, w, h) in meta[path]:
                 checked += 1

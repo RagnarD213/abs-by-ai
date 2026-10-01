@@ -268,6 +268,18 @@ class ContractV2Tests(unittest.TestCase):
         pairs, _, _ = CT.timed_word_pairs(late, speech[:5])
         self.assertGreater(max(abs(d) for d, _c, _s in pairs), 1.0)
 
+    def test_label_clearance_counts_bodies_not_specks(self):
+        m = np.zeros((400, 300), bool)
+        m[100:380, 80:220] = True            # him
+        m[20:26, 40:120] = True              # the segmenter reading a chip's lettering (480 px island)
+        m[300:380, 230:290] = True           # a second, smaller person (4,800 px = 12 % of him)
+        b = COMP._body_only(m)
+        self.assertFalse(b[20:26, 40:120].any())
+        self.assertTrue(b[100:380, 80:220].all())
+        self.assertTrue(b[300:380, 230:290].all())
+        one = np.zeros((50, 50), bool); one[10:20, 10:20] = True
+        self.assertTrue((COMP._body_only(one) == one).all())
+
 
 if __name__ == "__main__":
     unittest.main()

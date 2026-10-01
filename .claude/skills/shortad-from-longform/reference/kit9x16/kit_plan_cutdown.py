@@ -82,9 +82,12 @@ def main():
     punch, punch_covered = [], []
     for item, covered in zip(master.get("punch", []), master.get("punch_covered", [])):
         for beat in mapped_spans(item[:2]):
+            # split at a covered span's edge, but never into a sliver: his level runs a frame past the insert that
+            # covers it, and the split made a 1-frame "NEAR" segment the gate's cut:min_segment row fails
+            # (AV-09 cutdown, 28.46 and 48.42 s)
             cuts = sorted({beat[0], beat[1]} |
                           {x for a_, b_ in mapped_covered for x in (a_, b_)
-                           if beat[0] < x < beat[1]})
+                           if beat[0] + 0.2 <= x <= beat[1] - 0.2})
             for left, right in zip(cuts, cuts[1:]):
                 if right - left < 0.5 / FPS:
                     continue
