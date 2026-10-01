@@ -131,7 +131,12 @@ Full rule: read `.claude/skills/_shared/VIDEO-RULES.md`.
 
 ## Video task names in the sidebar (Dan, 2026-10-01)
 
-- Every video editing session renames itself at the start: `<short video title> <type> R<round>`, e.g. `Calories Don't Matter LFC R1`. Types: `LFC` long-form content, `SFC` short-form content, `AD` ad. Use as much of the title as fits the sidebar. A new round gets the next R number. Handoff starter prompts state the name.
+- Every video task renames itself at the start, and every handoff starter prompt states the name. The name **begins with
+  2-4 words that identify the video**, so Dan can tell which video it is from the first few words in the sidebar. Then
+  the type: `LFC` long-form content, `SFC` short-form content, `AD` ad.
+- Editing tasks end with the round: `<2-4 word title> <type> R<round>`, e.g. `Calories Don't Matter LFC R1`. A new round
+  gets the next R number.
+- Upload and setup tasks end with `Setup` instead: `<2-4 word title> <type> Setup`, e.g. `Stop Deadlifting SFC Setup`.
 
 ## Google Drive sharing: always public (Dan, 2026-09-24)
 
