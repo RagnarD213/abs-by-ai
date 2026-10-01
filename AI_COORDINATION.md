@@ -170,7 +170,6 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
-- `handoff-20261001-prevent-stuck-checkout-safe-push-and-drift-alarm.md` (10-01): safe push script + drift alarm. Opus medium.
 - `handoff-20261001-vertical-kit-from-our-own-edits.md` (10-01).
 - `handoff-20261001-sl05-shorts-covers-codex.md` (10-01): SL-05 covers REVIEW READY, awaiting five picks; `Docs/SL05_COVER_REVIEW_20261001.md`. Then `…-sl05-shorts-video-setup.md` after Oct 11, Opus medium.
 - `handoff-20260929-cut-broll-into-clip-library.md` (09-29): cut 68 B-roll clips into the library. Opus 5.5 medium.
