@@ -2,11 +2,29 @@
   "adNumber": 8,
   "label": "Ad 8 Two AI Futures",
   "videos": [
-    { "youtubeId": "HMZdiJMAI3Y", "version": "Muhammad 16:9", "utm": "muhammad-16x9" }
+    {
+      "youtubeId": "HMZdiJMAI3Y",
+      "version": "Muhammad 16:9",
+      "utm": "muhammad-16x9"
+    },
+    {
+      "youtubeId": "wsNG444pkNg",
+      "version": "Claude 9:16",
+      "utm": "claude-9x16"
+    },
+    {
+      "youtubeId": "DP5qT2E962o",
+      "version": "Claude 9:16 59s",
+      "utm": "claude-9x16-59s"
+    }
   ],
   "audience": {
     "label": "AI fitness + competitor apps + get abs belly fat",
-    "segments": ["1011510739", "1011514645", "1013657228"]
+    "segments": [
+      "1011510739",
+      "1011514645",
+      "1013657228"
+    ]
   },
   "copy": {
     "headlines": [

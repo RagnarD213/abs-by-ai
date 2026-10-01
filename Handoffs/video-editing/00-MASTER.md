@@ -184,7 +184,7 @@ handoff (`handoff-20260909-audio-match-muhammad.md`, waiting on your spray-tan s
 | 5 Every Diet You've Tried Failed | ✅ | ❌ AV-04 (round 2) | ❌ AV-04 | ❌ AS-03 | ❌ AS-03 |
 | 6 You're Not Too Old To Get Abs | ✅ | ❌ AV-05 | ❌ AV-05 | ❌ AS-04 | ❌ AS-04 |
 | 7 In 2010 I Photoshopped My Face | ✅ (typo fix owed by Muhammad) | ❌ AV-06 | ❌ AV-06 | ❌ AS-05 | ❌ AS-05 |
-| 8 AI Showed Me Two Futures | ✅ (uploaded 09-16) | ❌ AV-09 | ❌ AV-09 | ❌ AS-08 | ❌ AS-08 |
+| 8 AI Showed Me Two Futures | ✅ (uploaded 09-16) | ✅ (uploaded 10-01) | ✅ (uploaded 10-01) | ❌ AS-08 | ❌ AS-08 |
 | 10 My Dad Bod At 38 / 40 | ✅ | ❌ AV-07 | ❌ AV-07 | ❌ AS-06 | ❌ AS-06 |
 | 14 I Watched 400 Workout Videos | ✅ (HD arrived 09-16, not yet filed) | ❌ AV-08 | ❌ AV-08 | ❌ AS-07 | ❌ AS-07 |
 | 9 I Tried To Get Abs With ChatGPT | ✅ (round 4 finalized 09-21) | ❌ AV-10 | ❌ AV-10 | ❌ AS-09 | ❌ AS-09 |
@@ -204,7 +204,7 @@ handoff (`handoff-20260909-audio-match-muhammad.md`, waiting on your spray-tan s
 | [AV-06](AV-06-ad7-vertical.md) | Ad 7 | READY | M |
 | [AV-07](AV-07-ad10-vertical.md) | Ad 10 | UPLOADED | M |
 | [AV-08](AV-08-ad14-vertical.md) | Ad 14 | READY (file the 09-16 HD first) | M |
-| [AV-09](AV-09-ad8-vertical.md) | Ad 8: Two Futures | READY | M |
+| [AV-09](AV-09-ad8-vertical.md) | Ad 8: Two Futures | UPLOADED | M |
 | [AV-10](AV-10-ad9-vertical.md) | Ad 9: ChatGPT (round 4 source, 09-21) | READY | M |
 | [AV-11](AV-11-ad13-vertical.md) | Ad 13: Cost Of Getting Abs (round 4 source, 09-21) | READY | M |
 | [AV-12](AV-12-ad15-vertical.md) | Ad 15: T-Shirt Dad | READY | M |
