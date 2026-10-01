@@ -38,6 +38,19 @@ rule and spell out all five slots. Reference:
 - This supersedes "extracting shorts from an approved long-form keeps that film's approved graphics" for the shorts'
   OWN graphics (title band, bars, chips). An editor's graphics burned into the picture are still handled, not restyled.
 
+## A horizontal clip in a vertical: fill the frame, else centre square, else the whole clip (Dan, 2026-10-01)
+
+- **Default: the clip fills the phone frame** (a vertical crop of it). Dan, on the RO-10 vertical page: *"Use B unless
+  there's a strong reason not to... unless there's something critical in the sides where the clip wouldn't make sense,
+  where there are body parts cut off."*
+- **If filling the frame cuts off too much, show the centre square. If the square still cuts off too much, show the
+  whole clip in a card.** *"I want it to depend on whether there's something in the sides that's critical."* His two
+  worked examples: the AI man on the scale (one centred person, nothing at the sides) fills the frame; the overhead
+  salad table (the subject spreads across the frame) is a centre square.
+- Applies to our own AI clips and to stock, in every vertical (`/shortad-from-longform` sheet builds, `/shorts`,
+  `/ad-edit` verticals). The whole-clip card still never crops height (rule below). Returns from a card are hard cuts.
+- Going forward, AI clips made for a film that will get a vertical are framed with the subject in the centre third.
+
 ## A horizontal clip inside a vertical or square frame is never cropped shorter (Dan, 2026-10-01)
 
 - **When a 16:9 clip sits as a card inside a 9:16 or 1:1 frame, show its full height. Never crop rows off the top or

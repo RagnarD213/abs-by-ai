@@ -29,6 +29,27 @@ square, 4 hard cut or flash, 5 proof film and which gate rows apply to an organi
   graphics about 45 min (63 HyperFrames renders, the slow part), words 2 min, captions 1 min. Picture and mux not
   timed yet. The editor-master path was 133 to 143 min and about 15 cents.
 
+## Dan's answers so far (2026-10-01, verbatim in `sbl-ro10/review/decisions.json`)
+
+- **Clips (decisions 2 and 3): one three-step rule for every horizontal clip.** Fill the phone frame by default; if
+  that cuts something critical at the sides (or cuts body parts), the centre square; if the square still cuts too
+  much, the whole clip in a card. His examples: O2 (man on the scale) fills; C02 (overhead salad) is a square. Now in
+  `VIDEO-RULES.md`. Build it into `sheet_to_kit.py` in place of `--ai-clips` / `--card-shape`: for each clip compare
+  the three crops and pick the tightest that loses nothing critical. The person-mask extent alone is NOT enough (it
+  read C02 as 90 % wide and O2 as 35 %): use a cheap vision call on the three candidate crops through `ai_calls.py`
+  (ledgered, a fraction of a cent each; real-or-AI labels stay facts from the sheet), and record each verdict and its
+  reason in `sheet_report.json`. Show Dan all 19 clips' results on the round 2 page.
+- **Transitions (4): hard cut.** Already the default.
+- **New: calm the camera.** The crop that follows him has become "excessive and distracting"; he wants about 30 %
+  less movement with more tolerance for being off centre, without going back to no movement (where he left the
+  frame). Do it in this job: `kit_track.py` (`--slope` 170 px/s, `--fixed-under` 40 px) and the shared smoother
+  `_shared/cut/landing.py`. Measure total crop travel and p90 pan speed on RO-10 before and after (round 1: p90
+  67 px/s, 0 of 25 takes held fixed), aim for about 30 % less, keep his head inside the frame on every sample and the
+  gate's framing rows passing, and show the first minute before and after. `landing.py` is shared with `/shorts`:
+  check who else calls it and say so; a gate-measured change needs the corpus entries that exercise framing.
+- **Still open: 1 (the 9:16 look of the graphics) and 5 (proof film and which gate rows apply).** Ask for both in one
+  line before the full build; everything above can be built and shown without them.
+
 ## Work
 
 1. Record Dan's answers verbatim in `sbl-ro10/review/decisions.json` (id, verdict, his words, scope).
