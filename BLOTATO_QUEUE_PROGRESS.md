@@ -13,6 +13,20 @@ Last updated 2026-10-01.
   imports `scripts/blotato/ad_guard.py`; audit with `python3 scripts/blotato/ad_guard.py --scan`. See the incident below.
 - **NEW PERMANENT RULE (Dan, 2026-09-16): Blotato owns future organic YouTube releases.** Upload organic videos to YouTube as Private and leave them Private; queue the release through connected YouTube account `46963`. Never upload Public or use YouTube native scheduling. Ads remain Unlisted and are not released publicly on YouTube. Existing native schedules are historical and must not be copied into new work; avoid double-posting anything already queued under the old process.
 
+## DONE: SL-05 Stop Deadlifting shorts x5 (2026-10-01)
+
+FB, IG @danrosefit, TikTok and YouTube (Blotato creates it at release; no holding upload), 9 AM CDT, keyword `TRAIN`. AI flag on for shorts 1, 2, 3, 4; off for 5. Queue 137 to 157; ad-guard clean before and after.
+
+| short | date | FB / IG / TikTok / YouTube |
+|---|---|---|
+| 1 more injuries | Sat Oct 17 | `5053506` / `5053507` / `5053509` / `5053510` |
+| 4 two back exercises | Tue Oct 20 | `5053515` / `5053516` / `5053517` / `5053518` |
+| 2 safer lifts | Thu Oct 22 | `5053520` / `5053522` / `5053523` / `5053524` |
+| 5 train legs | Sat Oct 24 | `5053527` / `5053528` / `5053529` / `5053530` |
+| 3 powerlifter body | Tue Oct 27 | `5053535` / `5053536` / `5053538` / `5053539` |
+
+- Queued before the parent is public (it posts Oct 11). If the parent fails to post, hold these. Receipt: `Docs/SL05_SETUP_RECEIPT_20261001.md`.
+
 ## DONE: RO-12 "Top 5 Zepbound Tips To Lose Fat And Keep Your Muscle" (2026-10-01)
 
 Master `claude edited long form content/09 - Top 5 Zepbound Tips/Top 5 Zepbound Tips | claude | 16x9 | RO-12.mp4`, SHA-256 `7f6766c5…7cae67b` (2,419,960,621 bytes, 9:11.42); same file + .srt on the Extreme drive and Google Drive (`Claude Content Videos/Top 5 Zepbound Tips - RO-12`, folder `1nOpRxT9nusbHYNFMcBCKRUf7eGOgIuxN`, anyone with the link). No YouTube holding copy (Blotato-only rule, 2026-10-01): Blotato creates the public video with Dan's FINAL thumbnail (Codex R3 C), synthetic media on (three labelled AI clips).
@@ -52,7 +66,7 @@ Master = Zeeshan's **"Video 3 Rev 5"** (delivered 09-29, answers round 5: Rev 3 
 - Blotato copy re-encoded to 264 MB (4 Mbps VideoToolbox, audio stream-copied): master is over the 400 MB cap. Re-hosted files MD5-matched.
 - TikTok: cover prepended as frame 0, `videoCoverTimestamp: 0` (frames 16678 to 16679, audio packets 26086 unchanged, cover match 54.0 dB).
 - Keyword `TRAIN`; UTM `utm_content=stop-deadlifting`. Config `scripts/blotato/configs/stop-deadlifting.json`.
-- Owes: SL-05 shorts (edit queue); sixpackabs article `sixpackabs/articles/TBD-stop-deadlifting.md` to publish after Oct 11 (rename to the public id).
+- SL-05 shorts queued 10-01 for Oct 17-27 (see below). Owes: sixpackabs article `sixpackabs/articles/TBD-stop-deadlifting.md` to publish after Oct 11 (rename to the public id).
 
 ## DONE: DS-18 "How to Do Kettlebell Deadlifts the Right Way at Home" (2026-09-28)
 

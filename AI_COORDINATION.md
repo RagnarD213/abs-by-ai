@@ -92,6 +92,8 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 
 
+**SL-05 shorts - QUEUED 2026-10-01, Claude.** Blotato Oct 17-27. Next: Oct 11, confirm parent posted, else hold these. `Docs/SL05_SETUP_RECEIPT_20261001.md`.
+
 **RO-11 - NEEDS DAN 2026-10-01, Claude.** Round 1 page http://127.0.0.1:8802/. Next: `handoff-20261001-ro11-round1-dan-review.md`.
 
 **RO-12 - QUEUED 2026-10-01, Claude.** Blotato Oct 25. Then: `Docs/RO12_SETUP_RECEIPT_20261001.md`, delete.
@@ -173,6 +175,8 @@ Memory `google-ads-ui-automation`.
 - `handoff-20260929-cut-broll-into-clip-library.md` (09-29): cut 68 B-roll clips into the library. Opus 5.5 medium.
 - `handoff-20260930-codex-adopt-review-page-format.md` (09-30): Codex adopts the RO-16 review page. GPT-6 Sol medium.
 
+- `handoff-20261001-move-project-out-of-icloud.md` (10-01): move the project out of iCloud's Documents sync (109k duplicates, 199 cloud-only files). Run when nothing else runs here. Opus 5.5 high.
+- `handoff-20261001-rebuild-ios-project.md` (10-01): rebuild the iPhone project iCloud wiped. ⚠ iCloud recovery window closes about 10-17. No Apple upload. GPT-6 Sol high.
 - `handoff-20260930-ad-performance-pick-5-for-vsl-campaign.md` (09-30): pick 5 ads, VSL campaign. READY: /start is live (200, plays WV-01, 09-30). Opus high. Replaces:
 - `handoff-20260929-start-page-performance-verdict.md` (09-29): /start keep-or-fold.
 - `handoff-20260924-generator-consult-call-outreach.md` (09-24): fire by 09-26.
