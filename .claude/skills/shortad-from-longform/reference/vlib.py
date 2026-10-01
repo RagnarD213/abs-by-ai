@@ -586,8 +586,11 @@ def overlay_lower_third(lines, dur, fps=FPS, y_bottom=1600, in_dur=0.55, equal=F
                             fill=OLIVE+(int(235*o*gw),))
         d.rounded_rectangle([bx, by, bx+int(bw*gw), by+bh], radius=8, fill=(0,0,0,int(232*o)))
         yy = by + 17
+        # a short lower third types on faster: the full line reads for at least half its time (his 1.4 s line had
+        # finished typing 8 frames before it faded, Ad 10 142.3 s)
+        sp = min(1.0, max(0.35, (dur * 0.5 - 0.32) / (0.20 + (len(lines) - 1) * 0.55 + 0.80)))
         for n, (txt, f, lh) in enumerate(zip(lines, fs, lhs)):
-            k = clamp01((t - 0.20 - n*0.55)/0.80)
+            k = clamp01((t - (0.20 + n*0.55) * sp)/(0.80 * sp))
             draw_type(d, txt, f, bx + (bw - text_size(txt, f)[0])//2, yy,
                       INK+(int(255*o),), k)
             yy += lh

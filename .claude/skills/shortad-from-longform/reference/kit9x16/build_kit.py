@@ -538,6 +538,11 @@ def main():
         if "t0" not in it:
             t0 = round(t0 - L["lead_s"], 3)
             t1 = round(min(max(t1, t0 + L["min_s"]), t0 + L["max_s"]), 3)
+        elif t1 - t0 < L["min_s"]:
+            # HIS lower third shorter than the kit's minimum (Ad 10 142.3 s: 1.4 s, readable for 8 frames once it had
+            # typed on, judged unreadable): it holds to the minimum where no other overlay starts in that time
+            nxt_ov = [float(o["t0"]) for o in C.get("lower_thirds", []) + (C.get("ctas") or []) if "t0" in o and float(o["t0"]) > t0 + 0.01]
+            t1 = round(min([t0 + L["min_s"]] + [x - 0.15 for x in nxt_ov if x - 0.15 > t1]), 3)
         # never over a text plate: clip to the talk/insert beat it sits on
         for b in tl:
             if b["kind"] in TEXT_KINDS and b["t0"] < t1 and b["t1"] > t0:
