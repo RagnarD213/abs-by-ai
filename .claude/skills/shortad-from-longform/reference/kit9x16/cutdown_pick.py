@@ -179,8 +179,9 @@ def main():
         R = [(max(0, int(x)), min(len(S) - 1, int(y))) for x, y in res["ranges"]]
         tot = sum(S[y]["t1"] - S[x]["t0"] + 0.15 for x, y in R)
         probs, E_ = seam_problems(R) if R else (["no ranges"], None)
-        if tot > a.max + 1.0:
-            probs.append(f"it measures {tot:.1f}s (limit {a.max:.0f}s)")
+        real = sum(t1 - t0 for t0, t1, _ in E_) + 0.35 * len(R) if E_ else tot      # + the word-tail pad per range
+        if tot > a.max + 1.0 or real > 58.3:
+            probs.append(f"it measures {max(tot, real):.1f}s (limit {a.max:.0f}s)")
         if tot < 45.0:
             probs.append(f"it measures only {tot:.1f}s: use at least 45 s of the {a.max:.0f} s")
         if caps and E_:
