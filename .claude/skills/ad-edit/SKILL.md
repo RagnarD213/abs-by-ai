@@ -426,6 +426,22 @@ Not a center crop. Rebuild the frame:
    Dan needs no actor disclaimer, but keep "Results are not guaranteed" if the ad
    shows transformation claims and Dan hasn't said otherwise. ⏳ confirm on ad #1.
 
+## THE EDIT SHEET: written and validated BEFORE the delivery gate **(REQUIRED on every 16:9, 2026-10-01)**
+
+```
+python3 .claude/skills/_shared/edit-sheet/sheet_from_claude_build.py <build dir> --master <delivered 16:9> [--approved "<Dan's words>"]
+python3 .claude/skills/_shared/edit-sheet/validate.py "<delivered 16:9 minus .mp4>.edit-sheet.json" --hash
+```
+
+Every finished 16:9 writes `<master>.edit-sheet.json` beside it: the cut's exact frames, the crop and measured head
+position per shot, the words, every graphic's template and config, every picture with its real-or-AI label and who is
+in it, the audio and what Dan approved (`_shared/edit-sheet/README.md`). The vertical kit builds the 9:16 and the 59 s
+cutdown from it with no reverse-engineering (`kit9x16/kit_run.py --sheet`). **A sheet that fails `validate.py` blocks
+the delivery gate stamp: do not run the gate until it passes, and never hand-edit the sheet to pass it.** So the
+plan must record, for every clip and photo item, `people` (`dan` / `other` / `none`) and `physique` (true / false)
+beside its `label`; the sheet writer refuses to guess them. Graphics must come from the HyperFrames templates
+(`from_plan.py`) to be redrawable at 9:16.
+
 ## THE DELIVERY GATE — `_shared/deliver/gate.py` **(REQUIRED on the delivered file, 2026-09-11)**
 
 ```bash

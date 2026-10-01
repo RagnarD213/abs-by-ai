@@ -47,16 +47,28 @@ CHIP_BOTTOM_MAX = 1340        # above the caption band (CAP_Y 1400 minus the sha
 INK = (255, 255, 255, 255)
 
 
+SBL = False                   # set from beats.json `style`: a sheet build draws the Soft Blue Light chip (softblue.disclosure)
+
+
+def _font(size):
+    if SBL:
+        import softblue
+        return softblue.font(size, False)
+    return font(size, "SemiBold")
+
+
 def chip_parts(label, lines):
-    if lines == 1 or label != REAL_LABEL:
+    if lines == 1 or not label.lower().startswith("real picture"):
         return [label]
+    if SBL:                                           # "Real picture of me. Not AI-generated."
+        return ["Real picture of me.", "Not AI-generated."] if lines == 2 else ["Real picture", "of me. Not", "AI-generated."]
     if lines == 2:
         return ["Real picture of me", "- not AI-generated"]
     return ["Real picture", "of me - not", "AI-generated"]
 
 
 def chip_dims(label, lines, size):
-    f = font(size, "SemiBold")
+    f = _font(size)
     parts = chip_parts(label, lines)
     w = max(text_size(p, f)[0] for p in parts) + 34
     h = (int(size * 1.18) * len(parts) + 22) if lines > 1 else text_size(parts[0], f)[1] + 22
@@ -64,12 +76,12 @@ def chip_dims(label, lines, size):
 
 
 def chip_at(label, x, y, lines=1, size=34):
-    f = font(size, "SemiBold")
+    f = _font(size)
     parts = chip_parts(label, lines)
     w, h = chip_dims(label, lines, size)
     lay = Image.new("RGBA", (VW, VH), (0, 0, 0, 0))
     d = ImageDraw.Draw(lay)
-    d.rounded_rectangle([x, y, x + w, y + h], radius=9, fill=(0, 0, 0, 215))
+    d.rounded_rectangle([x, y, x + w, y + h], radius=(h * 3 // 10 if SBL else 9), fill=((6, 17, 30, 255) if SBL else (0, 0, 0, 215)))
     if len(parts) == 1:
         d.text((x + 17, y + 11), parts[0], font=f, fill=INK, anchor="lt")
     else:
@@ -120,7 +132,7 @@ def candidates(label, union, hbox):
 
     def clear(x, y, w, h):
         return ii[y + h, x + w] - ii[y, x + w] - ii[y + h, x] + ii[y, x] == 0
-    lines_opts = (1, 2, 3) if label == REAL_LABEL else (1,)
+    lines_opts = (1, 2, 3) if label.lower().startswith("real picture") else (1,)
     out = []
     for cls in ("A", "B", "C"):
         for size in (44, 40, 36, 34, 32, 30, 28):
@@ -202,6 +214,8 @@ def place(build, only=None):
     os.chdir(build)
     sys.path.insert(0, os.getcwd())
     J = json.load(open("beats.json"))
+    global SBL
+    SBL = J.get("style") == "softblue"
     import beats as B
     tl, _ = B.timeline()
     todo = [(i, b) for i, b in enumerate(tl) if b["kind"] == "bleed" and b.get("label_kind") in ("real", "ai")]
@@ -238,7 +252,7 @@ def place(build, only=None):
     for i, b in todo:
         n0, nfr = starts[i]
         key = b.get("media") or f"beat{i}"
-        label = REAL_LABEL if b["label_kind"] == "real" else AI_LABEL
+        label = b.get("sheet_label") or (REAL_LABEL if b["label_kind"] == "real" else AI_LABEL)
         vid = f"out/s{i:03d}.mp4"
         idxs = sorted(set(list(range(0, nfr, 3)) + [nfr - 1]))
         fs, ms = masks_for(vid, idxs, f"labels/{key}")

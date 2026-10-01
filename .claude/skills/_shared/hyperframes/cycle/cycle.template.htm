@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=1920, height=1080" />
+    <meta name="viewport" content="width=__W__, height=__H__" />
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
     <style>
       /* Soft Blue Light, 3A card family (softblue.py LT_* constants), cycle-diagram variant. */
@@ -21,7 +21,7 @@
         --teal: 45, 212, 191;                   /* the turn around */
       }
       * { margin: 0; padding: 0; box-sizing: border-box; }
-      html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: transparent; }
+      html, body { margin: 0; width: __W__px; height: __H__px; overflow: hidden; background: transparent; }
       #root { position: relative; width: 100%; height: 100%; font-family: "Poppins", sans-serif; font-weight: 700; }
       #stage { position: absolute; inset: 0; }
       #drift { position: absolute; left: 36px; top: 42px; width: 740px; height: 488px; }
@@ -55,7 +55,7 @@
     </style>
   </head>
   <body>
-    <div id="root" data-composition-id="__ID__" data-start="0" data-duration="__DUR__" data-width="1920" data-height="1080">
+    <div id="root" data-composition-id="__ID__" data-start="0" data-duration="__DUR__" data-width="__W__" data-height="__H__">
       <div id="stage">
         <div id="drift">
           <div id="card">
@@ -159,6 +159,12 @@
 
       const tl = gsap.timeline({ paused: true });
       const D = CFG.dur;
+      // 9:16 / 1:1: the same 740 x 488 card, scaled and moved to its place (CFG.place = {x, y, scale} of the card's corner)
+      if (CFG.place) {
+        const st = document.getElementById("stage"), k = CFG.place.scale;
+        st.style.transformOrigin = "0 0";
+        st.style.transform = "translate(" + (CFG.place.x - 36 * k) + "px," + (CFG.place.y - 42 * k) + "px) scale(" + k + ")";
+      }
       const HUE = CFG.hue;
 
       // ---------- always drifting ----------

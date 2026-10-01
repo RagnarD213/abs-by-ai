@@ -62,6 +62,10 @@ mask pass and the BT.601 decode trap: [`hyperframes/README.md`](hyperframes/READ
 left-third card beside Dan, not full screen ("a little bit empty when it's full screen"). Graphic kinds without a
 template (title cards, study, chart, recap, phone) still use `softblue.py` as below.
 
+**9:16 with the same templates (2026-10-01):** `hyperframes/vertical.py` lays every template out at 1080x1920 from the
+16:9's own configs (plus `title-card/`, `media-card/`, `cta/`); the vertical kit uses it for sheet builds. See
+`hyperframes/README.md`, "9:16 layouts".
+
 ## What is historical now
 
 `motionlib.py` palettes (`GREEN`, `J2AD`, `MIL`, `PAPER`), J2/olive panels and chips, and components

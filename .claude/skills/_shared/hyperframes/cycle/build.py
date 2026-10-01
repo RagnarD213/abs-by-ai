@@ -62,7 +62,8 @@ def main():
         c = scene_cfg(s)
         d = out / c["id"]; (d / "assets").mkdir(parents=True, exist_ok=True)
         (d / "index.html").write_text(tpl.replace("__CFG__", json.dumps(c, indent=2))
-                                      .replace("__ID__", c["id"]).replace("__DUR__", str(c["dur"])))
+                                      .replace("__ID__", c["id"]).replace("__DUR__", str(c["dur"]))
+                                      .replace("__W__", "1920").replace("__H__", "1080"))
         (d / "package.json").write_text(package_json(c["id"]))
         (d / "hyperframes.json").write_text(json.dumps({"paths": {"assets": "assets"}}, indent=2))
         font = d / "assets/Poppins-Bold.ttf"

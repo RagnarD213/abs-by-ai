@@ -73,3 +73,15 @@ Before transcribing, picking a lav, or building a contact sheet for a source cli
 19. **No swipe SFX; his transitions.** Silent bloom flashes and in-card whip-pans, measured off his ab-wheel HD master.
 20. **His graphics, rebuilt from his frames.** Not generic bars, not "KEY POINT" tabs, not home-made stat cards.
 21. **Open a recipe video on the finished dish; never crop hair the camera captured** (dense hair measurement per shot).
+
+## D. Every finished 16:9 writes its edit sheet (Dan, 2026-10-01: "I plan to edit all videos with Claude and Codex")
+
+22. **At delivery, write `<master>.edit-sheet.json` beside the master and run `_shared/edit-sheet/validate.py SHEET
+    --hash`.** A failing sheet blocks the delivery gate stamp. The sheet is what lets the vertical kit build the 9:16
+    and the 59 s cutdown with no reverse-engineering (`_shared/edit-sheet/README.md`). Claude: `sheet_from_claude_build.py`.
+    Codex: write it from your own data files (`_shared/edit-sheet/CODEX.md` lists what your builds do not record yet).
+23. **The render reads data, not code.** Cut (with the real first raw frame of each segment), measured head position
+    per segment, graphics (template + config + the words that drive them), pictures (real or AI, chip text, who is in
+    it, physique yes or no, any crop Dan approved), grade, audio, approvals. No fix after the render without updating them.
+24. **Graphics come from the HyperFrames templates** (`_shared/hyperframes/`), so the same config redraws at 9:16.
+    A graphic from any other renderer stops the vertical build.

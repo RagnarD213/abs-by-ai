@@ -24,8 +24,10 @@ PUSHES = [tuple(p) for p in _J.get("pushes", [])]
 FLASHES = [tuple(f) for f in _J.get("flashes", [])]
 NO_CAPS_KINDS = set(_J.get("no_caps_kinds", ["window", "title", "stmt", "cta"]))
 NO_CAPS_BODIES = set(_J.get("no_caps_bodies", []))
-BASE_KINDS = set(_J.get("base_kinds", ["talk", "window", "card", "title", "stmt", "bleed", "bleed2", "winmedia"]))
+BASE_KINDS = set(_J.get("base_kinds", ["talk", "window", "card", "title", "stmt", "bleed", "bleed2", "winmedia", "hf"]))
 SEAMS = list(_J.get("seams", []))
+STYLE = _J.get("style", "olive")           # "softblue": a sheet build, graphics from HyperFrames (render_sbl.py)
+CAP_LIFTS = [tuple(x) for x in _J.get("cap_lifts", [])]   # (t0, t1, y): captions sit at y while a bottom card is up
 DEVIATIONS = _J.get("deviations", [])
 CTA_TOP, CTA_BIG = _J.get("cta_top", "Get A FREE AI Image Of Yourself"), _J.get("cta_big", "With Abs")
 

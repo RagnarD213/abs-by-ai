@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=1920, height=1080" />
+    <meta name="viewport" content="width=__W__, height=__H__" />
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
     <style>
       /* Soft Blue Light 3A left-third card (softblue.py LT_* constants), with motion. Geometry comes from build.py. */
@@ -15,9 +15,9 @@
         --spec: rgb(135, 210, 248);            /* SPECULAR */
       }
       * { margin: 0; padding: 0; box-sizing: border-box; }
-      html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: transparent; }
+      html, body { margin: 0; width: __W__px; height: __H__px; overflow: hidden; background: transparent; }
       #root { position: relative; width: 100%; height: 100%; font-family: "Poppins", sans-serif; font-weight: 700; }
-      #group, #inner { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+      #group, #inner { position: absolute; left: 0; top: 0; width: __W__px; height: __H__px; }
       #card { position: absolute; border-radius: 32px; background: var(--fill); border: 2px solid var(--edge); overflow: hidden; }
       #spec { position: absolute; top: 1px; left: 24px; width: 170px; height: 2px; border-radius: 1px;
         background: linear-gradient(90deg, rgba(135,210,248,0), var(--spec) 30%, var(--spec) 70%, rgba(135,210,248,0)); }
@@ -30,7 +30,7 @@
     </style>
   </head>
   <body>
-    <div id="root" data-composition-id="__ID__" data-start="0" data-duration="__DUR__" data-width="1920" data-height="1080">
+    <div id="root" data-composition-id="__ID__" data-start="0" data-duration="__DUR__" data-width="__W__" data-height="__H__">
       <div id="group">
         <div id="inner">
           <div id="card"><div id="spec"></div></div>
@@ -50,9 +50,13 @@
       const [dx, dy, dw, dh] = CFG.divider;
       Object.assign(dv.style, { left: px(dx), top: px(dy), width: px(dw), height: px(dh) });
       const text = document.getElementById("text");
+      // 9:16 and 1:1 scale the type and the corner (softblue._lt_geom k); 16:9 keeps the CSS sizes
+      const TY = CFG.type || null;
+      if (TY) { card.style.borderRadius = px(TY.radius); }
       function el(cls, x, y, s) {
         const e = document.createElement("div"); e.className = "t " + cls;
         e.style.left = px(x); e.style.top = px(y); if (s !== undefined) e.textContent = s;
+        if (TY) e.style.fontSize = px(cls === "head" ? TY.head : TY.body);
         text.appendChild(e); return e;
       }
       // heading: one span per word so the words can rise in turn

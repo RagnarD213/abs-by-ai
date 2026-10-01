@@ -1,9 +1,20 @@
 #!/usr/bin/env python3
-"""A 9:16 VERTICAL (AND ITS <=0:59 CUTDOWN) FROM AN EDITOR'S FINISHED MASTER, AS ONE COMMAND. No editing session.
+"""A 9:16 VERTICAL (AND ITS <=0:59 CUTDOWN) AS ONE COMMAND. No editing session. Two ways in:
 
+  1. FROM AN EDITOR'S FINISHED MASTER (Muhammad's and any human editor's): the edit is recovered by measurement.
   python3 kit_run.py --master HIS.mp4 --build B --name "<title> | claude | 9x16 | ad N"
                      [--shoot SHOOT_DIR | --raw ROLL] [--ai gemini] [--judge session|both]
                      [--from STAGE] [--until STAGE] [--deliver DIR]
+
+  2. FROM THE EDIT SHEET OF A 16:9 THAT CLAUDE OR CODEX MADE (_shared/edit-sheet/): nothing is recovered, because
+     the sheet already says which takes, frames, words, graphics and pictures. Graphics are drawn fresh at 9:16 in
+     Soft Blue Light with HyperFrames (Dan, 2026-10-01: no more olive graphics).
+  python3 kit_run.py --sheet SHEET.json --build B --name "<title> | claude | 9x16 | RO-10" [--from STAGE] [--until STAGE]
+
+     sheet      sheet_to_kit.py     rolls, cut, grade on a hair-anchored window, words, content.json, assets.py
+     (setup, audio, kit, base, track as below; the audio is the 16:9's delivered mix, untouched)
+     graphics   sbl_graphics.py     every graphic and card plate rendered at 9:16 from the sheet's configs
+     picture    render_sbl.py       instead of render.py's olive plates
 
 Stages, in the kit README's build order, each one calling the kit's existing script (nothing here designs, draws or
 grades):
@@ -47,7 +58,7 @@ PY = sys.executable
 sys.path.insert(0, HERE)
 import ai_calls  # noqa: E402
 
-STAGES = ["recover", "measure", "content", "setup", "audio", "kit", "base", "track", "labels", "words", "picture",
+STAGES = ["recover", "measure", "content", "sheet", "setup", "audio", "kit", "base", "track", "graphics", "labels", "words", "picture",
           "captions", "mux", "prewatch", "judge", "fold", "labelcheck", "review", "pick", "cutdown", "cutgate",
           "cutjudge", "cutfold", "deliver"]
 
@@ -119,17 +130,25 @@ class Stop(Exception):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--master", required=True)
+    ap.add_argument("--master")
+    ap.add_argument("--sheet", help="the 16:9's edit sheet (_shared/edit-sheet/): the second way in")
     ap.add_argument("--build", required=True)
     ap.add_argument("--name", required=True, help='deliverable base name, e.g. "ai showed me two futures | claude | 9x16 | ad 8"')
     ap.add_argument("--shoot", action="append", default=[])
     ap.add_argument("--raw", action="append", default=[])
     ap.add_argument("--ai", default="gemini")
     ap.add_argument("--judge", default="session", choices=["session", "both"])
-    ap.add_argument("--from", dest="start", default="recover", choices=STAGES)
+    ap.add_argument("--from", dest="start", choices=STAGES)
     ap.add_argument("--until", default="deliver", choices=STAGES)
     ap.add_argument("--deliver", help="the ad's folder under '<Editor> Ad Videos/' (deliver stage)")
     a = ap.parse_args()
+    if bool(a.master) == bool(a.sheet):
+        ap.error("give exactly one of --master (an editor's finished master) or --sheet (our own 16:9's edit sheet)")
+    SHEET = os.path.abspath(a.sheet) if a.sheet else None
+    if SHEET:
+        a.master = json.load(open(SHEET))["video"]["master"]
+    a.start = a.start or ("sheet" if SHEET else "recover")
+    skip = ("recover", "measure", "content") if SHEET else ("sheet", "graphics")
     B = os.path.abspath(a.build)
     os.makedirs(B, exist_ok=True)
     master = os.path.abspath(a.master)
@@ -196,6 +215,13 @@ def main():
         elif name == "content":
             sh([PY, K("auto_content.py"), "--build", B, "--master", master, "--words", "m.whisper.json", "--ai", a.ai,
                 "--ledger", ledger])
+        elif name == "sheet":
+            sh([PY, os.path.join(SHARED, "edit-sheet", "validate.py"), SHEET, "--hash"])
+            sh([PY, K("sheet_to_kit.py"), "--sheet", SHEET, "--build", B])
+        elif name == "graphics":
+            sh([PY, K("sbl_graphics.py"), "--build", B, "--sheet", SHEET])
+        elif name == "picture" and SHEET:
+            sh([PY, K("render_sbl.py"), "--selftest"]); sh([PY, K("render_sbl.py")])
         elif name == "setup":
             empty = os.path.join(B, "_no_source"); os.makedirs(empty, exist_ok=True)
             sh(D("setup", "--build", B, "--from-build", empty))
@@ -206,7 +232,10 @@ def main():
             sh(D("audio", "--build", B, "--mode", "master", "--approved", master))
         elif name == "kit":
             sh([PY, K("build_kit.py"), "--from-master", "--build", B, "--edl", "edl_final.json", "--content", "content.json",
-                "--words", "m.whisper.json", "--reference", master, "--grade", "grade.py"] + rolls_args())
+                "--words", "m.whisper.json", "--reference", master, "--grade", "grade.py"] + rolls_args()
+               + (["--piccuts", os.path.join(B, "piccuts.json")] if SHEET else []), check=not SHEET)
+            # (a sheet build: the cuts are the sheet's own frames, so no pose search; build_kit's exit 1 only says the
+            #  design is outside Muhammad's measured ranges, which is reported in kit_report.json and ruled on by Dan)
         elif name == "base":
             sh([PY, K("kit_base.py"), "--build", B, "--grade", "grade.py"] + rolls_args())
         elif name == "track":
@@ -349,6 +378,8 @@ def main():
     stop = STAGES.index(a.until)
     code = 0
     for name in STAGES[started:stop + 1]:
+        if name in skip:
+            continue
         t = time.time()
         row = dict(stage=name)
         try:

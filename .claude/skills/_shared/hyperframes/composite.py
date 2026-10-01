@@ -45,20 +45,21 @@ def matrix(path):
     return _MAT[path]
 
 
-def reader(path, start=0, n=None, rgba=False):
+def reader(path, start=0, n=None, rgba=False, wh=None):
     """Frames of `path` from frame index `start`, decoded by the file's own matrix."""
     ch = 4 if rgba else 3
+    wh = wh or WH                                  # 1920x1080, or the vertical's 1080x1920 (Compositor(manifest, wh=))
     vf = f"scale=in_color_matrix={matrix(path)}:in_range=tv,format={'rgba' if rgba else 'rgb24'}"
     if start: vf = f"trim=start_frame={start},setpts=PTS-STARTPTS," + vf
     cmd = [FF, "-v", "error", "-i", path, "-vf", vf]
     if n: cmd += ["-frames:v", str(n)]
     p = subprocess.Popen(cmd + ["-f", "rawvideo", "-"], stdout=subprocess.PIPE)
-    size = WH[0] * WH[1] * ch; done = False
+    size = wh[0] * wh[1] * ch; done = False
     try:
         while True:
             b = p.stdout.read(size)
             if len(b) < size: done = True; break
-            yield np.frombuffer(b, np.uint8).reshape(WH[1], WH[0], ch)
+            yield np.frombuffer(b, np.uint8).reshape(wh[1], wh[0], ch)
     finally:
         if not done: p.kill()                 # closed early (a still, a seek): stop ffmpeg quietly
         p.stdout.close(); p.wait()
@@ -80,13 +81,13 @@ def glass(base, mask_rgba, band, radius=14):
 
 
 class _Track:
-    def __init__(self, path, g0, n, rgba):
-        self.path, self.g0, self.n, self.rgba = path, g0, n, rgba
+    def __init__(self, path, g0, n, rgba, wh=None):
+        self.path, self.g0, self.n, self.rgba, self.wh = path, g0, n, rgba, wh
         self.it, self.next_g = None, None
 
     def frame(self, g):
         if self.it is None or g != self.next_g:
-            self.it = reader(self.path, g - self.g0, self.g0 + self.n - g, self.rgba)
+            self.it = reader(self.path, g - self.g0, self.g0 + self.n - g, self.rgba, self.wh)
         self.next_g = g + 1
         f = next(self.it, None)
         assert f is not None, f"{self.path}: no frame {g - self.g0} of {self.n} (render shorter than its slot)"
@@ -94,12 +95,12 @@ class _Track:
 
 
 class Compositor:
-    def __init__(self, manifest):
+    def __init__(self, manifest, wh=None):
         self.items = []
         for m in manifest:
             g0, g1 = fr(m["a"]), fr(m["b"]); n = g1 - g0
-            it = dict(m, g0=g0, g1=g1, ov=_Track(m["mov"], g0, n, True))
-            if m["kind"] == "glass": it["mk"] = _Track(m["mask"], g0, n, True)
+            it = dict(m, g0=g0, g1=g1, ov=_Track(m["mov"], g0, n, True, wh))
+            if m["kind"] == "glass": it["mk"] = _Track(m["mask"], g0, n, True, wh)
             self.items.append(it)
 
     def active(self, g): return [it for it in self.items if it["g0"] <= g < it["g1"]]
