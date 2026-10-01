@@ -1,6 +1,6 @@
 # Trial Campaign AD Thumbnails R2, October 1, 2026
 
-Status: review only, waiting for Dan's picks. No final exports, picks.json or installation.
+Status: reviewed by Dan on October 1, 2026. RA-R2A, 10-R2A, 4-R2A and 3-R2A approved. Ad 13's robot needs the gray background extended to the top. Ad 6 needs a subtle salt-and-pepper age variant of 6-R2A. No final exports, picks.json or installation.
 
 Review: http://127.0.0.1:8811/round2/
 Drive backup: https://drive.google.com/file/d/19eXv0-yNXxXdUH6LL15DoO4Eb9NI9a68/view
@@ -20,4 +20,4 @@ Work directory: social media graphics/youtube/thumbnails/_trial-campaign-2026100
 Durable recipe: scripts/covers/trial-campaign-20261001/round2/
 Run build.py, then review.py, from the durable recipe folder using python3. The builder loads only round-1 rendering definitions using AST; it never runs the round-1 build or changes round-1 output files. Review-offline.html embeds the review JPGs and references for use without the local server.
 
-Next: Dan selects one ID per ad. Only after those picks, export selected final files and create picks.json. Installation stays with the separate authorized setup task.
+Next: execute `Handoffs/handoff-20261001-trial-campaign-ad-thumbnails-round3.md`. Preserve the four approved choices and stop for Ad 13 confirmation and the Ad 6 choice. Final exports and installation remain pending.

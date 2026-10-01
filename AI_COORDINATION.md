@@ -88,9 +88,9 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # ACTIVE
 
-**Campaign Images Build AD - BUILDING 2026-10-01, Codex.** Next: review/picks. `output/campaign-images-20261001/`.
+**Campaign Images Build AD - PICKS 2026-10-01, Codex.** 100 reviewed. Next: Dan picks http://127.0.0.1:52737/.
 
-**Trial thumbnails R2 - NEEDS DAN 2026-10-01, Codex.** Review: http://127.0.0.1:8811/round2/. Next: Dan picks per ad; no exports or installation. Receipt: `Docs/TRIAL_THUMBNAIL_REVIEW_R2_20261001.md`.
+**Trial thumbnails R3 - READY 2026-10-01.** Four approved. Next: `Handoffs/handoff-20261001-trial-campaign-ad-thumbnails-round3.md`, robot background and subtle jeans/glasses aging. Stop for picks.
 
 
 
