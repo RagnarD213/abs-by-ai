@@ -1,3 +1,5 @@
+> **2026-10-01: still images now go through Codex on the ChatGPT subscription (`codex-image.sh`, rule in `IMAGE-GENERATION.md`).** The API image prices below apply only under the `ALLOW_API_IMAGE=1` override. Video prices are unchanged.
+
 # AI generation costs — what we actually spend, and the levers that work
 
 Measured 2026-08-10 from the real Replicate prediction history (708 runs,

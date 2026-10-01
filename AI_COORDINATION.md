@@ -48,8 +48,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
   says "thousands of guys" (3:16, 3:41); 75 people have ever generated.
 - **@danrosefit Meta ads: (baseline 2026-09-15; age unknown)** raise champion ad set `120250753601020682` $6.50 → $8/day? Confirm both [DAN] [ENGAGEMENT]
   campaigns stay OFF. Report: https://claude.ai/code/artifact/18397bc8-efc4-4554-a440-7961cbaa423d
-- **Fire the phone handoff (updated 09-22):** installs 3 TikTok covers already in Photos. ⏰ Sep 15 train-abs closes
-  TODAY 5 PM CT; the 2 long-forms close Sep 27/28. Ad 5 delete already done. `Handoffs/handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md`
+- **Fire the phone handoff (updated 09-22):** 3 TikTok covers in Photos. `Handoffs/handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md`
 - **Google Ads remarketing `24169507109` (baseline 09-15)** — ~$2.50/day, 0 clicks/conversions ever. Pause?
 - **Ad 3: (baseline 2026-09-15; age unknown)** delete empty husk `J-fOMvEJwDs` in Studio; campaign budget reads $40/day (docs said $20); label his 200 lb
   BEFORE pictures?; paste Muhammad round-6 ask `revision docs/ad3-revisions-muhammad-round6-9-14-26.md`.
@@ -125,8 +124,6 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 **Ads 6, 7, 10, 14 YouTube + Google Ads - REVIEW 2026-09-15, Codex 01a0a744.** Four unlisted uploads, eight enabled campaign ads, shared budget $40/day, policy `REVIEW_IN_PROGRESS`. Next: re-run policy; swap in Ad 7 typo / Ad 14 bitrate exports when delivered. Detail: `Docs/DGEN_CONVERSION_CAMPAIGN.md`.
 
 **Trial `24316364155` LIVE, remarketing `24305381214`/`24316408288` PAUSED, 2026-10-01, Claude.** 10-04: delivery+policy. `Docs/DGEN_CONVERSION_CAMPAIGN.md`.
-
-**Push blocked 2026-10-01, Claude.** `89191fc` + `f4b5759` (enhanced-conversions email, undeployed) local only; uncommitted `ad-edit` + `longform-edit` SKILL.md edits block it. Owner pushes first.
 
 **Ads results follow-up — OPEN 2026-09-15.** Review Google Ads results after the 09-09 account fixes (`Docs/GOOGLE_ADS_API.md`). Meta $50 review: next reading 2026-09-18; last result $2.02/follow against <$3 target.
 

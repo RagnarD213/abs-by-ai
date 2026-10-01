@@ -3,6 +3,8 @@ name: photo-edit
 description: Facetune-style AI retouching and editing of Dan's real personal photos (NOT the Abs By AI product pipeline). Use this skill whenever Dan asks to edit, retouch, touch up, clean up, or "Facetune" a photo of himself — for Instagram, dating apps, social media, or publication — including abs/body definition, face de-shine, wrinkle smoothing, jawline, blemish removal, clothing/bulge tweaks, or picking + polishing the best shots from a photo shoot. Also use it when he pastes/attaches a photo of himself and asks to make it look better in any way.
 ---
 
+> **Image generation: Codex only (Dan, 2026-10-01).** Every still image this skill generates (backgrounds, plates, AI frames, thumbnails, covers, posts, retouch passes) is made with `.claude/skills/_shared/codex-image.sh` on the ChatGPT subscription. Where the steps below name Nano Banana Pro, Gemini, Seedream, FLUX, `gemini-image.js`, `rep-t2i.js` or `replicate-edit.js` for a still image, use the helper instead. Read `.claude/skills/_shared/IMAGE-GENERATION.md` first. Video generation is unchanged.
+
 Read `_shared/VIDEO-RULES.md` first.
 
 # Photo Edit — Facetune-style retouching of Dan's real photos

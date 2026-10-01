@@ -138,6 +138,12 @@ Full rule: read `.claude/skills/_shared/VIDEO-RULES.md`.
   gets the next R number.
 - Upload and setup tasks end with `Setup` instead: `<2-4 word title> <type> Setup`, e.g. `Stop Deadlifting SFC Setup`.
 
+## Image generation goes through Codex (Dan, 2026-10-01)
+
+- **Every still image a session generates is made by Codex on the ChatGPT subscription, never a paid API.** Generated images, backgrounds, AI frames, thumbnails, covers, Instagram posts, retouch passes: all of it, in every skill and every ad hoc request. Call `.claude/skills/_shared/codex-image.sh` directly; no handoff or separate Codex task is needed.
+- Real photos of Dan are never redrawn: Codex makes the background only, and his real cutout and the type are layered on in code.
+- Not covered: the live app's generation for visitors, and AI video generation (Kling, Veo). Full rule and the API override: `.claude/skills/_shared/IMAGE-GENERATION.md`.
+
 ## Google Drive sharing: always public (Dan, 2026-09-24)
 
 - Everything a session creates or uploads on Google Drive is set to "anyone with the link can view" at creation. Never leave work files private; it blocks editors. Personal or sensitive documents (keys, legal, IDs) are the only exception. Mechanics: memory `drive-always-public`.

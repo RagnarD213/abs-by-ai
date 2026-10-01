@@ -4,6 +4,7 @@
 //   node replicate-edit.js --image <input.jpg> --prompt-file <prompt.txt> --out <output.jpg> \
 //     [--model google/nano-banana-pro] [--resolution 4K] [--env <path-to-keys.env>]
 // Token: REPLICATE_API_TOKEN from the environment, or from the --env file (KEY=value lines).
+if (process.env.ALLOW_API_IMAGE !== '1') { console.error('LOCKED (Dan, 2026-10-01): still images go through Codex on the ChatGPT subscription, not the API. Use .claude/skills/_shared/codex-image.sh (rule: .claude/skills/_shared/IMAGE-GENERATION.md). Set ALLOW_API_IMAGE=1 only after Codex failed twice on the same image, or Dan asked for the API by name.'); process.exit(64); }
 const fs = require('fs');
 const path = require('path');
 

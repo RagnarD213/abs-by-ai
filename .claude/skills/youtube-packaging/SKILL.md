@@ -3,6 +3,8 @@ name: youtube-packaging
 description: Package an Abs By AI YouTube video for upload — SEO title options, description with UTM link + chapters, tags, pinned comment, thumbnails, and Shorts cutdowns. Use whenever Dan asks to get a video ready for YouTube, make thumbnails, or cut Shorts.
 ---
 
+> **Image generation: Codex only (Dan, 2026-10-01).** Every still image this skill generates (backgrounds, plates, AI frames, thumbnails, covers, posts, retouch passes) is made with `.claude/skills/_shared/codex-image.sh` on the ChatGPT subscription. Where the steps below name Nano Banana Pro, Gemini, Seedream, FLUX, `gemini-image.js`, `rep-t2i.js` or `replicate-edit.js` for a still image, use the helper instead. Read `.claude/skills/_shared/IMAGE-GENERATION.md` first. Video generation is unchanged.
+
 Read `_shared/VIDEO-RULES.md` first.
 
 # YouTube video packaging (Abs By AI channel)

@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 // Text-to-image via Replicate nano-banana-pro (start frames; Google direct is 503).
+if (process.env.ALLOW_API_IMAGE !== '1') { console.error('LOCKED (Dan, 2026-10-01): still images go through Codex on the ChatGPT subscription, not the API. Use .claude/skills/_shared/codex-image.sh (rule: .claude/skills/_shared/IMAGE-GENERATION.md). Set ALLOW_API_IMAGE=1 only after Codex failed twice on the same image, or Dan asked for the API by name.'); process.exit(64); }
 const fs = require('fs'); const path = require('path');
 const args = {};
 for (let i = 2; i < process.argv.length; i += 2) args[process.argv[i].replace(/^--/, '')] = process.argv[i + 1];

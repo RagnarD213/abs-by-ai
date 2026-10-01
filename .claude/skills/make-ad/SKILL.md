@@ -9,6 +9,8 @@ description: >
   "/make-ad". Also use when reviewing or revising a previously produced ad.
 ---
 
+> **Image generation: Codex only (Dan, 2026-10-01).** Every still image this skill generates (backgrounds, plates, AI frames, thumbnails, covers, posts, retouch passes) is made with `.claude/skills/_shared/codex-image.sh` on the ChatGPT subscription. Where the steps below name Nano Banana Pro, Gemini, Seedream, FLUX, `gemini-image.js`, `rep-t2i.js` or `replicate-edit.js` for a still image, use the helper instead. Read `.claude/skills/_shared/IMAGE-GENERATION.md` first. Video generation is unchanged.
+
 Read `_shared/VIDEO-RULES.md` first.
 
 ## Default jump-cut and junk-footage QC (Dan, 2026-09-29)

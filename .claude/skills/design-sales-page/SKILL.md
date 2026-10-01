@@ -3,6 +3,8 @@ name: design-sales-page
 description: Design a long-form direct-response SALES PAGE for Abs By AI as mockups on a private Design canvas (phone + desktop boards), installing Dan's finalized sales letter word for word on the locked video + offer hybrid layout, designing every section the letter adds, filling images from the parallel asset session, and running Dan's revision rounds until he approves, then writing the build handoff. Use whenever Dan asks to design a sales page, a landing page, a VSL page, a sales letter page, to "put my sales letter on the design", to mock up a new offer page, or to revise one of these mockups, even if he doesn't say "/design-sales-page". Mockups only; never touches the live site. Coding the approved page is a separate build task (handoff); writing the letter itself is Dan's (or /scriptwriting); polishing copy is /copy-edit; the page's video is /website-video.
 ---
 
+> **Image generation: Codex only (Dan, 2026-10-01).** Every still image this skill generates (backgrounds, plates, AI frames, thumbnails, covers, posts, retouch passes) is made with `.claude/skills/_shared/codex-image.sh` on the ChatGPT subscription. Where the steps below name Nano Banana Pro, Gemini, Seedream, FLUX, `gemini-image.js`, `rep-t2i.js` or `replicate-edit.js` for a still image, use the helper instead. Read `.claude/skills/_shared/IMAGE-GENERATION.md` first. Video generation is unchanged.
+
 # Design a sales page
 
 Proven on 2026-09-30: Dan's "AI Got Me Abs at 40" letter went from Google Doc to an approved 8-board mockup in one
