@@ -164,7 +164,7 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
-- `handoff-20261001-ad8-verticals-upload-and-ad-setup.md` (10-01): Ad 8 verticals setup.
+- `handoff-20261001-ad8-verticals-upload-and-ad-setup.md`, `handoff-20261001-vertical-kit-from-our-own-edits.md` (10-01).
 - `handoff-20260930-hyperframes-templates-round2.md` (09-30): HyperFrames lower third, before card, 3A list templates. Opus 5.5 high.
 - `handoff-20260930-ro16-round2-opener-motion-then-full-film.md` (09-30): with Dan's G03 pick. Opus 5.5 high.
 - `handoff-20260930-codex-adopt-review-page-format.md` (09-30): Codex adopts the RO-16 review page. GPT-6 Sol medium.
