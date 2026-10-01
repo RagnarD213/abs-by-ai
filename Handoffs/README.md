@@ -13,6 +13,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
+| [handoff-20261001-ro12-thumbnails-codex.md](handoff-20261001-ro12-thumbnails-codex.md) | **Ready 2026-10-01. Codex GPT-6 Astra / Medium.** RO-12 "Top 5 Zepbound Tips": five YouTube thumbnail options, stop for Dan's pick, export the final. |
+| [handoff-20261001-ro12-video-setup.md](handoff-20261001-ro12-video-setup.md) | **Ready once Dan has the finalized thumbnail. Claude Opus 5.5 / Medium.** RO-12: private YouTube upload and Blotato release on the next free long-form slot. |
 | [handoff-20260930-sl04-shorts-covers-codex.md](handoff-20260930-sl04-shorts-covers-codex.md) | **Ready 2026-09-30. Codex GPT-6 Astra / Medium.** SL-04 covers for shorts 1, 3, 4, 5 (short 2 cover B approved); review sheet, Dan picks, export. Fire first. |
 | [handoff-20260930-sl04-shorts-video-setup.md](handoff-20260930-sl04-shorts-video-setup.md) | **Ready 2026-09-30, after the covers. Claude Opus 5.5 / Medium.** Upload and schedule all five SL-04 shorts (/video-setup Shorts flow): Private YouTube + Blotato Tue/Thu/Sat. |
 | [handoff-20260930-ro05-captions-and-article-after-release.md](handoff-20260930-ro05-captions-and-article-after-release.md) | **Ready on/after 2026-10-18 10 AM CT. Claude Sonnet 5 / Medium.** RO-05: English SRT captions on the Blotato-created public YouTube video + publish the sixpackabs article. |
