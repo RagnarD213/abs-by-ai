@@ -11,7 +11,7 @@ from unittest.mock import patch
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from planning import extract_priorities, read_planning
 from collect_inputs import (ad_guard, collect, dashboard, posthog, private_directory,
-                            legacy_plan, redact, run_ads, select_priority, select_trello, snapshot, windows)
+                            legacy_plan, merge_verified_leads, redact, run_ads, select_priority, select_trello, snapshot, subscriber_leads, windows)
 
 NOW = datetime(2026, 9, 30, 15, tzinfo=timezone.utc)
 AT = '2026-09-30T13:00:00Z'
@@ -240,6 +240,23 @@ class InputsTest(unittest.TestCase):
         self.assertEqual(data['status'], 'error')
         request.assert_not_called()
 
+    def test_browser_attempts_cannot_be_business_outcomes(self):
+        for metric, event in [('email_leads', 'email_subscribed'), ('trials', 'membership_subscribed'),
+                              ('paid', 'paid_conversion_reported'), ('free_generations', 'generation_started')]:
+            with patch('collect_inputs.request_json') as request:
+                result = posthog({'POSTHOG_PERSONAL_KEY': 'fixture'}, {'site_events': {'absbyai.com': {metric: event}}}, windows(NOW))
+            self.assertEqual(result['status'], 'error')
+            request.assert_not_called()
+
+    def test_verified_database_leads_override_attempt_counts_only_on_success(self):
+        sites = {'windows': {'yesterday': {'status': 'ok', 'sites': {s: {'email_leads': {'status': 'unmapped', 'value': None}} for s in ('absbyai.com', 'sixpackabs.com')}}}}
+        merge_verified_leads(sites, {'status': 'error'})
+        self.assertIsNone(sites['windows']['yesterday']['sites']['absbyai.com']['email_leads']['value'])
+        leads = {'status': 'ok', 'windows': {'yesterday': {'unattributed': 1, 'sites': {s: {'status': 'verified_database', 'value': 0} for s in ('absbyai.com', 'sixpackabs.com')}}}}
+        merge_verified_leads(sites, leads)
+        self.assertEqual(sites['windows']['yesterday']['sites']['absbyai.com']['email_leads']['value'], 0)
+        self.assertEqual(sites['windows']['yesterday']['unattributedEmailLeads'], 1)
+
     def test_guard_failure_cannot_be_clean_and_hit_ids_retained(self):
         (self.project / 'scripts/blotato').mkdir(parents=True)
         (self.project / 'scripts/blotato/ad_guard.py').touch()
@@ -253,6 +270,10 @@ class InputsTest(unittest.TestCase):
             result = run_ads({}, windows(NOW), {})
         self.assertEqual(result['status'], 'missing')
         run.assert_not_called()
+
+    def test_subscriber_invalid_success_schema_is_error(self):
+        with patch('collect_inputs.subprocess.run', return_value=argparse.Namespace(stdout='{"status":"ok"}')):
+            self.assertEqual(subscriber_leads(self.project, windows(NOW), {})['status'], 'error')
 
     def test_central_dst_window_uses_full_local_day(self):
         result = windows(datetime(2026, 11, 2, 14, tzinfo=timezone.utc))

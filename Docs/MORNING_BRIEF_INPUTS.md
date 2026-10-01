@@ -48,6 +48,8 @@ Store configuration outside Git and pass it with `--config`. Supported keys are 
 
 `site_events` maps each supported hostname to outcome keys and verified event names. The collector queries full Chicago yesterday and the same weekday last week. It normalizes www/non-www before counting distinct pageview persons. Events are aggregate counts, not unique customer counts. A configured event with no rows returns zero; an unmapped outcome or unobserved visitor stream remains unknown. Mapping must be backed by checked tracking definitions. Host-filtered analytics can miss server events without a hostname, ad-blocked visitors and delayed events, so it is not a payment ledger.
 
+Verified stage definitions and first newsletter-capture aggregates are documented in `Docs/MORNING_BRIEF_MEASUREMENTS.md`. Live collection now also performs one aggregate SELECT inside a read-only database transaction, using existing credentials. It never imports the application's schema initialization or startup jobs. Only site names and counts are returned. Verified first captures override browser email-attempt counts; other business outcomes remain unknown. Precise Ads stage signals are separate from those outcomes.
+
 Until the Trello connector and board/list IDs are available, a fresh private export can be used:
 
 ```json
@@ -60,10 +62,12 @@ Until the Trello connector and board/list IDs are available, a fresh private exp
 }
 ```
 
-The timestamp must be timezone-aware and no older than 24 hours. Cards are sorted by position. An absent export is missing, not a fabricated empty board. This helper does not fetch or edit Trello yet. Gmail and Calendar also remain explicitly missing until connected-source intake is implemented.
+The timestamp must be timezone-aware and no older than 24 hours. Cards are sorted by position. An absent export is missing, not a fabricated empty board. This helper does not fetch or edit Trello yet. Local Gmail and Calendar intake is missing, but the parent brief writer has separately connected sources and can read them directly. A local missing status does not establish that the dot or parent cannot read Gmail or Calendar.
 
 ## Proof and remaining work
 
 The September 30 manual proof selected that day's human sales-page priority; a second planning read consumed zero additional transcript bytes. Live dashboard, Google Ads, PostHog and organic-ad reads succeeded. Stale editor, watch-review and legacy plan inputs were excluded. Trello, Gmail and Calendar remained missing; conversion outcomes stayed unmapped. Private proof data was kept outside Git. Focused Python and Node tests cover freshness, branch ancestry, incremental reads, secret redaction, failed checks and conversion aggregation.
 
-The remaining product work is source connections, verified outcome mappings, Daniel-only page authorization and persistent sessions, a private path from the linked Mac to the brief writer, and one manually grounded dot brief reviewed by Daniel. Current dashboard access uses a shared secret rather than a Daniel-only Google identity. The proof does not confirm dot access to the Mac or enable any recurring run. No OAuth grants, authentication changes, deployment, image generation or schedule were made here.
+The remaining product work is Trello board/list access, the exact measurement decisions in `Docs/MORNING_BRIEF_MEASUREMENTS.md`, Daniel-only page authorization and persistent sessions, a private path from the linked Mac to the brief writer, and one manually grounded dot brief reviewed by Daniel. The writer can supply its connected Gmail and Calendar evidence without adding local adapters. Current dashboard access uses a shared secret rather than a Daniel-only Google identity; the exact proposed Google setup is in `Docs/MORNING_BRIEF_GOOGLE_SIGN_IN.md`. The proof does not confirm dot access to the Mac or enable any recurring run. No OAuth grants, authentication changes, image generation or schedule were made here.
+
+Exact pushed commit `e3fb909` has no GitHub Actions runs or check runs. The existing Vercel integration automatically attempted a deployment and failed because `ANTHROPIC_API_KEY` references missing secret `anthropic_api_key`. This is not a passing CI result or a local test failure. No deployment settings were changed. Further work in this phase is held locally because another push would trigger that deployment integration while deployment is expressly out of scope.
