@@ -1450,12 +1450,12 @@
    "claude": "Read Handoffs/video-editing/00-RULES.md, then execute Handoffs/video-editing/AV-09-ad8-vertical.md with /shortad-from-longform. Build the full 9:16 and 59-second cutdown, preserve Muhammad's finalized audio and picture decisions, run every gate and audit, and send Dan the review copies.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read Handoffs/video-editing/00-RULES.md, then execute Handoffs/video-editing/AV-09-ad8-vertical.md using .claude/skills/shortad-from-longform/SKILL.md. Deliver both review copies and update the queue.",
-   "state": "delivered",
-   "note": "Kit autofill build (no editing session): full 9:16 3:30.9 + 59s cutdown 0:56.0, both delivery gate PASS with 0 open defects, in Muhammad Ad Videos/ai showed me two futures - ad 8/. Awaiting Dan's review; approval unblocks AS-08.",
+   "state": "finalized",
+   "note": "Dan approved 2026-10-01 (full 9:16 + 59s). Next: upload unlisted + Demand Gen via Handoffs/handoff-20261001-ad8-verticals-upload-and-ad-setup.md. AS-08 unblocked.",
    "order": 69,
    "updated": "2026-10-01",
-   "rev": 4,
-   "syncedRev": 4,
+   "rev": 5,
+   "syncedRev": 5,
    "by": "Claude"
   },
   {

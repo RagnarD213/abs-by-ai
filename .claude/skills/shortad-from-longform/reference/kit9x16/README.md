@@ -66,6 +66,11 @@ anything. The only AI left is three small calls: "is this picture a bare physiqu
 sentences make the <=0:59 cutdown (about a dime, checked and re-asked by the kit), and an optional second-opinion judge. The judged watch pass is
 still done by fresh reviewer sessions, because the model judge missed defects they catch (below).
 
+> **2026-10-01, Dan:** the Ad 8 verticals are the last delivery with these olive graphics. Everything after uses Soft
+> Blue Light graphics built with HyperFrames (`_shared/hyperframes/`, `_shared/SOFTBLUE.md`), shown in the first review
+> round. This kit's measurement, recovery, labels, captions, cutdown and gate loop stand; its GRAPHICS LAYER
+> (`vlib.py` plates, lower thirds, CTA pill, flash) must be ported to those templates before the next vertical.
+
 ## Build order (automatic, from a master) -- `kit_run.py`
 
 ```
