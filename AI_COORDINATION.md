@@ -88,7 +88,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # ACTIVE
 
-**Trial thumbnails - NEEDS DAN 2026-10-01, Codex.** Review: http://127.0.0.1:8811/. Next: picks. No installation.
+**Trial thumbnails R2 - READY 2026-10-01.** Next: execute `Handoffs/handoff-20261001-trial-campaign-ad-thumbnails-round2.md` (Astra High). Stop for picks; no installation.
 
 
 
