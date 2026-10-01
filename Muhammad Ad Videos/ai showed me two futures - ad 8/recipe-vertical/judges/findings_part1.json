@@ -1,0 +1,707 @@
+{
+ "judge": "Claude fresh judge part 1",
+ "video": "ai showed me two futures | claude | 9x16 | ad 8.mp4",
+ "method": "Opened all 9 contact sheets, the negscan sheet and pair_000 to pair_089 (first third of the 270 sorted strip/pair files) one by one with the Read tool; suspect moments re-grabbed as exact full-resolution frames with ffmpeg select=eq(n,FRAME) into a scratch folder and checked (hair-top crops, picture push continuity, frame-difference on the stock clip join, chip timing on the app recording); captions read against beats.json words; labels checked against auto_content_report.json.",
+ "entries": [
+  {
+   "image": "sheet_00_00-00.00_to_00-23.99.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 0.0,
+   "note": "0:00 to 0:24. Hair clear of the top edge on every talk tile (checked full-res frames 0, 60, 180, 629). Lower third present. One chip per picture, none over face or abs. Captions match the speech. Flash at 0:20 is planned."
+  },
+  {
+   "image": "sheet_01_00-24.99_to_00-49.02.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 24.99,
+   "note": "0:25 to 0:49. Real photo with one chip; text plate builds and reads correctly; lower third 'Let's talk about why this actually works.' present; captions match ('shape, but get in / shape is fog')."
+  },
+  {
+   "image": "sheet_02_00-50.02_to_01-14.01.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 50.02,
+   "note": "0:50 to 1:14. Framing clean (frames 1558, 1588, 1618 checked full-res, hair clear). AI phone card with one chip; lower third present; flashes at 1:03 and 1:11 planned; stock cards unlabelled as stock."
+  },
+  {
+   "image": "sheet_03_01-15.01_to_01-39.00.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 75.01,
+   "note": "1:15 to 1:39. Lower third present. Editor's lifted insert shows an empty olive panel for about half a second at 1:22 between its two pictures (his own transition, checked frames 2440 to 2475). At 1:28 Dan leans and crosses his arms as a gesture, arm leaves frame briefly, head stays in frame (checked 2621 to 2662). Plate layout hair clear. App recording chip in the lower position."
+  },
+  {
+   "image": "sheet_04_01-40.00_to_02-03.99.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 100.0,
+   "note": "1:40 to 2:04. App recording run: chip at one lower height, off at 1:41 while the photo is off the phone. AI goal card one chip. CTA pill present, no caption under it. AI clips carry the burned-in label and keep captions."
+  },
+  {
+   "image": "sheet_05_02-04.99_to_02-29.02.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 124.99,
+   "note": "2:05 to 2:29. Stock cards, captions correct, AI phone card with one chip and no caption, framing clean."
+  },
+  {
+   "image": "sheet_06_02-30.02_to_02-54.01.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 150.02,
+   "note": "2:30 to 2:54. Cards, text plate builds and reads correctly ('ChatGPT'), lower third 'Abs In Less Than 10 Seconds' present, framing clean."
+  },
+  {
+   "image": "sheet_07_02-55.01_to_03-19.00.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 175.01,
+   "note": "2:55 to 3:19. CTA pill present; AI picture with one chip beside the neck, not on face or abs (frame 5275 checked); flash at 2:58 planned; app window layout (no captions by design, phone carries a burned-in AI chip); workout plan plate reads correctly; hair clear in the window layouts (frames 5514, 5604, 5724, 5784)."
+  },
+  {
+   "image": "sheet_08_03-20.00_to_03-30.01.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 200.0,
+   "note": "3:20 to 3:30. Captions correct, lower third 'You get the plan that makes it real.' present, closing CTA pill present with no caption on it."
+  },
+  {
+   "image": "pair_000_00-00.17.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 0.17,
+   "note": "Lower third entering; same continuous take, no cut."
+  },
+  {
+   "image": "pair_001_00-00.20.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 0.2,
+   "note": "Lower third entering; continuous."
+  },
+  {
+   "image": "pair_002_00-01.97.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 1.97,
+   "note": "punch ramp with no join under it: the -1|0 frames are continuous, no cut, no jump."
+  },
+  {
+   "image": "pair_003_00-03.97.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 3.97,
+   "note": "Talk to full-bleed AI warning picture, ONE 'AI-GENERATED' chip beside the head, not on face or body."
+  },
+  {
+   "image": "pair_004_00-04.91.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 4.91,
+   "note": "Join under the still picture; slow push continues smoothly (checked frames 145 to 148), no jump."
+  },
+  {
+   "image": "pair_005_00-05.61.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 5.61,
+   "note": "Return from picture to talking head as a plain cut; beats.json deviations lists this flash as dropped (flash_dropped)."
+  },
+  {
+   "image": "pair_006_00-06.07.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 6.07,
+   "note": "Talk cut with the declared instant size step (zoom cut) on the cut frame; framing clean both sides, hair clear of the top edge."
+  },
+  {
+   "image": "pair_007_00-06.91.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 6.91,
+   "note": "Talk cut with the declared instant size step (zoom cut) on the cut frame; framing clean both sides, hair clear of the top edge."
+  },
+  {
+   "image": "pair_008_00-08.11.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 8.11,
+   "note": "Talk to real photo of Dan, ONE real-picture chip top-left clear of face and abs."
+  },
+  {
+   "image": "pair_009_00-10.28.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 10.28,
+   "note": "Real photo to real photo, one chip each, clear of face and abs."
+  },
+  {
+   "image": "pair_010_00-10.31.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 10.31,
+   "note": "Picture one frame after entry; same scale (checked frames 308 to 310)."
+  },
+  {
+   "image": "pair_011_00-12.81.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 12.81,
+   "note": "Return from picture to talking head as a plain cut; beats.json deviations lists this flash as dropped (flash_dropped)."
+  },
+  {
+   "image": "pair_012_00-12.85.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 12.85,
+   "note": "Continuous talk frame pair after the picture exit."
+  },
+  {
+   "image": "pair_013_00-14.58.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 14.58,
+   "note": "Talk to real before photo; chip top-left clear of the face."
+  },
+  {
+   "image": "pair_014_00-16.22.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 16.22,
+   "note": "Real photo to real photo card, one chip under the card."
+  },
+  {
+   "image": "pair_015_00-18.09.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 18.09,
+   "note": "Card to card, one chip each under the card."
+  },
+  {
+   "image": "pair_016_00-18.12.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 18.12,
+   "note": "Card settling one frame after entry."
+  },
+  {
+   "image": "pair_017_00-20.02.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 20.02,
+   "note": "Planned light-leak flash on the return from an inserted picture to the talking head (listed in beats.json flashes)."
+  },
+  {
+   "image": "pair_018_00-20.05.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 20.05,
+   "note": "Planned light-leak flash on the return from an inserted picture to the talking head (listed in beats.json flashes)."
+  },
+  {
+   "image": "pair_019_00-22.19.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 22.19,
+   "note": "Talk to real photo, chip top-right clear of face and abs."
+  },
+  {
+   "image": "pair_020_00-22.79.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 22.79,
+   "note": "Join under the still photo, no visible jump."
+  },
+  {
+   "image": "pair_021_00-23.29.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 23.29,
+   "note": "Join under the still photo, no visible jump."
+  },
+  {
+   "image": "pair_022_00-24.29.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 24.29,
+   "note": "Join under the still photo, no visible jump."
+  },
+  {
+   "image": "pair_023_00-24.96.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 24.96,
+   "note": "Real photo to real photo, one chip each above the head, clear of face and abs."
+  },
+  {
+   "image": "pair_024_00-28.30.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 28.3,
+   "note": "Real photo to text-plate layout; head has room above the hair."
+  },
+  {
+   "image": "pair_025_00-33.67.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 33.67,
+   "note": "Talk cut with the declared instant size step (zoom cut) on the cut frame; framing clean both sides, hair clear of the top edge."
+  },
+  {
+   "image": "pair_026_00-43.58.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 43.58,
+   "note": "Planned light-leak flash on the return from an inserted picture to the talking head (listed in beats.json flashes)."
+  },
+  {
+   "image": "pair_027_00-43.61.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 43.61,
+   "note": "punch ramp with no join under it: the -1|0 frames are continuous, no cut, no jump."
+  },
+  {
+   "image": "pair_028_00-44.21.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 44.21,
+   "note": "Lower third entering; continuous."
+  },
+  {
+   "image": "pair_029_00-44.24.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 44.24,
+   "note": "Lower third entering; continuous."
+  },
+  {
+   "image": "pair_030_00-46.38.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 46.38,
+   "note": "Talk cut with the declared instant size step (zoom cut) on the cut frame; framing clean both sides, hair clear of the top edge."
+  },
+  {
+   "image": "pair_031_00-47.65.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 47.65,
+   "note": "Talk cut with the declared instant size step (zoom cut) on the cut frame; framing clean both sides, hair clear of the top edge."
+  },
+  {
+   "image": "pair_032_00-48.78.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 48.78,
+   "note": "Talk cut with the declared instant size step (zoom cut) on the cut frame; framing clean both sides, hair clear of the top edge."
+  },
+  {
+   "image": "pair_033_00-49.55.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 49.55,
+   "note": "Talk cut with the declared instant size step (zoom cut) on the cut frame; framing clean both sides, hair clear of the top edge."
+  },
+  {
+   "image": "pair_034_00-51.85.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 51.85,
+   "note": "punch ramp with no join under it: the -1|0 frames are continuous, no cut, no jump."
+  },
+  {
+   "image": "pair_035_00-54.35.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 54.35,
+   "note": "punch ramp with no join under it: the -1|0 frames are continuous, no cut, no jump."
+  },
+  {
+   "image": "pair_036_00-55.89.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 55.89,
+   "note": "punch ramp with no join under it: the -1|0 frames are continuous, no cut, no jump."
+  },
+  {
+   "image": "pair_037_00-58.59.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 58.59,
+   "note": "Talk to AI phone clip card with ONE 'AI-GENERATED' chip under the card."
+  },
+  {
+   "image": "pair_038_00-58.63.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 58.63,
+   "note": "Card scaling in one frame after entry."
+  },
+  {
+   "image": "pair_039_00-59.16.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 59.16,
+   "note": "Join under the AI card; clip continuous."
+  },
+  {
+   "image": "pair_040_01-02.96.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 62.96,
+   "note": "Planned light-leak flash on the return from an inserted picture to the talking head (listed in beats.json flashes)."
+  },
+  {
+   "image": "pair_041_01-03.00.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 63.0,
+   "note": "Planned light-leak flash on the return from an inserted picture to the talking head (listed in beats.json flashes)."
+  },
+  {
+   "image": "pair_042_01-03.03.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 63.03,
+   "note": "Planned light-leak flash on the return from an inserted picture to the talking head (listed in beats.json flashes)."
+  },
+  {
+   "image": "pair_043_01-03.06.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 63.06,
+   "note": "Planned light-leak flash on the return from an inserted picture to the talking head (listed in beats.json flashes)."
+  },
+  {
+   "image": "pair_044_01-06.53.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 66.53,
+   "note": "Talk cut with the declared instant size step (zoom cut) on the cut frame; framing clean both sides, hair clear of the top edge."
+  },
+  {
+   "image": "pair_045_01-06.57.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 66.57,
+   "note": "Lower third fading out; continuous take."
+  },
+  {
+   "image": "pair_046_01-06.60.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 66.6,
+   "note": "Lower third gone, caption 'That means it'll be' starts; continuous."
+  },
+  {
+   "image": "pair_047_01-08.00.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 68.0,
+   "note": "Talk to stock clip card, caption continues."
+  },
+  {
+   "image": "pair_048_01-09.17.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 69.17,
+   "note": "Stock card to stock card."
+  },
+  {
+   "image": "pair_049_01-10.54.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 70.54,
+   "note": "Join under the stock crunch clip; motion continuous (frame-difference check 2100 to 2119 shows no outlier at the join)."
+  },
+  {
+   "image": "pair_050_01-10.80.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 70.8,
+   "note": "Planned light-leak flash on the return from an inserted picture to the talking head (listed in beats.json flashes)."
+  },
+  {
+   "image": "pair_051_01-12.77.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 72.77,
+   "note": "Talk cut with the declared instant size step (zoom cut) on the cut frame; framing clean both sides, hair clear of the top edge."
+  },
+  {
+   "image": "pair_052_01-14.61.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 74.61,
+   "note": "punch ramp with no join under it: the -1|0 frames are continuous, no cut, no jump."
+  },
+  {
+   "image": "pair_053_01-15.28.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 75.28,
+   "note": "Talk cut with the declared instant size step (zoom cut) on the cut frame; framing clean both sides, hair clear of the top edge."
+  },
+  {
+   "image": "pair_054_01-15.58.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 75.58,
+   "note": "Lower third entering after 'a week.'; continuous."
+  },
+  {
+   "image": "pair_055_01-15.61.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 75.61,
+   "note": "Lower third entering; continuous."
+  },
+  {
+   "image": "pair_056_01-17.71.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 77.71,
+   "note": "Lower third 'Fear Fades. It Always Does.' fading out, then the editor's lifted 16:9 insert card enters dark/empty on its first frames (his own fade-in)."
+  },
+  {
+   "image": "pair_057_01-17.74.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 77.74,
+   "note": "Editor's lifted insert fading in (warning picture blurred mid-fade); his animation, carries his burned-in 'AI-generated image' text."
+  },
+  {
+   "image": "pair_058_01-21.98.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 81.98,
+   "note": "Join under the editor's insert while its inner panel is empty olive between the warning picture and the phone clip (his own cross-transition, about half a second); caption reads correctly."
+  },
+  {
+   "image": "pair_059_01-24.22.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 84.22,
+   "note": "Join under the editor's lifted insert; burned-in 'AI-generated Video' label present, no second chip, picture continuous."
+  },
+  {
+   "image": "pair_060_01-27.42.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 87.42,
+   "note": "Planned light-leak flash on the return from an inserted picture to the talking head (listed in beats.json flashes)."
+  },
+  {
+   "image": "pair_061_01-28.92.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 88.92,
+   "note": "Talk cut with the declared instant size step (zoom cut) on the cut frame; framing clean both sides, hair clear of the top edge."
+  },
+  {
+   "image": "pair_062_01-30.36.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 90.36,
+   "note": "punch ramp with no join under it: the -1|0 frames are continuous, no cut, no jump."
+  },
+  {
+   "image": "pair_063_01-32.22.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 92.22,
+   "note": "Talk to text-plate layout; head has room above the hair."
+  },
+  {
+   "image": "pair_064_01-33.46.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 93.46,
+   "note": "Talk cut with the declared instant size step (zoom cut) on the cut frame; framing clean both sides, hair clear of the top edge."
+  },
+  {
+   "image": "pair_065_01-37.83.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 97.83,
+   "note": "Text plate out, app screen-recording card in with ONE real-picture chip in the lower clearance position; no caption on the card."
+  },
+  {
+   "image": "pair_066_01-39.37.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 99.37,
+   "note": "App recording card to card, real-picture chip stays at the same lower height across the run."
+  },
+  {
+   "image": "pair_067_01-39.40.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 99.4,
+   "note": "App recording card settling one frame after entry; chip at the same lower height."
+  },
+  {
+   "image": "pair_068_01-40.67.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 100.67,
+   "note": "App screen recording: real-picture chip in the lower clearance position; photo is scrolling off the phone and the chip fades out a few frames later (label_spans)."
+  },
+  {
+   "image": "pair_069_01-41.67.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 101.67,
+   "note": "App screen recording: chip has faded back in about 0.2 s before the uploaded photo reappears on the phone (checked frames 3043 to 3050); within the fade, lower chip position as designed."
+  },
+  {
+   "image": "pair_070_01-43.50.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 103.5,
+   "note": "App recording (real chip, lower position) to AI goal picture card with ONE 'AI-GENERATED' chip at the same lower height."
+  },
+  {
+   "image": "pair_071_01-45.14.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 105.14,
+   "note": "Planned light-leak flash on the return from an inserted picture to the talking head (listed in beats.json flashes)."
+  },
+  {
+   "image": "pair_072_01-45.31.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 105.31,
+   "note": "Planned light-leak flash on the return from an inserted picture to the talking head (listed in beats.json flashes)."
+  },
+  {
+   "image": "pair_073_01-49.11.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 109.11,
+   "note": "Talk cut with the declared instant size step (zoom cut) on the cut frame; framing clean both sides, hair clear of the top edge."
+  },
+  {
+   "image": "pair_074_01-49.31.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 109.31,
+   "note": "CTA pill gone; continuous take."
+  },
+  {
+   "image": "pair_075_01-51.31.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 111.31,
+   "note": "Talk to AI clip card with burned-in AI label; caption continues."
+  },
+  {
+   "image": "pair_076_01-55.31.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 115.31,
+   "note": "AI clips of other people keep captions and carry the editor's burned-in 'AI-generated video' label; on these two frames the last letters of his dark label sit over the AI man's dark hair and are hard to read (his master, not the kit)."
+  },
+  {
+   "image": "pair_077_01-56.75.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 116.75,
+   "note": "AI clip to AI clip under a covered join; burned-in 'AI-generated video' label present on both, caption correct."
+  },
+  {
+   "image": "pair_078_02-02.12.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 122.12,
+   "note": "Return from picture to talking head as a plain cut; beats.json deviations lists this flash as dropped (flash_dropped)."
+  },
+  {
+   "image": "pair_079_02-04.22.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 124.22,
+   "note": "Talk cut with the declared instant size step (zoom cut) on the cut frame; framing clean both sides, hair clear of the top edge."
+  },
+  {
+   "image": "pair_080_02-05.33.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 125.33,
+   "note": "Talk to stock treadmill card."
+  },
+  {
+   "image": "pair_081_02-07.09.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 127.09,
+   "note": "Stock card to stock card."
+  },
+  {
+   "image": "pair_082_02-10.10.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 130.1,
+   "note": "Planned light-leak flash on the return from an inserted picture to the talking head (listed in beats.json flashes)."
+  },
+  {
+   "image": "pair_083_02-12.93.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 132.93,
+   "note": "Talk cut with the declared instant size step (zoom cut) on the cut frame; framing clean both sides, hair clear of the top edge."
+  },
+  {
+   "image": "pair_084_02-14.00.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 134.0,
+   "note": "Talk to stock card."
+  },
+  {
+   "image": "pair_085_02-14.03.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 134.03,
+   "note": "punch ramp with no join under it: the -1|0 frames are continuous, no cut, no jump."
+  },
+  {
+   "image": "pair_086_02-16.07.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 136.07,
+   "note": "Stock card to stock card; the black block at right is a foreground object the camera slides past (checked frames 4078 to 4170)."
+  },
+  {
+   "image": "pair_087_02-19.71.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 139.71,
+   "note": "Planned light-leak flash on the return from an inserted picture to the talking head (listed in beats.json flashes)."
+  },
+  {
+   "image": "pair_088_02-21.54.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 141.54,
+   "note": "Talk cut with the declared instant size step (zoom cut) on the cut frame; framing clean both sides, hair clear of the top edge."
+  },
+  {
+   "image": "pair_089_02-22.81.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 142.81,
+   "note": "Talk to AI phone clip card with ONE 'AI-GENERATED' chip."
+  },
+  {
+   "image": "negscan/sheet.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 0,
+   "note": "30 evenly spaced frames: no close-up of an out-of-shape body part, no shame framing. The AI warning picture appears only as a full-body shot and small inside the editor's card."
+  }
+ ]
+}

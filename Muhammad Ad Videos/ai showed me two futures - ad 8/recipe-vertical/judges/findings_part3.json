@@ -1,0 +1,637 @@
+{
+ "judge": "Claude fresh judge part 3",
+ "video": "ai showed me two futures | claude | 9x16 | ad 8.mp4",
+ "method": "Opened all 90 images in the last third of the sorted strip list (strip_046 to strip_133, including both files numbered 116 and 117) with the Read tool, one at a time. Suspect spots were re-checked on exact frames pulled with ffmpeg select=eq(n,FRAME) into a private scratch folder: hair top at 105.1 and 109.6 to 111.3, the app-recording chip between 100.8 and 101.6, the burned AI label at 115.3, the dark block at 136.1, a one-frame mouth change at 174.27 (every frame 174.24 to 175.21 plus the picture EDL and word timings), the text-plate windows at 92 to 98 and 191 to 197, the phone window at 183 to 191, and the last frames. Flash returns were matched to the flashes and flash_dropped lists in beats.json. No pair_* images fall in this share.",
+ "entries": [
+  {
+   "image": "strip_046_01-06.60_card_63_030_out___lt_63_03_out.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 66.6,
+   "note": "Lower third 'You'll Be Filled With Motivation' fades out; zoom-cut step at the join one frame earlier; caption 'That means it'll be' reads right."
+  },
+  {
+   "image": "strip_047_01-08.00_covered_in___punch_FAR___talk-15_out.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 68.0,
+   "note": "Cut from talking head to stock meal-prep clip in the olive card; caption stays below the card, no overlap."
+  },
+  {
+   "image": "strip_048_01-09.17_covered_in___covered_out.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 69.17,
+   "note": "Card to card (meal prep to sit-up stock clip); caption 'eat right and to work' clean."
+  },
+  {
+   "image": "strip_049_01-10.54_join.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 70.54,
+   "note": "Covered join under the sit-up card; the stock clip runs on continuously, no jump visible."
+  },
+  {
+   "image": "strip_050_01-10.80_covered_out___talk-18_in.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 70.8,
+   "note": "Flash return from card to talking head (planned flash 70.69 to 71.13); hair clear of the top edge."
+  },
+  {
+   "image": "strip_051_01-12.77_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 72.77,
+   "note": "Zoom-cut with a clear size step at the join; no naked splice."
+  },
+  {
+   "image": "strip_052_01-14.61_punch_FAR.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 74.61,
+   "note": "Ramp back out, five frames continuous, framing fine."
+  },
+  {
+   "image": "strip_053_01-15.28_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 75.28,
+   "note": "Zoom-cut with size step; caption 'a week.' clean."
+  },
+  {
+   "image": "strip_054_01-15.58_cards_in___lt_75_58_in.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 75.58,
+   "note": "Lower third 'Fear Fades. It Always Does.' animating in over the tank top chest, below the face; caption drops out under it."
+  },
+  {
+   "image": "strip_055_01-15.61_card_75_576_in___lt_75_58_in.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 75.61,
+   "note": "Same lower third in (box wipes on first, text follows)."
+  },
+  {
+   "image": "strip_056_01-17.71_cards_out___covered_in___lt_75_58_out___.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 77.71,
+   "note": "Lower third out and cut to the editor's 16:9 'THE WARNING' insert building on in the olive card."
+  },
+  {
+   "image": "strip_057_01-17.74_card_75_576_out___lt_75_58_out___punch_F.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 77.74,
+   "note": "Same boundary one frame later; insert carries its own burned 'AI-generated Image' label, no second chip."
+  },
+  {
+   "image": "strip_058_01-21.98_join.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 81.98,
+   "note": "Covered join under the card while the editor's insert transitions between pictures; no jump visible."
+  },
+  {
+   "image": "strip_059_01-24.22_join.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 84.22,
+   "note": "Covered join under the 'AI-generated Video' phone insert; continuous."
+  },
+  {
+   "image": "strip_060_01-27.42_covered_out___join___talk-20_in.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 87.42,
+   "note": "Flash return to talking head (planned flash 87.31 to 87.75); hair in frame."
+  },
+  {
+   "image": "strip_061_01-28.92_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 88.92,
+   "note": "Zoom-cut with size step on 'I deleted the warning'."
+  },
+  {
+   "image": "strip_062_01-30.36_punch_FAR.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 90.36,
+   "note": "Ramp out, continuous frames, caption 'picture of my phone' clean."
+  },
+  {
+   "image": "strip_063_01-32.22_cards_in___covered_in___join___talk-20_o.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 92.22,
+   "note": "Cut to the text-plate window (talking head in the top panel, plate below, captions off under the plate). Trade-off noted: head is about 23 percent of full frame height at the window's far level."
+  },
+  {
+   "image": "strip_064_01-33.46_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 93.46,
+   "note": "Zoom-cut with size step inside the window while the bullets type on; text reads right."
+  },
+  {
+   "image": "strip_065_01-37.83_auto_02943_in___card_92_225_out___card_9.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 97.83,
+   "note": "Window out, app screen recording card in with ONE chip 'Real picture of me - not AI-generated' at the lower offset; photo is the deck-chair sunglasses before picture."
+  },
+  {
+   "image": "strip_066_01-39.37_auto_02943_out___auto_02978_0_in___cards.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 99.37,
+   "note": "Card to card inside the app recording run; chip stays at the same height while his photo is on the phone."
+  },
+  {
+   "image": "strip_067_01-39.40_card_97_831_out___card_99_366_in.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 99.4,
+   "note": "Same boundary one frame later; chip height unchanged."
+  },
+  {
+   "image": "strip_068_01-40.67_auto_02978_0_out.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 100.67,
+   "note": "Photo scrolls off the phone and the chip fades out within about 4 frames (label span end)."
+  },
+  {
+   "image": "strip_069_01-41.67_auto_02978_1_in.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 101.67,
+   "note": "Chip fades back in about 4 frames before the photo reappears in the app (grabbed 100.8 to 101.55: chip fully off between spans)."
+  },
+  {
+   "image": "strip_070_01-43.50_auto_02978_1_out___auto_03102_in___card_.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 103.5,
+   "note": "Cut from the 'Rendering' app screen to the AI result card with ONE 'AI-GENERATED' chip below the card, clear of face and abs."
+  },
+  {
+   "image": "strip_071_01-45.14_auto_03102_out___card_103_503_out___card.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 105.14,
+   "note": "Flash return to talking head (planned flash 105.03 to 105.47). Hair top checked at full size: about 2 percent clearance, not cut."
+  },
+  {
+   "image": "strip_072_01-45.31_card_105_305_in___cards_in___cta_105_31_.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 105.31,
+   "note": "CTA pill 'Get A FREE AI Image Of Yourself / With Abs' in over the tank top chest, under the face; no caption on the pill."
+  },
+  {
+   "image": "strip_073_01-49.11_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 109.11,
+   "note": "Zoom-cut with size step; CTA pill starting to fade."
+  },
+  {
+   "image": "strip_074_01-49.31_card_105_305_out___cards_out___cta_105_3.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 109.31,
+   "note": "CTA pill fade out complete; framing fine."
+  },
+  {
+   "image": "strip_075_01-51.31_covered_in___punch_FAR___talk-25_out.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 111.31,
+   "note": "Cut from talking head to the editor's AI beach clip in the olive card (burned 'AI-generated video' label); caption below. Hair top on the talking head checked 109.6 to 111.3 at full size: lowest clearance about 33 px (1.7 percent), not cut."
+  },
+  {
+   "image": "strip_076_01-55.31_covered_in___covered_out___join.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 115.31,
+   "note": "Card to card (beach couple to gym handshake). Editor's burned 'AI-generated vi...' label is partly hidden behind the man's dark hair once his clip pushes in; it is his label, still present."
+  },
+  {
+   "image": "strip_077_01-56.75_covered_in___covered_out___join.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 116.75,
+   "note": "Covered join, gym clip to beach-run clip; burned AI label fully readable; warm flare on the torso is sunset lens flare, no melting hands or smoke."
+  },
+  {
+   "image": "strip_078_02-02.12_covered_out___join___talk-29_in.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 122.12,
+   "note": "Plain cut back to talking head with no flash: beats.json lists flash_dropped at 122.122. Framing fine."
+  },
+  {
+   "image": "strip_079_02-04.22_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 124.22,
+   "note": "Zoom-cut with size step on 'with.'"
+  },
+  {
+   "image": "strip_080_02-05.33_covered_in___punch_FAR___talk-29_out.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 125.33,
+   "note": "Cut to stock treadmill clip in the olive card; caption below."
+  },
+  {
+   "image": "strip_081_02-07.09_covered_in___covered_out.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 127.09,
+   "note": "Card to card (treadmill to salad); caption line changes cleanly."
+  },
+  {
+   "image": "strip_082_02-10.10_covered_out___join___talk-32_in.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 130.1,
+   "note": "Flash return to talking head (planned flash 129.99 to 130.43)."
+  },
+  {
+   "image": "strip_083_02-12.93_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 132.93,
+   "note": "Zoom-cut with size step on 'going.'"
+  },
+  {
+   "image": "strip_084_02-14.00_covered_in___talk-32_out.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 134.0,
+   "note": "Cut to stock dad-on-laptop clip in the olive card; caption below."
+  },
+  {
+   "image": "strip_085_02-14.03_punch_FAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 134.03,
+   "note": "Same boundary one frame later."
+  },
+  {
+   "image": "strip_086_02-16.07_covered_in___covered_out.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 136.07,
+   "note": "Card to card. The black block on the right of the warehouse clip is a dark foreground object in the stock shot (checked at 136.1, 136.6, 137.5: it parallaxes with the camera), not a rendering hole."
+  },
+  {
+   "image": "strip_087_02-19.71_covered_out___talk-35_in.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 139.71,
+   "note": "Flash return to talking head (planned flash 139.60 to 140.04)."
+  },
+  {
+   "image": "strip_088_02-21.54_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 141.54,
+   "note": "Zoom-cut with size step on 'I did none of it.'"
+  },
+  {
+   "image": "strip_089_02-22.81_auto_04280_in___card_142_809_in___cards_.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 142.81,
+   "note": "Cut to phone-in-hand AI goal picture card with ONE 'AI-GENERATED' chip under the card; captions off on the labelled picture."
+  },
+  {
+   "image": "strip_090_02-26.61_auto_04280_out___card_142_809_out___card.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 146.61,
+   "note": "Flash return to talking head (planned flash 146.50 to 146.94)."
+  },
+  {
+   "image": "strip_091_02-28.55_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 148.55,
+   "note": "Zoom-cut with size step (blink on the outgoing frame, incoming mid-word)."
+  },
+  {
+   "image": "strip_092_02-30.38_covered_in___join___talk-37_out.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 150.38,
+   "note": "Cut to real B-roll of Dan (medicine ball crunch) in the olive card. No chip: the content report classes filmed B-roll video as needing none (label is for still physique photos)."
+  },
+  {
+   "image": "strip_093_02-30.42_punch_FAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 150.42,
+   "note": "Same boundary one frame later."
+  },
+  {
+   "image": "strip_094_02-31.99_covered_in___covered_out.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 151.99,
+   "note": "Card to card, two Dan medicine-ball clips; captions clean."
+  },
+  {
+   "image": "strip_095_02-33.22_covered_in___covered_out.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 153.22,
+   "note": "Card to card, Dan clip to meal-prep stock clip."
+  },
+  {
+   "image": "strip_096_02-34.75_covered_in___covered_out.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 154.75,
+   "note": "Card to card, meal prep to man writing on mat."
+  },
+  {
+   "image": "strip_097_02-36.42_covered_out___join___talk-42_in.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 156.42,
+   "note": "Flash return to talking head (planned flash 156.31 to 156.75)."
+  },
+  {
+   "image": "strip_098_02-37.46_punch_NEAR.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 157.46,
+   "note": "Ramp in, continuous frames; caption line change 'so much that I built'."
+  },
+  {
+   "image": "strip_099_02-39.53_punch_FAR.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 159.53,
+   "note": "Ramp out, continuous frames."
+  },
+  {
+   "image": "strip_100_02-40.53_card_160_527_in___cards_in___covered_in_.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 160.53,
+   "note": "Cut to the text-plate window; captions off under the plate."
+  },
+  {
+   "image": "strip_101_02-44.33_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 164.33,
+   "note": "Zoom-cut with size step inside the window; three bullets read right."
+  },
+  {
+   "image": "strip_102_02-48.63_join___punch_FAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 168.63,
+   "note": "Zoom-cut inside the window (near to far size step)."
+  },
+  {
+   "image": "strip_103_02-49.04_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 169.04,
+   "note": "Second zoom-cut 0.4 s later (far to near size step); quick but each has its step."
+  },
+  {
+   "image": "strip_104_02-50.34_cards_out___covered_out___join___talk-44.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 170.34,
+   "note": "Window out with flash to talking head (planned flash 170.23 to 170.67)."
+  },
+  {
+   "image": "strip_105_02-50.37_card_160_527_out___punch_FAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 170.37,
+   "note": "Same flash, one frame later."
+  },
+  {
+   "image": "strip_106_02-50.50_cards_in___lt_170_50_in.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 170.5,
+   "note": "Lower third box wiping on under the tail of the flash."
+  },
+  {
+   "image": "strip_107_02-50.54_card_170_504_in___lt_170_50_in.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 170.54,
+   "note": "Lower third 'Abs In Less Than 10 Seconds' coming on."
+  },
+  {
+   "image": "strip_108_02-52.04_punch_NEAR.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 172.04,
+   "note": "Ramp in with lower third held on the chest, below the face."
+  },
+  {
+   "image": "strip_109_02-53.71_punch_FAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 173.71,
+   "note": "Lower third fading out during the ramp out."
+  },
+  {
+   "image": "strip_110_02-53.81_cards_out___lt_170_50_out.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 173.81,
+   "note": "Lower third fade out finishing."
+  },
+  {
+   "image": "strip_111_02-53.84_card_170_504_out___lt_170_50_out.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 173.84,
+   "note": "Same, one frame later; clean frames after."
+  },
+  {
+   "image": "strip_112_02-54.24_cards_in___cta_174_24_in.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 174.24,
+   "note": "CTA pill in on 'Tap the button below'. Mouth goes open to closed in one frame at 174.27: checked the EDL (segment 52 is continuous source 170.35 to 175.38) and the word timing ('Tap' ends 174.33), so it is the lip closure on the P, not a splice."
+  },
+  {
+   "image": "strip_113_02-54.27_card_174_241_in___cta_174_24_in.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 174.27,
+   "note": "Same CTA in, one frame later."
+  },
+  {
+   "image": "strip_114_02-55.24_cards_out___cta_174_24_out.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 175.24,
+   "note": "CTA pill fade out (pill is on screen only 1.0 s, as planned)."
+  },
+  {
+   "image": "strip_115_02-55.28_card_174_241_out___cta_174_24_out.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 175.28,
+   "note": "Same, one frame later."
+  },
+  {
+   "image": "strip_116_02-55.38_auto_05256_in___bleed-45_in___card_175_3.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 175.38,
+   "note": "Stale duplicate of strip 116 (older file, same frames): cut to full-bleed AI goal picture with ONE 'AI-GENERATED' chip beside the neck, off face and abs."
+  },
+  {
+   "image": "strip_116_02-55.38_auto_05256_in___card_175_375_in___cards_.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 175.38,
+   "note": "Cut to full-bleed AI goal picture with ONE 'AI-GENERATED' chip at left beside the neck, clear of face and abs; captions off."
+  },
+  {
+   "image": "strip_117_02-57.98_auto_05256_out___bleed-45_out___cards_ou.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 177.98,
+   "note": "Stale duplicate of strip 117 (older file, same frames): flash return to talking head."
+  },
+  {
+   "image": "strip_117_02-57.98_auto_05256_out___cards_out___covered_out.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 177.98,
+   "note": "Flash return from the AI picture to talking head (planned flash 177.87 to 178.31)."
+  },
+  {
+   "image": "strip_118_02-58.01_card_175_375_out.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 178.01,
+   "note": "Same flash, one frame later."
+  },
+  {
+   "image": "strip_119_02-59.41_punch_NEAR.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 179.41,
+   "note": "Ramp in, continuous; caption 'our AI builds you a'."
+  },
+  {
+   "image": "strip_120_03-01.51_punch_FAR.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 181.51,
+   "note": "Ramp out, continuous; caption 'and nutrition plan to'."
+  },
+  {
+   "image": "strip_121_03-03.38_card_183_383_in___cards_in___covered_in_.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 183.38,
+   "note": "Cut to the window-media layout: talking head strip on top, phone screen recording card below, captions off (winmedia is a no-caption kind). Trade-off noted: 7.5 s of speech with no captions and phone text too small to read."
+  },
+  {
+   "image": "strip_122_03-10.92_card_183_383_out___card_190_924_in___car.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 190.92,
+   "note": "Window-media out, 'YOUR WORKOUT PLAN' text-plate window in."
+  },
+  {
+   "image": "strip_123_03-17.30_card_190_924_out___cards_out___covered_o.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 197.3,
+   "note": "Window out with flash to talking head (planned flash 197.19 to 197.63)."
+  },
+  {
+   "image": "strip_124_03-19.73_punch_NEAR.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 199.73,
+   "note": "Ramp in, continuous; caption 'goal and it's built'."
+  },
+  {
+   "image": "strip_125_03-21.44_punch_FAR.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 201.44,
+   "note": "Ramp out, continuous; caption 'foods you like best.'"
+  },
+  {
+   "image": "strip_126_03-22.77_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 202.77,
+   "note": "Zoom-cut with size step."
+  },
+  {
+   "image": "strip_127_03-24.20_punch_FAR.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 204.2,
+   "note": "Ramp out, continuous."
+  },
+  {
+   "image": "strip_128_03-24.37_cards_in___lt_204_37_in.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 204.37,
+   "note": "Lower third box coming on; caption off under it."
+  },
+  {
+   "image": "strip_129_03-24.40_card_204_371_in___lt_204_37_in.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 204.4,
+   "note": "Same lower third in, one frame later."
+  },
+  {
+   "image": "strip_130_03-26.61_card_204_371_out___cards_out___lt_204_37.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 206.61,
+   "note": "Lower third 'You get the plan that makes it real.' fading out."
+  },
+  {
+   "image": "strip_131_03-27.67_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 207.67,
+   "note": "Zoom-cut with size step on 'So pick your future.'"
+  },
+  {
+   "image": "strip_132_03-28.04_card_208_041_in___cards_in___cta_208_04_.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 208.04,
+   "note": "Closing CTA pill in over the tank top chest; caption drops; pill is clear of the face."
+  },
+  {
+   "image": "strip_133_03-29.51_punch_FAR.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 209.51,
+   "note": "Ramp out under the closing CTA pill; hair in frame; pill holds to the end and fades on the last frames (checked 210.8)."
+  }
+ ]
+}

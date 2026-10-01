@@ -327,15 +327,21 @@ def main():
             os.makedirs(a.deliver, exist_ok=True)
             rec = os.path.join(a.deliver, "recipe-vertical")
             os.makedirs(rec, exist_ok=True)
+            if os.path.exists(cut) and not os.path.exists(cut.replace(".mp4", "_REVIEW_540p.mp4")):
+                sh(D("review", "--build", B, "--video", cut))            # the cutdown's review copy, beside the full's
             for f in [full, cut]:
-                for x in glob.glob(f + "*") + [f.replace(".mp4", "_REVIEW_540p.mp4")]:
+                for x in glob.glob(glob.escape(f) + "*") + [f.replace(".mp4", "_REVIEW_540p.mp4")]:
                     if os.path.exists(x):
-                        dst = os.path.basename(x).replace("_REVIEW_540p.mp4", ".mp4").replace("| claude |", "| REVIEW 540p |") \
+                        # the folder's naming: "<title> | REVIEW 540p 9x16 [59s] | ad N.mp4"
+                        dst = os.path.basename(x).replace("_REVIEW_540p.mp4", ".mp4").replace("| claude | ", "| REVIEW 540p ") \
                             if x.endswith("_REVIEW_540p.mp4") else os.path.basename(x)
                         shutil.copy(x, os.path.join(a.deliver, dst))
+            for extra in ("notes-vertical.md",):
+                if os.path.exists(os.path.join(B, extra)):
+                    shutil.copy(os.path.join(B, extra), os.path.join(a.deliver, extra))
             for f in ("content.json", "assets.py", "grade.py", "his.cube", "edl_final.json", "auto_content_report.json",
                       "recover_report.json", "kit_report.json", "plan.json", "gate_final.json", "cutdown_ranges.json",
-                      "run_report.json", "ai_ledger.jsonl"):
+                      "cut_plan.json", "beats.json", "label_place.json", "run_report.json", "ai_ledger.jsonl"):
                 if os.path.exists(os.path.join(B, f)):
                     shutil.copy(os.path.join(B, f), os.path.join(rec, f))
 
