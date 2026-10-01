@@ -269,3 +269,42 @@ event for the video first (the last `headlines` event wins).
 "1 min ab workout workout only" (ad `821875813611`, $1.03/conv, 136 conv) was paused in the UI between the dry run and
 the first live run on 09-08 — not by this system. Dan's call: re-enable if accidental
 (`manual.js enable customers/3427170837/adGroupAds/206274722584~821875813611`), otherwise leave it.
+
+## 2026-10-01: subscriber REMARKETING campaign (campaign `24316408288`)
+
+Dan's spec: `Handoffs/handoff-20261001-remarketing-campaigns-conversion-and-subscriber.md`. Built by
+`scripts/ads/api/dgen-rmktg-campaigns.js b --apply`; read-back in `scripts/ads/api/dgen-ads/rmktg-campaign-b.result.json`.
+It replaces the idea behind old remarketing campaign `24169507109`, which stays PAUSED and untouched (it paid $55 per
+subscriber on a $50 target and did not exclude subscribers).
+
+- Name `[DAN] [DGEN] [ENGAGEMENT] [RMKTG] geo tier 1 | ALL CONTENT | site visitors + youtube viewers`. **$10/day**,
+  target CPA **$3** (Dan's number, do not raise it), campaign goal **YouTube channel subscriptions only**
+  (ENGAGEMENT / YOUTUBE_HOSTED), in-feed and Shorts only, male + unknown, all ages, optimized targeting off. Built PAUSED.
+- Geo and language copied from tier 1 `24163535721`: 6 countries targeted (US, Canada, UK, Australia, Ireland, New
+  Zealand), the same 84 excluded, English, presence or interest. They sit on each ad group, because an API-made Demand
+  Gen campaign refuses them at campaign level.
+- Both groups exclude members, purchasers **and current subscribers**: `9480144404` (member hub, new), `9441311426`
+  (All Converters), `9469016618` (Purchasers), `9452604668` (subscribed to channel, now a true 540 day window).
+
+| Ad group | Id | Audience | Lists | Ads |
+|---|---|---|---|---|
+| Website visitors, 7 + 30 + 365 day | `200887799219` | `361149295` | `9452848282`, `9453529251`, `9452257061` | 7: `826637093020` through `826637093038` (every third id) |
+| YouTube viewers, watched any video 7 + 30 day | `209156230708` | `360228120` | `9453532227`, `9452269226` | 7: `826720165598` through `826720165616` (every third id) |
+
+Each group holds a copy of the 7 ads ENABLED in tier 1 on build day (1 min ab workout, truth about supplements, Train
+Abs Every Day, Jelly Beans, AI Macro Estimates, Instead Of Crunches, 8 Hours In Bed). Names keep the tier 1 name with
+`tier1` swapped for `rmktg-site` or `rmktg-yt`; the two older ads with no `tier1` in the name got ` · rmktg-site` /
+` · rmktg-yt` added at the end.
+
+**This campaign is a snapshot. The automation does not know about it.** `instant.js`, the hourly engine and the Sunday
+pause routine are all scoped by campaign id (tier 2, tier 1, old remarketing), so nothing adds new videos here and
+nothing pauses ads here. To refresh by hand after tier 1 changes: `node scripts/ads/api/dgen-rmktg-campaigns.js b --apply`
+adds every enabled tier 1 ad that is missing (it never pauses one). Wiring it into `instant.js` is not a one-line change:
+that code assumes one ad group per campaign, and this campaign has two.
+
+**Enable both** (after review; ads were still `REVIEW_IN_PROGRESS` when the build session ended):
+`ADS_ALLOW_ENABLE_CAMPAIGN=1 node scripts/ads/api/client.js mutate scripts/ads/api/dgen-ads/rmktg-enable.json --note "enable remarketing campaigns"`,
+then add a PostHog annotation.
+
+**Watch (report 2026-10-04):** $3 may be too low to spend at all. Report spend and cost per subscriber; do not raise the
+target. The trial remarketing campaign (Campaign A, `24305381214`) is documented in `Docs/DGEN_CONVERSION_CAMPAIGN.md`.
