@@ -89,7 +89,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # ACTIVE
 
-**SL-05 covers - IN PROGRESS 2026-10-01, Codex.** Building five visual options for all five shorts, each in Instagram and YouTube layouts. Next: review sheets and Dan's five picks. No upload or scheduling. Detail: `Short-form video content/covers/review/sl05-covers-20261001/`.
+**SL-05 covers - REVIEW 2026-10-01, Codex.** 50 checked covers. Next: Dan picks, then ten exports. Gallery: `http://127.0.0.1:8799/`. Detail: `Docs/SL05_COVER_REVIEW_20261001.md`.
 
 
 
@@ -99,7 +99,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **RO-12 - QUEUED 2026-10-01, Claude.** Blotato Oct 25. Then: `Docs/RO12_SETUP_RECEIPT_20261001.md`, delete.
 
-**RO-13 - IN PROGRESS 2026-10-01, Claude.** Round 1 in `_edit_work/ro13/`.
+**RO-13 - NEEDS DAN 2026-10-01, Claude.** Page http://127.0.0.1:8803/. Next: `handoff-20261001-ro13-round1-dan-review.md`.
 
 **RO-10 - IN PROGRESS 2026-10-01, Claude.** Full film building per `handoff-20261001-ro10-round2-build-full-film.md`.
 
@@ -172,7 +172,7 @@ Memory `google-ads-ui-automation`.
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
 - `handoff-20261001-vertical-kit-from-our-own-edits.md` (10-01).
-- `handoff-20261001-sl05-shorts-covers-codex.md` (10-01): SL-05 covers, Astra medium. Then `…-sl05-shorts-video-setup.md` after Oct 11, Opus medium.
+- `handoff-20261001-sl05-shorts-covers-codex.md` (10-01): SL-05 covers REVIEW READY, awaiting five picks; `Docs/SL05_COVER_REVIEW_20261001.md`. Then `…-sl05-shorts-video-setup.md` after Oct 11, Opus medium.
 - `handoff-20260929-cut-broll-into-clip-library.md` (09-29): cut 68 B-roll clips into the library. Opus 5.5 medium.
 - `handoff-20260930-codex-adopt-review-page-format.md` (09-30): Codex adopts the RO-16 review page. GPT-6 Sol medium.
 
