@@ -69,7 +69,17 @@ def main():
                 out.append(q)
         return out
 
-    joins = {round(r["dst0"], 3) for r in ranges[1:]}
+    # a seam is a talk JOIN only when both sides are the talking head: a seam that leaves or enters a picture
+    # (a card, a photo, a clip) is a picture change like every insert edge of the master, which are not joins
+    # (AV-09 cutdown seam 2, dad card -> talk, read 83.41 against the file's 83.39 splice ceiling)
+    cov_m = [tuple(c) for c in (master.get("covered") or []) + (master.get("cards") or [])]
+    def _in_pic(t_src):
+        return any(a_ <= t_src < b_ for a_, b_ in cov_m)
+    joins = set()
+    for r_prev, r in zip(ranges, ranges[1:]):
+        out_src = r_prev["src1"] - 0.04
+        if not (_in_pic(out_src) or _in_pic(r["src0"] + 0.04)):
+            joins.add(round(r["dst0"], 3))
     for t in master.get("joins", []):
         mt = mapped_time(t)
         if mt is not None and 0 < mt < cut_plan["seconds"]:
