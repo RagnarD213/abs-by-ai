@@ -1,6 +1,6 @@
 # SL-05 Stop Deadlifting cover review
 
-Status: awaiting Dan's five picks. No final cover exports, uploads or scheduling.
+Status: Dan rejected this round on 2026-10-01. Current review: [round 2 deadlift designs](SL05_COVER_REVIEW_R2_20261001.md). No final cover exports, uploads or scheduling.
 
 25 visual options, each with separate Instagram and YouTube layouts: A pool photo, B real studio portrait on red barbell scene, C a different real studio portrait on blue safer-machine scene, D enhanced authentic approved parent-video screenshot, E clean editorial designer choice. Approved copy is identical across each short's five options. The screenshot sources are clothed; the authentic black tank top, glasses, physique and gesture are preserved. The other options show defined abs.
 

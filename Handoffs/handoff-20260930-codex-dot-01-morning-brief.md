@@ -43,6 +43,7 @@ words). Read it once for the reasoning, then carry over only these rules:
 | Handoffs to fire, assistant queue, task checks | `absbyai.com/api/todos` and `/api/task-checks` with `X-Dash-Key` | key comes from the Mac's secrets file; see "the local helper" below |
 | Editor deliveries pending | `.claude/skills/editor-deliveries/state.json` (GitHub connector) | written by handoff 02's routine before 6:30 |
 | Ads digest | `brief-ads.json` at the repo root | written by the local helper, below |
+| Git drift | `scripts/git/drift-check.sh` output, run by the local helper on the Mac | added 2026-10-01: one line in the brief only when it says `WARN` (commits on the Mac not on GitHub); silent when `OK` |
 | Ad-in-organic-queue guard | `ad_guard` result inside the same helper output | any hit is bucket A: "delete schedule <id>" |
 | Watch picks | the dot's own Sunday watch review (handoff 03) | 2 watch, 2 actions, carried forward until watched |
 | Business pulse | PostHog project 458833, yesterday vs same window 7 days ago | via the local helper (API key on the Mac) or the dot's browser |
