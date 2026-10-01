@@ -142,6 +142,8 @@ Full rule: read `.claude/skills/_shared/VIDEO-RULES.md`.
 - Verify the finished change on the live production site at `https://absbyai.com`.
 - Treat commit, push, deployment, and live-site verification as required parts of completing every change. Do not wait for a separate request to perform them.
 - Do not include unrelated pre-existing local files or changes in a commit unless they are part of the current task.
+- **From the main project folder, push only with `scripts/git/safe-push.sh -m "message" -- <your files>`** (Dan, 2026-10-01). It commits only the files you name, merges GitHub's changes and pushes. Never `git pull --rebase`, `git stash` or `git add -A` there. Codex worktrees and other clean checkouts push with plain git; the script refuses to run in a worktree.
+- If the script stops (exit 2: another session's edits are in the way; exit 3: needs a hand merge), report the files it lists and put one board entry up the same day. Do not commit more on top. `scripts/git/drift-check.sh` shows how far the folder is from GitHub.
 
 ## Never use an em dash, in anything (Dan, 2026-09-18)
 
