@@ -88,7 +88,9 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # ACTIVE
 
-**Trial thumbnails R2 - READY 2026-10-01.** Next: execute `Handoffs/handoff-20261001-trial-campaign-ad-thumbnails-round2.md` (Astra High). Stop for picks; no installation.
+**Campaign Images Build AD - BUILDING 2026-10-01, Codex.** Next: review/picks. `output/campaign-images-20261001/`.
+
+**Trial thumbnails R2 - BUILDING 2026-10-01, Codex.** Applying nine revisions and two original comparisons in `_trial-campaign-20261001/round2/`. Next: one review page, then Dan picks. No installation.
 
 
 
@@ -103,7 +105,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **RO-10 - IN PROGRESS 2026-10-01, Claude.** Full film building per `handoff-20261001-ro10-round2-build-full-film.md`.
 
-**RO-16 - IN PROGRESS 2026-10-01, Claude.** Round 3 (two join fixes, 5:00 and 11:40) building in `/Volumes/Extreme/_edit_work/ro16/round3/`. Next: checks, review, deliver to Dan.
+**RO-16 - NEEDS DAN 2026-10-01, Claude.** Round 3 sent. Next: Dan watches 5:00, 11:40.
 
 **Studio batch - NEEDS DAN 2026-09-29, Codex.** Review 24 posts: `http://127.0.0.1:8791/`. Nothing scheduled. Package and Drive link: `output/studio-post-test-24-20260929/README.txt`.
 
@@ -175,7 +177,6 @@ Memory `google-ads-ui-automation`.
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
 - `handoff-20261001-pmax-campaign-build.md` (10-01): after campaign images exist. Sol high.
-- `handoff-20261001-campaign-images-build.md` (10-01): 100 ad images. Opus high.
 - `handoff-20261001-vertical-kit-round2-full-build-after-lock.md` http://127.0.0.1:8806/
 - `handoff-20260930-codex-adopt-review-page-format.md` (09-30): Codex adopts the RO-16 review page. GPT-6 Sol medium.
 
