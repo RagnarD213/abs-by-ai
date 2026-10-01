@@ -528,3 +528,7 @@ build the ad with `/ad-setup` pointed at campaign `24316364155`.
 **2026-10-01, Ad 10 headlines (Dan's own, trial campaign only):** all three Ad 10 ads in `24316364155` now carry
 "How Busy Dads Get Abs", "How 40+ Dads Can Get Abs", "A Busy Dad's Fitness System", "How I Got Abs At 40",
 "How I Lost Belly Fat With AI". Long headlines and descriptions unchanged. The old campaign's Ad 10 copy was not touched.
+
+**2026-10-01, Ad 3 headlines (Dan's own, trial campaign only):** all four Ad 3 ads in `24316364155` now carry
+"Fire Your Personal Trainer", "How AI Replaces Personal Trainers", "Human Trainers Hate Him", "How I Got Abs At 40",
+"Trainers Hate This AI App". Long headlines and descriptions unchanged. The old campaign's Ad 3 copy was not touched.
