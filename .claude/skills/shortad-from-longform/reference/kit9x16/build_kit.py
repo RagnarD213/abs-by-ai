@@ -34,9 +34,9 @@ PICCUTS = os.path.join(HERE, "..", "..", "..", "_shared", "cut", "piccuts.py")  
 REPO = os.path.abspath(os.path.join(HERE, "..", "..", "..", "..", ".."))
 PICREF = os.path.join(REPO, ".claude/skills/_shared/reference/picture.json")
 FPS = 30000 / 1001
-TEXT_KINDS = ("window", "title", "stmt")
+TEXT_KINDS = ("window", "title", "stmt", "hf")            # hf: a full-screen Soft Blue Light graphic (sheet builds)
 INSERT_KINDS = ("card", "bleed", "bleed2", "winmedia")
-BASE_KINDS = ("talk", "window", "card", "title", "stmt", "bleed", "bleed2", "winmedia")
+BASE_KINDS = ("talk", "window", "card", "title", "stmt", "bleed", "bleed2", "winmedia", "hf")
 
 _n = lambda s: re.sub(r"[^a-z0-9]", "", s.lower())
 
@@ -501,7 +501,8 @@ def main():
         # a CARD with a label kind gets the chip text the plate draws under its hole (plate_card `label`);
         # a full-bleed beat gets its chip PLACED BY MEASUREMENT later (kit_labels.py -> chip_png)
         if b.get("label_kind") and b["kind"] == "card":
-            b["label"] = T["labels"]["real"] if b["label_kind"] == "real" else T["labels"]["ai"]
+            # a sheet build carries the 16:9's own chip text (`sheet_label`); a master build takes the template's
+            b["label"] = b.get("sheet_label") or (T["labels"]["real"] if b["label_kind"] == "real" else T["labels"]["ai"])
         beats.append(b)
         last = t1
     # (BEFORE the timeline is made: the talk beat after it, its flash and its cut all take the new end)
@@ -553,12 +554,14 @@ def main():
             o["y_bottom"] = it["y_bottom"]
         if it.get("equal"):
             o["equal"] = True
+        if it.get("gid"):
+            o["gid"] = it["gid"]                               # the sheet graphic this lower third is (sbl_graphics.py)
         lts.append(o)
         last = t1
     ctas, last = [], 0.0
     Cc = T["cta"]
     items = C.get("ctas")
-    if not items:
+    if not items and C.get("auto_cta", True):
         # no CTA list in the content: a pill on EVERY occurrence of a template CTA phrase, in order
         items = []
         for ph in Cc["phrases"]:
@@ -571,14 +574,15 @@ def main():
                 items.append(dict(t0=round(A.W[i][1], 3), t1=round(A.W[i][1] + Cc["dur_s"], 3)))
                 aft = A.W[i + n - 1][2] + 0.5
         items.sort(key=lambda x: x["t0"])
-    for k, it in enumerate(items):
+    for k, it in enumerate(items or []):
         if "t0" in it:
             t0 = float(it["t0"]); t1 = float(it.get("t1", t0 + Cc["dur_s"]))
         else:
             t0 = round(A.at(it["at"], float(it.get("after", last))), 3)
             t1 = round(t0 + Cc["dur_s"], 3)
         ctas.append(dict(kind="cta", t0=t0, t1=t1, top=it.get("top", C.get("cta_top", "Get A FREE AI Image Of Yourself")),
-                         big=it.get("big", C.get("cta_big", "With Abs")), **({"big_size": it["big_size"]} if "big_size" in it else {})))
+                         big=it.get("big", C.get("cta_big", "With Abs")), **({"big_size": it["big_size"]} if "big_size" in it else {}),
+                         **({"gid": it["gid"]} if it.get("gid") else {})))
         last = t1 + 0.5
     if ctas and Cc.get("last_runs_to_end"):
         ctas[-1]["t1"] = dur
@@ -593,7 +597,8 @@ def main():
                 lum = [float(M_[n].mean()) for n in range(max(0, n1_ - 5), min(nm_, n1_ + 6))]
                 b["his_flash"] = bool(lum and max(lum) > 205)
     fl_hi = ref["numbers"].get("flashes_per_min", {}).get("hi") if ref else None
-    flashes = flashes_for(tl, T, cap=int(fl_hi * dur / 60.0) if fl_hi else None)
+    # a sheet build (our own 16:9, Soft Blue Light) cuts hard like its 16:9 unless the content asks for the flash
+    flashes = flashes_for(tl, T, cap=int(fl_hi * dur / 60.0) if fl_hi else None) if C.get("flash", True) else []
 
     # ---- the talk splices and the picture cuts
     talk_spans = [[b["t0"], b["t1"]] for b in tl if b["kind"] == "talk"]
@@ -815,7 +820,7 @@ def main():
 
     # ---- write the beat sheet the pipeline consumes
     out = dict(
-        kit="kit9x16", template_version=T["version"], mode="master" if a.from_master else "raw",
+        kit="kit9x16", template_version=T["version"], mode="master" if a.from_master else "raw", style=C.get("style", "olive"),
         dur=dur, fps="30000/1001", push_z=z,
         beats=beats, lower_thirds=lts, ctas=ctas, insets=C.get("insets", []),
         pushes=[list(p) for p in pushes], flashes=[list(f) for f in flashes],

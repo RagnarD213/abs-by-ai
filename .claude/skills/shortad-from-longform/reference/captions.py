@@ -22,6 +22,8 @@ CAP_Y  = vlib.CAP_Y
 F      = font(64, "ExtraBold")
 MAXW   = VW - 150
 GROUP_MAX = 22          # characters; ~3 words -- a phone reads a short chunk, not a line
+# the lit word: his olive on a master rebuild, Soft Blue Light cyan on a sheet build (beats.STYLE)
+LIT = (104, 197, 255) if getattr(BT, 'STYLE', 'olive') == 'softblue' else vlib.OLIVE
 
 # Whisper mis-heard three words in this roll. They are HIS words on screen, so a
 # mis-transcription burned into the captions is a spelling mistake in the ad.
@@ -216,13 +218,15 @@ def render(gs, out='captions.mov', capdir='cap', stops=None):
     next_start = {id(g): (gs[i+1][0][1] if i + 1 < len(gs) else None) for i, g in enumerate(gs)}
     for g in gs:
         txt = ' '.join(x[0] for x in g)
+        # a bottom card (the 9:16 side list / cycle) lifts the captions above itself for as long as it is up
+        cap_y = next((int(y_) for a_, b_, y_ in getattr(BT, 'CAP_LIFTS', []) if a_ - 0.15 <= g[0][1] < b_), CAP_Y)
         if g[0][1] - t > 0.02:
             entries.append((blank, g[0][1] - t)); t = g[0][1]
         for k, (w, ws, we) in enumerate(g):
             # The file name carries the state's CONTENT (line text + lit word), not just its sequence number: a changed
             # grouping renumbers every state, and a name keyed on the number alone silently reused the previous run's
             # pictures -- wrong words burned over correct timings (lesson A6.24, caught in stills 2026-09-10).
-            p = f"{capdir}/c{n:05d}_{hashlib.md5(f'{txt}|{k}|{CAP_Y}'.encode()).hexdigest()[:10]}.png"; n += 1
+            p = f"{capdir}/c{n:05d}_{hashlib.md5(f'{txt}|{k}|{cap_y}|{LIT}'.encode()).hexdigest()[:10]}.png"; n += 1
             if not os.path.exists(p):
                 im = Image.new("RGBA", (VW, VH), (0, 0, 0, 0))
                 d = ImageDraw.Draw(im)
@@ -232,7 +236,7 @@ def render(gs, out='captions.mov', capdir='cap', stops=None):
                 # reads as broken. And the advance must be getlength(), which counts the
                 # trailing space -- getbbox() ignores it, so the words crowd and drift left
                 # of their own shadow. Both faults shipped in an earlier attempt.
-                BASE = CAP_Y + F.getmetrics()[0]
+                BASE = cap_y + F.getmetrics()[0]
                 tw = F.getlength(txt)
                 x = int((VW - tw) // 2)
                 sh = Image.new("RGBA", (VW, VH), (0, 0, 0, 0))
@@ -241,7 +245,7 @@ def render(gs, out='captions.mov', capdir='cap', stops=None):
                 im.alpha_composite(sh.filter(ImageFilter.GaussianBlur(3)))
                 cx = float(x)
                 for j, (ww, _, _) in enumerate(g):
-                    col = vlib.OLIVE if j == k else (255, 255, 255)
+                    col = LIT if j == k else (255, 255, 255)
                     d.text((int(cx), BASE), ww, font=F, fill=col + (255,), anchor="ls")
                     cx += F.getlength(ww + ' ')
                 im.save(p)

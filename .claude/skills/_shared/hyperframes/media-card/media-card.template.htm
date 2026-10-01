@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=__W__, height=__H__" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      /* Soft Blue Light MEDIA CARD: the moving field with a rounded HOLE (transparent) for a clip, photo or phone, its frame, and the disclosure chip under it. The video build lays this plate over the media. */
+      @font-face { font-family: "Poppins"; src: url("assets/Poppins-Bold.ttf") format("truetype"); font-weight: 700; }
+      @font-face { font-family: "Poppins"; src: url("assets/Poppins-Regular.ttf") format("truetype"); font-weight: 400; }
+      :root {
+        --tint: rgba(22, 51, 81, 0.498);       /* glass over the field: 0.92 x the 0.54 tint blend */
+        --glass: rgba(22, 51, 81, 0.54);       /* GLASS_TINT over footage (the blur comes from the _mask pass) */
+        --line: rgb(64, 112, 153);             /* GLASS_LINE */
+        --cyan: rgb(104, 197, 255);            /* CYAN */
+        --white: rgb(244, 250, 255);           /* WHITE */
+        --spec: rgb(135, 210, 248);            /* SPECULAR */
+        --chip: rgb(6, 17, 30);                /* disclosure chip */
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: __W__px; height: __H__px; overflow: hidden; background: transparent; }
+      #root { position: relative; width: 100%; height: 100%; font-family: "Poppins", sans-serif; font-weight: 700; }
+      #field { position: absolute; left: 0; top: 0; width: __W__px; height: __H__px; }
+      .t { position: absolute; white-space: nowrap; line-height: 1.4; }
+      .t span { display: inline-block; white-space: pre; }
+      #shadowWrap, #frameWrap { position: absolute; left: 0; top: 0; }
+      #frame { position: absolute; border: 2px solid rgba(118, 183, 222, 0.59); }
+      #spec { position: absolute; width: 180px; height: 3px; border-radius: 2px; background: var(--spec); }
+      #chip { position: absolute; height: 80px; border-radius: 24px; background: var(--chip); }
+      #chip div { position: absolute; left: 40px; top: 14px; font-size: 46px; font-weight: 400; line-height: 1.4; color: var(--white); white-space: nowrap; }
+      #kicker { color: var(--cyan); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="__ID__" data-start="0" data-duration="__DUR__" data-width="__W__" data-height="__H__">
+      <canvas id="field" width="__W__" height="__H__"></canvas>
+      <div id="frameWrap"><div id="frame"></div><div id="spec"></div></div>
+      <div id="chip"><div id="chipText"></div></div>
+      <div id="kicker" class="t"></div>
+    </div>
+    <script>
+      const CFG = __CFG__;
+      const D = CFG.dur;
+      const px = v => v + "px";
+      const place = (e, x, y, w, h) => Object.assign(e.style, { left: px(x), top: px(y), width: w == null ? "" : px(w), height: h == null ? "" : px(h) });
+      const $ = id => document.getElementById(id);
+      const words = (e, s) => s.split(" ").map((w, i, a) => { const sp = document.createElement("span"); sp.textContent = w + (i < a.length - 1 ? " " : ""); e.appendChild(sp); return sp; });
+      // the hole: punched out of the field on every frame, so the media under the plate shows through
+      const [hx0, hy0, hw, hh] = CFG.hole, hr = CFG.radius;
+      function afterField(c) {
+        // soft shadow ring around the hole, then the hole itself
+        c.save(); c.shadowColor = "rgba(0, 2, 12, 0.55)"; c.shadowBlur = 28; c.shadowOffsetY = 10; c.fillStyle = "rgb(42, 80, 113)";
+        c.beginPath(); c.roundRect(hx0 - 10, hy0 - 10, hw + 20, hh + 20, hr + 8); c.fill(); c.restore();
+        c.globalCompositeOperation = "destination-out"; c.fillStyle = "#000";
+        c.beginPath(); c.roundRect(hx0, hy0, hw, hh, hr); c.fill();
+        c.globalCompositeOperation = "source-over";
+      }
+      // ---------- the moving Soft Blue field (softblue.field, same formula; blob size constant against the short side) ----------
+      const CW = __W__, CH = __H__, GW = Math.round(CW / 4), GH = Math.round(CH / 4), cv = $("field"), ctx = cv.getContext("2d");
+      const off = document.createElement("canvas"); off.width = GW; off.height = GH;
+      const octx = off.getContext("2d"), img = octx.createImageData(GW, GH);
+      let seed = 8; const rnd = () => { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; };
+      const noise = new Float32Array(GW * GH);
+      for (let i = 0; i < noise.length; i++) { const u = Math.max(1e-9, rnd()), v = rnd(); noise[i] = 0.42 * Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v); }
+      const FS = Math.min(CW, CH) / 1080, SX = CW / (1920 * FS), SY = CH / (1080 * FS);
+      function drawField(t) {
+        const gx = .14 + .13 * Math.sin(t * .65), gy = .2 + .13 * Math.cos(t * .4), hx = .83 + .12 * Math.cos(t * .6), hy = .88;
+        const d = img.data;
+        for (let y = 0; y < GH; y++) {
+          const yy = y / GH, gyv = (yy - gy) * SY * (yy - gy) * SY / .35, kyv = (yy - hy) * SY * (yy - hy) * SY / .18;
+          for (let x = 0; x < GW; x++) {
+            const xx = x / GW, i = y * GW + x;
+            const g = Math.exp(-((xx - gx) * SX * (xx - gx) * SX / .18 + gyv)), k = Math.exp(-((xx - hx) * SX * (xx - hx) * SX / .12 + kyv));
+            const n = noise[i], o = i * 4;
+            d[o] = Math.min(255, Math.max(0, 5 + g * 5 + k * 3 + n)) | 0;
+            d[o + 1] = Math.min(255, Math.max(0, 13 + g * 53 + k * 26 + n)) | 0;
+            d[o + 2] = Math.min(255, Math.max(0, 28 + g * 94 + k * 62 + n)) | 0;
+            d[o + 3] = 255;
+          }
+        }
+        octx.putImageData(img, 0, 0);
+        ctx.globalCompositeOperation = "source-over";
+        ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = "low";
+        ctx.drawImage(off, 0, 0, CW, CH);
+        if (typeof afterField === "function") afterField(ctx);
+      }
+
+      const tl = gsap.timeline({ paused: true });
+      const clock = { t: 0 };
+      drawField(0);
+      tl.fromTo(clock, { t: 0 }, { t: D, duration: D, ease: "none", onUpdate: () => drawField(clock.t) }, 0);
+      const fr = $("frame"); place(fr, hx0 - 2, hy0 - 2, hw + 4, hh + 4); fr.style.borderRadius = px(hr + 2);
+      const sp = $("spec"); place(sp, hx0 + 30, hy0 - 12);
+      const specN = Math.max(1, Math.round(D / 2.4));
+      tl.fromTo(sp, { x: 0 }, { x: hw - 60 - 180, duration: D / specN, ease: "sine.inOut", yoyo: true, repeat: specN - 1 }, 0);
+      const chip = $("chip");
+      if (CFG.chip) {
+        place(chip, CFG.chip.x, CFG.chip.y, CFG.chip.w, 80); $("chipText").textContent = CFG.chip.s;
+        // timed label (label_spans): the chip is up only while its picture is on the screen
+        (CFG.chip.spans || [[0, D]]).forEach(([a, b], i) => {
+          if (a > 0.01 || i) tl.fromTo(chip, { opacity: 0 }, { opacity: 1, duration: 0.1, ease: "power2.out", immediateRender: i === 0 }, a);
+          if (b < D - 0.01) tl.fromTo(chip, { opacity: 1 }, { opacity: 0, duration: 0.1, ease: "power2.in", immediateRender: false }, b);
+        });
+      } else chip.style.display = "none";
+      const kk = $("kicker");
+      if (CFG.kicker) { place(kk, CFG.kicker.x, CFG.kicker.y); kk.style.fontSize = px(CFG.kicker.px); kk.textContent = CFG.kicker.s;
+        tl.fromTo(kk, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.42, ease: "expo.out" }, 0.1); }
+
+      window.__timelines["__ID__"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

@@ -70,6 +70,7 @@ still done by fresh reviewer sessions, because the model judge missed defects th
 > Blue Light graphics built with HyperFrames (`_shared/hyperframes/`, `_shared/SOFTBLUE.md`), shown in the first review
 > round. This kit's measurement, recovery, labels, captions, cutdown and gate loop stand; its GRAPHICS LAYER
 > (`vlib.py` plates, lower thirds, CTA pill, flash) must be ported to those templates before the next vertical.
+> **Ported 2026-10-01 for sheet builds** ("The second way in" below). A rebuild from an editor's master still draws `vlib.py`.
 
 ## Build order (automatic, from a master) -- `kit_run.py`
 
@@ -91,6 +92,50 @@ kit_run.py --master HIS.mp4 --build B --name "<title> | claude | 9x16 | ad N" --
 
 `run_report.json` in the build dir: every stage with its wall-clock, every AI call with its cost (`ai_ledger.jsonl`),
 every escalation, both gate verdicts.
+
+## The second way in: our own 16:9's edit sheet (2026-10-01) -- `kit_run.py --sheet`
+
+For Dan: when Claude or Codex made the 16:9, the answer sheet of that edit already exists, so the kit no longer
+reverse-engineers the finished video. `kit_run.py --sheet SHEET.json --build B --name "..."` reads the edit sheet
+(`_shared/edit-sheet/`), plans the whole vertical in about 12 seconds (the recover, measure and content stages took
+over an hour of a 2 h 15 min build and were the main source of stops), and draws every graphic fresh at 9:16 in Soft
+Blue Light with HyperFrames from the 16:9's own configs. The editor-master way in (above) is unchanged: the
+answer-key test passes and Ad 8's plan is identical before and after.
+
+| stage | script | what it does |
+|---|---|---|
+| sheet | `validate.py --hash`, `sheet_to_kit.py` | rolls, the cut (same-take reframes merged; every picture cut ON its audio cut, no pose search), the 16:9's grade on a HAIR-ANCHORED window of the raw, words (caption fixes applied, split hyphen words joined), `content.json` (every picture a `card` or a `bleed`, label from the sheet; every full-screen graphic an `hf` beat; lower thirds; side cards), `assets.py`, `sheet_report.json` |
+| setup, audio, kit, base, track | the kit's own | unchanged. The audio is the 16:9's delivered mix, stream-copied. `build_kit.py` takes `piccuts.json` from the sheet and still schedules pushes and level steps |
+| graphics | `sbl_graphics.py` | after the kit has fixed the beat times: one HyperFrames render per graphic at 1080x1920 (`_shared/hyperframes/vertical.py`), one media-card plate per card beat, `cap_lifts` (captions rise above a bottom card) |
+| labels | `kit_labels.py` | full-bleed chips placed by measurement, drawn as the Soft Blue Light chip |
+| picture | `render_sbl.py` | talk and bleed beats from `render.py`; `hf` and `card` beats from the HyperFrames renders (decoded BT.601 to BT.709); overlays composited in RGB (`hyperframes/composite.py`, glass blur under lower thirds) |
+| captions .. deliver | the kit's own | the lit word is Soft Blue cyan on a sheet build |
+
+Review before any full build: `sbl_page.py --media` builds the graphic-lock page (first minute, every graphic and clip
+at 9:16 with a moving context clip); `sbl_preview.py --range A B` cuts any span with captions and sound.
+
+**What the sheet path decides, and how.** A horizontal clip goes in a card showing the whole clip (never cropped
+shorter); it fills the frame only when a measured person fits the phone crop, or when `--ai-clips fill` says our own AI
+clips fill (centred on the person). `--card-shape square` shows a clip's centre square. Hard cuts by default
+(`--flash` carries Muhammad's flash). No vignette. A graphic whose template has no 9:16 layout STOPS the run; nothing
+is dropped or redrawn by hand.
+
+**Not proven yet on a sheet build (2026-10-01):** `kit_plan.py` and the gate pre-check, the judges, the fold and the
+cutdown. The gate's ad ranges (`picture.json`) were measured on Muhammad's 3 to 4 minute ads; RO-10 (an 8:38 organic
+film) plans to 0 flashes (his 2.5 to 3.8 per minute), 0 CTAs (2.7 to 3.3), 2.2 inserts per minute (2.4 to 8.5), 27 %
+insert coverage (34 to 64 %) and a 49 s longest talk stretch (12.6 to 29.9 s). Those bounds are NOT to be moved;
+which format gates a vertical of an organic film is Dan's ruling.
+
+### Sheet-path lessons (2026-10-01)
+
+* Grade in the 16:9's own order (`grade.order`): a float LUT on the 4K crop ran at about 3 frames a second; scaled to
+  1080 first, as the 16:9 did, the 8:38 conform takes about 5 minutes and matches its look.
+* A killed conform can leave a half-written segment that the next run skips as "exists". `kit_base.py` then fails its
+  own frame count (it did: 15,385 of 15,532); delete the short segment, never the check.
+* exFAT writes `._` twins of every file: glob results from the Extreme drive must skip names starting with `._`.
+* `top` is not a legal `const` name in a HyperFrames page (it is a window property); `check` catches it, `lint` does not.
+* The raw of a 16:9 studio film is already a medium close-up: the vertical's widest level (the whole hair-anchored
+  window height) cuts the shoulders. That is the footage, not a setting.
 
 ## What escalates (never guessed)
 

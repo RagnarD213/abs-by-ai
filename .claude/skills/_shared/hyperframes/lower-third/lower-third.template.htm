@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=1920, height=1080" />
+    <meta name="viewport" content="width=__W__, height=__H__" />
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
     <style>
       /* Soft Blue Light Motivation lower third (softblue.lower_third), with motion and an optional counter bar.
@@ -17,9 +17,9 @@
         --spec: rgb(135, 210, 248);            /* SPECULAR */
       }
       * { margin: 0; padding: 0; box-sizing: border-box; }
-      html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: transparent; }
+      html, body { margin: 0; width: __W__px; height: __H__px; overflow: hidden; background: transparent; }
       #root { position: relative; width: 100%; height: 100%; font-family: "Poppins", sans-serif; font-weight: 700; }
-      #drift, #enter { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+      #drift, #enter { position: absolute; left: 0; top: 0; width: __W__px; height: __H__px; }
       #strip { position: absolute; background: var(--tint); border: 1px solid var(--line); overflow: hidden; }
       #spec { position: absolute; top: 1px; width: 180px; height: 4px; border-radius: 2px; background: var(--spec); }
       #accent { position: absolute; border-radius: 8px; background: var(--cyan); }
@@ -40,7 +40,7 @@
     </style>
   </head>
   <body>
-    <div id="root" data-composition-id="__ID__" data-start="0" data-duration="__DUR__" data-width="1920" data-height="1080">
+    <div id="root" data-composition-id="__ID__" data-start="0" data-duration="__DUR__" data-width="__W__" data-height="__H__">
       <div id="drift">
         <div id="enter">
           <div id="strip"><div id="spec"></div></div>
@@ -66,7 +66,7 @@
       topic.textContent = CFG.topic.s;
       const partsBox = document.getElementById("parts");
       const parts = CFG.parts.map(p => {
-        const e = document.createElement("div"); e.className = "t part"; place(e, p.x, CFG.point_y);
+        const e = document.createElement("div"); e.className = "t part"; place(e, p.x, p.y == null ? CFG.point_y : p.y);   // p.y: a wrapped line (9:16)
         p.s.split(" ").forEach((w, i, a) => { const s = document.createElement("span"); s.textContent = w + (i < a.length - 1 ? " " : ""); e.appendChild(s); });
         partsBox.appendChild(e); return e;
       });

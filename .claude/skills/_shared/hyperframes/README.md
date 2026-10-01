@@ -49,6 +49,26 @@ segment, 2 options each): a join is a jump when the two framings are within 1.2x
 full-screen item covers one side; cards prefer W4S (the W4 crop slid left inside the 4K frame) and fall back to W2 + wall
 stretch where the slide would force a jump.
 
+## 9:16 layouts (2026-10-01) -- `vertical.py`
+
+The same template files and the same configs draw every graphic at 1080x1920: `python3 vertical.py --sheet SHEET.json
+--out OUT [--render] [--snap]` (the vertical kit calls it through `kit9x16/sbl_graphics.py`). Templates carry
+`__W__` / `__H__`; `hfbuild.make_scene` fills them from `cfg["canvas"]` (default 1920x1080, where the output is
+unchanged: the edited lower third re-renders to PSNR infinity against RO-10's approved G03).
+
+| Template | 9:16 layout |
+|---|---|
+| `lower-third/` | strip x 68..1012, bottom at 68 % of the height; a long point WRAPS (parts carry their own `y`) and the strip grows upward; each part still rises on its word. No counter bar at 9:16 yet |
+| `before-card/` | photo on top (920 x 883, top-anchored), chip under it, glass fact card beneath (`softblue.scene_fact`'s stacked layout); the field keeps its blob size against the short side |
+| `side-list/` | the 3A card full width, 36 px margins, bottom at 87 %, type 1.25x (`CFG.type`) |
+| `cycle/` | the same 740 x 488 card scaled 1.36x to the full width, bottom at 87 % (`CFG.place`) |
+| `title-card/` (new) | eyebrow + accent + headline lines on the field; with `rows` it is the recap card (one column). Replaces `softblue` title and recap cards in a vertical |
+| `media-card/` (new) | the field with a transparent rounded hole for a clip, photo or phone, its frame, the chip 68 px under it; the video build lays the plate over the picture |
+| `cta/` (new) | a glass button over footage (content + mask pass), or full screen with `full` |
+
+`composite.py` takes `Compositor(manifest, wh=(1080, 1920))`. New templates are NOT approved by Dan until he passes the
+graphic-lock page.
+
 ## Dan's verdict on the pilot (2026-09-30)
 
 *"This is looking significantly better than the graphics that we're using. This really shows me the potential. This is

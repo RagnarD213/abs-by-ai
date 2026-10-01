@@ -40,8 +40,10 @@ def make_scene(tpl_path, cfg, out_dir, assets=()):
     d = pathlib.Path(out_dir) / cfg["id"]
     (d / "assets").mkdir(parents=True, exist_ok=True)
     html = pathlib.Path(tpl_path).read_text()
+    cw, ch = cfg.get("canvas", (1920, 1080))            # 1080x1920 for a vertical (vertical.py); templates carry __W__/__H__
     (d / "index.html").write_text(html.replace("__CFG__", json.dumps(cfg, indent=2))
-                                  .replace("__ID__", cfg["id"]).replace("__DUR__", str(cfg["dur"])))
+                                  .replace("__ID__", cfg["id"]).replace("__DUR__", str(cfg["dur"]))
+                                  .replace("__W__", str(cw)).replace("__H__", str(ch)))
     (d / "package.json").write_text(package_json(cfg["id"]))
     (d / "hyperframes.json").write_text(json.dumps({"paths": {"assets": "assets"}}, indent=2))
     for f in ("Poppins-Bold.ttf", "Poppins-Regular.ttf"):
