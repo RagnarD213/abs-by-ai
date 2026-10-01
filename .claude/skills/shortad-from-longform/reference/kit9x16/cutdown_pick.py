@@ -157,7 +157,8 @@ def main():
         "story in under " + f"{a.max:.0f}" + " seconds total: a hook (the first lines of the ad, normally), the problem, "
         "the AI demo (the moment he generates / sees the picture of himself with abs: it MUST be in the cut, it is what "
         "the ad sells), the payoff (what it did for him), and the call to action. Use most of the time you have: a "
-        "cutdown under 45 s has thrown away story it could keep. Rules: at most "
+        "cutdown under 45 s has thrown away story it could keep. Rules: the first range starts at sentence 0 (the "
+        "hook is never cut); at most "
         "4 ranges; each range is a run of consecutive sentences; every seam must be a sentence AND a thought boundary "
         "(the cut must read as natural prose, no dangling 'and'/'so'/'this' referring to something cut away); the "
         "LAST sentences of the ad (the final CTA) must be the last range; never end on a half-finished list. Prefer "
@@ -189,6 +190,8 @@ def main():
             if cov < 0.50:
                 probs.append(f"only {100 * cov:.0f}% of it has captions on screen (at least 50% needed): swap sentences "
                              f"tagged 'NO CAPTIONS on screen' for captioned ones")
+        if R and R[0][0] != 0:
+            probs.append("the first range must start at sentence 0: the ad's opening hook is never cut")
         if len(R) > 4:
             probs.append(f"it has {len(R)} ranges (at most 4)")
         if any(x > y for x, y in R) or any(R[i + 1][0] <= R[i][1] for i in range(len(R) - 1)):
