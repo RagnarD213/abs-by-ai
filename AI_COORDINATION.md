@@ -89,7 +89,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # ACTIVE
 
-**SL-05 covers - REVIEW 2026-10-01, Codex.** 50 checked covers. Next: Dan picks, then ten exports. Gallery: `http://127.0.0.1:8799/`. Detail: `Docs/SL05_COVER_REVIEW_20261001.md`.
+**SL-05 covers - R2 REVIEW 2026-10-01, Codex.** 20 deadlift covers. Next: five A/B picks, then ten exports. Gallery: `http://127.0.0.1:8799/round2-deadlift/`. Detail: `Docs/SL05_COVER_REVIEW_R2_20261001.md`.
 
 
 
@@ -171,7 +171,7 @@ Memory `google-ads-ui-automation`.
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
 - `handoff-20261001-vertical-kit-from-our-own-edits.md` (10-01).
-- `handoff-20261001-sl05-shorts-covers-codex.md` (10-01): SL-05 covers REVIEW READY, awaiting five picks; `Docs/SL05_COVER_REVIEW_20261001.md`. Then `…-sl05-shorts-video-setup.md` after Oct 11, Opus medium.
+- `handoff-20261001-sl05-shorts-covers-codex.md` (10-01): SL-05 covers R2 REVIEW READY, five A/B picks; `Docs/SL05_COVER_REVIEW_R2_20261001.md`. Then `…-sl05-shorts-video-setup.md` after Oct 11, Opus medium.
 - `handoff-20260929-cut-broll-into-clip-library.md` (09-29): cut 68 B-roll clips into the library. Opus 5.5 medium.
 - `handoff-20260930-codex-adopt-review-page-format.md` (09-30): Codex adopts the RO-16 review page. GPT-6 Sol medium.
 
