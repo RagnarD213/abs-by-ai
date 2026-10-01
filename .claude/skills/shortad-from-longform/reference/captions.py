@@ -183,6 +183,14 @@ def groups(words, mute):
         else:
             cur = cand
     if cur: gs.append(cur)
+    # a lone short word left on screen for a few frames before a graphic takes the captions away reads as a stray
+    # tick ("I" for 6 frames before the "I used AI" lower third, Ad 10 23.1 s, kit autofill gate round judge)
+    def stray(g):
+        if len(g) != 1:
+            return False
+        w = g[0]
+        return any(0 <= a - 0.15 - w[1] <= 0.35 for a, b in mute)
+    gs = [g for g in gs if not stray(g)]
     return gs
 
 def render(gs, out='captions.mov', capdir='cap', stops=None):

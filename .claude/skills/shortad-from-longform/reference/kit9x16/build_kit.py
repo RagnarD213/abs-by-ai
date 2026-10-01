@@ -504,6 +504,20 @@ def main():
             b["label"] = T["labels"]["real"] if b["label_kind"] == "real" else T["labels"]["ai"]
         beats.append(b)
         last = t1
+    # (BEFORE the timeline is made: the talk beat after it, its flash and its cut all take the new end)
+    # a graphic that mutes captions never swallows the START of a word that plays on after it: its end moves to
+    # just before that word (Ad 10 138.66 s "30 minutes": the window ended 0.18 s into "30", which then either went
+    # uncaptioned, judged a defect, or was captioned 212 ms late, over the gate's 120 ms caption-sync bound)
+    wl = [(w["t"], w["e"]) for w in words]
+    for bi, b in enumerate(beats):
+        nxt = beats[bi + 1] if bi + 1 < len(beats) else None
+        if b["kind"] == "talk" or (nxt is not None and nxt["t0"] - b["t1"] < 0.3):
+            continue                                          # into another graphic: no caption there either
+        for ws, we in wl:
+            if b["t1"] - 0.30 <= ws < b["t1"] - 0.08 and we > b["t1"] + 0.10 and (we - b["t1"]) >= 0.5 * (we - ws):
+                if ws - 0.03 - b["t0"] >= 0.5:
+                    b["t1"] = round(ws - 0.03, 3)
+                break
     # carry a VALIDATED chip placement over from the previous beat sheet when the same picture sits on the
     # same beat (kit_labels.py is a segmenter pass per candidate; a re-plan that does not move the beat keeps it)
     prev_sheet = os.path.join(a.build, "beats.json")
@@ -519,19 +533,6 @@ def main():
     tl = make_timeline(beats, dur)
     lts, last = [], 0.0
     L = T["lower_third"]
-    # a graphic that mutes captions never swallows the START of a word that plays on after it: its end moves to
-    # just before that word (Ad 10 138.66 s "30 minutes": the window ended 0.18 s into "30", which then either went
-    # uncaptioned, judged a defect, or was captioned 212 ms late, over the gate's 120 ms caption-sync bound)
-    wl = [(w["t"], w["e"]) for w in words]
-    for bi, b in enumerate(beats):
-        nxt = beats[bi + 1] if bi + 1 < len(beats) else None
-        if b["kind"] == "talk" or (nxt is not None and nxt["t0"] - b["t1"] < 0.3):
-            continue                                          # into another graphic: no caption there either
-        for ws, we in wl:
-            if b["t1"] - 0.30 <= ws < b["t1"] - 0.08 and we > b["t1"] + 0.10 and (we - b["t1"]) >= 0.5 * (we - ws):
-                if ws - 0.03 - b["t0"] >= 0.5:
-                    b["t1"] = round(ws - 0.03, 3)
-                break
     for it in C.get("lower_thirds", []):
         t0, t1 = resolve_times(it, A, last)
         if "t0" not in it:
