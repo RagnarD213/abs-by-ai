@@ -93,8 +93,6 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 
 
-**Shared checkout cannot push - NEEDS OWNER 2026-10-01, Claude.** 35 local commits missing from GitHub, 137 behind, 109 dirty files; pull/merge refuse. Next: fire `Handoffs/handoff-20260930-fix-stuck-main-checkout.md` (rewritten 10-01: snapshot commit, then merge).
-
 **RO-11 - NEEDS DAN 2026-10-01, Claude.** Round 1 page http://127.0.0.1:8802/. Next: `handoff-20261001-ro11-round1-dan-review.md`.
 
 **RO-12 - QUEUED 2026-10-01, Claude.** Blotato Oct 25. Then: `Docs/RO12_SETUP_RECEIPT_20261001.md`, delete.
