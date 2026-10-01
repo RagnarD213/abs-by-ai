@@ -189,7 +189,11 @@ def groups(words, mute):
         if len(g) != 1:
             return False
         w = g[0]
-        return any(0 <= a - 0.15 - w[1] <= 0.35 for a, b in mute)
+        if any(0 <= a - 0.15 - w[1] <= 0.35 for a, b in mute):
+            return True
+        # ... or the last word of a sentence whose other words a graphic covered ("age." alone for 0.7 s after the
+        # "It works around your injuries" lower third, Ad 10 144.3 s)
+        return w[0].rstrip().endswith(('.', '?', '!')) and any(0 <= w[1] - b <= 0.35 for a, b in mute)
     gs = [g for g in gs if not stray(g)]
     return gs
 
