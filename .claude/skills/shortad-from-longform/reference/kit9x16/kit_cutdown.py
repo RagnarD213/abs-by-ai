@@ -110,6 +110,12 @@ def pad_tail(b, snapped):
     a = _mix()
     nxt = min([w[1] for w in _CTC if w[1] > b + 1e-3] or [b + TAIL_MAX + 1.0])
     lim = min(b + TAIL_MAX, nxt - TAIL_GAP)
+    # never INTO his flash: it is baked into the picture, and two frames of it before a seam read as a truncated
+    # graphic (AV-09 cutdown seam 1). cutdown_pick refuses a sentence whose tail a flash would cut; this is the
+    # guard under it
+    for f0, f1 in getattr(BT, "FLASHES", []):
+        if b <= f0 < lim:
+            lim = f0
     t = b
     while t < lim:
         seg = a[int(t*SR):int((t + 0.005)*SR)]

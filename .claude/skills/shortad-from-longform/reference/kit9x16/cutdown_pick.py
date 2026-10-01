@@ -85,12 +85,21 @@ def main():
         # a hard cut (AV-09 cutdown seam at 19.94 s, flash 19.91-20.35, judged a truncated graphic). The range takes
         # the whole flash when no word starts inside it, else it stops where the flash begins.
         for f0, f1 in flashes:
-            if f0 < t1 < f1:
+            # the last word's sound needs up to 0.3 s after its CTC end (kit_cutdown pad_tail), so a flash that
+            # starts in that tail is cut too: the range takes the whole flash, or the sentence cannot end a range
+            # (AV-09 cutdown: stopping at the flash's start still left 2 flash frames once the tail was padded)
+            if y < len(S) - 1 and f0 - 0.30 < S[y]["t1"] < f1:
                 nxt_w = min([w_[1] for w_ in W if w_[1] > S[y]["t1"] + 0.01] or [dur])
-                t1 = f1 if nxt_w >= f1 - 0.02 else max(f0, S[y]["t1"] + 0.005)
-            if f0 < t0 < f1:
+                if nxt_w >= f1 + 0.03:
+                    t1 = f1 + 0.01
+                else:
+                    prob = f"sentence {y} ends against a white flash transition, so a range cannot end on it"
+            if x > 0 and f0 < t0 < f1:
                 prv_w = max([w_[2] for w_ in W if w_[2] < S[x]["t0"] - 0.01] or [0.0])
-                t0 = f0 if prv_w <= f0 + 0.02 else f1
+                if prv_w <= f0 - 0.30:
+                    t0 = f0
+                else:
+                    prob = f"sentence {x} starts inside a white flash transition, so a range cannot start on it"
         # ... nor inside an overlay's fade-out (its last 0.4 s): a sentence that ends there cannot end a range
         # (AV-09 cutdown seam 3: "Abs In Less Than 10 Seconds" lost the last 3 frames of its fade; running on past
         # the fade left 4 frames at the next shot's own level, a jump cut by the gate's measure)
@@ -119,7 +128,8 @@ def main():
     def tag(i):
         t0, t1, pr = edges(i, i)
         return (f" <starts {level_at(t0 + 0.03)}; ends {level_at(t1 - 0.03)}"
-                + ("; a range CANNOT END here" if pr else "") + ">")
+                + ("; a range CANNOT END here" if pr and "end" in pr else "")
+                + ("; a range CANNOT START here" if pr and "start on" in pr else "") + ">")
     listing = "\n".join(f"[{i}] ({s['t0']:.1f}-{s['t1']:.1f}s, {s['t1'] - s['t0']:.1f}s) {s['text']}{tag(i)}" for i, s in enumerate(S))
     prompt = (
         "You are cutting a <=0:59 vertical cutdown of a finished paid video ad for Abs By AI (an app that generates a "
@@ -136,7 +146,7 @@ def main():
         "tagged with what is on screen where it starts and ends (FAR / NEAR = the talking head at that zoom level, "
         "picture = a photo, clip or text card). Where one range ends and the next begins, the two tags must differ "
         "(FAR to NEAR, NEAR to FAR) or at least one must be 'picture'; never FAR to FAR or NEAR to NEAR. Never end a "
-        "range on a sentence tagged 'a range CANNOT END here'.\n\n" + listing +
+        "range on a sentence tagged 'a range CANNOT END here', nor start one on 'a range CANNOT START here'.\n\n" + listing +
         '\n\nAnswer JSON: {"ranges": [[first_sentence, last_sentence], ...], "total_seconds": <sum>, '
         '"story": "<the cutdown read as prose>", "why": "<one line per range: hook/problem/demo/payoff/CTA>"}')
     res, E_ = None, None
