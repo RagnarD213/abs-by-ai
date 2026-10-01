@@ -259,6 +259,18 @@ def main():
                 sh([PY, K("kit_labels.py"), "--build", B, "--only", *keys])
                 sh(D("picture", "--build", B)); sh(D("captions", "--build", B)); sh(D("mux", "--build", B, "--out", full))
             sh([PY, K("kit_negscan.py"), "sheet", "--build", B, "--video", full])
+            # THE GATE ITSELF, BEFORE ANY JUDGE: every measured row must already pass; only the two rows the judges
+            # write (the watch pass, the negative-events scan) may be open. Three judges spent on a file the gate
+            # then fails on a measurement is the most expensive way to find it (kit autofill, 2026-09-30).
+            gp = os.path.join(B, "gate_pre.json")
+            subprocess.run([PY, os.path.join(SHARED, "deliver", "gate.py"), full, "--format", "ad9x16", "--plan",
+                            os.path.join(B, "plan.json"), "--json", gp], cwd=B, capture_output=True)
+            if os.path.exists(gp):
+                rows = [r for r in json.load(open(gp))["rows"] if r.get("ok") is not True and not r.get("na")
+                        and r["key"] not in ("watch:pass", "compliance:negative_events")]
+                if rows:
+                    raise Stop(1, "the delivery gate fails on measured rows before the watch pass: "
+                                  + "; ".join(f"{r['key']}: {r.get('detail', '')[:160]}" for r in rows))
         elif name in ("judge", "cutjudge"):
             wd = os.path.join(B, "watch") if name == "judge" else os.path.join(B, "cut_audit", "watch")
             logs = os.path.join(B, "logs") if name == "judge" else os.path.join(B, "cut_audit", "logs")

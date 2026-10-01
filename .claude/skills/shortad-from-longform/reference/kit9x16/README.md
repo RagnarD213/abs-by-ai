@@ -158,6 +158,23 @@ his own (Dan-approved) labelling; a picture never gets a second chip over his bu
   the still's real vs AI. A library change re-indexes it (about 40 minutes at 1,434 files) and can surface a new
   conflict; the run escalates rather than guessing.
 
+## Gate-round lessons (2026-09-30)
+
+* The delivery gate runs on the file BEFORE the judges (prewatch): a measured row that fails stops the run there.
+* Label clearance is checked on the DELIVERED file with the gate's own measurement, in a loop: a full-bleed chip the
+  person mask reads as touching him is re-placed away from that spot (`labels/exclude.json`), a card's chip moves
+  72 px lower (`label_dy`, one height across a run of labelled cards), the changed segments re-render, and the file is
+  checked again (3 tries). The mask reads a dark chip as part of him on single compressed frames, and nothing short
+  of the delivered file predicts which.
+* A timed label (`label_spans`) is one plan track per stretch it shows. The banned-screen source
+  (`auto_sources.json` `banned_screens`) is always passed to the gate.
+* A graphic that mutes captions ends just before a word that plays on after it (decided before the timeline is
+  made, so the cut and flash follow); a word may be captioned from a graphic's end only when that is within 0.10 s
+  of its start (the gate's caption sync bound is 120 ms); a lone word stranded before a graphic is not captioned.
+* A phone lift is cropped to the phone, never a fixed column of his frame. Only Dan-window plates are declared as
+  talking-head windows (a stale plate file made a full-bleed picture fail `framing:hair_top`).
+* The work tree lives at `~/abs-worktrees/kit-autofill`, never under `/private/tmp` (a restart wipes it).
+
 ## Rules carried (do not re-open)
 
 * One format. Bound to his ranges in BOTH directions (`picture.json` lo/hi; overshoot is a warning).
