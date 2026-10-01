@@ -12,4 +12,4 @@ Run all three with Python3 from this tracked recipe directory. Apple Vision pers
 
 All twenty passed; minimum text/person clearance72px, zero overlap. All paired and platform sheets visually inspected. Generation used five built-in imagegen calls; no dollar cost was reported and no external metered calls were used.
 
-Await five A/B picks. Then export only the selected ten files to the handoff's final directories and report paths. No upload or scheduling.
+Dan approved A for all five shorts on 2026-10-01. `export.py` copies the exact selected review files to the final directories, verifies source and export hashes, writes the receipt and final paths document. No upload or scheduling.

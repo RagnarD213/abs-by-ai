@@ -1,6 +1,6 @@
 # SL-05 Stop Deadlifting round 2 cover review
 
-Status: awaiting Dan's five A/B picks. No final exports, uploads or scheduling.
+Status: Dan approved option A with dark backgrounds for all five shorts on 2026-10-01. Ten finals exported and verified. [Final paths and hashes](SL05_COVER_FINALS_20261001.md). No upload or scheduling.
 
 Dan rejected round 1 on 2026-10-01 because standing portraits did not communicate deadlifting. He requested one new AI image and two designs per short, showing a powerlifter struggling to deadlift, with an X or similar warning, using the video clip as visual direction. That explicit request replaces the original five-photo option mix and Dan-only subjects for this round.
 
@@ -20,4 +20,4 @@ The folder includes original frame references, five generated assets, exact gene
 
 Recipe: `scripts/covers/sl05-round2-deadlift/`. Copies saved inside the ignored local output folder; run the tracked originals.
 
-Next: Dan chooses A/B for shorts 1-5. Export those exact ten approved files to `posted covers/`, `posted covers/youtube/` and `approved-sl05-for-Claude/` as specified by the handoff. Write paths/hashes to `Docs/SL05_COVER_FINALS_<date>.md` and report paths. No upload or scheduling.
+Completed: exported all ten selected R2A covers and identical labeled Finder copies. Opened `approved-sl05-for-Claude/` in Finder. See the final paths document above.
