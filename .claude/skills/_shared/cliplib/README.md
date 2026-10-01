@@ -53,3 +53,9 @@ and flags visible AI defects, about $0.0015 a clip), `drive-sync`, `thumbs`.
   queue (clip bound to a finalized video's SHA-256). Leave it alone; this library does not feed it.
 - Folder `00 ASSETS USED IN THE REFERENCE AD` is a frozen set for the Ad 1 test brief; its clips are catalogued from
   their category copies, and folder 00 itself is left as is.
+- Grades Dan approved for filmed B-roll (2026-10-01, clips B0427-B0479; recipe in `/Volumes/Extreme/_edit_work/broll-cuts-20260929/cut.py`):
+  the welcome-video rolls (`C02xx-0xx.MP4`, 4K 23.976, untagged) are S-Log3, not S-Cinetone: use the 8/28 LUT built at
+  exposure 0.70 plus `eq=saturation=0.88`, and keep 23.976. The 8/28 blue-mat rolls C1679-C1683 (warm low sun) take the
+  1.30 LUT plus `colortemperature=temperature=8500:pl=1` or skin reads orange. Hard-sun rolls C1673-C1677 take 1.15-1.30,
+  the patio rolls C1684-C1685 take 1.45. To re-grade a clip in place: overwrite the library file, `make_thumbs`,
+  `drive_sync(cat, only={id})`, then `sheet`.
