@@ -580,10 +580,16 @@ Headlines, long headlines and descriptions were read back from the live 16:9 ad 
 bids, audience and the other ads were not touched. The old Demand Gen campaign `24243839443` is PAUSED, so its RA-01 groups
 (`195593120770`, `201008893635`) were left alone.
 
-**Known policy issue (not caused by this build):** the long headline "AI genius discovers how to use AI to lose his stubborn
-belly fat. Video reveals full story" is DISAPPROVED (CLICKBAIT, PROHIBITED) on RA-01 16:9 and 9:16, Ad 6 and two Ad 10 ads, so
-those ads read APPROVED_LIMITED; the new square carries the same line. Recheck 2026-10-03:
-`node scripts/ads/api/client.js policy 24316364155`.
+**Clickbait long headline replaced (Dan, 2026-10-02):** the line "AI genius / Busy dad discovers how to use AI to lose his
+stubborn belly fat. Video reveals full story" was DISAPPROVED (CLICKBAIT) on RA-01 16:9 and 9:16, Ad 6 and two Ad 10 ads, and
+sat unflagged on the third Ad 10 ad and the new square. Account-wide scan (2,254 text lines, every campaign) found it only in
+trial campaign `24316364155`. All 7 ads now carry Dan's line "Korean AI prodigy discovers how to use AI to lose belly fat.
+Video reveals full story." in that slot (other lines untouched; `scripts/ads/api/dgen-replace-longheadline-20261002.js`, old
+state in `dgen-ads/longheadline-replace-20261002.before.json`). All 7 back in review; recheck 2026-10-03:
+`node scripts/ads/api/client.js policy 24316364155`. Other disapproved lines found in the scan and NOT changed (different
+text): Ad 5 headline "Why My Diets Kept Failing" (paused campaign), the engagement campaigns' "late night snacking" and
+"trains abs daily" lines and "The Truth About Protein Shakes" (paused or old), and the "trains abs daily" description on the
+two remarketing ads in `24316408288`.
 
 ## 2026-10-01: conversion REMARKETING campaign to /start (campaign `24305381214`)
 

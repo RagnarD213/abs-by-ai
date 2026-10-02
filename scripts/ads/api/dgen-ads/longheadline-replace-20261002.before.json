@@ -1,0 +1,240 @@
+[
+ {
+  "campaign": {
+   "resourceName": "customers/3427170837/campaigns/24316364155",
+   "status": "ENABLED",
+   "name": "[DAN] [DGEN] [TRIAL] VSL page | 6 ads | MU 25-54 | US+CA",
+   "id": "24316364155"
+  },
+  "adGroup": {
+   "resourceName": "customers/3427170837/adGroups/206348100928",
+   "name": "RA-01 AI Got Me Abs"
+  },
+  "adGroupAd": {
+   "resourceName": "customers/3427170837/adGroupAds/206348100928~826595554299",
+   "status": "ENABLED",
+   "ad": {
+    "resourceName": "customers/3427170837/ads/826595554299",
+    "id": "826595554299",
+    "name": "RA-01 AI Got Me Abs | Claude 16:9 | vsl",
+    "demandGenVideoResponsiveAd": {
+     "longHeadlines": [
+      {
+       "text": "AI genius discovers how to use AI to lose his stubborn belly fat. Video reveals full story"
+      },
+      {
+       "text": "See how I used AI to lose my stubborn stomach fat and get six pack abs at 40."
+      },
+      {
+       "text": "AI fitness app shows you how to lose stomach fat and get abs. Try it free for 7 days!"
+      }
+     ]
+    }
+   }
+  }
+ },
+ {
+  "campaign": {
+   "resourceName": "customers/3427170837/campaigns/24316364155",
+   "status": "ENABLED",
+   "name": "[DAN] [DGEN] [TRIAL] VSL page | 6 ads | MU 25-54 | US+CA",
+   "id": "24316364155"
+  },
+  "adGroup": {
+   "resourceName": "customers/3427170837/adGroups/206348100928",
+   "name": "RA-01 AI Got Me Abs"
+  },
+  "adGroupAd": {
+   "resourceName": "customers/3427170837/adGroupAds/206348100928~826595554302",
+   "status": "ENABLED",
+   "ad": {
+    "resourceName": "customers/3427170837/ads/826595554302",
+    "id": "826595554302",
+    "name": "RA-01 AI Got Me Abs | Claude vertical | vsl",
+    "demandGenVideoResponsiveAd": {
+     "longHeadlines": [
+      {
+       "text": "AI genius discovers how to use AI to lose his stubborn belly fat. Video reveals full story"
+      },
+      {
+       "text": "See how I used AI to lose my stubborn stomach fat and get six pack abs at 40."
+      },
+      {
+       "text": "AI fitness app shows you how to lose stomach fat and get abs. Try it free for 7 days!"
+      }
+     ]
+    }
+   }
+  }
+ },
+ {
+  "campaign": {
+   "resourceName": "customers/3427170837/campaigns/24316364155",
+   "status": "ENABLED",
+   "name": "[DAN] [DGEN] [TRIAL] VSL page | 6 ads | MU 25-54 | US+CA",
+   "id": "24316364155"
+  },
+  "adGroup": {
+   "resourceName": "customers/3427170837/adGroups/204444440607",
+   "name": "Ad 6 You're Not Too Old"
+  },
+  "adGroupAd": {
+   "resourceName": "customers/3427170837/adGroupAds/204444440607~826595554443",
+   "status": "ENABLED",
+   "ad": {
+    "resourceName": "customers/3427170837/ads/826595554443",
+    "id": "826595554443",
+    "name": "Ad 6 You're Not Too Old | Muhammad 16:9 | vsl",
+    "demandGenVideoResponsiveAd": {
+     "longHeadlines": [
+      {
+       "text": "Think you're too old to get abs? See how I lost my stubborn belly fat and got abs at 40."
+      },
+      {
+       "text": "AI genius discovers how to use AI to lose his stubborn belly fat. Video reveals full story"
+      },
+      {
+       "text": "AI fitness app shows men 40+ how to lose stomach fat and get abs. Try it free for 7 days!"
+      }
+     ]
+    }
+   }
+  }
+ },
+ {
+  "campaign": {
+   "resourceName": "customers/3427170837/campaigns/24316364155",
+   "status": "ENABLED",
+   "name": "[DAN] [DGEN] [TRIAL] VSL page | 6 ads | MU 25-54 | US+CA",
+   "id": "24316364155"
+  },
+  "adGroup": {
+   "resourceName": "customers/3427170837/adGroups/202248166482",
+   "name": "Ad 10 Busy Dad Fitness"
+  },
+  "adGroupAd": {
+   "resourceName": "customers/3427170837/adGroupAds/202248166482~826635657832",
+   "status": "ENABLED",
+   "ad": {
+    "resourceName": "customers/3427170837/ads/826635657832",
+    "id": "826635657832",
+    "name": "Ad 10 Busy Dad Fitness | Muhammad 16:9 | vsl",
+    "demandGenVideoResponsiveAd": {
+     "longHeadlines": [
+      {
+       "text": "Busy dad discovers how to use AI to lose his stubborn belly fat. Video reveals full story"
+      },
+      {
+       "text": "No time for the gym? See how this busy dad used AI to lose his dad bod and get abs at 40."
+      },
+      {
+       "text": "AI fitness app shows you how to lose stomach fat and get abs. Try it free for 7 days!"
+      }
+     ]
+    }
+   }
+  }
+ },
+ {
+  "campaign": {
+   "resourceName": "customers/3427170837/campaigns/24316364155",
+   "status": "ENABLED",
+   "name": "[DAN] [DGEN] [TRIAL] VSL page | 6 ads | MU 25-54 | US+CA",
+   "id": "24316364155"
+  },
+  "adGroup": {
+   "resourceName": "customers/3427170837/adGroups/202248166482",
+   "name": "Ad 10 Busy Dad Fitness"
+  },
+  "adGroupAd": {
+   "resourceName": "customers/3427170837/adGroupAds/202248166482~826635657835",
+   "status": "ENABLED",
+   "ad": {
+    "resourceName": "customers/3427170837/ads/826635657835",
+    "id": "826635657835",
+    "name": "Ad 10 Busy Dad Fitness | Claude 9:16 | vsl",
+    "demandGenVideoResponsiveAd": {
+     "longHeadlines": [
+      {
+       "text": "Busy dad discovers how to use AI to lose his stubborn belly fat. Video reveals full story"
+      },
+      {
+       "text": "No time for the gym? See how this busy dad used AI to lose his dad bod and get abs at 40."
+      },
+      {
+       "text": "AI fitness app shows you how to lose stomach fat and get abs. Try it free for 7 days!"
+      }
+     ]
+    }
+   }
+  }
+ },
+ {
+  "campaign": {
+   "resourceName": "customers/3427170837/campaigns/24316364155",
+   "status": "ENABLED",
+   "name": "[DAN] [DGEN] [TRIAL] VSL page | 6 ads | MU 25-54 | US+CA",
+   "id": "24316364155"
+  },
+  "adGroup": {
+   "resourceName": "customers/3427170837/adGroups/202248166482",
+   "name": "Ad 10 Busy Dad Fitness"
+  },
+  "adGroupAd": {
+   "resourceName": "customers/3427170837/adGroupAds/202248166482~826635657838",
+   "status": "ENABLED",
+   "ad": {
+    "resourceName": "customers/3427170837/ads/826635657838",
+    "id": "826635657838",
+    "name": "Ad 10 Busy Dad Fitness | Claude 9:16 59s | vsl",
+    "demandGenVideoResponsiveAd": {
+     "longHeadlines": [
+      {
+       "text": "Busy dad discovers how to use AI to lose his stubborn belly fat. Video reveals full story"
+      },
+      {
+       "text": "No time for the gym? See how this busy dad used AI to lose his dad bod and get abs at 40."
+      },
+      {
+       "text": "AI fitness app shows you how to lose stomach fat and get abs. Try it free for 7 days!"
+      }
+     ]
+    }
+   }
+  }
+ },
+ {
+  "campaign": {
+   "resourceName": "customers/3427170837/campaigns/24316364155",
+   "status": "ENABLED",
+   "name": "[DAN] [DGEN] [TRIAL] VSL page | 6 ads | MU 25-54 | US+CA",
+   "id": "24316364155"
+  },
+  "adGroup": {
+   "resourceName": "customers/3427170837/adGroups/206348100928",
+   "name": "RA-01 AI Got Me Abs"
+  },
+  "adGroupAd": {
+   "resourceName": "customers/3427170837/adGroupAds/206348100928~826755066385",
+   "status": "ENABLED",
+   "ad": {
+    "resourceName": "customers/3427170837/ads/826755066385",
+    "id": "826755066385",
+    "name": "RA-01 AI Got Me Abs | Claude 1:1 | vsl",
+    "demandGenVideoResponsiveAd": {
+     "longHeadlines": [
+      {
+       "text": "AI genius discovers how to use AI to lose his stubborn belly fat. Video reveals full story"
+      },
+      {
+       "text": "See how I used AI to lose my stubborn stomach fat and get six pack abs at 40."
+      },
+      {
+       "text": "AI fitness app shows you how to lose stomach fat and get abs. Try it free for 7 days!"
+      }
+     ]
+    }
+   }
+  }
+ }
+]
