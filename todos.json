@@ -231,6 +231,24 @@
       "priority": "low",
       "addedAt": "2026-09-28",
       "why": "Dan 09-28 /prioritize: not a priority today."
+    },
+    {
+      "text": "Build and install a new direct-response checkout page for Abs By AI (research top carts, design, code, ship)",
+      "priority": "key",
+      "why": "Dan 10-02 /prioritize: top priority. The current generic cart is weak; model it on the carts V Shred, MadMuscles, BetterMe and Noom run. Current cart: Docs/WEB_CART.md.",
+      "addedAt": "2026-10-02"
+    },
+    {
+      "text": "Finish every video in progress in Claude: review RO-10, RO-11, RO-13, RO-16 and close each round",
+      "priority": "high",
+      "why": "Dan 10-02 /prioritize. All four wait on Dan's review (board ACTIVE).",
+      "addedAt": "2026-10-02"
+    },
+    {
+      "text": "Brainstorm a fast-cash side business: Claude + Codex doing paid jobs on Upwork and other marketplaces",
+      "priority": "high",
+      "why": "Dan 10-02 /prioritize: no revenue yet from Abs By AI; wants income now even if it does not scale.",
+      "addedAt": "2026-10-02"
     }
   ],
   "health": [
