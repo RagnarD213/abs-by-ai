@@ -429,6 +429,29 @@ ours, then asked for our graphics and a B-roll pass. What that teaches:
     saved right after our last write, and merge every difference of his VERBATIM into the section files first. Repeat
     the `cmp` immediately before the upload.
 
+### Calibration pass 9: Dan's edits to Muhammad's shorts round of 2026-10-02 (six updated cuts)
+
+Doc `1AR_8AeBzwhTuGelBlz1IRPcvKi5MHr-HT2kUTQ29o6s`, md copy `revision docs/shorts-revisions-muhammad-10-2-26.md`. Three
+edits in a 17,700 character doc; every jump-cut list, AI-artifact item, caption item and clip swap went out untouched,
+and so did the opening section that explained the one fault repeated on every video.
+
+55. **One leftover same-framing jump cut does not hold a round 3 video open.** DS-05 V3 had everything done except the
+    cut at 0:16.9, and we wrote a one-item section. Dan deleted the section and stamped it finalized. This is rule 40
+    reaching a video that is not finalized yet: on round 3 or later, when the ONLY thing left is one or two jump cuts
+    (or anything else a viewer would not stop on), write the finalized line and put the leftover in the summary under
+    "For Dan's call". Several jump cuts on a round 2 are still items, he kept all of those.
+56. **His status line on a shorts review copy is `FINALIZED - APPROVED - READY FOR HQ EXPORT`.** He typed this over our
+    "NEEDS HQ EXPORT FOR UPLOAD" wording. Use it when the delivered file is a low-bitrate review copy and the export is
+    still owed. He still decides the line (rule 39).
+57. **Frames that need changes are "the right idea but need revisions", never "good, go ahead".** We wrote "The frames
+    for the supplement clip are good, go ahead and generate it" and then listed three changes; he rewrote the opening.
+    Say "good, go ahead" only when the frames are approved exactly as they are.
+58. **A title graphic never sits over a split-screen opener's top panel: it gets its own band.** Our title covered the
+    face of the man in the top third, and we asked for him to be framed lower. Dan added the fix he wanted as the FIRST
+    line of the item: *"Put graphic at top of video, not above top clip so it doesn't block it. Reduce height of bottom
+    clip to accommodate this."* So on any three-way split opener, direct the layout that way from the start: title
+    graphic in a clear band at the top, the three panels below it, the bottom panel shortened to make the room.
+
 **Dan's vocabulary — use his words:** "camera scene" (the talking head), "motion effect" (the
 Ken Burns move on stills), "accelerate footage to fit duration", "clip", "bro", "douchey". A simple
 item is one line in that register; keep the longer form only where the editor needs exact text,

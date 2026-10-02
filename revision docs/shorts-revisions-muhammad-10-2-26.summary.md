@@ -42,14 +42,22 @@ Checked against the live 10-01 doc (Dan had not edited it since it was sent). Si
 - DS-05: five smaller same-framing joins (0:15.8, 0:29.8, 0:44.1, 0:44.7, 0:46.5) never raised before. DS-05 and DS-11 each have a line with no caption that was the same last round. DS-13 has four small caption drops that were the same last round.
 - Files are review-copy bitrate. Any video you finalize still needs an HQ export.
 
-## Paste-ready message to Muhammad
+## Dan's edits to the doc (10-02, folded into the skill as calibration pass 9)
+- DS-05 Fat Millionaire V3: section replaced with "FINALIZED - APPROVED - READY FOR HQ EXPORT". The 0:16.9 jump cut item was dropped.
+- DS-07 opener: added as the first line "Put graphic at top of video, not above top clip so it doesn't block it. Reduce height of bottom clip to accommodate this".
+- DS-07 supplement frames: "are good" became "are the right idea but need revisions".
+- Live doc as sent: `/Volumes/Extreme/_edit_work/revisions-20261002/muhammad/docs/doc_live_1002_sent.txt`.
 
-Hey Muhammad, thanks for turning these around so fast! These look really good. Everything is full screen now, the new graphics and labels are in exactly right, the captions are fixed, and the new opening clips on the millionaire and the weigh yourself videos are great hooks. That was a lot of work and you nailed almost all of it.
+## Paste-ready message to Muhammad (updated after Dan's edits)
 
-My notes are here, and it's a short list this time: https://docs.google.com/document/d/1AR_8AeBzwhTuGelBlz1IRPcvKi5MHr-HT2kUTQ29o6s/edit
+Hey Muhammad, thanks for turning these around so fast! These look really good. Everything is full screen now, the new graphics and labels are in exactly right, the captions are fixed, and the new opening clips are great hooks. That was a lot of work and you nailed almost all of it.
 
-The one big thing left on every video is the jump cuts. The slow zooms inside a shot don't fix them, because at the cut the framing is still the same on both sides. I need a hard switch right on the cut: wide, then tight, then wide. I wrote a short explanation at the top of the doc and listed which shot is wide and which is tight for each video.
+Why Having Abs Beats Being A Fat Millionaire is FINALIZED. That Lamborghini opener is exactly what I had in mind. Go ahead and send me the HQ export of that one.
 
-The frames for the two split screen openers look good. The Zepbound one is approved, and the AI one has a couple of changes in the doc. Everything not in the doc is approved, so once these are in, these six are finished.
+My notes on the other five are here, and it's a short list this time: https://docs.google.com/document/d/1AR_8AeBzwhTuGelBlz1IRPcvKi5MHr-HT2kUTQ29o6s/edit
 
-Also, I didn't see How To Make Time To Work Out in this folder. Can you send that one when it's ready? Thanks!
+The one big thing left on those five is the jump cuts. The slow zooms inside a shot don't fix them, because at the cut the framing is still the same on both sides. I need a hard switch right on the cut: wide, then tight, then wide. I wrote a short explanation at the top of the doc and listed which shot is wide and which is tight for each video.
+
+On the two split screen openers, the Zepbound frames are approved, and the AI one is the right idea but needs a few changes that are in the doc. For both of them, put the title graphic in its own space at the top of the screen so it doesn't cover the top clip, and make the bottom clip a little shorter to make room.
+
+Everything not in the doc is approved, so once these are in, these five are finished too. Also, I didn't see How To Make Time To Work Out in this folder. Can you send that one when it's ready? Thanks!
