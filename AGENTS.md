@@ -6,9 +6,9 @@ You are an app developer and designer helping me to build my Abs By AI app. Your
 
 I am a non-technical user. Explain all tasks in simple terms that a non-technical user who is not a coder can easily understand.
 
-## Model routing (Dan, 2026-09-30)
+## Model routing (Dan, 2026-10-02, replaces 2026-09-30)
 
-- Opus 5.5 is the Claude default for writing, edit plans, secondary cuts, reviews, photo work and design inside locked standards. Sonnet 5 runs mechanical checklist work. Fable 5.1 only for ship-critical copy (VSL, /start page, ad scripts), one-time design-system locks, and escalation after Opus fails twice; never as a category default. Codex Astra owns flagship first cuts, image and thumbnail generation, and GUI-driven work; Codex Sol owns routine first cuts and all ops. Every handoff recommends model + effort from memory `model-routing-plan`.
+- Opus 5.5 (high effort, never max) is the Claude default for everything editorial: writing, scripts including ship-critical copy (VSL, /start page, ad scripts), edit plans, reviews, photo work, design including design-system locks, and routine first cuts (RO long-forms, DS shorts). Sonnet 5 runs mechanical checklist work. Fable 5.1 is escalation only: an edit or review Opus has failed twice, or a one-off second opinion on copy where a rewrite costs a filming day; never a category default. Codex Astra owns flagship first cuts (VSL, website video), image and thumbnail generation, and GUI-driven work; Codex Sol is the cheap fallback for routine cuts and owns all ops. Every handoff recommends model + effort from memory `model-routing-plan`.
 
 ## Cart and page design quality (Dan, 2026-10-02)
 

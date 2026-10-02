@@ -2,11 +2,12 @@
   "_readme": "Every number and the routing table for the overnight edit queue. Dan's decisions live here so one row can be flipped without touching code. Procedure: scripts/edit-queue/README.md.",
 
   "routing": {
+    "_opus_default": "Dan, 2026-10-02: Opus 5.5 is the default for routine first cuts, so RO and DS moved to claude for NEW jobs (in-flight jobs stay with their owner). RA stays codex (Astra/Sol) until Opus has a track record on ads and flagship cuts. Sol is the fallback.",
     "_decided": "Dan, 2026-09-17. A fixed rule, not an A/B test. No automatic re-routing: a change is Dan's call.",
     "_unfrozen": "Dan, 2026-09-24: the allowance freeze ran out and he restored the 09-17 split in his own words, 'hand vertical squares and short-form cuts out of long-form to Claude'. AV/AS/SL back to claude; RA/RO/DS stay codex because Codex cuts raw footage first passes better and cheaper (memory codex-ds17-beat-claude-lessons).",
     "RA": "codex",
-    "RO": "codex",
-    "DS": "codex",
+    "RO": "claude",
+    "DS": "claude",
     "AV": "claude",
     "AS": "claude",
     "SL": "claude"
