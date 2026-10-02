@@ -173,6 +173,29 @@ async function initDb() {
       used_at      TIMESTAMPTZ,
       created_at   TIMESTAMPTZ NOT NULL DEFAULT now()
     );
+    -- Lifetime plan (2026-10-02): the card is saved at checkout ($0 today) and
+    -- charged ONCE, 7 days later, by lifetimeChargeSweep in server.js. One row
+    -- per checkout. status: pending (waiting, or between retries), charging
+    -- (claimed by a sweep), processing (the bank has not answered yet), paid,
+    -- failed (retries used up), canceled. Only a pending row is ever charged.
+    CREATE TABLE IF NOT EXISTS lifetime_pending (
+      id                 SERIAL PRIMARY KEY,
+      user_id            INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      session_hash       TEXT NOT NULL UNIQUE,
+      stripe_customer_id TEXT NOT NULL,
+      payment_method_id  TEXT NOT NULL,
+      amount_cents       INTEGER NOT NULL,
+      status             TEXT NOT NULL DEFAULT 'pending',
+      charge_at          TIMESTAMPTZ NOT NULL,
+      next_attempt_at    TIMESTAMPTZ NOT NULL,
+      attempts           INTEGER NOT NULL DEFAULT 0,
+      last_attempt_at    TIMESTAMPTZ,
+      payment_intent_id  TEXT,
+      last_error         TEXT,
+      paid_at            TIMESTAMPTZ,
+      canceled_at        TIMESTAMPTZ,
+      created_at         TIMESTAMPTZ NOT NULL DEFAULT now()
+    );
     CREATE TABLE IF NOT EXISTS audit_jobs (
       id         TEXT PRIMARY KEY,
       user_id    INTEGER,

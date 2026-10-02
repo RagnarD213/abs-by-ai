@@ -1,3 +1,42 @@
+# Web cart v2 build plan (2026-10-02, in progress)
+
+Spec: `Docs/cart-design-20261002/`. Handoff: `Handoffs/handoff-20261002-cart-build.md`. Dan's three decisions, all yes:
+Lifetime replaces Annual on the web cart; after payment a buyer with no goal picture goes to the photo upload, then
+the five questions; a failed Lifetime charge retries once a day for 3 days with an email each time, then access ends.
+
+Verified against Stripe's docs and the live account on 2026-10-02 (API `2026-09-30.endive`, Stripe.js
+`js.stripe.com/endive/stripe.js`; the installed `stripe` package is 14.25, so the new sessions pass `apiVersion` per call):
+
+- **Fields on the page.** Checkout Sessions with `ui_mode: 'elements'` (the old name was `custom`). Client:
+  `stripe.initCheckoutElementsSdk({ clientSecret })`, `createExpressCheckoutElement()` for Apple Pay and Link,
+  `createPaymentElement()` for the card, `loadActions()` then `actions.confirm({ email, redirect: 'if_required' })`
+  from our own green button. `allowed_payment_method_types: ['card', 'link']` keeps Klarna, Cash App and Amazon Pay
+  off the cart (`payment_method_types` is rejected on this API version). `absbyai.com` must be a registered payment
+  method domain or Apple Pay never shows.
+- **Monthly.** `mode: 'subscription'`, 7-day trial, $19.99 a month. Fulfilment is unchanged
+  (`checkout.session.completed` to `fulfillMembershipSession` to the claim).
+- **Lifetime.** `mode: 'setup'` with `customer_creation: 'always'`: $0 today, the card is saved, nothing recurring
+  exists at Stripe. Fulfilment writes a `lifetime_pending` row (user, customer, payment method, amount, `charge_at`
+  = checkout + 7 days) and sets `trialing` / `lifetime`. `lifetimeChargeSweep` (hourly) claims a due row, then creates
+  one off-session PaymentIntent with an idempotency key built from the row id and the attempt number. Paid:
+  `active` / `lifetime` / period end NULL, and the paid conversion is stamped from that charge. Failed: decision 3.
+  Cancel before day 7 (`POST /api/membership/cancel-lifetime`): the row is cancelled, nothing is ever billed.
+- **Statement name.** Read from the Stripe account (`settings.payments.statement_descriptor`, today `ABS BY AI`),
+  served on `/api/config`.
+- **Stripe.js trap (measured 2026-10-02).** The versioned Stripe.js the elements SDK needs (`dahlia`, `endive`)
+  REMOVED `initEmbeddedCheckout` (now `createEmbeddedCheckoutPage`), and the old `v3` script refuses the elements SDK.
+  While the switch is off, the page loads `v3` exactly as before; `?cart=v2` loads `endive`. The overlay checkout
+  goes through `stripeEmbeddedCheckout()`, which calls the old name first and the new one only when Stripe says it
+  is gone. Embedded checkout renders blank on `http://localhost` in live mode under either script: test it on HTTPS.
+- **Stripe account changes made 2026-10-02:** `absbyai.com` registered as a payment method domain
+  (`pmd_1UMFHoAC3gM1rghlXXXgCQLg`, Apple Pay, Google Pay and Link active); `payment_intent.succeeded` and
+  `payment_intent.payment_failed` added to the `absbyai.com/api/stripe/webhook` endpoint.
+- **Dark launch.** Real payments on the new cart: `absbyai.com/?join=1&from=vsl&cart=v2` (remembered for the tab).
+  Look only: `absbyai.com/?demo=checkout`. Lifetime charge now, for a test buyer:
+  `scripts/cart/lifetime-charge-now.sh <email>`.
+
+---
+
 # Web cart — pay first, account after (shipped 2026-09-10)
 
 The membership checkout on **absbyai.com** (web only). A visitor goes **analysis page → cart → pays → account**,
