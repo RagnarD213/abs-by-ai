@@ -2174,6 +2174,28 @@
    "syncedRev": 1,
    "updated": "2026-10-02",
    "rev": 1
+  },
+  {
+   "id": "SL-09",
+   "list": "2",
+   "group": "Shorts from long-forms",
+   "sub": "",
+   "title": "My Honest Oura Ring Review (Zeeshan Video 4, public Oct 14)",
+   "roll": "",
+   "size": "S",
+   "file": "SL-09-oura-ring-review-shorts.md",
+   "claudeModel": "Opus 5.5, high",
+   "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/SL-09-oura-ring-review-shorts.md`: propose the shorts segments from Zeeshan's Oura Ring review (Video 4) and wait for my picks, then cut them with /shorts in Soft Blue Light, with gates and an independent audit (no covers). Deliver, send me the review copies, update the master list. Name this session \"Oura Ring Review SFC R1\".",
+   "codexModel": "GPT-6 Sol, high",
+   "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/SL-09-oura-ring-review-shorts.md` using `.claude/skills/shorts/SKILL.md` as the method: propose segments from the Video 4 master, wait for Dan's picks, cut, gate, deliver, update `00-MASTER.md`. Name this task \"Oura Ring Review SFC R1\".",
+   "state": "ready",
+   "note": "Added 10-02 at Video 4 setup; Soft Blue Light shorts; parent public Oct 14",
+   "unattended": false,
+   "unattended_why": "Job doc says show Dan the segment list and wait for picks.",
+   "order": 100,
+   "syncedRev": 1,
+   "updated": "2026-10-02",
+   "rev": 1
   }
  ]
 }

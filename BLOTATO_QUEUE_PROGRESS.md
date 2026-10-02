@@ -13,6 +13,10 @@ Last updated 2026-10-01.
   imports `scripts/blotato/ad_guard.py`; audit with `python3 scripts/blotato/ad_guard.py --scan`. See the incident below.
 - **NEW PERMANENT RULE (Dan, 2026-09-16): Blotato owns future organic YouTube releases.** Upload organic videos to YouTube as Private and leave them Private; queue the release through connected YouTube account `46963`. Never upload Public or use YouTube native scheduling. Ads remain Unlisted and are not released publicly on YouTube. Existing native schedules are historical and must not be copied into new work; avoid double-posting anything already queued under the old process.
 
+## DONE: Video 4 "My Honest Oura Ring Review After 1.5 Years (The Good, Bad & Ugly)" (2026-10-02)
+
+Zeeshan's `Video 4 Rev 3.mp4` (MD5 `52642857...`, 19:47.5), filed in `Zeeshan Content Videos/my honest oura ring review - video 4/` + Extreme + Google Drive. Wed Oct 14 14:00Z (9 AM CDT): FB 5095439, IG @danrosefit 5095440, TikTok 5095441 (cover-first), YouTube 5095442 (public release by Blotato). Thumbnail A/B (AI ring macro vs AI night table): A on the Blotato target, B added in Studio after release. Keyword SLEEP, utm_content `oura-ring-review`, AI flags true. Receipt `Docs/OURA_SETUP_RECEIPT_20261002.md`.
+
 ## DONE: RO-10 "Calories: The Reason You're Not Losing Weight (8 Ways To Eat Less)" (2026-10-02)
 
 Source `claude edited long form content/10 - Calories The Reason You're Not Losing Weight/... | claude round 2 | 16x9 | RO-10.mp4` (sha256 `655c7188...bb76e`). Wed Oct 7 14:00Z (9 AM CDT): FB 5090245, IG @danrosefit 5090246, TikTok 5090247 (cover-first), YouTube 5090248 (public release by Blotato). Thumbnail: Codex AI-Dan snack-cake design (option 3 of 5). Keyword FOOD, utm_content `ro10-calories-not-losing-weight`, AI flags true. Receipt `Docs/RO10_SETUP_RECEIPT_20261002.md`.

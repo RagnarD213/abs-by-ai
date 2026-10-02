@@ -158,11 +158,12 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [SL-06](SL-06-top-5-zepbound-tips-shorts.md) | Top 5 Zepbound Tips (RO-12, public Oct 25) | READY | S |
 | [SL-07](SL-07-if-i-had-belly-fat-shorts.md) | If I Had Belly Fat, Here's How I'd Lose It In 90 Days (RO-16, public Nov 1) | READY | S |
 | [SL-08](SL-08-calories-not-losing-weight-shorts.md) | Calories: The Reason You're Not Losing Weight (RO-10, public Oct 7) | READY | S |
+| [SL-09](SL-09-oura-ring-review-shorts.md) | My Honest Oura Ring Review (Zeeshan Video 4, public Oct 14) | READY | S |
 
 **Will need shorts once final (no handoff yet; add one when the long-form is approved):**
 * Your Belly Fat Is An Emergency (Codex, revision in progress)
 * 04 Why You Should Invest More In Your Health (waiting on your pick: dry vs dereverb audio, and which length)
-* Zeeshan's batch videos not delivered yet: My Honest Oura Ring Review, Getting Abs At 40 vs 25 (due 09-24)
+* Zeeshan's batch videos not delivered yet: Getting Abs At 40 vs 25 (due 09-24)
 * The Real Reason You Don't Have Abs (reserved for Codex trial phase 07)
 * Every RO-01 … RO-08 once approved
 

@@ -11038,3 +11038,9 @@ Finished updates moved off the live board. Outstanding warnings retained there a
 ## Weekly board cleanup — 2026-09-16
 
 First sweep (no prior marker). Zero entries eligible: every remaining board entry is awaiting Dan, review, verification or an external dependency.
+
+
+## Archived from the board 2026-10-02 (word budget; stale, Meta reading date 09-18 passed)
+
+**Ads results follow-up — OPEN 2026-09-15.** Review Google Ads results after the 09-09 account fixes (`Docs/GOOGLE_ADS_API.md`). Meta $50 review: next reading 2026-09-18; last result $2.02/follow against <$3 target.
+

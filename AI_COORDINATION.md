@@ -86,7 +86,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 # ACTIVE
 
-**Oura review (Video 4) - NEEDS DAN 2026-10-02, Claude.** Next: Dan picks 1 of 5 thumbnails (`My Honest Oura Ring Review/`); then Blotato Oct 14, article, SL job.
+**Oura review (Video 4) - QUEUED 2026-10-02, Claude.** Blotato Oct 14 9AM CT. Oct 14: Studio thumbnail A/B, captions, article `TBD-oura-ring-review.md`. `Docs/OURA_SETUP_RECEIPT_20261002.md`, delete.
 
 **Five Cart Designs - REVIEW 2026-10-02, Codex.** https://absbyai.com/design-review/five-carts-20261002/ Next: choose. Five interactive carts; live cart unchanged.
 
