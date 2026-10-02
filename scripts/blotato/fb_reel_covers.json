@@ -50,7 +50,7 @@
  {
   "schedule": "3563151",
   "when": "2026-10-17T22:00:00.000Z",
-  "match": "You have 4 ab muscles \u2014 not just a six-pack.",
+  "match": "You have 4 ab muscles — not just a six-pack.",
   "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/07-A-youtube.jpg",
   "w": 1080,
   "h": 1920
@@ -58,7 +58,7 @@
  {
   "schedule": "3563159",
   "when": "2026-10-20T22:00:00.000Z",
-  "match": "The toe touch \u2014 a killer six-pack move you can do at home.",
+  "match": "The toe touch — a killer six-pack move you can do at home.",
   "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/08-A-youtube.jpg",
   "w": 1080,
   "h": 1920
@@ -134,5 +134,29 @@
   "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/final-installation-20260928/installation/belly-fat-youtube-thumbnail.jpg",
   "w": 1280,
   "h": 720
+ },
+ {
+  "match": "Kettlebell deadlifts are a great exercise you can do at home, but most people do them wrong.",
+  "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds18-kettlebell-deadlift.jpg",
+  "w": 1080,
+  "h": 1920
+ },
+ {
+  "match": "Do this before a photo shoot or a pool party.",
+  "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/sl04-short2-arm-pump.jpg",
+  "w": 1080,
+  "h": 1920
+ },
+ {
+  "match": "If you can't lose weight, it usually comes down to one thing: calories. I'll show you the proof, then 8 ways to eat less without being hungry all day.",
+  "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ro10-calories-thumbnail.jpg",
+  "w": 1280,
+  "h": 720
+ },
+ {
+  "match": "Bigger shoulders make your waist look smaller.",
+  "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/sl04-short1-waist-smaller.jpg",
+  "w": 1080,
+  "h": 1920
  }
 ]
