@@ -9,3 +9,8 @@ qa/text-bounds.json
 *.zip
 overview.jpg
 fonts.conf
+
+revision2/*.png
+revision2/*.jpg
+revision2/original-*
+__pycache__/

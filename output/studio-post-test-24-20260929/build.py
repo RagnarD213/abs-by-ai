@@ -3,8 +3,8 @@ from PIL import Image,ImageOps,ImageCms,ImageDraw
 import json,hashlib,base64,html,shutil
 ROOT=Path(__file__).resolve().parent
 LIB=ROOT.parents[1]/'photos/finalized social media photos'
-SOURCES=['blue-100','blue-145','blue-11','blue-247','blue-175','white-42','blue-110','gray-2','gray-4','blue-269','gray-38','blue-76','white-34','blue-177','white-25','blue-139','blue-127','blue-5','blue-109','blue-164','blue-221','blue-249','blue-192','gray-67']
-STYLES=['Original studio','Warm architecture','Training space','Outdoor athlete','Magazine feature','Topic cover','Practical carousel','Myth and better question']
+SOURCES=['blue-100','blue-145','blue-11','blue-247','blue-175','white-42','blue-110','gray-2','gray-4','blue-269','gray-38','blue-76','blue-201','blue-177','white-25','blue-139','blue-127','blue-5','blue-109','blue-164','blue-221','blue-249','blue-192','gray-67','blue-123','blue-188','blue-266']
+STYLES=['Original studio','Warm architecture','Training space','Outdoor athlete','Magazine feature','Topic cover','Practical carousel','Myth and better question','Jelly Beans design family']
 TITLES=[
 'Put your workout on the calendar','Make the next meal easier','Missed a day? Keep going',
 'A plan that fits your life','Fewer food decisions','Give the week a second chance',
@@ -73,12 +73,27 @@ LESSONS={
 ('ACTION','PREPARE\nONE THING.','Make the next start easier.', ['Set out your training clothes.','Save the session you will use.','Decide when you need to begin.'],'Choose one preparation and do it now.'),
 ('SAVE THIS','YOUR RESTART\nCHECKLIST.','Use this after a missed day.', ['Next session: ____________________','Time and place: __________________','Prepare now: ____________________','Backup: _________________________'],'Restart with one appointment, not a perfect week.')]
 }
+# Round 2: Dan requested the two copy swaps, martial arts copy and three additions.
+TITLES[3],TITLES[7]=TITLES[7],TITLES[3]
+CAPS[3],CAPS[7]=CAPS[7],CAPS[3]
+TITLES[11]='Train martial arts. Lift weights too.'
+CAPS[11]="Martial arts can burn calories, challenge your cardio and give you a reason to keep showing up. It is a great way to stay active, build fitness and support getting leaner. But I would not use it as a replacement for weight training. Lifting builds and maintains the muscle you want to keep as you lose fat. Pair the two, leave room to recover, and keep your food intake aligned with your goal. Train your conditioning and your strength."
+TITLES.extend(['MAKE TIME.\nGET STRONG.','LUNCH.\nHANDLED.','TRAIN HARD.\nLIFT TOO.'])
+CAPS.extend([
+"Make strength training an appointment you can keep. Choose the time, save the workout and get your space ready. If getting to the gym is the obstacle, have a home option ready. The useful plan is the one that fits into your actual day.",
+"Lunch gets easier when the decision is already made. Choose a meal you enjoy, get the ingredients or order in place, and keep a second option for busy days. You do not need a brand-new menu every afternoon. You need something you can repeat.",
+"Martial arts can challenge your cardio and help you burn calories. Weight training builds and maintains muscle. Make room for both in your week, with enough recovery between hard sessions. Getting leaner also depends on what you eat, so give your food plan the same attention as your training."
+])
 posts=[]
 for i,s in enumerate(SOURCES):
  st=i//3+1; v='ABC'[i%3]; ident=f'S{st:02}-{v}'
  cap=CAPS[i]
- if st in [2,3,4]:cap+='\n\nReal studio photograph of me. The background was created with AI.'
- posts.append(dict(id=ident,number=i+1,style=st,style_name=STYLES[st-1],source='studio-'+s,topic=['Training time','Repeatable meals','Restart and backup'][i%3],title=TITLES[i],caption=cap,slides=5 if st>=7 else 1))
+ if st in [2,3,4,9]:cap+='\n\nReal studio photograph of me. The background was created with AI.'
+ posts.append(dict(id=ident,number=i+1,style=st,style_name=STYLES[st-1],source='studio-'+s,topic=['Training time','Repeatable meals','Restart and backup'][i%3],title=TITLES[i],caption=cap,slides=5 if st in [7,8] else 1))
+for p in posts:
+ if p['id'] in ['S04-C','S09-C']:p['topic']='Martial arts and weight training'
+ if p['id']=='S02-A':p['topic']='Repeatable meals'
+ if p['id']=='S03-B':p['topic']='Training time'
 (ROOT/'posts.json').write_text(json.dumps(posts,indent=2))
 # Three close portraits use a conservative waistband crop. No leg opening survives.
 CROPS={'studio-blue-11':3650,'studio-blue-5':3570,'studio-gray-67':3810}
@@ -101,6 +116,15 @@ for p in posts:
  p['asset_size']=exact.size
  meta.append(dict(id=p['id'],source=str(orig),sha256=p['source_sha256'],crop=p['crop'],shirtless=True))
 (ROOT/'source-map.json').write_text(json.dumps(meta,indent=2))
+# White cutout outline for the three new portrait designs.
+from PIL import ImageFilter
+for p in posts:
+ if p['style']!=9: continue
+ im=Image.open(ROOT/'assets'/(p['source']+'.png')).convert('RGBA')
+ canvas=Image.new('RGBA',(im.width+48,im.height+48));canvas.alpha_composite(im,(24,24))
+ alpha=canvas.getchannel('A').filter(ImageFilter.MaxFilter(25))
+ white=Image.new('RGBA',canvas.size,'white');white.putalpha(alpha);white.alpha_composite(canvas)
+ white.save(ROOT/'assets'/(p['source']+'-outline.png'))
 N='#09203e';B='#165bea';ICE='#dcedf6';PAPER='#f6f4ed'
 def esc(t):return html.escape(str(t))
 def rect(x,y,w,h,fill,rx=0):return f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="{rx}" fill="{fill}"/>'
@@ -121,17 +145,30 @@ def wrap(t,lim):
 def generate(p,slide):
  st=p['style'];var='ABC'.index(p['id'][-1]);s=''
  if st==1:
-  s=picture(Path('assets')/(p['source']+'-photo.jpg'),0,0,1080,1350)
+  s=picture(Path('assets')/('studio-blue-11-photo-r2.png' if p['id']=='S01-C' else p['source']+'-photo.jpg'),0,0,1080,1350)
  elif st in [2,3,4]:
   s=picture(Path('assets')/f'background-{st:02}.jpg',0,0,1080,1350)+person(p,30,65,1020,1380)
   s+=rect(40,26,326,38,'#f6f4ed',4)+text('REAL PHOTO / AI BACKGROUND',52,52,19,N,'Arial',700)
  elif st==5:
-  s=rect(0,0,1080,1350,PAPER)+text('THE STRONGER YEARS',65,65,23,N,'Arial',700,5)+text('DAN ROSE',55,222,165,'#101010','Arial Black',900)
-  s+=person(p,432,270,640,1080,True)
-  title=['MAKE\nTIME.','FEWER\nDECISIONS.','START\nAGAIN.'][var]
-  s+=lines(title,64,490,112 if var!=1 else 92,'#111')
-  s+=rect(65,1000,66,52,B)+text('0'+str(var+1),76,1037,32,'white','Arial',700)
-  s+=lines(['A place. A plan.\nA time to begin.','Food planned.\nOne less decision.','A missed day.\nA fresh appointment.'][var],65,1130,28,N,'Arial',1.45)
+  s=rect(0,0,1080,1350,PAPER)
+  s+=text('STRENGTH / FOOD / CONSISTENCY',60,62,23,N,'Arial',700,3)
+  if var==1:
+   s+=lines('FEWER\nDECISIONS',55,195,134,'#111','Impact',.95)
+  else:
+   s+=text(['MAKE TIME','','START AGAIN'][var],55,242,177 if var==0 else 157,'#111','Impact')
+  s+=rect(60,337,960,4,'#111')
+  s+=person(p,429,379,651,971,True)
+  points=[
+   [('BOOK THE','SESSION','Choose a time you can keep.'),('SKIP THE','COMMUTE','Have a home option ready.'),('KEEP A','PLAN B','Know your next best option.')],
+   [('PICK YOUR','FAVORITES','A few lunches you enjoy.'),('PREP IT','ONCE','Make the busy days easier.'),('REPEAT.','ROTATE.','Simple does not mean boring.')],
+   [('ONE DAY','IS ONE DAY','Keep the rest of your week.'),('CHOOSE THE','NEXT STEP','Put a session on the calendar.'),('GET YOUR','GEAR READY','Make the next start easier.')]
+  ][var]
+  for j,(a,b,c) in enumerate(points):
+   y=472+j*253
+   s+=text(f'0{j+1}',62,y,23,B,'Arial',700,2)+rect(62,y+15,62,4,B)
+   s+=lines(a+'\n'+b,60,y+79,51,'#111','Impact',1.03)
+   s+=lines(wrap(c,24),62,y+169,25,N,'Arial',1.3)
+  s+=text('WITH DAN ROSE',62,1298,22,N,'Arial',700,2)
  elif st==6:
   s=rect(0,0,1080,1350,ICE)+text('THE RESET',64,77,25,N,'Arial',700,5)+rect(64,99,245,4,B)
   if p['crop']['waistband_crop']:
@@ -142,6 +179,20 @@ def generate(p,slide):
   s+=rect(64,765,92,7,B)
   s+=lines(['Start with the time\nyou actually have.','Pick two lunches.\nMake the next one easy.','Choose the next\nappointment.'][var],64,850,35,N,'Arial',1.45)
   s+=text('DAN ROSE',64,1295,24,N,'Arial',700,3)
+ elif st==9:
+  theme=['training','lunch','martial'][var]
+  s=picture(Path('assets')/f'jelly-{theme}.png',0,0,1080,1350)
+  s+=rect(0,0,1080,345,'#080b0e')
+  for j,line in enumerate(p['title'].split('\n')):
+   s+=text(line,54,160+j*139,145 if var!=2 else 141,'white' if j==0 else ['#4dd8ff','#9efb91','#ff645c'][var],'Impact')
+  # Original photograph with a crisp white outline, composited locally.
+  name=p['source']+'-outline.png'
+  aw,ah=Image.open(ROOT/'assets'/name).size
+  w=990 if var==0 else 880; h=w*ah/aw
+  x=(1080-w)/2 if var==0 else 175
+  s+=picture(Path('assets')/name,x,390,w,h)
+  s+=f'<rect x="24" y="24" width="1032" height="1302" rx="24" fill="none" stroke="white" stroke-width="4"/>'
+  s+=rect(40,1305,1000,5,['#4dd8ff','#9efb91','#ff645c'][var])
  elif st==7 and slide==1:
   s=rect(0,0,1080,1350,PAPER)+text('THE SAVEABLE SERIES',64,73,23,N,'Arial',700,3)+rect(64,100,952,3,B)
   s+=person(p,526,405,554,840)
@@ -178,4 +229,4 @@ for p in posts:
  for slide in range(1,p['slides']+1):generate(p,slide)
 (ROOT/'posts.json').write_text(json.dumps(posts,indent=2))
 (ROOT/'captions.txt').write_text('\n\n'.join(p['id']+' | '+p['title'].replace('\n',' ')+'\n'+p['caption'] for p in posts)+'\n')
-print('Built 24 posts, 48 editable SVG layouts and cropped person layers.')
+print('Built 27 posts, 51 editable SVG layouts and cropped person layers.')
