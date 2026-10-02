@@ -7,7 +7,8 @@ checks and one reply box. Nothing here is a full film.
   python3 sbl_page.py --build B --sheet SHEET.json --out REVIEW_DIR --extra page_extra.json [--media] [--clips-only]
 
 --clips-only (a later round): only the clips and photos, each with its fill / square / whole verdict, the reason, and
-the proof sheet of the three crops (clip_fit.py). page_extra.json may then carry "minutes": [{"title", "src",
+the proof sheet of the three crops (clip_fit.py). "only_media": {media: ID} (a master build's later round) keeps only
+those pictures, under the IDs of the round Dan reviewed; "notes": {ID: text}; "all_title". page_extra.json may then carry "minutes": [{"title", "src",
 "poster", "caption"}] (several first-minute players side by side, e.g. before and after) and "extra_html".
 
 --media renders what the page shows: the first-minute draft (1080 + 540p), one context clip per item (3 s of speech
@@ -56,7 +57,7 @@ def main():
             np_ = sum(1 for r in items if r.get("pic")) + 1
             lab = b.get("label") or {"ai": "AI-GENERATED", "real": "Real picture of me - not AI-generated"}.get(b.get("label_kind"))
             items.append(dict(id=f"P{np_:02d}", pic=True, kind="phone" if b.get("phone") else ("photo" if m[0] == "img" else "clip"), t0=b["t0"], t1=b["t1"],
-                              still_at=(b["t0"] + b["t1"]) / 2, copy=[x for x in [lab] if x], src=os.path.basename(m[1]),
+                              still_at=(b["t0"] + b["t1"]) / 2, copy=[x for x in [lab] if x], src=os.path.basename(m[1]), media=b["media"],
                               note="The whole picture in a card (never cropped shorter)." if b["kind"] == "card" else "Fills the frame."))
         elif b["kind"] in ("card", "bleed"):
             p = next(x for x in S["pictures"] if x["id"] == b["pid"])
@@ -73,6 +74,9 @@ def main():
                               copy=[x for x in [p.get("label")] if x], note=m["why"][0].upper() + m["why"][1:], shape=shape, proof=proof,
                               by=fit.get("overridden_by"), src=m["source"]))
     items.sort(key=lambda r: r["t0"])
+    if X.get("only_media"):                           # a later round: only the changed pictures, under the IDs Dan already knows
+        om = X["only_media"]
+        items = [dict(r, id=om[r["media"]], note=(X.get("notes") or {}).get(om[r["media"]], r.get("note"))) for r in items if r.get("media") in om]
     items += X.get("extra_items", [])                 # ready-made samples (a template the film itself does not use)
     fm_end = X["first_minute_end"]
     fm = os.path.join(out, "first-minute", "DRAFT - first minute 9x16.mp4")
@@ -135,7 +139,7 @@ button{{background:#1b4b72;color:white;border:1px solid #66acd9;border-radius:9p
 <div class="grid wide">{opts}</div></section>
 <section id="minute"><h2>{E(X.get('minute_title') or f'The first minute at 9:16 (0:00 to {mmss(fm_end)})')}</h2>{minute}</section>{X.get('extra_html', '')}
 <section id="decided"><h2>What I decided (overrule anything)</h2><ul>{''.join('<li>' + d + '</li>' for d in X['decided'])}</ul></section>
-<section id="all"><h2>All {len(items)} {'clips' if a.clips_only else 'graphics and clips'} at 9:16, in order</h2><p class="small">Each is a still on its real frame at its real time, after every part has landed. "Play it moving" loads that item with 3 seconds of your speech either side into the one player below.</p>
+<section id="all"><h2>{E(X.get('all_title') or f"All {len(items)} {'clips' if a.clips_only else 'graphics and clips'} at 9:16, in order")}</h2><p class="small">Each is a still on its real frame at its real time, after every part has landed. "Play it moving" loads that item with 3 seconds of your speech either side into the one player below.</p>
 <div id="dock"><div class="small" id="nowp">Pick an item below to play it here.</div><video id="pv" controls preload="none" playsinline></video></div><div class="grid">{''.join(cards)}</div></section>
 <section id="checks"><h2>Checks</h2><ul>{''.join('<li>' + d + '</li>' for d in X['checks'])}</ul></section>
 <section id="reply"><h2>One reply</h2><textarea id="r">{E(X['reply'])}</textarea><p><button onclick="navigator.clipboard.writeText(document.getElementById('r').value)">Copy reply</button></p></section></main>

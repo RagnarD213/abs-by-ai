@@ -178,6 +178,24 @@ exit ("Timeline did not advance under seek"): give every template a slow drift o
 A lower third wraps at part boundaries and balances its lines (`vertical.lt_scenes`). A tall card under running
 captions ends above the caption line (`media_card_scene(caps=True)`).
 
+### A later round on a master build (2026-10-02, Ad 13 round 2; recipe `../ad13-r2/`)
+
+* The copy file can now add a picture the master does not have (`add_pictures`, explicit times: a new AI opener over his
+  talking head), merge several of his pictures into one clip (`until` on the first, `"drop"` on the rest), and keep his
+  flash on a card swapped for a full-bleed picture (`flash_after: true`; without it the plan loses the flash and
+  `build_kit.py` stops on `flashes_per_min`).
+* `sbl_page.py` with `only_media` in page_extra.json shows only the changed pictures under the IDs Dan already reviewed.
+* A 9:16 AI opener under the hook lower third: the strip sits at 51 to 68 % of the height, so every face and the action
+  must be in the top 45 % of the frame. The first frames had the lower third over the dad's face.
+* Unapproved AI motion goes in as START then END stills with a yellow PLACEHOLDER tag (two `img` beats); give a redone
+  frame a new file name, because the segment cache is keyed on the media path.
+* Calmer camera on this ad: `kit_track.py --tolerance 12` (round 1 was 0): travel 6,655 to 3,910 source px.
+* YouTube downloads fail on this Mac; Dan's own 4K screen recordings of old-channel pages are in the library's
+  `08 SixPackAbs Archive` (the Crazy 3 Min Home Abs page: `3 min ab workout b roll.mp4`).
+* The new 16:9 in Soft Blue Light (`../ad13-r2/h16x9.py`, first minute only, NOT a kit stage yet): `base.mp4` (his cut
+  and grade) + his zoom from `auto/framing.json` + `from_plan.py` lower thirds and 3A card + title card, tally chip and
+  media cards laid out at 1920x1080 through a second copy of `vertical.py`. Dan has not approved it yet.
+
 ### Sheet-path lessons (2026-10-01)
 
 * Grade in the 16:9's own order (`grade.order`): a float LUT on the 4K crop ran at about 3 frames a second; scaled to

@@ -106,3 +106,32 @@ Not answered: question 2 (the Thai shorts photo P05). He used P05 as the model f
 > Do not build the full videos yet and do not upload anything.
 
 Model and effort: Claude Opus 5.5, High.
+
+## Round 2 delivered 2026-10-02: waiting for Dan on http://127.0.0.1:8814/
+
+Page: `/Volumes/Extreme/_edit_work/kit9x16/av11-ad13/review2/` (restart: `cd` there, `python3 -m http.server 8814`).
+Three decisions are open: the opener frames, P03 layout A or B, the horizontal's first-minute graphics.
+
+- **Opener frames (not approved yet, no motion made):** `round2/opener/{start,end}_{9x16,16x9}.png` with their prompts;
+  copies in `review2/frames/`. The first 9:16 pair is in `round2/opener/v1/` (rejected by me: the lower third covered
+  the dad's face). On screen 0:00 to 0:03.7; two clips (9:16 and 16:9), the square is cut from the top of the 9:16.
+  Codex tokens: about 157,000. Paid spend this round: $0.00.
+- **Swaps, all in `sbl_copy.json`:** P03 `assets_sbl/yt3min_9x16.mp4` (Dan's 4K page recording, 8.0 s in; 16:9 version
+  `round2/assets/yt3min_16x9.mp4`), P06 `studio-gray-79`, P09 to P11 one clip `bland_meal_sq.mp4` (A0060), P20
+  `phone_workout_crunch.mp4` (WV-01 final 26.02 s), P22 `phone_recipes_two_taps.mp4` (WV-01 P07, joined 3.9 to 5.6 s).
+  Built by `round2/prep_assets.py`. Round 1's copy file and plan: `round2/*.round1.json`.
+- **Centering:** `kit_track.py --tolerance 12` (round 1 was 0). `kit_run.py`'s track stage uses the default 6: rerun
+  the track by hand with 12 after any `--from` that includes it. Stats in `facetrack.json`.
+- **Vertical state:** restyle to words and captions rerun and current. Full picture not rendered.
+- **Horizontal:** `round2/h16x9.py` (copy in the skill: `shortad-from-longform/reference/ad13-r2/`). First minute only.
+  Colour vs his master: mean RGB within 1 to 5 levels on 8 talk frames (`round2/h16x9/grade_proof.json`). The hook
+  line drops its leading "I" to fit one line at 16:9. Minutes 2 to 4 need: every later lower third, list card, price
+  card, tally value, CTA, picture and phone demo added to its lists (P20's phone demo and the opener motion included).
+
+**Next session:** record Dan's answers in `review2/decisions.json` (verbatim, with scope). If the frames are approved,
+generate the two opener clips (start + end frame, about 4 s), check every frame, show them in context, then write the
+round 3 handoff (step 7 above). Starter prompt: "Read `Handoffs/handoff-20261001-ad13-round2-full-build-after-lock.md`,
+bottom section first. Name this session 'The Cost Of Getting Abs AD R3'. My answers to the round 2 page are: <paste>.
+Record them, then do what they authorize and stop at the next approval." Model and effort: Claude Opus 5.5, High.
+
+**Uncommitted on purpose:** `kit9x16/master_to_sbl.py` carries this round's additions (`add_pictures`, `until`, `flash_after` from the copy file) AND another session's unfinished Ad 6 edits (`extra_beats`, `extra_lower_thirds`, `fact`). It was not pushed from here; whoever finishes the Ad 6 work commits the file with both. Round 3 needs these additions on disk.

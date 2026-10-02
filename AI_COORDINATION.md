@@ -190,7 +190,7 @@ Memory `google-ads-ui-automation`.
 - `handoff-20261001-rebuild-ios-project.md` (10-01): rebuild the iPhone project iCloud wiped. ⚠ iCloud recovery window closes about 10-17. No Apple upload. GPT-6 Sol high.
 - `handoff-20261001-search-campaigns-to-vsl-page.md` (10-01). Sol high.
 - `handoff-20261001-ad4-other-formats.md`, `…-ad6-…` (10-01). Opus high.
-- `handoff-20261001-ad13-round2-full-build-after-lock.md` (10-02). Opus high.
+- `handoff-20261001-ad13-round2-full-build-after-lock.md` NEEDS-DAN http://127.0.0.1:8814/
 - `handoff-20260924-generator-consult-call-outreach.md` (09-24): fire by 09-26.
 - `handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md` [dash]: PHONE ONLY, 3 TikTok covers (updated 09-22). Sonnet 5 or Fable 5.1 / Medium.
 - `handoff-20260915-finalized-ads-6-14-youtube-and-google-ads.md` — Ads 6, 7, 10, 14 → YouTube + DGen (2026-09-15). Codex, high.

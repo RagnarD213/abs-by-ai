@@ -1,0 +1,429 @@
+{
+ "lower_thirds": {
+  "0": {
+   "topic": "WHY I SWITCHED TO AI",
+   "parts": [
+    [
+     "I Fired My Trainer And Nutritionist.",
+     "fired"
+    ],
+    [
+     "Saved $1,000 A MONTH.",
+     "saved"
+    ]
+   ]
+  },
+  "1": {
+   "topic": "DAN ROSE",
+   "parts": [
+    [
+     "Personal Trainer For Over 20 YEARS",
+     "personal trainer"
+    ]
+   ]
+  },
+  "2": {
+   "topic": "THE TRAINER'S DEAL",
+   "parts": [
+    [
+     "Paid Whether You CHANGE OR NOT",
+     "gets paid"
+    ]
+   ]
+  },
+  "3": {
+   "topic": "THE NUTRITIONIST'S DEAL",
+   "parts": [
+    [
+     "If You Quit, You'll Be Back.",
+     "quit"
+    ],
+    [
+     "REPEAT CUSTOMERS Are The Business.",
+     "repeat"
+    ]
+   ]
+  },
+  "4": {
+   "topic": "SUPPLEMENTS",
+   "parts": [
+    [
+     "Something To Sell You EVERY MONTH",
+     "something"
+    ]
+   ]
+  },
+  "5": {
+   "topic": "KEY POINT",
+   "parts": [
+    [
+     "Much Of This Industry Is Built On You NOT FINISHING",
+     "built"
+    ]
+   ]
+  },
+  "6": {
+   "topic": "WHAT MY AI IMAGE COST",
+   "parts": [
+    [
+     "Less Than 1 MINUTE Of A Trainer's Time",
+     "less than"
+    ]
+   ]
+  },
+  "7": {
+   "topic": "HUMAN NUTRITIONISTS",
+   "parts": [
+    [
+     "Thousands For A Generic Meal Plan.",
+     "thousands"
+    ],
+    [
+     "95% Can't Stick To It.",
+     "95"
+    ]
+   ]
+  },
+  "8": {
+   "topic": "AI TRACKS YOUR CALORIES",
+   "parts": [
+    [
+     "You Actually STICK To The Plan",
+     "actually"
+    ]
+   ]
+  },
+  "9": {
+   "topic": "AFTER YOUR PICTURE",
+   "parts": [
+    [
+     "AI Builds The EXACT PLAN",
+     "builds"
+    ]
+   ]
+  }
+ },
+ "windows": {
+  "0": {
+   "heading": "Two Questions",
+   "items": [
+    "Why human experts fail you",
+    "Why AI does it 100x better"
+   ],
+   "reveal": [
+    "why do",
+    "why can"
+   ]
+  },
+  "1": {
+   "heading": "Coaching Programs",
+   "items": [
+    "Generic templates, blasted out to thousands of guys.",
+    "A motivational text so it FEELS personal."
+   ],
+   "reveal": [
+    "generic",
+    "motivational"
+   ]
+  },
+  "2": {
+   "heading": "Your AI Workout Plan",
+   "items": [
+    "Got an injury? AI rebuilds your plan around it.",
+    "Lagging body parts? AI spots them in your picture and adjusts your routine."
+   ],
+   "reveal": [
+    "got an injury",
+    "got lagging"
+   ]
+  },
+  "3": {
+   "heading": "Your AI Meal Plan",
+   "items": [
+    "Allergic to certain foods?",
+    "Religious restrictions?",
+    "AI designs your meal plan around them."
+   ],
+   "reveal": [
+    "allergic",
+    "have religious",
+    "ai can design"
+   ]
+  },
+  "4": {
+   "heading": "The Bottom Line",
+   "items": [
+    "AI has replaced human trainers and nutritionists.",
+    "It gets you far better results.",
+    "And it doesn't cost a cent."
+   ],
+   "reveal": [
+    "ai has",
+    "it gets",
+    "and it doesn't"
+   ]
+  }
+ },
+ "titles": {
+  "0": {
+   "eyebrow": "WHAT IT COSTS EVERY MONTH",
+   "headline": "Personal Trainer\nAround $400\nA Month"
+  },
+  "1": {
+   "eyebrow": "WHAT IT COSTS EVERY MONTH",
+   "headline": "Nutritionist\nAround $300",
+   "items": [
+    "Personal trainer: $400",
+    "Nutritionist: $300",
+    "So far: $700 a month"
+   ]
+  },
+  "2": {
+   "eyebrow": "WHAT IT COSTS EVERY MONTH",
+   "headline": "Supplements\nAround $150",
+   "items": [
+    "Personal trainer: $400",
+    "Nutritionist: $300",
+    "Supplements: $150",
+    "So far: $850 a month"
+   ]
+  },
+  "3": {
+   "eyebrow": "WHAT IT COSTS EVERY MONTH",
+   "headline": "Coaching + Apps\nAround $200",
+   "items": [
+    "Personal trainer: $400",
+    "Nutritionist: $300",
+    "Supplements: $150",
+    "Coaching + apps: $200"
+   ]
+  },
+  "4": {
+   "eyebrow": "TOTAL",
+   "headline": "$1,050\nEvery Month",
+   "items": [
+    "Personal trainer: $400",
+    "Nutritionist: $300",
+    "Supplements: $150",
+    "Coaching + apps: $200"
+   ]
+  }
+ },
+ "tallies": [],
+ "pictures": {
+  "auto_00356": [
+   {
+    "dur": 3.504,
+    "media": "ai_trainer_phone",
+    "kind": "bleed",
+    "label_kind": "ai"
+   },
+   {
+    "media": "ai_robot_coach",
+    "kind": "bleed",
+    "label_kind": "ai"
+   }
+  ],
+  "auto_01956": [
+   {
+    "media": "ai_trainer_phone_b",
+    "kind": "bleed",
+    "label_kind": "ai"
+   }
+  ],
+  "auto_02070": [
+   {
+    "media": "ai_generic_sheet",
+    "kind": "bleed",
+    "label_kind": "ai"
+   }
+  ],
+  "auto_03320": [
+   {
+    "media": "stock_laptop",
+    "kind": "card"
+   }
+  ],
+  "auto_04453": [
+   {
+    "dur": 2.035,
+    "media": "phone_04453",
+    "kind": "card",
+    "phone": true,
+    "caps": false
+   },
+   {
+    "media": "auto_07028",
+    "kind": "bleed",
+    "label_kind": "ai",
+    "caps": false
+   }
+  ],
+  "auto_05640": [
+   {
+    "media": "phone_05640",
+    "kind": "card",
+    "phone": true,
+    "caps": false
+   }
+  ],
+  "auto_06186": [
+   {
+    "media": "phone_recipes",
+    "kind": "card",
+    "phone": true,
+    "caps": false
+   }
+  ],
+  "auto_01266": [
+   {
+    "media": "studio_gray_79",
+    "kind": "bleed",
+    "label_kind": "real",
+    "caps": false,
+    "flash_after": true
+   }
+  ],
+  "auto_01147": [
+   {
+    "media": "before_deckchair",
+    "kind": "card"
+   }
+  ],
+  "auto_00736": [
+   {
+    "media": "yt3min_9x16",
+    "kind": "bleed",
+    "flash_after": true
+   }
+  ],
+  "auto_02356": [
+   {
+    "media": "bland_meal",
+    "kind": "card",
+    "label_kind": "ai",
+    "until": 81.081
+   }
+  ],
+  "auto_02382": "drop",
+  "auto_02409": "drop",
+  "auto_04741": [
+   {
+    "media": "phone_workout",
+    "kind": "card",
+    "phone": true,
+    "caps": false
+   }
+  ]
+ },
+ "media": {
+  "ai_trainer_phone": [
+   "vid",
+   "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/04 AI-Generated Clips/concepts-and-gags/A0009_trainer-and-client-in-gym-with-phone_9x16_5s.mp4",
+   0.0
+  ],
+  "ai_trainer_phone_b": [
+   "vid",
+   "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/04 AI-Generated Clips/concepts-and-gags/A0009_trainer-and-client-in-gym-with-phone_9x16_5s.mp4",
+   1.0
+  ],
+  "ai_robot_coach": [
+   "vid",
+   "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/04 AI-Generated Clips/concepts-and-gags/A0013_man-overhead-press-with-robot-coach_9x16_5s.mp4",
+   0.0
+  ],
+  "ai_generic_sheet": [
+   "vid",
+   "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/04 AI-Generated Clips/concepts-and-gags/A0010_trainer-hands-client-generic-sheet_9x16_5s.mp4",
+   0.5
+  ],
+  "stock_laptop": [
+   "vid",
+   "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/codex-video-trial/06-ad-r1/assets/pexels-6326748.mp4",
+   2.0
+  ],
+  "phone_04453": [
+   "vid",
+   "assets_sbl/phone_04453.mp4",
+   0.0
+  ],
+  "phone_05640": [
+   "vid",
+   "assets_sbl/phone_05640.mp4",
+   0.0
+  ],
+  "before_deckchair": [
+   "img",
+   "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/01 Before and After Images/00_ORIGINAL_deckchair_upscaled3x.jpg",
+   0,
+   1.0,
+   {
+    "oy": 0.0
+   }
+  ],
+  "yt3min_9x16": [
+   "vid",
+   "assets_sbl/yt3min_9x16.mp4",
+   0.0
+  ],
+  "studio_gray_79": [
+   "img",
+   "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/studio-gray-79_FINAL_PRIMARY.jpg",
+   0,
+   1.0,
+   {
+    "oy": 0.0
+   }
+  ],
+  "bland_meal": [
+   "vid",
+   "assets_sbl/bland_meal_sq.mp4",
+   0.0
+  ],
+  "phone_workout": [
+   "vid",
+   "assets_sbl/phone_workout_crunch.mp4",
+   0.0
+  ],
+  "phone_recipes": [
+   "vid",
+   "assets_sbl/phone_recipes_two_taps.mp4",
+   0.0
+  ],
+  "opener_start": [
+   "img",
+   "assets_sbl/opener_start_9x16_placeholder_v2.png",
+   0,
+   1.0,
+   {
+    "oy": 0.0
+   }
+  ],
+  "opener_end": [
+   "img",
+   "assets_sbl/opener_end_9x16_placeholder_v2.png",
+   0,
+   1.0,
+   {
+    "oy": 0.0
+   }
+  ]
+ },
+ "add_pictures": [
+  {
+   "t0": 0.0,
+   "t1": 1.85,
+   "media": "opener_start",
+   "kind": "bleed",
+   "label_kind": "ai"
+  },
+  {
+   "t0": 1.85,
+   "t1": 3.7,
+   "media": "opener_end",
+   "kind": "bleed",
+   "label_kind": "ai",
+   "his_flash": false
+  }
+ ]
+}
