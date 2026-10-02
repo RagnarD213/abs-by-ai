@@ -100,8 +100,6 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **RO-13 - NEEDS DAN 2026-10-01, Claude.** Page http://127.0.0.1:8803/. Next: `handoff-20261001-ro13-round1-dan-review.md`.
 
-**RO-10 - NEEDS DAN 2026-10-01, Claude.** Delivered. Next: Dan reviews; `notes-RO10.md`.
-
 **RO-16 - NEEDS DAN 2026-10-01, Claude.** Round 3 sent. Next: Dan watches 5:00, 11:40.
 
 **Studio batch - NEEDS DAN 2026-09-29, Codex.** Review 24 posts: `http://127.0.0.1:8791/`. Nothing scheduled. Package and Drive link: `output/studio-post-test-24-20260929/README.txt`.
@@ -179,6 +177,7 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
+- `handoff-20261002-ro10-thumbnails-and-video-setup.md` (10-02): RO-10 approved; thumbnails then setup. Opus medium.
 - `handoff-20261001-pmax-campaign-build.md` (10-01): after campaign images exist. Sol high.
 - `handoff-20261001-vertical-kit-round2-full-build-after-lock.md` NEEDS DAN http://127.0.0.1:8807/
 - `handoff-20260930-codex-adopt-review-page-format.md` (09-30): Codex adopts the RO-16 review page. GPT-6 Sol medium.

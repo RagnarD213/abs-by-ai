@@ -1112,14 +1112,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/SL-03-meal-prep-app-demo-shorts.md`: propose the shorts segments from the RO-05 \"How I Make My Daily Salad\" master and wait for my picks, then cut them with /shorts, with gates and an independent audit (no covers; Codex does those). Deliver, send me the review copies, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/SL-03-meal-prep-app-demo-shorts.md` using `.claude/skills/shorts/SKILL.md` as the method: propose segments from the RO-05 master, wait for Dan's picks, cut, gate, deliver, update `00-MASTER.md`.",
-   "state": "ready",
+   "state": "in_progress",
    "note": "Unblocked 09-30: cut from the approved RO-05 master; parent public Oct 18",
    "sub": "",
    "order": 53,
-   "updated": "2026-09-30",
+   "updated": "2026-10-02",
    "by": "Claude",
-   "rev": 2,
-   "syncedRev": 2
+   "rev": 3,
+   "syncedRev": 3
   },
   {
    "id": "AV-01",
@@ -1740,13 +1740,13 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/RO-10-calories-the-reason-you-re-not-losing-weight.md`: cut \"Calories: The Reason You're Not Losing Weight\" from 9/23 roll C1704 with /longform-edit. Best take of every line, every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-10-calories-the-reason-you-re-not-losing-weight.md` with `$long-form-content-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "delivered",
-   "note": "Round 2 full film delivered 10-01; review copy https://drive.google.com/open?id=13v0hDItM1QWdoNZaEUXPyr3vmfKeb3oZ",
+   "state": "finalized",
+   "note": "Dan approved 10-02: 'this video is approved'",
    "sub": "",
    "order": 83,
-   "updated": "2026-10-01",
+   "updated": "2026-10-02",
    "by": "Claude",
-   "rev": 4,
+   "rev": 5,
    "syncedRev": 4
   },
   {
