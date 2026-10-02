@@ -433,6 +433,13 @@ function dashPath(req) {
   return (req.path || '').toLowerCase().replace(/\/+$/, '') || '/';
 }
 
+// Private Google owner sessions and publication use separate DB tables. Mount
+// before the shared dashboard gate and public static files, so neither can
+// bypass the brief's identity check. No source content is stored in public Git.
+const {createStore: createBriefStore} = require('./scripts/brief/web/store');
+const {createRouter: createBriefRouter} = require('./scripts/brief/web/router');
+app.use(createBriefRouter({store: createBriefStore(db, dbReady)}));
+
 app.use((req, res, next) => {
   const p = dashPath(req);
   if (DASH_APIS.includes(p)) {

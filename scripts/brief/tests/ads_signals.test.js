@@ -1,0 +1,21 @@
+'use strict';
+const assert = require('node:assert/strict');
+const {verified, attach, tagTargets} = require('../ads_signals');
+const action = {id: '7704441548', name: 'Free Generation Started', type: 'WEBPAGE',
+  tagSnippets: [{eventSnippet: "gtag('event','conversion',{'send_to':'AW-18361229851/KqDxCMzl4dkcEJvEqLNE'});"}]};
+assert.deepEqual(tagTargets(action), ['AW-18361229851/KqDxCMzl4dkcEJvEqLNE']);
+const definitions = verified([action]);
+assert(definitions.first_image_response);
+assert(!definitions.free_generations);
+assert(!definitions.trials);
+assert(!definitions.paid);
+assert.deepEqual(verified([{...action, name: 'An email lead'}]), {});
+assert.deepEqual(verified([{...action, tagSnippets: [{eventSnippet: 'Different tag'}]}]), {});
+assert.deepEqual(verified([{...action, type: 'UPLOAD_CLICKS'}]), {});
+const campaign = {observedActions: [{id: '7704441548', yesterday: 0, last7d: 1.25}, {id: '7717762965', yesterday: 5, last7d: 50}]};
+const result = attach([campaign], definitions);
+assert.equal(result[0].stageSignals.first_image_response.yesterday, 0);
+assert.equal(result[0].stageSignals.first_image_response.last7d, 1.25);
+assert(!result[0].stageSignals.email_leads);
+assert.deepEqual(attach([{observedActions: []}], {}).at(0).stageSignals, {});
+console.log('ads_signals: exact ID/name/type/tag verification, precise stages and fractional attribution passed');
