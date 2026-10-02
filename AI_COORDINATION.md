@@ -86,7 +86,9 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 # ACTIVE
 
-**Five Cart Designs - ACTIVE 2026-10-02, Codex.** `public/design-review/five-carts-20261002/`. Next: five prototypes, screenshots, verification. Live cart unchanged.
+**Oura review (Video 4) - NEEDS DAN 2026-10-02, Claude.** Next: Dan picks 1 of 5 thumbnails (`My Honest Oura Ring Review/`); then Blotato Oct 14, article, SL job.
+
+**Five Cart Designs - REVIEW 2026-10-02, Codex.** https://absbyai.com/design-review/five-carts-20261002/ Next: choose. Five interactive carts; live cart unchanged.
 
 **Cart-Mockups-R1: NEEDS DAN 2026-10-02, Claude.** https://claude.ai/artifact/WUrxcVvv6mZNmnjt3LqrPa
 
@@ -135,8 +137,6 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 **Trial thumbnails - INSTALLED 2026-10-02, Claude.** 10-03: recheck policy `24316364155`. 10-09: CTR vs week before 10-02 11:17 CT. `Docs/DGEN_CONVERSION_CAMPAIGN.md`.
 
 **Trial `24316364155` LIVE, remarketing `24305381214`/`24316408288` PAUSED, 2026-10-01, Claude.** 10-04: delivery+policy. `Docs/DGEN_CONVERSION_CAMPAIGN.md`.
-
-**Ads results follow-up — OPEN 2026-09-15.** Review Google Ads results after the 09-09 account fixes (`Docs/GOOGLE_ADS_API.md`). Meta $50 review: next reading 2026-09-18; last result $2.02/follow against <$3 target.
 
 **Web push storage — OPEN 2026-09-15.** Move `push-subs.json` to Postgres before enabling web push. Subscriber-list migration is already finished.
 
@@ -191,7 +191,7 @@ Memory `google-ads-ui-automation`.
 - `handoff-20261001-move-project-out-of-icloud.md` (10-01): move the project out of iCloud's Documents sync (109k duplicates, 199 cloud-only files). Run when nothing else runs here. Opus 5.5 high.
 - `handoff-20261001-rebuild-ios-project.md` (10-01): rebuild the iPhone project iCloud wiped. ⚠ iCloud recovery window closes about 10-17. No Apple upload. GPT-6 Sol high.
 - `handoff-20261001-search-campaigns-to-vsl-page.md` (10-01). Sol high.
-- `handoff-20261001-ad4-other-formats.md`, `…-ad6-…` (10-01). Opus high.
+- `handoff-20261001-ad4-other-formats.md` (10-01). Opus high.
 - `handoff-20261002-ad13-round3-full-builds.md` (10-02). Opus high.
 - `handoff-20260924-generator-consult-call-outreach.md` (09-24): fire by 09-26.
 - `handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md` [dash]: PHONE ONLY, 3 TikTok covers (updated 09-22). Sonnet 5 or Fable 5.1 / Medium.
@@ -212,4 +212,4 @@ Memory `google-ads-ui-automation`.
 - `handoff-20260826-danrosefit-abs-image-gap-fill.md` [dash] — once Blotato has 7 free slots.
 
 ## ACTIVE
-- **AV-05/AS-04 Ad 6 - IN PROGRESS 2026-10-02, Claude.** Look round building. Dir: `/Volumes/Extreme/_edit_work/kit9x16/av05-ad6/`.
+- **AV-05/AS-04 Ad 6 - NEEDS DAN 2026-10-02, Claude.** http://127.0.0.1:8816/. Next: `handoff-20261002-ad6-round2-full-builds-after-lock.md`. ⚠ Extreme full.
