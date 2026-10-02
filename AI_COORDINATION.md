@@ -106,7 +106,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **RO-16 - QUEUED 2026-10-02, Claude.** Blotato Nov 1 9AM CST. Owes: RO-12 link in description after Oct 25; captions, article after Nov 1. `Docs/RO16_SETUP_RECEIPT_20261002.md`.
 
-**Studio batch - NEEDS DAN 2026-09-29, Codex.** Review 24 posts: `http://127.0.0.1:8791/`. Nothing scheduled. Package and Drive link: `output/studio-post-test-24-20260929/README.txt`.
+**Studio batch - NEEDS DAN 2026-10-02, Codex.** Revisions plus three additions. Nothing scheduled. Review 27 posts at `http://127.0.0.1:8791/`.
 
 **Push blocked - 2026-10-01, Claude.** d164674 + f6db976 local only; uncommitted vertical.py, kit_run.py, sbl_page.py block it. Next: owners commit, rerun safe-push.
 
@@ -116,13 +116,13 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **Stop Deadlifting - QUEUED 2026-09-29, Claude.** Blotato Oct 11 9AM CT, 4 platforms. Next: once posted, publish `sixpackabs/articles/TBD-stop-deadlifting.md`, then delete.
 
-**SL-03 HANDOFF 2026-10-02, Claude.** Round 1 approved. Fire `handoff-20261002-sl03-salad-shorts-round2.md`.
+**SL-03 shorts - IN PROGRESS 2026-10-02, Claude.** Round 2 build: `/Volumes/Extreme/_edit_work/sl03/r2/`.
 
 **RO-05 salad - QUEUED 2026-09-30, Claude.** Oct 18: fire `handoff-20260930-ro05-captions-and-article-after-release.md`.
 
 **STOP Deadlifting clip - NEEDS DAN 2026-09-20, Codex.** R3 review copy in shared Drive folder `1dXUbQajUzM-uO_Xl92telO0qsa-Ob7uV`: full head visible, bar path rises once. Next: Dan approves R3 or names corrections.
 
-**Overnight edit queue - PAUSED 2026-09-24, Dan's call.** He fires every edit by hand. Resume only if Dan says: `dispatcher.py resume`.
+**Overnight edit queue - PAUSED 2026-09-24, Dan's call.** Resume only if Dan says: `dispatcher.py resume`.
 
 **RO-01 round 7 - NEEDS DAN 2026-09-29, Codex.** H06/H04/B01 motion + narration previews at `http://127.0.0.1:8786/index.html`; spend in `revision7/motion-QA.json`. Next: Dan picks H06 or H04 and rules on B01; Codex then renders the first-minute checkpoint and full film.
 
@@ -181,8 +181,8 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
-- `handoff-20261002-cart-build.md`, `…-start-page-365-guarantee.md` (10-02). Opus high.
-- `handoff-20261002-vertical-kit-round3-fill-more-screen.md` (10-02). Opus high.
+- Cart Build: Dan tests `?cart=v2`, then `…-start-page-365-guarantee.md`, Opus.
+- `handoff-20261002-vertical-kit-round3-fill-more-screen.md`: Dan reviews http://127.0.0.1:8808/
 - `handoff-20260930-codex-adopt-review-page-format.md` (09-30): Codex adopts the RO-16 review page. GPT-6 Sol medium.
 
 - `handoff-20261001-move-project-out-of-icloud.md` (10-01): move the project out of iCloud's Documents sync (109k duplicates, 199 cloud-only files). Run when nothing else runs here. Opus 5.5 high.
@@ -209,4 +209,5 @@ Memory `google-ads-ui-automation`.
 - `handoff-20260826-danrosefit-abs-image-gap-fill.md` [dash] — once Blotato has 7 free slots.
 
 ## ACTIVE
-- **AV-05/AS-04 Ad 6 - LOOK LOCKED 2026-10-02.** Next: fire `handoff-20261002-ad6-round2-full-builds-after-lock.md`. ⚠ Extreme full.
+- **AV-05/AS-04 Ad 6 - BUILDING 2026-10-02, Claude.** Round 2.
+- **AS-06 Ad 10 square - BUILDING 2026-10-02, Claude.**
