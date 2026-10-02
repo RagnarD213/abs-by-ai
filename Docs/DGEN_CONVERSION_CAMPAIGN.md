@@ -533,6 +533,38 @@ build the ad with `/ad-setup` pointed at campaign `24316364155`.
 "Fire Your Personal Trainer", "How AI Replaces Personal Trainers", "Human Trainers Hate Him", "How I Got Abs At 40",
 "Trainers Hate This AI App". Long headlines and descriptions unchanged. The old campaign's Ad 3 copy was not touched.
 
+## 2026-10-02: new thumbnails on the trial campaign's 12 ad videos (campaign `24316364155`)
+
+Dan's picks from the Codex thumbnail rounds (`social media graphics/youtube/thumbnails/_trial-campaign-20261001/picks.json`)
+were installed on all 12 YouTube videos behind the six ads, **2026-10-02 11:16 to 11:17 AM CT**. Compare click-through for
+the 7 days before this moment against the 7 days after. Nothing in Google Ads was edited. Each file sits in
+`social media graphics/youtube/thumbnails/<ad folder>/trial-20261001/`; the `before-<id>.jpg` there restores the old
+thumbnail with `node scripts/youtube/set-thumbnail.js --video <id> --file <before file>`.
+
+| video | YouTube id | option | before file | read back file | ad, status after install |
+|---|---|---|---|---|---|
+| Ad 13 16:9 | `-SuKGXGcbIg` | 13-R3B | `before--SuKGXGcbIg.jpg` | `readback--SuKGXGcbIg.jpg` | `826635661894` ENABLED, APPROVED |
+| RA-01 16:9 | `OUw788sF1KY` | RA-R2A | `before-OUw788sF1KY.jpg` | `readback-OUw788sF1KY.jpg` | `826595554299` ENABLED, APPROVED |
+| RA-01 9:16 | `rfCsWNxuNV0` | RA-R2A | `before-rfCsWNxuNV0.jpg` | `readback-rfCsWNxuNV0.jpg` | `826595554302` ENABLED, APPROVED |
+| Ad 10 16:9 | `Sg3vcEY2P_8` | 10-R2A | `before-Sg3vcEY2P_8.jpg` | `readback-Sg3vcEY2P_8.jpg` | `826635657832` ENABLED, APPROVED |
+| Ad 10 9:16 | `4nDWFmdjzQQ` | 10-R2A | `before-4nDWFmdjzQQ.jpg` | `readback-4nDWFmdjzQQ.jpg` | `826635657835` ENABLED, APPROVED |
+| Ad 10 9:16 | `CR4WAVmSuXY` | 10-R2A | `before-CR4WAVmSuXY.jpg` | `readback-CR4WAVmSuXY.jpg` | `826635657838` ENABLED, APPROVED |
+| Ad 4 16:9 | `R08TPEtkjuQ` | 4-R2A | `before-R08TPEtkjuQ.jpg` | `readback-R08TPEtkjuQ.jpg` | `826635661909` ENABLED, APPROVED |
+| Ad 3 16:9 | `86jbUhqBTUQ` | 3-R2A | `before-86jbUhqBTUQ.jpg` | `readback-86jbUhqBTUQ.jpg` | `826635679183` ENABLED, APPROVED |
+| Ad 3 9:16 | `xlC-tigurnA` | 3-R2A | `before-xlC-tigurnA.jpg` | `readback-xlC-tigurnA.jpg` | `826635679186` ENABLED, APPROVED |
+| Ad 3 9:16 | `-wTErCSi640` | 3-R2A | `before--wTErCSi640.jpg` | `readback--wTErCSi640.jpg` | `826635679189` ENABLED, APPROVED |
+| Ad 3 1:1 | `DXRkrfvcJEM` | 3-R2A | `before-DXRkrfvcJEM.jpg` | `readback-DXRkrfvcJEM.jpg` | `826635679192` ENABLED, APPROVED |
+| Ad 6 16:9 | `Je2yvk00SHE` | 6-R3B | `before-Je2yvk00SHE.jpg` | `readback-Je2yvk00SHE.jpg` | `826595554443` ENABLED, APPROVED |
+
+- Every read back was opened and matches the picked image. On the 9:16 and 1:1 videos YouTube shows the whole image
+  centred with blurred sides; no head or text is cut.
+- All 12 videos read back Unlisted with the same title, description and tags as before the install.
+- Policy right after the install: all 12 ads ENABLED, APPROVED / REVIEWED, and every `YOUTUBE_VIDEO` asset APPROVED. A new
+  thumbnail can send an ad back into review, so recheck 2026-10-03: `node scripts/ads/api/client.js policy 24316364155`.
+- No challenger thumbnails are held for a later test (`challenger: null` on every video).
+- No vertical or square of Ads 13, 4 or 6 exists in the campaign yet; when one is added it needs its own thumbnail.
+- PostHog annotation not added: the stored key lacks the `annotation:write` scope.
+
 ## 2026-10-01: conversion REMARKETING campaign to /start (campaign `24305381214`)
 
 Dan's spec: `Handoffs/handoff-20261001-remarketing-campaigns-conversion-and-subscriber.md`. Built by

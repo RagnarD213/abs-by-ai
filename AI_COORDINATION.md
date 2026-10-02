@@ -1,8 +1,6 @@
 # Abs By AI — Coordination / Status Board
 
-Loaded into every message here — keep it short. A STATUS BOARD, not a log: what is open, who is blocked,
-the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md)
-(not auto-loaded). Facts: `Docs/BOARD_REFERENCE.md`. Code changes: git history.
+A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Facts: `Docs/BOARD_REFERENCE.md`.
 
 | what | where it belongs |
 |---|---|
@@ -90,7 +88,6 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **Campaign Images R2 - NEEDS DAN 2026-10-01, Codex.** Five revisions; 15 unchanged picks. Next: approve http://127.0.0.1:52737/round2/.
 
-**Trial thumbnails R3 - NEEDS DAN 2026-10-01, Codex.** Four locked. Next: confirm 13-R3B, pick 6-R2A/6-R3B. Review http://127.0.0.1:8811/round3/. Receipt: `Docs/TRIAL_THUMBNAIL_REVIEW_R3_20261001.md`.
 
 
 
@@ -117,6 +114,8 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **Stop Deadlifting - QUEUED 2026-09-29, Claude.** Blotato Oct 11 9AM CT, 4 platforms. Next: once posted, publish `sixpackabs/articles/TBD-stop-deadlifting.md`, then delete.
 
+**SL-03 NEEDS DAN 2026-10-02, Claude.** Picks.
+
 **RO-05 salad - QUEUED 2026-09-30, Claude.** Oct 18: fire `handoff-20260930-ro05-captions-and-article-after-release.md`.
 
 **STOP Deadlifting clip - NEEDS DAN 2026-09-20, Codex.** R3 review copy in shared Drive folder `1dXUbQajUzM-uO_Xl92telO0qsa-Ob7uV`: full head visible, bar path rises once. Silent B-roll has no full-film gate, so no PASS claimed. Next: Dan approves R3 or names corrections. Detail: `Media/ai-frames/stop-deadlifting-opening-20260918/motion-v2/R3_DELIVERY.json`.
@@ -126,6 +125,8 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 **RO-01 round 7 - NEEDS DAN 2026-09-29, Codex.** H06/H04/B01 motion + narration previews at `http://127.0.0.1:8786/index.html`; spend in `revision7/motion-QA.json`. Next: Dan picks H06 or H04 and rules on B01; Codex then renders the first-minute checkpoint and full film. B02 removed; R3 look/audio and 23 R4 items locked.
 
 **Ads 6, 7, 10, 14 YouTube + Google Ads - REVIEW 2026-09-15, Codex 01a0a744.** Four unlisted uploads, eight enabled campaign ads, shared budget $40/day, policy `REVIEW_IN_PROGRESS`. Next: re-run policy; swap in Ad 7 typo / Ad 14 bitrate exports when delivered. Detail: `Docs/DGEN_CONVERSION_CAMPAIGN.md`.
+
+**Trial thumbnails - INSTALLED 2026-10-02, Claude.** 10-03: recheck policy `24316364155`. 10-09: click-through 7 days after vs before 10-02 11:17 CT. `Docs/DGEN_CONVERSION_CAMPAIGN.md`.
 
 **Trial `24316364155` LIVE, remarketing `24305381214`/`24316408288` PAUSED, 2026-10-01, Claude.** 10-04: delivery+policy. `Docs/DGEN_CONVERSION_CAMPAIGN.md`.
 
