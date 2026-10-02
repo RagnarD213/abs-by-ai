@@ -77,7 +77,7 @@ def main():
             label = b.get("label")
             spans = [[round(x - b["t0"], 3), round(y - b["t0"], 3)] for x, y in b.get("label_spans", [])] or None
             scene, hole = VT.media_card_scene(pid, n / FPS, media_ar(MEDIA[key]), label=label, spans=spans,
-                                              kicker="AbsByAI.com" if b.get("phone") else None)
+                                              kicker="AbsByAI.com" if b.get("phone") else None, caps=b.get("caps") is not False)
             plates[str(i)] = dict(kind="card", media=key, frames=n, hole=hole, mov=os.path.join(out, "renders", pid + ".mov"),
                                   chip=scene[1].get("chip"))
             if inr(b["t0"], b["t1"]):

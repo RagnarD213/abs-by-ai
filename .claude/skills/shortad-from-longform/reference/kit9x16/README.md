@@ -126,6 +126,36 @@ film) plans to 0 flashes (his 2.5 to 3.8 per minute), 0 CTAs (2.7 to 3.3), 2.2 i
 insert coverage (34 to 64 %) and a 49 s longest talk stretch (12.6 to 29.9 s). Those bounds are NOT to be moved;
 which format gates a vertical of an organic film is Dan's ruling.
 
+## An editor's master in Soft Blue Light (2026-10-01, AV-11 Ad 13) -- `kit_run.py --master ... --sbl COPY.json`
+
+For Dan: Muhammad's finished ads still have to be measured (there is no answer sheet), but their graphics no longer come
+out olive. After the kit has recovered his edit, `master_to_sbl.py` turns what it found into Soft Blue Light graphics
+drawn with HyperFrames, and the build continues on the sheet path's graphics and picture stages.
+
+| his graphic (recovered) | Soft Blue Light at 9:16 |
+|---|---|
+| lower third | `lower-third/` (Motivation): a topic line + the point, each part rising on its word |
+| text screen (text left, Dan right) | `side-list/`: the 3A card at the bottom, Dan full frame above, items on their words |
+| title / price card | `title-card/` (with rows: a bill that adds up) |
+| phone beside Dan | `media-card/`: the whole phone in a card |
+| white flash on returns | kept (`render_sbl.py` draws the kit's schedule in Soft Blue white): transitions stay the editor's |
+| corner running-total chip | `tally/` exists, but at 9:16 Dan's head fills the top of the frame: fold the total into the price cards |
+
+The words are editorial and live in the build's `sbl_copy.json` (format in `master_to_sbl.py`'s docstring), never typed
+into content.json: topic + key-point parts with the PHRASE each lands on, list headings and items, bill rows, and
+`pictures` / `media` to swap his low-resolution lift for the clean library original (AI clips fill the frame from their
+9:16 originals; a lift that carries his burned olive graphic is replaced; phone lifts are cropped to the phone).
+Stages: `recover measure content` (unchanged) then `restyle setup audio kit base track graphics labels words`, then
+`kit_deliver.py captions` and `sbl_page.py --sheet B/sbl_sheet.json --media` for the graphic-lock page. The full picture
+is rendered only after Dan locks the page.
+
+Lessons (AV-11): a landscape photo of Dan cannot take a full-bleed chip (kit_labels stops): it goes whole in a card.
+A lift's first frames can sit inside his blur-in: use the library still. Fix caption spellings in `ref.whisper.json`
+after `setup` and before `words`. HyperFrames `check` fails a mask pass in which nothing moves between entrance and
+exit ("Timeline did not advance under seek"): give every template a slow drift on a wrapper the mask shares.
+A lower third wraps at part boundaries and balances its lines (`vertical.lt_scenes`). A tall card under running
+captions ends above the caption line (`media_card_scene(caps=True)`).
+
 ### Sheet-path lessons (2026-10-01)
 
 * Grade in the 16:9's own order (`grade.order`): a float LUT on the 4K crop ran at about 3 frames a second; scaled to

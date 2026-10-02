@@ -58,7 +58,7 @@ PY = sys.executable
 sys.path.insert(0, HERE)
 import ai_calls  # noqa: E402
 
-STAGES = ["recover", "measure", "content", "sheet", "setup", "audio", "kit", "base", "track", "graphics", "labels", "words", "picture",
+STAGES = ["recover", "measure", "content", "restyle", "sheet", "setup", "audio", "kit", "base", "track", "graphics", "labels", "words", "picture",
           "captions", "mux", "prewatch", "judge", "fold", "labelcheck", "review", "pick", "cutdown", "cutgate",
           "cutjudge", "cutfold", "deliver"]
 
@@ -132,6 +132,7 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--master")
     ap.add_argument("--sheet", help="the 16:9's edit sheet (_shared/edit-sheet/): the second way in")
+    ap.add_argument("--sbl", help="with --master: the Soft Blue Light copy file (master_to_sbl.py); graphics drawn with HyperFrames")
     ap.add_argument("--build", required=True)
     ap.add_argument("--name", required=True, help='deliverable base name, e.g. "ai showed me two futures | claude | 9x16 | ad 8"')
     ap.add_argument("--shoot", action="append", default=[])
@@ -148,7 +149,10 @@ def main():
     if SHEET:
         a.master = json.load(open(SHEET))["video"]["master"]
     a.start = a.start or ("sheet" if SHEET else "recover")
-    skip = ("recover", "measure", "content") if SHEET else ("sheet", "graphics")
+    # --sbl COPY.json: an editor's master redrawn in Soft Blue Light (master_to_sbl.py after `content`; then the sheet
+    # path's graphics and picture stages). Without it a master build still draws the olive kit (answer keys, regressions).
+    SBL = os.path.abspath(a.sbl) if a.sbl else None
+    skip = ("recover", "measure", "content", "restyle") if SHEET else (("sheet",) if SBL else ("sheet", "graphics", "restyle"))
     B = os.path.abspath(a.build)
     os.makedirs(B, exist_ok=True)
     master = os.path.abspath(a.master)
@@ -215,12 +219,14 @@ def main():
         elif name == "content":
             sh([PY, K("auto_content.py"), "--build", B, "--master", master, "--words", "m.whisper.json", "--ai", a.ai,
                 "--ledger", ledger])
+        elif name == "restyle":
+            sh([PY, K("master_to_sbl.py"), "--build", B, "--copy", SBL])
         elif name == "sheet":
             sh([PY, os.path.join(SHARED, "edit-sheet", "validate.py"), SHEET, "--hash"])
             sh([PY, K("sheet_to_kit.py"), "--sheet", SHEET, "--build", B])
         elif name == "graphics":
-            sh([PY, K("sbl_graphics.py"), "--build", B, "--sheet", SHEET])
-        elif name == "picture" and SHEET:
+            sh([PY, K("sbl_graphics.py"), "--build", B, "--sheet", SHEET or os.path.join(B, "sbl_sheet.json")])
+        elif name == "picture" and (SHEET or SBL):
             sh([PY, K("render_sbl.py"), "--selftest"]); sh([PY, K("render_sbl.py")])
         elif name == "setup":
             empty = os.path.join(B, "_no_source"); os.makedirs(empty, exist_ok=True)

@@ -1491,12 +1491,12 @@
    "claude": "Read Handoffs/video-editing/00-RULES.md, then execute Handoffs/video-editing/AV-11-ad13-vertical.md with /shortad-from-longform. Build the full 9:16 and 59-second cutdown, preserve Muhammad's finalized audio and picture decisions, run every gate and audit, and send Dan the review copies.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read Handoffs/video-editing/00-RULES.md, then execute Handoffs/video-editing/AV-11-ad13-vertical.md using .claude/skills/shortad-from-longform/SKILL.md. Deliver both review copies and update the queue.",
-   "state": "in_progress",
-   "note": "Round 1 (Soft Blue Light + HyperFrames lock) 10-01",
+   "state": "draft_review",
+   "note": "Round 1 graphic-lock page http://127.0.0.1:8813/ awaits Dan (10-01)",
    "order": 71,
    "updated": "2026-10-01",
-   "rev": 2,
-   "syncedRev": 2,
+   "rev": 3,
+   "syncedRev": 3,
    "by": "Claude"
   },
   {

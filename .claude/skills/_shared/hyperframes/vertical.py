@@ -50,14 +50,31 @@ def lt_scenes(c):
     tx = x0 + 31 * U
     wrap_w = x1 - x0 - 31 * U - 24 * U
     toks = [(w, k) for k, (p, _) in enumerate(c["parts"]) for w in p.split()]
-    lines, cur = [], []
-    for w, k in toks:
-        cand = " ".join(x for x, _ in cur + [(w, k)])
-        if cur and H.text_w(cand, 28 * U) > wrap_w:
-            lines.append(cur); cur = [(w, k)]
-        else:
-            cur.append((w, k))
-    lines.append(cur)
+    fits = lambda words, lim: H.text_w(" ".join(words), 28 * U) <= lim
+
+    def wrap(lim):
+        lines, cur = [], []
+        for w, k in toks:
+            # a part that fits a line of its own never starts in the middle of the previous part's line
+            # (L01 read "...Nutritionist Saved $1,000 A" as one run-on line, Ad 13 round 1)
+            whole = [x for x, kk in toks if kk == k]
+            newpart = bool(cur) and cur[-1][1] != k
+            if cur and (not fits([x for x, _ in cur] + [w], lim)
+                        or (newpart and fits(whole, wrap_w) and not fits([x for x, _ in cur] + whole, lim))):
+                lines.append(cur); cur = [(w, k)]
+            else:
+                cur.append((w, k))
+        lines.append(cur)
+        return lines
+    lines = wrap(wrap_w)
+    # balanced lines: the narrowest wrap that keeps the same number of lines (no one-word last line: "...Over 20 / YEARS")
+    lim = wrap_w
+    while lim > wrap_w * 0.45:
+        lim -= 16
+        cand = wrap(lim)
+        if len(cand) != len(lines) or not all(fits([x for x, _ in ln], wrap_w) for ln in cand):
+            break
+        lines = cand
     assert all(H.text_w(" ".join(x for x, _ in ln), 28 * U) <= wrap_w for ln in lines), f"{c['id']}: one word is wider than the strip"
     _, ytop, _, bh = B.lower_third_default_box(W, Hh, len(lines))
     parts, times = [], []
@@ -186,15 +203,21 @@ def title_scenes(gid, t0, t1, eyebrow, headline, items=None):
 
 
 # ------------------------------------------------------------------ media card (the kit's clip / photo / phone cards)
-def media_card_scene(gid, dur, media_ar, label=None, kicker=None, spans=None, max_w=None, max_h=1240):
+def media_card_scene(gid, dur, media_ar, label=None, kicker=None, spans=None, max_w=None, max_h=1240, caps=False):
     """The plate for one card: returns (scene tuple, hole [x0, y0, x1, y1]). The hole keeps the media's own shape
-    (a horizontal clip is never cropped shorter: VIDEO-RULES 2026-10-01), as large as the frame allows."""
+    (a horizontal clip is never cropped shorter: VIDEO-RULES 2026-10-01), as large as the frame allows.
+    caps: captions run under this card, so a tall picture ends above the caption line (y 1370) instead of sitting
+    under the words (the before photo's stomach was captioned over, Ad 13 round 1)."""
     max_w = max_w or (W - 2 * SIDE)
+    if caps and not label:
+        max_h = min(max_h, 1370 - 190)
     hw = max_w; hh = hw / media_ar
     if hh > max_h: hh = max_h; hw = hh * media_ar
     hw, hh = int(hw) // 2 * 2, int(hh) // 2 * 2
     extra = (68 + 80 if label else 0)
     hx, hy = (W - hw) // 2, int((Hh - hh - extra) / 2 - 40 * (media_ar > 1))
+    if caps and not label and hy + hh > 1370:
+        hy = 1370 - hh
     c = dict(id=gid, dur=round(dur, 3), canvas=CANVAS, hole=[hx, hy, hw, hh], radius=26 if media_ar > 0.7 else 44)
     if label:
         cw_ = round(H.text_w(label, 23 * U, False) + 40 * U)
@@ -223,6 +246,25 @@ def cta_scenes(gid, dur, top, big, hold_out=False, full=False):
     return out, dict(kind="opaque" if full else "glass", band=[int(by - 12), int(by + bh + 60)], box=[round(x0), round(by), round(x1), round(by + bh)])
 
 
+# ------------------------------------------------------------------ running total chip (top left, over footage)
+def tally_scenes(gid, dur, label, value, frm=0, prefix="$", unit="/ month", at=0.45, count=0.6, y=170):
+    """A small glass chip in the top-left safe area: `label` (cyan caps) over `prefix + value` with `unit` beside it.
+    The number counts up from `frm` (the last total) `at` seconds in. y 170: under the platform's top 150 px."""
+    x0 = 34 * U
+    lpx, apx, upx = 26, 60, 30
+    full = prefix + f"{int(value):,}"
+    aw = max(H.text_w(full, apx), H.text_w(prefix + f"{int(frm):,}", apx))
+    bw = round(34 + max(H.text_w(label.upper(), lpx) * 1.08, aw + 14 + H.text_w(unit, upx, False)) + 34)
+    bh = 150
+    L = dict(chip=[x0, y, bw, bh], radius=14 * U, accent=[x0 + 12, y + 20, 8, bh - 40],
+             label=dict(x=x0 + 36, y=y + 16, px=lpx, s=label.upper()),
+             amount=dict(x=x0 + 36, y=y + 50, px=apx), unit=dict(x=round(x0 + 36 + aw + 14), y=y + 50 + round((apx - upx) * 1.05), px=upx, s=unit),
+             value=int(value), frm=int(frm), prefix=prefix, at=at, count=count)
+    out = [(HERE / "tally" / "tally.template.htm", dict(id=gid + ("_mask" if m == "mask" else ""), mode=m, dur=round(dur, 3), canvas=CANVAS, **L), ())
+           for m in ("content", "mask")]
+    return out, dict(kind="glass", band=[int(y - 40), int(y + bh + 40)], box=[round(x0), y, round(x0 + bw), y + bh])
+
+
 # ------------------------------------------------------------------ the sheet's graphics
 def scenes_for(g):
     t, c = g["template"], g["config"]
@@ -232,6 +274,8 @@ def scenes_for(g):
     if t == "cycle": return cycle_scenes(c)
     if t == "softblue:title_card": return title_scenes(g["id"], g["t0"], g["t1"], c.get("eyebrow"), c["headline"])
     if t == "softblue:recap": return title_scenes(g["id"], g["t0"], g["t1"], c.get("eyebrow"), c.get("headline") or "", c["items"])
+    if t == "tally": return tally_scenes(g["id"], g["t1"] - g["t0"], c["label"], c["value"], c.get("frm", 0), c.get("prefix", "$"), c.get("unit", "/ month"))
+    if t == "cta": return cta_scenes(g["id"], g["t1"] - g["t0"], c["top"], c["big"], hold_out=c.get("hold_out", False))
     raise SystemExit(f"{g['id']}: template {t!r} has no 9:16 layout (vertical.py). Add one; a graphic is never dropped.")
 
 

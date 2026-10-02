@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=__W__, height=__H__" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      /* Soft Blue Light RUNNING TOTAL chip: a small glass chip that sits in a corner over footage while a number
+         adds up ("SO FAR" + "$700 / month"). Mode "content" + a "mask" pass for the glass blur, like the lower third.
+         The number counts up from the previous total on entry, with one soft glow when it lands. */
+      @font-face { font-family: "Poppins"; src: url("assets/Poppins-Bold.ttf") format("truetype"); font-weight: 700; }
+      @font-face { font-family: "Poppins"; src: url("assets/Poppins-Regular.ttf") format("truetype"); font-weight: 400; }
+      :root {
+        --glass: rgba(22, 51, 81, 0.54);
+        --line: rgb(64, 112, 153);
+        --cyan: rgb(104, 197, 255);
+        --white: rgb(244, 250, 255);
+        --spec: rgb(135, 210, 248);
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: __W__px; height: __H__px; overflow: hidden; background: transparent; }
+      #root { position: relative; width: 100%; height: 100%; font-family: "Poppins", sans-serif; font-weight: 700; }
+      #drift { position: absolute; left: 0; top: 0; width: __W__px; height: __H__px; }
+      #enter { position: absolute; left: 0; top: 0; width: __W__px; height: __H__px; }
+      #chip { position: absolute; background: var(--glass); border: 1px solid var(--line); overflow: hidden; }
+      #spec { position: absolute; top: 1px; width: 90px; height: 3px; border-radius: 2px; background: var(--spec); }
+      #accent { position: absolute; background: var(--cyan); border-radius: 4px; transform-origin: 50% 100%; }
+      #glow { position: absolute; box-shadow: 0 0 0px rgba(104, 197, 255, 0); }
+      .t { position: absolute; white-space: pre; line-height: 1.4; }
+      #label { color: var(--cyan); letter-spacing: 0.06em; }
+      #amount { color: var(--white); }
+      #unit { color: var(--white); font-weight: 400; opacity: 0.82; }
+      .mask #chip { background: rgba(255, 255, 255, 0.92); border-color: transparent; }
+      .mask #spec, .mask .content { visibility: hidden; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="__ID__" data-start="0" data-duration="__DUR__" data-width="__W__" data-height="__H__">
+      <div id="drift"><div id="enter">
+        <div id="glow" class="content"></div>
+        <div id="chip"><div id="spec"></div></div>
+        <div id="accent" class="content"></div>
+        <div id="label" class="t content"></div>
+        <div id="amount" class="t content"></div>
+        <div id="unit" class="t content"></div>
+      </div></div>
+    </div>
+    <script>
+      const CFG = __CFG__;
+      const D = CFG.dur;
+      const px = v => v + "px";
+      const place = (e, x, y, w, h) => Object.assign(e.style, { left: px(x), top: px(y), width: w == null ? "" : px(w), height: h == null ? "" : px(h) });
+      const $ = id => document.getElementById(id);
+      const fmt = v => CFG.prefix + Math.round(v).toLocaleString("en-US");
+      if (CFG.mode === "mask") $("root").classList.add("mask");
+      const [bx, by, bw, bh] = CFG.chip;
+      place($("chip"), bx, by, bw, bh); $("chip").style.borderRadius = px(CFG.radius);
+      place($("glow"), bx, by, bw, bh); $("glow").style.borderRadius = px(CFG.radius);
+      place($("accent"), ...CFG.accent);
+      const label = $("label"), amount = $("amount"), unit = $("unit");
+      place(label, CFG.label.x, CFG.label.y); label.style.fontSize = px(CFG.label.px); label.textContent = CFG.label.s;
+      place(amount, CFG.amount.x, CFG.amount.y); amount.style.fontSize = px(CFG.amount.px); amount.textContent = fmt(CFG.frm);
+      place(unit, CFG.unit.x, CFG.unit.y); unit.style.fontSize = px(CFG.unit.px); unit.textContent = CFG.unit.s;
+
+      const tl = gsap.timeline({ paused: true });
+      // always drifting: a few px over the scene (the mask pass moves with it)
+      tl.fromTo("#drift", { y: 0 }, { y: 4, duration: D, ease: "sine.inOut" }, 0);
+      const specN = Math.max(1, Math.round(D / 2.4));
+      tl.fromTo("#spec", { x: 20 }, { x: bw - 20 - 90, duration: D / specN, ease: "sine.inOut", yoyo: true, repeat: specN - 1 }, 0);
+      // enter: the chip drops in from above and settles; the accent draws; the label rises
+      tl.fromTo("#enter", { opacity: 0, y: -26 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0);
+      tl.fromTo("#accent", { scaleY: 0 }, { scaleY: 1, duration: 0.35, ease: "power2.out" }, 0.18);
+      tl.fromTo(label, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4, ease: "expo.out" }, 0.2);
+      tl.fromTo([amount, unit], { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.42, ease: "expo.out" }, 0.3);
+      // the number adds up from the last total; one soft glow as it lands
+      const n = { v: CFG.frm };
+      tl.fromTo(n, { v: CFG.frm }, { v: CFG.value, duration: CFG.count, ease: "power2.out", onUpdate: () => { amount.textContent = fmt(n.v); } }, CFG.at);
+      tl.fromTo("#glow", { boxShadow: "0 0 0px rgba(104,197,255,0)" }, { boxShadow: "0 0 30px rgba(104,197,255,0.8)", duration: 0.22, ease: "power2.out" }, CFG.at + CFG.count - 0.1);
+      tl.to("#glow", { boxShadow: "0 0 0px rgba(104,197,255,0)", duration: 0.7, ease: "sine.inOut" }, CFG.at + CFG.count + 0.15);
+      tl.fromTo(amount, { scale: 1 }, { scale: 1.06, duration: 0.16, ease: "power2.out", yoyo: true, repeat: 1, transformOrigin: "0% 60%", immediateRender: false }, CFG.at + CFG.count - 0.1);
+      // exit: fade and lift, gone exactly on the out
+      tl.fromTo("#enter", { opacity: 1, y: 0 }, { opacity: 0, y: -10, duration: 0.3, ease: "power2.in", immediateRender: false }, D - 0.3);
+
+      window.__timelines["__ID__"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

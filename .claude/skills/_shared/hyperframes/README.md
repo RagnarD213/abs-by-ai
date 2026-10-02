@@ -68,6 +68,7 @@ unchanged: the edited lower third re-renders to PSNR infinity against RO-10's ap
 | `title-card/` (new) | eyebrow + accent + headline lines on the field; with `rows` it is the recap card (one column). Replaces `softblue` title and recap cards in a vertical |
 | `media-card/` (new) | the field with a transparent rounded hole for a clip, photo or phone, its frame, the chip 68 px under it; the video build lays the plate over the picture |
 | `cta/` (new) | a glass button over footage (content + mask pass), or full screen with `full` |
+| `tally/` (new, 2026-10-01) | a small glass running-total chip (label + counting number + unit) top left, content + mask pass. Not used at 9:16 over a talking head: his hair is there |
 
 `composite.py` takes `Compositor(manifest, wh=(1080, 1920))`. New templates are NOT approved by Dan until he passes the
 graphic-lock page.

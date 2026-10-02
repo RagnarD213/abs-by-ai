@@ -17,7 +17,7 @@ FF = "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video_edit/bin
 FPS = 30000 / 1001
 E = html.escape
 KIND = {"lower-third": "Lower third", "before-card": "Fact card", "side-list": "3A list card", "cycle": "Cycle diagram",
-        "softblue:title_card": "Title card", "softblue:recap": "Recap card", "cta": "CTA button", "clip": "Clip", "photo": "Photo", "phone": "App demo"}
+        "softblue:title_card": "Title card", "softblue:recap": "Recap card", "cta": "CTA button", "tally": "Running total", "clip": "Clip", "photo": "Photo", "phone": "App demo"}
 
 
 def mmss(t):
@@ -33,7 +33,8 @@ def main():
     for d in ("context", "stills", "first-minute"):
         os.makedirs(os.path.join(out, d), exist_ok=True)
     S = json.load(open(a.sheet)); X = json.load(open(a.extra))
-    rep = json.load(open(os.path.join(B, "sheet_report.json")))
+    rp_ = os.path.join(B, "sheet_report.json")
+    rep = json.load(open(rp_)) if os.path.exists(rp_) else dict(pictures=[])     # a master build redrawn by master_to_sbl.py has none
     J = json.load(open(os.path.join(B, "beats.json")))
     W = S["words"]["list"]
     say = lambda x, y: " ".join(w["w"] for w in W if x <= w["t0"] < y)
@@ -42,7 +43,17 @@ def main():
     for g in S["graphics"]:
         items.append(dict(id=g["id"], kind=g["template"], t0=g["t0"], t1=g["t1"], copy=g["text"], beats=g.get("driven_by", []), still_at=g["t1"] - 0.6))
     for b in J["beats"]:
-        if b["kind"] in ("card", "bleed"):
+        if b["kind"] in ("card", "bleed") and not b.get("pid"):
+            # a master build: the picture is the recovered library file (assets.py), its label the recovered kind
+            sys.path.insert(0, B)
+            from assets import MEDIA
+            m = MEDIA[b["media"]]
+            np_ = sum(1 for r in items if r.get("pic")) + 1
+            lab = b.get("label") or {"ai": "AI-GENERATED", "real": "Real picture of me - not AI-generated"}.get(b.get("label_kind"))
+            items.append(dict(id=f"P{np_:02d}", pic=True, kind="phone" if b.get("phone") else ("photo" if m[0] == "img" else "clip"), t0=b["t0"], t1=b["t1"],
+                              still_at=(b["t0"] + b["t1"]) / 2, copy=[x for x in [lab] if x], src=os.path.basename(m[1]),
+                              note="The whole picture in a card (never cropped shorter)." if b["kind"] == "card" else "Fills the frame."))
+        elif b["kind"] in ("card", "bleed"):
             p = next(x for x in S["pictures"] if x["id"] == b["pid"])
             m = mode[b["media"]]
             items.append(dict(id=b["media"], kind=p["kind"], t0=b["t0"], t1=b["t1"], still_at=(b["t0"] + b["t1"]) / 2,

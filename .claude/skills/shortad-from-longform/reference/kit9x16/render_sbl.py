@@ -81,6 +81,25 @@ def composite(src, out, g0, n, skip=0):
             if m.get(k) and not os.path.exists(m[k]):
                 raise SystemExit(f"overlay {m['id']}: {m[k]} is missing -- run sbl_graphics.py")
     C = HC.Compositor(man, wh=(VW, VH))
+    # the editor's white flash on a return (a master build redrawn in Soft Blue Light): the kit's schedule
+    # (beats.FLASHES), vlib's bloom envelope, in Soft Blue white. A sheet build has no FLASHES and cuts hard.
+    FL = []
+    for fa, fb in getattr(beats, "FLASHES", []):
+        f0, f1 = HC.fr(fa), HC.fr(fb)
+        if f0 < g0 + n and f1 > g0:
+            FL.append((f0, f1))
+    _fl = {}
+
+    def flash(frame, g):
+        import vlib
+        for f0, f1 in FL:
+            if f0 <= g < f1:
+                if (f0, f1) not in _fl:
+                    fr_, _ = vlib.overlay_flash((f1 - f0) / FPS)
+                    _fl[(f0, f1)] = [np.asarray(x)[..., 3:4].astype(np.float32) / 255 for x in fr_]
+                al = _fl[(f0, f1)][min(g - f0, len(_fl[(f0, f1)]) - 1)]
+                frame = (frame.astype(np.float32) * (1 - al) + np.array([244, 250, 255], np.float32) * al + 0.5).astype(np.uint8)
+        return frame
     trim = f"trim=start_frame={skip},setpts=PTS-STARTPTS," if skip else ""
     dec = subprocess.Popen([FF, "-v", "error", "-i", src, "-vf", trim + "scale=in_color_matrix=bt709:in_range=tv,format=rgb24", "-f", "rawvideo", "-"],
                            stdout=subprocess.PIPE)
@@ -94,8 +113,11 @@ def composite(src, out, g0, n, skip=0):
         if len(buf) < size:
             raise SystemExit(f"{src}: short read at frame {k} of {n}")
         g = g0 + k
-        if C.active(g):
-            buf = np.ascontiguousarray(C.apply(np.frombuffer(buf, np.uint8).reshape(VH, VW, 3), g)).tobytes()
+        if C.active(g) or any(f0 <= g < f1 for f0, f1 in FL):
+            fr_ = np.frombuffer(buf, np.uint8).reshape(VH, VW, 3)
+            if C.active(g):
+                fr_ = C.apply(fr_, g)
+            buf = np.ascontiguousarray(flash(fr_, g)).tobytes()
         enc.stdin.write(buf)
     enc.stdin.close(); enc.wait(); dec.kill(); dec.stdout.close(); dec.wait()
     if enc.returncode:
