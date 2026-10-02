@@ -100,7 +100,11 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **RO-13 - NEEDS DAN 2026-10-01, Claude.** Page http://127.0.0.1:8803/. Next: `handoff-20261001-ro13-round1-dan-review.md`.
 
-**RO-16 - FINALIZED 2026-10-02.** Next: fire `handoff-20261002-ro16-thumbnails-and-video-setup.md`.
+**RO-10 setup - IN PROGRESS 2026-10-02, Claude.** Building 5 thumbnails; then Dan's pick, then Blotato. Detail: `handoff-20261002-ro10-thumbnails-and-video-setup.md`.
+
+**RA-01 square - IN PROGRESS 2026-10-02, Claude.** AS-13.
+
+**RO-16 setup - NEEDS DAN 2026-10-02, Claude.** Round 2 (AI belly-fat Dan): pick one, then Blotato. Sheet: `…/If I Had Belly Fat/_build-2026-10-02-ai-belly/`. `handoff-20261002-ro16-thumbnails-and-video-setup.md`.
 
 **Studio batch - NEEDS DAN 2026-09-29, Codex.** Review 24 posts: `http://127.0.0.1:8791/`. Nothing scheduled. Package and Drive link: `output/studio-post-test-24-20260929/README.txt`.
 
@@ -116,11 +120,11 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **RO-05 salad - QUEUED 2026-09-30, Claude.** Oct 18: fire `handoff-20260930-ro05-captions-and-article-after-release.md`.
 
-**STOP Deadlifting clip - NEEDS DAN 2026-09-20, Codex.** R3 review copy in shared Drive folder `1dXUbQajUzM-uO_Xl92telO0qsa-Ob7uV`: full head visible, bar path rises once. Silent B-roll has no full-film gate, so no PASS claimed. Next: Dan approves R3 or names corrections. Detail: `Media/ai-frames/stop-deadlifting-opening-20260918/motion-v2/R3_DELIVERY.json`.
+**STOP Deadlifting clip - NEEDS DAN 2026-09-20, Codex.** R3 review copy in shared Drive folder `1dXUbQajUzM-uO_Xl92telO0qsa-Ob7uV`: full head visible, bar path rises once. Next: Dan approves R3 or names corrections.
 
-**Overnight edit queue - PAUSED 2026-09-24, Dan's call.** He fires every edit by hand to save tokens. Routing still correct (AV/AS/SL Claude, RO/RA/DS Codex, cross-review). Resume only if Dan says: `dispatcher.py resume`.
+**Overnight edit queue - PAUSED 2026-09-24, Dan's call.** He fires every edit by hand. Resume only if Dan says: `dispatcher.py resume`.
 
-**RO-01 round 7 - NEEDS DAN 2026-09-29, Codex.** H06/H04/B01 motion + narration previews at `http://127.0.0.1:8786/index.html`; spend in `revision7/motion-QA.json`. Next: Dan picks H06 or H04 and rules on B01; Codex then renders the first-minute checkpoint and full film. B02 removed; R3 look/audio and 23 R4 items locked.
+**RO-01 round 7 - NEEDS DAN 2026-09-29, Codex.** H06/H04/B01 motion + narration previews at `http://127.0.0.1:8786/index.html`; spend in `revision7/motion-QA.json`. Next: Dan picks H06 or H04 and rules on B01; Codex then renders the first-minute checkpoint and full film.
 
 **Ads 6, 7, 10, 14 YouTube + Google Ads - REVIEW 2026-09-15, Codex 01a0a744.** Four unlisted uploads, eight enabled campaign ads, shared budget $40/day, policy `REVIEW_IN_PROGRESS`. Next: re-run policy; swap in Ad 7 typo / Ad 14 bitrate exports when delivered. Detail: `Docs/DGEN_CONVERSION_CAMPAIGN.md`.
 
@@ -177,7 +181,6 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
-- `handoff-20261002-ro10-thumbnails-and-video-setup.md` (10-02): RO-10 approved; thumbnails then setup. Opus medium.
 - `handoff-20261001-pmax-campaign-build.md` (10-01): after campaign images exist. Sol high.
 - `handoff-20261001-vertical-kit-round2-full-build-after-lock.md` NEEDS DAN http://127.0.0.1:8807/
 - `handoff-20260930-codex-adopt-review-page-format.md` (09-30): Codex adopts the RO-16 review page. GPT-6 Sol medium.
@@ -186,7 +189,8 @@ Memory `google-ads-ui-automation`.
 - `handoff-20261001-rebuild-ios-project.md` (10-01): rebuild the iPhone project iCloud wiped. ⚠ iCloud recovery window closes about 10-17. No Apple upload. GPT-6 Sol high.
 - `handoff-20261001-search-campaigns-to-vsl-page.md` (10-01). Sol high.
 - `handoff-20261001-ad4-other-formats.md`, `…-ad6-…` (10-01). Opus high.
-- `handoff-20261001-ad13-round2-full-build-after-lock.md`: NEEDS DAN http://127.0.0.1:8813/.
+- `handoff-20261002-ra01-square.md` (10-02): RA-01 1:1 only (57 s). Opus high.
+- `handoff-20261001-ad13-round2-full-build-after-lock.md` (10-02): Ad 13 round 2, ready. Opus high.
 - `handoff-20260924-generator-consult-call-outreach.md` (09-24): fire by 09-26.
 - `handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md` [dash]: PHONE ONLY, 3 TikTok covers (updated 09-22). Sonnet 5 or Fable 5.1 / Medium.
 - `handoff-20260915-finalized-ads-6-14-youtube-and-google-ads.md` — Ads 6, 7, 10, 14 → YouTube + DGen (2026-09-15). Codex, high.
