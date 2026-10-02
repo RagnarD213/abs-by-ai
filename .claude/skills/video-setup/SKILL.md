@@ -1,7 +1,7 @@
 ---
 name: video-setup
 description: >
-  Take a FINISHED organic/content video, long-form or a dedicated Short (usually an editor's final shared as a Google Drive link) all the way to scheduled on every platform: download and file it (project folder, Extreme drive and Google Drive), add it to the Edit Queue, take the finalized thumbnail Dan hands over (Codex builds thumbnails in its own task since 2026-09-30; if none, write that Codex handoff and stop), write the title, description with chapters and tags, and queue YouTube, Facebook, Instagram @danrosefit, and TikTok for release through Blotato. Use whenever Dan says a content video is "finished", "done", "final", sends a Drive link and asks to "queue it up", "set it up on all platforms", "put it in Blotato", "schedule it", or "get it on YouTube and everything else", even if he doesn't say "/video-setup". Paid ads go through /ad-setup; reviewing a cut is /revisions; thumbnails alone are /youtube-packaging; cutting Shorts is /shorts.
+  Take a FINISHED organic/content video, long-form or a dedicated Short (usually an editor's final shared as a Google Drive link) all the way to scheduled on every platform: download and file it (project folder, Extreme drive and Google Drive), add it to the Edit Queue, make five thumbnail choices with Codex in the command line (one pool photo, one studio photo, three AI designs; GPT-6.1 Sol high) and stop for Dan's pick, write the title, description with chapters and tags, and queue YouTube, Facebook, Instagram @danrosefit, and TikTok for release through Blotato. Use whenever Dan says a content video is "finished", "done", "final", sends a Drive link and asks to "queue it up", "set it up on all platforms", "put it in Blotato", "schedule it", or "get it on YouTube and everything else", even if he doesn't say "/video-setup". Paid ads go through /ad-setup; reviewing a cut is /revisions; thumbnails alone are /youtube-packaging; cutting Shorts is /shorts.
 ---
 
 > **Image generation: Codex only (Dan, 2026-10-01).** Every still image this skill generates (backgrounds, plates, AI frames, thumbnails, covers, posts, retouch passes) is made with `.claude/skills/_shared/codex-image.sh` on the ChatGPT subscription. Where the steps below name Nano Banana Pro, Gemini, Seedream, FLUX, `gemini-image.js`, `rep-t2i.js` or `replicate-edit.js` for a still image, use the helper instead. Read `.claude/skills/_shared/IMAGE-GENERATION.md` first. Video generation is unchanged.
@@ -16,7 +16,12 @@ descriptions and thumbnails… Before setting it up, though, make the thumbnail 
 Everything below ran end to end that day. Historical result: YouTube `b_bS9NdmL-g` (scheduled under the retired native-publication workflow for Sun 09-20 9 AM CT, thumbnails 5 vs 1 in Test & Compare), Blotato
 schedules 4413699 / 4413701 / 4413702 / 4413703; record in `BLOTATO_QUEUE_PROGRESS.md`.
 
-**Thumbnail split (Dan, 2026-09-30, every organic content video from now on): Codex makes the thumbnail, Claude does the
+**Thumbnails are made HERE, by this Claude task, since 2026-10-02 (Dan).** Five choices: one pool-shoot photo, one studio-shoot
+photo, three AI-generated designs of Codex's choice, built with `_shared/codex-image.sh --model gpt-6.1-sol --effort high` on
+Dan's subscription, shown on one sheet, then STOP for his pick. Rule: `_shared/VIDEO-RULES.md`, first section. The split
+described next and "CODEX's task" in Step 2 are superseded; Step 2 stays as the build spec with the new mix.
+
+**Superseded 2026-10-02.** Thumbnail split (Dan, 2026-09-30, every organic content video from now on): Codex makes the thumbnail, Claude does the
 upload and setup.** A Claude /video-setup session never designs thumbnails. It starts from the finalized thumbnail file Dan
 hands it. If none was given: write the Codex thumbnail handoff (copy `Handoffs/handoff-20260930-ro05-thumbnails-codex.md`;
 Step 2 below is its spec), give Dan its starter prompt, and stop, or ask Dan for the path if Codex already made it. The setup

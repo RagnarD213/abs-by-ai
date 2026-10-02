@@ -100,7 +100,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **RO-13 - NEEDS DAN 2026-10-01, Claude.** Page http://127.0.0.1:8803/. Next: `handoff-20261001-ro13-round1-dan-review.md`.
 
-**RO-16 - NEEDS DAN 2026-10-01, Claude.** Round 3 sent. Next: Dan watches 5:00, 11:40.
+**RO-16 - FINALIZED 2026-10-02.** Next: fire `handoff-20261002-ro16-thumbnails-and-video-setup.md`.
 
 **Studio batch - NEEDS DAN 2026-09-29, Codex.** Review 24 posts: `http://127.0.0.1:8791/`. Nothing scheduled. Package and Drive link: `output/studio-post-test-24-20260929/README.txt`.
 
@@ -206,4 +206,4 @@ Memory `google-ads-ui-automation`.
 - `handoff-20260826-danrosefit-abs-image-gap-fill.md` [dash] — once Blotato has 7 free slots.
 
 ## ACTIVE
-- **Grok / AV-05 Ad 6 vertical** (2026-09-17 17:36 CT): building 9x16 + ≤0:59 from Muhammad Ad 6 via shortad-from-longform; workdir `/Volumes/Extreme/_edit_work/av05-ad6-vert/`.
+- **AV-05/AS-04 Ad 6 - PAUSED 2026-10-02, Claude.** Dan switching to Opus. Recover stage done; rerun `kit_run.py --from measure`. Dir: `/Volumes/Extreme/_edit_work/kit9x16/av05-ad6/`.

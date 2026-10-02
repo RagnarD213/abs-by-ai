@@ -1218,13 +1218,13 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/AV-05-ad6-vertical.md`: build the 9:16 vertical and ≤0:59 cutdown of Muhammad's finalized Ad 6 with /shortad-from-longform, decoding his master as BT.709 from the start, his audio untouched, the real-picture chip off my face and abs, before and after the same person. Every gate, independent audit, deliver, send me the review copies, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/AV-05-ad6-vertical.md` using `.claude/skills/shortad-from-longform/SKILL.md` as the method and `Handoffs/handoff-20260914-ad3-square-codex.md` as the model of a Codex variant build. Deliver, send Dan the review copies, update `00-MASTER.md`.",
-   "state": "needs",
+   "state": "in_progress",
    "note": "Dan ended Grok video trial 2026-09-18; provisional rejected (letterbox + caption bar). Do not resume on Grok.",
    "sub": "",
    "order": 58,
-   "updated": "2026-09-18",
-   "by": "Grok",
-   "rev": 3,
+   "updated": "2026-10-02",
+   "by": "Claude",
+   "rev": 4,
    "syncedRev": 3
   },
   {
@@ -1365,13 +1365,13 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/AS-04-ad6-square.md`: first confirm its blocker is cleared, then build the 1:1 square and ≤0:59 square cutdown of Ad 6 as a re-layout of the approved vertical build with /shortad-from-longform [S1], same timeline, grade, labels and audio, steady wider framing, labels off my face and abs. Every gate, independent audit, deliver, send me the review copies, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table) and `Handoffs/handoff-20260914-ad3-square-codex.md` (the Ad 3 square you built, which Dan shipped: reuse its method), then execute `Handoffs/video-editing/AS-04-ad6-square.md`. Confirm the blocker is cleared first. Deliver, send Dan the review copies, update `00-MASTER.md`.",
-   "state": "blocked",
+   "state": "in_progress",
    "note": "AV-05 approved",
    "sub": "",
    "order": 65,
-   "updated": "2026-09-16",
-   "by": "master list",
-   "rev": 1,
+   "updated": "2026-10-02",
+   "by": "Claude",
+   "rev": 2,
    "syncedRev": 1
   },
   {
@@ -1747,7 +1747,7 @@
    "updated": "2026-10-02",
    "by": "Claude",
    "rev": 5,
-   "syncedRev": 4
+   "syncedRev": 5
   },
   {
    "id": "RO-11",
@@ -1866,14 +1866,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/RO-16-if-i-had-belly-fat-here-s-how-i-d-lose-it-in-90-da.md`: cut \"If I Had Belly Fat, Here's How I'd Lose It In 90 Days\" from 9/23 roll C1710 with /longform-edit. Best take of every line, every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-16-if-i-had-belly-fat-here-s-how-i-d-lose-it-in-90-da.md` with `$long-form-content-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "delivered",
-   "note": "Round 3 (two join fixes) review copy sent 10-01",
+   "state": "finalized",
+   "note": "Dan approved round 3 on 10-02",
    "sub": "",
    "order": 89,
-   "updated": "2026-10-01",
+   "updated": "2026-10-02",
    "by": "Claude",
-   "rev": 9,
-   "syncedRev": 7
+   "rev": 10,
+   "syncedRev": 10
   },
   {
    "id": "RO-17",

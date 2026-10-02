@@ -127,7 +127,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [RO-13](RO-13-can-you-drink-alcohol-and-still-have-abs.md) | Can You Drink Alcohol And Still Have Abs? | 9/23 C1707 | IN PROGRESS | L |
 | [RO-14](RO-14-why-you-re-not-losing-weight.md) | Why You're Not Losing Weight | 9/23 C1708 | READY | L |
 | [RO-15](RO-15-sleep-better-with-glycine.md) | Sleep Better With Glycine | 9/23 C1709 | READY | L |
-| [RO-16](RO-16-if-i-had-belly-fat-here-s-how-i-d-lose-it-in-90-da.md) | If I Had Belly Fat, Here's How I'd Lose It In 90 Days | 9/23 C1710 | DELIVERED: awaiting Dan | L |
+| [RO-16](RO-16-if-i-had-belly-fat-here-s-how-i-d-lose-it-in-90-da.md) | If I Had Belly Fat, Here's How I'd Lose It In 90 Days | 9/23 C1710 | FINALIZED | L |
 | [RO-17](RO-17-3-healthy-foods-that-made-me-fat.md) | 3 Healthy Foods That Made Me Fat | 9/23 C1713 | DRAFT: asset choices waiting for Dan | L |
 | [RO-18](RO-18-how-to-make-time-for-exercise-nutrition.md) | How To Make Time For Exercise & Nutrition | 9/23 C1714-C1715 | READY | L |
 
@@ -201,7 +201,7 @@ handoff (`handoff-20260909-audio-match-muhammad.md`, waiting on your spray-tan s
 | [AV-02](AV-02-ad2-cutdowns-vertical-and-square-59s.md) | Ad 2: 9:16 ≤0:59 + 1:1 ≤0:59 | READY | M |
 | [AV-03](AV-03-ad4-vertical-regrade-and-masters.md) | Ad 4: re-grade the vertical + deliver masters | READY | M |
 | [AV-04](AV-04-ad5-vertical-round2-and-regrade.md) | Ad 5: your round-2 revisions + re-grade | READY | M |
-| [AV-05](AV-05-ad6-vertical.md) | Ad 6 | **NEEDS DAN** | M |
+| [AV-05](AV-05-ad6-vertical.md) | Ad 6 | IN PROGRESS | M |
 | [AV-06](AV-06-ad7-vertical.md) | Ad 7 | READY | M |
 | [AV-07](AV-07-ad10-vertical.md) | Ad 10 | UPLOADED | M |
 | [AV-08](AV-08-ad14-vertical.md) | Ad 14 | READY (file the 09-16 HD first) | M |
@@ -218,7 +218,7 @@ handoff (`handoff-20260909-audio-match-muhammad.md`, waiting on your spray-tan s
 | [AS-01](AS-01-ad1-zeeshan-square.md) | Ad 1 (Zeeshan) | BLOCKED: you approve his vertical + NEEDS DAN (still wanted?) | M |
 | [AS-02](AS-02-ad4-square.md) | Ad 4 | BLOCKED: AV-03 approved | M |
 | [AS-03](AS-03-ad5-square.md) | Ad 5 | BLOCKED: AV-04 approved | M |
-| [AS-04](AS-04-ad6-square.md) | Ad 6 | BLOCKED: AV-05 approved | M |
+| [AS-04](AS-04-ad6-square.md) | Ad 6 | IN PROGRESS | M |
 | [AS-05](AS-05-ad7-square.md) | Ad 7 | BLOCKED: AV-06 approved | M |
 | [AS-06](AS-06-ad10-square.md) | Ad 10 | READY | M |
 | [AS-07](AS-07-ad14-square.md) | Ad 14 | BLOCKED: AV-08 approved | M |

@@ -1,4 +1,23 @@
-## Five cover and thumbnail choices per video (Dan, 2026-09-30)
+## Thumbnails: five choices, made by Codex inside the Claude setup task (Dan, 2026-10-02)
+
+Dan, finalizing RO-16: *"the standardized way is we do the upload and setup with Claude. Claude calls Codex within the
+command-line interface and uses my subscription to make the images. We don't use external models like Gemini to make any
+images. We make five variations: one from the pool shoot, one from the studio shoot, three AI-generated images of Codex's
+choice, unless I request something different."*
+
+- **The five:** (1) one real pool-shoot photo, (2) one real studio-shoot photo, (3 to 5) three AI-generated images, each a
+  unique design of Codex's choice that sells the video's topic. Five different images and designs; same copy unless Dan asks
+  for copy alternatives.
+- **Who and how:** the Claude upload and setup task (`/video-setup`, `/ad-setup`) makes them itself with
+  `.claude/skills/_shared/codex-image.sh --model gpt-6.1-sol --effort high`. No separate Codex task or handoff. **GPT-6.1 Sol
+  at high effort is the default for every thumbnail and cover task** unless Dan names another model.
+- **No outside image models** (Gemini, Nano Banana, Seedream, FLUX). [IMAGE-GENERATION.md](IMAGE-GENERATION.md) still binds:
+  a real photo of Dan is never redrawn (Codex makes the background, his real cutout and the type are layered in code).
+- Show the five on one review sheet and **stop for Dan's pick** before any upload or scheduling.
+- This replaces the 2026-09-30 mix below (pool, two studio on Jelly Beans backgrounds, screenshot, designer choice). The rest
+  of that section (consistent copy, separate Instagram and YouTube layouts for Shorts, locked covers stay locked) still holds.
+
+## Superseded mix, kept for its other rules: five cover and thumbnail choices per video (Dan, 2026-09-30)
 
 Every cover-image or thumbnail review, including its handoff, must request and deliver
 five visual options for each video:

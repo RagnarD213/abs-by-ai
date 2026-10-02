@@ -14,6 +14,8 @@ Wherever a skill, script or handoff says Nano Banana Pro, Gemini 3 Pro Image, `g
 .claude/skills/_shared/codex-image.sh --prompt-file p.txt --out result.png [--image ref.jpg]...
 ```
 
+**Thumbnails and covers always pass `--model gpt-6.1-sol --effort high`** (Dan, 2026-10-02), unless he names another model.
+
 No handoff and no separate Codex task: the session calls it directly, the way it used to call Gemini.
 One image takes about a minute and 22,000 to 40,000 Codex tokens. Run several at once with `&` and `wait`.
 State the image count before a batch; it draws on the Codex allowance, so do not generate spares.

@@ -21,9 +21,14 @@ I am a non-technical user. Explain all tasks in simple terms that a non-technica
 **Video, photo, thumbnail, cover, audio and publishing work: read `.claude/skills/_shared/VIDEO-RULES.md` in full before
 doing anything.** It holds Dan's standing production rules. Not having read it is not an excuse.
 
-## Cover and thumbnail review mix (Dan, 2026-09-30)
+## Thumbnail and cover mix, and who makes them (Dan, 2026-10-02)
 
-Every video gets five choices: one pool photo, two different studio photos on topic-specific Jelly Beans style backgrounds, one enhanced screenshot from the video, and one designer choice. This applies to covers, thumbnails and their handoffs. Show all five for Dan to pick before final exports. Full rule: `.claude/skills/_shared/VIDEO-RULES.md`, "Five cover and thumbnail choices per video".
+Every finished video gets five thumbnail (or cover) choices: one from the pool shoot, one from the studio shoot, and three
+AI-generated images, each a different design of Codex's choice. The Claude upload and setup task makes them itself by calling
+Codex in the command line on Dan's subscription (`.claude/skills/_shared/codex-image.sh --model gpt-6.1-sol --effort high`),
+shows all five, stops for Dan's pick, then uploads. GPT-6.1 Sol at high effort is the default for every thumbnail task. No
+Gemini or other outside image model. This is the standard unless Dan says otherwise for a given video. It replaces the
+2026-09-30 mix (pool, two studio, screenshot, designer choice). Full rule: `.claude/skills/_shared/VIDEO-RULES.md`.
 
 ## Context preservation
 
