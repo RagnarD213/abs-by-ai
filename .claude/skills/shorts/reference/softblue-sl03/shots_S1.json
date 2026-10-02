@@ -1,0 +1,13 @@
+{"note": "Short 1 shot plan. Source = RAW C1536 / C1550 (1920x1080) with the RO-05 grade-B luts, not the long-form master (its punch-ins and title cards are baked in). Windows all start at source row 0: the camera framed his hair at row 0 in every shot (hair/S1*.json).",
+ "layout": {"canvas": [1080, 1920], "dropTop": 310, "full": [724, 1080], "mid": [604, 900], "captionTop": 1412, "barBox": [68, 1130, 1012, 1378]},
+ "shots": [
+  {"film": [29.77, 31.97], "kind": "broll", "roll": "C1550", "raw_in": 116.3, "treat": "fill cx 660 (or square x0 150)", "why": "open on the finished salad"},
+  {"film": [31.97, 35.80], "kind": "talk", "roll": "C1536", "raw_in": 4.75, "win": "full", "cx": 980, "face_cx": [946, 1033]},
+  {"film": [35.80, 46.80], "kind": "talk", "roll": "C1536", "raw_in": 9.24, "win": "mid", "cx": 1000, "face_cx": [950, 1125], "why": "jump cut at 35.80 (0.68 s pause removed) hidden by full -> mid"},
+  {"film": [46.80, 59.52], "kind": "talk", "roll": "C1536", "raw_in": 20.24, "win": "full", "cx": 1000, "why": "he leans in from here; face bottom reaches y1254 in mid, y1097 in full; pull out on the pause before 'If you break your fast' (silence to verify)"},
+  {"film": [59.52, 61.10], "kind": "broll", "roll": "C1550", "raw_in": 112.4, "treat": "fill cx 800", "why": "'like this salad for example'"},
+  {"film": [61.10, 65.38], "kind": "talk", "roll": "C1536", "raw_in": 34.52, "win": "full", "cx": 1000},
+  {"film": [97.82, 100.70], "kind": "talk", "roll": "C1536", "raw_in": 136.92, "win": "full", "cx": "follows his face 878 -> 1298 (he leans across the frame; a fixed 724 window cuts his face)", "captionTop": 1500}],
+ "graphics": [
+  {"id": "G1", "template": "lower-third", "topic": "KEY POINT", "parts": [["Break Your Fast With CARBS", 48.50], ["And Fasting Barely Works", 53.30]], "a": 47.9, "b": 55.4},
+  {"id": "G2", "template": "lower-third", "topic": "KEY POINT", "parts": [["A LOW-CARB First Meal", 58.30], ["Means Far More FAT LOSS", 62.40]], "a": 56.6, "b": 65.3}]}
