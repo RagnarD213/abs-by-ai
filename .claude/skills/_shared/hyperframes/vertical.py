@@ -29,6 +29,7 @@ sys.path.insert(0, str(HERE))
 import hfbuild as H                                  # noqa: E402
 B = H.B
 W, Hh = 1080, 1920
+CAP_TOP = 1400                                       # the kit's caption line (vlib.CAP_Y) at 1080x1920
 U = B.unit(W, Hh)                                    # 2.0
 CANVAS = [W, Hh]
 FPS = 30000 / 1001
@@ -216,8 +217,12 @@ def media_card_scene(gid, dur, media_ar, label=None, kicker=None, spans=None, ma
     hw, hh = int(hw) // 2 * 2, int(hh) // 2 * 2
     extra = (68 + 80 if label else 0)
     hx, hy = (W - hw) // 2, int((Hh - hh - extra) / 2 - 40 * (media_ar > 1))
-    if caps and not label and hy + hh > 1370:
-        hy = 1370 - hh
+    # a tall card (a centre square, 2026-10-01) must end above the caption line: centred, its chip sat under the
+    # captions and a chip-less square's bottom edge sat behind them (RO-10 O1 and C02). It moves up until the card and
+    # its chip clear the line by 24 px; a card too tall to do that (a phone, whose captions are off) stays centred.
+    top = CAP_TOP - 24 - (hh + extra)
+    if hy > top >= 150:
+        hy = int(top)
     c = dict(id=gid, dur=round(dur, 3), canvas=CANVAS, hole=[hx, hy, hw, hh], radius=26 if media_ar > 0.7 else 44)
     if label:
         cw_ = round(H.text_w(label, 23 * U, False) + 40 * U)

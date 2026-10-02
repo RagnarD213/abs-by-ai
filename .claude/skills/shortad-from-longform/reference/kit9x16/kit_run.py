@@ -223,7 +223,7 @@ def main():
             sh([PY, K("master_to_sbl.py"), "--build", B, "--copy", SBL])
         elif name == "sheet":
             sh([PY, os.path.join(SHARED, "edit-sheet", "validate.py"), SHEET, "--hash"])
-            sh([PY, K("sheet_to_kit.py"), "--sheet", SHEET, "--build", B])
+            sh([PY, K("sheet_to_kit.py"), "--sheet", SHEET, "--build", B, "--ai", a.ai, "--ledger", ledger])
         elif name == "graphics":
             sh([PY, K("sbl_graphics.py"), "--build", B, "--sheet", SHEET or os.path.join(B, "sbl_sheet.json")])
         elif name == "picture" and (SHEET or SBL):
