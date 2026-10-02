@@ -19,3 +19,14 @@ What that settles:
 
 Still open in `notes-RA-01.md` "Your calls" and NOT answered by this approval: the unlabelled AI-adjusted before
 picture (1), the "Results are not guaranteed" line (11), and a standing ruling for every other outdoor 8/28 roll (9).
+
+# RA-01 square (1:1): Dan's approval (2026-10-02)
+
+After watching the 1:1 review copy in the Claude app:
+
+> This looks good, and it is approved.
+
+Approved file: `the ai trick that got me abs | claude | 1x1 | RA-01.mp4`,
+sha256 `3e7939bcc571c9a895429278d59a40b07465c1bda76ad5c76095ae93723ecedd`. The four calls listed in `notes-square.md`
+(web address on the two mid-video pills, the 0.6 s tight shot at 0:36, caption line over the lower abs, the unlabelled
+before picture) were shown to him with the review copy and he approved the file as delivered.

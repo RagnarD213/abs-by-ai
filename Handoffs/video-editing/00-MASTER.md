@@ -230,7 +230,7 @@ handoff (`handoff-20260909-audio-match-muhammad.md`, waiting on your spray-tan s
 | [AS-10](AS-10-ad13-square.md) | Ad 13 | IN PROGRESS | M |
 | [AS-11](AS-11-ad15-square.md) | Ad 15 | BLOCKED: AV-12 approved | M |
 | [AS-12](AS-12-arms-shoulders-square.md) | Arms & Shoulders Home Workout (Zeeshan, ORGANIC, not an ad) | BLOCKED: AV-13 approved | L |
-| [AS-13](AS-13-ra01-square.md) | RA-01: The AI Trick That Got Me Abs (1:1 only, 57 s) | DELIVERED: awaiting Dan | S |
+| [AS-13](AS-13-ra01-square.md) | RA-01: The AI Trick That Got Me Abs (1:1 only, 57 s) | FINALIZED | S |
 
 Ads 8, 9, 13 and 15 were finalized and installed on YouTube + Demand Gen 09-16; their AV + AS jobs above now carry
 the remaining vertical, square and ≤0:59 variants. Also every RA-01 … RA-16 once approved needs its square + any hook variants.

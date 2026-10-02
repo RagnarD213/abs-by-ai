@@ -1877,6 +1877,23 @@
    "notes": "Plan + rulings: Handoffs/video-editing/RA-01-plan.md. Approval record: APPROVAL.md beside the file. Lessons: ad-edit SKILL.md 'RA-01 lessons'; footage: Docs/SHOOT_828_FOOTAGE_REPORT.md. The 16:9 master carries the byte-identical mix. 2026-09-29: the artifacts known_gap (outdoor lav, flux 0.090 vs untreated 0.096) HEALED under audio gate 2.0.0, which excuses flux/swirl past his x1.10 only when this file's untreated recording already carried it. Deleted."
   },
   {
+   "id": "ra01-ai-trick-1x1-approved-20261002",
+   "date": "2026-10-02",
+   "root": "repo",
+   "path": "Claude Ad Videos/the ai trick that got me abs - RA-01/the ai trick that got me abs | claude | 1x1 | RA-01.mp4",
+   "sha256": "3e7939bcc571c9a895429278d59a40b07465c1bda76ad5c76095ae93723ecedd",
+   "bytes": 63039980,
+   "verdict": "approved",
+   "dan": "This looks good, and it is approved.",
+   "scope": "The whole 1:1 square master (AS-13), a re-layout of the approved 9:16 from its recipe, approved after Dan watched the 540p review copy. Three pause splices the vertical hides were covered in the square (card snapped onto one, zoom cuts on two); end card without the AbsByAI.com line; hyphen in the real-picture label.",
+   "must_trigger": [],
+   "must_pass": [
+    "audio_gate"
+   ],
+   "measured": "1080x1080, 30000/1001, 1714 frames, 57.190 s, 8.5 Mbps. Audio stream copied from the approved 9:16 (packet md5 e70729ca074f2d559b7f4f7ef408985a). Audio gate 2.0.0 PASS 13/13. Delivery gate 2.4.0 ad1x1: 39 PASS, 0 FAIL, 0 NOT MEASURED, 3 n/a. Label check 0 px contact on 8 labelled cards. Round 1 review DOES NOT SHIP (three inherited joins, no stamp); round 2 fresh reviewer SHIP with two minor notes.",
+   "notes": "notes-square.md and recipe-square/ beside the file; lessons in shortad-from-longform SKILL.md [A14]. No gate, threshold or GATE_VERSION was changed."
+  },
+  {
    "id": "stop-deadlifting-opening-v1-r1-rejected-20260920",
    "verdict": "rejected",
    "date": "2026-09-20",
