@@ -136,6 +136,10 @@ A graphic whose template has no 9:16 layout STOPS the run; nothing is dropped or
 * Borderline clips flip between runs (C08, C15 on RO-10). The verdict is cached per source span and prompt, and Dan
   sees all of them with the three crops.
 
+**2026-10-02, Dan: fill more of the screen.** The three shapes become a continuous side crop (the narrowest window that
+keeps what the clip is about, any shape between the whole clip and full screen); VIDEO-RULES "Verticals and squares".
+Not built yet: `Handoffs/handoff-20261002-vertical-kit-round3-fill-more-screen.md`.
+
 **The calmer camera (Dan, 2026-10-01).** `kit_track.py --tolerance` (default 6 source px): the crop lands on him at
 every cut, then holds until he is that far off its centre, and only then follows (`_shared/cut/landing.py`, off by
 default for every other caller). RO-10: crop travel 10,759 to 7,194 px (33 % less), p90 pan speed 62.9 to 36.4 px/s
