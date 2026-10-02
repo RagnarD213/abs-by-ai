@@ -1356,3 +1356,14 @@ vertical/square versions, add its AV/AS jobs. Procedure: `.claude/skills/_shared
     heavy man first, lean man second, the opposite of the script; the editor inserted it as told and round 2 had to
     own the mistake and give the swap. Before linking any multi-beat clip, write down which seconds go under which
     words.
+71. **Adding a round at the top of an existing doc: the Docs connector, not rclone's token (2026-10-02).** rclone's
+    Google project has the Docs API disabled (403 SERVICE_DISABLED), so only Drive calls work with its token. Run
+    `python3 .claude/skills/revisions/reference/doc_insert_top_requests.py <section.md>` to print the batchUpdate
+    requests (insert at index 1, reset to normal text, heading, bold runs, nested bullets from tabs) and pass them to
+    the Docs connector's `update_doc`. Export the doc as text before and after and confirm the new export ends with
+    the old one byte for byte.
+72. **Read every on-screen number in an AI clip against the spoken number (2026-10-02).** Zeeshan's Tesla clip was
+    approved from its start and end frames; the generated motion ran the speed readout up to 190 while Dan says "I was
+    going 120". The fix that needs no regeneration: use the part of the clip before the number goes wrong and slow it
+    to fill the slot. Also check the AI label's exit frame by frame at a flash transition: his hung on 5 frames onto
+    the camera scene after three clips.
