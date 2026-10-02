@@ -1,0 +1,305 @@
+{
+ "chips": {
+  "ai": "cards_1x1/chip_ai.png",
+  "real": "cards_1x1/chip_real.png"
+ },
+ "chip_size": {
+  "ai": [
+   344,
+   62
+  ],
+  "real": [
+   774,
+   72
+  ]
+ },
+ "card_rect": [
+  60,
+  64,
+  1020,
+  836
+ ],
+ "chip_box": [
+  60,
+  64,
+  1020,
+  836
+ ],
+ "cards": {
+  "ai_hook": {
+   "chip_pos": [
+    368,
+    69
+   ],
+   "chip_why": "on the field above the picture, as in the vertical; person mask clear at start/mid/end",
+   "chip_png": "cards_1x1/chip_ai.png",
+   "photo_box": [
+    202,
+    160,
+    877,
+    835
+   ],
+   "square_crop": {
+    "src": [
+     864,
+     1184
+    ],
+    "crop": [
+     0,
+     0,
+     864,
+     864
+    ],
+    "hair_top_src": 38,
+    "headroom_frac": 0.044,
+    "person_bottom_src": 1183,
+    "shows_frac_of_body": 0.721
+   }
+  },
+  "ai_gen": {
+   "chip_pos": [
+    368,
+    69
+   ],
+   "chip_why": "on the field above the picture, as in the vertical; person mask clear at start/mid/end",
+   "chip_png": "cards_1x1/chip_ai.png",
+   "photo_box": [
+    202,
+    160,
+    877,
+    835
+   ],
+   "square_crop": {
+    "src": [
+     864,
+     1184
+    ],
+    "crop": [
+     0,
+     0,
+     864,
+     864
+    ],
+    "hair_top_src": 38,
+    "headroom_frac": 0.044,
+    "person_bottom_src": 1183,
+    "shows_frac_of_body": 0.721
+   }
+  },
+  "before": {
+   "chip_pos": null,
+   "chip_why": "no chip on this card",
+   "chip_png": null,
+   "photo_box": [
+    252,
+    64,
+    827,
+    835
+   ],
+   "square_crop": null
+  },
+  "after_1": {
+   "chip_pos": [
+    152,
+    64
+   ],
+   "chip_why": "on the field above the picture, as in the vertical; person mask clear at start/mid/end",
+   "chip_png": "cards_1x1/chip_real.png",
+   "photo_box": [
+    202,
+    160,
+    877,
+    835
+   ],
+   "square_crop": {
+    "src": [
+     3368,
+     5056
+    ],
+    "crop": [
+     0,
+     119,
+     3368,
+     3487
+    ],
+    "hair_top_src": 355,
+    "headroom_frac": 0.07,
+    "person_bottom_src": 5052,
+    "shows_frac_of_body": 0.667
+   }
+  },
+  "after_2": {
+   "chip_pos": [
+    152,
+    64
+   ],
+   "chip_why": "on the field above the picture, as in the vertical; person mask clear at start/mid/end",
+   "chip_png": "cards_1x1/chip_real.png",
+   "photo_box": [
+    202,
+    160,
+    877,
+    835
+   ],
+   "square_crop": {
+    "src": [
+     3368,
+     5056
+    ],
+    "crop": [
+     0,
+     149,
+     3368,
+     3517
+    ],
+    "hair_top_src": 385,
+    "headroom_frac": 0.07,
+    "person_bottom_src": 5052,
+    "shows_frac_of_body": 0.671
+   }
+  },
+  "after_3": {
+   "chip_pos": [
+    152,
+    64
+   ],
+   "chip_why": "on the field above the picture, as in the vertical; person mask clear at start/mid/end",
+   "chip_png": "cards_1x1/chip_real.png",
+   "photo_box": [
+    202,
+    160,
+    877,
+    835
+   ],
+   "square_crop": {
+    "src": [
+     3368,
+     5056
+    ],
+    "crop": [
+     0,
+     299,
+     3368,
+     3667
+    ],
+    "hair_top_src": 535,
+    "headroom_frac": 0.07,
+    "person_bottom_src": 5052,
+    "shows_frac_of_body": 0.693
+   }
+  },
+  "ai_again": {
+   "chip_pos": [
+    368,
+    69
+   ],
+   "chip_why": "on the field above the picture, as in the vertical; person mask clear at start/mid/end",
+   "chip_png": "cards_1x1/chip_ai.png",
+   "photo_box": [
+    202,
+    160,
+    877,
+    835
+   ],
+   "square_crop": {
+    "src": [
+     864,
+     1184
+    ],
+    "crop": [
+     0,
+     0,
+     864,
+     864
+    ],
+    "hair_top_src": 38,
+    "headroom_frac": 0.044,
+    "person_bottom_src": 1183,
+    "shows_frac_of_body": 0.721
+   }
+  },
+  "stats_scan": {
+   "chip_pos": [
+    134,
+    69
+   ],
+   "chip_png": "cards_1x1/chip_ai.png",
+   "photo_box": [
+    60,
+    160,
+    551,
+    835
+   ],
+   "chip_why": "on the field above the picture (stats card); person mask clear",
+   "rows_box": [
+    600,
+    273,
+    1020,
+    723
+   ]
+  },
+  "macro": {
+   "slice": [
+    40.5,
+    43.7
+   ],
+   "crop": [
+    1280,
+    1420,
+    20,
+    900,
+    1000
+   ],
+   "scale": 0.5437,
+   "frame_luma_first_last": [
+    118.0,
+    118.0,
+    119.1,
+    119.1
+   ],
+   "placed": [
+    193,
+    64,
+    886,
+    835
+   ]
+  },
+  "end_card": {
+   "chip_pos": [
+    368,
+    69
+   ],
+   "chip_png": "cards_1x1/chip_ai.png",
+   "photo_box": [
+    250,
+    150,
+    829,
+    729
+   ],
+   "chip_why": "on the field above the picture (end card); person mask clear",
+   "square_crop": {
+    "src": [
+     864,
+     1184
+    ],
+    "crop": [
+     0,
+     0,
+     864,
+     864
+    ],
+    "hair_top_src": 38,
+    "headroom_frac": 0.044,
+    "person_bottom_src": 1183,
+    "shows_frac_of_body": 0.721
+   },
+   "pill": [
+    60,
+    776,
+    1020,
+    900
+   ],
+   "url_y": null
+  }
+ }
+}

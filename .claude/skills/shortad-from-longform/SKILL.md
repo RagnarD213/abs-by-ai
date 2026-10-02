@@ -2322,6 +2322,30 @@ The whole job is **[A11] again with the geometry already correct**, so start the
    the instrument, measure it independently so the claim is not just an opinion, and **do not touch
    the bound or edit the plan to make the row pass**.
 
+## [A14] RA-01 square (AS-13, 2026-10-02): a 1:1 of a Claude-built vertical, from its recipe
+
+Build dir `/Volumes/Extreme/_edit_work/ra01-sq/`; recipe `Claude Ad Videos/the ai trick that got me abs - RA-01/recipe-square/`.
+A vertical we built from raw has no editor master to recover, so the square is the vertical's recipe with an
+`Aspect("1x1")` added. What the first render got wrong, each caught by judges or the gate, not by the builder:
+
+1. **A splice the vertical hides is a jump cut in the square.** The 594 px vertical window crops his arms; a 1056 px
+   square window shows them. Three pause splices inside the approved vertical's holds read as presenter jumps to three
+   independent judges and the reviewer. Before the first square render, run every in-hold splice of the vertical
+   through the square crop (pull n-1 | n at full size) and cover each visible one: snap a nearby card's in-point onto
+   the splice, or put a NEAR/FAR change on it. Cut, audio and captions stay untouched.
+2. **`cut:jump_cut` reads adjacent `punch` entries, so levels must also alternate ACROSS a card.** Adding a level
+   change inside one hold flips the parity of every hold after it in that gap; walk the whole list, cards included.
+3. **Keep the vertical's crop HEIGHTS and open the width.** NEAR 1056x1056 and FAR 1248x1248 of the 2160x3840 roll keep
+   the hair anchor, headroom and zoom spread, and the square is a near 1.00x crop (sharper than the vertical).
+4. **A drift made with an integer resize freezes.** A 3 % zoom over 7 s moves one pixel every ~14 frames; the watch
+   scan read a 0.3 s frozen run on the analysis card. Zoom with a float source box (`Image.resize(size, box=...)`).
+5. **Standing rules that landed after the vertical's approval bind the square:** the hyphen in the real-picture label
+   (no em dash) and no AbsByAI.com line on the end card (2026-10-01). Record each as a difference in the notes.
+6. **Portraits as a 1:1 crop, hair to shorts line, label on the field above the picture**; the before picture whole.
+   The analysis card goes side by side (picture left, rows right). Audio: copy the approved vertical's AAC stream and
+   assert the packet md5; carry its `.audio_untreated.json` so the audio gate has its do-no-harm baseline.
+7. **Final encode at CRF 15 with a 12M cap** lands in the 8 to 12 Mbps the square rules ask for; CRF 18 read 5.4.
+
 ## Shared kit: the analysis card (Dan-approved on RA-01, 2026-09-18)
 
 When a line says the app ANALYSES the picture and builds the plan, use the shared card instead of inventing a graphic:

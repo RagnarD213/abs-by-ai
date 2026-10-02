@@ -86,7 +86,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 # ACTIVE
 
-**Cart Teardown - IN PROGRESS 2026-10-02, Codex.** Next: VidTao cart screenshots and report.
+**Cart Teardown - BLOCKED 2026-10-02, Codex.** Chrome contention. Next: pause other browser task; resume research.
 
 **PMax `24308574894` - LIVE 2026-10-02, Claude.** Checks 10-07, 10-12: `Docs/DGEN_CONVERSION_CAMPAIGN.md`. Campaign images: package.
 
@@ -104,7 +104,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **RO-10 - QUEUED 2026-10-02, Claude.** Blotato Oct 7. Oct 7: captions, article, Zepbound link on Oct 25. `Docs/RO10_SETUP_RECEIPT_20261002.md`, delete.
 
-**RA-01 square - IN PROGRESS 2026-10-02, Claude.** AS-13.
+**RA-01 square - NEEDS DAN 2026-10-02, Claude.** Watch 1x1 review copy; then `/ad-setup`.
 
 **RO-16 - QUEUED 2026-10-02, Claude.** Blotato Nov 1 9AM CST. Owes: RO-12 link in description after Oct 25; captions, article after Nov 1. `Docs/RO16_SETUP_RECEIPT_20261002.md`.
 
@@ -190,7 +190,6 @@ Memory `google-ads-ui-automation`.
 - `handoff-20261001-rebuild-ios-project.md` (10-01): rebuild the iPhone project iCloud wiped. ⚠ iCloud recovery window closes about 10-17. No Apple upload. GPT-6 Sol high.
 - `handoff-20261001-search-campaigns-to-vsl-page.md` (10-01). Sol high.
 - `handoff-20261001-ad4-other-formats.md`, `…-ad6-…` (10-01). Opus high.
-- `handoff-20261002-ra01-square.md` (10-02): RA-01 1:1 only (57 s). Opus high.
 - `handoff-20261001-ad13-round2-full-build-after-lock.md` (10-02). Opus high.
 - `handoff-20260924-generator-consult-call-outreach.md` (09-24): fire by 09-26.
 - `handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md` [dash]: PHONE ONLY, 3 TikTok covers (updated 09-22). Sonnet 5 or Fable 5.1 / Medium.

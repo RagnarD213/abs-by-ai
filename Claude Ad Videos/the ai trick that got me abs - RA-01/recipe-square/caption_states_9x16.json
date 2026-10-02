@@ -1,0 +1,3273 @@
+{
+ "states": [
+  {
+   "name": "cap0000",
+   "word": "This",
+   "line": "This picture got me",
+   "k": 0,
+   "beat": [
+    0.133467,
+    0.4004
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/9bba3a694a.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0001",
+   "word": "picture",
+   "line": "This picture got me",
+   "k": 1,
+   "beat": [
+    0.4004,
+    1.067733
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/e3431491fe.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0002",
+   "word": "got",
+   "line": "This picture got me",
+   "k": 2,
+   "beat": [
+    1.067733,
+    1.234567
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/39d309d247.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0003",
+   "word": "me",
+   "line": "This picture got me",
+   "k": 3,
+   "beat": [
+    1.234567,
+    1.468133
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/ad9a749dd9.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0004",
+   "word": "abs.",
+   "line": "abs.",
+   "k": 0,
+   "beat": [
+    1.468133,
+    2.135467
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/9d8d39cc08.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0005",
+   "word": "And",
+   "line": "And it's not even",
+   "k": 0,
+   "beat": [
+    2.135467,
+    2.268933
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/68cfa4e1b0.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0006",
+   "word": "it's",
+   "line": "And it's not even",
+   "k": 1,
+   "beat": [
+    2.268933,
+    2.4024
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/407a525e21.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0007",
+   "word": "not",
+   "line": "And it's not even",
+   "k": 2,
+   "beat": [
+    2.4024,
+    2.569233
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/ef83e12901.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0008",
+   "word": "even",
+   "line": "And it's not even",
+   "k": 3,
+   "beat": [
+    2.569233,
+    2.769433
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/3fc2f56cbf.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0009",
+   "word": "real.",
+   "line": "real.",
+   "k": 0,
+   "beat": [
+    2.769433,
+    3.236567
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/5f9c9bf300.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0010",
+   "word": "I",
+   "line": "I generated this",
+   "k": 0,
+   "beat": [
+    3.236567,
+    3.436767
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/7a0eb4fc3e.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0011",
+   "word": "generated",
+   "line": "I generated this",
+   "k": 1,
+   "beat": [
+    3.436767,
+    3.970633
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/f59f866195.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0012",
+   "word": "this",
+   "line": "I generated this",
+   "k": 2,
+   "beat": [
+    3.970633,
+    4.170833
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/d2844e7cb6.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0013",
+   "word": "picture",
+   "line": "picture with AI back",
+   "k": 0,
+   "beat": [
+    4.170833,
+    4.471133
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/4d825654ea.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0014",
+   "word": "with",
+   "line": "picture with AI back",
+   "k": 1,
+   "beat": [
+    4.471133,
+    4.671333
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/42c3779300.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0015",
+   "word": "AI",
+   "line": "picture with AI back",
+   "k": 2,
+   "beat": [
+    4.671333,
+    5.138467
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/511d8d61d2.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0016",
+   "word": "back",
+   "line": "picture with AI back",
+   "k": 3,
+   "beat": [
+    5.138467,
+    5.372033
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/032bb245de.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0017",
+   "word": "when",
+   "line": "when I was 200 pounds.",
+   "k": 0,
+   "beat": [
+    5.372033,
+    5.538867
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/14c40c6b94.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0018",
+   "word": "I",
+   "line": "when I was 200 pounds.",
+   "k": 1,
+   "beat": [
+    5.538867,
+    5.6056
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/46a9b8df5a.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0019",
+   "word": "was",
+   "line": "when I was 200 pounds.",
+   "k": 2,
+   "beat": [
+    5.6056,
+    5.772433
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/4f3f6b080e.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0021",
+   "word": "pounds.",
+   "line": "when I was 200 pounds.",
+   "k": 4,
+   "beat": [
+    5.772433,
+    7.007
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/d8537e5851.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0022",
+   "word": "And",
+   "line": "And this is what I",
+   "k": 0,
+   "beat": [
+    7.007,
+    7.2072
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/c529eeacbb.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0023",
+   "word": "this",
+   "line": "And this is what I",
+   "k": 1,
+   "beat": [
+    7.2072,
+    7.8078
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/3688036b1a.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0024",
+   "word": "is",
+   "line": "And this is what I",
+   "k": 2,
+   "beat": [
+    7.8078,
+    7.941267
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/ed401ca4be.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0025",
+   "word": "what",
+   "line": "And this is what I",
+   "k": 3,
+   "beat": [
+    7.941267,
+    8.1081
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/9063408ae7.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0026",
+   "word": "I",
+   "line": "And this is what I",
+   "k": 4,
+   "beat": [
+    8.1081,
+    8.174833
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/15d69c3bdd.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0027",
+   "word": "look",
+   "line": "look like today.",
+   "k": 0,
+   "beat": [
+    8.174833,
+    8.375033
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/2959f66ca4.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0028",
+   "word": "like",
+   "line": "look like today.",
+   "k": 1,
+   "beat": [
+    8.375033,
+    8.541867
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/a41d3105b4.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0029",
+   "word": "today.",
+   "line": "look like today.",
+   "k": 2,
+   "beat": [
+    8.541867,
+    9.009
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/240381d4ff.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0030",
+   "word": "Seeing",
+   "line": "Seeing this AI image",
+   "k": 0,
+   "beat": [
+    9.009,
+    9.376033
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/4564c2e86f.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0031",
+   "word": "this",
+   "line": "Seeing this AI image",
+   "k": 1,
+   "beat": [
+    9.376033,
+    9.6096
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/d22dd047ff.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0032",
+   "word": "AI",
+   "line": "Seeing this AI image",
+   "k": 2,
+   "beat": [
+    9.6096,
+    9.976633
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/40eb4f6a41.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0033",
+   "word": "image",
+   "line": "Seeing this AI image",
+   "k": 3,
+   "beat": [
+    9.976633,
+    10.2102
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/3a29ff442c.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0034",
+   "word": "of",
+   "line": "of myself with abs",
+   "k": 0,
+   "beat": [
+    10.2102,
+    10.3103
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/2b4153f302.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0035",
+   "word": "myself",
+   "line": "of myself with abs",
+   "k": 1,
+   "beat": [
+    10.3103,
+    10.677333
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/047a1664c4.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0036",
+   "word": "with",
+   "line": "of myself with abs",
+   "k": 2,
+   "beat": [
+    10.677333,
+    10.977633
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/582cdffbf6.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0037",
+   "word": "abs",
+   "line": "of myself with abs",
+   "k": 3,
+   "beat": [
+    10.977633,
+    11.3113
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/f821eab597.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0038",
+   "word": "changed",
+   "line": "changed me.",
+   "k": 0,
+   "beat": [
+    11.3113,
+    11.7117
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/2a984f9ba8.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0039",
+   "word": "me.",
+   "line": "changed me.",
+   "k": 1,
+   "beat": [
+    11.7117,
+    12.278933
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/796b77ff5c.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0040",
+   "word": "It",
+   "line": "It inspired me to",
+   "k": 0,
+   "beat": [
+    12.278933,
+    12.379033
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/3104fb45ba.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0041",
+   "word": "inspired",
+   "line": "It inspired me to",
+   "k": 1,
+   "beat": [
+    12.379033,
+    12.946267
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/dd2d1a1fbe.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0042",
+   "word": "me",
+   "line": "It inspired me to",
+   "k": 2,
+   "beat": [
+    12.946267,
+    13.146467
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/8586280f66.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0043",
+   "word": "to",
+   "line": "It inspired me to",
+   "k": 3,
+   "beat": [
+    13.146467,
+    13.279933
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/068fbcb373.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0044",
+   "word": "start",
+   "line": "start taking my",
+   "k": 0,
+   "beat": [
+    13.279933,
+    13.5135
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/9906be906b.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0045",
+   "word": "taking",
+   "line": "start taking my",
+   "k": 1,
+   "beat": [
+    13.5135,
+    13.780433
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/80696b5f2b.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0046",
+   "word": "my",
+   "line": "start taking my",
+   "k": 2,
+   "beat": [
+    13.780433,
+    13.980633
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/25f1178cae.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0047",
+   "word": "workouts",
+   "line": "workouts and nutrition",
+   "k": 0,
+   "beat": [
+    13.980633,
+    14.547867
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/b64f17aa51.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0048",
+   "word": "and",
+   "line": "workouts and nutrition",
+   "k": 1,
+   "beat": [
+    14.547867,
+    14.647967
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/3e7274d7ad.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0049",
+   "word": "nutrition",
+   "line": "workouts and nutrition",
+   "k": 2,
+   "beat": [
+    14.647967,
+    15.5155
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/66f5a5819a.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0050",
+   "word": "seriously",
+   "line": "seriously again.",
+   "k": 0,
+   "beat": [
+    15.5155,
+    16.082733
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/2d43f93d64.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0051",
+   "word": "again.",
+   "line": "seriously again.",
+   "k": 1,
+   "beat": [
+    16.082733,
+    16.383033
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/f7697eb60d.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0052",
+   "word": "To",
+   "line": "To generate a picture",
+   "k": 0,
+   "beat": [
+    16.383033,
+    16.549867
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/7b3e27ba97.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0053",
+   "word": "generate",
+   "line": "To generate a picture",
+   "k": 1,
+   "beat": [
+    16.549867,
+    16.950267
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/9cfdd77e71.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0054",
+   "word": "a",
+   "line": "To generate a picture",
+   "k": 2,
+   "beat": [
+    16.950267,
+    17.050367
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/61c59e2351.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0055",
+   "word": "picture",
+   "line": "To generate a picture",
+   "k": 3,
+   "beat": [
+    17.050367,
+    17.3173
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/f5af905270.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0056",
+   "word": "of",
+   "line": "of yourself with abs",
+   "k": 0,
+   "beat": [
+    17.3173,
+    17.4174
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/717bf6ebf2.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0057",
+   "word": "yourself",
+   "line": "of yourself with abs",
+   "k": 1,
+   "beat": [
+    17.4174,
+    17.8178
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/10ef0610fa.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0058",
+   "word": "with",
+   "line": "of yourself with abs",
+   "k": 2,
+   "beat": [
+    17.8178,
+    18.018
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/550308dce0.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0059",
+   "word": "abs",
+   "line": "of yourself with abs",
+   "k": 3,
+   "beat": [
+    18.018,
+    18.251567
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/45a84af430.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0060",
+   "word": "using",
+   "line": "using AI, tap the",
+   "k": 0,
+   "beat": [
+    18.251567,
+    18.551867
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/d0fdb9a7e0.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0061",
+   "word": "AI,",
+   "line": "using AI, tap the",
+   "k": 1,
+   "beat": [
+    18.551867,
+    19.052367
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/dcfef42d25.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0062",
+   "word": "tap",
+   "line": "using AI, tap the",
+   "k": 2,
+   "beat": [
+    19.052367,
+    19.452767
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/e968fb3ba6.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0063",
+   "word": "the",
+   "line": "using AI, tap the",
+   "k": 3,
+   "beat": [
+    19.452767,
+    19.586233
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/523673fadc.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0064",
+   "word": "button",
+   "line": "button below.",
+   "k": 0,
+   "beat": [
+    19.586233,
+    19.853167
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/11e98449cd.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0065",
+   "word": "below.",
+   "line": "button below.",
+   "k": 1,
+   "beat": [
+    19.853167,
+    20.353667
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/7e30b0aba1.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0066",
+   "word": "And",
+   "line": "And that's only the",
+   "k": 0,
+   "beat": [
+    20.353667,
+    20.487133
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/ca2b709131.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0067",
+   "word": "that's",
+   "line": "And that's only the",
+   "k": 1,
+   "beat": [
+    20.487133,
+    20.754067
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/404f5c5b96.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0068",
+   "word": "only",
+   "line": "And that's only the",
+   "k": 2,
+   "beat": [
+    20.754067,
+    20.954267
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/126886d5c1.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0069",
+   "word": "the",
+   "line": "And that's only the",
+   "k": 3,
+   "beat": [
+    20.954267,
+    21.087733
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/2dcc1741b9.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0070",
+   "word": "beginning",
+   "line": "beginning of how AI",
+   "k": 0,
+   "beat": [
+    21.087733,
+    21.6216
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/9f4499d009.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0071",
+   "word": "of",
+   "line": "beginning of how AI",
+   "k": 1,
+   "beat": [
+    21.6216,
+    21.7217
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/84bf9e3a93.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0072",
+   "word": "how",
+   "line": "beginning of how AI",
+   "k": 2,
+   "beat": [
+    21.7217,
+    21.955267
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/e7377ad718.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0073",
+   "word": "AI",
+   "line": "beginning of how AI",
+   "k": 3,
+   "beat": [
+    21.955267,
+    22.255567
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/e63f3f3d57.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0074",
+   "word": "helped",
+   "line": "helped me to get abs.",
+   "k": 0,
+   "beat": [
+    22.255567,
+    22.4224
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/ac35bce5aa.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0075",
+   "word": "me",
+   "line": "helped me to get abs.",
+   "k": 1,
+   "beat": [
+    22.4224,
+    22.5225
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/4e749f2a9b.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0076",
+   "word": "to",
+   "line": "helped me to get abs.",
+   "k": 2,
+   "beat": [
+    22.5225,
+    22.6226
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/20c234239e.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0077",
+   "word": "get",
+   "line": "helped me to get abs.",
+   "k": 3,
+   "beat": [
+    22.6226,
+    22.856167
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/b9356ca695.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0078",
+   "word": "abs.",
+   "line": "helped me to get abs.",
+   "k": 4,
+   "beat": [
+    22.856167,
+    23.3233
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/443150d7ed.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0079",
+   "word": "Once",
+   "line": "Once I generated my",
+   "k": 0,
+   "beat": [
+    23.3233,
+    23.490133
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/29ce219f2f.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0080",
+   "word": "I",
+   "line": "Once I generated my",
+   "k": 1,
+   "beat": [
+    23.490133,
+    23.590233
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/e60d5f576d.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0081",
+   "word": "generated",
+   "line": "Once I generated my",
+   "k": 2,
+   "beat": [
+    23.590233,
+    24.057367
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/0bfd57ec45.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0082",
+   "word": "my",
+   "line": "Once I generated my",
+   "k": 3,
+   "beat": [
+    24.057367,
+    24.190833
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/8eb73a06f8.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0083",
+   "word": "picture,",
+   "line": "picture, AI analyzed",
+   "k": 0,
+   "beat": [
+    24.190833,
+    24.891533
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/47f2a9f63e.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0084",
+   "word": "AI",
+   "line": "picture, AI analyzed",
+   "k": 1,
+   "beat": [
+    24.891533,
+    25.558867
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/14c06065e7.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0085",
+   "word": "analyzed",
+   "line": "picture, AI analyzed",
+   "k": 2,
+   "beat": [
+    25.558867,
+    26.092733
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/80135e1e94.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0086",
+   "word": "it",
+   "line": "it and figured out",
+   "k": 0,
+   "beat": [
+    26.092733,
+    26.393033
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/be4481b5e0.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0087",
+   "word": "and",
+   "line": "it and figured out",
+   "k": 1,
+   "beat": [
+    26.393033,
+    26.559867
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/7c1d62f4af.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0088",
+   "word": "figured",
+   "line": "it and figured out",
+   "k": 2,
+   "beat": [
+    26.559867,
+    26.893533
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/3bcc6cef1c.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0089",
+   "word": "out",
+   "line": "it and figured out",
+   "k": 3,
+   "beat": [
+    26.893533,
+    27.160467
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/3ab5b65a09.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0090",
+   "word": "exactly",
+   "line": "exactly how much fat I",
+   "k": 0,
+   "beat": [
+    27.160467,
+    27.6276
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/5c8753affc.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0091",
+   "word": "how",
+   "line": "exactly how much fat I",
+   "k": 1,
+   "beat": [
+    27.6276,
+    27.761067
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/f0f6d875d8.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0092",
+   "word": "much",
+   "line": "exactly how much fat I",
+   "k": 2,
+   "beat": [
+    27.761067,
+    27.9279
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/9440c1cb58.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0093",
+   "word": "fat",
+   "line": "exactly how much fat I",
+   "k": 3,
+   "beat": [
+    27.9279,
+    28.161467
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/5bd2910210.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0094",
+   "word": "I",
+   "line": "exactly how much fat I",
+   "k": 4,
+   "beat": [
+    28.161467,
+    28.261567
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/60d9197d71.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0095",
+   "word": "had",
+   "line": "had to lose and where",
+   "k": 0,
+   "beat": [
+    28.261567,
+    28.395033
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/007260243d.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0096",
+   "word": "to",
+   "line": "had to lose and where",
+   "k": 1,
+   "beat": [
+    28.395033,
+    28.5285
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/9942a59e3f.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0097",
+   "word": "lose",
+   "line": "had to lose and where",
+   "k": 2,
+   "beat": [
+    28.5285,
+    28.862167
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/b7b26fd58b.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0098",
+   "word": "and",
+   "line": "had to lose and where",
+   "k": 3,
+   "beat": [
+    28.862167,
+    29.062367
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/a75de00cb9.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0099",
+   "word": "where",
+   "line": "had to lose and where",
+   "k": 4,
+   "beat": [
+    29.062367,
+    29.362667
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/7b6b38f3e8.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0100",
+   "word": "I",
+   "line": "I had to gain muscle",
+   "k": 0,
+   "beat": [
+    29.362667,
+    29.4294
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/d88a465962.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0101",
+   "word": "had",
+   "line": "I had to gain muscle",
+   "k": 1,
+   "beat": [
+    29.4294,
+    29.562867
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/31ffbb5e43.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0102",
+   "word": "to",
+   "line": "I had to gain muscle",
+   "k": 2,
+   "beat": [
+    29.562867,
+    29.662967
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/2953831f1a.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0103",
+   "word": "gain",
+   "line": "I had to gain muscle",
+   "k": 3,
+   "beat": [
+    29.662967,
+    29.863167
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/58e2e3d5db.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0104",
+   "word": "muscle",
+   "line": "I had to gain muscle",
+   "k": 4,
+   "beat": [
+    29.863167,
+    30.463767
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/72462f13de.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0105",
+   "word": "to",
+   "line": "to reach my goal",
+   "k": 0,
+   "beat": [
+    30.463767,
+    30.597233
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/066f7d1787.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0106",
+   "word": "reach",
+   "line": "to reach my goal",
+   "k": 1,
+   "beat": [
+    30.597233,
+    30.797433
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/f59499dbe3.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0107",
+   "word": "my",
+   "line": "to reach my goal",
+   "k": 2,
+   "beat": [
+    30.797433,
+    30.9309
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/1ecab8cfe3.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0108",
+   "word": "goal",
+   "line": "to reach my goal",
+   "k": 3,
+   "beat": [
+    30.9309,
+    31.1311
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/af9f0db7ad.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0109",
+   "word": "physique.",
+   "line": "physique.",
+   "k": 0,
+   "beat": [
+    31.1311,
+    31.698333
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/a0d3a49462.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0110",
+   "word": "Then",
+   "line": "Then it gave me a",
+   "k": 0,
+   "beat": [
+    31.698333,
+    32.098733
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/4d580beb07.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0111",
+   "word": "it",
+   "line": "Then it gave me a",
+   "k": 1,
+   "beat": [
+    32.098733,
+    32.165467
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/1387bbb45b.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0112",
+   "word": "gave",
+   "line": "Then it gave me a",
+   "k": 2,
+   "beat": [
+    32.165467,
+    32.365667
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/e0ba36b91a.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0113",
+   "word": "me",
+   "line": "Then it gave me a",
+   "k": 3,
+   "beat": [
+    32.365667,
+    32.465767
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/45c8e4aa2f.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0114",
+   "word": "a",
+   "line": "Then it gave me a",
+   "k": 4,
+   "beat": [
+    32.465767,
+    32.565867
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/0a08a6ff66.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0115",
+   "word": "personalized",
+   "line": "personalized workout",
+   "k": 0,
+   "beat": [
+    32.565867,
+    33.4334
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/7070472868.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0116",
+   "word": "workout",
+   "line": "personalized workout",
+   "k": 1,
+   "beat": [
+    33.4334,
+    34.1341
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/c338de3007.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0117",
+   "word": "and",
+   "line": "and nutrition plan to",
+   "k": 0,
+   "beat": [
+    34.1341,
+    34.300933
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/4e41fbc33f.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0118",
+   "word": "nutrition",
+   "line": "and nutrition plan to",
+   "k": 1,
+   "beat": [
+    34.300933,
+    34.7347
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/9808a7dc84.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0119",
+   "word": "plan",
+   "line": "and nutrition plan to",
+   "k": 2,
+   "beat": [
+    34.7347,
+    35.201833
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/92b7eb7ecb.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0120",
+   "word": "to",
+   "line": "and nutrition plan to",
+   "k": 3,
+   "beat": [
+    35.201833,
+    35.3353
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/7c94c0d2d1.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0121",
+   "word": "hit",
+   "line": "hit my goal.",
+   "k": 0,
+   "beat": [
+    35.3353,
+    35.502133
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/bb93ab2df8.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0122",
+   "word": "my",
+   "line": "hit my goal.",
+   "k": 1,
+   "beat": [
+    35.502133,
+    35.6356
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/1c4d2235af.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0123",
+   "word": "goal.",
+   "line": "hit my goal.",
+   "k": 2,
+   "beat": [
+    35.6356,
+    36.169467
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/03afdd2356.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0124",
+   "word": "I",
+   "line": "I even started using",
+   "k": 0,
+   "beat": [
+    36.169467,
+    36.3363
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/ab3319732d.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0125",
+   "word": "even",
+   "line": "I even started using",
+   "k": 1,
+   "beat": [
+    36.3363,
+    36.5365
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/034fa1a564.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0126",
+   "word": "started",
+   "line": "I even started using",
+   "k": 2,
+   "beat": [
+    36.5365,
+    36.9369
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/85cfe86839.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0127",
+   "word": "using",
+   "line": "I even started using",
+   "k": 3,
+   "beat": [
+    36.9369,
+    37.2372
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/b21b3906c6.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0128",
+   "word": "AI",
+   "line": "AI to track my macros.",
+   "k": 0,
+   "beat": [
+    37.2372,
+    37.570867
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/642f87f7a2.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0129",
+   "word": "to",
+   "line": "AI to track my macros.",
+   "k": 1,
+   "beat": [
+    37.570867,
+    37.704333
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/041785a99a.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0130",
+   "word": "track",
+   "line": "AI to track my macros.",
+   "k": 2,
+   "beat": [
+    37.704333,
+    38.1381
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/a5289f3b5e.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0131",
+   "word": "my",
+   "line": "AI to track my macros.",
+   "k": 3,
+   "beat": [
+    38.1381,
+    38.304933
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/f06a133328.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0132",
+   "word": "macros.",
+   "line": "AI to track my macros.",
+   "k": 4,
+   "beat": [
+    38.304933,
+    39.072367
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/b1762ba48a.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0133",
+   "word": "AI",
+   "line": "AI inspired me to work",
+   "k": 0,
+   "beat": [
+    39.072367,
+    39.706333
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/12ba529c1e.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0134",
+   "word": "inspired",
+   "line": "AI inspired me to work",
+   "k": 1,
+   "beat": [
+    39.706333,
+    40.1401
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/382fd3f10b.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0135",
+   "word": "me",
+   "line": "AI inspired me to work",
+   "k": 2,
+   "beat": [
+    40.1401,
+    40.2402
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/54d8b656a7.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0136",
+   "word": "to",
+   "line": "AI inspired me to work",
+   "k": 3,
+   "beat": [
+    40.2402,
+    40.3403
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/c4518b3271.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0137",
+   "word": "work",
+   "line": "AI inspired me to work",
+   "k": 4,
+   "beat": [
+    40.3403,
+    40.6406
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/62a4a65df4.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0138",
+   "word": "out.",
+   "line": "out.",
+   "k": 0,
+   "beat": [
+    40.6406,
+    40.974267
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/b09c706058.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0139",
+   "word": "It",
+   "line": "It gave me the exact",
+   "k": 0,
+   "beat": [
+    40.974267,
+    41.074367
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/58d21471f4.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0140",
+   "word": "gave",
+   "line": "It gave me the exact",
+   "k": 1,
+   "beat": [
+    41.074367,
+    41.274567
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/f2a2884f78.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0141",
+   "word": "me",
+   "line": "It gave me the exact",
+   "k": 2,
+   "beat": [
+    41.274567,
+    41.4414
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/f3e5b9a467.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0142",
+   "word": "the",
+   "line": "It gave me the exact",
+   "k": 3,
+   "beat": [
+    41.4414,
+    41.574867
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/fa3397d253.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0143",
+   "word": "exact",
+   "line": "It gave me the exact",
+   "k": 4,
+   "beat": [
+    41.574867,
+    41.975267
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/ecd40249a8.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0144",
+   "word": "workout",
+   "line": "workout and nutrition",
+   "k": 0,
+   "beat": [
+    41.975267,
+    42.409033
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/e19b542e85.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0145",
+   "word": "and",
+   "line": "workout and nutrition",
+   "k": 1,
+   "beat": [
+    42.409033,
+    42.509133
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/00412b065e.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0146",
+   "word": "nutrition",
+   "line": "workout and nutrition",
+   "k": 2,
+   "beat": [
+    42.509133,
+    42.976267
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/bbe909adfd.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0147",
+   "word": "plan",
+   "line": "plan I needed to hit",
+   "k": 0,
+   "beat": [
+    42.976267,
+    43.3433
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/3fed72f2f1.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0148",
+   "word": "I",
+   "line": "plan I needed to hit",
+   "k": 1,
+   "beat": [
+    43.3433,
+    43.476767
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/325eb0fa39.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0149",
+   "word": "needed",
+   "line": "plan I needed to hit",
+   "k": 2,
+   "beat": [
+    43.476767,
+    43.777067
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/35ed326a45.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0150",
+   "word": "to",
+   "line": "plan I needed to hit",
+   "k": 3,
+   "beat": [
+    43.777067,
+    43.877167
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/e00f941ba9.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0151",
+   "word": "hit",
+   "line": "plan I needed to hit",
+   "k": 4,
+   "beat": [
+    43.877167,
+    44.044
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/5a19301f99.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0152",
+   "word": "my",
+   "line": "my goal.",
+   "k": 0,
+   "beat": [
+    44.044,
+    44.177467
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/2b17e1e0a8.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0153",
+   "word": "goal.",
+   "line": "my goal.",
+   "k": 1,
+   "beat": [
+    44.177467,
+    44.511133
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/dc308bda6a.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0154",
+   "word": "And",
+   "line": "And you can change",
+   "k": 0,
+   "beat": [
+    44.511133,
+    44.677967
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/f5e1f33ac5.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0155",
+   "word": "you",
+   "line": "And you can change",
+   "k": 1,
+   "beat": [
+    44.677967,
+    44.8448
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/2f91734d70.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0156",
+   "word": "can",
+   "line": "And you can change",
+   "k": 2,
+   "beat": [
+    44.8448,
+    44.978267
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/205eb5aafb.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0157",
+   "word": "change",
+   "line": "And you can change",
+   "k": 3,
+   "beat": [
+    44.978267,
+    45.211833
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/8bf4263513.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0158",
+   "word": "your",
+   "line": "your life the exact",
+   "k": 0,
+   "beat": [
+    45.211833,
+    45.3453
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/722cf367d2.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0159",
+   "word": "life",
+   "line": "your life the exact",
+   "k": 1,
+   "beat": [
+    45.3453,
+    45.7457
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/2a940eb4bd.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0160",
+   "word": "the",
+   "line": "your life the exact",
+   "k": 2,
+   "beat": [
+    45.7457,
+    45.912533
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/6f54280930.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0161",
+   "word": "exact",
+   "line": "your life the exact",
+   "k": 3,
+   "beat": [
+    45.912533,
+    46.3463
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/3ac6be3398.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0162",
+   "word": "same",
+   "line": "same way that I did.",
+   "k": 0,
+   "beat": [
+    46.3463,
+    46.613233
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/f537af19f3.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0163",
+   "word": "way",
+   "line": "same way that I did.",
+   "k": 1,
+   "beat": [
+    46.613233,
+    46.980267
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/3b0add5e98.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0164",
+   "word": "that",
+   "line": "same way that I did.",
+   "k": 2,
+   "beat": [
+    46.980267,
+    47.180467
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/99fe8b0dd8.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0165",
+   "word": "I",
+   "line": "same way that I did.",
+   "k": 3,
+   "beat": [
+    47.180467,
+    47.280567
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/656fdcd310.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0166",
+   "word": "did.",
+   "line": "same way that I did.",
+   "k": 4,
+   "beat": [
+    47.280567,
+    47.614233
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/9b3be3a000.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0167",
+   "word": "And",
+   "line": "And the first step is",
+   "k": 0,
+   "beat": [
+    47.614233,
+    47.7477
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/fc715b08bf.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0168",
+   "word": "the",
+   "line": "And the first step is",
+   "k": 1,
+   "beat": [
+    47.7477,
+    47.881167
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/b4cece1b3e.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0169",
+   "word": "first",
+   "line": "And the first step is",
+   "k": 2,
+   "beat": [
+    47.881167,
+    48.114733
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/1bce92def8.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0170",
+   "word": "step",
+   "line": "And the first step is",
+   "k": 3,
+   "beat": [
+    48.114733,
+    48.581867
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/6f275476f7.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0171",
+   "word": "is",
+   "line": "And the first step is",
+   "k": 4,
+   "beat": [
+    48.581867,
+    48.782067
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/2c478d06a0.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0172",
+   "word": "generating",
+   "line": "generating an AI image",
+   "k": 0,
+   "beat": [
+    48.782067,
+    49.4494
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/32111f4b42.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0173",
+   "word": "an",
+   "line": "generating an AI image",
+   "k": 1,
+   "beat": [
+    49.4494,
+    49.6496
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/9ae3bb9895.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0174",
+   "word": "AI",
+   "line": "generating an AI image",
+   "k": 2,
+   "beat": [
+    49.6496,
+    49.9499
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/06742b0896.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0175",
+   "word": "image",
+   "line": "generating an AI image",
+   "k": 3,
+   "beat": [
+    49.9499,
+    50.216833
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/008657b61c.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0176",
+   "word": "of",
+   "line": "of yourself with abs.",
+   "k": 0,
+   "beat": [
+    50.216833,
+    50.316933
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/4074dc789e.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0177",
+   "word": "yourself",
+   "line": "of yourself with abs.",
+   "k": 1,
+   "beat": [
+    50.316933,
+    50.6506
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/3ff07274fd.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0178",
+   "word": "with",
+   "line": "of yourself with abs.",
+   "k": 2,
+   "beat": [
+    50.6506,
+    50.8508
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/19eb43341e.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0179",
+   "word": "abs.",
+   "line": "of yourself with abs.",
+   "k": 3,
+   "beat": [
+    50.8508,
+    51.2512
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/b2c90b2445.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0180",
+   "word": "To",
+   "line": "To generate an image",
+   "k": 0,
+   "beat": [
+    51.2512,
+    51.484767
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/30dfd8c378.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0181",
+   "word": "generate",
+   "line": "To generate an image",
+   "k": 1,
+   "beat": [
+    51.484767,
+    51.885167
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/f731a3bc68.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0182",
+   "word": "an",
+   "line": "To generate an image",
+   "k": 2,
+   "beat": [
+    51.885167,
+    52.018633
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/6778ada4b6.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0183",
+   "word": "image",
+   "line": "To generate an image",
+   "k": 3,
+   "beat": [
+    52.018633,
+    52.318933
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/d233f0434f.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0184",
+   "word": "of",
+   "line": "of yourself with",
+   "k": 0,
+   "beat": [
+    52.318933,
+    52.419033
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/ee34ebd6db.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0185",
+   "word": "yourself",
+   "line": "of yourself with",
+   "k": 1,
+   "beat": [
+    52.419033,
+    52.819433
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/3dcf999c3f.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0186",
+   "word": "with",
+   "line": "of yourself with",
+   "k": 2,
+   "beat": [
+    52.819433,
+    52.986267
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/da821f5c1e.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0187",
+   "word": "six-pack",
+   "line": "six-pack abs, tap the",
+   "k": 0,
+   "beat": [
+    52.986267,
+    53.520133
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/13a7e00f3f.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0188",
+   "word": "abs,",
+   "line": "six-pack abs, tap the",
+   "k": 1,
+   "beat": [
+    53.520133,
+    53.9539
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/fdeb2d64ad.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0189",
+   "word": "tap",
+   "line": "six-pack abs, tap the",
+   "k": 2,
+   "beat": [
+    53.9539,
+    54.4544
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/6738be14c8.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0190",
+   "word": "the",
+   "line": "six-pack abs, tap the",
+   "k": 3,
+   "beat": [
+    54.4544,
+    54.587867
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/af594f4608.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0191",
+   "word": "button",
+   "line": "button below.",
+   "k": 0,
+   "beat": [
+    54.587867,
+    54.888167
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/11e98449cd.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  },
+  {
+   "name": "cap0192",
+   "word": "below.",
+   "line": "button below.",
+   "k": 1,
+   "beat": [
+    54.888167,
+    55.221833
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01/cap_9x16/png/7e30b0aba1.png",
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ]
+  }
+ ],
+ "groups": 53,
+ "words_total": 193,
+ "captioned": 192,
+ "cap_y": 1400,
+ "font_px": 64
+}

@@ -1,0 +1,454 @@
+{
+ "entries": [
+  {
+   "image": "sheet_00_00-00.00_to_00-23.99.jpg",
+   "verdict": "clean",
+   "t": 0.0,
+   "note": "25 tiles 0-24 s. Cards: one picture each, chips above pictures, captions below and clear. Presenter NEAR/FAR only, hair inside frame on every tile, no wide level, no black or blank tile, pill present at 19-20 s on the chest. Suspected jump inside the 2.07-3.07 s presenter beat (head angle differs between 2.1 s and 2.2 s) was checked on exact frames 62-67: a real fast head turn, continuous, not a splice. Observations, not defects: before photo at 6 s has no label chip; captions sit across his lower torso on presenter shots (same placement throughout)."
+  },
+  {
+   "image": "sheet_01_00-24.99_to_00-49.02.jpg",
+   "verdict": "clean",
+   "t": 24.99,
+   "note": "25 tiles 25-49 s. Stats card builds BODY FAT / FAT TO LOSE / MUSCLE TO GAIN / YOUR WORKOUT PLAN in order, type legible, nothing off-screen. Macro card legible. Presenter NEAR/FAR only; hair inside frame (49.02 s checked on exact frame 1469: about 10 percent headroom; he glances down at his hands for a moment while speaking, a gesture not junk). No black, frozen or repeated shot."
+  },
+  {
+   "image": "sheet_02_00-50.02_to_00-56.99.jpg",
+   "verdict": "clean",
+   "t": 50.02,
+   "note": "8 tiles 50-57 s. Pill present 54-55 s on the chest, clear of face and caption (frame 1618 checked at full resolution, hair about 4 percent below the top edge). End card holds to the last frame with chip, one picture and the button bar. No placeholder slate anywhere."
+  },
+  {
+   "image": "strip_000_00-02.07_ai_hook_out___covered_in___covered_out__.jpg",
+   "verdict": "expected",
+   "t": 2.07,
+   "note": "Declared hard cut out of the AI-GENERATED hook card into NEAR presenter at 2.07 s. Presenter opens mid head-turn (frames 62-64 looking off to his left, frontal by frame 65); checked frames 62-67 at full resolution: a continuous fast turn, necklace/mic/body continuous, not a splice. Hair clear of top edge, caption clear of card."
+  },
+  {
+   "image": "pair_000_00-02.07.jpg",
+   "verdict": "expected",
+   "t": 2.07,
+   "note": "-1|0 pair for the same boundary. Declared hard cut out of the AI-GENERATED hook card into NEAR presenter at 2.07 s. Presenter opens mid head-turn (frames 62-64 looking off to his left, frontal by frame 65); checked frames 62-67 at full resolution: a continuous fast turn, necklace/mic/body continuous, not a splice. Hair clear of top edge, caption clear of card."
+  },
+  {
+   "image": "strip_001_00-03.07_ai_gen_in___covered_in___covered_out___j.jpg",
+   "verdict": "expected",
+   "t": 3.07,
+   "note": "Re-covered join, frame 92 (3.07 s): declared hard cut from NEAR presenter into the AI-GENERATED card. Frames 90-91 presenter settled (hands steepled, 'real.'), frame 92 is the card; the splice sits under the card. No presenter-to-presenter jump is visible, no black or blank frame. Checked every frame 60-94."
+  },
+  {
+   "image": "pair_001_00-03.07.jpg",
+   "verdict": "expected",
+   "t": 3.07,
+   "note": "-1|0 pair for the same boundary. Re-covered join, frame 92 (3.07 s): declared hard cut from NEAR presenter into the AI-GENERATED card. Frames 90-91 presenter settled (hands steepled, 'real.'), frame 92 is the card; the splice sits under the card. No presenter-to-presenter jump is visible, no black or blank frame. Checked every frame 60-94."
+  },
+  {
+   "image": "strip_002_00-05.04_join.jpg",
+   "verdict": "clean",
+   "t": 5.04,
+   "note": "Join at 5.04 s is under the AI card; -1|0 frames identical card, no visible change."
+  },
+  {
+   "image": "pair_002_00-05.04.jpg",
+   "verdict": "clean",
+   "t": 5.04,
+   "note": "-1|0 pair for the same boundary. Join at 5.04 s is under the AI card; -1|0 frames identical card, no visible change."
+  },
+  {
+   "image": "strip_003_00-05.07_ai_gen_out___before_in___covered_in___co.jpg",
+   "verdict": "expected",
+   "t": 5.07,
+   "note": "Declared hard cut AI card to the before-photo card at 5.07 s. One picture per frame, caption below the picture, not touching it. Observation only: the before photo carries no label chip while every other photo card does."
+  },
+  {
+   "image": "pair_003_00-05.07.jpg",
+   "verdict": "expected",
+   "t": 5.07,
+   "note": "-1|0 pair for the same boundary. Declared hard cut AI card to the before-photo card at 5.07 s. One picture per frame, caption below the picture, not touching it. Observation only: the before photo carries no label chip while every other photo card does."
+  },
+  {
+   "image": "strip_004_00-06.77_before_out___covered_in___covered_out___.jpg",
+   "verdict": "expected",
+   "t": 6.77,
+   "note": "Declared hard cut out of the before card into FAR presenter at 6.77 s. FAR head measured about 28 percent of frame height on the exact frame 203, hair about 4 percent below the top edge: not a wide level."
+  },
+  {
+   "image": "pair_004_00-06.77.jpg",
+   "verdict": "expected",
+   "t": 6.77,
+   "note": "-1|0 pair for the same boundary. Declared hard cut out of the before card into FAR presenter at 6.77 s. FAR head measured about 28 percent of frame height on the exact frame 203, hair about 4 percent below the top edge: not a wide level."
+  },
+  {
+   "image": "strip_005_00-07.67_after_1_in___covered_in___covered_out___.jpg",
+   "verdict": "expected",
+   "t": 7.67,
+   "note": "Declared hard cut FAR presenter into after_1 card at 7.67 s. Chip 'Real picture of me - not AI-generated' above the picture, clear of face; caption clear of card."
+  },
+  {
+   "image": "pair_005_00-07.67.jpg",
+   "verdict": "expected",
+   "t": 7.67,
+   "note": "-1|0 pair for the same boundary. Declared hard cut FAR presenter into after_1 card at 7.67 s. Chip 'Real picture of me - not AI-generated' above the picture, clear of face; caption clear of card."
+  },
+  {
+   "image": "strip_006_00-08.31_after_1_out___after_2_in___covered_in___.jpg",
+   "verdict": "expected",
+   "t": 8.31,
+   "note": "Declared card-to-card hard cut after_1 to after_2 at 8.31 s. One physique picture per frame; chip and caption clear."
+  },
+  {
+   "image": "pair_006_00-08.31.jpg",
+   "verdict": "expected",
+   "t": 8.31,
+   "note": "-1|0 pair for the same boundary. Declared card-to-card hard cut after_1 to after_2 at 8.31 s. One physique picture per frame; chip and caption clear."
+  },
+  {
+   "image": "strip_007_00-08.84_join.jpg",
+   "verdict": "clean",
+   "t": 8.84,
+   "note": "Join at 8.84 s under the after_2 card; -1|0 identical, nothing visible."
+  },
+  {
+   "image": "pair_007_00-08.84.jpg",
+   "verdict": "clean",
+   "t": 8.84,
+   "note": "-1|0 pair for the same boundary. Join at 8.84 s under the after_2 card; -1|0 identical, nothing visible."
+  },
+  {
+   "image": "strip_008_00-08.94_after_2_out___after_3_in___covered_in___.jpg",
+   "verdict": "expected",
+   "t": 8.94,
+   "note": "Declared card-to-card hard cut after_2 to after_3 at 8.94 s. Chip sits just above the picture (small gap, no overlap)."
+  },
+  {
+   "image": "pair_008_00-08.94.jpg",
+   "verdict": "expected",
+   "t": 8.94,
+   "note": "-1|0 pair for the same boundary. Declared card-to-card hard cut after_2 to after_3 at 8.94 s. Chip sits just above the picture (small gap, no overlap)."
+  },
+  {
+   "image": "strip_009_00-09.58_after_3_out___ai_again_in___covered_in__.jpg",
+   "verdict": "expected",
+   "t": 9.58,
+   "note": "Declared card-to-card hard cut after_3 to AI-GENERATED card at 9.58 s; chip swaps correctly to AI-GENERATED."
+  },
+  {
+   "image": "pair_009_00-09.58.jpg",
+   "verdict": "expected",
+   "t": 9.58,
+   "note": "-1|0 pair for the same boundary. Declared card-to-card hard cut after_3 to AI-GENERATED card at 9.58 s; chip swaps correctly to AI-GENERATED."
+  },
+  {
+   "image": "strip_010_00-11.18_join.jpg",
+   "verdict": "clean",
+   "t": 11.18,
+   "note": "Join at 11.18 s under the AI card; -1|0 identical."
+  },
+  {
+   "image": "pair_010_00-11.18.jpg",
+   "verdict": "clean",
+   "t": 11.18,
+   "note": "-1|0 pair for the same boundary. Join at 11.18 s under the AI card; -1|0 identical."
+  },
+  {
+   "image": "strip_011_00-11.91_join.jpg",
+   "verdict": "clean",
+   "t": 11.91,
+   "note": "Join at 11.91 s under the AI card; -1|0 identical."
+  },
+  {
+   "image": "pair_011_00-11.91.jpg",
+   "verdict": "clean",
+   "t": 11.91,
+   "note": "-1|0 pair for the same boundary. Join at 11.91 s under the AI card; -1|0 identical."
+  },
+  {
+   "image": "strip_012_00-12.11_join.jpg",
+   "verdict": "clean",
+   "t": 12.11,
+   "note": "Join at 12.11 s under the AI card; -1|0 identical."
+  },
+  {
+   "image": "pair_012_00-12.11.jpg",
+   "verdict": "clean",
+   "t": 12.11,
+   "note": "-1|0 pair for the same boundary. Join at 12.11 s under the AI card; -1|0 identical."
+  },
+  {
+   "image": "strip_013_00-12.31_ai_again_out___covered_in___covered_out_.jpg",
+   "verdict": "expected",
+   "t": 12.31,
+   "note": "Declared hard cut AI card to NEAR presenter at 12.31 s. Hair inside frame with a small margin; caption over lower chest, not face."
+  },
+  {
+   "image": "pair_013_00-12.31.jpg",
+   "verdict": "expected",
+   "t": 12.31,
+   "note": "-1|0 pair for the same boundary. Declared hard cut AI card to NEAR presenter at 12.31 s. Hair inside frame with a small margin; caption over lower chest, not face."
+  },
+  {
+   "image": "strip_014_00-16.35_covered_in___covered_out___join___punch_.jpg",
+   "verdict": "expected",
+   "t": 16.35,
+   "note": "Declared zoom cut NEAR to FAR at 16.35 s: clear scale change plus new pose, reads as a zoom cut, not a same-framing jump."
+  },
+  {
+   "image": "pair_014_00-16.35.jpg",
+   "verdict": "expected",
+   "t": 16.35,
+   "note": "-1|0 pair for the same boundary. Declared zoom cut NEAR to FAR at 16.35 s: clear scale change plus new pose, reads as a zoom cut, not a same-framing jump."
+  },
+  {
+   "image": "strip_015_00-18.89_cta0_in.jpg",
+   "verdict": "expected",
+   "t": 18.89,
+   "note": "Declared CTA pill fade-in begins 18.89 s on FAR presenter; presenter continuous across the boundary. Pill sits on upper chest, clear of face and of the caption."
+  },
+  {
+   "image": "pair_015_00-18.89.jpg",
+   "verdict": "expected",
+   "t": 18.89,
+   "note": "-1|0 pair for the same boundary. Declared CTA pill fade-in begins 18.89 s on FAR presenter; presenter continuous across the boundary. Pill sits on upper chest, clear of face and of the caption."
+  },
+  {
+   "image": "strip_016_00-19.02_covered_in___covered_out___join___punch_.jpg",
+   "verdict": "expected",
+   "t": 19.02,
+   "note": "Re-covered join, frame 570 (19.02 s): declared FAR to NEAR zoom cut under the pill mid-fade. Scale step about 1.25-1.3x (glasses width), so it does NOT read as a same-framing jump; mouth and hands change across the cut but the punch-in carries it. Pill opacity is continuous across the cut (no pop). NEAR shot runs frames 570-606 (37 frames, 1.23 s) with continuous gesture: reads as a deliberate zoom cut, not a flash."
+  },
+  {
+   "image": "pair_016_00-19.02.jpg",
+   "verdict": "expected",
+   "t": 19.02,
+   "note": "-1|0 pair for the same boundary. Re-covered join, frame 570 (19.02 s): declared FAR to NEAR zoom cut under the pill mid-fade. Scale step about 1.25-1.3x (glasses width), so it does NOT read as a same-framing jump; mouth and hands change across the cut but the punch-in carries it. Pill opacity is continuous across the cut (no pop). NEAR shot runs frames 570-606 (37 frames, 1.23 s) with continuous gesture: reads as a deliberate zoom cut, not a flash."
+  },
+  {
+   "image": "strip_017_00-20.25_covered_in___covered_out___join___punch_.jpg",
+   "verdict": "expected",
+   "t": 20.25,
+   "note": "Declared zoom cut NEAR to FAR at 20.25 s under the full-opacity pill; clear scale change. Pill on chest, caption 'button below.' clear of pill."
+  },
+  {
+   "image": "pair_017_00-20.25.jpg",
+   "verdict": "expected",
+   "t": 20.25,
+   "note": "-1|0 pair for the same boundary. Declared zoom cut NEAR to FAR at 20.25 s under the full-opacity pill; clear scale change. Pill on chest, caption 'button below.' clear of pill."
+  },
+  {
+   "image": "strip_018_00-20.52_cta0_out.jpg",
+   "verdict": "expected",
+   "t": 20.52,
+   "note": "Declared CTA pill fade-out ending 20.52 s; presenter continuous."
+  },
+  {
+   "image": "pair_018_00-20.52.jpg",
+   "verdict": "expected",
+   "t": 20.52,
+   "note": "-1|0 pair for the same boundary. Declared CTA pill fade-out ending 20.52 s; presenter continuous."
+  },
+  {
+   "image": "strip_019_00-23.19_covered_in___covered_out___join___punch_.jpg",
+   "verdict": "expected",
+   "t": 23.19,
+   "note": "Declared zoom cut FAR to NEAR at 23.19 s; clear scale change. Hair inside frame."
+  },
+  {
+   "image": "pair_019_00-23.19.jpg",
+   "verdict": "expected",
+   "t": 23.19,
+   "note": "-1|0 pair for the same boundary. Declared zoom cut FAR to NEAR at 23.19 s; clear scale change. Hair inside frame."
+  },
+  {
+   "image": "strip_020_00-24.86_covered_in___covered_out___stats_scan_in.jpg",
+   "verdict": "expected",
+   "t": 24.86,
+   "note": "Declared hard cut NEAR presenter into the stats_scan card at 24.86 s. Picture sits left with the right half empty until the bars draw on (by design of the card); scan line visible at top of picture on first frame; caption clear of picture."
+  },
+  {
+   "image": "pair_020_00-24.86.jpg",
+   "verdict": "expected",
+   "t": 24.86,
+   "note": "-1|0 pair for the same boundary. Declared hard cut NEAR presenter into the stats_scan card at 24.86 s. Picture sits left with the right half empty until the bars draw on (by design of the card); scan line visible at top of picture on first frame; caption clear of picture."
+  },
+  {
+   "image": "strip_021_00-28.80_join.jpg",
+   "verdict": "clean",
+   "t": 28.8,
+   "note": "Join at 28.80 s under the stats card; only the bar animation advances."
+  },
+  {
+   "image": "pair_021_00-28.80.jpg",
+   "verdict": "clean",
+   "t": 28.8,
+   "note": "-1|0 pair for the same boundary. Join at 28.80 s under the stats card; only the bar animation advances."
+  },
+  {
+   "image": "strip_022_00-31.60_join.jpg",
+   "verdict": "clean",
+   "t": 31.6,
+   "note": "Join at 31.60 s under the stats card; -1|0 identical."
+  },
+  {
+   "image": "pair_022_00-31.60.jpg",
+   "verdict": "clean",
+   "t": 31.6,
+   "note": "-1|0 pair for the same boundary. Join at 31.60 s under the stats card; -1|0 identical."
+  },
+  {
+   "image": "strip_023_00-31.93_covered_in___covered_out___punch_FAR___s.jpg",
+   "verdict": "expected",
+   "t": 31.93,
+   "note": "Declared hard cut stats card to FAR presenter at 31.93 s. He is leaning toward camera so the head reads a little larger than other FAR shots; hair clear of top."
+  },
+  {
+   "image": "pair_023_00-31.93.jpg",
+   "verdict": "expected",
+   "t": 31.93,
+   "note": "-1|0 pair for the same boundary. Declared hard cut stats card to FAR presenter at 31.93 s. He is leaning toward camera so the head reads a little larger than other FAR shots; hair clear of top."
+  },
+  {
+   "image": "strip_024_00-36.00_covered_in___covered_out___join___punch_.jpg",
+   "verdict": "expected",
+   "t": 36.0,
+   "note": "Re-covered join, frame 1079 (36.00 s): declared FAR to NEAR zoom cut. Scale step about 1.25-1.3x and the steepled-hands pose matches on both sides, so it reads as a punch-in, NOT as a same-framing jump. NEAR shot is frames 1079-1097 (19 frames, 0.63 s) then the macro card; checked every frame 1072-1099: motion inside it is continuous (mouth, then hands open on 'I even started using'). Brisk, the shortest shot in the file, but it reads as a deliberate punch-in leading into the card rather than a flash."
+  },
+  {
+   "image": "pair_024_00-36.00.jpg",
+   "verdict": "expected",
+   "t": 36.0,
+   "note": "-1|0 pair for the same boundary. Re-covered join, frame 1079 (36.00 s): declared FAR to NEAR zoom cut. Scale step about 1.25-1.3x and the steepled-hands pose matches on both sides, so it reads as a punch-in, NOT as a same-framing jump. NEAR shot is frames 1079-1097 (19 frames, 0.63 s) then the macro card; checked every frame 1072-1099: motion inside it is continuous (mouth, then hands open on 'I even started using'). Brisk, the shortest shot in the file, but it reads as a deliberate punch-in leading into the card rather than a flash."
+  },
+  {
+   "image": "strip_025_00-36.64_covered_in___covered_out___macro_in.jpg",
+   "verdict": "expected",
+   "t": 36.64,
+   "note": "Declared hard cut NEAR presenter into the macro phone-recording card at 36.64 s. A blue header band of the app is cropped at the top of the recording for the first frames (it scrolls off); cosmetic, text legible, caption clear of card."
+  },
+  {
+   "image": "pair_025_00-36.64.jpg",
+   "verdict": "expected",
+   "t": 36.64,
+   "note": "-1|0 pair for the same boundary. Declared hard cut NEAR presenter into the macro phone-recording card at 36.64 s. A blue header band of the app is cropped at the top of the recording for the first frames (it scrolls off); cosmetic, text legible, caption clear of card."
+  },
+  {
+   "image": "strip_026_00-38.97_join.jpg",
+   "verdict": "clean",
+   "t": 38.97,
+   "note": "Join at 38.97 s under the macro card; recording continues its slow scroll, no visible step."
+  },
+  {
+   "image": "pair_026_00-38.97.jpg",
+   "verdict": "clean",
+   "t": 38.97,
+   "note": "-1|0 pair for the same boundary. Join at 38.97 s under the macro card; recording continues its slow scroll, no visible step."
+  },
+  {
+   "image": "strip_027_00-39.74_covered_in___covered_out___macro_out___p.jpg",
+   "verdict": "expected",
+   "t": 39.74,
+   "note": "Declared hard cut macro card to FAR presenter at 39.74 s. Head about 28-30 percent of frame height, hair clear."
+  },
+  {
+   "image": "pair_027_00-39.74.jpg",
+   "verdict": "expected",
+   "t": 39.74,
+   "note": "-1|0 pair for the same boundary. Declared hard cut macro card to FAR presenter at 39.74 s. Head about 28-30 percent of frame height, hair clear."
+  },
+  {
+   "image": "strip_028_00-40.87_covered_in___covered_out___join___punch_.jpg",
+   "verdict": "expected",
+   "t": 40.87,
+   "note": "Declared zoom cut FAR to NEAR at 40.87 s; clear scale change, similar pose, reads as punch-in."
+  },
+  {
+   "image": "pair_028_00-40.87.jpg",
+   "verdict": "expected",
+   "t": 40.87,
+   "note": "-1|0 pair for the same boundary. Declared zoom cut FAR to NEAR at 40.87 s; clear scale change, similar pose, reads as punch-in."
+  },
+  {
+   "image": "strip_029_00-44.48_covered_in___covered_out___join___punch_.jpg",
+   "verdict": "expected",
+   "t": 44.48,
+   "note": "Declared zoom cut NEAR to FAR at 44.48 s; clear scale change. FAR head measured about 30 percent of frame height on exact frame 1334: not a wide level."
+  },
+  {
+   "image": "pair_029_00-44.48.jpg",
+   "verdict": "expected",
+   "t": 44.48,
+   "note": "-1|0 pair for the same boundary. Declared zoom cut NEAR to FAR at 44.48 s; clear scale change. FAR head measured about 30 percent of frame height on exact frame 1334: not a wide level."
+  },
+  {
+   "image": "strip_030_00-47.58_covered_in___covered_out___join___punch_.jpg",
+   "verdict": "expected",
+   "t": 47.58,
+   "note": "Declared zoom cut FAR to NEAR at 47.58 s; clear scale change."
+  },
+  {
+   "image": "pair_030_00-47.58.jpg",
+   "verdict": "expected",
+   "t": 47.58,
+   "note": "-1|0 pair for the same boundary. Declared zoom cut FAR to NEAR at 47.58 s; clear scale change."
+  },
+  {
+   "image": "strip_031_00-51.25_covered_in___covered_out___join___punch_.jpg",
+   "verdict": "expected",
+   "t": 51.25,
+   "note": "Declared zoom cut NEAR to FAR at 51.25 s; clear scale change."
+  },
+  {
+   "image": "pair_031_00-51.25.jpg",
+   "verdict": "expected",
+   "t": 51.25,
+   "note": "-1|0 pair for the same boundary. Declared zoom cut NEAR to FAR at 51.25 s; clear scale change."
+  },
+  {
+   "image": "strip_032_00-53.79_cta1_in.jpg",
+   "verdict": "expected",
+   "t": 53.79,
+   "note": "Declared CTA pill fade-in begins 53.79 s on FAR presenter; presenter continuous."
+  },
+  {
+   "image": "pair_032_00-53.79.jpg",
+   "verdict": "expected",
+   "t": 53.79,
+   "note": "-1|0 pair for the same boundary. Declared CTA pill fade-in begins 53.79 s on FAR presenter; presenter continuous."
+  },
+  {
+   "image": "strip_033_00-53.92_covered_in___covered_out___join___punch_.jpg",
+   "verdict": "expected",
+   "t": 53.92,
+   "note": "Declared zoom cut FAR to NEAR at 53.92 s under the pill mid-fade; clear scale and pose change, pill opacity continuous. In NEAR both raised hands are clipped symmetrically at the left and right edges (no empty side). Pill over upper chest and lav mic, clear of face and caption."
+  },
+  {
+   "image": "pair_033_00-53.92.jpg",
+   "verdict": "expected",
+   "t": 53.92,
+   "note": "-1|0 pair for the same boundary. Declared zoom cut FAR to NEAR at 53.92 s under the pill mid-fade; clear scale and pose change, pill opacity continuous. In NEAR both raised hands are clipped symmetrically at the left and right edges (no empty side). Pill over upper chest and lav mic, clear of face and caption."
+  },
+  {
+   "image": "strip_034_00-55.26_cta1_out.jpg",
+   "verdict": "expected",
+   "t": 55.26,
+   "note": "Declared CTA pill fade-out ending 55.26 s. Frame 1656 (55.255 s) is one presenter frame with neither pill nor caption before the end card; a single-frame gap in the caption, not visible in playback."
+  },
+  {
+   "image": "pair_034_00-55.26.jpg",
+   "verdict": "expected",
+   "t": 55.26,
+   "note": "-1|0 pair for the same boundary. Declared CTA pill fade-out ending 55.26 s. Frame 1656 (55.255 s) is one presenter frame with neither pill nor caption before the end card; a single-frame gap in the caption, not visible in playback."
+  },
+  {
+   "image": "strip_035_00-55.29_cards_in___covered_in___covered_out___en.jpg",
+   "verdict": "expected",
+   "t": 55.29,
+   "note": "Declared hard cut NEAR presenter to the end card at 55.29 s: AI-GENERATED chip, one picture, 'Tap the button below' bar below the picture, nothing overlapping."
+  },
+  {
+   "image": "pair_035_00-55.29.jpg",
+   "verdict": "expected",
+   "t": 55.29,
+   "note": "-1|0 pair for the same boundary. Declared hard cut NEAR presenter to the end card at 55.29 s: AI-GENERATED chip, one picture, 'Tap the button below' bar below the picture, nothing overlapping."
+  }
+ ]
+}

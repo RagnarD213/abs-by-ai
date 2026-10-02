@@ -1,0 +1,6441 @@
+{
+ "target_seconds": 57.19,
+ "target_frames": 1714,
+ "joins": [
+  3.07,
+  5.038,
+  7.674,
+  8.842,
+  11.178,
+  11.912,
+  12.112,
+  16.35,
+  19.019,
+  20.254,
+  23.19,
+  28.795,
+  31.598,
+  36.003,
+  38.972,
+  40.874,
+  44.478,
+  47.581,
+  51.251,
+  53.921
+ ],
+ "covered": [
+  [
+   0.0,
+   2.068733
+  ],
+  [
+   3.069733,
+   5.071733
+  ],
+  [
+   5.071733,
+   6.773433
+  ],
+  [
+   7.674333,
+   8.3083
+  ],
+  [
+   8.3083,
+   8.942267
+  ],
+  [
+   8.942267,
+   9.576233
+  ],
+  [
+   9.576233,
+   12.3123
+  ],
+  [
+   24.858167,
+   31.9319
+  ],
+  [
+   36.6366,
+   39.7397
+  ],
+  [
+   55.288567,
+   57.190467
+  ],
+  [
+   2.068733,
+   3.069733
+  ],
+  [
+   6.773433,
+   7.674333
+  ],
+  [
+   12.3123,
+   16.349667
+  ],
+  [
+   16.349667,
+   19.019
+  ],
+  [
+   19.019,
+   20.253567
+  ],
+  [
+   20.253567,
+   23.189833
+  ],
+  [
+   23.189833,
+   24.858167
+  ],
+  [
+   31.9319,
+   36.002633
+  ],
+  [
+   36.002633,
+   36.6366
+  ],
+  [
+   39.7397,
+   40.874167
+  ],
+  [
+   40.874167,
+   44.477767
+  ],
+  [
+   44.477767,
+   47.580867
+  ],
+  [
+   47.580867,
+   51.2512
+  ],
+  [
+   51.2512,
+   53.920533
+  ],
+  [
+   53.920533,
+   55.288567
+  ]
+ ],
+ "punch": [
+  [
+   2.068733,
+   3.069733,
+   "NEAR"
+  ],
+  [
+   6.773433,
+   7.674333,
+   "FAR"
+  ],
+  [
+   12.3123,
+   16.349667,
+   "NEAR"
+  ],
+  [
+   16.349667,
+   19.019,
+   "FAR"
+  ],
+  [
+   19.019,
+   20.253567,
+   "NEAR"
+  ],
+  [
+   20.253567,
+   23.189833,
+   "FAR"
+  ],
+  [
+   23.189833,
+   24.858167,
+   "NEAR"
+  ],
+  [
+   31.9319,
+   36.002633,
+   "FAR"
+  ],
+  [
+   36.002633,
+   36.6366,
+   "NEAR"
+  ],
+  [
+   39.7397,
+   40.874167,
+   "FAR"
+  ],
+  [
+   40.874167,
+   44.477767,
+   "NEAR"
+  ],
+  [
+   44.477767,
+   47.580867,
+   "FAR"
+  ],
+  [
+   47.580867,
+   51.2512,
+   "NEAR"
+  ],
+  [
+   51.2512,
+   53.920533,
+   "FAR"
+  ],
+  [
+   53.920533,
+   55.288567,
+   "NEAR"
+  ]
+ ],
+ "punch_covered": [
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false
+ ],
+ "graphics": [
+  {
+   "name": "cta0",
+   "beat": [
+    18.885533,
+    20.5205
+   ],
+   "mov": "/Volumes/Extreme/_edit_work/ra01-sq/cta_1x1/cta_b0.mov"
+  },
+  {
+   "name": "cta1",
+   "beat": [
+    53.787067,
+    55.2552
+   ],
+   "mov": "/Volumes/Extreme/_edit_work/ra01-sq/cta_1x1/cta_b1.mov"
+  },
+  {
+   "name": "ai_hook",
+   "beat": [
+    0.0,
+    2.068733
+   ],
+   "mov": "/Volumes/Extreme/_edit_work/ra01-sq/cards_1x1/ai_hook.mp4"
+  },
+  {
+   "name": "ai_gen",
+   "beat": [
+    3.069733,
+    5.071733
+   ],
+   "mov": "/Volumes/Extreme/_edit_work/ra01-sq/cards_1x1/ai_gen.mp4"
+  },
+  {
+   "name": "before",
+   "beat": [
+    5.071733,
+    6.773433
+   ],
+   "mov": "/Volumes/Extreme/_edit_work/ra01-sq/cards_1x1/before.mp4"
+  },
+  {
+   "name": "after_1",
+   "beat": [
+    7.674333,
+    8.3083
+   ],
+   "mov": "/Volumes/Extreme/_edit_work/ra01-sq/cards_1x1/after_1.mp4"
+  },
+  {
+   "name": "after_2",
+   "beat": [
+    8.3083,
+    8.942267
+   ],
+   "mov": "/Volumes/Extreme/_edit_work/ra01-sq/cards_1x1/after_2.mp4"
+  },
+  {
+   "name": "after_3",
+   "beat": [
+    8.942267,
+    9.576233
+   ],
+   "mov": "/Volumes/Extreme/_edit_work/ra01-sq/cards_1x1/after_3.mp4"
+  },
+  {
+   "name": "ai_again",
+   "beat": [
+    9.576233,
+    12.3123
+   ],
+   "mov": "/Volumes/Extreme/_edit_work/ra01-sq/cards_1x1/ai_again.mp4"
+  },
+  {
+   "name": "stats_scan",
+   "beat": [
+    24.858167,
+    31.9319
+   ],
+   "mov": "/Volumes/Extreme/_edit_work/ra01-sq/cards_1x1/stats_scan.mp4"
+  },
+  {
+   "name": "macro",
+   "beat": [
+    36.6366,
+    39.7397
+   ],
+   "mov": "/Volumes/Extreme/_edit_work/ra01-sq/cards_1x1/macro.mp4"
+  },
+  {
+   "name": "end_card",
+   "beat": [
+    55.288567,
+    57.190467
+   ],
+   "mov": "/Volumes/Extreme/_edit_work/ra01-sq/cards_1x1/end_card.mp4"
+  }
+ ],
+ "ai_inserts": [
+  {
+   "name": "ai_hook",
+   "beat": [
+    0.0,
+    2.068733
+   ],
+   "chip": "/Volumes/Extreme/_edit_work/ra01-sq/cards_1x1/chip_ai.png",
+   "pos": [
+    368,
+    69
+   ]
+  },
+  {
+   "name": "ai_gen",
+   "beat": [
+    3.069733,
+    5.071733
+   ],
+   "chip": "/Volumes/Extreme/_edit_work/ra01-sq/cards_1x1/chip_ai.png",
+   "pos": [
+    368,
+    69
+   ]
+  },
+  {
+   "name": "ai_again",
+   "beat": [
+    9.576233,
+    12.3123
+   ],
+   "chip": "/Volumes/Extreme/_edit_work/ra01-sq/cards_1x1/chip_ai.png",
+   "pos": [
+    368,
+    69
+   ]
+  },
+  {
+   "name": "stats_scan",
+   "beat": [
+    24.858167,
+    31.9319
+   ],
+   "chip": "/Volumes/Extreme/_edit_work/ra01-sq/cards_1x1/chip_ai.png",
+   "pos": [
+    134,
+    69
+   ]
+  },
+  {
+   "name": "end_card",
+   "beat": [
+    55.288567,
+    57.190467
+   ],
+   "chip": "/Volumes/Extreme/_edit_work/ra01-sq/cards_1x1/chip_ai.png",
+   "pos": [
+    368,
+    69
+   ]
+  }
+ ],
+ "real_photos": [
+  {
+   "name": "after_1",
+   "beat": [
+    7.674333,
+    8.3083
+   ],
+   "chip": "/Volumes/Extreme/_edit_work/ra01-sq/cards_1x1/chip_real.png",
+   "pos": [
+    152,
+    64
+   ]
+  },
+  {
+   "name": "after_2",
+   "beat": [
+    8.3083,
+    8.942267
+   ],
+   "chip": "/Volumes/Extreme/_edit_work/ra01-sq/cards_1x1/chip_real.png",
+   "pos": [
+    152,
+    64
+   ]
+  },
+  {
+   "name": "after_3",
+   "beat": [
+    8.942267,
+    9.576233
+   ],
+   "chip": "/Volumes/Extreme/_edit_work/ra01-sq/cards_1x1/chip_real.png",
+   "pos": [
+    152,
+    64
+   ]
+  }
+ ],
+ "cards": [
+  [
+   55.288567,
+   57.190467
+  ]
+ ],
+ "_cards_why": "`cards` is the gate's list of FULL-SCREEN beats a caption may not sit on. After round 2's R1 relayout only the end card is full-screen; every other card stops above the caption band (A.CARD_RECT) and the captions run under it on the J2AD field, by ruling. All ten card beats are declared in `graphics` and their measured picture rectangles in `graphic_regions`, so the clearance is measured, not assumed.",
+ "_cards_all": [
+  [
+   0.0,
+   2.068733
+  ],
+  [
+   3.069733,
+   5.071733
+  ],
+  [
+   5.071733,
+   6.773433
+  ],
+  [
+   7.674333,
+   8.3083
+  ],
+  [
+   8.3083,
+   8.942267
+  ],
+  [
+   8.942267,
+   9.576233
+  ],
+  [
+   9.576233,
+   12.3123
+  ],
+  [
+   24.858167,
+   31.9319
+  ],
+  [
+   36.6366,
+   39.7397
+  ],
+  [
+   55.288567,
+   57.190467
+  ]
+ ],
+ "label_chips": {
+  "ai": "/Volumes/Extreme/_edit_work/ra01-sq/cards_1x1/chip_ai.png",
+  "real": "/Volumes/Extreme/_edit_work/ra01-sq/cards_1x1/chip_real.png"
+ },
+ "srt": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/captions.srt",
+ "evidence_contract": {
+  "version": 2,
+  "video_sha256": "3e7939bcc571c9a895429278d59a40b07465c1bda76ad5c76095ae93723ecedd"
+ },
+ "caption_states": [
+  {
+   "name": "cap0000",
+   "beat": [
+    0.133467,
+    0.4004
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/2661605acc.png",
+   "image_sha256": "6da0dfce557f3c487a748880625075edc31efb861ce771b4927c983228e27a4b",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "This"
+  },
+  {
+   "name": "cap0001",
+   "beat": [
+    0.4004,
+    1.067733
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/c856850c15.png",
+   "image_sha256": "ac65701292051d62551fa7118b5fdaa777656ea3a375f12363d70bf132fd0b7f",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "picture"
+  },
+  {
+   "name": "cap0002",
+   "beat": [
+    1.067733,
+    1.234567
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/26ccab5a61.png",
+   "image_sha256": "64f3971f434a5dcaf92dcedd79454df9b83caa61fb70acf1cbcba934023c06ee",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "got"
+  },
+  {
+   "name": "cap0003",
+   "beat": [
+    1.234567,
+    1.468133
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/edf2034de5.png",
+   "image_sha256": "90ff821200d85bc9d7c6750cfc1f1341bd30ed6b7615ded63eb42d9dfe456e81",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "me"
+  },
+  {
+   "name": "cap0004",
+   "beat": [
+    1.468133,
+    2.135467
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/02a0796496.png",
+   "image_sha256": "4f1250be094c5b3777b5b15565e831f51d8743ca87a0a6cfa58444390984dc31",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "abs."
+  },
+  {
+   "name": "cap0005",
+   "beat": [
+    2.135467,
+    2.268933
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/14721fcbb7.png",
+   "image_sha256": "91465a249bac5f97f828e63661cdf70fa16176ab5dfd61ba926ec699ae7f43ed",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "And"
+  },
+  {
+   "name": "cap0006",
+   "beat": [
+    2.268933,
+    2.4024
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/0126ab8944.png",
+   "image_sha256": "a2ca262f509e859042634c1d86f1f69caf23c43e09540502dce4484b0aaedc89",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "it's"
+  },
+  {
+   "name": "cap0007",
+   "beat": [
+    2.4024,
+    2.569233
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/a55cc5d571.png",
+   "image_sha256": "df64db1d37526b04094639745cc3d1dae41cab90cd8414b833721b663a7dd9c6",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "not"
+  },
+  {
+   "name": "cap0008",
+   "beat": [
+    2.569233,
+    2.769433
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/3eaf4d0fea.png",
+   "image_sha256": "54f2c9ce4609e0021f47ce7efbe29837aebe68afa8d7686738469cf94286b2ba",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "even"
+  },
+  {
+   "name": "cap0009",
+   "beat": [
+    2.769433,
+    3.236567
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/5dbed6eee0.png",
+   "image_sha256": "729179544980a690d9d08ab1a8a65d394ddefbf953457f3370c659f931712b91",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "real."
+  },
+  {
+   "name": "cap0010",
+   "beat": [
+    3.236567,
+    3.436767
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/1b274eda59.png",
+   "image_sha256": "d428c9b63976a9f48b29844d1af4293c40e7f8c72d4424902178eb73a10d8b3d",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "I"
+  },
+  {
+   "name": "cap0011",
+   "beat": [
+    3.436767,
+    3.970633
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/879344ecb2.png",
+   "image_sha256": "955bf0f74cc33d449369194c74aafaf9aa507b25bb2a15a6338a6314aefb3fc8",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "generated"
+  },
+  {
+   "name": "cap0012",
+   "beat": [
+    3.970633,
+    4.170833
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/48df7b82d1.png",
+   "image_sha256": "560e007b5ae89d7f3ea6695b6ec6bc40314c734b0679eaff99a1021fbbb8038a",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "this"
+  },
+  {
+   "name": "cap0013",
+   "beat": [
+    4.170833,
+    4.471133
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/72f1ed8cb1.png",
+   "image_sha256": "1a886857e495d9117696f9713a018053fd443a934209572ae9dd77e19dd04577",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "picture"
+  },
+  {
+   "name": "cap0014",
+   "beat": [
+    4.471133,
+    4.671333
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/eb21c72dda.png",
+   "image_sha256": "3a52ccfa084019db70268d480ee53135d6f4a39ab17131bbe97fa96c61166c2b",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "with"
+  },
+  {
+   "name": "cap0015",
+   "beat": [
+    4.671333,
+    5.138467
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/cce60a11ba.png",
+   "image_sha256": "f0bcfcab1a9e025df1022cda54e73ab63e89695578ba9513c943262f4c0b9e18",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "AI"
+  },
+  {
+   "name": "cap0016",
+   "beat": [
+    5.138467,
+    5.372033
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/2b8de98abd.png",
+   "image_sha256": "72a1c8d68dbfe8a16841c0bfb0d28c2135d623333a060c0ece0c3589a5c58b55",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "back"
+  },
+  {
+   "name": "cap0017",
+   "beat": [
+    5.372033,
+    5.538867
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/1b6d8195df.png",
+   "image_sha256": "ebfec74e0c12b529af59497927cac232d484f8b9646a75133b749660b408036f",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "when"
+  },
+  {
+   "name": "cap0018",
+   "beat": [
+    5.538867,
+    5.6056
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/6d17695dfc.png",
+   "image_sha256": "3e4cd2c5a9b3f31d6b26589f15fad1958bb8eff0ca7b77c8982a7d44adc17b73",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "I"
+  },
+  {
+   "name": "cap0019",
+   "beat": [
+    5.6056,
+    5.772433
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/b388e332f3.png",
+   "image_sha256": "c2db37891e4df3adfbc0701d57597238d2a48aa862ad79c47f8172bed7aa525c",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "was"
+  },
+  {
+   "name": "cap0021",
+   "beat": [
+    5.772433,
+    7.007
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/e5fd2f021c.png",
+   "image_sha256": "1ececc2b517d184539ed9debc0a8c5c6ed1987740a20de856afe85855b5466b0",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "pounds."
+  },
+  {
+   "name": "cap0022",
+   "beat": [
+    7.007,
+    7.2072
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/9432824962.png",
+   "image_sha256": "91cb185985014f7a124a3f35729af14268c453f030b3e3c783e66fd626761e6c",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "And"
+  },
+  {
+   "name": "cap0023",
+   "beat": [
+    7.2072,
+    7.8078
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/a914eb5f98.png",
+   "image_sha256": "cb5ce3f1f2b54364cafbfe554e3977aeacd4803ef47167342aafb70a10844d44",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "this"
+  },
+  {
+   "name": "cap0024",
+   "beat": [
+    7.8078,
+    7.941267
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/f93f3c63fe.png",
+   "image_sha256": "16e5b1cd5a4710f2dbeb63e17f8a5e359d52b1be88e44eabc5e2105bbbc3a9fb",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "is"
+  },
+  {
+   "name": "cap0025",
+   "beat": [
+    7.941267,
+    8.1081
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/60b8b14a71.png",
+   "image_sha256": "c6b6a2441cd859d16aa7519330e63f82076483cd91aa1dd5ac8f409581fe5597",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "what"
+  },
+  {
+   "name": "cap0026",
+   "beat": [
+    8.1081,
+    8.174833
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/81de5451f5.png",
+   "image_sha256": "e13d5d0d468ef9878712f47b4cac7fbb42aef71ecb92f9ae157906e5c89e68ba",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "I"
+  },
+  {
+   "name": "cap0027",
+   "beat": [
+    8.174833,
+    8.375033
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/01cd757e30.png",
+   "image_sha256": "33cf0e777ad223bca586cab4107695909169dc67e6316b155ba2b2ac61e926c2",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "look"
+  },
+  {
+   "name": "cap0028",
+   "beat": [
+    8.375033,
+    8.541867
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/a336f92938.png",
+   "image_sha256": "60466656c2997776b3e235318efc93feff4369fd9e823894afc9cffccda3d86f",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "like"
+  },
+  {
+   "name": "cap0029",
+   "beat": [
+    8.541867,
+    9.009
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/416a125956.png",
+   "image_sha256": "8e6b0e7bba7ad626755b9039d3bee460b3019184d18d174d47cd0cdebe76a94e",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "today."
+  },
+  {
+   "name": "cap0030",
+   "beat": [
+    9.009,
+    9.376033
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/6f31118913.png",
+   "image_sha256": "02cf51735712181b8f1438dcfcf43b62e024d418e103f51df669afd95c99273f",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "Seeing"
+  },
+  {
+   "name": "cap0031",
+   "beat": [
+    9.376033,
+    9.6096
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/8139692040.png",
+   "image_sha256": "d631147717f54da0c75e10ebae1ecf0f20036324c56a2b217eb52ff42747e2ac",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "this"
+  },
+  {
+   "name": "cap0032",
+   "beat": [
+    9.6096,
+    9.976633
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/e246277e71.png",
+   "image_sha256": "77313e03c56900a0a6abc705f5731b45109023efb54b02b62d99b04dde379d5a",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "AI"
+  },
+  {
+   "name": "cap0033",
+   "beat": [
+    9.976633,
+    10.2102
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/96b6698bb7.png",
+   "image_sha256": "45eafc477b600638ef7786548ba87219786f6aa0a49ca0632c36ec10b35dfe12",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "image"
+  },
+  {
+   "name": "cap0034",
+   "beat": [
+    10.2102,
+    10.3103
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/b6187ea680.png",
+   "image_sha256": "60bb87dbe6aa47c9510c85acdf10fa03d4b8241ba9af489b4633d8be5273b206",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "of"
+  },
+  {
+   "name": "cap0035",
+   "beat": [
+    10.3103,
+    10.677333
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/be02b52df8.png",
+   "image_sha256": "268608b194d43969d04e078f40a28ee21946b6dd3d17e71284348171de5d414f",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "myself"
+  },
+  {
+   "name": "cap0036",
+   "beat": [
+    10.677333,
+    10.977633
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/1080cc7e4c.png",
+   "image_sha256": "d7a2184c71ea49b23725e6d6a62159c2b64b39b919270e92f28bb7c57f1944e9",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "with"
+  },
+  {
+   "name": "cap0037",
+   "beat": [
+    10.977633,
+    11.3113
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/feef3d28de.png",
+   "image_sha256": "5ffa827bd5946e150d34b4ee01c342aef82b6a49346825bac8d4ed67817072cf",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "abs"
+  },
+  {
+   "name": "cap0038",
+   "beat": [
+    11.3113,
+    11.7117
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/eee297922b.png",
+   "image_sha256": "0b0acc04c3ec54cdd212957b6dc98d1ed81c964ed5b5ac0697e5658cc36a3407",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "changed"
+  },
+  {
+   "name": "cap0039",
+   "beat": [
+    11.7117,
+    12.278933
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/2f8d6d3a8e.png",
+   "image_sha256": "00e1d359ae4d41a70298736f808b048527357607ef82448ce47979bb0e20e3bb",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "me."
+  },
+  {
+   "name": "cap0040",
+   "beat": [
+    12.278933,
+    12.379033
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/23f434070d.png",
+   "image_sha256": "65fc9ff9d1852d2c3789617d9af508aa6a0b03e935f13c9ea30ab93b87e5239c",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "It"
+  },
+  {
+   "name": "cap0041",
+   "beat": [
+    12.379033,
+    12.946267
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/525cb5b8d5.png",
+   "image_sha256": "bcde2b3b2f650b00a669f000b188b17aff17bd076d26b07c724cbf8bbb923396",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "inspired"
+  },
+  {
+   "name": "cap0042",
+   "beat": [
+    12.946267,
+    13.146467
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/66d50d2ff9.png",
+   "image_sha256": "f8e1b7653ae8f33e80fed140024031073c8e06a1b3b40832d282361dcb674e34",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "me"
+  },
+  {
+   "name": "cap0043",
+   "beat": [
+    13.146467,
+    13.279933
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/b0e099d5dc.png",
+   "image_sha256": "991a719bd3e4e16732868c50a2b856a6c54cc56ee29ac051401e78edcc56dbdf",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "to"
+  },
+  {
+   "name": "cap0044",
+   "beat": [
+    13.279933,
+    13.5135
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/82a99d7a40.png",
+   "image_sha256": "4eed7f9ad0425af91463100e8201e35e89b4a8e425bf953fd41fa34ef170d212",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "start"
+  },
+  {
+   "name": "cap0045",
+   "beat": [
+    13.5135,
+    13.780433
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/ebe262ebac.png",
+   "image_sha256": "4765b6823f1f7e63f59fc3f624b4d28c60a2cebcee272a6005dbf794007a3024",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "taking"
+  },
+  {
+   "name": "cap0046",
+   "beat": [
+    13.780433,
+    13.980633
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/3e32adb93e.png",
+   "image_sha256": "7333eabdb239c1bf1a6ad3df3d4e5c9a6be66d0b3139c007172590a23de198d7",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "my"
+  },
+  {
+   "name": "cap0047",
+   "beat": [
+    13.980633,
+    14.547867
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/8f85df3f96.png",
+   "image_sha256": "9192f3075bcec9fe754a46f29ad6e4cde3dd06a36b32ed211f77ced6574ba21f",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "workouts"
+  },
+  {
+   "name": "cap0048",
+   "beat": [
+    14.547867,
+    14.647967
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/1d66bd1859.png",
+   "image_sha256": "7b41ad3094e7a68fb91546e68567e313e7755aa74dd393d2f02fc622c331c061",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "and"
+  },
+  {
+   "name": "cap0049",
+   "beat": [
+    14.647967,
+    15.5155
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/45019b47d0.png",
+   "image_sha256": "a6f016a61a8d6e86c581930a6432d892698d462a0953d3ee7be19c2d6194e99a",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "nutrition"
+  },
+  {
+   "name": "cap0050",
+   "beat": [
+    15.5155,
+    16.082733
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/1240256c2a.png",
+   "image_sha256": "e51d07171b7bd1ba198735e3d71afa7e2418d416c4a69d60ecc81ae810f1d212",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "seriously"
+  },
+  {
+   "name": "cap0051",
+   "beat": [
+    16.082733,
+    16.383033
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/a6a3504162.png",
+   "image_sha256": "120d3a4725cc03a9bcd861ba98c4643c8635b6b78bdece762ccfbc72dd854a96",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "again."
+  },
+  {
+   "name": "cap0052",
+   "beat": [
+    16.383033,
+    16.549867
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/13654007d6.png",
+   "image_sha256": "aeeee6393dfd15a331e81b0ad77272105008592789b3054a09e83c1065ff45cf",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "To"
+  },
+  {
+   "name": "cap0053",
+   "beat": [
+    16.549867,
+    16.950267
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/661e4da6c9.png",
+   "image_sha256": "ac82dddf5da981f231cbcc77038d9e3aa115f2aa544cdb4682d0d353389bcb96",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "generate"
+  },
+  {
+   "name": "cap0054",
+   "beat": [
+    16.950267,
+    17.050367
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/0e944da103.png",
+   "image_sha256": "aafad50e98650589a9ae1c257a22d2da0bc045b4dffff57d72917dc61b5a0996",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "a"
+  },
+  {
+   "name": "cap0055",
+   "beat": [
+    17.050367,
+    17.3173
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/3dbb8bd7d7.png",
+   "image_sha256": "e09189a590ce235d83030f9a561e47091c39b9f99d10d9a9da08e9c6535a4bd0",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "picture"
+  },
+  {
+   "name": "cap0056",
+   "beat": [
+    17.3173,
+    17.4174
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/13f4477256.png",
+   "image_sha256": "475b82ab54b09ed2a57c66b05f0c4705ad8d506c7d3db584bf10a1f69c80c059",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "of"
+  },
+  {
+   "name": "cap0057",
+   "beat": [
+    17.4174,
+    17.8178
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/9faa90bece.png",
+   "image_sha256": "ebd26c22066fc122fa25ded46be7fb64e86a3cc02b404bae5b5dbc95a9e39571",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "yourself"
+  },
+  {
+   "name": "cap0058",
+   "beat": [
+    17.8178,
+    18.018
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/c7d70651dd.png",
+   "image_sha256": "94f4071abb2318d2de68a59b044f5581390aa68ec80fb64873b2daa0bfb89221",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "with"
+  },
+  {
+   "name": "cap0059",
+   "beat": [
+    18.018,
+    18.251567
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/2b386cdd44.png",
+   "image_sha256": "7b8205ed045456d3e4cc64174049257c721d3fa42ee19494f6f92d47be022f5a",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "abs"
+  },
+  {
+   "name": "cap0060",
+   "beat": [
+    18.251567,
+    18.551867
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/448730dc33.png",
+   "image_sha256": "38f3b43c04a43e9f05a2fb9717e90c006cbba6dc7da8a2a0ea7298c7b463188a",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "using"
+  },
+  {
+   "name": "cap0061",
+   "beat": [
+    18.551867,
+    19.052367
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/464d0dc07c.png",
+   "image_sha256": "3c1685f52fc3c3fdf0552b254a870422295dcb9522e63efb2ee40a6613ed85f4",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "AI,"
+  },
+  {
+   "name": "cap0062",
+   "beat": [
+    19.052367,
+    19.452767
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/23fa1237d3.png",
+   "image_sha256": "6aeaceb57ee41ef2a17ac16c0bac57727a10a57632585c23b1825e693a16c8ef",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "tap"
+  },
+  {
+   "name": "cap0063",
+   "beat": [
+    19.452767,
+    19.586233
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/d558e2b589.png",
+   "image_sha256": "64a32fbd1c5bdad19e1ef63149be16e4bdddfb5ecef7e3f679778b5e0c27992d",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "the"
+  },
+  {
+   "name": "cap0064",
+   "beat": [
+    19.586233,
+    19.853167
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/3e81bf1639.png",
+   "image_sha256": "fa1acd9d7294bef9f560038c410a48f00d5dba6abab4982a66183fee3db8e4b5",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "button"
+  },
+  {
+   "name": "cap0065",
+   "beat": [
+    19.853167,
+    20.353667
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/be54daf88d.png",
+   "image_sha256": "b9404f543f4aaa6536f1c75ffc1eb804c0acbb73ece93ae08f2934e7594b4acf",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "below."
+  },
+  {
+   "name": "cap0066",
+   "beat": [
+    20.353667,
+    20.487133
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/7a6cf7df5f.png",
+   "image_sha256": "d5ed468ced1bae004e0a3c7003657b842b595212e5c4e5d4d607f7084e9dc5d3",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "And"
+  },
+  {
+   "name": "cap0067",
+   "beat": [
+    20.487133,
+    20.754067
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/92282eaf08.png",
+   "image_sha256": "51e8f061e7001d81ac0e4975fd535508ed91f2c7357eeaa02007fea443d58991",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "that's"
+  },
+  {
+   "name": "cap0068",
+   "beat": [
+    20.754067,
+    20.954267
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/2d4588ad99.png",
+   "image_sha256": "a77c06d4772f662b5a7989df3b0a07ad61827f23fa392f4d49b238b815797d8b",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "only"
+  },
+  {
+   "name": "cap0069",
+   "beat": [
+    20.954267,
+    21.087733
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/41e699141e.png",
+   "image_sha256": "743a707c25765d4b2cba8b7ceb6ce8c1af09b8e35ec779f7203f1c6b114d43ee",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "the"
+  },
+  {
+   "name": "cap0070",
+   "beat": [
+    21.087733,
+    21.6216
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/9a748dc866.png",
+   "image_sha256": "0fab066190b61dba483434f0da23fa53dea36cf93a01dfb683817fcccf4c7edb",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "beginning"
+  },
+  {
+   "name": "cap0071",
+   "beat": [
+    21.6216,
+    21.7217
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/fd8cc9caae.png",
+   "image_sha256": "0216e902b04d246e2a35382d00a415b64bca49e722807797abe4a69eddac0f7d",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "of"
+  },
+  {
+   "name": "cap0072",
+   "beat": [
+    21.7217,
+    21.955267
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/546a42effe.png",
+   "image_sha256": "8295ae748499d65a802f5c7e9d3f7f0f37afcb0b70137e492c9c442462cde54d",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "how"
+  },
+  {
+   "name": "cap0073",
+   "beat": [
+    21.955267,
+    22.255567
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/2fc633152e.png",
+   "image_sha256": "42e812f8e230c8ef03891843dad72f3889ebe301bf9359705b5b56fb7c9edeb8",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "AI"
+  },
+  {
+   "name": "cap0074",
+   "beat": [
+    22.255567,
+    22.4224
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/0bbf0f0897.png",
+   "image_sha256": "ca5a4db7733fc55f3a73f602abd40475650608fb4d9a8175cd80ce5289e3fb7b",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "helped"
+  },
+  {
+   "name": "cap0075",
+   "beat": [
+    22.4224,
+    22.5225
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/4b5b3fbeac.png",
+   "image_sha256": "9786a7e60ce66c8413ae355a1d3b95f06b6dc8fb602a8069d45f502b63a5ede8",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "me"
+  },
+  {
+   "name": "cap0076",
+   "beat": [
+    22.5225,
+    22.6226
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/00ac251810.png",
+   "image_sha256": "7b79d7836def0b3c5f2be2b44f3b57409978555c23c3e2c739f8c67b7c72c575",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "to"
+  },
+  {
+   "name": "cap0077",
+   "beat": [
+    22.6226,
+    22.856167
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/3ff91ec7bf.png",
+   "image_sha256": "1a2d6694a38056e47aa7449622f970050be023eab0ba11aff598232f300e2199",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "get"
+  },
+  {
+   "name": "cap0078",
+   "beat": [
+    22.856167,
+    23.3233
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/dc5237d144.png",
+   "image_sha256": "3a40003578c7a0f2ffeac58f5e316ffd6e953879fb190aa0abe7b728efb74067",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "abs."
+  },
+  {
+   "name": "cap0079",
+   "beat": [
+    23.3233,
+    23.490133
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/8fdc3cbf3c.png",
+   "image_sha256": "64346a99286b1e15a717abd309be157a3383a089a44bf34615e05a847d6c57e5",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "Once"
+  },
+  {
+   "name": "cap0080",
+   "beat": [
+    23.490133,
+    23.590233
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/8ba91ac9d4.png",
+   "image_sha256": "a0a1be9284a10944317133d0fd51546aec12df3132cc96e53d25aee8f74f74c5",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "I"
+  },
+  {
+   "name": "cap0081",
+   "beat": [
+    23.590233,
+    24.057367
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/40cd59e631.png",
+   "image_sha256": "bd2fd3b1c74f40400efcf49127606b3264a7a5154f9d9c5d0a951d0adeeef357",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "generated"
+  },
+  {
+   "name": "cap0082",
+   "beat": [
+    24.057367,
+    24.190833
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/75ee8cceb2.png",
+   "image_sha256": "907db0d4e0daa2f5f6543701c0ac7af73906a65251adf94e70ab9af85167bc5c",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "my"
+  },
+  {
+   "name": "cap0083",
+   "beat": [
+    24.190833,
+    24.891533
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/0a7c49e844.png",
+   "image_sha256": "bba77f7ec608a0bb9abba8e02977eae67edbb1963f2fe25138b7d0dce15c62b7",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "picture,"
+  },
+  {
+   "name": "cap0084",
+   "beat": [
+    24.891533,
+    25.558867
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/74c8b05084.png",
+   "image_sha256": "160a9e3133052f24919a4d17baaa7cd7aa7ffc82991579cc379bfa25d0526361",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "AI"
+  },
+  {
+   "name": "cap0085",
+   "beat": [
+    25.558867,
+    26.092733
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/9f7b864f3c.png",
+   "image_sha256": "56299ac69660a160dac19b756358adf9d80e250a00ab3bc8b842e1645236353f",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "analyzed"
+  },
+  {
+   "name": "cap0086",
+   "beat": [
+    26.092733,
+    26.393033
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/cf68034b25.png",
+   "image_sha256": "b228d7f1b36127b0e77687dc1dec2720435dab2d29aff97a787fad75dc751efb",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "it"
+  },
+  {
+   "name": "cap0087",
+   "beat": [
+    26.393033,
+    26.559867
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/507410c32e.png",
+   "image_sha256": "05e25b26cdc85c070db410c969da009d6093ebbb8e0515578be39f1b38ca545f",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "and"
+  },
+  {
+   "name": "cap0088",
+   "beat": [
+    26.559867,
+    26.893533
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/7d6b95e466.png",
+   "image_sha256": "9951da13d0d942e6fdb5af2ee7ee9b0be95cd5d7bb01f8ce53fc2d530ccfcc62",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "figured"
+  },
+  {
+   "name": "cap0089",
+   "beat": [
+    26.893533,
+    27.160467
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/df918cf9c1.png",
+   "image_sha256": "0a26843462363a92e2bb6ced9c927a9e8bdc483ff6044d6445103fd00b6120fa",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "out"
+  },
+  {
+   "name": "cap0090",
+   "beat": [
+    27.160467,
+    27.6276
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/ca27430e3d.png",
+   "image_sha256": "6667375599938ca60006ce27bbc99c84abcec7c90f2c6c6679df3a5f62b79c13",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "exactly"
+  },
+  {
+   "name": "cap0091",
+   "beat": [
+    27.6276,
+    27.761067
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/573405d74f.png",
+   "image_sha256": "353840af66348d6aadc134d99ef7e89f6d94ac66ea3bc6cba10dd7b928317b49",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "how"
+  },
+  {
+   "name": "cap0092",
+   "beat": [
+    27.761067,
+    27.9279
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/16e543ff4c.png",
+   "image_sha256": "de2e50778ac9868803f21d62c685f1d25813f0d69d54a213eba2bc6e686e5892",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "much"
+  },
+  {
+   "name": "cap0093",
+   "beat": [
+    27.9279,
+    28.161467
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/6dbbdfc102.png",
+   "image_sha256": "978b67f351975eaf3e99eadbef92de704d80e851365dc3a2d43eb434bd19e512",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "fat"
+  },
+  {
+   "name": "cap0094",
+   "beat": [
+    28.161467,
+    28.261567
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/c03c8fb2e1.png",
+   "image_sha256": "efdd4b38f9b116ebc019ae7593d1b2e88626595427eb71a1ae34b879d81b79ce",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "I"
+  },
+  {
+   "name": "cap0095",
+   "beat": [
+    28.261567,
+    28.395033
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/3b3c2b30e8.png",
+   "image_sha256": "36c9fc251a48f0620de76a0a9261eac8c11ee9f8c755ea2042cc16829f3bd8ac",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "had"
+  },
+  {
+   "name": "cap0096",
+   "beat": [
+    28.395033,
+    28.5285
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/0d032988ed.png",
+   "image_sha256": "6e509b51fa0e34e976aec0c2e5c8eece91a1b8a56cb44a192f77ce504052e7da",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "to"
+  },
+  {
+   "name": "cap0097",
+   "beat": [
+    28.5285,
+    28.862167
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/fcf7831047.png",
+   "image_sha256": "4d7f29fb5d70158b8cec220173f069a9db66c998a81d1c07f126e2200d5e0800",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "lose"
+  },
+  {
+   "name": "cap0098",
+   "beat": [
+    28.862167,
+    29.062367
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/50d6d90c5a.png",
+   "image_sha256": "906630e04f1d7eaebcd9f0d213111ee253f604739cf36036ee8dc9673b6c0057",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "and"
+  },
+  {
+   "name": "cap0099",
+   "beat": [
+    29.062367,
+    29.362667
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/b4d38766d1.png",
+   "image_sha256": "a0660f754923ea20cf9836186a9822652b05c4da4541da2542b74e0759d832ab",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "where"
+  },
+  {
+   "name": "cap0100",
+   "beat": [
+    29.362667,
+    29.4294
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/62cea9c2ad.png",
+   "image_sha256": "0eacb93333b4434c6ae258b3e344677e8690a28835c238260498dcb337d03599",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "I"
+  },
+  {
+   "name": "cap0101",
+   "beat": [
+    29.4294,
+    29.562867
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/9360c2b055.png",
+   "image_sha256": "f8ce743a113ef6d6e3fea32eadeb3c79ca5afca76267563c7f338666966da67e",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "had"
+  },
+  {
+   "name": "cap0102",
+   "beat": [
+    29.562867,
+    29.662967
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/5df3bdf364.png",
+   "image_sha256": "57c5eea9424af949430145183df5bfb78c83ef7759aa0ab736aac3040b6ea454",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "to"
+  },
+  {
+   "name": "cap0103",
+   "beat": [
+    29.662967,
+    29.863167
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/824b4a000d.png",
+   "image_sha256": "00390fe994e44d0ee6b2bf98730eb1ffa2ffbb7793a823779129d1763b1a3ce4",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "gain"
+  },
+  {
+   "name": "cap0104",
+   "beat": [
+    29.863167,
+    30.463767
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/c875a031f4.png",
+   "image_sha256": "bd4b7abf402b60a9aea8eeb788d413a5dfbdd3ddffd52905fec35c8d146bc9e2",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "muscle"
+  },
+  {
+   "name": "cap0105",
+   "beat": [
+    30.463767,
+    30.597233
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/31f68b93fd.png",
+   "image_sha256": "6bff5530dd821479723b560ec50e4850631578242e16e9d4da20ded3f42e02ed",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "to"
+  },
+  {
+   "name": "cap0106",
+   "beat": [
+    30.597233,
+    30.797433
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/8992c804b9.png",
+   "image_sha256": "ee3d239d1d532dc5e35701d497cc6f56722cfeedb781390f8404a5b49b991ef9",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "reach"
+  },
+  {
+   "name": "cap0107",
+   "beat": [
+    30.797433,
+    30.9309
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/b32c47923f.png",
+   "image_sha256": "1f480949cee830ad0cab2749cf954c46700a4f28beff9164394264771047ffbb",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "my"
+  },
+  {
+   "name": "cap0108",
+   "beat": [
+    30.9309,
+    31.1311
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/1ec30e267a.png",
+   "image_sha256": "b04ff61e7fdb31ec716b14d3233b7b2c13b0d40cf317abb44e48fcf88e90f99f",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "goal"
+  },
+  {
+   "name": "cap0109",
+   "beat": [
+    31.1311,
+    31.698333
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/3fe211e0df.png",
+   "image_sha256": "794392315d06eb01f996cbb0c5b75e86ee6f997d9d1efabb0b58b7220fa520a9",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "physique."
+  },
+  {
+   "name": "cap0110",
+   "beat": [
+    31.698333,
+    32.098733
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/93b8e9c824.png",
+   "image_sha256": "7de10577c096c6251a406d59c10d77cbab55c05142170f6804204927f1dce680",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "Then"
+  },
+  {
+   "name": "cap0111",
+   "beat": [
+    32.098733,
+    32.165467
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/36c3c1f63c.png",
+   "image_sha256": "9e1311069f9ba592627433434ee78b3a181a78a3c9d840a5a430d17f4bf11b16",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "it"
+  },
+  {
+   "name": "cap0112",
+   "beat": [
+    32.165467,
+    32.365667
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/a409d23643.png",
+   "image_sha256": "c079a9270f90a8ce9cc3585db46888f1fd61a462d3cc79fb2aaac7a79769b113",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "gave"
+  },
+  {
+   "name": "cap0113",
+   "beat": [
+    32.365667,
+    32.465767
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/f519442d18.png",
+   "image_sha256": "0b313a76c315cd0048c8512044344e6d672c6c97b8f5468e9eea1a810abf3409",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "me"
+  },
+  {
+   "name": "cap0114",
+   "beat": [
+    32.465767,
+    32.565867
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/f32e7ddce1.png",
+   "image_sha256": "33506fae6ac26e365a04b27fd6bbe5542b5e823db9dd3b19018e6ce175873393",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "a"
+  },
+  {
+   "name": "cap0115",
+   "beat": [
+    32.565867,
+    33.4334
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/fb00f13c66.png",
+   "image_sha256": "0388b54ef99e2f70cce62284d15f76766be06c1999d6411db32b9aa791b563e8",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "personalized"
+  },
+  {
+   "name": "cap0116",
+   "beat": [
+    33.4334,
+    34.1341
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/46cb617f2d.png",
+   "image_sha256": "9d75080de7e220b54cf487e882346168a09135ca092590a2e6ca43a3b0f84f65",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "workout"
+  },
+  {
+   "name": "cap0117",
+   "beat": [
+    34.1341,
+    34.300933
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/0c2baec29d.png",
+   "image_sha256": "32c78d2765f739d68f20b8d19ca758829db5d0807c3ef1536ee3f74eeb0a0ecf",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "and"
+  },
+  {
+   "name": "cap0118",
+   "beat": [
+    34.300933,
+    34.7347
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/96b7aca993.png",
+   "image_sha256": "ca030ef6d71a69020d7c9171650262bca38f6defb10bfb7be4a2004b2cb7611c",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "nutrition"
+  },
+  {
+   "name": "cap0119",
+   "beat": [
+    34.7347,
+    35.201833
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/007b77584e.png",
+   "image_sha256": "9f60df91a758db4920a776b0581e94a466f6d236ec45bd5490c2a5b0b68bf66b",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "plan"
+  },
+  {
+   "name": "cap0120",
+   "beat": [
+    35.201833,
+    35.3353
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/f0b34be4af.png",
+   "image_sha256": "6c76ec8d1984eda954195133292220e6f46e917ee89ebdb060e35c5f81f13b78",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "to"
+  },
+  {
+   "name": "cap0121",
+   "beat": [
+    35.3353,
+    35.502133
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/737bd268d2.png",
+   "image_sha256": "b93fdc071e4335c3802b0400853963f6b0d39ebe489f6316ec4c3007b5743343",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "hit"
+  },
+  {
+   "name": "cap0122",
+   "beat": [
+    35.502133,
+    35.6356
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/4cf2d32d15.png",
+   "image_sha256": "f3afd4c02b6d4fdf8714b659c9160cd92acf43b299290881f3ecfbd6055f6537",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "my"
+  },
+  {
+   "name": "cap0123",
+   "beat": [
+    35.6356,
+    36.169467
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/bf94d7ee9b.png",
+   "image_sha256": "08706a3935388c4a608c42cf85bcc112c8067af7ae1ef6f002637e27891489b2",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "goal."
+  },
+  {
+   "name": "cap0124",
+   "beat": [
+    36.169467,
+    36.3363
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/34ae3e4354.png",
+   "image_sha256": "7fb8e428e73158c53810fa96f26db2dafc07b7980f51b2fba9ee6b10bd02862e",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "I"
+  },
+  {
+   "name": "cap0125",
+   "beat": [
+    36.3363,
+    36.5365
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/afee81b47e.png",
+   "image_sha256": "fe2f56d444fc527a6ce85d55457aa7c65a8a970e5d482a998103e81f489e63f1",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "even"
+  },
+  {
+   "name": "cap0126",
+   "beat": [
+    36.5365,
+    36.9369
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/b4e1ba2b4a.png",
+   "image_sha256": "480456c62f30ab1b58d99e7613ae3cb03dae2d395575185c6dfd1c409859eb16",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "started"
+  },
+  {
+   "name": "cap0127",
+   "beat": [
+    36.9369,
+    37.2372
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/81ba15064b.png",
+   "image_sha256": "61958827f2ea3f372ceafaadcbb997100629a06938e26340717e2d6c1a89a611",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "using"
+  },
+  {
+   "name": "cap0128",
+   "beat": [
+    37.2372,
+    37.570867
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/dccba75e15.png",
+   "image_sha256": "fcca35b671117269551c11f881951931e59c74a31953f2ae9e34690ea0680f57",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "AI"
+  },
+  {
+   "name": "cap0129",
+   "beat": [
+    37.570867,
+    37.704333
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/52c5495ff9.png",
+   "image_sha256": "2fba66bcf16c1df6ef42b15cc5468a898816f42a30f3ae0cbc4c4f8afe520a32",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "to"
+  },
+  {
+   "name": "cap0130",
+   "beat": [
+    37.704333,
+    38.1381
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/fcc58811aa.png",
+   "image_sha256": "6126ef22ab1e2ff4a1b06ab1a12a8bc04edf304461416d7763f6a21e1a73236b",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "track"
+  },
+  {
+   "name": "cap0131",
+   "beat": [
+    38.1381,
+    38.304933
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/2a21081059.png",
+   "image_sha256": "b61a14c2bfce60d76c4f64db4cf31d16d02beefe4d5de6bc450f43ae98eaeb54",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "my"
+  },
+  {
+   "name": "cap0132",
+   "beat": [
+    38.304933,
+    39.072367
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/06c4d05b70.png",
+   "image_sha256": "f08837a75f678982f17e6f57cdc323263d32024b4dd71f4aa65625e7d663dc0f",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "macros."
+  },
+  {
+   "name": "cap0133",
+   "beat": [
+    39.072367,
+    39.706333
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/6f78867a43.png",
+   "image_sha256": "1095ffbc7f555f63e4e56db4f5986215a395ddd309e4680140cd9ce57c01a577",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "AI"
+  },
+  {
+   "name": "cap0134",
+   "beat": [
+    39.706333,
+    40.1401
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/e0a536039d.png",
+   "image_sha256": "45a2506cabd7a12cb797029d2afe56d1570af9f9c37d48ef0d0873b83b2e5a4d",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "inspired"
+  },
+  {
+   "name": "cap0135",
+   "beat": [
+    40.1401,
+    40.2402
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/f732616489.png",
+   "image_sha256": "7d69632c5828c48cbd16423ce236f9aaba148755174cc6e4fa36ceea4d3710f6",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "me"
+  },
+  {
+   "name": "cap0136",
+   "beat": [
+    40.2402,
+    40.3403
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/02daa3c4f8.png",
+   "image_sha256": "94cf8a72a67fef56f2d1f73a6ee4222adb55c43d752eed2e154e4658debdcec2",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "to"
+  },
+  {
+   "name": "cap0137",
+   "beat": [
+    40.3403,
+    40.6406
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/c48d2ba5eb.png",
+   "image_sha256": "00f27fdd2b8638f51d080a0ac64a15c47202ce7d469986d5d09401689952ff1a",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "work"
+  },
+  {
+   "name": "cap0138",
+   "beat": [
+    40.6406,
+    40.974267
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/7bb5b46edb.png",
+   "image_sha256": "f5a8aa8fe857c4133fd4291befa2c79ab2aa425debe42c5e0ffe3dcd3adc0028",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "out."
+  },
+  {
+   "name": "cap0139",
+   "beat": [
+    40.974267,
+    41.074367
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/792d812276.png",
+   "image_sha256": "6e4aa7eb25188ee988dc11dcd0e7459c00c0dfaad0080fa5d96aaee653c93b8a",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "It"
+  },
+  {
+   "name": "cap0140",
+   "beat": [
+    41.074367,
+    41.274567
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/68d5414a5b.png",
+   "image_sha256": "98268157acb24f2c2da212294ae3108838d76328d72f279ff801ce5340e16805",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "gave"
+  },
+  {
+   "name": "cap0141",
+   "beat": [
+    41.274567,
+    41.4414
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/9bce496b89.png",
+   "image_sha256": "9addfd89f6cf7367bb068237e8d9b4bc6610d110cd08813be4bb8b992b68fb02",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "me"
+  },
+  {
+   "name": "cap0142",
+   "beat": [
+    41.4414,
+    41.574867
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/0d49827c61.png",
+   "image_sha256": "9463f19cd14c41bbce7b15332e806d54787228d6d6f45e0177473549575957bc",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "the"
+  },
+  {
+   "name": "cap0143",
+   "beat": [
+    41.574867,
+    41.975267
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/ab332856bb.png",
+   "image_sha256": "03e4fc977c8fd86c08bc759ce180ef31272aca87b4f1281a9675a04d6cc82110",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "exact"
+  },
+  {
+   "name": "cap0144",
+   "beat": [
+    41.975267,
+    42.409033
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/f55267530c.png",
+   "image_sha256": "0a63aa7084ba13281f60f8e5a46767754efff904bf371114faf1547945b80ba4",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "workout"
+  },
+  {
+   "name": "cap0145",
+   "beat": [
+    42.409033,
+    42.509133
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/aa9aa70e46.png",
+   "image_sha256": "efd0285e1f52a31b054f83cf61cd6b505ce6b7f2f188ac74e0d48919ca3340af",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "and"
+  },
+  {
+   "name": "cap0146",
+   "beat": [
+    42.509133,
+    42.976267
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/0cdf091344.png",
+   "image_sha256": "7186991f2fcfc5ab303a404dc2283af793afcae631556abe683af79d0da2c2aa",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "nutrition"
+  },
+  {
+   "name": "cap0147",
+   "beat": [
+    42.976267,
+    43.3433
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/0fabf545d2.png",
+   "image_sha256": "5bac2e17001d0223057a9ab2abc52952969798b49fdaceb18cce03a47f5777a2",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "plan"
+  },
+  {
+   "name": "cap0148",
+   "beat": [
+    43.3433,
+    43.476767
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/cf22549f2e.png",
+   "image_sha256": "ad2564fc60dda95ee0c90a5f6fcae23ca4b1a39082e0dc8ed205a64f5382f712",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "I"
+  },
+  {
+   "name": "cap0149",
+   "beat": [
+    43.476767,
+    43.777067
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/693157c8f6.png",
+   "image_sha256": "0fa45ca2e149bd552fc0dca3f96ee7d0ccbd61a80e702cfc2249338320d72cae",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "needed"
+  },
+  {
+   "name": "cap0150",
+   "beat": [
+    43.777067,
+    43.877167
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/da96697756.png",
+   "image_sha256": "297901d7036dec026b17650ce87a50713522c89233ad865d2d32331fa0cf87b4",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "to"
+  },
+  {
+   "name": "cap0151",
+   "beat": [
+    43.877167,
+    44.044
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/503084a220.png",
+   "image_sha256": "b0371459dc006e4c9e33a6985ff3a7a76847baa5c0d8a7e1e58740ca19d08c34",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "hit"
+  },
+  {
+   "name": "cap0152",
+   "beat": [
+    44.044,
+    44.177467
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/41012015df.png",
+   "image_sha256": "bda729b20250973d33f973f42d3a945bdce323abdd7288352937655186456ed0",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "my"
+  },
+  {
+   "name": "cap0153",
+   "beat": [
+    44.177467,
+    44.511133
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/801eb302c2.png",
+   "image_sha256": "cd03191e2fc25a77c338965edeef38d1ef8b6013ed1178ed4798367d3a5eb32b",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "goal."
+  },
+  {
+   "name": "cap0154",
+   "beat": [
+    44.511133,
+    44.677967
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/00869f9548.png",
+   "image_sha256": "7382555bc698f4b589a52e8b1e257e9e1f9a6d8599d448958c82325bf5588509",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "And"
+  },
+  {
+   "name": "cap0155",
+   "beat": [
+    44.677967,
+    44.8448
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/72317fab9f.png",
+   "image_sha256": "4513d914f5cc7211b3ca77a25ac796ee21bef7e997c1757d984ff4d18ca7c54c",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "you"
+  },
+  {
+   "name": "cap0156",
+   "beat": [
+    44.8448,
+    44.978267
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/b9e4c954c5.png",
+   "image_sha256": "423601c56eebdbfcae5638b0eda895aaea8020efc00bdbfaad4cc9ac6fe48037",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "can"
+  },
+  {
+   "name": "cap0157",
+   "beat": [
+    44.978267,
+    45.211833
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/af8d040d0c.png",
+   "image_sha256": "df48eb065934047222bf03fc057d73fec6c197a13b10c72f1ca0e397b35e3647",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "change"
+  },
+  {
+   "name": "cap0158",
+   "beat": [
+    45.211833,
+    45.3453
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/7239ef4517.png",
+   "image_sha256": "2d882db9f4550eb1054c6a36ddd1f43105702a7255dbd43afb7831a22606b1f4",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "your"
+  },
+  {
+   "name": "cap0159",
+   "beat": [
+    45.3453,
+    45.7457
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/b45309d640.png",
+   "image_sha256": "b3de213cc802e10337643985825e9ee8bb2db858371f15ed2cb6b6cac55e014e",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "life"
+  },
+  {
+   "name": "cap0160",
+   "beat": [
+    45.7457,
+    45.912533
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/d12becf39c.png",
+   "image_sha256": "edd26a66625de9c317f265ce8ac9090e92e996f50a46361dc73e7226b14a97bc",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "the"
+  },
+  {
+   "name": "cap0161",
+   "beat": [
+    45.912533,
+    46.3463
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/5d4960b820.png",
+   "image_sha256": "522aadf558bd28d38dce473d8ce7d8a175e6ff0c246b49aa2717c5373ffb7102",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "exact"
+  },
+  {
+   "name": "cap0162",
+   "beat": [
+    46.3463,
+    46.613233
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/d794538f5e.png",
+   "image_sha256": "0e1e51e5afff72599dbc37f1e60adc003acbd96ed6a463a4cc0c39971f992ecb",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "same"
+  },
+  {
+   "name": "cap0163",
+   "beat": [
+    46.613233,
+    46.980267
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/bd223fbb64.png",
+   "image_sha256": "7495d59d9dd909ba3cc5a2bf58e4cb44d4e61a1e988002daa1b4eed08899ff4e",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "way"
+  },
+  {
+   "name": "cap0164",
+   "beat": [
+    46.980267,
+    47.180467
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/3b631121ca.png",
+   "image_sha256": "431e3278e94646f5a7ddc1eb217200d7cc8cb1213c0ebb3eb1ac0336d1a1e7c4",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "that"
+  },
+  {
+   "name": "cap0165",
+   "beat": [
+    47.180467,
+    47.280567
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/2ae562ae18.png",
+   "image_sha256": "163b6b15428f39929b355a23c78cd481e0bab354b9f24ea1777db6ea2d4040ed",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "I"
+  },
+  {
+   "name": "cap0166",
+   "beat": [
+    47.280567,
+    47.614233
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/f8a8a42e86.png",
+   "image_sha256": "89d7bd42dcfbd79c27625228c5184a9c8fe963a16e2a7c8e1e3cbd76023f74d9",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "did."
+  },
+  {
+   "name": "cap0167",
+   "beat": [
+    47.614233,
+    47.7477
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/01dcdc7d7b.png",
+   "image_sha256": "71832e96a880e204a5a0bf123e8897ebd92afad88c289afb1b35ddf50ae20b35",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "And"
+  },
+  {
+   "name": "cap0168",
+   "beat": [
+    47.7477,
+    47.881167
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/692c66e866.png",
+   "image_sha256": "2fa5f8b108e26552d468290e9102d9a29280cd2f845e60644435e6aa3e1c8678",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "the"
+  },
+  {
+   "name": "cap0169",
+   "beat": [
+    47.881167,
+    48.114733
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/04df56997a.png",
+   "image_sha256": "281f0473d65d565607cf86cb123377d6467578a0ebee35e33b1c6b46c3607888",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "first"
+  },
+  {
+   "name": "cap0170",
+   "beat": [
+    48.114733,
+    48.581867
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/e89a9f277f.png",
+   "image_sha256": "5235ea949a47bba64314ee8114b768f330866701a28b291f0e338c78e6f9db5f",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "step"
+  },
+  {
+   "name": "cap0171",
+   "beat": [
+    48.581867,
+    48.782067
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/ca717c4d2f.png",
+   "image_sha256": "f770f0441d752b0add085afb123d144b12fc0e950f4f0a63bdead11d6546a7ed",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "is"
+  },
+  {
+   "name": "cap0172",
+   "beat": [
+    48.782067,
+    49.4494
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/175752edf4.png",
+   "image_sha256": "9627fc1be09268e66ba5b4f83b48660c0e1fc304da8cd4f71327338f5e24d9da",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "generating"
+  },
+  {
+   "name": "cap0173",
+   "beat": [
+    49.4494,
+    49.6496
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/57d80b0a2f.png",
+   "image_sha256": "f63f166d6ae89f6aa0ac72bdc7a66856b0c9b0233f73ec9912b08e2838a506e0",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "an"
+  },
+  {
+   "name": "cap0174",
+   "beat": [
+    49.6496,
+    49.9499
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/d24b825232.png",
+   "image_sha256": "b74d995fb939e55101aec47ef2af6d87e87da7b5dc52aa98a299649187448e76",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "AI"
+  },
+  {
+   "name": "cap0175",
+   "beat": [
+    49.9499,
+    50.216833
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/fe9fa185d6.png",
+   "image_sha256": "9b9b933092a2961cf04098eb5e9e056a35b241d0a036ea6a720f12507bdf8fdd",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "image"
+  },
+  {
+   "name": "cap0176",
+   "beat": [
+    50.216833,
+    50.316933
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/2600a74994.png",
+   "image_sha256": "df66f1e97c09551e40552e2248f45266c6b1e56f753f8f7709b5ba8aae5f2779",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "of"
+  },
+  {
+   "name": "cap0177",
+   "beat": [
+    50.316933,
+    50.6506
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/41ab9f1dba.png",
+   "image_sha256": "89c0d64684e6ad4dd7eff3500afc2f1cd8d507fd94dd783f495c7ee69bc08b74",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "yourself"
+  },
+  {
+   "name": "cap0178",
+   "beat": [
+    50.6506,
+    50.8508
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/dcd424a622.png",
+   "image_sha256": "cf4583e79858c21c339ea9291395027f89615a8577fd7888b985d21838149a5b",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "with"
+  },
+  {
+   "name": "cap0179",
+   "beat": [
+    50.8508,
+    51.2512
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/1a612f9f17.png",
+   "image_sha256": "2d97c96850ef02de58af682481031bb10e9ef4c4deb124078aa06530375c8086",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "abs."
+  },
+  {
+   "name": "cap0180",
+   "beat": [
+    51.2512,
+    51.484767
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/c22b007af6.png",
+   "image_sha256": "d8ecd5268705b2749af39ae1cfc21a1e368bbfad55bc9763e97d6177931c5951",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "To"
+  },
+  {
+   "name": "cap0181",
+   "beat": [
+    51.484767,
+    51.885167
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/3ed39ebd77.png",
+   "image_sha256": "4ce8ccaedcd379be5b6415ce1ca4070492f978db5e1e22038c73aa1957de5aab",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "generate"
+  },
+  {
+   "name": "cap0182",
+   "beat": [
+    51.885167,
+    52.018633
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/db5a38ffba.png",
+   "image_sha256": "4233ce9119b1bfc5a621cd7d04fd95c518bee5955eaaa245373bd5f91cb017b5",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "an"
+  },
+  {
+   "name": "cap0183",
+   "beat": [
+    52.018633,
+    52.318933
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/a15b7d21f8.png",
+   "image_sha256": "2fd84a9300d8b8a53a9a5f6ff81380b4067ad41561ce066cefea1f2809d7b0d2",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "image"
+  },
+  {
+   "name": "cap0184",
+   "beat": [
+    52.318933,
+    52.419033
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/fd3d94c78a.png",
+   "image_sha256": "1dc261ad54a1aeba15a56a50570b630a4f293ce82e489fdff940566ad0691cdb",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "of"
+  },
+  {
+   "name": "cap0185",
+   "beat": [
+    52.419033,
+    52.819433
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/80903ccb6c.png",
+   "image_sha256": "f9526d3fd6296da6c8861fe46bf14717d1fd710a04aa43545ccdb66a77a2b204",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "yourself"
+  },
+  {
+   "name": "cap0186",
+   "beat": [
+    52.819433,
+    52.986267
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/6501ef23a1.png",
+   "image_sha256": "fd6b02b7b45b5bbb901721770c6f5b69946268c17590dc16fd8300927909c477",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "with"
+  },
+  {
+   "name": "cap0187",
+   "beat": [
+    52.986267,
+    53.520133
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/59e254600d.png",
+   "image_sha256": "8755e194373a68d75995a324e7474f11d3bb16fea479e45ea95fbded413e60ff",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "six-pack"
+  },
+  {
+   "name": "cap0188",
+   "beat": [
+    53.520133,
+    53.9539
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/05ad5c0514.png",
+   "image_sha256": "e840a92f1dfd5f90fe1846b8a51dbb8825b1df6aadb1e91f92970413ded8e8e7",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "abs,"
+  },
+  {
+   "name": "cap0189",
+   "beat": [
+    53.9539,
+    54.4544
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/763857550b.png",
+   "image_sha256": "356668d9db2443e9680fae2bd90dc3cd48de42618f947fd32f4bdfa4ae204e0e",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "tap"
+  },
+  {
+   "name": "cap0190",
+   "beat": [
+    54.4544,
+    54.587867
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/3a2be9a364.png",
+   "image_sha256": "25219affe4e65e22aab4c0a0835932eda211e5d85c44da74a0907ce4b2351d0a",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "the"
+  },
+  {
+   "name": "cap0191",
+   "beat": [
+    54.587867,
+    54.888167
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/3e81bf1639.png",
+   "image_sha256": "fa1acd9d7294bef9f560038c410a48f00d5dba6abab4982a66183fee3db8e4b5",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "button"
+  },
+  {
+   "name": "cap0192",
+   "beat": [
+    54.888167,
+    55.221833
+   ],
+   "image": "/Volumes/Extreme/_edit_work/ra01-sq/cap_1x1/png/be54daf88d.png",
+   "image_sha256": "b9404f543f4aaa6536f1c75ffc1eb804c0acbb73ece93ae08f2934e7594b4acf",
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ],
+   "word": "below."
+  }
+ ],
+ "graphic_regions": [
+  {
+   "name": "cta0",
+   "beat": [
+    18.885533,
+    20.5205
+   ],
+   "rect": [
+    224,
+    600,
+    630,
+    132
+   ]
+  },
+  {
+   "name": "cta1",
+   "beat": [
+    53.787067,
+    55.2552
+   ],
+   "rect": [
+    224,
+    574,
+    630,
+    132
+   ]
+  },
+  {
+   "name": "ai_hook",
+   "beat": [
+    0.0,
+    2.068733
+   ],
+   "rect": [
+    202,
+    160,
+    676,
+    676
+   ]
+  },
+  {
+   "name": "ai_gen",
+   "beat": [
+    3.069733,
+    5.071733
+   ],
+   "rect": [
+    202,
+    160,
+    676,
+    676
+   ]
+  },
+  {
+   "name": "before",
+   "beat": [
+    5.071733,
+    6.773433
+   ],
+   "rect": [
+    252,
+    64,
+    576,
+    772
+   ]
+  },
+  {
+   "name": "after_1",
+   "beat": [
+    7.674333,
+    8.3083
+   ],
+   "rect": [
+    202,
+    160,
+    676,
+    676
+   ]
+  },
+  {
+   "name": "after_2",
+   "beat": [
+    8.3083,
+    8.942267
+   ],
+   "rect": [
+    202,
+    160,
+    676,
+    676
+   ]
+  },
+  {
+   "name": "after_3",
+   "beat": [
+    8.942267,
+    9.576233
+   ],
+   "rect": [
+    202,
+    160,
+    676,
+    676
+   ]
+  },
+  {
+   "name": "ai_again",
+   "beat": [
+    9.576233,
+    12.3123
+   ],
+   "rect": [
+    202,
+    160,
+    676,
+    676
+   ]
+  },
+  {
+   "name": "stats_scan",
+   "beat": [
+    24.858167,
+    31.9319
+   ],
+   "rect": [
+    60,
+    160,
+    492,
+    676
+   ]
+  },
+  {
+   "name": "macro",
+   "beat": [
+    36.6366,
+    39.7397
+   ],
+   "rect": [
+    193,
+    64,
+    694,
+    772
+   ]
+  },
+  {
+   "name": "end_card",
+   "beat": [
+    55.288567,
+    57.190467
+   ],
+   "rect": [
+    0,
+    0,
+    1080,
+    1080
+   ]
+  }
+ ],
+ "speech_words": [
+  {
+   "w": "This",
+   "t": 0.14,
+   "e": 0.3,
+   "src": "ctc"
+  },
+  {
+   "w": "picture",
+   "t": 0.4,
+   "e": 0.72,
+   "src": "ctc"
+  },
+  {
+   "w": "got",
+   "t": 1.06,
+   "e": 1.2,
+   "src": "ctc"
+  },
+  {
+   "w": "me",
+   "t": 1.24,
+   "e": 1.3,
+   "src": "ctc"
+  },
+  {
+   "w": "abs",
+   "t": 1.46,
+   "e": 1.66,
+   "src": "ctc"
+  },
+  {
+   "w": "and",
+   "t": 2.141,
+   "e": 2.201,
+   "src": "ctc"
+  },
+  {
+   "w": "it's",
+   "t": 2.261,
+   "e": 2.361,
+   "src": "ctc"
+  },
+  {
+   "w": "not",
+   "t": 2.401,
+   "e": 2.521,
+   "src": "ctc"
+  },
+  {
+   "w": "even",
+   "t": 2.561,
+   "e": 2.701,
+   "src": "ctc"
+  },
+  {
+   "w": "real.",
+   "t": 2.781,
+   "e": 2.961,
+   "src": "ctc"
+  },
+  {
+   "w": "I",
+   "t": 3.241,
+   "e": 3.281,
+   "src": "ctc"
+  },
+  {
+   "w": "generated",
+   "t": 3.421,
+   "e": 3.881,
+   "src": "ctc"
+  },
+  {
+   "w": "this",
+   "t": 3.961,
+   "e": 4.081,
+   "src": "ctc"
+  },
+  {
+   "w": "picture",
+   "t": 4.181,
+   "e": 4.421,
+   "src": "ctc"
+  },
+  {
+   "w": "with",
+   "t": 4.461,
+   "e": 4.581,
+   "src": "ctc"
+  },
+  {
+   "w": "AI",
+   "t": 4.661,
+   "e": 4.881,
+   "src": "ctc"
+  },
+  {
+   "w": "back",
+   "t": 5.141,
+   "e": 5.321,
+   "src": "ctc"
+  },
+  {
+   "w": "when",
+   "t": 5.381,
+   "e": 5.481,
+   "src": "ctc"
+  },
+  {
+   "w": "I",
+   "t": 5.541,
+   "e": 5.581,
+   "src": "ctc"
+  },
+  {
+   "w": "was",
+   "t": 5.621,
+   "e": 5.701,
+   "src": "ctc"
+  },
+  {
+   "w": "200",
+   "t": 5.768,
+   "e": 6.128,
+   "src": "whisper"
+  },
+  {
+   "w": "pounds",
+   "t": 5.761,
+   "e": 6.522,
+   "src": "ctc"
+  },
+  {
+   "w": "and",
+   "t": 7.022,
+   "e": 7.082,
+   "src": "ctc"
+  },
+  {
+   "w": "this",
+   "t": 7.202,
+   "e": 7.402,
+   "src": "ctc"
+  },
+  {
+   "w": "is",
+   "t": 7.822,
+   "e": 7.882,
+   "src": "ctc"
+  },
+  {
+   "w": "what",
+   "t": 7.942,
+   "e": 8.042,
+   "src": "ctc"
+  },
+  {
+   "w": "I",
+   "t": 8.102,
+   "e": 8.142,
+   "src": "ctc"
+  },
+  {
+   "w": "look",
+   "t": 8.182,
+   "e": 8.302,
+   "src": "ctc"
+  },
+  {
+   "w": "like",
+   "t": 8.362,
+   "e": 8.482,
+   "src": "ctc"
+  },
+  {
+   "w": "today.",
+   "t": 8.542,
+   "e": 8.722,
+   "src": "ctc"
+  },
+  {
+   "w": "Seeing",
+   "t": 9.002,
+   "e": 9.302,
+   "src": "ctc"
+  },
+  {
+   "w": "this",
+   "t": 9.362,
+   "e": 9.482,
+   "src": "ctc"
+  },
+  {
+   "w": "AI",
+   "t": 9.622,
+   "e": 9.783,
+   "src": "ctc"
+  },
+  {
+   "w": "image",
+   "t": 9.963,
+   "e": 10.143,
+   "src": "ctc"
+  },
+  {
+   "w": "of",
+   "t": 10.203,
+   "e": 10.243,
+   "src": "ctc"
+  },
+  {
+   "w": "myself",
+   "t": 10.323,
+   "e": 10.623,
+   "src": "ctc"
+  },
+  {
+   "w": "with",
+   "t": 10.683,
+   "e": 10.783,
+   "src": "ctc"
+  },
+  {
+   "w": "abs",
+   "t": 10.983,
+   "e": 11.143,
+   "src": "ctc"
+  },
+  {
+   "w": "changed",
+   "t": 11.303,
+   "e": 11.643,
+   "src": "ctc"
+  },
+  {
+   "w": "me.",
+   "t": 11.723,
+   "e": 11.823,
+   "src": "ctc"
+  },
+  {
+   "w": "it",
+   "t": 12.263,
+   "e": 12.303,
+   "src": "ctc"
+  },
+  {
+   "w": "inspired",
+   "t": 12.383,
+   "e": 12.883,
+   "src": "ctc"
+  },
+  {
+   "w": "me",
+   "t": 12.943,
+   "e": 13.023,
+   "src": "ctc"
+  },
+  {
+   "w": "to",
+   "t": 13.143,
+   "e": 13.223,
+   "src": "ctc"
+  },
+  {
+   "w": "start",
+   "t": 13.283,
+   "e": 13.443,
+   "src": "ctc"
+  },
+  {
+   "w": "taking",
+   "t": 13.503,
+   "e": 13.744,
+   "src": "ctc"
+  },
+  {
+   "w": "my",
+   "t": 13.784,
+   "e": 13.864,
+   "src": "ctc"
+  },
+  {
+   "w": "workouts",
+   "t": 13.964,
+   "e": 14.384,
+   "src": "ctc"
+  },
+  {
+   "w": "and",
+   "t": 14.544,
+   "e": 14.604,
+   "src": "ctc"
+  },
+  {
+   "w": "nutrition",
+   "t": 14.664,
+   "e": 15.084,
+   "src": "ctc"
+  },
+  {
+   "w": "seriously",
+   "t": 15.504,
+   "e": 16.024,
+   "src": "ctc"
+  },
+  {
+   "w": "again.",
+   "t": 16.084,
+   "e": 16.264,
+   "src": "ctc"
+  },
+  {
+   "w": "To",
+   "t": 16.384,
+   "e": 16.484,
+   "src": "ctc"
+  },
+  {
+   "w": "generate",
+   "t": 16.564,
+   "e": 16.904,
+   "src": "ctc"
+  },
+  {
+   "w": "a",
+   "t": 16.964,
+   "e": 17.004,
+   "src": "ctc"
+  },
+  {
+   "w": "picture",
+   "t": 17.044,
+   "e": 17.284,
+   "src": "ctc"
+  },
+  {
+   "w": "of",
+   "t": 17.324,
+   "e": 17.364,
+   "src": "ctc"
+  },
+  {
+   "w": "yourself",
+   "t": 17.404,
+   "e": 17.745,
+   "src": "ctc"
+  },
+  {
+   "w": "with",
+   "t": 17.805,
+   "e": 17.905,
+   "src": "ctc"
+  },
+  {
+   "w": "abs",
+   "t": 18.025,
+   "e": 18.165,
+   "src": "ctc"
+  },
+  {
+   "w": "using",
+   "t": 18.265,
+   "e": 18.465,
+   "src": "ctc"
+  },
+  {
+   "w": "AI,",
+   "t": 18.545,
+   "e": 18.785,
+   "src": "ctc"
+  },
+  {
+   "w": "tap",
+   "t": 19.045,
+   "e": 19.285,
+   "src": "ctc"
+  },
+  {
+   "w": "the",
+   "t": 19.465,
+   "e": 19.525,
+   "src": "ctc"
+  },
+  {
+   "w": "button",
+   "t": 19.585,
+   "e": 19.805,
+   "src": "ctc"
+  },
+  {
+   "w": "below.",
+   "t": 19.865,
+   "e": 20.085,
+   "src": "ctc"
+  },
+  {
+   "w": "And",
+   "t": 20.365,
+   "e": 20.425,
+   "src": "ctc"
+  },
+  {
+   "w": "that's",
+   "t": 20.485,
+   "e": 20.725,
+   "src": "ctc"
+  },
+  {
+   "w": "only",
+   "t": 20.765,
+   "e": 20.905,
+   "src": "ctc"
+  },
+  {
+   "w": "the",
+   "t": 20.965,
+   "e": 21.045,
+   "src": "ctc"
+  },
+  {
+   "w": "beginning",
+   "t": 21.085,
+   "e": 21.486,
+   "src": "ctc"
+  },
+  {
+   "w": "of",
+   "t": 21.626,
+   "e": 21.666,
+   "src": "ctc"
+  },
+  {
+   "w": "how",
+   "t": 21.726,
+   "e": 21.846,
+   "src": "ctc"
+  },
+  {
+   "w": "AI",
+   "t": 21.966,
+   "e": 22.126,
+   "src": "ctc"
+  },
+  {
+   "w": "helped",
+   "t": 22.246,
+   "e": 22.406,
+   "src": "ctc"
+  },
+  {
+   "w": "me",
+   "t": 22.426,
+   "e": 22.466,
+   "src": "ctc"
+  },
+  {
+   "w": "to",
+   "t": 22.526,
+   "e": 22.566,
+   "src": "ctc"
+  },
+  {
+   "w": "get",
+   "t": 22.626,
+   "e": 22.726,
+   "src": "ctc"
+  },
+  {
+   "w": "abs.",
+   "t": 22.846,
+   "e": 23.006,
+   "src": "ctc"
+  },
+  {
+   "w": "Once",
+   "t": 23.326,
+   "e": 23.426,
+   "src": "ctc"
+  },
+  {
+   "w": "I",
+   "t": 23.486,
+   "e": 23.526,
+   "src": "ctc"
+  },
+  {
+   "w": "generated",
+   "t": 23.606,
+   "e": 24.006,
+   "src": "ctc"
+  },
+  {
+   "w": "my",
+   "t": 24.066,
+   "e": 24.126,
+   "src": "ctc"
+  },
+  {
+   "w": "picture,",
+   "t": 24.206,
+   "e": 24.486,
+   "src": "ctc"
+  },
+  {
+   "w": "AI",
+   "t": 24.906,
+   "e": 25.166,
+   "src": "ctc"
+  },
+  {
+   "w": "analyzed",
+   "t": 25.567,
+   "e": 26.027,
+   "src": "ctc"
+  },
+  {
+   "w": "it",
+   "t": 26.107,
+   "e": 26.147,
+   "src": "ctc"
+  },
+  {
+   "w": "and",
+   "t": 26.387,
+   "e": 26.447,
+   "src": "ctc"
+  },
+  {
+   "w": "figured",
+   "t": 26.547,
+   "e": 26.827,
+   "src": "ctc"
+  },
+  {
+   "w": "out",
+   "t": 26.887,
+   "e": 26.967,
+   "src": "ctc"
+  },
+  {
+   "w": "exactly",
+   "t": 27.147,
+   "e": 27.567,
+   "src": "ctc"
+  },
+  {
+   "w": "how",
+   "t": 27.627,
+   "e": 27.707,
+   "src": "ctc"
+  },
+  {
+   "w": "much",
+   "t": 27.747,
+   "e": 27.847,
+   "src": "ctc"
+  },
+  {
+   "w": "fat",
+   "t": 27.927,
+   "e": 28.087,
+   "src": "ctc"
+  },
+  {
+   "w": "I",
+   "t": 28.167,
+   "e": 28.207,
+   "src": "ctc"
+  },
+  {
+   "w": "had",
+   "t": 28.247,
+   "e": 28.347,
+   "src": "ctc"
+  },
+  {
+   "w": "to",
+   "t": 28.407,
+   "e": 28.487,
+   "src": "ctc"
+  },
+  {
+   "w": "lose",
+   "t": 28.527,
+   "e": 28.707,
+   "src": "ctc"
+  },
+  {
+   "w": "and",
+   "t": 28.867,
+   "e": 28.947,
+   "src": "ctc"
+  },
+  {
+   "w": "where",
+   "t": 29.047,
+   "e": 29.268,
+   "src": "ctc"
+  },
+  {
+   "w": "I",
+   "t": 29.348,
+   "e": 29.388,
+   "src": "ctc"
+  },
+  {
+   "w": "had",
+   "t": 29.428,
+   "e": 29.528,
+   "src": "ctc"
+  },
+  {
+   "w": "to",
+   "t": 29.568,
+   "e": 29.628,
+   "src": "ctc"
+  },
+  {
+   "w": "gain",
+   "t": 29.668,
+   "e": 29.788,
+   "src": "ctc"
+  },
+  {
+   "w": "muscle",
+   "t": 29.868,
+   "e": 30.148,
+   "src": "ctc"
+  },
+  {
+   "w": "to",
+   "t": 30.448,
+   "e": 30.508,
+   "src": "ctc"
+  },
+  {
+   "w": "reach",
+   "t": 30.588,
+   "e": 30.728,
+   "src": "ctc"
+  },
+  {
+   "w": "my",
+   "t": 30.788,
+   "e": 30.848,
+   "src": "ctc"
+  },
+  {
+   "w": "goal",
+   "t": 30.928,
+   "e": 31.088,
+   "src": "ctc"
+  },
+  {
+   "w": "physique.",
+   "t": 31.128,
+   "e": 31.448,
+   "src": "ctc"
+  },
+  {
+   "w": "Then",
+   "t": 31.708,
+   "e": 31.868,
+   "src": "ctc"
+  },
+  {
+   "w": "it",
+   "t": 32.088,
+   "e": 32.128,
+   "src": "ctc"
+  },
+  {
+   "w": "gave",
+   "t": 32.168,
+   "e": 32.308,
+   "src": "ctc"
+  },
+  {
+   "w": "me",
+   "t": 32.348,
+   "e": 32.408,
+   "src": "ctc"
+  },
+  {
+   "w": "a",
+   "t": 32.468,
+   "e": 32.508,
+   "src": "ctc"
+  },
+  {
+   "w": "personalized",
+   "t": 32.568,
+   "e": 33.169,
+   "src": "ctc"
+  },
+  {
+   "w": "workout",
+   "t": 33.449,
+   "e": 33.809,
+   "src": "ctc"
+  },
+  {
+   "w": "and",
+   "t": 34.149,
+   "e": 34.229,
+   "src": "ctc"
+  },
+  {
+   "w": "nutrition",
+   "t": 34.289,
+   "e": 34.669,
+   "src": "ctc"
+  },
+  {
+   "w": "plan",
+   "t": 34.729,
+   "e": 34.909,
+   "src": "ctc"
+  },
+  {
+   "w": "to",
+   "t": 35.189,
+   "e": 35.269,
+   "src": "ctc"
+  },
+  {
+   "w": "hit",
+   "t": 35.329,
+   "e": 35.429,
+   "src": "ctc"
+  },
+  {
+   "w": "my",
+   "t": 35.489,
+   "e": 35.569,
+   "src": "ctc"
+  },
+  {
+   "w": "goal.",
+   "t": 35.629,
+   "e": 35.829,
+   "src": "ctc"
+  },
+  {
+   "w": "I",
+   "t": 36.169,
+   "e": 36.209,
+   "src": "ctc"
+  },
+  {
+   "w": "even",
+   "t": 36.329,
+   "e": 36.469,
+   "src": "ctc"
+  },
+  {
+   "w": "started",
+   "t": 36.549,
+   "e": 36.789,
+   "src": "ctc"
+  },
+  {
+   "w": "using",
+   "t": 36.929,
+   "e": 37.13,
+   "src": "ctc"
+  },
+  {
+   "w": "AI",
+   "t": 37.23,
+   "e": 37.45,
+   "src": "ctc"
+  },
+  {
+   "w": "to",
+   "t": 37.57,
+   "e": 37.65,
+   "src": "ctc"
+  },
+  {
+   "w": "track",
+   "t": 37.71,
+   "e": 37.93,
+   "src": "ctc"
+  },
+  {
+   "w": "my",
+   "t": 38.13,
+   "e": 38.21,
+   "src": "ctc"
+  },
+  {
+   "w": "macros.",
+   "t": 38.29,
+   "e": 38.73,
+   "src": "ctc"
+  },
+  {
+   "w": "AI",
+   "t": 39.07,
+   "e": 39.43,
+   "src": "ctc"
+  },
+  {
+   "w": "inspired",
+   "t": 39.69,
+   "e": 40.11,
+   "src": "ctc"
+  },
+  {
+   "w": "me",
+   "t": 40.15,
+   "e": 40.21,
+   "src": "ctc"
+  },
+  {
+   "w": "to",
+   "t": 40.25,
+   "e": 40.29,
+   "src": "ctc"
+  },
+  {
+   "w": "work",
+   "t": 40.35,
+   "e": 40.47,
+   "src": "ctc"
+  },
+  {
+   "w": "out.",
+   "t": 40.63,
+   "e": 40.69,
+   "src": "ctc"
+  },
+  {
+   "w": "It",
+   "t": 40.971,
+   "e": 41.011,
+   "src": "ctc"
+  },
+  {
+   "w": "gave",
+   "t": 41.071,
+   "e": 41.231,
+   "src": "ctc"
+  },
+  {
+   "w": "me",
+   "t": 41.291,
+   "e": 41.351,
+   "src": "ctc"
+  },
+  {
+   "w": "the",
+   "t": 41.431,
+   "e": 41.511,
+   "src": "ctc"
+  },
+  {
+   "w": "exact",
+   "t": 41.591,
+   "e": 41.891,
+   "src": "ctc"
+  },
+  {
+   "w": "workout",
+   "t": 41.991,
+   "e": 42.311,
+   "src": "ctc"
+  },
+  {
+   "w": "and",
+   "t": 42.411,
+   "e": 42.471,
+   "src": "ctc"
+  },
+  {
+   "w": "nutrition",
+   "t": 42.511,
+   "e": 42.911,
+   "src": "ctc"
+  },
+  {
+   "w": "plan",
+   "t": 42.971,
+   "e": 43.171,
+   "src": "ctc"
+  },
+  {
+   "w": "I",
+   "t": 43.351,
+   "e": 43.391,
+   "src": "ctc"
+  },
+  {
+   "w": "needed",
+   "t": 43.491,
+   "e": 43.711,
+   "src": "ctc"
+  },
+  {
+   "w": "to",
+   "t": 43.771,
+   "e": 43.831,
+   "src": "ctc"
+  },
+  {
+   "w": "hit",
+   "t": 43.891,
+   "e": 43.991,
+   "src": "ctc"
+  },
+  {
+   "w": "my",
+   "t": 44.031,
+   "e": 44.111,
+   "src": "ctc"
+  },
+  {
+   "w": "goal.",
+   "t": 44.171,
+   "e": 44.351,
+   "src": "ctc"
+  },
+  {
+   "w": "And",
+   "t": 44.511,
+   "e": 44.591,
+   "src": "ctc"
+  },
+  {
+   "w": "you",
+   "t": 44.671,
+   "e": 44.771,
+   "src": "ctc"
+  },
+  {
+   "w": "can",
+   "t": 44.832,
+   "e": 44.932,
+   "src": "ctc"
+  },
+  {
+   "w": "change",
+   "t": 44.992,
+   "e": 45.172,
+   "src": "ctc"
+  },
+  {
+   "w": "your",
+   "t": 45.212,
+   "e": 45.312,
+   "src": "ctc"
+  },
+  {
+   "w": "life",
+   "t": 45.352,
+   "e": 45.512,
+   "src": "ctc"
+  },
+  {
+   "w": "the",
+   "t": 45.752,
+   "e": 45.832,
+   "src": "ctc"
+  },
+  {
+   "w": "exact",
+   "t": 45.912,
+   "e": 46.252,
+   "src": "ctc"
+  },
+  {
+   "w": "same",
+   "t": 46.352,
+   "e": 46.552,
+   "src": "ctc"
+  },
+  {
+   "w": "way",
+   "t": 46.612,
+   "e": 46.792,
+   "src": "ctc"
+  },
+  {
+   "w": "that",
+   "t": 46.972,
+   "e": 47.072,
+   "src": "ctc"
+  },
+  {
+   "w": "I",
+   "t": 47.172,
+   "e": 47.212,
+   "src": "ctc"
+  },
+  {
+   "w": "did.",
+   "t": 47.292,
+   "e": 47.432,
+   "src": "ctc"
+  },
+  {
+   "w": "And",
+   "t": 47.612,
+   "e": 47.672,
+   "src": "ctc"
+  },
+  {
+   "w": "the",
+   "t": 47.732,
+   "e": 47.812,
+   "src": "ctc"
+  },
+  {
+   "w": "first",
+   "t": 47.872,
+   "e": 48.072,
+   "src": "ctc"
+  },
+  {
+   "w": "step",
+   "t": 48.112,
+   "e": 48.312,
+   "src": "ctc"
+  },
+  {
+   "w": "is",
+   "t": 48.572,
+   "e": 48.652,
+   "src": "ctc"
+  },
+  {
+   "w": "generating",
+   "t": 48.773,
+   "e": 49.273,
+   "src": "ctc"
+  },
+  {
+   "w": "an",
+   "t": 49.433,
+   "e": 49.473,
+   "src": "ctc"
+  },
+  {
+   "w": "AI",
+   "t": 49.633,
+   "e": 49.813,
+   "src": "ctc"
+  },
+  {
+   "w": "image",
+   "t": 49.953,
+   "e": 50.153,
+   "src": "ctc"
+  },
+  {
+   "w": "of",
+   "t": 50.213,
+   "e": 50.253,
+   "src": "ctc"
+  },
+  {
+   "w": "yourself",
+   "t": 50.313,
+   "e": 50.593,
+   "src": "ctc"
+  },
+  {
+   "w": "with",
+   "t": 50.653,
+   "e": 50.733,
+   "src": "ctc"
+  },
+  {
+   "w": "abs.",
+   "t": 50.853,
+   "e": 51.013,
+   "src": "ctc"
+  },
+  {
+   "w": "To",
+   "t": 51.253,
+   "e": 51.353,
+   "src": "ctc"
+  },
+  {
+   "w": "generate",
+   "t": 51.473,
+   "e": 51.853,
+   "src": "ctc"
+  },
+  {
+   "w": "an",
+   "t": 51.893,
+   "e": 51.933,
+   "src": "ctc"
+  },
+  {
+   "w": "image",
+   "t": 52.013,
+   "e": 52.213,
+   "src": "ctc"
+  },
+  {
+   "w": "of",
+   "t": 52.333,
+   "e": 52.373,
+   "src": "ctc"
+  },
+  {
+   "w": "yourself",
+   "t": 52.433,
+   "e": 52.774,
+   "src": "ctc"
+  },
+  {
+   "w": "with",
+   "t": 52.834,
+   "e": 52.934,
+   "src": "ctc"
+  },
+  {
+   "w": "six-pack",
+   "t": 52.994,
+   "e": 53.374,
+   "src": "ctc"
+  },
+  {
+   "w": "abs,",
+   "t": 53.534,
+   "e": 53.674,
+   "src": "ctc"
+  },
+  {
+   "w": "tap",
+   "t": 53.954,
+   "e": 54.194,
+   "src": "ctc"
+  },
+  {
+   "w": "the",
+   "t": 54.454,
+   "e": 54.514,
+   "src": "ctc"
+  },
+  {
+   "w": "button",
+   "t": 54.574,
+   "e": 54.794,
+   "src": "ctc"
+  },
+  {
+   "w": "below.",
+   "t": 54.874,
+   "e": 55.134,
+   "src": "ctc"
+  }
+ ],
+ "speech_words_evidence": {
+  "method": "delivered_asr",
+  "video_sha256": "3e7939bcc571c9a895429278d59a40b07465c1bda76ad5c76095ae93723ecedd"
+ },
+ "words": [
+  {
+   "w": "This",
+   "t": 0.14,
+   "e": 0.3
+  },
+  {
+   "w": "picture",
+   "t": 0.4,
+   "e": 0.72
+  },
+  {
+   "w": "got",
+   "t": 1.06,
+   "e": 1.2
+  },
+  {
+   "w": "me",
+   "t": 1.24,
+   "e": 1.3
+  },
+  {
+   "w": "abs",
+   "t": 1.46,
+   "e": 1.66
+  },
+  {
+   "w": "and",
+   "t": 2.141,
+   "e": 2.201
+  },
+  {
+   "w": "it's",
+   "t": 2.261,
+   "e": 2.361
+  },
+  {
+   "w": "not",
+   "t": 2.401,
+   "e": 2.521
+  },
+  {
+   "w": "even",
+   "t": 2.561,
+   "e": 2.701
+  },
+  {
+   "w": "real.",
+   "t": 2.781,
+   "e": 2.961
+  },
+  {
+   "w": "I",
+   "t": 3.241,
+   "e": 3.281
+  },
+  {
+   "w": "generated",
+   "t": 3.421,
+   "e": 3.881
+  },
+  {
+   "w": "this",
+   "t": 3.961,
+   "e": 4.081
+  },
+  {
+   "w": "picture",
+   "t": 4.181,
+   "e": 4.421
+  },
+  {
+   "w": "with",
+   "t": 4.461,
+   "e": 4.581
+  },
+  {
+   "w": "AI",
+   "t": 4.661,
+   "e": 4.881
+  },
+  {
+   "w": "back",
+   "t": 5.141,
+   "e": 5.321
+  },
+  {
+   "w": "when",
+   "t": 5.381,
+   "e": 5.481
+  },
+  {
+   "w": "I",
+   "t": 5.541,
+   "e": 5.581
+  },
+  {
+   "w": "was",
+   "t": 5.621,
+   "e": 5.681
+  },
+  {
+   "w": "200",
+   "t": 5.768,
+   "e": 6.128
+  },
+  {
+   "w": "pounds",
+   "t": 5.762,
+   "e": 6.522
+  },
+  {
+   "w": "and",
+   "t": 7.022,
+   "e": 7.082
+  },
+  {
+   "w": "this",
+   "t": 7.202,
+   "e": 7.402
+  },
+  {
+   "w": "is",
+   "t": 7.822,
+   "e": 7.882
+  },
+  {
+   "w": "what",
+   "t": 7.942,
+   "e": 8.042
+  },
+  {
+   "w": "I",
+   "t": 8.102,
+   "e": 8.142
+  },
+  {
+   "w": "look",
+   "t": 8.182,
+   "e": 8.302
+  },
+  {
+   "w": "like",
+   "t": 8.362,
+   "e": 8.482
+  },
+  {
+   "w": "today.",
+   "t": 8.542,
+   "e": 8.722
+  },
+  {
+   "w": "Seeing",
+   "t": 9.002,
+   "e": 9.302
+  },
+  {
+   "w": "this",
+   "t": 9.362,
+   "e": 9.482
+  },
+  {
+   "w": "AI",
+   "t": 9.623,
+   "e": 9.783
+  },
+  {
+   "w": "image",
+   "t": 9.963,
+   "e": 10.143
+  },
+  {
+   "w": "of",
+   "t": 10.203,
+   "e": 10.243
+  },
+  {
+   "w": "myself",
+   "t": 10.323,
+   "e": 10.623
+  },
+  {
+   "w": "with",
+   "t": 10.683,
+   "e": 10.783
+  },
+  {
+   "w": "abs",
+   "t": 10.983,
+   "e": 11.143
+  },
+  {
+   "w": "changed",
+   "t": 11.303,
+   "e": 11.643
+  },
+  {
+   "w": "me.",
+   "t": 11.723,
+   "e": 11.823
+  },
+  {
+   "w": "it",
+   "t": 12.263,
+   "e": 12.303
+  },
+  {
+   "w": "inspired",
+   "t": 12.383,
+   "e": 12.883
+  },
+  {
+   "w": "me",
+   "t": 12.943,
+   "e": 13.023
+  },
+  {
+   "w": "to",
+   "t": 13.143,
+   "e": 13.223
+  },
+  {
+   "w": "start",
+   "t": 13.283,
+   "e": 13.444
+  },
+  {
+   "w": "taking",
+   "t": 13.504,
+   "e": 13.744
+  },
+  {
+   "w": "my",
+   "t": 13.784,
+   "e": 13.864
+  },
+  {
+   "w": "workouts",
+   "t": 13.964,
+   "e": 14.384
+  },
+  {
+   "w": "and",
+   "t": 14.544,
+   "e": 14.604
+  },
+  {
+   "w": "nutrition",
+   "t": 14.664,
+   "e": 15.084
+  },
+  {
+   "w": "seriously",
+   "t": 15.504,
+   "e": 16.024
+  },
+  {
+   "w": "again.",
+   "t": 16.084,
+   "e": 16.264
+  },
+  {
+   "w": "To",
+   "t": 16.384,
+   "e": 16.484
+  },
+  {
+   "w": "generate",
+   "t": 16.564,
+   "e": 16.904
+  },
+  {
+   "w": "a",
+   "t": 16.964,
+   "e": 17.004
+  },
+  {
+   "w": "picture",
+   "t": 17.044,
+   "e": 17.285
+  },
+  {
+   "w": "of",
+   "t": 17.325,
+   "e": 17.365
+  },
+  {
+   "w": "yourself",
+   "t": 17.405,
+   "e": 17.745
+  },
+  {
+   "w": "with",
+   "t": 17.805,
+   "e": 17.905
+  },
+  {
+   "w": "abs",
+   "t": 18.025,
+   "e": 18.165
+  },
+  {
+   "w": "using",
+   "t": 18.265,
+   "e": 18.465
+  },
+  {
+   "w": "AI,",
+   "t": 18.545,
+   "e": 18.805
+  },
+  {
+   "w": "tap",
+   "t": 19.045,
+   "e": 19.285
+  },
+  {
+   "w": "the",
+   "t": 19.465,
+   "e": 19.525
+  },
+  {
+   "w": "button",
+   "t": 19.585,
+   "e": 19.805
+  },
+  {
+   "w": "below.",
+   "t": 19.865,
+   "e": 20.085
+  },
+  {
+   "w": "And",
+   "t": 20.365,
+   "e": 20.425
+  },
+  {
+   "w": "that's",
+   "t": 20.485,
+   "e": 20.725
+  },
+  {
+   "w": "only",
+   "t": 20.765,
+   "e": 20.906
+  },
+  {
+   "w": "the",
+   "t": 20.966,
+   "e": 21.046
+  },
+  {
+   "w": "beginning",
+   "t": 21.086,
+   "e": 21.486
+  },
+  {
+   "w": "of",
+   "t": 21.626,
+   "e": 21.666
+  },
+  {
+   "w": "how",
+   "t": 21.726,
+   "e": 21.846
+  },
+  {
+   "w": "AI",
+   "t": 21.966,
+   "e": 22.126
+  },
+  {
+   "w": "helped",
+   "t": 22.246,
+   "e": 22.406
+  },
+  {
+   "w": "me",
+   "t": 22.426,
+   "e": 22.466
+  },
+  {
+   "w": "to",
+   "t": 22.526,
+   "e": 22.566
+  },
+  {
+   "w": "get",
+   "t": 22.626,
+   "e": 22.726
+  },
+  {
+   "w": "abs.",
+   "t": 22.846,
+   "e": 23.006
+  },
+  {
+   "w": "Once",
+   "t": 23.326,
+   "e": 23.426
+  },
+  {
+   "w": "I",
+   "t": 23.486,
+   "e": 23.526
+  },
+  {
+   "w": "generated",
+   "t": 23.606,
+   "e": 24.006
+  },
+  {
+   "w": "my",
+   "t": 24.066,
+   "e": 24.126
+  },
+  {
+   "w": "picture,",
+   "t": 24.206,
+   "e": 24.486
+  },
+  {
+   "w": "AI",
+   "t": 24.907,
+   "e": 25.167
+  },
+  {
+   "w": "analyzed",
+   "t": 25.567,
+   "e": 26.027
+  },
+  {
+   "w": "it",
+   "t": 26.107,
+   "e": 26.147
+  },
+  {
+   "w": "and",
+   "t": 26.387,
+   "e": 26.447
+  },
+  {
+   "w": "figured",
+   "t": 26.547,
+   "e": 26.827
+  },
+  {
+   "w": "out",
+   "t": 26.887,
+   "e": 26.967
+  },
+  {
+   "w": "exactly",
+   "t": 27.147,
+   "e": 27.567
+  },
+  {
+   "w": "how",
+   "t": 27.627,
+   "e": 27.707
+  },
+  {
+   "w": "much",
+   "t": 27.747,
+   "e": 27.847
+  },
+  {
+   "w": "fat",
+   "t": 27.927,
+   "e": 28.087
+  },
+  {
+   "w": "I",
+   "t": 28.167,
+   "e": 28.207
+  },
+  {
+   "w": "had",
+   "t": 28.247,
+   "e": 28.347
+  },
+  {
+   "w": "to",
+   "t": 28.407,
+   "e": 28.488
+  },
+  {
+   "w": "lose",
+   "t": 28.528,
+   "e": 28.708
+  },
+  {
+   "w": "and",
+   "t": 28.868,
+   "e": 28.948
+  },
+  {
+   "w": "where",
+   "t": 29.048,
+   "e": 29.268
+  },
+  {
+   "w": "I",
+   "t": 29.348,
+   "e": 29.388
+  },
+  {
+   "w": "had",
+   "t": 29.428,
+   "e": 29.528
+  },
+  {
+   "w": "to",
+   "t": 29.568,
+   "e": 29.628
+  },
+  {
+   "w": "gain",
+   "t": 29.668,
+   "e": 29.788
+  },
+  {
+   "w": "muscle",
+   "t": 29.868,
+   "e": 30.148
+  },
+  {
+   "w": "to",
+   "t": 30.448,
+   "e": 30.508
+  },
+  {
+   "w": "reach",
+   "t": 30.588,
+   "e": 30.728
+  },
+  {
+   "w": "my",
+   "t": 30.788,
+   "e": 30.868
+  },
+  {
+   "w": "goal",
+   "t": 30.928,
+   "e": 31.088
+  },
+  {
+   "w": "physique.",
+   "t": 31.128,
+   "e": 31.448
+  },
+  {
+   "w": "Then",
+   "t": 31.708,
+   "e": 31.868
+  },
+  {
+   "w": "it",
+   "t": 32.088,
+   "e": 32.128
+  },
+  {
+   "w": "gave",
+   "t": 32.168,
+   "e": 32.309
+  },
+  {
+   "w": "me",
+   "t": 32.349,
+   "e": 32.409
+  },
+  {
+   "w": "a",
+   "t": 32.469,
+   "e": 32.509
+  },
+  {
+   "w": "personalized",
+   "t": 32.569,
+   "e": 33.169
+  },
+  {
+   "w": "workout",
+   "t": 33.449,
+   "e": 33.809
+  },
+  {
+   "w": "and",
+   "t": 34.149,
+   "e": 34.229
+  },
+  {
+   "w": "nutrition",
+   "t": 34.289,
+   "e": 34.669
+  },
+  {
+   "w": "plan",
+   "t": 34.729,
+   "e": 34.909
+  },
+  {
+   "w": "to",
+   "t": 35.189,
+   "e": 35.269
+  },
+  {
+   "w": "hit",
+   "t": 35.329,
+   "e": 35.429
+  },
+  {
+   "w": "my",
+   "t": 35.489,
+   "e": 35.569
+  },
+  {
+   "w": "goal.",
+   "t": 35.629,
+   "e": 35.829
+  },
+  {
+   "w": "I",
+   "t": 36.17,
+   "e": 36.21
+  },
+  {
+   "w": "even",
+   "t": 36.33,
+   "e": 36.47
+  },
+  {
+   "w": "started",
+   "t": 36.55,
+   "e": 36.79
+  },
+  {
+   "w": "using",
+   "t": 36.93,
+   "e": 37.13
+  },
+  {
+   "w": "AI",
+   "t": 37.23,
+   "e": 37.45
+  },
+  {
+   "w": "to",
+   "t": 37.57,
+   "e": 37.65
+  },
+  {
+   "w": "track",
+   "t": 37.71,
+   "e": 37.93
+  },
+  {
+   "w": "my",
+   "t": 38.13,
+   "e": 38.21
+  },
+  {
+   "w": "macros.",
+   "t": 38.29,
+   "e": 38.73
+  },
+  {
+   "w": "AI",
+   "t": 39.07,
+   "e": 39.43
+  },
+  {
+   "w": "inspired",
+   "t": 39.69,
+   "e": 40.111
+  },
+  {
+   "w": "me",
+   "t": 40.151,
+   "e": 40.211
+  },
+  {
+   "w": "to",
+   "t": 40.251,
+   "e": 40.291
+  },
+  {
+   "w": "work",
+   "t": 40.351,
+   "e": 40.471
+  },
+  {
+   "w": "out.",
+   "t": 40.631,
+   "e": 40.691
+  },
+  {
+   "w": "It",
+   "t": 40.971,
+   "e": 41.011
+  },
+  {
+   "w": "gave",
+   "t": 41.071,
+   "e": 41.231
+  },
+  {
+   "w": "me",
+   "t": 41.291,
+   "e": 41.351
+  },
+  {
+   "w": "the",
+   "t": 41.431,
+   "e": 41.511
+  },
+  {
+   "w": "exact",
+   "t": 41.591,
+   "e": 41.891
+  },
+  {
+   "w": "workout",
+   "t": 41.991,
+   "e": 42.311
+  },
+  {
+   "w": "and",
+   "t": 42.411,
+   "e": 42.471
+  },
+  {
+   "w": "nutrition",
+   "t": 42.511,
+   "e": 42.911
+  },
+  {
+   "w": "plan",
+   "t": 42.971,
+   "e": 43.171
+  },
+  {
+   "w": "I",
+   "t": 43.351,
+   "e": 43.391
+  },
+  {
+   "w": "needed",
+   "t": 43.491,
+   "e": 43.712
+  },
+  {
+   "w": "to",
+   "t": 43.772,
+   "e": 43.832
+  },
+  {
+   "w": "hit",
+   "t": 43.892,
+   "e": 43.992
+  },
+  {
+   "w": "my",
+   "t": 44.032,
+   "e": 44.112
+  },
+  {
+   "w": "goal.",
+   "t": 44.172,
+   "e": 44.352
+  },
+  {
+   "w": "And",
+   "t": 44.512,
+   "e": 44.592
+  },
+  {
+   "w": "you",
+   "t": 44.672,
+   "e": 44.772
+  },
+  {
+   "w": "can",
+   "t": 44.832,
+   "e": 44.932
+  },
+  {
+   "w": "change",
+   "t": 44.992,
+   "e": 45.172
+  },
+  {
+   "w": "your",
+   "t": 45.212,
+   "e": 45.312
+  },
+  {
+   "w": "life",
+   "t": 45.352,
+   "e": 45.512
+  },
+  {
+   "w": "the",
+   "t": 45.752,
+   "e": 45.832
+  },
+  {
+   "w": "exact",
+   "t": 45.912,
+   "e": 46.252
+  },
+  {
+   "w": "same",
+   "t": 46.352,
+   "e": 46.552
+  },
+  {
+   "w": "way",
+   "t": 46.612,
+   "e": 46.792
+  },
+  {
+   "w": "that",
+   "t": 46.972,
+   "e": 47.072
+  },
+  {
+   "w": "I",
+   "t": 47.172,
+   "e": 47.212
+  },
+  {
+   "w": "did.",
+   "t": 47.292,
+   "e": 47.432
+  },
+  {
+   "w": "And",
+   "t": 47.613,
+   "e": 47.673
+  },
+  {
+   "w": "the",
+   "t": 47.733,
+   "e": 47.813
+  },
+  {
+   "w": "first",
+   "t": 47.873,
+   "e": 48.073
+  },
+  {
+   "w": "step",
+   "t": 48.113,
+   "e": 48.313
+  },
+  {
+   "w": "is",
+   "t": 48.573,
+   "e": 48.653
+  },
+  {
+   "w": "generating",
+   "t": 48.773,
+   "e": 49.273
+  },
+  {
+   "w": "an",
+   "t": 49.433,
+   "e": 49.473
+  },
+  {
+   "w": "AI",
+   "t": 49.633,
+   "e": 49.813
+  },
+  {
+   "w": "image",
+   "t": 49.953,
+   "e": 50.153
+  },
+  {
+   "w": "of",
+   "t": 50.213,
+   "e": 50.253
+  },
+  {
+   "w": "yourself",
+   "t": 50.313,
+   "e": 50.593
+  },
+  {
+   "w": "with",
+   "t": 50.653,
+   "e": 50.733
+  },
+  {
+   "w": "abs.",
+   "t": 50.853,
+   "e": 51.013
+  },
+  {
+   "w": "To",
+   "t": 51.253,
+   "e": 51.354
+  },
+  {
+   "w": "generate",
+   "t": 51.474,
+   "e": 51.854
+  },
+  {
+   "w": "an",
+   "t": 51.894,
+   "e": 51.934
+  },
+  {
+   "w": "image",
+   "t": 52.014,
+   "e": 52.214
+  },
+  {
+   "w": "of",
+   "t": 52.334,
+   "e": 52.374
+  },
+  {
+   "w": "yourself",
+   "t": 52.434,
+   "e": 52.774
+  },
+  {
+   "w": "with",
+   "t": 52.834,
+   "e": 52.934
+  },
+  {
+   "w": "six-pack",
+   "t": 52.994,
+   "e": 53.374
+  },
+  {
+   "w": "abs,",
+   "t": 53.534,
+   "e": 53.674
+  },
+  {
+   "w": "tap",
+   "t": 53.954,
+   "e": 54.194
+  },
+  {
+   "w": "the",
+   "t": 54.454,
+   "e": 54.514
+  },
+  {
+   "w": "button",
+   "t": 54.574,
+   "e": 54.794
+  },
+  {
+   "w": "below.",
+   "t": 54.874,
+   "e": 55.135
+  }
+ ],
+ "transcript_words": [
+  {
+   "w": "This"
+  },
+  {
+   "w": "picture"
+  },
+  {
+   "w": "got"
+  },
+  {
+   "w": "me"
+  },
+  {
+   "w": "abs,"
+  },
+  {
+   "w": "and"
+  },
+  {
+   "w": "it's"
+  },
+  {
+   "w": "not"
+  },
+  {
+   "w": "even"
+  },
+  {
+   "w": "real."
+  },
+  {
+   "w": "I"
+  },
+  {
+   "w": "generated"
+  },
+  {
+   "w": "this"
+  },
+  {
+   "w": "picture"
+  },
+  {
+   "w": "with"
+  },
+  {
+   "w": "AI"
+  },
+  {
+   "w": "back"
+  },
+  {
+   "w": "when"
+  },
+  {
+   "w": "I"
+  },
+  {
+   "w": "was"
+  },
+  {
+   "w": "200"
+  },
+  {
+   "w": "pounds,"
+  },
+  {
+   "w": "and"
+  },
+  {
+   "w": "this"
+  },
+  {
+   "w": "is"
+  },
+  {
+   "w": "what"
+  },
+  {
+   "w": "I"
+  },
+  {
+   "w": "look"
+  },
+  {
+   "w": "like"
+  },
+  {
+   "w": "today."
+  },
+  {
+   "w": "Seeing"
+  },
+  {
+   "w": "this"
+  },
+  {
+   "w": "AI"
+  },
+  {
+   "w": "image"
+  },
+  {
+   "w": "of"
+  },
+  {
+   "w": "myself"
+  },
+  {
+   "w": "with"
+  },
+  {
+   "w": "abs"
+  },
+  {
+   "w": "changed"
+  },
+  {
+   "w": "me."
+  },
+  {
+   "w": "It"
+  },
+  {
+   "w": "inspired"
+  },
+  {
+   "w": "me"
+  },
+  {
+   "w": "to"
+  },
+  {
+   "w": "start"
+  },
+  {
+   "w": "taking"
+  },
+  {
+   "w": "my"
+  },
+  {
+   "w": "workouts"
+  },
+  {
+   "w": "and"
+  },
+  {
+   "w": "nutrition"
+  },
+  {
+   "w": "seriously"
+  },
+  {
+   "w": "again."
+  },
+  {
+   "w": "To"
+  },
+  {
+   "w": "generate"
+  },
+  {
+   "w": "a"
+  },
+  {
+   "w": "picture"
+  },
+  {
+   "w": "of"
+  },
+  {
+   "w": "yourself"
+  },
+  {
+   "w": "with"
+  },
+  {
+   "w": "abs"
+  },
+  {
+   "w": "using"
+  },
+  {
+   "w": "AI,"
+  },
+  {
+   "w": "tap"
+  },
+  {
+   "w": "the"
+  },
+  {
+   "w": "button"
+  },
+  {
+   "w": "below."
+  },
+  {
+   "w": "And"
+  },
+  {
+   "w": "that's"
+  },
+  {
+   "w": "only"
+  },
+  {
+   "w": "the"
+  },
+  {
+   "w": "beginning"
+  },
+  {
+   "w": "of"
+  },
+  {
+   "w": "how"
+  },
+  {
+   "w": "AI"
+  },
+  {
+   "w": "helped"
+  },
+  {
+   "w": "me"
+  },
+  {
+   "w": "to"
+  },
+  {
+   "w": "get"
+  },
+  {
+   "w": "abs."
+  },
+  {
+   "w": "Once"
+  },
+  {
+   "w": "I"
+  },
+  {
+   "w": "generated"
+  },
+  {
+   "w": "my"
+  },
+  {
+   "w": "picture,"
+  },
+  {
+   "w": "AI"
+  },
+  {
+   "w": "analyzed"
+  },
+  {
+   "w": "it"
+  },
+  {
+   "w": "and"
+  },
+  {
+   "w": "figured"
+  },
+  {
+   "w": "out"
+  },
+  {
+   "w": "exactly"
+  },
+  {
+   "w": "how"
+  },
+  {
+   "w": "much"
+  },
+  {
+   "w": "fat"
+  },
+  {
+   "w": "I"
+  },
+  {
+   "w": "had"
+  },
+  {
+   "w": "to"
+  },
+  {
+   "w": "loot"
+  },
+  {
+   "w": "and"
+  },
+  {
+   "w": "where"
+  },
+  {
+   "w": "I"
+  },
+  {
+   "w": "had"
+  },
+  {
+   "w": "to"
+  },
+  {
+   "w": "gain"
+  },
+  {
+   "w": "muscle"
+  },
+  {
+   "w": "to"
+  },
+  {
+   "w": "reach"
+  },
+  {
+   "w": "my"
+  },
+  {
+   "w": "goal"
+  },
+  {
+   "w": "physique."
+  },
+  {
+   "w": "Then"
+  },
+  {
+   "w": "it"
+  },
+  {
+   "w": "gave"
+  },
+  {
+   "w": "me"
+  },
+  {
+   "w": "a"
+  },
+  {
+   "w": "personalized"
+  },
+  {
+   "w": "workout"
+  },
+  {
+   "w": "and"
+  },
+  {
+   "w": "nutrition"
+  },
+  {
+   "w": "plan"
+  },
+  {
+   "w": "to"
+  },
+  {
+   "w": "hit"
+  },
+  {
+   "w": "my"
+  },
+  {
+   "w": "goal."
+  },
+  {
+   "w": "I"
+  },
+  {
+   "w": "even"
+  },
+  {
+   "w": "started"
+  },
+  {
+   "w": "using"
+  },
+  {
+   "w": "AI"
+  },
+  {
+   "w": "to"
+  },
+  {
+   "w": "track"
+  },
+  {
+   "w": "my"
+  },
+  {
+   "w": "macros."
+  },
+  {
+   "w": "AI"
+  },
+  {
+   "w": "inspired"
+  },
+  {
+   "w": "me"
+  },
+  {
+   "w": "to"
+  },
+  {
+   "w": "work"
+  },
+  {
+   "w": "out."
+  },
+  {
+   "w": "It"
+  },
+  {
+   "w": "gave"
+  },
+  {
+   "w": "me"
+  },
+  {
+   "w": "the"
+  },
+  {
+   "w": "exact"
+  },
+  {
+   "w": "workout"
+  },
+  {
+   "w": "and"
+  },
+  {
+   "w": "nutrition"
+  },
+  {
+   "w": "plan"
+  },
+  {
+   "w": "I"
+  },
+  {
+   "w": "needed"
+  },
+  {
+   "w": "to"
+  },
+  {
+   "w": "hit"
+  },
+  {
+   "w": "my"
+  },
+  {
+   "w": "goal."
+  },
+  {
+   "w": "And"
+  },
+  {
+   "w": "you"
+  },
+  {
+   "w": "can"
+  },
+  {
+   "w": "change"
+  },
+  {
+   "w": "your"
+  },
+  {
+   "w": "life"
+  },
+  {
+   "w": "the"
+  },
+  {
+   "w": "exact"
+  },
+  {
+   "w": "same"
+  },
+  {
+   "w": "way"
+  },
+  {
+   "w": "that"
+  },
+  {
+   "w": "I"
+  },
+  {
+   "w": "did."
+  },
+  {
+   "w": "And"
+  },
+  {
+   "w": "the"
+  },
+  {
+   "w": "first"
+  },
+  {
+   "w": "step"
+  },
+  {
+   "w": "is"
+  },
+  {
+   "w": "generating"
+  },
+  {
+   "w": "an"
+  },
+  {
+   "w": "AI"
+  },
+  {
+   "w": "image"
+  },
+  {
+   "w": "of"
+  },
+  {
+   "w": "yourself"
+  },
+  {
+   "w": "with"
+  },
+  {
+   "w": "abs."
+  },
+  {
+   "w": "To"
+  },
+  {
+   "w": "generate"
+  },
+  {
+   "w": "an"
+  },
+  {
+   "w": "image"
+  },
+  {
+   "w": "of"
+  },
+  {
+   "w": "yourself"
+  },
+  {
+   "w": "with"
+  },
+  {
+   "w": "six"
+  },
+  {
+   "w": "pack"
+  },
+  {
+   "w": "abs,"
+  },
+  {
+   "w": "tap"
+  },
+  {
+   "w": "the"
+  },
+  {
+   "w": "button"
+  },
+  {
+   "w": "below."
+  }
+ ],
+ "source_audio": "/Volumes/Extreme/_edit_work/ra01-sq/cut_audio.wav",
+ "banned_source": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/02 App Screen Recordings and Screenshots/app-flow-generate-future-self.mp4",
+ "banned_times": [
+  26.5,
+  27.5,
+  29.5,
+  31.0
+ ],
+ "watch_log": "/Volumes/Extreme/_edit_work/ra01-sq/watchpass_1x1/watch_pass.json",
+ "negative_events_scan": {
+  "sha256": "3e7939bcc571c9a895429278d59a40b07465c1bda76ad5c76095ae93723ecedd",
+  "when": "2026-10-02T17:54:20.050835+00:00",
+  "frames_checked": 40,
+  "findings": [],
+  "method": "evenly spaced frames across the delivered render, tiled and inspected for Google's Negative Events and Imagery triggers -- above all a zoomed-in close-up of an overweight body part framed with disgust or shame"
+ }
+}
