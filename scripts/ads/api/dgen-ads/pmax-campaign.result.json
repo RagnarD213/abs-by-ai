@@ -1,5 +1,5 @@
 {
- "at": "2026-10-02T17:49:30.197Z",
+ "at": "2026-10-02T18:14:25.024Z",
  "campaignId": "24308574894",
  "skipped": [],
  "campaign": [
@@ -15,9 +15,10 @@
     },
     "name": "[DAN] [PMAX] [TRIAL] VSL page | 6 ads | US+CA | site visitors 30 day",
     "id": "24308574894",
-    "primaryStatus": "LEARNING",
+    "primaryStatus": "PENDING",
     "primaryStatusReasons": [
-     "BIDDING_STRATEGY_LEARNING"
+     "BIDDING_STRATEGY_LEARNING",
+     "MOST_ASSET_GROUPS_UNDER_REVIEW"
     ],
     "assetAutomationSettings": [
      {
@@ -47,7 +48,7 @@
    },
    "campaignBudget": {
     "resourceName": "customers/3427170837/campaignBudgets/15923601274",
-    "amountMicros": "15000000",
+    "amountMicros": "5000000",
     "explicitlyShared": false
    }
   }
@@ -1328,7 +1329,7 @@
     ],
     "status": "ENABLED",
     "id": "6754766656",
-    "adStrength": "PENDING",
+    "adStrength": "GOOD",
     "primaryStatus": "PENDING",
     "primaryStatusReasons": [
      "ASSET_GROUP_UNDER_REVIEW"
@@ -1355,8 +1356,8 @@
     "fieldType": "LOGO",
     "status": "ENABLED",
     "policySummary": {
-     "reviewStatus": "REVIEW_IN_PROGRESS",
-     "approvalStatus": "UNKNOWN"
+     "reviewStatus": "REVIEWED",
+     "approvalStatus": "APPROVED"
     }
    }
   },
@@ -1374,23 +1375,32 @@
     "fieldType": "BUSINESS_NAME",
     "status": "ENABLED",
     "policySummary": {
-     "reviewStatus": "REVIEW_IN_PROGRESS",
-     "approvalStatus": "UNKNOWN"
+     "reviewStatus": "REVIEWED",
+     "approvalStatus": "APPROVED"
     }
    }
   },
   {
    "asset": {
-    "resourceName": "customers/3427170837/assets/415668674098",
-    "type": "TEXT",
-    "textAsset": {
-     "text": "How AI Fixed My Supplements"
+    "resourceName": "customers/3427170837/assets/401043086500",
+    "type": "IMAGE",
+    "imageAsset": {
+     "fullSize": {
+      "heightPixels": "169",
+      "widthPixels": "673"
+     }
     },
-    "id": "415668674098"
+    "id": "401043086500",
+    "name": "abs-by-ai-logo-google-ads-1200x300_4:1.png",
+    "syntheticContentInfo": {
+     "advertiserAttestation": {
+      "status": "IS_SYNTHETIC"
+     }
+    }
    },
    "assetGroupAsset": {
-    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~415668674098~HEADLINE",
-    "fieldType": "HEADLINE",
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~401043086500~LANDSCAPE_LOGO",
+    "fieldType": "LANDSCAPE_LOGO",
     "status": "ENABLED",
     "policySummary": {
      "reviewStatus": "REVIEW_IN_PROGRESS",
@@ -1457,44 +1467,6 @@
   },
   {
    "asset": {
-    "resourceName": "customers/3427170837/assets/419830601498",
-    "type": "TEXT",
-    "textAsset": {
-     "text": "Daniel Rose shows how AI reads the label on every supplement in his stack."
-    },
-    "id": "419830601498"
-   },
-   "assetGroupAsset": {
-    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~419830601498~DESCRIPTION",
-    "fieldType": "DESCRIPTION",
-    "status": "ENABLED",
-    "policySummary": {
-     "reviewStatus": "REVIEW_IN_PROGRESS",
-     "approvalStatus": "UNKNOWN"
-    }
-   }
-  },
-  {
-   "asset": {
-    "resourceName": "customers/3427170837/assets/419830601507",
-    "type": "TEXT",
-    "textAsset": {
-     "text": "Daniel Rose explains why he stopped taking supplement advice from influencers."
-    },
-    "id": "419830601507"
-   },
-   "assetGroupAsset": {
-    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~419830601507~LONG_HEADLINE",
-    "fieldType": "LONG_HEADLINE",
-    "status": "ENABLED",
-    "policySummary": {
-     "reviewStatus": "REVIEW_IN_PROGRESS",
-     "approvalStatus": "UNKNOWN"
-    }
-   }
-  },
-  {
-   "asset": {
     "resourceName": "customers/3427170837/assets/419938098517",
     "type": "YOUTUBE_VIDEO",
     "youtubeVideoAsset": {
@@ -1527,8 +1499,8 @@
     "fieldType": "DESCRIPTION",
     "status": "ENABLED",
     "policySummary": {
-     "reviewStatus": "REVIEW_IN_PROGRESS",
-     "approvalStatus": "UNKNOWN"
+     "reviewStatus": "REVIEWED",
+     "approvalStatus": "APPROVED"
     }
    }
   },
@@ -1546,8 +1518,8 @@
     "fieldType": "LONG_HEADLINE",
     "status": "ENABLED",
     "policySummary": {
-     "reviewStatus": "REVIEW_IN_PROGRESS",
-     "approvalStatus": "UNKNOWN"
+     "reviewStatus": "REVIEWED",
+     "approvalStatus": "APPROVED"
     }
    }
   },
@@ -1565,46 +1537,8 @@
     "fieldType": "DESCRIPTION",
     "status": "ENABLED",
     "policySummary": {
-     "reviewStatus": "REVIEW_IN_PROGRESS",
-     "approvalStatus": "UNKNOWN"
-    }
-   }
-  },
-  {
-   "asset": {
-    "resourceName": "customers/3427170837/assets/421486088198",
-    "type": "TEXT",
-    "textAsset": {
-     "text": "A Busy Dad's Fitness System"
-    },
-    "id": "421486088198"
-   },
-   "assetGroupAsset": {
-    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~421486088198~HEADLINE",
-    "fieldType": "HEADLINE",
-    "status": "ENABLED",
-    "policySummary": {
-     "reviewStatus": "REVIEW_IN_PROGRESS",
-     "approvalStatus": "UNKNOWN"
-    }
-   }
-  },
-  {
-   "asset": {
-    "resourceName": "customers/3427170837/assets/421486088201",
-    "type": "TEXT",
-    "textAsset": {
-     "text": "A busy dad explains the workout, meal and adjustment plan he uses with AI."
-    },
-    "id": "421486088201"
-   },
-   "assetGroupAsset": {
-    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~421486088201~LONG_HEADLINE",
-    "fieldType": "LONG_HEADLINE",
-    "status": "ENABLED",
-    "policySummary": {
-     "reviewStatus": "REVIEW_IN_PROGRESS",
-     "approvalStatus": "UNKNOWN"
+     "reviewStatus": "REVIEWED",
+     "approvalStatus": "APPROVED"
     }
    }
   },
@@ -1630,44 +1564,6 @@
   },
   {
    "asset": {
-    "resourceName": "customers/3427170837/assets/421668377691",
-    "type": "TEXT",
-    "textAsset": {
-     "text": "Daniel Rose shows the workout and nutrition system he follows as a 40-year-old dad."
-    },
-    "id": "421668377691"
-   },
-   "assetGroupAsset": {
-    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~421668377691~DESCRIPTION",
-    "fieldType": "DESCRIPTION",
-    "status": "ENABLED",
-    "policySummary": {
-     "reviewStatus": "REVIEW_IN_PROGRESS",
-     "approvalStatus": "UNKNOWN"
-    }
-   }
-  },
-  {
-   "asset": {
-    "resourceName": "customers/3427170837/assets/421668377709",
-    "type": "TEXT",
-    "textAsset": {
-     "text": "Daniel Rose explains how he rebuilt his fitness at 40 with a plan he could follow."
-    },
-    "id": "421668377709"
-   },
-   "assetGroupAsset": {
-    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~421668377709~LONG_HEADLINE",
-    "fieldType": "LONG_HEADLINE",
-    "status": "ENABLED",
-    "policySummary": {
-     "reviewStatus": "REVIEW_IN_PROGRESS",
-     "approvalStatus": "UNKNOWN"
-    }
-   }
-  },
-  {
-   "asset": {
     "resourceName": "customers/3427170837/assets/422079967995",
     "type": "YOUTUBE_VIDEO",
     "youtubeVideoAsset": {
@@ -1679,63 +1575,6 @@
    "assetGroupAsset": {
     "resourceName": "customers/3427170837/assetGroupAssets/6754766656~422079967995~YOUTUBE_VIDEO",
     "fieldType": "YOUTUBE_VIDEO",
-    "status": "ENABLED",
-    "policySummary": {
-     "reviewStatus": "REVIEW_IN_PROGRESS",
-     "approvalStatus": "UNKNOWN"
-    }
-   }
-  },
-  {
-   "asset": {
-    "resourceName": "customers/3427170837/assets/422804571548",
-    "type": "TEXT",
-    "textAsset": {
-     "text": "Daniel Rose shows how AI turned his goal image into a personalized fitness plan."
-    },
-    "id": "422804571548"
-   },
-   "assetGroupAsset": {
-    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~422804571548~DESCRIPTION",
-    "fieldType": "DESCRIPTION",
-    "status": "ENABLED",
-    "policySummary": {
-     "reviewStatus": "REVIEW_IN_PROGRESS",
-     "approvalStatus": "UNKNOWN"
-    }
-   }
-  },
-  {
-   "asset": {
-    "resourceName": "customers/3427170837/assets/422804571560",
-    "type": "TEXT",
-    "textAsset": {
-     "text": "A Personalized AI Fitness Plan"
-    },
-    "id": "422804571560"
-   },
-   "assetGroupAsset": {
-    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~422804571560~HEADLINE",
-    "fieldType": "HEADLINE",
-    "status": "ENABLED",
-    "policySummary": {
-     "reviewStatus": "REVIEW_IN_PROGRESS",
-     "approvalStatus": "UNKNOWN"
-    }
-   }
-  },
-  {
-   "asset": {
-    "resourceName": "customers/3427170837/assets/422804571566",
-    "type": "TEXT",
-    "textAsset": {
-     "text": "Daniel Rose shows how he used AI to turn a goal image into a workout and nutrition plan."
-    },
-    "id": "422804571566"
-   },
-   "assetGroupAsset": {
-    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~422804571566~LONG_HEADLINE",
-    "fieldType": "LONG_HEADLINE",
     "status": "ENABLED",
     "policySummary": {
      "reviewStatus": "REVIEW_IN_PROGRESS",
@@ -1776,25 +1615,6 @@
    "assetGroupAsset": {
     "resourceName": "customers/3427170837/assetGroupAssets/6754766656~424707539263~YOUTUBE_VIDEO",
     "fieldType": "YOUTUBE_VIDEO",
-    "status": "ENABLED",
-    "policySummary": {
-     "reviewStatus": "REVIEW_IN_PROGRESS",
-     "approvalStatus": "UNKNOWN"
-    }
-   }
-  },
-  {
-   "asset": {
-    "resourceName": "customers/3427170837/assets/425847229508",
-    "type": "TEXT",
-    "textAsset": {
-     "text": "How Busy Dads Get Abs"
-    },
-    "id": "425847229508"
-   },
-   "assetGroupAsset": {
-    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~425847229508~HEADLINE",
-    "fieldType": "HEADLINE",
     "status": "ENABLED",
     "policySummary": {
      "reviewStatus": "REVIEW_IN_PROGRESS",
@@ -1937,25 +1757,6 @@
   },
   {
    "asset": {
-    "resourceName": "customers/3427170837/assets/426033287649",
-    "type": "TEXT",
-    "textAsset": {
-     "text": "Supplement Corps Hate Him"
-    },
-    "id": "426033287649"
-   },
-   "assetGroupAsset": {
-    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~426033287649~HEADLINE",
-    "fieldType": "HEADLINE",
-    "status": "ENABLED",
-    "policySummary": {
-     "reviewStatus": "REVIEW_IN_PROGRESS",
-     "approvalStatus": "UNKNOWN"
-    }
-   }
-  },
-  {
-   "asset": {
     "resourceName": "customers/3427170837/assets/426146441822",
     "type": "IMAGE",
     "imageAsset": {
@@ -2033,8 +1834,8 @@
     "fieldType": "PORTRAIT_MARKETING_IMAGE",
     "status": "ENABLED",
     "policySummary": {
-     "reviewStatus": "REVIEW_IN_PROGRESS",
-     "approvalStatus": "UNKNOWN"
+     "reviewStatus": "REVIEWED",
+     "approvalStatus": "APPROVED"
     }
    }
   },
@@ -2145,8 +1946,8 @@
     "fieldType": "SQUARE_MARKETING_IMAGE",
     "status": "ENABLED",
     "policySummary": {
-     "reviewStatus": "REVIEW_IN_PROGRESS",
-     "approvalStatus": "UNKNOWN"
+     "reviewStatus": "REVIEWED",
+     "approvalStatus": "APPROVED"
     }
    }
   },
@@ -2180,6 +1981,82 @@
   },
   {
    "asset": {
+    "resourceName": "customers/3427170837/assets/426150831680",
+    "type": "TEXT",
+    "textAsset": {
+     "text": "The Real Truth About Abs"
+    },
+    "id": "426150831680"
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~426150831680~HEADLINE",
+    "fieldType": "HEADLINE",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/426151075733",
+    "type": "TEXT",
+    "textAsset": {
+     "text": "This AI app shows you how to lose your belly fat. Try it free for 7 days."
+    },
+    "id": "426151075733"
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~426151075733~DESCRIPTION",
+    "fieldType": "DESCRIPTION",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/426249569833",
+    "type": "TEXT",
+    "textAsset": {
+     "text": "Learn 5 ways you can use AI to lose stubborn belly fat. Free video teaches you how."
+    },
+    "id": "426249569833"
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~426249569833~DESCRIPTION",
+    "fieldType": "DESCRIPTION",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/426249577630",
+    "type": "TEXT",
+    "textAsset": {
+     "text": "I struggled with belly fat until I discovered how to use an AI trainer to get abs."
+    },
+    "id": "426249577630"
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~426249577630~DESCRIPTION",
+    "fieldType": "DESCRIPTION",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
     "resourceName": "customers/3427170837/assets/426330038496",
     "type": "IMAGE",
     "imageAsset": {
@@ -2201,8 +2078,8 @@
     "fieldType": "MARKETING_IMAGE",
     "status": "ENABLED",
     "policySummary": {
-     "reviewStatus": "REVIEW_IN_PROGRESS",
-     "approvalStatus": "UNKNOWN"
+     "reviewStatus": "REVIEWED",
+     "approvalStatus": "APPROVED"
     }
    }
   },
@@ -2285,8 +2162,8 @@
     "fieldType": "SQUARE_MARKETING_IMAGE",
     "status": "ENABLED",
     "policySummary": {
-     "reviewStatus": "REVIEW_IN_PROGRESS",
-     "approvalStatus": "UNKNOWN"
+     "reviewStatus": "REVIEWED",
+     "approvalStatus": "APPROVED"
     }
    }
   },
@@ -2369,8 +2246,8 @@
     "fieldType": "MARKETING_IMAGE",
     "status": "ENABLED",
     "policySummary": {
-     "reviewStatus": "REVIEW_IN_PROGRESS",
-     "approvalStatus": "UNKNOWN"
+     "reviewStatus": "REVIEWED",
+     "approvalStatus": "APPROVED"
     }
    }
   },
@@ -2397,8 +2274,8 @@
     "fieldType": "SQUARE_MARKETING_IMAGE",
     "status": "ENABLED",
     "policySummary": {
-     "reviewStatus": "REVIEW_IN_PROGRESS",
-     "approvalStatus": "UNKNOWN"
+     "reviewStatus": "REVIEWED",
+     "approvalStatus": "APPROVED"
     }
    }
   },
@@ -2425,8 +2302,8 @@
     "fieldType": "MARKETING_IMAGE",
     "status": "ENABLED",
     "policySummary": {
-     "reviewStatus": "REVIEW_IN_PROGRESS",
-     "approvalStatus": "UNKNOWN"
+     "reviewStatus": "REVIEWED",
+     "approvalStatus": "APPROVED"
     }
    }
   },
@@ -2453,8 +2330,8 @@
     "fieldType": "SQUARE_MARKETING_IMAGE",
     "status": "ENABLED",
     "policySummary": {
-     "reviewStatus": "REVIEW_IN_PROGRESS",
-     "approvalStatus": "UNKNOWN"
+     "reviewStatus": "REVIEWED",
+     "approvalStatus": "APPROVED"
     }
    }
   },
@@ -2481,8 +2358,8 @@
     "fieldType": "PORTRAIT_MARKETING_IMAGE",
     "status": "ENABLED",
     "policySummary": {
-     "reviewStatus": "REVIEW_IN_PROGRESS",
-     "approvalStatus": "UNKNOWN"
+     "reviewStatus": "REVIEWED",
+     "approvalStatus": "APPROVED"
     }
    }
   },
@@ -2526,6 +2403,101 @@
    "assetGroupAsset": {
     "resourceName": "customers/3427170837/assetGroupAssets/6754766656~426330159312~CALL_TO_ACTION_SELECTION",
     "fieldType": "CALL_TO_ACTION_SELECTION",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEWED",
+     "approvalStatus": "APPROVED"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/426334573095",
+    "type": "TEXT",
+    "textAsset": {
+     "text": "5 ways you can use AI to lose your stubborn stomach fat and to get six pack abs."
+    },
+    "id": "426334573095"
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~426334573095~LONG_HEADLINE",
+    "fieldType": "LONG_HEADLINE",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/426334651548",
+    "type": "TEXT",
+    "textAsset": {
+     "text": "Trainers despise this AI fitness app. See why men are replacing their trainer with AI."
+    },
+    "id": "426334651548"
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~426334651548~LONG_HEADLINE",
+    "fieldType": "LONG_HEADLINE",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/426334657044",
+    "type": "TEXT",
+    "textAsset": {
+     "text": "Personalized AI Fitness Plan"
+    },
+    "id": "426334657044"
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~426334657044~HEADLINE",
+    "fieldType": "HEADLINE",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/426334657053",
+    "type": "TEXT",
+    "textAsset": {
+     "text": "AI fitness app shows you how to lose stomach fat and get abs. Try it free for 7 days!"
+    },
+    "id": "426334657053"
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~426334657053~LONG_HEADLINE",
+    "fieldType": "LONG_HEADLINE",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/426334657056",
+    "type": "TEXT",
+    "textAsset": {
+     "text": "AI genius discovers how to use AI to lose his stubborn belly fat. Video reveals full story"
+    },
+    "id": "426334657056"
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~426334657056~LONG_HEADLINE",
+    "fieldType": "LONG_HEADLINE",
     "status": "ENABLED",
     "policySummary": {
      "reviewStatus": "REVIEW_IN_PROGRESS",

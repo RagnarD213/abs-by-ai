@@ -9,7 +9,7 @@
  *   node scripts/ads/api/pmax-trial-campaign.js --skip gender,members   # leave out a control Google refuses
  *
  * Text is Dan's own, taken verbatim from the live cold trial campaign 24316364155; the script refuses a line that
- * is not live there unless it is listed in NEW_LINES. Idempotent by campaign name. Enabling is a separate call.
+ * is not live there unless it is listed in NEW_LINES (Dan's own lines for this campaign). Idempotent by campaign name. Enabling is a separate call.
  */
 const fs = require('fs');
 const path = require('path');
@@ -37,27 +37,28 @@ const VIDEOS = [
   ['423865478571', 'Ad 13 16:9'], ['419938098517', 'Ad 4 16:9'], ['421668364056', 'Ad 6 16:9'],
   ['424707539263', 'Ad 10 9:16'], ['422079967995', 'Ad 3 1:1'],
 ];
+// Live copy after Dan's own edit in the Ads editor, 2026-10-02 (lessons: skill /ad-copy, WHAT DAN CHANGED).
 const HEADLINES = [
-  'How I Got Abs At 40', 'How AI Got Me Abs', 'Fire Your Personal Trainer', 'Human Trainers Hate Him',
-  'Trainers Hate This AI App', 'How Busy Dads Get Abs', 'How 40+ Dads Can Get Abs', 'How Men 40+ Lose Belly Fat',
-  'How To Get Abs After 40', 'Supplement Corps Hate Him', 'How AI Fixed My Supplements', 'How I Lost Belly Fat With AI',
-  'A Personalized AI Fitness Plan', 'How AI Got Me Abs At 40', "A Busy Dad's Fitness System",
+  'How I Got Abs At 40', 'How AI Got Me Abs', 'How AI Got Me Abs At 40', 'How To Get Abs After 40', 'How 40+ Dads Can Get Abs',
+  'How Men 40+ Lose Belly Fat', 'How I Lost Belly Fat With AI', 'Fire Your Personal Trainer', 'Human Trainers Hate Him',
+  'Trainers Hate This AI App', 'The Real Truth About Abs', 'Personalized AI Fitness Plan',
 ];
 const LONG_HEADLINES = [
-  'Daniel Rose shows how he used AI to turn a goal image into a workout and nutrition plan.',
   "Here's why I stopped paying a personal trainer and use an AI trainer instead.",
-  'A busy dad explains the workout, meal and adjustment plan he uses with AI.',
-  'Daniel Rose explains how he rebuilt his fitness at 40 with a plan he could follow.',
-  'Daniel Rose explains why he stopped taking supplement advice from influencers.',
+  '5 ways you can use AI to lose your stubborn stomach fat and to get six pack abs.',
+  'AI fitness app shows you how to lose stomach fat and get abs. Try it free for 7 days!',
+  'Trainers despise this AI fitness app. See why men are replacing their trainer with AI.',
+  'AI genius discovers how to use AI to lose his stubborn belly fat. Video reveals full story',
 ];
 const DESCRIPTIONS = [
-  'Daniel Rose shows how AI turned his goal image into a personalized fitness plan.',
   'Daniel Rose shows how an AI trainer builds his plan and adjusts it at every workout.',
   'AI plans workouts and meals around your schedule, equipment and starting point.',
-  'Daniel Rose shows the workout and nutrition system he follows as a 40-year-old dad.',
-  'Daniel Rose shows how AI reads the label on every supplement in his stack.',
+  'This AI app shows you how to lose your belly fat. Try it free for 7 days.',
+  'I struggled with belly fat until I discovered how to use an AI trainer to get abs.',
+  'Learn 5 ways you can use AI to lose stubborn belly fat. Free video teaches you how.',
 ];
-const NEW_LINES = [];   // lines not in the trial campaign (written with /ad-copy); listed in the report
+// Dan's lines that are not in the trial campaign (he wrote them for this campaign).
+const NEW_LINES = ['The Real Truth About Abs', 'Personalized AI Fitness Plan', ...LONG_HEADLINES.slice(1), ...DESCRIPTIONS.slice(2)];
 const EXTRA_NEGATIVES = [['free', 'BROAD'], ['generator', 'BROAD'], ['abs editor', 'PHRASE'], ['abs creator', 'PHRASE'],
   ['six pack ai', 'PHRASE'], ['ai six pack', 'PHRASE'], ['give me abs ai', 'PHRASE']];
 const AUTOMATION_OFF = ['TEXT_ASSET_AUTOMATION', 'FINAL_URL_EXPANSION_TEXT_ASSET_AUTOMATION', 'GENERATE_ENHANCED_YOUTUBE_VIDEOS',

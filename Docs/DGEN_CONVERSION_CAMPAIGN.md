@@ -666,3 +666,11 @@ the daily budget on one day, so the month can pass $450 by a few dollars and tha
   spends, report it with the list size; do not widen the targeting without Dan.
 - **$150 spent (about 2026-10-12):** judge per `Docs/CAMPAIGN_IMAGES_RESEARCH.md` section 9. Three or more trials is a
   winner, zero is a loser, one or two runs to $300.
+
+**2026-10-02, Dan rewrote the copy in the Ads editor (about 1:30 PM CT).** Now 12 headlines, 5 long headlines, 5
+descriptions; the live lines are the constants in `scripts/ads/api/pmax-trial-campaign.js`. He cut the headlines that
+only fit one ad (supplements, busy dad), added "The Real Truth About Abs", and replaced four long headlines and three
+descriptions with lines that sell the click and fit any video or image. One typo in his description was fixed by API
+("apps hows" to "app shows"). Before and after table and the lessons: skill `/ad-copy`.
+
+**2026-10-02 12:59 PM CT: budget changed from $15 to $5/day in the Ads interface** (change history, web client). At $5/day to the 11-01 end date the campaign spends about $150 of the $450 credit; the credit expires 11-30.

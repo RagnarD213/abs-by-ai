@@ -148,3 +148,9 @@ changed (struck → replacement) because they did not say what the video is abou
    *How Busy Dads Get Abs*, *How Men 40+ Lose Belly Fat*, *How I Lost Belly Fat With AI* and the enemy shape
    *Human Trainers Hate Him* / *Supplement Corps Hate Him*. Full table and the writing method: skill `/ad-copy`.
    These are Dan's hand-written lines; the automatic generator's lint is unchanged.
+
+8. **(2026-10-02) Mixed-asset campaigns (Performance Max): every line must fit every video and image, and long
+   headlines and descriptions must sell the click.** Dan cut the ad-specific headlines (supplements, busy dad) and
+   rewrote 7 of 10 long lines: the reader's outcome ("lose your stubborn belly fat"), a number ("5 ways"), the offer
+   ("Try it free for 7 days"), a reason to click ("See why", "Video reveals full story"). The flat "Daniel Rose
+   explains..." sentence is weak. This replaces rule 3 for anything Dan reviews. Full table: skill `/ad-copy`.
