@@ -118,7 +118,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **Stop Deadlifting - QUEUED 2026-09-29, Claude.** Blotato Oct 11 9AM CT, 4 platforms. Next: once posted, publish `sixpackabs/articles/TBD-stop-deadlifting.md`, then delete.
 
-**SL-03 NEEDS DAN 2026-10-02, Claude.** Picks.
+**SL-03 HANDOFF 2026-10-02, Claude.** `handoff-20261002-sl03-salad-shorts-round1.md`.
 
 **RO-05 salad - QUEUED 2026-09-30, Claude.** Oct 18: fire `handoff-20260930-ro05-captions-and-article-after-release.md`.
 
