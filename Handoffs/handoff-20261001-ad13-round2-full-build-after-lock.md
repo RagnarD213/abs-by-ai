@@ -135,3 +135,5 @@ bottom section first. Name this session 'The Cost Of Getting Abs AD R3'. My answ
 Record them, then do what they authorize and stop at the next approval." Model and effort: Claude Opus 5.5, High.
 
 **Uncommitted on purpose:** `kit9x16/master_to_sbl.py` carries this round's additions (`add_pictures`, `until`, `flash_after` from the copy file) AND another session's unfinished Ad 6 edits (`extra_beats`, `extra_lower_thirds`, `fact`). It was not pushed from here; whoever finishes the Ad 6 work commits the file with both. Round 3 needs these additions on disk.
+
+**Answered 2026-10-02.** Dan's answers: `review2/decisions.json`. Next: `handoff-20261002-ad13-round3-full-builds.md`.

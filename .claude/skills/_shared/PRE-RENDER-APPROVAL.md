@@ -56,6 +56,14 @@ to review than looking at all this in the browser panel one at a time."* Every a
    sheet (film time, word, what moves) sits under each graphic whose parts land on words.
 6. **One reply box** with the decision lines pre-filled and a Copy button.
 
+**The player floats at the side and every video can be scrubbed (Dan, 2026-10-02, Ad 13 round 2).** *"Fully utilize the
+huge amount of space I have on the screen, put the video in a kind of floating panel to the side, and then put all the
+other stuff in the middle"* and *"I'm not able to click around to go backwards and forwards, which is essential."* On a
+wide screen the shared context player is a fixed panel at the right; the page scrolls in the middle and playing an item
+never jumps the page or covers it. Serve the page with `.claude/skills/_shared/review_server.py PORT [DIR]`, never
+`python3 -m http.server`: the built-in server ignores byte ranges, so a click on a video's timeline does nothing.
+Before sending, seek in one player and confirm the time moves. Layout reference: `kit9x16/sbl_page.py`.
+
 Reference build: `/Volumes/Extreme/_edit_work/ro16/round1/index.html`, generator `.claude/skills/longform-edit/reference/ro16/page.py`.
 With the context player and beat sheets: `/Volumes/Extreme/_edit_work/ro10/round1/index.html`, generator `.claude/skills/longform-edit/reference/ro10/page.py` + `review_media.py` (start from this one).
 Dan reviews it in Chrome, so every media link must resolve over a local server (check each `src`/`href` returns 200 before sending).

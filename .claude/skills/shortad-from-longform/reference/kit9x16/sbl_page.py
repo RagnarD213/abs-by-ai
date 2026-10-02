@@ -2,7 +2,9 @@
 """THE GRAPHIC-LOCK REVIEW PAGE FOR A SHEET BUILD'S VERTICAL (PRE-RENDER-APPROVAL.md "The review page"): the first
 minute on top, "Your decisions", "What I decided", then every graphic and clip of the film at 9:16 in timeline order,
 three per row, each a still on its real frame with a "Play it moving, in context" button feeding ONE player, then the
-checks and one reply box. Nothing here is a full film.
+checks and one reply box. Nothing here is a full film. On a wide screen the player floats in a panel at the right and
+the page scrolls in the middle (Dan, 2026-10-02). Serve the folder with `_shared/review_server.py PORT`, never
+`python3 -m http.server`: that one cannot seek, so a click on the timeline does nothing.
 
   python3 sbl_page.py --build B --sheet SHEET.json --out REVIEW_DIR --extra page_extra.json [--media] [--clips-only]
 
@@ -131,6 +133,9 @@ def main():
 .grid{{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}}.wide{{grid-template-columns:repeat(2,minmax(0,1fr))}}article{{min-width:0;background:#081626;padding:14px;border-radius:14px}}img,video{{width:100%;border-radius:10px;background:black}}a{{color:#8cd6ff}}.tag{{color:#8ed7ff;font-size:14px;font-weight:700}}.small{{font-size:14px;color:#9fb7cf}}
 .copy{{font-size:14px;margin-top:8px;color:#d7e6f5}}.shape{{display:inline-block;font-weight:800;font-size:13px;letter-spacing:.5px;padding:3px 9px;border-radius:7px;background:#1d5f8f;color:white}}.shape.fill{{background:#167a52}}.shape.whole{{background:#8a5a12}}.shape.phone{{background:#4a4f66}}.notice{{border-left:4px solid #67c5ff;padding:10px 18px;background:#172e46}}textarea{{width:100%;box-sizing:border-box;min-height:230px;background:#071221;color:white;padding:14px;font:16px system-ui;border:1px solid #47607b;border-radius:10px}}
 table{{font-size:13px;color:#cfe0f0;border-collapse:collapse}}td{{padding:2px 8px 2px 0;vertical-align:top}}#dock{{position:sticky;top:0;z-index:5;background:#0b1a2c;padding:10px;border-radius:12px;border:1px solid #29425b;margin-bottom:16px;text-align:center}}#dock video{{max-height:60vh;width:auto;max-width:100%}}#minute video{{max-height:80vh;width:auto;max-width:100%;display:block;margin:auto}}
+#dockx{{display:none;float:right;background:none;border:0;color:#9fb7cf;font-size:18px;margin:0;padding:0 4px}}
+@media(min-width:1500px){{body{{padding-right:min(30vw,520px)}}#dock{{position:fixed;top:16px;right:16px;width:calc(min(30vw,520px) - 40px);max-height:calc(100vh - 32px);box-sizing:border-box;margin:0;box-shadow:0 8px 40px #000a}}#dock video{{max-height:calc(100vh - 110px)}}}}
+@media(max-width:1499px){{#dock video{{max-height:42vh}}}}
 button{{background:#1b4b72;color:white;border:1px solid #66acd9;border-radius:9px;padding:8px 12px;cursor:pointer;font-size:14px;margin-top:8px}}nav{{display:flex;gap:14px;flex-wrap:wrap}}@media(max-width:800px){{.grid{{grid-template-columns:1fr}}h1{{font-size:30px}}}}</style>
 <main><h1>{E(X['title'])}</h1><p>{X['intro']}</p>
 <p class="notice"><b>Already locked, reused as is:</b> {X['locked']}</p>
@@ -143,7 +148,7 @@ button{{background:#1b4b72;color:white;border:1px solid #66acd9;border-radius:9p
 <div id="dock"><div class="small" id="nowp">Pick an item below to play it here.</div><video id="pv" controls preload="none" playsinline></video></div><div class="grid">{''.join(cards)}</div></section>
 <section id="checks"><h2>Checks</h2><ul>{''.join('<li>' + d + '</li>' for d in X['checks'])}</ul></section>
 <section id="reply"><h2>One reply</h2><textarea id="r">{E(X['reply'])}</textarea><p><button onclick="navigator.clipboard.writeText(document.getElementById('r').value)">Copy reply</button></p></section></main>
-<script>function play(src,id){{const v=document.getElementById('pv');v.src=src;document.getElementById('nowp').textContent=id+' in context';v.play();document.getElementById('dock').scrollIntoView({{behavior:'smooth'}});}}</script></html>"""
+<script>function play(src,id){{const v=document.getElementById('pv');v.src=src;document.getElementById('nowp').textContent=id+' in context';v.play();if(window.innerWidth<1500)document.getElementById('dock').scrollIntoView({{behavior:'smooth',block:'nearest'}});}}</script></html>"""
     open(os.path.join(out, "index.html"), "w").write(page)
     json.dump(items, open(os.path.join(out, "items.json"), "w"), indent=1)
     print("page ok:", len(items), "items ->", os.path.join(out, "index.html"))
