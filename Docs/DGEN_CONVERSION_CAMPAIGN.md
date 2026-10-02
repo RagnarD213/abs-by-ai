@@ -565,6 +565,26 @@ thumbnail with `node scripts/youtube/set-thumbnail.js --video <id> --file <befor
 - No vertical or square of Ads 13, 4 or 6 exists in the campaign yet; when one is added it needs its own thumbnail.
 - PostHog annotation not added: the stored key lacks the `annotation:write` scope.
 
+## 2026-10-02: RA-01 1:1 square added to the trial campaign (campaign `24316364155`)
+
+Dan approved the RA-01 square (AS-13) on 2026-10-02. YouTube `EfoVnGyAJjk`, Unlisted, "How AI Got Me Abs", same description
+and tags as `OUw788sF1KY` / `rfCsWNxuNV0`, AI flag false like them (still AI goal images with the on-screen label, no AI
+footage). File SHA-256 `3e7939bc...ecedd` asserted before upload. Thumbnail RA-R2A in 1:1 (`RA-01 | 1x1 | FINAL.jpg`; build
+`scripts/covers/trial-campaign-20261001/round2-square/build.py`, existing Codex plate `ra01-C`, no new generation). Ad closing
+words: "tap the button below", so an ad. Not posted anywhere organic.
+
+Built by `scripts/ads/api/dgen-ra01-square.js` from `dgen-ads/ra01-square.json` (readback `ra01-square.result.json`): video
+asset `426180248591`, ad `826755066385` "RA-01 AI Got Me Abs | Claude 1:1 | vsl" in the EXISTING ad group `206348100928`
+(reused, validateOnly first), ENABLED, `REVIEW_IN_PROGRESS`. Final URL `...utm_campaign=dgen-trial-ra01&utm_content=claude-square-vsl`.
+Headlines, long headlines and descriptions were read back from the live 16:9 ad `826595554299` and are identical. Budget,
+bids, audience and the other ads were not touched. The old Demand Gen campaign `24243839443` is PAUSED, so its RA-01 groups
+(`195593120770`, `201008893635`) were left alone.
+
+**Known policy issue (not caused by this build):** the long headline "AI genius discovers how to use AI to lose his stubborn
+belly fat. Video reveals full story" is DISAPPROVED (CLICKBAIT, PROHIBITED) on RA-01 16:9 and 9:16, Ad 6 and two Ad 10 ads, so
+those ads read APPROVED_LIMITED; the new square carries the same line. Recheck 2026-10-03:
+`node scripts/ads/api/client.js policy 24316364155`.
+
 ## 2026-10-01: conversion REMARKETING campaign to /start (campaign `24305381214`)
 
 Dan's spec: `Handoffs/handoff-20261001-remarketing-campaigns-conversion-and-subscriber.md`. Built by

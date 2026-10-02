@@ -2123,12 +2123,12 @@
    "claude": "Read `Handoffs/handoff-20261002-ra01-square.md` and the files it lists. Name this session \"AI Got Me Abs AD R1\". Build the single 1:1 square of RA-01 (57.19 s, no separate cutdown) as a re-layout of the approved 9:16 build from its recipe, through every gate and an independent review, and send me the review copy with a numbered action list. Do NOT upload anything. No em dashes.",
    "codexModel": "GPT-6 Sol, high",
    "codex": "Read `Handoffs/handoff-20261002-ra01-square.md` and build the single 1:1 square of RA-01 as a re-layout of the approved 9:16 build. Every gate, independent review, deliver the review copy. No upload.",
-   "state": "finalized",
-   "note": "Dan approved 10-02; setup handoff written",
+   "state": "uploaded",
+   "note": "RA-01 1:1 uploaded Unlisted EfoVnGyAJjk (thumbnail RA-R2A 1:1), added as ad 826755066385 in trial ad group 206348100928, 2026-10-02",
    "order": 100,
    "updated": "2026-10-02",
-   "rev": 4,
-   "syncedRev": 4,
+   "rev": 5,
+   "syncedRev": 5,
    "by": "Claude"
   },
   {

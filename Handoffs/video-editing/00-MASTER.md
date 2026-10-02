@@ -194,7 +194,7 @@ handoff (`handoff-20260909-audio-match-muhammad.md`, waiting on your spray-tan s
 | 9 I Tried To Get Abs With ChatGPT | ✅ (round 4 finalized 09-21) | ❌ AV-10 | ❌ AV-10 | ❌ AS-09 | ❌ AS-09 |
 | 13 I Added Up What Getting Abs Cost | ✅ (round 4 finalized 09-21) | ❌ AV-11 | ❌ AV-11 | ❌ AS-10 | ❌ AS-10 |
 | 15 I Was The Dad Who Swam In A T-Shirt | 🟡 (Claude final fixes in progress 09-21) | ❌ AV-12 | ❌ AV-12 | ❌ AS-11 | ❌ AS-11 |
-| RA-01 The AI Trick That Got Me Abs (Claude, 57 s) | ✅ (uploaded 09-18) | ✅ (uploaded 09-18; is ≤0:59) | ✅ (same upload) | ✅ AS-13 approved 10-02, upload owed (setup handoff) | n/a (57 s master is its own 0:59) |
+| RA-01 The AI Trick That Got Me Abs (Claude, 57 s) | ✅ (uploaded 09-18) | ✅ (uploaded 09-18; is ≤0:59) | ✅ (same upload) | ✅ AS-13 uploaded 10-02 (`EfoVnGyAJjk`, trial ad group) | n/a (57 s master is its own 0:59) |
 
 **Verticals (each builds full + ≤0:59)**
 
@@ -230,7 +230,7 @@ handoff (`handoff-20260909-audio-match-muhammad.md`, waiting on your spray-tan s
 | [AS-10](AS-10-ad13-square.md) | Ad 13 | IN PROGRESS | M |
 | [AS-11](AS-11-ad15-square.md) | Ad 15 | BLOCKED: AV-12 approved | M |
 | [AS-12](AS-12-arms-shoulders-square.md) | Arms & Shoulders Home Workout (Zeeshan, ORGANIC, not an ad) | BLOCKED: AV-13 approved | L |
-| [AS-13](AS-13-ra01-square.md) | RA-01: The AI Trick That Got Me Abs (1:1 only, 57 s) | FINALIZED | S |
+| [AS-13](AS-13-ra01-square.md) | RA-01: The AI Trick That Got Me Abs (1:1 only, 57 s) | UPLOADED | S |
 
 Ads 8, 9, 13 and 15 were finalized and installed on YouTube + Demand Gen 09-16; their AV + AS jobs above now carry
 the remaining vertical, square and ≤0:59 variants. Also every RA-01 … RA-16 once approved needs its square + any hook variants.

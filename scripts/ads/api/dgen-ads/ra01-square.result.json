@@ -1,0 +1,73 @@
+{
+ "at": "2026-10-02T21:26:40.117Z",
+ "results": [
+  "customers/3427170837/assets/426180248591",
+  "customers/3427170837/adGroupAds/206348100928~826755066385"
+ ],
+ "readBack": [
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/206348100928",
+    "id": "206348100928",
+    "name": "RA-01 AI Got Me Abs"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/206348100928~826755066385",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/826755066385",
+     "id": "826755066385",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ra01&utm_content=claude-square-vsl"
+     ],
+     "name": "RA-01 AI Got Me Abs | Claude 1:1 | vsl",
+     "demandGenVideoResponsiveAd": {
+      "headlines": [
+       {
+        "text": "How AI Got Me Abs"
+       },
+       {
+        "text": "How I Got Abs At 40"
+       },
+       {
+        "text": "Human Trainers Hate This AI"
+       },
+       {
+        "text": "A Personalized AI Fitness Plan"
+       },
+       {
+        "text": "Trainers Despise Him"
+       }
+      ],
+      "longHeadlines": [
+       {
+        "text": "AI genius discovers how to use AI to lose his stubborn belly fat. Video reveals full story"
+       },
+       {
+        "text": "See how I used AI to lose my stubborn stomach fat and get six pack abs at 40."
+       },
+       {
+        "text": "AI fitness app shows you how to lose stomach fat and get abs. Try it free for 7 days!"
+       }
+      ],
+      "descriptions": [
+       {
+        "text": "I struggled with belly fat until I discovered how to use an AI trainer to get abs."
+       },
+       {
+        "text": "AI built my workouts, planned my meals and tracked my macros. See how I got abs at 40."
+       },
+       {
+        "text": "This AI app shows you how to lose your belly fat. Try it free for 7 days."
+       }
+      ]
+     }
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  }
+ ]
+}

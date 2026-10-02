@@ -1,0 +1,27 @@
+{
+  "campaignId": "24316364155",
+  "adGroupId": "206348100928",
+  "label": "RA-01 AI Got Me Abs",
+  "twinAdId": "826595554299",
+  "video": { "youtubeId": "EfoVnGyAJjk", "version": "Claude 1:1", "utm": "claude-square" },
+  "copyReadBackFromLive": {
+    "readAt": "2026-10-02",
+    "headlines": [
+      "How AI Got Me Abs",
+      "How I Got Abs At 40",
+      "Human Trainers Hate This AI",
+      "A Personalized AI Fitness Plan",
+      "Trainers Despise Him"
+    ],
+    "longHeadlines": [
+      "AI genius discovers how to use AI to lose his stubborn belly fat. Video reveals full story",
+      "See how I used AI to lose my stubborn stomach fat and get six pack abs at 40.",
+      "AI fitness app shows you how to lose stomach fat and get abs. Try it free for 7 days!"
+    ],
+    "descriptions": [
+      "I struggled with belly fat until I discovered how to use an AI trainer to get abs.",
+      "AI built my workouts, planned my meals and tracked my macros. See how I got abs at 40.",
+      "This AI app shows you how to lose your belly fat. Try it free for 7 days."
+    ]
+  }
+}
