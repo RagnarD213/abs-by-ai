@@ -1,142 +1,161 @@
-[
-  {
-    "design": 1,
-    "desktop": {
-      "images": true,
-      "monthly": "monthly",
-      "scroll": 1440,
-      "w": 1440
+{
+  "date": "2026-10-02",
+  "designs": [
+    {
+      "design": 1,
+      "desktop": {
+        "images": true,
+        "monthly": "monthly",
+        "scroll": 1440,
+        "w": 1440
+      },
+      "mobile": {
+        "scroll": 390,
+        "w": 390
+      },
+      "narrow": {
+        "overflow": [],
+        "scroll": 360,
+        "w": 360
+      },
+      "interactions": {
+        "annualAndMonthly": true,
+        "emailValidation": true,
+        "appleAndLink": true,
+        "agreement": "not required",
+        "success": true,
+        "decline": true,
+        "recovery": true,
+        "reset": true
+      }
     },
-    "mobile": {
-      "scroll": 390,
-      "w": 390
+    {
+      "design": 2,
+      "desktop": {
+        "images": true,
+        "monthly": "monthly",
+        "scroll": 1440,
+        "w": 1440
+      },
+      "mobile": {
+        "scroll": 390,
+        "w": 390
+      },
+      "narrow": {
+        "overflow": [],
+        "scroll": 360,
+        "w": 360
+      },
+      "interactions": {
+        "annualAndMonthly": true,
+        "emailValidation": true,
+        "appleAndLink": true,
+        "agreement": "required and verified",
+        "success": true,
+        "decline": true,
+        "recovery": true,
+        "reset": true
+      }
     },
-    "narrow": {
-      "overflow": [],
-      "scroll": 360,
-      "w": 360
+    {
+      "design": 3,
+      "desktop": {
+        "images": true,
+        "monthly": "monthly",
+        "scroll": 1440,
+        "w": 1440
+      },
+      "mobile": {
+        "scroll": 390,
+        "w": 390
+      },
+      "narrow": {
+        "overflow": [],
+        "scroll": 360,
+        "w": 360
+      },
+      "interactions": {
+        "annualAndMonthly": true,
+        "emailValidation": true,
+        "appleAndLink": true,
+        "agreement": "not required",
+        "success": true,
+        "decline": true,
+        "recovery": true,
+        "reset": true
+      }
     },
-    "interactions": {
-      "annualAndMonthly": true,
-      "emailValidation": true,
-      "appleAndLink": true,
-      "agreement": "not required",
-      "success": true,
-      "decline": true,
-      "recovery": true,
-      "reset": true
+    {
+      "design": 4,
+      "desktop": {
+        "images": true,
+        "monthly": "monthly",
+        "scroll": 1440,
+        "w": 1440
+      },
+      "mobile": {
+        "scroll": 390,
+        "w": 390
+      },
+      "narrow": {
+        "overflow": [],
+        "scroll": 360,
+        "w": 360
+      },
+      "interactions": {
+        "annualAndMonthly": true,
+        "emailValidation": true,
+        "appleAndLink": true,
+        "agreement": "not required",
+        "success": true,
+        "decline": true,
+        "recovery": true,
+        "reset": true
+      }
+    },
+    {
+      "design": 5,
+      "desktop": {
+        "images": true,
+        "monthly": "monthly",
+        "scroll": 1440,
+        "w": 1440
+      },
+      "mobile": {
+        "scroll": 390,
+        "w": 390
+      },
+      "narrow": {
+        "overflow": [],
+        "scroll": 360,
+        "w": 360
+      },
+      "interactions": {
+        "annualAndMonthly": true,
+        "emailValidation": true,
+        "appleAndLink": true,
+        "agreement": "not required",
+        "success": true,
+        "decline": true,
+        "recovery": true,
+        "reset": true
+      }
     }
+  ],
+  "gallery": {
+    "pairSelection": true,
+    "embeddedInteraction": true,
+    "previewWidths": [
+      390,
+      360,
+      1440
+    ],
+    "mobileOverflow": false,
+    "localLinks": "all resolve",
+    "sourceSyntax": "passed",
+    "newEmOrEnDashes": 0
   },
-  {
-    "design": 2,
-    "desktop": {
-      "images": true,
-      "monthly": "monthly",
-      "scroll": 1440,
-      "w": 1440
-    },
-    "mobile": {
-      "scroll": 390,
-      "w": 390
-    },
-    "narrow": {
-      "overflow": [],
-      "scroll": 360,
-      "w": 360
-    },
-    "interactions": {
-      "annualAndMonthly": true,
-      "emailValidation": true,
-      "appleAndLink": true,
-      "agreement": "required and verified",
-      "success": true,
-      "decline": true,
-      "recovery": true,
-      "reset": true
-    }
-  },
-  {
-    "design": 3,
-    "desktop": {
-      "images": true,
-      "monthly": "monthly",
-      "scroll": 1440,
-      "w": 1440
-    },
-    "mobile": {
-      "scroll": 390,
-      "w": 390
-    },
-    "narrow": {
-      "overflow": [],
-      "scroll": 360,
-      "w": 360
-    },
-    "interactions": {
-      "annualAndMonthly": true,
-      "emailValidation": true,
-      "appleAndLink": true,
-      "agreement": "not required",
-      "success": true,
-      "decline": true,
-      "recovery": true,
-      "reset": true
-    }
-  },
-  {
-    "design": 4,
-    "desktop": {
-      "images": true,
-      "monthly": "monthly",
-      "scroll": 1440,
-      "w": 1440
-    },
-    "mobile": {
-      "scroll": 390,
-      "w": 390
-    },
-    "narrow": {
-      "overflow": [],
-      "scroll": 360,
-      "w": 360
-    },
-    "interactions": {
-      "annualAndMonthly": true,
-      "emailValidation": true,
-      "appleAndLink": true,
-      "agreement": "not required",
-      "success": true,
-      "decline": true,
-      "recovery": true,
-      "reset": true
-    }
-  },
-  {
-    "design": 5,
-    "desktop": {
-      "images": true,
-      "monthly": "monthly",
-      "scroll": 1440,
-      "w": 1440
-    },
-    "mobile": {
-      "scroll": 390,
-      "w": 390
-    },
-    "narrow": {
-      "overflow": [],
-      "scroll": 360,
-      "w": 360
-    },
-    "interactions": {
-      "annualAndMonthly": true,
-      "emailValidation": true,
-      "appleAndLink": true,
-      "agreement": "not required",
-      "success": true,
-      "decline": true,
-      "recovery": true,
-      "reset": true
-    }
-  }
-]
+  "firstWeekDay7": "Day 7 \u00b7 Check in and continue",
+  "screenshots": "26 captures including gallery; visually inspected",
+  "payment": "local simulation only"
+}
