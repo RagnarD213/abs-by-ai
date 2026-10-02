@@ -86,7 +86,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 # ACTIVE
 
-**Cart Teardown - OPEN 2026-10-02, Codex.** HWT cart captured. Next: resume VidTao when Chrome is free.
+**Five Cart Designs - ACTIVE 2026-10-02, Codex.** `public/design-review/five-carts-20261002/`. Next: five prototypes, screenshots, verification. Live cart unchanged.
 
 **PMax `24308574894` - LIVE 2026-10-02, Claude.** Checks 10-07, 10-12: `Docs/DGEN_CONVERSION_CAMPAIGN.md`. Campaign images: package.
 
@@ -183,6 +183,7 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
+- `handoff-20261002-cart-design-five-mockups.md`: cart mockups. Opus high.
 - `handoff-20261001-vertical-kit-round2-full-build-after-lock.md` NEEDS DAN http://127.0.0.1:8807/
 - `handoff-20260930-codex-adopt-review-page-format.md` (09-30): Codex adopts the RO-16 review page. GPT-6 Sol medium.
 

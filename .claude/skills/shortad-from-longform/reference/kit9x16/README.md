@@ -196,6 +196,26 @@ captions ends above the caption line (`media_card_scene(caps=True)`).
   and grade) + his zoom from `auto/framing.json` + `from_plan.py` lower thirds and 3A card + title card, tally chip and
   media cards laid out at 1920x1080 through a second copy of `vertical.py`. Dan has not approved it yet.
 
+### Ad 6 lessons (2026-10-02, AV-05 + AS-04)
+
+* The copy file gained four tools (`master_to_sbl.py` docstring): a lower third entry with `"fact"` turns his corner
+  picture + tag ("Age: 38") into the full-screen `before-card/` (pass `"whole": true` so a before photo keeps its
+  stomach); `extra_beats` adds a picture the recovery did not list (his two small photo panels beside Dan at 2:29);
+  `extra_lower_thirds` adds a lower third where a replaced lift carried his burned text; a `pictures` value of
+  `"drop"` removes a sliver of his transition that was lifted as a picture.
+* A person who fills the 9:16 frame leaves no clear spot for a chip: `kit_labels.py` refused four fill clips of other
+  men and the phone-in-hand clip. They go in a centre-square card (`{"ar": 1.0, "ox": ...}`), chip under the hole.
+  Decide this BEFORE the labels stage: each refusal costs a 15 minute pass.
+* A landscape or chest close-up photo of Dan goes whole in a card with the real label (the flag photo, photo-180).
+* `build_kit.py` counts talk under a 3A side card (`hfov`) as his window, not bare talk, for `longest_talk_hand_s`
+  (it read 40 s on a design that matches his). His own master had 8 flashes; a bleed that replaces his flashed card
+  keeps `flash_after`.
+* exFAT costs 2 MB per symlink: the caption frame sequence (one link per frame) took 16 GB and filled the drive.
+  `captions.py` now stages it under `~/.cache/absbyai/` when the build is on exFAT. `auto/ocr_frames` (3 GB) and
+  `auto/r_*.rgb` can be deleted once `content` has finished.
+* The square look for a vertical build: `sq_look.py` (stills of every graphic at 1:1 + a moving sample), layouts in
+  `_shared/hyperframes/square.py`.
+
 ### Sheet-path lessons (2026-10-01)
 
 * Grade in the 16:9's own order (`grade.order`): a float LUT on the 4K crop ran at about 3 frames a second; scaled to

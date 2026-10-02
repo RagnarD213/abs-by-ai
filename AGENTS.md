@@ -142,6 +142,9 @@ Full rule: read `.claude/skills/_shared/VIDEO-RULES.md`.
 - Editing tasks end with the round: `<2-4 word title> <type> R<round>`, e.g. `Calories Don't Matter LFC R1`. A new round
   gets the next R number.
 - Upload and setup tasks end with `Setup` instead: `<2-4 word title> <type> Setup`, e.g. `Stop Deadlifting SFC Setup`.
+- **Ad format variations (Dan, 2026-10-02):** a task that makes other formats of an ad puts the formats before `Ad`:
+  `V` vertical, `S` square, `Sh` short (the 0:59 cutdown), joined with slashes. All three: `You're Not Too Old V/S/Sh Ad R1`.
+  Vertical only: `You're Not Too Old V Ad R1`. Use this for every ad variation task and its handoff starter prompt.
 
 ## Image generation goes through Codex (Dan, 2026-10-01)
 

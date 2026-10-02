@@ -109,6 +109,12 @@ def fact_scenes(c):
     gap = (70 if label else 30) * U
     ch = (215 if detail else 150) * U
     pw, ph = W - 80 * U, round(Hh * .46)
+    if c.get("whole"):
+        # the whole photo, never a cover crop: a before picture keeps its head AND its stomach (Ad 6, 2026-10-02)
+        from PIL import Image, ImageOps
+        iw, ih = ImageOps.exif_transpose(Image.open(c["photo"])).size
+        ph = round(Hh * .50)
+        pw = min(pw, round(ph * iw / ih)); ph = round(pw * ih / iw)
     px, py = (W - pw) / 2, (Hh - (ph + gap + ch)) / 2 + 12 * U
     cy = py + ph + gap
     card = (40 * U, cy, W - 40 * U, cy + ch)

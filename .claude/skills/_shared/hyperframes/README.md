@@ -73,6 +73,26 @@ unchanged: the edited lower third re-renders to PSNR infinity against RO-10's ap
 `composite.py` takes `Compositor(manifest, wh=(1080, 1920))`. New templates are NOT approved by Dan until he passes the
 graphic-lock page.
 
+## 1:1 layouts (2026-10-02) -- `square.py`
+
+The same templates and configs at 1080x1080: `python3 square.py --sheet SHEET.json --out OUT [--render] [--snap]`.
+`square.py` loads a second copy of `vertical.py` on the square canvas and replaces only what a square needs.
+**Not approved by Dan yet:** first shown on the Ad 6 look page (`/Volumes/Extreme/_edit_work/kit9x16/av05-ad6/review/`).
+
+| Template | 1:1 layout |
+|---|---|
+| `lower-third/` | strip x 68..1012 at the bottom (64 px from the edge); captions pause under it; a long point wraps and the strip grows upward |
+| `side-list/` | the 3A card full width at the bottom, type 1.0x (Dan's 09-28 lock); captions lift above it |
+| `cycle/` | the card scaled to the full width, at the bottom |
+| `before-card/` | the WHOLE photo on the left (up to 500 px wide), the glass fact card on its right with its lines stacked |
+| `title-card/` | eyebrow + headline (+ rows) on the field |
+| `media-card/` | hole in the media's own shape; under running captions the card and chip end above y 848, else down to y 1040 |
+| `cta/` | the glass button at the bottom |
+
+`before-card` also takes `"whole": true` at 9:16 (the photo box takes the photo's own shape instead of a cover crop:
+a before picture keeps its head and its stomach). Look-page media for a vertical build:
+`shortad-from-longform/reference/kit9x16/sq_look.py` (every graphic as a square still on its real frame + a moving sample).
+
 ## Dan's verdict on the pilot (2026-09-30)
 
 *"This is looking significantly better than the graphics that we're using. This really shows me the potential. This is

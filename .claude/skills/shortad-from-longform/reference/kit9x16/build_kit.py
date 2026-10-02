@@ -795,6 +795,21 @@ def main():
     mins = dur / 60.0
     ins = [b for b in tl if b["kind"] in INSERT_KINDS]
     txt = [b for b in tl if b["kind"] in TEXT_KINDS]
+    # A Soft Blue Light build draws his text screens (text left, Dan right) as the 3A card over a full-frame Dan
+    # (`hfov` insets), so the beat under one is still `talk`. For the longest bare-talk stretch it is his window, a
+    # graphic on screen, exactly as it is counted on his own masters: talk is split at every side card (Ad 6, 2026-10-02).
+    cards_ = sorted((float(i["t0"]), float(i["t1"])) for i in C.get("insets", []) if i.get("kind") == "hfov")
+    bare = []
+    for b in tl:
+        if b["kind"] != "talk":
+            continue
+        x = b["t0"]
+        for c0, c1 in cards_:
+            if c1 <= x or c0 >= b["t1"]:
+                continue
+            if c0 > x: bare.append(c0 - x)
+            x = max(x, c1)
+        if b["t1"] > x: bare.append(b["t1"] - x)
     design = dict(
         pushes_hand_per_min=len(pushes_like) / mins,
         level_steps_per_min=len(steps) / mins,
@@ -805,7 +820,7 @@ def main():
         graphics_per_min=(len(lts) + len(ctas) + len(txt)) / mins,
         inserts_per_min=len(ins) / mins,
         insert_coverage_hand=sum(b["t1"] - b["t0"] for b in tl if b["kind"] != "talk") / dur,
-        longest_talk_hand_s=max((b["t1"] - b["t0"] for b in tl if b["kind"] == "talk"), default=0.0),
+        longest_talk_hand_s=max(bare, default=0.0),
     )
     # opening_changes_15s, change_rate, static_run etc. are the gate's own instruments and are measured on the
     # DELIVERED file (picture_ref.py check), not estimated here

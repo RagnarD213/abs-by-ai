@@ -297,7 +297,18 @@ def render(gs, out='captions.mov', capdir='cap', stops=None):
     seqdir = f'{capdir}/frames'
     if os.path.isdir(seqdir):
         subprocess.run(['rm', '-rf', seqdir], check=True)      # not shutil.rmtree: exFAT's ._ AppleDouble files trip it
-    os.makedirs(seqdir)
+    # ⚠ The frame sequence lives on the INTERNAL disk when the build is on exFAT (the Extreme SSD): exFAT has no hard
+    # links, and every symlink there costs a whole 2 MB cluster, so one 4:34 ad's sequence took 16 GB and filled the
+    # drive (Ad 6, 2026-10-02). On APFS a symlink is a few bytes.
+    try:
+        os.makedirs(seqdir); probe = f'{seqdir}/.probe'
+        os.link(os.path.abspath(entries[0][0]), probe); os.remove(probe)
+    except OSError:
+        subprocess.run(['rm', '-rf', seqdir], check=True)
+        import hashlib as _h
+        seqdir = os.path.expanduser('~/.cache/absbyai/capseq_' + _h.md5(os.path.abspath(capdir).encode()).hexdigest()[:10])
+        subprocess.run(['rm', '-rf', seqdir], check=True)
+        os.makedirs(seqdir)
     for k, (p, _) in enumerate(entries):
         for n_ in range(fidx[k], fidx[k+1]):
             try:

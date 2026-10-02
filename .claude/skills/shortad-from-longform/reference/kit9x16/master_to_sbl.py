@@ -26,7 +26,17 @@ content.json). Items are addressed by kind and order in the film:
                     "3": {"merge_next": true, ...}, "5": {"drop": "why"}},
    "windows":      {"0": {"heading": "In This Video", "items": ["...", "..."], "reveal": ["why do", "why can"]}},
    "titles":       {"0": {"eyebrow": "PERSONAL TRAINER", "headline": "$400\\nA Month"}},
-   "tallies":      [{"from": "phrase", "to": "phrase" | seconds, "value": 400, "frm": 0, "label": "So far"}]}
+   "tallies":      [{"from": "phrase", "to": "phrase" | seconds, "value": 400, "frm": 0, "label": "So far"}],
+   "pictures":     {"auto_02356": [{"media": "one_clip", "kind": "card", "until": 81.081}], "auto_02382": "drop"},
+   "add_pictures": [{"t0": 0.0, "t1": 3.7, "media": "opener", "kind": "bleed", "label_kind": "ai"}]}
+`pictures` swaps a recovered picture for a run of pictures (each `dur` s, the last to the beat's end, or to `until`
+when it also covers the next beats, which are then "drop"). `add_pictures` adds a picture he does not have.
+   "extra_beats":  [{"from": seconds | "phrase", "to": seconds | "phrase", "kind": "bleed" | "card", "media": "key", "label_kind": "real"}],
+   "extra_lower_thirds": [{"from": ..., "to": ..., "topic": "...", "parts": [["...", "phrase"]]}]}
+A lower third entry may instead carry "fact": {"photo": path, "eyebrow": ["BEFORE", "phrase"], "headline": [["AGE 38", "38"]],
+"detail": ["...", "phrase"], "label": "..."}: his corner picture with a tag (Ad 6's "Age: 38" inset) becomes the full-screen
+before-card/ (photo + glass fact card). extra_beats adds a picture his master shows that the recovery did not list (two
+small photo panels beside Dan); extra_lower_thirds adds a lower third where a replaced lift carried his burned text.
 A part's or item's second field is the PHRASE Dan says when it lands (first match inside the graphic's own time
 range); without one, parts are spaced evenly. Without a copy entry: topic "KEY POINT", his own words.
 """
@@ -82,20 +92,35 @@ def main():
     src_beats = []
     for b in sorted(C["beats"], key=lambda b: b["t0"]):
         seq = (X.get("pictures") or {}).get(b.get("media"))
+        if seq == "drop":                                          # merged into a neighbour's run (its "until")
+            continue
+        if seq == "drop":                                      # a sliver of his transition lifted as a picture: the talk runs on
+            continue
         if not seq:
             src_beats.append(b); continue
         # the copy file replaces one recovered picture by a run of pictures (a clean library original for his lift,
         # his one lift split where he cut): each takes `dur` seconds, the last takes what is left
         t = float(b["t0"])
         for q, r in enumerate(seq):
-            t1 = float(b["t1"]) if q == len(seq) - 1 else round(t + float(r["dur"]), 4)
+            t1 = float(r.get("until", b["t1"])) if q == len(seq) - 1 else round(t + float(r["dur"]), 4)
             nb = dict(t0=round(t, 4), t1=t1, kind=r.get("kind", "card"), media=r["media"])
             if q == len(seq) - 1:                                  # his flash on the return belongs to the last of the run
                 nb.update({kk: b[kk] for kk in ("flash_after", "his_flash") if kk in b})
-            for kk in ("label_kind", "caps", "phone", "label_spans"):
+                if nb["kind"] == "bleed" and b.get("his_flash"):
+                    nb["flash_after"] = True                      # his flash on this return stays when his card becomes a full-screen picture
+            for kk in ("label_kind", "caps", "phone", "label_spans", "flash_after"):   # flash_after: a full-bleed swap keeps his flash
                 if kk in r:
                     nb[kk] = r[kk]
             src_beats.append(nb); t = t1
+    # pictures the editor's master does not have (a new opener over his talking head): explicit times, his audio untouched
+    for r in X.get("add_pictures") or []:
+        src_beats.append({kk: r[kk] for kk in ("t0", "t1", "kind", "media", "label_kind", "caps", "phone", "his_flash", "flash_after") if kk in r})
+    src_beats.sort(key=lambda b: b["t0"])
+    for y in X.get("extra_beats") or []:
+        t0 = find(y["from"])[0] if isinstance(y["from"], str) else float(y["from"])
+        t1 = find(y["to"], t0)[0] if isinstance(y["to"], str) else float(y["to"])
+        src_beats.append(dict({kk: v for kk, v in y.items() if kk not in ("from", "to")}, t0=round(t0, 4), t1=round(t1, 4)))
+    src_beats.sort(key=lambda b: b["t0"])
     for b in src_beats:
         k = b["kind"]
         if k == "window":
@@ -154,6 +179,21 @@ def main():
             report.append(dict(id=gid, dropped=x["drop"], his=his)); continue
         if x.get("t1"):
             t1 = at(x["t1"], t0, dur, gid) if isinstance(x["t1"], str) else float(x["t1"])
+        if x.get("fact"):
+            f = x["fact"]; gid = "F" + gid[1:]
+            tt = lambda p: round(max(t0 + 0.25, min(at(p, t0, t1, gid), t1 - 0.5)), 3)
+            cfg = dict(id=gid, a=t0, b=t1, photo=f["photo"], eyebrow=[f["eyebrow"][0], tt(f["eyebrow"][1])],
+                       headline=[[p, tt(ph)] for p, ph in f["headline"]], push=f.get("push", 1.07), drift=-8)
+            if f.get("detail"): cfg["detail"] = [f["detail"][0], tt(f["detail"][1])]
+            if f.get("label"): cfg["label"] = f["label"]
+            if f.get("count"): cfg["count"] = f["count"]
+            if f.get("whole"): cfg["whole"] = True
+            txt = [f["eyebrow"][0]] + [p for p, _ in f["headline"]] + ([f["detail"][0]] if f.get("detail") else []) + ([f["label"]] if f.get("label") else [])
+            G.append(dict(id=gid, template="before-card", t0=t0, t1=t1, layer="full", text=txt, config=cfg,
+                          driven_by=[dict(part=f'"{p}" lands', phrase=ph, t=tt(ph)) for p, ph in [f["eyebrow"]] + f["headline"] + ([f["detail"]] if f.get("detail") else [])]))
+            beats.append(dict(t0=t0, t1=t1, kind="hf", gid=gid, caps=False))
+            report.append(dict(id=gid, his=his, ours=txt, speech=say(t0, t1)))
+            continue
         topic = x.get("topic") or "KEY POINT"
         raw = x.get("parts") or [[" ".join(his)]]
         parts = []
@@ -167,6 +207,17 @@ def main():
                                  for q, (p, t) in enumerate(parts)]))
         lts.append(dict(t0=t0, t1=t1, lines=[topic, " ".join(p for p, _ in parts)], gid=gid))
         report.append(dict(id=gid, his=his, ours=[topic] + [p for p, _ in parts], speech=say(t0, t1)))
+    for y in X.get("extra_lower_thirds") or []:
+        t0 = find(y["from"])[0] if isinstance(y["from"], str) else float(y["from"])
+        t1 = find(y["to"], t0)[0] if isinstance(y["to"], str) else float(y["to"])
+        gid = f"L{nl + 1:02d}"; nl += 1
+        parts = [[p[0], round(max(t0 + 0.3, min(at(p[1], t0, t1, gid) if len(p) > 1 else t0 + 0.35, t1 - 0.5)), 3)] for p in y["parts"]]
+        G.append(dict(id=gid, template="lower-third", t0=t0, t1=t1, layer="overlay", text=[y["topic"]] + [p for p, _ in parts],
+                      config=dict(id=gid, a=t0, b=t1, drift=-4, topic=y["topic"], parts=parts),
+                      driven_by=[dict(part=f'"{p}" rises', phrase=(y["parts"][q][1] if len(y["parts"][q]) > 1 else "(on entry)"), t=round(t, 2)) for q, (p, t) in enumerate(parts)]))
+        lts.append(dict(t0=t0, t1=t1, lines=[y["topic"], " ".join(p for p, _ in parts)], gid=gid))
+        report.append(dict(id=gid, his=["(his text was burned into the clip this replaces)"], ours=[y["topic"]] + [p for p, _ in parts], speech=say(t0, t1)))
+    lts.sort(key=lambda o: o["t0"])
     for q, y in enumerate(X.get("tallies") or []):
         gid = f"S{q + 1:02d}"
         t0 = find(y["from"], y.get("after", 0.0))[0] if isinstance(y["from"], str) else float(y["from"])
