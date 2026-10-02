@@ -1,0 +1,11 @@
+{
+  "source": "assets/studio-blue-11-photo.jpg",
+  "output": "assets/studio-blue-11-photo-r2.png",
+  "changed_pixel_bbox": [
+    598,
+    293,
+    614,
+    319
+  ],
+  "method": "Codex subscription spot repair composited only within a feathered cheek mask; every pixel outside the recorded bounds is unchanged."
+}

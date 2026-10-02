@@ -253,20 +253,20 @@
   },
   {
     "id": "S05-A",
-    "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/studio-white-34_FINAL_PRIMARY.jpg",
-    "sha256": "3c2d2ba6dd5b9a887200868b071ba7b771942185bfe0072c171c0ad21377a2c7",
+    "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/studio-blue-201_FINAL_PRIMARY.jpg",
+    "sha256": "0a1aa59e7d997ec16d22b5d39f29b59a6cb4741cfb57d823c0e14f470d26dcdb",
     "crop": {
       "person_box": [
-        629,
-        694,
-        2745,
+        728,
+        585,
+        2732,
         5056
       ],
       "photographic_box": [
         0,
-        584,
+        475,
         3368,
-        4794
+        4685
       ],
       "waistband_crop": false
     },
@@ -500,6 +500,69 @@
         3810
       ],
       "waistband_crop": true
+    },
+    "shirtless": true
+  },
+  {
+    "id": "S09-A",
+    "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/studio-blue-123_FINAL_PRIMARY.jpg",
+    "sha256": "74306d6efce1964195616240047a413b75353267c1c32ed91f6af1b0d3934913",
+    "crop": {
+      "person_box": [
+        258,
+        584,
+        3325,
+        5056
+      ],
+      "photographic_box": [
+        0,
+        474,
+        3368,
+        4684
+      ],
+      "waistband_crop": false
+    },
+    "shirtless": true
+  },
+  {
+    "id": "S09-B",
+    "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/studio-blue-188_FINAL_PRIMARY.jpg",
+    "sha256": "5fdb33e1df09a10f78e1824b723f893906863f8aef1dc96ecd2f8d5975c15b70",
+    "crop": {
+      "person_box": [
+        428,
+        365,
+        2969,
+        5056
+      ],
+      "photographic_box": [
+        0,
+        255,
+        3368,
+        4465
+      ],
+      "waistband_crop": false
+    },
+    "shirtless": true
+  },
+  {
+    "id": "S09-C",
+    "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/studio-blue-266_FINAL_PRIMARY.jpg",
+    "sha256": "c92d55a28df245caa970f46687e32628332f884ee84fd16e8beb72f834cbecfb",
+    "crop": {
+      "person_box": [
+        718,
+        595,
+        2542,
+        5056
+      ],
+      "photographic_box": [
+        0,
+        485,
+        3368,
+        4695
+      ],
+      "waistband_crop": false
     },
     "shirtless": true
   }

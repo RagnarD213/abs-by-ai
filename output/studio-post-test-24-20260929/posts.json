@@ -98,9 +98,9 @@
     "style": 2,
     "style_name": "Warm architecture",
     "source": "studio-blue-247",
-    "topic": "Training time",
-    "title": "A plan that fits your life",
-    "caption": "I have a home gym and I still pay for a gym membership. The point is having an option that works with your life. If the commute keeps getting in the way, take it out of the plan and start at home.\n\nReal studio photograph of me. The background was created with AI.",
+    "topic": "Repeatable meals",
+    "title": "Make lunch the easy decision",
+    "caption": "Give lunch a place in your training plan. Decide what you'll eat and where it will come from before you head out. Prepared food, something from home or a planned order: pick an option you can repeat.\n\nReal studio photograph of me. The background was created with AI.",
     "slides": 1,
     "crop": {
       "person_box": [
@@ -222,9 +222,9 @@
     "style": 3,
     "style_name": "Training space",
     "source": "studio-gray-2",
-    "topic": "Repeatable meals",
-    "title": "Make lunch the easy decision",
-    "caption": "Give lunch a place in your training plan. Decide what you'll eat and where it will come from before you head out. Prepared food, something from home or a planned order: pick an option you can repeat.\n\nReal studio photograph of me. The background was created with AI.",
+    "topic": "Training time",
+    "title": "A plan that fits your life",
+    "caption": "I have a home gym and I still pay for a gym membership. The point is having an option that works with your life. If the commute keeps getting in the way, take it out of the plan and start at home.\n\nReal studio photograph of me. The background was created with AI.",
     "slides": 1,
     "crop": {
       "person_box": [
@@ -346,9 +346,9 @@
     "style": 4,
     "style_name": "Outdoor athlete",
     "source": "studio-blue-76",
-    "topic": "Restart and backup",
-    "title": "Keep a backup route",
-    "caption": "Have a backup for the thing most likely to stop you. If getting to your usual training place falls through, know where you can train at home. Write the backup down while the week is still calm.\n\nReal studio photograph of me. The background was created with AI.",
+    "topic": "Martial arts and weight training",
+    "title": "Train martial arts. Lift weights too.",
+    "caption": "Martial arts can burn calories, challenge your cardio and give you a reason to keep showing up. It is a great way to stay active, build fitness and support getting leaner. But I would not use it as a replacement for weight training. Lifting builds and maintains the muscle you want to keep as you lose fat. Pair the two, leave room to recover, and keep your food intake aligned with your goal. Train your conditioning and your strength.\n\nReal studio photograph of me. The background was created with AI.",
     "slides": 1,
     "crop": {
       "person_box": [
@@ -376,29 +376,29 @@
     "number": 13,
     "style": 5,
     "style_name": "Magazine feature",
-    "source": "studio-white-34",
+    "source": "studio-blue-201",
     "topic": "Training time",
     "title": "MAKE TIME",
     "caption": "I built a home gym and still use a gym membership. I like having options. If the drive is the reason your workout never happens, start with a plan you can do at home. Make the place fit the time you actually have.",
     "slides": 1,
     "crop": {
       "person_box": [
-        629,
-        694,
-        2745,
+        728,
+        585,
+        2732,
         5056
       ],
       "photographic_box": [
         0,
-        584,
+        475,
         3368,
-        4794
+        4685
       ],
       "waistband_crop": false
     },
-    "source_sha256": "3c2d2ba6dd5b9a887200868b071ba7b771942185bfe0072c171c0ad21377a2c7",
+    "source_sha256": "0a1aa59e7d997ec16d22b5d39f29b59a6cb4741cfb57d823c0e14f470d26dcdb",
     "asset_size": [
-      970,
+      896,
       2000
     ]
   },
@@ -741,6 +741,99 @@
     "asset_size": [
       1500,
       1824
+    ]
+  },
+  {
+    "id": "S09-A",
+    "number": 25,
+    "style": 9,
+    "style_name": "Jelly Beans design family",
+    "source": "studio-blue-123",
+    "topic": "Training time",
+    "title": "MAKE TIME.\nGET STRONG.",
+    "caption": "Make strength training an appointment you can keep. Choose the time, save the workout and get your space ready. If getting to the gym is the obstacle, have a home option ready. The useful plan is the one that fits into your actual day.\n\nReal studio photograph of me. The background was created with AI.",
+    "slides": 1,
+    "crop": {
+      "person_box": [
+        258,
+        584,
+        3325,
+        5056
+      ],
+      "photographic_box": [
+        0,
+        474,
+        3368,
+        4684
+      ],
+      "waistband_crop": false
+    },
+    "source_sha256": "74306d6efce1964195616240047a413b75353267c1c32ed91f6af1b0d3934913",
+    "asset_size": [
+      1372,
+      2000
+    ]
+  },
+  {
+    "id": "S09-B",
+    "number": 26,
+    "style": 9,
+    "style_name": "Jelly Beans design family",
+    "source": "studio-blue-188",
+    "topic": "Repeatable meals",
+    "title": "LUNCH.\nHANDLED.",
+    "caption": "Lunch gets easier when the decision is already made. Choose a meal you enjoy, get the ingredients or order in place, and keep a second option for busy days. You do not need a brand-new menu every afternoon. You need something you can repeat.\n\nReal studio photograph of me. The background was created with AI.",
+    "slides": 1,
+    "crop": {
+      "person_box": [
+        428,
+        365,
+        2969,
+        5056
+      ],
+      "photographic_box": [
+        0,
+        255,
+        3368,
+        4465
+      ],
+      "waistband_crop": false
+    },
+    "source_sha256": "5fdb33e1df09a10f78e1824b723f893906863f8aef1dc96ecd2f8d5975c15b70",
+    "asset_size": [
+      1083,
+      2000
+    ]
+  },
+  {
+    "id": "S09-C",
+    "number": 27,
+    "style": 9,
+    "style_name": "Jelly Beans design family",
+    "source": "studio-blue-266",
+    "topic": "Martial arts and weight training",
+    "title": "TRAIN HARD.\nLIFT TOO.",
+    "caption": "Martial arts can challenge your cardio and help you burn calories. Weight training builds and maintains muscle. Make room for both in your week, with enough recovery between hard sessions. Getting leaner also depends on what you eat, so give your food plan the same attention as your training.\n\nReal studio photograph of me. The background was created with AI.",
+    "slides": 1,
+    "crop": {
+      "person_box": [
+        718,
+        595,
+        2542,
+        5056
+      ],
+      "photographic_box": [
+        0,
+        485,
+        3368,
+        4695
+      ],
+      "waistband_crop": false
+    },
+    "source_sha256": "c92d55a28df245caa970f46687e32628332f884ee84fd16e8beb72f834cbecfb",
+    "asset_size": [
+      818,
+      2000
     ]
   }
 ]

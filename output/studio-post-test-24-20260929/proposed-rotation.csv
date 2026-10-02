@@ -3,11 +3,11 @@ slot_order,post_id,topic,style,planned_date,status
 2,S07-A,Training time,Practical carousel,,PROPOSED ONLY
 3,S03-A,Training time,Training space,,PROPOSED ONLY
 4,S06-A,Training time,Topic cover,,PROPOSED ONLY
-5,S02-A,Training time,Warm architecture,,PROPOSED ONLY
+5,S02-A,Repeatable meals,Warm architecture,,PROPOSED ONLY
 6,S08-A,Training time,Myth and better question,,PROPOSED ONLY
 7,S04-A,Training time,Outdoor athlete,,PROPOSED ONLY
 8,S05-A,Training time,Magazine feature,,PROPOSED ONLY
-9,S03-B,Repeatable meals,Training space,,PROPOSED ONLY
+9,S03-B,Training time,Training space,,PROPOSED ONLY
 10,S08-B,Repeatable meals,Myth and better question,,PROPOSED ONLY
 11,S02-B,Repeatable meals,Warm architecture,,PROPOSED ONLY
 12,S05-B,Repeatable meals,Magazine feature,,PROPOSED ONLY
@@ -16,7 +16,7 @@ slot_order,post_id,topic,style,planned_date,status
 15,S06-B,Repeatable meals,Topic cover,,PROPOSED ONLY
 16,S01-B,Repeatable meals,Original studio,,PROPOSED ONLY
 17,S06-C,Restart and backup,Topic cover,,PROPOSED ONLY
-18,S04-C,Restart and backup,Outdoor athlete,,PROPOSED ONLY
+18,S04-C,Martial arts and weight training,Outdoor athlete,,PROPOSED ONLY
 19,S07-C,Restart and backup,Practical carousel,,PROPOSED ONLY
 20,S01-C,Restart and backup,Original studio,,PROPOSED ONLY
 21,S05-C,Restart and backup,Magazine feature,,PROPOSED ONLY

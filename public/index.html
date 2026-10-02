@@ -19,7 +19,21 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<script src="https://js.stripe.com/v3/"></script>
+<script>
+// Stripe.js. The v2 cart (card fields on the page) needs a versioned Stripe.js;
+// that version dropped the function today's overlay checkout calls. While the
+// v2 cart is behind its switch (?cart=v2), everyone else keeps the script they
+// have always had. Loaded without blocking: Stripe is only called on a tap.
+(function () {
+  var v2 = false;
+  try {
+    v2 = new URLSearchParams(location.search).get('cart') === 'v2' || sessionStorage.getItem('absbyai_cart_v2') === '1';
+  } catch (e) {}
+  var s = document.createElement('script');
+  s.src = v2 ? 'https://js.stripe.com/endive/stripe.js' : 'https://js.stripe.com/v3/';
+  document.head.appendChild(s);
+})();
+</script>
 <script>
   !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]);t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+" (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onSessionId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
   posthog.init('phc_s3ZXKWHRFQVqK6pYRBRBKtc2ex7LL78CFMHtCfENEQrU', {api_host: 'https://us.i.posthog.com'});
@@ -1322,6 +1336,154 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
 .cart-pw-btn { flex: none; background: var(--ink); color: #fff; border: none; border-radius: 12px; padding: 0 16px; font: inherit; font-weight: 700; font-size: 13px; cursor: pointer; }
 .cart-pw-btn:disabled { opacity: 0.5; cursor: default; }
 .cart-pw-ok { font-size: 12.5px; color: #1e9e5a; font-weight: 700; margin-top: 8px; }
+
+/* ── Web cart v2 (approved 2026-10-02). Spec: Docs/cart-design-20261002 (the
+   boards are the authority). A full-width page of its own, outside .app:
+   html.cart-v2 hides the app column while it is open. Phone layout under
+   900px, the desktop board above it. Navy #12306B, yellow #FFD23F callout,
+   green only on the buy button, red only on FREE! and the required stars. */
+html.cart-v2 .app { display: none; }
+html.cart-v2 body { background: #ffffff; }
+.c2 { background: #ffffff; color: #05070B; font-family: 'Manrope', sans-serif; -webkit-font-smoothing: antialiased; min-height: 100vh; display: flex; flex-direction: column; }
+.c2 a { color: #12306B; }
+.c2 a:hover { color: #0B1F47; }
+.c2-top { background: #12306B; color: #ffffff; height: 60px; padding: 0 16px; display: flex; flex-shrink: 0; }
+.c2-top-in { max-width: 1040px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%; }
+.c2-logo { height: 26px; width: auto; display: block; filter: invert(1); }
+.c2-secure { display: flex; align-items: center; gap: 8px; }
+.c2-secure svg { flex-shrink: 0; }
+.c2-secure div { font-size: 13px; font-weight: 800; line-height: 1.25; text-align: right; }
+.c2-secure span { font-weight: 700; }
+.c2-body { width: 100%; max-width: 1040px; margin: 0 auto; padding: 18px 20px 30px; display: flex; flex-direction: column; gap: 18px; }
+.c2-hero { background: #F6F4F0; border-radius: 16px; padding: 16px; display: flex; gap: 20px; align-items: center; }
+.c2-shot { position: relative; width: 74px; flex: none; }
+.c2-shot img { display: block; width: 100%; aspect-ratio: 621 / 1302; border-radius: 14.5% / 6.9%; }
+.c2-callout { position: absolute; right: -12px; top: -6px; background: #FFD23F; color: #05070B; font-size: 11px; font-weight: 800; line-height: 1.1; padding: 6px 8px; border-radius: 4px; text-align: center; }
+.c2-hero-text { flex: 1; display: flex; flex-direction: column; gap: 8px; text-align: center; }
+.c2-hero h1 { font-size: 20px; font-weight: 800; letter-spacing: -0.015em; line-height: 1.2; }
+.c2-hero h1 span { box-shadow: inset 0 -9px 0 #FFD23F; }
+.c2-hero-sub { font-size: 15px; font-weight: 700; line-height: 1.4; color: #2B2F36; }
+.c2-cols, .c2-form, .c2-side { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+.c2-notice { border: 1.5px solid #12306B; border-radius: 12px; padding: 12px 14px; display: flex; flex-direction: column; gap: 3px; text-align: center; }
+.c2-notice b { font-size: 12px; font-weight: 800; letter-spacing: 0.09em; text-transform: uppercase; color: #12306B; }
+.c2-notice span { font-size: 15px; font-weight: 700; line-height: 1.4; }
+.c2-step { background: #12306B; color: #ffffff; min-height: 52px; border-radius: 12px; display: flex; align-items: center; gap: 12px; padding: 0 12px; }
+.c2-step b { width: 34px; height: 34px; border-radius: 50%; background: #ffffff; color: #12306B; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 800; flex: none; }
+.c2-step span { font-size: 19px; font-weight: 800; letter-spacing: -0.01em; }
+.c2-block { display: flex; flex-direction: column; gap: 12px; }
+.c2-field { display: flex; flex-direction: column; gap: 6px; flex: 1; min-width: 0; }
+.c2-label { font-size: 13px; font-weight: 700; color: #2B2F36; }
+.c2-label i, .c2-req { color: #C9302D; font-style: normal; }
+.c2-input { width: 100%; height: 52px; border: 1.5px solid #C9CDD3; border-radius: 12px; background: #ffffff; padding: 0 14px; font-family: inherit; font-size: 16px; color: #05070B; }
+.c2-input:focus { outline: none; border-color: #12306B; box-shadow: 0 0 0 1px #12306B; }
+.c2-input[readonly], .c2-input:disabled { background: #F6F4F0; color: #3F444C; }
+#c2DemoFields .c2-input:disabled { background: #ffffff; }
+.c2-note { font-size: 13px; line-height: 1.45; color: #3F444C; }
+.c2-err { font-size: 13px; font-weight: 700; line-height: 1.4; color: #C9302D; }
+.c2-plan { display: flex; align-items: center; gap: 12px; width: 100%; text-align: left; padding: 12px 14px; border: 2px solid #C9CDD3; border-radius: 12px; background: #ffffff; font-family: inherit; color: #05070B; cursor: pointer; }
+.c2-plan-radio { width: 22px; height: 22px; border-radius: 50%; border: 2px solid #C9CDD3; display: flex; align-items: center; justify-content: center; flex: none; background: #ffffff; }
+.c2-plan-radio i { width: 10px; height: 10px; border-radius: 50%; background: transparent; }
+.c2-plan.selected { border-color: #12306B; background: #EEF1F8; }
+.c2-plan.selected .c2-plan-radio { border-color: #12306B; }
+.c2-plan.selected .c2-plan-radio i { background: #12306B; }
+.c2-plan-body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+.c2-plan-name { display: flex; align-items: center; gap: 8px; font-size: 16px; font-weight: 800; }
+.c2-badge { font-size: 10.5px; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase; padding: 3px 8px; border-radius: 999px; background: #12306B; color: #ffffff; }
+.c2-plan-sub { font-size: 13px; line-height: 1.4; color: #3F444C; }
+.c2-plan-price { font-size: 16px; font-weight: 800; white-space: nowrap; }
+.c2-item { display: flex; align-items: baseline; gap: 12px; font-size: 15px; padding: 6px 0 14px; border-bottom: 1px solid #E4E1DB; }
+.c2-item span:first-child { flex: 1; font-weight: 700; line-height: 1.35; }
+.c2-item s { color: #3F444C; }
+.c2-item b { font-weight: 800; color: #C9302D; }
+.c2-sum { display: flex; justify-content: space-between; font-size: 15px; font-weight: 700; color: #2B2F36; }
+.c2-total { border-top: 1px solid #E4E1DB; padding-top: 12px; }
+.c2-total div { display: flex; justify-content: space-between; font-size: 20px; font-weight: 800; color: #05070B; }
+.c2-or { display: flex; align-items: center; gap: 12px; font-size: 13px; font-weight: 700; color: #3F444C; }
+.c2-or::before, .c2-or::after { content: ''; flex: 1; height: 1px; background: #E4E1DB; }
+.c2-payload { font-size: 14px; font-weight: 600; color: #3F444C; text-align: center; padding: 22px 0; }
+.c2-demo-apple { width: 100%; min-height: 54px; border: none; border-radius: 12px; background: #12306B; color: #ffffff; font-family: inherit; font-size: 18px; font-weight: 700; }
+.c2-demo-link { width: 100%; min-height: 54px; border: 2px solid #12306B; border-radius: 12px; background: #ffffff; color: #12306B; font-family: inherit; font-size: 17px; font-weight: 800; }
+.c2-row { display: flex; gap: 12px; }
+.c2-offer { display: flex; flex-direction: column; gap: 14px; padding-top: 8px; }
+.c2-terms { display: flex; flex-direction: column; gap: 14px; }
+.c2-terms h2 { font-size: 20px; font-weight: 800; letter-spacing: -0.01em; line-height: 1.25; text-align: center; }
+.c2-terms p { font-size: 15px; line-height: 1.55; color: #1D2127; }
+.c2-agree { display: flex; gap: 12px; align-items: flex-start; font-size: 14px; font-weight: 700; line-height: 1.4; cursor: pointer; }
+.c2-agree input { width: 26px; height: 26px; margin: 0; flex: none; accent-color: #15803D; }
+.c2-agree.missing { outline: 2px solid #C9302D; outline-offset: 6px; border-radius: 6px; }
+.c2-lifebox { border: 2px solid #12306B; background: #EEF1F8; border-radius: 14px; padding: 18px 16px; text-align: center; font-size: 17px; font-weight: 800; line-height: 1.45; }
+.c2-pay { width: 100%; min-height: 58px; padding: 0 18px; border: 0; border-radius: 12px; background: #15803D; color: #ffffff; font-family: inherit; font-size: 18px; font-weight: 800; cursor: pointer; box-shadow: 0 8px 18px rgba(5,7,11,0.16); }
+.c2-pay:disabled { opacity: 0.6; cursor: default; }
+.c2-encrypt { display: flex; align-items: center; justify-content: center; gap: 6px; font-size: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #3F444C; }
+.c2-contact { display: flex; flex-direction: column; gap: 8px; text-align: center; }
+.c2-contact b { font-size: 16px; font-weight: 800; }
+.c2-contact .c2-mail { font-size: 15px; font-weight: 700; }
+.c2-contact .c2-fine { font-size: 13px; line-height: 1.5; color: #3F444C; }
+.c2-card { background: #F6F4F0; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 12px; }
+.c2-bullets { display: none; gap: 14px; }
+.c2-bullets-title { font-size: 20px; font-weight: 800; line-height: 1.3; }
+.c2-bullets ul { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+.c2-bullets li { display: flex; gap: 10px; align-items: flex-start; font-size: 15px; line-height: 1.4; font-weight: 600; }
+.c2-bullets li svg { flex-shrink: 0; }
+.c2-seal-row { display: flex; gap: 14px; align-items: center; }
+.c2-seal { width: 72px; height: 72px; border-radius: 50%; background: #12306B; color: #ffffff; display: flex; flex-direction: column; align-items: center; justify-content: center; flex: none; line-height: 1; box-shadow: 0 0 0 3px #ffffff, 0 0 0 5px #12306B; }
+.c2-seal b { font-size: 23px; font-weight: 800; }
+.c2-seal span { font-size: 10.5px; font-weight: 800; letter-spacing: 1px; }
+.c2-seal-title { font-size: 18px; font-weight: 800; line-height: 1.3; flex: 1; }
+.c2-card p { font-size: 14.5px; line-height: 1.55; color: #3F444C; }
+.c2-quote { background: #F6F4F0; }
+.c2-quote-in { max-width: 1040px; margin: 0 auto; padding: 28px 20px; }
+.c2-quote-flow { display: flow-root; }
+.c2-quote img { float: left; width: 126px; height: 147px; margin: 4px 16px 8px 0; border-radius: 14px; object-fit: cover; object-position: center top; }
+.c2-quote p { font-size: 15.5px; line-height: 1.6; color: #1D2127; }
+.c2-sign { display: flex; flex-direction: column; gap: 1px; padding-top: 12px; }
+.c2-sign b { font-size: 17px; font-weight: 800; }
+.c2-sign span { font-size: 13px; font-weight: 600; color: #3F444C; }
+.c2-foot { background: #12306B; color: #ffffff; font-size: 12px; line-height: 1.6; padding: 24px 20px 28px; flex-grow: 1; }
+.c2-foot-in { max-width: 1040px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: space-between; }
+.c2-foot a, .c2-foot a:hover { color: #ffffff; }
+/* After payment: the "You're in" screen, same navy look. */
+.c2-done { width: 100%; max-width: 560px; margin: 0 auto; padding: 32px 20px 44px; display: flex; flex-direction: column; gap: 18px; }
+.c2-done-hero { display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; }
+.c2-done-badge { width: 72px; height: 72px; border-radius: 50%; background: #12306B; color: #ffffff; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 3px #ffffff, 0 0 0 5px #12306B; }
+.c2-done h1 { font-size: 26px; font-weight: 800; letter-spacing: -0.015em; line-height: 1.2; }
+.c2-done-email { font-size: 15px; font-weight: 700; color: #2B2F36; word-break: break-all; }
+.c2-pw-title { font-size: 17px; font-weight: 800; }
+.c2-pw-row { display: flex; gap: 10px; }
+.c2-pw-btn { flex: none; min-height: 52px; padding: 0 20px; border: 0; border-radius: 12px; background: #12306B; color: #ffffff; font-family: inherit; font-size: 16px; font-weight: 800; cursor: pointer; }
+.c2-pw-btn:disabled { opacity: 0.6; cursor: default; }
+.c2-ok { font-size: 14px; font-weight: 700; color: #15803D; }
+.c2-next { width: 100%; min-height: 58px; padding: 0 18px; border: 0; border-radius: 12px; background: #12306B; color: #ffffff; font-family: inherit; font-size: 18px; font-weight: 800; cursor: pointer; box-shadow: 0 8px 18px rgba(5,7,11,0.16); }
+.c2-next-sub { font-size: 14px; font-weight: 600; color: #3F444C; text-align: center; }
+/* Manage membership for a Lifetime trial (the hub). */
+.c2-sheet-bg { position: fixed; inset: 0; z-index: 9100; background: rgba(5,7,11,0.55); display: flex; align-items: center; justify-content: center; padding: 20px; }
+.c2-sheet { background: #ffffff; color: #05070B; border-radius: 16px; max-width: 420px; width: 100%; padding: 22px 20px; display: flex; flex-direction: column; gap: 12px; font-family: 'Manrope', sans-serif; }
+.c2-sheet h3 { font-size: 19px; font-weight: 800; }
+.c2-sheet p { font-size: 14.5px; line-height: 1.5; color: #3F444C; }
+.c2-sheet button { min-height: 50px; border-radius: 12px; font-family: inherit; font-size: 16px; font-weight: 800; cursor: pointer; }
+.c2-sheet .c2-sheet-cancel { border: 2px solid #C9302D; background: #ffffff; color: #C9302D; }
+.c2-sheet .c2-sheet-card { border: 2px solid #12306B; background: #ffffff; color: #12306B; }
+.c2-sheet .c2-sheet-close { border: 0; background: #12306B; color: #ffffff; }
+.c2-sheet button:disabled { opacity: 0.6; cursor: default; }
+@media (min-width: 900px) {
+  .c2-top { height: 64px; padding: 0 40px; }
+  .c2-logo { height: 34px; }
+  .c2-body { padding: 28px 40px 48px; gap: 24px; }
+  .c2-hero { padding: 24px 32px; gap: 32px; }
+  .c2-shot { width: 86px; }
+  .c2-hero-text { gap: 10px; }
+  .c2-hero h1 { font-size: 34px; }
+  .c2-hero-sub { font-size: 19px; }
+  .c2-cols { flex-direction: row; gap: 32px; align-items: flex-start; }
+  .c2-form { flex: 999 1 480px; gap: 20px; }
+  .c2-side { flex: 1 1 340px; gap: 20px; }
+  .c2-bullets { display: flex; }
+  .c2-quote-in { padding: 36px 40px; }
+  .c2-quote-flow { max-width: 720px; }
+  .c2-quote p { font-size: 17px; }
+  .c2-foot { padding: 28px 40px 32px; }
+  .c2-done { padding: 48px 20px 64px; }
+}
 
 
 /* ── In-app (iOS/Android) digital-purchase gating ──
@@ -3062,6 +3224,165 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
 
 </div><!-- /.app -->
 
+<!-- ════════════════ WEB CART v2 (approved 2026-10-02) ════════════════
+     The cart a web visitor lands on from a buy button (/?join=1&from=vsl), the
+     analysis page or a hub tile. Spec and every line of copy:
+     Docs/cart-design-20261002 (copy is verbatim from the boards). Monthly is a
+     subscription; Lifetime saves the card and is charged once on day 7 by the
+     server. Stripe draws the wallet buttons and the card fields in step 3. The
+     native apps never see this page. Review without paying: /?demo=checkout. -->
+<div id="cartV2" class="c2" style="display:none">
+  <div class="c2-top"><div class="c2-top-in">
+    <img class="c2-logo" src="/img/logo.png" alt="Abs By AI">
+    <div class="c2-secure"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg><div>Secure checkout<br><span>256-bit encryption</span></div></div>
+  </div></div>
+
+  <div id="c2Main">
+    <div class="c2-body">
+      <div class="c2-hero">
+        <div class="c2-shot"><img src="/img/letter/app-workout-day.jpg" alt="App screenshot: the AI workout plan"><span class="c2-callout">FREE<br>7 days</span></div>
+        <div class="c2-hero-text">
+          <h1>See Yourself With Abs, Then Get An AI Fitness Plan To <span>Make It Real.</span></h1>
+          <div class="c2-hero-sub">Claim Your Free 7-Day Trial Today!</div>
+        </div>
+      </div>
+
+      <div class="c2-cols">
+        <div class="c2-form">
+          <div class="c2-notice"><b>New members only</b><span>This special, one time offer is only available to new Abs By AI members.</span></div>
+
+          <div class="c2-step"><b>1</b><span>Your Email</span></div>
+          <div class="c2-block" style="gap:8px">
+            <div class="c2-field">
+              <label class="c2-label" for="c2Email">Email <i>*</i></label>
+              <input type="email" id="c2Email" class="c2-input" autocomplete="email" inputmode="email" autocapitalize="off" spellcheck="false">
+            </div>
+            <div id="c2EmailErr" class="c2-err" style="display:none"></div>
+            <div class="c2-note">Your email becomes your login. No password needed today.</div>
+          </div>
+
+          <div class="c2-step"><b>2</b><span>Order Summary</span></div>
+          <div class="c2-block">
+            <div class="c2-label">Choose your plan</div>
+            <button type="button" class="c2-plan selected" data-plan="monthly">
+              <span class="c2-plan-radio"><i></i></span>
+              <span class="c2-plan-body"><span class="c2-plan-name">Monthly</span><span class="c2-plan-sub">7 days free, then $19.99 a month</span></span>
+              <span class="c2-plan-price">$0 today</span>
+            </button>
+            <button type="button" class="c2-plan" data-plan="lifetime">
+              <span class="c2-plan-radio"><i></i></span>
+              <span class="c2-plan-body"><span class="c2-plan-name">Lifetime<span class="c2-badge">Pay once</span></span><span class="c2-plan-sub">7 days free, then a one-time charge of $69.99 for lifetime access, no recurring billing.</span></span>
+              <span class="c2-plan-price">$0 today</span>
+            </button>
+            <div class="c2-item"><span id="c2Item">Abs By AI Membership, Free 7-Day Trial</span><s id="c2Struck">$19.99</s><b>FREE!</b></div>
+            <div class="c2-sum"><span>Subtotal</span><span>$0.00</span></div>
+            <div class="c2-sum"><span>Sales Tax</span><span>$0.00</span></div>
+            <div class="c2-total"><div><span>Order Total</span><span id="c2Total">$0.00</span></div></div>
+          </div>
+
+          <div class="c2-step"><b>3</b><span>Payment Information</span></div>
+          <!-- Stripe draws these: the wallet buttons (Apple Pay keeps Apple's own
+               black button), then the card fields. -->
+          <div class="c2-block" id="c2StripeFields">
+            <div id="c2Express"></div>
+            <div class="c2-or" id="c2Or" style="display:none"><span>or pay by card</span></div>
+            <div id="c2PayLoading" class="c2-payload">Loading the secure payment form...</div>
+            <div id="c2Payment"></div>
+          </div>
+          <!-- /?demo=checkout only: the board's stand-in fields, nothing is live. -->
+          <div class="c2-block" id="c2DemoFields" style="display:none">
+            <button type="button" class="c2-demo-apple" disabled>Apple Pay</button>
+            <button type="button" class="c2-demo-link" disabled>Pay with Link</button>
+            <div class="c2-or"><span>or pay by card</span></div>
+            <div class="c2-field"><span class="c2-label">Name on Card <i>*</i></span><input type="text" class="c2-input" disabled></div>
+            <div class="c2-field"><span class="c2-label">Credit Card Number <i>*</i></span><input type="text" class="c2-input" placeholder="Credit Card #" disabled></div>
+            <div class="c2-row">
+              <div class="c2-field"><span class="c2-label">Expiration <i>*</i></span><input type="text" class="c2-input" placeholder="MM / YY" disabled></div>
+              <div class="c2-field"><span class="c2-label">CVV <i>*</i></span><input type="text" class="c2-input" placeholder="CVV" disabled></div>
+            </div>
+          </div>
+
+          <div class="c2-offer">
+            <div class="c2-terms" id="c2Terms">
+              <h2>How This Free Trial Offer Works</h2>
+              <p>With your order today, you get the full Abs By AI membership free for 7 days. You pay $0 today.</p>
+              <p>You will automatically be enrolled as a monthly member and will have 7 days to try everything. If you love it, do nothing and you stay a member at the Members Only price of $19.99 a month. Your card is billed $19.99 on day 7 and every month after that until you decide to cancel.</p>
+              <p>You can cancel quickly and easily anytime in two taps (Manage membership, then Cancel) or by emailing dan@absbyai.com. Cancel before day 7 and you pay nothing.</p>
+              <label class="c2-agree" id="c2AgreeRow" for="c2Agree"><input type="checkbox" id="c2Agree"><span>By checking this box, you are agreeing to the terms of the offer stated above.</span></label>
+              <div id="c2AgreeErr" class="c2-err" style="display:none"></div>
+            </div>
+            <div class="c2-lifebox" id="c2LifeBox" style="display:none">7 days free, then a one-time charge of $69.99 for lifetime access, no recurring billing.</div>
+            <div id="c2Error" class="c2-err" style="display:none;text-align:center"></div>
+            <button type="button" class="c2-pay" id="c2PayBtn">Start My Free Trial</button>
+            <div class="c2-encrypt"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3F444C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg><span>Secure 256-bit encryption</span></div>
+          </div>
+
+          <div class="c2-contact">
+            <b>Questions Before You Order?</b>
+            <div class="c2-mail"><a href="mailto:dan@absbyai.com">dan@absbyai.com</a></div>
+            <div class="c2-fine" id="c2StatementLine" style="display:none">Your purchase will appear on your statement under the name: <span id="c2StatementName"></span></div>
+            <div class="c2-fine">Goal pictures are AI visualizations, not real results. Individual results vary.</div>
+          </div>
+        </div>
+
+        <div class="c2-side">
+          <div class="c2-card c2-bullets">
+            <div class="c2-bullets-title">How Abs By AI gets you to your goal:</div>
+            <ul>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#12306B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg><span>An AI picture of yourself with the exact body and abs you want</span></li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#12306B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg><span>A personalized AI workout plan built from your photo</span></li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#12306B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg><span>AI calorie tracking: snap a picture of your food</span></li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#12306B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Meal prep recipes built around the foods you like</span></li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#12306B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg><span>AI sleep coaching that works with Oura, Whoop and Apple Watch</span></li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#12306B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Unlimited goal pictures and Supplement Audits</span></li>
+            </ul>
+          </div>
+          <div class="c2-card">
+            <div class="c2-seal-row"><div class="c2-seal"><b>365</b><span>DAY</span></div><div class="c2-seal-title">365-Day No Risk<br>100% Money Back Guarantee</div></div>
+            <p>We guarantee you'll love Abs By AI or we'll refund your money.</p>
+            <p>If you're not happy for any reason, email us within 365 days of your first payment for a full refund. No questions asked.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="c2-quote"><div class="c2-quote-in"><div class="c2-quote-flow">
+      <img src="/img/letter/dan-note.jpg" alt="Dan Rose, founder of Abs By AI">
+      <p>&ldquo;I know you'll love Abs By AI. It's changed thousands of guys' lives, and it will change yours too. That's why I'm offering you the chance to try it completely free for seven days. And after that, you can use Abs By AI for a full YEAR at my risk. So try Abs By AI at my risk - it could be the key to getting the body you've always wanted.&rdquo;</p>
+      <div class="c2-sign"><b>Dan Rose</b><span>Founder, Abs By AI</span></div>
+    </div></div></div>
+  </div>
+
+  <!-- After payment. Two states: the account was CREATED (the buyer is logged in
+       through the one-time claim; optional password), or the email already had
+       an account (membership attached; the buyer logs in, never automatically). -->
+  <div id="c2Done" class="c2-done" style="display:none">
+    <div class="c2-done-hero">
+      <div class="c2-done-badge"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></div>
+      <h1 id="c2DoneTitle">You're in. Your 7-day free trial is active.</h1>
+      <div class="c2-done-email" id="c2DoneEmail"></div>
+    </div>
+    <div class="c2-card" id="c2PwBlock">
+      <div class="c2-pw-title">Create a password (optional)</div>
+      <p>You're logged in on this device. A password lets you log in anywhere else. We've also emailed you a link to set one later.</p>
+      <form id="c2PwForm" class="c2-pw-row">
+        <input type="password" id="c2PwInput" class="c2-input" placeholder="At least 8 characters" minlength="8" autocomplete="new-password">
+        <button type="submit" id="c2PwBtn" class="c2-pw-btn">Save</button>
+      </form>
+      <div id="c2PwOk" class="c2-ok" style="display:none">Password saved.</div>
+      <div id="c2PwErr" class="c2-err" style="display:none"></div>
+    </div>
+    <div class="c2-notice" id="c2ExistingNote" style="display:none"><span>Your membership is attached to the account with this email. Log in to continue. We've also emailed you a link.</span></div>
+    <button type="button" id="c2DoneBtn" class="c2-next">Build my program</button>
+    <div class="c2-next-sub" id="c2DoneSub">Five quick questions, then your program.</div>
+  </div>
+
+  <div class="c2-foot"><div class="c2-foot-in">
+    <span>Copyright &copy; 2026 Abs By AI</span>
+    <span><a href="/terms" target="_blank" rel="noopener">Terms of Service</a> &nbsp; <a href="/privacy" target="_blank" rel="noopener">Privacy Policy</a></span>
+  </div></div>
+</div>
+
 <!-- ════════════════ EXERCISE DETAIL SHEET ════════════════ -->
 <div id="exSheetOverlay" style="display:none">
   <div class="ex-sheet" id="exSheet"><!-- rendered by JS --></div>
@@ -3135,6 +3456,7 @@ const BACKEND_URL = window.location.hostname === 'localhost'
 
 // Fetched from backend on load — set STRIPE_PUBLISHABLE_KEY in Railway env vars
 let STRIPE_PUBLISHABLE_KEY = '';
+let STATEMENT_NAME = ''; // how a charge reads on the buyer's card statement (from Stripe, via /api/config)
 
 // ── Native app detection (iOS Capacitor + Android TWA) ──
 // Inside the iOS/Android apps we must not offer DIGITAL purchases (credits,
@@ -4024,6 +4346,18 @@ function updateFixItVisibility(locked) {
 // checkCreditsSession() below still settles any purchase that was already in
 // flight when this shipped.
 
+// The overlay checkout. The versioned Stripe.js the v2 cart loads removed
+// initEmbeddedCheckout in favour of createEmbeddedCheckoutPage (same options).
+// The original call runs first, exactly as before; the new name is only tried
+// when Stripe says the old one is gone.
+async function stripeEmbeddedCheckout(stripeJs, opts) {
+  if (typeof stripeJs.initEmbeddedCheckout === 'function') {
+    try { return await stripeJs.initEmbeddedCheckout(opts); }
+    catch (e) { if (!/removed/i.test(e.message || '') || typeof stripeJs.createEmbeddedCheckoutPage !== 'function') throw e; }
+  }
+  return stripeJs.createEmbeddedCheckoutPage(opts);
+}
+
 function closeCreditsCheckout() {
   $('checkoutOverlay').style.display = 'none';
   if (window._stripeCheckout) {
@@ -4403,6 +4737,19 @@ function pauseMediaIn(root) {
   });
 }
 
+// Web cart v2 switch (the cart itself is further down, at WEB CART v2).
+// Dark launch: today's cart stays the default. /?join=1&cart=v2 (remembered
+// for the tab) pays through the new one; /?demo=checkout shows it with
+// payment off.
+const CART_V2 = (() => {
+  try {
+    const q = new URLSearchParams(location.search);
+    if (q.get('cart') === 'v2') { try { sessionStorage.setItem('absbyai_cart_v2', '1'); } catch (e) {} return true; }
+    if (q.get('demo') === 'checkout') return true;
+    return sessionStorage.getItem('absbyai_cart_v2') === '1';
+  } catch (e) { return false; }
+})();
+
 function renderScreen(name) {
   ['formSection', 'resultSection', 'chooserSection', 'analysisSection', 'productSection', 'customizeSection', 'confirmationSection', 'macroSection', 'authSection', 'hubSection', 'trainerSection', 'programSection', 'nutritionSection', 'mealPlanSection', 'counselSection', 'counselIntakeSection', 'counselReportSection', 'sleepSection', 'sleepBriefingSection', 'transformationsSection', 'progressSection', 'progressPhotoSection', 'quizSection', 'membershipSection', 'cartSection'].forEach(id => {
     const el = $(id);
@@ -4414,6 +4761,12 @@ function renderScreen(name) {
     if (!show && el.style.display !== 'none') pauseMediaIn(el);
     el.style.display = show ? '' : 'none';
   });
+  // The v2 cart lives outside .app (full width); the 'cart' screen shows it
+  // and hides the app column. Any other screen puts the app back.
+  const cartV2On = name === 'cart' && CART_V2;
+  document.documentElement.classList.toggle('cart-v2', cartV2On);
+  const cartV2El = $('cartV2');
+  if (cartV2El) cartV2El.style.display = cartV2On ? '' : 'none';
   window.scrollTo({ top: 0, behavior: 'smooth' });
   const dotMap = { form: 0, result: 1 };
   document.querySelectorAll('.dot').forEach((d, i) => {
@@ -5543,7 +5896,7 @@ function wireAnalysisScreen() {
     const member = isLoggedIn() && hasMemberAccess();
     const locked = analysisLocked();
     anCapture('analysis_cta_clicked', { target: member ? 'trainer' : (locked ? 'unlock_trial' : 'trial'), where });
-    if (member) return openTrainer();
+    if (member) return cartOnboardingPending() ? startCartOnboardingQuiz() : openTrainer();
     // Locked result: the same membership path as the paywall button (goes through
     // the real membership screen — IAP inside the native apps), then the held
     // image is released and revealed on the result screen.
@@ -5764,7 +6117,7 @@ async function handleCheckout() {
 
     // 3. Mount Stripe Embedded Checkout
     const stripeJs = Stripe(STRIPE_PUBLISHABLE_KEY);
-    const checkout = await stripeJs.initEmbeddedCheckout({ clientSecret: sessionData.clientSecret });
+    const checkout = await stripeEmbeddedCheckout(stripeJs, { clientSecret: sessionData.clientSecret });
 
     $('checkoutOverlay').style.display = 'flex';
     $('checkout').innerHTML = '';
@@ -5814,6 +6167,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   try {
     const cfg = await fetch(`${BACKEND_URL}/api/config`).then(r => r.json());
     if (cfg.stripePublishableKey) STRIPE_PUBLISHABLE_KEY = cfg.stripePublishableKey;
+    if (cfg.statementDescriptor) STATEMENT_NAME = cfg.statementDescriptor;
   } catch (e) {
     console.warn('Could not fetch config:', e);
   }
@@ -6075,7 +6429,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   // external checkout link, opened in the browser) still has to land on the
   // right screen. restoreSession handles the logged-in case itself, after
   // membership has resolved — doing it here too would race that.
-  if (!isLoggedIn()) applyPurchaseDeepLink();
+  if (!isLoggedIn() && !applyCartReturn()) applyPurchaseDeepLink();
   // A visitor from the /start landing page who already picked a photo there.
   if (!isLoggedIn()) applyVslHandoff();
 });
@@ -6234,7 +6588,7 @@ async function restoreSession() {
     if (!new URLSearchParams(window.location.search).get('session_id') && !pendingAuditJob) {
       // A member arriving from /start with a photo lands on their generation,
       // not the hub (the logged-out case runs at the end of boot).
-      if (!applyPurchaseDeepLink() && !(await applyVslHandoff())) showHub();
+      if (!applyCartReturn() && !applyPurchaseDeepLink() && !(await applyVslHandoff())) showHub();
     }
     syncMealsFromServer();
     syncSavedPrepsFromServer();
@@ -6897,6 +7251,34 @@ function renderHubMembership() {
     // manage, so sending them to the website would just confuse them. Inline
     // display beats the .native-app .app-only-note rule, which is not !important.
     setManageAppBtnVisible(false);
+    becomeMemberBtn.style.display = 'none';
+    if (memberFaq) memberFaq.style.display = '';
+    return;
+  }
+  if (memberState.active && memberState.plan === 'lifetime') {
+    // Lifetime plan (web cart): not a subscription. Free for 7 days, then one
+    // charge; after it, a lifetime member with nothing to renew or cancel.
+    const lt = memberState.lifetime || {};
+    const day = (d) => new Date(d).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    const amount = '$' + ((lt.amountCents || 6999) / 100).toFixed(2);
+    const paid = memberState.status === 'active';
+    const canceled = memberState.status === 'canceled';
+    $('hubMembershipPlan').textContent = paid ? 'Lifetime member' : (canceled ? 'Lifetime trial cancelled' : 'Lifetime Access: free trial');
+    $('hubMembershipDate').textContent = paid
+      ? 'Paid in full. No recurring billing.'
+      : (canceled
+        ? `Access ends ${day(memberState.periodEnd)}. You will not be charged.`
+        : `One-time charge of ${amount} on ${day(lt.chargeAt || memberState.periodEnd)}. No recurring billing.`);
+    const warningEl = $('hubMembershipWarning');
+    if (memberState.status === 'past_due') {
+      warningEl.textContent = 'Payment issue: update your card to keep your access';
+      warningEl.style.display = '';
+    } else {
+      warningEl.style.display = 'none';
+    }
+    $('hubMembershipManageBtn').style.display = (paid || canceled) ? 'none' : '';
+    setManageAppBtnVisible(!(paid || canceled));
+    memberCard.style.display = '';
     becomeMemberBtn.style.display = 'none';
     if (memberFaq) memberFaq.style.display = '';
     return;
@@ -8068,6 +8450,7 @@ async function refreshMembership() {
     // member, so "Manage membership" goes to Apple rather than Stripe.
     memberState.userId = m.userId || null;
     memberState.source = m.source || null;
+    memberState.lifetime = m.lifetime || null; // Lifetime plan: { state, chargeAt, amountCents }
     memberState.loaded = true;
     // The member's trial converted to a paid membership while no browser was
     // open (Stripe/RevenueCat webhook), so the sale could not be reported when
@@ -8345,6 +8728,7 @@ function renderCartRecap() {
 
 function showCartScreen(returnTo, opts) {
   if (IS_NATIVE_APP) return showMembershipScreen(returnTo, opts); // never on native
+  if (CART_V2) return showCartV2(returnTo, opts);
   membershipReturnTo = returnTo || membershipReturnTo;
   membershipGateBackToHub = !!opts?.trialGate;
   const current = screenStack[screenStack.length - 1];
@@ -8396,7 +8780,7 @@ async function handleCartPay() {
     cartSessionId = data.sessionId;
     const stripeJs = Stripe(STRIPE_PUBLISHABLE_KEY);
     const sessionId = data.sessionId;
-    const checkout = await stripeJs.initEmbeddedCheckout({
+    const checkout = await stripeEmbeddedCheckout(stripeJs, {
       clientSecret: data.clientSecret,
       onComplete: () => { handleCartComplete(sessionId, !!data.anon); },
     });
@@ -8431,6 +8815,7 @@ async function claimCartSession(sessionId) {
 
 async function handleCartComplete(sessionId, anon) {
   closeCreditsCheckout();
+  c2Reset();
   // Logged-in buyer: the existing post-payment routine already does everything
   // (conversions with the account email, unlocks, the returnTo).
   if (!anon || isLoggedIn()) return handleMembershipComplete(sessionId);
@@ -8474,6 +8859,7 @@ async function handleCartComplete(sessionId, anon) {
 }
 
 function showCartDone() {
+  if (CART_V2) return c2ShowDone();
   const created = !!(cartResult && cartResult.created);
   $('cartMain').style.display = 'none';
   $('cartDone').style.display = '';
@@ -8522,6 +8908,30 @@ function handleCartDoneContinue() {
     if (email) $('authEmail').value = email;
     return;
   }
+  // The v2 cart sold "see yourself with abs, then the plan", so a buyer with no
+  // goal picture yet uploads their photo first; the five questions follow from
+  // the analysis page's button (Dan, 2026-10-02).
+  if (CART_V2 && !cartHasGoalPicture()) {
+    try { localStorage.setItem(CART_ONBOARD_KEY, '1'); } catch (e) {}
+    cartResult = null;
+    return showScreen('form');
+  }
+  quizState.onboarding = true;
+  startQuiz();
+}
+
+// "Photo first, then the five questions": set when a new buyer leaves the
+// "You're in" screen for the photo upload, read by the analysis page's button.
+const CART_ONBOARD_KEY = 'absbyai_cart_onboarding';
+function cartHasGoalPicture() {
+  try { return !!analysisImages().after; } catch (e) { return false; }
+}
+function cartOnboardingPending() {
+  try { return localStorage.getItem(CART_ONBOARD_KEY) === '1'; } catch (e) { return false; }
+}
+function startCartOnboardingQuiz() {
+  try { localStorage.removeItem(CART_ONBOARD_KEY); } catch (e) {}
+  membershipReturnTo = openTrainer; // they tapped "Build my program"
   quizState.onboarding = true;
   startQuiz();
 }
@@ -8560,6 +8970,416 @@ function wireCartScreen() {
   });
   $('cartPwForm').addEventListener('submit', handleCartSetPassword);
   $('cartDoneBtn').addEventListener('click', handleCartDoneContinue);
+  wireCartV2();
+}
+
+// ============================================================
+// WEB CART v2 (approved 2026-10-02). Spec: Docs/cart-design-20261002.
+// One page, three numbered steps: the email (ours), the plan and order
+// summary, then Stripe's own wallet buttons and card fields ON the page
+// (Checkout Sessions with ui_mode 'elements'), confirmed from our green
+// button. Monthly is a subscription with a 7-day trial. Lifetime saves the
+// card for nothing today; the server charges it once on day 7.
+// Each plan needs its own Stripe session (one is a subscription, the other
+// only saves a card), so switching plan remounts Stripe's fields.
+// ============================================================
+const C2_PLAN_KEY = 'absbyai_cart_plan'; // survives a redirect back from a wallet or bank page
+const C2_EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+const C2_COPY = {
+  monthly:  { item: 'Abs By AI Membership, Free 7-Day Trial', struck: '$19.99' },
+  lifetime: { item: 'Abs By AI Lifetime Access, Free 7-Day Trial', struck: '$69.99' },
+};
+// Stripe's fields, dressed like the board's inputs.
+const C2_APPEARANCE = {
+  theme: 'stripe',
+  variables: {
+    fontFamily: 'Manrope, sans-serif', fontSizeBase: '16px', colorPrimary: '#12306B', colorText: '#05070B',
+    colorTextSecondary: '#3F444C', colorDanger: '#C9302D', colorBackground: '#ffffff', borderRadius: '12px', spacingGridRow: '12px',
+  },
+  rules: {
+    '.Input': { border: '1.5px solid #C9CDD3', boxShadow: 'none', padding: '15px 14px' },
+    '.Input:focus': { border: '1.5px solid #12306B', boxShadow: '0 0 0 1px #12306B' },
+    '.Label': { fontSize: '13px', fontWeight: '700', color: '#2B2F36' },
+  },
+};
+const c2 = { stripe: null, sessions: {}, sessionsFor: null, checkout: null, actions: null, payEl: null, expressEl: null, plan: null, seq: 0, busy: false };
+
+function c2Demo() { return !!(DEMO && DEMO.kind === 'checkout'); }
+function c2Plan() { return selectedPlan === 'lifetime' ? 'lifetime' : 'monthly'; }
+
+function c2ShowError(msg) {
+  const el = $('c2Error');
+  el.textContent = msg || '';
+  el.style.display = msg ? '' : 'none';
+}
+// A short message at the field that needs attention, and bring it into view.
+function c2FieldError(errId, msg, focusId) {
+  const el = $(errId);
+  el.textContent = msg;
+  el.style.display = '';
+  const target = $(focusId);
+  if (focusId === 'c2AgreeRow') target.classList.add('missing');
+  try { target.scrollIntoView({ block: 'center', behavior: 'smooth' }); } catch (e) {}
+  if (target.focus && focusId === 'c2Email') target.focus({ preventScroll: true });
+}
+function c2ClearFieldErrors() {
+  $('c2EmailErr').style.display = 'none';
+  $('c2AgreeErr').style.display = 'none';
+  $('c2AgreeRow').classList.remove('missing');
+}
+
+// The plan decides the line item and the block above the button: Monthly shows
+// the free-trial terms and the tick box, Lifetime shows its one sentence.
+function c2RenderPlan() {
+  const plan = c2Plan();
+  document.querySelectorAll('.c2-plan').forEach((el) => el.classList.toggle('selected', el.dataset.plan === plan));
+  $('c2Item').textContent = C2_COPY[plan].item;
+  $('c2Struck').textContent = C2_COPY[plan].struck;
+  $('c2Terms').style.display = plan === 'monthly' ? '' : 'none';
+  $('c2LifeBox').style.display = plan === 'lifetime' ? '' : 'none';
+}
+
+// Stripe insists the page shows the session's own total; with the trial (or a
+// card that is only being saved) that is $0.00, the same as the board.
+function c2SyncTotal(session) {
+  try {
+    const sess = session || (c2.actions && c2.actions.getSession());
+    const amount = sess && sess.total && sess.total.total && sess.total.total.amount;
+    $('c2Total').textContent = amount || '$0.00';
+  } catch (e) {}
+}
+
+function c2Teardown() {
+  ['expressEl', 'payEl'].forEach((k) => { if (c2[k]) { try { c2[k].destroy(); } catch (e) {} c2[k] = null; } });
+  c2.checkout = null;
+  c2.actions = null;
+  c2.plan = null;
+  const ex = $('c2Express'), pay = $('c2Payment');
+  if (ex) ex.innerHTML = '';
+  if (pay) pay.innerHTML = '';
+  const or = $('c2Or');
+  if (or) or.style.display = 'none';
+}
+// After a payment (or a change of account) the old sessions are spent.
+function c2Reset() {
+  c2.seq++;
+  c2Teardown();
+  c2.sessions = {};
+}
+
+async function c2SendEmailToStripe() {
+  if (isLoggedIn() || !c2.actions) return; // logged in: the session already carries the account's email
+  const email = $('c2Email').value.trim();
+  if (!C2_EMAIL_RE.test(email)) return;
+  try { localStorage.setItem('absbyai_email', email); } catch (e) {}
+  try { await c2.actions.updateEmail(email); } catch (e) {} // lets Link recognise a returning buyer
+}
+
+// Create (or reuse) the Stripe session for the selected plan and draw Stripe's
+// wallet buttons and card fields into step 3.
+async function c2LoadPayment() {
+  const demo = c2Demo();
+  $('c2DemoFields').style.display = demo ? '' : 'none';
+  $('c2StripeFields').style.display = demo ? 'none' : '';
+  const btn = $('c2PayBtn');
+  btn.disabled = demo;
+  btn.textContent = demo ? 'Demo: checkout disabled' : 'Start My Free Trial';
+  if (demo) return;
+  const plan = c2Plan();
+  const owner = isLoggedIn() ? auth.email : '';
+  if (c2.sessionsFor !== owner) { c2Reset(); c2.sessionsFor = owner; }
+  if (c2.plan === plan && c2.actions) return; // already drawn for this plan
+  const seq = ++c2.seq;
+  c2Teardown();
+  $('c2PayLoading').textContent = 'Loading the secure payment form...';
+  $('c2PayLoading').style.display = '';
+  try {
+    if (!STRIPE_PUBLISHABLE_KEY) throw new Error('Payments are warming up. Reload the page in a moment.');
+    let sess = c2.sessions[plan];
+    if (!sess) {
+      sess = await authApi('/api/stripe/create-cart-checkout', {
+        method: 'POST',
+        body: JSON.stringify({ plan, ui: 'elements', deviceId: getDeviceId(), adClickId: getAdClickId(), adClickType: getAdClickType() }),
+      });
+      c2.sessions[plan] = sess;
+    }
+    if (seq !== c2.seq) return; // the buyer switched plan while this loaded
+    for (let i = 0; i < 100 && !window.Stripe; i++) await new Promise((r) => setTimeout(r, 100)); // Stripe.js loads without blocking
+    if (!window.Stripe) throw new Error('The payment form could not load. Reload the page to try again.');
+    if (seq !== c2.seq) return;
+    if (!c2.stripe) c2.stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
+    const checkout = c2.stripe.initCheckoutElementsSdk({
+      clientSecret: sess.clientSecret,
+      elementsOptions: {
+        appearance: C2_APPEARANCE,
+        fonts: [{ cssSrc: 'https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap' }],
+      },
+    });
+    const loaded = await checkout.loadActions();
+    if (seq !== c2.seq) return;
+    if (loaded.type !== 'success') throw new Error((loaded.error && loaded.error.message) || 'The payment form could not load.');
+    c2.checkout = checkout;
+    c2.actions = loaded.actions;
+    c2.plan = plan;
+
+    // Wallets first: Apple Pay (Apple's own black button), Link, and Google Pay
+    // when it is switched on in Stripe. One button per row, like the board.
+    const express = checkout.createExpressCheckoutElement({ buttonHeight: 54, layout: { maxColumns: 1, overflow: 'never' } });
+    const showOr = (methods) => { $('c2Or').style.display = methods && Object.values(methods).some(Boolean) ? '' : 'none'; };
+    express.on('ready', (e) => showOr(e && e.availablePaymentMethods));
+    express.on('availablepaymentmethodschange', (e) => showOr(e && e.paymentMethods));
+    express.on('click', c2ExpressClick);
+    express.on('confirm', c2ExpressConfirm);
+    express.mount('#c2Express');
+    c2.expressEl = express;
+
+    // The card: Stripe's fields. Wallets live in the buttons above, so they are
+    // switched off inside the card form; with Link left on here Stripe adds a
+    // "Bank" tab and a save-my-details box the approved design does not have.
+    const pay = checkout.createPaymentElement({
+      layout: 'tabs',
+      fields: { billingDetails: { name: 'always' } },
+      wallets: { applePay: 'never', googlePay: 'never', link: 'never' },
+    });
+    pay.on('ready', () => { if (seq === c2.seq) $('c2PayLoading').style.display = 'none'; });
+    pay.on('loaderror', () => { if (seq === c2.seq) $('c2PayLoading').textContent = 'The payment form could not load. Reload the page to try again.'; });
+    pay.mount('#c2Payment');
+    c2.payEl = pay;
+
+    checkout.on('change', c2SyncTotal);
+    c2SyncTotal();
+    c2SendEmailToStripe();
+  } catch (err) {
+    if (seq !== c2.seq) return;
+    $('c2PayLoading').textContent = err.message || 'The payment form could not load. Reload the page to try again.';
+    $('c2PayLoading').style.display = '';
+  }
+}
+
+function showCartV2(returnTo, opts) {
+  membershipReturnTo = returnTo || membershipReturnTo;
+  membershipGateBackToHub = !!opts?.trialGate;
+  const current = screenStack[screenStack.length - 1];
+  if (current !== 'cart') cartFrom = current;
+  selectedPlan = c2Plan(); // Annual is not sold here; anything else falls back to Monthly
+  cartCapture('cart_viewed', { from: opts?.from || cartFrom || null, locked: analysisLocked(), logged_in: isLoggedIn(), plan: selectedPlan });
+
+  $('c2Main').style.display = '';
+  $('c2Done').style.display = 'none';
+  c2RenderPlan();
+  c2ClearFieldErrors();
+  c2ShowError('');
+  // Step 1: a logged-in non-member's email is the account's and is locked.
+  const email = $('c2Email');
+  if (isLoggedIn()) {
+    email.value = auth.email || '';
+    email.readOnly = true;
+  } else {
+    email.readOnly = false;
+    if (!email.value) { try { email.value = localStorage.getItem('absbyai_email') || ''; } catch (e) {} }
+  }
+  $('c2StatementName').textContent = STATEMENT_NAME;
+  $('c2StatementLine').style.display = STATEMENT_NAME ? '' : 'none';
+  showScreen('cart');
+  c2LoadPayment();
+}
+
+function c2SetBusy(on) {
+  c2.busy = on;
+  const btn = $('c2PayBtn');
+  btn.disabled = on;
+  btn.textContent = on ? 'Starting your free trial...' : 'Start My Free Trial';
+}
+
+// What both ways of paying must pass first: Monthly needs the tick box.
+function c2TermsOk() {
+  if (c2Plan() !== 'monthly' || $('c2Agree').checked) return true;
+  c2FieldError('c2AgreeErr', 'Please check this box to agree to the terms of the offer.', 'c2AgreeRow');
+  return false;
+}
+
+// Our green button: the card (or Link inside the card form).
+async function c2Pay() {
+  if (IS_NATIVE_APP || c2Demo() || c2.busy) return;
+  c2ClearFieldErrors();
+  c2ShowError('');
+  const anon = !isLoggedIn();
+  const email = $('c2Email').value.trim();
+  if (anon && !C2_EMAIL_RE.test(email)) return c2FieldError('c2EmailErr', 'Please enter your email address.', 'c2Email');
+  if (!c2TermsOk()) return;
+  const plan = c2Plan();
+  const sess = c2.sessions[plan];
+  if (!c2.actions || !sess || c2.plan !== plan) return c2ShowError('The payment form is still loading. Try again in a moment.');
+  cartCapture('cart_checkout_opened', { plan, logged_in: !anon, method: 'card' });
+  c2SetBusy(true);
+  try {
+    try { sessionStorage.setItem(C2_PLAN_KEY, plan); } catch (e) {}
+    const res = await c2.actions.confirm({ redirect: 'if_required', ...(anon ? { email } : {}) });
+    if (res && res.type === 'error') {
+      c2ShowError((res.error && res.error.message) || 'That did not go through. Check your card details and try again.');
+      return;
+    }
+    await handleCartComplete(sess.sessionId, !!sess.anon);
+  } catch (err) {
+    c2ShowError(err.message || 'Something went wrong. Please try again.');
+  } finally {
+    c2SetBusy(false);
+  }
+}
+
+// A wallet button was tapped. Stripe opens the wallet's sheet only if we say
+// so within a second, so the tick box rule is checked here, synchronously.
+function c2ExpressClick(event) {
+  c2ClearFieldErrors();
+  c2ShowError('');
+  if (!c2TermsOk()) { if (event.reject) event.reject(); return; }
+  cartCapture('cart_checkout_opened', { plan: c2Plan(), logged_in: isLoggedIn(), method: event.expressPaymentType || 'wallet' });
+  try { sessionStorage.setItem(C2_PLAN_KEY, c2Plan()); } catch (e) {}
+  event.resolve();
+}
+// The buyer approved in the wallet. The wallet supplies the email.
+async function c2ExpressConfirm(event) {
+  const sess = c2.sessions[c2Plan()];
+  if (!c2.actions || !sess) return;
+  c2SetBusy(true);
+  try {
+    const res = await c2.actions.confirm({ expressCheckoutConfirmEvent: event, redirect: 'if_required' });
+    if (res && res.type === 'error') {
+      c2ShowError((res.error && res.error.message) || 'That did not go through. Please try again.');
+      return;
+    }
+    await handleCartComplete(sess.sessionId, !!sess.anon);
+  } catch (err) {
+    c2ShowError(err.message || 'Something went wrong. Please try again.');
+  } finally {
+    c2SetBusy(false);
+  }
+}
+
+// A payment that had to leave the page (a bank or wallet redirect) comes back
+// to /?cart_return=<session id>. Finish it exactly as an on-page payment.
+function applyCartReturn() {
+  let sid = '';
+  try { sid = new URLSearchParams(location.search).get('cart_return') || ''; } catch (e) { return false; }
+  if (!/^cs_[A-Za-z0-9_]{10,}$/.test(sid)) return false;
+  try {
+    const plan = sessionStorage.getItem(C2_PLAN_KEY);
+    if (plan === 'monthly' || plan === 'lifetime') selectedPlan = plan;
+    const clean = new URL(location.href);
+    clean.searchParams.delete('cart_return');
+    history.replaceState(history.state, '', clean.toString());
+  } catch (e) {}
+  handleCartComplete(sid, !isLoggedIn());
+  return true;
+}
+
+function c2ShowDone() {
+  const created = !!(cartResult && cartResult.created);
+  const photoFirst = created && !cartHasGoalPicture();
+  $('c2Main').style.display = 'none';
+  $('c2Done').style.display = '';
+  $('c2DoneTitle').textContent = created ? "You're in. Your 7-day free trial is active." : 'Your free trial is active.';
+  $('c2DoneEmail').textContent = cartResult && cartResult.email
+    ? (created ? `Logged in as ${cartResult.email}` : `On the account ${cartResult.email}`)
+    : "Check your email. We've sent you a link to get in.";
+  $('c2PwBlock').style.display = created ? '' : 'none';
+  $('c2ExistingNote').style.display = created ? 'none' : '';
+  $('c2PwInput').value = '';
+  $('c2PwOk').style.display = 'none';
+  $('c2PwErr').style.display = 'none';
+  $('c2DoneBtn').textContent = !created ? 'Log in to continue' : (photoFirst ? 'See myself with abs' : 'Build my program');
+  $('c2DoneSub').textContent = !created
+    ? 'Use the password for that account, or "Forgot password".'
+    : (photoFirst ? 'Upload your photo first, then five quick questions.' : 'Five quick questions, then your program.');
+  showScreen('cart');
+  try { window.scrollTo({ top: 0 }); } catch (e) {}
+}
+
+async function c2SetPassword(e) {
+  e.preventDefault();
+  const btn = $('c2PwBtn');
+  const pw = $('c2PwInput').value;
+  $('c2PwErr').style.display = 'none';
+  if (pw.length < 8) { $('c2PwErr').textContent = 'Use at least 8 characters.'; $('c2PwErr').style.display = ''; return; }
+  btn.disabled = true;
+  try {
+    await authApi('/api/auth/set-password', { method: 'POST', body: JSON.stringify({ password: pw }) });
+    $('c2PwOk').style.display = '';
+    $('c2PwInput').value = '';
+    if (window.posthog) posthog.capture('cart_password_set');
+  } catch (err) {
+    $('c2PwErr').textContent = err.message || 'Could not save that password.';
+    $('c2PwErr').style.display = '';
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+function wireCartV2() {
+  document.querySelectorAll('.c2-plan').forEach((el) => el.addEventListener('click', () => {
+    if (c2.busy || selectedPlan === el.dataset.plan) return;
+    selectedPlan = el.dataset.plan;
+    cartCapture('cart_plan_selected', { plan: selectedPlan });
+    c2RenderPlan();
+    c2ClearFieldErrors();
+    c2ShowError('');
+    c2LoadPayment();
+  }));
+  $('c2Agree').addEventListener('change', (e) => {
+    if (!e.target.checked) return;
+    c2ClearFieldErrors();
+    cartCapture('cart_terms_checked', { plan: c2Plan() });
+  });
+  $('c2Email').addEventListener('input', () => { $('c2EmailErr').style.display = 'none'; });
+  $('c2Email').addEventListener('blur', c2SendEmailToStripe);
+  $('c2PayBtn').addEventListener('click', c2Pay);
+  $('c2PwForm').addEventListener('submit', c2SetPassword);
+  $('c2DoneBtn').addEventListener('click', handleCartDoneContinue);
+}
+
+// Manage membership for a Lifetime buyer whose one charge has not happened
+// yet: cancel (nothing is ever billed) or change the card.
+function openLifetimeManage() {
+  const lt = memberState.lifetime || {};
+  const when = new Date(lt.chargeAt || memberState.periodEnd || Date.now()).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  const amount = '$' + ((lt.amountCents || 6999) / 100).toFixed(2);
+  const bg = document.createElement('div');
+  bg.className = 'c2-sheet-bg';
+  bg.innerHTML = `<div class="c2-sheet" role="dialog" aria-modal="true">
+    <h3>Manage membership</h3>
+    <p>Lifetime Access. Your one-time charge of ${amount} is set for ${when}. Cancel before then and you pay nothing.</p>
+    <p class="c2-err" style="display:none"></p>
+    <button type="button" class="c2-sheet-cancel">Cancel</button>
+    <button type="button" class="c2-sheet-card">Use a different card</button>
+    <button type="button" class="c2-sheet-close">Keep my membership</button>
+  </div>`;
+  const close = () => bg.remove();
+  const err = bg.querySelector('.c2-err');
+  bg.addEventListener('click', (e) => { if (e.target === bg) close(); });
+  bg.querySelector('.c2-sheet-close').addEventListener('click', close);
+  bg.querySelector('.c2-sheet-card').addEventListener('click', () => { close(); handleManageMembership({ portal: true }); });
+  bg.querySelector('.c2-sheet-cancel').addEventListener('click', async (e) => {
+    e.target.disabled = true;
+    err.style.display = 'none';
+    try {
+      await authApi('/api/membership/cancel-lifetime', { method: 'POST', body: JSON.stringify({}) });
+      if (window.posthog) posthog.capture('lifetime_trial_cancelled');
+      await refreshMembership();
+      renderHubMembership();
+      close();
+      const toast = $('creditsSuccessToast');
+      if (toast) {
+        $('creditsSuccessText').textContent = 'Cancelled. You will not be charged.';
+        toast.style.display = 'flex';
+        setTimeout(() => { toast.style.display = 'none'; }, 4500);
+      }
+    } catch (ex) {
+      err.textContent = ex.message || 'Could not cancel. Please email dan@absbyai.com.';
+      err.style.display = '';
+      e.target.disabled = false;
+    }
+  });
+  document.body.appendChild(bg);
 }
 
 async function handleMembershipSubscribe() {
@@ -8575,7 +9395,7 @@ async function handleMembershipSubscribe() {
     });
     const stripeJs = Stripe(STRIPE_PUBLISHABLE_KEY);
     const sessionId = data.sessionId;
-    const checkout = await stripeJs.initEmbeddedCheckout({
+    const checkout = await stripeEmbeddedCheckout(stripeJs, {
       clientSecret: data.clientSecret,
       onComplete: () => { handleMembershipComplete(sessionId); },
     });
@@ -8631,13 +9451,16 @@ async function handleMembershipComplete(sessionId, opts = {}) {
 // and sending them to the Stripe portal would show them nothing.
 const APPLE_MANAGE_URL = 'https://apps.apple.com/account/subscriptions';
 
-async function handleManageMembership() {
+async function handleManageMembership(opts) {
   if (memberState.source === 'apple') {
     if (window.posthog) posthog.capture('manage_membership_apple');
     openExternalPurchase(APPLE_MANAGE_URL, 'apple_manage');
     return;
   }
   if (IS_NATIVE_APP) return; // external billing portal is disabled in the native apps
+  // Lifetime trial: there is no subscription for Stripe's portal to cancel, so
+  // Manage membership opens our own sheet (Cancel, or change the card).
+  if (memberState.plan === 'lifetime' && ['trialing', 'past_due'].includes(memberState.status) && !opts?.portal) return openLifetimeManage();
   const btn = $('hubMembershipManageBtn');
   btn.disabled = true;
   try {

@@ -77,6 +77,11 @@ app.post('/api/stripe/webhook', express.raw({ type: 'application/json' }), async
     // reported a $69.99 sale to Google Ads for money that never arrived.
     try { await recordPaidInvoiceConversion(event.data.object); }
     catch (e) { console.error('Paid-invoice conversion error:', e.message); }
+  } else if (event.type === 'payment_intent.succeeded' || event.type === 'payment_intent.payment_failed') {
+    // The Lifetime plan's one charge. Every other payment intent on the
+    // account (subscription invoices, print orders) is ignored by the handler.
+    try { await handleLifetimeIntentEvent(event.type, event.data.object); }
+    catch (e) { console.error('Lifetime payment intent error:', e.message); }
   }
   res.json({ received: true });
 });
@@ -196,7 +201,25 @@ const CREDIT_PACKS = {
 const MEMBERSHIP_PLANS = {
   monthly: { priceInCents: 1999, interval: 'month', label: 'Monthly Membership' },
   annual:  { priceInCents: 6999, interval: 'year',  label: 'Annual Membership' },
+  // Not a subscription: the web cart saves the card ($0 today) and the server
+  // charges it once, 7 days later (lifetimeChargeSweep). Sold on the web cart
+  // only; Annual stays for existing annual subscribers and the apps.
+  lifetime: { priceInCents: 6999, interval: null, oneTime: true, label: 'Lifetime Access' },
 };
+// "then <this>" wording for emails, so a Lifetime buyer is never told /month.
+function planPriceStr(planDef) {
+  const amount = `$${(planDef.priceInCents / 100).toFixed(2)}`;
+  if (planDef.oneTime) return `a one-time charge of ${amount} for lifetime access`;
+  return planDef.interval === 'year' ? `${amount}/year` : `${amount}/month`;
+}
+// The web cart's sessions use Stripe's Checkout elements (card fields on our
+// own page). The installed stripe package pins an older API version, so these
+// calls name the version they were verified against (2026-10-02).
+const STRIPE_ELEMENTS_API_VERSION = '2026-09-30.endive';
+const LIFETIME_TRIAL_DAYS = 7;
+// A failed Lifetime charge is retried once a day for this many days, with an
+// email each time, then access ends (Dan, 2026-10-02).
+const LIFETIME_RETRY_DAYS = 3;
 // Free (non-member) allowance of meal-photo analyses — the freemium taste.
 const FREE_MEAL_ANALYSES = 3;
 // exercises.js lives in public/ (browser loads it at /exercises.js); the server
@@ -409,6 +432,13 @@ app.post('/dash-logout', (req, res) => {
 function dashPath(req) {
   return (req.path || '').toLowerCase().replace(/\/+$/, '') || '/';
 }
+
+// Private Google owner sessions and publication use separate DB tables. Mount
+// before the shared dashboard gate and public static files, so neither can
+// bypass the brief's identity check. No source content is stored in public Git.
+const {createStore: createBriefStore} = require('./scripts/brief/web/store');
+const {createRouter: createBriefRouter} = require('./scripts/brief/web/router');
+app.use(createBriefRouter({store: createBriefStore(db, dbReady)}));
 
 app.use((req, res, next) => {
   const p = dashPath(req);
@@ -5005,9 +5035,7 @@ async function sendSetPasswordEmail(email, userId) {
 async function sendMembershipAttachedEmail(email, plan) {
   if (!RESEND_API_KEY) { console.warn('RESEND_API_KEY not set — membership-attached email skipped for', email); return; }
   const planDef = MEMBERSHIP_PLANS[plan] || MEMBERSHIP_PLANS.monthly;
-  const priceStr = planDef.interval === 'year'
-    ? `$${(planDef.priceInCents / 100).toFixed(2)}/year`
-    : `$${(planDef.priceInCents / 100).toFixed(2)}/month`;
+  const priceStr = planPriceStr(planDef);
   const res = await fetch('https://api.resend.com/emails', {
     method: 'POST',
     headers: { 'Authorization': `Bearer ${RESEND_API_KEY}`, 'Content-Type': 'application/json' },
@@ -5029,9 +5057,7 @@ async function sendMembershipAttachedEmail(email, plan) {
 async function sendTrialEndingEmail(email, plan) {
   if (!RESEND_API_KEY) { console.warn('RESEND_API_KEY not set — trial-ending email skipped for', email); return false; }
   const planDef = MEMBERSHIP_PLANS[plan] || MEMBERSHIP_PLANS.monthly;
-  const priceStr = planDef.interval === 'year'
-    ? `$${(planDef.priceInCents / 100).toFixed(2)}/year`
-    : `$${(planDef.priceInCents / 100).toFixed(2)}/month`;
+  const priceStr = planPriceStr(planDef);
   const link = SITE_URL;
   try {
     const res = await fetch('https://api.resend.com/emails', {
@@ -5490,7 +5516,8 @@ app.post('/api/auth/delete-account', authLimiter, requireAuth, async (req, res) 
 
     // (d) The user row — ON DELETE CASCADE wipes sessions, meals, saved_preps,
     // programs, meal_plans, counsel_sessions, sleep_entries, transformations,
-    // weight_logs, progress_entries, coach_briefs, password_reset_tokens.
+    // weight_logs, progress_entries, coach_briefs, password_reset_tokens, and
+    // lifetime_pending (so a deleted account's Lifetime charge can never run).
     await db.query('DELETE FROM users WHERE id = $1', [userId]);
 
     // Device credit balances in credits-data.json are deliberately left alone:
@@ -6401,6 +6428,8 @@ app.get('/api/membership', requireAuth, async (req, res) => {
       source: row.membership_source || null,
       creditDiscountCents: isActiveMembership(row) ? 0 : creditDiscountCents(deviceId, 'monthly'),
       plans: Object.fromEntries(Object.entries(MEMBERSHIP_PLANS).map(([k, v]) => [k, { priceInCents: v.priceInCents, interval: v.interval }])),
+      // Lifetime: when the one charge is due (or 'paid'), for the hub card.
+      ...(row.membership_plan === 'lifetime' ? { lifetime: await lifetimeSummary(row.id) } : {}),
       // This member's trial converted to a paid membership while no browser was
       // open. The client fires the Google Ads Subscribe conversion once and then
       // acks; until it does, the flag keeps being handed back on every visit.
@@ -6663,11 +6692,15 @@ class CheckoutError extends Error {
   constructor(status, message) { super(message); this.status = status; }
 }
 
-async function buildMembershipCheckout({ user, plan, deviceId, adClickId, adClickType }) {
+async function buildMembershipCheckout({ user, plan, deviceId, adClickId, adClickType, ui }) {
   const stripe = getStripe();
   if (!stripe) throw new CheckoutError(503, 'Payments are not configured yet.');
   const planDef = MEMBERSHIP_PLANS[plan];
   if (!planDef) throw new CheckoutError(400, 'Invalid plan');
+  // ui 'elements' = the web cart v2 (2026-10-02): Stripe's fields sit on our
+  // own page instead of in the overlay sheet. Lifetime exists only there.
+  const elements = ui === 'elements';
+  if (planDef.oneTime && !elements) throw new CheckoutError(400, 'Invalid plan');
 
   let row = null;
   let isFirstSubscription = true;
@@ -6688,6 +6721,13 @@ async function buildMembershipCheckout({ user, plan, deviceId, adClickId, adClic
     // immediately. The credit-conversion coupon is duration:'once', so with a
     // trial it discounts the first real invoice after the trial ends.
     isFirstSubscription = !row.stripe_subscription_id;
+    // The v2 cart tells every visitor "7 days free, $0 today" and has no layout
+    // for a charge today, so it grants the trial the way the anonymous door
+    // always has, and logs the repeat so it can be counted.
+    if (elements && !isFirstSubscription) {
+      console.log(`TRIAL_REUSE: logged-in user ${user.id} started a new trial through the cart`);
+      isFirstSubscription = true;
+    }
   }
   // Anonymous: the per-account check cannot run before the account exists, so
   // the trial is always granted here; fulfilment logs a TRIAL_REUSE line when
@@ -6695,6 +6735,42 @@ async function buildMembershipCheckout({ user, plan, deviceId, adClickId, adClic
 
   const dev = String(deviceId || (row && row.device_id) || '');
   const discountCents = creditDiscountCents(dev, plan);
+  const anon = !user;
+  const metadata = {
+    kind: 'membership',
+    plan,
+    ...(user ? { userId: String(user.id) } : { anon: '1' }),
+    deviceId: dev,
+    creditDiscountCents: String(discountCents),
+    // Rides along for the anonymous case; harmless (and unused) when userId
+    // is set because recordAdClickId already ran above.
+    adClickId: sanitizeAdClickId(adClickId),
+    adClickType: sanitizeAdClickType(adClickType),
+  };
+
+  if (planDef.oneTime) {
+    // Lifetime: setup mode saves the card and charges nothing. There is no
+    // subscription and no recurring price at Stripe, so nothing Stripe shows
+    // the buyer can call it one. The single charge is ours to make, 7 days
+    // later (fulfilment writes the lifetime_pending row the sweep reads). A
+    // credit balance comes off that one charge instead of riding on a coupon.
+    const session = await stripe.checkout.sessions.create({
+      ui_mode: 'elements',
+      mode: 'setup',
+      currency: 'usd',
+      customer_creation: 'always',
+      allowed_payment_method_types: ['card', 'link'],
+      return_url: `${SITE_URL}/?cart_return={CHECKOUT_SESSION_ID}`,
+      ...(user ? { customer_email: user.email } : {}),
+      setup_intent_data: {
+        description: `Abs By AI ${planDef.label}: ${LIFETIME_TRIAL_DAYS} days free, then one charge of $${(planDef.priceInCents / 100).toFixed(2)}`,
+        metadata: { kind: 'lifetime' },
+      },
+      metadata,
+    }, { apiVersion: STRIPE_ELEMENTS_API_VERSION });
+    return { clientSecret: session.client_secret, sessionId: session.id, discountCents, anon };
+  }
+
   const discounts = [];
   if (discountCents > 0) {
     const coupon = await stripe.coupons.create({
@@ -6706,11 +6782,13 @@ async function buildMembershipCheckout({ user, plan, deviceId, adClickId, adClic
     discounts.push({ coupon: coupon.id });
   }
 
-  const anon = !user;
   const session = await stripe.checkout.sessions.create({
-    ui_mode: 'embedded',
+    // elements: card fields on the cart page, confirmed from our own button
+    // with the email the buyer typed in step 1. embedded: the overlay sheet.
+    ...(elements
+      ? { ui_mode: 'elements', return_url: `${SITE_URL}/?cart_return={CHECKOUT_SESSION_ID}`, allowed_payment_method_types: ['card', 'link'] }
+      : { ui_mode: 'embedded', redirect_on_completion: 'never' }),
     mode: 'subscription',
-    redirect_on_completion: 'never',
     // Logged in: the account's email, fixed. Anonymous: no customer_email at
     // all, so Stripe's form collects it — that email BECOMES the account.
     // (Prefilling would make Stripe render the field read-only, so a typo in a
@@ -6733,18 +6811,8 @@ async function buildMembershipCheckout({ user, plan, deviceId, adClickId, adClic
       },
     }],
     ...(discounts.length ? { discounts } : {}),
-    metadata: {
-      kind: 'membership',
-      plan,
-      ...(user ? { userId: String(user.id) } : { anon: '1' }),
-      deviceId: dev,
-      creditDiscountCents: String(discountCents),
-      // Rides along for the anonymous case; harmless (and unused) when userId
-      // is set because recordAdClickId already ran above.
-      adClickId: sanitizeAdClickId(adClickId),
-      adClickType: sanitizeAdClickType(adClickType),
-    },
-  });
+    metadata,
+  }, elements ? { apiVersion: STRIPE_ELEMENTS_API_VERSION } : undefined);
 
   return { clientSecret: session.client_secret, sessionId: session.id, discountCents, anon };
 }
@@ -6764,11 +6832,22 @@ app.post('/api/stripe/create-membership-checkout', requireAuth, async (req, res)
 // The web cart's door. Works logged in (identical to the endpoint above) and
 // logged out (Stripe collects the email with the card). Rate-limited like the
 // auth endpoints: every call creates a Stripe object.
-app.post('/api/stripe/create-cart-checkout', authLimiter, optionalAuth, async (req, res) => {
+// The v2 cart needs its session when the page opens (Stripe's fields cannot be
+// drawn without one) and a second one when the buyer switches plan, so it gets
+// its own, roomier limit instead of sharing the 20 that guard logins.
+const cartLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 40,
+  message: 'Too many attempts, please try again later.',
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+app.post('/api/stripe/create-cart-checkout', cartLimiter, optionalAuth, async (req, res) => {
   try {
     if (!db) return dbUnavailable(res); // the account has to be creatable afterwards
     const { plan, deviceId, adClickId, adClickType } = req.body || {};
-    const out = await buildMembershipCheckout({ user: req.user || null, plan, deviceId, adClickId, adClickType });
+    const ui = req.body?.ui === 'elements' ? 'elements' : undefined;
+    const out = await buildMembershipCheckout({ user: req.user || null, plan, deviceId, adClickId, adClickType, ui });
     res.json(out);
   } catch (err) {
     if (err instanceof CheckoutError) return res.status(err.status).json({ error: err.message });
@@ -6983,27 +7062,45 @@ async function fulfillMembershipSessionInner(session, sid, meta) {
   }
 
   const stripe = getStripe();
-  let periodEnd = null;
-  let subId = session.subscription || null;
-  // With a 7-day trial the real subscription status is 'trialing', not 'active',
-  // and its period end is the trial end — which the reminder sweep relies on.
-  // Read the actual status/period from Stripe instead of hard-coding 'active'.
-  let subStatus = 'active';
-  try {
-    if (stripe && typeof subId === 'string') {
-      const sub = await stripe.subscriptions.retrieve(subId);
-      if (sub.status) subStatus = sub.status;
-      const endTs = sub.current_period_end || sub.trial_end;
-      if (endTs) periodEnd = new Date(endTs * 1000).toISOString();
-    }
-  } catch (e) { console.warn('subscription retrieve failed:', e.message); }
+  if (meta.plan === 'lifetime') {
+    // Lifetime: no subscription exists. Record the saved card and when to
+    // charge it; a throw here leaves the session unfulfilled so the webhook
+    // retry or the browser's claim runs it again.
+    const saved = await saveLifetimePending(session, sid, meta, userId);
+    if (!saved) return false;
+  } else {
+    let periodEnd = null;
+    let subId = session.subscription || null;
+    // With a 7-day trial the real subscription status is 'trialing', not 'active',
+    // and its period end is the trial end, which the reminder sweep relies on.
+    // Read the actual status/period from Stripe instead of hard-coding 'active'.
+    let subStatus = 'active';
+    try {
+      if (stripe && typeof subId === 'string') {
+        const sub = await stripe.subscriptions.retrieve(subId);
+        if (sub.status) subStatus = sub.status;
+        const endTs = sub.current_period_end || sub.trial_end;
+        if (endTs) periodEnd = new Date(endTs * 1000).toISOString();
+      }
+    } catch (e) { console.warn('subscription retrieve failed:', e.message); }
 
-  await db.query(
-    `UPDATE users SET stripe_customer_id = $1, stripe_subscription_id = $2,
-       membership_status = $3, membership_plan = $4, membership_period_end = $5
-     WHERE id = $6`,
-    [session.customer || null, subId, subStatus, meta.plan || 'monthly', periodEnd, userId]
-  );
+    await db.query(
+      `UPDATE users SET stripe_customer_id = $1, stripe_subscription_id = $2,
+         membership_status = $3, membership_plan = $4, membership_period_end = $5
+       WHERE id = $6`,
+      [session.customer || null, subId, subStatus, meta.plan || 'monthly', periodEnd, userId]
+    );
+    // A subscription replaces a Lifetime trial that was still waiting for its
+    // charge; without this the buyer would be billed for both.
+    try {
+      const { rowCount } = await db.query(
+        `UPDATE lifetime_pending SET status = 'canceled', canceled_at = now(), last_error = 'superseded by a subscription'
+          WHERE user_id = $1 AND status = 'pending'`,
+        [userId]
+      );
+      if (rowCount) console.log(`LIFETIME_SUPERSEDED: user ${userId} subscribed (${meta.plan}); pending Lifetime charge removed`);
+    } catch (e) { console.error('lifetime supersede failed:', e.message); }
+  }
 
   if (account) {
     // The click id could not be stored at checkout (no user row yet) — it
@@ -7174,8 +7271,12 @@ async function syncSubscriptionState(sub) {
     console.error('paid-conversion prev-status read failed:', e.message);
   }
 
+  // A Lifetime buyer may still carry the id of an older subscription (it is
+  // the record that the account has had a trial). Events for that subscription
+  // must not overwrite the Lifetime state.
   await db.query(
-    `UPDATE users SET membership_status = $1, membership_period_end = $2 WHERE stripe_subscription_id = $3`,
+    `UPDATE users SET membership_status = $1, membership_period_end = $2
+      WHERE stripe_subscription_id = $3 AND (membership_plan IS NULL OR membership_plan <> 'lifetime')`,
     [nextStatus, periodEnd, sub.id]
   );
 
@@ -7217,6 +7318,410 @@ async function recordPaidInvoiceConversion(inv) {
   if (!rows[0]) return;
   await markPaidConversionPending(rows[0].id, `stripe_invoice_paid:${inv.id}`);
 }
+
+// ============================================================
+//  LIFETIME PLAN: card saved at checkout, ONE charge 7 days later
+// ------------------------------------------------------------
+//  The cart promises: 7 days free, then one charge of $69.99, lifetime
+//  access, no recurring billing. Stripe holds no subscription for it, so the
+//  charge is ours to make. The rules this section exists to keep:
+//    - exactly one successful charge per buyer, ever;
+//    - cancel before the charge and nothing is billed;
+//    - "paid" is recorded from the charge itself, never from a status.
+//  lifetime_pending (db.js) is the ledger. A row is only ever charged after an
+//  UPDATE moves it from 'pending' to 'charging', which one caller can win.
+// ============================================================
+const stripeIdOf = (v) => (typeof v === 'string' ? v : v?.id) || null;
+
+// Called from fulfilment for a completed Lifetime (setup mode) session.
+// Returns true when the buyer's row and trial are in place.
+async function saveLifetimePending(session, sid, meta, userId) {
+  const stripe = getStripe();
+  if (!stripe) throw new Error('lifetime fulfil: Stripe is not configured');
+  const hash = sessionHash(sid);
+  const { rows: already } = await db.query('SELECT id FROM lifetime_pending WHERE session_hash = $1', [hash]);
+  if (already.length) return true; // this session was recorded on an earlier pass
+
+  const setupIntentId = stripeIdOf(session.setup_intent);
+  if (session.mode !== 'setup' || !setupIntentId) {
+    console.error(`LIFETIME_FULFILL_BAD_SESSION: session ${sid} is not a setup session`);
+    return false;
+  }
+  const si = await stripe.setupIntents.retrieve(setupIntentId);
+  const paymentMethodId = stripeIdOf(si.payment_method);
+  if (si.status !== 'succeeded' || !paymentMethodId) {
+    console.error(`LIFETIME_FULFILL_NO_CARD: session ${sid} setup intent is ${si.status}`);
+    return false;
+  }
+
+  const { rows: users } = await db.query(
+    'SELECT email, stripe_subscription_id, membership_status, membership_plan, membership_source FROM users WHERE id = $1',
+    [userId]
+  );
+  const user = users[0];
+  if (!user) throw new Error(`lifetime fulfil: user ${userId} not found`);
+  if (user.membership_plan === 'lifetime' && user.membership_status === 'active') {
+    // Already paid for life. Never open a second charge against them.
+    console.log(`LIFETIME_ALREADY_OWNED: user ${userId} checked out again (session ${sid}); nothing to charge`);
+    return true;
+  }
+
+  // The session is asked to create a Customer; if Stripe returned none, make
+  // one, because an off-session charge needs the card attached to a customer.
+  let customerId = stripeIdOf(session.customer) || stripeIdOf(si.customer);
+  if (!customerId) {
+    const customer = await stripe.customers.create({ email: user.email, metadata: { userId: String(userId) } });
+    customerId = customer.id;
+  }
+  if (!stripeIdOf(si.customer)) {
+    try { await stripe.paymentMethods.attach(paymentMethodId, { customer: customerId }); }
+    catch (e) { if (!/already been attached/i.test(e.message || '')) throw e; }
+  }
+
+  // A live subscription on the same account would bill alongside the Lifetime
+  // charge. The buyer just chose Lifetime, so end the subscription now.
+  const liveSub = user.stripe_subscription_id && user.membership_source !== 'apple'
+    && ['active', 'trialing', 'past_due'].includes(String(user.membership_status || ''));
+  if (liveSub) {
+    try {
+      await stripe.subscriptions.cancel(user.stripe_subscription_id);
+      console.log(`LIFETIME_REPLACED_SUBSCRIPTION: user ${userId} subscription ${user.stripe_subscription_id} cancelled`);
+    } catch (e) {
+      console.error(`LIFETIME_SUB_CANCEL_FAILED: user ${userId} subscription ${user.stripe_subscription_id} still live, cancel it by hand: ${e.message}`);
+    }
+  }
+
+  const planDef = MEMBERSHIP_PLANS.lifetime;
+  const discount = Math.max(0, Math.min(parseInt(meta.creditDiscountCents, 10) || 0, planDef.priceInCents - 100));
+  const chargeAt = new Date(Date.now() + LIFETIME_TRIAL_DAYS * 24 * 60 * 60 * 1000).toISOString();
+  // One open charge per buyer: a newer checkout replaces an older waiting one.
+  await db.query(
+    `UPDATE lifetime_pending SET status = 'canceled', canceled_at = now(), last_error = 'superseded by a newer checkout'
+      WHERE user_id = $1 AND status = 'pending'`,
+    [userId]
+  );
+  await db.query(
+    `INSERT INTO lifetime_pending (user_id, session_hash, stripe_customer_id, payment_method_id, amount_cents, charge_at, next_attempt_at)
+     VALUES ($1, $2, $3, $4, $5, $6, $6)
+     ON CONFLICT (session_hash) DO NOTHING`,
+    [userId, hash, customerId, paymentMethodId, planDef.priceInCents - discount, chargeAt]
+  );
+  // stripe_subscription_id is left alone on purpose: it is the record that
+  // this account has had a trial before, and syncSubscriptionState ignores
+  // subscription events for a Lifetime row.
+  await db.query(
+    `UPDATE users SET stripe_customer_id = $1, membership_status = 'trialing',
+       membership_plan = 'lifetime', membership_period_end = $2
+     WHERE id = $3`,
+    [customerId, chargeAt, userId]
+  );
+  console.log(`LIFETIME_PENDING: user ${userId} charge of ${planDef.priceInCents - discount} cents due ${chargeAt} (session ${sid})`);
+  return true;
+}
+
+async function loadLifetimeRow(id) {
+  const { rows } = await db.query('SELECT * FROM lifetime_pending WHERE id = $1', [id]);
+  return rows[0] || null;
+}
+
+// The charge succeeded. Idempotent: the sweep and the webhook can both call it.
+async function markLifetimePaid(rowId, paymentIntentId) {
+  const { rowCount } = await db.query(
+    `UPDATE lifetime_pending SET status = 'paid', paid_at = now(), payment_intent_id = $2, last_error = NULL
+      WHERE id = $1 AND status <> 'paid'`,
+    [rowId, paymentIntentId]
+  );
+  if (!rowCount) return false;
+  const row = await loadLifetimeRow(rowId);
+  // Permanent, the same shape as a comp account: active with no period end.
+  await db.query(
+    `UPDATE users SET membership_status = 'active', membership_plan = 'lifetime', membership_period_end = NULL WHERE id = $1`,
+    [row.user_id]
+  );
+  // The sale, stamped from the money arriving (see the invoice.paid note above).
+  await markPaidConversionPending(row.user_id, `lifetime_charge:${paymentIntentId}`);
+  console.log(`LIFETIME_PAID: user ${row.user_id} row ${rowId} (${paymentIntentId})`);
+  return true;
+}
+
+async function sendLifetimeChargeFailedEmail(email, { final, retriesLeft, amountCents }) {
+  if (!RESEND_API_KEY) { console.warn('RESEND_API_KEY not set, lifetime charge-failed email skipped for', email); return; }
+  const amount = `$${(amountCents / 100).toFixed(2)}`;
+  const button = (href, label) => `<p><a href="${href}" style="display:inline-block;padding:12px 22px;background:#111;color:#fff;border-radius:8px;text-decoration:none;font-weight:700">${label}</a></p>`;
+  const subject = final ? 'Your Abs By AI access has ended' : 'Your Abs By AI payment did not go through';
+  const html = final
+    ? `<p>We were not able to charge the one-time ${amount} for your Abs By AI lifetime access, so your access has ended. You have not been charged.</p>
+<p>To come back, start again here:</p>
+${button(`${SITE_URL}/?join=1`, 'Start again')}
+<p>Questions? Reply to this email or write to dan@absbyai.com.</p>`
+    : `<p>We tried to charge the one-time ${amount} for your Abs By AI lifetime access and the card was declined.</p>
+<p>You still have full access. We will try the card again once a day for the next ${retriesLeft} day${retriesLeft === 1 ? '' : 's'}. To use a different card, open Manage membership:</p>
+${button(`${SITE_URL}/?manage=1`, 'Manage membership')}
+<p>If no charge goes through by then, your access ends and you pay nothing. Questions? Reply to this email or write to dan@absbyai.com.</p>`;
+  const res = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: { 'Authorization': `Bearer ${RESEND_API_KEY}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ from: RESET_FROM, to: [email], subject, html }),
+  });
+  if (!res.ok) console.error('Resend error (lifetime charge failed):', res.status, (await res.text()).slice(0, 300));
+}
+
+// The card said no. First try plus LIFETIME_RETRY_DAYS daily retries, an email
+// each time, then access ends (Dan's decision 3, 2026-10-02). The buyer keeps
+// access while retries remain.
+async function recordLifetimeFailure(row, reason) {
+  const attempts = row.attempts + 1;
+  const final = attempts > LIFETIME_RETRY_DAYS;
+  const retriesLeft = LIFETIME_RETRY_DAYS - attempts + 1;
+  const note = String(reason || 'declined').slice(0, 300);
+  const day = 24 * 60 * 60 * 1000;
+  if (final) {
+    await db.query(`UPDATE lifetime_pending SET status = 'failed', attempts = $2, last_error = $3 WHERE id = $1`, [row.id, attempts, note]);
+    await db.query(
+      `UPDATE users SET membership_status = 'expired', membership_period_end = NULL
+        WHERE id = $1 AND membership_plan = 'lifetime' AND membership_status IN ('trialing', 'past_due')`,
+      [row.user_id]
+    );
+  } else {
+    await db.query(
+      `UPDATE lifetime_pending SET status = 'pending', attempts = $2, last_error = $3, next_attempt_at = $4 WHERE id = $1`,
+      [row.id, attempts, note, new Date(Date.now() + day).toISOString()]
+    );
+    // past_due with a future period end keeps access (isActiveMembership) until
+    // shortly after the last retry.
+    await db.query(
+      `UPDATE users SET membership_status = 'past_due', membership_period_end = $2
+        WHERE id = $1 AND membership_plan = 'lifetime' AND membership_status IN ('trialing', 'past_due')`,
+      [row.user_id, new Date(Date.now() + retriesLeft * day + 2 * 60 * 60 * 1000).toISOString()]
+    );
+  }
+  console.log(`LIFETIME_CHARGE_FAILED: user ${row.user_id} row ${row.id} attempt ${attempts}${final ? ' (final, access ended)' : ''}: ${note}`);
+  const { rows } = await db.query('SELECT email FROM users WHERE id = $1', [row.user_id]);
+  if (rows[0]?.email) {
+    sendLifetimeChargeFailedEmail(rows[0].email, { final, retriesLeft, amountCents: row.amount_cents })
+      .catch((e) => console.error('lifetime charge-failed email failed:', e.message));
+  }
+  return { final, attempts };
+}
+
+// On a retry, prefer a card the buyer added since (Manage membership opens the
+// Stripe portal): their default, else the newest on the customer.
+async function currentLifetimeCard(stripe, row) {
+  try {
+    const customer = await stripe.customers.retrieve(row.stripe_customer_id);
+    const preferred = stripeIdOf(customer.invoice_settings?.default_payment_method);
+    if (preferred) return preferred;
+    const list = await stripe.customers.listPaymentMethods(row.stripe_customer_id, { limit: 5 });
+    if (list.data && list.data[0]) return list.data[0].id;
+  } catch (e) { console.warn('lifetime card lookup failed, using the saved card:', e.message); }
+  return row.payment_method_id;
+}
+
+// Charge one due row. Safe to call from overlapping sweeps and from the admin
+// trigger at the same time: only one caller wins the claim below.
+async function chargeLifetimeRow(rowId) {
+  const stripe = getStripe();
+  if (!db || !stripe) return { result: 'unavailable' };
+  const { rowCount } = await db.query(
+    `UPDATE lifetime_pending SET status = 'charging', last_attempt_at = now() WHERE id = $1 AND status = 'pending'`,
+    [rowId]
+  );
+  if (!rowCount) return { result: 'skipped' };
+  const row = await loadLifetimeRow(rowId);
+  try {
+    const { rows: users } = await db.query('SELECT id, email, membership_plan FROM users WHERE id = $1', [row.user_id]);
+    const user = users[0];
+    const { rows: paidRows } = await db.query(`SELECT id FROM lifetime_pending WHERE user_id = $1 AND status = 'paid'`, [row.user_id]);
+    if (!user || user.membership_plan !== 'lifetime' || paidRows.length) {
+      // The buyer moved to a subscription, or already paid on another row.
+      await db.query(
+        `UPDATE lifetime_pending SET status = 'canceled', canceled_at = now(), last_error = 'superseded before the charge' WHERE id = $1`,
+        [rowId]
+      );
+      console.log(`LIFETIME_SUPERSEDED: row ${rowId} not charged`);
+      return { result: 'superseded' };
+    }
+
+    // Never a second charge: if a charge for this row already succeeded at
+    // Stripe (a crash between the charge and the write), record that one.
+    const prior = await stripe.paymentIntents.list({ customer: row.stripe_customer_id, limit: 20 });
+    const done = (prior.data || []).find((p) => p.status === 'succeeded' && p.metadata && p.metadata.lifetimeId === String(row.id));
+    if (done) {
+      await markLifetimePaid(row.id, done.id);
+      return { result: 'paid', recovered: true, paymentIntent: done.id };
+    }
+
+    const attempt = row.attempts + 1;
+    const paymentMethod = attempt > 1 ? await currentLifetimeCard(stripe, row) : row.payment_method_id;
+    let pi;
+    try {
+      pi = await stripe.paymentIntents.create({
+        amount: row.amount_cents,
+        currency: 'usd',
+        customer: row.stripe_customer_id,
+        payment_method: paymentMethod,
+        off_session: true,
+        confirm: true,
+        automatic_payment_methods: { enabled: true, allow_redirects: 'never' },
+        description: 'Abs By AI Lifetime Access (one-time charge)',
+        receipt_email: user.email,
+        metadata: { kind: 'lifetime', userId: String(user.id), lifetimeId: String(row.id), attempt: String(attempt) },
+      }, {
+        // The same attempt always sends the same key, so a retry after a crash
+        // or a timeout gets Stripe's first answer back instead of a new charge.
+        idempotencyKey: `lifetime-${row.id}-attempt-${attempt}`,
+      });
+    } catch (err) {
+      if (err && err.type === 'StripeCardError') {
+        const out = await recordLifetimeFailure(row, err.code || err.message);
+        return { result: out.final ? 'failed' : 'declined', attempts: out.attempts };
+      }
+      throw err;
+    }
+    if (pi.status === 'succeeded') {
+      await markLifetimePaid(row.id, pi.id);
+      return { result: 'paid', paymentIntent: pi.id };
+    }
+    if (pi.status === 'processing') {
+      await db.query(`UPDATE lifetime_pending SET status = 'processing', payment_intent_id = $2 WHERE id = $1`, [row.id, pi.id]);
+      return { result: 'processing', paymentIntent: pi.id };
+    }
+    // Anything else needs the buyer in front of a screen, which an off-session
+    // charge does not have. Count it as a decline.
+    try { await stripe.paymentIntents.cancel(pi.id); } catch (e) { /* already final */ }
+    const out = await recordLifetimeFailure(row, `payment intent ${pi.status}`);
+    return { result: out.final ? 'failed' : 'declined', attempts: out.attempts };
+  } catch (e) {
+    // Not the card's fault (Stripe unreachable, a bad parameter, the database).
+    // Hand the row back untouched: no strike, no email, same attempt next time.
+    await db.query(
+      `UPDATE lifetime_pending SET status = 'pending', last_error = $2 WHERE id = $1 AND status = 'charging'`,
+      [rowId, ('error: ' + (e.message || '')).slice(0, 300)]
+    ).catch(() => {});
+    console.error(`LIFETIME_CHARGE_ERROR: row ${rowId} left pending: ${e.message}`);
+    return { result: 'error', error: e.message };
+  }
+}
+
+// A charge the bank had not answered yet ('processing'): read the answer.
+async function settleLifetimeIntent(rowId, paymentIntentId) {
+  const stripe = getStripe();
+  if (!stripe || !paymentIntentId) return;
+  const pi = await stripe.paymentIntents.retrieve(paymentIntentId);
+  if (pi.status === 'succeeded') return markLifetimePaid(rowId, pi.id);
+  if (pi.status === 'processing') return;
+  const row = await loadLifetimeRow(rowId);
+  if (row && row.status === 'processing') await recordLifetimeFailure(row, pi.last_payment_error?.code || `payment intent ${pi.status}`);
+}
+
+// payment_intent.succeeded / payment_intent.payment_failed from the webhook.
+// The sweep already knows the answer for an ordinary card (the charge confirms
+// in the same call), so a failure here only matters for a 'processing' row.
+async function handleLifetimeIntentEvent(type, pi) {
+  if (!db || !pi || !pi.metadata || pi.metadata.kind !== 'lifetime') return;
+  const rowId = parseInt(pi.metadata.lifetimeId, 10);
+  if (!rowId) return;
+  if (type === 'payment_intent.succeeded') { await markLifetimePaid(rowId, pi.id); return; }
+  const row = await loadLifetimeRow(rowId);
+  if (row && row.status === 'processing' && row.payment_intent_id === pi.id) {
+    await recordLifetimeFailure(row, pi.last_payment_error?.code || 'payment failed');
+  }
+}
+
+// Hourly. Picks up every Lifetime row whose time has come.
+async function lifetimeChargeSweep() {
+  if (!db || !getStripe()) return;
+  try {
+    // A sweep that died mid-charge leaves its row 'charging'. Hand it back; the
+    // retry reuses the same attempt number, so it cannot charge twice.
+    await db.query(
+      `UPDATE lifetime_pending SET status = 'pending'
+        WHERE status = 'charging' AND last_attempt_at < now() - interval '15 minutes'`
+    );
+    const { rows: waiting } = await db.query(`SELECT id, payment_intent_id FROM lifetime_pending WHERE status = 'processing'`);
+    for (const w of waiting) {
+      try { await settleLifetimeIntent(w.id, w.payment_intent_id); }
+      catch (e) { console.error(`lifetime settle failed for row ${w.id}:`, e.message); }
+    }
+    const { rows: due } = await db.query(
+      `SELECT id FROM lifetime_pending WHERE status = 'pending' AND next_attempt_at <= now() ORDER BY next_attempt_at`
+    );
+    for (const d of due) await chargeLifetimeRow(d.id);
+  } catch (e) { console.warn('lifetimeChargeSweep error:', e.message); }
+}
+
+// What the hub's membership card needs to describe a Lifetime buyer.
+async function lifetimeSummary(userId) {
+  try {
+    const { rows } = await db.query(
+      'SELECT status, charge_at, next_attempt_at, amount_cents FROM lifetime_pending WHERE user_id = $1 ORDER BY id DESC LIMIT 1',
+      [userId]
+    );
+    if (!rows[0]) return null;
+    return { state: rows[0].status, chargeAt: rows[0].next_attempt_at || rows[0].charge_at, amountCents: rows[0].amount_cents };
+  } catch (e) { return null; }
+}
+
+// Cancel a Lifetime trial before its charge: the pending charge is removed and
+// nothing is ever billed. Access runs to the end of the free 7 days (the same
+// as cancelling a subscription trial); during the retry days it ends now.
+app.post('/api/membership/cancel-lifetime', cartLimiter, requireAuth, async (req, res) => {
+  if (!db) return dbUnavailable(res);
+  try {
+    const { rowCount } = await db.query(
+      `UPDATE lifetime_pending SET status = 'canceled', canceled_at = now() WHERE user_id = $1 AND status = 'pending'`,
+      [req.user.id]
+    );
+    if (!rowCount) {
+      const { rows } = await db.query('SELECT status FROM lifetime_pending WHERE user_id = $1 ORDER BY id DESC LIMIT 1', [req.user.id]);
+      const state = rows[0] && rows[0].status;
+      if (state === 'charging' || state === 'processing') return res.status(409).json({ error: 'A charge is in progress. Try again in a few minutes.' });
+      if (state === 'paid') return res.status(400).json({ error: 'You are a lifetime member. There is nothing left to cancel.' });
+      if (state !== 'canceled') return res.status(404).json({ error: 'No Lifetime trial to cancel.' });
+    }
+    const row = await getUserRow(req.user.id);
+    if (row.membership_plan === 'lifetime' && ['trialing', 'past_due'].includes(String(row.membership_status))) {
+      const end = row.membership_status === 'past_due' ? new Date().toISOString() : row.membership_period_end;
+      await db.query(`UPDATE users SET membership_status = 'canceled', membership_period_end = $2 WHERE id = $1`, [req.user.id, end]);
+    }
+    console.log(`LIFETIME_CANCELED: user ${req.user.id}`);
+    const after = await getUserRow(req.user.id);
+    res.json({ canceled: true, active: isActiveMembership(after), periodEnd: after.membership_period_end || null });
+  } catch (e) {
+    console.error('cancel-lifetime error:', e.message);
+    res.status(500).json({ error: 'Could not cancel. Please email dan@absbyai.com and we will cancel it for you.' });
+  }
+});
+
+// Run one buyer's Lifetime charge now instead of on day 7. For Dan's own card
+// test (scripts/cart/lifetime-charge-now.sh); guarded by the dashboard key.
+app.post('/api/admin/lifetime/charge-now', async (req, res) => {
+  if (!DASH_SECRET || !dashKeyValid(req)) return res.status(401).json({ error: 'Unauthorized' });
+  if (!db) return dbUnavailable(res);
+  try {
+    const email = String(req.body?.email || '').trim().toLowerCase();
+    const { rows: users } = await db.query('SELECT id FROM users WHERE email = $1', [email]);
+    if (!users[0]) return res.status(404).json({ error: 'No account with that email.' });
+    const { rows } = await db.query(
+      `SELECT id, status FROM lifetime_pending WHERE user_id = $1 ORDER BY id DESC LIMIT 1`,
+      [users[0].id]
+    );
+    if (!rows[0]) return res.status(404).json({ error: 'That account has no Lifetime checkout.' });
+    if (rows[0].status !== 'pending') return res.status(409).json({ error: `Nothing to charge: the row is ${rows[0].status}.` });
+    await db.query(`UPDATE lifetime_pending SET next_attempt_at = now() WHERE id = $1 AND status = 'pending'`, [rows[0].id]);
+    const out = await chargeLifetimeRow(rows[0].id);
+    const row = await loadLifetimeRow(rows[0].id);
+    const user = await getUserRow(users[0].id);
+    res.json({
+      ...out,
+      row: { status: row.status, attempts: row.attempts, amountCents: row.amount_cents, lastError: row.last_error },
+      membership: { status: user.membership_status, plan: user.membership_plan, periodEnd: user.membership_period_end },
+    });
+  } catch (e) {
+    console.error('lifetime charge-now error:', e.message);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
 
 // ============================================================
 //  APPLE IN-APP PURCHASE MEMBERSHIP  (App Store guideline 3.1.1)
@@ -10620,9 +11125,24 @@ app.get('/api/coach/brief', aiLimiter, requireAuth, async (req, res) => {
   }
 });
 
-// Public client config (Stripe publishable key).
-app.get('/api/config', (req, res) => {
-  res.json({ stripePublishableKey: STRIPE_PUBLISHABLE_KEY || '' });
+// The name a charge shows under on the buyer's card statement, read from the
+// Stripe account so the cart never states one typed by hand. Cached for a day.
+const statementDescriptorCache = { value: '', at: 0 };
+async function getStatementDescriptor() {
+  if (statementDescriptorCache.value && Date.now() - statementDescriptorCache.at < 24 * 60 * 60 * 1000) return statementDescriptorCache.value;
+  try {
+    const stripe = getStripe();
+    if (!stripe) return statementDescriptorCache.value;
+    const account = await stripe.accounts.retrieve();
+    const name = String(account?.settings?.payments?.statement_descriptor || '').trim();
+    if (name) { statementDescriptorCache.value = name; statementDescriptorCache.at = Date.now(); }
+  } catch (e) { console.warn('statement descriptor lookup failed:', e.message); }
+  return statementDescriptorCache.value;
+}
+
+// Public client config (Stripe publishable key, statement name for the cart).
+app.get('/api/config', async (req, res) => {
+  res.json({ stripePublishableKey: STRIPE_PUBLISHABLE_KEY || '', statementDescriptor: await getStatementDescriptor() });
 });
 
 // Current credit balance for a device.
@@ -11160,6 +11680,12 @@ if (process.env.TRIAL_REMINDER_ENABLED === 'true') {
   setInterval(() => { trialReminderSweep(); }, TRIAL_REMINDER_MS).unref?.();
 }
 
+// Lifetime plan: the one charge, 7 days after checkout. Hourly, first pass a
+// minute after boot so a deploy never delays a due charge by a full hour.
+const LIFETIME_SWEEP_MS = 60 * 60 * 1000;
+setTimeout(() => { lifetimeChargeSweep(); }, 60 * 1000).unref?.();
+setInterval(() => { lifetimeChargeSweep(); }, LIFETIME_SWEEP_MS).unref?.();
+
 // Welcome-autoresponder sweep — hourly, first pass shortly after boot. No-op
 // until WELCOME_ENABLED=true (set on Railway once mail.absbyai.com is verified).
 const WELCOME_SWEEP_MS = 60 * 60 * 1000;
@@ -11187,6 +11713,7 @@ setInterval(() => { spaFeeds.refreshAll(); }, SPA_FEED_REFRESH_MS).unref?.();
 module.exports = {
   app, db, trialReminderSweep, welcomeSweep, assistantDoneSweep, sweepOrphanedAuditJobs,
   fulfillMembershipSession, buildMembershipCheckout, sessionHash,
+  lifetimeChargeSweep, chargeLifetimeRow, handleLifetimeIntentEvent,
   // Subscriber store internals, for scripts/subscribers/subscribers.test.js.
   loadSubscribersStore, persistSubscribersStore, subscribersReady,
   getSubscribersStore: () => subscribersStore,
