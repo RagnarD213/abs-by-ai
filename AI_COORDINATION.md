@@ -88,8 +88,6 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **Oura review (Video 4) - QUEUED 2026-10-02, Claude.** Blotato Oct 14 9AM CT. Oct 14: Studio thumbnail A/B, captions, article `TBD-oura-ring-review.md`. `Docs/OURA_SETUP_RECEIPT_20261002.md`, delete.
 
-**Cart-Mockups-R1: NEEDS DAN 2026-10-02, Claude.** https://claude.ai/artifact/WUrxcVvv6mZNmnjt3LqrPa
-
 **PMax `24308574894` - LIVE 2026-10-02, Claude.** Checks 10-07, 10-12: `Docs/DGEN_CONVERSION_CAMPAIGN.md`. Campaign images: package.
 
 
@@ -183,6 +181,7 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
+- `handoff-20261002-cart-build.md`, `…-start-page-365-guarantee.md` (10-02). Opus high.
 - `handoff-20261001-vertical-kit-round2-full-build-after-lock.md` NEEDS DAN http://127.0.0.1:8807/
 - `handoff-20260930-codex-adopt-review-page-format.md` (09-30): Codex adopts the RO-16 review page. GPT-6 Sol medium.
 
