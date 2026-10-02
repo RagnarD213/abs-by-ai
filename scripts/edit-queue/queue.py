@@ -21,8 +21,8 @@ Overnight-queue commands (scripts/edit-queue/README.md). A claim is what holds o
   queue.py release AV-01                       # drop the claim, leave the state alone
   queue.py stall AV-01 --note "why"            # state -> stalled, claim kept for the record; never auto-restarted
 
-States: ready, draft_review, frames_approved, needs, blocked, in_progress, delivered,
-finalized, uploaded, stalled.
+States: unedited, ready, draft_review, frames_approved, needs, blocked, in_progress, delivered,
+finalized, uploaded, stalled. (unedited = old edit scrapped, redo from scratch; not launchable until Dan moves it to ready.)
 """
 import argparse, contextlib, datetime, fcntl, json, os, re, sys, tempfile
 
@@ -32,6 +32,7 @@ JOBS = os.path.join(DIR, "jobs.json")
 MASTER = os.path.join(DIR, "00-MASTER.md")
 EXPORT = os.path.join(ROOT, "tmp", "edit-queue-export")  # git-ignored; Artifact file_path must sit under the repo
 STATES = {
+    "unedited": "UNEDITED: old edit scrapped, redo from scratch",
     "ready": "READY", "needs": "**NEEDS DAN**", "blocked": "BLOCKED",
     "draft_review": "DRAFT: asset choices waiting for Dan",
     "frames_approved": "ASSETS APPROVED: finishing queued",

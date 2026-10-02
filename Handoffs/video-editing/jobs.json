@@ -2196,6 +2196,48 @@
    "syncedRev": 1,
    "updated": "2026-10-02",
    "rev": 1
+  },
+  {
+   "id": "RO-19",
+   "list": "1",
+   "group": "Organic long-form",
+   "title": "My First Spray Tan",
+   "roll": "8/3 C1512 (30:42)",
+   "size": "L",
+   "file": "RO-19-my-first-spray-tan.md",
+   "claudeModel": "Opus 5.5, high",
+   "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/RO-19-my-first-spray-tan.md`: re-edit My First Spray Tan from scratch on the current round method (PRE-RENDER-APPROVAL: graphics, AI frames and first minute for Dan's approval before any full render). Do not reuse the old edit.",
+   "codexModel": "GPT-6 Astra, high",
+   "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-19-my-first-spray-tan.md` with `$long-form-content-edit`. Re-edit from scratch; do not reuse the old edit.",
+   "state": "unedited",
+   "note": "Dan 10-02: old edit scrapped (never uploaded), redo from scratch with the new process. Dan approved the take picks on C1512 on 09-24 (Docs/TAKE_SELECTION_C1512_20260924.md).",
+   "by": "Claude",
+   "order": 101,
+   "sub": "",
+   "updated": "2026-10-02",
+   "rev": 1,
+   "syncedRev": 1
+  },
+  {
+   "id": "RO-20",
+   "list": "1",
+   "group": "Organic long-form",
+   "title": "Why You Should Invest More In Your Health",
+   "roll": "8/3 C1511 (68:51)",
+   "size": "L",
+   "file": "RO-20-invest-more-in-your-health.md",
+   "claudeModel": "Opus 5.5, high",
+   "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/RO-20-invest-more-in-your-health.md`: re-edit Why You Should Invest More In Your Health from scratch on the current round method (PRE-RENDER-APPROVAL: graphics, AI frames and first minute for Dan's approval before any full render). Do not reuse the old edit.",
+   "codexModel": "GPT-6 Astra, high",
+   "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-20-invest-more-in-your-health.md` with `$long-form-content-edit`. Re-edit from scratch; do not reuse the old edit.",
+   "state": "unedited",
+   "note": "Dan 10-02: old edit (v3, 53:17) scrapped (never uploaded), redo from scratch with the new process.",
+   "by": "Claude",
+   "order": 102,
+   "sub": "",
+   "updated": "2026-10-02",
+   "rev": 1,
+   "syncedRev": 1
   }
  ]
 }

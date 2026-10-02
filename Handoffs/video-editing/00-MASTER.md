@@ -130,6 +130,8 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [RO-16](RO-16-if-i-had-belly-fat-here-s-how-i-d-lose-it-in-90-da.md) | If I Had Belly Fat, Here's How I'd Lose It In 90 Days | 9/23 C1710 | UPLOADED | L |
 | [RO-17](RO-17-3-healthy-foods-that-made-me-fat.md) | 3 Healthy Foods That Made Me Fat | 9/23 C1713 | DRAFT: asset choices waiting for Dan | L |
 | [RO-18](RO-18-how-to-make-time-for-exercise-nutrition.md) | How To Make Time For Exercise & Nutrition | 9/23 C1714-C1715 | READY | L |
+| [RO-19](RO-19-my-first-spray-tan.md) | My First Spray Tan (old edit scrapped 10-02, redo from scratch) | 8/3 C1512 (31 min) | UNEDITED | L |
+| [RO-20](RO-20-invest-more-in-your-health.md) | Why You Should Invest More In Your Health (old edit scrapped 10-02, redo from scratch) | 8/3 C1511 (69 min) | UNEDITED | L |
 
 ### 1E · Website VSLs, 9/23 shoot (2)
 
