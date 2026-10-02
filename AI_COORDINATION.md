@@ -88,8 +88,6 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **Oura review (Video 4) - QUEUED 2026-10-02, Claude.** Blotato Oct 14 9AM CT. Oct 14: Studio thumbnail A/B, captions, article `TBD-oura-ring-review.md`. `Docs/OURA_SETUP_RECEIPT_20261002.md`, delete.
 
-**Five Cart Designs - REVIEW 2026-10-02, Codex.** https://absbyai.com/design-review/five-carts-20261002/ Next: choose. Five interactive carts; live cart unchanged.
-
 **Cart-Mockups-R1: NEEDS DAN 2026-10-02, Claude.** https://claude.ai/artifact/WUrxcVvv6mZNmnjt3LqrPa
 
 **PMax `24308574894` - LIVE 2026-10-02, Claude.** Checks 10-07, 10-12: `Docs/DGEN_CONVERSION_CAMPAIGN.md`. Campaign images: package.
@@ -212,4 +210,4 @@ Memory `google-ads-ui-automation`.
 - `handoff-20260826-danrosefit-abs-image-gap-fill.md` [dash] — once Blotato has 7 free slots.
 
 ## ACTIVE
-- **AV-05/AS-04 Ad 6 - NEEDS DAN 2026-10-02, Claude.** http://127.0.0.1:8816/. Next: `handoff-20261002-ad6-round2-full-builds-after-lock.md`. ⚠ Extreme full.
+- **AV-05/AS-04 Ad 6 - LOOK LOCKED 2026-10-02.** Next: fire `handoff-20261002-ad6-round2-full-builds-after-lock.md`. ⚠ Extreme full.

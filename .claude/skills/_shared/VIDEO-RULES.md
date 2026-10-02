@@ -1,3 +1,14 @@
+## Squares and verticals: fill the frame, no boxes without a reason (Dan, 2026-10-02)
+
+- **A clip or photo in a square or vertical fills the frame. Put it in a box (a card on the field) only when there is a
+  real reason.** Dan, on the Ad 6 look page, about a centred man shown in a card in the square: *"I'd like to see that
+  full screen in the square. I don't feel like there's any reason to crop that into the box. Let's make that a rule for
+  squaring verticals going forward: we should avoid cropping things into boxes unless there's a reason to do that."*
+- Reasons that count: filling the frame would cut something that matters (a face, a second person, the action, the flag
+  in a wide photo), it is a phone screen, or a required label truly has no clear spot. Write the reason beside each boxed
+  item on the review page. "The label was easier to place" is not a reason: try a smaller chip or a corner first.
+- This extends the 2026-10-01 rule below (a horizontal clip in a vertical) to squares and to photos.
+
 ## Thumbnails: five choices, made by Codex inside the Claude setup task (Dan, 2026-10-02)
 
 Dan, finalizing RO-16: *"the standardized way is we do the upload and setup with Claude. Claude calls Codex within the
