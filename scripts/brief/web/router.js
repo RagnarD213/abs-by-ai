@@ -29,7 +29,7 @@ function createRouter({store, env = process.env, verifyToken, now = Date.now}) {
   const setCookie = (res, token, maxAge = AGE / 1000) => res.set('Set-Cookie', `${COOKIE}=${token}; Path=/; Max-Age=${maxAge}; HttpOnly; Secure; SameSite=Lax`);
   router.use((req, res, next) => {
     const p = (req.path || '').toLowerCase().replace(/\/+$/, '');
-    if (!['/morningbrief', '/morningbrief.html', '/brief-login'].includes(p) && !p.startsWith('/api/brief/')) return next('router');
+    if (!['/morningbrief', '/morningbrief.html', '/brief-login', '/brief-publish'].includes(p) && !p.startsWith('/api/brief/')) return next('router');
     req.url = p + (req.url.includes('?') ? req.url.slice(req.url.indexOf('?')) : '');
     res.removeHeader('Access-Control-Allow-Origin');
     res.set({'Cache-Control':'private, no-store', 'Pragma':'no-cache', 'X-Content-Type-Options':'nosniff', 'Referrer-Policy':'no-referrer',
@@ -55,7 +55,10 @@ function createRouter({store, env = process.env, verifyToken, now = Date.now}) {
   }
   function ingest(req, res, next) {
     const key = env.BRIEF_INGEST_SECRET || '';
-    if (key.length < 32) return res.status(503).json({error:'Private publication is not configured'});
+    // Browser publication uses the existing owner session and a same-origin
+    // custom-header check. No ingestion secret is needed for the manual proof.
+    if (req.headers.origin === origin && req.headers['x-brief-action'] === 'publish') return owner(req, res, next);
+    if (key.length < 32) return res.status(503).json({error:'Automated private publication is not configured'});
     return equal(req.headers['x-brief-ingest-key'], key) ? next() : res.status(401).json({error:'Unauthorized'});
   }
   const file = name => (req, res) => res.sendFile(path.join(__dirname, name));
@@ -84,7 +87,9 @@ function createRouter({store, env = process.env, verifyToken, now = Date.now}) {
     } catch { return res.status(403).json({error:'Sign-in rejected'}); }
   });
   router.get(['/morningbrief','/morningbrief.html'], owner, file('page.html'));
+  router.get('/brief-publish', owner, file('publish.html'));
   router.get('/api/brief/page.js', owner, file('page.js'));
+  router.get('/api/brief/publish.js', owner, file('publish.js'));
   router.get('/api/brief/style.css', owner, file('style.css'));
   router.get('/api/brief/data', owner, async (req, res) => {
     try {

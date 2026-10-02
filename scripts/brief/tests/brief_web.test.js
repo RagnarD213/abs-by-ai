@@ -31,8 +31,8 @@ async function main() {
   try {
     assert.equal((await request('/unconfigured/api/brief/data')).status,503);
     assert.equal((await request('/unconfigured/morningbrief')).status,503);
-    for (const route of ['/morningbrief','/MORNINGBRIEF/','/morningbrief.html']) assert.equal((await request(route)).status,303);
-    for (const route of ['/api/brief/data','/API/BRIEF/IMAGE/','/api/brief/page.js','/api/brief/style.css']) assert.equal((await request(route)).status,401);
+    for (const route of ['/morningbrief','/MORNINGBRIEF/','/morningbrief.html','/brief-publish']) assert.equal((await request(route)).status,303);
+    for (const route of ['/api/brief/data','/API/BRIEF/IMAGE/','/api/brief/page.js','/api/brief/style.css','/api/brief/publish.js']) assert.equal((await request(route)).status,401);
     assert.equal((await request('/product-fixture')).status,418);
     assert.equal((await request('/api/brief/data',{headers:{'X-Dash-Key':'synthetic-legacy-password',cookie:'absbyai_dash=legacy-cookie'}})).status,401);
     assert.equal((await login('wrong-csrf')).status,403);
@@ -61,6 +61,15 @@ async function main() {
     const data = await request('/api/brief/data',{headers:{cookie:sessionCookie}});
     assert.match(data.headers.get('cache-control'),/no-store/); assert(!data.headers.has('access-control-allow-origin'));
     const edition = await data.json(); assert.equal(edition.routineEnabled,false); assert(!('rawTranscript' in edition));
+    // The owner can perform the first proof without any automation ingest key.
+    delete env.BRIEF_INGEST_SECRET;
+    const browserPublish = headers => request('/api/brief/publish',{method:'POST',headers:{'Content-Type':'application/json','X-Brief-Action':'publish',origin:'https://absbyai.com',...headers},body:JSON.stringify(sample)});
+    assert.equal((await browserPublish({})).status,401);
+    assert.equal((await browserPublish({cookie:COOKIE+'='+'c'.repeat(64)})).status,401);
+    assert.equal((await browserPublish({cookie:sessionCookie,origin:'https://other.example.com'})).status,503);
+    assert.equal((await browserPublish({cookie:sessionCookie})).status,200);
+    assert.equal((await request('/brief-publish',{headers:{cookie:sessionCookie}})).status,200);
+    assert.equal((await request('/api/brief/publish.js',{headers:{cookie:sessionCookie}})).status,200);
     await store.writeImage('image/png',Buffer.from('synthetic-private-image'));
     assert.equal((await request('/api/brief/image')).status,401);
     assert.equal(await (await request('/api/brief/image',{headers:{cookie:sessionCookie}})).text(),'synthetic-private-image');
