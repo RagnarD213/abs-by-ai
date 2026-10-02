@@ -10,6 +10,12 @@ I am a non-technical user. Explain all tasks in simple terms that a non-technica
 
 - Opus 5.5 is the Claude default for writing, edit plans, secondary cuts, reviews, photo work and design inside locked standards. Sonnet 5 runs mechanical checklist work. Fable 5.1 only for ship-critical copy (VSL, /start page, ad scripts), one-time design-system locks, and escalation after Opus fails twice; never as a category default. Codex Astra owns flagship first cuts, image and thumbnail generation, and GUI-driven work; Codex Sol owns routine first cuts and all ops. Every handoff recommends model + effort from memory `model-routing-plan`.
 
+## Cart and page design quality (Dan, 2026-10-02)
+
+- Dan chose Opus's Healthy Back Institute cart from `Cart Mockups R1` over Astra's version. Treat it as the current design benchmark. For similar cart/page design work, recommend Opus unless Dan chooses otherwise; Astra must demonstrate added value to justify its higher cost to him.
+- Before cart or page design, read `Docs/DESIGN_QUALITY_LESSONS.md`. Verify the current entry flow, preserve requested reference structure, adapt to the approved brand, and critique mobile and desktop visually before delivery. Technical completeness alone is not design quality.
+- For the /start cart, the visitor has not yet supplied photos or body measurements. Follow Dan's selected HBI structure and recorded revisions. Do not assume a personalized goal recap exists.
+
 ## Standing authorization for autonomous execution
 
 - Execute all routine, reversible actions needed to complete Dan's request without asking. Treat the request as authorization for file edits, commands, tests, browser navigation, data entry, commits, pushes, deployments, and routine configuration within the stated task.
