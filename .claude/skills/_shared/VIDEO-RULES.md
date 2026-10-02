@@ -74,6 +74,25 @@ rule and spell out all five slots. Reference:
 - This supersedes "extracting shorts from an approved long-form keeps that film's approved graphics" for the shorts'
   OWN graphics (title band, bars, chips). An editor's graphics burned into the picture are still handled, not restyled.
 
+## Verticals and squares: fill as much of the screen as the clip allows (Dan, 2026-10-02)
+
+- **In a vertical or a square, every clip, photo and phone demo fills as much of the screen as its content allows. Crop
+  the unneeded space off the sides as far as it goes, and avoid blank space.** Dan, on the RO-10 vertical: *"Usually,
+  unless there's a strong reason not to, unless we have to preserve the content on the left and right sides and we can't
+  crop, we want to fill as much of the screen area as possible and avoid having a lot of blank space. Let's lock that in
+  as a standing rule for verticals and squares going forward."* And: *"be a little bit more aggressive... look a little
+  bit more aggressively for opportunities to crop these clips."*
+- **The crop is not three fixed shapes.** Full screen, square and whole clip (the rule below) are points on a line: pick
+  the NARROWEST window that keeps what the clip is about, at any shape between the whole clip and full screen, placed
+  on the subject and not on the middle of the frame. His notes: "crop out some of the unnecessary space on the left and
+  make it more square, or as vertical as possible"; "crop out the space on the left and a little bit on the right";
+  "nearly vertical".
+- **Blank space is the exception and needs a reason:** the sides hold something the clip needs (his example: the overhead
+  salad table, "we need the stuff on the sides there"). Say the reason in the build report.
+- A card that is not full screen is as large as the frame allows and sits high enough to clear the captions; a phone
+  demo is as large as fits. Height is still never cropped (rule further below).
+- Applies to `/shortad-from-longform` (9:16 and 1:1), `/shorts`, `/ad-edit` verticals and every other vertical or square.
+
 ## A horizontal clip in a vertical: fill the frame, else centre square, else the whole clip (Dan, 2026-10-01)
 
 - **Default: the clip fills the phone frame** (a vertical crop of it). Dan, on the RO-10 vertical page: *"Use B unless
