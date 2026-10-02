@@ -194,7 +194,7 @@ handoff (`handoff-20260909-audio-match-muhammad.md`, waiting on your spray-tan s
 | 9 I Tried To Get Abs With ChatGPT | ✅ (round 4 finalized 09-21) | ❌ AV-10 | ❌ AV-10 | ❌ AS-09 | ❌ AS-09 |
 | 13 I Added Up What Getting Abs Cost | ✅ (round 4 finalized 09-21) | ❌ AV-11 | ❌ AV-11 | ❌ AS-10 | ❌ AS-10 |
 | 15 I Was The Dad Who Swam In A T-Shirt | 🟡 (Claude final fixes in progress 09-21) | ❌ AV-12 | ❌ AV-12 | ❌ AS-11 | ❌ AS-11 |
-| RA-01 The AI Trick That Got Me Abs (Claude, 57 s) | ✅ (uploaded 09-18) | ✅ (uploaded 09-18; is ≤0:59) | ✅ (same upload) | 🟡 AS-13 delivered 10-02, needs Dan | n/a (57 s master is its own 0:59) |
+| RA-01 The AI Trick That Got Me Abs (Claude, 57 s) | ✅ (uploaded 09-18) | ✅ (uploaded 09-18; is ≤0:59) | ✅ (same upload) | ✅ AS-13 approved 10-02, upload owed (setup handoff) | n/a (57 s master is its own 0:59) |
 
 **Verticals (each builds full + ≤0:59)**
 

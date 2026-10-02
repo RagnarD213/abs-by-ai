@@ -106,8 +106,6 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **RO-10 - QUEUED 2026-10-02, Claude.** Blotato Oct 7. Oct 7: captions, article, Zepbound link on Oct 25. `Docs/RO10_SETUP_RECEIPT_20261002.md`, delete.
 
-**RA-01 square - NEEDS DAN 2026-10-02, Claude.** Watch 1x1 review copy; then `/ad-setup`.
-
 **RO-16 - QUEUED 2026-10-02, Claude.** Blotato Nov 1 9AM CST. Owes: RO-12 link in description after Oct 25; captions, article after Nov 1. `Docs/RO16_SETUP_RECEIPT_20261002.md`.
 
 **Studio batch - NEEDS DAN 2026-09-29, Codex.** Review 24 posts: `http://127.0.0.1:8791/`. Nothing scheduled. Package and Drive link: `output/studio-post-test-24-20260929/README.txt`.
@@ -190,6 +188,7 @@ Memory `google-ads-ui-automation`.
 - `handoff-20261001-rebuild-ios-project.md` (10-01): rebuild the iPhone project iCloud wiped. ⚠ iCloud recovery window closes about 10-17. No Apple upload. GPT-6 Sol high.
 - `handoff-20261001-search-campaigns-to-vsl-page.md` (10-01). Sol high.
 - `handoff-20261001-ad4-other-formats.md` (10-01). Opus high.
+- `handoff-20261002-ra01-square-thumbnail-and-ad-setup.md` (10-02): approved RA-01 1:1. Opus medium.
 - `handoff-20261002-ad13-round3-full-builds.md` (10-02). Opus high.
 - `handoff-20260924-generator-consult-call-outreach.md` (09-24): fire by 09-26.
 - `handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md` [dash]: PHONE ONLY, 3 TikTok covers (updated 09-22). Sonnet 5 or Fable 5.1 / Medium.

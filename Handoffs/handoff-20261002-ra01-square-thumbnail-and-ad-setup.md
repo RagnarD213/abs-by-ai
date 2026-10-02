@@ -39,7 +39,7 @@ button below." That is an ad call to action, so `/ad-setup` is the right path. R
   "2026-10-02: new thumbnails on the trial campaign's 12 ad videos" table.
 - `Docs/AD_VIDEO_IDS.md`, `Docs/GOOGLE_ADS_API.md`, memory `google-ads-api-client`, `youtube-upload-capability`,
   `thumbnail-no-claims`, `ads-never-organic`.
-- Template for a square added to a live ad: `Handoffs/handoff-20260914-ad1-square-youtube-and-ads.md` and
+- Template for a square added to a live ad: `Handoffs/handoff-20260916-ad3-square-upload-as-is.md` and
   `scripts/ads/api/dgen-ads/ad1-square.json` (a config whose copy is read back from the live ad; the dry run must REUSE
   the ad group, never create one).
 
