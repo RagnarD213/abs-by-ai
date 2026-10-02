@@ -1,6 +1,6 @@
 # Trial Campaign AD Thumbnails R3, October 1, 2026
 
-Status: review only, awaiting Dan's two remaining decisions. No final exports, final picks.json, YouTube installation, Google Ads changes or organic publishing.
+Status: all six choices approved by Dan on October 2, 2026. Ten final JPGs exported as byte-identical copies of approved review files. No installation or publishing performed.
 
 Review: http://127.0.0.1:8811/round3/
 Backup: https://drive.google.com/file/d/1JKH6pyR2HZwuQqBOiW_euDmzYhwGyX8V/view
@@ -28,4 +28,4 @@ Work folder: `social media graphics/youtube/thumbnails/_trial-campaign-20261001/
 Durable recipe: `scripts/covers/trial-campaign-20261001/round3/`.
 Run `build.py`, then `review.py`, after restoring round-1/round-2 inputs and this round's generated age source. Earlier builders are never executed. The backup contains review assets, original approved reference copies, offline HTML, prompt, manifest and recipe.
 
-Dan confirms Ad 13 and selects Ad 6. Stop here until he replies. `Handoffs/handoff-20261001-trial-campaign-ad-thumbnails-install-claude.md` stays blocked pending picks and final exports.
+Dan approved 13-R3B and chose 6-R3B on October 2, retaining RA-R2A, 10-R2A, 4-R2A and 3-R2A unchanged. The ten final images are in `social media graphics/youtube/thumbnails/_trial-campaign-20261001/FINAL APPROVED/`, with matching canonical copies in each ad folder's `trial-20261001/` directory. `picks.json` maps all twelve YouTube IDs to their approved files; a tracked copy is `scripts/covers/trial-campaign-20261001/round3/final-picks.json`. All ten source hashes and output dimensions verified. The existing installation handoff now has its required inputs, but was not executed: this request was to show the final images in Finder.

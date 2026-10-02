@@ -1,0 +1,331 @@
+{
+  "campaign": "24316364155",
+  "approved_date": "2026-10-02",
+  "status": "approved_exported_not_installed",
+  "approval": "Ad 13: Approve 13-R3B. Ad 6: Choose 6-R3B. Keep RA-R2A, 10-R2A, 4-R2A and 3-R2A approved and unchanged. All right everything is approved.",
+  "outputs": [
+    {
+      "ad": "Ad 13",
+      "aspect": "16x9",
+      "option": "13-R3B",
+      "file": "social media graphics/youtube/thumbnails/Ad 13 What Getting Abs Cost/trial-20261001/Ad 13 | 16x9 | FINAL.jpg",
+      "finder_file": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/FINAL APPROVED/Ad 13 | 16x9 | FINAL.jpg",
+      "source": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/round3/options/13-R3B-16x9.jpg",
+      "sha256": "c7a658be24588ed648a385dd689995c1cef44accf86e37e30978c9fb4ed53222",
+      "size": [
+        1280,
+        720
+      ],
+      "bytes": 337927
+    },
+    {
+      "ad": "RA-01",
+      "aspect": "16x9",
+      "option": "RA-R2A",
+      "file": "social media graphics/youtube/thumbnails/RA-01 The AI Trick That Got Me Abs/trial-20261001/RA-01 | 16x9 | FINAL.jpg",
+      "finder_file": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/FINAL APPROVED/RA-01 | 16x9 | FINAL.jpg",
+      "source": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/round2/options/RA-R2A-16x9.jpg",
+      "sha256": "514127fe9f5c1afeee79d2f7a4f521cc20adf5978822c88f7e3fed56d068dfdf",
+      "size": [
+        1280,
+        720
+      ],
+      "bytes": 279389
+    },
+    {
+      "ad": "RA-01",
+      "aspect": "9x16",
+      "option": "RA-R2A",
+      "file": "social media graphics/youtube/thumbnails/RA-01 The AI Trick That Got Me Abs/trial-20261001/RA-01 | 9x16 | FINAL.jpg",
+      "finder_file": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/FINAL APPROVED/RA-01 | 9x16 | FINAL.jpg",
+      "source": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/round2/options/RA-R2A-9x16.jpg",
+      "sha256": "1dadf4e0e85e9124a0fe856e28aab4d653e07c75363a386565d9e259e2903244",
+      "size": [
+        1080,
+        1920
+      ],
+      "bytes": 491980
+    },
+    {
+      "ad": "Ad 10",
+      "aspect": "16x9",
+      "option": "10-R2A",
+      "file": "social media graphics/youtube/thumbnails/Ad 10 My Dad Bod/trial-20261001/Ad 10 | 16x9 | FINAL.jpg",
+      "finder_file": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/FINAL APPROVED/Ad 10 | 16x9 | FINAL.jpg",
+      "source": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/round2/options/10-R2A-16x9.jpg",
+      "sha256": "b49416da12e97ed66232c0e19c4daae5a11b5f8700ae37645e72c199b2ba17db",
+      "size": [
+        1280,
+        720
+      ],
+      "bytes": 284252
+    },
+    {
+      "ad": "Ad 10",
+      "aspect": "9x16",
+      "option": "10-R2A",
+      "file": "social media graphics/youtube/thumbnails/Ad 10 My Dad Bod/trial-20261001/Ad 10 | 9x16 | FINAL.jpg",
+      "finder_file": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/FINAL APPROVED/Ad 10 | 9x16 | FINAL.jpg",
+      "source": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/round2/options/10-R2A-9x16.jpg",
+      "sha256": "fcaac2439dd4780d57618cc98469088e0d7510df94e2b807747c2852a8ab82fb",
+      "size": [
+        1080,
+        1920
+      ],
+      "bytes": 431883
+    },
+    {
+      "ad": "Ad 4",
+      "aspect": "16x9",
+      "option": "4-R2A",
+      "file": "social media graphics/youtube/thumbnails/Ad 4 Stop Wasting Money On Supplements/trial-20261001/Ad 4 | 16x9 | FINAL.jpg",
+      "finder_file": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/FINAL APPROVED/Ad 4 | 16x9 | FINAL.jpg",
+      "source": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/round2/options/4-R2A-16x9.jpg",
+      "sha256": "b4d114d4aaaed9866a836d775b1968db311d1b206fc1e2afc4902a948999ef9f",
+      "size": [
+        1280,
+        720
+      ],
+      "bytes": 305329
+    },
+    {
+      "ad": "Ad 3",
+      "aspect": "16x9",
+      "option": "3-R2A",
+      "file": "social media graphics/youtube/thumbnails/Ad 3 Stop Paying Human Trainers/trial-20261001/Ad 3 | 16x9 | FINAL.jpg",
+      "finder_file": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/FINAL APPROVED/Ad 3 | 16x9 | FINAL.jpg",
+      "source": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/round2/options/3-R2A-16x9.jpg",
+      "sha256": "d7803e2bf1a4057c9d2bb0433684bdc68d75d8fbf23c70f5b1bf9f2b13d0c48e",
+      "size": [
+        1280,
+        720
+      ],
+      "bytes": 297777
+    },
+    {
+      "ad": "Ad 3",
+      "aspect": "9x16",
+      "option": "3-R2A",
+      "file": "social media graphics/youtube/thumbnails/Ad 3 Stop Paying Human Trainers/trial-20261001/Ad 3 | 9x16 | FINAL.jpg",
+      "finder_file": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/FINAL APPROVED/Ad 3 | 9x16 | FINAL.jpg",
+      "source": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/round2/options/3-R2A-9x16.jpg",
+      "sha256": "9780a5feee0caa6c734462c5134f0b971dcf7724d3169ccaeeccc7065301bca2",
+      "size": [
+        1080,
+        1920
+      ],
+      "bytes": 455220
+    },
+    {
+      "ad": "Ad 3",
+      "aspect": "1x1",
+      "option": "3-R2A",
+      "file": "social media graphics/youtube/thumbnails/Ad 3 Stop Paying Human Trainers/trial-20261001/Ad 3 | 1x1 | FINAL.jpg",
+      "finder_file": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/FINAL APPROVED/Ad 3 | 1x1 | FINAL.jpg",
+      "source": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/round2/options/3-R2A-1x1.jpg",
+      "sha256": "2e3d7ced327bd68cc81d853ff09843d183863f47709ee9510648fe5bf9cf6449",
+      "size": [
+        1080,
+        1080
+      ],
+      "bytes": 266093
+    },
+    {
+      "ad": "Ad 6",
+      "aspect": "16x9",
+      "option": "6-R3B",
+      "file": "social media graphics/youtube/thumbnails/Ad 6 You're Not Too Old To Get Abs/trial-20261001/Ad 6 | 16x9 | FINAL.jpg",
+      "finder_file": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/FINAL APPROVED/Ad 6 | 16x9 | FINAL.jpg",
+      "source": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/round3/options/6-R3B-16x9.jpg",
+      "sha256": "0274676e41943f61c470cca1b00d32641a2e9d1d09d780e262993b73f6f7dd6c",
+      "size": [
+        1280,
+        720
+      ],
+      "bytes": 332405
+    }
+  ],
+  "videos": {
+    "-SuKGXGcbIg": {
+      "ad": "Ad 13",
+      "aspect": "16x9",
+      "option": "13-R3B",
+      "file": "social media graphics/youtube/thumbnails/Ad 13 What Getting Abs Cost/trial-20261001/Ad 13 | 16x9 | FINAL.jpg",
+      "finder_file": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/FINAL APPROVED/Ad 13 | 16x9 | FINAL.jpg",
+      "source": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/round3/options/13-R3B-16x9.jpg",
+      "sha256": "c7a658be24588ed648a385dd689995c1cef44accf86e37e30978c9fb4ed53222",
+      "size": [
+        1280,
+        720
+      ],
+      "bytes": 337927,
+      "challenger": null
+    },
+    "OUw788sF1KY": {
+      "ad": "RA-01",
+      "aspect": "16x9",
+      "option": "RA-R2A",
+      "file": "social media graphics/youtube/thumbnails/RA-01 The AI Trick That Got Me Abs/trial-20261001/RA-01 | 16x9 | FINAL.jpg",
+      "finder_file": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/FINAL APPROVED/RA-01 | 16x9 | FINAL.jpg",
+      "source": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/round2/options/RA-R2A-16x9.jpg",
+      "sha256": "514127fe9f5c1afeee79d2f7a4f521cc20adf5978822c88f7e3fed56d068dfdf",
+      "size": [
+        1280,
+        720
+      ],
+      "bytes": 279389,
+      "challenger": null
+    },
+    "rfCsWNxuNV0": {
+      "ad": "RA-01",
+      "aspect": "9x16",
+      "option": "RA-R2A",
+      "file": "social media graphics/youtube/thumbnails/RA-01 The AI Trick That Got Me Abs/trial-20261001/RA-01 | 9x16 | FINAL.jpg",
+      "finder_file": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/FINAL APPROVED/RA-01 | 9x16 | FINAL.jpg",
+      "source": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/round2/options/RA-R2A-9x16.jpg",
+      "sha256": "1dadf4e0e85e9124a0fe856e28aab4d653e07c75363a386565d9e259e2903244",
+      "size": [
+        1080,
+        1920
+      ],
+      "bytes": 491980,
+      "challenger": null
+    },
+    "Sg3vcEY2P_8": {
+      "ad": "Ad 10",
+      "aspect": "16x9",
+      "option": "10-R2A",
+      "file": "social media graphics/youtube/thumbnails/Ad 10 My Dad Bod/trial-20261001/Ad 10 | 16x9 | FINAL.jpg",
+      "finder_file": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/FINAL APPROVED/Ad 10 | 16x9 | FINAL.jpg",
+      "source": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/round2/options/10-R2A-16x9.jpg",
+      "sha256": "b49416da12e97ed66232c0e19c4daae5a11b5f8700ae37645e72c199b2ba17db",
+      "size": [
+        1280,
+        720
+      ],
+      "bytes": 284252,
+      "challenger": null
+    },
+    "4nDWFmdjzQQ": {
+      "ad": "Ad 10",
+      "aspect": "9x16",
+      "option": "10-R2A",
+      "file": "social media graphics/youtube/thumbnails/Ad 10 My Dad Bod/trial-20261001/Ad 10 | 9x16 | FINAL.jpg",
+      "finder_file": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/FINAL APPROVED/Ad 10 | 9x16 | FINAL.jpg",
+      "source": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/round2/options/10-R2A-9x16.jpg",
+      "sha256": "fcaac2439dd4780d57618cc98469088e0d7510df94e2b807747c2852a8ab82fb",
+      "size": [
+        1080,
+        1920
+      ],
+      "bytes": 431883,
+      "challenger": null
+    },
+    "CR4WAVmSuXY": {
+      "ad": "Ad 10",
+      "aspect": "9x16",
+      "option": "10-R2A",
+      "file": "social media graphics/youtube/thumbnails/Ad 10 My Dad Bod/trial-20261001/Ad 10 | 9x16 | FINAL.jpg",
+      "finder_file": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/FINAL APPROVED/Ad 10 | 9x16 | FINAL.jpg",
+      "source": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/round2/options/10-R2A-9x16.jpg",
+      "sha256": "fcaac2439dd4780d57618cc98469088e0d7510df94e2b807747c2852a8ab82fb",
+      "size": [
+        1080,
+        1920
+      ],
+      "bytes": 431883,
+      "challenger": null
+    },
+    "R08TPEtkjuQ": {
+      "ad": "Ad 4",
+      "aspect": "16x9",
+      "option": "4-R2A",
+      "file": "social media graphics/youtube/thumbnails/Ad 4 Stop Wasting Money On Supplements/trial-20261001/Ad 4 | 16x9 | FINAL.jpg",
+      "finder_file": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/FINAL APPROVED/Ad 4 | 16x9 | FINAL.jpg",
+      "source": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/round2/options/4-R2A-16x9.jpg",
+      "sha256": "b4d114d4aaaed9866a836d775b1968db311d1b206fc1e2afc4902a948999ef9f",
+      "size": [
+        1280,
+        720
+      ],
+      "bytes": 305329,
+      "challenger": null
+    },
+    "86jbUhqBTUQ": {
+      "ad": "Ad 3",
+      "aspect": "16x9",
+      "option": "3-R2A",
+      "file": "social media graphics/youtube/thumbnails/Ad 3 Stop Paying Human Trainers/trial-20261001/Ad 3 | 16x9 | FINAL.jpg",
+      "finder_file": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/FINAL APPROVED/Ad 3 | 16x9 | FINAL.jpg",
+      "source": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/round2/options/3-R2A-16x9.jpg",
+      "sha256": "d7803e2bf1a4057c9d2bb0433684bdc68d75d8fbf23c70f5b1bf9f2b13d0c48e",
+      "size": [
+        1280,
+        720
+      ],
+      "bytes": 297777,
+      "challenger": null
+    },
+    "xlC-tigurnA": {
+      "ad": "Ad 3",
+      "aspect": "9x16",
+      "option": "3-R2A",
+      "file": "social media graphics/youtube/thumbnails/Ad 3 Stop Paying Human Trainers/trial-20261001/Ad 3 | 9x16 | FINAL.jpg",
+      "finder_file": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/FINAL APPROVED/Ad 3 | 9x16 | FINAL.jpg",
+      "source": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/round2/options/3-R2A-9x16.jpg",
+      "sha256": "9780a5feee0caa6c734462c5134f0b971dcf7724d3169ccaeeccc7065301bca2",
+      "size": [
+        1080,
+        1920
+      ],
+      "bytes": 455220,
+      "challenger": null
+    },
+    "-wTErCSi640": {
+      "ad": "Ad 3",
+      "aspect": "9x16",
+      "option": "3-R2A",
+      "file": "social media graphics/youtube/thumbnails/Ad 3 Stop Paying Human Trainers/trial-20261001/Ad 3 | 9x16 | FINAL.jpg",
+      "finder_file": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/FINAL APPROVED/Ad 3 | 9x16 | FINAL.jpg",
+      "source": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/round2/options/3-R2A-9x16.jpg",
+      "sha256": "9780a5feee0caa6c734462c5134f0b971dcf7724d3169ccaeeccc7065301bca2",
+      "size": [
+        1080,
+        1920
+      ],
+      "bytes": 455220,
+      "challenger": null
+    },
+    "DXRkrfvcJEM": {
+      "ad": "Ad 3",
+      "aspect": "1x1",
+      "option": "3-R2A",
+      "file": "social media graphics/youtube/thumbnails/Ad 3 Stop Paying Human Trainers/trial-20261001/Ad 3 | 1x1 | FINAL.jpg",
+      "finder_file": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/FINAL APPROVED/Ad 3 | 1x1 | FINAL.jpg",
+      "source": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/round2/options/3-R2A-1x1.jpg",
+      "sha256": "2e3d7ced327bd68cc81d853ff09843d183863f47709ee9510648fe5bf9cf6449",
+      "size": [
+        1080,
+        1080
+      ],
+      "bytes": 266093,
+      "challenger": null
+    },
+    "Je2yvk00SHE": {
+      "ad": "Ad 6",
+      "aspect": "16x9",
+      "option": "6-R3B",
+      "file": "social media graphics/youtube/thumbnails/Ad 6 You're Not Too Old To Get Abs/trial-20261001/Ad 6 | 16x9 | FINAL.jpg",
+      "finder_file": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/FINAL APPROVED/Ad 6 | 16x9 | FINAL.jpg",
+      "source": "social media graphics/youtube/thumbnails/_trial-campaign-20261001/round3/options/6-R3B-16x9.jpg",
+      "sha256": "0274676e41943f61c470cca1b00d32641a2e9d1d09d780e262993b73f6f7dd6c",
+      "size": [
+        1280,
+        720
+      ],
+      "bytes": 332405,
+      "challenger": null
+    }
+  },
+  "installed": false
+}
