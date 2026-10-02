@@ -86,7 +86,9 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 # ACTIVE
 
-**Campaign Images R2 - APPROVED 2026-10-02.** Next: package; Google AI labels at installation. `output/campaign-images-20261001/round2/AI_LABEL_RESEARCH_20261002.txt`.
+**Cart Teardown - IN PROGRESS 2026-10-02, Codex.** Next: VidTao cart screenshots and report.
+
+**PMax `24308574894` - LIVE 2026-10-02, Claude.** Checks 10-07, 10-12: `Docs/DGEN_CONVERSION_CAMPAIGN.md`. Campaign images: package.
 
 
 
@@ -181,7 +183,6 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
-- `handoff-20261001-pmax-campaign-build.md` (10-01): after campaign images exist. Sol high.
 - `handoff-20261001-vertical-kit-round2-full-build-after-lock.md` NEEDS DAN http://127.0.0.1:8807/
 - `handoff-20260930-codex-adopt-review-page-format.md` (09-30): Codex adopts the RO-16 review page. GPT-6 Sol medium.
 

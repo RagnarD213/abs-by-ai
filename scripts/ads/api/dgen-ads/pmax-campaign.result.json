@@ -1,0 +1,2570 @@
+{
+ "at": "2026-10-02T17:49:30.197Z",
+ "campaignId": "24308574894",
+ "skipped": [],
+ "campaign": [
+  {
+   "campaign": {
+    "resourceName": "customers/3427170837/campaigns/24308574894",
+    "status": "ENABLED",
+    "advertisingChannelType": "PERFORMANCE_MAX",
+    "biddingStrategyType": "MAXIMIZE_CONVERSIONS",
+    "geoTargetTypeSetting": {
+     "positiveGeoTargetType": "PRESENCE",
+     "negativeGeoTargetType": "PRESENCE"
+    },
+    "name": "[DAN] [PMAX] [TRIAL] VSL page | 6 ads | US+CA | site visitors 30 day",
+    "id": "24308574894",
+    "primaryStatus": "LEARNING",
+    "primaryStatusReasons": [
+     "BIDDING_STRATEGY_LEARNING"
+    ],
+    "assetAutomationSettings": [
+     {
+      "assetAutomationType": "TEXT_ASSET_AUTOMATION",
+      "assetAutomationStatus": "OPTED_OUT"
+     },
+     {
+      "assetAutomationType": "FINAL_URL_EXPANSION_TEXT_ASSET_AUTOMATION",
+      "assetAutomationStatus": "OPTED_OUT"
+     },
+     {
+      "assetAutomationType": "GENERATE_ENHANCED_YOUTUBE_VIDEOS",
+      "assetAutomationStatus": "OPTED_OUT"
+     },
+     {
+      "assetAutomationType": "GENERATE_IMAGE_ENHANCEMENT",
+      "assetAutomationStatus": "OPTED_OUT"
+     },
+     {
+      "assetAutomationType": "GENERATE_IMAGE_EXTRACTION",
+      "assetAutomationStatus": "OPTED_OUT"
+     }
+    ],
+    "brandGuidelinesEnabled": false,
+    "startDateTime": "2026-10-02 12:48:56",
+    "endDateTime": "2026-11-01 23:59:59"
+   },
+   "campaignBudget": {
+    "resourceName": "customers/3427170837/campaignBudgets/15923601274",
+    "amountMicros": "15000000",
+    "explicitlyShared": false
+   }
+  }
+ ],
+ "goals": [
+  {
+   "campaignConversionGoal": {
+    "resourceName": "customers/3427170837/campaignConversionGoals/24308574894~PURCHASE~WEBSITE",
+    "category": "PURCHASE",
+    "origin": "WEBSITE"
+   }
+  },
+  {
+   "campaignConversionGoal": {
+    "resourceName": "customers/3427170837/campaignConversionGoals/24308574894~SIGNUP~WEBSITE",
+    "category": "SIGNUP",
+    "origin": "WEBSITE",
+    "biddable": true
+   }
+  },
+  {
+   "campaignConversionGoal": {
+    "resourceName": "customers/3427170837/campaignConversionGoals/24308574894~SUBSCRIBE_PAID~WEBSITE",
+    "category": "SUBSCRIBE_PAID",
+    "origin": "WEBSITE"
+   }
+  },
+  {
+   "campaignConversionGoal": {
+    "resourceName": "customers/3427170837/campaignConversionGoals/24308574894~SUBMIT_LEAD_FORM~WEBSITE",
+    "category": "SUBMIT_LEAD_FORM",
+    "origin": "WEBSITE"
+   }
+  },
+  {
+   "campaignConversionGoal": {
+    "resourceName": "customers/3427170837/campaignConversionGoals/24308574894~ENGAGEMENT~YOUTUBE_HOSTED",
+    "category": "ENGAGEMENT",
+    "origin": "YOUTUBE_HOSTED"
+   }
+  },
+  {
+   "campaignConversionGoal": {
+    "resourceName": "customers/3427170837/campaignConversionGoals/24308574894~YOUTUBE_FOLLOW_ON_VIEWS~YOUTUBE_HOSTED",
+    "category": "YOUTUBE_FOLLOW_ON_VIEWS",
+    "origin": "YOUTUBE_HOSTED"
+   }
+  }
+ ],
+ "goalLevel": [
+  {
+   "conversionGoalCampaignConfig": {
+    "resourceName": "customers/3427170837/conversionGoalCampaignConfigs/24308574894",
+    "goalConfigLevel": "CAMPAIGN"
+   }
+  }
+ ],
+ "criteria": [
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~11",
+    "type": "GENDER",
+    "gender": {
+     "type": "FEMALE"
+    },
+    "criterionId": "11",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~1000",
+    "type": "LANGUAGE",
+    "language": {
+     "languageConstant": "languageConstants/1000"
+    },
+    "criterionId": "1000",
+    "negative": false
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~2124",
+    "type": "LOCATION",
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2124"
+    },
+    "criterionId": "2124",
+    "negative": false
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~2840",
+    "type": "LOCATION",
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2840"
+    },
+    "criterionId": "2840",
+    "negative": false
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~30000",
+    "type": "DEVICE",
+    "criterionId": "30000",
+    "negative": false
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~30001",
+    "type": "DEVICE",
+    "criterionId": "30001",
+    "negative": false
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~30002",
+    "type": "DEVICE",
+    "criterionId": "30002",
+    "negative": false
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~30004",
+    "type": "DEVICE",
+    "criterionId": "30004",
+    "negative": false
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~503001",
+    "type": "AGE_RANGE",
+    "ageRange": {
+     "type": "AGE_RANGE_18_24"
+    },
+    "criterionId": "503001",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~503006",
+    "type": "AGE_RANGE",
+    "ageRange": {
+     "type": "AGE_RANGE_65_UP"
+    },
+    "criterionId": "503006",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~10000911",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "porn"
+    },
+    "criterionId": "10000911",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~10001031",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "naked"
+    },
+    "criterionId": "10001031",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~10001081",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "nude"
+    },
+    "criterionId": "10001081",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~10001471",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "free"
+    },
+    "criterionId": "10001471",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~10005021",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "jobs"
+    },
+    "criterionId": "10005021",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~10007801",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "xxx"
+    },
+    "criterionId": "10007801",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~10009591",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "program"
+    },
+    "criterionId": "10009591",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~10013651",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "exercise"
+    },
+    "criterionId": "10013651",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~10013811",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "tutorial"
+    },
+    "criterionId": "10013811",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~10078121",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "generator"
+    },
+    "criterionId": "10078121",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~10078211",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "cracked"
+    },
+    "criterionId": "10078211",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~10083101",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "hiring"
+    },
+    "criterionId": "10083101",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~10102756",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "abs workout"
+    },
+    "criterionId": "10102756",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~10106351",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "calories"
+    },
+    "criterionId": "10106351",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~10165821",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "diet"
+    },
+    "criterionId": "10165821",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~10251276",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "supplement"
+    },
+    "criterionId": "10251276",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~10273566",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "free download"
+    },
+    "criterionId": "10273566",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~10308690",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "protein"
+    },
+    "criterionId": "10308690",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~10319341",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "salary"
+    },
+    "criterionId": "10319341",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~10399042",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "situps"
+    },
+    "criterionId": "10399042",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~10414790",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "workout"
+    },
+    "criterionId": "10414790",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~10445531",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "photoshop"
+    },
+    "criterionId": "10445531",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~10603231",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "api"
+    },
+    "criterionId": "10603231",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~10624101",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "supplements"
+    },
+    "criterionId": "10624101",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~10691921",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "gym"
+    },
+    "criterionId": "10691921",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~10708111",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "open source"
+    },
+    "criterionId": "10708111",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~10724701",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "cardio"
+    },
+    "criterionId": "10724701",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~10729016",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "workouts"
+    },
+    "criterionId": "10729016",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~10740816",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "exercises"
+    },
+    "criterionId": "10740816",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~10743106",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "ab exercises"
+    },
+    "criterionId": "10743106",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~10887161",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "meal plan"
+    },
+    "criterionId": "10887161",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~11457081",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "routine"
+    },
+    "criterionId": "11457081",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~12377091",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "abs plastic"
+    },
+    "criterionId": "12377091",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~12572041",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "meme"
+    },
+    "criterionId": "12572041",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~13344383",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "remini"
+    },
+    "criterionId": "13344383",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~16167972",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "abs sensor"
+    },
+    "criterionId": "16167972",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~18284093",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "how to get"
+    },
+    "criterionId": "18284093",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~19722213",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "planks"
+    },
+    "criterionId": "19722213",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~21339190",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "abs brakes"
+    },
+    "criterionId": "21339190",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~22411402",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "abs pipe"
+    },
+    "criterionId": "22411402",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~23148711",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "apk"
+    },
+    "criterionId": "23148711",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~29534420",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "abs cbn"
+    },
+    "criterionId": "29534420",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~29631610",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "crunches"
+    },
+    "criterionId": "29631610",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~29631830",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "sit ups"
+    },
+    "criterionId": "29631830",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~32684720",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "PHRASE",
+     "text": "gain weight"
+    },
+    "criterionId": "32684720",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~51981026",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "torrent"
+    },
+    "criterionId": "51981026",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~53767628",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "abs light"
+    },
+    "criterionId": "53767628",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~113824003",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "canva"
+    },
+    "criterionId": "113824003",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~161487976",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "anti lock"
+    },
+    "criterionId": "161487976",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~161489596",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "six pack workout"
+    },
+    "criterionId": "161489596",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~161490256",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "abs module"
+    },
+    "criterionId": "161490256",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~170383872",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "how to photoshop"
+    },
+    "criterionId": "170383872",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~329532753",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "reddit"
+    },
+    "criterionId": "329532753",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~417393029",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "youtube"
+    },
+    "criterionId": "417393029",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~781552148",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "lightroom"
+    },
+    "criterionId": "781552148",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~1437867269",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "wondershare"
+    },
+    "criterionId": "1437867269",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~3592832260",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "youcam"
+    },
+    "criterionId": "3592832260",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~5132152283",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "fotor"
+    },
+    "criterionId": "5132152283",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~8418297211",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "github"
+    },
+    "criterionId": "8418297211",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~13018092693",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "abs filament"
+    },
+    "criterionId": "13018092693",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~29713604523",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "picsart"
+    },
+    "criterionId": "29713604523",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~38102733837",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "snapseed"
+    },
+    "criterionId": "38102733837",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~52154397148",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "facetune"
+    },
+    "criterionId": "52154397148",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~169567563604",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "filmora"
+    },
+    "criterionId": "169567563604",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~295897736559",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "abs pump"
+    },
+    "criterionId": "295897736559",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~297203005895",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "how to lose"
+    },
+    "criterionId": "297203005895",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~298064441266",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "abs brake"
+    },
+    "criterionId": "298064441266",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~298233421401",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "no watermark"
+    },
+    "criterionId": "298233421401",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~298409170795",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "mod apk"
+    },
+    "criterionId": "298409170795",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~298709186545",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "abs material"
+    },
+    "criterionId": "298709186545",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~299315158259",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "media io"
+    },
+    "criterionId": "299315158259",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~299803310372",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "antilock"
+    },
+    "criterionId": "299803310372",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~300277531355",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "abs resin"
+    },
+    "criterionId": "300277531355",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~300548647323",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "bananapro"
+    },
+    "criterionId": "300548647323",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~309704471196",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "gigabody"
+    },
+    "criterionId": "309704471196",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~313026147494",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "a1 art"
+    },
+    "criterionId": "313026147494",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~340793497572",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "PHRASE",
+     "text": "make me fat"
+    },
+    "criterionId": "340793497572",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~372979812711",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "perfectcorp"
+    },
+    "criterionId": "372979812711",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~392859091807",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "seaart"
+    },
+    "criterionId": "392859091807",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~393784802154",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "PHRASE",
+     "text": "get fat"
+    },
+    "criterionId": "393784802154",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~397873164875",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "PHRASE",
+     "text": "abs editor"
+    },
+    "criterionId": "397873164875",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~400391874424",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "retouchme"
+    },
+    "criterionId": "400391874424",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~1464894763113",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "pixelbin"
+    },
+    "criterionId": "1464894763113",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~1966364946842",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "PHRASE",
+     "text": "abs creator"
+    },
+    "criterionId": "1966364946842",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~2277230193811",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "clipfly"
+    },
+    "criterionId": "2277230193811",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~2278567916389",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "goenhance"
+    },
+    "criterionId": "2278567916389",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~2311593438630",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "BROAD",
+     "text": "insmind"
+    },
+    "criterionId": "2311593438630",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~2448111961135",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "PHRASE",
+     "text": "ai six pack"
+    },
+    "criterionId": "2448111961135",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~2501534583093",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "PHRASE",
+     "text": "six pack ai"
+    },
+    "criterionId": "2501534583093",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~2501534583253",
+    "type": "KEYWORD",
+    "keyword": {
+     "matchType": "PHRASE",
+     "text": "give me abs ai"
+    },
+    "criterionId": "2501534583253",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~2501766422307",
+    "type": "USER_LIST",
+    "userList": {
+     "userList": "customers/3427170837/userLists/9469016618"
+    },
+    "criterionId": "2501766422307",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~2503971783730",
+    "type": "USER_LIST",
+    "userList": {
+     "userList": "customers/3427170837/userLists/9480144404"
+    },
+    "criterionId": "2503971783730",
+    "negative": true
+   }
+  },
+  {
+   "campaignCriterion": {
+    "resourceName": "customers/3427170837/campaignCriteria/24308574894~2503971813770",
+    "type": "USER_LIST",
+    "userList": {
+     "userList": "customers/3427170837/userLists/9441311426"
+    },
+    "criterionId": "2503971813770",
+    "negative": true
+   }
+  }
+ ],
+ "assetGroup": [
+  {
+   "assetGroup": {
+    "resourceName": "customers/3427170837/assetGroups/6754766656",
+    "name": "VSL page | 6 ads | 20 images",
+    "finalUrls": [
+     "https://absbyai.com/start?utm_source=google&utm_medium=pmax&utm_campaign=pmax-trial"
+    ],
+    "status": "ENABLED",
+    "id": "6754766656",
+    "adStrength": "PENDING",
+    "primaryStatus": "PENDING",
+    "primaryStatusReasons": [
+     "ASSET_GROUP_UNDER_REVIEW"
+    ]
+   }
+  }
+ ],
+ "assets": [
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/400941168572",
+    "type": "IMAGE",
+    "imageAsset": {
+     "fullSize": {
+      "heightPixels": "1200",
+      "widthPixels": "1200"
+     }
+    },
+    "id": "400941168572",
+    "name": "abs-by-ai-logo-square-google-ads-1200.png"
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~400941168572~LOGO",
+    "fieldType": "LOGO",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/401031999616",
+    "type": "TEXT",
+    "textAsset": {
+     "text": "Abs by AI"
+    },
+    "id": "401031999616"
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~401031999616~BUSINESS_NAME",
+    "fieldType": "BUSINESS_NAME",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/415668674098",
+    "type": "TEXT",
+    "textAsset": {
+     "text": "How AI Fixed My Supplements"
+    },
+    "id": "415668674098"
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~415668674098~HEADLINE",
+    "fieldType": "HEADLINE",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/419043648721",
+    "type": "TEXT",
+    "textAsset": {
+     "text": "Fire Your Personal Trainer"
+    },
+    "id": "419043648721"
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~419043648721~HEADLINE",
+    "fieldType": "HEADLINE",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/419703310740",
+    "type": "TEXT",
+    "textAsset": {
+     "text": "How I Got Abs At 40"
+    },
+    "id": "419703310740"
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~419703310740~HEADLINE",
+    "fieldType": "HEADLINE",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/419703310758",
+    "type": "TEXT",
+    "textAsset": {
+     "text": "How AI Got Me Abs"
+    },
+    "id": "419703310758"
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~419703310758~HEADLINE",
+    "fieldType": "HEADLINE",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/419830601498",
+    "type": "TEXT",
+    "textAsset": {
+     "text": "Daniel Rose shows how AI reads the label on every supplement in his stack."
+    },
+    "id": "419830601498"
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~419830601498~DESCRIPTION",
+    "fieldType": "DESCRIPTION",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/419830601507",
+    "type": "TEXT",
+    "textAsset": {
+     "text": "Daniel Rose explains why he stopped taking supplement advice from influencers."
+    },
+    "id": "419830601507"
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~419830601507~LONG_HEADLINE",
+    "fieldType": "LONG_HEADLINE",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/419938098517",
+    "type": "YOUTUBE_VIDEO",
+    "youtubeVideoAsset": {
+     "youtubeVideoId": "R08TPEtkjuQ"
+    },
+    "id": "419938098517",
+    "name": "yt R08TPEtkjuQ Ad 4 Stop Wasting Money On Supplements Muhammad 16:9"
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~419938098517~YOUTUBE_VIDEO",
+    "fieldType": "YOUTUBE_VIDEO",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/420015666882",
+    "type": "TEXT",
+    "textAsset": {
+     "text": "Daniel Rose shows how an AI trainer builds his plan and adjusts it at every workout."
+    },
+    "id": "420015666882"
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~420015666882~DESCRIPTION",
+    "fieldType": "DESCRIPTION",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/420015666897",
+    "type": "TEXT",
+    "textAsset": {
+     "text": "Here's why I stopped paying a personal trainer and use an AI trainer instead."
+    },
+    "id": "420015666897"
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~420015666897~LONG_HEADLINE",
+    "fieldType": "LONG_HEADLINE",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/421486088186",
+    "type": "TEXT",
+    "textAsset": {
+     "text": "AI plans workouts and meals around your schedule, equipment and starting point."
+    },
+    "id": "421486088186"
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~421486088186~DESCRIPTION",
+    "fieldType": "DESCRIPTION",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/421486088198",
+    "type": "TEXT",
+    "textAsset": {
+     "text": "A Busy Dad's Fitness System"
+    },
+    "id": "421486088198"
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~421486088198~HEADLINE",
+    "fieldType": "HEADLINE",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/421486088201",
+    "type": "TEXT",
+    "textAsset": {
+     "text": "A busy dad explains the workout, meal and adjustment plan he uses with AI."
+    },
+    "id": "421486088201"
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~421486088201~LONG_HEADLINE",
+    "fieldType": "LONG_HEADLINE",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/421668364056",
+    "type": "YOUTUBE_VIDEO",
+    "youtubeVideoAsset": {
+     "youtubeVideoId": "Je2yvk00SHE"
+    },
+    "id": "421668364056",
+    "name": "yt Je2yvk00SHE Ad 6 You're Not Too Old Muhammad 16:9"
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~421668364056~YOUTUBE_VIDEO",
+    "fieldType": "YOUTUBE_VIDEO",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/421668377691",
+    "type": "TEXT",
+    "textAsset": {
+     "text": "Daniel Rose shows the workout and nutrition system he follows as a 40-year-old dad."
+    },
+    "id": "421668377691"
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~421668377691~DESCRIPTION",
+    "fieldType": "DESCRIPTION",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/421668377709",
+    "type": "TEXT",
+    "textAsset": {
+     "text": "Daniel Rose explains how he rebuilt his fitness at 40 with a plan he could follow."
+    },
+    "id": "421668377709"
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~421668377709~LONG_HEADLINE",
+    "fieldType": "LONG_HEADLINE",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/422079967995",
+    "type": "YOUTUBE_VIDEO",
+    "youtubeVideoAsset": {
+     "youtubeVideoId": "DXRkrfvcJEM"
+    },
+    "id": "422079967995",
+    "name": "yt DXRkrfvcJEM Ad 3 Stop Paying Human Trainers Claude 1:1 R2.1"
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~422079967995~YOUTUBE_VIDEO",
+    "fieldType": "YOUTUBE_VIDEO",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/422804571548",
+    "type": "TEXT",
+    "textAsset": {
+     "text": "Daniel Rose shows how AI turned his goal image into a personalized fitness plan."
+    },
+    "id": "422804571548"
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~422804571548~DESCRIPTION",
+    "fieldType": "DESCRIPTION",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/422804571560",
+    "type": "TEXT",
+    "textAsset": {
+     "text": "A Personalized AI Fitness Plan"
+    },
+    "id": "422804571560"
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~422804571560~HEADLINE",
+    "fieldType": "HEADLINE",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/422804571566",
+    "type": "TEXT",
+    "textAsset": {
+     "text": "Daniel Rose shows how he used AI to turn a goal image into a workout and nutrition plan."
+    },
+    "id": "422804571566"
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~422804571566~LONG_HEADLINE",
+    "fieldType": "LONG_HEADLINE",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/423865478571",
+    "type": "YOUTUBE_VIDEO",
+    "youtubeVideoAsset": {
+     "youtubeVideoId": "-SuKGXGcbIg"
+    },
+    "id": "423865478571",
+    "name": "yt -SuKGXGcbIg Ad 13 The Cost Of Getting Abs Muhammad 16:9 r4"
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~423865478571~YOUTUBE_VIDEO",
+    "fieldType": "YOUTUBE_VIDEO",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/424707539263",
+    "type": "YOUTUBE_VIDEO",
+    "youtubeVideoAsset": {
+     "youtubeVideoId": "4nDWFmdjzQQ"
+    },
+    "id": "424707539263",
+    "name": "yt 4nDWFmdjzQQ Ad 10 Busy Dad Fitness Claude 9:16"
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~424707539263~YOUTUBE_VIDEO",
+    "fieldType": "YOUTUBE_VIDEO",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/425847229508",
+    "type": "TEXT",
+    "textAsset": {
+     "text": "How Busy Dads Get Abs"
+    },
+    "id": "425847229508"
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~425847229508~HEADLINE",
+    "fieldType": "HEADLINE",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/425847229511",
+    "type": "TEXT",
+    "textAsset": {
+     "text": "How 40+ Dads Can Get Abs"
+    },
+    "id": "425847229511"
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~425847229511~HEADLINE",
+    "fieldType": "HEADLINE",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/425847229514",
+    "type": "TEXT",
+    "textAsset": {
+     "text": "How I Lost Belly Fat With AI"
+    },
+    "id": "425847229514"
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~425847229514~HEADLINE",
+    "fieldType": "HEADLINE",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/425847904016",
+    "type": "TEXT",
+    "textAsset": {
+     "text": "How Men 40+ Lose Belly Fat"
+    },
+    "id": "425847904016"
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~425847904016~HEADLINE",
+    "fieldType": "HEADLINE",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/425847904019",
+    "type": "TEXT",
+    "textAsset": {
+     "text": "How To Get Abs After 40"
+    },
+    "id": "425847904019"
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~425847904019~HEADLINE",
+    "fieldType": "HEADLINE",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/425847904025",
+    "type": "TEXT",
+    "textAsset": {
+     "text": "How AI Got Me Abs At 40"
+    },
+    "id": "425847904025"
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~425847904025~HEADLINE",
+    "fieldType": "HEADLINE",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/425947745359",
+    "type": "TEXT",
+    "textAsset": {
+     "text": "Human Trainers Hate Him"
+    },
+    "id": "425947745359"
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~425947745359~HEADLINE",
+    "fieldType": "HEADLINE",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/425947745362",
+    "type": "TEXT",
+    "textAsset": {
+     "text": "Trainers Hate This AI App"
+    },
+    "id": "425947745362"
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~425947745362~HEADLINE",
+    "fieldType": "HEADLINE",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/426033287649",
+    "type": "TEXT",
+    "textAsset": {
+     "text": "Supplement Corps Hate Him"
+    },
+    "id": "426033287649"
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~426033287649~HEADLINE",
+    "fieldType": "HEADLINE",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/426146441822",
+    "type": "IMAGE",
+    "imageAsset": {
+     "fullSize": {
+      "heightPixels": "1200",
+      "widthPixels": "960"
+     }
+    },
+    "id": "426146441822",
+    "name": "pmax-20261002 K10-b",
+    "syntheticContentInfo": {
+     "advertiserAttestation": {
+      "status": "IS_SYNTHETIC"
+     }
+    }
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~426146441822~PORTRAIT_MARKETING_IMAGE",
+    "fieldType": "PORTRAIT_MARKETING_IMAGE",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/426146441825",
+    "type": "IMAGE",
+    "imageAsset": {
+     "fullSize": {
+      "heightPixels": "1200",
+      "widthPixels": "1200"
+     }
+    },
+    "id": "426146441825",
+    "name": "pmax-20261002 K4-d",
+    "syntheticContentInfo": {
+     "advertiserAttestation": {
+      "status": "IS_SYNTHETIC"
+     }
+    }
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~426146441825~SQUARE_MARKETING_IMAGE",
+    "fieldType": "SQUARE_MARKETING_IMAGE",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/426146441828",
+    "type": "IMAGE",
+    "imageAsset": {
+     "fullSize": {
+      "heightPixels": "1200",
+      "widthPixels": "960"
+     }
+    },
+    "id": "426146441828",
+    "name": "pmax-20261002 K9-c",
+    "syntheticContentInfo": {
+     "advertiserAttestation": {
+      "status": "IS_SYNTHETIC"
+     }
+    }
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~426146441828~PORTRAIT_MARKETING_IMAGE",
+    "fieldType": "PORTRAIT_MARKETING_IMAGE",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/426146441834",
+    "type": "IMAGE",
+    "imageAsset": {
+     "fullSize": {
+      "heightPixels": "1200",
+      "widthPixels": "1200"
+     }
+    },
+    "id": "426146441834",
+    "name": "pmax-20261002 R4-a",
+    "syntheticContentInfo": {
+     "advertiserAttestation": {
+      "status": "IS_SYNTHETIC"
+     }
+    }
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~426146441834~SQUARE_MARKETING_IMAGE",
+    "fieldType": "SQUARE_MARKETING_IMAGE",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/426146450696",
+    "type": "IMAGE",
+    "imageAsset": {
+     "fullSize": {
+      "heightPixels": "1200",
+      "widthPixels": "1200"
+     }
+    },
+    "id": "426146450696",
+    "name": "pmax-20261002 K2-r2",
+    "syntheticContentInfo": {
+     "advertiserAttestation": {
+      "status": "IS_SYNTHETIC"
+     }
+    }
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~426146450696~SQUARE_MARKETING_IMAGE",
+    "fieldType": "SQUARE_MARKETING_IMAGE",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/426146450699",
+    "type": "IMAGE",
+    "imageAsset": {
+     "fullSize": {
+      "heightPixels": "628",
+      "widthPixels": "1200"
+     }
+    },
+    "id": "426146450699",
+    "name": "pmax-20261002 K6-d",
+    "syntheticContentInfo": {
+     "advertiserAttestation": {
+      "status": "IS_SYNTHETIC"
+     }
+    }
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~426146450699~MARKETING_IMAGE",
+    "fieldType": "MARKETING_IMAGE",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/426146450702",
+    "type": "IMAGE",
+    "imageAsset": {
+     "fullSize": {
+      "heightPixels": "1200",
+      "widthPixels": "1200"
+     }
+    },
+    "id": "426146450702",
+    "name": "pmax-20261002 R2-b",
+    "syntheticContentInfo": {
+     "advertiserAttestation": {
+      "status": "IS_SYNTHETIC"
+     }
+    }
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~426146450702~SQUARE_MARKETING_IMAGE",
+    "fieldType": "SQUARE_MARKETING_IMAGE",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/426146450705",
+    "type": "IMAGE",
+    "imageAsset": {
+     "fullSize": {
+      "heightPixels": "628",
+      "widthPixels": "1200"
+     }
+    },
+    "id": "426146450705",
+    "name": "pmax-20261002 R7-c",
+    "syntheticContentInfo": {
+     "advertiserAttestation": {
+      "status": "IS_SYNTHETIC"
+     }
+    }
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~426146450705~MARKETING_IMAGE",
+    "fieldType": "MARKETING_IMAGE",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/426330038496",
+    "type": "IMAGE",
+    "imageAsset": {
+     "fullSize": {
+      "heightPixels": "628",
+      "widthPixels": "1200"
+     }
+    },
+    "id": "426330038496",
+    "name": "pmax-20261002 K7-d",
+    "syntheticContentInfo": {
+     "advertiserAttestation": {
+      "status": "IS_SYNTHETIC"
+     }
+    }
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~426330038496~MARKETING_IMAGE",
+    "fieldType": "MARKETING_IMAGE",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/426330038502",
+    "type": "IMAGE",
+    "imageAsset": {
+     "fullSize": {
+      "heightPixels": "628",
+      "widthPixels": "1200"
+     }
+    },
+    "id": "426330038502",
+    "name": "pmax-20261002 R3-a",
+    "syntheticContentInfo": {
+     "advertiserAttestation": {
+      "status": "IS_SYNTHETIC"
+     }
+    }
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~426330038502~MARKETING_IMAGE",
+    "fieldType": "MARKETING_IMAGE",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/426330038508",
+    "type": "IMAGE",
+    "imageAsset": {
+     "fullSize": {
+      "heightPixels": "1200",
+      "widthPixels": "1200"
+     }
+    },
+    "id": "426330038508",
+    "name": "pmax-20261002 R8-r2",
+    "syntheticContentInfo": {
+     "advertiserAttestation": {
+      "status": "IS_SYNTHETIC"
+     }
+    }
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~426330038508~SQUARE_MARKETING_IMAGE",
+    "fieldType": "SQUARE_MARKETING_IMAGE",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/426330044298",
+    "type": "IMAGE",
+    "imageAsset": {
+     "fullSize": {
+      "heightPixels": "1200",
+      "widthPixels": "1200"
+     }
+    },
+    "id": "426330044298",
+    "name": "pmax-20261002 K8-a",
+    "syntheticContentInfo": {
+     "advertiserAttestation": {
+      "status": "IS_SYNTHETIC"
+     }
+    }
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~426330044298~SQUARE_MARKETING_IMAGE",
+    "fieldType": "SQUARE_MARKETING_IMAGE",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/426330044301",
+    "type": "IMAGE",
+    "imageAsset": {
+     "fullSize": {
+      "heightPixels": "628",
+      "widthPixels": "1200"
+     }
+    },
+    "id": "426330044301",
+    "name": "pmax-20261002 R6-r2",
+    "syntheticContentInfo": {
+     "advertiserAttestation": {
+      "status": "IS_SYNTHETIC"
+     }
+    }
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~426330044301~MARKETING_IMAGE",
+    "fieldType": "MARKETING_IMAGE",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/426330057612",
+    "type": "IMAGE",
+    "imageAsset": {
+     "fullSize": {
+      "heightPixels": "628",
+      "widthPixels": "1200"
+     }
+    },
+    "id": "426330057612",
+    "name": "pmax-20261002 K3-b",
+    "syntheticContentInfo": {
+     "advertiserAttestation": {
+      "status": "IS_SYNTHETIC"
+     }
+    }
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~426330057612~MARKETING_IMAGE",
+    "fieldType": "MARKETING_IMAGE",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/426330057615",
+    "type": "IMAGE",
+    "imageAsset": {
+     "fullSize": {
+      "heightPixels": "628",
+      "widthPixels": "1200"
+     }
+    },
+    "id": "426330057615",
+    "name": "pmax-20261002 R1-b",
+    "syntheticContentInfo": {
+     "advertiserAttestation": {
+      "status": "IS_SYNTHETIC"
+     }
+    }
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~426330057615~MARKETING_IMAGE",
+    "fieldType": "MARKETING_IMAGE",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/426330057618",
+    "type": "IMAGE",
+    "imageAsset": {
+     "fullSize": {
+      "heightPixels": "1200",
+      "widthPixels": "1200"
+     }
+    },
+    "id": "426330057618",
+    "name": "pmax-20261002 R9-d",
+    "syntheticContentInfo": {
+     "advertiserAttestation": {
+      "status": "IS_SYNTHETIC"
+     }
+    }
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~426330057618~SQUARE_MARKETING_IMAGE",
+    "fieldType": "SQUARE_MARKETING_IMAGE",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/426330066669",
+    "type": "IMAGE",
+    "imageAsset": {
+     "fullSize": {
+      "heightPixels": "628",
+      "widthPixels": "1200"
+     }
+    },
+    "id": "426330066669",
+    "name": "pmax-20261002 K1-r2",
+    "syntheticContentInfo": {
+     "advertiserAttestation": {
+      "status": "IS_SYNTHETIC"
+     }
+    }
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~426330066669~MARKETING_IMAGE",
+    "fieldType": "MARKETING_IMAGE",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/426330066672",
+    "type": "IMAGE",
+    "imageAsset": {
+     "fullSize": {
+      "heightPixels": "1200",
+      "widthPixels": "1200"
+     }
+    },
+    "id": "426330066672",
+    "name": "pmax-20261002 K5-d",
+    "syntheticContentInfo": {
+     "advertiserAttestation": {
+      "status": "IS_SYNTHETIC"
+     }
+    }
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~426330066672~SQUARE_MARKETING_IMAGE",
+    "fieldType": "SQUARE_MARKETING_IMAGE",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/426330066675",
+    "type": "IMAGE",
+    "imageAsset": {
+     "fullSize": {
+      "heightPixels": "1200",
+      "widthPixels": "960"
+     }
+    },
+    "id": "426330066675",
+    "name": "pmax-20261002 R10-e",
+    "syntheticContentInfo": {
+     "advertiserAttestation": {
+      "status": "IS_SYNTHETIC"
+     }
+    }
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~426330066675~PORTRAIT_MARKETING_IMAGE",
+    "fieldType": "PORTRAIT_MARKETING_IMAGE",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/426330066678",
+    "type": "IMAGE",
+    "imageAsset": {
+     "fullSize": {
+      "heightPixels": "1200",
+      "widthPixels": "960"
+     }
+    },
+    "id": "426330066678",
+    "name": "pmax-20261002 R5-r2",
+    "syntheticContentInfo": {
+     "advertiserAttestation": {
+      "status": "IS_SYNTHETIC"
+     }
+    }
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~426330066678~PORTRAIT_MARKETING_IMAGE",
+    "fieldType": "PORTRAIT_MARKETING_IMAGE",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "asset": {
+    "resourceName": "customers/3427170837/assets/426330159312",
+    "type": "CALL_TO_ACTION",
+    "id": "426330159312",
+    "callToActionAsset": {
+     "callToAction": "SIGN_UP"
+    }
+   },
+   "assetGroupAsset": {
+    "resourceName": "customers/3427170837/assetGroupAssets/6754766656~426330159312~CALL_TO_ACTION_SELECTION",
+    "fieldType": "CALL_TO_ACTION_SELECTION",
+    "status": "ENABLED",
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  }
+ ],
+ "signals": [
+  {
+   "assetGroupSignal": {
+    "resourceName": "customers/3427170837/assetGroupSignals/6754766656~2503945058393",
+    "audience": {
+     "audience": "customers/3427170837/audiences/360314754"
+    }
+   }
+  }
+ ],
+ "audiences": [
+  {
+   "audience": {
+    "resourceName": "customers/3427170837/audiences/360314754",
+    "id": "360314754",
+    "dimensions": [
+     {
+      "audienceSegments": {
+       "segments": [
+        {
+         "userList": {
+          "userList": "customers/3427170837/userLists/9453529251"
+         }
+        }
+       ]
+      }
+     }
+    ],
+    "name": "[DAN] [PMAX] [TRIAL] VSL page | 6 ads | US+CA | site visitors 30 day"
+   }
+  }
+ ],
+ "campaignAssets": []
+}

@@ -613,3 +613,56 @@ served status. Subscriber remarketing (Campaign B, `24316408288`) is documented 
 **2026-10-01, Dan rewrote headlines on all six trial ads in the Ads editor.** RA-01, Ad 6, Ad 13 and Ad 4 as well as
 Ad 10 and Ad 3; his lines were then copied to every other format of each ad by API and read back (his editor Save
 had reverted the first sync). Live copy is the source of truth; the before and after table is in skill `/ad-copy`.
+
+## 2026-10-02: Performance Max TRIAL campaign for the $450 credit (campaign `24308574894`)
+
+Dan's spec: `Handoffs/handoff-20261001-pmax-campaign-build.md`. Built by `scripts/ads/api/pmax-trial-campaign.js`
+(`images` uploads the pictures, then 158 operations, `validateOnly` then applied; read-back in
+`scripts/ads/api/dgen-ads/pmax-campaign.result.json`). Built PAUSED, read back, **ENABLED 2026-10-02 12:50 PM CT** on
+Dan's standing instruction. One campaign only: Dan dropped the remarketing Performance Max idea the same day.
+
+**The credit (Billing > Promotions, read 2026-10-02):** "$450.00 ad credit to spend on Performance Max campaigns", code
+`CYYVM-MMLQT-E9FK`, redeemed 2026-10-01, status Active ("applied to your account, and is funding your campaign(s)").
+"Complete requirements by" is blank, so no paid spend is needed first. **Expires 2026-11-30.** Credits spent: no data yet.
+
+| Setting | Stored value |
+|---|---|
+| Name | `[DAN] [PMAX] [TRIAL] VSL page | 6 ads | US+CA | site visitors 30 day` |
+| Budget | $15/day (budget `15923601274`, not shared), start 2026-10-02, **end 2026-11-01** |
+| Bidding | Maximize conversions, no target. Add a $40 target after the first few trials. |
+| Goal | Campaign level, Trial Signup (SIGNUP / WEBSITE) the only biddable goal |
+| Asset group | `6754766656` "VSL page | 6 ads | 20 images" |
+| Final URL | `https://absbyai.com/start?utm_source=google&utm_medium=pmax&utm_campaign=pmax-trial` |
+| Final URL expansion, text customization, video enhancements, image enhancements, image extraction | all OPTED_OUT |
+| Location, language | US + Canada, presence only; English |
+| Excluded | ages 18-24 and 65+; female; lists `9480144404`, `9441311426`, `9469016618` (members, converters, purchasers) |
+| Negative keywords | 90 at campaign level: the 83 on Non-Brand Search `24148587722` plus free, generator, abs editor, abs creator, six pack ai, ai six pack, give me abs ai. No brand terms, no brand exclusion list. |
+| Audience signal | Audience `360314754`: list `9453529251` (website visitors, 30 day; about 110 people on Display, 370 on Search) and nothing else. No search themes. |
+
+**Assets.** 15 headlines, 5 long headlines and 5 descriptions, all Dan's own lines as live in `24316364155` (the script
+refuses any line that is not live there). Headlines left out: "How AI Replaces Personal Trainers" (33 characters, over
+the limit of 30), and five that did not fit the 15 slots ("Human Trainers Hate This AI", "Human Trainers Despise Him",
+"Trainers Despise Him", "How Busy 40+ Dads Lose Fat", "The Truth About Supplements"). No new line was written.
+Five videos (the limit): Ad 13 16:9, Ad 4 16:9, Ad 6 16:9, Ad 10 9:16, Ad 3 1:1. RA-01 is left out (lowest click-through
+of the six, 0.7%). Logo `400941168572`, business name "Abs by AI".
+
+**Images: all 20 finalized pictures** from `output/campaign-images-20261001/Finalized Images/` (both folders, on Dan's
+instruction; 20 is the asset group limit): 8 landscape, 8 square, 4 portrait. Asset ids in
+`scripts/ads/api/dgen-ads/pmax-images.result.json`. **Google's AI label is set on all 20**
+(`synthetic_content_info.advertiser_attestation` = IS_SYNTHETIC, read back).
+
+**What the account did not offer.**
+- Call to action "Start now": Performance Max refuses it (`UNSUPPORTED_CALL_TO_ACTION`). Set to **Sign up**.
+- Six ads as videos: the limit is five per asset group.
+- Everything else in the spec was accepted by the API, including the age, gender and member-list exclusions.
+
+**Traps.** Headline and description text assets must exist before the asset group is created, or Google answers
+`NOT_ENOUGH_HEADLINE_ASSET`; the script makes them in their own request. v25 has no `url_expansion_opt_out`; it is
+the asset automation type `FINAL_URL_EXPANSION_TEXT_ASSET_AUTOMATION`. Dates are `start_date_time` / `end_date_time`.
+
+**Watch.** All 60 assets were `REVIEW_IN_PROGRESS` at enable. $15 x 30 days is $450, but Google may spend up to twice
+the daily budget on one day, so the month can pass $450 by a few dollars and that part goes to Dan's card.
+- **Day 5 (2026-10-07):** spend by channel, new versus returning visitors, policy status of every asset. If it barely
+  spends, report it with the list size; do not widen the targeting without Dan.
+- **$150 spent (about 2026-10-12):** judge per `Docs/CAMPAIGN_IMAGES_RESEARCH.md` section 9. Three or more trials is a
+  winner, zero is a loser, one or two runs to $300.
