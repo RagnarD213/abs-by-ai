@@ -53,7 +53,7 @@ def render_segment(i, b, nfr, t0):
     if not pl or not os.path.exists(pl["mov"]):
         raise SystemExit(f"beat {i} ({b['kind']} {b.get('gid') or b.get('media')}): its HyperFrames render is missing -- run sbl_graphics.py")
     out = f"out/s{i:03d}.mp4"; man = out + ".sig"
-    sig = json.dumps(dict(b=b, n=nfr, plate=fsha(pl["mov"]), hole=pl.get("hole"), v="sbl-1",
+    sig = json.dumps(dict(b=b, n=nfr, plate=fsha(pl["mov"]), hole=pl.get("hole"), v="sbl-2",
                           media=(repr(R.MEDIA[b["media"]]) if b["kind"] == "card" else None)), sort_keys=True, default=str)
     if os.path.exists(out) and os.path.getsize(out) > 20000 and os.path.exists(man) and open(man).read() == sig:
         return
@@ -63,9 +63,16 @@ def render_segment(i, b, nfr, t0):
     else:
         x0, y0, x1, y1 = pl["hole"]; w, h = x1 - x0, y1 - y0
         key = b["media"]
-        o = dict(R.media_opts(key)); amt = o.pop("amt", 0.04)
+        o = dict(R.media_opts(key)); amt = o.pop("amt", 0.04); ox1 = o.pop("ox1", None)
         chain = R.still_chain(w, h, nfr, amt=amt, **o) if R.MEDIA[key][0] == "img" else \
             "setpts=PTS-STARTPTS," + R.media_prefix(key) + R.cover_chain(w, h, **o)
+        if ox1 is not None:
+            # the side crop TRAVELS from ox to ox1 over the beat (clip_fit's pan: the subject moves across the frame,
+            # so a still window that held it at every moment would be far wider; RO-10 C07, C11)
+            a_ = o.get("ox", 0.5)
+            fixed = f"'(iw-{w})*{a_:.3f}'"
+            assert fixed in chain, "cover_chain's crop expression changed"
+            chain = chain.replace(fixed, f"'(iw-{w})*({a_:.4f}+({ox1 - a_:.4f})*min(1,t/{nfr / FPS:.4f}))'")
         R.run([FF, "-v", "error", "-y"] + R.media_input(key, nfr) + ["-i", pl["mov"], "-filter_complex",
               f"color=black:s={VW}x{VH}:r=30000/1001[bg];[0:v]{chain}[m];[bg][m]overlay={x0}:{y0}[u];"
               f"[1:v]{HF_IN},format=yuva444p,tpad=stop_mode=clone:stop=-1[p];[u][p]overlay=0:0:format=auto,format=yuv420p"] + common)

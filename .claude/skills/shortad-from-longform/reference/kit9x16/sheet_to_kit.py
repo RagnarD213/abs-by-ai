@@ -5,9 +5,10 @@
 
 Replaces `recover`, `measure` and `content` (which reverse-engineer an editor's master). Nothing here is measured from
 the finished video and nothing is guessed: every value is copied from the sheet, and the one thing the sheet cannot
-know (how does a horizontal clip sit in a phone frame) is decided per clip by Dan's three-step rule, fill the frame,
-else the centre square, else the whole clip (`clip_fit.py`: the three crops are looked at, each verdict and its reason
-is recorded in sheet_report.json, and `<build>/clip_overrides.json` {key: {"verdict", "dan"}} holds his own flips).
+know (how does a horizontal clip sit in a phone frame) is decided per clip by Dan's fill-the-screen rule: the narrowest
+side crop that keeps what the clip is about, any shape between full screen and the whole clip (`clip_fit.py`: the crop
+is located, judged, and its reason recorded in sheet_report.json; `<build>/clip_overrides.json` holds his own notes as
+{key: {"x0", "x1", "dan"}} windows or {"verdict": "fill" | "whole", "dan"}, and they win).
 Writes into B:
 
   rolls.json          the raw rolls
@@ -20,7 +21,7 @@ Writes into B:
   content.json        beats: every picture as a `card` or a `bleed` (label_kind from the sheet, NEVER a library match
                       or a model), every full-screen graphic as an `hf` beat; lower thirds; side cards; CTAs
   assets.py           the media map
-  sheet_report.json   what was decided here and why (fill / square / whole per clip, the base window, anything dropped: nothing)
+  sheet_report.json   what was decided here and why (fill / side crop / whole per clip, the base window, anything dropped: nothing)
 
 Graphics are NOT drawn here: `sbl_graphics.py` renders them at 9:16 from the sheet's configs after `build_kit.py` has
 fixed the beat times.
@@ -188,17 +189,20 @@ def main():
                 mode, why = p["vertical"]["mode"], "the sheet says so"
                 opts = {"ox": p["vertical"].get("ox", 0.5)} if mode == "bleed" else {}
             else:
-                # THE THREE-STEP RULE (Dan, 2026-10-01): fill the frame; if that cuts something critical at the sides,
-                # the centre square; if the square still does, the whole clip
+                # THE CONTINUOUS SIDE CROP (Dan, 2026-10-02): the narrowest window that keeps what the clip is about, any
+                # shape between full screen and the whole clip, placed on the subject. His own notes on a clip win.
                 ov = OVER.get(key)
+                if ov:
+                    ov = dict(ov, why=("Dan: " + ov["dan"]) if ov.get("dan") else ov["note"], by="Dan" if ov.get("dan") else "the editor")
                 fit = clip_fit.decide(src["path"], float(src.get("src_in", 0.0)), n / FPS, os.path.join(B, "_clipfit"), AI,
-                                      people=p["people"], key=key,
-                                      override=dict(verdict=ov["verdict"], why="Dan: " + ov["dan"], by="Dan") if ov else None)
+                                      people=p["people"], key=key, override=ov)
                 why = fit["why"]
                 if fit["verdict"] == "fill":
-                    mode, opts = "bleed", {"ox": fit["ox"]["fill"]}
-                elif fit["verdict"] == "square":
-                    opts = {"ar": 1.0, "ox": fit["ox"]["square"]}
+                    mode, opts = "bleed", {"ox": fit["ox"]}
+                elif fit["verdict"] == "crop":
+                    opts = {"ar": fit["ar"], "ox": fit["ox"]}
+                    if fit.get("pan"):
+                        opts["ox1"] = fit["ox1"]                  # the window travels with the subject (render_sbl.py)
             media[key] = ("img", src["path"], 0, 1.0, dict(opts, oy=0.0)) if isimg else \
                 ("vid", src["path"], float(src.get("src_in", 0.0))) + ((1.0, opts) if opts else ())
             b = dict(t0=round(at / FPS, 4), t1=round((at + n) / FPS, 4), kind=mode, media=key, pid=p["id"],
@@ -213,8 +217,9 @@ def main():
             report["pictures"].append(dict(id=key, mode=mode, why=why, source=os.path.basename(src["path"]), size=[w, h],
                                            label=p.get("label"), people=p["people"],
                                            shape=("phone" if p["kind"] == "phone" else fit["verdict"] if fit else mode),
-                                           fit=({k_: fit.get(k_) for k_ in ("verdict", "model_verdict", "overridden_by", "fill", "square", "subject",
-                                                                            "must_stay", "cx", "centred_by", "sheet", "confidence", "model")} if fit else None)))
+                                           fit=({k_: fit.get(k_) for k_ in ("verdict", "window", "ar", "pan", "model_verdict", "model_window", "model_why",
+                                                                            "overridden_by", "subject", "must_stay", "spread", "sheet", "confidence",
+                                                                            "model")} if fit else None)))
             at += n
     lts, insets, ctas = [], [], []
     for g in S["graphics"]:
@@ -250,7 +255,8 @@ def main():
     print(f"{S['job']}: {len(edl)} takes, {len(words)} words, {nc} cards + {nb} fills, {sum(1 for b in beats if b['kind'] == 'hf')} full-screen graphics, "
           f"{len(lts)} lower thirds, {len(insets)} side cards, {len(ctas)} CTAs; base window {cw}x{ch}@{cx},{cy}")
     for p in report["pictures"]:
-        print(f"  {p['id']:8s} {p['shape']:6s} {p['why']}")
+        f = p.get("fit") or {}
+        print(f"  {p['id']:8s} {p['shape']:6s} {('ar %.2f ' % f['ar']) if f.get('ar') else ''}{p['why'][:150]}")
     return 0
 
 

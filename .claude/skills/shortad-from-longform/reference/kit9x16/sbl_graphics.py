@@ -47,6 +47,7 @@ def main():
     ap.add_argument("--build", required=True); ap.add_argument("--sheet", required=True)
     ap.add_argument("--range", nargs=2, type=float); ap.add_argument("--no-render", action="store_true")
     ap.add_argument("--snap", action="store_true", help="also write hf/stills/<id>.png (the settled graphic)")
+    ap.add_argument("--only", help="comma list of graphic ids / media keys to build; everything else keeps its render (plates and manifest are still rewritten in full)")
     a = ap.parse_args()
     B = os.path.abspath(a.build)
     os.chdir(B); sys.path.insert(0, B)
@@ -57,7 +58,8 @@ def main():
     from assets import MEDIA
     tl, ov = BT.timeline()
     out = os.path.join(B, "hf")
-    inr = lambda t0, t1: (not a.range) or (t0 < a.range[1] and t1 > a.range[0])
+    only = set(a.only.split(",")) if a.only else None
+    inr = lambda t0, t1, name=None: ((not a.range) or (t0 < a.range[1] and t1 > a.range[0])) and (only is None or name in only)
     render = not a.no_render
     plates, manifest, lifts, muted = {}, [], [], []
     prev = 0
@@ -69,7 +71,7 @@ def main():
             c.update(a=a_, b=b_); g.update(config=c, t0=a_, t1=b_)
             scenes, meta = VT.scenes_for(g)
             plates[str(i)] = dict(kind="hf", gid=b["gid"], frames=n, mov=os.path.join(out, "renders", scenes[0][1]["id"] + ".mov"))
-            if inr(b["t0"], b["t1"]):
+            if inr(b["t0"], b["t1"], b["gid"]):
                 VT.build(scenes, out, render=render, snap=(max(0.5, n / FPS - 0.6) if a.snap else None))
                 print(f"{b['gid']:6s} full-screen {g['template']:22s} {a_:8.2f} {n:5d} f", flush=True)
         elif b["kind"] == "card":
@@ -80,7 +82,7 @@ def main():
                                               kicker="AbsByAI.com" if b.get("phone") else None, caps=b.get("caps") is not False)
             plates[str(i)] = dict(kind="card", media=key, frames=n, hole=hole, mov=os.path.join(out, "renders", pid + ".mov"),
                                   chip=scene[1].get("chip"))
-            if inr(b["t0"], b["t1"]):
+            if inr(b["t0"], b["t1"], key):
                 VT.build([scene], out, render=render, snap=(1.0 if a.snap else None))
                 print(f"{key:6s} card        hole {hole} {n:5d} f", flush=True)
     for o in ov:
@@ -103,7 +105,7 @@ def main():
                 lifts.append([o["t0"], o["t1"], y])
             else:
                 muted.append(gid)                              # a tall card: lifted captions would sit on his chin, so they pause
-        if inr(o["t0"], o["t1"]):
+        if inr(o["t0"], o["t1"], gid):
             VT.build(scenes, out, render=render, snap=(max(0.5, o["t1"] - o["t0"] - 0.6) if a.snap else None))
             print(f"{gid:6s} overlay     {m['template']:22s} {o['t0']:8.2f} - {o['t1']:8.2f} {meta['kind']}", flush=True)
     json.dump(sorted(manifest, key=lambda m: m["a"]), open(os.path.join(out, "manifest.json"), "w"), indent=1)

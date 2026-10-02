@@ -411,6 +411,12 @@ Not a center crop. Rebuild the frame:
 - Same EDL, same audio — only the visual layout pass differs. Keep both builds
   in one script so a revision re-renders both.
 
+**Horizontal clips in the 9:16 (and any square): fill as much of the screen as the clip allows (Dan, 2026-10-02).**
+Crop the sides to the narrowest window that keeps what the clip is about, any shape between the whole clip and full
+screen, placed on the subject; never crop height. Blank space needs a reason in the build report. Use
+`shortad-from-longform/reference/kit9x16/clip_fit.py` (`decide()`), with Dan's own clip notes as overrides. Full rule:
+`_shared/VIDEO-RULES.md`, "Verticals and squares".
+
 ## Step 9 — compliance scan (before delivery, every ad)
 
 1. AI-GENERATED label on every AI image/clip, in both aspect ratios.

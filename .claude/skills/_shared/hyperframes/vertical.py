@@ -108,14 +108,20 @@ def fact_scenes(c):
     label = c.get("label"); detail = c.get("detail")
     gap = (70 if label else 30) * U
     ch = (215 if detail else 150) * U
-    pw, ph = W - 80 * U, round(Hh * .46)
+    # the photo is as tall as the frame allows with the chip and the fact card kept under it (Dan, 2026-10-02, RO-10
+    # G02: "full-screen vertical, or as close to that as you can get while still keeping the stuff on the bottom"):
+    # 1000 px wide, from y 160 down to whatever leaves the card ending at y 1750 (1000 x 1020 with a chip, 1000 x 1100
+    # without). It was 920 x 883. The chip keeps its 70-unit gap: at 55 it sat on the card's top edge (RO-10 G02 round 3).
+    top_y, bottom_y = 160, 1750
+    pw, ph = W - 40 * U, bottom_y - top_y - gap - ch
     if c.get("whole"):
+        pw = W - 80 * U
         # the whole photo, never a cover crop: a before picture keeps its head AND its stomach (Ad 6, 2026-10-02)
         from PIL import Image, ImageOps
         iw, ih = ImageOps.exif_transpose(Image.open(c["photo"])).size
         ph = round(Hh * .50)
         pw = min(pw, round(ph * iw / ih)); ph = round(pw * ih / iw)
-    px, py = (W - pw) / 2, (Hh - (ph + gap + ch)) / 2 + 12 * U
+    px, py = (W - pw) / 2, ((Hh - (ph + gap + ch)) / 2 + 12 * U if c.get("whole") else top_y)
     cy = py + ph + gap
     card = (40 * U, cy, W - 40 * U, cy + ch)
     cx = card[0] + 27 * U
@@ -210,25 +216,41 @@ def title_scenes(gid, t0, t1, eyebrow, headline, items=None):
 
 
 # ------------------------------------------------------------------ media card (the kit's clip / photo / phone cards)
-def media_card_scene(gid, dur, media_ar, label=None, kicker=None, spans=None, max_w=None, max_h=1240, caps=False):
-    """The plate for one card: returns (scene tuple, hole [x0, y0, x1, y1]). The hole keeps the media's own shape
-    (a horizontal clip is never cropped shorter: VIDEO-RULES 2026-10-01), as large as the frame allows.
-    caps: captions run under this card, so a tall picture ends above the caption line (y 1370) instead of sitting
-    under the words (the before photo's stomach was captioned over, Ad 13 round 1)."""
+def media_card_scene(gid, dur, media_ar, label=None, kicker=None, spans=None, max_w=None, max_h=None, caps=False):
+    """The plate for one card: returns (scene tuple, hole [x0, y0, x1, y1]). The hole keeps the shape it is given (the
+    whole clip, or clip_fit's side crop: any `media_ar` from 0.56 to 1.78; height is never cropped, VIDEO-RULES
+    2026-10-01), as large as the frame allows (Dan, 2026-10-02: fill as much of the screen as the clip allows).
+
+      a card that fits above the caption line   full width, moved up until it and its chip clear the line by 24 px
+      a TALL card (it cannot fit above them)    full width, never shrunk to fit the captions: it runs down past the
+                                                caption band (bottom at 1680 or lower), so the words sit INSIDE the
+                                                picture the way they do on a full-screen fill
+      a phone (kicker, captions off)            1440 px tall, high in the frame, the kicker 84 px above it"""
     max_w = max_w or (W - 2 * SIDE)
-    if caps and not label:
-        max_h = min(max_h, 1370 - 190)
-    hw = max_w; hh = hw / media_ar
-    if hh > max_h: hh = max_h; hw = hh * media_ar
-    hw, hh = int(hw) // 2 * 2, int(hh) // 2 * 2
     extra = (68 + 80 if label else 0)
-    hx, hy = (W - hw) // 2, int((Hh - hh - extra) / 2 - 40 * (media_ar > 1))
-    # a tall card (a centre square, 2026-10-01) must end above the caption line: centred, its chip sat under the
-    # captions and a chip-less square's bottom edge sat behind them (RO-10 O1 and C02). It moves up until the card and
-    # its chip clear the line by 24 px; a card too tall to do that (a phone, whose captions are off) stays centred.
-    top = CAP_TOP - 24 - (hh + extra)
-    if hy > top >= 150:
-        hy = int(top)
+    TOP, BOTTOM = 150, 1840                                    # the platform's top strip; the lowest a card or its chip goes
+    hw = max_w; hh = hw / media_ar
+    room = CAP_TOP - 24 - TOP - extra                          # the tallest hole that still ends above the caption line
+    tall = hh > room
+    if tall:
+        lim = max_h or (1440 if kicker else BOTTOM - TOP - extra)
+        if hh > lim: hh = lim; hw = hh * media_ar
+    hw, hh = int(hw) // 2 * 2, int(hh) // 2 * 2
+    hx = (W - hw) // 2
+    if kicker and tall:
+        hy = max(TOP + 100, int((Hh - hh) / 2) - 90)           # the phone: larger and higher (Dan, RO-10 P01)
+    elif tall:
+        hy = int((Hh - hh - extra) / 2)
+        if caps:
+            hy = max(hy, CAPTION_BAND[1] + 67 - hh)            # the picture's bottom edge at 1680 or lower: under the words
+        hy = max(TOP, min(hy, BOTTOM - hh - extra))
+    else:
+        hy = int((Hh - hh - extra) / 2 - 40 * (media_ar > 1))
+        # a card must end above the caption line: centred, its chip sat under the captions and a chip-less square's
+        # bottom edge sat behind them (RO-10 O1 and C02). It moves up until the card and its chip clear the line by 24 px.
+        top = CAP_TOP - 24 - (hh + extra)
+        if hy > top >= TOP:
+            hy = int(top)
     c = dict(id=gid, dur=round(dur, 3), canvas=CANVAS, hole=[hx, hy, hw, hh], radius=26 if media_ar > 0.7 else 44)
     if label:
         cw_ = round(H.text_w(label, 23 * U, False) + 40 * U)

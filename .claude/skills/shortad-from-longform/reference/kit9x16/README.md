@@ -104,7 +104,7 @@ answer-key test passes and Ad 8's plan is identical before and after.
 
 | stage | script | what it does |
 |---|---|---|
-| sheet | `validate.py --hash`, `sheet_to_kit.py`, `clip_fit.py` | rolls, the cut (same-take reframes merged; every picture cut ON its audio cut, no pose search), the 16:9's grade on a HAIR-ANCHORED window of the raw, words (caption fixes applied, split hyphen words joined), `content.json` (every picture a fill, a square card or a whole-clip card by the three-step rule, label from the sheet; every full-screen graphic an `hf` beat; lower thirds; side cards), `assets.py`, `sheet_report.json` |
+| sheet | `validate.py --hash`, `sheet_to_kit.py`, `clip_fit.py` | rolls, the cut (same-take reframes merged; every picture cut ON its audio cut, no pose search), the 16:9's grade on a HAIR-ANCHORED window of the raw, words (caption fixes applied, split hyphen words joined), `content.json` (every picture a fill or a side-crop card of any shape by the fill-the-screen rule, label from the sheet; every full-screen graphic an `hf` beat; lower thirds; side cards), `assets.py`, `sheet_report.json` |
 | setup, audio, kit, base, track | the kit's own | unchanged. The audio is the 16:9's delivered mix, stream-copied. `build_kit.py` takes `piccuts.json` from the sheet and still schedules pushes and level steps |
 | graphics | `sbl_graphics.py` | after the kit has fixed the beat times: one HyperFrames render per graphic at 1080x1920 (`_shared/hyperframes/vertical.py`), one media-card plate per card beat, `cap_lifts` (captions rise above a bottom card) |
 | labels | `kit_labels.py` | full-bleed chips placed by measurement, drawn as the Soft Blue Light chip |
@@ -114,31 +114,49 @@ answer-key test passes and Ad 8's plan is identical before and after.
 Review before any full build: `sbl_page.py --media` builds the graphic-lock page (first minute, every graphic and clip
 at 9:16 with a moving context clip); `sbl_preview.py --range A B` cuts any span with captions and sound.
 
-**What the sheet path decides, and how.** Every horizontal clip follows Dan's three-step rule (2026-10-01, VIDEO-RULES
-"A horizontal clip in a vertical"): it fills the phone frame; if that cuts something critical at the sides, its centre
-square in a card; if the square still does, the whole clip in a card (never cropped shorter). `clip_fit.py` decides
-per clip with two small vision calls through `ai_calls.py` (about half a cent a clip, ledgered): first WHERE is what
-must stay visible (the crops are centred on it), then the fill and square crops at three moments of the used span are
-judged. The verdict is the tightest crop that loses nothing critical; it, its reason and the proof sheet go in
-`sheet_report.json` (`pictures[].fit`) and on the review page. Dan's own flips live in `<build>/clip_overrides.json`
-(`{"C08": {"verdict": "square", "dan": "<his words>"}}`) and win. A phone screen stays whole; a portrait source fills.
-Real-or-AI labels are never asked of the model. Hard cuts by default (`--flash` carries Muhammad's flash). No vignette.
-A graphic whose template has no 9:16 layout STOPS the run; nothing is dropped or redrawn by hand.
+**What the sheet path decides, and how (the continuous side crop, Dan 2026-10-02).** Every horizontal clip is cropped
+at the sides to the NARROWEST window that keeps what the clip is about, at any shape between full screen and the whole
+clip, placed on the subject (VIDEO-RULES "Verticals and squares: fill as much of the screen as the clip allows"; it
+replaces the 2026-10-01 three shapes, which are now points on that line). `clip_fit.py` decides per clip with small
+vision calls through `ai_calls.py` (about a cent a clip, ledgered):
+
+1. LOCATE: the left and right edges of what must stay visible, read off three moments of the used span stacked top to
+   bottom under a 0 to 1 ruler.
+2. The window is those edges plus 2 %, never narrower than full screen. Within 10 % of full screen it IS full screen
+   (a `bleed`); at 94 % of the width or more it is the whole clip. A span wider than a square is tried as the square
+   on its centre first.
+3. JUDGE: the crop at the three moments is checked; a rejected crop widens 8 % on the side that was cut and is judged
+   again (three tries, then the whole clip).
+
+The window, its reason and the proof sheet go in `sheet_report.json` (`pictures[].fit`); blank space always carries
+its reason there. Dan's own notes live in `<build>/clip_overrides.json` and win:
+`{"C06": {"x0": 0.16, "x1": 0.70, "dan": "<his words>"}}` (a window, fractions of the width),
+`{"C07": {"x0": 0.20, "x1": 0.67, "pan_to": [0.52, 0.99], "dan": ...}}` (the window travels with a subject that moves;
+cards only, drawn by `render_sbl.py`), `{"O1": {"verdict": "fill", "cx": 0.465, "dan": ...}}` (`fill` or `whole`), and
+`"note"` in place of `"dan"` for an editor's own call. A card takes any shape (`media_card_scene`, `ar` 0.56 to 1.78):
+one that fits above the caption line sits above it; a taller one is never shrunk for the captions, it runs down past
+them and the words sit inside the picture as on a fill. A phone screen stays whole, 1440 px tall and high in the frame.
+A before-card's photo is as tall as the chip and fact card under it allow (1000 x 1020 with a chip, 1000 x 1100 without). Real-or-AI labels are never
+asked of the model. Hard cuts by default (`--flash` carries Muhammad's flash). No vignette. A graphic whose template has
+no 9:16 layout STOPS the run; nothing is dropped or redrawn by hand.
 
 * The person mask cannot make this call: its extent read the salad table as 90 % wide and the man on the scale as 35 %,
   and on a hands-only clip its centre is the arm, not the bowl (round 1 and round 2 tuning).
-* The first prompt (a neutral "is anything lost") chose the square for all 18 clips, including the man on the scale Dan
-  named as a fill. The rule that works states his default (fill unless a strong reason) and the strong reasons: the one
-  main object is wider than the crop, a face is cut, the hand or tool doing the action leaves the crop, or the scene is
-  about things spread across the frame. RO-10: 6 fill, 12 square, 0 whole, 1 phone; both of his worked examples agree.
-* A model asked for a horizontal position on three frames laid side by side answers across the strip (0.22 for a
-  subject at 0.66): stack the frames top to bottom when a coordinate is wanted.
-* Borderline clips flip between runs (C08, C15 on RO-10). The verdict is cached per source span and prompt, and Dan
-  sees all of them with the three crops.
-
-**2026-10-02, Dan: fill more of the screen.** The three shapes become a continuous side crop (the narrowest window that
-keeps what the clip is about, any shape between the whole clip and full screen); VIDEO-RULES "Verticals and squares".
-Not built yet: `Handoffs/handoff-20261002-vertical-kit-round3-fill-more-screen.md`.
+* Never draw candidate crop boxes on the image the model reads a position from: in round 2, 8 of 18 answers were the
+  square box's own edges (0.22, 0.78). The LOCATE image is clean, with a ruler.
+* The model sometimes answers in percent or thousandths (26 and 59, 290 and 591): `locate` normalises.
+* The located span alone is too cautious on scenes with a lot in them (the notebook, the family meal, the candy came
+  out wider than crops Dan had already approved): hence the square-first step, which the judge may widen.
+* A subject that travels (the phone over the food, the soup bowl sliding) makes the still span wide. The model does not
+  propose a pan; look at the three-moment proof and set `pan_to` by hand where the subject moves.
+* A model asked for a horizontal position on three frames laid side by side answers across the strip: stack them.
+* Borderline clips flip between runs. The model's answer is cached per source span and prompt (`_clipfit/<key>.fit6.json`);
+  overrides are applied on top and never cached.
+* `sbl_graphics.py --only ID,ID` re-renders just those cards or graphics. A change to `vertical.py` makes every
+  graphic stale; in a review round render only what the page shows and let the full build redo the rest.
+* A HyperFrames render started with `nohup ... &` from an agent shell is cancelled when that shell returns
+  ("render_cancelled_parent_exited"): run it as a background task of the agent instead.
+* RO-10 round 3: 5 fills, 13 side crops (7 taller than a square, 2 travelling), 0 whole; 10 clips carry Dan's own note.
 
 **The calmer camera (Dan, 2026-10-01).** `kit_track.py --tolerance` (default 6 source px): the crop lands on him at
 every cut, then holds until he is that far off its centre, and only then follows (`_shared/cut/landing.py`, off by

@@ -25,6 +25,15 @@ space. Dan: *"There's not ever any reason for you to crop horizontal videos with
 burned pill stays whole inside the card and our duplicate bar comes off for that shot (SL-05 short 3, round 3). In
 `plan_shots.py` terms: no `cardCrop` with a y range short of 0-1. Full rule: `_shared/VIDEO-RULES.md`.
 
+## Fill as much of the screen as the clip allows (Dan, 2026-10-02)
+
+A horizontal clip in a vertical or square is cropped at the SIDES to the narrowest window that keeps what the clip is
+about, at any shape between the whole clip and full screen, placed on the subject and not on the middle of the frame.
+Blank space is the exception and needs a reason in the build report (his example: the overhead salad table, "we need
+the stuff on the sides there"). A subject that moves across the frame gets a crop that travels with it. The tool:
+`shortad-from-longform/reference/kit9x16/clip_fit.py` (`decide()` returns the window, its shape and `ox`; Dan's own
+note on a clip goes in as an override and wins). Full rule: `_shared/VIDEO-RULES.md`, "Verticals and squares".
+
 ## Stand alone: show the whole exercise, not a detail of it (Dan, 2026-09-30)
 
 - **A short must make complete sense to a viewer who never saw the long-form.** Leave out details that only work
