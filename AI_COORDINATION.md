@@ -86,7 +86,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 # ACTIVE
 
-**Campaign Images R2 - NEEDS DAN 2026-10-01, Codex.** Five revisions; 15 unchanged picks. Next: approve http://127.0.0.1:52737/round2/.
+**Campaign Images R2 - APPROVED 2026-10-02.** Next: package; Google AI labels at installation. `output/campaign-images-20261001/round2/AI_LABEL_RESEARCH_20261002.txt`.
 
 
 
@@ -100,11 +100,11 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **RO-13 - NEEDS DAN 2026-10-01, Claude.** Page http://127.0.0.1:8803/. Next: `handoff-20261001-ro13-round1-dan-review.md`.
 
-**RO-10 setup - IN PROGRESS 2026-10-02, Claude.** Building 5 thumbnails; then Dan's pick, then Blotato. Detail: `handoff-20261002-ro10-thumbnails-and-video-setup.md`.
+**RO-10 - QUEUED 2026-10-02, Claude.** Blotato Oct 7. Oct 7: captions, article, Zepbound link on Oct 25. `Docs/RO10_SETUP_RECEIPT_20261002.md`, delete.
 
 **RA-01 square - IN PROGRESS 2026-10-02, Claude.** AS-13.
 
-**RO-16 setup - NEEDS DAN 2026-10-02, Claude.** Round 2 (AI belly-fat Dan): pick one, then Blotato. Sheet: `…/If I Had Belly Fat/_build-2026-10-02-ai-belly/`. `handoff-20261002-ro16-thumbnails-and-video-setup.md`.
+**RO-16 - QUEUED 2026-10-02, Claude.** Blotato Nov 1 9AM CST. Owes: RO-12 link in description after Oct 25; captions, article after Nov 1. `Docs/RO16_SETUP_RECEIPT_20261002.md`.
 
 **Studio batch - NEEDS DAN 2026-09-29, Codex.** Review 24 posts: `http://127.0.0.1:8791/`. Nothing scheduled. Package and Drive link: `output/studio-post-test-24-20260929/README.txt`.
 
@@ -210,4 +210,4 @@ Memory `google-ads-ui-automation`.
 - `handoff-20260826-danrosefit-abs-image-gap-fill.md` [dash] — once Blotato has 7 free slots.
 
 ## ACTIVE
-- **AV-05/AS-04 Ad 6 - PAUSED 2026-10-02, Claude.** Dan switching to Opus. Recover stage done; rerun `kit_run.py --from measure`. Dir: `/Volumes/Extreme/_edit_work/kit9x16/av05-ad6/`.
+- **AV-05/AS-04 Ad 6 - IN PROGRESS 2026-10-02, Claude.** Look round building. Dir: `/Volumes/Extreme/_edit_work/kit9x16/av05-ad6/`.

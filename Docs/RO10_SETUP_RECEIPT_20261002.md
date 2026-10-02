@@ -1,0 +1,16 @@
+# RO-10 "Calories: The Reason You're Not Losing Weight" setup receipt (2026-10-02)
+
+- **Classification:** organic. Closing words (8:31-8:38): "In the next video, I'm going to show you when calories don't matter for fat loss. Subscribe, and make sure you don't miss that next video." No tap/click-the-button CTA. `ad_guard.py --scan` CLEAN before and after the Blotato write.
+- **Master:** `claude edited long form content/10 - Calories The Reason You're Not Losing Weight/Calories The Reason You're Not Losing Weight | claude round 2 | 16x9 | RO-10.mp4`, 2,549,560,348 bytes, 8:38.25, SHA-256 `655c71882ea3e6baa1c71d661fdcd8465e94d972183f4969e09d2430787bb76e` (matches the handoff).
+- **Backups:** Extreme `/Volumes/Extreme/Claude Content Videos/Calories The Reason You're Not Losing Weight - RO-10/` (SHA-256 match); Google Drive `Claude Content Videos/Calories The Reason You're Not Losing Weight - RO-10` (see the note on the Drive upload in the chat report).
+- **Thumbnail:** Dan picked option 3 of 5 (the Codex AI-Dan holding the snack-cake plate on orange, "IT'S THE CALORIES"; Codex gpt-6.1-sol, reference photo photo-244). `social media graphics/youtube/thumbnails/Calories The Reason You're Not Losing Weight/Calories The Reason You're Not Losing Weight - thumbnail FINAL.jpg`, 1280x720 JPEG, 208,794 bytes. Build, prompts and the other four options in `_build-2026-10-02/`. Codex spend about 136,000 tokens (concept call 27,577 plus 5 images), no spares.
+- **YouTube:** no holding upload (Blotato-only rule). Title "Calories: The Reason You're Not Losing Weight (8 Ways To Eat Less)". Description filed as `youtube-description.md` (11 chapters, 7 sources, not-medical-advice line, AI-clip line).
+- **Blotato (Wed Oct 7 2026, 14:00Z = 9 AM CDT):** Facebook `5090245`, Instagram @danrosefit `5090246` (thumbnail as cover), TikTok `5090247` (cover-first copy, `videoCoverTimestamp: 0`, AI label on), YouTube `5090248` (public release, thumbnail URL set, synthetic media on). Verified on a fresh pull, 0 problems; queue 162 of 200. Slot chosen because Sundays Oct 4 to 25 already hold long-forms and Oct 7 is the first free long-form day; RO-11 (the next video, teased at the end) must release after Oct 7.
+- **AI flag on:** realistic AI clips (opener's two, the 0:31 kitchen clip), each labelled on screen.
+- **Media:** Blotato copy 220,923,029 bytes (h264_videotoolbox 4 Mbps at nice 20, audio stream-copied; 15,532 frames, same as the master); TikTok copy 221,014,145 bytes (15,533 frames, 24,295 audio packets unchanged, cover match 52.5 dB). Both uploads and the thumbnail matched byte counts on the public URLs.
+- **Delivery gate:** the known FAIL stamp (six detector rows, noted in `notes-RO10.md`) did not block any setup script.
+- **Edit queue:** RO-10 `uploaded`; new job SL-08 (shorts from this video) added, `ready`.
+- **Owed after Oct 7 (when the video is public):**
+  1. Upload `Calories ... RO-10.srt` as English captions (Studio, Subtitles, Upload file).
+  2. Publish `sixpackabs/articles/TBD-calories-not-losing-weight.md` (get the post id, rename to the YouTube id, `build.py` + `verify.py`).
+  3. **Add the Zepbound tips link to the YouTube description.** On camera Dan says he'll link that video in the description. It is RO-12 (public Oct 25), so it does not exist yet at release; add the link the day RO-12 goes public.

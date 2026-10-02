@@ -1496,7 +1496,7 @@
    "order": 71,
    "updated": "2026-10-02",
    "rev": 4,
-   "syncedRev": 3,
+   "syncedRev": 4,
    "by": "Claude"
   },
   {
@@ -1740,14 +1740,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/RO-10-calories-the-reason-you-re-not-losing-weight.md`: cut \"Calories: The Reason You're Not Losing Weight\" from 9/23 roll C1704 with /longform-edit. Best take of every line, every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-10-calories-the-reason-you-re-not-losing-weight.md` with `$long-form-content-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "finalized",
-   "note": "Dan approved 10-02: 'this video is approved'",
+   "state": "uploaded",
+   "note": "Blotato Oct 7 14:00Z; FB 5090245 IG 5090246 TikTok 5090247 YouTube 5090248",
    "sub": "",
    "order": 83,
    "updated": "2026-10-02",
    "by": "Claude",
-   "rev": 5,
-   "syncedRev": 5
+   "rev": 6,
+   "syncedRev": 6
   },
   {
    "id": "RO-11",
@@ -1866,14 +1866,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/RO-16-if-i-had-belly-fat-here-s-how-i-d-lose-it-in-90-da.md`: cut \"If I Had Belly Fat, Here's How I'd Lose It In 90 Days\" from 9/23 roll C1710 with /longform-edit. Best take of every line, every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-16-if-i-had-belly-fat-here-s-how-i-d-lose-it-in-90-da.md` with `$long-form-content-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "finalized",
-   "note": "Dan approved round 3 on 10-02",
+   "state": "uploaded",
+   "note": "Queued in Blotato 10-02 for Sun Nov 1 9 AM CT (FB/IG/TikTok/YouTube)",
    "sub": "",
    "order": 89,
    "updated": "2026-10-02",
    "by": "Claude",
-   "rev": 10,
-   "syncedRev": 10
+   "rev": 11,
+   "syncedRev": 11
   },
   {
    "id": "RO-17",
@@ -2130,6 +2130,50 @@
    "rev": 2,
    "syncedRev": 0,
    "by": "Claude"
+  },
+  {
+   "id": "SL-07",
+   "list": "2",
+   "group": "Shorts from long-forms",
+   "sub": "",
+   "title": "If I Had Belly Fat, Here's How I'd Lose It In 90 Days (RO-16, public Nov 1)",
+   "roll": "",
+   "size": "S",
+   "file": "SL-07-if-i-had-belly-fat-shorts.md",
+   "claudeModel": "Opus 5.5, high",
+   "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/SL-07-if-i-had-belly-fat-shorts.md`: propose the shorts segments from the RO-16 \"If I Had Belly Fat\" master and wait for my picks, then cut them with /shorts in Soft Blue Light, with gates and an independent audit (no covers; Codex does those). Deliver, send me the review copies, update the master list. Name this session \"If I Had Belly Fat SFC R1\".",
+   "codexModel": "GPT-6 Sol, high",
+   "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/SL-07-if-i-had-belly-fat-shorts.md` using `.claude/skills/shorts/SKILL.md` as the method: propose segments from the RO-16 master, wait for Dan's picks, cut, gate, deliver, update `00-MASTER.md`. Name this task \"If I Had Belly Fat SFC R1\".",
+   "state": "ready",
+   "note": "Added 10-02 at RO-16 setup; Soft Blue Light shorts; parent public Nov 1",
+   "unattended": false,
+   "unattended_why": "Job doc says show Dan the segment list and wait for picks.",
+   "order": 99,
+   "syncedRev": 1,
+   "updated": "2026-10-02",
+   "rev": 1
+  },
+  {
+   "id": "SL-08",
+   "list": "2",
+   "group": "Shorts from long-forms",
+   "sub": "",
+   "title": "Calories: The Reason You're Not Losing Weight (RO-10, public Oct 7)",
+   "roll": "",
+   "size": "S",
+   "file": "SL-08-calories-not-losing-weight-shorts.md",
+   "claudeModel": "Opus 5.5, high",
+   "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/SL-08-calories-not-losing-weight-shorts.md`: propose the shorts segments from the RO-10 \"Calories: The Reason You're Not Losing Weight\" master and wait for my picks, then cut them with /shorts in Soft Blue Light, with gates and an independent audit (no covers; Codex does those). Deliver, send me the review copies, update the master list. Name this session \"Calories Not Losing Weight SFC R1\".",
+   "codexModel": "GPT-6 Sol, high",
+   "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/SL-08-calories-not-losing-weight-shorts.md` using `.claude/skills/shorts/SKILL.md` as the method: propose segments from the RO-10 master, wait for Dan's picks, cut, gate, deliver, update `00-MASTER.md`. Name this task \"Calories Not Losing Weight SFC R1\".",
+   "state": "ready",
+   "note": "Added 10-02 at RO-10 setup; Soft Blue Light shorts; parent public Oct 7",
+   "unattended": false,
+   "unattended_why": "Job doc says show Dan the segment list and wait for picks.",
+   "order": 99,
+   "syncedRev": 1,
+   "updated": "2026-10-02",
+   "rev": 1
   }
  ]
 }

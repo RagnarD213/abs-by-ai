@@ -13,6 +13,22 @@ Last updated 2026-10-01.
   imports `scripts/blotato/ad_guard.py`; audit with `python3 scripts/blotato/ad_guard.py --scan`. See the incident below.
 - **NEW PERMANENT RULE (Dan, 2026-09-16): Blotato owns future organic YouTube releases.** Upload organic videos to YouTube as Private and leave them Private; queue the release through connected YouTube account `46963`. Never upload Public or use YouTube native scheduling. Ads remain Unlisted and are not released publicly on YouTube. Existing native schedules are historical and must not be copied into new work; avoid double-posting anything already queued under the old process.
 
+## DONE: RO-10 "Calories: The Reason You're Not Losing Weight (8 Ways To Eat Less)" (2026-10-02)
+
+Source `claude edited long form content/10 - Calories The Reason You're Not Losing Weight/... | claude round 2 | 16x9 | RO-10.mp4` (sha256 `655c7188...bb76e`). Wed Oct 7 14:00Z (9 AM CDT): FB 5090245, IG @danrosefit 5090246, TikTok 5090247 (cover-first), YouTube 5090248 (public release by Blotato). Thumbnail: Codex AI-Dan snack-cake design (option 3 of 5). Keyword FOOD, utm_content `ro10-calories-not-losing-weight`, AI flags true. Receipt `Docs/RO10_SETUP_RECEIPT_20261002.md`.
+
+## DONE: RO-16 "If I Had Belly Fat, Here's How I'd Lose It In 90 Days" (2026-10-02)
+
+Master `claude edited long form content/09 - If I Had Belly Fat, Here's How I'd Lose It In 90 Days/...round 3 | 16x9 | RO-16.mp4`, SHA-256 `c535ab4c…da02643b09` (3,986,257,903 bytes, 12:09.33); same file + .srt on the Extreme drive and Google Drive (`Claude Content Videos/If I Had Belly Fat - RO-16`, folder `1XMLlis1pS0UkoH6AsKg0m-6LiQRvWR1T`, anyone with the link). No YouTube holding copy (Blotato-only rule): Blotato creates the public video with Dan's FINAL thumbnail (AI belly-fat Dan on fast-food background), synthetic media on.
+
+| FB · IG @danrosefit · TikTok · YouTube |
+|---|
+| Sun Nov 1, 9 AM CST = 15:00Z (`5090105` / `5090106` / `5090108` / `5090110`) |
+
+- Blotato copy 269 MB (h264_videotoolbox, audio stream-copied, 21,858 frames, same as the master). TikTok: cover prepended as frame 0, `videoCoverTimestamp: 0`, AI label on. Re-hosted files MD5-matched.
+- Keyword `FOOD`; UTM `utm_content=ro16-belly-fat-90-days`. Config `scripts/blotato/configs/ro16-belly-fat-90-days.json`. Receipt `Docs/RO16_SETUP_RECEIPT_20261002.md`.
+- Owes: after Oct 25 add the RO-12 link to the YouTube description (`5090110`); after Nov 1 English captions, publish sixpackabs article `sixpackabs/articles/TBD-if-i-had-belly-fat.md`. Shorts job SL-07 READY.
+
 ## DONE: SL-05 Stop Deadlifting shorts x5 (2026-10-01)
 
 FB, IG @danrosefit, TikTok and YouTube (Blotato creates it at release; no holding upload), 9 AM CDT, keyword `TRAIN`. AI flag on for shorts 1, 2, 3, 4; off for 5. Queue 137 to 157; ad-guard clean before and after.
