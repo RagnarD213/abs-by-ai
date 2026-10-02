@@ -674,3 +674,5 @@ descriptions with lines that sell the click and fit any video or image. One typo
 ("apps hows" to "app shows"). Before and after table and the lessons: skill `/ad-copy`.
 
 **2026-10-02 12:59 PM CT: budget changed from $15 to $5/day in the Ads interface** (change history, web client). At $5/day to the 11-01 end date the campaign spends about $150 of the $450 credit; the credit expires 11-30.
+
+**2026-10-02, long headlines and descriptions rewritten on all 12 ads of `24316364155`** (Dan: make them persuasive, in his voice, per his Performance Max edit). Headlines untouched. 36 lines: 9 kept or his own from before, 13 slots filled with his exact Performance Max lines, 14 new in his shapes. Builder and the lines: `scripts/ads/api/dgen-trial-longcopy-20261002.js`; old copy in `scripts/ads/api/dgen-ads/trial-longcopy-20261002.before.json`. All 12 ads went back to review; recheck with `node scripts/ads/api/client.js policy 24316364155`. Remarketing `24305381214` still carries the old long lines.
