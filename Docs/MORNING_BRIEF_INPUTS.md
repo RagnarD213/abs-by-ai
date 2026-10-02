@@ -1,6 +1,6 @@
 # Private morning brief inputs
 
-Status: local collection is implemented and manually proven. Daily delivery and private page access are not enabled. This is the Mac-side input helper, not the full morning brief.
+Status: local collection is manually proven. Owner-login, private page and validated publication code are implemented and tested locally. Google client/runtime setup and production proof remain incomplete. Daily delivery is not enabled.
 
 ## Requirements settled in the September 30 interview
 
@@ -42,7 +42,7 @@ The old next-day-plan file is supporting context only, usable when its `forDate`
 
 ## Private configuration and mapping
 
-Store configuration outside Git and pass it with `--config`. Supported keys are `planning_session_ids`, `claude_metadata_root`, `claude_transcript_root`, `trello_snapshot`, `google_ads` and `site_events`. Paths can be supplied as absolute paths. Do not put credentials in this file.
+Store configuration outside Git and pass it with `--config`. Supported keys are `planning_session_ids`, `claude_metadata_root`, `claude_transcript_root`, `trello_snapshot`, `social_queue_snapshot`, `google_ads` and `site_events`. Paths can be supplied as absolute paths. Do not put credentials in this file.
 
 `google_ads` accepts `customer_id` and `conversion_actions`. Each outcome key (`free_generations`, `email_leads`, `trials`, `paid`) maps to a nonempty array of verified conversion-action IDs. IDs must exist in the current account and cannot overlap outcomes. Available actions and observed attributed counts are included privately for verification. Names alone do not establish whether an action measures a completed generation, captured lead, trial or collected payment. Unmapped outcomes remain null. Fractional attribution is preserved, and YouTube subscribers are never estimated as customers.
 
@@ -70,4 +70,20 @@ The September 30 manual proof selected that day's human sales-page priority; a s
 
 The remaining product work is Trello board/list access, the exact measurement decisions in `Docs/MORNING_BRIEF_MEASUREMENTS.md`, Daniel-only page authorization and persistent sessions, a private path from the linked Mac to the brief writer, and one manually grounded dot brief reviewed by Daniel. The writer can supply its connected Gmail and Calendar evidence without adding local adapters. Current dashboard access uses a shared secret rather than a Daniel-only Google identity; the exact proposed Google setup is in `Docs/MORNING_BRIEF_GOOGLE_SIGN_IN.md`. The proof does not confirm dot access to the Mac or enable any recurring run. No OAuth grants, authentication changes, image generation or schedule were made here.
 
-Exact pushed commit `e3fb909` has no GitHub Actions runs or check runs. The existing Vercel integration automatically attempted a deployment and failed because `ANTHROPIC_API_KEY` references missing secret `anthropic_api_key`. This is not a passing CI result or a local test failure. No deployment settings were changed. Further work in this phase is held locally because another push would trigger that deployment integration while deployment is expressly out of scope.
+Exact pushed commit `e3fb909` has no GitHub Actions runs or check runs. The existing Vercel integration automatically attempted a deployment and failed because `ANTHROPIC_API_KEY` references missing secret `anthropic_api_key`. This is not a passing CI result or a local test failure. Daniel approved the scoped follow-up push with that disclosed automatic attempt on October 2. Production is verified on Railway; see `Docs/MORNING_BRIEF_GOOGLE_SIGN_IN.md`. No Vercel secrets/settings are changed as part of this task.
+
+## Private page and writer contract
+
+`scripts/brief/web` replaces the brief route with a separate Google owner gate before existing shared-secret/static routing. Its structured document validator whitelists text fields, limits the main reading budget, rejects stale/future current-priority claims and unsafe links, keeps missing counts null, and disallows a claim that publication enables the routine. The page shows the edition's real date and warns when it cannot establish today's priority. No raw transcript or arbitrary HTML is rendered.
+
+The writer saves a private schema-version-1 document outside Git, then runs `python3 scripts/brief/publish_brief.py /private/path/edition.json` to validate only. Adding `--publish` sends the validated document to the fixed production ingest endpoint with the separate private publication credential. The publication route fails closed until that credential exists. The reader's Google session cannot publish or access the older dashboard APIs. Google client configuration and actual owner/device proof must precede private publication.
+
+The parent-authored September 30 proof is stored outside Git and explicitly retrospective, based on September 29 measurements. A separately validated structured edition preserves that date. Neither establishes an October 2 priority, a production-page proof or a scheduled routine.
+
+## Social release queue
+
+Show urgent/tomorrow review flags, then an expandable next-seven-days queue to keep the main brief short. Each row preserves its source ID, platform/account, scheduled time, title/caption, cover review link when observed, review link when known, and explicit cover/description/link/duplicate/asset-match statuses. `missing`, `unverified` and `not_applicable` are distinct. A Facebook payload with no cover field is unverified, not proof of a missing installed cover.
+
+`social_queue.py` normalizes independently collected private Blotato and YouTube Studio snapshots plus completed URL checks and private reviewer flags. It never requests or mutates a schedule. The collector accepts a normalized private `social_queue_snapshot` and expires it after 12 hours. Native Studio schedules must be checked separately using the existing authorized channel's complete uploads playlist and `videos.list` publish times. Do not treat a missing Studio read as an empty native queue. Duplicate checks preserve rows and compare within verified account mappings; uncertain cross-provider account mapping still requires review.
+
+The October 2 read-only research found 34 Blotato platform releases plus 2 native Studio schedules in its rolling seven-day window. Its private snapshot includes specific preflight review flags. It stays separate from the September 30 retrospective edition. No post was changed. The later routine must recollect before using this snapshot as current.

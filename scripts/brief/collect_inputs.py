@@ -328,6 +328,8 @@ def collect(args):
     trello_path = Path(config.get("trello_snapshot", str(state_dir / "trello.json"))).expanduser()
     trello = select_trello(snapshot(trello_path, now, 24), now)
     sources = {"planning": planning, "trello": trello}
+    queue_path = Path(config.get("social_queue_snapshot", str(state_dir / "social-queue.json"))).expanduser()
+    sources["social_release_queue"] = snapshot(queue_path, now, 12, "checkedAt")
     sources["legacy_next_day_plan"] = legacy_plan(Path.home() / ".claude/scheduled-tasks/abs-by-ai-morning-brief/next-day-plan.json", now)
     window = windows(now)
     sources["editor_deliveries"] = snapshot(project / ".claude/skills/editor-deliveries/state.json", now, 30, "last_run")

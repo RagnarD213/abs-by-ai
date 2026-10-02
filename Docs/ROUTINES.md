@@ -2,7 +2,7 @@
 
 ## Abs By AI morning brief
 
-Status: **partial setup, disabled**. The local input collector and focused tests are implemented. A manual input-collection run has been proven. The dot's complete brief and the private page have not been proven. No scheduler was installed or changed.
+Status: **partial setup, disabled**. Collection and one retrospective parent dot reasoning pass are proven privately. Owner-login, private page, validated publication and social-queue review code are implemented and tested locally. Google client/runtime configuration, production login and cross-device proof remain incomplete. No scheduler was installed or changed.
 
 | Item | Design or current state |
 | --- | --- |
@@ -14,7 +14,7 @@ Status: **partial setup, disabled**. The local input collector and focused tests
 | Requirements and operation | `Docs/MORNING_BRIEF_INPUTS.md` |
 | Draft assignment | Below; not installed or scheduled |
 | Claude routine | Must remain disabled; its scheduler was not modified or independently verified here |
-| Open prerequisites | Trello board/list access, exact outcome decisions, Daniel-only page access, private Mac-to-writer access and a reviewed dot proof; the parent writer can use its connected Gmail/Calendar |
+| Open prerequisites | Dedicated Google client/runtime setup, production/device proof, private Mac-to-writer access and connected Gmail/Calendar intake. Trello is deliberately deferred; exact business outcome mappings remain unknown. |
 
 The September 30 interview supersedes the handoff's 6:05/6:30 timings, chat/text delivery, label-only Gmail scope and proposal to push input data to the repository. The repository can carry code and sanitized documentation; personal source data remains private. Board maintenance and old pinned reminders do not become priorities automatically.
 
@@ -26,6 +26,12 @@ Prepare a two-to-three-minute brief with exactly one first action. Use the lates
 
 Use verified yesterday context, including actual completion or a response from Daniel. Do not assume an unread brief means unfinished work. Surface genuine customer, collaboration and sponsorship messages regardless of opportunity size, plus messages that unlock the current plan. Show concise campaign spend and distinct free-generation, email-lead, trial and paid figures only where their mappings are verified. Keep site visitors and conversion events for absbyai.com and sixpackabs.com separate. Explain unknown metrics briefly. Recommend an Ads change only when evidence supports it.
 
-Include calendar conflicts and actionable editor deliveries when fresh. Include YouTube-derived actions and practical model/skill/plugin improvements only when they help current work. A stale watch feed is not a fresh recommendation. Omit filler, general AI news and automatic lists of aging reminders. Do not use an em dash or an en dash.
+Include calendar conflicts and actionable editor deliveries when fresh. Include urgent/tomorrow social release flags plus an expandable seven-day queue checked from both Blotato and native YouTube Studio schedules. Preserve individual platform releases and classify preflight missing/unverified/not-applicable separately. Never change a post as part of brief collection. Include YouTube-derived actions and practical model/skill/plugin improvements only when they help current work. A stale watch feed is not a fresh recommendation. Omit filler, general AI news and automatic lists of aging reminders. Do not use an em dash or an en dash.
 
 For the proof, return a reviewable draft to Daniel. Do not publish a page, send a notification, send email, edit external data, generate images or enable a schedule. After Daniel reviews the proof and the remaining access work is complete, install the separately authorized page-update routine. The intended ready time is 7:30 AM America/Chicago; choose collection lead time based on measured runtime.
+
+### October 2 implementation checkpoint
+
+Daniel authorized the dedicated identity-only client and scoped push, including the disclosed Vercel attempt. Production is verified on Railway. The implementation session has no browser/computer control or Google Cloud credential-management connector, and Google Console cannot be opened through its web tool. Parent/Daniel must complete the Console client step, then configure the existing Railway service privately. See `Docs/MORNING_BRIEF_GOOGLE_SIGN_IN.md` for exact fields and proof requirements.
+
+Fresh collection on October 2 succeeded and selected that day's explicit Claude planning priority rather than the September 30 plan. A private writer document and source handoff are prepared outside Git, with connected inbox intake still pending. The separate queue snapshot includes 36 releases and private review flags. Personal imagery remains unconfigured. The coordination board at this branch's base is already exactly 2,500 words with no entry owned by this task; this open checkpoint is recorded here without compressing another owner's entries.

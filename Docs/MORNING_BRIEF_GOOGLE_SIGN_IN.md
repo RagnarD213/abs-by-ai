@@ -1,6 +1,6 @@
 # Private morning brief: Google sign-in prerequisites
 
-This is a proposed setup and implementation plan, not a configured login. No credentials, grants, consent settings, sessions, allowlists or live routes were created or changed.
+The owner-login and private page code is implemented and tested locally. Live login is not configured. No Google credentials, grants, consent settings or live permissions have been changed. Daniel approved the dedicated client for his chosen account and the scoped push on October 2; that identity stays in private runtime configuration.
 
 ## Existing architecture
 
@@ -8,7 +8,7 @@ At source baseline `e3fb909`, product accounts use email/password and Postgres s
 
 The `/morningbrief` HTML page instead uses `DASH_SECRET` with an `absbyai_dash` signed HttpOnly cookie lasting one year. Its shared secret and dashboard API header do not identify Daniel. An existing product Bearer token cannot authenticate an ordinary HTML navigation by itself. Google sign-in is not implemented. The product users table requires both a password hash and device ID, so a brief-only identity should not silently create a product account or alter billing/credits.
 
-Recommended implementation: a separate brief-owner session, backed by a pinned Google subject (`sub`), with a persistent HttpOnly, Secure, SameSite=Lax cookie. Use a 90-day device session as the initial default, with renewal while active. Every brief HTML/data/image route must enforce the same owner gate. Store actual brief data and personal images outside public Git and `public/`; the current web gate cannot make a public GitHub file private. Keep product login and dashboard behavior outside this narrow change.
+Implemented in `scripts/brief/web`: a separate brief-owner session, backed by a pinned Google subject (`sub`), with a persistent HttpOnly, Secure, SameSite=Lax cookie. Random session tokens are stored only as hashes in separate private Postgres tables, last 90 days, renew after 30 days of use and are revoked on logout. Every brief HTML/data/image route enforces the same owner gate before the shared dashboard gate or public static files. Private structured editions and optional image bytes live in these tables, never public Git. Product login and dashboard behavior remain separate.
 
 ## Exact proposed Google client setup
 
@@ -24,9 +24,9 @@ Recommended implementation: a separate brief-owner session, backed by a pinned G
 | Branding homepage / privacy / terms | `https://absbyai.com/`, `https://absbyai.com/privacy`, `https://absbyai.com/terms` |
 | Authentication scopes | Default identity scopes only: `openid`, `email`, `profile` |
 | New runtime public configuration | `BRIEF_GOOGLE_CLIENT_ID` |
-| Private owner configuration | Confirm Daniel's exact Google account, then pin its verified `sub` as `BRIEF_OWNER_GOOGLE_SUB`. Keep it outside Git. |
+| Private owner configuration | `BRIEF_OWNER_EMAIL` is Daniel's approved exact Gmail account. The first successful Google-verified token for that exact address atomically pins its `sub` in the private database. Optional `BRIEF_OWNER_GOOGLE_SUB` adds an explicit configuration check. |
 
-The proposed callback route does not exist yet. Use a Google Identity Services button with redirect mode; its credential POST is handled only by the proposed endpoint. Verify Google's CSRF cookie/body token, ID-token signature, exact audience, issuer and expiry with `google-auth-library`, then enforce the pinned owner identity before creating a session. Account linking, if requested later, must prove ownership of the existing product account rather than trusting an email match alone.
+The callback code uses a Google Identity Services button in redirect mode. It verifies matching CSRF cookie/body tokens and uses Google's official `google-auth-library` for signature, audience, issuer and expiry. The token must also have the exact configured verified Gmail address; only that owner can initialize the persistent subject pin. Later tokens must match the pin. No arbitrary first-user bootstrap or product account linking exists. The compatible verifier dependency is pinned to version 10.0.0 for this backend's Node 18 runtime; its signature verification is exercised with synthetic keys in the tests.
 
 A client secret, refresh token, offline access, Gmail scope, Calendar scope and Ads scope are not needed for this ID-token sign-in design. The dot's Gmail/Calendar access remains a separate connection. The existing `GOOGLE_CLIENT_ID` is an Ads client whose documented registered redirect is OAuth Playground; use a dedicated client and do not repurpose it or change its existing grant/consent status.
 
@@ -34,10 +34,16 @@ For later local OAuth testing only, register `http://localhost` and one fixed `h
 
 ## Decisions and authorization still needed
 
-1. Confirm which exact Google account should own the private brief. The Ads access account in older project documents is evidence of Ads access, not confirmation of Daniel's preferred sign-in identity.
-2. Get explicit authorization for creating the dedicated OAuth web client and any necessary branding/domain configuration. The current request expressly holds credential/grant and live access changes. Daniel handles any passkey/account confirmation or consent prompt.
-3. Confirm the client ID and pinned owner subject privately, then authorize the scoped authentication implementation and production rollout separately. No other Google user should obtain a brief session. Do not bootstrap ownership from the first arbitrary Google login.
+1. Daniel confirmed his preferred owner account and approved client creation on October 2. Configure it privately as `BRIEF_OWNER_EMAIL`; do not infer it from the Ads grant.
+2. Create the dedicated OAuth web client with the exact Console fields above. Browser/computer control is not exposed in this implementation session, and no Google Cloud credential-management connector is available. Console creation therefore needs Daniel's handoff or the parent's authorized browser workflow. Daniel completes credential/passkey, binding agreement or security-sensitive permission steps that require handoff/confirmation.
+3. Set the returned client ID and approved owner email on the existing Railway service. Set a separate random `BRIEF_INGEST_SECRET` of at least 32 characters for private publication, kept only in private local/runtime configuration. This is not a Google client secret. No Google scopes beyond identity are needed. Deploy the scoped code on the existing Railway service, then prove owner login and wrong-account denial before publishing private content.
 4. Prove persistent sessions on iPad Safari, phone and desktop, including refresh, restart, logout and a different Google account being denied. Browser storage behavior must be tested, not promised.
+
+## Hosting and current proof boundary
+
+On October 2, `absbyai.com` resolved to `blz3qyjz.up.railway.app`; HTTPS returned `Server: railway-hikari` and Railway edge/request headers. Railway serves production. The old Vercel deployment guide is historical. The separate Vercel integration still attempts feature-branch deployments and currently fails on its missing Anthropic secret. Do not move production, alter that secret or claim a Vercel failure is a Railway deployment failure.
+
+Local HTTP tests prove unauthenticated and other-account denial, tampering/CSRF rejection, restart-persistent database sessions, renewal/logout, private publication validation and page/data/image gates. They use only synthetic identities and an in-memory database. Real Google login, production deployment, actual Safari persistence and visual QA remain unproven. Nothing schedules or enables the routine.
 
 ## References
 
