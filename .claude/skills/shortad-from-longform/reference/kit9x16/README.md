@@ -200,6 +200,34 @@ captions ends above the caption line (`media_card_scene(caps=True)`).
   and grade) + his zoom from `auto/framing.json` + `from_plan.py` lower thirds and 3A card + title card, tally chip and
   media cards laid out at 1920x1080 through a second copy of `vertical.py`. Dan has not approved it yet.
 
+### The full build on a master, in Soft Blue Light (2026-10-03, Ad 13 round 3; recipe `../ad13-r2/`)
+
+For Dan: the first full vertical on this path passed the gate (39 rows) after four renders. Every re-render came from a
+judge finding, and each cost about an hour, so the checks below go BEFORE the first full render next time.
+
+* **Check the picture take against his master before rendering.** The recovery laid another take of a repeated line
+  under his words (segments 60 and 61: roll 266.9 where his audio is roll 370.9; 2.3 s of lips not matching at 3:48).
+  For every picture segment whose `src_in` differs from its audio segment's by more than a second, compare three frames
+  with his master. The fix is in `edl_picture.json`; after it NEVER rerun `kit` (it rewrites the file) or `track`
+  (it drops hand patches): rerun `kit_base.py`, the track by hand, then `--from graphics`.
+* **`render.py` crop steps are on the frame grid now** (`_SEGS` / `_SPLICES` from `n0`, expression time from the seek
+  point): the crop used to move one frame before or after the picture at cuts whose `cut_in` or beat `t0` sat off the
+  grid (judges: 2:14.9, 3:20.0 early; 2:10.3, 2:16.0, 2:51.9 late).
+* **A phone lift from his master is cropped to the bare screen** (`round3/phone_screens.py` in the build: inner bezel
+  edge, corners painted with the screen's colour). His bezel and grid inside our card read as a phone in a phone, and
+  judges and the reviewer both block it. The same goes for WV-01's phone shells: crop to the app screen.
+* **A real photo of Dan on a phone screen needs the real label for as long as it shows** (`label_kind` + card-relative
+  `label_spans` on the picture in the copy file). `sbl_graphics.py` used to subtract `t0` from spans that were already
+  relative, so the chip never drew. A label added after `kit` has run must also be put in `beats.json` by hand.
+* **One hold past the gate's centring bound at `--tolerance 12`** (7.4 % at 3:14): splice that segment's samples from a
+  `--tolerance 0` track into `facetrack.json`; never touch the bound.
+* **Keep the judged round before re-rendering.** `prewatch` overwrites `watch/`. Copy `watch/`, `negscan/` and
+  `logs/findings_part*.json` to `roundN/judged_vK/{watch,negscan,logs}` first, then `carry_verdicts.py --prev` it. When a
+  new label splits a card, later strips are renumbered: match them by the name after the number.
+* **The horizontal** (`../ad13-r2/h16x9_full.py`): flashes measured off his master, phones as full-screen phone cards,
+  no burned captions (declared in the plan with the reason). Its gate cannot measure three framing rows (no per-shot
+  window data) and fails `cut:jump_cut` on his own same-framing cuts until they get a zoom step.
+
 ### Ad 6 lessons (2026-10-02, AV-05 + AS-04)
 
 * The copy file gained four tools (`master_to_sbl.py` docstring): a lower third entry with `"fact"` turns his corner

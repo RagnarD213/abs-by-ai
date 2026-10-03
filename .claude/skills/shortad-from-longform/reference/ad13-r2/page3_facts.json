@@ -1,0 +1,78 @@
+{
+ "intro": "Everything you authorized in round 2 is built: the finished vertical, its 59 second cut, the full new horizontal in Soft Blue Light, both opener clips in motion, the new P03 phone capture, and the square look. <b>Nothing was uploaded and the live horizontal in Google Ads is untouched.</b> Click any video's timeline to jump around.",
+ "locked": "Your round 1 and round 2 approvals: audio and colour, centering, the opener START and END frames, P06, P09 to P11, P20, P22, the horizontal's first-minute graphics and its desktop YouTube page. Muhammad's edit and audio mix (his audio is bit-for-bit his in all three files).",
+ "decisions": [
+  "<b>Horizontal: three of Muhammad's own cuts.</b> His live ad has one visible jump at 2:14.9 (same framing, his head and hands move) and two one-frame mouth snaps at 3:02 and 3:40. The new horizontal copies his cuts exactly, so it has them too, and our quality gate fails it on that one row. <b>A (recommended):</b> I add a small zoom step at those three cuts so they read as deliberate, then it passes. <b>B:</b> leave them exactly as in his live ad.",
+  "<b>P03 on the vertical (0:24).</b> It is now the real mobile YouTube page with the whole video playing, cut off under the comments row, captions on the dark area beneath. I could not record your iPhone (the iPhone Mirroring request was declined on screen), so this is YouTube's phone web page, which shows the channel and 2.6M views but not the 4.47M subscriber count. <b>A (recommended):</b> approve it. <b>B:</b> you allow iPhone Mirroring next session and I record the YouTube app itself, which shows the subscriber count.",
+  "<b>The square look.</b> Approve the square graphics below so I can build the square files (full and 59 seconds), or give notes.",
+  "<b>The finished vertical and its 59 second cut.</b> Approve them for setup (Unlisted, through the ad setup task), or give notes by timestamp.",
+  "<b>The horizontal's two new layouts.</b> The three phones Muhammad showed beside you are full-screen phone cards here (you are off screen for 2 to 6 seconds each), and the closing button is a new 16:9 layout. Approve, or say what to change."
+ ],
+ "films": [
+  [
+   "full/Ad 13 9x16 round 3 - full - REVIEW 540p.mp4",
+   "stills/vertical.jpg",
+   "Vertical 9:16, full (4:04.9)",
+   "masters/Ad 13 9x16 round 3 - full 1080x1920.mp4"
+  ],
+  [
+   "full/Ad 13 9x16 round 3 - 59s cut - REVIEW 540p.mp4",
+   "stills/cut59.jpg",
+   "Vertical 9:16, 59 second cut (0:54.3)",
+   "masters/Ad 13 9x16 round 3 - 59s cut 1080x1920.mp4"
+  ],
+  [
+   "full/Ad 13 16x9 round 3b - full - REVIEW 540p.mp4",
+   "stills/horizontal.jpg",
+   "NEW horizontal 16:9, Soft Blue Light, full (4:04.9)",
+   "masters/Ad 13 16x9 round 3b - full 1920x1080.mp4"
+  ]
+ ],
+ "films_note": "The 59 second cut keeps four parts of the full ad: the hook (0:00 to 0:15), the trainer's deal (0:56 to 1:12), \"Here's what I did instead\" (2:15 to 2:22) and the close (3:49 to the end). Seams at 0:15, 0:31 and 0:38.",
+ "decided": [
+  "<b>Opener motion:</b> the first take of each clip was clean, so there were no retries. 4 seconds each (3.7 used), generated at 720 and upscaled to 1080. I checked every frame of the last two seconds for hands, the bar, faces and the box, and two independent reviewers checked it again. Spend: about $1.36 of the $5 allowed for this video.",
+  "<b>Lip sync fix at 3:48:</b> the kit had laid a different take of the same line under his words for 2.3 seconds. Found while building the horizontal, confirmed against Muhammad's master, fixed in both formats.",
+  "<b>One-frame crop jumps at cuts (vertical):</b> the judges caught the crop moving one frame before or after the picture cut at several cuts. That was a timing bug in our renderer. Fixed there, so every future vertical gets the fix.",
+  "<b>Centering:</b> your approved calmer camera everywhere, except one two-second shot at 3:14 where it left you past the gate's 6% limit; that shot follows you tightly.",
+  "<b>Every phone is one device now:</b> Muhammad's phone recordings carried his own phone frame and background inside our card. All are cropped to the bare app screen. I did the same to your approved workout and recipe demos (P20, P22): same screens and taps, without their phone shell, so all phones match.",
+  "<b>Real-picture labels:</b> your deck-chair photo on the app screens at 2:28 and 3:51 now carries \"Real picture of me - not AI-generated\" while it is visible (it was missing; the 3:51 one was a timing bug, also fixed in the skill).",
+  "<b>Lower third at 2:11</b> (\"Much Of This Industry Is Built On You NOT FINISHING\") now appears on \"much\" instead of leaving an empty box for two seconds. <b>Caption fix:</b> \"pre-workouts\" was split as \"-workouts\".",
+  "<b>Left as Muhammad made them:</b> his own \"AI-generated video\" text on the shaker clip at 1:38 (no clean original exists, and erasing it smeared the picture), and the before photo at 0:38 with no label, as in his master.",
+  "<b>Horizontal, kept from his master:</b> his food shots, the flag photo and his meal tracker (you scoped those swaps to the vertical). The laptop shot at 1:51 is the vertical's clip, because his carries his burned olive total. No burned captions, like his master and the first minute you approved.",
+  "<b>Horizontal wording:</b> the lower third at 1:27 is on two lines so \"If You Quit, You'll Be Back.\" fits. The $1,050 corner total ends when the next list card starts, because the card uses that corner.",
+  "<b>Known and not fixed:</b> on most talking shots the horizontal's picture runs one frame (33 ms) behind his master. The reviewer could not see it; I will correct it in the next build. A desktop mouse pointer shows on two of his phone recordings, as in his master.",
+  "<b>59 second cut:</b> the picker kept the hook, the trainer's deal, \"Here's what I did instead\" and the close. One thing to know: the same trainer-on-his-phone clip appears at 0:12 and again at 0:24 (in the full ad those two uses are 54 seconds apart). Say so if you want a different clip in the second spot.",
+  "<b>Square page:</b> the stills were drawn before the phone crops, so the one phone still shows the older phone frame; the square files will use the bare screens. Two of the three button stills were caught mid fade-in; the third shows it settled.",
+  "<b>Nothing uploaded, nothing filed in the ad folder.</b> The three full-size files are linked under each player."
+ ],
+ "new": [
+  [
+   "Opener, vertical (0:00 to 0:03.7)",
+   "stills/opener_9x16.jpg",
+   "context/OPENER-9x16-context - REVIEW 540p.mp4",
+   "First 10 seconds of the vertical. AI-GENERATED label top right; the hook lower third sits under all three faces."
+  ],
+  [
+   "Opener, horizontal (0:00 to 0:03.7)",
+   "stills/opener_16x9.jpg",
+   "context/OPENER-16x9-context - REVIEW 540p.mp4",
+   "First 10 seconds of the horizontal."
+  ],
+  [
+   "P03, vertical (0:24.6 to 0:31.6)",
+   "stills/p03_9x16.jpg",
+   "context/P03-9x16-context - REVIEW 540p.mp4",
+   "The real mobile YouTube page, whole video visible, cut off under the comments row, captions beneath."
+  ]
+ ],
+ "square_note": "First square in Soft Blue Light, so it gets its own look round before any square file is built (your standing rule). Same graphics and wording as the vertical, laid out for 1:1: lower thirds and list cards at the bottom, captions at the lower line and lifted above a list card. The square opener is the top square of the vertical clip.",
+ "checks": [
+  "Audio in all three files is Muhammad's mix, stream-copied: identical checksum on the horizontal, cut only at the three seams on the 59 second cut.",
+  "Judges: every cut of the vertical was watched as consecutive frames by independent judges over four renders (314 images, 0 open defects). The horizontal had an independent reviewer twice and a 210-image watch pass (0 open defects).",
+  "Horizontal rows not measured: three framing rows (headroom, wide level, push coverage). The horizontal builder does not export the per-shot data the gate reads; his zooms and hair clearance were checked by eye against his master.",
+  "Spend this round: about $1.36 for the two opener clips and $0.39 for the cutdown's sentence picker. Image generation: none."
+ ],
+ "reply": "1 Horizontal cuts: A add zoom steps at the three cuts (recommended) / B leave as his\n2 P03 vertical: A approved (recommended) / B record the iPhone app\n3 Square look: approved, build the square files / notes:\n4 Vertical and 59 second cut: approved for setup / notes by timestamp:\n5 Horizontal phone cards and closing button: approved / change:\nAnything to overrule in What I decided:\nOther notes by timestamp:",
+ "cut_gate": "/Volumes/Extreme/_edit_work/kit9x16/av11-ad13/cut/gate_final.json",
+ "h_gate_plain": "The failing row is Muhammad's own same-framing cuts (decision 1). The gate lists ten cut pairs; the reviewer watched each one and found one visible jump and two one-frame snaps, with the rest hidden by flashes or not visible."
+}

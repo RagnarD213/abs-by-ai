@@ -58,7 +58,7 @@
    "parts": [
     [
      "Much Of This Industry Is Built On You NOT FINISHING",
-     "built"
+     "much"
     ]
    ]
   },
@@ -250,7 +250,18 @@
     "media": "phone_04453",
     "kind": "card",
     "phone": true,
-    "caps": false
+    "caps": false,
+    "label_kind": "real",
+    "label_spans": [
+     [
+      0.0,
+      0.8
+     ],
+     [
+      1.8,
+      2.035
+     ]
+    ]
    },
    {
     "media": "auto_07028",
@@ -292,7 +303,7 @@
   ],
   "auto_00736": [
    {
-    "media": "yt3min_9x16",
+    "media": "yt3min_phone",
     "kind": "bleed",
     "flash_after": true
    }
@@ -344,12 +355,12 @@
   ],
   "phone_04453": [
    "vid",
-   "assets_sbl/phone_04453.mp4",
+   "assets_sbl/phone_04453_screen.mp4",
    0.0
   ],
   "phone_05640": [
    "vid",
-   "assets_sbl/phone_05640.mp4",
+   "assets_sbl/phone_05640_screen.mp4",
    0.0
   ],
   "before_deckchair": [
@@ -360,11 +371,6 @@
    {
     "oy": 0.0
    }
-  ],
-  "yt3min_9x16": [
-   "vid",
-   "assets_sbl/yt3min_9x16.mp4",
-   0.0
   ],
   "studio_gray_79": [
    "img",
@@ -382,45 +388,40 @@
   ],
   "phone_workout": [
    "vid",
-   "assets_sbl/phone_workout_crunch.mp4",
+   "assets_sbl/phone_workout_crunch_screen2.mp4",
    0.0
   ],
   "phone_recipes": [
    "vid",
-   "assets_sbl/phone_recipes_two_taps.mp4",
+   "assets_sbl/phone_recipes_two_taps_screen2.mp4",
    0.0
   ],
-  "opener_start": [
-   "img",
-   "assets_sbl/opener_start_9x16_placeholder_v2.png",
-   0,
-   1.0,
-   {
-    "oy": 0.0
-   }
+  "opener_motion": [
+   "vid",
+   "assets_sbl/opener_motion_9x16.mp4",
+   0.0
   ],
-  "opener_end": [
-   "img",
-   "assets_sbl/opener_end_9x16_placeholder_v2.png",
-   0,
-   1.0,
-   {
-    "oy": 0.0
-   }
+  "yt3min_phone": [
+   "vid",
+   "assets_sbl/yt3min_phone_capture.mp4",
+   0.0
+  ],
+  "auto_06914": [
+   "vid",
+   "assets_sbl/auto_06914_screen.mp4",
+   0.0
+  ],
+  "auto_06945": [
+   "vid",
+   "assets_sbl/auto_06945_screen.mp4",
+   0.0
   ]
  },
  "add_pictures": [
   {
    "t0": 0.0,
-   "t1": 1.85,
-   "media": "opener_start",
-   "kind": "bleed",
-   "label_kind": "ai"
-  },
-  {
-   "t0": 1.85,
    "t1": 3.7,
-   "media": "opener_end",
+   "media": "opener_motion",
    "kind": "bleed",
    "label_kind": "ai",
    "his_flash": false

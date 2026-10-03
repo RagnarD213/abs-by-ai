@@ -150,8 +150,7 @@ test starts. `BLOTATO_QUEUE_PROGRESS.md`
 540 day` list, Phase 2 if the Demand Gen draft exists. ⚠ No pointer events or `await` in `javascript_tool` on a busy Ads
 tab; stop rather than click into spinners. `Handoffs/handoff-20260908-google-ads-custom-segments.md`
 
-**Ad 4 vertical masters — HELD (baseline 2026-09-15; age unknown)** in `/Volumes/Extreme/_edit_work/ad4-vert/` (`deliver4.py` refuses the −0.9 dBTP verbatim
-stamp). Next: after Dan approves, deliver masters and check off the verticals row. Skill [A8].
+**Ad 4 V/S/Sh (AV-03 + AS-02) - BUILDING 2026-10-03, Claude.** Re-grade of the held vertical, then square, in `/Volumes/Extreme/_edit_work/AV-03/`. Next: four files to Dan on one review page. `handoff-20261001-ad4-other-formats.md`.
 
 **Shorts parked behind the long-form hold. (baseline 2026-09-15; age unknown)** Zepbound (8) + Supplements (8) need the new spray-tan sound
 (`Handoffs/handoff-20260909-audio-match-muhammad.md`); nothing posts until a parent long-form is public.
@@ -178,16 +177,14 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
-- `handoff-20261003-cart-apple-pay-fix.md`: DEPLOYED 10-03, Dan's iPhone test left.
+- `handoff-20261003-cart-apple-pay-fix.md`: DEPLOYED, Dan's-iPhone-test.
 - `handoff-20261003-ro10-vertical-round4-full-build.md`: BUILDING 10-03, Claude.
 - `handoff-20260930-codex-adopt-review-page-format.md` (09-30). Sol medium.
-- `handoff-20261003-codex-adopt-hyperframes-graphics.md` (10-03). Sol high.
 
 - `handoff-20261001-move-project-out-of-icloud.md` (10-01): move the project out of iCloud's Documents sync (109k duplicates, 199 cloud-only files). Run when nothing else runs here. Opus 5.5 high.
 - `handoff-20261001-rebuild-ios-project.md` (10-01): rebuild the iPhone project iCloud wiped. ⚠ iCloud recovery window closes about 10-17. No Apple upload. GPT-6 Sol high.
 - `handoff-20261001-search-campaigns-to-vsl-page.md` (10-01). Sol high.
-- `handoff-20261001-ad4-other-formats.md` (10-01). Opus high.
-- `handoff-20261002-ad13-round3-full-builds.md` (10-02). Opus high.
+- **Ad 13 R3 - NEEDS DAN 2026-10-03, Claude.** http://127.0.0.1:8817/ Next: `handoff-20261003-ad13-round4-after-round3-page.md`. ⚠ render.py uncommitted, shared.
 - `handoff-20260924-generator-consult-call-outreach.md` (09-24): fire by 09-26.
 - `handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md` [dash]: PHONE ONLY, 3 TikTok covers (updated 09-22). Sonnet 5 or Fable 5.1 / Medium.
 - `handoff-20260915-finalized-ads-6-14-youtube-and-google-ads.md` (09-15). Codex, high.
@@ -210,5 +207,4 @@ Memory `google-ads-ui-automation`.
 - **AV-05/AS-04 Ad 6 - BUILDING 2026-10-02, Claude.** Round 2.
 - **AS-06 square NEEDS DAN 2026-10-02.** `handoff-20261002-ad10-square-round2-full-builds.md`; fb61ce6 unpushed(shorts/SKILL.md).
 
-
-**HyperFrames Codex Adopt - IN PROGRESS 2026-10-03, Codex.** Isolated worktree hyperframes-codex-adopt. Updating the three Codex skills and build integration; one RO-17 excerpt proof only. Next: shared checks and comparison page, then Dan review. Existing video exports untouched.
+**HyperFrames Codex Adopt - NEEDS DAN 2026-10-03, Codex.** Shared method installed and pushed; 59.99s RO-17 proof passed graphics checks and browser playback. Review http://127.0.0.1:8854/. Next: Dan approves or requests changes. Original videos unchanged.

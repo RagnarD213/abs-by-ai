@@ -75,7 +75,10 @@ def main():
         elif b["kind"] == "card":
             key = b["media"]; pid = f"card_{key}_{f0}"
             label = b.get("label")
-            spans = [[round(x - b["t0"], 3), round(y - b["t0"], 3)] for x, y in b.get("label_spans", [])] or None
+            # label_spans arrive card-relative from master_to_sbl (Ad 13: [[0.0, 1.301], ...]) and film-absolute from a
+            # sheet: subtracting t0 from relative spans made them negative and the chip never drew (round 3 judge, 3:51.8)
+            spans = [[round(x - b["t0"], 3), round(y - b["t0"], 3)] if x >= b["t0"] - 0.01 else [round(x, 3), round(y, 3)]
+                     for x, y in b.get("label_spans", [])] or None
             scene, hole = VT.media_card_scene(pid, n / FPS, media_ar(MEDIA[key]), label=label, spans=spans,
                                               kicker="AbsByAI.com" if b.get("phone") else None, caps=b.get("caps") is not False)
             plates[str(i)] = dict(kind="card", media=key, frames=n, hole=hole, mov=os.path.join(out, "renders", pid + ".mov"),
