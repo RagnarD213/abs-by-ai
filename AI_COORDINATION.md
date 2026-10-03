@@ -106,7 +106,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **RO-16 - QUEUED 2026-10-02, Claude.** Blotato Nov 1 9AM CST. Owes: RO-12 link in description after Oct 25; captions, article after Nov 1. `Docs/RO16_SETUP_RECEIPT_20261002.md`.
 
-**Studio batch - NEEDS DAN 2026-10-02, Codex.** Revisions plus three additions. Nothing scheduled. Review 27 posts at `http://127.0.0.1:8791/`.
+**Studio batch - HANDOFF/PUSH-BLOCKED 2026-10-03, Codex.** `Handoffs/handoff-20261003-approved-studio-posts-27-blotato.md`; `1405f93` blocked: `.claude/skills/shortad-from-longform/reference/kit9x16/sbl_graphics.py`, `.claude/skills/shorts/SKILL.md`. Next: owners finish; safe-push.
 
 **Push blocked - 2026-10-01, Claude.** d164674 + f6db976 local only; uncommitted vertical.py, kit_run.py, sbl_page.py block it. Next: owners commit, rerun safe-push.
 
@@ -182,7 +182,7 @@ Memory `google-ads-ui-automation`.
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
 - Cart Build: Dan tests `?cart=v2`, then `…-start-page-365-guarantee.md`, Opus.
-- RO-10 R3 http://127.0.0.1:8808/ ⚠c841438-unpushed(shorts/SKILL.md)
+- `handoff-20261003-ro10-vertical-round4-full-build.md` (Opus), `…-codex-adopt-vertical-centering.md` (Sol); ⚠c841438-unpushed(shorts/SKILL.md)
 - `handoff-20260930-codex-adopt-review-page-format.md` (09-30): Codex adopts the RO-16 review page. GPT-6 Sol medium.
 
 - `handoff-20261001-move-project-out-of-icloud.md` (10-01): move the project out of iCloud's Documents sync (109k duplicates, 199 cloud-only files). Run when nothing else runs here. Opus 5.5 high.
@@ -210,4 +210,4 @@ Memory `google-ads-ui-automation`.
 
 ## ACTIVE
 - **AV-05/AS-04 Ad 6 - BUILDING 2026-10-02, Claude.** Round 2.
-- **AS-06 Ad10 square - NEEDS DAN 2026-10-02.** `handoff-20261002-ad10-square-round2-full-builds.md`.
+- **AS-06 square NEEDS DAN 2026-10-02.** `handoff-20261002-ad10-square-round2-full-builds.md`; fb61ce6 unpushed(shorts/SKILL.md).
