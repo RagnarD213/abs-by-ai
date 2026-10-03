@@ -1,0 +1,173 @@
+<title>Social Queue</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one working page. Summary and the waiting list first, then the full Blotato queue by day with platform filters. */
+:root{
+  --bg:#f5f6f8; --surface:#ffffff; --ink:#15181e; --muted:#5d6572; --line:#dfe3e9; --soft:#eceff3;
+  --accent:#1f4fd8; --warn:#b4540a; --warn-bg:#fdf0e1; --ok:#17775a; --ok-bg:#e1f3ec;
+  --fb:#1f5fd0; --ig:#b3267a; --tt:#0c7f86; --yt:#c4261d;
+  --sans:'Instrument Sans',system-ui,-apple-system,'Segoe UI',sans-serif; --mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f1217; --surface:#171b22; --ink:#e8ebf0; --muted:#98a1ae; --line:#2a303a; --soft:#1f242d;
+  --accent:#7aa2ff; --warn:#f0a35e; --warn-bg:#2d2012; --ok:#5fd0a5; --ok-bg:#12261f;
+  --fb:#7aa6ff; --ig:#f08ac4; --tt:#4cd0d8; --yt:#ff7b72; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1217; --surface:#171b22; --ink:#e8ebf0; --muted:#98a1ae; --line:#2a303a; --soft:#1f242d;
+  --accent:#7aa2ff; --warn:#f0a35e; --warn-bg:#2d2012; --ok:#5fd0a5; --ok-bg:#12261f;
+  --fb:#7aa6ff; --ig:#f08ac4; --tt:#4cd0d8; --yt:#ff7b72; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:14px/1.45 var(--sans);padding-inline:16px;padding-block:20px 48px;margin:0}
+.wrap{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+h1{font-size:26px;line-height:1.15;margin:0;letter-spacing:-.01em;text-wrap:balance}
+h2{font-size:15px;margin:0;letter-spacing:.01em}
+.sub{color:var(--muted);margin:4px 0 0}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+header{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;align-items:flex-end}
+.stamp{font:12px var(--mono);color:var(--muted)}
+.cap{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:8px}
+.cap-top{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:baseline}
+.meter{height:10px;background:var(--soft);border-radius:6px;overflow:hidden}
+.meter i{display:block;height:100%;background:var(--accent)}
+.meter.full i{background:var(--warn)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;min-width:0}
+.tile .n{font:600 24px var(--mono);line-height:1.1}
+.tile .l{font-weight:600;display:flex;align-items:center;gap:7px}
+.tile .d{color:var(--muted);font-size:12px;margin-top:3px}
+.dot{width:9px;height:9px;border-radius:50%;display:inline-block;flex:none}
+.p-facebook{--c:var(--fb)}.p-instagram{--c:var(--ig)}.p-tiktok{--c:var(--tt)}.p-youtube{--c:var(--yt)}
+.dot{background:var(--c)}
+section{display:flex;flex-direction:column;gap:10px}
+.sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.badge{font:600 11px var(--sans);letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:99px;background:var(--soft);color:var(--muted);white-space:nowrap}
+.badge.warn{background:var(--warn-bg);color:var(--warn)}
+.badge.ok{background:var(--ok-bg);color:var(--ok)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.note{background:var(--warn-bg);color:var(--warn);border-radius:10px;padding:10px 14px;font-size:13px}
+.row{display:grid;grid-template-columns:150px 1fr;gap:4px 14px;padding:10px 14px;border-top:1px solid var(--line);align-items:start}
+.row:first-child{border-top:0}
+.when{font:12px var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+.what{min-width:0;display:flex;flex-direction:column;gap:4px}
+.txt{overflow-wrap:anywhere}
+.tags{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.pill{display:inline-flex;align-items:center;gap:6px;font:600 11px var(--sans);padding:2px 8px;border-radius:99px;border:1px solid var(--line)}
+.pill .dot{width:7px;height:7px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font:600 13px var(--sans);padding:6px 12px;border-radius:99px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chip:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.day{background:var(--soft);padding:6px 14px;font:600 12px var(--sans);letter-spacing:.03em;text-transform:uppercase;color:var(--muted);display:flex;justify-content:space-between;gap:10px;border-top:1px solid var(--line)}
+.day:first-child{border-top:0}
+.pipe{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 12px;padding:10px 14px;border-top:1px solid var(--line)}
+.pipe:first-child{border-top:0}
+.pipe .nm{font-weight:600}.pipe .nt{grid-column:1/-1;color:var(--muted);font-size:13px}
+.empty{padding:18px 14px;color:var(--muted)}
+details>summary{cursor:pointer;list-style:none}
+details>summary::-webkit-details-marker{display:none}
+details>summary h2::after{content:" +";color:var(--muted)}
+details[open]>summary h2::after{content:" \2212"}
+@media (max-width:560px){.row{grid-template-columns:1fr}.when{order:2}}
+</style>
+
+<div class="wrap" id="app" aria-live="polite">
+  <header>
+    <div>
+      <h1>Social Queue</h1>
+      <p class="sub">Everything scheduled in Blotato, and everything made that is still waiting for a slot.</p>
+    </div>
+    <div class="stamp" id="stamp">loading…</div>
+  </header>
+  <div id="root"></div>
+</div>
+
+<script>
+(function(){
+  var TZ='America/Chicago';
+  var NAMES={facebook:'Facebook',instagram:'Instagram',tiktok:'TikTok',youtube:'YouTube'};
+  var HANDLE={facebook:'Abs by AI',instagram:'@danrosefit',tiktok:'@absbyai',youtube:'Abs by AI'};
+  var ORDER=['facebook','instagram','tiktok','youtube'];
+  var filter='all';
+  var data=null;
+  function el(h){var t=document.createElement('template');t.innerHTML=h.trim();return t.content.firstChild}
+  function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function fmtDay(d){return new Date(d).toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric',timeZone:TZ})}
+  function fmtDayY(d){return new Date(d).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric',timeZone:TZ})}
+  function fmtTime(d){return new Date(d).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',timeZone:TZ})}
+  function dayKey(d){return new Date(d).toLocaleDateString('en-CA',{timeZone:TZ})}
+  function pill(p){return '<span class="pill p-'+p+'"><i class="dot"></i>'+NAMES[p]+'</span>'}
+  function clean(s){return String(s||'').replace(/\s+/g,' ').trim()}
+
+  function summary(){
+    var n=data.scheduled.length,cap=data.cap,full=n>=cap;
+    var tiles=ORDER.map(function(p){
+      var r=data.scheduled.filter(function(x){return x.platform===p});
+      var w=data.waiting.filter(function(x){return x.platform===p}).length;
+      var span=r.length?fmtDay(r[0].when)+' to '+fmtDayY(r[r.length-1].when):'nothing queued';
+      return '<div class="tile p-'+p+'"><div class="l"><i class="dot"></i>'+NAMES[p]+'</div><div class="n">'+r.length+'</div>'+
+        '<div class="d">'+esc(HANDLE[p])+'</div><div class="d">'+esc(span)+'</div>'+
+        (w?'<div class="d" style="color:var(--warn);font-weight:600">+'+w+' waiting</div>':'')+'</div>';
+    }).join('');
+    return '<div class="cap"><div class="cap-top"><h2>Blotato plan capacity</h2><span class="mono">'+n+' / '+cap+' scheduled</span></div>'+
+      '<div class="meter'+(full?' full':'')+'"><i style="width:'+Math.min(100,n/cap*100)+'%"></i></div>'+
+      '<div class="d" style="color:var(--muted)">'+(full?'The queue is full. Nothing new can be scheduled until posts publish and free a slot.':(cap-n)+' slots free.')+'</div></div>'+
+      '<div class="tiles">'+tiles+'</div>';
+  }
+
+  function waiting(){
+    var w=data.waiting;
+    var body;
+    if(!w.length){body='<div class="empty">Nothing is waiting. Every finished post is in the queue.</div>'}
+    else{
+      body='<div class="card">'+w.map(function(x){
+        return '<div class="row"><div class="when">planned<br>'+esc(fmtDay(x.planned))+' · '+esc(fmtTime(x.planned))+'</div>'+
+          '<div class="what"><div class="txt"><b>'+esc(x.post)+'</b> '+esc(clean(x.title))+'</div>'+
+          '<div class="tags">'+pill(x.platform)+'<span class="badge">'+esc(x.kind)+(x.slides>1?' · '+x.slides+' slides':'')+'</span><span class="badge">'+esc(x.batch)+'</span></div></div></div>';
+      }).join('')+'</div>';
+    }
+    return '<section><div class="sec-head"><h2>Made, waiting for a slot</h2><span class="badge '+(w.length?'warn':'ok')+'">'+w.length+' not queued</span></div>'+
+      (w.length?'<div class="note">These are finished and approved. Blotato refused them at the 200-post plan cap. Each keeps its planned date; if a date passes before there is room, the plan is rebuilt on the next open slot.</div>':'')+body+'</section>';
+  }
+
+  function queue(){
+    var rows=data.scheduled.filter(function(r){return filter==='all'||r.platform===filter});
+    var chips=['all'].concat(ORDER).map(function(k){
+      var c=k==='all'?data.scheduled.length:data.scheduled.filter(function(r){return r.platform===k}).length;
+      return '<button class="chip" type="button" data-f="'+k+'" aria-pressed="'+(filter===k)+'">'+(k==='all'?'All':NAMES[k])+' <span class="mono">'+c+'</span></button>';
+    }).join('');
+    var out='',last='';
+    rows.forEach(function(r){
+      var k=dayKey(r.when);
+      if(k!==last){
+        var cnt=rows.filter(function(x){return dayKey(x.when)===k}).length;
+        out+='<div class="day"><span>'+esc(fmtDay(r.when))+(k.slice(0,4)!==String(new Date().getFullYear())?' '+k.slice(0,4):'')+'</span><span class="mono">'+cnt+'</span></div>';last=k;
+      }
+      out+='<div class="row"><div class="when">'+esc(fmtTime(r.when))+' CT</div><div class="what"><div class="txt">'+esc(clean(r.text)||'(no caption)')+'</div>'+
+        '<div class="tags">'+pill(r.platform)+'<span class="badge">'+esc(r.kind)+(r.slides>1?' · '+r.slides+' slides':'')+'</span>'+(r.batch?'<span class="badge">'+esc(r.batch)+'</span>':'')+'</div></div></div>';
+    });
+    return '<section><div class="sec-head"><h2>Scheduled in Blotato</h2><span class="stamp">times in Central</span></div>'+
+      '<div class="chips" id="chips">'+chips+'</div><div class="card" id="qcard">'+(out||'<div class="empty">Nothing scheduled for this platform.</div>')+'</div></section>';
+  }
+
+  function pipeline(){
+    var tone={'Round 1 with Dan':'warn','Needs queue room':'warn','Ready to cut':'','Building':'','Parked':'','On hold':''};
+    return '<section><details><summary><div class="sec-head"><h2>Not finished yet</h2><span class="badge">'+data.pipeline.length+' items on the board</span></div></summary>'+
+      '<div class="card" style="margin-top:10px">'+data.pipeline.map(function(x){
+        return '<div class="pipe"><div class="nm">'+esc(x.name)+'</div><span class="badge '+(tone[x.state]||'')+'">'+esc(x.state)+'</span><div class="nt">'+esc(x.note)+'</div></div>';
+      }).join('')+'</div></details></section>';
+  }
+
+  function render(){
+    document.getElementById('stamp').textContent='updated '+new Date(data.generated).toLocaleString('en-US',{month:'short',day:'numeric',hour:'numeric',minute:'2-digit',timeZone:TZ})+' CT';
+    document.getElementById('root').innerHTML=''; var root=document.getElementById('root');
+    root.style.cssText='display:flex;flex-direction:column;gap:22px';
+    root.innerHTML=summary()+waiting()+queue()+pipeline();
+    document.getElementById('chips').addEventListener('click',function(e){
+      var b=e.target.closest('button[data-f]'); if(!b) return; filter=b.getAttribute('data-f'); render();
+      try{document.getElementById('chips').querySelector('[aria-pressed="true"]').focus()}catch(_){}
+    });
+  }
+  fetch('queue.json').then(function(r){return r.json()}).then(function(d){data=d;render()})
+    .catch(function(){document.getElementById('root').innerHTML='<div class="note">Could not load queue.json.</div>'});
+})();
+</script>

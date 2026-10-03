@@ -1,0 +1,1971 @@
+{
+"generated": "2026-10-03T14:41:20+00:00",
+"cap": 200,
+"scheduled": [
+{
+"id": "3841900",
+"platform": "instagram",
+"when": "2026-10-03T22:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "A mirror check is not vanity, it's data.",
+"batch": ""
+},
+{
+"id": "4757780",
+"platform": "facebook",
+"when": "2026-10-04T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Belly fat affects far more than the mirror.",
+"batch": ""
+},
+{
+"id": "4757781",
+"platform": "instagram",
+"when": "2026-10-04T14:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Belly fat affects far more than the mirror.",
+"batch": ""
+},
+{
+"id": "5098932",
+"platform": "tiktok",
+"when": "2026-10-04T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Belly fat affects far more than the mirror.",
+"batch": ""
+},
+{
+"id": "4757785",
+"platform": "youtube",
+"when": "2026-10-04T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Why belly fat can affect far more than your appearance\u2014and the five moves I used to start taking it seriously.",
+"batch": ""
+},
+{
+"id": "3841903",
+"platform": "instagram",
+"when": "2026-10-04T22:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "One extra sentence makes AI macros far more accurate.",
+"batch": ""
+},
+{
+"id": "3584631",
+"platform": "facebook",
+"when": "2026-10-05T22:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Skip the kettlebell swing. Do the deadlift instead.",
+"batch": ""
+},
+{
+"id": "3841905",
+"platform": "instagram",
+"when": "2026-10-05T22:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Flexibility is trainable at 40.",
+"batch": ""
+},
+{
+"id": "5019222",
+"platform": "facebook",
+"when": "2026-10-06T14:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Do this before a photo shoot or a pool party.",
+"batch": ""
+},
+{
+"id": "5019223",
+"platform": "instagram",
+"when": "2026-10-06T14:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Do this before a photo shoot or a pool party.",
+"batch": ""
+},
+{
+"id": "5019224",
+"platform": "tiktok",
+"when": "2026-10-06T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Do this before a photo shoot or a pool party.",
+"batch": ""
+},
+{
+"id": "5019225",
+"platform": "youtube",
+"when": "2026-10-06T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "The 2 minute arm pump I do before a photo shoot or a pool party. All you need is a pair of dumbbells.",
+"batch": ""
+},
+{
+"id": "3876762",
+"platform": "facebook",
+"when": "2026-10-06T22:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Try to knee yourself in the face.",
+"batch": ""
+},
+{
+"id": "3876763",
+"platform": "instagram",
+"when": "2026-10-06T22:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Try to knee yourself in the face.",
+"batch": ""
+},
+{
+"id": "4553194",
+"platform": "tiktok",
+"when": "2026-10-06T22:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Try to knee yourself in the face.",
+"batch": ""
+},
+{
+"id": "5090245",
+"platform": "facebook",
+"when": "2026-10-07T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "If you can't lose weight, it usually comes down to one thing: calories. I'll show you the proof, then 8 ways t",
+"batch": ""
+},
+{
+"id": "5090246",
+"platform": "instagram",
+"when": "2026-10-07T14:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "If you can't lose weight, it usually comes down to one thing: calories. I'll show you the proof, then 8 ways t",
+"batch": ""
+},
+{
+"id": "5098938",
+"platform": "tiktok",
+"when": "2026-10-07T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "If you can't lose weight, it usually comes down to one thing: calories. I'll show you the proof, then 8 ways t",
+"batch": ""
+},
+{
+"id": "5090248",
+"platform": "youtube",
+"when": "2026-10-07T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "If you're struggling to lose weight, there's usually one reason: you're eating too many calories. Here is the ",
+"batch": ""
+},
+{
+"id": "4934265",
+"platform": "facebook",
+"when": "2026-10-07T22:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Never start your day with carbs.",
+"batch": ""
+},
+{
+"id": "3841910",
+"platform": "instagram",
+"when": "2026-10-07T22:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Your protein shake might be working against you.",
+"batch": ""
+},
+{
+"id": "5019226",
+"platform": "facebook",
+"when": "2026-10-08T14:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Bigger shoulders make your waist look smaller.",
+"batch": ""
+},
+{
+"id": "5019227",
+"platform": "instagram",
+"when": "2026-10-08T14:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Bigger shoulders make your waist look smaller.",
+"batch": ""
+},
+{
+"id": "5019228",
+"platform": "tiktok",
+"when": "2026-10-08T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Bigger shoulders make your waist look smaller.",
+"batch": ""
+},
+{
+"id": "5019229",
+"platform": "youtube",
+"when": "2026-10-08T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Bigger shoulders make your waist look smaller, and side lateral raises are how you build them at home.",
+"batch": ""
+},
+{
+"id": "4066386",
+"platform": "facebook",
+"when": "2026-10-08T22:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "The deadlift trick that saves your back.",
+"batch": ""
+},
+{
+"id": "4066393",
+"platform": "instagram",
+"when": "2026-10-08T22:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "The deadlift trick that saves your back.",
+"batch": ""
+},
+{
+"id": "4553197",
+"platform": "tiktok",
+"when": "2026-10-08T22:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "The deadlift trick that saves your back.",
+"batch": ""
+},
+{
+"id": "3584644",
+"platform": "facebook",
+"when": "2026-10-09T22:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "A mirror check is not vanity, it's data.",
+"batch": ""
+},
+{
+"id": "3841913",
+"platform": "instagram",
+"when": "2026-10-09T22:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "The reason people quit tracking calories is gone.",
+"batch": ""
+},
+{
+"id": "5019232",
+"platform": "facebook",
+"when": "2026-10-10T14:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "There are two ways to do bicep curls.",
+"batch": ""
+},
+{
+"id": "5019233",
+"platform": "instagram",
+"when": "2026-10-10T14:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "There are two ways to do bicep curls.",
+"batch": ""
+},
+{
+"id": "5019234",
+"platform": "tiktok",
+"when": "2026-10-10T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "There are two ways to do bicep curls.",
+"batch": ""
+},
+{
+"id": "5019235",
+"platform": "youtube",
+"when": "2026-10-10T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Two ways to do bicep curls at home, and when to use each one.",
+"batch": ""
+},
+{
+"id": "3563130",
+"platform": "facebook",
+"when": "2026-10-10T22:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "The back move you can do with a towel.",
+"batch": ""
+},
+{
+"id": "3793992",
+"platform": "instagram",
+"when": "2026-10-10T22:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "The back move you can do with a towel.",
+"batch": ""
+},
+{
+"id": "4553200",
+"platform": "tiktok",
+"when": "2026-10-10T22:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "The back move you can do with a towel.",
+"batch": ""
+},
+{
+"id": "4976695",
+"platform": "facebook",
+"when": "2026-10-11T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "I used to be one of the biggest deadlift fans on the internet. At 40, I stopped doing them completely.",
+"batch": ""
+},
+{
+"id": "4976700",
+"platform": "instagram",
+"when": "2026-10-11T14:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "I used to be one of the biggest deadlift fans on the internet. At 40, I stopped doing them completely.",
+"batch": ""
+},
+{
+"id": "4976709",
+"platform": "tiktok",
+"when": "2026-10-11T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "I used to be one of the biggest deadlift fans on the internet. At 40, I stopped doing them completely.",
+"batch": ""
+},
+{
+"id": "4976708",
+"platform": "youtube",
+"when": "2026-10-11T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "I used to be one of the biggest deadlift fans on YouTube. At 40, I cut them out of my routine completely. Here",
+"batch": ""
+},
+{
+"id": "3841916",
+"platform": "instagram",
+"when": "2026-10-11T22:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Cool the room before you cool yourself.",
+"batch": ""
+},
+{
+"id": "3584647",
+"platform": "facebook",
+"when": "2026-10-12T22:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "One extra sentence makes AI macros far more accurate.",
+"batch": ""
+},
+{
+"id": "3841918",
+"platform": "instagram",
+"when": "2026-10-12T22:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Slam it. Don't place it.",
+"batch": ""
+},
+{
+"id": "5019237",
+"platform": "facebook",
+"when": "2026-10-13T14:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Most people do side laterals wrong.",
+"batch": ""
+},
+{
+"id": "5019238",
+"platform": "instagram",
+"when": "2026-10-13T14:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Most people do side laterals wrong.",
+"batch": ""
+},
+{
+"id": "5019240",
+"platform": "tiktok",
+"when": "2026-10-13T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Most people do side laterals wrong.",
+"batch": ""
+},
+{
+"id": "5019241",
+"platform": "youtube",
+"when": "2026-10-13T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "The side lateral raise mistake that stops your shoulders from working.",
+"batch": ""
+},
+{
+"id": "4066409",
+"platform": "facebook",
+"when": "2026-10-13T22:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "You always have three minutes.",
+"batch": ""
+},
+{
+"id": "4066416",
+"platform": "instagram",
+"when": "2026-10-13T22:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "You always have three minutes.",
+"batch": ""
+},
+{
+"id": "4553206",
+"platform": "tiktok",
+"when": "2026-10-13T22:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "You always have three minutes.",
+"batch": ""
+},
+{
+"id": "5095439",
+"platform": "facebook",
+"when": "2026-10-14T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "I've worn the Oura Ring for a year and a half, and I paid for it myself. Here's my honest review.",
+"batch": ""
+},
+{
+"id": "5095440",
+"platform": "instagram",
+"when": "2026-10-14T14:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "I've worn the Oura Ring for a year and a half, and I paid for it myself. Here's my honest review.",
+"batch": ""
+},
+{
+"id": "5095441",
+"platform": "tiktok",
+"when": "2026-10-14T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "I've worn the Oura Ring for a year and a half, and I paid for it myself. Here's my honest review.",
+"batch": ""
+},
+{
+"id": "5095442",
+"platform": "youtube",
+"when": "2026-10-14T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "I've worn the Oura Ring for about a year and a half. I bought it myself, this video is not sponsored, and here",
+"batch": ""
+},
+{
+"id": "3584649",
+"platform": "facebook",
+"when": "2026-10-14T22:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Flexibility is trainable at 40.",
+"batch": ""
+},
+{
+"id": "3841921",
+"platform": "instagram",
+"when": "2026-10-14T22:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "See the result before you have it.",
+"batch": ""
+},
+{
+"id": "5019247",
+"platform": "facebook",
+"when": "2026-10-15T14:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "If you're swinging your curls, you're not really working your biceps.",
+"batch": ""
+},
+{
+"id": "5019250",
+"platform": "instagram",
+"when": "2026-10-15T14:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "If you're swinging your curls, you're not really working your biceps.",
+"batch": ""
+},
+{
+"id": "5019251",
+"platform": "tiktok",
+"when": "2026-10-15T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "If you're swinging your curls, you're not really working your biceps.",
+"batch": ""
+},
+{
+"id": "5019252",
+"platform": "youtube",
+"when": "2026-10-15T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Swinging your bicep curls takes the work off your biceps. Keep your form strict.",
+"batch": ""
+},
+{
+"id": "4934268",
+"platform": "instagram",
+"when": "2026-10-15T22:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Alcohol doesn't just add calories.",
+"batch": ""
+},
+{
+"id": "3584651",
+"platform": "facebook",
+"when": "2026-10-16T22:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Your protein shake might be working against you.",
+"batch": ""
+},
+{
+"id": "3841931",
+"platform": "instagram",
+"when": "2026-10-16T22:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Cook once, portion four.",
+"batch": ""
+},
+{
+"id": "5053506",
+"platform": "facebook",
+"when": "2026-10-17T14:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Deadlifts caused more of my injuries than every other lift combined.",
+"batch": ""
+},
+{
+"id": "5053507",
+"platform": "instagram",
+"when": "2026-10-17T14:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Deadlifts caused more of my injuries than every other lift combined.",
+"batch": ""
+},
+{
+"id": "5053509",
+"platform": "tiktok",
+"when": "2026-10-17T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Deadlifts caused more of my injuries than every other lift combined.",
+"batch": ""
+},
+{
+"id": "5053510",
+"platform": "youtube",
+"when": "2026-10-17T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Deadlifts caused more of my injuries than every other lift combined. Here is why I stopped doing them at 40.",
+"batch": ""
+},
+{
+"id": "3563151",
+"platform": "facebook",
+"when": "2026-10-17T22:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "You have 4 ab muscles \u2014 not just a six-pack.",
+"batch": ""
+},
+{
+"id": "3793994",
+"platform": "instagram",
+"when": "2026-10-17T22:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "You have 4 ab muscles \u2014 not just a six-pack.",
+"batch": ""
+},
+{
+"id": "4553209",
+"platform": "tiktok",
+"when": "2026-10-17T22:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "You have 4 ab muscles \u2014 not just a six-pack.",
+"batch": ""
+},
+{
+"id": "5014529",
+"platform": "facebook",
+"when": "2026-10-18T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "This salad is how I break my fast almost every day, and it's my most important nutrition habit.",
+"batch": ""
+},
+{
+"id": "5014531",
+"platform": "instagram",
+"when": "2026-10-18T14:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "This salad is how I break my fast almost every day, and it's my most important nutrition habit.",
+"batch": ""
+},
+{
+"id": "5014533",
+"platform": "tiktok",
+"when": "2026-10-18T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "This salad is how I break my fast almost every day, and it's my most important nutrition habit.",
+"batch": ""
+},
+{
+"id": "5014534",
+"platform": "youtube",
+"when": "2026-10-18T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "This is the salad I eat almost every day to stay lean: about 700 calories, about $4 a bowl, and it stays fresh",
+"batch": ""
+},
+{
+"id": "3841933",
+"platform": "instagram",
+"when": "2026-10-18T22:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "The muscle that makes your waist look smaller isn't your abs.",
+"batch": ""
+},
+{
+"id": "3584653",
+"platform": "facebook",
+"when": "2026-10-19T22:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "The reason people quit tracking calories is gone.",
+"batch": ""
+},
+{
+"id": "4934269",
+"platform": "instagram",
+"when": "2026-10-19T22:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Weigh yourself every single day.",
+"batch": ""
+},
+{
+"id": "5053515",
+"platform": "facebook",
+"when": "2026-10-20T14:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Skip the deadlift. Here are the 2 back exercises I do instead.",
+"batch": ""
+},
+{
+"id": "5053516",
+"platform": "instagram",
+"when": "2026-10-20T14:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Skip the deadlift. Here are the 2 back exercises I do instead.",
+"batch": ""
+},
+{
+"id": "5053517",
+"platform": "tiktok",
+"when": "2026-10-20T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Skip the deadlift. Here are the 2 back exercises I do instead.",
+"batch": ""
+},
+{
+"id": "5053518",
+"platform": "youtube",
+"when": "2026-10-20T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "The 2 back exercises I do instead of deadlifts: wide-grip T-bar or barbell rows, then wide-grip lat pulldowns.",
+"batch": ""
+},
+{
+"id": "3563159",
+"platform": "facebook",
+"when": "2026-10-20T22:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "The toe touch \u2014 a killer six-pack move you can do at home.",
+"batch": ""
+},
+{
+"id": "3793995",
+"platform": "instagram",
+"when": "2026-10-20T22:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "The toe touch \u2014 a killer six-pack move you can do at home.",
+"batch": ""
+},
+{
+"id": "4553215",
+"platform": "tiktok",
+"when": "2026-10-20T22:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "The toe touch \u2014 a killer six-pack move you can do at home.",
+"batch": ""
+},
+{
+"id": "3584655",
+"platform": "facebook",
+"when": "2026-10-21T22:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Cool the room before you cool yourself.",
+"batch": ""
+},
+{
+"id": "4890088",
+"platform": "instagram",
+"when": "2026-10-21T22:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Bad sleep makes you hungrier. That's measurable.",
+"batch": ""
+},
+{
+"id": "5053520",
+"platform": "facebook",
+"when": "2026-10-22T14:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Over the long term, the safer exercise builds more muscle.",
+"batch": ""
+},
+{
+"id": "5053522",
+"platform": "instagram",
+"when": "2026-10-22T14:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Over the long term, the safer exercise builds more muscle.",
+"batch": ""
+},
+{
+"id": "5053523",
+"platform": "tiktok",
+"when": "2026-10-22T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Over the long term, the safer exercise builds more muscle.",
+"batch": ""
+},
+{
+"id": "5053524",
+"platform": "youtube",
+"when": "2026-10-22T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Why the safer lift builds more muscle over the long term, especially past 40.",
+"batch": ""
+},
+{
+"id": "3563168",
+"platform": "facebook",
+"when": "2026-10-22T22:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Work your obliques with V-sit twists.",
+"batch": ""
+},
+{
+"id": "3793997",
+"platform": "instagram",
+"when": "2026-10-22T22:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Work your obliques with V-sit twists.",
+"batch": ""
+},
+{
+"id": "4553221",
+"platform": "tiktok",
+"when": "2026-10-22T22:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Work your obliques with V-sit twists.",
+"batch": ""
+},
+{
+"id": "3584657",
+"platform": "facebook",
+"when": "2026-10-23T22:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Slam it. Don't place it.",
+"batch": ""
+},
+{
+"id": "3841945",
+"platform": "instagram",
+"when": "2026-10-23T22:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Take a progress photo, not a progress weight.",
+"batch": ""
+},
+{
+"id": "5053527",
+"platform": "facebook",
+"when": "2026-10-24T14:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "You can train your legs hard without deadlifts.",
+"batch": ""
+},
+{
+"id": "5053528",
+"platform": "instagram",
+"when": "2026-10-24T14:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "You can train your legs hard without deadlifts.",
+"batch": ""
+},
+{
+"id": "5053529",
+"platform": "tiktok",
+"when": "2026-10-24T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "You can train your legs hard without deadlifts.",
+"batch": ""
+},
+{
+"id": "5053530",
+"platform": "youtube",
+"when": "2026-10-24T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "How I train legs without deadlifts: the leg press, with the safety stops set.",
+"batch": ""
+},
+{
+"id": "3563172",
+"platform": "facebook",
+"when": "2026-10-24T22:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Build superhero abs with spiderman planks.",
+"batch": ""
+},
+{
+"id": "3793998",
+"platform": "instagram",
+"when": "2026-10-24T22:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Build superhero abs with spiderman planks.",
+"batch": ""
+},
+{
+"id": "4553228",
+"platform": "tiktok",
+"when": "2026-10-24T22:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Build superhero abs with spiderman planks.",
+"batch": ""
+},
+{
+"id": "5046547",
+"platform": "facebook",
+"when": "2026-10-25T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "I've been on Zepbound for about two months, and I screwed some things up when I started. Here are my top 5 tip",
+"batch": ""
+},
+{
+"id": "5046548",
+"platform": "instagram",
+"when": "2026-10-25T14:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "I've been on Zepbound for about two months, and I screwed some things up when I started. Here are my top 5 tip",
+"batch": ""
+},
+{
+"id": "5046549",
+"platform": "tiktok",
+"when": "2026-10-25T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "I've been on Zepbound for about two months, and I screwed some things up when I started. Here are my top 5 tip",
+"batch": ""
+},
+{
+"id": "5046550",
+"platform": "youtube",
+"when": "2026-10-25T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Five tips to get the most out of Zepbound, so you lose fat while keeping your muscle. I screwed some of these ",
+"batch": ""
+},
+{
+"id": "3584661",
+"platform": "facebook",
+"when": "2026-10-26T22:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "See the result before you have it.",
+"batch": ""
+},
+{
+"id": "5119908",
+"platform": "instagram",
+"when": "2026-10-26T22:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Put your next workout on the calendar before the week fills up. Pick the time, the place and what you plan to ",
+"batch": "Studio S01-A"
+},
+{
+"id": "5053535",
+"platform": "facebook",
+"when": "2026-10-27T14:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Want an aesthetic body? Deadlifts build a powerlifter body.",
+"batch": ""
+},
+{
+"id": "5053536",
+"platform": "instagram",
+"when": "2026-10-27T14:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Want an aesthetic body? Deadlifts build a powerlifter body.",
+"batch": ""
+},
+{
+"id": "5053538",
+"platform": "tiktok",
+"when": "2026-10-27T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Want an aesthetic body? Deadlifts build a powerlifter body.",
+"batch": ""
+},
+{
+"id": "5053539",
+"platform": "youtube",
+"when": "2026-10-27T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Deadlifts build a thick powerlifter body, not the lean, aesthetic look most of us want.",
+"batch": ""
+},
+{
+"id": "4315877",
+"platform": "facebook",
+"when": "2026-10-27T22:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Your abs never get a break on the ab wheel.",
+"batch": ""
+},
+{
+"id": "4315883",
+"platform": "instagram",
+"when": "2026-10-27T22:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Your abs never get a break on the ab wheel.",
+"batch": ""
+},
+{
+"id": "4553230",
+"platform": "tiktok",
+"when": "2026-10-27T22:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Your abs never get a break on the ab wheel.",
+"batch": ""
+},
+{
+"id": "4934272",
+"platform": "facebook",
+"when": "2026-10-28T22:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Alcohol doesn't just add calories.",
+"batch": ""
+},
+{
+"id": "5119909",
+"platform": "instagram",
+"when": "2026-10-28T22:00:00.000Z",
+"kind": "Carousel",
+"slides": 5,
+"text": "Save this for your next weekly reset. Choose your training times, make a simple food plan and write down what ",
+"batch": "Studio S07-A"
+},
+{
+"id": "4315886",
+"platform": "facebook",
+"when": "2026-10-29T22:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "The biggest ab wheel mistake is an arched back.",
+"batch": ""
+},
+{
+"id": "4315887",
+"platform": "instagram",
+"when": "2026-10-29T22:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "The biggest ab wheel mistake is an arched back.",
+"batch": ""
+},
+{
+"id": "4553236",
+"platform": "tiktok",
+"when": "2026-10-29T22:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "The biggest ab wheel mistake is an arched back.",
+"batch": ""
+},
+{
+"id": "3584672",
+"platform": "facebook",
+"when": "2026-10-30T22:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Cook once, portion four.",
+"batch": ""
+},
+{
+"id": "5119910",
+"platform": "instagram",
+"when": "2026-10-30T22:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Choose your workout before you arrive. Save the plan, get your clothes ready and decide when you need to leave",
+"batch": "Studio S03-A"
+},
+{
+"id": "4315892",
+"platform": "facebook",
+"when": "2026-10-31T22:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "How far should you roll out on the ab wheel?",
+"batch": ""
+},
+{
+"id": "4315893",
+"platform": "instagram",
+"when": "2026-10-31T22:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "How far should you roll out on the ab wheel?",
+"batch": ""
+},
+{
+"id": "4553237",
+"platform": "tiktok",
+"when": "2026-10-31T22:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "How far should you roll out on the ab wheel?",
+"batch": ""
+},
+{
+"id": "5090105",
+"platform": "facebook",
+"when": "2026-11-01T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "If I woke up 30 pounds heavier tomorrow, I'm confident I could lose it all and get my abs back in 3 months. He",
+"batch": ""
+},
+{
+"id": "5090106",
+"platform": "instagram",
+"when": "2026-11-01T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "If I woke up 30 pounds heavier tomorrow, I'm confident I could lose it all and get my abs back in 3 months. He",
+"batch": ""
+},
+{
+"id": "5090108",
+"platform": "tiktok",
+"when": "2026-11-01T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "If I woke up 30 pounds heavier tomorrow, I'm confident I could lose it all and get my abs back in 3 months. He",
+"batch": ""
+},
+{
+"id": "5090110",
+"platform": "youtube",
+"when": "2026-11-01T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "If I woke up 30 pounds heavier tomorrow, this is the exact 8-step plan I would follow to get my abs back in 90",
+"batch": ""
+},
+{
+"id": "3584675",
+"platform": "facebook",
+"when": "2026-11-02T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "The muscle that makes your waist look smaller isn't your abs.",
+"batch": ""
+},
+{
+"id": "5119911",
+"platform": "instagram",
+"when": "2026-11-02T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Too busy to train? Look at the whole appointment, including packing and travel. If the commute is the obstacle",
+"batch": "Studio S06-A"
+},
+{
+"id": "4315896",
+"platform": "facebook",
+"when": "2026-11-03T23:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "You're rolling out too fast.",
+"batch": ""
+},
+{
+"id": "4315898",
+"platform": "instagram",
+"when": "2026-11-03T23:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "You're rolling out too fast.",
+"batch": ""
+},
+{
+"id": "4553242",
+"platform": "tiktok",
+"when": "2026-11-03T23:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "You're rolling out too fast.",
+"batch": ""
+},
+{
+"id": "4934277",
+"platform": "facebook",
+"when": "2026-11-04T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Weigh yourself every single day.",
+"batch": ""
+},
+{
+"id": "5119914",
+"platform": "instagram",
+"when": "2026-11-04T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Give lunch a place in your training plan. Decide what you'll eat and where it will come from before you head o",
+"batch": "Studio S02-A"
+},
+{
+"id": "4315902",
+"platform": "facebook",
+"when": "2026-11-05T23:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Crunches mostly train one ab muscle.",
+"batch": ""
+},
+{
+"id": "4315903",
+"platform": "instagram",
+"when": "2026-11-05T23:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Crunches mostly train one ab muscle.",
+"batch": ""
+},
+{
+"id": "4553247",
+"platform": "tiktok",
+"when": "2026-11-05T23:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Crunches mostly train one ab muscle.",
+"batch": ""
+},
+{
+"id": "3584680",
+"platform": "facebook",
+"when": "2026-11-06T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "No weights? Fight the towel.",
+"batch": ""
+},
+{
+"id": "5119916",
+"platform": "instagram",
+"when": "2026-11-06T23:00:00.000Z",
+"kind": "Carousel",
+"slides": 5,
+"text": "You don't have to wait for a perfect free hour to put a workout in your calendar. Start by finding the time yo",
+"batch": "Studio S08-A"
+},
+{
+"id": "4890092",
+"platform": "facebook",
+"when": "2026-11-09T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Bad sleep makes you hungrier. That's measurable.",
+"batch": ""
+},
+{
+"id": "5119919",
+"platform": "instagram",
+"when": "2026-11-09T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Choose a training setting you want to come back to. Then make the practical part clear: when you're going, wha",
+"batch": "Studio S04-A"
+},
+{
+"id": "3584693",
+"platform": "facebook",
+"when": "2026-11-11T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Take a progress photo, not a progress weight.",
+"batch": ""
+},
+{
+"id": "5119921",
+"platform": "instagram",
+"when": "2026-11-11T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "I built a home gym and still use a gym membership. I like having options. If the drive is the reason your work",
+"batch": "Studio S05-A"
+},
+{
+"id": "3584697",
+"platform": "facebook",
+"when": "2026-11-13T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "The training happens in the gym. The building happens after.",
+"batch": ""
+},
+{
+"id": "5119924",
+"platform": "instagram",
+"when": "2026-11-13T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Make strength training an appointment you can keep. Choose the time, save the workout and get your space ready",
+"batch": "Studio S09-A"
+},
+{
+"id": "3584699",
+"platform": "facebook",
+"when": "2026-11-16T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Fat burners are the worst dollar in fitness.",
+"batch": ""
+},
+{
+"id": "5119926",
+"platform": "instagram",
+"when": "2026-11-16T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "I have a home gym and I still pay for a gym membership. The point is having an option that works with your lif",
+"batch": "Studio S03-B"
+},
+{
+"id": "3584706",
+"platform": "facebook",
+"when": "2026-11-18T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Land quiet.",
+"batch": ""
+},
+{
+"id": "5119927",
+"platform": "instagram",
+"when": "2026-11-18T23:00:00.000Z",
+"kind": "Carousel",
+"slides": 5,
+"text": "Repeating a lunch you enjoy is a planning choice. You can still rotate meals and ingredients across the week. ",
+"batch": "Studio S08-B"
+},
+{
+"id": "3584708",
+"platform": "facebook",
+"when": "2026-11-20T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "The kitchen closes at 9pm.",
+"batch": ""
+},
+{
+"id": "5119929",
+"platform": "instagram",
+"when": "2026-11-20T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "I use a meal prep service. Having food ready removes one more decision from a busy day. You can do the same ki",
+"batch": "Studio S02-B"
+},
+{
+"id": "3584711",
+"platform": "facebook",
+"when": "2026-11-23T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Fix your posture before you fix your diet.",
+"batch": ""
+},
+{
+"id": "5119930",
+"platform": "instagram",
+"when": "2026-11-23T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Meal prep is one way I make food simpler. You don't need to invent a different lunch every day. Pick a few mea",
+"batch": "Studio S05-B"
+},
+{
+"id": "3584713",
+"platform": "facebook",
+"when": "2026-11-25T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Ordering off a menu is a solvable problem.",
+"batch": ""
+},
+{
+"id": "5119932",
+"platform": "instagram",
+"when": "2026-11-25T23:00:00.000Z",
+"kind": "Carousel",
+"slides": 5,
+"text": "Make lunch easier before the week starts. Pick two familiar meals, check what you need and decide how they wil",
+"batch": "Studio S07-B"
+},
+{
+"id": "3584715",
+"platform": "facebook",
+"when": "2026-11-27T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Rest is not the reward for finishing. It's part of the work.",
+"batch": ""
+},
+{
+"id": "5119935",
+"platform": "instagram",
+"when": "2026-11-27T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Before you head out, decide what you'll eat when you get home. Put a meal in place or choose your order ahead ",
+"batch": "Studio S04-B"
+},
+{
+"id": "3584718",
+"platform": "facebook",
+"when": "2026-11-30T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Do something you'd do for free.",
+"batch": ""
+},
+{
+"id": "5119940",
+"platform": "instagram",
+"when": "2026-11-30T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Lunch sorted means fewer decisions in the middle of the day. Choose two lunches you enjoy, check the ingredien",
+"batch": "Studio S06-B"
+},
+{
+"id": "3584735",
+"platform": "facebook",
+"when": "2026-12-02T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Hunger is often thirst.",
+"batch": ""
+},
+{
+"id": "5119942",
+"platform": "instagram",
+"when": "2026-12-02T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Lunch gets easier when the decision is already made. Choose a meal you enjoy, get the ingredients or order in ",
+"batch": "Studio S09-B"
+},
+{
+"id": "3584737",
+"platform": "facebook",
+"when": "2026-12-04T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "You can't out-train the food.",
+"batch": ""
+},
+{
+"id": "5119943",
+"platform": "instagram",
+"when": "2026-12-04T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Make tomorrow's lunch a decision you handle today. Pick something you already like, check what you have and ge",
+"batch": "Studio S01-B"
+},
+{
+"id": "3584739",
+"platform": "facebook",
+"when": "2026-12-07T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Three minutes is not a real excuse.",
+"batch": ""
+},
+{
+"id": "5119944",
+"platform": "instagram",
+"when": "2026-12-07T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Missed a day? Decide what happens next. Open the calendar, choose a realistic time and set out what you need. ",
+"batch": "Studio S06-C"
+},
+{
+"id": "3584741",
+"platform": "facebook",
+"when": "2026-12-09T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Consistency of bedtime beats total hours.",
+"batch": ""
+},
+{
+"id": "5119945",
+"platform": "instagram",
+"when": "2026-12-09T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Martial arts can burn calories, challenge your cardio and give you a reason to keep showing up. It is a great ",
+"batch": "Studio S04-C"
+},
+{
+"id": "4890094",
+"platform": "facebook",
+"when": "2026-12-11T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Control the way down.",
+"batch": ""
+},
+{
+"id": "5119946",
+"platform": "instagram",
+"when": "2026-12-11T23:00:00.000Z",
+"kind": "Carousel",
+"slides": 5,
+"text": "Your backup plan should be specific enough to use on a busy day. Name the obstacle, choose an alternative and ",
+"batch": "Studio S07-C"
+},
+{
+"id": "4890095",
+"platform": "facebook",
+"when": "2026-12-14T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Protein target: one gram per pound of your goal weight.",
+"batch": ""
+},
+{
+"id": "5119947",
+"platform": "instagram",
+"when": "2026-12-14T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Missed a workout? Leave that day where it is. Look at the next opening in your calendar and choose a session y",
+"batch": "Studio S01-C"
+},
+{
+"id": "3584749",
+"platform": "facebook",
+"when": "2026-12-16T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Train your back if you want your abs to show.",
+"batch": ""
+},
+{
+"id": "5119948",
+"platform": "instagram",
+"when": "2026-12-16T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "A missed day needs a next step, not a speech about starting your whole life over. Pick the next available time",
+"batch": "Studio S05-C"
+},
+{
+"id": "3584754",
+"platform": "facebook",
+"when": "2026-12-18T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Get the phone out of the bedroom.",
+"batch": ""
+},
+{
+"id": "5119950",
+"platform": "instagram",
+"when": "2026-12-18T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Martial arts can challenge your cardio and help you burn calories. Weight training builds and maintains muscle",
+"batch": "Studio S09-C"
+},
+{
+"id": "3584760",
+"platform": "facebook",
+"when": "2026-12-21T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Every kick is a core exercise.",
+"batch": ""
+},
+{
+"id": "5119952",
+"platform": "instagram",
+"when": "2026-12-21T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "You don't have to throw away the whole week because the plan changed. Look at the days you still have. Choose ",
+"batch": "Studio S02-C"
+},
+{
+"id": "3584762",
+"platform": "facebook",
+"when": "2026-12-23T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Everyone has a side that's behind.",
+"batch": ""
+},
+{
+"id": "5119953",
+"platform": "instagram",
+"when": "2026-12-23T23:00:00.000Z",
+"kind": "Carousel",
+"slides": 5,
+"text": "Missing Monday doesn't make Tuesday disappear. Name what got in the way, choose your next opening and make one",
+"batch": "Studio S08-C"
+},
+{
+"id": "3584764",
+"platform": "facebook",
+"when": "2026-12-25T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Two years, not two months.",
+"batch": ""
+},
+{
+"id": "5119955",
+"platform": "instagram",
+"when": "2026-12-25T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "The last session is already done, or it didn't happen. Either way, the next one still needs a plan. Pick the t",
+"batch": "Studio S03-C"
+},
+{
+"id": "3584766",
+"platform": "facebook",
+"when": "2026-12-28T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Compare yourself to your own photo from March.",
+"batch": ""
+},
+{
+"id": "3584768",
+"platform": "facebook",
+"when": "2026-12-30T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "A nap doesn't repay a bad night.",
+"batch": ""
+},
+{
+"id": "3584770",
+"platform": "facebook",
+"when": "2027-01-01T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Five minutes of hips after every session.",
+"batch": ""
+},
+{
+"id": "5119956",
+"platform": "facebook",
+"when": "2027-01-04T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Put your next workout on the calendar before the week fills up. Pick the time, the place and what you plan to ",
+"batch": "Studio S01-A"
+},
+{
+"id": "5119958",
+"platform": "facebook",
+"when": "2027-01-06T23:00:00.000Z",
+"kind": "Carousel",
+"slides": 5,
+"text": "Save this for your next weekly reset. Choose your training times, make a simple food plan and write down what ",
+"batch": "Studio S07-A"
+},
+{
+"id": "5119960",
+"platform": "facebook",
+"when": "2027-01-08T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Choose your workout before you arrive. Save the plan, get your clothes ready and decide when you need to leave",
+"batch": "Studio S03-A"
+},
+{
+"id": "5119961",
+"platform": "facebook",
+"when": "2027-01-11T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Too busy to train? Look at the whole appointment, including packing and travel. If the commute is the obstacle",
+"batch": "Studio S06-A"
+},
+{
+"id": "5119962",
+"platform": "facebook",
+"when": "2027-01-13T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Give lunch a place in your training plan. Decide what you'll eat and where it will come from before you head o",
+"batch": "Studio S02-A"
+},
+{
+"id": "5119963",
+"platform": "facebook",
+"when": "2027-01-15T23:00:00.000Z",
+"kind": "Carousel",
+"slides": 5,
+"text": "You don't have to wait for a perfect free hour to put a workout in your calendar. Start by finding the time yo",
+"batch": "Studio S08-A"
+},
+{
+"id": "5119964",
+"platform": "facebook",
+"when": "2027-01-18T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Choose a training setting you want to come back to. Then make the practical part clear: when you're going, wha",
+"batch": "Studio S04-A"
+},
+{
+"id": "5119965",
+"platform": "facebook",
+"when": "2027-01-20T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "I built a home gym and still use a gym membership. I like having options. If the drive is the reason your work",
+"batch": "Studio S05-A"
+},
+{
+"id": "5119966",
+"platform": "facebook",
+"when": "2027-01-22T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Make strength training an appointment you can keep. Choose the time, save the workout and get your space ready",
+"batch": "Studio S09-A"
+},
+{
+"id": "5119967",
+"platform": "facebook",
+"when": "2027-01-25T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "I have a home gym and I still pay for a gym membership. The point is having an option that works with your lif",
+"batch": "Studio S03-B"
+},
+{
+"id": "5119969",
+"platform": "facebook",
+"when": "2027-01-27T23:00:00.000Z",
+"kind": "Carousel",
+"slides": 5,
+"text": "Repeating a lunch you enjoy is a planning choice. You can still rotate meals and ingredients across the week. ",
+"batch": "Studio S08-B"
+},
+{
+"id": "5119970",
+"platform": "facebook",
+"when": "2027-01-29T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "I use a meal prep service. Having food ready removes one more decision from a busy day. You can do the same ki",
+"batch": "Studio S02-B"
+},
+{
+"id": "5119973",
+"platform": "facebook",
+"when": "2027-02-01T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Meal prep is one way I make food simpler. You don't need to invent a different lunch every day. Pick a few mea",
+"batch": "Studio S05-B"
+}
+],
+"waiting": [
+{
+"batch": "Studio posts",
+"platform": "facebook",
+"post": "S07-B",
+"title": "LUNCH,\nPLANNED.",
+"planned": "2027-02-03T23:00:00.000Z",
+"slides": 5,
+"kind": "Carousel"
+},
+{
+"batch": "Studio posts",
+"platform": "facebook",
+"post": "S04-B",
+"title": "Sort dinner before you head out",
+"planned": "2027-02-05T23:00:00.000Z",
+"slides": 1,
+"kind": "Photo"
+},
+{
+"batch": "Studio posts",
+"platform": "facebook",
+"post": "S06-B",
+"title": "LUNCH.\nSORTED.",
+"planned": "2027-02-08T23:00:00.000Z",
+"slides": 1,
+"kind": "Photo"
+},
+{
+"batch": "Studio posts",
+"platform": "facebook",
+"post": "S09-B",
+"title": "LUNCH.\nHANDLED.",
+"planned": "2027-02-10T23:00:00.000Z",
+"slides": 1,
+"kind": "Photo"
+},
+{
+"batch": "Studio posts",
+"platform": "facebook",
+"post": "S01-B",
+"title": "Make the next meal easier",
+"planned": "2027-02-12T23:00:00.000Z",
+"slides": 1,
+"kind": "Photo"
+},
+{
+"batch": "Studio posts",
+"platform": "facebook",
+"post": "S06-C",
+"title": "MISSED\nA DAY?",
+"planned": "2027-02-15T23:00:00.000Z",
+"slides": 1,
+"kind": "Photo"
+},
+{
+"batch": "Studio posts",
+"platform": "facebook",
+"post": "S04-C",
+"title": "Train martial arts. Lift weights too.",
+"planned": "2027-02-17T23:00:00.000Z",
+"slides": 1,
+"kind": "Photo"
+},
+{
+"batch": "Studio posts",
+"platform": "facebook",
+"post": "S07-C",
+"title": "YOUR\nPLAN B.",
+"planned": "2027-02-19T23:00:00.000Z",
+"slides": 5,
+"kind": "Carousel"
+},
+{
+"batch": "Studio posts",
+"platform": "facebook",
+"post": "S01-C",
+"title": "Missed a day? Keep going",
+"planned": "2027-02-22T23:00:00.000Z",
+"slides": 1,
+"kind": "Photo"
+},
+{
+"batch": "Studio posts",
+"platform": "facebook",
+"post": "S05-C",
+"title": "START AGAIN",
+"planned": "2027-02-24T23:00:00.000Z",
+"slides": 1,
+"kind": "Photo"
+},
+{
+"batch": "Studio posts",
+"platform": "facebook",
+"post": "S09-C",
+"title": "TRAIN HARD.\nLIFT TOO.",
+"planned": "2027-02-26T23:00:00.000Z",
+"slides": 1,
+"kind": "Photo"
+},
+{
+"batch": "Studio posts",
+"platform": "facebook",
+"post": "S02-C",
+"title": "Give the week a second chance",
+"planned": "2027-03-01T23:00:00.000Z",
+"slides": 1,
+"kind": "Photo"
+},
+{
+"batch": "Studio posts",
+"platform": "facebook",
+"post": "S08-C",
+"title": "I missed Monday.",
+"planned": "2027-03-03T23:00:00.000Z",
+"slides": 5,
+"kind": "Carousel"
+},
+{
+"batch": "Studio posts",
+"platform": "facebook",
+"post": "S03-C",
+"title": "Your next session still counts",
+"planned": "2027-03-05T23:00:00.000Z",
+"slides": 1,
+"kind": "Photo"
+}
+],
+"pipeline": [
+{
+"name": "RO-11 long-form",
+"state": "Round 1 with Dan",
+"note": "Waiting on Dan's review before any edit finishes."
+},
+{
+"name": "RO-13 long-form",
+"state": "Round 1 with Dan",
+"note": "Waiting on Dan's review before any edit finishes."
+},
+{
+"name": "SL-03 shorts",
+"state": "Building",
+"note": "Round 2 render in progress."
+},
+{
+"name": "SL-06 to SL-09 shorts",
+"state": "Ready to cut",
+"note": "Shorts from RO-12, RO-16, RO-10 and the Oura review. Not cut yet."
+},
+{
+"name": "Zepbound + Supplements shorts (16)",
+"state": "Parked",
+"note": "Held until their parent long-form is public."
+},
+{
+"name": "Long-forms 02 (Zepbound) and 03 (Supplements)",
+"state": "On hold",
+"note": "Dan's call. Not chasing."
+},
+{
+"name": "IG photo gap-fill, last 7 of 70",
+"state": "Needs queue room",
+"note": "Per the board; run iggap_fill.py --apply once slots free."
+}
+]
+}
