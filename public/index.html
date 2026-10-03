@@ -19,21 +19,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<script>
-// Stripe.js. The v2 cart (card fields on the page) needs a versioned Stripe.js;
-// that version dropped the function today's overlay checkout calls. While the
-// v2 cart is behind its switch (?cart=v2), everyone else keeps the script they
-// have always had. Loaded without blocking: Stripe is only called on a tap.
-(function () {
-  var v2 = false;
-  try {
-    v2 = new URLSearchParams(location.search).get('cart') === 'v2' || sessionStorage.getItem('absbyai_cart_v2') === '1';
-  } catch (e) {}
-  var s = document.createElement('script');
-  s.src = v2 ? 'https://js.stripe.com/endive/stripe.js' : 'https://js.stripe.com/v3/';
-  document.head.appendChild(s);
-})();
-</script>
+<!-- Stripe.js, versioned: the cart draws Stripe's fields on the page (Checkout elements SDK).
+     This version renamed the overlay checkout call; stripeEmbeddedCheckout() below handles both names. -->
+<script src="https://js.stripe.com/endive/stripe.js"></script>
 <script>
   !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]);t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+" (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onSessionId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
   posthog.init('phc_s3ZXKWHRFQVqK6pYRBRBKtc2ex7LL78CFMHtCfENEQrU', {api_host: 'https://us.i.posthog.com'});
@@ -1284,59 +1272,6 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
 .member-benefits li::before { content: '✓'; color: #1e9e5a; font-weight: 800; }
 .credit-convert-note { font-size: 13px; font-weight: 700; color: #1e9e5a; background: rgba(30,158,90,0.08); border: 1px solid rgba(30,158,90,0.25); border-radius: 11px; padding: 10px 13px; margin-top: 12px; }
 .guarantee-note { font-size: 12px; color: var(--mute); text-align: center; margin-top: 12px; }
-/* ── Web pay-first cart (2026-09-10) — the checkout that comes BEFORE the account ── */
-.cart-head { font-size: 24px; font-weight: 800; letter-spacing: -0.5px; line-height: 1.12; text-align: center; margin: 2px 0 6px; }
-.cart-sub { font-size: 14px; color: var(--mute); text-align: center; margin-bottom: 14px; line-height: 1.4; }
-.cart-recap { display: flex; gap: 12px; align-items: center; background: var(--card); border: 1.5px solid var(--line); border-radius: 16px; padding: 10px 12px; margin-bottom: 14px; box-shadow: var(--shadow); }
-.cart-recap-img { position: relative; width: 74px; height: 92px; border-radius: 12px; overflow: hidden; flex: none; background: #e9e6df; }
-.cart-recap-img img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
-.cart-recap-img.locked img { filter: blur(0.6px); }
-.cart-recap-lock { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 30px; height: 30px; border-radius: 50%; background: rgba(20,18,15,0.82); display: flex; align-items: center; justify-content: center; color: #fff; }
-.cart-recap-body { min-width: 0; }
-.cart-recap-lbl { font-size: 11px; font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase; color: var(--faint); margin-bottom: 3px; }
-.cart-recap-line { font-size: 14px; font-weight: 700; line-height: 1.3; }
-.cart-recap-line .an-goal { color: var(--acc); }
-.cart-recap-fine { font-size: 11px; color: var(--faint); margin-top: 3px; }
-.cart-plans { display: flex; flex-direction: column; gap: 10px; margin: 6px 0 12px; }
-.cart-plan { display: flex; align-items: center; gap: 12px; width: 100%; text-align: left; padding: 14px 15px; border: 1.5px solid var(--line); border-radius: 14px; background: var(--card); cursor: pointer; font: inherit; color: var(--ink); }
-.cart-plan.selected { border-color: var(--acc); background: rgba(47,95,224,0.05); box-shadow: 0 0 0 2px rgba(47,95,224,0.12); }
-.cart-plan-radio { width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--faint); flex: none; position: relative; }
-.cart-plan.selected .cart-plan-radio { border-color: var(--acc); }
-.cart-plan.selected .cart-plan-radio::after { content: ''; position: absolute; inset: 4px; border-radius: 50%; background: var(--acc); }
-.cart-plan-body { flex: 1; min-width: 0; }
-.cart-plan-name { font-size: 15px; font-weight: 800; letter-spacing: -0.1px; display: flex; align-items: center; flex-wrap: wrap; gap: 6px; }
-.cart-plan-sub { font-size: 12px; color: var(--mute); margin-top: 2px; }
-.cart-plan-price { text-align: right; flex: none; }
-.cart-plan-price b { display: block; font-size: 17px; font-weight: 800; letter-spacing: -0.3px; }
-.cart-plan-price span { font-size: 11px; color: var(--mute); }
-.cart-timeline { background: var(--card); border: 1.5px solid var(--line); border-radius: 16px; padding: 12px 14px 6px; margin-bottom: 14px; }
-.cart-timeline-title { font-size: 12px; font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase; color: var(--faint); margin-bottom: 8px; }
-.cart-tl-row { display: grid; grid-template-columns: 22px 1fr; gap: 10px; padding-bottom: 12px; position: relative; }
-.cart-tl-row::before { content: ''; position: absolute; left: 10px; top: 20px; bottom: 0; width: 2px; background: var(--line); }
-.cart-tl-row:last-child::before { display: none; }
-.cart-tl-dot { width: 22px; height: 22px; border-radius: 50%; background: var(--acc-soft); border: 2px solid var(--acc); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: var(--acc); }
-.cart-tl-row.now .cart-tl-dot { background: var(--acc); color: #fff; }
-.cart-tl-when { font-size: 11.5px; font-weight: 700; color: var(--faint); text-transform: uppercase; letter-spacing: 0.3px; }
-.cart-tl-what { font-size: 13.5px; font-weight: 600; line-height: 1.35; }
-.cart-tl-what small { display: block; font-weight: 500; color: var(--mute); font-size: 12px; }
-.cart-benefits { margin: 0 0 14px; padding: 0; list-style: none; }
-.cart-benefits li { display: flex; gap: 9px; align-items: flex-start; font-size: 13.5px; padding: 4px 0; line-height: 1.35; }
-.cart-benefits li::before { content: '✓'; color: #1e9e5a; font-weight: 800; flex: none; }
-.cart-disclosure { font-size: 12.5px; color: var(--disc); line-height: 1.45; text-align: center; margin: 0 0 10px; padding: 10px 12px; background: var(--acc-soft); border-radius: 12px; }
-.cart-pay-sub { font-size: 12px; color: var(--mute); text-align: center; margin: 8px 0 4px; }
-.cart-skip { display: block; width: 100%; background: none; border: none; color: var(--mute); font: inherit; font-size: 13px; font-weight: 600; text-decoration: underline; cursor: pointer; padding: 12px; text-align: center; }
-.cart-done-hero { text-align: center; padding: 8px 0 14px; }
-.cart-done-badge { width: 62px; height: 62px; border-radius: 50%; background: #1e9e5a; color: #fff; display: flex; align-items: center; justify-content: center; margin: 4px auto 12px; box-shadow: 0 8px 24px rgba(30,158,90,0.3); }
-.cart-done-email { font-size: 13.5px; color: var(--mute); margin-top: 4px; word-break: break-all; }
-.cart-pw { background: var(--card); border: 1.5px solid var(--line); border-radius: 16px; padding: 14px 15px; margin: 0 0 14px; }
-.cart-pw-title { font-size: 14px; font-weight: 800; margin-bottom: 2px; }
-.cart-pw-sub { font-size: 12px; color: var(--mute); margin-bottom: 10px; line-height: 1.4; }
-.cart-pw-row { display: flex; gap: 8px; }
-.cart-pw-row .text-field { flex: 1; box-shadow: none; }
-.cart-pw-btn { flex: none; background: var(--ink); color: #fff; border: none; border-radius: 12px; padding: 0 16px; font: inherit; font-weight: 700; font-size: 13px; cursor: pointer; }
-.cart-pw-btn:disabled { opacity: 0.5; cursor: default; }
-.cart-pw-ok { font-size: 12.5px; color: #1e9e5a; font-weight: 700; margin-top: 8px; }
-
 /* ── Web cart v2 (approved 2026-10-02). Spec: Docs/cart-design-20261002 (the
    boards are the authority). A full-width page of its own, outside .app:
    html.cart-v2 hides the app column while it is open. Phone layout under
@@ -3120,107 +3055,6 @@ html.cart-v2 body { background: #ffffff; }
          2026-08-12 along with every other credit purchase path. -->
   </div>
 
-  <!-- ════════════════ WEB CART (pay first, account after) ════════════════
-       The checkout for every non-member on the WEB (2026-09-10). Stripe collects
-       the email with the card; the account is created from it after payment
-       (server: fulfillMembershipSession + /api/stripe/claim). The native apps
-       never see this screen — showMembershipScreen keeps IAP/account-first there.
-       Review without paying: /?demo=checkout (+ &locked=1, &sex=female). -->
-  <div id="cartSection" class="screen" style="display:none">
-    <div class="nav-bar">
-      <button class="nav-icon-btn" id="cartBackBtn" title="Back">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-      </button>
-      <span class="nav-title">Start your free trial</span>
-      <span style="width:26px"></span>
-    </div>
-
-    <div id="cartMain">
-      <div class="cart-head" id="cartHead">Your plan is ready.</div>
-      <div class="cart-sub" id="cartSub">Start your 7 days free. Nothing is charged today.</div>
-
-      <!-- Video slot: hidden until ABS_CART_VIDEO (site-video.js) has a youtubeId or
-           mp4; a labelled placeholder renders on localhost, ?vp=1 and ?demo=checkout. -->
-      <div id="cartVideoBlock" class="an-video" style="display:none">
-        <div class="an-video-frame" id="cartVideoFrame"></div>
-      </div>
-
-      <div id="cartRecap" class="cart-recap" style="display:none">
-        <div class="cart-recap-img" id="cartRecapImgWrap">
-          <img id="cartRecapImg" alt="Your AI-generated goal image" />
-          <div class="cart-recap-lock" id="cartRecapLock" style="display:none"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg></div>
-        </div>
-        <div class="cart-recap-body">
-          <div class="cart-recap-lbl" id="cartRecapLbl">Your goal image</div>
-          <div class="cart-recap-line" id="cartRecapLine"></div>
-          <div class="cart-recap-fine" id="cartRecapFine">AI visualization, not a real result · visual estimates</div>
-        </div>
-      </div>
-
-      <div class="cart-plans" id="cartPlans">
-        <button type="button" class="cart-plan selected" data-plan="monthly" id="cartPlanMonthly">
-          <span class="cart-plan-radio"></span>
-          <span class="cart-plan-body">
-            <span class="cart-plan-name">Monthly</span>
-            <span class="cart-plan-sub">7 days free, then $19.99 a month</span>
-          </span>
-          <span class="cart-plan-price"><b>$19.99</b><span>/month</span></span>
-        </button>
-        <button type="button" class="cart-plan" data-plan="annual" id="cartPlanAnnual">
-          <span class="cart-plan-radio"></span>
-          <span class="cart-plan-body">
-            <span class="cart-plan-name">Annual <span class="plan-badge" style="margin-left:0">SAVE 71%</span></span>
-            <span class="cart-plan-sub">7 days free, then $69.99 a year · $5.83 a month</span>
-          </span>
-          <span class="cart-plan-price"><b>$69.99</b><span>/year</span></span>
-        </button>
-      </div>
-      <div id="cartCreditNote" class="credit-convert-note" style="display:none;margin:0 0 12px"></div>
-
-      <div class="cart-timeline">
-        <div class="cart-timeline-title">How your free trial works</div>
-        <div class="cart-tl-row now"><div class="cart-tl-dot">✓</div><div><div class="cart-tl-when">Today</div><div class="cart-tl-what">$0 — everything unlocked<small>Your goal image, the AI trainer, the nutrition plan, the macro tracker.</small></div></div></div>
-        <div class="cart-tl-row"><div class="cart-tl-dot">7</div><div><div class="cart-tl-when">Day 7</div><div class="cart-tl-what" id="cartTlCharge">First charge: $19.99<small id="cartTlChargeSub">Cancel any time before then in Manage membership and you pay nothing.</small></div></div></div>
-      </div>
-
-      <ul class="cart-benefits">
-        <li>Your AI training program, built from your photo and your numbers</li>
-        <li>Unlimited future-self images and the AI nutrition plan</li>
-        <li>Unlimited AI meal &amp; macro tracking, the Sleep Coach, Supplement Audits</li>
-        <li>Cancel in two taps — Manage membership, then Cancel</li>
-      </ul>
-
-      <div id="cartError" class="error-toast" style="display:none;margin-bottom:12px"></div>
-      <div class="cart-disclosure" id="cartDisclosure">7 days free, then $19.99/month, billed automatically and renewed every month until you cancel. Cancel any time before the trial ends and you won't be charged. Manage or cancel in Manage membership. <a href="/terms" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">Terms</a>.</div>
-      <button type="button" id="cartPayBtn" class="cta-btn" style="margin-top:0">Start my free 7 days →</button>
-      <div class="cart-pay-sub" id="cartPaySub">Apple Pay, Link or card · your email becomes your login</div>
-      <button type="button" id="cartSkipBtn" class="cart-skip">Continue to my hub without a trial →</button>
-    </div>
-
-    <!-- After payment. Two states: the account was CREATED (buyer is logged in
-         through the one-time claim; optional password), or the email already had
-         an account (membership attached; buyer logs in — never automatically). -->
-    <div id="cartDone" style="display:none">
-      <div class="cart-done-hero">
-        <div class="cart-done-badge"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
-        <div class="cart-head" id="cartDoneTitle">You're in — your 7-day trial is active</div>
-        <div class="cart-done-email" id="cartDoneEmail"></div>
-      </div>
-      <div class="cart-pw" id="cartPwBlock">
-        <div class="cart-pw-title">Create a password (optional)</div>
-        <div class="cart-pw-sub">You're logged in on this device. A password lets you log in anywhere else — we've also emailed you a link to set one later.</div>
-        <form id="cartPwForm" class="cart-pw-row">
-          <input type="password" id="cartPwInput" class="text-field" placeholder="At least 8 characters" minlength="8" autocomplete="new-password" />
-          <button type="submit" id="cartPwBtn" class="cart-pw-btn">Save</button>
-        </form>
-        <div id="cartPwOk" class="cart-pw-ok" style="display:none">Password saved.</div>
-        <div id="cartPwErr" class="error-toast" style="display:none;margin-top:8px"></div>
-      </div>
-      <div id="cartExistingNote" class="hub-preview-note" style="display:none;margin-bottom:14px">Your membership is attached to the account with this email. Log in to continue — we've also emailed you a link.</div>
-      <button type="button" id="cartDoneBtn" class="cta-btn" style="margin-top:0">Build my program →</button>
-      <div class="cart-pay-sub" id="cartDoneSub">Five quick questions, then your program.</div>
-    </div>
-  </div>
 
 </div><!-- /.app -->
 
@@ -4346,8 +4180,8 @@ function updateFixItVisibility(locked) {
 // checkCreditsSession() below still settles any purchase that was already in
 // flight when this shipped.
 
-// The overlay checkout. The versioned Stripe.js the v2 cart loads removed
-// initEmbeddedCheckout in favour of createEmbeddedCheckoutPage (same options).
+// The overlay checkout (print orders). The versioned Stripe.js the cart needs
+// removed initEmbeddedCheckout in favour of createEmbeddedCheckoutPage (same options).
 // The original call runs first, exactly as before; the new name is only tried
 // when Stripe says the old one is gone.
 async function stripeEmbeddedCheckout(stripeJs, opts) {
@@ -4737,21 +4571,8 @@ function pauseMediaIn(root) {
   });
 }
 
-// Web cart v2 switch (the cart itself is further down, at WEB CART v2).
-// Dark launch: today's cart stays the default. /?join=1&cart=v2 (remembered
-// for the tab) pays through the new one; /?demo=checkout shows it with
-// payment off.
-const CART_V2 = (() => {
-  try {
-    const q = new URLSearchParams(location.search);
-    if (q.get('cart') === 'v2') { try { sessionStorage.setItem('absbyai_cart_v2', '1'); } catch (e) {} return true; }
-    if (q.get('demo') === 'checkout') return true;
-    return sessionStorage.getItem('absbyai_cart_v2') === '1';
-  } catch (e) { return false; }
-})();
-
 function renderScreen(name) {
-  ['formSection', 'resultSection', 'chooserSection', 'analysisSection', 'productSection', 'customizeSection', 'confirmationSection', 'macroSection', 'authSection', 'hubSection', 'trainerSection', 'programSection', 'nutritionSection', 'mealPlanSection', 'counselSection', 'counselIntakeSection', 'counselReportSection', 'sleepSection', 'sleepBriefingSection', 'transformationsSection', 'progressSection', 'progressPhotoSection', 'quizSection', 'membershipSection', 'cartSection'].forEach(id => {
+  ['formSection', 'resultSection', 'chooserSection', 'analysisSection', 'productSection', 'customizeSection', 'confirmationSection', 'macroSection', 'authSection', 'hubSection', 'trainerSection', 'programSection', 'nutritionSection', 'mealPlanSection', 'counselSection', 'counselIntakeSection', 'counselReportSection', 'sleepSection', 'sleepBriefingSection', 'transformationsSection', 'progressSection', 'progressPhotoSection', 'quizSection', 'membershipSection'].forEach(id => {
     const el = $(id);
     if (!el) return;
     const show = id === name + 'Section';
@@ -4761,12 +4582,12 @@ function renderScreen(name) {
     if (!show && el.style.display !== 'none') pauseMediaIn(el);
     el.style.display = show ? '' : 'none';
   });
-  // The v2 cart lives outside .app (full width); the 'cart' screen shows it
-  // and hides the app column. Any other screen puts the app back.
-  const cartV2On = name === 'cart' && CART_V2;
-  document.documentElement.classList.toggle('cart-v2', cartV2On);
-  const cartV2El = $('cartV2');
-  if (cartV2El) cartV2El.style.display = cartV2On ? '' : 'none';
+  // The web cart lives outside .app (a full-width page of its own): the 'cart'
+  // screen shows it and hides the app column. Any other screen puts the app back.
+  const cartOn = name === 'cart';
+  document.documentElement.classList.toggle('cart-v2', cartOn);
+  const cartEl = $('cartV2');
+  if (cartEl) cartEl.style.display = cartOn ? '' : 'none';
   window.scrollTo({ top: 0, behavior: 'smooth' });
   const dotMap = { form: 0, result: 1 };
   document.querySelectorAll('.dot').forEach((d, i) => {
@@ -5368,8 +5189,6 @@ function selectPick(gridId, value, stateKey) {
 // Configured in public/site-video.js — the ONE place the website video lives,
 // shared with the /start ad landing page. Paste the YouTube id THERE, not here.
 const ANALYSIS_VIDEO = Object.assign({ youtubeId: '', mp4: '', poster: '/img/video-poster.jpg' }, window.ABS_SITE_VIDEO || {});
-// The short cart video (placeholder until Dan has the file) — same one-file rule.
-const CART_VIDEO = Object.assign({ youtubeId: '', mp4: '', poster: '' }, window.ABS_CART_VIDEO || {});
 
 // ── Demo mode: /?demo=analysis ──────────────────────────────────────────────
 // Opens the analysis page on a sample before/after pair so the layout, the video
@@ -7263,7 +7082,8 @@ function renderHubMembership() {
     const amount = '$' + ((lt.amountCents || 6999) / 100).toFixed(2);
     const paid = memberState.status === 'active';
     const canceled = memberState.status === 'canceled';
-    $('hubMembershipPlan').textContent = paid ? 'Lifetime member' : (canceled ? 'Lifetime trial cancelled' : 'Lifetime Access: free trial');
+    const retrying = memberState.status === 'past_due';
+    $('hubMembershipPlan').textContent = paid ? 'Lifetime member' : (canceled ? 'Lifetime trial cancelled' : (retrying ? 'Lifetime Access' : 'Lifetime Access: free trial'));
     $('hubMembershipDate').textContent = paid
       ? 'Paid in full. No recurring billing.'
       : (canceled
@@ -8433,7 +8253,7 @@ function initProgress() {
 //  MEMBERSHIP — plans, paywall, subscription checkout
 // ============================================================
 const memberState = { active: false, plan: null, periodEnd: null, status: null, discountCents: 0, loaded: false, userId: null, source: null };
-let selectedPlan = 'monthly'; // Monthly is the default (Dan, 2026-09-10); Annual stays one tap away
+let selectedPlan = 'monthly'; // Monthly is the default (Dan, 2026-09-10). The web cart offers Monthly and Lifetime.
 let membershipReturnTo = null; // where to go after subscribing (or backing out)
 let membershipGateBackToHub = false;
 
@@ -8619,16 +8439,13 @@ function showMembershipScreen(returnTo, opts) {
 }
 
 // ============================================================
-// WEB CART — pay first, account after (2026-09-10)
-// The checkout for every non-member on the web. Research (Cart teardown,
-// 2026-09-10): one screen, the result recap on top, Monthly pre-selected with
-// Annual one tap away, a trial timeline instead of a countdown, the renewal
-// terms in body-size type directly above the button, wallets first. Stripe
-// collects the email with the card; the account is created from it after
-// payment and the paying browser is logged in through a one-time claim.
+// WEB CART: pay first, account after (2026-09-10; the approved navy design
+// since 2026-10-03). The checkout for every non-member on the web. The buyer
+// gives an email and a card on one page; the account is created from that
+// email after payment and the paying browser is logged in through a one-time
+// claim. The page itself is built further down, at WEB CART v2.
 // ============================================================
 let cartFrom = null;            // screen to return to on Back
-let cartSessionId = null;       // the Stripe session being paid, for the claim
 let cartResult = null;          // { created, email } after payment
 
 // Every cart event goes through here so /?demo=checkout never pollutes the
@@ -8636,164 +8453,6 @@ let cartResult = null;          // { created, email } after payment
 function cartCapture(event, props) {
   if (DEMO) return;
   if (window.posthog) posthog.capture(event, props);
-}
-
-const CART_PLAN_COPY = {
-  monthly: { charge: 'First charge: $19.99', chargeSub: 'Then $19.99 a month. Cancel any time before day 7 in Manage membership and you pay nothing.',
-    disclosure: '7 days free, then $19.99/month, billed automatically and renewed every month until you cancel. Cancel any time before the trial ends and you won\'t be charged. Manage or cancel in Manage membership.' },
-  annual:  { charge: 'First charge: $69.99', chargeSub: 'Then $69.99 a year ($5.83 a month). Cancel any time before day 7 in Manage membership and you pay nothing.',
-    disclosure: '7 days free, then $69.99/year, billed automatically and renewed every year until you cancel. Cancel any time before the trial ends and you won\'t be charged. Manage or cancel in Manage membership.' },
-};
-
-function renderCartPlan() {
-  const c = CART_PLAN_COPY[selectedPlan] || CART_PLAN_COPY.monthly;
-  document.querySelectorAll('.cart-plan').forEach((el) => el.classList.toggle('selected', el.dataset.plan === selectedPlan));
-  const charge = $('cartTlCharge');
-  charge.firstChild.textContent = c.charge;
-  $('cartTlChargeSub').textContent = c.chargeSub;
-  $('cartDisclosure').innerHTML = `${c.disclosure} <a href="/terms" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">Terms</a>.`;
-}
-
-// Video slot — mirrors renderAnalysisVideo(): YouTube → nocookie iframe, mp4 →
-// <video>, nothing → hidden for real users, a labelled placeholder on localhost,
-// ?vp=1 and ?demo=checkout so the layout can be reviewed before the file exists.
-function renderCartVideo() {
-  const block = $('cartVideoBlock'), frame = $('cartVideoFrame');
-  const isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
-  let vp = false;
-  try { vp = new URLSearchParams(location.search).get('vp') === '1'; } catch (e) {}
-  const real = !!(CART_VIDEO.youtubeId || CART_VIDEO.mp4);
-  if (!real && !isLocal && !vp && !(DEMO && DEMO.kind === 'checkout')) { block.style.display = 'none'; frame.innerHTML = ''; return false; }
-  block.style.display = '';
-  if (frame.dataset.rendered === (real ? 'real' : 'ph')) return real;
-  frame.dataset.rendered = real ? 'real' : 'ph';
-  if (CART_VIDEO.youtubeId) {
-    frame.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(CART_VIDEO.youtubeId)}?rel=0&modestbranding=1&playsinline=1&enablejsapi=1" title="What you get with Abs by AI" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>`;
-    let hovered = false;
-    frame.addEventListener('mouseenter', () => { hovered = true; });
-    frame.addEventListener('mouseleave', () => { hovered = false; });
-    frame.addEventListener('touchstart', () => { hovered = true; }, { passive: true });
-    window.addEventListener('blur', () => {
-      if (hovered && !frame.dataset.played) { frame.dataset.played = '1'; cartCapture('cart_video_play', { kind: 'youtube' }); }
-    });
-  } else if (CART_VIDEO.mp4) {
-    frame.innerHTML = `<video playsinline controls preload="metadata"${CART_VIDEO.poster ? ` poster="${CART_VIDEO.poster}"` : ''} src="${CART_VIDEO.mp4}"></video>`;
-    const v = frame.querySelector('video');
-    const fired = {};
-    v.addEventListener('play', () => { if (!fired.play) { fired.play = 1; cartCapture('cart_video_play', { kind: 'mp4' }); } });
-    v.addEventListener('timeupdate', () => {
-      if (!v.duration) return;
-      const pct = v.currentTime / v.duration * 100;
-      [25, 50, 75, 100].forEach((m) => {
-        if (pct >= m - (m === 100 ? 1.5 : 0) && !fired[m]) { fired[m] = 1; cartCapture('cart_video_progress', { pct: m }); }
-      });
-    });
-    v.addEventListener('ended', () => { if (!fired[100]) { fired[100] = 1; cartCapture('cart_video_progress', { pct: 100 }); } });
-  } else {
-    frame.innerHTML = `<div class="an-video-ph"${CART_VIDEO.poster ? ` style="background-image:url('${CART_VIDEO.poster}')"` : ''}>
-      <div class="an-video-ph-play"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="an-video-ph-lbl">CART VIDEO — COMING</div>
-      <div style="font-size:12px;opacity:.6">Dan: the short cart video goes here (ABS_CART_VIDEO in site-video.js)</div>
-    </div>`;
-  }
-  return real;
-}
-
-// The recap: the goal image (locked → the blurred teaser with a lock) and the
-// one line of numbers the analysis page computed, so the cart continues that
-// page instead of restarting the pitch. Hidden when the visitor has no result
-// (a hub tile, say) — the plan picker still stands on its own.
-function renderCartRecap() {
-  const wrap = $('cartRecap');
-  let after = '';
-  try { after = analysisImages().after || localStorage.getItem(LAST_AFTER_KEY) || state.lastAfterDataUrl || ''; } catch (e) { after = state.lastAfterDataUrl || ''; }
-  if (!after) { wrap.style.display = 'none'; return; }
-  const locked = analysisLocked();
-  $('cartRecapImg').src = after;
-  $('cartRecapImgWrap').classList.toggle('locked', locked);
-  $('cartRecapLock').style.display = locked ? '' : 'none';
-  $('cartRecapLbl').textContent = locked ? 'Your goal image — unlocks with the trial' : 'Your goal image';
-  let line = '';
-  try {
-    const a = analysisState.analysis || (state.condition ? tableBodyAnalysis() : null);
-    if (a && analysisState.weight) {
-      const n = computeAnalysisNumbers(a, analysisState.weight, analysisSex());
-      line = `Body fat ${a.bf_now_low}–${a.bf_now_high}% <span class="an-goal">→ ${a.bf_goal}%</span> · goal ≈${Math.round(n.goalW)} lb`;
-    }
-  } catch (e) {}
-  $('cartRecapLine').innerHTML = line || 'Your program starts from this picture.';
-  $('cartRecapFine').style.display = line ? '' : 'none';
-  wrap.style.display = '';
-}
-
-function showCartScreen(returnTo, opts) {
-  if (IS_NATIVE_APP) return showMembershipScreen(returnTo, opts); // never on native
-  if (CART_V2) return showCartV2(returnTo, opts);
-  membershipReturnTo = returnTo || membershipReturnTo;
-  membershipGateBackToHub = !!opts?.trialGate;
-  const current = screenStack[screenStack.length - 1];
-  if (current !== 'cart') cartFrom = current;
-  const demo = !!(DEMO && DEMO.kind === 'checkout');
-  const locked = analysisLocked();
-  cartCapture('cart_viewed', { from: opts?.from || cartFrom || null, locked, logged_in: isLoggedIn(), plan: selectedPlan });
-
-  $('cartMain').style.display = '';
-  $('cartDone').style.display = 'none';
-  $('cartHead').textContent = locked ? 'Unlock your goal image — free for 7 days' : 'Your plan is ready.';
-  $('cartSub').textContent = locked
-    ? 'See it in full, plus everything in the app. Nothing is charged today.'
-    : 'Start your 7 days free. Nothing is charged today.';
-  renderCartVideo();
-  renderCartRecap();
-  renderCartPlan();
-  const note = $('cartCreditNote');
-  if (!memberState.active && memberState.discountCents > 0) {
-    const n = Math.round(memberState.discountCents / 100);
-    note.textContent = `✦ Your ${n} credit${n !== 1 ? 's' : ''} = $${n} off your first payment`;
-    note.style.display = '';
-  } else {
-    note.style.display = 'none';
-  }
-  const btn = $('cartPayBtn');
-  btn.disabled = demo;
-  btn.textContent = demo ? 'Demo — checkout disabled' : 'Start my free 7 days →';
-  $('cartPaySub').textContent = isLoggedIn()
-    ? `Apple Pay, Link or card · billed to ${auth.email}`
-    : 'Apple Pay, Link or card · your email becomes your login';
-  $('cartError').style.display = 'none';
-  showScreen('cart');
-}
-
-async function handleCartPay() {
-  if (IS_NATIVE_APP) return;
-  if (DEMO && DEMO.kind === 'checkout') return;
-  const btn = $('cartPayBtn');
-  btn.disabled = true;
-  $('cartError').style.display = 'none';
-  cartCapture('cart_checkout_opened', { plan: selectedPlan, logged_in: isLoggedIn() });
-  try {
-    if (!STRIPE_PUBLISHABLE_KEY) throw new Error('Payments are warming up — try again in a moment.');
-    const data = await authApi('/api/stripe/create-cart-checkout', {
-      method: 'POST',
-      body: JSON.stringify({ plan: selectedPlan, deviceId: getDeviceId(), adClickId: getAdClickId(), adClickType: getAdClickType() }),
-    });
-    cartSessionId = data.sessionId;
-    const stripeJs = Stripe(STRIPE_PUBLISHABLE_KEY);
-    const sessionId = data.sessionId;
-    const checkout = await stripeEmbeddedCheckout(stripeJs, {
-      clientSecret: data.clientSecret,
-      onComplete: () => { handleCartComplete(sessionId, !!data.anon); },
-    });
-    $('checkoutOverlay').style.display = 'flex';
-    $('checkout').innerHTML = '';
-    checkout.mount('#checkout');
-    window._stripeCheckout = checkout;
-  } catch (err) {
-    $('cartError').textContent = err.message || 'Something went wrong. Please try again.';
-    $('cartError').style.display = '';
-  } finally {
-    btn.disabled = false;
-  }
 }
 
 // Ask the server to log this browser in on the account the checkout created.
@@ -8858,45 +8517,6 @@ async function handleCartComplete(sessionId, anon) {
   showCartDone();
 }
 
-function showCartDone() {
-  if (CART_V2) return c2ShowDone();
-  const created = !!(cartResult && cartResult.created);
-  $('cartMain').style.display = 'none';
-  $('cartDone').style.display = '';
-  $('cartDoneTitle').textContent = created ? "You're in — your 7-day trial is active" : 'Your membership is active';
-  $('cartDoneEmail').textContent = cartResult && cartResult.email
-    ? (created ? `Logged in as ${cartResult.email}` : `On the account ${cartResult.email}`)
-    : "Check your email — we've sent you a link to get in.";
-  $('cartPwBlock').style.display = created ? '' : 'none';
-  $('cartExistingNote').style.display = created ? 'none' : '';
-  $('cartPwInput').value = '';
-  $('cartPwOk').style.display = 'none';
-  $('cartPwErr').style.display = 'none';
-  $('cartDoneBtn').textContent = created ? 'Build my program →' : 'Log in to continue →';
-  $('cartDoneSub').textContent = created ? 'Five quick questions, then your program.' : 'Use the password for that account, or "Forgot password".';
-  showScreen('cart');
-}
-
-async function handleCartSetPassword(e) {
-  e.preventDefault();
-  const btn = $('cartPwBtn');
-  const pw = $('cartPwInput').value;
-  $('cartPwErr').style.display = 'none';
-  if (pw.length < 8) { $('cartPwErr').textContent = 'Use at least 8 characters.'; $('cartPwErr').style.display = ''; return; }
-  btn.disabled = true;
-  try {
-    await authApi('/api/auth/set-password', { method: 'POST', body: JSON.stringify({ password: pw }) });
-    $('cartPwOk').style.display = '';
-    $('cartPwInput').value = '';
-    if (window.posthog) posthog.capture('cart_password_set');
-  } catch (err) {
-    $('cartPwErr').textContent = err.message || 'Could not save that password.';
-    $('cartPwErr').style.display = '';
-  } finally {
-    btn.disabled = false;
-  }
-}
-
 // "Build my program" → the five questions as onboarding → the continuation
 // (the pending feature, the locked-image release, or the hub).
 function handleCartDoneContinue() {
@@ -8908,10 +8528,10 @@ function handleCartDoneContinue() {
     if (email) $('authEmail').value = email;
     return;
   }
-  // The v2 cart sold "see yourself with abs, then the plan", so a buyer with no
+  // The cart sold "see yourself with abs, then the plan", so a buyer with no
   // goal picture yet uploads their photo first; the five questions follow from
   // the analysis page's button (Dan, 2026-10-02).
-  if (CART_V2 && !cartHasGoalPicture()) {
+  if (!cartHasGoalPicture()) {
     try { localStorage.setItem(CART_ONBOARD_KEY, '1'); } catch (e) {}
     cartResult = null;
     return showScreen('form');
@@ -8943,34 +8563,6 @@ function finishCartOnboarding() {
   membershipGateBackToHub = false;
   cartResult = null;
   if (dest) dest(); else if (loadStoredProgram()) showProgram(); else showHub();
-}
-
-function wireCartScreen() {
-  $('cartBackBtn').addEventListener('click', () => {
-    if ($('cartDone').style.display !== 'none') return; // paid: forward only
-    const back = cartFrom;
-    cartFrom = null;
-    if (membershipGateBackToHub && back === 'hub') { membershipGateBackToHub = false; return showHub(); }
-    membershipReturnTo = null;
-    membershipGateBackToHub = false;
-    if (back && back !== 'cart' && back !== 'auth') return showScreen(back);
-    if (isLoggedIn()) showHub(); else showScreen('form');
-  });
-  document.querySelectorAll('.cart-plan').forEach((el) => el.addEventListener('click', () => {
-    selectedPlan = el.dataset.plan;
-    cartCapture('cart_plan_selected', { plan: selectedPlan });
-    renderCartPlan();
-  }));
-  $('cartPayBtn').addEventListener('click', handleCartPay);
-  $('cartSkipBtn').addEventListener('click', () => {
-    cartCapture('cart_skipped', { plan: selectedPlan });
-    membershipReturnTo = null;
-    membershipGateBackToHub = false;
-    showHub();
-  });
-  $('cartPwForm').addEventListener('submit', handleCartSetPassword);
-  $('cartDoneBtn').addEventListener('click', handleCartDoneContinue);
-  wireCartV2();
 }
 
 // ============================================================
@@ -9156,7 +8748,8 @@ async function c2LoadPayment() {
   }
 }
 
-function showCartV2(returnTo, opts) {
+function showCartScreen(returnTo, opts) {
+  if (IS_NATIVE_APP) return showMembershipScreen(returnTo, opts); // never on native
   membershipReturnTo = returnTo || membershipReturnTo;
   membershipGateBackToHub = !!opts?.trialGate;
   const current = screenStack[screenStack.length - 1];
@@ -9273,7 +8866,7 @@ function applyCartReturn() {
   return true;
 }
 
-function c2ShowDone() {
+function showCartDone() {
   const created = !!(cartResult && cartResult.created);
   const photoFirst = created && !cartHasGoalPicture();
   $('c2Main').style.display = 'none';
@@ -9315,7 +8908,7 @@ async function c2SetPassword(e) {
   }
 }
 
-function wireCartV2() {
+function wireCartScreen() {
   document.querySelectorAll('.c2-plan').forEach((el) => el.addEventListener('click', () => {
     if (c2.busy || selectedPlan === el.dataset.plan) return;
     selectedPlan = el.dataset.plan;
@@ -9382,33 +8975,9 @@ function openLifetimeManage() {
   document.body.appendChild(bg);
 }
 
-async function handleMembershipSubscribe() {
+function handleMembershipSubscribe() {
   if (IS_NATIVE_APP) return; // digital purchases are disabled in the native apps
-  if (!isLoggedIn()) return showCartScreen(); // web: card first, account after
-  const btn = $('membershipSubscribeBtn');
-  btn.disabled = true;
-  $('membershipError').style.display = 'none';
-  try {
-    const data = await authApi('/api/stripe/create-membership-checkout', {
-      method: 'POST',
-      body: JSON.stringify({ plan: selectedPlan, deviceId: getDeviceId(), adClickId: getAdClickId(), adClickType: getAdClickType() }),
-    });
-    const stripeJs = Stripe(STRIPE_PUBLISHABLE_KEY);
-    const sessionId = data.sessionId;
-    const checkout = await stripeEmbeddedCheckout(stripeJs, {
-      clientSecret: data.clientSecret,
-      onComplete: () => { handleMembershipComplete(sessionId); },
-    });
-    $('checkoutOverlay').style.display = 'flex';
-    $('checkout').innerHTML = '';
-    checkout.mount('#checkout');
-    window._stripeCheckout = checkout;
-  } catch (err) {
-    $('membershipError').textContent = err.message || 'Something went wrong. Please try again.';
-    $('membershipError').style.display = '';
-  } finally {
-    btn.disabled = false;
-  }
+  showCartScreen(); // web: every purchase goes through the cart
 }
 
 async function handleMembershipComplete(sessionId, opts = {}) {

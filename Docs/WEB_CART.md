@@ -1,125 +1,123 @@
-# Web cart v2 build plan (2026-10-02, in progress)
+# Web cart: pay first, account after
 
-Spec: `Docs/cart-design-20261002/`. Handoff: `Handoffs/handoff-20261002-cart-build.md`. Dan's three decisions, all yes:
-Lifetime replaces Annual on the web cart; after payment a buyer with no goal picture goes to the photo upload, then
-the five questions; a failed Lifetime charge retries once a day for 3 days with an email each time, then access ends.
+The membership checkout on **absbyai.com** (web only). Live since 2026-10-03 in the approved navy design
+(`Docs/cart-design-20261002/`, the boards are the authority for look and copy). It replaced the 2026-09-10 cart
+(overlay Stripe sheet, Monthly plus Annual). The iOS and Android apps never see it: `IS_NATIVE_APP` keeps the In-App
+Purchase screen.
 
-Verified against Stripe's docs and the live account on 2026-10-02 (API `2026-09-30.endive`, Stripe.js
-`js.stripe.com/endive/stripe.js`; the installed `stripe` package is 14.25, so the new sessions pass `apiVersion` per call):
+Entry: every web non-member who reaches a paywall. `/start` buy buttons (`/?join=1&from=vsl`), the analysis page,
+hub tiles. All go through `showCartScreen()` in `public/index.html`.
 
-- **Fields on the page.** Checkout Sessions with `ui_mode: 'elements'` (the old name was `custom`). Client:
-  `stripe.initCheckoutElementsSdk({ clientSecret })`, `createExpressCheckoutElement()` for Apple Pay and Link,
-  `createPaymentElement()` for the card, `loadActions()` then `actions.confirm({ email, redirect: 'if_required' })`
-  from our own green button. `allowed_payment_method_types: ['card', 'link']` keeps Klarna, Cash App and Amazon Pay
-  off the cart (`payment_method_types` is rejected on this API version). `absbyai.com` must be a registered payment
-  method domain or Apple Pay never shows.
-- **Monthly.** `mode: 'subscription'`, 7-day trial, $19.99 a month. Fulfilment is unchanged
-  (`checkout.session.completed` to `fulfillMembershipSession` to the claim).
-- **Lifetime.** `mode: 'setup'` with `customer_creation: 'always'`: $0 today, the card is saved, nothing recurring
-  exists at Stripe. Fulfilment writes a `lifetime_pending` row (user, customer, payment method, amount, `charge_at`
-  = checkout + 7 days) and sets `trialing` / `lifetime`. `lifetimeChargeSweep` (hourly) claims a due row, then creates
-  one off-session PaymentIntent with an idempotency key built from the row id and the attempt number. Paid:
-  `active` / `lifetime` / period end NULL, and the paid conversion is stamped from that charge. Failed: decision 3.
-  Cancel before day 7 (`POST /api/membership/cancel-lifetime`): the row is cancelled, nothing is ever billed.
-- **Statement name.** Read from the Stripe account (`settings.payments.statement_descriptor`, today `ABS BY AI`),
-  served on `/api/config`.
-- **Stripe.js trap (measured 2026-10-02).** The versioned Stripe.js the elements SDK needs (`dahlia`, `endive`)
-  REMOVED `initEmbeddedCheckout` (now `createEmbeddedCheckoutPage`), and the old `v3` script refuses the elements SDK.
-  While the switch is off, the page loads `v3` exactly as before; `?cart=v2` loads `endive`. The overlay checkout
-  goes through `stripeEmbeddedCheckout()`, which calls the old name first and the new one only when Stripe says it
-  is gone. Embedded checkout renders blank on `http://localhost` in live mode under either script: test it on HTTPS.
-- **Stripe account changes made 2026-10-02:** `absbyai.com` registered as a payment method domain
-  (`pmd_1UMFHoAC3gM1rghlXXXgCQLg`, Apple Pay, Google Pay and Link active); `payment_intent.succeeded` and
-  `payment_intent.payment_failed` added to the `absbyai.com/api/stripe/webhook` endpoint.
-- **Dark launch.** Real payments on the new cart: `absbyai.com/?join=1&from=vsl&cart=v2` (remembered for the tab).
-  Look only: `absbyai.com/?demo=checkout`. Lifetime charge now, for a test buyer:
-  `scripts/cart/lifetime-charge-now.sh <email>`.
+## What is on the page (`#cartV2`, outside `.app`, full width)
 
----
+Top stripe, hero box with the app screenshot and the yellow "FREE 7 days" callout, new-members notice, then three
+numbered steps on one page:
 
-# Web cart — pay first, account after (shipped 2026-09-10)
+1. **Your Email.** Our own field. It becomes the login. A logged-in non-member sees their email filled in and locked.
+2. **Order Summary.** Monthly (pre-selected) or Lifetime. The line item and the block above the button follow the plan.
+3. **Payment Information.** Stripe draws the wallet buttons (Apple Pay, Link, Google Pay if switched on) and the card
+   fields. Then, Monthly only, "How This Free Trial Offer Works" with a required tick box; Lifetime shows its one
+   sentence instead. Our green **Start My Free Trial** button confirms.
 
-The membership checkout on **absbyai.com** (web only). A visitor goes **analysis page → cart → pays → account**,
-instead of the old **analysis page → create account → five questions → membership screen → card**. The iOS and
-Android apps are untouched: `IS_NATIVE_APP` keeps the In-App Purchase screen and the account-first flow.
+Below: contact line, the statement name (read from Stripe, today `ABS BY AI`), the 365-day guarantee, Dan's quote,
+footer. Desktop (900 px and up) adds the right column with the bullet box. No back button, no skip link, no video.
 
-Research behind it: the private "Cart teardown" artifact (2026-09-10) — MadMuscles, V Shred, BetterMe, Noom,
-Muscle Booster, Blinkist; ten patterns copied / adapted / refused. Spec: `Handoffs/handoff-20260910-web-pay-first-cart.md`.
+Differences from the boards that Stripe controls: the card form's own labels and field order, Country and ZIP under
+the name (kept on purpose, removing ZIP can raise declines), one line of Stripe authorization text, and wallet buttons
+only on devices that have them (the "or pay by card" divider hides when there are none).
 
-## Review without paying
+## Plans
 
-- `absbyai.com/?demo=checkout` — the cart on the public sample pair. Add `&locked=1` (out-of-credits copy + lock),
-  `&sex=female`. Same rules as `?demo=analysis`: no credits, no localStorage writes, no funnel events, and the pay
-  button reads "Demo — checkout disabled" (a Stripe session is never created).
-- `?vp=1` on any page shows the video placeholders (analysis page + cart) before the files exist.
+| | Monthly | Lifetime |
+|---|---|---|
+| Promise | 7 days free, then $19.99 a month | 7 days free, then ONE charge of $69.99, lifetime access, no recurring billing |
+| Stripe session | `mode: 'subscription'`, 7-day trial | `mode: 'setup'` (card saved, nothing due, no subscription exists) |
+| Who charges | Stripe Billing | Our server, once, on day 7 (`lifetimeChargeSweep`) |
+| Cancel | Manage membership opens Stripe's portal | Manage membership opens our sheet (Cancel, Use a different card) |
 
-## What is on the screen (`#cartSection` in `public/index.html`)
-
-1. Headline tied to the result ("Your plan is ready." / locked: "Unlock your goal image — free for 7 days").
-2. **Video slot** — `window.ABS_CART_VIDEO` in `public/site-video.js` (`youtubeId` or `mp4`). Empty = hidden for real
-   visitors, placeholder on localhost / `?vp=1` / `?demo=checkout`. Events `cart_video_play`, `cart_video_progress`.
-3. Recap: the goal image (blurred + lock when the result is locked) and one line of the analysis numbers.
-4. Plans: **Monthly $19.99 — pre-selected** (`selectedPlan = 'monthly'`), Annual $69.99 with "SAVE 71%".
-5. Trial timeline: today $0 → day 7 first charge, follows the plan. The day-5 reminder row and the 48-hour reminder
-   email are OFF since 2026-09-30 (Dan); `TRIAL_REMINDER_ENABLED=true` on Railway turns `trialReminderSweep` back on.
-6. Four benefit lines. No timers, no discount devices, no invented social proof (FTC v. MadMuscles' parent, June 2026).
-7. Renewal disclosure in body-size type directly above the button, then **Start my free 7 days →**, then
-   "Continue to my hub without a trial".
+Annual stays in `MEMBERSHIP_PLANS` for existing annual subscribers and the apps. It is not sold on the web cart.
 
 ## How payment works
 
-- Button → `POST /api/stripe/create-cart-checkout` (`optionalAuth`, rate-limited). Logged in: identical to
-  `create-membership-checkout` (one trial per account, active-member rejection, credit coupon). Anonymous: **no
-  `customer_email`** so Stripe's embedded form collects it; metadata `{kind:'membership', plan, anon:'1', deviceId,
-  creditDiscountCents, adClickId, adClickType}`; 7-day trial always granted (the per-account check needs an account).
-- `fulfillMembershipSession` (webhook `checkout.session.completed`, or the browser's claim / `session-status`
-  fallback) for `anon` sessions: email from `customer_details.email` → `resolveCartAccount` (SELECT, then
-  `INSERT … ON CONFLICT DO NOTHING RETURNING`, then re-select) → the same membership UPDATE → `recordAdClickId`
-  (the gclid rode in the metadata, so the Google Ads offline feed still gets it) → a `checkout_claims` row
-  (`created` true/false, 15-minute TTL) → email:
-  - **new account**: `sendSetPasswordEmail` (a 7-day `password_reset_tokens` link, `/?reset=TOKEN&welcome=1`) +
-    MailerLite push, log `CART_ACCOUNT_CREATED`;
-  - **existing account**: `sendMembershipAttachedEmail` ("log in to continue", `/?login=1`), log
-    `CART_MEMBERSHIP_ATTACHED`, plus `TRIAL_REUSE` when that account already had a subscription (allowed, logged).
-  Concurrent callers for one session share one in-flight promise, so the webhook racing the browser yields one
-  account, one fulfilment, one email.
-- `POST /api/stripe/claim {session_id}` — the paying browser's login. Verifies the session is `complete` with Stripe,
-  runs the idempotent fulfilment, then: `created` row → single-use, marks `used_at`, returns a real session token;
-  pre-existing account → `{existingAccount:true, email}` and **never** logs the browser in.
-- Client `handleCartComplete`: claim (retries "still activating" up to 6×) → `setLoggedIn` → **then** the
-  conversions (`membership_subscribed`, Google Ads trial `AqLTCMnl4dkcEJvEqLNE` with the hashed email, TikTok
-  `StartTrial`) → carry the funnel onto the account (transformation + analysis, slider height/weight) → unlock helpers
-  → **"You're in"** screen (optional password → `POST /api/auth/set-password`) → the five questions as onboarding
-  (`quizState.onboarding`, events `onboarding_quiz_*`) → the `returnTo` (pending feature / locked-image release / hub).
-  Existing account → "log in to continue" with the email prefilled; the returnTo runs after login.
-- Logged-in buyers keep the old post-payment routine (`handleMembershipComplete`).
+- **Stripe pieces.** Checkout Sessions with `ui_mode: 'elements'`, created with `apiVersion` `2026-09-30.endive`
+  per call (the installed `stripe` package pins an older version). Page script: `js.stripe.com/endive/stripe.js`.
+  Client: `stripe.initCheckoutElementsSdk({ clientSecret })`, `createExpressCheckoutElement()`,
+  `createPaymentElement()`, `loadActions()`, then `actions.confirm({ email, redirect: 'if_required' })`.
+  `allowed_payment_method_types: ['card', 'link']` keeps Klarna, Cash App and Amazon Pay off the cart.
+- **One session per plan.** `POST /api/stripe/create-cart-checkout { plan, ui: 'elements' }` when the cart opens and
+  again when the buyer switches plan (the two plans are different session modes, so Stripe's fields remount). Own rate
+  limit (`cartLimiter`, 40 per 15 minutes).
+- **Fulfilment** (`fulfillMembershipSession`, from the webhook `checkout.session.completed` or the browser's claim):
+  the email finds or creates the account, the membership is applied, the ad click id is recorded, a `checkout_claims`
+  row is written, and the buyer is emailed (new account: set-password link; existing account: "log in to continue").
+  The webhook racing the browser yields one account.
+- **Claim.** `POST /api/stripe/claim { session_id }` logs the paying browser in once, only for an account this
+  checkout created. An email that already had an account is never logged in automatically.
+- **A payment that had to leave the page** returns to `/?cart_return=<session id>` and finishes the same way
+  (`applyCartReturn`).
+- **Wallet buyers:** the wallet supplies the email, not step 1. The tick box rule is checked in the wallet button's
+  `click` event before Stripe opens the sheet.
+
+## Lifetime: the one charge (server.js, section LIFETIME PLAN)
+
+- Fulfilment (`saveLifetimePending`) writes a `lifetime_pending` row (`db.js`): user, Stripe customer, payment
+  method, amount (6999 less any credit balance), `charge_at` = checkout + 7 days. Membership: `trialing` /
+  `lifetime`, period end = `charge_at`. A newer checkout cancels an older waiting row; a live subscription on the
+  same account is cancelled at Stripe; a later subscription cancels the waiting Lifetime row.
+- `lifetimeChargeSweep` (hourly, first pass 60 s after boot) calls `chargeLifetimeRow`: an UPDATE moves the row from
+  `pending` to `charging` (one caller wins), any already-succeeded charge for the row is recorded instead of repeated,
+  then one off-session PaymentIntent with idempotency key `lifetime-<row>-attempt-<n>`.
+- **Paid:** row `paid`; membership `active` / `lifetime` / period end NULL (permanent, the shape of a comp account).
+  The Google Ads paid conversion is stamped from this charge (`markPaidConversionPending`).
+- **Declined** (Dan, 2026-10-02): first try plus one retry a day for 3 days, an email each time
+  (`sendLifetimeChargeFailedEmail`), the buyer keeps access (`past_due` with a future period end), then the row is
+  `failed`, the membership `expired`, access ends. A retry uses the newest card on the customer. A Stripe outage is
+  not a strike: the row goes back to `pending` untouched.
+- **Cancel before the charge:** `POST /api/membership/cancel-lifetime`. The row is `canceled`, nothing is ever
+  billed, access runs to the end of the 7 days.
+- Deleting the account removes its rows (FK cascade), so a deleted account is never charged.
+- Refunds are by hand in Stripe and do not remove access: clear the row's membership by hand if needed.
+
+## After payment
+
+The navy "You're in" screen with an optional password. A new buyer with no goal picture goes to the photo upload
+first; the analysis page's "Build my program" then starts the five questions and ends in the trainer
+(`absbyai_cart_onboarding` in localStorage). A buyer who already has a goal picture goes straight to the five
+questions. An existing account gets "Log in to continue".
 
 ## Analytics
 
-New: `cart_viewed {from, locked, logged_in, plan}`, `cart_plan_selected`, `cart_checkout_opened`, `cart_skipped`,
-`cart_checkout_completed {plan, anon, created}`, `account_claimed {created}`, `cart_password_set`,
-`onboarding_quiz_started/completed/skipped`, `cart_video_play/progress`. Virtual pageview `/vp/cart`.
-Kept: `trial_gate_shown`, `membership_subscribed`, both trial conversions, the paid conversion (`invoice.paid`).
-**`account_signup` no longer sits between the trial button and payment for web buyers — rebuild PostHog funnels.**
+`cart_viewed {from, locked, logged_in, plan}`, `cart_plan_selected {plan: monthly|lifetime}`, `cart_terms_checked`,
+`cart_checkout_opened {plan, logged_in, method}`, `account_claimed {created}`, `membership_subscribed`,
+`cart_checkout_completed {plan, anon, created}`, `cart_password_set`, `lifetime_trial_cancelled`,
+`onboarding_quiz_*`. Virtual pageview `/vp/cart`. Google Ads trial conversion `AqLTCMnl4dkcEJvEqLNE` with the hashed
+email, TikTok `StartTrial`, the ad click ids in the session metadata. Removed with the old cart: `cart_skipped`,
+`cart_video_play`, `cart_video_progress`.
 
-## Dan's live card test (Claude cannot enter card numbers; there are no Stripe test keys)
+## Review and testing
 
-1. Private window → absbyai.com → generate (or open `/?demo=analysis` to look, then use a real generation) →
-   "Start your 7-day free trial" → the cart → Monthly → Start my free 7 days → Stripe form: email + card → pay ($0 today).
-2. Expect: confetti, "You're in — logged in as …", the set-password email in the inbox, five questions, then the program.
-3. Hub → Manage membership → cancel before day 7 → no charge. Then check Stripe (subscription trialing → canceled),
-   Postgres (`users` row: status, plan, `ads_click_id`), PostHog (`cart_checkout_completed`, `account_claimed`).
+- Look only: `absbyai.com/?demo=checkout` (no Stripe session, pay button disabled, no events).
+- Unit tests: `node scripts/cart/cart-fulfillment.test.js` (105 checks, pg-mem and a stubbed Stripe).
+- End to end with fake cards: Stripe TEST keys are in `~/.absbyai-secrets.env`; the recipe, the card numbers and
+  the traps are in memory `stripe-test-mode-cart-recipe`. All cases passed on 2026-10-03 (Monthly, Monthly cancel,
+  Lifetime, day-7 charge, double-charge guard, cancel, decline plus 3 retries, declined at checkout, bank
+  verification, existing account, logged-in buyer, photo-first routing).
+- A real card: only Dan. Claude cannot type one or trigger a live charge.
+  `scripts/cart/lifetime-charge-now.sh <email>` runs one buyer's Lifetime charge now instead of on day 7 (it calls
+  `POST /api/admin/lifetime/charge-now` with the dashboard key).
 
-## Tests
+## Traps
 
-`node scripts/cart/cart-fulfillment.test.js` — pg-mem + stubbed Stripe/fetch: new email creates the account and
-records the gclid and queues the set-password email; claim logs in once; existing email attaches with no claim;
-webhook racing the claim → one account; logged-in sessions unchanged. 45 checks.
-
-## Open defaults (Dan decides)
-
-- Cart video hidden for real visitors until the file exists (default) vs a visible placeholder.
-- Anonymous trial reuse: allowed and logged (default) vs blocked (blocking needs the email before the card).
-- Email before checkout: no (Stripe collects it). Abandoned-checkout emails would need a field on the cart.
-- **Google Pay**: off in the Stripe account; recommended on (Settings → Payment methods) — Dan's switch.
-- No urgency or discount device shipped.
+- **Stripe.js versions.** The versioned script (`dahlia`, `endive`) REMOVED `initEmbeddedCheckout` (now
+  `createEmbeddedCheckoutPage`); the old `v3` script refuses the elements SDK. The overlay checkout that print orders
+  still use goes through `stripeEmbeddedCheckout()`, which tries the old name first.
+- Embedded checkout renders blank on `http://localhost` with live keys under any script. Test it on HTTPS.
+- `payment_method_types` is rejected on the `endive` API version; use `allowed_payment_method_types`.
+- With Link left on inside the Payment Element, Stripe adds a "Bank" tab and a save-my-details box: the element is
+  created with `wallets: { link: 'never' }`; Link lives in the wallet buttons.
+- The page must show the session's own total (`session.total.total.amount`) or `confirm` throws: Order Total is
+  bound to it (it reads $0.00 for both plans).
+- Stripe account settings this depends on (set 2026-10-02): `absbyai.com` registered as a payment method domain
+  (Apple Pay, Google Pay, Link active); `payment_intent.succeeded` and `payment_intent.payment_failed` on the
+  `absbyai.com/api/stripe/webhook` endpoint. Google Pay is still switched off in Stripe (Dan's switch).
+- Every web deploy reaches the iOS and Android wrappers: confirm they still show In-App Purchase and never this cart.
