@@ -25,10 +25,3 @@ window.ABS_SITE_VIDEO = { youtubeId: 'CwEGFxpIM-E', mp4: '', poster: '/img/video
 // Muhammad's finished 16:9 of Ad 1 "This Picture Got Me Abs" (3:53, unlisted, Docs/AD_VIDEO_IDS.md).
 // When the VSL is cut, replace the id, title and lengthLabel here and nothing else.
 window.ABS_START_VIDEO = { youtubeId: 'lf46ytHacss', mp4: '', poster: '/img/video-poster.jpg', title: 'this picture got me abs', lengthLabel: '3:53' };
-
-// The short video INSIDE the web cart (the pay-first checkout, 2026-09-10).
-// Placeholder until Dan has the file: with both fields empty the slot is hidden
-// for real visitors and a labelled placeholder shows on localhost, ?vp=1 and
-// /?demo=checkout. Fill `youtubeId` (unlisted upload) or `mp4` (a hosted file —
-// better here, a YouTube embed carries a "Watch on YouTube" exit).
-window.ABS_CART_VIDEO = { youtubeId: '', mp4: '', poster: '' };

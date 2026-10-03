@@ -15,7 +15,8 @@ Two parts, because one of them has to wait for the cart:
 - **Part A, ship now:** the guarantee on `/start`, and the refund wording on the policy pages.
 - **Part B, ship with the cart or right after it:** the lines that describe the second plan, which changes from
   "$69.99 a year" to a one-time $69.99 for lifetime access. The cart build is
-  `Handoffs/handoff-20261002-cart-build.md`. Until that cart is live the site still sells Annual, so part B waits.
+  `Handoffs/handoff-20261002-cart-build.md`. **Update 2026-10-03: that cart is live** (`Docs/WEB_CART.md`), the
+  site now sells Monthly and Lifetime, so part B is unblocked and ships with part A.
 
 ## 2. Source of truth
 
