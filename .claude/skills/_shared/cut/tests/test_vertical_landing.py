@@ -38,7 +38,9 @@ class VerticalLanding(unittest.TestCase):
         # Execute the actual renderer function without running its historical build.
         file=ROOT/'.claude/skills/shortad-from-longform/reference/render.py'
         node=next(n for n in ast.parse(file.read_text()).body if isinstance(n,ast.FunctionDef) and n.name=='window_x_expr')
-        ns=dict(np=np,json=json,os=os,__file__=str(file),FPS=30,_SPLICES=[2.],_seek_t=lambda t:t)
+        seek_node=next(n for n in ast.parse(file.read_text()).body if isinstance(n,ast.FunctionDef) and n.name=='seek')
+        ns=dict(np=np,json=json,os=os,__file__=str(file),FPS=30,_SPLICES=[2.])
+        exec(compile(ast.Module(body=[seek_node],type_ignores=[]),str(file),'exec'),ns)
         exec(compile(ast.Module(body=[node],type_ignores=[]),str(file),'exec'),ns)
         current=Path.cwd()
         with tempfile.TemporaryDirectory() as tmp:
@@ -48,9 +50,9 @@ class VerticalLanding(unittest.TestCase):
                 Path('facetrack_raw.json').write_text(json.dumps(dict(n=list(range(120)),x=raw.tolist())))
                 expr=ns['window_x_expr'](0,4,608).replace('\\,',',')
                 env=dict(clip=lambda x,a,b:min(max(x,a),b),gte=lambda x,y:float(x>=y))
-                first=eval(expr,env,dict(t=0));cut=eval(expr,env,dict(t=2))
+                first=eval(expr,env,dict(t=0));cut=eval(expr,env,dict(t=2-float(ns['seek'](0))))
                 self.assertAlmostEqual(first,596,places=5);self.assertAlmostEqual(cut,896,places=5)
-                self.assertAlmostEqual(eval(expr,env,dict(t=59/30)),596,places=5)
+                self.assertAlmostEqual(eval(expr,env,dict(t=59/30-float(ns['seek'](0)))),596,places=5)
             finally:os.chdir(current)
 
 if __name__=='__main__':unittest.main()

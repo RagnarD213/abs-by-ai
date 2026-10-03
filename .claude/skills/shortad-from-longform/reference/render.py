@@ -35,8 +35,9 @@ _TRK = json.load(open('facetrack.json'))
 if _TRK.get('method', {}).get('policy') != 'vertical-land-then-hold-20261003':
     raise SystemExit('Rebuild the new candidate track with kit_track.py; frozen approved build scripts stay untouched')
 _EDL = _TRK.get('segments') or json.load(open('edl_picture.json'))   # HIS picture cuts, not the audio splices
-_SPLICES = [q['cut_in'] for q in _EDL[1:]]
-_SEGS = [(q['cut_in'], q['cut_out']) for q in _EDL]
+_picture_time = lambda q, seconds, frame: q[frame] / FPS if frame in q else q[seconds]
+_SPLICES = [_picture_time(q, 'cut_in', 'n0') for q in _EDL[1:]]
+_SEGS = [(_picture_time(q, 'cut_in', 'n0'), _picture_time(q, 'cut_out', 'n1')) for q in _EDL]
 
 def _seg_range(t):
     """Sample-index range [lo, hi] of the track samples inside t's own picture segment."""
@@ -105,9 +106,9 @@ def window_x_expr(t0, t1, cw):
     for i in range(len(dn)-1):
         # A hard step occurs halfway between cut frames, never a pan across the cut.
         if dn[i+1] in bounds:
-            terms.append(f'{left[i+1]-left[i]:+.6f}*gte(t\\,{dn[i+1]/FPS-_seek_t(t0)-.5/FPS:.6f})')
+            terms.append(f'{left[i+1]-left[i]:+.6f}*gte(t\\,{dn[i+1]/FPS-float(seek(t0))-.5/FPS:.6f})')
         elif abs(left[i+1]-left[i]) > 1e-9:
-            terms.append(f'{(left[i+1]-left[i])*FPS:+.6f}*clip(t-{dn[i]/FPS-_seek_t(t0):.6f}\\,0\\,{1/FPS:.8f})')
+            terms.append(f'{(left[i+1]-left[i])*FPS:+.6f}*clip(t-{dn[i]/FPS-float(seek(t0)):.6f}\\,0\\,{1/FPS:.8f})')
     return ''.join(terms)
 
 
@@ -290,7 +291,7 @@ def _track_sig(t0, t1):
     return hashlib.md5(json.dumps(sl).encode()).hexdigest()[:10]
 
 def _sig(b, nfr, t0):
-    v = 'v10-winstep'  # bump on any change to the crop/ramp code; the media spec and the track slice are hashed separately
+    v = 'v13-vertical-landing'  # bump on any change to the crop/ramp code; the media spec and the track slice are hashed separately
     extra = {'_n': nfr, '_t0': round(t0, 4), '_v': v, '_vlib': _VLIB_SIG}   # the SEGMENT cache must see the layout library too:
     # a plated beat's out/sNNN.mp4 was served after vlib changed (the '200 POUNDS' kicker under the chip, round 4)
     if b['kind'] in ('talk', 'window', 'stmt', 'winmedia'): extra['_trk'] = _track_sig(t0, b['t1'])
