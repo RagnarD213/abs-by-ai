@@ -184,6 +184,7 @@ Memory `google-ads-ui-automation`.
 - `handoff-20261002-cart-build.md`, `…-start-page-365-guarantee.md` (10-02). Opus high.
 - `handoff-20261002-vertical-kit-round3-fill-more-screen.md` (10-02). Opus high.
 - `handoff-20260930-codex-adopt-review-page-format.md` (09-30): Codex adopts the RO-16 review page. GPT-6 Sol medium.
+- `handoff-20261003-cart-apple-pay-fix.md`: DEPLOYED, Dan's-iPhone-test.
 
 - `handoff-20261001-move-project-out-of-icloud.md` (10-01): move the project out of iCloud's Documents sync (109k duplicates, 199 cloud-only files). Run when nothing else runs here. Opus 5.5 high.
 - `handoff-20261001-rebuild-ios-project.md` (10-01): rebuild the iPhone project iCloud wiped. ⚠ iCloud recovery window closes about 10-17. No Apple upload. GPT-6 Sol high.
