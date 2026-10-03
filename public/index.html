@@ -6345,6 +6345,7 @@ function setLoggedIn({ token, email, deviceId }) {
   // the fresh account status is loading.
   memberState.active = false;
   memberState.plan = null;
+  memberState.own = false;
   memberState.periodEnd = null;
   memberState.status = null;
   memberState.loaded = false;
@@ -6367,6 +6368,7 @@ function clearLoggedIn() {
   auth.email = '';
   memberState.active = false;
   memberState.plan = null;
+  memberState.own = false;
   memberState.periodEnd = null;
   memberState.status = null;
   memberState.userId = null;
@@ -8258,7 +8260,7 @@ let membershipReturnTo = null; // where to go after subscribing (or backing out)
 let membershipGateBackToHub = false;
 
 async function refreshMembership() {
-  if (!isLoggedIn()) { memberState.active = false; memberState.loaded = true; applyMemberMode(); return; }
+  if (!isLoggedIn()) { memberState.active = false; memberState.own = false; memberState.loaded = true; applyMemberMode(); return; }
   try {
     const m = await authApi(`/api/membership?deviceId=${encodeURIComponent(getDeviceId())}`);
     memberState.active = !!m.active;
@@ -8271,6 +8273,7 @@ async function refreshMembership() {
     memberState.userId = m.userId || null;
     memberState.source = m.source || null;
     memberState.lifetime = m.lifetime || null; // Lifetime plan: { state, chargeAt, amountCents }
+    memberState.own = !!m.ownMembership; // the account itself is paying or in a trial (admin and beta access do not count)
     memberState.loaded = true;
     // The member's trial converted to a paid membership while no browser was
     // open (Stripe/RevenueCat webhook), so the sale could not be reported when
@@ -8371,12 +8374,14 @@ async function applyVslHandoff() {
 function applyPurchaseDeepLink() {
   let params;
   try { params = new URLSearchParams(window.location.search); } catch (e) { return false; }
+  let path = '';
+  try { path = window.location.pathname.replace(/\/+$/, ''); } catch (e) {}
 
-  if (params.get('join') === '1') {
-    // Web non-members get the cart (pay first); the apps and members get the
-    // membership screen. showMembershipScreen shows whichever screen it picked:
-    // a second showScreen('membership') here used to stack the old screen over
-    // the cart, so /start's buy buttons never reached the cart (fixed 2026-09-30).
+  if (params.get('join') === '1' || path === '/cart') {
+    // absbyai.com/cart is the cart's own address (Dan, 2026-10-03); /?join=1 is
+    // what /start's buy buttons and the apps' external links use. On the web
+    // both open the cart for everyone, logged in or not. The apps get their
+    // In-App Purchase screen (showMembershipScreen picks).
     showMembershipScreen(() => showHub());
     return true;
   }
@@ -8398,9 +8403,10 @@ function applyPurchaseDeepLink() {
 }
 
 function showMembershipScreen(returnTo, opts) {
-  // WEB: every non-member lands on the cart (pay first, account after). The
-  // native apps and members (manage / beta states) keep this screen exactly.
-  if (!IS_NATIVE_APP && !hasMemberAccess() && memberState.status !== 'comp') return showCartScreen(returnTo, opts);
+  // WEB: everyone lands on the cart, logged in or not (Dan, 2026-10-03). Before
+  // that, a logged-in member (or an admin, who counts as one) got this older
+  // screen with its Monthly / Annual cards. Only the native apps show it now.
+  if (!IS_NATIVE_APP) return showCartScreen(returnTo, opts);
   membershipReturnTo = returnTo || membershipReturnTo;
   membershipGateBackToHub = !!opts?.trialGate;
   if (window.posthog) posthog.capture('membership_screen_viewed');
@@ -8475,9 +8481,24 @@ async function claimCartSession(sessionId) {
 async function handleCartComplete(sessionId, anon) {
   closeCreditsCheckout();
   c2Reset();
-  // Logged-in buyer: the existing post-payment routine already does everything
-  // (conversions with the account email, unlocks, the returnTo).
-  if (!anon || isLoggedIn()) return handleMembershipComplete(sessionId);
+  // Logged-in buyer: the membership lands on their own account, so there is no
+  // claim. Same conversions, same "You're in" screen, minus the password box.
+  if (!anon || isLoggedIn()) {
+    try { await fetch(`${BACKEND_URL}/api/stripe/session-status?session_id=${encodeURIComponent(sessionId)}`); } catch (e) {}
+    if (window.posthog) posthog.capture('membership_subscribed', { plan: selectedPlan });
+    if (window.posthog) posthog.capture('cart_checkout_completed', { plan: selectedPlan, anon: false, created: false });
+    fireAdConversion('AqLTCMnl4dkcEJvEqLNE', { value: 20, currency: 'USD' }); // ~1 month of membership revenue
+    fireTikTokEvent('StartTrial', { value: 20, currency: 'USD' });
+    fireConfetti();
+    await refreshMembership();
+    loadCredits(); // converted credits were zeroed
+    await unlockProgramAfterSubscribe();
+    await unlockMealPlanAfterSubscribe();
+    await unlockSleepAfterSubscribe();
+    await unlockCounselAfterSubscribe();
+    cartResult = { created: false, loggedIn: true, email: auth.email || '' };
+    return showCartDone();
+  }
 
   let claim = null;
   try { claim = await claimCartSession(sessionId); }
@@ -8520,8 +8541,8 @@ async function handleCartComplete(sessionId, anon) {
 // "Build my program" → the five questions as onboarding → the continuation
 // (the pending feature, the locked-image release, or the hub).
 function handleCartDoneContinue() {
-  if (!(cartResult && cartResult.created)) {
-    // Existing account: log in (never automatically), then continue.
+  if (!(cartResult && (cartResult.created || cartResult.loggedIn))) {
+    // Existing account, bought while logged out: log in (never automatically), then continue.
     const email = cartResult && cartResult.email;
     window._afterAuth = () => finishCartOnboarding();
     showAuthScreen('login');
@@ -8597,6 +8618,10 @@ const C2_APPEARANCE = {
 const c2 = { stripe: null, sessions: {}, sessionsFor: null, checkout: null, actions: null, payEl: null, expressEl: null, plan: null, seq: 0, busy: false };
 
 function c2Demo() { return !!(DEMO && DEMO.kind === 'checkout'); }
+// A logged-in account that is already paying (or in a trial) must not be sold
+// a second membership. Admin and beta accounts have access without one and can
+// check out like anyone else.
+function c2AlreadyMember() { return isLoggedIn() && !!memberState.own; }
 function c2Plan() { return selectedPlan === 'lifetime' ? 'lifetime' : 'monthly'; }
 
 function c2ShowError(msg) {
@@ -8677,6 +8702,13 @@ async function c2LoadPayment() {
   btn.disabled = demo;
   btn.textContent = demo ? 'Demo: checkout disabled' : 'Start My Free Trial';
   if (demo) return;
+  if (c2AlreadyMember()) {
+    c2Reset();
+    $('c2PayLoading').textContent = 'This account already has an Abs By AI membership, so there is nothing to pay. Your tools are in your hub.';
+    $('c2PayLoading').style.display = '';
+    btn.textContent = 'Go To My Hub';
+    return;
+  }
   const plan = c2Plan();
   const owner = isLoggedIn() ? auth.email : '';
   if (c2.sessionsFor !== owner) { c2Reset(); c2.sessionsFor = owner; }
@@ -8762,7 +8794,7 @@ function showCartScreen(returnTo, opts) {
   c2RenderPlan();
   c2ClearFieldErrors();
   c2ShowError('');
-  // Step 1: a logged-in non-member's email is the account's and is locked.
+  // Step 1: a logged-in buyer's email is the account's and is locked.
   const email = $('c2Email');
   if (isLoggedIn()) {
     email.value = auth.email || '';
@@ -8794,6 +8826,7 @@ function c2TermsOk() {
 // Our green button: the card (or Link inside the card form).
 async function c2Pay() {
   if (IS_NATIVE_APP || c2Demo() || c2.busy) return;
+  if (c2AlreadyMember()) return showHub();
   c2ClearFieldErrors();
   c2ShowError('');
   const anon = !isLoggedIn();
@@ -8868,20 +8901,23 @@ function applyCartReturn() {
 
 function showCartDone() {
   const created = !!(cartResult && cartResult.created);
-  const photoFirst = created && !cartHasGoalPicture();
+  // "In" = this browser is logged in on the paying account: a new account
+  // (logged in by the claim) or a buyer who was already logged in.
+  const inNow = created || !!(cartResult && cartResult.loggedIn);
+  const photoFirst = inNow && !cartHasGoalPicture();
   $('c2Main').style.display = 'none';
   $('c2Done').style.display = '';
-  $('c2DoneTitle').textContent = created ? "You're in. Your 7-day free trial is active." : 'Your free trial is active.';
+  $('c2DoneTitle').textContent = inNow ? "You're in. Your 7-day free trial is active." : 'Your free trial is active.';
   $('c2DoneEmail').textContent = cartResult && cartResult.email
-    ? (created ? `Logged in as ${cartResult.email}` : `On the account ${cartResult.email}`)
+    ? (inNow ? `Logged in as ${cartResult.email}` : `On the account ${cartResult.email}`)
     : "Check your email. We've sent you a link to get in.";
-  $('c2PwBlock').style.display = created ? '' : 'none';
-  $('c2ExistingNote').style.display = created ? 'none' : '';
+  $('c2PwBlock').style.display = created ? '' : 'none'; // only a brand-new account has no password yet
+  $('c2ExistingNote').style.display = inNow ? 'none' : '';
   $('c2PwInput').value = '';
   $('c2PwOk').style.display = 'none';
   $('c2PwErr').style.display = 'none';
-  $('c2DoneBtn').textContent = !created ? 'Log in to continue' : (photoFirst ? 'See myself with abs' : 'Build my program');
-  $('c2DoneSub').textContent = !created
+  $('c2DoneBtn').textContent = !inNow ? 'Log in to continue' : (photoFirst ? 'See myself with abs' : 'Build my program');
+  $('c2DoneSub').textContent = !inNow
     ? 'Use the password for that account, or "Forgot password".'
     : (photoFirst ? 'Upload your photo first, then five quick questions.' : 'Five quick questions, then your program.');
   showScreen('cart');

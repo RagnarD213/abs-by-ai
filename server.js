@@ -6393,6 +6393,20 @@ function isActiveMembership(userRow) {
   return !!(end && new Date(end) > new Date());
 }
 
+// The account ITSELF holds a membership: it is paying, in a trial, or inside a
+// period it already paid for. Unlike isActiveMembership this ignores the admin
+// allowlist and beta (comp) accounts, which have access without a membership
+// and may still check out. It is the "do not sell this account a second
+// membership" test.
+function hasOwnMembership(userRow) {
+  if (!userRow) return false;
+  const status = userRow.membership_status;
+  if (status === 'comp') return false;
+  if (status === 'active' || status === 'trialing') return true;
+  const end = userRow.membership_period_end;
+  return !!(end && new Date(end) > new Date());
+}
+
 async function getUserRow(userId) {
   const { rows } = await db.query('SELECT * FROM users WHERE id = $1', [userId]);
   return rows[0] || null;
@@ -6420,6 +6434,9 @@ app.get('/api/membership', requireAuth, async (req, res) => {
       // membership without it.
       userId: row.id,
       active: isActiveMembership(row),
+      // The account itself is paying or in a trial (admin and beta access do
+      // not count). The cart uses it to refuse a second membership.
+      ownMembership: hasOwnMembership(row),
       status: row.membership_status || null,
       plan: row.membership_plan || null,
       periodEnd: row.membership_period_end || null,
@@ -6713,7 +6730,9 @@ async function buildMembershipCheckout({ user, plan, deviceId, adClickId, adClic
     // A beta (comp) tester may still choose to pay; the webhook then overwrites
     // comp with a real subscription (paying wins). Comp rows have no
     // stripe_subscription_id, so isFirstSubscription stays true → 7-day trial.
-    if (isActiveMembership(row) && row.membership_status !== 'comp') {
+    // An admin-allowlist account has access with no membership of its own, so
+    // it can check out too (Dan tests the cart logged in, 2026-10-03).
+    if (hasOwnMembership(row)) {
       throw new CheckoutError(400, 'You already have an active membership.');
     }
     // One trial per user: brand-new subscribers get 7 free days; a returning

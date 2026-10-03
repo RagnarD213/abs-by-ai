@@ -33,6 +33,7 @@ process.env.ANTHROPIC_API_KEY = 'dummy';
 process.env.PORT = process.env.PORT || '3557';
 process.env.SITE_URL = 'https://absbyai.com';
 process.env.DASH_SECRET = 'dash_test_stub';
+process.env.ADMIN_EMAILS = 'admin@example.com';
 
 const Module = require('module');
 const path = require('path');
@@ -459,6 +460,23 @@ async function waitForDb() {
   const noCard = lifetimeSession('cs_test_m2_' + 'x'.repeat(12), 'nocard@example.com');
   noCard.setup_intent = null;
   check('a Lifetime session with no saved card grants nothing', (await fulfillMembershipSession(noCard)) === false && (await userByEmail('nocard@example.com')).membership_status == null);
+
+  realLog('\n(o) the cart works for a logged-in account, but never sells a second membership');
+  await db.query("INSERT INTO users (email, password_hash, device_id) VALUES ('admin@example.com', 'x', 'dev-admin')");
+  const adminRow = await userByEmail('admin@example.com');
+  const adminOk = await buildMembershipCheckout({ user: { id: adminRow.id, email: adminRow.email }, plan: 'monthly', deviceId: 'dev-admin', ui: 'elements' }).catch(e => e);
+  check('an admin account (access, no membership of its own) can check out', !!adminOk.sessionId && adminOk.anon === false && lastCreate().customer_email === 'admin@example.com', adminOk.message);
+  const trialing = await userByEmail('new.buyer@example.com');
+  const dbl = await buildMembershipCheckout({ user: { id: trialing.id, email: trialing.email }, plan: 'lifetime', deviceId: 'x', ui: 'elements' }).catch(e => e);
+  check('an account already in a trial is refused a second membership', dbl.status === 400 && /already have an active membership/.test(dbl.message), dbl.message);
+  const lifer = await userByEmail('life.buyer@example.com');
+  const dbl2 = await buildMembershipCheckout({ user: { id: lifer.id, email: lifer.email }, plan: 'monthly', deviceId: 'x', ui: 'elements' }).catch(e => e);
+  check('a paid lifetime member is refused too', dbl2.status === 400, dbl2.message);
+  const expired = await userByEmail('decline@example.com');
+  const again3 = await buildMembershipCheckout({ user: { id: expired.id, email: expired.email }, plan: 'monthly', deviceId: 'x', ui: 'elements' }).catch(e => e);
+  check('an account whose access ended can buy again', !!again3.sessionId, again3.message);
+  const gOwn = await api('/api/membership?deviceId=x', undefined, g.token);
+  check('/api/membership tells the cart the account has its own membership', gOwn.data.ownMembership === true, gOwn.data);
 
   realLog('\n(n) charge-now trigger for the live card test');
   const n1 = await buyLifetime('n', 'now@example.com');
