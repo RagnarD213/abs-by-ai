@@ -67,8 +67,10 @@ Annual stays in `MEMBERSHIP_PLANS` for existing annual subscribers and the apps.
   checkout created. An email that already had an account is never logged in automatically.
 - **A payment that had to leave the page** returns to `/?cart_return=<session id>` and finishes the same way
   (`applyCartReturn`).
-- **Wallet buyers (Apple Pay, Google Pay, Link), fixed 2026-10-03.** The tick box rule is checked in the wallet
-  button's `click` event before Stripe opens the sheet. The `confirm` event calls Stripe's documented form,
+- **Wallet buyers (Apple Pay, Google Pay, Link), fixed 2026-10-03.** Stripe's wallet buttons report no tap to the
+  page (see Traps), so the tick box rule is enforced by a see-through layer over the buttons (`#c2ExpressGate`,
+  `c2SyncGate`): while Monthly's box is unticked a tap lands on the layer and asks for the tick box. Backstop: the
+  `confirm` handler refuses (`event.paymentFailed`) if the box is still unticked. The `confirm` event calls Stripe's documented form,
   `actions.confirm({ expressCheckoutConfirmEvent: event })` with NO `redirect` option: Stripe closes the wallet's sheet
   with its success tick itself, then loads the session's `return_url` (`/?cart_return=<session id>`), and
   `applyCartReturn` finishes the order on a holding screen ("Starting your free trial...") that becomes "You're in".
@@ -115,10 +117,11 @@ questions. An existing account gets "Log in to continue".
 `cart_checkout_opened {plan, logged_in, method}`, `account_claimed {created}`, `membership_subscribed`,
 `cart_checkout_completed {plan, anon, created}`, `cart_password_set`, `lifetime_trial_cancelled`,
 `onboarding_quiz_*`. Wallet flow, one event per step so a phone test can be read back from PostHog:
-`cart_wallet_buttons {buttons, count}` (which wallet buttons Stripe drew), `cart_wallet_click {type, terms_ok,
-email_typed}`, `cart_wallet_confirm_started {ms_since_click}`, `cart_wallet_confirm_result {result, error_code,
-error_message, ms}` (errors only in practice: on success Stripe leaves the page before the call returns),
-`cart_wallet_returned {ms_since_click}` (the page came back from Stripe, which is the success signal),
+`cart_wallet_buttons {buttons, count}` (which wallet buttons Stripe drew), `cart_wallet_gate_tap` (a wallet tap with
+the box unticked), `cart_wallet_confirm_started {type, email_typed}`, `cart_wallet_confirm_result {result,
+error_code, error_message, ms}` (errors only in practice, including `terms_missing`: on success Stripe leaves the
+page before the call returns), `cart_wallet_returned {ms_since_confirm}` (the page came back from Stripe, which is
+the success signal),
 `cart_wallet_cancelled`, `cart_wallet_no_redirect` (Stripe never moved the page, the order was finished in place),
 `cart_wallet_loaderror`. Virtual pageview `/vp/cart`. Google Ads trial conversion `AqLTCMnl4dkcEJvEqLNE` with the hashed
 email, TikTok `StartTrial`, the ad click ids in the session metadata. Removed with the old cart: `cart_skipped`,
@@ -133,9 +136,10 @@ email, TikTok `StartTrial`, the ad click ids in the session metadata. Removed wi
   Lifetime, day-7 charge, double-charge guard, cancel, decline plus 3 retries, declined at checkout, bank
   verification, existing account, logged-in buyer, photo-first routing).
 - Wallets cannot be run by Claude (no Apple Pay off a real phone). The wallet handlers were proven on 2026-10-03 in
-  test mode by driving `c2ExpressClick` and `c2ExpressConfirm` with a fake event and a test card: Stripe redirected,
-  the page came back, and the account was made under the typed email while Stripe held a different one. The real
-  sheet is Dan's iPhone check; read it back from the `cart_wallet_*` events.
+  test mode by driving `c2ExpressConfirm` with a fake event and a test card: Stripe redirected, the page came back,
+  and the account was made under the typed email while Stripe held a different one. Dan then passed Monthly and
+  Lifetime with Apple Pay on his iPhone the same day (success tick, account under the step 1 email). Read any later
+  phone test back from the `cart_wallet_*` events.
 - That redirect reloads the page, so the in-page tag guards from the recipe are gone when the conversions fire: for
   a local run of the return path, switch `fireAdConversion` and `fireTikTokEvent` off for `localhost` in the working
   copy first and remove it before committing.
@@ -150,6 +154,11 @@ email, TikTok `StartTrial`, the ad click ids in the session metadata. Removed wi
   `redirect: 'if_required'` and then torn the wallet element down the moment the promise returned. Now a finished
   payment only marks the sessions spent (`c2Spend`); the mounted elements are cleared the next time the payment step
   is drawn (`c2Teardown`).
+- **The wallet element has no `click` event with Checkout Sessions.** Stripe's Checkout Elements SDK documents
+  `ready`, `change`, `confirm`, `cancel`, `loaderror` and a few focus events, and nothing else; `express.on('click')`
+  registers without complaint and never fires. The first cart relied on it for the tick box rule and for
+  `cart_checkout_opened`, so Apple Pay opened with the box unticked until 2026-10-03. `confirm` is the first the page
+  hears of a wallet payment; anything that must stop the wallet from opening has to physically cover the button.
 - With the documented wallet call the `confirm` promise does not come back on success (the page is already leaving).
   Anything that must happen after a wallet payment belongs in `applyCartReturn`, not after the `await`.
 - **Stripe.js versions.** The versioned script (`dahlia`, `endive`) REMOVED `initEmbeddedCheckout` (now

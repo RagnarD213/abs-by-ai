@@ -1333,6 +1333,11 @@ html.cart-v2 body { background: #ffffff; }
 .c2-sum { display: flex; justify-content: space-between; font-size: 15px; font-weight: 700; color: #2B2F36; }
 .c2-total { border-top: 1px solid #E4E1DB; padding-top: 12px; }
 .c2-total div { display: flex; justify-content: space-between; font-size: 20px; font-weight: 800; color: #05070B; }
+/* Stripe's wallet buttons report no tap to the page, so an unticked terms box is
+   enforced by this see-through layer over them (see c2SyncGate). It reaches a
+   little past the wrapper because Stripe's element hangs 4px outside it. */
+.c2-express-wrap { position: relative; }
+.c2-express-gate { position: absolute; inset: -6px; z-index: 2; margin: 0; padding: 0; border: 0; background: transparent; cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .c2-or { display: flex; align-items: center; gap: 12px; font-size: 13px; font-weight: 700; color: #3F444C; }
 .c2-or::before, .c2-or::after { content: ''; flex: 1; height: 1px; background: #E4E1DB; }
 .c2-payload { font-size: 14px; font-weight: 600; color: #3F444C; text-align: center; padding: 22px 0; }
@@ -3118,7 +3123,10 @@ html.cart-v2 body { background: #ffffff; }
           <!-- Stripe draws these: the wallet buttons (Apple Pay keeps Apple's own
                black button), then the card fields. -->
           <div class="c2-block" id="c2StripeFields">
-            <div id="c2Express"></div>
+            <div class="c2-express-wrap">
+              <div id="c2Express"></div>
+              <button type="button" id="c2ExpressGate" class="c2-express-gate" style="display:none" aria-label="Check the box below to agree to the terms of the offer before paying"></button>
+            </div>
             <div class="c2-or" id="c2Or" style="display:none"><span>or pay by card</span></div>
             <div id="c2PayLoading" class="c2-payload">Loading the secure payment form...</div>
             <div id="c2Payment"></div>
@@ -8656,6 +8664,18 @@ function c2RenderPlan() {
   $('c2Struck').textContent = C2_COPY[plan].struck;
   $('c2Terms').style.display = plan === 'monthly' ? '' : 'none';
   $('c2LifeBox').style.display = plan === 'lifetime' ? '' : 'none';
+  c2SyncGate();
+}
+
+// The wallet buttons (Apple Pay, Link, Google Pay) are Stripe's, and with
+// Checkout Sessions they tell the page nothing when tapped: there is no click
+// event to refuse (found on Dan's phone, 2026-10-03, where Apple Pay opened
+// with the box unticked). So while Monthly's terms box is unticked a
+// see-through layer sits over the buttons; a tap on it asks for the tick box
+// instead of opening the wallet.
+function c2SyncGate() {
+  const gate = $('c2ExpressGate');
+  if (gate) gate.style.display = (c2Plan() === 'monthly' && !$('c2Agree').checked) ? '' : 'none';
 }
 
 // Stripe insists the page shows the session's own total; with the trial (or a
@@ -8810,7 +8830,6 @@ async function c2LoadPayment() {
       cartCapture('cart_wallet_buttons', { plan, logged_in: isLoggedIn(), buttons: shown, count: shown.length });
     });
     express.on('availablepaymentmethodschange', (e) => showOr(e && e.paymentMethods));
-    express.on('click', c2ExpressClick);
     express.on('confirm', c2ExpressConfirm);
     try {
       express.on('cancel', () => c2WalletEvent('cart_wallet_cancelled', { ms: c2.wallet ? Date.now() - c2.wallet.t0 : null }));
@@ -8922,40 +8941,39 @@ async function c2Pay() {
   }
 }
 
-// A wallet button was tapped. Stripe opens the wallet's sheet only if we say
-// so within a second, so the tick box rule is checked here, synchronously.
-function c2ExpressClick(event) {
-  c2ClearFieldErrors();
-  c2ShowError('');
-  const type = event.expressPaymentType || 'wallet';
-  const termsOk = c2TermsOk();
-  c2.wallet = { type, t0: Date.now() };
-  c2WalletEvent('cart_wallet_click', { terms_ok: termsOk, email_typed: C2_EMAIL_RE.test($('c2Email').value.trim()) });
-  if (!termsOk) { if (event.reject) event.reject(); return; }
-  cartCapture('cart_checkout_opened', { plan: c2Plan(), logged_in: isLoggedIn(), method: type });
-  try {
-    sessionStorage.setItem(C2_PLAN_KEY, c2Plan());
-    sessionStorage.setItem(C2_WALLET_KEY, JSON.stringify({ type, t: Date.now() }));
-  } catch (e) {}
-  c2SyncCartEmail(); // not awaited: the sheet must be answered within a second
-  event.resolve();
-}
 // The buyer approved in the wallet. This is Stripe's documented wallet call,
 // with no `redirect` option: Stripe closes the wallet's sheet with its success
 // tick itself, then sends the page to the session's return_url
 // (/?cart_return=<session id>), where applyCartReturn finishes the order.
 // Nothing of Stripe's is touched on this page after the payment confirms.
+// This is also the first the page hears of a wallet payment (no click event),
+// so everything a tap would have recorded is recorded here.
 async function c2ExpressConfirm(event) {
+  c2ClearFieldErrors();
+  c2ShowError('');
+  const type = event.expressPaymentType || 'wallet';
   const sess = c2.sessions[c2Plan()];
-  if (!c2.wallet) c2.wallet = { type: event.expressPaymentType || 'wallet', t0: Date.now() };
+  c2.wallet = { type, t0: Date.now() };
+  // Backstop for the layer over the buttons: never start a Monthly trial
+  // without the tick box. Nothing has been charged at this point.
+  if (!c2TermsOk()) {
+    c2WalletEvent('cart_wallet_confirm_result', { result: 'terms_missing' });
+    try { event.paymentFailed({ reason: 'fail' }); } catch (e) {}
+    return;
+  }
   if (!c2.actions || !sess) {
     c2WalletEvent('cart_wallet_confirm_result', { result: 'not_ready' });
     try { event.paymentFailed({ reason: 'fail' }); } catch (e) {}
     return c2ShowError('The payment form is still loading. Try again in a moment.');
   }
+  cartCapture('cart_checkout_opened', { plan: c2Plan(), logged_in: isLoggedIn(), method: type });
+  try {
+    sessionStorage.setItem(C2_PLAN_KEY, c2Plan());
+    sessionStorage.setItem(C2_WALLET_KEY, JSON.stringify({ type, t: Date.now() }));
+  } catch (e) {}
   c2SetBusy(true);
   const started = Date.now();
-  c2WalletEvent('cart_wallet_confirm_started', { ms_since_click: started - c2.wallet.t0 });
+  c2WalletEvent('cart_wallet_confirm_started', { email_typed: C2_EMAIL_RE.test($('c2Email').value.trim()) });
   let leaving = false;
   try {
     // The step 1 email has to be on the session before the session completes.
@@ -9011,7 +9029,7 @@ function applyCartReturn() {
     const wallet = JSON.parse(sessionStorage.getItem(C2_WALLET_KEY) || 'null');
     if (wallet && wallet.type) {
       c2.wallet = { type: wallet.type, t0: wallet.t };
-      c2WalletEvent('cart_wallet_returned', { ms_since_click: Date.now() - wallet.t });
+      c2WalletEvent('cart_wallet_returned', { ms_since_confirm: Date.now() - wallet.t });
     }
   } catch (e) {}
   c2ShowFinishing();
@@ -9092,7 +9110,14 @@ function wireCartScreen() {
     c2ShowError('');
     c2LoadPayment();
   }));
+  $('c2ExpressGate').addEventListener('click', () => {
+    c2ClearFieldErrors();
+    c2ShowError('');
+    cartCapture('cart_wallet_gate_tap', { plan: c2Plan(), logged_in: isLoggedIn() });
+    c2TermsOk();
+  });
   $('c2Agree').addEventListener('change', (e) => {
+    c2SyncGate();
     if (!e.target.checked) return;
     c2ClearFieldErrors();
     cartCapture('cart_terms_checked', { plan: c2Plan() });
