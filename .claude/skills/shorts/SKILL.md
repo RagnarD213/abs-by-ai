@@ -16,7 +16,9 @@ Read `_shared/VIDEO-RULES.md` first.
 
 ## Graphic set for new batches (Dan, 2026-10-01)
 
-SL-05 was the last batch in the J2 / olive set. Every new batch uses Soft Blue Light graphics from the HyperFrames templates; the first vertical and the first square made that way get a full approval round with every asset shown to Dan before the build. Full rule: `_shared/VIDEO-RULES.md`, "New shorts batches". The J2 title band, olive bars and `reference/zeeshan-master/` layouts below are for finishing or revising batches already delivered in that set.
+SL-05 was the last batch in the J2 / olive set. Every new batch uses Soft Blue Light graphics from the HyperFrames templates; the first vertical and the first square made that way get a full approval round with every asset shown to Dan before the build. Full rule: `_shared/VIDEO-RULES.md`, "New shorts batches".
+
+**The vertical look is locked (Dan, 2026-10-02, SL-03 round 1: "Everything is approved").** A new batch of shorts from a long-form does not need a look round. Use the "Soft Blue shorts standard" in [GRAPHICS-STANDARDS.md](../_shared/GRAPHICS-STANDARDS.md): title band y 0 to 310 for the whole short, picture 1080 x 1610 under it, two steady windows (724 x 1080 and 604 x 900), the HyperFrames key-point bar at 68,1130 to 1012,1378 with two lines landing on words, captions from y 1412, B-roll filling the picture area, phone beside Dan for app demos, small corner wordmark. Start from `reference/softblue-sl03/` (README, renderer, gate plan). Claude still checks every key point as a still and moving, and brings Dan only what is materially uncertain. The J2 title band, olive bars and `reference/zeeshan-master/` layouts below are for finishing or revising batches already delivered in that set.
 
 ## A horizontal clip in the vertical or square frame keeps its full height (Dan, 2026-10-01)
 

@@ -358,7 +358,7 @@
    "updated": "2026-09-22",
    "by": "Muhammad",
    "rev": 10,
-   "syncedRev": 9,
+   "syncedRev": 10,
    "queue_owned": true
   },
   {
@@ -380,7 +380,7 @@
    "updated": "2026-09-22",
    "by": "Muhammad",
    "rev": 3,
-   "syncedRev": 2
+   "syncedRev": 3
   },
   {
    "id": "DS-03",
@@ -401,7 +401,7 @@
    "updated": "2026-09-22",
    "by": "Muhammad",
    "rev": 3,
-   "syncedRev": 2
+   "syncedRev": 3
   },
   {
    "id": "DS-04",
@@ -464,7 +464,7 @@
    "updated": "2026-09-22",
    "by": "Muhammad",
    "rev": 3,
-   "syncedRev": 2
+   "syncedRev": 3
   },
   {
    "id": "DS-07",
@@ -485,7 +485,7 @@
    "updated": "2026-09-22",
    "by": "Muhammad",
    "rev": 3,
-   "syncedRev": 2
+   "syncedRev": 3
   },
   {
    "id": "DS-08",
@@ -506,7 +506,7 @@
    "updated": "2026-09-22",
    "by": "Muhammad",
    "rev": 3,
-   "syncedRev": 2
+   "syncedRev": 3
   },
   {
    "id": "DS-09",
@@ -527,7 +527,7 @@
    "updated": "2026-09-22",
    "by": "Muhammad",
    "rev": 3,
-   "syncedRev": 2
+   "syncedRev": 3
   },
   {
    "id": "DS-10",
@@ -548,7 +548,7 @@
    "updated": "2026-09-22",
    "by": "Muhammad",
    "rev": 3,
-   "syncedRev": 2
+   "syncedRev": 3
   },
   {
    "id": "DS-11",
@@ -569,7 +569,7 @@
    "updated": "2026-09-22",
    "by": "Muhammad",
    "rev": 3,
-   "syncedRev": 2
+   "syncedRev": 3
   },
   {
    "id": "DS-12",
@@ -590,7 +590,7 @@
    "updated": "2026-09-22",
    "by": "Muhammad",
    "rev": 3,
-   "syncedRev": 2
+   "syncedRev": 3
   },
   {
    "id": "DS-13",
@@ -611,7 +611,7 @@
    "updated": "2026-09-22",
    "by": "Muhammad",
    "rev": 3,
-   "syncedRev": 2
+   "syncedRev": 3
   },
   {
    "id": "DS-14",
@@ -632,7 +632,7 @@
    "updated": "2026-09-22",
    "by": "Muhammad",
    "rev": 3,
-   "syncedRev": 2
+   "syncedRev": 3
   },
   {
    "id": "DS-15",
@@ -653,7 +653,7 @@
    "updated": "2026-09-22",
    "by": "Muhammad",
    "rev": 3,
-   "syncedRev": 2
+   "syncedRev": 3
   },
   {
    "id": "DS-16",
@@ -674,7 +674,7 @@
    "updated": "2026-09-22",
    "by": "Muhammad",
    "rev": 3,
-   "syncedRev": 2
+   "syncedRev": 3
   },
   {
    "id": "DS-17",
@@ -737,7 +737,7 @@
    "updated": "2026-09-22",
    "by": "Muhammad",
    "rev": 3,
-   "syncedRev": 2
+   "syncedRev": 3
   },
   {
    "id": "DS-20",
@@ -758,7 +758,7 @@
    "updated": "2026-09-22",
    "by": "Muhammad",
    "rev": 3,
-   "syncedRev": 2
+   "syncedRev": 3
   },
   {
    "id": "DS-21",
@@ -779,7 +779,7 @@
    "updated": "2026-09-22",
    "by": "Muhammad",
    "rev": 3,
-   "syncedRev": 2
+   "syncedRev": 3
   },
   {
    "id": "DS-22",
@@ -800,7 +800,7 @@
    "updated": "2026-09-22",
    "by": "Muhammad",
    "rev": 3,
-   "syncedRev": 2
+   "syncedRev": 3
   },
   {
    "id": "DS-23",
@@ -821,7 +821,7 @@
    "updated": "2026-09-22",
    "by": "Muhammad",
    "rev": 3,
-   "syncedRev": 2
+   "syncedRev": 3
   },
   {
    "id": "DS-24",
@@ -842,7 +842,7 @@
    "updated": "2026-09-22",
    "by": "Muhammad",
    "rev": 3,
-   "syncedRev": 2
+   "syncedRev": 3
   },
   {
    "id": "DS-25",
@@ -863,7 +863,7 @@
    "updated": "2026-09-22",
    "by": "Muhammad",
    "rev": 3,
-   "syncedRev": 2
+   "syncedRev": 3
   },
   {
    "id": "RO-01",
@@ -884,7 +884,7 @@
    "updated": "2026-09-29",
    "by": "Codex",
    "rev": 6,
-   "syncedRev": 5
+   "syncedRev": 6
   },
   {
    "id": "RO-02",
@@ -1052,7 +1052,7 @@
    "updated": "2026-09-25",
    "by": "Codex",
    "rev": 4,
-   "syncedRev": 3
+   "syncedRev": 4
   },
   {
    "id": "SL-01",
@@ -1112,14 +1112,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/SL-03-meal-prep-app-demo-shorts.md`: propose the shorts segments from the RO-05 \"How I Make My Daily Salad\" master and wait for my picks, then cut them with /shorts, with gates and an independent audit (no covers; Codex does those). Deliver, send me the review copies, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/SL-03-meal-prep-app-demo-shorts.md` using `.claude/skills/shorts/SKILL.md` as the method: propose segments from the RO-05 master, wait for Dan's picks, cut, gate, deliver, update `00-MASTER.md`.",
-   "state": "in_progress",
-   "note": "Unblocked 09-30: cut from the approved RO-05 master; parent public Oct 18",
+   "state": "delivered",
+   "note": "Round 2: six shorts on one review page http://127.0.0.1:8811/ (2 decisions)",
    "sub": "",
    "order": 53,
-   "updated": "2026-10-02",
+   "updated": "2026-10-03",
    "by": "Claude",
-   "rev": 3,
-   "syncedRev": 3
+   "rev": 4,
+   "syncedRev": 4
   },
   {
    "id": "AV-01",
@@ -1176,14 +1176,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/AV-03-ad4-vertical-regrade-and-masters.md`: re-fit the Ad 4 vertical's grade with BT.709 decoding using the Ad 3 render-10 tools in a copy of `ad4-vert/`, re-render full + 59s, record my 09-11 acceptance of −0.9 dBTP as an auditable exception (never a bound change), refresh the stale caption tools, gate at the current version, audit, deliver, send me review copies, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/AV-03-ad4-vertical-regrade-and-masters.md` using `.claude/skills/shortad-from-longform/SKILL.md` section [A12] as the method. Deliver, send Dan review copies, update `00-MASTER.md`.",
-   "state": "ready",
-   "note": "",
+   "state": "in_progress",
+   "note": "10-03: re-grade + masters, built with AS-02 in one task (handoff-20261001-ad4-other-formats)",
    "sub": "",
    "order": 56,
-   "updated": "2026-09-16",
-   "by": "master list",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-10-03",
+   "by": "Claude",
+   "rev": 2,
+   "syncedRev": 2
   },
   {
    "id": "AV-04",
@@ -1225,7 +1225,7 @@
    "updated": "2026-10-02",
    "by": "Claude",
    "rev": 6,
-   "syncedRev": 3
+   "syncedRev": 6
   },
   {
    "id": "AV-06",
@@ -1267,7 +1267,7 @@
    "updated": "2026-09-25",
    "by": "Codex",
    "rev": 5,
-   "syncedRev": 2
+   "syncedRev": 5
   },
   {
    "id": "AV-08",
@@ -1323,14 +1323,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/AS-02-ad4-square.md`: first confirm its blocker is cleared, then build the 1:1 square and ≤0:59 square cutdown of Ad 4 as a re-layout of the approved vertical build with /shortad-from-longform [S1], same timeline, grade, labels and audio, steady wider framing, labels off my face and abs. Every gate, independent audit, deliver, send me the review copies, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table) and `Handoffs/handoff-20260914-ad3-square-codex.md` (the Ad 3 square you built, which Dan shipped: reuse its method), then execute `Handoffs/video-editing/AS-02-ad4-square.md`. Confirm the blocker is cleared first. Deliver, send Dan the review copies, update `00-MASTER.md`.",
-   "state": "blocked",
-   "note": "AV-03 approved",
+   "state": "in_progress",
+   "note": "10-03: built in the same task as AV-03 per handoff-20261001-ad4-other-formats; Dan reviews all four once",
    "sub": "",
    "order": 63,
-   "updated": "2026-09-16",
-   "by": "master list",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-10-03",
+   "by": "Claude",
+   "rev": 2,
+   "syncedRev": 2
   },
   {
    "id": "AS-03",
@@ -1372,7 +1372,7 @@
    "updated": "2026-10-02",
    "by": "Claude",
    "rev": 4,
-   "syncedRev": 1
+   "syncedRev": 4
   },
   {
    "id": "AS-05",
@@ -1407,14 +1407,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/AS-06-ad10-square.md`: first confirm its blocker is cleared, then build the 1:1 square and ≤0:59 square cutdown of Ad 10 as a re-layout of the approved vertical build with /shortad-from-longform [S1], same timeline, grade, labels and audio, steady wider framing, labels off my face and abs. Every gate, independent audit, deliver, send me the review copies, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table) and `Handoffs/handoff-20260914-ad3-square-codex.md` (the Ad 3 square you built, which Dan shipped: reuse its method), then execute `Handoffs/video-editing/AS-06-ad10-square.md`. Confirm the blocker is cleared first. Deliver, send Dan the review copies, update `00-MASTER.md`.",
-   "state": "ready",
+   "state": "in_progress",
    "note": "Unblocked by Dan finalizing AV-07 on 2026-09-25. Build the square and 59-second square cutdown from the approved vertical recipe.",
    "sub": "",
    "order": 67,
-   "updated": "2026-09-25",
-   "by": "Codex GPT-5.6",
-   "rev": 2,
-   "syncedRev": 1
+   "updated": "2026-10-02",
+   "by": "Claude",
+   "rev": 3,
+   "syncedRev": 3
   },
   {
    "id": "AS-07",
@@ -1705,7 +1705,7 @@
    "updated": "2026-09-29",
    "by": "Codex",
    "rev": 44,
-   "syncedRev": 1
+   "syncedRev": 44
   },
   {
    "id": "WV-02",
@@ -1894,7 +1894,7 @@
    "updated": "2026-09-25",
    "by": "edit queue (codex)",
    "rev": 3,
-   "syncedRev": 1,
+   "syncedRev": 3,
    "queue_owned": true
   },
   {

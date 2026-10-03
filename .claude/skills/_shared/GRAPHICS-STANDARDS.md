@@ -45,6 +45,21 @@ Verticals and squares use the same card design adapted to the crop, full width w
 
 References: `/Volumes/Extreme/_edit_work/wv01-edit/round10-opacity/graphics/option3-A.jpg`, `previews/option3-A-context.mp4` (SHA256 `34aedf99b942811f98661288b6912ac2c5c3e33372741e30e6a4abce11f74ba6`), renderer `recipe/build.py`; brief `Handoffs/handoff-20260928-finalized-left-third-3A-claude.md`. Build it with `softblue.left_third()` and `softblue.shift_presenter()` ([SOFTBLUE.md](SOFTBLUE.md)). Full-screen graphics, standalone phone demos and the Motivation lower third keep their own approved designs, and WV-01's already approved five-benefit sequence is not rebuilt automatically. Show one short contextual sample before a full edit.
 
+## Soft Blue shorts standard: 9:16 shorts cut from a long-form (Dan, 2026-10-02)
+
+Dan approved the whole SL-03 round 1 page: *"Everything is approved. Excellent job getting everything ready for this review with no further revisions needed."* Later shorts batches reuse this look without a look round. Hashes and scope: `/Volumes/Extreme/_edit_work/sl03/round2-plan/decisions.json`. Stills: `sl03/round1/stills/` (T1, L1, G1, G2, O1_fill, C2, P5_B).
+
+- **Title band:** the Soft Blue field from y 0 to 310 with a 2 px glass line under it. Cyan letter-spaced topic line (Poppins 34, slim cyan accent at x 64) over a white two-line headline (Poppins Bold, 88 px, shrunk until the longest line fits inside 64 px margins). On screen for the whole short. The picture sits under it (1080 x 1610 from y 310) and never behind it.
+- **Picture windows:** from the 1920 x 1080 source, full 724 x 1080 and closer 604 x 900, steady per shot, both from the top row the source has. A same-framing join gets a real size step between the two.
+- **Key-point bar:** the HyperFrames `lower-third/` template at 9:16, strip box 68,1130 to 1012,1378 (the kit's 68 % position moved down 72 px because the picture starts 310 px lower), `KEY POINT` topic, two lines only, each line landing on its word. Dan's face bottom stays above y 1130 for the bar's whole span: use the full window while a bar is up.
+- **Captions:** Arial Bold 86, white, 7 px black outline, top line at y 1412 (under the bar); y 1500 where a shot's face runs low.
+- **B-roll (food, product close-ups):** fills the picture area. A box only with a written reason (VIDEO-RULES, "fill the frame").
+- **Phone demo:** phone beside Dan on the Soft Blue field: the approved iPhone shell at 1.2x on the left (x 14, y 322), Dan in a 440 x 1190 rounded window on the right (x 612, y 345), captions on the field under both from y 1600. The phone is never shrunk; the stacked layout (phone over a wide strip of Dan) was shown and dropped.
+- **Wordmark:** small `AbsByAI.com` at the bottom left (Poppins 30, 67 % white), kept. No end mark.
+- **Hair:** where the camera framed his hair at source row 0, the window starts at row 0 and that is accepted as camera framing.
+
+Tooling and the batch renderer: `shorts/reference/softblue-sl03/`.
+
 ## Evidence and reuse
 
 Approval scopes and exact reference hashes: `/Volumes/Extreme/_edit_work/wv01-edit/round4-plan/decisions.json`. The prospective Claude rollout brief is `Handoffs/handoff-20260926-soft-blue-light-all-video-graphics-claude.md`. The latest WV-01 decisions are in `/Volumes/Extreme/_edit_work/wv01-edit/round5-plan/decisions.json`; next-round brief: `Handoffs/handoff-20260926-wv01-round5-final-creative-lock.md`. Private renderer/history snapshots live on local Git ref `codex/video-trial-plan-private`; do not publish private media or production recipes.
