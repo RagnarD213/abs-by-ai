@@ -152,6 +152,8 @@ tab; stop rather than click into spinners. `Handoffs/handoff-20260908-google-ads
 
 **Ad 4 V/S/Sh (AV-03, AS-02) - BUILDING 2026-10-03, Claude.** `/Volumes/Extreme/_edit_work/AV-03/`. Next: four files, one review page.
 
+**RO-02 - NEEDS DAN 2026-10-03, Claude.** http://127.0.0.1:8822/. `handoff-20261003-ro02-round1-dan-review.md`.
+
 **Shorts parked behind the long-form hold. (baseline 2026-09-15; age unknown)** Zepbound (8) + Supplements (8) need the new spray-tan sound
 (`Handoffs/handoff-20260909-audio-match-muhammad.md`); nothing posts until a parent long-form is public.
 

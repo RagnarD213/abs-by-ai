@@ -1,0 +1,40 @@
+{
+ "decisions": [
+  "<b>Colour.</b> A (recommended): the exact poolside colour you approved on the ab wheel video, with a small brightness trim per shot because clouds moved through this shoot. B: the same method with the lighter touch used on that video's second roll, a little cooler and less tan. <i>A or B.</i>",
+  "<b>Framing.</b> Two fixed sizes that swap at every cut: FAR (hair to mid-thigh) and NEAR (hair to waistband). The camera shot 1080p from a distance, so closer means softer. <i>Keep these two sizes (recommended), or go wider on both.</i>",
+  "<b>Sound.</b> Your lav through the shared voice chain, no room removal, no music. Play the A/B link under the first minute (Muhammad's ab wheel mix, then this). <i>Sound OK (recommended), or tell me what you hear.</i>",
+  "<b>The opening.</b> As cut, it opens on you saying \"If you have belly fat, stop doing ab exercises.\" Options: (a) keep that cold open and cut to real footage of you doing crunches and toe touches at \"stop doing crunches\" (recommended, all footage we own); (b) open on two seconds of your real vacuum from the 8/28 shoot, then you; (c) an AI opener: a man with a belly grinding out crunches on his living room floor, then you. For (c) I bring START and END frames next round before any motion.",
+  "<b>Length.</b> The cut runs 11:50 and keeps every point you made. Options: (a) keep all of it; (b) remove only the aside at 0:49 to 0:56, \"you can skip ahead about 30 seconds to this part of the video\", because it invites viewers to skip and the timing no longer matches (recommended, 7 seconds); (c) also end the three types section at 4:42, after \"the only one I do myself and recommend to clients is the standing vacuum\", because the next 42 seconds repeat the mirror and psychology points from 2:48 to 3:48 (film becomes about 11:00)."
+ ],
+ "first_minute_note": "Colour A. Audio gate PASS, all 13 rows, -14.2 LUFS.",
+ "look_notes": {
+  "A": "The ab wheel video's approved colour, full strength.",
+  "B": "Same method, second-roll calibration at 80 percent."
+ },
+ "decided": [
+  "<b>Takes.</b> 29 pieces from 13 of the 16 rolls, the last clean take of every section. Not used: C1615 (a false start), C1616 (stopped for a car), C1627 (the first, shorter takeaway; C1628's adds the vacuum recap).",
+  "<b>Hook.</b> The fifth and last hook take, one unbroken 34 seconds. The four earlier ones are earlier wordings of the same hook.",
+  "<b>Restarts cut (12).</b> \"vacuums when you...\" (1:58); the first Arnold and Frank Zane line (2:12); two stopped tries at \"Doing a vacuum the way I recommend\" (2:48); the denial line said at the end of one roll and again at the top of the next, kept once (3:06); \"But that is actually an important part of the vacuum\" (3:35); \"So, the vacuum,\" (3:48); \"and to bring the...\" (4:12); \"which is realistic\" (5:42); \"belly fat visual\" (6:43); \"So do it fasted\" (7:24); the first try at the breathing point and the abandoned first walk-through of the steps (7:25, 8:06); \"That means your waist will get...\" in the ending (11:35).",
+  "<b>The live set.</b> \"20 minutes on my phone timer\" was the first try; the kept one says 20 seconds. I cut the 3.6 seconds of starting the timer and putting the phone down. The 20-second hold plays in real time, through your 3, 2, 1 and the timer beeps, and ends before you bend for the phone.",
+  "<b>Pauses.</b> Six pauses over 0.7 seconds tightened. Kept on purpose: the pause at 8:32 where you show the short breath through your nose.",
+  "<b>Brightness.</b> The sun went in and out all shoot (your skin reads almost twice as bright in the hook as in the three types section). Each shot gets one fixed brightness trim so skin sits in the range the approved colour was built on. The hook still looks warmer than the cloudy sections; that is the light on the day, and I did not push it further.",
+  "<b>Picture.</b> Every cut changes size, the frame never moves inside a shot, no zooms or pans. Hair is clear of the top edge on every sample.",
+  "<b>Words left as you said them.</b> You call the hands-and-knees vacuum \"supine\" three times (supine means lying on your back). It stays in the speech; the graphic will say \"Hands And Knees\". \"Zepbound\" stays in the speech and subtitles and out of the graphics. Swearing: none in the kept takes.",
+  "<b>Arnold and Frank Zane.</b> No photos of them (we own none): that beat gets a key point lower third.",
+  "<b>Music.</b> None, as on the last four long-forms.",
+  "<b>Spend.</b> $0 so far. All transcription was local."
+ ],
+ "planned": [
+  "<b>Real footage of you first, AI last.</b> Crunches and toe touches from the finished 1 Minute Ab Workout export under \"stop doing crunches, stop doing sit ups\" (0:03); your real vacuum from the 8/28 shoot under \"the vacuum, the only ab exercise that can actually shrink your waist\" (0:25).",
+  "<b>Section titles</b> (full screen, Soft Blue Light): Why Ab Exercises Do Not Burn Belly Fat; The Muscle That Shrinks Your Waist; Why The Standing Vacuum; How To Do It; A Live Set; Your Routine.",
+  "<b>Anatomy card</b> at 1:25 to 1:58: a simple labelled diagram, six pack muscle in front and the deep muscle wrapped around the waist behind it. Drawn, not an AI body. This is a new card, so you see it as a still first.",
+  "<b>Fact card:</b> SPOT REDUCTION / Is A Myth / You burn fat evenly, all over (1:10).",
+  "<b>Key point lower thirds:</b> Ab Exercises Build Muscle UNDER The Fat (0:13); Bodybuilders Have Used It Since THE 1960s (2:05); The Mirror Is HALF The Exercise (3:38); Do It On An EMPTY STOMACH (7:00); Keep Breathing: SHORT BREATHS Through Your Nose (8:20).",
+  "<b>Side lists:</b> 3 Types Of Vacuums (Kneeling, Hands And Knees, Standing) at 4:25; Why Standing (Anywhere, No Equipment, A Few Minutes) at 5:24; Before You Start (In A Mirror, Shirtless, Empty Stomach) at 6:30; The Steps (Slump, Suck It In, Hold 20 Seconds, Keep Breathing) at 7:26; The Routine (1 Set, Then 2, Then 3, One Minute Rest) at 9:20.",
+  "<b>App demo:</b> the approved demo of you generating your goal picture (sunglasses photo to pool photo, AI-GENERATED label) at \"a real life AI transformation picture\" (5:50) and in the ending (11:05).",
+  "<b>A 20-second countdown</b> in the corner during the live set (8:52 to 9:14).",
+  "<b>Recap card</b> in the takeaway (10:12), and the AbsByAI.com chip in the ending.",
+  "<b>Deliverables at the end:</b> the 1080p master, the SRT, the chapters, a 540p review copy."
+ ],
+ "reply": "RO-02 round 1\n1. Colour: A\n2. Framing: keep FAR and NEAR as shown\n3. Sound: OK\n4. Opening: (a) cold open, crunches footage at 0:03\n5. Length: (b) remove the skip-ahead aside only\nAnything in 'What I decided' to overrule:\nAnything in the cut or the planned graphics to change:\n"
+}
