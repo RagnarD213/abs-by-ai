@@ -235,7 +235,14 @@ def main():
         stop = next((s_ for s_ in _STOPS if s_ > ws + 1e-3), None)
         if stop is not None:
             end = max(min(end, stop), ws + 1.0 / 29.97)
-        return end
+        # as captions.render: a line at the normal height ends when a bottom card that lifts captions comes up, and
+        # no cue runs past the picture (the last line's 0.3 s hold read 0.2 s past the end: captions:within_runtime)
+        lifts = getattr(B, "CAP_LIFTS", [])
+        if not any(a_ - 0.15 <= g[0][1] < b_ for a_, b_, _y in lifts):
+            lstop = next((a_ for a_, _b, _y in sorted(lifts) if a_ > ws + 1e-3), None)
+            if lstop is not None:
+                end = max(min(end, lstop), ws + 1.0 / 29.97)
+        return min(end, NTOT / FPS)
     srt = []
     for i, g in enumerate(gs, 1):
         nxt = gs[i][0][1] if i < len(gs) else None

@@ -215,6 +215,10 @@ def render(gs, out='captions.mov', capdir='cap', stops=None):
     if stops is None:
         stops = [a_ for a_, b_ in suppressed()] + list(getattr(BT, 'SEAMS', []))
     STOPS = sorted(set(stops))
+    # A bottom card that LIFTS the captions (beats.CAP_LIFTS) is a hard stop for a line still sitting at the normal
+    # height when the card comes up: "really trying." was held 0.8 s and sat on the "How I Eat" card for six frames
+    # (RO-10 vertical, 4:08.9, the gate's captions:graphic_clearance at -105 px). A line that is itself lifted is clear.
+    LIFT_STOPS = sorted(a_ for a_, b_, y_ in getattr(BT, 'CAP_LIFTS', []))
     next_start = {id(g): (gs[i+1][0][1] if i + 1 < len(gs) else None) for i, g in enumerate(gs)}
     for g in gs:
         txt = ' '.join(x[0] for x in g)
@@ -259,6 +263,10 @@ def render(gs, out='captions.mov', capdir='cap', stops=None):
                 end = max(end, ws + 1.0/29.97)                  # never zero, never past the next line
                 stop = next((s_ for s_ in STOPS if s_ > ws + 1e-3), None)
                 if stop is not None: end = max(min(end, stop), ws + 1.0/29.97)
+                if cap_y == CAP_Y:
+                    lstop = next((s_ for s_ in LIFT_STOPS if s_ > ws + 1e-3), None)
+                    if lstop is not None: end = max(min(end, lstop), ws + 1.0/29.97)
+                end = min(end, max(BT.DUR, ws + 1.0/29.97))      # never past the end of the picture
             else:
                 end = g[k + 1][1]
             start = max(ws, t)

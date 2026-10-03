@@ -558,6 +558,15 @@ FORMATS = {
                 # Dan's written rule 2026-08-21; 4.0/min: qc_style.MIN_SCENES_PER_MIN). The vertical
                 # is the same cut. RO-10's 16:9 reads 68 % / 18.7 s / 10.9 per min. ⚠ NOT `short`'s
                 # 0.30: that allowance is for one continuous passage of a longer cut.
+                # ⚠ CARRIED, NOT CALIBRATED. Measured 2026-10-03 on RO-10's vertical (built, not
+                # yet ruled on by Dan): 35 % / 36.0 s at 1:59 / 7.5 per min. The same cut reads
+                # differently in the two layouts: the 16:9 alternates two crops (2608 and 3552 px
+                # wide), which shifts its palette and trips change events; the vertical's 1.2x
+                # level steps, ramped pushes and glass lower thirds do neither (that 36 s stretch
+                # holds two hard punch-ins, three pushes and two lower thirds). So RO-10's
+                # vertical FAILS coverage and static_run here and is reported that way. When Dan
+                # approves or rejects it, it becomes the corpus entry these two numbers are set
+                # from. Do not move them before that, and never to make a build pass.
                 "cut:naked_splices": dict(max_per_min=12.0),
                 # the bound every format carries (see ad9x16); not measured on an approved organic
                 # vertical yet. Re-measure when RO-10's is approved.
