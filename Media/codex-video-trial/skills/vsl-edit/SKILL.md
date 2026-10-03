@@ -3,6 +3,15 @@ name: vsl-edit
 description: Edit or revise Abs By AI website video sales letters from filmed footage using detailed asset approval rounds before a full render. Use for website VSLs with a sales story, proof, product demonstration, offer and CTA. Organic teaching videos, paid ads and speed or aspect changes to an approved master use their own workflows.
 ---
 
+## Shared HyperFrames graphics (2026-10-03)
+
+For every new build or graphics revision, read the project's [shared HyperFrames method](../../../../.claude/skills/_shared/hyperframes/README.md). Lower thirds, before/fact cards, 3A side lists and cycles use that folder through `from_plan.py`, the shared `composite.py` and `checks.py`, pinned to **hyperframes 0.8.97**. Do not copy or fork its templates. `orglib` and `modern_graphics` panels are superseded for those four kinds; historical recipes remain reproduction records.
+
+Cut first, map the finished words, and store graphics as data in `plan_resolved.json`. Resolve graphic in/out and every part from spoken phrases, never hand-picked whole seconds. Use the maintained Codex integration `scripts/video/hyperframes_graphics.py` for build, per-frame composition and verification. The RO-10 recipe in `.claude/skills/longform-edit/reference/ro10/` is the framing/build reference. New-video adapters copied from older recipes must replace their old panel path with this integration before rendering.
+
+Record each graphic's template, generated config, text and `driven_by` words in the edit sheet, then run the shared sheet validator. Vertical and square adaptations redraw the same configs with shared `vertical.py` / `square.py`. Kinds without an approved template stay on `softblue.py`; new templates need their own graphic-lock approval. Preserve approved videos, source-specific picture/audio, captions and delivery gates. Check actual composite frames for arms, face and colour before presenting them.
+
+
 # Edit an Abs By AI website VSL
 
 Use the WV-01 website video process: develop the sales presentation in small, reviewable rounds; get Dan's approval for material creative assets; render the complete film only after those choices are locked. The number of rounds follows the work. A long VSL can justify many rounds, while a revision reuses everything already approved.

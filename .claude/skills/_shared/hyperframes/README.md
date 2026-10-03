@@ -21,6 +21,8 @@ Whole-video pass: [`from_plan.py`](from_plan.py) (plan + words -> configs -> ren
 Round 2 (lower third, before card, side list) approved by Dan 2026-09-30: "All three approved." Each `build.py`
 docstring has its config format; the approved configs are the `example-ro16-*.json` beside it.
 
+Codex builds use this same shared folder and plumbing, without forked templates (2026-10-03).
+
 ## One graphics pass for any video (2026-09-30, first used on RO-10)
 
 RO-10 is the first full film built this way (15 template graphics; delivered 2026-10-01, independent review SHIP,
