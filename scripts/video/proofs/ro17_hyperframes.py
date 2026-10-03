@@ -151,7 +151,7 @@ def write_sheet(out):
     """Record the proof's actual cut, configs and measured heads, never invented raw facts."""
     import statistics
     checks = H.module('checks')
-    frames = sorted((out/'checks/frames').glob('*.png'))
+    frames = sorted(p for p in (out/'checks/frames').glob('*.png') if p.stem.isdigit())
     face_lines=subprocess.run([checks.facebox_bin()]+[str(p) for p in frames],capture_output=True,text=True,check=True).stdout.splitlines()
     faces={int(Path(path).stem):list(map(int,box.split())) for path,box in (line.split('\t') for line in face_lines) if box not in ('none','error')}
     masks=out/'checks/masks'

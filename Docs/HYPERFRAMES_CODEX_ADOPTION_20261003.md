@@ -23,4 +23,4 @@ Final measurements and approval status are recorded in `proof-receipt.json`, `ch
 
 All three skills passed skill validation. Both new Python modules and proof scripts compiled. The integration rejected whole-second graphic edges, numeric reveal drivers and mismatched spoken edge phrases in negative tests. The code deployed successfully on Railway; absbyai.com returned HTTP 200.
 
-The shared graphics checks and browser review verification must complete before the page is delivered to Dan.
+The shared graphics checks passed: 150 side-card frames, minimum body clearance 210 px; 24 lower-third frames, minimum face clearance 362 px. All three card-fill samples passed. The edit sheet validated, original file hashes stayed unchanged, and the encoded audio payload matched between players. All 13 page assets returned HTTP 200; both video range requests returned 206. Chrome playback, synchronized seeking near the end and the context player were verified. The real-frame stills were visually inspected. Dan review is the only remaining action.
