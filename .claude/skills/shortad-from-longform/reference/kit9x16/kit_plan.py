@@ -229,6 +229,33 @@ def main():
             delivered_speech = [dict(w=w["word"].strip(), t=round(float(w["start"]), 3), e=round(float(w["end"]), 3))
                                 for w in ctc if w["word"].strip()]
             speech_timing = "wav2vec2 CTC forced alignment of the delivered ASR words to the delivered audio"
+            # ⚠ THE ALIGNER CAN HAND A PAUSE TO THE WORD BEFORE IT. Ad 6 round 2 (2026-10-02): Dan says "38," at
+            # 4.71-5.14 s and pauses until 5.5; CTC ended the word at 5.57, so the gate's silence rule read the pause as
+            # a gap INSIDE the word, moved the word's start past it, and then flagged the word's own audio as an
+            # abandoned take (junk:repeated_take ORPHAN @ 0:04.78, re-transcribed alone as "at 38,"). A word's END is
+            # pulled back to the start of a measured pause only when the delivered ASR itself ends that word before the
+            # pause; starts and words never move.
+            try:
+                sys.path.insert(0, os.path.join(REF, "..", ".."))
+                from _shared.cut import speech as SP
+                gaps = SP.gaps_from_envelope(SP.envelope(SP.pcm(os.path.join(d, "his_mix.wav"))))
+                asr = [w for seg in r["segments"] for w in seg.get("words", []) if w["word"].strip()]
+                trimmed = []
+                # the ASR and the aligner tokenise differently ("six-pack" is one CTC word, two ASR words), so the ASR's
+                # say on a word is read by TIME: every ASR word that starts inside this word's span and before the pause
+                for w in delivered_speech:
+                    for g0, g1 in gaps:
+                        if w["t"] + 0.05 < g0 and g1 - g0 >= 0.25 and g1 <= w["e"] + 0.30 and g0 < w["e"]:
+                            ends = [float(x["end"]) for x in asr if w["t"] - 0.35 <= float(x["start"]) < g0]
+                            if ends and max(ends) <= g0 + 0.05:
+                                trimmed.append((w["w"], w["e"], round(g0, 3)))
+                                w["e"] = round(g0, 3)
+                            break
+                if trimmed:
+                    speech_timing += f"; {len(trimmed)} word end(s) that ran into a measured pause ended at the pause (ASR agrees)"
+                    print("word ends pulled back to a measured pause:", trimmed, flush=True)
+            except Exception as e:                                # the CTC timing stands
+                print(f"pause check on word ends skipped ({e})", flush=True)
         except Exception as e:                                    # the words stand; only the timing falls back
             tail = (getattr(e, "stderr", "") or "")[-400:]
             print(f"delivered-ASR CTC timing unavailable ({e}) {tail}; whisper word timestamps used", flush=True)

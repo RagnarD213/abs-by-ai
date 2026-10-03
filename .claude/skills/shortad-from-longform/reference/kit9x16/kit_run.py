@@ -142,6 +142,7 @@ def main():
     ap.add_argument("--from", dest="start", choices=STAGES)
     ap.add_argument("--until", default="deliver", choices=STAGES)
     ap.add_argument("--deliver", help="the ad's folder under '<Editor> Ad Videos/' (deliver stage)")
+    ap.add_argument("--tolerance", type=float, help="kit_track.py --tolerance for this build (source px of dead band; Dan's calmer camera)")
     a = ap.parse_args()
     if bool(a.master) == bool(a.sheet):
         ap.error("give exactly one of --master (an editor's finished master) or --sheet (our own 16:9's edit sheet)")
@@ -245,7 +246,7 @@ def main():
         elif name == "base":
             sh([PY, K("kit_base.py"), "--build", B, "--grade", "grade.py"] + rolls_args())
         elif name == "track":
-            sh([PY, K("kit_track.py"), "--build", B])
+            sh([PY, K("kit_track.py"), "--build", B] + (["--tolerance", str(a.tolerance)] if a.tolerance is not None else []))
         elif name == "labels":
             sh([PY, K("kit_labels.py"), "--build", B])
         elif name in ("words", "picture", "captions"):

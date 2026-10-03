@@ -135,7 +135,7 @@ def candidates(label, union, hbox):
     lines_opts = (1, 2, 3) if label.lower().startswith("real picture") else (1,)
     out = []
     for cls in ("A", "B", "C"):
-        for size in (44, 40, 36, 34, 32, 30, 28):
+        for size in (44, 40, 36, 34, 32, 30, 28, 26, 24):      # 26, 24: a person who fills the frame leaves only a corner (Ad 6 round 2, Dan: fill before boxing)
             for lines in lines_opts:
                 w, h = chip_dims(label, lines, size)
                 found = []
@@ -222,6 +222,7 @@ def place(build, only=None):
     if only:
         todo = [(i, b) for i, b in todo if (b.get("media") or f"beat{i}") in only]
     excl = json.load(open("labels/exclude.json")) if os.path.exists("labels/exclude.json") else {}
+    pref = json.load(open("labels/prefer.json")) if os.path.exists("labels/prefer.json") else {}
     keep = json.load(open("label_place.json")) if (only and os.path.exists("label_place.json")) else {}
     todo_media = {b.get("media") for _, b in todo}
     if not todo:
@@ -267,6 +268,12 @@ def place(build, only=None):
         # a bounded, class-balanced try list: validation costs a segmenter pass per candidate
         tryl = [c_ for c_ in allc if c_["cls"] == "A"][:8] + [c_ for c_ in allc if c_["cls"] == "B"][:14] + \
                [c_ for c_ in allc if c_["cls"] == "C"][:14]
+        # labels/prefer.json {media key: [[x, y, lines, size], ...]}: placements measured beforehand (a fill-or-box trial,
+        # Ad 6 round 2) are tried FIRST. They pass the same with-the-chip validation as any other; nothing is trusted.
+        for x_, y_, ln_, sz_ in reversed(pref.get(key, [])):
+            w_, h_ = chip_dims(label, ln_, sz_)
+            if (x_, y_, ln_, sz_) not in bad:
+                tryl.insert(0, dict(cls="P", lines=ln_, size=sz_, x=x_, y=y_, w=w_, h=h_))
         fallback = None
         fallback16 = None
         for cand in tryl:

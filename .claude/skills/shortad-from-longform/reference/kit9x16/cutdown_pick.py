@@ -51,6 +51,11 @@ def main():
                          "without the demo, AV-09 2026-10-01)")
     ap.add_argument("--max", type=float, default=57.5)
     ap.add_argument("--ledger")
+    ap.add_argument("--list", action="store_true", help="print the numbered, tagged sentence listing the model sees, and stop")
+    ap.add_argument("--ranges", help='a hand selection, e.g. "0-1,9-14,27-27,56-65": no model call, the same checks')
+    ap.add_argument("--search", type=int, metavar="N", help="list every selection the checks accept (middle ranges of at most N sentences), no model call")
+    ap.add_argument("--must", help='with --search: sentence groups the cut must contain, e.g. "9|14,27|36"')
+    ap.add_argument("--why", default="hand-picked by the session after the model's answers failed the seam checks")
     a = ap.parse_args()
     B = os.path.abspath(a.build)
     W = load_words(B)
@@ -169,9 +174,55 @@ def main():
         "range on a sentence tagged 'a range CANNOT END here', nor start one on 'a range CANNOT START here'. At least half of the cut's running time must be sentences NOT tagged 'NO CAPTIONS on screen'.\n\n" + listing +
         '\n\nAnswer JSON: {"ranges": [[first_sentence, last_sentence], ...], "total_seconds": <sum>, '
         '"story": "<the cutdown read as prose>", "why": "<one line per range: hook/problem/demo/payoff/CTA>"}')
+    if a.list:
+        print(listing); return 0
+    if a.search:
+        # every selection the checks below would accept (first range from sentence 0, last to the final sentence, at most
+        # 4 ranges of at most --search sentences each), best first: the demo sentence in, then the longest. A
+        # session uses this when the model's answers keep failing the seam rules, then passes one with --ranges.
+        n = len(S); L = a.search
+        ok_end = {y for y in range(n) if not (edges(y, y)[2] or "").count("end")}
+        cand = [(x, y) for x in range(1, n - 1) for y in range(x, min(n - 1, x + L)) ]
+        dur_ = lambda R_: sum(S[y]["t1"] - S[x]["t0"] + 0.15 for x, y in R_)
+        found = []
+        firsts = [(0, y) for y in range(0, 12)]
+        lasts = [(x, n - 1) for x in range(n - 12, n)]
+        import itertools
+        for r1 in firsts:
+            for r4 in lasts:
+                base = dur_([r1, r4])
+                if base > a.max + 1.0:
+                    continue
+                mids = [c for c in cand if c[0] > r1[1] and c[1] < r4[0] and base + dur_([c]) <= a.max + 1.0]
+                for k in (0, 1, 2):
+                    for M in itertools.combinations(mids, k):
+                        if any(M[i + 1][0] <= M[i][1] for i in range(len(M) - 1)):
+                            continue
+                        R_ = [r1, *M, r4]
+                        tot = dur_(R_)
+                        if tot < 45.0 or tot > a.max + 1.0:
+                            continue
+                        probs_, E2 = seam_problems(R_)
+                        if probs_:
+                            continue
+                        real = sum(t1 - t0 for t0, t1, _ in E2) + 0.35 * len(R_)
+                        cov = sum(captioned(t0, t1) for t0, t1, _ in E2) / max(1e-6, sum(t1 - t0 for t0, t1, _ in E2))
+                        if real > 58.3 or (caps and cov < 0.50):
+                            continue
+                        found.append((tot, cov, R_))
+        if a.must:
+            for grp in a.must.split(","):                     # "9|14,27|36": each group needs one of its sentences in the cut
+                opts = [int(q) for q in grp.split("|")]
+                found = [f for f in found if any(x <= o <= y for o in opts for x, y in f[2])]
+        found.sort(key=lambda f: (-f[0]))
+        print(f"{len(found)} valid selections")
+        for tot, cov, R_ in found[:40]:
+            print(f"{tot:5.1f}s  captions {100 * cov:3.0f}%  " + ",".join(f"{x}-{y}" for x, y in R_))
+        return 0
     res, E_ = None, None
-    for attempt in range(5):
-        res = AI.text(prompt, purpose="cutdown", model=a.model)
+    for attempt in range(1 if a.ranges else 5):
+        res = (dict(ranges=[[int(q.split("-")[0]), int(q.split("-")[1])] for q in a.ranges.split(",")], story="hand-picked", why=a.why)
+               if a.ranges else AI.text(prompt, purpose="cutdown", model=a.model))
         if not res or "ranges" not in res:
             continue
         if not all(isinstance(r_, (list, tuple)) and len(r_) == 2 for r_ in res["ranges"]):
@@ -202,6 +253,8 @@ def main():
             break
         prompt += f"\n\nYour last answer {res['ranges']} is not usable: " + "; ".join(probs) + ". Fix it."
     else:
+        if a.ranges:
+            raise SystemExit("cutdown_pick: the hand selection fails: " + "; ".join(probs))
         raise SystemExit("cutdown_pick: no valid selection after 5 answers (escalate)")
     ranges = [[t0, t1] for t0, t1, _ in E_]
     # contiguous or overlapping neighbours merge
@@ -213,7 +266,7 @@ def main():
             merged.append(r)
     total = sum(b - a_ for a_, b in merged)
     out = dict(ranges=merged, seconds=round(total, 3), sentences=[[x, y] for x, y in R],
-               story=res.get("story"), why=res.get("why"), model=a.model,
+               story=res.get("story"), why=res.get("why"), model=("hand" if a.ranges else a.model),
                text=[" ".join(S[i]["text"] for i in range(x, y + 1)) for x, y in R])
     json.dump(out, open(os.path.join(B, "cutdown_ranges.json"), "w"), indent=1)
     print(json.dumps(out, indent=1))

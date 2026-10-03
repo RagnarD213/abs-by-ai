@@ -391,6 +391,10 @@ def main():
     json.dump([[round(a, 4), round(b, 4)] for a, b in mute], open('cut/mute.json', 'w'))
     json.dump([dict(word=w, start=round(a, 4), end=round(b, 4)) for w, a, b in words],
               open('cut/words_ctc.json', 'w'), indent=0)
+    # captions LIFTED above a bottom side card in the full film are lifted in the cutdown too: unmapped, the lift spans
+    # stayed on source time and the cutdown printed its captions straight over the "Completely Free" card (Ad 6
+    # cutdown judge 1, 20.95 to 25.55 s)
+    BT.CAP_LIFTS = [(a_, b_, y_) for a, b, y_ in getattr(BT, 'CAP_LIFTS', []) for a_, b_ in mspan(a, b)]
     gs = CAP.groups(words, mute)
     # a range that opens mid-sentence capitalises its first word (lesson A8.14)
     for g in gs:

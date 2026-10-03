@@ -117,6 +117,16 @@ def main():
                 punch[k - 1][1] = b_
                 del punch[k]; del punch_covered[k]
                 break
+    # a range that OPENS on a picture can carry a frame of the master's previous level at its first frame: the master's
+    # level list changes a frame after the picture starts (its frame grid), so the range start maps a 1-frame "NEAR"
+    # under the picture, which is not on screen (Ad 6 cutdown 30.163 s, the couple clip, cut:min_segment)
+    for r in ranges:
+        for k in range(len(punch) - 1):
+            a_, b_, lv = punch[k]
+            if abs(a_ - r["dst0"]) < 0.02 and b_ - a_ < 0.25 and punch_covered[k] and abs(punch[k + 1][0] - b_) < 0.02:
+                punch[k + 1][0] = a_
+                del punch[k]; del punch_covered[k]
+                break
     real_photos = map_items(master.get("real_photos"))
     ai_inserts = map_items(master.get("ai_inserts"))
     graphics = map_items(master.get("graphics"))

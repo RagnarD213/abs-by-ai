@@ -248,6 +248,42 @@ judge finding, and each cost about an hour, so the checks below go BEFORE the fi
 * The square look for a vertical build: `sq_look.py` (stills of every graphic at 1:1 + a moving sample), layouts in
   `_shared/hyperframes/square.py`.
 
+### Ad 6 round 2 lessons (2026-10-03, AV-05 + AS-04: full builds and the first Soft Blue Light square)
+
+For Dan: this round built all four files after the look was locked. The kit now also builds the SQUARE of a Soft Blue
+Light vertical (it had none), and seven faults that only a full build shows are fixed in the kit.
+
+* **The square of a Soft Blue Light build: `sq_render.py` + `sq_plan.py`** (docstrings have the commands). It reads the
+  locked vertical build and writes its own folder: `fit` (every picture fills the square or goes in a card WITH ITS
+  REASON, our chip placed by measuring the person on the square frames), `graphics`, `picture`, `mux` (the vertical's
+  audio stream, md5 asserted), and `--cut` for the 59 second square from the vertical's `cut_plan.json` and its own
+  re-grouped caption track. `sq_plan.py` derives the `ad1x1` gate plan from the vertical's. Editorial choices live in
+  `<square>/sq_copy.json`. ⚠ MUX BEFORE GATING: a gate run on a file muxed from an older picture passed this round.
+  ⚠ Never render the square while the vertical is rewriting `captions.mov` (the renderer now stops if the track is short).
+* **A clip of an editor's master can carry a letterbox** (4 px bars top and bottom on three of Muhammad's AI clips; 7 px
+  on a full-frame fill). Check every lift's first and last rows; trim the clip, never stretch it.
+* **An AI clip with its own internal cut**: a card that starts on the cut frame flashes two frames of the other shot, and
+  a slowed clip that runs past its end loops back to frame 0 (`-stream_loop`). Find the cut by frame difference, start
+  after it, and never slow a clip to fill a slot: play it at natural speed and return to Dan.
+* **A phone lift keeps the editor's backdrop in its corners** (olive on a blue card). Mask it per frame (the phone is
+  still landing in the first frames) with a feathered edge, or crop the lift to the phone.
+* **`kit_labels.py`**: chip sizes go down to 24, and `labels/prefer.json` lists placements measured beforehand, tried
+  first under the same validation. Run a fill-or-box trial (`<build>/filltrial/trial.py`) BEFORE the labels stage: each
+  refusal costs a 25 minute pass. Test the 9:16 clips too, not only the 16:9 ones.
+* **`kit_plan.py`**: the word aligner can hand a pause to the word before it ("38," ended 0.4 s late), and the gate then
+  reads the word's own audio as an abandoned take. A word's end is pulled back to a measured pause when the ASR agrees.
+* **`cutdown_pick.py`**: `--list`, `--search N --must "9|14,27|36"` (every selection its checks accept, no model call)
+  and `--ranges "0-3,33-37,..."` (a hand pick under the same checks). The model failed five times on Ad 6 (about $1):
+  the hook, the demo and the CTA all play with captions paused, and half the cut must carry captions. A range that would
+  open a few frames before a picture change is moved to the picture's own start by editing `cutdown_ranges.json`.
+* **`kit_cutdown.py`** maps the caption lifts (`CAP_LIFTS`) into the cut; unmapped, captions printed over a side card.
+  **`kit_plan_cutdown.py`** no longer declares a one-frame level under a picture at a range start.
+* **`kit_fold.sh`** takes `FORMAT=ad1x1`. `carry_verdicts.py` after every small fix: one judge re-reads only the changed
+  images. Clear stale images from `cut_audit/watch/` before judging a rebuilt cutdown.
+* **Zoom steps on the frame grid**: `render.py`'s `push_z_expr` compares push times that sit between frames with frame
+  times, so a punch can land one frame after its cut. Patched in the Ad 6 build's copy only (`_snap`); the shared
+  `render.py` still needs it. ⚠ Never `pkill -f` a pattern containing `|` from a file name: it is an OR.
+
 ### Sheet-path lessons (2026-10-01)
 
 * Grade in the 16:9's own order (`grade.order`): a float LUT on the 4K crop ran at about 3 frames a second; scaled to
