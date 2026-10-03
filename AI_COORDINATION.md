@@ -114,7 +114,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **Stop Deadlifting - QUEUED 2026-09-29, Claude.** Blotato Oct 11 9AM CT, 4 platforms. Next: once posted, publish `sixpackabs/articles/TBD-stop-deadlifting.md`, then delete.
 
-**SL-03 shorts - IN PROGRESS 2026-10-02, Claude.** Round 2 build: `/Volumes/Extreme/_edit_work/sl03/r2/`.
+**SL-03 IN PROGRESS 2026-10-02, Claude.** `/Volumes/Extreme/_edit_work/sl03/r2/`.
 
 **RO-05 salad - QUEUED 2026-09-30, Claude.** Oct 18: fire `handoff-20260930-ro05-captions-and-article-after-release.md`.
 
@@ -178,8 +178,7 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
-- `handoff-20261002-start-page-365-guarantee.md`: cart live 34268c1, ship both. Opus.
-- `handoff-20261003-ro10-vertical-round4-full-build.md`: BUILDING 10-03, Claude. ⚠c841438+f40f259-unpushed(shorts/SKILL.md,sbl_graphics.py)
+- `handoff-20261003-ro10-vertical-round4-full-build.md`: BUILDING 10-03, Claude.
 - `handoff-20260930-codex-adopt-review-page-format.md` (09-30). Sol medium.
 - `handoff-20261003-codex-adopt-hyperframes-graphics.md` (10-03). Sol high.
 
@@ -210,4 +209,5 @@ Memory `google-ads-ui-automation`.
 - **AV-05/AS-04 Ad 6 - BUILDING 2026-10-02, Claude.** Round 2.
 - **AS-06 square NEEDS DAN 2026-10-02.** `handoff-20261002-ad10-square-round2-full-builds.md`; fb61ce6 unpushed(shorts/SKILL.md).
 
-**Vertical Centering Codex Adopt - IN PROGRESS 2026-10-03, Codex.** Isolated worktree: vertical-centering. Updating Codex skills and shared crop preset; existing excerpt proof only. Next: measured before/after, verify, push. Approved videos untouched.
+
+**HyperFrames Codex Adopt - IN PROGRESS 2026-10-03, Codex.** Isolated worktree hyperframes-codex-adopt. Updating the three Codex skills and build integration; one RO-17 excerpt proof only. Next: shared checks and comparison page, then Dan review. Existing video exports untouched.
