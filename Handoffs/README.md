@@ -13,7 +13,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
-| [handoff-20261003-cart-apple-pay-fix.md](handoff-20261003-cart-apple-pay-fix.md) | **Executed and deployed 2026-10-03; only Dan's iPhone retest is left (section 7, step 6).** The new cart took Dan's Apple Pay payment but Apple's sheet said "Payment Not Completed", and the account used the wallet's email. Both fixed, cart rate limit per visitor, wallet tracking events added. Delete this row once the iPhone test passes. |
 | [handoff-20261002-five-cart-designs.md](handoff-20261002-five-cart-designs.md) | **Ready 2026-10-02. Codex GPT-6 Astra / High.** Five complete mobile and desktop cart prototypes: research recommendation, faithful HBI adaptation, three creative directions. Deliver gallery, then Dan chooses. |
 | [handoff-20261002-sl03-salad-shorts-round2.md](handoff-20261002-sl03-salad-shorts-round2.md) | **Ready 2026-10-02 (Dan approved all of round 1). Opus 5.5 / High.** SL-03 Daily Salad shorts round 2: lock the Soft Blue shorts look into the standards, then cut the six shorts. Round 1 record: `handoff-20261002-sl03-salad-shorts-round1.md`. |
 | [handoff-20261001-campaign-images-round2.md](handoff-20261001-campaign-images-round2.md) | **Ready 2026-10-01. GPT-6 Astra / High.** Four A-photo/B-design combinations and R8 fork-and-knife revision. Preserve 15 picks, including R7-c. Stop for review. |
