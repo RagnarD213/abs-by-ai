@@ -1,0 +1,538 @@
+{
+  "approved_on": "2026-10-03",
+  "approval_quote": "Okay these are all looking good and approved. Create a handoff document for Claude to add these to the Blotato queue",
+  "status": "Approved; scheduling delegated to Claude, not performed by the handoff author",
+  "root": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/output/studio-post-test-24-20260929",
+  "posts_json_sha256": "1c51b402455ba2aecdc7be89086e7d3a0fbaaa13bd4100b8cf925385f1fa3725",
+  "post_count": 27,
+  "image_count": 51,
+  "suggested_rotation": [
+    "S01-A",
+    "S07-A",
+    "S03-A",
+    "S06-A",
+    "S02-A",
+    "S08-A",
+    "S04-A",
+    "S05-A",
+    "S09-A",
+    "S03-B",
+    "S08-B",
+    "S02-B",
+    "S05-B",
+    "S07-B",
+    "S04-B",
+    "S06-B",
+    "S09-B",
+    "S01-B",
+    "S06-C",
+    "S04-C",
+    "S07-C",
+    "S01-C",
+    "S05-C",
+    "S09-C",
+    "S02-C",
+    "S08-C",
+    "S03-C"
+  ],
+  "posts": [
+    {
+      "id": "S01-A",
+      "number": 1,
+      "title": "Put your workout on the calendar",
+      "caption": "Put your next workout on the calendar before the week fills up. Pick the time, the place and what you plan to do. If the trip to the gym keeps stopping you, choose a home option. What time is your next session?",
+      "style": 1,
+      "images": [
+        {
+          "slide": 1,
+          "relative_path": "images/S01-A-01.jpg",
+          "sha256": "22632d3534ce42c62ac9f2588200f3dc19ba4c0555d3b78e5fe2c6d9c141b387"
+        }
+      ]
+    },
+    {
+      "id": "S01-B",
+      "number": 2,
+      "title": "Make the next meal easier",
+      "caption": "Make tomorrow's lunch a decision you handle today. Pick something you already like, check what you have and get it ready. A prepared meal can help when cooking is the part that keeps falling through. What's your easiest repeat lunch?",
+      "style": 1,
+      "images": [
+        {
+          "slide": 1,
+          "relative_path": "images/S01-B-01.jpg",
+          "sha256": "8d88cc3a87e313c3bc599afd03204de9ea4a26a88e0cebd8afbd15df2aa548d2"
+        }
+      ]
+    },
+    {
+      "id": "S01-C",
+      "number": 3,
+      "title": "Missed a day? Keep going",
+      "caption": "Missed a workout? Leave that day where it is. Look at the next opening in your calendar and choose a session you can actually do. You don't need a new Monday to make the next decision.",
+      "style": 1,
+      "images": [
+        {
+          "slide": 1,
+          "relative_path": "images/S01-C-01.jpg",
+          "sha256": "4198c4e2cd76c4115f5779ab84c9e0ccf4435fbd0d1343c5063551ca731cfacd"
+        }
+      ]
+    },
+    {
+      "id": "S02-A",
+      "number": 4,
+      "title": "Make lunch the easy decision",
+      "caption": "Give lunch a place in your training plan. Decide what you'll eat and where it will come from before you head out. Prepared food, something from home or a planned order: pick an option you can repeat.\n\nReal studio photograph of me. The background was created with AI.",
+      "style": 2,
+      "images": [
+        {
+          "slide": 1,
+          "relative_path": "images/S02-A-01.jpg",
+          "sha256": "dd5aa14e0696996b3554e53c4a3f7323889818421c0b249701ece9d96a09941c"
+        }
+      ]
+    },
+    {
+      "id": "S02-B",
+      "number": 5,
+      "title": "Fewer food decisions",
+      "caption": "I use a meal prep service. Having food ready removes one more decision from a busy day. You can do the same kind of planning with food you prepare yourself. Choose the meals, get them ready and know what's for lunch before you're hungry.\n\nReal studio photograph of me. The background was created with AI.",
+      "style": 2,
+      "images": [
+        {
+          "slide": 1,
+          "relative_path": "images/S02-B-01.jpg",
+          "sha256": "bcf682387e15d28463be7d3a0b4b584ceb660d6f1c534ee7a56e5b585079e9da"
+        }
+      ]
+    },
+    {
+      "id": "S02-C",
+      "number": 6,
+      "title": "Give the week a second chance",
+      "caption": "You don't have to throw away the whole week because the plan changed. Look at the days you still have. Choose one thing you can put back in place today, then decide when you'll do it.\n\nReal studio photograph of me. The background was created with AI.",
+      "style": 2,
+      "images": [
+        {
+          "slide": 1,
+          "relative_path": "images/S02-C-01.jpg",
+          "sha256": "989478b1d49b240e2eacc06e7b4e2e4b3f6a685f5a48cf6fc6df88f80411ed66"
+        }
+      ]
+    },
+    {
+      "id": "S03-A",
+      "number": 7,
+      "title": "The workout starts before you arrive",
+      "caption": "Choose your workout before you arrive. Save the plan, get your clothes ready and decide when you need to leave. Keep the first decision at the gym about doing the session, not scrolling for a different one.\n\nReal studio photograph of me. The background was created with AI.",
+      "style": 3,
+      "images": [
+        {
+          "slide": 1,
+          "relative_path": "images/S03-A-01.jpg",
+          "sha256": "ee35c083867d0db45e16a86fbbc9fd87355da9682f44ecd15042eaae20a71e0f"
+        }
+      ]
+    },
+    {
+      "id": "S03-B",
+      "number": 8,
+      "title": "A plan that fits your life",
+      "caption": "I have a home gym and I still pay for a gym membership. The point is having an option that works with your life. If the commute keeps getting in the way, take it out of the plan and start at home.\n\nReal studio photograph of me. The background was created with AI.",
+      "style": 3,
+      "images": [
+        {
+          "slide": 1,
+          "relative_path": "images/S03-B-01.jpg",
+          "sha256": "b5a082335a1cfbdece73c87688c298373f869c52b40da71f1f6d567de6ef7509"
+        }
+      ]
+    },
+    {
+      "id": "S03-C",
+      "number": 9,
+      "title": "Your next session still counts",
+      "caption": "The last session is already done, or it didn't happen. Either way, the next one still needs a plan. Pick the time and place. If your schedule changed, change the appointment with it.\n\nReal studio photograph of me. The background was created with AI.",
+      "style": 3,
+      "images": [
+        {
+          "slide": 1,
+          "relative_path": "images/S03-C-01.jpg",
+          "sha256": "f0b0d9b450b634aac6f408e7d1501eede1b38a773519651f02835bd40a707946"
+        }
+      ]
+    },
+    {
+      "id": "S04-A",
+      "number": 10,
+      "title": "Choose a place you want to train",
+      "caption": "Choose a training setting you want to come back to. Then make the practical part clear: when you're going, what you're doing and how you'll get there. The setting can change. The appointment still matters.\n\nReal studio photograph of me. The background was created with AI.",
+      "style": 4,
+      "images": [
+        {
+          "slide": 1,
+          "relative_path": "images/S04-A-01.jpg",
+          "sha256": "0055c97c7bfb9559701a385cb655d381ad6a28b1c46aa0a6d74522023f9b0146"
+        }
+      ]
+    },
+    {
+      "id": "S04-B",
+      "number": 11,
+      "title": "Sort dinner before you head out",
+      "caption": "Before you head out, decide what you'll eat when you get home. Put a meal in place or choose your order ahead of time. It is one less thing to figure out when you're tired and hungry.\n\nReal studio photograph of me. The background was created with AI.",
+      "style": 4,
+      "images": [
+        {
+          "slide": 1,
+          "relative_path": "images/S04-B-01.jpg",
+          "sha256": "95950c9158e91333422aaa7c80341de5c9585e8b43630f55554e6c002cf20e3d"
+        }
+      ]
+    },
+    {
+      "id": "S04-C",
+      "number": 12,
+      "title": "Train martial arts. Lift weights too.",
+      "caption": "Martial arts can burn calories, challenge your cardio and give you a reason to keep showing up. It is a great way to stay active, build fitness and support getting leaner. But I would not use it as a replacement for weight training. Lifting builds and maintains the muscle you want to keep as you lose fat. Pair the two, leave room to recover, and keep your food intake aligned with your goal. Train your conditioning and your strength.\n\nReal studio photograph of me. The background was created with AI.",
+      "style": 4,
+      "images": [
+        {
+          "slide": 1,
+          "relative_path": "images/S04-C-01.jpg",
+          "sha256": "8cda3084d5e0c3277ddb0e94ae460c07d77c1b8ecc23b2063356df054face94f"
+        }
+      ]
+    },
+    {
+      "id": "S05-A",
+      "number": 13,
+      "title": "MAKE TIME",
+      "caption": "I built a home gym and still use a gym membership. I like having options. If the drive is the reason your workout never happens, start with a plan you can do at home. Make the place fit the time you actually have.",
+      "style": 5,
+      "images": [
+        {
+          "slide": 1,
+          "relative_path": "images/S05-A-01.jpg",
+          "sha256": "2251134bbfedda7194eda150fd1d2feecaee1a6af713063eb4ef1726466e5efe"
+        }
+      ]
+    },
+    {
+      "id": "S05-B",
+      "number": 14,
+      "title": "FEWER DECISIONS",
+      "caption": "Meal prep is one way I make food simpler. You don't need to invent a different lunch every day. Pick a few meals you enjoy and decide how you'll have them ready. Variety can come from rotating your favorites.",
+      "style": 5,
+      "images": [
+        {
+          "slide": 1,
+          "relative_path": "images/S05-B-01.jpg",
+          "sha256": "48f6aa3cecc6fb8b89dcaf26bdd4d634be562e2ccd49b220bccd37f1c26fc6c1"
+        }
+      ]
+    },
+    {
+      "id": "S05-C",
+      "number": 15,
+      "title": "START AGAIN",
+      "caption": "A missed day needs a next step, not a speech about starting your whole life over. Pick the next available time. Get your things ready. Give yourself a clear place to begin again.",
+      "style": 5,
+      "images": [
+        {
+          "slide": 1,
+          "relative_path": "images/S05-C-01.jpg",
+          "sha256": "f3e40f91297f9a9663b34934374b1b8fd9c90ae9a04b138454de614215fdfd11"
+        }
+      ]
+    },
+    {
+      "id": "S06-A",
+      "number": 16,
+      "title": "TOO BUSY\nTO TRAIN?",
+      "caption": "Too busy to train? Look at the whole appointment, including packing and travel. If the commute is the obstacle, try a home session from a plan you already know. Put that version on the calendar and prepare the space ahead of time.",
+      "style": 6,
+      "images": [
+        {
+          "slide": 1,
+          "relative_path": "images/S06-A-01.jpg",
+          "sha256": "10fa90bf8ca4ddc0fca042600b81ece2a900658d16d092e2ec7232f40cca14b6"
+        }
+      ]
+    },
+    {
+      "id": "S06-B",
+      "number": 17,
+      "title": "LUNCH.\nSORTED.",
+      "caption": "Lunch sorted means fewer decisions in the middle of the day. Choose two lunches you enjoy, check the ingredients or order details, and decide which days you'll use them. Keep another easy option for the day your plan changes.",
+      "style": 6,
+      "images": [
+        {
+          "slide": 1,
+          "relative_path": "images/S06-B-01.jpg",
+          "sha256": "a9da6a104ad0cab343032cc1f86570c9b9dad8fed54d904e4580679f9200a6bb"
+        }
+      ]
+    },
+    {
+      "id": "S06-C",
+      "number": 18,
+      "title": "MISSED\nA DAY?",
+      "caption": "Missed a day? Decide what happens next. Open the calendar, choose a realistic time and set out what you need. If that time falls through, use the backup you picked in advance. The next action is the useful part.",
+      "style": 6,
+      "images": [
+        {
+          "slide": 1,
+          "relative_path": "images/S06-C-01.jpg",
+          "sha256": "bc2fe6ae2a1c5eb4ba30b667889639f683921fbf2117a0ceadd62e97337bf324"
+        }
+      ]
+    },
+    {
+      "id": "S07-A",
+      "number": 19,
+      "title": "YOUR NEXT\n7 DAYS.",
+      "caption": "Save this for your next weekly reset. Choose your training times, make a simple food plan and write down what actually happened. At the end of the week, use that record to make next week's plan more realistic.",
+      "style": 7,
+      "images": [
+        {
+          "slide": 1,
+          "relative_path": "images/S07-A-01.jpg",
+          "sha256": "47e2df07bfe4952d019dca4731b7acb3cf2569783389c5ae0feff5602d678d9e"
+        },
+        {
+          "slide": 2,
+          "relative_path": "images/S07-A-02.jpg",
+          "sha256": "17003caef30cf19e9b236a1ccf1086046ea962c0f545ccc38546fdd0ed786b9f"
+        },
+        {
+          "slide": 3,
+          "relative_path": "images/S07-A-03.jpg",
+          "sha256": "8563796a68c97db59b2d86a45e255c3598cbc8ee0cde7c2dd812cce62aecd0aa"
+        },
+        {
+          "slide": 4,
+          "relative_path": "images/S07-A-04.jpg",
+          "sha256": "147e1d97487f5c820851b2839c2b2624829389170f026da7b00221060ee3e8a7"
+        },
+        {
+          "slide": 5,
+          "relative_path": "images/S07-A-05.jpg",
+          "sha256": "7dc1b965a54ecbf9ca512afe347b4ee384f10c11a7317a500eeb98d45e2c75e2"
+        }
+      ]
+    },
+    {
+      "id": "S07-B",
+      "number": 20,
+      "title": "LUNCH,\nPLANNED.",
+      "caption": "Make lunch easier before the week starts. Pick two familiar meals, check what you need and decide how they will be ready. Use the last slide as your planning checklist. What lunch would you put on repeat?",
+      "style": 7,
+      "images": [
+        {
+          "slide": 1,
+          "relative_path": "images/S07-B-01.jpg",
+          "sha256": "68f8162f743fe42d37e42005b9f81e3519e7045c3885e5dbc98a4833670b8118"
+        },
+        {
+          "slide": 2,
+          "relative_path": "images/S07-B-02.jpg",
+          "sha256": "4c33bd67c0c428c1a8c51b59dfeac0abd6ed95b7051f9f8bb9b353385fe75a95"
+        },
+        {
+          "slide": 3,
+          "relative_path": "images/S07-B-03.jpg",
+          "sha256": "59957a91a241502d2ad0631e91825b55854afb98576190eab1eddceb50c94b7b"
+        },
+        {
+          "slide": 4,
+          "relative_path": "images/S07-B-04.jpg",
+          "sha256": "4e04df418d896d72c701a61ffdfbb6f612519f03d5ea2ab455a8e9a6df1fffa7"
+        },
+        {
+          "slide": 5,
+          "relative_path": "images/S07-B-05.jpg",
+          "sha256": "d92f00afe41a18fd05f44b95b5bdb4a6be4664d8deb99276d6b4c98dab0e6616"
+        }
+      ]
+    },
+    {
+      "id": "S07-C",
+      "number": 21,
+      "title": "YOUR\nPLAN B.",
+      "caption": "Your backup plan should be specific enough to use on a busy day. Name the obstacle, choose an alternative and write down when you'll switch. Save the checklist and fill it in before you need it.",
+      "style": 7,
+      "images": [
+        {
+          "slide": 1,
+          "relative_path": "images/S07-C-01.jpg",
+          "sha256": "423369269b63691b37a5b3872da4fee99885836e016cf2bd6078d07e81de68ee"
+        },
+        {
+          "slide": 2,
+          "relative_path": "images/S07-C-02.jpg",
+          "sha256": "8a9781a48f0144ca29a83818c7c4b15fd37bf54b553d8fb8d8ed64054bdf40cf"
+        },
+        {
+          "slide": 3,
+          "relative_path": "images/S07-C-03.jpg",
+          "sha256": "96fe0796715aad7aba3bbc9266224eb560c49d80c89f5a7deadb29f8cfadb8b0"
+        },
+        {
+          "slide": 4,
+          "relative_path": "images/S07-C-04.jpg",
+          "sha256": "83b023319f65306769243657615b68385bbfe5faf9c74336c4be012c70d9f2b6"
+        },
+        {
+          "slide": 5,
+          "relative_path": "images/S07-C-05.jpg",
+          "sha256": "e6833c7742290defd845557cf0cf1585e3e1f9bb8e5967470709ed9854b1c972"
+        }
+      ]
+    },
+    {
+      "id": "S08-A",
+      "number": 22,
+      "title": "I need a free hour.",
+      "caption": "You don't have to wait for a perfect free hour to put a workout in your calendar. Start by finding the time you have, choose an appropriate session from a plan you know, and prepare the space. A home option can remove the commute.",
+      "style": 8,
+      "images": [
+        {
+          "slide": 1,
+          "relative_path": "images/S08-A-01.jpg",
+          "sha256": "033bc914d9ba4dbc3354fecd206c455849bb05f252dfa5f7ee3848e6caf99f6f"
+        },
+        {
+          "slide": 2,
+          "relative_path": "images/S08-A-02.jpg",
+          "sha256": "c5680c7d0439cf1a569786fc3fe49a0b7826f78e8cb987b7a6187230e4a6bb31"
+        },
+        {
+          "slide": 3,
+          "relative_path": "images/S08-A-03.jpg",
+          "sha256": "cd53df109c0950697c84a653f719f9103255be84b079016ac857f75d463cd625"
+        },
+        {
+          "slide": 4,
+          "relative_path": "images/S08-A-04.jpg",
+          "sha256": "9812cc04f18ac7371620f75bfa03c58ebbee3645c9df1ea0394a0a7fa7b3ca21"
+        },
+        {
+          "slide": 5,
+          "relative_path": "images/S08-A-05.jpg",
+          "sha256": "c2c24c1081eaeb0dc81556058a575c3771ff8a458ccef7c6b70b78ffe61c0779"
+        }
+      ]
+    },
+    {
+      "id": "S08-B",
+      "number": 23,
+      "title": "Every meal must be different.",
+      "caption": "Repeating a lunch you enjoy is a planning choice. You can still rotate meals and ingredients across the week. Pick two familiar options, make a shopping or ordering list and keep a backup for the day you need it.",
+      "style": 8,
+      "images": [
+        {
+          "slide": 1,
+          "relative_path": "images/S08-B-01.jpg",
+          "sha256": "5c16236ec16e644fd067493750c5ccc9445d2d3244d72a85752f533fab32a7a3"
+        },
+        {
+          "slide": 2,
+          "relative_path": "images/S08-B-02.jpg",
+          "sha256": "ba456989e5a4e0cf44ec087957a6a015167a0a8a533204cf174eef57237a5ab2"
+        },
+        {
+          "slide": 3,
+          "relative_path": "images/S08-B-03.jpg",
+          "sha256": "991efba091a1a83e583627dac5a0743f80ed220fd0f3aeed009de6e6c5b99f8f"
+        },
+        {
+          "slide": 4,
+          "relative_path": "images/S08-B-04.jpg",
+          "sha256": "fa62f79affc165f70cab3660b102d4731f3334125d14077eac17fce6111373c6"
+        },
+        {
+          "slide": 5,
+          "relative_path": "images/S08-B-05.jpg",
+          "sha256": "4f45214e22cf25e7a92d9f6521ce60635b8ce239393b2956ea61e26b7a3c6293"
+        }
+      ]
+    },
+    {
+      "id": "S08-C",
+      "number": 24,
+      "title": "I missed Monday.",
+      "caption": "Missing Monday doesn't make Tuesday disappear. Name what got in the way, choose your next opening and make one useful preparation now. Swipe for a practical restart, then save the final checklist.",
+      "style": 8,
+      "images": [
+        {
+          "slide": 1,
+          "relative_path": "images/S08-C-01.jpg",
+          "sha256": "669573124b918978555d9ba9216c34c92f831566c7add2340e2e3fa88f41d499"
+        },
+        {
+          "slide": 2,
+          "relative_path": "images/S08-C-02.jpg",
+          "sha256": "84c1abff617a9cd926e7fd584be6d8cba185c08de989724d9c8d0e36be24f07b"
+        },
+        {
+          "slide": 3,
+          "relative_path": "images/S08-C-03.jpg",
+          "sha256": "51a664b93a18f6e4a437ce22b33cf1578829dd1b58557c9a445dacab58eb89e8"
+        },
+        {
+          "slide": 4,
+          "relative_path": "images/S08-C-04.jpg",
+          "sha256": "bdc635c343d27e6e5758e3e5911a7b0b119bca92a7f62b8b1d006becac45eb6b"
+        },
+        {
+          "slide": 5,
+          "relative_path": "images/S08-C-05.jpg",
+          "sha256": "3742b0d3fec15aaa43fd838cf0162fe3948efe36bc18d49b3ceb68658ea94da1"
+        }
+      ]
+    },
+    {
+      "id": "S09-A",
+      "number": 25,
+      "title": "MAKE TIME.\nGET STRONG.",
+      "caption": "Make strength training an appointment you can keep. Choose the time, save the workout and get your space ready. If getting to the gym is the obstacle, have a home option ready. The useful plan is the one that fits into your actual day.\n\nReal studio photograph of me. The background was created with AI.",
+      "style": 9,
+      "images": [
+        {
+          "slide": 1,
+          "relative_path": "images/S09-A-01.jpg",
+          "sha256": "41ac1da98916626f40b053b816d658b7db538bafe637f93d6047e1a2336c0a62"
+        }
+      ]
+    },
+    {
+      "id": "S09-B",
+      "number": 26,
+      "title": "LUNCH.\nHANDLED.",
+      "caption": "Lunch gets easier when the decision is already made. Choose a meal you enjoy, get the ingredients or order in place, and keep a second option for busy days. You do not need a brand-new menu every afternoon. You need something you can repeat.\n\nReal studio photograph of me. The background was created with AI.",
+      "style": 9,
+      "images": [
+        {
+          "slide": 1,
+          "relative_path": "images/S09-B-01.jpg",
+          "sha256": "419e83094dbab48d6c64da5ffe36728afd1f1a1d3b51b0fd79c7ce3a940c2cfa"
+        }
+      ]
+    },
+    {
+      "id": "S09-C",
+      "number": 27,
+      "title": "TRAIN HARD.\nLIFT TOO.",
+      "caption": "Martial arts can challenge your cardio and help you burn calories. Weight training builds and maintains muscle. Make room for both in your week, with enough recovery between hard sessions. Getting leaner also depends on what you eat, so give your food plan the same attention as your training.\n\nReal studio photograph of me. The background was created with AI.",
+      "style": 9,
+      "images": [
+        {
+          "slide": 1,
+          "relative_path": "images/S09-C-01.jpg",
+          "sha256": "57dbbed609be99dd19c62f9556227ede4d1054fa0cba0d28332e10149964604f"
+        }
+      ]
+    }
+  ]
+}

@@ -13,6 +13,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
+| [handoff-20261003-approved-studio-posts-27-blotato.md](handoff-20261003-approved-studio-posts-27-blotato.md) | **Approved 2026-10-03. Claude Sonnet 5 / Medium.** Queue all 27 approved studio posts on Instagram @danrosefit and Facebook Abs by AI; preserve existing slots, verify 51 images and full carousel order. |
 | [handoff-20261002-five-cart-designs.md](handoff-20261002-five-cart-designs.md) | **Ready 2026-10-02. Codex GPT-6 Astra / High.** Five complete mobile and desktop cart prototypes: research recommendation, faithful HBI adaptation, three creative directions. Deliver gallery, then Dan chooses. |
 | [handoff-20261002-cart-build.md](handoff-20261002-cart-build.md) | **Ready 2026-10-02. Opus 5.5 / High.** Build and ship the approved web cart (deep navy, Healthy Back Institute structure, Monthly plus one-time Lifetime) from `Docs/cart-design-20261002/`. Asks three decisions, ships behind a switch, stops for Dan's live card test. |
 | [handoff-20261002-start-page-365-guarantee.md](handoff-20261002-start-page-365-guarantee.md) | **Ready 2026-10-02. Opus 5.5 / High.** Add the cart's 365-day guarantee to /start and bring /refunds and /faq into line (part A, any time). The Lifetime plan wording (part B) ships only once the new cart is live. |
