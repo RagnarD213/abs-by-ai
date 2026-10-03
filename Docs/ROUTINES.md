@@ -2,7 +2,7 @@
 
 ## Abs By AI morning brief
 
-Status: **partial setup, disabled**. Collection and one retrospective parent dot reasoning pass are proven privately. Owner-login, private page, validated publication and social-queue review code are implemented and tested locally. Google client/runtime configuration, production login and cross-device proof remain incomplete. No scheduler was installed or changed.
+Status: **partial setup, disabled**. The private page and dedicated Google client are deployed; Daniel's owner-login screenshot shows the protected shell. Full edition readback and cross-device persistence remain unproven. October 3 adds an approved Mac-only signing publisher, documented in `Docs/MORNING_BRIEF_PUBLISHING.md`. No scheduler was installed or changed.
 
 | Item | Design or current state |
 | --- | --- |
@@ -14,7 +14,7 @@ Status: **partial setup, disabled**. Collection and one retrospective parent dot
 | Requirements and operation | `Docs/MORNING_BRIEF_INPUTS.md` |
 | Draft assignment | Below; not installed or scheduled |
 | Claude routine | Must remain disabled; its scheduler was not modified or independently verified here |
-| Open prerequisites | Dedicated Google client/runtime setup, production/device proof, private Mac-to-writer access and connected Gmail/Calendar intake. Trello is deliberately deferred; exact business outcome mappings remain unknown. |
+| Open prerequisites | Signed publication and owner readback proof; verified cloud-to-Mac automation; cross-device persistence; fresh watch-history/model applicability; daily image capability; Trello access. Gmail/Calendar are connected to the parent writer. Exact free-generation, new-trial and paid mappings remain unknown. |
 
 The September 30 interview supersedes the handoff's 6:05/6:30 timings, chat/text delivery, label-only Gmail scope and proposal to push input data to the repository. The repository can carry code and sanitized documentation; personal source data remains private. Board maintenance and old pinned reminders do not become priorities automatically.
 
