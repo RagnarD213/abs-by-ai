@@ -78,7 +78,7 @@ Exact pushed commit `e3fb909` has no GitHub Actions runs or check runs. The exis
 
 The writer saves a private schema-version-1 document outside Git, then runs `python3 scripts/brief/publish_brief.py /private/path/edition.json` to validate only. For the manual proof, the signed-in owner can upload that reviewed file at `/brief-publish`; same-origin custom-header validation and the owner session protect publication, without an ingestion secret. The owner's brief session cannot access the older dashboard APIs. Google client configuration and actual owner/device proof must precede private publication.
 
-Adding `--publish` to the CLI uses the fixed production ingest endpoint and a separately configured private machine-publication credential. That machine route fails closed until its key exists. Secret creation/configuration requires the user handoff described in the sign-in prerequisites; no secret is passed through model-visible provider-variable tools. Neither publication mechanism schedules the routine.
+Adding `--publish` to the CLI uses the fixed production endpoint and a Mac-only Ed25519 signer. Pass `--key-file` for the private local key. Railway holds only `BRIEF_PUBLISH_PUBLIC_KEY`; shared ingestion-secret authentication is removed. The signed machine route fails closed until its public key is configured. See `Docs/MORNING_BRIEF_PUBLISHING.md`. Neither publication mechanism schedules the routine.
 
 The parent-authored September 30 proof is stored outside Git and explicitly retrospective, based on September 29 measurements. A separately validated structured edition preserves that date. Neither establishes an October 2 priority, a production-page proof or a scheduled routine.
 

@@ -4,6 +4,8 @@
 change to how one crop is tracked, with a measured before and after; no creative choices).
 Sidebar name: `Vertical Centering Codex Adopt`.
 
+**Executed 2026-10-03:** shared preset and Codex adapters adopted. Proof and changed-file list: `Docs/VERTICAL_CENTERING_CODEX_20261003.md`. Approved videos untouched.
+
 ## Why
 
 Dan watched two first minutes of the RO-10 vertical that differed only in how the crop follows him, and chose the

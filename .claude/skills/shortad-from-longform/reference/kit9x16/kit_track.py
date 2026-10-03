@@ -1,27 +1,8 @@
 #!/usr/bin/env python3
-"""THE FACE TRACK for the 608-px talk crop: facetrack.json = {n: [frame indices], x: [crop x], crop_w}
-in the shape `render.py` interpolates. Measured on base.mp4 (the graded 16:9 conform) at 4 fps with
-mediapipe's full-range face detector; smoothed PER PICTURE SEGMENT (never across a cut), zero-phase,
-endpoint-anchored and slope-limited -- `_shared/cut/landing.py` -- and, per the shared framing rule
-(2026-09-16), a segment whose face wanders less than `--fixed-under` source px keeps ONE fixed centre
-(its median) instead of a track: the least correction that works.
-
-THE CALMER CAMERA (Dan, 2026-10-01: "the camera movement to keep me centered... has become a little bit too
-aggressive... a little bit more tolerance for going out of center... Maybe reduce camera movement by 30%... while still
-keeping me as centered as possible"): `--tolerance` px (source) of dead band. The crop lands on him at every cut,
-holds until he is more than that off its centre, then follows. Its ceiling is the gate's own centring bound
-(`framing:centering`, a hold's median head centre within 6 % of the frame width = 36 source px). `--tolerance 0` is
-the old track. The raw detections are cached in facetrack_raw.json (the base is the key).
-
-Measured on RO-10 (8:38, 25 takes; source px, x1.78 on the phone), old track -> tolerance:
-  0 (old)  travel 10,758 px   pan p90 62.9 px/s   moving 50 % of the time   off centre 5.9 median / 73 max
-  6        7,194 (-33 %)      36.4 (-42 %)        64 % (slower, spread out)  10.3 / 78       his first ask, "30 %"
-  20       3,413 (-68 %)      22.8 (-64 %)        31 %                       17.3 / 92       <- THE STANDARD (Dan, 2026-10-03)
-The crop is 608 px wide, so at 92 px off centre his whole head is still far inside the frame.
-Dan, 2026-10-03, after watching both first minutes: "I like the calmest one, the two-thirds calmer. That looks the best to me... Let's make this our standard way of centering for verticals going forward. I feel like this is better than what we were doing."
-20 px of a 608 px crop is 3.3 % of the crop's width: that fraction is the standard for every vertical (_shared/framing-motion.md).
-
-  python3 kit_track.py --build DIR [--fps 4] [--slope 170] [--fixed-under 40] [--tolerance 20] [--out facetrack.json]
+"""9:16 head track using the shared land-then-hold vertical standard.
+20 px dead band, 40 px fixed range, 170 px/s cap for a 608 px crop.
+Measure cut-start frames explicitly; never interpolate a renderer across picture cuts.
+Run in a new build directory, never an approved video's directory.
 """
 import argparse
 import json
@@ -41,65 +22,110 @@ CROP_W = 608
 W, H = 640, 360
 
 
-def faces(video, fps):
-    """(frame index, face centre x in 1920 space) per sample, NaN where no face."""
+def faces(video, sample_fps, segments, video_fps):
+    """Measure regular samples AND actual cut-start frames in the source."""
+    import cv2
     import mediapipe as mp
-    raw = subprocess.run([FF, "-v", "error", "-i", video, "-vf", f"fps={fps},scale={W}:{H}", "-an",
-                          "-f", "rawvideo", "-pix_fmt", "rgb24", "-"], capture_output=True).stdout
-    n = len(raw) // (W * H * 3)
-    fr = np.frombuffer(raw[:n * W * H * 3], np.uint8).reshape(n, H, W, 3)
+    cap = cv2.VideoCapture(video)
+    count = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+    wanted = set(np.rint(np.arange(0, count / video_fps, 1 / sample_fps) * video_fps).astype(int))
+    wanted.update(n0 for n0, _ in landing.seg_bounds(segments, video_fps))
     det = mp.solutions.face_detection.FaceDetection(model_selection=1, min_detection_confidence=0.5)
-    xs = np.full(n, np.nan)
-    for i in range(n):
-        r = det.process(fr[i])
-        if r.detections:
-            b = max(r.detections, key=lambda d: d.score[0]).location_data.relative_bounding_box
-            xs[i] = (b.xmin + b.width / 2) * 1920
-    idx = np.array([int(round(i * FPS / fps)) for i in range(n)])
-    return idx, xs
+    idx, xs = [], []
+    for frame in sorted(v for v in wanted if v < count):
+        cap.set(cv2.CAP_PROP_POS_FRAMES, frame)
+        ok, image = cap.read()
+        if not ok:
+            raise RuntimeError(f"Cannot read measured frame {frame}")
+        result = det.process(cv2.cvtColor(cv2.resize(image, (W, H)), cv2.COLOR_BGR2RGB))
+        value = np.nan
+        if result.detections:
+            box = max(result.detections, key=lambda d: d.score[0]).location_data.relative_bounding_box
+            value = (box.xmin + box.width / 2) * image.shape[1]
+        idx.append(frame); xs.append(value)
+    cap.release(); det.close()
+    return np.array(idx), np.array(xs)
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--build", required=True)
     ap.add_argument("--fps", type=float, default=4.0)
-    ap.add_argument("--slope", type=float, default=170.0, help="source px/s (~300 on the phone), the re-audit's cap")
-    ap.add_argument("--fixed-under", type=float, default=40.0, help="a segment whose face x range is under this keeps one fixed centre")
-    ap.add_argument("--tolerance", type=float, default=20.0, help="dead band, source px: the crop holds until he is this far off its centre (0 = the old track)")
+    ap.add_argument("--crop-width", type=float, default=608.0)
+    ap.add_argument("--video-fps", type=float, default=FPS)
+    ap.add_argument("--slope", type=float, default=None, help="source px/s (~300 on the phone), the re-audit's cap")
+    ap.add_argument("--fixed-under", type=float, default=None, help="a segment whose face x range is under this keeps one fixed centre")
+    ap.add_argument("--tolerance", type=float, default=None, help="dead band, source px: the crop holds until he is this far off its centre (0 = the old track)")
     ap.add_argument("--out", default="facetrack.json")
     a = ap.parse_args()
     os.chdir(a.build)
-    S = json.load(open("edl_picture.json"))
-    st = os.stat("base.mp4"); key = [st.st_size, st.st_mtime_ns, a.fps]
+    global CROP_W
+    CROP_W = a.crop_width
+    a.slope = 170 * CROP_W / 608 if a.slope is None else a.slope
+    a.fixed_under = 40 * CROP_W / 608 if a.fixed_under is None else a.fixed_under
+    a.tolerance = 20 * CROP_W / 608 if a.tolerance is None else a.tolerance
+    S = json.load(open("framing_segments.json" if os.path.exists("framing_segments.json") else "edl_picture.json"))
+    # Measure all layout entries/returns and punch boundaries too. The renderer uses these as landing anchors.
+    boundaries = set()
+    if os.path.exists("beats.json"):
+        data = json.load(open("beats.json"))
+        for beat in data.get("beats", []):
+            if beat.get("kind") in ("window", "stmt", "winmedia", "bleed", "card", "hf", "title", "photo"):
+                boundaries.update(round(beat[key] * a.video_fps) for key in ("t0", "t1"))
+    if os.path.exists("beats.py"):
+        import importlib.util
+        spec = importlib.util.spec_from_file_location("vertical_build_beats", "beats.py")
+        module = importlib.util.module_from_spec(spec); spec.loader.exec_module(module)
+        timeline, _ = module.timeline()
+        boundaries.update(round(b["t0"] * a.video_fps) for b in timeline)
+        boundaries.update(round(b["t1"] * a.video_fps) for b in timeline)
+        boundaries.update(round(v * a.video_fps) for row in getattr(module, "PUSHES", []) for v in row)
+    split = []
+    for start, end in landing.seg_bounds(S, a.video_fps):
+        cuts = [start] + sorted(b for b in boundaries if start < b < end) + [end]
+        split.extend(dict(n0=x, n1=y) for x, y in zip(cuts[:-1], cuts[1:]))
+    S = split
+    st = os.stat("base.mp4"); key = [st.st_size, st.st_mtime_ns, a.fps, a.video_fps, S, "cut-frame-head-v1"]
     if os.path.exists("facetrack_raw.json") and json.load(open("facetrack_raw.json"))["key"] == key:
         d = json.load(open("facetrack_raw.json"))
         n, raw = np.array(d["n"]), np.array([np.nan if v is None else v for v in d["x"]])
     else:
-        n, raw = faces("base.mp4", a.fps)
+        n, raw = faces("base.mp4", a.fps, S, a.video_fps)
         json.dump(dict(key=key, n=[int(v) for v in n], x=[None if np.isnan(v) else round(float(v), 1) for v in raw]), open("facetrack_raw.json", "w"))
     ok = ~np.isnan(raw)
     if ok.sum() < 0.5 * len(raw):
         raise SystemExit(f"face found on only {ok.sum()} of {len(raw)} samples -- not a talking-head base")
     # per picture segment, endpoint-anchored, slope-limited: the shared smoother (_shared/cut/landing.py)
-    n_all, x_all, info = landing.track(n, raw, S, slope_px_s=a.slope, k=3, fixed_under=a.fixed_under, tolerance=a.tolerance or None)
+    for start, _ in landing.seg_bounds(S, a.video_fps):
+        if start not in n or not np.isfinite(raw[np.where(n == start)[0][0]]):
+            raise SystemExit(f"Missing measured head at picture cut {start}")
+    n_all, x_all, info = landing.track(n, raw, S, slope_px_s=a.slope, k=3, fixed_under=a.fixed_under, tolerance=a.tolerance or None, fps=a.video_fps)
+    info["crop_width"] = CROP_W
+    info["policy"] = "vertical-land-then-hold-20261003"
     fixed_segs = info["fixed_segments"]
-    cx = np.clip(np.array(x_all) - CROP_W / 2, 0, 1920 - CROP_W)
+    if any(abs(x_all[i] - raw[np.where(n == start)[0][0]]) > 1e-6
+           for start, _ in landing.seg_bounds(S, a.video_fps)
+           for i in np.where(n_all == start)[0]):
+        raise SystemExit("Cut landing is not centred")
+    cx = np.asarray(x_all) - CROP_W / 2
+    if np.any((cx < 0) | (cx > 1920 - CROP_W)):
+        raise SystemExit("Centred crop exceeds source width: choose a wider window")
     # how much the camera moves, and how far off centre he gets (measured on the detections, per take)
-    na = np.array(n_all); starts = {b[0] for b in landing.seg_bounds(S)}
+    na = np.array(n_all); starts = {b[0] for b in landing.seg_bounds(S, a.video_fps)}
     inside = np.array([na[i + 1] not in starts for i in range(len(na) - 1)])
     d = np.abs(np.diff(cx))[inside]; dtf = np.maximum(np.diff(na), 1)[inside]
-    v = d / dtf * FPS
+    v = d / dtf * a.video_fps
     ok_ = ~np.isnan(raw); off = []
-    for n0, n1 in landing.seg_bounds(S):
+    for n0, n1 in landing.seg_bounds(S, a.video_fps):
         m = (n >= n0) & (n < n1) & ok_; t = (na >= n0) & (na < n1)
         if m.any() and t.any():
             off += list(np.abs(raw[m] - (np.interp(n[m], na[t], cx[t]) + CROP_W / 2)))
     off = np.array(off)
     stats = dict(travel_px=round(float(d.sum())), pan_p90_px_s=round(float(np.percentile(v, 90)), 1), pan_max_px_s=round(float(v.max()), 1),
-                 moving_frac=round(float((dtf[v > 5]).sum() / dtf.sum()), 3), off_centre_px=dict(median=round(float(np.median(off)), 1),
+                 moving_frac=round(float((dtf[v > 5 * CROP_W / 608]).sum() / dtf.sum()), 3), off_centre_px=dict(median=round(float(np.median(off)), 1),
                  p95=round(float(np.percentile(off, 95)), 1), max=round(float(off.max()), 1)), fixed_segments=fixed_segs, segments=len(S))
     json.dump(dict(n=[int(v_) for v_ in n_all], x=[round(float(v_), 1) for v_ in cx], crop_w=CROP_W,
-                   method=dict(detector="mediapipe FaceDetection model 1", fps=a.fps, slope_px_s=a.slope, tolerance_px=a.tolerance,
+                   segments=S, method=dict(policy="vertical-land-then-hold-20261003", detector="mediapipe FaceDetection model 1", fps=a.fps, slope_px_s=a.slope, tolerance_px=a.tolerance,
                                fixed_under_px=a.fixed_under, fixed_segments=fixed_segs, segments=len(S)), stats=stats),
               open(a.out, "w"))
     print(f"{len(n_all)} samples over {len(S)} picture segments ({fixed_segs} fixed-centre); face x {np.nanmin(raw):.0f}..{np.nanmax(raw):.0f}; "

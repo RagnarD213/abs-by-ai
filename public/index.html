@@ -1360,11 +1360,12 @@ html.cart-v2 body { background: #ffffff; }
 .c2-bullets ul { list-style: none; display: flex; flex-direction: column; gap: 11px; }
 .c2-bullets li { display: flex; gap: 10px; align-items: flex-start; font-size: 15px; line-height: 1.4; font-weight: 600; }
 .c2-bullets li svg { flex-shrink: 0; }
-.c2-seal-row { display: flex; gap: 14px; align-items: center; }
-.c2-seal { width: 72px; height: 72px; border-radius: 50%; background: #12306B; color: #ffffff; display: flex; flex-direction: column; align-items: center; justify-content: center; flex: none; line-height: 1; box-shadow: 0 0 0 3px #ffffff, 0 0 0 5px #12306B; }
-.c2-seal b { font-size: 23px; font-weight: 800; }
-.c2-seal span { font-size: 10.5px; font-weight: 800; letter-spacing: 1px; }
-.c2-seal-title { font-size: 18px; font-weight: 800; line-height: 1.3; flex: 1; }
+/* Guarantee card: the gold seal from /start (Dan, 2026-10-03), on top and centred. The SVG comes from
+   Build.seal() in .claude/skills/design-sales-page/reference/round2-letter/gen.py. */
+.c2-guar { text-align: center; }
+.c2-seal-row { display: flex; flex-direction: column; gap: 12px; align-items: center; }
+.c2-seal { width: 116px; height: 116px; flex: none; }
+.c2-seal-title { font-size: 18px; font-weight: 800; line-height: 1.3; }
 .c2-card p { font-size: 14.5px; line-height: 1.55; color: #3F444C; }
 .c2-quote { background: #F6F4F0; }
 .c2-quote-in { max-width: 1040px; margin: 0 auto; padding: 28px 20px; }
@@ -2476,7 +2477,7 @@ html.cart-v2 body { background: #ffffff; }
         <div style="margin-top:10px;font-size:13px;color:var(--mute);line-height:1.5">
           <div style="margin-bottom:10px"><strong>When do I get billed?</strong> On the same day each month (or year). Your next charge date is shown in your Manage subscription settings.</div>
           <div style="margin-bottom:10px"><strong>How do I cancel?</strong> Open the Manage subscription card in this hub, or email support@absbyai.com and we'll handle it in seconds.</div>
-          <div><strong>What's the refund policy?</strong> Full refund within 7 days of purchase, no questions asked. Just reply to your confirmation email or email support@absbyai.com.</div>
+          <div><strong>What's the refund policy?</strong> If you're not happy for any reason, email us within 365 days of your first payment for a full refund. No questions asked. Just reply to your confirmation email or email support@absbyai.com.</div>
         </div>
       </details>
     </div>
@@ -3171,8 +3172,8 @@ html.cart-v2 body { background: #ffffff; }
               <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#12306B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Unlimited goal pictures and Supplement Audits</span></li>
             </ul>
           </div>
-          <div class="c2-card">
-            <div class="c2-seal-row"><div class="c2-seal"><b>365</b><span>DAY</span></div><div class="c2-seal-title">365-Day No Risk<br>100% Money Back Guarantee</div></div>
+          <div class="c2-card c2-guar">
+            <div class="c2-seal-row"><svg class="c2-seal" width="116" height="116" viewBox="0 0 200 200" role="img" aria-label="365 day money back guarantee seal" style="flex-shrink: 0; display: block; filter: drop-shadow(0 5px 9px rgba(61,42,5,0.30))"><defs><linearGradient id="gac2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FCF1B8"></stop><stop offset="0.28" stop-color="#E3B64B"></stop><stop offset="0.52" stop-color="#C08A22"></stop><stop offset="0.76" stop-color="#F4DA82"></stop><stop offset="1" stop-color="#A9741A"></stop></linearGradient><linearGradient id="gbc2" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF6CC"></stop><stop offset="0.45" stop-color="#EBC45C"></stop><stop offset="1" stop-color="#D2A036"></stop></linearGradient><radialGradient id="gcc2" cx="0.38" cy="0.30" r="0.85"><stop offset="0" stop-color="#FFF8D6"></stop><stop offset="0.55" stop-color="#F0CD6A"></stop><stop offset="1" stop-color="#C9952C"></stop></radialGradient><path id="gtc2" d="M 29,100 A 71,71 0 0 1 171,100"></path><path id="guc2" d="M 17,100 A 83,83 0 0 0 183,100"></path></defs><polygon points="100.0,1.0 108.0,8.4 117.2,2.5 123.8,11.1 133.9,7.0 138.9,16.6 149.5,14.3 152.8,24.6 163.6,24.2 165.1,34.9 175.8,36.4 175.4,47.2 185.7,50.5 183.4,61.1 193.0,66.1 188.9,76.2 197.5,82.8 191.6,92.0 199.0,100.0 191.6,108.0 197.5,117.2 188.9,123.8 193.0,133.9 183.4,138.9 185.7,149.5 175.4,152.8 175.8,163.6 165.1,165.1 163.6,175.8 152.8,175.4 149.5,185.7 138.9,183.4 133.9,193.0 123.8,188.9 117.2,197.5 108.0,191.6 100.0,199.0 92.0,191.6 82.8,197.5 76.2,188.9 66.1,193.0 61.1,183.4 50.5,185.7 47.2,175.4 36.4,175.8 34.9,165.1 24.2,163.6 24.6,152.8 14.3,149.5 16.6,138.9 7.0,133.9 11.1,123.8 2.5,117.2 8.4,108.0 1.0,100.0 8.4,92.0 2.5,82.8 11.1,76.2 7.0,66.1 16.6,61.1 14.3,50.5 24.6,47.2 24.2,36.4 34.9,34.9 36.4,24.2 47.2,24.6 50.5,14.3 61.1,16.6 66.1,7.0 76.2,11.1 82.8,2.5 92.0,8.4" fill="url(#gac2)"></polygon><circle cx="100" cy="100" r="89" fill="url(#gbc2)" stroke="#8A5E12" stroke-width="1.5"></circle><circle cx="100" cy="100" r="62" fill="url(#gcc2)" stroke="#8A5E12" stroke-width="1.5"></circle><circle cx="100" cy="100" r="57" fill="none" stroke="#8A5E12" stroke-width="1" stroke-dasharray="2 3"></circle><text font-size="15.5" font-weight="800" letter-spacing="1.6" fill="#3D2A05" text-anchor="middle"><textPath href="#gtc2" startOffset="50%">100% MONEY BACK</textPath></text><text font-size="15.5" font-weight="800" letter-spacing="3" fill="#3D2A05" text-anchor="middle"><textPath href="#guc2" startOffset="50%">GUARANTEE</textPath></text><polygon points="23.5,94.0 25.0,98.0 29.2,98.1 25.9,100.8 27.0,104.9 23.5,102.5 20.0,104.9 21.1,100.8 17.8,98.1 22.0,98.0" fill="#3D2A05"></polygon><polygon points="176.5,94.0 178.0,98.0 182.2,98.1 178.9,100.8 180.0,104.9 176.5,102.5 173.0,104.9 174.1,100.8 170.8,98.1 175.0,98.0" fill="#3D2A05"></polygon><text x="100" y="112" font-size="50" font-weight="800" letter-spacing="-1" fill="#3D2A05" text-anchor="middle">365</text><text x="102" y="134" font-size="17" font-weight="800" letter-spacing="4" fill="#3D2A05" text-anchor="middle">DAY</text></svg><div class="c2-seal-title">365-Day No Risk<br>100% Money Back Guarantee</div></div>
             <p>We guarantee you'll love Abs By AI or we'll refund your money.</p>
             <p>If you're not happy for any reason, email us within 365 days of your first payment for a full refund. No questions asked.</p>
           </div>
@@ -6345,6 +6346,7 @@ function setLoggedIn({ token, email, deviceId }) {
   // the fresh account status is loading.
   memberState.active = false;
   memberState.plan = null;
+  memberState.own = false;
   memberState.periodEnd = null;
   memberState.status = null;
   memberState.loaded = false;
@@ -6367,6 +6369,7 @@ function clearLoggedIn() {
   auth.email = '';
   memberState.active = false;
   memberState.plan = null;
+  memberState.own = false;
   memberState.periodEnd = null;
   memberState.status = null;
   memberState.userId = null;
@@ -8258,7 +8261,7 @@ let membershipReturnTo = null; // where to go after subscribing (or backing out)
 let membershipGateBackToHub = false;
 
 async function refreshMembership() {
-  if (!isLoggedIn()) { memberState.active = false; memberState.loaded = true; applyMemberMode(); return; }
+  if (!isLoggedIn()) { memberState.active = false; memberState.own = false; memberState.loaded = true; applyMemberMode(); return; }
   try {
     const m = await authApi(`/api/membership?deviceId=${encodeURIComponent(getDeviceId())}`);
     memberState.active = !!m.active;
@@ -8271,6 +8274,7 @@ async function refreshMembership() {
     memberState.userId = m.userId || null;
     memberState.source = m.source || null;
     memberState.lifetime = m.lifetime || null; // Lifetime plan: { state, chargeAt, amountCents }
+    memberState.own = !!m.ownMembership; // the account itself is paying or in a trial (admin and beta access do not count)
     memberState.loaded = true;
     // The member's trial converted to a paid membership while no browser was
     // open (Stripe/RevenueCat webhook), so the sale could not be reported when
@@ -8371,12 +8375,14 @@ async function applyVslHandoff() {
 function applyPurchaseDeepLink() {
   let params;
   try { params = new URLSearchParams(window.location.search); } catch (e) { return false; }
+  let path = '';
+  try { path = window.location.pathname.replace(/\/+$/, ''); } catch (e) {}
 
-  if (params.get('join') === '1') {
-    // Web non-members get the cart (pay first); the apps and members get the
-    // membership screen. showMembershipScreen shows whichever screen it picked:
-    // a second showScreen('membership') here used to stack the old screen over
-    // the cart, so /start's buy buttons never reached the cart (fixed 2026-09-30).
+  if (params.get('join') === '1' || path === '/cart') {
+    // absbyai.com/cart is the cart's own address (Dan, 2026-10-03); /?join=1 is
+    // what /start's buy buttons and the apps' external links use. On the web
+    // both open the cart for everyone, logged in or not. The apps get their
+    // In-App Purchase screen (showMembershipScreen picks).
     showMembershipScreen(() => showHub());
     return true;
   }
@@ -8398,9 +8404,10 @@ function applyPurchaseDeepLink() {
 }
 
 function showMembershipScreen(returnTo, opts) {
-  // WEB: every non-member lands on the cart (pay first, account after). The
-  // native apps and members (manage / beta states) keep this screen exactly.
-  if (!IS_NATIVE_APP && !hasMemberAccess() && memberState.status !== 'comp') return showCartScreen(returnTo, opts);
+  // WEB: everyone lands on the cart, logged in or not (Dan, 2026-10-03). Before
+  // that, a logged-in member (or an admin, who counts as one) got this older
+  // screen with its Monthly / Annual cards. Only the native apps show it now.
+  if (!IS_NATIVE_APP) return showCartScreen(returnTo, opts);
   membershipReturnTo = returnTo || membershipReturnTo;
   membershipGateBackToHub = !!opts?.trialGate;
   if (window.posthog) posthog.capture('membership_screen_viewed');
@@ -8475,9 +8482,24 @@ async function claimCartSession(sessionId) {
 async function handleCartComplete(sessionId, anon) {
   closeCreditsCheckout();
   c2Reset();
-  // Logged-in buyer: the existing post-payment routine already does everything
-  // (conversions with the account email, unlocks, the returnTo).
-  if (!anon || isLoggedIn()) return handleMembershipComplete(sessionId);
+  // Logged-in buyer: the membership lands on their own account, so there is no
+  // claim. Same conversions, same "You're in" screen, minus the password box.
+  if (!anon || isLoggedIn()) {
+    try { await fetch(`${BACKEND_URL}/api/stripe/session-status?session_id=${encodeURIComponent(sessionId)}`); } catch (e) {}
+    if (window.posthog) posthog.capture('membership_subscribed', { plan: selectedPlan });
+    if (window.posthog) posthog.capture('cart_checkout_completed', { plan: selectedPlan, anon: false, created: false });
+    fireAdConversion('AqLTCMnl4dkcEJvEqLNE', { value: 20, currency: 'USD' }); // ~1 month of membership revenue
+    fireTikTokEvent('StartTrial', { value: 20, currency: 'USD' });
+    fireConfetti();
+    await refreshMembership();
+    loadCredits(); // converted credits were zeroed
+    await unlockProgramAfterSubscribe();
+    await unlockMealPlanAfterSubscribe();
+    await unlockSleepAfterSubscribe();
+    await unlockCounselAfterSubscribe();
+    cartResult = { created: false, loggedIn: true, email: auth.email || '' };
+    return showCartDone();
+  }
 
   let claim = null;
   try { claim = await claimCartSession(sessionId); }
@@ -8520,8 +8542,8 @@ async function handleCartComplete(sessionId, anon) {
 // "Build my program" → the five questions as onboarding → the continuation
 // (the pending feature, the locked-image release, or the hub).
 function handleCartDoneContinue() {
-  if (!(cartResult && cartResult.created)) {
-    // Existing account: log in (never automatically), then continue.
+  if (!(cartResult && (cartResult.created || cartResult.loggedIn))) {
+    // Existing account, bought while logged out: log in (never automatically), then continue.
     const email = cartResult && cartResult.email;
     window._afterAuth = () => finishCartOnboarding();
     showAuthScreen('login');
@@ -8597,6 +8619,10 @@ const C2_APPEARANCE = {
 const c2 = { stripe: null, sessions: {}, sessionsFor: null, checkout: null, actions: null, payEl: null, expressEl: null, plan: null, seq: 0, busy: false };
 
 function c2Demo() { return !!(DEMO && DEMO.kind === 'checkout'); }
+// A logged-in account that is already paying (or in a trial) must not be sold
+// a second membership. Admin and beta accounts have access without one and can
+// check out like anyone else.
+function c2AlreadyMember() { return isLoggedIn() && !!memberState.own; }
 function c2Plan() { return selectedPlan === 'lifetime' ? 'lifetime' : 'monthly'; }
 
 function c2ShowError(msg) {
@@ -8677,6 +8703,13 @@ async function c2LoadPayment() {
   btn.disabled = demo;
   btn.textContent = demo ? 'Demo: checkout disabled' : 'Start My Free Trial';
   if (demo) return;
+  if (c2AlreadyMember()) {
+    c2Reset();
+    $('c2PayLoading').textContent = 'This account already has an Abs By AI membership, so there is nothing to pay. Your tools are in your hub.';
+    $('c2PayLoading').style.display = '';
+    btn.textContent = 'Go To My Hub';
+    return;
+  }
   const plan = c2Plan();
   const owner = isLoggedIn() ? auth.email : '';
   if (c2.sessionsFor !== owner) { c2Reset(); c2.sessionsFor = owner; }
@@ -8762,7 +8795,7 @@ function showCartScreen(returnTo, opts) {
   c2RenderPlan();
   c2ClearFieldErrors();
   c2ShowError('');
-  // Step 1: a logged-in non-member's email is the account's and is locked.
+  // Step 1: a logged-in buyer's email is the account's and is locked.
   const email = $('c2Email');
   if (isLoggedIn()) {
     email.value = auth.email || '';
@@ -8794,6 +8827,7 @@ function c2TermsOk() {
 // Our green button: the card (or Link inside the card form).
 async function c2Pay() {
   if (IS_NATIVE_APP || c2Demo() || c2.busy) return;
+  if (c2AlreadyMember()) return showHub();
   c2ClearFieldErrors();
   c2ShowError('');
   const anon = !isLoggedIn();
@@ -8868,20 +8902,23 @@ function applyCartReturn() {
 
 function showCartDone() {
   const created = !!(cartResult && cartResult.created);
-  const photoFirst = created && !cartHasGoalPicture();
+  // "In" = this browser is logged in on the paying account: a new account
+  // (logged in by the claim) or a buyer who was already logged in.
+  const inNow = created || !!(cartResult && cartResult.loggedIn);
+  const photoFirst = inNow && !cartHasGoalPicture();
   $('c2Main').style.display = 'none';
   $('c2Done').style.display = '';
-  $('c2DoneTitle').textContent = created ? "You're in. Your 7-day free trial is active." : 'Your free trial is active.';
+  $('c2DoneTitle').textContent = inNow ? "You're in. Your 7-day free trial is active." : 'Your free trial is active.';
   $('c2DoneEmail').textContent = cartResult && cartResult.email
-    ? (created ? `Logged in as ${cartResult.email}` : `On the account ${cartResult.email}`)
+    ? (inNow ? `Logged in as ${cartResult.email}` : `On the account ${cartResult.email}`)
     : "Check your email. We've sent you a link to get in.";
-  $('c2PwBlock').style.display = created ? '' : 'none';
-  $('c2ExistingNote').style.display = created ? 'none' : '';
+  $('c2PwBlock').style.display = created ? '' : 'none'; // only a brand-new account has no password yet
+  $('c2ExistingNote').style.display = inNow ? 'none' : '';
   $('c2PwInput').value = '';
   $('c2PwOk').style.display = 'none';
   $('c2PwErr').style.display = 'none';
-  $('c2DoneBtn').textContent = !created ? 'Log in to continue' : (photoFirst ? 'See myself with abs' : 'Build my program');
-  $('c2DoneSub').textContent = !created
+  $('c2DoneBtn').textContent = !inNow ? 'Log in to continue' : (photoFirst ? 'See myself with abs' : 'Build my program');
+  $('c2DoneSub').textContent = !inNow
     ? 'Use the password for that account, or "Forgot password".'
     : (photoFirst ? 'Upload your photo first, then five quick questions.' : 'Five quick questions, then your program.');
   showScreen('cart');

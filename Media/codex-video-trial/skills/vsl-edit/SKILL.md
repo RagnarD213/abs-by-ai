@@ -39,3 +39,16 @@ Every review packet states what is locked, what changed, what Dan needs to decid
 Build from the locked components. Inspect the entire picture and audio in order, every native cut and repaired join, source junk, graphic timing, phone readability, subtitles, offer wording and the complete final CTA. Run the current audio and website delivery gates on the exact file to be delivered. Obtain one independent full-candidate review. Fix confirmed defects and rerun checks affected by a change. Report any remaining gate failure as a failure even if Dan accepts the creative choice.
 
 Deliver the full master, a phone-friendly review copy, subtitle sidecar, recipe or source map, decision record, checks and known exceptions. Record provider costs. Mark a video finalized only after Dan approves the complete candidate. Uploading, website installation and publishing are separate tasks; leave any paused dispatcher paused unless Dan directs otherwise.
+
+## Standard 9:16 centering (Dan, 2026-10-03)
+
+For every vertical talking-head build, read the shared section **Vertical talking head: land on him, then hold** in `.claude/skills/_shared/framing-motion.md` in the Abs By AI project. Use its shared `.claude/skills/_shared/cut/landing.py`, never a private smoother.
+
+1. Split at every picture cut, punch-in and return from graphics. Never smooth across cuts.
+2. Land exactly on his measured head centre on the first frame. Measure the actual cut frame.
+3. Hold while he is within 3.3% of crop width of centre.
+4. Outside it, follow only to the band edge, eased over 0.75 seconds, capped at 28% of crop width per second.
+5. Takes wandering less than 6.6% of crop width keep one first-frame-anchored centre.
+6. Never recenter the exit.
+
+Call `landing.vertical_track(n, raw_head_x, picture_segments, crop_width, fps)`. This uses `landing.track` with scaled 170/608 speed, 40/608 fixed range, 20/608 tolerance and k=3. Report total crop travel, p90 pan speed, time moving, and median/maximum head distance from centre via `landing.motion_stats`. Inspect actual cut landings and head clearance at the original frame rate. These instructions supersede any continuous vertical recentering or unconditional fixed vertical take in older recipes. Square rules, static horizontal framing and the delivery gate remain unchanged. Approved videos stay untouched.

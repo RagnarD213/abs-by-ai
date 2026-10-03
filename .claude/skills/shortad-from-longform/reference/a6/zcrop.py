@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-"""The talking-head crop, frame by frame, to Dan's LOCKED framing standard (memory framing-standard-hair-anchored):
+"""NEW VERTICAL STANDARD (2026-10-03): the shared landing.py owns horizontal tracking.
+Measure head centres at every picture/hold start. Land, hold within 3.3% of crop width,
+then ease toward the edge; never anchor the exit. The historical notes below describe
+other preserved recipe decisions, not a replacement tracking method.
+
+The talking-head crop, frame by frame, to Dan's LOCKED framing standard (memory framing-standard-hair-anchored):
   * two levels only, FAR and NEAR, both anchored to the MEASURED TOP OF HIS HAIR:  y0 = min hair top - 4% of h
     (clamped to the frame -- this 8/14 roll has only ~35-45 px above his hair, so FAR cannot gain headroom);
   * the level changes ONLY at a VISIBLE talk join -- the standard's own words are "alternating across visible joins".
@@ -15,6 +20,9 @@
     slope-limited -- skill lessons A4.0ac/A5.14/A5.18), so a cut lands on him and the crop never whips across a join.
 Writes crop.json: per talk frame (x0, y0, w, h) in 1920x1080 base pixels, zoom_per_frame for qc check 12, the joins."""
 import json, numpy as np
+import os, sys
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..", "_shared", "cut")))
+import landing
 FPS = 24.0; NTOT = 5980
 H_FAR, H_NEAR = 1024.0, 832.0          # 1.875x and 2.31x onto the 1920-tall phone frame
 HEAD = 0.04                             # the standard's headroom: 4% of the crop height above the tallest hair
@@ -38,22 +46,10 @@ for h in holds:
     sel = (mn >= h['n0']) & (mn < h['n1'])
     h['hmin_own'] = float(mh[sel].min()) if sel.any() else float(np.interp((h['n0']+h['n1'])/2, mn, mh))
 # ---- torso track per picture segment, zero-phase, endpoint-anchored, slope-limited --------------------------------
-def limit(x, t, lim):
-    o = [x[0]]
-    for i in range(1, len(x)):
-        dt = (t[i]-t[i-1])/FPS; o.append(o[-1] + float(np.clip(x[i]-o[-1], -lim*dt, lim*dt)))
-    return np.array(o)
-track = {}
-for s in E:
-    sel = (mn >= s['n0']) & (mn < s['n1']); t = mn[sel]; x = mt[sel]
-    if len(t) == 0: continue
-    L = len(x); k = 3
-    med = np.array([np.median(x[j-min(k, j, L-1-j):j+min(k, j, L-1-j)+1]) for j in range(L)])
-    if L >= 3:
-        f = limit(med, t, SLOPE); b = limit(med[::-1], (-t)[::-1], SLOPE)[::-1]
-        w = (t - t[0]) / max(1, t[-1] - t[0]); med = (1-w)*f + w*b
-    for n in range(s['n0'], s['n1']):
-        track[n] = float(np.interp(n, t, med))
+def build_track(src, width):
+    dn, centres, _, _ = landing.vertical_dense(mn, src, E, width, FPS)
+    return dict(zip(dn.tolist(), centres.tolist()))
+track = build_track(np.array([m['head'] for m in M]), H_FAR * 9/16)
 # ---- which joins are visible: HIS render's own frame-to-frame change at the join ---------------------------------
 GR = np.memmap('his256.gray', np.uint8, 'r').reshape(-1, 144, 256)      # his cut, 256x144 gray; frame n = his frame n
 def hdiff(n): return float(np.abs(GR[n].astype(np.int16) - GR[n-1].astype(np.int16)).mean())
@@ -115,6 +111,8 @@ for n, i in sorted(by_n.items()):
     x0 = float(np.clip(cx - W/2, 0, 1920 - W))
     frames[n] = [round(x0, 2), round(y0, 2), round(W, 2), round(H, 2)]
     zoom[n] = round(H_FAR / H, 4)
+centering_report = landing.vertical_crop_frames(frames, holds, mn, np.array([m['head'] for m in M]), FPS)
+json.dump(centering_report, open('vertical-centering-stats.json', 'w'), indent=2)
 json.dump(dict(frames={str(k): v for k, v in frames.items()}, holds=holds, zoom_per_frame=zoom,
                H_FAR=H_FAR, H_NEAR=H_NEAR, joins=JOINS), open('crop.json', 'w'))
 print('talk joins (his change at the join / around it):')

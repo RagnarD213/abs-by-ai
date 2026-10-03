@@ -83,7 +83,7 @@ rule and spell out all five slots. Reference:
 - It replaces the track that chased every small movement (his 2026-10-01 note: "excessive and distracting"). Never go
   back to a crop that does not move at all: he left the frame.
 - Claude and Codex both build verticals this way. Method, numbers and code: `_shared/framing-motion.md`, "Vertical
-  talking head: land on him, then hold"; `kit_track.py --tolerance 20` is the default.
+  talking head: land on him, then hold". Use shared `cut/landing.py` via its scaled vertical preset; `kit_track.py` defaults to 20 px for a 608 px crop. Report travel, p90 pan speed, time moving and median/maximum head offset. Approved exports stay untouched.
 
 ## Verticals and squares: fill as much of the screen as the clip allows (Dan, 2026-10-02)
 

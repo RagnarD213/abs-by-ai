@@ -7,7 +7,9 @@ const {OAuth2Client} = require('google-auth-library');
 const {createStore, hash} = require('../web/store');
 const {validate} = require('../web/document');
 const {createRouter, COOKIE, AGE, googleVerifier} = require('../web/router');
-const env = {BRIEF_OWNER_EMAIL:'fixture-owner@gmail.com', BRIEF_GOOGLE_CLIENT_ID:'123-fixture.apps.googleusercontent.com', BRIEF_INGEST_SECRET:'synthetic-public-test-ingest-key-32-characters'};
+const {signedHeaders} = require('../web/publication');
+const publishingKeys = crypto.generateKeyPairSync('ed25519');
+const env = {BRIEF_OWNER_EMAIL:'fixture-owner@gmail.com', BRIEF_GOOGLE_CLIENT_ID:'123-fixture.apps.googleusercontent.com', BRIEF_PUBLISH_PUBLIC_KEY:publishingKeys.publicKey.export({type:'spki',format:'der'}).toString('base64')};
 const clock = Date.now();
 const claims = {aud:env.BRIEF_GOOGLE_CLIENT_ID, iss:'https://accounts.google.com', exp:Math.floor(clock/1000)+1800, iat:Math.floor(clock/1000), email:env.BRIEF_OWNER_EMAIL, email_verified:true, sub:'fixture-owner-sub'};
 const sample = {schemaVersion:1, generatedAt:new Date(clock).toISOString(), forDate:'2026-09-30', editionType:'retrospective', timezone:'America/Chicago', routineEnabled:false,
@@ -56,13 +58,14 @@ async function main() {
     const freshStore = createStore(pool); assert.equal((await freshStore.session(token)).google_sub,claims.sub);
     assert.equal((await request('/api/brief/data',{headers:{cookie:sessionCookie}})).status,404);
     assert.equal((await request('/api/brief/publish',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(sample)})).status,401);
-    const published = await request('/api/brief/publish',{method:'POST',headers:{'Content-Type':'application/json','X-Brief-Ingest-Key':env.BRIEF_INGEST_SECRET},body:JSON.stringify({...sample,rawTranscript:'must be dropped'})});
+    const signedBody = JSON.stringify({...sample,rawTranscript:'must be dropped'});
+    const published = await request('/api/brief/publish',{method:'POST',headers:{'Content-Type':'application/json',...signedHeaders(Buffer.from(signedBody),publishingKeys.privateKey,clock)},body:signedBody});
     assert.equal(published.status,200);
     const data = await request('/api/brief/data',{headers:{cookie:sessionCookie}});
     assert.match(data.headers.get('cache-control'),/no-store/); assert(!data.headers.has('access-control-allow-origin'));
     const edition = await data.json(); assert.equal(edition.routineEnabled,false); assert(!('rawTranscript' in edition));
     // The owner can perform the first proof without any automation ingest key.
-    delete env.BRIEF_INGEST_SECRET;
+    delete env.BRIEF_PUBLISH_PUBLIC_KEY;
     const browserPublish = headers => request('/api/brief/publish',{method:'POST',headers:{'Content-Type':'application/json','X-Brief-Action':'publish',origin:'https://absbyai.com',...headers},body:JSON.stringify(sample)});
     assert.equal((await browserPublish({})).status,401);
     assert.equal((await browserPublish({cookie:COOKIE+'='+'c'.repeat(64)})).status,401);
