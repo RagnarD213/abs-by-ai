@@ -30,7 +30,8 @@ numbered steps on one page:
    fields. Then, Monthly only, "How This Free Trial Offer Works" with a required tick box; Lifetime shows its one
    sentence instead. Our green **Start My Free Trial** button confirms.
 
-Below: contact line, the statement name (read from Stripe, today `ABS BY AI`), the 365-day guarantee, Dan's quote,
+Below: contact line, the statement name (read from Stripe, today `ABS BY AI`), the 365-day guarantee (gold seal, the
+same one as `/start`, since 2026-10-03; SVG from `Build.seal()` in the design-sales-page generator), Dan's quote,
 footer. Desktop (900 px and up) adds the right column with the bullet box. No back button, no skip link, no video.
 
 Differences from the boards that Stripe controls: the card form's own labels and field order, Country and ZIP under
