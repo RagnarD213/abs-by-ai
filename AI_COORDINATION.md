@@ -106,7 +106,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **RO-16 - QUEUED 2026-10-02, Claude.** Blotato Nov 1 9AM CST. Owes: RO-12 link in description after Oct 25; captions, article after Nov 1. `Docs/RO16_SETUP_RECEIPT_20261002.md`.
 
-**Studio batch - HANDOFF/PUSH-BLOCKED 2026-10-03, Codex.** `Handoffs/handoff-20261003-approved-studio-posts-27-blotato.md`; `1405f93` blocked: `.claude/skills/shortad-from-longform/reference/kit9x16/sbl_graphics.py`, `.claude/skills/shorts/SKILL.md`. Next: owners finish; safe-push.
+**Studio posts - PARTLY QUEUED 2026-10-03, Claude.** 40 of 54 live; Blotato's 200-post cap blocked 14 FB. Next: when slots free, `studio27_queue.py plan`, then `create`. `Docs/STUDIO27_BLOTATO_QUEUE_RECEIPT_20261003.md`.
 
 **Stashed edits - NEEDS OWNER 2026-09-29, Claude.** A rebase kept upstream versions of softblue.py, SOFTBLUE.md, GRAPHICS-STANDARDS.md, deliver/gate.py, coverimage SKILL.md, 00-MASTER.md, jobs.json. Uncommitted edits: `stash@{0}` (5d8284a). Next: owner re-applies.
 
@@ -140,8 +140,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **Google Ads policy checks - OVERDUE, next session (baseline 2026-09-15).** `node scripts/ads/api/client.js policy 24243839443` (Ad 3 ads incl. squares 824906283483/824906283486; DGen r2 824329225648/824329225651; Ad 5 groups), then `… 24148587722` / `… 24086091285`. If r2 limited again: text-free thumbnail on `1oEcwdp21Fg`, then remove. ⚠ Ad 5 headline "Why My Diets Kept Failing" DISAPPROVED. Zeeshan Ad 1 / Ad 5 verticals only after Dan approves. `Docs/DGEN_CONVERSION_CAMPAIGN.md`
 
-**Ads 3 + 4 in Demand Gen — LIVE 09-11.** Watch spend/conversions on the new groups; delete once they have a few days of data.
-Dashboard row "Add the new finished ads…" stays open only for Zeeshan's Ad 1 verticals.
+**Ads 3 + 4 in Demand Gen — LIVE 09-11.** Watch the new groups; delete after a few days of data. Dashboard row "Add the new finished ads…" open for Ad 1 verticals only.
 
 **Scheduled posts — confirm and delete.** $17 Ab Wheel `bkzT-3ENpoU` public 09-13 (⚠ TikTok 6:58 vs the length cap);
 its 5 shorts post Oct 27–Nov 5. Zeeshan Ab Wheel Workout `b_bS9NdmL-g` public 09-20 — ⚠ confirm the Studio thumbnail

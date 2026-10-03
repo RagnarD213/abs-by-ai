@@ -13,7 +13,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
-| [handoff-20261003-approved-studio-posts-27-blotato.md](handoff-20261003-approved-studio-posts-27-blotato.md) | **Approved 2026-10-03. Claude Sonnet 5 / Medium.** Queue all 27 approved studio posts on Instagram @danrosefit and Facebook Abs by AI; preserve existing slots, verify 51 images and full carousel order. |
+| [handoff-20261003-approved-studio-posts-27-blotato.md](handoff-20261003-approved-studio-posts-27-blotato.md) | **PARTLY EXECUTED 2026-10-03, Claude.** 40 of 54 placements queued (all IG, 13 FB); 14 FB blocked by Blotato's 200-post cap. Receipt `Docs/STUDIO27_BLOTATO_QUEUE_RECEIPT_20261003.md`; resume with `scripts/blotato/studio27_queue.py`. |
 | [handoff-20261002-five-cart-designs.md](handoff-20261002-five-cart-designs.md) | **Ready 2026-10-02. Codex GPT-6 Astra / High.** Five complete mobile and desktop cart prototypes: research recommendation, faithful HBI adaptation, three creative directions. Deliver gallery, then Dan chooses. |
 | [handoff-20261002-start-page-365-guarantee.md](handoff-20261002-start-page-365-guarantee.md) | **Ready 2026-10-02. Opus 5.5 / High.** Add the cart's 365-day guarantee to /start and bring /refunds and /faq into line (part A, any time). The Lifetime plan wording (part B) is unblocked: the new cart went live 2026-10-03, so both parts can ship together. |
 | [handoff-20261002-sl03-salad-shorts-round2.md](handoff-20261002-sl03-salad-shorts-round2.md) | **Ready 2026-10-02 (Dan approved all of round 1). Opus 5.5 / High.** SL-03 Daily Salad shorts round 2: lock the Soft Blue shorts look into the standards, then cut the six shorts. Round 1 record: `handoff-20261002-sl03-salad-shorts-round1.md`. |

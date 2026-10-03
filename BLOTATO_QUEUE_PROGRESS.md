@@ -1,6 +1,6 @@
 # Blotato IG + Facebook queue — progress
 
-Last updated 2026-10-01.
+Last updated 2026-10-03.
 
 ## Account state
 
@@ -12,6 +12,10 @@ Last updated 2026-10-01.
 - **PERMANENT RULE (Dan, 2026-09-17): ADS ARE NEVER QUEUED HERE.** Blotato is organic-only. Every queue script
   imports `scripts/blotato/ad_guard.py`; audit with `python3 scripts/blotato/ad_guard.py --scan`. See the incident below.
 - **NEW PERMANENT RULE (Dan, 2026-09-16): Blotato owns future organic YouTube releases.** Upload organic videos to YouTube as Private and leave them Private; queue the release through connected YouTube account `46963`. Never upload Public or use YouTube native scheduling. Ads remain Unlisted and are not released publicly on YouTube. Existing native schedules are historical and must not be copied into new work; avoid double-posting anything already queued under the old process.
+
+## PARTLY DONE: Studio photo posts, 27 approved (2026-10-03)
+
+Approved batch `output/studio-post-test-24-20260929` (27 posts, 51 images, six 5-image carousels). Mon/Wed/Fri 5 PM Central. **Queued 40 of 54 placements:** Instagram @danrosefit all 27 (Oct 26 to Dec 25), Facebook Abs by AI 13 (Jan 4 to Feb 1 2027, FB M/W/F full until Jan 1). Queue 160 to 200; Blotato then refused with `422 code 20010` (200 scheduled-post plan cap). **14 FB placements remain** (S07-B to S03-C, plan in `scripts/blotato/studio27_plan.json`); resume `studio27_queue.py plan` then `create` as slots free. Verified: 160 originals unchanged, captions/media order/image SHA256 match. Receipt `Docs/STUDIO27_BLOTATO_QUEUE_RECEIPT_20261003.md`.
 
 ## DONE: Video 4 "My Honest Oura Ring Review After 1.5 Years (The Good, Bad & Ugly)" (2026-10-02)
 

@@ -1,0 +1,55 @@
+post_id,publication_date,platform,post_url,topic,source_photo,style,reach,likes,comments,saves,shares,profile_visits,follows,product_trials,paying_customers,measurement_date,tracking_evidence,notes
+S01-A,2026-10-26,Instagram @danrosefit,,Training time,studio-blue-100,Original studio,,,,,,,,,,,,queued 2026-10-03 5119908
+S01-A,2027-01-04,Facebook Abs by AI,,Training time,studio-blue-100,Original studio,,,,,,,,,,,,queued 2026-10-03 5119956
+S01-B,2026-12-04,Instagram @danrosefit,,Repeatable meals,studio-blue-145,Original studio,,,,,,,,,,,,queued 2026-10-03 5119943
+S01-B,2027-02-12,Facebook Abs by AI,,Repeatable meals,studio-blue-145,Original studio,,,,,,,,,,,,NOT QUEUED (Blotato 200 cap); planned
+S01-C,2026-12-14,Instagram @danrosefit,,Restart and backup,studio-blue-11,Original studio,,,,,,,,,,,,queued 2026-10-03 5119947
+S01-C,2027-02-22,Facebook Abs by AI,,Restart and backup,studio-blue-11,Original studio,,,,,,,,,,,,NOT QUEUED (Blotato 200 cap); planned
+S02-A,2026-11-04,Instagram @danrosefit,,Repeatable meals,studio-blue-247,Warm architecture,,,,,,,,,,,,queued 2026-10-03 5119914
+S02-A,2027-01-13,Facebook Abs by AI,,Repeatable meals,studio-blue-247,Warm architecture,,,,,,,,,,,,queued 2026-10-03 5119962
+S02-B,2026-11-20,Instagram @danrosefit,,Repeatable meals,studio-blue-175,Warm architecture,,,,,,,,,,,,queued 2026-10-03 5119929
+S02-B,2027-01-29,Facebook Abs by AI,,Repeatable meals,studio-blue-175,Warm architecture,,,,,,,,,,,,queued 2026-10-03 5119970
+S02-C,2026-12-21,Instagram @danrosefit,,Restart and backup,studio-white-42,Warm architecture,,,,,,,,,,,,queued 2026-10-03 5119952
+S02-C,2027-03-01,Facebook Abs by AI,,Restart and backup,studio-white-42,Warm architecture,,,,,,,,,,,,NOT QUEUED (Blotato 200 cap); planned
+S03-A,2026-10-30,Instagram @danrosefit,,Training time,studio-blue-110,Training space,,,,,,,,,,,,queued 2026-10-03 5119910
+S03-A,2027-01-08,Facebook Abs by AI,,Training time,studio-blue-110,Training space,,,,,,,,,,,,queued 2026-10-03 5119960
+S03-B,2026-11-16,Instagram @danrosefit,,Training time,studio-gray-2,Training space,,,,,,,,,,,,queued 2026-10-03 5119926
+S03-B,2027-01-25,Facebook Abs by AI,,Training time,studio-gray-2,Training space,,,,,,,,,,,,queued 2026-10-03 5119967
+S03-C,2026-12-25,Instagram @danrosefit,,Restart and backup,studio-gray-4,Training space,,,,,,,,,,,,queued 2026-10-03 5119955
+S03-C,2027-03-05,Facebook Abs by AI,,Restart and backup,studio-gray-4,Training space,,,,,,,,,,,,NOT QUEUED (Blotato 200 cap); planned
+S04-A,2026-11-09,Instagram @danrosefit,,Training time,studio-blue-269,Outdoor athlete,,,,,,,,,,,,queued 2026-10-03 5119919
+S04-A,2027-01-18,Facebook Abs by AI,,Training time,studio-blue-269,Outdoor athlete,,,,,,,,,,,,queued 2026-10-03 5119964
+S04-B,2026-11-27,Instagram @danrosefit,,Repeatable meals,studio-gray-38,Outdoor athlete,,,,,,,,,,,,queued 2026-10-03 5119935
+S04-B,2027-02-05,Facebook Abs by AI,,Repeatable meals,studio-gray-38,Outdoor athlete,,,,,,,,,,,,NOT QUEUED (Blotato 200 cap); planned
+S04-C,2026-12-09,Instagram @danrosefit,,Martial arts and weight training,studio-blue-76,Outdoor athlete,,,,,,,,,,,,queued 2026-10-03 5119945
+S04-C,2027-02-17,Facebook Abs by AI,,Martial arts and weight training,studio-blue-76,Outdoor athlete,,,,,,,,,,,,NOT QUEUED (Blotato 200 cap); planned
+S05-A,2026-11-11,Instagram @danrosefit,,Training time,studio-blue-201,Magazine feature,,,,,,,,,,,,queued 2026-10-03 5119921
+S05-A,2027-01-20,Facebook Abs by AI,,Training time,studio-blue-201,Magazine feature,,,,,,,,,,,,queued 2026-10-03 5119965
+S05-B,2026-11-23,Instagram @danrosefit,,Repeatable meals,studio-blue-177,Magazine feature,,,,,,,,,,,,queued 2026-10-03 5119930
+S05-B,2027-02-01,Facebook Abs by AI,,Repeatable meals,studio-blue-177,Magazine feature,,,,,,,,,,,,queued 2026-10-03 5119973
+S05-C,2026-12-16,Instagram @danrosefit,,Restart and backup,studio-white-25,Magazine feature,,,,,,,,,,,,queued 2026-10-03 5119948
+S05-C,2027-02-24,Facebook Abs by AI,,Restart and backup,studio-white-25,Magazine feature,,,,,,,,,,,,NOT QUEUED (Blotato 200 cap); planned
+S06-A,2026-11-02,Instagram @danrosefit,,Training time,studio-blue-139,Topic cover,,,,,,,,,,,,queued 2026-10-03 5119911
+S06-A,2027-01-11,Facebook Abs by AI,,Training time,studio-blue-139,Topic cover,,,,,,,,,,,,queued 2026-10-03 5119961
+S06-B,2026-11-30,Instagram @danrosefit,,Repeatable meals,studio-blue-127,Topic cover,,,,,,,,,,,,queued 2026-10-03 5119940
+S06-B,2027-02-08,Facebook Abs by AI,,Repeatable meals,studio-blue-127,Topic cover,,,,,,,,,,,,NOT QUEUED (Blotato 200 cap); planned
+S06-C,2026-12-07,Instagram @danrosefit,,Restart and backup,studio-blue-5,Topic cover,,,,,,,,,,,,queued 2026-10-03 5119944
+S06-C,2027-02-15,Facebook Abs by AI,,Restart and backup,studio-blue-5,Topic cover,,,,,,,,,,,,NOT QUEUED (Blotato 200 cap); planned
+S07-A,2026-10-28,Instagram @danrosefit,,Training time,studio-blue-109,Practical carousel,,,,,,,,,,,,queued 2026-10-03 5119909
+S07-A,2027-01-06,Facebook Abs by AI,,Training time,studio-blue-109,Practical carousel,,,,,,,,,,,,queued 2026-10-03 5119958
+S07-B,2026-11-25,Instagram @danrosefit,,Repeatable meals,studio-blue-164,Practical carousel,,,,,,,,,,,,queued 2026-10-03 5119932
+S07-B,2027-02-03,Facebook Abs by AI,,Repeatable meals,studio-blue-164,Practical carousel,,,,,,,,,,,,NOT QUEUED (Blotato 200 cap); planned
+S07-C,2026-12-11,Instagram @danrosefit,,Restart and backup,studio-blue-221,Practical carousel,,,,,,,,,,,,queued 2026-10-03 5119946
+S07-C,2027-02-19,Facebook Abs by AI,,Restart and backup,studio-blue-221,Practical carousel,,,,,,,,,,,,NOT QUEUED (Blotato 200 cap); planned
+S08-A,2026-11-06,Instagram @danrosefit,,Training time,studio-blue-249,Myth and better question,,,,,,,,,,,,queued 2026-10-03 5119916
+S08-A,2027-01-15,Facebook Abs by AI,,Training time,studio-blue-249,Myth and better question,,,,,,,,,,,,queued 2026-10-03 5119963
+S08-B,2026-11-18,Instagram @danrosefit,,Repeatable meals,studio-blue-192,Myth and better question,,,,,,,,,,,,queued 2026-10-03 5119927
+S08-B,2027-01-27,Facebook Abs by AI,,Repeatable meals,studio-blue-192,Myth and better question,,,,,,,,,,,,queued 2026-10-03 5119969
+S08-C,2026-12-23,Instagram @danrosefit,,Restart and backup,studio-gray-67,Myth and better question,,,,,,,,,,,,queued 2026-10-03 5119953
+S08-C,2027-03-03,Facebook Abs by AI,,Restart and backup,studio-gray-67,Myth and better question,,,,,,,,,,,,NOT QUEUED (Blotato 200 cap); planned
+S09-A,2026-11-13,Instagram @danrosefit,,Training time,studio-blue-123,Jelly Beans design family,,,,,,,,,,,,queued 2026-10-03 5119924
+S09-A,2027-01-22,Facebook Abs by AI,,Training time,studio-blue-123,Jelly Beans design family,,,,,,,,,,,,queued 2026-10-03 5119966
+S09-B,2026-12-02,Instagram @danrosefit,,Repeatable meals,studio-blue-188,Jelly Beans design family,,,,,,,,,,,,queued 2026-10-03 5119942
+S09-B,2027-02-10,Facebook Abs by AI,,Repeatable meals,studio-blue-188,Jelly Beans design family,,,,,,,,,,,,NOT QUEUED (Blotato 200 cap); planned
+S09-C,2026-12-18,Instagram @danrosefit,,Martial arts and weight training,studio-blue-266,Jelly Beans design family,,,,,,,,,,,,queued 2026-10-03 5119950
+S09-C,2027-02-26,Facebook Abs by AI,,Martial arts and weight training,studio-blue-266,Jelly Beans design family,,,,,,,,,,,,NOT QUEUED (Blotato 200 cap); planned
