@@ -281,6 +281,12 @@ def main():
                 bj_p = os.path.join(B, "beats.json")
                 bj = json.load(open(bj_p))
                 cards = sorted(k_ for k_ in obs if any(b.get("media") == k_ and b.get("kind") == "card" for b in bj["beats"]))
+                if cards and (SHEET or SBL):
+                    # a Soft Blue Light card's chip is drawn by the HyperFrames plate at a fixed 68 px under the hole
+                    # (vertical.media_card_scene); `label_dy` does not move it, so re-rendering would loop on nothing
+                    raise Stop(1, f"a card's chip reads as touching the person in the card on the delivered file: {cards} "
+                                  f"{ {k_: obs[k_][:3] for k_ in cards} }. Look at the frame: a real overlap is a layout "
+                                  f"change in vertical.media_card_scene; a mask misread is recorded in plan.json label_clearance")
                 if cards:
                     # a CARD's chip hangs under its hole: the mask read it as part of a person inside the card (the
                     # uploaded photo on a phone screen, Ad 10 122.0 s). It moves 48 px further below the card per try.
@@ -344,7 +350,7 @@ def main():
         elif name == "review":
             sh(D("review", "--build", B, "--video", full))
         elif name == "pick":
-            sh([PY, K("cutdown_pick.py"), "--build", B, "--ai", a.ai, "--ledger", ledger])
+            sh([PY, K("cutdown_pick.py"), "--build", B, "--ai", a.ai, "--ledger", ledger] + (["--organic"] if ORGANIC else []))
         elif name == "cutdown":
             sh([PY, K("kit_cutdown.py"), "--build", "--out", cut])            # run from the kit, in the build dir
         elif name == "cutgate":

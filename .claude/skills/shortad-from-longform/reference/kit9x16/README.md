@@ -165,11 +165,36 @@ minutes and made it the standard for every vertical (`_shared/framing-motion.md`
 10,759 to 3,413 px (68 % less), p90 pan speed 62.9 to 22.8 px/s (64 % less), him 17 px off centre at the median, 92 px
 at most. The ceiling is the gate's own centring bound (a hold's median head centre within 6 % of the width, 36 source px).
 
-**Not proven yet on a sheet build (2026-10-01):** `kit_plan.py` and the gate pre-check, the judges, the fold and the
-cutdown. The gate's ad ranges (`picture.json`) were measured on Muhammad's 3 to 4 minute ads; RO-10 (an 8:38 organic
-film) plans to 0 flashes (his 2.5 to 3.8 per minute), 0 CTAs (2.7 to 3.3), 2.2 inserts per minute (2.4 to 8.5), 27 %
-insert coverage (34 to 64 %) and a 49 s longest talk stretch (12.6 to 29.9 s). Those bounds are NOT to be moved;
-which format gates a vertical of an organic film is Dan's ruling.
+**The gate stages on a sheet build (2026-10-03, RO-10 round 4).** `kit_run.py --sheet ... --from picture` now runs the
+whole back half: picture, captions, mux, the gate pre-check, the judged watch pass, the fold, the 59 s cut and its gate.
+
+* **Which gate grades it.** `kit_run.py` reads the sheet's `type`. An ad (`AD`) is `ad9x16`, as before. An organic film
+  (`LFC` / `SFC`) is **`organic9x16`** (`_shared/deliver/formats.py`, gate 2.5.0) and its 59 s cut is a **`short`**.
+  `organic9x16` has no number of its own: pacing and speech bounds are the parent `longform`'s (coverage 40 %, 30 s
+  longest static stretch, 4 changes a minute, 2.0 s dead air: it is the same cut and the same delivered mix), framing,
+  caption and label bounds are the organic vertical's (`short`), and drug names are allowed (Dan, 2026-09-30: the
+  brand-name ban is an ad rule; RO-10 says "Zepbound" seven times and `ad9x16` would fail it on that alone).
+* **Ad pacing does not grade an organic film** (Dan, 2026-10-03). `build_kit.py` reports the five hand-count design rows
+  measured on Muhammad's 3 to 4 minute ads (`flashes_per_min`, `cta_count`, `inserts_per_min`, `insert_coverage_hand`,
+  `longest_talk_hand_s`) as NOT APPLICABLE with a reason when `content.json` says `organic` (written by
+  `sheet_to_kit.py` from the sheet's type). No range in `picture.json` moved. `build_kit.py --rescore --build B` refreshes
+  an existing `kit_report.json` without rebuilding a beat.
+* **`kit_plan.py` on a sheet build** reads the build's own facts from `hf/`: overlays (lower thirds, side cards) and
+  their visible boxes from `hf/manifest.json`; a card's chip from `hf/plates.json`; a before-card's chip from
+  `hf/configs/<id>.json`. A chip's reference image is CUT OUT OF THE HYPERFRAMES RENDER that was composited, and the
+  cut-out is proven to be a chip (navy field, white type) before it is used. A card's hole is picture, never a graphic
+  region: captions may run inside a tall card exactly as they do on a fill. The card's chip is a region captions clear.
+* **The 59 s cut of an organic film is a Short, not an ad cutdown.** `cutdown_pick.py --organic` (passed by
+  `kit_run.py`) uses `ORGANIC_BRIEF`: hook, the main claim with its strongest proof, a practical payoff the viewer can
+  act on, no line that points at something the cut does not contain, and the cut may end before the film's last
+  sentence. The seam, length and caption rules are the ad's.
+* **Split caption tokens are joined** (`sheet_to_kit.py` `GLUE`): the roll transcript's "47" "%", "1" ",800",
+  "absbyai" ".com", "o" "'clock" are one caption word each. `sheet_to_kit.py --only-words`, then `kit_deliver.py words`
+  and `captions`, re-does only the words of an existing build.
+* A Soft Blue Light card's chip sits at a fixed 68 px under its hole; the prewatch label loop stops (it does not
+  re-render) if the person mask ever reads that chip as touching the person in the card.
+* An 8:38 film has about twice an ad's boundaries: split the watch pass so each fresh judge reads about as many images
+  as on an ad (`logs/findings_part1..N.json`; the fold takes any number of parts).
 
 ## An editor's master in Soft Blue Light (2026-10-01, AV-11 Ad 13) -- `kit_run.py --master ... --sbl COPY.json`
 
