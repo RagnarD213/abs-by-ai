@@ -178,6 +178,7 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
+- `handoff-20261003-cart-apple-pay-fix.md`: DEPLOYED 10-03, Dan's iPhone test left.
 - `handoff-20261003-ro10-vertical-round4-full-build.md`: BUILDING 10-03, Claude.
 - `handoff-20260930-codex-adopt-review-page-format.md` (09-30). Sol medium.
 - `handoff-20261003-codex-adopt-hyperframes-graphics.md` (10-03). Sol high.
