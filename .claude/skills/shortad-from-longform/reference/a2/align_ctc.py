@@ -117,6 +117,16 @@ for si, s in enumerate(segs):
         st = a + f0*fdur; en = a + (f1+1)*fdur
         scs = [sc[f] for f in range(f0, f1+1)]
         out.append(dict(word=w[0], start=round(st,3), end=round(en,3), score=round(float(np.mean(scs)),3), src='ctc'))
+# A SEGMENT'S LAST WORD CAN LATCH ONTO THE NEXT SENTENCE. Each segment is aligned with 0.6 s of audio either side, so
+# the final letters of its last word can be placed on a similar sound in the next sentence's first words: "fat." ran
+# to 30.517 across a pause and over "In twenty ten"; "calories." ran to 64.659 across a 0.44 s pause. The next segment
+# places its own first word correctly, and the slip repair below then read THAT word as the slipped one and moved it
+# (and its neighbours) 200 to 300 ms late (RO-10 vertical, gate captions:sync, 2026-10-03). The earlier word's END is
+# the wrong number: it stops where the next segment's first word starts.
+for i in range(1, len(out)):
+    p, w = out[i-1], out[i]
+    if seg_of[i] != seg_of[i-1] and p.get('src') == 'ctc' and w.get('src') == 'ctc' and p['start'] + 0.06 <= w['start'] < p['end']:
+        p['end'] = round(w['start'], 3)
 # A CTC slip on a tiny word can land it before its predecessor or after its successor (12 of 875 here even
 # with exact segment ownership): re-place such a word evenly in the gap between its neighbours.
 # The honest repair: a slipped run is re-aligned TOGETHER WITH its nearest trusted neighbours on both sides, so the

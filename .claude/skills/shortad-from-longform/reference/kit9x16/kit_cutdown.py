@@ -397,7 +397,8 @@ def main():
         if any(abs(g[0][1] - s) < 0.08 for s in real):
             g[0] = (g[0][0][:1].upper() + g[0][0][1:], g[0][1], g[0][2])
     CAP.render(gs, out='cut/captions.mov', capdir='cut/cap',
-               stops=[a for a, b in mute] + real)
+               stops=[a for a, b in mute] + real,
+               edges=[m(e) for e in EDGES if m(e) is not None])     # the hold never bridges a picture change (captions.render)
 
     # Labels are already measured and burned into the finished full-length picture. A frame-exact
     # selection must not add a second chip or relocate an approved one.
