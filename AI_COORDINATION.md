@@ -114,7 +114,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **Stop Deadlifting - QUEUED 2026-09-29, Claude.** Blotato Oct 11 9AM CT, 4 platforms. Next: once posted, publish `sixpackabs/articles/TBD-stop-deadlifting.md`, then delete.
 
-**SL-03 NEEDS DAN 2026-10-03, Claude.** http://127.0.0.1:8811/. Next: `handoff-20261003-sl03-salad-shorts-round2-dan-review.md`.
+**SL-03 NEEDS DAN 2026-10-03, Claude.** http://127.0.0.1:8811/. `handoff-20261003-sl03-salad-shorts-round2-dan-review.md`. ⚠9845e46-unpushed(VIDEO-RULES.md,framing-motion.md,shortad/render.py-block)
 
 **RO-05 salad - QUEUED 2026-09-30, Claude.** Oct 18: fire `handoff-20260930-ro05-captions-and-article-after-release.md`.
 
@@ -150,7 +150,7 @@ test starts. `BLOTATO_QUEUE_PROGRESS.md`
 540 day` list, Phase 2 if the Demand Gen draft exists. ⚠ No pointer events or `await` in `javascript_tool` on a busy Ads
 tab; stop rather than click into spinners. `Handoffs/handoff-20260908-google-ads-custom-segments.md`
 
-**Ad 4 V/S/Sh (AV-03 + AS-02) - BUILDING 2026-10-03, Claude.** Re-grade of the held vertical, then square, in `/Volumes/Extreme/_edit_work/AV-03/`. Next: four files to Dan on one review page. `handoff-20261001-ad4-other-formats.md`.
+**Ad 4 V/S/Sh (AV-03, AS-02) - BUILDING 2026-10-03, Claude.** `/Volumes/Extreme/_edit_work/AV-03/`. Next: four files, one review page.
 
 **Shorts parked behind the long-form hold. (baseline 2026-09-15; age unknown)** Zepbound (8) + Supplements (8) need the new spray-tan sound
 (`Handoffs/handoff-20260909-audio-match-muhammad.md`); nothing posts until a parent long-form is public.
@@ -178,7 +178,7 @@ Memory `google-ads-ui-automation`.
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
 - `handoff-20261003-cart-apple-pay-fix.md`: DEPLOYED, Dan's-iPhone-test.
-- `handoff-20261003-ro10-vertical-round4-full-build.md`: BUILDING 10-03, Claude.
+- `handoff-20261003-ro10-vertical-round5-after-dan-review.md`: NEEDS DAN, http://127.0.0.1:8812/.
 - `handoff-20260930-codex-adopt-review-page-format.md` (09-30). Sol medium.
 
 - `handoff-20261001-move-project-out-of-icloud.md` (10-01): move the project out of iCloud's Documents sync (109k duplicates, 199 cloud-only files). Run when nothing else runs here. Opus 5.5 high.
