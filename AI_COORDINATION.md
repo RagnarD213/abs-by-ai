@@ -108,8 +108,6 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **Studio batch - HANDOFF/PUSH-BLOCKED 2026-10-03, Codex.** `Handoffs/handoff-20261003-approved-studio-posts-27-blotato.md`; `1405f93` blocked: `.claude/skills/shortad-from-longform/reference/kit9x16/sbl_graphics.py`, `.claude/skills/shorts/SKILL.md`. Next: owners finish; safe-push.
 
-**Push blocked - 2026-10-01, Claude.** d164674 + f6db976 local only; uncommitted vertical.py, kit_run.py, sbl_page.py block it. Next: owners commit, rerun safe-push.
-
 **Stashed edits - NEEDS OWNER 2026-09-29, Claude.** A rebase kept upstream versions of softblue.py, SOFTBLUE.md, GRAPHICS-STANDARDS.md, deliver/gate.py, coverimage SKILL.md, 00-MASTER.md, jobs.json. Uncommitted edits: `stash@{0}` (5d8284a). Next: owner re-applies.
 
 **SL-04 shorts - QUEUED 2026-09-30, Claude.** Blotato Oct 6-15; delete once posted. `Docs/SL04_SETUP_RECEIPT_20260930.md`.
@@ -181,9 +179,10 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
-- Cart Build: Dan tests `?cart=v2`, then `…-start-page-365-guarantee.md`, Opus.
-- `handoff-20261003-ro10-vertical-round4-full-build.md` (Opus), `…-codex-adopt-vertical-centering.md` (Sol); ⚠c841438-unpushed(shorts/SKILL.md)
-- `handoff-20260930-codex-adopt-review-page-format.md` (09-30): Codex adopts the RO-16 review page. GPT-6 Sol medium.
+- `handoff-20261002-start-page-365-guarantee.md`: cart live 34268c1, ship both. Opus.
+- `handoff-20261003-ro10-vertical-round4-full-build.md`: BUILDING 10-03, Claude. ⚠c841438+f40f259-unpushed(shorts/SKILL.md,sbl_graphics.py)
+- `handoff-20260930-codex-adopt-review-page-format.md` (09-30). Sol medium.
+- `handoff-20261003-codex-adopt-hyperframes-graphics.md` (10-03). Sol high.
 
 - `handoff-20261001-move-project-out-of-icloud.md` (10-01): move the project out of iCloud's Documents sync (109k duplicates, 199 cloud-only files). Run when nothing else runs here. Opus 5.5 high.
 - `handoff-20261001-rebuild-ios-project.md` (10-01): rebuild the iPhone project iCloud wiped. ⚠ iCloud recovery window closes about 10-17. No Apple upload. GPT-6 Sol high.
@@ -192,7 +191,7 @@ Memory `google-ads-ui-automation`.
 - `handoff-20261002-ad13-round3-full-builds.md` (10-02). Opus high.
 - `handoff-20260924-generator-consult-call-outreach.md` (09-24): fire by 09-26.
 - `handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md` [dash]: PHONE ONLY, 3 TikTok covers (updated 09-22). Sonnet 5 or Fable 5.1 / Medium.
-- `handoff-20260915-finalized-ads-6-14-youtube-and-google-ads.md` — Ads 6, 7, 10, 14 → YouTube + DGen (2026-09-15). Codex, high.
+- `handoff-20260915-finalized-ads-6-14-youtube-and-google-ads.md` (09-15). Codex, high.
 - **`video-editing/00-MASTER.md` — THE video-editing list (2026-09-16):** 16 raw short ads, 25 dedicated shorts, 8 long-forms, 3 shorts-from-long-form, 15 ad variants; one doc per job, Claude + Codex prompts. Supersedes the J1–J18 ad-variants queue. Dan picks the order.
 - **Token savings, all Codex (09-30):** `handoff-20260918-claude-video-freeze-and-codex-routing.md` (fire first), `…-shrink-always-loaded-instructions.md`; routines now `handoff-20260930-codex-dot-00..04` (dot, free launch month). Sol.
 - `handoff-20260917-overnight-edit-queue.md` — Phase 1 built; **Phase 2** next (placeholder flow). Fable or Astra, high.
@@ -211,3 +210,5 @@ Memory `google-ads-ui-automation`.
 ## ACTIVE
 - **AV-05/AS-04 Ad 6 - BUILDING 2026-10-02, Claude.** Round 2.
 - **AS-06 square NEEDS DAN 2026-10-02.** `handoff-20261002-ad10-square-round2-full-builds.md`; fb61ce6 unpushed(shorts/SKILL.md).
+
+**Vertical Centering Codex Adopt - IN PROGRESS 2026-10-03, Codex.** Isolated worktree: vertical-centering. Updating Codex skills and shared crop preset; existing excerpt proof only. Next: measured before/after, verify, push. Approved videos untouched.
