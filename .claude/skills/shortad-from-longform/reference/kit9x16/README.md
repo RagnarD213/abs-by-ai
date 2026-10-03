@@ -193,8 +193,40 @@ whole back half: picture, captions, mux, the gate pre-check, the judged watch pa
   and `captions`, re-does only the words of an existing build.
 * A Soft Blue Light card's chip sits at a fixed 68 px under its hole; the prewatch label loop stops (it does not
   re-render) if the person mask ever reads that chip as touching the person in the card.
-* An 8:38 film has about twice an ad's boundaries: split the watch pass so each fresh judge reads about as many images
-  as on an ad (`logs/findings_part1..N.json`; the fold takes any number of parts).
+* `kit_judges.py` writes one brief per fresh judge naming its exact images and what the build declares (ramps vs hard
+  level steps, where captions pause, which pictures carry a chip), from the build's own files; `--notes` adds Dan's
+  decisions. The number of judges follows the image count (`--per`), not the running time: RO-10's 8:38 has 167
+  boundaries (346 images), the same as a 4:30 ad, so three judges. After a fix, `carry_verdicts.py` then
+  `kit_judges.py --rejudge logs/rejudge.json` sends one fresh judge to only the changed images; verdicts carry by a
+  boundary's time and label (a fix that removes a boundary renumbers every later strip).
+
+**RO-10 round 4, what the first full sheet build taught (2026-10-03).** Review page `sbl-ro10/review4/` (port 8812),
+record `sbl-ro10/round4_report.json`.
+
+* **The gate pre-check earns its place.** It found a caption sitting on a lifted list card for six frames and the plan's
+  last cue past the picture before any judge was spent. It costs 18 minutes alone and 46 when another session's gate
+  runs at the same time: never start two gates together.
+* **Three organic9x16 rows read FAIL on RO-10 and were left failing** (coverage 35 % against 40, static run 36 s
+  against 30, 3 of 24 joins above the file's p99). The palette and change-event instruments were calibrated on 16:9
+  layouts that switch between two very different crops; a vertical's 1.2x level steps, ramped pushes and glass lower
+  thirds do not register. The numbers are carried, not calibrated. When Dan rules on RO-10's vertical it becomes the
+  corpus entry they are set from. Never move them to pass a build.
+* **Caption timing is now acoustic for every word.** Digits are spelled the way they are said (`a2/align_ctc.py`), a
+  segment's last word no longer latches onto the next sentence, and the gate's `captions:sync` went from 10 misses to 0.
+* **No ramped push under a tall bottom card** (`sbl_graphics.py` `PUSH_MIN_CARD_TOP`): punched in, his chin met the
+  cycle card's top edge. A hard level step on a cut stays.
+* **A caption's hold ends at the next picture change** and at a list card that lifts captions (`captions.py`).
+* **Judged, left for Dan:** a lower third that opens long before its first line (G14: 4.6 s of heading only, with the
+  captions paused under it; every other one is 2.3 s or less). The timing is the 16:9's own. The offered rule: no lower
+  third opens more than 2.5 s before its first line, and captions run until it opens.
+* A 16:9 lower third that ends 0.2 s after a punch-in finishes its fade on the new shot (G03 at 1:04.2). Judged a
+  judgement call twice; it is the sheet's timing.
+* The 59 s cut of an organic film fails `short`'s `framing:push_coverage` when its talking stretch is short (17 s, one
+  punch-in). The picker does not weigh zoom variety yet.
+* A background task is stopped at two hours. Run the gate detached (`nohup`) and wait on its json; do not hold a
+  two-hour stage chain in one task on a loaded machine.
+* A wall-clock on this film, one clean pass on a machine at load 20 to 150: about 3 h 20 min (graphics 30 min,
+  picture 44, mux 16, gate 18, judges 24, fold 18, cut 25). The same picture step took 10 min later at load 15.
 
 ## An editor's master in Soft Blue Light (2026-10-01, AV-11 Ad 13) -- `kit_run.py --master ... --sbl COPY.json`
 
