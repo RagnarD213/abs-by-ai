@@ -1,29 +1,30 @@
-# Ad 13 "The Cost Of Getting Abs", round 4: Dan's round 3 answers, the square files, the horizontal's last fixes
+# Ad 13 "The Cost Of Getting Abs", round 4: the horizontal's zoom steps and the square files
 
-Written 2026-10-03 at the end of round 3. Recommended: **Claude Opus 5.5, High**.
+Written 2026-10-03 at the end of round 3; updated the same day with Dan's approval. Recommended: **Claude Opus 5.5, High**.
 Sidebar name: `The Cost Of Getting Abs AD R4`. Previous: `handoff-20261002-ad13-round3-full-builds.md`.
 
 Round 3 built everything Dan authorized and stopped on one page: **http://127.0.0.1:8817/**
 (`/Volumes/Extreme/_edit_work/kit9x16/av11-ad13/review3/`; restart with
 `python3 .claude/skills/_shared/review_server.py 8817 /Volumes/Extreme/_edit_work/kit9x16/av11-ad13/review3`).
-Nothing was uploaded. Nothing was filed in the ad folder. The live horizontal (`-SuKGXGcbIg` / `hrQf1240kQA`) is untouched.
+Nothing was uploaded. The approved vertical and its cut were filed in the ad folder on 10-03. The live horizontal (`-SuKGXGcbIg` / `hrQf1240kQA`) is untouched.
 
-## What is waiting for Dan (5 decisions, on the page)
+## What Dan answered (2026-10-03, verbatim; recorded with hashes in `B/review3/decisions.json`)
 
-1. Horizontal: add a zoom step at three of Muhammad's own cuts (2:14.9 visible jump, 3:02 and 3:40 one-frame mouth
-   snaps), or leave them as his live ad has them. Recommended: add.
-2. P03 vertical: approve the mobile YouTube page capture, or allow iPhone Mirroring so the app itself is recorded
-   (the app shows the 4.47M subscriber count; the mobile web page does not). The access request was declined on
-   screen in round 3; do not paint a subscriber count onto the capture.
-3. The square look (first square in Soft Blue Light): approve so the square files can be built.
-4. The finished vertical and its 59 second cut: approve for setup, or notes.
-5. The horizontal's two new layouts: full-screen phone cards where Muhammad had phones beside Dan, and the closing button.
+*"All right, everything is looking good. Everything is approved. Give me the handoff to install or upload these and
+set these up."* No option was named, so each decision takes the page's recommended option:
+
+1. Horizontal: **add the zoom steps** at Muhammad's cuts at 2:14.9, 3:02 and 3:40. The horizontal is not final until built.
+2. P03 vertical: the mobile YouTube page capture is approved as built. No iPhone recording.
+3. The square look is approved: **build the square full film and its 59 second cut.**
+4. The vertical and its 59 second cut are approved. Already filed in the ad folder; their setup is its own handoff,
+   `handoff-20261003-ad13-vertical-setup.md`. Do not rebuild or re-render them.
+5. The horizontal's full-screen phone cards and closing button are approved.
 
 ## Delivered in round 3 (build dir `B` = `/Volumes/Extreme/_edit_work/kit9x16/av11-ad13`)
 
 | file | state |
 |---|---|
-| `B/i added up what getting abs was supposed to cost \| claude \| 9x16 \| ad 13.mp4` (4:04.878) | DELIVERY GATE PASS, 39 rows, 314 watch images judged, 0 defects. sha256 `8bb442a0...` (copy: `review3/masters/Ad 13 9x16 round 3 - full 1080x1920.mp4`) |
+| `B/i added up what getting abs was supposed to cost \| claude \| 9x16 \| ad 13.mp4` (4:04.878) | DELIVERY GATE PASS, 39 rows, 314 watch images judged, 0 defects. sha256 `4a6f058e...` (copy: `review3/masters/Ad 13 9x16 round 3 - full 1080x1920.mp4`) |
 | `B/i added up ... \| claude \| 9x16 59s \| ad 13.mp4` (0:54.288) | DELIVERY GATE PASS, 39 rows, 79 watch images judged, 0 defects (`B/cut/gate_final.json`) |
 | `B/round3/h16x9/DRAFT - Ad 13 16x9 Soft Blue Light round 3b - full.mp4` (4:04.878) | audio identical to his master (md5 `d7d65e94...`). Gate FAIL on one row (`cut:jump_cut`, his own cuts), 3 framing rows NOT MEASURED, 35 pass. Reviewer: pictures clean, 210 watch images, 0 defects. `ROUND-3-EDITOR.md`, `ROUND-3-REVIEW.md` beside it |
 | `B/review3/square/` | square look only: stills of every graphic at 1:1 and a 35 s moving sample (`sq_look.py`). No square film exists |
@@ -46,24 +47,29 @@ build on a master, in Soft Blue Light".
 
 ## Work for round 4, in order
 
-1. Record Dan's answers verbatim with scope in `B/review3/decisions.json` (format: `B/review2/decisions.json`).
-2. **Horizontal, if he picks the zoom steps:** in `B/round3/h16x9.py` add a punch step at his cuts at 134.87, 182.15 and
-   220.19 s, and correct the one-frame lag (most talking shots run 33 ms behind his master; reviewer, round 3b). Re-run
-   the watch pass, one judge, the gate (`B/round3/h16x9/gate/run_gate.sh`; the plan's `declare` block and
-   `negative_events_scan` are already set), and one `ra-reviewer` pass. The three `framing:*` rows need per-shot
-   window data in the plan (`talking_head_windows`); add it or report them as not measured. Never move a bound.
-3. **Square files, if he approves the look:** build the square full film and its 59 second cut from this vertical
-   build (layouts `_shared/hyperframes/square.py`; the `/shortad-from-longform` skill's square section; Ad 6's AS-04
-   build `/Volumes/Extreme/_edit_work/kit9x16/as04-ad6-sq/` is the nearest worked example). Gate format `ad1x1`,
-   judges, fold. The square opener is the top square of the vertical clip.
-4. **P03, if he wants the app:** `request_access` for iPhone Mirroring, record the YouTube app playing `GJHDRlepMTM`
-   at about 0:08 to 0:16 in portrait, swap `yt3min_phone` in `sbl_copy.json` (new file name), re-render that span.
-5. **When the vertical and its cut are approved:** `kit_run.py ... --from deliver --deliver "Claude Ad Videos/<ad 13
-   folder>"` (naming per memory `ad2-vertical-approved`), register the two opener clips in the clip library
-   (`clip_library.py add ... --status used-final --used-in "Ad 13 AV-11"`), update the Edit Queue rows AV-11 and AS-10,
-   and write the `/ad-setup` handoff (Unlisted YouTube + Google Ads; the new horizontal is a NEW video, never a
-   replacement of the live one).
-6. One round 4 page with only what changed; then the board and a handoff.
+1. Re-hash the locked files against `B/review3/decisions.json` before touching anything.
+2. **Horizontal:** in `B/round3/h16x9.py` (skill copy `ad13-r2/h16x9_full.py`) add a small zoom step at his cuts at
+   134.87, 182.15 and 220.19 s, and correct the one-frame lag (most talking shots run 33 ms behind his master;
+   reviewer, round 3b). Build in a new `B/round4/h16x9/` folder; never overwrite the round 3b file. Then the watch
+   pass, one fresh judge, the gate (`B/round3/h16x9/gate/run_gate.sh` as the model; the plan's `declare` block and
+   `negative_events_scan` must be remade for the new file) and one `ra-reviewer` pass. The three `framing:*` rows
+   need per-shot window data in the plan (`talking_head_windows`); add it or report them as not measured. Never move
+   a bound. Audio stays his, stream-copied (md5 `d7d65e94c6167facd5c74bf64958337f`).
+3. **Square files:** build the square full film and its 59 second cut from this vertical build (layouts
+   `_shared/hyperframes/square.py`; the `/shortad-from-longform` skill's square section; Ad 10's AS-06 and Ad 6's
+   AS-04 builds under `/Volumes/Extreme/_edit_work/kit9x16/` are the nearest worked examples). Use the bare-screen
+   phone media and the label fixes from the vertical. Gate format `ad1x1`, judges, fold. The square opener is the top
+   square of the vertical clip. The 59 second square uses the vertical cut's ranges (`B/cut_plan.json`).
+4. **File what passes** in `Muhammad Ad Videos/i added up what getting abs was supposed to cost - ad 13/` (names:
+   `... | claude | 16x9 | ad 13.mp4`, `... | claude | 1x1 | ad 13.mp4`, `... | claude | 1x1 59s | ad 13.mp4`), update the
+   Edit Queue rows (AS-10), and add them to the setup: either run `/ad-setup` on them in a fresh task with
+   `handoff-20261003-ad13-vertical-setup.md` as the model, or write a short setup handoff for them. The new
+   horizontal is a NEW unlisted video and never replaces the live `-SuKGXGcbIg`.
+5. One short round 4 page (the horizontal's three cuts before and after, the square films). Dan has approved the look
+   of both, so the page asks only for a final yes on the finished files. Then the board and a handoff.
+
+Done already on 2026-10-03: the vertical and its cut filed with stamps and `recipe-vertical/`; both opener clips
+registered in the clip library (Drive ids `1fcVAJKpB9fdf-0NiDhZ4wbZBh5XVLUiX` 9:16, `1K5MGw2kHEt2bK9mPvTn7NWazDC_WpT0A` 16:9).
 
 ## Gate status, stated plainly
 
@@ -93,9 +99,8 @@ Total about $1.75 of the $5 cap. No retries were needed.
 ## Starter prompt
 
 > Read `Handoffs/handoff-20261003-ad13-round4-after-round3-page.md` and the files it lists. Name this session "The
-> Cost Of Getting Abs AD R4". My answers to the round 3 page are: <paste>. Record them, then do what they authorize:
-> the horizontal's zoom steps and one-frame fix, the square files if I approved the look, and the delivery of the
-> vertical and its 59 second cut into the ad folder if I approved them. Show me one round 4 page with only what
-> changed. Do not upload anything.
+> Cost Of Getting Abs AD R4". I approved everything on the round 3 page. Build what is left: the horizontal with the
+> zoom steps at Muhammad's three cuts and the one-frame fix, and the square full film and its 59 second cut. Gate,
+> judge and review them, file what passes in the ad folder, and show me one short round 4 page. Do not upload anything.
 
 Model and effort: Claude Opus 5.5, High.

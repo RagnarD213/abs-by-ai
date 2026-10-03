@@ -183,7 +183,7 @@ Memory `google-ads-ui-automation`.
 - `handoff-20261001-move-project-out-of-icloud.md` (10-01): move the project out of iCloud's Documents sync (109k duplicates, 199 cloud-only files). Run when nothing else runs here. Opus 5.5 high.
 - `handoff-20261001-rebuild-ios-project.md` (10-01): rebuild the iPhone project iCloud wiped. ⚠ iCloud recovery window closes about 10-17. No Apple upload. GPT-6 Sol high.
 - `handoff-20261001-search-campaigns-to-vsl-page.md` (10-01). Sol high.
-- **Ad 13 R3 - NEEDS DAN 2026-10-03, Claude.** http://127.0.0.1:8817/ Next: `handoff-20261003-ad13-round4-after-round3-page.md`. ⚠ fccafae unpushed: blocked by uncommitted VIDEO-RULES.md, framing-motion.md, render.py, shorts/SKILL.md.
+- **Ad 13 - APPROVED 2026-10-03, Claude.** Fire `handoff-20261003-ad13-vertical-setup.md` (vertical + 59s) and `...-ad13-round4-after-round3-page.md` (horizontal, square). ⚠ Local commits unpushed: other sessions' VIDEO-RULES.md, framing-motion.md, render.py edits block.
 - `handoff-20260924-generator-consult-call-outreach.md` (09-24): fire by 09-26.
 - `handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md` [dash]: PHONE ONLY, 3 TikTok covers (updated 09-22). Sonnet 5 or Fable 5.1 / Medium.
 - `handoff-20260915-finalized-ads-6-14-youtube-and-google-ads.md` (09-15). Codex, high.
@@ -204,6 +204,6 @@ Memory `google-ads-ui-automation`.
 
 ## ACTIVE
 - **AV-05/AS-04 Ad 6 - BUILDING 2026-10-03, Claude.** ⚠ c821820 unpushed (merge blocked).
-- **AS-06 square LOCKED 2026-10-03.** Fire `handoff-20261002-ad10-square-round2-full-builds.md`.
+- **AS-06 square LOCKED 2026-10-03.** Fire `handoff-20261002-ad10-square-round2-full-builds.md`. ⚠ 942945f unpushed (others' uncommitted files).
 
 **HyperFrames Codex Adopt - NEEDS DAN 2026-10-03, Codex.** Shared method installed and pushed; 59.99s RO-17 proof passed graphics checks and browser playback. Review http://127.0.0.1:8854/. Next: Dan approves or requests changes. Original videos unchanged.
