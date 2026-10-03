@@ -6,8 +6,12 @@
 # so the page reproduces both approved boards exactly. Fixed board widths become fluid (width 100% + max-width +
 # aspect-ratio) so it fits every phone.
 #
-# Dan's build decisions (2026-09-30): both plan pickers cut (the checkout has its own Monthly/Annual choice), the
-# FAQ note "(Change when the stores list the app.)" cut, WV-01 A 1.2x self-hosted with the tap-for-sound box.
+# Dan's build decisions (2026-09-30): both plan pickers cut (the cart has its own plan choice; gen.py no longer
+# draws them), the FAQ note "(Change when the stores list the app.)" cut, WV-01 A 1.2x self-hosted with the
+# tap-for-sound box. 2026-10-03: the cart's 365-day guarantee (gen.gcard, gen.gline, the FAQ item), hidden inside
+# the native apps with the rest of the purchase UI.
+#
+# NEVER hand-edit public/start.html. A change made there is lost on the next build: make it in gen.py or here.
 #
 #   python3 build_live.py <repo root>          writes <repo>/public/start.html
 #   python3 verify_live.py blocks.json <repo>/public/start.html --allow allow_live.txt
@@ -72,25 +76,6 @@ class Live(gen.Build):
         inner = '\n'.join([s.h2(gen.plain(29)), s.p(gen.T(30), 'letter lead'), grid, s.ps(33, 34, 35, 36, 37, 38, lead_last=True)])
         return s.section('dadbod', gen.WHITE, inner)
 
-    def trysec(s):  # the plan picker is cut (Dan, 2026-09-30)
-        caps = (f'<p class="caps" style="font-size: 12px; line-height: 1.6; font-weight: 700; letter-spacing: .06em; color: #3F444C; text-align: center">'
-                f'<em>{gen.plain(158)}</em></p>')
-        mw = 480 if s.D else 350
-        buy = (f'<div style="display: flex; flex-direction: column; gap: 10px; align-self: center; width: 100%; max-width: {mw}px">'
-               f'<button type="button" class="cta" style="background: @CTA@">Start My 7-Day Free Trial</button>{caps}</div>')
-        inner = '\n'.join([s.h2(gen.plain(152)), s.ps(153, 154, 155), buy])
-        return s.section('try', gen.PAPER, inner)
-
-    def s10(s):  # the plan picker is cut (Dan, 2026-09-30); plan choice happens in the checkout
-        D = s.D
-        card = (f'<div style="display: flex; flex-direction: column; gap: 16px; padding: {"32px 36px" if D else "22px 20px"}; border: 2px solid {gen.INK}; border-radius: 16px; '
-                f'background: #FFFFFF; box-shadow: 0 14px 30px rgba(5,7,11,0.10)">'
-                f'<div style="display: flex; flex-direction: column; gap: 6px"><h2 class="h2">{gen.plain(160)}</h2>'
-                f'<p style="font-size: {18 if D else 16}px; line-height: 1.45; font-weight: 700; color: #2B2F36">{gen.plain(161)}</p></div>'
-                f'<button type="button" class="cta" style="background: @CTA@">Start My 7-Day Free Trial</button>'
-                f'<p class="terms">{gen.plain(166)}</p></div>')
-        return s.section('s10', gen.WHITE, card, pad=('64px 0 72px' if D else '28px 20px 40px'))
-
     def final(s):
         out = super().final()
         return out.replace('<div style="display: flex; flex-direction: column; align-items: center; gap: 2px;',
@@ -114,6 +99,8 @@ class Live(gen.Build):
             sec = sec.replace('<button type="button" class="cta" style="background: #15803D">Start My 7-Day Free Trial</button>',
                               f'<a class="cta js-cta app-hide-purchase" data-pos="{key}" href="{CHECKOUT}">Start My 7-Day Free Trial</a>')
             sec = sec.replace('<p class="terms"', '<p class="terms app-hide-purchase"').replace('<p class="caps"', '<p class="caps app-hide-purchase"')
+            for c in ('gline', 'gcard', 'gfaq'):  # the guarantee covers web purchases: hidden in the native apps
+                sec = sec.replace(f'class="{c}"', f'class="{c} app-hide-purchase"')
             sec = re.sub(r'<sc-if [^>]*>', '', sec).replace('</sc-if>', '')
             assert '<button type="button" class="cta"' not in sec and not re.search(r'@[A-Z]+@', sec), key
             out.append(fluid(sec))
@@ -128,7 +115,7 @@ def fluid(h):
     def img(m):
         tag = m.group(0)
         mm = re.search(r'width: (\d+)px; height: (\d+)px;', tag)
-        if not mm or int(mm.group(1)) < 150:
+        if not mm or int(mm.group(1)) < 150 or 'float: left' in tag:
             return tag
         w, hh = mm.groups()
         tag = tag.replace(mm.group(0), f'width: 100%; max-width: {w}px; height: auto; aspect-ratio: {w} / {hh}; min-width: 0;')
@@ -196,12 +183,12 @@ img,video{{max-width:100%}}
 /* Top stripe, pinned (locked layout). Phone 60 px, desktop 64 px. */
 .stripe{{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;flex-shrink:0;display:flex;height:60px;padding:0 12px 0 16px;background:#05070B;color:#FFFFFF}}
 .stripe-in{{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%}}
-.stripe-logo{{height:22px;width:auto;flex-shrink:0;filter:invert(1)}}
+.stripe-logo{{height:26px;width:auto;flex-shrink:0;filter:invert(1)}}
 .stripe-right{{display:flex;align-items:center;gap:10px}}
 .stripe-txt{{font-size:13px;font-weight:800;line-height:1.25;text-align:right}}
 .stripe-txt span{{font-weight:600;color:#C9CDD3}}
 .stripe-cta{{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:10px;background:#15803D;color:#FFFFFF;font-size:14px;font-weight:800;white-space:nowrap;text-decoration:none}}
-@media (max-width:359px){{.stripe{{padding:0 8px 0 10px}}.stripe-logo{{height:18px}}.stripe-txt{{font-size:11px}}.stripe-cta{{padding:0 10px;font-size:13px}}.stripe-right{{gap:8px}}}}
+@media (max-width:359px){{.stripe{{padding:0 8px 0 10px}}.stripe-logo{{height:22px}}.stripe-txt{{font-size:11px}}.stripe-cta{{padding:0 10px;font-size:13px}}.stripe-right{{gap:8px}}}}
 /* Video: WV-01, muted autoplay under the tap-for-sound box (yellow, the approved default). */
 .vwrap{{flex-shrink:0;display:flex;justify-content:center}}
 .vbox{{position:relative;width:100%;aspect-ratio:16/9;flex-shrink:0;background:#05070B;overflow:hidden}}
@@ -217,6 +204,10 @@ img,video{{max-width:100%}}
 .before-grid .b1{{grid-column:1/-1;aspect-ratio:350/467}}
 .before-grid .b2{{aspect-ratio:128/160}}
 .before-grid .b3{{aspect-ratio:214/160}}
+/* Dan's note photo: smaller on the narrowest phones so the letter keeps a readable column beside it. */
+@media (max-width:359px){{#p img.note-av{{width:96px;height:112px;margin-right:12px}}}}
+/* Guarantee card title: one size down on the narrowest phones so "100% Money Back Guarantee" stays on one line. */
+@media (max-width:359px){{#p .gcard h3{{font-size:16px}}}}
 /* Inside the Android app: no purchase UI (memory native-app-iap-gating). */
 .app-only-note{{display:none}}
 html.native-app #p .app-hide-purchase{{display:none !important}}
@@ -229,7 +220,7 @@ html.native-app #p .app-only-note{{display:flex}}
 CSS_LIVE_DESK = '''
 .stripe{height:64px;padding:0 40px}
 .stripe-in{max-width:1080px;margin:0 auto}
-.stripe-logo{height:28px}
+.stripe-logo{height:34px}
 .stripe-right{gap:18px}
 .stripe-txt{font-size:16px}
 .stripe-cta{padding:0 22px;font-size:15px}

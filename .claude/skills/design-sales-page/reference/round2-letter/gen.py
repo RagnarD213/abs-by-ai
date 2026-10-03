@@ -1,5 +1,6 @@
-# Builds the Round 2 sales-letter boards (phone + desktop) from Dan's doc blocks, verbatim.
-import json, re, sys, os, html as H
+# Builds the sales-letter boards (phone + desktop) from Dan's doc blocks, verbatim.
+# Round 3 (2026-10-03): the cart's 365-day guarantee, the Lifetime wording, and the 2026-10-01 live edits folded in.
+import json, math, re, sys, os, html as H
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 B = json.load(open(os.path.join(HERE, 'blocks.json')))
@@ -18,6 +19,29 @@ def plain(i):
 
 INK, PAPER, WHITE, DARK = '#05070B', '#F6F4F0', '#FFFFFF', '#05070B'
 HAIR = '#E4E1DB'
+SEAL_INK = '#3D2A05'  # the dark brown lettering on the gold guarantee seal (Dan, 2026-10-03: gold, not the cart's navy circle)
+
+# The 365-day guarantee. Dan approved these lines on the cart (Docs/cart-design-20261002/README.md, 2026-10-02).
+# They are not in the letter doc. Use them as written; write no new guarantee copy.
+G_TITLE = '365-Day No Risk<br>100% Money Back Guarantee'
+G_P1 = "We guarantee you'll love Abs By AI or we'll refund your money."
+G_P2 = ("If you're not happy for any reason, email us within 365 days of your first payment for a full refund. "
+        "No questions asked.")
+G_SHORT = '365-Day Money Back Guarantee'
+G_FAQ_Q = "What if I don't like it?"
+
+# Wording that changed after the doc was locked on 2026-09-30. Each old line is in allow.txt / allow_live.txt.
+#   130: Dan, 2026-10-01 (past tense). 166 and 173: the web cart sells Monthly and Lifetime since 2026-10-03.
+EDITS = {
+    130: ('AI Tracks My Calories For Me', 'AI Tracked My Calories For Me'),
+    166: ('Renews automatically at the plan price until you cancel.',
+          'Monthly renews automatically at $19.99 until you cancel. Lifetime is a one-time charge of $69.99, no recurring billing.'),
+    173: ('$19.99 a month or $69.99 a year.', '$19.99 a month, or a one-time charge of $69.99 for lifetime access.'),
+}
+for _i, (_old, _new) in EDITS.items():
+    for _f in ('html', 'text'):
+        assert B[_i][_f].count(_old) == 1, (_i, _f)
+        B[_i][_f] = B[_i][_f].replace(_old, _new)
 
 ICON = {
     'check': '<polyline points="20 6 9 17 4 12"></polyline>',
@@ -32,6 +56,16 @@ ICON = {
     'sound': '<path d="M11 5 6 9H2v6h4l5 4V5z"></path><path d="M15.5 8.5a5 5 0 0 1 0 7"></path><path d="M19 5a10 10 0 0 1 0 14"></path>',
 }
 
+def burst(cx, cy, r1, r2, n):
+    """Points of an n-tooth serrated circle (the edge of the seal) or, with n=5, a star."""
+    pts = []
+    for i in range(n * 2):
+        r = r1 if i % 2 == 0 else r2
+        a = math.pi * i / n - math.pi / 2
+        pts.append(f'{cx + r * math.cos(a):.1f},{cy + r * math.sin(a):.1f}')
+    return ' '.join(pts)
+
+
 def svg(name, size, color, sw=2, extra=''):
     return (f'<svg width="{size}" height="{size}" viewBox="0 0 24 24" fill="none" stroke="{color}" stroke-width="{sw}" '
             f'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0{extra}">{ICON[name]}</svg>')
@@ -41,6 +75,11 @@ class Build:
     def __init__(s, D):
         s.D = D
         s.W = 1280 if D else 390
+        s.n = 0  # counter for unique gradient ids in the inline seal SVGs
+
+    def uid(s):
+        s.n += 1
+        return str(s.n)
 
     # ---------- primitives ----------
     def section(s, key, bg, inner, dark=False, gap=None, pad=None, center=False):
@@ -130,29 +169,53 @@ class Build:
                 f'<button type="button" class="cta" style="background: @CTA@">Start My 7-Day Free Trial</button>'
                 f'<p class="terms"{tcol}>{terms}</p></div></section>')
 
-    def picker(s, variant):
+    def seal(s):
+        # The gold guarantee seal, drawn as inline SVG so it stays sharp at every size. Every word on it comes from
+        # the approved title ("365-Day No Risk 100% Money Back Guarantee").
+        u, size = s.uid(), (132 if s.D else 116)
+        star = lambda x: f'<polygon points="{burst(x, 100, 6, 2.5, 5)}" fill="{SEAL_INK}"></polygon>'
+        return (f'<svg width="{size}" height="{size}" viewBox="0 0 200 200" role="img" aria-label="365 day money back guarantee seal" '
+                f'style="flex-shrink: 0; display: block; filter: drop-shadow(0 5px 9px rgba(61,42,5,0.30))">'
+                f'<defs><linearGradient id="ga{u}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FCF1B8"></stop><stop offset="0.28" stop-color="#E3B64B"></stop>'
+                f'<stop offset="0.52" stop-color="#C08A22"></stop><stop offset="0.76" stop-color="#F4DA82"></stop><stop offset="1" stop-color="#A9741A"></stop></linearGradient>'
+                f'<linearGradient id="gb{u}" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF6CC"></stop><stop offset="0.45" stop-color="#EBC45C"></stop>'
+                f'<stop offset="1" stop-color="#D2A036"></stop></linearGradient>'
+                f'<radialGradient id="gc{u}" cx="0.38" cy="0.30" r="0.85"><stop offset="0" stop-color="#FFF8D6"></stop><stop offset="0.55" stop-color="#F0CD6A"></stop>'
+                f'<stop offset="1" stop-color="#C9952C"></stop></radialGradient>'
+                f'<path id="gt{u}" d="M 29,100 A 71,71 0 0 1 171,100"></path><path id="gu{u}" d="M 17,100 A 83,83 0 0 0 183,100"></path></defs>'
+                f'<polygon points="{burst(100, 100, 99, 92, 36)}" fill="url(#ga{u})"></polygon>'
+                f'<circle cx="100" cy="100" r="89" fill="url(#gb{u})" stroke="#8A5E12" stroke-width="1.5"></circle>'
+                f'<circle cx="100" cy="100" r="62" fill="url(#gc{u})" stroke="#8A5E12" stroke-width="1.5"></circle>'
+                f'<circle cx="100" cy="100" r="57" fill="none" stroke="#8A5E12" stroke-width="1" stroke-dasharray="2 3"></circle>'
+                f'<text font-size="15.5" font-weight="800" letter-spacing="1.6" fill="{SEAL_INK}" text-anchor="middle"><textPath href="#gt{u}" startOffset="50%">100% MONEY BACK</textPath></text>'
+                f'<text font-size="15.5" font-weight="800" letter-spacing="3" fill="{SEAL_INK}" text-anchor="middle"><textPath href="#gu{u}" startOffset="50%">GUARANTEE</textPath></text>'
+                f'{star(23.5)}{star(176.5)}'
+                f'<text x="100" y="112" font-size="50" font-weight="800" letter-spacing="-1" fill="{SEAL_INK}" text-anchor="middle">365</text>'
+                f'<text x="102" y="134" font-size="17" font-weight="800" letter-spacing="4" fill="{SEAL_INK}" text-anchor="middle">DAY</text></svg>')
+
+    def gcard(s, bg=PAPER):
+        # The guarantee block: the cart's title and two sentences beside the gold seal. Phone: seal on top, centred.
+        # Desktop: seal on the left. bg is paper on a white section, white with a hairline on a paper section.
         D = s.D
-        if variant == 'letter':
-            opts = [('M', 'Monthly', '7 days free then $19.99/month', '$19.99', None),
-                    ('A', 'Annual', '7 days free then $69.99/year', '$69.99', 'SAVE 71%')]
-        else:
-            opts = [('M', 'Monthly', '7 days free, then $19.99/month', None, None),
-                    ('A', 'Annual', '7 days free, then $69.99/year (about $5.83/month)', None, 'SAVE 71%')]
-        out = []
-        for k, name, sub, price, badge in opts:
-            b = (f'<span style="padding: 3px 8px; border-radius: 999px; background: rgba(201,48,45,0.12); color: #B3261E; font-size: 12px; '
-                 f'font-weight: 800; letter-spacing: .04em">{badge}</span>') if badge else ''
-            pr = f'<span style="font-size: {20 if D else 18}px; font-weight: 800; white-space: nowrap">{price}</span>' if price else ''
-            out.append(
-                f'<button type="button" role="radio" aria-checked="@P{k}C@" onClick="@PICK{k}@" style="display: flex; align-items: center; gap: 14px; width: 100%; '
-                f'min-height: 64px; padding: 14px 16px; box-sizing: border-box; border: @P{k}B@; border-radius: 14px; background: #FFFFFF; color: {INK}; '
-                f'font-family: inherit; text-align: left; cursor: pointer">'
-                f'<span style="flex-shrink: 0; display: flex; align-items: center; justify-content: center; width: 22px; height: 22px; box-sizing: border-box; '
-                f'border: 2px solid {INK}; border-radius: 50%"><span style="width: 10px; height: 10px; border-radius: 50%; background: @P{k}D@"></span></span>'
-                f'<span style="flex-grow: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px">'
-                f'<span style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: {18 if D else 17}px; font-weight: 800">{name}{b}</span>'
-                f'<span style="font-size: {15 if D else 14}px; line-height: 1.4; color: #3F444C">{sub}</span></span>{pr}</button>')
-        return f'<div role="radiogroup" aria-label="Pick a plan" style="display: flex; flex-direction: {"row" if D else "column"}; gap: 10px">{"".join(out)}</div>'
+        border = f' border: 1px solid {HAIR};' if bg == WHITE else ''
+        lay = 'flex-direction: row; gap: 28px; padding: 28px 32px; text-align: left' if D else 'flex-direction: column; gap: 14px; padding: 24px 20px; text-align: center'
+        return (f'<div class="gcard" style="display: flex; align-items: center; {lay}; border-radius: 16px; background: {bg};{border}">{s.seal()}'
+                f'<div style="display: flex; flex-direction: column; gap: 10px; min-width: 0">'
+                f'<h3 style="font-size: {24 if D else 18}px; line-height: 1.3; font-weight: 800">{G_TITLE}</h3>'
+                f'<p style="font-size: {17 if D else 15}px; line-height: 1.55; color: #3F444C">{G_P1}</p>'
+                f'<p style="font-size: {17 if D else 15}px; line-height: 1.55; color: #3F444C">{G_P2}</p></div></div>')
+
+    def gline(s, center=False):
+        # The short form: one row under a button's terms line, with a small gold check badge.
+        u = s.uid()
+        badge = (f'<svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" style="flex-shrink: 0">'
+                 f'<defs><linearGradient id="gm{u}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FCF1B8"></stop><stop offset="0.45" stop-color="#E3B64B"></stop>'
+                 f'<stop offset="1" stop-color="#B07A1E"></stop></linearGradient></defs>'
+                 f'<polygon points="{burst(12, 12, 12, 10.4, 14)}" fill="url(#gm{u})"></polygon>'
+                 f'<circle cx="12" cy="12" r="8.6" fill="none" stroke="#8A5E12" stroke-width="0.7"></circle>'
+                 f'<polyline points="7.6 12.4 10.7 15.3 16.4 9.2" fill="none" stroke="{SEAL_INK}" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"></polyline></svg>')
+        return (f'<p class="gline" style="display: flex; align-items: center; justify-content: {"center" if center else "flex-start"}; gap: 8px; '
+                f'font-size: {15 if s.D else 14}px; line-height: 1.4; font-weight: 800; color: {INK}">{badge}<span>{G_SHORT}</span></p>')
 
     # ---------- sections ----------
     def top(s):
@@ -160,7 +223,7 @@ class Build:
         inner_w = 'max-width: 1080px; margin: 0 auto; width: 100%;' if D else ''
         stripe = (f'<div data-k="stripe" style="flex-shrink: 0; display: flex; height: {64 if D else 60}px; padding: 0 {"40px" if D else "12px 0 16px"}; background: {INK}; color: #FFFFFF">'
                   f'<div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; {inner_w}">'
-                  f'<img src="/_blob/bf9335dac3fc2f8d33819a110ab2cce3" alt="Abs by AI" style="height: {28 if D else 22}px; width: auto; flex-shrink: 0; filter: invert(1)">'
+                  f'<img src="/_blob/bf9335dac3fc2f8d33819a110ab2cce3" alt="Abs by AI" style="height: {34 if D else 26}px; width: auto; flex-shrink: 0; filter: invert(1)">'
                   f'<div style="display: flex; align-items: center; gap: {18 if D else 10}px">'
                   f'<p style="font-size: {16 if D else 13}px; font-weight: 800; line-height: 1.25; text-align: right">7-Day Free Trial<br><span style="font-weight: 600; color: #C9CDD3">$0 today</span></p>'
                   f'<button type="button" style="min-height: 44px; padding: 0 {22 if D else 14}px; border: 0; border-radius: 10px; background: @CTA@; color: #FFFFFF; '
@@ -201,19 +264,17 @@ class Build:
                 f'<p style="font-size: {18 if D else 16}px; line-height: 1.45; font-weight: 700; color: #2B2F36">{plain(12)}</p></div>'
                 f'<ul style="display: flex; flex-direction: column; gap: 14px">{"".join(lis)}</ul>'
                 f'<button type="button" class="cta" style="background: @CTA@">Start My 7-Day Free Trial</button>'
-                f'<p class="terms"><em>{plain(18)}</em></p></div></section>')
+                f'<p class="terms"><em>{plain(18)}</em></p>{s.gline()}</div></section>')
         return [stripe, hero, video, sound, card]
 
     def note(s):
         D = s.D
-        av = ASSETS['avatar']
-        by = (f'<div style="display: flex; align-items: center; gap: 16px">'
-              f'<img src="{av}" alt="Dan Rose" style="width: {104 if D else 84}px; height: {121 if D else 98}px; border-radius: 14px; object-fit: cover; object-position: center top; flex-shrink: 0">'
-              f'<div style="display: flex; flex-direction: column; gap: 4px; min-width: 0">'
-              f'<p style="font-size: {18 if D else 16}px; font-weight: 800">A note from Dan Rose</p>'
-              f'<p style="font-size: {15 if D else 14}px; line-height: 1.45; color: #4A4F57"><em>{plain(20).replace(" [face crop]", "")}</em></p></div></div>')
-        body = s.ps(23, 24, 25, 26, 27, lead_last=True)
-        return s.section('note', PAPER, by + '\n' + body)
+        img = (f'<img src="{ASSETS["avatar"]}" alt="Dan Rose" class="note-av" style="float: left; width: {156 if D else 126}px; height: {182 if D else 147}px; '
+               f'margin: {"7px 22px 10px 0" if D else "6px 16px 8px 0"}; border-radius: 14px; object-fit: cover; object-position: center top">')
+        out = [x for i in (23, 24, 25, 26) for x in paras(i)]
+        gap = f' style="margin-top: {22 if D else 18}px"'
+        body = ''.join(f'<p class="letter"{gap if n else ""}>{x}</p>' for n, x in enumerate(out))
+        return s.section('note', PAPER, f'<div style="display: flow-root">{img}{body}</div>\n' + s.p(T(27), 'letter lead'))
 
     def dadbod(s):
         D = s.D
@@ -383,12 +444,12 @@ class Build:
         return s.section('hack5', DARK, inner, dark=True)
 
     def trysec(s):
-        caps = (f'<p style="font-size: 12px; line-height: 1.6; font-weight: 700; letter-spacing: .06em; color: #3F444C; text-align: center">'
+        caps = (f'<p class="caps" style="font-size: 12px; line-height: 1.6; font-weight: 700; letter-spacing: .06em; color: #3F444C; text-align: center">'
                 f'<em>{plain(158)}</em></p>')
         mw = 480 if s.D else 350
         buy = (f'<div style="display: flex; flex-direction: column; gap: 10px; align-self: center; width: 100%; max-width: {mw}px">'
                f'<button type="button" class="cta" style="background: @CTA@">Start My 7-Day Free Trial</button>{caps}</div>')
-        inner = '\n'.join([s.h2(plain(152)), s.ps(153, 154, 155), s.picker('letter'), buy])
+        inner = '\n'.join([s.h2(plain(152)), s.ps(153, 154, 155), buy, s.gcard(WHITE)])
         return s.section('try', PAPER, inner)
 
     def s10(s):
@@ -397,7 +458,6 @@ class Build:
                 f'background: #FFFFFF; box-shadow: 0 14px 30px rgba(5,7,11,0.10)">'
                 f'<div style="display: flex; flex-direction: column; gap: 6px"><h2 class="h2">{plain(160)}</h2>'
                 f'<p style="font-size: {18 if D else 16}px; line-height: 1.45; font-weight: 700; color: #2B2F36">{plain(161)}</p></div>'
-                f'{s.picker("s10")}'
                 f'<button type="button" class="cta" style="background: @CTA@">Start My 7-Day Free Trial</button>'
                 f'<p class="terms">{plain(166)}</p></div>')
         return s.section('s10', WHITE, card, pad=('64px 0 72px' if D else '28px 20px 40px'))
@@ -427,6 +487,9 @@ class Build:
             last = ' border-bottom: 1px solid ' + HAIR + ';' if i == 179 else ''
             items.append(f'<div style="display: flex; flex-direction: column; gap: 6px; padding: 16px 0; border-top: 1px solid {HAIR};{last}">'
                          f'<h3 class="q">{q}</h3><p class="a">{a}</p></div>')
+            if i == 174:
+                items.append(f'<div class="gfaq" style="display: flex; flex-direction: column; gap: 6px; padding: 16px 0; border-top: 1px solid {HAIR};">'
+                             f'<h3 class="q">{G_FAQ_Q}</h3><p class="a">{G_P1} {G_P2}</p></div>')
         inner = '\n'.join([s.h2(plain(172).replace('S12 · ', ''), ' style="padding-bottom: 6px"'), '<div style="display: flex; flex-direction: column">' + ''.join(items) + '</div>'])
         return s.section('faq', WHITE, inner, gap=12)
 
@@ -441,7 +504,7 @@ class Build:
             s.h2(plain(181), ' style="text-align: center"'),
             f'<div style="display: flex; flex-direction: column; gap: 8px; align-self: center; width: 100%; max-width: {mw}px">'
             f'<button type="button" class="cta" style="background: @CTA@">Start My 7-Day Free Trial</button>'
-            f'<p class="terms" style="text-align: center">{plain(183)}</p></div>', sign, s.after_photo()])
+            f'<p class="terms" style="text-align: center">{plain(183)}</p>{s.gline(center=True)}</div>', sign, s.after_photo()])
         return s.section('final', PAPER, inner, center=True)
 
     def footer(s):
@@ -593,7 +656,8 @@ if __name__ == '__main__':
         if mode == 'measure':
             open(os.path.join(outdir, f'measure_{tag}.html'), 'w').write(measure_page(b, secs))
         else:
-            plan = json.load(open(os.path.join(HERE, f'split_{tag}.json')))
+            # optional 3rd argument: another split prefix, e.g. split_r3 for a round that shows only the changed parts
+            plan = json.load(open(os.path.join(HERE, f'{sys.argv[3] if len(sys.argv) > 3 else "split"}_{tag}.json')))
             keys = [re.search(r'data-k="([^"]+)"', x).group(1) for x in secs]
             for part in plan['parts']:
                 idx = [keys.index(k) for k in part['keys']]
