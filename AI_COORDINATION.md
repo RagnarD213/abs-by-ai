@@ -177,7 +177,6 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
-- `handoff-20261003-cart-apple-pay-fix.md`: DEPLOYED, Dan's-iPhone-test.
 - `handoff-20261003-ro10-vertical-round5-after-dan-review.md`: NEEDS DAN, http://127.0.0.1:8812/.
 - `handoff-20260930-codex-adopt-review-page-format.md` (09-30). Sol medium.
 
@@ -205,6 +204,6 @@ Memory `google-ads-ui-automation`.
 
 ## ACTIVE
 - **AV-05/AS-04 Ad 6 - BUILDING 2026-10-03, Claude.** ⚠ c821820 unpushed (merge blocked).
-- **AS-06 square NEEDS DAN 2026-10-02.** `handoff-20261002-ad10-square-round2-full-builds.md`; fb61ce6 unpushed(shorts/SKILL.md).
+- **AS-06 square LOCKED 2026-10-03.** Fire `handoff-20261002-ad10-square-round2-full-builds.md`.
 
 **HyperFrames Codex Adopt - NEEDS DAN 2026-10-03, Codex.** Shared method installed and pushed; 59.99s RO-17 proof passed graphics checks and browser playback. Review http://127.0.0.1:8854/. Next: Dan approves or requests changes. Original videos unchanged.
