@@ -9,6 +9,10 @@ Asset session Drive folder: `1FullVwvuRxdbbaKhpy1_KLdAGLlG3XnC`.
 - `rebuild_blocks.py latest.json blocks.json`: after images are inserted into the doc, restores the original numbering
   and checks 28 anchor paragraphs.
 - `allow.txt`: fragments intentionally not on the page, for `verify_boards.py --allow`.
+- **Round 3 (2026-10-03):** the 365-day guarantee (`G_*` constants, `Build.seal`, `gcard`, `gline`, the FAQ item), the
+  Lifetime wording and the 2026-10-01 live edits (`EDITS`, the note layout, the logo size). Canvas page
+  "Round 3: guarantee" shows only the changed parts: `python3 gen.py build <root>/project split_r3`
+  (`split_r3_phone.json`, `split_r3_desk.json`). `split_phone.json` / `split_desk.json` are still the whole page in 4 parts.
 
 Rebuild from scratch (work folder with this folder's files and an empty sibling `root/project/`):
 

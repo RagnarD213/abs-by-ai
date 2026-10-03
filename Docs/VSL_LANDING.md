@@ -17,13 +17,19 @@ old two-variant page, kept at **`/start-v1`** (`public/start-v1.html`) for rollb
   while scrolled away. A new cut = new file name (the route caches 7 days).
 - **Buttons (8):** all go to `/?join=1&from=vsl&v=letter-v1` plus `utm_*`, `gclid`, `gbraid`, `wbraid`, `fbclid`, `ttclid`,
   `msclkid`, straight into the pay-first cart. No plan picker on the page (Dan cut both, 2026-09-30); Monthly is
-  pre-selected in the cart, Annual one tap away.
+  pre-selected in the cart, Lifetime one tap away.
+- **Guarantee (2026-10-03):** the cart's 365-day money back guarantee, in four places: a one-line row in the offer card
+  and under the last button, the full card with the gold seal in the "Try Abs By AI Free For 7 Days" section, and the
+  question "What if I don't like it?". Wording is the cart's, unchanged; the seal is gold on this page (Dan's call).
+  A full refund covers every payment made in the 365 days after the first one. `/refunds`, `/faq`, `/terms` and the
+  member hub's refund answer say the same. Two plan lines say Lifetime instead of a yearly plan (`EDITS` in `gen.py`).
+  Canvas page "Round 3: guarantee".
 - **Events:** `vsl_landing_seen`, `vsl_video_play` (`autoplay: true, muted: true` when the muted preview starts),
   `vsl_sound_on` (the real "started watching"), `vsl_video_progress` 25/50/75/100 counted only after sound on,
   `vsl_trial_cta_clicked {position}`. Every event carries `landing: 'vsl', landing_variant: 'letter-v1'`. No coin flip:
   tests here are between videos, never layouts.
 - **Same tags as before:** one gtag loader (Ads `AW-18361229851` + GA4), Meta pixel, TikTok pixel, PostHog.
-- **Inside the Android/iOS app:** buy buttons, prices lines and the stripe button are hidden; "Open Abs By AI" shows instead.
+- **Inside the Android/iOS app:** buy buttons, prices lines, the stripe button and every guarantee element are hidden; "Open Abs By AI" shows instead.
 
 ## Why it exists — the funnel on 2026-09-09 (PostHog, last 30 days, absbyai.com only)
 

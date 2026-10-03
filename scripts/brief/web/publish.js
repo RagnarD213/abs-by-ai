@@ -11,8 +11,8 @@ document.getElementById('publish-form').addEventListener('submit',async event =>
     if (response.status === 401) { location.replace('/brief-login'); return; }
     if (!response.ok) throw new Error('Publication unavailable');
     const receipt = await response.json();
-    if (receipt.ok !== true || receipt.forDate !== document.forDate) throw new Error('Unverified receipt');
-    status.textContent = `Published your ${receipt.forDate} edition privately. The daily routine remains disabled.`;
+    if (receipt.ok !== true || receipt.forDate !== document.forDate || receipt.routineEnabled !== document.routineEnabled) throw new Error('Unverified receipt');
+    status.textContent = `Published your ${receipt.forDate} edition privately. ${receipt.routineEnabled ? 'Daily updates are enabled.' : 'No enabled daily schedule is recorded for this edition.'} Publication does not change scheduling.`;
   } catch { status.textContent = 'Publication could not be verified. Check the prepared file and your session, then try again.'; }
   finally { button.disabled = false; }
 });

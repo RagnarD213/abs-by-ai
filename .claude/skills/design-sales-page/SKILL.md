@@ -50,6 +50,17 @@ Top of the page, in this order, nothing else above the video:
 Then the letter: founder note with Dan's avatar (hair to just below the belt crop), the story sections, the product
 reveal, the numbered hacks or features, the letter's own close, the plan card, FAQ, final button, sign-off, footer.
 
+**The guarantee (Dan, 2026-10-03):** the cart's 365-Day No Risk 100% Money Back Guarantee is part of the locked layout,
+in four places and nowhere else. (1) Offer card under the video: the one-line row ("365-Day Money Back Guarantee" with a
+small gold check badge) under the terms line. (2) The "Try ... Free For 7 Days" section: the full card under the button
+and its terms line, with the **gold guarantee seal** (Dan rejected the cart's navy circle for this page: "a gold, more
+trustworthy and impressive-looking guarantee seal"), the title and the two sentences. Phone: seal on top, centred.
+Desktop: seal on the left. (3) FAQ: "What if I don't like it?" after "Is there a catch?". (4) The one-line row under the
+last button's terms line. No row under the buttons between story sections. Wording: only the lines Dan approved on the
+cart (`G_TITLE`, `G_P1`, `G_P2`, `G_SHORT` in `gen.py`); write no new guarantee copy. A full refund covers every payment
+made in the 365 days after the first one (Dan, 2026-10-03). The seal is inline SVG (`Build.seal`), every word on it taken
+from the approved title.
+
 **The close (Dan, 2026-09-30):** last buy button, then "I'll see you inside. Dan", then Dan's @abs.by.ai Instagram avatar
 photo (the square Speedo shot cropped to read as shorts, smiling) with its "Real photo" chip and results caption, then the
 footer. No small avatar next to the sign-off. No photo sitting above a buy button mid-page.
@@ -66,8 +77,11 @@ footer. No small avatar next to the sign-off. No photo sitting above a buy butto
   failures, a bordered card for a stack of questions, a 2x2 icon grid for "one model did X, another did Y", a big-type
   line for the section's thesis sentence, a two-cell contrast for "A, your brain files under fantasy / B under possible",
   a study card with the citation in small type, a phone pair with an arrow for "X goes in, Y comes out".
-- Plan picker: Monthly pre-selected, Annual with a red "SAVE 71%" badge; real `<button role="radio">` elements with
-  state, so the board works in Play (`is_interactive: true` on that board).
+- No plan picker on the page (Dan cut both, 2026-09-30): the plan choice is in the cart, which sells Monthly and
+  Lifetime ("a one-time charge of $69.99 for lifetime access") since 2026-10-03. Never write "a year" or "Annual" on a
+  web sales page.
+- Gold (the seal's gradient, lettering `#3D2A05`) only on the guarantee seal and the small check badge beside the
+  one-line guarantee rows.
 - Button repeats: after every 2 or 3 PITCH sections (features, hacks, close). **No button between story sections that end
   on a cliffhanger** into the next heading; the pinned stripe keeps a button on screen the whole time.
 
@@ -173,6 +187,14 @@ verification, and the open decisions with their defaults. Record it in the HANDO
 effort (memory `model-routing-plan`).
 
 ## Canvas traps (each cost time once)
+
+- **Before changing a live page, prove the generator still makes it:** run `build_live.py` into a scratch folder and
+  `cmp` the result with `public/start.html`. On 2026-10-01 three of Dan's changes were made by hand on the live file
+  (bigger logo, his note's layout, a past-tense heading); the next rebuild would have wiped them without a trace. Fold
+  any difference into `gen.py` or `build_live.py` first. Wording that departs from the doc goes in `EDITS` in `gen.py`,
+  and the doc's old line goes in the allow lists.
+- A round that changes a few sections can publish only those parts: write a `split_r3_*.json` with the section keys to
+  show and run `gen.py build <dir> split_r3`.
 
 - Board height cap is 8000 px; content past a board's fixed height is clipped silently.
 - `{{hole}}` is a name only; compute everything in `renderVals()`. `data-props` is single-quoted JSON: escape `'` as `&#39;`.

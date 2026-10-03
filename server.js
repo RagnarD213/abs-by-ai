@@ -86,7 +86,9 @@ app.post('/api/stripe/webhook', express.raw({ type: 'application/json' }), async
   res.json({ received: true });
 });
 
-app.use(express.json({ limit: '100mb' }));
+const productJson = express.json({ limit: '100mb' });
+// The private publisher owns its bounded parser and verifies exact signed bytes.
+app.use((req, res, next) => /^\/api\/brief\/(?:publish|image\/publish)\/?$/i.test(req.path) ? next() : productJson(req, res, next));
 
 // Rate limiting: applied ONLY to the expensive AI endpoints (photo check,
 // prompt + image generation). Dashboard/task endpoints are polled frequently
@@ -6393,6 +6395,20 @@ function isActiveMembership(userRow) {
   return !!(end && new Date(end) > new Date());
 }
 
+// The account ITSELF holds a membership: it is paying, in a trial, or inside a
+// period it already paid for. Unlike isActiveMembership this ignores the admin
+// allowlist and beta (comp) accounts, which have access without a membership
+// and may still check out. It is the "do not sell this account a second
+// membership" test.
+function hasOwnMembership(userRow) {
+  if (!userRow) return false;
+  const status = userRow.membership_status;
+  if (status === 'comp') return false;
+  if (status === 'active' || status === 'trialing') return true;
+  const end = userRow.membership_period_end;
+  return !!(end && new Date(end) > new Date());
+}
+
 async function getUserRow(userId) {
   const { rows } = await db.query('SELECT * FROM users WHERE id = $1', [userId]);
   return rows[0] || null;
@@ -6420,6 +6436,9 @@ app.get('/api/membership', requireAuth, async (req, res) => {
       // membership without it.
       userId: row.id,
       active: isActiveMembership(row),
+      // The account itself is paying or in a trial (admin and beta access do
+      // not count). The cart uses it to refuse a second membership.
+      ownMembership: hasOwnMembership(row),
       status: row.membership_status || null,
       plan: row.membership_plan || null,
       periodEnd: row.membership_period_end || null,
@@ -6713,7 +6732,9 @@ async function buildMembershipCheckout({ user, plan, deviceId, adClickId, adClic
     // A beta (comp) tester may still choose to pay; the webhook then overwrites
     // comp with a real subscription (paying wins). Comp rows have no
     // stripe_subscription_id, so isFirstSubscription stays true → 7-day trial.
-    if (isActiveMembership(row) && row.membership_status !== 'comp') {
+    // An admin-allowlist account has access with no membership of its own, so
+    // it can check out too (Dan tests the cart logged in, 2026-10-03).
+    if (hasOwnMembership(row)) {
       throw new CheckoutError(400, 'You already have an active membership.');
     }
     // One trial per user: brand-new subscribers get 7 free days; a returning
@@ -6835,12 +6856,27 @@ app.post('/api/stripe/create-membership-checkout', requireAuth, async (req, res)
 // The v2 cart needs its session when the page opens (Stripe's fields cannot be
 // drawn without one) and a second one when the buyer switches plan, so it gets
 // its own, roomier limit instead of sharing the 20 that guard logins.
+// Keyed on the visitor's own address (clientIp): `trust proxy` is off, so the
+// default key is Railway's proxy and every visitor would share one bucket.
 const cartLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 40,
   message: 'Too many attempts, please try again later.',
   standardHeaders: true,
   legacyHeaders: false,
+  keyGenerator: (req) => clientIp(req),
+  validate: false,
+});
+// The step 1 email is saved each time the buyer leaves the field, so it gets
+// its own bucket rather than eating into the session limit above.
+const cartEmailLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 60,
+  message: 'Too many attempts, please try again later.',
+  standardHeaders: true,
+  legacyHeaders: false,
+  keyGenerator: (req) => clientIp(req),
+  validate: false,
 });
 app.post('/api/stripe/create-cart-checkout', cartLimiter, optionalAuth, async (req, res) => {
   try {
@@ -6853,6 +6889,51 @@ app.post('/api/stripe/create-cart-checkout', cartLimiter, optionalAuth, async (r
     if (err instanceof CheckoutError) return res.status(err.status).json({ error: err.message });
     console.error('create-cart-checkout error:', err.message);
     res.status(500).json({ error: 'Could not start checkout. Please try again.' });
+  }
+});
+
+// The installed stripe package (14.x) predates "update a Checkout Session";
+// it is the same endpoint the newer package calls.
+let checkoutSessionUpdater = null;
+function updateCheckoutSession(stripe, sid, params) {
+  if (typeof stripe.checkout.sessions.update === 'function') {
+    return stripe.checkout.sessions.update(sid, params, { apiVersion: STRIPE_ELEMENTS_API_VERSION });
+  }
+  if (!checkoutSessionUpdater) {
+    const { StripeResource } = require('stripe');
+    const Updater = StripeResource.extend({
+      update: StripeResource.method({ method: 'POST', fullPath: '/v1/checkout/sessions/{session}' }),
+    });
+    checkoutSessionUpdater = new Updater(stripe);
+  }
+  return checkoutSessionUpdater.update(sid, params, { apiVersion: STRIPE_ELEMENTS_API_VERSION });
+}
+
+// Step 1 of the cart says "Your email becomes your login". A card payment
+// carries that email to Stripe, but a wallet (Apple Pay, Google Pay, Link)
+// hands Stripe its own and Stripe ignores ours. So the typed email is kept on
+// the session's metadata and fulfilment prefers it (Dan, 2026-10-03). An empty
+// email clears it: the wallet's email is used, as before.
+// Only an open, anonymous cart session can be written to, and the session id
+// is known only to the browser that is paying.
+app.post('/api/stripe/cart-email', cartEmailLimiter, async (req, res) => {
+  try {
+    const stripe = getStripe();
+    if (!stripe) return res.status(503).json({ error: 'Payments are not configured yet.' });
+    const sid = String(req.body?.session_id || '');
+    if (!/^cs_[A-Za-z0-9_]{10,}$/.test(sid)) return res.status(400).json({ error: 'Missing session_id' });
+    const email = String(req.body?.email || '').trim().toLowerCase();
+    if (email && (!EMAIL_RE.test(email) || email.length > 254)) return res.status(400).json({ error: 'Please enter a valid email address.' });
+    const session = await stripe.checkout.sessions.retrieve(sid);
+    const meta = session.metadata || {};
+    if (meta.kind !== 'membership' || meta.anon !== '1' || session.status !== 'open') {
+      return res.status(409).json({ error: 'This checkout can no longer be changed.' });
+    }
+    if ((meta.cartEmail || '') !== email) await updateCheckoutSession(stripe, sid, { metadata: { cartEmail: email } });
+    res.json({ ok: true });
+  } catch (err) {
+    console.error('cart-email error:', err.message);
+    res.status(500).json({ error: 'Could not save your email. Please try again.' });
   }
 });
 
@@ -7052,7 +7133,14 @@ async function fulfillMembershipSessionInner(session, sid, meta) {
   let userId = meta.userId ? parseInt(meta.userId, 10) : null;
   let account = null;
   if (!userId) {
-    const email = String(session.customer_details?.email || session.customer_email || '').trim().toLowerCase();
+    // The email typed in step 1 wins (see /api/stripe/cart-email). A wallet
+    // supplies its own to Stripe; that one is the fallback when step 1 was
+    // left empty. Stripe's own receipts still go to the address Stripe holds.
+    const typedEmail = String(meta.cartEmail || '').trim().toLowerCase();
+    const stripeEmail = String(session.customer_details?.email || session.customer_email || '').trim().toLowerCase();
+    const useTyped = EMAIL_RE.test(typedEmail) && typedEmail.length <= 254;
+    const email = useTyped ? typedEmail : stripeEmail;
+    if (useTyped && stripeEmail && stripeEmail !== typedEmail) console.log(`CART_EMAIL_TYPED: session ${sid} uses the step 1 email, not the one the payment method supplied`);
     if (!EMAIL_RE.test(email) || email.length > 254) {
       console.error(`CART_FULFILL_NO_EMAIL: session ${sid} completed with no usable email`);
       return false;

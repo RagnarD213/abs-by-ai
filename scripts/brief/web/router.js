@@ -4,6 +4,7 @@ const crypto = require('crypto');
 const path = require('path');
 const {OAuth2Client} = require('google-auth-library');
 const {validate} = require('./document');
+const {publicKey, verifyRequest, digest} = require('./publication');
 const COOKIE = '__Host-absbyai_brief';
 const AGE = 90 * 86400000;
 const equal = (a, b) => {
@@ -53,13 +54,19 @@ function createRouter({store, env = process.env, verifyToken, now = Date.now}) {
       return res.redirect(303, '/brief-login');
     }
   }
-  function ingest(req, res, next) {
-    const key = env.BRIEF_INGEST_SECRET || '';
+  async function ingest(req, res, next) {
     // Browser publication uses the existing owner session and a same-origin
     // custom-header check. No ingestion secret is needed for the manual proof.
-    if (req.headers.origin === origin && req.headers['x-brief-action'] === 'publish') return owner(req, res, next);
-    if (key.length < 32) return res.status(503).json({error:'Automated private publication is not configured'});
-    return equal(req.headers['x-brief-ingest-key'], key) ? next() : res.status(401).json({error:'Unauthorized'});
+    if (req.path === '/api/brief/publish' && req.headers.origin === origin && req.headers['x-brief-action'] === 'publish') return owner(req, res, next);
+    let key, verified;
+    try { key = publicKey(env.BRIEF_PUBLISH_PUBLIC_KEY); }
+    catch { return res.status(503).json({error:'Automated private publication is not configured'}); }
+    try { verified = verifyRequest(req,key,now()); }
+    catch { return res.status(401).json({error:'Unauthorized'}); }
+    try {
+      if (!await store.claimPublicationNonce(verified.id,verified.nonce,verified.expiresAt,now())) return res.status(401).json({error:'Unauthorized'});
+      return next();
+    } catch { return res.status(503).json({error:'Private publication unavailable'}); }
   }
   const file = name => (req, res) => res.sendFile(path.join(__dirname, name));
   router.get('/brief-login', (req, res) => {
@@ -110,14 +117,23 @@ function createRouter({store, env = process.env, verifyToken, now = Date.now}) {
     try { await store.logout(req.briefToken); setCookie(res, '', 0); return res.json({ok:true}); }
     catch { return res.status(503).json({error:'Sign-out unavailable'}); }
   });
-  router.post('/api/brief/publish', ingest, express.json({limit:'512kb'}), async (req, res) => {
+  router.post('/api/brief/publish', express.json({limit:'512kb',verify:(req,res,bytes) => { req.briefRawBody=bytes; }}), ingest, async (req, res) => {
     let document;
     try { document = validate(req.body, now()); } catch { return res.status(400).json({error:'Invalid brief document'}); }
-    try { await store.writeDocument(document); return res.json({ok:true, forDate:document.forDate, routineEnabled:false}); }
+    try { await store.writeDocument(document); return res.json({ok:true, forDate:document.forDate, routineEnabled:document.routineEnabled, scheduleChanged:false}); }
     catch { return res.status(503).json({error:'Private publication unavailable'}); }
   });
-  // Image generation/upload remains unconfigured. Future upload must use a separate
-  // authenticated ingest path; this owner-only read route never serves public files.
+  // Upload only the user-approved local image. This never generates an image.
+  router.post('/api/brief/image/publish', express.raw({type:['image/png','image/jpeg'],limit:'8mb',verify:(req,res,bytes)=>{req.briefRawBody=bytes;}}), ingest, async (req,res) => {
+    const bytes = req.briefRawBody, mime = req.headers['content-type'];
+    const png = Buffer.isBuffer(bytes) && bytes.length >= 45 && bytes.subarray(0,8).equals(Buffer.from([137,80,78,71,13,10,26,10])) && bytes.toString('ascii',12,16)==='IHDR' &&
+      bytes.readUInt32BE(16)>0 && bytes.readUInt32BE(20)>0 && bytes.readUInt32BE(16)*bytes.readUInt32BE(20)<=16000000 && bytes.toString('ascii',bytes.length-8,bytes.length-4)==='IEND';
+    const jpeg = Buffer.isBuffer(bytes) && bytes.length>4 && bytes[0]===255 && bytes[1]===216 && bytes[bytes.length-2]===255 && bytes[bytes.length-1]===217;
+    if (!(mime==='image/png' && png) && !(mime==='image/jpeg' && jpeg)) return res.status(400).json({error:'Invalid private image'});
+    try { await store.writeImage(mime,bytes); return res.json({ok:true,sha256:digest(bytes),mime,scheduleChanged:false}); }
+    catch { return res.status(503).json({error:'Private publication unavailable'}); }
+  });
+  router.use((error,req,res,next) => res.status(error.type==='entity.too.large' ? 413 : 400).json({error:'Invalid publication body'}));
   router.use((req, res) => res.sendStatus(404));
   return router;
 }

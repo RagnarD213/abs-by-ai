@@ -1,0 +1,46 @@
+{
+  "source": "/Volumes/Extreme/_edit_work/ad2-vert-v2/base_pic.mp4",
+  "fps": 29.97002997002997,
+  "frames": 1049,
+  "seconds": 35.00163333333333,
+  "crop_width": 608,
+  "measurement": "Head detected on every native frame. Source pixels; excludes picture-cut jumps. Moving >5 source px/s.",
+  "before": {
+    "travel_px": 1594.0,
+    "pan_p90_px_s": 119.9,
+    "moving_frac": 0.6215,
+    "off_centre_px": {
+      "median": 11.7,
+      "max": 58.9
+    },
+    "sha256": "7834a0562678b5b4c21b0e12d250644a1749d5aed2ca961a52a01bebdd759903"
+  },
+  "after": {
+    "travel_px": 733.0,
+    "pan_p90_px_s": 59.9,
+    "moving_frac": 0.438,
+    "off_centre_px": {
+      "median": 20.6,
+      "max": 69.0
+    },
+    "sha256": "bea60266c37d046e628b4e5145de17cc9d43b72c16fd72961f97a9a169ccc999"
+  },
+  "landing_error_px": 0.4850788116455078,
+  "face_edge_clearance_px": 97.10762023925781,
+  "method": {
+    "segments": 8,
+    "fixed_segments": 0,
+    "slope_px_s": 170.0,
+    "tolerance": 20.0
+  },
+  "cut_frames": [
+    0,
+    107,
+    216,
+    421,
+    631,
+    698,
+    905,
+    992
+  ]
+}

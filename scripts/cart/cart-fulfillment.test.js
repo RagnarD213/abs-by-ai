@@ -19,6 +19,10 @@
 //       sweep charges exactly once, a second sweep does nothing, cancel before
 //       day 7 means no charge, a failed charge retries 3 days then access ends,
 //       the webhook racing the browser still yields one account and one row.
+//   (p) the step 1 email is the login for a wallet payment (2026-10-03): the
+//       typed email wins over the wallet's, an empty step 1 falls back to the
+//       wallet's, an existing account at the typed email is never logged in.
+//   (q) the cart's rate limit counts each visitor separately.
 //
 // RUN: node scripts/cart/cart-fulfillment.test.js
 'use strict';
@@ -33,12 +37,13 @@ process.env.ANTHROPIC_API_KEY = 'dummy';
 process.env.PORT = process.env.PORT || '3557';
 process.env.SITE_URL = 'https://absbyai.com';
 process.env.DASH_SECRET = 'dash_test_stub';
+process.env.ADMIN_EMAILS = 'admin@example.com';
 
 const Module = require('module');
 const path = require('path');
 
 // ── Stripe stub ──
-const stripeCalls = { sessionsCreate: [], sessionsCreateOpts: [], subscriptionsRetrieve: [], subscriptionsCancel: [], piCreate: [], piCreateOpts: [], customersCreate: [], attach: [] };
+const stripeCalls = { sessionsUpdate: [], sessionsCreate: [], sessionsCreateOpts: [], subscriptionsRetrieve: [], subscriptionsCancel: [], piCreate: [], piCreateOpts: [], customersCreate: [], attach: [] };
 const fixtureSessions = {};
 // Lifetime charge behaviour, set per test: 'ok', 'decline', 'crash' (not the
 // card's fault), or a function. stripeIntents is what paymentIntents.list sees.
@@ -50,6 +55,13 @@ const stripeStub = {
     sessions: {
       create: async (params, opts) => { stripeCalls.sessionsCreate.push(params); stripeCalls.sessionsCreateOpts.push(opts); return { id: `cs_test_${stripeCalls.sessionsCreate.length}`, client_secret: 'cs_secret' }; },
       retrieve: async (sid) => { const s = fixtureSessions[sid]; if (!s) throw new Error('No such session: ' + sid); return s; },
+      // Stripe merges metadata keys; an empty value unsets the key.
+      update: async (sid, params, opts) => {
+        const s = fixtureSessions[sid]; if (!s) throw new Error('No such session: ' + sid);
+        stripeCalls.sessionsUpdate.push({ sid, params, opts });
+        for (const [k, v] of Object.entries(params.metadata || {})) { if (v === '') delete s.metadata[k]; else s.metadata[k] = v; }
+        return s;
+      },
     },
   },
   subscriptions: {
@@ -460,6 +472,23 @@ async function waitForDb() {
   noCard.setup_intent = null;
   check('a Lifetime session with no saved card grants nothing', (await fulfillMembershipSession(noCard)) === false && (await userByEmail('nocard@example.com')).membership_status == null);
 
+  realLog('\n(o) the cart works for a logged-in account, but never sells a second membership');
+  await db.query("INSERT INTO users (email, password_hash, device_id) VALUES ('admin@example.com', 'x', 'dev-admin')");
+  const adminRow = await userByEmail('admin@example.com');
+  const adminOk = await buildMembershipCheckout({ user: { id: adminRow.id, email: adminRow.email }, plan: 'monthly', deviceId: 'dev-admin', ui: 'elements' }).catch(e => e);
+  check('an admin account (access, no membership of its own) can check out', !!adminOk.sessionId && adminOk.anon === false && lastCreate().customer_email === 'admin@example.com', adminOk.message);
+  const trialing = await userByEmail('new.buyer@example.com');
+  const dbl = await buildMembershipCheckout({ user: { id: trialing.id, email: trialing.email }, plan: 'lifetime', deviceId: 'x', ui: 'elements' }).catch(e => e);
+  check('an account already in a trial is refused a second membership', dbl.status === 400 && /already have an active membership/.test(dbl.message), dbl.message);
+  const lifer = await userByEmail('life.buyer@example.com');
+  const dbl2 = await buildMembershipCheckout({ user: { id: lifer.id, email: lifer.email }, plan: 'monthly', deviceId: 'x', ui: 'elements' }).catch(e => e);
+  check('a paid lifetime member is refused too', dbl2.status === 400, dbl2.message);
+  const expired = await userByEmail('decline@example.com');
+  const again3 = await buildMembershipCheckout({ user: { id: expired.id, email: expired.email }, plan: 'monthly', deviceId: 'x', ui: 'elements' }).catch(e => e);
+  check('an account whose access ended can buy again', !!again3.sessionId, again3.message);
+  const gOwn = await api('/api/membership?deviceId=x', undefined, g.token);
+  check('/api/membership tells the cart the account has its own membership', gOwn.data.ownMembership === true, gOwn.data);
+
   realLog('\n(n) charge-now trigger for the live card test');
   const n1 = await buyLifetime('n', 'now@example.com');
   check('refused without the dashboard key', (await api('/api/admin/lifetime/charge-now', { email: 'now@example.com' })).status === 401);
@@ -468,6 +497,65 @@ async function waitForDb() {
   check('charges that buyer now and reports the result', now1.status === 200 && now1.data.result === 'paid' && now1.data.row.status === 'paid' && now1.data.membership.status === 'active' && now1.data.membership.periodEnd === null && stripeCalls.piCreate.length === piN + 1, now1.data);
   const now2 = await api('/api/admin/lifetime/charge-now', { email: 'now@example.com' }, null, { 'X-Dash-Key': 'dash_test_stub' });
   check('running it again charges nothing', now2.status === 409 && stripeCalls.piCreate.length === piN + 1, now2.data);
+
+  // ── (p) wallet payments: the step 1 email is the login ──
+  realLog('\n(p) wallet payment: the email typed in step 1 becomes the account');
+  const openSession = (sid, extra = {}) => ({ id: sid, status: 'open', payment_status: 'unpaid', metadata: { kind: 'membership', plan: 'monthly', anon: '1', deviceId: 'dev-' + sid, ...extra } });
+  const sidP = 'cs_test_p_' + 'x'.repeat(12);
+  fixtureSessions[sidP] = openSession(sidP);
+  const upd0 = stripeCalls.sessionsUpdate.length;
+  const e1 = await api('/api/stripe/cart-email', { session_id: sidP, email: ' Typed.Buyer@Example.com ' });
+  check('the typed email is saved on the session, trimmed and lower-cased', e1.status === 200 && fixtureSessions[sidP].metadata.cartEmail === 'typed.buyer@example.com', e1);
+  check('saved on the same API version the session was made with', stripeCalls.sessionsUpdate[upd0].opts?.apiVersion === '2026-09-30.endive');
+  await api('/api/stripe/cart-email', { session_id: sidP, email: 'typed.buyer@example.com' });
+  check('saving the same email again does not call Stripe', stripeCalls.sessionsUpdate.length === upd0 + 1);
+  check('a malformed email is refused', (await api('/api/stripe/cart-email', { session_id: sidP, email: 'not-an-email' })).status === 400 && fixtureSessions[sidP].metadata.cartEmail === 'typed.buyer@example.com');
+  check('a malformed session id is refused', (await api('/api/stripe/cart-email', { session_id: 'nope', email: 'a@b.co' })).status === 400);
+  // The wallet pays: Stripe reports the WALLET's email on the session.
+  Object.assign(fixtureSessions[sidP], anonSession(sidP, 'wallet.address@icloud.com', { cartEmail: fixtureSessions[sidP].metadata.cartEmail }));
+  check('fulfil returns true', (await fulfillMembershipSession(fixtureSessions[sidP])) === true);
+  const typedUser = await userByEmail('typed.buyer@example.com');
+  check('the account is created under the typed email', !!typedUser && typedUser.membership_status === 'trialing' && typedUser.stripe_customer_id === 'cus_' + sidP);
+  check('no account is created under the wallet email', (await userByEmail('wallet.address@icloud.com')) === null);
+  check('the set-password email goes to the typed email', resendCalls.some(m => m.to[0] === 'typed.buyer@example.com' && /reset=/.test(m.html)) && !resendCalls.some(m => m.to[0] === 'wallet.address@icloud.com'));
+  const claimP = await api('/api/stripe/claim', { session_id: sidP });
+  check('the paying browser is logged in on the typed email', claimP.status === 200 && !!claimP.data.token && claimP.data.email === 'typed.buyer@example.com', claimP.data);
+  check('a completed session can no longer have its email changed', (await api('/api/stripe/cart-email', { session_id: sidP, email: 'someone.else@example.com' })).status === 409 && fixtureSessions[sidP].metadata.cartEmail === 'typed.buyer@example.com');
+
+  // Step 1 left empty (or cleared): the wallet's email, as before.
+  const sidP2 = 'cs_test_p2_' + 'x'.repeat(12);
+  fixtureSessions[sidP2] = openSession(sidP2);
+  await api('/api/stripe/cart-email', { session_id: sidP2, email: 'changed.mind@example.com' });
+  const cleared = await api('/api/stripe/cart-email', { session_id: sidP2, email: '' });
+  check('clearing step 1 removes the saved email', cleared.status === 200 && !fixtureSessions[sidP2].metadata.cartEmail, fixtureSessions[sidP2].metadata);
+  Object.assign(fixtureSessions[sidP2], anonSession(sidP2, 'Wallet.Only@icloud.com'));
+  await fulfillMembershipSession(fixtureSessions[sidP2]);
+  check('empty step 1: the account is created under the wallet email', !!(await userByEmail('wallet.only@icloud.com')) && (await userByEmail('changed.mind@example.com')) === null);
+
+  // The typed email already has an account: attached, never logged in.
+  const sidP3 = 'cs_test_p3_' + 'x'.repeat(12);
+  fixtureSessions[sidP3] = anonSession(sidP3, 'another.wallet@icloud.com', { cartEmail: 'old@example.com' });
+  const usersBeforeP3 = (await db.query('SELECT count(*)::int AS n FROM users')).rows[0].n;
+  await fulfillMembershipSession(fixtureSessions[sidP3]);
+  const oldP3 = await userByEmail('old@example.com');
+  check('typed email with an existing account: membership attached there, no new account', oldP3.stripe_subscription_id === 'sub_' + sidP3 && (await db.query('SELECT count(*)::int AS n FROM users')).rows[0].n === usersBeforeP3);
+  const claimP3 = await api('/api/stripe/claim', { session_id: sidP3 });
+  check('and that account is never logged in automatically', claimP3.status === 200 && claimP3.data.existingAccount === true && !claimP3.data.token, claimP3.data);
+
+  // A logged-in buyer's session carries the account; the typed email is not in play.
+  const sidP4 = 'cs_test_p4_' + 'x'.repeat(12);
+  fixtureSessions[sidP4] = { id: sidP4, status: 'open', payment_status: 'unpaid', metadata: { kind: 'membership', plan: 'monthly', userId: String(memberRow.id) } };
+  check('a logged-in session refuses a typed email', (await api('/api/stripe/cart-email', { session_id: sidP4, email: 'hijack@example.com' })).status === 409 && !fixtureSessions[sidP4].metadata.cartEmail);
+
+  // ── (q) rate limit per visitor ──
+  realLog('\n(q) the cart rate limit counts each visitor separately');
+  const hit = async (ip) => {
+    const r = await realFetch(BASE + '/api/stripe/create-cart-checkout', { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Forwarded-For': ip }, body: JSON.stringify({ plan: 'monthly', ui: 'elements', deviceId: 'dev-q' }) });
+    return { status: r.status, remaining: Number(r.headers.get('ratelimit-remaining')) };
+  };
+  const qa1 = await hit('203.0.113.7'), qa2 = await hit('203.0.113.7'), qb1 = await hit('198.51.100.9, 10.0.0.1');
+  check('the same visitor counts down', qa1.status === 200 && qa1.remaining === 39 && qa2.remaining === 38, [qa1, qa2]);
+  check('another visitor has a full allowance of their own', qb1.status === 200 && qb1.remaining === 39, qb1);
 
   realLog(`\n${pass} passed, ${fail} failed`);
   process.exit(fail ? 1 : 0);

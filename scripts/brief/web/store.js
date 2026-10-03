@@ -11,10 +11,22 @@ function createStore(pool, ready = Promise.resolve()) {
       CREATE TABLE IF NOT EXISTS brief_sessions (token_hash TEXT PRIMARY KEY, google_sub TEXT NOT NULL, expires_at TIMESTAMPTZ NOT NULL);
       CREATE TABLE IF NOT EXISTS brief_document (id INTEGER PRIMARY KEY CHECK (id = 1), document JSONB NOT NULL);
       CREATE TABLE IF NOT EXISTS brief_image (id INTEGER PRIMARY KEY CHECK (id = 1), mime TEXT NOT NULL, bytes BYTEA NOT NULL);
+      CREATE TABLE IF NOT EXISTS brief_publish_nonces (nonce_key TEXT PRIMARY KEY, expires_at TIMESTAMPTZ NOT NULL);
     `)).catch(e => { initialized = null; throw e; });
     await initialized;
   }
   return {
+    async claimPublicationNonce(id, nonce, expires, now) {
+      await init();
+      await pool.query('DELETE FROM brief_publish_nonces WHERE expires_at <= $1', [new Date(now)]);
+      try {
+        await pool.query('INSERT INTO brief_publish_nonces (nonce_key, expires_at) VALUES ($1, $2)', [id+':'+nonce,new Date(expires)]);
+        return true;
+      } catch (error) {
+        if (error.code === '23505') return false;
+        throw error;
+      }
+    },
     async pinOwner(email, sub) {
       await init();
       await pool.query('INSERT INTO brief_owner (id, email, google_sub) VALUES (1, $1, $2) ON CONFLICT (id) DO NOTHING', [email, sub]);

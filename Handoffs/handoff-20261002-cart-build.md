@@ -1,6 +1,7 @@
 # Handoff: build and ship the approved web cart (navy, Monthly plus Lifetime)
 
-Written 2026-10-02 by Claude (Opus 5.5), the Cart Mockups session. Not executed.
+Written 2026-10-02 by Claude (Opus 5.5), the Cart Mockups session. **EXECUTED 2026-10-03** by the Cart Build
+session: the cart is live. Current mechanics: `Docs/WEB_CART.md`.
 Dan approved the design the same day after five rounds: "Let's lock that as our finalized design."
 Recommended: **Claude Opus 5.5, high effort.** Suggested task name: `Cart Build`.
 

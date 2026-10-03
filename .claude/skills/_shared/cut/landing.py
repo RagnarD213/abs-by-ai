@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""THE 0 px LANDING: the crop-track smoother, shared by every skill that tracks Dan inside a crop.
+"""For new 9:16 builds use vertical_track or vertical_dense: Dan's land-then-hold standard.
+The endpoint-anchored examples below remain the legacy/non-vertical mode only.
+
+THE 0 px LANDING: the crop-track smoother, shared by every skill that tracks Dan inside a crop.
 
 The defect it fixes (independent audit, Ad 2 vertical, 2026-09-03): a per-segment median with a FULL window
 at the segment ends is a median over the future only, so after every cut the crop sat where Dan WOULD be half a
@@ -61,9 +64,9 @@ def smooth_segment(n, x, slope_px_s, k=3, fixed_under=None, fps=FPS, tolerance=N
     n = np.asarray(n, float)
     x = np.asarray(x, float)
     L = len(x)
-    if fixed_under is not None and (L < 4 or x.max() - x.min() < fixed_under):
-        return np.full(L, float(np.median(x)))
-    if L < 4:
+    if fixed_under is not None and ((L < 4 and not tolerance) or x.max() - x.min() < fixed_under):
+        return np.full(L, float(x[0] if tolerance else np.median(x)))
+    if L < 4 and not tolerance:
         return x.copy()
     med = np.array([np.median(x[j - min(k, j, L - 1 - j):j + min(k, j, L - 1 - j) + 1]) for j in range(L)])
     if tolerance:
@@ -122,6 +125,74 @@ def track(n, raw, segments, slope_px_s=170.0, k=3, fixed_under=None, fps=FPS, to
     return np.array(n_all), np.array(x_all), dict(segments=len(segments), fixed_segments=fixed, slope_px_s=slope_px_s, tolerance=tolerance)
 
 
+def vertical_track(n, raw, segments, crop_width, fps=FPS):
+    """Dan's 9:16 preset. Coordinates and crop_width must share the source pixel space."""
+    if crop_width <= 0:
+        raise ValueError("crop_width must be positive")
+    return track(n, raw, segments, slope_px_s=170 * crop_width / 608,
+                 k=3, fixed_under=40 * crop_width / 608,
+                 fps=fps, tolerance=20 * crop_width / 608)
+
+
+def vertical_dense(n, raw, segments, crop_width, fps=FPS):
+    """Native-frame centres from sparse measured heads, with exact measured cut anchors."""
+    n, raw = np.asarray(n, int), np.asarray(raw, float)
+    for start, _ in seg_bounds(segments, fps):
+        hit = np.where(n == start)[0]
+        if not len(hit) or not np.isfinite(raw[hit[0]]):
+            raise ValueError(f"Measure head centre on cut frame {start}; do not estimate it from a later frame")
+    tn, tx, info = vertical_track(n, raw, segments, crop_width, fps)
+    dense_n, dense_x, heads = [], [], []
+    for start, end in seg_bounds(segments, fps):
+        q = np.arange(start, end)
+        m = (tn >= start) & (tn < end)
+        r = (n >= start) & (n < end) & np.isfinite(raw)
+        dense_n.extend(q); dense_x.extend(np.interp(q, tn[m], tx[m])); heads.extend(np.interp(q, n[r], raw[r]))
+    return np.asarray(dense_n), np.asarray(dense_x), np.asarray(heads), info
+
+
+def vertical_crop_frames(frames, holds, n, raw_head, fps=FPS, source_width=1920):
+    """Update only horizontal centres of an existing vertical crop map.
+    Holds include all picture/layout cuts and returns. Zoom ramps retain their sizes;
+    their minimum crop width supplies conservative tracking limits.
+    """
+    reports = []
+    for hold in holds:
+        start, end = hold['n0'], hold['n1']
+        width = min(frames[i][2] for i in range(start, end))
+        dn, centres, heads, info = vertical_dense(n, raw_head, [dict(n0=start,n1=end)], width, fps)
+        for i, centre in zip(dn, centres):
+            row = frames[int(i)]; left = float(centre - row[2] / 2)
+            if not 0 <= left <= source_width - row[2]:
+                raise ValueError(f"Centred crop at frame {i} leaves source bounds; choose a wider window")
+            row[0] = round(left, 2)
+        if len(dn) > 1:
+            reports.append(dict(n0=start, n1=end, crop_width=width,
+                                stats=motion_stats(dn, heads, centres, [hold], width, fps)))
+    return reports
+
+
+def motion_stats(n, head, centre, segments, crop_width, fps=FPS):
+    """Four build measurements, on per-frame samples; exclude jumps at cuts.
+    Moving means >5 px/s in the 608 px reference crop, scaled with crop width.
+    Pass actual rendered/clamped centres, not requested centres.
+    """
+    n, head, centre = map(np.asarray, (n, head, centre))
+    keep = np.zeros(max(0, len(n) - 1), dtype=bool)
+    for n0, n1 in seg_bounds(segments, fps):
+        keep |= (n[:-1] >= n0) & (n[1:] < n1)
+    dt = np.diff(n)[keep] / fps
+    travel = np.abs(np.diff(centre))[keep]
+    speed = travel / dt
+    off = np.abs(head - centre)
+    if not len(speed) or not np.isfinite(off).all():
+        raise ValueError("Need finite head measurements and at least two samples per segment")
+    return dict(travel_px=round(float(travel.sum()), 1),
+                pan_p90_px_s=round(float(np.percentile(speed, 90)), 1),
+                moving_frac=round(float(dt[speed > 5 * crop_width / 608].sum() / dt.sum()), 4),
+                off_centre_px=dict(median=round(float(np.median(off)), 1), max=round(float(off.max()), 1)))
+
+
 def errors(n, raw, x, segments, fps=FPS):
     """|raw - track| at the first frame after every cut (landing) and the last frame before it (exit), px."""
     n = np.asarray(n)
@@ -169,11 +240,15 @@ def selftest():
     inside = lambda a_, x_: sum(abs(x_[i + 1] - x_[i]) for i in range(len(a_) - 1) if not any(a_[i + 1] == s["n0"] for s in segs))
     off = float(np.max(np.abs(ra - xt)))
     okt = et["landing"]["max"] == 0 and max(vt) <= 170 + 1e-6 and off <= 30 + 12 and inside(nt, xt) < inside(na, xa)
-    print(json.dumps(dict(errors=e, max_pan_px_s=round(max(v), 1),
+    nf = np.arange(20)
+    rf = np.linspace(900, 925, 20)
+    nfix, xfix, _ = vertical_track(nf, rf, [dict(n0=0, n1=20)], 608)
+    okfixed = xfix[0] == rf[0] and np.ptp(xfix) == 0
+    print(json.dumps(dict(fixed_vertical_landing_pass=bool(okfixed), errors=e, max_pan_px_s=round(max(v), 1),
                           tolerance=dict(landing=et["landing"], max_off_px=round(off, 1), max_pan_px_s=round(max(vt), 1),
                                          travel_px=[round(inside(na, xa)), round(inside(nt, xt))]),
-                          verdict="PASS" if ok and okt else "FAIL")))
-    return 0 if ok and okt else 1
+                          verdict="PASS" if ok and okt and okfixed else "FAIL")))
+    return 0 if ok and okt and okfixed else 1
 
 
 if __name__ == "__main__":

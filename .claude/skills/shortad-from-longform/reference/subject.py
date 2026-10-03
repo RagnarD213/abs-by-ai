@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Where Dan sits in the locked-off frame. Background = per-pixel median of the roll;
+"""CALIBRATION ONLY: never use this per-take median as a new vertical crop track.
+New verticals use kit_track.py or facetrack4.py with the shared landing.py.
+
+Where Dan sits in the locked-off frame. Background = per-pixel median of the roll;
 subject = the region that differs from it. Centroid of the upper body gives the crop x."""
 import json, os, subprocess, numpy as np
 from PIL import Image

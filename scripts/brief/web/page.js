@@ -8,6 +8,12 @@ const number = value => value === null ? 'Unknown' : new Intl.NumberFormat('en-U
 const dollars = value => value === null ? 'Unknown' : new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(value);
 function el(tag, content, className) { const node = document.createElement(tag); if (content !== undefined) node.textContent = content; if (className) node.className = className; return node; }
 function link(parent, title, url) { if (!url) return; const a = el('a', title); a.href = url; a.target = '_blank'; a.rel = 'noopener noreferrer'; parent.append(a); }
+function routineStatus(d) {
+  if (!d.routineEnabled || !d.routine) return 'No enabled daily schedule is recorded for this edition.';
+  const clock = value => { const [h,m]=value.split(':').map(Number); return `${h%12 || 12}:${String(m).padStart(2,'0')} ${h<12 ? 'AM' : 'PM'}`; };
+  const r=d.routine;
+  return `Daily updates enabled from ${date(r.startsOn)}. Cloud run starts ${clock(r.startTime)} Central; target ready ${clock(r.readyBy)}. Your Mac must be online. Source availability is shown below. Status confirmed ${instant(r.confirmedAt)}.`;
+}
 function cards(id, rows, empty) {
   if (!rows.length) return $(id).append(el('p',empty,'note'));
   for (const row of rows) { const box = el('div',undefined,'row'); box.append(el('h3',row.title),el('p',row.detail),el('p',row.source,'note')); link(box,'Review',row.url); $(id).append(box); }
@@ -40,6 +46,7 @@ async function load() {
     if (!response.ok) throw new Error('No verified brief available');
     const d = await response.json();
     put('edition',date(d.forDate)); put('edition-note',`${d.editionType === 'retrospective' ? 'Retrospective proof' : 'Verified edition'} · Updated ${instant(d.generatedAt)} · About two to three minutes`);
+    put('routine-status',routineStatus(d));
     if (d.forDate !== dayOf(Date.now())) put('notice',`This is the ${date(d.forDate)} edition. It does not establish today's priority.`);
     const currentFocus = d.focus.status === 'current' && d.forDate === dayOf(Date.now());
     put('focus-title',currentFocus ? d.focus.task : 'Confirm your current priority');

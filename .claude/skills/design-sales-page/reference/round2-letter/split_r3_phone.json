@@ -1,0 +1,33 @@
+{
+ "parts": [
+  {
+   "file": "R3-Phone-Top.dc.html",
+   "title": "Phone \u00b7 top of the page: the guarantee row in the offer card",
+   "keys": [
+    "stripe",
+    "hero",
+    "video",
+    "soundline",
+    "offer1",
+    "note"
+   ],
+   "h": 2420,
+   "content": 2320
+  },
+  {
+   "file": "R3-Phone-Close.dc.html",
+   "title": "Phone \u00b7 the close: guarantee card, plan wording, new question, last button",
+   "keys": [
+    "try",
+    "s10",
+    "straight",
+    "cta_s11",
+    "faq",
+    "final",
+    "footer"
+   ],
+   "h": 4600,
+   "content": 4448
+  }
+ ]
+}
