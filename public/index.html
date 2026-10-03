@@ -8481,7 +8481,8 @@ async function claimCartSession(sessionId) {
 
 async function handleCartComplete(sessionId, anon) {
   closeCreditsCheckout();
-  c2Reset();
+  c2Spend();
+  try { sessionStorage.removeItem(C2_WALLET_KEY); } catch (e) {}
   // Logged-in buyer: the membership lands on their own account, so there is no
   // claim. Same conversions, same "You're in" screen, minus the password box.
   if (!anon || isLoggedIn()) {
@@ -8598,6 +8599,7 @@ function finishCartOnboarding() {
 // only saves a card), so switching plan remounts Stripe's fields.
 // ============================================================
 const C2_PLAN_KEY = 'absbyai_cart_plan'; // survives a redirect back from a wallet or bank page
+const C2_WALLET_KEY = 'absbyai_cart_wallet'; // which wallet button was tapped, and when (same reason)
 const C2_EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const C2_COPY = {
   monthly:  { item: 'Abs By AI Membership, Free 7-Day Trial', struck: '$19.99' },
@@ -8616,7 +8618,7 @@ const C2_APPEARANCE = {
     '.Label': { fontSize: '13px', fontWeight: '700', color: '#2B2F36' },
   },
 };
-const c2 = { stripe: null, sessions: {}, sessionsFor: null, checkout: null, actions: null, payEl: null, expressEl: null, plan: null, seq: 0, busy: false };
+const c2 = { stripe: null, sessions: {}, sessionsFor: null, checkout: null, actions: null, payEl: null, expressEl: null, plan: null, seq: 0, busy: false, emailSynced: {}, emailSyncing: null, wallet: null };
 
 function c2Demo() { return !!(DEMO && DEMO.kind === 'checkout'); }
 // A logged-in account that is already paying (or in a trial) must not be sold
@@ -8683,14 +8685,66 @@ function c2Reset() {
   c2.seq++;
   c2Teardown();
   c2.sessions = {};
+  c2.emailSynced = {};
+}
+// A payment just went through. The sessions are spent, but Stripe's mounted
+// wallet button and card fields are left alone: destroying the wallet button
+// while Apple's sheet is still closing makes the sheet report "Payment Not
+// Completed" on a payment that succeeded (Dan's test, 2026-10-03). They are
+// cleared the next time the cart draws its payment step.
+function c2Spend() {
+  c2.seq++;
+  c2.sessions = {};
+  c2.emailSynced = {};
+  c2.checkout = null;
+  c2.actions = null;
+  c2.plan = null;
+}
+
+// Step 1's email is the login whichever way the buyer pays. A wallet hands
+// Stripe its own email and Stripe ignores updateEmail for wallet payments, so
+// the typed address is also kept on the Stripe session by our server, and the
+// account is created from it. Empty or unfinished: the wallet's email is used.
+// Calls run one at a time; each reads the field when its turn comes. Resolves
+// false when the server could not be told.
+function c2SyncCartEmail() {
+  const run = async () => {
+    if (isLoggedIn() || c2Demo()) return true;
+    const sess = c2.sessions[c2Plan()];
+    if (!sess || !sess.anon) return true;
+    const typed = $('c2Email').value.trim().toLowerCase();
+    const want = C2_EMAIL_RE.test(typed) ? typed : '';
+    if ((c2.emailSynced[sess.sessionId] || '') === want) return true;
+    try {
+      await authApi('/api/stripe/cart-email', { method: 'POST', body: JSON.stringify({ session_id: sess.sessionId, email: want }) });
+      c2.emailSynced[sess.sessionId] = want;
+      return true;
+    } catch (e) {
+      return false;
+    }
+  };
+  c2.emailSyncing = (c2.emailSyncing || Promise.resolve()).then(run, run);
+  return c2.emailSyncing;
 }
 
 async function c2SendEmailToStripe() {
   if (isLoggedIn() || !c2.actions) return; // logged in: the session already carries the account's email
+  c2SyncCartEmail();
   const email = $('c2Email').value.trim();
   if (!C2_EMAIL_RE.test(email)) return;
   try { localStorage.setItem('absbyai_email', email); } catch (e) {}
   try { await c2.actions.updateEmail(email); } catch (e) {} // lets Link recognise a returning buyer
+}
+
+// Apple Pay and Google Pay cannot be run off a real phone, so every step of a
+// wallet payment reports itself (2026-10-03). Sent at once, because a wallet
+// payment that succeeds leaves the page.
+function c2WalletEvent(event, props, leaving) {
+  if (DEMO || !window.posthog) return;
+  try {
+    posthog.capture(event, { plan: c2Plan(), logged_in: isLoggedIn(), type: (c2.wallet && c2.wallet.type) || null, ...props },
+      leaving ? { send_instantly: true, transport: 'sendBeacon' } : { send_instantly: true });
+  } catch (e) {}
 }
 
 // Create (or reuse) the Stripe session for the selected plan and draw Stripe's
@@ -8751,10 +8805,18 @@ async function c2LoadPayment() {
     // when it is switched on in Stripe. One button per row, like the board.
     const express = checkout.createExpressCheckoutElement({ buttonHeight: 54, layout: { maxColumns: 1, overflow: 'never' } });
     const showOr = (methods) => { $('c2Or').style.display = methods && Object.values(methods).some(Boolean) ? '' : 'none'; };
-    express.on('ready', (e) => showOr(e && e.availablePaymentMethods));
+    express.on('ready', (e) => {
+      showOr(e && e.availablePaymentMethods);
+      const shown = Object.entries((e && e.availablePaymentMethods) || {}).filter(([, on]) => on).map(([name]) => name);
+      cartCapture('cart_wallet_buttons', { plan, logged_in: isLoggedIn(), buttons: shown, count: shown.length });
+    });
     express.on('availablepaymentmethodschange', (e) => showOr(e && e.paymentMethods));
     express.on('click', c2ExpressClick);
     express.on('confirm', c2ExpressConfirm);
+    try {
+      express.on('cancel', () => c2WalletEvent('cart_wallet_cancelled', { ms: c2.wallet ? Date.now() - c2.wallet.t0 : null }));
+      express.on('loaderror', (e) => c2WalletEvent('cart_wallet_loaderror', { error_message: (e && e.error && e.error.message) || null }));
+    } catch (e) {}
     express.mount('#c2Express');
     c2.expressEl = express;
 
@@ -8840,7 +8902,14 @@ async function c2Pay() {
   cartCapture('cart_checkout_opened', { plan, logged_in: !anon, method: 'card' });
   c2SetBusy(true);
   try {
-    try { sessionStorage.setItem(C2_PLAN_KEY, plan); } catch (e) {}
+    try { sessionStorage.setItem(C2_PLAN_KEY, plan); sessionStorage.removeItem(C2_WALLET_KEY); } catch (e) {}
+    // The account is made from the email saved on the session. If the server
+    // still holds an older address that could not be replaced, stop here
+    // rather than open the account under an address the buyer changed.
+    if (anon && !(await c2SyncCartEmail()) && c2.emailSynced[sess.sessionId] && c2.emailSynced[sess.sessionId] !== email.toLowerCase()) {
+      c2ShowError('We could not save your email. Check your connection and try again.');
+      return;
+    }
     const res = await c2.actions.confirm({ redirect: 'if_required', ...(anon ? { email } : {}) });
     if (res && res.type === 'error') {
       c2ShowError((res.error && res.error.message) || 'That did not go through. Check your card details and try again.');
@@ -8859,27 +8928,70 @@ async function c2Pay() {
 function c2ExpressClick(event) {
   c2ClearFieldErrors();
   c2ShowError('');
-  if (!c2TermsOk()) { if (event.reject) event.reject(); return; }
-  cartCapture('cart_checkout_opened', { plan: c2Plan(), logged_in: isLoggedIn(), method: event.expressPaymentType || 'wallet' });
-  try { sessionStorage.setItem(C2_PLAN_KEY, c2Plan()); } catch (e) {}
+  const type = event.expressPaymentType || 'wallet';
+  const termsOk = c2TermsOk();
+  c2.wallet = { type, t0: Date.now() };
+  c2WalletEvent('cart_wallet_click', { terms_ok: termsOk, email_typed: C2_EMAIL_RE.test($('c2Email').value.trim()) });
+  if (!termsOk) { if (event.reject) event.reject(); return; }
+  cartCapture('cart_checkout_opened', { plan: c2Plan(), logged_in: isLoggedIn(), method: type });
+  try {
+    sessionStorage.setItem(C2_PLAN_KEY, c2Plan());
+    sessionStorage.setItem(C2_WALLET_KEY, JSON.stringify({ type, t: Date.now() }));
+  } catch (e) {}
+  c2SyncCartEmail(); // not awaited: the sheet must be answered within a second
   event.resolve();
 }
-// The buyer approved in the wallet. The wallet supplies the email.
+// The buyer approved in the wallet. This is Stripe's documented wallet call,
+// with no `redirect` option: Stripe closes the wallet's sheet with its success
+// tick itself, then sends the page to the session's return_url
+// (/?cart_return=<session id>), where applyCartReturn finishes the order.
+// Nothing of Stripe's is touched on this page after the payment confirms.
 async function c2ExpressConfirm(event) {
   const sess = c2.sessions[c2Plan()];
-  if (!c2.actions || !sess) return;
+  if (!c2.wallet) c2.wallet = { type: event.expressPaymentType || 'wallet', t0: Date.now() };
+  if (!c2.actions || !sess) {
+    c2WalletEvent('cart_wallet_confirm_result', { result: 'not_ready' });
+    try { event.paymentFailed({ reason: 'fail' }); } catch (e) {}
+    return c2ShowError('The payment form is still loading. Try again in a moment.');
+  }
   c2SetBusy(true);
+  const started = Date.now();
+  c2WalletEvent('cart_wallet_confirm_started', { ms_since_click: started - c2.wallet.t0 });
+  let leaving = false;
   try {
-    const res = await c2.actions.confirm({ expressCheckoutConfirmEvent: event, redirect: 'if_required' });
+    // The step 1 email has to be on the session before the session completes.
+    const emailSaved = await Promise.race([c2SyncCartEmail(), new Promise((r) => setTimeout(() => r('timeout'), 4000))]);
+    const res = await c2.actions.confirm({ expressCheckoutConfirmEvent: event });
     if (res && res.type === 'error') {
+      c2WalletEvent('cart_wallet_confirm_result', {
+        result: 'error', error_code: (res.error && res.error.code) || null, error_message: (res.error && res.error.message) || null,
+        ms: Date.now() - started, email_saved: emailSaved,
+      });
       c2ShowError((res.error && res.error.message) || 'That did not go through. Please try again.');
       return;
     }
-    await handleCartComplete(sess.sessionId, !!sess.anon);
+    c2WalletEvent('cart_wallet_confirm_result', { result: (res && res.type) || 'success', ms: Date.now() - started, email_saved: emailSaved }, true);
+    // Stripe is about to move the page. Should that never start, finish the
+    // order here instead of leaving a paid buyer on the cart.
+    leaving = true;
+    let navigating = false;
+    const onLeave = () => { navigating = true; };
+    window.addEventListener('beforeunload', onLeave);
+    window.addEventListener('pagehide', onLeave);
+    // Back button into this page after the order finished: draw a fresh cart.
+    window.addEventListener('pageshow', (e) => { if (e.persisted) { c2SetBusy(false); c2Spend(); showCartScreen(); } }, { once: true });
+    setTimeout(async () => {
+      window.removeEventListener('beforeunload', onLeave);
+      window.removeEventListener('pagehide', onLeave);
+      if (navigating) return;
+      c2WalletEvent('cart_wallet_no_redirect', { ms: Date.now() - started });
+      try { await handleCartComplete(sess.sessionId, !!sess.anon); } finally { c2SetBusy(false); }
+    }, 8000);
   } catch (err) {
+    c2WalletEvent('cart_wallet_confirm_result', { result: 'exception', error_message: (err && err.message) || null, ms: Date.now() - started });
     c2ShowError(err.message || 'Something went wrong. Please try again.');
   } finally {
-    c2SetBusy(false);
+    if (!leaving) c2SetBusy(false);
   }
 }
 
@@ -8896,8 +9008,32 @@ function applyCartReturn() {
     clean.searchParams.delete('cart_return');
     history.replaceState(history.state, '', clean.toString());
   } catch (e) {}
-  handleCartComplete(sid, !isLoggedIn());
+  try {
+    const wallet = JSON.parse(sessionStorage.getItem(C2_WALLET_KEY) || 'null');
+    if (wallet && wallet.type) {
+      c2.wallet = { type: wallet.type, t0: wallet.t };
+      c2WalletEvent('cart_wallet_returned', { ms_since_click: Date.now() - wallet.t });
+    }
+  } catch (e) {}
+  c2ShowFinishing();
+  handleCartComplete(sid, !isLoggedIn()).catch((err) => {
+    // Paid either way: the webhook fulfils and the buyer has the emailed link.
+    console.warn('cart return failed:', err && err.message);
+    if (!cartResult) cartResult = { created: false, email: '' };
+    showCartDone();
+  });
   return true;
+}
+
+// Back from Stripe: the order takes a moment to finish (the account is being
+// created), so hold on the navy screen instead of flashing the home page.
+function c2ShowFinishing() {
+  $('c2Main').style.display = 'none';
+  $('c2Done').style.display = '';
+  $('c2DoneTitle').textContent = 'Starting your free trial...';
+  $('c2DoneEmail').textContent = '';
+  ['c2PwBlock', 'c2ExistingNote', 'c2DoneBtn', 'c2DoneSub'].forEach((id) => { $(id).style.display = 'none'; });
+  showScreen('cart');
 }
 
 function showCartDone() {
@@ -8917,6 +9053,8 @@ function showCartDone() {
   $('c2PwInput').value = '';
   $('c2PwOk').style.display = 'none';
   $('c2PwErr').style.display = 'none';
+  $('c2DoneBtn').style.display = '';
+  $('c2DoneSub').style.display = '';
   $('c2DoneBtn').textContent = !inNow ? 'Log in to continue' : (photoFirst ? 'See myself with abs' : 'Build my program');
   $('c2DoneSub').textContent = !inNow
     ? 'Use the password for that account, or "Forgot password".'
