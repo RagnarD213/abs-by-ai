@@ -20,7 +20,7 @@ Dan judges it blind (`blind/`). Never grade the kit yourself.
 | `content_from_beats.py` | lifts the content decisions out of an approved hand-written beats.py, with phrase anchors and label kinds |
 | `kit_beats.py` | the `beats` module the pipeline imports, reading `beats.json` |
 | `kit_base.py` | conform the picture to `edl_picture.json` at the grade (snapped seeks, rewritten pts); its dissolve-patch pass is dormant since round 6 (window splices step like talk splices, `cut_rules.md` 3c) |
-| `kit_track.py` | the 608-px talk crop's face track per picture segment; fixed centre where the lean is small; `--tolerance` px of dead band (the calmer camera, 2026-10-01) |
+| `kit_track.py` | the 608-px talk crop's face track per picture segment; fixed centre where the lean is small; `--tolerance` px of dead band (20 = the standard camera, 2026-10-03) |
 | `kit_labels.py` | label chips on full-bleed pictures of Dan placed by MEASURING him (person mask, above the head first), the approved square's method; `--verify` on the delivered file |
 | `kit_plan.py` | plan.json for the gate, evidence contract v2, read out of the build |
 | `kit_deliver.py` | the build order as numbered stages: setup · audio · words · picture · captions · mux · gate · review |
@@ -158,11 +158,12 @@ no 9:16 layout STOPS the run; nothing is dropped or redrawn by hand.
   ("render_cancelled_parent_exited"): run it as a background task of the agent instead.
 * RO-10 round 3: 5 fills, 13 side crops (7 taller than a square, 2 travelling), 0 whole; 10 clips carry Dan's own note.
 
-**The calmer camera (Dan, 2026-10-01).** `kit_track.py --tolerance` (default 6 source px): the crop lands on him at
-every cut, then holds until he is that far off its centre, and only then follows (`_shared/cut/landing.py`, off by
-default for every other caller). RO-10: crop travel 10,759 to 7,194 px (33 % less), p90 pan speed 62.9 to 36.4 px/s
-(42 % less); `--tolerance 20` is 68 % / 64 % less with him 17 px off centre at the median. The ceiling is the gate's own
-centring bound (a hold's median head centre within 6 % of the width, 36 source px).
+**The standard camera (Dan, 2026-10-03).** `kit_track.py --tolerance 20` (source px, the default): the crop lands on
+him at every cut, then holds until he is 20 px (3.3 % of the 608 px crop) off its centre, and only then follows
+(`_shared/cut/landing.py`, off by default for every other caller). Dan chose it over `--tolerance 6` on the RO-10 first
+minutes and made it the standard for every vertical (`_shared/framing-motion.md`, VIDEO-RULES). RO-10: crop travel
+10,759 to 3,413 px (68 % less), p90 pan speed 62.9 to 22.8 px/s (64 % less), him 17 px off centre at the median, 92 px
+at most. The ceiling is the gate's own centring bound (a hold's median head centre within 6 % of the width, 36 source px).
 
 **Not proven yet on a sheet build (2026-10-01):** `kit_plan.py` and the gate pre-check, the judges, the fold and the
 cutdown. The gate's ad ranges (`picture.json`) were measured on Muhammad's 3 to 4 minute ads; RO-10 (an 8:38 organic

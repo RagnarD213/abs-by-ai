@@ -74,6 +74,17 @@ rule and spell out all five slots. Reference:
 - This supersedes "extracting shorts from an approved long-form keeps that film's approved graphics" for the shorts'
   OWN graphics (title band, bars, chips). An editor's graphics burned into the picture are still handled, not restyled.
 
+## Verticals: the camera lands on Dan, then holds (the standard centering, Dan, 2026-10-03)
+
+- **In every vertical the crop that follows Dan lands centred on him after each cut, then stays still until he has moved
+  3.3 % of the crop's width off centre, and only then follows.** Dan, choosing the calmer of two RO-10 first minutes:
+  *"I like the calmest one, the two-thirds calmer. That looks the best to me... Let's make this our standard way of
+  centering for verticals going forward. I feel like this is better than what we were doing."*
+- It replaces the track that chased every small movement (his 2026-10-01 note: "excessive and distracting"). Never go
+  back to a crop that does not move at all: he left the frame.
+- Claude and Codex both build verticals this way. Method, numbers and code: `_shared/framing-motion.md`, "Vertical
+  talking head: land on him, then hold"; `kit_track.py --tolerance 20` is the default.
+
 ## Verticals and squares: fill as much of the screen as the clip allows (Dan, 2026-10-02)
 
 - **In a vertical or a square, every clip, photo and phone demo fills as much of the screen as its content allows. Crop

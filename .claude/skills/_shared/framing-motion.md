@@ -20,6 +20,37 @@ Updated 2026-09-16 from Dan’s approval of the Ad 3 square revision. Applies to
 
 Source-specific pixel widths, sampling bands, smoothing periods and speed limits are recipe parameters, not defaults for every video.
 
+## Vertical talking head: land on him, then hold (the standard centering, Dan 2026-10-03)
+
+Dan compared two first minutes of the RO-10 vertical and chose the calmer one: *"I like the calmest one, the two-thirds
+calmer. That looks the best to me... Let's make this our standard way of centering for verticals going forward. I feel
+like this is better than what we were doing."* It applies to the talking-head crop of every 9:16 vertical, whoever
+builds it (Claude or Codex). Squares keep the steadier per-shot rule above. Horizontal footage stays static (below).
+
+The method, in order:
+
+1. **Per picture segment, never across a cut.** A new take, a punch-in or a return from a graphic starts a new segment.
+2. **Land on him.** On the first frame after every cut the crop is centred exactly on his measured head centre
+   (0 px landing error). Never land where he will be half a second later.
+3. **Then hold.** The crop does not move while his head centre stays inside a dead band of **3.3 % of the crop's
+   width** either side of the crop's centre (20 px on the kit's 608 px wide crop of the 1080-high graded base; 36 px
+   in the delivered 1080-wide frame).
+4. **Follow only when he leaves the band,** and then only far enough to keep him at the band's edge, eased over
+   0.75 s and never faster than 28 % of the crop's width per second (170 px/s on the 608 px crop).
+5. **A segment where he wanders less than 6.6 % of the crop's width (40 px) keeps one fixed centre** for its whole
+   length: the least correction that works.
+6. The end of a segment is not pulled back to centre; the next segment lands on him anyway.
+
+What it measured on RO-10 (8:38, 25 takes) against the old track that chased every movement: total crop travel 68 %
+less (10,758 to 3,413 px), typical fast pan 64 % slower (62.9 to 22.8 px/s), the crop moving 31 % of the time instead
+of 50 %, him 17 px off centre at the median and 92 px at the worst moment, still far inside the 608 px crop.
+
+Code: `_shared/cut/landing.py` (`track(..., tolerance=20, fixed_under=40, slope_px_s=170)`; `python3 landing.py
+selftest`), called by `kit9x16/kit_track.py`, whose `--tolerance` default is now 20. A build that uses its own tracker
+reproduces the six steps and reports the same four numbers (travel, p90 pan speed, share of time moving, median and
+maximum off-centre distance). The delivery gate's own centring bound is unchanged (a hold's median head centre within
+6 % of the frame width); the dead band sits inside it.
+
 ## Horizontal footage stays completely static — Dan, 2026-09-17
 
 - **No added camera movement or recentering on Dan in horizontal/16:9 videos.** No tracking, pan, drift, animated crop or zoom to follow or center him. Choose a fixed composition for each shot and leave it fixed. This supersedes earlier horizontal exceptions for approaching the frame edge; tracking is only for square/vertical layouts when actually needed.

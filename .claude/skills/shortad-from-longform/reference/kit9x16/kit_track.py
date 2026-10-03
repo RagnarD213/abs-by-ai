@@ -15,11 +15,13 @@ the old track. The raw detections are cached in facetrack_raw.json (the base is 
 
 Measured on RO-10 (8:38, 25 takes; source px, x1.78 on the phone), old track -> tolerance:
   0 (old)  travel 10,758 px   pan p90 62.9 px/s   moving 50 % of the time   off centre 5.9 median / 73 max
-  6        7,194 (-33 %)      36.4 (-42 %)        64 % (slower, spread out)  10.3 / 78       <- the default: his "30 %"
-  20       3,413 (-68 %)      22.8 (-64 %)        31 %                       17.3 / 92       the calmer alternative
+  6        7,194 (-33 %)      36.4 (-42 %)        64 % (slower, spread out)  10.3 / 78       his first ask, "30 %"
+  20       3,413 (-68 %)      22.8 (-64 %)        31 %                       17.3 / 92       <- THE STANDARD (Dan, 2026-10-03)
 The crop is 608 px wide, so at 92 px off centre his whole head is still far inside the frame.
+Dan, 2026-10-03, after watching both first minutes: "I like the calmest one, the two-thirds calmer. That looks the best to me... Let's make this our standard way of centering for verticals going forward. I feel like this is better than what we were doing."
+20 px of a 608 px crop is 3.3 % of the crop's width: that fraction is the standard for every vertical (_shared/framing-motion.md).
 
-  python3 kit_track.py --build DIR [--fps 4] [--slope 170] [--fixed-under 40] [--tolerance 6] [--out facetrack.json]
+  python3 kit_track.py --build DIR [--fps 4] [--slope 170] [--fixed-under 40] [--tolerance 20] [--out facetrack.json]
 """
 import argparse
 import json
@@ -63,7 +65,7 @@ def main():
     ap.add_argument("--fps", type=float, default=4.0)
     ap.add_argument("--slope", type=float, default=170.0, help="source px/s (~300 on the phone), the re-audit's cap")
     ap.add_argument("--fixed-under", type=float, default=40.0, help="a segment whose face x range is under this keeps one fixed centre")
-    ap.add_argument("--tolerance", type=float, default=6.0, help="dead band, source px: the crop holds until he is this far off its centre (0 = the old track)")
+    ap.add_argument("--tolerance", type=float, default=20.0, help="dead band, source px: the crop holds until he is this far off its centre (0 = the old track)")
     ap.add_argument("--out", default="facetrack.json")
     a = ap.parse_args()
     os.chdir(a.build)
