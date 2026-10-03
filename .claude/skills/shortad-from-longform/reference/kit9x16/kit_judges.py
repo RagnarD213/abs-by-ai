@@ -89,6 +89,8 @@ def main():
     ap.add_argument("--per", type=int, default=110, help="images per judge (an ad's three judges read about 115 each)")
     ap.add_argument("--min", type=int, default=3)
     ap.add_argument("--notes", help="a file of Dan's decisions that change what counts as a defect; appended to every brief")
+    ap.add_argument("--rejudge", help="after carry_verdicts.py: logs/rejudge.json. ONE brief (part 2) for exactly those images; "
+                                      "part 1 is the carried verdicts. The judge also reads the negscan sheet when it was not carried")
     a = ap.parse_args()
     B = os.path.abspath(a.build)
     A = os.path.abspath(a.audit) if a.audit else B
@@ -99,8 +101,16 @@ def main():
     for p in wp.get("pairs", []):
         pair_of[re.match(r"pair_(\d+)_", p).group(1)] = p
     sheets = sorted(wp["sheets"], key=lambda s: sheet_span(s)[0])
-    total = len(strips) + len(wp.get("pairs", [])) + len(sheets)
-    n = max(a.min, math.ceil(total / a.per))
+    only = set(json.load(open(a.rejudge))) if a.rejudge else None
+    if only is not None:
+        # a strip and its pair are read together: either one changed, the judge gets both
+        idx = {re.match(r"(?:strip|pair)_(\d+)_", x).group(1) for x in only if re.match(r"(?:strip|pair)_(\d+)_", x)}
+        strips = [s_ for s_ in strips if re.match(r"strip_(\d+)_", s_).group(1) in idx]
+        sheets = [s_ for s_ in sheets if s_ in only]
+    total = len(strips) + (len(strips) if only is not None else len(wp.get("pairs", []))) + len(sheets)
+    n = 1 if only is not None else max(a.min, math.ceil(total / a.per))
+    first = 1 if only is not None else 0                      # a re-judge writes part 2 (part 1 holds the carried verdicts)
+    need_neg = only is None or not os.path.exists(os.path.join(logs, "negscan_findings.json"))
     dur = float(wp["duration"])
     decl = declarations(B, A)
     notes = open(a.notes).read().strip() if a.notes else ""
@@ -112,9 +122,13 @@ def main():
         t0, t1 = dur * k / n, dur * (k + 1) / n
         st = [s for s in strips if t0 <= strip_time(s) < t1 or (k == n - 1 and strip_time(s) >= t1)]
         sh = [s for s in sheets if t0 <= sum(sheet_span(s)) / 2 < t1 or (k == n - 1 and sum(sheet_span(s)) / 2 >= t1)]
-        lines = [f"# Judge part {k + 1} of {n}: the watch pass on `{wp['path']}`", "",
-                 f"You are an independent judge of one stretch of this video ({mmss(t0)} to {mmss(t1)} of {mmss(dur)}). Nothing "
-                 "about this file has been looked at by a person yet; you are that person. Be skeptical: the session that built "
+        part = k + 1 + first
+        lines = [f"# Judge part {part}{'' if only is not None else f' of {n}'}: the watch pass on `{wp['path']}`", "",
+                 (f"You are an independent judge of {len(st) * 2 + len(sh)} images taken from across this video "
+                  f"({mmss(dur)} long). Judge them exactly as you would a whole film. Nothing "
+                  if only is not None else
+                  f"You are an independent judge of one stretch of this video ({mmss(t0)} to {mmss(t1)} of {mmss(dur)}). Nothing ")
+                 + "about this file has been looked at by a person yet; you are that person. Be skeptical: the session that built "
                  "it believes it is fine. Do not read the build's notes, handoffs or any other judge's findings.", "",
                  "## What to do", "",
                  f"1. Open EVERY image listed below with the Read tool, one at a time, and give EVERY image a verdict: `clean`, "
@@ -128,20 +142,20 @@ def main():
                  "defect (put `-ss` AFTER `-i`, or seek at least two seconds early): "
                  f"`'{os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(HERE))))), 'Media/video_edit/bin/ffmpeg')}' "
                  f"-v error -i '{wp['path']}' -ss <t> -frames:v 1 <scratch>.png`. Write scratch files only under "
-                 f"`{os.path.join(A, 'judge_scratch', f'part{k + 1}')}`. Never judge a defect from a downscaled tile.",
-                 f"4. Write `{os.path.join(logs, f'findings_part{k + 1}.json')}`:",
+                 f"`{os.path.join(A, 'judge_scratch', f'part{part}')}`. Never judge a defect from a downscaled tile.",
+                 f"4. Write `{os.path.join(logs, f'findings_part{part}.json')}`:",
                  '   `{"judge": "<who you are>", "video": "' + wp["video"] + '", "method": "<what you opened and measured>", '
                  '"entries": [{"image": "<file name>", "verdict": "clean"|"defect"|"expected", "item": "<checklist key, for a '
                  'defect>", "t": <seconds>, "note": "<what you saw; for expected, what the build declares there>"}, ...]}`',
                  "   At least one entry per image (use the bare file name); several for an image with several findings."]
-        if k == 0:
+        if k == 0 and need_neg:
             lines += [f"5. You also judge the negative-events sheet `{os.path.join(A, 'negscan', 'sheet.jpg')}` (evenly spaced "
                       "frames of the whole film): look for body-shame framing only (a close-up of an out-of-shape body part "
                       "framed with shame, a 'before' shot lingered on with contempt). Write "
                       f"`{os.path.join(logs, 'negscan_findings.json')}`: a JSON list, `[]` when there is nothing, otherwise "
                       '`[{"t": <seconds>, "what": "...", "disposition": "cleared"|"confirmed_violation"|"needs_review"}]`. '
-                      "Do NOT put the negscan sheet in findings_part1.json."]
-        lines += [f"{6 if k == 0 else 5}. Report back in a few lines: the count of clean / expected / defect, every defect with its "
+                      f"Do NOT put the negscan sheet in findings_part{part}.json."]
+        lines += [f"{6 if k == 0 and need_neg else 5}. Report back in a few lines: the count of clean / expected / defect, every defect with its "
                   "time and item, and your plain opinion of any trade-off you saw.", "",
                   "## What this build declares (use it to tell `expected` from `defect`)", ""] + [f"- {d}" for d in decl]
         if notes:
@@ -152,9 +166,9 @@ def main():
         for s in st:
             idx = re.match(r"strip_(\d+)_", s).group(1)
             lines.append(f"- strips/{s}" + (f"  +  strips/{pair_of[idx]}" if pair_of.get(idx) else ""))
-        open(os.path.join(wd, f"JUDGE_PART_{k + 1}.md"), "w").write("\n".join(lines) + "\n")
-        print(f"part {k + 1}: {mmss(t0)} to {mmss(t1)}  {len(sh)} sheets, {len(st)} strips + pairs")
-    print(f"{n} judges for {total} images -> {wd}/JUDGE_PART_1..{n}.md")
+        open(os.path.join(wd, f"JUDGE_PART_{part}.md"), "w").write("\n".join(lines) + "\n")
+        print(f"part {part}: {mmss(t0)} to {mmss(t1)}  {len(sh)} sheets, {len(st)} strips + pairs")
+    print(f"{n} judge(s) for {total} images -> {wd}/JUDGE_PART_{1 + first}..{n + first}.md")
     return 0
 
 
