@@ -1,6 +1,6 @@
 #!/bin/zsh
 # fold three judges' findings into one, stamp the watch pass, record the negscan, re-run the delivery gate
-# usage: ./fold.sh <build dir> <video> [<judge label>]
+# usage: [FORMAT=ad1x1] ./fold.sh <build dir> <video> [<judge label>]   (FORMAT: the gate format, default ad9x16)
 set -e
 B="$1"; V="$2"; WHO="${3:-Claude Opus 5 x3 (independent watch judges, thirds)}"; cd "$B"
 python3 - <<'PY'
@@ -25,6 +25,6 @@ PY
 K="${0:A:h}"; D="${K:h:h:h}/_shared/deliver"   # this checkout's own gate tools (never a hard-wired main checkout)
 python3 "$D/watch.py" --judge logs/watch_pass.json --findings logs/findings.json --by "$WHO" | tail -4
 python3 "$K/kit_negscan.py" record --build "$B" --video "$V" --findings "$(cat logs/negscan_findings.json)" --by "$WHO (part 1)"
-python3 "$D/gate.py" "$V" --format ad9x16 --plan plan.json --json gate_final.json > gate_final.log 2>&1 || true
+python3 "$D/gate.py" "$V" --format "${FORMAT:-ad9x16}" --plan plan.json --json gate_final.json > gate_final.log 2>&1 || true
 python3 -c "
 import json;g=json.load(open('gate_final.json'));print('GATE', g['verdict']);[print(' ',r['key'],r.get('detail','')[:200]) for r in g['rows'] if r.get('ok') is not True]"

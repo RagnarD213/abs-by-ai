@@ -8,7 +8,7 @@ python3 .claude/skills/_shared/deliver/gate.py --audit        # every format ans
 python3 .claude/skills/_shared/deliver/gate.py --plan-keys    # what plan.json may contain
 ```
 
-Formats: `ad9x16` · `ad16x9` · `ad1x1` · `longform` · `short` · `website` · `exercise-demo`.
+Formats: `ad9x16` · `ad16x9` · `ad1x1` · `longform` · `short` · `organic9x16` · `website` · `exercise-demo`.
 
 ---
 

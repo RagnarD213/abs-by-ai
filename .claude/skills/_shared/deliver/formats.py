@@ -526,6 +526,69 @@ FORMATS = {
         },
     ),
 
+    # ------------------------------------------------------------------ full-length organic vertical
+    "organic9x16": dict(
+        note="The full-length 9:16 vertical of an ORGANIC long-form film we made ourselves, built by "
+             "kit9x16 from the 16:9's edit sheet (first one: RO-10, 2026-10-03). Same cut, same "
+             "grade, same beats, the 16:9's delivered mix bit for bit; re-laid for a phone with "
+             "burned captions. ⚠ NO NUMBER HERE IS NEW. Pacing and speech rows are the PARENT "
+             "format's (`longform`: it is the same cut and the same audio); framing, caption and "
+             "label rows are the organic vertical's (`short`). Dan, 2026-10-03: an organic film is "
+             "not graded on ad pacing (the kit's five ad-pacing design rows are declared not "
+             "applicable in build_kit.py for the same reason).",
+        rows=_common(
+            drop=("compliance:drug_names",),
+            **{
+                "container:size": dict(size="1080x1920"),
+                "container:fps": dict(fps="30000/1001"),
+                "container:codec": dict(vcodec="h264", acodec="aac", asr=48000, achannels=2),
+                "container:duration": dict(tolerance_s=0.10),
+                # the kit renders the sheet's exact frame count (ad9x16's bound), not a floating plan.
+                "container:frames": dict(),
+                "audio:stamp": dict(),
+                "audio:stream_integrity": dict(length_tolerance_s=0.15, silent_second_dbfs=-50.0),
+                "junk:dead_air": dict(max_gap_s=2.0),
+                # `longform`'s bound, carried with its provenance: the audio IS the approved 16:9's
+                # delivered mix, stream-copied, so the speech rows take the bound that mix was
+                # approved under. RO-10's mix reads 0.94 s (its 16:9 stamp, 2026-10-01).
+                "style:coverage": dict(min=0.40),
+                "style:static_run": dict(max=30.0),
+                "style:change_rate": dict(min_per_min=4.0),
+                # `longform`'s three pacing bounds, unchanged (0.40: qc_style.MIN_COVERAGE; 30 s:
+                # Dan's written rule 2026-08-21; 4.0/min: qc_style.MIN_SCENES_PER_MIN). The vertical
+                # is the same cut. RO-10's 16:9 reads 68 % / 18.7 s / 10.9 per min. ⚠ NOT `short`'s
+                # 0.30: that allowance is for one continuous passage of a longer cut.
+                "cut:naked_splices": dict(max_per_min=12.0),
+                # the bound every format carries (see ad9x16); not measured on an approved organic
+                # vertical yet. Re-measure when RO-10's is approved.
+                "framing:hair_top": dict(min_px=20, edge_frac=0.20),
+                "framing:headroom": dict(seg_min_px=30, seg_max_px=70, median_max_px=75),
+                # the locked standard, as `short` (our own footage, hair-anchored; NOT ad9x16's 20,
+                # which is the allowance for a re-crop of an outside editor's tighter 16:9).
+                "framing:centering": dict(max_off_frac=0.06),
+                # as `short` and ad9x16. The kit's standard camera (kit_track --tolerance 20,
+                # Dan 2026-10-03) holds him 17 px off centre at the median on RO-10, 92 px at most
+                # on a sample; this row grades a hold's MEDIAN (36 source px = 6 %).
+                "framing:no_wide_level": dict(min_head_frac=0.27),
+                # as `short`: a sheet build has no Dan-window plates; he is always full frame.
+                "framing:push_coverage": dict(min_spread=1.10, push_ratio=(0.75, 1.40),
+                                              level_step=0.02),
+                "captions:burned": dict(present=True, min_frac=0.45, band=_CAPTION_BAND_9x16),
+                "captions:card_collision": dict(),
+                "captions:sync": dict(tolerance_ms=120, silence_before_s=0.30, min_samples=5,
+                                      min_state_corr=0.60, min_word_match_frac=0.97),
+                "compliance:banned_screen": dict(**_BANNED),
+                "compliance:labels": dict(_LABELS),
+                "watch:pass": dict(required=True),
+            }),
+        not_applicable={
+            "srt:present": "the vertical burns its captions; the sidecar belongs to the 16:9",
+            "srt:shape": "no sidecar -- see srt:present",
+            "compliance:drug_names": "Dan 2026-09-30: organic videos may name the drug; the "
+                                     "brand-name ban is an ad rule",
+        },
+    ),
+
     # ------------------------------------------------------------------ absbyai.com conversion video
     "website": dict(
         note="The trust video on the analysis page / /start. Six rounds over seven days; rev 4 is "

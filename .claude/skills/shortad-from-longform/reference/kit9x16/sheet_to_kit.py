@@ -244,6 +244,7 @@ def main():
     C = dict(source=f"sheet_to_kit.py from the edit sheet of {S['job']} ({S['editor']}); no reverse-engineering",
              style="softblue", words="m.whisper.json", dur=V["duration"], beats=beats, lower_thirds=lts, insets=insets, ctas=ctas,
              auto_cta=False, flash=bool(a.flash), no_caps_kinds=["hf", "cta"],
+             organic=str(S.get("type", "")).upper() in ("LFC", "SFC"),     # content, not an ad: ad pacing does not grade it
              deviations=[["graphics", "Soft Blue Light, drawn at 9:16 with HyperFrames from the 16:9's own configs (Dan, 2026-10-01)."],
                          ["picture", "Recut from the raw roll on the sheet's exact frames; the 16:9's delivered mix is untouched."]])
     json.dump(C, open(os.path.join(B, "content.json"), "w"), indent=1)

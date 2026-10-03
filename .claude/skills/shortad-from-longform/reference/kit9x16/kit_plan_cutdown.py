@@ -179,7 +179,7 @@ def main():
         banned_source=master.get("banned_source"),
         banned_times=master.get("banned_times", []),
         caption_states=manifest["caption_states"],
-        caption_highlight_rgb=[140, 153, 91],
+        caption_highlight_rgb=master.get("caption_highlight_rgb", [140, 153, 91]),   # olive, or a sheet build's cyan
         speech_words=words,
         speech_words_evidence=dict(method="verbatim_source_ctc"),
         graphic_regions=graphic_regions,

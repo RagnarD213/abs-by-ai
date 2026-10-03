@@ -139,6 +139,8 @@ def main():
     ap.add_argument("--raw", action="append", default=[])
     ap.add_argument("--ai", default="gemini")
     ap.add_argument("--judge", default="session", choices=["session", "both"])
+    ap.add_argument("--format", dest="fmt", help="the delivery gate's format for the full film. Default: ad9x16; a sheet of an "
+                                                 "organic film (type LFC / SFC) is organic9x16 and its 59 s cut is a `short`")
     ap.add_argument("--from", dest="start", choices=STAGES)
     ap.add_argument("--until", default="deliver", choices=STAGES)
     ap.add_argument("--deliver", help="the ad's folder under '<Editor> Ad Videos/' (deliver stage)")
@@ -146,8 +148,16 @@ def main():
     if bool(a.master) == bool(a.sheet):
         ap.error("give exactly one of --master (an editor's finished master) or --sheet (our own 16:9's edit sheet)")
     SHEET = os.path.abspath(a.sheet) if a.sheet else None
+    ORGANIC = False
     if SHEET:
-        a.master = json.load(open(SHEET))["video"]["master"]
+        _S = json.load(open(SHEET))
+        a.master = _S["video"]["master"]
+        ORGANIC = str(_S.get("type", "")).upper() in ("LFC", "SFC")
+    # THE GATE'S FORMAT. An ad is graded as an ad. An organic film's vertical is graded as organic (Dan, 2026-10-03):
+    # `organic9x16` for the full film (the parent longform's pacing and speech bounds, the organic vertical's framing
+    # and caption bounds; organic videos may name the drug), and its <= 0:59 cut is literally a `short`.
+    FMT = a.fmt or ("organic9x16" if ORGANIC else "ad9x16")
+    CUT_FMT = "short" if FMT == "organic9x16" else FMT
     a.start = a.start or ("sheet" if SHEET else "recover")
     # --sbl COPY.json: an editor's master redrawn in Soft Blue Light (master_to_sbl.py after `content`; then the sheet
     # path's graphics and picture stages). Without it a master build still draws the olive kit (answer keys, regressions).
@@ -182,9 +192,9 @@ def main():
             R.update(extra)
         json.dump(R, open(rp, "w"), indent=1)
 
-    def sh(cmd, cwd=B, check=True):
+    def sh(cmd, cwd=B, check=True, extra_env=None):
         print("$", " ".join(os.path.basename(str(c)) if i == 0 else str(c) for i, c in enumerate(cmd))[:300], flush=True)
-        r = subprocess.run([str(c) for c in cmd], cwd=cwd, env=env)
+        r = subprocess.run([str(c) for c in cmd], cwd=cwd, env=dict(env, **(extra_env or {})))
         if check and r.returncode:
             raise Stop(r.returncode if r.returncode in (3, 4) else 1, f"{os.path.basename(str(cmd[1]))} exited {r.returncode}")
         return r.returncode
@@ -299,7 +309,7 @@ def main():
             # write (the watch pass, the negative-events scan) may be open. Three judges spent on a file the gate
             # then fails on a measurement is the most expensive way to find it (kit autofill, 2026-09-30).
             gp = os.path.join(B, "gate_pre.json")
-            subprocess.run([PY, os.path.join(SHARED, "deliver", "gate.py"), full, "--format", "ad9x16", "--plan",
+            subprocess.run([PY, os.path.join(SHARED, "deliver", "gate.py"), full, "--format", FMT, "--plan",
                             os.path.join(B, "plan.json"), "--json", gp], cwd=B, capture_output=True)
             if os.path.exists(gp):
                 rows = [r for r in json.load(open(gp))["rows"] if r.get("ok") is not True and not r.get("na")
@@ -324,7 +334,8 @@ def main():
                 g = os.path.join(logs, "gemini", "findings_part1.json")
                 shutil.copy(g, os.path.join(logs, "findings_part9_gemini.json"))
         elif name == "fold":
-            sh(["zsh", K("kit_fold.sh"), B, full, "session judges" + (" + Gemini judge" if a.judge == "both" else "")])
+            sh(["zsh", K("kit_fold.sh"), B, full, "session judges" + (" + Gemini judge" if a.judge == "both" else "")],
+               extra_env=dict(FORMAT=FMT))
             g = json.load(open(os.path.join(B, "gate_final.json")))
             if g.get("verdict") != "PASS":
                 raise Stop(1, f"GATE {g.get('verdict')}: " + "; ".join(r["key"] for r in g["rows"] if r.get("ok") is not True))
@@ -349,7 +360,8 @@ def main():
             sh([PY, K("kit_negscan.py"), "sheet", "--build", audit, "--video", cut], cwd=audit)
         elif name == "cutfold":
             audit = os.path.join(B, "cut_audit")
-            sh(["zsh", K("kit_fold.sh"), audit, cut, "session judges" + (" + Gemini judge" if a.judge == "both" else "")])
+            sh(["zsh", K("kit_fold.sh"), audit, cut, "session judges" + (" + Gemini judge" if a.judge == "both" else "")],
+               extra_env=dict(FORMAT=CUT_FMT))
             g = json.load(open(os.path.join(audit, "gate_final.json")))
             os.makedirs(os.path.join(B, "cut"), exist_ok=True)
             shutil.copy(os.path.join(audit, "gate_final.json"), os.path.join(B, "cut", "gate_final.json"))

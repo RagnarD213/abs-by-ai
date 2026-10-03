@@ -5,6 +5,12 @@ covered), the compositor's cap/manifest.json (caption states), gfx/*.mov (graphi
 gfx/p*.mov.json (window holes), the chips the compositor drew, words_ctc.json, his_mix.wav.
 Evidence contract v2, bound to the delivered file's sha256.
 
+A SHEET BUILD (beats.json `style: softblue`, graphics from HyperFrames) reads the same facts from where that build
+keeps them: overlays and their boxes from hf/manifest.json, a card's chip from hf/plates.json (`chip`), a before-card's
+chip from hf/configs/<id>.json. A chip's reference image is cut out of the HyperFrames render that was composited
+(never redrawn by other code: RO-10's 16:9 read 0.825 against a chip drawn by the old graphics code and 0.975 against
+the template's own). A card's HOLE is picture, not a graphic: captions may run inside a tall card as they do on a fill.
+
   python3 kit_plan.py --build DIR --video master.mp4 [--transcribe] [--reference-cut his.mp4]
                       [--banned-source REC --banned-times 26.4 27.5 ...]
 """
@@ -29,6 +35,31 @@ def sha(p):
     return h.hexdigest()
 
 
+CHIP_H = 80                               # the Soft Blue Light disclosure chip (media-card / before-card templates)
+
+
+def hf_chip(mov, t_rel, chip, out):
+    """Cut the chip rectangle out of a HyperFrames render at t_rel (BT.601 ProRes -> RGB, as render_sbl.py decodes
+    it) and PROVE it is a chip: the template's chip is rgb(6, 17, 30) with white type, so most of the rectangle is
+    near-black navy and some of it is white. A rectangle that is not a chip stops the plan (a label track cut from
+    the render would otherwise 'match' whatever the render shows there)."""
+    import subprocess
+    import numpy as np
+    from PIL import Image
+    ff = os.path.join(REF, "..", "..", "..", "..", "Media", "video_edit", "bin", "ffmpeg")
+    ff = ff if os.path.exists(ff) else "ffmpeg"
+    x, y, w = int(round(chip["x"])), int(round(chip["y"])), int(round(chip["w"]))
+    subprocess.run([ff, "-v", "error", "-y", "-ss", f"{max(0.0, t_rel):.3f}", "-i", mov, "-frames:v", "1", "-vf",
+                    f"scale=in_color_matrix=bt601:in_range=tv,format=rgb24,crop={w}:{CHIP_H}:{x}:{y}", out], check=True)
+    a = np.asarray(Image.open(out).convert("RGB")).astype(int)
+    navy = ((a[..., 0] < 40) & (a[..., 1] < 50) & (a[..., 2] < 70)).mean()
+    white = (a.min(axis=2) > 200).mean()
+    if navy < 0.45 or white < 0.03:
+        raise SystemExit(f"{os.path.basename(mov)}: no disclosure chip at {x},{y} {w}x{CHIP_H} (navy {navy:.2f}, white {white:.2f}); "
+                         f"the chip {chip.get('s')!r} the build declares is not in the render")
+    return [x, y]
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--build", required=True)
@@ -47,6 +78,9 @@ def main():
     if not os.path.exists(VID):
         raise SystemExit(f"delivered file not on disk: {VID}")
     tl, ov = B.timeline()
+    SBL = getattr(B, "STYLE", "olive") == "softblue"          # a sheet build: graphics are HyperFrames renders (hf/)
+    HF_PLATES = json.load(open("hf/plates.json")) if SBL else {}
+    HF_MAN = json.load(open("hf/manifest.json")) if SBL else []
     P = json.load(open("edl_picture.json"))
     NTOT = P[-1]["n1"]
     pc = json.load(open("piccuts.json")) if os.path.exists("piccuts.json") else []
@@ -101,6 +135,12 @@ def main():
                 q = f"plan_assets/chip_{kind}_{_name(b)}.png"
                 im.crop(bb).save(q)
                 item.update(chip=os.path.abspath(q), pos=[bb[0], bb[1]])
+            elif b["kind"] == "card" and SBL:
+                # the media-card plate drew the chip (hf/plates.json `chip`): its reference is cut from that render
+                pl = HF_PLATES.get(str(tl.index(b))) or {}
+                if pl.get("chip"):
+                    q = f"plan_assets/chip_{kind}_{_name(b)}_card.png"
+                    item.update(chip=os.path.abspath(q), pos=hf_chip(pl["mov"], min(1.0, (b["t1"] - b["t0"]) / 2), pl["chip"], q))
             elif b["kind"] == "card":
                 # plate_card hangs the chip off the hole: rebuild the same layer the plate drew
                 import vlib
@@ -138,6 +178,28 @@ def main():
         return out
     real_photos = insert_list("real")
     ai_inserts = insert_list("ai")
+    hf_chip_regions = []
+    if SBL:
+        # a full-screen graphic that carries a labelled picture (the before-card's photo + chip): the chip is in the
+        # graphic's own config. The photo group rises for 0.55 s, then the chip is still; the track starts after that.
+        for i, b in enumerate(tl):
+            if b["kind"] != "hf":
+                continue
+            cp = f"hf/configs/{b['gid']}.json"
+            ch = (json.load(open(cp))[0].get("chip") if os.path.exists(cp) else None)
+            if not ch:
+                continue
+            kind = "ai" if "AI" in str(ch.get("s", "")).upper().split("-")[0] else "real"
+            q = f"plan_assets/chip_{kind}_{b['gid']}_hf.png"
+            pos = hf_chip(HF_PLATES[str(i)]["mov"], (b["t1"] - b["t0"]) * 0.6, ch, q)
+            (ai_inserts if kind == "ai" else real_photos).append(
+                dict(name=b["gid"], beat=[round(b["t0"] + 0.7, 3), round(b["t1"] - 0.1, 3)], chip=os.path.abspath(q), pos=pos))
+        # a card's chip is a graphic a caption must clear (the hole above it is picture)
+        for i, b in enumerate(tl):
+            ch = (HF_PLATES.get(str(i)) or {}).get("chip") if b["kind"] == "card" else None
+            if ch:
+                hf_chip_regions.append(dict(name=f"chip@{b['t0']:.2f}", beat=[b["t0"], b["t1"]],
+                                            rect=[int(round(ch["x"])), int(round(ch["y"])), int(round(ch["w"])), CHIP_H]))
     chips, pos = {}, {}
     for kind, lst in (("real", real_photos), ("ai", ai_inserts)):
         for it in lst:
@@ -146,7 +208,11 @@ def main():
                 break
 
     graphics = []
-    for i, o in enumerate(ov):
+    if SBL:
+        # every overlay the compositor laid over the footage (lower thirds, side cards, CTAs), with its own render
+        graphics = [dict(name=f"{m['id']}@{m['a']:.2f}", beat=[round(m["a"], 3), round(m["b"], 3)], mov=os.path.abspath(m["mov"]),
+                         **({"box": m["box"]} if m.get("box") else {})) for m in HF_MAN]
+    for i, o in enumerate([] if SBL else ov):
         for f in sorted(glob.glob(f"gfx/ov_{o['kind']}_*.mov")):
             if os.path.exists(f + ".beat") and open(f + ".beat").read().strip() == f"{o['t0']:.4f}":
                 graphics.append(dict(name=f"{o['kind']}@{o['t0']:.2f}", beat=[round(o["t0"], 3), round(o["t1"], 3)], mov=os.path.abspath(f)))
@@ -188,6 +254,8 @@ def main():
         kit=dict(piccuts=os.path.abspath("piccuts.json"), report=os.path.abspath("kit_report.json"),
                  moved_cuts=sum(1 for r in pc if r.get("k")), covered_cuts=sum(1 for r in pc if r.get("cover"))),
     )
+    if SBL:
+        plan["caption_highlight_rgb"] = [int(v) for v in CP.LIT]     # the lit word's colour on this build (Soft Blue cyan)
     if a.reference_cut:
         plan["reference_cut"] = os.path.abspath(a.reference_cut)
     if a.banned_source:
@@ -250,7 +318,15 @@ def main():
     qb = lambda t: (math.floor(t * FPS + 1e-6) + 1) / FPS
     regions = [dict(name=f"card@{x:.3f}", beat=[qa(x), qb(y)], rect=[0, 0, 1080, 1920]) for x, y in cards]
     for g in graphics:
+        if g.get("box"):
+            # a HyperFrames overlay's VISIBLE box (the layout's own numbers): its render's alpha also holds the card's
+            # soft shadow, which is not something a caption can collide with
+            x0, y0, x1, y1 = (int(round(v)) for v in g["box"])
+            regions.append(dict(name=g["name"], beat=[qa(g["beat"][0]), qb(g["beat"][1])], rect=[x0, y0, x1 - x0, y1 - y0]))
+            continue
         regions.append(dict(name=g["name"], beat=[qa(g["beat"][0]), qb(g["beat"][1])], mov=g["mov"], mov_sha256=sha(g["mov"])))
+    for r in hf_chip_regions:
+        regions.append(dict(name=r["name"], beat=[qa(r["beat"][0]), qb(r["beat"][1])], rect=r["rect"]))
     plan["graphic_regions"] = regions
     windows = []
     for i, b in enumerate(tl):

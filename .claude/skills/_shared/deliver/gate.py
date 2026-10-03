@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """THE DELIVERY GATE. One gate, called by all six video skills, run on the DELIVERED FILE.
 
-  gate.py <file> --format ad9x16|ad16x9|ad1x1|longform|short|website|exercise-demo [--plan plan.json]
+  gate.py <file> --format ad9x16|ad16x9|ad1x1|longform|short|organic9x16|website|exercise-demo [--plan plan.json]
   gate.py --audit                 every format answers for every row, or say what is missing
   gate.py --formats               list the formats and their notes
 
@@ -58,7 +58,7 @@ from _shared.deliver.common import Row                       # noqa: E402
 #   1.0.0  2026-09-11  first version. Folds in the rows of the seventeen per-video QC forks, adds
 #                      audio:lipsync and the compliance rows, and moves every bound into formats.py
 #                      with the file and date it was measured on.
-GATE_VERSION = "2.4.0"        # 1.1.0: an insert may declare its own label chip + position
+GATE_VERSION = "2.5.0"        # 1.1.0: an insert may declare its own label chip + position
                               # (a card hangs its chip off the card, not at the full-bleed waistline)
                               # 1.2.0  2026-09-12  Phase 2: five framing: rows on a portable tracker
                               # (FaceMesh + Apple Vision, no set-specific background) and stage 3 of
@@ -84,6 +84,10 @@ GATE_VERSION = "2.4.0"        # 1.1.0: an insert may declare its own label chip 
                               # compliance:drug_names not applicable and drop "Zepbound"/"Ozempic"
                               # from srt:shape banned_spellings. Dan, RO-12 round 2: organic videos
                               # may name the drug; the brand-name ban is an ad rule.
+                              # 2.5.0  2026-10-03  new format `organic9x16`: the full-length 9:16
+                              # of an organic long-form film (kit9x16 sheet build, RO-10). No
+                              # existing format's rows or bounds changed; its numbers are
+                              # `longform`'s (pacing, speech) and `short`'s (framing, captions).
 
 STAMP_SUFFIX = ".deliver_gate.json"
 
