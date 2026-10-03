@@ -5,8 +5,19 @@ The membership checkout on **absbyai.com** (web only). Live since 2026-10-03 in 
 (overlay Stripe sheet, Monthly plus Annual). The iOS and Android apps never see it: `IS_NATIVE_APP` keeps the In-App
 Purchase screen.
 
-Entry: every web non-member who reaches a paywall. `/start` buy buttons (`/?join=1&from=vsl`), the analysis page,
-hub tiles. All go through `showCartScreen()` in `public/index.html`.
+**Address: `absbyai.com/cart`** (2026-10-03). `/?join=1` opens the same page: it is what the `/start` buy buttons
+(`/?join=1&from=vsl`) and the apps' external links use. Every web paywall (the analysis page, hub tiles, trial gates)
+goes through `showCartScreen()` in `public/index.html`.
+
+**It shows for everyone on the web, logged in or not** (Dan, 2026-10-03). `showMembershipScreen()` sends every web
+visitor to the cart; the older "Everything, unlocked" screen with Monthly and Annual cards is native-only now.
+- Logged out: the email typed in step 1 becomes the account.
+- Logged in: the email is the account's and is locked; the membership attaches to that account (no claim) and the
+  buyer gets the same "You're in" screen without the password box.
+- Admin-allowlist and beta (comp) accounts have access with no membership of their own, so they can check out.
+- An account that is already paying or in a trial (`hasOwnMembership` on the server, `ownMembership` on
+  `/api/membership`) still sees the cart, but step 3 says there is nothing to pay and the button reads
+  "Go To My Hub". The server refuses a second membership either way.
 
 ## What is on the page (`#cartV2`, outside `.app`, full width)
 
