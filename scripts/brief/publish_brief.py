@@ -40,10 +40,10 @@ def main():
                               headers=headers, method="POST")
             with urlopen(request, timeout=25) as response:
                 receipt = json.load(response)
-            if receipt.get("ok") is not True or receipt.get("forDate") != document["forDate"]:
+            if receipt.get("ok") is not True or receipt.get("forDate") != document["forDate"] or receipt.get("routineEnabled") != document["routineEnabled"]:
                 raise ValueError("Publication receipt not verified")
         print(json.dumps({"status": "published" if args.publish else "validated_only", "forDate": document["forDate"],
-                          "editionType": document["editionType"], "routineEnabled": False}))
+                          "editionType": document["editionType"], "routineEnabled": document["routineEnabled"], "scheduleChanged": False}))
         return 0
     except Exception:
         # Provider bodies, credentials and private document text never reach stdout.

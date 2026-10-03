@@ -38,7 +38,7 @@ def main():
                 receipt = json.load(response)
             if receipt.get("ok") is not True or receipt.get("sha256") != digest or receipt.get("mime") != mime:
                 raise ValueError("Publication receipt not verified")
-        print(json.dumps({"status": "published" if args.publish else "validated_only", "sha256": digest, "mime": mime, "routineEnabled": False}))
+        print(json.dumps({"status": "published" if args.publish else "validated_only", "sha256": digest, "mime": mime, "scheduleChanged": False}))
         return 0
     except Exception:
         print("Private image validation/publication failed; no successful publication claimed", file=sys.stderr)

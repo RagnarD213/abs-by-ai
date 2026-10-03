@@ -28,7 +28,7 @@ The default output directory is `~/.absbyai-brief`, with mode 0700. `brief-input
 
 Without `--live`, network sources are `not_checked`. With it, the helper performs dashboard GETs, Google Ads search queries using an existing refresh token, PostHog aggregate queries, and the existing organic-ad guard's read-only scan. It never changes campaigns, queues, accounts or schedules. It does not call the legacy ads-digest writer, which could turn a failed read into apparently empty results.
 
-Exit 0 means private output was written, not that every source succeeded. Read each source's status. `missing`, `stale`, `error`, `partial`, `not_checked` and `no_current_plan` must not be interpreted as zero. The file always reports `routineEnabled: false` because this collector does not enable a routine.
+Exit 0 means private output was written, not that every source succeeded. Read each source's status. `missing`, `stale`, `error`, `partial`, `not_checked` and `no_current_plan` must not be interpreted as zero. The collector reports `scheduleChanged: false` and makes no assertion about an external routine's enabled state. The writer reads private `cloud-routine-state.json` separately.
 
 ## Claude planning scope and freshness
 
@@ -74,7 +74,7 @@ Exact pushed commit `e3fb909` has no GitHub Actions runs or check runs. The exis
 
 ## Private page and writer contract
 
-`scripts/brief/web` replaces the brief route with a separate Google owner gate before existing shared-secret/static routing. Its structured document validator whitelists text fields, limits the main reading budget, rejects stale/future current-priority claims and unsafe links, keeps missing counts null, and disallows a claim that publication enables the routine. The page shows the edition's real date and warns when it cannot establish today's priority. No raw transcript or arbitrary HTML is rendered.
+`scripts/brief/web` replaces the brief route with a separate Google owner gate before existing shared-secret/static routing. Its document validator whitelists text fields, limits the main reading budget, rejects stale/future current-priority claims and unsafe links, and keeps missing counts null. `routineEnabled` is a boolean recording separately confirmed external state; true requires validated cloud schedule metadata. Source statuses stay independent, private automation IDs are discarded, and receipts explicitly report `scheduleChanged: false`. The page shows the edition's real date and warns when it cannot establish today's priority. No raw transcript or arbitrary HTML is rendered.
 
 The writer saves a private schema-version-1 document outside Git, then runs `python3 scripts/brief/publish_brief.py /private/path/edition.json` to validate only. For the manual proof, the signed-in owner can upload that reviewed file at `/brief-publish`; same-origin custom-header validation and the owner session protect publication, without an ingestion secret. The owner's brief session cannot access the older dashboard APIs. Google client configuration and actual owner/device proof must precede private publication.
 

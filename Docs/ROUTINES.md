@@ -2,7 +2,7 @@
 
 ## Abs By AI morning brief
 
-Status: **manual production publication proven; daily schedule disabled**. On October 3 the Mac signer published an approved hero and a validated edition. Server receipts, exact private database content/image checks and 12 production rejection/access checks passed. Daniel's owner-login screenshot shows the protected shell; refreshed browser content and cross-device persistence remain unproven. No scheduler was installed or changed. See `Docs/MORNING_BRIEF_PUBLISHING.md`.
+Status: **external cloud schedule enabled**. Parent created the daily cloud automation on October 3: run at 7:00 AM America/Chicago starting October 4, target page ready by 7:30, no routine notification. No local cron or launchd job was installed. Manual signed publication and production rejection/storage checks are proven; first scheduled-run completion, refreshed owner browser content and cross-device persistence remain unproven. Mac must be online. See `Docs/MORNING_BRIEF_PUBLISHING.md`.
 
 | Item | Design or current state |
 | --- | --- |
@@ -12,10 +12,10 @@ Status: **manual production publication proven; daily schedule disabled**. On Oc
 | Private inputs | `~/.absbyai-brief/brief-inputs.json` by default; never in Git |
 | Planning state | `~/.absbyai-brief/planning-state.json`; extracted tasks and offsets only |
 | Requirements and operation | `Docs/MORNING_BRIEF_INPUTS.md` |
-| Draft assignment | Below; not installed or scheduled |
+| Cloud assignment | Below; externally scheduled daily at 7:00 AM Central starting October 4 |
 | Claude routine | Must remain disabled; its scheduler was not modified or independently verified here |
-| Core next steps | Owner browser readback; parent verifies recurring cloud-to-Mac invocation and enables page-only automation. Gmail/Calendar are connected to the parent writer. |
-| Explicit interim gaps | Trello intentionally deferred; fresh watch-history/model applicability, daily image generation and exact free-generation/new-trial/paid mappings incomplete. Missing sources stay visible; these gaps do not block core text publication. |
+| Core next steps | Owner browser readback; verify first scheduled completion. Gmail/Calendar are connected to the parent writer; Mac must be online. |
+| Explicit interim gaps | Trello deferred; conversions unverified. Cloud prompt includes practical model-release checks, fresh-watch-feed use and built-in image generation with dated fallback, but their first automated outputs remain unproven. Missing sources stay visible. |
 
 The September 30 interview supersedes the handoff's 6:05/6:30 timings, chat/text delivery, label-only Gmail scope and proposal to push input data to the repository. The repository can carry code and sanitized documentation; personal source data remains private. Board maintenance and old pinned reminders do not become priorities automatically.
 
@@ -29,7 +29,7 @@ Use verified yesterday context, including actual completion or a response from D
 
 Include calendar conflicts and actionable editor deliveries when fresh. Include urgent/tomorrow social release flags plus an expandable seven-day queue checked from both Blotato and native YouTube Studio schedules. Preserve individual platform releases and classify preflight missing/unverified/not-applicable separately. Never change a post as part of brief collection. Include YouTube-derived actions and practical model/skill/plugin improvements only when they help current work. A stale watch feed is not a fresh recommendation. Omit filler, general AI news and automatic lists of aging reminders. Do not use an em dash or an en dash.
 
-Daniel authorized Mac signing access and private publication on October 3. Validate each current edition, then publish it with the local signer and verify its date receipt. Only upload an approved image when available; uploading a stored image is not proof of daily fresh generation. Do not send email, alter campaigns/posts or issue a daily notification. Parent owns the remaining cloud-to-Mac execution proof and separately authorized page-update schedule. Ready time is 7:30 AM America/Chicago; choose lead time from complete runtime measurements.
+Daniel authorized Mac signing access and private publication on October 3. Validate each current edition, then publish it with the local signer and verify its date/status receipt. Read the private `cloud-routine-state.json` for confirmed external schedule status; do not hardcode a disabled flag or infer scheduler state from successful publication. Enabled editions carry `routineEnabled: true` and validated cloud metadata (kind, start time, ready target, start date, confirmation timestamp, no local cron, no notifications). Never put automation IDs in the edition. Only upload an approved image when available; an existing fallback keeps its real date. Do not send email, alter campaigns/posts or issue a daily notification. First scheduled execution remains a required operational check.
 
 ### October 2 implementation checkpoint
 

@@ -88,7 +88,7 @@ async function main() {
     assert.equal((await request('/api/brief/logout',{method:'POST',headers:{cookie:sessionCookie,origin:'https://absbyai.com','X-Brief-Action':'logout'}})).status,200);
     assert.equal((await request('/api/brief/data',{headers:{cookie:sessionCookie}})).status,401);
     const pinned = await store.owner(); assert.equal(pinned.google_sub,claims.sub);
-    const invalid = [true,null];
+    const invalid = [true,null,'true',1];
     for (const routineEnabled of invalid) assert.throws(() => validate({...sample,routineEnabled},clock));
     assert.throws(() => validate({...sample,focus:{...sample.focus,status:'current',statedAt:new Date(clock-40*3600000).toISOString(),applicableDate:sample.forDate}},clock));
     assert.throws(() => validate({...sample,opportunities:[{title:'Bad link',detail:'Example',source:'Fixture',url:'javascript:alert(1)'}]},clock));

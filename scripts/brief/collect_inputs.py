@@ -349,7 +349,7 @@ def collect(args):
     for name in ("gmail", "calendar"):
         sources[name] = {"status": "missing", "reason": "Local intake not configured; the brief writer can use its separately connected source"}
     result = {"schemaVersion": 1, "generatedAt": now.isoformat(), "forDate": str(now.astimezone(CHICAGO).date()),
-              "timezone": "America/Chicago", "routineEnabled": False, "window": window,
+              "timezone": "America/Chicago", "scheduleChanged": False, "window": window,
               "priority": select_priority(planning, trello), "sources": sources}
     result = redact(result, credentials)
     write_private(state_dir / "planning-state.json", redact(state, credentials))
@@ -375,7 +375,7 @@ def main():
     print(json.dumps({"output": str(path / "brief-inputs.json"), "forDate": result["forDate"],
                       "prioritySource": result["priority"].get("source"),
                       "sourceStatuses": {name: value["status"] for name, value in result["sources"].items()},
-                      "routineEnabled": False}))
+                      "scheduleChanged": False}))
     return 0
 
 

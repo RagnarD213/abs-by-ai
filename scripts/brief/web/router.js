@@ -120,7 +120,7 @@ function createRouter({store, env = process.env, verifyToken, now = Date.now}) {
   router.post('/api/brief/publish', express.json({limit:'512kb',verify:(req,res,bytes) => { req.briefRawBody=bytes; }}), ingest, async (req, res) => {
     let document;
     try { document = validate(req.body, now()); } catch { return res.status(400).json({error:'Invalid brief document'}); }
-    try { await store.writeDocument(document); return res.json({ok:true, forDate:document.forDate, routineEnabled:false}); }
+    try { await store.writeDocument(document); return res.json({ok:true, forDate:document.forDate, routineEnabled:document.routineEnabled, scheduleChanged:false}); }
     catch { return res.status(503).json({error:'Private publication unavailable'}); }
   });
   // Upload only the user-approved local image. This never generates an image.
@@ -130,7 +130,7 @@ function createRouter({store, env = process.env, verifyToken, now = Date.now}) {
       bytes.readUInt32BE(16)>0 && bytes.readUInt32BE(20)>0 && bytes.readUInt32BE(16)*bytes.readUInt32BE(20)<=16000000 && bytes.toString('ascii',bytes.length-8,bytes.length-4)==='IEND';
     const jpeg = Buffer.isBuffer(bytes) && bytes.length>4 && bytes[0]===255 && bytes[1]===216 && bytes[bytes.length-2]===255 && bytes[bytes.length-1]===217;
     if (!(mime==='image/png' && png) && !(mime==='image/jpeg' && jpeg)) return res.status(400).json({error:'Invalid private image'});
-    try { await store.writeImage(mime,bytes); return res.json({ok:true,sha256:digest(bytes),mime,routineEnabled:false}); }
+    try { await store.writeImage(mime,bytes); return res.json({ok:true,sha256:digest(bytes),mime,scheduleChanged:false}); }
     catch { return res.status(503).json({error:'Private publication unavailable'}); }
   });
   router.use((error,req,res,next) => res.status(error.type==='entity.too.large' ? 413 : 400).json({error:'Invalid publication body'}));
