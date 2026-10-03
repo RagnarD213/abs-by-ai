@@ -22,3 +22,16 @@ Use **Soft Blue Light for all new or revised graphics** and the approved **Motiv
 6. Remove every placeholder and deliver an SRT sidecar, with no running burned captions or watermark. After editor self-QA, obtain one independent full-candidate review with one consolidated verdict. Keep all exact-file gates and full picture/audio review requirements. Report the revision number, provider charges and available editor/reviewer usage; mark measurements unavailable when the runtime does not expose them.
 
 See [workflow boundaries](references/shared/workflow-boundaries.md) for Shorts or format adaptation. Phase 5's small component replay proves packaging/cache behavior; transfer to a new full video still needs its own build and review.
+
+## Standard 9:16 centering (Dan, 2026-10-03)
+
+For every vertical talking-head build, read the shared section **Vertical talking head: land on him, then hold** in `.claude/skills/_shared/framing-motion.md` in the Abs By AI project. Use its shared `.claude/skills/_shared/cut/landing.py`, never a private smoother.
+
+1. Split at every picture cut, punch-in and return from graphics. Never smooth across cuts.
+2. Land exactly on his measured head centre on the first frame. Measure the actual cut frame.
+3. Hold while he is within 3.3% of crop width of centre.
+4. Outside it, follow only to the band edge, eased over 0.75 seconds, capped at 28% of crop width per second.
+5. Takes wandering less than 6.6% of crop width keep one first-frame-anchored centre.
+6. Never recenter the exit.
+
+Call `landing.vertical_track(n, raw_head_x, picture_segments, crop_width, fps)`. This uses `landing.track` with scaled 170/608 speed, 40/608 fixed range, 20/608 tolerance and k=3. Report total crop travel, p90 pan speed, time moving, and median/maximum head distance from centre via `landing.motion_stats`. Inspect actual cut landings and head clearance at the original frame rate. These instructions supersede any continuous vertical recentering or unconditional fixed vertical take in older recipes. Square rules, static horizontal framing and the delivery gate remain unchanged. Approved videos stay untouched.

@@ -38,7 +38,7 @@ The method, in order:
 4. **Follow only when he leaves the band,** and then only far enough to keep him at the band's edge, eased over
    0.75 s and never faster than 28 % of the crop's width per second (170 px/s on the 608 px crop).
 5. **A segment where he wanders less than 6.6 % of the crop's width (40 px) keeps one fixed centre** for its whole
-   length: the least correction that works.
+   length, anchored to its measured first-frame head centre rather than its median.
 6. The end of a segment is not pulled back to centre; the next segment lands on him anyway.
 
 What it measured on RO-10 (8:38, 25 takes) against the old track that chased every movement: total crop travel 68 %
@@ -50,6 +50,10 @@ selftest`), called by `kit9x16/kit_track.py`, whose `--tolerance` default is now
 reproduces the six steps and reports the same four numbers (travel, p90 pan speed, share of time moving, median and
 maximum off-centre distance). The delivery gate's own centring bound is unchanged (a hold's median head centre within
 6 % of the frame width); the dead band sits inside it.
+
+Use `landing.vertical_track(n, raw_head_x, picture_segments, crop_width, fps)` for the scaled preset, or `vertical_dense` for a native-frame track. Both call shared `landing.track` with 170/608 speed, 40/608 fixed range, 20/608 tolerance and k=3. Supply the actual cut-start head measurement, never a later estimate. If a centred crop exceeds the source, choose a wider window instead of clamping him off centre. `vertical_crop_frames` adapts existing crop maps without changing their height or zoom schedule.
+
+Report the four measurements via `landing.motion_stats`: travel, p90 speed, time moving and median/maximum head distance. Exclude picture-cut jumps and non-presenter spans, weight moving time by frame durations, state the pixel space, and define moving as over 5 px/s scaled from the 608 px reference crop. Inspect rendered cut landings, head clearance and native-frame-rate motion. These measurements supplement the unchanged delivery gate. Approved exports stay untouched.
 
 ## Horizontal footage stays completely static — Dan, 2026-09-17
 

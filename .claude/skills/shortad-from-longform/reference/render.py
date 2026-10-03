@@ -32,7 +32,9 @@ PUSH_UP = 85.0                          # his punch recentres 85 px up in the 10
 # The crop FOLLOWS a smoothed face track (facetrack2.py: Apple Vision torso anchor, smoothed
 # inside each source-continuous segment, zero-phase, stepping at his splices).
 _TRK = json.load(open('facetrack.json'))
-_EDL = json.load(open('edl_picture.json'))   # HIS picture cuts, not the audio splices
+if _TRK.get('method', {}).get('policy') != 'vertical-land-then-hold-20261003':
+    raise SystemExit('Rebuild the new candidate track with kit_track.py; frozen approved build scripts stay untouched')
+_EDL = _TRK.get('segments') or json.load(open('edl_picture.json'))   # HIS picture cuts, not the audio splices
 _SPLICES = [q['cut_in'] for q in _EDL[1:]]
 _SEGS = [(q['cut_in'], q['cut_out']) for q in _EDL]
 
@@ -83,27 +85,31 @@ def crop_points(t0, t1):
     return [(x - t0, v) for x, v in sorted(pts.items())]
 
 def window_x_expr(t0, t1, cw):
-    """Crop x for Dan's PLATE WINDOW over this beat: ONE fixed centre per picture segment (the median of the
-    face track inside it), stepping at the cuts -- the shared framing rule for wider shots (hold steady per
-    shot, never one x reused across takes). A single SUBJECT_CX for the whole beat left him at 64 % of the
-    width with a shoulder clipped in the bullet window's fourth take (kit9x16 round 2 judge, 22.6 s)."""
-    N, X = _TRK['n'], _TRK['x']
-    segs = [(max(sa, t0), min(sb, t1)) for sa, sb in _SEGS if sb > t0 and sa < t1]
-    vals = []
-    for sa, sb in segs:
-        xs = [x + CROP_W/2 for n, x in zip(N, X) if sa*FPS - 0.5 <= n < sb*FPS - 0.5]
-        cx = float(np.median(xs)) if xs else float(vlib_subject_cx())
-        vals.append((sa, max(0.0, min(1920.0 - cw, cx - cw/2))))
-    if not vals:
-        return f'{max(0.0, min(1920.0 - cw, vlib_subject_cx() - cw/2)):.1f}'
-    e = f'{vals[0][1]:.1f}'
-    for (sa, x), (_, xp) in zip(vals[1:], vals[:-1]):
-        if abs(x - xp) >= 1.0:
-            # the re-centre lands ON the cut frame: a window splice is a hard pose-matched cut with a size step
-            # (kit9x16 round 6; the 5-frame ramp belonged to the base dissolve, which ghosted two takes that
-            # differ in pose and, measured on round 5, failed to land at 223.59 and mis-seeked at 69.04)
-            e += f'{x - xp:+.1f}*gte(t\\,{sa - t0 - 0.5/FPS:.4f})'
-    return e
+    """Land-then-hold in a presenter window, scaled to its own width."""
+    import sys
+    sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '_shared', 'cut')))
+    import landing
+    with open('facetrack_raw.json') as stream:
+        raw = json.load(stream)
+    rn = np.asarray(raw['n']); rx = np.asarray([np.nan if x is None else x for x in raw['x']])
+    start, end = round(t0 * FPS), round(t1 * FPS)
+    bounds = sorted(set([start, end] + [round(c * FPS) for c in _SPLICES if t0 < c < t1]))
+    segments = [dict(n0=a, n1=b) for a, b in zip(bounds[:-1], bounds[1:])]
+    dn, centres, heads, _ = landing.vertical_dense(rn, rx, segments, cw, FPS)
+    left = centres - cw/2
+    if np.any((left < 0) | (left > 1920-cw)):
+        raise ValueError('Window cannot centre Dan within source bounds: use a wider window')
+    with open(f'window-centering-{start}-{end}.json', 'w') as stream:
+        json.dump(landing.motion_stats(dn, heads, centres, segments, cw, FPS), stream)
+    terms = [f'{left[0]:.6f}']
+    for i in range(len(dn)-1):
+        # A hard step occurs halfway between cut frames, never a pan across the cut.
+        if dn[i+1] in bounds:
+            terms.append(f'{left[i+1]-left[i]:+.6f}*gte(t\\,{dn[i+1]/FPS-_seek_t(t0)-.5/FPS:.6f})')
+        elif abs(left[i+1]-left[i]) > 1e-9:
+            terms.append(f'{(left[i+1]-left[i])*FPS:+.6f}*clip(t-{dn[i]/FPS-_seek_t(t0):.6f}\\,0\\,{1/FPS:.8f})')
+    return ''.join(terms)
+
 
 def vlib_subject_cx():
     from grade import SUBJECT_CX
