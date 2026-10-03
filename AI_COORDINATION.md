@@ -182,7 +182,7 @@ Memory `google-ads-ui-automation`.
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
 - Cart Build: Dan tests `?cart=v2`, then `…-start-page-365-guarantee.md`, Opus.
-- `handoff-20261002-vertical-kit-round3-fill-more-screen.md`: Dan reviews http://127.0.0.1:8808/
+- RO-10 R3 http://127.0.0.1:8808/ ⚠c841438-unpushed(shorts/SKILL.md)
 - `handoff-20260930-codex-adopt-review-page-format.md` (09-30): Codex adopts the RO-16 review page. GPT-6 Sol medium.
 
 - `handoff-20261001-move-project-out-of-icloud.md` (10-01): move the project out of iCloud's Documents sync (109k duplicates, 199 cloud-only files). Run when nothing else runs here. Opus 5.5 high.
@@ -210,4 +210,4 @@ Memory `google-ads-ui-automation`.
 
 ## ACTIVE
 - **AV-05/AS-04 Ad 6 - BUILDING 2026-10-02, Claude.** Round 2.
-- **AS-06 Ad 10 square - BUILDING 2026-10-02, Claude.**
+- **AS-06 Ad10 square - NEEDS DAN 2026-10-02.** `handoff-20261002-ad10-square-round2-full-builds.md`.

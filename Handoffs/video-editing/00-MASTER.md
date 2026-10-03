@@ -225,7 +225,7 @@ handoff (`handoff-20260909-audio-match-muhammad.md`, waiting on your spray-tan s
 | [AS-03](AS-03-ad5-square.md) | Ad 5 | BLOCKED: AV-04 approved | M |
 | [AS-04](AS-04-ad6-square.md) | Ad 6 | READY | M |
 | [AS-05](AS-05-ad7-square.md) | Ad 7 | BLOCKED: AV-06 approved | M |
-| [AS-06](AS-06-ad10-square.md) | Ad 10 | READY | M |
+| [AS-06](AS-06-ad10-square.md) | Ad 10 | IN PROGRESS | M |
 | [AS-07](AS-07-ad14-square.md) | Ad 14 | BLOCKED: AV-08 approved | M |
 | [AS-08](AS-08-ad8-square.md) | Ad 8 | BLOCKED | M |
 | [AS-09](AS-09-ad9-square.md) | Ad 9 | BLOCKED: AV-10 approved | M |
