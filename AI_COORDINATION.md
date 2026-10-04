@@ -86,6 +86,9 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 # ACTIVE
 
+**Ad13 setup REVIEW 2026-10-04.** Policy 10-05: `Docs/AD13_VERTICAL_SETUP_RECEIPT_20261004.md`.
+
+
 **Oura review (Video 4) - QUEUED 2026-10-02, Claude.** Blotato Oct 14 9AM CT. Oct 14: Studio thumbnail A/B, captions, article `TBD-oura-ring-review.md`. `Docs/OURA_SETUP_RECEIPT_20261002.md`, delete.
 
 **PMax `24308574894` - LIVE 2026-10-02, Claude.** Checks 10-07, 10-12: `Docs/DGEN_CONVERSION_CAMPAIGN.md`. Campaign images: package.
@@ -182,7 +185,6 @@ Memory `google-ads-ui-automation`.
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
 - `handoff-20261002-cart-build.md`, `…-start-page-365-guarantee.md` (10-02). Opus high.
-- `handoff-20261003-ro10-vertical-round5-after-dan-review.md`: NEEDS DAN, http://127.0.0.1:8812/.
 - `handoff-20260930-codex-adopt-review-page-format.md` (09-30): Codex adopts the RO-16 review page. GPT-6 Sol medium.
 
 - `handoff-20261001-move-project-out-of-icloud.md` (10-01): move the project out of iCloud's Documents sync (109k duplicates, 199 cloud-only files). Run when nothing else runs here. Opus 5.5 high.
@@ -209,4 +211,4 @@ Memory `google-ads-ui-automation`.
 - `handoff-20260826-danrosefit-abs-image-gap-fill.md` [dash] — once Blotato has 7 free slots.
 
 ## ACTIVE
-- **AV-05/AS-04 Ad 6 - LOOK LOCKED 2026-10-02.** Next: fire `handoff-20261002-ad6-round2-full-builds-after-lock.md`. ⚠ Extreme full.
+**Ad 6 remarketing 2026-10-04:** Awaiting Dan: copy to enabled campaign 24305381214?

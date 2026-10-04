@@ -63,6 +63,17 @@ function spa_terms_of( $post_id ) {
 echo "sixpackabs-child selftest\n";
 wp_set_current_user( 0 ); // the sync runs from cron: no user, kses active
 
+// Simulate upgrading a site that already has the hourly schedule.
+wp_clear_scheduled_hook( 'spa_sync' );
+wp_schedule_event( time() + 3600, 'hourly', 'spa_sync' );
+do_action( 'init' );
+spa_t( 'hourly job migrates to five minutes', 'spa_five_minutes' === wp_get_schedule( 'spa_sync' ) );
+spa_t( 'migrated job due within one minute', wp_next_scheduled( 'spa_sync' ) <= time() + 60 );
+$cron_before = _get_cron_array();
+do_action( 'init' );
+spa_t( 'initialization does not duplicate cron events', $cron_before === _get_cron_array() );
+spa_t( 'five-minute interval registered', 300 === wp_get_schedules()['spa_five_minutes']['interval'] );
+
 // --- terms
 $short_term = get_term_by( 'slug', 'short', 'spa_video_type' );
 spa_t( 'type terms exist with archive names', $short_term && 'Shorts' === $short_term->name && get_term_by( 'slug', 'long', 'spa_video_type' ) );
@@ -71,7 +82,7 @@ spa_t( 'type terms exist with archive names', $short_term && 'Shorts' === $short
 $blocks = spa_description_to_blocks( "First line.\nSecond line.\n\nSee https://absbyai.com/?a=1&b=2. #abs" );
 spa_t( 'description: two paragraph blocks', 2 === substr_count( $blocks, '<!-- wp:paragraph -->' ) );
 spa_t( 'description: single newline → <br>', false !== strpos( $blocks, 'First line.<br>' ) );
-spa_t( 'description: URL linked nofollow, trailing period kept outside', false !== strpos( $blocks, 'rel="nofollow noopener">https://absbyai.com/?a=1&amp;b=2</a>. #abs' ) );
+spa_t( 'description: URL linked nofollow, trailing period kept outside', false !== strpos( $blocks, 'rel="nofollow noopener">https://absbyai.com/start?a=1&amp;b=2</a>. #abs' ) );
 spa_t( 'description: empty stays empty', '' === spa_description_to_blocks( '   ' ) );
 spa_t( 'excerpt: first paragraph, URLs removed', 'Watch this. It works.' === spa_description_excerpt( "Watch this. https://x.co It works.\n\nMore." ) );
 

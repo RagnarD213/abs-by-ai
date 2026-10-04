@@ -1,6 +1,6 @@
 <?php
 /**
- * The hourly sync: absbyai.com feeds → WordPress.
+ * The five-minute sync: absbyai.com feeds → WordPress.
  *
  * absbyai.com/api/sixpackabs/channel.json lists the channel's PUBLIC videos
  * (the public-only filter lives there, in scripts/sixpackabs/feed.js, with
@@ -23,7 +23,7 @@
  * downloaded once (the Graph CDN URLs expire) and the set is kept in the
  * `spa_instagram` option.
  *
- * Runs: WP-Cron hourly (`spa_sync`), `wp spa sync`, or Videos → "Sync now".
+ * Runs: WP-Cron every five minutes (`spa_sync`), `wp spa sync`, or Videos → "Sync now".
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -34,9 +34,18 @@ if ( ! defined( 'SPA_FEED_BASE' ) ) {
 
 add_action( 'spa_sync', 'spa_sync_run' );
 
+add_filter( 'cron_schedules', function ( $schedules ) {
+	$schedules['spa_five_minutes'] = array( 'interval' => 5 * MINUTE_IN_SECONDS, 'display' => 'Every five minutes' );
+	return $schedules;
+} );
+
 add_action( 'init', function () {
+	// Migrate the existing hourly job instead of leaving both schedules running.
+	if ( wp_next_scheduled( 'spa_sync' ) && 'spa_five_minutes' !== wp_get_schedule( 'spa_sync' ) ) {
+		wp_clear_scheduled_hook( 'spa_sync' );
+	}
 	if ( ! wp_next_scheduled( 'spa_sync' ) ) {
-		wp_schedule_event( time() + 60, 'hourly', 'spa_sync' );
+		wp_schedule_event( time() + 60, 'spa_five_minutes', 'spa_sync' );
 	}
 	if ( ! wp_next_scheduled( 'spa_sync_sunday_release' ) ) {
 		wp_schedule_single_event( spa_next_sunday_release_time(), 'spa_sync_sunday_release' );
@@ -50,12 +59,9 @@ add_action( 'switch_theme', function () {
 } );
 
 /**
- * The Sunday 9 AM CT release gets one extra check at 9:01 AM CT, on top of the
- * regular hourly sync, so that week's video is live within a minute instead of
- * waiting for the next hourly tick. `wp_schedule_event()`'s built-in intervals
- * are fixed-second gaps, not calendar-aware, so a real "weekly" schedule would
- * drift off 9:01 AM over time (DST twice a year, in particular). Instead this
- * fires once, then reschedules itself for next Sunday right after it runs.
+ * Keep the calendar-aware Sunday 9:01 AM CT check as an extra attempt.
+ * The regular five-minute checks catch uploads that become public after 9:01.
+ * Reschedule by local calendar so daylight saving time cannot shift the hour.
  */
 add_action( 'spa_sync_sunday_release', function () {
 	spa_sync_run();
@@ -578,6 +584,7 @@ function spa_sync_status_line() {
 			(int) ( $v['created'] ?? 0 ),
 			(int) ( $v['updated'] ?? 0 )
 		) );
+		echo ' ' . esc_html( 'Next check: ' . ( wp_next_scheduled( 'spa_sync' ) ? wp_date( 'g:i:s a T', wp_next_scheduled( 'spa_sync' ) ) : 'not scheduled' ) . '.' );
 		if ( ! empty( $v['error'] ) || ! empty( $v['errors'] ) ) {
 			echo ' <strong>' . esc_html( 'Problem: ' . ( $v['error'] ?? implode( '; ', (array) $v['errors'] ) ) ) . '</strong>';
 		}
@@ -599,7 +606,7 @@ add_action( 'admin_notices', function () {
 	if ( isset( $_GET['spa_synced'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification
 		echo '<p><strong>Synced with YouTube and Instagram.</strong></p>';
 	}
-	echo '<p>These pages are created automatically from the public videos on the Dan Rose Fitness YouTube channel, every hour. Edit a video\'s notes here and the sync leaves its text alone from then on.</p>';
+	echo '<p>These pages are created automatically from the public videos on the Dan Rose Fitness YouTube channel, every five minutes. Edit a video\'s notes here and the sync leaves its text alone from then on.</p>';
 	spa_sync_status_line();
 	echo '</div>';
 } );

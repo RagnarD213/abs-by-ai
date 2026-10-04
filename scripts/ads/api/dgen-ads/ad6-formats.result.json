@@ -1,0 +1,972 @@
+{
+  "at": "2026-10-04T14:53:52.930Z",
+  "campaignId": "24316364155",
+  "adGroupId": "204444440607",
+  "campaignsBefore": [
+    {
+      "campaign": {
+        "resourceName": "customers/3427170837/campaigns/24243839443",
+        "status": "PAUSED",
+        "targetCpa": {
+          "targetCpaMicros": "30000000"
+        },
+        "id": "24243839443"
+      },
+      "campaignBudget": {
+        "resourceName": "customers/3427170837/campaignBudgets/15862488218",
+        "id": "15862488218",
+        "amountMicros": "50000000"
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/3427170837/campaigns/24305381214",
+        "status": "ENABLED",
+        "targetCpa": {
+          "targetCpaMicros": "40000000"
+        },
+        "id": "24305381214"
+      },
+      "campaignBudget": {
+        "resourceName": "customers/3427170837/campaignBudgets/15911284202",
+        "id": "15911284202",
+        "amountMicros": "10000000"
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/3427170837/campaigns/24308574894",
+        "status": "ENABLED",
+        "id": "24308574894"
+      },
+      "campaignBudget": {
+        "resourceName": "customers/3427170837/campaignBudgets/15923601274",
+        "id": "15923601274",
+        "amountMicros": "30000000"
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/3427170837/campaigns/24316364155",
+        "status": "ENABLED",
+        "targetCpa": {
+          "targetCpaMicros": "40000000"
+        },
+        "id": "24316364155"
+      },
+      "campaignBudget": {
+        "resourceName": "customers/3427170837/campaignBudgets/15911255930",
+        "id": "15911255930",
+        "amountMicros": "30000000"
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/3427170837/campaigns/24316408288",
+        "status": "ENABLED",
+        "targetCpa": {
+          "targetCpaMicros": "3000000"
+        },
+        "id": "24316408288"
+      },
+      "campaignBudget": {
+        "resourceName": "customers/3427170837/campaignBudgets/15911284550",
+        "id": "15911284550",
+        "amountMicros": "5000000"
+      }
+    }
+  ],
+  "campaignsAfter": [
+    {
+      "campaign": {
+        "resourceName": "customers/3427170837/campaigns/24243839443",
+        "status": "PAUSED",
+        "targetCpa": {
+          "targetCpaMicros": "30000000"
+        },
+        "id": "24243839443"
+      },
+      "campaignBudget": {
+        "resourceName": "customers/3427170837/campaignBudgets/15862488218",
+        "id": "15862488218",
+        "amountMicros": "50000000"
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/3427170837/campaigns/24305381214",
+        "status": "ENABLED",
+        "targetCpa": {
+          "targetCpaMicros": "40000000"
+        },
+        "id": "24305381214"
+      },
+      "campaignBudget": {
+        "resourceName": "customers/3427170837/campaignBudgets/15911284202",
+        "id": "15911284202",
+        "amountMicros": "10000000"
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/3427170837/campaigns/24308574894",
+        "status": "ENABLED",
+        "id": "24308574894"
+      },
+      "campaignBudget": {
+        "resourceName": "customers/3427170837/campaignBudgets/15923601274",
+        "id": "15923601274",
+        "amountMicros": "30000000"
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/3427170837/campaigns/24316364155",
+        "status": "ENABLED",
+        "targetCpa": {
+          "targetCpaMicros": "40000000"
+        },
+        "id": "24316364155"
+      },
+      "campaignBudget": {
+        "resourceName": "customers/3427170837/campaignBudgets/15911255930",
+        "id": "15911255930",
+        "amountMicros": "30000000"
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/3427170837/campaigns/24316408288",
+        "status": "ENABLED",
+        "targetCpa": {
+          "targetCpaMicros": "3000000"
+        },
+        "id": "24316408288"
+      },
+      "campaignBudget": {
+        "resourceName": "customers/3427170837/campaignBudgets/15911284550",
+        "id": "15911284550",
+        "amountMicros": "5000000"
+      }
+    }
+  ],
+  "criteriaBefore": [
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~10",
+        "status": "ENABLED",
+        "type": "GENDER",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~11",
+        "status": "ENABLED",
+        "type": "GENDER",
+        "negative": true
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~20",
+        "status": "ENABLED",
+        "type": "GENDER",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~300",
+        "status": "ENABLED",
+        "type": "PARENTAL_STATUS",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~301",
+        "status": "ENABLED",
+        "type": "PARENTAL_STATUS",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~302",
+        "status": "ENABLED",
+        "type": "PARENTAL_STATUS",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~1000",
+        "status": "ENABLED",
+        "type": "LANGUAGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~2124",
+        "status": "ENABLED",
+        "type": "LOCATION",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~2840",
+        "status": "ENABLED",
+        "type": "LOCATION",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~503001",
+        "status": "ENABLED",
+        "type": "AGE_RANGE",
+        "negative": true
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~503002",
+        "status": "ENABLED",
+        "type": "AGE_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~503003",
+        "status": "ENABLED",
+        "type": "AGE_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~503004",
+        "status": "ENABLED",
+        "type": "AGE_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~503005",
+        "status": "ENABLED",
+        "type": "AGE_RANGE",
+        "negative": true
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~503006",
+        "status": "ENABLED",
+        "type": "AGE_RANGE",
+        "negative": true
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~503999",
+        "status": "ENABLED",
+        "type": "AGE_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~510000",
+        "status": "ENABLED",
+        "type": "INCOME_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~510001",
+        "status": "ENABLED",
+        "type": "INCOME_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~510002",
+        "status": "ENABLED",
+        "type": "INCOME_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~510003",
+        "status": "ENABLED",
+        "type": "INCOME_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~510004",
+        "status": "ENABLED",
+        "type": "INCOME_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~510005",
+        "status": "ENABLED",
+        "type": "INCOME_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~510006",
+        "status": "ENABLED",
+        "type": "INCOME_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~2499582306947",
+        "status": "ENABLED",
+        "type": "AUDIENCE",
+        "negative": false,
+        "audience": {
+          "audience": "customers/3427170837/audiences/359315789"
+        }
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~2501149785516",
+        "status": "ENABLED",
+        "type": "CUSTOM_AUDIENCE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~2501953468231",
+        "status": "ENABLED",
+        "type": "CUSTOM_AUDIENCE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~2501953468271",
+        "status": "ENABLED",
+        "type": "CUSTOM_AUDIENCE",
+        "negative": false
+      }
+    }
+  ],
+  "criteriaAfter": [
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~10",
+        "status": "ENABLED",
+        "type": "GENDER",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~11",
+        "status": "ENABLED",
+        "type": "GENDER",
+        "negative": true
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~20",
+        "status": "ENABLED",
+        "type": "GENDER",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~300",
+        "status": "ENABLED",
+        "type": "PARENTAL_STATUS",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~301",
+        "status": "ENABLED",
+        "type": "PARENTAL_STATUS",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~302",
+        "status": "ENABLED",
+        "type": "PARENTAL_STATUS",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~1000",
+        "status": "ENABLED",
+        "type": "LANGUAGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~2124",
+        "status": "ENABLED",
+        "type": "LOCATION",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~2840",
+        "status": "ENABLED",
+        "type": "LOCATION",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~503001",
+        "status": "ENABLED",
+        "type": "AGE_RANGE",
+        "negative": true
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~503002",
+        "status": "ENABLED",
+        "type": "AGE_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~503003",
+        "status": "ENABLED",
+        "type": "AGE_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~503004",
+        "status": "ENABLED",
+        "type": "AGE_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~503005",
+        "status": "ENABLED",
+        "type": "AGE_RANGE",
+        "negative": true
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~503006",
+        "status": "ENABLED",
+        "type": "AGE_RANGE",
+        "negative": true
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~503999",
+        "status": "ENABLED",
+        "type": "AGE_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~510000",
+        "status": "ENABLED",
+        "type": "INCOME_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~510001",
+        "status": "ENABLED",
+        "type": "INCOME_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~510002",
+        "status": "ENABLED",
+        "type": "INCOME_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~510003",
+        "status": "ENABLED",
+        "type": "INCOME_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~510004",
+        "status": "ENABLED",
+        "type": "INCOME_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~510005",
+        "status": "ENABLED",
+        "type": "INCOME_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~510006",
+        "status": "ENABLED",
+        "type": "INCOME_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~2499582306947",
+        "status": "ENABLED",
+        "type": "AUDIENCE",
+        "negative": false,
+        "audience": {
+          "audience": "customers/3427170837/audiences/359315789"
+        }
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~2501149785516",
+        "status": "ENABLED",
+        "type": "CUSTOM_AUDIENCE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~2501953468231",
+        "status": "ENABLED",
+        "type": "CUSTOM_AUDIENCE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204444440607~2501953468271",
+        "status": "ENABLED",
+        "type": "CUSTOM_AUDIENCE",
+        "negative": false
+      }
+    }
+  ],
+  "created": [
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/204444440607",
+        "status": "ENABLED",
+        "id": "204444440607",
+        "name": "Ad 6 You're Not Too Old",
+        "targetCpaMicros": "40000000"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/204444440607~826887690637",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826887690637",
+          "id": "826887690637",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad6&utm_content=claude-vertical-vsl"
+          ],
+          "name": "Ad 6 You're Not Too Old | Claude 9:16 | vsl",
+          "demandGenVideoResponsiveAd": {
+            "headlines": [
+              {
+                "text": "How Men 40+ Lose Belly Fat"
+              },
+              {
+                "text": "How To Get Abs After 40"
+              },
+              {
+                "text": "How Busy 40+ Dads Lose Fat"
+              },
+              {
+                "text": "How I Got Abs At 40"
+              },
+              {
+                "text": "How AI Got Me Abs At 40"
+              }
+            ],
+            "longHeadlines": [
+              {
+                "text": "Think you're too old to get abs? See how I lost my stubborn belly fat and got abs at 40."
+              },
+              {
+                "text": "Korean AI prodigy discovers how to use AI to lose belly fat. Video reveals full story."
+              },
+              {
+                "text": "AI fitness app shows men 40+ how to lose stomach fat and get abs. Try it free for 7 days!"
+              }
+            ],
+            "descriptions": [
+              {
+                "text": "You're not too old to get abs. I got mine at 40 with an AI trainer. See how I did it."
+              },
+              {
+                "text": "I struggled with belly fat until I discovered how to use an AI trainer to get abs."
+              },
+              {
+                "text": "This AI app shows men 40+ how to lose their belly fat. Try it free for 7 days."
+              }
+            ],
+            "videos": [
+              {
+                "asset": "customers/3427170837/assets/427555866313"
+              }
+            ],
+            "logoImages": [
+              {
+                "asset": "customers/3427170837/assets/400941168572"
+              }
+            ],
+            "businessName": {
+              "text": "Abs by AI"
+            },
+            "callToActions": [
+              {
+                "asset": "customers/3427170837/assets/401407635767"
+              }
+            ]
+          }
+        },
+        "policySummary": {
+          "reviewStatus": "REVIEW_IN_PROGRESS",
+          "approvalStatus": "UNKNOWN"
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/204444440607",
+        "status": "ENABLED",
+        "id": "204444440607",
+        "name": "Ad 6 You're Not Too Old",
+        "targetCpaMicros": "40000000"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/204444440607~826887690655",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826887690655",
+          "id": "826887690655",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad6&utm_content=claude-vertical-59s-vsl"
+          ],
+          "name": "Ad 6 You're Not Too Old | Claude 9:16 59s | vsl",
+          "demandGenVideoResponsiveAd": {
+            "headlines": [
+              {
+                "text": "How Men 40+ Lose Belly Fat"
+              },
+              {
+                "text": "How To Get Abs After 40"
+              },
+              {
+                "text": "How Busy 40+ Dads Lose Fat"
+              },
+              {
+                "text": "How I Got Abs At 40"
+              },
+              {
+                "text": "How AI Got Me Abs At 40"
+              }
+            ],
+            "longHeadlines": [
+              {
+                "text": "Think you're too old to get abs? See how I lost my stubborn belly fat and got abs at 40."
+              },
+              {
+                "text": "Korean AI prodigy discovers how to use AI to lose belly fat. Video reveals full story."
+              },
+              {
+                "text": "AI fitness app shows men 40+ how to lose stomach fat and get abs. Try it free for 7 days!"
+              }
+            ],
+            "descriptions": [
+              {
+                "text": "You're not too old to get abs. I got mine at 40 with an AI trainer. See how I did it."
+              },
+              {
+                "text": "I struggled with belly fat until I discovered how to use an AI trainer to get abs."
+              },
+              {
+                "text": "This AI app shows men 40+ how to lose their belly fat. Try it free for 7 days."
+              }
+            ],
+            "videos": [
+              {
+                "asset": "customers/3427170837/assets/427458948149"
+              }
+            ],
+            "logoImages": [
+              {
+                "asset": "customers/3427170837/assets/400941168572"
+              }
+            ],
+            "businessName": {
+              "text": "Abs by AI"
+            },
+            "callToActions": [
+              {
+                "asset": "customers/3427170837/assets/401407635767"
+              }
+            ]
+          }
+        },
+        "policySummary": {
+          "reviewStatus": "REVIEW_IN_PROGRESS",
+          "approvalStatus": "UNKNOWN"
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/204444440607",
+        "status": "ENABLED",
+        "id": "204444440607",
+        "name": "Ad 6 You're Not Too Old",
+        "targetCpaMicros": "40000000"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/204444440607~826887690931",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826887690931",
+          "id": "826887690931",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad6&utm_content=claude-square-vsl"
+          ],
+          "name": "Ad 6 You're Not Too Old | Claude 1:1 | vsl",
+          "demandGenVideoResponsiveAd": {
+            "headlines": [
+              {
+                "text": "How Men 40+ Lose Belly Fat"
+              },
+              {
+                "text": "How To Get Abs After 40"
+              },
+              {
+                "text": "How Busy 40+ Dads Lose Fat"
+              },
+              {
+                "text": "How I Got Abs At 40"
+              },
+              {
+                "text": "How AI Got Me Abs At 40"
+              }
+            ],
+            "longHeadlines": [
+              {
+                "text": "Think you're too old to get abs? See how I lost my stubborn belly fat and got abs at 40."
+              },
+              {
+                "text": "Korean AI prodigy discovers how to use AI to lose belly fat. Video reveals full story."
+              },
+              {
+                "text": "AI fitness app shows men 40+ how to lose stomach fat and get abs. Try it free for 7 days!"
+              }
+            ],
+            "descriptions": [
+              {
+                "text": "You're not too old to get abs. I got mine at 40 with an AI trainer. See how I did it."
+              },
+              {
+                "text": "I struggled with belly fat until I discovered how to use an AI trainer to get abs."
+              },
+              {
+                "text": "This AI app shows men 40+ how to lose their belly fat. Try it free for 7 days."
+              }
+            ],
+            "videos": [
+              {
+                "asset": "customers/3427170837/assets/427555872217"
+              }
+            ],
+            "logoImages": [
+              {
+                "asset": "customers/3427170837/assets/400941168572"
+              }
+            ],
+            "businessName": {
+              "text": "Abs by AI"
+            },
+            "callToActions": [
+              {
+                "asset": "customers/3427170837/assets/401407635767"
+              }
+            ]
+          }
+        },
+        "policySummary": {
+          "reviewStatus": "REVIEW_IN_PROGRESS",
+          "approvalStatus": "UNKNOWN"
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/204444440607",
+        "status": "ENABLED",
+        "id": "204444440607",
+        "name": "Ad 6 You're Not Too Old",
+        "targetCpaMicros": "40000000"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/204444440607~826887690943",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826887690943",
+          "id": "826887690943",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad6&utm_content=claude-square-59s-vsl"
+          ],
+          "name": "Ad 6 You're Not Too Old | Claude 1:1 59s | vsl",
+          "demandGenVideoResponsiveAd": {
+            "headlines": [
+              {
+                "text": "How Men 40+ Lose Belly Fat"
+              },
+              {
+                "text": "How To Get Abs After 40"
+              },
+              {
+                "text": "How Busy 40+ Dads Lose Fat"
+              },
+              {
+                "text": "How I Got Abs At 40"
+              },
+              {
+                "text": "How AI Got Me Abs At 40"
+              }
+            ],
+            "longHeadlines": [
+              {
+                "text": "Think you're too old to get abs? See how I lost my stubborn belly fat and got abs at 40."
+              },
+              {
+                "text": "Korean AI prodigy discovers how to use AI to lose belly fat. Video reveals full story."
+              },
+              {
+                "text": "AI fitness app shows men 40+ how to lose stomach fat and get abs. Try it free for 7 days!"
+              }
+            ],
+            "descriptions": [
+              {
+                "text": "You're not too old to get abs. I got mine at 40 with an AI trainer. See how I did it."
+              },
+              {
+                "text": "I struggled with belly fat until I discovered how to use an AI trainer to get abs."
+              },
+              {
+                "text": "This AI app shows men 40+ how to lose their belly fat. Try it free for 7 days."
+              }
+            ],
+            "videos": [
+              {
+                "asset": "customers/3427170837/assets/427555872259"
+              }
+            ],
+            "logoImages": [
+              {
+                "asset": "customers/3427170837/assets/400941168572"
+              }
+            ],
+            "businessName": {
+              "text": "Abs by AI"
+            },
+            "callToActions": [
+              {
+                "asset": "customers/3427170837/assets/401407635767"
+              }
+            ]
+          }
+        },
+        "policySummary": {
+          "reviewStatus": "REVIEW_IN_PROGRESS",
+          "approvalStatus": "UNKNOWN"
+        }
+      }
+    }
+  ],
+  "assets": [
+    {
+      "asset": {
+        "resourceName": "customers/3427170837/assets/427458948149",
+        "youtubeVideoAsset": {
+          "youtubeVideoId": "C-ThTBOPn2E"
+        },
+        "id": "427458948149"
+      }
+    },
+    {
+      "asset": {
+        "resourceName": "customers/3427170837/assets/427555866313",
+        "youtubeVideoAsset": {
+          "youtubeVideoId": "Yd7iVlosIkQ"
+        },
+        "id": "427555866313"
+      }
+    },
+    {
+      "asset": {
+        "resourceName": "customers/3427170837/assets/427555872217",
+        "youtubeVideoAsset": {
+          "youtubeVideoId": "3Rx5TmyUARU"
+        },
+        "id": "427555872217"
+      }
+    },
+    {
+      "asset": {
+        "resourceName": "customers/3427170837/assets/427555872259",
+        "youtubeVideoAsset": {
+          "youtubeVideoId": "aCsSsYG2vKI"
+        },
+        "id": "427555872259"
+      }
+    }
+  ],
+  "existingAdsUnchanged": true
+}

@@ -12,7 +12,7 @@ Design spec: `Docs/sixpackabs-redesign/DESIGN_HANDOFF.md` (#2a mobile, #2b deskt
 
 ```
 absbyai.com (Railway — holds the tokens)                 sixpackabs.com (WordPress.com Atomic)
-GET /api/sixpackabs/channel.json   ──── hourly ────►     theme sixpackabs-child (child of Twenty Twenty-Five)
+GET /api/sixpackabs/channel.json   ──── five-minute ────►     theme sixpackabs-child (child of Twenty Twenty-Five)
     public videos only (scripts/sixpackabs/feed.js)         WP-Cron `spa_sync` → `spa_video` posts + media
 GET /api/sixpackabs/instagram.json ──── hourly ────►        6 latest @danrosefit photos → media library
 ```
@@ -46,7 +46,10 @@ child theme for a while.
 
 ## Running the sync
 
-- Hourly by WP-Cron (`spa_sync`, scheduled on activation).
+- Every five minutes by WP-Cron (`spa_sync`). Existing hourly jobs migrate automatically.
+- Railway refreshes videos every five minutes, then triggers WordPress cron so imports run without visitors. Instagram keeps its hourly cache.
+- Video-feed HTTP responses use `no-store`. The Sunday 9:01 AM Central check remains an extra attempt.
+- Normal budget: up to five minutes to discover an upload, up to five minutes for the due import, then processing and page-cache expiry. Target: within 15 minutes after YouTube makes it public. Provider outages can exceed the target.
 - `wp spa sync` over SSH prints the report.
 - wp-admin → **Videos** → "Sync now".
 
@@ -117,3 +120,12 @@ WordPress.com accepts a theme ZIP in wp-admin, so SSH is optional:
 - **Never hotlink `media_url` from Instagram** — the links expire.
 - Nav and footer links live in `inc/blocks.php` / `inc/render.php` (`spa_url()`), not in a
   wp-admin menu: the copy is final.
+
+## Video update repair, 2026-10-04
+
+Today's upload became public at 9:03:04 AM CDT. The feed was still dated 8:56:33 AM,
+and the extra Sunday check happened before the release. The two hourly schedules could
+delay updates beyond 15 minutes. The five-minute feed, WordPress schedule migration and
+Railway cron trigger cover Sunday and Wednesday releases and Shorts.
+
+Verification: `Docs/SIXPACKABS_SYNC_REPAIR_20261004.md`.

@@ -11,6 +11,13 @@ same; only the tools differ (section 3).
 
 ---
 
+## 0. Category first (Dan, 2026-10-04)
+
+Every job is CONTENT or an AD, stated on its first line. Long-form content gets Shorts (`SL-` jobs) and nothing else.
+An ad gets its vertical, square and 1-minute versions (`AV-`, `AS-` jobs) and nothing else. A job that asks for the
+other kind is not fired: stop and tell Dan. Full rule: `.claude/skills/_shared/VIDEO-RULES.md`, "Categorize every video
+before editing it". Retired by this rule: AV-13 and AS-12 (ad formats of the organic Arms & Shoulders workout).
+
 ## 1. Before you start (every job)
 
 1. **Check that the job is still open.** Open `Handoffs/video-editing/00-MASTER.md` and read the job's row. If it says DONE,

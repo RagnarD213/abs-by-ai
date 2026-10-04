@@ -1218,14 +1218,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/AV-05-ad6-vertical.md`: build the 9:16 vertical and ≤0:59 cutdown of Muhammad's finalized Ad 6 with /shortad-from-longform, decoding his master as BT.709 from the start, his audio untouched, the real-picture chip off my face and abs, before and after the same person. Every gate, independent audit, deliver, send me the review copies, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/AV-05-ad6-vertical.md` using `.claude/skills/shortad-from-longform/SKILL.md` as the method and `Handoffs/handoff-20260914-ad3-square-codex.md` as the model of a Codex variant build. Deliver, send Dan the review copies, update `00-MASTER.md`.",
-   "state": "ready",
-   "note": "Look locked by Dan 10-02 with 3 changes; fire handoff-20261002-ad6-round2",
+   "state": "uploaded",
+   "note": "Four approved Ad 6 formats uploaded Unlisted and added to trial campaign 24316364155 on 10-04",
    "sub": "",
    "order": 58,
-   "updated": "2026-10-02",
-   "by": "Claude",
-   "rev": 6,
-   "syncedRev": 3
+   "updated": "2026-10-04",
+   "by": "Codex",
+   "rev": 9,
+   "syncedRev": 8
   },
   {
    "id": "AV-06",
@@ -1365,14 +1365,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/AS-04-ad6-square.md`: first confirm its blocker is cleared, then build the 1:1 square and ≤0:59 square cutdown of Ad 6 as a re-layout of the approved vertical build with /shortad-from-longform [S1], same timeline, grade, labels and audio, steady wider framing, labels off my face and abs. Every gate, independent audit, deliver, send me the review copies, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table) and `Handoffs/handoff-20260914-ad3-square-codex.md` (the Ad 3 square you built, which Dan shipped: reuse its method), then execute `Handoffs/video-editing/AS-04-ad6-square.md`. Confirm the blocker is cleared first. Deliver, send Dan the review copies, update `00-MASTER.md`.",
-   "state": "ready",
-   "note": "Square set approved by Dan 10-02; built in the Ad 6 round 2 task",
+   "state": "uploaded",
+   "note": "Four approved Ad 6 formats uploaded Unlisted and added to trial campaign 24316364155 on 10-04",
    "sub": "",
    "order": 65,
-   "updated": "2026-10-02",
-   "by": "Claude",
-   "rev": 4,
-   "syncedRev": 1
+   "updated": "2026-10-04",
+   "by": "Codex",
+   "rev": 7,
+   "syncedRev": 6
   },
   {
    "id": "AS-05",
@@ -1491,13 +1491,13 @@
    "claude": "Read Handoffs/video-editing/00-RULES.md, then execute Handoffs/video-editing/AV-11-ad13-vertical.md with /shortad-from-longform. Build the full 9:16 and 59-second cutdown, preserve Muhammad's finalized audio and picture decisions, run every gate and audit, and send Dan the review copies.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read Handoffs/video-editing/00-RULES.md, then execute Handoffs/video-editing/AV-11-ad13-vertical.md using .claude/skills/shortad-from-longform/SKILL.md. Deliver both review copies and update the queue.",
-   "state": "in_progress",
-   "note": "Round 1 answered 10-02; round 2 handoff ready (new AI opener, swaps, new SBL horizontal)",
+   "state": "uploaded",
+   "note": "Approved vertical and short uploaded Unlisted and added to trial Ad 13 group on 2026-10-04. f792V7H1Vkc and VPyHyxEkHjo. Square and horizontal remain separate.",
    "order": 71,
-   "updated": "2026-10-02",
-   "rev": 4,
-   "syncedRev": 4,
-   "by": "Claude"
+   "updated": "2026-10-04",
+   "rev": 7,
+   "syncedRev": 6,
+   "by": "Codex"
   },
   {
    "id": "AV-12",

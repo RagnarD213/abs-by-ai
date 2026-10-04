@@ -1,0 +1,74 @@
+[
+  {
+    "campaign": {
+      "resourceName": "customers/3427170837/campaigns/24243839443",
+      "status": "PAUSED",
+      "targetCpa": {
+        "targetCpaMicros": "30000000"
+      },
+      "id": "24243839443"
+    },
+    "campaignBudget": {
+      "resourceName": "customers/3427170837/campaignBudgets/15862488218",
+      "id": "15862488218",
+      "amountMicros": "50000000"
+    }
+  },
+  {
+    "campaign": {
+      "resourceName": "customers/3427170837/campaigns/24305381214",
+      "status": "ENABLED",
+      "targetCpa": {
+        "targetCpaMicros": "40000000"
+      },
+      "id": "24305381214"
+    },
+    "campaignBudget": {
+      "resourceName": "customers/3427170837/campaignBudgets/15911284202",
+      "id": "15911284202",
+      "amountMicros": "10000000"
+    }
+  },
+  {
+    "campaign": {
+      "resourceName": "customers/3427170837/campaigns/24308574894",
+      "status": "ENABLED",
+      "id": "24308574894"
+    },
+    "campaignBudget": {
+      "resourceName": "customers/3427170837/campaignBudgets/15923601274",
+      "id": "15923601274",
+      "amountMicros": "30000000"
+    }
+  },
+  {
+    "campaign": {
+      "resourceName": "customers/3427170837/campaigns/24316364155",
+      "status": "ENABLED",
+      "targetCpa": {
+        "targetCpaMicros": "40000000"
+      },
+      "id": "24316364155"
+    },
+    "campaignBudget": {
+      "resourceName": "customers/3427170837/campaignBudgets/15911255930",
+      "id": "15911255930",
+      "amountMicros": "30000000"
+    }
+  },
+  {
+    "campaign": {
+      "resourceName": "customers/3427170837/campaigns/24316408288",
+      "status": "ENABLED",
+      "targetCpa": {
+        "targetCpaMicros": "3000000"
+      },
+      "id": "24316408288"
+    },
+    "campaignBudget": {
+      "resourceName": "customers/3427170837/campaignBudgets/15911284550",
+      "id": "15911284550",
+      "amountMicros": "5000000"
+    }
+  }
+]

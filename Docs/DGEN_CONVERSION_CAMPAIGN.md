@@ -702,3 +702,52 @@ descriptions with lines that sell the click and fit any video or image. One typo
 **2026-10-02 12:59 PM CT: budget changed from $15 to $5/day in the Ads interface** (change history, web client). At $5/day to the 11-01 end date the campaign spends about $150 of the $450 credit; the credit expires 11-30.
 
 **2026-10-02, long headlines and descriptions rewritten on all 12 ads of `24316364155`** (Dan: make them persuasive, in his voice, per his Performance Max edit). Headlines untouched. 36 lines: 5 kept, 13 slots filled with his exact Performance Max lines, 18 new in his shapes. Builder and the lines: `scripts/ads/api/dgen-trial-longcopy-20261002.js`; old copy in `scripts/ads/api/dgen-ads/trial-longcopy-20261002.before.json`. All 12 ads went back to review; recheck with `node scripts/ads/api/client.js policy 24316364155`. Remarketing `24305381214` still carries the old long lines.
+
+## 2026-10-04: approved Ad 13 vertical and short added to the trial campaign
+
+Both exact files Dan approved on 10-03 were uploaded Unlisted with synthetic media set true, the existing title plus `(Vertical)` or `(Vertical 59s)`, and the live 16:9 tags. Readback confirmed processing succeeded, embeddable true and not made for kids. Closing words in both final word transcripts: "Tap the button below to get started." No organic posting.
+
+One 1080x1920 thumbnail reuses approved 13-R3B: photo-10, its original mask, repaired robot plate, Impact type and yellow accent, with the same words "HUMAN TRAINERS HATE THIS AI". Builder: `scripts/covers/trial-campaign-20261001/ad13-vertical/build.py`. No new image generation or paid image calls. Both served thumbnails were saved and visually checked. Final: `social media graphics/youtube/thumbnails/Ad 13 What Getting Abs Cost/trial-20261001/Ad 13 | 9x16 | FINAL.jpg`, copied into `FINAL APPROVED`.
+
+| Format | YouTube | Video asset | Trial ad | Status on 10-04 |
+|---|---|---|---|---|
+| Claude 9:16, 244.878 seconds | `f792V7H1Vkc` | `427647278214` | `826888334290` | ENABLED, REVIEW_IN_PROGRESS / UNKNOWN |
+| Claude 9:16 59s, 54.288 seconds | `VPyHyxEkHjo` | `427558235731` | `826888304284` | ENABLED, REVIEW_IN_PROGRESS / UNKNOWN |
+
+Both were added to existing Ad 13 group `204553316830`, campaign `24316364155`, using `scripts/ads/api/dgen-ad13-vertical.js`. Google validateOnly passed before apply. Headlines, long headlines, descriptions, logo, business name and CTA were cloned unchanged from live 16:9 ad `826635661894`. Exact copy and readback: `scripts/ads/api/dgen-ads/ad13-vertical.json` and `ad13-vertical.result.json`.
+
+Final URLs:
+
+- `https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad13&utm_content=claude-9x16-vsl`
+- `https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad13&utm_content=claude-9x16-59s-vsl`
+
+The live Ad 10 spelling is `claude-9x16`, rather than the handoff's illustrative `claude-vertical`, so that spelling was matched. Campaign budget `15911255930` remained $30/day. Protected before/after comparison confirmed campaign status, budgets, bids, Ad 13 group settings, audience criteria and live 16:9 ad unchanged. That ad remains ENABLED and APPROVED. Old Demand Gen and Performance Max were not modified.
+
+The handoff's remarketing state was stale: `24305381214` and `24316408288` are now ENABLED, not PAUSED. Campaign A (`24305381214`) copies trial ads; campaign B (`24316408288`) copies organic subscriber ads from `24163535721`, not the trial campaign. No remarketing mutation was sent. Dan was asked whether to add these videos to live conversion remarketing. No campaign was enabled or paused.
+
+AV-11 marked UPLOADED and pushed to the Edit Queue Drive status file. AS-10 remains open. Description files sit beside the masters. The four-second legacy chapter was merged into the personal-trainer chapter; the short has no chapters. Policy command ran after apply. Recheck both new trial ads on **2026-10-05** with `node scripts/ads/api/client.js policy 24316364155`. Full receipt: `Docs/AD13_VERTICAL_SETUP_RECEIPT_20261004.md`.
+
+## 2026-10-04: four approved Ad 6 formats added to the trial campaign
+
+Dan finalized all four on 10-04. All source SHA-256 hashes matched `approval_20261004.json` before upload. The exact files were uploaded unchanged to channel `UC236gjadarHAhEhOMYNGJ9g`, Unlisted, not made for kids, embeddable and successfully processed. Full videos keep the original chapters; the 57.758 s cuts have no chapters. Uploads used `--synthetic true`. YouTube omits that field from API readback; the selected AI-use setting is verified in Studio.
+
+The finished files end: "Tap the button below to see how amazing you would look with six-pack abs." Classified AD. No organic posting.
+
+Thumbnails: `Ad 6 | 9x16 | FINAL.jpg` and `Ad 6 | 1x1 | FINAL.jpg`, in `social media graphics/youtube/thumbnails/Ad 6 You're Not Too Old To Get Abs/trial-20261001/` and copied into `_trial-campaign-20261001/FINAL APPROVED/`. Same approved 6-R3B aged-head/original-body cutout (SHA-256 `6709d417252ef5a26223bbaf5f18a98e3a4c64daa18b7aa0f772c5b5d42d2166`), warm gym plate, Impact type, gold accent and "HOW MEN 40+ / GET ABS" copy. Existing plate recomposed with the other ads' rendering functions; no image generation or paid image call. Zero text/person overlap, full head and text kept, all four served thumbnails saved and viewed. Builder: `scripts/covers/trial-campaign-20261001/ad6-formats/build.py <main project path>`.
+
+Campaign `24316364155`, existing group `204444440607`, "Ad 6 You're Not Too Old". Created with `scripts/ads/api/dgen-ad6-formats.js`, `validateOnly` passed before applying. Copy read from live twin `826595554443` and reused exactly, including headlines, long headlines, descriptions, logo, business name and CTA. Config, mutation and verified result in `scripts/ads/api/dgen-ads/ad6-formats*.json`.
+
+| Format | YouTube id | Asset id | Ad id | utm_content | Initial status |
+|---|---|---|---|---|---|
+| Claude 9:16 | `Yd7iVlosIkQ` | `427555866313` | `826887690637` | `claude-vertical-vsl` | ENABLED, REVIEW_IN_PROGRESS / UNKNOWN |
+| Claude 9:16 59s | `C-ThTBOPn2E` | `427458948149` | `826887690655` | `claude-vertical-59s-vsl` | ENABLED, REVIEW_IN_PROGRESS / UNKNOWN |
+| Claude 1:1 | `3Rx5TmyUARU` | `427555872217` | `826887690931` | `claude-square-vsl` | ENABLED, REVIEW_IN_PROGRESS / UNKNOWN |
+| Claude 1:1 59s | `aCsSsYG2vKI` | `427555872259` | `826887690943` | `claude-square-59s-vsl` | ENABLED, REVIEW_IN_PROGRESS / UNKNOWN |
+
+All four final URLs are `https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad6&utm_content=<table value>`. The explicit vertical UTM values from the handoff were used, matching RA-01's vertical convention; Ad 3/10 use `claude-9x16` instead.
+
+The live trial budget was **$30/day**, budget `15911255930`, before and after. Campaign and Ad 6 group target CPA remain $40. Exact before/after checks prove campaign statuses/budgets/bids, group criteria/audience and all pre-existing trial ads unchanged. No operation targeted the live 16:9 `Je2yvk00SHE` / ad `826595554443`, old Demand Gen `24243839443` or Performance Max `24308574894`.
+
+Policy run on 10-04: all four new ads ENABLED, REVIEW_IN_PROGRESS / UNKNOWN. Recheck date **2026-10-05** with `node scripts/ads/api/client.js policy 24316364155`. Existing 16:9 currently APPROVED_LIMITED / REVIEWED: its "Korean AI prodigy ... Video reveals full story." long headline is DISAPPROVED for CLICKBAIT. This pre-existing line was preserved as instructed; report to Dan before any rewrite.
+
+Remarketing differs from the handoff: both `24305381214` (conversion, $10/day) and `24316408288` (subscriber engagement, $5/day) are already ENABLED. Their status and budget were preserved. Conversion-copy synchronization is pending Dan's answer because the handoff described PAUSED copies. Script `dgen-rmktg-campaigns.js a` only targets conversion campaign `24305381214`; campaign B draws organic engagement ads from another source and is not an Ad 6 trial copy. No ads were added there.

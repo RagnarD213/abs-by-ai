@@ -7,6 +7,13 @@ description: Rebuild a FINISHED, finalized long-form video as a vertical 9:16 sh
 
 Read `_shared/VIDEO-RULES.md` first.
 
+## This skill is for ADS only (Dan, 2026-10-04)
+
+The vertical, the square and the 1-minute cut are made from an AD. A long-form content video is never given these
+formats: it gets Shorts through `/shorts`. Check the category before any work (VIDEO-RULES, "Categorize every video
+before editing it"). If the video is content, stop and tell Dan in one line; only his own words naming that video and
+that format override it. `kit_run.py` refuses a content edit sheet without `--dan-asked`.
+
 ## A horizontal clip in the vertical or square frame keeps its full height (Dan, 2026-10-01)
 
 Never crop rows off a 16:9 clip that sits as a card in a 9:16 or 1:1 frame: it only makes the card shorter and adds black
