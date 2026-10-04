@@ -85,7 +85,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 # ACTIVE
 
-**Ad 13 round 4 - ACTIVE 2026-10-04, Codex.** Horizontal judged clean. Square/gates queued since 10:00 under two-job cap. Build: av11-ad13/round4. No uploads.
+**Ad 13 round 4 - ACTIVE 2026-10-04, Codex.** Repairing gate-failed horizontal joins/hair and three judged square crops. Build: av11-ad13/round4. No uploads.
 
 **Ad13 setup REVIEW 2026-10-04.** Policy 10-05: `Docs/AD13_VERTICAL_SETUP_RECEIPT_20261004.md`.
 
@@ -154,9 +154,8 @@ test starts. `BLOTATO_QUEUE_PROGRESS.md`
 540 day` list, Phase 2 if the Demand Gen draft exists. ⚠ No pointer events or `await` in `javascript_tool` on a busy Ads
 tab; stop rather than click into spinners. `Handoffs/handoff-20260908-google-ads-custom-segments.md`
 
-**Ad 4 V/S/Sh (AV-03, AS-02) - NEEDS DAN 2026-10-04, Claude.** Delivered; page http://127.0.0.1:8824/. Next: his notes, then `/ad-setup`. ⚠93ba3f9-unpushed
 
-**RO-02 round 2 - NEEDS DAN 2026-10-04, Claude.** http://127.0.0.1:8826/ (7 answers: first minute, opener frames A and B, opener graphic, anatomy card, sound, length). Next: Dan replies, then fire `handoff-20261004-ro02-round3-ai-motion-and-full-film.md`.
+**RO-02 READY 2026-10-04, Claude.** Round 2 approved by Dan. Fire `handoff-20261004-ro02-round3-ai-motion-and-full-film.md`. ⚠73c7464,ac783db-unpushed
 
 **Shorts parked behind the long-form hold. (baseline 2026-09-15; age unknown)** Zepbound (8) + Supplements (8) need the new spray-tan sound
 (`Handoffs/handoff-20260909-audio-match-muhammad.md`); nothing posts until a parent long-form is public.
@@ -182,6 +181,7 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
+- `handoff-20261004-ad4-formats-thumbnails-and-setup-codex.md` (10-04): Ad 4 approved; thumbnails, uploads, trial group. Sol high. ⚠93ba3f9-unpushed
 - `handoff-20260930-codex-adopt-review-page-format.md` (09-30). Sol medium.
 
 - `handoff-20261001-move-project-out-of-icloud.md` (10-01): move the project out of iCloud's Documents sync (109k duplicates, 199 cloud-only files). Run when nothing else runs here. Opus 5.5 high.

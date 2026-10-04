@@ -1,11 +1,11 @@
-# Handoff: RO-02 round 3. Record Dan's round 2 answers, then the opener's AI motion and the full film (2026-10-04)
+# Handoff: RO-02 round 3. Round 2 approved: generate the opener's AI motion and build the full film (2026-10-04)
 
 **CONTENT, long-form (LFC).** It gets Shorts cut from it later and nothing else: no vertical, no square, no 1-minute version.
 
 **Goal.** Finish RO-02 "The Vacuum: The Best Ab Exercise For Belly Fat" (8/14 poolside rolls C1614 to C1629; job doc
 `Handoffs/video-editing/RO-02-the-vacuum-explainer.md`). Round 2 put the opener frames, the opener graphic, every other
-graphic and clip as a still, and the finished first minute in front of Dan. **Dan has not answered round 2 yet.** Round 3
-starts only from his reply. Session name: `The Vacuum LFC R3`. This replaces
+graphic and clip as a still, and the finished first minute in front of Dan. **Dan approved round 2 on 10-04** ("Okay,
+everything is looking good. Give me the handoff document to build the next round."). Session name: `The Vacuum LFC R3`. This replaces
 `handoff-20261004-ro02-round2-graphics-and-first-minute.md` (keep it for Dan's round 1 answers).
 
 **Read first.** `_shared/VIDEO-RULES.md`, `_shared/PRE-RENDER-APPROVAL.md`, `_shared/hyperframes/README.md`,
@@ -13,23 +13,22 @@ starts only from his reply. Session name: `The Vacuum LFC R3`. This replaces
 `finish_chain.sh`, `finish.py`, `haircheck.py`, `dupscan.py`). Work dir: `/Volumes/Extreme/_edit_work/ro02/` (recipe that
 ran: `recipe/`; skill copy: `reference/ro02/`).
 
-## What Dan is looking at
+## Dan's round 2 answer (2026-10-04; recorded with 42 file hashes in `round3-plan/decisions.json`)
 
-Round 2 page: the URL is in the board entry and in `round2/SERVED.txt` (served by `_shared/review_server.py` from
-`round2/`). Seven lines in the reply box:
+His exact words: "Okay, everything is looking good. Give me the handoff document to build the next round." Read as:
 
-1. First minute: approve or notes.
-2. Opener clip A (crunches) frames.
-3. Opener clip B (sit-ups) frames.
-4. The opener graphic. As built it ends at 0:06.56 on the cut to him at "stop doing all those ab exercises"; the
-   alternative offered is holding it to about 0:08.3.
-5. The anatomy card (AN1).
-6. Sound (carried from round 1, still unanswered; never infer approval from silence).
-7. Length (carried from round 1): (a) keep all, (b) remove the aside C1617 18.24 to 24.94, (c) also end the three types
-   piece at C1620 19.32.
+1. First minute: approved.
+2. Opener clip A (crunches) frames: approved. Motion authorized.
+3. Opener clip B (sit-ups) frames: approved. Motion authorized.
+4. The opener graphic: approved as built (ends at 0:06.56 on the cut to him at "stop doing all those ab exercises").
+5. The anatomy card (AN1): approved.
+6. Sound: approved.
+7. Length: **he named no option.** Build the cut as shown, 11:49.9, nothing removed. Do not remove the aside (C1617
+   18.24 to 24.94) or trim the three types piece unless he says so in the round 3 prompt. If he does, see step 1 below.
 
-Write his answers, in his exact words, to `round3-plan/decisions.json` with the sha256 of every file he approved
-(`round2/aiframes/*.png`, the first minute, the stills) before touching anything.
+Everything listed under "What I decided" on the round 2 page stands (the three step lower thirds, the live-set clip at
+0:26, the demo on its olive card, the countdown, the recap card). Re-hash the files in `decisions.json` before touching
+anything. Round 2 page for reference: http://127.0.0.1:8826/ (`round2/`).
 
 ## State at handoff
 
@@ -48,9 +47,9 @@ Write his answers, in his exact words, to `round3-plan/decisions.json` with the 
   minimum. The opener in it is the labelled placeholder (`build.opener_frames`).
 - Spend: $0 of $5.
 
-## Round 3 work, in order (only what Dan approved)
+## Round 3 work, in order
 
-1. Apply his notes. If he changes length, edit `recipe/edl.py`, then re-run `shots.py`, `assemble_audio.py`,
+1. Length only if Dan asks for it in the prompt. If he changes length, edit `recipe/edl.py`, then re-run `shots.py`, `assemble_audio.py`,
    `asr_assembled.py`, `words_out.py`, `resolve.py`, and re-check every phrase. Length (b) removes the aside from the
    first minute, so every time after 0:49 moves 6.7 seconds earlier.
 2. AI motion for the approved frames only (VIDEO-RULES: $5 per video; Kling or Veo on the API, not Codex). Each clip:
@@ -94,6 +93,6 @@ See the board entry. Round 1's commit `73c7464` and this round's commit are loca
 ## Starter prompt (Claude Opus 5.5, effort high)
 
 Read `Handoffs/handoff-20261004-ro02-round3-ai-motion-and-full-film.md`. Name this session "The Vacuum LFC R3". This is
-a CONTENT long-form. Here are my round 2 answers: [paste the reply box]. Record them, apply my notes, generate the AI
-motion only for the opener frames I approved, then build the full film, run every gate and one independent review, and
-deliver. Stop and show me anything I have not approved.
+a CONTENT long-form. I approved round 2. Build RO-02 round 3: generate the AI motion for the two approved opener clips
+(crunches and sit-ups), put it in the opener graphic, build the full film at its current length, run every gate and one
+independent review, and deliver. Stop and show me the finished opener moving if anything about the motion is uncertain.
