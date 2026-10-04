@@ -86,6 +86,9 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 # ACTIVE
 
+**Ad13 setup REVIEW 2026-10-04.** Policy 10-05: `Docs/AD13_VERTICAL_SETUP_RECEIPT_20261004.md`.
+
+
 **Oura review (Video 4) - QUEUED 2026-10-02, Claude.** Blotato Oct 14 9AM CT. Oct 14: Studio thumbnail A/B, captions, article `TBD-oura-ring-review.md`. `Docs/OURA_SETUP_RECEIPT_20261002.md`, delete.
 
 **PMax `24308574894` - LIVE 2026-10-02, Claude.** Checks 10-07, 10-12: `Docs/DGEN_CONVERSION_CAMPAIGN.md`. Campaign images: package.
