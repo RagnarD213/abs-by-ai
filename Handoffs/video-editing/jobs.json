@@ -1112,14 +1112,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/SL-03-meal-prep-app-demo-shorts.md`: propose the shorts segments from the RO-05 \"How I Make My Daily Salad\" master and wait for my picks, then cut them with /shorts, with gates and an independent audit (no covers; Codex does those). Deliver, send me the review copies, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/SL-03-meal-prep-app-demo-shorts.md` using `.claude/skills/shorts/SKILL.md` as the method: propose segments from the RO-05 master, wait for Dan's picks, cut, gate, deliver, update `00-MASTER.md`.",
-   "state": "ready",
-   "note": "Dan 10-04: shorts 1,3,5,6 approved; 2 and 4 need revisions. Fire handoff-20261004-sl03-salad-shorts-round3-revise-shorts-2-and-4.md",
+   "state": "delivered",
+   "note": "Round 3 delivered 10-04: shorts 2 and 4 revised (reviewer SHIP, gate PASS); 1,3,5,6 approved. Dan reviews http://127.0.0.1:8831/",
    "sub": "",
    "order": 53,
    "updated": "2026-10-04",
    "by": "Claude",
-   "rev": 5,
-   "syncedRev": 5
+   "rev": 6,
+   "syncedRev": 6
   },
   {
    "id": "AV-01",
@@ -1574,11 +1574,11 @@
    "claude": "Confirm AV-11 is approved, then execute Handoffs/video-editing/AS-10-ad13-square.md as the full and 59-second 1:1 re-layout. Run every gate and audit and send Dan the review copies.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Confirm AV-11 is approved, then execute Handoffs/video-editing/AS-10-ad13-square.md with /shortad-from-longform as a square re-layout. Deliver both review copies and update the queue.",
-   "state": "in_progress",
+   "state": "delivered",
    "note": "Square look approved 10-03; Codex builds the square full + 59 s and the horizontal's zoom steps: handoff-20261003-ad13-round4-horizontal-and-square-codex.md",
    "order": 75,
    "updated": "2026-10-04",
-   "rev": 5,
+   "rev": 6,
    "syncedRev": 4,
    "by": "Codex"
   },

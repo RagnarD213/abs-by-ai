@@ -233,6 +233,12 @@ def cmd_plan(S, quiet=False):
         if cur is None or cur["key"] != key:
             cur = dict(key=key, kind=key[0], roll=roll, f0=i, raw=[]); rows.append(cur)
         cur["raw"].append(raw)
+    for r in rows:                                    # the long-form's audio map can step a take back a few ms at one of its own joins
+        if r["kind"] == "broll": continue             # (C1548 at film 524.07: 20 ms): the same source frame would show twice (reviewer r3a/r3b,
+        off = 0.0                                     # S4 0:34.60). Carry the step forward so the picture stays one continuous run.
+        for j in range(1, len(r["raw"])):
+            r["raw"][j] += off; dlt = r["raw"][j] - r["raw"][j - 1]
+            if 1 / FPS - 0.03 < dlt < 1 / FPS - 0.002: r["raw"][j] += 1 / FPS - dlt; off += 1 / FPS - dlt
     shots = []
     for k, r in enumerate(rows):
         sh = dict(idx=k, kind=r["kind"], roll=r["roll"], f0=r["f0"], f1=r["f0"] + len(r["raw"]), raw0=round(r["raw"][0], 4), raw1=round(r["raw"][-1], 4), raw=[round(x, 4) for x in r["raw"]])
@@ -556,13 +562,19 @@ class Short:
             elif sh["kind"] == "broll": cw, ch = WIN["full"]; sh["cw"], sh["ch"] = cw, ch; sh["path"] = window_path(sh, trk, cw)
             elif sh.get("layout") != "phone":
                 ch = sh.get("dh", 1080); cw = round(ch * DAN_BOX[2] / DAN_BOX[3]); sh["cw"], sh["ch"] = cw, ch; sh["path"] = window_path(sh, trk, cw)
+    def fidx(self, sh, raw):
+        """source frame index. floor(x + 0.25), unless this take's phase sits on that boundary (the 4-decimal raw times then
+        jitter across it and one source frame shows twice: reviewer r3a, S2 0:31.37 and S4 0:34.60): then floor(x + 0.5)."""
+        if "_off" not in sh:
+            ph = (sh["raw"][0] * FPS + 0.25) % 1; sh["_off"] = 0.25 if 0.1 < ph < 0.9 else 0.5
+        return int(np.floor(raw * FPS + sh["_off"]))
     def picture(self, i, graphics=True):
         sh = self.shot_at(i); j = i - sh["f0"]; raw = sh["raw"][j]; roll = sh["roll"]
         if roll not in self.cams: self.cams[roll] = cam(roll)
         u = i / FPS / 0.5; k = int(u); w = u - k
         frame = (self.keys[k].astype(np.float32) * (1 - w) + self.keys[k + 1].astype(np.float32) * w + 0.5).astype(np.uint8)
         if sh["kind"] in ("talk", "broll"):
-            src = self.cams[roll].get(int(np.floor(raw * FPS + 0.25))); cw, ch = sh["cw"], sh["ch"]; x = int(round(sh["path"][j] - cw / 2)); y = sh.get("dy", 0)
+            src = self.cams[roll].get(self.fidx(sh, raw)); cw, ch = sh["cw"], sh["ch"]; x = int(round(sh["path"][j] - cw / 2)); y = sh.get("dy", 0)
             frame[DROP:] = cv2.resize(src[y:y + ch, x:x + cw], (W, PIC_H), interpolation=cv2.INTER_LANCZOS4)
         else:
             if self.shell is None:
@@ -572,7 +584,7 @@ class Short:
             box = (px, py, px + 624, py + 1290); full = np.zeros((H, W, 4), np.uint8); full[py:py + 1290, px:px + 624] = self.shell; over_box(frame, full, box)
             st = lib.screen_t(raw); frame[py + 114:py + 114 + SCR_WH[1], px + 48:px + 48 + SCR_WH[0]] = self.screen.get(int(np.floor(st * 60 + 0.25)))
             if not alone:
-                src = self.cams[roll].get(int(np.floor(raw * FPS + 0.25))); cw, ch = sh["cw"], sh["ch"]; x = int(round(sh["path"][j] - cw / 2)); y = sh.get("dy", 0)
+                src = self.cams[roll].get(self.fidx(sh, raw)); cw, ch = sh["cw"], sh["ch"]; x = int(round(sh["path"][j] - cw / 2)); y = sh.get("dy", 0)
                 dn = cv2.resize(src[y:y + ch, x:x + cw], (DAN_BOX[2], DAN_BOX[3]), interpolation=cv2.INTER_LANCZOS4).astype(np.float32)
                 bx, by = DAN_BOX[0], DAN_BOX[1]; reg = frame[by:by + DAN_BOX[3], bx:bx + DAN_BOX[2]].astype(np.float32)
                 frame[by:by + DAN_BOX[3], bx:bx + DAN_BOX[2]] = (reg * (1 - self.dmask) + dn * self.dmask + 0.5).astype(np.uint8)

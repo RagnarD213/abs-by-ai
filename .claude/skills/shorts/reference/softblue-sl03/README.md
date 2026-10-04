@@ -79,6 +79,33 @@ panel) are declared per short in `gate/declare.json` with his words and the deci
 `rungate.sh`: `speech.wait_for_build_slot` counts any process whose command line contains `gate.py`, including the shell
 that launched it and any watcher that greps for it.
 
+## Round 3 (2026-10-04): revising two shorts after Dan's review. Read before changing any piece list
+
+Dan approved four of six and asked for a new opening on one short and new closing content on another. It took four
+renders and four review passes, and every block came from the NEW material. What that taught:
+
+- **The long-form mix trims the tail of the last word at every one of its own audio joins** (its edit cuts to the next
+  take and the next sentence covers the missing tail). The short's audio is that mix, cut only, so the tail does not
+  exist. A word that sits at a long-form join ("cheaper" at film 97.76, "spices" 570.94, "tablespoons" 560.09,
+  "dressing" 172.02) may only be used as a run-on: the next piece must start within about 0.1 s, as the long-form plays
+  it. **Never end a short on one, and never leave one before a pause.** Pick the last line from sentences that end
+  before a natural pause INSIDE one take: list sentences whose end is more than 0.3 s from every `timeline.json` "A"
+  boundary and is followed by a measured silence of 0.2 s or more. The audio gate cannot see this (its reference has
+  the same trimmed word); Whisper prints it as a shortened word ("spice", "dress", "cheap").
+- **Check every candidate cutaway frame by frame before planning it, for motion AND focus.** Handheld B-roll here is
+  steady for one to three seconds at a time. Per-frame phase correlation on a 480 px copy finds camera moves, but it
+  reads a shot as steady when hands or a lid fill the frame, so also look at tiles 0.4 s apart with a grid. Variance of
+  the Laplacian on the crop finds soft focus (the dressed-bowl shot C1548 is soft until 101.9). A cutaway that needs
+  more steady footage than the roll has is the wrong cutaway: shorten the audio piece, or use another picture.
+- **Two close-ups of him from the same camera need a cutaway between them**; the two windows only give 1.2x.
+- **A take the long-form's audio map steps back by a few ms** (C1548 at film 524.07, 20 ms) repeated one source frame.
+  `cmd_plan` now carries the step forward inside the shot, and `Short.fidx` moves the frame-index rounding off a
+  boundary. Check `np.diff` of the frame indices of every talking shot before rendering.
+- `style:coverage` (30 % of runtime off the main scene's palette) fails when a revision removes a B-roll passage. Add
+  steady cutaways from the shoot; a second take in a different spot and an extreme close-up both count as off-palette.
+- The round 3 page is `page_r3.py` (two shorts as questions, the approved four as a record line).
+- ⚠ `batch.py plan` with no short named, or naming an approved short, rewrites its `shots.json`. Name the shorts.
+
 ## What round 1 learned
 
 - **Our own long-form's `base.mp4` is not graphics-free.** RO-05's base has the title cards and the phone demo baked in.

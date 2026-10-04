@@ -154,7 +154,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 |---|---|---|---|
 | [SL-01](SL-01-ab-wheel-workout-shorts.md) | Ab Wheel Workout: 3 Sets (Zeeshan, public 09-20) | READY | S |
 | [SL-02](SL-02-v1-channel-intro-shorts.md) | V1 Welcome To Abs By AI (channel intro) | READY (low priority) | S |
-| [SL-03](SL-03-meal-prep-app-demo-shorts.md) | How I Make My Daily Salad (RO-05, public Oct 18) | READY | S |
+| [SL-03](SL-03-meal-prep-app-demo-shorts.md) | How I Make My Daily Salad (RO-05, public Oct 18) | DELIVERED: awaiting Dan | S |
 | [SL-04](SL-04-arms-shoulders-shorts.md) | Arms & Shoulders Home Workout (Zeeshan, 11:00) | UPLOADED | S |
 | [SL-05](SL-05-stop-deadlifting-shorts.md) | Stop Deadlifting (Zeeshan, 9:16, public Oct 11) | UPLOADED | S |
 | [SL-06](SL-06-top-5-zepbound-tips-shorts.md) | Top 5 Zepbound Tips (RO-12, public Oct 25) | READY | S |
@@ -229,7 +229,7 @@ handoff (`handoff-20260909-audio-match-muhammad.md`, waiting on your spray-tan s
 | [AS-07](AS-07-ad14-square.md) | Ad 14 | BLOCKED: AV-08 approved | M |
 | [AS-08](AS-08-ad8-square.md) | Ad 8 | BLOCKED | M |
 | [AS-09](AS-09-ad9-square.md) | Ad 9 | BLOCKED: AV-10 approved | M |
-| [AS-10](AS-10-ad13-square.md) | Ad 13 | IN PROGRESS | M |
+| [AS-10](AS-10-ad13-square.md) | Ad 13 | DELIVERED: awaiting Dan | M |
 | [AS-11](AS-11-ad15-square.md) | Ad 15 | BLOCKED: AV-12 approved | M |
 | [AS-12](AS-12-arms-shoulders-square.md) | Arms & Shoulders Home Workout (Zeeshan, ORGANIC, not an ad) | BLOCKED: AV-13 approved | L |
 | [AS-13](AS-13-ra01-square.md) | RA-01: The AI Trick That Got Me Abs (1:1 only, 57 s) | UPLOADED | S |

@@ -86,7 +86,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 # ACTIVE
 
 
-**Ad 13 round 4 - ACTIVE 2026-10-04, Codex.** Short passed/filed, all pictures SHIP. Horizontal and square full gates pending. Caption metadata corrected. No uploads.
+**Ad 13 round 4 - WAIT 2026-10-04, Codex.** Three exports passed/filed. Final yes: http://127.0.0.1:8855/. Setup handoff ready. AS-10 delivered. No media uploads; queue status auto-synced.
 
 **Ad13 setup REVIEW 2026-10-04.** Policy 10-05: `Docs/AD13_VERTICAL_SETUP_RECEIPT_20261004.md`.
 
@@ -105,7 +105,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **RO-12 - QUEUED 2026-10-01, Claude.** Blotato Oct 25. Then: `Docs/RO12_SETUP_RECEIPT_20261001.md`, delete.
 
-**RO-13 round 2 - NEEDS DAN 2026-10-04, Claude.** Delivered, review SHIP (candidate 2). Folder `11 - Can You Drink Alcohol...`, review copy in notes. Next: Dan reviews; then ONE thumbnails+setup handoff (say "Use the Codex subscription to generate the images"). ⚠df59674-unpushed
+**RO-13 round 2 - NEEDS DAN 2026-10-04, Claude.** Delivered, review SHIP (candidate 2). Folder `11 - Can You Drink Alcohol...`, review copy in notes. Next: Dan reviews; then ONE thumbnails+setup handoff (say "Use the Codex subscription to generate the images"). ⚠225a4d8-unpushed: safe-push stopped on others' edits (VIDEO-RULES.md, framing-motion.md, kit9x16/README.md, render.py, Docs/DGEN_CONVERSION_CAMPAIGN.md, Docs/WEB_CART.md)
 
 **RO-10 - QUEUED 2026-10-02, Claude.** Blotato Oct 7. Oct 7: captions, article, Zepbound link on Oct 25. `Docs/RO10_SETUP_RECEIPT_20261002.md`, delete.
 
@@ -119,7 +119,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **Stop Deadlifting - QUEUED 2026-09-29, Claude.** Blotato Oct 11 9AM CT, 4 platforms. Next: once posted, publish `sixpackabs/articles/TBD-stop-deadlifting.md`, then delete.
 
-**SL-03 HANDOFF 2026-10-04, Claude.** 1,3,5,6 approved. Fire `handoff-20261004-sl03-salad-shorts-round3-revise-shorts-2-and-4.md`. ⚠9845e46-unpushed(VIDEO-RULES.md,framing-motion.md,shortad/render.py-block)
+**SL-03 round 3 - NEEDS DAN 2026-10-04, Claude.** Shorts 2, 4 revised; page http://127.0.0.1:8831/. Next: step 5, `handoff-20261004-sl03-salad-shorts-round3-revise-shorts-2-and-4.md`.
 
 **RO-05 salad - QUEUED 2026-09-30, Claude.** Oct 18: fire `handoff-20260930-ro05-captions-and-article-after-release.md`.
 
