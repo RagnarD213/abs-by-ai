@@ -170,3 +170,5 @@ frames (pilot: 43 dB PSNR).
 - `fromTo` for every initial state; finite `repeat` only; motion along a path = proxy object + `onUpdate`.
 - `check` shows "0/0 text checks" on a transparent overlay; judge contrast on composite stills.
 - Render speed about 5 to 6 s per second of 1080p overlay.
+
+- Side-list cards hold still by default (2026-10-04). Fractional drift can make settled type appear to shrink as its edges redraw. Keep the spoken reveals and specular sweep; use `drift: 0` for a steady text hold. Existing approved exports are unchanged.

@@ -39,7 +39,7 @@ def plan(out):
     words = [dict(w=w['word'].strip(), t0=w['start'], t1=w['end']) for w in json.loads((SOURCE / 'recipe/mapped-words.json').read_text())]
     dump(out / 'words_out.json', words)
     # Empty heading retains the old graphic's exact four food names, without new copy.
-    p = [dict(id='alternatives', kind='l3', t0=340.356, t1=390.21, heading=[],
+    p = [dict(id='alternatives', kind='l3', t0=340.356, t1=390.21, heading=[], drift=0,
               points=['SARDINES', 'HARD-BOILED EGGS', 'ROTISSERIE CHICKEN', 'CHIPOTLE PROTEIN CUP'],
               reveal=['Sardines A can', 'hard boiled eggs', 'rotisserie chicken', 'the protein comes from Chipotle'],
               start='Here\'s what I eat', end='the chicken one'),
@@ -114,6 +114,29 @@ def refresh(out):
         concat=out/(key+'.concat.txt');concat.write_text(''.join("file '"+str(out/(key+'.'+part+'.mp4'))+"'\n" for part in ('head','tail')))
         run([FF,'-v','error','-y','-f','concat','-safe','0','-i',concat,'-i',out/'audio.m4a','-map','0:v','-map','1:a','-c','copy','-movflags','+faststart',out/(key+'.mp4')])
     run([FF,'-v','error','-y','-ss',str(F0/C.FPS),'-i',SOURCE/'RO-17-3-Healthy-Foods-That-Made-Me-Fat-DRAFT.mp4','-t',str(N/C.FPS),'-c:v','libx264','-crf','18','-preset','fast','-c:a','copy','-movflags','+faststart',out/'original-draft.mp4'])
+
+
+def steady(out):
+    """Recompose the revised side-list span; retain the accepted price tail and audio."""
+    split = C.fr(390.21)
+    old_f0 = C.fr(337.036)
+    comp = H.load_compositor(out/'hf')
+    head = out/'new.steady-head.mp4'
+    enc = subprocess.Popen([FF,'-v','error','-y','-f','rawvideo','-pix_fmt','rgb24',
+        '-s','1920x1080','-framerate','30000/1001','-i','-',
+        '-vf','scale=out_color_matrix=bt709:out_range=tv,format=yuv420p',
+        '-c:v','libx264','-crf','16','-preset','fast','-threads','3',
+        '-colorspace','bt709','-color_primaries','bt709','-color_trc','bt709',str(head)],stdin=subprocess.PIPE)
+    for i,frame in enumerate(C.reader(str(out/'base.mp4'),F0-old_f0,split-F0)):
+        if i % 300 == 0: print(f'Steady card frame {i}/{split-F0}',flush=True)
+        base = B.shift_presenter(Image.fromarray(frame),dx=350,c0=450,wall_w=450)
+        enc.stdin.write(np.ascontiguousarray(comp.apply(np.asarray(base),F0+i)).tobytes())
+    enc.stdin.close()
+    if enc.wait(): raise RuntimeError('steady head encode failed')
+    concat=out/'new.steady.concat.txt'
+    concat.write_text(''.join("file '"+str(p)+"'\n" for p in (head,out/'new.tail.mp4')))
+    run([FF,'-v','error','-y','-f','concat','-safe','0','-i',concat,'-i',out/'audio.m4a',
+         '-map','0:v','-map','1:a','-c','copy','-movflags','+faststart',out/'new.mp4'])
 
 
 def finish(out):
@@ -197,5 +220,5 @@ def write_sheet(out):
 
 
 if __name__=='__main__':
-    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('stage',choices=['plan','render','refresh','finish']);ap.add_argument('--out',type=Path,required=True)
+    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('stage',choices=['plan','render','refresh','steady','finish']);ap.add_argument('--out',type=Path,required=True)
     args=ap.parse_args();globals()[args.stage](args.out)

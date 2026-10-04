@@ -1,7 +1,7 @@
 {
  "_README": "THE STANDARD IS DAN'S WORDS, NOT OUR PARAPHRASE. Every entry quotes him verbatim. See README.md.",
  "version": 2,
- "updated": "2026-09-28",
+ "updated": "2026-10-04",
  "roots": {
   "repo": ".",
   "ssd": "/Volumes/Extreme/_edit_work"
@@ -2965,6 +2965,25 @@
    "must_pass": [],
    "must_trigger": [],
    "notes": "Scoped component creative approval, not full-film PASS. Exact locks: wv01-edit/round11/review/dan-review-locks.json. No gate thresholds changed."
+  },
+  {
+   "id": "ro17-hyperframes-proof-r1",
+   "verdict": "approved-with-notes",
+   "date": "2026-10-04",
+   "root": "ssd",
+   "path": "hyperframes-codex-ro17-proof/revision1/new.mp4",
+   "sha256": "3ba0943b4b9684894a7872022138f108a96e3c562f42a0cd0e585ca0c6b7d46d",
+   "excerpt": [
+    9,
+    6
+   ],
+   "dan": "It looks pretty much right but just one weird issue: at right around 12 seconds the word \"sardines\" shrinks slightly. Look into that and fix that issue. Other than that everything is looking good",
+   "must_pass": [],
+   "must_trigger": [
+    "style:text_raster_stability"
+   ],
+   "measured": "SARDINES white glyph bounds stay 183 x 27 px, but drift changes their y position by one pixel at excerpt 11.47s. Fractional translation changes edge rasterization.",
+   "notes": "Scoped graphics proof approval except text stability. Existing style gate does not measure this; named check is pending. No gate threshold changed."
   }
  ]
 }
