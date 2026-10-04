@@ -188,7 +188,7 @@ handoff (`handoff-20260909-audio-match-muhammad.md`, waiting on your spray-tan s
 | 3 Stop Paying Human Trainers | ✅ | ✅ | ✅ | ✅ (R2.1 uploaded 09-16) | ✅ |
 | 4 Stop Wasting Money On Supplements | ✅ | ❌ AV-03 (re-grade) | ❌ AV-03 | ❌ AS-02 | ❌ AS-02 |
 | 5 Every Diet You've Tried Failed | ✅ | ❌ AV-04 (round 2) | ❌ AV-04 | ❌ AS-03 | ❌ AS-03 |
-| 6 You're Not Too Old To Get Abs | ✅ | ❌ AV-05 | ❌ AV-05 | ❌ AS-04 | ❌ AS-04 |
+| 6 You're Not Too Old To Get Abs | ✅ | ✅ AV-05 | ✅ AV-05 | ✅ AS-04 | ✅ AS-04 |
 | 7 In 2010 I Photoshopped My Face | ✅ (typo fix owed by Muhammad) | ❌ AV-06 | ❌ AV-06 | ❌ AS-05 | ❌ AS-05 |
 | 8 AI Showed Me Two Futures | ✅ (uploaded 09-16) | ✅ (uploaded 10-01) | ✅ (uploaded 10-01) | ❌ AS-08 | ❌ AS-08 |
 | 10 My Dad Bod At 38 / 40 | ✅ | ❌ AV-07 | ❌ AV-07 | ❌ AS-06 | ❌ AS-06 |
@@ -206,7 +206,7 @@ handoff (`handoff-20260909-audio-match-muhammad.md`, waiting on your spray-tan s
 | [AV-02](AV-02-ad2-cutdowns-vertical-and-square-59s.md) | Ad 2: 9:16 ≤0:59 + 1:1 ≤0:59 | READY | M |
 | [AV-03](AV-03-ad4-vertical-regrade-and-masters.md) | Ad 4: re-grade the vertical + deliver masters | READY | M |
 | [AV-04](AV-04-ad5-vertical-round2-and-regrade.md) | Ad 5: your round-2 revisions + re-grade | READY | M |
-| [AV-05](AV-05-ad6-vertical.md) | Ad 6 | READY | M |
+| [AV-05](AV-05-ad6-vertical.md) | Ad 6 | UPLOADED | M |
 | [AV-06](AV-06-ad7-vertical.md) | Ad 7 | READY | M |
 | [AV-07](AV-07-ad10-vertical.md) | Ad 10 | UPLOADED | M |
 | [AV-08](AV-08-ad14-vertical.md) | Ad 14 | READY (file the 09-16 HD first) | M |
@@ -223,7 +223,7 @@ handoff (`handoff-20260909-audio-match-muhammad.md`, waiting on your spray-tan s
 | [AS-01](AS-01-ad1-zeeshan-square.md) | Ad 1 (Zeeshan) | BLOCKED: you approve his vertical + NEEDS DAN (still wanted?) | M |
 | [AS-02](AS-02-ad4-square.md) | Ad 4 | BLOCKED: AV-03 approved | M |
 | [AS-03](AS-03-ad5-square.md) | Ad 5 | BLOCKED: AV-04 approved | M |
-| [AS-04](AS-04-ad6-square.md) | Ad 6 | READY | M |
+| [AS-04](AS-04-ad6-square.md) | Ad 6 | UPLOADED | M |
 | [AS-05](AS-05-ad7-square.md) | Ad 7 | BLOCKED: AV-06 approved | M |
 | [AS-06](AS-06-ad10-square.md) | Ad 10 | READY | M |
 | [AS-07](AS-07-ad14-square.md) | Ad 14 | BLOCKED: AV-08 approved | M |

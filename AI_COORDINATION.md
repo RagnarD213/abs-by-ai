@@ -208,4 +208,4 @@ Memory `google-ads-ui-automation`.
 - `handoff-20260826-danrosefit-abs-image-gap-fill.md` [dash] — once Blotato has 7 free slots.
 
 ## ACTIVE
-- **AV-05/AS-04 Ad 6 - LOOK LOCKED 2026-10-02.** Next: fire `handoff-20261002-ad6-round2-full-builds-after-lock.md`. ⚠ Extreme full.
+**Ad 6 remarketing 2026-10-04:** Awaiting Dan: copy to enabled campaign 24305381214?
