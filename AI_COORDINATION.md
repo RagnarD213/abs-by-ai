@@ -85,7 +85,8 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 # ACTIVE
 
-**Ad 13 round 4 - ACTIVE 2026-10-04, Codex.** Repairing gate-failed horizontal joins/hair and three judged square crops. Build: av11-ad13/round4. No uploads.
+
+**Ad 13 round 4 - ACTIVE 2026-10-04, Codex.** Short passed/filed, all pictures SHIP. Horizontal and square full gates pending. Caption metadata corrected. No uploads.
 
 **Ad13 setup REVIEW 2026-10-04.** Policy 10-05: `Docs/AD13_VERTICAL_SETUP_RECEIPT_20261004.md`.
 
@@ -104,7 +105,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **RO-12 - QUEUED 2026-10-01, Claude.** Blotato Oct 25. Then: `Docs/RO12_SETUP_RECEIPT_20261001.md`, delete.
 
-**RO-13 round 2 - ACTIVE 2026-10-04, Claude.** Review 1: DOES NOT SHIP (A02 belly rule); fixed, rebuilding. Two fails = stop. `handoff-20261004-ro13-round2-build-full-film.md` ⚠df59674-unpushed
+**RO-13 round 2 - NEEDS DAN 2026-10-04, Claude.** Delivered, review SHIP (candidate 2). Folder `11 - Can You Drink Alcohol...`, review copy in notes. Next: Dan reviews; then ONE thumbnails+setup handoff (say "Use the Codex subscription to generate the images"). ⚠df59674-unpushed
 
 **RO-10 - QUEUED 2026-10-02, Claude.** Blotato Oct 7. Oct 7: captions, article, Zepbound link on Oct 25. `Docs/RO10_SETUP_RECEIPT_20261002.md`, delete.
 
@@ -118,7 +119,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **Stop Deadlifting - QUEUED 2026-09-29, Claude.** Blotato Oct 11 9AM CT, 4 platforms. Next: once posted, publish `sixpackabs/articles/TBD-stop-deadlifting.md`, then delete.
 
-**SL-03 NEEDS DAN 2026-10-03, Claude.** http://127.0.0.1:8811/. `handoff-20261003-sl03-salad-shorts-round2-dan-review.md`. ⚠9845e46-unpushed(VIDEO-RULES.md,framing-motion.md,shortad/render.py-block)
+**SL-03 HANDOFF 2026-10-04, Claude.** 1,3,5,6 approved. Fire `handoff-20261004-sl03-salad-shorts-round3-revise-shorts-2-and-4.md`. ⚠9845e46-unpushed(VIDEO-RULES.md,framing-motion.md,shortad/render.py-block)
 
 **RO-05 salad - QUEUED 2026-09-30, Claude.** Oct 18: fire `handoff-20260930-ro05-captions-and-article-after-release.md`.
 
@@ -181,7 +182,6 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
-- `handoff-20261004-ad4-formats-thumbnails-and-setup-codex.md` (10-04): Ad 4 approved; thumbnails, uploads, trial group. Sol high. ⚠93ba3f9-unpushed
 - `handoff-20260930-codex-adopt-review-page-format.md` (09-30). Sol medium.
 
 - `handoff-20261001-move-project-out-of-icloud.md` (10-01): move the project out of iCloud's Documents sync (109k duplicates, 199 cloud-only files). Run when nothing else runs here. Opus 5.5 high.

@@ -17,6 +17,10 @@ VC = "/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shar
 # Audio B on C1707: RO-16's EQ failed the tone row here (3.5 kHz +3.9, 5.5 kHz -5.2; RO-12 trap 4), so the chain's own fit on
 # this roll (FIT.mp4.voice_chain.json, from the first minute's untreated voice) + Dan's approved +0.9 dB shelf at 150 Hz.
 EQ = json.load(open(f"{W}/FIT.mp4.voice_chain.json"))["eq"] + ",bass=g=0.9:f=150:width_type=q:width=0.7"
+# Round 2: the first-minute fit passed the first minute (13/13) but read tone max 3.01 dB over the whole film (limit 2.5). Refit on the
+# whole film's untreated voice with the chain's own fitter (round2/fitfull), same +0.9 dB at 150 Hz: tone mean 0.88, max 1.79.
+EQ_FULL = open(f"{W}/round2/fitfull/eq_full.txt").read().strip() if os.path.exists(f"{W}/round2/fitfull/eq_full.txt") else None
+if EQ_FULL and os.environ.get("RO13_EQ", "full") == "full": EQ = EQ_FULL
 def fr(t): return int(round(t*FPS))
 def run(c): subprocess.run(c, check=True)
 
@@ -82,12 +86,14 @@ def segments(f0, f1):
     return out
 
 def render_seg(sg):
-    key = hashlib.sha1(json.dumps([sg["src0"], sg["o1"]-sg["o0"], sg["framing"], F.CROP[sg["framing"]], F.LUT]).encode()).hexdigest()[:12]
+    key = hashlib.sha1(json.dumps(["seek04", sg["src0"], sg["o1"]-sg["o0"], sg["framing"], F.CROP[sg["framing"]], F.LUT]).encode()).hexdigest()[:12]
     out = f"{W}/cache/seg_{sg['src0']}_{key}.mp4"
     if not os.path.exists(out):
         os.makedirs(f"{W}/cache", exist_ok=True)
-        ts = sg["src0"]/FPS
-        run([FF, "-v", "error", "-y", "-ss", f"{max(0, ts-1):.4f}", "-i", F.SRC, "-ss", f"{min(1, ts):.4f}", "-frames:v", str(sg["o1"]-sg["o0"]),
+        ts = sg["src0"]/FPS; ss_in = max(0, ts-1)
+        # RO-10 round-2 review: the output seek is 0.4 frame EARLY. Seeking to the frame's exact time, rounded to 4 places, can land
+        # just past it; ffmpeg then drops that frame and repeats the next one (a segment opening on a repeated frame).
+        run([FF, "-v", "error", "-y", "-ss", f"{ss_in:.4f}", "-i", F.SRC, "-ss", f"{max(0, ts-ss_in-0.4/FPS):.4f}", "-frames:v", str(sg["o1"]-sg["o0"]),
              "-vf", F.vf(sg["framing"]).replace("format=rgb24", "format=yuv420p"), "-an", "-c:v", "libx264", "-crf", "12", "-preset", "veryfast",
              "-colorspace", "bt709", "-color_primaries", "bt709", "-color_trc", "bt709", out + ".tmp.mp4"])
         os.rename(out + ".tmp.mp4", out)
@@ -163,7 +169,8 @@ def render_range(a, b, out, placeholder_ai=True):
     # ---- audio: lav on the shot timeline, audio B chain
     wv = wave.open(f"{W}/lav.wav"); L = np.frombuffer(wv.readframes(wv.getnframes()), np.int16).astype(np.float32)/32768
     N = int(round((f1-f0)/FPS*SR)); v = np.zeros(N, np.float32); r = int(0.010*SR)
-    TAILFADE = {}   # round-2 review: a breath / lip-noise onset in the last 50 ms before the cut after "carbs." (src 936.82) and "benefits." (src 1072.88); faded, no timeline change   # review r1: a breath starts in the hook take's last 50 ms (src 233.21); fade it, no timeline change
+    TAILFADE = {"end.0r1": 0.12}   # round-2 review S3: the last word ends 0.1 s before the file; 120 ms fade, no timeline change
+    _old = {}   # round-2 review: a breath / lip-noise onset in the last 50 ms before the cut after "carbs." (src 936.82) and "benefits." (src 1072.88); faded, no timeline change   # review r1: a breath starts in the hook take's last 50 ms (src 233.21); fade it, no timeline change
     for s in S:
         o0, o1 = max(s["out_f0"], f0), min(s["out_f1"], f1)
         if o0 >= o1: continue

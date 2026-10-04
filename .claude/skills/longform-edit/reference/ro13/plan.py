@@ -7,15 +7,16 @@ ends it (or dur). Inside a template item every time is a phrase too (resolved by
 LIB = "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library"
 ST = "/Volumes/Extreme/_edit_work/ro13/stock"
 PH = "/Volumes/Extreme/_edit_work/ro13/assets"
+AF = "/Volumes/Extreme/_edit_work/ro13/aiframes"
 PLAN = [
  # ---------------- hook
- dict(id="A01", kind="ai", ph="A", start="Can you drink alcohol", end="six pack abs", tail=0.25,
+ dict(id="A01", kind="clip", label="AI-GENERATED", src=[f"{AF}/A_motion_v1.mp4@0.0"], start="Can you drink alcohol", end="six pack abs", tail=0.25,
       note="AI opener A: a lean man with visible abs at a pool cookout raises a beer and takes a sip (the question, in one picture)"),
  dict(id="G01", kind="lt", start="Yes, you can", end="alcohol consumption", topic="ALCOHOL AND ABS",
       point="Yes, You Can. With RULES.", parts=[["Yes, You Can.", "Yes, you can"], ["With RULES.", "some rules"]]),
- dict(id="A02", kind="ai", ph="B", start="Your training can be perfect", end="nothing changed", tail=0.42,
-      note="AI clip B: a heavier man in gym clothes checks his stomach in the bathroom mirror, lets his shirt drop, head down; two beer bottles on the counter"),
- dict(id="G02", kind="l3", start="So I'm going to tell you", end="landed on this myself", heading="In This Video",
+ dict(id="A02", kind="clip", label="AI-GENERATED", src=[f"{AF}/B_motion_v1.mp4@3.5"], start="standing in the mirror", end="nothing changed", tail=0.42,
+      note="AI clip B from 3.5 s of the take (belly rule 10-04: the shirt-lift and belly are cut away; it opens clothed, hands lowering to the sink, head down); two beer bottles on the counter"),
+ dict(id="G02", kind="l3", drift=-6, start="So I'm going to tell you", end="landed on this myself", heading="In This Video",
       points=["What alcohol really does", "My 6 rules for drinking", "Where I landed myself"],
       reveal=["exactly what alcohol", "my 6 rules", "honest truth"]),
  # ---------------- what alcohol does (4)
@@ -27,7 +28,7 @@ PLAN = [
       point="Passing Out Fast Is NOT Quality Sleep.",
       parts=[["Passing Out Fast", "knocks you out"], ["Is NOT Quality Sleep.", "is not high quality"]]),
  dict(id="C02", kind="clip", start="Alcohol wrecks your sleep", end="time I drink", src=[f"{ST}/p6944077.mp4@2.0"], note="man sitting up in bed at night, head in his hand, a glass on the nightstand"),
- dict(id="G05", kind="l3", start="Deep sleep collapses", end="no to anything", heading="After You Drink",
+ dict(id="G05", kind="l3", drift=-6, start="Deep sleep collapses", end="no to anything", heading="After You Drink",
       points=["Deep sleep collapses", "Heart rate stays up", "Hungrier the next day", "Less willpower"],
       reveal=["Deep sleep collapses", "heart rate stays", "more hunger", "less willpower"]),
  dict(id="G06", kind="lt", start="Nobody has ever broken", end="drinks themselves", topic="3. YOUR INHIBITIONS",
@@ -90,7 +91,7 @@ PLAN = [
       point="Drink As LITTLE As Possible.", parts=[["Drink As LITTLE As Possible.", "the real answer"]]),
  dict(id="G21", kind="lt", start="Once you are maintaining", end="keeping your abs", topic="MAINTAINING?",
       point="Moderate Drinking Inside The Rules WORKS.", parts=[["Moderate Drinking", "moderate drinking"], ["Inside The Rules WORKS.", "completely compatible"]]),
- dict(id="G22", kind="l3", start="I only drink 1 or 2 days", end="on this list", heading="What I Do",
+ dict(id="G22", kind="l3", drift=-6, start="I only drink 1 or 2 days", end="on this list", heading="What I Do",
       points=["1 or 2 days a week", "No liquor", "All 6 rules"], reveal=["I only drink", "don't drink liquor", "follow all"]),
  dict(id="P01", kind="scene", scene="portraits_codex", start="And that's how I can maintain", end="nights per week",
       photos=["studio-white-23", "studio-blue-173", "studio-blue-240"], label="Real pictures of me. Not AI-generated.",

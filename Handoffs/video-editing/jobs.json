@@ -1112,14 +1112,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/SL-03-meal-prep-app-demo-shorts.md`: propose the shorts segments from the RO-05 \"How I Make My Daily Salad\" master and wait for my picks, then cut them with /shorts, with gates and an independent audit (no covers; Codex does those). Deliver, send me the review copies, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/SL-03-meal-prep-app-demo-shorts.md` using `.claude/skills/shorts/SKILL.md` as the method: propose segments from the RO-05 master, wait for Dan's picks, cut, gate, deliver, update `00-MASTER.md`.",
-   "state": "delivered",
-   "note": "Round 2: six shorts on one review page http://127.0.0.1:8811/ (2 decisions)",
+   "state": "ready",
+   "note": "Dan 10-04: shorts 1,3,5,6 approved; 2 and 4 need revisions. Fire handoff-20261004-sl03-salad-shorts-round3-revise-shorts-2-and-4.md",
    "sub": "",
    "order": 53,
-   "updated": "2026-10-03",
+   "updated": "2026-10-04",
    "by": "Claude",
-   "rev": 4,
-   "syncedRev": 4
+   "rev": 5,
+   "syncedRev": 5
   },
   {
    "id": "AV-01",
@@ -1176,14 +1176,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/AV-03-ad4-vertical-regrade-and-masters.md`: re-fit the Ad 4 vertical's grade with BT.709 decoding using the Ad 3 render-10 tools in a copy of `ad4-vert/`, re-render full + 59s, record my 09-11 acceptance of −0.9 dBTP as an auditable exception (never a bound change), refresh the stale caption tools, gate at the current version, audit, deliver, send me review copies, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/AV-03-ad4-vertical-regrade-and-masters.md` using `.claude/skills/shortad-from-longform/SKILL.md` section [A12] as the method. Deliver, send Dan review copies, update `00-MASTER.md`.",
-   "state": "delivered",
-   "note": "10-04: 9:16 + 9:16 59s delivered, review page http://127.0.0.1:8824/ ; waiting on Dan",
+   "state": "uploaded",
+   "note": "All four approved Ad 4 formats uploaded Unlisted and added to trial group 204553317030 on 2026-10-04",
    "sub": "",
    "order": 56,
    "updated": "2026-10-04",
-   "by": "Claude",
-   "rev": 3,
-   "syncedRev": 3
+   "by": "Codex",
+   "rev": 5,
+   "syncedRev": 4
   },
   {
    "id": "AV-04",
@@ -1323,14 +1323,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/AS-02-ad4-square.md`: first confirm its blocker is cleared, then build the 1:1 square and ≤0:59 square cutdown of Ad 4 as a re-layout of the approved vertical build with /shortad-from-longform [S1], same timeline, grade, labels and audio, steady wider framing, labels off my face and abs. Every gate, independent audit, deliver, send me the review copies, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table) and `Handoffs/handoff-20260914-ad3-square-codex.md` (the Ad 3 square you built, which Dan shipped: reuse its method), then execute `Handoffs/video-editing/AS-02-ad4-square.md`. Confirm the blocker is cleared first. Deliver, send Dan the review copies, update `00-MASTER.md`.",
-   "state": "delivered",
-   "note": "10-04: 1:1 + 1:1 59s delivered with AV-03, review page http://127.0.0.1:8824/ ; waiting on Dan",
+   "state": "uploaded",
+   "note": "Both approved square formats uploaded Unlisted and added to trial group 204553317030 on 2026-10-04",
    "sub": "",
    "order": 63,
    "updated": "2026-10-04",
-   "by": "Claude",
-   "rev": 3,
-   "syncedRev": 3
+   "by": "Codex",
+   "rev": 5,
+   "syncedRev": 4
   },
   {
    "id": "AS-03",
@@ -1803,14 +1803,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/RO-13-can-you-drink-alcohol-and-still-have-abs.md`: cut \"Can You Drink Alcohol And Still Have Abs?\" from 9/23 roll C1707 with /longform-edit. Best take of every line, every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-13-can-you-drink-alcohol-and-still-have-abs.md` with `$long-form-content-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "ready",
-   "note": "Round 1 approved by Dan 10-04. Fire handoff-20261004-ro13-round2-build-full-film.md to build the full film.",
+   "state": "delivered",
+   "note": "Round 2 full film delivered 2026-10-04, review SHIP (candidate 2). Folder 11 - Can You Drink Alcohol And Still Have Abs. Awaiting Dan's review.",
    "sub": "",
    "order": 86,
    "updated": "2026-10-04",
    "by": "Claude",
-   "rev": 4,
-   "syncedRev": 4
+   "rev": 5,
+   "syncedRev": 5
   },
   {
    "id": "RO-14",

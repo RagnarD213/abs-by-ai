@@ -124,7 +124,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [RO-10](RO-10-calories-the-reason-you-re-not-losing-weight.md) | Calories: The Reason You're Not Losing Weight | 9/23 C1704 | UPLOADED | L |
 | [RO-11](RO-11-when-calories-don-t-matter-for-fat-loss.md) | When Calories Don't Matter For Fat Loss | 9/23 C1705 | READY | L |
 | [RO-12](RO-12-top-5-zepbound-tips.md) | Top 5 Zepbound Tips | 9/23 C1706 | UPLOADED | L |
-| [RO-13](RO-13-can-you-drink-alcohol-and-still-have-abs.md) | Can You Drink Alcohol And Still Have Abs? | 9/23 C1707 | READY | L |
+| [RO-13](RO-13-can-you-drink-alcohol-and-still-have-abs.md) | Can You Drink Alcohol And Still Have Abs? | 9/23 C1707 | DELIVERED: awaiting Dan | L |
 | [RO-14](RO-14-why-you-re-not-losing-weight.md) | Why You're Not Losing Weight | 9/23 C1708 | READY | L |
 | [RO-15](RO-15-sleep-better-with-glycine.md) | Sleep Better With Glycine | 9/23 C1709 | READY | L |
 | [RO-16](RO-16-if-i-had-belly-fat-here-s-how-i-d-lose-it-in-90-da.md) | If I Had Belly Fat, Here's How I'd Lose It In 90 Days | 9/23 C1710 | UPLOADED | L |
@@ -154,7 +154,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 |---|---|---|---|
 | [SL-01](SL-01-ab-wheel-workout-shorts.md) | Ab Wheel Workout: 3 Sets (Zeeshan, public 09-20) | READY | S |
 | [SL-02](SL-02-v1-channel-intro-shorts.md) | V1 Welcome To Abs By AI (channel intro) | READY (low priority) | S |
-| [SL-03](SL-03-meal-prep-app-demo-shorts.md) | How I Make My Daily Salad (RO-05, public Oct 18) | DELIVERED: awaiting Dan | S |
+| [SL-03](SL-03-meal-prep-app-demo-shorts.md) | How I Make My Daily Salad (RO-05, public Oct 18) | READY | S |
 | [SL-04](SL-04-arms-shoulders-shorts.md) | Arms & Shoulders Home Workout (Zeeshan, 11:00) | UPLOADED | S |
 | [SL-05](SL-05-stop-deadlifting-shorts.md) | Stop Deadlifting (Zeeshan, 9:16, public Oct 11) | UPLOADED | S |
 | [SL-06](SL-06-top-5-zepbound-tips-shorts.md) | Top 5 Zepbound Tips (RO-12, public Oct 25) | READY | S |
@@ -186,7 +186,7 @@ handoff (`handoff-20260909-audio-match-muhammad.md`, waiting on your spray-tan s
 | 1 This Picture Got Me Abs (Zeeshan) | ✅ | 🟡 | 🟡 | ❌ AS-01 | ❌ AS-01 |
 | 2 Stop Wasting Money On Nutritionists | ✅ | ✅ | ❌ AV-02 | ✅ | ❌ AV-02 |
 | 3 Stop Paying Human Trainers | ✅ | ✅ | ✅ | ✅ (R2.1 uploaded 09-16) | ✅ |
-| 4 Stop Wasting Money On Supplements | ✅ | ❌ AV-03 (re-grade) | ❌ AV-03 | ❌ AS-02 | ❌ AS-02 |
+| 4 Stop Wasting Money On Supplements | ✅ | ✅ AV-03 | ✅ AV-03 | ✅ AS-02 | ✅ AS-02 |
 | 5 Every Diet You've Tried Failed | ✅ | ❌ AV-04 (round 2) | ❌ AV-04 | ❌ AS-03 | ❌ AS-03 |
 | 6 You're Not Too Old To Get Abs | ✅ | ✅ AV-05 | ✅ AV-05 | ✅ AS-04 | ✅ AS-04 |
 | 7 In 2010 I Photoshopped My Face | ✅ (typo fix owed by Muhammad) | ❌ AV-06 | ❌ AV-06 | ❌ AS-05 | ❌ AS-05 |
@@ -204,7 +204,7 @@ handoff (`handoff-20260909-audio-match-muhammad.md`, waiting on your spray-tan s
 |---|---|---|---|
 | [AV-01](AV-01-ad1-muhammad-vertical-59s.md) | Ad 1 (Muhammad): the 9:16 ≤0:59 only | UPLOADED | S |
 | [AV-02](AV-02-ad2-cutdowns-vertical-and-square-59s.md) | Ad 2: 9:16 ≤0:59 + 1:1 ≤0:59 | READY | M |
-| [AV-03](AV-03-ad4-vertical-regrade-and-masters.md) | Ad 4: re-grade the vertical + deliver masters | DELIVERED: awaiting Dan | M |
+| [AV-03](AV-03-ad4-vertical-regrade-and-masters.md) | Ad 4: re-grade the vertical + deliver masters | UPLOADED | M |
 | [AV-04](AV-04-ad5-vertical-round2-and-regrade.md) | Ad 5: your round-2 revisions + re-grade | READY | M |
 | [AV-05](AV-05-ad6-vertical.md) | Ad 6 | UPLOADED | M |
 | [AV-06](AV-06-ad7-vertical.md) | Ad 7 | READY | M |
@@ -221,7 +221,7 @@ handoff (`handoff-20260909-audio-match-muhammad.md`, waiting on your spray-tan s
 | job | ad | status | size |
 |---|---|---|---|
 | [AS-01](AS-01-ad1-zeeshan-square.md) | Ad 1 (Zeeshan) | BLOCKED: you approve his vertical + NEEDS DAN (still wanted?) | M |
-| [AS-02](AS-02-ad4-square.md) | Ad 4 | DELIVERED: awaiting Dan | M |
+| [AS-02](AS-02-ad4-square.md) | Ad 4 | UPLOADED | M |
 | [AS-03](AS-03-ad5-square.md) | Ad 5 | BLOCKED: AV-04 approved | M |
 | [AS-04](AS-04-ad6-square.md) | Ad 6 | UPLOADED | M |
 | [AS-05](AS-05-ad7-square.md) | Ad 7 | BLOCKED: AV-06 approved | M |
