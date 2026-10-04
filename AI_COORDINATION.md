@@ -62,9 +62,8 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 - **Forward, Waleed + Muhammad:** Waleed V1 r4 (doc `1Uxd6a2qSuazts6lSASbVhatNkvCFINhlLAtrcmXlFBw`; ⚠ new side-by-side
   before/after 0:06.6–0:08.1). Muhammad doc `1L2XJKLFrRJHKlcL4Iii70iFvZeiNNeplxYQw2aeAJ_A`: 09-10 (Ad 13 watermark;
   Ad 15 empty slot 0:25.5, an ad?) and 09-12 (Ads 6 + 7 same closing man; Ad 14 watermark 0:20).
-- **Approve / listen:** Zeeshan's Ad 1 verticals (his audio untouched; ⚠ YouTube `rimBWjT9-oo` / `JOZVk4_HDwQ` carry the
-  REJECTED audio — replace only on approval, then check off dashboard row "Cut 9:16 vertical ads…"). Ad 4 vertical +
-  cutdown (ear check, `notes-vertical.md`; −0.9 dBTP accepted 09-11). Spray-tan shorts sound (`review/AB_three-way_audio.mp4`;
+- **Approve / listen (09-11):** Zeeshan's Ad 1 verticals (his audio untouched; ⚠ YouTube `rimBWjT9-oo` / `JOZVk4_HDwQ` carry the
+  REJECTED audio — replace only on approval, then check off dashboard row "Cut 9:16 vertical ads…"). Spray-tan shorts sound (`review/AB_three-way_audio.mp4`;
   yes unlocks the audio-match handoff).
 - **Picks: (baseline 2026-09-15; age unknown)** studio-blue-89 variations (`photos/finalized social media photos/_variations/studio-blue-89/`); 3-min total
   body thumbnails A/B/C; ab-wheel shorts covers A or B ×5; Zepbound shorts swaps (`SHORTS.md`, picks were Claude's);
@@ -86,6 +85,13 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 # ACTIVE
 
+**SixPackAbs video sync - DEPLOYING 2026-10-04, Codex.** WordPress five-minute job saved; backend commit 206364e. Shared-folder safe-push stopped on VIDEO-RULES.md, framing-motion.md, kit9x16/README.md, reference/render.py, AI_COORDINATION.md, WEB_CART.md (other sessions). Next: cherry-pick only this fix into a clean checkout, push, verify cron and latest homepage.
+
+**Ad 13 round 4 - ACTIVE 2026-10-04, Codex.** Horizontal cut zooms and one-frame timing fix, square full and short builds. Locked vertical hashes verified. Next: render in av11-ad13/round4, gates and fresh reviews. No uploads.
+
+**Ad 13 vertical setup - REVIEW 2026-10-04, Codex.** Trial ads added, both in review. Next: policy recheck 10-05. Live remarketing sync awaits Dan because the handoff said paused. Details: `Docs/AD13_VERTICAL_SETUP_RECEIPT_20261004.md`.
+
+
 **Oura review (Video 4) - QUEUED 2026-10-02, Claude.** Blotato Oct 14 9AM CT. Oct 14: Studio thumbnail A/B, captions, article `TBD-oura-ring-review.md`. `Docs/OURA_SETUP_RECEIPT_20261002.md`, delete.
 
 **PMax `24308574894` - LIVE 2026-10-02, Claude.** Checks 10-07, 10-12: `Docs/DGEN_CONVERSION_CAMPAIGN.md`. Campaign images: package.
@@ -100,7 +106,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **RO-12 - QUEUED 2026-10-01, Claude.** Blotato Oct 25. Then: `Docs/RO12_SETUP_RECEIPT_20261001.md`, delete.
 
-**RO-13 - NEEDS DAN 2026-10-01, Claude.** Page http://127.0.0.1:8803/. Next: `handoff-20261001-ro13-round1-dan-review.md`.
+**RO-13 - APPROVED 2026-10-04, Claude.** Fire `handoff-20261004-ro13-round2-build-full-film.md`.
 
 **RO-10 - QUEUED 2026-10-02, Claude.** Blotato Oct 7. Oct 7: captions, article, Zepbound link on Oct 25. `Docs/RO10_SETUP_RECEIPT_20261002.md`, delete.
 
@@ -157,8 +163,7 @@ tab; stop rather than click into spinners. `Handoffs/handoff-20260908-google-ads
 **Shorts parked behind the long-form hold. (baseline 2026-09-15; age unknown)** Zepbound (8) + Supplements (8) need the new spray-tan sound
 (`Handoffs/handoff-20260909-audio-match-muhammad.md`); nothing posts until a parent long-form is public.
 
-⚠⚠ **Vertical build owners (Ads 4/5): the BT.601 colour fault is in your builds (baseline 2026-09-15; age unknown)** — memory `untagged-video-bt601-trap`;
-decode with `accurate_rnd`. Re-copy the skill's `caption_sync_check.py` into `ad3-vert/` / `ad4-vert/` (fixed `/tmp` paths collide).
+⚠ **Ad 5 vertical: BT.601 colour fault in its build (baseline 2026-09-15).** Memory `untagged-video-bt601-trap`; method: shortad SKILL [A15].
 
 # BLOCKED — external
 
@@ -179,13 +184,12 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
-- `handoff-20261003-ro10-vertical-round5-after-dan-review.md`: NEEDS DAN, http://127.0.0.1:8812/.
 - `handoff-20260930-codex-adopt-review-page-format.md` (09-30). Sol medium.
 
 - `handoff-20261001-move-project-out-of-icloud.md` (10-01): move the project out of iCloud's Documents sync (109k duplicates, 199 cloud-only files). Run when nothing else runs here. Opus 5.5 high.
 - `handoff-20261001-rebuild-ios-project.md` (10-01): rebuild the iPhone project iCloud wiped. ⚠ iCloud recovery window closes about 10-17. No Apple upload. GPT-6 Sol high.
 - `handoff-20261001-search-campaigns-to-vsl-page.md` (10-01). Sol high.
-- **Ad13 APPROVED 2026-10-03, Codex.** Fire `handoff-20261003-ad13-*-codex.md`.
+- **Ad13 round 4 APPROVED 2026-10-03, Codex.** Fire `handoff-20261003-ad13-round4-horizontal-and-square-codex.md`.
 - `handoff-20260924-generator-consult-call-outreach.md` (09-24): fire by 09-26.
 - `handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md` [dash]: PHONE ONLY, 3 TikTok covers (updated 09-22). Sonnet 5 or Fable 5.1 / Medium.
 - `handoff-20260915-finalized-ads-6-14-youtube-and-google-ads.md` (09-15). Codex, high.
@@ -205,8 +209,7 @@ Memory `google-ads-ui-automation`.
 - `handoff-20260826-danrosefit-abs-image-gap-fill.md` [dash] — once Blotato has 7 free slots.
 
 ## ACTIVE
-- **Ad 6 V/S/Sh Setup 2026-10-04, Codex.** Matching approved thumbnails, four Unlisted uploads, four ads in trial group 204444440607. Budget and live 16:9 untouched.
-- **Ad 6 V/S/Sh APPROVED 2026-10-04.** Fire `handoff-20261004-ad6-formats-thumbnails-and-setup-codex.md`. ⚠c821820-unpushed
+**Ad 6 remarketing 2026-10-04:** Awaiting Dan: copy to enabled campaign 24305381214?
 - **AS-06 square LOCKED 2026-10-03.** Fire `handoff-20261002-ad10-square-round2-full-builds.md`. ⚠ 942945f unpushed (others' uncommitted files).
 
-**HyperFrames Codex Adopt - NEEDS DAN 2026-10-03, Codex.** Shared method installed and pushed; 59.99s RO-17 proof passed graphics checks and browser playback. Review http://127.0.0.1:8854/. Next: Dan approves or requests changes. Original videos unchanged.
+**HyperFrames Codex Adopt - FIXING 2026-10-04, Codex.** Dan approved except Sardines apparent shrink at 12s. Removing fractional card drift; next: update the isolated proof, verify and deliver.

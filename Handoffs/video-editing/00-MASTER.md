@@ -124,7 +124,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [RO-10](RO-10-calories-the-reason-you-re-not-losing-weight.md) | Calories: The Reason You're Not Losing Weight | 9/23 C1704 | UPLOADED | L |
 | [RO-11](RO-11-when-calories-don-t-matter-for-fat-loss.md) | When Calories Don't Matter For Fat Loss | 9/23 C1705 | IN PROGRESS | L |
 | [RO-12](RO-12-top-5-zepbound-tips.md) | Top 5 Zepbound Tips | 9/23 C1706 | UPLOADED | L |
-| [RO-13](RO-13-can-you-drink-alcohol-and-still-have-abs.md) | Can You Drink Alcohol And Still Have Abs? | 9/23 C1707 | IN PROGRESS | L |
+| [RO-13](RO-13-can-you-drink-alcohol-and-still-have-abs.md) | Can You Drink Alcohol And Still Have Abs? | 9/23 C1707 | READY | L |
 | [RO-14](RO-14-why-you-re-not-losing-weight.md) | Why You're Not Losing Weight | 9/23 C1708 | READY | L |
 | [RO-15](RO-15-sleep-better-with-glycine.md) | Sleep Better With Glycine | 9/23 C1709 | READY | L |
 | [RO-16](RO-16-if-i-had-belly-fat-here-s-how-i-d-lose-it-in-90-da.md) | If I Had Belly Fat, Here's How I'd Lose It In 90 Days | 9/23 C1710 | UPLOADED | L |
@@ -188,13 +188,13 @@ handoff (`handoff-20260909-audio-match-muhammad.md`, waiting on your spray-tan s
 | 3 Stop Paying Human Trainers | ✅ | ✅ | ✅ | ✅ (R2.1 uploaded 09-16) | ✅ |
 | 4 Stop Wasting Money On Supplements | ✅ | ❌ AV-03 (re-grade) | ❌ AV-03 | ❌ AS-02 | ❌ AS-02 |
 | 5 Every Diet You've Tried Failed | ✅ | ❌ AV-04 (round 2) | ❌ AV-04 | ❌ AS-03 | ❌ AS-03 |
-| 6 You're Not Too Old To Get Abs | ✅ | ❌ AV-05 | ❌ AV-05 | ❌ AS-04 | ❌ AS-04 |
+| 6 You're Not Too Old To Get Abs | ✅ | ✅ AV-05 | ✅ AV-05 | ✅ AS-04 | ✅ AS-04 |
 | 7 In 2010 I Photoshopped My Face | ✅ (typo fix owed by Muhammad) | ❌ AV-06 | ❌ AV-06 | ❌ AS-05 | ❌ AS-05 |
 | 8 AI Showed Me Two Futures | ✅ (uploaded 09-16) | ✅ (uploaded 10-01) | ✅ (uploaded 10-01) | ❌ AS-08 | ❌ AS-08 |
 | 10 My Dad Bod At 38 / 40 | ✅ | ❌ AV-07 | ❌ AV-07 | ❌ AS-06 | ❌ AS-06 |
 | 14 I Watched 400 Workout Videos | ✅ (HD arrived 09-16, not yet filed) | ❌ AV-08 | ❌ AV-08 | ❌ AS-07 | ❌ AS-07 |
 | 9 I Tried To Get Abs With ChatGPT | ✅ (round 4 finalized 09-21) | ❌ AV-10 | ❌ AV-10 | ❌ AS-09 | ❌ AS-09 |
-| 13 I Added Up What Getting Abs Cost | ✅ (round 4 finalized 09-21) | ❌ AV-11 | ❌ AV-11 | ❌ AS-10 | ❌ AS-10 |
+| 13 I Added Up What Getting Abs Cost | ✅ (round 4 finalized 09-21) | ✅ AV-11 (uploaded 10-04) | ✅ AV-11 (uploaded 10-04) | ❌ AS-10 | ❌ AS-10 |
 | 15 I Was The Dad Who Swam In A T-Shirt | 🟡 (Claude final fixes in progress 09-21) | ❌ AV-12 | ❌ AV-12 | ❌ AS-11 | ❌ AS-11 |
 | RA-01 The AI Trick That Got Me Abs (Claude, 57 s) | ✅ (uploaded 09-18) | ✅ (uploaded 09-18; is ≤0:59) | ✅ (same upload) | ✅ AS-13 uploaded 10-02 (`EfoVnGyAJjk`, trial ad group) | n/a (57 s master is its own 0:59) |
 
@@ -206,13 +206,13 @@ handoff (`handoff-20260909-audio-match-muhammad.md`, waiting on your spray-tan s
 | [AV-02](AV-02-ad2-cutdowns-vertical-and-square-59s.md) | Ad 2: 9:16 ≤0:59 + 1:1 ≤0:59 | READY | M |
 | [AV-03](AV-03-ad4-vertical-regrade-and-masters.md) | Ad 4: re-grade the vertical + deliver masters | IN PROGRESS | M |
 | [AV-04](AV-04-ad5-vertical-round2-and-regrade.md) | Ad 5: your round-2 revisions + re-grade | READY | M |
-| [AV-05](AV-05-ad6-vertical.md) | Ad 6 | FINALIZED | M |
+| [AV-05](AV-05-ad6-vertical.md) | Ad 6 | UPLOADED | M |
 | [AV-06](AV-06-ad7-vertical.md) | Ad 7 | READY | M |
 | [AV-07](AV-07-ad10-vertical.md) | Ad 10 | UPLOADED | M |
 | [AV-08](AV-08-ad14-vertical.md) | Ad 14 | READY (file the 09-16 HD first) | M |
 | [AV-09](AV-09-ad8-vertical.md) | Ad 8: Two Futures | UPLOADED | M |
 | [AV-10](AV-10-ad9-vertical.md) | Ad 9: ChatGPT (round 4 source, 09-21) | READY | M |
-| [AV-11](AV-11-ad13-vertical.md) | Ad 13: Cost Of Getting Abs (round 4 source, 09-21) | FINALIZED | M |
+| [AV-11](AV-11-ad13-vertical.md) | Ad 13: Cost Of Getting Abs (round 4 source, 09-21) | UPLOADED | M |
 | [AV-12](AV-12-ad15-vertical.md) | Ad 15: T-Shirt Dad | READY | M |
 | [AV-13](AV-13-arms-shoulders-vertical.md) | Arms & Shoulders Home Workout (Zeeshan, ORGANIC, not an ad) | READY | L |
 
@@ -223,13 +223,13 @@ handoff (`handoff-20260909-audio-match-muhammad.md`, waiting on your spray-tan s
 | [AS-01](AS-01-ad1-zeeshan-square.md) | Ad 1 (Zeeshan) | BLOCKED: you approve his vertical + NEEDS DAN (still wanted?) | M |
 | [AS-02](AS-02-ad4-square.md) | Ad 4 | IN PROGRESS | M |
 | [AS-03](AS-03-ad5-square.md) | Ad 5 | BLOCKED: AV-04 approved | M |
-| [AS-04](AS-04-ad6-square.md) | Ad 6 | FINALIZED | M |
+| [AS-04](AS-04-ad6-square.md) | Ad 6 | UPLOADED | M |
 | [AS-05](AS-05-ad7-square.md) | Ad 7 | BLOCKED: AV-06 approved | M |
 | [AS-06](AS-06-ad10-square.md) | Ad 10 | IN PROGRESS | M |
 | [AS-07](AS-07-ad14-square.md) | Ad 14 | BLOCKED: AV-08 approved | M |
 | [AS-08](AS-08-ad8-square.md) | Ad 8 | BLOCKED | M |
 | [AS-09](AS-09-ad9-square.md) | Ad 9 | BLOCKED: AV-10 approved | M |
-| [AS-10](AS-10-ad13-square.md) | Ad 13 | READY | M |
+| [AS-10](AS-10-ad13-square.md) | Ad 13 | IN PROGRESS | M |
 | [AS-11](AS-11-ad15-square.md) | Ad 15 | BLOCKED: AV-12 approved | M |
 | [AS-12](AS-12-arms-shoulders-square.md) | Arms & Shoulders Home Workout (Zeeshan, ORGANIC, not an ad) | BLOCKED: AV-13 approved | L |
 | [AS-13](AS-13-ra01-square.md) | RA-01: The AI Trick That Got Me Abs (1:1 only, 57 s) | UPLOADED | S |

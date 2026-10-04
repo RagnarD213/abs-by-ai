@@ -1218,13 +1218,13 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/AV-05-ad6-vertical.md`: build the 9:16 vertical and ≤0:59 cutdown of Muhammad's finalized Ad 6 with /shortad-from-longform, decoding his master as BT.709 from the start, his audio untouched, the real-picture chip off my face and abs, before and after the same person. Every gate, independent audit, deliver, send me the review copies, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/AV-05-ad6-vertical.md` using `.claude/skills/shortad-from-longform/SKILL.md` as the method and `Handoffs/handoff-20260914-ad3-square-codex.md` as the model of a Codex variant build. Deliver, send Dan the review copies, update `00-MASTER.md`.",
-   "state": "finalized",
-   "note": "Approved by Dan 10-04. Setup: handoff-20261004-ad6-formats-thumbnails-and-setup-codex.md (Codex)",
+   "state": "uploaded",
+   "note": "Four approved Ad 6 formats uploaded Unlisted and added to trial campaign 24316364155 on 10-04",
    "sub": "",
    "order": 58,
    "updated": "2026-10-04",
-   "by": "Claude",
-   "rev": 8,
+   "by": "Codex",
+   "rev": 9,
    "syncedRev": 8
   },
   {
@@ -1365,13 +1365,13 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/AS-04-ad6-square.md`: first confirm its blocker is cleared, then build the 1:1 square and ≤0:59 square cutdown of Ad 6 as a re-layout of the approved vertical build with /shortad-from-longform [S1], same timeline, grade, labels and audio, steady wider framing, labels off my face and abs. Every gate, independent audit, deliver, send me the review copies, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table) and `Handoffs/handoff-20260914-ad3-square-codex.md` (the Ad 3 square you built, which Dan shipped: reuse its method), then execute `Handoffs/video-editing/AS-04-ad6-square.md`. Confirm the blocker is cleared first. Deliver, send Dan the review copies, update `00-MASTER.md`.",
-   "state": "finalized",
-   "note": "Approved by Dan 10-04. Setup: handoff-20261004-ad6-formats-thumbnails-and-setup-codex.md (Codex)",
+   "state": "uploaded",
+   "note": "Four approved Ad 6 formats uploaded Unlisted and added to trial campaign 24316364155 on 10-04",
    "sub": "",
    "order": 65,
    "updated": "2026-10-04",
-   "by": "Claude",
-   "rev": 6,
+   "by": "Codex",
+   "rev": 7,
    "syncedRev": 6
   },
   {
@@ -1491,13 +1491,13 @@
    "claude": "Read Handoffs/video-editing/00-RULES.md, then execute Handoffs/video-editing/AV-11-ad13-vertical.md with /shortad-from-longform. Build the full 9:16 and 59-second cutdown, preserve Muhammad's finalized audio and picture decisions, run every gate and audit, and send Dan the review copies.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read Handoffs/video-editing/00-RULES.md, then execute Handoffs/video-editing/AV-11-ad13-vertical.md using .claude/skills/shortad-from-longform/SKILL.md. Deliver both review copies and update the queue.",
-   "state": "finalized",
-   "note": "Dan approved the vertical and its 59 s cut 10-03 (gate PASS both). Setup, for Codex: handoff-20261003-ad13-vertical-setup-codex.md",
+   "state": "uploaded",
+   "note": "Approved vertical and short uploaded Unlisted and added to trial Ad 13 group on 2026-10-04. f792V7H1Vkc and VPyHyxEkHjo. Square and horizontal remain separate.",
    "order": 71,
    "updated": "2026-10-04",
-   "rev": 6,
+   "rev": 7,
    "syncedRev": 6,
-   "by": "Claude"
+   "by": "Codex"
   },
   {
    "id": "AV-12",
@@ -1574,13 +1574,13 @@
    "claude": "Confirm AV-11 is approved, then execute Handoffs/video-editing/AS-10-ad13-square.md as the full and 59-second 1:1 re-layout. Run every gate and audit and send Dan the review copies.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Confirm AV-11 is approved, then execute Handoffs/video-editing/AS-10-ad13-square.md with /shortad-from-longform as a square re-layout. Deliver both review copies and update the queue.",
-   "state": "ready",
+   "state": "in_progress",
    "note": "Square look approved 10-03; Codex builds the square full + 59 s and the horizontal's zoom steps: handoff-20261003-ad13-round4-horizontal-and-square-codex.md",
    "order": 75,
    "updated": "2026-10-04",
-   "rev": 4,
+   "rev": 5,
    "syncedRev": 4,
-   "by": "Claude"
+   "by": "Codex"
   },
   {
    "id": "AS-11",
@@ -1803,14 +1803,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/RO-13-can-you-drink-alcohol-and-still-have-abs.md`: cut \"Can You Drink Alcohol And Still Have Abs?\" from 9/23 roll C1707 with /longform-edit. Best take of every line, every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-13-can-you-drink-alcohol-and-still-have-abs.md` with `$long-form-content-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "in_progress",
-   "note": "Round 1 page with Dan 10-01 (first minute, 2 AI clip frame pairs, 25 graphics): http://127.0.0.1:8803/",
+   "state": "ready",
+   "note": "Round 1 approved by Dan 10-04. Fire handoff-20261004-ro13-round2-build-full-film.md to build the full film.",
    "sub": "",
    "order": 86,
-   "updated": "2026-10-01",
+   "updated": "2026-10-04",
    "by": "Claude",
-   "rev": 3,
-   "syncedRev": 3
+   "rev": 4,
+   "syncedRev": 4
   },
   {
    "id": "RO-14",
