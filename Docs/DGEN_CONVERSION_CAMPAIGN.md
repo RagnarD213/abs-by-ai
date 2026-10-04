@@ -702,3 +702,27 @@ descriptions with lines that sell the click and fit any video or image. One typo
 **2026-10-02 12:59 PM CT: budget changed from $15 to $5/day in the Ads interface** (change history, web client). At $5/day to the 11-01 end date the campaign spends about $150 of the $450 credit; the credit expires 11-30.
 
 **2026-10-02, long headlines and descriptions rewritten on all 12 ads of `24316364155`** (Dan: make them persuasive, in his voice, per his Performance Max edit). Headlines untouched. 36 lines: 5 kept, 13 slots filled with his exact Performance Max lines, 18 new in his shapes. Builder and the lines: `scripts/ads/api/dgen-trial-longcopy-20261002.js`; old copy in `scripts/ads/api/dgen-ads/trial-longcopy-20261002.before.json`. All 12 ads went back to review; recheck with `node scripts/ads/api/client.js policy 24316364155`. Remarketing `24305381214` still carries the old long lines.
+
+## 2026-10-04: approved Ad 13 vertical and short added to the trial campaign
+
+Both exact files Dan approved on 10-03 were uploaded Unlisted with synthetic media set true, the existing title plus `(Vertical)` or `(Vertical 59s)`, and the live 16:9 tags. Readback confirmed processing succeeded, embeddable true and not made for kids. Closing words in both final word transcripts: "Tap the button below to get started." No organic posting.
+
+One 1080x1920 thumbnail reuses approved 13-R3B: photo-10, its original mask, repaired robot plate, Impact type and yellow accent, with the same words "HUMAN TRAINERS HATE THIS AI". Builder: `scripts/covers/trial-campaign-20261001/ad13-vertical/build.py`. No new image generation or paid image calls. Both served thumbnails were saved and visually checked. Final: `social media graphics/youtube/thumbnails/Ad 13 What Getting Abs Cost/trial-20261001/Ad 13 | 9x16 | FINAL.jpg`, copied into `FINAL APPROVED`.
+
+| Format | YouTube | Video asset | Trial ad | Status on 10-04 |
+|---|---|---|---|---|
+| Claude 9:16, 244.878 seconds | `f792V7H1Vkc` | `427647278214` | `826888334290` | ENABLED, REVIEW_IN_PROGRESS / UNKNOWN |
+| Claude 9:16 59s, 54.288 seconds | `VPyHyxEkHjo` | `427558235731` | `826888304284` | ENABLED, REVIEW_IN_PROGRESS / UNKNOWN |
+
+Both were added to existing Ad 13 group `204553316830`, campaign `24316364155`, using `scripts/ads/api/dgen-ad13-vertical.js`. Google validateOnly passed before apply. Headlines, long headlines, descriptions, logo, business name and CTA were cloned unchanged from live 16:9 ad `826635661894`. Exact copy and readback: `scripts/ads/api/dgen-ads/ad13-vertical.json` and `ad13-vertical.result.json`.
+
+Final URLs:
+
+- `https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad13&utm_content=claude-9x16-vsl`
+- `https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad13&utm_content=claude-9x16-59s-vsl`
+
+The live Ad 10 spelling is `claude-9x16`, rather than the handoff's illustrative `claude-vertical`, so that spelling was matched. Campaign budget `15911255930` remained $30/day. Protected before/after comparison confirmed campaign status, budgets, bids, Ad 13 group settings, audience criteria and live 16:9 ad unchanged. That ad remains ENABLED and APPROVED. Old Demand Gen and Performance Max were not modified.
+
+The handoff's remarketing state was stale: `24305381214` and `24316408288` are now ENABLED, not PAUSED. Campaign A (`24305381214`) copies trial ads; campaign B (`24316408288`) copies organic subscriber ads from `24163535721`, not the trial campaign. No remarketing mutation was sent. Dan was asked whether to add these videos to live conversion remarketing. No campaign was enabled or paused.
+
+AV-11 marked UPLOADED and pushed to the Edit Queue Drive status file. AS-10 remains open. Description files sit beside the masters. The four-second legacy chapter was merged into the personal-trainer chapter; the short has no chapters. Policy command ran after apply. Recheck both new trial ads on **2026-10-05** with `node scripts/ads/api/client.js policy 24316364155`. Full receipt: `Docs/AD13_VERTICAL_SETUP_RECEIPT_20261004.md`.

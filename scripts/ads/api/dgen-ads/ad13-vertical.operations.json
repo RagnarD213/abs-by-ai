@@ -1,0 +1,170 @@
+[
+  {
+    "assetOperation": {
+      "create": {
+        "resourceName": "customers/3427170837/assets/-1",
+        "name": "yt f792V7H1Vkc Ad 13 Claude 9:16",
+        "youtubeVideoAsset": {
+          "youtubeVideoId": "f792V7H1Vkc"
+        }
+      }
+    }
+  },
+  {
+    "adGroupAdOperation": {
+      "create": {
+        "adGroup": "customers/3427170837/adGroups/204553316830",
+        "status": "ENABLED",
+        "ad": {
+          "name": "Ad 13 The Cost Of Getting Abs | Claude 9:16 | vsl",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad13&utm_content=claude-9x16-vsl"
+          ],
+          "demandGenVideoResponsiveAd": {
+            "videos": [
+              {
+                "asset": "customers/3427170837/assets/-1"
+              }
+            ],
+            "headlines": [
+              {
+                "text": "Fire Your Personal Trainer"
+              },
+              {
+                "text": "Human Trainers Hate This AI"
+              },
+              {
+                "text": "Human Trainers Despise Him"
+              },
+              {
+                "text": "How I Got Abs At 40"
+              },
+              {
+                "text": "How AI Got Me Abs"
+              }
+            ],
+            "longHeadlines": [
+              {
+                "text": "I added up what trainers, nutritionists and supplements cost me. See what AI does instead"
+              },
+              {
+                "text": "Trainers despise this AI fitness app. See why men are replacing their trainer with AI."
+              },
+              {
+                "text": "AI fitness app shows you how to lose stomach fat and get abs. Try it free for 7 days!"
+              }
+            ],
+            "descriptions": [
+              {
+                "text": "Stop paying trainers and nutritionists to lose your belly fat. See how I use AI instead."
+              },
+              {
+                "text": "I struggled with belly fat until I discovered how to use an AI trainer to get abs."
+              },
+              {
+                "text": "See what getting abs was supposed to cost me, and how AI does the same job for less."
+              }
+            ],
+            "logoImages": [
+              {
+                "asset": "customers/3427170837/assets/400941168572"
+              }
+            ],
+            "businessName": {
+              "text": "Abs by AI"
+            },
+            "callToActions": [
+              {
+                "asset": "customers/3427170837/assets/401407635767"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "assetOperation": {
+      "create": {
+        "resourceName": "customers/3427170837/assets/-2",
+        "name": "yt VPyHyxEkHjo Ad 13 Claude 9:16 59s",
+        "youtubeVideoAsset": {
+          "youtubeVideoId": "VPyHyxEkHjo"
+        }
+      }
+    }
+  },
+  {
+    "adGroupAdOperation": {
+      "create": {
+        "adGroup": "customers/3427170837/adGroups/204553316830",
+        "status": "ENABLED",
+        "ad": {
+          "name": "Ad 13 The Cost Of Getting Abs | Claude 9:16 59s | vsl",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad13&utm_content=claude-9x16-59s-vsl"
+          ],
+          "demandGenVideoResponsiveAd": {
+            "videos": [
+              {
+                "asset": "customers/3427170837/assets/-2"
+              }
+            ],
+            "headlines": [
+              {
+                "text": "Fire Your Personal Trainer"
+              },
+              {
+                "text": "Human Trainers Hate This AI"
+              },
+              {
+                "text": "Human Trainers Despise Him"
+              },
+              {
+                "text": "How I Got Abs At 40"
+              },
+              {
+                "text": "How AI Got Me Abs"
+              }
+            ],
+            "longHeadlines": [
+              {
+                "text": "I added up what trainers, nutritionists and supplements cost me. See what AI does instead"
+              },
+              {
+                "text": "Trainers despise this AI fitness app. See why men are replacing their trainer with AI."
+              },
+              {
+                "text": "AI fitness app shows you how to lose stomach fat and get abs. Try it free for 7 days!"
+              }
+            ],
+            "descriptions": [
+              {
+                "text": "Stop paying trainers and nutritionists to lose your belly fat. See how I use AI instead."
+              },
+              {
+                "text": "I struggled with belly fat until I discovered how to use an AI trainer to get abs."
+              },
+              {
+                "text": "See what getting abs was supposed to cost me, and how AI does the same job for less."
+              }
+            ],
+            "logoImages": [
+              {
+                "asset": "customers/3427170837/assets/400941168572"
+              }
+            ],
+            "businessName": {
+              "text": "Abs by AI"
+            },
+            "callToActions": [
+              {
+                "asset": "customers/3427170837/assets/401407635767"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+]

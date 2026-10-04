@@ -1491,13 +1491,13 @@
    "claude": "Read Handoffs/video-editing/00-RULES.md, then execute Handoffs/video-editing/AV-11-ad13-vertical.md with /shortad-from-longform. Build the full 9:16 and 59-second cutdown, preserve Muhammad's finalized audio and picture decisions, run every gate and audit, and send Dan the review copies.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read Handoffs/video-editing/00-RULES.md, then execute Handoffs/video-editing/AV-11-ad13-vertical.md using .claude/skills/shortad-from-longform/SKILL.md. Deliver both review copies and update the queue.",
-   "state": "in_progress",
-   "note": "Round 1 answered 10-02; round 2 handoff ready (new AI opener, swaps, new SBL horizontal)",
+   "state": "uploaded",
+   "note": "Approved vertical and short uploaded Unlisted and added to trial Ad 13 group on 2026-10-04. f792V7H1Vkc and VPyHyxEkHjo. Square and horizontal remain separate.",
    "order": 71,
-   "updated": "2026-10-02",
-   "rev": 4,
-   "syncedRev": 4,
-   "by": "Claude"
+   "updated": "2026-10-04",
+   "rev": 7,
+   "syncedRev": 6,
+   "by": "Codex"
   },
   {
    "id": "AV-12",

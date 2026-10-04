@@ -1,0 +1,645 @@
+{
+  "at": "2026-10-04T14:59:22.313Z",
+  "readBack": [
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/204553316830",
+        "id": "204553316830"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/204553316830~826635661894",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826635661894",
+          "id": "826635661894",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad13&utm_content=muhammad-16x9-r4-vsl"
+          ],
+          "name": "Ad 13 The Cost Of Getting Abs | Muhammad 16:9 r4 | vsl",
+          "demandGenVideoResponsiveAd": {
+            "headlines": [
+              {
+                "text": "Fire Your Personal Trainer"
+              },
+              {
+                "text": "Human Trainers Hate This AI"
+              },
+              {
+                "text": "Human Trainers Despise Him"
+              },
+              {
+                "text": "How I Got Abs At 40"
+              },
+              {
+                "text": "How AI Got Me Abs"
+              }
+            ],
+            "longHeadlines": [
+              {
+                "text": "I added up what trainers, nutritionists and supplements cost me. See what AI does instead"
+              },
+              {
+                "text": "Trainers despise this AI fitness app. See why men are replacing their trainer with AI."
+              },
+              {
+                "text": "AI fitness app shows you how to lose stomach fat and get abs. Try it free for 7 days!"
+              }
+            ],
+            "descriptions": [
+              {
+                "text": "Stop paying trainers and nutritionists to lose your belly fat. See how I use AI instead."
+              },
+              {
+                "text": "I struggled with belly fat until I discovered how to use an AI trainer to get abs."
+              },
+              {
+                "text": "See what getting abs was supposed to cost me, and how AI does the same job for less."
+              }
+            ],
+            "videos": [
+              {
+                "asset": "customers/3427170837/assets/423865478571"
+              }
+            ],
+            "logoImages": [
+              {
+                "asset": "customers/3427170837/assets/400941168572"
+              }
+            ],
+            "businessName": {
+              "text": "Abs by AI"
+            },
+            "callToActions": [
+              {
+                "asset": "customers/3427170837/assets/401407635767"
+              }
+            ]
+          }
+        },
+        "policySummary": {
+          "reviewStatus": "REVIEWED",
+          "approvalStatus": "APPROVED"
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/204553316830",
+        "id": "204553316830"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/204553316830~826888304284",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826888304284",
+          "id": "826888304284",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad13&utm_content=claude-9x16-59s-vsl"
+          ],
+          "name": "Ad 13 The Cost Of Getting Abs | Claude 9:16 59s | vsl",
+          "demandGenVideoResponsiveAd": {
+            "headlines": [
+              {
+                "text": "Fire Your Personal Trainer"
+              },
+              {
+                "text": "Human Trainers Hate This AI"
+              },
+              {
+                "text": "Human Trainers Despise Him"
+              },
+              {
+                "text": "How I Got Abs At 40"
+              },
+              {
+                "text": "How AI Got Me Abs"
+              }
+            ],
+            "longHeadlines": [
+              {
+                "text": "I added up what trainers, nutritionists and supplements cost me. See what AI does instead"
+              },
+              {
+                "text": "Trainers despise this AI fitness app. See why men are replacing their trainer with AI."
+              },
+              {
+                "text": "AI fitness app shows you how to lose stomach fat and get abs. Try it free for 7 days!"
+              }
+            ],
+            "descriptions": [
+              {
+                "text": "Stop paying trainers and nutritionists to lose your belly fat. See how I use AI instead."
+              },
+              {
+                "text": "I struggled with belly fat until I discovered how to use an AI trainer to get abs."
+              },
+              {
+                "text": "See what getting abs was supposed to cost me, and how AI does the same job for less."
+              }
+            ],
+            "videos": [
+              {
+                "asset": "customers/3427170837/assets/427558235731"
+              }
+            ],
+            "logoImages": [
+              {
+                "asset": "customers/3427170837/assets/400941168572"
+              }
+            ],
+            "businessName": {
+              "text": "Abs by AI"
+            },
+            "callToActions": [
+              {
+                "asset": "customers/3427170837/assets/401407635767"
+              }
+            ]
+          }
+        },
+        "policySummary": {
+          "reviewStatus": "REVIEW_IN_PROGRESS",
+          "approvalStatus": "UNKNOWN"
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/204553316830",
+        "id": "204553316830"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/204553316830~826888334290",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826888334290",
+          "id": "826888334290",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad13&utm_content=claude-9x16-vsl"
+          ],
+          "name": "Ad 13 The Cost Of Getting Abs | Claude 9:16 | vsl",
+          "demandGenVideoResponsiveAd": {
+            "headlines": [
+              {
+                "text": "Fire Your Personal Trainer"
+              },
+              {
+                "text": "Human Trainers Hate This AI"
+              },
+              {
+                "text": "Human Trainers Despise Him"
+              },
+              {
+                "text": "How I Got Abs At 40"
+              },
+              {
+                "text": "How AI Got Me Abs"
+              }
+            ],
+            "longHeadlines": [
+              {
+                "text": "I added up what trainers, nutritionists and supplements cost me. See what AI does instead"
+              },
+              {
+                "text": "Trainers despise this AI fitness app. See why men are replacing their trainer with AI."
+              },
+              {
+                "text": "AI fitness app shows you how to lose stomach fat and get abs. Try it free for 7 days!"
+              }
+            ],
+            "descriptions": [
+              {
+                "text": "Stop paying trainers and nutritionists to lose your belly fat. See how I use AI instead."
+              },
+              {
+                "text": "I struggled with belly fat until I discovered how to use an AI trainer to get abs."
+              },
+              {
+                "text": "See what getting abs was supposed to cost me, and how AI does the same job for less."
+              }
+            ],
+            "videos": [
+              {
+                "asset": "customers/3427170837/assets/427647278214"
+              }
+            ],
+            "logoImages": [
+              {
+                "asset": "customers/3427170837/assets/400941168572"
+              }
+            ],
+            "businessName": {
+              "text": "Abs by AI"
+            },
+            "callToActions": [
+              {
+                "asset": "customers/3427170837/assets/401407635767"
+              }
+            ]
+          }
+        },
+        "policySummary": {
+          "reviewStatus": "REVIEW_IN_PROGRESS",
+          "approvalStatus": "UNKNOWN"
+        }
+      }
+    }
+  ],
+  "protectedState": {
+    "campaigns": [
+      {
+        "campaign": {
+          "resourceName": "customers/3427170837/campaigns/24243839443",
+          "status": "PAUSED",
+          "biddingStrategyType": "TARGET_CPA",
+          "targetCpa": {
+            "targetCpaMicros": "30000000"
+          },
+          "id": "24243839443"
+        },
+        "campaignBudget": {
+          "resourceName": "customers/3427170837/campaignBudgets/15862488218",
+          "id": "15862488218",
+          "amountMicros": "50000000"
+        }
+      },
+      {
+        "campaign": {
+          "resourceName": "customers/3427170837/campaigns/24305381214",
+          "status": "ENABLED",
+          "biddingStrategyType": "TARGET_CPA",
+          "targetCpa": {
+            "targetCpaMicros": "40000000"
+          },
+          "id": "24305381214"
+        },
+        "campaignBudget": {
+          "resourceName": "customers/3427170837/campaignBudgets/15911284202",
+          "id": "15911284202",
+          "amountMicros": "10000000"
+        }
+      },
+      {
+        "campaign": {
+          "resourceName": "customers/3427170837/campaigns/24308574894",
+          "status": "ENABLED",
+          "biddingStrategyType": "MAXIMIZE_CONVERSIONS",
+          "id": "24308574894"
+        },
+        "campaignBudget": {
+          "resourceName": "customers/3427170837/campaignBudgets/15923601274",
+          "id": "15923601274",
+          "amountMicros": "30000000"
+        }
+      },
+      {
+        "campaign": {
+          "resourceName": "customers/3427170837/campaigns/24316364155",
+          "status": "ENABLED",
+          "biddingStrategyType": "TARGET_CPA",
+          "targetCpa": {
+            "targetCpaMicros": "40000000"
+          },
+          "id": "24316364155"
+        },
+        "campaignBudget": {
+          "resourceName": "customers/3427170837/campaignBudgets/15911255930",
+          "id": "15911255930",
+          "amountMicros": "30000000"
+        }
+      },
+      {
+        "campaign": {
+          "resourceName": "customers/3427170837/campaigns/24316408288",
+          "status": "ENABLED",
+          "biddingStrategyType": "TARGET_CPA",
+          "targetCpa": {
+            "targetCpaMicros": "3000000"
+          },
+          "id": "24316408288"
+        },
+        "campaignBudget": {
+          "resourceName": "customers/3427170837/campaignBudgets/15911284550",
+          "id": "15911284550",
+          "amountMicros": "5000000"
+        }
+      }
+    ],
+    "group": [
+      {
+        "adGroup": {
+          "resourceName": "customers/3427170837/adGroups/204553316830",
+          "status": "ENABLED",
+          "id": "204553316830",
+          "name": "Ad 13 The Cost Of Getting Abs",
+          "targetCpaMicros": "40000000"
+        }
+      }
+    ],
+    "criteria": [
+      {
+        "adGroupCriterion": {
+          "resourceName": "customers/3427170837/adGroupCriteria/204553316830~10",
+          "status": "ENABLED",
+          "type": "GENDER",
+          "negative": false
+        }
+      },
+      {
+        "adGroupCriterion": {
+          "resourceName": "customers/3427170837/adGroupCriteria/204553316830~11",
+          "status": "ENABLED",
+          "type": "GENDER",
+          "negative": true
+        }
+      },
+      {
+        "adGroupCriterion": {
+          "resourceName": "customers/3427170837/adGroupCriteria/204553316830~20",
+          "status": "ENABLED",
+          "type": "GENDER",
+          "negative": false
+        }
+      },
+      {
+        "adGroupCriterion": {
+          "resourceName": "customers/3427170837/adGroupCriteria/204553316830~300",
+          "status": "ENABLED",
+          "type": "PARENTAL_STATUS",
+          "negative": false
+        }
+      },
+      {
+        "adGroupCriterion": {
+          "resourceName": "customers/3427170837/adGroupCriteria/204553316830~301",
+          "status": "ENABLED",
+          "type": "PARENTAL_STATUS",
+          "negative": false
+        }
+      },
+      {
+        "adGroupCriterion": {
+          "resourceName": "customers/3427170837/adGroupCriteria/204553316830~302",
+          "status": "ENABLED",
+          "type": "PARENTAL_STATUS",
+          "negative": false
+        }
+      },
+      {
+        "adGroupCriterion": {
+          "resourceName": "customers/3427170837/adGroupCriteria/204553316830~1000",
+          "status": "ENABLED",
+          "type": "LANGUAGE",
+          "negative": false,
+          "language": {
+            "languageConstant": "languageConstants/1000"
+          }
+        }
+      },
+      {
+        "adGroupCriterion": {
+          "resourceName": "customers/3427170837/adGroupCriteria/204553316830~2124",
+          "status": "ENABLED",
+          "type": "LOCATION",
+          "negative": false,
+          "location": {
+            "geoTargetConstant": "geoTargetConstants/2124"
+          }
+        }
+      },
+      {
+        "adGroupCriterion": {
+          "resourceName": "customers/3427170837/adGroupCriteria/204553316830~2840",
+          "status": "ENABLED",
+          "type": "LOCATION",
+          "negative": false,
+          "location": {
+            "geoTargetConstant": "geoTargetConstants/2840"
+          }
+        }
+      },
+      {
+        "adGroupCriterion": {
+          "resourceName": "customers/3427170837/adGroupCriteria/204553316830~503001",
+          "status": "ENABLED",
+          "type": "AGE_RANGE",
+          "negative": true
+        }
+      },
+      {
+        "adGroupCriterion": {
+          "resourceName": "customers/3427170837/adGroupCriteria/204553316830~503002",
+          "status": "ENABLED",
+          "type": "AGE_RANGE",
+          "negative": false
+        }
+      },
+      {
+        "adGroupCriterion": {
+          "resourceName": "customers/3427170837/adGroupCriteria/204553316830~503003",
+          "status": "ENABLED",
+          "type": "AGE_RANGE",
+          "negative": false
+        }
+      },
+      {
+        "adGroupCriterion": {
+          "resourceName": "customers/3427170837/adGroupCriteria/204553316830~503004",
+          "status": "ENABLED",
+          "type": "AGE_RANGE",
+          "negative": false
+        }
+      },
+      {
+        "adGroupCriterion": {
+          "resourceName": "customers/3427170837/adGroupCriteria/204553316830~503005",
+          "status": "ENABLED",
+          "type": "AGE_RANGE",
+          "negative": true
+        }
+      },
+      {
+        "adGroupCriterion": {
+          "resourceName": "customers/3427170837/adGroupCriteria/204553316830~503006",
+          "status": "ENABLED",
+          "type": "AGE_RANGE",
+          "negative": true
+        }
+      },
+      {
+        "adGroupCriterion": {
+          "resourceName": "customers/3427170837/adGroupCriteria/204553316830~503999",
+          "status": "ENABLED",
+          "type": "AGE_RANGE",
+          "negative": false
+        }
+      },
+      {
+        "adGroupCriterion": {
+          "resourceName": "customers/3427170837/adGroupCriteria/204553316830~510000",
+          "status": "ENABLED",
+          "type": "INCOME_RANGE",
+          "negative": false
+        }
+      },
+      {
+        "adGroupCriterion": {
+          "resourceName": "customers/3427170837/adGroupCriteria/204553316830~510001",
+          "status": "ENABLED",
+          "type": "INCOME_RANGE",
+          "negative": false
+        }
+      },
+      {
+        "adGroupCriterion": {
+          "resourceName": "customers/3427170837/adGroupCriteria/204553316830~510002",
+          "status": "ENABLED",
+          "type": "INCOME_RANGE",
+          "negative": false
+        }
+      },
+      {
+        "adGroupCriterion": {
+          "resourceName": "customers/3427170837/adGroupCriteria/204553316830~510003",
+          "status": "ENABLED",
+          "type": "INCOME_RANGE",
+          "negative": false
+        }
+      },
+      {
+        "adGroupCriterion": {
+          "resourceName": "customers/3427170837/adGroupCriteria/204553316830~510004",
+          "status": "ENABLED",
+          "type": "INCOME_RANGE",
+          "negative": false
+        }
+      },
+      {
+        "adGroupCriterion": {
+          "resourceName": "customers/3427170837/adGroupCriteria/204553316830~510005",
+          "status": "ENABLED",
+          "type": "INCOME_RANGE",
+          "negative": false
+        }
+      },
+      {
+        "adGroupCriterion": {
+          "resourceName": "customers/3427170837/adGroupCriteria/204553316830~510006",
+          "status": "ENABLED",
+          "type": "INCOME_RANGE",
+          "negative": false
+        }
+      },
+      {
+        "adGroupCriterion": {
+          "resourceName": "customers/3427170837/adGroupCriteria/204553316830~2500711511481",
+          "status": "ENABLED",
+          "type": "AUDIENCE",
+          "negative": false,
+          "audience": {
+            "audience": "customers/3427170837/audiences/359747866"
+          }
+        }
+      },
+      {
+        "adGroupCriterion": {
+          "resourceName": "customers/3427170837/adGroupCriteria/204553316830~2501149785516",
+          "status": "ENABLED",
+          "type": "CUSTOM_AUDIENCE",
+          "negative": false
+        }
+      },
+      {
+        "adGroupCriterion": {
+          "resourceName": "customers/3427170837/adGroupCriteria/204553316830~2501953468231",
+          "status": "ENABLED",
+          "type": "CUSTOM_AUDIENCE",
+          "negative": false
+        }
+      },
+      {
+        "adGroupCriterion": {
+          "resourceName": "customers/3427170837/adGroupCriteria/204553316830~2501953468271",
+          "status": "ENABLED",
+          "type": "CUSTOM_AUDIENCE",
+          "negative": false
+        }
+      }
+    ],
+    "twin": {
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/204553316830~826635661894",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826635661894",
+          "id": "826635661894",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad13&utm_content=muhammad-16x9-r4-vsl"
+          ],
+          "name": "Ad 13 The Cost Of Getting Abs | Muhammad 16:9 r4 | vsl",
+          "demandGenVideoResponsiveAd": {
+            "headlines": [
+              {
+                "text": "Fire Your Personal Trainer"
+              },
+              {
+                "text": "Human Trainers Hate This AI"
+              },
+              {
+                "text": "Human Trainers Despise Him"
+              },
+              {
+                "text": "How I Got Abs At 40"
+              },
+              {
+                "text": "How AI Got Me Abs"
+              }
+            ],
+            "longHeadlines": [
+              {
+                "text": "I added up what trainers, nutritionists and supplements cost me. See what AI does instead"
+              },
+              {
+                "text": "Trainers despise this AI fitness app. See why men are replacing their trainer with AI."
+              },
+              {
+                "text": "AI fitness app shows you how to lose stomach fat and get abs. Try it free for 7 days!"
+              }
+            ],
+            "descriptions": [
+              {
+                "text": "Stop paying trainers and nutritionists to lose your belly fat. See how I use AI instead."
+              },
+              {
+                "text": "I struggled with belly fat until I discovered how to use an AI trainer to get abs."
+              },
+              {
+                "text": "See what getting abs was supposed to cost me, and how AI does the same job for less."
+              }
+            ],
+            "videos": [
+              {
+                "asset": "customers/3427170837/assets/423865478571"
+              }
+            ],
+            "logoImages": [
+              {
+                "asset": "customers/3427170837/assets/400941168572"
+              }
+            ],
+            "businessName": {
+              "text": "Abs by AI"
+            },
+            "callToActions": [
+              {
+                "asset": "customers/3427170837/assets/401407635767"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "protectedUnchanged": true,
+  "baselineUnchanged": true
+}
