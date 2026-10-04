@@ -14,6 +14,13 @@ description: >
 
 Read `_shared/VIDEO-RULES.md` first.
 
+## This skill is for CONTENT only (Dan, 2026-10-04)
+
+Shorts are cut from a long-form CONTENT video. An ad is never mined for a batch of organic Shorts: an ad gets its
+vertical, square and 1-minute versions through `/shortad-from-longform`. Check the category before any work
+(VIDEO-RULES, "Categorize every video before editing it"). If the video is an ad, stop and tell Dan in one line; only
+his own words naming that video override it.
+
 ## Graphic set for new batches (Dan, 2026-10-01)
 
 SL-05 was the last batch in the J2 / olive set. Every new batch uses Soft Blue Light graphics from the HyperFrames templates; the first vertical and the first square made that way get a full approval round with every asset shown to Dan before the build. Full rule: `_shared/VIDEO-RULES.md`, "New shorts batches". The J2 title band, olive bars and `reference/zeeshan-master/` layouts below are for finishing or revising batches already delivered in that set.
