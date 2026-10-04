@@ -140,6 +140,17 @@ Full rule: read `.claude/skills/_shared/VIDEO-RULES.md`.
 - This replaces the 2026-09-30 Codex-thumbnail / Claude-upload split. Handoffs already written under the old split
   (SL-05) finish as written. The five-choice mix and `/video-setup` rules are unchanged.
 
+## Categorize every video before editing it (Dan, 2026-10-04)
+
+- **Every video is CONTENT or an AD. Decide which before any edit work and state it on the first line of the task and of every handoff** (the sidebar type already carries it: `LFC`, `SFC`, `AD`).
+- **Long-form content (`LFC`) gets Shorts cut from it (`/shorts`) and nothing else.** No full vertical, no square, no 1-minute version of the whole video.
+- **An ad (`AD`) gets its vertical, square and 1-minute versions (`/shortad-from-longform`) and nothing else.** No batch of organic Shorts cut out of an ad.
+- A dedicated Short (`SFC`) is already the short: nothing is derived from it.
+- **A task, handoff, queue job or test run that asks for the wrong kind: stop before spending anything and tell Dan in one line.** Only his own words naming that video and that format override this. A pipeline proof run uses a video of the right category.
+- Why: on 2026-10-03 a session spent about seven hours and 1.6 million judge tokens on a vertical and a 1-minute cut of the Calories long-form that nobody needed.
+
+Full rule: read `.claude/skills/_shared/VIDEO-RULES.md`.
+
 ## Video task names in the sidebar (Dan, 2026-10-01)
 
 - Every video task renames itself at the start, and every handoff starter prompt states the name. The name **begins with
