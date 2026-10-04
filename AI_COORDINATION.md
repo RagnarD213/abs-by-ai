@@ -182,7 +182,6 @@ Memory `google-ads-ui-automation`.
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
 - `handoff-20261002-cart-build.md`, `…-start-page-365-guarantee.md` (10-02). Opus high.
-- `handoff-20261003-ro10-vertical-round5-after-dan-review.md`: NEEDS DAN, http://127.0.0.1:8812/.
 - `handoff-20260930-codex-adopt-review-page-format.md` (09-30): Codex adopts the RO-16 review page. GPT-6 Sol medium.
 - `handoff-20261003-cart-apple-pay-fix.md`: DEPLOYED, Dan's-iPhone-test.
 
