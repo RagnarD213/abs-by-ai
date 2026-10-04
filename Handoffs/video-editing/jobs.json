@@ -899,13 +899,13 @@
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-02-the-vacuum-explainer.md` with `$long-form-content-edit` and the frozen organic recipe. Deliver master + SRT + chapters, send Dan the review copy, update `00-MASTER.md`.",
    "state": "draft_review",
-   "note": "Round 1 (cut + look) with Dan: http://127.0.0.1:8822/",
+   "note": "Round 1 answered 10-04 (colour A, half the headroom, AI opener graphic). Round 2 handoff ready to fire.",
    "sub": "",
    "order": 43,
-   "updated": "2026-10-03",
+   "updated": "2026-10-04",
    "by": "Claude",
-   "rev": 3,
-   "syncedRev": 3
+   "rev": 4,
+   "syncedRev": 4
   },
   {
    "id": "RO-03",
@@ -1176,14 +1176,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/AV-03-ad4-vertical-regrade-and-masters.md`: re-fit the Ad 4 vertical's grade with BT.709 decoding using the Ad 3 render-10 tools in a copy of `ad4-vert/`, re-render full + 59s, record my 09-11 acceptance of −0.9 dBTP as an auditable exception (never a bound change), refresh the stale caption tools, gate at the current version, audit, deliver, send me review copies, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/AV-03-ad4-vertical-regrade-and-masters.md` using `.claude/skills/shortad-from-longform/SKILL.md` section [A12] as the method. Deliver, send Dan review copies, update `00-MASTER.md`.",
-   "state": "in_progress",
-   "note": "10-03: re-grade + masters, built with AS-02 in one task (handoff-20261001-ad4-other-formats)",
+   "state": "delivered",
+   "note": "10-04: 9:16 + 9:16 59s delivered, review page http://127.0.0.1:8824/ ; waiting on Dan",
    "sub": "",
    "order": 56,
-   "updated": "2026-10-03",
+   "updated": "2026-10-04",
    "by": "Claude",
-   "rev": 2,
-   "syncedRev": 2
+   "rev": 3,
+   "syncedRev": 3
   },
   {
    "id": "AV-04",
@@ -1323,14 +1323,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/AS-02-ad4-square.md`: first confirm its blocker is cleared, then build the 1:1 square and ≤0:59 square cutdown of Ad 4 as a re-layout of the approved vertical build with /shortad-from-longform [S1], same timeline, grade, labels and audio, steady wider framing, labels off my face and abs. Every gate, independent audit, deliver, send me the review copies, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table) and `Handoffs/handoff-20260914-ad3-square-codex.md` (the Ad 3 square you built, which Dan shipped: reuse its method), then execute `Handoffs/video-editing/AS-02-ad4-square.md`. Confirm the blocker is cleared first. Deliver, send Dan the review copies, update `00-MASTER.md`.",
-   "state": "in_progress",
-   "note": "10-03: built in the same task as AV-03 per handoff-20261001-ad4-other-formats; Dan reviews all four once",
+   "state": "delivered",
+   "note": "10-04: 1:1 + 1:1 59s delivered with AV-03, review page http://127.0.0.1:8824/ ; waiting on Dan",
    "sub": "",
    "order": 63,
-   "updated": "2026-10-03",
+   "updated": "2026-10-04",
    "by": "Claude",
-   "rev": 2,
-   "syncedRev": 2
+   "rev": 3,
+   "syncedRev": 3
   },
   {
    "id": "AS-03",
@@ -1761,14 +1761,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/RO-11-when-calories-don-t-matter-for-fat-loss.md`: cut \"When Calories Don't Matter For Fat Loss\" from 9/23 roll C1705 with /longform-edit. Best take of every line, every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-11-when-calories-don-t-matter-for-fat-loss.md` with `$long-form-content-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "in_progress",
-   "note": "Round 1 page with Dan 10-01 (first minute, AI opener frames, 21 graphics): http://127.0.0.1:8802/",
+   "state": "ready",
+   "note": "Round 1 + opener frames approved 10-04; fire handoff-20261004-ro11-round2-build-full-film.md",
    "sub": "",
    "order": 84,
-   "updated": "2026-10-01",
+   "updated": "2026-10-04",
    "by": "Claude",
-   "rev": 3,
-   "syncedRev": 3
+   "rev": 4,
+   "syncedRev": 4
   },
   {
    "id": "RO-12",

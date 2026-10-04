@@ -85,11 +85,9 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 # ACTIVE
 
-**SixPackAbs video sync - DEPLOYING 2026-10-04, Codex.** WordPress five-minute job saved; backend commit 206364e. Shared-folder safe-push stopped on VIDEO-RULES.md, framing-motion.md, kit9x16/README.md, reference/render.py, AI_COORDINATION.md, WEB_CART.md (other sessions). Next: cherry-pick only this fix into a clean checkout, push, verify cron and latest homepage.
+**Ad 13 round 4 - ACTIVE 2026-10-04, Codex.** Horizontal rendered, audio PASS. Square and reviews queued for the two-pipeline cap. Build: av11-ad13/round4. No uploads.
 
-**Ad 13 round 4 - ACTIVE 2026-10-04, Codex.** Horizontal cut zooms and one-frame timing fix, square full and short builds. Locked vertical hashes verified. Next: render in av11-ad13/round4, gates and fresh reviews. No uploads.
-
-**Ad 13 vertical setup - REVIEW 2026-10-04, Codex.** Trial ads added, both in review. Next: policy recheck 10-05. Live remarketing sync awaits Dan because the handoff said paused. Details: `Docs/AD13_VERTICAL_SETUP_RECEIPT_20261004.md`.
+**Ad13 setup REVIEW 2026-10-04.** Policy 10-05: `Docs/AD13_VERTICAL_SETUP_RECEIPT_20261004.md`.
 
 
 **Oura review (Video 4) - QUEUED 2026-10-02, Claude.** Blotato Oct 14 9AM CT. Oct 14: Studio thumbnail A/B, captions, article `TBD-oura-ring-review.md`. `Docs/OURA_SETUP_RECEIPT_20261002.md`, delete.
@@ -102,11 +100,11 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **SL-05 shorts - QUEUED 2026-10-01, Claude.** Blotato Oct 17-27. Next: Oct 11, confirm parent posted, else hold these. `Docs/SL05_SETUP_RECEIPT_20261001.md`.
 
-**RO-11 - NEEDS DAN 2026-10-01, Claude.** Round 1 page http://127.0.0.1:8802/. Next: `handoff-20261001-ro11-round1-dan-review.md`.
+**RO-11 - READY 2026-10-04, Claude.** Round 1 and opener frames approved. Next: fire `handoff-20261004-ro11-round2-build-full-film.md`. ⚠ c712fa1, 343af08, 7a9d3c4 unpushed (safe-push stopped: 11 files with other sessions' edits).
 
 **RO-12 - QUEUED 2026-10-01, Claude.** Blotato Oct 25. Then: `Docs/RO12_SETUP_RECEIPT_20261001.md`, delete.
 
-**RO-13 - APPROVED 2026-10-04, Claude.** Fire `handoff-20261004-ro13-round2-build-full-film.md`.
+**RO-13 round 2 - ACTIVE 2026-10-04, Claude.** Building full film (Veo A/B clips, stock C08 kept, no app capture). Next: gates, one reviewer (2 'does not ship' = stop), deliver. `handoff-20261004-ro13-round2-build-full-film.md` ⚠df59674-unpushed
 
 **RO-10 - QUEUED 2026-10-02, Claude.** Blotato Oct 7. Oct 7: captions, article, Zepbound link on Oct 25. `Docs/RO10_SETUP_RECEIPT_20261002.md`, delete.
 
@@ -156,9 +154,9 @@ test starts. `BLOTATO_QUEUE_PROGRESS.md`
 540 day` list, Phase 2 if the Demand Gen draft exists. ⚠ No pointer events or `await` in `javascript_tool` on a busy Ads
 tab; stop rather than click into spinners. `Handoffs/handoff-20260908-google-ads-custom-segments.md`
 
-**Ad 4 V/S/Sh (AV-03, AS-02) - BUILDING 2026-10-03, Claude.** `/Volumes/Extreme/_edit_work/AV-03/`. Next: four files, one review page.
+**Ad 4 V/S/Sh (AV-03, AS-02) - NEEDS DAN 2026-10-04, Claude.** Delivered; page http://127.0.0.1:8824/. Next: his notes, then `/ad-setup`.
 
-**RO-02 NEEDS DAN 2026-10-03, Claude.** http://127.0.0.1:8822/ `handoff-20261003-ro02-round1-dan-review.md` ⚠73c7464-unpushed
+**RO-02 round 2 - ACTIVE 2026-10-04, Claude.** Building graphics stills, opener frames, first minute in `/Volumes/Extreme/_edit_work/ro02/round2/`. Next: review page, stop for Dan. ⚠73c7464-unpushed
 
 **Shorts parked behind the long-form hold. (baseline 2026-09-15; age unknown)** Zepbound (8) + Supplements (8) need the new spray-tan sound
 (`Handoffs/handoff-20260909-audio-match-muhammad.md`); nothing posts until a parent long-form is public.
@@ -212,4 +210,3 @@ Memory `google-ads-ui-automation`.
 **Ad 6 remarketing 2026-10-04:** Awaiting Dan: copy to enabled campaign 24305381214?
 - **AS-06 square LOCKED 2026-10-03.** Fire `handoff-20261002-ad10-square-round2-full-builds.md`. ⚠ 942945f unpushed (others' uncommitted files).
 
-**HyperFrames Codex Adopt - FIXING 2026-10-04, Codex.** Dan approved except Sardines apparent shrink at 12s. Removing fractional card drift; next: update the isolated proof, verify and deliver.

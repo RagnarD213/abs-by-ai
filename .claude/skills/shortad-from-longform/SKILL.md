@@ -2346,6 +2346,59 @@ A vertical we built from raw has no editor master to recover, so the square is t
    assert the packet md5; carry its `.audio_untreated.json` so the audio gate has its do-no-harm baseline.
 7. **Final encode at CRF 15 with a 12M cap** lands in the 8 to 12 Mbps the square rules ask for; CRF 18 read 5.4.
 
+## [A15] Ad 4, all four other formats in one task (AV-03 + AS-02, 2026-10-03/04): what four review rounds found
+
+Scripts: `reference/a15_ad4_av03/` (README maps each to its step). One compositor (`render9.py --aspect 9x16|1x1`) and
+one beat sheet make the vertical, the square and both cutdowns. Three full independent reviews said "does not ship"
+before the fourth passed; every lesson below was a reviewer's finding confirmed in the build's own data.
+
+1. **THE ACOUSTIC OFFSET IS NOT HIS PICTURE'S OFFSET. ADD THE MEASURED CONSTANT.** `pic.json` (his frame n -> the raw
+   frame it shows) sat 2.05 frames ahead of the acoustic profile in 54 of 55 segments: his export's audio trails his
+   picture by two frames. A conform built on the acoustic offset alone runs the talking head two frames late for the
+   whole film, and three audits on 09-11 missed it. Check `median(d_pic - off*FPS)` per segment before the conform and
+   set `d = round(off*FPS + bias)`. Prove the result: base frame n must match raw frame n + d at lag 0 (`zbase.py`).
+2. **CUTS GO ON HIS PICTURE'S FRAMES (A12.1, again), and there are three shapes.** Where `d` steps a few frames after
+   his audio splice, cut there (his pose-matched frame). Where it never steps before the next insert, HOLD the outgoing
+   take to the insert, as he does. Where an insert ends and his picture is already on the next take, the short
+   leftover segment of the old take is not his: drop it. `zedl9.py` does all three and prints every boundary it moved.
+3. **WHERE WHOLE-FRAME MATCHING FAILS, READ HIS FACE.** Under his punch ramp and on a held smile, NCC at any size scored
+   0.1 to 0.5 and pinned to the search bounds. `zlips.py` runs FaceMesh on his frames and the raw and aligns mouth
+   opening, mouth width, tilt and yaw (scale-free) with a Viterbi path; `--abs` adds face position and size when his
+   frame is the raw frame. It validated at once on a known cut (d 969 -> 980 at 811, exact) and found two micro trims
+   in the hook. His closing slow-down came from his own frames: change, ~0, ~0, repeating = one raw frame every two or
+   three (`kmap` in the EDL, written frame for frame by `zbase.py`). Ours had run on into Dan turning away.
+4. **"LAND ON HIM" MEANS HIS FACE.** The person-mask head column sat a median 10 source px left of his face (p95 20):
+   the gate, which measures the face, failed one hold. `zface.py` + the shared `landing.py`. Re-land only where the eye
+   sees a cut: a visible join, a return from an insert, a text window opening or closing (split the track there even
+   inside one hold). Never on a zoom ramp or an invisible join: that pops the picture sideways on continuous footage.
+5. **HIS PUNCH-INS ARE EASED.** `fit.json` showed 1.0 -> 1.2 over about 24 frames and back over 36; a 6-frame ramp reads
+   as a snap. Drive the crop height from his fitted scale through those stretches.
+6. **FILL THE FRAME, PER CLIP, BY LOOKING, AND SAY WHY FOR EVERY BOX.** A card only where filling cuts what the clip is
+   about (a second person, a product at the far side, action that runs top to bottom of a portrait clip). In the 1:1 a
+   full-height photo is the right "whole" for a portrait: it keeps the caption line off his abs. Stills push from the
+   TOP (a centred push takes his hair out by the last frame). A landscape card in the 1:1 ends above the caption line.
+7. **MASK A BLUR-IN SHOT AFTER THE BLUR SETTLES.** Vision read a blurred first frame as 80 % person and the label placer
+   found no clear box. `zlabel9.py` masks frame n0 + 14 and the last frame; one size, line count and position for a
+   run of pictures that flip quickly.
+8. **HIS FLASH: THE WHOLE TAIL, HIS COLOUR, CAPTIONS OVER IT.** His veil fades about ten frames past the cut; cutting
+   it at the old window left a one-frame step. It is white at the peak and blue in the decay (fit per channel on his
+   frames). Composite the captions AFTER the flash, or the lit word washes out and `captions:*` cannot find it. In a
+   cutdown, do not start a flash whose peak is past the range end. Declare each flash run as a covering beat in the
+   plan, or `cut:splice_visibility` reads his strobe as a bare join.
+9. **HEADROOM ADDED ABOVE THE SOURCE: ONLY WHERE NEEDED, AND NEVER ONE REPEATED ROW.** A replicated top row turns wall
+   grain into vertical streaks, and too much of it fails `framing:headroom` as loose. Pad only the window whose hair
+   comes within 34 px of the source top, with the top rows' colour smoothed along x plus a little grain.
+10. **A HELD CAPTION WORD STOPS AT EVERY BEAT EDGE.** Otherwise "and still getting fat." sits six frames on the
+    shirtless before picture, and a line survives one frame onto the next shot without its plate.
+11. **THE AUDIT SHOTS (Dan + a phone) IN 9:16:** Dan head and shoulders above at the hold's own level, his lower third
+    wholly on the field under the panel, the phone below. Two tighter layouts put the bar across his mouth.
+12. **COST: BATCH EVERY FIX BEFORE A RENDER, AND FIX THE LOW ITEMS IN THE SAME PASS.** A full independent review of one
+    format cost about half a million tokens, and any change to the crop changes most watch images, so little carries
+    forward (`zcarry9.py` carries a verdict only across a pixel-identical image). Look at stills of every changed
+    layout yourself before rendering: three of the round-2 findings were visible on a still.
+13. **A chain started with `&` inside a tool call can die with the session**, and a judge agent stopped by a restart
+    leaves the previous round's findings files on disk looking current. Check mtimes against the render.
+
 ## Shared kit: the analysis card (Dan-approved on RA-01, 2026-09-18)
 
 When a line says the app ANALYSES the picture and builds the plan, use the shared card instead of inventing a graphic:
