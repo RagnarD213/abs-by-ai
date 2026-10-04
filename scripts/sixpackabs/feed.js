@@ -3,7 +3,7 @@
  * SixPackAbs.com feeds — what the sixpackabs.com homepage shows.
  *
  * sixpackabs.com (WordPress.com, theme `sixpackabs-child`) never talks to Google
- * or Meta. Its hourly WP-Cron job pulls these two documents from absbyai.com,
+ * or Meta. Its five-minute WP-Cron job pulls these two documents from absbyai.com,
  * where the tokens already live:
  *
  *   GET /api/sixpackabs/channel.json    PUBLIC videos on the Dan Rose Fitness channel
@@ -16,7 +16,7 @@
  * rejected upload). Putting an unlisted ad on the homepage would be the worst
  * outcome of the whole build; feed.test.js asserts the filter.
  *
- * Both documents are served from an in-memory cache refreshed hourly. An
+ * YouTube refreshes every five minutes; Instagram stays hourly. An
  * upstream failure serves the last good copy with `stale: true` — never an error
  * while a cache exists.
  *
@@ -38,7 +38,8 @@ const IG_USERNAME = 'danrosefit';
 
 const SHORT_MAX_SECONDS = 180;         // Short = public video of 180 s or less
 const IG_IMAGE_COUNT = 6;
-const REFRESH_MS = 60 * 60 * 1000;     // hourly
+const REFRESH_MS = 5 * 60 * 1000;      // video freshness budget
+const INSTAGRAM_REFRESH_MS = 60 * 60 * 1000;
 const RETRY_AFTER_FAILURE_MS = 5 * 60 * 1000;
 const UPSTREAM_TIMEOUT_MS = 20 * 1000;
 
@@ -293,7 +294,7 @@ function createSixpackabsFeeds({ fetch, env = process.env, now = Date.now, log =
     };
   }
 
-  function cached(name, loader) {
+  function cached(name, loader, refreshMs = REFRESH_MS) {
     let good = null;
     let goodAt = 0;
     let inflight = null;
@@ -302,7 +303,7 @@ function createSixpackabsFeeds({ fetch, env = process.env, now = Date.now, log =
 
     async function get({ force = false } = {}) {
       const t = now();
-      if (good && !force && t - goodAt < REFRESH_MS) return { ...good, stale: false };
+      if (good && !force && t - goodAt < refreshMs) return { ...good, stale: false };
       if (!force && t < retryAt) {
         if (good) return { ...good, stale: true };
         throw lastError || new Error(`${name} feed unavailable`);
@@ -334,13 +335,13 @@ function createSixpackabsFeeds({ fetch, env = process.env, now = Date.now, log =
   }
 
   const channel = cached('channel', loadChannel);
-  const instagram = cached('instagram', loadInstagram);
+  const instagram = cached('instagram', loadInstagram, INSTAGRAM_REFRESH_MS);
 
-  function route(feed) {
+  function route(feed, cacheControl = 'public, max-age=300') {
     return async (req, res) => {
       try {
         const body = await feed.get();
-        res.set('Cache-Control', 'public, max-age=300');
+        res.set('Cache-Control', cacheControl);
         res.json(body);
       } catch (e) {
         res.set('Cache-Control', 'no-store');
@@ -352,9 +353,22 @@ function createSixpackabsFeeds({ fetch, env = process.env, now = Date.now, log =
   return {
     channel,
     instagram,
-    channelRoute: route(channel),
+    channelRoute: route(channel, 'no-store'),
     instagramRoute: route(instagram),
     refreshAll: () => Promise.allSettled([channel.get({ force: true }), instagram.get({ force: true })]),
+    // Refresh first, then wake due WordPress jobs even when no visitor arrives.
+    // Cron's own lock prevents overlapping runners; this endpoint has no secrets.
+    refreshAndSync: async () => {
+      const results = await Promise.allSettled([channel.get({ force: true }), instagram.get()]);
+      try {
+        const res = await request(`https://sixpackabs.com/wp-cron.php?doing_wp_cron&spa_tick=${now()}`);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        log.info('sixpackabs WordPress cron triggered');
+      } catch (e) {
+        log.error(`sixpackabs WordPress cron trigger failed: ${e.message}`);
+      }
+      return results;
+    },
   };
 }
 

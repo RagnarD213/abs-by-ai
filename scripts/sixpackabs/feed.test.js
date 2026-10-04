@@ -13,7 +13,7 @@
 //       to maxres when it 404s; the maxres ETag rides along as `version`;
 //   (d) Instagram keeps IMAGE + CAROUSEL_ALBUM only (reels skipped), 6 max,
 //       a carousel contributes its first IMAGE child;
-//   (e) the cache: a second read inside the hour makes no upstream call; an
+//   (e) the cache: a second read inside five minutes makes no upstream call; an
 //       upstream failure serves the last good copy with stale:true; a cold
 //       failure is a 503, never a 500; the Graph token never reaches a log line.
 //
@@ -122,6 +122,7 @@ function makeFetch(state = {}) {
       if (u.pathname.endsWith('/oardefault.jpg')) return resp(u.pathname.includes('pubShortNoOar') ? 404 : 200, null);
       if (u.pathname.endsWith('/maxresdefault.jpg')) return resp(200, null, { etag: '"1788703208"' });
     }
+    if (u.host === 'sixpackabs.com' && u.pathname === '/wp-cron.php') return resp(200, null);
     if (u.host === 'graph.facebook.com') return resp(200, IG);
     return resp(404, {});
   };
@@ -224,10 +225,10 @@ async function check(name, fn) {
     assert.ok(v.pubLong1.description.startsWith('First line for pubLong1.'));
     assert.strictEqual(body.channel.subscriberCount, 3030);
     assert.strictEqual(body.channel.handle, '@danrosefit');
-    assert.strictEqual(res.headers['Cache-Control'], 'public, max-age=300');
+    assert.strictEqual(res.headers['Cache-Control'], 'no-store');
   });
 
-  await check('cache: second read inside the hour makes no upstream call', async () => {
+  await check('cache: second read inside five minutes makes no upstream call', async () => {
     const before = fetch.calls.length;
     const r2 = fakeRes();
     await feeds.channelRoute({}, r2);
@@ -277,6 +278,37 @@ async function check(name, fn) {
     assert.ok(logs.length > 0, 'expected a logged failure');
     for (const line of logs) assert.ok(!line.includes(IG_TOKEN), `token leaked into log: ${line}`);
     assert.ok(!JSON.stringify(r.body).includes(IG_TOKEN));
+  });
+
+  await check('five-minute expiry discovers a newly public release; Instagram stays hourly', async () => {
+    let t = 0;
+    const upstream = makeFetch();
+    const f = createSixpackabsFeeds({ fetch: upstream, env: ENV, now: () => t, log });
+    const draft = VIDEOS.find((v) => v.id === 'privDraft');
+    await f.channel.get();
+    await f.instagram.get();
+    draft.status.privacyStatus = 'public';
+    try {
+      t = 299999;
+      assert.ok(!(await f.channel.get()).videos.some((v) => v.id === draft.id));
+      const before = upstream.calls.length;
+      t = 300000;
+      assert.ok((await f.channel.get()).videos.some((v) => v.id === draft.id));
+      assert.ok(upstream.calls.length > before);
+      const graphBefore = upstream.calls.filter((c) => c.url.includes('graph.facebook.com')).length;
+      await f.instagram.get();
+      assert.strictEqual(upstream.calls.filter((c) => c.url.includes('graph.facebook.com')).length, graphBefore);
+    } finally { draft.status.privacyStatus = 'private'; }
+  });
+
+  await check('background tick refreshes before waking WordPress without visitors', async () => {
+    const upstream = makeFetch();
+    const f = createSixpackabsFeeds({ fetch: upstream, env: ENV, now: () => clock, log: { ...log, info() {} } });
+    const results = await f.refreshAndSync();
+    assert.strictEqual(results[0].status, 'fulfilled');
+    const cronIndex = upstream.calls.findIndex((c) => c.url.startsWith('https://sixpackabs.com/wp-cron.php?'));
+    const channelIndex = upstream.calls.findIndex((c) => c.url.includes('/youtube/v3/channels'));
+    assert.ok(cronIndex > channelIndex && channelIndex >= 0);
   });
 
   await check('selectInstagramImages / altFromCaption edge cases', () => {
