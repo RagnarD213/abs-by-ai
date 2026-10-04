@@ -17,13 +17,13 @@ Review: `http://127.0.0.1:8854/`, served from `/Users/Shared/absbyai-reviews/hyp
 
 Both comparison players use the same clean presenter layer, fixed side composition, existing source cuts, grade and encoded audio. Draft stock placeholders are excluded from both. The original draft excerpt is also provided as a reference. This isolates the graphics change. Original full-video file hashes are checked before delivery.
 
-Final measurements and approval status are recorded in `proof-receipt.json`, `checks.json` and `new.mp4.edit-sheet.json` beside the review page. This is a graphics proof, not a full-film delivery gate. Dan's approval is pending. No approved video is rebuilt, replaced or uploaded.
+Final measurements and approval status are recorded in `proof-receipt.json`, `checks.json` and `new.mp4.edit-sheet.json` beside the review page. This is a graphics proof, not a full-film delivery gate. Dan approved the corrected proof on October 4, 2026. No approved video is rebuilt, replaced or uploaded.
 
 ## Verification
 
 All three skills passed skill validation. Both new Python modules and proof scripts compiled. The integration rejected whole-second graphic edges, numeric reveal drivers and mismatched spoken edge phrases in negative tests. The code deployed successfully on Railway; absbyai.com returned HTTP 200.
 
-The shared graphics checks passed: 150 side-card frames, minimum body clearance 210 px; 24 lower-third frames, minimum face clearance 362 px. All three card-fill samples passed. The edit sheet validated, original file hashes stayed unchanged, and the encoded audio payload matched between players. All 13 page assets returned HTTP 200; both video range requests returned 206. Chrome playback, synchronized seeking near the end and the context player were verified. The real-frame stills were visually inspected. Dan review is the only remaining action.
+The shared graphics checks passed: 150 side-card frames, minimum body clearance 210 px; 24 lower-third frames, minimum face clearance 362 px. All three card-fill samples passed. The edit sheet validated, original file hashes stayed unchanged, and the encoded audio payload matched between players. All 13 page assets returned HTTP 200; both video range requests returned 206. Chrome playback, synchronized seeking near the end and the context player were verified. The real-frame stills were visually inspected. Dan approved the corrected proof on October 4, 2026; adoption is complete.
 
 ## October 4 correction
 
@@ -32,3 +32,5 @@ Dan accepted the treatment except a slight apparent shrink of Sardines near exce
 The revision preserves the reviewed first proof in `revision1/`, records Dan's exact feedback in the shared corpus, and rebuilds only the isolated proof's side-list span. The accepted price tail and encoded audio are retained. No full or approved video is re-exported.
 
 Correction verification: all 210 consecutive final-video frames from excerpt 8 to 15 seconds hold identical Sardines glyph bounds (183 x 27 px at one position). All 237 encoded price-tail frames match revision 1. Shared graphics checks passed again (210 px body clearance, 362 px face clearance), and the revised edit sheet validated. The original source hashes and encoded audio remain unchanged.
+
+Final approval, October 4, 2026: Dan said, "Okay this is looking good now." The corrected isolated proof and shared-method adoption are approved. All three installed Codex skills use the shared graphics pipeline; future builds inherit it. No further adoption work is open.
