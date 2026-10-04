@@ -1,16 +1,7 @@
 {
-"generated": "2026-10-03T14:41:20+00:00",
+"generated": "2026-10-04T11:25:16+00:00",
 "cap": 200,
 "scheduled": [
-{
-"id": "3841900",
-"platform": "instagram",
-"when": "2026-10-03T22:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "A mirror check is not vanity, it's data.",
-"batch": ""
-},
 {
 "id": "4757780",
 "platform": "facebook",
