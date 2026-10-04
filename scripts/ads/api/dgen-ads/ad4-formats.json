@@ -1,0 +1,99 @@
+{
+  "campaignId": "24316364155",
+  "adGroupId": "204553317030",
+  "twinAdId": "826635661909",
+  "label": "Ad 4 Stop Wasting Money On Supplements",
+  "copyReadBackFromLive": {
+    "headlines": [
+      "How AI Fixed My Supplements",
+      "Supplement Corps Hate Him",
+      "The Truth About Supplements",
+      "How I Got Abs At 40",
+      "How AI Got Me Abs"
+    ],
+    "longHeadlines": [
+      "Here's how AI fixed my supplements. Find which supplements are a waste of money with AI",
+      "Take a photo of your supplements and AI tells you which ones are a waste of your money.",
+      "Supplement companies despise this AI app. See why men are cutting their supplement bill."
+    ],
+    "descriptions": [
+      "Many supplements are a waste of money. AI can identify which supplements you should cut.",
+      "I was wasting money on supplements until AI audited my stack. See what it told me to cut.",
+      "This AI app audits your supplements from one photo. Try it free for 7 days."
+    ]
+  },
+  "videos": [
+    {
+      "file": "stop wasting money on supplements | claude | 9x16 | ad 4.mp4",
+      "sha256": "b26b16921e33212e7120d0dbd3d76fa2d0bb4bf16d9d8455f045d254f1f942cf",
+      "version": "Claude 9:16",
+      "utm": "claude-vertical",
+      "title": "Stop Wasting Money on Supplements! Ask AI Instead (Vertical)",
+      "tags": [
+        "ab workout",
+        "abs by ai",
+        "ai fitness",
+        "six pack abs",
+        "supplement audit",
+        "supplements"
+      ],
+      "descriptionFile": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Muhammad Ad Videos/stop wasting money on supplements - ad 4/youtube-description-9x16.md",
+      "thumbnail": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/Ad 4 Stop Wasting Money On Supplements/trial-20261001/Ad 4 | 9x16 | FINAL.jpg",
+      "youtubeId": "Sr9gux0gB5I"
+    },
+    {
+      "file": "stop wasting money on supplements | claude | 9x16 59s | ad 4.mp4",
+      "sha256": "4c01eddeabd9cd9dda1ab9c20351332ec9d1eeddf3849e94e4c464c467218eed",
+      "version": "Claude 9:16 59s",
+      "utm": "claude-vertical-59s",
+      "title": "Stop Wasting Money on Supplements! Ask AI Instead (Vertical 59s)",
+      "tags": [
+        "ab workout",
+        "abs by ai",
+        "ai fitness",
+        "six pack abs",
+        "supplement audit",
+        "supplements"
+      ],
+      "descriptionFile": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Muhammad Ad Videos/stop wasting money on supplements - ad 4/youtube-description-9x16-59s.md",
+      "thumbnail": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/Ad 4 Stop Wasting Money On Supplements/trial-20261001/Ad 4 | 9x16 | FINAL.jpg",
+      "youtubeId": "TPlpl0LETqw"
+    },
+    {
+      "file": "stop wasting money on supplements | claude | 1x1 | ad 4.mp4",
+      "sha256": "4d675abca13bc7d914f0b7575b1adac3574668b51b6b00a438e97d3c77986799",
+      "version": "Claude 1:1",
+      "utm": "claude-square",
+      "title": "Stop Wasting Money on Supplements! Ask AI Instead (Square)",
+      "tags": [
+        "ab workout",
+        "abs by ai",
+        "ai fitness",
+        "six pack abs",
+        "supplement audit",
+        "supplements"
+      ],
+      "descriptionFile": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Muhammad Ad Videos/stop wasting money on supplements - ad 4/youtube-description-1x1.md",
+      "thumbnail": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/Ad 4 Stop Wasting Money On Supplements/trial-20261001/Ad 4 | 1x1 | FINAL.jpg",
+      "youtubeId": "kyrAfWkg92k"
+    },
+    {
+      "file": "stop wasting money on supplements | claude | 1x1 59s | ad 4.mp4",
+      "sha256": "5c9068392edd061af6a2a8639d9849a2150f0266b7e345120e4a832dae70b600",
+      "version": "Claude 1:1 59s",
+      "utm": "claude-square-59s",
+      "title": "Stop Wasting Money on Supplements! Ask AI Instead (Square 59s)",
+      "tags": [
+        "ab workout",
+        "abs by ai",
+        "ai fitness",
+        "six pack abs",
+        "supplement audit",
+        "supplements"
+      ],
+      "descriptionFile": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Muhammad Ad Videos/stop wasting money on supplements - ad 4/youtube-description-1x1-59s.md",
+      "thumbnail": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/Ad 4 Stop Wasting Money On Supplements/trial-20261001/Ad 4 | 1x1 | FINAL.jpg",
+      "youtubeId": "eJ-dTPw40Hk"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+[
+  {
+    "campaign": {
+      "resourceName": "customers/3427170837/campaigns/24243839443",
+      "status": "PAUSED",
+      "name": "[DAN] [DGEN] [CONVERSION] MU 25-54 | US+CA | ad 1 + ad 2 | start vs home",
+      "id": "24243839443"
+    },
+    "campaignBudget": {
+      "resourceName": "customers/3427170837/campaignBudgets/15862488218",
+      "id": "15862488218",
+      "amountMicros": "50000000"
+    }
+  },
+  {
+    "campaign": {
+      "resourceName": "customers/3427170837/campaigns/24305381214",
+      "status": "ENABLED",
+      "name": "[DAN] [DGEN] [TRIAL] [RMKTG] VSL page | 6 ads | US+CA | site visitors + youtube viewers",
+      "id": "24305381214"
+    },
+    "campaignBudget": {
+      "resourceName": "customers/3427170837/campaignBudgets/15911284202",
+      "id": "15911284202",
+      "amountMicros": "10000000"
+    }
+  },
+  {
+    "campaign": {
+      "resourceName": "customers/3427170837/campaigns/24308574894",
+      "status": "ENABLED",
+      "name": "[DAN] [PMAX] [TRIAL] VSL page | 6 ads | US+CA | site visitors 30 day",
+      "id": "24308574894"
+    },
+    "campaignBudget": {
+      "resourceName": "customers/3427170837/campaignBudgets/15923601274",
+      "id": "15923601274",
+      "amountMicros": "30000000"
+    }
+  },
+  {
+    "campaign": {
+      "resourceName": "customers/3427170837/campaigns/24316364155",
+      "status": "ENABLED",
+      "name": "[DAN] [DGEN] [TRIAL] VSL page | 6 ads | MU 25-54 | US+CA",
+      "id": "24316364155"
+    },
+    "campaignBudget": {
+      "resourceName": "customers/3427170837/campaignBudgets/15911255930",
+      "id": "15911255930",
+      "amountMicros": "30000000"
+    }
+  },
+  {
+    "campaign": {
+      "resourceName": "customers/3427170837/campaigns/24316408288",
+      "status": "ENABLED",
+      "name": "[DAN] [DGEN] [ENGAGEMENT] [RMKTG] geo tier 1 | ALL CONTENT | site visitors + youtube viewers",
+      "id": "24316408288"
+    },
+    "campaignBudget": {
+      "resourceName": "customers/3427170837/campaignBudgets/15911284550",
+      "id": "15911284550",
+      "amountMicros": "10000000"
+    }
+  }
+]

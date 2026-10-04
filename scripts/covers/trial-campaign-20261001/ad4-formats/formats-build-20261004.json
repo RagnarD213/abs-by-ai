@@ -1,0 +1,64 @@
+[
+  {
+    "shape": "9x16",
+    "output": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/Ad 4 Stop Wasting Money On Supplements/trial-20261001/Ad 4 | 9x16 | FINAL.jpg",
+    "sha256": "ff7cc03d6fee89c68712fe167f4aeeadfdc30692e34b86c00287ce8fde6e57da",
+    "cutout_sha256": "8b9be73f51b077acc6bc2db71bd1bf551e975b0d4f1cbf685a5b81c57ee16ac7",
+    "plate_sha256": "49207fd668a63a87209ba3750276c5de34fd91da4c8a3f4f3b765aab419be975",
+    "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/studio-gray-55_FINAL_PRIMARY.jpg",
+    "photo": "studio-gray-55",
+    "crop": [
+      377,
+      526,
+      2700,
+      3539
+    ],
+    "output_box": [
+      54,
+      660,
+      1026,
+      1920
+    ],
+    "scale": 0.41842445114076626,
+    "font_size": 174,
+    "text_bbox": [
+      65,
+      102,
+      935,
+      586
+    ],
+    "headline": "SUPPLEMENT CORPS HATE HIM",
+    "text_person_overlap": 0
+  },
+  {
+    "shape": "1x1",
+    "output": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/Ad 4 Stop Wasting Money On Supplements/trial-20261001/Ad 4 | 1x1 | FINAL.jpg",
+    "sha256": "11ba91db3330c104380427f404c76f95751d71eccd7b434979112d71fd3c4d02",
+    "cutout_sha256": "8b9be73f51b077acc6bc2db71bd1bf551e975b0d4f1cbf685a5b81c57ee16ac7",
+    "plate_sha256": "49207fd668a63a87209ba3750276c5de34fd91da4c8a3f4f3b765aab419be975",
+    "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/studio-gray-55_FINAL_PRIMARY.jpg",
+    "photo": "studio-gray-55",
+    "crop": [
+      377,
+      526,
+      2700,
+      3539
+    ],
+    "output_box": [
+      417,
+      370,
+      964,
+      1080
+    ],
+    "scale": 0.23564553601062063,
+    "font_size": 98,
+    "text_bbox": [
+      63,
+      56,
+      557,
+      327
+    ],
+    "headline": "SUPPLEMENT CORPS HATE HIM",
+    "text_person_overlap": 0
+  }
+]

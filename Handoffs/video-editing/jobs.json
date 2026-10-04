@@ -1176,14 +1176,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/AV-03-ad4-vertical-regrade-and-masters.md`: re-fit the Ad 4 vertical's grade with BT.709 decoding using the Ad 3 render-10 tools in a copy of `ad4-vert/`, re-render full + 59s, record my 09-11 acceptance of −0.9 dBTP as an auditable exception (never a bound change), refresh the stale caption tools, gate at the current version, audit, deliver, send me review copies, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/AV-03-ad4-vertical-regrade-and-masters.md` using `.claude/skills/shortad-from-longform/SKILL.md` section [A12] as the method. Deliver, send Dan review copies, update `00-MASTER.md`.",
-   "state": "ready",
-   "note": "",
+   "state": "uploaded",
+   "note": "All four approved Ad 4 formats uploaded Unlisted and added to trial group 204553317030 on 2026-10-04",
    "sub": "",
    "order": 56,
-   "updated": "2026-09-16",
-   "by": "master list",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-10-04",
+   "by": "Codex",
+   "rev": 5,
+   "syncedRev": 4
   },
   {
    "id": "AV-04",
@@ -1323,14 +1323,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/AS-02-ad4-square.md`: first confirm its blocker is cleared, then build the 1:1 square and ≤0:59 square cutdown of Ad 4 as a re-layout of the approved vertical build with /shortad-from-longform [S1], same timeline, grade, labels and audio, steady wider framing, labels off my face and abs. Every gate, independent audit, deliver, send me the review copies, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table) and `Handoffs/handoff-20260914-ad3-square-codex.md` (the Ad 3 square you built, which Dan shipped: reuse its method), then execute `Handoffs/video-editing/AS-02-ad4-square.md`. Confirm the blocker is cleared first. Deliver, send Dan the review copies, update `00-MASTER.md`.",
-   "state": "blocked",
-   "note": "AV-03 approved",
+   "state": "uploaded",
+   "note": "Both approved square formats uploaded Unlisted and added to trial group 204553317030 on 2026-10-04",
    "sub": "",
    "order": 63,
-   "updated": "2026-09-16",
-   "by": "master list",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-10-04",
+   "by": "Codex",
+   "rev": 5,
+   "syncedRev": 4
   },
   {
    "id": "AS-03",
