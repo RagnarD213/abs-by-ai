@@ -1218,14 +1218,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/AV-05-ad6-vertical.md`: build the 9:16 vertical and ≤0:59 cutdown of Muhammad's finalized Ad 6 with /shortad-from-longform, decoding his master as BT.709 from the start, his audio untouched, the real-picture chip off my face and abs, before and after the same person. Every gate, independent audit, deliver, send me the review copies, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/AV-05-ad6-vertical.md` using `.claude/skills/shortad-from-longform/SKILL.md` as the method and `Handoffs/handoff-20260914-ad3-square-codex.md` as the model of a Codex variant build. Deliver, send Dan the review copies, update `00-MASTER.md`.",
-   "state": "ready",
-   "note": "Look locked by Dan 10-02 with 3 changes; fire handoff-20261002-ad6-round2",
+   "state": "finalized",
+   "note": "Approved by Dan 10-04. Setup: handoff-20261004-ad6-formats-thumbnails-and-setup-codex.md (Codex)",
    "sub": "",
    "order": 58,
-   "updated": "2026-10-02",
+   "updated": "2026-10-04",
    "by": "Claude",
-   "rev": 6,
-   "syncedRev": 6
+   "rev": 8,
+   "syncedRev": 8
   },
   {
    "id": "AV-06",
@@ -1365,14 +1365,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/AS-04-ad6-square.md`: first confirm its blocker is cleared, then build the 1:1 square and ≤0:59 square cutdown of Ad 6 as a re-layout of the approved vertical build with /shortad-from-longform [S1], same timeline, grade, labels and audio, steady wider framing, labels off my face and abs. Every gate, independent audit, deliver, send me the review copies, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table) and `Handoffs/handoff-20260914-ad3-square-codex.md` (the Ad 3 square you built, which Dan shipped: reuse its method), then execute `Handoffs/video-editing/AS-04-ad6-square.md`. Confirm the blocker is cleared first. Deliver, send Dan the review copies, update `00-MASTER.md`.",
-   "state": "ready",
-   "note": "Square set approved by Dan 10-02; built in the Ad 6 round 2 task",
+   "state": "finalized",
+   "note": "Approved by Dan 10-04. Setup: handoff-20261004-ad6-formats-thumbnails-and-setup-codex.md (Codex)",
    "sub": "",
    "order": 65,
-   "updated": "2026-10-02",
+   "updated": "2026-10-04",
    "by": "Claude",
-   "rev": 4,
-   "syncedRev": 4
+   "rev": 6,
+   "syncedRev": 6
   },
   {
    "id": "AS-05",
@@ -1492,11 +1492,11 @@
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read Handoffs/video-editing/00-RULES.md, then execute Handoffs/video-editing/AV-11-ad13-vertical.md using .claude/skills/shortad-from-longform/SKILL.md. Deliver both review copies and update the queue.",
    "state": "finalized",
-   "note": "Dan approved the vertical and its 59 s cut 10-03 (gate PASS both). Setup: handoff-20261003-ad13-vertical-setup.md",
+   "note": "Dan approved the vertical and its 59 s cut 10-03 (gate PASS both). Setup, for Codex: handoff-20261003-ad13-vertical-setup-codex.md",
    "order": 71,
-   "updated": "2026-10-03",
-   "rev": 5,
-   "syncedRev": 5,
+   "updated": "2026-10-04",
+   "rev": 6,
+   "syncedRev": 6,
    "by": "Claude"
   },
   {
@@ -1575,11 +1575,11 @@
    "codexModel": "GPT-6 Astra, high",
    "codex": "Confirm AV-11 is approved, then execute Handoffs/video-editing/AS-10-ad13-square.md with /shortad-from-longform as a square re-layout. Deliver both review copies and update the queue.",
    "state": "ready",
-   "note": "Square look approved 10-03; build the square full + 59 s in handoff-20261003-ad13-round4-after-round3-page.md (with the horizontal's zoom steps)",
+   "note": "Square look approved 10-03; Codex builds the square full + 59 s and the horizontal's zoom steps: handoff-20261003-ad13-round4-horizontal-and-square-codex.md",
    "order": 75,
-   "updated": "2026-10-03",
-   "rev": 3,
-   "syncedRev": 3,
+   "updated": "2026-10-04",
+   "rev": 4,
+   "syncedRev": 4,
    "by": "Claude"
   },
   {

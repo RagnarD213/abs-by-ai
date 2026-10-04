@@ -62,4 +62,4 @@ Sidebar name: `The Cost Of Getting Abs AD R3`. Previous: `handoff-20261001-ad13-
 
 Model and effort: Claude Opus 5.5, High.
 
-**Executed 2026-10-03.** Round 3 page: http://127.0.0.1:8817/. Next: `handoff-20261003-ad13-round4-after-round3-page.md`.
+**Executed 2026-10-03.** Round 3 page: http://127.0.0.1:8817/. Next (both for Codex): `handoff-20261003-ad13-vertical-setup-codex.md` and `handoff-20261003-ad13-round4-horizontal-and-square-codex.md`.
