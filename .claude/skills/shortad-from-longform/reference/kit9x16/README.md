@@ -165,6 +165,11 @@ minutes and made it the standard for every vertical (`_shared/framing-motion.md`
 10,759 to 3,413 px (68 % less), p90 pan speed 62.9 to 22.8 px/s (64 % less), him 17 px off centre at the median, 92 px
 at most. The ceiling is the gate's own centring bound (a hold's median head centre within 6 % of the width, 36 source px).
 
+> **2026-10-04, Dan: the kit is for ADS.** Content gets Shorts, ads get formats (VIDEO-RULES, "Categorize every video
+> before editing it"). `kit_run.py` refuses a sheet whose type is `LFC` / `SFC` unless `--dan-asked "<his words>"`
+> is given. RO-10 below was the proof run of the sheet path and is parked, not published. The `organic9x16` gate
+> format and the organic cut brief stay for the day Dan asks for a content vertical by name; prove anything new on an ad.
+
 **The gate stages on a sheet build (2026-10-03, RO-10 round 4).** `kit_run.py --sheet ... --from picture` now runs the
 whole back half: picture, captions, mux, the gate pre-check, the judged watch pass, the fold, the 59 s cut and its gate.
 

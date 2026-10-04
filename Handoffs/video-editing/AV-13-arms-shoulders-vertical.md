@@ -1,3 +1,5 @@
+> **RETIRED 2026-10-04. Do not execute.** This is an ad format (vertical / square / 1-minute) of an ORGANIC video. Dan's rule of 2026-10-04: content gets Shorts, ads get formats. Shorts of this video are SL-04.
+
 # AV-13: "Arms & Shoulders Home Workout" (Zeeshan, organic): 9:16 full + ≤0:59
 
 **List 3 · ORGANIC variant (not an ad) · READY.** Read `00-RULES.md` first. Added 2026-09-22 at Dan's request

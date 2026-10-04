@@ -166,6 +166,37 @@ rule and spell out all five slots. Reference:
 
 For organic content videos, the newer approval budget below replaces older requirements for Dan to approve every graphic and clip separately and the shared 10 to 15 decisions per video guidance. Keep the stepwise internal checks and the real approval gates. The **first approval round has at most 20 decisions**. In later rounds, **aim for 10 or fewer decisions per round**. These are ceilings, not targets. Ask Dan only about materially uncertain choices that require his judgment. Choose and check routine assets yourself, summarize what you chose, and let him overrule while reviewing the first minute and the finished film. Never reopen unchanged approved items or infer approval from silence. New AI motion still needs approved start/end frames first; show materially uncertain finished motion in context before locking it. The website VSL approval cadence remains separate and more detailed.
 
+## Categorize every video before editing it: content gets Shorts, ads get formats (Dan, 2026-10-04)
+
+Dan, 2026-10-04: *"From now on, we have to have everything categorized before we edit it. If it's a content video, if
+it's long-form content, then we want to cut it into shorts. If it's an ad, that's when we need the vertical and square
+version and the 1-minute version."* He asked for the rule in both directions: no ad-style edits of content videos, and
+no content-style edits of ads ("such as making 5 shorts out of an ad").
+
+| category | sidebar type | what is derived from the finished 16:9 | skill | never |
+|---|---|---|---|---|
+| long-form content | `LFC` | Shorts cut out of it, each standing alone | `/shorts` | a full-length vertical, a square, a 1-minute version of the whole video |
+| ad | `AD` | the vertical (`V`), the square (`S`) and the 1-minute cut (`Sh`) of the ad | `/shortad-from-longform` | a batch of organic Shorts mined from the ad |
+| dedicated Short | `SFC` | nothing: it is already the short | | any re-format |
+
+- **Decide the category before any edit work**, the same way the upload rule below decides it (the video's own ending:
+  a tap-the-button call to action is an ad; anything softer is content), and write it on the first line of the task
+  and of every handoff. A handoff with no category is not ready to fire.
+- **A request for the wrong kind stops before spending anything.** That covers a task prompt, a handoff, a queue job
+  and a proof or test run of a pipeline. Tell Dan in one line what was asked and what the category allows. Do the
+  read-only prep meanwhile.
+- **Only Dan's own words naming that video and that format override this**, recorded with the build (`kit_run.py
+  --dan-asked "<his words>"`). "Continue the edit" is not such words.
+- **A pipeline proof uses a video of the right category.** The sheet path for verticals is proven on an ad, never on
+  a long-form because it happened to be ready first.
+- **Enforced:** `kit_run.py` refuses an edit sheet whose `type` is `LFC` or `SFC` without `--dan-asked`. The `/shorts`
+  and `/shortad-from-longform` skills open with this rule.
+- **Why:** on 2026-10-03 the vertical kit's proof run was pointed at RO-10 (the Calories long-form) because it was the
+  first of our own edits with an edit sheet. It cost about seven hours of machine time and 1.6 million judge tokens for
+  a full 9:16 and a 52 second cut that nobody needed: the long-form publishes as its 16:9 and its Shorts are their
+  own job (SL-08). Queue jobs AV-13 and AS-12 (a vertical and a square of the organic Arms & Shoulders workout) are
+  retired by this rule.
+
 ## Ad or organic? Classify every video from its own ending before any upload (Dan, 2026-09-28)
 
 - **Before any upload or setup, decide from the finished video itself whether it is an AD or ORGANIC.** Read the

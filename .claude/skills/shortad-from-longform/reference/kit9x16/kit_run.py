@@ -139,6 +139,8 @@ def main():
     ap.add_argument("--raw", action="append", default=[])
     ap.add_argument("--ai", default="gemini")
     ap.add_argument("--judge", default="session", choices=["session", "both"])
+    ap.add_argument("--dan-asked", help="Dan's own words asking for a vertical of THIS content video. Without it a sheet whose "
+                                        "type is LFC / SFC is refused: content gets Shorts, ads get formats (Dan, 2026-10-04)")
     ap.add_argument("--format", dest="fmt", help="the delivery gate's format for the full film. Default: ad9x16; a sheet of an "
                                                  "organic film (type LFC / SFC) is organic9x16 and its 59 s cut is a `short`")
     ap.add_argument("--from", dest="start", choices=STAGES)
@@ -156,6 +158,13 @@ def main():
     # THE GATE'S FORMAT. An ad is graded as an ad. An organic film's vertical is graded as organic (Dan, 2026-10-03):
     # `organic9x16` for the full film (the parent longform's pacing and speech bounds, the organic vertical's framing
     # and caption bounds; organic videos may name the drug), and its <= 0:59 cut is literally a `short`.
+    # CONTENT IS NEVER GIVEN AN AD'S FORMATS (Dan, 2026-10-04; VIDEO-RULES "Categorize every video before editing it").
+    # The vertical, the square and the 1-minute cut are made from an AD. A long-form gets Shorts (/shorts). RO-10's
+    # proof run cost seven hours and 1.6 million judge tokens for a vertical nobody needed.
+    if ORGANIC and not a.dan_asked:
+        raise SystemExit(f"kit_run: STOP. {os.path.basename(SHEET)} is CONTENT (type {_S.get('type')}), not an ad. A content video is cut "
+                         "into Shorts with /shorts; it does not get a vertical, a square or a 1-minute version. Tell Dan what was "
+                         "asked. Only his own words naming this video and this format override it: --dan-asked \"<his words>\".")
     FMT = a.fmt or ("organic9x16" if ORGANIC else "ad9x16")
     CUT_FMT = "short" if FMT == "organic9x16" else FMT
     a.start = a.start or ("sheet" if SHEET else "recover")
@@ -173,6 +182,8 @@ def main():
     env = dict(os.environ, PATH=os.path.dirname(FF) + ":" + os.environ.get("PATH", ""))
     rp = os.path.join(B, "run_report.json")
     R = json.load(open(rp)) if os.path.exists(rp) else dict(master=master, build=B, name=a.name, stages=[])
+    if a.dan_asked:
+        R["dan_asked"] = a.dan_asked
 
     def save(extra=None):
         R["ai"] = ai_calls.Ledger(ledger).total()
