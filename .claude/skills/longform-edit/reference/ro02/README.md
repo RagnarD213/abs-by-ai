@@ -33,3 +33,29 @@ Traps this build paid for:
 - **A tightened pause can leave a 1.2 s shot.** `shots.py KEEP` lists pauses that stay (also the teaching pause where
   he shows the nose breath).
 - **`grep render` in a `ps` check matches every app's "Renderer" helper.** Grep for the script name.
+
+## Round 2 (2026-10-04): graphics, clips, opener frames, first minute
+
+Order: `frames.py` (half headroom, bottoms held) -> `asr_assembled.py` -> `words_out.py` -> `plan.py` -> `resolve.py` ->
+`cardclear.py` -> `from_plan.py` (no `--render` first) -> `round2_chain.sh` (renders, `stills.py`, `review_media.py first`,
+`hair_first.py`, audio gate, `review_media.py context|verify`) -> `page_extra.py` -> `page.py`. `softblue.py` is the pinned
+copy from `ro13/recipe/`. `page.py` here is now the round 2 page; round 1's is in git history.
+
+What is new against RO-13:
+- `build.py`: one solver for a multi-roll film with two sizes. Segments split at shot joins and card edges; two on-camera
+  segments either side of a cut must differ (F / N); the live set is forced F; a left card prefers F.
+- `frames.crop(card=True)`: a 1080p outdoor source has no wall to stretch and no 4K room, but the F / N windows are
+  1276 and 1032 px wide inside 1920, so the window slides left and his head lands at x 1336 of the output.
+- `gfx.py`: `opener` (title, two 16:9 AI panels, a red X on each on the heard word, AI chip top left of each panel),
+  `anat_card` (drawn torso in the 3A card, each muscle lights on its word), `countdown` (ends on the phone timer's beep,
+  found as the 3 kHz onset in the lav), `recap_card` two by two.
+- `resolve.py`: `x_ph` / `stage_ph` phrases -> times; `shot=` items live on one shot.
+
+Traps this round paid for:
+- **Check a side list over every piece before rendering it** (`cardclear.py`). The step-by-step demo failed by 144 px;
+  it became three lower thirds.
+- **HyperFrames on an exFAT drive stores each captured frame as a 1 MB file.** A 31 s side list wanted 7.8 GB. Point
+  `hf/renders` at the internal disk (symlink).
+- **A two-part lower third dropped the space before a part starting with T.** One part fixed it; look at every still.
+- **A library clip can be the wrong look.** B0428 (shade, wide) read dark beside this film; the film's own live set won.
+- A zsh glob with no match aborts the whole `rm` line, and everything after `&&` with it. Use `find ... -exec`.

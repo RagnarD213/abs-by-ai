@@ -85,7 +85,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 # ACTIVE
 
-**Ad 13 round 4 - ACTIVE 2026-10-04, Codex.** Horizontal rendered, audio PASS. Square and reviews queued for the two-pipeline cap. Build: av11-ad13/round4. No uploads.
+**Ad 13 round 4 - ACTIVE 2026-10-04, Codex.** Horizontal judged clean. Square/gates queued since 10:00 under two-job cap. Build: av11-ad13/round4. No uploads.
 
 **Ad13 setup REVIEW 2026-10-04.** Policy 10-05: `Docs/AD13_VERTICAL_SETUP_RECEIPT_20261004.md`.
 
@@ -104,7 +104,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **RO-12 - QUEUED 2026-10-01, Claude.** Blotato Oct 25. Then: `Docs/RO12_SETUP_RECEIPT_20261001.md`, delete.
 
-**RO-13 round 2 - ACTIVE 2026-10-04, Claude.** Building full film (Veo A/B clips, stock C08 kept, no app capture). Next: gates, one reviewer (2 'does not ship' = stop), deliver. `handoff-20261004-ro13-round2-build-full-film.md` ⚠df59674-unpushed
+**RO-13 round 2 - ACTIVE 2026-10-04, Claude.** Review 1: DOES NOT SHIP (A02 belly rule); fixed, rebuilding. Two fails = stop. `handoff-20261004-ro13-round2-build-full-film.md` ⚠df59674-unpushed
 
 **RO-10 - QUEUED 2026-10-02, Claude.** Blotato Oct 7. Oct 7: captions, article, Zepbound link on Oct 25. `Docs/RO10_SETUP_RECEIPT_20261002.md`, delete.
 
@@ -154,9 +154,9 @@ test starts. `BLOTATO_QUEUE_PROGRESS.md`
 540 day` list, Phase 2 if the Demand Gen draft exists. ⚠ No pointer events or `await` in `javascript_tool` on a busy Ads
 tab; stop rather than click into spinners. `Handoffs/handoff-20260908-google-ads-custom-segments.md`
 
-**Ad 4 V/S/Sh (AV-03, AS-02) - NEEDS DAN 2026-10-04, Claude.** Delivered; page http://127.0.0.1:8824/. Next: his notes, then `/ad-setup`.
+**Ad 4 V/S/Sh (AV-03, AS-02) - NEEDS DAN 2026-10-04, Claude.** Delivered; page http://127.0.0.1:8824/. Next: his notes, then `/ad-setup`. ⚠93ba3f9-unpushed
 
-**RO-02 round 2 - ACTIVE 2026-10-04, Claude.** Building graphics stills, opener frames, first minute in `/Volumes/Extreme/_edit_work/ro02/round2/`. Next: review page, stop for Dan. ⚠73c7464-unpushed
+**RO-02 round 2 - NEEDS DAN 2026-10-04, Claude.** http://127.0.0.1:8826/ (7 answers: first minute, opener frames A and B, opener graphic, anatomy card, sound, length). Next: Dan replies, then fire `handoff-20261004-ro02-round3-ai-motion-and-full-film.md`.
 
 **Shorts parked behind the long-form hold. (baseline 2026-09-15; age unknown)** Zepbound (8) + Supplements (8) need the new spray-tan sound
 (`Handoffs/handoff-20260909-audio-match-muhammad.md`); nothing posts until a parent long-form is public.
