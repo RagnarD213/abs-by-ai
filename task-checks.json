@@ -9,7 +9,8 @@
     "money::Test HyperFrames as our motion-graphics layer: rebuild one lower-third and one full-screen panel as transparent overlays",
     "money::Ship the VSL sales page live: C2 design + WV-01 video + sales letter, replacing /start for paid traffic",
     "money::Pick the 5 best ads and launch the VSL-page campaign",
-    "money::Build and install a new direct-response checkout page for Abs By AI (research top carts, design, code, ship)"
+    "money::Build and install a new direct-response checkout page for Abs By AI (research top carts, design, code, ship)",
+    "money::Claim the Claude Code cloud-sessions credit (claude.ai/code/claim-credit) before Oct 7; it expires Nov 4"
   ],
   "log": {
     "health::Shower": [
@@ -243,6 +244,7 @@
     "money::Test HyperFrames as our motion-graphics layer: rebuild one lower-third and one full-screen panel as transparent overlays": "2026-09-30",
     "money::Ship the VSL sales page live: C2 design + WV-01 video + sales letter, replacing /start for paid traffic": "2026-09-30",
     "money::Pick the 5 best ads and launch the VSL-page campaign": "2026-10-01",
-    "money::Build and install a new direct-response checkout page for Abs By AI (research top carts, design, code, ship)": "2026-10-03"
+    "money::Build and install a new direct-response checkout page for Abs By AI (research top carts, design, code, ship)": "2026-10-03",
+    "money::Claim the Claude Code cloud-sessions credit (claude.ai/code/claim-credit) before Oct 7; it expires Nov 4": "2026-10-05"
   }
 }
