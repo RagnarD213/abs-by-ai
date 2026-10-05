@@ -1365,11 +1365,12 @@ html.cart-v2 body { background: #ffffff; }
 .c2-bullets ul { list-style: none; display: flex; flex-direction: column; gap: 11px; }
 .c2-bullets li { display: flex; gap: 10px; align-items: flex-start; font-size: 15px; line-height: 1.4; font-weight: 600; }
 .c2-bullets li svg { flex-shrink: 0; }
-.c2-seal-row { display: flex; gap: 14px; align-items: center; }
-.c2-seal { width: 72px; height: 72px; border-radius: 50%; background: #12306B; color: #ffffff; display: flex; flex-direction: column; align-items: center; justify-content: center; flex: none; line-height: 1; box-shadow: 0 0 0 3px #ffffff, 0 0 0 5px #12306B; }
-.c2-seal b { font-size: 23px; font-weight: 800; }
-.c2-seal span { font-size: 10.5px; font-weight: 800; letter-spacing: 1px; }
-.c2-seal-title { font-size: 18px; font-weight: 800; line-height: 1.3; flex: 1; }
+/* Guarantee card: the gold seal from /start (Dan, 2026-10-03), on top and centred. The SVG comes from
+   Build.seal() in .claude/skills/design-sales-page/reference/round2-letter/gen.py. */
+.c2-guar { text-align: center; }
+.c2-seal-row { display: flex; flex-direction: column; gap: 12px; align-items: center; }
+.c2-seal { width: 116px; height: 116px; flex: none; }
+.c2-seal-title { font-size: 18px; font-weight: 800; line-height: 1.3; }
 .c2-card p { font-size: 14.5px; line-height: 1.55; color: #3F444C; }
 .c2-quote { background: #F6F4F0; }
 .c2-quote-in { max-width: 1040px; margin: 0 auto; padding: 28px 20px; }
@@ -3179,8 +3180,8 @@ html.cart-v2 body { background: #ffffff; }
               <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#12306B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Unlimited goal pictures and Supplement Audits</span></li>
             </ul>
           </div>
-          <div class="c2-card">
-            <div class="c2-seal-row"><div class="c2-seal"><b>365</b><span>DAY</span></div><div class="c2-seal-title">365-Day No Risk<br>100% Money Back Guarantee</div></div>
+          <div class="c2-card c2-guar">
+            <div class="c2-seal-row"><svg class="c2-seal" width="116" height="116" viewBox="0 0 200 200" role="img" aria-label="365 day money back guarantee seal" style="flex-shrink: 0; display: block; filter: drop-shadow(0 5px 9px rgba(61,42,5,0.30))"><defs><linearGradient id="gac2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FCF1B8"></stop><stop offset="0.28" stop-color="#E3B64B"></stop><stop offset="0.52" stop-color="#C08A22"></stop><stop offset="0.76" stop-color="#F4DA82"></stop><stop offset="1" stop-color="#A9741A"></stop></linearGradient><linearGradient id="gbc2" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF6CC"></stop><stop offset="0.45" stop-color="#EBC45C"></stop><stop offset="1" stop-color="#D2A036"></stop></linearGradient><radialGradient id="gcc2" cx="0.38" cy="0.30" r="0.85"><stop offset="0" stop-color="#FFF8D6"></stop><stop offset="0.55" stop-color="#F0CD6A"></stop><stop offset="1" stop-color="#C9952C"></stop></radialGradient><path id="gtc2" d="M 29,100 A 71,71 0 0 1 171,100"></path><path id="guc2" d="M 17,100 A 83,83 0 0 0 183,100"></path></defs><polygon points="100.0,1.0 108.0,8.4 117.2,2.5 123.8,11.1 133.9,7.0 138.9,16.6 149.5,14.3 152.8,24.6 163.6,24.2 165.1,34.9 175.8,36.4 175.4,47.2 185.7,50.5 183.4,61.1 193.0,66.1 188.9,76.2 197.5,82.8 191.6,92.0 199.0,100.0 191.6,108.0 197.5,117.2 188.9,123.8 193.0,133.9 183.4,138.9 185.7,149.5 175.4,152.8 175.8,163.6 165.1,165.1 163.6,175.8 152.8,175.4 149.5,185.7 138.9,183.4 133.9,193.0 123.8,188.9 117.2,197.5 108.0,191.6 100.0,199.0 92.0,191.6 82.8,197.5 76.2,188.9 66.1,193.0 61.1,183.4 50.5,185.7 47.2,175.4 36.4,175.8 34.9,165.1 24.2,163.6 24.6,152.8 14.3,149.5 16.6,138.9 7.0,133.9 11.1,123.8 2.5,117.2 8.4,108.0 1.0,100.0 8.4,92.0 2.5,82.8 11.1,76.2 7.0,66.1 16.6,61.1 14.3,50.5 24.6,47.2 24.2,36.4 34.9,34.9 36.4,24.2 47.2,24.6 50.5,14.3 61.1,16.6 66.1,7.0 76.2,11.1 82.8,2.5 92.0,8.4" fill="url(#gac2)"></polygon><circle cx="100" cy="100" r="89" fill="url(#gbc2)" stroke="#8A5E12" stroke-width="1.5"></circle><circle cx="100" cy="100" r="62" fill="url(#gcc2)" stroke="#8A5E12" stroke-width="1.5"></circle><circle cx="100" cy="100" r="57" fill="none" stroke="#8A5E12" stroke-width="1" stroke-dasharray="2 3"></circle><text font-size="15.5" font-weight="800" letter-spacing="1.6" fill="#3D2A05" text-anchor="middle"><textPath href="#gtc2" startOffset="50%">100% MONEY BACK</textPath></text><text font-size="15.5" font-weight="800" letter-spacing="3" fill="#3D2A05" text-anchor="middle"><textPath href="#guc2" startOffset="50%">GUARANTEE</textPath></text><polygon points="23.5,94.0 25.0,98.0 29.2,98.1 25.9,100.8 27.0,104.9 23.5,102.5 20.0,104.9 21.1,100.8 17.8,98.1 22.0,98.0" fill="#3D2A05"></polygon><polygon points="176.5,94.0 178.0,98.0 182.2,98.1 178.9,100.8 180.0,104.9 176.5,102.5 173.0,104.9 174.1,100.8 170.8,98.1 175.0,98.0" fill="#3D2A05"></polygon><text x="100" y="112" font-size="50" font-weight="800" letter-spacing="-1" fill="#3D2A05" text-anchor="middle">365</text><text x="102" y="134" font-size="17" font-weight="800" letter-spacing="4" fill="#3D2A05" text-anchor="middle">DAY</text></svg><div class="c2-seal-title">365-Day No Risk<br>100% Money Back Guarantee</div></div>
             <p>We guarantee you'll love Abs By AI or we'll refund your money.</p>
             <p>If you're not happy for any reason, email us within 365 days of your first payment for a full refund. No questions asked.</p>
           </div>

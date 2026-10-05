@@ -162,6 +162,7 @@ def main():
         stop = next((x for x in stops if x > ws + 1e-3), None)
         if stop is not None:
             end = max(min(end, stop), ws + 1.0 / FPS)
+        end = min(end, float(cut_plan["seconds"]))            # no cue runs past the picture
         srt.append(f"{i}\n{ts(g[0][1])} --> {ts(end)}\n{' '.join(x[0] for x in g)}\n")
     srt_path = os.path.join(audit, "plan_assets", "captions.srt")
     open(srt_path, "w").write("\n".join(srt))
@@ -189,7 +190,7 @@ def main():
         banned_source=master.get("banned_source"),
         banned_times=master.get("banned_times", []),
         caption_states=manifest["caption_states"],
-        caption_highlight_rgb=[140, 153, 91],
+        caption_highlight_rgb=master.get("caption_highlight_rgb", [140, 153, 91]),   # olive, or a sheet build's cyan
         speech_words=words,
         speech_words_evidence=dict(method="verbatim_source_ctc"),
         graphic_regions=graphic_regions,

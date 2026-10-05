@@ -42,9 +42,38 @@ def sentences(W):
     return out
 
 
+# AN ORGANIC FILM'S 59 s CUT IS A SHORT, NOT AN AD CUTDOWN (RO-10, 2026-10-03). The ad brief demands the app demo and
+# the tap-the-button CTA, which a content video does not have. A short must stand alone and leave the viewer with
+# something to do (Dan's standing shorts rules: a reason to watch, a tactic, never a line that points at something the
+# cut does not contain). The seam, length and caption rules are the same as the ad's; only the ending is free.
+ORGANIC_BRIEF = (
+    "You are cutting a <=0:59 vertical Short out of a finished ORGANIC YouTube video by Dan Rose (fitness for men over "
+    "40; this is content, not an ad). Below is the video's transcript as numbered sentences with their times. Pick "
+    "sentence RANGES, in the original order, that make ONE short that stands on its own in under {max} seconds: the "
+    "hook (the first lines of the video), the main claim with its single strongest piece of proof, and the practical "
+    "payoff. The viewer must leave with at least one concrete thing to do, stated completely; a recap that lists the "
+    "video's tactics is the best payoff when there is one. Never include a line that points at something the cut does "
+    "not contain ('the study I just showed you', 'here's the second one', 'number five goes together with...', 'the "
+    "next one') unless what it points at is in the cut. End on a complete thought: the recap or the video's closing "
+    "line are both good endings, and the cut does NOT have to run to the last sentence. Use most of the time you "
+    "have: a cut under 45 s has thrown away story it could keep. Rules: the first range starts at sentence 0 (the hook "
+    "is never cut); at most 4 ranges; each range is a run of consecutive sentences; every seam must be a sentence AND "
+    "a thought boundary (the cut must read as natural prose, no dangling 'and'/'so'/'this' referring to something cut "
+    "away); never end on a half-finished list. Prefer fewer, longer ranges. Sum the durations yourself and stay under "
+    "the limit. PICTURE RULE: each sentence is tagged with what is on screen where it starts and ends (FAR / NEAR = "
+    "the talking head at that zoom level, picture = a photo, clip or text card). Where one range ends and the next "
+    "begins, the two tags must differ (FAR to NEAR, NEAR to FAR) or at least one must be 'picture'; never FAR to FAR "
+    "or NEAR to NEAR. Never end a range on a sentence tagged 'a range CANNOT END here', nor start one on 'a range "
+    "CANNOT START here'. At least half of the cut's running time must be sentences NOT tagged 'NO CAPTIONS on screen'.\n\n")
+ANSWER_JSON = ('\n\nAnswer JSON: {"ranges": [[first_sentence, last_sentence], ...], "total_seconds": <sum>, '
+               '"story": "<the cut read as prose>", "why": "<one line per range: hook/proof/payoff/close>"}')
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--build", required=True)
+    ap.add_argument("--organic", action="store_true", help="the film is content, not an ad: the short's brief (ORGANIC_BRIEF); "
+                                                           "the cut need not end on the film's last sentence")
     ap.add_argument("--ai", default="gemini")
     ap.add_argument("--model", default="gemini-3.1-pro-preview",
                     help="one text call, a few cents: Flash 2.5 could not hold the seam rules (out-of-order ranges, a 34 s cut "
@@ -155,7 +184,7 @@ def main():
                 + ("; a range CANNOT START here" if pr and "start on" in pr else "")
                 + ("; NO CAPTIONS on screen" if caps and captioned(S[i]["t0"], S[i]["t1"]) < 0.4 * (S[i]["t1"] - S[i]["t0"]) else "") + ">")
     listing = "\n".join(f"[{i}] ({s['t0']:.1f}-{s['t1']:.1f}s, {s['t1'] - s['t0']:.1f}s) {s['text']}{tag(i)}" for i, s in enumerate(S))
-    prompt = (
+    prompt = ORGANIC_BRIEF.format(max=f"{a.max:.0f}") + listing + ANSWER_JSON if a.organic else (
         "You are cutting a <=0:59 vertical cutdown of a finished paid video ad for Abs By AI (an app that generates a "
         "picture of you with six-pack abs, then builds the workout and nutrition plan). Below is the ad's transcript as "
         "numbered sentences with their times. Pick sentence RANGES, in the original order, that tell the complete "
@@ -247,7 +276,7 @@ def main():
             probs.append(f"it has {len(R)} ranges (at most 4)")
         if any(x > y for x, y in R) or any(R[i + 1][0] <= R[i][1] for i in range(len(R) - 1)):
             probs.append("the ranges must be in the ad's own order and must not overlap")
-        if not (R and R[-1][1] == len(S) - 1):
+        if not a.organic and not (R and R[-1][1] == len(S) - 1):
             probs.append("it does not end on the final sentence")
         if not probs:
             break

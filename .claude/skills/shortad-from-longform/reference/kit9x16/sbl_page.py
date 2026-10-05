@@ -105,7 +105,7 @@ def main():
     for r in items:
         lines = [E(s) for s in r["copy"]]
         body = "<br>".join(lines)
-        SH = {"fill": "FILLS THE FRAME", "square": "CENTRE SQUARE", "whole": "WHOLE CLIP", "phone": "PHONE, WHOLE"}
+        SH = {"fill": "FILLS THE FRAME", "square": "CENTRE SQUARE", "crop": "SIDE CROP", "whole": "WHOLE CLIP", "phone": "PHONE, WHOLE"}
         if r.get("shape"):
             body = f'<span class="shape {r["shape"]}">{SH.get(r["shape"], r["shape"])}</span>' + (" (your call)" if r.get("by") == "Dan" else "") + ("<br>" + body if body else "")
         if r.get("src"):

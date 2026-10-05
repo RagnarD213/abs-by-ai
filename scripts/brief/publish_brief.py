@@ -6,14 +6,13 @@ from pathlib import Path
 import subprocess
 import sys
 from urllib.request import Request, urlopen
-from collect_inputs import secrets
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("document", help="Structured private edition JSON outside Git")
     parser.add_argument("--publish", action="store_true")
-    parser.add_argument("--secrets-file", default=str(Path.home() / ".absbyai-secrets.env"))
+    parser.add_argument("--key-file", default=str(Path.home() / ".absbyai-brief" / "publish-key.pem"))
     args = parser.parse_args()
     try:
         file = Path(args.document).expanduser().resolve()
@@ -30,18 +29,21 @@ def main():
             raise ValueError("Writer document validation failed")
         document = json.loads(result.stdout)
         if args.publish:
-            values = secrets(Path(args.secrets_file).expanduser())
-            key = values.get("BRIEF_INGEST_SECRET", "")
-            if len(key) < 32:
-                raise ValueError("Private publication credential unavailable")
+            signer = Path(__file__).parent / "mac_signer.js"
+            signed = subprocess.run(["node", str(signer), "--sign", str(Path(args.key_file).expanduser())],
+                                    input=result.stdout, capture_output=True, timeout=15)
+            if signed.returncode:
+                raise ValueError("Local signing unavailable")
+            headers = json.loads(signed.stdout)
+            headers["Content-Type"] = "application/json"
             request = Request("https://absbyai.com/api/brief/publish", data=result.stdout,
-                              headers={"Content-Type": "application/json", "X-Brief-Ingest-Key": key}, method="POST")
+                              headers=headers, method="POST")
             with urlopen(request, timeout=25) as response:
                 receipt = json.load(response)
-            if receipt.get("ok") is not True or receipt.get("forDate") != document["forDate"]:
+            if receipt.get("ok") is not True or receipt.get("forDate") != document["forDate"] or receipt.get("routineEnabled") != document["routineEnabled"]:
                 raise ValueError("Publication receipt not verified")
         print(json.dumps({"status": "published" if args.publish else "validated_only", "forDate": document["forDate"],
-                          "editionType": document["editionType"], "routineEnabled": False}))
+                          "editionType": document["editionType"], "routineEnabled": document["routineEnabled"], "scheduleChanged": False}))
         return 0
     except Exception:
         # Provider bodies, credentials and private document text never reach stdout.

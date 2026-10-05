@@ -1,0 +1,79 @@
+[
+  {
+    "adGroup": {
+      "resourceName": "customers/3427170837/adGroups/204553317030",
+      "id": "204553317030"
+    },
+    "adGroupAd": {
+      "resourceName": "customers/3427170837/adGroupAds/204553317030~826635661909",
+      "status": "ENABLED",
+      "ad": {
+        "resourceName": "customers/3427170837/ads/826635661909",
+        "id": "826635661909",
+        "finalUrls": [
+          "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad4&utm_content=muhammad-16x9-vsl"
+        ],
+        "name": "Ad 4 Stop Wasting Money On Supplements | Muhammad 16:9 | vsl",
+        "demandGenVideoResponsiveAd": {
+          "headlines": [
+            {
+              "text": "How AI Fixed My Supplements"
+            },
+            {
+              "text": "Supplement Corps Hate Him"
+            },
+            {
+              "text": "The Truth About Supplements"
+            },
+            {
+              "text": "How I Got Abs At 40"
+            },
+            {
+              "text": "How AI Got Me Abs"
+            }
+          ],
+          "longHeadlines": [
+            {
+              "text": "Here's how AI fixed my supplements. Find which supplements are a waste of money with AI"
+            },
+            {
+              "text": "Take a photo of your supplements and AI tells you which ones are a waste of your money."
+            },
+            {
+              "text": "Supplement companies despise this AI app. See why men are cutting their supplement bill."
+            }
+          ],
+          "descriptions": [
+            {
+              "text": "Many supplements are a waste of money. AI can identify which supplements you should cut."
+            },
+            {
+              "text": "I was wasting money on supplements until AI audited my stack. See what it told me to cut."
+            },
+            {
+              "text": "This AI app audits your supplements from one photo. Try it free for 7 days."
+            }
+          ],
+          "videos": [
+            {
+              "asset": "customers/3427170837/assets/419938098517"
+            }
+          ],
+          "logoImages": [
+            {
+              "asset": "customers/3427170837/assets/400941168572"
+            }
+          ],
+          "businessName": {
+            "text": "Abs by AI"
+          },
+          "callToActions": [
+            {
+              "asset": "customers/3427170837/assets/401407635767"
+            }
+          ]
+        }
+      }
+    }
+  }
+]

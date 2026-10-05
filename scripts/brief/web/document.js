@@ -24,16 +24,24 @@ function link(value) {
   return url.href;
 }
 function validate(input, now = Date.now()) {
-  if (!input || input.schemaVersion !== 1 || input.routineEnabled !== false || input.timezone !== 'America/Chicago') throw new Error('Invalid edition');
+  if (!input || input.schemaVersion !== 1 || typeof input.routineEnabled !== 'boolean' || input.timezone !== 'America/Chicago') throw new Error('Invalid edition');
   const generatedAt = instant(input.generatedAt), forDate = date(input.forDate);
   if (Date.parse(generatedAt) > now + 300000 || !['manual', 'retrospective', 'daily'].includes(input.editionType)) throw new Error('Invalid edition time/type');
+  let routine = null;
+  if (input.routine != null) {
+    const r = input.routine, clock = /^(?:[01]\d|2[0-3]):[0-5]\d$/;
+    if (r.kind !== 'cloud' || !clock.test(r.startTime) || !clock.test(r.readyBy) || r.startTime >= r.readyBy || r.localCron !== false || r.notifications !== false) throw new Error('Invalid external schedule');
+    routine = {kind:'cloud', startTime:r.startTime, readyBy:r.readyBy, startsOn:date(r.startsOn), confirmedAt:instant(r.confirmedAt), localCron:false, notifications:false};
+    if (Date.parse(routine.confirmedAt) > now + 300000) throw new Error('Unconfirmed future schedule');
+  }
+  if (input.routineEnabled && !routine) throw new Error('Enabled routine requires external schedule evidence');
   const f = input.focus;
   if (!f || !['current', 'missing', 'stale'].includes(f.status)) throw new Error('Invalid focus');
   const focus = {status: f.status, task: text(f.task, 250), why: text(f.why, 650), source: text(f.source, 100),
     statedAt: f.statedAt ? instant(f.statedAt) : null, applicableDate: f.applicableDate ? date(f.applicableDate) : null};
   if (focus.status === 'current' && (!focus.statedAt || focus.applicableDate !== forDate || Date.parse(focus.statedAt) > Date.parse(generatedAt) + 300000 || Date.parse(generatedAt) - Date.parse(focus.statedAt) > 36 * 3600000)) throw new Error('Focus is not fresh/applicable');
   const cards = values => list(values, 3).map(row => ({title: text(row.title, 160), detail: text(row.detail, 500), source: text(row.source, 120), url: link(row.url)}));
-  const result = {schemaVersion: 1, generatedAt, forDate, timezone: 'America/Chicago', editionType: input.editionType, routineEnabled: false,
+  const result = {schemaVersion: 1, generatedAt, forDate, timezone: 'America/Chicago', editionType: input.editionType, routineEnabled: input.routineEnabled, routine,
     focus, yesterday: cards(input.yesterday || []), opportunities: cards(input.opportunities || []), useful: cards(input.useful || []),
     sources: list(input.sources || [], 25).map(row => ({name: text(row.name, 80), status: status(row.status), sourceAt: row.sourceAt ? instant(row.sourceAt) : null})),
     stats: null, socialReleaseQueue: null, imageAvailable: input.imageAvailable === true};

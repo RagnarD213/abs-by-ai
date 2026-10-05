@@ -20,7 +20,7 @@ Dan judges it blind (`blind/`). Never grade the kit yourself.
 | `content_from_beats.py` | lifts the content decisions out of an approved hand-written beats.py, with phrase anchors and label kinds |
 | `kit_beats.py` | the `beats` module the pipeline imports, reading `beats.json` |
 | `kit_base.py` | conform the picture to `edl_picture.json` at the grade (snapped seeks, rewritten pts); its dissolve-patch pass is dormant since round 6 (window splices step like talk splices, `cut_rules.md` 3c) |
-| `kit_track.py` | the 608-px talk crop's face track per picture segment; fixed centre where the lean is small; `--tolerance` px of dead band (the calmer camera, 2026-10-01) |
+| `kit_track.py` | the 608-px talk crop's face track per picture segment; fixed centre where the lean is small; `--tolerance` px of dead band (20 = the standard camera, 2026-10-03) |
 | `kit_labels.py` | label chips on full-bleed pictures of Dan placed by MEASURING him (person mask, above the head first), the approved square's method; `--verify` on the delivered file |
 | `kit_plan.py` | plan.json for the gate, evidence contract v2, read out of the build |
 | `kit_deliver.py` | the build order as numbered stages: setup · audio · words · picture · captions · mux · gate · review |
@@ -104,7 +104,7 @@ answer-key test passes and Ad 8's plan is identical before and after.
 
 | stage | script | what it does |
 |---|---|---|
-| sheet | `validate.py --hash`, `sheet_to_kit.py`, `clip_fit.py` | rolls, the cut (same-take reframes merged; every picture cut ON its audio cut, no pose search), the 16:9's grade on a HAIR-ANCHORED window of the raw, words (caption fixes applied, split hyphen words joined), `content.json` (every picture a fill, a square card or a whole-clip card by the three-step rule, label from the sheet; every full-screen graphic an `hf` beat; lower thirds; side cards), `assets.py`, `sheet_report.json` |
+| sheet | `validate.py --hash`, `sheet_to_kit.py`, `clip_fit.py` | rolls, the cut (same-take reframes merged; every picture cut ON its audio cut, no pose search), the 16:9's grade on a HAIR-ANCHORED window of the raw, words (caption fixes applied, split hyphen words joined), `content.json` (every picture a fill or a side-crop card of any shape by the fill-the-screen rule, label from the sheet; every full-screen graphic an `hf` beat; lower thirds; side cards), `assets.py`, `sheet_report.json` |
 | setup, audio, kit, base, track | the kit's own | unchanged. The audio is the 16:9's delivered mix, stream-copied. `build_kit.py` takes `piccuts.json` from the sheet and still schedules pushes and level steps |
 | graphics | `sbl_graphics.py` | after the kit has fixed the beat times: one HyperFrames render per graphic at 1080x1920 (`_shared/hyperframes/vertical.py`), one media-card plate per card beat, `cap_lifts` (captions rise above a bottom card) |
 | labels | `kit_labels.py` | full-bleed chips placed by measurement, drawn as the Soft Blue Light chip |
@@ -114,43 +114,124 @@ answer-key test passes and Ad 8's plan is identical before and after.
 Review before any full build: `sbl_page.py --media` builds the graphic-lock page (first minute, every graphic and clip
 at 9:16 with a moving context clip); `sbl_preview.py --range A B` cuts any span with captions and sound.
 
-**What the sheet path decides, and how.** Every horizontal clip follows Dan's three-step rule (2026-10-01, VIDEO-RULES
-"A horizontal clip in a vertical"): it fills the phone frame; if that cuts something critical at the sides, its centre
-square in a card; if the square still does, the whole clip in a card (never cropped shorter). `clip_fit.py` decides
-per clip with two small vision calls through `ai_calls.py` (about half a cent a clip, ledgered): first WHERE is what
-must stay visible (the crops are centred on it), then the fill and square crops at three moments of the used span are
-judged. The verdict is the tightest crop that loses nothing critical; it, its reason and the proof sheet go in
-`sheet_report.json` (`pictures[].fit`) and on the review page. Dan's own flips live in `<build>/clip_overrides.json`
-(`{"C08": {"verdict": "square", "dan": "<his words>"}}`) and win. A phone screen stays whole; a portrait source fills.
-Real-or-AI labels are never asked of the model. Hard cuts by default (`--flash` carries Muhammad's flash). No vignette.
-A graphic whose template has no 9:16 layout STOPS the run; nothing is dropped or redrawn by hand.
+**What the sheet path decides, and how (the continuous side crop, Dan 2026-10-02).** Every horizontal clip is cropped
+at the sides to the NARROWEST window that keeps what the clip is about, at any shape between full screen and the whole
+clip, placed on the subject (VIDEO-RULES "Verticals and squares: fill as much of the screen as the clip allows"; it
+replaces the 2026-10-01 three shapes, which are now points on that line). `clip_fit.py` decides per clip with small
+vision calls through `ai_calls.py` (about a cent a clip, ledgered):
+
+1. LOCATE: the left and right edges of what must stay visible, read off three moments of the used span stacked top to
+   bottom under a 0 to 1 ruler.
+2. The window is those edges plus 2 %, never narrower than full screen. Within 10 % of full screen it IS full screen
+   (a `bleed`); at 94 % of the width or more it is the whole clip. A span wider than a square is tried as the square
+   on its centre first.
+3. JUDGE: the crop at the three moments is checked; a rejected crop widens 8 % on the side that was cut and is judged
+   again (three tries, then the whole clip).
+
+The window, its reason and the proof sheet go in `sheet_report.json` (`pictures[].fit`); blank space always carries
+its reason there. Dan's own notes live in `<build>/clip_overrides.json` and win:
+`{"C06": {"x0": 0.16, "x1": 0.70, "dan": "<his words>"}}` (a window, fractions of the width),
+`{"C07": {"x0": 0.20, "x1": 0.67, "pan_to": [0.52, 0.99], "dan": ...}}` (the window travels with a subject that moves;
+cards only, drawn by `render_sbl.py`), `{"O1": {"verdict": "fill", "cx": 0.465, "dan": ...}}` (`fill` or `whole`), and
+`"note"` in place of `"dan"` for an editor's own call. A card takes any shape (`media_card_scene`, `ar` 0.56 to 1.78):
+one that fits above the caption line sits above it; a taller one is never shrunk for the captions, it runs down past
+them and the words sit inside the picture as on a fill. A phone screen stays whole, 1440 px tall and high in the frame.
+A before-card's photo is as tall as the chip and fact card under it allow (1000 x 1020 with a chip, 1000 x 1100 without). Real-or-AI labels are never
+asked of the model. Hard cuts by default (`--flash` carries Muhammad's flash). No vignette. A graphic whose template has
+no 9:16 layout STOPS the run; nothing is dropped or redrawn by hand.
 
 * The person mask cannot make this call: its extent read the salad table as 90 % wide and the man on the scale as 35 %,
   and on a hands-only clip its centre is the arm, not the bowl (round 1 and round 2 tuning).
-* The first prompt (a neutral "is anything lost") chose the square for all 18 clips, including the man on the scale Dan
-  named as a fill. The rule that works states his default (fill unless a strong reason) and the strong reasons: the one
-  main object is wider than the crop, a face is cut, the hand or tool doing the action leaves the crop, or the scene is
-  about things spread across the frame. RO-10: 6 fill, 12 square, 0 whole, 1 phone; both of his worked examples agree.
-* A model asked for a horizontal position on three frames laid side by side answers across the strip (0.22 for a
-  subject at 0.66): stack the frames top to bottom when a coordinate is wanted.
-* Borderline clips flip between runs (C08, C15 on RO-10). The verdict is cached per source span and prompt, and Dan
-  sees all of them with the three crops.
+* Never draw candidate crop boxes on the image the model reads a position from: in round 2, 8 of 18 answers were the
+  square box's own edges (0.22, 0.78). The LOCATE image is clean, with a ruler.
+* The model sometimes answers in percent or thousandths (26 and 59, 290 and 591): `locate` normalises.
+* The located span alone is too cautious on scenes with a lot in them (the notebook, the family meal, the candy came
+  out wider than crops Dan had already approved): hence the square-first step, which the judge may widen.
+* A subject that travels (the phone over the food, the soup bowl sliding) makes the still span wide. The model does not
+  propose a pan; look at the three-moment proof and set `pan_to` by hand where the subject moves.
+* A model asked for a horizontal position on three frames laid side by side answers across the strip: stack them.
+* Borderline clips flip between runs. The model's answer is cached per source span and prompt (`_clipfit/<key>.fit6.json`);
+  overrides are applied on top and never cached.
+* `sbl_graphics.py --only ID,ID` re-renders just those cards or graphics. A change to `vertical.py` makes every
+  graphic stale; in a review round render only what the page shows and let the full build redo the rest.
+* A HyperFrames render started with `nohup ... &` from an agent shell is cancelled when that shell returns
+  ("render_cancelled_parent_exited"): run it as a background task of the agent instead.
+* RO-10 round 3: 5 fills, 13 side crops (7 taller than a square, 2 travelling), 0 whole; 10 clips carry Dan's own note.
 
-**2026-10-02, Dan: fill more of the screen.** The three shapes become a continuous side crop (the narrowest window that
-keeps what the clip is about, any shape between the whole clip and full screen); VIDEO-RULES "Verticals and squares".
-Not built yet: `Handoffs/handoff-20261002-vertical-kit-round3-fill-more-screen.md`.
+**The standard camera (Dan, 2026-10-03).** `kit_track.py --tolerance 20` (source px, the default): the crop lands on
+him at every cut, then holds until he is 20 px (3.3 % of the 608 px crop) off its centre, and only then follows
+(`_shared/cut/landing.py`, off by default for every other caller). Dan chose it over `--tolerance 6` on the RO-10 first
+minutes and made it the standard for every vertical (`_shared/framing-motion.md`, VIDEO-RULES). RO-10: crop travel
+10,759 to 3,413 px (68 % less), p90 pan speed 62.9 to 22.8 px/s (64 % less), him 17 px off centre at the median, 92 px
+at most. The ceiling is the gate's own centring bound (a hold's median head centre within 6 % of the width, 36 source px).
 
-**The calmer camera (Dan, 2026-10-01).** `kit_track.py --tolerance` (default 6 source px): the crop lands on him at
-every cut, then holds until he is that far off its centre, and only then follows (`_shared/cut/landing.py`, off by
-default for every other caller). RO-10: crop travel 10,759 to 7,194 px (33 % less), p90 pan speed 62.9 to 36.4 px/s
-(42 % less); `--tolerance 20` is 68 % / 64 % less with him 17 px off centre at the median. The ceiling is the gate's own
-centring bound (a hold's median head centre within 6 % of the width, 36 source px).
+> **2026-10-04, Dan: the kit is for ADS.** Content gets Shorts, ads get formats (VIDEO-RULES, "Categorize every video
+> before editing it"). `kit_run.py` refuses a sheet whose type is `LFC` / `SFC` unless `--dan-asked "<his words>"`
+> is given. RO-10 below was the proof run of the sheet path and is parked, not published. The `organic9x16` gate
+> format and the organic cut brief stay for the day Dan asks for a content vertical by name; prove anything new on an ad.
 
-**Not proven yet on a sheet build (2026-10-01):** `kit_plan.py` and the gate pre-check, the judges, the fold and the
-cutdown. The gate's ad ranges (`picture.json`) were measured on Muhammad's 3 to 4 minute ads; RO-10 (an 8:38 organic
-film) plans to 0 flashes (his 2.5 to 3.8 per minute), 0 CTAs (2.7 to 3.3), 2.2 inserts per minute (2.4 to 8.5), 27 %
-insert coverage (34 to 64 %) and a 49 s longest talk stretch (12.6 to 29.9 s). Those bounds are NOT to be moved;
-which format gates a vertical of an organic film is Dan's ruling.
+**The gate stages on a sheet build (2026-10-03, RO-10 round 4).** `kit_run.py --sheet ... --from picture` now runs the
+whole back half: picture, captions, mux, the gate pre-check, the judged watch pass, the fold, the 59 s cut and its gate.
+
+* **Which gate grades it.** `kit_run.py` reads the sheet's `type`. An ad (`AD`) is `ad9x16`, as before. An organic film
+  (`LFC` / `SFC`) is **`organic9x16`** (`_shared/deliver/formats.py`, gate 2.5.0) and its 59 s cut is a **`short`**.
+  `organic9x16` has no number of its own: pacing and speech bounds are the parent `longform`'s (coverage 40 %, 30 s
+  longest static stretch, 4 changes a minute, 2.0 s dead air: it is the same cut and the same delivered mix), framing,
+  caption and label bounds are the organic vertical's (`short`), and drug names are allowed (Dan, 2026-09-30: the
+  brand-name ban is an ad rule; RO-10 says "Zepbound" seven times and `ad9x16` would fail it on that alone).
+* **Ad pacing does not grade an organic film** (Dan, 2026-10-03). `build_kit.py` reports the five hand-count design rows
+  measured on Muhammad's 3 to 4 minute ads (`flashes_per_min`, `cta_count`, `inserts_per_min`, `insert_coverage_hand`,
+  `longest_talk_hand_s`) as NOT APPLICABLE with a reason when `content.json` says `organic` (written by
+  `sheet_to_kit.py` from the sheet's type). No range in `picture.json` moved. `build_kit.py --rescore --build B` refreshes
+  an existing `kit_report.json` without rebuilding a beat.
+* **`kit_plan.py` on a sheet build** reads the build's own facts from `hf/`: overlays (lower thirds, side cards) and
+  their visible boxes from `hf/manifest.json`; a card's chip from `hf/plates.json`; a before-card's chip from
+  `hf/configs/<id>.json`. A chip's reference image is CUT OUT OF THE HYPERFRAMES RENDER that was composited, and the
+  cut-out is proven to be a chip (navy field, white type) before it is used. A card's hole is picture, never a graphic
+  region: captions may run inside a tall card exactly as they do on a fill. The card's chip is a region captions clear.
+* **The 59 s cut of an organic film is a Short, not an ad cutdown.** `cutdown_pick.py --organic` (passed by
+  `kit_run.py`) uses `ORGANIC_BRIEF`: hook, the main claim with its strongest proof, a practical payoff the viewer can
+  act on, no line that points at something the cut does not contain, and the cut may end before the film's last
+  sentence. The seam, length and caption rules are the ad's.
+* **Split caption tokens are joined** (`sheet_to_kit.py` `GLUE`): the roll transcript's "47" "%", "1" ",800",
+  "absbyai" ".com", "o" "'clock" are one caption word each. `sheet_to_kit.py --only-words`, then `kit_deliver.py words`
+  and `captions`, re-does only the words of an existing build.
+* A Soft Blue Light card's chip sits at a fixed 68 px under its hole; the prewatch label loop stops (it does not
+  re-render) if the person mask ever reads that chip as touching the person in the card.
+* `kit_judges.py` writes one brief per fresh judge naming its exact images and what the build declares (ramps vs hard
+  level steps, where captions pause, which pictures carry a chip), from the build's own files; `--notes` adds Dan's
+  decisions. The number of judges follows the image count (`--per`), not the running time: RO-10's 8:38 has 167
+  boundaries (346 images), the same as a 4:30 ad, so three judges. After a fix, `carry_verdicts.py` then
+  `kit_judges.py --rejudge logs/rejudge.json` sends one fresh judge to only the changed images; verdicts carry by a
+  boundary's time and label (a fix that removes a boundary renumbers every later strip).
+
+**RO-10 round 4, what the first full sheet build taught (2026-10-03).** Review page `sbl-ro10/review4/` (port 8812),
+record `sbl-ro10/round4_report.json`.
+
+* **The gate pre-check earns its place.** It found a caption sitting on a lifted list card for six frames and the plan's
+  last cue past the picture before any judge was spent. It costs 18 minutes alone and 46 when another session's gate
+  runs at the same time: never start two gates together.
+* **Three organic9x16 rows read FAIL on RO-10 and were left failing** (coverage 35 % against 40, static run 36 s
+  against 30, 3 of 24 joins above the file's p99). The palette and change-event instruments were calibrated on 16:9
+  layouts that switch between two very different crops; a vertical's 1.2x level steps, ramped pushes and glass lower
+  thirds do not register. The numbers are carried, not calibrated. When Dan rules on RO-10's vertical it becomes the
+  corpus entry they are set from. Never move them to pass a build.
+* **Caption timing is now acoustic for every word.** Digits are spelled the way they are said (`a2/align_ctc.py`), a
+  segment's last word no longer latches onto the next sentence, and the gate's `captions:sync` went from 10 misses to 0.
+* **No ramped push under a tall bottom card** (`sbl_graphics.py` `PUSH_MIN_CARD_TOP`): punched in, his chin met the
+  cycle card's top edge. A hard level step on a cut stays.
+* **A caption's hold ends at the next picture change** and at a list card that lifts captions (`captions.py`).
+* **Judged, left for Dan:** a lower third that opens long before its first line (G14: 4.6 s of heading only, with the
+  captions paused under it; every other one is 2.3 s or less). The timing is the 16:9's own. The offered rule: no lower
+  third opens more than 2.5 s before its first line, and captions run until it opens.
+* A 16:9 lower third that ends 0.2 s after a punch-in finishes its fade on the new shot (G03 at 1:04.2). Judged a
+  judgement call twice; it is the sheet's timing.
+* The 59 s cut of an organic film fails `short`'s `framing:push_coverage` when its talking stretch is short (17 s, one
+  punch-in). The picker does not weigh zoom variety yet.
+* A background task is stopped at two hours. Run the gate detached (`nohup`) and wait on its json; do not hold a
+  two-hour stage chain in one task on a loaded machine.
+* A wall-clock on this film, one clean pass on a machine at load 20 to 150: about 3 h 20 min (graphics 30 min,
+  picture 44, mux 16, gate 18, judges 24, fold 18, cut 25). The same picture step took 10 min later at load 15.
 
 ## An editor's master in Soft Blue Light (2026-10-01, AV-11 Ad 13) -- `kit_run.py --master ... --sbl COPY.json`
 

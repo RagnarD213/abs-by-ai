@@ -29,6 +29,10 @@ FPS = 30000 / 1001
 FF = VT.B.FF
 CAP_LIFT_GAP = 150            # px from the card's top edge up to the caption line's top (a 64 px line + its shadow)
 CAP_LIFT_MIN_Y = 1000         # a lifted caption line never starts above this: his chin reaches about 880 px in a punch-in.
+PUSH_MIN_CARD_TOP = 1050      # no RAMPED push while a bottom card whose top edge is above this is up: punched in, his chin
+                              # drops to about y 1010 when he dips his head and the card's top edge cuts into it (RO-10's
+                              # "Your Weekly Loop" card, top at y 1005, judge 2 at 3:13.6). A hard level step on a cut stays:
+                              # it is what hides the cut. Cards with their top at 1086 or lower were judged clear.
                               # A card tall enough to push the captions higher pauses them instead (RO-10 G13: 936 px, on his chin)
 
 
@@ -47,6 +51,7 @@ def main():
     ap.add_argument("--build", required=True); ap.add_argument("--sheet", required=True)
     ap.add_argument("--range", nargs=2, type=float); ap.add_argument("--no-render", action="store_true")
     ap.add_argument("--snap", action="store_true", help="also write hf/stills/<id>.png (the settled graphic)")
+    ap.add_argument("--only", help="comma list of graphic ids / media keys to build; everything else keeps its render (plates and manifest are still rewritten in full)")
     a = ap.parse_args()
     B = os.path.abspath(a.build)
     os.chdir(B); sys.path.insert(0, B)
@@ -57,9 +62,10 @@ def main():
     from assets import MEDIA
     tl, ov = BT.timeline()
     out = os.path.join(B, "hf")
-    inr = lambda t0, t1: (not a.range) or (t0 < a.range[1] and t1 > a.range[0])
+    only = set(a.only.split(",")) if a.only else None
+    inr = lambda t0, t1, name=None: ((not a.range) or (t0 < a.range[1] and t1 > a.range[0])) and (only is None or name in only)
     render = not a.no_render
-    plates, manifest, lifts, muted = {}, [], [], []
+    plates, manifest, lifts, muted, tall_cards = {}, [], [], [], []
     prev = 0
     for i, b in enumerate(tl):
         cum = round(b["t1"] * FPS); n = cum - prev; f0 = prev; prev = cum
@@ -69,7 +75,7 @@ def main():
             c.update(a=a_, b=b_); g.update(config=c, t0=a_, t1=b_)
             scenes, meta = VT.scenes_for(g)
             plates[str(i)] = dict(kind="hf", gid=b["gid"], frames=n, mov=os.path.join(out, "renders", scenes[0][1]["id"] + ".mov"))
-            if inr(b["t0"], b["t1"]):
+            if inr(b["t0"], b["t1"], b["gid"]):
                 VT.build(scenes, out, render=render, snap=(max(0.5, n / FPS - 0.6) if a.snap else None))
                 print(f"{b['gid']:6s} full-screen {g['template']:22s} {a_:8.2f} {n:5d} f", flush=True)
         elif b["kind"] == "card":
@@ -83,7 +89,7 @@ def main():
                                               kicker="AbsByAI.com" if b.get("phone") else None, caps=b.get("caps") is not False)
             plates[str(i)] = dict(kind="card", media=key, frames=n, hole=hole, mov=os.path.join(out, "renders", pid + ".mov"),
                                   chip=scene[1].get("chip"))
-            if inr(b["t0"], b["t1"]):
+            if inr(b["t0"], b["t1"], key):
                 VT.build([scene], out, render=render, snap=(1.0 if a.snap else None))
                 print(f"{key:6s} card        hole {hole} {n:5d} f", flush=True)
     for o in ov:
@@ -100,18 +106,32 @@ def main():
         if meta["kind"] == "glass":
             m["mask"] = os.path.join(out, "renders", gid + "_mask.mov")
         manifest.append(m)
+        if o["kind"] == "hfov" and meta["box"][1] < PUSH_MIN_CARD_TOP:
+            tall_cards.append((o["t0"], o["t1"], gid))
         if o["kind"] == "hfov":
             y = int(meta["box"][1] - CAP_LIFT_GAP)
             if y >= CAP_LIFT_MIN_Y:
                 lifts.append([o["t0"], o["t1"], y])
             else:
                 muted.append(gid)                              # a tall card: lifted captions would sit on his chin, so they pause
-        if inr(o["t0"], o["t1"]):
+        if inr(o["t0"], o["t1"], gid):
             VT.build(scenes, out, render=render, snap=(max(0.5, o["t1"] - o["t0"] - 0.6) if a.snap else None))
             print(f"{gid:6s} overlay     {m['template']:22s} {o['t0']:8.2f} - {o['t1']:8.2f} {meta['kind']}", flush=True)
     json.dump(sorted(manifest, key=lambda m: m["a"]), open(os.path.join(out, "manifest.json"), "w"), indent=1)
     json.dump(plates, open(os.path.join(out, "plates.json"), "w"), indent=1)
     J["cap_lifts"] = lifts
+    # ramped pushes under a tall bottom card are dropped (PUSH_MIN_CARD_TOP); what was dropped is recorded
+    keep, dropped = [], list(J.get("pushes_dropped_under_cards", []))
+    for p_ in J.get("pushes", []):
+        ramped = p_[1] - p_[0] > 1e-6
+        hit = next((g_ for t0_, t1_, g_ in tall_cards if p_[0] < t1_ and p_[3] > t0_), None)
+        if ramped and hit:
+            dropped.append(dict(push=list(p_), card=hit))
+        else:
+            keep.append(p_)
+    if len(keep) != len(J.get("pushes", [])):
+        J["pushes"] = keep; J["pushes_dropped_under_cards"] = dropped
+        print(f"{len(dropped)} ramped push(es) dropped under tall bottom cards: {[(d['card'], round(d['push'][0], 2)) for d in dropped]}")
     for it in J.get("insets", []):
         if it.get("gid") in muted:
             it["caps"] = False

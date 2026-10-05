@@ -14,6 +14,13 @@ description: >
 
 Read `_shared/VIDEO-RULES.md` first.
 
+## This skill is for CONTENT only (Dan, 2026-10-04)
+
+Shorts are cut from a long-form CONTENT video. An ad is never mined for a batch of organic Shorts: an ad gets its
+vertical, square and 1-minute versions through `/shortad-from-longform`. Check the category before any work
+(VIDEO-RULES, "Categorize every video before editing it"). If the video is an ad, stop and tell Dan in one line; only
+his own words naming that video override it.
+
 ## Graphic set for new batches (Dan, 2026-10-01)
 
 SL-05 was the last batch in the J2 / olive set. Every new batch uses Soft Blue Light graphics from the HyperFrames templates; the first vertical and the first square made that way get a full approval round with every asset shown to Dan before the build. Full rule: `_shared/VIDEO-RULES.md`, "New shorts batches".
@@ -26,6 +33,15 @@ Never crop rows off a 16:9 clip that sits as a card in a 9:16 or 1:1 frame: it o
 space. Dan: *"There's not ever any reason for you to crop horizontal videos within a vertical frame and make them shorter than they already are. There's already too much black space, so avoid crops like you did on that first draft of the power lifter clip that unnecessarily make the video shorter when we have a horizontal within a vertical frame."* Crop the sides to make a card taller if nothing essential is lost; never the height. An editor's
 burned pill stays whole inside the card and our duplicate bar comes off for that shot (SL-05 short 3, round 3). In
 `plan_shots.py` terms: no `cardCrop` with a y range short of 0-1. Full rule: `_shared/VIDEO-RULES.md`.
+
+## Fill as much of the screen as the clip allows (Dan, 2026-10-02)
+
+A horizontal clip in a vertical or square is cropped at the SIDES to the narrowest window that keeps what the clip is
+about, at any shape between the whole clip and full screen, placed on the subject and not on the middle of the frame.
+Blank space is the exception and needs a reason in the build report (his example: the overhead salad table, "we need
+the stuff on the sides there"). A subject that moves across the frame gets a crop that travels with it. The tool:
+`shortad-from-longform/reference/kit9x16/clip_fit.py` (`decide()` returns the window, its shape and `ox`; Dan's own
+note on a clip goes in as an override and wins). Full rule: `_shared/VIDEO-RULES.md`, "Verticals and squares".
 
 ## Stand alone: show the whole exercise, not a detail of it (Dan, 2026-09-30)
 

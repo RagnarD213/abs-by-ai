@@ -22,7 +22,8 @@ How the design was reached (five rounds, research first): `Docs/cart-research-20
    notice, three numbered steps on one page (Your Email, Order Summary, Payment Information), the terms with a tick box
    directly above the button, contact and statement lines, the guarantee, Dan's photo and quote, footer.
 3. **Look.** Deep navy `#12306B` for the top stripe, the 1/2/3 step headers, the pay buttons, the notice outline and
-   label, the selected-plan outline, the guarantee seal, the email link and the footer. Selected-plan tint `#EEF1F8`.
+   label, the selected-plan outline, the email link and the footer. **The guarantee seal is gold since 2026-10-03**
+   (Dan: the same gold seal as `/start`, on top of the card and centred; the boards still show the navy circle). Selected-plan tint `#EEF1F8`.
    Yellow `#FFD23F` with black text for the "FREE 7 days" callout, and yellow for the underline under "Make It Real."
    Green `#15803D` only on the buy button. Red `#C9302D` only on "FREE!" and the required stars. Paper `#F6F4F0`,
    hairline `#E4E1DB`, ink `#05070B`, Manrope 500/600/700/800. No black sections.

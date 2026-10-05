@@ -139,6 +139,10 @@ def main():
     ap.add_argument("--raw", action="append", default=[])
     ap.add_argument("--ai", default="gemini")
     ap.add_argument("--judge", default="session", choices=["session", "both"])
+    ap.add_argument("--dan-asked", help="Dan's own words asking for a vertical of THIS content video. Without it a sheet whose "
+                                        "type is LFC / SFC is refused: content gets Shorts, ads get formats (Dan, 2026-10-04)")
+    ap.add_argument("--format", dest="fmt", help="the delivery gate's format for the full film. Default: ad9x16; a sheet of an "
+                                                 "organic film (type LFC / SFC) is organic9x16 and its 59 s cut is a `short`")
     ap.add_argument("--from", dest="start", choices=STAGES)
     ap.add_argument("--until", default="deliver", choices=STAGES)
     ap.add_argument("--deliver", help="the ad's folder under '<Editor> Ad Videos/' (deliver stage)")
@@ -147,8 +151,23 @@ def main():
     if bool(a.master) == bool(a.sheet):
         ap.error("give exactly one of --master (an editor's finished master) or --sheet (our own 16:9's edit sheet)")
     SHEET = os.path.abspath(a.sheet) if a.sheet else None
+    ORGANIC = False
     if SHEET:
-        a.master = json.load(open(SHEET))["video"]["master"]
+        _S = json.load(open(SHEET))
+        a.master = _S["video"]["master"]
+        ORGANIC = str(_S.get("type", "")).upper() in ("LFC", "SFC")
+    # THE GATE'S FORMAT. An ad is graded as an ad. An organic film's vertical is graded as organic (Dan, 2026-10-03):
+    # `organic9x16` for the full film (the parent longform's pacing and speech bounds, the organic vertical's framing
+    # and caption bounds; organic videos may name the drug), and its <= 0:59 cut is literally a `short`.
+    # CONTENT IS NEVER GIVEN AN AD'S FORMATS (Dan, 2026-10-04; VIDEO-RULES "Categorize every video before editing it").
+    # The vertical, the square and the 1-minute cut are made from an AD. A long-form gets Shorts (/shorts). RO-10's
+    # proof run cost seven hours and 1.6 million judge tokens for a vertical nobody needed.
+    if ORGANIC and not a.dan_asked:
+        raise SystemExit(f"kit_run: STOP. {os.path.basename(SHEET)} is CONTENT (type {_S.get('type')}), not an ad. A content video is cut "
+                         "into Shorts with /shorts; it does not get a vertical, a square or a 1-minute version. Tell Dan what was "
+                         "asked. Only his own words naming this video and this format override it: --dan-asked \"<his words>\".")
+    FMT = a.fmt or ("organic9x16" if ORGANIC else "ad9x16")
+    CUT_FMT = "short" if FMT == "organic9x16" else FMT
     a.start = a.start or ("sheet" if SHEET else "recover")
     # --sbl COPY.json: an editor's master redrawn in Soft Blue Light (master_to_sbl.py after `content`; then the sheet
     # path's graphics and picture stages). Without it a master build still draws the olive kit (answer keys, regressions).
@@ -164,6 +183,8 @@ def main():
     env = dict(os.environ, PATH=os.path.dirname(FF) + ":" + os.environ.get("PATH", ""))
     rp = os.path.join(B, "run_report.json")
     R = json.load(open(rp)) if os.path.exists(rp) else dict(master=master, build=B, name=a.name, stages=[])
+    if a.dan_asked:
+        R["dan_asked"] = a.dan_asked
 
     def save(extra=None):
         R["ai"] = ai_calls.Ledger(ledger).total()
@@ -183,9 +204,9 @@ def main():
             R.update(extra)
         json.dump(R, open(rp, "w"), indent=1)
 
-    def sh(cmd, cwd=B, check=True):
+    def sh(cmd, cwd=B, check=True, extra_env=None):
         print("$", " ".join(os.path.basename(str(c)) if i == 0 else str(c) for i, c in enumerate(cmd))[:300], flush=True)
-        r = subprocess.run([str(c) for c in cmd], cwd=cwd, env=env)
+        r = subprocess.run([str(c) for c in cmd], cwd=cwd, env=dict(env, **(extra_env or {})))
         if check and r.returncode:
             raise Stop(r.returncode if r.returncode in (3, 4) else 1, f"{os.path.basename(str(cmd[1]))} exited {r.returncode}")
         return r.returncode
@@ -272,6 +293,12 @@ def main():
                 bj_p = os.path.join(B, "beats.json")
                 bj = json.load(open(bj_p))
                 cards = sorted(k_ for k_ in obs if any(b.get("media") == k_ and b.get("kind") == "card" for b in bj["beats"]))
+                if cards and (SHEET or SBL):
+                    # a Soft Blue Light card's chip is drawn by the HyperFrames plate at a fixed 68 px under the hole
+                    # (vertical.media_card_scene); `label_dy` does not move it, so re-rendering would loop on nothing
+                    raise Stop(1, f"a card's chip reads as touching the person in the card on the delivered file: {cards} "
+                                  f"{ {k_: obs[k_][:3] for k_ in cards} }. Look at the frame: a real overlap is a layout "
+                                  f"change in vertical.media_card_scene; a mask misread is recorded in plan.json label_clearance")
                 if cards:
                     # a CARD's chip hangs under its hole: the mask read it as part of a person inside the card (the
                     # uploaded photo on a phone screen, Ad 10 122.0 s). It moves 48 px further below the card per try.
@@ -300,7 +327,7 @@ def main():
             # write (the watch pass, the negative-events scan) may be open. Three judges spent on a file the gate
             # then fails on a measurement is the most expensive way to find it (kit autofill, 2026-09-30).
             gp = os.path.join(B, "gate_pre.json")
-            subprocess.run([PY, os.path.join(SHARED, "deliver", "gate.py"), full, "--format", "ad9x16", "--plan",
+            subprocess.run([PY, os.path.join(SHARED, "deliver", "gate.py"), full, "--format", FMT, "--plan",
                             os.path.join(B, "plan.json"), "--json", gp], cwd=B, capture_output=True)
             if os.path.exists(gp):
                 rows = [r for r in json.load(open(gp))["rows"] if r.get("ok") is not True and not r.get("na")
@@ -325,7 +352,8 @@ def main():
                 g = os.path.join(logs, "gemini", "findings_part1.json")
                 shutil.copy(g, os.path.join(logs, "findings_part9_gemini.json"))
         elif name == "fold":
-            sh(["zsh", K("kit_fold.sh"), B, full, "session judges" + (" + Gemini judge" if a.judge == "both" else "")])
+            sh(["zsh", K("kit_fold.sh"), B, full, "session judges" + (" + Gemini judge" if a.judge == "both" else "")],
+               extra_env=dict(FORMAT=FMT))
             g = json.load(open(os.path.join(B, "gate_final.json")))
             if g.get("verdict") != "PASS":
                 raise Stop(1, f"GATE {g.get('verdict')}: " + "; ".join(r["key"] for r in g["rows"] if r.get("ok") is not True))
@@ -334,7 +362,7 @@ def main():
         elif name == "review":
             sh(D("review", "--build", B, "--video", full))
         elif name == "pick":
-            sh([PY, K("cutdown_pick.py"), "--build", B, "--ai", a.ai, "--ledger", ledger])
+            sh([PY, K("cutdown_pick.py"), "--build", B, "--ai", a.ai, "--ledger", ledger] + (["--organic"] if ORGANIC else []))
         elif name == "cutdown":
             sh([PY, K("kit_cutdown.py"), "--build", "--out", cut])            # run from the kit, in the build dir
         elif name == "cutgate":
@@ -350,7 +378,8 @@ def main():
             sh([PY, K("kit_negscan.py"), "sheet", "--build", audit, "--video", cut], cwd=audit)
         elif name == "cutfold":
             audit = os.path.join(B, "cut_audit")
-            sh(["zsh", K("kit_fold.sh"), audit, cut, "session judges" + (" + Gemini judge" if a.judge == "both" else "")])
+            sh(["zsh", K("kit_fold.sh"), audit, cut, "session judges" + (" + Gemini judge" if a.judge == "both" else "")],
+               extra_env=dict(FORMAT=CUT_FMT))
             g = json.load(open(os.path.join(audit, "gate_final.json")))
             os.makedirs(os.path.join(B, "cut"), exist_ok=True)
             shutil.copy(os.path.join(audit, "gate_final.json"), os.path.join(B, "cut", "gate_final.json"))

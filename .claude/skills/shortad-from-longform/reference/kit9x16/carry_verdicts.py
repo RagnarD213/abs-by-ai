@@ -50,17 +50,28 @@ def main():
         judges.append(d.get("judge", "?"))
         for e in d["entries"]:
             prev.setdefault(os.path.basename(str(e.get("image", ""))), []).append(e)
+    # A strip's NUMBER shifts when the fix adds or removes a boundary (RO-10: two pushes dropped at 3:02 renumbered
+    # every strip after it, and 231 of 340 unchanged images went back for re-judging). The image is the same
+    # boundary when its time and label match, so the match is on the name WITHOUT the running number; the pixels
+    # are still compared, and nothing is carried across a changed picture.
+    import re
+    key = lambda nm: re.sub(r"^(strip|pair)_\d+_", r"\1_", nm)
+    old_by_key = {}
+    for sub_ in ("sheets", "strips"):
+        for f_ in glob.glob(os.path.join(P, "watch", sub_, "*.jpg")):
+            if not os.path.basename(f_).startswith("._"):
+                old_by_key[(sub_, key(os.path.basename(f_)))] = f_
     carried, redo = [], []
     imgs = sorted(f for sub in ("sheets", "strips") for f in glob.glob(os.path.join(B, "watch", sub, "*.jpg"))
                   if not os.path.basename(f).startswith("._"))
     for f in imgs:
         name = os.path.basename(f)
         sub = os.path.basename(os.path.dirname(f))
-        old = os.path.join(P, "watch", sub, name)
-        ents = prev.get(name)
+        old = old_by_key.get((sub, key(name)), os.path.join(P, "watch", sub, name))
+        ents = prev.get(os.path.basename(old))
         if ents and os.path.exists(old) and all(e.get("verdict") in ("clean", "expected") for e in ents) and same(f, old, a.tol):
             for e in ents:
-                carried.append(dict(e, note="carried: pixel-identical to the judged round | " + str(e.get("note", ""))))
+                carried.append(dict(e, image=name, note="carried: pixel-identical to the judged round | " + str(e.get("note", ""))))
         else:
             redo.append(name)
     video = None

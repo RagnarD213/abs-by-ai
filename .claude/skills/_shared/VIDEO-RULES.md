@@ -90,6 +90,19 @@ rule and spell out all five slots. Reference:
 - This supersedes "extracting shorts from an approved long-form keeps that film's approved graphics" for the shorts'
   OWN graphics (title band, bars, chips). An editor's graphics burned into the picture are still handled, not restyled.
 
+## Verticals: the camera lands on Dan, then holds (the standard centering, Dan, 2026-10-03)
+
+**Locked by Dan, 2026-10-05:** The right-hand `after.mp4` in the Codex before/after review is the approved framing reference for all future 9:16 videos. Use this land-then-hold method through shared `cut/landing.py`. Exact clip hash, measurements and Dan's approval are recorded in `Docs/VERTICAL_CENTERING_CODEX_20261003.json`. This locks the framing method; approved exports stay untouched.
+
+- **In every vertical the crop that follows Dan lands centred on him after each cut, then stays still until he has moved
+  3.3 % of the crop's width off centre, and only then follows.** Dan, choosing the calmer of two RO-10 first minutes:
+  *"I like the calmest one, the two-thirds calmer. That looks the best to me... Let's make this our standard way of
+  centering for verticals going forward. I feel like this is better than what we were doing."*
+- It replaces the track that chased every small movement (his 2026-10-01 note: "excessive and distracting"). Never go
+  back to a crop that does not move at all: he left the frame.
+- Claude and Codex both build verticals this way. Method, numbers and code: `_shared/framing-motion.md`, "Vertical
+  talking head: land on him, then hold". Use shared `cut/landing.py` via its scaled vertical preset; `kit_track.py` defaults to 20 px for a 608 px crop. Report travel, p90 pan speed, time moving and median/maximum head offset. Approved exports stay untouched.
+
 ## Verticals and squares: fill as much of the screen as the clip allows (Dan, 2026-10-02)
 
 - **In a vertical or a square, every clip, photo and phone demo fills as much of the screen as its content allows. Crop
@@ -170,6 +183,37 @@ rule and spell out all five slots. Reference:
 ## Organic content approval budget (Dan, 2026-09-29)
 
 For organic content videos, the newer approval budget below replaces older requirements for Dan to approve every graphic and clip separately and the shared 10 to 15 decisions per video guidance. Keep the stepwise internal checks and the real approval gates. The **first approval round has at most 20 decisions**. In later rounds, **aim for 10 or fewer decisions per round**. These are ceilings, not targets. Ask Dan only about materially uncertain choices that require his judgment. Choose and check routine assets yourself, summarize what you chose, and let him overrule while reviewing the first minute and the finished film. Never reopen unchanged approved items or infer approval from silence. New AI motion still needs approved start/end frames first; show materially uncertain finished motion in context before locking it. The website VSL approval cadence remains separate and more detailed.
+
+## Categorize every video before editing it: content gets Shorts, ads get formats (Dan, 2026-10-04)
+
+Dan, 2026-10-04: *"From now on, we have to have everything categorized before we edit it. If it's a content video, if
+it's long-form content, then we want to cut it into shorts. If it's an ad, that's when we need the vertical and square
+version and the 1-minute version."* He asked for the rule in both directions: no ad-style edits of content videos, and
+no content-style edits of ads ("such as making 5 shorts out of an ad").
+
+| category | sidebar type | what is derived from the finished 16:9 | skill | never |
+|---|---|---|---|---|
+| long-form content | `LFC` | Shorts cut out of it, each standing alone | `/shorts` | a full-length vertical, a square, a 1-minute version of the whole video |
+| ad | `AD` | the vertical (`V`), the square (`S`) and the 1-minute cut (`Sh`) of the ad | `/shortad-from-longform` | a batch of organic Shorts mined from the ad |
+| dedicated Short | `SFC` | nothing: it is already the short | | any re-format |
+
+- **Decide the category before any edit work**, the same way the upload rule below decides it (the video's own ending:
+  a tap-the-button call to action is an ad; anything softer is content), and write it on the first line of the task
+  and of every handoff. A handoff with no category is not ready to fire.
+- **A request for the wrong kind stops before spending anything.** That covers a task prompt, a handoff, a queue job
+  and a proof or test run of a pipeline. Tell Dan in one line what was asked and what the category allows. Do the
+  read-only prep meanwhile.
+- **Only Dan's own words naming that video and that format override this**, recorded with the build (`kit_run.py
+  --dan-asked "<his words>"`). "Continue the edit" is not such words.
+- **A pipeline proof uses a video of the right category.** The sheet path for verticals is proven on an ad, never on
+  a long-form because it happened to be ready first.
+- **Enforced:** `kit_run.py` refuses an edit sheet whose `type` is `LFC` or `SFC` without `--dan-asked`. The `/shorts`
+  and `/shortad-from-longform` skills open with this rule.
+- **Why:** on 2026-10-03 the vertical kit's proof run was pointed at RO-10 (the Calories long-form) because it was the
+  first of our own edits with an edit sheet. It cost about seven hours of machine time and 1.6 million judge tokens for
+  a full 9:16 and a 52 second cut that nobody needed: the long-form publishes as its 16:9 and its Shorts are their
+  own job (SL-08). Queue jobs AV-13 and AS-12 (a vertical and a square of the organic Arms & Shoulders workout) are
+  retired by this rule.
 
 ## Ad or organic? Classify every video from its own ending before any upload (Dan, 2026-09-28)
 

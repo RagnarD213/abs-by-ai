@@ -5,9 +5,10 @@
 
 Replaces `recover`, `measure` and `content` (which reverse-engineer an editor's master). Nothing here is measured from
 the finished video and nothing is guessed: every value is copied from the sheet, and the one thing the sheet cannot
-know (how does a horizontal clip sit in a phone frame) is decided per clip by Dan's three-step rule, fill the frame,
-else the centre square, else the whole clip (`clip_fit.py`: the three crops are looked at, each verdict and its reason
-is recorded in sheet_report.json, and `<build>/clip_overrides.json` {key: {"verdict", "dan"}} holds his own flips).
+know (how does a horizontal clip sit in a phone frame) is decided per clip by Dan's fill-the-screen rule: the narrowest
+side crop that keeps what the clip is about, any shape between full screen and the whole clip (`clip_fit.py`: the crop
+is located, judged, and its reason recorded in sheet_report.json; `<build>/clip_overrides.json` holds his own notes as
+{key: {"x0", "x1", "dan"}} windows or {"verdict": "fill" | "whole", "dan"}, and they win).
 Writes into B:
 
   rolls.json          the raw rolls
@@ -20,7 +21,7 @@ Writes into B:
   content.json        beats: every picture as a `card` or a `bleed` (label_kind from the sheet, NEVER a library match
                       or a model), every full-screen graphic as an `hf` beat; lower thirds; side cards; CTAs
   assets.py           the media map
-  sheet_report.json   what was decided here and why (fill / square / whole per clip, the base window, anything dropped: nothing)
+  sheet_report.json   what was decided here and why (fill / side crop / whole per clip, the base window, anything dropped: nothing)
 
 Graphics are NOT drawn here: `sbl_graphics.py` renders them at 9:16 from the sheet's configs after `build_kit.py` has
 fixed the beat times.
@@ -58,20 +59,63 @@ def probe(path):
 
 
 def apply_fixes(words, fixes):
-    """The sheet's caption fixes are regexes on the running text (the 16:9's SRT pass). A fix whose replacement has
-    the same number of words is applied to the timed words; any other is reported, never silently skipped."""
+    """The sheet's caption fixes are regexes on the running text (the 16:9's SRT pass), applied to the timed words.
+    A fix that changes the number of words keeps the timing honest: fewer words ("broth based" -> "broth-based") and
+    the last new word takes the span of the old words it replaces; more words ("1.5mg" -> "1.5 mg") and the last old
+    word's span is shared evenly. A fix that would leave no word at all is reported, never applied."""
     skipped = []
     for pat, rep in fixes or []:
         if isinstance(pat, list):
             pat, rep = pat
         txt = " ".join(w["w"] for w in words)
         for m in list(re.finditer(pat, txt))[::-1]:
-            i0 = len(txt[:m.start()].split())
-            old = m.group(0).split(); new = m.expand(rep).split()
-            if len(old) != len(new):
+            # the match may begin or end inside a word (punctuation glued on): the whole words it touches are rewritten
+            a_ = txt.rfind(" ", 0, m.start()) + 1
+            b_ = txt.find(" ", m.end()); b_ = len(txt) if b_ < 0 else b_
+            i0 = len(txt[:a_].split())
+            old = txt[a_:b_].split(); new = (txt[a_:m.start()] + m.expand(rep) + txt[m.end():b_]).split()
+            if not new:
                 skipped.append([pat, rep]); continue
-            for k, s in enumerate(new):
-                words[i0 + k]["w"] = s
+            span = words[i0:i0 + len(old)]
+            n = min(len(old), len(new)) - 1
+            out = [dict(span[k], w=new[k]) for k in range(n)]
+            if len(new) <= len(old):
+                out.append(dict(span[n], w=new[n], t1=span[-1]["t1"]))
+            else:
+                t0, t1, k_ = span[n]["t0"], span[n]["t1"], len(new) - n
+                out += [dict(span[n], w=new[n + q], t0=round(t0 + (t1 - t0) * q / k_, 3), t1=round(t0 + (t1 - t0) * (q + 1) / k_, 3))
+                        for q in range(k_)]
+            words[i0:i0 + len(old)] = out
+    return skipped
+
+
+# A TOKEN THE ROLL TRANSCRIPT SPLIT OFF THE WORD BEFORE IT is one caption word, as it is written: "low" "-carb",
+# "47" "%", "1" ",800", "1" ".5mg", "absbyai" ".com", "o" "'clock". Left apart, the caption lit a lone "%" for half
+# a second and printed "47 %" and "2 o 'clock" (RO-10 vertical, 2026-10-03, found before the judges).
+GLUE = re.compile(r"^(-.|%|[.,][0-9A-Za-z])")
+
+
+def write_words(S, B):
+    """The sheet's words (split tokens joined, caption fixes applied) -> m.whisper.json + ref.whisper.json in the
+    shape the kit reads. Returns the fixes that could not be applied to the timed words."""
+    words = []
+    for w in S["words"]["list"]:
+        if words and (GLUE.match(w["w"]) or (w["w"].lower().startswith("'clock") and words[-1]["w"].lower() == "o")):
+            words[-1]["w"] += w["w"]; words[-1]["t1"] = w["t1"]
+        else:
+            words.append(dict(w))
+    skipped = apply_fixes(words, S["words"].get("fixes"))
+    segs, cur = [], []
+    for w in words:
+        cur.append(dict(word=" " + w["w"], start=w["t0"], end=w["t1"], probability=1.0))
+        if w["w"].rstrip().endswith((".", "?", "!")):
+            segs.append(cur); cur = []
+    if cur:
+        segs.append(cur)
+    wj = dict(text=" ".join(w["w"] for w in words), language="en",
+              segments=[dict(id=i, start=s[0]["start"], end=s[-1]["end"], text="".join(x["word"] for x in s), words=s) for i, s in enumerate(segs)])
+    for f in ("m.whisper.json", "ref.whisper.json"):
+        json.dump(wj, open(os.path.join(B, f), "w"))
     return skipped
 
 
@@ -79,6 +123,8 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--sheet", required=True)
     ap.add_argument("--build", required=True)
+    ap.add_argument("--only-words", action="store_true", help="rewrite only m.whisper.json / ref.whisper.json from the sheet "
+                                                              "(then `kit_deliver.py words` and `captions`); nothing else is touched")
     ap.add_argument("--ai", default="gemini", help="the vision provider for the clip rule (clip_fit.py); 'none' = every clip whole")
     ap.add_argument("--ledger", help="AI ledger (default <build>/ai_ledger.jsonl)")
     ap.add_argument("--flash", action="store_true", help="carry Muhammad's white flash on card returns (default: hard cuts, like our 16:9s)")
@@ -89,6 +135,11 @@ def main():
         raise SystemExit("the edit sheet is incomplete (fix the 16:9 side, never the sheet by hand):\n  - " + "\n  - ".join(E[:40]))
     B = os.path.abspath(a.build)
     os.makedirs(B, exist_ok=True)
+    if a.only_words:
+        skipped = write_words(S, B)
+        n = len(json.load(open(os.path.join(B, "ref.whisper.json")))["text"].split())
+        print(f"{B}: m.whisper.json + ref.whisper.json rewritten from the sheet ({n} caption words; {len(skipped)} fix(es) not applied)")
+        return 0
     V = S["video"]
     report = dict(sheet=os.path.abspath(a.sheet), job=S["job"], decisions=[], pictures=[], stops=[])
     AI = ai_calls.provider(a.ai, a.ledger or os.path.join(B, "ai_ledger.jsonl"))
@@ -144,27 +195,9 @@ def main():
                                  far_crop_raw=[round(608 / 1920 * cw), ch], headroom_px_at_1080=round((hair - cy) / ch * 1080, 1))
 
     # ---- words
-    words = []
-    for w in S["words"]["list"]:
-        # the roll transcript splits a hyphenated word ("low", "-carb"): one caption word, as it is written
-        if words and w["w"].startswith("-") and len(w["w"]) > 1:
-            words[-1]["w"] += w["w"]; words[-1]["t1"] = w["t1"]
-        else:
-            words.append(dict(w))
-    skipped = apply_fixes(words, S["words"].get("fixes"))
+    skipped = write_words(S, B)
     if skipped:
         report["stops"].append(dict(what="caption fixes that change the word count were not applied to the timed words", fixes=skipped))
-    segs, cur = [], []
-    for w in words:
-        cur.append(dict(word=" " + w["w"], start=w["t0"], end=w["t1"], probability=1.0))
-        if w["w"].rstrip().endswith((".", "?", "!")):
-            segs.append(cur); cur = []
-    if cur:
-        segs.append(cur)
-    wj = dict(text=" ".join(w["w"] for w in words), language="en",
-              segments=[dict(id=i, start=s[0]["start"], end=s[-1]["end"], text="".join(x["word"] for x in s), words=s) for i, s in enumerate(segs)])
-    for f in ("m.whisper.json", "ref.whisper.json"):
-        json.dump(wj, open(os.path.join(B, f), "w"))
 
     # ---- pictures -> media map + beats
     media, beats = {}, []
@@ -188,17 +221,20 @@ def main():
                 mode, why = p["vertical"]["mode"], "the sheet says so"
                 opts = {"ox": p["vertical"].get("ox", 0.5)} if mode == "bleed" else {}
             else:
-                # THE THREE-STEP RULE (Dan, 2026-10-01): fill the frame; if that cuts something critical at the sides,
-                # the centre square; if the square still does, the whole clip
+                # THE CONTINUOUS SIDE CROP (Dan, 2026-10-02): the narrowest window that keeps what the clip is about, any
+                # shape between full screen and the whole clip, placed on the subject. His own notes on a clip win.
                 ov = OVER.get(key)
+                if ov:
+                    ov = dict(ov, why=("Dan: " + ov["dan"]) if ov.get("dan") else ov["note"], by="Dan" if ov.get("dan") else "the editor")
                 fit = clip_fit.decide(src["path"], float(src.get("src_in", 0.0)), n / FPS, os.path.join(B, "_clipfit"), AI,
-                                      people=p["people"], key=key,
-                                      override=dict(verdict=ov["verdict"], why="Dan: " + ov["dan"], by="Dan") if ov else None)
+                                      people=p["people"], key=key, override=ov)
                 why = fit["why"]
                 if fit["verdict"] == "fill":
-                    mode, opts = "bleed", {"ox": fit["ox"]["fill"]}
-                elif fit["verdict"] == "square":
-                    opts = {"ar": 1.0, "ox": fit["ox"]["square"]}
+                    mode, opts = "bleed", {"ox": fit["ox"]}
+                elif fit["verdict"] == "crop":
+                    opts = {"ar": fit["ar"], "ox": fit["ox"]}
+                    if fit.get("pan"):
+                        opts["ox1"] = fit["ox1"]                  # the window travels with the subject (render_sbl.py)
             media[key] = ("img", src["path"], 0, 1.0, dict(opts, oy=0.0)) if isimg else \
                 ("vid", src["path"], float(src.get("src_in", 0.0))) + ((1.0, opts) if opts else ())
             b = dict(t0=round(at / FPS, 4), t1=round((at + n) / FPS, 4), kind=mode, media=key, pid=p["id"],
@@ -213,8 +249,9 @@ def main():
             report["pictures"].append(dict(id=key, mode=mode, why=why, source=os.path.basename(src["path"]), size=[w, h],
                                            label=p.get("label"), people=p["people"],
                                            shape=("phone" if p["kind"] == "phone" else fit["verdict"] if fit else mode),
-                                           fit=({k_: fit.get(k_) for k_ in ("verdict", "model_verdict", "overridden_by", "fill", "square", "subject",
-                                                                            "must_stay", "cx", "centred_by", "sheet", "confidence", "model")} if fit else None)))
+                                           fit=({k_: fit.get(k_) for k_ in ("verdict", "window", "ar", "pan", "model_verdict", "model_window", "model_why",
+                                                                            "overridden_by", "subject", "must_stay", "spread", "sheet", "confidence",
+                                                                            "model")} if fit else None)))
             at += n
     lts, insets, ctas = [], [], []
     for g in S["graphics"]:
@@ -239,6 +276,7 @@ def main():
     C = dict(source=f"sheet_to_kit.py from the edit sheet of {S['job']} ({S['editor']}); no reverse-engineering",
              style="softblue", words="m.whisper.json", dur=V["duration"], beats=beats, lower_thirds=lts, insets=insets, ctas=ctas,
              auto_cta=False, flash=bool(a.flash), no_caps_kinds=["hf", "cta"],
+             organic=str(S.get("type", "")).upper() in ("LFC", "SFC"),     # content, not an ad: ad pacing does not grade it
              deviations=[["graphics", "Soft Blue Light, drawn at 9:16 with HyperFrames from the 16:9's own configs (Dan, 2026-10-01)."],
                          ["picture", "Recut from the raw roll on the sheet's exact frames; the 16:9's delivered mix is untouched."]])
     json.dump(C, open(os.path.join(B, "content.json"), "w"), indent=1)
@@ -250,7 +288,8 @@ def main():
     print(f"{S['job']}: {len(edl)} takes, {len(words)} words, {nc} cards + {nb} fills, {sum(1 for b in beats if b['kind'] == 'hf')} full-screen graphics, "
           f"{len(lts)} lower thirds, {len(insets)} side cards, {len(ctas)} CTAs; base window {cw}x{ch}@{cx},{cy}")
     for p in report["pictures"]:
-        print(f"  {p['id']:8s} {p['shape']:6s} {p['why']}")
+        f = p.get("fit") or {}
+        print(f"  {p['id']:8s} {p['shape']:6s} {('ar %.2f ' % f['ar']) if f.get('ar') else ''}{p['why'][:150]}")
     return 0
 
 

@@ -210,7 +210,8 @@ class InputsTest(unittest.TestCase):
             project_root=str(self.project), secrets_file=str(self.root / 'absent.env'), live=False)
         directory, result = collect(args)
         self.assertEqual(os.stat(directory / 'brief-inputs.json').st_mode & 0o777, 0o600)
-        self.assertFalse(result['routineEnabled'])
+        self.assertFalse(result['scheduleChanged'])
+        self.assertNotIn('routineEnabled', result)  # Collector cannot assert cloud schedule state.
         self.assertEqual(result['sources']['trello']['status'], 'missing')
 
     def test_secrets_redacted_from_nested_fields(self):

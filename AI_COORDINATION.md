@@ -101,17 +101,17 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **SL-05 shorts - QUEUED 2026-10-01, Claude.** Blotato Oct 17-27. Next: Oct 11, confirm parent posted, else hold these. `Docs/SL05_SETUP_RECEIPT_20261001.md`.
 
-**RO-11 - READY 2026-10-04, Claude.** Round 1 and opener frames approved. Next: fire `handoff-20261004-ro11-round2-build-full-film.md`. ⚠ c712fa1, 343af08, 7a9d3c4 unpushed (safe-push stopped: 11 files with other sessions' edits).
+**RO-11 - READY 2026-10-04, Claude.** Round 1 and opener frames approved. Next: fire `handoff-20261004-ro11-round2-build-full-film.md`.
 
 **RO-12 - QUEUED 2026-10-01, Claude.** Blotato Oct 25. Then: `Docs/RO12_SETUP_RECEIPT_20261001.md`, delete.
 
-**RO-13 - QUEUED 2026-10-05, Claude.** Blotato Wed Oct 21 9AM CT. Then: Studio thumbnail A/B, captions, publish `sixpackabs/articles/TBD-alcohol-and-abs.md`. `Docs/RO13_SETUP_RECEIPT_20261005.md`, delete. ⚠e100f4a, 225a4d8 unpushed (git jam).
+**RO-13 - QUEUED 2026-10-05, Claude.** Blotato Wed Oct 21 9AM CT. Then: Studio thumbnail A/B, captions, publish `sixpackabs/articles/TBD-alcohol-and-abs.md`. `Docs/RO13_SETUP_RECEIPT_20261005.md`, delete.
 
 **RO-10 - QUEUED 2026-10-02, Claude.** Blotato Oct 7. Oct 7: captions, article, Zepbound link on Oct 25. `Docs/RO10_SETUP_RECEIPT_20261002.md`, delete.
 
 **RO-16 - QUEUED 2026-10-02, Claude.** Blotato Nov 1 9AM CST. Owes: RO-12 link in description after Oct 25; captions, article after Nov 1. `Docs/RO16_SETUP_RECEIPT_20261002.md`.
 
-**Studio posts - PARTIAL 2026-10-03, Claude.** 40 of 54 live; plan cap blocked 14 FB. Next: as slots free, `studio27_queue.py plan`, `create`. 97db224 unpushed (shorts owners' files). `Docs/STUDIO27_BLOTATO_QUEUE_RECEIPT_20261003.md`
+**Studio posts - PARTIAL 2026-10-03, Claude.** 40 of 54 live; plan cap blocked 14 FB. Next: as slots free, `studio27_queue.py plan`, `create`. `Docs/STUDIO27_BLOTATO_QUEUE_RECEIPT_20261003.md`
 
 **Stashed edits - NEEDS OWNER 2026-09-29, Claude.** A rebase kept upstream versions of softblue.py, SOFTBLUE.md, GRAPHICS-STANDARDS.md, deliver/gate.py, coverimage SKILL.md, 00-MASTER.md, jobs.json. Uncommitted edits: `stash@{0}` (5d8284a). Next: owner re-applies.
 
@@ -119,7 +119,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **Stop Deadlifting - QUEUED 2026-09-29, Claude.** Blotato Oct 11 9AM CT, 4 platforms. Next: once posted, publish `sixpackabs/articles/TBD-stop-deadlifting.md`, then delete.
 
-**SL-03 round 3 - NEEDS DAN 2026-10-04, Claude.** 2,4 revised; page http://127.0.0.1:8831/. Next: step 5, `handoff-20261004-sl03-salad-shorts-round3-revise-shorts-2-and-4.md`. ⚠5ef1a1b-unpushed
+**SL-03 round 3 - NEEDS DAN 2026-10-04, Claude.** 2,4 revised; page http://127.0.0.1:8831/. Next: step 5, `handoff-20261004-sl03-salad-shorts-round3-revise-shorts-2-and-4.md`.
 
 **RO-05 salad - QUEUED 2026-09-30, Claude.** Oct 18: fire `handoff-20260930-ro05-captions-and-article-after-release.md`.
 
@@ -156,7 +156,7 @@ test starts. `BLOTATO_QUEUE_PROGRESS.md`
 tab; stop rather than click into spinners. `Handoffs/handoff-20260908-google-ads-custom-segments.md`
 
 
-**RO-02 - NEEDS DAN 2026-10-05, Claude.** Thumbnails A-E shown. Next: Dan picks, then /video-setup. ⚠e649219-unpushed
+**RO-02 - NEEDS DAN 2026-10-05, Claude.** Thumbnails A-E shown. Next: Dan picks, then /video-setup.
 
 **Shorts parked behind the long-form hold. (baseline 2026-09-15; age unknown)** Zepbound (8) + Supplements (8) need the new spray-tan sound
 (`Handoffs/handoff-20260909-audio-match-muhammad.md`); nothing posts until a parent long-form is public.
@@ -182,7 +182,7 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
-- `handoff-20261005-git-unjam-main-folder.md` (10-05): push the 41 stuck commits. Run when no Claude session edits the main folder. Sol high. Then `handoff-20261005-git-jam-prevention.md`. Sol high.
+- `handoff-20261005-git-jam-prevention.md` (10-05): rules and tooling so the main folder cannot jam again. Sol high.
 - `handoff-20260930-codex-adopt-review-page-format.md` (09-30). Sol medium.
 
 - `handoff-20261001-move-project-out-of-icloud.md` (10-01): move the project out of iCloud's Documents sync (109k duplicates, 199 cloud-only files). Run when nothing else runs here. Opus 5.5 high.
@@ -208,7 +208,5 @@ Memory `google-ads-ui-automation`.
 - `handoff-20260826-danrosefit-abs-image-gap-fill.md` [dash] — once Blotato has 7 free slots.
 
 ## ACTIVE
-**Creative-services-handoff(2026-10-05,Codex,ca855ef):unpushed;next:git-unjam.** Blockers:`.claude/skills/_shared/VIDEO-RULES.md`,`.claude/skills/_shared/framing-motion.md`,`.claude/skills/shortad-from-longform/reference/kit9x16/README.md`,`.claude/skills/shortad-from-longform/reference/render.py`,`AI_COORDINATION.md`,`Docs/DGEN_CONVERSION_CAMPAIGN.md`,`Docs/WEB_CART.md`.
-
 **Ad 6 remarketing 2026-10-04:** Awaiting Dan: copy to enabled campaign 24305381214?
-- **AS-06 Ad 10 squares - NEEDS DAN 2026-10-05.** Delivered; Dan reviews. ⚠34d6878-unpushed
+- **AS-06 Ad 10 squares - NEEDS DAN 2026-10-05.** Delivered; Dan reviews.

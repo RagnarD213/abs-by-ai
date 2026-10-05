@@ -19,12 +19,39 @@ model = bundle.get_model().eval()
 labels = bundle.get_labels()          # ('-', '|', 'E', 'T', ...): blank, word-sep, letters
 L = {c: i for i, c in enumerate(labels)}
 NUM = {'6': 'SIX', '38': 'THIRTY EIGHT', '100': 'A HUNDRED', '2': 'TWO', '3': 'THREE', '5': 'FIVE', '10': 'TEN', '20': 'TWENTY'}
+# NUMBERS ARE SPELLED THE WAY THEY ARE SAID, so the acoustic model can place them. The model has letters only: a
+# token of digits used to normalise to nothing ("450", "1,200", "47%") or to its first digit ("609" -> SIX), so it
+# was never aligned and kept its Whisper time, 180 to 360 ms off on RO-10's vertical (gate captions:sync, 2026-10-03).
+# NUM's hand entries win, so every token that aligned before aligns exactly as it did.
+_ON = ("ZERO ONE TWO THREE FOUR FIVE SIX SEVEN EIGHT NINE TEN ELEVEN TWELVE THIRTEEN FOURTEEN FIFTEEN SIXTEEN "
+       "SEVENTEEN EIGHTEEN NINETEEN").split()
+_TN = "TWENTY THIRTY FORTY FIFTY SIXTY SEVENTY EIGHTY NINETY".split()
+def _u100(n): return _ON[n] if n < 20 else _TN[n // 10 - 2] + ('' if n % 10 == 0 else ' ' + _ON[n % 10])
+def _int(n, comma=False):
+    if n < 100: return _u100(n)
+    if n < 1000: return _ON[n // 100] + ' HUNDRED' + ('' if n % 100 == 0 else ' ' + _u100(n % 100))
+    if not comma and 1100 <= n <= 2099 and not 2000 <= n <= 2009:        # a year: nineteen ninety two, twenty ten
+        return _u100(n // 100) + ' ' + ('HUNDRED' if n % 100 == 0 else 'OH ' + _ON[n % 100] if n % 100 < 10 else _u100(n % 100))
+    if n < 10000 and n % 100 == 0 and n % 1000:                          # 1,200: twelve hundred
+        return _u100(n // 100) + ' HUNDRED'
+    if n < 1000000:
+        return _int(n // 1000) + ' THOUSAND' + ('' if n % 1000 == 0 else ' ' + _int(n % 1000))
+    return ' '.join(_ON[int(c)] for c in str(n))
+def _say(m):
+    s = m.group(0); ip, _, fp = s.replace(',', '').partition('.')
+    if not ip: return ' '
+    return ' ' + _int(int(ip), ',' in s) + (' POINT ' + ' '.join(_ON[int(c)] for c in fp) if fp else '') + ' '
+_NUMRE = r'\d+(?:,\d{3})+(?:\.\d+)?|\d+(?:\.\d+)?'
 def norm(w):
     w = w.replace('6PackAbs.com', 'SIX PACK ABS DOT COM')
-    w = re.sub(r"[^A-Za-z0-9' ]", ' ', w).upper()
-    w = ' '.join(NUM.get(t, t) for t in w.split())
-    w = re.sub(r'[0-9]+', lambda m: ' '.join(NUM.get(m.group(0), '')), w)
-    return re.sub(r"[^A-Z' ]", '', w).strip()
+    if all(n in NUM for n in re.findall(_NUMRE, w)) and '%' not in w:
+        w = re.sub(r"[^A-Za-z0-9' ]", ' ', w).upper()                  # the tokens this aligner always handled
+        w = ' '.join(NUM.get(t, t) for t in w.split())
+    else:
+        w = re.sub(_NUMRE, _say, w).replace('%', ' PERCENT ')
+        w = re.sub(r"[^A-Za-z' ]", ' ', w).upper()
+    w = re.sub(r'\bMG\b', 'MILLIGRAMS', w)
+    return re.sub(r"[^A-Z' ]", '', re.sub(r' +', ' ', w)).strip()
 words = C.load_words()                      # (word, whisper_start, whisper_end), FIX map applied
 segs = json.load(open('ref.whisper.json'))['segments']
 # assign each caption word to the whisper segment it came from (by time)
@@ -90,6 +117,16 @@ for si, s in enumerate(segs):
         st = a + f0*fdur; en = a + (f1+1)*fdur
         scs = [sc[f] for f in range(f0, f1+1)]
         out.append(dict(word=w[0], start=round(st,3), end=round(en,3), score=round(float(np.mean(scs)),3), src='ctc'))
+# A SEGMENT'S LAST WORD CAN LATCH ONTO THE NEXT SENTENCE. Each segment is aligned with 0.6 s of audio either side, so
+# the final letters of its last word can be placed on a similar sound in the next sentence's first words: "fat." ran
+# to 30.517 across a pause and over "In twenty ten"; "calories." ran to 64.659 across a 0.44 s pause. The next segment
+# places its own first word correctly, and the slip repair below then read THAT word as the slipped one and moved it
+# (and its neighbours) 200 to 300 ms late (RO-10 vertical, gate captions:sync, 2026-10-03). The earlier word's END is
+# the wrong number: it stops where the next segment's first word starts.
+for i in range(1, len(out)):
+    p, w = out[i-1], out[i]
+    if seg_of[i] != seg_of[i-1] and p.get('src') == 'ctc' and w.get('src') == 'ctc' and p['start'] + 0.06 <= w['start'] < p['end']:
+        p['end'] = round(w['start'], 3)
 # A CTC slip on a tiny word can land it before its predecessor or after its successor (12 of 875 here even
 # with exact segment ownership): re-place such a word evenly in the gap between its neighbours.
 # The honest repair: a slipped run is re-aligned TOGETHER WITH its nearest trusted neighbours on both sides, so the

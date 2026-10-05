@@ -1,0 +1,1819 @@
+{
+  "before": [
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/202248166482",
+        "status": "ENABLED",
+        "id": "202248166482",
+        "name": "Ad 10 Busy Dad Fitness",
+        "targetCpaMicros": "40000000"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/202248166482~826635657832",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826635657832",
+          "id": "826635657832",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad10&utm_content=muhammad-16x9-vsl"
+          ],
+          "name": "Ad 10 Busy Dad Fitness | Muhammad 16:9 | vsl",
+          "demandGenVideoResponsiveAd": {
+            "headlines": [
+              {
+                "text": "How Busy Dads Get Abs"
+              },
+              {
+                "text": "How 40+ Dads Can Get Abs"
+              },
+              {
+                "text": "A Busy Dad's Fitness System"
+              },
+              {
+                "text": "How I Got Abs At 40"
+              },
+              {
+                "text": "How I Lost Belly Fat With AI"
+              }
+            ],
+            "longHeadlines": [
+              {
+                "text": "Korean AI prodigy discovers how to use AI to lose belly fat. Video reveals full story."
+              },
+              {
+                "text": "No time for the gym? See how this busy dad used AI to lose his dad bod and get abs at 40."
+              },
+              {
+                "text": "AI fitness app shows you how to lose stomach fat and get abs. Try it free for 7 days!"
+              }
+            ],
+            "descriptions": [
+              {
+                "text": "I had a dad bod at 38 and abs at 40. See how I used AI to lose my stubborn belly fat."
+              },
+              {
+                "text": "This AI app shows busy dads how to lose their belly fat. Try it free for 7 days."
+              },
+              {
+                "text": "AI plans workouts and meals around your schedule, equipment and starting point."
+              }
+            ],
+            "videos": [
+              {
+                "asset": "customers/3427170837/assets/421589398534"
+              }
+            ],
+            "logoImages": [
+              {
+                "asset": "customers/3427170837/assets/400941168572"
+              }
+            ],
+            "businessName": {
+              "text": "Abs by AI"
+            },
+            "callToActions": [
+              {
+                "asset": "customers/3427170837/assets/401407635767"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/202248166482",
+        "status": "ENABLED",
+        "id": "202248166482",
+        "name": "Ad 10 Busy Dad Fitness",
+        "targetCpaMicros": "40000000"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/202248166482~826635657835",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826635657835",
+          "id": "826635657835",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad10&utm_content=claude-9x16-vsl"
+          ],
+          "name": "Ad 10 Busy Dad Fitness | Claude 9:16 | vsl",
+          "demandGenVideoResponsiveAd": {
+            "headlines": [
+              {
+                "text": "How Busy Dads Get Abs"
+              },
+              {
+                "text": "How 40+ Dads Can Get Abs"
+              },
+              {
+                "text": "A Busy Dad's Fitness System"
+              },
+              {
+                "text": "How I Got Abs At 40"
+              },
+              {
+                "text": "How I Lost Belly Fat With AI"
+              }
+            ],
+            "longHeadlines": [
+              {
+                "text": "Korean AI prodigy discovers how to use AI to lose belly fat. Video reveals full story."
+              },
+              {
+                "text": "No time for the gym? See how this busy dad used AI to lose his dad bod and get abs at 40."
+              },
+              {
+                "text": "AI fitness app shows you how to lose stomach fat and get abs. Try it free for 7 days!"
+              }
+            ],
+            "descriptions": [
+              {
+                "text": "I had a dad bod at 38 and abs at 40. See how I used AI to lose my stubborn belly fat."
+              },
+              {
+                "text": "This AI app shows busy dads how to lose their belly fat. Try it free for 7 days."
+              },
+              {
+                "text": "AI plans workouts and meals around your schedule, equipment and starting point."
+              }
+            ],
+            "videos": [
+              {
+                "asset": "customers/3427170837/assets/424707539263"
+              }
+            ],
+            "logoImages": [
+              {
+                "asset": "customers/3427170837/assets/400941168572"
+              }
+            ],
+            "businessName": {
+              "text": "Abs by AI"
+            },
+            "callToActions": [
+              {
+                "asset": "customers/3427170837/assets/401407635767"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/202248166482",
+        "status": "ENABLED",
+        "id": "202248166482",
+        "name": "Ad 10 Busy Dad Fitness",
+        "targetCpaMicros": "40000000"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/202248166482~826635657838",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826635657838",
+          "id": "826635657838",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad10&utm_content=claude-9x16-59s-vsl"
+          ],
+          "name": "Ad 10 Busy Dad Fitness | Claude 9:16 59s | vsl",
+          "demandGenVideoResponsiveAd": {
+            "headlines": [
+              {
+                "text": "How Busy Dads Get Abs"
+              },
+              {
+                "text": "How 40+ Dads Can Get Abs"
+              },
+              {
+                "text": "A Busy Dad's Fitness System"
+              },
+              {
+                "text": "How I Got Abs At 40"
+              },
+              {
+                "text": "How I Lost Belly Fat With AI"
+              }
+            ],
+            "longHeadlines": [
+              {
+                "text": "Korean AI prodigy discovers how to use AI to lose belly fat. Video reveals full story."
+              },
+              {
+                "text": "No time for the gym? See how this busy dad used AI to lose his dad bod and get abs at 40."
+              },
+              {
+                "text": "AI fitness app shows you how to lose stomach fat and get abs. Try it free for 7 days!"
+              }
+            ],
+            "descriptions": [
+              {
+                "text": "I had a dad bod at 38 and abs at 40. See how I used AI to lose my stubborn belly fat."
+              },
+              {
+                "text": "This AI app shows busy dads how to lose their belly fat. Try it free for 7 days."
+              },
+              {
+                "text": "AI plans workouts and meals around your schedule, equipment and starting point."
+              }
+            ],
+            "videos": [
+              {
+                "asset": "customers/3427170837/assets/424707544210"
+              }
+            ],
+            "logoImages": [
+              {
+                "asset": "customers/3427170837/assets/400941168572"
+              }
+            ],
+            "businessName": {
+              "text": "Abs by AI"
+            },
+            "callToActions": [
+              {
+                "asset": "customers/3427170837/assets/401407635767"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/204320854441",
+        "status": "ENABLED",
+        "id": "204320854441",
+        "name": "Ad 3 Stop Paying Human Trainers",
+        "targetCpaMicros": "40000000"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/204320854441~826635679183",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826635679183",
+          "id": "826635679183",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad3&utm_content=muhammad-16x9-clean-vsl"
+          ],
+          "name": "Ad 3 Stop Paying Human Trainers | Muhammad 16:9 clean | vsl",
+          "demandGenVideoResponsiveAd": {
+            "headlines": [
+              {
+                "text": "Fire Your Personal Trainer"
+              },
+              {
+                "text": "How AI Replaces Personal Trainers"
+              },
+              {
+                "text": "Human Trainers Hate Him"
+              },
+              {
+                "text": "How I Got Abs At 40"
+              },
+              {
+                "text": "Trainers Hate This AI App"
+              }
+            ],
+            "longHeadlines": [
+              {
+                "text": "Here's why I stopped paying a personal trainer and use an AI trainer instead."
+              },
+              {
+                "text": "Trainers despise this AI fitness app. See why men are replacing their trainer with AI."
+              },
+              {
+                "text": "I fired my personal trainer and got abs at 40 with AI. Video reveals full story"
+              }
+            ],
+            "descriptions": [
+              {
+                "text": "Most personal trainers charge $70 to $200 an hour. Here's how I use AI for the same job."
+              },
+              {
+                "text": "I struggled with belly fat until I discovered how to use an AI trainer to get abs."
+              },
+              {
+                "text": "This AI app shows you how to lose your belly fat. Try it free for 7 days."
+              }
+            ],
+            "videos": [
+              {
+                "asset": "customers/3427170837/assets/421279652331"
+              }
+            ],
+            "logoImages": [
+              {
+                "asset": "customers/3427170837/assets/400941168572"
+              }
+            ],
+            "businessName": {
+              "text": "Abs by AI"
+            },
+            "callToActions": [
+              {
+                "asset": "customers/3427170837/assets/401407635767"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/204320854441",
+        "status": "ENABLED",
+        "id": "204320854441",
+        "name": "Ad 3 Stop Paying Human Trainers",
+        "targetCpaMicros": "40000000"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/204320854441~826635679186",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826635679186",
+          "id": "826635679186",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad3&utm_content=claude-9x16-vsl"
+          ],
+          "name": "Ad 3 Stop Paying Human Trainers | Claude 9:16 | vsl",
+          "demandGenVideoResponsiveAd": {
+            "headlines": [
+              {
+                "text": "Fire Your Personal Trainer"
+              },
+              {
+                "text": "How AI Replaces Personal Trainers"
+              },
+              {
+                "text": "Human Trainers Hate Him"
+              },
+              {
+                "text": "How I Got Abs At 40"
+              },
+              {
+                "text": "Trainers Hate This AI App"
+              }
+            ],
+            "longHeadlines": [
+              {
+                "text": "Here's why I stopped paying a personal trainer and use an AI trainer instead."
+              },
+              {
+                "text": "Trainers despise this AI fitness app. See why men are replacing their trainer with AI."
+              },
+              {
+                "text": "I fired my personal trainer and got abs at 40 with AI. Video reveals full story"
+              }
+            ],
+            "descriptions": [
+              {
+                "text": "Most personal trainers charge $70 to $200 an hour. Here's how I use AI for the same job."
+              },
+              {
+                "text": "I struggled with belly fat until I discovered how to use an AI trainer to get abs."
+              },
+              {
+                "text": "This AI app shows you how to lose your belly fat. Try it free for 7 days."
+              }
+            ],
+            "videos": [
+              {
+                "asset": "customers/3427170837/assets/421096838324"
+              }
+            ],
+            "logoImages": [
+              {
+                "asset": "customers/3427170837/assets/400941168572"
+              }
+            ],
+            "businessName": {
+              "text": "Abs by AI"
+            },
+            "callToActions": [
+              {
+                "asset": "customers/3427170837/assets/401407635767"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/204320854441",
+        "status": "ENABLED",
+        "id": "204320854441",
+        "name": "Ad 3 Stop Paying Human Trainers",
+        "targetCpaMicros": "40000000"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/204320854441~826635679189",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826635679189",
+          "id": "826635679189",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad3&utm_content=claude-9x16-59s-vsl"
+          ],
+          "name": "Ad 3 Stop Paying Human Trainers | Claude 9:16 59s | vsl",
+          "demandGenVideoResponsiveAd": {
+            "headlines": [
+              {
+                "text": "Fire Your Personal Trainer"
+              },
+              {
+                "text": "How AI Replaces Personal Trainers"
+              },
+              {
+                "text": "Human Trainers Hate Him"
+              },
+              {
+                "text": "How I Got Abs At 40"
+              },
+              {
+                "text": "Trainers Hate This AI App"
+              }
+            ],
+            "longHeadlines": [
+              {
+                "text": "Here's why I stopped paying a personal trainer and use an AI trainer instead."
+              },
+              {
+                "text": "Trainers despise this AI fitness app. See why men are replacing their trainer with AI."
+              },
+              {
+                "text": "I fired my personal trainer and got abs at 40 with AI. Video reveals full story"
+              }
+            ],
+            "descriptions": [
+              {
+                "text": "Most personal trainers charge $70 to $200 an hour. Here's how I use AI for the same job."
+              },
+              {
+                "text": "I struggled with belly fat until I discovered how to use an AI trainer to get abs."
+              },
+              {
+                "text": "This AI app shows you how to lose your belly fat. Try it free for 7 days."
+              }
+            ],
+            "videos": [
+              {
+                "asset": "customers/3427170837/assets/421279652334"
+              }
+            ],
+            "logoImages": [
+              {
+                "asset": "customers/3427170837/assets/400941168572"
+              }
+            ],
+            "businessName": {
+              "text": "Abs by AI"
+            },
+            "callToActions": [
+              {
+                "asset": "customers/3427170837/assets/401407635767"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/204320854441",
+        "status": "ENABLED",
+        "id": "204320854441",
+        "name": "Ad 3 Stop Paying Human Trainers",
+        "targetCpaMicros": "40000000"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/204320854441~826635679192",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826635679192",
+          "id": "826635679192",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad3&utm_content=claude-square-r2-1-vsl"
+          ],
+          "name": "Ad 3 Stop Paying Human Trainers | Claude 1:1 R2.1 | vsl",
+          "demandGenVideoResponsiveAd": {
+            "headlines": [
+              {
+                "text": "Fire Your Personal Trainer"
+              },
+              {
+                "text": "How AI Replaces Personal Trainers"
+              },
+              {
+                "text": "Human Trainers Hate Him"
+              },
+              {
+                "text": "How I Got Abs At 40"
+              },
+              {
+                "text": "Trainers Hate This AI App"
+              }
+            ],
+            "longHeadlines": [
+              {
+                "text": "Here's why I stopped paying a personal trainer and use an AI trainer instead."
+              },
+              {
+                "text": "Trainers despise this AI fitness app. See why men are replacing their trainer with AI."
+              },
+              {
+                "text": "I fired my personal trainer and got abs at 40 with AI. Video reveals full story"
+              }
+            ],
+            "descriptions": [
+              {
+                "text": "Most personal trainers charge $70 to $200 an hour. Here's how I use AI for the same job."
+              },
+              {
+                "text": "I struggled with belly fat until I discovered how to use an AI trainer to get abs."
+              },
+              {
+                "text": "This AI app shows you how to lose your belly fat. Try it free for 7 days."
+              }
+            ],
+            "videos": [
+              {
+                "asset": "customers/3427170837/assets/422079967995"
+              }
+            ],
+            "logoImages": [
+              {
+                "asset": "customers/3427170837/assets/400941168572"
+              }
+            ],
+            "businessName": {
+              "text": "Abs by AI"
+            },
+            "callToActions": [
+              {
+                "asset": "customers/3427170837/assets/401407635767"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/204444440607",
+        "status": "ENABLED",
+        "id": "204444440607",
+        "name": "Ad 6 You're Not Too Old",
+        "targetCpaMicros": "40000000"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/204444440607~826595554443",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826595554443",
+          "id": "826595554443",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad6&utm_content=muhammad-16x9-vsl"
+          ],
+          "name": "Ad 6 You're Not Too Old | Muhammad 16:9 | vsl",
+          "demandGenVideoResponsiveAd": {
+            "headlines": [
+              {
+                "text": "How Men 40+ Lose Belly Fat"
+              },
+              {
+                "text": "How To Get Abs After 40"
+              },
+              {
+                "text": "How Busy 40+ Dads Lose Fat"
+              },
+              {
+                "text": "How I Got Abs At 40"
+              },
+              {
+                "text": "How AI Got Me Abs At 40"
+              }
+            ],
+            "longHeadlines": [
+              {
+                "text": "Think you're too old to get abs? See how I lost my stubborn belly fat and got abs at 40."
+              },
+              {
+                "text": "Korean AI prodigy discovers how to use AI to lose belly fat. Video reveals full story."
+              },
+              {
+                "text": "AI fitness app shows men 40+ how to lose stomach fat and get abs. Try it free for 7 days!"
+              }
+            ],
+            "descriptions": [
+              {
+                "text": "You're not too old to get abs. I got mine at 40 with an AI trainer. See how I did it."
+              },
+              {
+                "text": "I struggled with belly fat until I discovered how to use an AI trainer to get abs."
+              },
+              {
+                "text": "This AI app shows men 40+ how to lose their belly fat. Try it free for 7 days."
+              }
+            ],
+            "videos": [
+              {
+                "asset": "customers/3427170837/assets/421668364056"
+              }
+            ],
+            "logoImages": [
+              {
+                "asset": "customers/3427170837/assets/400941168572"
+              }
+            ],
+            "businessName": {
+              "text": "Abs by AI"
+            },
+            "callToActions": [
+              {
+                "asset": "customers/3427170837/assets/401407635767"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/204444440607",
+        "status": "ENABLED",
+        "id": "204444440607",
+        "name": "Ad 6 You're Not Too Old",
+        "targetCpaMicros": "40000000"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/204444440607~826887690637",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826887690637",
+          "id": "826887690637",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad6&utm_content=claude-vertical-vsl"
+          ],
+          "name": "Ad 6 You're Not Too Old | Claude 9:16 | vsl",
+          "demandGenVideoResponsiveAd": {
+            "headlines": [
+              {
+                "text": "How Men 40+ Lose Belly Fat"
+              },
+              {
+                "text": "How To Get Abs After 40"
+              },
+              {
+                "text": "How Busy 40+ Dads Lose Fat"
+              },
+              {
+                "text": "How I Got Abs At 40"
+              },
+              {
+                "text": "How AI Got Me Abs At 40"
+              }
+            ],
+            "longHeadlines": [
+              {
+                "text": "Think you're too old to get abs? See how I lost my stubborn belly fat and got abs at 40."
+              },
+              {
+                "text": "Korean AI prodigy discovers how to use AI to lose belly fat. Video reveals full story."
+              },
+              {
+                "text": "AI fitness app shows men 40+ how to lose stomach fat and get abs. Try it free for 7 days!"
+              }
+            ],
+            "descriptions": [
+              {
+                "text": "You're not too old to get abs. I got mine at 40 with an AI trainer. See how I did it."
+              },
+              {
+                "text": "I struggled with belly fat until I discovered how to use an AI trainer to get abs."
+              },
+              {
+                "text": "This AI app shows men 40+ how to lose their belly fat. Try it free for 7 days."
+              }
+            ],
+            "videos": [
+              {
+                "asset": "customers/3427170837/assets/427555866313"
+              }
+            ],
+            "logoImages": [
+              {
+                "asset": "customers/3427170837/assets/400941168572"
+              }
+            ],
+            "businessName": {
+              "text": "Abs by AI"
+            },
+            "callToActions": [
+              {
+                "asset": "customers/3427170837/assets/401407635767"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/204444440607",
+        "status": "ENABLED",
+        "id": "204444440607",
+        "name": "Ad 6 You're Not Too Old",
+        "targetCpaMicros": "40000000"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/204444440607~826887690655",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826887690655",
+          "id": "826887690655",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad6&utm_content=claude-vertical-59s-vsl"
+          ],
+          "name": "Ad 6 You're Not Too Old | Claude 9:16 59s | vsl",
+          "demandGenVideoResponsiveAd": {
+            "headlines": [
+              {
+                "text": "How Men 40+ Lose Belly Fat"
+              },
+              {
+                "text": "How To Get Abs After 40"
+              },
+              {
+                "text": "How Busy 40+ Dads Lose Fat"
+              },
+              {
+                "text": "How I Got Abs At 40"
+              },
+              {
+                "text": "How AI Got Me Abs At 40"
+              }
+            ],
+            "longHeadlines": [
+              {
+                "text": "Think you're too old to get abs? See how I lost my stubborn belly fat and got abs at 40."
+              },
+              {
+                "text": "Korean AI prodigy discovers how to use AI to lose belly fat. Video reveals full story."
+              },
+              {
+                "text": "AI fitness app shows men 40+ how to lose stomach fat and get abs. Try it free for 7 days!"
+              }
+            ],
+            "descriptions": [
+              {
+                "text": "You're not too old to get abs. I got mine at 40 with an AI trainer. See how I did it."
+              },
+              {
+                "text": "I struggled with belly fat until I discovered how to use an AI trainer to get abs."
+              },
+              {
+                "text": "This AI app shows men 40+ how to lose their belly fat. Try it free for 7 days."
+              }
+            ],
+            "videos": [
+              {
+                "asset": "customers/3427170837/assets/427458948149"
+              }
+            ],
+            "logoImages": [
+              {
+                "asset": "customers/3427170837/assets/400941168572"
+              }
+            ],
+            "businessName": {
+              "text": "Abs by AI"
+            },
+            "callToActions": [
+              {
+                "asset": "customers/3427170837/assets/401407635767"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/204444440607",
+        "status": "ENABLED",
+        "id": "204444440607",
+        "name": "Ad 6 You're Not Too Old",
+        "targetCpaMicros": "40000000"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/204444440607~826887690931",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826887690931",
+          "id": "826887690931",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad6&utm_content=claude-square-vsl"
+          ],
+          "name": "Ad 6 You're Not Too Old | Claude 1:1 | vsl",
+          "demandGenVideoResponsiveAd": {
+            "headlines": [
+              {
+                "text": "How Men 40+ Lose Belly Fat"
+              },
+              {
+                "text": "How To Get Abs After 40"
+              },
+              {
+                "text": "How Busy 40+ Dads Lose Fat"
+              },
+              {
+                "text": "How I Got Abs At 40"
+              },
+              {
+                "text": "How AI Got Me Abs At 40"
+              }
+            ],
+            "longHeadlines": [
+              {
+                "text": "Think you're too old to get abs? See how I lost my stubborn belly fat and got abs at 40."
+              },
+              {
+                "text": "Korean AI prodigy discovers how to use AI to lose belly fat. Video reveals full story."
+              },
+              {
+                "text": "AI fitness app shows men 40+ how to lose stomach fat and get abs. Try it free for 7 days!"
+              }
+            ],
+            "descriptions": [
+              {
+                "text": "You're not too old to get abs. I got mine at 40 with an AI trainer. See how I did it."
+              },
+              {
+                "text": "I struggled with belly fat until I discovered how to use an AI trainer to get abs."
+              },
+              {
+                "text": "This AI app shows men 40+ how to lose their belly fat. Try it free for 7 days."
+              }
+            ],
+            "videos": [
+              {
+                "asset": "customers/3427170837/assets/427555872217"
+              }
+            ],
+            "logoImages": [
+              {
+                "asset": "customers/3427170837/assets/400941168572"
+              }
+            ],
+            "businessName": {
+              "text": "Abs by AI"
+            },
+            "callToActions": [
+              {
+                "asset": "customers/3427170837/assets/401407635767"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/204444440607",
+        "status": "ENABLED",
+        "id": "204444440607",
+        "name": "Ad 6 You're Not Too Old",
+        "targetCpaMicros": "40000000"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/204444440607~826887690943",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826887690943",
+          "id": "826887690943",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad6&utm_content=claude-square-59s-vsl"
+          ],
+          "name": "Ad 6 You're Not Too Old | Claude 1:1 59s | vsl",
+          "demandGenVideoResponsiveAd": {
+            "headlines": [
+              {
+                "text": "How Men 40+ Lose Belly Fat"
+              },
+              {
+                "text": "How To Get Abs After 40"
+              },
+              {
+                "text": "How Busy 40+ Dads Lose Fat"
+              },
+              {
+                "text": "How I Got Abs At 40"
+              },
+              {
+                "text": "How AI Got Me Abs At 40"
+              }
+            ],
+            "longHeadlines": [
+              {
+                "text": "Think you're too old to get abs? See how I lost my stubborn belly fat and got abs at 40."
+              },
+              {
+                "text": "Korean AI prodigy discovers how to use AI to lose belly fat. Video reveals full story."
+              },
+              {
+                "text": "AI fitness app shows men 40+ how to lose stomach fat and get abs. Try it free for 7 days!"
+              }
+            ],
+            "descriptions": [
+              {
+                "text": "You're not too old to get abs. I got mine at 40 with an AI trainer. See how I did it."
+              },
+              {
+                "text": "I struggled with belly fat until I discovered how to use an AI trainer to get abs."
+              },
+              {
+                "text": "This AI app shows men 40+ how to lose their belly fat. Try it free for 7 days."
+              }
+            ],
+            "videos": [
+              {
+                "asset": "customers/3427170837/assets/427555872259"
+              }
+            ],
+            "logoImages": [
+              {
+                "asset": "customers/3427170837/assets/400941168572"
+              }
+            ],
+            "businessName": {
+              "text": "Abs by AI"
+            },
+            "callToActions": [
+              {
+                "asset": "customers/3427170837/assets/401407635767"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/204553316830",
+        "status": "ENABLED",
+        "id": "204553316830",
+        "name": "Ad 13 The Cost Of Getting Abs",
+        "targetCpaMicros": "40000000"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/204553316830~826635661894",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826635661894",
+          "id": "826635661894",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad13&utm_content=muhammad-16x9-r4-vsl"
+          ],
+          "name": "Ad 13 The Cost Of Getting Abs | Muhammad 16:9 r4 | vsl",
+          "demandGenVideoResponsiveAd": {
+            "headlines": [
+              {
+                "text": "Fire Your Personal Trainer"
+              },
+              {
+                "text": "Human Trainers Hate This AI"
+              },
+              {
+                "text": "Human Trainers Despise Him"
+              },
+              {
+                "text": "How I Got Abs At 40"
+              },
+              {
+                "text": "How AI Got Me Abs"
+              }
+            ],
+            "longHeadlines": [
+              {
+                "text": "I added up what trainers, nutritionists and supplements cost me. See what AI does instead"
+              },
+              {
+                "text": "Trainers despise this AI fitness app. See why men are replacing their trainer with AI."
+              },
+              {
+                "text": "AI fitness app shows you how to lose stomach fat and get abs. Try it free for 7 days!"
+              }
+            ],
+            "descriptions": [
+              {
+                "text": "Stop paying trainers and nutritionists to lose your belly fat. See how I use AI instead."
+              },
+              {
+                "text": "I struggled with belly fat until I discovered how to use an AI trainer to get abs."
+              },
+              {
+                "text": "See what getting abs was supposed to cost me, and how AI does the same job for less."
+              }
+            ],
+            "videos": [
+              {
+                "asset": "customers/3427170837/assets/423865478571"
+              }
+            ],
+            "logoImages": [
+              {
+                "asset": "customers/3427170837/assets/400941168572"
+              }
+            ],
+            "businessName": {
+              "text": "Abs by AI"
+            },
+            "callToActions": [
+              {
+                "asset": "customers/3427170837/assets/401407635767"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/204553316830",
+        "status": "ENABLED",
+        "id": "204553316830",
+        "name": "Ad 13 The Cost Of Getting Abs",
+        "targetCpaMicros": "40000000"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/204553316830~826888304284",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826888304284",
+          "id": "826888304284",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad13&utm_content=claude-9x16-59s-vsl"
+          ],
+          "name": "Ad 13 The Cost Of Getting Abs | Claude 9:16 59s | vsl",
+          "demandGenVideoResponsiveAd": {
+            "headlines": [
+              {
+                "text": "Fire Your Personal Trainer"
+              },
+              {
+                "text": "Human Trainers Hate This AI"
+              },
+              {
+                "text": "Human Trainers Despise Him"
+              },
+              {
+                "text": "How I Got Abs At 40"
+              },
+              {
+                "text": "How AI Got Me Abs"
+              }
+            ],
+            "longHeadlines": [
+              {
+                "text": "I added up what trainers, nutritionists and supplements cost me. See what AI does instead"
+              },
+              {
+                "text": "Trainers despise this AI fitness app. See why men are replacing their trainer with AI."
+              },
+              {
+                "text": "AI fitness app shows you how to lose stomach fat and get abs. Try it free for 7 days!"
+              }
+            ],
+            "descriptions": [
+              {
+                "text": "Stop paying trainers and nutritionists to lose your belly fat. See how I use AI instead."
+              },
+              {
+                "text": "I struggled with belly fat until I discovered how to use an AI trainer to get abs."
+              },
+              {
+                "text": "See what getting abs was supposed to cost me, and how AI does the same job for less."
+              }
+            ],
+            "videos": [
+              {
+                "asset": "customers/3427170837/assets/427558235731"
+              }
+            ],
+            "logoImages": [
+              {
+                "asset": "customers/3427170837/assets/400941168572"
+              }
+            ],
+            "businessName": {
+              "text": "Abs by AI"
+            },
+            "callToActions": [
+              {
+                "asset": "customers/3427170837/assets/401407635767"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/204553316830",
+        "status": "ENABLED",
+        "id": "204553316830",
+        "name": "Ad 13 The Cost Of Getting Abs",
+        "targetCpaMicros": "40000000"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/204553316830~826888334290",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826888334290",
+          "id": "826888334290",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad13&utm_content=claude-9x16-vsl"
+          ],
+          "name": "Ad 13 The Cost Of Getting Abs | Claude 9:16 | vsl",
+          "demandGenVideoResponsiveAd": {
+            "headlines": [
+              {
+                "text": "Fire Your Personal Trainer"
+              },
+              {
+                "text": "Human Trainers Hate This AI"
+              },
+              {
+                "text": "Human Trainers Despise Him"
+              },
+              {
+                "text": "How I Got Abs At 40"
+              },
+              {
+                "text": "How AI Got Me Abs"
+              }
+            ],
+            "longHeadlines": [
+              {
+                "text": "I added up what trainers, nutritionists and supplements cost me. See what AI does instead"
+              },
+              {
+                "text": "Trainers despise this AI fitness app. See why men are replacing their trainer with AI."
+              },
+              {
+                "text": "AI fitness app shows you how to lose stomach fat and get abs. Try it free for 7 days!"
+              }
+            ],
+            "descriptions": [
+              {
+                "text": "Stop paying trainers and nutritionists to lose your belly fat. See how I use AI instead."
+              },
+              {
+                "text": "I struggled with belly fat until I discovered how to use an AI trainer to get abs."
+              },
+              {
+                "text": "See what getting abs was supposed to cost me, and how AI does the same job for less."
+              }
+            ],
+            "videos": [
+              {
+                "asset": "customers/3427170837/assets/427647278214"
+              }
+            ],
+            "logoImages": [
+              {
+                "asset": "customers/3427170837/assets/400941168572"
+              }
+            ],
+            "businessName": {
+              "text": "Abs by AI"
+            },
+            "callToActions": [
+              {
+                "asset": "customers/3427170837/assets/401407635767"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/204553317030",
+        "status": "ENABLED",
+        "id": "204553317030",
+        "name": "Ad 4 Stop Wasting Money On Supplements",
+        "targetCpaMicros": "40000000"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/204553317030~826635661909",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826635661909",
+          "id": "826635661909",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad4&utm_content=muhammad-16x9-vsl"
+          ],
+          "name": "Ad 4 Stop Wasting Money On Supplements | Muhammad 16:9 | vsl",
+          "demandGenVideoResponsiveAd": {
+            "headlines": [
+              {
+                "text": "How AI Fixed My Supplements"
+              },
+              {
+                "text": "Supplement Corps Hate Him"
+              },
+              {
+                "text": "The Truth About Supplements"
+              },
+              {
+                "text": "How I Got Abs At 40"
+              },
+              {
+                "text": "How AI Got Me Abs"
+              }
+            ],
+            "longHeadlines": [
+              {
+                "text": "Here's how AI fixed my supplements. Find which supplements are a waste of money with AI"
+              },
+              {
+                "text": "Take a photo of your supplements and AI tells you which ones are a waste of your money."
+              },
+              {
+                "text": "Supplement companies despise this AI app. See why men are cutting their supplement bill."
+              }
+            ],
+            "descriptions": [
+              {
+                "text": "Many supplements are a waste of money. AI can identify which supplements you should cut."
+              },
+              {
+                "text": "I was wasting money on supplements until AI audited my stack. See what it told me to cut."
+              },
+              {
+                "text": "This AI app audits your supplements from one photo. Try it free for 7 days."
+              }
+            ],
+            "videos": [
+              {
+                "asset": "customers/3427170837/assets/419938098517"
+              }
+            ],
+            "logoImages": [
+              {
+                "asset": "customers/3427170837/assets/400941168572"
+              }
+            ],
+            "businessName": {
+              "text": "Abs by AI"
+            },
+            "callToActions": [
+              {
+                "asset": "customers/3427170837/assets/401407635767"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/206348100928",
+        "status": "ENABLED",
+        "id": "206348100928",
+        "name": "RA-01 AI Got Me Abs",
+        "targetCpaMicros": "40000000"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/206348100928~826595554299",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826595554299",
+          "id": "826595554299",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ra01&utm_content=claude-16x9-vsl"
+          ],
+          "name": "RA-01 AI Got Me Abs | Claude 16:9 | vsl",
+          "demandGenVideoResponsiveAd": {
+            "headlines": [
+              {
+                "text": "How AI Got Me Abs"
+              },
+              {
+                "text": "How I Got Abs At 40"
+              },
+              {
+                "text": "Human Trainers Hate This AI"
+              },
+              {
+                "text": "A Personalized AI Fitness Plan"
+              },
+              {
+                "text": "Trainers Despise Him"
+              }
+            ],
+            "longHeadlines": [
+              {
+                "text": "Korean AI prodigy discovers how to use AI to lose belly fat. Video reveals full story."
+              },
+              {
+                "text": "See how I used AI to lose my stubborn stomach fat and get six pack abs at 40."
+              },
+              {
+                "text": "AI fitness app shows you how to lose stomach fat and get abs. Try it free for 7 days!"
+              }
+            ],
+            "descriptions": [
+              {
+                "text": "I struggled with belly fat until I discovered how to use an AI trainer to get abs."
+              },
+              {
+                "text": "AI built my workouts, planned my meals and tracked my macros. See how I got abs at 40."
+              },
+              {
+                "text": "This AI app shows you how to lose your belly fat. Try it free for 7 days."
+              }
+            ],
+            "videos": [
+              {
+                "asset": "customers/3427170837/assets/422804571407"
+              }
+            ],
+            "logoImages": [
+              {
+                "asset": "customers/3427170837/assets/400941168572"
+              }
+            ],
+            "businessName": {
+              "text": "Abs by AI"
+            },
+            "callToActions": [
+              {
+                "asset": "customers/3427170837/assets/401407635767"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/206348100928",
+        "status": "ENABLED",
+        "id": "206348100928",
+        "name": "RA-01 AI Got Me Abs",
+        "targetCpaMicros": "40000000"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/206348100928~826595554302",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826595554302",
+          "id": "826595554302",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ra01&utm_content=claude-vertical-vsl"
+          ],
+          "name": "RA-01 AI Got Me Abs | Claude vertical | vsl",
+          "demandGenVideoResponsiveAd": {
+            "headlines": [
+              {
+                "text": "How AI Got Me Abs"
+              },
+              {
+                "text": "How I Got Abs At 40"
+              },
+              {
+                "text": "Human Trainers Hate This AI"
+              },
+              {
+                "text": "A Personalized AI Fitness Plan"
+              },
+              {
+                "text": "Trainers Despise Him"
+              }
+            ],
+            "longHeadlines": [
+              {
+                "text": "Korean AI prodigy discovers how to use AI to lose belly fat. Video reveals full story."
+              },
+              {
+                "text": "See how I used AI to lose my stubborn stomach fat and get six pack abs at 40."
+              },
+              {
+                "text": "AI fitness app shows you how to lose stomach fat and get abs. Try it free for 7 days!"
+              }
+            ],
+            "descriptions": [
+              {
+                "text": "I struggled with belly fat until I discovered how to use an AI trainer to get abs."
+              },
+              {
+                "text": "AI built my workouts, planned my meals and tracked my macros. See how I got abs at 40."
+              },
+              {
+                "text": "This AI app shows you how to lose your belly fat. Try it free for 7 days."
+              }
+            ],
+            "videos": [
+              {
+                "asset": "customers/3427170837/assets/422804568080"
+              }
+            ],
+            "logoImages": [
+              {
+                "asset": "customers/3427170837/assets/400941168572"
+              }
+            ],
+            "businessName": {
+              "text": "Abs by AI"
+            },
+            "callToActions": [
+              {
+                "asset": "customers/3427170837/assets/401407635767"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/206348100928",
+        "status": "ENABLED",
+        "id": "206348100928",
+        "name": "RA-01 AI Got Me Abs",
+        "targetCpaMicros": "40000000"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/206348100928~826755066385",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826755066385",
+          "id": "826755066385",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ra01&utm_content=claude-square-vsl"
+          ],
+          "name": "RA-01 AI Got Me Abs | Claude 1:1 | vsl",
+          "demandGenVideoResponsiveAd": {
+            "headlines": [
+              {
+                "text": "How AI Got Me Abs"
+              },
+              {
+                "text": "How I Got Abs At 40"
+              },
+              {
+                "text": "Human Trainers Hate This AI"
+              },
+              {
+                "text": "A Personalized AI Fitness Plan"
+              },
+              {
+                "text": "Trainers Despise Him"
+              }
+            ],
+            "longHeadlines": [
+              {
+                "text": "Korean AI prodigy discovers how to use AI to lose belly fat. Video reveals full story."
+              },
+              {
+                "text": "See how I used AI to lose my stubborn stomach fat and get six pack abs at 40."
+              },
+              {
+                "text": "AI fitness app shows you how to lose stomach fat and get abs. Try it free for 7 days!"
+              }
+            ],
+            "descriptions": [
+              {
+                "text": "I struggled with belly fat until I discovered how to use an AI trainer to get abs."
+              },
+              {
+                "text": "AI built my workouts, planned my meals and tracked my macros. See how I got abs at 40."
+              },
+              {
+                "text": "This AI app shows you how to lose your belly fat. Try it free for 7 days."
+              }
+            ],
+            "videos": [
+              {
+                "asset": "customers/3427170837/assets/426180248591"
+              }
+            ],
+            "logoImages": [
+              {
+                "asset": "customers/3427170837/assets/400941168572"
+              }
+            ],
+            "businessName": {
+              "text": "Abs by AI"
+            },
+            "callToActions": [
+              {
+                "asset": "customers/3427170837/assets/401407635767"
+              }
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "campaignsBefore": [
+    {
+      "campaign": {
+        "resourceName": "customers/3427170837/campaigns/24243839443",
+        "status": "PAUSED",
+        "targetCpa": {
+          "targetCpaMicros": "30000000"
+        },
+        "id": "24243839443"
+      },
+      "campaignBudget": {
+        "resourceName": "customers/3427170837/campaignBudgets/15862488218",
+        "id": "15862488218",
+        "amountMicros": "50000000"
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/3427170837/campaigns/24305381214",
+        "status": "ENABLED",
+        "targetCpa": {
+          "targetCpaMicros": "40000000"
+        },
+        "id": "24305381214"
+      },
+      "campaignBudget": {
+        "resourceName": "customers/3427170837/campaignBudgets/15911284202",
+        "id": "15911284202",
+        "amountMicros": "10000000"
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/3427170837/campaigns/24308574894",
+        "status": "ENABLED",
+        "id": "24308574894"
+      },
+      "campaignBudget": {
+        "resourceName": "customers/3427170837/campaignBudgets/15923601274",
+        "id": "15923601274",
+        "amountMicros": "30000000"
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/3427170837/campaigns/24316364155",
+        "status": "ENABLED",
+        "targetCpa": {
+          "targetCpaMicros": "40000000"
+        },
+        "id": "24316364155"
+      },
+      "campaignBudget": {
+        "resourceName": "customers/3427170837/campaignBudgets/15911255930",
+        "id": "15911255930",
+        "amountMicros": "30000000"
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/3427170837/campaigns/24316408288",
+        "status": "ENABLED",
+        "targetCpa": {
+          "targetCpaMicros": "3000000"
+        },
+        "id": "24316408288"
+      },
+      "campaignBudget": {
+        "resourceName": "customers/3427170837/campaignBudgets/15911284550",
+        "id": "15911284550",
+        "amountMicros": "10000000"
+      }
+    }
+  ],
+  "criteriaBefore": [
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~10",
+        "status": "ENABLED",
+        "type": "GENDER",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~11",
+        "status": "ENABLED",
+        "type": "GENDER",
+        "negative": true
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~20",
+        "status": "ENABLED",
+        "type": "GENDER",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~300",
+        "status": "ENABLED",
+        "type": "PARENTAL_STATUS",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~301",
+        "status": "ENABLED",
+        "type": "PARENTAL_STATUS",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~302",
+        "status": "ENABLED",
+        "type": "PARENTAL_STATUS",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~1000",
+        "status": "ENABLED",
+        "type": "LANGUAGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~2124",
+        "status": "ENABLED",
+        "type": "LOCATION",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~2840",
+        "status": "ENABLED",
+        "type": "LOCATION",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~503001",
+        "status": "ENABLED",
+        "type": "AGE_RANGE",
+        "negative": true
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~503002",
+        "status": "ENABLED",
+        "type": "AGE_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~503003",
+        "status": "ENABLED",
+        "type": "AGE_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~503004",
+        "status": "ENABLED",
+        "type": "AGE_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~503005",
+        "status": "ENABLED",
+        "type": "AGE_RANGE",
+        "negative": true
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~503006",
+        "status": "ENABLED",
+        "type": "AGE_RANGE",
+        "negative": true
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~503999",
+        "status": "ENABLED",
+        "type": "AGE_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~510000",
+        "status": "ENABLED",
+        "type": "INCOME_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~510001",
+        "status": "ENABLED",
+        "type": "INCOME_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~510002",
+        "status": "ENABLED",
+        "type": "INCOME_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~510003",
+        "status": "ENABLED",
+        "type": "INCOME_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~510004",
+        "status": "ENABLED",
+        "type": "INCOME_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~510005",
+        "status": "ENABLED",
+        "type": "INCOME_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~510006",
+        "status": "ENABLED",
+        "type": "INCOME_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~2499225533929",
+        "status": "ENABLED",
+        "type": "AUDIENCE",
+        "negative": false,
+        "audience": {
+          "audience": "customers/3427170837/audiences/358994450"
+        }
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~2501149785516",
+        "status": "ENABLED",
+        "type": "CUSTOM_AUDIENCE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~2501953468231",
+        "status": "ENABLED",
+        "type": "CUSTOM_AUDIENCE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~2501953468271",
+        "status": "ENABLED",
+        "type": "CUSTOM_AUDIENCE",
+        "negative": false
+      }
+    }
+  ]
+}

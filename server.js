@@ -86,7 +86,9 @@ app.post('/api/stripe/webhook', express.raw({ type: 'application/json' }), async
   res.json({ received: true });
 });
 
-app.use(express.json({ limit: '100mb' }));
+const productJson = express.json({ limit: '100mb' });
+// The private publisher owns its bounded parser and verifies exact signed bytes.
+app.use((req, res, next) => /^\/api\/brief\/(?:publish|image\/publish)\/?$/i.test(req.path) ? next() : productJson(req, res, next));
 
 // Rate limiting: applied ONLY to the expensive AI endpoints (photo check,
 // prompt + image generation). Dashboard/task endpoints are polled frequently

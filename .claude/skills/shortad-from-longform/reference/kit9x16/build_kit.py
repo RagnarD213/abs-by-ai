@@ -123,6 +123,62 @@ def ref_number(ref, key):
     return (n["lo"], n["hi"], n.get("defect_side", "both")) if n else (None, None, None)
 
 
+# AD PACING DOES NOT GRADE AN ORGANIC FILM (Dan, 2026-10-03, RO-10: "build RO-10 now, with the five ad-pacing rows
+# marked not applicable"). picture.json's ranges for these five were hand-counted on Muhammad's 3 to 4 minute ADS.
+# A row listed here is reported NOT APPLICABLE with its reason on an organic build (content.json `organic`: the edit
+# sheet's type LFC / SFC); its range is never moved, and every other design row still scores. The delivered file is
+# still graded on pacing by the delivery gate, at the organic bounds (`organic9x16`: coverage, static run, change rate).
+ORGANIC_NA = {
+    "flashes_per_min": "the white flash on a return is Muhammad's ad transition; our own films cut hard (Dan, 2026-10-01, RO-10 decision 4)",
+    "cta_count": "an organic film has no tap-the-button CTA pill; it ends on the next video (an ad is never organic and the reverse)",
+    "inserts_per_min": "an ad's insert cadence; the organic film's own pacing is graded on the delivered file (gate style:change_rate)",
+    "insert_coverage_hand": "an ad's cutaway share; the organic bound is the delivery gate's style:coverage on the delivered file",
+    "longest_talk_hand_s": "an ad's longest bare-talk stretch; the organic bound is Dan's 30 s rule, graded on the delivered file "
+                           "(gate style:static_run: lower thirds, pushes and level steps break a talk stretch)",
+}
+
+
+def score_design(design, ref, organic=False):
+    """Each design number against picture.json's range -> [(key, value, lo, hi, status)]."""
+    rows = []
+    for k, v in design.items():
+        lo, hi, side = ref_number(ref, k)
+        if organic and k in ORGANIC_NA:
+            rows.append((k, v, lo, hi, "NOT APPLICABLE (organic film): " + ORGANIC_NA[k]))
+            continue
+        if lo is None:
+            rows.append((k, v, None, None, "no reference (his cuts need none: his frame choice hides them)" if k == "level_steps_per_min" else "no reference"))
+            continue
+        st = "PASS" if lo <= v <= hi else ("DEFECT" if (v < lo and side in ("low", "both")) or (v > hi and side in ("high", "both")) else "OVERSHOOT")
+        rows.append((k, v, lo, hi, st))
+    return rows
+
+
+def print_design(rows, ref):
+    print(f"design vs picture.json v{ref.get('version')}:")
+    for k, v, lo, hi, st in rows:
+        band = f"[{lo:.3f} .. {hi:.3f}]" if lo is not None else ""
+        print(f"  {st.split(' (')[0]:14s} {k:24s} {v:8.3f}  {band}")
+    bad = [k for k, *_, st in rows if st == "DEFECT"]
+    if bad:
+        print(f"  ⚠ the generated design is outside his range on {bad} -- fix the content or the grammar, never the range")
+    return bad
+
+
+def rescore(build, content):
+    """Re-score an existing build's kit_report.json (no beat is rebuilt): after content.json gained `organic`."""
+    ref = json.load(open(PICREF))
+    rp = os.path.join(build, "kit_report.json")
+    rep = json.load(open(rp))
+    C = json.load(open(content))
+    rows = score_design(rep["design"], ref, organic=bool(C.get("organic")))
+    rep["rows"] = [dict(key=k, value=v, lo=lo, hi=hi, status=st) for k, v, lo, hi, st in rows]
+    rep["organic"] = bool(C.get("organic"))
+    json.dump(rep, open(rp, "w"), indent=1)
+    bad = print_design(rows, ref)
+    return 1 if bad else 0
+
+
 # ---------------------------------------------------------------------------- resolving content
 def resolve_times(item, A, last_t):
     """t0/t1 from `t0`/`t1`, or from `at`/`until` phrases (+ pads), disambiguated after the previous item."""
@@ -464,6 +520,13 @@ def push_at(t, pushes, z):
 
 # ---------------------------------------------------------------------------- main
 def main():
+    if "--rescore" in sys.argv:
+        # build_kit.py --rescore --build B [--content content.json]: only kit_report.json's design rows are re-scored
+        # (after content.json gained `organic`); no beat is rebuilt, beats.json is not touched
+        rp = argparse.ArgumentParser()
+        rp.add_argument("--rescore", action="store_true"); rp.add_argument("--build", required=True); rp.add_argument("--content")
+        r = rp.parse_args()
+        return rescore(r.build, r.content or os.path.join(r.build, "content.json"))
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     g = ap.add_mutually_exclusive_group(required=True)
     g.add_argument("--from-master", action="store_true")
@@ -824,14 +887,7 @@ def main():
     )
     # opening_changes_15s, change_rate, static_run etc. are the gate's own instruments and are measured on the
     # DELIVERED file (picture_ref.py check), not estimated here
-    rows = []
-    for k, v in design.items():
-        lo, hi, side = ref_number(ref, k)
-        if lo is None:
-            rows.append((k, v, None, None, "no reference (his cuts need none: his frame choice hides them)" if k == "level_steps_per_min" else "no reference"))
-            continue
-        st = "PASS" if lo <= v <= hi else ("DEFECT" if (v < lo and side in ("low", "both")) or (v > hi and side in ("high", "both")) else "OVERSHOOT")
-        rows.append((k, v, lo, hi, st))
+    rows = score_design(design, ref, organic=bool(C.get("organic")))
 
     # ---- write the beat sheet the pipeline consumes
     out = dict(
@@ -850,7 +906,7 @@ def main():
     json.dump(out, open(os.path.join(a.build, "beats.json"), "w"), indent=1)
     shutil.copy(os.path.join(HERE, "kit_beats.py"), os.path.join(a.build, "beats.py"))
     rep = dict(build=os.path.abspath(a.build), mode=out["mode"], template=os.path.abspath(a.template),
-               reference=PICREF, reference_version=ref.get("version"),
+               reference=PICREF, reference_version=ref.get("version"), organic=bool(C.get("organic")),
                design=design, rows=[dict(key=k, value=v, lo=lo, hi=hi, status=st) for k, v, lo, hi, st in rows],
                timeline=[dict(kind=b["kind"], t0=b["t0"], t1=b["t1"], media=b.get("media")) for b in tl],
                pushes=[list(p) for p in ramped], level_steps=[list(p) for p in steps], flashes=out["flashes"], lower_thirds=[(o["t0"], o["t1"]) for o in lts],
@@ -860,13 +916,7 @@ def main():
     print(f"\nkit9x16 {out['mode']}: {len(tl)} base beats, {len(ins)} inserts, {len(txt)} text plates, {len(lts)} lower thirds, "
           f"{len(ctas)} CTAs, {len(flashes)} flashes, {len(ramped)} ramped pushes + {len(steps)} level steps ({100 * design['push_off_frac']:.0f}% of talk); "
           f"{len(in_talk)} talk splices, {len(moved)} moved, {len(cover)} covered")
-    print(f"design vs picture.json v{ref.get('version')}:")
-    for k, v, lo, hi, st in rows:
-        band = f"[{lo:.3f} .. {hi:.3f}]" if lo is not None else ""
-        print(f"  {st:10s} {k:24s} {v:8.3f}  {band}")
-    bad = [k for k, *_, st in rows if st == "DEFECT"]
-    if bad:
-        print(f"  ⚠ the generated design is outside his range on {bad} -- fix the content or the grammar, never the range")
+    bad = print_design(rows, ref)
     print(f"-> {a.build}/beats.json, beats.py, kit_report.json")
     return 1 if bad else 0
 

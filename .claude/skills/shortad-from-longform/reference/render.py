@@ -38,9 +38,9 @@ _EDL = _TRK.get('segments') or json.load(open('edl_picture.json'))   # HIS pictu
 # ⚠ ON THE FRAME GRID. The base conform cuts each segment at its frame n0 = round(cut_in*FPS); a cut_in a hair after
 # that frame's own time (130.3465 = frame 3906.49) put frame n0 in the PREVIOUS segment here, so the crop stepped one
 # frame after the picture (Ad 13 round 3 judge: 130.33, 135.97, 171.91). Segments and splices use n0/FPS.
-_fr = lambda q, k, nk: q[nk] / FPS if nk in q else q[k]
-_SPLICES = [_fr(q, 'cut_in', 'n0') for q in _EDL[1:]]
-_SEGS = [(_fr(q, 'cut_in', 'n0'), _fr(q, 'cut_out', 'n1')) for q in _EDL]
+_picture_time = lambda q, seconds, frame: q[frame] / FPS if frame in q else q[seconds]
+_SPLICES = [_picture_time(q, 'cut_in', 'n0') for q in _EDL[1:]]
+_SEGS = [(_picture_time(q, 'cut_in', 'n0'), _picture_time(q, 'cut_out', 'n1')) for q in _EDL]
 
 def _seg_range(t):
     """Sample-index range [lo, hi] of the track samples inside t's own picture segment."""
