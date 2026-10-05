@@ -1,0 +1,147 @@
+# Video 5 revisions - Getting Abs At 40 vs 25 - Zeeshan - round 1
+
+This is a solid first cut. You turned 32 minutes of raw footage into a 20 minute video that moves, the take choices are right, the wide and tight framing is right (my hair stays in frame the whole way), the level is right, and the AI clips are labeled. Thanks for building the blue template yourself. That is exactly the right idea, and this doc is written the way you asked: I am not making any graphics for you. Section 1 tells you what to change in the template so it matches the standard, and after that every graphic in the video is a text change inside your own template.
+
+Graphics kit, for the exact sizes and the moving examples: https://drive.google.com/drive/folders/1ispvFqk9CAv-WqZ_hBgVed3cedRWBLGJ
+
+## 1. YOUR BLUE TEMPLATE: WHAT TO FIX
+
+The strip itself is right: the size, the position, the navy glass, the cyan bar on the left and the light line along the top all match. These are the differences. Fix them once in the template and every future video inherits them.
+
+- **\*\*ADD THE SMALL TOPIC LINE ABOVE THE MAIN TEXT\*\***
+    - Your strip has one block of text. The standard has two: a small cyan line on top, and the main white text under it.
+    - **Topic line: Poppins Bold 28 px, cyan #68C5FF, ALL CAPS, 62 px in from the strip's left edge and 26 px down from its top.** For a single point it reads KEY POINT. For a numbered section it names the section (for this video: HARDER AT 40 #1: INJURIES).
+    - Make the topic line an editable text field in the template, so you only type it.
+- **\*\*LEFT ALIGN THE TEXT\*\***
+    - Your text is centered in the strip. **The standard is left aligned: main text starts 62 px in from the strip's left edge, 76 px down from its top.** Same left edge as the topic line.
+- **\*\*ONE FONT: POPPINS BOLD\*\***
+    - The first five lower thirds in this video (0:35 to 2:11) are in a different font from the rest. **Everything is Poppins Bold.** Main text 56 px, white (RGB 244, 250, 255), 72 px line spacing. Lock the font in the template so it cannot change between graphics.
+- **\*\*THE TEXT BOX MUST GROW WITH THE TEXT\*\***
+    - At 12:49 the second line is cut off in the middle of a word ("Getting Good Sle") and stays that way until the graphic leaves. The list at 4:04 has the same problem ("Weightloss Medicatio").
+    - **Set the text box so it never clips.** One line of text = strip 176 px tall. Each extra line adds 72 px to the strip, and the strip grows upward so the bottom edge stays 64 px above the bottom of the frame. Two lines at most.
+    - The typing effect must finish before the text is read: about 55 characters per second, so even a long line is fully on screen in about one second.
+- **\*\*TEXT RULES FOR EVERY GRAPHIC\*\***
+    - Title Capitalization, with the one or two words that carry the point in FULL CAPS. Every word starts with a capital (this video has "lifestyle", "can", "you", "of", "to", "sleep" in lower case).
+    - Spell check every graphic before export. This video has "Exerises", "Looase", "Calory", "Intimate Fasting" (intermittent), "DInner", "No1#", "You can Can", "Track You Sleep", and two with a word missing ("The Number Reason", "With You Can Get").
+    - **A graphic never repeats my sentence back in different words. It gives the one key point of that section, short enough to read in two seconds.** I wrote the exact text for every graphic in section 3, so for this video you only need to paste it in.
+    - Never write "old age" or "in your old age" on screen. The viewer is 40 to 60 and I am telling him this is easier than he thinks. Say "at 40" or "after 40".
+- **\*\*LISTS USE THE LEFT-THIRD CARD, NOT SMALL BARS\*\***
+    - The list at 4:04 is four small separate bars in the corner, and it sits on top of the picture on my door. **A list is one card: one rounded navy rectangle from x 36 to x 752, top at y 42, with a heading in light cyan (#97DFFD, Poppins Bold 60 px), a white divider line under it, and the points numbered 1. 2. 3. in white Poppins Bold 38 px.** The card grows down as each point appears. Each point appears whole, as I say it. No typing on the card.
+    - **While a card is up, my shot is moved right** so my head sits centered between the card and the right edge of the frame, for the whole shot. Exact numbers and a moving example are in the kit folder ("Left-third card").
+    - Build this once as a second template. This video uses it three times (section 4).
+- **\*\*AI LABEL\*\***
+    - Yours reads "\*AI Generated". **Make it AI-GENERATED, all capitals, no star,** same place (upper left), same size. Save it as a preset so it is identical on every clip.
+- **\*\*NO SOUND EFFECT ON ANY GRAPHIC\*\***
+    - No swipe, whoosh or riser when a graphic or a transition comes in.
+
+When the template is updated, send me one still of each before you redo the video: a one-line lower third, a two-line lower third, and a left-third card. I will confirm them the same day, and then the template is locked for every video after this.
+
+## 2. THROUGHOUT VIDEO
+
+- **\*\*AUDIO: USE ONE MICROPHONE ONLY\*\***
+    - This export has both camera microphones in it, one on the left channel and one on the right. On a phone speaker they cancel each other and my voice gets thin. Video 4 did not have this problem, it was one clean mic.
+    - **The finished voice must come from the RIGHT channel only, as mono, on both speakers.** Throw the left channel away. Do this at the source, before any other audio work.
+    - The level is right (-14.8 LUFS, peak -1.0). Keep it there after the fix.
+    - **STANDING RULE: Every finished mix reads -14 LUFS integrated with a limiter on the finished mix at -1 dBTP true peak, nothing at 0, one mic, no heavy noise reduction on a dry recording.**
+- **\*\*JUMP CUTS IN THE WIDE SHOT\*\***
+    - There are cuts where the picture stays in the same wide framing and my hands or head jump. **Cover every one: cut to the tight shot at that point (or back to wide if you are already tight), or put a clip over it.** A cut between two shots of the same size always reads as a jump.
+    - The ones I found: 1:07, 1:41, 3:55, 4:23, 5:40, 6:01, 7:20, 7:50, 8:25, 8:51, 9:11, 10:01, 10:43, 11:09, 11:18, 12:08, 13:18, 13:33, 13:51, 13:59, 14:41, 14:51, 14:58, 15:29, 15:38, 16:19, 18:00, 18:15, 18:55.
+    - Check the whole timeline for any others after you fix these, including the new cuts the fixes create.
+- **\*\*NEVER USE THE SAME CLIP TWICE IN ONE VIDEO\*\***
+    - The deadlift clip is at 0:50 and again at 8:40. The office clip is at 3:14 and again at 14:19. Fixes are in section 4.
+- **\*\*SUBTITLE FILE (.srt)\*\***
+    - Check the whole file against the audio. The ones I caught: "aura ring" should be Oura Ring (12:13 and 13:14), "Apple wash" is Apple Watch (13:14), "ZEPH down" is Zepbound (15:44), "not ideal for you to get naps" is "to get abs" (13:41), "Wayne Gretzys gets" is "Wayne Gretzky says" (9:05), "power cleanings" is "power cleans" (7:13), "at least you have a weekday" is "at least do every weekday" (10:40), "nearly difficult" is "extremely difficult" (17:10), "You will probably get less than the first couple of weeks" is "get less done the first couple of weeks" (14:55), "going to be lower in." has a word missing (1:51), "help you to get doing shorter workouts" is "help you to get abs: doing shorter workouts" (9:16).
+
+## 3. LOWER THIRDS: THE EXACT TEXT
+
+Every lower third in the video is listed here. Paste the text exactly as written, capitals included. The first line is the small topic line, the second is the main text.
+
+- **0:35** HARDER AT 40 #1: INJURIES / **You Get Injured EASIER And Recover SLOWER**
+- **1:02** Remove this one. It repeats 0:35.
+- **1:19** KEY POINT / **Injuries Are The #1 REASON Guys Quit Lifting**
+- **1:45** HARDER AT 40 #2: HORMONES / **Lower Testosterone Makes Muscle HARDER To Build**
+- **2:11** HARDER AT 40 #3: LIFESTYLE / **Career, Family And Stress Matter MORE Than Hormones**
+- **2:50** EASIER AT 40 #1: DISCIPLINE / **You Already Have Discipline. Now Apply It To FITNESS**
+- **3:49** EASIER AT 40 #2: MONEY / **Money Spent Intelligently Is A HUGE Advantage**
+- **4:27** EASIER AT 40 #3: EXPERIENCE / **You Got In Shape Before. You Can Do It AGAIN**
+- **4:56** EASIER AT 40 #4: TECHNOLOGY / **Your #1 ADVANTAGE Over Your 25 Year Old Self**
+- **5:18** Remove this one.
+- **6:43** CHANGE #1: EXERCISE SELECTION / **After 40, Stick To LOW RISK Exercises**
+- **7:11** KEY POINT / **Over A Year, Getting Injured Means LESS Muscle, Not More**
+- **7:52** KEY POINT / **The Standard Is ZERO Injuries From Weight Training**
+- **8:27** KEY POINT / **The Older You Get, The MORE This Matters**
+- **9:16** CHANGE #2: WORKOUTS / **Shorter Workouts, EVERY DAY**
+- **10:05** KEY POINT / **The FIRST Half Hour Of A Workout Does The Most**
+- **10:27** Remove this one. It is the same point as 10:05.
+- **10:57** KEY POINT / **Start With 5 MINUTES A Day Of Bodyweight Workouts**
+- **11:23** CHANGE #3: SLEEP / **Take Sleep As Seriously As Training And Nutrition**
+- **11:54** Remove this one.
+- **12:13** KEY POINT / **Step One: Get A SLEEP TRACKER**
+- **12:49** KEY POINT / **8 Hours In Bed Is NOT 8 Hours Of Sleep**
+- **13:39** Remove this one.
+- **13:59** CHANGE #4: NUTRITION / **Intermittent Fasting Works BEST For Guys Over 40**
+- **14:08** MY DAILY SYSTEM / **Fast Until 2 PM, Light Lunch, Most Calories At DINNER**
+- **14:58** KEY POINT / **The Hunger Goes Away After The First FEW WEEKS**
+- **15:33** CHANGE #5: MEDICINE AND TECHNOLOGY / **Use What Did NOT Exist When You Were 25**
+- **16:09** Remove the lower third. A left-third card goes here instead (section 4).
+- **17:00** Remove this one.
+- **17:13** AI TACTIC #1 / **Track Your Calories By Taking A PICTURE**
+- **17:31** AI TACTIC #2 / **Get A Science Based SUPPLEMENT AUDIT**
+- **17:47** Remove this one.
+- **18:25** AI TACTIC #3 / **Get Researched Answers To Your HARDEST Fitness Questions**
+- **19:04** KEY POINT / **With Today's Technology, Abs Are EASIER At 40 Than At 25**
+
+## 4. TIMESTAMPED REVISIONS
+
+- **0:04 - 0:08** This is an AI clip of a different man, but I am talking about myself here ("in my 30s, I got fat and lost my abs"). **Replace it with my real before picture, full screen with motion effect, 0:04 - 0:07.** Then camera scene for one second.
+    - Image below
+    - 
+    - Label on it: "Real picture of me, not AI-generated", in the same style as the AI label, not over my face or stomach.
+- **0:08.5 - 0:10** On "Now that I'm 40, I got my abs back": **Show TWO after pictures here, one after another, with motion effect.** Same real picture label on both.
+    - Images below
+    - 
+    - 
+- **0:50 - 0:53** This deadlift clip is used again at 8:40. **Replace it here with the real clip of me deadlifting that you have at 6:52.** That is me at 25, which is exactly what this line is about. No label, it is real footage.
+    - Clean copy of that clip: https://drive.google.com/file/d/127kujY7lF8URPyWNFQ2Jj30ggChHRg4G/view
+- **3:14 - 3:22** This office clip is used again at 14:19, where it fits better ("a nine to five job"). **Replace it here with different stock footage or an AI clip of a man around 40 arriving at work or working at a desk.** If it is a new AI clip, show me the start and end frames first, in 16:9, and I will approve before you generate it.
+- **4:04 - 4:14** **Replace the four small bars with the left-third card.** Move my shot right for the whole shot.
+    - Heading: **What Money Can Buy**
+    - 1. Weight Loss Medication
+    - 2. A Meal Prep Service
+    - 3. TRT
+    - 4. A Maid, So You Have Time For The Gym
+- **6:49 - 7:02** **Add a left-third card over the wide shot, each lift appearing as I say it.** The old gym clip at 6:52 moves to 0:50 (item above), and take out the punch-in at 6:56, so the card stays up over one steady wide shot, moved right.
+    - Heading: **Lifts I Eliminated**
+    - 1. Deadlifts
+    - 2. Barbell Squats
+    - 3. Flat Bench Press
+    - 4. Power Cleans
+- **8:18 - 8:24** On "focus mostly on machines": **Insert this clip of the lat pulldown machine, 0:02 - 0:08 from the clip.** It is AI, so it gets the AI-GENERATED label.
+    - https://drive.google.com/file/d/1XCUDYq7JEIV0bh1vLm0VNzJcJCS7IzFV/view
+- **8:40 - 8:50** Second use of the deadlift clip. **Remove this clip, use camera scene.**
+- **10:46 - 10:57** On "five minute body weight workouts": **Insert these two real clips of me, one after another.** No label, they are real footage.
+    - Push-ups, 0:00 - 0:05: https://drive.google.com/file/d/11Hk2mUnMHYqobFtSUHq_BDD8_uzZ9EgO/view
+    - Toe touches, 0:00 - 0:05: https://drive.google.com/file/d/1c2MpI3ewL70fTHYI_NcmBSkoZg7OSy0z/view
+- **12:13 - 12:20** On "buy an Oura Ring": **Insert the close-up of the ring on my finger that you used in Video 4** (the punch-in at 5:51 of that video).
+- **16:09 - 16:30** **Left-third card, each point appearing as I say it.** Stay on the wide shot for this whole stretch (take out the punch-in at 16:20) and move my shot right.
+    - Heading: **Modern Medicine**
+    - 1. Weight Loss Medication
+    - 2. TRT
+    - 3. Blood Work To Find What You Are LOW In
+- **17:10 - 17:19** On "just take a picture and it's that simple": **Insert this screen recording of the real app tracking a meal from a photo, in a phone frame beside me. Use 0:04 - 0:20 and accelerate footage to fit duration.** It is the real app, so no label.
+    - https://drive.google.com/file/d/12q39OUepft0WWNd1SdZzBmMjh-BCc4Dh/view
+- **17:24 - 17:38** On "AI can do a science-based supplement audit": **Insert this screen recording of the real supplement audit, in a phone frame beside me. Accelerate footage to fit duration.** No label.
+    - https://drive.google.com/file/d/1Te2I4XpXZ6fbWUk8HogJIEDXbMR5qcjn/view
+
+Everything else, keep: the cut, the take choices, the framing, the transitions, the other clips, the AbsByAI.com pill and the end card.
+
+## 5. THE RAW SHOT FROM THE STUDIO SHOOT
+
+Here is one complete, untouched clip straight off the camera from the studio shoot, with the camera's own settings file beside it:
+
+https://drive.google.com/drive/folders/186hdGzWmJgZ4wIv5o2ug2gKWWIUr4-Cd
+
+- Sony FX30, 3840x2160, 29.97 fps, XAVC 4:2:2 10-bit.
+- Picture profile is S-Cinetone, Rec.709. It is not S-Log, so do not put a log conversion LUT on it. Grade it as normal Rec.709 footage.
+- Audio is one microphone recorded on both channels, so on this shoot there is no left or right to choose.
+- The clip is 33 seconds, 670 MB.
