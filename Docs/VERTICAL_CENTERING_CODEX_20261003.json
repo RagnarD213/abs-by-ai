@@ -42,5 +42,13 @@
     698,
     905,
     992
-  ]
+  ],
+  "approval": {
+    "date": "2026-10-05",
+    "approved_by": "Dan",
+    "choice": "right-hand after.mp4",
+    "sha256": "bea60266c37d046e628b4e5145de17cc9d43b72c16fd72961f97a9a169ccc999",
+    "scope": "Framing method for all future 9:16 vertical videos",
+    "dan": "Okay the right one definitely looks better. Let's lock that in. The framing for the right video is what we'll use for all vertical videos going forward"
+  }
 }

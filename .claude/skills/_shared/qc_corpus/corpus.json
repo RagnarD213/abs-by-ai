@@ -7,6 +7,24 @@
   "ssd": "/Volumes/Extreme/_edit_work"
  },
  "entries": [
+    {
+      "id": "codex-vertical-centering-right-20261005",
+      "verdict": "reference",
+      "date": "2026-10-05",
+      "root": "ssd",
+      "path": "vertical-centering-codex-proof-20261003/after.mp4",
+      "excerpt": [
+        0,
+        35.00163333333333
+      ],
+      "dan": "Okay the right one definitely looks better. Let's lock that in. The framing for the right video is what we'll use for all vertical videos going forward",
+      "sha256": "bea60266c37d046e628b4e5145de17cc9d43b72c16fd72961f97a9a169ccc999",
+      "bytes": 7119910,
+      "must_pass": [],
+      "must_trigger": [],
+      "measured": "608 px crop: travel 733 px; p90 pan speed 59.9 px/s; moving 43.8%; head offset median 20.6 px, max 69.0 px; maximum cut landing error 0.49 px.",
+      "notes": "Approved framing reference for every future vertical. Muted crop-only proof, not a full-video delivery approval. Shared landing.py land-then-hold preset with 3.3% tolerance. Full measurements and approval in Docs/VERTICAL_CENTERING_CODEX_20261003.json."
+    },
   {
    "id": "website-rev1",
    "verdict": "rejected",

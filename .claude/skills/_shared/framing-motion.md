@@ -22,6 +22,8 @@ Source-specific pixel widths, sampling bands, smoothing periods and speed limits
 
 ## Vertical talking head: land on him, then hold (the standard centering, Dan 2026-10-03)
 
+**Locked by Dan, 2026-10-05:** The right-hand `after.mp4` in the Codex before/after review is the approved framing reference for all future 9:16 videos. Use this land-then-hold method through shared `cut/landing.py`. Exact clip hash, measurements and Dan's approval are recorded in `Docs/VERTICAL_CENTERING_CODEX_20261003.json`. This locks the framing method; approved exports stay untouched.
+
 Dan compared two first minutes of the RO-10 vertical and chose the calmer one: *"I like the calmest one, the two-thirds
 calmer. That looks the best to me... Let's make this our standard way of centering for verticals going forward. I feel
 like this is better than what we were doing."* It applies to the talking-head crop of every 9:16 vertical, whoever

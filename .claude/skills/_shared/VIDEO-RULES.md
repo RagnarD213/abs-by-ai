@@ -76,6 +76,8 @@ rule and spell out all five slots. Reference:
 
 ## Verticals: the camera lands on Dan, then holds (the standard centering, Dan, 2026-10-03)
 
+**Locked by Dan, 2026-10-05:** The right-hand `after.mp4` in the Codex before/after review is the approved framing reference for all future 9:16 videos. Use this land-then-hold method through shared `cut/landing.py`. Exact clip hash, measurements and Dan's approval are recorded in `Docs/VERTICAL_CENTERING_CODEX_20261003.json`. This locks the framing method; approved exports stay untouched.
+
 - **In every vertical the crop that follows Dan lands centred on him after each cut, then stays still until he has moved
   3.3 % of the crop's width off centre, and only then follows.** Dan, choosing the calmer of two RO-10 first minutes:
   *"I like the calmest one, the two-thirds calmer. That looks the best to me... Let's make this our standard way of

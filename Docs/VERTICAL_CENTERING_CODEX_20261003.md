@@ -2,6 +2,12 @@
 
 Completed 2026-10-03. New 9:16 presenter crops now land on Dan after a cut, then hold until he moves outside the 3.3% band. Corrections use the shared `landing.py`, with 0.75-second easing and scaled limits. Takes with small movement keep their first-frame centre. The end is not pulled back to centre.
 
+## Framing approved and locked, 2026-10-05
+
+Dan watched the side-by-side review and approved the right-hand `after.mp4`: "Okay the right one definitely looks better. Let's lock that in. The framing for the right video is what we'll use for all vertical videos going forward"
+
+That exact framing is now locked for all future vertical videos. Approved reference SHA256: `bea60266c37d046e628b4e5145de17cc9d43b72c16fd72961f97a9a169ccc999`. This approval covers the framing method demonstrated by the crop-only excerpt.
+
 ## Before and after
 
 Isolated crop-only excerpt from the existing Ad 2 vertical source, 35.002 seconds, 1,049 frames at the original 30000/1001 frame rate. Both clips use the same graded picture conform and are muted to isolate framing. Existing approved exports and build directories were not written to.
