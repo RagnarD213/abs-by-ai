@@ -819,3 +819,22 @@ Added only to trial group `204553316830`: square full ad `826990035756`, asset `
 Google validateOnly passed, followed by one atomic 17-operation mutation and verified readbacks. All seven new ads and PMax binding REVIEW_IN_PROGRESS / UNKNOWN, not yet approved. Recheck 2026-10-06. Live budgets preserved: trial **$50/day**, conversion remarketing **$10/day**, PMax **$50/day**, paused legacy **$50/day**. These current amounts supersede the older $30 trial and $5 PMax notes. No budget, campaign/group-state, bidding or audience changes. All 230 existing ad records compared, with only the five authorized pause statuses changed.
 
 AS-10 finalized from explicit approval, then uploaded after verified setup. No organic posting. Victory Dashboard skipped. Full receipt: `Docs/AD13_ROUND4_SETUP_RECEIPT_20261005.md`. Builder and durable evidence: `scripts/ads/api/dgen-ad13-round4.js`, `scripts/ads/api/dgen-ads/ad13-round4-20261005.*`.
+
+## 2026-10-05: two approved Ad 10 squares added to the trial campaign
+
+Both source hashes matched `Muhammad Ad Videos/my dad bod at 38 my dad bod at 40 - ad 10/approval_20261005.json`. The original files were uploaded unchanged to channel `UC236gjadarHAhEhOMYNGJ9g`: full square `1q2nPYxIPu0` and 59 second square `3CsujW486jM`. Both are Unlisted, processed, embeddable, category 26 and not made for kids. YouTube Studio shows AI use Yes for both. The full description keeps the existing chapters; the short has no chapters. Neither was posted organically.
+
+The shared thumbnail is `Ad 10 | 1x1 | FINAL.jpg` in `social media graphics/youtube/thumbnails/Ad 10 My Dad Bod/trial-20261001/`, also copied to `_trial-campaign-20261001/FINAL APPROVED/`. It uses the approved 10-R2A real `studio-white-25` cutout, the existing orange office plate and the same headline and type as the other Ad 10 finals. Its builder and hash receipt are in `scripts/covers/trial-campaign-20261001/ad10-formats/` and beside the final image. No image generation or paid image call. Zero text/person overlap; both served thumbnails were read back and viewed.
+
+Campaign `24316364155`, existing group `202248166482`, "Ad 10 Busy Dad Fitness". Google validateOnly passed, then two ENABLED ads were created using `scripts/ads/api/dgen-ad10-squares.js`. Headlines, long headlines, descriptions, logo, business name and CTA were read from live 16:9 ad `826635657832` and reused exactly.
+
+| Format | YouTube id | Video asset id | Ad id | utm_content | Initial policy status |
+|---|---|---|---|---|---|
+| Claude 1:1 | `1q2nPYxIPu0` | `427917026642` | `827033455372` | `claude-square-vsl` | ENABLED, REVIEW_IN_PROGRESS / UNKNOWN |
+| Claude 1:1 59s | `3CsujW486jM` | `428013904774` | `827114563613` | `claude-square-59s-vsl` | ENABLED, REVIEW_IN_PROGRESS / UNKNOWN |
+
+Final URLs: `https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad10&utm_content=<table value>`. The landing page returned HTTP 200. Config, mutation and before/after evidence: `scripts/ads/api/dgen-ads/ad10-squares*.json`. All pre-existing trial ads and audience criteria compared unchanged. Campaign statuses, budgets and bids compared unchanged across trial, conversion remarketing, engagement remarketing, legacy Demand Gen and Performance Max. The trial budget `15911255930` is currently **$50/day** before and after. The handoff's $30/day figure was stale.
+
+The live Ad 10 16:9 and both vertical ads remain ENABLED and unchanged. The live 16:9's "Korean AI prodigy ... Video reveals full story." long headline was already DISAPPROVED for CLICKBAIT before this setup. It was copied unchanged, as instructed. Policy ran after creation: both new ads are in review. Recheck on **2026-10-06** with `node scripts/ads/api/client.js policy 24316364155`.
+
+No remarketing mutation was sent. Dan's open decision: add these two squares to conversion remarketing `24305381214`, as was done for Ad 4? The engagement campaign, paused legacy campaign and Performance Max were left alone.
