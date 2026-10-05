@@ -45,7 +45,7 @@ async function main() {
     console.log(`${id}: succeeded, unlisted, embeddable, not made for kids, category 26, ${v.contentDetails.duration}`);
   }
   const out = path.join('Muhammad Ad Videos', 'my dad bod at 38 my dad bod at 40 - ad 10', 'youtube-square-readback.json');
-  fs.writeFileSync(out, JSON.stringify(data, null, 2) + '\n');
+  fs.writeFileSync(out, JSON.stringify({items: data.items.filter(v => ids.includes(v.id))}, null, 2) + '\n');
   console.log(`saved: ${out}`);
 }
 main().catch(e => { console.error('FAILED: ' + e.message); process.exitCode = 1; });
