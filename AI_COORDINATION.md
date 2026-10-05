@@ -129,7 +129,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **Overnight edit queue - PAUSED 2026-09-24, Dan's call.** Resume only if Dan says: `dispatcher.py resume`.
 
-**RO-01 round 9 - IN PROGRESS 2026-10-05, Codex.** Building three quiet instrumental first-minute mixes plus voice-only from approved R8 picture and R3 voice treatment. Next: Dan picks music, then full 16:9 film, SRT, chapters and final QA. H04/B01 and 23 R4 items locked; H06 excluded, B02 removed.
+**RO-01 round 9 - NEEDS DAN 2026-10-05, Codex.** Three instrumental first-minute mixes and voice-only at `http://127.0.0.1:8789/`; files and QA in `/Volumes/Extreme/_edit_work/ro01/revision9/review/`. Next: Dan picks A/B/C or voice-only, then build full 16:9 film, SRT, chapters and final QA. R8 picture, H04/B01 and 23 R4 items locked; H06 out, B02 removed.
 
 **Ads 6, 7, 10, 14 YouTube + Google Ads - REVIEW 2026-09-15, Codex 01a0a744.** Four unlisted uploads, eight enabled campaign ads, shared budget $40/day, policy `REVIEW_IN_PROGRESS`. Next: re-run policy; swap in Ad 7 typo / Ad 14 bitrate exports when delivered. Detail: `Docs/DGEN_CONVERSION_CAMPAIGN.md`.
 
