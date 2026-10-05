@@ -1,11 +1,19 @@
 #!/bin/bash
 # The one way a session pushes from the shared main folder.
 #
-# Usage: scripts/git/safe-push.sh -m "commit message" -- <path> [<path> ...]
+# Usage: scripts/git/safe-push.sh [--adopt-stale] -m "commit message" -- <path> [<path> ...]
 #
 # Commits ONLY the named paths, merges origin/main (never rebases, never stashes), pushes.
 # Other sessions' uncommitted edits stay on disk untouched. If one of them is in the way it
-# stops and lists the files instead of guessing.
+# stops and lists the files with their last-modified times instead of guessing.
+#
+# Rules (Dan, 2026-10-05, AGENTS.md "Delivery and deployment"):
+#   - A shared file (.claude/skills/_shared/, AGENTS.md, CLAUDE.md, Docs/, scripts/, any skill
+#     file another job uses) is pushed with this script the moment it is edited.
+#   - When this stops on exit 2 and EVERY blocking file was last modified more than 2 hours
+#     ago, clear it: re-run with --adopt-stale. That backs the files up under tmp/, commits
+#     them as they are and carries on with the merge and push. If any blocking file is newer
+#     than 2 hours its owner is live: put up the board note and retry at the end of the task.
 #
 # Exit codes: 0 pushed, 1 usage or refused to start, 2 stopped on another session's files,
 #             3 merge conflict (needs a hand merge), 4 push failed.
@@ -13,17 +21,21 @@
 set -u
 
 MAX_TRIES=3
+STALE_SECS=7200          # a blocking file untouched this long has no live owner
+ADOPT_MSG="Commit pending edits from earlier sessions so main can merge"
+adopt=0
 msg=""
 paths=()
 
 usage() {
-  echo "usage: scripts/git/safe-push.sh -m \"commit message\" -- <path> [<path> ...]" >&2
+  echo "usage: scripts/git/safe-push.sh [--adopt-stale] -m \"commit message\" -- <path> [<path> ...]" >&2
   exit 1
 }
 
 while [ $# -gt 0 ]; do
   case "$1" in
     -m) [ $# -ge 2 ] || usage; msg="$2"; shift 2 ;;
+    --adopt-stale) adopt=1; shift ;;
     --) shift; while [ $# -gt 0 ]; do paths+=("$1"); shift; done ;;
     -h|--help) usage ;;
     *) echo "safe-push: unknown argument: $1" >&2; usage ;;
@@ -96,6 +108,7 @@ preflight() {
   clear_tracked=()
   clear_untracked=()
   blockers=()
+  blocker_paths=()
   local f
   while IFS= read -r -d '' f; do
     if git cat-file -e "HEAD:$f" 2>/dev/null; then
@@ -103,14 +116,14 @@ preflight() {
       if same_as_origin "$f" || is_site_data "$f"; then
         clear_tracked+=("$f")
       else
-        blockers+=("$f")
+        blockers+=("$f"); blocker_paths+=("$f")
       fi
     else
       [ -e "$f" ] || [ -L "$f" ] || continue              # not on disk, nothing in the way
       if same_as_origin "$f"; then
         clear_untracked+=("$f")
       else
-        blockers+=("$f")
+        blockers+=("$f"); blocker_paths+=("$f")
       fi
     fi
   done < <(git diff --name-only --no-renames -z HEAD...origin/main)
@@ -121,17 +134,82 @@ preflight() {
     for c in ${clear_tracked[@]+"${clear_tracked[@]}"} ${clear_untracked[@]+"${clear_untracked[@]}"} ${blockers[@]+"${blockers[@]}"}; do
       [ "$c" = "$f" ] && { known=1; break; }
     done
-    [ $known -eq 1 ] || blockers+=("$f (staged)")
+    [ $known -eq 1 ] || { blockers+=("$f (staged)"); blocker_paths+=("$f"); }
   done < <(git diff --cached --name-only --no-renames -z HEAD)
+}
+
+mtime() { stat -f %m "$1" 2>/dev/null || stat -c %Y "$1" 2>/dev/null; }
+
+# Sorts the blockers into stale (untouched for 2 hours or more) and live, and prints each
+# one's last-modified time. A file missing from disk has no time to read, so it counts as live.
+age_blockers() {
+  stale_paths=()
+  live_count=0
+  local now i f m age when
+  now=$(date +%s)
+  for i in "${!blockers[@]}"; do
+    f="${blocker_paths[$i]}"
+    m=""
+    { [ -e "$f" ] || [ -L "$f" ]; } && m=$(mtime "$f")
+    if [ -z "$m" ]; then
+      live_count=$((live_count + 1))
+      echo "  ${blockers[$i]} | missing on disk, no modified time | treat as live"
+      continue
+    fi
+    age=$((now - m))
+    when=$(date -r "$m" '+%Y-%m-%d %H:%M' 2>/dev/null || date -d "@$m" '+%Y-%m-%d %H:%M')
+    if [ "$age" -ge $STALE_SECS ]; then
+      stale_paths+=("$f")
+      echo "  ${blockers[$i]} | last modified $when ($((age / 3600)) h ago) | stale"
+    else
+      live_count=$((live_count + 1))
+      echo "  ${blockers[$i]} | last modified $when ($((age / 60)) min ago) | LIVE"
+    fi
+  done
+}
+
+# Backs the stale blockers up under tmp/ and commits them exactly as they are on disk.
+adopt_stale() {
+  local dir f
+  dir="tmp/safe-push-adopt-$(date +%Y%m%d-%H%M%S)"
+  for f in "${stale_paths[@]}"; do
+    mkdir -p "$dir/$(dirname "$f")" && cp -pR "$f" "$dir/$f" || {
+      echo "safe-push: could not back up '$f', nothing adopted"
+      finish 2 "backup failed"
+    }
+  done
+  echo "safe-push: backed up ${#stale_paths[@]} stale file(s) to $dir/"
+  git add -- "${stale_paths[@]}" && git commit -q -m "$ADOPT_MSG" -- "${stale_paths[@]}" || {
+    echo "safe-push: could not commit the stale files, nothing merged"
+    finish 2 "adopt commit failed"
+  }
+  echo "safe-push: committed the stale files as they were: $(git rev-parse --short HEAD)"
 }
 
 merge_origin() {
   preflight
   if [ ${#blockers[@]} -gt 0 ]; then
-    echo "safe-push: STOPPED before merging. Another session's live edits are in the way of GitHub's changes:"
-    printf '  %s\n' "${blockers[@]}"
-    echo "safe-push: your commit is kept locally. Nothing on disk was changed. Report these files and put one board entry up."
-    finish 2 "${#blockers[@]} file(s) with another session's edits"
+    echo "safe-push: another session's uncommitted edits are in the way of GitHub's changes:"
+    age_blockers
+    if [ $live_count -eq 0 ] && [ $adopt -eq 1 ]; then
+      adopt_stale
+      preflight
+      if [ ${#blockers[@]} -gt 0 ]; then
+        echo "safe-push: STOPPED, files are still in the way after adopting:"
+        printf '  %s\n' "${blockers[@]}"
+        finish 2 "${#blockers[@]} file(s) still in the way after adopting"
+      fi
+    elif [ $live_count -eq 0 ]; then
+      echo "safe-push: STOPPED before merging. Your commit is kept locally. Nothing on disk was changed."
+      echo "safe-push: every file above is older than 2 hours, so no owner is live: commit these and re-run."
+      echo "safe-push: run the same command again with --adopt-stale (it backs them up to tmp/ first)."
+      finish 2 "${#blockers[@]} stale file(s), re-run with --adopt-stale"
+    else
+      echo "safe-push: STOPPED before merging. Your commit is kept locally. Nothing on disk was changed."
+      echo "safe-push: $live_count file(s) changed inside the last 2 hours: owner is live, retry later."
+      echo "safe-push: put one board entry up and run this again at the end of your task."
+      finish 2 "$live_count live file(s) with another session's edits"
+    fi
   fi
   local f
   for f in ${clear_tracked[@]+"${clear_tracked[@]}"}; do
