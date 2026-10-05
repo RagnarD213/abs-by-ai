@@ -85,6 +85,8 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 # ACTIVE
 
+**Ad 13 round 4 setup - RUNNING 2026-10-05, Codex.** Approved originals uploading Unlisted. Next: validate and cut over five horizontal ads and the PMax video binding; add two trial squares. Budgets and verticals preserved.
+
 
 
 **Ad13 setup REVIEW 2026-10-04.** Policy 10-05: `Docs/AD13_VERTICAL_SETUP_RECEIPT_20261004.md`.

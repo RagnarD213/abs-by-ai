@@ -230,7 +230,7 @@ handoff (`handoff-20260909-audio-match-muhammad.md`, waiting on your spray-tan s
 | [AS-07](AS-07-ad14-square.md) | Ad 14 | BLOCKED: AV-08 approved | M |
 | [AS-08](AS-08-ad8-square.md) | Ad 8 | BLOCKED | M |
 | [AS-09](AS-09-ad9-square.md) | Ad 9 | BLOCKED: AV-10 approved | M |
-| [AS-10](AS-10-ad13-square.md) | Ad 13 | DELIVERED: awaiting Dan | M |
+| [AS-10](AS-10-ad13-square.md) | Ad 13 | FINALIZED | M |
 | [AS-11](AS-11-ad15-square.md) | Ad 15 | BLOCKED: AV-12 approved | M |
 | [AS-12](AS-12-arms-shoulders-square.md) | Arms & Shoulders Home Workout (Zeeshan, ORGANIC, not an ad) | BLOCKED: AV-13 approved | L |
 | [AS-13](AS-13-ra01-square.md) | RA-01: The AI Trick That Got Me Abs (1:1 only, 57 s) | UPLOADED | S |
