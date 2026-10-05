@@ -60,3 +60,10 @@ One I have to get right: on the jiu jitsu video the fight clips are judo, not ji
 How To Make Time is very close. The split screen frames are the right idea and just need a few changes before you generate it.
 
 Everything not in the doc is approved, so once these are in, these eight are finished. Also, a few of the links were the same file twice (Battle Ropes and Last Ten Pounds), so no worries there, I only needed one of each. Thanks for the great work on this batch!
+
+## Dan's edits (10-05 evening) and what was added after
+- He added picture slots marked [CLAUDE]: two shirt-on fat dad pictures on the 200 Pounds open, one on Looksmax 0:15, two after pictures at 200 Pounds 0:15.6, three jawline close-ups on Looksmax 0:29.9. All seven pictures are now in the doc with links (Drive kit folder, "15 Pictures").
+- He deleted the jiu jitsu AI opener and both judo items and put in his own picture at 0:02 - 0:05; cut the battle rope crop to 20-30%.
+- The 200 Pounds title graphic now starts at 0:04.3 (new file linked), so it does not cover his face on the opening pictures.
+- The message above still has the judo paragraph: the version sent to Muhammad had it removed.
+- Live doc after these changes: `revision docs/shorts-revisions-muhammad-10-5-26.live-as-sent.txt`. The `.md` beside it is the first draft, before his edits.

@@ -459,6 +459,30 @@ and so did the opening section that explained the one fault repeated on every vi
     clip to accommodate this."* So on any three-way split opener, direct the layout that way from the start: title
     graphic in a clear band at the top, the three panels below it, the bottom panel shortened to make the room.
 
+### Calibration pass 10: Dan's edits to Muhammad's shorts first cuts of 2026-10-05
+
+Doc `1FUg4oPmdlyiRqG_jUWOvyaNTC0AQq9JUSL2-_qcjTxg`, live copy `revision docs/shorts-revisions-muhammad-10-5-26.live-as-sent.txt`.
+His verdict: "pretty good", he liked the AI clips and the three-way split opener for every three-tip video. One fault.
+
+59. **Never write "images below", "this image" or "use this picture" without the picture actually in the doc.** This
+    REPLACES the empty-slot habit of rules 26 and 48. Dan: *"whenever we say put in this image, the image is actually
+    there for him to put in."* Pick the photos yourself (finalized pool shoot, never a frowning one, Speedo rule),
+    crop them to 9:16, upload to the kit folder's pictures subfolder, and put BOTH the Drive link and the inline image
+    under the item. Before delivery grep the doc for "image", "picture below" and "images below" and confirm each has
+    a picture. Mechanics: `replaceAllText` a marker in, `read_doc`, then `deleteContentRange` + `insertInlineImage`
+    (uri `https://drive.google.com/uc?export=view&id=<id>`, 250 pt tall) from the last marker to the first, with
+    `requiredRevisionId`; new URLs need `updateTextStyle` link (a replaced URL keeps its OLD link target).
+60. **His before picture for an organic short is the shirt-on "fat dad" photos**, cropped to phone shape on him
+    (`before-photo-candidates/fat dad pic - standing.JPG` and `- on ride.JPG`; cropped copies in the kit folder,
+    "15 Pictures"). He put two of them on the 200 Pounds open in place of the shirtless deck-chair picture, and one on
+    Looksmax. No top graphic over them (his head is at the top of the frame).
+61. **A jawline or face beat gets three specific close-ups, not one.** He asked for "3 specific jawline images".
+62. **He replaced a whole run of wrong-sport stock clips with one picture of his own** (jiu jitsu video: the AI opener
+    and both judo items deleted, "Insert this image full screen" with his own photo). When the subject is HIS sport or
+    history, ask him for a real photo in the summary before directing new AI or stock clips.
+63. **Crop-in numbers on exercise B-roll: he cut our "40 to 50%" to "20-30%, the most you can while still keeping rope
+    action visible".** Lean conservative when the equipment needs the frame.
+
 **Dan's vocabulary — use his words:** "camera scene" (the talking head), "motion effect" (the
 Ken Burns move on stills), "accelerate footage to fit duration", "clip", "bro", "douchey". A simple
 item is one line in that register; keep the longer form only where the editor needs exact text,
