@@ -183,6 +183,7 @@ Memory `google-ads-ui-automation`.
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
 - `handoff-20261005-git-jam-prevention.md` (10-05): rules and tooling so the main folder cannot jam again. Sol high.
+- `handoff-20261005-codex-adopt-revisions-skill.md` (10-05): Codex adopts /revisions, no fork. Astra high.
 - `handoff-20260930-codex-adopt-review-page-format.md` (09-30). Sol medium.
 
 - `handoff-20261001-move-project-out-of-icloud.md` (10-01): move the project out of iCloud's Documents sync (109k duplicates, 199 cloud-only files). Run when nothing else runs here. Opus 5.5 high.

@@ -13,6 +13,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
+| [handoff-20261005-codex-adopt-revisions-skill.md](handoff-20261005-codex-adopt-revisions-skill.md) | **Ready 2026-10-05. Codex GPT-6 Astra / High.** Codex adopts Claude's /revisions skill without forking it: thin adapter, Google Doc route by rclone, one-video parity check. Holds the starter prompt for every later review. |
 | [handoff-20261005-solo-ai-creative-services-research.md](handoff-20261005-solo-ai-creative-services-research.md) | **Ready 2026-10-05. Opus 5.5 / High.** Research a one-person AI creative services business: six services including campaign management, marketplace first revenue, niche choice, offers, and later direct clients. |
 | [handoff-20261005-ro13-thumbnails-and-video-setup.md](handoff-20261005-ro13-thumbnails-and-video-setup.md) | **Executed 2026-10-05.** Dan picked an A/B test of thumbnails 2 and 3; RO-13 queued in Blotato for Wed Oct 21 9 AM CT. Receipt: [RO-13 setup](../Docs/RO13_SETUP_RECEIPT_20261005.md) |
 | [handoff-20261003-approved-studio-posts-27-blotato.md](handoff-20261003-approved-studio-posts-27-blotato.md) | **PARTLY EXECUTED 2026-10-03, Claude.** 40 of 54 placements queued (all IG, 13 FB); 14 FB blocked by Blotato's 200-post cap. Receipt `Docs/STUDIO27_BLOTATO_QUEUE_RECEIPT_20261003.md`; resume with `scripts/blotato/studio27_queue.py`. |
