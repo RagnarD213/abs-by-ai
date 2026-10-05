@@ -1,52 +1,7 @@
 {
-"generated": "2026-10-04T11:25:16+00:00",
+"generated": "2026-10-05T11:25:40+00:00",
 "cap": 200,
 "scheduled": [
-{
-"id": "4757780",
-"platform": "facebook",
-"when": "2026-10-04T14:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Belly fat affects far more than the mirror.",
-"batch": ""
-},
-{
-"id": "4757781",
-"platform": "instagram",
-"when": "2026-10-04T14:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "Belly fat affects far more than the mirror.",
-"batch": ""
-},
-{
-"id": "5098932",
-"platform": "tiktok",
-"when": "2026-10-04T14:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Belly fat affects far more than the mirror.",
-"batch": ""
-},
-{
-"id": "4757785",
-"platform": "youtube",
-"when": "2026-10-04T14:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Why belly fat can affect far more than your appearance\u2014and the five moves I used to start taking it seriously.",
-"batch": ""
-},
-{
-"id": "3841903",
-"platform": "instagram",
-"when": "2026-10-04T22:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "One extra sentence makes AI macros far more accurate.",
-"batch": ""
-},
 {
 "id": "3584631",
 "platform": "facebook",
@@ -1792,63 +1747,63 @@
 "slides": 1,
 "text": "Meal prep is one way I make food simpler. You don't need to invent a different lunch every day. Pick a few mea",
 "batch": "Studio S05-B"
+},
+{
+"id": "5186862",
+"platform": "facebook",
+"when": "2027-02-03T23:00:00.000Z",
+"kind": "Carousel",
+"slides": 5,
+"text": "Make lunch easier before the week starts. Pick two familiar meals, check what you need and decide how they wil",
+"batch": "Studio S07-B"
+},
+{
+"id": "5186863",
+"platform": "facebook",
+"when": "2027-02-05T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Before you head out, decide what you'll eat when you get home. Put a meal in place or choose your order ahead ",
+"batch": "Studio S04-B"
+},
+{
+"id": "5186864",
+"platform": "facebook",
+"when": "2027-02-08T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Lunch sorted means fewer decisions in the middle of the day. Choose two lunches you enjoy, check the ingredien",
+"batch": "Studio S06-B"
+},
+{
+"id": "5186865",
+"platform": "facebook",
+"when": "2027-02-10T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Lunch gets easier when the decision is already made. Choose a meal you enjoy, get the ingredients or order in ",
+"batch": "Studio S09-B"
+},
+{
+"id": "5186866",
+"platform": "facebook",
+"when": "2027-02-12T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Make tomorrow's lunch a decision you handle today. Pick something you already like, check what you have and ge",
+"batch": "Studio S01-B"
+},
+{
+"id": "5186868",
+"platform": "facebook",
+"when": "2027-02-15T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Missed a day? Decide what happens next. Open the calendar, choose a realistic time and set out what you need. ",
+"batch": "Studio S06-C"
 }
 ],
 "waiting": [
-{
-"batch": "Studio posts",
-"platform": "facebook",
-"post": "S07-B",
-"title": "LUNCH,\nPLANNED.",
-"planned": "2027-02-03T23:00:00.000Z",
-"slides": 5,
-"kind": "Carousel"
-},
-{
-"batch": "Studio posts",
-"platform": "facebook",
-"post": "S04-B",
-"title": "Sort dinner before you head out",
-"planned": "2027-02-05T23:00:00.000Z",
-"slides": 1,
-"kind": "Photo"
-},
-{
-"batch": "Studio posts",
-"platform": "facebook",
-"post": "S06-B",
-"title": "LUNCH.\nSORTED.",
-"planned": "2027-02-08T23:00:00.000Z",
-"slides": 1,
-"kind": "Photo"
-},
-{
-"batch": "Studio posts",
-"platform": "facebook",
-"post": "S09-B",
-"title": "LUNCH.\nHANDLED.",
-"planned": "2027-02-10T23:00:00.000Z",
-"slides": 1,
-"kind": "Photo"
-},
-{
-"batch": "Studio posts",
-"platform": "facebook",
-"post": "S01-B",
-"title": "Make the next meal easier",
-"planned": "2027-02-12T23:00:00.000Z",
-"slides": 1,
-"kind": "Photo"
-},
-{
-"batch": "Studio posts",
-"platform": "facebook",
-"post": "S06-C",
-"title": "MISSED\nA DAY?",
-"planned": "2027-02-15T23:00:00.000Z",
-"slides": 1,
-"kind": "Photo"
-},
 {
 "batch": "Studio posts",
 "platform": "facebook",
