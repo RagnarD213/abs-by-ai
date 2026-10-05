@@ -129,7 +129,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **Overnight edit queue - PAUSED 2026-09-24, Dan's call.** Resume only if Dan says: `dispatcher.py resume`.
 
-**RO-01 round 9 - NEEDS DAN 2026-10-05, Codex.** Three new electronic first-minute mixes and voice-only at `http://127.0.0.1:8790/review-electronic/`; hashes and QA in the same folder. Next: Dan picks A/B/C or gives another correction, then build full 16:9 film, SRT, chapters and final QA. Approved R8 picture and R3 voice preserved; full film unassembled.
+**RO-01 round 9 - HANDOFF READY 2026-10-05, Codex.** Dan chose Bright Electronic (R9 second-set B). Exact preview and music source locked in `Handoffs/handoff-20261005-ro01-r9-bright-electronic-final-film.md`. Next: new task builds full 16:9 film, SRT, chapters and final QA. R8 picture and R3 voice protected; full film unassembled.
 
 **Ads 6, 7, 10, 14 YouTube + Google Ads - REVIEW 2026-09-15, Codex 01a0a744.** Four unlisted uploads, eight enabled campaign ads, shared budget $40/day, policy `REVIEW_IN_PROGRESS`. Next: re-run policy; swap in Ad 7 typo / Ad 14 bitrate exports when delivered. Detail: `Docs/DGEN_CONVERSION_CAMPAIGN.md`.
 
