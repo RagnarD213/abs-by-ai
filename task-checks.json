@@ -12,7 +12,8 @@
     "money::Build and install a new direct-response checkout page for Abs By AI (research top carts, design, code, ship)",
     "money::Claim the Claude Code cloud-sessions credit (claude.ai/code/claim-credit) before Oct 7; it expires Nov 4",
     "assistant::Get quote to fix Audi from Euro Garage — 10921 E Crystal Falls Pkwy, Bldg G-400, Leander, TX 78641",
-    "assistant::Get quote to fix Audi from 1 other mechanic of Brittany's choice. Use either personal recommendation or Claude recommendation"
+    "assistant::Get quote to fix Audi from 1 other mechanic of Brittany's choice. Use either personal recommendation or Claude recommendation",
+    "assistant::Have Dan select Audi repair vendor and have car repaired"
   ],
   "log": {
     "health::Shower": [
@@ -249,6 +250,7 @@
     "money::Build and install a new direct-response checkout page for Abs By AI (research top carts, design, code, ship)": "2026-10-03",
     "money::Claim the Claude Code cloud-sessions credit (claude.ai/code/claim-credit) before Oct 7; it expires Nov 4": "2026-10-05",
     "assistant::Get quote to fix Audi from Euro Garage — 10921 E Crystal Falls Pkwy, Bldg G-400, Leander, TX 78641": "2026-10-05",
-    "assistant::Get quote to fix Audi from 1 other mechanic of Brittany's choice. Use either personal recommendation or Claude recommendation": "2026-10-05"
+    "assistant::Get quote to fix Audi from 1 other mechanic of Brittany's choice. Use either personal recommendation or Claude recommendation": "2026-10-05",
+    "assistant::Have Dan select Audi repair vendor and have car repaired": "2026-10-05"
   }
 }
