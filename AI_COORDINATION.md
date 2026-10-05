@@ -105,7 +105,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **RO-12 - QUEUED 2026-10-01, Claude.** Blotato Oct 25. Then: `Docs/RO12_SETUP_RECEIPT_20261001.md`, delete.
 
-**RO-13 round 2 - NEEDS DAN 2026-10-04, Claude.** Delivered, review SHIP (candidate 2). Folder `11 - Can You Drink Alcohol...`, review copy in notes. Next: Dan reviews; then ONE thumbnails+setup handoff (say "Use the Codex subscription to generate the images"). ⚠225a4d8-unpushed: safe-push stopped on others' edits (VIDEO-RULES.md, framing-motion.md, kit9x16/README.md, render.py, Docs/DGEN_CONVERSION_CAMPAIGN.md, Docs/WEB_CART.md)
+**RO-13 round 2 - APPROVED 2026-10-05, Claude.** Film approved by Dan. Next: fire `handoff-20261005-ro13-thumbnails-and-video-setup.md`. ⚠225a4d8-unpushed (safe-push stopped on others' edits: VIDEO-RULES.md, framing-motion.md, kit9x16/README.md, render.py, two Docs files)
 
 **RO-10 - QUEUED 2026-10-02, Claude.** Blotato Oct 7. Oct 7: captions, article, Zepbound link on Oct 25. `Docs/RO10_SETUP_RECEIPT_20261002.md`, delete.
 
@@ -156,7 +156,7 @@ test starts. `BLOTATO_QUEUE_PROGRESS.md`
 tab; stop rather than click into spinners. `Handoffs/handoff-20260908-google-ads-custom-segments.md`
 
 
-**RO-02 - NEEDS DAN 2026-10-04, Claude.** Film: folder 12. Then `handoff-20261004-ro02-thumbnails-and-video-setup.md`.
+**RO-02 - NEEDS DAN 2026-10-04, Claude.** Film: folder 12. Then `handoff-20261004-ro02-thumbnails-and-video-setup.md`. ⚠e649219-unpushed
 
 **Shorts parked behind the long-form hold. (baseline 2026-09-15; age unknown)** Zepbound (8) + Supplements (8) need the new spray-tan sound
 (`Handoffs/handoff-20260909-audio-match-muhammad.md`); nothing posts until a parent long-form is public.

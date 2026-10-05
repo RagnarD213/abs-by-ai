@@ -13,6 +13,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
+| [handoff-20261005-ro13-thumbnails-and-video-setup.md](handoff-20261005-ro13-thumbnails-and-video-setup.md) | **Ready to fire. Claude Opus 5.5 / Medium.** RO-13 (content, long-form), approved 10-05: five Codex thumbnails, stop for Dan's pick, then /video-setup. |
 | [handoff-20261003-approved-studio-posts-27-blotato.md](handoff-20261003-approved-studio-posts-27-blotato.md) | **PARTLY EXECUTED 2026-10-03, Claude.** 40 of 54 placements queued (all IG, 13 FB); 14 FB blocked by Blotato's 200-post cap. Receipt `Docs/STUDIO27_BLOTATO_QUEUE_RECEIPT_20261003.md`; resume with `scripts/blotato/studio27_queue.py`. |
 | [handoff-20261002-five-cart-designs.md](handoff-20261002-five-cart-designs.md) | **Ready 2026-10-02. Codex GPT-6 Astra / High.** Five complete mobile and desktop cart prototypes: research recommendation, faithful HBI adaptation, three creative directions. Deliver gallery, then Dan chooses. |
 | [handoff-20261004-sl03-salad-shorts-round3-revise-shorts-2-and-4.md](handoff-20261004-sl03-salad-shorts-round3-revise-shorts-2-and-4.md) | **Ready 2026-10-04. Opus 5.5 / High.** SL-03 Daily Salad shorts round 3: Dan approved shorts 1, 3, 5, 6; revise short 2 (cut the chicken ending, add the long-form's opening line with the salad) and short 4 (add vinegar and spices at the end), re-check, review page. Round 2 record: `handoff-20261003-sl03-salad-shorts-round2-dan-review.md`. |
