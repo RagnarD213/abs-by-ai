@@ -86,7 +86,6 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 # ACTIVE
 
 
-**Ad 13 round 4 - WAIT 2026-10-04, Codex.** Three exports passed/filed. Final yes: http://127.0.0.1:8855/. Setup handoff ready. AS-10 delivered. No media uploads; queue status auto-synced.
 
 **Ad13 setup REVIEW 2026-10-04.** Policy 10-05: `Docs/AD13_VERTICAL_SETUP_RECEIPT_20261004.md`.
 
@@ -178,6 +177,8 @@ Memory `google-ads-ui-automation`.
 
 # HANDOFFS WRITTEN, NOT EXECUTED
 
+- `handoff-20261005-ad13-approved-upload-and-replace-horizontal-codex.md` (10-05): all three exports approved; thumbnails, Unlisted uploads and replacement of existing Ad 13 horizontal uses. Codex Sol high.
+
 
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
@@ -189,7 +190,6 @@ Memory `google-ads-ui-automation`.
 - `handoff-20261001-move-project-out-of-icloud.md` (10-01): move the project out of iCloud's Documents sync (109k duplicates, 199 cloud-only files). Run when nothing else runs here. Opus 5.5 high.
 - `handoff-20261001-rebuild-ios-project.md` (10-01): rebuild the iPhone project iCloud wiped. ⚠ iCloud recovery window closes about 10-17. No Apple upload. GPT-6 Sol high.
 - `handoff-20261001-search-campaigns-to-vsl-page.md` (10-01). Sol high.
-- **Ad13 round 4 APPROVED 2026-10-03, Codex.** Fire `handoff-20261003-ad13-round4-horizontal-and-square-codex.md`.
 - `handoff-20260924-generator-consult-call-outreach.md` (09-24): fire by 09-26.
 - `handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md` [dash]: PHONE ONLY, 3 TikTok covers (updated 09-22). Sonnet 5 or Fable 5.1 / Medium.
 - `handoff-20260915-finalized-ads-6-14-youtube-and-google-ads.md` (09-15). Codex, high.

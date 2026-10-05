@@ -1,0 +1,28 @@
+{
+  "round": 4,
+  "status": "approved",
+  "question": "Final yes on these three finished files?",
+  "look_approval": "Round3 approved in the current user instruction.",
+  "files": [
+    {
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Muhammad Ad Videos/i added up what getting abs was supposed to cost - ad 13/i added up what getting abs was supposed to cost | codex | 16x9 | ad 13.mp4",
+      "sha256": "e7b5ff4597c10539d25d737806056a2c209b5c02899b54419cff50a242ce1ed3"
+    },
+    {
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Muhammad Ad Videos/i added up what getting abs was supposed to cost - ad 13/i added up what getting abs was supposed to cost | codex | 1x1 | ad 13.mp4",
+      "sha256": "43fe4f707ac41759fd94c6353289396cce967b1e97d30560df373a6c9c2d45f1"
+    },
+    {
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Muhammad Ad Videos/i added up what getting abs was supposed to cost - ad 13/i added up what getting abs was supposed to cost | codex | 1x1 59s | ad 13.mp4",
+      "sha256": "d59a126976bb12ec25e8ff6c12520bcf32dbfd4b6d99c9162859efa736f51c12"
+    }
+  ],
+  "approved_by": "Daniel Rose",
+  "approved_date": "2026-10-05",
+  "approval_source": "Explicit user message in The Cost Of Getting Abs S/Sh Ad R4",
+  "approval_quote": "Okay everything is approved and ready for upload. Give me the handoff document for Codex to set these videos up, make the thumbnails, and then add them to Google Ads. I want this horizontal to replace the existing horizontal within Google Ads or whatever existing one we have there. I want this one to replace it",
+  "upload_authorized": true,
+  "google_ads_setup_authorized": true,
+  "replace_existing_horizontal": true,
+  "setup_executed": false
+}
