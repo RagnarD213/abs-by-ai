@@ -12,7 +12,7 @@ async function main(){
   assert.deepEqual(checked.sources,validate(legacy,now).sources);assert(!JSON.stringify(checked).includes('synthetic-must-not-leak'));
   assert.throws(()=>validate({...enabled,routine:null},now));
   for(const change of [{kind:'local'},{startTime:'7:00'},{readyBy:'06:30'},{localCron:true},{notifications:true},{confirmedAt:new Date(now+600000).toISOString()}]) assert.throws(()=>validate({...enabled,routine:{...routine,...change}},now));
-  const scope={document:{getElementById:()=>({addEventListener:()=>{}})},fetch:async()=>({status:401}),location:{replace:()=>{}}};
+  const scope={document:{getElementById:()=>({addEventListener:()=>{}})},fetch:async()=>({status:401}),location:{replace:()=>{}},AbortController,setTimeout,clearTimeout};
   vm.runInNewContext(fs.readFileSync(path.resolve(__dirname,'../web/page.js'),'utf8'),scope);
   const rendered=scope.routineStatus(checked);assert.match(rendered,/Daily updates enabled/);assert.match(rendered,/7:00 AM/);assert.match(rendered,/7:30 AM/);assert.match(rendered,/Mac must be online/);assert.match(rendered,/Source availability/);assert.doesNotMatch(rendered,/synthetic-must-not-leak/);
   assert.match(scope.routineStatus(validate(legacy,now)),/No enabled daily schedule/);
