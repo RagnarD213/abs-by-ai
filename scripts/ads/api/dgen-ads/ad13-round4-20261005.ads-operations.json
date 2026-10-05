@@ -1,0 +1,605 @@
+[
+  {
+    "assetOperation": {
+      "create": {
+        "resourceName": "customers/3427170837/assets/-1",
+        "name": "Ad 13 Codex R4 16x9 NQeyZ2jylVU",
+        "youtubeVideoAsset": {
+          "youtubeVideoId": "NQeyZ2jylVU"
+        }
+      }
+    }
+  },
+  {
+    "assetOperation": {
+      "create": {
+        "resourceName": "customers/3427170837/assets/-2",
+        "name": "Ad 13 Codex R4 1x1 2-S3WVLhDsI",
+        "youtubeVideoAsset": {
+          "youtubeVideoId": "2-S3WVLhDsI"
+        }
+      }
+    }
+  },
+  {
+    "assetOperation": {
+      "create": {
+        "resourceName": "customers/3427170837/assets/-3",
+        "name": "Ad 13 Codex R4 1x1-59s W1xLK5W9l_0",
+        "youtubeVideoAsset": {
+          "youtubeVideoId": "W1xLK5W9l_0"
+        }
+      }
+    }
+  },
+  {
+    "adGroupAdOperation": {
+      "create": {
+        "adGroup": "customers/3427170837/adGroups/197465035822",
+        "status": "PAUSED",
+        "ad": {
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad13&utm_content=codex-16x9-r4-start"
+          ],
+          "name": "Ad 13 The Cost Of Getting Abs | Codex 16x9 R4 | /start",
+          "demandGenVideoResponsiveAd": {
+            "headlines": [
+              {
+                "text": "The Cost Of Getting Abs"
+              },
+              {
+                "text": "Fitness Advice Adds Up"
+              },
+              {
+                "text": "One AI Fitness Plan"
+              },
+              {
+                "text": "How I Got Abs At 40"
+              },
+              {
+                "text": "How AI Got Me Abs"
+              }
+            ],
+            "longHeadlines": [
+              {
+                "text": "Daniel Rose adds up the monthly cost of trainers, nutritionists, supplements and apps."
+              },
+              {
+                "text": "See why a plan built around one person can be more useful than a pile of generic advice."
+              },
+              {
+                "text": "Daniel compares paid fitness services with AI workout and meal planning."
+              }
+            ],
+            "descriptions": [
+              {
+                "text": "Daniel Rose adds up what personal training, nutrition coaching and supplements can cost."
+              },
+              {
+                "text": "A practical comparison of generic fitness services and one personalized AI plan."
+              },
+              {
+                "text": "See how AI builds workouts and meals around your starting point, schedule and food."
+              }
+            ],
+            "videos": [
+              {
+                "asset": "customers/3427170837/assets/-1"
+              }
+            ],
+            "logoImages": [
+              {
+                "asset": "customers/3427170837/assets/400941168572"
+              }
+            ],
+            "businessName": {
+              "text": "Abs by AI"
+            },
+            "callToActions": [
+              {
+                "asset": "customers/3427170837/assets/401407635767"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "adGroupAdOperation": {
+      "update": {
+        "resourceName": "customers/3427170837/adGroupAds/197465035822~825601774244",
+        "status": "PAUSED"
+      },
+      "updateMask": "status"
+    }
+  },
+  {
+    "adGroupAdOperation": {
+      "create": {
+        "adGroup": "customers/3427170837/adGroups/200980520340",
+        "status": "PAUSED",
+        "ad": {
+          "finalUrls": [
+            "https://absbyai.com/?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad13&utm_content=codex-16x9-r4-home"
+          ],
+          "name": "Ad 13 The Cost Of Getting Abs | Codex 16x9 R4 | home",
+          "demandGenVideoResponsiveAd": {
+            "headlines": [
+              {
+                "text": "The Cost Of Getting Abs"
+              },
+              {
+                "text": "Fitness Advice Adds Up"
+              },
+              {
+                "text": "One AI Fitness Plan"
+              },
+              {
+                "text": "How I Got Abs At 40"
+              },
+              {
+                "text": "How AI Got Me Abs"
+              }
+            ],
+            "longHeadlines": [
+              {
+                "text": "Daniel Rose adds up the monthly cost of trainers, nutritionists, supplements and apps."
+              },
+              {
+                "text": "See why a plan built around one person can be more useful than a pile of generic advice."
+              },
+              {
+                "text": "Daniel compares paid fitness services with AI workout and meal planning."
+              }
+            ],
+            "descriptions": [
+              {
+                "text": "Daniel Rose adds up what personal training, nutrition coaching and supplements can cost."
+              },
+              {
+                "text": "A practical comparison of generic fitness services and one personalized AI plan."
+              },
+              {
+                "text": "See how AI builds workouts and meals around your starting point, schedule and food."
+              }
+            ],
+            "videos": [
+              {
+                "asset": "customers/3427170837/assets/-1"
+              }
+            ],
+            "logoImages": [
+              {
+                "asset": "customers/3427170837/assets/400941168572"
+              }
+            ],
+            "businessName": {
+              "text": "Abs by AI"
+            },
+            "callToActions": [
+              {
+                "asset": "customers/3427170837/assets/401407635767"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "adGroupAdOperation": {
+      "update": {
+        "resourceName": "customers/3427170837/adGroupAds/200980520340~825601774247",
+        "status": "PAUSED"
+      },
+      "updateMask": "status"
+    }
+  },
+  {
+    "adGroupAdOperation": {
+      "create": {
+        "adGroup": "customers/3427170837/adGroups/201604959278",
+        "status": "ENABLED",
+        "ad": {
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-rmktg-yt&utm_content=ad13-codex-16x9-r4-vsl"
+          ],
+          "name": "Ad 13 The Cost Of Getting Abs | Codex 16x9 R4 | vsl | rmktg-yt",
+          "demandGenVideoResponsiveAd": {
+            "headlines": [
+              {
+                "text": "The Cost Of Getting Abs"
+              },
+              {
+                "text": "Fitness Advice Adds Up"
+              },
+              {
+                "text": "One AI Fitness Plan"
+              },
+              {
+                "text": "How I Got Abs At 40"
+              },
+              {
+                "text": "How AI Got Me Abs"
+              }
+            ],
+            "longHeadlines": [
+              {
+                "text": "Daniel Rose adds up the monthly cost of trainers, nutritionists, supplements and apps."
+              },
+              {
+                "text": "See why a plan built around one person can be more useful than a pile of generic advice."
+              },
+              {
+                "text": "Daniel compares paid fitness services with AI workout and meal planning."
+              }
+            ],
+            "descriptions": [
+              {
+                "text": "Daniel Rose adds up what personal training, nutrition coaching and supplements can cost."
+              },
+              {
+                "text": "A practical comparison of generic fitness services and one personalized AI plan."
+              },
+              {
+                "text": "See how AI builds workouts and meals around your starting point, schedule and food."
+              }
+            ],
+            "videos": [
+              {
+                "asset": "customers/3427170837/assets/-1"
+              }
+            ],
+            "logoImages": [
+              {
+                "asset": "customers/3427170837/assets/400941168572"
+              }
+            ],
+            "businessName": {
+              "text": "Abs by AI"
+            },
+            "callToActions": [
+              {
+                "asset": "customers/3427170837/assets/401407635767"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "adGroupAdOperation": {
+      "update": {
+        "resourceName": "customers/3427170837/adGroupAds/201604959278~826637064697",
+        "status": "PAUSED"
+      },
+      "updateMask": "status"
+    }
+  },
+  {
+    "adGroupAdOperation": {
+      "create": {
+        "adGroup": "customers/3427170837/adGroups/206411886211",
+        "status": "ENABLED",
+        "ad": {
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-rmktg-site&utm_content=ad13-codex-16x9-r4-vsl"
+          ],
+          "name": "Ad 13 The Cost Of Getting Abs | Codex 16x9 R4 | vsl | rmktg-site",
+          "demandGenVideoResponsiveAd": {
+            "headlines": [
+              {
+                "text": "The Cost Of Getting Abs"
+              },
+              {
+                "text": "Fitness Advice Adds Up"
+              },
+              {
+                "text": "One AI Fitness Plan"
+              },
+              {
+                "text": "How I Got Abs At 40"
+              },
+              {
+                "text": "How AI Got Me Abs"
+              }
+            ],
+            "longHeadlines": [
+              {
+                "text": "Daniel Rose adds up the monthly cost of trainers, nutritionists, supplements and apps."
+              },
+              {
+                "text": "See why a plan built around one person can be more useful than a pile of generic advice."
+              },
+              {
+                "text": "Daniel compares paid fitness services with AI workout and meal planning."
+              }
+            ],
+            "descriptions": [
+              {
+                "text": "Daniel Rose adds up what personal training, nutrition coaching and supplements can cost."
+              },
+              {
+                "text": "A practical comparison of generic fitness services and one personalized AI plan."
+              },
+              {
+                "text": "See how AI builds workouts and meals around your starting point, schedule and food."
+              }
+            ],
+            "videos": [
+              {
+                "asset": "customers/3427170837/assets/-1"
+              }
+            ],
+            "logoImages": [
+              {
+                "asset": "customers/3427170837/assets/400941168572"
+              }
+            ],
+            "businessName": {
+              "text": "Abs by AI"
+            },
+            "callToActions": [
+              {
+                "asset": "customers/3427170837/assets/401407635767"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "adGroupAdOperation": {
+      "update": {
+        "resourceName": "customers/3427170837/adGroupAds/206411886211~826720144451",
+        "status": "PAUSED"
+      },
+      "updateMask": "status"
+    }
+  },
+  {
+    "adGroupAdOperation": {
+      "create": {
+        "adGroup": "customers/3427170837/adGroups/204553316830",
+        "status": "ENABLED",
+        "ad": {
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad13&utm_content=codex-16x9-r4-vsl"
+          ],
+          "name": "Ad 13 The Cost Of Getting Abs | Codex 16x9 R4 | vsl",
+          "demandGenVideoResponsiveAd": {
+            "headlines": [
+              {
+                "text": "Fire Your Personal Trainer"
+              },
+              {
+                "text": "Human Trainers Hate This AI"
+              },
+              {
+                "text": "Human Trainers Despise Him"
+              },
+              {
+                "text": "How I Got Abs At 40"
+              },
+              {
+                "text": "How AI Got Me Abs"
+              }
+            ],
+            "longHeadlines": [
+              {
+                "text": "I added up what trainers, nutritionists and supplements cost me. See what AI does instead"
+              },
+              {
+                "text": "Trainers despise this AI fitness app. See why men are replacing their trainer with AI."
+              },
+              {
+                "text": "AI fitness app shows you how to lose stomach fat and get abs. Try it free for 7 days!"
+              }
+            ],
+            "descriptions": [
+              {
+                "text": "Stop paying trainers and nutritionists to lose your belly fat. See how I use AI instead."
+              },
+              {
+                "text": "I struggled with belly fat until I discovered how to use an AI trainer to get abs."
+              },
+              {
+                "text": "See what getting abs was supposed to cost me, and how AI does the same job for less."
+              }
+            ],
+            "videos": [
+              {
+                "asset": "customers/3427170837/assets/-1"
+              }
+            ],
+            "logoImages": [
+              {
+                "asset": "customers/3427170837/assets/400941168572"
+              }
+            ],
+            "businessName": {
+              "text": "Abs by AI"
+            },
+            "callToActions": [
+              {
+                "asset": "customers/3427170837/assets/401407635767"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "adGroupAdOperation": {
+      "update": {
+        "resourceName": "customers/3427170837/adGroupAds/204553316830~826635661894",
+        "status": "PAUSED"
+      },
+      "updateMask": "status"
+    }
+  },
+  {
+    "adGroupAdOperation": {
+      "create": {
+        "adGroup": "customers/3427170837/adGroups/204553316830",
+        "status": "ENABLED",
+        "ad": {
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad13&utm_content=codex-1x1-vsl"
+          ],
+          "name": "Ad 13 The Cost Of Getting Abs | Codex 1x1 R4 | vsl",
+          "demandGenVideoResponsiveAd": {
+            "headlines": [
+              {
+                "text": "Fire Your Personal Trainer"
+              },
+              {
+                "text": "Human Trainers Hate This AI"
+              },
+              {
+                "text": "Human Trainers Despise Him"
+              },
+              {
+                "text": "How I Got Abs At 40"
+              },
+              {
+                "text": "How AI Got Me Abs"
+              }
+            ],
+            "longHeadlines": [
+              {
+                "text": "I added up what trainers, nutritionists and supplements cost me. See what AI does instead"
+              },
+              {
+                "text": "Trainers despise this AI fitness app. See why men are replacing their trainer with AI."
+              },
+              {
+                "text": "AI fitness app shows you how to lose stomach fat and get abs. Try it free for 7 days!"
+              }
+            ],
+            "descriptions": [
+              {
+                "text": "Stop paying trainers and nutritionists to lose your belly fat. See how I use AI instead."
+              },
+              {
+                "text": "I struggled with belly fat until I discovered how to use an AI trainer to get abs."
+              },
+              {
+                "text": "See what getting abs was supposed to cost me, and how AI does the same job for less."
+              }
+            ],
+            "videos": [
+              {
+                "asset": "customers/3427170837/assets/-2"
+              }
+            ],
+            "logoImages": [
+              {
+                "asset": "customers/3427170837/assets/400941168572"
+              }
+            ],
+            "businessName": {
+              "text": "Abs by AI"
+            },
+            "callToActions": [
+              {
+                "asset": "customers/3427170837/assets/401407635767"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "adGroupAdOperation": {
+      "create": {
+        "adGroup": "customers/3427170837/adGroups/204553316830",
+        "status": "ENABLED",
+        "ad": {
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad13&utm_content=codex-1x1-59s-vsl"
+          ],
+          "name": "Ad 13 The Cost Of Getting Abs | Codex 1x1-59s R4 | vsl",
+          "demandGenVideoResponsiveAd": {
+            "headlines": [
+              {
+                "text": "Fire Your Personal Trainer"
+              },
+              {
+                "text": "Human Trainers Hate This AI"
+              },
+              {
+                "text": "Human Trainers Despise Him"
+              },
+              {
+                "text": "How I Got Abs At 40"
+              },
+              {
+                "text": "How AI Got Me Abs"
+              }
+            ],
+            "longHeadlines": [
+              {
+                "text": "I added up what trainers, nutritionists and supplements cost me. See what AI does instead"
+              },
+              {
+                "text": "Trainers despise this AI fitness app. See why men are replacing their trainer with AI."
+              },
+              {
+                "text": "AI fitness app shows you how to lose stomach fat and get abs. Try it free for 7 days!"
+              }
+            ],
+            "descriptions": [
+              {
+                "text": "Stop paying trainers and nutritionists to lose your belly fat. See how I use AI instead."
+              },
+              {
+                "text": "I struggled with belly fat until I discovered how to use an AI trainer to get abs."
+              },
+              {
+                "text": "See what getting abs was supposed to cost me, and how AI does the same job for less."
+              }
+            ],
+            "videos": [
+              {
+                "asset": "customers/3427170837/assets/-3"
+              }
+            ],
+            "logoImages": [
+              {
+                "asset": "customers/3427170837/assets/400941168572"
+              }
+            ],
+            "businessName": {
+              "text": "Abs by AI"
+            },
+            "callToActions": [
+              {
+                "asset": "customers/3427170837/assets/401407635767"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "assetGroupAssetOperation": {
+      "remove": "customers/3427170837/assetGroupAssets/6754766656~423865478571~YOUTUBE_VIDEO"
+    }
+  },
+  {
+    "assetGroupAssetOperation": {
+      "create": {
+        "assetGroup": "customers/3427170837/assetGroups/6754766656",
+        "asset": "customers/3427170837/assets/-1",
+        "fieldType": "YOUTUBE_VIDEO"
+      }
+    }
+  }
+]

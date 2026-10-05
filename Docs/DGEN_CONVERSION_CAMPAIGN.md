@@ -799,3 +799,23 @@ Builder: `scripts/ads/api/dgen-ad4-remarketing.js`. Only eight ad create operati
 Policy command ran after apply: eight new remarketing ads ENABLED, REVIEW_IN_PROGRESS / UNKNOWN. Also completed the due 10-05 trial policy recheck: all four original Ad 4 format ads are now APPROVED / REVIEWED and ENABLED. Recheck new remarketing ads on **2026-10-06** with `node scripts/ads/api/client.js policy 24305381214`. No automation created.
 
 Before fingerprints, operations, mutation, verified result and policy report: `scripts/ads/api/dgen-ads/ad4-remarketing-20261005*`. Trial policy report: `scripts/ads/api/dgen-ads/ad4-formats.policy-20261005.txt`.
+
+## 2026-10-05: approved Ad 13 round 4 replacement and square setup
+
+Three exact approved originals uploaded Unlisted, processed and embeddable on channel `UC236gjadarHAhEhOMYNGJ9g`: horizontal `NQeyZ2jylVU`, square full `2-S3WVLhDsI`, square short `W1xLK5W9l_0`. Matching hashes and 39-row delivery PASS stamps verified; media untouched. Locked 13-R3B horizontal thumbnail reused; square rebuilt from the original real photo/mask and existing robot plate, with no new generation or paid image API. All served thumbnails opened. Synthetic true submitted; read API omits that setting. Same current trial description/tags, valid chapters on full videos only.
+
+| Campaign / group | Old horizontal ad, now PAUSED | New ad | New status |
+|---|---|---|---|
+| Trial `24316364155` / `204553316830` | `826635661894` | `826990035753` | ENABLED |
+| Conversion remarketing `24305381214` / YouTube `201604959278` | `826637064697` | `826990035747` | ENABLED |
+| Conversion remarketing `24305381214` / website `206411886211` | `826720144451` | `826990035750` | ENABLED |
+| Paused legacy `24243839443` / start `197465035822` | `825601774244` | `826990035741` | PAUSED |
+| Paused legacy `24243839443` / home `200980520340` | `825601774247` | `826990035744` | PAUSED |
+
+Horizontal asset `428010559636`. PMax `24308574894`, asset group `6754766656`: old video binding `423865478571` REMOVED; new `428010559636` ENABLED; five active videos retained and all other assets unchanged. Final account scan finds zero enabled paid uses of the old Ad 13 horizontals; old YouTube uploads remain Unlisted. Each replacement preserves its own live copy, CTA, logo, business name, destination and campaign tracking, with a new version in `utm_content`.
+
+Added only to trial group `204553316830`: square full ad `826990035756`, asset `428100028746`, `utm_content=codex-1x1-vsl`; square short ad `826990035759`, asset `428100028503`, `utm_content=codex-1x1-59s-vsl`. Both ENABLED, URLs to `/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad13`. No square/vertical expansion to remarketing. Existing vertical videos and ads `826888334290` / `826888304284` preserved; now APPROVED / REVIEWED.
+
+Google validateOnly passed, followed by one atomic 17-operation mutation and verified readbacks. All seven new ads and PMax binding REVIEW_IN_PROGRESS / UNKNOWN, not yet approved. Recheck 2026-10-06. Live budgets preserved: trial **$50/day**, conversion remarketing **$10/day**, PMax **$50/day**, paused legacy **$50/day**. These current amounts supersede the older $30 trial and $5 PMax notes. No budget, campaign/group-state, bidding or audience changes. All 230 existing ad records compared, with only the five authorized pause statuses changed.
+
+AS-10 finalized from explicit approval, then uploaded after verified setup. No organic posting. Victory Dashboard skipped. Full receipt: `Docs/AD13_ROUND4_SETUP_RECEIPT_20261005.md`. Builder and durable evidence: `scripts/ads/api/dgen-ad13-round4.js`, `scripts/ads/api/dgen-ads/ad13-round4-20261005.*`.

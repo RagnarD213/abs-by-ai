@@ -1,0 +1,257 @@
+{
+  "at": "2026-10-05T21:12:22.259Z",
+  "mapping": [
+    {
+      "old": "825601774244",
+      "campaign": "24243839443",
+      "group": "197465035822",
+      "name": "Ad 13 The Cost Of Getting Abs | Codex 16x9 R4 | /start",
+      "status": "PAUSED",
+      "url": "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad13&utm_content=codex-16x9-r4-start",
+      "new": "826990035741"
+    },
+    {
+      "old": "825601774247",
+      "campaign": "24243839443",
+      "group": "200980520340",
+      "name": "Ad 13 The Cost Of Getting Abs | Codex 16x9 R4 | home",
+      "status": "PAUSED",
+      "url": "https://absbyai.com/?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad13&utm_content=codex-16x9-r4-home",
+      "new": "826990035744"
+    },
+    {
+      "old": "826637064697",
+      "campaign": "24305381214",
+      "group": "201604959278",
+      "name": "Ad 13 The Cost Of Getting Abs | Codex 16x9 R4 | vsl | rmktg-yt",
+      "status": "ENABLED",
+      "url": "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-rmktg-yt&utm_content=ad13-codex-16x9-r4-vsl",
+      "new": "826990035747"
+    },
+    {
+      "old": "826720144451",
+      "campaign": "24305381214",
+      "group": "206411886211",
+      "name": "Ad 13 The Cost Of Getting Abs | Codex 16x9 R4 | vsl | rmktg-site",
+      "status": "ENABLED",
+      "url": "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-rmktg-site&utm_content=ad13-codex-16x9-r4-vsl",
+      "new": "826990035750"
+    },
+    {
+      "old": "826635661894",
+      "campaign": "24316364155",
+      "group": "204553316830",
+      "name": "Ad 13 The Cost Of Getting Abs | Codex 16x9 R4 | vsl",
+      "status": "ENABLED",
+      "url": "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad13&utm_content=codex-16x9-r4-vsl",
+      "new": "826990035753"
+    },
+    {
+      "square": "1x1",
+      "campaign": "24316364155",
+      "group": "204553316830",
+      "name": "Ad 13 The Cost Of Getting Abs | Codex 1x1 R4 | vsl",
+      "url": "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad13&utm_content=codex-1x1-vsl",
+      "new": "826990035756"
+    },
+    {
+      "square": "1x1-59s",
+      "campaign": "24316364155",
+      "group": "204553316830",
+      "name": "Ad 13 The Cost Of Getting Abs | Codex 1x1-59s R4 | vsl",
+      "url": "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad13&utm_content=codex-1x1-59s-vsl",
+      "new": "826990035759"
+    }
+  ],
+  "actualAssets": {
+    "16x9": "customers/3427170837/assets/428010559636",
+    "1x1": "customers/3427170837/assets/428100028746",
+    "1x1-59s": "customers/3427170837/assets/428100028503"
+  },
+  "newBindings": [
+    {
+      "campaign": {
+        "resourceName": "customers/3427170837/campaigns/24308574894",
+        "id": "24308574894"
+      },
+      "assetGroup": {
+        "resourceName": "customers/3427170837/assetGroups/6754766656",
+        "id": "6754766656"
+      },
+      "assetGroupAsset": {
+        "resourceName": "customers/3427170837/assetGroupAssets/6754766656~428010559636~YOUTUBE_VIDEO",
+        "asset": "customers/3427170837/assets/428010559636",
+        "fieldType": "YOUTUBE_VIDEO"
+      }
+    }
+  ],
+  "policy": [
+    {
+      "campaign": {
+        "resourceName": "customers/3427170837/campaigns/24243839443",
+        "id": "24243839443"
+      },
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/197465035822",
+        "id": "197465035822"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/197465035822~826990035741",
+        "status": "PAUSED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826990035741",
+          "id": "826990035741",
+          "name": "Ad 13 The Cost Of Getting Abs | Codex 16x9 R4 | /start"
+        },
+        "policySummary": {
+          "reviewStatus": "REVIEW_IN_PROGRESS",
+          "approvalStatus": "UNKNOWN"
+        }
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/3427170837/campaigns/24243839443",
+        "id": "24243839443"
+      },
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/200980520340",
+        "id": "200980520340"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/200980520340~826990035744",
+        "status": "PAUSED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826990035744",
+          "id": "826990035744",
+          "name": "Ad 13 The Cost Of Getting Abs | Codex 16x9 R4 | home"
+        },
+        "policySummary": {
+          "reviewStatus": "REVIEW_IN_PROGRESS",
+          "approvalStatus": "UNKNOWN"
+        }
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/3427170837/campaigns/24305381214",
+        "id": "24305381214"
+      },
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/201604959278",
+        "id": "201604959278"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/201604959278~826990035747",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826990035747",
+          "id": "826990035747",
+          "name": "Ad 13 The Cost Of Getting Abs | Codex 16x9 R4 | vsl | rmktg-yt"
+        },
+        "policySummary": {
+          "reviewStatus": "REVIEW_IN_PROGRESS",
+          "approvalStatus": "UNKNOWN"
+        }
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/3427170837/campaigns/24305381214",
+        "id": "24305381214"
+      },
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/206411886211",
+        "id": "206411886211"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/206411886211~826990035750",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826990035750",
+          "id": "826990035750",
+          "name": "Ad 13 The Cost Of Getting Abs | Codex 16x9 R4 | vsl | rmktg-site"
+        },
+        "policySummary": {
+          "reviewStatus": "REVIEW_IN_PROGRESS",
+          "approvalStatus": "UNKNOWN"
+        }
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/3427170837/campaigns/24316364155",
+        "id": "24316364155"
+      },
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/204553316830",
+        "id": "204553316830"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/204553316830~826990035753",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826990035753",
+          "id": "826990035753",
+          "name": "Ad 13 The Cost Of Getting Abs | Codex 16x9 R4 | vsl"
+        },
+        "policySummary": {
+          "reviewStatus": "REVIEW_IN_PROGRESS",
+          "approvalStatus": "UNKNOWN"
+        }
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/3427170837/campaigns/24316364155",
+        "id": "24316364155"
+      },
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/204553316830",
+        "id": "204553316830"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/204553316830~826990035756",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826990035756",
+          "id": "826990035756",
+          "name": "Ad 13 The Cost Of Getting Abs | Codex 1x1 R4 | vsl"
+        },
+        "policySummary": {
+          "reviewStatus": "REVIEW_IN_PROGRESS",
+          "approvalStatus": "UNKNOWN"
+        }
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/3427170837/campaigns/24316364155",
+        "id": "24316364155"
+      },
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/204553316830",
+        "id": "204553316830"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/204553316830~826990035759",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826990035759",
+          "id": "826990035759",
+          "name": "Ad 13 The Cost Of Getting Abs | Codex 1x1-59s R4 | vsl"
+        },
+        "policySummary": {
+          "reviewStatus": "REVIEW_IN_PROGRESS",
+          "approvalStatus": "UNKNOWN"
+        }
+      }
+    }
+  ],
+  "protectedUnchanged": true,
+  "allPreExistingAdsPreservedExceptFivePauseStatuses": true,
+  "pmaxActiveVideoCountBefore": 5,
+  "pmaxActiveVideoCountAfter": 5,
+  "oldPmaxBindingStatus": "REMOVED",
+  "oldEnabledUsesRemaining": 0
+}

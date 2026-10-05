@@ -1,0 +1,20 @@
+[
+  {
+    "campaign": {
+      "resourceName": "customers/3427170837/campaigns/24308574894",
+      "id": "24308574894"
+    },
+    "assetGroup": {
+      "resourceName": "customers/3427170837/assetGroups/6754766656",
+      "id": "6754766656"
+    },
+    "assetGroupAsset": {
+      "resourceName": "customers/3427170837/assetGroupAssets/6754766656~428010559636~YOUTUBE_VIDEO",
+      "status": "ENABLED",
+      "policySummary": {
+        "reviewStatus": "REVIEW_IN_PROGRESS",
+        "approvalStatus": "UNKNOWN"
+      }
+    }
+  }
+]

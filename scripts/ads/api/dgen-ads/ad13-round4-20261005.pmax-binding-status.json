@@ -1,0 +1,68 @@
+[
+  {
+    "assetGroup": {
+      "resourceName": "customers/3427170837/assetGroups/6754766656",
+      "id": "6754766656"
+    },
+    "assetGroupAsset": {
+      "resourceName": "customers/3427170837/assetGroupAssets/6754766656~419938098517~YOUTUBE_VIDEO",
+      "asset": "customers/3427170837/assets/419938098517",
+      "status": "ENABLED"
+    }
+  },
+  {
+    "assetGroup": {
+      "resourceName": "customers/3427170837/assetGroups/6754766656",
+      "id": "6754766656"
+    },
+    "assetGroupAsset": {
+      "resourceName": "customers/3427170837/assetGroupAssets/6754766656~421668364056~YOUTUBE_VIDEO",
+      "asset": "customers/3427170837/assets/421668364056",
+      "status": "ENABLED"
+    }
+  },
+  {
+    "assetGroup": {
+      "resourceName": "customers/3427170837/assetGroups/6754766656",
+      "id": "6754766656"
+    },
+    "assetGroupAsset": {
+      "resourceName": "customers/3427170837/assetGroupAssets/6754766656~422079967995~YOUTUBE_VIDEO",
+      "asset": "customers/3427170837/assets/422079967995",
+      "status": "ENABLED"
+    }
+  },
+  {
+    "assetGroup": {
+      "resourceName": "customers/3427170837/assetGroups/6754766656",
+      "id": "6754766656"
+    },
+    "assetGroupAsset": {
+      "resourceName": "customers/3427170837/assetGroupAssets/6754766656~423865478571~YOUTUBE_VIDEO",
+      "asset": "customers/3427170837/assets/423865478571",
+      "status": "REMOVED"
+    }
+  },
+  {
+    "assetGroup": {
+      "resourceName": "customers/3427170837/assetGroups/6754766656",
+      "id": "6754766656"
+    },
+    "assetGroupAsset": {
+      "resourceName": "customers/3427170837/assetGroupAssets/6754766656~424707539263~YOUTUBE_VIDEO",
+      "asset": "customers/3427170837/assets/424707539263",
+      "status": "ENABLED"
+    }
+  },
+  {
+    "assetGroup": {
+      "resourceName": "customers/3427170837/assetGroups/6754766656",
+      "id": "6754766656"
+    },
+    "assetGroupAsset": {
+      "resourceName": "customers/3427170837/assetGroupAssets/6754766656~428010559636~YOUTUBE_VIDEO",
+      "asset": "customers/3427170837/assets/428010559636",
+      "status": "ENABLED"
+    }
+  }
+]
