@@ -1,0 +1,749 @@
+{
+  "at": "2026-10-05T21:00:35.467Z",
+  "campaignId": "24305381214",
+  "campaignBefore": {
+    "campaign": {
+      "resourceName": "customers/3427170837/campaigns/24305381214",
+      "status": "ENABLED",
+      "advertisingChannelType": "DEMAND_GEN",
+      "targetCpa": {
+        "targetCpaMicros": "40000000"
+      },
+      "name": "[DAN] [DGEN] [TRIAL] [RMKTG] VSL page | 6 ads | US+CA | site visitors + youtube viewers",
+      "id": "24305381214"
+    },
+    "campaignBudget": {
+      "resourceName": "customers/3427170837/campaignBudgets/15911284202",
+      "id": "15911284202",
+      "amountMicros": "10000000"
+    }
+  },
+  "campaignAfter": {
+    "campaign": {
+      "resourceName": "customers/3427170837/campaigns/24305381214",
+      "status": "ENABLED",
+      "advertisingChannelType": "DEMAND_GEN",
+      "targetCpa": {
+        "targetCpaMicros": "40000000"
+      },
+      "name": "[DAN] [DGEN] [TRIAL] [RMKTG] VSL page | 6 ads | US+CA | site visitors + youtube viewers",
+      "id": "24305381214"
+    },
+    "campaignBudget": {
+      "resourceName": "customers/3427170837/campaignBudgets/15911284202",
+      "id": "15911284202",
+      "amountMicros": "10000000"
+    }
+  },
+  "created": [
+    {
+      "campaign": {
+        "resourceName": "customers/3427170837/campaigns/24305381214",
+        "id": "24305381214"
+      },
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/201604959278",
+        "id": "201604959278"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/201604959278~827113765616",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/827113765616",
+          "id": "827113765616",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-rmktg-yt&utm_content=ad4-claude-vertical-vsl"
+          ],
+          "name": "Ad 4 Stop Wasting Money On Supplements | Claude 9:16 | vsl | rmktg-yt",
+          "demandGenVideoResponsiveAd": {
+            "headlines": [
+              {
+                "text": "How AI Fixed My Supplements"
+              },
+              {
+                "text": "Supplement Corps Hate Him"
+              },
+              {
+                "text": "The Truth About Supplements"
+              },
+              {
+                "text": "How I Got Abs At 40"
+              },
+              {
+                "text": "How AI Got Me Abs"
+              }
+            ],
+            "longHeadlines": [
+              {
+                "text": "Here's how AI fixed my supplements. Find which supplements are a waste of money with AI"
+              },
+              {
+                "text": "Take a photo of your supplements and AI tells you which ones are a waste of your money."
+              },
+              {
+                "text": "Supplement companies despise this AI app. See why men are cutting their supplement bill."
+              }
+            ],
+            "descriptions": [
+              {
+                "text": "Many supplements are a waste of money. AI can identify which supplements you should cut."
+              },
+              {
+                "text": "I was wasting money on supplements until AI audited my stack. See what it told me to cut."
+              },
+              {
+                "text": "This AI app audits your supplements from one photo. Try it free for 7 days."
+              }
+            ],
+            "videos": [
+              {
+                "asset": "customers/3427170837/assets/427583175764"
+              }
+            ],
+            "logoImages": [
+              {
+                "asset": "customers/3427170837/assets/400941168572"
+              }
+            ],
+            "businessName": {
+              "text": "Abs by AI"
+            },
+            "callToActions": [
+              {
+                "asset": "customers/3427170837/assets/401407635767"
+              }
+            ]
+          }
+        },
+        "policySummary": {
+          "reviewStatus": "REVIEW_IN_PROGRESS",
+          "approvalStatus": "UNKNOWN"
+        }
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/3427170837/campaigns/24305381214",
+        "id": "24305381214"
+      },
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/201604959278",
+        "id": "201604959278"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/201604959278~827113765622",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/827113765622",
+          "id": "827113765622",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-rmktg-yt&utm_content=ad4-claude-vertical-59s-vsl"
+          ],
+          "name": "Ad 4 Stop Wasting Money On Supplements | Claude 9:16 59s | vsl | rmktg-yt",
+          "demandGenVideoResponsiveAd": {
+            "headlines": [
+              {
+                "text": "How AI Fixed My Supplements"
+              },
+              {
+                "text": "Supplement Corps Hate Him"
+              },
+              {
+                "text": "The Truth About Supplements"
+              },
+              {
+                "text": "How I Got Abs At 40"
+              },
+              {
+                "text": "How AI Got Me Abs"
+              }
+            ],
+            "longHeadlines": [
+              {
+                "text": "Here's how AI fixed my supplements. Find which supplements are a waste of money with AI"
+              },
+              {
+                "text": "Take a photo of your supplements and AI tells you which ones are a waste of your money."
+              },
+              {
+                "text": "Supplement companies despise this AI app. See why men are cutting their supplement bill."
+              }
+            ],
+            "descriptions": [
+              {
+                "text": "Many supplements are a waste of money. AI can identify which supplements you should cut."
+              },
+              {
+                "text": "I was wasting money on supplements until AI audited my stack. See what it told me to cut."
+              },
+              {
+                "text": "This AI app audits your supplements from one photo. Try it free for 7 days."
+              }
+            ],
+            "videos": [
+              {
+                "asset": "customers/3427170837/assets/427583175791"
+              }
+            ],
+            "logoImages": [
+              {
+                "asset": "customers/3427170837/assets/400941168572"
+              }
+            ],
+            "businessName": {
+              "text": "Abs by AI"
+            },
+            "callToActions": [
+              {
+                "asset": "customers/3427170837/assets/401407635767"
+              }
+            ]
+          }
+        },
+        "policySummary": {
+          "reviewStatus": "REVIEW_IN_PROGRESS",
+          "approvalStatus": "UNKNOWN"
+        }
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/3427170837/campaigns/24305381214",
+        "id": "24305381214"
+      },
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/201604959278",
+        "id": "201604959278"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/201604959278~827113765628",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/827113765628",
+          "id": "827113765628",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-rmktg-yt&utm_content=ad4-claude-square-vsl"
+          ],
+          "name": "Ad 4 Stop Wasting Money On Supplements | Claude 1:1 | vsl | rmktg-yt",
+          "demandGenVideoResponsiveAd": {
+            "headlines": [
+              {
+                "text": "How AI Fixed My Supplements"
+              },
+              {
+                "text": "Supplement Corps Hate Him"
+              },
+              {
+                "text": "The Truth About Supplements"
+              },
+              {
+                "text": "How I Got Abs At 40"
+              },
+              {
+                "text": "How AI Got Me Abs"
+              }
+            ],
+            "longHeadlines": [
+              {
+                "text": "Here's how AI fixed my supplements. Find which supplements are a waste of money with AI"
+              },
+              {
+                "text": "Take a photo of your supplements and AI tells you which ones are a waste of your money."
+              },
+              {
+                "text": "Supplement companies despise this AI app. See why men are cutting their supplement bill."
+              }
+            ],
+            "descriptions": [
+              {
+                "text": "Many supplements are a waste of money. AI can identify which supplements you should cut."
+              },
+              {
+                "text": "I was wasting money on supplements until AI audited my stack. See what it told me to cut."
+              },
+              {
+                "text": "This AI app audits your supplements from one photo. Try it free for 7 days."
+              }
+            ],
+            "videos": [
+              {
+                "asset": "customers/3427170837/assets/427583175851"
+              }
+            ],
+            "logoImages": [
+              {
+                "asset": "customers/3427170837/assets/400941168572"
+              }
+            ],
+            "businessName": {
+              "text": "Abs by AI"
+            },
+            "callToActions": [
+              {
+                "asset": "customers/3427170837/assets/401407635767"
+              }
+            ]
+          }
+        },
+        "policySummary": {
+          "reviewStatus": "REVIEW_IN_PROGRESS",
+          "approvalStatus": "UNKNOWN"
+        }
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/3427170837/campaigns/24305381214",
+        "id": "24305381214"
+      },
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/201604959278",
+        "id": "201604959278"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/201604959278~827113765634",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/827113765634",
+          "id": "827113765634",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-rmktg-yt&utm_content=ad4-claude-square-59s-vsl"
+          ],
+          "name": "Ad 4 Stop Wasting Money On Supplements | Claude 1:1 59s | vsl | rmktg-yt",
+          "demandGenVideoResponsiveAd": {
+            "headlines": [
+              {
+                "text": "How AI Fixed My Supplements"
+              },
+              {
+                "text": "Supplement Corps Hate Him"
+              },
+              {
+                "text": "The Truth About Supplements"
+              },
+              {
+                "text": "How I Got Abs At 40"
+              },
+              {
+                "text": "How AI Got Me Abs"
+              }
+            ],
+            "longHeadlines": [
+              {
+                "text": "Here's how AI fixed my supplements. Find which supplements are a waste of money with AI"
+              },
+              {
+                "text": "Take a photo of your supplements and AI tells you which ones are a waste of your money."
+              },
+              {
+                "text": "Supplement companies despise this AI app. See why men are cutting their supplement bill."
+              }
+            ],
+            "descriptions": [
+              {
+                "text": "Many supplements are a waste of money. AI can identify which supplements you should cut."
+              },
+              {
+                "text": "I was wasting money on supplements until AI audited my stack. See what it told me to cut."
+              },
+              {
+                "text": "This AI app audits your supplements from one photo. Try it free for 7 days."
+              }
+            ],
+            "videos": [
+              {
+                "asset": "customers/3427170837/assets/427583175869"
+              }
+            ],
+            "logoImages": [
+              {
+                "asset": "customers/3427170837/assets/400941168572"
+              }
+            ],
+            "businessName": {
+              "text": "Abs by AI"
+            },
+            "callToActions": [
+              {
+                "asset": "customers/3427170837/assets/401407635767"
+              }
+            ]
+          }
+        },
+        "policySummary": {
+          "reviewStatus": "REVIEW_IN_PROGRESS",
+          "approvalStatus": "UNKNOWN"
+        }
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/3427170837/campaigns/24305381214",
+        "id": "24305381214"
+      },
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/206411886211",
+        "id": "206411886211"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/206411886211~827113765613",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/827113765613",
+          "id": "827113765613",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-rmktg-site&utm_content=ad4-claude-vertical-vsl"
+          ],
+          "name": "Ad 4 Stop Wasting Money On Supplements | Claude 9:16 | vsl | rmktg-site",
+          "demandGenVideoResponsiveAd": {
+            "headlines": [
+              {
+                "text": "How AI Fixed My Supplements"
+              },
+              {
+                "text": "Supplement Corps Hate Him"
+              },
+              {
+                "text": "The Truth About Supplements"
+              },
+              {
+                "text": "How I Got Abs At 40"
+              },
+              {
+                "text": "How AI Got Me Abs"
+              }
+            ],
+            "longHeadlines": [
+              {
+                "text": "Here's how AI fixed my supplements. Find which supplements are a waste of money with AI"
+              },
+              {
+                "text": "Take a photo of your supplements and AI tells you which ones are a waste of your money."
+              },
+              {
+                "text": "Supplement companies despise this AI app. See why men are cutting their supplement bill."
+              }
+            ],
+            "descriptions": [
+              {
+                "text": "Many supplements are a waste of money. AI can identify which supplements you should cut."
+              },
+              {
+                "text": "I was wasting money on supplements until AI audited my stack. See what it told me to cut."
+              },
+              {
+                "text": "This AI app audits your supplements from one photo. Try it free for 7 days."
+              }
+            ],
+            "videos": [
+              {
+                "asset": "customers/3427170837/assets/427583175764"
+              }
+            ],
+            "logoImages": [
+              {
+                "asset": "customers/3427170837/assets/400941168572"
+              }
+            ],
+            "businessName": {
+              "text": "Abs by AI"
+            },
+            "callToActions": [
+              {
+                "asset": "customers/3427170837/assets/401407635767"
+              }
+            ]
+          }
+        },
+        "policySummary": {
+          "reviewStatus": "REVIEW_IN_PROGRESS",
+          "approvalStatus": "UNKNOWN"
+        }
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/3427170837/campaigns/24305381214",
+        "id": "24305381214"
+      },
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/206411886211",
+        "id": "206411886211"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/206411886211~827113765619",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/827113765619",
+          "id": "827113765619",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-rmktg-site&utm_content=ad4-claude-vertical-59s-vsl"
+          ],
+          "name": "Ad 4 Stop Wasting Money On Supplements | Claude 9:16 59s | vsl | rmktg-site",
+          "demandGenVideoResponsiveAd": {
+            "headlines": [
+              {
+                "text": "How AI Fixed My Supplements"
+              },
+              {
+                "text": "Supplement Corps Hate Him"
+              },
+              {
+                "text": "The Truth About Supplements"
+              },
+              {
+                "text": "How I Got Abs At 40"
+              },
+              {
+                "text": "How AI Got Me Abs"
+              }
+            ],
+            "longHeadlines": [
+              {
+                "text": "Here's how AI fixed my supplements. Find which supplements are a waste of money with AI"
+              },
+              {
+                "text": "Take a photo of your supplements and AI tells you which ones are a waste of your money."
+              },
+              {
+                "text": "Supplement companies despise this AI app. See why men are cutting their supplement bill."
+              }
+            ],
+            "descriptions": [
+              {
+                "text": "Many supplements are a waste of money. AI can identify which supplements you should cut."
+              },
+              {
+                "text": "I was wasting money on supplements until AI audited my stack. See what it told me to cut."
+              },
+              {
+                "text": "This AI app audits your supplements from one photo. Try it free for 7 days."
+              }
+            ],
+            "videos": [
+              {
+                "asset": "customers/3427170837/assets/427583175791"
+              }
+            ],
+            "logoImages": [
+              {
+                "asset": "customers/3427170837/assets/400941168572"
+              }
+            ],
+            "businessName": {
+              "text": "Abs by AI"
+            },
+            "callToActions": [
+              {
+                "asset": "customers/3427170837/assets/401407635767"
+              }
+            ]
+          }
+        },
+        "policySummary": {
+          "reviewStatus": "REVIEW_IN_PROGRESS",
+          "approvalStatus": "UNKNOWN"
+        }
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/3427170837/campaigns/24305381214",
+        "id": "24305381214"
+      },
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/206411886211",
+        "id": "206411886211"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/206411886211~827113765625",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/827113765625",
+          "id": "827113765625",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-rmktg-site&utm_content=ad4-claude-square-vsl"
+          ],
+          "name": "Ad 4 Stop Wasting Money On Supplements | Claude 1:1 | vsl | rmktg-site",
+          "demandGenVideoResponsiveAd": {
+            "headlines": [
+              {
+                "text": "How AI Fixed My Supplements"
+              },
+              {
+                "text": "Supplement Corps Hate Him"
+              },
+              {
+                "text": "The Truth About Supplements"
+              },
+              {
+                "text": "How I Got Abs At 40"
+              },
+              {
+                "text": "How AI Got Me Abs"
+              }
+            ],
+            "longHeadlines": [
+              {
+                "text": "Here's how AI fixed my supplements. Find which supplements are a waste of money with AI"
+              },
+              {
+                "text": "Take a photo of your supplements and AI tells you which ones are a waste of your money."
+              },
+              {
+                "text": "Supplement companies despise this AI app. See why men are cutting their supplement bill."
+              }
+            ],
+            "descriptions": [
+              {
+                "text": "Many supplements are a waste of money. AI can identify which supplements you should cut."
+              },
+              {
+                "text": "I was wasting money on supplements until AI audited my stack. See what it told me to cut."
+              },
+              {
+                "text": "This AI app audits your supplements from one photo. Try it free for 7 days."
+              }
+            ],
+            "videos": [
+              {
+                "asset": "customers/3427170837/assets/427583175851"
+              }
+            ],
+            "logoImages": [
+              {
+                "asset": "customers/3427170837/assets/400941168572"
+              }
+            ],
+            "businessName": {
+              "text": "Abs by AI"
+            },
+            "callToActions": [
+              {
+                "asset": "customers/3427170837/assets/401407635767"
+              }
+            ]
+          }
+        },
+        "policySummary": {
+          "reviewStatus": "REVIEW_IN_PROGRESS",
+          "approvalStatus": "UNKNOWN"
+        }
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/3427170837/campaigns/24305381214",
+        "id": "24305381214"
+      },
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/206411886211",
+        "id": "206411886211"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/206411886211~827113765631",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/827113765631",
+          "id": "827113765631",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-rmktg-site&utm_content=ad4-claude-square-59s-vsl"
+          ],
+          "name": "Ad 4 Stop Wasting Money On Supplements | Claude 1:1 59s | vsl | rmktg-site",
+          "demandGenVideoResponsiveAd": {
+            "headlines": [
+              {
+                "text": "How AI Fixed My Supplements"
+              },
+              {
+                "text": "Supplement Corps Hate Him"
+              },
+              {
+                "text": "The Truth About Supplements"
+              },
+              {
+                "text": "How I Got Abs At 40"
+              },
+              {
+                "text": "How AI Got Me Abs"
+              }
+            ],
+            "longHeadlines": [
+              {
+                "text": "Here's how AI fixed my supplements. Find which supplements are a waste of money with AI"
+              },
+              {
+                "text": "Take a photo of your supplements and AI tells you which ones are a waste of your money."
+              },
+              {
+                "text": "Supplement companies despise this AI app. See why men are cutting their supplement bill."
+              }
+            ],
+            "descriptions": [
+              {
+                "text": "Many supplements are a waste of money. AI can identify which supplements you should cut."
+              },
+              {
+                "text": "I was wasting money on supplements until AI audited my stack. See what it told me to cut."
+              },
+              {
+                "text": "This AI app audits your supplements from one photo. Try it free for 7 days."
+              }
+            ],
+            "videos": [
+              {
+                "asset": "customers/3427170837/assets/427583175869"
+              }
+            ],
+            "logoImages": [
+              {
+                "asset": "customers/3427170837/assets/400941168572"
+              }
+            ],
+            "businessName": {
+              "text": "Abs by AI"
+            },
+            "callToActions": [
+              {
+                "asset": "customers/3427170837/assets/401407635767"
+              }
+            ]
+          }
+        },
+        "policySummary": {
+          "reviewStatus": "REVIEW_IN_PROGRESS",
+          "approvalStatus": "UNKNOWN"
+        }
+      }
+    }
+  ],
+  "protectedBefore": {
+    "campaigns": {
+      "count": 11,
+      "sha256": "b4aced88e05639bd149c88618da6f8de90089c974448fcd2102d5db9fa68c7ea"
+    },
+    "groups": {
+      "count": 53,
+      "sha256": "6f7c4cb58422a32869bc952d9fd53cef17aeb497f475117e0673ae06d5591887"
+    },
+    "criteria": {
+      "count": 1706,
+      "sha256": "bacb1447aadd2f400613f08b12af3dcfbf95fa56fce5f1ec8b3d54d249221abb"
+    },
+    "goals": {
+      "count": 75,
+      "sha256": "c19afb26fa0b4d5c3283212ef8c391b8f5e13866fce60b47fb784a142a28aef7"
+    },
+    "audiences": {
+      "count": 25,
+      "sha256": "edf8ed5cd9655366fd112f09a99d288dbc7decfb2e3a0ba618c6691c3acea291"
+    },
+    "existingAds": {
+      "count": 222,
+      "sha256": "58c1220d7e591526282a51552bd87727c3d91dd2d54576b439e0ee90f18333d8"
+    }
+  },
+  "protectedSettingsUnchanged": true,
+  "allExistingAccountAdsUnchanged": true,
+  "engagementCampaignsUntouched": true
+}
