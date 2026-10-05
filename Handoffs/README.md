@@ -13,6 +13,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
+| [handoff-20261005-ad10-squares-thumbnail-and-setup-codex.md](handoff-20261005-ad10-squares-thumbnail-and-setup-codex.md) | **Ready 2026-10-05, for Codex. GPT-6.1 Sol / High.** Ad 10 squares (1:1 and 1:1 59s) approved by Dan: build the matching 1:1 thumbnail, upload both Unlisted, add two ads to the Ad 10 group in the trial campaign. Remarketing: ask Dan. No dashboard. |
 | [handoff-20261005-ad13-approved-upload-and-replace-horizontal-codex.md](handoff-20261005-ad13-approved-upload-and-replace-horizontal-codex.md) | **Ready 2026-10-05. Codex GPT-6.1 Sol / High.** All three round 4 exports approved. Finish matching 13-R3B thumbnails, upload Unlisted, add both squares, replace existing Ad 13 horizontal uses in Google Ads. |
 | [handoff-20261005-codex-adopt-revisions-skill.md](handoff-20261005-codex-adopt-revisions-skill.md) | **Ready 2026-10-05. Codex GPT-6 Astra / High.** Codex adopts Claude's /revisions skill without forking it: thin adapter, Google Doc route by rclone, one-video parity check. Holds the starter prompt for every later review. |
 | [handoff-20261005-solo-ai-creative-services-research.md](handoff-20261005-solo-ai-creative-services-research.md) | **Ready 2026-10-05. Opus 5.5 / High.** Research a one-person AI creative services business: six services including campaign management, marketplace first revenue, niche choice, offers, and later direct clients. |

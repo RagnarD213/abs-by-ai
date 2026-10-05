@@ -211,4 +211,4 @@ Memory `google-ads-ui-automation`.
 
 ## ACTIVE
 **Ad 6 remarketing 2026-10-04:** Awaiting Dan: copy to enabled campaign 24305381214?
-- **AS-06 Ad 10 squares - NEEDS DAN 2026-10-05.** Delivered; Dan reviews.
+- **AS-06 Ad 10 squares APPROVED 2026-10-05.** Fire `handoff-20261005-ad10-squares-thumbnail-and-setup-codex.md`.
