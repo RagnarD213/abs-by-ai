@@ -280,9 +280,48 @@ Light vertical (it had none), and seven faults that only a full build shows are 
   **`kit_plan_cutdown.py`** no longer declares a one-frame level under a picture at a range start.
 * **`kit_fold.sh`** takes `FORMAT=ad1x1`. `carry_verdicts.py` after every small fix: one judge re-reads only the changed
   images. Clear stale images from `cut_audit/watch/` before judging a rebuilt cutdown.
-* **Zoom steps on the frame grid**: `render.py`'s `push_z_expr` compares push times that sit between frames with frame
-  times, so a punch can land one frame after its cut. Patched in the Ad 6 build's copy only (`_snap`); the shared
-  `render.py` still needs it. ⚠ Never `pkill -f` a pattern containing `|` from a file name: it is an OR.
+* **The camera after the 2026-10-03 standard (land, then hold): measure it, the watch strips cannot see it.**
+  `camcheck.py VIDEO W H [bound]` (run in the build dir) measures the sideways shift of the background strips between
+  consecutive frames in every talking shot and lists isolated one-frame crop steps that are not on a cut. Run it on the
+  muxed file BEFORE any judge. What it caught on Ad 6, after two rounds of judges measured the same thing by hand:
+  the shared `kit_track.py` adds all four times of every push as landing anchors, so (1) each gradual zoom-out began
+  and ended with a one-frame sideways jump of 20 to 90 px, and (2) an instant step, which sits half a frame before its
+  cut by design, rounded onto the frame BEFORE the cut at some cuts, so the crop changed a frame early. Zoom times are
+  not landing anchors: every instant step is on a picture cut, which the segments already carry. Ad 6 used a
+  build-local copy without them (`<build>/kit_track_ad6.py`); the shared tracker still needs that change.
+  ⚠ `push_z_expr` is already right (the half-frame lead makes the step land on the cut frame): a "snap to the frame
+  grid" patch tried here moved the zoom a frame early at nine cuts and was reverted.
+* A square-only start for one graphic: `sq_copy.json` `"graphics": {"L12": {"a": 130.9}}` (a bottom lower third over a
+  tall card forces the card small). `"prefer"` on a picture lists label spots measured on an earlier build.
+* `kit_deliver.py mux` tags the full BT.709 (the caption overlay dropped the matrix tag; ffmpeg and VLC read an
+  untagged file as BT.601). ⚠ Never `pkill -f` a pattern containing `|` from a file name: it is an OR. ⚠ In zsh an
+  unmatched glob in `rm -f a*.json && ...` aborts the chain: the gate then reports the PREVIOUS run's json.
+* **Two cards back to back are one card: `plate_join.py`.** Each card beat gets its own plate, so on the join the accent
+  line snaps back, the blue field resets and a phone card's "AbsByAI.com" heading blinks off for five frames (Ad 6,
+  2:08 and 4:21, flagged on both formats once the picture under the cards stopped moving). After the graphics stage:
+  `plate_join.py --hf B/hf --first <plate id> --second <plate id> --n1 <frames of the first> [--square]` renders one
+  plate for both and splits it by frame index (proved on the pixels); the second card takes the first's hole.
+  ⚠ Both clips must be the SAME master box: Ad 6's two phone lifts were cut 4 px apart on every side, so at one card
+  height the phone in the second was 0.83 % smaller and stepped on the join (it always had; the join made it visible).
+  Template-match each lift's first frame in the master to read its box, crop the second lift to the first's box. The
+  graphics stage should do this itself for consecutive cards of one clip or one phone demo.
+* **An AI clip is checked frame by frame before it is used** (frame difference against the clip's own median, then the
+  eye). A0002's phone-held-up half pops every 15 to 25 frames (the phone hops, the hand reshapes, the photo on the
+  screen morphs); judges read it first as a splice, then as an AI giveaway. Ad 6 uses one clean frame with a slow push,
+  warped on the YUV planes so the colour is untouched (`<build>/ai_phone_still/make.py`).
+* **The square's phone-card heading** needs the vertical's 84 px above the card (`square.py` now reserves it); at the
+  default top it sat on the card's accent line.
+* **A judge list must name every image without a verdict, pairs included.** A pair whose strip was carried is otherwise
+  never judged and the gate's watch row fails after a 20 minute fold.
+* **A clip graded to match a reference is checked on the DELIVERED file, never on the asset.** Every RGB round trip in
+  ffmpeg at default settings lowers each level by about 2 (5 reads 3, 20 reads 18), and a bleed passes through four of
+  them plus the bleed vignette: Ad 6's plank clip went in at 0.99 of its reference and came out at 0.80 in the shadows.
+  Recipe (`<build>/plank/`): `make_v3.py --measure` reads the end to end curve (asset level to delivered level) from
+  the current build, `make_v4.py` applies its inverse and divides by `vignette_soft.png`, and `verify.py VIDEO [card
+  rect]` compares delivered patches with the reference after ORB alignment. A card in the square loses about 3 levels
+  (no vignette). Fit colour in two passes: a global curve plus cubic, then a shrunk 17-point residual grid (the global
+  fit alone left skin yellow). The same loss applies to every clip the kit re-renders, including the talking head; it
+  is part of the approved look and was not changed here, but the renderer's scale steps want `accurate_rnd`.
 
 ### Sheet-path lessons (2026-10-01)
 

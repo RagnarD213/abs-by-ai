@@ -143,7 +143,14 @@ email, TikTok `StartTrial`, the ad click ids in the session metadata. Removed wi
 - That redirect reloads the page, so the in-page tag guards from the recipe are gone when the conversions fire: for
   a local run of the return path, switch `fireAdConversion` and `fireTikTokEvent` off for `localhost` in the working
   copy first and remove it before committing.
-- A real card: only Dan. Claude cannot type one or trigger a live charge.
+- **Proven on live with real money, 2026-10-03 (Dan):** Apple Pay Monthly, Apple Pay Lifetime, card Monthly, and the
+  Lifetime charge itself (`lifetime-charge-now.sh` on the Apple Pay Lifetime account: $69.99 succeeded off-session on
+  the wallet-saved card, membership went `active` / `lifetime` / no end date). Not yet seen on a real phone: the
+  tick box layer over the Apple Pay button (Dan chose not to test it), Link, a Lifetime checkout by card.
+- **A test charge is reported as a sale unless you stop it.** `chargeLifetimeRow` sets `paid_conversion_pending_at`,
+  which drives both the page's Google Ads purchase fire and the offline sales feed. After a test charge on one of
+  Dan's own accounts, set `paid_conversion_pending_at = NULL, paid_conversion_fired_at = NOW()` on that user.
+- A real card: only Dan. Claude cannot type one, trigger a live charge or issue a refund.
   `scripts/cart/lifetime-charge-now.sh <email>` runs one buyer's Lifetime charge now instead of on day 7 (it calls
   `POST /api/admin/lifetime/charge-now` with the dashboard key).
 

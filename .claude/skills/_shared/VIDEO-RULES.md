@@ -1,3 +1,19 @@
+## No fat pinching or belly close-ups, above all in the first 30 seconds (Dan, 2026-10-04)
+
+- **Never build a shot around belly fat: no hands pinching or grabbing it, no push-in or crop that centres on it, no
+  framing whose subject is the belly.** This binds AI clips, stock clips, photos and graphics, in ads and in organic
+  videos (organic videos get promoted in engagement campaigns, so they face the same ad review).
+- **It matters most in the first 30 seconds**, which is what gets reviewed and what plays as the ad.
+- Dan, rejecting the RO-11 opener (a heavy shirtless man on a scale grabbing his belly): *"I'm concerned this will be
+  disapproved for negative events and imagery, and we won't be able to advertise this in engagement campaigns because of
+  the fat pinch... Focusing in on the belly fat like this with pinching or emphasis tends to get that disapproval."*
+- What to show instead: the situation, not the body part. His replacement was an overweight man at a table with a tiny
+  plate of bland chicken and broccoli, looking like he eats very little and still is not losing weight. A heavier person
+  shown whole, clothed, doing something (eating, cooking, walking, stepping on a scale) is fine.
+- How to apply: when writing an AI frame prompt or picking stock, say "do not show his stomach, no hands touching his
+  body" and frame from the chest up or with the table hiding the midsection. The reviewer checks every clip and photo in
+  the first 30 seconds for it.
+
 ## Squares and verticals: fill the frame, no boxes without a reason (Dan, 2026-10-02)
 
 - **A clip or photo in a square or vertical fills the frame. Put it in a box (a card on the field) only when there is a
@@ -512,3 +528,16 @@ Read [GRAPHICS-STANDARDS.md](GRAPHICS-STANDARDS.md) before designing or revising
 ## Default jump-cut and junk-footage pass (Dan, 2026-09-29)
 
 Every new video edit and revision runs [CUT-CONTINUITY-QC.md](CUT-CONTINUITY-QC.md) by default, starting with selected source footage before the first approval preview and repeated on the exact final candidate. Inspect every source/picture join, including composite internals and cutaway entrances/exits. Remove uncovered presenter jumps using distinct fixed wide/tight cuts or complete approved clip cover; pose matching alone does not clear a same-framing jump. Detect confirmed unscripted sounds, empty lead-ins, unnecessary pauses and looking away while resetting, then remove them without clipping words, stripping normal breaths or removing purposeful teaching pauses. Review native consecutive frames and moving/audio context, record each repair, and inspect every new boundary. Detector/ASR flags require actual source verification. This supplements existing gates and preserves still/frame, motion and full-render approval requirements. Do not retrofit already approved masters without scoped revision authorization.
+
+## Verticals: the camera lands on Dan, then holds (the standard centering, Dan, 2026-10-03)
+
+**Locked by Dan, 2026-10-05:** The right-hand `after.mp4` in the Codex before/after review is the approved framing reference for all future 9:16 videos. Use this land-then-hold method through shared `cut/landing.py`. Exact clip hash, measurements and Dan's approval are recorded in `Docs/VERTICAL_CENTERING_CODEX_20261003.json`. This locks the framing method; approved exports stay untouched.
+
+- **In every vertical the crop that follows Dan lands centred on him after each cut, then stays still until he has moved
+  3.3 % of the crop's width off centre, and only then follows.** Dan, choosing the calmer of two RO-10 first minutes:
+  *"I like the calmest one, the two-thirds calmer. That looks the best to me... Let's make this our standard way of
+  centering for verticals going forward. I feel like this is better than what we were doing."*
+- It replaces the track that chased every small movement (his 2026-10-01 note: "excessive and distracting"). Never go
+  back to a crop that does not move at all: he left the frame.
+- Claude and Codex both build verticals this way. Method, numbers and code: `_shared/framing-motion.md`, "Vertical
+  talking head: land on him, then hold". Use shared `cut/landing.py` via its scaled vertical preset; `kit_track.py` defaults to 20 px for a 608 px crop. Report travel, p90 pan speed, time moving and median/maximum head offset. Approved exports stay untouched.

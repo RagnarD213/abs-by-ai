@@ -208,6 +208,7 @@ Memory `google-ads-ui-automation`.
 - `handoff-20260826-danrosefit-abs-image-gap-fill.md` [dash] — once Blotato has 7 free slots.
 
 ## ACTIVE
-**Ad 6 remarketing 2026-10-04:** Awaiting Dan: copy to enabled campaign 24305381214?
-- **AS-06 Ad 10 squares - NEEDS DAN 2026-10-05, Claude.** Delivered. Next: Dan reviews.
+**Creative-services-handoff(2026-10-05,Codex,ca855ef):unpushed;next:git-unjam.** Blockers:`.claude/skills/_shared/VIDEO-RULES.md`,`.claude/skills/_shared/framing-motion.md`,`.claude/skills/shortad-from-longform/reference/kit9x16/README.md`,`.claude/skills/shortad-from-longform/reference/render.py`,`AI_COORDINATION.md`,`Docs/DGEN_CONVERSION_CAMPAIGN.md`,`Docs/WEB_CART.md`.
 
+**Ad 6 remarketing 2026-10-04:** Awaiting Dan: copy to enabled campaign 24305381214?
+- **AS-06 Ad 10 squares - NEEDS DAN 2026-10-05.** Delivered; Dan reviews. ⚠34d6878-unpushed

@@ -147,7 +147,7 @@ def l3_cfg(it, W, beats):
     beats += [(a, "", "card rises, divider wipes, heading " + (it["heading"] if isinstance(it["heading"], str) else " / ".join(it["heading"])))]
     beats += [(t, W.text(t, t + 0.4), f"item {k + 1} lands: {p}") for k, (p, t) in enumerate(zip(it["points"], rv))]
     beats += [(b - 0.33, "", "card fades and drops, gone on the cut")]
-    return dict(id=it["id"], a=a, b=b, heading=it["heading"], items=it["points"], reveal=rv, drift=it.get("drift", -6))
+    return dict(id=it["id"], a=a, b=b, heading=it["heading"], items=it["points"], reveal=rv, drift=it.get("drift", 0))
 
 
 def cycle_cfg(it, W, beats):

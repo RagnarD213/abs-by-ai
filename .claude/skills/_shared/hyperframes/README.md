@@ -21,6 +21,8 @@ Whole-video pass: [`from_plan.py`](from_plan.py) (plan + words -> configs -> ren
 Round 2 (lower third, before card, side list) approved by Dan 2026-09-30: "All three approved." Each `build.py`
 docstring has its config format; the approved configs are the `example-ro16-*.json` beside it.
 
+Codex builds use this same shared folder and plumbing, without forked templates (2026-10-03).
+
 ## One graphics pass for any video (2026-09-30, first used on RO-10)
 
 RO-10 is the first full film built this way (15 template graphics; delivered 2026-10-01, independent review SHIP,
@@ -168,3 +170,5 @@ frames (pilot: 43 dB PSNR).
 - `fromTo` for every initial state; finite `repeat` only; motion along a path = proxy object + `onUpdate`.
 - `check` shows "0/0 text checks" on a transparent overlay; judge contrast on composite stills.
 - Render speed about 5 to 6 s per second of 1080p overlay.
+
+- Side-list cards hold still by default (2026-10-04). Fractional drift can make settled type appear to shrink as its edges redraw. Keep the spoken reveals and specular sweep; use `drift: 0` for a steady text hold. Existing approved exports are unchanged.

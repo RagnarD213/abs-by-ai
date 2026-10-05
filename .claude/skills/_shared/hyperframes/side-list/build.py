@@ -43,7 +43,7 @@ def layout(heading, items):
 def scene_cfg(s):
     a = s["a"]
     assert len(s["reveal"]) == len(s["items"]), "one reveal word per item"
-    return dict(id=s["id"], dur=round(s["b"] - a, 3), drift=s.get("drift", -6),
+    return dict(id=s["id"], dur=round(s["b"] - a, 3), drift=s.get("drift", 0),
                 reveal=[H.rel(t, a) for t in s["reveal"]], **layout(s["heading"], s["items"]))
 
 

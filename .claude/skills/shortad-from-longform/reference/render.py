@@ -32,9 +32,15 @@ PUSH_UP = 85.0                          # his punch recentres 85 px up in the 10
 # The crop FOLLOWS a smoothed face track (facetrack2.py: Apple Vision torso anchor, smoothed
 # inside each source-continuous segment, zero-phase, stepping at his splices).
 _TRK = json.load(open('facetrack.json'))
-_EDL = json.load(open('edl_picture.json'))   # HIS picture cuts, not the audio splices
-_SPLICES = [q['cut_in'] for q in _EDL[1:]]
-_SEGS = [(q['cut_in'], q['cut_out']) for q in _EDL]
+if _TRK.get('method', {}).get('policy') != 'vertical-land-then-hold-20261003':
+    raise SystemExit('Rebuild the new candidate track with kit_track.py; frozen approved build scripts stay untouched')
+_EDL = _TRK.get('segments') or json.load(open('edl_picture.json'))   # HIS picture cuts, not the audio splices
+# ⚠ ON THE FRAME GRID. The base conform cuts each segment at its frame n0 = round(cut_in*FPS); a cut_in a hair after
+# that frame's own time (130.3465 = frame 3906.49) put frame n0 in the PREVIOUS segment here, so the crop stepped one
+# frame after the picture (Ad 13 round 3 judge: 130.33, 135.97, 171.91). Segments and splices use n0/FPS.
+_fr = lambda q, k, nk: q[nk] / FPS if nk in q else q[k]
+_SPLICES = [_fr(q, 'cut_in', 'n0') for q in _EDL[1:]]
+_SEGS = [(_fr(q, 'cut_in', 'n0'), _fr(q, 'cut_out', 'n1')) for q in _EDL]
 
 def _seg_range(t):
     """Sample-index range [lo, hi] of the track samples inside t's own picture segment."""
@@ -80,30 +86,39 @@ def crop_points(t0, t1):
         if t0 + 0.05 < c < t1 - 0.05:
             pts[round(c - 0.5/FPS - 0.002, 6)] = float(_x_at(c - 1.0/FPS))
             pts[round(c - 0.5/FPS + 0.002, 6)] = float(_x_at(c))
-    return [(x - t0, v) for x, v in sorted(pts.items())]
+    # ⚠ THE EXPRESSION'S t IS MEASURED FROM THE SEEK POINT, NOT FROM t0. `seek(t0)` lands 0.4 frame before frame
+    # round(t0*FPS), so on a beat whose t0 sits off the frame grid (193.77 = frame 5807.29) a frame's t ran up to
+    # 0.7 frame later than t - t0 assumed and the half-frame step at a cut fired ONE FRAME EARLY: the crop jumped
+    # to the next take's x on the last frame of the old take (Ad 13 round 3 judge, 3:20.00, frame 5994).
+    org = _seek_t(t0)
+    return [(x - org, v) for x, v in sorted(pts.items())]
 
 def window_x_expr(t0, t1, cw):
-    """Crop x for Dan's PLATE WINDOW over this beat: ONE fixed centre per picture segment (the median of the
-    face track inside it), stepping at the cuts -- the shared framing rule for wider shots (hold steady per
-    shot, never one x reused across takes). A single SUBJECT_CX for the whole beat left him at 64 % of the
-    width with a shoulder clipped in the bullet window's fourth take (kit9x16 round 2 judge, 22.6 s)."""
-    N, X = _TRK['n'], _TRK['x']
-    segs = [(max(sa, t0), min(sb, t1)) for sa, sb in _SEGS if sb > t0 and sa < t1]
-    vals = []
-    for sa, sb in segs:
-        xs = [x + CROP_W/2 for n, x in zip(N, X) if sa*FPS - 0.5 <= n < sb*FPS - 0.5]
-        cx = float(np.median(xs)) if xs else float(vlib_subject_cx())
-        vals.append((sa, max(0.0, min(1920.0 - cw, cx - cw/2))))
-    if not vals:
-        return f'{max(0.0, min(1920.0 - cw, vlib_subject_cx() - cw/2)):.1f}'
-    e = f'{vals[0][1]:.1f}'
-    for (sa, x), (_, xp) in zip(vals[1:], vals[:-1]):
-        if abs(x - xp) >= 1.0:
-            # the re-centre lands ON the cut frame: a window splice is a hard pose-matched cut with a size step
-            # (kit9x16 round 6; the 5-frame ramp belonged to the base dissolve, which ghosted two takes that
-            # differ in pose and, measured on round 5, failed to land at 223.59 and mis-seeked at 69.04)
-            e += f'{x - xp:+.1f}*gte(t\\,{sa - t0 - 0.5/FPS:.4f})'
-    return e
+    """Land-then-hold in a presenter window, scaled to its own width."""
+    import sys
+    sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '_shared', 'cut')))
+    import landing
+    with open('facetrack_raw.json') as stream:
+        raw = json.load(stream)
+    rn = np.asarray(raw['n']); rx = np.asarray([np.nan if x is None else x for x in raw['x']])
+    start, end = round(t0 * FPS), round(t1 * FPS)
+    bounds = sorted(set([start, end] + [round(c * FPS) for c in _SPLICES if t0 < c < t1]))
+    segments = [dict(n0=a, n1=b) for a, b in zip(bounds[:-1], bounds[1:])]
+    dn, centres, heads, _ = landing.vertical_dense(rn, rx, segments, cw, FPS)
+    left = centres - cw/2
+    if np.any((left < 0) | (left > 1920-cw)):
+        raise ValueError('Window cannot centre Dan within source bounds: use a wider window')
+    with open(f'window-centering-{start}-{end}.json', 'w') as stream:
+        json.dump(landing.motion_stats(dn, heads, centres, segments, cw, FPS), stream)
+    terms = [f'{left[0]:.6f}']
+    for i in range(len(dn)-1):
+        # A hard step occurs halfway between cut frames, never a pan across the cut.
+        if dn[i+1] in bounds:
+            terms.append(f'{left[i+1]-left[i]:+.6f}*gte(t\\,{dn[i+1]/FPS-float(seek(t0))-.5/FPS:.6f})')
+        elif abs(left[i+1]-left[i]) > 1e-9:
+            terms.append(f'{(left[i+1]-left[i])*FPS:+.6f}*clip(t-{dn[i]/FPS-float(seek(t0)):.6f}\\,0\\,{1/FPS:.8f})')
+    return ''.join(terms)
+
 
 def vlib_subject_cx():
     from grade import SUBJECT_CX
@@ -155,7 +170,7 @@ def selftest(verbose=True):
             if b['t0'] + 0.05 < c < b['t1'] - 0.05:
                 n0 = int(round(c*FPS))
                 for n, want in ((n0-1, _x_at((n0-1)/FPS)), (n0, _x_at(n0/FPS))):
-                    got = _eval_crop_expr(e, n/FPS - b['t0'])
+                    got = _eval_crop_expr(e, n/FPS - _seek_t(b['t0']))   # frame n's own t in the seeked beat
                     want = max(0, min(1920-CROP_W, want))
                     if abs(got-want) > 0.5:
                         raise SystemExit(f'CUT-FRAME SELF-TEST FAILED at {c:.3f}s frame {n}: expr {got:.1f} vs track {want:.1f}')
@@ -284,7 +299,7 @@ def _track_sig(t0, t1):
     return hashlib.md5(json.dumps(sl).encode()).hexdigest()[:10]
 
 def _sig(b, nfr, t0):
-    v = 'v10-winstep'  # bump on any change to the crop/ramp code; the media spec and the track slice are hashed separately
+    v = 'v13-vertical-landing'  # bump on any change to the crop/ramp code; the media spec and the track slice are hashed separately
     extra = {'_n': nfr, '_t0': round(t0, 4), '_v': v, '_vlib': _VLIB_SIG}   # the SEGMENT cache must see the layout library too:
     # a plated beat's out/sNNN.mp4 was served after vlib changed (the '200 POUNDS' kicker under the chip, round 4)
     if b['kind'] in ('talk', 'window', 'stmt', 'winmedia'): extra['_trk'] = _track_sig(t0, b['t1'])
@@ -327,6 +342,10 @@ def render_bleed_frames(key, n, out, amt=0.075):
         ['-filter_complex', f'[0:v]{ch}[v]', '-map', '[v]'] + COMMON(n, out))
 
 _VLIB_SIG = hashlib.md5(open(vlib.__file__.replace('.pyc', '.py'), 'rb').read()).hexdigest()[:8]
+
+def _seek_t(t0):
+    """The time `seek(t0)` lands on: t = 0 of a beat's own expressions."""
+    return (round(t0 * FPS) - 0.4) / FPS
 
 def seek(t0):
     """⚠ SNAP THE BASE SEEK HALF A FRAME EARLY. `-ss f'{t0:.4f}'` rounds UP past the frame's own pts on 19 of
