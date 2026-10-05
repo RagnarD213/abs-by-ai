@@ -11,6 +11,10 @@ Help Dan decide what deserves his time, contribute a few well-grounded ideas, an
 
 This is a planning conversation. Read and verify enough to ground recommendations; do not execute recommended projects, start editing/rendering, send messages, create tasks, or dispatch agents unless Dan explicitly asks. Skill creation or refinement requested in this conversation is permitted. Give starter prompts directly in chat so Dan can launch the work himself. Continue adjusting the plan when he adds ideas.
 
+## Name the task (Dan, 2026-10-05)
+
+Rename every planning task at the start, without being asked: `PRIORITIES - MON D YYYY`, all caps, three-letter month, no leading zero, using the date being planned. Example: `PRIORITIES - OCT 5 2026`.
+
 ## Evidence and conversation
 
 1. Start with Dan's current ideas, stated priorities, deadlines, energy, and constraints. These are the primary source. Do not make him repeat information already supplied.
