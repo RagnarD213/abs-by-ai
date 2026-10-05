@@ -17,6 +17,10 @@ Last updated 2026-10-03.
 
 Approved batch `output/studio-post-test-24-20260929` (27 posts, 51 images, six 5-image carousels). Mon/Wed/Fri 5 PM Central. **Queued 40 of 54 placements:** Instagram @danrosefit all 27 (Oct 26 to Dec 25), Facebook Abs by AI 13 (Jan 4 to Feb 1 2027, FB M/W/F full until Jan 1). Queue 160 to 200; Blotato then refused with `422 code 20010` (200 scheduled-post plan cap). **14 FB placements remain** (S07-B to S03-C, plan in `scripts/blotato/studio27_plan.json`); resume `studio27_queue.py plan` then `create` as slots free. Verified: 160 originals unchanged, captions/media order/image SHA256 match. Receipt `Docs/STUDIO27_BLOTATO_QUEUE_RECEIPT_20261003.md`.
 
+## DONE: RO-13 "Can You Drink Alcohol And Still Have Abs? (My 6 Rules)" (2026-10-05)
+
+Source `claude edited long form content/11 - Can You Drink Alcohol And Still Have Abs/... claude round 2 ... RO-13.mp4` (SHA-256 `2296902b...51c0`). Blotato Wed Oct 21 2026 14:00Z (9 AM CDT): Facebook 5194483, Instagram @danrosefit 5194485, TikTok 5194486 (cover-first), YouTube 5194487 (public release, thumbnail FINAL = golden-beer studio option, AI flag on). Thumbnail A/B (FINAL vs B, AI Dan with a beer) is added in Studio on release day. Keyword FOOD, UTM `ro13-alcohol-and-abs`. Four Feb 2027 Facebook studio posts were removed to fit the 200 cap (backup in `Docs/RO13_BLOTATO_REMOVED_TAIL_POSTS_20261005.json`). Receipt `Docs/RO13_SETUP_RECEIPT_20261005.md`.
+
 ## DONE: Video 4 "My Honest Oura Ring Review After 1.5 Years (The Good, Bad & Ugly)" (2026-10-02)
 
 Zeeshan's `Video 4 Rev 3.mp4` (MD5 `52642857...`, 19:47.5), filed in `Zeeshan Content Videos/my honest oura ring review - video 4/` + Extreme + Google Drive. Wed Oct 14 14:00Z (9 AM CDT): FB 5095439, IG @danrosefit 5095440, TikTok 5095441 (cover-first), YouTube 5095442 (public release by Blotato). Thumbnail A/B (AI ring macro vs AI night table): A on the Blotato target, B added in Studio after release. Keyword SLEEP, utm_content `oura-ring-review`, AI flags true. Receipt `Docs/OURA_SETUP_RECEIPT_20261002.md`.

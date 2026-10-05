@@ -4,7 +4,7 @@
 
 **Written 2026-10-05 by Claude.** One Claude task does everything: five thumbnail choices (made by Codex in the command line),
 stop for Dan's pick, then `/video-setup`. Dan approved the round 2 film on 10-05 ("everything looks good. This is approved").
-**Model:** Claude Opus 5.5, medium. **Sidebar name:** `Alcohol And Abs LFC Setup`.
+**Model:** Claude Sonnet 5.5, medium (mechanical setup; Opus only if Dan rejects the title or description copy). **Sidebar name:** `Alcohol And Abs LFC Setup`.
 **Use the Codex subscription to generate the images.**
 
 ## 1. State
@@ -63,7 +63,7 @@ video is public (Step 6b). Never upload to YouTube yourself; Blotato creates the
   sessions' edits. Run `scripts/git/drift-check.sh` first; push with `safe-push.sh` only.
 - Delete the RO-13 round 2 board entry once this task has queued the release.
 
-## Starter prompt (Claude Opus 5.5, effort medium)
+## Starter prompt (Claude Sonnet 5.5, effort medium)
 
 Read `Handoffs/handoff-20261005-ro13-thumbnails-and-video-setup.md`. Name this session "Alcohol And Abs LFC Setup". This is a
 CONTENT long-form and I approved the round 2 film. Use the Codex subscription to generate the images. Make the five thumbnail

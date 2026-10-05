@@ -105,7 +105,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **RO-12 - QUEUED 2026-10-01, Claude.** Blotato Oct 25. Then: `Docs/RO12_SETUP_RECEIPT_20261001.md`, delete.
 
-**RO-13 round 2 - APPROVED 2026-10-05, Claude.** Film approved by Dan. Next: fire `handoff-20261005-ro13-thumbnails-and-video-setup.md`. ⚠225a4d8-unpushed (safe-push stopped on others' edits: VIDEO-RULES.md, framing-motion.md, kit9x16/README.md, render.py, two Docs files)
+**RO-13 - QUEUED 2026-10-05, Claude.** Blotato Wed Oct 21 9AM CT. Then: Studio thumbnail A/B, captions, publish `sixpackabs/articles/TBD-alcohol-and-abs.md`. `Docs/RO13_SETUP_RECEIPT_20261005.md`, delete. ⚠225a4d8 unpushed.
 
 **RO-10 - QUEUED 2026-10-02, Claude.** Blotato Oct 7. Oct 7: captions, article, Zepbound link on Oct 25. `Docs/RO10_SETUP_RECEIPT_20261002.md`, delete.
 
@@ -156,7 +156,7 @@ test starts. `BLOTATO_QUEUE_PROGRESS.md`
 tab; stop rather than click into spinners. `Handoffs/handoff-20260908-google-ads-custom-segments.md`
 
 
-**RO-02 - APPROVED 2026-10-05, Claude.** Dan fires `handoff-20261004-ro02-thumbnails-and-video-setup.md`. ⚠e649219-unpushed
+**RO-02 - NEEDS DAN 2026-10-05, Claude.** Thumbnails A-E shown. Next: Dan picks, then /video-setup. ⚠e649219-unpushed
 
 **Shorts parked behind the long-form hold. (baseline 2026-09-15; age unknown)** Zepbound (8) + Supplements (8) need the new spray-tan sound
 (`Handoffs/handoff-20260909-audio-match-muhammad.md`); nothing posts until a parent long-form is public.
@@ -182,6 +182,7 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
+- `handoff-20261005-git-unjam-main-folder.md` (10-05): push the 41 stuck commits. Run when no Claude session edits the main folder. Sol high. Then `handoff-20261005-git-jam-prevention.md`. Sol high.
 - `handoff-20260930-codex-adopt-review-page-format.md` (09-30). Sol medium.
 
 - `handoff-20261001-move-project-out-of-icloud.md` (10-01): move the project out of iCloud's Documents sync (109k duplicates, 199 cloud-only files). Run when nothing else runs here. Opus 5.5 high.
