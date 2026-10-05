@@ -5,6 +5,8 @@ description: Brainstorm and rank what Dan should work on next — "what should I
 
 # /prioritize — brainstorming & prioritization session
 
+**Dashboard PAUSED 2026-10-05 (Dan):** do not read or write the Victory Dashboard (`/api/todos`, `/api/task-checks`, `/api/plan`) until Dan says the Codex rebuild is ready. Plan from his message, `AI_COORDINATION.md`, handoffs and task lists only.
+
 ## The one hard rule
 
 **This session's deliverable is the recommendation, not the work.** Do NOT start executing anything recommended — no browser driving, no code edits, no content drafting, no handoff execution. Dan deliberately runs execution in separate sessions to save tokens and keep each execution session's context clean. This is the standing exception to the bias-toward-action rule (CLAUDE.md, 2026-08-11). Reading and light verification (a curl, a grep, a status check) to *ground* the recommendation is fine and encouraged; producing the deliverable of a recommended task is not.

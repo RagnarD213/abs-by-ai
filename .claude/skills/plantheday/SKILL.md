@@ -17,6 +17,8 @@ Rename every planning task at the start, without being asked: `PRIORITIES - MON 
 
 ## Evidence and conversation
 
+**Dashboard PAUSED 2026-10-05 (Dan):** do not read or write the Victory Dashboard (`/api/todos`, `/api/task-checks`, `/api/plan`) until Dan says the Codex rebuild is ready. Plan from his message, `AI_COORDINATION.md`, handoffs and task lists only.
+
 1. Start with Dan's current ideas, stated priorities, deadlines, energy, and constraints. These are the primary source. Do not make him repeat information already supplied.
 2. Ask early for missing work windows, appointments, or a decision that changes the plan; continue independent reading while awaiting his answer. Without exact times, give ordered blocks and label assumptions.
 3. Read `AI_COORDINATION.md`, inspect pinned and relevant recent tasks with available task tools, and read only the handoffs needed for candidate work. Prefer compact status and final messages over complete tool histories. Use returned task titles verbatim. A pin is not proof work is unfinished; distinguish running, review-ready, blocked, completed, and unknown.

@@ -5,6 +5,8 @@ description: Read or write the Victory Dashboard task board — check a finished
 
 # Victory Dashboard task mechanics
 
+**PAUSED 2026-10-05 (Dan): do not read, write or check off anything on the Victory Dashboard.** Dan called it unusable and is rebuilding it with Codex. Until he says the new one is ready, skip every dashboard step below and report finished work in chat only.
+
 Finishing a task means checking it off at `absbyai.com/dashboard` in the same session — Dan should not have to click it himself. Do it after the change is committed, pushed, deployed and verified, as the last step of the task.
 
 ## Auth — every call needs the key

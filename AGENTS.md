@@ -99,6 +99,8 @@ sessions (and any other assistant, if one is in use).
 
 ## Standing authorization for dashboard and task-board updates
 
+**PAUSED 2026-10-05 (Dan): do not read, write or check off anything on the Victory Dashboard.** Dan called it unusable and is rebuilding it with Codex. Until he says the new one is ready, skip every dashboard step below and report finished work in chat only.
+
 - You are authorized to read and write the Victory Dashboard's task data (`/api/todos`, `/api/task-checks`, `/api/plan`) without asking for confirmation each time: adding a handoff row only when Dan explicitly asks for one (never automatically — Dan's rule 2026-09-08), checking off completed tasks, and updating the focus list, per the rules in AI_COORDINATION.md.
 - This authorization does not permit deleting tasks Dan created or rewriting task text he wrote.
 
