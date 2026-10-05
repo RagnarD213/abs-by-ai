@@ -183,7 +183,6 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
-- `handoff-20261005-codex-adopt-revisions-skill.md` (10-05): Codex adopts /revisions, no fork. Astra high.
 - `handoff-20260930-codex-adopt-review-page-format.md` (09-30). Sol medium.
 
 - `handoff-20261001-move-project-out-of-icloud.md` (10-01): move the project out of iCloud's Documents sync (109k duplicates, 199 cloud-only files). Run when nothing else runs here. Opus 5.5 high.
@@ -209,4 +208,3 @@ Memory `google-ads-ui-automation`.
 
 ## ACTIVE
 **Ad 6 remarketing 2026-10-04:** Awaiting Dan: copy to enabled campaign 24305381214?
-- **AS-06 Ad 10 squares APPROVED 2026-10-05.** Fire `handoff-20261005-ad10-squares-thumbnail-and-setup-codex.md`.
