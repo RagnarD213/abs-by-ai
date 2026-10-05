@@ -156,7 +156,7 @@ test starts. `BLOTATO_QUEUE_PROGRESS.md`
 tab; stop rather than click into spinners. `Handoffs/handoff-20260908-google-ads-custom-segments.md`
 
 
-**RO-02 - NEEDS DAN 2026-10-04, Claude.** Film: folder 12. Then `handoff-20261004-ro02-thumbnails-and-video-setup.md`. ⚠e649219-unpushed
+**RO-02 - APPROVED 2026-10-05, Claude.** Dan fires `handoff-20261004-ro02-thumbnails-and-video-setup.md`. ⚠e649219-unpushed
 
 **Shorts parked behind the long-form hold. (baseline 2026-09-15; age unknown)** Zepbound (8) + Supplements (8) need the new spray-tan sound
 (`Handoffs/handoff-20260909-audio-match-muhammad.md`); nothing posts until a parent long-form is public.

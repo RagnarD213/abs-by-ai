@@ -3,14 +3,14 @@
 **CONTENT, long-form (LFC).** It gets Shorts cut from it later and nothing else.
 
 **Written 2026-10-04 by Claude (Opus 5.5).** One Claude task does everything: five thumbnail choices (made by Codex in the
-command line), stop for Dan's pick, then `/video-setup`. **Fire only after Dan approves the round 3 film.**
+command line), stop for Dan's pick, then `/video-setup`. **Approved 10-05: ready to fire.**
 **Model:** Claude Opus 5.5, medium. **Sidebar name:** `The Vacuum LFC Setup`.
 **Use the Codex subscription to generate the images.**
 
 ## 1. State
 
-Round 3 full film delivered 2026-10-04 for Dan's review. Not yet approved by him. If his reply asks for changes, this handoff
-waits and a round 4 edit task runs first. It is ORGANIC: it ends "So go to AbsByAI.com, generate that picture of yourself with
+Dan approved the round 3 film on 2026-10-05: "All right, this is approved." The film is locked; do not re-edit it. Edit
+Queue state `finalized`. It is ORGANIC: it ends "So go to AbsByAI.com, generate that picture of yourself with
 abs and take the first step to getting in shape. Thank you for watching guys and I'll see you in the next video." Still run
 the skill's Step 0 classification and `python3 scripts/blotato/ad_guard.py --scan` before and after the Blotato write.
 
