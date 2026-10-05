@@ -86,10 +86,20 @@ class ClipReader:
             yield Image.frombytes("RGB", (1920, 1080), b)
         p.stdout.close(); p.wait()
 
+_OP = {}
+def _opener_clip(p):
+    """The approved AI motion (round 3): aiframes/A.mp4 (crunches) and B.mp4 (sit-ups), START to END then reversed, read
+    once at panel size (850 x 478, the whole 16:9 frame)."""
+    if p not in _OP:
+        raw = subprocess.run([FF, "-v", "error", "-i", f"{W}/aiframes/{p}.mp4", "-vf", "scale=850:478:flags=lanczos:in_color_matrix=bt709:in_range=tv,format=rgb24", "-f", "rawvideo", "-"], capture_output=True, check=True).stdout
+        n = len(raw)//(850*478*3); _OP[p] = [Image.frombytes("RGB", (850, 478), raw[i*850*478*3:(i+1)*850*478*3]) for i in range(n)]
+    return _OP[p]
 def opener_frames(t):
-    """Until the motion is approved and generated: each panel alternates its START and END frame (0.8 s each)."""
-    k = "start" if int(t/0.8) % 2 == 0 else "end"
-    return {p: G._panel_img(f"{W}/aiframes/{p}-{k}.png") for p in ("A", "B")}, f"PLACEHOLDER: {k.upper()} frames, motion not generated yet"
+    g = fr(t); out = {}
+    for p in ("A", "B"):
+        c = _opener_clip(p); assert g < len(c), f"opener clip {p} too short: never hold a clip"
+        out[p] = c[g]
+    return out, None
 
 def compose(im, g, items, readers, HCOMP):
     t = g/FPS; act = [it for it in items if fr(it["t0"]) <= g < fr(it["t1"])]; clip = None; of = note = None
@@ -134,7 +144,7 @@ def render_range(a, b, out):
         e = min(N, at+len(x)); v[at:e] += x[:e-at]
     raw = out+".untreated.wav"; o = wave.open(raw, "w"); o.setnchannels(1); o.setsampwidth(2); o.setframerate(SR)
     o.writeframes((np.clip(v, -1, 1)*32767).astype("<i2").tobytes()); o.close()
-    run(["python3", VC, "--in", raw, "--video", out+".v.mp4", "--frame-lock", out+".v.mp4", "--out", out, "--eq", EQ, "--work", out+".work"])
+    run(["python3", VC, "--in", raw, "--video", out+".v.mp4", "--frame-lock", out+".v.mp4", "--out", out, "--eq", EQ, "--tp", "-2.8", "--oversample", "4", "--work", out+".work"])   # -2.8: the default ceiling left -0.80 dBTP after AAC on the full film; -4.0 failed tone
     json.dump(dict(range=[a, b], frames=f1-f0, segments=segs, items=[i["id"] for i in items]), open(out+".build.json", "w"), indent=1)
     print("built", out, f1-f0, "frames", flush=True)
 

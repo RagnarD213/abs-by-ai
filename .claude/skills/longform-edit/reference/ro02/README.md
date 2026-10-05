@@ -59,3 +59,37 @@ Traps this round paid for:
 - **A two-part lower third dropped the space before a part starting with T.** One part fixed it; look at every still.
 - **A library clip can be the wrong look.** B0428 (shade, wide) read dark beside this film; the film's own live set won.
 - A zsh glob with no match aborts the whole `rm` line, and everything after `&&` with it. Use `find ... -exec`.
+
+## Round 3 (2026-10-04): opener motion and the full film
+
+Order: re-hash `round3-plan/decisions.json` -> Veo 3.1 fast, first and last frame, 4 s each
+(`ai-clip-ideas/reference/gen-veo-keyframes.js`, prompts `opener_motion_A.txt` / `_B.txt`) -> contact sheets of every
+fourth frame, cropped on the man -> `aiframes/A.mp4`, `B.mp4` (forward then reversed, 30000/1001, 6.8 s) ->
+`build.opener_frames` reads them at panel size -> `round3_render.sh` (`dupscan.py`, `clipscan.py`,
+`build.render_range(0, total)`) -> `finish_chain.sh` -> reviewer -> delivery gate.
+
+What is new:
+- `build._opener_clip`: each panel's clip is decoded once at 850 x 478 and indexed by the film frame. It asserts the clip
+  is long enough; it never holds a frame.
+- Crunches came back as up, down, up inside 4 s, so the loop is the whole clip then the whole clip reversed. The sit-up
+  reaches the top at about 2.3 s and then sits still, so its loop is frames 0 to 62, reversed, then forward again.
+- `finish.py`: chapters are the six PART cards plus the recap; the opener's two AI chips are checked at their drawn
+  position with a chip rendered at the opener's scale (1.5).
+- `round3`, `cache` and `hf/renders` are symlinks to `~/.cache/absbyai/` (the Extreme drive had 2 GB free).
+
+Traps this round paid for:
+- **Two Veo submissions in the same second: the second gets HTTP 429.** Submit one, wait a few seconds, submit the next.
+- **zsh does not split an unquoted variable into arguments.** Encoder flags go in an array (`"${ENC[@]}"`).
+- A start frame's logo (the N on the shoe) is painted out on a COPY (`B-start-clean.png`); the approved file keeps its hash.
+- **A restart the transcriber swallows.** medium.en on the assembled cut gave "with belly ... fat" with 3.5 s between
+  two words: that gap WAS the first attempt of "However, I see very, very few people with", heard twice on the film. Any
+  gap over 1.5 s between two words inside a sentence gets its own 6 s re-listen and a level read before the first minute
+  is shown. The independent reviewer found this one on the finished audio; it cost a second full build.
+- **A new EDL piece needs rows in `measure.json` and `skin.json`** (keyed by piece). A piece split off an existing one
+  copies its parent's rows.
+- **The default peak ceiling left -0.80 dBTP after the AAC encode; -4.0 then failed tone.** `--tp -2.8 --oversample 4`
+  passed both (in `build.py`).
+- **`round3` is a symlink, so `../recipe` from inside it resolves under `~/.cache`.** Chain scripts use absolute paths.
+- **The hair check must take the largest mask blob** (the chimney cap read as hair at 0 px on the far framing).
+- The delivery gate fails seven rows on this film (see the delivery notes): the silent live set and the poolside
+  far/near framing meet studio bounds. Reported, not tuned.

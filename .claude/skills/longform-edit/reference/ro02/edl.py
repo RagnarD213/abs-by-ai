@@ -12,7 +12,8 @@ PIECES = [
  ("ta",     "C1618", 1.86, 36.38, "When you're training your abs ... it's the one when you're sucking in for a vacuum that you're working.", "only take"),
  ("ta2",    "C1618", 41.32, 45.90, "This is the muscle you want to train and that's why you want to do vacuums while you still have belly fat.", "second copy (first stopped at 'vacuums when you...')"),
  ("hist",   "C1618", 67.02, 76.18, "Now, the vacuum has been used in bodybuilding for a long time ... to get a tiny waist.", "only take"),
- ("hist2",  "C1618", 84.32, 114.78, "That is part of the reason why old school bodybuilders like Arnold Schwarzenegger and Frank Zane ... you're the one who's going to benefit the most from this.", "second copy of the Arnold line (first stopped at 'than modern...')"),
+ ("hist2",  "C1618", 84.32, 103.12, "That is part of the reason why old school bodybuilders like Arnold Schwarzenegger and Frank Zane ... that effect of bubble gut caused by steroids.", "second copy of the Arnold line (first stopped at 'than modern...')", 103.28),
+ ("hist2b", "C1618", 107.38, 114.78, "However, I see very, very few people with belly fat doing this exercise ... you're the one who's going to benefit the most from this.", "second copy of 'However, I see very, very few people with' (the first, 103.68 to 106.25, stopped there; whisper swallowed it in rounds 1 and 2, the round 3 reviewer found it on the finished audio)", None, 107.12),
  ("why2",   "C1618", 131.32, 136.74, "Now, here's the second reason why I recommend people with belly fat do vacuums every single day.", "only take"),
  ("why2b",  "C1618", 147.76, 166.04, "Doing a vacuum the way that I recommend will train your transverse abdominis ... And that's actually a problem.", "third copy of 'Doing a vacuum' (two stopped); ends before the denial line, which he re-said at the top of the next roll"),
  ("denial", "C1619", 6.74, 35.26, "If you're not looking at your stomach on a daily basis ... exposing their stomach for everybody to see.", "the roll-change pickup of the denial line (C1618's copy at 166.7 dropped so it is said once); out set by hand in the 35.32-35.70 gap before the stopped 'But'", 35.46),
@@ -20,7 +21,7 @@ PIECES = [
  ("me",     "C1619", 82.22, 105.68, "So the vacuum was very effective for me in shrinking my waist ... in addition to ab exercises.", "second 'so the vacuum' (first is a false start)"),
  ("clients","C1619", 115.26, 127.70, "I've seen even greater success with my clients with belly fat ... you do vacuums every day.", "second copy (first stopped at 'and to bring the...')"),
  ("types",  "C1620", 2.22, 62.56, "So there are three types of vacuums that you can do ... and that's a problem.", "only take; the leading 'Okay,' dropped"),
- ("adv",    "C1621", 3.18, 21.38, "The standing vacuum also has a few practical advantages ... And it just takes a few minutes.", "only take"),
+ ("adv",    "C1621", 3.18, 21.38, "The standing vacuum also has a few practical advantages ... And it just takes a few minutes.", "only take", 21.50),   # 21.50: the snapped 21.60 kept the first 50 ms of the removed "It's" (round 3 review N9)
  ("adv2",   "C1621", 25.68, 30.10, "It's super quick. It's super easy. And this is something realistic for you to add to your routine.", "second copy (first: 'something which is realistic.')"),
  ("aipic",  "C1621", 40.42, 82.56, "Now here's the final reason I love the standing vacuum ... is also gonna change you.", "only take"),
  ("how",    "C1622", 4.30, 19.08, "All right, so let's talk about how to do the vacuum ... If you're doing this at the gym after your workout,", "only take; joins the re-said shirt line ('then' at 19.34 dropped)", 19.20),
@@ -35,7 +36,7 @@ PIECES = [
  ("routine","C1626", 2.64, 60.96, "All right, so that's it. Let's say you're a beginner ... but that's another option.", "only take"),
  ("takeaway","C1628", 3.62, 49.94, "All right guys, so the big takeaway from today's video ... in your waist and in your mentality.", "second take (C1627 is the first, shorter wording, no vacuum recap)"),
  ("cta",    "C1629", 17.92, 54.52, "All right guys, that's it for today's video ... We're going to focus your plan on these vacuums.", "third and last ending (C1628's two tries were stopped by planes; an 'Alright guys' at 15.2 with a 3 s stop is dropped)"),
- ("cta2",   "C1629", 56.80, 71.04, "That means your waist will get smaller physically ... I'll see you in the next video.", "second copy (first stopped at 'will get...'; found by the medium.en pass on the assembled cut, the roll transcript had merged it)"),
+ ("cta2",   "C1629", 56.80, 71.04, "That means your waist will get smaller physically ... I'll see you in the next video.", "second copy (first stopped at 'will get...'; found by the medium.en pass on the assembled cut, the roll transcript had merged it)", 71.85),   # 71.85: he holds his look for a second after the last word, then turns away at 72.1
 ]
 FPS = 30000/1001; SR = 48000
 _L = {}

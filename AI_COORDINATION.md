@@ -119,7 +119,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **Stop Deadlifting - QUEUED 2026-09-29, Claude.** Blotato Oct 11 9AM CT, 4 platforms. Next: once posted, publish `sixpackabs/articles/TBD-stop-deadlifting.md`, then delete.
 
-**SL-03 round 3 - NEEDS DAN 2026-10-04, Claude.** Shorts 2, 4 revised; page http://127.0.0.1:8831/. Next: step 5, `handoff-20261004-sl03-salad-shorts-round3-revise-shorts-2-and-4.md`.
+**SL-03 round 3 - NEEDS DAN 2026-10-04, Claude.** 2,4 revised; page http://127.0.0.1:8831/. Next: step 5, `handoff-20261004-sl03-salad-shorts-round3-revise-shorts-2-and-4.md`. ⚠5ef1a1b-unpushed
 
 **RO-05 salad - QUEUED 2026-09-30, Claude.** Oct 18: fire `handoff-20260930-ro05-captions-and-article-after-release.md`.
 
@@ -156,7 +156,7 @@ test starts. `BLOTATO_QUEUE_PROGRESS.md`
 tab; stop rather than click into spinners. `Handoffs/handoff-20260908-google-ads-custom-segments.md`
 
 
-**RO-02 READY 2026-10-04, Claude.** Round 2 approved by Dan. Fire `handoff-20261004-ro02-round3-ai-motion-and-full-film.md`. ⚠73c7464,ac783db-unpushed
+**RO-02 - NEEDS DAN 2026-10-04, Claude.** Film: folder 12. Then `handoff-20261004-ro02-thumbnails-and-video-setup.md`.
 
 **Shorts parked behind the long-form hold. (baseline 2026-09-15; age unknown)** Zepbound (8) + Supplements (8) need the new spray-tan sound
 (`Handoffs/handoff-20260909-audio-match-muhammad.md`); nothing posts until a parent long-form is public.

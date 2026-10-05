@@ -1,5 +1,5 @@
 """Before proposing a side card: his body against the card edge (x 752 + 24) on every piece the card spans, every 0.5 s,
-person mask (largest blob) on the real graded, slid frame. Also the hair top. usage: cardclear.py -> round2/checks/cardclear.json"""
+person mask (largest blob) on the real graded, slid frame. Also the hair top. usage: cardclear.py -> round3/cardclear/cardclear.json"""
 import sys, os, json, subprocess, numpy as np
 sys.path.insert(0, "/Volumes/Extreme/_edit_work/ro02/recipe")
 from PIL import Image
@@ -23,4 +23,4 @@ for it in Bd.R:
     res[it["id"]] = dict(samples=len(rows), min_left_px=left, clear_px=left-752, worst=w, hair_min_px=min(r[4] for r in rows),
                          by_shot={s: min(r[3] for r in rows if r[2] == s)-752 for s in sorted({r[2] for r in rows})})
     print(it["id"], {k: v for k, v in res[it["id"]].items()}, flush=True)
-os.makedirs(f"{W}/round2/checks", exist_ok=True); json.dump(res, open(f"{W}/round2/checks/cardclear.json", "w"), indent=1)
+os.makedirs(f"{W}/round3/cardclear", exist_ok=True); json.dump(res, open(f"{W}/round3/cardclear/cardclear.json", "w"), indent=1)
