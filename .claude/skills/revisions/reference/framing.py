@@ -25,7 +25,7 @@ never wide):
 A proof sheet with one frame per shot and the box drawn is written — LOOK at it; a pose miss reads as a
 shot with no subject and is reported, never passed.
 """
-import argparse, subprocess, sys
+import argparse, io, subprocess, sys
 from pathlib import Path
 import numpy as np
 from PIL import Image, ImageDraw
@@ -33,17 +33,38 @@ from PIL import Image, ImageDraw
 ROOT = Path(__file__).resolve().parents[4]
 FF = ROOT / "Media/video_edit/bin/ffmpeg"
 FF = str(FF) if FF.exists() else "ffmpeg"
-W, H = 960, 540
+# Decode orientation and sample aspect ratio before measuring. Portrait must not
+# be stretched into a landscape canvas.
+ANALYSIS_FILTER = "scale=trunc(iw*sar):ih,setsar=1,scale=960:960:force_original_aspect_ratio=decrease"
 
 
-def frames(path, fps):
-    p = subprocess.Popen([FF, "-v", "error", "-i", path, "-vf", f"fps={fps},scale={W}:{H}",
+def analysis_size(path):
+    raw = subprocess.check_output([FF, "-v", "error", "-i", str(path),
+                                   "-vf", ANALYSIS_FILTER, "-frames:v", "1",
+                                   "-f", "image2pipe", "-vcodec", "png", "-"])
+    with Image.open(io.BytesIO(raw)) as im:
+        return im.size
+
+
+
+def frames(path, fps, width, height):
+    p = subprocess.Popen([FF, "-v", "error", "-i", path, "-vf", f"fps={fps},{ANALYSIS_FILTER}",
                           "-f", "rawvideo", "-pix_fmt", "rgb24", "-"], stdout=subprocess.PIPE)
-    while True:
-        b = p.stdout.read(W * H * 3)
-        if len(b) < W * H * 3:
-            break
-        yield np.frombuffer(b, np.uint8).reshape(H, W, 3)
+    try:
+        while True:
+            b = p.stdout.read(width * height * 3)
+            if not b:
+                break
+            if len(b) != width * height * 3:
+                raise RuntimeError("Incomplete decoded frame; framing is not measured")
+            yield np.frombuffer(b, np.uint8).reshape(height, width, 3)
+        if p.wait() != 0:
+            raise RuntimeError("Decode failed; framing is not measured")
+    finally:
+        p.stdout.close()
+        if p.poll() is None:
+            p.terminate()
+        p.wait()
 
 
 def subject_box(pose, img):
@@ -75,13 +96,17 @@ def main():
     import mediapipe as mp
     pose = mp.solutions.pose.Pose(static_image_mode=True, model_complexity=1)
 
+    W, H = analysis_size(a.cut)
+    print(f"Analysis geometry: {W}x{H}, display aspect preserved")
     recs, thumbs, prev = [], [], None
-    for k, img in enumerate(frames(a.cut, a.fps)):
+    for k, img in enumerate(frames(a.cut, a.fps, W, H)):
         top = img[: H // 2: 8, ::8].mean(axis=2)
         jump = prev is not None and np.abs(top - prev).mean() > 10
         prev = top
         recs.append((k / a.fps, jump, subject_box(pose, img)))
         thumbs.append(img)
+    if not recs:
+        raise RuntimeError("No decoded frames; framing is not measured")
     shots, cur = [], []
     for i, rec in enumerate(recs):
         if rec[1] and cur:
@@ -106,7 +131,7 @@ def main():
         x1, y1 = np.percentile(B[:, 2], 95), np.percentile(B[:, 3], 95)
         knees = np.mean([b[4] for b in boxes]) > 0.5
         topm, left, right = 100 * y0, 100 * x0, 100 * (1 - x1)
-        # how far the shot could be cropped in (same 16:9 aspect, re-centred, 3% margin kept) without cutting
+        # how far the shot could be cropped in (same display aspect, re-centred, 3% margin kept) without cutting
         # any of the rep off: the box must fit a window 1/z of the frame on both axes
         zmax = (1 - 2 * 0.03) / max(x1 - x0, y1 - y0, 1e-6)
         crop_in = max(0.0, 100 * (1 - 1 / zmax))
@@ -127,15 +152,19 @@ def main():
         d = ImageDraw.Draw(im)
         d.rectangle([x0 * W, y0 * H, x1 * W, y1 * H], outline=(255, 60, 60) if bad else (60, 255, 60), width=4)
         d.text((8, 8), f"{fmt(t0)} {'LOOSE' if bad else 'OK'} {why}", fill=(255, 255, 0))
-        sheet_items.append(im.resize((480, 270)))
+        im.thumbnail((480, 480))
+        sheet_items.append(im)
     if sheet_items:
         cols = 4
         rows = (len(sheet_items) + cols - 1) // cols
-        s = Image.new("RGB", (480 * cols, 270 * rows))
+        tw, th = sheet_items[0].size
+        s = Image.new("RGB", (tw * cols, th * rows))
         for i, im in enumerate(sheet_items):
-            s.paste(im, ((i % cols) * 480, (i // cols) * 270))
+            s.paste(im, ((i % cols) * tw, (i // cols) * th))
         s.save(a.sheet, quality=85)
         print(f"proof sheet: {a.sheet}")
+    if not sheet_items:
+        raise RuntimeError("No assessable shots; framing is not measured")
     print(f"verdict: {'LOOSE' if loose else 'OK'} — {loose} loose shot(s)"
           + (". Crop in (Dan: 20-30%): a small margin above his hair and at the sides, the whole rep in frame."
              if loose else ""))

@@ -541,6 +541,8 @@ vertical/square versions, add its AV/AS jobs. Procedure: `.claude/skills/_shared
 
 ## Review workflow
 
+For evidence receipts and blind benchmark freezes, use [REVIEW_EVIDENCE.md](reference/REVIEW_EVIDENCE.md). It documents tooling and coverage records only; this skill remains the editorial authority. A complete record is not an editorial pass.
+
 0. **Fetch.** Drive file IDs come from the URL. Download with
    `python3 -m gdown <FILEID> -O video.mp4` into the scratchpad (installed for
    python3.9). `ffmpeg`/`ffprobe` are NOT on PATH — use the static builds in
