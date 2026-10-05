@@ -18,11 +18,10 @@ Work dir: `/Volumes/Extreme/_edit_work/revisions-20261005/`.
 
 ## For Dan's call
 - "Studio shoot" was read as the 9/23 shoot. The raw sample is roll C1712 whole (a 33 second prompter false start, untouched, plus the camera's XML). If he meant a different shoot, say which and it gets swapped.
-- 0:04 and 0:08.5: empty image slots for your before picture and two after pictures. You pick them.
+- Dan's changes, 10-05: the video opens on the Crazy 3 Minute Home Abs YouTube page clip (0:00 - 0:03.5, cut from 4.0 - 8.0 s of `Media/B roll/3 min ab workout b roll.mov`); 0:04 - 0:08 is a three picture full screen graphic he builds (deck-chair before in the center, the two fat dad pictures at the sides); the two after pictures are linked (trees, flag). All six files: https://drive.google.com/drive/folders/1wytcvxYgFy9gseVuTKTe6QDCtuepztoQ
 - 6:49: the three eliminated lifts became a left-third card (the brief asked for them on screen). That moves the archive clip of you deadlifting from 6:52 to 0:50. Delete that item if you would rather keep the clip where it is.
 - The brief's two-column "Harder / Easier" build was not asked for. The numbered topic lines (HARDER AT 40 #1 to #3, EASIER AT 40 #1 to #4, CHANGE #1 to #5) carry the structure instead, with no new build.
 - The end card reads "See Yourself With Abs Free At AbsByAI.com". Same card as Video 4, not itemized.
-- No AI opener proposed: the video opens on your own before and after story, which becomes real photos.
 - Music under the talking was not judged. He supplied the cleared track; nothing measurable is wrong.
 
 ## AI CLIPS FLAGGED - watch before forwarding

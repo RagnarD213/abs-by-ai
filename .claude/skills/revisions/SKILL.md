@@ -17,6 +17,13 @@ do not write items asking him to restyle them and do not run a "lock the style" 
 for editors' shorts). Build every graphic the finished video needs and link each file in the doc. Procedure: workflow
 step 6b. Recipe: `revisions/reference/shorts-graphics-kit/`.
 
+**Picture slots always carry the picture's link and a name (Dan, 2026-10-05).** *"For the one below that we said
+'images below,' I don't see the images. Make sure that whenever you're sending them, put in 'before pictures' or 'after
+pictures.' You put in the link to the image."* Never leave an empty "image below" slot. Every picture beat gets a
+sub-bullet per picture, labelled "Before picture" or "After picture", with a direct Drive link to the exact file; pick
+the pictures yourself (the deck-chair shirtless before, the two shirt-on fat dad pictures, real pool or studio after
+pictures) and Dan swaps them if he wants others. This replaces the empty-slot instruction in calibration rules 26 and 48.
+
 **Our B-roll and AI clip library first (Dan, 2026-10-01).** *"Always look for ways to use B-roll in our videos. Generally,
 it's better to use B-roll than stock or AI clips when we have the B-roll... look through our existing AI clips library
 and look for opportunities to use those clips before requesting a new one."* Every review runs the library pass in

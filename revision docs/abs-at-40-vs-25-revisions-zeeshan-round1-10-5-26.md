@@ -93,14 +93,20 @@ Every lower third in the video is listed here. Paste the text exactly as written
 
 ## 4. TIMESTAMPED REVISIONS
 
-- **0:04 - 0:08** This is an AI clip of a different man, but I am talking about myself here ("in my 30s, I got fat and lost my abs"). **Replace it with my real before picture, full screen with motion effect, 0:04 - 0:07.** Then camera scene for one second.
-    - Image below
-    - 
-    - Label on it: "Real picture of me, not AI-generated", in the same style as the AI label, not over my face or stomach.
-- **0:08.5 - 0:10** On "Now that I'm 40, I got my abs back": **Show TWO after pictures here, one after another, with motion effect.** Same real picture label on both.
-    - Images below
-    - 
-    - 
+- **0:00 - 0:03.5** On "I got abs for the first time in my 20s": **Open the video on this clip of me from my old channel, full screen.** It is the YouTube page of my Crazy 3 Minute Home Abs Workout video, with me in the middle. Keep the whole page in frame (the title, the channel name and the view count are the point), do not crop into the player. No label, it is real footage. My voice carries on under it.
+    - Intro clip (4 seconds, use it from the start): https://drive.google.com/file/d/1Tlk7bNy3jjZJ9ZCNk_nnKTnSpGi9WbA_/view
+- **0:04 - 0:08** This is an AI clip of a different man, but I am talking about myself here ("in my 30s, I got fat and lost my abs"). **Replace it with a full screen graphic of three real before pictures of me, side by side: the shirtless one in the CENTER, and the two with a shirt on the LEFT and RIGHT.**
+    - Before picture, shirtless (center): https://drive.google.com/file/d/1IM0CbQsqQ8SNwLI86BGG5OkEnpaP55N8/view
+    - Before picture, with shirt (left): https://drive.google.com/file/d/1CcgMKaxinsqX8ED7ECoxHsziqbv1WYrP/view
+    - Before picture, with shirt (right): https://drive.google.com/file/d/1_pwRxaCsIdZIXDfmKxBlbRHahmZ6vwuN/view
+    - Build it in the blue style: the moving Soft Blue background from the kit (deep navy, no footage behind it), three upright frames the same height with rounded corners and a soft shadow, the center one slightly larger. Crop each picture inside its frame so my face and body are in it, do not stretch them. The three appear one after another, left, center, right, about a third of a second apart.
+    - One label under the pictures: "Real pictures of me, not AI-generated", in the same style as the AI label. Not over my face or stomach.
+    - Save this as a template too (three pictures on the blue background). I will use it again.
+    - Camera scene comes back at 0:08 for a moment before the after pictures.
+- **0:08.5 - 0:10** On "Now that I'm 40, I got my abs back": **Show these TWO after pictures, one after another, full screen with motion effect.** Label on each: "Real picture of me, not AI-generated", not over my face or abs.
+    - After picture 1: https://drive.google.com/file/d/1RahjbosMeJbqytqgKrunVO7tAh6TCnKz/view
+    - After picture 2: https://drive.google.com/file/d/1GEFbTo6YJOPff_4e6zq9BttZAREHuROM/view
+    - All six files are also in one folder: https://drive.google.com/drive/folders/1wytcvxYgFy9gseVuTKTe6QDCtuepztoQ
 - **0:50 - 0:53** This deadlift clip is used again at 8:40. **Replace it here with the real clip of me deadlifting that you have at 6:52.** That is me at 25, which is exactly what this line is about. No label, it is real footage.
     - Clean copy of that clip: https://drive.google.com/file/d/127kujY7lF8URPyWNFQ2Jj30ggChHRg4G/view
 - **3:14 - 3:22** This office clip is used again at 14:19, where it fits better ("a nine to five job"). **Replace it here with different stock footage or an AI clip of a man around 40 arriving at work or working at a desk.** If it is a new AI clip, show me the start and end frames first, in 16:9, and I will approve before you generate it.
