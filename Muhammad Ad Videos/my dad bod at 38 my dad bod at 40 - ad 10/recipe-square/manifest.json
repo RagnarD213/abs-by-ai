@@ -1,0 +1,251 @@
+[
+ {
+  "id": "W01",
+  "template": "side-list",
+  "a": 15.916,
+  "b": 20.12,
+  "mov": "/Users/danielrose/abs-review/as06-ad10/sq/hf/renders/W01.mov",
+  "kind": "overlay",
+  "box": [
+   36,
+   656,
+   1044,
+   1044
+  ]
+ },
+ {
+  "id": "L01",
+  "template": "lower-third",
+  "a": 22.9,
+  "b": 26.0,
+  "mov": "/Users/danielrose/abs-review/as06-ad10/sq/hf/renders/L01.mov",
+  "kind": "glass",
+  "band": [
+   828,
+   1076
+  ],
+  "box": [
+   68,
+   840,
+   1012,
+   1016
+  ],
+  "lines": 1,
+  "mask": "/Users/danielrose/abs-review/as06-ad10/sq/hf/renders/L01_mask.mov"
+ },
+ {
+  "id": "W02",
+  "template": "side-list",
+  "a": 37.871,
+  "b": 47.514,
+  "mov": "/Users/danielrose/abs-review/as06-ad10/sq/hf/renders/W02.mov",
+  "kind": "overlay",
+  "box": [
+   36,
+   656,
+   1044,
+   1044
+  ]
+ },
+ {
+  "id": "T01",
+  "template": "softblue:title_card",
+  "a": 59.126,
+  "b": 63.13,
+  "mov": "/Users/danielrose/abs-review/as06-ad10/sq/hf/renders/T01.mov",
+  "kind": "opaque"
+ },
+ {
+  "id": "L02",
+  "template": "lower-third",
+  "a": 68.8,
+  "b": 73.1,
+  "mov": "/Users/danielrose/abs-review/as06-ad10/sq/hf/renders/L02.mov",
+  "kind": "glass",
+  "band": [
+   756,
+   1076
+  ],
+  "box": [
+   68,
+   768,
+   1012,
+   1016
+  ],
+  "lines": 2,
+  "mask": "/Users/danielrose/abs-review/as06-ad10/sq/hf/renders/L02_mask.mov"
+ },
+ {
+  "id": "C01",
+  "template": "cta",
+  "a": 74.1,
+  "b": 76.9,
+  "mov": "/Users/danielrose/abs-review/as06-ad10/sq/hf/renders/C01.mov",
+  "kind": "glass",
+  "band": [
+   784,
+   1076
+  ],
+  "box": [
+   68,
+   796,
+   1012,
+   1016
+  ],
+  "mask": "/Users/danielrose/abs-review/as06-ad10/sq/hf/renders/C01_mask.mov"
+ },
+ {
+  "id": "T02",
+  "template": "softblue:title_card",
+  "a": 99.166,
+  "b": 103.203,
+  "mov": "/Users/danielrose/abs-review/as06-ad10/sq/hf/renders/T02.mov",
+  "kind": "opaque"
+ },
+ {
+  "id": "C02",
+  "template": "cta",
+  "a": 109.0,
+  "b": 111.8,
+  "mov": "/Users/danielrose/abs-review/as06-ad10/sq/hf/renders/C02.mov",
+  "kind": "glass",
+  "band": [
+   784,
+   1076
+  ],
+  "box": [
+   68,
+   796,
+   1012,
+   1016
+  ],
+  "mask": "/Users/danielrose/abs-review/as06-ad10/sq/hf/renders/C02_mask.mov"
+ },
+ {
+  "id": "L03",
+  "template": "lower-third",
+  "a": 115.0,
+  "b": 118.1,
+  "mov": "/Users/danielrose/abs-review/as06-ad10/sq/hf/renders/L03.mov",
+  "kind": "glass",
+  "band": [
+   828,
+   1076
+  ],
+  "box": [
+   68,
+   840,
+   1012,
+   1016
+  ],
+  "lines": 1,
+  "mask": "/Users/danielrose/abs-review/as06-ad10/sq/hf/renders/L03_mask.mov"
+ },
+ {
+  "id": "W03",
+  "template": "side-list",
+  "a": 127.361,
+  "b": 139.039,
+  "mov": "/Users/danielrose/abs-review/as06-ad10/sq/hf/renders/W03.mov",
+  "kind": "overlay",
+  "box": [
+   36,
+   577,
+   1044,
+   1044
+  ]
+ },
+ {
+  "id": "L04",
+  "template": "lower-third",
+  "a": 141.3,
+  "b": 144.6,
+  "mov": "/Users/danielrose/abs-review/as06-ad10/sq/hf/renders/L04.mov",
+  "kind": "glass",
+  "band": [
+   828,
+   1076
+  ],
+  "box": [
+   68,
+   840,
+   1012,
+   1016
+  ],
+  "lines": 1,
+  "mask": "/Users/danielrose/abs-review/as06-ad10/sq/hf/renders/L04_mask.mov"
+ },
+ {
+  "id": "L05",
+  "template": "lower-third",
+  "a": 146.3,
+  "b": 150.9,
+  "mov": "/Users/danielrose/abs-review/as06-ad10/sq/hf/renders/L05.mov",
+  "kind": "glass",
+  "band": [
+   756,
+   1076
+  ],
+  "box": [
+   68,
+   768,
+   1012,
+   1016
+  ],
+  "lines": 2,
+  "mask": "/Users/danielrose/abs-review/as06-ad10/sq/hf/renders/L05_mask.mov"
+ },
+ {
+  "id": "W04",
+  "template": "side-list",
+  "a": 156.6,
+  "b": 159.926,
+  "mov": "/Users/danielrose/abs-review/as06-ad10/sq/hf/renders/W04.mov",
+  "kind": "overlay",
+  "box": [
+   36,
+   655,
+   1044,
+   1044
+  ]
+ },
+ {
+  "id": "L06",
+  "template": "lower-third",
+  "a": 159.926,
+  "b": 164.0,
+  "mov": "/Users/danielrose/abs-review/as06-ad10/sq/hf/renders/L06.mov",
+  "kind": "glass",
+  "band": [
+   756,
+   1076
+  ],
+  "box": [
+   68,
+   768,
+   1012,
+   1016
+  ],
+  "lines": 2,
+  "mask": "/Users/danielrose/abs-review/as06-ad10/sq/hf/renders/L06_mask.mov"
+ },
+ {
+  "id": "C03",
+  "template": "cta",
+  "a": 178.278,
+  "b": 181.615,
+  "mov": "/Users/danielrose/abs-review/as06-ad10/sq/hf/renders/C03.mov",
+  "kind": "glass",
+  "band": [
+   784,
+   1076
+  ],
+  "box": [
+   68,
+   796,
+   1012,
+   1016
+  ],
+  "mask": "/Users/danielrose/abs-review/as06-ad10/sq/hf/renders/C03_mask.mov"
+ }
+]

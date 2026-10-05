@@ -1,0 +1,25 @@
+{
+  "judge": "round 6 fresh judge 1 (changed images), Opus 5.5",
+  "video": "/Users/danielrose/abs-review/as06-ad10/sq/my dad bod at 38 my dad bod at 40 | claude | 1x1 | ad 10.mp4",
+  "method": "Opened each assigned image (rejudge.json positions 1, 4, 7) one at a time, then decoded all 60 full-size frames from 171.505 s to 173.473 s as BT.709 (-ss after -i), viewed them in tiled sheets plus a full-size 172.472|172.506 pair, and measured edge-row luminance against the rows just inside and the frame-to-frame difference of every frame.",
+  "entries": [
+    {
+      "image": "pair_112_02-52.51.jpg",
+      "verdict": "clean",
+      "t": 172.506,
+      "note": "Cut from the AI beach runner card (last frame 172.472, runner mid-stride, own small AI-GENERATED chip top-left of the clip, away from face and abs, no second pill, caption 'years younger.' fully shown on the blue field below the card) to the phone card at 172.506. The phone card is fully formed on its first frame: phone centred, 'Real picture of me - not AI-generated' pill below the phone, no caption printed on or squeezed against the phone or pill. Full-size decode of frames 29|30 confirms no stray frame, no leftover of the beach card, no wrong label. Edge rows 0-2 and last 3 rows/columns match the rows just inside on every frame (no thin black or grey line at any edge). The beach card keeps moving through 172.472 (frame diff about 2 per frame); the only near-identical frames are every fifth frame (171.672, 171.838, 172.005, 172.339), a regular source-cadence repeat across the whole clip, not a freeze at the cut. The caption sentence completes ('years' then 'younger.' both highlighted from about 172.10) before the cut, so it is not cut off. The thin light-blue accent bar above each card is the card design, present on both sides."
+    },
+    {
+      "image": "pair_115_02-52.84.jpg",
+      "verdict": "clean",
+      "t": 172.839,
+      "note": "Both frames (172.806 | 172.839) are the same phone card: identical layout and position, pill unchanged, no caption, only the app's on-screen cursor/crop handle moves inside the screen recording. No jump, no freeze artifact, no edge line. The boundary listed (card in / covered in / covered out / join) is invisible in picture, as it should be. Face and belly are inside the phone screen and nothing covers them."
+    },
+    {
+      "image": "strip_114_02-52.71_sqmuted_172_506_out.jpg",
+      "verdict": "clean",
+      "t": 172.706,
+      "note": "Five consecutive phone-card frames 172.639 to 172.773. Phone, frame and 'Real picture of me - not AI-generated' pill stay fixed; the only change is the screen recording itself (the user dragging the photo in the app's Adjust Photo screen, crosshair cursor moving). No caption on the phone card (captions pause, as declared), no black or frozen frame, no garbled type, no label over face or belly, head well inside the frame. The sqmuted out-point at this boundary leaves no visible mark."
+    }
+  ]
+}

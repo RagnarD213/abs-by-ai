@@ -1,0 +1,37 @@
+{
+  "judge": "round 6 fresh judge 2 (changed images), Opus 5.5",
+  "video": "/Users/danielrose/abs-review/as06-ad10/sq/my dad bod at 38 my dad bod at 40 | claude | 1x1 59s | ad 10.mp4",
+  "method": "Opened each assigned watch image, then decoded full-size BT.709 frames from a full sequential decode (first, middle and last frame of every card touched, plus the 6 frames either side of each join), measured per-frame differences on a 540x540 gray decode of the whole file for freezes or stutter, measured hair-top headroom in pixels, and scanned frame borders for edge lines.",
+  "entries": [
+    {
+      "image": "pair_006_00-10.84.jpg",
+      "verdict": "clean",
+      "t": 10.844,
+      "note": "Flag photo card (frames 273-324) hard-cuts to talk-6 at frame 325. Both sides are clean, with no leak, edge line or wrong label on the first or last frame. The card's slow push moves on every frame (about 1.5 mean diff per frame, no zero steps). The short light-blue line above the card's top edge is the card's accent sweep, which moves left to right across the whole beat, not a leak. The pill 'Real picture of me - not AI-generated' sits below the card, clear of his face. No caption on the card. Talk-6 headroom is about 38-41 px."
+    },
+    {
+      "image": "pair_032_00-47.05.jpg",
+      "verdict": "clean",
+      "t": 47.047,
+      "note": "The two halves are the same pool-flex photo (the picture changed one frame earlier, at 47.014 / frame 1409). The chip does not change at this boundary, so there is no one-frame label switch. The pool-stand (1379-1408) and pool-flex (1409-1438) photos push on every frame. The chip clears his face and hair (full-res crop) and sits about 17 px above his raised fist. The first frame of each photo matches its third frame. No edge lines. Doubtful only: the pool-flex chip wraps to 2 lines ('Real picture of me. / Not AI-generated.'), while the stand, towel and park photos use the declared 3-line wrap. The wording is identical and it is the plan's own asset chip_real_22 (410x117). Not called a defect."
+    },
+    {
+      "image": "strip_004_00-08.78_card_8_442_out___card_8_775_in___cards_i.jpg",
+      "verdict": "clean",
+      "t": 8.775,
+      "note": "Full-bleed towel photo (253-262) cuts to the full-bleed park close-up (263-272). Both carry the 3-line chip, clear of the face (towel chip right of the head, park chip left). Each push moves on every frame (about 4-6 mean diff, no holds). No edge lines on the first or last frames (border scan plus eye check). Doubtful: headroom is tight. The towel push brings his hair to about 16 px from the top by frame 262, and the park close-up sits at about 15 px for its whole beat. That is not at or over the edge, so not hair_top, but it is the tightest framing in my set."
+    },
+    {
+      "image": "strip_024_00-35.23_cards_out___covered_out___phone_goal_out.jpg",
+      "verdict": "expected",
+      "t": 35.235,
+      "note": "Declared white flash: it starts over the phone_goal card at 1054-1055, cuts to talk-22 under the flash at 1056 and is clear by 1065. The phone_goal card (991-1053) carries exactly one 'AI-GENERATED' pill (plan ai_inserts chip_ai_17) and no second burned chip. It moves on every frame. A half-size step about every 5th frame is the 24 fps AI clip's own cadence, not an every-other-frame stutter or a freeze. No caption on the card: the caption 'at it dozens of times' starts at 1064 on talk-22 as the flash fades. Talk-22 runs continuously with natural motion, no splice. Headroom 36-51 px."
+    },
+    {
+      "image": "strip_039_00-53.79_app2_goal_clean_out___card_176_743_out__.jpg",
+      "verdict": "expected",
+      "t": 53.787,
+      "note": "Declared white flash from app2_goal_clean (1566-1611) into talk-44 plus the closing CTA (1612-1711). app2_goal_clean has one 'AI-GENERATED' chip, top-left, clear of face and abs. It moves on every frame (about 2.1 per frame) with headroom of about 45-50 px. The light left-edge column is the stone pillar in the picture, not an edge line. The CTA types on ('Get A FREE AI Image Of Yourself / With Abs >') with no garbled or cut-off text and no em dash. No captions under the CTA. The CTA panel covers only his tank top, not face or abs. The bright patch on his jaw is window backlight, also present in talk-22. Headroom 34-45 px through the last frame. Out-of-scope note: frame 1565, the last frame of the earlier app2_form card (strip_037 territory), is a near-duplicate of 1564 (0.06 mean diff). That is a one-frame hold on a near-static phone screen recording and is not visible."
+    }
+  ]
+}

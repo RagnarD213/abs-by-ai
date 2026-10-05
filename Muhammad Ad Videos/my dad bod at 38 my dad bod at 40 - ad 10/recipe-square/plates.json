@@ -1,0 +1,187 @@
+{
+ "0": {
+  "mov": "/Users/danielrose/abs-review/as06-ad10/sq/hf/renders/sqcard_000_before_deckchair.mov",
+  "hole": [
+   230,
+   64,
+   850,
+   892
+  ],
+  "chip": {
+   "x": 68,
+   "y": 960,
+   "s": "Real picture of me - not AI-generated",
+   "w": 945
+  }
+ },
+ "5": {
+  "mov": "/Users/danielrose/abs-review/as06-ad10/sq/hf/renders/sqcard_005_real_flag.mov",
+  "hole": [
+   36,
+   140,
+   1044,
+   816
+  ],
+  "chip": {
+   "x": 68,
+   "y": 884,
+   "s": "Real picture of me - not AI-generated",
+   "w": 945
+  }
+ },
+ "17": {
+  "mov": "/Users/danielrose/abs-review/as06-ad10/sq/hf/renders/sqcard_017_phone_goal.mov",
+  "hole": [
+   247,
+   64,
+   833,
+   892
+  ],
+  "chip": {
+   "x": 336,
+   "y": 960,
+   "s": "AI-GENERATED",
+   "w": 407
+  }
+ },
+ "26": {
+  "mov": "/Users/danielrose/abs-review/as06-ad10/sq/hf/renders/sqcard_026_app1_before.mov",
+  "hole": [
+   339,
+   64,
+   741,
+   892
+  ],
+  "chip": {
+   "x": 68,
+   "y": 960,
+   "s": "Real picture of me - not AI-generated",
+   "w": 945
+  }
+ },
+ "27": {
+  "mov": "/Users/danielrose/abs-review/as06-ad10/sq/hf/renders/sqcard_027_app1_form.mov",
+  "hole": [
+   339,
+   64,
+   741,
+   892
+  ],
+  "chip": {
+   "x": 68,
+   "y": 960,
+   "s": "Real picture of me - not AI-generated",
+   "w": 945
+  }
+ },
+ "32": {
+  "mov": "/Users/danielrose/abs-review/as06-ad10/sq/hf/renders/sqcard_032_wife_notices.mov",
+  "hole": [
+   36,
+   173,
+   1044,
+   739
+  ],
+  "chip": null
+ },
+ "35": {
+  "mov": "/Users/danielrose/abs-review/as06-ad10/sq/hf/renders/sqcard_035_app2_before.mov",
+  "hole": [
+   339,
+   64,
+   741,
+   892
+  ],
+  "chip": {
+   "x": 68,
+   "y": 960,
+   "s": "Real picture of me - not AI-generated",
+   "w": 945
+  }
+ },
+ "36": {
+  "mov": "/Users/danielrose/abs-review/as06-ad10/sq/hf/renders/sqcard_036_app2_form.mov",
+  "hole": [
+   339,
+   64,
+   741,
+   892
+  ],
+  "chip": {
+   "x": 68,
+   "y": 960,
+   "s": "Real picture of me - not AI-generated",
+   "w": 945
+  }
+ },
+ "33": {
+  "mov": "/Users/danielrose/abs-review/as06-ad10/sq/hf/renders/sqcard_033_gym_respect.mov",
+  "hole": [
+   36,
+   173,
+   1044,
+   739
+  ],
+  "chip": null
+ },
+ "14": {
+  "mov": "/Users/danielrose/abs-review/as06-ad10/sq/hf/renders/sqcard_014_daughter_event.mov",
+  "hole": [
+   184,
+   64,
+   896,
+   892
+  ],
+  "chip": {
+   "x": 68,
+   "y": 960,
+   "s": "Real picture of me - not AI-generated",
+   "w": 945
+  }
+ },
+ "10": {
+  "mov": "/Users/danielrose/abs-review/as06-ad10/sq/hf/renders/sqcard_010_family_kitchen.mov",
+  "hole": [
+   36,
+   173,
+   1044,
+   739
+  ],
+  "chip": null
+ },
+ "13": {
+  "mov": "/Users/danielrose/abs-review/as06-ad10/sq/hf/renders/sqcard_013_daughter_trip.mov",
+  "hole": [
+   36,
+   164,
+   1044,
+   792
+  ],
+  "chip": {
+   "x": 68,
+   "y": 860,
+   "s": "Real picture of me - not AI-generated",
+   "w": 945
+  }
+ },
+ "24": {
+  "mov": "/Users/danielrose/abs-review/as06-ad10/sq/hf/renders/sqcard_024_ai_beach.mov",
+  "hole": [
+   36,
+   173,
+   1044,
+   739
+  ],
+  "chip": null
+ },
+ "34": {
+  "mov": "/Users/danielrose/abs-review/as06-ad10/sq/hf/renders/sqcard_034_ai_beach_end.mov",
+  "hole": [
+   36,
+   173,
+   1044,
+   739
+  ],
+  "chip": null
+ }
+}

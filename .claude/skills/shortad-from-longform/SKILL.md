@@ -2399,6 +2399,21 @@ before the fourth passed; every lesson below was a reviewer's finding confirmed 
 13. **A chain started with `&` inside a tool call can die with the session**, and a judge agent stopped by a restart
     leaves the previous round's findings files on disk looking current. Check mtimes against the render.
 
+## [A16] Ad 10 square (AS-06, 2026-10-04/05): what six judge rounds and two independent reviews found on a square of an approved vertical
+
+Scripts: `reference/a16_ad10_sq/` (README maps each). Both files passed the gate on the first full render and both needed five more renders.
+
+1. **A lift of the editor's master can end on the NEXT shot.** Seven lifts showed the master's next shot (Dan's face, a flash, a crop pop, the wrong label) on their last frame, one for 8 frames. Scan every lift: decode its frames small and look for a frame difference over 30 in the last 25 frames. Hold the last clean frame (`hold_from`).
+2. **The vertical's card grid can sit 10 frames off the editor's real cut.** At 2:52.5 the beach clip ended 10 frames before the vertical's card did; the square froze the clip and the cutdown opened on the stray tail. Re-cut the beat boundary (`beat_frames`) so the next card starts on the real cut and everything after it keeps its time.
+3. **Every AI clip lifted from a 16:9 master carries 4 px black bars top and bottom.** Trim 8 px each side: a 5 px crop left one grey row (the scaler reads past the crop).
+4. **A splice the 608 px vertical window hides is a jump cut at 1080 px**: two on this ad. A square-only closer zoom step on the splice (`extra_pushes`, declared in the plan) covers it; a card over only the lower half does not.
+5. **The judges' strongest signal was one-frame glitches at card edges, not content.** Ask judges for the first and last 12 frames of every card, and for any caption on a card.
+6. **A head cut by a PICTURE's own edge is not the frame edge, but a full-bleed puts it on the frame edge.** Cards with a written reason fix hair_top. An AI card in the approved vertical carries only the editor's burned chip: keep it and add no pill.
+7. **Stills pushed with zoompan round to whole pixels**: half a pixel per frame stepped every other frame. Push at 2x and scale down.
+8. **The gate's caption state images must be recoloured with the captions** (the lit word): olive states failed 7 caption matches against cyan pixels.
+9. **A caption cue that runs into a new card**: mute those frames in the square and end the cue in a copy of the srt, or `captions:card_collision` fails.
+10. **Judge bookkeeping cost more than the fixes.** Pair images need verdicts too (118 of 244 images). `carry_by_time.py` carries by time token; an agent stopped by a restart leaves findings files that look current (check mtimes), and index-by-position assignments get misread: list names in the prompt.
+
 ## Shared kit: the analysis card (Dan-approved on RA-01, 2026-09-18)
 
 When a line says the app ANALYSES the picture and builds the plan, use the shared card instead of inventing a graphic:

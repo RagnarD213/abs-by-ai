@@ -1,0 +1,138 @@
+{
+ "_note": "Ad 10 square (AS-06). Dan 2026-10-02: every clip and photo fills the square unless there is a reason. start = left edge of the 1:1 window in a 16:9 clip (window 0.5625 wide). Muhammad's burned AI chip sits at x 0.05..0.24: start >= 0.245 drops his and ours is placed by measurement.",
+ "pictures": {
+  "before_deckchair": {
+   "fit": "card",
+   "reason": "a square window cuts either his hair or his stomach, and the stomach is the point of the before picture"
+  },
+  "real_red_shorts": {
+   "fit": "fill",
+   "oy": 0.25
+  },
+  "real_towel": {
+   "fit": "fill",
+   "oy": 0.45
+  },
+  "real_park_close": {
+   "fit": "fill",
+   "oy": 0.0
+  },
+  "real_flag": {
+   "fit": "card",
+   "reason": "the flag and both outstretched arms span the whole width: a square window cuts his arms"
+  },
+  "family_kitchen": {
+   "fit": "card",
+   "reason": "the stock clip's own framing cuts the man's head at its top edge for the first second: a full-bleed square would put the cut on the frame edge, so the clip stays whole in a card",
+   "hold_from": 109
+  },
+  "daughter_trip": {
+   "fit": "card",
+   "reason": "his head touches the photo's own top edge (the picture was cropped that way before we got it): a full-bleed square would put his hair on the frame edge, so the photo stays whole in a card",
+   "hold_from": 58
+  },
+  "daughter_event": {
+   "fit": "card",
+   "reason": "the photo's own top edge cuts his hair and the right side of his face (the editor's crop of the selfie), so a square window would show a cut head at the frame edge: it stays whole in a card",
+   "hold_from": 52
+  },
+  "ai_goal": {
+   "fit": "fill",
+   "oy": 0.0
+  },
+  "phone_goal": {
+   "fit": "card",
+   "reason": "the phone in his hand is taller than a square: filling would cut the AI picture on its screen"
+  },
+  "real_pool_stand": {
+   "fit": "fill",
+   "oy": 0.45
+  },
+  "real_pool_flex": {
+   "fit": "fill",
+   "oy": 0.45
+  },
+  "ai_beach": {
+   "fit": "card",
+   "reason": "the running man bobs up and his hair reaches the top edge of his own clip, so a full-bleed square would cut his head at the frame edge (and the captions would cross his abs): the clip stays whole in a card",
+   "hold_from": 88,
+   "trim_bars": 8,
+   "his_chip": true
+  },
+  "app1_before": {
+   "fit": "card",
+   "reason": "a phone screen: it stays whole",
+   "hold_from": 29
+  },
+  "app1_form": {
+   "fit": "card",
+   "reason": "a phone screen: it stays whole"
+  },
+  "app1_goal_clean": {
+   "fit": "fill",
+   "oy": 0.0
+  },
+  "food_snap": {
+   "fit": "fill",
+   "start": 0.219
+  },
+  "wife_notices": {
+   "fit": "card",
+   "reason": "the required label has no clear spot on the filled frame (both people fill it); the card also keeps the editor's burned AI chip whole, as in the vertical",
+   "hold_from": 67,
+   "trim_bars": 8,
+   "his_chip": true
+  },
+  "gym_respect": {
+   "fit": "card",
+   "reason": "the required label has no clear spot on a filled square: both men's heads reach the top edge and swap places, and a third person stands behind them, so every position for the label touches a person during the 2 seconds",
+   "trim_bars": 8,
+   "his_chip": true
+  },
+  "ai_beach_end": {
+   "fit": "card",
+   "reason": "the running man bobs up and his hair reaches the top edge of his own clip, so a full-bleed square would cut his head at the frame edge (and the captions would cross his abs): the clip stays whole in a card",
+   "trim_bars": 8,
+   "his_chip": true
+  },
+  "app2_before": {
+   "fit": "card",
+   "reason": "a phone screen: it stays whole",
+   "hold_from": 31
+  },
+  "app2_form": {
+   "fit": "card",
+   "reason": "a phone screen: it stays whole"
+  },
+  "app2_goal_clean": {
+   "fit": "fill",
+   "oy": 0.0
+  }
+ },
+ "extra_pushes": [
+  [
+   15.8992,
+   15.8992,
+   17.2,
+   17.8
+  ],
+  [
+   37.8538,
+   37.8538,
+   39.2,
+   39.8
+  ]
+ ],
+ "_note2": "round 2 (2026-10-04): hold_from = frames of a lift that belong to the master's NEXT shot are held; extra_pushes = square-only NEAR step on two pause splices the 1080 px window shows; gym_respect to a card (no clear label spot); oy 0 on the pool-goal and park photos (hair at the top edge).",
+ "media": {},
+ "beat_frames": {
+  "34": 91,
+  "35": 41
+ },
+ "mute_caption_frames": [
+  [
+   5170,
+   5176
+  ]
+ ]
+}

@@ -1,0 +1,37 @@
+{
+  "judge": "round 6 fresh judge 1 (changed images), Opus 5.5",
+  "video": "/Users/danielrose/abs-review/as06-ad10/sq/my dad bod at 38 my dad bod at 40 | claude | 1x1 59s | ad 10.mp4",
+  "method": "Opened each assigned watch image, then decoded every frame of the file at full size (BT.709, sequential decode) and checked the first, middle and last frames plus the first and last 6 frames of every card and join these images touch, with per-frame difference curves for freezes or stutter and edge-row/column profiles for thin lines.",
+  "entries": [
+    {
+      "image": "pair_003_00-08.48.jpg",
+      "verdict": "clean",
+      "t": 8.475,
+      "note": "Both halves are the real_towel full-bleed photo (frames 253 and 254; the picture itself changed at frame 253 = 8.442, matching plan card [8.442, 8.775]). Push continues smoothly (per-frame diff 3.8, in line with the rest of the card, no repeat). 3-line chip 'Real picture of me. Not AI-generated.' sits right of the head, clear of face and abs; hair about 30 px below the frame top; no edge line on first or last frame (253, 262); no caption on the card."
+    },
+    {
+      "image": "pair_023_00-34.73.jpg",
+      "verdict": "clean",
+      "t": 34.735,
+      "note": "Join inside the phone_goal card (frames 1040|1041) is seamless: same hand, phone and pose, frame difference 1.48 against a card average of about 1.4, no pop or repeat. The single 'AI-GENERATED' pill under the card is the plan's declared phone_goal chip (ai_inserts phone_goal, chip_ai_17 at 336,960); the phone screen has no second chip. The light-blue line above the card top is the card template's moving accent (it slides left to right across frames 991-1053 and appears on the flag card too), not a one-frame edge line. Card runs 991-1055 with continuous motion; the cut person's head at the card top is the clip's own edge, not the frame edge. No caption over the card. Card ends into the declared white flash at 1054-1060."
+    },
+    {
+      "image": "strip_001_00-08.11_card_8_108_in___cards_in___covered_in___.jpg",
+      "verdict": "clean",
+      "t": 8.108,
+      "note": "Hard cut talk-1 (caption 'absolute best' on the talking head only) to the real_red_shorts full-bleed photo at frame 243. Captions pause on the photo as declared. 3-line real chip top-left clears his ear by about 20 px (checked at full size on 243 and 252), not over face or abs. Hair about 95 px below the top. Card frames 243-252 all update (diff 4.7-6.0 per frame), no freeze, no edge lines; last talking-head frames 237-242 show no recompose or junk."
+    },
+    {
+      "image": "strip_021_00-30.06_ai_goal_in___card_28_629_out___card_90_2.jpg",
+      "verdict": "clean",
+      "t": 30.063,
+      "note": "Hard card-to-card cut from real_park_close (full-bleed, 3-line real chip, frames 858-900) to ai_goal (frames 901-990) at the 0:30.06 section join. ai_goal carries only the clip's own small 'AI-GENERATED' chip, no second pill, chip clear of face. Park photo first, middle and last frames (858, 879, 900) consistent; slow push updates every frame (diff 1.3-2.0, no zeros). Hair top sits about 15 px under the frame top on the park photo, tight but inside the frame; not at or over the edge. Left-edge brightness gradient on 878-883 and 982-990 is image content moving in, not a line. No captions on either card."
+    },
+    {
+      "image": "strip_039_00-53.79_app2_goal_clean_out___card_176_743_out__.jpg",
+      "verdict": "expected",
+      "t": 53.787,
+      "note": "Declared white flash transition from app2_goal_clean (frames 1566-1611, single burned 'AI-GENERATED' chip, no second pill) into talk-44 at frame 1612; the flash begins fading in at 1610-1611 and peaks around 1614-1615. app2_goal_clean first, middle (1588) and last frames are clean, motion continuous (diff about 2.5 per frame), no edge lines. The internal join at 53.32 (1597|1598) inside that clip is seamless. talk-44 framing NEAR/FAR normal, hair well below the top, no caption over a card."
+    }
+  ]
+}

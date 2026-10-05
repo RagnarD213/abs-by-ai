@@ -1,0 +1,25 @@
+{
+ "date": "2026-10-03",
+ "page": "http://127.0.0.1:8820/",
+ "decisions": [
+  {
+   "id": "first-minute",
+   "verdict": "approved",
+   "scope": "square first minute",
+   "words": "The first minute looks good. That is approved."
+  },
+  {
+   "id": "centering",
+   "verdict": "change",
+   "scope": "square talking-head crop, both files",
+   "words": "One change I want to make, though: I want to use the less aggressive centering that we recently developed. Confirm that you know what I'm referring to by that less aggressive centering, where we reduced it by two-thirds, and apply that to that, and then modify the handoff document to incorporate that.",
+   "applied": "kit_track.py --tolerance 20 (policy vertical-land-then-hold-20261003, framing-motion.md) on build/base.mp4; the vertical's own track is kept in orig/facetrack_vertical.json"
+  },
+  {
+   "id": "everything else",
+   "verdict": "approved",
+   "scope": "graphics A (Soft Blue Light) with the Ad 10 wording L01-L06, W01-W04, T01, T02, C01-C03; every picture's fill or card; labels; caption recolour; What I decided",
+   "words": "Everything else is approved."
+  }
+ ]
+}

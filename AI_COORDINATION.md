@@ -105,7 +105,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **RO-12 - QUEUED 2026-10-01, Claude.** Blotato Oct 25. Then: `Docs/RO12_SETUP_RECEIPT_20261001.md`, delete.
 
-**RO-13 - QUEUED 2026-10-05, Claude.** Blotato Wed Oct 21 9AM CT. Then: Studio thumbnail A/B, captions, publish `sixpackabs/articles/TBD-alcohol-and-abs.md`. `Docs/RO13_SETUP_RECEIPT_20261005.md`, delete. ⚠225a4d8 unpushed.
+**RO-13 - QUEUED 2026-10-05, Claude.** Blotato Wed Oct 21 9AM CT. Then: Studio thumbnail A/B, captions, publish `sixpackabs/articles/TBD-alcohol-and-abs.md`. `Docs/RO13_SETUP_RECEIPT_20261005.md`, delete. ⚠e100f4a, 225a4d8 unpushed (git jam).
 
 **RO-10 - QUEUED 2026-10-02, Claude.** Blotato Oct 7. Oct 7: captions, article, Zepbound link on Oct 25. `Docs/RO10_SETUP_RECEIPT_20261002.md`, delete.
 
@@ -209,5 +209,5 @@ Memory `google-ads-ui-automation`.
 
 ## ACTIVE
 **Ad 6 remarketing 2026-10-04:** Awaiting Dan: copy to enabled campaign 24305381214?
-- **AS-06 square LOCKED 2026-10-03.** Fire `handoff-20261002-ad10-square-round2-full-builds.md`. ⚠ 942945f unpushed (others' uncommitted files).
+- **AS-06 Ad 10 squares - NEEDS DAN 2026-10-05, Claude.** Delivered. Next: Dan reviews.
 
