@@ -26,6 +26,7 @@ When Dan asks a "what should we work on" / "what should I use my limit for" / "h
 - **Re-read `AI_COORDINATION.md` from disk before finishing a task, not just before starting one.** The copy in context is a snapshot from session start and a concurrent session may have written to it; edit only your own entry. This is how the dashboard check-off rule got missed on 2026-07-29, and how an entry got clobbered on 2026-09-01.
 - Only one session owns implementation of a task at a time. Don't continue or overwrite another session's unfinished work without an explicit handoff or a review request.
 - Follow the delivery, deployment, security, and communication requirements imported from `AGENTS.md`.
+- **Shared files (Dan, 2026-10-05):** push a shared file with `safe-push.sh` the moment you edit it. If `safe-push.sh` stops on files older than 2 hours, re-run it with `--adopt-stale`; if a file is newer, its owner is live, so post the board note and retry at the end of the task. Full rule: `AGENTS.md`, "Delivery and deployment".
 
 ## Check the task off on the Victory Dashboard when you finish it
 
