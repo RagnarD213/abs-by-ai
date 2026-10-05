@@ -128,6 +128,11 @@ sessions (and any other assistant, if one is in use).
 
 Full rule: read `.claude/skills/_shared/VIDEO-RULES.md`.
 
+## Google Ads final URLs within ad groups (Dan, 2026-10-05)
+
+- Every new ad must use a final URL on the same top-level domain as the existing ads in its ad group. Check the ad group's existing URLs before creating or editing an ad, and match them.
+- If a final URL needs to change, update every ad in the affected ad group or campaign so their destinations stay consistent. Do not leave mixed website domains among active or paused ads.
+
 ## YouTube visibility — never upload Public (Dan, 2026-09-16)
 
 - **Never upload any video to YouTube as Public, and never use YouTube's native scheduling/publish-at path.** This applies to API uploads, Studio uploads, scripts and manual work. The upload-time visibility must always be non-public.
