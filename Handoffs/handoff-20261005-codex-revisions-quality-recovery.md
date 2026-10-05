@@ -2,6 +2,8 @@ CONTENT (SFC). Repair Codex revision reviews and prove parity with Claude.
 
 # Codex revisions quality recovery
 
+Execution status, 2026-10-05: PARTIAL. Frame geometry and evidence receipts fixed; training sample Doc verified. External video review failed the known-case test. Fresh blind passes: 0; eligible benchmark input and complete inspection remain open. See [recovery results](results-20261005-codex-revisions-quality-recovery.md). No editor messages or sent-Doc edits.
+
 Written: 2026-10-05. Requested by Dan after the first adoption test failed.
 Recommended executor: Codex GPT-6 Astra, high effort, continuing the original adoption handoff's specific routing for this capability test. Claude Opus 5.5 high remains the established editorial default until the evidence supports changing it.
 Task name: Codex revisions quality recovery. When reviewing a particular editor's cut, follow the source skill's editor naming convention.
