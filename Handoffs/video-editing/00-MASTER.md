@@ -195,7 +195,7 @@ handoff (`handoff-20260909-audio-match-muhammad.md`, waiting on your spray-tan s
 | 10 My Dad Bod At 38 / 40 | ✅ | ❌ AV-07 | ❌ AV-07 | ❌ AS-06 | ❌ AS-06 |
 | 14 I Watched 400 Workout Videos | ✅ (HD arrived 09-16, not yet filed) | ❌ AV-08 | ❌ AV-08 | ❌ AS-07 | ❌ AS-07 |
 | 9 I Tried To Get Abs With ChatGPT | ✅ (round 4 finalized 09-21) | ❌ AV-10 | ❌ AV-10 | ❌ AS-09 | ❌ AS-09 |
-| 13 I Added Up What Getting Abs Cost | ✅ (round 4 finalized 09-21) | ✅ AV-11 (uploaded 10-04) | ✅ AV-11 (uploaded 10-04) | ❌ AS-10 | ❌ AS-10 |
+| 13 I Added Up What Getting Abs Cost | ✅ (round 4 finalized 09-21) | ✅ AV-11 (uploaded 10-04) | ✅ AV-11 (uploaded 10-04) | ✅ AS-10 (uploaded 10-05) | ✅ AS-10 (uploaded 10-05) |
 | 15 I Was The Dad Who Swam In A T-Shirt | 🟡 (Claude final fixes in progress 09-21) | ❌ AV-12 | ❌ AV-12 | ❌ AS-11 | ❌ AS-11 |
 | RA-01 The AI Trick That Got Me Abs (Claude, 57 s) | ✅ (uploaded 09-18) | ✅ (uploaded 09-18; is ≤0:59) | ✅ (same upload) | ✅ AS-13 uploaded 10-02 (`EfoVnGyAJjk`, trial ad group) | n/a (57 s master is its own 0:59) |
 
@@ -230,7 +230,7 @@ handoff (`handoff-20260909-audio-match-muhammad.md`, waiting on your spray-tan s
 | [AS-07](AS-07-ad14-square.md) | Ad 14 | BLOCKED: AV-08 approved | M |
 | [AS-08](AS-08-ad8-square.md) | Ad 8 | BLOCKED | M |
 | [AS-09](AS-09-ad9-square.md) | Ad 9 | BLOCKED: AV-10 approved | M |
-| [AS-10](AS-10-ad13-square.md) | Ad 13 | FINALIZED | M |
+| [AS-10](AS-10-ad13-square.md) | Ad 13 | UPLOADED | M |
 | [AS-11](AS-11-ad15-square.md) | Ad 15 | BLOCKED: AV-12 approved | M |
 | [AS-12](AS-12-arms-shoulders-square.md) | Arms & Shoulders Home Workout (Zeeshan, ORGANIC, not an ad) | BLOCKED: AV-13 approved | L |
 | [AS-13](AS-13-ra01-square.md) | RA-01: The AI Trick That Got Me Abs (1:1 only, 57 s) | UPLOADED | S |

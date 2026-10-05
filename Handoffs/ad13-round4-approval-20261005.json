@@ -24,5 +24,13 @@
   "upload_authorized": true,
   "google_ads_setup_authorized": true,
   "replace_existing_horizontal": true,
-  "setup_executed": false
+  "setup_executed": true,
+  "setup_receipt": "Docs/AD13_ROUND4_SETUP_RECEIPT_20261005.md",
+  "youtube_ids": [
+    "NQeyZ2jylVU",
+    "2-S3WVLhDsI",
+    "W1xLK5W9l_0"
+  ],
+  "verified_date": "2026-10-05",
+  "google_approval": "pending review"
 }

@@ -85,7 +85,6 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 # ACTIVE
 
-**Ad 13 round 4 setup - RUNNING 2026-10-05, Codex.** Approved originals uploading Unlisted. Next: validate and cut over five horizontal ads and the PMax video binding; add two trial squares. Budgets and verticals preserved.
 
 
 
@@ -179,7 +178,6 @@ Memory `google-ads-ui-automation`.
 
 # HANDOFFS WRITTEN, NOT EXECUTED
 
-- `handoff-20261005-ad13-approved-upload-and-replace-horizontal-codex.md` (10-05): all three exports approved; thumbnails, Unlisted uploads and replacement of existing Ad 13 horizontal uses. Codex Sol high.
 
 
 
