@@ -1399,3 +1399,13 @@ For evidence receipts and blind benchmark freezes, use [REVIEW_EVIDENCE.md](refe
     going 120". The fix that needs no regeneration: use the part of the clip before the number goes wrong and slow it
     to fill the slot. Also check the AI label's exit frame by frame at a flash transition: his hung on 5 frames onto
     the camera scene after three clips.
+73. **First cuts of new shorts now arrive with "waiting for suitable graphics" placeholders, and duplicate links (2026-10-05).**
+    Muhammad stopped building his own graphics once the kit existed: every new short carries placeholder pills where he
+    wants ours. So a first-cut review always includes the graphics inventory and the kit build in the same session; put
+    all three reviewer outputs (section, summary, `graphics.json`) and the library pass in ONE brief
+    (`/Volumes/Extreme/_edit_work/revisions-20261005/muhammad/BRIEF.md`) to save the follow-up rounds. md5 the downloads
+    first: 11 links were 8 files. New folders go into the SAME Drive kit folder (`1L2Y1EfJTG4rYZNNtQXVieq4x2qbzENvk`,
+    numbered on from the last), and `gen.py` there merges each list into the section's own GRAPHICS bullet. `kit.py`'s
+    hair assertion fails on his tighter framings: it now warns, and the doc's opening section tells him where a one line
+    (250 px) and two line (315 px) graphic ends so he frames the hair below it. His new repeat fault: he switches wide
+    and tight on the cut, but the tight is only 4 to 10% closer; measure the ratio and ask for 25 to 30%.
