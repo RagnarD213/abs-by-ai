@@ -178,6 +178,8 @@ Memory `google-ads-ui-automation`.
 
 # HANDOFFS WRITTEN, NOT EXECUTED
 
+- `handoff-20261005-codex-revisions-quality-recovery.md` (10-05). Astra high: repair incomplete review coverage, prove fresh blind parity, verify sample Doc. No editor messages.
+
 
 
 
