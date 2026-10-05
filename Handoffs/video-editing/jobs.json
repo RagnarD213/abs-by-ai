@@ -1407,13 +1407,13 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/AS-06-ad10-square.md`: first confirm its blocker is cleared, then build the 1:1 square and ≤0:59 square cutdown of Ad 10 as a re-layout of the approved vertical build with /shortad-from-longform [S1], same timeline, grade, labels and audio, steady wider framing, labels off my face and abs. Every gate, independent audit, deliver, send me the review copies, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table) and `Handoffs/handoff-20260914-ad3-square-codex.md` (the Ad 3 square you built, which Dan shipped: reuse its method), then execute `Handoffs/video-editing/AS-06-ad10-square.md`. Confirm the blocker is cleared first. Deliver, send Dan the review copies, update `00-MASTER.md`.",
-   "state": "delivered",
-   "note": "Unblocked by Dan finalizing AV-07 on 2026-09-25. Build the square and 59-second square cutdown from the approved vertical recipe. | 2026-10-05: 1x1 and 1x1 59s delivered (gates PASS, independent review SHIP round 2); awaiting Dan. Folder: Muhammad Ad Videos/my dad bod at 38 my dad bod at 40 - ad 10/. | 2026-10-05: Dan approved both squares; setup handoff handoff-20261005-ad10-squares-thumbnail-and-setup-codex.md",
+   "state": "uploaded",
+   "note": "Both approved Ad 10 squares uploaded Unlisted and added to the trial campaign on 2026-10-05",
    "sub": "",
    "order": 67,
-   "updated": "2026-10-02",
-   "by": "Claude",
-   "rev": 3,
+   "updated": "2026-10-05",
+   "by": "Codex",
+   "rev": 4,
    "syncedRev": 3
   },
   {
