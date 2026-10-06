@@ -79,7 +79,8 @@ NOT CONFIRMED at the bottom and stays out of scripts until he confirms it.
 - Pays for a real gym and trains there 7 days a week despite the commute. **Dan typed** (Make Time)
 - Spent $20,000 building a home gym. **Claude drafted, Dan kept.** He has since sold some of it but still has the
   structure, the dumbbells and most of the equipment. **Dan typed** (10-06)
-- Brazilian jiu-jitsu black belt; still trains a few times a week. **Dan typed** (10/17 outline, 10-06)
+- Brazilian jiu-jitsu black belt, training for 22 years; still trains a few times a week. **Dan typed** (10/17
+  outline, Jiu Jitsu short, confirmed 10-06)
 - Has dropped deadlifts, flat bench and squats. **Dan typed** (10-06)
 - Was an ACE-certified personal trainer for about 3 or 4 years, a while back. Does not coach clients live now; he coaches
   through his videos. **Dan typed** (10-06). So never "a trainer for over 20 years" and never "my clients" as live clients.
@@ -92,7 +93,8 @@ NOT CONFIRMED at the bottom and stays out of scripts until he confirms it.
 ## 4. Food and supplements
 
 - Fasts until 2 pm every day so a big dinner still fits his calories. **Claude drafted, Dan kept**; "You can enjoy a big,
-  delicious dinner every day and still lose fat" **Dan typed** (Calories)
+  delicious dinner every day and still lose fat" **Dan typed** (Calories). Has fasted until 2 pm for over 10 years.
+  **Dan typed** (confirmed 10-06)
 - 2 to 4 cups of black coffee in the morning during the fast. **Claude drafted, Dan kept**. Black coffee plus Zepbound
   makes eating less far easier. **Dan typed**
 - **The 2 pm salad** (Dan pointed to his Daily Salad video, RO-05 and SL-03; ingredients as written up from it in
@@ -113,9 +115,27 @@ NOT CONFIRMED at the bottom and stays out of scripts until he confirms it.
 - High-calorie "healthy" snacks were one of the biggest reasons he struggled with the last ten pounds. **Dan typed**
 - For years his meals were clean and he still was not lean; eats bigger meals now so he snacks less; carb cravings
   stopped after about three weeks. **Claude drafted, Dan kept** (Healthy Foods)
-- Takes about 10 supplements a day (started at the same time as Zepbound). **Dan typed** (10-06). Glycine nightly
-  (section 7). Vitamin D, 5,000 IU, liquid. **Claude drafted, Dan kept**. No creatine (stomach problems), no protein
-  powder ("eat it, don't drink it"). **Dan typed**
+- Takes about 10 supplements a day (started at the same time as Zepbound). **Dan typed** (10-06). No sponsors, no
+  discount codes; uses Thorne across the stack because it is third-party tested.
+
+## 4b. The supplement stack, by time of day
+
+From his supplements video outline ("The Supplements I Actually Take", Shoot 3), where Dan replaced Claude's template
+stack with his real one: **Dan typed** (memory `video-outline-style`; he confirmed this as the source on 10-06). The
+video is filmed, not yet published.
+- **On waking:** Athletic Greens (AG1), on an empty stomach; it does not replace his daily salad. Vitamin D: 5,000 IU a
+  day, liquid drops. **Claude drafted, Dan kept** for the dose wording (3 Most Important Supplements short).
+- **Right after the workout, food first, then pills:** a small handful of almonds and of pumpkin seeds; fish oil,
+  curcumin, ginger, glucosamine chondroitin (joints, so he can train every day in his 40s; "I plan to be lifting into my
+  60s and beyond"); vitamin B6 and DIM (skin); a Thorne testosterone booster; one chicken thigh or drumstick (20-25 g
+  protein); then one drink of Thorne aminos, Cure electrolyte powder and collagen (he trains fasted).
+- **About an hour before bed:** Thorne Deep Sleep complex. Glycine, 3 g, every night (section 7, added later).
+- **His big three, if you take nothing else:** fish oil, vitamin D, magnesium at night. "Hit your big three supplements
+  daily if you're just starting off, and add in more later once you get consistent." **Claude drafted, Dan kept** (list),
+  **Dan typed** (the instruction). (3 Most Important Supplements short)
+- **Deliberately does not take:** creatine (effective, but stomach problems), protein powder ("eat it, don't drink it"),
+  fat burners. **Dan typed**
+- Supplements are about 5% of results. **Dan typed**
 
 ## 5. Family, dating, relationships
 
@@ -124,6 +144,8 @@ NOT CONFIRMED at the bottom and stays out of scripts until he confirms it.
 - **Dating: say "abundant dating life" and nothing more specific.** Do not say he has a girlfriend, do not describe his
   relationships, keep it vague. **Dan typed** (10/17 outline; rule 2026-10-06). Never "my wife".
 - Sleeping next to someone means compromising on the AC at 66 to 67 degrees. **Dan typed** (Glycine). Keep it as written.
+- At 200 lb, online dating with attractive women was basically impossible (unattractive women, yes; attractive women,
+  no). Now online dating is easy for him. **Dan typed** (confirmed 10-06; Top 3 Ways To Looksmax short)
 - Settled for low-quality women in his 20s and spent a lot of time on dating apps; with more money, better shape and
   higher value in his late 30s and 40s he attracts higher-quality women. **Dan typed** (10/17)
 
@@ -177,9 +199,8 @@ NOT CONFIRMED at the bottom and stays out of scripts until he confirms it.
 
 ## NOT CONFIRMED (keep out of scripts until Dan confirms)
 
-- Has fasted until 2 pm "for over 10 years". Trained jiu-jitsu for 22 years. Was working out four times a week at 38.
-- Online dating was "basically impossible" at 200 lb.
-- Cutting sugar plus DIM and B6 cleared his skin. The full itemized supplement list (AG1, fish oil, curcumin and the rest).
+- Was working out four times a week at 38 (Ad 10).
+- Cutting sugar plus DIM and B6 did more for his skin than any product (Top 3 Ways To Looksmax short).
 - Uses an eating alarm and sugar-free gum against late-night cravings.
 
 Related: [[dan-relationship-status]], [[script-zero-edit-lessons]], [[no-ad-agency-mention]], [[video-outline-style]].
