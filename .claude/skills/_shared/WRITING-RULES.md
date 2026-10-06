@@ -103,3 +103,20 @@ A name with no file in `Docs/memory/` is private on purpose. Do not guess what i
   sort. (Dan, 2026-08-05, after a session invented content while splitting an outline doc.)
 - **When Dan edits a draft, diff his version against yours and write the lesson into the skill** before the next piece.
   The goal is a draft he does not need to edit. (Dan, 2026-09-21.)
+
+## 7. Running in the cloud (no Chrome, no Mac clipboard)
+
+The delivery steps in `/scriptwriting`, `/shorts-scripting`, `/ad-outlines` and `/copy-edit` paste into Dan's Google Docs
+through his own Chrome and the Mac clipboard. A cloud session has neither. The writing rules are unchanged; only the
+delivery changes. (Added 2026-10-06.)
+
+- **Write the piece in full and show it in chat first.** That part needs no browser.
+- **If a Google Docs connector that can edit an existing doc is connected, use it** and re-read the doc afterwards to
+  confirm the text landed where the skill says.
+- **If not, create a NEW Google Doc through the Drive connector** holding the finished text, titled
+  `<name of the real doc> - CLOUD DRAFT <date>`, set to anyone-with-link view, and give Dan the link plus the exact
+  heading it belongs under in the real doc. He or a local session pastes it in.
+- **`/copy-edit` cannot make Suggesting-mode edits from the cloud.** Deliver the table of exact find and replace pairs,
+  each with a one-line reason, and the polished text. A local session applies them as suggestions.
+- **Never say the real doc was edited unless you re-read it and saw the change.**
+- Images called for by an outline are listed by name where they go; a cloud session does not move images between docs.
