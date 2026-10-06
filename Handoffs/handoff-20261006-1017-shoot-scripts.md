@@ -148,5 +148,5 @@ Model for every batch: Claude Opus 5.5, High effort.
   `scriptfromoutline/SKILL.md`, FILMING SCRIPTS).
 - Timing changes made to fit Dan's exercise swaps: 10-minute and 20-minute workouts now run 30 s work / 20 s rest
   (12 and 24 rounds). Fat Joe added as the male example. Outlines themselves were left untouched.
-- Open: bold/yellow formatting on the cue lines of 6 of 7 scripts (only the 15-minute one is styled); the text is all in
+- Open: bold/yellow formatting on the cue lines of 5 of 7 scripts (the 15-minute and 5-minute ones are styled); the text is all in
   place. Other sessions editing above kept rejecting position-locked writes. Re-run when the doc is quiet.
