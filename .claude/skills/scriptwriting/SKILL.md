@@ -166,15 +166,18 @@ estimate (~150–160 wpm) at the top of each ad.
 
 ## Voice rules (derived from his real transcripts — do not drift)
 
-Ground truth: `YouTube Long Form Video Content/V2 - Use AI To Get Real Six Pack Abs - 6 Strategies That Work - UPLOADED/working files/v2-transcript.txt`
-(38 minutes of Dan actually talking) and the approved ad script
-`ad-factory/the-upload/script.md`. The finalized Ad 1 in the scripts doc (link
-below) is the worked example. Voice traits:
+Ground truth, all in `references/` so cloud sessions can read them (set up 2026-10-06):
+`references/v2-transcript.txt` (38 minutes of Dan actually talking, from the V2 long-form),
+`references/the-upload-script.md` (the approved AI ad script) and
+`references/finalized-ad-scripts.md` (ads batch 1, spoken words only; Ad 1 is the worked
+example). If either of the first two is missing, a local session copies it from the Mac
+originals (`YouTube Long Form Video Content/V2 - Use AI To Get Real Six Pack Abs - 6 Strategies That Work - UPLOADED/working files/v2-transcript.txt`
+and `ad-factory/the-upload/script.md`, both gitignored) and pushes. Dan's own line edits: the voice references row in `_shared/WRITING-RULES.md` section 1. Voice traits:
 
 - Direct, conversational second person: "Listen —", "Let's be honest", "here's the
   truth", occasional "you guys".
 - Doubled intensifiers: "really, really hard", "far, far better", "so, so".
-- Short declarative sentences. One idea per sentence. Em-dash pivots.
+- Short declarative sentences. One idea per sentence. Pivot with a comma, a colon or a new sentence, never an em dash.
 - Personal specifics over generalities (200 pounds, 38-year-old dad, lockscreen for
   a year, meal prep, tracking calories). Never replace his specifics with generic ones.
 - **His real numbers — use these, don't guess.** The before picture was taken in
