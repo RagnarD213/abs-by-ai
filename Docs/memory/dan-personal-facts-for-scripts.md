@@ -49,6 +49,9 @@ NOT CONFIRMED at the bottom and stays out of scripts until he confirms it.
   the graph that explained why he quit it himself. **Dan typed** (10/17 outline)
 - Traded health and sleep for money; worked out and ate better than average, but far below what he could have.
   **Dan typed** (10/17)
+- At 38 he was working out about four times a week (Ad 10). **Dan typed** (confirmed 10-06)
+- Cutting sugar plus taking DIM and B6 substantially helped clear his skin; he also started a skincare routine.
+  **Dan typed** (confirmed 10-06)
 - Started a skincare routine and getting his eyebrows done only a few years ago; has acne scarring. In his 20s he
   believed personality and talking to women mattered most. **Dan typed** (10/17)
 - Thinks he reached "maybe 20% of my full potential", yet has a life better than 98 to 99% of men. Would only swap lives
@@ -79,8 +82,8 @@ NOT CONFIRMED at the bottom and stays out of scripts until he confirms it.
 - Pays for a real gym and trains there 7 days a week despite the commute. **Dan typed** (Make Time)
 - Spent $20,000 building a home gym. **Claude drafted, Dan kept.** He has since sold some of it but still has the
   structure, the dumbbells and most of the equipment. **Dan typed** (10-06)
-- Brazilian jiu-jitsu black belt, training for 22 years; still trains a few times a week. **Dan typed** (10/17
-  outline, Jiu Jitsu short, confirmed 10-06)
+- Brazilian jiu-jitsu black belt, training for 22 years. Teaches one class a week and takes one or two more classes a
+  week as a student. **Dan typed** (10/17 outline, Jiu Jitsu short, confirmed 10-06)
 - Has dropped deadlifts, flat bench and squats. **Dan typed** (10-06)
 - Was an ACE-certified personal trainer for about 3 or 4 years, a while back. Does not coach clients live now; he coaches
   through his videos. **Dan typed** (10-06). So never "a trainer for over 20 years" and never "my clients" as live clients.
@@ -110,6 +113,9 @@ NOT CONFIRMED at the bottom and stays out of scripts until he confirms it.
 - Protein target: 0.8 g per pound a day. He aims for it and does not always hit it. **Dan typed** (10-06)
 - Drank lots of coconut water for years thinking he needed it; now uses zero-calorie electrolyte powder. **Dan typed**
 - Buys pre-packaged hard boiled eggs. Genuinely likes sardines. **Dan typed**
+- Late-night eating tactics he uses or has tried: an eating alarm, sugar-free gum, and brushing his teeth an hour
+  before bed so he stops eating. Zepbound is what finally ended it (section 8). Also made other dietary improvements
+  at the same time. **Dan typed** (10-06)
 - Snack swap: chips, trail mix and dried fruit out; hard boiled eggs, sardines and Chipotle protein cups in. **Dan typed**
   (shorts idea). Rotisserie chicken also a snack. **Claude drafted, Dan kept**
 - High-calorie "healthy" snacks were one of the biggest reasons he struggled with the last ten pounds. **Dan typed**
@@ -129,12 +135,16 @@ video is filmed, not yet published.
   curcumin, ginger, glucosamine chondroitin (joints, so he can train every day in his 40s; "I plan to be lifting into my
   60s and beyond"); vitamin B6 and DIM (skin); a Thorne testosterone booster; one chicken thigh or drumstick (20-25 g
   protein); then one drink of Thorne aminos, Cure electrolyte powder and collagen (he trains fasted).
-- **About an hour before bed:** Thorne Deep Sleep complex. Glycine, 3 g, every night (section 7, added later).
+- **At night (updated 2026-10-06, Dan):** glycine (3 g, section 7) and magnesium, plus a third sleep supplement Claude
+  recommended in another task. Dan's dictation named it "3-phenyl-2-thiophenecarboxylic acid", which is probably a
+  mis-transcription: do not say its name on camera until Dan confirms it from the bottle. **He no longer takes Thorne
+  Deep Sleep.** **Dan typed**
 - **His big three, if you take nothing else:** fish oil, vitamin D, magnesium at night. "Hit your big three supplements
   daily if you're just starting off, and add in more later once you get consistent." **Claude drafted, Dan kept** (list),
   **Dan typed** (the instruction). (3 Most Important Supplements short)
-- **Deliberately does not take:** creatine (effective, but stomach problems), protein powder ("eat it, don't drink it"),
-  fat burners. **Dan typed**
+- **Creatine: now takes creatine HCL** (2026-10-06, Dan). The outline's "no creatine, stomach problems" is out of date.
+  **Dan typed**
+- **Deliberately does not take:** protein powder ("eat it, don't drink it"), fat burners. **Dan typed**
 - Supplements are about 5% of results. **Dan typed**
 
 ## 5. Family, dating, relationships
@@ -199,8 +209,6 @@ video is filmed, not yet published.
 
 ## NOT CONFIRMED (keep out of scripts until Dan confirms)
 
-- Was working out four times a week at 38 (Ad 10).
-- Cutting sugar plus DIM and B6 did more for his skin than any product (Top 3 Ways To Looksmax short).
-- Uses an eating alarm and sugar-free gum against late-night cravings.
+- The exact name of his third night-time sleep supplement (section 4b).
 
 Related: [[dan-relationship-status]], [[script-zero-edit-lessons]], [[no-ad-agency-mention]], [[video-outline-style]].
