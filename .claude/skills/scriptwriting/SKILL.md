@@ -170,7 +170,7 @@ Ground truth (2026-10-06): `references/finalized-ad-scripts.md` (ads batch 1, sp
 Claude drafts that Dan finalized, so second-tier) and Dan's own line edits listed in the voice references row of
 `_shared/WRITING-RULES.md` section 1. Dan ruled out the V2 long-form transcript and the AI ad "The Upload" as
 voice models (not his best work). A fuller corpus from his Drive is coming:
-`Handoffs/handoff-20261006-dan-voice-corpus-from-drive.md`. Voice traits:
+`Handoffs/handoff-20261006-dan-voice-training-part1.md`. Voice traits:
 
 - Direct, conversational second person: "Listen —", "Let's be honest", "here's the
   truth", occasional "you guys".
