@@ -227,6 +227,21 @@ def process_shoot(shoot, config, state, deadline, dry_run):
         record.clear()
         record["fingerprint"] = snapshot["fingerprint"]
         save_state(state)
+    destination = str(ARCHIVE_ROOT / name)
+    seagate_id = archive_id() if ready and not waiting else None
+    if seagate_id:
+        if state.get("archive_id") and state["archive_id"] != seagate_id:
+            raise RuntimeError("a different disk is mounted as Expansion")
+        state["archive_id"] = seagate_id
+        save_state(state)
+        if not record.get("seagate_verified"):
+            try:
+                rclone_transfer(shoot, destination, files, deadline)
+                record["seagate_verified"] = datetime.now(TZ).isoformat()
+                save_state(state)
+                say(f"{name}: Seagate checksum verified")
+            except (RuntimeError, subprocess.TimeoutExpired) as exc:
+                say(f"{name}: Seagate transfer will retry: {exc}")
     dest = DRIVE_ROOT + "/" + config["drive"]
     if not record.get("drive_verified"):
         rclone_transfer(shoot, dest, files, deadline)
@@ -239,15 +254,15 @@ def process_shoot(shoot, config, state, deadline, dry_run):
         say(f"{name}: Google Drive checksum verified")
     if not ready or waiting:
         return
-    if not archive_id():
+    if not seagate_id or not record.get("seagate_verified"):
         say(f"{name}: Seagate absent, keeping the Extreme copy")
         return
-    destination = str(ARCHIVE_ROOT / name)
-    if not record.get("seagate_verified"):
-        rclone_transfer(shoot, destination, files, deadline)
-        record["seagate_verified"] = datetime.now(TZ).isoformat()
-        save_state(state)
-        say(f"{name}: Seagate checksum verified")
+    if pending_jobs(shoot):
+        raise RuntimeError(f"{name}: edit queue changed; no files removed")
+    # A prior run's success flag is not enough to remove source files. Confirm
+    # both destinations again immediately before unlinking anything.
+    rclone_transfer(shoot, destination, files, deadline, verify_only=True)
+    rclone_transfer(shoot, dest, files, deadline, verify_only=True)
     # Recheck the source inventory so a newly copied or changed file is kept.
     if inventory(shoot, raw_files(shoot, config))["fingerprint"] != snapshot["fingerprint"]:
         raise RuntimeError(f"{name}: source changed during backup; no files removed")
