@@ -85,7 +85,6 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 # ACTIVE
 
-**Shorts check 2026-10-06, Codex.** Needs 9:15AM confirmation. Deploy pending. `Docs/YOUTUBE_SHORTS_COVER_AUDIT_20261006.md`.
 
 
 **Nightly footage offload - HANDOFF 2026-10-05, Claude.** Welcome shoot verified on Seagate; Extreme originals intact. Seagate noise unresolved. LaunchAgent disabled after macOS denied Extreme access, so cloud backup paused. Next: check drive, fix permission, own archive decisions. Detail: `Handoffs/handoff-20261005-claude-nightly-footage-offload.md`.
