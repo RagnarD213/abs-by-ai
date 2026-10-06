@@ -1,6 +1,6 @@
 # Nightly raw footage backup and offload
 
-`nightly_footage.py` checks every 15 minutes. It transfers only between 8 pm and
+When enabled, `nightly_footage.py` checks every 15 minutes. It transfers only between 8 pm and
 8 am Chicago time. The Mac mini, Extreme, Seagate Expansion, and internet must
 remain available overnight. The Mac must stay awake while the job runs.
 
@@ -29,10 +29,16 @@ next night. The Seagate has a disk identity marker so a different drive mounted
 under the same name cannot receive the archive. An `RAW_FOOTAGE_ARCHIVED.txt`
 receipt remains in the source folder after a successful offload.
 
-As of 2026-10-05, Seagate offload is paused because the new drive made a
-knocking noise. The flag at `~/Library/Application Support/Abs By AI/seagate-offload-paused`
-blocks Seagate copies and Extreme removal while letting Google Drive uploads
-continue. Leave this flag in place until the Seagate is checked or replaced.
+As of 2026-10-05, automatic Seagate offload is paused because the new drive
+made a knocking noise. The flag at
+`~/Library/Application Support/Abs By AI/seagate-offload-paused` blocks
+automatic Seagate copies and Extreme removal. The LaunchAgent itself is also
+disabled because macOS denied its background process access to Extreme after
+the drive was reconnected. Google Drive uploads are therefore paused until
+that permission problem is fixed or a direct run is started. A separate manual
+copy of the welcome shoot to Seagate passed checksum verification, with all
+Extreme originals retained. See
+`Handoffs/handoff-20261005-claude-nightly-footage-offload.md`.
 
 Commands from the project root:
 
