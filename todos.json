@@ -386,48 +386,6 @@
       "priority": "high",
       "recurring": false,
       "addedAt": "2026-09-01"
-    },
-    {
-      "text": "Load and empty dishwasher",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-09-29",
-      "addedBy": "assistant"
-    },
-    {
-      "text": "Do laundry",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-09-29",
-      "addedBy": "assistant"
-    },
-    {
-      "text": "Take out trash",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-09-29",
-      "addedBy": "assistant"
-    },
-    {
-      "text": "Tidy bathrooms",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-09-29",
-      "addedBy": "assistant"
-    },
-    {
-      "text": "Tidy kitchen",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-09-29",
-      "addedBy": "assistant"
-    },
-    {
-      "text": "Fill Recycling can/empty some cardboard in spare room.",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-09-29",
-      "addedBy": "assistant"
     }
   ],
   "handoffs": [
