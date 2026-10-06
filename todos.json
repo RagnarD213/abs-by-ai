@@ -419,7 +419,7 @@
     },
     {
       "text": "Put all non-cardboard trash items in junk room into trash bags. Leave in spare room, do not put in trash yet",
-      "priority": "low",
+      "priority": "high",
       "recurring": false,
       "addedAt": "2026-10-06"
     }
