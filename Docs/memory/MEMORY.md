@@ -32,7 +32,7 @@
 - [MadMuscles deep-dive](madmuscles-deep-dive.md) — FTC froze Genesis Tech; funnel teardown, copy vs avoid
 - [AI ad creation research](ai-ad-creation-research.md) — MadMuscles themes, Veo/Kling toolchain, 10 concepts
 - [Video outline style](video-outline-style.md) — no generic listicles; his real specifics; Gymboss sets; red/green highlights
-- [Dan's relationship status](dan-relationship-status.md) — has a girlfriend, not married; never "my wife"
+- [Dan's relationship status](dan-relationship-status.md): not married; say "abundant dating life", never "girlfriend" or "my wife" (2026-10-06)
 - [Google Play billing US change](google-play-billing-us-change.md) — Play Billing optional for US; fees from Oct 1 2026
 - [Female Seedream routing](female-seedream-routing.md) — women Gemini + Seedream 4.5, men FLUX
 - [Shorts production style](shorts-production-style.md) — J2 tactical system, benefit-first titles, AbsByAI.com URL
@@ -112,7 +112,7 @@
 - [No em dashes](no-em-dashes.md): never use an em dash in any writing, anywhere (Dan, 2026-09-18)
 - [Editor message voice](editor-message-voice.md): warm praise, big picture only, never name another editor (Dan, 2026-09-18)
 - [Script zero-edit lessons](script-zero-edit-lessons.md): 09-21 Dan's edits to four long-form scripts; read WHAT DAN CHANGED in scriptfromoutline SKILL.md before any script
-- [Dan's personal facts for scripts](dan-personal-facts-for-scripts.md): glycine nightly, sleeps at 63, Oura 75-80, Zepbound for life, 8 am gym, AI saves 10 hrs/week
+- [Dan's personal facts for scripts](dan-personal-facts-for-scripts.md): full fact sheet by topic (rebuilt 2026-10-06): 41, 175 lb, abs at 40, Zepbound 1.5 mg for life, 8 am gym 7 days, 2 pm salad, Clean Eatz, glycine, "abundant dating life"; facts filled into [DAN: ...] gaps go here same day
 - [Opus 5.5 release](opus-5-5-release.md): 09-22: ≥ Fable 5.1 on benchmarks at 60% lower price; routing recommendation (Opus default, Fable reviewer/escalation)
 - [No swipe sound effect](no-swipe-sound-effect.md): Dan 09-23: never any whoosh/swipe/riser SFX; sfxlib now raises; transitions like Muhammad's
 - [RO-05 salad cut rejected](ro05-salad-cut-rejected.md): 09-23 unpublishable; 09-28 recut: intro awful (open on camera, then dish + eating, his audio under), graphics to Soft Blue Light, more saturation
