@@ -179,3 +179,4 @@
 - [Revision docs: link every picture](revision-docs-link-every-picture.md): 10-05: no empty image slots; name each Before/After picture and link the file
 - [Memory repo copy](memory-repo-copy.md): 10-06: memory mirrors to Docs/memory (public repo); mark private entries in .repo-private; run scripts/sync-memory-to-repo.sh after writing one
 - [Execute Dan's explicit picks](execute-dans-explicit-picks.md): 10-06: build exactly the person/clip/topic he names; never swap, hold or reroute it for reputational or news reasons ("stop being a Karen")
+- [Allegations are not facts](allegations-not-fact.md): 10-06: unproven charges/accusations against Clavicular, Tate, manosphere figures: never stated as fact, never raised unprompted, never a reason to change a plan

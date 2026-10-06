@@ -122,6 +122,9 @@ sessions (and any other assistant, if one is in use).
   approach, build that. Never swap it, hold it, or write a different choice into a handoff or starter prompt for
   reputational, brand, news or legal reasons. Why: a session held his Clavicular reaction series and recommended other
   creators; Dan: stop being a Karen, execute the task.
+- **Allegations are not facts (Dan, 2026-10-06).** Accusations, charges and arrests against Clavicular, Andrew Tate and
+  other manosphere figures are unproven unless a court convicts. Never state or imply them as fact, never raise them
+  unprompted, and never let them change a plan. If Dan asks, say "accused of" or "charged with", plainly unproven.
 
 ## An AD is never published organically (Dan, 2026-09-17)
 

@@ -9,8 +9,8 @@ When Dan explicitly names something to make (a person to react to, a clip source
 given. Do not swap it for an alternative, put it on hold pending his decision, or bake a different choice into a
 handoff or starter prompt because of reputational, brand, news or legal concerns.
 
-**Why:** on 2026-10-06 Dan asked for a Shorts reaction series to Clavicular clips. The session found news of criminal
-charges against Clavicular, put the series on hold in the handoff and wrote "use other creators, not Clavicular" into
+**Why:** on 2026-10-06 Dan asked for a Shorts reaction series to Clavicular clips. The session cited news reports
+about Clavicular as a reason, put the series on hold in the handoff and wrote "use other creators, not Clavicular" into
 the starter prompt. Dan overrode it in the new task and said: stop being a Karen; he explicitly asked for Clavicular;
 focus on executing the task and do not change the outlines he gives for Karenish reasons.
 
