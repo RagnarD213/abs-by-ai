@@ -431,7 +431,7 @@
     },
     {
       "text": "Robot vaccuum bedroom 3x. Remove mop pads first and put back after",
-      "priority": "low",
+      "priority": "high",
       "recurring": false,
       "addedAt": "2026-10-06"
     }
