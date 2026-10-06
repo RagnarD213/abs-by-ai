@@ -135,6 +135,13 @@ exact numbers rather than inventing a plausible version.
 - "I'll link it right here" became "I'll link it in the description". Do not assume a card.
 - He works out at EIGHT in the morning, not six.
 
+## THE 10/17 OUTLINES (2026-10-06): read `references/dan-edits-2026-10-06-1017-outlines.md` before scripting them
+
+Dan's edits to Claude's outlines, short form: all before pictures on one full-screen graphic, body before/after never
+on one graphic (face may be); a section needs a take, not a chore; escalate ("divorce her", "quit") instead of
+softening; concede the physics, win on behavior; hooks are commands, not conditionals; never invent his reasons;
+titles take the side harder ("He's Wrong."); men's examples; no bench at home; eyebrows "threaded".
+
 ## THE CALORIES PAIR (2026-09-21): outline stage, proof, studies, and what Dan changed. READ SECOND.
 
 Two scripts ("Calories: THE Reason You're Not Losing Weight", "When Calories DON'T Matter For Fat
