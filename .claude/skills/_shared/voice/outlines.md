@@ -34,18 +34,7 @@ Same doc, Ad 3, labelled "- DAN". Ad 3 is one of Dan's picks for the trial campa
 Why: "In the next few minutes, I'll show you" is the promise line he has used since 2019 (see `ads.md`). "Listen -" opens
 the credential. "personal trainers like me" makes him the expert who admits he lost.
 
-## O3. Content outline bullets: identity and psychology on a physical topic
-
-Source `1VeNXATtvHBVe_Y5S3fxmSjllZxva0zwgo5NghW-G_bU` (Shoot 3 outline, Vacuum video). Dan's typed inserts inside a
-Claude outline (curly apostrophes), Tier A.
-
-> Most average and overweight people avoid scrutinizing themselves in the mirror because they don't like how they look
-> But this is totally wrong. If you don't like how you look, it's important you scrutinize yourself in the mirror daily because this will motivate you to change.
-> Remember, if you are dead or debilitated from being overfat then your money and relationships won't matter
-
-Why: "But this is totally wrong" overturns the comfortable habit. The stakes end on death and money, not on looks.
-
-## O4. Dan's bullet register for an argument
+## O3. Dan's bullet register for an argument
 
 Source `15gg6GP_Huy93ZBfTpbQuUtHGDrgHL-bs6Op-nN2UBr8` (Second Shoot Outlines, STOP Deadlifting). Tier A.
 

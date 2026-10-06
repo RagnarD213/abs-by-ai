@@ -53,18 +53,7 @@ Source `100prkvoE0lcxTLn1d7w_X1zeUbT0I3Xy6H3dDT6ZDCg` (Third Batch Outlines, 202
 Why: opens on an insult to the viewer's habit (not the viewer), proves it with his own spending, then lands the stakes
 in money and status. The list of four in the last line is a run-on he would say out loud, not a tidy triad.
 
-## L4. Story opener in his own life, today
-
-Source `1gt8Fi_wUaNaksa8sAdMoBvcdlBhZLek82EpBr-leq-0` (10/17 shoot outline, typed 2026-10-06). Dan, Tier A.
-
-> I just turned 41. And I was filled with a huge sense of regret on my birthday. Because in many ways, I've wasted my life.
->
-> I believe I've only lived up to a fraction of my true potential. And in today's video, I want to show you the biggest things I would do differently if I could go back in time and do it all over again.
-
-Why: a confession in the first sentence, a reason in the second, then the deliverable named. Same shape as his book's
-openers (`book.md` B1): the low point first, plainly.
-
-## L5. Personal practice with his real numbers, then the recommendation
+## L4. Personal practice with his real numbers, then the recommendation
 
 Source `1tTPTksuG_YwifjMWohtmXpelrjTFdo8KzjfxyuVvxq4` (9/23 shoot, "Top 5 Zepbound Tips", RO-12). Tier B: these lines
 are Dan's additions to a Claude draft.
@@ -81,7 +70,7 @@ Why: he under-claims about himself ("I wasn't really fat"), admits a mistake, an
 before/after picture beat is first person. Claude's draft had a "Quick disclaimer" and "This is the video I wish
 somebody had shown me"; both were cut.
 
-## L6. Spoken, off the cuff (the only real transcript found)
+## L5. Spoken, off the cuff (the only real transcript found)
 
 Source `16nrufNrDMyyp82rDeojtK4FHyGxbz13O` ("My Honest Oura Ring Review" SRT, 2026-10). Dan speaking from an outline,
 Tier A.

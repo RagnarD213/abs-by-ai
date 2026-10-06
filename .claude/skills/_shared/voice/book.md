@@ -82,17 +82,6 @@ Why: he warns he is about to say something unpopular, then says it in the strong
 comfortable belief ("We'd all like to believe") before knocking it down. A topic swap (a fitness myth) uses the same
 shape.
 
-## B6. Exaggeration, then owning it
-
-Step 4, Skip Stopper.
-
-> If this happens to you, it doesn't matter if the rest of your commercial is brilliant. It doesn't matter if you have the world's highest converting sales video. The many hours you've spent on developing these assets will be wasted, and your campaign will lose money.
->
-> Obviously, I'm exaggerating to add some humor to this dire warning. But Skip Stoppers are critically important, and without a good one, nothing else in your ad will matter.
-
-Why: a repeated "It doesn't matter if…" build, then he steps out of the joke and restates the point straight. (The
-joke between these two paragraphs is a homeless-shelter line; use the shape, not that joke.)
-
 ## Patterns measured across the whole book
 
 - Sentences run medium to long (about 19 words on average) and paragraphs are mostly one or two sentences: a sales

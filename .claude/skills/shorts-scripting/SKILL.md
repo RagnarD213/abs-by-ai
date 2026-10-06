@@ -209,7 +209,7 @@ here, read it.
 
 **Read `.claude/skills/_shared/DAN-VOICE.md` first, then `_shared/voice/content-shorts.md`** (his real
 shorts, including the top short, and the hook formula he wrote over Claude's; added 2026-10-06). Then
-inherit the register from **`/scriptfromoutline`** — including its
+inherit the register from **`/scriptfromoutline`**, including its
 **"BE CONTROVERSIAL. SWEAR."** section and the looksmaxxing-aligned framing of
 attraction. Do not re-derive it.
 

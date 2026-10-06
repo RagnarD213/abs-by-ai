@@ -51,17 +51,8 @@ Source `1yZjcG5pkbw0kPsfTvc7OOr2bX6v0bVYMqquUiRENQ4k`, "Does Jiu Jitsu Get You A
 
 Why: credential with a real number, no brag words around it. Concede the good part, then the blunt turn with "But".
 
-## S4. Hook formula Dan wrote over Claude's (see `dan-edits-2026-10-06.md`)
+## S4. The hook formula he wrote over Claude's
 
-Source `1hkRlNqkG5Ic4d2cUS50Y6ErDj5DmJdvxqgjIFAJ98H4` (9/23 "USE THIS SCRIPT", Make Time For Exercise series).
-Tier B, Dan's rewrites of Claude's hooks (high confidence they are his).
-
-> No time to work out? I'm going to solve that problem for you.
->
-> You're wasting hours every week manually doing work for your job. Have AI to do the work for you, and put that time into working out instead.
-
-> No time to work out? It's your lawn mower's fault.
-
-Why: name the viewer's problem as a question, promise to solve it, then one cause-and-payoff sentence. Blame lands on
-an object, never on the viewer. He chose this over Claude's clever first-person claims ("Stop typing on your phone.
-It's stealing the twenty minutes a day you need to work out.").
+See `dan-edits-2026-10-06.md` section 7: "No time to work out? I'm going to solve that problem for you." Name the
+viewer's problem, promise to solve it, then one cause-and-payoff sentence. Blame lands on an object ("It's your lawn
+mower's fault"), never on the viewer.
