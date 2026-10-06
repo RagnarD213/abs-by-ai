@@ -284,6 +284,7 @@ def install():
         "Label": LABEL,
         "ProgramArguments": [python, str(Path(__file__).resolve()), "--once"],
         "RunAtLoad": True,
+        "StartCalendarInterval": {"Hour": 20, "Minute": 0},
         "StartInterval": 900,
         "StandardOutPath": str(LOG_DIR / "run.log"),
         "StandardErrorPath": str(LOG_DIR / "error.log"),
@@ -293,7 +294,7 @@ def install():
     domain = f"gui/{os.getuid()}"
     subprocess.run(["launchctl", "bootout", domain + "/" + LABEL], capture_output=True)
     subprocess.run(["launchctl", "bootstrap", domain, str(PLIST)], check=True)
-    say(f"Installed {LABEL}; checks every 15 minutes, transfers only 8 pm to 8 am Chicago time")
+    say(f"Installed {LABEL}; starts at 8 pm, retries every 15 minutes, stops at 8 am Chicago time")
 
 
 def main():
