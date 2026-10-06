@@ -86,6 +86,12 @@ app.post('/api/stripe/webhook', express.raw({ type: 'application/json' }), async
   res.json({ received: true });
 });
 
+// Workboard owns authentication and bounded body parsers before product middleware.
+const {createRouter: createWorkboardRouter} = require('./workboard/router');
+const {createStore: createWorkboardStore} = require('./workboard/store');
+const {createStore: createWorkboardOwnerStore} = require('./scripts/brief/web/store');
+app.use(createWorkboardRouter({store:createWorkboardStore(db,dbReady),ownerStore:createWorkboardOwnerStore(db,dbReady)}));
+
 const productJson = express.json({ limit: '100mb' });
 // The private publisher owns its bounded parser and verifies exact signed bytes.
 app.use((req, res, next) => /^\/api\/brief\/(?:publish|image\/publish)\/?$/i.test(req.path) ? next() : productJson(req, res, next));
