@@ -371,7 +371,7 @@
     },
     {
       "text": "Spray weeds with roundup",
-      "priority": "med",
+      "priority": "high",
       "recurring": false,
       "addedAt": "2026-08-03"
     },
