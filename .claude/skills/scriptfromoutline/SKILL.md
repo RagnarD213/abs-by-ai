@@ -135,6 +135,24 @@ exact numbers rather than inventing a plausible version.
 - "I'll link it right here" became "I'll link it in the description". Do not assume a card.
 - He works out at EIGHT in the morning, not six.
 
+## FILMING SCRIPTS, NOT TELEPROMPTER SCRIPTS (Dan, 2026-10-06). Supersedes "Cue density: LIGHT" below.
+
+Scripts delivered into a shoot doc are FILMING scripts. Every graphic, on-screen text, B-roll shot, clip, picture-in-picture,
+end screen and note for the editor goes on its own line, in [ALL CAPS BRACKETS], exactly where it happens:
+`[ON SCREEN TEXT: ...]`, `[FULL SCREEN GRAPHIC: ...]`, `[B-ROLL: ...]`, `[PLAY CLIP: ...]`, `[EDITOR: ...]`,
+`[END SCREEN: ...]`. Numbers the viewer should remember get an ON SCREEN TEXT cue; list videos get a build-as-I-say-it
+note on the recap graphic; workouts get round counters, beginner picture-in-picture shots to film, and an equipment
+B-roll shot. Teleprompter copies are a later, separate step (`/teleprompterscripts`). On-screen text never names a drug
+or brand. Why: Dan, mid batch B: "I want these all to be filming scripts... note where graphics should go and other
+things in all caps and brackets."
+
+**Docs delivery when other sessions are editing the same doc (2026-10-06).** Position-locked writes
+(`requiredRevisionId`) kept failing because other sessions inserted text above. What worked: (1) one tiny locked write
+that drops a unique marker (`@@B3@@`) into the blank line under each outline, then (2) `replaceAllText` swapping each
+marker for the full script, and (3) new cues added with `replaceAllText` on a unique sentence (sentence becomes
+sentence + cue). None of that depends on positions. Formatting (bold, yellow cues) still needs positions: send it in
+small per-script writes right after a fresh read, and retry when the doc is quiet.
+
 ## THE 10/17 OUTLINES (2026-10-06): read `references/dan-edits-2026-10-06-1017-outlines.md` before scripting them
 
 Dan's edits to Claude's outlines, short form: all before pictures on one full-screen graphic, body before/after never
@@ -385,7 +403,7 @@ matches and your choice of many attractive women").
   when a specific feature continues the video's topic; otherwise end on one ask. Was:
   **CTA close (Dan's confirmed default 2026-08-23):** short AbsByAI.com plug
   tied to whatever AI points the video made + subscribe. Not an ad-style pitch.
-- **Cue density (Dan's confirmed default 2026-08-23): LIGHT.** Bracketed cues
+- **Cue density (Dan's confirmed default 2026-08-23): LIGHT. SUPERSEDED 2026-10-06: shoot-doc scripts are filming scripts, see FILMING SCRIPTS above.** Bracketed cues
   only where a visual is load-bearing (before picture, a referenced video
   card). The edit adds b-roll/chips later per /longform-edit — the script stays
   clean to read. Markup convention same as /scriptwriting: everything

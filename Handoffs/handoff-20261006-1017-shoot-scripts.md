@@ -137,3 +137,16 @@ tell Dan in chat; never invent one.
 > reaction shorts (outline plus script each), Clavicular clips only, at the end of my 10/17 shoot doc.
 
 Model for every batch: Claude Opus 5.5, High effort.
+
+## Status: batch B DONE 2026-10-06 (cloud session)
+
+- 7 scripts inserted under their outlines (Celebrity Ozempic, Bryan Johnson, 9 Exercises with B-roll shot list, 5-Minute,
+  10-Minute rope + kettlebell, 20-Minute rope + dumbbell, 15-Minute rope + abs). As delivered:
+  `Docs/SCRIPTS_1017_SHOOT_B_AS_DELIVERED_20261006.md`.
+- **Dan's mid-batch rule: these are FILMING scripts.** Every graphic, on-screen text, B-roll, clip and editor note goes in
+  [ALL CAPS BRACKETS] where it happens; teleprompter copies come later. Batches C and D follow the same rule (written into
+  `scriptfromoutline/SKILL.md`, FILMING SCRIPTS).
+- Timing changes made to fit Dan's exercise swaps: 10-minute and 20-minute workouts now run 30 s work / 20 s rest
+  (12 and 24 rounds). Fat Joe added as the male example. Outlines themselves were left untouched.
+- Open: bold/yellow formatting on the cue lines of 6 of 7 scripts (only the 15-minute one is styled); the text is all in
+  place. Other sessions editing above kept rejecting position-locked writes. Re-run when the doc is quiet.
