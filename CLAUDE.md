@@ -3,6 +3,9 @@
 @AGENTS.md
 @AI_COORDINATION.md
 
+**Memory entries are in `Docs/memory/` (index: `Docs/memory/MEMORY.md`).** When a skill or rule says "memory `name`", read `Docs/memory/name.md`. Local sessions also have the same entries in the auto-memory folder; the repo copy is the cloud copy. A name with no file there is private on purpose: do not guess its content.
+After writing or changing a memory entry locally, run `scripts/sync-memory-to-repo.sh`, then push `Docs/memory`. In a cloud session, write the entry straight into `Docs/memory/` and add its index line.
+
 ## Bias toward action (Dan's standing instruction, 2026-08-06)
 
 Do not ask permission for anything reversible. Dan explicitly prefers aggressive autonomous action with occasional fixable mistakes over being asked to approve things.
