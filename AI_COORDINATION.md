@@ -133,7 +133,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **Overnight edit queue - PAUSED 2026-09-24, Dan's call.** Resume only if Dan says: `dispatcher.py resume`.
 
-**RO-01 round 9 - HANDOFF READY 2026-10-05, Codex.** Dan chose Bright Electronic (R9 second-set B). Exact preview and music source locked in `Handoffs/handoff-20261005-ro01-r9-bright-electronic-final-film.md`. Next: new task builds full 16:9 film, SRT, chapters and final QA. R8 picture and R3 voice protected; full film unassembled.
+**RO-01 round 10 - HANDOFF READY 2026-10-06, Codex.** R9 full film, SRT and chapters delivered for review. Dan requested removal of the old 0:07 chip, a full Soft Blue Light and HyperFrames graphic update, and restoration of missing speech at 4:32. Next: new task executes `Handoffs/handoff-20261006-ro01-r10-blue-hyperframes-transition.md` and delivers the complete R10 film for review.
 
 **Ads 6, 7, 10, 14 YouTube + Google Ads - REVIEW 2026-09-15, Codex 01a0a744.** Four unlisted uploads, eight enabled campaign ads, shared budget $40/day, policy `REVIEW_IN_PROGRESS`. Next: re-run policy; swap in Ad 7 typo / Ad 14 bitrate exports when delivered. Detail: `Docs/DGEN_CONVERSION_CAMPAIGN.md`.
 
