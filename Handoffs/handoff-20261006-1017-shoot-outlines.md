@@ -96,8 +96,6 @@ Number the questions so he can answer by voice in one go. Skip any he already an
     how often you tan, your haircut.
 11. **Calls to action:** this doc is for the SixPackAbs.com shoot. End each outline on "subscribe" only (like your two),
     or also point to AbsByAI.com or SixPackAbs.com?
-12. **Only if the starter prompt does not say:** the looksmaxxing series (see "Hold" below): other creators' clips, or
-    Clavicular's?
 
 ## Step 2: research, then write
 
@@ -198,22 +196,13 @@ never caught out, without hedging the argument into mush.
     GLP-1 videos (Dr. Amin Hedayat, 4.3M to 4.8M views), then Dan's real experience (interview) and his protein and
     lifting rules.
 
-### HOLD until Dan decides: the looksmaxxing reaction series (about 10 to 12 shorts)
+### Short-form reactions: the Clavicular series (about 10 to 12 shorts)
 
-Dan asked for a series of short reactions to **Clavicular** clips (his first interview on the Iced Coffee Hour podcast,
-"I Regret Nothing! Clavicular Exposes The Dark World Of Looksmaxxing...", and other clips), one short per tactic, Dan
-saying what he agrees and disagrees with and why.
+Dan's call, final: **use Clavicular clips**, as he asked (his first interview on the Iced Coffee Hour podcast,
+"I Regret Nothing! Clavicular Exposes The Dark World Of Looksmaxxing...", and other Clavicular clips). One short per
+tactic: Dan says what he agrees or disagrees with and why.
 
-**Why it is on hold:** on 2026-10-06 the research found that Clavicular was **charged with rape and drugging about two
-weeks earlier** (NBC News, CNN, ABC News, LegalEagle; one outlet's headline says the alleged victim was a minor).
-Claude recommended building the series on **other looksmaxxing creators' clips** instead. Follow the choice in the
-starter prompt; if it says nothing, ask (interview question 12).
-
-- **Option A (recommended): same series, other creators.** Find a real clip per tactic from other looksmaxxers,
-  podcasts or celebrity news (for example a celebrity talking about a nose job).
-- **Option B: Clavicular, as Dan first asked.**
-
-Either way, the beats are Dan's:
+The beats are Dan's:
 
 - **Disagree:** plastic surgery (for example a nose job); bone smashing; using testosterone as a teenager; taking
   unproven drugs that are not FDA approved to improve your looks, such as retatrutide (verify its approval status on
@@ -260,6 +249,5 @@ Each short: `[PLAY CLIP ...]`, Dan's take (agree or disagree, and why), one acti
 
 > Execute `Handoffs/handoff-20261006-1017-shoot-outlines.md`: write the 10/17 shoot outlines into my doc at the
 > [CLAUDE INSERT NEW OUTLINES HERE] marker. Start with the interview and wait for my answers.
-> Looksmaxxing series: use other looksmaxxing creators' clips, not Clavicular.
 
 Model: Claude Opus 5.5, High effort.

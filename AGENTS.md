@@ -118,6 +118,10 @@ sessions (and any other assistant, if one is in use).
   audit work. Dan: it wastes his tokens and money. Stay on what the task is about (design, reach, conversion).
 - Only exceptions: Dan explicitly asks for a compliance review, or the task is writing or editing sales copy that ships
   (VSL script, page copy, ad copy). Then apply the rules on record, briefly.
+- **Execute Dan's explicit picks exactly as given (Dan, 2026-10-06).** When he names a person, clip source, topic or
+  approach, build that. Never swap it, hold it, or write a different choice into a handoff or starter prompt for
+  reputational, brand, news or legal reasons. Why: a session held his Clavicular reaction series and recommended other
+  creators; Dan: stop being a Karen, execute the task.
 
 ## An AD is never published organically (Dan, 2026-09-17)
 
