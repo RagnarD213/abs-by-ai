@@ -33,6 +33,7 @@ STATE_FILE = STATE_DIR / "nightly-footage.json"
 LOCK_FILE = STATE_DIR / "nightly-footage.lock"
 DRIVE_MARKER = ARCHIVE / ".absbyai-footage-archive-id"
 READY_MARKER = "READY_TO_ARCHIVE"
+READY_MAX_AGE = 24 * 60 * 60
 QUEUE_FILE = Path(__file__).resolve().parents[2] / "Handoffs/video-editing/jobs.json"
 LOG_DIR = Path.home() / "Library/Logs/absbyai-footage-offload"
 LABEL = "com.absbyai.nightly-footage"
@@ -234,9 +235,12 @@ def process_shoot(shoot, config, state, deadline, dry_run):
         return
     snapshot = inventory(shoot, files)
     name = shoot.name
-    ready = (shoot / READY_MARKER).is_file()
+    ready_file = shoot / READY_MARKER
+    ready = ready_file.is_file() and time.time() - ready_file.stat().st_mtime <= READY_MAX_AGE
     waiting = pending_jobs(shoot) if ready else []
     say(f"{name}: {snapshot['files']} raw files, {snapshot['bytes'] / 1e9:.1f} GB, archive_ready={ready}")
+    if ready_file.is_file() and not ready:
+        say(f"{name}: archive decision is older than 24 hours; keeping the Extreme copy")
     if waiting:
         say(f"{name}: archive held for edit queue jobs: {', '.join(waiting)}")
     if dry_run:
@@ -281,6 +285,8 @@ def process_shoot(shoot, config, state, deadline, dry_run):
         return
     if pending_jobs(shoot):
         raise RuntimeError(f"{name}: edit queue changed; no files removed")
+    if not ready_file.is_file() or time.time() - ready_file.stat().st_mtime > READY_MAX_AGE:
+        raise RuntimeError(f"{name}: archive decision expired or was withdrawn; no files removed")
     # A prior run's success flag is not enough to remove source files. Confirm
     # both destinations again immediately before unlinking anything.
     rclone_transfer(shoot, destination, files, deadline, verify_only=True)
