@@ -128,7 +128,7 @@ Test 2 only (short):
 | C2 | Hook lands in the first 5 seconds and gives a reason to watch |
 | C3 | Covers the three bullets, in Dan's first person, with no added point he did not give |
 | C4 | Has the `[AbsByAI.com mark on screen]` cue and does not say "tap the button below" (it is organic) |
-| C5 | Title in Title Case, script in the skill's layout with b-roll cues |
+| C5 | Title as the skill sets it (bold, ALL CAPS heading), script in the skill's layout with b-roll cues |
 | C6 | The test Google Doc exists and is shared, or it said exactly what stopped it |
 
 Test 3 only (polish):
@@ -143,3 +143,38 @@ Test 3 only (polish):
 
 ## Results
 
+### Local baseline, 2026-10-06 (Opus 5.5, three fresh sessions, each given only the prompt)
+
+A8 is Dan's call. The "yes" shown for it is Claude's own read and does not count until Dan reads the piece.
+
+| Test | A1 | A2 | A3 | A4 | A5 | A6 | A7 | A8 | Own lines | Output |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 1 ad script | yes | yes (0) | yes | yes | yes | yes | yes | yes, Claude's read | B1 yes, B2 yes, B3 yes, B4 yes, B5 yes (640 words), B6 yes | [test doc](https://docs.google.com/document/d/1AVvFlaR76YSPOdzj44ZkVOlQ-FdnJU4S3dHSfGXwM_0/edit) |
+| 2 short | yes | yes (0) | yes | yes | yes | yes | yes | yes, Claude's read | C1 yes (185 words, 50 to 56 s), C2 yes, C3 yes, C4 yes, C5 yes, C6 yes | [test doc](https://docs.google.com/document/d/1GIyz3xoj2_aFLZL_OwPWqOz2BIDMRwzLiSRa1DOjtBM/edit) |
+| 3 polish | yes | yes (0) | yes | yes | yes | yes | yes | yes, Claude's read | D1 yes (4 of 4; it left "create my own app" where the letter now says "build"), D2 yes, D3 yes, D4 yes, D5 yes | chat only, by design |
+
+What the local runs did that a cloud run must match:
+
+- Test 1 replaced both of the outline's "Go to AbsByAI.com, upload one photo" asks with "tap the button below and start
+  your seven-day free trial", removed "the body of your dreams" as a promised result, and wrote zero dashes although the
+  outline has 15. All three come from `WRITING-RULES.md`.
+- Test 1 could set anyone-with-link sharing only because this Mac has a Drive login outside the connector. A cloud
+  session cannot. That is expected and is now written into `WRITING-RULES.md` section 7, so B6 and C6 pass in the cloud
+  when the doc exists and the report says sharing was not possible.
+- Test 2 took its facts from Dan's own videos (subtitle files in the repo) and the memory entries, named the drug
+  because the piece is organic, and added two notes for Dan instead of inventing a sleep number. It replaced the
+  skill's en dash separator line with a hyphen because the no-dash rule is newer.
+- Test 3 read the long VSL to find that "multiple" should be "five". A cloud run needs the Drive connector for that.
+- Neither run could paste into the real doc or make Suggesting-mode edits under the test's no-edit rule, and a cloud
+  session never can. Delivery in the cloud is a new doc or a find and replace table (section 7).
+
+### Cloud runs
+
+Not run yet. Dan starts them. Record the scores here in the same table shape, then list each "no" and the rule added
+to fix it.
+
+| Test | A1 | A2 | A3 | A4 | A5 | A6 | A7 | A8 | Own lines | Output |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 1 ad script | | | | | | | | | | |
+| 2 short | | | | | | | | | | |
+| 3 polish | | | | | | | | | | |
