@@ -410,6 +410,12 @@
       "priority": "high",
       "recurring": false,
       "addedAt": "2026-10-06"
+    },
+    {
+      "text": "Cut up boxes in small pieces and put in recycling",
+      "priority": "low",
+      "recurring": false,
+      "addedAt": "2026-10-06"
     }
   ],
   "handoffs": [
