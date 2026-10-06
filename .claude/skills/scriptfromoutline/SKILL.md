@@ -10,6 +10,8 @@ description: >
   a clean teleprompter-only copy of a finished doc use /teleprompterscripts.
 ---
 
+> **Shared writing rules (2026-10-06):** before writing, read `.claude/skills/_shared/WRITING-RULES.md`. It holds the rules every writing skill follows and the list of memory entries (`Docs/memory/`) to read. Where it and this skill disagree, the newer dated line wins.
+
 # Script From Outline: Content Outline → Teleprompter Script
 
 **STATUS: v2, updated 2026-09-21 from Dan's line edits to the four 9/23 shoot scripts (start at

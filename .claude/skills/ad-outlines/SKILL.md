@@ -10,6 +10,8 @@ description: >
   script, use /scriptwriting instead. For AI-generated video ads, use /make-ad.
 ---
 
+> **Shared writing rules (2026-10-06):** before writing, read `.claude/skills/_shared/WRITING-RULES.md`. It holds the rules every writing skill follows and the list of memory entries (`Docs/memory/`) to read. Where it and this skill disagree, the newer dated line wins.
+
 # Ad outlines: write a variation of Dan's existing outline
 
 **STATUS: v1 — created 2026-08-06 from the approved "Stop Paying Human
@@ -239,7 +241,8 @@ Dan's real transcripts). For outlines specifically:
 - Outlines are half-drafted prose, half shorthand. Match the source's register: some
   bullets are full spoken sentences, some are directions to himself.
 - Keep his phrases: "lose your belly fat", "six pack abs", "Listen -", "a 38 year old
-  Dad running a successful ad agency", "stubborn stomach fat".
+  Dad", "stubborn stomach fat". (Updated 2026-10-06: the old phrase "running a successful ad
+  agency" is retired. Dan, 2026-09-18: never say he is a marketer or ran an agency.)
 - Cues in ALL CAPS inside square brackets, matching the source's wording style
   (`[SHOW BEFORE PICTURE]`, `[SHOW 3-5 BEST SHOTS FROM PHOTO SHOOT]`).
 - Em-dash asides are fine; keep sentences short.
@@ -283,8 +286,9 @@ Dan's real transcripts). For outlines specifically:
   not the raw file. The after is the outdoor photo-shoot frame (trees background,
   hands on hips) Dan pointed to on 2026-08-07.
 - Credentials: personal trainer and nutrition coach; SixPackAbs.com was at one point
-  the most viewed fitness channel on YouTube; today a dad running a successful ad
-  agency. Never invent a credential beyond these.
+  the most viewed fitness channel on YouTube; today a dad running a business where AI
+  codes his website and does his bookkeeping. Never invent a credential beyond these.
+  (Updated 2026-10-06 to Dan's 2026-09-18 rule: never mention marketing or an ad agency.)
 
 ## Delivery into the Google Doc — the exact mechanics that work
 
@@ -385,6 +389,10 @@ Dan killed both shorts-ads batches in one day: 20 outlines (trainer/nutritionist
 long-form structure compressed), then 5 generation-led scripts modeled on his two
 Approach #2 examples. His verdict on the second batch: *"a very clumsy cut down of the
 long formats we did that aren't really persuasive in a 60-second format."*
+
+**Out of date since 2026-09-24 (note added 2026-10-06):** Dan ruled the free generation is a member
+feature, not the entry hook. New ad copy asks for the 7-day free trial on /start. Read
+`_shared/WRITING-RULES.md` section 5 before using anything below about selling the generation.
 
 What is settled so far for shorts ads:
 - **Sell the GENERATION feature almost exclusively.** The trainer/nutritionist value

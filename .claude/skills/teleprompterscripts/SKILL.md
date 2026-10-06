@@ -11,6 +11,8 @@ description: >
   images and clips is /imagesandclips.
 ---
 
+> **Shared writing rules (2026-10-06):** before writing, read `.claude/skills/_shared/WRITING-RULES.md`. It holds the rules every writing skill follows and the list of memory entries (`Docs/memory/`) to read. Where it and this skill disagree, the newer dated line wins.
+
 # Teleprompter-only copy of a finalized scripts doc
 
 **STATUS: v2 — 2026-08-26, second run: the Shoot 5 doc

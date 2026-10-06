@@ -3,6 +3,8 @@ name: ad-copy
 description: Write the text of a paid ad for Abs By AI in Dan's own voice (Google Demand Gen headlines, long headlines and descriptions; the same lines for Meta or TikTok when asked) so Dan reads it and changes nothing. Use whenever Dan asks to write, rewrite, improve or "do the copy for" an ad, asks for headlines or descriptions, when /ad-setup needs copy for a new ad, or when Dan edits ad copy and says to learn from it, even if he doesn't say "/ad-copy". The spoken script of an ad is /scriptwriting; polishing a sales letter is /copy-edit; putting the ad live is /ad-setup.
 ---
 
+> **Shared writing rules (2026-10-06):** before writing, read `.claude/skills/_shared/WRITING-RULES.md`. It holds the rules every writing skill follows and the list of memory entries (`Docs/memory/`) to read. Where it and this skill disagree, the newer dated line wins.
+
 # /ad-copy: ad text Dan would have written himself
 
 **The goal (Dan, 2026-10-01):** he reviews the copy and makes no revisions, and he cannot tell which lines he wrote

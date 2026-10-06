@@ -10,6 +10,8 @@ description: >
   AI-generated video ads use /make-ad instead.
 ---
 
+> **Shared writing rules (2026-10-06):** before writing, read `.claude/skills/_shared/WRITING-RULES.md`. It holds the rules every writing skill follows and the list of memory entries (`Docs/memory/`) to read. Where it and this skill disagree, the newer dated line wins.
+
 # Scriptwriting: Outline → Finalized Teleprompter Script
 
 **STATUS: v2 — updated 2026-08-10 after Dan's full human line-edit of all 15
@@ -129,6 +131,10 @@ the whole ad is wasted. Rules, all from his line edits:
   image will change your life").
 - **Quick mid-ad CTAs are good.** A two-line "generate yours free — tap below"
   can drop in wherever the moment is hot, in addition to the structural CTAs.
+- **Out of date since 2026-09-24 (note added 2026-10-06):** the two bullets above were written when
+  the free generation was the entry offer. Dan ruled it a member feature, not the hook. The ask in
+  new scripts is the 7-day free trial on /start ("try it free for 7 days, tap the button below").
+  The generation is still shown and sold inside the pitch. See `_shared/WRITING-RULES.md` section 5.
   Spoken "Go to AbsByAI.com" CTAs are also in the register now.
 
 ## Killed concepts (do not re-pitch)
