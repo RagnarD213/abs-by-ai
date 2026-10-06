@@ -114,8 +114,10 @@ delivery changes. (Added 2026-10-06.)
 - **If a Google Docs connector that can edit an existing doc is connected, use it** and re-read the doc afterwards to
   confirm the text landed where the skill says.
 - **If not, create a NEW Google Doc through the Drive connector** holding the finished text, titled
-  `<name of the real doc> - CLOUD DRAFT <date>`, set to anyone-with-link view, and give Dan the link plus the exact
-  heading it belongs under in the real doc. He or a local session pastes it in.
+  `<name of the real doc> - CLOUD DRAFT <date>`, and give Dan the link plus the exact heading it belongs under in the
+  real doc. He or a local session pastes it in. The Drive connector can share only to an email address, so a cloud
+  session cannot set anyone-with-link view: say so in the report and leave the doc in Dan's Drive, where he can open
+  it. A local session sets the link sharing (memory `drive-always-public`).
 - **`/copy-edit` cannot make Suggesting-mode edits from the cloud.** Deliver the table of exact find and replace pairs,
   each with a one-line reason, and the polished text. A local session applies them as suggestions.
 - **Never say the real doc was edited unless you re-read it and saw the change.**
