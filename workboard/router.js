@@ -18,7 +18,7 @@ function createRouter({store,ownerStore,env=process.env,origin='https://absbyai.
   const router=express.Router();
   router.use((req,res,next)=>{
     const p=req.path.toLowerCase().replace(/\/+$/,'');
-    if(!['/workboard','/workboard-login'].includes(p)&&!p.startsWith('/api/workboard/'))return next('router');
+    if(!['/dash','/workboard','/workboard-login'].includes(p)&&!p.startsWith('/api/workboard/'))return next('router');
     req.url=p+(req.url.includes('?')?req.url.slice(req.url.indexOf('?')):'');
     res.removeHeader('Access-Control-Allow-Origin');
     res.set({'Cache-Control':'private, no-store','Pragma':'no-cache','X-Content-Type-Options':'nosniff','Referrer-Policy':'no-referrer','Content-Security-Policy':"default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' blob:; connect-src 'self'; frame-ancestors 'none'; base-uri 'none'; form-action 'self'"});next();
@@ -37,7 +37,8 @@ function createRouter({store,ownerStore,env=process.env,origin='https://absbyai.
     function deny(){return req.path.startsWith('/api/')?res.status(401).json({error:'Sign in with the existing owner account.'}):res.redirect(303,'/workboard-login');}
   });
   const file=name=>(req,res)=>res.sendFile(path.join(__dirname,name));
-  router.get('/workboard',file('page.html'));
+  router.get('/dash',file('page.html'));
+  router.get('/workboard',(req,res)=>res.redirect(303,'/dash'));
   for(const name of ['page.js','baseline.css','style.css'])router.get('/api/workboard/'+name,file(name));
   const run=fn=>async(req,res)=>{try{await fn(req,res);}catch(e){res.status(e.status||503).json({error:e instanceof BoardError?e.message:'Could not save or load the board. Please retry.'});}};
   router.get('/api/workboard/state',run(async(req,res)=>res.json(await store.read())));

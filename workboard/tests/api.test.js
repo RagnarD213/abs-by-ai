@@ -12,7 +12,7 @@ async function main(){
  const change=async(action,payload,version=s.version)=>{const r=await req('/api/workboard/change',{method:'POST',headers,body:JSON.stringify({version,action,payload})});const data=await r.json();if(r.ok)s=data;return {status:r.status,data};};
  try{
   for(const path of ['/api/workboard/state','/API/WORKBOARD/STATE/','/api/workboard/page.js','/api/workboard/files/unknown'])assert.equal((await req(path)).status,401);
-  assert.equal((await req('/workboard')).status,303);assert.equal((await req('/morningbrief')).status,418);assert.equal((await req('/dashboard')).status,418);
+  assert.equal((await req('/dash')).status,303);assert.equal((await req('/DASH/')).status,303);assert.equal((await req('/workboard')).status,303);assert.equal((await req('/workboard',{headers})).headers.get('location'),'/dash');assert.equal((await req('/dash',{headers})).status,200);assert.match(await(await req('/workboard-login')).text(),/href="\/dash"/);assert.equal((await req('/morningbrief')).status,418);assert.equal((await req('/dashboard')).status,418);
   s=await(await get()).json();assert.equal(s.cards.length,0);assert.equal(s.lists.length,10);assert.equal(s.version,0);
   const read=await get();assert.match(read.headers.get('cache-control'),/no-store/);assert.match(read.headers.get('content-security-policy'),/frame-ancestors 'none'/);assert(!read.headers.has('access-control-allow-origin'));
   for(const h of [{...headers,Origin:'https://evil.example'},{...headers,'X-Workboard-Action':''}])assert.equal((await req('/api/workboard/change',{method:'POST',headers:h,body:JSON.stringify({version:0,action:'list.create',payload:{name:'Bad'}})})).status,403);

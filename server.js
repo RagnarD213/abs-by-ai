@@ -90,7 +90,10 @@ app.post('/api/stripe/webhook', express.raw({ type: 'application/json' }), async
 const {createRouter: createWorkboardRouter} = require('./workboard/router');
 const {createStore: createWorkboardStore} = require('./workboard/store');
 const {createStore: createWorkboardOwnerStore} = require('./scripts/brief/web/store');
-app.use(createWorkboardRouter({store:createWorkboardStore(db,dbReady),ownerStore:createWorkboardOwnerStore(db,dbReady)}));
+const workboardStore = createWorkboardStore(db,dbReady);
+// Initialize only the board's isolated tables; never log card content or sessions.
+workboardStore.read().then(() => console.log('Workboard database ready')).catch(() => console.error('Workboard database unavailable'));
+app.use(createWorkboardRouter({store:workboardStore,ownerStore:createWorkboardOwnerStore(db,dbReady)}));
 
 const productJson = express.json({ limit: '100mb' });
 // The private publisher owns its bounded parser and verifies exact signed bytes.

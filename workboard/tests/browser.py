@@ -12,7 +12,7 @@ with sync_playwright() as p:
     page=ctx.new_page()
     errors=[]
     page.on('pageerror',lambda e:errors.append(str(e)))
-    page.goto('http://127.0.0.1:8842/workboard')
+    page.goto('http://127.0.0.1:8842/dash')
     expect(page.locator('.column')).to_have_count(10)
     expect(page.locator('.card')).to_have_count(0)
     page.screenshot(path=str(out/'workboard-empty.jpg'),type='jpeg',quality=90)
@@ -87,7 +87,7 @@ with sync_playwright() as p:
     expect(page.locator('.card')).to_have_count(1)
     page.get_by_role('textbox',name='Search cards',exact=True).fill('')
     # Two tabs: stale draft rejected and retained until explicit refresh.
-    other=ctx.new_page();other.goto('http://127.0.0.1:8842/workboard');expect(other.locator('.card')).to_have_count(2)
+    other=ctx.new_page();other.goto('http://127.0.0.1:8842/dash');expect(other.locator('.card')).to_have_count(2)
     page.get_by_role('button',name='Open card: QA fixture: edit preview',exact=True).click()
     page.locator('#card-description').fill('My retained draft')
     other.get_by_role('button',name='Open card: QA fixture: edit preview',exact=True).click()
@@ -139,7 +139,7 @@ with sync_playwright() as p:
         page.screenshot(path=str(out/('workboard-qa-'+str(width)+'.jpg')),type='jpeg',quality=90)
     # Real touch emulation, menu alternative available and operable.
     touch=browser.new_context(viewport={'width':390,'height':844},is_mobile=True,has_touch=True)
-    t=touch.new_page();t.goto('http://127.0.0.1:8842/workboard')
+    t=touch.new_page();t.goto('http://127.0.0.1:8842/dash')
     t.get_by_role('button',name='List menu: Unassigned tasks',exact=True).tap()
     t.get_by_label('List position',exact=True).select_option(index=1)
     t.get_by_role('button',name='Move list',exact=True).tap()
