@@ -4,6 +4,8 @@ description: >
   Take a FINISHED organic/content video, long-form or a dedicated Short (usually an editor's final shared as a Google Drive link) all the way to scheduled on every platform: download and file it (project folder, Extreme drive and Google Drive), add it to the Edit Queue, make five thumbnail choices with Codex in the command line (one pool photo, one studio photo, three AI designs; GPT-6.1 Sol high) and stop for Dan's pick, write the title, description with chapters and tags, and queue YouTube, Facebook, Instagram @danrosefit, and TikTok for release through Blotato. Use whenever Dan says a content video is "finished", "done", "final", sends a Drive link and asks to "queue it up", "set it up on all platforms", "put it in Blotato", "schedule it", or "get it on YouTube and everything else", even if he doesn't say "/video-setup". Paid ads go through /ad-setup; reviewing a cut is /revisions; thumbnails alone are /youtube-packaging; cutting Shorts is /shorts.
 ---
 
+> **Shared writing rules (2026-10-06):** before writing, read `.claude/skills/_shared/WRITING-RULES.md`. It holds the rules every writing skill follows and the list of memory entries (`Docs/memory/`) to read. Where it and this skill disagree, the newer dated line wins.
+
 > **Image generation: Codex only (Dan, 2026-10-01).** Every still image this skill generates (backgrounds, plates, AI frames, thumbnails, covers, posts, retouch passes) is made with `.claude/skills/_shared/codex-image.sh` on the ChatGPT subscription. Where the steps below name Nano Banana Pro, Gemini, Seedream, FLUX, `gemini-image.js`, `rep-t2i.js` or `replicate-edit.js` for a still image, use the helper instead. Read `.claude/skills/_shared/IMAGE-GENERATION.md` first. Video generation is unchanged.
 
 Read `_shared/VIDEO-RULES.md` first.
@@ -30,6 +32,14 @@ session then has no Dan stop; everything is reversible and runs without asking.
 YouTube video at release time (title, description, thumbnail, AI flag all travel in its YouTube target). Never upload to
 YouTube ourselves and never use YouTube native scheduling.** Anything that needs the YouTube id (thumbnail A/B test,
 English captions, the sixpackabs article page) happens after release: see Step 6 and Step 6b.
+
+## YouTube Shorts cover verification (2026-10-06)
+
+A saved Blotato `thumbnailUrl` is only a queued intention. It does not prove the public Shorts tile uses the approved cover. On Oct 6, SL-04 short 2 (`qDvrtKbuhf4`) displayed a video frame even though its approved 1080x1920 JPEG URL was in the target and under 2 MB. A direct `thumbnails.set` returned success but the public tile and downloaded API thumbnail remained unchanged. Uploading the same approved JPEG through desktop Studio, Thumbnail > Options > Change, then Save, corrected the public Shorts tile.
+
+Before queueing, download each YouTube and Instagram cover URL, decode it, verify it matches the approved asset and confirm YouTube files are under 2 MB. Preserve approved cover URLs and title/slug/date in the setup receipt. After each YouTube release, inspect the actual tile on `https://www.youtube.com/@danrosefit/shorts`. If it is a frame or the wrong design, open `https://studio.youtube.com/video/<id>/edit`, use the thumbnail Options > Change control to upload the approved cover and Save. Refresh the public channel and visually verify the correct design before reporting success. Never delete/re-upload the video to repair a thumbnail. Do not call API success or an unchanged download verification. The public portrait tile is the decisive check.
+
+A recurring release check requires Dan's schedule confirmation. If no recurring check is active, record the post-release thumbnail check as outstanding in the setup handoff. Do not say the queue alone guarantees the cover.
 
 ## Step 0 — before anything
 

@@ -12,6 +12,8 @@ description: >
   a teleprompter-only copy is /teleprompterscripts; reviewing a video cut is /revisions.
 ---
 
+> **Shared writing rules (2026-10-06):** before writing, read `.claude/skills/_shared/WRITING-RULES.md`. It holds the rules every writing skill follows and the list of memory entries (`Docs/memory/`) to read. Where it and this skill disagree, the newer dated line wins.
+
 # Copy edit: the final polish on sales copy
 
 **STATUS: v1, 2026-09-30.** Built from the first run on 2026-09-29: the "Abs By AI sales
@@ -30,9 +32,9 @@ Every future run adds its accept/reject tally to the calibration log at the bott
 - **Every change is a suggestion.** Dan accepts or rejects each one himself. Nothing is ever
   typed straight into the doc in Editing mode. He explicitly wants to review each change.
 
-**Model + effort:** Fable 5.1, high. This is ship-critical copy (memory `model-routing-plan`:
-VSL scripts, /start page copy, ad scripts before filming). Opus 5.5 high if Dan says the doc
-is a first draft that will get another pass.
+**Model + effort:** Opus 5.5, high (updated 2026-10-06 to Dan's 2026-10-02 routing in `AGENTS.md`
+and memory `model-routing-plan`: Opus is the default for all writing, ship-critical copy included).
+Fable 5.1 is an escalation only, for a one-off second opinion where a rewrite costs a filming day.
 
 ## Process
 
@@ -176,6 +178,10 @@ techniques" / "five AI tactics" in body copy while the "AI Hack #1" headings sta
   two taps". Do not add a claim about an email the system may not send.
 
 ## Dan's voice (protect it)
+
+The full guide is `.claude/skills/_shared/DAN-VOICE.md` (with `_shared/voice/sales.md` for letters and VSLs).
+Read it before deciding a line is "off voice": lines that look rough (ellipsis beats, a capitalized word, a run-on
+sentence, "Listen -") are usually his. The short version:
 
 Short sentences. One-line paragraphs. Ellipses as beats ("How did I do it?…"). ALL CAPS
 for a single stressed word. "Guys like us", "regular guys", "dad bod", "slammed",

@@ -85,6 +85,9 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 # ACTIVE
 
+**Shorts check 2026-10-06, Codex.** Needs 9:15AM confirmation. Deploy pending. `Docs/YOUTUBE_SHORTS_COVER_AUDIT_20261006.md`.
+
+
 **Nightly footage offload - HANDOFF 2026-10-05, Claude.** Welcome shoot verified on Seagate; Extreme originals intact. Seagate noise unresolved. LaunchAgent disabled after macOS denied Extreme access, so cloud backup paused. Next: check drive, fix permission, own archive decisions. Detail: `Handoffs/handoff-20261005-claude-nightly-footage-offload.md`.
 
 **Codex revisions recovery - OPEN 2026-10-05, Codex.** Tool fixes and test Doc delivered; external video judge failed the known case. Fresh passes: 0. Next: eligible short plus sealed Claude Doc, then complete motion/AI coverage and blind comparison. Keep Claude editorial default. Detail: `Handoffs/results-20261005-codex-revisions-quality-recovery.md`.
@@ -187,14 +190,16 @@ Memory `google-ads-ui-automation`.
 
 
 
-`[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
+`[dash]` = on the dashboard fire list; the runner deletes that row, this line and its README row.
 
+- `handoff-20261006-1017-shoot-outlines.md` (10-06)
+- `handoff-20261006-dan-voice-training-part1-finish.md` (10-06)
 - `handoff-20260930-codex-adopt-review-page-format.md` (09-30). Sol medium.
 
 - `handoff-20261001-move-project-out-of-icloud.md` (10-01): move the project out of iCloud's Documents sync (109k duplicates, 199 cloud-only files). Run when nothing else runs here. Opus 5.5 high.
 - `handoff-20261001-rebuild-ios-project.md` (10-01): rebuild the iPhone project iCloud wiped. ⚠ iCloud recovery window closes about 10-17. No Apple upload. GPT-6 Sol high.
 - `handoff-20261001-search-campaigns-to-vsl-page.md` (10-01). Sol high.
-- `handoff-20260924-generator-consult-call-outreach.md` (09-24): fire by 09-26.
+- `handoff-20260924-generator-consult-call-outreach.md` (09-24, overdue).
 - `handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md` [dash]: PHONE ONLY, 3 TikTok covers (updated 09-22). Sonnet 5 or Fable 5.1 / Medium.
 - `handoff-20260915-finalized-ads-6-14-youtube-and-google-ads.md` (09-15). Codex, high.
 - **`video-editing/00-MASTER.md` — THE video-editing list (2026-09-16):** 16 raw short ads, 25 dedicated shorts, 8 long-forms, 3 shorts-from-long-form, 15 ad variants; one doc per job, Claude + Codex prompts. Supersedes the J1–J18 ad-variants queue. Dan picks the order.

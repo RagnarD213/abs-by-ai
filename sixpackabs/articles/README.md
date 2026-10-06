@@ -1,5 +1,7 @@
 # Video-page articles on sixpackabs.com
 
+> **Shared writing rules (2026-10-06):** before writing, read `.claude/skills/_shared/WRITING-RULES.md`. It holds the rules every writing skill follows and the list of memory entries (`Docs/memory/`) to read. Where it and this skill disagree, the newer dated line wins.
+
 Every public YouTube video already has a page at `sixpackabs.com/videos/<slug>/` (the hourly `spa_sync`
 creates it, see `sixpackabs/README.md`). Its body starts as the YouTube description. We replace that body
 with a real article written from the video's own words, so the page can rank in Google. One URL per video:
@@ -38,7 +40,7 @@ thumbnail and length keep following YouTube.
   at advice, never at people. No slurs or shock comparisons even if said on camera.
 - **No names of the old company's owners, partners or staff (e.g. Mike Chang) and nothing about the 2019 sale**,
   even when the video says it: the sale agreement has an open-ended clause on naming them in apps and
-  presentations, and a confidentiality covenant on the transaction (memory `harter-sixpackabs-dispute`). "One of the
+  presentations, and a confidentiality covenant on the transaction (the background is in a private memory entry that is not in the repo; this bullet is the whole rule). "One of the
   original founders of Six Pack Shortcuts and SixPackAbs.com" is fine.
 - **No em dashes and no en dashes.** `build.py` refuses a file containing either.
 - Ads are never organic: only public content videos get articles (the feed already excludes unlisted ads).

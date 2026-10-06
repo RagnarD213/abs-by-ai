@@ -10,6 +10,8 @@ description: >
   a clean teleprompter-only copy of a finished doc use /teleprompterscripts.
 ---
 
+> **Shared writing rules (2026-10-06):** before writing, read `.claude/skills/_shared/WRITING-RULES.md`. It holds the rules every writing skill follows and the list of memory entries (`Docs/memory/`) to read. Where it and this skill disagree, the newer dated line wins.
+
 # Script From Outline: Content Outline → Teleprompter Script
 
 **STATUS: v2, updated 2026-09-21 from Dan's line edits to the four 9/23 shoot scripts (start at
@@ -243,14 +245,15 @@ hand. The script must be structured so those defects can't occur:
   average guy ("let me back up a step — what tracking macros means is…") — do
   it once, at first use, never again.
 
-## Voice (content register — ground truth)
+## Voice (content register)
 
-Ground truth transcript: `YouTube Long Form Video Content/V2 - Use AI To Get Real Six Pack Abs - 6 Strategies That Work - UPLOADED/working files/v2-transcript.txt`
-(38 min of Dan actually talking to camera in content mode). Content voice =
-ad voice traits (see /scriptwriting) PLUS:
+**Read `.claude/skills/_shared/DAN-VOICE.md` first, then `_shared/voice/content-longform.md` and
+`_shared/voice/dan-edits-2026-10-06.md`** (built 2026-10-06 from his own outlines, his book, his ad scripts and his
+edits to Claude drafts). Where this section and the guide disagree, the guide wins. The V2 long-form transcript that
+used to be the ground truth here is ruled out as a voice model (Dan, 2026-10-06: not his best work), so the traits
+below that came only from it ("y'all guys", doubled intensifiers like "really, really" and "far, far") are weak
+evidence: do not lean on them. Content voice = the guide PLUS:
 
-- "y'all guys", "Listen —", "let me explain to you why that is", "And I'll put
-  a picture right here so y'all guys can see…"
 - Educational, honest, no-hype: "reasonably accurate", "within plus or minus
   10%", "far, far better than doing nothing". He under-promises on camera.
 - Stories with named specifics (Mike Chang / Sean Ray) — use his real stories

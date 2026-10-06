@@ -3,6 +3,8 @@ name: youtube-packaging
 description: Package an Abs By AI YouTube video for upload — SEO title options, description with UTM link + chapters, tags, pinned comment, thumbnails, and Shorts cutdowns. Use whenever Dan asks to get a video ready for YouTube, make thumbnails, or cut Shorts.
 ---
 
+> **Shared writing rules (2026-10-06):** before writing, read `.claude/skills/_shared/WRITING-RULES.md`. It holds the rules every writing skill follows and the list of memory entries (`Docs/memory/`) to read. Where it and this skill disagree, the newer dated line wins.
+
 > **Image generation: Codex only (Dan, 2026-10-01).** Every still image this skill generates (backgrounds, plates, AI frames, thumbnails, covers, posts, retouch passes) is made with `.claude/skills/_shared/codex-image.sh` on the ChatGPT subscription. Where the steps below name Nano Banana Pro, Gemini, Seedream, FLUX, `gemini-image.js`, `rep-t2i.js` or `replicate-edit.js` for a still image, use the helper instead. Read `.claude/skills/_shared/IMAGE-GENERATION.md` first. Video generation is unchanged.
 
 Read `_shared/VIDEO-RULES.md` first.
@@ -28,7 +30,7 @@ Working example output: `YouTube Content/channel-intro/` (PACKAGING.md, thumbnai
    chapters, and Shorts.
 2. **Titles:** give Dan 5 options targeting real search queries (the "get abs with
    AI / ChatGPT fitness / abs at 40" families), with a recommendation.
-3. **Description:** hook line, absbyai.com link with
+3. **Description:** written in Dan's voice (`.claude/skills/_shared/DAN-VOICE.md`; no em dashes). Hook line, absbyai.com link with
    `utm_source=youtube&utm_medium=video&utm_campaign=<video-slug>`, chapters built
    from the real transcript timestamps, AI-imagery disclosure line, subscribe CTA.
 4. **Tags + pinned comment** (comment carries a `utm_medium=comment` link).

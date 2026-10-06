@@ -12,6 +12,8 @@ description: >
   /shorts.
 ---
 
+> **Shared writing rules (2026-10-06):** before writing, read `.claude/skills/_shared/WRITING-RULES.md`. It holds the rules every writing skill follows and the list of memory entries (`Docs/memory/`) to read. Where it and this skill disagree, the newer dated line wins.
+
 # Shorts ideas: generate ideas in Dan's format, not in Claude's
 
 **STATUS: v2 — 2026-08-25. v1 was built from batch 1 (20 ideas, ~20% kept, Dan:
@@ -35,6 +37,9 @@ survivors appended to the **"Ideas for shorts to write out"** list at the bottom
 the current shoot's outline doc.
 
 **This skill produces IDEAS, not scripts.** Stop at the idea.
+
+**Voice:** titles and bullets read like Dan's own idea lists and outline bullets. Read
+`.claude/skills/_shared/DAN-VOICE.md` and `_shared/voice/outlines.md` before writing (added 2026-10-06).
 
 ---
 

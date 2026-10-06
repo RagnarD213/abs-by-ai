@@ -3,6 +3,8 @@ name: ad-copy
 description: Write the text of a paid ad for Abs By AI in Dan's own voice (Google Demand Gen headlines, long headlines and descriptions; the same lines for Meta or TikTok when asked) so Dan reads it and changes nothing. Use whenever Dan asks to write, rewrite, improve or "do the copy for" an ad, asks for headlines or descriptions, when /ad-setup needs copy for a new ad, or when Dan edits ad copy and says to learn from it, even if he doesn't say "/ad-copy". The spoken script of an ad is /scriptwriting; polishing a sales letter is /copy-edit; putting the ad live is /ad-setup.
 ---
 
+> **Shared writing rules (2026-10-06):** before writing, read `.claude/skills/_shared/WRITING-RULES.md`. It holds the rules every writing skill follows and the list of memory entries (`Docs/memory/`) to read. Where it and this skill disagree, the newer dated line wins.
+
 # /ad-copy: ad text Dan would have written himself
 
 **The goal (Dan, 2026-10-01):** he reviews the copy and makes no revisions, and he cannot tell which lines he wrote
@@ -14,7 +16,8 @@ of the Performance Max campaign `24308574894` (long headlines, descriptions, and
 
 ## Read first, every time
 
-1. This file, all of it. The section WHAT DAN CHANGED is the calibration.
+1. This file, all of it. The section WHAT DAN CHANGED is the calibration. For the voice behind the lines (his enemy
+   framing, credentials, person-plus-outcome), `.claude/skills/_shared/DAN-VOICE.md` sections 1, 4 and 6.
 2. `scripts/ads/ytads/headline-style.md`: every line Dan wrote by hand, the shapes he uses, his dated rules.
 3. The live copy of the account's current ads, so new lines match what is running and nothing is duplicated by accident:
    `node scripts/ads/api/client.js search "SELECT ad_group.name, ad_group_ad.ad.demand_gen_video_responsive_ad.headlines FROM ad_group_ad WHERE campaign.id = 24316364155 AND ad_group_ad.status != 'REMOVED'" --json`
