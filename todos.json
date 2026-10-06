@@ -422,6 +422,12 @@
       "priority": "high",
       "recurring": false,
       "addedAt": "2026-10-06"
+    },
+    {
+      "text": "Cut up boxes for hedge panels behind artificial hedge, move to recycling or spare room",
+      "priority": "low",
+      "recurring": false,
+      "addedAt": "2026-10-06"
     }
   ],
   "handoffs": [
