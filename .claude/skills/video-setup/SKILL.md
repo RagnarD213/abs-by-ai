@@ -33,6 +33,14 @@ YouTube video at release time (title, description, thumbnail, AI flag all travel
 YouTube ourselves and never use YouTube native scheduling.** Anything that needs the YouTube id (thumbnail A/B test,
 English captions, the sixpackabs article page) happens after release: see Step 6 and Step 6b.
 
+## YouTube Shorts cover verification (2026-10-06)
+
+A saved Blotato `thumbnailUrl` is only a queued intention. It does not prove the public Shorts tile uses the approved cover. On Oct 6, SL-04 short 2 (`qDvrtKbuhf4`) displayed a video frame even though its approved 1080x1920 JPEG URL was in the target and under 2 MB. A direct `thumbnails.set` returned success but the public tile and downloaded API thumbnail remained unchanged. Uploading the same approved JPEG through desktop Studio, Thumbnail > Options > Change, then Save, corrected the public Shorts tile.
+
+Before queueing, download each YouTube and Instagram cover URL, decode it, verify it matches the approved asset and confirm YouTube files are under 2 MB. Preserve approved cover URLs and title/slug/date in the setup receipt. After each YouTube release, inspect the actual tile on `https://www.youtube.com/@danrosefit/shorts`. If it is a frame or the wrong design, open `https://studio.youtube.com/video/<id>/edit`, use the thumbnail Options > Change control to upload the approved cover and Save. Refresh the public channel and visually verify the correct design before reporting success. Never delete/re-upload the video to repair a thumbnail. Do not call API success or an unchanged download verification. The public portrait tile is the decisive check.
+
+A recurring release check requires Dan's schedule confirmation. If no recurring check is active, record the post-release thumbnail check as outstanding in the setup handoff. Do not say the queue alone guarantees the cover.
+
 ## Step 0 — before anything
 
 - **CLASSIFY IT FIRST from the video's own ending** (`_shared/VIDEO-RULES.md`, "Ad or organic?", Dan 2026-09-28):
