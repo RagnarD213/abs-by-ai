@@ -190,8 +190,9 @@ Memory `google-ads-ui-automation`.
 
 
 
-`[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
+`[dash]` = on the dashboard fire list; the runner deletes that row, this line and its README row.
 
+- `handoff-20261006-1017-shoot-outlines.md` (10-06)
 - `handoff-20261006-dan-voice-training-part1-finish.md` (10-06)
 - `handoff-20260930-codex-adopt-review-page-format.md` (09-30). Sol medium.
 

@@ -13,6 +13,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
+| [handoff-20261006-1017-shoot-outlines.md](handoff-20261006-1017-shoot-outlines.md) | **Ready 2026-10-06. Claude Opus 5.5 / High, cloud or local.** Write ~40 outlines Dan picked (long-form, workouts, reactions, shorts) into the 10/17 SixPackAbs.com shoot doc at his marker. Interview Dan first. Looksmaxxing reaction series on hold: Clavicular was charged 2026-09; recommend other creators. |
 | [handoff-20261006-dan-voice-training-part1-finish.md](handoff-20261006-dan-voice-training-part1-finish.md) | **Ready 2026-10-06. Claude Opus 5.5 / High, LOCAL.** Finish voice training: swearing and controversy pass, more of Dan's scripts and videos, the blind test; trains cloud and local. |
 | [handoff-20261005-ro01-r9-bright-electronic-final-film.md](handoff-20261005-ro01-r9-bright-electronic-final-film.md) | **Ready 2026-10-05. Codex GPT-6.1 Sol / High.** Dan chose R9 second-set option B, Bright Electronic. Finish the RO-01 16:9 film with this exact music treatment, SRT, chapters and full QA. No new music round. |
 | [handoff-20261005-codex-revisions-quality-recovery.md](handoff-20261005-codex-revisions-quality-recovery.md) | **Partially executed 2026-10-05.** Tool fixes and verified training sample delivered. Fresh passes: 0; complete inspection and an unexposed benchmark remain open. [Results](results-20261005-codex-revisions-quality-recovery.md). |
