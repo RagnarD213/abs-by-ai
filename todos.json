@@ -371,7 +371,7 @@
     },
     {
       "text": "Spray weeds with roundup",
-      "priority": "med",
+      "priority": "high",
       "recurring": false,
       "addedAt": "2026-08-03"
     },
@@ -383,9 +383,27 @@
     },
     {
       "text": "Hire contractor to powerwash deck, driveway, and house. Discuss with Dan first",
-      "priority": "high",
+      "priority": "med",
       "recurring": false,
       "addedAt": "2026-09-01"
+    },
+    {
+      "text": "Change sheets on bed",
+      "priority": "key",
+      "recurring": false,
+      "addedAt": "2026-10-06"
+    },
+    {
+      "text": "Fold laundry",
+      "priority": "key",
+      "recurring": false,
+      "addedAt": "2026-10-06"
+    },
+    {
+      "text": "Take out bathroom and bedroom trash",
+      "priority": "high",
+      "recurring": false,
+      "addedAt": "2026-10-06"
     }
   ],
   "handoffs": [
