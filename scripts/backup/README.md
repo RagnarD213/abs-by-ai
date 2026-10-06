@@ -9,7 +9,8 @@ to Google Drive. The existing Drive folders are reused for the 7/8, 8/3, 8/14,
 and 8/28 shoots. New shoot folders under Extreme are discovered automatically.
 Edited films, render folders, and the `_edit_work` scratch area are excluded.
 
-The nightly archive review checks `Handoffs/video-editing/jobs.json`, the edit
+The Codex automation `Review shoots for nightly archive` runs at 7:30 pm
+Chicago time. It checks `Handoffs/video-editing/jobs.json`, the edit
 queue artifact, active handoffs, the coordination board, and shoot notes. A
 shoot is ready only when no remaining video cut or active review needs its raw
 footage. Finalized and uploaded cuts count as complete. New or ambiguous shoots
