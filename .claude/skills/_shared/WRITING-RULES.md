@@ -98,6 +98,9 @@ A name with no file in `Docs/memory/` is private on purpose. Do not guess what i
 - **Outlines keep real nested bullets** (sub-points indented under their parent), never a flat list of dashes.
   (Dan, 2026-08-14.)
 - **Scripts: a blank line between paragraphs and between a filming note and the spoken words.** (Dan, 2026-09-16.)
+- **A script written for a shoot is a FILMING script.** Every graphic, photo, B-roll shot, on-screen text, clip and editor
+  note goes in as its own ALL CAPS bracketed line, before the words it covers. Label the note line "Filming script". The
+  clean teleprompter copy is made later (`/teleprompterscripts`). (Dan, 2026-10-06; memory `filming-scripts-first`.)
 - **The teleprompter copy matches the filming script word for word.** Change one, change the other. (Dan, 2026-09-19.)
 - **When moving or reorganizing existing text, add nothing.** No new content appears in a doc Dan asked you only to
   sort. (Dan, 2026-08-05, after a session invented content while splitting an outline doc.)
