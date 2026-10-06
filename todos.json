@@ -398,6 +398,12 @@
       "priority": "key",
       "recurring": false,
       "addedAt": "2026-10-06"
+    },
+    {
+      "text": "Take out bathroom and bedroom trash",
+      "priority": "low",
+      "recurring": false,
+      "addedAt": "2026-10-06"
     }
   ],
   "handoffs": [
