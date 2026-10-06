@@ -55,7 +55,7 @@ Goal: any rule Dan ever corrected Claude on, for writing, lives in a skill or me
    link to it in one line. Create that file if it does not exist. Do not copy the same rule into many skills.
 5. Resolve every "see memory X" reference in the writing skills: either the entry now exists in `Docs/memory/`, or inline the
    rule. Produce a table in your report: skill, reference, resolved how.
-6. Apply the no-em-dash rule to everything you write. `grep -c '—'` on each new or edited file must be 0.
+6. Apply the no-em-dash rule to everything you write. count the em dash character in each new or edited file with grep -c; it must be 0.
 7. Do not retrofit existing copy. Only add and fix rules.
 8. Report the full list of rules found and where each went, so Dan can reject any in one pass.
 
