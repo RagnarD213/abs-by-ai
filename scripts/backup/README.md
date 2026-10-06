@@ -9,12 +9,16 @@ to Google Drive. The existing Drive folders are reused for the 7/8, 8/3, 8/14,
 and 8/28 shoots. New shoot folders under Extreme are discovered automatically.
 Edited films, render folders, and the `_edit_work` scratch area are excluded.
 
-To finish a shoot, check `Handoffs/video-editing/jobs.json` and the current
-coordination board. If no video still needs the raw footage, create an empty
-`READY_TO_ARCHIVE` file in that shoot's top-level folder on Extreme. Do not
-rename the folder: edit plans contain exact source paths. The job also checks
-the edit queue before removing source files. The welcome-video first shoot was
-marked ready on 2026-10-05 after the queue audit found no pending cut.
+The nightly archive review checks `Handoffs/video-editing/jobs.json`, the edit
+queue artifact, active handoffs, the coordination board, and shoot notes. A
+shoot is ready only when no remaining video cut or active review needs its raw
+footage. Finalized and uploaded cuts count as complete. New or ambiguous shoots
+stay on Extreme. The review refreshes a `READY_TO_ARCHIVE` file inside each
+ready shoot folder and removes that file if later work needs the raw footage.
+The offload job accepts only decisions refreshed within the last 24 hours and
+checks the queue and marker again before removing source files. Do not rename
+shoot folders: edit plans contain exact source paths. The welcome-video first
+shoot was marked ready on 2026-10-05 after the queue audit found no pending cut.
 
 A ready shoot is copied to Seagate Expansion and Drive. Rclone checks every raw
 file against both copies before the source files are removed from Extreme. A
