@@ -31,6 +31,7 @@ RCLONE = Path.home() / "bin/rclone"
 STATE_DIR = Path.home() / "Library/Application Support/Abs By AI"
 STATE_FILE = STATE_DIR / "nightly-footage.json"
 LOCK_FILE = STATE_DIR / "nightly-footage.lock"
+SEAGATE_PAUSE_FILE = STATE_DIR / "seagate-offload-paused"
 DRIVE_MARKER = ARCHIVE / ".absbyai-footage-archive-id"
 READY_MARKER = "READY_TO_ARCHIVE"
 READY_MAX_AGE = 24 * 60 * 60
@@ -254,7 +255,8 @@ def process_shoot(shoot, config, state, deadline, dry_run):
         record["fingerprint"] = snapshot["fingerprint"]
         save_state(state)
     destination = str(ARCHIVE_ROOT / name)
-    seagate_id = archive_id() if ready and not waiting else None
+    seagate_paused = SEAGATE_PAUSE_FILE.is_file()
+    seagate_id = archive_id() if ready and not waiting and not seagate_paused else None
     if seagate_id:
         if state.get("archive_id") and state["archive_id"] != seagate_id:
             raise RuntimeError("a different disk is mounted as Expansion")
@@ -280,11 +282,16 @@ def process_shoot(shoot, config, state, deadline, dry_run):
         say(f"{name}: Google Drive checksum verified")
     if not ready or waiting:
         return
+    if seagate_paused:
+        say(f"{name}: Seagate offload paused, keeping the Extreme copy")
+        return
     if not seagate_id or not record.get("seagate_verified"):
         say(f"{name}: Seagate absent, keeping the Extreme copy")
         return
     if pending_jobs(shoot):
         raise RuntimeError(f"{name}: edit queue changed; no files removed")
+    if SEAGATE_PAUSE_FILE.is_file():
+        raise RuntimeError(f"{name}: Seagate offload was paused; no files removed")
     if not ready_file.is_file() or time.time() - ready_file.stat().st_mtime > READY_MAX_AGE:
         raise RuntimeError(f"{name}: archive decision expired or was withdrawn; no files removed")
     # A prior run's success flag is not enough to remove source files. Confirm
