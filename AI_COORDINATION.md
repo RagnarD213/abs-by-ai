@@ -85,7 +85,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 # ACTIVE
 
-**Shorts thumbnail checks - NEEDS DAN 2026-10-06, Codex.** Latest Arm Pump cover fixed and public-verified. All 47 queued YT/IG covers accessible; 17 YouTube covers match configs. Next: confirm daily 9:15 AM CT release check; workflow already pushed. Railway deployment e8be8b7 still queued. Detail: `Docs/YOUTUBE_SHORTS_COVER_AUDIT_20261006.md`.
+**Shorts cover check - NEEDS DAN 2026-10-06, Codex.** Confirm daily 9:15AM CT check. Deployment pending. `Docs/YOUTUBE_SHORTS_COVER_AUDIT_20261006.md`.
 
 
 **Nightly footage offload - HANDOFF 2026-10-05, Claude.** Welcome shoot verified on Seagate; Extreme originals intact. Seagate noise unresolved. LaunchAgent disabled after macOS denied Extreme access, so cloud backup paused. Next: check drive, fix permission, own archive decisions. Detail: `Handoffs/handoff-20261005-claude-nightly-footage-offload.md`.
