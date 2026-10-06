@@ -113,7 +113,6 @@
 - [Editor message voice](editor-message-voice.md): warm praise, big picture only, never name another editor (Dan, 2026-09-18)
 - [Script zero-edit lessons](script-zero-edit-lessons.md): 09-21 Dan's edits to four long-form scripts; read WHAT DAN CHANGED in scriptfromoutline SKILL.md before any script
 - [Dan's personal facts for scripts](dan-personal-facts-for-scripts.md): glycine nightly, sleeps at 63, Oura 75-80, Zepbound for life, 8 am gym, AI saves 10 hrs/week
-- [Dan voice guide](dan-voice-guide.md): 10-06 guide + real examples + stats; read .claude/skills/_shared/DAN-VOICE.md before writing in his voice
 - [Opus 5.5 release](opus-5-5-release.md): 09-22: ≥ Fable 5.1 on benchmarks at 60% lower price; routing recommendation (Opus default, Fable reviewer/escalation)
 - [No swipe sound effect](no-swipe-sound-effect.md): Dan 09-23: never any whoosh/swipe/riser SFX; sfxlib now raises; transitions like Muhammad's
 - [RO-05 salad cut rejected](ro05-salad-cut-rejected.md): 09-23 unpublishable; 09-28 recut: intro awful (open on camera, then dish + eating, his audio under), graphics to Soft Blue Light, more saturation
@@ -178,5 +177,7 @@
 - [Sonnet for assembled rounds](sonnet-for-assembled-rounds.md): 10-05: RO-13 round 2 built on Sonnet 5.5 to SHIP; Sonnet ok for locked-plan rounds, Opus for round 1 + all reviews
 - [Revision docs: link every picture](revision-docs-link-every-picture.md): 10-05: no empty image slots; name each Before/After picture and link the file
 - [Memory repo copy](memory-repo-copy.md): 10-06: memory mirrors to Docs/memory (public repo); mark private entries in .repo-private; run scripts/sync-memory-to-repo.sh after writing one
+- [Filming scripts first](filming-scripts-first.md): 10-06: shoot scripts carry ALL CAPS bracketed notes for every graphic, B-roll and editor note; teleprompter copy comes later
+- [Dan voice guide](dan-voice-guide.md): 10-06 guide + real examples + stats; read .claude/skills/_shared/DAN-VOICE.md before writing in his voice
 - [Execute Dan's explicit picks](execute-dans-explicit-picks.md): 10-06: build exactly the person/clip/topic he names; never swap, hold or reroute it for reputational or news reasons ("stop being a Karen")
 - [Allegations are not facts](allegations-not-fact.md): 10-06: unproven charges/accusations against Clavicular, Tate, manosphere figures: never stated as fact, never raised unprompted, never a reason to change a plan
