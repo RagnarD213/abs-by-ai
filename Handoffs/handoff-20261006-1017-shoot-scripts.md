@@ -29,6 +29,9 @@ is the opener, verbatim (SKILL.md rule N).
 
 ## Format (copy the top two SCRIPT blocks)
 
+- **Filming scripts, not teleprompter scripts (Dan, 2026-10-06).** Every graphic, on-screen text, B-roll, clip and editor
+  note goes on its own line in `[ALL CAPS BRACKETS]`; add `[ON SCREEN TEXT: ...]` for each numbered item. Note line
+  says "Filming script". Teleprompter copies are a later step. Batch C (`Docs/SCRIPTS_1017_SHOOT_C_AS_DELIVERED_20261006.md`) is the model.
 - Bold line `SCRIPT: <outline title>`, then an italic note line (spoken word count, minutes at Dan's pace, which
   bracketed cues are filming notes), then the script as plain paragraphs with a blank line between paragraphs and
   between a filming note and the spoken words.

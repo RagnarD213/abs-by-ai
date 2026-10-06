@@ -99,6 +99,10 @@ A name with no file in `Docs/memory/` is private on purpose. Do not guess what i
   (Dan, 2026-08-14.)
 - **Scripts: a blank line between paragraphs and between a filming note and the spoken words.** (Dan, 2026-09-16.)
 - **The teleprompter copy matches the filming script word for word.** Change one, change the other. (Dan, 2026-09-19.)
+- **Scripts written into a shoot doc are FILMING scripts.** Every graphic, on-screen text, B-roll, clip and editor note is
+  its own line in `[ALL CAPS BRACKETS]` (URLs inside stay lowercase so they work), and every numbered item gets an
+  `[ON SCREEN TEXT: ...]` cue. The clean teleprompter copy is a separate later step (`/teleprompterscripts`).
+  (Dan, 2026-10-06, mid-way through the 10/17 shorts.)
 - **When moving or reorganizing existing text, add nothing.** No new content appears in a doc Dan asked you only to
   sort. (Dan, 2026-08-05, after a session invented content while splitting an outline doc.)
 - **When Dan edits a draft, diff his version against yours and write the lesson into the skill** before the next piece.
@@ -122,3 +126,10 @@ delivery changes. (Added 2026-10-06.)
   each with a one-line reason, and the polished text. A local session applies them as suggestions.
 - **Never say the real doc was edited unless you re-read it and saw the change.**
 - Images called for by an outline are listed by name where they go; a cloud session does not move images between docs.
+- **Editing a busy Google Doc through `update_doc` (learned 2026-10-06, 10/17 shoot doc with Dan and three sessions in
+  it at once):** `requiredRevisionId` fails on every try while anyone types, and an old `targetRevisionId` is refused.
+  What works: insert text with `replaceAllText` (no positions needed): put a unique marker like `{{X01}}` at the end of
+  a line, then replace the marker with the text. A match may span lines (`"line A\nline B"`), but the replaced lines all
+  take the FIRST line's bullet and style, so only span lines that share one. New paragraphs inherit the marker line's
+  bullet. Then do bullet removal and bold/italic as position-based ops with `targetRevisionId` from a read made seconds
+  before, in calls under about 7 KB. Check every replacement's `occurrencesChanged` and re-read to verify.
