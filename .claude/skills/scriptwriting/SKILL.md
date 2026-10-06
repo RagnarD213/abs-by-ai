@@ -166,13 +166,11 @@ estimate (~150–160 wpm) at the top of each ad.
 
 ## Voice rules (derived from his real transcripts — do not drift)
 
-Ground truth, all in `references/` so cloud sessions can read them (set up 2026-10-06):
-`references/v2-transcript.txt` (38 minutes of Dan actually talking, from the V2 long-form),
-`references/the-upload-script.md` (the approved AI ad script) and
-`references/finalized-ad-scripts.md` (ads batch 1, spoken words only; Ad 1 is the worked
-example). If either of the first two is missing, a local session copies it from the Mac
-originals (`YouTube Long Form Video Content/V2 - Use AI To Get Real Six Pack Abs - 6 Strategies That Work - UPLOADED/working files/v2-transcript.txt`
-and `ad-factory/the-upload/script.md`, both gitignored) and pushes. Dan's own line edits: the voice references row in `_shared/WRITING-RULES.md` section 1. Voice traits:
+Ground truth (2026-10-06): `references/finalized-ad-scripts.md` (ads batch 1, spoken words only;
+Claude drafts that Dan finalized, so second-tier) and Dan's own line edits listed in the voice references row of
+`_shared/WRITING-RULES.md` section 1. Dan ruled out the V2 long-form transcript and the AI ad "The Upload" as
+voice models (not his best work). A fuller corpus from his Drive is coming:
+`Handoffs/handoff-20261006-dan-voice-corpus-from-drive.md`. Voice traits:
 
 - Direct, conversational second person: "Listen —", "Let's be honest", "here's the
   truth", occasional "you guys".
