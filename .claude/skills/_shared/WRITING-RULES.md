@@ -14,8 +14,8 @@ They are in `Docs/memory/<name>.md`. Read the ones that fit the job before draft
 
 | Job | Entries |
 |---|---|
-| Anything in Dan's voice | `no-em-dashes`, `no-ad-agency-mention`, `dan-relationship-status`, `dan-personal-facts-for-scripts`, `swearing-never-cut-never-ask` |
-| Ad scripts, ad outlines, ad copy | `ad-copy-no-unbelievable-claims`, `ad-copy-headline-voice`, `ad-retry-rule-and-no-trick`, `ad-suspension-prevention`, `thumbnail-no-claims`, `proven-direct-response-only`, `ad-vs-organic-classification` |
+| Anything in Dan's voice | **`.claude/skills/_shared/DAN-VOICE.md` first** (the voice guide, with real examples in `_shared/voice/`; added 2026-10-06), then `dan-voice-guide`, `no-em-dashes`, `no-ad-agency-mention`, `dan-relationship-status`, `dan-personal-facts-for-scripts`, `swearing-never-cut-never-ask` |
+| Ad scripts, ad outlines, ad copy | `ad-copy-no-unbelievable-claims`, `ad-copy-headline-voice`, `ad-retry-rule-and-no-trick`, `ad-suspension-prevention`, `thumbnail-no-claims`, `proven-direct-response-only`, `ad-vs-organic-classification`. Voice references (2026-10-06): `_shared/voice/ads.md` (his HBI and other winning ad scripts), `_shared/voice/borrowed-keith-wes.md` (outside writers' techniques, never his voice), `_shared/voice/dan-edits-2026-10-06.md`, `.claude/skills/scriptfromoutline/references/dan-edits-2026-09-21.md`, `.claude/skills/scriptfromoutline/references/dan-edits-2026-09-21-calories-pair.md`, `Docs/SCRIPTS_923_SHOOT_LONGFORM_DAN_EDITED_20260921.md`. `.claude/skills/scriptwriting/references/finalized-ad-scripts.md` is Tier B only for Ads 5, 6, 7, 8, 10, 13 and 14; Ads 1 and 2 in it are Claude's words and its em dashes are Claude's |
 | Content scripts and outlines | `video-outline-style`, `script-zero-edit-lessons`, `organic-drug-names-allowed` |
 | Shorts | `shorts-reason-to-watch`, `shorts-organic-research`, `shorts-show-whole-exercise`, `shorts-production-style` |
 | Sales letters, VSL, page copy | `vsl-landing-page`, `vsl-version-b-intro`, `cart-follows-start-button`, `proven-direct-response-only` |

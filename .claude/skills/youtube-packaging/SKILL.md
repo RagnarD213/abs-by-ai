@@ -30,7 +30,7 @@ Working example output: `YouTube Content/channel-intro/` (PACKAGING.md, thumbnai
    chapters, and Shorts.
 2. **Titles:** give Dan 5 options targeting real search queries (the "get abs with
    AI / ChatGPT fitness / abs at 40" families), with a recommendation.
-3. **Description:** hook line, absbyai.com link with
+3. **Description:** written in Dan's voice (`.claude/skills/_shared/DAN-VOICE.md`; no em dashes). Hook line, absbyai.com link with
    `utm_source=youtube&utm_medium=video&utm_campaign=<video-slug>`, chapters built
    from the real transcript timestamps, AI-imagery disclosure line, subscribe CTA.
 4. **Tags + pinned comment** (comment carries a `utm_medium=comment` link).

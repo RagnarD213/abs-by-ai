@@ -164,27 +164,33 @@ spoken words in plain text, cues in **bold bracketed ALL-CAPS** (never read alou
 images carried over at their exact cue positions, and a word count + runtime
 estimate (~150–160 wpm) at the top of each ad.
 
-## Voice rules (derived from his real transcripts — do not drift)
+## Voice rules (rebuilt 2026-10-06 from the voice corpus; read `_shared/DAN-VOICE.md` first)
 
-Ground truth: `YouTube Long Form Video Content/V2 - Use AI To Get Real Six Pack Abs - 6 Strategies That Work - UPLOADED/working files/v2-transcript.txt`
-(38 minutes of Dan actually talking) and the approved ad script
-`ad-factory/the-upload/script.md`. The finalized Ad 1 in the scripts doc (link
-below) is the worked example. Voice traits:
+**Read `.claude/skills/_shared/DAN-VOICE.md` before drafting, then `_shared/voice/ads.md` (his winning HBI and other ad
+scripts, with spend and CPA) and `_shared/voice/dan-edits-2026-10-06.md`.** The guide is built from Dan's own ad scripts
+(2019 to 2025), his book, his outlines and his edits to Claude drafts, and it replaces the trait list that used to live
+here. `references/finalized-ad-scripts.md` is Tier B only for Ads 5, 6, 7, 8, 10, 13 and 14: Ads 1 and 2 in it are
+Claude's words, and every em dash in it is Claude's. Dan ruled out the V2 long-form transcript and the AI ad "The
+Upload" as voice models (not his best work).
 
-- Direct, conversational second person: "Listen —", "Let's be honest", "here's the
-  truth", occasional "you guys".
-- Doubled intensifiers: "really, really hard", "far, far better", "so, so".
-- Short declarative sentences. One idea per sentence. Em-dash pivots.
-- Personal specifics over generalities (200 pounds, 38-year-old dad, lockscreen for
-  a year, meal prep, tracking calories). Never replace his specifics with generic ones.
-- **His real numbers — use these, don't guess.** The before picture was taken in
-  2024 when he was **38** and two hundred pounds; he got the abs back at
-  **forty** (Dan's 2026-08-07 revision — about two years after the before photo);
-  he is **40** now (2026). One child, a **daughter** — never "my kids" for his own.
-  Keep the before-photo age at thirty-eight so it stays honest against the picture.
-- Core phrase pair: "lose your belly fat" + "six-pack abs" — used constantly, keep it.
-- Honest, no-hype framing. He'll say "reasonably accurate", he won't overpromise.
-- Numbers written out for the teleprompter ("two hundred pounds", "thirty-eight").
+Corrections the corpus forced (2026-10-06), so older notes elsewhere do not mislead:
+
+- **"Let's be honest" and "really, really" are Claude's, not Dan's.** They appear only in Claude's expansion of Ad 1.
+  "Here's the truth" is not in his writing either; his form is "The truth is," or "The brutal truth is". Do not use the
+  first two.
+- **"Listen -" is his** (ads from 2019 to 2026, his Ad 3 outline, the 09-21 edits as "Listen:"). Use it once, before the
+  emotional push or the credential, not as a tic.
+- **No doubled intensifiers as a device.** His emphasis is one word in capitals (FAR better, MUST, HATE, NEVER), about
+  one per paragraph at most.
+- **Sentence shape:** ad sentences average about 13 words, with real spread; let setups run long and keep the short
+  ones for turns. One or two sentences per paragraph in ads. Numbers in `_shared/voice/STATS.md`.
+- **His numbers as he types them:** 200 pounds, 38, 40, $1000 a month. Spelling a number out for the teleprompter is a
+  formatting choice, not a voice trait.
+
+Facts that stay fixed: the before picture was taken in 2024 when he was **38** and two hundred pounds; he got the abs
+back at **forty** (about two years later); he is **41** as of October 2026 (his own 10/17 shoot outline: "I just turned 41"); one child, a
+**daughter**, never "my kids" for his own. Core phrase pair: "lose your belly fat" + "six pack abs". Never call him a
+marketer or agency owner (`_shared/WRITING-RULES.md` section 2).
 
 ## Product claims you can make (verified 2026-09-10 for the /start VSL — re-check if the app changes)
 

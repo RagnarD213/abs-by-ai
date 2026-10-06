@@ -383,9 +383,57 @@
     },
     {
       "text": "Hire contractor to powerwash deck, driveway, and house. Discuss with Dan first",
-      "priority": "high",
+      "priority": "med",
       "recurring": false,
       "addedAt": "2026-09-01"
+    },
+    {
+      "text": "Change sheets on bed",
+      "priority": "key",
+      "recurring": false,
+      "addedAt": "2026-10-06"
+    },
+    {
+      "text": "Fold laundry",
+      "priority": "key",
+      "recurring": false,
+      "addedAt": "2026-10-06"
+    },
+    {
+      "text": "Take out bathroom and bedroom trash",
+      "priority": "high",
+      "recurring": false,
+      "addedAt": "2026-10-06"
+    },
+    {
+      "text": "Move all boxes by front door to filming room and remove items from boxes",
+      "priority": "high",
+      "recurring": false,
+      "addedAt": "2026-10-06"
+    },
+    {
+      "text": "Cut up boxes in small pieces and put in recycling",
+      "priority": "high",
+      "recurring": false,
+      "addedAt": "2026-10-06"
+    },
+    {
+      "text": "Put all non-cardboard trash items in junk room into trash bags. Leave in spare room, do not put in trash yet",
+      "priority": "high",
+      "recurring": false,
+      "addedAt": "2026-10-06"
+    },
+    {
+      "text": "Cut up boxes for hedge panels behind artificial hedge, move to recycling or spare room",
+      "priority": "high",
+      "recurring": false,
+      "addedAt": "2026-10-06"
+    },
+    {
+      "text": "Robot vaccuum bedroom 3x. Remove mop pads first and put back after",
+      "priority": "high",
+      "recurring": false,
+      "addedAt": "2026-10-06"
     }
   ],
   "handoffs": [

@@ -235,8 +235,9 @@ This is the part that made v1 land. Do all four:
 
 ## Voice
 
-Same rules as `/scriptwriting` (read that skill's Voice section — it's derived from
-Dan's real transcripts). For outlines specifically:
+Read `.claude/skills/_shared/DAN-VOICE.md` first, then `_shared/voice/outlines.md` (his own outline bullets) and
+`_shared/voice/ads.md` (his winning ad scripts). Same rules as `/scriptwriting`'s Voice section. For outlines
+specifically:
 
 - Outlines are half-drafted prose, half shorthand. Match the source's register: some
   bullets are full spoken sentences, some are directions to himself.
@@ -245,7 +246,7 @@ Dan's real transcripts). For outlines specifically:
   agency" is retired. Dan, 2026-09-18: never say he is a marketer or ran an agency.)
 - Cues in ALL CAPS inside square brackets, matching the source's wording style
   (`[SHOW BEFORE PICTURE]`, `[SHOW 3-5 BEST SHOTS FROM PHOTO SHOOT]`).
-- Em-dash asides are fine; keep sentences short.
+- No em dashes (standing rule since 2026-09-18). His aside is a spaced hyphen ( - ).
 
 ## Settled compliance calls (don't relitigate)
 

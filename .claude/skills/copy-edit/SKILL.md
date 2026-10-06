@@ -179,6 +179,10 @@ techniques" / "five AI tactics" in body copy while the "AI Hack #1" headings sta
 
 ## Dan's voice (protect it)
 
+The full guide is `.claude/skills/_shared/DAN-VOICE.md` (with `_shared/voice/sales.md` for letters and VSLs).
+Read it before deciding a line is "off voice": lines that look rough (ellipsis beats, a capitalized word, a run-on
+sentence, "Listen -") are usually his. The short version:
+
 Short sentences. One-line paragraphs. Ellipses as beats ("How did I do it?…"). ALL CAPS
 for a single stressed word. "Guys like us", "regular guys", "dad bod", "slammed",
 "stressed out as hell". Dropped "that". The coach is "he". Swearing stays (memory

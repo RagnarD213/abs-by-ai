@@ -38,6 +38,9 @@ the current shoot's outline doc.
 
 **This skill produces IDEAS, not scripts.** Stop at the idea.
 
+**Voice:** titles and bullets read like Dan's own idea lists and outline bullets. Read
+`.claude/skills/_shared/DAN-VOICE.md` and `_shared/voice/outlines.md` before writing (added 2026-10-06).
+
 ---
 
 ## RULE ZERO — one idea per territory. Check what's taken before you write.
