@@ -1,25 +1,7 @@
 {
-"generated": "2026-10-05T11:25:40+00:00",
+"generated": "2026-10-06T11:24:38+00:00",
 "cap": 200,
 "scheduled": [
-{
-"id": "3584631",
-"platform": "facebook",
-"when": "2026-10-05T22:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Skip the kettlebell swing. Do the deadlift instead.",
-"batch": ""
-},
-{
-"id": "3841905",
-"platform": "instagram",
-"when": "2026-10-05T22:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Flexibility is trainable at 40.",
-"batch": ""
-},
 {
 "id": "5019222",
 "platform": "facebook",
@@ -714,6 +696,42 @@
 "batch": ""
 },
 {
+"id": "5194483",
+"platform": "facebook",
+"when": "2026-10-21T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Can you drink alcohol and still have six pack abs? Yes, but only if you put rules on it.",
+"batch": ""
+},
+{
+"id": "5194485",
+"platform": "instagram",
+"when": "2026-10-21T14:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Can you drink alcohol and still have six pack abs? Yes, but only if you put rules on it.",
+"batch": ""
+},
+{
+"id": "5194486",
+"platform": "tiktok",
+"when": "2026-10-21T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Can you drink alcohol and still have six pack abs? Yes, but only if you put rules on it.",
+"batch": ""
+},
+{
+"id": "5194487",
+"platform": "youtube",
+"when": "2026-10-21T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Can you drink alcohol and still have six pack abs? Yes, but only if you put rules on it. Here is exactly what ",
+"batch": ""
+},
+{
 "id": "3584655",
 "platform": "facebook",
 "when": "2026-10-21T22:00:00.000Z",
@@ -990,6 +1008,42 @@
 "kind": "Video",
 "slides": 1,
 "text": "Your abs never get a break on the ab wheel.",
+"batch": ""
+},
+{
+"id": "5211308",
+"platform": "facebook",
+"when": "2026-10-28T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "If you have belly fat, stop doing crunches. The one ab exercise that can shrink your waist is the stomach vacu",
+"batch": ""
+},
+{
+"id": "5211309",
+"platform": "instagram",
+"when": "2026-10-28T14:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "If you have belly fat, stop doing crunches. The one ab exercise that can shrink your waist is the stomach vacu",
+"batch": ""
+},
+{
+"id": "5211310",
+"platform": "tiktok",
+"when": "2026-10-28T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "If you have belly fat, stop doing crunches. The one ab exercise that can shrink your waist is the stomach vacu",
+"batch": ""
+},
+{
+"id": "5211312",
+"platform": "youtube",
+"when": "2026-10-28T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "If you have belly fat, stop doing crunches. The one ab exercise that works on your waist is the standing stoma",
 "batch": ""
 },
 {
@@ -1729,78 +1783,6 @@
 "slides": 5,
 "text": "Repeating a lunch you enjoy is a planning choice. You can still rotate meals and ingredients across the week. ",
 "batch": "Studio S08-B"
-},
-{
-"id": "5119970",
-"platform": "facebook",
-"when": "2027-01-29T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "I use a meal prep service. Having food ready removes one more decision from a busy day. You can do the same ki",
-"batch": "Studio S02-B"
-},
-{
-"id": "5119973",
-"platform": "facebook",
-"when": "2027-02-01T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Meal prep is one way I make food simpler. You don't need to invent a different lunch every day. Pick a few mea",
-"batch": "Studio S05-B"
-},
-{
-"id": "5186862",
-"platform": "facebook",
-"when": "2027-02-03T23:00:00.000Z",
-"kind": "Carousel",
-"slides": 5,
-"text": "Make lunch easier before the week starts. Pick two familiar meals, check what you need and decide how they wil",
-"batch": "Studio S07-B"
-},
-{
-"id": "5186863",
-"platform": "facebook",
-"when": "2027-02-05T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Before you head out, decide what you'll eat when you get home. Put a meal in place or choose your order ahead ",
-"batch": "Studio S04-B"
-},
-{
-"id": "5186864",
-"platform": "facebook",
-"when": "2027-02-08T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Lunch sorted means fewer decisions in the middle of the day. Choose two lunches you enjoy, check the ingredien",
-"batch": "Studio S06-B"
-},
-{
-"id": "5186865",
-"platform": "facebook",
-"when": "2027-02-10T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Lunch gets easier when the decision is already made. Choose a meal you enjoy, get the ingredients or order in ",
-"batch": "Studio S09-B"
-},
-{
-"id": "5186866",
-"platform": "facebook",
-"when": "2027-02-12T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Make tomorrow's lunch a decision you handle today. Pick something you already like, check what you have and ge",
-"batch": "Studio S01-B"
-},
-{
-"id": "5186868",
-"platform": "facebook",
-"when": "2027-02-15T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Missed a day? Decide what happens next. Open the calendar, choose a realistic time and set out what you need. ",
-"batch": "Studio S06-C"
 }
 ],
 "waiting": [
