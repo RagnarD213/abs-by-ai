@@ -263,3 +263,10 @@ Each short: `[PLAY CLIP ...]`, Dan's take (agree or disagree, and why), one acti
 > Looksmaxxing series: use other looksmaxxing creators' clips, not Clavicular.
 
 Model: Claude Opus 5.5, High effort.
+
+## Status 2026-10-06 (cloud session): PARTLY EXECUTED
+
+- **Done:** interview answered; 31 outlines inserted into the doc at the marker (verified: 603 bullets nested as written, titles bold, Dan's text above untouched). As-delivered copy: `Docs/OUTLINES_1017_SHOOT_AS_DELIVERED_20261006.md`.
+- **Dan's answers on record there:** routine (wake 8 to 9:30, sunlight, AG1, 2 cold brews, gym 9:30 to 10:30, 15 min cardio + 1 leg, 3 upper, 1 ab exercise, 3 sets each; salad 2 PM, Clean Eatz meal preps 5 to 7:30 PM; bed 11 to 11:30); the 9 weekly exercises; home gear (50 lb kettlebell, dumbbells 15 to 55 lb, bench, pull-up bar, cheap rope); skincare (DIM, B6, caffeine eye cream, antioxidant serum, EltaMD AM SPF / PM, adapalene on neck and jawline); gained muscle on Zepbound (no DEXA); CTA = subscribe + SixPackAbs.com.
+- **Dan changed the looksmaxxing call: use Clavicular clips only, as first asked** (one short per tactic: retatrutide, testosterone, skincare routine, skincare supplements, plus the agree/disagree list above).
+- **Left:** (1) the Clavicular series, not written (YouTube captions are blocked from cloud; the Invidious mirror invidious.f5.si serves video descriptions with chapters). (2) 23 `[CLAUDE - INSERT EVIDENCE / VERIFY / FIND CLIP]` cues in the doc. (3) Dan's open `[DAN: ...]` cues: body fat % at 200 lb, tier for Russian twists and planks.

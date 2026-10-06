@@ -192,7 +192,7 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard fire list; the runner deletes that row, this line and its README row.
 
-- `handoff-20261006-1017-shoot-outlines.md` (10-06)
+- `handoff-20261006-1017-shoot-outlines.md` (10-06): 31 outlines in the doc; left: Clavicular shorts + 23 evidence cues (status at end of handoff). Opus high.
 - `handoff-20261006-dan-voice-training-part1-finish.md` (10-06)
 - `handoff-20260930-codex-adopt-review-page-format.md` (09-30). Sol medium.
 
