@@ -12,6 +12,7 @@ import hashlib
 import json
 import os
 import plistlib
+import re
 import subprocess
 import sys
 import tempfile
@@ -64,6 +65,14 @@ SHOOTS = {
         "drive": "dan rose fitness 9:23 shoot - vsls, long form content, short form content",
         "raw": ["."],
     },
+}
+
+SHOOT_DATES = {
+    "abs by ai 7:8 Jeff Chagrin shoot": "7/8",
+    "abs by ai 8:3 jeff chagrin shoot": "8/3",
+    "abs by ai 8:14 shoot | teleprompter ads, indoor talking content, outdoor workout content | jeff chagrin | dan rose": "8/14",
+    "abs by ai 8:28 shoot | jeff | dan | ads, dedicated shorts, b roll, scripted long form content": "8/28",
+    "dan rose fitness 9:23 shoot - vsls, long form content, short form content": "9/23",
 }
 
 
@@ -170,13 +179,26 @@ def pending_jobs(shoot):
         return ["edit queue unavailable"]
     jobs = json.loads(QUEUE_FILE.read_text()).get("jobs", [])
     pending = []
+    def date_pattern(value):
+        return re.compile(r"(?<!\d)" + re.escape(value).replace("/", "[/：:／]") + r"(?!\d)", re.I)
+
+    shoot_date = SHOOT_DATES.get(shoot.name)
     for job in jobs:
-        if job.get("id", "").startswith("RX-") or job.get("state") in {"uploaded", "cancelled"}:
+        # List 1 is the queue's raw-footage work. Lists 2 and 3 use finished
+        # masters, so they do not keep a camera shoot on the working drive.
+        if str(job.get("list")) != "1" or job.get("id", "").startswith("RX-"):
+            continue
+        if job.get("state") in {"uploaded", "finalized", "cancelled"}:
             continue
         doc = QUEUE_FILE.parent / job.get("file", "")
         content = doc.read_text(errors="ignore") if doc.is_file() else ""
-        content += "\n" + job.get("claude", "") + "\n" + job.get("codex", "")
-        if shoot.name in content:
+        roll = job.get("roll", "")
+        content += "\n" + roll + "\n" + job.get("claude", "") + "\n" + job.get("codex", "")
+        # The queue's roll field names the source shoot when it contains a
+        # date. Ignore incidental mentions of other shoots in production notes.
+        roll_dates = {date for date in SHOOT_DATES.values() if date_pattern(date).search(roll)}
+        match = shoot_date in roll_dates if roll_dates else (shoot.name in content or (shoot_date and date_pattern(shoot_date).search(content)))
+        if match:
             pending.append(job.get("id", "unknown"))
     return pending
 
