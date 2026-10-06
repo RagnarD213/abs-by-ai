@@ -16,7 +16,8 @@ of the Performance Max campaign `24308574894` (long headlines, descriptions, and
 
 ## Read first, every time
 
-1. This file, all of it. The section WHAT DAN CHANGED is the calibration.
+1. This file, all of it. The section WHAT DAN CHANGED is the calibration. For the voice behind the lines (his enemy
+   framing, credentials, person-plus-outcome), `.claude/skills/_shared/DAN-VOICE.md` sections 1, 6 and 7.
 2. `scripts/ads/ytads/headline-style.md`: every line Dan wrote by hand, the shapes he uses, his dated rules.
 3. The live copy of the account's current ads, so new lines match what is running and nothing is duplicated by accident:
    `node scripts/ads/api/client.js search "SELECT ad_group.name, ad_group_ad.ad.demand_gen_video_responsive_ad.headlines FROM ad_group_ad WHERE campaign.id = 24316364155 AND ad_group_ad.status != 'REMOVED'" --json`
