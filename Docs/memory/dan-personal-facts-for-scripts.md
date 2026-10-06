@@ -135,10 +135,8 @@ video is filmed, not yet published.
   curcumin, ginger, glucosamine chondroitin (joints, so he can train every day in his 40s; "I plan to be lifting into my
   60s and beyond"); vitamin B6 and DIM (skin); a Thorne testosterone booster; one chicken thigh or drumstick (20-25 g
   protein); then one drink of Thorne aminos, Cure electrolyte powder and collagen (he trains fasted).
-- **At night (updated 2026-10-06, Dan):** glycine (3 g, section 7) and magnesium, plus a third sleep supplement Claude
-  recommended in another task. Dan's dictation named it "3-phenyl-2-thiophenecarboxylic acid", which is probably a
-  mis-transcription: do not say its name on camera until Dan confirms it from the bottle. **He no longer takes Thorne
-  Deep Sleep.** **Dan typed**
+- **At night (updated 2026-10-06, Dan):** glycine (3 g, section 7) and magnesium. Only those two. **He no longer takes
+  Thorne Deep Sleep.** **Dan typed**
 - **His big three, if you take nothing else:** fish oil, vitamin D, magnesium at night. "Hit your big three supplements
   daily if you're just starting off, and add in more later once you get consistent." **Claude drafted, Dan kept** (list),
   **Dan typed** (the instruction). (3 Most Important Supplements short)
@@ -209,6 +207,6 @@ video is filmed, not yet published.
 
 ## NOT CONFIRMED (keep out of scripts until Dan confirms)
 
-- The exact name of his third night-time sleep supplement (section 4b).
+- Nothing open as of 2026-10-06. Any new unconfirmed claim goes here.
 
 Related: [[dan-relationship-status]], [[script-zero-edit-lessons]], [[no-ad-agency-mention]], [[video-outline-style]].
