@@ -97,7 +97,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 **Ad13 setup REVIEW 2026-10-04.** Policy 10-05: `Docs/AD13_VERTICAL_SETUP_RECEIPT_20261004.md`.
 
 
-**Oura review (Video 4) - QUEUED 2026-10-02, Claude.** Blotato Oct 14 9AM CT. Oct 14: Studio thumbnail A/B, captions, article `TBD-oura-ring-review.md`. `Docs/OURA_SETUP_RECEIPT_20261002.md`, delete.
+**Oura review (Video 4) - QUEUED 2026-10-07, Codex.** Sun Nov 8, 9 AM CST. Then: thumbnail A/B, captions, article. `Docs/OURA_SETUP_RECEIPT_20261002.md`.
 
 **PMax `24308574894` - LIVE 2026-10-02, Claude.** Checks 10-07, 10-12: `Docs/DGEN_CONVERSION_CAMPAIGN.md`. Campaign images: package.
 
@@ -111,9 +111,9 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **RO-12 - QUEUED 2026-10-01, Claude.** Blotato Oct 25. Then: `Docs/RO12_SETUP_RECEIPT_20261001.md`, delete.
 
-**RO-13 - QUEUED 2026-10-05, Claude.** Blotato Wed Oct 21 9AM CT. Then: Studio thumbnail A/B, captions, publish `sixpackabs/articles/TBD-alcohol-and-abs.md`. `Docs/RO13_SETUP_RECEIPT_20261005.md`, delete.
+**RO-13 - QUEUED 2026-10-07, Codex.** Sun Nov 15, 9 AM CST. Then: thumbnail A/B, captions, article. `Docs/RO13_SETUP_RECEIPT_20261005.md`.
 
-**RO-10 - QUEUED 2026-10-02, Claude.** Blotato Oct 7. Oct 7: captions, article, Zepbound link on Oct 25. `Docs/RO10_SETUP_RECEIPT_20261002.md`, delete.
+**RO-10 - REPLACEMENT NEEDED 2026-10-07, Codex.** Blotato released it early Oct 7; Studio video `n_E94JrCKGg` is Private. Next: fire `Handoffs/handoff-20261007-ro10-subtle-reedit-sunday-reupload.md`; make one tiny end graphic change, then append the replacement after the Sunday queue. Preserve the original video's details and thumbnail.
 
 **RO-16 - QUEUED 2026-10-02, Claude.** Blotato Nov 1 9AM CST. Owes: RO-12 link in description after Oct 25; captions, article after Nov 1. `Docs/RO16_SETUP_RECEIPT_20261002.md`.
 
@@ -160,7 +160,7 @@ test starts. `BLOTATO_QUEUE_PROGRESS.md`
 tab; stop rather than click into spinners. `Handoffs/handoff-20260908-google-ads-custom-segments.md`
 
 
-**RO-02 - QUEUED 2026-10-05, Claude.** Blotato Oct 28. Then: `Docs/RO02_SETUP_RECEIPT_20261005.md`, delete.
+**RO-02 - QUEUED 2026-10-07, Codex.** Sun Nov 22, 9 AM CST. Then: captions and article. `Docs/RO02_SETUP_RECEIPT_20261005.md`.
 
 **Shorts parked behind the long-form hold. (baseline 2026-09-15; age unknown)** Zepbound (8) + Supplements (8) need the new spray-tan sound
 (`Handoffs/handoff-20260909-audio-match-muhammad.md`); nothing posts until a parent long-form is public.
