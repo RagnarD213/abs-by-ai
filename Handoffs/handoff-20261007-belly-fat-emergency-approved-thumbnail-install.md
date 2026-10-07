@@ -57,4 +57,4 @@ CONTENT. Name this task `Belly Fat Emergency LFC Setup`. Read `Handoffs/handoff-
 
 ## Installation status, October 7, 2026
 
-Approved revision 4 installed through YouTube Studio. Saved Studio design and full-size YouTube readback verified. Public channel tile still displays the cached old image, so public verification remains open. Receipt: `Handoffs/results-20261007-belly-fat-emergency-thumbnail-install.json`. Old thumbnail preserved. Video and Google Ads settings unchanged.
+Approved revision 4 installed through YouTube Studio. Saved Studio design, full-size YouTube readback and public YouTube Videos tile verified. Public verification used a fresh browser cache after Chrome retained the old image. Receipt: `Handoffs/results-20261007-belly-fat-emergency-thumbnail-install.json`. Old thumbnail preserved. Video and Google Ads settings unchanged.

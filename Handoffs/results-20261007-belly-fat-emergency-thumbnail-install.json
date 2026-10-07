@@ -25,9 +25,16 @@
     }
   },
   "studioVerified": true,
-  "publicVerified": false,
-  "status": "Installed, public tile propagation pending",
+  "publicVerified": true,
+  "status": "Complete",
   "testResults": "Single uploaded thumbnail control; no completed thumbnail test results displayed.",
   "settings": "Only thumbnail changed. Title, description, visibility, video and Google Ads settings left unchanged.",
-  "evidenceDirectory": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Handoffs/evidence-20261007-belly-fat-emergency-thumbnail-install"
+  "evidenceDirectory": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Handoffs/evidence-20261007-belly-fat-emergency-thumbnail-install",
+  "publicVerification": {
+    "url": "https://www.youtube.com/@danrosefit/videos",
+    "method": "Visually verified approved revision 4 on public Videos tile in fresh in-app browser cache",
+    "verifiedAtUTC": "2026-10-07T23:58:04.890Z",
+    "screenshot": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Handoffs/evidence-20261007-belly-fat-emergency-thumbnail-install/public-after.jpg",
+    "cacheNote": "Chrome continued to display cached old hq720 image; fresh browser shows approved design."
+  }
 }
