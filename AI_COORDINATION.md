@@ -199,7 +199,7 @@ Memory `google-ads-ui-automation`.
 - `handoff-20260930-codex-adopt-review-page-format.md` (09-30). Sol medium.
 
 - `handoff-20261001-move-project-out-of-icloud.md` (10-01): move the project out of iCloud's Documents sync (109k duplicates, 199 cloud-only files). Run when nothing else runs here. Opus 5.5 high.
-- `handoff-20261001-rebuild-ios-project.md` (10-01): rebuild the iPhone project iCloud wiped. ⚠ iCloud recovery window closes about 10-17. No Apple upload. GPT-6 Sol high.
+- iPhone rebuilt 10-07 in outside-iCloud worktree, tracked on GitHub. Original recovery list partly uninspected after Chrome crash; window closes about 10-17. See `Handoffs/results-20261007-ios-rebuild.md`.
 - `handoff-20261001-search-campaigns-to-vsl-page.md` (10-01). Sol high.
 - `handoff-20260924-generator-consult-call-outreach.md` (09-24, overdue).
 - `handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md` [dash]: PHONE ONLY, 3 TikTok covers (updated 09-22). Sonnet 5 or Fable 5.1 / Medium.
