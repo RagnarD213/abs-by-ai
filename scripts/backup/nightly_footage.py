@@ -256,20 +256,6 @@ def process_shoot(shoot, config, state, deadline, dry_run):
         save_state(state)
     destination = str(ARCHIVE_ROOT / name)
     seagate_paused = SEAGATE_PAUSE_FILE.is_file()
-    seagate_id = archive_id() if ready and not waiting and not seagate_paused else None
-    if seagate_id:
-        if state.get("archive_id") and state["archive_id"] != seagate_id:
-            raise RuntimeError("a different disk is mounted as Expansion")
-        state["archive_id"] = seagate_id
-        save_state(state)
-        if not record.get("seagate_verified"):
-            try:
-                rclone_transfer(shoot, destination, files, deadline)
-                record["seagate_verified"] = datetime.now(TZ).isoformat()
-                save_state(state)
-                say(f"{name}: Seagate checksum verified")
-            except (RuntimeError, subprocess.TimeoutExpired) as exc:
-                say(f"{name}: Seagate transfer will retry: {exc}")
     dest = DRIVE_ROOT + "/" + config["drive"]
     if not record.get("drive_verified"):
         rclone_transfer(shoot, dest, files, deadline)
@@ -280,6 +266,23 @@ def process_shoot(shoot, config, state, deadline, dry_run):
         record["drive_verified"] = datetime.now(TZ).isoformat()
         save_state(state)
         say(f"{name}: Google Drive checksum verified")
+    seagate_id = archive_id() if ready and not waiting and not seagate_paused else None
+    if seagate_id:
+        if state.get("archive_id") and state["archive_id"] != seagate_id:
+            raise RuntimeError("a different disk is mounted as Expansion")
+        state["archive_id"] = seagate_id
+        save_state(state)
+        if not record.get("seagate_verified"):
+            try:
+                # A saved success flag is insufficient: confirm Drive still
+                # matches Extreme before placing this shoot on Seagate.
+                rclone_transfer(shoot, dest, files, deadline, verify_only=True)
+                rclone_transfer(shoot, destination, files, deadline)
+                record["seagate_verified"] = datetime.now(TZ).isoformat()
+                save_state(state)
+                say(f"{name}: Seagate checksum verified")
+            except (RuntimeError, subprocess.TimeoutExpired) as exc:
+                say(f"{name}: Seagate transfer will retry: {exc}")
     if not ready or waiting:
         return
     if seagate_paused:

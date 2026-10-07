@@ -22,8 +22,9 @@ checks the queue and marker again before removing source files. Do not rename
 shoot folders: edit plans contain exact source paths. The welcome-video first
 shoot was marked ready on 2026-10-05 after the queue audit found no pending cut.
 
-A ready shoot is copied to Seagate Expansion and Drive. Rclone checks every raw
-file against both copies before the source files are removed from Extreme. A
+A ready shoot is first copied to Google Drive and checksum-checked, then copied
+to Seagate Expansion and checksum-checked. Rclone checks every raw file against
+both copies again immediately before the source files are removed from Extreme. A
 failed or incomplete transfer leaves source footage in place and retries the
 next night. The Seagate has a disk identity marker so a different drive mounted
 under the same name cannot receive the archive. An `RAW_FOOTAGE_ARCHIVED.txt`
