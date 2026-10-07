@@ -33,7 +33,7 @@ carries utm_content=<slug>. Refuses on a slot clash or if the queue would pass t
 from __future__ import annotations
 
 import argparse
-from datetime import datetime
+from datetime import datetime, timedelta
 import json
 import os
 import sys
@@ -73,6 +73,9 @@ def check_longform_sunday(when: str, slug: str, items: list) -> None:
 
 
 def posts(v: dict) -> list:
+    # YouTube releases on Sunday; the other platforms follow 24 hours later.
+    social_when = (datetime.fromisoformat(v["main"].replace("Z", "+00:00"))
+                   + timedelta(days=1)).isoformat(timespec="milliseconds").replace("+00:00", "Z")
     utm = f"utm_medium=video&utm_campaign=longform&utm_content={v['slug']}"
     link = lambda source: f"https://absbyai.com/?utm_source={source}&{utm}"  # noqa: E731
     lede = f"{v['hook']}\n\n{v['body']}\n\n{v['close']}\n\n"
@@ -90,13 +93,13 @@ def posts(v: dict) -> list:
                "containsSyntheticMedia": bool(v["ai_generated"]),
                "thumbnailUrl": v["youtube_cover_url"]}
     return [
-        (FACEBOOK, "facebook", v["main"], {"targetType": "facebook", "pageId": FB_PAGE},
+        (FACEBOOK, "facebook", social_when, {"targetType": "facebook", "pageId": FB_PAGE},
          lede + f"See what you'd look like with a six-pack. Free AI preview:\n{link('facebook')}\n\n{v['tags']}",
          v["video_url"]),
-        (IG_MAIN, "instagram", v["main"], dict(ig),
+        (IG_MAIN, "instagram", social_when, dict(ig),
          lede + f"Comment {v['keyword']} and I'll send you the free AI preview 👇\n\n{v['tags']}",
          v["video_url"]),
-        (TIKTOK, "tiktok", v["main"], tiktok,
+        (TIKTOK, "tiktok", social_when, tiktok,
          lede + f"Free AI preview of your own six-pack, link in bio at AbsByAI.com 👇\n\n{link('tiktok')}\n\n{v['tags']}",
          v.get("tiktok_video_url", v["video_url"])),
         # @abs.by.ai (65632) retired 2026-09-24: never queue it. No mirror post.
