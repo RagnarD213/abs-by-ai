@@ -133,8 +133,6 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **Overnight edit queue - PAUSED 2026-09-24, Dan's call.** Resume only if Dan says: `dispatcher.py resume`.
 
-**RO-01 round 10 - HANDOFF READY 2026-10-06, Codex.** R9 full film, SRT and chapters delivered for review. Dan requested removal of the old 0:07 chip, a full Soft Blue Light and HyperFrames graphic update, and restoration of missing speech at 4:32. Next: new task executes `Handoffs/handoff-20261006-ro01-r10-blue-hyperframes-transition.md` and delivers the complete R10 film for review.
-
 **Ads 6, 7, 10, 14 YouTube + Google Ads - REVIEW 2026-09-15, Codex 01a0a744.** Four unlisted uploads, eight enabled campaign ads, shared budget $40/day, policy `REVIEW_IN_PROGRESS`. Next: re-run policy; swap in Ad 7 typo / Ad 14 bitrate exports when delivered. Detail: `Docs/DGEN_CONVERSION_CAMPAIGN.md`.
 
 **RA-01 square + headline swap - LIVE 2026-10-02, Claude.** Square ad `826755066385`. Dan's new long headline on 7 trial ads (old one CLICKBAIT). 10-03: `node scripts/ads/api/client.js policy 24316364155`; if flagged, rewrite only that line. `Docs/DGEN_CONVERSION_CAMPAIGN.md`.
@@ -191,6 +189,7 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard fire list; the runner deletes that row, this line and its README row.
 
+- `handoff-20261007-ro01-thumbnails-and-video-setup.md` (10-07): RO-01 R10 approved, Edit Queue finalized. Five thumbnails, Dan's pick, then organic setup. Claude Opus 5.5 medium.
 - `handoff-20261006-1017-shoot-outlines.md` (10-06)
 - `handoff-20261006-dan-voice-training-part1-finish.md` (10-06)
 - `handoff-20260930-codex-adopt-review-page-format.md` (09-30). Sol medium.

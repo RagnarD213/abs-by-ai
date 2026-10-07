@@ -877,13 +877,13 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/RO-01-keep-your-muscle-on-zepbound.md`: transcribe the rolls, map the takes to the script, and cut \"How To Keep Your Muscle On Zepbound\" into a finished 16:9 first cut with /longform-edit to the approved organic standard (Zeeshan's ab wheel videos). Fill the B-roll and graphics cues, audio through the shared chain, every gate, independent audit, deliver master + SRT + chapters, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-01-keep-your-muscle-on-zepbound.md` with `$long-form-content-edit` and the frozen organic recipe. Deliver master + SRT + chapters, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "draft_review",
-   "note": "R4 packet approved as shown: 23 exact items, B01/B02 endpoint frames only. Next RO-01 R5: H06/H04 opening frame options plus B01/B02 motion in context. No full render. Handoffs/handoff-20260929-ro01-r5-opening-frames-and-motion.md",
+   "state": "finalized",
+   "note": "Dan approved the complete 16:9 R10 film on 2026-10-07: All right this is looking good. This is finalized and approved. Master SHA256 fa99ac5b8b7dfdd704d3256aa54c156acc842b54e77e3814e2f149579c7b631f. Upload/setup handoff follows; no upload yet.",
    "sub": "",
    "order": 42,
-   "updated": "2026-09-29",
+   "updated": "2026-10-07",
    "by": "Codex",
-   "rev": 6,
+   "rev": 7,
    "syncedRev": 6
   },
   {
