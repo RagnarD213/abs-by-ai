@@ -85,6 +85,8 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 # ACTIVE
 
+**RO-01 - NEEDS DAN 2026-10-07, Codex.** Five thumbnails ready. Next: Dan picks; file and schedule. Detail: `Handoffs/handoff-20261007-ro01-thumbnails-and-video-setup.md`.
+
 
 
 **Nightly footage offload - HANDOFF 2026-10-05, Claude.** Welcome shoot verified on Seagate; Extreme originals intact. Seagate noise unresolved. LaunchAgent disabled after macOS denied Extreme access, so cloud backup paused. Next: check drive, fix permission, own archive decisions. Detail: `Handoffs/handoff-20261005-claude-nightly-footage-offload.md`.
@@ -190,7 +192,6 @@ Memory `google-ads-ui-automation`.
 `[dash]` = on the dashboard fire list; the runner deletes that row, this line and its README row.
 
 - `handoff-20261007-ro10-subtle-reedit-sunday-reupload.md` (10-07): RO-10 R3 end graphic, Sunday replacement. Codex Sol high.
-- `handoff-20261007-ro01-thumbnails-and-video-setup.md` (10-07): RO-01 R10 approved, Edit Queue finalized. Five thumbnails, Dan's pick, then organic setup. Claude Opus 5.5 medium.
 - `handoff-20261006-1017-shoot-outlines.md` (10-06)
 - `handoff-20261006-dan-voice-training-part1-finish.md` (10-06)
 - `handoff-20260930-codex-adopt-review-page-format.md` (09-30). Sol medium.
