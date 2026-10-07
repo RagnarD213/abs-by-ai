@@ -33,6 +33,8 @@ Zeeshan's `Video 4 Rev 3.mp4` (MD5 `52642857...`, 19:47.5), filed in `Zeeshan Co
 
 Source `claude edited long form content/10 - Calories The Reason You're Not Losing Weight/... | claude round 2 | 16x9 | RO-10.mp4` (sha256 `655c7188...bb76e`). Wed Oct 7 14:00Z (9 AM CDT): FB 5090245, IG @danrosefit 5090246, TikTok 5090247 (cover-first), YouTube 5090248 (public release by Blotato). Thumbnail: Codex AI-Dan snack-cake design (option 3 of 5). Keyword FOOD, utm_content `ro10-calories-not-losing-weight`, AI flags true. Receipt `Docs/RO10_SETUP_RECEIPT_20261002.md`.
 
+Oct 7 correction: YouTube `n_E94JrCKGg` is Private after the early release. Dan requested a tiny end graphic revision and a new Sunday upload. `Handoffs/handoff-20261007-ro10-subtle-reedit-sunday-reupload.md` owns the replacement; hold SL-08 Shorts and the article until its new public video exists.
+
 ## DONE: RO-16 "If I Had Belly Fat, Here's How I'd Lose It In 90 Days" (2026-10-02)
 
 Master `claude edited long form content/09 - If I Had Belly Fat, Here's How I'd Lose It In 90 Days/...round 3 | 16x9 | RO-16.mp4`, SHA-256 `c535ab4c…da02643b09` (3,986,257,903 bytes, 12:09.33); same file + .srt on the Extreme drive and Google Drive (`Claude Content Videos/If I Had Belly Fat - RO-16`, folder `1XMLlis1pS0UkoH6AsKg0m-6LiQRvWR1T`, anyone with the link). No YouTube holding copy (Blotato-only rule): Blotato creates the public video with Dan's FINAL thumbnail (AI belly-fat Dan on fast-food background), synthetic media on.

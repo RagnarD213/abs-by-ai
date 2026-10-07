@@ -57,7 +57,7 @@ same set, same scripts; its work dir is `/Volumes/Extreme/_edit_work/ro10/round2
 6. Deliver to `claude edited long form content/11 - When Calories Don't Matter For Fat Loss/` (master, SRT, chapters,
    REVIEW 540p, audio A/B, stamps, notes, recipe). Send Dan the review copy, queue `delivered`, mirror to the Edit Queue page.
 7. Description notes for setup: one realistic AI clip, so YouTube's altered/synthetic flag is TRUE; links to the glycine
-   video, the alcohol video and the first calories video (RO-10, public Oct 7); study list in
+   video, the alcohol video and the first calories video (RO-10, original upload Private; replacement Sunday date and public URL pending); study list in
    `Docs/SCRIPTS_CALORIES_PAIR_20260921.md` production notes. Ending is subscribe-only, no AbsByAI call to action.
 8. After Dan approves the film: register the opener and the used stock in the clip library, delete this handoff's rows in
    `Handoffs/README.md` and the board.
