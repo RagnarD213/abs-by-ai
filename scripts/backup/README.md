@@ -53,6 +53,8 @@ python3 scripts/backup/nightly_footage.py --copy-only-seagate
 `--copy-only-seagate` copies and checksum-checks raw files from every shoot
 folder. It never removes files from Extreme, even when a shoot has a
 `READY_TO_ARCHIVE` marker. It may run between 8 pm and 8 am Chicago time. The
+first run checks all six existing shoots; later runs skip a shoot whose source
+inventory has not changed since its verified Seagate copy. The
 `seagate-offload-paused` flag remains in place and continues to prevent the
 normal offload path from deleting source footage. Before any future source
 removal, that path rechecks the Seagate and Google Drive copies against Extreme.

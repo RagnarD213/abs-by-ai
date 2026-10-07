@@ -339,11 +339,14 @@ def copy_only_to_seagate(state, deadline, dry_run):
             if time.time() - snapshot["newest"] < 1800:
                 say(f"{name}: waiting until newest raw file has been unchanged for 30 minutes")
                 continue
+            record = state["shoots"].setdefault(name, {})
+            if record.get("fingerprint") == snapshot["fingerprint"] and record.get("seagate_verified"):
+                say(f"{name}: unchanged since the last verified Seagate copy")
+                continue
             destination = str(ARCHIVE_ROOT / name)
             rclone_transfer(shoot, destination, files, deadline)
             if inventory(shoot, raw_files(shoot, config))["fingerprint"] != snapshot["fingerprint"]:
                 raise RuntimeError("source changed during verification; will retry")
-            record = state["shoots"].setdefault(name, {})
             if record.get("fingerprint") != snapshot["fingerprint"]:
                 record.clear()
             record["fingerprint"] = snapshot["fingerprint"]
