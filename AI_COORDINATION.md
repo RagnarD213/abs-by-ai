@@ -85,7 +85,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 # ACTIVE
 
-**Belly Fat Emergency Thumbnail - ACTIVE 2026-10-07, Codex.** Three AI body-edit choices for `v2R4QpnURqA`. Next: show full and phone previews, wait for Dan pick, then install and verify. Detail: `social media graphics/youtube/thumbnails/Belly Fat Emergency/_replacement-20261007/`.
+**Belly Fat Emergency Thumbnail - ACTIVE 2026-10-07, Codex.** Next: three choices, Dan picks.
 
 **WV01-B-Codex:REVIEW 2026-10-07.** [Opening](Handoffs/results-20261007-wv01-b-opening-r1.md). Dan:review.
 
