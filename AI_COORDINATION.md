@@ -113,7 +113,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **RO-13 - QUEUED 2026-10-07, Codex.** Sun Nov 15, 9 AM CST. Then: thumbnail A/B, captions, article. `Docs/RO13_SETUP_RECEIPT_20261005.md`.
 
-**RO-10 - REPLACEMENT NEEDED 2026-10-07, Codex.** Blotato released it early Oct 7; Studio video `n_E94JrCKGg` is Private. Next: fire `Handoffs/handoff-20261007-ro10-subtle-reedit-sunday-reupload.md`; make one tiny end graphic change, then append the replacement after the Sunday queue. Preserve the original video's details and thumbnail.
+**RO-10 - REPLACEMENT NEEDED 2026-10-07, Codex.** Early Oct 7 release `n_E94JrCKGg` is Private. Next: fire `Handoffs/handoff-20261007-ro10-subtle-reedit-sunday-reupload.md`; edit one end graphic, append to Sunday queue.
 
 **RO-16 - QUEUED 2026-10-02, Claude.** Blotato Nov 1 9AM CST. Owes: RO-12 link in description after Oct 25; captions, article after Nov 1. `Docs/RO16_SETUP_RECEIPT_20261002.md`.
 
@@ -189,6 +189,7 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard fire list; the runner deletes that row, this line and its README row.
 
+- `handoff-20261007-ro10-subtle-reedit-sunday-reupload.md` (10-07): RO-10 R3 end graphic, Sunday replacement. Codex Sol high.
 - `handoff-20261007-ro01-thumbnails-and-video-setup.md` (10-07): RO-01 R10 approved, Edit Queue finalized. Five thumbnails, Dan's pick, then organic setup. Claude Opus 5.5 medium.
 - `handoff-20261006-1017-shoot-outlines.md` (10-06)
 - `handoff-20261006-dan-voice-training-part1-finish.md` (10-06)
