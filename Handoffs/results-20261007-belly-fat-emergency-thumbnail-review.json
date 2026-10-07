@@ -2,7 +2,7 @@
   "category": "CONTENT",
   "sidebarName": "Belly Fat Emergency LFC Thumbnail",
   "videoId": "v2R4QpnURqA",
-  "status": "AWAITING_WIDER_TEXT_REVIEW",
+  "status": "APPROVED_PENDING_INSTALL_NEW_TASK",
   "createdUTC": "2026-10-07T21:41:50.769071+00:00",
   "generation": "Codex subscription via codex-image.sh",
   "model": "gpt-6.1-sol",
@@ -25,7 +25,7 @@
   "baseline": "baseline.json",
   "rollbackFile": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/Belly Fat Emergency/belly-fat-emergency_2-pool-photo-172-FINAL.jpg",
   "rollbackSHA256": "cfa707224a43c8fa3bc431c3bfac3e19622eaf74723c813c7fd68fb03e17dbb9",
-  "nextAction": "Show C revision 4 with near-full-width headline at 20% opacity. Wait for final pick before installing the exact image on v2R4QpnURqA and verifying it live.",
+  "nextAction": "Execute Handoffs/handoff-20261007-belly-fat-emergency-approved-thumbnail-install.md in a fresh task. Install approved revision 4 on existing YouTube video v2R4QpnURqA through Studio and verify live.",
   "qc": {
     "A": {
       "title": "Red portrait",
@@ -177,9 +177,15 @@
     "bytes": 240534,
     "sha256": "cdd813ca044a694f66ef33e7842e17aea7ed95c3f5cb365161bc5910d28c315d",
     "plateUnchanged": true,
-    "status": "AWAITING_REVISED_THUMBNAIL_APPROVAL",
+    "status": "APPROVED_PENDING_INSTALL",
     "headlineWidth": 1218,
-    "sideMarginPixels": 31.0
+    "sideMarginPixels": 31.0,
+    "approvalDate": "2026-10-07",
+    "approvalWords": "That looks great. Create a handoff document to install this in a new task"
   },
-  "revision4Recipe": "from PIL import Image,ImageOps,ImageDraw,ImageFont,ImageChops\nfrom pathlib import Path\nimport hashlib,json\nP=Path(__file__).resolve().parent\nim=ImageOps.fit(Image.open(P/'plate-C.png').convert('RGB'),(1280,720),method=Image.Resampling.LANCZOS).convert('RGBA')\nfont=ImageFont.truetype('/System/Library/Fonts/Supplemental/Impact.ttf',261)\nt='EMERGENCY';bb=font.getbbox(t);xy=(640-(bb[0]+bb[2])/2,360-(bb[1]+bb[3])/2)\nfill=Image.new('L',im.size);ImageDraw.Draw(fill).text(xy,t,font=font,fill=255)\nstroke=Image.new('L',im.size);ImageDraw.Draw(stroke).text(xy,t,font=font,fill=255,stroke_width=3,stroke_fill=255)\nedge=ImageChops.subtract(stroke,fill)\nouter=Image.new('L',im.size);ImageDraw.Draw(outer).text(xy,t,font=font,fill=255,stroke_width=5,stroke_fill=255)\nouter=ImageChops.subtract(outer,stroke)\nfor mask,color,opacity in [(outer,(0,0,0),140),(fill,(255,220,40),51),(edge,(255,220,40),220)]:\n layer=Image.new('RGBA',im.size,color+(0,));layer.putalpha(mask.point(lambda a:round(a*opacity/255)));im=Image.alpha_composite(im,layer)\nim=im.convert('RGB');f=P/'EMERGENCY-C-r4-wide-1280x720.jpg';im.save(f,quality=95,subsampling=0)\nim.resize((320,180),Image.Resampling.LANCZOS).save(P/'EMERGENCY-C-r4-wide-phone-320x180.png')\nqc={'choice':'C','revision':4,'text':'EMERGENCY','fontSize':261,'previousFontSize':210,'sizeIncreasePercent':round((261/210-1)*100,1),'fillOpacityPercent':round(51/255*100,1),'headlineCenter':[640,360],'dimensions':[1280,720],'bytes':f.stat().st_size,'sha256':hashlib.sha256(f.read_bytes()).hexdigest(),'plateUnchanged':True,'status':'AWAITING_REVISED_THUMBNAIL_APPROVAL'}\n(P/'qc-C-r4-wide.json').write_text(json.dumps(qc,indent=2)+'\\n');print(json.dumps(qc))\n"
+  "revision4Recipe": "from PIL import Image,ImageOps,ImageDraw,ImageFont,ImageChops\nfrom pathlib import Path\nimport hashlib,json\nP=Path(__file__).resolve().parent\nim=ImageOps.fit(Image.open(P/'plate-C.png').convert('RGB'),(1280,720),method=Image.Resampling.LANCZOS).convert('RGBA')\nfont=ImageFont.truetype('/System/Library/Fonts/Supplemental/Impact.ttf',261)\nt='EMERGENCY';bb=font.getbbox(t);xy=(640-(bb[0]+bb[2])/2,360-(bb[1]+bb[3])/2)\nfill=Image.new('L',im.size);ImageDraw.Draw(fill).text(xy,t,font=font,fill=255)\nstroke=Image.new('L',im.size);ImageDraw.Draw(stroke).text(xy,t,font=font,fill=255,stroke_width=3,stroke_fill=255)\nedge=ImageChops.subtract(stroke,fill)\nouter=Image.new('L',im.size);ImageDraw.Draw(outer).text(xy,t,font=font,fill=255,stroke_width=5,stroke_fill=255)\nouter=ImageChops.subtract(outer,stroke)\nfor mask,color,opacity in [(outer,(0,0,0),140),(fill,(255,220,40),51),(edge,(255,220,40),220)]:\n layer=Image.new('RGBA',im.size,color+(0,));layer.putalpha(mask.point(lambda a:round(a*opacity/255)));im=Image.alpha_composite(im,layer)\nim=im.convert('RGB');f=P/'EMERGENCY-C-r4-wide-1280x720.jpg';im.save(f,quality=95,subsampling=0)\nim.resize((320,180),Image.Resampling.LANCZOS).save(P/'EMERGENCY-C-r4-wide-phone-320x180.png')\nqc={'choice':'C','revision':4,'text':'EMERGENCY','fontSize':261,'previousFontSize':210,'sizeIncreasePercent':round((261/210-1)*100,1),'fillOpacityPercent':round(51/255*100,1),'headlineCenter':[640,360],'dimensions':[1280,720],'bytes':f.stat().st_size,'sha256':hashlib.sha256(f.read_bytes()).hexdigest(),'plateUnchanged':True,'status':'AWAITING_REVISED_THUMBNAIL_APPROVAL'}\n(P/'qc-C-r4-wide.json').write_text(json.dumps(qc,indent=2)+'\\n');print(json.dumps(qc))\n",
+  "approvedFile": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/Belly Fat Emergency/_replacement-20261007/EMERGENCY-C-r4-wide-1280x720.jpg",
+  "approvedSHA256": "cdd813ca044a694f66ef33e7842e17aea7ed95c3f5cb365161bc5910d28c315d",
+  "approvalWords": "That looks great. Create a handoff document to install this in a new task",
+  "approvalDate": "2026-10-07"
 }
