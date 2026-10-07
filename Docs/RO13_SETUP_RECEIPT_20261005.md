@@ -1,5 +1,7 @@
 # RO-13 "Can You Drink Alcohol And Still Have Abs?" setup receipt (2026-10-05)
 
+**Current release slot (updated 2026-10-07): Sunday Nov 15, 2026 at 9 AM CST (15:00Z).** All four original Blotato schedule IDs below were moved from Wednesday Oct 21 and read back at the new time. The original setup date below is historical. Do the post-release thumbnail, captions and article steps on Nov 15. Do not release SL-10 Shorts before their parent video.
+
 - **Classification:** organic content long-form (LFC). Closing words: "Thank you for watching guys. If today's video helped you subscribe to the channel to make sure you don't miss any of my videos." No tap/click-the-button CTA. `ad_guard.py --scan` CLEAN before and after the Blotato write.
 - **Master:** `claude edited long form content/11 - Can You Drink Alcohol And Still Have Abs/Can You Drink Alcohol And Still Have Abs | claude round 2 | 16x9 | RO-13.mp4`, 1,861,405,445 bytes, 7:10.63, SHA-256 `2296902bf3667c6c6bd30255a4f3155988ddb3a4f38bf5a95ad5d985f10751c0` (matches the handoff; re-hashed).
 - **Backups:** Extreme `/Volumes/Extreme/Claude Content Videos/Can You Drink Alcohol And Still Have Abs - RO-13/` (master SHA-256 match, plus .srt and chapters); Google Drive `Claude Content Videos/Can You Drink Alcohol And Still Have Abs - RO-13` (link in the chat message).
@@ -13,5 +15,5 @@
 - **Edit queue:** RO-13 `uploaded`; new job SL-10 (shorts from this video) added, `ready`.
 - **sixpackabs article:** `sixpackabs/articles/TBD-alcohol-and-abs.md` written, `build.py --check` OK (1,269 words). Publish after the video is public.
 - **Owed:**
-  - **Wed Oct 21 after 9 AM CT (video public):** thumbnail A/B in Studio (slot 1 already holds FINAL; add `... - thumbnail B.jpg` via Test & Compare "Thumbnail only", per `/video-setup` Step 6); upload `...RO-13.srt` as English captions (Studio, Subtitles, Upload file); rename `TBD-alcohol-and-abs.md` to the public YouTube id, fill `post_id` from the `spa_video` post, publish and `verify.py`. Check the Google Ads engagement-ad policy status for the video (alcohol topic may read "limited").
-  - After Oct 25 (RO-12 public): optionally add the Zepbound tips link to the YouTube description (`blotato_update_schedule` before Oct 21, or edit in Studio after).
+  - **Sun Nov 15 after 9 AM CT (video public):** thumbnail A/B in Studio (slot 1 already holds FINAL; add `... - thumbnail B.jpg` via Test & Compare "Thumbnail only", per `/video-setup` Step 6); upload `...RO-13.srt` as English captions (Studio, Subtitles, Upload file); rename `TBD-alcohol-and-abs.md` to the public YouTube id, fill `post_id` from the `spa_video` post, publish and `verify.py`. Check the Google Ads engagement-ad policy status for the video (alcohol topic may read "limited").
+  - After Oct 25 (RO-12 public): optionally add the Zepbound tips link to the queued YouTube description before Nov 15, or edit in Studio after release.

@@ -1,5 +1,7 @@
 # Video 4 "My Honest Oura Ring Review After 1.5 Years (The Good, Bad & Ugly)" setup receipt (2026-10-02)
 
+**Current release slot (updated 2026-10-07): Sunday Nov 8, 2026 at 9 AM CST (15:00Z).** All four original Blotato schedule IDs below were moved from Wednesday Oct 14 and read back at the new time. The original setup date below is historical. Do the post-release thumbnail, captions and article steps on Nov 8. Do not release SL-09 Shorts before their parent video.
+
 - **Classification:** organic. Closing words: "go to absbyai.com, make that picture of yourself with abs and get the AI sleep tracker and all the other functions that we have for you. Thank you for watching today's video, guys, and I'll see you next time." No tap/click-the-button CTA. `ad_guard.py --scan` CLEAN before and after the Blotato write.
 - **Master:** Zeeshan's `Video 4 Rev 3.mp4` (Drive file `16-IaJu9AKlivTdU4wszz8zpm1vmqkloU`, folder `15kJXFS7hbxWn2XCnBXYnP6M1iPL9Xh9M`), 1,558,234,846 bytes, 19:47.50, 1920x1080, MD5 `5264285762af41f2a6644366e0bae7eb`. Dan linked the original `Video 4.mp4`, then Rev 3, and said ship it as is (the two round-4 nits, Tesla speedometer 190 vs spoken 120 and the AI label hanging about 5 frames, are NOT fixed and stay in the film). Subtitle file `v4_fixed.srt`.
 - **Filed:** `Zeeshan Content Videos/my honest oura ring review - video 4/` (+ `.srt`, `youtube-description.md`); Extreme `/Volumes/Extreme/Zeeshan Content Videos/my honest oura ring review - video 4/` (MD5 match); Google Drive `Zeeshan Content Videos/my honest oura ring review - video 4`, https://drive.google.com/open?id=1EV2xxDCsEx-7EbgKHD9D23OqbkYKHkr2 (anyone with the link). The Extreme drive had about 2.4 GiB free afterwards.
@@ -11,6 +13,6 @@
 - **Keyword:** `SLEEP`. Config `scripts/blotato/configs/oura-ring-review.json`.
 - **Edit queue:** Video 4 is not an RO/DS job, so new shorts job SL-09 added (`ready`, mirrored to the page).
 - **Owed:**
-  - Oct 14 after it posts: Studio, thumbnail A/B test (add `thumbnail B.jpg` under Thumbnail, Test and Compare); upload `...video 4.srt` as English captions (Studio, Subtitles, Upload file, never the Languages page).
+  - Nov 8 after it posts: Studio, thumbnail A/B test (add `thumbnail B.jpg` under Thumbnail, Test and Compare); upload `...video 4.srt` as English captions (Studio, Subtitles, Upload file, never the Languages page).
   - Same day: publish `sixpackabs/articles/TBD-oura-ring-review.md` (rename to the public id, fill `post_id`, `verify.py`).
-  - Shorts: SL-09 after Dan picks segments; none post before Oct 14.
+  - Shorts: SL-09 after Dan picks segments; none post before Nov 8.
