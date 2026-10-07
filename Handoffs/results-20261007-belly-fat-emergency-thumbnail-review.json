@@ -2,7 +2,7 @@
   "category": "CONTENT",
   "sidebarName": "Belly Fat Emergency LFC Thumbnail",
   "videoId": "v2R4QpnURqA",
-  "status": "AWAITING_DAN_PICK",
+  "status": "AWAITING_DAN_TRANSPARENCY_PICK",
   "createdUTC": "2026-10-07T21:41:50.769071+00:00",
   "generation": "Codex subscription via codex-image.sh",
   "model": "gpt-6.1-sol",
@@ -25,7 +25,7 @@
   "baseline": "baseline.json",
   "rollbackFile": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/Belly Fat Emergency/belly-fat-emergency_2-pool-photo-172-FINAL.jpg",
   "rollbackSHA256": "cfa707224a43c8fa3bc431c3bfac3e19622eaf74723c813c7fd68fb03e17dbb9",
-  "nextAction": "Wait for Dan to pick A, B or C. Then install only the selected image using YouTube Studio, save and visually verify Studio and public watch page. Preserve rollback. No video upload or Google Ads changes.",
+  "nextAction": "Show revision 3 at full and phone-feed sizes. Wait for Dan to choose 20% or 45% opacity. Then install that exact version on v2R4QpnURqA and verify live.",
   "qc": {
     "A": {
       "title": "Red portrait",
@@ -107,5 +107,54 @@
     "A": "Create one photorealistic landscape 16:9 YouTube thumbnail image plate. Use the attached real photograph of Dan as the identity and pose reference. The user is Dan and explicitly requests this AI body modification of himself. Preserve his recognizable real face, exact hairstyle, age, Asian ethnicity, skin tone, facial proportions and chain necklace as closely as possible. Change his torso to show substantial believable belly fat: a large soft rounded abdomen, thick waist and love handles, a natural lower belly that hangs slightly over the waistband, no visible six pack or defined abs. His arms can retain some muscle but the chest should look naturally softer. Realistic overweight human anatomy, realistic skin texture, coherent lighting. Do not pinch, grab or touch the belly. No second person, no split screen. NO TEXT, NO LETTERS, NO LOGOS, no watermark. Text will be added locally later. Frame his entire head and hair, shoulders, arms and torso through the waistband. Subject centered horizontally, top of hair around 6 percent of image height, bottom of chin near 33 percent, belly from 58 to 91 percent, waistband near 94 percent. Body broad and large enough to read on a phone. Leave the mid-chest at 50 percent image height available for a headline to cross later while the belly below remains clearly visible. Output exactly one image.\nKeep the frontal hands-on-hips pose from the reference, both hands rest only on the sides of the shorts. Use a simple rich dark crimson studio background with a brighter red glow behind his silhouette. Bold clean direct portrait, realistic commercial photography, clear skin and sharp face, slight shadow separation. Keep the green shorts waistband at the bottom edge. His expression remains close to the source.\n",
     "B": "Create one photorealistic landscape 16:9 YouTube thumbnail image plate. Use the attached real photograph of Dan as the identity and pose reference. The user is Dan and explicitly requests this AI body modification of himself. Preserve his recognizable real face, exact hairstyle, age, Asian ethnicity, skin tone, facial proportions and chain necklace as closely as possible. Change his torso to show substantial believable belly fat: a large soft rounded abdomen, thick waist and love handles, a natural lower belly that hangs slightly over the waistband, no visible six pack or defined abs. His arms can retain some muscle but the chest should look naturally softer. Realistic overweight human anatomy, realistic skin texture, coherent lighting. Do not pinch, grab or touch the belly. No second person, no split screen. NO TEXT, NO LETTERS, NO LOGOS, no watermark. Text will be added locally later. Frame his entire head and hair, shoulders, arms and torso through the waistband. Subject centered horizontally, top of hair around 6 percent of image height, bottom of chin near 33 percent, belly from 58 to 91 percent, waistband near 94 percent. Body broad and large enough to read on a phone. Leave the mid-chest at 50 percent image height available for a headline to cross later while the belly below remains clearly visible. Output exactly one image.\nKeep the relaxed tilted-head poolside pose from the reference, arms resting at his sides, hands near his shorts. Expand the authentic outdoor pool setting into a wide landscape, pool blue water, stone edge, green trees and black fence. Natural bright outdoor photo with softly defocused background, warm skin, beautiful contrast. Keep dark normal shorts waistband visible. No briefs. Face stays recognizable, belly significantly overweight.\n",
     "C": "Create one photorealistic landscape 16:9 YouTube thumbnail image plate. Use the attached real photograph of Dan as the identity and pose reference. The user is Dan and explicitly requests this AI body modification of himself. Preserve his recognizable real face, exact hairstyle, age, Asian ethnicity, skin tone, facial proportions and chain necklace as closely as possible. Change his torso to show substantial believable belly fat: a large soft rounded abdomen, thick waist and love handles, a natural lower belly that hangs slightly over the waistband, no visible six pack or defined abs. His arms can retain some muscle but the chest should look naturally softer. Realistic overweight human anatomy, realistic skin texture, coherent lighting. Do not pinch, grab or touch the belly. No second person, no split screen. NO TEXT, NO LETTERS, NO LOGOS, no watermark. Text will be added locally later. Frame his entire head and hair, shoulders, arms and torso through the waistband. Subject centered horizontally, top of hair around 6 percent of image height, bottom of chin near 33 percent, belly from 58 to 91 percent, waistband near 94 percent. Body broad and large enough to read on a phone. Leave the mid-chest at 50 percent image height available for a headline to cross later while the belly below remains clearly visible. Output exactly one image.\nKeep the three-quarter body pose and serious expression from the reference, one hand resting on his hip behind the side of the torso and other arm down. Wide dark charcoal studio with dramatic amber side lighting from the left and a subtle cool rim from the right. A strong three-quarter silhouette makes the substantial protruding belly visible in profile as well as the broad soft front. Natural light blue jeans waistband at the bottom. Realistic photographic warning mood, no props, sharp recognizable face.\n"
+  },
+  "selectedConcept": "C",
+  "revision3": {
+    "light": {
+      "choice": "C",
+      "revision": 3,
+      "text": "EMERGENCY",
+      "fontSize": 210,
+      "previousFontSize": 185,
+      "sizeIncreasePercent": 13.5,
+      "fillOpacityPercent": 20.0,
+      "headlineCenter": [
+        640,
+        360
+      ],
+      "dimensions": [
+        1280,
+        720
+      ],
+      "bytes": 225367,
+      "sha256": "b1d68f61095dbb94566fb07b476d86f273c5660064e7080f8a5796258e3a7b9a",
+      "plateUnchanged": true,
+      "status": "AWAITING_REVISED_THUMBNAIL_APPROVAL"
+    },
+    "strong": {
+      "choice": "C",
+      "revision": 3,
+      "text": "EMERGENCY",
+      "fontSize": 210,
+      "previousFontSize": 185,
+      "sizeIncreasePercent": 13.5,
+      "fillOpacityPercent": 45.1,
+      "headlineCenter": [
+        640,
+        360
+      ],
+      "dimensions": [
+        1280,
+        720
+      ],
+      "bytes": 218569,
+      "sha256": "486d13df37769f555088586d20a95fef9d7502a927556e1c31c3bba42555fafc",
+      "plateUnchanged": true,
+      "status": "AWAITING_REVISED_THUMBNAIL_APPROVAL"
+    }
+  },
+  "revision3Recipe": {
+    "light": "from PIL import Image,ImageOps,ImageDraw,ImageFont,ImageChops\nfrom pathlib import Path\nimport hashlib,json\nP=Path(__file__).resolve().parent\nim=ImageOps.fit(Image.open(P/'plate-C.png').convert('RGB'),(1280,720),method=Image.Resampling.LANCZOS).convert('RGBA')\nfont=ImageFont.truetype('/System/Library/Fonts/Supplemental/Impact.ttf',210)\nt='EMERGENCY';bb=font.getbbox(t);xy=(640-(bb[0]+bb[2])/2,360-(bb[1]+bb[3])/2)\nfill=Image.new('L',im.size);ImageDraw.Draw(fill).text(xy,t,font=font,fill=255)\nstroke=Image.new('L',im.size);ImageDraw.Draw(stroke).text(xy,t,font=font,fill=255,stroke_width=3,stroke_fill=255)\nedge=ImageChops.subtract(stroke,fill)\nouter=Image.new('L',im.size);ImageDraw.Draw(outer).text(xy,t,font=font,fill=255,stroke_width=5,stroke_fill=255)\nouter=ImageChops.subtract(outer,stroke)\nfor mask,color,opacity in [(outer,(0,0,0),140),(fill,(255,220,40),51),(edge,(255,220,40),220)]:\n layer=Image.new('RGBA',im.size,color+(0,));layer.putalpha(mask.point(lambda a:round(a*opacity/255)));im=Image.alpha_composite(im,layer)\nim=im.convert('RGB');f=P/'EMERGENCY-C-r3-light-1280x720.jpg';im.save(f,quality=95,subsampling=0)\nim.resize((320,180),Image.Resampling.LANCZOS).save(P/'EMERGENCY-C-r3-light-phone-320x180.png')\nqc={'choice':'C','revision':3,'text':'EMERGENCY','fontSize':210,'previousFontSize':185,'sizeIncreasePercent':round((210/185-1)*100,1),'fillOpacityPercent':round(51/255*100,1),'headlineCenter':[640,360],'dimensions':[1280,720],'bytes':f.stat().st_size,'sha256':hashlib.sha256(f.read_bytes()).hexdigest(),'plateUnchanged':True,'status':'AWAITING_REVISED_THUMBNAIL_APPROVAL'}\n(P/'qc-C-r3-light.json').write_text(json.dumps(qc,indent=2)+'\\n');print(json.dumps(qc))\n",
+    "strong": "from PIL import Image,ImageOps,ImageDraw,ImageFont,ImageChops\nfrom pathlib import Path\nimport hashlib,json\nP=Path(__file__).resolve().parent\nim=ImageOps.fit(Image.open(P/'plate-C.png').convert('RGB'),(1280,720),method=Image.Resampling.LANCZOS).convert('RGBA')\nfont=ImageFont.truetype('/System/Library/Fonts/Supplemental/Impact.ttf',210)\nt='EMERGENCY';bb=font.getbbox(t);xy=(640-(bb[0]+bb[2])/2,360-(bb[1]+bb[3])/2)\nfill=Image.new('L',im.size);ImageDraw.Draw(fill).text(xy,t,font=font,fill=255)\nstroke=Image.new('L',im.size);ImageDraw.Draw(stroke).text(xy,t,font=font,fill=255,stroke_width=3,stroke_fill=255)\nedge=ImageChops.subtract(stroke,fill)\nouter=Image.new('L',im.size);ImageDraw.Draw(outer).text(xy,t,font=font,fill=255,stroke_width=5,stroke_fill=255)\nouter=ImageChops.subtract(outer,stroke)\nfor mask,color,opacity in [(outer,(0,0,0),140),(fill,(255,220,40),115),(edge,(255,220,40),220)]:\n layer=Image.new('RGBA',im.size,color+(0,));layer.putalpha(mask.point(lambda a:round(a*opacity/255)));im=Image.alpha_composite(im,layer)\nim=im.convert('RGB');f=P/'EMERGENCY-C-r3-strong-1280x720.jpg';im.save(f,quality=95,subsampling=0)\nim.resize((320,180),Image.Resampling.LANCZOS).save(P/'EMERGENCY-C-r3-strong-phone-320x180.png')\nqc={'choice':'C','revision':3,'text':'EMERGENCY','fontSize':210,'previousFontSize':185,'sizeIncreasePercent':round((210/185-1)*100,1),'fillOpacityPercent':round(115/255*100,1),'headlineCenter':[640,360],'dimensions':[1280,720],'bytes':f.stat().st_size,'sha256':hashlib.sha256(f.read_bytes()).hexdigest(),'plateUnchanged':True,'status':'AWAITING_REVISED_THUMBNAIL_APPROVAL'}\n(P/'qc-C-r3-strong.json').write_text(json.dumps(qc,indent=2)+'\\n');print(json.dumps(qc))\n"
   }
 }
