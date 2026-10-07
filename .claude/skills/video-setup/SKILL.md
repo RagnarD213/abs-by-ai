@@ -148,8 +148,7 @@ It imports the Ad 5 `build_clean.py` for the studio looks and reuses assets, so 
   sheet** (set starts, rests, the CTA — the editor's .srt is often from an earlier cut); a how-to paragraph; a link to
   the related explainer video when one exists; the AI-image disclosure line when an AI goal image appears; subscribe
   CTA; 3–5 hashtags.
-- **Schedule:** 9 AM CT (14:00Z during CDT, 15:00Z after Nov 1) on a day with no other long-form. Check
-  `BLOTATO_QUEUE_PROGRESS.md` for the latest long-forms; recent pattern Sun / Wed. @abs.by.ai retired 2026-09-24; never queue it.
+- **Schedule:** Sunday at 9 AM America/Chicago only, one new long-form YouTube video per week. A revised replacement uses one slot. Inspect the live Blotato YouTube queue and recent releases, then append this video after the last queued long-form on the next free Sunday. Never use a weekday because Sundays are full. Schedule its Facebook, Instagram and TikTok copies on the same Sunday and read back every saved time. @abs.by.ai retired 2026-09-24; never queue it.
 
 ## Step 4: RETIRED (2026-10-01), no YouTube holding upload
 

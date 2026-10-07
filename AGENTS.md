@@ -146,6 +146,13 @@ Full rule: read `.claude/skills/_shared/VIDEO-RULES.md`.
 
 Full rule: read `.claude/skills/_shared/VIDEO-RULES.md`.
 
+## Long-form YouTube release cadence (Dan, 2026-10-07)
+
+- Release exactly one new organic long-form YouTube video per week, on Sunday at 9 AM America/Chicago through Blotato. Never release a long-form on another day or put two long-form releases on one Sunday. A revised replacement upload counts as that week's one release.
+- Before scheduling, inspect the live Blotato YouTube queue and recent releases, not just a local receipt. If a Sunday is occupied, append the video after the last queued long-form on the next free Sunday. Do not use a midweek slot to clear a backlog.
+- Keep Facebook, Instagram and TikTok releases of that long-form aligned with its YouTube Sunday slot. If a queued long-form is found on another day, move its whole platform set to the end of the Sunday queue before it publishes. Re-read every saved schedule after a move.
+- This rule binds Claude and Codex for setup, queue edits, handoffs and direct Blotato actions. The `/video-setup` skill and `scripts/blotato/longform_queue.py` enforce it.
+
 ## Thumbnails, covers and setup: one Claude handoff (Dan, 2026-10-01)
 
 - Claude can now generate Codex images on Dan's subscription. For a finished video, write **one Claude handoff** that makes

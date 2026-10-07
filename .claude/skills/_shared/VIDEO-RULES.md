@@ -453,6 +453,13 @@ something that we can publish."* Every point below is a standing rule for every 
   "upload it to YouTube and set it up on all other platforms in the Blotato queue" and the session did
   exactly that. `/ad-setup` positively permitted it at the time. Nothing malfunctioned — the rule did not exist.
 
+## One new long-form release each Sunday (Dan, 2026-10-07)
+
+- New organic long-form videos release on YouTube only on Sundays at 9 AM America/Chicago through Blotato, at most one per week. A revised replacement upload uses one Sunday slot. Shorts and unlisted ads have separate schedules.
+- Read the live Blotato YouTube queue and recent releases before selecting a slot. If the next Sunday already holds a long-form, append the new video after the last queued long-form on the next free Sunday. Never add a Wednesday or other midweek long-form to make room.
+- Schedule the video's Facebook, Instagram and TikTok copies for the same Sunday. If an existing long-form is queued midweek, move all its platform schedules to the end of the Sunday queue and verify the new times from a fresh pull.
+- This binds Claude and Codex, including handoffs and direct Blotato scheduling. `scripts/blotato/longform_queue.py` must refuse an off-Sunday or occupied Sunday YouTube slot.
+
 ## YouTube visibility — never upload Public (Dan, 2026-09-16)
 
 - **Never upload any video to YouTube as Public, and never use YouTube's native scheduling/publish-at path.** This applies to API uploads, Studio uploads, scripts and manual work. The upload-time visibility must always be non-public.
