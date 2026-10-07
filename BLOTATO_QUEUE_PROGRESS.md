@@ -1,6 +1,6 @@
 # Blotato IG + Facebook queue — progress
 
-Last updated 2026-10-03.
+Last updated 2026-10-07.
 
 ## Account state
 
@@ -11,7 +11,21 @@ Last updated 2026-10-03.
 - **@abs.by.ai (65632) RETIRED 2026-09-24:** farewell post https://www.instagram.com/p/DdsIKm8GPsv/ published; all 37 queued mirror posts deleted (queue 155 to 118); backup `scripts/blotato/absbyai_retire_backup_20260924.json`. Never queue it again; the queue scripts no longer build a mirror post.
 - **PERMANENT RULE (Dan, 2026-09-17): ADS ARE NEVER QUEUED HERE.** Blotato is organic-only. Every queue script
   imports `scripts/blotato/ad_guard.py`; audit with `python3 scripts/blotato/ad_guard.py --scan`. See the incident below.
-- **NEW PERMANENT RULE (Dan, 2026-09-16): Blotato owns future organic YouTube releases.** Upload organic videos to YouTube as Private and leave them Private; queue the release through connected YouTube account `46963`. Never upload Public or use YouTube native scheduling. Ads remain Unlisted and are not released publicly on YouTube. Existing native schedules are historical and must not be copied into new work; avoid double-posting anything already queued under the old process.
+- **CURRENT LONG-FORM RULE (Dan, 2026-10-07):** Blotato releases one organic long-form YouTube video at most each Sunday, 9 AM America/Chicago. No separate YouTube holding upload. Facebook, Instagram @danrosefit and TikTok follow no earlier than Monday at 9 AM, after the YouTube video is verified public. If YouTube fails to publish, move the Monday posts later. Ads remain Unlisted.
+
+## Current long-form platform timing (verified 2026-10-07)
+
+| Video | YouTube | Facebook, Instagram, TikTok |
+|---|---|---|
+| Stop Deadlifting | Sun Oct 11, 9 AM CDT | Mon Oct 12, 9 AM CDT |
+| Daily Salad | Sun Oct 18, 9 AM CDT | Mon Oct 19, 9 AM CDT |
+| Top 5 Zepbound Tips | Sun Oct 25, 9 AM CDT | Mon Oct 26, 9 AM CDT |
+| If I Had Belly Fat | Sun Nov 1, 9 AM CST | Mon Nov 2, 9 AM CST |
+| Oura Ring Review | Sun Nov 8, 9 AM CST | Mon Nov 9, 9 AM CST |
+| Alcohol and Abs | Sun Nov 15, 9 AM CST | Mon Nov 16, 9 AM CST |
+| The Stomach Vacuum | Sun Nov 22, 9 AM CST | Mon Nov 23, 9 AM CST |
+
+All 21 social schedule IDs were moved in place and read back at the Monday times. The YouTube schedule IDs stayed on Sunday. Entries below preserve their original setup history; this table gives the current dates.
 
 ## PARTLY DONE: Studio photo posts, 27 approved (2026-10-03)
 
