@@ -85,8 +85,6 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 # ACTIVE
 
-**BellyFatThumbnail/Codex/2026-10-07:** Awaiting pick.
-
 **WV01-B-Codex:REVIEW 2026-10-07.** [Opening](Handoffs/results-20261007-wv01-b-opening-r1.md). Dan:review.
 
 **RO-01 - NEEDS DAN 2026-10-07, Codex.** Four revised thumbnails ready. Next: Dan picks; file and schedule.
