@@ -1,5 +1,7 @@
 # RO-10 "Calories: The Reason You're Not Losing Weight" setup receipt (2026-10-02)
 
+**Current state (updated 2026-10-07):** The Oct 7 Blotato release was early. The resulting YouTube video `n_E94JrCKGg` is Private in Studio. Dan requested a tiny end graphic revision and a new Sunday release. Use `Handoffs/handoff-20261007-ro10-subtle-reedit-sunday-reupload.md`. The schedule and post-release tasks below record the original setup and must be applied to the replacement's new video ID after it releases. Do not publish the old ID or its article now. Hold SL-08 Shorts until the replacement is public.
+
 - **Classification:** organic. Closing words (8:31-8:38): "In the next video, I'm going to show you when calories don't matter for fat loss. Subscribe, and make sure you don't miss that next video." No tap/click-the-button CTA. `ad_guard.py --scan` CLEAN before and after the Blotato write.
 - **Master:** `claude edited long form content/10 - Calories The Reason You're Not Losing Weight/Calories The Reason You're Not Losing Weight | claude round 2 | 16x9 | RO-10.mp4`, 2,549,560,348 bytes, 8:38.25, SHA-256 `655c71882ea3e6baa1c71d661fdcd8465e94d972183f4969e09d2430787bb76e` (matches the handoff).
 - **Backups:** Extreme `/Volumes/Extreme/Claude Content Videos/Calories The Reason You're Not Losing Weight - RO-10/` (SHA-256 match); Google Drive `Claude Content Videos/Calories The Reason You're Not Losing Weight - RO-10` (master byte count 2,549,560,348 matches, anyone with the link): https://drive.google.com/open?id=1y5baSFJuk7VOjHbwg_jVT6YIixKCFnyn.
