@@ -19,15 +19,15 @@ Approved batch `output/studio-post-test-24-20260929` (27 posts, 51 images, six 5
 
 ## DONE: RO-02 "The Stomach Vacuum: The Best Ab Exercise For Belly Fat (How To Do It)" (2026-10-05)
 
-Wed Oct 28 2026, 14:00Z. FB `5211308`, IG @danrosefit `5211309`, TikTok `5211310`, YouTube `5211312`; keyword ABS; UTM `ro02-the-vacuum`. Dan picked thumbnail A. Freed 4 slots by deleting 4 FB studio fillers (Jan 29 to Feb 5 2027; backup `cover_backup/ro02_freed_slots_20261005.json`), so 18 FB studio placements now wait. Receipt `Docs/RO02_SETUP_RECEIPT_20261005.md`.
+Current slot Sun Nov 22 2026, 15:00Z (9 AM CST), moved and verified Oct 7 from Wed Oct 28. FB `5211308`, IG @danrosefit `5211309`, TikTok `5211310`, YouTube `5211312`; keyword ABS; UTM `ro02-the-vacuum`. Dan picked thumbnail A. Freed 4 slots by deleting 4 FB studio fillers (Jan 29 to Feb 5 2027; backup `cover_backup/ro02_freed_slots_20261005.json`), so 18 FB studio placements now wait. Receipt `Docs/RO02_SETUP_RECEIPT_20261005.md`.
 
 ## DONE: RO-13 "Can You Drink Alcohol And Still Have Abs? (My 6 Rules)" (2026-10-05)
 
-Source `claude edited long form content/11 - Can You Drink Alcohol And Still Have Abs/... claude round 2 ... RO-13.mp4` (SHA-256 `2296902b...51c0`). Blotato Wed Oct 21 2026 14:00Z (9 AM CDT): Facebook 5194483, Instagram @danrosefit 5194485, TikTok 5194486 (cover-first), YouTube 5194487 (public release, thumbnail FINAL = golden-beer studio option, AI flag on). Thumbnail A/B (FINAL vs B, AI Dan with a beer) is added in Studio on release day. Keyword FOOD, UTM `ro13-alcohol-and-abs`. Four Feb 2027 Facebook studio posts were removed to fit the 200 cap (backup in `Docs/RO13_BLOTATO_REMOVED_TAIL_POSTS_20261005.json`). Receipt `Docs/RO13_SETUP_RECEIPT_20261005.md`.
+Source `claude edited long form content/11 - Can You Drink Alcohol And Still Have Abs/... claude round 2 ... RO-13.mp4` (SHA-256 `2296902b...51c0`). Current Blotato slot Sun Nov 15 2026 15:00Z (9 AM CST), moved and verified Oct 7 from Wed Oct 21: Facebook 5194483, Instagram @danrosefit 5194485, TikTok 5194486 (cover-first), YouTube 5194487 (public release, thumbnail FINAL = golden-beer studio option, AI flag on). Thumbnail A/B (FINAL vs B, AI Dan with a beer) is added in Studio on release day. Keyword FOOD, UTM `ro13-alcohol-and-abs`. Four Feb 2027 Facebook studio posts were removed to fit the 200 cap (backup in `Docs/RO13_BLOTATO_REMOVED_TAIL_POSTS_20261005.json`). Receipt `Docs/RO13_SETUP_RECEIPT_20261005.md`.
 
 ## DONE: Video 4 "My Honest Oura Ring Review After 1.5 Years (The Good, Bad & Ugly)" (2026-10-02)
 
-Zeeshan's `Video 4 Rev 3.mp4` (MD5 `52642857...`, 19:47.5), filed in `Zeeshan Content Videos/my honest oura ring review - video 4/` + Extreme + Google Drive. Wed Oct 14 14:00Z (9 AM CDT): FB 5095439, IG @danrosefit 5095440, TikTok 5095441 (cover-first), YouTube 5095442 (public release by Blotato). Thumbnail A/B (AI ring macro vs AI night table): A on the Blotato target, B added in Studio after release. Keyword SLEEP, utm_content `oura-ring-review`, AI flags true. Receipt `Docs/OURA_SETUP_RECEIPT_20261002.md`.
+Zeeshan's `Video 4 Rev 3.mp4` (MD5 `52642857...`, 19:47.5), filed in `Zeeshan Content Videos/my honest oura ring review - video 4/` + Extreme + Google Drive. Current Blotato slot Sun Nov 8 2026 15:00Z (9 AM CST), moved and verified Oct 7 from Wed Oct 14: FB 5095439, IG @danrosefit 5095440, TikTok 5095441 (cover-first), YouTube 5095442 (public release by Blotato). Thumbnail A/B (AI ring macro vs AI night table): A on the Blotato target, B added in Studio after release. Keyword SLEEP, utm_content `oura-ring-review`, AI flags true. Receipt `Docs/OURA_SETUP_RECEIPT_20261002.md`.
 
 ## DONE: RO-10 "Calories: The Reason You're Not Losing Weight (8 Ways To Eat Less)" (2026-10-02)
 
