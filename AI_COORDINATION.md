@@ -85,7 +85,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 # ACTIVE
 
-**Belly Fat Emergency Thumbnail - ACTIVE 2026-10-07, Codex.** Next: three choices, Dan picks.
+**BellyFatThumbnail/Codex/2026-10-07:** Awaiting pick.
 
 **WV01-B-Codex:REVIEW 2026-10-07.** [Opening](Handoffs/results-20261007-wv01-b-opening-r1.md). Dan:review.
 
