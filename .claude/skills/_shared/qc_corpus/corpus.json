@@ -1,7 +1,7 @@
 {
  "_README": "THE STANDARD IS DAN'S WORDS, NOT OUR PARAPHRASE. Every entry quotes him verbatim. See README.md.",
  "version": 2,
- "updated": "2026-10-04",
+ "updated": "2026-10-07",
  "roots": {
   "repo": ".",
   "ssd": "/Volumes/Extreme/_edit_work"
@@ -2983,6 +2983,21 @@
    "must_pass": [],
    "must_trigger": [],
    "notes": "Scoped component creative approval, not full-film PASS. Exact locks: wv01-edit/round11/review/dan-review-locks.json. No gate thresholds changed."
+  },
+  {
+   "id": "ro01-r10-final-approved-20261007",
+   "date": "2026-10-07",
+   "root": "ssd",
+   "path": "ro01/revision10/full/RO01_MASTER_R10_REVIEW_1080p.mp4",
+   "sha256": "fa99ac5b8b7dfdd704d3256aa54c156acc842b54e77e3814e2f149579c7b631f",
+   "bytes": 802596301,
+   "verdict": "approved",
+   "dan": "All right this is looking good. This is finalized and approved.",
+   "scope": "Complete 16:9 RO-01 R10 film, with the old 0:07 chip removed, all 17 graphics revised, recorded introduction restored at 4:32, and matching SRT and chapters.",
+   "must_pass": [],
+   "must_trigger": [],
+   "measured": "Audio gate passes all 13 rows. General delivery gate reports three raw flags: terminal fade frames, declared picture cuts, and teaching graphics mistaken for burned captions; each was visually reviewed. See the exact-file QA report.",
+   "notes": "Final-film creative approval. Keep the general delivery gate's raw FAIL and its documented dispositions visible; no gate threshold was changed. QA: ro01/revision10/full/RO01_R10_QA_REPORT.md."
   },
   {
    "id": "ro17-hyperframes-proof-r1",
