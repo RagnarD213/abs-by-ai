@@ -30,12 +30,15 @@ A name with no file in `Docs/memory/` is private on purpose. Do not guess what i
 - **Never call Dan a marketer, a professional marketer or an ad agency owner.** Say AI coded his website or did his
   bookkeeping. (Dan, 2026-09-18.) Why: it makes him read as a marketer pitching, not a fitness expert. Older lines in
   skills and outlines that say "a dad running a successful ad agency" predate this and are not to be reused.
-- **He is not married. He has a girlfriend. He has one child, a daughter.** Never "my wife", "my kids" or "my son" in
-  his voice. A loose hook ("same business, same kids, same stress") is fine. (Dan, 2026-08-07.) Why: he killed an
-  outline over this error.
+- **He is not married. He has one child, a daughter.** Never "my wife", "my kids" or "my son" in his voice. A loose
+  hook ("same business, same kids, same stress") is fine. (Dan, 2026-08-07.) Why: he killed an outline over this error.
+  **On dating, say "abundant dating life" and nothing more specific; do not say he has a girlfriend.** (Dan, 2026-10-06.)
 - **Use his real facts and numbers only. Never invent a habit, a number, a story or a credential.** The facts on record
   are in `dan-personal-facts-for-scripts` and in each skill's own facts section. If a fact is missing, leave a marked
   gap for Dan, do not fill it. (Standing; restated by Dan 2026-09-21 when he corrected "6 am" to "8 am".)
+- **Any fact Dan fills into a `[DAN: ...]` gap is saved to `Docs/memory/dan-personal-facts-for-scripts.md` the same
+  day**, with its label ("Dan typed") and the date. (Dan, 2026-10-06.) Why: a fact he supplies once should never have to
+  be asked for again, and a cloud session only knows what is in that file.
 - **Before photo: 38 years old, about 200 lb. Abs back at 40.** About two years apart. (Dan, 2026-08-07.)
 
 ## 3. Sound like Dan, not like an assistant
