@@ -1,70 +1,7 @@
 {
-"generated": "2026-10-06T11:24:38+00:00",
+"generated": "2026-10-07T11:24:57+00:00",
 "cap": 200,
 "scheduled": [
-{
-"id": "5019222",
-"platform": "facebook",
-"when": "2026-10-06T14:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "Do this before a photo shoot or a pool party.",
-"batch": ""
-},
-{
-"id": "5019223",
-"platform": "instagram",
-"when": "2026-10-06T14:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "Do this before a photo shoot or a pool party.",
-"batch": ""
-},
-{
-"id": "5019224",
-"platform": "tiktok",
-"when": "2026-10-06T14:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Do this before a photo shoot or a pool party.",
-"batch": ""
-},
-{
-"id": "5019225",
-"platform": "youtube",
-"when": "2026-10-06T14:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "The 2 minute arm pump I do before a photo shoot or a pool party. All you need is a pair of dumbbells.",
-"batch": ""
-},
-{
-"id": "3876762",
-"platform": "facebook",
-"when": "2026-10-06T22:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "Try to knee yourself in the face.",
-"batch": ""
-},
-{
-"id": "3876763",
-"platform": "instagram",
-"when": "2026-10-06T22:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "Try to knee yourself in the face.",
-"batch": ""
-},
-{
-"id": "4553194",
-"platform": "tiktok",
-"when": "2026-10-06T22:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Try to knee yourself in the face.",
-"batch": ""
-},
 {
 "id": "5090245",
 "platform": "facebook",
