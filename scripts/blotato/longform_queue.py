@@ -33,11 +33,13 @@ carries utm_content=<slug>. Refuses on a slot clash or if the queue would pass t
 from __future__ import annotations
 
 import argparse
+from datetime import datetime
 import json
 import os
 import sys
 import urllib.parse
 import urllib.request
+from zoneinfo import ZoneInfo
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from ad_guard import AdGuardError, assert_organic  # noqa: E402
@@ -46,6 +48,28 @@ from danrosefit_migration import api_key, call, fetch_schedules  # noqa: E402
 QUEUE_CAP = 200
 FACEBOOK, FB_PAGE = "47105", "1294282227094660"
 IG_MAIN, IG_MIRROR, TIKTOK, YOUTUBE = "67203", "65632", "58181", "46963"
+CHICAGO = ZoneInfo("America/Chicago")
+
+
+def check_longform_sunday(when: str, slug: str, items: list) -> None:
+    """Refuse a weekday, wrong time, or second long-form in a Sunday slot."""
+    try:
+        local = datetime.fromisoformat(when.replace("Z", "+00:00")).astimezone(CHICAGO)
+    except ValueError as exc:
+        raise ValueError(f"invalid main release time: {when}") from exc
+    if local.weekday() != 6 or (local.hour, local.minute, local.second) != (9, 0, 0):
+        raise ValueError(f"long-form release must be Sunday at 9 AM Chicago time: {when}")
+    for item in items:
+        draft = item.get("draft") or {}
+        target = draft.get("target") or {}
+        if target.get("targetType") != "youtube":
+            continue
+        body = (draft.get("content") or {}).get("text") or ""
+        if "utm_campaign=longform" not in body:
+            continue
+        existing = datetime.fromisoformat(item["scheduledAt"].replace("Z", "+00:00")).astimezone(CHICAGO)
+        if existing.date() == local.date() and f"utm_content={slug}" not in body:
+            raise ValueError(f"Sunday {local.date()} already has long-form YouTube schedule {item['id']}")
 
 
 def posts(v: dict) -> list:
@@ -146,6 +170,11 @@ def main() -> int:
 
     key = api_key()
     items = fetch_schedules(key)
+    try:
+        check_longform_sunday(v["main"], v["slug"], items)
+    except ValueError as exc:
+        print(f"REFUSING - {exc}")
+        return 1
     marker = f"utm_content={v['slug']}"
 
     plan, bad = [], 0
