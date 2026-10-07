@@ -16,6 +16,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
+| [handoff-20261007-wv01-version-b-intro-first-cut.md](handoff-20261007-wv01-version-b-intro-first-cut.md) | **Ready 2026-10-07. Codex GPT-6 Astra / High.** Cut the substantial WV-01 Version B opening from C1699, join to approved A at the motivation section, and show the opening for review. Complete B and the six callbacks follow later. |
 | [handoff-20261007-ro10-subtle-reedit-sunday-reupload.md](handoff-20261007-ro10-subtle-reedit-sunday-reupload.md) | **Ready 2026-10-07. Codex GPT-6 Sol / High.** Add one small signpost in RO-10's final five seconds, verify a distinct R3 file, then append the replacement to the Sunday-only long-form Blotato queue. Original YouTube video `n_E94JrCKGg` is Private. |
 | [handoff-20261007-ro01-thumbnails-and-video-setup.md](handoff-20261007-ro01-thumbnails-and-video-setup.md) | **Ready 2026-10-07. Claude Opus 5.5 / Medium.** RO-01 R10 16:9 film approved and Edit Queue finalized. One setup task makes five thumbnails with the Codex subscription, stops for Dan's pick, then files and schedules the organic video through Blotato. |
 | [handoff-20261006-1017-shoot-outlines.md](handoff-20261006-1017-shoot-outlines.md) | **Ready 2026-10-06. Claude Opus 5.5 / High, cloud or local.** Write ~40 outlines Dan picked (long-form, workouts, reactions, shorts) into the 10/17 SixPackAbs.com shoot doc at his marker. Interview Dan first. Includes the Clavicular reaction Shorts series. |
