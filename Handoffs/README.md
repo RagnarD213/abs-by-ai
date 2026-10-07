@@ -11,6 +11,9 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Upwork profile and portfolio](handoff-20261007-upwork-profile-and-portfolio.md): interview Dan, verify experience and assets, build and publish the approved profile. Opus 5.5 high.
+- [Upwork jobs and proposals](handoff-20261007-upwork-job-applications.md): interview for criteria and budgets, decide promotion, prepare custom proposals/samples, submit approved batches, assess Grok Bot scouting. GPT-6.1 Sol high.
+
 | Document | Fire when |
 |---|---|
 | [handoff-20261006-1017-shoot-outlines.md](handoff-20261006-1017-shoot-outlines.md) | **Ready 2026-10-06. Claude Opus 5.5 / High, cloud or local.** Write ~40 outlines Dan picked (long-form, workouts, reactions, shorts) into the 10/17 SixPackAbs.com shoot doc at his marker. Interview Dan first. Includes the Clavicular reaction Shorts series. |
