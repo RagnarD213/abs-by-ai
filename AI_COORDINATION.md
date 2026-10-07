@@ -87,7 +87,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **RO-01 - NEEDS DAN 2026-10-07, Codex.** Five thumbnails ready. Next: Dan picks; file and schedule. Detail: `Handoffs/handoff-20261007-ro01-thumbnails-and-video-setup.md`.
 
-**Video Views - CHECK 2026-10-07, Codex.** `24321429584`: CPV $2 to $0.25; $5/day unchanged. Next Oct 8: verify spend; if zero, escalate.
+**Video Views - CHECK 2026-10-07, Codex.** `24321429584`: $2 CPV restored; $5/day, zero spend. URLs fixed, review pending. Oct 8: check spend.
 
 
 
