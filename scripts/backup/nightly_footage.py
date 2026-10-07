@@ -311,6 +311,50 @@ def process_shoot(shoot, config, state, deadline, dry_run):
     say(f"{name}: raw files removed from Extreme after both verified copies")
 
 
+def copy_only_to_seagate(state, deadline, dry_run):
+    """Copy every shoot's raw files to Seagate without removing source files."""
+    if not dry_run:
+        seagate_id = archive_id()
+        if not seagate_id:
+            raise RuntimeError("Seagate Expansion is not mounted")
+        if state.get("archive_id") and state["archive_id"] != seagate_id:
+            raise RuntimeError("a different disk is mounted as Expansion")
+        state["archive_id"] = seagate_id
+        save_state(state)
+
+    errors = 0
+    for shoot, config in eligible_shoots():
+        try:
+            files = raw_files(shoot, config)
+            if not files:
+                continue
+            snapshot = inventory(shoot, files)
+            name = shoot.name
+            say(f"{name}: {snapshot['files']} raw files, {snapshot['bytes'] / 1e9:.1f} GB")
+            if dry_run:
+                continue
+            if time.time() - snapshot["newest"] < 1800:
+                say(f"{name}: waiting until newest raw file has been unchanged for 30 minutes")
+                continue
+            destination = str(ARCHIVE_ROOT / name)
+            rclone_transfer(shoot, destination, files, deadline)
+            if inventory(shoot, raw_files(shoot, config))["fingerprint"] != snapshot["fingerprint"]:
+                raise RuntimeError("source changed during verification; will retry")
+            record = state["shoots"].setdefault(name, {})
+            if record.get("fingerprint") != snapshot["fingerprint"]:
+                record.clear()
+            record["fingerprint"] = snapshot["fingerprint"]
+            record["seagate_verified"] = datetime.now(TZ).isoformat()
+            save_state(state)
+            say(f"{name}: Seagate checksum verified; all Extreme originals retained")
+        except (RuntimeError, subprocess.TimeoutExpired, OSError) as exc:
+            errors += 1
+            say(f"ERROR {shoot.name}: {exc}")
+            if datetime.now(TZ) >= deadline - timedelta(minutes=2):
+                break
+    return 1 if errors else 0
+
+
 def install():
     LOG_DIR.mkdir(parents=True, exist_ok=True)
     PLIST.parent.mkdir(parents=True, exist_ok=True)
@@ -338,6 +382,7 @@ def main():
     parser.add_argument("--once", action="store_true")
     parser.add_argument("--install", action="store_true")
     parser.add_argument("--status", action="store_true")
+    parser.add_argument("--copy-only-seagate", action="store_true")
     args = parser.parse_args()
     if args.install:
         install()
@@ -358,6 +403,8 @@ def main():
         except BlockingIOError:
             return 0
         state = load_state()
+        if args.copy_only_seagate:
+            return copy_only_to_seagate(state, deadline, args.dry_run)
         errors = 0
         for shoot, config in eligible_shoots():
             try:

@@ -46,7 +46,15 @@ Commands from the project root:
 python3 scripts/backup/nightly_footage.py --dry-run
 python3 scripts/backup/nightly_footage.py --status
 python3 scripts/backup/nightly_footage.py --install
+python3 scripts/backup/nightly_footage.py --copy-only-seagate
 ```
+
+`--copy-only-seagate` copies and checksum-checks raw files from every shoot
+folder. It never removes files from Extreme, even when a shoot has a
+`READY_TO_ARCHIVE` marker. It may run between 8 pm and 8 am Chicago time. The
+`seagate-offload-paused` flag remains in place and continues to prevent the
+normal offload path from deleting source footage. Before any future source
+removal, that path rechecks the Seagate and Google Drive copies against Extreme.
 
 The schedule is a Mac LaunchAgent named `com.absbyai.nightly-footage`. Logs are
 under `~/Library/Logs/absbyai-footage-offload/`. To stop it, run
