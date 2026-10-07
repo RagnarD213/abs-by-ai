@@ -87,7 +87,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **WV01-B-Codex:REVIEW 2026-10-07.** [Opening](Handoffs/results-20261007-wv01-b-opening-r1.md). Dan:review.
 
-**RO-01 - NEEDS DAN 2026-10-07, Codex.** Four revised thumbnails ready. Next: Dan picks; file and schedule.
+**RO-01 - HANDOFF 2026-10-07, Codex.** Dan approved round 3 B1. Next: run `Handoffs/handoff-20261007-ro01-approved-b1-install-and-setup.md`.
 
 **Video Views - HANDOFF 2026-10-07, Codex.** `24321429584`: $2 CPV, $5/day, zero spend. Thumbnail: `Handoffs/handoff-20261007-belly-fat-emergency-thumbnail-replacement.md`. Next: Oct 8 spend check.
 
