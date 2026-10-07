@@ -85,9 +85,11 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 # ACTIVE
 
+**WV01-B-Codex:ACTIVE 2026-10-07.**
+
 **RO-01 - NEEDS DAN 2026-10-07, Codex.** Four revised thumbnails ready. Next: Dan picks; file and schedule.
 
-**Video Views - CHECK 2026-10-07, Codex.** `24321429584`: $2 CPV restored; $5/day, zero spend. URLs fixed, review pending. Oct 8: check spend.
+**Video Views - HANDOFF 2026-10-07, Codex.** `24321429584`: $2 CPV, $5/day, zero spend. Thumbnail: `Handoffs/handoff-20261007-belly-fat-emergency-thumbnail-replacement.md`. Next: Oct 8 spend check.
 
 
 
