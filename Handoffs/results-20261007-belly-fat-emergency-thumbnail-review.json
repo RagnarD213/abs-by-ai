@@ -1,0 +1,111 @@
+{
+  "category": "CONTENT",
+  "sidebarName": "Belly Fat Emergency LFC Thumbnail",
+  "videoId": "v2R4QpnURqA",
+  "status": "AWAITING_DAN_PICK",
+  "createdUTC": "2026-10-07T21:41:50.769071+00:00",
+  "generation": "Codex subscription via codex-image.sh",
+  "model": "gpt-6.1-sol",
+  "effort": "high",
+  "generationCount": 3,
+  "codexTokens": {
+    "A": 40858,
+    "B": 23496,
+    "C": 20794
+  },
+  "headline": "EMERGENCY",
+  "textCompositedLocally": true,
+  "finals": {
+    "A": "EMERGENCY-A-1280x720.jpg",
+    "B": "EMERGENCY-B-1280x720.jpg",
+    "C": "EMERGENCY-C-1280x720.jpg"
+  },
+  "fullReview": "REVIEW-full-with-sources.jpg",
+  "phoneReview": "REVIEW-phone-feed.png",
+  "baseline": "baseline.json",
+  "rollbackFile": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/Belly Fat Emergency/belly-fat-emergency_2-pool-photo-172-FINAL.jpg",
+  "rollbackSHA256": "cfa707224a43c8fa3bc431c3bfac3e19622eaf74723c813c7fd68fb03e17dbb9",
+  "nextAction": "Wait for Dan to pick A, B or C. Then install only the selected image using YouTube Studio, save and visually verify Studio and public watch page. Preserve rollback. No video upload or Google Ads changes.",
+  "qc": {
+    "A": {
+      "title": "Red portrait",
+      "source": "studio-blue-249",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "bytes": 191571,
+      "sha256": "0e08ec2dc4bc565c33a972c8dc2f665a60348c3deca234a7dc8f347caabaffde",
+      "headlineBounds": [
+        204,
+        277,
+        1076,
+        443
+      ],
+      "headlineVerticalCenter": 360,
+      "fontSize": 185
+    },
+    "B": {
+      "title": "Pool scene",
+      "source": "photo-221",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "bytes": 432284,
+      "sha256": "fb23e4e3535849f91ff35ec14d1b747256fb42798e4f370581d0f1ffe007f6a0",
+      "headlineBounds": [
+        204,
+        277,
+        1076,
+        443
+      ],
+      "headlineVerticalCenter": 360,
+      "fontSize": 185
+    },
+    "C": {
+      "title": "Studio alert",
+      "source": "studio-white-31",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "bytes": 201926,
+      "sha256": "c7601098b95174418d9d4f95a69f0de5ae274bcdde75524c97ac6ae5f8efef8a",
+      "headlineBounds": [
+        204,
+        277,
+        1076,
+        443
+      ],
+      "headlineVerticalCenter": 360,
+      "fontSize": 185
+    }
+  },
+  "baselineData": {
+    "videoId": "v2R4QpnURqA",
+    "checkedAt": "2026-10-07T21:39:41.459866+00:00",
+    "period": "Oct 4, 2026 through Oct 7, 2026, since published",
+    "displayedImpressions": "4.3K",
+    "displayedCTR": "1.5%",
+    "views": 301,
+    "trafficMixPercent": {
+      "browse": 80.1,
+      "suggested": 14.6,
+      "channel": 2.0,
+      "search": 1.0,
+      "directUnknown": 0.7,
+      "other": 1.7
+    },
+    "funnelProcessingPeriod": "Oct 4 through Oct 6",
+    "funnelImpressions": "3.9K",
+    "funnelCTR": "1.6%",
+    "rollbackAsset": "../belly-fat-emergency_2-pool-photo-172-FINAL.jpg",
+    "status": "Three choices generating, awaiting Dan pick before YouTube change"
+  },
+  "prompts": {
+    "A": "Create one photorealistic landscape 16:9 YouTube thumbnail image plate. Use the attached real photograph of Dan as the identity and pose reference. The user is Dan and explicitly requests this AI body modification of himself. Preserve his recognizable real face, exact hairstyle, age, Asian ethnicity, skin tone, facial proportions and chain necklace as closely as possible. Change his torso to show substantial believable belly fat: a large soft rounded abdomen, thick waist and love handles, a natural lower belly that hangs slightly over the waistband, no visible six pack or defined abs. His arms can retain some muscle but the chest should look naturally softer. Realistic overweight human anatomy, realistic skin texture, coherent lighting. Do not pinch, grab or touch the belly. No second person, no split screen. NO TEXT, NO LETTERS, NO LOGOS, no watermark. Text will be added locally later. Frame his entire head and hair, shoulders, arms and torso through the waistband. Subject centered horizontally, top of hair around 6 percent of image height, bottom of chin near 33 percent, belly from 58 to 91 percent, waistband near 94 percent. Body broad and large enough to read on a phone. Leave the mid-chest at 50 percent image height available for a headline to cross later while the belly below remains clearly visible. Output exactly one image.\nKeep the frontal hands-on-hips pose from the reference, both hands rest only on the sides of the shorts. Use a simple rich dark crimson studio background with a brighter red glow behind his silhouette. Bold clean direct portrait, realistic commercial photography, clear skin and sharp face, slight shadow separation. Keep the green shorts waistband at the bottom edge. His expression remains close to the source.\n",
+    "B": "Create one photorealistic landscape 16:9 YouTube thumbnail image plate. Use the attached real photograph of Dan as the identity and pose reference. The user is Dan and explicitly requests this AI body modification of himself. Preserve his recognizable real face, exact hairstyle, age, Asian ethnicity, skin tone, facial proportions and chain necklace as closely as possible. Change his torso to show substantial believable belly fat: a large soft rounded abdomen, thick waist and love handles, a natural lower belly that hangs slightly over the waistband, no visible six pack or defined abs. His arms can retain some muscle but the chest should look naturally softer. Realistic overweight human anatomy, realistic skin texture, coherent lighting. Do not pinch, grab or touch the belly. No second person, no split screen. NO TEXT, NO LETTERS, NO LOGOS, no watermark. Text will be added locally later. Frame his entire head and hair, shoulders, arms and torso through the waistband. Subject centered horizontally, top of hair around 6 percent of image height, bottom of chin near 33 percent, belly from 58 to 91 percent, waistband near 94 percent. Body broad and large enough to read on a phone. Leave the mid-chest at 50 percent image height available for a headline to cross later while the belly below remains clearly visible. Output exactly one image.\nKeep the relaxed tilted-head poolside pose from the reference, arms resting at his sides, hands near his shorts. Expand the authentic outdoor pool setting into a wide landscape, pool blue water, stone edge, green trees and black fence. Natural bright outdoor photo with softly defocused background, warm skin, beautiful contrast. Keep dark normal shorts waistband visible. No briefs. Face stays recognizable, belly significantly overweight.\n",
+    "C": "Create one photorealistic landscape 16:9 YouTube thumbnail image plate. Use the attached real photograph of Dan as the identity and pose reference. The user is Dan and explicitly requests this AI body modification of himself. Preserve his recognizable real face, exact hairstyle, age, Asian ethnicity, skin tone, facial proportions and chain necklace as closely as possible. Change his torso to show substantial believable belly fat: a large soft rounded abdomen, thick waist and love handles, a natural lower belly that hangs slightly over the waistband, no visible six pack or defined abs. His arms can retain some muscle but the chest should look naturally softer. Realistic overweight human anatomy, realistic skin texture, coherent lighting. Do not pinch, grab or touch the belly. No second person, no split screen. NO TEXT, NO LETTERS, NO LOGOS, no watermark. Text will be added locally later. Frame his entire head and hair, shoulders, arms and torso through the waistband. Subject centered horizontally, top of hair around 6 percent of image height, bottom of chin near 33 percent, belly from 58 to 91 percent, waistband near 94 percent. Body broad and large enough to read on a phone. Leave the mid-chest at 50 percent image height available for a headline to cross later while the belly below remains clearly visible. Output exactly one image.\nKeep the three-quarter body pose and serious expression from the reference, one hand resting on his hip behind the side of the torso and other arm down. Wide dark charcoal studio with dramatic amber side lighting from the left and a subtle cool rim from the right. A strong three-quarter silhouette makes the substantial protruding belly visible in profile as well as the broad soft front. Natural light blue jeans waistband at the bottom. Realistic photographic warning mood, no props, sharp recognizable face.\n"
+  }
+}
