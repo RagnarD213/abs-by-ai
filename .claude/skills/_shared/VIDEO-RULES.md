@@ -457,7 +457,8 @@ something that we can publish."* Every point below is a standing rule for every 
 
 - New organic long-form videos release on YouTube only on Sundays at 9 AM America/Chicago through Blotato, at most one per week. A revised replacement upload uses one Sunday slot. Shorts and unlisted ads have separate schedules.
 - Read the live Blotato YouTube queue and recent releases before selecting a slot. If the next Sunday already holds a long-form, append the new video after the last queued long-form on the next free Sunday. Never add a Wednesday or other midweek long-form to make room.
-- Schedule the video's Facebook, Instagram and TikTok copies for the same Sunday. If an existing long-form is queued midweek, move all its platform schedules to the end of the Sunday queue and verify the new times from a fresh pull.
+- YouTube releases first. Schedule the long-form's Facebook, Instagram and TikTok copies no earlier than Monday at 9 AM America/Chicago, 24 hours after the Sunday YouTube slot. Do not release all platforms together. Verify the YouTube video is actually public before the other posts go out. If the YouTube release fails or is delayed, postpone the other posts until after it is public.
+- If a long-form is queued midweek, move YouTube to the end of the Sunday queue and its other platform schedules to the following Monday. Verify every saved time from a fresh pull.
 - This binds Claude and Codex, including handoffs and direct Blotato scheduling. `scripts/blotato/longform_queue.py` must refuse an off-Sunday or occupied Sunday YouTube slot.
 
 ## YouTube visibility — never upload Public (Dan, 2026-09-16)

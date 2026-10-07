@@ -150,7 +150,8 @@ Full rule: read `.claude/skills/_shared/VIDEO-RULES.md`.
 
 - Release new organic long-form YouTube videos only on Sunday at 9 AM America/Chicago through Blotato, at most one per week. Never release a long-form on another day or put two long-form releases on one Sunday. A revised replacement upload counts as that week's one release.
 - Before scheduling, inspect the live Blotato YouTube queue and recent releases, not just a local receipt. If a Sunday is occupied, append the video after the last queued long-form on the next free Sunday. Do not use a midweek slot to clear a backlog.
-- Keep Facebook, Instagram and TikTok releases of that long-form aligned with its YouTube Sunday slot. If a queued long-form is found on another day, move its whole platform set to the end of the Sunday queue before it publishes. Re-read every saved schedule after a move.
+- YouTube goes first. Schedule that long-form's Facebook, Instagram and TikTok copies no earlier than Monday at 9 AM America/Chicago, 24 hours after its Sunday YouTube slot. Never publish them at the same time as YouTube. Verify the YouTube video is actually public before the other platforms release; if it is not, postpone those posts until after the YouTube release succeeds.
+- If a queued long-form is found on another day, move its YouTube release to the end of the Sunday queue and its other platform posts to the following Monday. Re-read every saved schedule after a move.
 - This rule binds Claude and Codex for setup, queue edits, handoffs and direct Blotato actions. The `/video-setup` skill and `scripts/blotato/longform_queue.py` enforce it.
 
 ## Thumbnails, covers and setup: one Claude handoff (Dan, 2026-10-01)
