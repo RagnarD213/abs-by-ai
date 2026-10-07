@@ -1,0 +1,33 @@
+{
+  "category": "CONTENT",
+  "task": "Belly Fat Emergency LFC Setup",
+  "videoId": "v2R4QpnURqA",
+  "videoUrl": "https://www.youtube.com/watch?v=v2R4QpnURqA",
+  "installedAtUTC": "2026-10-07T23:54:01.062Z",
+  "installedAtChicago": "10/7/2026, 6:54:01 PM",
+  "installedFile": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/Belly Fat Emergency/_replacement-20261007/EMERGENCY-C-r4-wide-1280x720.jpg",
+  "sha256": "cdd813ca044a694f66ef33e7842e17aea7ed95c3f5cb365161bc5910d28c315d",
+  "method": "YouTube Studio Thumbnail Options > Change > Save",
+  "oldThumbnailPreserved": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/Belly Fat Emergency/belly-fat-emergency_2-pool-photo-172-FINAL.jpg",
+  "oldSha256": "cfa707224a43c8fa3bc431c3bfac3e19622eaf74723c813c7fd68fb03e17dbb9",
+  "baseline": {
+    "dateRange": "October 4, 2026 through installation on October 7, 2026",
+    "impressionsDisplayed": "4.3K",
+    "ctr": "1.6%",
+    "views": 306,
+    "trafficMix": {
+      "browse": "80.4%",
+      "suggested": "14.4%",
+      "channelPages": "2.0%",
+      "search": "1.0%",
+      "directOrUnknown": "0.7%",
+      "others": "1.6%"
+    }
+  },
+  "studioVerified": true,
+  "publicVerified": false,
+  "status": "Installed, public tile propagation pending",
+  "testResults": "Single uploaded thumbnail control; no completed thumbnail test results displayed.",
+  "settings": "Only thumbnail changed. Title, description, visibility, video and Google Ads settings left unchanged.",
+  "evidenceDirectory": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Handoffs/evidence-20261007-belly-fat-emergency-thumbnail-install"
+}

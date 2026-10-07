@@ -54,3 +54,7 @@ This supersedes the installation portion of `Handoffs/handoff-20261007-belly-fat
 ## Ready-to-paste starter prompt
 
 CONTENT. Name this task `Belly Fat Emergency LFC Setup`. Read `Handoffs/handoff-20261007-belly-fat-emergency-approved-thumbnail-install.md`. Install the approved Studio Alert revision 4 thumbnail on existing YouTube video `v2R4QpnURqA` through YouTube Studio, then verify the exact design in Studio and on the public YouTube page. Dan approved the final image; no further approval or generation is needed. Preserve the old thumbnail, save the installation receipt and screenshots, and leave the video and Google Ads settings unchanged.
+
+## Installation status, October 7, 2026
+
+Approved revision 4 installed through YouTube Studio. Saved Studio design and full-size YouTube readback verified. Public channel tile still displays the cached old image, so public verification remains open. Receipt: `Handoffs/results-20261007-belly-fat-emergency-thumbnail-install.json`. Old thumbnail preserved. Video and Google Ads settings unchanged.
