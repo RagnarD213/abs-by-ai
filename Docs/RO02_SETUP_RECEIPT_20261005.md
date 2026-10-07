@@ -2,6 +2,8 @@
 
 **Current release slot (updated 2026-10-07): Sunday Nov 22, 2026 at 9 AM CST (15:00Z).** All four original Blotato schedule IDs below were moved from Wednesday Oct 28 and read back at the new time. The original setup date below is historical. Do the post-release captions and article steps on Nov 22. Do not release SL-11 Shorts before their parent video.
 
+**YouTube first:** Facebook, Instagram and TikTok moved again to Mon Nov 23 at 9 AM CST. Confirm the YouTube video is public before those social posts release. The Sunday time above now applies to YouTube only.
+
 - **Classification:** organic LFC. Closing words: "So go to AbsByAI.com, generate that picture of yourself with abs, and take the first step to getting in shape. Thank you for watching guys and I'll see you in the next video." No tap-the-button CTA. `ad_guard.py --scan` CLEAN before and after the Blotato write.
 - **Master:** `claude edited long form content/12 - The Vacuum The Best Ab Exercise For Belly Fat/The Vacuum The Best Ab Exercise For Belly Fat | claude round 3 | 16x9 | RO-02.mp4`, 702,148,333 bytes, 11:46.6, SHA-256 `24d71e04f1d952c3809b82e25c10f388fe722c12f7258d9c7cd1cb24d874996d` (matches the handoff and the Extreme copy).
 - **Backups:** Extreme `/Volumes/Extreme/Claude Content Videos/The Vacuum - RO-02/` (master, .srt, chapters; SHA match); Google Drive `Claude Content Videos/The Vacuum - RO-02`, https://drive.google.com/open?id=1qsUYiNmJZrD1U4gKspjpekdxldYeLAkh (anyone with the link; master 702,148,333 bytes confirmed).

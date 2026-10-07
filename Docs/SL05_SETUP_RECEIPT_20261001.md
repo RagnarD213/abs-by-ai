@@ -1,5 +1,7 @@
 # SL-05 Stop Deadlifting shorts: setup receipt (2026-10-01)
 
+**Parent timing (updated 2026-10-07):** Parent long-form YouTube release remains Sun Oct 11 at 9 AM CDT. Its Facebook, Instagram and TikTok posts moved to Mon Oct 12 at 9 AM CDT, after YouTube. Confirm the parent YouTube video is public before those social posts release.
+
 Handoff `Handoffs/handoff-20261001-sl05-shorts-video-setup.md`, run by Claude Opus 5.5 on Dan's instruction.
 
 ## Checks before any write

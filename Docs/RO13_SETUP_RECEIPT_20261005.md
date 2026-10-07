@@ -2,6 +2,8 @@
 
 **Current release slot (updated 2026-10-07): Sunday Nov 15, 2026 at 9 AM CST (15:00Z).** All four original Blotato schedule IDs below were moved from Wednesday Oct 21 and read back at the new time. The original setup date below is historical. Do the post-release thumbnail, captions and article steps on Nov 15. Do not release SL-10 Shorts before their parent video.
 
+**YouTube first:** Facebook, Instagram and TikTok moved again to Mon Nov 16 at 9 AM CST. Confirm the YouTube video is public before those social posts release. The Sunday time above now applies to YouTube only.
+
 - **Classification:** organic content long-form (LFC). Closing words: "Thank you for watching guys. If today's video helped you subscribe to the channel to make sure you don't miss any of my videos." No tap/click-the-button CTA. `ad_guard.py --scan` CLEAN before and after the Blotato write.
 - **Master:** `claude edited long form content/11 - Can You Drink Alcohol And Still Have Abs/Can You Drink Alcohol And Still Have Abs | claude round 2 | 16x9 | RO-13.mp4`, 1,861,405,445 bytes, 7:10.63, SHA-256 `2296902bf3667c6c6bd30255a4f3155988ddb3a4f38bf5a95ad5d985f10751c0` (matches the handoff; re-hashed).
 - **Backups:** Extreme `/Volumes/Extreme/Claude Content Videos/Can You Drink Alcohol And Still Have Abs - RO-13/` (master SHA-256 match, plus .srt and chapters); Google Drive `Claude Content Videos/Can You Drink Alcohol And Still Have Abs - RO-13` (link in the chat message).

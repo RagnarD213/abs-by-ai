@@ -1,5 +1,7 @@
 # RO-05 "How I Make My Daily Salad" setup receipt (2026-09-30)
 
+**Current platform timing (updated 2026-10-07):** YouTube stays Sun Oct 18 at 9 AM CDT. Facebook, Instagram and TikTok moved to Mon Oct 19 at 9 AM CDT, after YouTube. Confirm the YouTube video is public before those social posts release. Original same-day setup details below are historical.
+
 - **Classification:** organic. Closing words (14:44-14:53): "go to AbsByAI.com. Generate that image of your future self and get that nutrition plan to make it real. Thank you for watching guys and I'll see you in the next video." No tap/click-the-button CTA. `ad_guard.py --scan` CLEAN before and after the Blotato write.
 - **Master:** `claude edited long form content/08 - How I Make My Daily Salad (Fable recut)/How I Make My Daily Salad | claude round 4 | 16x9 | RO-05.mp4`, SHA-256 `23fdcb0c86469cb7e7fcd6807e0b5caf17dc40c80c404d2ada7863a84b11378e` (matches the handoff).
 - **Backups:** Extreme `/Volumes/Extreme/Claude Content Videos/How I Make My Daily Salad - RO-05/` (SHA-256 match); Google Drive `Claude Content Videos/How I Make My Daily Salad - RO-05` (byte count match), https://drive.google.com/open?id=1QNZ2bk-z63l_TdzqpmXlPxnNz-SsLbjD

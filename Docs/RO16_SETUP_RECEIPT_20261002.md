@@ -1,5 +1,7 @@
 # RO-16 "If I Had Belly Fat, Here's How I'd Lose It In 90 Days" setup receipt (2026-10-02)
 
+**Current platform timing (updated 2026-10-07):** YouTube stays Sun Nov 1 at 9 AM CST. Facebook, Instagram and TikTok moved to Mon Nov 2 at 9 AM CST, after YouTube. Confirm the YouTube video is public before those social posts release. Original same-day setup details below are historical.
+
 - **Classification:** organic. Closing words: "If you got something out of this video, subscribe to the channel, and I'll see you in the next one." No tap/click-the-button CTA. `ad_guard.py --scan` CLEAN before and after the Blotato write.
 - **Master:** `claude edited long form content/09 - If I Had Belly Fat, Here's How I'd Lose It In 90 Days/If I Had Belly Fat, Here's How I'd Lose It In 90 Days | claude round 3 | 16x9 | RO-16.mp4`, 3,986,257,903 bytes, 12:09.33, SHA-256 `c535ab4cfe881fc95796c9f5a191535c87aa2d2bb61d3588a4f850da02643b09` (matches the handoff).
 - **Backups:** Extreme `/Volumes/Extreme/Claude Content Videos/If I Had Belly Fat - RO-16/` (master SHA-256 match, plus the .srt); Google Drive `Claude Content Videos/If I Had Belly Fat - RO-16`, https://drive.google.com/open?id=1XMLlis1pS0UkoH6AsKg0m-6LiQRvWR1T (anyone with the link).

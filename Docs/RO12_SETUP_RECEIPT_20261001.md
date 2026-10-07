@@ -1,5 +1,7 @@
 # RO-12 "Top 5 Zepbound Tips" setup receipt (2026-10-01)
 
+**Current platform timing (updated 2026-10-07):** YouTube stays Sun Oct 25 at 9 AM CDT. Facebook, Instagram and TikTok moved to Mon Oct 26 at 9 AM CDT, after YouTube. Confirm the YouTube video is public before those social posts release. Original same-day setup details below are historical.
+
 - **Classification:** organic. Closing words (9:03-9:09): "Thank you for watching guys. If you enjoyed this video, subscribe to make sure you get my newest videos as soon as I release them." No tap/click-the-button CTA. `ad_guard.py --scan` CLEAN before and after the Blotato write.
 - **Master:** `claude edited long form content/09 - Top 5 Zepbound Tips/Top 5 Zepbound Tips | claude | 16x9 | RO-12.mp4`, 2,419,960,621 bytes, 9:11.42, SHA-256 `7f6766c5e1d82881fb2a56b9b7414f6baa0bbe49f027828e507991d9f7cae67b` (matches the handoff).
 - **Backups:** Extreme `/Volumes/Extreme/Claude Content Videos/Top 5 Zepbound Tips - RO-12/` (SHA-256 match); Google Drive `Claude Content Videos/Top 5 Zepbound Tips - RO-12` (byte count match, anyone with the link), https://drive.google.com/open?id=1nOpRxT9nusbHYNFMcBCKRUf7eGOgIuxN
