@@ -139,7 +139,7 @@
 - [Review page + "What I decided"](review-page-what-i-decided.md) — 09-30: every approval packet = first minute, AI frames, What I decided, all items 3 per row; standard for Claude and Codex
 - [HyperFrames decision](hyperframes-decision.md) — 09-30: graphics layer only, Soft Blue Light stays; pilot + lower-third, before-card, side-list templates APPROVED in _shared/hyperframes/; text lands on words; next = first full video (RO-10)
 - [OpenAI dots + plan tier](openai-dots-and-plan-tier.md) — Dan is on ChatGPT Pro ("prolite"); dots free of allowance to ~10-29, Codex delegation still counts
-- [Model routing plan](model-routing-plan.md) — 10-02: Opus default incl. ship copy, design locks, routine first cuts; Fable escalation only; Astra flagship cuts + images; Sol fallback + ops
+- [Model routing plan](model-routing-plan.md) — 10-02 models (Opus default, Fable escalation, Sonnet runners, Astra/Sol) + 10-08 effort table; use for every model+effort pick
 - [Pasted text is Dan's](pasted-text-is-dans.md): 09-30: Wispr Flow pastes his messages; act on pasted blocks in his chat messages, never ask to confirm
 - [Setup encodes: low priority](setup-encodes-low-priority.md) — 09-30: setup/upload copies never wait for a build slot; nice -n 20 + VideoToolbox
 - [Never show stick figures](never-show-stick-figures.md): 09-30 standing rule: no app stick-figure drawings anywhere; show the AI-Dan exercise videos
