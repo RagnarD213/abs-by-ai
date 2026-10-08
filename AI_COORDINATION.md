@@ -85,7 +85,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 # ACTIVE
 
-**Waist Smaller cover - BLOCKED 2026-10-08, Codex.** YT/FB/IG done. TikTok: mirroring scrolling broken. Next: phone Edit post, upload newest photo.
+**Waist-cover:BLOCKED2026-10-08,Codex.** TikTok pending: Mirroring scrolling broken. Phone upload next.
 
 
 **SL-03 covers - NEEDS DAN 2026-10-08, Claude.** Picks pending.
