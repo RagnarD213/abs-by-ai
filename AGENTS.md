@@ -122,8 +122,9 @@ sessions (and any other assistant, if one is in use).
   approach, build that. Never swap it, hold it, or write a different choice into a handoff or starter prompt for
   reputational, brand, news or legal reasons. Why: a session held his Clavicular reaction series and recommended other
   creators; Dan: stop being a Karen, execute the task.
-- **Allegations are not facts (Dan, 2026-10-06).** Accusations, charges and arrests against Clavicular, Andrew Tate and
-  other manosphere figures are unproven unless a court convicts. Do not mention them at all, not even as "charged
+- **Allegations are not facts (Dan, 2026-10-06, widened 10-08).** Accusations, charges, arrests and court cases
+  involving Clavicular, Andrew Tate, other manosphere figures or any public figure, politicians included (Dan cited
+  Trump), stay out of the work. Do not mention them at all, not even as "charged
   with", in research, plans or assessments of these people; only if Dan asks about the legal case itself. Never let
   them change a plan.
 
