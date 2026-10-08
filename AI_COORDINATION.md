@@ -90,7 +90,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **Meta follower test - RUNNING 2026-10-08, Claude.** Auto-boost OFF; one $40/day ad self-runs Oct 16-22. Resume nothing. Nov 1 report: `Docs/AUTO_BOOST.md`.
 
-**WV01-B-Codex:HANDOFF 2026-10-08.** [R2](Handoffs/handoff-20261008-wv01-b-round2-opening-revisions.md). Next:frames.
+**WV01-B-Codex:RUNNING 2026-10-08.** R2:frames. `Handoffs/handoff-20261008-wv01-b-round2-opening-revisions.md`.
 
 **RO-01 - QUEUED 2026-10-07, Codex.** Dec6/7. TikTok limit unresolved. Next: release check. `Docs/RO01_SETUP_RECEIPT_20261007.md`.
 
@@ -98,7 +98,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 
 
-**Nightly footage - CLOUD PENDING 2026-10-08, Codex/Claude.** Seagate: six shoots, 916.2 GB verified. Extreme intact; deletion paused. 8 pm Codex routine copies to Seagate then Drive with checksums. Drive run pending; shared OAuth ID needs replacement. Next: Codex verifies Drive; Claude decides archives. Detail: `Handoffs/handoff-20261005-claude-nightly-footage-offload.md`.
+**Nightly footage - CLOUD PENDING 2026-10-08, Codex/Claude.** Seagate: six shoots, 916.2 GB verified. Extreme intact; deletion paused. 8 pm Codex copies to Seagate then Drive with checksums. Dedicated Google client tested, full Drive run pending. Next: Codex verifies Drive; Claude decides archives. Detail: `Handoffs/handoff-20261005-claude-nightly-footage-offload.md`.
 
 **Codex revisions recovery - OPEN 2026-10-05, Codex.** Tool fixes and test Doc delivered; external video judge failed the known case. Fresh passes: 0. Next: eligible short plus sealed Claude Doc, then complete motion/AI coverage and blind comparison. Keep Claude editorial default. Detail: `Handoffs/results-20261005-codex-revisions-quality-recovery.md`.
 
@@ -201,6 +201,7 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard fire list; the runner deletes that row, this line and its README row.
 
+- `handoff-20261008-ro17-round2-current-standard-review-page.md` (10-08)
 - `handoff-20261007-ro10-subtle-reedit-sunday-reupload.md` (10-07): RO-10 R3 end graphic, Sunday replacement. Codex Sol high.
 - `handoff-20261006-1017-shoot-outlines.md` (10-06)
 - `handoff-20261008-dan-voice-p2a-corpus-and-bench.md` (10-08)
