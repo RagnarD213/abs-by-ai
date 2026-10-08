@@ -71,7 +71,8 @@ PLAN = [
       parts=[["Protein: 20-30%.", "your body burns"], ["Carbs: 5-10%.", "With carbs"]]),
  dict(id="C08", kind="clip", start="calories of chicken", end="calories of bread", tail=0.3, src=[f"{ST}/p38757135.mp4@1.0", f"{ST}/p5116397.mp4@3.0"],
       note="chicken breasts in a pan, then slices of bread on a plate"),
- dict(id="G14", kind="scene", scene="fact", start="The high protein group lost", end="pounds of muscle", photo=f"{PH}/lift.jpg",
+ # tail 1.5 (round-2 review): the last line lands on "of muscle" and had 0.73 s on screen; the finished card now holds 1.85 s.
+ dict(id="G14", kind="scene", scene="fact", start="The high protein group lost", end="pounds of muscle", tail=1.5, photo=f"{PH}/lift.jpg",
       eyebrow=["McMASTER, 2016", "The high protein group"], headline=[["+2.5 lb", "they gained"], ["MUSCLE", "of muscle"]],
       detail=["plus 10.5 lb of fat lost.", "of muscle"], sweep="of muscle", push=1.06, drift=-8),
  dict(id="C09", kind="clip", start="So every meal you eat needs", end="meat, fish or eggs", tail=0.3, src=["B0287@4.0"], note="eggs and bacon in a skillet (library B0287)"),

@@ -58,6 +58,12 @@ def resolve():
         if r["kind"] in ("l3","phone"):
             prev=[x for x in fs if x["t1"] and 0 < r["t0"]-x["t1"] < 0.8]
             if prev: r["t0"]=prev[-1]["t1"]
+    # a full-screen item that follows a side card by < 0.5 s starts where the card ends (RO-11 round-2 review: 11 frames of
+    # re-centred Dan between the cycle card's exit at 8:09.83 and the "Daily Movement" title). Its end does not move.
+    for r in out:
+        if r["kind"] in FULL:
+            prev=[x for x in out if x["kind"] in ("l3","phone","cycle") and x["t1"] and 0 < r["t0"]-x["t1"] < 0.5]
+            if prev: r["t0"]=prev[-1]["t1"]
     for r in out:
         if r.get("max_len") and r["t1"] and r["t1"]-r["t0"] > r["max_len"]: r["t1"]=round(r["t0"]+r["max_len"],4)
     # no presenter island < 0.5 s between a full-screen item's end and the next framing cut (round-2 re-review: 0.30 s

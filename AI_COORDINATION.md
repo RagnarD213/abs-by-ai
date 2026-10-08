@@ -118,7 +118,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **SL-05 shorts - QUEUED 2026-10-01, Claude.** Blotato Oct 17-27. Next: Oct 11, confirm parent posted, else hold these. `Docs/SL05_SETUP_RECEIPT_20261001.md`.
 
-**RO-11 - IN PROGRESS 2026-10-08, Claude.** Full film building (task `Calories Don't Matter LFC R2`). Next: gates, review, deliver. `handoff-20261008-ro11-round2-build-full-film-opener-locked.md`.
+**RO-11 - REVIEW 2026-10-08, Claude.** Full film delivered; review SHIP. Dan: watch `Videos to Review`, decide the end hold. Then clip library, delete copy and handoff rows. `notes-RO11.md`.
 
 **RO-06 - NEEDS DAN 2026-10-08, Claude.** R3 page. `handoff-20261008-ro06-round4-dan-review.md`.
 

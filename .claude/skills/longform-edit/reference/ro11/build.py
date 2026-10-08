@@ -148,6 +148,8 @@ def render_range(a, b, out, placeholder_ai=True):
         t = g/FPS; im = Image.frombytes("RGB", (1920, 1080), buf)
         sg = next(s for s in segs if s["o0"] <= g < s["o1"])
         act = [it for it in items if fr(it["t0"]) <= g < fr(it["t1"])]
+        if sg["framing"] == "W4S":      # round-2 review: a red mark at the 4K frame's left edge (output x 0-11, y 910-927) shows only in this crop;
+            a_ = np.array(im); a_[898:940, 0:20] = a_[898:940, 39:19:-1]; im = Image.fromarray(a_)   # covered with the mirrored backdrop beside it
         clip = None
         for it in act:
             if it["id"] in readers: clip = next(readers[it["id"]])
@@ -166,16 +168,19 @@ def render_range(a, b, out, placeholder_ai=True):
     wv = wave.open(f"{W}/lav.wav"); L = np.frombuffer(wv.readframes(wv.getnframes()), np.int16).astype(np.float32)/32768
     N = int(round((f1-f0)/FPS*SR)); v = np.zeros(N, np.float32); r = int(0.010*SR)
     TAILFADE = {}   # round-2 review: a breath / lip-noise onset in the last 50 ms before the cut after "carbs." (src 936.82) and "benefits." (src 1072.88); faded, no timeline change   # review r1: a breath starts in the hook take's last 50 ms (src 233.21); fade it, no timeline change
+    TAILEXT = {"time.0r3": 0.08}   # round-2 review: the soft end of "realize." (-50 dB raw, 40 ms) ran past the cut at 4:18.10; the next shot opens on 40 ms of silence
     for s in S:
         o0, o1 = max(s["out_f0"], f0), min(s["out_f1"], f1)
         if o0 >= o1: continue
         si = int(round((s["src_f0"] + o0 - s["out_f0"])/FPS*SR)); n = int(round((o1-o0)/FPS*SR)); at = int(round((o0-f0)/FPS*SR))
         x = L[si:si+n].copy()
+        ext = int(TAILEXT.get(s["id"], 0)*SR) if o1 == s["out_f1"] else 0       # audio-only: the word's own tail runs on under the next shot's silent lead-in
+        if ext: x = L[si:si+n+ext].copy()
         cont_in = any(p["src_f1"] == s["src_f0"] and p["out_f1"] == s["out_f0"] for p in S)    # a reframe cut: speech runs on
         cont_out = any(n["src_f0"] == s["src_f1"] and n["out_f0"] == s["out_f1"] for n in S)
         if o0 == s["out_f0"] and not cont_in: x[:r] *= np.linspace(0, 1, r)
         if o1 == s["out_f1"] and not cont_out:
-            tf = int(TAILFADE.get(s["id"], 0.010)*SR); x[-tf:] *= np.linspace(1, 0, tf)
+            tf = int(TAILFADE.get(s["id"], 0.030 if ext else 0.010)*SR); x[-tf:] *= np.linspace(1, 0, tf)
         e = min(N, at+len(x)); v[at:e] += x[:e-at]
     # room tone at every join (+/-60 ms, 20 ms ramps) from a steady stretch of this roll (src 384.5-387.5, about -65 dB, std 0.8),
     # so a join never drops below the room (review r1: 60 ms at -75 dB where the air conditioning cycled)

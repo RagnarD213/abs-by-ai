@@ -1,0 +1,6 @@
+[
+["(\\d) ,(\\d{3})", "\\1,\\2"],
+["\\bcalories and protein\\b", "calories in protein"],
+["\\bwho move more\\b", "who moved more"],
+["\\bdrinks worth\\b", "drinks' worth"]
+]

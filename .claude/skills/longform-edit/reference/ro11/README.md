@@ -24,3 +24,21 @@ Round 2 (2026-10-08), before the full film:
 - **This copy of `build.py` lacked RO-10's repeated-first-frame fix:** 18 of 57 segments failed `dupscan.py`. Fixed here; the
   cache key does not include the seek, so delete the listed segments before re-running.
 - `finish.py`, `finish_chain.sh`, `deliver.sh`: RO-11 versions of RO-10's (chapters = intro, 7 factors, recap).
+
+Full film (2026-10-08, delivered; independent review 1 DOES NOT SHIP, review 2 SHIP on the third build):
+- **Order that works:** `build.render_range` (13 min) -> `finish_chain.sh` -> own negative-events scan of the sheets ->
+  one `ra-reviewer` (it judges every watch image and writes `logs/findings.json`) -> `watch.py --judge` -> `finish.py`
+  again (folds the scan into `plan.json`) -> delivery gate (25 min) -> `deliver.sh`. The gate fails `watch:pass` and
+  `compliance:negative_events` if it runs before the judging and the scan.
+- **A title right after a side card leaves a flash shot.** The cycle card ended at 489.83 and the title started on its
+  word at 490.19: 11 frames of re-centred Dan between them. `resolve.py` now starts a full-screen item that follows a
+  side card by under 0.5 s where the card ends.
+- **A fact card whose last line is cued on the card's last words gets no reading time** (G14: 0.73 s). Give it `tail`.
+- **`from_plan.py --render` re-rendered all 21 scenes**, not the one that changed, because the shared templates had been
+  edited since round 1 (its skip stamp hashes the template). Copy `hf/renders` aside first, then compare new against
+  old with ffmpeg `psnr` on rgba: everything was identical except the side lists (shared default drift 0 since 10-04).
+- **Do not slide the W4S crop to hide something at the frame edge.** 16 px cost 12 px of card clearance (G18 65 -> 53,
+  under the 60 px check). The red mark at the 4K frame's left edge is painted out in `build.py` instead.
+- **A soft word tail trimmed by a cut:** `TAILEXT` in `build.py` lets the outgoing shot's sound run on under the next
+  shot's silent lead-in (check the lead-in is silent first). No timeline change.
+- On this roll Dan holds a smile for a clean second after the last word (src frames 25619 to 25651): an end hold exists.
