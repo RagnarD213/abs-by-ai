@@ -133,7 +133,6 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **Stop Deadlifting - QUEUED 2026-09-29, Claude.** Blotato Oct 11 9AM CT, 4 platforms. Next: once posted, publish `sixpackabs/articles/TBD-stop-deadlifting.md`, then delete.
 
-**SL-03 round 3 - NEEDS DAN 2026-10-04, Claude.** 2,4 revised; page http://127.0.0.1:8831/. Next: step 5, `handoff-20261004-sl03-salad-shorts-round3-revise-shorts-2-and-4.md`.
 
 **RO-05 salad - QUEUED 2026-09-30, Claude.** Oct 18: fire `handoff-20260930-ro05-captions-and-article-after-release.md`.
 
@@ -197,6 +196,7 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard fire list; the runner deletes that row, this line and its README row.
 
+- `handoff-20261008-sl03-daily-salad-shorts-covers-and-setup.md` (10-08): six shorts; covers, then Blotato. Fire from Oct 19. Opus 5.5 high.
 - `handoff-20261007-ro10-subtle-reedit-sunday-reupload.md` (10-07): RO-10 R3 end graphic, Sunday replacement. Codex Sol high.
 - `handoff-20261006-1017-shoot-outlines.md` (10-06)
 - `handoff-20261006-dan-voice-training-part1-finish.md` (10-06)

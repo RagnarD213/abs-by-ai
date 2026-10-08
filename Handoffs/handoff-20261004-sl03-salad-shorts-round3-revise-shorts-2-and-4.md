@@ -3,7 +3,9 @@
 **Category: CONTENT. These are Shorts cut from a long-form (`SFC` from the RO-05 `LFC`), which is the format a
 long-form gets. Written 2026-10-04 by Claude (Opus 5.5). Task name: `Daily Salad SFC R3`. Recommended: Claude Opus 5.5, high.**
 
-## STATUS 2026-10-04: steps 1 to 4 DONE, waiting for Dan's review of shorts 2 and 4
+## EXECUTED. Dan finalized all six shorts on 2026-10-08. Next: `handoff-20261008-sl03-daily-salad-shorts-covers-and-setup.md`
+
+## (history) STATUS 2026-10-04: steps 1 to 4 done, waiting for Dan's review of shorts 2 and 4
 
 Both revised shorts are delivered (reviewer SHIP, delivery gate PASS, audio gate PASS). Review page:
 `_shared/review_server.py 8831 /Volumes/Extreme/_edit_work/sl03/r3/review` (http://127.0.0.1:8831/). What was built, and
