@@ -42,7 +42,14 @@ for s in S:
     zt = 1.5 if feet < 1000 else 1.3          # full-body wide rolls: 1.5x lands the bottom edge mid-shin (1.32x cut him at the ankles); closer rolls 1.3x
     cw = int(round(1920/zt/2))*2; ch = int(round(cw*9/16/2))*2
     y0 = max(0, int(np.percentile(tops, 10) - 0.04*ch)); x0 = int(min(max(0, cx - cw/2), 1920-cw))
-    out[s["id"]] = dict(n=len(rows), hair_min=int(min(tops)), hair_med=float(np.median(tops)), cx=round(cx), cx_range=[int(min(r[1] for r in rows)), int(max(r[1] for r in rows))],
+    hmed = float(np.median(tops)); hp10 = float(np.percentile(tops, 10)); hp90 = float(np.percentile(tops, 90))
+    xw = [r[3]-r[2] for r in rows]; cxs = [r[1] for r in rows if r[1] is not None]
+    # Dan's tight shot (round 1 note): slightly above the hair to a little below the shorts line = 62 % of hair-to-feet on the wide rolls
+    th = int(round((0.62*(feet-hmed) + 0.05*0.62*(feet-hmed))/2))*2; tw = int(round(th*16/9/2))*2
+    ty0 = max(0, int(hp10 - 0.045*th)); tx0 = int(min(max(0, cx - tw/2), 1920-tw))
+    active = (hp90-hp10 > 70) or (hmed-min(tops) > 90) or (np.percentile(xw, 95) > 1.75*np.median(xw)) or (max(cxs)-min(cxs) > 0.55*tw - np.median(xw)/2 + 60)
+    extra = dict(T2=[tw, th, tx0, ty0], zt2=round(1920/tw, 2), active=bool(active), hair_p10=hp10, hair_p90=hp90, xw_med=float(np.median(xw)), xw_p95=float(np.percentile(xw, 95)))
+    out[s["id"]] = dict(extra, n=len(rows), hair_min=int(min(tops)), hair_med=float(np.median(tops)), cx=round(cx), cx_range=[int(min(r[1] for r in rows)), int(max(r[1] for r in rows))],
                         x_extent=[int(np.percentile([r[2] for r in rows], 2)), int(np.percentile([r[3] for r in rows], 98))], feet=int(np.median([r[4] for r in rows])),
                         T=[cw, ch, x0, y0], zt=zt, T_hair_px=round((float(np.median(tops))-y0)*zt), W_hair_px=float(np.median(tops)))
 json.dump(out, open(f"{W}/shot_framing.json", "w"), indent=1)

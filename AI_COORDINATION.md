@@ -113,9 +113,9 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **SL-05 shorts - QUEUED 2026-10-01, Claude.** Blotato Oct 17-27. Next: Oct 11, confirm parent posted, else hold these. `Docs/SL05_SETUP_RECEIPT_20261001.md`.
 
-**RO-11 - NEEDS DAN 2026-10-08, Claude.** Opener takes failed. Next: Dan picks at http://127.0.0.1:8811/, then build. `handoff-20261004-ro11-round2-build-full-film.md`.
+**RO-11 - HANDOFF 2026-10-08, Claude.** Opener locked. Next: fresh task builds the full film. `handoff-20261008-ro11-round2-build-full-film-opener-locked.md`.
 
-**RO-06 - NEEDS DAN 2026-10-08, Claude.** Round 1: `handoff-20261008-ro06-round1-dan-review.md`.
+**RO-06 - HANDOFF 2026-10-08, Claude.** Fire `handoff-20261008-ro06-round2-first-minute-revisions.md`.
 
 **RO-12 - QUEUED 2026-10-01, Claude.** Blotato Oct 25. Then: `Docs/RO12_SETUP_RECEIPT_20261001.md`, delete.
 

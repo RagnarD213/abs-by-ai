@@ -21,6 +21,23 @@
 - Before sending a page link, load the page and request a byte range of one video (expect 200 and 206). A review server
   started in an earlier session dies when the Mac restarts; restart it with `review_server.py PORT DIR` and re-check.
 
+## AI clip faults: judge at playback speed; small faults pass (Dan, 2026-10-08)
+
+- **A small fault that only shows frame by frame does not reject an AI clip.** On the RO-11 opener, two takes were rejected
+  by the editor because the fork read as a spoon in the man's mouth for about 10 frames, its head came off the handle for
+  about 6 frames, and the food reshaped at the cut. Dan, after watching both in VLC: *"I think the clip was actually
+  acceptable. Those small faults that you notice, I don't think they would be noticed by humans... I think normally clips
+  like that would be okay."*
+- **A slight speed-up is an allowed way to cover such a fault:** *"For future clips, if we did want to use the whole thing,
+  I think small faults like that could be covered by slightly accelerating the clip."* Holding or slowing a clip to fill a
+  slot is still forbidden.
+- How to apply: still read every AI shot frame by frame to find candidates, then decide by watching it at normal speed. A
+  fault well under half a second that a viewer does not catch at speed goes in the report as a note. It is not a reason
+  to buy another take or to stop for approval. Faults a viewer does see at speed, or that grow over a second or more
+  (breath smoke, a fogging mirror, melting hands: Dan, 2026-09-14), still reject the clip.
+- Choosing the best-flowing part of a take over the whole take is a normal editing call (Dan picked the clean 2.7 s tail
+  on RO-11 because "it flows better").
+
 ## No fat pinching or belly close-ups, above all in the first 30 seconds (Dan, 2026-10-04)
 
 - **Never build a shot around belly fat: no hands pinching or grabbing it, no push-in or crop that centres on it, no
