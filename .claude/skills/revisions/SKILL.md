@@ -1493,3 +1493,18 @@ For evidence receipts and blind benchmark freezes, use [REVIEW_EVIDENCE.md](refe
     (c) ⚠ **Never `pkill -f` a whisper or ffmpeg command line.** A concurrent revisions session runs the identical
     command from the same prep template; this killed the other session's transcript mid-run and it had to be
     regenerated. Stop your own step by PID: `pgrep -P <your prep.sh pid>`.
+74. **Exercise how-to shorts, nine cuts in one session (2026-10-08): four things that bit.** (a) **Measuring the punch-in:
+    the burned captions and our own top graphic are identical on both sides of a cut, so a whole-frame feature match
+    reads "scale 1.000, no change" on a cut that is 30% closer.** Mask to the band between about y 330 and y 900, or
+    measure head width in pixels on full-resolution frames, and look at the two frames side by side before quoting a
+    number. (b) **When one cut in the batch already has the right punch-in, make it the reference** (lesson 19): his
+    200 Pounds V2 tight was 30% closer while every other cut was 12 to 15%, so the doc's opening section says "match
+    the tight shot from 200 Pounds V2" instead of repeating a percentage he has now missed twice. (c) **A wide
+    exercise cannot fill 9:16.** Measure the span of the movement in the RAW at native resolution (dumbbells out at
+    shoulder height on the 8/28 4K rolls: 1380 to 1450 px against a widest full-height vertical window of 1215 px).
+    When the span is wider than that window the item is "full width, full height kept, blurred fill above and
+    below", with the number; when it fits, full screen. (d) Prep traps: `silencedetect` under `-v error` writes an
+    empty file (same class as lesson 56, use `-hide_banner -nostats`); Whisper can die without an error when the Mac
+    is loaded, so check `cut16k.json` exists before starting that cut's reviewer; his links no longer download with
+    gdown, use `rclone backend copyid gdrive: <id> <dest>` (in zsh split a "id name" pair with `${=p}`). Work dir:
+    `/Volumes/Extreme/_edit_work/revisions-20261008/muhammad/` (BRIEF.md there is the exercise-short version).
