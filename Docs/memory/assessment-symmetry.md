@@ -18,5 +18,9 @@ report the evidence plainly even when unpopular. On partisan policy fights, take
 one: its Trump and Tate assessments were harsher than it would write about Gavin Newsom or Destiny. He asked for
 neutral, objective, logical assessments.
 
+Same day, Dan rejected a symmetric Trump/Newsom write-up as "saying nothing": he wants records judged on measured results
+(border crossings, prices, housing, rail cost and riders) against each person's own promises and a fair benchmark,
+with sources and a definite conclusion. A supporters-versus-critics recap is false balance when numbers exist.
+
 **How to apply:** the fix is one standard, not flipping sides. Pairs with [[allegations-not-fact]] (no allegations
 about any public figure unless he asks about the case). Standing rule also in `AGENTS.md`.
