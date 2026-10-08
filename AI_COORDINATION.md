@@ -90,7 +90,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **Meta follower test - RUNNING 2026-10-08, Claude.** Auto-boost OFF; one $40/day ad self-runs Oct 16-22. Resume nothing. Nov 1 report: `Docs/AUTO_BOOST.md`.
 
-**WV01-B-Codex:REVIEW 2026-10-08.** R2:frames/previews. `Handoffs/results-20261008-wv01-b-opening-r2.md`.
+**WV01-B-Codex:REVIEW 2026-10-08.** R2:firing-pair. `Handoffs/results-20261008-wv01-b-opening-r2.md`.
 
 **RO-01 - QUEUED 2026-10-07, Codex.** Dec6/7. TikTok limit unresolved. Next: release check. `Docs/RO01_SETUP_RECEIPT_20261007.md`.
 
@@ -120,7 +120,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **RO-11 - NEEDS DAN 2026-10-08, Claude.** Section-card pictures: http://127.0.0.1:8871/. After his 3 answers, fire `handoff-20261008-ro11-round4-rebuild-film-with-approved-cards.md`.
 
-**RO-06 - NEEDS DAN 2026-10-08, Claude.** First minute, AI clips moving: localhost:8849. Then `handoff-20261008-ro06-round5-after-first-minute-review.md`.
+**RO-06 - HANDOFF 2026-10-08, Claude.** First minute approved. Fire `handoff-20261008-ro06-round5-full-film.md`.
 
 **RO-12 - QUEUED 2026-10-01, Claude.** Blotato Oct 25. Then: `Docs/RO12_SETUP_RECEIPT_20261001.md`, delete.
 
