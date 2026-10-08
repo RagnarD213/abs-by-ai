@@ -1,43 +1,7 @@
 {
-"generated": "2026-10-08T11:24:36+00:00",
+"generated": "2026-10-08T18:42:39+00:00",
 "cap": 200,
 "scheduled": [
-{
-"id": "5019226",
-"platform": "facebook",
-"when": "2026-10-08T14:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "Bigger shoulders make your waist look smaller.",
-"batch": ""
-},
-{
-"id": "5019227",
-"platform": "instagram",
-"when": "2026-10-08T14:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "Bigger shoulders make your waist look smaller.",
-"batch": ""
-},
-{
-"id": "5019228",
-"platform": "tiktok",
-"when": "2026-10-08T14:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Bigger shoulders make your waist look smaller.",
-"batch": ""
-},
-{
-"id": "5019229",
-"platform": "youtube",
-"when": "2026-10-08T14:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Bigger shoulders make your waist look smaller, and side lateral raises are how you build them at home.",
-"batch": ""
-},
 {
 "id": "4066386",
 "platform": "facebook",
