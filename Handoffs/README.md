@@ -312,3 +312,4 @@ Anything not in the Open table is executed, superseded or dead — history only.
 - `handoff-20260909-audio-match-muhammad.md` — re-tune the dereverb that made the Shorts sound "underwater", add a do-no-harm row to the audio gate, re-render three batches after Dan approves an A/B.
 - `handoff-20260918-ds04-opening-vacuum-clip-revision.md` — DS-04 revision 1: show Dan 3–5 better opening vacuum clips (front/45°, dramatic draw-in), stop for his pick, then rebuild the opening only. No covers. Opus 5, high.
 - `handoff-20261008-ro06-round1-dan-review.md`: RO-06 Work Out At Home On A Budget, round 2 (full film) after Dan answers the nine round 1 decisions. Opus 5.5, high.
+- `handoff-20261008-ro06-round2-first-minute-revisions.md`: RO-06 round 2, rebuild the first minute to Dan's 10-08 notes (tight shot default, three B-roll clips). Fire this before the round 1 doc's full-film steps. Opus 5.5, high.
