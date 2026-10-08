@@ -31,7 +31,7 @@ W, Hh = 1920, 1080
 U = 2.0
 
 
-def layout(topic, parts, bar):
+def layout(topic, parts, bar, topic_case="upper"):
     x0, _, x1, _ = B.lower_third_default_box(W, Hh)
     point = " ".join(p for p, _ in parts)
     tx = x0 + 31 * U
@@ -45,7 +45,7 @@ def layout(topic, parts, bar):
         xs.append(round(tx + (H.text_w(acc + " ", 28 * U) if acc else 0), 1))
         acc = (acc + " " + p).strip()
     L = dict(strip=[x0, ytop, x1 - x0 + 1, bh + 1], radius=18 * U, accent=[x0 + U, ytop + 3 * U, 8 * U, bh - 6 * U],
-             topic=dict(x=tx, y=ytop + 13 * U, s=topic.upper()), point_y=ytop + 38 * U,
+             topic=dict(x=tx, y=ytop + 13 * U, s=topic if topic_case == "preserve" else topic.upper()), point_y=ytop + 38 * U,
              parts=[dict(s=p, x=x) for (p, _), x in zip(parts, xs)])
     if bar:
         bx1 = x1 - 22 * U; bx0 = bx1 - bar_zone
@@ -58,7 +58,7 @@ def scene_cfg(s, mode):
     a = s["a"]
     assert all(p.strip() == p and p for p, _ in s["parts"]), "parts must be trimmed and non-empty"
     c = dict(id=s["id"] + ("_mask" if mode == "mask" else ""), mode=mode, dur=round(s["b"] - a, 3),
-             drift=s.get("drift", -4), times=[H.rel(t, a) for _, t in s["parts"]], **layout(s["topic"], s["parts"], s.get("bar")))
+             drift=s.get("drift", -4), times=[H.rel(t, a) for _, t in s["parts"]], **layout(s["topic"], s["parts"], s.get("bar"), s.get("topic_case", "upper")))
     if s.get("bar"):
         b = dict(s["bar"])
         for k in ("grow", "shrink", "land"): b[k] = H.rel(b[k], a)

@@ -103,6 +103,7 @@ def lt_cfg(it, W, beats):
     ps = [[p, round(max(a, at(ph, p)), 3)] for p, ph in parts]
     assert all(x[1] <= y[1] for x, y in zip(ps, ps[1:])), f"{it['id']}: parts out of speech order {ps}"
     cfg = dict(id=it["id"], a=a, b=b, topic=it["topic"], parts=ps, drift=it.get("drift", -4))
+    if it.get("topic_case") == "preserve": cfg["topic_case"] = "preserve"
     beats += [(a, "", "strip fades and rises, accent draws, topic " + it["topic"])]
     beats += [(t, W.text(t, t + 0.4), f"\"{p}\" rises") for p, t in ps]
     if it.get("bar"):
