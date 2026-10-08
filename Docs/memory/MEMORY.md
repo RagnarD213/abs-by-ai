@@ -185,4 +185,4 @@
 - [Videos to Review folder](videos-to-review-folder.md): 10-08: every review video 45 s+ also copied to project folder "Videos to Review" for VLC; delete at finalize; page still built
 - [Dan voice guide](dan-voice-guide.md): 10-06 guide + real examples + stats; read .claude/skills/_shared/DAN-VOICE.md before writing in his voice
 - [Execute Dan's explicit picks](execute-dans-explicit-picks.md): 10-06: build exactly the person/clip/topic he names; never swap, hold or reroute it for reputational or news reasons ("stop being a Karen")
-- [Allegations are not facts](allegations-not-fact.md): 10-06: unproven charges/accusations against Clavicular, Tate, manosphere figures: never stated as fact, never raised unprompted, never a reason to change a plan
+- [Allegations are not facts](allegations-not-fact.md): 10-06: unproven charges/accusations against Clavicular, Tate, manosphere figures: never mentioned at all (not even "charged with") unless Dan asks about the case itself; never a reason to change a plan
