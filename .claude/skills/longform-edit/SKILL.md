@@ -45,7 +45,9 @@ For long-form: full-screen cards, lists and photo displays come from `softblue` 
 > 0.33 (push saturation and vividness further, show 2-3 grade options). A recipe video opens ON CAMERA ("What's up guys, today I'm
 > going to show you how I make my daily salad"), then cuts to the finished dish and someone eating it, his audio running underneath. The failed build's recipe and lessons: `reference/ro05/README.md`; the from-scratch recut
 > handoffs: `Handoffs/handoff-20260923-ro05-recut-fable.md`, `Handoffs/handoff-20260923-ro05-recut-astra.md`.
-> The SFX guidance further down ("SFX on transitions", `riser` + `whoosh`) is superseded: no swipe sound effect, ever.
+> The SFX guidance further down ("SFX on transitions", `riser` + `whoosh`) is superseded: never that bright swipe sound, and
+> no sound on graphics. A low, soft swoosh on a picture transition is allowed when it works (Dan, 2026-10-08):
+> `_shared/VIDEO-RULES.md`, "Sound effects on transitions".
 >
 > **The from-scratch recut that followed** (grade stills, Muhammad component board, sample packet, then the full cut on one
 > code path) and every trap it hit: `reference/ro05-fable/README.md`. Start a Muhammad-style long-form from that recipe.

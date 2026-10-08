@@ -70,7 +70,8 @@ Before transcribing, picking a lav, or building a contact sheet for a source cli
     FIRST MINUTE, and only then the full cut (`PRE-RENDER-APPROVAL.md`, the round method, Dan 2026-09-28). RO-05 spent ten rounds fixing defects on a cut whose style Dan rejected on sight.
 18. **Colour: match his numbers.** Median luma ~0.22-0.28 and median saturation ~0.32-0.39 on kitchen footage (his Ads 1 and 6, the
     approved C1652). A legacy "lift the mids" grade reads as washed out.
-19. **No swipe SFX; his transitions.** Silent bloom flashes and in-card whip-pans, measured off his ab-wheel HD master.
+19. **Never the old bright swipe SFX; his transitions.** Silent bloom flashes and in-card whip-pans, measured off his ab-wheel HD master.
+    A low, soft swoosh on a picture transition is allowed when it works (Dan, 2026-10-08): VIDEO-RULES, "Sound effects on transitions".
 20. **His graphics, rebuilt from his frames.** Not generic bars, not "KEY POINT" tabs, not home-made stat cards.
 21. **Open a recipe video on the finished dish; never crop hair the camera captured** (dense hair measurement per shot).
 

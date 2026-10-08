@@ -56,6 +56,33 @@
 - Context: said the day RO-11's finished film came back with one note, that its seven full-screen section cards looked
   empty and each needed a picture on the right.
 
+## Sound effects on transitions: judgment, not a blanket ban (Dan, 2026-10-08)
+
+- **A sound effect on a transition is allowed when it works. The ban is on the sounds that failed, not on sound effects.**
+  Dan, keeping the sound Zeeshan put on his zoom transitions in Video 5 (Getting Abs At 40 vs 25, round 2) after a
+  review asked for it to come off: *"I thought the sound effect to use on transition actually worked, and in fact, this
+  is something that I want to try on Claude and Codex edits in the future... Not all sound effects are bad, just the
+  ones that we used previously that didn't work. These, I feel like, work, so use a little bit more judgment and
+  subtlety with sound effects rather than just saying no sound effects on transitions as a blanket rule."*
+- **What the approved one is (measured, 2026-10-08):** a low, soft swoosh about 0.5 s long, centred near 230 Hz with 95%
+  of its energy under 800 Hz, sitting about 9 dB under his voice (about -27 dBFS RMS against a voice at -17 to -18),
+  and it plays only when the picture itself moves (a zoom between two shots). Reference file, for character and level
+  only, never to publish: `Media/sfx/transition-swoosh-reference-zeeshan-video5.wav`.
+- **What failed, and still fails:** the old `sfxlib` whoosh and riser (a bright hiss sweep centred near 4,100 Hz, almost
+  all of it between 2 and 6 kHz), fired on graphics coming in, 83 times in one ad. That is the "swiping sound" Dan
+  rejected on RO-05 on 2026-09-23. Those two functions stay blocked.
+- **How to judge one:** it is low and soft, not bright or hissy; it sits well under the voice and never over a word's
+  consonants; it goes with a picture move the viewer can see, never with a lower third, a chip or a label appearing;
+  it is the same sound every time and there are not many of them. When it calls attention to itself, it is wrong.
+- **In a review of an editor's cut:** do not write an item asking for a transition sound to come off because a rule says
+  so. Listen for whether it works. If it is harsh, loud, mistimed or on every graphic, write that. If unsure, put it in
+  the summary under "For Dan's call" with one timecode, not in the doc.
+- **In our own edits (Claude and Codex):** Dan wants to try this. Use a sound of the same character as the reference
+  (licensed, or made by us), on picture transitions only, and show it to him in the first-minute review the first time
+  a format uses it. Calm formats that set their own rule (the website VSL: no sound effects) keep it.
+- A sound on a cut still does not fix a jump cut: a same-size cut needs the framing change or a clip
+  (`CUT-CONTINUITY-QC.md`). Dan kept every jump cut item in that same review.
+
 ## AI clip faults: judge at playback speed; small faults pass (Dan, 2026-10-08)
 
 - **A small fault that only shows frame by frame does not reject an AI clip.** On the RO-11 opener, two takes were rejected
@@ -401,9 +428,11 @@ no content-style edits of ads ("such as making 5 shorts out of an ad").
 Dan on Claude's RO-05 "How I Make My Daily Salad" first cut (r10): *"this is not up to standard. This is not usable. This is not
 something that we can publish."* Every point below is a standing rule for every video from now on.
 
-- **No swipe sound effect, ever.** *"I really hate that swiping sound effect. We need to remember this going forward: never, ever use
-  that swiping sound effect for anything."* `sfxlib.whoosh()` and `sfxlib.riser()` now raise an error; do not re-create them by hand,
-  and do not use any whoosh/swish/swipe sample from anywhere else. Muhammad's own flash transitions are silent.
+- **Never that swiping sound effect.** *"I really hate that swiping sound effect. We need to remember this going forward: never, ever use
+  that swiping sound effect for anything."* `sfxlib.whoosh()` and `sfxlib.riser()` raise an error; do not re-create them by hand.
+  Muhammad's own flash transitions are silent. **Narrowed by Dan on 2026-10-08:** this bans that bright, hissy sound and
+  sounds on graphics, not every transition sound. A low, soft swoosh on a picture transition can work. Read "Sound
+  effects on transitions" near the top of this file before adding or rejecting one.
 - **Transitions are Muhammad's.** *"We need to make the transitions like Muhammad's transitions in the AbWheel video."* Reference:
   `YouTube Long Form Video Content/The $17 Ab Wheel Beats Every Crunch - READY FOR UPLOAD/Muhammad edit/The $17 Ab Wheel Beats
   Every Crunch - Muhammad edit v2 HD - READY FOR UPLOAD.mp4` (his white/blue bloom flashes with a double-pulse envelope, whip-pans with

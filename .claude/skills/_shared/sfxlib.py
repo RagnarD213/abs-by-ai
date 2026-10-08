@@ -48,8 +48,10 @@ def _biquad_bp(x, fc, q=1.6):
 
 BANNED_SWIPE = ("BANNED (Dan, 2026-09-23, on the RO-05 salad cut): \"I really hate that swiping sound effect. "
                 "We need to remember this going forward: never, ever use that swiping sound effect for anything.\" "
-                "whoosh/whoosh_soft/whoosh_out and riser are the swipe family. Transitions follow Muhammad's own "
-                "(see _shared/VIDEO-RULES.md, 'No swipe sound effect').")
+                "whoosh/whoosh_soft/whoosh_out and riser are the swipe family (a bright hiss sweep near 4 kHz) and stay "
+                "blocked. Dan, 2026-10-08: not every transition sound is banned; a low, soft swoosh on a picture "
+                "transition can work. Do not unblock these: read _shared/VIDEO-RULES.md, 'Sound effects on "
+                "transitions', and use a sound like its reference instead.")
 
 def whoosh(*a, **k):
     raise RuntimeError(BANNED_SWIPE)
