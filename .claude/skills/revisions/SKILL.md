@@ -8,6 +8,18 @@ Read `_shared/VIDEO-RULES.md` first.
 **Task name (Dan, 2026-10-01):** every revisions task renames itself at the start to the editor's first name plus
 "revisions" (`Muhammad revisions`, `Zeeshan revisions`), so Dan can find it in the sidebar.
 
+**The first 5 seconds get their own pass (Dan, 2026-10-08).** *"For the shorts and for content generally, I want to pay
+more attention to the first 5 seconds. I want to get more ideas for AI-generated clips in the first 5 seconds... request
+AI clips, put in something we already made, or put in something attention-getting in the beginning more often...
+Sometimes we just start with a camera scene, but I feel like you should look for more opportunities... putting more
+effort into the first 5 seconds."* Before writing any video's section, write down what is on screen from 0:00 to 0:05
+and try to beat it, in this order: a clip we already have (clip library, AI or real), the most attention-getting
+picture from later in the same video moved to the front (the exercise done correctly, the finished result, the
+before picture), then a new AI clip concept (frames first). A plain camera open stays only when it is truly the
+strongest thing available, and then the summary says why in one line. A script cue that says "cold open on Dan" does
+not settle it. Procedure and his own item wording: calibration pass 11. Every summary carries a "FIRST 5 SECONDS" line
+per video.
+
 **Sections follow the editor's link order (Dan, 2026-10-08).** *"Put the revisions in the document in the same order
 that Muhammad gives me the links in the chat. If they send a folder, put them from top to bottom in the order that the
 files appear in the folder... I had to search around and match the top link to something that was 3 or 4 reviews down
@@ -523,6 +535,48 @@ agree with these revisions." Everything else went out untouched.
     its first reason has gone (the 8:40 clip); a new label is checked on the brightest clip; a lower third may not
     cover an app screen; the template that is right gets "approved and locked" in the doc so the editor stops changing it.
 
+### Calibration pass 11: Dan's edits to Muhammad's exercise shorts and revised cuts (2026-10-08)
+
+Doc `1m54-PuVT4zeS7bbBsp67Xfim-GqZ99dlLRQorwToIZo`, first draft `revision docs/shorts-revisions-muhammad-10-8-26.md`, live
+copy `...10-8-26.live-as-sent.txt`. Nine sections, 52,000 characters; he deleted three things, added seven, and kept
+every jump-cut block, crop item, caption list, the old-footage split screens and the conditional "go ahead and
+generate" lines. His headline note is the first-5-seconds rule at the top of this file.
+
+64. **The first 5 seconds are reviewed as their own deliverable on every video.** We kept the camera cold open on Side
+    Laterals and Rear Delt Flys because the script said "COLD OPEN, tight on Dan"; he added an opener to both. Rule 52
+    again: the script's cue for the open never settles it. For each video list the candidates (library clip, a later
+    clip from the same cut, a new AI concept) and write the best one in. More AI opener ideas, more often; "sometimes
+    that doesn't make sense" is the exception and gets a reason in the summary.
+65. **An exercise how-to opens on the exercise done correctly.** His item, to copy: *"0:00 - 0:03 Start video with clip
+    of me doing rear delt flies correctly. Same clip as used at 0:24 - 0:27, but make sure wide crop with visible
+    dumbbells is used. Cut back to camera scene for when I say 'Here's how to do them.'"* About 3 seconds, the strict
+    reps, the crop that shows the whole movement, back to camera scene on the next sentence. Reusing the correct-form
+    clip from later in the same cut is fine for the opener (he pointed at it himself).
+66. **A raw exercise roll holds mistake takes the script never cues, and we credited one as correct form.** Side
+    Laterals 0:25 - 0:31: we praised "the elbows high clip" landing on "Keep your elbows high"; it was his demo of the
+    mistake of NOT raising the elbows. He replaced it: *"This clip was meant to show a mistake of not raising your
+    elbows. Use a clip where my elbows are raised above dumbbells and arms are more extended."* Lesson 61 says never
+    call his form wrong; this is the other half: never credit a take as right from the picture alone. Transcribe the
+    raw roll's own audio around every take (he says what each take is before he does it), map each take to right or
+    wrong, and where the roll does not say, list the take under "For Dan's call" instead of crediting it. When he
+    adds an item that contradicts our credit sentence, fix the sentence in the live doc (rule 34; done here).
+67. **Mistake beats get a red arrow and a red MISTAKE graphic.** He added *"Add a red arrow pointing to my lower back
+    to highlight the mistake"* under the hips-sagging clip and *"Add red bottom graphic that says - MISTAKE: Going
+    Too Fast"* on a second mistake we had not signposted. Our reviewer had decided the arrows were not needed. On
+    every mistake clip direct a red arrow at the body part or equipment that shows the mistake (VIDEO-RULES,
+    "Exercise demonstration timing and visual cues"), and look for every mistake the footage shows, not only the one
+    the script names. Our blue "COMMON MISTAKE" top strip does not replace either.
+68. **Do not ask for the same AI man across the thirds of a split opener or across clips.** Both "use the same man"
+    lines on Reduce Alcohol were deleted. Casting type is the rule (lean, ripped, 30-50, not a bodybuilder, nobody
+    recognizable); identity matching between generic AI people is not an item.
+69. **Dissolves between takes of exercise footage are the editor's.** The Hammer Curls item asking for hard cuts in
+    place of three half-second dissolves (a "ghost double") was deleted. A transition between two B-roll takes is his
+    rhythm, like a picture's hold time (rules 23, 41).
+70. **Old low-resolution footage of his is welcome, with an upscale ask.** He kept every item sending his 15-year-old
+    640x360 M100s video in place of stock strangers and added, THROUGHOUT: *"AI UPSCALING: Use AI tools to upscale all
+    M100s clips from my old Six Pack Shortcuts video that you use in this video so they look good on a large
+    screen."* When directing archive footage under about 1080p, write that line in.
+
 **Dan's vocabulary — use his words:** "camera scene" (the talking head), "motion effect" (the
 Ken Burns move on stills), "accelerate footage to fit duration", "clip", "bro", "douchey". A simple
 item is one line in that register; keep the longer form only where the editor needs exact text,
@@ -830,6 +884,12 @@ For evidence receipts and blind benchmark freezes, use [REVIEW_EVIDENCE.md](refe
    first; if the graphic style is not locked, one video carries the four-variation lock item and every other graphic
    item says to wait for it, with no cosmetic graphic fixes; if it is locked, the locked references are linked; shorts
    key points are top graphics over camera scene; organic picture beats follow the script, with empty slots for Dan.
+   Then the pass-11 checks (rules 64-70): the first 5 seconds of every video were written down and an opener item is
+   in unless the open is already the strongest picture available (reason in the summary's FIRST 5 SECONDS line); an
+   exercise video opens on the exercise done correctly; no take is credited as correct form unless the raw roll's
+   audio says so; every mistake clip has a red arrow and a red MISTAKE graphic directed; no "same AI man" item, no
+   item about a dissolve between B-roll takes; archive footage carries the upscale line; sections are in the
+   editor's link order.
 8. **Write the Google Doc** via the Google Drive MCP `create_file` with
    `contentMimeType: text/markdown` — it converts cleanly to a Doc, including links.
    Keep Dan's `\*\*…\*\*` literal-asterisk look for THROUGHOUT headers. Save the

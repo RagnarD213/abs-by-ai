@@ -70,3 +70,11 @@ Three big things. First, the tight shots. On 200 Pounds the tight is about 30% c
 I also sent you my original M100s video to use for the squat thrusts and mountain climbers, and a clip of me trying the rollout from my feet for Ab Wheel.
 
 The five new ones are real good first cuts! It's all real footage of me on the right lines, and the audio is exactly where I want it now. Everything not in the doc is approved, so once these are in we're finished with these. I still need the updated versions of Jiu Jitsu, Last Ten Pounds, Battle Ropes and Pushups from the last doc. Thanks for the great work!
+
+## Dan's edits (10-08 evening) and what was done after
+- **Added by Dan:** a 0:00 - 0:03 opener on Rear Delt Flys and on Side Laterals (the exercise done correctly, same clip as later in the cut, wide crop, back to camera on the next sentence); Side Laterals 0:25 - 0:31 replaced (that clip was his demo of the mistake of not raising the elbows, and our draft had credited it as correct form); Ab Wheel: a red arrow at his lower back on the hips-sagging clip and a red bottom graphic "MISTAKE: Going Too Fast" at 0:24.8 - 0:27.9; M100s: an AI UPSCALING block for the old video clips.
+- **Deleted by Dan:** the Hammer Curls dissolves item; both "use the same man" lines on Reduce Alcohol.
+- **Kept:** everything else, including the old M100s footage split screens and the "go ahead and generate" lines.
+- **Fixed after his edits (rule 34):** two sentences in the Side Laterals section that still praised the clip he replaced (the credit paragraph and the "leave that one full screen" line).
+- His headline note: more effort on the first 5 seconds of every video. Now a standing rule in the revisions skill (calibration pass 11) and in `_shared/VIDEO-RULES.md`.
+- Live doc after these changes: `revision docs/shorts-revisions-muhammad-10-8-26.live-as-sent.txt`. The `.md` beside it is the first draft, before his edits.

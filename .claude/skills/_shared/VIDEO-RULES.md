@@ -1,3 +1,23 @@
+## The first 5 seconds get the most effort (Dan, 2026-10-08)
+
+- **On every content video, short or long, the first 5 seconds are planned and reviewed as their own piece.** Dan:
+  *"For the shorts and for content generally, I want to pay more attention to the first 5 seconds. I want to get more
+  ideas for AI-generated clips in the first 5 seconds where I feel like we need more attention and effort put in
+  there. I want you to request AI clips, put in something we already made, or put in something attention-getting in
+  the beginning more often... Sometimes we just start with a camera scene, but I feel like you should look for more
+  opportunities to make the first 5 seconds more attention-getting... putting more effort into the first 5 seconds."*
+- How to apply, in every edit, plan, handoff and editor revision doc: write down what is on screen from 0:00 to 0:05,
+  then try to beat it with, in order, (1) a clip we already made (clip library, AI or real), (2) the most
+  attention-getting picture from later in the same video moved to the front (the exercise done correctly, the finished
+  dish or result, the before picture), (3) a new AI clip concept, offered as two or three ideas with start and end
+  frames for approval. An exercise how-to opens on about 3 seconds of the exercise done correctly, then cuts to Dan.
+- A plain camera open is still allowed when it is truly the strongest option. Say why in one line (the "What I
+  decided" list, the build report, or the revision summary). A script cue that says "cold open on Dan" does not settle
+  it.
+- This strengthens "Frequently, not always, a video opens on an AI-generated clip" (2026-09-27, below): the default
+  now leans toward an opener, and the camera open is the exception that needs the reason. The first-30-seconds rules
+  still bind (no belly-fat framing, frames approved before AI motion, the $5 per video generation budget).
+
 ## The "excuse" voice gets a lip-synced AI clip, frames first (Dan, 2026-10-08)
 
 - **When Dan does his "excuse" voice (an impression of someone whining an excuse, such as "Dan, I don't have time to go to
