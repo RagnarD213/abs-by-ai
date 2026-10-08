@@ -27,14 +27,24 @@ Read first: `Handoffs/video-editing/00-RULES.md`, `.claude/skills/longform-edit/
 Cropping, colour, audio, the tight open, the three-clip opening with ab wheel `B0436@2.0` and kettlebell `B0439@0.5`
 (words in `round3-plan/decisions.json`). Soft Blue Light graphics.
 
-## Waiting on Dan: 10 decisions on the round 3 page
-1 frames for A1 and A2 · 2 frames for A3 · 3 A4 as one push-up clip, or two shorter clips (push-ups, ab wheel) ·
-4 hair at the top edge on 9 later rolls · 5 length · 6 AI product pictures · 7 jump rope "$10" vs "$9" · 8 music bed ·
-9 app demo treatment · 10 confirm no AI opener. He may also overrule the jump rope pick or the pan. Do not infer anything
-from silence. When he replies, record his words and the reviewed hashes in `round4-plan/decisions.json` before building.
+## Dan's reply so far (2026-10-08, recorded in `round4-plan/decisions.json` with hashes)
+"Everything is looking good except A3, the slap." So the round 3 first minute (jump rope, equipment pan) and the frames for
+A1, A2 and A4 (one clip of push-ups) are approved, and their motion is cleared. A3 was rejected: the start frame raised his
+right hand, the end frame used his left, and it ended before the slap landed. His ask: left hand up at the start; in the end
+frame the left hand is past the client's face after the slap; make it look realistic.
+- **New A3 frames, shown to Dan, NOT approved yet:** `/Volumes/Extreme/_edit_work/ro06/round4/frames/A3-start.png` and
+  `A3-end.png` (page http://localhost:8849/index.html, restart with `review_server.py 8849 .../ro06/round4`). Use these, not
+  the round 3 pair. Prompts: `reference/ro06/ai-frame-prompts/A3-start-r4.txt`, `A3-end-r4.txt`.
+- A3 motion prompt, once approved: a left-hand forehand slap that travels across his cheek toward the camera, his head
+  turning to the camera, the hand carrying on past his face. Impact at 39.40.
 
-## If he approves frames: the motion step
-- **No motion is authorized until his reply names the clips.** Budget: $5 per video; spent $0.24 (Topaz). Estimate $2.20
+## Still waiting on Dan
+A3's new frames · and decisions 4 to 10 from the round 3 page, which he has not answered: hair at the top edge on 9 later
+rolls · length · AI product pictures · jump rope "$10" vs "$9" · music bed · app demo treatment · confirm no AI opener.
+Do not infer anything from silence. Add each answer to `round4-plan/decisions.json` before building.
+
+## The motion step
+- **Cleared for A1, A2 and A4. A3 waits for his OK on the new frames; generate all four in one batch so they match.** Budget: $5 per video; spent $0.24 (Topaz). Estimate $2.20
   for one take of each, $4.40 with one redo each. Past $5, stop and tell him the number and the reason.
 - Motion: `google/veo-3.1-fast` with `image` + `last_frame`, 1080p, `generate_audio: false`, 4 s for A1 to A3 and 6 s for
   A4 ($0.10 a second). Submit one at a time (two at once get throttled). Trim each to its slot on the best-flowing part;
@@ -49,7 +59,7 @@ from silence. When he replies, record his words and the reviewed hashes in `roun
 - For `/video-setup` later: realistic AI footage, so the upload's AI flag is true.
 
 ## Costs
-Metered: $0.24 (Topaz upscale). Codex stills on the subscription: 6 in round 1, 12 in round 3. Cap: $5 per video.
+Metered: $0.24 (Topaz upscale). Codex stills on the subscription: 6 in round 1, 12 in round 3, 2 more for the new A3 pair. Cap: $5 per video.
 
 ## Next action
 Wait for Dan's reply. Apply his first-minute notes, generate approved motion, show the first minute with the clips moving,
@@ -59,6 +69,6 @@ open risks). Recommended: **Claude Opus 5.5, high.**
 ## Starter prompt
 > Read `Handoffs/handoff-20261008-ro06-round4-dan-review.md` and execute it with /longform-edit. This is RO-06 "How To Work
 > Out At Home On A Budget", long-form content (LFC); name this task `Work Out At Home LFC R4`. My answers to the round 3
-> page are below. Record them, fix anything I flagged, generate the AI clips I approved (lip sync on the two excuse
-> clips), and show me the first minute with them moving.
-> [paste the reply box from the round 3 page here]
+> page and to the new A3 slap frames are below (A1, A2 and A4 are already approved). Record them, generate the AI clips
+> (lip sync on the two excuse clips), and show me the first minute with them moving.
+> [paste your A3 answer and the reply box from the round 3 page here]
