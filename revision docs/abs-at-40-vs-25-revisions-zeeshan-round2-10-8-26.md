@@ -25,9 +25,6 @@ Graphics kit, for the exact sizes and the moving examples: https://drive.google.
 
 ## 2. THROUGHOUT VIDEO
 
-- **\*\*NO SOUND ON THE TRANSITIONS\*\***
-    - The new zoom transitions each have a whoosh sound on them (1:41, 3:55, 4:23, 5:40, 6:01, 7:20, 9:11, 10:01 and the rest). **Remove the whoosh from every transition.** The transitions are silent, the same as the graphics.
-    - **STANDING RULE: No swipe, whoosh or riser sound on any graphic or transition, in any video.**
 - **\*\*JUMP CUTS: A TRANSITION DOES NOT HIDE A SAME SIZE CUT\*\***
     - Where you now cut between the wide shot and the tight shot, the jump cuts are fixed. Good.
     - At 3:55, 4:23, 6:01, 7:20 and 14:41 the shot is the same wide size on both sides of the zoom transition, so my hands and head still jump. **Cut to the tight shot at these points,** or put a clip over the cut.

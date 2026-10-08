@@ -33,6 +33,14 @@ sub-bullet per picture, labelled "Before picture" or "After picture", with a dir
 the pictures yourself (the deck-chair shirtless before, the two shirt-on fat dad pictures, real pool or studio after
 pictures) and Dan swaps them if he wants others. This replaces the empty-slot instruction in calibration rules 26 and 48.
 
+**Transition sounds are judged, not banned (Dan, 2026-10-08).** *"Not all sound effects are bad, just the ones that we used
+previously that didn't work... use a little bit more judgment and subtlety with sound effects rather than just saying no
+sound effects on transitions as a blanket rule."* He kept the low, soft swoosh an editor put on his zoom transitions and
+deleted our item asking for it off. Never write a sound item because a rule says so: write one only when the sound is
+harsh, loud, mistimed, over a word, or fired on graphics. Unsure: one line in the summary under "For Dan's call" with a
+timecode, nothing in the doc. Full rule and the measured reference: `_shared/VIDEO-RULES.md`, "Sound effects on
+transitions". Calibration pass 11.
+
 **Our B-roll and AI clip library first (Dan, 2026-10-01).** *"Always look for ways to use B-roll in our videos. Generally,
 it's better to use B-roll than stock or AI clips when we have the B-roll... look through our existing AI clips library
 and look for opportunities to use those clips before requesting a new one."* Every review runs the library pass in
@@ -492,6 +500,29 @@ His verdict: "pretty good", he liked the AI clips and the three-way split opener
 63. **Crop-in numbers on exercise B-roll: he cut our "40 to 50%" to "20-30%, the most you can while still keeping rope
     action visible".** Lean conservative when the equipment needs the frame.
 
+### Calibration pass 11: Dan's edit to a long-form round 2 (Getting Abs At 40 vs 25, 2026-10-08)
+
+Doc `1AHErd86NwRtFG4-Ul_ICpEyZfsD3jr5JTjdc3MoOsGw`, live copy `revision docs/abs-at-40-vs-25-revisions-zeeshan-round2-10-8-26.live-as-sent.txt`.
+One edit in a 6,400 character section: he deleted the whoosh item and its STANDING RULE line. His verdict: "Overall, I
+agree with these revisions." Everything else went out untouched.
+
+64. **A transition sound is not an item because a rule says so.** The editor added a zoom transition with a swoosh on
+    about 18 cuts. We measured it correctly and then asked for it off under the 09-23 "no swipe sound, ever" rule. Dan:
+    *"I thought the sound effect to use on transition actually worked, and in fact, this is something that I want to try
+    on Claude and Codex edits in the future."* The 09-23 ban was about one sound (our bright, hissy sweep near 4 kHz, on
+    graphics, 83 times in an ad). This one is low and soft (centred near 230 Hz), about 9 dB under his voice, and tied
+    to a picture move. Measure a sound to describe it to Dan, then judge it by ear criteria: low or bright, under the
+    voice or over it, on a picture move or on a graphic, few or constant. The round 1 doc's own line ("No swipe, whoosh
+    or riser when a graphic or a transition comes in") overreached on transitions; do not repeat it.
+65. **Do not invent a STANDING RULE line.** The deleted line ("No swipe, whoosh or riser sound on any graphic or
+    transition, in any video") was not one of the canonical wordings; it turned a rule about one sound into a blanket
+    rule in Dan's name. Only the canonical lines go in a doc as STANDING RULE. A new one needs his words first. The two
+    other new lines in that doc were kept and are now canonical (same-size cuts, the label off my face and abs).
+66. **What he kept, which confirms the rest:** small pose-matched jump cuts on a round 2 are still items; a zoom or blur
+    laid over a same-size cut is still a jump cut; a removal asked for in round 1 and not done stays an item even after
+    its first reason has gone (the 8:40 clip); a new label is checked on the brightest clip; a lower third may not
+    cover an app screen; the template that is right gets "approved and locked" in the doc so the editor stops changing it.
+
 **Dan's vocabulary — use his words:** "camera scene" (the talking head), "motion effect" (the
 Ken Burns move on stills), "accelerate footage to fit duration", "clip", "bro", "douchey". A simple
 item is one line in that register; keep the longer form only where the editor needs exact text,
@@ -875,6 +906,9 @@ For evidence receipts and blind benchmark freezes, use [REVIEW_EVIDENCE.md](refe
   - AI realism (built from Dan's own 09-14 wording): `STANDING RULE: Check every AI clip frame by frame for anything that gives away that it is AI-generated and makes it seem like it's not a real clip, like smoke coming out when someone exhales. Replace or regenerate any shot that has one.`
   - Headroom (Dan's own words, 2026-09-14): `STANDING RULE: Do not crop out the top of my head or hair, leave a small amount of space above my hair so the top of my hair does not go out of frame`
   - Framing (built from Dan's own 09-11 item wording): `STANDING RULE: Crop in closer. In the wide shot, avoid excessive space above my head and towards the sides. In the tight shot, leave only a small amount of space above me and to the sides, almost as tight as possible without me going out of frame.`
+  - Same-size cuts (kept by Dan, 2026-10-08): `STANDING RULE: A cut between two shots of the same size always reads as a jump. Change the shot size at the cut, or cover it with a clip. A transition or a zoom effect does not fix it.`
+  - Label placement (kept by Dan, 2026-10-08; use this wording, it has no em dash): `STANDING RULE: Every real after picture of me carries the label "Real picture of me, not AI-generated". The label never covers my face or my abs. Put it above my head, in a corner, or anywhere my body is not.`
+- **Transition sounds** (Dan, 2026-10-08): judged, not banned. No canonical STANDING RULE line exists for sound effects; do not write one.
 - **Swearing** (Dan, 2026-09-29): my on-camera swearing always stays. Never write an item, a question or a summary line about cutting or keeping it.
 - **Voice input caveat**: Dan dictates; if a quoted correction seems odd, check the
   transcript audio before flagging his script wording as a "typo".
@@ -1452,8 +1486,9 @@ For evidence receipts and blind benchmark freezes, use [REVIEW_EVIDENCE.md](refe
     changes (check first: 16 kHz mono against each old channel, here r 0.996 at zero lag against the right), subtract
     them. Bursts in the leftover are what changed. Sign test: correlate a burst with each mix; it sits in round 2 if it
     correlates with round 2 and not round 1 (added), and the reverse if it was removed. Same-sample test: the bursts
-    match each other at r 0.9 or more. This found a whoosh on 18 new transitions and proved the lower-third sounds had
-    been taken out. A new label style is also checked on the BRIGHTEST clip it sits on (plain white text vanished on a
+    match each other at r 0.9 or more. This found a swoosh on 18 new transitions and proved the lower-third sounds had
+    been taken out. ⚠ Finding a sound is not a reason to ask for it off: Dan KEPT this one (calibration rule 64). The
+    measurement goes in the summary so he knows what was added. A new label style is also checked on the BRIGHTEST clip it sits on (plain white text vanished on a
     gym window).
     (c) ⚠ **Never `pkill -f` a whisper or ffmpeg command line.** A concurrent revisions session runs the identical
     command from the same prep template; this killed the other session's transcript mid-run and it had to be

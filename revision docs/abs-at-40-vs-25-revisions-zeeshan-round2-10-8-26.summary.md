@@ -23,10 +23,13 @@ Work dir: `/Volumes/Extreme/_edit_work/revisions-20261008/zeeshan/`.
 - App recordings 17:15 and 17:31: full screen on blue with the lower third across the app, not beside you.
 
 ## New in round 2
-- He added a zoom blur transition on about 18 cuts, each with a whoosh sound. Measured, not guessed: subtracting round 1's lav channel from the new mix leaves the same low whoosh (peak about -24 dBFS, 7 dB under your voice) at every one of them, and the leftovers match each other at r 0.92 to 0.98. Item written: remove the sound.
+- He added a zoom blur transition on about 18 cuts, each with a low swoosh sound (about half a second, centred near 230 Hz, about 9 dB under your voice). Measured by subtracting round 1's lav channel from the new mix.
+
+## Dan's ruling, 2026-10-08
+- "Overall, I agree with these revisions." One edit: he deleted the item asking for the swoosh off. The sound stays, and he wants to try the same thing on Claude and Codex edits. Sound effects are now a judgment call, not a blanket ban: `.claude/skills/_shared/VIDEO-RULES.md`, "Sound effects on transitions"; revisions skill calibration pass 11.
+- Doc as he sent it: `abs-at-40-vs-25-revisions-zeeshan-round2-10-8-26.live-as-sent.txt`.
 
 ## For Dan's call
-- The zoom blur transition itself (the picture, not the sound). I left it alone where the shot size changes and only asked for the sound off. If you do not want the effect at all, add one line. Clip to judge it on: `Videos to Review/Zeeshan revisions - Video 5 round 2 - zoom transitions and whoosh (3:55 and 4:23).mp4` (3:48 to 4:48).
 - 8:40 - 8:50 AI clip of a man doing barbell rows. Round 1 asked for it out because it was used twice. It is now used once, labeled, and I found no AI giveaway in it at 8 fps. I kept the removal item because your round 1 doc asked for it; delete that line if you are fine with the clip now.
 - The six untouched jump cuts are small. Delete that line if you would rather close the video.
 - Not itemized: each after picture is up about half a second (0:08.8 and 0:09.4); the lat pulldown clip runs 8:22 - 8:25.4, not 8:18 - 8:24 (it sits on "focus mostly on machines", which is right); the ring close-up at 12:15 is a punch-in on this video's footage, not the Video 4 clip; true peak -0.9 against -1.0.
@@ -37,18 +40,16 @@ Work dir: `/Volumes/Extreme/_edit_work/revisions-20261008/zeeshan/`.
 
 ## Paste-ready message
 
-Hey Zeeshan, thanks for this, it's a great round! The audio is fixed and sounds right, the lower third template is exactly what I wanted, every lower third has the right text, and the new clips are all in. The lower third is approved and locked, use it just like that on every video from now on.
+Hey Zeeshan, thanks for this, it's a great round! The audio is fixed and sounds right, the lower third template is exactly what I wanted, every lower third has the right text, and the new clips are all in. I like the new zoom transitions with the sound on them too, keep those. The lower third is approved and locked, use it just like that on every video from now on.
 
 I added round 2 at the top of the same doc:
 
 https://docs.google.com/document/d/1AHErd86NwRtFG4-Ul_ICpEyZfsD3jr5JTjdc3MoOsGw/edit
 
-Three big things:
+Two big things:
 
 The list card isn't the kit card yet. It's too small, and the box needs to grow with the text and leave when the text leaves. The numbers are in the doc. Once it matches, that one's locked too.
 
-The new zoom transitions have a whoosh sound on them. Please take the sound off all of them, transitions are silent.
-
-A few jump cuts are still there. A transition doesn't hide a cut between two shots of the same size, it needs the tight shot or a clip over it. The times are in the doc.
+A few jump cuts are still there. The transition doesn't hide a cut between two shots of the same size, it needs the tight shot or a clip over it. The times are in the doc.
 
 The rest is small. That's the whole list, and once it's in this video is done. Really nice work, thanks!

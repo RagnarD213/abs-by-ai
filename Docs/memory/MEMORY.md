@@ -116,7 +116,7 @@
 - [Dan voice guide](dan-voice-guide.md): read DAN-VOICE.md + voice/passages file for the type before writing as Dan; 10-08 bench: judges catch Claude 90%; score changes with scripts/voice/bench.py
 - [Dan's personal facts for scripts](dan-personal-facts-for-scripts.md): glycine nightly, sleeps at 63, Oura 75-80, Zepbound for life, 8 am gym, AI saves 10 hrs/week
 - [Opus 5.5 release](opus-5-5-release.md): 09-22: ≥ Fable 5.1 on benchmarks at 60% lower price; routing recommendation (Opus default, Fable reviewer/escalation)
-- [No swipe sound effect](no-swipe-sound-effect.md): Dan 09-23: never any whoosh/swipe/riser SFX; sfxlib now raises; transitions like Muhammad's
+- [Sound effects: judged, not banned](no-swipe-sound-effect.md): 10-08: old bright swipe stays out; a low soft swoosh on a picture transition works, Dan wants it tried on our edits
 - [RO-05 salad cut rejected](ro05-salad-cut-rejected.md): 09-23 unpublishable; 09-28 recut: intro awful (open on camera, then dish + eating, his audio under), graphics to Soft Blue Light, more saturation
 - [No compliance talk unless asked](audit-focus-growth-not-compliance.md): Dan 09-25: no compliance/legal/policy items in design, research, audits; only when he asks or the task is shipping sales copy
 - [Take selection rule approved](take-selection-rule-approved.md) — 09-24: Dan OK'd the picker on C1512; keep the last take if clean, earlier may be stronger; review picks as a clip, never a table
