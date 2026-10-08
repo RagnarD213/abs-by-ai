@@ -164,3 +164,6 @@ Handoffs/video-editing/jobs.json.tmp
 
 # Review copies for Dan to watch in VLC (media; the repo is public)
 Videos to Review/
+
+# Dan voice corpus: raw text, never in the public repo (mirrored to Drive 1FE1_fv6XhV96w4OQDji51w7Lrz6ZpiOM)
+voice-corpus/
