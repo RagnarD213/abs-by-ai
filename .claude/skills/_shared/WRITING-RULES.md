@@ -37,6 +37,10 @@ A name with no file in `Docs/memory/` is private on purpose. Do not guess what i
   are in `dan-personal-facts-for-scripts` and in each skill's own facts section. If a fact is missing, leave a marked
   gap for Dan, do not fill it. (Standing; restated by Dan 2026-09-21 when he corrected "6 am" to "8 am".)
 - **Before photo: 38 years old, about 200 lb. Abs back at 40.** About two years apart. (Dan, 2026-08-07.)
+- **A personal fact goes in only where it carries the point of that paragraph.** Never wedge one in because it is on
+  record. Dan on the 10/17 scripts: the facts "actually made the scripts worse" where they were not relevant, for
+  example his own bedtime in a section about a consistent bedtime. Use them the way he does: when they prove or show
+  the thing being said. (Dan, 2026-10-07.) Detail: `/scriptfromoutline`, section Q.
 
 ## 3. Sound like Dan, not like an assistant
 

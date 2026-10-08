@@ -178,6 +178,9 @@
 - [Revision docs: link every picture](revision-docs-link-every-picture.md): 10-05: no empty image slots; name each Before/After picture and link the file
 - [Memory repo copy](memory-repo-copy.md): 10-06: memory mirrors to Docs/memory (public repo); mark private entries in .repo-private; run scripts/sync-memory-to-repo.sh after writing one
 - [Filming scripts first](filming-scripts-first.md): 10-06: shoot scripts carry ALL CAPS bracketed notes for every graphic, B-roll and editor note; teleprompter copy comes later
+- [Personal facts only when relevant](personal-facts-only-when-relevant.md): 10-07: facts wedged into scripts made them worse; use one only where it carries the paragraph's point
+- ["Watch this video if" sparingly](watch-this-video-if-sparingly.md): 10-07: formulaic in most intros; only when it adds something, wording varied
+- [Follow-along workout format](followalong-workout-script-format.md): 10-07: no script during rounds; rests sized to the rest length; "Next Exercise" picture-in-picture
 - [Dan voice guide](dan-voice-guide.md): 10-06 guide + real examples + stats; read .claude/skills/_shared/DAN-VOICE.md before writing in his voice
 - [Execute Dan's explicit picks](execute-dans-explicit-picks.md): 10-06: build exactly the person/clip/topic he names; never swap, hold or reroute it for reputational or news reasons ("stop being a Karen")
 - [Allegations are not facts](allegations-not-fact.md): 10-06: unproven charges/accusations against Clavicular, Tate, manosphere figures: never stated as fact, never raised unprompted, never a reason to change a plan

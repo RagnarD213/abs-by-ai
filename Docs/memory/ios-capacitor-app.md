@@ -36,3 +36,11 @@ any new App Store build (signing, IAP capability and plugin setup were in the lo
 back to the last good simulator build (2026-07-29, `native-smoke-out/ios-dd/.../App.app`): fine for checking the live
 website inside the shell, blind to native changes since July. `xcrun simctl io ... screenshot` cannot write into
 `~/Documents` (capture to a temp file, copy in).
+
+**2026-10-07, REBUILT:** The current iPhone source project is in the outside-iCloud worktree at
+`/Users/danielrose/.codex/worktrees/ios-rebuild/Abs By AI/ios-app` and is tracked on GitHub `main`
+from commit `8e5a9e3`. Capacitor 8 was regenerated with app ID `com.absbyai.app`, the September 20
+compiled app's settings were restored, and RevenueCat Purchases was included from the last submitted
+build notes. A Release simulator build and `scripts/native-smoke-test.sh ios` passed. The original
+`ios-app/` folder in the iCloud-synced main checkout is still damaged and was not touched. The full
+iCloud Data Recovery list was not searched because Chrome crashed after loading 7,168 entries.

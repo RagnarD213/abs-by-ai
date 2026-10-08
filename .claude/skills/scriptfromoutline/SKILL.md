@@ -205,6 +205,55 @@ title card cue. Update the production notes' study list.
 - Small: "So let me wrap this up" became "OK, let's wrap this up"; "Calories decide" became
   "Calories are the most important factor in" (he restored the hedge that matches video 1).
 
+## THE 10/17 SHOOT REWRITE PASS (Dan's feedback on 40 scripts, 2026-10-07). READ THIRD.
+
+Dan called the batch good overall and the workout videos the weakest. As delivered:
+`Docs/SCRIPTS_1017_SHOOT_REWRITE_PASS_AS_DELIVERED_20261007.md`. Diff his next edits against it.
+
+**O. Follow-along workouts: nothing is read during a round.** Dan films them outside by his pool, live, in one
+continuous take, with cuts only in the intro and the close. He cannot read a teleprompter while exercising. So:
+- All words go before the workout, after it, and in the rests. The round itself is one cue line
+  (`[ROUND 3: JUMP ROPE, 30 SECONDS. NO TALKING]`).
+- Each rest script matches the rest length at about 2.4 words a second, minus 3 seconds to catch his breath and
+  2 to 3 to get set: about 50 words for a 30 second rest, 28 to 36 for a 20 second rest. Go shorter when he has
+  to lie down or pick something up. Count every rest block with a script before delivering.
+- The rest script names the next exercise and says briefly how to do it. On a repeat circuit, give a new cue (the
+  common mistake, where he is in the workout), never the same description twice.
+- Every rest carries an editor cue for a picture-in-picture box labeled "Next Exercise" showing Dan doing it.
+  Tell the viewer in the intro that the box is coming.
+- A workout with no rest (rope straight into abs) gets no talking at all once the timer starts: explain every
+  exercise in the intro with the picture-in-picture box, then let it run.
+- A studio video about exercises ("The 9 Exercises I Do Every Week") is not a follow-along. Normal script rules.
+
+**P. "Watch this video if X" is a tool, not a required intro line.** Dan: in most intros it "seemed very formulaic
+and like AI slop", repeating the line before it. Use it only when it adds a new reason or calls out a viewer the
+first two lines did not, and vary the wording ("If you've done hundreds of crunches and still can't see your abs,
+this video is for you."). Across a batch, most intros should not have it. He deleted it himself in four scripts.
+
+**Q. His personal facts go in only where they carry the point of that paragraph.** Dan: the facts "actually made
+the scripts worse" where they were "wedged in" in a "rule-based, deterministic" way. His example: giving his own
+bedtime in a section about going to bed at a consistent time. Test each one: does the paragraph lose its proof or
+its how-to if the fact comes out? If not, cut it. Repeat offenders in this batch: glycine and the Oura score in
+videos not about sleep, the $8 to $9 meal prep price, the salmon meal, the day of the week he injects. One fact
+used in six scripts reads as a template. The facts are context for you first, script material second.
+
+**R. Numbers and habits he confirmed 2026-10-07** (also in memory `dan-personal-facts-for-scripts`):
+- Zepbound: 192 to 175 pounds in 3 months is the standard line. He takes 1.5 mg a week; he recommends 1 to 1.5 mg
+  for ripped men maintaining.
+- At the gym he counts reps (a warm-up set of 12 to 15, then two sets of 6 to 10), except vacuums. Home workouts
+  always go on a timer, and that is what he tells beginners to do.
+- Never mention the advertising agency, except where his own outline tells his life story.
+
+**S. Track changes work through the Docs connector.** `update_doc` with `writeControl.writeMode: "SUGGEST"` makes
+real suggestions (insertText, deleteContentRange and replaceAllText all work). `references/gdoc_edits/` holds
+`docmap.py` and `build.py`: write an ops list (section, then find and replace or paragraph ops), build the request
+list from a fresh `read_doc` snapshot, send it highest index first. Inserted text copies the style of the character
+before it, so fix bold and italic afterward with plain `updateTextStyle` calls. Insert at a paragraph that is not
+struck through.
+
+**T. A shoot doc gets one B-roll filming list at the top**, divided by set (studio, home workouts by the pool,
+gym, plus around the house), each shot listed once with the videos that reuse it.
+
 ## Why this skill exists (Dan's goals, 2026-08-23)
 
 Dan's content videos were shot off the cuff from outlines. Editing them proved
