@@ -18,7 +18,9 @@ function validateMaster(rows) {
 function mediaURL(value) {
   try {
     const u = new URL(value);
-    if (u.protocol !== 'https:' || u.username || u.password || u.port || u.search || u.hash) return null;
+    if (u.protocol !== 'https:' || u.username || u.password || u.port || u.hash) return null;
+    if (u.hostname === 'i9.ytimg.com' && /^\/vi\/[A-Za-z0-9_-]{11}\/[A-Za-z0-9_-]+\.jpg$/.test(u.pathname) && [...u.searchParams.keys()].every(k=>['sqp','rs'].includes(k))) return u.href;
+    if (u.search) return null;
     if (u.hostname === 'database.blotato.io' && /^\/storage\/v1\/object\/public\/public_media\/[a-f0-9-]+\/[a-f0-9-]+\.(png|jpe?g|mp4|webm)$/i.test(u.pathname)) return u.href;
     if (u.hostname === 'i.ytimg.com' && /^\/vi\/[A-Za-z0-9_-]{11}\/[A-Za-z0-9_-]+\.jpg$/.test(u.pathname)) return u.href;
     return null;

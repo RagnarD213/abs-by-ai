@@ -190,6 +190,9 @@ def plan_topup(inventory, live, now, guard, asset_checks=None):
     result['existingOutsideWindow'] = [{'scheduleId':str(i['id']), 'platform':i['draft']['content']['platform'],
                                        'scheduledAt':i['scheduledAt']} for i in live if stamp(i['scheduledAt']) >= end]
     for r in sorted(records, key=lambda r: r['scheduledAt']):
+        if r.get('nativeObserved'):
+            # Owner API schedules are review evidence, never a Blotato top-up.
+            continue
         key, at = r['id'], stamp(r['scheduledAt'])
         if key in existing or inventory.submission(key) == 'confirmed':
             result['alreadyScheduled'].append(key)
