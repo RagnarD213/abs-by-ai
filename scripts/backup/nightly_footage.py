@@ -361,6 +361,46 @@ def copy_only_to_seagate(state, deadline, dry_run):
     return 1 if errors else 0
 
 
+def copy_only_to_drive(state, deadline, dry_run):
+    """Copy and checksum-check every shoot on Drive without offloading Extreme."""
+    errors = 0
+    for shoot, config in eligible_shoots():
+        try:
+            files = raw_files(shoot, config)
+            if not files:
+                continue
+            snapshot = inventory(shoot, files)
+            name = shoot.name
+            say(f"{name}: {snapshot['files']} raw files, {snapshot['bytes'] / 1e9:.1f} GB")
+            if dry_run:
+                continue
+            if time.time() - snapshot["newest"] < 1800:
+                say(f"{name}: waiting until newest raw file has been unchanged for 30 minutes")
+                continue
+            record = state["shoots"].setdefault(name, {})
+            if record.get("fingerprint") == snapshot["fingerprint"] and record.get("drive_verified"):
+                say(f"{name}: unchanged since the last verified Google Drive copy")
+                continue
+            destination = DRIVE_ROOT + "/" + config["drive"]
+            rclone_transfer(shoot, destination, files, deadline)
+            if config["drive"] == name:
+                run_command([str(RCLONE), "link", destination], deadline)
+            if inventory(shoot, raw_files(shoot, config))["fingerprint"] != snapshot["fingerprint"]:
+                raise RuntimeError("source changed during verification; will retry")
+            if record.get("fingerprint") != snapshot["fingerprint"]:
+                record.clear()
+            record["fingerprint"] = snapshot["fingerprint"]
+            record["drive_verified"] = datetime.now(TZ).isoformat()
+            save_state(state)
+            say(f"{name}: Google Drive checksum verified; all Extreme originals retained")
+        except (RuntimeError, subprocess.TimeoutExpired, OSError) as exc:
+            errors += 1
+            say(f"ERROR {shoot.name}: {exc}")
+            if datetime.now(TZ) >= deadline - timedelta(minutes=2):
+                break
+    return 1 if errors else 0
+
+
 def install():
     LOG_DIR.mkdir(parents=True, exist_ok=True)
     PLIST.parent.mkdir(parents=True, exist_ok=True)
@@ -389,6 +429,7 @@ def main():
     parser.add_argument("--install", action="store_true")
     parser.add_argument("--status", action="store_true")
     parser.add_argument("--copy-only-seagate", action="store_true")
+    parser.add_argument("--copy-only-drive", action="store_true")
     args = parser.parse_args()
     if args.install:
         install()
@@ -411,6 +452,8 @@ def main():
         state = load_state()
         if args.copy_only_seagate:
             return copy_only_to_seagate(state, deadline, args.dry_run)
+        if args.copy_only_drive:
+            return copy_only_to_drive(state, deadline, args.dry_run)
         errors = 0
         for shoot, config in eligible_shoots():
             try:
