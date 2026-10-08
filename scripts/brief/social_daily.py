@@ -120,9 +120,20 @@ def main():
         import_studio(inventory, studio_plan, manifest, now.isoformat(), live, hashes)
         # Long-form queue declares its category explicitly in its campaign link.
         for r in inventory.records():
-            if 'utm_campaign=longform' in r['caption']:
+            body = json.dumps(r['payload'])
+            if 'utm_campaign=longform' in body:
                 r['kind'] = 'longform'
+                groups = set(re.findall(r'utm_content=([A-Za-z0-9_-]+)',body))
+                if len(groups) == 1:
+                    r['releaseGroup'] = groups.pop()
                 inventory.put(r, {'source': 'longform campaign marker', 'checkedAt': now.isoformat()})
+        records = inventory.records()
+        for r in records:
+            if r.get('releaseGroup') and r['platform'] != 'youtube':
+                youtube = [yt for yt in records if yt['platform'] == 'youtube' and yt.get('releaseGroup') == r['releaseGroup']]
+                if len(youtube) == 1:
+                    r['youtubeReleaseAt'] = youtube[0]['scheduledAt']
+                    inventory.put(r, {'source':'unique explicit longform campaign group','youtubePlacementId':youtube[0]['id'],'checkedAt':now.isoformat()})
         guard = load_module('existing_ad_guard', project / 'scripts/blotato/ad_guard.py')
         records = inventory.records()
         live_ids = {str(i['id']) for i in live}

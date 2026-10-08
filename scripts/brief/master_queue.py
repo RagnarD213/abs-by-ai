@@ -101,12 +101,13 @@ class Inventory:
 def from_live(item, checked_at):
     payload = {k: item['draft'][k] for k in ('accountId', 'content', 'target')}
     target, content = payload['target'], payload['content']
+    kind = 'photo' if content.get('mediaUrls') and all(Path(u.split('?')[0]).suffix.lower() in ('.jpg', '.jpeg', '.png') for u in content['mediaUrls']) else 'unknown'
     return {'payload': payload, 'scheduledAt': stamp(item['scheduledAt']).isoformat(),
             'platform': content['platform'], 'account': str(payload['accountId']),
             'title': target.get('title') or content.get('text', '').split('\n')[0][:220] or 'Scheduled post',
             'caption': content.get('text', ''), 'media': content.get('mediaUrls', []),
-            'cover': target.get('thumbnailUrl') or target.get('coverImageUrl'),
-            'kind': 'photo' if content.get('mediaUrls') and all(Path(u.split('?')[0]).suffix.lower() in ('.jpg', '.jpeg', '.png') for u in content['mediaUrls']) else 'unknown',
+            'cover': target.get('thumbnailUrl') or target.get('coverImageUrl') or (content['mediaUrls'][0] if kind == 'photo' else None),
+            'kind': kind,
             'approval': {'status': 'scheduled_observed', 'reference': 'blotato:' + str(item['id']), 'quote': 'Observed live schedule; original approval not inferred'},
             'provenance': [{'source': 'blotato', 'sourceId': str(item['id']), 'checkedAt': checked_at}],
             'scheduleId': str(item['id'])}

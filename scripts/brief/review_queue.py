@@ -68,7 +68,7 @@ def review(records, live, now, checks=None, public_evidence=None):
                      'links': 'not_applicable' if not links else ('broken' if 'broken' in link_states else 'verified' if all(s == 'verified' for s in link_states) else 'unverified'),
                      'duplicates': 'duplicate' if counts.get((r['account'], at), 0) > 1 else 'verified',
                      'assetMatch': 'broken' if 'broken' in media_states else 'unverified',
-                     'cadence': 'mismatch' if r['id'] in rules else 'unverified' if r['kind'] == 'unknown' else 'verified',
+                     'cadence': 'mismatch' if any(n.startswith(('Long-form YouTube must','Other platforms must','More than one')) for n in rules.get(r['id'],[])) else 'unverified' if r['id'] in rules or r['kind'] == 'unknown' else 'verified',
                      'crop': 'verified' if r.get('cropVerified') is True else 'unverified'}
         notes = list(rules.get(r['id'], []))
         if r['kind'] == 'unknown':

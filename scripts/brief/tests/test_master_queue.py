@@ -158,5 +158,14 @@ class MasterTests(unittest.TestCase):
         evidence['placementId']='wrong'
         self.assertEqual(public_tile(r,evidence,self.now)['status'],'unverified')
 
+    def test_photos_are_their_own_cover_and_unknown_cadence_is_not_mismatch(self):
+        r = self.seed()
+        live = {'id':'photo','draft':r['payload'],'scheduledAt':r['scheduledAt']}
+        imported = from_live(live,self.now.isoformat())
+        self.assertEqual(imported['cover'],r['media'][0])
+        imported['kind']='longform';imported['platform']='facebook';imported['id']='test';imported['scheduleId']='photo'
+        q=review([imported],[live],self.now)
+        self.assertEqual(q['rows'][0]['preflight']['cadence'],'unverified')
+
 
 if __name__ == '__main__': unittest.main()
