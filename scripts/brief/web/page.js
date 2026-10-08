@@ -84,12 +84,12 @@ function preview(box,id,cover,video,platform='',coverFrameAt=null,title='Schedul
   player.addEventListener('ended',()=>{play.textContent='Play video';});
   player.addEventListener('error',()=>{player.hidden=true;play.hidden=true;state.textContent='This video could not load. Open the original video below.';});
   entry.original=video;
-  if (!cover) {
+  if (!cover && platform==='tiktok' && coverFrameAt===0) {
     const frame=el('figure',undefined,'cover-panel');
     const canvas=el('canvas');canvas.className='release-cover';canvas.hidden=true;
     const isTikTok=platform==='tiktok' && coverFrameAt===0;
     inspectable(canvas,{type:'frame',canvas,title:title+' · Video frame at 0 seconds'});
-    frame.append(canvas,el('figcaption',isTikTok ? 'Cover frame · 0 seconds' : 'Video frame'),el('p',isTikTok ? 'Approval unverified.' : 'Separate cover unavailable.','note'));if(isTikTok)media.prepend(frame); else { frame.hidden=true; media.append(frame); }
+    frame.append(canvas,el('figcaption',isTikTok ? 'Cover frame · 0 seconds' : 'Video frame'),el('p',isTikTok ? 'Approval unverified.' : 'Separate cover unavailable.','note'));media.prepend(frame);
     const capture=()=>{if(!player.videoWidth || player.currentTime>0.1)return;try{canvas.width=player.videoWidth;canvas.height=player.videoHeight;canvas.getContext('2d').drawImage(player,0,0);canvas.hidden=false;}catch{}};
     player.addEventListener('loadeddata',capture,{once:true});
   }
