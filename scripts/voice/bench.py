@@ -543,7 +543,12 @@ def write_held_md(index, short):
              "`python3 scripts/voice/heldout_guard.py` fails if a file under `.claude/skills/_shared/` contains an 8-word",
              "run from any of them. Run it after editing any voice file.", "",
              "Whole files flagged held out in the corpus manifest (the HBI \"Five Foods To Avoid\" script) are off limits",
-             "from end to end, not only the passage listed here.", ""]
+             "from end to end, not only the passage listed here.", "",
+             "Some of these pieces are published, so their text also sits elsewhere in the repo (Ad 3 in",
+             "`scriptwriting/references/finalized-ad-scripts.md`, the sales letter in `design-sales-page/reference/`, one",
+             "short in `shorts-scripting/SKILL.md`, video transcripts inside edit plans). Those files stay as they are. A bench",
+             "setup must not load them: `bench.py` checks every file a setup gives the writer and stops if one holds",
+             "held-out text.", ""]
     if short:
         lines += ["Thin spots (fewer passages than planned, because there is not enough pure material yet): "
                   + "; ".join(short) + ".", ""]

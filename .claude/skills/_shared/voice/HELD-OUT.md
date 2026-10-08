@@ -10,6 +10,15 @@ run from any of them. Run it after editing any voice file.
 Whole files flagged held out in the corpus manifest (the HBI "Five Foods To Avoid" script) are off limits
 from end to end, not only the passage listed here.
 
+Some of these pieces are published, so their text also sits elsewhere in the repo (Ad 3 in
+`scriptwriting/references/finalized-ad-scripts.md`, the sales letter in `design-sales-page/reference/`, one
+short in `shorts-scripting/SKILL.md`, video transcripts inside edit plans). Those files stay as they are. A bench
+setup must not load them: `bench.py` checks every file a setup gives the writer and stops if one holds
+held-out text.
+
+Thin spots: shorts (4 held out, not 6: only nine shorts are wholly his), ads (5 of the 10 are ads he wrote for other
+presenters, because his own ads total under 10,000 words), conversion (5 of 6 sell to business owners).
+
 | id | type | source file (under `voice-corpus/`) | position | words | tier | year | spoken or written |
 |---|---|---|---|---:|---:|---:|---|
 | content-long-01 | content | `content/tier1/absbyai/2026-arms-and-shoulders-home-workout.txt` | words 1345 to 1626 (middle) | 282 | 1 | 2026 | spoken |
