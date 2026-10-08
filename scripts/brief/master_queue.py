@@ -52,6 +52,7 @@ def locked(directory):
 
 class Inventory:
     def __init__(self, directory):
+        self.directory = Path(directory)
         file = Path(directory) / 'social-master.sqlite'
         if file.is_symlink():
             raise ValueError('Symlinked database')
@@ -234,15 +235,21 @@ def plan_topup(inventory, live, now, guard, asset_checks=None):
     return result
 
 
-def reconcile(inventory, fetch, create, now, guard, approved_digest):
-    """Future activation only: caller holds the process lock across all reads/writes.
+def reconcile(inventory, fetch, create, now, guard, approved_digest, asset_checks=None):
+    """Future activation only: lock across all reads, writes and readbacks."""
+    with locked(inventory.directory):
+        return _reconcile_locked(inventory, fetch, create, now, guard, approved_digest, asset_checks)
+
+
+def _reconcile_locked(inventory, fetch, create, now, guard, approved_digest, asset_checks):
+    """Reconcile only after the public entrypoint has acquired the private lock.
 
     Before each write re-count every platform entry. Persist uncertain attempts
     before sending, so timeout/crash cannot cause a repeat POST. No automatic HTTP
     retry is allowed. A stale reviewed diff is rejected rather than widened.
     """
     live = fetch()
-    plan = plan_topup(inventory, live, now, guard)
+    plan = plan_topup(inventory, live, now, guard, asset_checks)
     if plan['planDigest'] != approved_digest:
         raise ValueError('Reviewed plan has changed')
     for item in plan['create']:
