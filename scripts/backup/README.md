@@ -30,15 +30,14 @@ next night. The Seagate has a disk identity marker so a different drive mounted
 under the same name cannot receive the archive. An `RAW_FOOTAGE_ARCHIVED.txt`
 receipt remains in the source folder after a successful offload.
 
-As of 2026-10-05, automatic Seagate offload is paused because the new drive
-made a knocking noise. The flag at
-`~/Library/Application Support/Abs By AI/seagate-offload-paused` blocks
-automatic Seagate copies and Extreme removal. The LaunchAgent itself is also
-disabled because macOS denied its background process access to Extreme after
-the drive was reconnected. Google Drive uploads are therefore paused until
-that permission problem is fixed or a direct run is started. A separate manual
-copy of the welcome shoot to Seagate passed checksum verification, with all
-Extreme originals retained. See
+As of 2026-10-08, automatic offload and Extreme removal remain paused. The flag
+at `~/Library/Application Support/Abs By AI/seagate-offload-paused` remains in
+place. The old LaunchAgent is disabled because macOS denied its background
+process access to Extreme. A Codex heartbeat at 8 pm Chicago time now runs
+`--copy-only-seagate`, then `--copy-only-drive` when the Seagate check finishes.
+Both modes retain every Extreme original. On October 7, all six shoots, 846
+files and 916.2 GB, were checksum verified on Seagate. Drive verification is
+still pending. See
 `Handoffs/handoff-20261005-claude-nightly-footage-offload.md`.
 
 Commands from the project root:
@@ -48,6 +47,7 @@ python3 scripts/backup/nightly_footage.py --dry-run
 python3 scripts/backup/nightly_footage.py --status
 python3 scripts/backup/nightly_footage.py --install
 python3 scripts/backup/nightly_footage.py --copy-only-seagate
+python3 scripts/backup/nightly_footage.py --copy-only-drive
 ```
 
 `--copy-only-seagate` copies and checksum-checks raw files from every shoot
@@ -59,12 +59,19 @@ inventory has not changed since its verified Seagate copy. The
 normal offload path from deleting source footage. Before any future source
 removal, that path rechecks the Seagate and Google Drive copies against Extreme.
 
-The schedule is a Mac LaunchAgent named `com.absbyai.nightly-footage`. Logs are
-under `~/Library/Logs/absbyai-footage-offload/`. To stop it, run
-`launchctl bootout gui/$(id -u)/com.absbyai.nightly-footage`. The launch agent
-file is at `~/Library/LaunchAgents/com.absbyai.nightly-footage.plist`.
+`--copy-only-drive` uses the same overnight window and source inventory. It
+uploads missing raw footage to Google Drive, compares file checksums against
+Extreme, and records a verified shoot only after the source inventory remains
+unchanged. It cannot remove Extreme footage. New shoot folders get an
+anyone-with-link viewing link. The nightly Codex task runs this after the
+Seagate check, so the jobs share a lock and never transfer concurrently.
+
+The disabled Mac LaunchAgent is named `com.absbyai.nightly-footage`. Its old
+logs are under `~/Library/Logs/absbyai-footage-offload/`. The active schedule is
+the Codex heartbeat `nightly-seagate-copy-verification`.
 
 The configured `gdrive:` rclone remote currently uses rclone's shared Google
-client ID. It worked in an upload and checksum test on 2026-10-05, but rclone
-says the shared ID will stop working during 2026. Replace it with a personal
-client ID before that happens; do not treat failed cloud checks as a backup.
+client ID. A 1 MB upload and checksum test passed on 2026-10-08, but a previous
+large upload hit the shared client's quota. Rclone says the shared ID will stop
+working during 2026. Replace it with a dedicated client ID before relying on
+long uploads; do not treat failed cloud checks as a backup.
