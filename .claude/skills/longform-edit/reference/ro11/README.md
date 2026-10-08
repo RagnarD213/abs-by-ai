@@ -16,3 +16,11 @@ Traps this build paid for:
 - **`checks.py` clearance is left-to-right only.** A wide two-hand gesture that passes UNDER a side card reads as a
   fail (G20, -211 px). Look at the frame before moving the card.
 - Renders, stills, first minute and 21 context clips took about 35 minutes on a quiet machine.
+
+Round 2 (2026-10-08), before the full film:
+- **Fork to mouth fails in Veo 3.1, fast and full.** Two takes from approved frames turned the fork into a spoon in his mouth
+  and detached its head on the way down. Keep utensils on the plate in an AI opener, and make the start and end frames show
+  the SAME food (an end frame with food already eaten forces the plate to morph). `gen_motion.py <tag> <dur> <model> <prompt file>`.
+- **This copy of `build.py` lacked RO-10's repeated-first-frame fix:** 18 of 57 segments failed `dupscan.py`. Fixed here; the
+  cache key does not include the seek, so delete the listed segments before re-running.
+- `finish.py`, `finish_chain.sh`, `deliver.sh`: RO-11 versions of RO-10's (chapters = intro, 7 factors, recap).

@@ -86,8 +86,10 @@ def render_seg(sg):
     out = f"{W}/cache/seg_{sg['src0']}_{key}.mp4"
     if not os.path.exists(out):
         os.makedirs(f"{W}/cache", exist_ok=True)
-        ts = sg["src0"]/FPS
-        run([FF, "-v", "error", "-y", "-ss", f"{max(0, ts-1):.4f}", "-i", F.SRC, "-ss", f"{min(1, ts):.4f}", "-frames:v", str(sg["o1"]-sg["o0"]),
+        ts = sg["src0"]/FPS; ss_in = max(0, ts-1)
+        # RO-10 round-2 fix: the output seek is 0.4 frame EARLY. Seeking to the frame's exact time, rounded to 4 places, can land
+        # just past it; ffmpeg then drops that frame and repeats the next one (18 RO-11 segments opened on a repeated frame).
+        run([FF, "-v", "error", "-y", "-ss", f"{ss_in:.4f}", "-i", F.SRC, "-ss", f"{max(0, ts-ss_in-0.4/FPS):.4f}", "-frames:v", str(sg["o1"]-sg["o0"]),
              "-vf", F.vf(sg["framing"]).replace("format=rgb24", "format=yuv420p"), "-an", "-c:v", "libx264", "-crf", "12", "-preset", "veryfast",
              "-colorspace", "bt709", "-color_primaries", "bt709", "-color_trc", "bt709", out + ".tmp.mp4"])
         os.rename(out + ".tmp.mp4", out)

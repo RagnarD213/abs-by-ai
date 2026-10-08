@@ -72,6 +72,28 @@ With one or two motion takes the video lands near $2.30 to $4.10.
 `AI_COORDINATION.md` and `Handoffs/README.md` carry other sessions' uncommitted edits, so push with
 `scripts/git/safe-push.sh` naming only your own files and report what it refuses.
 
+## State on 2026-10-08 (read this first): the opener needs Dan's pick, the film is not built
+
+- **Two motion takes failed the frame check; a third needs Dan's OK.** Take 1 (Veo 3.1 fast, `aiframes/C_motion_v1.REJECTED.mp4`)
+  and take 2 (Veo 3.1, `aiframes/C_motion_v2.mp4`, prompt `motion_C_v2.txt` + `.neg.txt`) both turn the fork into a spoon in
+  his mouth (take 2 frames 54 to 64), detach the fork head as it lowers (71 to 76) and reshape the food at the cut (24 to 36).
+  The approved end frame shows food already eaten, so any take must change the plate. The 10:00 run was a provider error
+  (E004): no clip, not a take.
+- **Take 2's tail is clean:** frames 80 to 144 (3.29 s to 6.0 s): chews, lowers the fork, looks up at the camera 4.6 to 5.7 s, looks down.
+- **Dan's choices, page http://127.0.0.1:8811/** (`round2/opener-page/`, served by `review_server.py 8811`):
+  - **B (recommended):** film opens on Dan; A01 becomes `kind="clip"`, `src=[".../aiframes/C_motion_v2.mp4@3.29"]`,
+    `label="AI-GENERATED"`, on from 1.82 s ("even") to 4.50 s. Preview: `round2/opener-preview/B_dan-first_then-clip.mp4`.
+    In `plan.py` that is `start="even if you're not"`, `end="too many calories"`, `tail=0.24`; check `resolve.py` gives 1.82 to 4.50
+    (the full-screen snap rules must not pull it to 0).
+  - **A:** third take, no fork to mouth (nudges the chicken, sets the fork down, sighs, looks up), from `C-start.png` only.
+    $0.60 to $1.20. If it fails, fall back to B.
+  - **C:** take 2 as is at `@1.10` over the original 0 to 4.56 s slot (Dan overrules the frame check).
+- **Done and reusable:** all locks re-hashed, match. `build.py` now has RO-10's repeated-first-frame fix; all 57 segments are
+  cached and `dupscan.py` is clean (0). `junk_report.json` written (pre-render, `ranges.json`). `recipe/finish.py`,
+  `finish_chain.sh`, `deliver.sh` are written for RO-11 (untested until a master exists). Jumps: 0.
+- **Spend:** about $3.50 of $5 (`BUDGET.json`).
+- **Next action:** record Dan's pick in `round2-plan/decisions.json`, edit `plan.py` A01, then step 2 onward above.
+
 **Starter prompt (Claude Opus 5.5, effort high):**
 
 Name this task `Calories Don't Matter LFC R2`. This is CONTENT (long-form). Read and execute
