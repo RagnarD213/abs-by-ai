@@ -19,7 +19,7 @@ def plate_from(path,gradient,shrink=None):
   for y in range(b.H):a[y,:,3]=int(205*max(0,1-y/820)**0.85)
   im.alpha_composite(Image.fromarray(a))
  return im
-for n,v,src,kind,grad,layout in [(1,'E2',R/'assets/rev2/S1-y2.png','Codex design 2, clock at 2:00',False,'E'),(6,'F',R/'assets/rev2/S6-n1.png','Codex design (phone photo + typed line)',True,'D')]:
+for n,v,src,kind,grad,layout in [(1,'E2',R/'assets/rev2/S1-y2.png','Codex design 2, clock at 2:00',False,'E'),(6,'F',R/'assets/rev2/S6-m2.png','Codex design (one phone: photo above, typed line below)',True,'D')]:
  for pl in ['instagram','youtube']:
   out=R/pl;slug=f'daily-salad-short{n}_{b.COPY[n][2]}_cover-{v}';p=out/(slug+'.png');tm=Image.new('L',(b.W,b.H))
   im=plate_from(src,grad,0.87 if (n==6 and pl=='instagram') else None);accent=b.draw_copy(im,tm,n,pl,layout);d=ImageDraw.Draw(im)
