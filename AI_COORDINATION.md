@@ -118,7 +118,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **SL-05 shorts - QUEUED 2026-10-01, Claude.** Blotato Oct 17-27. Next: Oct 11, confirm parent posted, else hold these. `Docs/SL05_SETUP_RECEIPT_20261001.md`.
 
-**RO-11 - NEEDS DAN 2026-10-08, Claude.** Section-card pictures: http://127.0.0.1:8871/. After his 3 answers, fire `handoff-20261008-ro11-round4-rebuild-film-with-approved-cards.md`.
+**RO-11 - HANDOFF 2026-10-08, Claude.** Cards approved, layout B, end smile. Fire `handoff-20261008-ro11-round4-rebuild-film-with-approved-cards.md`.
 
 **RO-06 - HANDOFF 2026-10-08, Claude.** First minute approved. Fire `handoff-20261008-ro06-round5-full-film.md`.
 

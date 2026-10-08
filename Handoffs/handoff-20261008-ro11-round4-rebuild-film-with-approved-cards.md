@@ -2,34 +2,40 @@
 
 **CONTENT, long-form (LFC).** Task name: `Calories Don't Matter LFC R4`. Recommended: Claude Opus 5.5, effort high.
 A long-form content video gets Shorts cut from it later and nothing else: no vertical, square or 1-minute version here.
-This replaces `handoff-20261008-ro11-round3-section-cards-with-pictures.md` (executed, deleted; in git history).
+Round 3's handoff (`handoff-20261008-ro11-round3-section-cards-with-pictures.md`) is executed and deleted; it is in git history.
 
-**Fire only after Dan has answered the round 3 page.** His reply goes in the starter prompt. Until then RO-11 waits.
+**Ready to fire. Dan answered the round 3 page on 2026-10-08. Nothing is waiting on him.**
 
-**Goal.** Put the section cards Dan approves into RO-11 "When Calories Don't Matter For Fat Loss", rebuild the full film
-once, run every gate and one independent review, deliver, and replace the copy in `Videos to Review/`.
+**Goal.** Put the seven approved section cards into RO-11 "When Calories Don't Matter For Fat Loss" in layout B, add the
+0.7 s end hold, rebuild the full film once, run every gate and one independent review, deliver, and replace the copy in
+`Videos to Review/`.
 
-**What round 3 built (all shown to Dan, none approved yet).** Page: http://127.0.0.1:8871/ (folder
-`/Volumes/Extreme/_edit_work/ro11/round3/`, generator `recipe/page3.py`). Each of the seven cards T1 to T7 has a picture
-on its right in two layouts: **A `frame`** (recommended: the fact card's rounded photo frame, 905 px wide, label under
-it) and **B `bleed`** (picture to the screen edges, fading into the field, label on the picture). Seven moving context
-clips in A, plus `T1B` in B.
+**Dan's words (2026-10-08, after the round 3 page).** *"All right, these are all looking good. All the pictures are
+approved, and let's use layout B. And let's add that extra 0.7 seconds at the end, as you recommend."*
+Recorded with fingerprints: `/Volumes/Extreme/_edit_work/ro11/round4-plan/decisions.json`.
 
-| ID | picture | source | label |
-|---|---|---|---|
-| T1 Sleep | Dan asleep on the pool lounge chair | `photos/finalized social media photos/photo-21_FINAL_PRIMARY.jpg` | Real picture |
-| T2 Alcohol | our AI image of Dan holding a beer | `social media graphics/youtube/thumbnails/Can You Drink Alcohol And Still Have Abs/_build-2026-10-05/assets/ai_dan.png` | AI-GENERATED |
-| T3 Hormones | gloved hand holding two blood tubes | Pexels 4040557 | none |
-| T4 Meal Timing | wall clock made of forks and spoons | Pexels 10755460 | none |
-| T5 Protein | salmon, steaks and eggs on a board | Pexels 5463890 | none |
-| T6 Exercise | Dan lifting a kettlebell | `photo-29_FINAL_PRIMARY.jpg` | Real picture |
-| T7 Daily Movement | man walking a park path | Pexels 17944685 | none |
+**The three decisions.**
+1. **Layout B (`bleed`) on all seven cards.** The picture runs to the top, right and bottom edges and fades into the
+   blue field on its left; the label sits on the picture. Claude had recommended A; he chose B. Do not reopen it.
+2. **All seven pictures approved as shown**, with their crops and labels:
 
-Sources, fingerprints, crops and what was considered and passed on: `round3/sources.json`. Stock originals:
-`assets/titles/src/`. Prepared crops: `assets/titles/<ID>_frame.jpg` and `_bleed.jpg`.
+| ID | picture | source | label | label position in B |
+|---|---|---|---|---|
+| T1 Sleep | Dan asleep on the pool lounge chair | `photos/finalized social media photos/photo-21_FINAL_PRIMARY.jpg` | Real picture | top right, above him |
+| T2 Alcohol | our AI image of Dan holding a beer | `social media graphics/youtube/thumbnails/Can You Drink Alcohol And Still Have Abs/_build-2026-10-05/assets/ai_dan.png` | AI-GENERATED | top, left of his head |
+| T3 Hormones | gloved hand holding two blood tubes | Pexels 4040557 | none | |
+| T4 Meal Timing | wall clock made of forks and spoons | Pexels 10755460 | none | |
+| T5 Protein | salmon, steaks and eggs on a board | Pexels 5463890 | none | |
+| T6 Exercise | Dan lifting a kettlebell | `photo-29_FINAL_PRIMARY.jpg` | Real picture | top right, above his head |
+| T7 Daily Movement | man walking a park path | Pexels 17944685 | none | |
 
-**The three questions he was asked.** (1) Layout A or B. (2) The seven pictures: approved, or notes by card. (3) The
-ending: add about 0.7 s of his smile after the last word, or leave it (recommendation: add; src frames 25619 to 25651).
+3. **End hold approved:** add about 0.7 s of his smile after the last word.
+
+**What exists.** Review page http://127.0.0.1:8871/ (folder `round3/`). Approved stills `round3/stills/<ID>_bleed.jpg`.
+Prepared crops `assets/titles/<ID>_bleed.jpg` (and `_frame.jpg`, now unused). Sources, fingerprints, crops and what was
+passed on: `round3/sources.json`. Code: `recipe/gfx.py title_card(..., photo, label, layout, chip)`, `recipe/titles.py`
+(sources, crops, label positions, `prep`, `measure`), `recipe/round3.py`, `recipe/page3.py`; the same files are in
+`.claude/skills/longform-edit/reference/ro11/`.
 
 **Read first.** `_shared/VIDEO-RULES.md`, `_shared/PRE-RENDER-APPROVAL.md`,
 `.claude/skills/longform-edit/reference/ro11/README.md` (the full-film order and traps, and the round 3 section).
@@ -41,54 +47,62 @@ ending: add about 0.7 s of his smile after the last word, or leave it (recommend
   `edl.json` `30470add8db2af1905d9dd02bf3c7808e114c56fe3b07517b4d5672a212c6eb6`,
   `shots.json` `1e22e21f2aec7da187f82e72e14cc4e353d123db65897a34576a9b6197533944`,
   `aiframes/C_motion_v2.mp4` `3b48ec734644f288a785ac0b241db3717fe1e6ea30087a52621701600206f69b`.
-- Everything in the film except the seven cards, and on the cards the words, their size and their times.
-- Round 3 did not touch any of these: it merged the photo fields in memory (`recipe/round3.py`).
+- The seven approved B stills and their prepared crops: fingerprints in `round4-plan/decisions.json`.
+- Everything in the film except the seven cards and the tail, and on the cards the words, their size and their times.
+- Rounds 3 and this handoff changed none of the files above.
 
 **Next action (in order).**
-1. Rename the task. `queue.py set RO-11 in_progress --by Claude --editor Claude`, mirror it, board entry. Re-hash the locks.
-2. Record Dan's reply word for word in `round4-plan/decisions.json` (layout, each card, the ending), before changing anything.
-3. Apply it. A picture he swaps: change that card in `recipe/titles.py` `TITLES`, then `titles.py prep <ID>` and
-   `titles.py measure round4/checks/chips` (the label must not touch him; a real-photo label is 931 px wide and only
-   fits under the frame or across the top above his head). Layout B: add `layout="bleed"` and the card's `chip` from
-   `titles.TITLES` to the seven title items in `recipe/plan.py`. A new picture he has not seen goes back to him as one
-   still before the film is built.
-4. `plan.py` already carries `photo` and `label` on the seven titles. Run `resolve.py`, then diff the new
-   `plan_resolved.json` against the locked one: only `photo`, `label` (and `layout`, `chip`) on T1 to T7 may differ, and
-   no time may move. Record the new hash.
-5. If he wants the end hold: extend the last shot in `shots.json` by about 21 frames from the roll (he smiles from
-   src 25619 to 25651). It adds frames only at the tail, so no graphic time moves. Record the new hash.
+1. Rename the task. `queue.py set RO-11 in_progress --by Claude --editor Claude`, mirror it, board entry. Re-hash the
+   locks, including the seven prepared `_bleed.jpg` crops.
+2. Layout B in the plan: on the seven title items in `recipe/plan.py` add `layout="bleed"`, and on T1, T2 and T6 the
+   `chip` from `titles.TITLES` (T1 `((1866, 54), "rt")`, T2 `((1255, 54), "rt")`, T6 `((1866, 40), "rt")`). `photo` and
+   `label` are already there. Do not change a crop or a label position: he approved them as shown.
+3. Run `resolve.py`, then diff the new `plan_resolved.json` against the locked one: only `photo`, `label`, `layout` and
+   `chip` on T1 to T7 may differ, and no time may move. Record the new hash.
+4. End hold: the last shot is `end.0`, src 25223 to 25619, out 17532 to 17928; he holds the smile to src 25651. Extend
+   it by 21 frames (to src 25640, out 17949). `shots.json` is written by `shots.py` from `edl.json`: make the change
+   at its source so a re-run keeps it, then confirm only that shot's end moved and no graphic time changed. Check the
+   added tail by eye (he keeps smiling, no blink into a reset) and by ear (room only, no breath or click). Record the
+   new hashes.
+5. Before the full render, check the six B cards he saw only as stills (T2 to T7) moving: render each with
+   `round3.py`'s `contextB` path into `round4/`, read the entrance frames (picture and label fade in together inside
+   0.5 s, the left edge fades cleanly into the field, nothing covers the headline). This is an internal check, not a
+   question for Dan.
 6. Copy `hf/renders` aside. Nothing in the HyperFrames scenes changed, so do not run `from_plan.py --render`.
 7. Build in a new `round4/` folder; never overwrite `round2/` or `round3/`. Order: `build.render_range` on the whole
    film (13 min), `finish_chain.sh`, own negative-events scan, one `ra-reviewer` that writes `logs/findings.json`,
    `watch.py --judge`, `finish.py` again, the delivery gate (25 min), `deliver.sh`.
 8. Gate plan: `finish.py` already lists every item that has a `label`, so T1 and T6 land in `real_photos` and T2 in
-   `ai_inserts` on their own. It locates each chip at the card's midpoint; the labels row needs 0.85 or better.
+   `ai_inserts` on their own. It locates each chip at the card's midpoint; the labels row needs 0.85 or better. In B the
+   chip sits on a picture, not on the field: if a match scores low, look at the frame before touching the gate.
 9. Deliver to `claude edited long form content/11 - When Calories Don't Matter For Fat Loss/`, update `notes-RO11.md`,
    replace `Videos to Review/Calories Don't Matter LFC R2 - full film.mp4` with the round 4 file (named
    `Calories Don't Matter LFC R4 - full film.mp4`), open the folder, and give Dan the file name and a short page.
    Per the later-round rule the page shows only what changed: the seven cards in the film, and the ending.
-10. Register the clips and stock that made the approved film in the clip library (the opener clip, the used Pexels
-    clips, the four Pexels stills) once Dan approves the film. When he finalizes it, delete the `Videos to Review`
-    copy and remove the review services on ports 8871 and round 2's.
+10. After Dan approves the film: register the opener clip, the used Pexels clips and the four Pexels stills in the clip
+    library. When he finalizes it, delete the `Videos to Review` copy and remove the review services (port 8871 and
+    round 2's).
 
-**Not done yet (do not claim).** Dan has not answered any of the three questions. No card is approved. The film is not
-rebuilt. `plan_resolved.json` has not been re-resolved with the photo fields. The clip library entries wait for final approval.
+**Not done yet (do not claim).** `plan.py` does not carry `layout` or `chip` yet. `plan_resolved.json` has not been
+re-resolved. The end hold is not applied. T2 to T7 in layout B have not been rendered moving. The film is not rebuilt.
 
-**Checks already made in round 3 (reuse, do not redo unless a picture changes).** A card with no picture draws pixel for
-pixel as the round 2 code did. Label clearance from Dan, measured: layout A 16 to 27 px (the label is outside the
-picture), layout B 17 to 50 px. No stock source repeats one of the 12 clips or 7 fact-card photos. Hair is whole on
-T1, T2 and T6 at the end of the slow push.
+**Checks already made in round 3 (reuse; nothing changed since).** A card with no picture draws pixel for pixel as the
+round 2 code did. Label clearance from Dan in layout B, measured with the person outline: T1 35 px, T2 17 px, T6 50 px.
+No stock source repeats one of the 12 clips or 7 fact-card photos. Hair is whole on T1, T2 and T6 at the end of the
+slow push. `tmp_base.mp4` in the work dir was overwritten by the round 3 clip renders; it is scratch and the full
+render rewrites it.
 
 **Known and approved.** G20 reads -211 px at 9:15.25 (his hands pass under the card).
 
-**Spend.** About $3.50 of the $5 cap, all before round 2. Round 3 spent $0 (no image was generated).
+**Spend.** About $3.50 of the $5 cap, all before round 2. Round 3 spent $0. Round 4 needs no generation.
 
-**Open risks.** If Dan picks layout B, six of the seven B cards were shown to him as stills only: check each one moving
-(entrance, label fade) before the full render. T2's AI image has only about 15 px above the hair at the end of the push.
+**Open risks.** T2's AI image has about 12 to 15 px above the hair at the end of the push in B: measure it on the
+rendered film, and if hair touches the edge, start that card's push smaller rather than re-crop. The bright stock
+pictures (T3 tubes, T5 food) fade from a pale background into navy: look at the fade edge moving.
 
 **Starter prompt (Claude Opus 5.5, effort high):**
 
 Name this task `Calories Don't Matter LFC R4`. This is CONTENT (long-form). Read and execute
-`Handoffs/handoff-20261008-ro11-round4-rebuild-film-with-approved-cards.md`. My answers on the round 3 section-card
-page are: [paste your reply from the page here]. Record them, apply them, rebuild the full RO-11 film once with the
-approved cards, run every gate and one independent review, deliver it, and put the new file in `Videos to Review`.
+`Handoffs/handoff-20261008-ro11-round4-rebuild-film-with-approved-cards.md`. I approved all seven section-card
+pictures, chose layout B, and want the extra 0.7 seconds of my smile at the end. Rebuild the full RO-11 film once with
+those changes, run every gate and one independent review, deliver it, and put the new file in `Videos to Review`.
