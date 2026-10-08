@@ -25,7 +25,7 @@ const response=d=>({status:200,ok:true,json:async()=>d});
   assert(html.indexOf('id="image-section"')<html.indexOf('class="first"'),'Hero precedes priority');
   const h=await harness(response(fixture));
   assert.equal(h.nodes.notice.textContent,'');assert.match(h.nodes.edition.textContent,/October 5/);
-  assert.equal(h.nodes.yesterday.children.length,1);assert.equal(h.nodes.opportunities.children.length,1);assert.equal(h.nodes['queue-rows'].children.length,1);
+  assert.equal(h.nodes.yesterday.children.length,1);assert.equal(h.nodes.opportunities.children.length,1);assert.equal(h.nodes['queue-rows'].children.length,7);
   assert.match(h.nodes.sites.children[0].children[3].textContent,/Free generations: Unknown\. New trials: Unknown\. Paid customers: Unknown/);
   assert.equal(h.nodes['daily-image'].src,'/api/brief/image');h.nodes['daily-image'].events.load();assert.equal(h.nodes['image-section'].hidden,false);
   await h.scope.load();assert.equal(h.nodes.yesterday.children.length,1);assert.equal(h.nodes.campaigns.children.length,1);assert.equal(h.nodes.sources.children.length,1);

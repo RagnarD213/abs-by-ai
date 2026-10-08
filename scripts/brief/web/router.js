@@ -5,6 +5,8 @@ const path = require('path');
 const {OAuth2Client} = require('google-auth-library');
 const {validate} = require('./document');
 const {publicKey, verifyRequest, digest} = require('./publication');
+const {validateMaster,mediaURL} = require('./social');
+const fetchMedia = require('node-fetch');
 const COOKIE = '__Host-absbyai_brief';
 const AGE = 90 * 86400000;
 const equal = (a, b) => {
@@ -20,7 +22,7 @@ function cookie(req, name) {
 }
 const escape = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'}[c]));
 const googleVerifier = (client = new OAuth2Client()) => async (token, audience) => (await client.verifyIdToken({idToken: token, audience})).getPayload();
-function createRouter({store, env = process.env, verifyToken, now = Date.now}) {
+function createRouter({store, env = process.env, verifyToken, now = Date.now, mediaFetch = fetchMedia}) {
   const router = express.Router();
   verifyToken ||= googleVerifier();
   const email = (env.BRIEF_OWNER_EMAIL || '').toLowerCase();
@@ -34,7 +36,7 @@ function createRouter({store, env = process.env, verifyToken, now = Date.now}) {
     req.url = p + (req.url.includes('?') ? req.url.slice(req.url.indexOf('?')) : '');
     res.removeHeader('Access-Control-Allow-Origin');
     res.set({'Cache-Control':'private, no-store', 'Pragma':'no-cache', 'X-Content-Type-Options':'nosniff', 'Referrer-Policy':'no-referrer',
-      'Content-Security-Policy': "default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'none'; form-action 'self'"});
+      'Content-Security-Policy': "default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; media-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'none'; form-action 'self'"});
     next();
   });
   async function owner(req, res, next) {
@@ -105,6 +107,39 @@ function createRouter({store, env = process.env, verifyToken, now = Date.now}) {
       return res.json(validate(document, now()));
     } catch { return res.status(503).json({error:'Verified brief unavailable'}); }
   });
+  router.get('/api/brief/master', owner, async (req,res) => {
+    const after = req.query.after || '';
+    if (typeof after !== 'string' || (after && !/^[a-f0-9]{64}$/.test(after))) return res.sendStatus(400);
+    try { return res.json(await store.readMaster(after)); }
+    catch { return res.status(503).json({error:'Private inventory unavailable'}); }
+  });
+  router.get('/api/brief/media/:id/:kind', owner, async (req,res) => {
+    if (!/^[a-f0-9]{64}$/.test(req.params.id) || !['cover','video'].includes(req.params.kind)) return res.sendStatus(400);
+    const controller = new AbortController();
+    const timer = setTimeout(()=>controller.abort(),30000);
+    res.on('close',()=>{clearTimeout(timer);controller.abort();});
+    try {
+      const document = await store.readDocument();
+      const row = document?.socialReleaseQueue?.rows.find(r=>r.id === req.params.id);
+      const master = row ? null : await store.masterRecord(req.params.id);
+      const value = req.params.kind === 'cover' ? (row?.coverReviewUrl || master?.cover) : (row?.mediaUrl || master?.media?.find(u=>/\.(mp4|webm)$/.test(u)));
+      const url = mediaURL(value);
+      if (!url) return res.status(404).json({error:'No supported private preview available'});
+      const range = req.headers.range;
+      if (range && !/^bytes=\d+-\d*$/.test(range)) return res.sendStatus(416);
+      const upstream = await mediaFetch(url,{redirect:'manual',signal:controller.signal,headers:range ? {Range:range} : {}});
+      if (![200,206].includes(upstream.status)) { upstream.body?.destroy(); return res.status(502).json({error:'Preview source unavailable'}); }
+      let mime = upstream.headers.get('content-type') || '';
+      // Blotato serves its verified JPEGs/MP4s as octet-stream. The exact stored
+      // provider path supplies a fixed safe media MIME, never executable HTML.
+      if (/^application\/octet-stream(?:;|$)/.test(mime)) mime = /\.png$/.test(url) ? 'image/png' : /\.jpe?g$/.test(url) ? 'image/jpeg' : /\.webm$/.test(url) ? 'video/webm' : 'video/mp4';
+      if (!(req.params.kind === 'cover' ? /^image\/(png|jpeg)(;|$)/ : /^video\/(mp4|webm)(;|$)/).test(mime)) { upstream.body.destroy(); return res.sendStatus(502); }
+      res.status(upstream.status).set('Content-Type',mime);
+      for (const header of ['content-length','content-range','accept-ranges']) if (upstream.headers.has(header)) res.set(header,upstream.headers.get(header));
+      upstream.body.on('error',()=>res.destroy());
+      upstream.body.pipe(res);
+    } catch { if (!res.headersSent) res.status(503).json({error:'Private preview unavailable'}); else res.destroy(); }
+  });
   router.get('/api/brief/image', owner, async (req, res) => {
     try {
       const image = await store.readImage();
@@ -122,9 +157,9 @@ function createRouter({store, env = process.env, verifyToken, now = Date.now}) {
     catch { return res.status(503).json({error:'Sign-out unavailable'}); }
   });
   router.post('/api/brief/publish', express.json({limit:'512kb',verify:(req,res,bytes) => { req.briefRawBody=bytes; }}), ingest, async (req, res) => {
-    let document;
-    try { document = validate(req.body, now()); } catch { return res.status(400).json({error:'Invalid brief document'}); }
-    try { await store.writeDocument(document); return res.json({ok:true, forDate:document.forDate, routineEnabled:document.routineEnabled, scheduleChanged:false}); }
+    let document, imports;
+    try { document = validate(req.body, now()); imports = validateMaster(req.body.socialMasterImports || []); } catch { return res.status(400).json({error:'Invalid brief document'}); }
+    try { if (imports.length) await store.importMaster(imports); await store.writeDocument(document); return res.json({ok:true, forDate:document.forDate, routineEnabled:document.routineEnabled, scheduleChanged:false, masterImported:imports.length}); }
     catch { return res.status(503).json({error:'Private publication unavailable'}); }
   });
   // Upload only the user-approved local image. This never generates an image.
