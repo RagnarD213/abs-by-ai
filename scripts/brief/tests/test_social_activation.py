@@ -70,5 +70,16 @@ class ActivationTests(unittest.TestCase):
         self.assertIn('no unique approved',rows[0]['reason'])
         self.assertTrue(all(p['tileCount']==0 for p in profiles))
 
+    def test_documented_private_original_is_not_a_new_release_error(self):
+        now=datetime.now(timezone.utc)
+        post={'id':'1','platform':'youtube','text':'Caption','account':{'id':'1'},'postTime':now.isoformat(),
+              'state':{'postUrl':'https://www.youtube.com/watch?v=abcdefghijk'}}
+        native={'publicChecks':{'abcdefghijk':'private'},'videos':[]}
+        exception={'abcdefghijk':{'expectedStatus':'private','reference':'verified receipt','quote':'Keep original private','reason':'Replacement scheduled'}}
+        with tempfile.TemporaryDirectory() as directory, patch('public_tiles.read_public',return_value=b'login shell'):
+            rows,_=acquire([], [post],now,Path(directory),lambda *a:None,native=native,visibility_exceptions=exception)
+        self.assertEqual(rows[0]['status'],'unverified');self.assertIn('as explicitly documented',rows[0]['reason'])
+        self.assertNotIn('but native',rows[0]['reason'])
+
 
 if __name__ == '__main__': unittest.main()

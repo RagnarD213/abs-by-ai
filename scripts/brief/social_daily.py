@@ -170,7 +170,9 @@ def main():
         queue = review(current, live, now, checks, evidence)
         queue['sourceCoverage']['youtubeStudio']=native['status']
         queue['coverageNote']=('Native YouTube owner API verified '+native['channel']['id']+'; '+str(native.get('uniqueUploads',native['uploadsEnumerated']))+' unique uploads checked, '+str(len(native_rows))+' native schedules observed. Approved-cover visual comparisons remain evidence-bound.' if native['status']=='ok' else native.get('reason','Native YouTube schedules remain unknown'))
-        conflicts={key:value for key,value in native.get('publicChecks',{}).items() if value!='public'}
+        visibility_file=directory/'expected-youtube-visibility.json'
+        visibility_exceptions=json.loads(visibility_file.read_text()) if visibility_file.exists() else {}
+        conflicts={key:value for key,value in native.get('publicChecks',{}).items() if value!='public' and not (visibility_exceptions.get(key,{}).get('expectedStatus')==value and visibility_exceptions[key].get('reference') and visibility_exceptions[key].get('quote'))}
         if conflicts:queue['coverageNote']+=' Release alert: '+', '.join(key+' is '+value for key,value in conflicts.items())+' despite Blotato published status.'
         add_native_rows(queue,native_rows,checks)
         if args.live:
@@ -181,7 +183,7 @@ def main():
                 observations = json.loads(observations_file.read_text()) if observations_file.exists() else []
                 cover_file=directory/'approved-public-covers.json'
                 approved_covers=json.loads(cover_file.read_text()) if cover_file.exists() else {}
-                queue['released'], profile_checks = acquire(records,published,now,directory,private_json,observations,evidence,native,approved_covers)
+                queue['released'], profile_checks = acquire(records,published,now,directory,private_json,observations,evidence,native,approved_covers,visibility_exceptions)
                 queue['coverageNote'] += ' '+str(len(published))+' Blotato published URLs checked. '+ ' '.join(p['platform']+': HTTP '+str(p['httpStatus'])+', '+str(p['tileCount'])+' HTTP/'+str(p['browserTileCount'])+' browser tiles.' for p in profile_checks)
             except Exception:
                 queue['coverageNote'] += ' Blotato published-post read failed; post-release coverage remains unknown.'

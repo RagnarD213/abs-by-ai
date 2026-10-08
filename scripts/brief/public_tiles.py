@@ -96,7 +96,7 @@ def post_id(platform, url):
     return match.group(1) if match else None
 
 
-def acquire(records, published, now, directory, private_json, observations=None, reviewed=None, native=None, approved_covers=None):
+def acquire(records, published, now, directory, private_json, observations=None, reviewed=None, native=None, approved_covers=None, visibility_exceptions=None):
     published=list(published)
     native_public={v['id']:v for v in (native or {}).get('videos',[]) if v.get('status',{}).get('privacyStatus')=='public'}
     known_youtube={post_id('youtube',p.get('state',{}).get('postUrl','')) for p in published if p['platform']=='youtube'}
@@ -183,7 +183,11 @@ def acquire(records, published, now, directory, private_json, observations=None,
         if platform=='youtube' and post_id(platform,url) in native_public:
             row['reason']='Native YouTube API confirms this video is public. '+row['reason']
         elif platform=='youtube' and (native or {}).get('publicChecks',{}).get(post_id(platform,url)):
-            row['reason']='Blotato reports published, but native YouTube check is '+native['publicChecks'][post_id(platform,url)]+'. '+row['reason']
+            row['status']='unverified'
+            state=native['publicChecks'][post_id(platform,url)]; exception=(visibility_exceptions or {}).get(post_id(platform,url),{})
+            if exception.get('expectedStatus')==state and exception.get('reference') and exception.get('quote'):
+                row['reason']='Native YouTube is '+state+' as explicitly documented. '+exception.get('reason','')+' Cover comparison remains unverified.'
+            else:row['reason']='Blotato reports published, but native YouTube check is '+state+'. '+row['reason']
     private_json(directory/'public-profile-checks.json',profiles)
     private_json(directory/'acquired-public-tile-evidence.json',evidence)
     private_json(directory/'public-tile-candidates.json',list(tiles.values()))
