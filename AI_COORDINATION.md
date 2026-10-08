@@ -120,7 +120,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **RO-11 - REVIEW 2026-10-08, Claude.** Film delivered. Dan: watch, decide end hold. Then clip library, delete copy and rows. `notes-RO11.md`.
 
-**RO-06 - NEEDS DAN 2026-10-08, Claude.** R3 page. `handoff-20261008-ro06-round4-dan-review.md`.
+**RO-06 - HANDOFF 2026-10-08, Claude.** Fire `handoff-20261008-ro06-round4-ai-motion-first-minute.md`.
 
 **RO-12 - QUEUED 2026-10-01, Claude.** Blotato Oct 25. Then: `Docs/RO12_SETUP_RECEIPT_20261001.md`, delete.
 
