@@ -8,6 +8,8 @@ sessions additionally mirror changes into the artifact's `jobs` db (`Artifact wr
 the page's fallback when a viewer's Drive connector isn't available.
 
   queue.py set RA-01 finalized --by "Claude" [--note "Dan finalized 09-18"]
+  queue.py set DS-01 in_progress --by Claude --editor Muhammad   # the page shows "In progress Muhammad"
+  queue.py set DS-26 blocked --by Claude --needs "Dan uploads the ScreenFlow demo"   # shown beside the title
   queue.py add new-job.json              # one job object, or a list of them
   queue.py pending                       # jobs changed since the last artifact sync
   queue.py export [ID ...]               # write db-ready JSON files, print write_db entries
@@ -45,7 +47,8 @@ LOCK = os.path.join(DIR, ".jobs.lock")
 RCLONE = os.path.expanduser("~/bin/rclone")
 DRIVE_PATH = "gdrive:Abs By AI automation/edit-queue-status.json"   # Drive file id 1RX-GqepEKqB1LgJqJFRyRU2lOJMnRFgg
 DB_FIELDS = ("id", "list", "group", "sub", "title", "roll", "size", "file", "claudeModel", "claude",
-             "codexModel", "codex", "state", "note", "order", "updated", "by", "rev")
+             "codexModel", "codex", "state", "note", "order", "updated", "by", "rev", "editor", "needs")
+EDITORS = {"claude": "Claude", "codex": "Codex", "muhammad": "Muhammad", "zeeshan": "Zeeshan", "waleed": "Waleed"}
 
 
 def load():
@@ -166,6 +169,8 @@ def main():
     sub = ap.add_subparsers(dest="cmd", required=True)
     s = sub.add_parser("set"); s.add_argument("id"); s.add_argument("state", choices=STATES)
     s.add_argument("--note"); s.add_argument("--by", default="")
+    s.add_argument("--editor", help="who is editing it (in_progress); defaults from --by")
+    s.add_argument("--needs", help="blocked: one short line on what unblocks it")
     a = sub.add_parser("add"); a.add_argument("json_file")
     sub.add_parser("pending")
     e = sub.add_parser("export"); e.add_argument("ids", nargs="*")
@@ -184,11 +189,23 @@ def main():
         return run(args)
 
 
-def set_state(data, jid, state, by="", note=None):
+def editor_from(by):
+    """Claude / Codex / a named editor out of a free-text --by ("edit queue (codex)" -> Codex)."""
+    low = (by or "").lower()
+    return next((name for key, name in EDITORS.items() if key in low), "")
+
+
+def set_state(data, jid, state, by="", note=None, editor=None, needs=None):
     j = find(data, jid)
     j["state"] = state
     if note is not None:
         j["note"] = note
+    if editor is not None:
+        j["editor"] = editor
+    elif state == "in_progress" and editor_from(by):
+        j["editor"] = editor_from(by)
+    # Dan 10-08: a blocked row says what unblocks it; the line goes away when the block does
+    j["needs"] = (needs if needs is not None else j.get("needs", "")) if state == "blocked" else ""
     j["updated"] = datetime.date.today().isoformat()
     j["by"] = by
     j["rev"] = j.get("rev", 0) + 1
@@ -199,7 +216,9 @@ def run(args):
     data = load()
 
     if args.cmd == "set":
-        j = set_state(data, args.id, args.state, args.by, args.note)
+        if args.state == "blocked" and not (args.needs or find(data, args.id).get("needs")):
+            sys.exit("a blocked job needs --needs \"what unblocks it\" (Dan 10-08: it shows beside the title)")
+        j = set_state(data, args.id, args.state, args.by, args.note, args.editor, args.needs)
         save(data)
         row = master_status(args.id, STATES[args.state])
         print(f"{args.id} -> {args.state} (rev {j['rev']}); 00-MASTER.md row {'updated' if row else 'NOT FOUND'}")

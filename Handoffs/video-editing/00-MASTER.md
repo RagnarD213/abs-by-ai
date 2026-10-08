@@ -138,6 +138,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | job | video | rolls | status | size |
 |---|---|---|---|---|
 | [WV-01](WV-01-vsl-1-analysis-page-video-version-a-version-b-intr.md) | VSL 1: Analysis-page video (version A + version B intro) | C1692-C1700 | FINALIZED | L |
+| [WV-01B](../results-20261007-wv01-b-opening-r1.md) | VSL 1 version B: Fired Them All opening | C1699 | IN PROGRESS | L |
 | [WV-02](WV-02-vsl-2-start-landing-page-video.md) | VSL 2: /start landing-page video | C1701-C1703 | READY | M |
 
 ### 1D · Housekeeping
@@ -230,7 +231,7 @@ handoff (`handoff-20260909-audio-match-muhammad.md`, waiting on your spray-tan s
 | [AS-05](AS-05-ad7-square.md) | Ad 7 | BLOCKED: AV-06 approved | M |
 | [AS-06](AS-06-ad10-square.md) | Ad 10 | UPLOADED | M |
 | [AS-07](AS-07-ad14-square.md) | Ad 14 | BLOCKED: AV-08 approved | M |
-| [AS-08](AS-08-ad8-square.md) | Ad 8 | BLOCKED | M |
+| [AS-08](AS-08-ad8-square.md) | Ad 8 | READY | M |
 | [AS-09](AS-09-ad9-square.md) | Ad 9 | BLOCKED: AV-10 approved | M |
 | [AS-10](AS-10-ad13-square.md) | Ad 13 | UPLOADED | M |
 | [AS-11](AS-11-ad15-square.md) | Ad 15 | BLOCKED: AV-12 approved | M |
