@@ -39,3 +39,6 @@ Dan's constraints hold: shorts 5 and 6 are 7 days apart; shorts 1 and 2 are not 
 - Short 6's post title is "Make AI Calorie Tracking Accurate"; the burned-in band in the video still says "The One Line That Makes It Accurate".
 - YouTube descriptions name the full video by title (no link until it has a public id after Oct 18).
 - Remaining: `Handoffs/handoff-20261008-sl03-queue-shorts-2-3-6.md`.
+
+## Automation (2026-10-08)
+Scheduled task `sl03-queue-shorts-2-3-6` (daily about 8:30 AM, Claude app must be open) queues shorts 2, 3 and 6 once the Blotato queue has room, then disables itself. Queue was 198 of 200; expect room after the Oct 10 posts (about 184).

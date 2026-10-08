@@ -3,6 +3,8 @@
 **Category: CONTENT, Shorts (`SFC`). Written 2026-10-08 by Claude (Sonnet 5.5). Task name: `Daily Salad SFC Setup 2`.**
 Shorts 1, 4 and 5 are queued (Oct 29, Oct 31, Nov 3). The queue was 198 of 200, so shorts 2, 3 and 6 wait for room. Everything else is ready. Full state: `Docs/SL03_SETUP_RECEIPT_20261008.md`.
 
+**AUTOMATED (Dan, 2026-10-08: "Yes, set up shorts 2, 3 and 6 automatically"):** scheduled task `sl03-queue-shorts-2-3-6` runs daily at about 8:30 AM, does nothing until the queue has room, queues 2, 3, 6 in order, verifies, closes the board/queue entries and disables itself. It needs the Claude app open (it runs on next launch otherwise). Do not fire this handoff by hand while the task is enabled; check `list_scheduled_tasks` first.
+
 ## What is ready
 - Configs `scripts/blotato/configs/sl03-short2-*.json`, `sl03-short3-*.json`, `sl03-short6-*.json` (copy, hash-checked uploads, covers, slots Thu Nov 5, Sat Nov 7, Tue Nov 10 at 15:00Z, keyword FOOD).
 - Dan approved all covers and all six shorts. Short 6 is titled "Make AI Calorie Tracking Accurate".
