@@ -16,6 +16,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
+| [handoff-20261008-sl03-daily-salad-shorts-covers-and-setup.md](handoff-20261008-sl03-daily-salad-shorts-covers-and-setup.md) | **Ready 2026-10-08. Claude Opus 5.5 / High.** Six finalized Daily Salad shorts: five cover choices each (Codex subscription), Dan picks, then Blotato on Tue/Thu/Sat. Fire on or after Mon Oct 19, once RO-05 is public. |
 | [handoff-20261007-belly-fat-emergency-approved-thumbnail-install.md](handoff-20261007-belly-fat-emergency-approved-thumbnail-install.md) | **Installed 2026-10-07.** Approved revision 4 verified in saved Studio and public YouTube Videos tile. Old thumbnail, baseline, screenshots and installation receipt preserved. |
 | [handoff-20261007-belly-fat-emergency-thumbnail-replacement.md](handoff-20261007-belly-fat-emergency-thumbnail-replacement.md) | **Design executed 2026-10-07.** Dan approved Studio Alert revision 4 with 20% text opacity and near-full-width `EMERGENCY`. Installation continues in the approved-thumbnail-install handoff above. |
 | [handoff-20261007-wv01-version-b-intro-first-cut.md](handoff-20261007-wv01-version-b-intro-first-cut.md) | **Ready 2026-10-07. Codex GPT-6 Astra / High.** Cut the substantial WV-01 Version B opening from C1699, join to approved A at the motivation section, and show the opening for review. Complete B and the six callbacks follow later. |

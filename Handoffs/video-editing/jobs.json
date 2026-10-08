@@ -357,9 +357,10 @@
    "order": 17,
    "updated": "2026-09-22",
    "by": "Muhammad",
-   "rev": 10,
+   "rev": 11,
    "syncedRev": 10,
-   "queue_owned": true
+   "queue_owned": true,
+   "editor": "Muhammad"
   },
   {
    "id": "DS-02",
@@ -379,8 +380,9 @@
    "order": 18,
    "updated": "2026-09-22",
    "by": "Muhammad",
-   "rev": 3,
-   "syncedRev": 3
+   "rev": 4,
+   "syncedRev": 3,
+   "editor": "Muhammad"
   },
   {
    "id": "DS-03",
@@ -400,8 +402,9 @@
    "order": 19,
    "updated": "2026-09-22",
    "by": "Muhammad",
-   "rev": 3,
-   "syncedRev": 3
+   "rev": 4,
+   "syncedRev": 3,
+   "editor": "Muhammad"
   },
   {
    "id": "DS-04",
@@ -463,8 +466,9 @@
    "order": 22,
    "updated": "2026-09-22",
    "by": "Muhammad",
-   "rev": 3,
-   "syncedRev": 3
+   "rev": 4,
+   "syncedRev": 3,
+   "editor": "Muhammad"
   },
   {
    "id": "DS-07",
@@ -484,8 +488,9 @@
    "order": 23,
    "updated": "2026-09-22",
    "by": "Muhammad",
-   "rev": 3,
-   "syncedRev": 3
+   "rev": 4,
+   "syncedRev": 3,
+   "editor": "Muhammad"
   },
   {
    "id": "DS-08",
@@ -505,8 +510,9 @@
    "order": 24,
    "updated": "2026-09-22",
    "by": "Muhammad",
-   "rev": 3,
-   "syncedRev": 3
+   "rev": 4,
+   "syncedRev": 3,
+   "editor": "Muhammad"
   },
   {
    "id": "DS-09",
@@ -526,8 +532,9 @@
    "order": 25,
    "updated": "2026-09-22",
    "by": "Muhammad",
-   "rev": 3,
-   "syncedRev": 3
+   "rev": 4,
+   "syncedRev": 3,
+   "editor": "Muhammad"
   },
   {
    "id": "DS-10",
@@ -547,8 +554,9 @@
    "order": 26,
    "updated": "2026-09-22",
    "by": "Muhammad",
-   "rev": 3,
-   "syncedRev": 3
+   "rev": 4,
+   "syncedRev": 3,
+   "editor": "Muhammad"
   },
   {
    "id": "DS-11",
@@ -568,8 +576,9 @@
    "order": 27,
    "updated": "2026-09-22",
    "by": "Muhammad",
-   "rev": 3,
-   "syncedRev": 3
+   "rev": 4,
+   "syncedRev": 3,
+   "editor": "Muhammad"
   },
   {
    "id": "DS-12",
@@ -589,8 +598,9 @@
    "order": 28,
    "updated": "2026-09-22",
    "by": "Muhammad",
-   "rev": 3,
-   "syncedRev": 3
+   "rev": 4,
+   "syncedRev": 3,
+   "editor": "Muhammad"
   },
   {
    "id": "DS-13",
@@ -610,8 +620,9 @@
    "order": 29,
    "updated": "2026-09-22",
    "by": "Muhammad",
-   "rev": 3,
-   "syncedRev": 3
+   "rev": 4,
+   "syncedRev": 3,
+   "editor": "Muhammad"
   },
   {
    "id": "DS-14",
@@ -631,8 +642,9 @@
    "order": 30,
    "updated": "2026-09-22",
    "by": "Muhammad",
-   "rev": 3,
-   "syncedRev": 3
+   "rev": 4,
+   "syncedRev": 3,
+   "editor": "Muhammad"
   },
   {
    "id": "DS-15",
@@ -652,8 +664,9 @@
    "order": 31,
    "updated": "2026-09-22",
    "by": "Muhammad",
-   "rev": 3,
-   "syncedRev": 3
+   "rev": 4,
+   "syncedRev": 3,
+   "editor": "Muhammad"
   },
   {
    "id": "DS-16",
@@ -673,8 +686,9 @@
    "order": 32,
    "updated": "2026-09-22",
    "by": "Muhammad",
-   "rev": 3,
-   "syncedRev": 3
+   "rev": 4,
+   "syncedRev": 3,
+   "editor": "Muhammad"
   },
   {
    "id": "DS-17",
@@ -736,8 +750,9 @@
    "order": 35,
    "updated": "2026-09-22",
    "by": "Muhammad",
-   "rev": 3,
-   "syncedRev": 3
+   "rev": 4,
+   "syncedRev": 3,
+   "editor": "Muhammad"
   },
   {
    "id": "DS-20",
@@ -757,8 +772,9 @@
    "order": 36,
    "updated": "2026-09-22",
    "by": "Muhammad",
-   "rev": 3,
-   "syncedRev": 3
+   "rev": 4,
+   "syncedRev": 3,
+   "editor": "Muhammad"
   },
   {
    "id": "DS-21",
@@ -778,8 +794,9 @@
    "order": 37,
    "updated": "2026-09-22",
    "by": "Muhammad",
-   "rev": 3,
-   "syncedRev": 3
+   "rev": 4,
+   "syncedRev": 3,
+   "editor": "Muhammad"
   },
   {
    "id": "DS-22",
@@ -799,8 +816,9 @@
    "order": 38,
    "updated": "2026-09-22",
    "by": "Muhammad",
-   "rev": 3,
-   "syncedRev": 3
+   "rev": 4,
+   "syncedRev": 3,
+   "editor": "Muhammad"
   },
   {
    "id": "DS-23",
@@ -820,8 +838,9 @@
    "order": 39,
    "updated": "2026-09-22",
    "by": "Muhammad",
-   "rev": 3,
-   "syncedRev": 3
+   "rev": 4,
+   "syncedRev": 3,
+   "editor": "Muhammad"
   },
   {
    "id": "DS-24",
@@ -841,8 +860,9 @@
    "order": 40,
    "updated": "2026-09-22",
    "by": "Muhammad",
-   "rev": 3,
-   "syncedRev": 3
+   "rev": 4,
+   "syncedRev": 3,
+   "editor": "Muhammad"
   },
   {
    "id": "DS-25",
@@ -862,8 +882,9 @@
    "order": 41,
    "updated": "2026-09-22",
    "by": "Muhammad",
-   "rev": 3,
-   "syncedRev": 3
+   "rev": 4,
+   "syncedRev": 3,
+   "editor": "Muhammad"
   },
   {
    "id": "RO-01",
@@ -1112,14 +1133,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/SL-03-meal-prep-app-demo-shorts.md`: propose the shorts segments from the RO-05 \"How I Make My Daily Salad\" master and wait for my picks, then cut them with /shorts, with gates and an independent audit (no covers; Codex does those). Deliver, send me the review copies, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/SL-03-meal-prep-app-demo-shorts.md` using `.claude/skills/shorts/SKILL.md` as the method: propose segments from the RO-05 master, wait for Dan's picks, cut, gate, deliver, update `00-MASTER.md`.",
-   "state": "delivered",
-   "note": "Round 3 delivered 10-04: shorts 2 and 4 revised (reviewer SHIP, gate PASS); 1,3,5,6 approved. Dan reviews http://127.0.0.1:8831/",
+   "state": "finalized",
+   "note": "Dan finalized all six 10-08: 'these look good. You can go ahead and finalize all of these.' Next: handoff-20261008-sl03-daily-salad-shorts-covers-and-setup.md, on or after Oct 19",
    "sub": "",
    "order": 53,
-   "updated": "2026-10-04",
+   "updated": "2026-10-08",
    "by": "Claude",
-   "rev": 6,
-   "syncedRev": 6
+   "rev": 7,
+   "syncedRev": 7
   },
   {
    "id": "AV-01",
@@ -1306,10 +1327,11 @@
    "note": "Waits on your approval of Zeeshan's Ad 1 vertical. Also your call: still want a square of his Ad 1 when Muhammad's Ad 1 square is already live?",
    "sub": "",
    "order": 62,
-   "updated": "2026-09-16",
+   "updated": "2026-10-08",
    "by": "Claude",
-   "rev": 2,
-   "syncedRev": 2
+   "rev": 3,
+   "syncedRev": 2,
+   "needs": "Your approval of Zeeshan's Ad 1 vertical, plus your call on whether you still want this square"
   },
   {
    "id": "AS-02",
@@ -1348,10 +1370,11 @@
    "note": "AV-04 approved",
    "sub": "",
    "order": 64,
-   "updated": "2026-09-16",
-   "by": "master list",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-10-08",
+   "by": "Claude",
+   "rev": 2,
+   "syncedRev": 1,
+   "needs": "The Ad 5 vertical (AV-04) has to be cut and approved first"
   },
   {
    "id": "AS-04",
@@ -1390,10 +1413,11 @@
    "note": "AV-06 approved",
    "sub": "",
    "order": 66,
-   "updated": "2026-09-16",
-   "by": "master list",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-10-08",
+   "by": "Claude",
+   "rev": 2,
+   "syncedRev": 1,
+   "needs": "The Ad 7 vertical (AV-06) has to be cut and approved first"
   },
   {
    "id": "AS-06",
@@ -1432,10 +1456,11 @@
    "note": "AV-08 approved",
    "sub": "",
    "order": 68,
-   "updated": "2026-09-16",
-   "by": "master list",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-10-08",
+   "by": "Claude",
+   "rev": 2,
+   "syncedRev": 1,
+   "needs": "The Ad 14 vertical (AV-08) has to be cut and approved first"
   },
   {
    "id": "AV-09",
@@ -1533,13 +1558,14 @@
    "claude": "Confirm AV-09 is approved, then execute Handoffs/video-editing/AS-08-ad8-square.md as the full and 59-second 1:1 re-layout. Run every gate and audit and send Dan the review copies.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Confirm AV-09 is approved, then execute Handoffs/video-editing/AS-08-ad8-square.md with /shortad-from-longform as a square re-layout. Deliver both review copies and update the queue.",
-   "state": "blocked",
-   "note": "16:9 finalized and uploaded; full 1:1 and 1:1 ≤0:59 still need editing after AV-09 is approved",
+   "state": "ready",
+   "note": "16:9 and the vertical (AV-09) are finalized and uploaded; the full 1:1 and 1:1 ≤0:59 still need editing. Unblocked 10-08: AV-09 was approved and uploaded 10-01.",
    "order": 73,
-   "updated": "2026-09-18",
-   "rev": 3,
+   "updated": "2026-10-08",
+   "rev": 4,
    "syncedRev": 3,
-   "by": "Codex"
+   "by": "Claude",
+   "needs": ""
   },
   {
    "id": "AS-09",
@@ -1557,9 +1583,11 @@
    "state": "blocked",
    "note": "AV-10 approved",
    "order": 74,
-   "updated": "2026-09-16",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-10-08",
+   "rev": 2,
+   "syncedRev": 1,
+   "needs": "The Ad 9 vertical (AV-10) has to be cut and approved first",
+   "by": "Claude"
   },
   {
    "id": "AS-10",
@@ -1598,9 +1626,11 @@
    "state": "blocked",
    "note": "AV-12 approved",
    "order": 76,
-   "updated": "2026-09-16",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-10-08",
+   "rev": 2,
+   "syncedRev": 1,
+   "needs": "The Ad 15 vertical (AV-12) has to be cut and approved first",
+   "by": "Claude"
   },
   {
    "id": "RO-09",
@@ -1659,9 +1689,11 @@
    "claude": "Confirm AV-13 is approved, then execute `Handoffs/video-editing/AS-12-arms-shoulders-square.md` with /shortad-from-longform as a square re-layout. Deliver and send me both review copies.",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` and `Handoffs/handoff-20260914-ad3-square-codex.md` (reuse its method), confirm AV-13 is approved, then execute `Handoffs/video-editing/AS-12-arms-shoulders-square.md`. Deliver, send Dan the review copies, update `00-MASTER.md`.",
    "order": 79,
-   "updated": "2026-09-22",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-10-08",
+   "rev": 2,
+   "syncedRev": 1,
+   "needs": "The Arms & Shoulders vertical (AV-13) has to be cut and approved first",
+   "by": "Claude"
   },
   {
    "id": "SL-04",
@@ -1706,6 +1738,29 @@
    "by": "Codex",
    "rev": 44,
    "syncedRev": 44
+  },
+  {
+   "id": "WV-01B",
+   "list": "1",
+   "group": "Website VSLs",
+   "title": "VSL 1 version B: Fired Them All opening",
+   "roll": "9/23 C1699",
+   "size": "L",
+   "file": "../results-20261007-wv01-b-opening-r1.md",
+   "claudeModel": "",
+   "claude": "",
+   "codexModel": "GPT-6 Astra, high",
+   "codex": "Name this task Fired Them All AD R2. This is an AD. Read Handoffs/results-20261007-wv01-b-opening-r1.md, apply only Dan's round 1 notes to the Version B opening, and deliver the round 2 review page.",
+   "state": "in_progress",
+   "note": "Codex owns it. Round 1 opening is on the review page for Dan (http://127.0.0.1:8870/); round 2 follows his notes. Version A is finished: see WV-01.",
+   "sub": "",
+   "order": 81.5,
+   "updated": "2026-10-07",
+   "by": "Codex",
+   "rev": 1,
+   "syncedRev": 0,
+   "editor": "Codex",
+   "needs": ""
   },
   {
    "id": "WV-02",
@@ -1767,8 +1822,9 @@
    "order": 84,
    "updated": "2026-10-08",
    "by": "Claude",
-   "rev": 5,
-   "syncedRev": 5
+   "rev": 6,
+   "syncedRev": 5,
+   "editor": "Claude"
   },
   {
    "id": "RO-12",
@@ -1934,10 +1990,11 @@
    "note": "Alternate hooks on the roll. Needs the Wispr Flow ScreenFlow demo, which Dan still has to upload.",
    "sub": "9/23 shoot",
    "order": 92,
-   "updated": "2026-09-24",
-   "by": "claude",
-   "rev": 2,
-   "syncedRev": 2
+   "updated": "2026-10-08",
+   "by": "Claude",
+   "rev": 3,
+   "syncedRev": 2,
+   "needs": "You upload the Wispr Flow ScreenFlow demo recording"
   },
   {
    "id": "DS-27",
@@ -1955,10 +2012,11 @@
    "note": "'You're seeing it on screen right now' needs equipment b-roll, not filmed.",
    "sub": "9/23 shoot",
    "order": 93,
-   "updated": "2026-09-24",
-   "by": "claude",
-   "rev": 2,
-   "syncedRev": 2
+   "updated": "2026-10-08",
+   "by": "Claude",
+   "rev": 3,
+   "syncedRev": 2,
+   "needs": "You film b-roll of the home workout equipment"
   },
   {
    "id": "DS-28",
@@ -1997,10 +2055,11 @@
    "note": "Robot mower b-roll not filmed. Use Dan's final numbers ($100-$200 a visit, about $3,000 a year), not the script's.",
    "sub": "9/23 shoot",
    "order": 95,
-   "updated": "2026-09-24",
-   "by": "claude",
-   "rev": 2,
-   "syncedRev": 2
+   "updated": "2026-10-08",
+   "by": "Claude",
+   "rev": 3,
+   "syncedRev": 2,
+   "needs": "You film b-roll of the robot lawn mower"
   },
   {
    "id": "DS-30",
@@ -2158,7 +2217,7 @@
    "list": "2",
    "group": "Shorts from long-forms",
    "sub": "",
-   "title": "Calories: The Reason You're Not Losing Weight (RO-10, public Oct 7)",
+   "title": "Calories: The Reason You're Not Losing Weight (RO-10, public Nov 29)",
    "roll": "",
    "size": "S",
    "file": "SL-08-calories-not-losing-weight-shorts.md",
@@ -2172,15 +2231,16 @@
    "unattended_why": "Job doc says show Dan the segment list and wait for picks.",
    "order": 99,
    "syncedRev": 1,
-   "updated": "2026-10-02",
-   "rev": 1
+   "updated": "2026-10-08",
+   "rev": 2,
+   "by": "Claude"
   },
   {
    "id": "SL-09",
    "list": "2",
    "group": "Shorts from long-forms",
    "sub": "",
-   "title": "My Honest Oura Ring Review (Zeeshan Video 4, public Oct 14)",
+   "title": "My Honest Oura Ring Review (Zeeshan Video 4, public Nov 8)",
    "roll": "",
    "size": "S",
    "file": "SL-09-oura-ring-review-shorts.md",
@@ -2194,8 +2254,9 @@
    "unattended_why": "Job doc says show Dan the segment list and wait for picks.",
    "order": 100,
    "syncedRev": 1,
-   "updated": "2026-10-02",
-   "rev": 1
+   "updated": "2026-10-08",
+   "rev": 2,
+   "by": "Claude"
   },
   {
    "id": "RO-19",
@@ -2244,7 +2305,7 @@
    "list": "2",
    "group": "Shorts from long-forms",
    "sub": "",
-   "title": "Can You Drink Alcohol And Still Have Abs? (RO-13, public Oct 21)",
+   "title": "Can You Drink Alcohol And Still Have Abs? (RO-13, public Nov 15)",
    "roll": "",
    "size": "S",
    "file": "SL-10-alcohol-and-abs-shorts.md",
@@ -2257,16 +2318,17 @@
    "unattended": false,
    "unattended_why": "Job doc says show Dan the segment list and wait for picks.",
    "order": 101,
-   "updated": "2026-10-05",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-10-08",
+   "rev": 2,
+   "syncedRev": 1,
+   "by": "Claude"
   },
   {
    "id": "SL-11",
    "list": "2",
    "group": "Shorts from long-forms",
    "sub": "",
-   "title": "The Stomach Vacuum: The Best Ab Exercise For Belly Fat (RO-02, public Oct 28)",
+   "title": "The Stomach Vacuum: The Best Ab Exercise For Belly Fat (RO-02, public Nov 22)",
    "roll": "",
    "size": "S",
    "file": "SL-11-the-vacuum-shorts.md",
@@ -2279,9 +2341,10 @@
    "unattended": false,
    "unattended_why": "Job doc says show Dan the segment list and wait for picks.",
    "order": 103,
-   "updated": "2026-10-05",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-10-08",
+   "rev": 2,
+   "syncedRev": 1,
+   "by": "Claude"
   },
   {
    "id": "SL-12",
