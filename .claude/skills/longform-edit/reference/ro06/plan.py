@@ -5,6 +5,7 @@ stock, new AI last (none needed; the six product pictures are Codex stills, labe
 AS = "/Volumes/Extreme/_edit_work/ro06/assets"
 SHOOT = "/Volumes/Extreme/abs by ai 8:3 jeff chagrin shoot/main camera"
 R3 = "/Volumes/Extreme/_edit_work/ro06/round3"
+R4 = "/Volumes/Extreme/_edit_work/ro06/round4/motion"
 PLAN = [
  # ---------------- hook
  dict(id="C01", kind="clip", start="This is a setup I personally", end="during that time", tail=0.14, src=["B0436@2.0", "B0448@4.0", "B0439@0.5"],
@@ -13,15 +14,17 @@ PLAN = [
       point="A Full Home Setup For $58.", parts=[["A Full Home Setup", "So this is great"], ["For $58.", "for you guys"]]),
  dict(id="C02", kind="clip", start="then you need something like this", end="work out at home", tail=0.2, src=[f"{R3}/c02/C02-pan-topaz.mp4@0.0"], grade="C1559",
       note="the real equipment (C1557 from 3.0 s, locked off), round 3: a 2.25x window that pans from the kettlebell to the dumbbells over the whole clip (c02_pan.py), built from a Topaz 4K upscale of the same 88 frames"),
- # ---------------- round 3: four AI clips, frames only (Dan 2026-10-08). Picture only; the voice track does not change.
- dict(id="A1", kind="clip", start="Dan I don't have time", end="go to the gym", tail=0.28, src=[], frames=[f"{R3}/frames/A1-start.png", f"{R3}/frames/A1-end.png"], pending=True, label="AI-GENERATED",
-      people="dan-ai+other", physique=False, note="AI clip: trainer AI-Dan and the whiny client in the home gym; the client whines the first excuse (his lips driven by Dan's impression audio)"),
- dict(id="A2", kind="clip", start="Dan I don't have the money", end="gym membership", tail=0.12, src=[], frames=[f"{R3}/frames/A2-start.png", f"{R3}/frames/A2-end.png"], pending=True, label="AI-GENERATED",
-      people="dan-ai+other", physique=False, note="AI clip: closer two-shot; the client shows his empty wallet and whines the second excuse (lip sync)"),
- dict(id="A3", kind="clip", start="I'm about to destroy", end="all those excuses", tail=0.1, src=[], frames=[f"{R3}/frames/A3-start.png", f"{R3}/frames/A3-end.png"], pending=True, label="AI-GENERATED",
-      people="dan-ai+other", physique=False, note="AI clip: the trainer slaps the client; the hit lands on 'destroy' (39.40)"),
- dict(id="A4", kind="clip", start="show you why", end="any way whatsoever", tail=0.2, src=[], frames=[f"{R3}/frames/A4-start.png", f"{R3}/frames/A4-end.png"], pending=True, label="AI-GENERATED",
-      people="dan-ai+other", physique=False, note="AI clip: the trainer has the client doing push-ups on the push-up handles on the blue mat, ab wheel and jump rope beside them"),
+ # ---------------- round 4: the four AI clips with their motion (Dan approved every frame pair 2026-10-08). Veo 3.1 Fast from the approved
+ # START and END frames (gen_motion.py), each trimmed to its slot on its best-flowing part, never slowed or held. Picture only; the voice track does not change.
+ dict(id="A1", kind="clip", start="Dan I don't have time", end="go to the gym", tail=0.28, src=[f"{R4}/A1-final.mp4@0.0"], label="AI-GENERATED",
+      people="dan-ai+other", physique=False, note="AI clip (take A1-t1 from 1.50 s): the client whines the first excuse and taps his bare wrist; the trainer rolls his eyes. The client's lips are synced to Dan's own impression (lipsync.py), kept on the client's face only (syncfix.py)"),
+ dict(id="A2", kind="clip", start="Dan I don't have the money", end="gym membership", tail=0.12, src=[f"{R4}/A2-final.mp4@0.0"], label="AI-GENERATED",
+      people="dan-ai+other", physique=False, note="AI clip (take A2-t1 from 1.70 s): closer two-shot; the client opens his empty wallet on 'money' and the trainer facepalms. Lips synced to Dan's impression, client's face only"),
+ dict(id="A3", kind="clip", start="I'm about to destroy", end="all those excuses", tail=0.1, late=0.312, src=[f"{R4}/A3-t1.mp4@1.341"], label="AI-GENERATED",
+      people="dan-ai+other", physique=False, note="AI clip (take A3-t1 from 1.34 s, made from the ROUND 4 left-hand frame pair): wind-up, the left hand lands on 'destroy' (39.40, clip frame 45), the hand carries on past, his head whips round. "
+      "The take holds two slaps; this is the second, harder one, so the clip starts 0.31 s after 'I'm' (late=) and Dan stays on screen for those 9 frames"),
+ dict(id="A4", kind="clip", start="show you why", end="any way whatsoever", tail=0.2, src=[f"{R4}/A4-t1.mp4@0.30"], label="AI-GENERATED",
+      people="dan-ai+other", physique=False, note="AI clip (take A4-t1 from 0.30 s): two push-ups on the push-up handles on the blue mat; the trainer kneels with the whistle, then pumps his fist"),
  # ---------------- excuses
  dict(id="G02", kind="lt", start="Super cheap, super easy", end="not doing this", tail=0.25, topic="NO MORE EXCUSES",
       point="No Gym Membership. No COMMUTE.", parts=[["No Gym Membership.", "Super cheap"], ["No COMMUTE.", "super easy"]]),

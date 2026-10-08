@@ -120,7 +120,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **RO-11 - NEEDS DAN 2026-10-08, Claude.** Section-card pictures: http://127.0.0.1:8871/. After his 3 answers, fire `handoff-20261008-ro11-round4-rebuild-film-with-approved-cards.md`.
 
-**RO-06 - IN PROGRESS 2026-10-08, Claude.** Round 4 building. `handoff-20261008-ro06-round4-ai-motion-first-minute.md`.
+**RO-06 - NEEDS DAN 2026-10-08, Claude.** First minute, AI clips moving: localhost:8849. Then `handoff-20261008-ro06-round5-after-first-minute-review.md`.
 
 **RO-12 - QUEUED 2026-10-01, Claude.** Blotato Oct 25. Then: `Docs/RO12_SETUP_RECEIPT_20261001.md`, delete.
 

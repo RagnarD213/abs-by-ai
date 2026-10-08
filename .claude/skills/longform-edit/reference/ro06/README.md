@@ -72,3 +72,25 @@ Round 3 (2026-10-08, Dan's notes on the round 2 first minute: jump rope swap, pa
 - **Codex frame pairs:** make a character sheet and a room picture first, then every START frame from those, then each END
   frame as an edit of its own START ("keep everything identical, change only..."). Say which side of the picture a moving
   arm finishes on, and restate the haircut: both went wrong once. Prompts: `ai-frame-prompts/`.
+
+Round 4 (2026-10-08, AI motion for the four approved frame pairs, lip sync on two, first minute rebuilt):
+- **Motion:** `gen_motion.py <ID> <tag>` (Veo 3.1 Fast on Replicate, image + last_frame, 1080p, no audio, $0.10 a second). It hashes the
+  frames against `round4-plan/decisions.json` and scales 1672x941 to 1920x1080 first. All four worked on the first take. Prompts:
+  `ai-motion-prompts/`. Read a take with `clipsheet.py` (numbered frames, optional crop) before trimming.
+- **An END frame drawn "a split second after the hit" puts the hit at the END of a plain take**, which leaves no aftermath for the
+  slot. Veo answered the "almost at once" prompt with TWO slaps (contact at clip frames 23 and 45), then a recovery into the end
+  pose. The second, harder one filled the slot: `late=0.312` on the plan item (new in `resolve.py`) starts the clip a beat after its
+  phrase so it opens on the wind-up and the hit still lands on the word. The 9 extra presenter frames are the same shot and crop.
+  For a hit that must land early in its slot, draw the END frame as the aftermath a second or two later, not the instant after.
+- **sync/lipsync-2-pro with `active_speaker` on also moved the TRAINER's mouth** (A1, last 0.8 s). `lipsync.py` trims the take to the
+  slot at 24 fps, cuts the slot's audio from the untreated voice track on the build's own output frames, and syncs. `syncfix.py` then
+  keeps the synced picture inside a soft box round the client's face and the untouched take everywhere else. `syncdiff.py` proves
+  it (trainer's face 0.2 levels from the take, client's face equal to the sync). Send the slot-length trim, not the whole take: it
+  bills per second ($0.083).
+- **Merge on the raw YUV planes.** A decode to RGB and back darkened the whole clip by 1.9 levels; ffmpeg 6.0's `maskedmerge` has no
+  `shortest` and crashed on a looped mask.
+- **Check lips on the closing sounds.** `qc/lipsync_closures.jpg` pulls the client's mouth from the FINISHED file at each m and b.
+  Gemini cannot judge lip sync (it samples one frame a second; it called this sync unconvincing while every m closed on time), and
+  `gemini-2.5-pro` is retired: `GM=gemini-3.1-pro-preview gemini_listen.py`.
+- A Veo take is 24 fps and untagged BT.709; the builder's `fps=30000/1001` duplicates frames (no retime). A first-minute build with
+  AI clips: `build.py range 0.0 62.9963`, both audio md5s unchanged, 1,204 presenter frames with 0 differences. Page: `page4.py`.
