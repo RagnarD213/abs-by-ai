@@ -12,6 +12,7 @@ function createStore(pool, ready = Promise.resolve()) {
       CREATE TABLE IF NOT EXISTS brief_document (id INTEGER PRIMARY KEY CHECK (id = 1), document JSONB NOT NULL);
       CREATE TABLE IF NOT EXISTS brief_image (id INTEGER PRIMARY KEY CHECK (id = 1), mime TEXT NOT NULL, bytes BYTEA NOT NULL);
       CREATE TABLE IF NOT EXISTS brief_publish_nonces (nonce_key TEXT PRIMARY KEY, expires_at TIMESTAMPTZ NOT NULL);
+      CREATE TABLE IF NOT EXISTS brief_social_master (id TEXT PRIMARY KEY, record JSONB NOT NULL);
     `)).catch(e => { initialized = null; throw e; });
     await initialized;
   }
@@ -40,6 +41,18 @@ function createStore(pool, ready = Promise.resolve()) {
     async logout(token) { await init(); await pool.query('DELETE FROM brief_sessions WHERE token_hash = $1', [hash(token)]); },
     async readDocument() { await init(); return (await pool.query('SELECT document FROM brief_document WHERE id = 1')).rows[0]?.document || null; },
     async writeDocument(document) { await init(); await pool.query('INSERT INTO brief_document (id, document) VALUES (1, $1) ON CONFLICT (id) DO UPDATE SET document = EXCLUDED.document', [JSON.stringify(document)]); },
+    async importMaster(records) {
+      await init();
+      // Each record is an atomic idempotent upsert. Failed batches can be replayed
+      // with a fresh signature; nothing is deleted or truncated.
+      for (const r of records) await pool.query('INSERT INTO brief_social_master (id, record) VALUES ($1,$2) ON CONFLICT(id) DO UPDATE SET record=EXCLUDED.record', [r.id,JSON.stringify(r)]);
+    },
+    async readMaster(after = '') {
+      await init();
+      const rows = (await pool.query('SELECT record FROM brief_social_master WHERE id > $1 ORDER BY id LIMIT 51',[after])).rows.map(r=>r.record);
+      return {rows:rows.slice(0,50),next:rows.length > 50 ? rows[49].id : null};
+    },
+    async masterRecord(id) { await init(); return (await pool.query('SELECT record FROM brief_social_master WHERE id=$1',[id])).rows[0]?.record || null; },
     async readImage() { await init(); return (await pool.query('SELECT mime, bytes FROM brief_image WHERE id = 1')).rows[0] || null; },
     async writeImage(mime, bytes) { await init(); await pool.query('INSERT INTO brief_image (id, mime, bytes) VALUES (1, $1, $2) ON CONFLICT (id) DO UPDATE SET mime = EXCLUDED.mime, bytes = EXCLUDED.bytes', [mime, bytes]); },
   };

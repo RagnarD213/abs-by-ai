@@ -66,16 +66,20 @@ function validate(input, now = Date.now()) {
   }
   if (input.socialReleaseQueue) {
     const q = input.socialReleaseQueue, from = instant(q.windowFrom), to = instant(q.windowTo);
-    if (Date.parse(to) <= Date.parse(from) || Date.parse(to) - Date.parse(from) > 7 * 86400000) throw new Error('Invalid queue window');
+    // Seven local calendar days may contain 169 hours when DST ends.
+    if (Date.parse(to) <= Date.parse(from) || Date.parse(to) - Date.parse(from) > 169 * 3600000) throw new Error('Invalid queue window');
     result.socialReleaseQueue = {status: status(q.status), checkedAt: q.checkedAt ? instant(q.checkedAt) : null, windowFrom: from, windowTo: to,
       sourceCoverage: {blotato: status(q.sourceCoverage.blotato), youtubeStudio: status(q.sourceCoverage.youtubeStudio)},
-      rows: list(q.rows, 200).map(row => {
+      coverageNote: text(q.coverageNote || '',500),
+      publicCoverage: Object.fromEntries(['youtube','tiktok','facebook','instagram'].map(p=>[p,status(q.publicCoverage?.[p] || 'unverified')])),
+      released: list(q.released || [],200).map(r=>({id:text(r.id,100),platform:text(r.platform,80),title:text(r.title,220),reviewUrl:link(r.reviewUrl),status:status(r.status,CHECK),reason:text(r.reason,500)})),
+      rows: list(q.rows, 500).map(row => {
         const at = instant(row.scheduledAt);
         if (Date.parse(at) < Date.parse(from) || Date.parse(at) >= Date.parse(to)) throw new Error('Queue item outside window');
         return {id: text(row.id, 100), platform: text(row.platform, 80), account: text(row.account, 100), scheduledAt: at,
-          title: text(row.title, 220), caption: text(row.caption || '', 1000), reviewUrl: link(row.reviewUrl), coverReviewUrl: link(row.coverReviewUrl),
-          preflight: Object.fromEntries(['cover', 'description', 'links', 'duplicates', 'assetMatch'].map(key => [key, status(row.preflight[key], CHECK)])),
-          notes: list(row.notes || [], 5).map(note => text(note, 250))};
+          title: text(row.title, 220), caption: text(row.caption || '', 1000), reviewUrl: link(row.reviewUrl), coverReviewUrl: link(row.coverReviewUrl), mediaUrl:link(row.mediaUrl),
+          preflight: Object.fromEntries(['cover', 'description', 'links', 'duplicates', 'assetMatch','cadence','crop'].map(key => [key, status(row.preflight[key] || 'unverified', CHECK)])),
+          notes: list(row.notes || [], 8).map(note => text(note, 250))};
       }).sort((a, b) => Date.parse(a.scheduledAt) - Date.parse(b.scheduledAt))};
   }
   const words = [focus.task, focus.why, ...[result.yesterday, result.opportunities, result.useful].flat().flatMap(c => [c.title, c.detail])].join(' ').split(/\s+/).length;

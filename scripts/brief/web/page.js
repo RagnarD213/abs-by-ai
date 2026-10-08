@@ -31,26 +31,58 @@ function queue(document) {
   const q = document.socialReleaseQueue;
   if (!q) { put('queue-coverage','Release queue not yet verified. Blotato and direct YouTube Studio schedules still need checking.'); return; }
   const stale = !q.checkedAt || Date.now() - Date.parse(q.checkedAt) > 12 * 3600000;
-  put('queue-coverage',`Blotato: ${q.sourceCoverage.blotato}. YouTube Studio: ${q.sourceCoverage.youtubeStudio}.${stale ? ' Queue review is stale or undated.' : ' Checked ' + instant(q.checkedAt) + '.'}`);
+  put('queue-coverage',`Blotato: ${q.sourceCoverage.blotato}. YouTube Studio: ${q.sourceCoverage.youtubeStudio}.${stale ? ' Queue review is stale or undated.' : ' Checked ' + instant(q.checkedAt) + '.'} ${q.coverageNote || ''}`);
   put('queue-window',instant(q.windowFrom) + ' through ' + instant(q.windowTo) + ' (exclusive).');
   const tomorrow = dayOf(Date.now() + 86400000);
   const problem = row => row.notes.length > 0 || Object.values(row.preflight).some(v => ['missing','broken','duplicate','mismatch'].includes(v));
   const flags = q.rows.filter(row => problem(row) || dayOf(row.scheduledAt) === tomorrow).slice(0,3);
   if (!flags.length) $('queue-flags').append(el('p',stale ? 'No current preflight conclusion.' : 'No tomorrow or urgent flags in the verified subset.','note'));
   for (const row of flags) $('queue-flags').append(el('p',`${row.platform}, ${instant(row.scheduledAt)}: ${row.title}. ${problem(row) ? 'Preflight needs review.' : 'Releases tomorrow.'}${stale ? ' Recheck the stale snapshot first.' : ''}`));
+  const days = new Map();
+  const first = dayOf(q.windowFrom);
+  for (let i=0;i<7;i++) {
+    const day = new Date(first + 'T12:00:00Z'); day.setUTCDate(day.getUTCDate()+i);
+    const key = day.toISOString().slice(0,10), column = el('section',undefined,'queue-day');
+    column.append(el('h3',date(key))); days.set(key,column); $('queue-rows').append(column);
+  }
   for (const row of q.rows) {
-    const box = el('div',undefined,'row');
+    const box = el('article',undefined,'row release-card');
     box.append(el('h3',row.title),el('p',`${row.platform} / ${row.account} / ${instant(row.scheduledAt)}`,'note'));
-    if (row.caption) box.append(el('p',row.caption));
+    preview(box,row.id,row.coverReviewUrl,row.mediaUrl);
+    if (row.caption) { const details=el('details');details.append(el('summary','Caption'),el('p',row.caption));box.append(details); }
     box.append(el('p',Object.entries(row.preflight).map(([k,v]) => `${k}: ${v.replaceAll('_',' ')}`).join(' · '),'note'));
     for (const note of row.notes) box.append(el('p',note));
-    link(box,'Review release',row.reviewUrl); link(box,'Review cover',row.coverReviewUrl); $('queue-rows').append(box);
+    link(box,'Open release',row.reviewUrl); link(box,'Open original video',row.mediaUrl);
+    (days.get(dayOf(row.scheduledAt)) || $('queue-rows')).append(box);
   }
-  if (!q.rows.length) $('queue-rows').append(el('p',q.status === 'ok' && !stale ? 'The checked sources report no releases in this window.' : 'No verified release rows available.','note'));
+  for (const [key,column] of days) if (!q.rows.some(r=>dayOf(r.scheduledAt) === key)) column.append(el('p','No Blotato release observed. Unavailable sources remain unknown.','note'));
+  put('public-coverage',Object.entries(q.publicCoverage || {}).map(([p,s])=>`${p}: ${s.replaceAll('_',' ')}`).join(' · ') || 'Public profile tiles have not been observed.');
+  for (const r of q.released || []) { const box=el('div',undefined,'row');box.append(el('h3',r.title),el('p',`${r.platform}: ${r.status}. ${r.reason}`));link(box,'Public post',r.reviewUrl);$('public-rows').append(box); }
+}
+function preview(box,id,cover,video) {
+  if (!/^[a-f0-9]{64}$/.test(id || '')) return;
+  const fallback=el('p','Cover preview unavailable; open the source for review.','note'); fallback.hidden=true;
+  if (cover && !video) { const img=el('img');img.src=`/api/brief/media/${id}/cover`;img.alt='Scheduled cover';img.loading='lazy';img.className='release-cover';img.addEventListener('error',()=>{img.hidden=true;fallback.hidden=false;});box.append(img,fallback); }
+  else if (!cover) box.append(el('p','Cover not verified for this platform.','note'));
+  if (video) { const player=el('video');player.src=`/api/brief/media/${id}/video`;player.controls=true;player.playsInline=true;player.preload='none';player.className='release-video';if(cover)player.poster=`/api/brief/media/${id}/cover`;player.addEventListener('error',()=>{box.append(el('p','Inline playback unavailable. Use the original video link.','note'));});box.append(player); }
+}
+let masterAfter='',masterLoading=false;
+async function loadMaster() {
+  if (masterLoading) return;
+  masterLoading=true; $('master-more').disabled=true;
+  try {
+    const r=await fetch('/api/brief/master'+(masterAfter ? '?after='+masterAfter : ''),{credentials:'same-origin',cache:'no-store'});
+    if(r.status===401){location.replace('/brief-login');return;}
+    if(!r.ok)throw new Error();
+    const page=await r.json();
+    for(const item of page.rows){const box=el('article',undefined,'row release-card');box.append(el('h3',item.title),el('p',`${item.platform} / ${item.account} / ${instant(item.scheduledAt)}`,'note'),el('p',`Approval: ${item.approval.status.replaceAll('_',' ')}. ${item.approval.reference}`,'note'));preview(box,item.id,item.cover,item.media.find(u=>/\.(mp4|webm)$/.test(u)));const details=el('details');details.append(el('summary','Caption and approval evidence'),el('p',item.caption),el('p',item.approval.quote,'note'));box.append(details);for(const u of item.media)link(box,'Original media',u);$('master-rows').append(box);}
+    masterAfter=page.next || ''; $('master-more').hidden=!page.next;put('master-status',page.rows.length ? 'Inventory retained beyond the Blotato cap. Dates are shown in Central time.' : 'No inventory imported yet.');
+  }catch{put('master-status','Private inventory could not be loaded. Try again.');}
+  finally{masterLoading=false;$('master-more').disabled=false;}
 }
 let loading = false;
 function resetEdition() {
-  for (const id of ['yesterday','opportunities','sites','campaigns','queue-flags','queue-rows','useful','sources']) $(id).replaceChildren();
+  for (const id of ['yesterday','opportunities','sites','campaigns','queue-flags','queue-rows','public-rows','useful','sources']) $(id).replaceChildren();
   for (const id of ['stats-section','useful-section']) $(id).hidden = true;
   for (const id of ['edition-note','routine-status','focus-why','focus-source','queue-coverage','queue-window']) put(id,'');
 }
@@ -109,4 +141,5 @@ dailyImage.addEventListener('load',() => { $('image-section').hidden = false; })
 dailyImage.addEventListener('error',() => { $('image-section').hidden = true; });
 dailyImage.src = '/api/brief/image';
 if ($('retry')) $('retry').addEventListener('click',load);
+$('master-more').addEventListener('click',loadMaster);
 load();
