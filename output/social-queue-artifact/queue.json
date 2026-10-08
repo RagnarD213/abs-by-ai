@@ -1,61 +1,7 @@
 {
-"generated": "2026-10-07T11:24:57+00:00",
+"generated": "2026-10-08T11:24:36+00:00",
 "cap": 200,
 "scheduled": [
-{
-"id": "5090245",
-"platform": "facebook",
-"when": "2026-10-07T14:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "If you can't lose weight, it usually comes down to one thing: calories. I'll show you the proof, then 8 ways t",
-"batch": ""
-},
-{
-"id": "5090246",
-"platform": "instagram",
-"when": "2026-10-07T14:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "If you can't lose weight, it usually comes down to one thing: calories. I'll show you the proof, then 8 ways t",
-"batch": ""
-},
-{
-"id": "5098938",
-"platform": "tiktok",
-"when": "2026-10-07T14:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "If you can't lose weight, it usually comes down to one thing: calories. I'll show you the proof, then 8 ways t",
-"batch": ""
-},
-{
-"id": "5090248",
-"platform": "youtube",
-"when": "2026-10-07T14:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "If you're struggling to lose weight, there's usually one reason: you're eating too many calories. Here is the ",
-"batch": ""
-},
-{
-"id": "4934265",
-"platform": "facebook",
-"when": "2026-10-07T22:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Never start your day with carbs.",
-"batch": ""
-},
-{
-"id": "3841910",
-"platform": "instagram",
-"when": "2026-10-07T22:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Your protein shake might be working against you.",
-"batch": ""
-},
 {
 "id": "5019226",
 "platform": "facebook",
@@ -201,33 +147,6 @@
 "batch": ""
 },
 {
-"id": "4976695",
-"platform": "facebook",
-"when": "2026-10-11T14:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "I used to be one of the biggest deadlift fans on the internet. At 40, I stopped doing them completely.",
-"batch": ""
-},
-{
-"id": "4976700",
-"platform": "instagram",
-"when": "2026-10-11T14:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "I used to be one of the biggest deadlift fans on the internet. At 40, I stopped doing them completely.",
-"batch": ""
-},
-{
-"id": "4976709",
-"platform": "tiktok",
-"when": "2026-10-11T14:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "I used to be one of the biggest deadlift fans on the internet. At 40, I stopped doing them completely.",
-"batch": ""
-},
-{
 "id": "4976708",
 "platform": "youtube",
 "when": "2026-10-11T14:00:00.000Z",
@@ -243,6 +162,33 @@
 "kind": "Photo",
 "slides": 1,
 "text": "Cool the room before you cool yourself.",
+"batch": ""
+},
+{
+"id": "4976695",
+"platform": "facebook",
+"when": "2026-10-12T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "I used to be one of the biggest deadlift fans on the internet. At 40, I stopped doing them completely.",
+"batch": ""
+},
+{
+"id": "4976700",
+"platform": "instagram",
+"when": "2026-10-12T14:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "I used to be one of the biggest deadlift fans on the internet. At 40, I stopped doing them completely.",
+"batch": ""
+},
+{
+"id": "4976709",
+"platform": "tiktok",
+"when": "2026-10-12T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "I used to be one of the biggest deadlift fans on the internet. At 40, I stopped doing them completely.",
 "batch": ""
 },
 {
@@ -324,42 +270,6 @@
 "kind": "Video",
 "slides": 1,
 "text": "You always have three minutes.",
-"batch": ""
-},
-{
-"id": "5095439",
-"platform": "facebook",
-"when": "2026-10-14T14:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "I've worn the Oura Ring for a year and a half, and I paid for it myself. Here's my honest review.",
-"batch": ""
-},
-{
-"id": "5095440",
-"platform": "instagram",
-"when": "2026-10-14T14:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "I've worn the Oura Ring for a year and a half, and I paid for it myself. Here's my honest review.",
-"batch": ""
-},
-{
-"id": "5095441",
-"platform": "tiktok",
-"when": "2026-10-14T14:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "I've worn the Oura Ring for a year and a half, and I paid for it myself. Here's my honest review.",
-"batch": ""
-},
-{
-"id": "5095442",
-"platform": "youtube",
-"when": "2026-10-14T14:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "I've worn the Oura Ring for about a year and a half. I bought it myself, this video is not sponsored, and here",
 "batch": ""
 },
 {
@@ -507,33 +417,6 @@
 "batch": ""
 },
 {
-"id": "5014529",
-"platform": "facebook",
-"when": "2026-10-18T14:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "This salad is how I break my fast almost every day, and it's my most important nutrition habit.",
-"batch": ""
-},
-{
-"id": "5014531",
-"platform": "instagram",
-"when": "2026-10-18T14:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "This salad is how I break my fast almost every day, and it's my most important nutrition habit.",
-"batch": ""
-},
-{
-"id": "5014533",
-"platform": "tiktok",
-"when": "2026-10-18T14:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "This salad is how I break my fast almost every day, and it's my most important nutrition habit.",
-"batch": ""
-},
-{
 "id": "5014534",
 "platform": "youtube",
 "when": "2026-10-18T14:00:00.000Z",
@@ -549,6 +432,33 @@
 "kind": "Photo",
 "slides": 1,
 "text": "The muscle that makes your waist look smaller isn't your abs.",
+"batch": ""
+},
+{
+"id": "5014529",
+"platform": "facebook",
+"when": "2026-10-19T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "This salad is how I break my fast almost every day, and it's my most important nutrition habit.",
+"batch": ""
+},
+{
+"id": "5014531",
+"platform": "instagram",
+"when": "2026-10-19T14:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "This salad is how I break my fast almost every day, and it's my most important nutrition habit.",
+"batch": ""
+},
+{
+"id": "5014533",
+"platform": "tiktok",
+"when": "2026-10-19T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "This salad is how I break my fast almost every day, and it's my most important nutrition habit.",
 "batch": ""
 },
 {
@@ -630,42 +540,6 @@
 "kind": "Video",
 "slides": 1,
 "text": "The toe touch \u2014 a killer six-pack move you can do at home.",
-"batch": ""
-},
-{
-"id": "5194483",
-"platform": "facebook",
-"when": "2026-10-21T14:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Can you drink alcohol and still have six pack abs? Yes, but only if you put rules on it.",
-"batch": ""
-},
-{
-"id": "5194485",
-"platform": "instagram",
-"when": "2026-10-21T14:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "Can you drink alcohol and still have six pack abs? Yes, but only if you put rules on it.",
-"batch": ""
-},
-{
-"id": "5194486",
-"platform": "tiktok",
-"when": "2026-10-21T14:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Can you drink alcohol and still have six pack abs? Yes, but only if you put rules on it.",
-"batch": ""
-},
-{
-"id": "5194487",
-"platform": "youtube",
-"when": "2026-10-21T14:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Can you drink alcohol and still have six pack abs? Yes, but only if you put rules on it. Here is exactly what ",
 "batch": ""
 },
 {
@@ -831,9 +705,18 @@
 "batch": ""
 },
 {
+"id": "5046550",
+"platform": "youtube",
+"when": "2026-10-25T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Five tips to get the most out of Zepbound, so you lose fat while keeping your muscle. I screwed some of these ",
+"batch": ""
+},
+{
 "id": "5046547",
 "platform": "facebook",
-"when": "2026-10-25T14:00:00.000Z",
+"when": "2026-10-26T14:00:00.000Z",
 "kind": "Video",
 "slides": 1,
 "text": "I've been on Zepbound for about two months, and I screwed some things up when I started. Here are my top 5 tip",
@@ -842,7 +725,7 @@
 {
 "id": "5046548",
 "platform": "instagram",
-"when": "2026-10-25T14:00:00.000Z",
+"when": "2026-10-26T14:00:00.000Z",
 "kind": "Reel",
 "slides": 1,
 "text": "I've been on Zepbound for about two months, and I screwed some things up when I started. Here are my top 5 tip",
@@ -851,19 +734,10 @@
 {
 "id": "5046549",
 "platform": "tiktok",
-"when": "2026-10-25T14:00:00.000Z",
+"when": "2026-10-26T14:00:00.000Z",
 "kind": "Video",
 "slides": 1,
 "text": "I've been on Zepbound for about two months, and I screwed some things up when I started. Here are my top 5 tip",
-"batch": ""
-},
-{
-"id": "5046550",
-"platform": "youtube",
-"when": "2026-10-25T14:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Five tips to get the most out of Zepbound, so you lose fat while keeping your muscle. I screwed some of these ",
 "batch": ""
 },
 {
@@ -945,42 +819,6 @@
 "kind": "Video",
 "slides": 1,
 "text": "Your abs never get a break on the ab wheel.",
-"batch": ""
-},
-{
-"id": "5211308",
-"platform": "facebook",
-"when": "2026-10-28T14:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "If you have belly fat, stop doing crunches. The one ab exercise that can shrink your waist is the stomach vacu",
-"batch": ""
-},
-{
-"id": "5211309",
-"platform": "instagram",
-"when": "2026-10-28T14:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "If you have belly fat, stop doing crunches. The one ab exercise that can shrink your waist is the stomach vacu",
-"batch": ""
-},
-{
-"id": "5211310",
-"platform": "tiktok",
-"when": "2026-10-28T14:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "If you have belly fat, stop doing crunches. The one ab exercise that can shrink your waist is the stomach vacu",
-"batch": ""
-},
-{
-"id": "5211312",
-"platform": "youtube",
-"when": "2026-10-28T14:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "If you have belly fat, stop doing crunches. The one ab exercise that works on your waist is the standing stoma",
 "batch": ""
 },
 {
@@ -1074,9 +912,18 @@
 "batch": ""
 },
 {
+"id": "5090110",
+"platform": "youtube",
+"when": "2026-11-01T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "If I woke up 30 pounds heavier tomorrow, this is the exact 8-step plan I would follow to get my abs back in 90",
+"batch": ""
+},
+{
 "id": "5090105",
 "platform": "facebook",
-"when": "2026-11-01T15:00:00.000Z",
+"when": "2026-11-02T15:00:00.000Z",
 "kind": "Video",
 "slides": 1,
 "text": "If I woke up 30 pounds heavier tomorrow, I'm confident I could lose it all and get my abs back in 3 months. He",
@@ -1085,7 +932,7 @@
 {
 "id": "5090106",
 "platform": "instagram",
-"when": "2026-11-01T15:00:00.000Z",
+"when": "2026-11-02T15:00:00.000Z",
 "kind": "Reel",
 "slides": 1,
 "text": "If I woke up 30 pounds heavier tomorrow, I'm confident I could lose it all and get my abs back in 3 months. He",
@@ -1094,19 +941,10 @@
 {
 "id": "5090108",
 "platform": "tiktok",
-"when": "2026-11-01T15:00:00.000Z",
+"when": "2026-11-02T15:00:00.000Z",
 "kind": "Video",
 "slides": 1,
 "text": "If I woke up 30 pounds heavier tomorrow, I'm confident I could lose it all and get my abs back in 3 months. He",
-"batch": ""
-},
-{
-"id": "5090110",
-"platform": "youtube",
-"when": "2026-11-01T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "If I woke up 30 pounds heavier tomorrow, this is the exact 8-step plan I would follow to get my abs back in 90",
 "batch": ""
 },
 {
@@ -1218,6 +1056,42 @@
 "batch": "Studio S08-A"
 },
 {
+"id": "5095442",
+"platform": "youtube",
+"when": "2026-11-08T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "I've worn the Oura Ring for about a year and a half. I bought it myself, this video is not sponsored, and here",
+"batch": ""
+},
+{
+"id": "5095439",
+"platform": "facebook",
+"when": "2026-11-09T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "I've worn the Oura Ring for a year and a half, and I paid for it myself. Here's my honest review.",
+"batch": ""
+},
+{
+"id": "5095440",
+"platform": "instagram",
+"when": "2026-11-09T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "I've worn the Oura Ring for a year and a half, and I paid for it myself. Here's my honest review.",
+"batch": ""
+},
+{
+"id": "5095441",
+"platform": "tiktok",
+"when": "2026-11-09T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "I've worn the Oura Ring for a year and a half, and I paid for it myself. Here's my honest review.",
+"batch": ""
+},
+{
 "id": "4890092",
 "platform": "facebook",
 "when": "2026-11-09T23:00:00.000Z",
@@ -1270,6 +1144,42 @@
 "slides": 1,
 "text": "Make strength training an appointment you can keep. Choose the time, save the workout and get your space ready",
 "batch": "Studio S09-A"
+},
+{
+"id": "5194487",
+"platform": "youtube",
+"when": "2026-11-15T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Can you drink alcohol and still have six pack abs? Yes, but only if you put rules on it. Here is exactly what ",
+"batch": ""
+},
+{
+"id": "5194483",
+"platform": "facebook",
+"when": "2026-11-16T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Can you drink alcohol and still have six pack abs? Yes, but only if you put rules on it.",
+"batch": ""
+},
+{
+"id": "5194485",
+"platform": "instagram",
+"when": "2026-11-16T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Can you drink alcohol and still have six pack abs? Yes, but only if you put rules on it.",
+"batch": ""
+},
+{
+"id": "5194486",
+"platform": "tiktok",
+"when": "2026-11-16T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Can you drink alcohol and still have six pack abs? Yes, but only if you put rules on it.",
+"batch": ""
 },
 {
 "id": "3584699",
@@ -1326,6 +1236,42 @@
 "batch": "Studio S02-B"
 },
 {
+"id": "5211312",
+"platform": "youtube",
+"when": "2026-11-22T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "If you have belly fat, stop doing crunches. The one ab exercise that works on your waist is the standing stoma",
+"batch": ""
+},
+{
+"id": "5211308",
+"platform": "facebook",
+"when": "2026-11-23T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "If you have belly fat, stop doing crunches. The one ab exercise that can shrink your waist is the stomach vacu",
+"batch": ""
+},
+{
+"id": "5211309",
+"platform": "instagram",
+"when": "2026-11-23T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "If you have belly fat, stop doing crunches. The one ab exercise that can shrink your waist is the stomach vacu",
+"batch": ""
+},
+{
+"id": "5211310",
+"platform": "tiktok",
+"when": "2026-11-23T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "If you have belly fat, stop doing crunches. The one ab exercise that can shrink your waist is the stomach vacu",
+"batch": ""
+},
+{
 "id": "3584711",
 "platform": "facebook",
 "when": "2026-11-23T23:00:00.000Z",
@@ -1380,6 +1326,15 @@
 "batch": "Studio S04-B"
 },
 {
+"id": "5287937",
+"platform": "youtube",
+"when": "2026-11-29T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "If you're struggling to lose weight, there's usually one reason: you're eating too many calories. Here is the ",
+"batch": ""
+},
+{
 "id": "3584718",
 "platform": "facebook",
 "when": "2026-11-30T23:00:00.000Z",
@@ -1432,6 +1387,42 @@
 "slides": 1,
 "text": "Make tomorrow's lunch a decision you handle today. Pick something you already like, check what you have and ge",
 "batch": "Studio S01-B"
+},
+{
+"id": "5295786",
+"platform": "youtube",
+"when": "2026-12-06T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Losing weight is not enough if you lose the muscle you worked to build. Here is how I approach resistance trai",
+"batch": ""
+},
+{
+"id": "5295779",
+"platform": "facebook",
+"when": "2026-12-07T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Lose the fat. Keep the muscle you worked to build.",
+"batch": ""
+},
+{
+"id": "5295782",
+"platform": "instagram",
+"when": "2026-12-07T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Lose the fat. Keep the muscle you worked to build.",
+"batch": ""
+},
+{
+"id": "5295785",
+"platform": "tiktok",
+"when": "2026-12-07T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Lose the fat. Keep the muscle you worked to build.",
+"batch": ""
 },
 {
 "id": "3584739",
