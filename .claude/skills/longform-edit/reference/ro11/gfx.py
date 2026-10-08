@@ -13,10 +13,45 @@ SHIFT = {"W2": dict(dx=346, c0=560, wall_w=560), "W3": dict(dx=342, c0=520, wall
 
 def rise(t, d=.55): return B.ease(t, d)
 # ------------------------------------------------------------------ full-screen scenes
-def title_card(t, step, headline):
-    im = B.field(t); d = ImageDraw.Draw(im)
+TITLE_FRAME = dict(x=890, w=905, h=900, h_label=820, gap=26)      # round 3: picture on the right of a section card
+TITLE_BLEED = dict(x=800, w=1120, ramp=340)
+def _chip_in(im, q, label, xy, anchor, size=23):
+    """Disclosure chip that fades in with its picture (labels arrive with their photos)."""
+    if q <= 0: return im
+    if q >= 1: B.disclosure(im, label, xy, U, anchor=anchor, size=size); return im
+    c = im.copy(); B.disclosure(c, label, xy, U, anchor=anchor, size=size)
+    return Image.blend(im, c, q)
+
+def title_picture(im, t, photo, label=None, layout="frame", chip=None):
+    """Round 3 (Dan 2026-10-08: the section cards "look a little empty... add an image to the right"). photo is the stem of a
+    prepared crop (titles.py writes <stem>_frame.jpg / <stem>_bleed.jpg at the exact aspect, graded).
+    frame: the fact card's photo frame (rounded, hairline border, soft shadow), filling the right side; the label sits
+    under the frame, off the picture. bleed: the picture runs off the top, right and bottom edges and fades into the field
+    on its left; the label goes at `chip` = ((x, y), anchor), measured clear of his face and abs."""
+    if layout == "frame":
+        F_ = TITLE_FRAME; fh = F_["h_label"] if label else F_["h"]
+        fy = (1080 - fh - ((F_["gap"] + 40 * U) if label else 0)) / 2
+        B.photo_card(im, f"{photo}_frame.jpg", (F_["x"], fy, F_["w"], fh), t, 0, fit=True, u=U)
+        q = B.ease(t)                                  # the label rises and fades with its picture (photo_card: 48 units)
+        if label: im = _chip_in(im, q, label, (F_["x"] + F_["w"] / 2, fy + fh + F_["gap"] + (1 - q) * 48 * U), "mt")
+        return im
+    D = TITLE_BLEED; q = B.ease(t, .5)
+    if q <= 0: return im
+    w, h = D["w"], 1080; z = 1.02 + .014 * t
+    p = B._src(f"{photo}_bleed.jpg").resize((round(w * z), round(h * z)), Image.Resampling.LANCZOS)
+    p = p.crop(((p.width - w) // 2, (p.height - h) // 2, (p.width - w) // 2 + w, (p.height - h) // 2 + h))
+    r = np.clip(np.arange(w) / D["ramp"], 0, 1); r = r * r * (3 - 2 * r)
+    m = Image.fromarray(np.tile((r * 255 * q).astype("uint8"), (h, 1)))
+    im.paste(p, (D["x"], 0), m)
+    if label and chip: im = _chip_in(im, q, label, tuple(chip[0]), chip[1])
+    return im
+
+def title_card(t, step, headline, photo=None, label=None, layout="frame", chip=None):
+    im = B.field(t)
+    if photo: im = title_picture(im, t, photo, label, layout, chip)
+    d = ImageDraw.Draw(im)
     x = 150; lines = headline.split("\n"); size = 76
-    while size > 56 and max(B.text_w(l, B.font(size)) for l in lines) > 1600: size -= 2
+    while size > 56 and max(B.text_w(l, B.font(size)) for l in lines) > (700 if photo else 1600): size -= 2
     blockh = 64 + 34 + len(lines) * size * 1.22
     y = (1080 - blockh) / 2
     if t > .05:
@@ -193,7 +228,7 @@ def paint(frame, t, items, framing="W2", clip_img=None):
     if full:
         it = full[-1]; tl = t - it["t0"]
         if it["kind"] == "scene": return scene(it, tl)
-        if it["kind"] == "title": return title_card(tl, it["step"], it["headline"])
+        if it["kind"] == "title": return title_card(tl, it["step"], it["headline"], it.get("photo"), it.get("label"), it.get("layout", "frame"), it.get("chip"))
         im = clip_img.copy() if clip_img is not None else Image.new("RGB", (1920, 1080))
         lab = it.get("label")
         if it.get("labels"):                     # per-source labels on a multi-source clip (same split as build.ClipReader)

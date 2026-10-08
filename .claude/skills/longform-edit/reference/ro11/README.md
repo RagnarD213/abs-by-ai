@@ -42,3 +42,17 @@ Full film (2026-10-08, delivered; independent review 1 DOES NOT SHIP, review 2 S
 - **A soft word tail trimmed by a cut:** `TAILEXT` in `build.py` lets the outgoing shot's sound run on under the next
   shot's silent lead-in (check the lead-in is silent first). No timeline change.
 - On this roll Dan holds a smile for a clean second after the last word (src frames 25619 to 25651): an end hold exists.
+
+Round 3 (2026-10-08): a picture on the right of each section card, approval page only (no film). Dan: the seven cards "look a little empty".
+- `titles.py`: per card the source, licence, label and one crop per layout. `prep` writes the graded crops, `measure` proves each
+  label clear of Dan with the Vision person mask. `round3.py` renders stills and context clips with the photo fields merged in
+  memory, so the locked `plan_resolved.json` stays byte-identical until he approves. `page3.py` builds the page.
+- `gfx.title_card(..., photo, label, layout, chip)`: `frame` = the fact card's photo frame filling the right side, label under
+  it; `bleed` = picture to the edges, fading into the field. With no photo it draws exactly as round 2 did (checked pixel for pixel).
+- **The real-photo label is 931 px wide.** It cannot sit beside Dan inside a picture; under the frame is the only clean place.
+  The frame is 905 px wide so the label sits flush under it.
+- **`photo_card`'s slow push crops the top** by (z - 1) / 2 of the height: leave headroom above hair in the crop itself.
+- **photo-38 loses the kettlebell** in any landscape crop (his hands end up at his shorts): use photo-29. `assets/stairs.jpg` is
+  the same man and staircase as clip C12. Our rotisserie chicken B-roll (B0443) reads as a carcass on a title card.
+- `clip_library.py find` matches every word: search one word at a time ("chicken", "walk"), not a phrase.
+- Pexels stills need no key: search in the browser pane, then `images.pexels.com/photos/<ID>/pexels-photo-<ID>.jpeg?w=2600`.
