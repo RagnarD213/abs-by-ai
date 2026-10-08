@@ -1,4 +1,4 @@
-# Mac-only morning brief publication
+# Private morning brief publication
 
 The approved publisher uses Ed25519 signatures. The private key stays on the Mac, outside Git, in a directory owned by its user with mode 0700. The key file is created exclusively with mode 0600. The signer rejects symlinked or permissive key files/directories and never emits private key material. Railway receives only `BRIEF_PUBLISH_PUBLIC_KEY`, the public SPKI DER key encoded as base64. No Google client secret or shared ingestion secret is needed.
 
@@ -20,6 +20,37 @@ python3 scripts/brief/publish_image.py /private/directory/approved-image.png --p
 Key creation returns only the public verification variable. Set that public value on the existing website service, then deploy the matching verifier. Keep private files, source evidence, imagery, prompts and receipts outside Git. The image publisher verifies a matching digest receipt before successful publication is claimed. It uploads an already-approved image; it does not generate one or incur an image API charge.
 
 Revocation: remove or replace the website's public verification variable and deploy it. Rotation needs a separately created local key and public-key update. Never transmit the old or new private key. Retain Google owner publication at `/brief-publish` for manual recovery. Device files must be available on the device used for manual upload.
+
+## Direct cloud image upload with local digest signing
+
+When an authorized cloud executor already holds an approved image's original bytes and can make an HTTPS POST, those bytes need not pass through Library or the Mac. The Mac signs only their SHA-256 digest with its existing key. This is the same image publication protocol, not a new credential or persistent access grant. Local planning collection and signing still require the Mac. A cloud file being displayed as an artifact does not itself update the private website.
+
+Prepare the upload before requesting authorization. Read the original PNG or JPEG as binary, check its MIME and size (more than 4 bytes, at most 8 MiB), and compute `hashlib.sha256(image_bytes).hexdigest()` or its exact equivalent. Send the resulting 64 lowercase hexadecimal characters to the Mac, with at most one trailing LF. Do not hash the filename, Library ID, URL, base64 text, JSON, multipart encoding or a re-encoded image. The digest signer rejects other input and has no selectable route:
+
+```sh
+umask 077
+printf '%s\n' "$image_sha256" | node scripts/brief/mac_signer.js --sign-image-digest /private/directory/publish-key.pem > /private/directory/image-authorization.json
+```
+
+The command returns exactly `X-Brief-Key-Id`, `X-Brief-Timestamp`, `X-Brief-Nonce` and `X-Brief-Signature`. Treat this JSON as a short-lived authorization for one exact image upload; keep it outside Git and user-facing logs. It contains no private key. Coordinate immediately after preparation because the existing server accepts a timestamp only within 300 seconds, allowing at most 30 seconds ahead. The nonce can be claimed once across replicas and restarts.
+
+The Ed25519 signature covers the following UTF-8 bytes, separated by LF and ending with one LF. The digest is lowercase SHA-256 of the exact HTTP body. Timestamp is Unix seconds; nonce is 32 lowercase hexadecimal characters; key ID is SHA-256 of the public SPKI DER bytes:
+
+```text
+absbyai-brief-v1
+POST
+/api/brief/image/publish
+<64-character body digest>
+<timestamp>
+<nonce>
+<key ID>
+```
+
+The cloud sends `POST https://absbyai.com/api/brief/image/publish`, with no query string or trailing slash. Add the four returned headers unchanged and `Content-Type: image/png` or `Content-Type: image/jpeg`. The HTTP body is the original binary image bytes, with no JSON, multipart wrapper, base64 encoding or compression. Do not export the Mac key, transfer an owner cookie, add CORS access, create a public image URL or use a website fetch-from-URL proxy. The existing endpoint recomputes the digest from received bytes and validates the image before storage.
+
+A successful upload returns HTTP 200 with `{"ok":true,"sha256":"<same digest>","mime":"image/png","scheduleChanged":false}` (or JPEG MIME). Require both digest and MIME to match before reporting success. A 401 means authorization, exact-path or replay rejection; 400 means an invalid body; 413 means too large; 503 means publication unavailable. A retry requires new signing headers, not reuse of a consumed nonce. If a response is lost, first verify storage rather than assuming success. Signatures authorize publication only, never private reads or owner login.
+
+After the image receipt, verify exact stored image bytes/digest and owner-only serving. Preserve the current text edition; update only its image provenance/date when separately coordinated, keeping a retained fallback's actual date. The present raw-image request does not carry an image date. Do not infer one from a download or upload timestamp. Anonymous image reads remain denied and owner responses remain `private, no-store`. This transport is not proven in production until a coordinated cloud upload and readback succeed.
 
 ## Verification and remaining work
 
