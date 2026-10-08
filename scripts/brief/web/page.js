@@ -29,15 +29,7 @@ function imageProvenance(d) {
 }
 function queue(document) {
   const q = document.socialReleaseQueue;
-  if (!q) { put('queue-coverage','Release queue not yet verified. Blotato and direct YouTube Studio schedules still need checking.'); return; }
-  const stale = !q.checkedAt || Date.now() - Date.parse(q.checkedAt) > 12 * 3600000;
-  put('queue-coverage',`Blotato: ${q.sourceCoverage.blotato}. YouTube Studio: ${q.sourceCoverage.youtubeStudio}.${stale ? ' Queue review is stale or undated.' : ' Checked ' + instant(q.checkedAt) + '.'} ${q.coverageNote || ''}`);
-  put('queue-window',instant(q.windowFrom) + ' through ' + instant(q.windowTo) + ' (exclusive).');
-  const tomorrow = dayOf(Date.now() + 86400000);
-  const problem = row => row.notes.length > 0 || Object.values(row.preflight).some(v => ['missing','broken','duplicate','mismatch'].includes(v));
-  const flags = q.rows.filter(row => problem(row) || dayOf(row.scheduledAt) === tomorrow).slice(0,3);
-  if (!flags.length) $('queue-flags').append(el('p',stale ? 'No current preflight conclusion.' : 'No tomorrow or urgent flags in the verified subset.','note'));
-  for (const row of flags) $('queue-flags').append(el('p',`${row.platform}, ${instant(row.scheduledAt)}: ${row.title}. ${problem(row) ? 'Preflight needs review.' : 'Releases tomorrow.'}${stale ? ' Recheck the stale snapshot first.' : ''}`));
+  if (!q) { $('queue-rows').append(el('p','Scheduled media could not be loaded. Please try again.','note')); return; }
   const days = new Map();
   const first = dayOf(q.windowFrom);
   for (let i=0;i<7;i++) {
@@ -47,25 +39,96 @@ function queue(document) {
   }
   for (const row of q.rows) {
     const box = el('article',undefined,'row release-card');
-    box.append(el('h3',row.title),el('p',`${row.platform} / ${row.account} / ${instant(row.scheduledAt)}`,'note'));
-    preview(box,row.id,row.coverReviewUrl,row.mediaUrl);
+    box.append(el('h3',row.title),el('p',`${platformName(row.platform)} · ${instant(row.scheduledAt)}`,'note'));
+    preview(box,row.id,row.coverReviewUrl,row.mediaUrl,row.platform,row.coverFrameAt,`${platformName(row.platform)} · ${instant(row.scheduledAt)} · ${row.title}`);
     if (row.caption) { const details=el('details');details.append(el('summary','Caption'),el('p',row.caption));box.append(details); }
-    box.append(el('p',Object.entries(row.preflight).map(([k,v]) => `${k}: ${v.replaceAll('_',' ')}`).join(' · '),'note'));
-    for (const note of row.notes) box.append(el('p',note));
-    link(box,'Open release',row.reviewUrl); link(box,'Open original video',row.mediaUrl);
+    const issues = Object.entries(row.preflight).filter(([,v])=>['missing','broken','duplicate','mismatch'].includes(v));
+    if (issues.length) box.append(el('p',issues.map(([k])=>({cover:'Check the scheduled cover.',links:'Check a caption link.',duplicates:'Another post is scheduled at this time.',cadence:'Check the release day.',assetMatch:'The scheduled media is unavailable.',description:'Caption is missing.',crop:'Check the cover crop.'}[k] || 'Review this post.')).join(' '),'media-warning'));
+    if (!row.mediaUrl && row.reviewUrl?.startsWith('https://studio.youtube.com/')) box.append(el('p','Private video, available in Studio.','note'));
+    if (!row.mediaUrl && row.reviewUrl?.startsWith('https://studio.youtube.com/')) link(box,'Play in Studio',row.reviewUrl);
     (days.get(dayOf(row.scheduledAt)) || $('queue-rows')).append(box);
   }
   for (const [key,column] of days) if (!q.rows.some(r=>dayOf(r.scheduledAt) === key)) column.append(el('p','No Blotato release observed. Unavailable sources remain unknown.','note'));
-  put('public-coverage',Object.entries(q.publicCoverage || {}).map(([p,s])=>`${p}: ${s.replaceAll('_',' ')}`).join(' · ') || 'Public profile tiles have not been observed.');
-  for (const r of q.released || []) { const box=el('div',undefined,'row');box.append(el('h3',r.title),el('p',`${r.platform}: ${r.status}. ${r.reason}`));link(box,'Public post',r.reviewUrl);$('public-rows').append(box); }
 }
-function preview(box,id,cover,video) {
+
+function platformName(value) { return {facebook:'Facebook',instagram:'Instagram',tiktok:'TikTok',youtube:'YouTube'}[value.toLowerCase()] || value; }
+function preview(box,id,cover,video,platform='',coverFrameAt=null,title='Scheduled media') {
   if (!/^[a-f0-9]{64}$/.test(id || '')) return;
-  const fallback=el('p','Cover preview unavailable; open the source for review.','note'); fallback.hidden=true;
-  if (cover && !video) { const img=el('img');img.src=`/api/brief/media/${id}/cover`;img.alt='Scheduled cover';img.loading='lazy';img.className='release-cover';img.addEventListener('error',()=>{img.hidden=true;fallback.hidden=false;});box.append(img,fallback); }
-  else if (!cover) box.append(el('p','Cover not verified for this platform.','note'));
-  if (video) { const player=el('video');player.src=`/api/brief/media/${id}/video`;player.controls=true;player.playsInline=true;player.preload='none';player.className='release-video';if(cover)player.poster=`/api/brief/media/${id}/cover`;player.addEventListener('error',()=>{box.append(el('p','Inline playback unavailable. Use the original video link.','note'));});box.append(player); }
+  const media=el('div',undefined,'scheduled-media');
+  box.append(media);
+  if (cover) {
+    const figure=el('figure',undefined,video ? 'cover-panel' : 'photo-panel');
+    const img=el('img');img.src=`/api/brief/media/${id}/cover`;img.alt=video ? 'Scheduled platform cover' : 'Scheduled photo';img.loading='eager';img.className='release-cover';
+    const fallback=el('p','This image could not load. Open the scheduled post.','media-warning');fallback.hidden=true;
+    img.addEventListener('error',()=>{img.hidden=true;fallback.hidden=false;});
+    figure.append(img,el('figcaption',video ? 'Cover' : 'Photo'),fallback);media.append(figure);
+    inspectable(img,{type:'image',src:img.src,title:title+(video ? ' · Cover' : ' · Photo')});
+  }
+  if (!video) return;
+  const figure=el('figure',undefined,'video-panel');
+  const player=el('video');player.src=`/api/brief/media/${id}/video#t=0.001`;player.controls=false;player.playsInline=true;player.preload='metadata';player.className='release-video';player.hidden=true;
+  player.setAttribute('aria-label',`Open scheduled ${platformName(platform)} video`);
+  if(cover)player.poster=`/api/brief/media/${id}/cover`;
+  const state=el('p','Loading preview…','note');
+  const play=el('button','Play video','play-video');play.type='button';play.disabled=true;
+  const entry={type:'video',src:player.src,poster:cover ? `/api/brief/media/${id}/cover` : '',title:title+' · Video'};
+  inspectable(player,entry);
+  play.addEventListener('click',()=>openViewer(entry));
+  const caption=el('figcaption','Video');
+  figure.append(player,caption,state,play);media.append(figure);
+  const duration=()=>`${Math.floor(player.duration/60)}:${String(Math.floor(player.duration%60)).padStart(2,'0')}`;
+  player.addEventListener('loadedmetadata',()=>{play.disabled=false;state.textContent=Number.isFinite(player.duration) ? duration() : 'Ready to play';});
+  player.addEventListener('loadeddata',()=>{player.hidden=false;});
+  player.addEventListener('play',()=>{play.textContent='Pause video';});
+  player.addEventListener('pause',()=>{play.textContent='Play video';});
+  player.addEventListener('ended',()=>{play.textContent='Play video';});
+  player.addEventListener('error',()=>{player.hidden=true;play.hidden=true;state.textContent='This video could not load. Open the original video below.';});
+  entry.original=video;
+  if (!cover) {
+    const frame=el('figure',undefined,'cover-panel');
+    const canvas=el('canvas');canvas.className='release-cover';canvas.hidden=true;
+    const isTikTok=platform==='tiktok' && coverFrameAt===0;
+    inspectable(canvas,{type:'frame',canvas,title:title+' · Video frame at 0 seconds'});
+    frame.append(canvas,el('figcaption',isTikTok ? 'Cover frame · 0 seconds' : 'Video frame'),el('p',isTikTok ? 'Approval unverified.' : 'Separate cover unavailable.','note'));if(isTikTok)media.prepend(frame); else { frame.hidden=true; media.append(frame); }
+    const capture=()=>{if(!player.videoWidth || player.currentTime>0.1)return;try{canvas.width=player.videoWidth;canvas.height=player.videoHeight;canvas.getContext('2d').drawImage(player,0,0);canvas.hidden=false;}catch{}};
+    player.addEventListener('loadeddata',capture,{once:true});
+  }
 }
+const gallery=[];
+let viewerEntry=null,viewerReturn=null,viewerOverflow='',viewerHistory=false;
+function inspectable(node,entry) {
+  gallery.push(entry);node.tabIndex=0;node.setAttribute('role','button');node.setAttribute('aria-label','Inspect '+entry.title);node.className += ' inspect-media';
+  node.addEventListener('click',()=>openViewer(entry));
+  node.addEventListener('keydown',e=>{if(['Enter',' '].includes(e.key)){e.preventDefault();openViewer(entry);}});
+}
+function stopViewerMedia() { const v=$('viewer-content').querySelector('video');if(v){v.pause();v.removeAttribute('src');v.load();} }
+function renderViewer(entry) {
+  stopViewerMedia();viewerEntry=entry;put('viewer-title',entry.title);$('viewer-content').replaceChildren();
+  if(entry.type==='video') {
+    const v=el('video');v.src=entry.src;v.controls=true;v.playsInline=true;v.preload='auto';v.setAttribute('aria-label','Full size scheduled video');if(entry.poster)v.poster=entry.poster;
+    const play=el('button','Play video');play.type='button';play.addEventListener('click',async()=>{try{if(v.paused)await v.play();else v.pause();}catch{play.textContent='Use the video controls to play';}});
+    v.addEventListener('play',()=>{play.textContent='Pause video';});v.addEventListener('pause',()=>{play.textContent='Play video';});
+    const error=el('p','Video could not load. Use the original video link.','media-warning');error.hidden=true;v.addEventListener('error',()=>{error.hidden=false;});
+    $('viewer-content').append(v,play,error);link($('viewer-content'),'Open original video',entry.original);
+  } else if(entry.type==='frame') {
+    const canvas=el('canvas');canvas.width=entry.canvas.width;canvas.height=entry.canvas.height;canvas.getContext('2d').drawImage(entry.canvas,0,0);$('viewer-content').append(canvas);
+  } else {const img=el('img');img.src=entry.src;img.alt=entry.title;$('viewer-content').append(img);}
+  const index=gallery.indexOf(entry);$('viewer-prev').disabled=index<=0;$('viewer-next').disabled=index>=gallery.length-1;
+}
+function openViewer(entry) {
+  const dialog=$('media-viewer');
+  if(!dialog.open){viewerReturn=document.activeElement;viewerOverflow=document.body.style.overflow;document.body.style.overflow='hidden';dialog.showModal();history.pushState({briefMediaViewer:true},'');viewerHistory=true;}
+  renderViewer(entry);$('viewer-close').focus();
+}
+function dismissViewer(fromHistory=false) {
+  const dialog=$('media-viewer');if(!dialog.open)return;stopViewerMedia();dialog.close();document.body.style.overflow=viewerOverflow;viewerReturn?.focus();viewerEntry=null;
+  if(viewerHistory&&!fromHistory){viewerHistory=false;history.back();}else viewerHistory=false;
+}
+$('viewer-close').addEventListener('click',()=>dismissViewer());
+$('media-viewer').addEventListener('cancel',e=>{e.preventDefault();dismissViewer();});
+$('media-viewer').addEventListener('click',e=>{if(e.target===$('media-viewer')){const r=e.target.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dismissViewer();}});
+for(const [id,step] of [['viewer-prev',-1],['viewer-next',1]])$(id).addEventListener('click',()=>{const entry=gallery[gallery.indexOf(viewerEntry)+step];if(entry)renderViewer(entry);});
+window.addEventListener('popstate',()=>dismissViewer(true));
 let masterAfter='',masterLoading=false;
 async function loadMaster() {
   if (masterLoading) return;
@@ -82,9 +145,10 @@ async function loadMaster() {
 }
 let loading = false;
 function resetEdition() {
-  for (const id of ['yesterday','opportunities','sites','campaigns','queue-flags','queue-rows','public-rows','useful','sources']) $(id).replaceChildren();
+  gallery.length=0;
+  for (const id of ['yesterday','opportunities','sites','campaigns','queue-rows','useful','sources']) $(id).replaceChildren();
   for (const id of ['stats-section','useful-section']) $(id).hidden = true;
-  for (const id of ['edition-note','routine-status','focus-why','focus-source','queue-coverage','queue-window']) put(id,'');
+  for (const id of ['edition-note','routine-status','focus-why','focus-source']) put(id,'');
 }
 async function load() {
   if (loading) return;

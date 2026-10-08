@@ -78,6 +78,7 @@ function validate(input, now = Date.now()) {
         if (Date.parse(at) < Date.parse(from) || Date.parse(at) >= Date.parse(to)) throw new Error('Queue item outside window');
         return {id: text(row.id, 100), platform: text(row.platform, 80), account: text(row.account, 100), scheduledAt: at,
           title: text(row.title, 220), caption: text(row.caption || '', 1000), reviewUrl: link(row.reviewUrl), coverReviewUrl: link(row.coverReviewUrl), mediaUrl:link(row.mediaUrl),
+          coverFrameAt: row.coverFrameAt === 0 ? 0 : null,
           preflight: Object.fromEntries(['cover', 'description', 'links', 'duplicates', 'assetMatch','cadence','crop'].map(key => [key, status(row.preflight[key] || 'unverified', CHECK)])),
           notes: list(row.notes || [], 8).map(note => text(note, 250))};
       }).sort((a, b) => Date.parse(a.scheduledAt) - Date.parse(b.scheduledAt))};

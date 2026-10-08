@@ -82,7 +82,7 @@ def review(records, live, now, checks=None, public_evidence=None):
                 notes.append('TikTok timestamp is zero; approved frame-zero image and crop still need verification')
         rows.append({'id': r['id'], 'platform': r['platform'], 'account': r['account'], 'scheduledAt': r['scheduledAt'],
                      'title': r['title'][:220], 'caption': r['caption'][:1000], 'coverReviewUrl': cover,
-                     'mediaUrl': video, 'reviewUrl': r.get('publicPostUrl') or 'https://my.blotato.com',
+                     'mediaUrl': video, 'coverFrameAt': 0 if r['platform']=='tiktok' and r['payload']['target'].get('videoCoverTimestamp')==0 else None, 'reviewUrl': r.get('publicPostUrl') or 'https://my.blotato.com',
                      'preflight': preflight, 'notes': notes[:8]})
     released = [{'id': r['id'], 'platform': r['platform'], 'title': r['title'][:220], 'reviewUrl': r.get('publicPostUrl'),
                  **public_tile(r, public_evidence.get(r['id']), now)}

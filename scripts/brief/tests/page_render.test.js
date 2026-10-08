@@ -15,7 +15,7 @@ async function harness(response){
   const nodes=Object.fromEntries([...html.matchAll(/id="([^"]+)"/g)].map(m=>[m[1],new Node()]));
   for(const id of ['image-section','stats-section','useful-section','retry']) nodes[id].hidden=true;
   let next=response,redirect=null;
-  const scope={document:{getElementById:id=>nodes[id]||null,createElement:()=>new Node()},fetch:async()=>{if(next instanceof Error)throw next;return next;},location:{replace:url=>{redirect=url;}},Date:class extends Date {static now(){return now;}},Intl,AbortController,setTimeout,clearTimeout};
+  const scope={window:{addEventListener(){}},document:{getElementById:id=>nodes[id]||null,createElement:()=>new Node()},fetch:async()=>{if(next instanceof Error)throw next;return next;},location:{replace:url=>{redirect=url;}},Date:class extends Date {static now(){return now;}},Intl,AbortController,setTimeout,clearTimeout};
   vm.runInNewContext(script,scope);await tick();
   return {nodes,scope,setResponse:r=>{next=r;},redirect:()=>redirect};
 }

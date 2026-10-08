@@ -128,6 +128,8 @@ function createRouter({store, env = process.env, verifyToken, now = Date.now, me
       const range = req.headers.range;
       if (range && !/^bytes=\d+-\d*$/.test(range)) return res.sendStatus(416);
       const upstream = await mediaFetch(url,{redirect:'manual',signal:controller.signal,headers:range ? {Range:range} : {}});
+      // The deadline limits upstream connection, not a long video being watched.
+      clearTimeout(timer);
       if (![200,206].includes(upstream.status)) { upstream.body?.destroy(); return res.status(502).json({error:'Preview source unavailable'}); }
       let mime = upstream.headers.get('content-type') || '';
       // Blotato serves its verified JPEGs/MP4s as octet-stream. The exact stored
