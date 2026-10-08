@@ -102,7 +102,7 @@
 - [Claude session cleanup job](claude-session-cleanup-job.md) — auto-closes sessions only if 12h quiet + nothing running; never kill by age (killed Ad 3 renders)
 - [Drive backup capability](drive-backup-capability.md) — rclone + verify script for footage backups; shared client_id quota trap
 - [Untagged video = BT.601 trap](untagged-video-bt601-trap.md) — editor masters have no colour tags; decode as BT.709 or the grade looks wrong in VLC
-- [AI clip giveaways](ai-clip-artifact-giveaways.md) — Dan rejects breath smoke / fogging mirrors / melting hands in AI clips; check every AI shot frame by frame
+- [AI clip giveaways](ai-clip-artifact-giveaways.md): reject what a viewer sees at speed (breath smoke, melting hands); few-frame faults pass, slight speed-up covers them (10-08)
 - [Video editing master list](video-editing-master-list.md) — 09-16: all owed edits in Handoffs/video-editing/00-MASTER.md, one doc per job, Claude+Codex prompts
 - [Video editing executor routing](video-editing-executor-routing.md) — 09-17: Codex = raw-footage first cuts (RA/RO/DS); Claude = secondary cuts (AV/AS/SL); overnight queue handoff
 - [Overnight edit queue](overnight-edit-queue.md) — LIVE since 09-18 (Phase 0 passed); shares Dan's 5-h Claude window; by-hand launches count toward the cap; SL-01/02 unattended:false
