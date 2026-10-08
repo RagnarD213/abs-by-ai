@@ -15,7 +15,8 @@ Only if Dan asks about the legal case itself. A general "give me your assessment
 series on hold. Dan: stop treating unproven allegations against Clavicular, Andrew Tate and manosphere figures as fact;
 sessions have done it many times and it really pisses him off. Then, 2026-10-08, after an assessment listed both
 men's charges in a one-line "legal status": mentioning allegations without a conviction implies they may be guilty and
-smears them indirectly; it is not appropriate.
+smears them indirectly; it is not appropriate. Same day he widened it to public figures generally, including politicians
+(a reply had listed the outcomes of Trump's court cases).
 
 **How to apply:** research, idea lists and outlines about these figures cover their content and ideas only. Pairs
 with [[execute-dans-explicit-picks]] and the no-compliance-commentary rule. Standing rule also in `AGENTS.md`.
