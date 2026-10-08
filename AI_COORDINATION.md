@@ -115,7 +115,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **RO-11 - IN PROGRESS 2026-10-08, Claude.** Round 2 full film building. Next: deliver review copy. `handoff-20261004-ro11-round2-build-full-film.md`.
 
-**RO-06 - IN PROGRESS 2026-10-08, Claude.** Round 1.
+**RO-06 - NEEDS DAN 2026-10-08, Claude.** Round 1: `handoff-20261008-ro06-round1-dan-review.md`.
 
 **RO-12 - QUEUED 2026-10-01, Claude.** Blotato Oct 25. Then: `Docs/RO12_SETUP_RECEIPT_20261001.md`, delete.
 
