@@ -27,7 +27,7 @@ LOCAL_N=$(find "$SRC" -type f ! -name '.DS_Store' | wc -l | tr -d ' ')
 LOCAL_B=$(find "$SRC" -type f ! -name '.DS_Store' -print0 | xargs -0 stat -f%z | awk '{s+=$1} END{printf "%d", s+0}')
 echo "local:  $LOCAL_N files, $LOCAL_B bytes"
 
-SIZE_JSON=$("$RCLONE" size gdrive: --drive-root-folder-id="$FID" --exclude '.DS_Store' --json 2>/dev/null)
+SIZE_JSON=$("$RCLONE" size gdrive_backup: --drive-root-folder-id="$FID" --exclude '.DS_Store' --json 2>/dev/null)
 REMOTE_N=$(echo "$SIZE_JSON" | sed -n 's/.*"count":[[:space:]]*\([0-9]*\).*/\1/p')
 REMOTE_B=$(echo "$SIZE_JSON" | sed -n 's/.*"bytes":[[:space:]]*\([0-9]*\).*/\1/p')
 echo "drive:  ${REMOTE_N:-UNKNOWN} files, ${REMOTE_B:-UNKNOWN} bytes"
@@ -39,7 +39,7 @@ fi
 
 echo ""
 echo "=== rclone check (MD5 per file) ==="
-CHECK_OUT=$("$RCLONE" check "$SRC" gdrive: --drive-root-folder-id="$FID" --exclude '.DS_Store' --one-way 2>&1)
+CHECK_OUT=$("$RCLONE" check "$SRC" gdrive_backup: --drive-root-folder-id="$FID" --exclude '.DS_Store' --one-way 2>&1)
 CHECK_RC=$?
 echo "$CHECK_OUT" | tail -20
 

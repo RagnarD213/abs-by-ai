@@ -70,8 +70,11 @@ The disabled Mac LaunchAgent is named `com.absbyai.nightly-footage`. Its old
 logs are under `~/Library/Logs/absbyai-footage-offload/`. The active schedule is
 the Codex heartbeat `nightly-seagate-copy-verification`.
 
-The configured `gdrive:` rclone remote currently uses rclone's shared Google
-client ID. A 1 MB upload and checksum test passed on 2026-10-08, but a previous
-large upload hit the shared client's quota. Rclone says the shared ID will stop
-working during 2026. Replace it with a dedicated client ID before relying on
-long uploads; do not treat failed cloud checks as a backup.
+The footage routine uses `gdrive_backup:` with a dedicated desktop OAuth client
+in the existing Abs By AI Google Cloud project. The Drive API is enabled, and
+an upload and checksum test passed on 2026-10-08. Credentials are stored in
+`~/.config/rclone/rclone.conf`, with a restricted backup of the client JSON at
+`~/Library/Application Support/Abs By AI/drive-backup-oauth-client.json`.
+The older `gdrive:` remote still uses rclone's shared client ID for unrelated
+jobs. Do not treat any shoot as backed up on Drive until its full checksum check
+passes and `--status` shows `drive_verified` for its current inventory.

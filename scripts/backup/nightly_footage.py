@@ -26,7 +26,7 @@ from zoneinfo import ZoneInfo
 SOURCE = Path("/Volumes/Extreme")
 ARCHIVE = Path("/Volumes/Expansion")
 ARCHIVE_ROOT = ARCHIVE / "Abs By AI Raw Footage"
-DRIVE_ROOT = "gdrive:Abs By AI Raw Footage"
+DRIVE_ROOT = "gdrive_backup:Abs By AI Raw Footage"
 RCLONE = Path.home() / "bin/rclone"
 STATE_DIR = Path.home() / "Library/Application Support/Abs By AI"
 STATE_FILE = STATE_DIR / "nightly-footage.json"
