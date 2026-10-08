@@ -89,6 +89,6 @@ def review(records, live, now, checks=None, public_evidence=None):
                 for r in records if r.get('publicPostUrl') and now - timedelta(days=7) <= stamp(r['scheduledAt']) < now]
     return {'status': 'partial', 'checkedAt': now.isoformat(), 'windowFrom': start.isoformat(), 'windowTo': end.isoformat(),
             'sourceCoverage': {'blotato': 'ok', 'youtubeStudio': 'error'},
-            'coverageNote': 'Native YouTube API returns 401 authError. Native schedules are unknown, not zero. Public grid tiles remain unknown until observed.',
+            'coverageNote': 'Native YouTube owner API has not been read by this normalizer. Native schedules remain unknown. Public grid tiles require separate observation.',
             'rows': sorted(rows, key=lambda r: r['scheduledAt']), 'released': released,
             'publicCoverage': {p: 'unverified' for p in ('youtube', 'tiktok', 'facebook', 'instagram')}}

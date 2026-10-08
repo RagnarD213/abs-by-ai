@@ -11,6 +11,7 @@ import importlib.util
 import json
 import re
 import sys
+import subprocess
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 from pathlib import Path
@@ -18,9 +19,10 @@ from urllib.error import HTTPError
 from urllib.parse import urlparse
 from urllib.request import Request, build_opener, HTTPRedirectHandler
 
-from master_queue import Inventory, locked, from_live, import_studio, plan_topup
+from master_queue import Inventory, locked, from_live, import_studio, plan_topup, identity
 from review_queue import review
-from public_tiles import published_posts, acquire
+from public_tiles import published_posts, acquire, post_id
+from native_youtube import native_records, add_native_rows
 
 
 def private_json(file, data):
@@ -48,7 +50,7 @@ def check(url, now):
     parsed = urlparse(url)
     # Exact provider domains only. Never fetch private IPs, credentials or arbitrary
     # caption destinations. Such links stay unknown for connected/browser review.
-    hosts = {'database.blotato.io', 'i.ytimg.com', 'absbyai.com', 'sixpackabs.com', 'youtu.be', 'www.youtube.com'}
+    hosts = {'database.blotato.io', 'i.ytimg.com', 'i9.ytimg.com', 'absbyai.com', 'sixpackabs.com', 'youtu.be', 'www.youtube.com'}
     if parsed.scheme != 'https' or parsed.hostname not in hosts or parsed.username or parsed.password or parsed.port not in (None, 443):
         return {'checkedAt': now.isoformat(), 'status': None}
     try:
@@ -105,12 +107,25 @@ def main():
         if args.live:
             api = load_module('existing_blotato', project / 'scripts/blotato/danrosefit_migration.py')
             live = api.fetch_schedules(api.api_key())
+            try: published=published_posts(api,api.api_key(),now)
+            except Exception: published=None
         elif args.snapshot:
             live = json.loads(args.snapshot.read_text())
         else:
             parser.error('Use --live or a complete read-only --snapshot')
         for item in live:
             inventory.put(from_live(item, now.isoformat()), item)
+        native={'status':'missing','reason':'Native YouTube owner API has not been read','checkedAt':now.isoformat()}
+        if args.live:
+            try:
+                public_ids=[post_id('youtube',p.get('state',{}).get('postUrl','')) for p in published or [] if p['platform']=='youtube']
+                process=subprocess.run(['node',str(Path(__file__).with_name('native_youtube.js'))],input=json.dumps([i for i in public_ids if i]),capture_output=True,text=True,timeout=180)
+                native=json.loads(process.stdout)
+            except Exception:
+                native={'status':'error','reason':'Native YouTube read failed; schedules remain unknown','checkedAt':now.isoformat()}
+            private_json(directory/'native-youtube-source.json',native)
+        native_rows=native_records(native)
+        for r in native_rows:inventory.put(r,{'source':'youtube_native','videoId':r['nativeVideoId'],'checkedAt':native['checkedAt']})
         manifest = json.loads((project / 'Handoffs/handoff-20261003-approved-studio-posts-27-blotato.json').read_text())
         studio_plan = json.loads((project / 'scripts/blotato/studio27_plan.json').read_text())
         # Restrict byte verification to exact approved photo caption/account/date twins.
@@ -137,27 +152,36 @@ def main():
                     inventory.put(r, {'source':'unique explicit longform campaign group','youtubePlacementId':youtube[0]['id'],'checkedAt':now.isoformat()})
         guard = load_module('existing_ad_guard', project / 'scripts/blotato/ad_guard.py')
         records = inventory.records()
-        live_ids = {str(i['id']) for i in live}
+        live_ids = {identity({k:i['draft'][k] for k in ('accountId','content','target')},i['scheduledAt']) for i in live}
         # Disappearance may mean posted, deleted or failed. Never infer public release.
-        current = [r for r in records if r.get('scheduleId') in live_ids]
+        current = [r for r in records if r['id'] in live_ids]
         preliminary = review(current, live, now)
         urls = {u for row in preliminary['rows'] for u in (row.get('mediaUrl'), row.get('coverReviewUrl')) if u}
         urls.update(u.rstrip('.,!;') for row in preliminary['rows'] for u in re.findall(r'https://[^\s<>"\)]+', row['caption']))
         from datetime import timedelta
         from master_queue import stamp
         urls.update(u for r in records if r['approval']['status'] == 'approved' and now < stamp(r['scheduledAt']) < now+timedelta(days=30) for u in r['media'])
+        urls.update(r['cover'] for r in native_rows if r['cover'])
+        urls.update(u.rstrip('.,!;') for r in native_rows for u in re.findall(r'https://[^\s<>"\)]+',r['caption']))
         with ThreadPoolExecutor(max_workers=8) as pool:
             checks = dict(zip(sorted(urls), pool.map(lambda u: check(u, now), sorted(urls))))
         evidence_file = directory / 'public-tile-evidence.json'
         evidence = json.loads(evidence_file.read_text()) if evidence_file.exists() else {}
         queue = review(current, live, now, checks, evidence)
+        queue['sourceCoverage']['youtubeStudio']=native['status']
+        queue['coverageNote']=('Native YouTube owner API verified '+native['channel']['id']+'; '+str(native.get('uniqueUploads',native['uploadsEnumerated']))+' unique uploads checked, '+str(len(native_rows))+' native schedules observed. Approved-cover visual comparisons remain evidence-bound.' if native['status']=='ok' else native.get('reason','Native YouTube schedules remain unknown'))
+        conflicts={key:value for key,value in native.get('publicChecks',{}).items() if value!='public'}
+        if conflicts:queue['coverageNote']+=' Release alert: '+', '.join(key+' is '+value for key,value in conflicts.items())+' despite Blotato published status.'
+        add_native_rows(queue,native_rows,checks)
         if args.live:
             try:
-                published = published_posts(api, api.api_key(), now)
+                if published is None: raise ValueError('Published source unavailable')
                 private_json(directory / 'published-source.json', {'checkedAt':now.isoformat(),'items':published})
                 observations_file = directory / 'public-grid-observations.json'
                 observations = json.loads(observations_file.read_text()) if observations_file.exists() else []
-                queue['released'], profile_checks = acquire(records,published,now,directory,private_json,observations,evidence)
+                cover_file=directory/'approved-public-covers.json'
+                approved_covers=json.loads(cover_file.read_text()) if cover_file.exists() else {}
+                queue['released'], profile_checks = acquire(records,published,now,directory,private_json,observations,evidence,native,approved_covers)
                 queue['coverageNote'] += ' '+str(len(published))+' Blotato published URLs checked. '+ ' '.join(p['platform']+': HTTP '+str(p['httpStatus'])+', '+str(p['tileCount'])+' HTTP/'+str(p['browserTileCount'])+' browser tiles.' for p in profile_checks)
             except Exception:
                 queue['coverageNote'] += ' Blotato published-post read failed; post-release coverage remains unknown.'
@@ -170,7 +194,7 @@ def main():
         private_json(directory / 'blotato-source.json', {'checkedAt': now.isoformat(), 'items': live})
         print(json.dumps({'inventoryCount': len(master), 'liveCount': len(live), 'wouldCreate': len(plan['create']),
                           'held': len(plan['held']), 'overflow': len(plan['overflow']), 'sevenDayRows': len(queue['rows']),
-                          'planDigest': plan['planDigest'], 'nativeYouTube': 'unknown_401', 'scheduleChanged': False}))
+                          'planDigest': plan['planDigest'], 'nativeYouTube': native['status'], 'scheduleChanged': False}))
 
 
 if __name__ == '__main__':

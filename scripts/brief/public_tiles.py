@@ -96,7 +96,15 @@ def post_id(platform, url):
     return match.group(1) if match else None
 
 
-def acquire(records, published, now, directory, private_json, observations=None, reviewed=None):
+def acquire(records, published, now, directory, private_json, observations=None, reviewed=None, native=None, approved_covers=None):
+    published=list(published)
+    native_public={v['id']:v for v in (native or {}).get('videos',[]) if v.get('status',{}).get('privacyStatus')=='public'}
+    known_youtube={post_id('youtube',p.get('state',{}).get('postUrl','')) for p in published if p['platform']=='youtube'}
+    for video_id,v in native_public.items():
+        if video_id not in known_youtube and now-timedelta(days=7) <= stamp(v['snippet']['publishedAt']) <= now:
+            published.append({'id':'native:'+video_id,'platform':'youtube','text':v['snippet'].get('description',''),
+                              'account':{'id':v['snippet']['channelId']},'postTime':v['snippet']['publishedAt'],
+                              'state':{'postUrl':'https://www.youtube.com/watch?v='+video_id},'nativeObserved':True})
     profiles, tiles = [], {}
     for platform,url in PROFILES.items():
         result = {'platform':platform,'profileUrl':url,'checkedAt':now.isoformat(),'status':'unverified'}
@@ -126,6 +134,13 @@ def acquire(records, published, now, directory, private_json, observations=None,
         candidates = [r for r in records if r['platform'] == platform and r['account'] == str((post.get('account') or {}).get('id'))
                       and r['caption'] == post['text'] and abs((stamp(r['scheduledAt'])-stamp(post['postTime'])).total_seconds()) <= 600]
         record = candidates[0] if len(candidates)==1 else None
+        cover_approval=(approved_covers or {}).get(platform+':'+str(post_id(platform,url)))
+        if not record and cover_approval and cover_approval.get('reference') and cover_approval.get('quote') and re.fullmatch(r'[a-f0-9]{64}',cover_approval.get('sha256','')):
+            # Exact public video identity and a separately verified cover approval
+            # can establish the expected cover without approving a posting date.
+            record={'id':hashlib.sha256((platform+':'+str(post_id(platform,url))+':'+cover_approval['sha256']).encode()).hexdigest(),
+                    'approval':{'status':'pending'},'coverApproval':cover_approval,'approvedCoverSHA256':cover_approval['sha256'],
+                    'publicPostUrl':url}
         row = {'id': record['id'] if record else 'published:'+str(post['id']), 'platform':platform,
                'title':post['text'].split('\n')[0][:220], 'reviewUrl':url,'status':'unverified'}
         tile = tiles.get((platform,post_id(platform,url)))
@@ -141,10 +156,10 @@ def acquire(records, published, now, directory, private_json, observations=None,
             except Exception as exc:
                 tile['acquisitionError'] = {'httpStatus':getattr(exc,'code',None),'reason':type(exc).__name__}
                 data = None
-        if not record or record['approval']['status'] != 'approved' or not record.get('approvedCoverSHA256'):
-            row['reason'] = ('Public grid tile acquired; ' if data else 'Published URL verified by Blotato; ') + 'no unique approved placement and cover hash available'
+        if not record or (record['approval']['status'] != 'approved' and not record.get('coverApproval')) or not record.get('approvedCoverSHA256'):
+            row['reason'] = ('Public grid tile acquired; ' if data else 'Blotato supplied a published-post URL; ') + 'no unique approved placement and cover hash available'
         elif not tile:
-            row['reason'] = 'Approved placement identified; public profile tile unavailable on this surface'
+            row['reason'] = 'Exact approved cover identified; public profile tile unavailable on this surface' if record.get('coverApproval') else 'Approved placement identified; public profile tile unavailable on this surface'
         else:
             try:
                 if data is None: raise ValueError('Tile acquisition unavailable')
@@ -165,6 +180,10 @@ def acquire(records, published, now, directory, private_json, observations=None,
             except Exception:
                 row['reason'] = 'Observed tile image could not be acquired; visual comparison remains unknown'
         released.append(row)
+        if platform=='youtube' and post_id(platform,url) in native_public:
+            row['reason']='Native YouTube API confirms this video is public. '+row['reason']
+        elif platform=='youtube' and (native or {}).get('publicChecks',{}).get(post_id(platform,url)):
+            row['reason']='Blotato reports published, but native YouTube check is '+native['publicChecks'][post_id(platform,url)]+'. '+row['reason']
     private_json(directory/'public-profile-checks.json',profiles)
     private_json(directory/'acquired-public-tile-evidence.json',evidence)
     private_json(directory/'public-tile-candidates.json',list(tiles.values()))
