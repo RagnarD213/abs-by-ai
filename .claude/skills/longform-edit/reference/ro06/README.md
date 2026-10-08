@@ -94,3 +94,5 @@ Round 4 (2026-10-08, AI motion for the four approved frame pairs, lip sync on tw
   `gemini-2.5-pro` is retired: `GM=gemini-3.1-pro-preview gemini_listen.py`.
 - A Veo take is 24 fps and untagged BT.709; the builder's `fps=30000/1001` duplicates frames (no retime). A first-minute build with
   AI clips: `build.py range 0.0 62.9963`, both audio md5s unchanged, 1,204 presenter frames with 0 differences. Page: `page4.py`.
+- **Dan approved all four clips and the first minute as built (2026-10-08):** "I really love the way that you did the lip-syncing and the slap. Both of those
+  turned out significantly better than I expected." This method is now the standard for excuse-voice lines (VIDEO-RULES, top section).
