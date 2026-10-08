@@ -8,9 +8,12 @@ LIB = "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library"
 ST = "/Volumes/Extreme/_edit_work/ro11/stock"
 PH = "/Volumes/Extreme/_edit_work/ro11/assets"
 PLAN = [
- # ---------------- hook: AI opener over his first line (frames shown for approval; motion not generated)
- dict(id="A01", kind="ai", start="can still gain fat", end="too many calories", tail=0.3,
-      note="AI opener, concept A: heavy man steps on the scale after eating clean, sees the number, grabs his belly"),
+ # ---------------- hook: Dan opens on camera ("You can still gain fat,"), then the AI clip under the rest of the line.
+ # Dan 2026-10-08: "let's go with your recommendation for the you first, then the clean clip... I think it flows better".
+ # Take 2's clean tail (from 3.29 s): he lowers the fork to the tiny plate and looks up at the camera. 1.82 to 4.50 s.
+ dict(id="A01", kind="clip", start="even if you're not", end="too many calories", tail=0.24,
+      src=["/Volumes/Extreme/_edit_work/ro11/aiframes/C_motion_v2.mp4@3.29"], label="AI-GENERATED",
+      note="AI clip, concept C: heavy man at a kitchen table with a tiny plate of chicken and broccoli looks up at the camera"),
  dict(id="G01", kind="lt", start="Even if you're eating", end="screwing other things up", topic="CALORIES AREN'T EVERYTHING",
       point="In A Deficit, You Can Still KEEP Your Belly Fat.",
       parts=[["In A Deficit,", "Even if you're eating"], ["You Can Still KEEP Your Belly Fat.", "you might still hold"]]),
