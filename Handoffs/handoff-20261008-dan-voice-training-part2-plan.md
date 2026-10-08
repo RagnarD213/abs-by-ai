@@ -51,18 +51,22 @@ own (tone only); more rules in the guide; OpenAI or Claude fine-tuning.
    to older buyers (HBI and other SRM). The "Tier A/B content" pile is about 90% Claude's own lines. Only about 4,000
    words were him talking as himself. Total corpus about 170k tokens, under the smallest size the fine-tuning study tested
    (890k).
-2. **Unused material, all his own:**
-   - 192,378 words of his dictated messages in 1,139 local Claude session files (537 messages of 100+ words hold
-     111,000 words), plus 809 Codex session files, uncounted. Path:
-     `~/.claude/projects/-Users-danielrose-Documents-Claude-Projects-Abs-By-AI/*.jsonl` and `~/.codex/sessions/`.
+2. **Unused material, all his own** (list revised 2026-10-08 after Dan's review, see Phase A2):
    - 39,689 spoken words in 13 finished long-form SRTs in the project folder; 20,800 of them are four fully off-the-cuff
      videos (Spray Tan, Zepbound Update, Supplements, Invest In Health).
    - 902 word-level transcripts of raw rolls (project folder and the Extreme drive).
-   - About 200 substantial sent-mail threads in the last year; anything sent before 2026-06-01 is guaranteed pre-Claude.
+   - His old channel, youtube.com/@danielrose-socialresponse7768 (12,800 subscribers, 42 videos from about 2020 to
+     2021, all off the cuff). The 30 counted so far: 23 solo videos, about 380 minutes (roughly 60,000 words), and 7
+     Dan & Dani podcast episodes, about 260 minutes.
+   - The Sex God Method, PDF on Drive `1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3` (a second file, `sgm.pdf`
+     `1NlsoD4c-ieqB-alkjHI38d6HnQj21rni`, is unread). Also unread: "YouTube Ad Scripts Portfolio For Daniel Rose"
+     `1QAEr2M07HapKXT5vnj6n4ZxspN9Q42KXNmIvqMLBjBU`.
+   - **Not sources (Dan, 2026-10-08):** his dictation and prompts to Claude or any AI, and business email. Neither is
+     how he talks to viewers.
 3. **A gap Part 1 missed, measured today.** Per 1,000 words, Dan off the cuff against the five videos where he read
    Claude-drafted scripts: "actually" 0.5 against 1.4; "really" 2.8 against 1.4; "very" 2.2 against 0.7; "kind of" 0.7
    against 0.1; "stuff" 0.7 against 0.0; "things" 1.6 against 0.5; "going to" 7.0 against 4.3; "which" 1.9 against 0.8.
-   "and" per 100 words: 2.28 off the cuff, 2.54 dictating, 3.02 reading Claude scripts. Claude's scripts are too clean:
+   "and" per 100 words: 2.28 off the cuff, 3.02 reading Claude scripts. Claude's scripts are too clean:
    his small everyday words are missing.
 4. Nothing enforces the guide (a session runs `voice_stats.py` only if it remembers), no test has ever been run, and his
    edits are folded in by hand. Local memory has no `dan-voice-guide` entry yet.
@@ -70,7 +74,7 @@ own (tone only); more rules in the guide; OpenAI or Claude fine-tuning.
 ## The design: three lanes
 
 - **Lane 1, his words first.** For the VSL, sales letters, emails to the list, personal posts and anything read by people
-  who know him: Dan dictates a 3 to 5 minute take, Claude orders and cuts, at least 80% of sentences stay as he said
+  who know him: Dan records a 3 to 5 minute take, talking to the viewer, not to Claude. Claude orders and cuts, at least 80% of sentences stay as he said
   them, and anything Claude adds is marked for his eye. This is the only lane the research supports for "nobody can
   tell" today.
 - **Lane 2, continue from his text.** For scripts, descriptions, captions, editor messages: whole real passages first,
@@ -87,29 +91,47 @@ more ad scripts and video transcripts, the swearing and controversy pass
 between memory `swearing-never-cut-never-ask` and `WRITING-RULES.md` section 3, the local memory copy of
 `dan-voice-guide`. Keep both held-out pieces held out. Skip its step 3.
 
-A2. **Corpus v2, sorted by who is talking to whom.** One rule decides everything: **text Claude drafted is never his
-voice, whatever he changed in it.** Only his changed lines are kept, as before/after pairs.
+A2. **Corpus v2: three voices, one person.** Revised 2026-10-08 on Dan's direction: no AI dictation, no business
+email, and separate voices for YouTube content, ads and products. The source lists below are Claude's proposal; **get
+Dan's OK on them (and his extra ads and recordings) before building.** Two rules decide everything: text Claude drafted
+is never his voice, whatever he changed in it (only his changed lines are kept, as pairs); and baseline numbers for a
+voice come only from that voice's Tier 1.
 
-| pile | contents | used for |
+| voice | Tier 1 (the baseline) | Tier 2 (supporting, lower weight) |
 |---|---|---|
-| SPOKEN-SELF | off-the-cuff finished videos, unscripted raw rolls, the top videos with no transcript, any older recordings Dan names | the baseline for every script |
-| DICTATED | his session messages of 40+ words, pasted blocks and tool text stripped | editor messages, emails, replies, his everyday vocabulary |
-| TYPED-SELF | sent mail before 2026-06-01, the book, scripts and letters in his own name, his own outlines | emails, letters, descriptions |
-| WRITTEN-FOR-OTHERS | HBI and other SRM scripts | persuasion structure only, never voice numbers |
-| CLAUDE-DRAFTED | every Claude draft and his edited finals | pairs only |
+| **YouTube content** (him talking to viewers) | Abs By AI videos filmed from outlines with no script: finished cuts and their raw rolls (Top 10 Tips, Every Day, Fasting, Stop Deadlifting, Home Workout Budget, Invest In Health, Ab Wheel, Spray Tan, Zepbound Update, Supplements, Oura review, Keep Your Muscle, the outline-era shorts). The old channel's solo videos. | His half of the Dan & Dani podcast (needs speaker separation). His own outlines. The Sex God Method for attitude and the dating register. 15 Steps for how he teaches and tells his own story. |
+| **Ads** (him selling on camera) | Ads he wrote and performed as himself: Abs By AI Ads 1 and 3, his typed lines in the other batch-1 ads, the 2019 consulting video, the Black Belt video, any ads he ran for his own book, course or agency, as filmed. | Ads he wrote for other presenters (HBI, Spy Briefing, CPA offers, Physio Tru, Fujiyama), weighted by spend and CPA: structure and persuasion only. The extra ads Dan supplies. |
+| **Products** (what a buyer or member reads: sales letters, VSLs, cart and page copy, the app's words, programs) | His own sections of the /start letter, his VSL outline, the Black Belt cart page script, the 2019 DR marketing VSL, the book funnel copy and pre-order video, any sales page he wrote for his own products. | The two books as paid products. |
 
-Wispr Flow punctuates his dictation, so use DICTATED for word choice and order, not for sentence length. Raw text stays
-out of the public repo: local folder `voice-corpus/` (add to `.gitignore`), mirrored to Drive. DICTATED and email piles
-go in a **private** Drive folder (personal material is the exception in memory `drive-always-public`). Scrub names of
-private people, contact details and anything personal from every excerpt that reaches the repo.
+"Products" is Claude's reading of Dan's word; confirm it with him. Old-channel business vocabulary is filtered out of
+the word lists but its sentence shape, small words, transitions and opinion videos (College Is A Scam, the Bitcoin
+videos, Brick & Mortar Businesses Are For MORONS) count in full: they are the best evidence of how he states a
+controversial view and swears, and they feed the swearing pass in A1. Weight 2026 material highest and keep an older
+pattern only if it also shows up in 2026. Excluded: teleprompter videos as voice (Claude's words in his mouth), AI
+dictation, business email.
 
-A3. **Re-measure against the right piles.** Rebuild `voice/STATS.md` with SPOKEN-SELF as the script baseline. Add a
+**A free source of pairs:** for every teleprompter video, diff the script against what he actually said on camera.
+Each place he changed a line while reading is a correction.
+
+**Extra resources to ask Dan for:** off-the-cuff fitness videos from before Abs By AI (old channels, Instagram or
+Facebook talking videos, lives); guest podcast and interview appearances, webinars, course modules; results numbers for
+his own ads and which scripts he wrote alone; sales pages and list broadcasts for his older products (The Sex God
+Method, courses), if he counts those as his selling voice; hand-written captions and comment replies from before 2026
+for descriptions and captions. Best of all, at the 10/17 shoot: for five outlines, one off-the-cuff take recorded
+BEFORE he reads Claude's script. Same topic in his words and in Claude's is the cleanest pair there is, and it becomes
+the core of the held-out set.
+
+Raw text stays out of the public repo: local folder `voice-corpus/` (add to `.gitignore`), mirrored to the Drive corpus
+folder. Transcribe the old channel from YouTube's captions where they exist, otherwise download the audio and run the
+project's Whisper path.
+
+A3. **Re-measure against the right piles.** Rebuild `voice/STATS.md` with one baseline per voice, from that voice's Tier 1 only. Add a
 function-word fingerprint (Burrows' Delta, `pip install faststylometry`, pooled samples of 2,500+ words) and one style
 embedding (LUAR, `rrivera1849/LUAR-MUD`). Always report a ceiling (Dan against Dan, split in half) and a floor (Dan
 against cold Claude, and against one other fitness creator's transcript).
 
-A4. **Held-out set.** 40 passages of pure Dan, 150 to 450 words, about 8 per register (long-form spoken, short, ad or
-letter in his own name, email or message, description or caption; fewer where the material is thin). List them in
+A4. **Held-out set.** 40 passages of pure Dan, 150 to 450 words, split across the three voices in proportion to
+use (about 20 YouTube content, long-form and shorts; 12 ads; 8 products; fewer where the material is thin). List them in
 `voice/HELD-OUT.md`. `scripts/voice/heldout_guard.py` fails if any guide or bank file contains an 8-word run from one.
 For each passage write a content-only brief: the facts and the point in neutral words, none of his phrasing.
 
@@ -119,7 +141,7 @@ order, picks the AI one and says why. At least 80 trials. Output to `Docs/voice-
 reasons tallied by cue, Delta and LUAR against ceiling and floor, the stats gaps.
 
 A6. **Baseline and Dan's blind page.** Score two setups: cold Claude with no guide, and today's guide. Build a private
-page with 20 pairs (4 per register) where Dan clicks which one is his and can say why; votes saved; shareable to 2 or 3
+page with 20 pairs (10 YouTube content, 6 ads, 4 products) where Dan clicks which one is his and can say why; votes saved; shareable to 2 or 3
 people. Answer key in the chat report only.
 
 ## Phase B: rebuild the method. Local or cloud, Opus 5.5 high
@@ -128,19 +150,21 @@ Score every change on the bench and keep only what moves the number.
 
 B1. **Contrastive extraction.** Have Claude write each non-held-out real piece cold from its brief and diff it against
 his. The gap list, ranked by frequency, replaces description-from-reading as the source of rules.
-B2. **Sample bank of whole passages.** `voice/bank/<register>/NN.md`, 12 to 20 per register, 150 to 500 words, tagged by
+B2. **Sample bank of whole passages.** `voice/bank/<voice>/NN.md`, 12 to 20 per voice, 150 to 500 words, tagged by
 move (hook, story, mechanism, explanation, close) and length. A picker returns 3 to 5 by format and length, rotated.
 B3. **Prompt layout.** Samples first in tags, then his seed words, then the request, phrased as "the next piece in this
 set".
 B4. **Positions and stories bank.** `voice/POSITIONS.md`: his take on each recurring topic and his stock stories with
-real numbers, each with its source, mined from SPOKEN-SELF and DICTATED. No take in the outline or the bank: one
+real numbers, each with its source, mined from the Tier 1 spoken material. No take in the outline or the bank: one
 question to Dan or a `[DAN: ...]` gap. Honors memory `personal-facts-only-when-relevant`.
-B5. **Rewrite `DAN-VOICE.md`.** Voice (how sentences sound) apart from structure (how he argues and sells). Each rule
+B5. **Rewrite `DAN-VOICE.md`.** A short shared core (what is true of him in every voice) plus one file per voice
+(`voice/youtube.md`, `voice/ads.md`, `voice/products.md`). Voice (how sentences sound) apart from structure (how he
+argues and sells). Each rule
 labelled HARD RULE, STRONG TENDENCY or LIGHT PREFERENCE, with a floor and a ceiling where it is a rate. An
 anti-performative section: no pet phrase is ever required; cap each per piece. Add the small-words finding. Stay under
 1,700 words; mechanical rules move into the script.
 B6. **`scripts/voice/voice_check.py`.** Extends `voice_stats.py`: hard fails (em or en dash, phrases he has cut), rate
-bands per register fitted on his piles against Claude drafts, clusters scored above single hits, the function-word
+bands per voice fitted on his piles against Claude drafts, clusters scored above single hits, the function-word
 fingerprint, kicker endings, "not X but Y", content triads. One score plus the offending lines. Detect only.
 B7. **Two agents in `.claude/agents/`.** `dan-voice-writer` drafts in a fresh context with the samples loaded (fixes
 drift). `dan-voice-critic` sees only the draft and 8 samples: pass 1 marks sentences he would never say, pass 2 marks
@@ -173,12 +197,12 @@ D4. Update `Docs/VOICE_CORPUS_INVENTORY.md`, memory `dan-voice-guide`, `Handoffs
 
 ## What Dan provides (one sitting)
 
-1. Links or folders for any older recordings of him talking as himself (podcasts, webinars, course videos, old
-   channels) and any personal writing he wants included.
-2. Yes or no on reading his sent mail from before June 2026 for the email register (kept in a private folder).
-3. Two or three people who know him and use AI a lot, for the blind page. Optional.
-4. Whether Lane 1 (dictate first) is acceptable for the VSL, letters and list emails.
-5. Optional: a Pangram account for an outside detector score (about $0.05 per 100 words; he signs up himself).
+1. His OK on, or changes to, the source lists in A2, and what "products" covers.
+2. The extra ads he mentioned, with results numbers where he has them, and which he wrote alone.
+3. Links or folders for the extra resources listed in A2.
+4. Two or three people who know him and use AI a lot, for the blind page. Optional.
+5. Whether Lane 1 (he records a take first) is acceptable for the VSL and sales letters.
+6. Optional: a Pangram account for an outside detector score (about $0.05 per 100 words; he signs up himself).
 
 ## Spend
 
@@ -190,8 +214,8 @@ session cap. Pangram is separate and optional.
 **Phase A. Task name `Dan Voice P2A Corpus + Bench`. Local. Claude Opus 5.5, high effort.**
 
 > Run Phase A of `Handoffs/handoff-20261008-dan-voice-training-part2-plan.md` (it also covers steps 1, 2 and 4 of the
-> 10-06 finish handoff). Use subagents for the reading. Extra sources from me: [links or "none"]. Sent mail before June
-> 2026: [yes / no]. End with the baseline scores and my blind test page.
+> 10-06 finish handoff). Use subagents for the reading. The A2 source lists are approved with these changes: [changes or
+> "none"]. Extra ads and recordings from me: [links or "none"]. End with the baseline scores and my blind test page.
 
 **Phase B. Task name `Dan Voice P2B Method`. Local or cloud. Claude Opus 5.5, high effort.**
 

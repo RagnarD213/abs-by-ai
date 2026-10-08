@@ -112,6 +112,7 @@
 - [No em dashes](no-em-dashes.md): never use an em dash in any writing, anywhere (Dan, 2026-09-18)
 - [Editor message voice](editor-message-voice.md): warm praise, big picture only, never name another editor (Dan, 2026-09-18)
 - [Script zero-edit lessons](script-zero-edit-lessons.md): 09-21 Dan's edits to four long-form scripts; read WHAT DAN CHANGED in scriptfromoutline SKILL.md before any script
+- [Voice corpus sources](voice-corpus-sources.md): 10-08: never train his voice on AI dictation or business email; use off-the-cuff videos, his two books, his ads; three voices (YouTube, ads, products)
 - [Dan's personal facts for scripts](dan-personal-facts-for-scripts.md): glycine nightly, sleeps at 63, Oura 75-80, Zepbound for life, 8 am gym, AI saves 10 hrs/week
 - [Opus 5.5 release](opus-5-5-release.md): 09-22: ≥ Fable 5.1 on benchmarks at 60% lower price; routing recommendation (Opus default, Fable reviewer/escalation)
 - [No swipe sound effect](no-swipe-sound-effect.md): Dan 09-23: never any whoosh/swipe/riser SFX; sfxlib now raises; transitions like Muhammad's
