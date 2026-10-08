@@ -196,7 +196,7 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard fire list; the runner deletes that row, this line and its README row.
 
-- `handoff-20261008-sl03-daily-salad-shorts-covers-and-setup.md` (10-08): six shorts; covers, then Blotato. From Oct 19. Opus medium, Sonnet subagent.
+- `handoff-20261008-sl03-daily-salad-shorts-covers-and-setup.md` (10-08): six shorts; covers, then Blotato. From Oct 19. Sonnet medium.
 - `handoff-20261007-ro10-subtle-reedit-sunday-reupload.md` (10-07): RO-10 R3 end graphic, Sunday replacement. Codex Sol high.
 - `handoff-20261006-1017-shoot-outlines.md` (10-06)
 - `handoff-20261006-dan-voice-training-part1-finish.md` (10-06)

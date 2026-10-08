@@ -2,23 +2,22 @@
 
 **Category: CONTENT. Six Shorts (`SFC`) cut from the long-form RO-05 "How I Make My Daily Salad". Written 2026-10-08 by
 Claude (Opus 5.5). Task name: `Daily Salad SFC Setup`.** One Claude handoff covers both halves (Dan's rule, 2026-10-01).
-**Model (Dan's call, 2026-10-08): ONE task on Opus 5.5 medium. Opus does the covers itself and hands the upload and
-schedule half to a Sonnet subagent.** Why: the covers are design judgment (photo choice, layout, judging 30 images by
-eye); the second half is a scripted checklist and the token-heavy part, and a subagent runs it in a small clean context
-instead of on top of the cover images.
+**Model (Dan's call, 2026-10-08, final): the whole task on Claude Sonnet 5, medium. Dan writes the cover directions
+himself in the starter prompt**, so the design judgment that called for Opus is his. What is left is execution:
+turn his directions into Codex prompts, layer his real cutout and the locked type in code, run the checks below on
+every cover, then the scripted upload. No subagent.
 
-How the one task runs:
-1. Opus does section 2 (covers) and stops for Dan's picks, then exports them.
-2. Opus does the two checks that gate everything itself: the six file hashes, and the parent long-form public on all
-   four platforms. If either fails, nothing is delegated.
-3. Opus starts ONE subagent with the Agent tool, `model: "sonnet"`, in the foreground, for section 3 steps 3 to 9. The
-   brief gives it this handoff's path, the approved cover paths, the posting order and the slots Opus chose from the
-   live queue, and these rules: follow the steps and scripts exactly; dry-run before every `--apply`; never design or
-   change a cover; on anything off-script (a failed upload, a slot conflict, a missing tool, a hash mismatch) stop and
-   return what happened, do not improvise. It returns a table: short, platform, Blotato post id, scheduled time, cover.
-4. Opus verifies on a fresh Blotato pull of its own (24 posts, times, accounts, no same-minute clash, `ad_guard.py
-   --scan`), without redoing the work, then does step 10 (receipt, queue, board, push).
-5. If the subagent cannot reach the Blotato tools or returns blocked, Opus finishes that part itself and says so.
+Rules for this task on Sonnet:
+- **Build exactly the covers Dan specifies.** If he lists fewer than five per short, make only those (the five-choice
+  mix is the default "unless I request something different"). Where he leaves something open (which photo, which
+  background), pick, and say what you picked on the review sheet. Never swap one of his choices for another.
+- **Check every cover by measurement before showing it, not by eye alone:** person mask of the rendered cover, then text
+  box clear of his face and every part of his hair, abs inside the frame and uncovered, Instagram layout inside the
+  grid-safe centre, YouTube JPEG 1080x1920 under 2 MB, copy spelled exactly as given. A Codex background with warped
+  objects, garbled text or extra people is regenerated, not shipped.
+- **Upload half:** follow the steps and scripts exactly, dry-run before every `--apply`, and stop and tell Dan on
+  anything off-script (a failed upload, a slot conflict, a hash mismatch, a cover tile showing a video frame).
+- **Escalate, do not grind:** if Dan sends the covers back twice, stop and recommend moving the covers to Opus 5.5.
 
 Dan finalized all six on 2026-10-08: *"All right, these look good. You can go ahead and finalize all of these. Give me
 the handoff for installation and setup for all these shorts here."* Queue: SL-03 `finalized`. Hashes and his words:
@@ -62,7 +61,8 @@ the picture is Dan's own shoot plus the app screen recording in shorts 5 and 6.
 
 ## 2. Covers (first half; stop for Dan's picks)
 
-Five choices per short, 30 in all, each choice in both layouts (Instagram grid and YouTube), which count as one choice:
+**Dan's directions in the starter prompt come first and override the default mix below.** Default when he gives none for
+a short: five choices, each in both layouts (Instagram grid and YouTube), which count as one choice:
 1. one real pool-shoot photo of Dan,
 2. one real studio-shoot photo of Dan,
 3. to 5. three AI-generated images, each a different design of Codex's choice that sells that short's topic.
@@ -126,10 +126,18 @@ Five choices per short, 30 in all, each choice in both layouts (Instagram grid a
 ## Starter prompt
 
 > Name this task `Daily Salad SFC Setup`. Read `Handoffs/handoff-20261008-sl03-daily-salad-shorts-covers-and-setup.md` in
-> full and the files it lists. The six Daily Salad shorts are finalized: do not re-edit them. First make five cover
-> choices for each short (one pool photo, one studio photo, three AI designs). Use the Codex subscription to generate
-> the images. Show me all of them on one review sheet and stop for my picks. After my picks, confirm the Daily Salad
-> long-form is public on all four platforms, then hand the upload and scheduling to a Sonnet subagent as the handoff
-> describes (Tue/Thu/Sat slots, order 1, 4, 5, 2, 3, 6), verify its work yourself, and report.
+> full and the files it lists. The six Daily Salad shorts are finalized: do not re-edit them. Make the covers I
+> describe below, exactly as described. Use the Codex subscription to generate the images. Show me all of them on one
+> review sheet and stop for my picks. After my picks, confirm the Daily Salad long-form is public on all four
+> platforms, then queue the six shorts in Blotato on Tue/Thu/Sat slots in the order 1, 4, 5, 2, 3, 6, verify every
+> schedule, and report. If anything does not match the handoff, stop and tell me.
+>
+> My cover directions:
+> Short 1 (Break Your Fast With This):
+> Short 2 (The $20 Salad You Can Make For $4):
+> Short 3 (Keep Your Salads Fresh For 7 Days):
+> Short 4 (Stop Buying Salad Dressing):
+> Short 5 (Track A Week Of Meals From 1 Photo):
+> Short 6 (The One Line That Makes It Accurate):
 
-Model and effort: Claude Opus 5.5, medium. Fire on or after Mon Oct 19 to finish in one sitting.
+Model and effort: Claude Sonnet 5, medium. Fire on or after Mon Oct 19 to finish in one sitting.
