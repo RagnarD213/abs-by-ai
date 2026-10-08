@@ -53,13 +53,16 @@ def manifest():
                     row = json.loads(line)
                 except ValueError:
                     continue
-                f = row.get("file", "")
+                f = row.get("file") or ""
+                if not isinstance(row, dict) or not f:
+                    continue  # a note row with no file (for example a short that duplicates a long-form)
                 if f.startswith("voice-corpus/"):
                     f = f[len("voice-corpus/"):]
                 row["file"] = f
                 if row.get("duplicate_of") or not os.path.isfile(os.path.join(CORPUS, f)):
                     continue
-                rows[f] = row
+                rows[f] = dict(rows.get(f, {}), **row)  # a later file (zz-overrides.jsonl) can patch single fields
+    rows = {f: r for f, r in rows.items() if not r.get("exclude")}
     return list(rows.values())
 
 
@@ -79,8 +82,8 @@ def heldout_index():
 
 def read_without_heldout(row, index=None):
     """The file's text with every held-out span cut out. A file flagged heldout in its manifest row returns ''."""
-    if row.get("heldout") is True:
-        return ""
+    if row.get("heldout") is True or row.get("heldout_overlap"):
+        return ""  # the file is a blind-test piece, or shares text with one
     text = read(row)
     spans = sorted(((h["start"], h["end"]) for h in (index if index is not None else heldout_index())
                     if h["file"] == row["file"]), reverse=True)
@@ -96,8 +99,8 @@ def pile(type_, tier=None, keep_heldout=False, where=None):
     for row in manifest():
         if row.get("type") != type_:
             continue
-        if tier is not None and row.get("tier") != tier:
-            continue
+        if row.get("tier") not in ((tier,) if tier is not None else (1, 2, 3)):
+            continue  # tier 0 is Claude's drafts and other creators: never part of a Dan pile
         if where and not where(row):
             continue
         text = read(row) if keep_heldout else read_without_heldout(row, idx)

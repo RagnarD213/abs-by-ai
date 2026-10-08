@@ -94,6 +94,7 @@ exact numbers rather than inventing a plausible version.
   swear survives when it is aimed at mainstream advice or an institution inside a full sentence
   ("that advice is bullshit", "useless bullshit anyways", "half-ass this for years" all stayed).
   A swear bolted on as its own punchline gets cut.
+  Full rules, rates and the list of what he kept and cut: `../_shared/voice/profanity-and-controversy.md`.
 - The clozapine warning. Caveats must matter to the average viewer. He replaced it with who the
   thing is NOT for in everyday terms, then re-widened: "But most men sleep hot, so glycine makes
   sense for most of you guys."
@@ -346,35 +347,58 @@ below — it is a writing requirement, not an option. The mechanical de-AI pass:
 - His line edits in the doc ARE the calibration set — diff any section he
   touched and imitate the direction of the change.
 
-## BE CONTROVERSIAL. SWEAR. (Dan's standing instruction, 2026-08-24)
+## BE CONTROVERSIAL. SWEAR. (Dan, 2026-08-24; recalibrated from his own words 2026-10-08)
 
-After script 2 Dan diagnosed the last remaining tell: the writing is "always
-very inoffensive… it never swears. It never says anything controversial." His
-instruction: **actively make an effort to incorporate profanity and be more
-controversial**, like the scripts he writes himself. This is a positive writing
-requirement — don't wait for him to add the edge in review.
+Dan's diagnosis after script 2 stands: the writing was "always very inoffensive… it never swears. It never says
+anything controversial." On 2026-10-06 he added the second half: swearing is good in his videos, but Claude does it
+clumsily. The count explains why. Claude's drafts swore three times as often as he does off the cuff (0.97 against
+0.32 per 1,000 words), in every script, mostly with stock idioms. The problem was never volume. It is aim and
+placement. **Read `../_shared/voice/profanity-and-controversy.md` before writing.** The short version:
 
-- **Profanity is part of his voice.** His flagged-and-kept lines across the
-  longforms include four profanity beats, and his script-2 edit added:
-  "If you're not working out or eating healthy, you're basically shitting all
-  over God's temple." Write 1–3 swears per longform at the moments of peak
-  emphasis — where the point lands hardest — not scattered filler cussing.
-  His register is "shit / ass / hell / damn" used for force.
-- **Every video should have at least one beat that would make a mainstream
-  audience mad, said without apology.** Script 2's church section and Dan's
-  own "You are not smart enough to understand scientific research" are the
-  calibration. If nothing in the script could offend anyone, it's not his
-  voice yet.
-- **Escalate claims, don't hedge them.** His edits repeatedly made lines
-  BOLDER: "the scripture is not on the other side of this either" became
-  "And I'll prove it to you with the word of God himself." "I'm going to show
-  you exactly how to solve it" became "I'm going to solve the problem FOR
-  you." When choosing between a defensible phrasing and a bold one, take the
-  bold one.
-- One practical guardrail (state it in production notes, don't let it soften
-  the writing): keep profanity out of the first thirty seconds and out of
-  titles/thumbnails for YouTube ad-friendliness; mid-video moderate profanity
-  is fine.
+**The controversy is the requirement. The swear is not.**
+
+- **Every opinion video takes at least one position that would annoy a mainstream audience, stated flat.** His own:
+  "Stop doing deadlifts." "So stop putting that money in your 401k. Instead put it into your health." "Reason number
+  one. You have a fat girlfriend or a fat wife." None of those has a swear in it. If nothing in the script could
+  bother anyone, it is not his voice yet.
+- **How he states it:**
+  - Flat, as a command or a numbered reason. No lead-in.
+  - If the claim needs a flag, one plain sentence BEFORE it, then straight to the reason: "Now, I know that sounds
+    extreme. So let me explain to you why you have to do this." Never an apology or a wink after it. He cut "I know
+    how that sounds. I mean it anyway." and every balancing paragraph ("And before anybody gets upset...").
+  - Speak the viewer's objection in the viewer's own words, then deny it in four: "I deserve a break because I work
+    hard, but you don't deserve a break. You deserve a break once you're ripped". He does this 21 times in 75,000
+    words. Claude's drafts did it zero times.
+  - Concede the fact, keep the stance: "...that's not what the scientific research says. And you're right."
+  - Medical claims get one sentence, then the opinion: "I'm not a doctor, and this is not medical advice, so talk to
+    your doctor first. But I'll tell you what I really think."
+  - Back it with his own reversal or loss, a number, or a consequence. Never with a clever argument.
+- **Escalate claims, don't hedge them.** His edits made lines bolder: "the scripture is not on the other side of this
+  either" became "And I'll prove it to you with the word of God himself." "For a lot of guys" became "for most of you
+  watching this channel, you should be taking LESS". When choosing between a defensible phrasing and a bold one, take
+  the bold one.
+- **Blunt words about the viewer name a condition he can change (fat, broke, poor, lazy, cheap), never his
+  character.** "But that type of short term thinking is the reason why you're poor right now." is his. "You are too
+  squeamish" was Claude's, and he softened it. "Stupid" is for his own old thinking.
+
+**Swearing: only where he would.**
+
+- **No swear is ever required.** 12 of his 22 off-the-cuff videos have none. A script with none is correct whenever
+  the outline has no junk, waste or excuse to name. Never add one to sound like him.
+- **Which videos:** opinion, review and money videos. Workouts, exercise demos, recipes and how-tos get none.
+- **How many:** floor 0, ceiling 1 per 1,000 words (two in a 2,000-word script). A second one goes on the same
+  target as the first.
+- **Which word:** the plain name of the thing. "Bullshit" as a noun for junk ("wasting the money you do have on
+  bullshit"), "shitty" as an adjective ("a shitty mattress"), "crap". Not a stock idiom: no "like hell", "the hell
+  out of", "the damn picture", "do shit for you". He does not say "hell" or "ass" off the cuff, and never "freaking".
+- **At what:** a thing, the viewer's excuse or habit, mainstream advice, an industry's products, or himself. Never a
+  person or a group. He cut "The trainers telling you to do an hour of cardio ... are full of shit" and kept "most of
+  what they're selling is bullshit you don't need".
+- **Where:** inside a sentence of 12 words or more that also carries the consequence. Not its own sentence, not a
+  kicker, not the opener or the first minute, not the title or thumbnail. He cut "It's bullshit." and "Glycine is not
+  going to do shit for you." He kept "In my opinion, that advice is bullshit, and it's the reason why most of the
+  people following it are still fat."
+- **Last check:** delete the swear. If the line still makes its point, leave it deleted.
 
 ## Dating & relationship advice register (Dan's standing instruction, 2026-08-23)
 

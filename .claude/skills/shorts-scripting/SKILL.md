@@ -209,18 +209,19 @@ here, read it.
 
 **Read `.claude/skills/_shared/DAN-VOICE.md` first, then `_shared/voice/content-shorts.md`** (his real
 shorts, including the top short, and the hook formula he wrote over Claude's; added 2026-10-06). Then
-inherit the register from **`/scriptfromoutline`**, including its
-**"BE CONTROVERSIAL. SWEAR."** section and the looksmaxxing-aligned framing of
-attraction. Do not re-derive it.
+inherit the register from **`/scriptfromoutline`**, including the controversy half of its
+**"BE CONTROVERSIAL. SWEAR."** section (take the position; leave the swear in the long-forms) and the
+looksmaxxing-aligned framing of attraction. Do not re-derive it.
 
 **What's different at 55 seconds:**
 
 - **No disclaimer beat, no scripture beat, no bio ritual.** There is no room and
   they are longform devices.
-- **One blunt line per script is the target**, not three. "Useless while you're still
-  soft" is the calibration.
-- **Profanity is available but neither finished short uses it.** Don't force it into
-  a listicle; save it for a script with a real peak.
+- **One blunt line per script is the target**, not three, and it is an opinion, not a swear. "Useless while you're
+  still soft" and "But most of you are doing them wrong." are the calibration.
+- **No profanity in a short.** The 9 shorts he wrote himself and the 7 finished ones have none. When Claude dropped
+  the swear from his own outline line ("useless bullshit anyways") he left it dropped. The ceiling is one "crap", and
+  only when his outline has it. Rules and evidence: `../_shared/voice/profanity-and-controversy.md`.
 - **Spoken numerals**: "Number one, the ab wheel." Not "1."
 
 ---
@@ -454,15 +455,13 @@ and 8) — Claude keeps reaching for them and he keeps cutting them.
 word from two of three scripts while keeping the instruction that followed it. The beat
 is a summary plus a concrete thing to do — the opening word is not part of the spec.
 
-**18 — 2026-08-25. THE CONTROVERSY IS A POSITION, NOT A SWEAR WORD.** `/scriptfromoutline`
-requires profanity and a mainstream-angering beat, and Claude imported that literally,
-writing *"here is the part that should piss you off."* **Dan cut the profanity** — and
-then, in the same batch, wrote the most aggressive beat of the seven scripts himself,
-with no swearing in it: *"Ninety percent of guys bulking would be better off cutting and
-getting lean. You'll look so much better with abs than with a powerlifter 'fat but
-strong' build."* **Across seven finished shorts he has used profanity zero times.**
-At 50 seconds the controversial beat is a contrarian OPINION that picks a fight with a
-real training camp, not a swear. Take the fight; leave the profanity in the longforms.
+**18. 2026-08-25, confirmed by count 2026-10-08. THE CONTROVERSY IS A POSITION, NOT A SWEAR WORD.** Claude imported
+the long-form swearing rule literally and wrote *"here is the part that should piss you off."* **Dan cut it**, and
+then wrote the most aggressive beat of the seven scripts himself, with no swearing in it: *"Ninety percent of guys
+bulking would be better off cutting and getting lean. You'll look so much better with abs than with a powerlifter
+'fat but strong' build."* The count since: 0 swears in the 9 shorts he wrote and 0 in the 7 finished ones. At 50
+seconds the controversial beat is a contrarian OPINION that picks a fight with a real training camp, stated flat.
+Take the fight. Write no swear. The long-form rules are in `../_shared/voice/profanity-and-controversy.md`.
 
 **19 — 2026-08-25. He writes spoken emphasis as a single ALL-CAPS word.** *"WAY better
 than being a millionaire"*, *"you'll actually look BIGGER"*, *"THIS is the only ab

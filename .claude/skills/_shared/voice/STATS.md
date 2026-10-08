@@ -1,67 +1,153 @@
-# Dan vs. Claude by the numbers (baseline, 2026-10-06)
+# Dan vs. Claude by the numbers (per type, 2026-10-08)
 
-Measured with `scripts/voice/voice_stats.py` in Dan Voice Training P1. Counts are per 100 words. Definitions are in the
-script's header. Part 2 (the AI-tell checker) uses these numbers as its thresholds. The raw text is on Drive (folder
-`1FE1_fv6XhV96w4OQDji51w7Lrz6ZpiOM`), never in the repo, so to re-run you rebuild the piles from there.
+Rebuilt in Dan Voice P2A. Dan set four types of writing on 2026-10-08 (content, ads, website conversion videos,
+products), and **a baseline for a type comes only from that type's Tier 1**: material that is really him talking or
+writing to an audience. Text Claude drafted is never in a Dan pile, whatever he changed in it. The 40 hold-out passages
+(`HELD-OUT.md`) are cut out of every pile before measuring.
+
+Rebuild: `python3 scripts/voice/corpus_stats.py` (local only; it reads `voice-corpus/`, which is on the Mac and in
+Drive folder `1FE1_fv6XhV96w4OQDji51w7Lrz6ZpiOM`, never in this repo). One draft: `python3 scripts/voice/voice_stats.py
+draft.txt`, `... --small draft.txt`, and `python3 scripts/voice/voice_fingerprint.py --type content draft.txt`.
+The 2026-10-06 version of this file (Part 1, built mostly from ads he wrote for other presenters) is in git history.
 
 ## The piles
 
-| pile | what is in it |
-|---|---|
-| Dan ads, Tier A | 10 finalized Social Response Marketing scripts 2019 to 2025 (HBI, Spy Briefing, CPA offers, Physio Tru, Darren Fujiyama, his own consulting and course videos), the HBI top-10 SRM scripts (minus the one held out for the blind test), plus the lines Dan typed into the Abs By AI batch-1 ads, his Ad 1 and Ad 3 outlines and his parts of the /start letter |
-| Dan content, Tier A | his own outlines (April to October 2026), his typed inserts in Claude outlines, and the off-the-cuff Oura review transcript |
-| Dan content, Tier A/B | the above plus his edited finals of Claude drafts (9/23 shoot, Shoot 5). B finals keep about 90 percent of Claude's lines, so this pile leans toward Claude |
-| Book | about 11,600 words of "15 Steps to Profitable YouTube Advertising" (2019 to 2020) |
-| Keith + Wes | their HBI top-10 scripts (only about 1,800 words; treat as indicative) |
-| Claude drafts | the 9/23 drafts as delivered, the 09-19 Zepbound / Alcohol / Not Losing Weight drafts, the Make Time shorts draft, the Claude/Fable ad outlines, VSL Version A, Claude's parts of the /start letter, the unapproved /start VSL |
+| type | Tier 1 (the baseline) | words | Tier 2 and 3 | the floor |
+|---|---|---:|---|---|
+| Content | 21 Abs By AI videos filmed from outlines with no script (2026), 9 shorts he wrote himself, 32 solo videos from his old business channel (2020 to 2021), his side of Travel Like a Boss episode 252 | 203,000 | his half of the Dan & Dani podcast, his typed outlines (44,000); four Six Pack Shortcuts videos (13,000) | Claude's content scripts as delivered (14,900); the same scripts as Dan read them on camera (9,700); two other fitness creators (16,800) |
+| Ads | ads he wrote for himself: Abs By AI Ads 1 and 3, ten Abs By AI shorts ads, his typed lines in the batch-1 ads, six 2020 book ads | 9,800 | 107 ads he wrote for other presenters, HBI, Spy Briefing, CPA offers, Physio Tru, 2019 to 2025 (66,800): structure and persuasion, not voice numbers | Claude's and Fable's ad scripts (10,900) |
+| Conversion | his own sales videos and letters: the 2019 consulting video and DR site VSL, the 2020 book funnel and launch videos, the 2021 Black Belt sales pages, his sections of the 2026 /start letter | 31,300 | the 2025 Fujiyama VSL (2,300) | VSL Version A, the /start VSL scripts, Claude's letter sections (4,500) |
+| Products | The Sex God Method (2007, 54,400) and 20 Black Belt course videos (2021, 127,400) | 181,800 | 15 Steps (122,800) | none: Claude has never written a product for him |
 
-## The table
+Thin spots: **ads Tier 1** (under 10,000 words, four samples), **shorts** (nine scripts), and **consumer conversion
+copy** (only his sections of the /start letter; the rest sells to business owners).
 
-| source | words | and | lists3 | questions | you | contractions | swears | emdash | sent_mean | sent_sd | para_words | punch_pct | oneline_pct |
+## Counts
+
+Per 100 words unless the name says otherwise. Definitions are in the header of `scripts/voice/voice_stats.py`.
+
+| pile | words | and | lists3 | questions | you | contractions | swears | emdash | sent_mean | sent_sd | para_words | punch_pct | oneline_pct |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| Dan ads, Tier A (all) | 32635 | 3.03 | 0.43 | 0.25 | 6.1 | 3.62 | 0.0 | 0.06 | 14.5 | 6.5 | 25.9 | 6.3 | 9.9 |
-| of which HBI + other SRM 2019-25 | 26451 | 2.95 | 0.42 | 0.21 | 6.09 | 3.71 | 0.0 | 0.07 | 14.8 | 6.6 | 27.3 | 5.9 | 8.4 |
-| of which Abs By AI (Dan-typed) | 6184 | 3.36 | 0.45 | 0.44 | 6.13 | 3.22 | 0.02 | 0.03 | 13.2 | 6.1 | 21.4 | 8.0 | 15.2 |
-| Dan content, Tier A only | 11570 | 2.42 | 0.32 | 0.11 | 5.64 | 3.19 | 0.03 | 0.01 | 14.3 | 7.9 | 23.9 | 10.9 | 30.6 |
-| of which spoken transcript | 4000 | 2.2 | 0.28 | 0.2 | 5.5 | 4.03 | 0.1 | 0.0 | 15.4 | 8.8 | n/a | 13.5 | n/a |
-| Dan content, Tier A/B | 37762 | 3.08 | 0.47 | 0.1 | 6.52 | 3.16 | 0.04 | 0.0 | 13.3 | 7.1 | 29.5 | 11.1 | 14.8 |
-| Book (2019-20) | 11610 | 2.41 | 0.23 | 0.09 | 4.34 | 2.7 | 0.02 | 0.63 | 18.6 | 7.5 | 34.7 | 3.3 | 7.2 |
-| Keith + Wes | 1779 | 2.98 | 0.39 | 0.11 | 4.55 | 2.53 | 0.0 | 0.0 | 16.2 | 9.2 | 31.8 | 10.0 | 17.9 |
-| Claude drafts (all) | 23669 | 3.55 | 0.41 | 0.13 | 6.7 | 3.21 | 0.05 | 0.41 | 12.1 | 7.1 | 30.9 | 16.1 | 6.1 |
-| of which content | 17055 | 3.55 | 0.46 | 0.06 | 6.74 | 2.91 | 0.08 | 0.0 | 12.9 | 7.3 | 35.5 | 13.7 | 4.2 |
-| of which ads/VSL/letter | 6614 | 3.55 | 0.26 | 0.3 | 6.59 | 3.98 | 0.0 | 1.45 | 10.4 | 6.3 | 23.1 | 20.8 | 9.4 |
+| CONTENT Tier 1 (all) | 203026 | 2.44 | 0.26 | 0.1 | 6.24 | 4.03 | 0.02 | 0.0 | 18.3 | 17.6 | 89.7 | 11.7 | 0.2 |
+| Abs By AI off the cuff, 2026 | 72551 | 2.43 | 0.33 | 0.08 | 6.89 | 4.45 | 0.03 | 0.0 | 16.5 | 11.8 | 81.8 | 13.4 | 0.0 |
+| shorts he wrote, 2026 | 1047 | 2.39 | 0.29 | 0.1 | 7.55 | 3.15 | 0.0 | 0.0 | 14.5 | 5.8 | 30.8 | 0.0 | 5.9 |
+| old channel solo, 2020-21 | 120529 | 2.44 | 0.23 | 0.11 | 6.15 | 3.81 | 0.02 | 0.0 | 19.8 | 21.2 | 98.8 | 11.1 | 0.2 |
+| Travel Like a Boss, 2020 | 8899 | 2.64 | 0.21 | 0.13 | 2.05 | 3.65 | 0.02 | 0.0 | 16.7 | 10.1 | 72.3 | 7.8 | 0.0 |
+| content Tier 2 (podcast half, outlines) | 44333 | 2.22 | 0.28 | 0.34 | 4.79 | 4.44 | 0.02 | 0.0 | 14.0 | 16.4 | 75.1 | 30.3 | 5.1 |
+| content Tier 3 (Six Pack Shortcuts) | 12841 | 3.01 | 0.26 | 0.23 | 4.61 | 4.07 | 0.0 | 0.0 | 22.0 | 53.3 | 102.7 | 3.3 | 0.0 |
+| Claude content drafts | 14907 | 3.52 | 0.42 | 0.07 | 6.98 | 2.41 | 0.08 | 0.0 | 12.8 | 7.4 | 34.8 | 14.8 | 5.1 |
+| Dan reading Claude scripts | 9666 | 3.32 | 0.57 | 0.09 | 6.95 | 3.2 | 0.05 | 0.0 | 13.6 | 7.9 | 67.1 | 21.8 | 0.7 |
+| Other fitness creators | 16794 | 3.16 | 0.34 | 0.31 | 5.14 | 3.36 | 0.01 | 0.0 | 21.4 | 15.5 | 106.3 | 9.6 | 0.0 |
+| ADS Tier 1 (own ads) | 9837 | 2.99 | 0.28 | 0.35 | 6.81 | 3.74 | 0.02 | 0.03 | 14.3 | 6.4 | 46.8 | 6.0 | 11.9 |
+| ads Tier 2 (for other presenters) | 66782 | 2.96 | 0.43 | 0.26 | 5.83 | 3.52 | 0.0 | 0.06 | 14.1 | 6.2 | 24.7 | 6.6 | 10.5 |
+| Claude ad drafts | 10866 | 3.37 | 0.41 | 0.15 | 7.22 | 4.13 | 0.0 | 0.94 | 10.8 | 6.5 | 34.1 | 12.9 | 6.9 |
+| CONVERSION Tier 1 | 31302 | 2.94 | 0.31 | 0.13 | 6.58 | 4.09 | 0.0 | 0.0 | 17.5 | 9.0 | 60.0 | 3.4 | 6.9 |
+| conversion Tier 2 (Fujiyama) | 2313 | 3.33 | 0.43 | 0.22 | 7.0 | 5.45 | 0.0 | 0.0 | 15.8 | 7.1 | 32.6 | 4.1 | 11.3 |
+| Claude conversion drafts | 4470 | 3.78 | 0.34 | 0.45 | 6.02 | 3.42 | 0.0 | 1.72 | 8.9 | 6.0 | 20.9 | 29.7 | 13.1 |
+| PRODUCTS Tier 1 (all) | 181765 | 2.2 | 0.28 | 0.06 | 5.53 | 3.15 | 0.17 | 0.1 | 19.4 | 17.8 | 85.6 | 7.2 | 5.1 |
+| The Sex God Method, 2007 | 54379 | 2.22 | 0.3 | 0.1 | 5.03 | 1.53 | 0.55 | 0.33 | 15.9 | 7.5 | 59.0 | 7.2 | 11.7 |
+| Black Belt course videos, 2021 | 127386 | 2.19 | 0.27 | 0.04 | 5.75 | 3.84 | 0.0 | 0.0 | 21.3 | 21.3 | 106.0 | 7.2 | 0.0 |
+| products Tier 2 (15 Steps) | 122795 | 2.17 | 0.26 | 0.12 | 6.12 | 2.96 | 0.01 | 0.46 | 17.5 | 8.4 | 32.8 | 3.2 | 14.2 |
 
-Same nine scripts, Claude's draft against Dan's edited final (9/23 long-forms, calories pair, Zepbound, Alcohol, Make
-Time shorts): "and" 3.54 to 3.41, kicker endings 12.5 to 10.0 percent, swears 0.08 to 0.05. Every move is in the same
-direction as the gaps below, but small, because he leaves about 90 percent of lines alone.
+Caveats: a spoken transcript's paragraphs are set by the transcriber, so `para_words`, `punch_pct` and `oneline_pct`
+mean nothing on the spoken rows; read them only on written rows (ads, conversion, The Sex God Method, 15 Steps,
+Claude's drafts). Spoken sentences run long partly because speech has no full stops. The Sex God Method is from 2007
+(few contractions, some em dashes): learn how he explains and motivates, not its punctuation.
 
-Caveats: the transcript's paragraphs are subtitle chunks, so its paragraph numbers are meaningless. Outlines are one
-bullet per line, which inflates `oneline_pct` for the Tier A content pile. Keith + Wes is a small sample.
+## Small everyday words (per 1,000 words)
 
-## The five biggest Dan-versus-Claude gaps
+| per 1,000 words | actually | really | very | kind of | stuff | things | going to | gonna | which | because | just | so | pretty | a lot | you know | basically | like | now | right |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| CONTENT Tier 1 (all) | 0.98 | 2.74 | 1.85 | 1.43 | 0.3 | 1.52 | 7.1 | 0.87 | 1.45 | 2.49 | 5.89 | 10.74 | 0.45 | 2.67 | 0.51 | 0.55 | 5.19 | 6.1 | 3.89 |
+| Abs By AI off the cuff, 2026 | 0.91 | 2.32 | 1.27 | 1.01 | 0.59 | 1.63 | 9.39 | 0.57 | 1.36 | 2.4 | 5.82 | 11.58 | 0.23 | 2.15 | 0.19 | 0.14 | 5.21 | 5.2 | 4.37 |
+| shorts he wrote, 2026 | 0.0 | 0.0 | 2.87 | 0.0 | 0.0 | 0.0 | 1.91 | 0.0 | 1.91 | 4.78 | 5.73 | 4.78 | 0.0 | 1.91 | 0.0 | 0.0 | 0.96 | 1.91 | 2.87 |
+| old channel solo, 2020-21 | 0.95 | 2.75 | 2.23 | 1.27 | 0.13 | 1.4 | 6.06 | 1.12 | 1.56 | 2.43 | 5.78 | 10.25 | 0.53 | 2.85 | 0.69 | 0.66 | 4.16 | 6.87 | 3.75 |
+| Travel Like a Boss, 2020 | 2.02 | 6.29 | 1.35 | 7.19 | 0.11 | 2.47 | 3.03 | 0.0 | 0.67 | 3.71 | 7.98 | 11.12 | 1.12 | 4.61 | 0.67 | 2.47 | 19.44 | 3.48 | 2.02 |
+| content Tier 2 (podcast half, outlines) | 1.49 | 5.1 | 1.06 | 3.11 | 0.2 | 2.98 | 4.56 | 0.02 | 1.17 | 2.28 | 6.43 | 13.26 | 0.72 | 4.15 | 0.65 | 1.15 | 7.71 | 2.35 | 3.32 |
+| content Tier 3 (Six Pack Shortcuts) | 2.02 | 11.45 | 1.17 | 4.52 | 1.87 | 5.06 | 6.0 | 0.0 | 1.71 | 3.97 | 6.78 | 9.11 | 0.31 | 5.53 | 7.01 | 0.39 | 16.28 | 2.73 | 3.58 |
+| Claude content drafts | 0.87 | 0.8 | 0.47 | 0.07 | 0.27 | 0.67 | 4.02 | 0.0 | 0.67 | 3.89 | 3.42 | 7.04 | 0.13 | 2.15 | 0.2 | 0.13 | 2.55 | 4.02 | 2.08 |
+| Dan reading Claude scripts | 1.03 | 0.93 | 0.41 | 0.0 | 0.0 | 0.72 | 2.9 | 0.21 | 0.52 | 3.93 | 3.62 | 6.83 | 0.1 | 1.97 | 0.31 | 0.1 | 3.0 | 3.83 | 2.17 |
+| Other fitness creators | 1.91 | 3.33 | 2.38 | 0.48 | 0.3 | 2.44 | 5.36 | 0.0 | 2.44 | 3.63 | 8.4 | 8.16 | 0.48 | 1.13 | 1.43 | 0.48 | 4.23 | 2.74 | 1.01 |
+| ADS Tier 1 (own ads) | 0.71 | 0.3 | 1.12 | 0.2 | 0.1 | 0.91 | 2.13 | 0.0 | 0.91 | 2.85 | 5.79 | 4.47 | 0.1 | 0.2 | 0.41 | 0.0 | 2.74 | 5.49 | 2.24 |
+| ads Tier 2 (for other presenters) | 1.21 | 0.27 | 0.69 | 0.01 | 0.01 | 0.36 | 1.05 | 0.0 | 3.19 | 3.43 | 4.85 | 3.28 | 0.16 | 0.21 | 0.96 | 0.03 | 3.67 | 4.09 | 1.38 |
+| Claude ad drafts | 5.25 | 0.09 | 0.09 | 0.0 | 0.28 | 0.18 | 0.92 | 0.0 | 1.1 | 2.85 | 3.13 | 4.97 | 0.0 | 0.28 | 0.09 | 0.0 | 4.14 | 2.48 | 2.02 |
+| CONVERSION Tier 1 | 0.86 | 1.79 | 2.08 | 0.29 | 0.06 | 1.09 | 3.74 | 0.03 | 1.18 | 2.4 | 4.76 | 5.81 | 0.16 | 0.96 | 0.7 | 0.32 | 3.71 | 5.43 | 3.1 |
+| conversion Tier 2 (Fujiyama) | 0.0 | 0.86 | 0.43 | 0.0 | 0.0 | 0.0 | 2.59 | 0.0 | 0.43 | 1.73 | 5.19 | 6.49 | 0.43 | 0.43 | 0.86 | 0.0 | 7.35 | 6.05 | 1.73 |
+| Claude conversion drafts | 2.46 | 0.89 | 0.22 | 0.0 | 0.0 | 1.12 | 1.12 | 0.0 | 0.89 | 0.89 | 2.68 | 5.59 | 0.0 | 0.0 | 0.45 | 0.45 | 3.13 | 4.25 | 2.46 |
+| PRODUCTS Tier 1 (all) | 0.78 | 1.53 | 2.3 | 0.83 | 0.18 | 1.38 | 3.39 | 0.62 | 2.2 | 2.22 | 4.6 | 10.1 | 0.35 | 1.48 | 0.37 | 0.58 | 2.63 | 3.8 | 2.75 |
+| The Sex God Method, 2007 | 0.72 | 0.94 | 1.66 | 0.17 | 0.06 | 0.86 | 1.07 | 0.0 | 1.49 | 1.86 | 2.35 | 3.35 | 0.04 | 0.35 | 0.31 | 0.04 | 2.89 | 0.68 | 1.29 |
+| Black Belt course videos, 2021 | 0.8 | 1.79 | 2.57 | 1.11 | 0.24 | 1.6 | 4.38 | 0.88 | 2.5 | 2.37 | 5.57 | 12.98 | 0.48 | 1.96 | 0.4 | 0.82 | 2.52 | 5.13 | 3.37 |
+| products Tier 2 (15 Steps) | 0.53 | 0.55 | 1.73 | 0.07 | 0.12 | 0.58 | 0.77 | 0.0 | 1.81 | 2.37 | 2.87 | 2.59 | 0.06 | 0.59 | 0.47 | 0.09 | 3.05 | 1.32 | 1.29 |
 
-1. **"and": confirmed. Claude uses it about 45 percent more than Dan's own writing.** Claude 3.55 per 100 words in
-   every kind of piece. Dan's own content, his spoken transcript and his book: 2.2 to 2.4. His ad scripts written for
-   other people to read: 3.0 (still 15 percent under Claude). Dan's sense was right. Target: 2.5 or under in content,
-   3.0 or under in ads.
-2. **Kicker endings: Claude ends paragraphs on a short punch 2.5 to 6 times as often.** Share of multi-sentence
-   paragraphs whose last sentence is 6 words or fewer: Claude ads 20.8 percent, Claude content 13.7; Dan ads 6.3, his
-   book 3.3. This is the "snappy kicker" Dan keeps cutting, now measured. Target: under 8 percent in ads.
-3. **Em dashes: about 25 times Dan's rate.** Claude's ad, VSL and letter drafts: 1.45 per 100 words. Dan's ad scripts
-   from 2019 to 2026: 0.06 (he writes a spaced hyphen or "--"). Even his 2019 book (0.63) is under half Claude's rate.
-   Target: 0, the standing rule.
-4. **Claude's sentences are shorter and more even.** Ads: Claude 10.4 words per sentence against Dan 14.5. Content:
-   12.9 against 14.3 (Tier A), with a spread of 7.1 against 7.9 to 8.8 (Dan swings more between long setups and short
-   turns). The book runs 18.6. Claude chops ad copy into fragments; Dan lets setups run and keeps the short sentence for
-   the turn.
-5. **Three-item lists: a content tell, not an ad tell.** In content Claude writes 0.46 per 100 words against Dan's 0.32
-   (his book 0.23): about 45 percent more. In ads there is no gap (Dan's SRM scripts use 0.42, often "even if…, even
-   if…, and even if…"). So the rule is "fewer tidy triads in scripts and articles", not "never list three things".
+## Style distances: ceiling and floor
 
-Also measured:
-- **Claude swears more than Dan, not less.** Claude content 0.08 per 100 words; Dan's finals 0.05; his Tier A content
-  0.03. The skills told Claude to swear, and it bolts swears on as punchlines, which he cuts (`../DAN-VOICE.md`,
-  section 8). Write a swear where he would aim it at bad advice, not to sound edgy.
-- **Questions:** in Abs By AI ads Dan asks more than Claude (0.44 against 0.30 per 100 words): short question-then-answer
-  pairs about food and bodies. In content both are low.
-- **"you" and contractions:** no meaningful gap. Both write in second person and spoken register.
+From `scripts/voice/voice_fingerprint.py`. **Delta** is the function-word fingerprint (Burrows' Delta over the 150
+commonest grammar words): lower is closer to Dan. **LUAR** is a style embedding (`rrivera1849/LUAR-MUD`): higher is
+closer. Samples are about 2,500 words each. The ceiling is each of Dan's samples against the average of his others.
+The floors are Claude's drafts of that type, and two other fitness creators, against Dan's average. A draft is doing
+well when it sits at the ceiling and far from both floors.
+
+| type | Dan Tier 1 words | samples | Delta ceiling (Dan vs Dan) | Delta floor (Claude) | Delta floor (other creators) | LUAR ceiling (Dan vs Dan) | LUAR floor (Claude) | LUAR floor (other creators) |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| content | 201726 | 81 | 0.757 | 0.877 | 0.849 | 0.964 | 0.897 | 0.897 |
+| ads | 9748 | 4 | 0.798 | 0.938 | 1.129 | 0.962 | 0.94 | 0.854 |
+| conversion | 31021 | 12 | 0.769 | 0.987 | 0.964 | 0.974 | 0.886 | 0.843 |
+| products | 180861 | 72 | 0.773 | n/a | 0.852 | 0.945 | n/a | 0.883 |
+
+The gap between ceiling and floor is real but not wide, so these two numbers are for pooled text (a whole bench run,
+2,500 words or more), never for one script. Ads Tier 1 has only four samples: treat its row as rough.
+
+## The gaps, per type
+
+**Content (Abs By AI off the cuff, 2026, against Claude's content scripts).** This is where Claude is furthest off.
+
+1. **Claude's scripts are too clean: his small words are missing.** Per 1,000 words, Dan against Claude: "really" 2.3
+   against 0.8; "very" 1.3 against 0.5; "kind of" 1.0 against 0.1; "things" 1.6 against 0.7; "going to" 9.4 against
+   4.0; "which" 1.4 against 0.7; "just" 5.8 against 3.4; "so" 11.6 against 7.0; "like" 5.2 against 2.6; "right" 4.4
+   against 2.1. Reading a Claude script on camera he does not put them back (the "Dan reading Claude scripts" row sits
+   on Claude's numbers, not his).
+2. **"and": 2.4 per 100 for him, 3.5 for Claude.** The same across 203,000 words of his speech, old and new.
+3. **Sentences: his average 16.5 words with a spread of 11.8; Claude's 12.8 with 7.4.** He runs long loose setups and
+   Claude writes short even ones.
+4. **Contractions: 4.5 per 100 against Claude's 2.4.** Claude writes "it is" and "you are" where he says "it's" and
+   "you're".
+5. **"because": Claude uses more (3.9 per 1,000 against 2.4).** Claude explains with "because"; he more often says
+   "so" and "which".
+6. Three-item lists: 0.33 against 0.42. Swears: 0.03 per 100 against 0.08 (see `profanity-and-controversy.md`).
+7. "actually" is NOT a content gap (0.9 for both). It is an ad gap, below.
+
+**Ads (his own ads against Claude's ad scripts).**
+
+1. **"actually": 0.7 per 1,000 for him, 5.3 for Claude.** Seven times his rate. The clearest single-word tell.
+2. Sentences 14.3 words against 10.8. Kicker endings 6.0 percent against 12.9. Em dashes 0.03 per 100 against 0.94.
+3. He asks more questions (0.35 per 100 against 0.15) and says "very" (1.1 per 1,000 against 0.1), "just" (5.8
+   against 3.1), "now" (5.5 against 2.5) and "going to" (2.1 against 0.9) more.
+4. "and": 3.0 against 3.4. His client ads (Tier 2) match his own on "and", sentence length and kickers.
+
+**Conversion (his sales videos and letters against Claude's VSL and letter drafts; Claude's pile is small).**
+
+1. **Sentences: 17.5 words against 8.9.** Claude chops sales copy into fragments. Kicker endings: 3.4 percent of his
+   paragraphs against 29.7 of Claude's.
+2. Em dashes: 0 against 1.72 per 100. "and": 2.9 against 3.8. Questions: 0.13 against 0.45 (here Claude asks more).
+3. "very" 2.1 per 1,000 against 0.2; "really" 1.8 against 0.9; "going to" 3.7 against 1.1; "because" 2.4 against 0.9;
+   "just" 4.8 against 2.7; "actually" 0.9 against 2.5.
+
+**Products.** No Claude pile exists yet; the bench's cold-Claude run is the first one. His two registers differ: the
+book (2007) is tight, 15.9 words a sentence, few contractions, more swearing than anything else he has made (0.55 per
+100, though see the note on its explicit chapters in `passages-products.md`); the course videos (2021) are loose
+teaching, 21 words a sentence, "so" 13 times per 1,000.
+
+## Targets for a draft (until Phase B fits bands per type)
+
+| measure | content | ads | conversion |
+|---|---|---|---|
+| "and" per 100 | 2.5 or under | 3.0 or under | 3.0 or under |
+| sentence length, average | 15 or more, with long and short mixed | 13 to 15 | 15 or more |
+| contractions per 100 | 4 or more | 3.5 or more | 4 or more |
+| "actually" per 1,000 | about 1 | under 1 | under 1 |
+| "really", "very", "kind of", "things", "just", "so", "going to" | present at about his rates above; a script with none of them reads as AI | "very", "just", "now" present | "very", "really", "going to" present |
+| kicker endings (written pieces) | under 8 percent | under 8 percent | under 5 percent |
+| em dashes | 0 | 0 | 0 |
+
+No small word is ever required in a given sentence: sprinkle none in by rule. They show up when the sentence is built
+the way he talks (a long setup, a plain turn), and the rate is the check, not the method.

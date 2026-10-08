@@ -1,0 +1,198 @@
+<title>Which One Is Dan</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<style>
+/* Layout: one pair per screen. Two reading columns side by side (stacked on a phone), a fixed answer bar under them. */
+:root {
+  --bg: #f3f5f8; --panel: #ffffff; --ink: #151a22; --muted: #5b6676; --line: #d5dbe4;
+  --accent: #1b5fd0; --accent-ink: #ffffff; --picked: #e6efff; --done: #1d7a4d;
+  --read: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --ui: "IBM Plex Sans", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #11151b; --panel: #1a2029; --ink: #e8ecf2; --muted: #9aa5b5; --line: #2e3744;
+  --accent: #6ea3ff; --accent-ink: #0b1220; --picked: #1c2c47; --done: #58c08c; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #11151b; --panel: #1a2029; --ink: #e8ecf2; --muted: #9aa5b5; --line: #2e3744;
+  --accent: #6ea3ff; --accent-ink: #0b1220; --picked: #1c2c47; --done: #58c08c; color-scheme: dark }
+body { background: var(--bg); color: var(--ink); font-family: var(--ui); font-size: 16px; line-height: 1.5; }
+.wrap { max-width: 1120px; margin: 0 auto; padding-inline: 16px; padding-block: 20px 140px; display: flex; flex-direction: column; gap: 18px; }
+header h1 { font-size: 1.5rem; font-weight: 600; margin: 0 0 6px; text-wrap: balance; }
+header p { margin: 0; color: var(--muted); max-width: 68ch; }
+.meta { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; justify-content: space-between; }
+.count { font-weight: 600; font-variant-numeric: tabular-nums; }
+.what { color: var(--muted); font-size: 0.94rem; max-width: 80ch; }
+.dots { display: flex; flex-wrap: wrap; gap: 6px; }
+.dots button { width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--line); background: var(--panel); color: var(--muted);
+  font: 500 0.78rem var(--ui); font-variant-numeric: tabular-nums; cursor: pointer; padding: 0; }
+.dots button.answered { border-color: var(--done); color: var(--done); }
+.dots button.current { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 760px) { .pair { grid-template-columns: 1fr; } }
+.side { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 18px 20px 22px; min-width: 0; }
+.side.picked { border-color: var(--accent); background: var(--picked); }
+.side h2 { font: 600 0.8rem var(--ui); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; }
+.side.picked h2 { color: var(--accent); }
+.text { font-family: var(--read); font-size: 1.08rem; line-height: 1.62; }
+.text p { margin: 0 0 0.9em; max-width: 62ch; overflow-wrap: anywhere; }
+.text p:last-child { margin-bottom: 0; }
+.bar { position: fixed; left: 0; right: 0; bottom: 0; background: var(--panel); border-top: 1px solid var(--line);
+  padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px)); }
+.bar-in { max-width: 1120px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.bar .q { font-weight: 600; margin-right: 4px; }
+button.pick, button.nav, button.copy { font: 600 0.95rem var(--ui); border-radius: 6px; padding: 10px 16px; cursor: pointer; border: 1px solid var(--line);
+  background: var(--panel); color: var(--ink); }
+button.pick.on { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+button.nav.next { background: var(--ink); color: var(--bg); border-color: var(--ink); margin-left: auto; }
+button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+button:disabled { opacity: 0.45; cursor: default; }
+.why { flex: 1 1 260px; min-width: 0; }
+.why input, .name input, textarea { width: 100%; box-sizing: border-box; font: 400 0.95rem var(--ui); color: var(--ink); background: var(--bg);
+  border: 1px solid var(--line); border-radius: 6px; padding: 10px 12px; }
+.saved { font-size: 0.85rem; color: var(--muted); flex-basis: 100%; }
+.finish { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 20px; display: flex; flex-direction: column; gap: 14px; }
+.finish h2 { margin: 0; font-size: 1.2rem; }
+.finish p { margin: 0; color: var(--muted); max-width: 68ch; }
+.finish textarea { min-height: 150px; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.85rem; }
+.name { max-width: 320px; }
+.name label { display: block; font-size: 0.85rem; color: var(--muted); margin-bottom: 4px; }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Which one is really Dan?</h1>
+    <p>Each screen shows two versions of the same piece. One is Dan Rose's own words. The other was written by an AI imitating him. Pick the one you think is really his. If something gave it away, say what. There are <span id="total"></span> pairs and no time limit.</p>
+  </header>
+  <div class="name"><label for="who">Your name (so Dan knows whose answers these are)</label><input id="who" type="text" autocomplete="name" placeholder="First name"></div>
+  <div class="meta">
+    <div><span class="count" id="count"></span> <span class="what" id="what"></span></div>
+    <div class="dots" id="dots" aria-label="Jump to a pair"></div>
+  </div>
+  <div class="pair" id="pair">
+    <section class="side" id="sideA"><h2>Version A</h2><div class="text" id="textA"></div></section>
+    <section class="side" id="sideB"><h2>Version B</h2><div class="text" id="textB"></div></section>
+  </div>
+  <section class="finish" id="finish" hidden>
+    <h2 id="finishTitle"></h2>
+    <p id="finishNote"></p>
+    <textarea id="answers" readonly aria-label="Your answers"></textarea>
+    <div><button class="copy" id="copy" type="button">Copy my answers</button></div>
+  </section>
+</div>
+
+<div class="bar"><div class="bar-in">
+  <span class="q">Dan's own words:</span>
+  <button class="pick" id="pickA" type="button">Version A</button>
+  <button class="pick" id="pickB" type="button">Version B</button>
+  <div class="why"><input id="why" type="text" placeholder="What gave it away? (optional)" aria-label="What gave it away?"></div>
+  <button class="nav" id="prev" type="button">Back</button>
+  <button class="nav next" id="next" type="button">Next</button>
+  <div class="saved" id="saved"></div>
+</div></div>
+
+<script>
+const PAIRS = /*PAIRS*/[];
+const KEY = "which-one-is-dan-v1";
+const $ = (id) => document.getElementById(id);
+let state = { name: "", picks: {} };   // picks: { "3": { pick: "A", why: "..." } }
+let at = 0, ref = null, saveTimer = null, saving = false, dirty = false;
+
+try { const s = JSON.parse(localStorage.getItem(KEY) || "null"); if (s && s.picks) state = s; } catch (e) {}
+
+function paras(el, text) {
+  el.textContent = "";
+  text.split(/\n\s*\n/).forEach((p) => { const d = document.createElement("p"); d.textContent = p.trim(); el.appendChild(d); });
+}
+function answered() { return PAIRS.filter((p) => state.picks[p.n] && state.picks[p.n].pick).length; }
+function summary() {
+  const lines = ["Which one is Dan: answers from " + (state.name || "(no name)")];
+  PAIRS.forEach((p) => { const a = state.picks[p.n] || {}; lines.push(p.n + ". " + (a.pick || "-") + (a.why ? "  | " + a.why : "")); });
+  return lines.join("\n");
+}
+function render() {
+  const p = PAIRS[at], a = state.picks[p.n] || {};
+  $("total").textContent = PAIRS.length;
+  $("count").textContent = "Pair " + (at + 1) + " of " + PAIRS.length + ".";
+  $("what").textContent = "This is " + p.what + ".";
+  paras($("textA"), p.a); paras($("textB"), p.b);
+  $("sideA").classList.toggle("picked", a.pick === "A"); $("sideB").classList.toggle("picked", a.pick === "B");
+  $("pickA").classList.toggle("on", a.pick === "A"); $("pickB").classList.toggle("on", a.pick === "B");
+  $("why").value = a.why || "";
+  $("prev").disabled = at === 0;
+  $("next").textContent = at === PAIRS.length - 1 ? "Finish" : "Next";
+  const dots = $("dots"); dots.textContent = "";
+  PAIRS.forEach((q, i) => {
+    const b = document.createElement("button"); b.type = "button"; b.textContent = q.n;
+    b.setAttribute("aria-label", "Pair " + q.n);
+    if (state.picks[q.n] && state.picks[q.n].pick) b.classList.add("answered");
+    if (i === at) b.classList.add("current");
+    b.addEventListener("click", () => { at = i; $("finish").hidden = true; render(); window.scrollTo(0, 0); });
+    dots.appendChild(b);
+  });
+  if (document.activeElement !== $("who")) $("who").value = state.name || "";
+}
+function showFinish() {
+  const n = answered();
+  $("finishTitle").textContent = n === PAIRS.length ? "Done. All " + n + " answered." : n + " of " + PAIRS.length + " answered so far.";
+  $("finishNote").textContent = ref
+    ? "Your answers are saved on this page. Nothing else to do. The copy below is a backup."
+    : "Copy your answers and send them to Dan. This page cannot save them for you.";
+  $("answers").value = summary();
+  $("finish").hidden = false;
+  $("finish").scrollIntoView({ behavior: "smooth", block: "start" });
+}
+function note(t) { $("saved").textContent = t; }
+function keep() {
+  try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
+  if (!$("finish").hidden) $("answers").value = summary();
+  if (!ref) { note(answered() + " of " + PAIRS.length + " answered. Kept in this browser; copy your answers at the end."); return; }
+  dirty = true; clearTimeout(saveTimer); saveTimer = setTimeout(push, 700);
+}
+async function push() {
+  if (saving || !dirty || !ref) return;
+  saving = true; dirty = false;
+  try {
+    await ref.set({ name: state.name || "", picks: state.picks, answered: answered(), updatedAt: new Date().toISOString() });
+    note(answered() + " of " + PAIRS.length + " answered. Saved.");
+  } catch (e) {
+    ref = null; note("Could not save to the page. Your answers are kept in this browser; copy them at the end.");
+  }
+  saving = false; if (dirty) push();
+}
+function pick(v) { const p = PAIRS[at]; state.picks[p.n] = Object.assign({}, state.picks[p.n], { pick: v }); render(); keep(); }
+
+$("pickA").addEventListener("click", () => pick("A"));
+$("pickB").addEventListener("click", () => pick("B"));
+$("why").addEventListener("input", (e) => { const p = PAIRS[at]; state.picks[p.n] = Object.assign({}, state.picks[p.n], { why: e.target.value.slice(0, 500) }); keep(); });
+$("who").addEventListener("input", (e) => { state.name = e.target.value.slice(0, 60); keep(); });
+$("prev").addEventListener("click", () => { if (at > 0) { at--; $("finish").hidden = true; render(); window.scrollTo(0, 0); } });
+$("next").addEventListener("click", () => { if (at < PAIRS.length - 1) { at++; render(); window.scrollTo(0, 0); } else showFinish(); });
+$("copy").addEventListener("click", async () => {
+  try { await navigator.clipboard.writeText(summary()); $("copy").textContent = "Copied"; }
+  catch (e) { $("answers").focus(); $("answers").select(); $("copy").textContent = "Select all, then copy"; }
+});
+
+const first = PAIRS.findIndex((p) => !(state.picks[p.n] && state.picks[p.n].pick));
+at = first === -1 ? 0 : first;
+render();
+note(answered() + " of " + PAIRS.length + " answered.");
+
+(async () => {   // light up saving where the viewer is allowed to write; the page works without it
+  try {
+    if (!window.claude || !window.claude.use) return;
+    const [db, user] = await Promise.all([window.claude.use("db"), window.claude.use("user")]);
+    if (!db || !user) return;
+    const uid = await user.id();
+    if (!uid) return;
+    const r = db.doc("votes/" + uid);
+    const snap = await r.get();
+    if (snap.exists) {
+      const d = snap.data() || {};
+      const merged = Object.assign({}, d.picks || {}, state.picks);   // what is in this browser wins
+      state = { name: state.name || d.name || "", picks: merged };
+      render();
+    }
+    ref = r;
+    if (answered()) { dirty = true; push(); } else note("Your answers will be saved on this page as you go.");
+  } catch (e) { ref = null; }
+})();
+</script>

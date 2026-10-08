@@ -6,6 +6,12 @@ transcript, and his edits to Claude drafts. Real passages: `voice/` (`ads.md`, `
 `content-shorts.md`, `sales.md`, `outlines.md`, `book.md`, `dan-edits-2026-10-06.md`); outside writers:
 `voice/borrowed-keith-wes.md`; numbers: `voice/STATS.md`. Rules on facts, persona and offers stay in `WRITING-RULES.md`.
 
+**Added 2026-10-08 (Voice P2A).** Whole real passages, one file per type of writing: `voice/passages-content.md`,
+`voice/passages-ads.md`, `voice/passages-conversion.md`, `voice/passages-products.md`. Read the one for your type
+before writing: whole passages teach the sound better than the rules below. Swearing: `voice/profanity-and-controversy.md`.
+`voice/HELD-OUT.md` lists test passages that must never be quoted in any of these files
+(`python3 scripts/voice/heldout_guard.py` checks).
+
 Evidence: **A** = Dan wrote it, **B** = his edits to a Claude draft, **C** = Claude text he kept (weak; marked). Patterns
 are ranked by evidence.
 
@@ -103,8 +109,9 @@ answer.", "This is that video" (cut by Dan, B); "quote unquote"; doubled intensi
 - **Urgency with a reason:** "This presentation will only be free for a limited time… Don't procrastinate!" (A)
 - **Content closes warm and plain:** "Thanks for watching guys. If you enjoyed this video, subscribe…" (B). The app only
   when it continues the topic; shorts end on "let me know how it works for you" (A).
-- **Bluntness aims at advice and outcomes, never at the viewer.** He hardened "the one thing that can actually go
-  wrong" to "the average person loses a catastrophic amount of muscle" (B), and softened Claude's "you are too squeamish" to "you don't have the skill" (B).
+- **Bluntness names a condition the viewer can change (fat, broke, poor, lazy, cheap), never his character.** He
+  hardened "the one thing that can actually go wrong" to "the average person loses a catastrophic amount of muscle"
+  (B), and softened Claude's "you are too squeamish" to "you don't have the skill" (B).
 
 ## 7. What to borrow from Keith and Wes (not his voice)
 
@@ -123,7 +130,12 @@ From the B pairs (`voice/dan-edits-2026-10-06.md`, `scriptfromoutline` WHAT DAN 
 - Dramatized scenes and kickers ("The abs or the bar tab", "I know how that sounds. I mean it anyway.").
 - "To be fair" hedges, up-front disclaimers, defending against imagined objections, and turning blame on the viewer.
 - Fear and decline beats in ads; underselling the topic of the video.
-- Standalone swears as punchlines (Claude swears more than he does: `voice/STATS.md`).
+- **Swearing and controversy** (rules and real lines: `voice/profanity-and-controversy.md`). No swear is ever
+  required: 12 of his 22 off-the-cuff videos have none, and workouts, shorts and paid ads stay clean. When he swears,
+  the word is the plain name of junk, waste or an excuse ("wasting the money you do have on bullshit"), inside a full
+  sentence, never at a person or group, never an opener or kicker. Ceiling: two per 2,000 words, opinion videos only.
+  The edge is the opinion: state it flat, deny the viewer's objection ("but you don't"), back it with his own number.
+  Cut stock idioms ("like hell", "the damn picture") and every wink or apology.
 - A generic app pitch at the end of content.
 - Em dashes, "and" chains, six-word kickers, tidy triads (section 2).
 

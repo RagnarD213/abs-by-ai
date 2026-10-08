@@ -50,8 +50,9 @@ A name with no file in `Docs/memory/` is private on purpose. Do not guess what i
   "never says anything controversial". Write it the way his own scripts read. His finished scripts are the reference,
   not a general idea of good writing. (Dan, 2026-08-24.)
 - **Take a side and say it bluntly.** Dan's scripts are opinionated and sometimes controversial. A script that offends
-  nobody reads as AI. In organic content he swears; write it where he would. (Dan, 2026-08-24.) Ad copy that Google
-  reviews stays clean.
+  nobody reads as AI. Swearing belongs in organic opinion scripts, done his way: rarer than Claude writes it, the
+  plain name of junk or an excuse inside a full sentence, never at a person, and a floor of zero. Rules and real lines:
+  `voice/profanity-and-controversy.md`. (Dan, 2026-08-24 and 2026-10-06.) Ad copy that Google reviews stays clean.
 - **On dating, attraction and relationships, write in line with the looksmaxxing community and the philosophy of
   attraction of Rich Cooper, Myron Gaines and Andrew Tate.** Never the generic mainstream AI view. (Dan, 2026-08-24.)
   Why: it is the view he holds and, in his words, the one most men online hold.

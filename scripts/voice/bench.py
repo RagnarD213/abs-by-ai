@@ -59,7 +59,8 @@ GEMINI_PRICE = (2.0, 12.0)  # dollars per million tokens in / out (output includ
 MIN_TRIALS = 80
 SEED = 20261008
 
-QUOTA = {"content-long": 10, "content-short": 6, "ads": 10, "conversion": 6, "products": 8}
+# shorts are thin (nine scripts that are wholly Dan's), so 4 are held out, not 6, and long-form carries 12
+QUOTA = {"content-long": 12, "content-short": 4, "ads": 10, "conversion": 6, "products": 8}
 BLIND_QUOTA = {"content": 8, "ads": 5, "conversion": 3, "products": 4}
 CUES = ["vocabulary", "sentence_rhythm", "too_clean_grammar", "safe_generic_content", "over_explaining", "tidy_ending",
         "structure_too_organized", "punctuation_formatting", "missing_small_words_or_filler", "tone_hedged_or_polite",
@@ -191,7 +192,9 @@ def window(text, spoken, rng, lo=150, hi=450, taken=(), banned=None, whole_if_sh
     if not us:
         return None
     if whole_if_short and total <= hi:
-        return (us[0][0], us[-1][1], "whole") if total >= 110 else None
+        if total < 110 or (banned and banned(heldout_guard.shingles(text[us[0][0]:us[-1][1]]))):
+            return None
+        return us[0][0], us[-1][1], "whole"
     for _ in range(60):
         i = rng.randrange(len(us))
         target = rng.randint(max(lo + 40, 220), min(hi - 40, 400))
@@ -204,7 +207,7 @@ def window(text, spoken, rng, lo=150, hi=450, taken=(), banned=None, whole_if_sh
         s, e = us[i][0], us[j - 1][1]
         if any(s < te and ts < e for ts, te in taken):
             continue
-        if banned and heldout_guard.shingles(text[s:e]) & banned:
+        if banned and banned(heldout_guard.shingles(text[s:e])):
             continue
         pos = "opening" if i == 0 else ("close" if j == len(us) else "middle")
         return s, e, pos
@@ -270,8 +273,9 @@ def bucket_files():
     b = {k: [] for k in QUOTA}
     for r in rows:
         t, tier, f = r.get("type"), r.get("tier"), r["file"]
-        if r.get("authorship") == "dan-typed-lines-only":
-            continue  # loose lines, not passages
+        if (r.get("authorship") == "dan-typed-lines-only" and r.get("type") != "conversion") or r.get("heldout_overlap") \
+                or r.get("confidence") == "low" or r["file"].endswith("-raw.txt"):
+            continue  # loose lines, text shared with a blind-test piece, unsure authorship, raw rolls full of retakes
         if t == "content" and tier == 1:
             if is_short(r):
                 b["content-short"].append(("absbyai-short", r))
@@ -292,9 +296,47 @@ def bucket_files():
     return b
 
 
+# Files to try first, per group (substring of the file name, in order), so each type's hold-out is spread across its
+# sources instead of bunching in whatever sorts first. Everything else follows, newest first.
+PREFER = {
+    "tier1@ads": ["ad1-written", "ad3-written", "book-ad-the-top-5", "book-ad-how-to-start", "shorts-ad-fire-your-trainer",
+                  "shorts-ad-top-3-tips", "shorts-ad-ai-took-my-job"],
+    "tier1@conversion": ["2019-consulting-sales-video", "2021-black-belt-cart-page", "2026-absbyai-sales-letter",
+                         "2019-dr-marketing-website-vsl-script", "2021-black-belt-sales-video-outline",
+                         "2020-15-steps-book-sales-page", "2020-used-youtube-advertising", "2026-absbyai-new-start-vsl",
+                         "2020-15-steps-launch-video-8", "2021-black-belt-pre-sales"],
+    "sgm@products": ["03-my-story", "10a-immersion-mindset", "26-bedroom-mentality", "31-testosterone", "07a-dominance",
+                     "05-four-archetypes", "04-four-principles", "32-finding-the-right-girl", "45-final-words"],
+    "blackbelt@products": ["ten-pillars-of-great-campaign-management-part-1", "turn-your-youtube-profits", "ltv-and",
+                           "targeting-ladder", "modern-branding"],
+}
+
+
+def ordered(rows, group, bucket, rng):
+    rows = [r for r in rows if not (r.get("spend") and not r.get("heldout"))]  # the top-spend ads stay as examples
+    rng.shuffle(rows)
+    if bucket == "ads" and group == "tier2":
+        # the oldest, proven client work first (HBI, the top account), then the later clients; 2025 last
+        rank = {"HBI": 0, "Spy Briefing": 1, "CPA offers": 2, "Physio Tru": 3}
+        rows.sort(key=lambda r: (r.get("confidence") == "medium", (r.get("year") or 0) >= 2025,
+                                 rank.get(r.get("client"), 4)))
+        mixed, by = [], {}
+        for r in rows:
+            by.setdefault(r.get("client"), []).append(r)
+        while any(by.values()):  # deal in turn so no client fills the set; HBI twice per round
+            for c in ["HBI", "Spy Briefing", "HBI", "CPA offers", "Physio Tru"] + [c for c in by if c not in rank]:
+                if by.get(c):
+                    mixed.append(by[c].pop(0))
+        return mixed
+    rows.sort(key=lambda r: -(r.get("year") or 0))
+    pref = PREFER.get(f"{group}@{bucket}", [])
+    first = [r for p in pref for r in rows if p in r["file"]]
+    return first + [r for r in rows if r not in first]
+
+
 # how many of each bucket come from each group (candidates are over-picked by EXTRA to allow for unusable ones)
-SPLIT = {"content-long": {"absbyai": 7, "old-channel": 2, "tlab": 1},
-         "content-short": {"absbyai-short": 6},
+SPLIT = {"content-long": {"absbyai": 8, "old-channel": 3, "tlab": 1},
+         "content-short": {"absbyai-short": 4},
          "ads": {"heldout": 1, "tier1": 4, "tier2": 5},
          "conversion": {"tier1": 6},
          "products": {"sgm": 5, "blackbelt": 2, "15steps": 1}}
@@ -306,14 +348,18 @@ def cmd_pick(a):
         sys.exit("a locked hold-out set already exists (voice-corpus/heldout/index.json). Re-picking changes every "
                  "later score; pass --force only if you mean it.")
     rng = random.Random(SEED)
-    banned = shared_shingles()
+    quoted = shared_shingles()
+    # ad scripts share closes and whole sections across versions: a passage that also sits in another file is not
+    # really held out, so any window with an 8-word run found in a second corpus file is rejected
+    where = {}
+    for r in corpus.manifest():
+        if r.get("tier") in (1, 2, 3):
+            for x in heldout_guard.shingles(corpus.read(r)):
+                where.setdefault(x, set()).add(r["file"])
     cands = []
     for bucket, pairs in bucket_files().items():
         for group, want in SPLIT[bucket].items():
-            rows = [r for g, r in pairs if g == group]
-            # ads tier 2: best results first; everything else: newest first, then shuffled within a year
-            rng.shuffle(rows)
-            rows.sort(key=lambda r: (-(r.get("spend") or 0), -(r.get("year") or 0)))
+            rows = ordered([r for g, r in pairs if g == group], group, bucket, rng)
             need = math.ceil(want * EXTRA) if group != "heldout" else 1
             taken = {}
             passes = 0
@@ -324,6 +370,13 @@ def cmd_pick(a):
                         break
                     text = corpus.read(r)
                     spoken = r.get("mode") == "spoken"
+                    here = r["file"]
+                    # nothing already quoted in a guide file; at most 15% shared with other corpus files (a stock
+                    # call to action is fine, a second copy of the passage is not)
+                    banned = lambda sh: bool(sh & quoted) or \
+                        sum(1 for x in sh if where.get(x, set()) - {here}) > 0.15 * max(1, len(sh))
+                    if r.get("heldout"):
+                        banned = None  # the one piece held out since Part 1; its look-alikes are flagged instead
                     w = window(text, spoken, rng, taken=taken.get(r["file"], ()), banned=banned,
                                whole_if_short=(bucket in ("content-short", "ads")))
                     if not w or (w[2] == "whole" and r["file"] in taken):
@@ -842,7 +895,12 @@ def cmd_blind(a):
         json.dump(pairs, fh, indent=1)
     with open(os.path.join(d, "blind-key.json"), "w", encoding="utf-8") as fh:
         json.dump(key, fh, indent=1)
-    print(f"{len(pairs)} pairs -> {os.path.relpath(d, ROOT)}/blind-pairs.json ; key in blind-key.json (chat only)")
+    with open(os.path.join(ROOT, "scripts", "voice", "blind_page_template.html"), encoding="utf-8") as fh:
+        page = fh.read()
+    data = json.dumps([{k: p[k] for k in ("n", "what", "a", "b")} for p in pairs], ensure_ascii=False).replace("</", "<\\/")
+    with open(os.path.join(d, "blind-page.html"), "w", encoding="utf-8") as fh:
+        fh.write(page.replace("/*PAIRS*/[]", data))  # holds held-out text: local only, published as a private page
+    print(f"{len(pairs)} pairs -> {os.path.relpath(d, ROOT)}/blind-page.html ; key in blind-key.json (chat only)")
     print("key:", " ".join(f"{k['n']}{k['dan_is']}" for k in key))
 
 
