@@ -1,30 +1,30 @@
 {
  "_README": "THE STANDARD IS DAN'S WORDS, NOT OUR PARAPHRASE. Every entry quotes him verbatim. See README.md.",
  "version": 2,
- "updated": "2026-10-07",
+ "updated": "2026-10-08",
  "roots": {
   "repo": ".",
   "ssd": "/Volumes/Extreme/_edit_work"
  },
  "entries": [
-    {
-      "id": "codex-vertical-centering-right-20261005",
-      "verdict": "reference",
-      "date": "2026-10-05",
-      "root": "ssd",
-      "path": "vertical-centering-codex-proof-20261003/after.mp4",
-      "excerpt": [
-        0,
-        35.00163333333333
-      ],
-      "dan": "Okay the right one definitely looks better. Let's lock that in. The framing for the right video is what we'll use for all vertical videos going forward",
-      "sha256": "bea60266c37d046e628b4e5145de17cc9d43b72c16fd72961f97a9a169ccc999",
-      "bytes": 7119910,
-      "must_pass": [],
-      "must_trigger": [],
-      "measured": "608 px crop: travel 733 px; p90 pan speed 59.9 px/s; moving 43.8%; head offset median 20.6 px, max 69.0 px; maximum cut landing error 0.49 px.",
-      "notes": "Approved framing reference for every future vertical. Muted crop-only proof, not a full-video delivery approval. Shared landing.py land-then-hold preset with 3.3% tolerance. Full measurements and approval in Docs/VERTICAL_CENTERING_CODEX_20261003.json."
-    },
+  {
+   "id": "codex-vertical-centering-right-20261005",
+   "verdict": "reference",
+   "date": "2026-10-05",
+   "root": "ssd",
+   "path": "vertical-centering-codex-proof-20261003/after.mp4",
+   "excerpt": [
+    0,
+    35.00163333333333
+   ],
+   "dan": "Okay the right one definitely looks better. Let's lock that in. The framing for the right video is what we'll use for all vertical videos going forward",
+   "sha256": "bea60266c37d046e628b4e5145de17cc9d43b72c16fd72961f97a9a169ccc999",
+   "bytes": 7119910,
+   "must_pass": [],
+   "must_trigger": [],
+   "measured": "608 px crop: travel 733 px; p90 pan speed 59.9 px/s; moving 43.8%; head offset median 20.6 px, max 69.0 px; maximum cut landing error 0.49 px.",
+   "notes": "Approved framing reference for every future vertical. Muted crop-only proof, not a full-video delivery approval. Shared landing.py land-then-hold preset with 3.3% tolerance. Full measurements and approval in Docs/VERTICAL_CENTERING_CODEX_20261003.json."
+  },
   {
    "id": "website-rev1",
    "verdict": "rejected",
@@ -3017,6 +3017,23 @@
    ],
    "measured": "SARDINES white glyph bounds stay 183 x 27 px, but drift changes their y position by one pixel at excerpt 11.47s. Fractional translation changes edge rasterization.",
    "notes": "Scoped graphics proof approval except text stability. Existing style gate does not measure this; named check is pending. No gate threshold changed."
+  },
+  {
+   "id": "ro11-r2-full-film-approved-with-notes-20261008",
+   "date": "2026-10-08",
+   "root": "ssd",
+   "path": "ro11/round2/RO11_MASTER.mp4",
+   "sha256": "34cea69f4afb38a657b2648dad331096d17e657b2b92ed3f3f00a20feb5b598b",
+   "bytes": 3121331620,
+   "verdict": "approved-with-notes",
+   "dan": "All right, everything is looking good except the full-screen graphics for each of the points, like sleep and alcohol, and all the full-screen graphics you made for, I believe, 7 points. Those look a little empty. What I want you to do is to add an image to the right on each of those full-screen graphics to fill them out.",
+   "scope": "The whole RO-11 16:9 film (9:58), round 2, watched in VLC. Approved except the seven full-screen section title cards (FACTOR n OF 7 + one word on the Soft Blue field), which read as empty; each gets a picture on the right in round 3. Cut, look, audio, opener, lower thirds, fact cards, side lists, clips all pass his viewing.",
+   "must_trigger": [],
+   "must_pass": [
+    "audio_gate"
+   ],
+   "measured": "1920x1080, 30000/1001, 17,928 frames, 598.198 s. Audio gate 2.0.0 PASS 13/13 (-14.2 LUFS, -2.0 dBTP). Delivery gate 2.5.0 longform: 35 PASS, 4 FAIL (captions:burned, captions:card_collision, cut:splice_visibility on 5 deliberate framing cuts, framing:push_coverage x1.100), 4 n/a. Independent review 1 DOES NOT SHIP on an earlier build (11-frame island before a title, 0.73 s fact-card line); review 2 SHIP.",
+   "notes": "No gate measures an empty full-screen card; none was added or changed. The four failing delivery rows are the known longform mismatches also seen on RO-10. notes-RO11.md beside the delivered copy; recipe longform-edit/reference/ro11/."
   }
  ]
 }
