@@ -40,19 +40,19 @@ function queue(document) {
   for (const row of q.rows) {
     const box = el('article',undefined,'row release-card');
     box.append(el('h3',row.title),el('p',`${platformName(row.platform)} · ${instant(row.scheduledAt)}`,'note'));
-    preview(box,row.id,row.coverReviewUrl,row.mediaUrl,row.platform,row.coverFrameAt,`${platformName(row.platform)} · ${instant(row.scheduledAt)} · ${row.title}`);
+    preview(box,row.id,row.coverReviewUrl,row.mediaUrl,row.platform,row.coverFrameAt,`${platformName(row.platform)} · ${instant(row.scheduledAt)} · ${row.title}`,row.mediaSource);
     if (row.caption) { const details=el('details');details.append(el('summary','Caption'),el('p',row.caption));box.append(details); }
     const issues = Object.entries(row.preflight).filter(([,v])=>['missing','broken','duplicate','mismatch'].includes(v));
     if (issues.length) box.append(el('p',issues.map(([k])=>({cover:'Check the scheduled cover.',links:'Check a caption link.',duplicates:'Another post is scheduled at this time.',cadence:'Check the release day.',assetMatch:'The scheduled media is unavailable.',description:'Caption is missing.',crop:'Check the cover crop.'}[k] || 'Review this post.')).join(' '),'media-warning'));
     if (!row.mediaUrl && row.reviewUrl?.startsWith('https://studio.youtube.com/')) box.append(el('p','Private video, available in Studio.','note'));
-    if (!row.mediaUrl && row.reviewUrl?.startsWith('https://studio.youtube.com/')) link(box,'Play in Studio',row.reviewUrl);
+    if (row.reviewUrl?.startsWith('https://studio.youtube.com/')) link(box,'Play in Studio',row.reviewUrl);
     (days.get(dayOf(row.scheduledAt)) || $('queue-rows')).append(box);
   }
   for (const [key,column] of days) if (!q.rows.some(r=>dayOf(r.scheduledAt) === key)) column.append(el('p','No Blotato release observed. Unavailable sources remain unknown.','note'));
 }
 
 function platformName(value) { return {facebook:'Facebook',instagram:'Instagram',tiktok:'TikTok',youtube:'YouTube'}[value.toLowerCase()] || value; }
-function preview(box,id,cover,video,platform='',coverFrameAt=null,title='Scheduled media') {
+function preview(box,id,cover,video,platform='',coverFrameAt=null,title='Scheduled media',source='scheduled') {
   if (!/^[a-f0-9]{64}$/.test(id || '')) return;
   const media=el('div',undefined,'scheduled-media');
   box.append(media);
@@ -74,7 +74,7 @@ function preview(box,id,cover,video,platform='',coverFrameAt=null,title='Schedul
   const entry={type:'video',src:player.src,poster:cover ? `/api/brief/media/${id}/cover` : '',title:title+' · Video'};
   inspectable(player,entry);
   play.addEventListener('click',()=>openViewer(entry));
-  const caption=el('figcaption','Video');
+  const caption=el('figcaption',source==='verified_upload_source' ? 'Verified upload source' : 'Video');
   figure.append(player,caption,state,play);media.append(figure);
   const duration=()=>`${Math.floor(player.duration/60)}:${String(Math.floor(player.duration%60)).padStart(2,'0')}`;
   player.addEventListener('loadedmetadata',()=>{play.disabled=false;state.textContent=Number.isFinite(player.duration) ? duration() : 'Ready to play';});
