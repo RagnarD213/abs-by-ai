@@ -169,7 +169,7 @@ def main():
         evidence = json.loads(evidence_file.read_text()) if evidence_file.exists() else {}
         queue = review(current, live, now, checks, evidence)
         queue['sourceCoverage']['youtubeStudio']=native['status']
-        queue['coverageNote']=('Native YouTube owner API verified '+native['channel']['id']+'; '+str(native['uploadsEnumerated'])+' uploads checked, '+str(len(native_rows))+' native schedules observed. Approved-cover visual comparisons remain evidence-bound.' if native['status']=='ok' else native.get('reason','Native YouTube schedules remain unknown'))
+        queue['coverageNote']=('Native YouTube owner API verified '+native['channel']['id']+'; '+str(native.get('uniqueUploads',native['uploadsEnumerated']))+' unique uploads checked, '+str(len(native_rows))+' native schedules observed. Approved-cover visual comparisons remain evidence-bound.' if native['status']=='ok' else native.get('reason','Native YouTube schedules remain unknown'))
         conflicts={key:value for key,value in native.get('publicChecks',{}).items() if value!='public'}
         if conflicts:queue['coverageNote']+=' Release alert: '+', '.join(key+' is '+value for key,value in conflicts.items())+' despite Blotato published status.'
         add_native_rows(queue,native_rows,checks)
