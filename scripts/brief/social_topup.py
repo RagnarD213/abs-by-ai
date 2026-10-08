@@ -4,10 +4,10 @@ import argparse
 import json
 from datetime import datetime, timezone
 from pathlib import Path
-from urllib.request import Request, urlopen
+from urllib.request import Request, build_opener
 
 from master_queue import Inventory, locked, _reconcile_locked, plan_topup
-from social_daily import load_module, private_json
+from social_daily import load_module, private_json, NoRedirect
 
 
 class AuthorizedInventory:
@@ -38,7 +38,7 @@ def single_create(api, key, body):
     # uncertain submission, recorded before this one request by reconciliation.
     request = Request(api.BASE + '/posts', data=json.dumps(body).encode(), method='POST',
                       headers={'blotato-api-key': key, 'Content-Type': 'application/json'})
-    with urlopen(request, timeout=30) as response:
+    with build_opener(NoRedirect()).open(request, timeout=30) as response:
         return json.loads(response.read())
 
 
