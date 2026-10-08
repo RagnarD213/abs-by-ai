@@ -25,10 +25,12 @@ def native_records(snapshot):
     return records
 
 
-def add_native_rows(queue, records, checks):
+def add_native_rows(queue, records, checks, preview_sources=None):
     rules=longform_errors(records)
     for r in records:
         if not stamp(queue['windowFrom']) <= stamp(r['scheduledAt']) < stamp(queue['windowTo']): continue
+        evidence=(preview_sources or {}).get(r['nativeVideoId'],{})
+        source=evidence.get('sourceUrl') if (evidence.get('matchedSource') is True and evidence.get('videoId')==r['nativeVideoId'] and evidence.get('sourceReference') and evidence.get('sourceFile') and re.fullmatch(r'[a-f0-9]{64}',evidence.get('localSHA256','')) and evidence.get('localSHA256')==evidence.get('remoteSHA256')) else None
         links=[u.rstrip('.,!;') for u in re.findall(r'https://[^\s<>"\)]+',r['caption'])]
         def state(url):
             c=checks.get(url,{})
@@ -36,10 +38,11 @@ def add_native_rows(queue, records, checks):
             except (KeyError,ValueError,TypeError): return 'unverified'
             if not 0 <= age <= 43200:return 'unverified'
             return 'verified' if c.get('status') in (200,206) else 'broken' if c.get('status') in (404,410) else 'unverified'
+        if source and state(source)!='verified':source=None
         states=[state(u) for u in links]
         notes=rules.get(r['id'],[]) + ['Native YouTube schedule observed; private video playback requires the Studio link']
         queue['rows'].append({'id':r['id'],'platform':'youtube','account':r['account'],'scheduledAt':r['scheduledAt'],
-                             'title':r['title'][:220],'caption':r['caption'][:1000],'coverReviewUrl':r['cover'],'mediaUrl':None,
+                             'title':r['title'][:220],'caption':r['caption'][:1000],'coverReviewUrl':r['cover'],'mediaUrl':source,'mediaSource':'verified_upload_source' if source else 'native_private',
                              'reviewUrl':r['publicPostUrl'],'notes':notes,
                              'preflight':{'cover':state(r['cover']) if r['cover'] else 'missing','description':'verified' if r['caption'] else 'missing',
                                           'links':'not_applicable' if not links else 'broken' if 'broken' in states else 'verified' if all(s=='verified' for s in states) else 'unverified',

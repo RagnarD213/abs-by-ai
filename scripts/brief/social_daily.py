@@ -155,12 +155,15 @@ def main():
         live_ids = {identity({k:i['draft'][k] for k in ('accountId','content','target')},i['scheduledAt']) for i in live}
         # Disappearance may mean posted, deleted or failed. Never infer public release.
         current = [r for r in records if r['id'] in live_ids]
+        preview_file=directory/'native-preview-sources.json'
+        preview_sources=json.loads(preview_file.read_text()) if preview_file.exists() else {}
         preliminary = review(current, live, now)
         urls = {u for row in preliminary['rows'] for u in (row.get('mediaUrl'), row.get('coverReviewUrl')) if u}
         urls.update(u.rstrip('.,!;') for row in preliminary['rows'] for u in re.findall(r'https://[^\s<>"\)]+', row['caption']))
         from datetime import timedelta
         from master_queue import stamp
         urls.update(u for r in records if r['approval']['status'] == 'approved' and now < stamp(r['scheduledAt']) < now+timedelta(days=30) for u in r['media'])
+        urls.update(v['sourceUrl'] for v in preview_sources.values() if v.get('sourceUrl'))
         urls.update(r['cover'] for r in native_rows if r['cover'])
         urls.update(u.rstrip('.,!;') for r in native_rows for u in re.findall(r'https://[^\s<>"\)]+',r['caption']))
         with ThreadPoolExecutor(max_workers=8) as pool:
@@ -174,7 +177,7 @@ def main():
         visibility_exceptions=json.loads(visibility_file.read_text()) if visibility_file.exists() else {}
         conflicts={key:value for key,value in native.get('publicChecks',{}).items() if value!='public' and not (visibility_exceptions.get(key,{}).get('expectedStatus')==value and visibility_exceptions[key].get('reference') and visibility_exceptions[key].get('quote'))}
         if conflicts:queue['coverageNote']+=' Release alert: '+', '.join(key+' is '+value for key,value in conflicts.items())+' despite Blotato published status.'
-        add_native_rows(queue,native_rows,checks)
+        add_native_rows(queue,native_rows,checks,preview_sources)
         if args.live:
             try:
                 if published is None: raise ValueError('Published source unavailable')

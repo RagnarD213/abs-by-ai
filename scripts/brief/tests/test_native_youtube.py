@@ -17,6 +17,21 @@ class NativeTests(unittest.TestCase):
         self.assertEqual(q['rows'][0]['preflight']['cadence'],'verified');self.assertEqual(q['rows'][0]['preflight']['cover'],'verified')
         self.assertIsNone(q['rows'][0]['mediaUrl'])
 
+    def test_source_preview_requires_exact_identity_hash_and_fresh_availability(self):
+        records=native_records(self.snapshot())
+        url='https://database.blotato.io/storage/v1/object/public/public_media/abc/def.mp4'
+        evidence={'videoId':'D9v9POAKe_Q','matchedSource':True,'sourceUrl':url,'sourceReference':'Exact video-ID source manifest','sourceFile':'Exact local export','localSHA256':'a'*64,'remoteSHA256':'a'*64}
+        def build(e,status=200):
+            q={'windowFrom':'2026-10-08T00:00:00-05:00','windowTo':'2026-10-15T00:00:00-05:00','checkedAt':'2026-10-08T20:00:00Z','rows':[]}
+            add_native_rows(q,records,{url:{'checkedAt':q['checkedAt'],'status':status}},{'D9v9POAKe_Q':e})
+            return q['rows'][0]
+        self.assertEqual(build(evidence)['mediaUrl'],url)
+        self.assertEqual(build(evidence)['mediaSource'],'verified_upload_source')
+        for change in ({'videoId':'wrong'},{'remoteSHA256':'b'*64},{'sourceReference':''},{'matchedSource':False}):
+            self.assertIsNone(build({**evidence,**change})['mediaUrl'])
+        self.assertIsNone(build(evidence,404)['mediaUrl'])
+        self.assertEqual(records[0]['approval']['status'],'scheduled_observed')
+
     def test_error_never_becomes_verified_zero(self):
         self.assertEqual(native_records({'status':'error','reason':'HTTP401'}),[])
 
