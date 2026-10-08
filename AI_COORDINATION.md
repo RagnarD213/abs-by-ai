@@ -85,7 +85,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 # ACTIVE
 
-**Waist-cover:BLOCKED2026-10-08,Codex.** TikTok pending: Mirroring scrolling broken. Phone upload next.
+**Waist-cover 2026-10-08.** TikTok:phone-upload-pending.
 
 
 **SL-03 covers - NEEDS DAN 2026-10-08, Claude.** Picks pending.
