@@ -1,3 +1,19 @@
+## The "excuse" voice gets a lip-synced AI clip, frames first (Dan, 2026-10-08)
+
+- **When Dan does his "excuse" voice (an impression of someone whining an excuse, such as "Dan, I don't have time to go to
+  the gym"), plan an AI clip of a character saying the line, with the character's lips synced to Dan's own recording, and
+  bring its start and end frames in the first approval round.** Do it without being asked.
+- Dan, approving the RO-06 first minute: *"I really love the way that you did the lip-syncing and the slap. Both of those
+  turned out significantly better than I expected. I think in future ones where I'm doing the 'excuse' voice, like making
+  fun of losers making excuses, let's get started in frames for those in the future because this turned out real good."*
+- How to apply (editor's reading of "get started in frames"): on every script, outline and edit, mark each excuse-voice
+  line. For each one, write the scene (who is whining, what he does with his hands, how trainer Dan reacts) and make the
+  start and end frames with Codex. A slapstick payoff on the next line (the slap on "destroy") is welcome where the words
+  invite it. The frame approval gate, the $5 per video clip budget and the no-belly-framing rule are unchanged. No new voice
+  is ever made: the lips follow Dan's recorded impression.
+- Method that Dan approved (motion from the frame pair, lip sync on the speaking character only, the checks):
+  `longform-edit/reference/ro06/README.md`, round 4. Scripts: `gen_motion.py`, `lipsync.py`, `syncfix.py` beside it.
+
 ## Review videos also go in `Videos to Review/`, for VLC (Dan, 2026-10-08)
 
 - **Every video shown to Dan for review that is 45 seconds or longer is also copied to the project folder
