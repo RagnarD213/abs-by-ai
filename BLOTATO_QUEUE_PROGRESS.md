@@ -484,3 +484,6 @@ Two others flagged but kept, for Dan to pull if he disagrees:
 ## RO-01 Keep Your Muscle, setup October 7, 2026
 
 CONTENT. Approved R10/B1 preserved and archived with matching hashes. YouTube 5295786: Dec 6 at 9 AM CST. Facebook 5295779, Instagram @danrosefit 5295782, TikTok 5295785: Dec 7 at 9 AM CST. Saved schedules and media hashes verified. Instagram delivery copy is 272 MB. TikTok full 11:52 is saved but exceeds the documented 10-minute API cap; delivery route unresolved. Public backups, payloads and release-check automation: `Docs/RO01_SETUP_RECEIPT_20261007.md`. SL-12 added; article draft prepared.
+
+## SL-03 Daily Salad shorts (2026-10-08)
+Shorts 1, 4, 5 queued (FB, IG @danrosefit, TikTok, YouTube) Oct 29, Oct 31, Nov 3 at 9 AM Central; queue 198 of 200. Shorts 2, 3, 6 owed (Nov 5, 7, 10) once there is room for 12 posts. Receipt: `Docs/SL03_SETUP_RECEIPT_20261008.md`. Handoff: `Handoffs/handoff-20261008-sl03-queue-shorts-2-3-6.md`.

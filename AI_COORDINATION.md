@@ -88,7 +88,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 **Waist-cover 2026-10-08.** TikTok:phone-upload-pending.
 
 
-**SL-03 covers - NEEDS DAN 2026-10-08, Claude.** Picks pending.
+**SL-03 shorts 2/3/6 - OWED 2026-10-08, Claude.** `Handoffs/handoff-20261008-sl03-queue-shorts-2-3-6.md`
 
 **WV01-B-Codex:REVIEW 2026-10-07.** [Opening](Handoffs/results-20261007-wv01-b-opening-r1.md). Dan:review.
 
