@@ -8,6 +8,15 @@ Read `_shared/VIDEO-RULES.md` first.
 **Task name (Dan, 2026-10-01):** every revisions task renames itself at the start to the editor's first name plus
 "revisions" (`Muhammad revisions`, `Zeeshan revisions`), so Dan can find it in the sidebar.
 
+**Sections follow the editor's link order (Dan, 2026-10-08).** *"Put the revisions in the document in the same order
+that Muhammad gives me the links in the chat. If they send a folder, put them from top to bottom in the order that the
+files appear in the folder... I had to search around and match the top link to something that was 3 or 4 reviews down
+in the document."* The first link in the editor's message is the first video section in the doc, the second link the
+second, and so on; an earlier message comes before a later one. For a Drive folder drop (Zeeshan), use the order the
+files appear in the folder, top to bottom. Never regroup by round, by job number, by new versus revised, or by how
+much is wrong. Duplicate links take the position of their first appearance. The summary table and the paste-ready
+message use the same order. Batch generators (`gen.py`) take an explicit ordered list, never a sorted glob.
+
 **No AbsByAI.com end mark (Dan, 2026-10-01):** never write an item asking for the AbsByAI.com mark at the end of a video,
 even where the script cues it (VIDEO-RULES).
 
