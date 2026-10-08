@@ -32,3 +32,23 @@ Traps this build paid for:
   Eyebrow fits about 19 characters. Its photo box is near square: crop the product to about 0.89 w/h first.
 - **Library clip A0139 (powerlifter deadlift) has another video's caption and "*AI Generated" burned in.** Not reusable.
 - A case-insensitive volume: a file named `LOOK` collides with the `look/` folder.
+
+Round 2 (2026-10-08, Dan's first-minute notes: open tight, tight as the default, wide to establish and now and then):
+- **Three sizes, solved for the whole film** (`build.all_segments`): X tight (hair to just below the shorts, about 2x on the
+  1080p wide rolls), T medium (1.5x), W camera frame. A real join needs sizes at least 1.2x apart, so the medium is what sits
+  between two tight shots. Run `build.py segs 80` to read the solution, the jumps and the longest holds.
+- **A run of one take at one size must share ONE crop.** Each shot's crop is centred on its own median head position, so two
+  adjoining shots at the same size differ by a few pixels and the picture shifts at a cut that is not meant to be a cut.
+- **A picture-only split moves the audio by one sample** (each shot is placed at its own rounded sample position).
+  `split_shot.py` marks the new shot `split_of`; `voice_shots()` merges it back, and the voice track stayed bit-identical to
+  the approved round. Prove it: md5 of the two untreated WAVs, then of both delivered files' decoded audio.
+- **The lower third and the wide shot cannot share the screen here**: the strip lands exactly on the equipment at his feet.
+  The wide took the "$58" sentence with no graphic and the lower third moved one sentence later, onto the tight shot.
+- **The per-shot `active` flag misses a one-second lean.** He bends and points at the equipment inside otherwise still shots
+  (61 s, 70 s). In the tight size that reads as him falling out of frame. Found by eye on the camera frame; those sentences
+  go medium or wide. Scan every tight segment for head drop and sideways travel before a full render.
+- **A split where a full-screen clip starts inside a shot** (segment key `shot+c`) lets the picture come back at another size
+  after the clip for free.
+- The tight size is an enlargement: sharpening 0.9 (medium keeps 0.5). Show Dan same-size crops and say what he trades.
+- The review page for a first-minute-only round: `page2.py` (stills pulled from the rendered file, "Play from here" buttons
+  that seek the one docked player).

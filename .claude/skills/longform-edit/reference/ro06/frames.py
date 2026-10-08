@@ -1,6 +1,7 @@
 """Graded frames on the RO-06 output timeline (25 rolls on one global source timeline, mkglobal.py).
-Framing W = the camera frame as shot; T = a 1.32x punch-in per shot, top edge on the hair (shot_framing.json), fixed for
-the whole shot. Grade = the roll's skin-anchored curve (grades.json), option LOOK. Decode BT.709 (rolls are tagged)."""
+Three fixed sizes per shot (shot_framing.json): W = the camera frame as shot; T = the medium punch-in (1.5x on the wide
+rolls, hair to mid-thigh; 1.3x on the closer rolls); X = Dan's tight shot (round 2: just above the hair to a little below
+the shorts line, about 2x on the wide rolls). Top edge on the hair, fixed for the whole shot. Grade = the roll's skin-anchored curve (grades.json), option LOOK. Decode BT.709 (rolls are tagged)."""
 import json, subprocess, os
 from PIL import Image
 W = "/Volumes/Extreme/_edit_work/ro06"; FPS = 30000/1001
@@ -14,7 +15,7 @@ def roll_of(src_f):
     raise ValueError(src_f)
 def crop_of(shot_id, framing):
     if framing == "W": return (1920, 1080, 0, 0)
-    return tuple(SF[shot_id]["T"])
+    return tuple(SF[shot_id]["T2" if framing == "X" else "T"])
 def vf(roll, crop, look=None):
     cw, ch, x, y = crop
     c = "" if (cw, ch) == (1920, 1080) else f"crop={cw}:{ch}:{x}:{y},"
@@ -24,9 +25,9 @@ def shot_at(t):
     f = int(round(t*FPS)); return next(s for s in S if s["out_f0"] <= f < s["out_f1"])
 def src_frame(t):
     s = shot_at(t); return s["src_f0"] + int(round(t*FPS)) - s["out_f0"], s
-def frame_src(src_f, shot_id, framing, look=None, raw=False):
+def frame_src(src_f, shot_id, framing, look=None, raw=False, crop=None):
     roll, lf = roll_of(src_f); ts = lf/FPS
-    v = vf(roll, crop_of(shot_id, framing), look)
+    v = vf(roll, crop or crop_of(shot_id, framing), look)
     if raw: v = v.replace(GR[roll][look or LOOK] + ",", "")
     p = subprocess.run([FF, "-v", "error", "-ss", f"{max(0, ts-1):.4f}", "-i", ROLLS[roll]["path"], "-ss", f"{max(0, min(1, ts)-0.4/FPS):.4f}", "-frames:v", "1",
                         "-vf", v, "-f", "rawvideo", "-"], capture_output=True, check=True).stdout

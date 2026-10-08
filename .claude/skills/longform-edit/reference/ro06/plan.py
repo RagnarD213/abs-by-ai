@@ -6,14 +6,14 @@ AS = "/Volumes/Extreme/_edit_work/ro06/assets"
 SHOOT = "/Volumes/Extreme/abs by ai 8:3 jeff chagrin shoot/main camera"
 PLAN = [
  # ---------------- hook
- dict(id="C01", kind="clip", start="This is a setup I personally", end="maintain my abs during COVID", tail=0.1, src=["B0433@1.0", "B0436@2.0"],
-      note="Dan's own B-roll: push-ups on the blue mat, then an ab wheel rollout (the setup in use)"),
- dict(id="G01", kind="lt", start="You can get it for just", end="limited budget", topic="HOME WORKOUT ON A BUDGET",
-      point="A Full Home Setup For $58.", parts=[["A Full Home Setup", "You can get it"], ["For $58.", "fifty"]]),
+ dict(id="C01", kind="clip", start="This is a setup I personally", end="during that time", tail=0.14, src=["B0436@2.0", "B0447@1.0", "B0439@0.5"],
+      note="Dan's own B-roll, three different exercises with this setup (round 2): ab wheel rollout, jump rope, kettlebell (lawn)"),
+ dict(id="G01", kind="lt", start="So this is great", end="limited time to work out", topic="HOME WORKOUT ON A BUDGET",
+      point="A Full Home Setup For $58.", parts=[["A Full Home Setup", "So this is great"], ["For $58.", "for you guys"]]),
  dict(id="C02", kind="clip", start="then you need something like this", end="work out at home", tail=0.2, src=[f"{SHOOT}/C1557.MP4@3.0"], grade="C1559",
       note="the real equipment laid out on the mat (C1557, this shoot's own static shot)"),
  # ---------------- excuses
- dict(id="G02", kind="lt", start="Super cheap, super easy", end="not doing this", tail=0.7, topic="NO MORE EXCUSES",
+ dict(id="G02", kind="lt", start="Super cheap, super easy", end="not doing this", tail=0.25, topic="NO MORE EXCUSES",
       point="No Gym Membership. No COMMUTE.", parts=[["No Gym Membership.", "Super cheap"], ["No COMMUTE.", "super easy"]]),
  dict(id="G03", kind="lt", start="you have an emergency", end="whenever you want", topic="ALREADY HAVE A GYM?",
       point="This Is Your BACKUP Setup.", parts=[["This Is Your BACKUP Setup.", "emergency"]]),
