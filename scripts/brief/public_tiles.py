@@ -10,7 +10,9 @@ from master_queue import stamp
 from review_queue import public_tile
 
 PROFILES = {'youtube': 'https://www.youtube.com/channel/UC236gjadarHAhEhOMYNGJ9g/shorts',
-            'tiktok': 'https://www.tiktok.com/@absbyai',
+            # Exact Blotato published URL redirected to this author and profile
+            # in the existing browser on October 8. Posting account is unchanged.
+            'tiktok': 'https://www.tiktok.com/@danrosefit',
             'facebook': 'https://www.facebook.com/1294282227094660',
             'instagram': 'https://www.instagram.com/danrosefit/'}
 
@@ -66,8 +68,8 @@ def extract_tiles(platform, html):
                 root = json.loads(match.group(1))
                 # SIGI profile ItemModule is distinct from a video detail page.
                 for key,item in root.get('ItemModule',{}).items():
-                    if item.get('author') == 'absbyai' and item.get('video',{}).get('cover'):
-                        tiles.append({'postId':key,'publicPostUrl':'https://www.tiktok.com/@absbyai/video/'+key,'tileUrl':item['video']['cover']})
+                    if item.get('author') == 'danrosefit' and item.get('video',{}).get('cover'):
+                        tiles.append({'postId':key,'publicPostUrl':'https://www.tiktok.com/@danrosefit/video/'+key,'tileUrl':item['video']['cover']})
             except ValueError: pass
     return list({t['postId']:t for t in tiles}.values())
 

@@ -52,7 +52,7 @@ class ActivationTests(unittest.TestCase):
         renderer={'reelItemRenderer':{'videoId':'abcdefghijk','thumbnail':{'thumbnails':[{'url':'https://i.ytimg.com/vi/abcdefghijk/hqdefault.jpg'}]}}}
         self.assertEqual(len(extract_tiles('youtube','var ytInitialData = '+json.dumps(renderer)+';')),1)
         self.assertFalse(extract_tiles('youtube','<meta property="og:image" content="watch.jpg">'))
-        state={'ItemModule':{'1':{'author':'someone','video':{'cover':'wrong'}},'2':{'author':'absbyai','video':{'cover':'right'}}}}
+        state={'ItemModule':{'1':{'author':'someone','video':{'cover':'wrong'}},'2':{'author':'danrosefit','video':{'cover':'right'}}}}
         self.assertEqual([t['postId'] for t in extract_tiles('tiktok','<script id="SIGI_STATE">'+json.dumps(state)+'</script>')],['2'])
 
     def test_published_read_paginates_and_rejects_repeated_cursor(self):
