@@ -36,6 +36,8 @@ gate before new motion. Revisions reuse locked work and need only the affected p
 
 ## The review page: one layout, and a "What I decided" list on every packet (Dan, 2026-09-30)
 
+**Also copy every review video of 45 seconds or longer to the project folder `Videos to Review/` for VLC, and delete the copies when Dan finalizes the video (Dan, 2026-10-08): VIDEO-RULES.md, first section.**
+
 Dan, on the RO-16 round 1 page: *"I like this 'What I Decided' section. Let's make this the standard way to do things going
 forward... so I can look over your decisions just in case I need to revise any of them"* and *"the first minute is right on
 top, the AI opener frames are below that, and all graphics and clips are in order. That makes it significantly faster for me

@@ -161,3 +161,6 @@ Handoffs/video-editing/jobs.json.tmp
 
 # macOS AppleDouble sidecars from the external drive
 ._*
+
+# Review copies for Dan to watch in VLC (media; the repo is public)
+Videos to Review/

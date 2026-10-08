@@ -1,3 +1,26 @@
+## Review videos also go in `Videos to Review/`, for VLC (Dan, 2026-10-08)
+
+- **Every video shown to Dan for review that is 45 seconds or longer is also copied to the project folder
+  `Videos to Review/`, in addition to the review page.** That means the finished first minute, a finished film, a
+  finished short or ad, and any other review clip of 45 s or more (graphics shown in motion included). Shorter clips stay
+  on the page only.
+- Dan: *"With the review panel, I can only watch it at 2x speed, and I want to watch it at a higher speed in VLC. Also, I
+  find that the review panel frequently has issues with the timeline of the video, like going backwards and forwards when
+  you click. I want everything in VLC media player that's longer than 45 seconds for this task and going forward."* He
+  first said Downloads, then the same day: *"Make a new folder within the AbsByAI project folder called 'Videos to
+  Review'. Add the files into that folder. Once the video is finalized, though, delete the files from that folder to
+  stop wasting hard drive space. Do that for this and every video going forward."*
+- How to apply: copy the full-quality delivered file (not the 540p review copy), named so he can tell which video and
+  round it is from the name alone, starting with the task name: `<task name> - <what it is>.mp4`, for example
+  `Daily Salad SFC R3 - short 4 - Stop Buying Salad Dressing.mp4`. After a re-render he will review, replace the copy.
+  Then open the folder for him (`open "Videos to Review"`) and list the file names in the chat message beside the page
+  link. The review page is still built every time.
+- **When Dan finalizes a video, delete its copies from `Videos to Review/` in that same session.** They are copies for
+  watching; the delivery folder stays the record. Delete only that video's files, never another task's.
+- The folder is git-ignored (the repo is public). Claude and Codex both do this, in every video skill.
+- Before sending a page link, load the page and request a byte range of one video (expect 200 and 206). A review server
+  started in an earlier session dies when the Mac restarts; restart it with `review_server.py PORT DIR` and re-check.
+
 ## No fat pinching or belly close-ups, above all in the first 30 seconds (Dan, 2026-10-04)
 
 - **Never build a shot around belly fat: no hands pinching or grabbing it, no push-in or crop that centres on it, no
