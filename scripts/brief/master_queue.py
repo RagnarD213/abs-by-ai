@@ -187,6 +187,8 @@ def plan_topup(inventory, live, now, guard, asset_checks=None):
     result = {'checkedAt': now.isoformat(), 'scheduleChanged': False, 'activation': 'held_for_parent_review', 'cap': CAP,
               'existingCount': len(live), 'create': [], 'held': [], 'overflow': [], 'outsideWindow': [], 'alreadyScheduled': []}
     end = now + timedelta(days=30)
+    result['existingOutsideWindow'] = [{'scheduleId':str(i['id']), 'platform':i['draft']['content']['platform'],
+                                       'scheduledAt':i['scheduledAt']} for i in live if stamp(i['scheduledAt']) >= end]
     for r in sorted(records, key=lambda r: r['scheduledAt']):
         key, at = r['id'], stamp(r['scheduledAt'])
         if key in existing or inventory.submission(key) == 'confirmed':
@@ -257,6 +259,11 @@ def _reconcile_locked(inventory, fetch, create, now, guard, approved_digest, ass
         latest = fetch()
         if len(latest) >= CAP:
             break
+        fresh = plan_topup(inventory, latest, now, guard, asset_checks)
+        if item['id'] not in {r['id'] for r in fresh['create']}:
+            # A concurrent writer can occupy this account/time without filling
+            # the global cap. Never create a colliding placement.
+            continue
         keys = {identity({k: i['draft'][k] for k in ('accountId', 'content', 'target')}, i['scheduledAt']) for i in latest}
         if item['id'] in keys:
             continue

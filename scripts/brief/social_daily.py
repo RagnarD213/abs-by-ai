@@ -20,6 +20,7 @@ from urllib.request import Request, build_opener, HTTPRedirectHandler
 
 from master_queue import Inventory, locked, from_live, import_studio, plan_topup
 from review_queue import review
+from public_tiles import published_posts, acquire
 
 
 def private_json(file, data):
@@ -150,13 +151,16 @@ def main():
         evidence_file = directory / 'public-tile-evidence.json'
         evidence = json.loads(evidence_file.read_text()) if evidence_file.exists() else {}
         queue = review(current, live, now, checks, evidence)
-        queue['released'] = review(records, live, now, checks, evidence)['released']
-        profiles = {'youtube':'https://www.youtube.com/channel/UC236gjadarHAhEhOMYNGJ9g/shorts',
-                    'tiktok':'https://www.tiktok.com/@absbyai', 'facebook':'https://www.facebook.com/1294282227094660',
-                    'instagram':'https://www.instagram.com/danrosefit/'}
-        with ThreadPoolExecutor(max_workers=4) as pool:
-            profile_checks = list(pool.map(lambda pair: public_profile_check(*pair, now), profiles.items()))
-        private_json(directory / 'public-profile-checks.json', profile_checks)
+        if args.live:
+            try:
+                published = published_posts(api, api.api_key(), now)
+                private_json(directory / 'published-source.json', {'checkedAt':now.isoformat(),'items':published})
+                observations_file = directory / 'public-grid-observations.json'
+                observations = json.loads(observations_file.read_text()) if observations_file.exists() else []
+                queue['released'], profile_checks = acquire(records,published,now,directory,private_json,observations,evidence)
+                queue['coverageNote'] += ' '+str(len(published))+' Blotato published URLs checked. '+ ' '.join(p['platform']+': HTTP '+str(p['httpStatus'])+', '+str(p['tileCount'])+' HTTP/'+str(p['browserTileCount'])+' browser tiles.' for p in profile_checks)
+            except Exception:
+                queue['coverageNote'] += ' Blotato published-post read failed; post-release coverage remains unknown.'
         plan = plan_topup(inventory, live, now, guard.assert_organic, checks)
         master = [{k: r[k] for k in ('id', 'platform', 'account', 'scheduledAt', 'title', 'caption', 'media', 'cover', 'kind', 'approval', 'provenance')} for r in records]
         private_json(directory / 'migration-plan.json', plan)
