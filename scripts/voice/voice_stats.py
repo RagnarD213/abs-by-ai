@@ -26,6 +26,10 @@ Counts are per 100 words. Definitions:
 - para_words: words per paragraph (blank-line separated; if a file has no blank lines, each line is a paragraph).
 - punch_pct: share of multi-sentence paragraphs whose LAST sentence is 6 words or fewer (the "kicker" ending).
 - oneline_pct: share of paragraphs that are a single sentence of 10 words or fewer.
+
+Small everyday words (`--small`, per 1,000 words; added 2026-10-08, Dan Voice P2A). Claude's scripts are too clean:
+a first pass found almost 3 times Dan's "actually" and half or less of his "really", "very", "kind of", "stuff" and
+"things". The list is in SMALL below; the per-type baselines are in `.claude/skills/_shared/voice/STATS.md`.
 """
 import argparse
 import json
@@ -41,6 +45,10 @@ AND = re.compile(r"\band\b", re.I)
 ITEM = r"[\w$%'-]+(?: [\w$%'-]+){0,3}"
 LIST3 = re.compile(ITEM + r", " + ITEM + r",? (?:and|or) [\w$%'-]+", re.I)
 WORD = re.compile(r"[A-Za-z0-9$%][\w$%'-]*")
+SMALL = ["actually", "really", "very", "kind of", "sort of", "stuff", "things", "going to", "gonna", "which", "because",
+         "just", "so", "pretty", "a lot", "you know", "basically", "literally", "definitely", "obviously", "honestly",
+         "simply", "truly", "essentially", "I mean", "right", "okay", "now", "well", "like"]
+SMALL_RE = {w: re.compile(r"\b" + w.replace(" ", r"\s+") + r"\b", re.I) for w in SMALL}
 
 
 def normalize(text):
@@ -97,6 +105,13 @@ def measure(text):
     }
 
 
+def small_words(text):
+    """Small everyday words per 1,000 words."""
+    text = normalize(text)
+    n = len(words(text)) or 1
+    return {w: round(1000.0 * len(rx.findall(text)) / n, 2) for w, rx in SMALL_RE.items()}
+
+
 def read_pile(path):
     if os.path.isdir(path):
         chunks = []
@@ -119,15 +134,27 @@ def main():
     ap.add_argument("files", nargs="*", help="text files or folders, each measured on its own")
     ap.add_argument("--pile", action="append", default=[], help='"Label=path" (folder or file), pooled')
     ap.add_argument("--json", action="store_true")
+    ap.add_argument("--small", action="store_true", help="small everyday words per 1,000 instead of the main table")
     a = ap.parse_args()
-    rows = []
+    rows, texts = [], []
     for spec in a.pile:
         label, _, path = spec.partition("=")
-        rows.append((label, measure(read_pile(path))))
+        texts.append((label, read_pile(path)))
     for f in a.files:
-        rows.append((os.path.basename(f.rstrip("/")), measure(read_pile(f))))
-    if not rows:
+        texts.append((os.path.basename(f.rstrip("/")), read_pile(f)))
+    if not texts:
         ap.error("give at least one file or --pile")
+    if a.small:
+        small = [(label, small_words(t)) for label, t in texts]
+        if a.json:
+            print(json.dumps({k: v for k, v in small}, indent=2))
+            return
+        print("| per 1,000 words | " + " | ".join(label for label, _ in small) + " |")
+        print("|---|" + "---:|" * len(small))
+        for w in SMALL:
+            print(f"| {w} | " + " | ".join(str(m[w]) for _, m in small) + " |")
+        return
+    rows = [(label, measure(t)) for label, t in texts]
     if a.json:
         print(json.dumps({k: v for k, v in rows}, indent=2))
         return

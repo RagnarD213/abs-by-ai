@@ -1,0 +1,15 @@
+{
+  "cold": {
+    "about": "Cold Claude: no guide and no examples. The writer sees only the content brief and one line on who Dan is. This is the floor every other setup is measured against.",
+    "files": []
+  },
+  "guide": {
+    "about": "Today's guide as a writing skill would load it: DAN-VOICE.md, every file in _shared/voice/ (the Part 1 examples, the P2A example files and the swearing rules), WRITING-RULES.md and the personal facts entry.",
+    "files": [
+      ".claude/skills/_shared/DAN-VOICE.md",
+      ".claude/skills/_shared/voice/*.md",
+      ".claude/skills/_shared/WRITING-RULES.md",
+      "Docs/memory/dan-personal-facts-for-scripts.md"
+    ]
+  }
+}
