@@ -165,6 +165,10 @@ frames (pilot: 43 dB PSNR).
   has none, keep that video's existing wall stretch rather than zooming in past the shoulders.
 - Text: `line-height: 1.4` + `top: y` puts Poppins on PIL's baseline (ascent 1050 / descent 350). Measured within 4 px.
 
+- **A template or `build.py` edit re-renders every scene of every video on its next `from_plan.py --render`** (the skip
+  stamp hashes the template text), overwriting renders Dan approved. On a locked film copy `hf/renders` aside first,
+  then prove the new renders against the old with ffmpeg `psnr` on rgba (RO-11, 2026-10-08: all identical except the
+  side lists' drift default).
 - One root composition per folder; a timed `.clip` wrapper with nested content warns. Plain divs + one paused timeline.
 - `@font-face` to a file inside the project, or lint fails.
 - `fromTo` for every initial state; finite `repeat` only; motion along a path = proxy object + `onUpdate`.
