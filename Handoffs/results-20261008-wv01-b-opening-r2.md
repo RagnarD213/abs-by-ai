@@ -41,3 +41,7 @@ He rejected the three firing people's heavy physiques and requested significantl
 His instruction: "Give me the new start and end frames here and once we lock start and end frames we'll make a handoff of the new task". No new-task handoff or motion was made during this frame revision. The previous continuation prompt is withdrawn pending that frame lock. Crop, photo, title and join were not newly approved by this message.
 
 Recommended next model: GPT-6 Astra, high effort, consistent with the flagship website-video routing and original handoff.
+
+## R2 final lock and next round
+
+Dan approved both displayed revised firing endpoints: "Okay those new start n-frames look good. Give me the handoff for the next round". Exact approval is recorded in private decisions.json and frame-hashes.json. Next task: Fired Them All AD R3. Handoff: `Handoffs/handoff-20261008-wv01-b-round3-selected-motion-and-opening.md`. No motion generated in R2.

@@ -90,7 +90,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **Meta follower test - RUNNING 2026-10-08, Claude.** Auto-boost OFF; one $40/day ad self-runs Oct 16-22. Resume nothing. Nov 1 report: `Docs/AUTO_BOOST.md`.
 
-**WV01-B-Codex:REVIEW 2026-10-08.** R2:firing-pair. `Handoffs/results-20261008-wv01-b-opening-r2.md`.
+**WV01-B-Codex:HANDOFF 2026-10-08.** R3:motion/opening. `Handoffs/handoff-20261008-wv01-b-round3-selected-motion-and-opening.md`.
 
 **RO-01 - QUEUED 2026-10-07, Codex.** Dec6/7. TikTok limit unresolved. Next: release check. `Docs/RO01_SETUP_RECEIPT_20261007.md`.
 
