@@ -23,14 +23,17 @@
   verifies it is running, and returns. macOS restarts it after a crash and at the next login. Do not use a temporary
   terminal server, `nohup`, or `python3 -m http.server` for a delivered review. `--serve` is for the managed worker/tests.
 - Reuse the same port and review folder when repairing an existing link. Never replace another review on that port.
-  The service code lives in local Application Support, so its startup does not depend on the project folder or an
-  external drive being available. Media on an external drive still needs that drive connected; reconnect and reload.
-  The VLC copies are actual files in `Videos to Review/`, not shortcuts to the external drive.
+  The service code and web-linked review assets are copied to local Application Support. Published pages therefore
+  work even when the editing drive is disconnected. This also avoids macOS background access failures on removable
+  drives. Only files linked from the page are cached; raw footage and build intermediates are excluded. Run the same
+  command after updating a review page or export to refresh its cache before giving Dan the link. The command checks
+  the served page before reporting success. VLC copies are actual files, not shortcuts to the external drive.
 - Before sending a page link, load the page and request a byte range of one video (expect 200 and 206), then verify
   browser seeking. When changing server lifecycle code, also terminate its managed worker and prove the same URL
   recovers automatically. Never claim a reboot test unless the Mac was actually restarted.
 - After Dan has reviewed and finalized a video, remove only its review copies and stop its now-unused page service
-  with `python3 .claude/skills/_shared/review_server.py PORT --remove`. Retain original delivery files and approvals.
+  with `python3 .claude/skills/_shared/review_server.py PORT --remove`. This also removes that page's local cache.
+  Retain original delivery files and approvals.
   Time passing or watching a preview alone is not finalization.
 
 ## AI clip faults: judge at playback speed; small faults pass (Dan, 2026-10-08)

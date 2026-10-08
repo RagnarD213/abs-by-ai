@@ -66,7 +66,8 @@ never jumps the page or covers it. Serve the page with `.claude/skills/_shared/r
 `python3 -m http.server`: the built-in server ignores byte ranges, so a click on a video's timeline does nothing.
 On macOS this command now installs a persistent login service and returns after checking it. Require the
 "Managed review ready" result; do not leave delivery dependent on a chat terminal. The server restarts after a crash
-and at login. Keep external media connected. Before sending, seek in one player and confirm the time moves.
+and at login. It caches the linked page assets locally so the editing drive can be disconnected. Run the command
+again after page or video changes to refresh the published cache. Before sending, seek in one player and confirm the time moves.
 Long review files also go in `Videos to Review/` under the shared rule above. Layout reference: `kit9x16/sbl_page.py`.
 
 Reference build: `/Volumes/Extreme/_edit_work/ro16/round1/index.html`, generator `.claude/skills/longform-edit/reference/ro16/page.py`.

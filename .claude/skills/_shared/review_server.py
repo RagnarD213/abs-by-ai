@@ -5,10 +5,14 @@ review_server.py PORT DIR --serve     foreground worker (tests/launchd)
 review_server.py PORT --remove        stop/remove this managed review service
 
 The same URL survives chat completion, process crashes and the next Mac login.
-External media must remain mounted. No media is uploaded.
+Published page assets are cached locally. No media is uploaded.
 """
 import argparse
 import functools
+import html
+from html.parser import HTMLParser
+import shutil
+from urllib.parse import unquote, urlsplit
 import http.server
 import json
 import os
@@ -25,7 +29,8 @@ import urllib.request
 class Handler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
         if self.path == '/__review_health':
-            body = json.dumps({'root': str(Path(self.directory).resolve()),
+            body = json.dumps({'root': os.environ.get('ABS_REVIEW_SOURCE_ROOT', str(Path(self.directory).resolve())),
+                               'served_root': str(Path(self.directory).resolve()),
                                'available': Path(self.directory).is_dir(),
                                'pid': os.getpid()}).encode()
             self.send_response(200)
@@ -105,6 +110,60 @@ def health(port):
         return None
 
 
+def snapshot(root, destination):
+    """Copy only web-linked assets, not raw footage or render intermediates."""
+    class Links(HTMLParser):
+        def __init__(self):
+            super().__init__()
+            self.paths = []
+        def handle_starttag(self, tag, attrs):
+            self.paths.extend(v for k, v in attrs if k in ('src', 'href', 'poster') and v)
+    destination.mkdir(parents=True, exist_ok=True)
+    pending = ['index.html']
+    seen = set()
+    records = []
+    while pending:
+        relative = pending.pop()
+        if relative in seen:
+            continue
+        seen.add(relative)
+        source = root / relative
+        if not source.is_file():
+            raise FileNotFoundError(f'Review link missing: {source}')
+        target = destination / relative
+        target.parent.mkdir(parents=True, exist_ok=True)
+        info = source.stat()
+        if not target.exists() or (target.stat().st_size, target.stat().st_mtime_ns) != (info.st_size, info.st_mtime_ns):
+            tmp = target.with_name(target.name + '.copying')
+            shutil.copy2(source, tmp)
+            tmp.replace(target)
+        records.append({'path': relative, 'bytes': info.st_size, 'mtime_ns': info.st_mtime_ns})
+        if source.suffix.lower() not in ('.html', '.htm', '.css', '.js'):
+            continue
+        text = html.unescape(source.read_text())
+        parser = Links()
+        parser.feed(text)
+        refs = parser.paths
+        # Includes quoted JavaScript context-video paths and CSS font/image URLs.
+        refs += re.findall(r"[\"']([^\"'<>\n]+\.(?:mp4|webm|mov|m4v|mp3|wav|m4a|jpg|jpeg|png|webp|gif|svg|css|js|woff2?|ttf|vtt|srt|html?)(?:[?#][^\"'<>\n]*)?)[\"']", text, re.I)
+        refs += re.findall(r'url\([\"\']?([^()\"\']+)[\"\']?\)', text)
+        for ref in refs:
+            url = urlsplit(ref)
+            if url.scheme or url.netloc or not url.path or url.path.startswith('data:'):
+                continue
+            path = unquote(url.path)
+            candidate = root / path.lstrip('/') if path.startswith('/') else source.parent / path
+            candidate = Path(os.path.abspath(candidate))
+            try:
+                local = candidate.relative_to(root).as_posix()
+            except ValueError:
+                raise ValueError(f'Review link escapes served folder: {ref}')
+            if candidate.is_dir():
+                local = str(Path(local) / 'index.html')
+            pending.append(local)
+    return records
+
+
 def managed(port, root, remove=False):
     label = f'com.absbyai.review.{port}'
     domain = f'gui/{os.getuid()}'
@@ -115,11 +174,13 @@ def managed(port, root, remove=False):
         subprocess.run(['launchctl', 'bootout', target], capture_output=True)
         if plist.exists():
             plist.unlink()
-        print(f'Removed review service on {port}. Review media retained.')
+        if runtime.exists():
+            shutil.rmtree(runtime)
+        print(f'Removed review service and its local page cache on {port}. Original delivery files retained.')
         return
     if plist.exists():
         old = plistlib.loads(plist.read_bytes())
-        if Path(old['ProgramArguments'][3]).resolve() != root:
+        if Path(old.get('EnvironmentVariables', {}).get('ABS_REVIEW_SOURCE_ROOT', old['ProgramArguments'][3])).resolve() != root:
             raise RuntimeError(f'Port {port} is registered to another review. Use another port or --remove first.')
     # Refuse to displace another service, including a legacy review, without identifying it first.
     import socket
@@ -135,10 +196,14 @@ def managed(port, root, remove=False):
         temporary = runtime / 'review_server.py.tmp'
         temporary.write_bytes(content)
         temporary.replace(worker)
+    cache = runtime / 'page'
+    records = snapshot(root, cache)
+    (runtime / 'manifest.json').write_text(json.dumps({'source': str(root), 'files': records}, indent=2))
     log = runtime / 'server.log'
-    args = [sys.executable, str(worker), str(port), str(root), '--serve']
+    args = [sys.executable, str(worker), str(port), str(cache), '--serve']
     config = {'Label': label, 'ProgramArguments': args, 'RunAtLoad': True,
               'KeepAlive': True, 'ThrottleInterval': 3,
+              'EnvironmentVariables': {'ABS_REVIEW_SOURCE_ROOT': str(root)},
               'StandardOutPath': str(log), 'StandardErrorPath': str(log)}
     plist.parent.mkdir(parents=True, exist_ok=True)
     plist.write_bytes(plistlib.dumps(config))
@@ -148,9 +213,12 @@ def managed(port, root, remove=False):
     deadline = time.monotonic() + 15
     while time.monotonic() < deadline:
         state = health(port)
-        if state and Path(state['root']) == root:
+        if state and Path(state['root']) == root and state.get('served_root') == str(cache):
+            with urllib.request.urlopen(f'http://127.0.0.1:{port}/', timeout=2) as response:
+                if response.status != 200:
+                    raise RuntimeError('Cached review page did not load')
             print(f'Managed review ready: http://127.0.0.1:{port}/')
-            print(f'Automatic restart and login startup enabled. Media available: {state["available"]}')
+            print(f'Automatic restart and login startup enabled. {len(records)} linked files cached locally.')
             return
         time.sleep(.25)
     raise RuntimeError(f'Review did not start. Read {log}')
