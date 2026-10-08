@@ -1003,14 +1003,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/RO-06-work-out-at-home-on-a-budget.md`: transcribe the rolls, map the takes to the script, and cut \"How To Work Out At Home On A Budget\" into a finished 16:9 first cut with /longform-edit to the approved organic standard (Zeeshan's ab wheel videos). Fill the B-roll and graphics cues, audio through the shared chain, every gate, independent audit, deliver master + SRT + chapters, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-06-work-out-at-home-on-a-budget.md` with `$long-form-content-edit` and the frozen organic recipe. Deliver master + SRT + chapters, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "draft_review",
-   "note": "Round 2 first minute delivered 10-08; waiting on Dan's 8 answers. Next: handoff-20261008-ro06-round2-dan-review.md",
+   "state": "ready",
+   "note": "Round 3 (Dan's 10-08 notes on the round 2 first minute): fire handoff-20261008-ro06-round3-first-minute-ai-clips.md",
    "sub": "",
    "order": 47,
    "updated": "2026-10-08",
    "by": "Claude",
-   "rev": 5,
-   "syncedRev": 5,
+   "rev": 6,
+   "syncedRev": 6,
    "needs": ""
   },
   {

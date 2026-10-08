@@ -120,7 +120,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **RO-11 - IN PROGRESS 2026-10-08, Claude.** Full film building (task `Calories Don't Matter LFC R2`). Next: gates, review, deliver. `handoff-20261008-ro11-round2-build-full-film-opener-locked.md`.
 
-**RO-06 - NEEDS DAN 2026-10-08, Claude.** http://localhost:8847/index.html. Then `handoff-20261008-ro06-round2-dan-review.md`.
+**RO-06 - HANDOFF 2026-10-08, Claude.** Fire `handoff-20261008-ro06-round3-first-minute-ai-clips.md`.
 
 **RO-12 - QUEUED 2026-10-01, Claude.** Blotato Oct 25. Then: `Docs/RO12_SETUP_RECEIPT_20261001.md`, delete.
 
