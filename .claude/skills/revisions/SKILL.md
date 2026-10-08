@@ -1442,3 +1442,19 @@ For evidence receipts and blind benchmark freezes, use [REVIEW_EVIDENCE.md](refe
     hair assertion fails on his tighter framings: it now warns, and the doc's opening section tells him where a one line
     (250 px) and two line (315 px) graphic ends so he frames the hair below it. His new repeat fault: he switches wide
     and tight on the cut, but the tight is only 4 to 10% closer; measure the ratio and ask for 25 to 30%.
+74. **Round 2 of a long-form: two checks that paid off, and one trap (Zeeshan Video 5, 2026-10-08).**
+    (a) **Sort the previous round's jump cuts with stacked strips**: for each listed time, 8 frames at 4 fps from the cut,
+    round 1 on top and round 2 underneath. Each lands in one of four bins: now a wide/tight change, now under a clip,
+    same size with a transition laid on top, untouched. A zoom or blur transition over a same-size cut is not a fix
+    (CUT-CONTINUITY-QC). Before LISTING a cut in round 1, check that both sides are the same size: the 10-05 list of 29
+    included cuts that were already tight to wide.
+    (b) **An added sound effect can be measured, not guessed.** When the new mix is the previous round's lav channel plus
+    changes (check first: 16 kHz mono against each old channel, here r 0.996 at zero lag against the right), subtract
+    them. Bursts in the leftover are what changed. Sign test: correlate a burst with each mix; it sits in round 2 if it
+    correlates with round 2 and not round 1 (added), and the reverse if it was removed. Same-sample test: the bursts
+    match each other at r 0.9 or more. This found a whoosh on 18 new transitions and proved the lower-third sounds had
+    been taken out. A new label style is also checked on the BRIGHTEST clip it sits on (plain white text vanished on a
+    gym window).
+    (c) ⚠ **Never `pkill -f` a whisper or ffmpeg command line.** A concurrent revisions session runs the identical
+    command from the same prep template; this killed the other session's transcript mid-run and it had to be
+    regenerated. Stop your own step by PID: `pgrep -P <your prep.sh pid>`.
