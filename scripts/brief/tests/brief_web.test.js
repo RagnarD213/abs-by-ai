@@ -76,6 +76,13 @@ async function main() {
     await store.writeImage('image/png',Buffer.from('synthetic-private-image'));
     assert.equal((await request('/api/brief/image')).status,401);
     assert.equal(await (await request('/api/brief/image',{headers:{cookie:sessionCookie}})).text(),'synthetic-private-image');
+    const imageHash = crypto.createHash('sha256').update('synthetic-private-image').digest('hex');
+    const versionedImage = await request('/api/brief/image?sha256='+imageHash,{headers:{cookie:sessionCookie}});
+    assert.equal(versionedImage.status,200); assert.equal(versionedImage.headers.get('x-brief-image-sha256'),imageHash);
+    assert.equal(await versionedImage.text(),'synthetic-private-image');
+    assert.equal((await request('/api/brief/image?sha256='+'0'.repeat(64),{headers:{cookie:sessionCookie}})).status,409);
+    assert.equal((await request('/api/brief/image?sha256=bad',{headers:{cookie:sessionCookie}})).status,400);
+    assert.equal((await request('/api/brief/image?sha256=bad')).status,401);
     payload = {...claims,sub:'different-sub-same-email'}; assert.equal((await login()).status,403);
     const altered = sessionCookie.slice(0,-1)+(token.endsWith('a')?'b':'a'); assert.equal((await request('/api/brief/data',{headers:{cookie:altered}})).status,401);
     assert.equal((await request('/api/brief/data',{headers:{cookie:COOKIE+'=%ZZ'}})).status,401);
@@ -90,6 +97,12 @@ async function main() {
     const pinned = await store.owner(); assert.equal(pinned.google_sub,claims.sub);
     const invalid = [true,null,'true',1];
     for (const routineEnabled of invalid) assert.throws(() => validate({...sample,routineEnabled},clock));
+    const image = {forDate:sample.forDate,sha256:'a'.repeat(64),mime:'image/png',sizeBytes:45,publishedAt:new Date(clock).toISOString()};
+    assert.deepEqual(validate({...sample,imageAvailable:true,image},clock).image,image);
+    assert.equal(validate(sample,clock).image,null); // Legacy editions remain readable.
+    assert.equal(validate({...sample,imageAvailable:true,image:{...image,forDate:'2026-09-29'}},clock).image.forDate,'2026-09-29');
+    for (const change of [{sha256:'A'.repeat(64)},{sha256:'a'.repeat(64)+'\n'},{mime:'text/html'},{sizeBytes:4},{sizeBytes:8*1024*1024+1},{sizeBytes:4.5},{forDate:'2026-10-01'},{publishedAt:new Date(clock+301000).toISOString()}]) assert.throws(()=>validate({...sample,imageAvailable:true,image:{...image,...change}},clock));
+    assert.throws(()=>validate({...sample,imageAvailable:false,image},clock));
     assert.throws(() => validate({...sample,focus:{...sample.focus,status:'current',statedAt:new Date(clock-40*3600000).toISOString(),applicableDate:sample.forDate}},clock));
     assert.throws(() => validate({...sample,opportunities:[{title:'Bad link',detail:'Example',source:'Fixture',url:'javascript:alert(1)'}]},clock));
     const queue = {status:'partial',checkedAt:new Date(clock).toISOString(),windowFrom:new Date(clock).toISOString(),windowTo:new Date(clock+7*86400000).toISOString(),sourceCoverage:{blotato:'ok',youtubeStudio:'unverified'},rows:[{id:'fixture',platform:'YouTube',account:'Synthetic',scheduledAt:new Date(clock+86400000).toISOString(),title:'Example release',preflight:{cover:'missing',description:'unverified',links:'verified',duplicates:'not_applicable',assetMatch:'unverified'}}]};

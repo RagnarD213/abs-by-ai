@@ -109,6 +109,10 @@ function createRouter({store, env = process.env, verifyToken, now = Date.now}) {
     try {
       const image = await store.readImage();
       if (!image || !['image/png','image/jpeg'].includes(image.mime)) return res.sendStatus(404);
+      const expected = req.query.sha256, actual = digest(image.bytes);
+      if (expected !== undefined && (typeof expected !== 'string' || expected.length !== 64 || !/^[a-f0-9]{64}$/.test(expected))) return res.status(400).json({error:'Invalid image version'});
+      if (expected !== undefined && expected !== actual) return res.status(409).json({error:'Image does not match this edition'});
+      res.set('X-Brief-Image-SHA256',actual);
       return res.type(image.mime).send(image.bytes);
     } catch { return res.status(503).json({error:'Private image unavailable'}); }
   });
