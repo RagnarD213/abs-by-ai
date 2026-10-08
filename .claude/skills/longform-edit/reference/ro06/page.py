@@ -88,4 +88,4 @@ reply = "RO-06 round 1\n" + "\n".join(f"{i}. {t}: {rec}" for i, (t, rec, o, w) i
 h += ["</div><h2>Your reply</h2><p class='muted'>My recommendations are filled in. Change any line, add notes, then copy and paste it to me.</p>",
       f"<textarea id='reply'>{e(reply)}</textarea><br><button onclick=\"navigator.clipboard.writeText(document.getElementById('reply').value);this.textContent='Copied'\">Copy</button>",
       "<script>function play(id){var v=document.getElementById('player');v.src='context/'+id+'-context - REVIEW 540p.mp4';document.getElementById('docklabel').textContent=id+' in context';v.play();}</script></main>"]
-open(f"{O}/index.html", "w").write("\n".join(h)); print("page:", len(rows), "items,", len(ctx), "context clips,", "em dashes:", "\n".join(h).count("—"))
+open(f"{O}/index.html", "w").write("\n".join(h)); print("page:", len(rows), "items,", len(ctx), "context clips,", "em dashes:", "\n".join(h).count(chr(8212)))
