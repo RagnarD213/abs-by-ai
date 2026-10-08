@@ -36,6 +36,26 @@
   Retain original delivery files and approvals.
   Time passing or watching a preview alone is not finalization.
 
+## Round 1 always reviews every graphic, stock item and clip; later rounds are lighter (Dan, 2026-10-08)
+
+- **In the first round of every video, content videos included, Dan is shown all the graphics, all the stock and all the
+  clips for review.** Dan: *"I want to go back to doing graphics review for content in the first round, like we used to
+  do with graphics review in the first round. I want to keep that in the first round, but just make that less extensive
+  than the Codex original VSL process for subsequent rounds. Let's always do graphics review for all videos in the first
+  round, graphics stock and clips review."*
+- How to apply (editor's reading of his words): round 1's review page shows every graphic as a still on its real frame,
+  every stock clip or photo, and every other clip (AI, B-roll, app demo) in timeline order, three per row, with the
+  "Play it moving, in context" button where a graphic moves. Nothing is locked on the editor's say-so alone before Dan
+  has seen it there. That includes full-screen title and section cards.
+- **Later rounds show only what changed or is new**, on the same page layout. Do not run the VSL's deeper cadence (still,
+  then moving preview, then context, item by item across several rounds) on a content video.
+- The numbered "Your decisions" list stays short and holds only real questions. Showing everything is a review, not a
+  form: one reply box, and his notes name what to change.
+- This replaces the part of the 2026-09-29 approval budget below that let routine graphics, stock and clips be chosen and
+  locked without being shown. The AI start and end frame gate, the first minute and the full film are unchanged.
+- Context: said the day RO-11's finished film came back with one note, that its seven full-screen section cards looked
+  empty and each needed a picture on the right.
+
 ## AI clip faults: judge at playback speed; small faults pass (Dan, 2026-10-08)
 
 - **A small fault that only shows frame by frame does not reject an AI clip.** On the RO-11 opener, two takes were rejected
@@ -237,7 +257,7 @@ rule and spell out all five slots. Reference:
 
 ## Organic content approval budget (Dan, 2026-09-29)
 
-For organic content videos, the newer approval budget below replaces older requirements for Dan to approve every graphic and clip separately and the shared 10 to 15 decisions per video guidance. Keep the stepwise internal checks and the real approval gates. The **first approval round has at most 20 decisions**. In later rounds, **aim for 10 or fewer decisions per round**. These are ceilings, not targets. Ask Dan only about materially uncertain choices that require his judgment. Choose and check routine assets yourself, summarize what you chose, and let him overrule while reviewing the first minute and the finished film. Never reopen unchanged approved items or infer approval from silence. New AI motion still needs approved start/end frames first; show materially uncertain finished motion in context before locking it. The website VSL approval cadence remains separate and more detailed.
+**Round 1 now always shows Dan every graphic, stock item and clip (Dan, 2026-10-08; section near the top of this file).** For organic content videos, the newer approval budget below replaces older requirements for Dan to approve every graphic and clip separately and the shared 10 to 15 decisions per video guidance. Keep the stepwise internal checks and the real approval gates. The **first approval round has at most 20 decisions**. In later rounds, **aim for 10 or fewer decisions per round**. These are ceilings, not targets. Ask Dan only about materially uncertain choices that require his judgment. Choose and check routine assets yourself, summarize what you chose, and let him overrule while reviewing the first minute and the finished film. Never reopen unchanged approved items or infer approval from silence. New AI motion still needs approved start/end frames first; show materially uncertain finished motion in context before locking it. The website VSL approval cadence remains separate and more detailed.
 
 ## Categorize every video before editing it: content gets Shorts, ads get formats (Dan, 2026-10-04)
 

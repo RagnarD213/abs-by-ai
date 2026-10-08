@@ -11,6 +11,12 @@ passed four reviews, and was still rejected on sight for its intro, graphics and
 
 ## Decision budget for organic and other non-VSL videos (Dan, 2026-09-29)
 
+**Round 1 always shows every graphic, stock item and clip (Dan, 2026-10-08).** *"Let's always do graphics review for all
+videos in the first round, graphics stock and clips review."* The first round's page carries all of them for his look,
+each on its real frame; later rounds show only what changed and stay lighter than the VSL cadence. The budget below
+still governs how many QUESTIONS he is asked; it no longer lets an item be locked without being shown in round 1.
+Full rule: VIDEO-RULES.md, "Round 1 always reviews every graphic, stock item and clip".
+
 **For these formats, this overrides every "Dan approves each item" line below.** RO-05 round 3 put about 50 items in front of him (every graphic
 and clip, one by one). Dan: *"This is way too complicated... I can't be approving this much stuff per video... Just go with what
 you think is best for most of this and reduce it to 10 to 15 decisions max. Only for things that legitimately need my decision."*

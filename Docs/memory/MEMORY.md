@@ -184,6 +184,7 @@
 - ["Watch this video if" sparingly](watch-this-video-if-sparingly.md): 10-07: formulaic in most intros; only when it adds something, wording varied
 - [Follow-along workout format](followalong-workout-script-format.md): 10-07: no script during rounds; rests sized to the rest length; "Next Exercise" picture-in-picture
 - [Videos to Review folder](videos-to-review-folder.md): 10-08: every review video 45 s+ also copied to project folder "Videos to Review" for VLC; delete at finalize; page still built
+- [Round 1: full graphics review](round1-full-graphics-review.md): 10-08: round 1 shows Dan all graphics, stock and clips; later rounds only changes
 - [Execute Dan's explicit picks](execute-dans-explicit-picks.md): 10-06: build exactly the person/clip/topic he names; never swap, hold or reroute it for reputational or news reasons ("stop being a Karen")
 - [Allegations are not facts](allegations-not-fact.md): 10-06: unproven charges/accusations against Clavicular, Tate, manosphere figures: never mentioned at all (not even "charged with") unless Dan asks about the case itself; never a reason to change a plan
 - [Assessment symmetry](assessment-symmetry.md): 10-08: one template and one standard for both sides; swap test (Trump/Newsom, Tate/Destiny); judge records on measured results vs promises and a benchmark, then a definite conclusion
