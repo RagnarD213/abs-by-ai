@@ -85,6 +85,8 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 # ACTIVE
 
+**SL-03 covers - NEEDS DAN 2026-10-08, Claude.** Picks pending.
+
 **WV01-B-Codex:REVIEW 2026-10-07.** [Opening](Handoffs/results-20261007-wv01-b-opening-r1.md). Dan:review.
 
 **RO-01 - QUEUED 2026-10-07, Codex.** Dec6/7. TikTok limit unresolved. Next: release check. `Docs/RO01_SETUP_RECEIPT_20261007.md`.
@@ -196,7 +198,6 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard fire list; the runner deletes that row, this line and its README row.
 
-- `handoff-20261008-sl03-daily-salad-shorts-covers-and-setup.md` (10-08): six shorts; covers, then Blotato. From Oct 19. Sonnet medium.
 - `handoff-20261007-ro10-subtle-reedit-sunday-reupload.md` (10-07): RO-10 R3 end graphic, Sunday replacement. Codex Sol high.
 - `handoff-20261006-1017-shoot-outlines.md` (10-06)
 - `handoff-20261006-dan-voice-training-part1-finish.md` (10-06)
