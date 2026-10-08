@@ -1,0 +1,496 @@
+# Dan voice corpus: every source (generated 2026-10-08, Dan Voice P2A)
+
+One row per file in the local corpus (`voice-corpus/`, git-ignored; mirrored to Drive folder
+`1FE1_fv6XhV96w4OQDji51w7Lrz6ZpiOM`). Titles, tags and where each came from only: the text is never in this repo.
+Generated from `voice-corpus/_manifest/*.jsonl`; the summary and the rules are in `Docs/VOICE_CORPUS_INVENTORY.md`.
+Tier 0 = not Dan (Claude's drafts, other creators), kept as the comparison floor.
+
+## `ads/tier1/` (19 files, 10,912 words)
+
+| file | title | type | tier | year | spoken or written | audience | words | source | notes |
+|---|---|---|---:|---:|---|---|---:|---|---|
+| 2020-15-steps-book-ad-buy-on-amazon.txt | Buy On Amazon | ads | 1 | 2020 | written | business | 158 | 1WU4RYfH_0n_OJz2YtDptwQMZBdecHROubvBQ6v-HumY | dan-wrote; client own book |
+| 2020-15-steps-book-ad-buy-on-audible.txt | Buy On Audible | ads | 1 | 2020 | written | business | 239 | 1WU4RYfH_0n_OJz2YtDptwQMZBdecHROubvBQ6v-HumY | dan-wrote; client own book |
+| 2020-15-steps-book-ad-have-you-not-gotten-my-book-run-up-to-camera.txt | Have You Not Gotten My Book Run Up To Camera | ads | 1 | 2020 | written | business | 583 | 1WU4RYfH_0n_OJz2YtDptwQMZBdecHROubvBQ6v-HumY | dan-wrote; client own book |
+| 2020-15-steps-book-ad-how-to-start-a-business-with-0.txt | How To Start A Business With $0 | ads | 1 | 2020 | written | business | 1239 | 1WU4RYfH_0n_OJz2YtDptwQMZBdecHROubvBQ6v-HumY | dan-wrote; client own book |
+| 2020-15-steps-book-ad-the-best-way-to-make-money-working-from-home.txt | The Best Way To Make Money Working From Home | ads | 1 | 2020 | written | business | 1109 | 1WU4RYfH_0n_OJz2YtDptwQMZBdecHROubvBQ6v-HumY | dan-wrote; client own book |
+| 2020-15-steps-book-ad-the-top-5-reasons-why-you-need-to-advertise-on-youtube.txt | The Top 5 Reasons Why You Need To Advertise On YouTube | ads | 1 | 2020 | written | business | 1415 | 1WU4RYfH_0n_OJz2YtDptwQMZBdecHROubvBQ6v-HumY | dan-wrote; client own book |
+| 2026-absbyai-ad1-written.txt | Ad 1, How AI Got Me Abs (Dan's own outline text) | ads | 1 | 2026 | written | consumer | 667 | 160O1s3xcUGlVU_BjtZR5u_V2WgE9JSREUftUTPuZQEw | dan-wrote |
+| 2026-absbyai-ad3-written.txt | Ad 3, Stop Paying Human Trainers! Use AI Instead (Dan's own outline text) | ads | 1 | 2026 | written | consumer | 636 | 160O1s3xcUGlVU_BjtZR5u_V2WgE9JSREUftUTPuZQEw | dan-wrote |
+| 2026-absbyai-batch1-dan-typed-lines.txt | Batch 1 ads, only the lines Dan typed into Claude's scripts (Ads 2 to 10, 13 to 15) | ads | 1 | 2026 | written | consumer | 2873 | 1r3Jmuihyryq0qv2Y3A--D_yaerF9B_ZqAb-QvOuAwjg | dan-typed-lines-only |
+| 2026-absbyai-shorts-ad-ai-is-changing-the-world.txt | AI Is Changing The World | ads | 1 | 2026 | written | consumer | 207 | 1mqgnFYHDugEYDErNXqzWcPxUVRPStmxiXPU0HgNETS0 | dan-wrote; client Abs By AI |
+| 2026-absbyai-shorts-ad-ai-took-my-job.txt | AI Took My Job | ads | 1 | 2026 | written | consumer | 223 | 1mqgnFYHDugEYDErNXqzWcPxUVRPStmxiXPU0HgNETS0 | dan-wrote; authorship confidence medium; client Abs By AI |
+| 2026-absbyai-shorts-ad-do-you-think-ai-is-changing-the-world.txt | Do You Think AI Is Changing The World | ads | 1 | 2026 | written | consumer | 221 | 1mqgnFYHDugEYDErNXqzWcPxUVRPStmxiXPU0HgNETS0 | dan-wrote; client Abs By AI |
+| 2026-absbyai-shorts-ad-fire-your-trainer.txt | Fire Your Trainer | ads | 1 | 2026 | written | consumer | 182 | 1mqgnFYHDugEYDErNXqzWcPxUVRPStmxiXPU0HgNETS0 | dan-wrote; client Abs By AI |
+| 2026-absbyai-shorts-ad-how-ai-can-get-you-real-six-pack-abs.txt | How AI Can Get You REAL Six Pack Abs | ads | 1 | 2026 | written | consumer | 223 | 1mqgnFYHDugEYDErNXqzWcPxUVRPStmxiXPU0HgNETS0 | dan-wrote; client Abs By AI |
+| 2026-absbyai-shorts-ad-how-to-generate-abs-with-ai.txt | How To Generate Abs With AI | ads | 1 | 2026 | written | consumer | 155 | 1mqgnFYHDugEYDErNXqzWcPxUVRPStmxiXPU0HgNETS0 | dan-wrote; client Abs By AI |
+| 2026-absbyai-shorts-ad-the-ai-trick-that-got-me-abs.txt | The AI Trick That Got Me Abs | ads | 1 | 2026 | written | consumer | 192 | 1mqgnFYHDugEYDErNXqzWcPxUVRPStmxiXPU0HgNETS0 | dan-wrote; client Abs By AI |
+| 2026-absbyai-shorts-ad-top-3-tips-for-getting-abs.txt | Top 3 Tips For Getting Abs | ads | 1 | 2026 | written | consumer | 214 | 1mqgnFYHDugEYDErNXqzWcPxUVRPStmxiXPU0HgNETS0 | dan-wrote; client Abs By AI |
+| 2026-absbyai-shorts-ad-whats-the-best-ab-exercise.txt | Whats The Best Ab Exercise | ads | 1 | 2026 | written | consumer | 156 | 1mqgnFYHDugEYDErNXqzWcPxUVRPStmxiXPU0HgNETS0 | dan-wrote; client Abs By AI |
+| 2026-absbyai-shorts-ad-why-are-trainers-going-out-of-business.txt | Why Are Trainers Going Out Of Business | ads | 1 | 2026 | written | consumer | 220 | 1mqgnFYHDugEYDErNXqzWcPxUVRPStmxiXPU0HgNETS0 | dan-wrote; client Abs By AI |
+
+## `ads/tier2/` (107 files, 69,513 words)
+
+| file | title | type | tier | year | spoken or written | audience | words | source | notes |
+|---|---|---|---:|---:|---|---|---:|---|---|
+| 2019-hbi-3-ways-i-treated-my-arthritis-naturally.txt | 3 Ways I Treated My Arthritis Naturally | ads | 2 | 2019 | written | consumer | 604 | 1T7QYBDFfGNPaMXQfXr68CAJpegm2lsWPRWJCyjmhrw4 | dan-wrote-other-presenter; client HBI |
+| 2019-hbi-background-video-pause-hook-commercial.txt | Background Video Pause Hook Commercial | ads | 2 | 2019 | written | consumer | 790 | 1T7QYBDFfGNPaMXQfXr68CAJpegm2lsWPRWJCyjmhrw4 | dan-wrote-other-presenter; client HBI |
+| 2019-hbi-eat-this-not-that-if-you-have-arthritis.txt | Eat This, Not That If You Have Arthritis | ads | 2 | 2019 | written | consumer | 607 | 1T7QYBDFfGNPaMXQfXr68CAJpegm2lsWPRWJCyjmhrw4 | dan-wrote-other-presenter; client HBI |
+| 2019-hbi-how-people-over-65-can-treat-arthritis-pain.txt | How People Over 65 Can Treat Arthritis Pain | ads | 2 | 2019 | written | consumer | 394 | 1T7QYBDFfGNPaMXQfXr68CAJpegm2lsWPRWJCyjmhrw4 | dan-wrote-other-presenter; client HBI |
+| 2019-hbi-inflammatory-oil-vs-anti-inflammatory-oil.txt | Inflammatory Oil vs. Anti-Inflammatory Oil | ads | 2 | 2019 | written | consumer | 716 | 1T7QYBDFfGNPaMXQfXr68CAJpegm2lsWPRWJCyjmhrw4 | dan-wrote-other-presenter; client HBI |
+| 2019-hbi-outcome-based-approach.txt | Outcome Based Approach | ads | 2 | 2019 | written | consumer | 447 | 1T7QYBDFfGNPaMXQfXr68CAJpegm2lsWPRWJCyjmhrw4 | dan-wrote-other-presenter; client HBI |
+| 2019-hbi-the-dark-side-of-medication.txt | The Dark Side Of Medication | ads | 2 | 2019 | written | consumer | 564 | 1T7QYBDFfGNPaMXQfXr68CAJpegm2lsWPRWJCyjmhrw4 | dan-wrote-other-presenter; client HBI |
+| 2019-hbi-the-one-vegetable-you-should-never-eat.txt | The One Vegetable You Should Never Eat | ads | 2 | 2019 | written | consumer | 368 | 1T7QYBDFfGNPaMXQfXr68CAJpegm2lsWPRWJCyjmhrw4 | dan-wrote-other-presenter; client HBI |
+| 2019-hbi-which-food-makes-arthritis-worse.txt | Which Food Makes Arthritis Worse | ads | 2 | 2019 | written | consumer | 347 | 1T7QYBDFfGNPaMXQfXr68CAJpegm2lsWPRWJCyjmhrw4 | dan-wrote-other-presenter; client HBI |
+| 2019-hbi-why-whole-wheat-makes-arthritis-worse.txt | Why Whole Wheat Makes Arthritis Worse | ads | 2 | 2019 | written | consumer | 307 | 1T7QYBDFfGNPaMXQfXr68CAJpegm2lsWPRWJCyjmhrw4 | dan-wrote-other-presenter; client HBI |
+| 2020-hbi-10-inflammation-fighting-foods-reveal.txt | 10 Inflammation Fighting Foods Reveal | ads | 2 | 2020 | written | consumer | 590 | 1Q32YqOspDsiDXsx9wc3knuSzo07pPxPFiEEzAC4yrpQ | dan-wrote-other-presenter; shares text with a held-out piece, kept out of piles; client HBI |
+| 2020-hbi-dr-brian-paris-protein-equals-pain.txt | Dr. Brian Paris Protein Equals Pain | ads | 2 | 2020 | written | consumer | 247 | 1MTi-ReCiFmSSiNPfDy0KyehULpXrC8mRINWZGKXIuS8 | dan-wrote-other-presenter; client HBI; spend $5,963,939, CPA $66.66 |
+| 2020-hbi-five-foods-to-avoid-HELDOUT.txt | Five Foods To Avoid If You Have Arthritis (Jesse) | ads | 2 | 2020 | written | consumer | 519 | 1nCn7t0bF3aC0GrJZiG04UD26TRl86EhWCCR4EY_XAUQ | dan-wrote-other-presenter; HELD OUT (whole file); client HBI; spend $1,691,482, CPA $69.79 |
+| 2020-hbi-protein-equals-pain-testimonial-montage-mark.txt | Protein Equals Pain Testimonial Montage (Mark) | ads | 2 | 2020 | written | consumer | 189 | 1Q32YqOspDsiDXsx9wc3knuSzo07pPxPFiEEzAC4yrpQ | dan-wrote-other-presenter; client HBI; spend $904,578, CPA $48.7 |
+| 2020-hbi-seniors-having-fun-stock-clips-hook.txt | Seniors Having Fun Stock Clips Hook | ads | 2 | 2020 | written | consumer | 614 | 1Q32YqOspDsiDXsx9wc3knuSzo07pPxPFiEEzAC4yrpQ | dan-wrote-other-presenter; shares text with a held-out piece, kept out of piles; client HBI |
+| 2020-hbi-the-best-breakfast-for-arthritis.txt | The Best Breakfast For Arthritis | ads | 2 | 2020 | written | consumer | 661 | 1Q32YqOspDsiDXsx9wc3knuSzo07pPxPFiEEzAC4yrpQ | dan-wrote-other-presenter; client HBI |
+| 2021-hbi-how-to-fix-arthritis-in-3-simple-steps.txt | How To Fix Arthritis In 3 Simple Steps | ads | 2 | 2021 | written | consumer | 785 | 119mng1tchgMcJxY3hOkBwJVy6lC_sm0nxeYyStLV_X8 | dan-wrote-other-presenter; client HBI |
+| 2021-hbi-talent-reacting-to-foods.txt | Talent Reacting To Foods | ads | 2 | 2021 | written | consumer | 602 | 119mng1tchgMcJxY3hOkBwJVy6lC_sm0nxeYyStLV_X8 | dan-wrote-other-presenter; client HBI |
+| 2022-spy-briefing-do-not-use-boxing-in-a-street-fight.txt | Do NOT Use Boxing In A Street Fight | ads | 2 | 2022 | written | consumer | 790 | 1AZUSGQdzksSBRS7-wQI7CQvmpzJ5Bn_lqlEDWz6AEkc | dan-wrote-other-presenter; client Spy Briefing |
+| 2022-spy-briefing-top-3-self-defense-lessons-from-bruce-lee.txt | Top 3 Self Defense Lessons From Bruce Lee | ads | 2 | 2022 | written | consumer | 934 | 1AZUSGQdzksSBRS7-wQI7CQvmpzJ5Bn_lqlEDWz6AEkc | dan-wrote-other-presenter; client Spy Briefing |
+| 2022-spy-briefing-why-karate-is-a-scam.txt | Why Karate Is A Scam | ads | 2 | 2022 | written | consumer | 848 | 1AZUSGQdzksSBRS7-wQI7CQvmpzJ5Bn_lqlEDWz6AEkc | dan-wrote-other-presenter; client Spy Briefing |
+| 2023-cpa-alpilean-dr-patlas-himalayan-ice-fat-loss-technique.txt | Alpilean Dr Patlas Himalayan Ice Fat Loss Technique | ads | 2 | 2023 | written | consumer | 799 | 1C4rxeMIxElsRcByLHkV8tqgpOB6viAfcO2K_fbImF2I | dan-wrote-other-presenter; client CPA offers |
+| 2023-cpa-brain-savior-is-this-neurotoxin-causing-your-memory-loss.txt | Brain Savior Is This Neurotoxin Causing Your Memory Loss | ads | 2 | 2023 | written | consumer | 591 | 1C4rxeMIxElsRcByLHkV8tqgpOB6viAfcO2K_fbImF2I | dan-wrote-other-presenter; client CPA offers |
+| 2023-cpa-joint-genesis-the-ancient-japanese-joint-pain-secret.txt | Joint Genesis The Ancient Japanese Joint Pain Secret | ads | 2 | 2023 | written | consumer | 524 | 1C4rxeMIxElsRcByLHkV8tqgpOB6viAfcO2K_fbImF2I | dan-wrote-other-presenter; client CPA offers |
+| 2023-cpa-joint-pain-killer-ignoring-your-joint-pain.txt | Joint Pain Killer Ignoring Your Joint Pain | ads | 2 | 2023 | written | consumer | 499 | 1C4rxeMIxElsRcByLHkV8tqgpOB6viAfcO2K_fbImF2I | dan-wrote-other-presenter; client CPA offers |
+| 2023-cpa-lean-biome-is-this-parasite-forcing-you-to-overeat.txt | Lean Biome Is This Parasite Forcing You To Overeat | ads | 2 | 2023 | written | consumer | 851 | 1C4rxeMIxElsRcByLHkV8tqgpOB6viAfcO2K_fbImF2I | dan-wrote-other-presenter; client CPA offers |
+| 2023-cpa-nerve-control-911-the-five-herbs-that-fight-nerve-pain.txt | Nerve Control 911 The Five Herbs That Fight Nerve Pain | ads | 2 | 2023 | written | consumer | 1030 | 1C4rxeMIxElsRcByLHkV8tqgpOB6viAfcO2K_fbImF2I | dan-wrote-other-presenter; client CPA offers |
+| 2023-cpa-numerologist-the-numbers-that-determine-your-destiny.txt | Numerologist The Numbers That Determine Your Destiny | ads | 2 | 2023 | written | consumer | 1150 | 1C4rxeMIxElsRcByLHkV8tqgpOB6viAfcO2K_fbImF2I | dan-wrote-other-presenter; client CPA offers |
+| 2023-cpa-prostadine-how-do-astronauts-pee-in-space.txt | Prostadine How Do Astronauts Pee In Space | ads | 2 | 2023 | written | consumer | 671 | 1C4rxeMIxElsRcByLHkV8tqgpOB6viAfcO2K_fbImF2I | dan-wrote-other-presenter; client CPA offers |
+| 2023-cpa-soulmate-sketch-how-to-tell-what-your-soulmate-will-look-like.txt | Soulmate Sketch How To Tell What Your Soulmate Will Look Like | ads | 2 | 2023 | written | consumer | 743 | 1C4rxeMIxElsRcByLHkV8tqgpOB6viAfcO2K_fbImF2I | dan-wrote-other-presenter; client CPA offers |
+| 2023-cpa-ultra-k9-pro-is-secret-obesity-killing-your-dog.txt | Ultra K9 Pro Is Secret Obesity Killing Your Dog | ads | 2 | 2023 | written | consumer | 1158 | 1C4rxeMIxElsRcByLHkV8tqgpOB6viAfcO2K_fbImF2I | dan-wrote-other-presenter; client CPA offers |
+| 2023-spy-briefing-dec-do-not-punch-in-a-street-fight-use-prison-style-self-defense.txt | Do Not Punch In A Street Fight Use Prison Style Self Defense | ads | 2 | 2023 | written | consumer | 671 | 1PM7ion3QZIz6B5wx5OUcJ8nAHfmBjAXNhdpcliqytFU | dan-wrote-other-presenter; client Spy Briefing |
+| 2023-spy-briefing-dec-forget-martial-arts-learn-prison-style-self-defense.txt | Forget Martial Arts Learn Prison Style Self Defense | ads | 2 | 2023 | written | consumer | 464 | 1PM7ion3QZIz6B5wx5OUcJ8nAHfmBjAXNhdpcliqytFU | dan-wrote-other-presenter; client Spy Briefing |
+| 2023-spy-briefing-dec-government-cameras-tracking-your-every-move.txt | Government Cameras Tracking Your Every Move | ads | 2 | 2023 | written | consumer | 949 | 1PM7ion3QZIz6B5wx5OUcJ8nAHfmBjAXNhdpcliqytFU | dan-wrote-other-presenter; client Spy Briefing |
+| 2023-spy-briefing-dec-martial-arts-vs-romanian-rambo-self-defense.txt | Martial Arts vs Romanian Rambo Self-Defense | ads | 2 | 2023 | written | consumer | 560 | 1PM7ion3QZIz6B5wx5OUcJ8nAHfmBjAXNhdpcliqytFU | dan-wrote-other-presenter; client Spy Briefing |
+| 2023-spy-briefing-dec-prison-fighting-vs-martial-arts.txt | Prison Fighting vs Martial Arts | ads | 2 | 2023 | written | consumer | 926 | 1PM7ion3QZIz6B5wx5OUcJ8nAHfmBjAXNhdpcliqytFU | dan-wrote-other-presenter; client Spy Briefing |
+| 2023-spy-briefing-dec-the-muay-thai-quick-ko-technique.txt | The Muay Thai Quick KO Technique | ads | 2 | 2023 | written | consumer | 772 | 1PM7ion3QZIz6B5wx5OUcJ8nAHfmBjAXNhdpcliqytFU | dan-wrote-other-presenter; client Spy Briefing |
+| 2023-spy-briefing-dec-the-navy-seals-quick-ko-technique.txt | The Navy SEALs Quick KO Technique | ads | 2 | 2023 | written | consumer | 704 | 1PM7ion3QZIz6B5wx5OUcJ8nAHfmBjAXNhdpcliqytFU | dan-wrote-other-presenter; client Spy Briefing |
+| 2023-spy-briefing-dec-the-top-3-myths-about-self-defense.txt | The Top 3 Myths About Self Defense | ads | 2 | 2023 | written | consumer | 744 | 1PM7ion3QZIz6B5wx5OUcJ8nAHfmBjAXNhdpcliqytFU | dan-wrote-other-presenter; client Spy Briefing |
+| 2023-spy-briefing-dec-what-would-you-do-if-you-had-to-survive-supermax-prison.txt | What Would You Do If You Had To Survive Supermax Prison | ads | 2 | 2023 | written | consumer | 770 | 1PM7ion3QZIz6B5wx5OUcJ8nAHfmBjAXNhdpcliqytFU | dan-wrote-other-presenter; client Spy Briefing |
+| 2023-spy-briefing-dec-you-cant-drive-to-work-your-social-credit-score-is-too-low.txt | You Cant Drive To Work Your Social Credit Score Is Too Low | ads | 2 | 2023 | written | consumer | 719 | 1PM7ion3QZIz6B5wx5OUcJ8nAHfmBjAXNhdpcliqytFU | dan-wrote-other-presenter; client Spy Briefing |
+| 2023-spy-briefing-how-an-elderly-man-can-defeat-a-bigger-stronger-thug.txt | How An Elderly Man Can Defeat A Bigger, Stronger Thug | ads | 2 | 2023 | written | consumer | 732 | 1kLmYEmElqKadygdW4PVip1l2FUQ-agxaYFwitzgonnY | dan-wrote-other-presenter; client Spy Briefing |
+| 2023-spy-briefing-how-normal-men-can-defend-themselves-from-criminals.txt | How Normal Men Can Defend Themselves From Criminals | ads | 2 | 2023 | written | consumer | 651 | 1kLmYEmElqKadygdW4PVip1l2FUQ-agxaYFwitzgonnY | dan-wrote-other-presenter; client Spy Briefing |
+| 2023-spy-briefing-how-to-defeat-a-black-belt-in-3-simple-steps.txt | How To Defeat A Black Belt In 3 Simple Steps | ads | 2 | 2023 | written | consumer | 818 | 1kLmYEmElqKadygdW4PVip1l2FUQ-agxaYFwitzgonnY | dan-wrote-other-presenter; client Spy Briefing |
+| 2023-spy-briefing-how-to-defeat-an-armed-criminal-in-10-seconds-or-less.txt | How To Defeat An Armed Criminal In 10 Seconds Or Less | ads | 2 | 2023 | written | consumer | 658 | 1kLmYEmElqKadygdW4PVip1l2FUQ-agxaYFwitzgonnY | dan-wrote-other-presenter; client Spy Briefing |
+| 2023-spy-briefing-how-to-destroy-any-attacker-in-10-seconds-or-less.txt | How To Destroy Any Attacker In 10 Seconds Or Less | ads | 2 | 2023 | written | consumer | 776 | 1kLmYEmElqKadygdW4PVip1l2FUQ-agxaYFwitzgonnY | dan-wrote-other-presenter; client Spy Briefing |
+| 2023-spy-briefing-how-to-protect-your-family-during-a-blackout.txt | How To Protect Your Family During A Blackout | ads | 2 | 2023 | written | consumer | 690 | 1kLmYEmElqKadygdW4PVip1l2FUQ-agxaYFwitzgonnY | dan-wrote-other-presenter; client Spy Briefing |
+| 2023-spy-briefing-how-to-stop-a-knife-attack.txt | How To Stop A Knife Attack | ads | 2 | 2023 | written | consumer | 783 | 1kLmYEmElqKadygdW4PVip1l2FUQ-agxaYFwitzgonnY | dan-wrote-other-presenter; client Spy Briefing |
+| 2023-spy-briefing-how-to-survive-world-war-iii.txt | How To Survive World War III | ads | 2 | 2023 | written | consumer | 521 | 1kLmYEmElqKadygdW4PVip1l2FUQ-agxaYFwitzgonnY | dan-wrote-other-presenter; client Spy Briefing |
+| 2023-spy-briefing-sep-are-groin-strikes-effective-for-self-defense.txt | Are Groin Strikes Effective For Self-Defense | ads | 2 | 2023 | written | consumer | 653 | 1KMNbZ3vKskGP6tZUNa6dffNQwgM1Jxe00ie8Uqcecdw | dan-wrote-other-presenter; client Spy Briefing |
+| 2023-spy-briefing-sep-can-a-flashlight-be-an-effective-self-defense-weapon.txt | Can A Flashlight Be An Effective Self-Defense Weapon | ads | 2 | 2023 | written | consumer | 300 | 1KMNbZ3vKskGP6tZUNa6dffNQwgM1Jxe00ie8Uqcecdw | dan-wrote-other-presenter; client Spy Briefing |
+| 2023-spy-briefing-sep-dont-waste-time-on-martial-arts-learn-prison-style-self-defense.txt | Dont Waste Time On Martial Arts Learn Prison Style Self-Defense | ads | 2 | 2023 | written | consumer | 679 | 1KMNbZ3vKskGP6tZUNa6dffNQwgM1Jxe00ie8Uqcecdw | dan-wrote-other-presenter; authorship confidence medium; client Spy Briefing |
+| 2023-spy-briefing-sep-get-jasons-f-150-king-ranch-truck-for-free.txt | Get Jasons F-150 King Ranch Truck For Free | ads | 2 | 2023 | written | consumer | 200 | 1KMNbZ3vKskGP6tZUNa6dffNQwgM1Jxe00ie8Uqcecdw | dan-wrote-other-presenter; client Spy Briefing |
+| 2023-spy-briefing-sep-top-3-self-defense-myths-busted-by-prison-fights.txt | Top 3 Self-Defense Myths Busted By Prison Fights | ads | 2 | 2023 | written | consumer | 843 | 1KMNbZ3vKskGP6tZUNa6dffNQwgM1Jxe00ie8Uqcecdw | dan-wrote-other-presenter; authorship confidence medium; client Spy Briefing |
+| 2023-spy-briefing-the-3-rules-of-fighting-criminals.txt | The 3 Rules Of Fighting Criminals | ads | 2 | 2023 | written | consumer | 1009 | 1kLmYEmElqKadygdW4PVip1l2FUQ-agxaYFwitzgonnY | dan-wrote-other-presenter; client Spy Briefing |
+| 2023-spy-briefing-the-3-rules-of-stopping-a-knife-attack.txt | The 3 Rules Of Stopping A Knife Attack | ads | 2 | 2023 | written | consumer | 734 | 1kLmYEmElqKadygdW4PVip1l2FUQ-agxaYFwitzgonnY | dan-wrote-other-presenter; client Spy Briefing |
+| 2023-spy-briefing-the-end-of-america-is-coming-heres-how-to-survive-it.txt | The End Of America Is Coming. Heres How To Survive It | ads | 2 | 2023 | written | consumer | 593 | 1kLmYEmElqKadygdW4PVip1l2FUQ-agxaYFwitzgonnY | dan-wrote-other-presenter; client Spy Briefing |
+| 2023-spy-briefing-the-united-states-will-collapse-in-2023-heres-how-to-survive.txt | The United States Will Collapse In 2023. Heres How To Survive | ads | 2 | 2023 | written | consumer | 474 | 1kLmYEmElqKadygdW4PVip1l2FUQ-agxaYFwitzgonnY | dan-wrote-other-presenter; client Spy Briefing |
+| 2023-spy-briefing-what-would-you-do-if-a-criminal-held-you-up-at-gunpoint.txt | What Would You Do If A Criminal Held You Up At Gunpoint | ads | 2 | 2023 | written | consumer | 604 | 1kLmYEmElqKadygdW4PVip1l2FUQ-agxaYFwitzgonnY | dan-wrote-other-presenter; client Spy Briefing |
+| 2023-spy-briefing-your-final-warning-before-the-end-of-america.txt | Your Final Warning Before The End Of America | ads | 2 | 2023 | written | consumer | 652 | 1kLmYEmElqKadygdW4PVip1l2FUQ-agxaYFwitzgonnY | dan-wrote-other-presenter; client Spy Briefing |
+| 2024-cpa-drink-this-sweet-tea-before-bed.txt | Drink This Sweet Tea Before Bed | ads | 2 | 2024 | written | consumer | 484 | 1V5Zza8vS7rJmsbpyhUDzlMSzR8vaeRExgfNMoUbYMQE | dan-wrote-other-presenter; client CPA offers |
+| 2024-cpa-pop-quiz-which-coffee-sweetener-is-worst-for-blood-sugar.txt | Pop Quiz Which Coffee Sweetener Is Worst For Blood Sugar | ads | 2 | 2024 | written | consumer | 550 | 1V5Zza8vS7rJmsbpyhUDzlMSzR8vaeRExgfNMoUbYMQE | dan-wrote-other-presenter; client CPA offers |
+| 2024-cpa-throw-your-salad-in-the-trash-to-lose-weight.txt | Throw Your Salad In The Trash To Lose Weight | ads | 2 | 2024 | written | consumer | 702 | 1V5Zza8vS7rJmsbpyhUDzlMSzR8vaeRExgfNMoUbYMQE | dan-wrote-other-presenter; client CPA offers |
+| 2024-cpa-use-this-sweetener-not-that-sweetener.txt | Use This Sweetener Not That Sweetener | ads | 2 | 2024 | written | consumer | 389 | 1V5Zza8vS7rJmsbpyhUDzlMSzR8vaeRExgfNMoUbYMQE | dan-wrote-other-presenter; client CPA offers |
+| 2024-cpa-which-green-veggie-packs-on-belly-fat.txt | Which Green Veggie Packs On Belly Fat | ads | 2 | 2024 | written | consumer | 528 | 1V5Zza8vS7rJmsbpyhUDzlMSzR8vaeRExgfNMoUbYMQE | dan-wrote-other-presenter; client CPA offers |
+| 2024-cpa-why-i-eat-like-a-pig-and-still-lose-weight.txt | Why I Eat Like A Pig And Still Lose Weight | ads | 2 | 2024 | written | consumer | 593 | 1V5Zza8vS7rJmsbpyhUDzlMSzR8vaeRExgfNMoUbYMQE | dan-wrote-other-presenter; client CPA offers |
+| 2024-physio-tru-apr-3-simple-tips-to-make-your-fish-more-heart-healthy.txt | 3 Simple Tips To Make Your Fish More Heart Healthy | ads | 2 | 2024 | written | consumer | 574 | 1Vjxkd0xdHmND8bdc3ucHkzHcQfbhAP3FQsvqFTPU-X0 | dan-wrote-other-presenter; client Physio Tru |
+| 2024-physio-tru-apr-pizza-vs-wild-caught-fish.txt | Pizza vs Wild Caught Fish | ads | 2 | 2024 | written | consumer | 600 | 1Vjxkd0xdHmND8bdc3ucHkzHcQfbhAP3FQsvqFTPU-X0 | dan-wrote-other-presenter; client Physio Tru |
+| 2024-physio-tru-apr-stop-eating-healthy-if-you-care-about-heart-health.txt | Stop Eating Healthy If You Care About Heart Health | ads | 2 | 2024 | written | consumer | 634 | 1Vjxkd0xdHmND8bdc3ucHkzHcQfbhAP3FQsvqFTPU-X0 | dan-wrote-other-presenter; client Physio Tru |
+| 2024-physio-tru-apr-the-3-healthiest-ways-to-cook-fish.txt | The 3 Healthiest Ways To Cook Fish | ads | 2 | 2024 | written | consumer | 590 | 1Vjxkd0xdHmND8bdc3ucHkzHcQfbhAP3FQsvqFTPU-X0 | dan-wrote-other-presenter; client Physio Tru |
+| 2024-physio-tru-apr-the-3-worst-ways-to-cook-fish.txt | The 3 WORST Ways To Cook Fish | ads | 2 | 2024 | written | consumer | 612 | 1Vjxkd0xdHmND8bdc3ucHkzHcQfbhAP3FQsvqFTPU-X0 | dan-wrote-other-presenter; client Physio Tru |
+| 2024-physio-tru-apr-why-doctors-take-a-daily-shot-of-fish-oil.txt | Why Doctors Take A Daily Shot Of Fish Oil | ads | 2 | 2024 | written | consumer | 838 | 1Vjxkd0xdHmND8bdc3ucHkzHcQfbhAP3FQsvqFTPU-X0 | dan-wrote-other-presenter; client Physio Tru |
+| 2024-physio-tru-are-you-getting-mercury-poisoning-from-your-fish.txt | Are You Getting Mercury Poisoning From Your Fish | ads | 2 | 2024 | written | consumer | 312 | 1SQYUM6-_KQeYBU35gROPEolb83lhzXwKRQxfB5aIZyI | dan-wrote-other-presenter; client Physio Tru |
+| 2024-physio-tru-eat-this-fish-not-that-fish-to-improve-heart-health.txt | Eat This Fish, Not That Fish To Improve Heart Health | ads | 2 | 2024 | written | consumer | 443 | 1SQYUM6-_KQeYBU35gROPEolb83lhzXwKRQxfB5aIZyI | dan-wrote-other-presenter; client Physio Tru |
+| 2024-physio-tru-is-giving-up-meat-heart-healthy.txt | Is Giving Up Meat Heart Healthy | ads | 2 | 2024 | written | consumer | 542 | 1SQYUM6-_KQeYBU35gROPEolb83lhzXwKRQxfB5aIZyI | dan-wrote-other-presenter; client Physio Tru |
+| 2024-physio-tru-quiz-fish-quiz-2-0.txt | Fish Quiz 2.0 | ads | 2 | 2024 | written | consumer | 478 | 1pfB27KtTTpGGzKbNHSMKCLAWP_lhiq_q0SHAp48iMrA | dan-wrote-other-presenter; client Physio Tru |
+| 2024-physio-tru-quiz-the-wild-caught-fish-scam.txt | The Wild Caught Fish Scam | ads | 2 | 2024 | written | consumer | 610 | 1pfB27KtTTpGGzKbNHSMKCLAWP_lhiq_q0SHAp48iMrA | dan-wrote-other-presenter; client Physio Tru |
+| 2024-physio-tru-quiz-which-one-of-these-four-fish-eats-poop.txt | Which One Of These Four Fish Eats Poop | ads | 2 | 2024 | written | consumer | 626 | 1pfB27KtTTpGGzKbNHSMKCLAWP_lhiq_q0SHAp48iMrA | dan-wrote-other-presenter; client Physio Tru |
+| 2024-physio-tru-simple-fish-trick-to-improve-heart-health.txt | Simple Fish Trick To Improve Heart Health | ads | 2 | 2024 | written | consumer | 625 | 1SQYUM6-_KQeYBU35gROPEolb83lhzXwKRQxfB5aIZyI | dan-wrote-other-presenter; client Physio Tru |
+| 2024-physio-tru-the-healthiest-fish-in-the-world.txt | The Healthiest Fish In The World | ads | 2 | 2024 | written | consumer | 479 | 1SQYUM6-_KQeYBU35gROPEolb83lhzXwKRQxfB5aIZyI | dan-wrote-other-presenter; client Physio Tru |
+| 2024-spy-briefing-ai-just-took-my-job-youre-next.txt | AI Just Took My Job. Youre Next | ads | 2 | 2024 | written | consumer | 605 | 1NHm51ndaKaNFiTM0kgNAZ4QSvrJr6I_s9Q91Nj0XnRY | dan-wrote-other-presenter; client Spy Briefing |
+| 2024-spy-briefing-fbi-chinese-ai-will-attack-us-infrastructure-soon.txt | FBI Chinese AI Will Attack US Infrastructure Soon | ads | 2 | 2024 | written | consumer | 587 | 1NHm51ndaKaNFiTM0kgNAZ4QSvrJr6I_s9Q91Nj0XnRY | dan-wrote-other-presenter; client Spy Briefing |
+| 2024-spy-briefing-how-i-survived-supermax-prison.txt | How I Survived Supermax Prison | ads | 2 | 2024 | written | consumer | 754 | 1NHm51ndaKaNFiTM0kgNAZ4QSvrJr6I_s9Q91Nj0XnRY | dan-wrote-other-presenter; authorship confidence medium; client Spy Briefing |
+| 2024-spy-briefing-how-to-defeat-a-home-invasion-in-under-10-seconds.txt | How To Defeat A Home Invasion In Under 10 Seconds | ads | 2 | 2024 | written | consumer | 698 | 1NHm51ndaKaNFiTM0kgNAZ4QSvrJr6I_s9Q91Nj0XnRY | dan-wrote-other-presenter; client Spy Briefing |
+| 2024-spy-briefing-how-to-destroy-a-child-abductor-in-under-10-seconds.txt | How To Destroy A Child Abductor In Under 10 Seconds | ads | 2 | 2024 | written | consumer | 723 | 1NHm51ndaKaNFiTM0kgNAZ4QSvrJr6I_s9Q91Nj0XnRY | dan-wrote-other-presenter; client Spy Briefing |
+| 2024-spy-briefing-how-to-survive-a-surprise-attack.txt | How To Survive A Surprise Attack | ads | 2 | 2024 | written | consumer | 718 | 1NHm51ndaKaNFiTM0kgNAZ4QSvrJr6I_s9Q91Nj0XnRY | dan-wrote-other-presenter; client Spy Briefing |
+| 2024-spy-briefing-random-thug-attacks-you-what-do-you-do.txt | Random Thug Attacks You. What Do You Do | ads | 2 | 2024 | written | consumer | 577 | 1NHm51ndaKaNFiTM0kgNAZ4QSvrJr6I_s9Q91Nj0XnRY | dan-wrote-other-presenter; client Spy Briefing |
+| 2024-spy-briefing-the-four-horsemen-of-the-ai-apocalypse.txt | The Four Horsemen Of The AI Apocalypse | ads | 2 | 2024 | written | consumer | 553 | 1NHm51ndaKaNFiTM0kgNAZ4QSvrJr6I_s9Q91Nj0XnRY | dan-wrote-other-presenter; client Spy Briefing |
+| 2024-spy-briefing-the-true-story-of-how-i-survived-supermax-prison.txt | The True Story Of How I Survived Supermax Prison | ads | 2 | 2024 | written | consumer | 597 | 1NHm51ndaKaNFiTM0kgNAZ4QSvrJr6I_s9Q91Nj0XnRY | dan-wrote-other-presenter; authorship confidence medium; client Spy Briefing |
+| 2024-spy-briefing-why-death-row-fears-me.txt | Why Death Row Fears Me | ads | 2 | 2024 | written | consumer | 635 | 1NHm51ndaKaNFiTM0kgNAZ4QSvrJr6I_s9Q91Nj0XnRY | dan-wrote-other-presenter; authorship confidence medium; client Spy Briefing |
+| 2024-spy-briefing-why-socialist-scum-love-ai.txt | Why Socialist Scum Love AI | ads | 2 | 2024 | written | consumer | 575 | 1NHm51ndaKaNFiTM0kgNAZ4QSvrJr6I_s9Q91Nj0XnRY | dan-wrote-other-presenter; client Spy Briefing |
+| 2024-spy-briefing-will-you-cower-in-fear-or-fight-fight-fight.txt | Will You Cower In Fear Or Fight Fight Fight | ads | 2 | 2024 | written | consumer | 1021 | 1NHm51ndaKaNFiTM0kgNAZ4QSvrJr6I_s9Q91Nj0XnRY | dan-wrote-other-presenter; client Spy Briefing |
+| 2025-hbi-new-dennys-ugc-script-base-version.txt | New Dennys UGC Script Base Version | ads | 2 | 2025 | written | consumer | 744 | 1x0v6ESe367gORqO_-LfhNsydEkYfpRZ4ClmxqrOpCqw | dan-wrote-other-presenter; authorship confidence medium; client HBI |
+| 2025-spy-briefing-3-common-household-items-that-lower-testosterone.txt | 3 Common Household Items That Lower Testosterone | ads | 2 | 2025 | written | consumer | 929 | 1OuVbgga0YjGZNLLbW2HIkwQ9ihELFkO4giy1_97MSZ4 | dan-wrote-other-presenter; client Spy Briefing |
+| 2025-spy-briefing-3-tips-to-boost-testosterone.txt | 3 Tips To Boost Testosterone | ads | 2 | 2025 | written | consumer | 942 | 1OuVbgga0YjGZNLLbW2HIkwQ9ihELFkO4giy1_97MSZ4 | dan-wrote-other-presenter; client Spy Briefing |
+| 2025-spy-briefing-ai-how-to-make-your-body-great-again.txt | How To Make Your Body Great Again | ads | 2 | 2025 | written | consumer | 525 | 1MerddtOmw09fhrNhDQmEt_EG8cf2_l3Lkpqfx8p4BwU | dan-wrote-other-presenter; authorship confidence medium; client Spy Briefing |
+| 2025-spy-briefing-ai-i-had-a-dad-bod-until-i-did-this.txt | I Had A Dad Bod Until I Did This | ads | 2 | 2025 | written | consumer | 991 | 1MerddtOmw09fhrNhDQmEt_EG8cf2_l3Lkpqfx8p4BwU | dan-wrote-other-presenter; authorship confidence medium; client Spy Briefing |
+| 2025-spy-briefing-ai-the-real-captain-america.txt | The Real Captain America | ads | 2 | 2025 | written | consumer | 899 | 1MerddtOmw09fhrNhDQmEt_EG8cf2_l3Lkpqfx8p4BwU | dan-wrote-other-presenter; authorship confidence medium; client Spy Briefing |
+| 2025-spy-briefing-are-men-and-womens-health-different.txt | Are Men And Womens Health Different | ads | 2 | 2025 | written | consumer | 1055 | 1OuVbgga0YjGZNLLbW2HIkwQ9ihELFkO4giy1_97MSZ4 | dan-wrote-other-presenter; client Spy Briefing |
+| 2025-spy-briefing-how-navy-seals-boost-testosterone.txt | How Navy SEALs Boost Testosterone | ads | 2 | 2025 | written | consumer | 591 | 1OuVbgga0YjGZNLLbW2HIkwQ9ihELFkO4giy1_97MSZ4 | dan-wrote-other-presenter; client Spy Briefing |
+| 2025-spy-briefing-how-to-make-your-memory-great-again.txt | How To Make Your Memory Great Again | ads | 2 | 2025 | written | consumer | 318 | 1OuVbgga0YjGZNLLbW2HIkwQ9ihELFkO4giy1_97MSZ4 | dan-wrote-other-presenter; client Spy Briefing |
+| 2025-spy-briefing-take-a-shot-to-boost-manhood.txt | Take A Shot To Boost Manhood | ads | 2 | 2025 | written | consumer | 612 | 1OuVbgga0YjGZNLLbW2HIkwQ9ihELFkO4giy1_97MSZ4 | dan-wrote-other-presenter; client Spy Briefing |
+| 2025-spy-briefing-the-truth-about-diet-soda.txt | The Truth About Diet Soda | ads | 2 | 2025 | written | consumer | 659 | 1OuVbgga0YjGZNLLbW2HIkwQ9ihELFkO4giy1_97MSZ4 | dan-wrote-other-presenter; client Spy Briefing |
+| 2025-spy-briefing-top-3-brain-boosting-foods.txt | Top 3 Brain Boosting Foods | ads | 2 | 2025 | written | consumer | 489 | 1OuVbgga0YjGZNLLbW2HIkwQ9ihELFkO4giy1_97MSZ4 | dan-wrote-other-presenter; authorship confidence medium; client Spy Briefing |
+| 2025-spy-briefing-top-3-herbs-that-boost-testosterone.txt | Top 3 Herbs That Boost Testosterone | ads | 2 | 2025 | written | consumer | 584 | 1OuVbgga0YjGZNLLbW2HIkwQ9ihELFkO4giy1_97MSZ4 | dan-wrote-other-presenter; authorship confidence medium; client Spy Briefing |
+| 2025-spy-briefing-which-food-kills-testosterone.txt | Which Food Kills Testosterone | ads | 2 | 2025 | written | consumer | 544 | 1OuVbgga0YjGZNLLbW2HIkwQ9ihELFkO4giy1_97MSZ4 | dan-wrote-other-presenter; client Spy Briefing |
+| 2025-spy-briefing-why-japanese-people-never-get-fat.txt | Why Japanese People Never Get Fat | ads | 2 | 2025 | written | consumer | 791 | 1OuVbgga0YjGZNLLbW2HIkwQ9ihELFkO4giy1_97MSZ4 | dan-wrote-other-presenter; client Spy Briefing |
+
+## `claude-drafts/ads/` (38 files, 10,866 words)
+
+| file | title | type | tier | year | spoken or written | audience | words | source | notes |
+|---|---|---|---:|---:|---|---|---:|---|---|
+| 2026-claude-ad02-outline.txt | Ad 2, Stop Paying Human Nutritionists! Use AI Instead (Claude outline) | ads | 0 | 2026 | spoken | consumer | 816 | 160O1s3xcUGlVU_BjtZR5u_V2WgE9JSREUftUTPuZQEw | claude-draft |
+| 2026-claude-ad04-outline.txt | Ad 4, Stop Wasting Money on Supplements! Ask AI Instead (Claude outline) | ads | 0 | 2026 | spoken | consumer | 621 | 160O1s3xcUGlVU_BjtZR5u_V2WgE9JSREUftUTPuZQEw | claude-draft |
+| 2026-claude-ad05-outline.txt | Ad 5, Every Diet You’ve Tried Failed for the Same Reason (Claude outline) | ads | 0 | 2026 | spoken | consumer | 535 | 160O1s3xcUGlVU_BjtZR5u_V2WgE9JSREUftUTPuZQEw | claude-draft |
+| 2026-claude-ad06-outline.txt | Ad 6, You’re Not Too Old to Get Abs. I’m Proof. (Claude outline) | ads | 0 | 2026 | spoken | consumer | 507 | 160O1s3xcUGlVU_BjtZR5u_V2WgE9JSREUftUTPuZQEw | claude-draft |
+| 2026-claude-ad07-outline.txt | Ad 7, In 2010 I Photoshopped My Face on a Fitness Model. AI Just Did It for Real. (Claude  | ads | 0 | 2026 | spoken | consumer | 508 | 160O1s3xcUGlVU_BjtZR5u_V2WgE9JSREUftUTPuZQEw | claude-draft |
+| 2026-claude-ad08-outline.txt | Ad 8, AI Showed Me My Two Futures (Claude outline) | ads | 0 | 2026 | spoken | consumer | 405 | 160O1s3xcUGlVU_BjtZR5u_V2WgE9JSREUftUTPuZQEw | claude-draft |
+| 2026-claude-ad09-outline.txt | Ad 9, I Tried to Get Abs With ChatGPT. Here’s What Happened. (Claude outline) | ads | 0 | 2026 | spoken | consumer | 569 | 160O1s3xcUGlVU_BjtZR5u_V2WgE9JSREUftUTPuZQEw | claude-draft |
+| 2026-claude-ad10-outline.txt | Ad 10, My Dad Bod at 38. My Dad Bod at 40. (Claude outline) | ads | 0 | 2026 | spoken | consumer | 504 | 160O1s3xcUGlVU_BjtZR5u_V2WgE9JSREUftUTPuZQEw | claude-draft |
+| 2026-claude-ad11-outline.txt | Ad 11, This Embarrassing Picture Is the Reason I Have Abs (Claude outline) | ads | 0 | 2026 | spoken | consumer | 462 | 160O1s3xcUGlVU_BjtZR5u_V2WgE9JSREUftUTPuZQEw | claude-draft |
+| 2026-claude-ad12-outline.txt | Ad 12, I Asked Grok to Roast My Dad Bod. Then I Asked for the Truth. (Claude outline) | ads | 0 | 2026 | spoken | consumer | 579 | 160O1s3xcUGlVU_BjtZR5u_V2WgE9JSREUftUTPuZQEw | claude-draft |
+| 2026-fable-ad13-outline.txt | Ad 13, I Added Up What Getting Abs Was Supposed to Cost (Fable outline) | ads | 0 | 2026 | spoken | consumer | 596 | 160O1s3xcUGlVU_BjtZR5u_V2WgE9JSREUftUTPuZQEw | claude-draft |
+| 2026-fable-ad14-outline.txt | Ad 14, I Watched 400 Workout Videos and Gained Weight (Fable outline) | ads | 0 | 2026 | spoken | consumer | 451 | 160O1s3xcUGlVU_BjtZR5u_V2WgE9JSREUftUTPuZQEw | claude-draft |
+| 2026-fable-ad15-outline.txt | Ad 15, I Was the Dad Who Swam in a T-Shirt (Fable outline) | ads | 0 | 2026 | spoken | consumer | 584 | 160O1s3xcUGlVU_BjtZR5u_V2WgE9JSREUftUTPuZQEw | claude-draft |
+| 2026-shorts-ad-batch3-never-pay-a-nutritionist-again.txt | Never Pay A Nutritionist Again | ads | 0 | 2026 | written | consumer | 164 | 1mqgnFYHDugEYDErNXqzWcPxUVRPStmxiXPU0HgNETS0 | claude-draft; client Abs By AI |
+| 2026-shorts-ad-batch3-the-cheat-code-for-six-pack-abs.txt | The Cheat Code For Six Pack Abs | ads | 0 | 2026 | written | consumer | 165 | 1mqgnFYHDugEYDErNXqzWcPxUVRPStmxiXPU0HgNETS0 | claude-draft; client Abs By AI |
+| 2026-shorts-ad-batch3-the-first-step-to-getting-abs-isnt-a-workout.txt | The First Step To Getting Abs Isnt A Workout | ads | 0 | 2026 | written | consumer | 154 | 1mqgnFYHDugEYDErNXqzWcPxUVRPStmxiXPU0HgNETS0 | claude-draft; client Abs By AI |
+| 2026-shorts-ad-batch3-what-would-you-look-like-with-abs.txt | What Would You Look Like With Abs | ads | 0 | 2026 | written | consumer | 147 | 1mqgnFYHDugEYDErNXqzWcPxUVRPStmxiXPU0HgNETS0 | claude-draft; client Abs By AI |
+| 2026-shorts-ad-batch3-why-do-most-guys-never-get-abs.txt | Why Do Most Guys Never Get Abs | ads | 0 | 2026 | written | consumer | 167 | 1mqgnFYHDugEYDErNXqzWcPxUVRPStmxiXPU0HgNETS0 | claude-draft; client Abs By AI |
+| 2026-shorts-ads-batch1-01-this-picture-got-me-abs-its-not-even-real.txt | Short 1: This Picture Got Me Abs. It’s Not Even Real. | ads | 0 | 2026 | written | consumer | 139 | 1huBqiKl2jJr0DgeFiEXU31kL3DU1JYeNVl-1OoYWs6M | claude-draft; client Abs By AI |
+| 2026-shorts-ads-batch1-02-chatgpt-gave-me-somebody-elses-body.txt | Short 2: ChatGPT Gave Me Somebody Else’s Body | ads | 0 | 2026 | written | consumer | 126 | 1huBqiKl2jJr0DgeFiEXU31kL3DU1JYeNVl-1OoYWs6M | claude-draft; client Abs By AI |
+| 2026-shorts-ads-batch1-03-this-is-me-in-five-years-if-id-done-nothing.txt | Short 3: This Is Me in Five Years If I’d Done Nothing | ads | 0 | 2026 | written | consumer | 123 | 1huBqiKl2jJr0DgeFiEXU31kL3DU1JYeNVl-1OoYWs6M | claude-draft; client Abs By AI |
+| 2026-shorts-ads-batch1-04-personal-trainers-are-a-scam-im-a-certified-one.txt | Short 4: Personal Trainers Are a Scam. I’m a Certified One. | ads | 0 | 2026 | written | consumer | 172 | 1huBqiKl2jJr0DgeFiEXU31kL3DU1JYeNVl-1OoYWs6M | claude-draft; client Abs By AI |
+| 2026-shorts-ads-batch1-05-youtube-fitness-videos-make-you-fat.txt | Short 5: YouTube Fitness Videos Make You Fat | ads | 0 | 2026 | written | consumer | 147 | 1huBqiKl2jJr0DgeFiEXU31kL3DU1JYeNVl-1OoYWs6M | claude-draft; client Abs By AI |
+| 2026-shorts-ads-batch1-06-i-was-the-dad-who-swam-in-a-t-shirt.txt | Short 6: I Was the Dad Who Swam in a T-Shirt | ads | 0 | 2026 | written | consumer | 181 | 1huBqiKl2jJr0DgeFiEXU31kL3DU1JYeNVl-1OoYWs6M | claude-draft; client Abs By AI |
+| 2026-shorts-ads-batch1-07-most-men-quit-on-their-body-at-forty.txt | Short 7: Most Men Quit on Their Body at Forty | ads | 0 | 2026 | written | consumer | 140 | 1huBqiKl2jJr0DgeFiEXU31kL3DU1JYeNVl-1OoYWs6M | claude-draft; client Abs By AI |
+| 2026-shorts-ads-batch1-08-every-guy-telling-you-to-buy-that-is-getting-paid-.txt | Short 8: Every Guy Telling You to Buy That Is Getting Paid To | ads | 0 | 2026 | written | consumer | 158 | 1huBqiKl2jJr0DgeFiEXU31kL3DU1JYeNVl-1OoYWs6M | claude-draft; client Abs By AI |
+| 2026-shorts-ads-batch1-09-fat-burners-dont-burn-fat.txt | Short 9: Fat Burners Don’t Burn Fat | ads | 0 | 2026 | written | consumer | 146 | 1huBqiKl2jJr0DgeFiEXU31kL3DU1JYeNVl-1OoYWs6M | claude-draft; client Abs By AI |
+| 2026-shorts-ads-batch1-10-youre-saving-for-a-retirement-you-wont-enjoy.txt | Short 10: You’re Saving for a Retirement You Won’t Enjoy | ads | 0 | 2026 | written | consumer | 165 | 1huBqiKl2jJr0DgeFiEXU31kL3DU1JYeNVl-1OoYWs6M | claude-draft; client Abs By AI |
+| 2026-shorts-ads-batch1-11-the-year-i-got-abs-was-the-best-year-my-business-e.txt | Short 11: The Year I Got Abs Was the Best Year My Business Ever Had | ads | 0 | 2026 | written | consumer | 157 | 1huBqiKl2jJr0DgeFiEXU31kL3DU1JYeNVl-1OoYWs6M | claude-draft; client Abs By AI |
+| 2026-shorts-ads-batch1-12-getting-abs-at-forty-changed-how-women-treat-me.txt | Short 12: Getting Abs at Forty Changed How Women Treat Me | ads | 0 | 2026 | written | consumer | 144 | 1huBqiKl2jJr0DgeFiEXU31kL3DU1JYeNVl-1OoYWs6M | claude-draft; client Abs By AI |
+| 2026-shorts-ads-batch1-13-if-you-want-to-keep-your-belly-fat-change-nothing.txt | Short 13: If You Want to Keep Your Belly Fat, Change Nothing | ads | 0 | 2026 | written | consumer | 130 | 1huBqiKl2jJr0DgeFiEXU31kL3DU1JYeNVl-1OoYWs6M | claude-draft; client Abs By AI |
+| 2026-shorts-ads-batch1-14-stand-up-and-look-straight-down.txt | Short 14: Stand Up and Look Straight Down | ads | 0 | 2026 | written | consumer | 126 | 1huBqiKl2jJr0DgeFiEXU31kL3DU1JYeNVl-1OoYWs6M | claude-draft; client Abs By AI |
+| 2026-shorts-ads-batch1-15-its-not-what-youre-eating-its-what-youre-drinking.txt | Short 15: It’s Not What You’re Eating. It’s What You’re Drinking. | ads | 0 | 2026 | written | consumer | 167 | 1huBqiKl2jJr0DgeFiEXU31kL3DU1JYeNVl-1OoYWs6M | claude-draft; client Abs By AI |
+| 2026-shorts-ads-batch1-16-i-train-abs-every-single-day.txt | Short 16: I Train Abs Every Single Day | ads | 0 | 2026 | written | consumer | 132 | 1huBqiKl2jJr0DgeFiEXU31kL3DU1JYeNVl-1OoYWs6M | claude-draft; client Abs By AI |
+| 2026-shorts-ads-batch1-17-you-dont-have-forty-five-minutes-fine-you-have-thr.txt | Short 17: You Don’t Have Forty-Five Minutes. Fine. You Have Three. | ads | 0 | 2026 | written | consumer | 134 | 1huBqiKl2jJr0DgeFiEXU31kL3DU1JYeNVl-1OoYWs6M | claude-draft; client Abs By AI |
+| 2026-shorts-ads-batch1-18-i-havent-eaten-breakfast-in-two-years.txt | Short 18: I Haven’t Eaten Breakfast in Two Years | ads | 0 | 2026 | written | consumer | 152 | 1huBqiKl2jJr0DgeFiEXU31kL3DU1JYeNVl-1OoYWs6M | claude-draft; client Abs By AI |
+| 2026-shorts-ads-batch1-19-four-tricks-behind-every-shirtless-photo-youve-bee.txt | Short 19: Four Tricks Behind Every Shirtless Photo You’ve Been Jealous Of | ads | 0 | 2026 | written | consumer | 160 | 1huBqiKl2jJr0DgeFiEXU31kL3DU1JYeNVl-1OoYWs6M | claude-draft; client Abs By AI |
+| 2026-shorts-ads-batch1-20-stop-logging-your-food.txt | Short 20: Stop Logging Your Food | ads | 0 | 2026 | written | consumer | 133 | 1huBqiKl2jJr0DgeFiEXU31kL3DU1JYeNVl-1OoYWs6M | claude-draft; client Abs By AI |
+
+## `claude-drafts/content/` (15 files, 14,907 words)
+
+| file | title | type | tier | year | spoken or written | audience | words | source | notes |
+|---|---|---|---:|---:|---|---|---:|---|---|
+| 2026-claude-0919-90-days-script-reconstructed.txt | If I Had Belly Fat, Here's How I'd Lose It In 90 Days (Claude 09-19 script, reconstructed) | content | 0 | 2026 | spoken | consumer | 2396 | 1DN1QMARJrqEJL4xl7Y2X3-CSjeag7SCSm6bBtmeefjc plus .claude/skills/scriptfromoutli | claude-draft |
+| 2026-claude-0919-alcohol-script.txt | Can You Drink Alcohol And Still Have Abs? (Claude 09-19 script) | content | 0 | 2026 | spoken | consumer | 1414 | 1ND_BTQKfIIBdfBC_WJGhxc_SZHtQFh32HI3ksD_dIVo | claude-draft |
+| 2026-claude-0919-glycine-script-reconstructed.txt | Sleep Better With Glycine (Claude 09-19 script, reconstructed) | content | 0 | 2026 | spoken | consumer | 1059 | 1DN1QMARJrqEJL4xl7Y2X3-CSjeag7SCSm6bBtmeefjc plus .claude/skills/scriptfromoutli | claude-draft |
+| 2026-claude-0919-healthy-foods-script-reconstructed.txt | 3 Healthy Foods That Made Me Fat (Claude 09-19 script, reconstructed) | content | 0 | 2026 | spoken | consumer | 1516 | 1DN1QMARJrqEJL4xl7Y2X3-CSjeag7SCSm6bBtmeefjc plus .claude/skills/scriptfromoutli | claude-draft |
+| 2026-claude-0919-lockscreen-trick-script.txt | How I Stay Motivated: The Lockscreen Trick (Claude 09-19 script, never filmed) | content | 0 | 2026 | spoken | consumer | 1405 | 1ND_BTQKfIIBdfBC_WJGhxc_SZHtQFh32HI3ksD_dIVo | claude-draft |
+| 2026-claude-0919-make-time-script-reconstructed.txt | How To Make Time For Exercise & Nutrition (Claude 09-19 script, reconstructed) | content | 0 | 2026 | spoken | consumer | 2062 | 1DN1QMARJrqEJL4xl7Y2X3-CSjeag7SCSm6bBtmeefjc plus .claude/skills/scriptfromoutli | claude-draft |
+| 2026-claude-0919-not-losing-weight-script.txt | Why You're Not Losing Weight (Claude 09-19 script) | content | 0 | 2026 | spoken | consumer | 1706 | 1ND_BTQKfIIBdfBC_WJGhxc_SZHtQFh32HI3ksD_dIVo | claude-draft |
+| 2026-claude-0919-zepbound-script.txt | How To Get The Most Out Of Zepbound (Claude 09-19 script, before Dan rewrote it as Top 5 Z | content | 0 | 2026 | spoken | consumer | 1859 | 1ND_BTQKfIIBdfBC_WJGhxc_SZHtQFh32HI3ksD_dIVo | claude-draft |
+| 2026-claude-0922-short-make-time-ai-homework.txt | Make Time For Exercise short: ai homework (Claude 09-22 script) | content | 0 | 2026 | spoken | consumer | 213 | 1DN1QMARJrqEJL4xl7Y2X3-CSjeag7SCSm6bBtmeefjc | claude-draft |
+| 2026-claude-0922-short-make-time-ai-job.txt | Make Time For Exercise short: ai job (Claude 09-22 script) | content | 0 | 2026 | spoken | consumer | 229 | 1DN1QMARJrqEJL4xl7Y2X3-CSjeag7SCSm6bBtmeefjc | claude-draft |
+| 2026-claude-0922-short-make-time-home-workouts.txt | Make Time For Exercise short: home workouts (Claude 09-22 script) | content | 0 | 2026 | spoken | consumer | 202 | 1DN1QMARJrqEJL4xl7Y2X3-CSjeag7SCSm6bBtmeefjc | claude-draft |
+| 2026-claude-0922-short-make-time-meal-prep-service.txt | Make Time For Exercise short: meal prep service (Claude 09-22 script) | content | 0 | 2026 | spoken | consumer | 221 | 1DN1QMARJrqEJL4xl7Y2X3-CSjeag7SCSm6bBtmeefjc | claude-draft |
+| 2026-claude-0922-short-make-time-robot-lawn-mower.txt | Make Time For Exercise short: robot lawn mower (Claude 09-22 script) | content | 0 | 2026 | spoken | consumer | 225 | 1DN1QMARJrqEJL4xl7Y2X3-CSjeag7SCSm6bBtmeefjc | claude-draft |
+| 2026-claude-0922-short-make-time-self-driving-car.txt | Make Time For Exercise short: self driving car (Claude 09-22 script) | content | 0 | 2026 | spoken | consumer | 226 | 1DN1QMARJrqEJL4xl7Y2X3-CSjeag7SCSm6bBtmeefjc | claude-draft |
+| 2026-claude-0922-short-make-time-wispr-flow.txt | Make Time For Exercise short: wispr flow (Claude 09-22 script) | content | 0 | 2026 | spoken | consumer | 174 | 1DN1QMARJrqEJL4xl7Y2X3-CSjeag7SCSm6bBtmeefjc | claude-draft |
+
+## `claude-drafts/content-as-read/` (5 files, 9,666 words)
+
+| file | title | type | tier | year | spoken or written | audience | words | source | notes |
+|---|---|---|---:|---:|---|---|---:|---|---|
+| 2026-calories-the-reason-youre-not-losing-weight.txt | Calories: The Reason You're Not Losing Weight (RO-10) | content | None | 2026 | spoken | consumer | 1664 | claude edited long form content/10 - .../RO-10.srt | dan-read-claude-script |
+| 2026-can-you-drink-alcohol-and-still-have-abs.txt | Can You Drink Alcohol And Still Have Abs? (RO-13) | content | None | 2026 | spoken | consumer | 1428 | claude edited long form content/11 - .../RO-13.srt | dan-read-claude-script |
+| 2026-if-i-had-belly-fat-heres-how-id-lose-it-in-90-days.txt | If I Had Belly Fat, Here's How I'd Lose It In 90 Days (RO-16) | content | None | 2026 | spoken | consumer | 2634 | claude edited long form content/09 - If I Had Belly Fat.../RO-16.srt | dan-read-claude-script |
+| 2026-top-5-zepbound-tips.txt | Top 5 Zepbound Tips (RO-12) | content | None | 2026 | spoken | consumer | 1864 | claude edited long form content/09 - Top 5 Zepbound Tips/ | dan-read-claude-script |
+| 2026-your-belly-fat-is-an-emergency.txt | Your Belly Fat Is An Emergency | content | None | 2026 | spoken | consumer | 2076 | https://youtu.be/v2R4QpnURqA | dan-read-claude-script |
+
+## `claude-drafts/conversion/` (6 files, 4,470 words)
+
+| file | title | type | tier | year | spoken or written | audience | words | source | notes |
+|---|---|---|---:|---:|---|---|---:|---|---|
+| 2026-claude-sales-letter-s10-s13.txt | Sales letter AI Got Me Abs at 40, sections S10 to S13 (Claude) | conversion | 0 | 2026 | written | consumer | 398 | 1zCLn6pIuxGv4H1hkyieCk2T4NoYAQBnaNKMEFMcYV9o | claude-draft |
+| 2026-claude-start-vsl-full-cut.txt | /start VSL full cut, This Picture Got Me Abs (Claude, teleprompter copy) | conversion | 0 | 2026 | spoken | consumer | 659 | 1DL2V34wePN75m1XxAuhpC2nghvobgr4C9RnTyszqqlA | claude-draft |
+| 2026-claude-start-vsl-hero-cut.txt | /start VSL hero cut, I'll Go First (Claude, teleprompter copy) | conversion | 0 | 2026 | spoken | consumer | 259 | 1DL2V34wePN75m1XxAuhpC2nghvobgr4C9RnTyszqqlA | claude-draft |
+| 2026-claude-start-vsl-hooks-and-pickups.txt | /start VSL hook takes and pickup lines (Claude) | conversion | 0 | 2026 | spoken | consumer | 104 | 1DL2V34wePN75m1XxAuhpC2nghvobgr4C9RnTyszqqlA | claude-draft |
+| 2026-claude-vsl-version-a.txt | VSL Version A, AI Got Me Abs at Forty (Claude, teleprompter copy) | conversion | 0 | 2026 | spoken | consumer | 2220 | 1lHzTMJydS7CBH3yigTYDDv1g3z9AJMcqwaPNyyKcIVc | claude-draft |
+| 2026-claude-vsl-version-b-intro.txt | VSL Version B extended intro, Fired them all (Claude, teleprompter copy) | conversion | 0 | 2026 | spoken | consumer | 830 | 1lHzTMJydS7CBH3yigTYDDv1g3z9AJMcqwaPNyyKcIVc | claude-draft |
+
+## `content/tier1/absbyai/` (21 files, 74,683 words)
+
+| file | title | type | tier | year | spoken or written | audience | words | source | notes |
+|---|---|---|---:|---:|---|---|---:|---|---|
+| 2026-3-minute-total-body-home-workout.txt | 3 Minute Total Body Home Workout (V6) | content | 1 | 2026 | spoken | consumer | 2085 | https://youtu.be/hKmttAhgLfQ | dan-off-cuff |
+| 2026-arms-and-shoulders-home-workout.txt | Arms & Shoulders Home Workout | content | 1 | 2026 | spoken | consumer | 1990 | Zeeshan Content Videos/arms and shoulders home workout - video 2/ | dan-off-cuff |
+| 2026-getting-abs-at-40-vs-25-raw.txt | Getting Abs At 40 vs. 25: What Actually Changes (raw roll) | content | 1 | 2026 | spoken | consumer | 5122 | /Volumes/Extreme/abs by ai 8:14 shoot .../C1609.MP4 | dan-off-cuff |
+| 2026-how-i-make-my-daily-salad.txt | How I Make My Daily Salad (RO-05) | content | 1 | 2026 | spoken | consumer | 3021 | claude edited long form content/08 - How I Make My Daily Salad (Fable recut)/How | dan-off-cuff |
+| 2026-how-to-keep-your-muscle-while-you-lose-fat.txt | How To Keep Your Muscle While You Lose Fat (RO-01) | content | 1 | 2026 | spoken | consumer | 2423 | Drive 176MKh1QPa83ziaDAoEFqF0xZiNfjcXu3 (earlier round); local final SRT used | dan-off-cuff |
+| 2026-how-to-work-out-at-home-on-a-budget.txt | How To Work Out At Home On A Budget (RO-06) | content | 1 | 2026 | spoken | consumer | 4017 | /Volumes/Extreme/_edit_work/ro06/assembled_untreated.wav | dan-off-cuff |
+| 2026-intermittent-fasting-best-way-to-get-abs-raw.txt | Intermittent Fasting: The Best Way To Get Six Pack Abs (RO-08, raw roll) | content | 1 | 2026 | spoken | consumer | 3807 | /Volumes/Extreme/abs by ai 7:8 Jeff Chagrin shoot/main camera/C1486.MP4 | dan-off-cuff |
+| 2026-meal-prep-macro-tracking-app-demo.txt | Meal Prep Macro Tracking (app demo segment of the salad video) | content | 1 | 2026 | spoken | consumer | 768 | claude edited long form content/05 - Meal Prep Macro Tracking (app demo)/SPLITSC | dan-off-cuff |
+| 2026-my-first-spray-tan.txt | My First Spray Tan | content | 1 | 2026 | spoken | consumer | 4181 | claude edited long form content/01 - My First Spray Tan/FINAL_spraytan.srt | dan-off-cuff |
+| 2026-my-honest-oura-ring-review.txt | My Honest Oura Ring Review | content | 1 | 2026 | spoken | consumer | 4274 | Drive 16nrufNrDMyyp82rDeojtK4FHyGxbz13O | dan-off-cuff |
+| 2026-my-honest-zepbound-update.txt | My Honest Zepbound Update | content | 1 | 2026 | spoken | consumer | 6032 | claude edited long form content/02 - My Honest Zepbound Update/FINAL_zepbound.sr | dan-off-cuff |
+| 2026-stop-deadlifting.txt | STOP Deadlifting, Here's Why | content | 1 | 2026 | spoken | consumer | 1930 | Drive 1NeSaKftqqXs3VlZwoY6iz0stOghaOrBm | dan-off-cuff |
+| 2026-the-17-dollar-ab-wheel-beats-every-crunch.txt | The $17 Ab Wheel Beats Every Crunch | content | 1 | 2026 | spoken | consumer | 1350 | https://youtu.be/bkzT-3ENpoU | dan-off-cuff |
+| 2026-the-supplements-i-actually-take.txt | The Supplements I Actually Take (And Why) | content | 1 | 2026 | spoken | consumer | 4676 | claude edited long form content/03 - The Supplements I Actually Take/FINAL_suppl | dan-off-cuff |
+| 2026-the-vacuum-best-ab-exercise-for-belly-fat.txt | The Vacuum: The Best Ab Exercise For Belly Fat (RO-02) | content | 1 | 2026 | spoken | consumer | 2437 | claude edited long form content/12 - The Vacuum The Best Ab Exercise For Belly F | dan-off-cuff |
+| 2026-top-10-tips-for-getting-six-pack-abs.txt | My Top 10 Tips For Getting Six Pack Abs (V3) | content | 1 | 2026 | spoken | consumer | 4428 | https://youtu.be/2T4LrQrmz9s | dan-off-cuff |
+| 2026-top-10-tips-july-reshoot-raw.txt | My Top 10 Tips (July reshoot, unused alternate, raw roll) | content | 1 | 2026 | spoken | consumer | 3792 | /Volumes/Extreme/abs by ai 7:8 Jeff Chagrin shoot/main camera/C1489.MP4 | dan-off-cuff |
+| 2026-ultimate-1-minute-ab-workout.txt | The Ultimate 1 Minute Ab Workout (V4) | content | 1 | 2026 | spoken | consumer | 1404 | https://youtu.be/Sv5wZha_a8c | dan-off-cuff |
+| 2026-welcome-to-abs-by-ai-channel-intro.txt | Welcome to Abs By AI (channel intro, V1) | content | 1 | 2026 | spoken | consumer | 818 | https://youtu.be/UghqHEH8yho | dan-off-cuff |
+| 2026-why-you-must-work-out-every-day-raw.txt | Why You MUST Work Out Every Day (RO-07, raw rolls) | content | 1 | 2026 | spoken | consumer | 5073 | /Volumes/Extreme/abs by ai 7:8 Jeff Chagrin shoot/main camera/C1484.MP4 + C1485. | dan-off-cuff |
+| 2026-why-you-should-invest-more-in-your-health.txt | Why You Should Invest More In Your Health | content | 1 | 2026 | spoken | consumer | 11055 | claude edited long form content/04 - Why You Should Invest More In Your Health/F | dan-off-cuff |
+
+## `content/tier1/absbyai-shorts/` (9 files, 1,783 words)
+
+| file | title | type | tier | year | spoken or written | audience | words | source | notes |
+|---|---|---|---:|---:|---|---|---:|---|---|
+| 2026-does-jiu-jitsu-get-you-abs.txt | Short script: Does Jiu Jitsu Get You Abs? | content | 1 | 2026 | written | consumer | 180 | Google Doc 1yZjcG5pkbw0kPsfTvc7OOr2bX6v0bVYMqquUiRENQ4k (Shoot 5 scripts) | dan-wrote |
+| 2026-how-getting-abs-looksmaxxes-your-face-own-draft.txt | Short script: How Getting Abs Looksmaxxes Your Face (Dan's own draft) | content | 1 | 2026 | written | consumer | 175 | Google Doc 1yZjcG5pkbw0kPsfTvc7OOr2bX6v0bVYMqquUiRENQ4k (Shoot 5 scripts), state | dan-wrote |
+| 2026-how-to-do-hammer-curls.txt | Short script: How To Do Hammer Curls | content | 1 | 2026 | written | consumer | 199 | Google Doc 1yZjcG5pkbw0kPsfTvc7OOr2bX6v0bVYMqquUiRENQ4k (Shoot 5 scripts) | dan-wrote |
+| 2026-how-to-jump-rope.txt | Short script: How To Jump Rope | content | 1 | 2026 | written | consumer | 180 | Google Doc 1yZjcG5pkbw0kPsfTvc7OOr2bX6v0bVYMqquUiRENQ4k (Shoot 5 scripts) ; http | dan-wrote |
+| 2026-how-to-kettlebell-deadlift.txt | Short script: How To Kettlebell Deadlift | content | 1 | 2026 | written | consumer | 148 | Google Doc 1yZjcG5pkbw0kPsfTvc7OOr2bX6v0bVYMqquUiRENQ4k (Shoot 5 scripts) | dan-wrote |
+| 2026-how-to-lose-the-last-ten-pounds-of-fat.txt | Short script: How To Lose The Last Ten Pounds Of Fat | content | 1 | 2026 | written | consumer | 197 | Google Doc 1yZjcG5pkbw0kPsfTvc7OOr2bX6v0bVYMqquUiRENQ4k (Shoot 5 scripts) | dan-wrote |
+| 2026-how-to-use-battle-ropes.txt | Short script: How To Use Battle Ropes | content | 1 | 2026 | written | consumer | 170 | Google Doc 1yZjcG5pkbw0kPsfTvc7OOr2bX6v0bVYMqquUiRENQ4k (Shoot 5 scripts) | dan-wrote; authorship confidence medium |
+| 2026-the-five-levels-of-pushups.txt | Short script: The Five Levels Of Pushups | content | 1 | 2026 | written | consumer | 192 | Google Doc 1yZjcG5pkbw0kPsfTvc7OOr2bX6v0bVYMqquUiRENQ4k (Shoot 5 scripts) | dan-wrote |
+| 2026-top-5-ab-exercises-own-draft.txt | Short script: Top 5 Ab Exercises (Dan's own first draft) | content | 1 | 2026 | written | consumer | 342 | Google Doc 1yZjcG5pkbw0kPsfTvc7OOr2bX6v0bVYMqquUiRENQ4k (Shoot 5 scripts), state | dan-wrote |
+
+## `content/tier1/old-channel/` (32 files, 121,500 words)
+
+| file | title | type | tier | year | spoken or written | audience | words | source | notes |
+|---|---|---|---:|---:|---|---|---:|---|---|
+| 2020-apple-airpods-airpods-pro-review-airpods.txt | Apple AirPods & Airpods Pro Review -- Why Airpods Are The Best Wireless Earbuds | content | 1 | 2020 | spoken | consumer | 2567 | https://youtu.be/knUy2mKcHW0 | dan-off-cuff |
+| 2020-become-millionaire-ultimate-step-by-step.txt | How To Become A Millionaire - The Ultimate Step-By-Step Guide To Making A Million Dollars | content | 1 | 2020 | spoken | business | 6102 | https://youtu.be/IQcjsfUdmS8 | dan-off-cuff |
+| 2020-create-first-youtube-ad-campaign.txt | How To Create Your First YouTube Ad Campaign | content | 1 | 2020 | spoken | business | 5125 | https://youtu.be/7F644T0LwTU | dan-off-cuff |
+| 2020-create-first-youtube-ad-ultimate-guide.txt | How To Create Your First YouTube Ad - The Ultimate Guide To YouTube Ad Targeting & Ad Crea | content | 1 | 2020 | spoken | business | 5643 | https://youtu.be/x8Bg0FRW98s | dan-off-cuff |
+| 2020-invest-1000-ultimate-guide-getting-started.txt | How To Invest $1000 -- The Ultimate Guide To Getting Started With Investing & Growing Your | content | 1 | 2020 | spoken | business | 8025 | https://youtu.be/iaIItRewspw | dan-off-cuff |
+| 2020-jump-rope-3-min-jump-rope.txt | HOW TO JUMP ROPE -- Plus 3 Min Jump Rope / Pushup Home Workout -- Short & Intense Total Bo | content | 1 | 2020 | spoken | consumer | 737 | https://youtu.be/4HUWjWOMKVw | dan-off-cuff |
+| 2020-quit-job-make-money-online.txt | How To Quit your Job And Make Money Online | content | 1 | 2020 | spoken | business | 9099 | https://youtu.be/fh4Q75FA54U | dan-off-cuff |
+| 2020-reasons-2020-was-awesome.txt | The Top 10 Reasons Why 2020 Was AWESOME | content | 1 | 2020 | spoken | consumer | 4869 | https://youtu.be/f8srbmcVXao | dan-off-cuff |
+| 2020-set-up-ad-sequence-campaign-little.txt | How To Set Up An Ad Sequence Campaign - A Little-Known But Powerful YouTube Ad Strategy | content | 1 | 2020 | spoken | business | 2223 | https://youtu.be/qEzwYQGFMyQ | dan-off-cuff |
+| 2020-tips-get-more-done-working-from.txt | Top 10 Tips To Get More Done Working From Home | content | 1 | 2020 | spoken | business | 5087 | https://youtu.be/_rPEDukLndk | dan-off-cuff |
+| 2020-truth-about-health-insurance-entrepreneurs-should.txt | The Truth About Health Insurance -- Why Entrepreneurs Should Cancel Their Health Insurance | content | 1 | 2020 | spoken | business | 5128 | https://youtu.be/2IU7ErdRc44 | dan-off-cuff |
+| 2021-3-tips-make-better-youtube-ads.txt | 3 Tips To Make Better YouTube Ads | content | 1 | 2021 | spoken | business | 2790 | https://youtu.be/PVSNtI9MbFA | dan-off-cuff |
+| 2021-advertise-local-business-youtube.txt | How To Advertise A Local Business On YouTube | content | 1 | 2021 | spoken | business | 2677 | https://youtu.be/6n80BLqhfPA | dan-off-cuff |
+| 2021-advertise-shopify-store-youtube.txt | How To Advertise A Shopify Store On YouTube | content | 1 | 2021 | spoken | business | 2635 | https://youtu.be/y84UdlwfdIQ | dan-off-cuff |
+| 2021-bitcoin-creates-pollution-crime-asshole-if.txt | Why Bitcoin Creates Pollution & Crime - And Why You Are An Asshole If You Own Bitcoin | content | 1 | 2021 | spoken | business | 3136 | https://youtu.be/5-vuR8n5BrE | dan-off-cuff |
+| 2021-bitcoin-worthless-garbage.txt | Why Bitcoin Is Worthless Garbage | content | 1 | 2021 | spoken | business | 3117 | https://youtu.be/Y8esTiVpJSw | dan-off-cuff |
+| 2021-brick-mortar-businesses-morons-heres-internet.txt | Brick & Mortar Businesses Are For MORONS - Here's Why Internet Businesses Are Always Bette | content | 1 | 2021 | spoken | business | 3461 | https://youtu.be/YnvRUjIilRI | dan-off-cuff |
+| 2021-build-website-converts-youtube-ad-visitors.txt | How To Build a Website That Converts YouTube Ad Visitors Into Buyers | content | 1 | 2021 | spoken | business | 6741 | https://youtu.be/2Pakm3aV6Gc | dan-off-cuff |
+| 2021-college-scam.txt | Why College Is A Scam | content | 1 | 2021 | spoken | business | 4273 | https://youtu.be/BBeDb2s4_-k | dan-off-cuff |
+| 2021-creativity-makes-poor-formulas-make-rich.txt | Why Creativity Makes You Poor - And Why Formulas Make You Rich | content | 1 | 2021 | spoken | business | 2939 | https://youtu.be/uw6H5BR7X7o | dan-off-cuff |
+| 2021-finance-ad-campaign.txt | How To Finance An Ad Campaign | content | 1 | 2021 | spoken | business | 2917 | https://youtu.be/dv1I7KSlakY | dan-off-cuff |
+| 2021-get-out-debt.txt | How To Get Out Of Debt | content | 1 | 2021 | spoken | business | 3563 | https://youtu.be/q185W0caV9E | dan-off-cuff |
+| 2021-joe-biden-raising-taxes-avoid-biden.txt | Joe Biden Is Raising Taxes! How To Avoid Biden Tax Increases Legally & Ethically | content | 1 | 2021 | spoken | business | 4906 | https://youtu.be/M6bmfzusNrU | dan-off-cuff |
+| 2021-make-15-more-money-no-extra.txt | How To Make 15% More Money With No Extra Work -- Eliminate Payroll Taxes Legally & Ethical | content | 1 | 2021 | spoken | business | 4362 | https://youtu.be/uClyiDMHEvE | dan-off-cuff |
+| 2021-maximize-small-ad-budget.txt | How To Maximize A Small Ad Budget | content | 1 | 2021 | spoken | business | 3279 | https://youtu.be/stucMokAHuM | dan-off-cuff |
+| 2021-paid-traffic-rules-free-traffic-sucks.txt | Why Paid Traffic Rules And Free Traffic Sucks | content | 1 | 2021 | spoken | business | 2367 | https://youtu.be/dwVcBJIDN4I | dan-off-cuff |
+| 2021-proof-bitcoin-worthless-garbage.txt | Proof Bitcoin Is Worthless Garbage | content | 1 | 2021 | spoken | business | 1370 | https://youtu.be/7UdmBoQumXU | dan-off-cuff |
+| 2021-purple-cow-book-review.txt | Purple Cow Book Review | content | 1 | 2021 | spoken | business | 1581 | https://youtu.be/JqL40RcDi78 | dan-off-cuff |
+| 2021-target-youtube-ads-apps.txt | How To Target YouTube Ads To Apps | content | 1 | 2021 | spoken | business | 1853 | https://youtu.be/1Nq-qvBWRGA | dan-off-cuff |
+| 2021-target-youtube-ads-video-lists.txt | How To Target YouTube Ads To Video Lists | content | 1 | 2021 | spoken | business | 2432 | https://youtu.be/bpa9UQziA8Y | dan-off-cuff |
+| 2021-target-youtube-ads-websites.txt | How To Target YouTube Ads To Websites | content | 1 | 2021 | spoken | business | 1452 | https://youtu.be/L0xe9DMszc4 | dan-off-cuff |
+| 2021-youtube-responsive-ads-tutorial-huge-change.txt | YOUTUBE RESPONSIVE ADS TUTORIAL: The Huge Change Coming To YouTube Ads & How To Profit Fro | content | 1 | 2021 | spoken | business | 5044 | https://youtu.be/OM8B2_IpfTg | dan-off-cuff |
+
+## `content/tier1/tlab/` (1 files, 9,175 words)
+
+| file | title | type | tier | year | spoken or written | audience | words | source | notes |
+|---|---|---|---:|---:|---|---|---:|---|---|
+| 2020-travel-like-a-boss-ep252.txt | Travel Like a Boss ep 252: Daniel Rose (Internet Marketing Multi-Millionaire) | content | 1 | 2020 | spoken | business | 9175 | https://podcasts.apple.com/us/podcast/ep-252-daniel-rose-internet-marketing-mult | dan-off-cuff |
+
+## `content/tier2/dan-and-dani/` (10 files, 36,767 words)
+
+| file | title | type | tier | year | spoken or written | audience | words | source | notes |
+|---|---|---|---:|---:|---|---|---:|---|---|
+| 2020-brazilian-jiu-jitsu-self-defense-tips.txt | BRAZILIAN JIU JITSU Self Defense Tips - With Black Belt Mikal Abdullah - Dan & Dani Podcas | content | 2 | 2020 | spoken | consumer | 1572 | https://youtu.be/o3Dme0e58AM | dan-off-cuff |
+| 2020-dan-dani-episode-1-introducing-dani.txt | Dan & Dani Episode 1 -- Introducing Dani & Our Thoughts On Lockdowns -- Daniel Rose & Dani | content | 2 | 2020 | spoken | consumer | 2651 | https://youtu.be/U2EebXfmyYQ | dan-off-cuff |
+| 2020-dan-dani-episode-2-start-online.txt | Dan & Dani Episode 2 -- How To Start An Online Business, And Introducing Dan | content | 2 | 2020 | spoken | consumer | 4419 | https://youtu.be/TC6d03SoFeI | dan-off-cuff |
+| 2020-find-perfect-relationship-tinder.txt | How To Find Your Perfect Relationship On Tinder -- Dan & Dani Podcast | content | 2 | 2020 | spoken | consumer | 2182 | https://youtu.be/kcHGsPZ4XVw | dan-off-cuff |
+| 2020-health-insurance-scam.txt | Is Health Insurance A Scam? - Dan & Dani Podcast Episode 3 - Daniel Rose & Dani Leback | content | 2 | 2020 | spoken | consumer | 3353 | https://youtu.be/sQ6qw1V5Jr4 | dan-off-cuff |
+| 2020-start-working-out-at-home.txt | How To Start Working Out At Home - Dan & Dani Podcast Episode 4 - Daniel Rose & Dani Lebac | content | 2 | 2020 | spoken | consumer | 3512 | https://youtu.be/qHT22cHVVV4 | dan-off-cuff |
+| 2021-defend-yourself-street-fight.txt | How To Defend Yourself In A Street Fight -- Dan & Dani Podcast Episode 6 | content | 2 | 2021 | spoken | consumer | 4936 | https://youtu.be/syctHaLmlVI | dan-off-cuff |
+| 2021-joe-biden-big-changes-hes-making.txt | JOE BIDEN: Big Changes He's Making & How They'll Affect You - Dan & Dani Podcast | content | 2 | 2021 | spoken | consumer | 4485 | https://youtu.be/6q61B7DxCRE | dan-off-cuff |
+| 2021-las-vegas-best-things-do.txt | LAS VEGAS: Top 10 Best Things To Do - Dan & Dani Podcast | content | 2 | 2021 | spoken | consumer | 2727 | https://youtu.be/7DHnh--EEWQ | dan-off-cuff |
+| 2021-make-money-real-estate.txt | How To Make Money With Real Estate - Dan & Dani Podcast | content | 2 | 2021 | spoken | consumer | 6930 | https://youtu.be/fIIeajKHQmU | dan-off-cuff |
+
+## `content/tier2/outlines/` (5 files, 7,566 words)
+
+| file | title | type | tier | year | spoken or written | audience | words | source | notes |
+|---|---|---|---:|---:|---|---|---:|---|---|
+| 2020-dan-and-dani-podcast-outlines.txt | Dan And Dani Podcast Outlines | content | 2 | 2020 | written | business | 558 | 1mFZIF6iFm6KcURLVWSoWfq79mQ26aCyNnSHAz88-pd8 | dan-wrote; client own podcast |
+| 2026-1017-shoot-outline-im-41.txt | 10/17 shoot outline: I'm 41. I wasted my life. / How To Achieve A Life Better Than 99% Of  | content | 2 | 2026 | written | consumer | 1772 | Drive 1-8NS6l4pV2GOh0FMNcNcTLvFpjFvi6k2PlqKN2t3OrY (10-06 raw copy of 1gt8Fi_wUa | dan-wrote |
+| 2026-first-batch-video-outlines.txt | Abs By AI First Batch Video Outlines | content | 2 | 2026 | written | consumer | 1832 | Drive 1OmsgBzpsfW05tjkQvqQUb2-QcUp2XajNMAgs0FRjh8U | dan-wrote |
+| 2026-second-shoot-video-outlines.txt | Abs By AI Second Shoot Video Outlines | content | 2 | 2026 | written | consumer | 1952 | Drive 15gg6GP_Huy93ZBfTpbQuUtHGDrgHL-bs6Op-nN2UBr8 | dan-wrote |
+| 2026-third-batch-video-outlines.txt | Abs By AI Third Batch Video Outlines | content | 2 | 2026 | written | consumer | 1452 | Drive 100prkvoE0lcxTLn1d7w_X1zeUbT0I3Xy6H3dDT6ZDCg | dan-wrote |
+
+## `content/tier3/sps/` (4 files, 12,841 words)
+
+| file | title | type | tier | year | spoken or written | audience | words | source | notes |
+|---|---|---|---:|---:|---|---|---:|---|---|
+| 2011-forget-about-six-pack-abs-video-response.txt | Forget About Six Pack Abs? With Six Pack Shortcuts CEO Dan Rose | content | 3 | 2011 | spoken | consumer | 1430 | https://youtu.be/Skq9U7bnTxA | dan-off-cuff |
+| 2011-how-to-get-a-six-pack-3-mistakes-with-mike-chang.txt | How To Get A Six Pack: with Six Pack Shortcuts CEO Dan Rose & His First Trainer Mike Chang | content | 3 | 2011 | spoken | consumer | 714 | https://youtu.be/Lds_2yDAHsg | dan-off-cuff |
+| 2014-the-story-of-sixpackabs.txt | The Story Of SixPackAbs.com, with CEO Dan Rose | content | 3 | 2014 | spoken | consumer | 428 | https://youtu.be/CKf_F_3j6ds | dan-off-cuff |
+| 2017-pajama-ceo-top-6-tips-for-new-entrepreneurs.txt | CEO Dan Rose's Top 6 Tips For New Entrepreneurs (Pajama CEO) | content | 3 | 2017 | spoken | business | 10269 | https://youtu.be/zDZxfZcRG-I | dan-off-cuff |
+
+## `conversion/tier1/` (28 files, 33,092 words)
+
+| file | title | type | tier | year | spoken or written | audience | words | source | notes |
+|---|---|---|---:|---:|---|---|---:|---|---|
+| 2019-15-steps-book-pre-order-video-outline.txt | Pre-Order Video Outline | conversion | 1 | 2019 | written | business | 179 | 1AL89B3zrbQHJTtqZnTwvk4OFEfaWGPray9ctalhZ9F0 | dan-wrote; client own book |
+| 2019-consulting-sales-video-script.txt | Consulting Sales Video Script | conversion | 1 | 2019 | written | business | 614 | 11V9Z7wET-nS_fipMnWBY2tJ3nj9-bukmMCmBS_LJ9hA | dan-wrote; client own consulting |
+| 2019-dr-marketing-vsl-outline-draft.txt | VSL Outline Draft | conversion | 1 | 2019 | written | business | 856 | 1qvU-4gQUQG0OW88MxSy104lsNe7EH1z4biCEw_Dcf3I | dan-wrote; client own agency |
+| 2019-dr-marketing-website-copy.txt | Website Copy | conversion | 1 | 2019 | written | business | 1088 | 1qvU-4gQUQG0OW88MxSy104lsNe7EH1z4biCEw_Dcf3I | dan-wrote; client own agency |
+| 2019-dr-marketing-website-vsl-script.txt | Website VSL Script | conversion | 1 | 2019 | written | business | 879 | 1qvU-4gQUQG0OW88MxSy104lsNe7EH1z4biCEw_Dcf3I | dan-wrote; client own agency |
+| 2020-15-steps-book-sales-page.txt | Sales Page | conversion | 1 | 2020 | written | business | 2633 | 100vap0GosZz9ATkILuGip2Z1sds51xy8nEvvlZuLKJM | dan-wrote; client own book |
+| 2020-15-steps-book-upsell-1-audiobook-and-ebook.txt | Upsell 1 Audiobook And eBook | conversion | 1 | 2020 | written | business | 760 | 100vap0GosZz9ATkILuGip2Z1sds51xy8nEvvlZuLKJM | dan-wrote; client own book |
+| 2020-15-steps-book-upsell-2-strategy-session.txt | Upsell 2 Strategy Session | conversion | 1 | 2020 | written | business | 899 | 100vap0GosZz9ATkILuGip2Z1sds51xy8nEvvlZuLKJM | dan-wrote; client own book |
+| 2020-15-steps-book-upsell-3-ad-management-black-belt.txt | Upsell 3 Ad Management Black Belt | conversion | 1 | 2020 | written | business | 296 | 100vap0GosZz9ATkILuGip2Z1sds51xy8nEvvlZuLKJM | dan-wrote; client own book |
+| 2020-15-steps-book-upsell-4-creative-black-belt.txt | Upsell 4 Creative Black Belt | conversion | 1 | 2020 | written | business | 432 | 100vap0GosZz9ATkILuGip2Z1sds51xy8nEvvlZuLKJM | dan-wrote; client own book |
+| 2020-15-steps-launch-video-11-interview-variation-sales-video-dan-lines.txt | Video 11 Interview Variation Sales Video Dan Lines | conversion | 1 | 2020 | written | business | 3009 | 1KumCLckTdN6D6wnYxZzjj8BDfeysPY8gQsYvdyiYnPA | dan-wrote; client own book |
+| 2020-15-steps-launch-video-12-strategic-coaching-sales-video.txt | Video 12 Strategic Coaching Sales Video | conversion | 1 | 2020 | written | business | 1395 | 1KumCLckTdN6D6wnYxZzjj8BDfeysPY8gQsYvdyiYnPA | dan-wrote; client own book |
+| 2020-15-steps-launch-video-13-ad-management-sales-video.txt | Video 13 Ad Management Sales Video | conversion | 1 | 2020 | written | business | 1189 | 1KumCLckTdN6D6wnYxZzjj8BDfeysPY8gQsYvdyiYnPA | dan-wrote; client own book |
+| 2020-15-steps-launch-video-6-claim-your-copy-of-the-15-steps-now.txt | Video 6 Claim Your Copy Of The 15 Steps Now | conversion | 1 | 2020 | written | business | 627 | 1KumCLckTdN6D6wnYxZzjj8BDfeysPY8gQsYvdyiYnPA | dan-wrote; client own book |
+| 2020-15-steps-launch-video-8-an-offer-you-cant-refuse-dan-solo.txt | Video 8 An Offer You Cant Refuse Dan Solo | conversion | 1 | 2020 | written | business | 623 | 1KumCLckTdN6D6wnYxZzjj8BDfeysPY8gQsYvdyiYnPA | dan-wrote; client own book |
+| 2020-15-steps-launch-video-9-last-chance-for-your-bonus-videos.txt | Video 9 Last Chance For Your Bonus Videos | conversion | 1 | 2020 | written | business | 209 | 1KumCLckTdN6D6wnYxZzjj8BDfeysPY8gQsYvdyiYnPA | dan-wrote; client own book |
+| 2020-believe-youtube-advertising-best-way-make.txt | Why I Believe YouTube Advertising Is The Best Way To Make Money Online -- Daniel Rose | conversion | 1 | 2020 | spoken | business | 2049 | https://youtu.be/nJaa6WqsXZI | dan-read-own-script |
+| 2020-make-website-converts-youtube-ad-traffic.txt | How to Make A Website That Converts YouTube Ad Traffic -- Daniel Rose | conversion | 1 | 2020 | spoken | business | 2815 | https://youtu.be/kGRVDtlAhn8 | dan-read-own-script |
+| 2020-remarketing-call-holy-grail-youtube-advertising.txt | REMARKETING: Why I Call It "The Holy Grail" Of YouTube Advertising | conversion | 1 | 2020 | spoken | business | 2857 | https://youtu.be/TLqAkivKXmU | dan-read-own-script |
+| 2020-skip-stoppers-1-biggest-key-profitable.txt | SKIP STOPPERS: The #1 Biggest Key To Profitable YouTube Ads -- Daniel Rose | conversion | 1 | 2020 | spoken | business | 2477 | https://youtu.be/p2JCzxT0z-s | dan-read-own-script |
+| 2020-used-youtube-advertising-build-business-become.txt | How I Used YouTube Advertising To Build A Business, Become A Millionaire, And Retire At 33 | conversion | 1 | 2020 | spoken | business | 1237 | https://youtu.be/gOIPbUzS_8c | dan-read-own-script |
+| 2021-black-belt-cart-page-video-script.txt | Cart Page Video Script | conversion | 1 | 2021 | written | business | 601 | 1HyLS5nVGxi_I34AAD9BR3hAiGi6lpeJoeAVhVK_09fo | dan-wrote; client own course |
+| 2021-black-belt-pre-sales-and-sales-page-copy.txt | Pre-Sales And Sales Page Copy | conversion | 1 | 2021 | written | business | 321 | 1HcGBBytVEUYEgtwFIJt4ROviPu1mz6BAP3G-s-dlwrI | dan-wrote; client own course |
+| 2021-black-belt-sales-video-outline.txt | Sales Video Outline | conversion | 1 | 2021 | written | business | 369 | 1kDbP09aenW35kLzD0wSKJJXAURaA2FJzm_orJ31NsbE | dan-wrote; client own course |
+| 2021-black-belt-upsell-1-platinum-coaching-free-call.txt | Upsell 1 Platinum Coaching Free Call | conversion | 1 | 2021 | written | business | 1069 | 1X7oZ9CP_84Ae2iy2qCZi3DE_h3rhWmjrOsdviFQyHI0 | dan-wrote; client own course |
+| 2021-black-belt-upsell-2-gold-coaching.txt | Upsell 2 Gold Coaching | conversion | 1 | 2021 | written | business | 722 | 1X7oZ9CP_84Ae2iy2qCZi3DE_h3rhWmjrOsdviFQyHI0 | dan-wrote; client own course |
+| 2026-absbyai-new-start-vsl-outline.txt | New Start VSL Outline | conversion | 1 | 2026 | written | consumer | 1171 | 1y4ZrYoehmh54IQf0Hayv_krkG1K0NZjVVN8ZNrADX8w | dan-wrote; client Abs By AI |
+| 2026-absbyai-sales-letter-ai-got-me-abs-at-40-dans-sections.txt | Sales Letter AI Got Me Abs At 40 Dans Sections | conversion | 1 | 2026 | written | consumer | 1716 | 1zCLn6pIuxGv4H1hkyieCk2T4NoYAQBnaNKMEFMcYV9o | dan-typed-lines-only; client Abs By AI |
+
+## `conversion/tier2/` (3 files, 2,313 words)
+
+| file | title | type | tier | year | spoken or written | audience | words | source | notes |
+|---|---|---|---:|---:|---|---|---:|---|---|
+| 2020-15-steps-launch-video-10-why-youre-confusing-us-marina-solo.txt | Video 10 Why Youre Confusing Us Marina Solo | conversion | 2 | 2020 | written | business | 709 | 1KumCLckTdN6D6wnYxZzjj8BDfeysPY8gQsYvdyiYnPA | dan-wrote-other-presenter; client own book |
+| 2025-fujiyama-vsl-variation-1-female-talent.txt | VSL Variation 1 Female Talent | conversion | 2 | 2025 | written | consumer | 925 | 1OAYtZnrpuvOyQXX682OI47eo5-9SsZwytwi27ZSFU2I | dan-wrote-other-presenter; client Darren Fujiyama |
+| 2025-fujiyama-vsl-variation-2-darren-only.txt | VSL Variation 2 Darren Only | conversion | 2 | 2025 | written | consumer | 679 | 1OAYtZnrpuvOyQXX682OI47eo5-9SsZwytwi27ZSFU2I | dan-wrote-other-presenter; client Darren Fujiyama |
+
+## `other-creator/` (6 files, 16,794 words)
+
+| file | title | type | tier | year | spoken or written | audience | words | source | notes |
+|---|---|---|---:|---:|---|---|---:|---|---|
+| sean-nalewanyj-do-this-every-day-to-lose-fat-faster.txt | Sean Nalewanyj: Do THIS Every Day To Lose Fat Faster | floor | 0 | None | spoken | consumer | 2922 | https://youtu.be/dD9svSOs6HE | other-creator |
+| sean-nalewanyj-the-1-most-tragic-fat-loss-mistake.txt | Sean Nalewanyj: The #1 Most TRAGIC Fat Loss Mistake | floor | 0 | None | spoken | consumer | 2860 | https://youtu.be/JlasqqXMVbo | other-creator |
+| sean-nalewanyj-the-dumbest-cardio-mistakes.txt | Sean Nalewanyj: The Dumbest Cardio Mistakes That Slow Down Fat Loss | floor | 0 | None | spoken | consumer | 2728 | https://youtu.be/8ubAtvx-KQU | other-creator |
+| sean-nalewanyj-the-real-key-to-fat-loss-success.txt | Sean Nalewanyj: The REAL KEY To Fat Loss Success | floor | 0 | None | spoken | consumer | 2632 | https://youtu.be/lMQ7QyJ9E84 | other-creator |
+| thomas-delauer-easiest-ways-to-lose-belly-fat.txt | Thomas DeLauer: The Easiest Ways to Lose Belly Fat With the Least Effort | floor | 0 | None | spoken | consumer | 2948 | https://youtu.be/c4lvr8dz9rM | other-creator |
+| thomas-delauer-proof-of-abdominal-fat-loss.txt | Thomas DeLauer: We have PROOF of Abdominal Fat Loss | floor | 0 | None | spoken | consumer | 2704 | https://youtu.be/3hP2ZCeolZg | other-creator |
+
+## `products/tier1/blackbelt/` (20 files, 128,151 words)
+
+| file | title | type | tier | year | spoken or written | audience | words | source | notes |
+|---|---|---|---:|---:|---|---|---:|---|---|
+| 2021-bonus-video-your-questions-about-youtube-ads-answered.txt | Black Belt: Bonus Video - Your Questions About Youtube Ads Answered | products | 1 | 2021 | spoken | business | 7414 | gdrive:1ob9mhoSGBy6WSwKJS_Ev3-YLsROGfvHH | dan-off-cuff |
+| 2021-guide-to-google-ads-policy.txt | Black Belt: Guide To Google Ads Policy | products | 1 | 2021 | spoken | business | 7536 | gdrive:1nToO8aa5HAqFF1Ouv7U3wVwhgsVLT7FZ | dan-off-cuff |
+| 2021-how-to-create-modern-branding-campaigns.txt | Black Belt: Product Video - How To Create Modern Branding Campaigns | products | 1 | 2021 | spoken | business | 8036 | gdrive:1jd7x0wTEdiYvcfK4dRJ9dliVCUx2mOk2 | dan-off-cuff |
+| 2021-how-to-create-sequential-remarketing-campaigns.txt | Black Belt: How To Create Sequential Remarketing Campaigns | products | 1 | 2021 | spoken | business | 3530 | gdrive:1wHg_an7cvAunAHG-d31pooiI5f5LVpbB | dan-off-cuff |
+| 2021-how-to-set-up-conversion-tracking-with-google-ads.txt | Black Belt: How To Set up Conversion Tracking With Google Ads | products | 1 | 2021 | spoken | business | 7854 | gdrive:16oNirEb8UyLXesmsb4fCplrcgXbUHgKE | dan-off-cuff |
+| 2021-how-to-set-up-remarketing-lists-with-google-ads.txt | Black Belt: How To Set Up Remarketing Lists With Google Ads | products | 1 | 2021 | spoken | business | 5520 | gdrive:1SgY02OD1QT8Drdqsn2LoCbONK0QyoQHG | dan-off-cuff |
+| 2021-how-to-set-up-your-google-ads-columns.txt | Black Belt: How To Set Up Your Google Ads Columns | products | 1 | 2021 | spoken | business | 5720 | gdrive:1Hf9f4-eQS-3wJs6FtVc2dObuH63RbgpE | dan-off-cuff |
+| 2021-how-to-turn-your-youtube-profits-into-passive-income.txt | Black Belt: How To Turn Your YouTube Profits Into Passive Income(HD) | products | 1 | 2021 | spoken | business | 5632 | gdrive:1RwoRWGgA1ACTeyWuUmBLi0QFi-3Xhijj | dan-off-cuff |
+| 2021-how-to-use-google-ads-campaign-settings-to-maximize-your-pro.txt | Black Belt: How To Use Google Ads Campaign Settings To Maximize Your Profits (final HD) | products | 1 | 2021 | spoken | business | 6050 | gdrive:1JP0SHNijiUwXvZzmSYN3pvhPuUsjwuCe | dan-off-cuff |
+| 2021-how-to-use-re-marketing-like-a-ninja-advanced-re-marketing-t.txt | Black Belt: How To Use Re-marketing Like A Ninja - Advanced Re-marketing Tactics | products | 1 | 2021 | spoken | business | 11602 | gdrive:1LCPOKHO_CsiWs6T4zPI2oBuVBp_GqaHS | dan-off-cuff |
+| 2021-ltv-and-your-advertising-goal.txt | Black Belt: LTV and Your Advertising Goal | products | 1 | 2021 | spoken | business | 8859 | gdrive:1SxNe96mPJaDI6qewwZD9G80cCXoMw521 | dan-off-cuff |
+| 2021-the-exploration-drilling-method-of-maximizing-campaign-profi.txt | Black Belt: Product Video - The Exploration-Drilling Method Of Maximizing Campaign Profits | products | 1 | 2021 | spoken | business | 3329 | gdrive:1MvG7IY_VVzNEFvDkhR7m8c0FSOvfxJNc | dan-off-cuff |
+| 2021-the-fundamentals-of-youtube-advertising-google-ads-p-1.txt | Black Belt: Product Video _ The Fundamentals Of YouTube Advertising & Google Ads.P-1 | products | 1 | 2021 | spoken | business | 8219 | gdrive:1_bbZfbHvi84s9LyMgxwb56YC5s6oQ4-T | dan-off-cuff |
+| 2021-the-fundamentals-of-youtube-advertising-google-ads-p-2.txt | Black Belt: Product Video _ The Fundamentals Of YouTube Advertising & Google Ads P-2 | products | 1 | 2021 | spoken | business | 3835 | gdrive:1KppAXMK-oXdzc7dI-E3m_fW6NcPXQThn | dan-off-cuff |
+| 2021-the-targeting-ladder.txt | Black Belt: The Targeting Ladder(final HD) | products | 1 | 2021 | spoken | business | 5395 | gdrive:1FwHKUEO-dRyXQGbF-ej4fNnAzAzU2ozv | dan-off-cuff |
+| 2021-the-ten-pillars-of-great-campaign-management-part-1.txt | Black Belt: The Ten Pillars Of Great Campaign Management - Part 1 | products | 1 | 2021 | spoken | business | 9105 | gdrive:1DKJrQCbJiOnKWZ4Dp1mlkI8dIt_UgQf2 | dan-off-cuff |
+| 2021-the-ten-pillars-of-great-campaign-management-part-2.txt | Black Belt: The Ten Pillars Of Great Campaign Management - Part 2 | products | 1 | 2021 | spoken | business | 9404 | gdrive:1eSSbwvc1iO3aBBqxi_L_KV2z7MgVAt7E | dan-off-cuff |
+| 2021-the-ten-pillars-of-great-campaign-management-part-3.txt | Black Belt: The Ten Pillars Of Great Campaign Management - Part 3 | products | 1 | 2021 | spoken | business | 3699 | gdrive:1gtd6S56RtmD2M9LpF5bLEsl8Wr4R-ctp | dan-off-cuff |
+| 2021-welcome-to-ad-management-black-belt.txt | Black Belt: Welcome to Ad Management Black Belt | products | 1 | 2021 | spoken | business | 1566 | gdrive:1HfhP0rNoHqHNJOvttcjnHi-MBbIdYKdv | dan-read-own-script |
+| 2021-youtube-ad-formats-explained.txt | Black Belt: Product Video _ YouTube Ad Formats Explained | products | 1 | 2021 | spoken | business | 5846 | gdrive:1FRIW10BYnzTm1o1GImUnrzdl1j94TB6N | dan-off-cuff |
+
+## `products/tier1/sgm/` (50 files, 55,971 words)
+
+| file | title | type | tier | year | spoken or written | audience | words | source | notes |
+|---|---|---|---:|---:|---|---|---:|---|---|
+| 01-preface.txt | The Sex God Method: Preface | products | 1 | 2007 | written | consumer | 352 | gdrive:1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3 | dan-wrote; topic other |
+| 02-introduction.txt | The Sex God Method: Introduction | products | 1 | 2007 | written | consumer | 224 | gdrive:1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3 | dan-wrote; topic motivation |
+| 03-my-story.txt | The Sex God Method: My Story | products | 1 | 2007 | written | consumer | 685 | gdrive:1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3 | dan-wrote; topic story |
+| 04-four-principles-of-sexuality.txt | The Sex God Method: The Four Principles of Sexuality | products | 1 | 2007 | written | consumer | 1931 | gdrive:1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3 | dan-wrote; topic method |
+| 05-four-archetypes-of-sexual-failure.txt | The Sex God Method: The Four Archetypes of Sexual Failure | products | 1 | 2007 | written | consumer | 1298 | gdrive:1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3 | dan-wrote; topic method |
+| 06-four-elements-devi.txt | The Sex God Method: The Four Elements of the Sex God Method | products | 1 | 2007 | written | consumer | 2317 | gdrive:1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3 | dan-wrote; topic method |
+| 07a-dominance-mindset.txt | The Sex God Method: Dominance (part a) | products | 1 | 2007 | written | consumer | 715 | gdrive:1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3 | dan-wrote; topic mindset |
+| 07b-dominance-technique.txt | The Sex God Method: Dominance (part b) | products | 1 | 2007 | written | consumer | 2595 | gdrive:1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3 | dan-wrote; topic explicit-technique |
+| 08a-emotion-principles.txt | The Sex God Method: Emotion (part a) | products | 1 | 2007 | written | consumer | 1716 | gdrive:1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3 | dan-wrote; topic method |
+| 08b-emotion-technique.txt | The Sex God Method: Emotion (part b) | products | 1 | 2007 | written | consumer | 5192 | gdrive:1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3 | dan-wrote; topic explicit-technique |
+| 09a-variety-archetypes.txt | The Sex God Method: Variety (part a) | products | 1 | 2007 | written | consumer | 1017 | gdrive:1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3 | dan-wrote; topic method |
+| 09b-variety-technique.txt | The Sex God Method: Variety (part b) | products | 1 | 2007 | written | consumer | 831 | gdrive:1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3 | dan-wrote; topic explicit-technique |
+| 10a-immersion-mindset.txt | The Sex God Method: Immersion (part a) | products | 1 | 2007 | written | consumer | 4308 | gdrive:1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3 | dan-wrote; topic mindset |
+| 10b-immersion-in-bed.txt | The Sex God Method: Immersion (part b) | products | 1 | 2007 | written | consumer | 1663 | gdrive:1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3 | dan-wrote; topic explicit-technique |
+| 11-role-of-physical-stimulation.txt | The Sex God Method: The Role of Physical Stimulation | products | 1 | 2007 | written | consumer | 202 | gdrive:1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3 | dan-wrote; topic method |
+| 12-specificity-of-physical-stimulation.txt | The Sex God Method: Specificity of Physical Stimulation | products | 1 | 2007 | written | consumer | 275 | gdrive:1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3 | dan-wrote; topic method |
+| 13-role-of-foreplay.txt | The Sex God Method: The Role of Foreplay | products | 1 | 2007 | written | consumer | 288 | gdrive:1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3 | dan-wrote; topic explicit-technique |
+| 14-fingering.txt | The Sex God Method: Fingering | products | 1 | 2007 | written | consumer | 745 | gdrive:1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3 | dan-wrote; topic explicit-technique |
+| 15-oral-sex.txt | The Sex God Method: Oral Sex | products | 1 | 2007 | written | consumer | 871 | gdrive:1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3 | dan-wrote; topic explicit-technique |
+| 16-training-your-girl-oral.txt | The Sex God Method: Training Your Girl to Give Oral Sex | products | 1 | 2007 | written | consumer | 1996 | gdrive:1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3 | dan-wrote; topic explicit-technique |
+| 17-troubleshooting-stamina-erection.txt | The Sex God Method: Troubleshooting: Lack of Stamina and Weak Erection | products | 1 | 2007 | written | consumer | 2277 | gdrive:1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3 | dan-wrote; topic method |
+| 18-moment-of-penetration.txt | The Sex God Method: The Moment of Penetration | products | 1 | 2007 | written | consumer | 1052 | gdrive:1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3 | dan-wrote; topic explicit-technique |
+| 19-continuous-flow-of-stimulation.txt | The Sex God Method: The Continuous Flow of Stimulation | products | 1 | 2007 | written | consumer | 359 | gdrive:1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3 | dan-wrote; topic explicit-technique |
+| 20-sex-positions.txt | The Sex God Method: Sex Positions | products | 1 | 2007 | written | consumer | 557 | gdrive:1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3 | dan-wrote; topic explicit-technique |
+| 21-anal-sex.txt | The Sex God Method: Anal Sex | products | 1 | 2007 | written | consumer | 1836 | gdrive:1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3 | dan-wrote; topic explicit-technique |
+| 22-when-she-comes.txt | The Sex God Method: When She Comes | products | 1 | 2007 | written | consumer | 919 | gdrive:1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3 | dan-wrote; topic explicit-technique |
+| 23-when-you-come.txt | The Sex God Method: When You Come | products | 1 | 2007 | written | consumer | 1502 | gdrive:1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3 | dan-wrote; topic explicit-technique |
+| 24-simultaneous-orgasm.txt | The Sex God Method: Achieving Simultaneous Orgasm | products | 1 | 2007 | written | consumer | 437 | gdrive:1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3 | dan-wrote; topic explicit-technique |
+| 25-continuously-orgasmic-state.txt | The Sex God Method: The Continuously Orgasmic State | products | 1 | 2007 | written | consumer | 850 | gdrive:1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3 | dan-wrote; topic explicit-technique |
+| 26-bedroom-mentality.txt | The Sex God Method: The Bedroom Mentality | products | 1 | 2007 | written | consumer | 1267 | gdrive:1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3 | dan-wrote; topic mindset |
+| 27-spontaneity.txt | The Sex God Method: Spontaneity | products | 1 | 2007 | written | consumer | 318 | gdrive:1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3 | dan-wrote; topic mindset |
+| 28-issue-of-virginity.txt | The Sex God Method: The Issue of Virginity | products | 1 | 2007 | written | consumer | 534 | gdrive:1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3 | dan-wrote; topic method |
+| 29-building-open-relationships.txt | The Sex God Method: Building Open Relationships | products | 1 | 2007 | written | consumer | 2012 | gdrive:1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3 | dan-wrote; topic method |
+| 30-sexual-fitness.txt | The Sex God Method: Sexual Fitness | products | 1 | 2007 | written | consumer | 273 | gdrive:1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3 | dan-wrote; topic method |
+| 31-testosterone-and-sex-drive.txt | The Sex God Method: Improving Your Testosterone and Sex Drive | products | 1 | 2007 | written | consumer | 1162 | gdrive:1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3 | dan-wrote; topic motivation |
+| 32-finding-the-right-girl.txt | The Sex God Method: Finding the Right Girl | products | 1 | 2007 | written | consumer | 612 | gdrive:1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3 | dan-wrote; topic method |
+| 33-safety-considerations.txt | The Sex God Method: Safety Considerations | products | 1 | 2007 | written | consumer | 1278 | gdrive:1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3 | dan-wrote; topic method |
+| 34-introducing-fantasies.txt | The Sex God Method: Introducing Fantasies into Your Sex Life | products | 1 | 2007 | written | consumer | 621 | gdrive:1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3 | dan-wrote; topic method |
+| 35-fantasy-beginner-dominance.txt | The Sex God Method: Beginner Dominance Fantasy | products | 1 | 2007 | written | consumer | 704 | gdrive:1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3 | dan-wrote; topic explicit-technique |
+| 36-fantasy-intermediate-dominance.txt | The Sex God Method: Intermediate Dominance Fantasy | products | 1 | 2007 | written | consumer | 822 | gdrive:1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3 | dan-wrote; topic explicit-technique |
+| 37-fantasy-advanced-dominance.txt | The Sex God Method: Advanced Dominance Fantasy | products | 1 | 2007 | written | consumer | 1184 | gdrive:1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3 | dan-wrote; topic explicit-technique |
+| 38-fantasy-beginner-emotion.txt | The Sex God Method: Beginner Emotion Fantasy | products | 1 | 2007 | written | consumer | 817 | gdrive:1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3 | dan-wrote; topic explicit-technique |
+| 39-fantasy-intermediate-emotion.txt | The Sex God Method: Intermediate Emotion Fantasy | products | 1 | 2007 | written | consumer | 1163 | gdrive:1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3 | dan-wrote; topic explicit-technique |
+| 40-fantasy-advanced-emotion.txt | The Sex God Method: Advanced Emotion Fantasy | products | 1 | 2007 | written | consumer | 737 | gdrive:1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3 | dan-wrote; topic explicit-technique |
+| 41-fantasy-beginner-immersion.txt | The Sex God Method: Beginner Immersion Fantasy | products | 1 | 2007 | written | consumer | 926 | gdrive:1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3 | dan-wrote; topic explicit-technique |
+| 42-fantasy-intermediate-immersion.txt | The Sex God Method: Intermediate Immersion Fantasy | products | 1 | 2007 | written | consumer | 735 | gdrive:1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3 | dan-wrote; topic explicit-technique |
+| 43-fantasy-advanced-immersion.txt | The Sex God Method: Advanced Immersion Fantasy | products | 1 | 2007 | written | consumer | 1047 | gdrive:1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3 | dan-wrote; topic explicit-technique |
+| 44-designing-custom-fantasies.txt | The Sex God Method: Designing Custom Fantasies | products | 1 | 2007 | written | consumer | 231 | gdrive:1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3 | dan-wrote; topic method |
+| 45-final-words.txt | The Sex God Method: Final Words | products | 1 | 2007 | written | consumer | 259 | gdrive:1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3 | dan-wrote; topic motivation |
+| 46-thank-you.txt | The Sex God Method: Thank You | products | 1 | 2007 | written | consumer | 259 | gdrive:1KVRHZ04oGliUoQd9EISUl0DySIVTu-C3 | dan-wrote; topic other |
+
+## `products/tier2/15steps/` (16 files, 123,149 words)
+
+| file | title | type | tier | year | spoken or written | audience | words | source | notes |
+|---|---|---|---:|---:|---|---|---:|---|---|
+| 00-introduction.txt | 15 Steps to Profitable YouTube Advertising: Introduction | products | 2 | 2020 | written | business | 4331 | gdrive:12wKH4OUzxbcNGv40YbnBx2DBUFXuRgcW1W19OsPewdk | dan-wrote |
+| 01-learn-the-ten-most-common-mistakes-that-could-caus.txt | 15 Steps to Profitable YouTube Advertising: Step 1: Learn The Ten Most Common Mistakes Tha | products | 2 | 2020 | written | business | 7936 | gdrive:12wKH4OUzxbcNGv40YbnBx2DBUFXuRgcW1W19OsPewdk | dan-wrote |
+| 02-create-a-brilliant-idea-for-a-marketing-campaign.txt | 15 Steps to Profitable YouTube Advertising: Step 2: Create A Brilliant Idea For A Marketin | products | 2 | 2020 | written | business | 7572 | gdrive:12wKH4OUzxbcNGv40YbnBx2DBUFXuRgcW1W19OsPewdk | dan-wrote |
+| 03-create-your-first-content-video-and-set-a-regular-.txt | 15 Steps to Profitable YouTube Advertising: Step 3: Create Your First Content Video, And S | products | 2 | 2020 | written | business | 7063 | gdrive:12wKH4OUzxbcNGv40YbnBx2DBUFXuRgcW1W19OsPewdk | dan-wrote |
+| 04-learn-the-universal-master-formula-for-creating-ki.txt | 15 Steps to Profitable YouTube Advertising: Step 4: Learn The Universal “Master Formula” F | products | 2 | 2020 | written | business | 10305 | gdrive:12wKH4OUzxbcNGv40YbnBx2DBUFXuRgcW1W19OsPewdk | dan-wrote |
+| 05-film-and-edit-your-first-batch-of-ads.txt | 15 Steps to Profitable YouTube Advertising: Step 5: Film And Edit Your First Batch Of Ads | products | 2 | 2020 | written | business | 7039 | gdrive:12wKH4OUzxbcNGv40YbnBx2DBUFXuRgcW1W19OsPewdk | dan-wrote |
+| 06-create-a-website-designed-to-convert-your-youtube-.txt | 15 Steps to Profitable YouTube Advertising: Step 6: Create A Website Designed To Convert Y | products | 2 | 2020 | written | business | 8477 | gdrive:12wKH4OUzxbcNGv40YbnBx2DBUFXuRgcW1W19OsPewdk | dan-wrote |
+| 07-set-up-your-google-ads-account-and-create-your-rem.txt | 15 Steps to Profitable YouTube Advertising: Step 7: Set Up Your Google Ads Account, And Cr | products | 2 | 2020 | written | business | 7106 | gdrive:12wKH4OUzxbcNGv40YbnBx2DBUFXuRgcW1W19OsPewdk | dan-wrote |
+| 08-learn-the-targeting-ladder-and-start-your-first-in.txt | 15 Steps to Profitable YouTube Advertising: Step 8: Learn The Targeting Ladder, And Start  | products | 2 | 2020 | written | business | 5964 | gdrive:12wKH4OUzxbcNGv40YbnBx2DBUFXuRgcW1W19OsPewdk | dan-wrote |
+| 09-start-your-first-video-discovery-cold-traffic-camp.txt | 15 Steps to Profitable YouTube Advertising: Step 9: Start Your First Video Discovery Cold  | products | 2 | 2020 | written | business | 6187 | gdrive:12wKH4OUzxbcNGv40YbnBx2DBUFXuRgcW1W19OsPewdk | dan-wrote |
+| 10-learn-the-ten-pillars-of-great-ad-management.txt | 15 Steps to Profitable YouTube Advertising: Step 10: Learn The Ten Pillars Of Great Ad Man | products | 2 | 2020 | written | business | 11837 | gdrive:12wKH4OUzxbcNGv40YbnBx2DBUFXuRgcW1W19OsPewdk | dan-wrote |
+| 11-take-your-creative-to-the-next-level-with-advanced.txt | 15 Steps to Profitable YouTube Advertising: Step 11: Take Your Creative To The Next Level  | products | 2 | 2020 | written | business | 5599 | gdrive:12wKH4OUzxbcNGv40YbnBx2DBUFXuRgcW1W19OsPewdk | dan-wrote |
+| 12-expand-your-campaigns-with-my-13-advanced-google-a.txt | 15 Steps to Profitable YouTube Advertising: Step 12: Expand Your Campaigns With My 13 Adva | products | 2 | 2020 | written | business | 7692 | gdrive:12wKH4OUzxbcNGv40YbnBx2DBUFXuRgcW1W19OsPewdk | dan-wrote |
+| 13-learn-the-top-ten-ways-to-take-your-youtube-sales-.txt | 15 Steps to Profitable YouTube Advertising: Step 13: Learn The Top Ten Ways To Take Your Y | products | 2 | 2020 | written | business | 8517 | gdrive:12wKH4OUzxbcNGv40YbnBx2DBUFXuRgcW1W19OsPewdk | dan-wrote |
+| 14-build-a-valuable-long-lasting-brand-with-the-four-.txt | 15 Steps to Profitable YouTube Advertising: Step 14: Build A Valuable, Long-Lasting Brand  | products | 2 | 2020 | written | business | 6838 | gdrive:12wKH4OUzxbcNGv40YbnBx2DBUFXuRgcW1W19OsPewdk | dan-wrote |
+| 15-find-the-right-people-to-help-you-scale-up-your-ca.txt | 15 Steps to Profitable YouTube Advertising: Step 15: Find The Right People To Help You Sca | products | 2 | 2020 | written | business | 10686 | gdrive:12wKH4OUzxbcNGv40YbnBx2DBUFXuRgcW1W19OsPewdk | dan-wrote |

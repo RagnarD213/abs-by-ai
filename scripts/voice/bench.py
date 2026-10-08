@@ -16,6 +16,7 @@ Steps (each is resumable; finished calls are cached on disk):
     python3 scripts/voice/bench.py pick                  # choose hold-out candidates (once; do not re-run casually)
     python3 scripts/voice/bench.py briefs                # a content-only brief per candidate, and a usability check
     python3 scripts/voice/bench.py finalize              # lock the set: index, HELD-OUT.md, the guard's hash file
+    python3 scripts/voice/bench.py repair                # fix speech-to-text mis-hearings in the spoken passages (once)
     python3 scripts/voice/bench.py run --setup guide     # write, judge, report -> Docs/voice-bench/<date>-guide.md
     python3 scripts/voice/bench.py blind --setup guide   # 20 pairs for Dan's blind page, and the answer key
 
@@ -117,7 +118,11 @@ def gemini_call(prompt):
     url = f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent"
     body = {"contents": [{"role": "user", "parts": [{"text": prompt}]}],
             "generationConfig": {"responseMimeType": "application/json", "temperature": 0.2,
-                                 "thinkingConfig": {"thinkingLevel": "low"}}}
+                                 "thinkingConfig": {"thinkingLevel": "low"}},
+            # his book is a sex and dating guide: without this Gemini returns nothing for some product pairs
+            "safetySettings": [{"category": c, "threshold": "BLOCK_NONE"} for c in (
+                "HARM_CATEGORY_HARASSMENT", "HARM_CATEGORY_HATE_SPEECH", "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+                "HARM_CATEGORY_DANGEROUS_CONTENT")]}
     last = ""
     for _ in range(4):
         req = urllib.request.Request(url, data=json.dumps(body).encode("utf-8"),
@@ -125,7 +130,9 @@ def gemini_call(prompt):
         try:
             with urllib.request.urlopen(req, timeout=300) as r:
                 d = json.load(r)
-            text = "".join(p.get("text", "") for p in d["candidates"][0]["content"]["parts"])
+            if not d.get("candidates"):
+                raise RuntimeError("no answer: " + json.dumps(d.get("promptFeedback", d))[:200])
+            text = "".join(p.get("text", "") for p in d["candidates"][0]["content"].get("parts", []))
             u = d.get("usageMetadata", {})
             out = u.get("candidatesTokenCount", 0) + u.get("thoughtsTokenCount", 0)
             return text.strip(), u.get("promptTokenCount", 0), out
@@ -229,6 +236,10 @@ FILLER = re.compile(r"\b(um+|uh+|er+m?|ah+|hmm+|mm+)\b[,.]?\s*", re.I)
 def for_judging(text, spoken):
     """The same clean-up for the real and the generated side, so layout and transcript noise are not the tell."""
     text = corpus.normalize(text).strip()
+    text = re.sub(r"(?m)^\s{0,3}#{1,6}\s+", "", text)          # markdown headings
+    text = re.sub(r"(\*\*|__)(.+?)\1", r"\2", text)            # bold
+    text = re.sub(r"(?<![\w*])\*(?!\s)(.+?)(?<!\s)\*(?![\w*])", r"\1", text)  # italics
+    text = re.sub(r"(?m)^\s*(-{3,}|\*{3,})\s*$", "", text)     # rules
     text = re.sub(r"[ \t]+", " ", text)
     if not spoken:
         return re.sub(r"\n{3,}", "\n\n", text)
@@ -552,9 +563,53 @@ def load_index():
         return json.load(fh)
 
 
-def passage(item):
+def passage(item, repaired=False):
+    """The real passage. `repaired` gives the copy with speech-to-text mis-hearings fixed, where one exists."""
+    fixed = os.path.join(HELD, "passages-repaired", item["id"] + ".txt")
+    if repaired and os.path.isfile(fixed):
+        with open(fixed, encoding="utf-8") as fh:
+            return fh.read().strip()
     with open(os.path.join(HELD, "passages", item["id"] + ".txt"), encoding="utf-8") as fh:
         return fh.read().strip()
+
+
+REPAIR_SYS = "You repair speech-to-text transcripts. You output only the repaired transcript."
+REPAIR_PROMPT = """This is a machine transcript of a man speaking ({kind_short}). The machine mis-heard some words and put some full stops and commas in the wrong place.
+
+Fix ONLY these two things:
+1. A word or name the machine clearly mis-heard (for example a product name spelled as two unrelated words). Replace it with what he obviously said.
+2. Punctuation and capitals that are plainly wrong (a sentence broken in the middle, a missing full stop between two sentences).
+
+Change NOTHING else. Keep every word he said, in the same order: his filler, his repeats, his loose grammar, his run-on sentences, his slang. Do not improve, tidy, shorten or rephrase anything. If you are not sure a word was mis-heard, leave it.
+
+Output only the repaired transcript.
+
+TRANSCRIPT:
+{text}
+"""
+
+
+def cmd_repair(a):
+    """Speech-to-text errors give the real side away for a reason that has nothing to do with voice. Fix them once."""
+    import difflib
+    os.makedirs(os.path.join(HELD, "passages-repaired"), exist_ok=True)
+    todo = [it for it in load_index() if it["mode"] == "spoken"]
+
+    def one(it):
+        path = os.path.join(HELD, "passages-repaired", it["id"] + ".txt")
+        raw = passage(it)
+
+        def make():
+            out = claude_call(REPAIR_PROMPT.format(kind_short=it["kind"].split(". Write the verbatim")[0][:160], text=raw),
+                              REPAIR_SYS, WRITER_MODEL)
+            a_, b_ = heldout_guard.toks(raw), heldout_guard.toks(out)
+            changed = 1 - difflib.SequenceMatcher(None, a_, b_, autojunk=False).ratio()
+            return out if changed <= 0.04 else raw  # more than 4% of words changed is a rewrite: keep the original
+        cached(path, make)
+        a_, b_ = heldout_guard.toks(raw), heldout_guard.toks(passage(it, True))
+        return it["id"], round(100 * (1 - difflib.SequenceMatcher(None, a_, b_, autojunk=False).ratio()), 1)
+    for pid, pct_changed in sorted(pool(one, todo)):
+        print(f"  {pid}: {pct_changed}% of words changed")
 
 
 def load_setup(name):
@@ -646,9 +701,13 @@ TYPE_NOTE = {"content": "him talking to an audience off the cuff (videos, shorts
              "ads": "ad scripts he wrote",
              "conversion": "sales video scripts and sales letters he wrote",
              "products": "what his customers get: passages from his books and transcribed lessons from his course"}
-SPOKEN_NOTE = ("These are transcripts of speech. Filler sounds were removed and paragraph breaks were set the same way "
-               "in every passage, so judge the wording and the content, not the layout.")
-WRITTEN_NOTE = "Layout is as each was written."
+SPOKEN_NOTE = ("His passages are machine transcripts of speech: they can contain a mis-heard word or odd punctuation, "
+               "and the AI version was written straight as text. A transcription glitch therefore proves nothing either "
+               "way, so do not use mis-heard words, typos or punctuation glitches as evidence. Filler sounds were removed "
+               "and paragraph breaks were set the same way in every passage. Judge the word choice, the shape of the "
+               "sentences, what gets said and how.")
+WRITTEN_NOTE = ("Markdown marks were stripped from both. Otherwise the layout is as each was written. Judge the word "
+                "choice, the shape of the sentences, what gets said and how.")
 
 
 def reference_pool(item):
@@ -692,7 +751,7 @@ def judge(setup_name, date):
         def make():
             rng = random.Random(f"{SEED}-{setup_name}-{it['id']}-{who}-{rep}")
             spoken = it["mode"] == "spoken"
-            real = for_judging(passage(it), spoken)
+            real = for_judging(passage(it, repaired=True), spoken)
             with open(os.path.join(d, "gen", it["id"] + ".txt"), encoding="utf-8") as fh:
                 fake = for_judging(fh.read(), spoken)
             refs = rng.sample(pools[it["id"]], min(8, len(pools[it["id"]])))
@@ -797,8 +856,9 @@ def report(setup_name, date, luar=True):
     L += ["", "## Style distances (pooled per type)", "",
           "Delta: function-word distance from Dan's Tier 1 average, lower is closer. LUAR: style-embedding similarity, "
           "higher is closer. \"Dan's held-out\" is the real side of the pairs, scored the same way: where the generated "
-          "side should land. Ceiling and floor are in `.claude/skills/_shared/voice/STATS.md`. Under 1,500 words a "
-          "number is noise and is marked ~.", "",
+          "side should land, and the fair comparison (same amount of text). The ceiling and floor columns come from "
+          "2,500-word samples, so a bigger pooled sample can beat the ceiling. Under 1,500 words a number is noise and "
+          "is marked ~. These two are weak instruments at this size: the judges are the score.", "",
           "| type | words | Delta generated | Delta Dan's held-out | Delta ceiling | Delta floor (Claude) | LUAR generated "
           "| LUAR Dan's held-out | LUAR ceiling | LUAR floor (Claude) |", "|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|"]
     pooled = {}
@@ -843,7 +903,7 @@ def report(setup_name, date, luar=True):
           "- Raw pairs and verdicts: `voice-corpus/bench/" + os.path.basename(d) + "/` (local and Drive mirror only).", ""]
     os.makedirs(REPORTS, exist_ok=True)
     out = os.path.join(REPORTS, f"{date}-{setup_name}.md")
-    text = "\n".join(L).replace("\u2014", ", ").replace("\u2013", "-")
+    text = "\n".join(L).replace("| None |", "| n/a |").replace("\u2014", ", ").replace("\u2013", "-")
     with open(out, "w", encoding="utf-8") as fh:
         fh.write(text)
     summary = {"setup": setup_name, "date": date, "trials": n, "right": k, "rate": round(100 * k / n, 1) if n else None,
@@ -880,7 +940,7 @@ def cmd_blind(a):
                     [i for i in items if i["bucket"] == "content-short"][:3]
         for it in items[:want]:
             spoken = it["mode"] == "spoken"
-            real = for_judging(passage(it), spoken)
+            real = for_judging(passage(it, repaired=True), spoken)
             with open(os.path.join(d, "gen", it["id"] + ".txt"), encoding="utf-8") as fh:
                 fake = for_judging(fh.read(), spoken)
             dan_is = rng.choice("AB")
@@ -916,6 +976,7 @@ def main():
     p.set_defaults(fn=cmd_run)
     p = sub.add_parser("blind"); p.add_argument("--setup", required=True); p.add_argument("--date")
     p.set_defaults(fn=cmd_blind)
+    p = sub.add_parser("repair"); p.set_defaults(fn=cmd_repair)
     a = ap.parse_args()
     a.fn(a)
 

@@ -1,4 +1,81 @@
-# Dan voice corpus: inventory (2026-10-06)
+# Dan voice corpus: inventory
+
+**Rebuilt 2026-10-08 (Dan Voice P2A).** The corpus is now sorted into Dan's four types of writing, and a pile holds
+only material that is really him talking or writing to an audience. The Part 1 tables (2026-10-06) are kept below for
+their Drive ids and authorship notes.
+
+## The rules (Dan, 2026-10-08)
+
+- **Four types, each trained on its own material:** content (YouTube and every other platform), ads, website
+  conversion videos and letters (the VSL, the /start letter), products (what the customer gets).
+- **Never a source:** his dictation or prompts to Claude or any AI, and business email.
+- **Text Claude drafted is never his voice, whatever he changed in it.** Only the lines he changed are kept, as
+  before/after pairs.
+- Tier 1 is the baseline for a type. Tier 2 supports (structure, persuasion). Tier 3 is dated and lowest weight.
+  2026 material weighs most; an older pattern counts only if it also shows up in 2026.
+
+## Where it lives
+
+- Local: `voice-corpus/` in the project folder (git-ignored). One `.txt` per source, by type and tier, with a manifest
+  row each in `voice-corpus/_manifest/*.jsonl` (type, tier, year, spoken or written, audience, source, authorship).
+- Drive mirror: folder **`Dan voice corpus (raw) 2026-10`** (`1FE1_fv6XhV96w4OQDji51w7Lrz6ZpiOM`), subfolder
+  `voice-corpus-2026-10-08/`. A cloud session pulls it from there.
+- Every file, with its tags and source id or link: **`Docs/VOICE_CORPUS_SOURCES.md`** (generated).
+- Loader: `python3 scripts/voice/corpus.py` prints words per type and tier.
+
+## What is in it (2026-10-08; words after the hold-out set is cut out)
+
+| type | Tier 1 (the baseline) | words | Tier 2 | words | Tier 3 | words |
+|---|---|---:|---|---:|---|---:|
+| **Content** | 21 Abs By AI videos filmed from outlines, no script (72,600; four are raw rolls with retakes); 9 shorts he wrote himself (1,000 after hold-out); 32 solo videos from the old channel `@danielrose-socialresponse7768`, 2020 to 2021 (120,500); his side of Travel Like a Boss episode 252, 2020 (8,900) | 203,000 | his half of 10 Dan & Dani podcast episodes (36,800); his typed outlines for four shoots and his podcast outlines (7,600) | 44,300 | four Six Pack Shortcuts era videos with him on camera, 2011 to 2017 | 12,800 |
+| **Ads** | Abs By AI Ads 1 and 3 as he wrote them; ten Abs By AI shorts ads ("Approach #2"); his typed lines in batch-1 Ads 2 to 15; six 2020 ads for his book | 9,800 | 107 ads for other presenters: Spy Briefing 58, HBI 19, CPA offers 16, Physio Tru 14 (2019 to 2025) | 66,800 | | |
+| **Conversion** | 2019 consulting sales video, 2019 DR marketing site VSL and copy, 2020 book sales page, upsells and launch videos (five also as spoken), 2021 Black Belt sales video outline, cart page, sales page and upsells, his sections of the 2026 /start letter, his 2026 VSL outline | 31,300 | 2025 Fujiyama VSL and one host-read launch video | 2,300 | | |
+| **Products** | The Sex God Method, 2007, 50 chapter files (54,400; 29,900 of it explicit technique, tagged and never quoted); 20 Black Belt course videos, 2021 (127,400) | 181,800 | 15 Steps to Profitable YouTube Advertising, 2020 | 122,800 | | |
+
+Not Dan, kept as the comparison floor: Claude's content scripts as delivered (14,900 words), the same scripts as he
+read them on camera (9,700), Claude's and Fable's ad scripts (10,900), Claude's VSL and letter drafts (4,500), and six
+videos from two other fitness creators, Sean Nalewanyj and Thomas DeLauer (16,800).
+
+Pairs (local, `voice-corpus/pairs/`): 176 script-versus-spoken pairs from 14 teleprompter videos (what he changed
+while reading), and 33 new doc-edit pairs (RO-14, Alcohol, Zepbound, Make Time shorts) on top of the Part 1 pairs in
+`.claude/skills/_shared/voice/dan-edits-2026-10-06.md`.
+
+**Thin spots:** ads Tier 1 (under 10,000 words); shorts (nine scripts that are wholly his); consumer-facing conversion
+copy (only his sections of the /start letter); nothing of his in 2026 for products.
+
+## How each video was classified
+
+A video is "filmed from an outline" only if its shoot doc is bullets and under 6 percent of the transcript's six-word
+runs appear in that doc. Teleprompter videos (Belly Fat Emergency, RO-10, RO-12, RO-13, RO-16, the DS shorts) match
+their scripts at 63 to 77 percent: they are Claude's words and sit in the floor pile, not in content.
+
+## Left out, and why
+
+- The V2 long-form, its short "Supplements Are Only 3%" and "The Upload" (Dan's earlier call).
+- Keith's and Wes's HBI scripts, Jordan's Spy Briefing scripts, "JESSE'S EDITED VERSION", the AI-looking compliance
+  rewrites of the 2024 CPA ads, "HBI scripts adapted from emails 2024" (authorship unclear), "What Five Leading
+  Specialists" (unclear, leans not his).
+- "Dedicated Shorts Ads Scripts" and five of the "Approach #2" ads (Claude's), the 15 Claude-drafted Shoot 5 shorts,
+  the 10/17 shoot's 14 shorts scripts (Claude's), DS-04 (Claude's draft, about half rewritten by Dan: pairs only).
+- Shoot 3 and Shoot 4 outline docs (his inserts cannot be told from Claude's lines in an export).
+- The second podcast guest spot ("SMART Businesses Do This", 2022-04-05, 14 minutes): it is him, but the host's audio
+  file refuses downloads.
+- "YouTube Ad Scripts Portfolio For Daniel Rose" (`1QAEr2M07HapKXT5vnj6n4ZxspN9Q42KXNmIvqMLBjBU`): a freelance
+  copywriter's portfolio (Lutfi Isnin) shared with Dan in 2021. Not his writing.
+- `sgm.pdf` (`1NlsoD4c-ieqB-alkjHI38d6HnQj21rni`): a 13-page excerpt of one chapter of the same book, not a sales page.
+- The two loose Black Belt files ("EXPLORATION DRILLING STRATEGY", "VIDEO 6 - LTV"): raw takes of lessons whose
+  finished versions are in the folder. Nothing on Drive was deleted.
+
+## The hold-out set and the bench
+
+40 real passages are locked away for blind testing (`.claude/skills/_shared/voice/HELD-OUT.md`; guard:
+`python3 scripts/voice/heldout_guard.py`). The HBI "Five Foods To Avoid" script stays held out from end to end. RO-14
+was released: it is a Claude draft he edited. The bench (`scripts/voice/bench.py`) replaces the two-piece blind test
+planned in Part 1; results are in `Docs/voice-bench/`.
+
+---
+
+# Part 1 tables (2026-10-06)
 
 Built in Dan Voice Training P1 (`Handoffs/handoff-20261006-dan-voice-training-part1.md`). What was read, whose words they
 are, and where the raw copy lives. Analysis and short excerpts are in `.claude/skills/_shared/DAN-VOICE.md` and
@@ -87,7 +164,7 @@ Their Stomach In `QuswpGj635A`, Your Protein Shake `B6Oku5GjrLs`, Milk Is Not A 
 Ab Exercises `GVNzvm5sUbk`. Cloud sessions cannot pull YouTube captions. Two unconverted SRTs on Drive are also Dan off
 the cuff: Stop Deadlifting `1NeSaKftqqXs3VlZwoY6iz0stOghaOrBm`, Keep Your Muscle `176MKh1QPa83ziaDAoEFqF0xZiNfjcXu3`.
 
-## Blind test (step 10): not run yet
+## Blind test (step 10): superseded 2026-10-08 by the bench above. The Part 1 plan, for the record
 
 Skipped on 2026-10-06 to save Dan's cloud credit. To run it later (about a dollar or two): give a fresh writer ONLY
 `DAN-VOICE.md`, `voice/`, `WRITING-RULES.md` and `dan-personal-facts-for-scripts`, plus (1) a brief for the HBI "Five
