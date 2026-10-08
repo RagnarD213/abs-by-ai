@@ -64,7 +64,10 @@ other stuff in the middle"* and *"I'm not able to click around to go backwards a
 wide screen the shared context player is a fixed panel at the right; the page scrolls in the middle and playing an item
 never jumps the page or covers it. Serve the page with `.claude/skills/_shared/review_server.py PORT [DIR]`, never
 `python3 -m http.server`: the built-in server ignores byte ranges, so a click on a video's timeline does nothing.
-Before sending, seek in one player and confirm the time moves. Layout reference: `kit9x16/sbl_page.py`.
+On macOS this command now installs a persistent login service and returns after checking it. Require the
+"Managed review ready" result; do not leave delivery dependent on a chat terminal. The server restarts after a crash
+and at login. Keep external media connected. Before sending, seek in one player and confirm the time moves.
+Long review files also go in `Videos to Review/` under the shared rule above. Layout reference: `kit9x16/sbl_page.py`.
 
 Reference build: `/Volumes/Extreme/_edit_work/ro16/round1/index.html`, generator `.claude/skills/longform-edit/reference/ro16/page.py`.
 With the context player and beat sheets: `/Volumes/Extreme/_edit_work/ro10/round1/index.html`, generator `.claude/skills/longform-edit/reference/ro10/page.py` + `review_media.py` (start from this one).

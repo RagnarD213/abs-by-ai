@@ -18,8 +18,20 @@
 - **When Dan finalizes a video, delete its copies from `Videos to Review/` in that same session.** They are copies for
   watching; the delivery folder stays the record. Delete only that video's files, never another task's.
 - The folder is git-ignored (the repo is public). Claude and Codex both do this, in every video skill.
-- Before sending a page link, load the page and request a byte range of one video (expect 200 and 206). A review server
-  started in an earlier session dies when the Mac restarts; restart it with `review_server.py PORT DIR` and re-check.
+- **Review pages must survive the editing session and Mac restarts (Dan, 2026-10-08).** Start them with
+  `python3 .claude/skills/_shared/review_server.py PORT DIR`. On this Mac the command installs a per-port login service,
+  verifies it is running, and returns. macOS restarts it after a crash and at the next login. Do not use a temporary
+  terminal server, `nohup`, or `python3 -m http.server` for a delivered review. `--serve` is for the managed worker/tests.
+- Reuse the same port and review folder when repairing an existing link. Never replace another review on that port.
+  The service code lives in local Application Support, so its startup does not depend on the project folder or an
+  external drive being available. Media on an external drive still needs that drive connected; reconnect and reload.
+  The VLC copies are actual files in `Videos to Review/`, not shortcuts to the external drive.
+- Before sending a page link, load the page and request a byte range of one video (expect 200 and 206), then verify
+  browser seeking. When changing server lifecycle code, also terminate its managed worker and prove the same URL
+  recovers automatically. Never claim a reboot test unless the Mac was actually restarted.
+- After Dan has reviewed and finalized a video, remove only its review copies and stop its now-unused page service
+  with `python3 .claude/skills/_shared/review_server.py PORT --remove`. Retain original delivery files and approvals.
+  Time passing or watching a preview alone is not finalization.
 
 ## AI clip faults: judge at playback speed; small faults pass (Dan, 2026-10-08)
 
