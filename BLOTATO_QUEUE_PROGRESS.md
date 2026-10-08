@@ -479,3 +479,8 @@ Two others flagged but kept, for Dan to pull if he disagrees:
   virtualised (only ~9 rows in the DOM) and `innerText` of the page is blocked by the browser tool, so read
   it by returning short per-row strings, not the whole page.
 - Deleting a queued post: `blotato_delete_schedule` with the **schedule id** from `blotato_list_posts` (not the `postSubmissionId` returned at creation).
+
+
+## RO-01 Keep Your Muscle, setup October 7, 2026
+
+CONTENT. Approved R10/B1 preserved and archived with matching hashes. YouTube 5295786: Dec 6 at 9 AM CST. Facebook 5295779, Instagram @danrosefit 5295782, TikTok 5295785: Dec 7 at 9 AM CST. Saved schedules and media hashes verified. Instagram delivery copy is 272 MB. TikTok full 11:52 is saved but exceeds the documented 10-minute API cap; delivery route unresolved. Public backups, payloads and release-check automation: `Docs/RO01_SETUP_RECEIPT_20261007.md`. SL-12 added; article draft prepared.

@@ -95,7 +95,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 
 | job | video | rolls | status | size |
 |---|---|---|---|---|
-| [RO-01](RO-01-keep-your-muscle-on-zepbound.md) | How To Keep Your Muscle On Zepbound | 8/14 C1605–08 (27 min) | FINALIZED | L |
+| [RO-01](RO-01-keep-your-muscle-on-zepbound.md) | How To Keep Your Muscle On Zepbound | 8/14 C1605–08 (27 min) | UPLOADED | L |
 | [RO-02](RO-02-the-vacuum-explainer.md) | The Vacuum: Best Ab Exercise For Belly Fat | 8/14 C1614–29 (26 min) | UPLOADED | L |
 | [RO-03](RO-03-the-vacuum-workout-only.md) | The Vacuum — Workout Only | 8/14 C1625 | READY (best after RO-02) | S |
 | [RO-04](RO-04-arms-shoulders-workout-only.md) | Arms & Shoulders — Workout Only | 8/3 C1586 | READY | S |
@@ -163,6 +163,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [SL-09](SL-09-oura-ring-review-shorts.md) | My Honest Oura Ring Review (Zeeshan Video 4, public Nov 8) | READY | S |
 | [SL-10](SL-10-alcohol-and-abs-shorts.md) | Can You Drink Alcohol And Still Have Abs? (RO-13, public Nov 15) | READY | S |
 | [SL-11](SL-11-the-vacuum-shorts.md) | The Stomach Vacuum: The Best Ab Exercise For Belly Fat (RO-02, public Nov 22) | READY | S |
+| [SL-12](SL-12-keep-your-muscle-shorts.md) | How To Keep Your Muscle While You Lose Fat (RO-01, YouTube Dec 6) | READY; hold release until parent is public | S |
 
 **Will need shorts once final (no handoff yet; add one when the long-form is approved):**
 * Your Belly Fat Is An Emergency (Codex, revision in progress)

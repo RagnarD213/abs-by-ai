@@ -877,13 +877,13 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/RO-01-keep-your-muscle-on-zepbound.md`: transcribe the rolls, map the takes to the script, and cut \"How To Keep Your Muscle On Zepbound\" into a finished 16:9 first cut with /longform-edit to the approved organic standard (Zeeshan's ab wheel videos). Fill the B-roll and graphics cues, audio through the shared chain, every gate, independent audit, deliver master + SRT + chapters, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-01-keep-your-muscle-on-zepbound.md` with `$long-form-content-edit` and the frozen organic recipe. Deliver master + SRT + chapters, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "finalized",
-   "note": "Dan approved the complete 16:9 R10 film on 2026-10-07: All right this is looking good. This is finalized and approved. Master SHA256 fa99ac5b8b7dfdd704d3256aa54c156acc842b54e77e3814e2f149579c7b631f. Upload/setup handoff follows; no upload yet.",
+   "state": "uploaded",
+   "note": "Approved R10/B1 filed and hash verified on project, Extreme and public Drive. YouTube Dec 6 9 AM CST; FB/IG/TikTok Dec 7 9 AM CST saved and read back. TikTok 11:52 acceptance unconfirmed against documented 10-minute API limit; native full-length route available, decision pending.",
    "sub": "",
    "order": 42,
    "updated": "2026-10-07",
    "by": "Codex",
-   "rev": 7,
+   "rev": 8,
    "syncedRev": 6
   },
   {
@@ -2282,6 +2282,28 @@
    "updated": "2026-10-05",
    "rev": 1,
    "syncedRev": 1
+  },
+  {
+   "id": "SL-12",
+   "list": "2",
+   "group": "Shorts from long-forms",
+   "sub": "",
+   "title": "How To Keep Your Muscle While You Lose Fat (RO-01, YouTube Dec 6)",
+   "roll": "",
+   "size": "S",
+   "file": "SL-12-keep-your-muscle-shorts.md",
+   "claudeModel": "Opus 5.5, high",
+   "claude": "Name this task Keep Your Muscle SFC R1. This is CONTENT. Read Handoffs/video-editing/SL-12-keep-your-muscle-shorts.md. Propose segments and wait for my picks, then cut with /shorts. Hold publishing until parent public Dec 6.",
+   "codexModel": "GPT-6 Sol, high",
+   "codex": "Name this task Keep Your Muscle SFC R1. This is CONTENT. Read Handoffs/video-editing/00-RULES.md and SL-12-keep-your-muscle-shorts.md. Propose segments and wait for my picks, then cut using /shorts. Hold publishing until parent public Dec 6.",
+   "state": "ready",
+   "note": "Approved R10 parent scheduled Dec 6; propose segments first; dispatcher remains paused",
+   "unattended": false,
+   "unattended_why": "Dan must pick segments before editing.",
+   "order": 104,
+   "updated": "2026-10-07",
+   "rev": 1,
+   "syncedRev": 0
   }
  ]
 }
