@@ -18,6 +18,15 @@ function cards(id, rows, empty) {
   if (!rows.length) return $(id).append(el('p',empty,'note'));
   for (const row of rows) { const box = el('div',undefined,'row'); box.append(el('h3',row.title),el('p',row.detail),el('p',row.source,'note')); link(box,'Review',row.url); $(id).append(box); }
 }
+function imageProvenance(d) {
+  if (!d.image) { put('image-caption','Image date not supplied'); return; }
+  const source = '/api/brief/image?sha256=' + d.image.sha256;
+  if (dailyImage.getAttribute('src') !== source) {
+    $('image-section').hidden = true;
+    dailyImage.src = source;
+  }
+  put('image-caption',`${d.image.forDate === d.forDate ? 'Daily image' : 'Retained image'}: ${date(d.image.forDate)}`);
+}
 function queue(document) {
   const q = document.socialReleaseQueue;
   if (!q) { put('queue-coverage','Release queue not yet verified. Blotato and direct YouTube Studio schedules still need checking.'); return; }
@@ -63,6 +72,7 @@ async function load() {
     phase = 'render';
     resetEdition();
     put('edition',date(d.forDate)); put('edition-note',`${d.editionType === 'retrospective' ? 'Retrospective proof' : 'Verified edition'} · Updated ${instant(d.generatedAt)} · About two to three minutes`);
+    imageProvenance(d);
     put('routine-status',routineStatus(d));
     if (d.forDate !== dayOf(Date.now())) put('notice',`This is the ${date(d.forDate)} edition. It does not establish today's priority.`);
     const currentFocus = d.focus.status === 'current' && d.forDate === dayOf(Date.now());

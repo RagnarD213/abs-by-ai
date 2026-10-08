@@ -44,7 +44,14 @@ function validate(input, now = Date.now()) {
   const result = {schemaVersion: 1, generatedAt, forDate, timezone: 'America/Chicago', editionType: input.editionType, routineEnabled: input.routineEnabled, routine,
     focus, yesterday: cards(input.yesterday || []), opportunities: cards(input.opportunities || []), useful: cards(input.useful || []),
     sources: list(input.sources || [], 25).map(row => ({name: text(row.name, 80), status: status(row.status), sourceAt: row.sourceAt ? instant(row.sourceAt) : null})),
-    stats: null, socialReleaseQueue: null, imageAvailable: input.imageAvailable === true};
+    stats: null, socialReleaseQueue: null, imageAvailable: input.imageAvailable === true, image: null};
+  if (input.image != null) {
+    const i = input.image;
+    if (!result.imageAvailable || typeof i.sha256 !== 'string' || i.sha256.length !== 64 || !/^[a-f0-9]{64}$/.test(i.sha256) ||
+        !['image/png','image/jpeg'].includes(i.mime) || !Number.isInteger(i.sizeBytes) || i.sizeBytes <= 4 || i.sizeBytes > 8*1024*1024) throw new Error('Invalid image provenance');
+    result.image = {forDate:date(i.forDate), sha256:i.sha256, mime:i.mime, sizeBytes:i.sizeBytes, publishedAt:instant(i.publishedAt)};
+    if (result.image.forDate > forDate || Date.parse(result.image.publishedAt) > now + 300000) throw new Error('Invalid image provenance time');
+  }
   if (input.stats) {
     const s = input.stats;
     if (s.currency !== 'USD' || s.timezone !== 'America/Chicago') throw new Error('Unverified measurement currency/timezone');
