@@ -1,26 +1,34 @@
 ---
 name: dan-voice-guide
-description: 2026-10-06 voice guide built from Dan's own ads (HBI $5.96M), book, outlines and edits; read .claude/skills/_shared/DAN-VOICE.md before writing anything in his voice
+description: "Voice guide + corpus + blind bench for writing as Dan; read DAN-VOICE.md and the voice/passages file for the type before writing; 10-08 baseline: judges catch Claude 90% of the time even with the guide"
 metadata:
   type: reference
 ---
 
-On 2026-10-06 (Dan Voice Training P1) Claude read Dan's real writing and built a voice guide that every writing skill
-now points at:
+Everything for writing in Dan's voice lives in the repo, so cloud and local sessions share it:
 
-- `.claude/skills/_shared/DAN-VOICE.md`: the guide (about 1,500 words), ranked patterns with real quotes.
-- `.claude/skills/_shared/voice/`: real passages by job (`ads.md`, `content-longform.md`, `content-shorts.md`,
-  `sales.md`, `outlines.md`, `book.md`), outside writers (`borrowed-keith-wes.md`), Dan's edits to Claude drafts
-  (`dan-edits-2026-10-06.md`), and the numbers (`STATS.md`).
-- `scripts/voice/voice_stats.py`: measures a draft ("and" per 100 words, kicker endings, em dashes, sentence length).
-- `Docs/VOICE_CORPUS_INVENTORY.md`: every source, its tier, and its raw copy in Drive folder
-  `1FE1_fv6XhV96w4OQDji51w7Lrz6ZpiOM`.
+- `.claude/skills/_shared/DAN-VOICE.md`: the guide (Part 1, 2026-10-06; rebuild is Phase B).
+- `.claude/skills/_shared/voice/`: whole real passages per type (`passages-content.md`, `passages-ads.md`,
+  `passages-conversion.md`, `passages-products.md`, added 2026-10-08), the older example files, his edits to Claude
+  drafts, `profanity-and-controversy.md` (swearing rules from his own words), `STATS.md` (one baseline per type),
+  `HELD-OUT.md` (test passages that must never be quoted).
+- `scripts/voice/`: `voice_stats.py` (counts, `--small` for small everyday words), `voice_fingerprint.py` (function-word
+  Delta and LUAR style distance), `corpus.py`, `heldout_guard.py` (run after editing any voice file), `bench.py` (the
+  blind bench).
+- Raw corpus: `voice-corpus/` in the project folder (git-ignored) and Drive folder `1FE1_fv6XhV96w4OQDji51w7Lrz6ZpiOM`
+  (`voice-corpus-2026-10-08/`). Sources: `Docs/VOICE_CORPUS_INVENTORY.md`, `Docs/VOICE_CORPUS_SOURCES.md`.
 
-**Why:** Dan wants drafts he does not need to edit. The numbers proved his hunch: Claude uses "and" about 45 percent
-more than he does, ends paragraphs on short kickers 2.5 to 6 times as often, and writes shorter, more even sentences.
+**Baseline, 2026-10-08 (Dan Voice P2A).** 40 held-out passages, 80 blind trials per setup, judges a fresh Opus 5.5 and
+Gemini: cold Claude was picked out 86% of the time, Claude with today's guide 90% (chance is 50%, the goal is 60% or
+less). The guide did not make Claude harder to catch; it changed the giveaway from "over-acts his voice" to "too clean,
+too even, too organized". Reports: `Docs/voice-bench/`.
 
-**How to apply:** read `DAN-VOICE.md` before writing any script, outline, ad copy, letter or description in his voice,
-then the matching `voice/` file. Run `voice_stats.py` on the draft before delivering. "Let's be honest" and "really,
-really" are Claude's, not his. The blind test (step 10) was not run yet; how to run it is at the end of the inventory.
-Part 2 (an AI-tell checker built on `STATS.md`) is a separate task. Related: [[script-zero-edit-lessons]],
-[[dan-personal-facts-for-scripts]], [[no-em-dashes]].
+**Why:** Dan's goal is writing "so well that nobody ever thinks that this is AI". Until 10-08 nothing measured it.
+
+**How to apply:** before writing as Dan, read `DAN-VOICE.md` and the `voice/passages-*.md` file for the type (content,
+ads, conversion, products; see [[voice-corpus-sources]]). Do not tidy: keep long loose setups, his exact repeats and
+his small words ("really", "very", "kind of", "going to", "so", "just"); do not overcorrect "and" (his rate is about
+2.4 to 2.8 per 100, not lower). Check a draft with `voice_stats.py`. Any change to the guide or skills gets scored
+with `bench.py` and kept only if the number moves. Next step is Phase B of
+`Handoffs/handoff-20261008-dan-voice-training-part2-plan.md`. Related: [[script-zero-edit-lessons]],
+[[dan-personal-facts-for-scripts]], [[no-em-dashes]], [[swearing-never-cut-never-ask]].

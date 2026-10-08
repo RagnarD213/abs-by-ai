@@ -85,7 +85,8 @@ own (tone only); more rules in the guide; OpenAI or Claude fine-tuning.
 
 ## Phase A: real corpus, test bench, baseline. LOCAL, Opus 5.5 high
 
-**Phase A has its own handoff: `handoff-20261008-dan-voice-p2a-corpus-and-bench.md`.** Run that, not this section.
+**Phase A was executed on 2026-10-08** from `handoff-20261008-dan-voice-p2a-corpus-and-bench.md`. Results are in the
+next section. Do not run it again.
 
 In short: Dan set four types of writing on 2026-10-08, each trained on its own material: **content** (YouTube and every
 other platform), **ads**, **website conversion videos** (the VSL and the /start letter; close to ads but higher stakes)
@@ -94,6 +95,61 @@ and business email are never sources. Phase A builds one pile per type from mate
 videos, his old off-the-cuff channel, the Travel Like a Boss podcast, the two books, his own ads and sales videos),
 re-measures the baseline per type, locks a 40-passage hold-out set, builds the judge bench, scores cold Claude and
 today's guide, and gives Dan a 20-pair blind page.
+
+## Phase A results (2026-10-08). Read before starting Phase B
+
+Phase A is done. Corpus, scripts, hold-out set, bench and two baselines exist; reports are in `Docs/voice-bench/`.
+
+**The two baselines** (40 held-out passages, 80 trials each; a judge is right when it picks the AI piece; chance 50%):
+
+| setup | caught | content long-form | shorts | ads | conversion | products | Claude judge | Gemini |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| cold Claude (no guide) | 86% (69 of 80) | 100% | 50% | 75% | 92% | 94% | 100% | 70% |
+| today's guide (Part 1 plus the P2A passages and swearing rules) | 90% (72 of 80) | 100% | 75% | 75% | 92% | 100% | 100% | 78% |
+
+The four-point difference is inside the noise (8 trials of 80 decide it). **Part 1's guide did not make Claude harder
+to catch.** It changed how Claude gets caught:
+
+- "Performs the voice" fell from 76% of right calls to 29%. Cold Claude over-acts casual speech ("man", "hey", "like",
+  "But here's the thing"); the guide stops that.
+- "Too clean" rose from 44% to 93%. With the guide Claude reads like a smoothed paraphrase: his exact repeats ("It
+  improves your... It improves your..."), run-ons, clumsy joins and blunt words get tidied away.
+- "Sentence rhythm" stayed (71% to 65%) and "structure too organized" rose (26% to 43%): even sentence lengths, neat
+  short paragraphs, colon lists, a summary at the end.
+- Counts confirm overcorrection. Content, guide run against his held-out passages: "and" 1.76 per 100 against his 2.82
+  (the guide's "fewer ands" rule overshoots); sentence spread 7.9 against 18.0; "going to" 10.4 per 1,000 against 3.9;
+  "so" 16.7 against 9.0; "very" and "which" doubled.
+- Function words did move toward him in content (Delta 0.71 cold, 0.63 guide, his own held-out 0.52; LUAR 0.954,
+  0.976, 0.979). The other types show no separation at this sample size: the judges are the score.
+
+**What this means for Phase B** (the order to try things in):
+
+1. The enemy is tidiness, not missing rules. More rules made it cleaner. Test continuation from whole real passages
+   (B2, B3) before any guide rewrite, and score it first.
+2. Every rate needs a floor and a ceiling (B5, B6). "Fewer ands" with no floor produced 1.76.
+3. Rhythm: his spread of sentence lengths is more than double Claude's. A check on spread, not on the average.
+4. Written pieces: his typing habits are real cues the judges use (double hyphens, ".." and "...", CAPS on one word,
+  "#1", a dropped full stop at a paragraph end, exact product names repeated in full). List them per type from the
+  Tier 1 files, with rates.
+5. Shorts and ads are closest already (Gemini was fooled on half of them). Long-form content and products are furthest.
+6. The Claude judge was right 80 times out of 80. It is the hard judge; treat Gemini as the easier second opinion and
+   do not celebrate a Gemini-only gain.
+
+**How the bench works, and its limits.** `python3 scripts/voice/bench.py run --setup <name>` (setups in
+`scripts/voice/bench_setups.json`; add one per idea). It needs `voice-corpus/` (local, or pulled from the Drive mirror)
+and the `claude` command line. Real spoken passages had speech-to-text mis-hearings repaired once (under 1% of words),
+markdown is stripped from both sides, and judges are told to ignore transcription glitches and layout. Gemini refuses a
+few pairs from the book (it is about sex); Sonnet 5.5 stands in for those. A full run is about 40 writer calls and 44
+judge calls on the subscription plus about $0.55 of Gemini.
+
+**Thin material** (say so in any claim): ads Tier 1 is under 10,000 words; nine shorts are wholly his (four held out);
+consumer conversion copy is only his sections of the /start letter. Five off-the-cuff takes at the 10/17 shoot, and the
+next ads and sales letter he writes himself, would fix most of it.
+
+**Dan's blind page** (20 pairs from the guide run): https://claude.ai/artifact/P7rivcXAjD9weMTyupvTfm . His votes save
+to the page's database (`votes/<his id>`; read with ArtifactData). People he shares it with can view but not save, so
+the page gives them a "copy my answers" box to send back. The answer key is in
+`voice-corpus/bench/2026-10-08-guide/blind-key.json` (local and Drive only).
 
 ## Phase B: rebuild the method. Local or cloud, Opus 5.5 high
 
@@ -171,8 +227,9 @@ session cap. Pangram is separate and optional.
 
 **Phase B. Task name `Dan Voice P2B Method`. Local or cloud. Claude Opus 5.5, high effort.**
 
-> Run Phase B of `Handoffs/handoff-20261008-dan-voice-training-part2-plan.md`. Start from the newest file in
-> `Docs/voice-bench/`. Score every change on the bench and keep only what moves it.
+> Run Phase B of `Handoffs/handoff-20261008-dan-voice-training-part2-plan.md`. Read its "Phase A results" section and
+> `Docs/voice-bench/2026-10-08-guide.md` first. Score every change on the bench and keep only what moves it. My blind
+> page answers, if I have done it: [paste, or "saved on the page"].
 
 **Phase C (only if Phase B says so). Task name `Dan Voice P2C Model Pilot`. Local. Claude Opus 5.5, high effort.**
 

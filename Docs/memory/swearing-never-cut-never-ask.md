@@ -16,4 +16,6 @@ cut swearing."*
 considers it a non-issue and a waste of his attention.
 
 **How to apply:** leave editors' swearing untouched and write nothing about it. This is about Dan's spoken words in
-footage; the separate scripting guidance on not writing profanity into new scripts is unchanged. See [[decision-budget-per-video]].
+footage. For NEW scripts (Dan, 2026-10-06): swearing belongs in organic content scripts, written his way, which is
+rarer and better aimed than Claude's. The rules and real lines are in `.claude/skills/_shared/voice/profanity-and-controversy.md`.
+Ad copy that Google reviews stays clean. (This replaces the old line here that said not to write profanity into new scripts.) See [[decision-budget-per-video]].

@@ -56,6 +56,7 @@ HELD_MD = os.path.join(ROOT, ".claude", "skills", "_shared", "voice", "HELD-OUT.
 WRITER_MODEL = "claude-opus-5-5"
 JUDGE_MODEL = "claude-opus-5-5"
 GEMINI_MODEL = "gemini-3.1-pro-preview"
+STANDIN_MODEL = "claude-sonnet-5-5"  # judges the few pairs Gemini refuses to read
 GEMINI_PRICE = (2.0, 12.0)  # dollars per million tokens in / out (output includes thinking); checked 2026-10-08
 MIN_TRIALS = 80
 SEED = 20261008
@@ -138,6 +139,8 @@ def gemini_call(prompt):
             return text.strip(), u.get("promptTokenCount", 0), out
         except Exception as e:  # rate limit or a blip: try again
             last = str(e)[:300]
+            if "PROHIBITED_CONTENT" in last:
+                break  # a refusal, not a blip
     raise RuntimeError("gemini call failed: " + last)
 
 
@@ -762,13 +765,22 @@ def judge(setup_name, date):
                 cues=", ".join(CUES), refs="\n\n".join(f"[Reference {i}]\n{r}" for i, r in enumerate(refs, 1)),
                 a=a_, b=b_)
             tin = tout = 0
+            judge_name = who
             if who == "claude":
                 v = parse_json(claude_call(prompt, JUDGE_SYS, JUDGE_MODEL))
             else:
-                text, tin, tout = gemini_call(prompt)
-                v = parse_json(text)
+                try:
+                    text, tin, tout = gemini_call(prompt)
+                    v = parse_json(text)
+                except RuntimeError as e:
+                    if "PROHIBITED_CONTENT" not in str(e):
+                        raise
+                    # Gemini refuses some pairs outright (his book is about sex). A second Claude model stands in so
+                    # the pair still gets two verdicts; the report shows these on their own row.
+                    v = parse_json(claude_call(prompt, JUDGE_SYS, STANDIN_MODEL))
+                    judge_name = "standin"
             pick = str(v.get("ai", "")).strip().upper()[:1]
-            return json.dumps({"id": it["id"], "type": it["type"], "bucket": it["bucket"], "judge": who, "rep": rep,
+            return json.dumps({"id": it["id"], "type": it["type"], "bucket": it["bucket"], "judge": judge_name, "rep": rep,
                                "ai_is": ai_is, "picked": pick, "correct": pick == ai_is,
                                "confidence": v.get("confidence"), "cues": [c for c in v.get("cues", []) if c in CUES],
                                "why": v.get("why", ""), "refs": len(refs), "tokens_in": tin, "tokens_out": tout})
@@ -818,9 +830,13 @@ def report(setup_name, date, luar=True):
               ("  content, shorts", lambda t: t["bucket"] == "content-short"),
               ("ads", lambda t: t["type"] == "ads"), ("conversion", lambda t: t["type"] == "conversion"),
               ("products", lambda t: t["type"] == "products"),
-              ("judge: Claude", lambda t: t["judge"] == "claude"), ("judge: Gemini", lambda t: t["judge"] == "gemini")]
+              ("judge: Claude (Opus 5.5)", lambda t: t["judge"] == "claude"),
+              ("judge: Gemini", lambda t: t["judge"] == "gemini"),
+              ("judge: Sonnet 5.5, standing in where Gemini refused the pair", lambda t: t["judge"] == "standin")]
     for label, f in groups:
         g = [t for t in trials if f(t)]
+        if not g:
+            continue
         L.append(f"| {label} | {len(g)} | {sum(t['correct'] for t in g)} | {pct(sum(t['correct'] for t in g), len(g))} |")
     both = {}
     for t in trials:
@@ -944,7 +960,12 @@ def cmd_blind(a):
             with open(os.path.join(d, "gen", it["id"] + ".txt"), encoding="utf-8") as fh:
                 fake = for_judging(fh.read(), spoken)
             dan_is = rng.choice("AB")
-            pairs.append({"type": t, "what": it["kind"].split(". Write the verbatim")[0].rstrip("."), "spoken": spoken,
+            what = it["kind"].split(". Write the verbatim")[0].rstrip(".")
+            for junk in ("Short script: ", " (Dan's own draft)", " (Dan's own outline text)", "Black Belt: ", "(HD)",
+                         " Dans Sections"):
+                what = what.replace(junk, "")
+            what = re.sub(r" \((RO|DS|SL|RA)-\d+\)", "", what)
+            pairs.append({"type": t, "what": what, "spoken": spoken,
                           "a": real if dan_is == "A" else fake, "b": fake if dan_is == "A" else real, "_id": it["id"],
                           "_dan": dan_is})
     rng.shuffle(pairs)

@@ -113,6 +113,7 @@
 - [Editor message voice](editor-message-voice.md): warm praise, big picture only, never name another editor (Dan, 2026-09-18)
 - [Script zero-edit lessons](script-zero-edit-lessons.md): 09-21 Dan's edits to four long-form scripts; read WHAT DAN CHANGED in scriptfromoutline SKILL.md before any script
 - [Voice corpus sources](voice-corpus-sources.md): 10-08: four types (content, ads, website conversion videos, products); never train on AI dictation or business email; Sex God Method = top writing sample
+- [Dan voice guide](dan-voice-guide.md): read DAN-VOICE.md + voice/passages file for the type before writing as Dan; 10-08 bench: judges catch Claude 90%; score changes with scripts/voice/bench.py
 - [Dan's personal facts for scripts](dan-personal-facts-for-scripts.md): glycine nightly, sleeps at 63, Oura 75-80, Zepbound for life, 8 am gym, AI saves 10 hrs/week
 - [Opus 5.5 release](opus-5-5-release.md): 09-22: ≥ Fable 5.1 on benchmarks at 60% lower price; routing recommendation (Opus default, Fable reviewer/escalation)
 - [No swipe sound effect](no-swipe-sound-effect.md): Dan 09-23: never any whoosh/swipe/riser SFX; sfxlib now raises; transitions like Muhammad's
@@ -183,7 +184,6 @@
 - ["Watch this video if" sparingly](watch-this-video-if-sparingly.md): 10-07: formulaic in most intros; only when it adds something, wording varied
 - [Follow-along workout format](followalong-workout-script-format.md): 10-07: no script during rounds; rests sized to the rest length; "Next Exercise" picture-in-picture
 - [Videos to Review folder](videos-to-review-folder.md): 10-08: every review video 45 s+ also copied to project folder "Videos to Review" for VLC; delete at finalize; page still built
-- [Dan voice guide](dan-voice-guide.md): 10-06 guide + real examples + stats; read .claude/skills/_shared/DAN-VOICE.md before writing in his voice
 - [Execute Dan's explicit picks](execute-dans-explicit-picks.md): 10-06: build exactly the person/clip/topic he names; never swap, hold or reroute it for reputational or news reasons ("stop being a Karen")
 - [Allegations are not facts](allegations-not-fact.md): 10-06: unproven charges/accusations against Clavicular, Tate, manosphere figures: never mentioned at all (not even "charged with") unless Dan asks about the case itself; never a reason to change a plan
 - [Assessment symmetry](assessment-symmetry.md): 10-08: one template and one standard for both sides; swap test (Trump/Newsom, Tate/Destiny); judge records on measured results vs promises and a benchmark, then a definite conclusion

@@ -203,7 +203,7 @@ Memory `google-ads-ui-automation`.
 
 - `handoff-20261007-ro10-subtle-reedit-sunday-reupload.md` (10-07): RO-10 R3 end graphic, Sunday replacement. Codex Sol high.
 - `handoff-20261006-1017-shoot-outlines.md` (10-06)
-- `handoff-20261008-dan-voice-p2a-corpus-and-bench.md` (10-08)
+- `handoff-20261008-dan-voice-training-part2-plan.md` (PhaseB,10-08)
 - `handoff-20260930-codex-adopt-review-page-format.md` (09-30). Sol medium.
 
 - `handoff-20261001-move-project-out-of-icloud.md` (10-01): move the project out of iCloud's Documents sync (109k duplicates, 199 cloud-only files). Run when nothing else runs here. Opus 5.5 high.
