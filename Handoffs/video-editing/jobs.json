@@ -1946,15 +1946,16 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/RO-17-3-healthy-foods-that-made-me-fat.md`: cut \"3 Healthy Foods That Made Me Fat\" from 9/23 roll C1713 with /longform-edit. Best take of every line, every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-17-3-healthy-foods-that-made-me-fat.md` with `$long-form-content-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "draft_review",
-   "note": "DRAFT only — asset choices are waiting on the review page. Packet: /Volumes/Extreme/_edit_work/RO-17/placeholders.json",
+   "state": "ready",
+   "note": "09-25 placeholder draft exists. Next: Handoffs/handoff-20261008-ro17-round2-current-standard-review-page.md (R2 review page to current standard)",
    "sub": "",
    "order": 90,
-   "updated": "2026-09-25",
-   "by": "edit queue (codex)",
-   "rev": 3,
+   "updated": "2026-10-08",
+   "by": "claude",
+   "rev": 4,
    "syncedRev": 3,
-   "queue_owned": true
+   "queue_owned": true,
+   "needs": ""
   },
   {
    "id": "RO-18",
