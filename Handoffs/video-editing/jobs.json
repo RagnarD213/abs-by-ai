@@ -982,14 +982,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/RO-06-work-out-at-home-on-a-budget.md`: transcribe the rolls, map the takes to the script, and cut \"How To Work Out At Home On A Budget\" into a finished 16:9 first cut with /longform-edit to the approved organic standard (Zeeshan's ab wheel videos). Fill the B-roll and graphics cues, audio through the shared chain, every gate, independent audit, deliver master + SRT + chapters, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-06-work-out-at-home-on-a-budget.md` with `$long-form-content-edit` and the frozen organic recipe. Deliver master + SRT + chapters, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "ready",
-   "note": "",
+   "state": "in_progress",
+   "note": "Round 1 started 10-08: take map + look/assets packet",
    "sub": "",
    "order": 47,
-   "updated": "2026-09-16",
-   "by": "master list",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-10-08",
+   "by": "Claude",
+   "rev": 2,
+   "syncedRev": 2
   },
   {
    "id": "RO-07",
@@ -1761,14 +1761,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/RO-11-when-calories-don-t-matter-for-fat-loss.md`: cut \"When Calories Don't Matter For Fat Loss\" from 9/23 roll C1705 with /longform-edit. Best take of every line, every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-11-when-calories-don-t-matter-for-fat-loss.md` with `$long-form-content-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "ready",
-   "note": "Round 1 + opener frames approved 10-04; fire handoff-20261004-ro11-round2-build-full-film.md",
+   "state": "in_progress",
+   "note": "Round 2: opener motion, then full film (round 1 + opener frames approved 10-04)",
    "sub": "",
    "order": 84,
-   "updated": "2026-10-04",
+   "updated": "2026-10-08",
    "by": "Claude",
-   "rev": 4,
-   "syncedRev": 4
+   "rev": 5,
+   "syncedRev": 5
   },
   {
    "id": "RO-12",
