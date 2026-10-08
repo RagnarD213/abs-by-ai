@@ -9,7 +9,7 @@ const express = require('express');
 const {newDb} = require('pg-mem');
 const {createStore} = require('../web/store');
 const {createRouter} = require('../web/router');
-const {PATH,IMAGE_PATH,signedHeaders,canonical,keyId,verifyRequest,digest} = require('../web/publication');
+const {PATH,IMAGE_PATH,signedHeaders,signedImageDigestHeaders,canonical,keyId,verifyRequest,digest} = require('../web/publication');
 async function main() {
   const keys = crypto.generateKeyPairSync('ed25519'), other = crypto.generateKeyPairSync('ed25519');
   const env = {BRIEF_PUBLISH_PUBLIC_KEY:keys.publicKey.export({type:'spki',format:'der'}).toString('base64')};
@@ -60,6 +60,18 @@ async function main() {
     const sendImage = (headers=imageHeaders,bytes=image,mime='image/png') => fetch(base+IMAGE_PATH,{method:'POST',headers:{'Content-Type':mime,...headers},body:bytes});
     const imageResponse = await sendImage(); assert.equal(imageResponse.status,200); assert.equal((await imageResponse.json()).sha256,digest(image));
     assert.equal((await sendImage()).status,401);
+    const cloudHeaders = signedImageDigestHeaders(digest(image),keys.privateKey,clock);
+    const cloudResponse = await sendImage(cloudHeaders);
+    assert.equal(cloudResponse.status,200); assert.equal((await cloudResponse.json()).sha256,digest(image));
+    assert.equal((await sendImage(cloudHeaders)).status,401); // Same one-use nonce rule.
+    const changedImage = Buffer.from(image); changedImage[28] ^= 1;
+    assert.equal((await sendImage(signedImageDigestHeaders(digest(image),keys.privateKey,clock),changedImage)).status,401);
+    assert.equal((await send(signedImageDigestHeaders(digest(body),keys.privateKey,clock))).status,401); // Image-only authority.
+    assert.equal((await sendImage(signedImageDigestHeaders(digest(image),keys.privateKey,clock-301000))).status,401);
+    assert.equal((await sendImage(signedImageDigestHeaders(digest(image),keys.privateKey,clock+31000))).status,401);
+    for (const hash of ['', 'a'.repeat(63), 'a'.repeat(65), 'A'.repeat(64), 'g'.repeat(64), 'a'.repeat(64)+'\n', null]) assert.throws(()=>signedImageDigestHeaders(hash,keys.privateKey,clock));
+    const sameNonce='7'.repeat(32);
+    assert.deepEqual(signedImageDigestHeaders(digest(image),keys.privateKey,clock,sameNonce),signedHeaders(image,keys.privateKey,clock,sameNonce,IMAGE_PATH));
     assert.equal((await sendImage(signedHeaders(image,keys.privateKey,clock))).status,401); // Cross-route signature forbidden.
     const brokenImage = Buffer.from('not an image');
     assert.equal((await sendImage(signedHeaders(brokenImage,keys.privateKey,clock,undefined,IMAGE_PATH),brokenImage)).status,400);
@@ -82,10 +94,25 @@ async function main() {
       const result = run('--sign',body); assert.equal(result.status,0); assert(!result.stdout.includes('PRIVATE'));
       const h = JSON.parse(result.stdout), localPub = crypto.createPublicKey({key:Buffer.from(config.BRIEF_PUBLISH_PUBLIC_KEY,'base64'),type:'spki',format:'der'});
       assert(crypto.verify(null,canonical(body,h['X-Brief-Timestamp'],h['X-Brief-Nonce'],h['X-Brief-Key-Id']),localPub,Buffer.from(h['X-Brief-Signature'],'base64')));
+      for (const input of [digest(image),digest(image)+'\n']) {
+        const result = run('--sign-image-digest',input); assert.equal(result.status,0); assert(!result.stdout.includes('PRIVATE'));
+        const headers = JSON.parse(result.stdout);
+        assert.deepEqual(Object.keys(headers).sort(),['X-Brief-Key-Id','X-Brief-Nonce','X-Brief-Signature','X-Brief-Timestamp'].sort());
+        const request={method:'POST',originalUrl:IMAGE_PATH,briefRawBody:image,headers:{'content-type':'image/png',...Object.fromEntries(Object.entries(headers).map(([k,v])=>[k.toLowerCase(),v]))}};
+        assert.doesNotThrow(()=>verifyRequest(request,localPub));
+        assert.throws(()=>verifyRequest({...request,briefRawBody:changedImage},localPub));
+        assert.throws(()=>verifyRequest({...request,originalUrl:PATH,headers:{...request.headers,'content-type':'application/json'}},localPub));
+      }
+      for (const input of ['', 'a'.repeat(63), 'a'.repeat(66), 'A'.repeat(64), 'g'.repeat(64), digest(image)+'\n\n', ' '+digest(image), JSON.stringify({sha256:digest(image)}), 'a'.repeat(100000)]) {
+        const rejected = run('--sign-image-digest',input); assert.notEqual(rejected.status,0); assert.equal(rejected.stdout,'');
+      }
+      assert.notEqual(spawnSync(process.execPath,[signer,'--sign-image-digest',file,PATH],{input:digest(image)}).status,0);
       fs.chmodSync(file,0o644); assert.notEqual(run('--sign',body).status,0);
+      assert.notEqual(run('--sign-image-digest',digest(image)).status,0);
       fs.chmodSync(file,0o600); fs.renameSync(file,file+'.real'); fs.symlinkSync(file+'.real',file); assert.notEqual(run('--sign',body).status,0);
+      assert.notEqual(run('--sign-image-digest',digest(image)).status,0);
     } finally { fs.rmSync(dir,{recursive:true,force:true}); }
-    console.log('publication: exact-byte binding, wrong key/body/path/method, expiry/future, replay across stores, atomic nonce race, DB failure, limits and local key privacy passed');
+    console.log('publication: body and image-only digest signing, invalid digest/CLI rejection, exact-byte binding, wrong key/body/path/method, expiry/future, persistent replay, atomic nonce race, DB failure, limits and local key privacy passed');
   } finally { await new Promise(resolve=>server.close(resolve)); await pool.end(); }
 }
 main().catch(error=>{console.error(error);process.exitCode=1;});

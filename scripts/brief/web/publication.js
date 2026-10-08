@@ -5,7 +5,11 @@ const IMAGE_PATH = '/api/brief/image/publish';
 const WINDOW = 300;
 const digest = body => crypto.createHash('sha256').update(body).digest('hex');
 const keyId = key => digest(key.export({type:'spki',format:'der'}));
-const canonical = (body, timestamp, nonce, id, route = PATH) => Buffer.from(['absbyai-brief-v1','POST',route,digest(body),timestamp,nonce,id,''].join('\n'));
+function canonicalDigest(hash, timestamp, nonce, id, route) {
+  if (typeof hash !== 'string' || hash.length !== 64 || !/^[a-f0-9]{64}$/.test(hash)) throw new Error('Invalid body digest');
+  return Buffer.from(['absbyai-brief-v1','POST',route,hash,timestamp,nonce,id,''].join('\n'));
+}
+const canonical = (body, timestamp, nonce, id, route = PATH) => canonicalDigest(digest(body),timestamp,nonce,id,route);
 function publicKey(value) {
   if (typeof value !== 'string' || value.length > 128 || !/^[A-Za-z0-9+/]+={0,2}$/.test(value)) throw new Error('Publication key unavailable');
   const der = Buffer.from(value,'base64');
@@ -14,12 +18,19 @@ function publicKey(value) {
   if (key.asymmetricKeyType !== 'ed25519') throw new Error('Publication key unavailable');
   return key;
 }
-function signedHeaders(body, privateKey, now = Date.now(), nonce = crypto.randomBytes(16).toString('hex'), route = PATH) {
+function signedDigestHeaders(hash, privateKey, now, nonce, route) {
   if (privateKey.asymmetricKeyType !== 'ed25519') throw new Error('Wrong signing key');
   if (![PATH,IMAGE_PATH].includes(route)) throw new Error('Wrong publication route');
   const id = keyId(crypto.createPublicKey(privateKey)), timestamp = String(Math.floor(now / 1000));
   return {'X-Brief-Key-Id':id,'X-Brief-Timestamp':timestamp,'X-Brief-Nonce':nonce,
-    'X-Brief-Signature':crypto.sign(null,canonical(body,timestamp,nonce,id,route),privateKey).toString('base64')};
+    'X-Brief-Signature':crypto.sign(null,canonicalDigest(hash,timestamp,nonce,id,route),privateKey).toString('base64')};
+}
+function signedHeaders(body, privateKey, now = Date.now(), nonce = crypto.randomBytes(16).toString('hex'), route = PATH) {
+  return signedDigestHeaders(digest(body),privateKey,now,nonce,route);
+}
+// Precomputed digests can authorize only the existing image publication route.
+function signedImageDigestHeaders(hash, privateKey, now = Date.now(), nonce = crypto.randomBytes(16).toString('hex')) {
+  return signedDigestHeaders(hash,privateKey,now,nonce,IMAGE_PATH);
 }
 function verifyRequest(req, key, now = Date.now()) {
   const type = req.originalUrl === PATH ? /^application\/json(?:\s*;|$)/i : /^image\/(?:png|jpeg)$/;
@@ -33,4 +44,4 @@ function verifyRequest(req, key, now = Date.now()) {
   if (age < -30 || age > WINDOW || !crypto.verify(null,canonical(req.briefRawBody,timestamp,nonce,id,req.originalUrl),key,Buffer.from(signature,'base64'))) throw new Error('Invalid publication');
   return {id,nonce,expiresAt:(Number(timestamp)+WINDOW+31)*1000};
 }
-module.exports = {PATH,IMAGE_PATH,WINDOW,digest,keyId,canonical,publicKey,signedHeaders,verifyRequest};
+module.exports = {PATH,IMAGE_PATH,WINDOW,digest,keyId,canonical,publicKey,signedHeaders,signedImageDigestHeaders,verifyRequest};
