@@ -85,6 +85,9 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 # ACTIVE
 
+**Waist Look Smaller SFC cover - BLOCKED 2026-10-08, Codex.** A poolside installed and verified on YouTube, Facebook and Instagram. TikTok @danrosefit remains: iPhone Mirroring ignores scrolling, Edit post off-screen. Next: phone Share > Edit post > Edit cover > Upload newest photo > Save. Detail: `output/thumbnails/side-lateral-short-20261008/installation-record.json`.
+
+
 **SL-03 covers - NEEDS DAN 2026-10-08, Claude.** Picks pending.
 
 **WV01-B-Codex:REVIEW 2026-10-07.** [Opening](Handoffs/results-20261007-wv01-b-opening-r1.md). Dan:review.
