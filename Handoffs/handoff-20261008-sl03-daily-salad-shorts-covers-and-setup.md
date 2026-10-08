@@ -1,8 +1,12 @@
 # SL-03 Daily Salad shorts (6): covers, then upload and schedule
 
 **Category: CONTENT. Six Shorts (`SFC`) cut from the long-form RO-05 "How I Make My Daily Salad". Written 2026-10-08 by
-Claude (Opus 5.5). Task name: `Daily Salad SFC Setup`. Recommended: Claude Opus 5.5, high.** One Claude task does both
-halves (Dan's rule, 2026-10-01). **Use the Codex subscription to generate the images.**
+Claude (Opus 5.5). Task name: `Daily Salad SFC Setup`.** One Claude handoff covers both halves (Dan's rule, 2026-10-01).
+**Model (revised 2026-10-08): covers half on Opus 5.5 medium; upload and schedule half on Sonnet 5 medium, as a second
+session fired after the picks.** Why: the covers are design judgment (photo choice, layout, judging 30 images by eye);
+the second half is a scripted checklist and is the token-heavy part. Sonnet rule for that half: follow the steps and the
+scripts exactly, and stop and report on anything off-script (a failed upload, a slot conflict, a cover tile showing a
+frame) instead of improvising. **Use the Codex subscription to generate the images.**
 
 Dan finalized all six on 2026-10-08: *"All right, these look good. You can go ahead and finalize all of these. Give me
 the handoff for installation and setup for all these shorts here."* Queue: SL-03 `finalized`. Hashes and his words:
@@ -107,12 +111,21 @@ Five choices per short, 30 in all, each choice in both layouts (Instagram grid a
 - The build folder `/Volumes/Extreme/_edit_work/sl03/` is read-only for this task. `batch.py plan` on any of the six
   would rewrite its plan and break the match with the delivered file.
 
-## Starter prompt
+## Starter prompts
+
+**Session 1, covers (any time). Claude Opus 5.5, medium.**
 
 > Name this task `Daily Salad SFC Setup`. Read `Handoffs/handoff-20261008-sl03-daily-salad-shorts-covers-and-setup.md` in
-> full and the files it lists. The six Daily Salad shorts are finalized: do not re-edit them. First make five cover
-> choices for each short (one pool photo, one studio photo, three AI designs). Use the Codex subscription to generate
-> the images. Show me all of them on one review sheet and stop for my picks. Then confirm the Daily Salad long-form is
-> public on all four platforms and queue the six shorts in Blotato on Tue/Thu/Sat slots in the order 1, 4, 5, 2, 3, 6.
+> full and the files it lists. The six Daily Salad shorts are finalized: do not re-edit them. Do section 2 only: make
+> five cover choices for each short (one pool photo, one studio photo, three AI designs). Use the Codex subscription to
+> generate the images. Show me all of them on one review sheet and stop for my picks. When I pick, export them to
+> `Short-form video content/covers/approved-sl03/` and stop. Do not upload or schedule anything.
 
-Model and effort: Claude Opus 5.5, high.
+**Session 2, upload and schedule (on or after Mon Oct 19, after the picks are exported). Claude Sonnet 5, medium.**
+
+> Name this task `Daily Salad SFC Setup`. Read `Handoffs/handoff-20261008-sl03-daily-salad-shorts-covers-and-setup.md` in
+> full and the files it lists. The six Daily Salad shorts are finalized and my approved covers are in
+> `Short-form video content/covers/approved-sl03/`. Do section 3 only: confirm the Daily Salad long-form is public on
+> all four platforms, then queue the six shorts in Blotato on Tue/Thu/Sat slots in the order 1, 4, 5, 2, 3, 6, and
+> verify every schedule. Follow the steps and scripts exactly. If anything does not match the handoff, stop and tell me
+> before going further. Do not design, change or pick a cover.
