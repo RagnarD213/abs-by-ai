@@ -91,6 +91,8 @@ With one or two motion takes the video lands near $2.30 to $4.10.
 - **Done and reusable:** all locks re-hashed, match. `build.py` now has RO-10's repeated-first-frame fix; all 57 segments are
   cached and `dupscan.py` is clean (0). `junk_report.json` written (pre-render, `ranges.json`). `recipe/finish.py`,
   `finish_chain.sh`, `deliver.sh` are written for RO-11 (untested until a master exists). Jumps: 0.
+- **`Videos to Review/`** holds four opener clips named `Calories Don't Matter LFC R2 - opener ...` (Dan asked for them there
+  although they are under 45 s). Replace them with the finished film when it is delivered; delete this video's copies when Dan finalizes it.
 - **Spend:** about $3.50 of $5 (`BUDGET.json`).
 - **Next action:** record Dan's pick in `round2-plan/decisions.json`, edit `plan.py` A01, then step 2 onward above.
 
