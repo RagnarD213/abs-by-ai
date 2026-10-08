@@ -97,6 +97,26 @@ before ads). A large share of the "estimated follows" is organic, so treat small
 **Caps vs $10 tests:** at ~35 posts a month, tests alone would be ~$350, so the $300 test cap stops new tests in
 the last days of a month. Caps unchanged; raising them is Dan's call.
 
+## Follower test, Oct 9 to Oct 29 2026 (Dan's call, 2026-10-08): AUTO-BOOST IS OFF
+
+Dan is testing whether these ads add followers at all. Analysis on 2026-10-08: $573.71 lifetime Meta spend, $0.10 per
+profile visit, best guess about $6 per extra follower with "no effect" still inside the margin of error.
+
+| week | dates | what runs |
+|---|---|---|
+| OFF 1 | Oct 9 to Oct 15 | nothing |
+| ON | Oct 16 to Oct 22 | one ad, $40/day, ad set `120251407001680682` (ad `120251407002340682`), the "Three-minute rounds at home" image post. Meta starts it Oct 16 00:00 CT and ends it Oct 23 00:00 CT by itself |
+| OFF 2 | Oct 23 to Oct 29 | nothing |
+
+- **State left on 2026-10-08:** `AUTO_BOOST_ENABLED=0` on the `auto-boost` service (dry run), the `CHAMPION` ad set and
+  nine running tests paused by hand, campaign left ACTIVE so the scheduled ad set can deliver. **Do not switch the job
+  back on or unpause anything before Dan rules on the result.**
+- **Read it:** `python3 scripts/ads/oneoff/follower-test.py status` (what is spending) and `... report` (three weeks
+  side by side, final on or after Nov 1). A week-to-week gap under 28 followers is normal bounce.
+- **Trap when resuming:** the live job tests every untested post since 2026-09-02, so switching it back on after three
+  weeks off queues about 25 tests at $10 each at once. Decide with Dan first. The champion ad set must be unpaused by
+  hand, and the `FOLLOWTEST::` ad set is not one of the job's own names.
+
 ## Follower readings
 
 | reading (UTC) | followers | lifetime spend | visits | since previous |

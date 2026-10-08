@@ -44,8 +44,6 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 - **/start VSL: (baseline 2026-09-15; age unknown)** read script doc `1DL2V34wePN75m1XxAuhpC2nghvobgr4C9RnTyszqqlA`, decide §7 (on-screen line under real
   photos), record. ⚠ Live post-generation video
   says "thousands of guys" (3:16, 3:41); 75 people have ever generated.
-- **@danrosefit Meta ads: (baseline 2026-09-15; age unknown)** raise champion ad set `120250753601020682` $6.50 → $8/day? Confirm both [DAN] [ENGAGEMENT]
-  campaigns stay OFF. Report: https://claude.ai/code/artifact/18397bc8-efc4-4554-a440-7961cbaa423d
 - **Fire the phone handoff (updated 09-22):** 3 TikTok covers in Photos. `Handoffs/handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md`
 - **Google Ads remarketing `24169507109` (baseline 09-15)** — ~$2.50/day, 0 clicks/conversions ever. Pause?
 - **Ad 3: (baseline 2026-09-15; age unknown)** delete empty husk `J-fOMvEJwDs` in Studio; campaign budget reads $40/day (docs said $20); label his 200 lb
@@ -89,6 +87,8 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 
 **SL-03 shorts 2/3/6 - OWED 2026-10-08, Claude.** `Handoffs/handoff-20261008-sl03-queue-shorts-2-3-6.md`
+
+**Meta follower test - RUNNING 2026-10-08, Claude.** Auto-boost OFF; one $40/day ad self-runs Oct 16-22. Resume nothing. Nov 1 report: `Docs/AUTO_BOOST.md`.
 
 **WV01-B-Codex:REVIEW 2026-10-07.** [Opening](Handoffs/results-20261007-wv01-b-opening-r1.md). Dan:review.
 
