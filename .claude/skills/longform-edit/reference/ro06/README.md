@@ -52,3 +52,23 @@ Round 2 (2026-10-08, Dan's first-minute notes: open tight, tight as the default,
 - The tight size is an enlargement: sharpening 0.9 (medium keeps 0.5). Show Dan same-size crops and say what he trades.
 - The review page for a first-minute-only round: `page2.py` (stills pulled from the rendered file, "Play from here" buttons
   that seek the one docked player).
+
+Round 3 (2026-10-08, Dan's notes on the round 2 first minute: jump rope swap, panning equipment shot, frames for four AI clips):
+- **Judge "fast" by measuring the roll, not by the clip's catalog line.** Head height per frame against a median plate of
+  the locked-off roll gives jumps per second: C1674's both-feet stretch is 95 a minute with a pause on each landing, the
+  alternating-feet stretch is the beginner demo Dan rejected, the high-knee stretch is 155 a minute and steady for 12 s.
+  The driveway clip B0004 is fast but its picture is 640x720 inside a 1280x720 frame: unusable full screen.
+- **A pan made by sliding a crop needs shutter blur.** At 560 px a second, 30 fps steps of 18 px strobe. `c02_pan.py`
+  averages 8 sub-frame positions across half a frame, on a float x, with a steady middle and soft ends.
+- **Topaz video upscale on Replicate** (`topazlabs/video-upscale`, 4k): send the clip inline as a `data:video/mp4;base64`
+  input. A Replicate files-API URL fails with "source.container is required". 3 s cost $0.24 and was clearly sharper than
+  lanczos at 2.25x (comparison in `round3/c02/`). Its output is 30 fps: read the same number of frames, do not retime.
+- **A piece wholly hidden under a full-screen clip must not move the crop of the pieces you see.** Adding clips inside a
+  shot creates hidden `shot+c` pieces that join the neighbouring run and shifted its shared crop by 2 px. `all_segments()`
+  now weights the run's crop by visible frames only. Prove an approved first minute is untouched: compare crop and source
+  frame for every visible presenter frame against the previous round's `build.json` (expect 0 differences).
+- **AI frame placeholders:** a `clip` item with `frames=[start, end]`, `pending=True`, `label="AI-GENERATED"` and no `src`.
+  `build.ai_placeholder` shows START for the first half of the slot and END for the second, labelled.
+- **Codex frame pairs:** make a character sheet and a room picture first, then every START frame from those, then each END
+  frame as an edit of its own START ("keep everything identical, change only..."). Say which side of the picture a moving
+  arm finishes on, and restate the haircut: both went wrong once. Prompts: `ai-frame-prompts/`.

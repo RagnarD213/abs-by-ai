@@ -11,7 +11,7 @@ for a, b in zip(sg, sg[1:]):
     if b["o0"] < n and (a["crop"] != b["crop"] or not Bd.same_take(a, b)): cuts[b["o0"]] = f"{a['key']} {a['framing']} > {b['key']} {b['framing']}"
 for it in Bd.R:
     if it["kind"] in Bd.FULL and Bd.fr(it["t0"]) < n:
-        f0, f1 = Bd.fr(it["t0"]), Bd.fr(it["t1"]); k = len(it.get("src", [1])); per = (f1-f0)//k
+        f0, f1 = Bd.fr(it["t0"]), Bd.fr(it["t1"]); k = 1 if it.get("frames") else len(it.get("src") or [1]); per = (f1-f0)//k      # a placeholder (frames) is one item; its START/END swap is not a cut
         for j in range(k): cuts[f0 + j*per] = f"{it['id']} clip {j+1}" if j else f"into {it['id']}"
         if f1 < n: cuts[f1] = f"out of {it['id']}" + (" > " + cuts[f1] if f1 in cuts else "")
 want = sorted({f for c in cuts for f in range(c-2, c+3) if 0 <= f < n} | {int(round(t*1.5*FPS)) for t in range(int(n/FPS/1.5)+1) if int(round(t*1.5*FPS)) < n})

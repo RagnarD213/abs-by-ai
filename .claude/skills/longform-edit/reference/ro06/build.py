@@ -65,7 +65,7 @@ def all_segments():
             hid = sum(max(0, min(b, o1)-max(a, o0)) for a, b in full)
             segs.append(dict(o0=o0, o1=o1, src0=s["src_f0"] + o0 - s["out_f0"], shot=s["id"], roll=s["roll"],
                              key=s["id"] + ("" if j == 0 else "+c" + (str(j) if j > 1 else "")), klass=klass(s), active=F.SF[s["id"]]["active"],
-                             forced=any(a < o1 and o0 < b for a, b in cards), lt=under > 0.45*max(1, n-hid),
+                             forced=any(a < o1 and o0 < b for a, b in cards), lt=under > 0.45*max(1, n-hid), vis=max(0, n-hid),
                              covered_in=any(a <= o0 < b for a, b in full)))
     cost = [dict(options(segs[0]))]; back = [{}]
     for k in range(1, len(segs)):
@@ -104,7 +104,8 @@ def all_segments():
                 sg["framing"] = q; done = False; break
         if done: break
     for run in runs():                                                # one crop per run
-        cs = [F.crop_of(segs[k]["shot"], segs[k]["framing"]) for k in run]; w = [segs[k]["o1"] - segs[k]["o0"] for k in run]
+        seen = [k for k in run if segs[k]["vis"] > 0] or run        # a piece wholly under a full-screen clip never moves the crop of the pieces you see (round 3)
+        cs = [F.crop_of(segs[k]["shot"], segs[k]["framing"]) for k in seen]; w = [segs[k]["vis"] or segs[k]["o1"] - segs[k]["o0"] for k in seen]
         cw, ch = max(cs)[:2]; x0 = sum(c[2]*n for c, n in zip(cs, w))/sum(w); y0 = min(c[3] for c in cs)
         crop = (cw, ch, int(min(max(0, round(x0/2)*2), 1920-cw)), int(min(y0, 1080-ch)))
         for k in run: segs[k]["crop"] = crop; segs[k]["zoom"] = round(1920/cw, 3)
@@ -144,8 +145,19 @@ def render_seg(sg):
              "-colorspace", "bt709", "-color_primaries", "bt709", "-color_trc", "bt709", out + ".tmp.mp4"])
         os.rename(out + ".tmp.mp4", out)
     return out
+def ai_placeholder(it, i, n):
+    """A new AI clip whose motion is not generated yet: its approved-for-review START frame for the first half of the slot,
+    its END frame for the second half, labelled (the 2026-09-28 preview convention). Never a finished clip."""
+    k = 0 if i < n/2 else 1
+    im = Image.open(it["frames"][k]).convert("RGB").resize((1920, 1080), Image.LANCZOS)
+    B.disclosure(im, f"{it['id']} PLACEHOLDER: {('START', 'END')[k]} frame, motion not generated yet", (960, 990), 2.0, anchor="mt")
+    return im
 def clip_frames(it):
-    n = fr(it["t1"]) - fr(it["t0"]); s = it["src"]; per = n // len(s)
+    n = fr(it["t1"]) - fr(it["t0"])
+    if it.get("frames"):
+        for i in range(n): yield ai_placeholder(it, i, n)
+        return
+    s = it["src"]; per = n // len(s)
     for k, sp in enumerate(s):
         m = per if k < len(s)-1 else n - per*(len(s)-1)
         path = G.src_path(sp); st = G.src_start(sp)

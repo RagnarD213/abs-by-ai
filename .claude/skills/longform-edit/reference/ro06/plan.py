@@ -4,14 +4,24 @@ clip = full-frame cutaway, hard cuts. Order of preference kept: Dan's own B-roll
 stock, new AI last (none needed; the six product pictures are Codex stills, labelled). No clip source is used twice."""
 AS = "/Volumes/Extreme/_edit_work/ro06/assets"
 SHOOT = "/Volumes/Extreme/abs by ai 8:3 jeff chagrin shoot/main camera"
+R3 = "/Volumes/Extreme/_edit_work/ro06/round3"
 PLAN = [
  # ---------------- hook
- dict(id="C01", kind="clip", start="This is a setup I personally", end="during that time", tail=0.14, src=["B0436@2.0", "B0447@1.0", "B0439@0.5"],
-      note="Dan's own B-roll, three different exercises with this setup (round 2): ab wheel rollout, jump rope, kettlebell (lawn)"),
+ dict(id="C01", kind="clip", start="This is a setup I personally", end="during that time", tail=0.14, src=["B0436@2.0", "B0448@4.0", "B0439@0.5"],
+      note="Dan's own B-roll, three different exercises with this setup: ab wheel rollout, jump rope at full speed (round 3: B0448 from 4.0 s, the fast smooth stretch of roll C1674; B0447 was the beginner demo), kettlebell (lawn)"),
  dict(id="G01", kind="lt", start="So this is great", end="limited time to work out", topic="HOME WORKOUT ON A BUDGET",
       point="A Full Home Setup For $58.", parts=[["A Full Home Setup", "So this is great"], ["For $58.", "for you guys"]]),
- dict(id="C02", kind="clip", start="then you need something like this", end="work out at home", tail=0.2, src=[f"{SHOOT}/C1557.MP4@3.0"], grade="C1559",
-      note="the real equipment laid out on the mat (C1557, this shoot's own static shot)"),
+ dict(id="C02", kind="clip", start="then you need something like this", end="work out at home", tail=0.2, src=[f"{R3}/c02/C02-pan-topaz.mp4@0.0"], grade="C1559",
+      note="the real equipment (C1557 from 3.0 s, locked off), round 3: a 2.25x window that pans from the kettlebell to the dumbbells over the whole clip (c02_pan.py), built from a Topaz 4K upscale of the same 88 frames"),
+ # ---------------- round 3: four AI clips, frames only (Dan 2026-10-08). Picture only; the voice track does not change.
+ dict(id="A1", kind="clip", start="Dan I don't have time", end="go to the gym", tail=0.28, src=[], frames=[f"{R3}/frames/A1-start.png", f"{R3}/frames/A1-end.png"], pending=True, label="AI-GENERATED",
+      people="dan-ai+other", physique=False, note="AI clip: trainer AI-Dan and the whiny client in the home gym; the client whines the first excuse (his lips driven by Dan's impression audio)"),
+ dict(id="A2", kind="clip", start="Dan I don't have the money", end="gym membership", tail=0.12, src=[], frames=[f"{R3}/frames/A2-start.png", f"{R3}/frames/A2-end.png"], pending=True, label="AI-GENERATED",
+      people="dan-ai+other", physique=False, note="AI clip: closer two-shot; the client shows his empty wallet and whines the second excuse (lip sync)"),
+ dict(id="A3", kind="clip", start="I'm about to destroy", end="all those excuses", tail=0.1, src=[], frames=[f"{R3}/frames/A3-start.png", f"{R3}/frames/A3-end.png"], pending=True, label="AI-GENERATED",
+      people="dan-ai+other", physique=False, note="AI clip: the trainer slaps the client; the hit lands on 'destroy' (39.40)"),
+ dict(id="A4", kind="clip", start="show you why", end="any way whatsoever", tail=0.2, src=[], frames=[f"{R3}/frames/A4-start.png", f"{R3}/frames/A4-end.png"], pending=True, label="AI-GENERATED",
+      people="dan-ai+other", physique=False, note="AI clip: the trainer has the client doing push-ups on the push-up handles on the blue mat, ab wheel and jump rope beside them"),
  # ---------------- excuses
  dict(id="G02", kind="lt", start="Super cheap, super easy", end="not doing this", tail=0.25, topic="NO MORE EXCUSES",
       point="No Gym Membership. No COMMUTE.", parts=[["No Gym Membership.", "Super cheap"], ["No COMMUTE.", "super easy"]]),
