@@ -164,8 +164,13 @@ def from_round(B, a, facts):
     master = os.path.abspath(masters[-1])
     build = json.load(open(master + ".build.json"))
     F = load_py(os.path.join(B, "recipe", "frames.py"), "frames_recipe")
-    roll = os.path.splitext(os.path.basename(F.SRC))[0]
-    rolls = {roll: F.SRC}
+    multi = not hasattr(F, "SRC")          # a multi-roll build (RO-06: 20 rolls on one global source timeline, frames.ROLLS)
+    if multi:
+        used = sorted({s["roll"] for s in build["segments"]})
+        rolls = {r: F.ROLLS[r]["path"] for r in used}
+    else:
+        roll = os.path.splitext(os.path.basename(F.SRC))[0]
+        rolls = {roll: F.SRC}
     V = video_block(master, rolls)
     segs = build["segments"]
     if segs[-1]["o1"] != V["frames"]:
@@ -174,23 +179,31 @@ def from_round(B, a, facts):
     for i, s in enumerate(segs):
         n = s["o1"] - s["o0"]
         p = segs[i - 1] if i else None
-        join = "first" if not i else ("reframe" if p["src0"] + (p["o1"] - p["o0"]) == s["src0"] else "cut")
-        edl.append(dict(roll=roll, src_f0=s["src0"], src_in=round(s["src0"] / FPS, 5), src_out=round((s["src0"] + n) / FPS, 5),
+        join = "first" if not i else ("reframe" if p["src0"] + (p["o1"] - p["o0"]) == s["src0"] and p.get("roll") == s.get("roll") else "cut")
+        r_ = s["roll"] if multi else roll
+        f0 = s["src0"] - (F.ROLLS[r_]["f0"] if multi else 0)      # roll-local source frame
+        edl.append(dict(roll=r_, src_f0=f0, src_in=round(f0 / FPS, 5), src_out=round((f0 + n) / FPS, 5),
                         out_f0=s["o0"], out_f1=s["o1"], out_in=round(s["o0"] / FPS, 5), out_out=round(s["o1"] / FPS, 5),
                         shot=s["shot"], audio="sync", join=join, covered=bool(s.get("covered")), side_card=s.get("card")))
-        crops.append(list(F.CROP[s["framing"]]))
+        crops.append(list(s["crop"]) if s.get("crop") else list(F.CROP[s["framing"]]))     # a solved per-segment crop wins
     hc = None
-    hp = os.path.join(os.path.dirname(master), "logs", "haircheck.json")
-    if os.path.exists(hp):
-        hc = json.load(open(hp))["rows"]
+    for hp in (os.path.join(os.path.dirname(master), "logs", "haircheck.json"), os.path.join(os.path.dirname(master), "qc", "hair.json")):
+        if os.path.exists(hp):
+            hc = json.load(open(hp))["rows"]
+            break
     heads = head_rows(edl, crops, rolls, a.work, hc)
     for s, c, h in zip(segs, crops, heads):
         fr_rows.append(dict(name=s["framing"], crop=c, head=h, wall_stretch=bool(s.get("shifted") and s["framing"] == "W2"),
                             measured="mediapipe face box + Apple Vision person mask on the raw roll (headmeasure.py)"
                                      + ("; hair top also from the build's dense haircheck.json on the master" if hc else "")))
-    grade = dict(filter="scale=in_color_matrix=bt709:in_range=tv:flags=accurate_rnd+full_chroma_int,format=gbrpf32le,"
-                        f"lut3d=file='{F.LUT}':interp=tetrahedral", lut=F.LUT, decode="bt709", order="after_scale_1080",
-                 note="the build's recipe/frames.py vf(): crop, scale to 1920x1080 with a BT.709 decode, then the LUT in float RGB")
+    if multi:
+        grade = dict(filter="scale=1920:1080:flags=lanczos+accurate_rnd+full_chroma_int:in_color_matrix=bt709:in_range=tv,format=gbrp,<per_roll curve>",
+                     per_roll={r: F.GR[r][F.LOOK] for r in used}, look=F.LOOK, decode="bt709", order="after_scale_1080",
+                     note="the build's recipe/frames.py vf(): crop, scale to 1920x1080 with a BT.709 decode, then that roll's own curve (grades.json, per-roll skin-anchored)")
+    else:
+        grade = dict(filter="scale=in_color_matrix=bt709:in_range=tv:flags=accurate_rnd+full_chroma_int,format=gbrpf32le,"
+                            f"lut3d=file='{F.LUT}':interp=tetrahedral", lut=F.LUT, decode="bt709", order="after_scale_1080",
+                     note="the build's recipe/frames.py vf(): crop, scale to 1920x1080 with a BT.709 decode, then the LUT in float RGB")
     # words
     W = [dict(w=w["w"], t0=round(w["t0"], 4), t1=round(w["t1"], 4)) for w in json.load(open(os.path.join(B, "words_out.json"))) if w.get("t0") is not None]
     fx = os.path.join(os.path.dirname(master), "srt_fixes.json")
@@ -247,7 +260,8 @@ def from_round(B, a, facts):
                                  people_source=src, approved_crop=None, library_id=lib_id, zoom=it.get("zoom", 1.0),
                                  clean_until=it.get("max_len"), note=it.get("note")))
     audio = dict(mix=master, untreated=master + ".untreated.wav", gate_stamp=master + ".audio_gate.json",
-                 chain=master + ".voice_chain.json", music=None)
+                 chain=master + ".voice_chain.json",
+                 music=json.load(open(master + ".music.json")) if os.path.exists(master + ".music.json") else None)     # the build's own record of its bed
     dec = sorted(glob.glob(os.path.join(B, "round*-plan", "decisions.json")))
     D = json.load(open(dec[-1])) if dec else {}
     approvals = dict(status="approved" if a.approved else "pending", round=D.get("round"), source=dec[-1] if dec else None,
