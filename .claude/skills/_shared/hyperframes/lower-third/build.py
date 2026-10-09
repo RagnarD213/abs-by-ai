@@ -29,6 +29,7 @@ import hfbuild as H
 B = H.B
 W, Hh = 1920, 1080
 U = 2.0
+PART_GAP = 7          # px added between parts (see layout)
 
 
 def layout(topic, parts, bar, topic_case="upper"):
@@ -40,10 +41,14 @@ def layout(topic, parts, bar, topic_case="upper"):
     wrap_w = x1 - x0 - 31 * U - 24 * U - (bar_zone + 64 if bar else 0)
     assert full_w <= wrap_w, f"point is {full_w:.0f} px; {wrap_w:.0f} px fit beside the bar (shorten it or drop the bar)"
     _, ytop, _, bh = B.lower_third_default_box(W, Hh, 1)
+    # The browser sets this face a little wider than PIL measures it, so a later part came up 7 to 12 px after the one
+    # before it where a word space is 15 to 19 ("RecommendIs", "OVERTRAINING?No."; Dan, 2026-10-09: "add in the space").
+    # Each later part moves right by PART_GAP per part before it; the fit check counts it.
     xs, acc = [], ""
-    for p, _ in parts:
-        xs.append(round(tx + (H.text_w(acc + " ", 28 * U) if acc else 0), 1))
+    for k, (p, _) in enumerate(parts):
+        xs.append(round(tx + (H.text_w(acc + " ", 28 * U) if acc else 0) + PART_GAP * k, 1))
         acc = (acc + " " + p).strip()
+    assert full_w + PART_GAP * (len(parts) - 1) <= wrap_w, f"point is {full_w + PART_GAP * (len(parts) - 1):.0f} px with its part gaps; {wrap_w:.0f} px fit"
     L = dict(strip=[x0, ytop, x1 - x0 + 1, bh + 1], radius=18 * U, accent=[x0 + U, ytop + 3 * U, 8 * U, bh - 6 * U],
              topic=dict(x=tx, y=ytop + 13 * U, s=topic if topic_case == "preserve" else topic.upper()), point_y=ytop + 38 * U,
              parts=[dict(s=p, x=x) for (p, _), x in zip(parts, xs)])
