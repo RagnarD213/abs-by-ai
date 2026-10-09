@@ -18,6 +18,22 @@
   now leans toward an opener, and the camera open is the exception that needs the reason. The first-30-seconds rules
   still bind (no belly-fat framing, frames approved before AI motion, the applicable per-video generation budget below).
 
+## Jump rope footage: the fast skip is correct, the both-feet clip is a mistake demo (Dan, 2026-10-09)
+
+- **Whenever a video shows Dan jumping rope, use the footage of him skipping quickly over the rope, foot to foot, like a
+  boxer.** Library clip `B0448` (roll C1674, the high-knee stretch, about 155 steps a minute).
+- **The clip of him jumping over the rope with BOTH feet (`B0430`) shows a mistake. Never use it unless Dan is saying, in
+  that moment, that jumping with both feet is a mistake.** Dan: *"I want to make a standing rule that this clip of me
+  jumping over with both feet is meant to show a mistake. This clip ... should never be used in videos unless I'm saying
+  it's a mistake to jump over with both feet. Basically, this clip is a mistake. Don't use it unless I'm illustrating a
+  mistake. Always use the correct jump rope footage of me quickly skipping over the rope, not the beginner footage of me
+  going very slowly foot by foot, but the footage of me skipping quickly like a boxer would."*
+- **The slow foot-by-foot clip (`B0447`) is the beginner demo.** It is not the correct-form clip either: use it only where
+  he is teaching how a beginner starts.
+- This binds every video, every editor brief and every revision doc. The clip library descriptions of all three carry
+  the rule. When a film needs jump rope twice, take a different part of the fast stretch of roll C1674, not the same frames.
+- Why: RO-06's jump rope section (3:51) used the both-feet clip as plain "Dan jumping rope".
+
 ## The "excuse" voice gets a lip-synced AI clip, frames first (Dan, 2026-10-08)
 
 - **When Dan does his "excuse" voice (an impression of someone whining an excuse, such as "Dan, I don't have time to go to
