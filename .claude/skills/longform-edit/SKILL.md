@@ -15,6 +15,10 @@ description: >
 
 Read `_shared/VIDEO-RULES.md` first.
 
+## Scene-content and freeze review (Dan, 2026-10-09)
+
+Follow section 5 of the project shared `.claude/skills/_shared/CUT-CONTINUITY-QC.md` before assembly and on the exact final candidate. Check required scenes against independently approved components, not references extracted from the candidate or a suspect flattened parent. Review every `scan.frozen` entry, including declared graphic spans, and record the actual static asset or open defect. Compare every pickup entry/exit in moving original and candidate context. A missing required phone/image, accidental talking-head hold or same-framing hand/pose reset remains open even if inherited or declared. Reused identical evidence cannot preserve a contradicted judgment. Keep incomplete checks and existing automated gate failures explicit.
+
 ## Default jump-cut and junk-footage QC (Dan, 2026-09-29)
 
 Follow [CUT-CONTINUITY-QC.md](../_shared/CUT-CONTINUITY-QC.md) during source selection, before approval previews, and on the exact final candidate. Inspect every actual source/picture join, including reused composites, for a presenter jump without a distinct fixed wide/tight cut or complete approved clip cover. Fix uncovered jumps and recheck every boundary the repair creates. Detect and remove confirmed unscripted noises, empty lead-ins, unnecessary pauses and off-camera resets while protecting complete words, natural breaths and teaching action. Native consecutive frames plus moving/audio context are required; sparse scans and ASR alone cannot clear a join or authorize deletion. Keep the current still/frame, motion and full-render approval boundaries. This dated rule supersedes older suggestions that a pose match or audio fade alone clears a naked cut.
