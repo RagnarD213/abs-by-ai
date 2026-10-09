@@ -16,7 +16,7 @@
   it.
 - This strengthens "Frequently, not always, a video opens on an AI-generated clip" (2026-09-27, below): the default
   now leans toward an opener, and the camera open is the exception that needs the reason. The first-30-seconds rules
-  still bind (no belly-fat framing, frames approved before AI motion, the $5 per video generation budget).
+  still bind (no belly-fat framing, frames approved before AI motion, the applicable per-video generation budget below).
 
 ## The "excuse" voice gets a lip-synced AI clip, frames first (Dan, 2026-10-08)
 
@@ -29,7 +29,7 @@
 - How to apply (editor's reading of "get started in frames"): on every script, outline and edit, mark each excuse-voice
   line. For each one, write the scene (who is whining, what he does with his hands, how trainer Dan reacts) and make the
   start and end frames with Codex. A slapstick payoff on the next line (the slap on "destroy") is welcome where the words
-  invite it. The frame approval gate, the $5 per video clip budget and the no-belly-framing rule are unchanged. No new voice
+  invite it. The frame approval gate, the applicable per-video clip budget below and the no-belly-framing rule are unchanged. No new voice
   is ever made: the lips follow Dan's recorded impression.
 - Method that Dan approved (motion from the frame pair, lip sync on the speaking character only, the checks):
   `longform-edit/reference/ro06/README.md`, round 4. Scripts: `gen_motion.py`, `lipsync.py`, `syncfix.py` beside it.
@@ -426,9 +426,8 @@ no content-style edits of ads ("such as making 5 shorts out of an ad").
 
 ## Video clip generation budget and frame approval (Dan, 2026-09-15)
 
-- **Reaffirmed by Dan, 2026-09-16:** Gemini and Replicate generation is standing-authorized up to **$5 total per video**. Use the project's Gemini/Replicate keys, including `bakeoff/.env`, for this authorized work without asking again. Ask for spend authorization only before exceeding $5 for that video; do not request separate approval for a batch within the remaining budget. Track costs and retries across revisions. Dan explicitly approved the pending C1652 three-clip batch (estimated $0.75) after being told the earlier built-in still costs were unreported; preserve those unknown costs honestly without repeating the same permission stop.
-- Up to **$5 per video** is authorized for AI clip generation. Count supporting start/end-frame generation and paid retries in that video's total; a new task or revision does not reset it. This more specific limit applies within the existing session and batch limits above.
-- Before exceeding $5, discuss the specific clips, why existing assets or suitable stock will not do, and the estimated new total. Dan is generally open to **up to $10 with a reason**, but that is not automatic authorization to exceed $5.
+- **Updated by Dan, 2026-10-09:** Replicate image and motion generation is standing-authorized up to **$50 total per website video**, **$5 total per content video posted on YouTube or Instagram**, and **$10 total per ad uploaded unlisted and advertised**. Dan: "You're always authorized to generate whatever you need with Replicate" within those limits. Use existing project Replicate keys and send the necessary project image inputs to Replicate for that generation without asking again. This replaces the earlier $5 Replicate limit. The existing Gemini authorization is unchanged.
+- Count supporting start/end-frame generation and paid retries in the video's total across all revisions; a new task or revision does not reset it. Preserve unknown charges honestly and track provider receipts. Ask for spend authorization only before exceeding the applicable cap, stating the specific clips and estimated new total.
 - Show Dan the **start and end frames plus the intended action** for approval before generating motion. Budget authorization does not replace frame approval. Materially different replacement frames require approval again.
 - Current stock choice (Dan, 2026-09-15): **Pexels and existing assets with known usage rights only; no paid stock service or subscription.** Use AI where the intended scene needs it. Keep a per-video generation total, including paid unsuccessful attempts. Gemini quality-review spend remains governed by its separate standing authorization.
 
