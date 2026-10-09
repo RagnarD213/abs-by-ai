@@ -905,7 +905,7 @@
    "updated": "2026-10-07",
    "by": "Codex",
    "rev": 8,
-   "syncedRev": 6
+   "syncedRev": 8
   },
   {
    "id": "RO-02",
@@ -1026,14 +1026,16 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/RO-07-why-you-must-work-out-every-day.md`: transcribe the rolls, map the takes to the outline, and cut \"Why You MUST Work Out Every Day\" into a finished 16:9 first cut with /longform-edit to the approved organic standard (Zeeshan's ab wheel videos). Fill the B-roll and graphics cues, audio through the shared chain, every gate, independent audit, deliver master + SRT + chapters, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-07-why-you-must-work-out-every-day.md` with `$long-form-content-edit` and the frozen organic recipe. Deliver master + SRT + chapters, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "ready",
-   "note": "",
+   "state": "in_progress",
+   "note": "Round 1 started 10-09 (Opus 5.5)",
    "sub": "",
    "order": 48,
-   "updated": "2026-09-16",
-   "by": "master list",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-10-09",
+   "by": "Claude",
+   "rev": 2,
+   "syncedRev": 2,
+   "editor": "Claude",
+   "needs": ""
   },
   {
    "id": "RO-08",
@@ -1206,7 +1208,7 @@
    "updated": "2026-10-04",
    "by": "Codex",
    "rev": 5,
-   "syncedRev": 4
+   "syncedRev": 5
   },
   {
    "id": "AV-04",
@@ -1248,7 +1250,7 @@
    "updated": "2026-10-04",
    "by": "Codex",
    "rev": 9,
-   "syncedRev": 8
+   "syncedRev": 9
   },
   {
    "id": "AV-06",
@@ -1354,7 +1356,7 @@
    "updated": "2026-10-04",
    "by": "Codex",
    "rev": 5,
-   "syncedRev": 4
+   "syncedRev": 5
   },
   {
    "id": "AS-03",
@@ -1397,7 +1399,7 @@
    "updated": "2026-10-04",
    "by": "Codex",
    "rev": 7,
-   "syncedRev": 6
+   "syncedRev": 7
   },
   {
    "id": "AS-05",
@@ -1440,7 +1442,7 @@
    "updated": "2026-10-05",
    "by": "Codex",
    "rev": 4,
-   "syncedRev": 3
+   "syncedRev": 4
   },
   {
    "id": "AS-07",
@@ -1523,7 +1525,7 @@
    "order": 71,
    "updated": "2026-10-04",
    "rev": 7,
-   "syncedRev": 6,
+   "syncedRev": 7,
    "by": "Codex"
   },
   {
@@ -1609,7 +1611,7 @@
    "order": 75,
    "updated": "2026-10-05",
    "rev": 8,
-   "syncedRev": 4,
+   "syncedRev": 8,
    "by": "Codex"
   },
   {
@@ -1818,14 +1820,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/RO-11-when-calories-don-t-matter-for-fat-loss.md`: cut \"When Calories Don't Matter For Fat Loss\" from 9/23 roll C1705 with /longform-edit. Best take of every line, every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-11-when-calories-don-t-matter-for-fat-loss.md` with `$long-form-content-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "delivered",
-   "note": "Round 4 delivered 10-08: full film with layout B cards + 0.7 s end hold; review SHIP 0 defects; gate 35/4 (same 4 known rows). Dan reviews in VLC: Videos to Review/Calories Don't Matter LFC R4 - full film.mp4; page http://127.0.0.1:8872/",
+   "state": "finalized",
+   "note": "Round 4 approved by Dan 10-09. Next: thumbnails + /video-setup (Handoffs/handoff-20261009-ro11-thumbnails-and-video-setup.md)",
    "sub": "",
    "order": 84,
-   "updated": "2026-10-08",
+   "updated": "2026-10-09",
    "by": "Claude",
-   "rev": 16,
-   "syncedRev": 16,
+   "rev": 17,
+   "syncedRev": 17,
    "editor": "Claude",
    "needs": ""
   },
@@ -1953,7 +1955,7 @@
    "updated": "2026-10-08",
    "by": "claude",
    "rev": 4,
-   "syncedRev": 3,
+   "syncedRev": 4,
    "queue_owned": true,
    "needs": ""
   },
@@ -2370,7 +2372,7 @@
    "order": 104,
    "updated": "2026-10-07",
    "rev": 1,
-   "syncedRev": 0
+   "syncedRev": 1
   }
  ]
 }

@@ -122,6 +122,8 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **RO-06 NEEDS DAN 2026-10-09, Claude.** Film: localhost:8850. `Handoffs/handoff-20261008-ro06-round6-dan-review.md`.
 
+**RO-07 - IN PROGRESS 2026-10-09, Claude.** Work Out Every Day LFC, round 1 building in `/Volumes/Extreme/_edit_work/ro07/`. Next: round 1 review page to Dan.
+
 **RO-12 - QUEUED 2026-10-01, Claude.** Blotato Oct 25. Then: `Docs/RO12_SETUP_RECEIPT_20261001.md`, delete.
 
 **RO-13 - QUEUED 2026-10-07, Codex.** Sun Nov 15, 9 AM CST. Then: thumbnail A/B, captions, article. `Docs/RO13_SETUP_RECEIPT_20261005.md`.
