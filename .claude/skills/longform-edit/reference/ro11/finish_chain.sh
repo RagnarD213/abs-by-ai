@@ -1,9 +1,9 @@
 #!/bin/zsh
-# RO-11 round 2 post-render chain on the exact master: audio gate, SRT/chapters/plan, watch pass, dense hair check, graphics checks.
+# RO-11 round 4 post-render chain on the exact master: audio gate, SRT/chapters/plan, watch pass, dense hair check, graphics checks.
 set -e
 P="/Users/danielrose/Documents/Claude/Projects/Abs By AI"
 export PATH="$P/Media/video_edit/bin:$PATH"
-cd /Volumes/Extreme/_edit_work/ro11/round2
+cd /Volumes/Extreme/_edit_work/ro11/round4
 mkdir -p logs
 cp ../tmp_base.mp4 base.mp4
 python3 "$P/.claude/skills/_shared/audio/audio_gate.py" RO11_MASTER.mp4 --untreated RO11_MASTER.mp4.audio_untreated.json --ab "RO-11 audio AB (Muhammad then ours).mp4" > logs/audio_gate.log 2>&1 || true

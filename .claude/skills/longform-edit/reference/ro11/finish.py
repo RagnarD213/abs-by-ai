@@ -21,7 +21,7 @@ mw.sort(key=lambda x: x["t0"])
 FIX = [(r" -(\w)", r"-\1"), (r"(\d) \.(\d)", r"\1.\2"), (r"(\d) %", r"\1%"), (r"5 '7", "5'7\""),
        (r"\bZep down\b", "Zepbound"), (r"\bClean Eats\b", "Clean Eatz"), (r"\bchat JPT\b", "ChatGPT"),
        (r"\babsbyai ?\.com\b", "AbsByAI.com"), (r"\bTry hours out\b", "Try ours out")]
-FIX += json.load(open(f"{W}/round2/srt_fixes.json")) if os.path.exists(f"{W}/round2/srt_fixes.json") else []   # heard on the delivered audio
+FIX += json.load(open(f"{W}/round4/srt_fixes.json")) if os.path.exists(f"{W}/round4/srt_fixes.json") else []   # heard on the delivered audio
 def fix(s):
     for a, b in FIX: s = re.sub(a, b, s)
     return s

@@ -21,7 +21,7 @@ PIECES = [
  ("neat1", 718.26, 726.22, "One person gained less than a pound ... the same extra calories.", "only take"),
  ("neat2", 730.78, 747.50, "So, what was the difference? ... when you're dieting.", "second copy (first said 'how much they moved.' 729.9, re-said with 'around during the day')"),
  ("neat3", 751.32, 807.78, "When you cut your calories, your body quietly ... Lift weights, and keep your steps up.", "second copy (first stopped at 'your body has qu-' 750.4), continuous through the wrap"),
- ("end",   841.52, 854.82, "Do those seven things ... subscribe for more videos like this one.", "the retake after 'roll it back' (says 'the FIRST video on calories'; the 808.0 copy needed three tries at that line); in after the lip click at 841.54", None, 841.60),
+ ("end",   841.52, 854.82, "Do those seven things ... subscribe for more videos like this one.", "the retake after 'roll it back' (says 'the FIRST video on calories'; the 808.0 copy needed three tries at that line); in after the lip click at 841.54; round 4 (Dan 2026-10-08): out 855.52 = src frame 25640, 0.70 s of the smile he holds after the last word (he holds it to src 25651)", 855.52, 841.60),
 ]
 FPS = 30000/1001
 _lav = None

@@ -90,7 +90,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **Meta follower test - RUNNING 2026-10-08, Claude.** Auto-boost OFF; one $40/day ad self-runs Oct 16-22. Resume nothing. Nov 1 report: `Docs/AUTO_BOOST.md`.
 
-**WV01-B-Codex:HANDOFF 2026-10-08.** R3:motion/opening. `Handoffs/handoff-20261008-wv01-b-round3-selected-motion-and-opening.md`.
+**WV01-B-Codex:ACTIVE R3 2026-10-08.** Assembly queued; Replicate-upload approval blocked motion ($0.90). `/Volumes/Extreme/_edit_work/wv01-edit/version-b/round3/review/R3-execution-status.json`.
 
 **RO-01 - QUEUED 2026-10-07, Codex.** Dec6/7. TikTok limit unresolved. Next: release check. `Docs/RO01_SETUP_RECEIPT_20261007.md`.
 
@@ -118,9 +118,9 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **SL-05 shorts - QUEUED 2026-10-01, Claude.** Blotato Oct 17-27. Next: Oct 11, confirm parent posted, else hold these. `Docs/SL05_SETUP_RECEIPT_20261001.md`.
 
-**RO-11 - BUILDING 2026-10-08, Claude.** Round 4 full film. Next: gates, review, deliver. `Handoffs/handoff-20261008-ro11-round4-rebuild-film-with-approved-cards.md`.
+**RO-11 - REVIEW 2026-10-08, Claude.** Round 4 delivered. Next: Dan's notes. Page :8872.
 
-**RO-06 - BUILDING 2026-10-08, Claude.** Round 5 full film. Next: gates, review, deliver. `Handoffs/handoff-20261008-ro06-round5-full-film.md`.
+**RO-06 BUILDING 2026-10-08, Claude.** R5: `Handoffs/handoff-20261008-ro06-round5-full-film.md`.
 
 **RO-12 - QUEUED 2026-10-01, Claude.** Blotato Oct 25. Then: `Docs/RO12_SETUP_RECEIPT_20261001.md`, delete.
 

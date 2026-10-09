@@ -56,3 +56,18 @@ Round 3 (2026-10-08): a picture on the right of each section card, approval page
   the same man and staircase as clip C12. Our rotisserie chicken B-roll (B0443) reads as a carcass on a title card.
 - `clip_library.py find` matches every word: search one word at a time ("chicken", "walk"), not a phrase.
 - Pexels stills need no key: search in the browser pane, then `images.pexels.com/photos/<ID>/pexels-photo-<ID>.jpeg?w=2600`.
+
+Round 4 (2026-10-08): the seven section cards with pictures in layout B, the 0.7 s end hold, full film rebuilt once.
+- `plan.py`: `layout="bleed"` on T1 to T7, `chip` on T1, T2, T6 (from `titles.TITLES`). `resolve.py` carries them; only `photo`, `label`,
+  `layout`, `chip` on the seven title items changed in `plan_resolved.json` and no time moved.
+- End hold: `edl.py` row `end` carries `sb = 855.52` (src frame 25640, the smile he holds to 25651); `edl.py` then `shots.py` rewrite
+  `edl.json`/`shots.json` and only `end.0` moves (+21 frames). `edl.py` and `shots.py` WRITE the locked files in place: back them up first.
+- `round4.py` (= `round3.py` with its output in `round4/`): `contextB <IDS>` renders context clips, `frames` the entrance sheets. A card in B
+  fades picture and label in together in about 0.27 s.
+- Tail check recipe: lav RMS per 3 frames across src 25590 to 25660 (room only, -73 to -77 dB after the last word), contact sheet of src
+  25612 to 25648 (smile holds, no blink).
+- **The independent reviewer must also judge the 111 `pair_*` images.** It skipped them on the first pass and `watch.py --judge` then left
+  `inspected` false for 111 images; tell it "all 234 images" explicitly. Start the 25 min gate only after `--judge` reports 0 images without a verdict.
+- Build order that worked: `render_range` 0 to 17949 frames (about 15 min), `finish_chain.sh` (about 20 min), own negative-events scan of
+  the 12 sheets (the sheet tile times shift when the length changes, so a numeric tile diff against the old film is unreliable: look at them),
+  `ra-reviewer` (about 50 min), `watch.py --judge`, `finish.py`, `gate.py`, `deliver.sh`.

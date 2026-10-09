@@ -1,10 +1,10 @@
 #!/bin/zsh
-# RO-11 round 2 delivery: the gated master (same bytes, stamps travel with it), sidecars, 540p review copy, notes, recipe.
+# RO-11 round 4 delivery: the gated master (same bytes, stamps travel with it), sidecars, 540p review copy, notes, recipe.
 set -e
 P="/Users/danielrose/Documents/Claude/Projects/Abs By AI"; FF="$P/Media/video_edit/bin/ffmpeg"
-W=/Volumes/Extreme/_edit_work/ro11; R=$W/round2
+W=/Volumes/Extreme/_edit_work/ro11; R=$W/round4
 D="$P/claude edited long form content/11 - When Calories Don't Matter For Fat Loss"
-T="When Calories Don't Matter For Fat Loss | claude round 2 | 16x9 | RO-11"
+T="When Calories Don't Matter For Fat Loss | claude round 4 | 16x9 | RO-11"
 mkdir -p "$D/recipe-RO-11"
 cp "$R/RO11_MASTER.mp4" "$D/$T.mp4"
 for s in audio_gate.json deliver_gate.json audio_untreated.json voice_chain.json framing_proof.jpg; do

@@ -9,8 +9,8 @@ ST = "/Volumes/Extreme/_edit_work/ro11/stock"
 PH = "/Volumes/Extreme/_edit_work/ro11/assets"
 # Round 3 (Dan 2026-10-08: the section cards "look a little empty... add an image to the right"): each title carries
 # photo = the stem of its prepared crop (titles.py prep writes <stem>_frame.jpg / _bleed.jpg) and the label it needs.
-# Sources, licences and crops: titles.py TITLES. SHOWN TO DAN IN ROUND 3, NOT YET APPROVED: do not re-run resolve.py
-# (plan_resolved.json is locked) until he answers; round 3 merges these fields in memory (round3.py).
+# Sources, licences and crops: titles.py TITLES. APPROVED by Dan 2026-10-08 (round 3 page): all seven pictures, layout B ("bleed").
+# Round 4 (2026-10-08) resolved them into plan_resolved.json: layout="bleed" on every title, chip on T1, T2, T6.
 TP = PH + "/titles"; REAL = "Real picture of me. Not AI-generated."; AIL = "AI-GENERATED"
 PLAN = [
  # ---------------- hook: Dan opens on camera ("You can still gain fat,"), then the AI clip under the rest of the line.
@@ -23,7 +23,7 @@ PLAN = [
       point="In A Deficit, You Can Still KEEP Your Belly Fat.",
       parts=[["In A Deficit,", "Even if you're eating"], ["You Can Still KEEP Your Belly Fat.", "you might still hold"]]),
  # ---------------- factor 1: sleep
- dict(id="T1", kind="title", start="Number one is sleep", dur=2.4, step=1, headline="Sleep", photo=f"{TP}/T1", label=REAL),
+ dict(id="T1", kind="title", start="Number one is sleep", dur=2.4, step=1, headline="Sleep", photo=f"{TP}/T1", label=REAL, layout="bleed", chip=((1866, 54), "rt")),
  dict(id="C01", kind="clip", start="For two weeks, they slept", end="hours per night", src=[f"{ST}/p7556225.mp4@2.0"], note="man asleep in bed"),
  dict(id="C02", kind="clip", start="For another two weeks", end="they only got", tail=1.0, src=[f"{ST}/p6944072.mp4@6.0"], note="man awake on the edge of his bed at night"),
  dict(id="G02", kind="scene", scene="fact", start="When they were short on sleep", end="more muscle", photo=f"{PH}/sleep.jpg",
@@ -33,7 +33,7 @@ PLAN = [
       points=["Bedroom at 63 degrees", "Same bedtime every night", "AI sleep coach every morning", "Glycine every night"],
       reveal=["I keep my bedroom", "consistent bedtime", "AI sleep coach", "glycine"]),
  # ---------------- factor 2: alcohol
- dict(id="T2", kind="title", start="let's talk about the next one", dur=2.4, step=2, headline="Alcohol", photo=f"{TP}/T2", label=AIL),
+ dict(id="T2", kind="title", start="let's talk about the next one", dur=2.4, step=2, headline="Alcohol", photo=f"{TP}/T2", label=AIL, layout="bleed", chip=((1255, 54), "rt")),
  dict(id="C03", kind="clip", start="Your body treats alcohol", end="burns anything else", src=[f"{ST}/p10317805.mp4@1.0"], note="whiskey glass on a bar"),
  dict(id="G04", kind="scene", scene="fact", start="In one study, they gave men", end="next several hours", photo=f"{PH}/drinks.jpg",
       eyebrow=["1999 STUDY", "In one study"], headline=[["73% LESS", "73"]], count={"value": "73", "from": 0, "dur": 0.55},
@@ -43,7 +43,7 @@ PLAN = [
       point="Less Alcohol = FASTER Belly Fat Loss.",
       parts=[["Less Alcohol =", "the less you drink"], ["FASTER Belly Fat Loss.", "the faster"]]),
  # ---------------- factor 3: hormones
- dict(id="T3", kind="title", start="Hormones. So let me", dur=2.4, step=3, headline="Hormones", photo=f"{TP}/T3"),
+ dict(id="T3", kind="title", start="Hormones. So let me", dur=2.4, step=3, headline="Hormones", photo=f"{TP}/T3", layout="bleed"),
  dict(id="G06", kind="lt", start="When your testosterone is low", end="eating the same calories", topic="LOW TESTOSTERONE",
       point="More Belly Fat, LESS MUSCLE. Same Calories.",
       parts=[["More Belly Fat,", "stores more fat"], ["LESS MUSCLE.", "holds on to less"], ["Same Calories.", "even if you're eating"]]),
@@ -56,7 +56,7 @@ PLAN = [
       point="300 And 900 Are Both Called NORMAL.",
       parts=[["300 And 900", "A guy at"], ["Are Both Called NORMAL.", "both called normal"]]),
  # ---------------- factor 4: meal timing
- dict(id="T4", kind="title", start="Okay, the next factor is timing", dur=2.4, step=4, headline="Meal Timing", photo=f"{TP}/T4"),
+ dict(id="T4", kind="title", start="Okay, the next factor is timing", dur=2.4, step=4, headline="Meal Timing", photo=f"{TP}/T4", layout="bleed"),
  dict(id="C07", kind="clip", start="eating a big meal right before bed", end="hurts your sleep", tail=0.4, src=[f"{ST}/p9902350.mp4@8.0"], note="man eating on his bed at night"),
  dict(id="G09", kind="scene", scene="fact", start="When they ate late", end="calories per day", photo=f"{PH}/latemeal.jpg",
       eyebrow=["HARVARD, 2022", "When they ate late"], headline=[["2X", "twice as likely"], ["AS HUNGRY", "to be hungry"]],
@@ -70,7 +70,7 @@ PLAN = [
       point="Fasting Until Noon MATCHED Counting Calories.",
       parts=[["Fasting Until Noon", "The fasting group"], ["MATCHED Counting Calories.", "They did just as well"]]),
  # ---------------- factor 5: protein
- dict(id="T5", kind="title", start="is your macronutrients", dur=2.4, step=5, headline="Protein", photo=f"{TP}/T5"),
+ dict(id="T5", kind="title", start="is your macronutrients", dur=2.4, step=5, headline="Protein", photo=f"{TP}/T5", layout="bleed"),
  dict(id="G13", kind="lt", start="your body burns about", end="With carbs", tail=2.3, topic="CALORIES BURNED DIGESTING IT",
       point="Protein: 20-30%. Carbs: 5-10%.",
       parts=[["Protein: 20-30%.", "your body burns"], ["Carbs: 5-10%.", "With carbs"]]),
@@ -85,7 +85,7 @@ PLAN = [
       point="Protein FIRST. Then Carbs With What's Left.",
       parts=[["Protein FIRST.", "Get your protein"], ["Then Carbs With What's Left.", "then fit your carbs"]]),
  # ---------------- factor 6: exercise
- dict(id="T6", kind="title", start="is exercise but not", dur=2.4, step=6, headline="Exercise", photo=f"{TP}/T6", label=REAL),
+ dict(id="T6", kind="title", start="is exercise but not", dur=2.4, step=6, headline="Exercise", photo=f"{TP}/T6", label=REAL, layout="bleed", chip=((1866, 40), "rt")),
  dict(id="C10", kind="clip", start="minute jog burns", end="one protein bar", tail=0.3, src=["B0098@1.0"], note="man jogging in a park (library B0098)"),
  dict(id="G16", kind="lt", start="Based on the math", end="they only lost about", tail=1.1, topic="6 MONTHS OF CARDIO",
       point="Should Have Lost 9.5 lb. Lost 3.5.",
@@ -99,7 +99,7 @@ PLAN = [
       reveal={"TL": "If you lose muscle", "TR": "bulk again", "BR": "gain fat", "BL": "lose again"},
       close="cycle of failure", pulse="religiously", drift=-12),
  # ---------------- factor 7: daily movement
- dict(id="T7", kind="title", start="And then finally, number", dur=2.4, step=7, headline="Daily Movement", photo=f"{TP}/T7"),
+ dict(id="T7", kind="title", start="And then finally, number", dur=2.4, step=7, headline="Daily Movement", photo=f"{TP}/T7", layout="bleed"),
  dict(id="G19", kind="scene", scene="fact", start="One person gained", end="same extra calories", photo=f"{PH}/walk.jpg",
       eyebrow=["MAYO CLINIC, 1999", "One person gained"], headline=[["10X", "times difference"], ["DIFFERENCE", "difference from"]],
       detail=["in fat gained. Same extra food.", "from the same"], sweep="extra calories", push=1.06, drift=-8),
