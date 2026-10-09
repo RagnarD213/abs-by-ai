@@ -251,8 +251,18 @@ def render_range(a, b, out, audio=True, picture=True):
     items = [it for it in R if it["t0"] < b and it["t1"] > a]
     if not audio: os.replace(out + ".v.mp4", out); return
     render_voice(out, f0, f1)
-    json.dump(dict(range=[a, b], frames=f1-f0, segments=segs, items=[i["id"] for i in items]), open(out + ".build.json", "w"), indent=1)
+    json.dump(dict(range=[a, b], frames=f1-f0, segments=annotate(segs), items=[i["id"] for i in items]), open(out + ".build.json", "w"), indent=1)
     print("built", out, f1-f0, "frames", flush=True)
+def annotate(segs):
+    """What the edit sheet needs to know about a picture that is more than a crop of its roll (round 6: the 9:24 shots sit on a taller canvas)."""
+    out = []
+    for s in segs:
+        s = dict(s)
+        if s["shot"] in MB2:
+            cw, ch, cx, cy = s["crop"]; s["crop_in_roll"] = [cw, ch + cy, cx, 0]
+            s["picture_note"] = f"taller canvas: the top {-cy} source rows of this {cw}x{ch} crop are a still background plate from the same take's first second (mb2_fix.py); the rest is the roll at crop_in_roll"
+        out.append(s)
+    return out
 def render_picture(a, b, out, f0, f1, segs, HCOMP):
     base = out + ".base.mp4"; txt = base + ".txt"
     open(txt, "w").write("".join(f"file '{render_seg(s)}'\n" for s in segs))

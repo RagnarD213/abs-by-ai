@@ -185,7 +185,8 @@ def from_round(B, a, facts):
         edl.append(dict(roll=r_, src_f0=f0, src_in=round(f0 / FPS, 5), src_out=round((f0 + n) / FPS, 5),
                         out_f0=s["o0"], out_f1=s["o1"], out_in=round(s["o0"] / FPS, 5), out_out=round(s["o1"] / FPS, 5),
                         shot=s["shot"], audio="sync", join=join, covered=bool(s.get("covered")), side_card=s.get("card")))
-        crops.append(list(s["crop"]) if s.get("crop") else list(F.CROP[s["framing"]]))     # a solved per-segment crop wins
+        if s.get("picture_note"): edl[-1]["picture_note"] = s["picture_note"]   # the build says what else is in this picture (RO-06 round 6: a background plate above the camera frame)
+        crops.append(list(s.get("crop_in_roll") or s["crop"]) if s.get("crop") else list(F.CROP[s["framing"]]))     # a solved per-segment crop wins; crop_in_roll = the part of it that is roll picture
     hc = None
     for hp in (os.path.join(os.path.dirname(master), "logs", "haircheck.json"), os.path.join(os.path.dirname(master), "qc", "hair.json")):
         if os.path.exists(hp):
