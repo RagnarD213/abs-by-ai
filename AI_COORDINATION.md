@@ -174,6 +174,8 @@ test starts. `BLOTATO_QUEUE_PROGRESS.md`
 tab; stop rather than click into spinners. `Handoffs/handoff-20260908-google-ads-custom-segments.md`
 
 
+**RO-03 Vacuum workout-only - IN PROGRESS 2026-10-09, Claude.** Round 1 building in `/Volumes/Extreme/_edit_work/ro03/`. Next: review page to Dan.
+
 **RO-02 - QUEUED 2026-10-07, Codex.** Sun Nov 22, 9 AM CST. Then: captions and article. `Docs/RO02_SETUP_RECEIPT_20261005.md`.
 
 **Shorts parked behind the long-form hold. (baseline 2026-09-15; age unknown)** Zepbound (8) + Supplements (8) need the new spray-tan sound
