@@ -83,7 +83,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 # ACTIVE
 
-**Fired Them All R4 2026-10-09, Codex.** Review:8873. Next:Dan's decision.
+**Fired Them All R4 2026-10-09.** Review:8873. Next:Dan's decision.
 
 **Waist-cover 2026-10-08.** TikTok:phone-upload-pending.
 
