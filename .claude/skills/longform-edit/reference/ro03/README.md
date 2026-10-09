@@ -2,7 +2,9 @@
 
 CONTENT, long-form family (LFC). A 2:32 follow-along: three 20-second holds, 30 seconds of rest between (Dan's Shoot 4
 outline: "go directly into the routine; 3 standing vacuum holds, 20-30 seconds each, 30 seconds rest between").
-C1625 holds ONE filmed hold; it is shown three times. Work dir: `/Volumes/Extreme/_edit_work/ro03/`.
+Round 1 showed C1625's one filmed hold three times. **Round 2 replaces the repeats with differently filmed sets**
+(Dan, 2026-10-09: "Let me see it with the three differently filmed vacuum sets"): 8/28 roll C1677 has a front, a
+profile and a second front pass. Work dir: `/Volumes/Extreme/_edit_work/ro03/`.
 
 **The model is the workout sections of Muhammad's ab wheel cut, not Zeeshan's workout-only video** (Dan, 2026-10-09:
 "Don't model it on Zeeshan's videos. He's not the best editor. Model it on Muhammad's workout videos."). Taken from
@@ -46,3 +48,9 @@ Traps this build paid for:
 - **One hair sample read 6 px where its neighbours read 48 and 80:** the mask joined the chimney behind his head.
   Look at the frames before changing a crop.
 - zsh does not split `set -- $pair`; drive parameter sweeps from Python.
+- **"Only one take exists" was wrong, and Dan caught it.** The job doc named one roll and I searched only that
+  video's own rolls. The other holds were silent B-roll on a different shoot (8/28 C1677, 7/8 C1490): no words, so a
+  transcript search cannot find them. Before telling Dan footage does not exist, search every shoot: the roll
+  sidecars' On screen notes (`Media/footage-index`), `Docs/SHOOT_*_FOOTAGE_REPORT.md`, the clip library (`B0428`,
+  `B0429` were cut from C1677) and the sibling job docs (RO-02's listed C1677 as extra B-roll). The sidecars' vision
+  notes call almost any shirtless standing shot a "stomach vacuum", so confirm each hit on a contact sheet.

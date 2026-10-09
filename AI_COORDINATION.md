@@ -173,7 +173,7 @@ test starts. `BLOTATO_QUEUE_PROGRESS.md`
 tab; stop rather than click into spinners. `Handoffs/handoff-20260908-google-ads-custom-segments.md`
 
 
-**RO-03-R1-NEEDS-DAN:2026-10-09,Claude,page:8877,`Handoffs/handoff-20261009-ro03-round1-dan-review.md`**
+**RO-03-R1-APPROVED:2026-10-09,next:R2-full-film,`Handoffs/handoff-20261009-ro03-round2-full-film.md`**
 
 **RO-02 - QUEUED 2026-10-07, Codex.** Sun Nov 22, 9 AM CST. Then: captions and article. `Docs/RO02_SETUP_RECEIPT_20261005.md`.
 
