@@ -83,6 +83,8 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 # ACTIVE
 
+**Fired Them All R4 2026-10-09, Codex.** Review:8873. Next:Dan's decision.
+
 **Waist-cover 2026-10-08.** TikTok:phone-upload-pending.
 
 
@@ -119,7 +121,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **RO-11 - QUEUED 2026-10-09, Claude.** YouTube Sun Dec 13, socials Mon. Then: captions, article, links. `Docs/RO11_SETUP_RECEIPT_20261009.md`.
 
-**RO-06 - IN PROGRESS 2026-10-09, Claude.** Round 6, four revisions. Next: full film to Dan. `Handoffs/handoff-20261009-ro06-round6-revisions.md`.
+**RO-06 - IN PROGRESS 2026-10-09, Claude.** Round 6. `Handoffs/handoff-20261009-ro06-round6-revisions.md`.
 
 **RO-07-R1-NEEDS-DAN 2026-10-09.** page:8857,`Handoffs/handoff-20261009-ro07-round1-dan-review.md`
 
