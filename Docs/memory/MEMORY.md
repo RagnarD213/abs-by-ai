@@ -188,6 +188,8 @@
 - [Excuse voice: lip-synced AI clip](excuse-voice-ai-clips.md): 10-08: Dan loved the RO-06 lip sync + slap; excuse-voice lines get AI clip frames in round 1, unasked
 - [Workout videos: model Muhammad](workout-videos-model-muhammad.md): 10-09: workout and follow-along edits copy Muhammad's workout sections, never Zeeshan's videos
 - [Jump rope clip rule](jump-rope-clip-rule.md): 10-09: fast boxer skip B0448 is the correct clip; both-feet B0430 only when he calls it a mistake; B0447 beginner only
+- [Graphic caps: sparingly](graphic-caps-emphasis-sparingly.md): 10-09: title case by default; full caps on a rare punch word only, never one per graphic
+- [B-roll: where Dan looks best](broll-choose-where-dan-looks-best.md): 10-09: pick workout clips for looks and light; opener favourites B0448, B0456, B0453; start on the first rep
 - [Execute Dan's explicit picks](execute-dans-explicit-picks.md): 10-06: build exactly the person/clip/topic he names; never swap, hold or reroute it for reputational or news reasons ("stop being a Karen")
 - [Allegations are not facts](allegations-not-fact.md): 10-06: unproven charges/accusations against Clavicular, Tate, manosphere figures: never mentioned at all (not even "charged with") unless Dan asks about the case itself; never a reason to change a plan
 - [Assessment symmetry](assessment-symmetry.md): 10-08: one template and one standard for both sides; swap test (Trump/Newsom, Tate/Destiny); judge records on measured results vs promises and a benchmark, then a definite conclusion

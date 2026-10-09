@@ -1,3 +1,19 @@
+## Capital letters in graphics: emphasis now and then, not in every graphic (Dan, 2026-10-09)
+
+- **Title capitalization is the default for every lower third, card and label. FULL CAPS on a word is for the rare graphic
+  where that word truly carries the emphasis.** Dan, on RO-07 round 1 (he sent 16 of 45 lower thirds back to normal
+  capitalization): *"With the graphics, a lot of the time you're just blindly capitalizing words in a very AI-slop
+  deterministic way... Capitalizing these words in the graphics is good every now and then when we need to make emphasis
+  on a word, but if you're just capitalizing random words in every graphic, then there is no emphasis. I need you to use
+  more subtlety and judgment, not a deterministic rule."*
+- How to apply: write every point in title case. Then pick, across the whole film, the few graphics with a real contrast
+  or punch word (editor's reading: about one in six at most). Exercise names, round and section labels, times of day,
+  app names and list items never take capitals. This narrows the 2026-09-18 KEY POINT format further down this file
+  ("the one or two words that carry the punch in FULL CAPS"): that is allowed, not required.
+- Same review, workout B-roll: choose the clip where Dan looks ripped and well lit, not the first that matches the
+  exercise; start it on the first rep; prefer his real footage of an exercise over an AI demo (memory
+  `broll-choose-where-dan-looks-best`).
+
 ## The first 5 seconds get the most effort (Dan, 2026-10-08)
 
 - **On every content video, short or long, the first 5 seconds are planned and reviewed as their own piece.** Dan:
