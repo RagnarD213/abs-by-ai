@@ -775,6 +775,10 @@ def config_for(fmt, caption_mode=None):
             config["not_applicable"][key] = (
                 "Website SRT mode, WV-01 plan 2026-09-24: "
                 + organic["not_applicable"][key])
+    config["rows"].pop("captions:card_collision", None)
+    config["not_applicable"]["captions:card_collision"] = (
+        "Website SRT mode, 2026-10-09: captions are a player-controlled sidecar, "
+        "not rendered text over full-screen cards. The SRT shape and runtime remain checked.")
     config["note"] += " Explicit SRT mode: sidecar required; running burned captions prohibited."
     return config
 

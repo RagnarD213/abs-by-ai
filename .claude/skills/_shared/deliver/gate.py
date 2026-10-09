@@ -58,7 +58,7 @@ from _shared.deliver.common import Row                       # noqa: E402
 #   1.0.0  2026-09-11  first version. Folds in the rows of the seventeen per-video QC forks, adds
 #                      audio:lipsync and the compliance rows, and moves every bound into formats.py
 #                      with the file and date it was measured on.
-GATE_VERSION = "2.5.0"        # 1.1.0: an insert may declare its own label chip + position
+GATE_VERSION = "2.5.1"        # 1.1.0: an insert may declare its own label chip + position
                               # (a card hangs its chip off the card, not at the full-bleed waistline)
                               # 1.2.0  2026-09-12  Phase 2: five framing: rows on a portable tracker
                               # (FaceMesh + Apple Vision, no set-specific background) and stage 3 of
@@ -89,6 +89,8 @@ GATE_VERSION = "2.5.0"        # 1.1.0: an insert may declare its own label chip 
                               # existing format's rows or bounds changed; its numbers are
                               # `longform`'s (pacing, speech) and `short`'s (framing, captions).
 
+# 2.5.1 (2026-10-09): apply explicit website SRT mode after loading the plan.
+# Caption configuration already exists in formats.py; other bounds are unchanged.
 STAMP_SUFFIX = ".deliver_gate.json"
 
 PLAN_KEYS = """
@@ -228,9 +230,9 @@ def load_plan(path, video):
 
 # ---------------------------------------------------------------------------- running
 def run(video, fmt, plan_path=None, only=None):
-    F = FMT.config_for(fmt)
-    rows_cfg, na = F["rows"], F.get("not_applicable", {})
     plan = load_plan(plan_path, video)
+    F = FMT.config_for(fmt, plan.get("caption_mode"))
+    rows_cfg, na = F["rows"], F.get("not_applicable", {})
     declared = plan.get("declare") or {}
     pr = C.probe(video)
     if pr["vdur"] is None:
@@ -291,7 +293,7 @@ def verdict(rows):
         fails, unmeasured, pending, reviews
 
 
-def stamp(video, fmt, rows, v, pr):
+def stamp(video, fmt, rows, v, pr, caption_mode=None):
     d = dict(gate_version=GATE_VERSION, format=fmt, verdict=v,
              sha256=C.sha256(video), bytes=os.path.getsize(video),
              when=time.strftime("%Y-%m-%dT%H:%M:%S%z"),
@@ -299,6 +301,8 @@ def stamp(video, fmt, rows, v, pr):
              rows={r.key: dict(ok=r.ok, detail=r.detail, **({"na": r.na_reason} if r.na_reason else {}),
                                **({"review": r.review_reason} if r.review_reason else {}),
                                **({"value": r.value} if r.value else {})) for r in rows})
+    if caption_mode is not None:
+        d["caption_mode"] = caption_mode
     json.dump(d, open(video + STAMP_SUFFIX, "w"), indent=1)
     return video + STAMP_SUFFIX
 
@@ -381,9 +385,9 @@ def main():
         print("  ⚠ --row was used: this is a partial run and must not be treated as a verdict")
 
     if not A_.no_stamp and not A_.row:
-        print(f"  stamp -> {os.path.basename(stamp(A_.video, A_.fmt, rows, v, pr))}")
+        print(f"  stamp -> {os.path.basename(stamp(A_.video, A_.fmt, rows, v, pr, plan.get('caption_mode')))}")
     if A_.json:
-        json.dump(dict(gate_version=GATE_VERSION, format=A_.fmt, verdict=v,
+        json.dump(dict(gate_version=GATE_VERSION, format=A_.fmt, verdict=v, caption_mode=plan.get("caption_mode"),
                        rows=[dict(key=r.key, ok=r.ok, detail=r.detail, value=r.value,
                                   na=r.na_reason, review=r.review_reason) for r in rows]),
                   open(A_.json, "w"), indent=1)
