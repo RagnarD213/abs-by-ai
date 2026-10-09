@@ -17,6 +17,11 @@ Record each graphic's template, generated config, text and `driven_by` words in 
 Follow [the shared cut-continuity and junk-footage pass](../../../../.claude/skills/_shared/CUT-CONTINUITY-QC.md) during source selection, before approval previews, and on the exact final candidate. Inventory and inspect every actual join, including reused composite internals. Fix uncovered presenter jumps with distinct fixed wide/tight cuts or complete approved clip cover, then inspect all repaired boundaries. Verify unscripted sounds, empty lead-ins, unnecessary pauses and camera-away resets against the actual source before removing them. Preserve complete words, normal breaths, teaching action, approved framing/color/audio and all still/frame, motion and full-render approval gates. Use native consecutive frames plus moving/audio context; detector scores, sparse sheets and ASR alone are insufficient.
 
 
+## Scene-content and freeze review (Dan, 2026-10-09)
+
+Follow section 5 of the Abs By AI project's `.claude/skills/_shared/CUT-CONTINUITY-QC.md` before assembly and on the exact final candidate. Check required scenes against independently approved components, not references extracted from the candidate or a suspect flattened parent. Review every `scan.frozen` entry, including declared graphic spans, and record the actual static asset or open defect. Compare every pickup entry/exit in moving original and candidate context. A missing required phone/image, accidental talking-head hold or same-framing hand/pose reset remains open even if inherited or declared. Reused identical evidence cannot preserve a contradicted judgment. Keep incomplete checks and existing automated gate failures explicit.
+
+
 # Edit a filmed Abs By AI ad
 
 Use this project's accepted original-ad components, with the source-specific limits preserved. Canonical private sources live in `Media/codex-video-trial`; this discoverable skill is an adapter over the existing production code, not an alternate audio chain or quality gate.

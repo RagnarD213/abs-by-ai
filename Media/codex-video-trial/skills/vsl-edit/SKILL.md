@@ -12,6 +12,11 @@ Cut first, map the finished words, and store graphics as data in `plan_resolved.
 Record each graphic's template, generated config, text and `driven_by` words in the edit sheet, then run the shared sheet validator. Vertical and square adaptations redraw the same configs with shared `vertical.py` / `square.py`. Kinds without an approved template stay on `softblue.py`; new templates need their own graphic-lock approval. Preserve approved videos, source-specific picture/audio, captions and delivery gates. Check actual composite frames for arms, face and colour before presenting them.
 
 
+## Scene-content and freeze review (Dan, 2026-10-09)
+
+Follow section 5 of the Abs By AI project's `.claude/skills/_shared/CUT-CONTINUITY-QC.md` before assembly and on the exact final candidate. Check required scenes against independently approved components, not references extracted from the candidate or a suspect flattened parent. Review every `scan.frozen` entry, including declared graphic spans, and record the actual static asset or open defect. Compare every pickup entry/exit in moving original and candidate context. A missing required phone/image, accidental talking-head hold or same-framing hand/pose reset remains open even if inherited or declared. Reused identical evidence cannot preserve a contradicted judgment. Keep incomplete checks and existing automated gate failures explicit.
+
+
 # Edit an Abs By AI website VSL
 
 Use the WV-01 website video process: develop the sales presentation in small, reviewable rounds; get Dan's approval for material creative assets; render the complete film only after those choices are locked. The number of rounds follows the work. A long VSL can justify many rounds, while a revision reuses everything already approved.
