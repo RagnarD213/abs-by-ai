@@ -38,16 +38,22 @@ OVERRIDE.update({"mat.0r0": "T", "kb1.0r1": "T", "kb1.0r2": "T"})
 OVERRIDE.update({"mb2.0r0": "T", "mb1.0r5": "W"})
 # round 5, third render: every shot keeps the size and crop it had in the second render (the one both reviews and the three watch judges looked at). Adding
 # cutaways and moving lower thirds re-ran the whole-film solve and flipped 17 shots; only the two changes above are wanted. A new piece after a cutaway takes its shot's size.
-_R2 = {g["key"]: g for g in json.load(open(f"{W}/round5/render2/build.json"))["segments"]} if os.path.exists(f"{W}/round5/render2/build.json") else {}
+# round 6: every shot keeps the size and crop of the round 5 film Dan reviewed (its build.json), except the two 9:24 shots he asked to have wider and higher.
+_R2 = {g["key"]: g for g in json.load(open(f"{W}/round5/RO-06 round 5 - full film.mp4.build.json"))["segments"]}
+MB2 = ("mb2.0r0", "mb2.0r1")                              # round 6 (Dan, 9:24): one wider, higher crop on a taller canvas (mb2_fix.py); the two shots are one take, so one size and no cut
+BREAK = ("mb2.0r2",)                                      # the take runs on after the toe-touch cutaway at its round 5 crop: not part of the widened run
 for _k, _g in _R2.items():
-    if _k not in ("mb2.0r0", "mb1.0r5"): OVERRIDE[_k] = _g["framing"]
+    if _k.split("+")[0] not in MB2: OVERRIDE[_k] = _g["framing"]
+OVERRIDE.update({"mb2.0r0": "T", "mb2.0r1": "T"})
 class _Base(dict):
     def __missing__(self, k): raise KeyError(k)
     def __contains__(self, k): return dict.__contains__(self, k) or ("+c" in k and dict.__contains__(self, k.split("+")[0]))
     def __getitem__(self, k): return dict.__getitem__(self, k) if dict.__contains__(self, k) else dict.__getitem__(self, k.split("+")[0])
 OVERRIDE = _Base(OVERRIDE)
 STAB = json.load(open(f"{W}/round5/stab.json")) if os.path.exists(f"{W}/round5/stab.json") and not os.environ.get("RO06_NOSTAB") else {}
-CROPFIX = {"tot2.0r0": (1880, 1058, 0, 0), "tot2.0r1": (1880, 1058, 0, 0),
+STAB.pop("mb2.0r0", None)                                # round 6: mb2_fix.py applies this shot's offsets itself, on the taller canvas
+import mb2_fix
+CROPFIX = {"mb2.0r0": mb2_fix.CROP, "mb2.0r1": mb2_fix.CROP, "tot2.0r0": (1880, 1058, 0, 0), "tot2.0r1": (1880, 1058, 0, 0),
            "mb1.0r6": (984, 554, 428, 0), "mb1.0r7": (984, 554, 428, 0)}     # the crop these two had with mb1.0r5 in their run (top row = the camera's: his hair is at the edge on this roll)
 HOLD = 22.0                                              # one size never holds longer than this with nothing else changing
 CLOSE = ("C1580", "C1581")                               # the camera frame is already tighter than Dan's tight shot
@@ -109,7 +115,7 @@ def all_segments():
     def runs():
         out, cur = [], [0]
         for k in range(1, len(segs)):
-            if same_take(segs[k-1], segs[k]) and segs[k-1]["framing"] == segs[k]["framing"]: cur.append(k)
+            if same_take(segs[k-1], segs[k]) and segs[k-1]["framing"] == segs[k]["framing"] and segs[k]["key"] not in BREAK: cur.append(k)
             else: out.append(cur); cur = [k]
         return out + [cur]
     def longest(run):                                                 # the longest stretch of this run on screen with no cover
@@ -142,7 +148,7 @@ def all_segments():
         r2 = [tuple(_R2[segs[k]["key"].split("+")[0] if segs[k]["key"] not in _R2 else segs[k]["key"]]["crop"]) for k in run
               if (segs[k]["key"] in _R2 or segs[k]["key"].split("+")[0] in _R2) and _R2[segs[k]["key"] if segs[k]["key"] in _R2 else segs[k]["key"].split("+")[0]]["framing"] == segs[k]["framing"]]
         if r2 and not pin: crop = r2[0]; cw = crop[0]
-        fix = [CROPFIX[segs[k]["key"]] for k in run if segs[k]["key"] in CROPFIX]
+        fix = [CROPFIX[segs[k]["key"].split("+")[0] if segs[k]["shot"] in MB2 else segs[k]["key"]] for k in run if segs[k]["key"] in CROPFIX or segs[k]["shot"] in MB2]
         if fix: crop = fix[0]; cw = crop[0]
         for k in run: segs[k]["crop"] = crop; segs[k]["zoom"] = round(1920/cw, 3)
     _SEGS = segs; return segs
@@ -188,6 +194,7 @@ def render_seg_stab(sg, offs):
         enc.stdin.write(np.stack([cv2.warpAffine(a[c], Mx, (cw, ch), flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_REPLICATE) for c in range(3)]).tobytes())
     enc.stdin.close(); enc.wait(); dec.wait(); os.rename(out + ".tmp.mp4", out); return out
 def render_seg(sg):
+    if sg["shot"] in MB2: return mb2_fix.render(sg, sharpen(sg["zoom"]))
     if sg["key"].split("+")[0] in STAB or sg["key"] in STAB:
         k = sg["key"] if sg["key"] in STAB else sg["key"].split("+")[0]; base = next(s for s in all_segments() if s["key"] == k)
         return render_seg_stab(dict(sg, stab_src0=base["src0"]), STAB[k])
@@ -267,8 +274,8 @@ def render_picture(a, b, out, f0, f1, segs, HCOMP):
         enc.stdin.write(im.tobytes())
     enc.stdin.close(); enc.wait(); dec.wait()
 def render_voice(out, f0, f1):
-    S = voice_shots()
-    wv = wave.open(f"{W}/lav.wav"); wv.setpos(0); L = np.frombuffer(wv.readframes(wv.getnframes()), np.int16).astype(np.float32)/32768
+    S = voice_shots()                                  # round 6: RO06_LAV = lav.round6.wav, lav.wav with the blown-out 3.6 s repaired (audiofix6.py)
+    wv = wave.open(os.environ.get("RO06_LAV", f"{W}/lav.wav")); wv.setpos(0); L = np.frombuffer(wv.readframes(wv.getnframes()), np.int16).astype(np.float32)/32768
     N = int(round((f1-f0)/FPS*SR)); v = np.zeros(N, np.float32); r = int(0.010*SR)
     for k, s in enumerate(S):
         o0, o1 = max(s["out_f0"], f0), min(s["out_f1"], f1)

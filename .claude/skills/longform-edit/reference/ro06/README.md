@@ -135,3 +135,31 @@ Round 5 (2026-10-08, the full film: three length trims, a music bed, two phone d
 - **Chapters:** anchor on the section's first sentence, not where its lower third comes up, and keep them 10 s apart or more.
 - **Watch pass after a re-render:** compare every frame with the judged render (downscaled, PSNR); a cut strip whose frames are unchanged keeps its verdict
   and only the changed ones go to a fresh judge. Keep the judged render's 540p copy and never delete `watch/` while a judge is still working in it.
+
+Round 6 (2026-10-09, Dan's four revisions to the full film: jump rope clip, a wider and higher crop, a blown-out mic, a phone beside him):
+- **ffmpeg's `adeclip` left hard-clipped peaks flat.** Its output looked repaired by the numbers (crest +1.7 dB) and was not: plot 600 samples round the longest
+  clipped run before believing a declip. `audiofix6.py` rebuilds every sample at the ceiling with a cubic spline through the samples that survived (never below
+  the ceiling, capped at 2.2x), then brings the level down. Keep such peaks in float: a 24-bit or int16 intermediate clips them again (and `astype(int16)` wraps).
+- **A flat gain over a hot stretch also lowers the background.** The pool noise on the lav dropped 6 dB for those seconds. The gain follows the voice (level over
+  20 ms, held 120 ms) and returns to unity in the pauses. Aim 1.5 dB under the plain level match: the chain's EQ lifts a head-down voice.
+- **Repair the lav in a COPY** (`lav.round6.wav`, `RO06_LAV`), with an assert that every sample outside the stretch is identical. The roll's other channel was
+  digital silence: read `C####.roll.json` before planning a patch from a second microphone.
+- **Gemini, asked about inline `audio/mp3`, answered that it had only a transcript**, after two confident "listening" reports that repeated my own prompt back
+  (a music bed "dropping out" that was never touched). Send the clip as a small mp4, and ask an UNPROMPTED question ("list every problem or say it is clean")
+  on the before and the after separately. A prompt that describes the fault gets the fault described back.
+- **Hair at the top edge with no picture above it: look at the first seconds of the take.** The operator tilted down 174 px after rolling, so the trees and roof
+  above his head were on record. `mb2_fix.py` builds a plate from those frames (each registered to the settled camera by phase correlation on the shared band,
+  median of 14), lays it above the camera frame and crops wider and higher. The seam is a 6 row ramp inside the frame's top edge; it does not show in foliage.
+  Putting his cut hair crown back from an earlier frame left a faint line: the plate alone was cleaner, and his picture stays untouched.
+- **Hands that leave the CAMERA frame cannot be cropped back.** Start the next cutaway earlier, on a word, from the same point of the same clip (pre-flight its length).
+- **`BREAK` in `build.runs()`**: a take that carries on after a cutaway joins the run before it and would take its new crop. Name the shot that must start its own run.
+- **A phone beside Dan on a close roll:** measure his left and right extent on every frame of the span first. Here the union was 1348 px of 1920, so a 290 px
+  move right (one fixed composition) cleared a full-height phone at x 40 to 512 with 48 px to spare and 10 px at the right edge. The uncovered strip sits behind
+  the phone; the 40 px that shows is the take's own foliage mirrored. `phone_side.py` writes the scene as a plan clip built from the shot's own source frames.
+- **App screens from a local copy of the app** (`appcap6.py`): Playwright drives the installed Chrome at 390x844, 3x, signs up the launch config's test admin
+  through the app's own functions, and calls `openExerciseSheet(id)` for any exercise. The test account's empty states are hidden; the sheet's player takes
+  the app's own demo file. No production login, no screenshots by hand.
+- **A comment pasted into the middle of a one-line statement swallowed the rest of the line** (`wv.setpos(0); L = ...`), and one proof died at the voice step
+  after its picture had rendered. Run one short `build.py range` after any edit to `build.py`, before queueing several.
+- **When a shared template is fixed mid-film** (the lower-third word gap): back up `hf/`, re-render, then diff a late frame of every graphic against its old
+  render. Here the single-part lower thirds came back identical and the others moved only from the second part on.

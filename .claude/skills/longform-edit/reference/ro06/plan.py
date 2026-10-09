@@ -32,7 +32,7 @@ PLAN = [
  dict(id="G03", kind="lt", start="you have an emergency", end="whenever you want", topic="ALREADY HAVE A GYM?",
       point="This Is Your BACKUP Setup.", parts=[["This Is Your BACKUP Setup.", "emergency"]]),
  dict(id="G04", kind="lt", start="in the description below", end="recommended items", topic="LINKS IN THE DESCRIPTION",
-      point="Every Item I Recommend Is LINKED Below.", parts=[["Every Item I Recommend Is LINKED Below.", "in the description"]]),   # round 5: one part. The template sets a later part too close to the one before ('RecommendIs'), which only reads wrong mid-sentence; template fault reported separately
+      point="Every Item I Recommend Is LINKED Below.", parts=[["Every Item I Recommend", "in the description"], ["Is LINKED Below.", "Amazon Associates"]]),   # round 6: two parts again (the template now spaces them). round 5: one part. The template sets a later part too close to the one before ('RecommendIs'), which only reads wrong mid-sentence; template fault reported separately
  # ---------------- 1 yoga mat
  dict(id="G05", kind="lt", start="yoga mat like this", end="most important thing to buy", tail=0.0, topic="BASIC SETUP: ITEM 1 OF 4",   # round 5: comes up once he is standing again (it sat over his head while he bent to the equipment)
       point="A Basic YOGA MAT.", parts=[["A Basic YOGA MAT.", "yoga mat"]]),
@@ -60,7 +60,9 @@ PLAN = [
       note="Dan's B-roll: push-ups on the handles with his feet up on a chair. round 5 (the delivery gate read 33 % cutaway cover against its 40 % floor): Dan's own unused B-roll, placed on the words that name it"),
  dict(id="G09", kind="lt", start="jump rope", end="essential because", topic="BASIC SETUP: ITEM 3 OF 4",   # round 5: comes up once he is standing again (it sat over his head while he bent to the equipment)
       point="A JUMP ROPE.", parts=[["A JUMP ROPE.", "jump rope"]]),
- dict(id="C06", kind="clip", start="excellent cardio", end="few dollars to get it", tail=0.2, src=["B0430@1.0"], note="Dan's B-roll: jump rope by the pool"),
+ dict(id="C06", kind="clip", start="excellent cardio", end="few dollars to get it", tail=0.2, src=["/Volumes/Extreme/_edit_work/ro06/round6/c06/C06-fastskip-C1674-101.8.mp4@0.0"], people="dan", physique=False,
+      note="round 6 (Dan: 'the clip where I'm quickly skipping over the rope with correct form'): the fast boxer skip, roll C1674 from 101.8 s, cut and graded exactly as library clip B0448 "
+           "(the same stretch, about 160 steps a minute). The opening uses roll 99.1 to 101.5 s, so no frame appears twice. B0430 (both feet) was a mistake demo"),
  dict(id="G10", kind="lt", start="I bought all kinds of expensive", end="get the job done", topic="KEY POINT",
       point="Skip The Speed Ropes. Cheap And Basic WORKS.", parts=[["Skip The Speed Ropes.", "I bought all kinds"], ["Cheap And Basic WORKS.", "cheap and basic"]]),
  # ---------------- 4 ab wheel
@@ -85,7 +87,7 @@ PLAN = [
       eyebrow=["35 LB KETTLEBELL", "this kettlebell"], headline=[["$45", "45"]],
       detail=["Right for most beginners.", "most beginners"], push=1.05, drift=-8),
  dict(id="G15", kind="lt", start="that you can do about", end="using the kettlebell for", topic="WHICH WEIGHT?",
-      point="30 Seconds Of Deadlifts Should EXHAUST You.", parts=[["30 Seconds Of Deadlifts Should EXHAUST You.", "30 seconds of kettlebell"]]),
+      point="30 Seconds Of Deadlifts Should EXHAUST You.", parts=[["30 Seconds Of Deadlifts", "30 seconds of kettlebell"], ["Should EXHAUST You.", "exhausts"]]),   # round 6: two parts again
  dict(id="G16", kind="lt", start="it uses your entire body", end="just like the regular deadlift", topic="KETTLEBELL DEADLIFT",
       point="Back, Legs, Arms, Abs: Your WHOLE Body.", parts=[["Back, Legs, Arms, Abs:", "your back"], ["Your WHOLE Body.", "everything will be"]]),
  dict(id="G17", kind="lt", start="But I do these kettlebell deadlifts", end="do things wrong", topic="KEY POINT",
@@ -106,9 +108,11 @@ PLAN = [
  dict(id="F05", kind="scene", scene="fact", people="none", physique=False, start="So what you're seeing on screen right now", end="most people", tail=1.0, photo=f"{AS}/card_medball.png", label="AI-GENERATED",
       eyebrow=["MEDICINE BALL", "So what you're seeing"], headline=[["6 lb", "six"]],
       detail=["About $20.", "right for"], push=1.05, drift=-8),
- dict(id="C12", kind="clip", start="it doesn't slam on the ground", end="in that repetition", tail=0.2, src=["B0467@1.0"], people="dan", physique=False, note="Dan's B-roll: lying toe-touch crunches (the ball coming back to the ground)"),
+ dict(id="C12", kind="clip", start="because it's a little bit more ergonomic", end="in that repetition", tail=0.2, src=["B0467@1.0"], people="dan", physique=False,
+      note="Dan's B-roll: lying toe-touch crunches (the ball coming back to the ground). round 6: starts 1.9 s earlier, on 'because it's a little bit more ergonomic', "
+           "so it is up before he throws both arms overhead (9:32.5): his hands leave the CAMERA frame there and no crop can bring them back. Same clip from the same point, played longer, not slowed"),
  dict(id="G22", kind="lt", start="but if you want to save money", end="dumbbell instead", topic="SAVE MONEY HERE",
-      point="A 5 lb Plate Or Dumbbell Works TOO.", parts=[["A 5 lb Plate Or Dumbbell Works TOO.", "but if you want"]]),
+      point="A 5 lb Plate Or Dumbbell Works TOO.", parts=[["A 5 lb Plate Or Dumbbell", "but if you want"], ["Works TOO.", "Just use"]]),   # round 6: two parts again
  # ---------------- 7 dumbbells
  dict(id="G23", kind="lt", start="Like we see right here", end="essential arm exercise", topic="INTERMEDIATE: ITEM 7",   # round 5: up after he has picked the dumbbells up (the strip sat on the equipment row in the wide)
       point="DUMBBELLS.", parts=[["DUMBBELLS.", "Like we see"]]),
@@ -122,7 +126,7 @@ PLAN = [
  dict(id="G24", kind="lt", start="So if you can only afford one pair", end="showed you on screen", topic="ONLY BUYING ONE PAIR?",
       point="Pick Your CURL Weight: About 25 lb.", parts=[["Pick Your CURL Weight:", "So if you can only"], ["About 25 lb.", "25 pounds"]]),
  dict(id="G25", kind="lt", start="30 seconds of curls and then", end="30 seconds of side laterals", tail=1.5, topic="BUYING TWO PAIRS?",
-      point="Add A LIGHT Pair For Side Laterals.", parts=[["Add A LIGHT Pair For Side Laterals.", "lighter weight"]]),
+      point="Add A LIGHT Pair For Side Laterals.", parts=[["Add A LIGHT Pair", "lighter weight"], ["For Side Laterals.", "side laterals"]]),   # round 6: two parts again
  dict(id="C13", kind="clip", start="These side laterals are important", end="best way to build your deltoids", tail=0.1, src=["B0450@0.3"],   # round 5: the clip is 8.0 s long and the old slot was 8.4 s (never hold a clip): out on "deltoids"
       note="Dan's B-roll: dumbbell side laterals by the pool"),
  dict(id="G31", kind="lt", start="In that case, I recommend a heavy pair", end="40 or 45 pounds", tail=1.1, topic="BUYING THREE PAIRS?",
@@ -164,8 +168,16 @@ PLAN = [
  dict(id="G30", kind="lt", start="Eventually, once you're ready", end="at your house", topic="ACTION STEP",     # round 5: "So I want you guys to get started" is in the length trim; same text, anchored on the sentence that stays
       point="Buy The Basics NOW. Upgrade When You're READY.", parts=[["Buy The Basics NOW.", "Eventually"], ["Upgrade When You're READY.", "once you're ready"]]),
  # ---------------- CTA
- dict(id="C29", kind="clip", start="we're also going to use AI", end="just for you", tail=0.1, src=["B0437@0.5"], people="dan", physique=False, 
-      note="Dan's B-roll: Dan on his phone by the pool after a workout. round 5 (the delivery gate read 33 % cutaway cover against its 40 % floor): Dan's own unused B-roll, placed on the words that name it"),
+ # round 6 (Dan, 15:49: "I don't like that. It's just me looking at my phone. I want to replace this with the camera scene with a graphic of the Abs By AI home
+ # screen next to me, and then click into it, seeing the calorie tracking functionality, seeing some of the AI-generated workout videos ... in a left-third graphic
+ # within a phone frame next to me"). C29 (B0437) is out. P03 = Dan on camera, shifted right in one fixed composition, the approved phone shell on the left third
+ # (phone_side.py). It runs for the whole sentence (shot cta.0r1), because a home screen, two taps, a meal analysis and two exercise videos do not fit in 4.6 s.
+ dict(id="P03", kind="clip", start="On absbyai", end="just for you", tail=0.1, src=["/Volumes/Extreme/_edit_work/ro06/round6/phone/P03-side.mp4@0.0"],
+      people="dan", physique=False, label="AI-GENERATED", label_in_picture=True,
+      note="round 6: Dan on camera (the same take, same frames, moved 290 px right, never animated) with the app in the approved iPhone shell on the left third. Screens in order: the app's own home screen "
+           "(captured at phone size from a local copy of the app, appcap6.py), a visible tap on Macro Tracker, the real meal-photo recording B0038 (salmon plate to the itemised 775 calories), "
+           "home again with a visible tap on AI Trainer, then the app's own Push-Up and Reverse Crunch exercise sheets with their demo videos playing at natural speed. "
+           "The two demos are AI-made footage of Dan and carry the app's AI-GENERATED chip on the video"),
  dict(id="P01", kind="clip", start="you're going to upload your current picture", end="where you want to get to", tail=0.1,
       src=[f"{R5}/phone/P01-softblue.mp4@0.0"], people="dan", physique=True, label="AI-GENERATED", label_in_picture=True,
       note="Dan's approved self-generation demo (Ad 14 R3 g17: sunglasses before to pool goal, simulated/composited provenance), same screen content, steps and timing, "
