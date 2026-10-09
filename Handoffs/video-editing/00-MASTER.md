@@ -97,7 +97,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 |---|---|---|---|---|
 | [RO-01](RO-01-keep-your-muscle-on-zepbound.md) | How To Keep Your Muscle On Zepbound | 8/14 C1605–08 (27 min) | UPLOADED | L |
 | [RO-02](RO-02-the-vacuum-explainer.md) | The Vacuum: Best Ab Exercise For Belly Fat | 8/14 C1614–29 (26 min) | UPLOADED | L |
-| [RO-03](RO-03-the-vacuum-workout-only.md) | The Vacuum — Workout Only | 8/14 C1625 | READY (best after RO-02) | S |
+| [RO-03](RO-03-the-vacuum-workout-only.md) | The Vacuum — Workout Only | 8/14 C1625 | DELIVERED: awaiting Dan | S |
 | [RO-04](RO-04-arms-shoulders-workout-only.md) | Arms & Shoulders — Workout Only | 8/3 C1586 | READY | S |
 | [RO-05](RO-05-how-i-make-my-daily-salad.md) | How I Make My Daily Salad | 8/3 C1533–56 (50 min) | UPLOADED | L |
 | [RO-06](RO-06-work-out-at-home-on-a-budget.md) | How To Work Out At Home On A Budget | 8/3 C1557–81 (31 min) | DELIVERED: awaiting Dan | L |
@@ -122,7 +122,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | job | video | rolls | status | size |
 |---|---|---|---|---|
 | [RO-10](RO-10-calories-the-reason-you-re-not-losing-weight.md) | Calories: The Reason You're Not Losing Weight | 9/23 C1704 | UPLOADED | L |
-| [RO-11](RO-11-when-calories-don-t-matter-for-fat-loss.md) | When Calories Don't Matter For Fat Loss | 9/23 C1705 | FINALIZED | L |
+| [RO-11](RO-11-when-calories-don-t-matter-for-fat-loss.md) | When Calories Don't Matter For Fat Loss | 9/23 C1705 | UPLOADED | L |
 | [RO-12](RO-12-top-5-zepbound-tips.md) | Top 5 Zepbound Tips | 9/23 C1706 | UPLOADED | L |
 | [RO-13](RO-13-can-you-drink-alcohol-and-still-have-abs.md) | Can You Drink Alcohol And Still Have Abs? | 9/23 C1707 | UPLOADED | L |
 | [RO-14](RO-14-why-you-re-not-losing-weight.md) | Why You're Not Losing Weight | 9/23 C1708 | READY | L |
@@ -165,6 +165,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [SL-10](SL-10-alcohol-and-abs-shorts.md) | Can You Drink Alcohol And Still Have Abs? (RO-13, public Nov 15) | READY | S |
 | [SL-11](SL-11-the-vacuum-shorts.md) | The Stomach Vacuum: The Best Ab Exercise For Belly Fat (RO-02, public Nov 22) | READY | S |
 | [SL-12](SL-12-keep-your-muscle-shorts.md) | How To Keep Your Muscle While You Lose Fat (RO-01, YouTube Dec 6) | READY; hold release until parent is public | S |
+| [SL-13](SL-13-calories-dont-matter-shorts.md) | When Calories Don't Matter For Fat Loss (RO-11, YouTube Dec 13) | READY; hold release until parent is public | S |
 
 **Will need shorts once final (no handoff yet; add one when the long-form is approved):**
 * Your Belly Fat Is An Emergency (Codex, revision in progress)

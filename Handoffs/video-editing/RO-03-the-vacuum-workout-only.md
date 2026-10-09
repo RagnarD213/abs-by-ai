@@ -1,6 +1,8 @@
 # RO-03 — "The Vacuum — Workout Only": follow-along cut from raw footage
 
-**List 1 · organic workout-only · READY (best fired after RO-02 is approved, so it inherits that grade and graphics).** Read `00-RULES.md` first.
+**CONTENT (LFC).** List 1 · organic workout-only · round 1 delivered 2026-10-09, waiting on Dan (`Handoffs/handoff-20261009-ro03-round1-dan-review.md`). Read `00-RULES.md` first.
+
+**Dan, 2026-10-09: "Don't model it on Zeeshan's videos. He's not the best editor. Model it on Muhammad's workout videos."** The model below is overridden: use the workout sections of Muhammad's ab wheel cut (`YouTube Long Form Video Content/The $17 Ab Wheel Beats Every Crunch - READY FOR UPLOAD/Muhammad edit/`). Structure comes from the Shoot 4 outline: go directly into the routine, 3 standing holds of 20-30 seconds, 30 seconds of rest between.
 
 ## Source
 8/14 shoot: **C1625** (1:03), the live set (*"now I'll show you what a set of vacuums looks like live"*), plus whatever sets
