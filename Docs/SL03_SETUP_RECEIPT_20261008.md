@@ -17,7 +17,7 @@ Queue was 186 of 200. Each short is 4 posts, so only three shorts fit (198 of 20
 | 1 | 1 "Break Your Fast With This" | Thu Oct 29 14:00Z (CDT) | 5329617 | 5329619 | 5329622 | 5329624 |
 | 2 | 4 "Stop Buying Salad Dressing" | Sat Oct 31 14:00Z (CDT) | 5329625 | 5329626 | 5329628 | 5329629 |
 | 3 | 5 "Track A Week Of Meals From 1 Photo" | Tue Nov 3 15:00Z (CST) | 5329631 | 5329632 | 5329633 | 5329634 |
-| 4 | 2 "The $20 Salad You Can Make For $4" | Thu Nov 5 15:00Z | owed | owed | owed | owed |
+| 4 | 2 "The $20 Salad You Can Make For $4" | Thu Nov 5 15:00Z | 5361331 | 5361332 | 5361333 | 5361334 |
 | 5 | 3 "Keep Your Salads Fresh For 7 Days" | Sat Nov 7 15:00Z | owed | owed | owed | owed |
 | 6 | 6 "Make AI Calorie Tracking Accurate" | Tue Nov 10 15:00Z | owed | owed | owed | owed |
 
@@ -42,3 +42,9 @@ Dan's constraints hold: shorts 5 and 6 are 7 days apart; shorts 1 and 2 are not 
 
 ## Automation (2026-10-08)
 Scheduled task `sl03-queue-shorts-2-3-6` (daily about 8:30 AM, Claude app must be open) queues shorts 2, 3 and 6 once the Blotato queue has room, then disables itself. Queue was 198 of 200; expect room after the Oct 10 posts (about 184).
+
+## Short 2 queued (2026-10-09, scheduled task)
+- Queue was 195 of 200, room for one short only. Short 2 queued for Thu Nov 5 15:00Z: Facebook 5361331, Instagram @danrosefit 5361332, TikTok 5361333, YouTube 5361334. Queue now 199 of 200.
+- `ad_guard.py --scan` CLEAN (195 posts). Parent still scheduled, none failed (5014534 Oct 18; 5014529, 5014531, 5014533 Oct 19).
+- Fresh pull: text, targets and slot match the config; TikTok `videoCoverTimestamp` 0, `isAiGenerated` false; YouTube public, synthetic off. Hosted media downloaded and SHA-256 matched to local files: master d8c3d4fb (FB, IG, YouTube), TikTok copy e629949e, Instagram PNG 060b9e0d, YouTube JPEG 755843f8.
+- Still owed: short 3 (Sat Nov 7) and short 6 (Tue Nov 10). The task retries daily.

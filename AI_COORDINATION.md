@@ -86,7 +86,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 **Waist-cover 2026-10-08.** TikTok:phone-upload-pending.
 
 
-**SL-03 shorts 2/3/6 - OWED 2026-10-08, Claude.** `Handoffs/handoff-20261008-sl03-queue-shorts-2-3-6.md`
+**SL-03 shorts 3/6 - OWED 2026-10-09, Claude.** Short 2 queued Nov 5. Daily task queues 3 and 6 when Blotato has room. `Handoffs/handoff-20261008-sl03-queue-shorts-2-3-6.md`
 
 **Meta follower test - RUNNING 2026-10-08, Claude.** Auto-boost OFF; one $40/day ad self-runs Oct 16-22. Resume nothing. Nov 1 report: `Docs/AUTO_BOOST.md`.
 
