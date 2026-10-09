@@ -90,7 +90,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **Meta follower test - RUNNING 2026-10-08, Claude.** Auto-boost OFF; one $40/day ad self-runs Oct 16-22. Resume nothing. Nov 1 report: `Docs/AUTO_BOOST.md`.
 
-**WV01-B-Codex:BLOCKED R3 2026-10-09.** Body checked; Replicate approval pending ($0.90; spend $0). `/Volumes/Extreme/_edit_work/wv01-edit/version-b/round3/review/R3-execution-status.json`.
+**WV01-B-Codex:REVIEW R3 2026-10-09.** Opening review 8873; awaiting Dan. `/Volumes/Extreme/_edit_work/wv01-edit/version-b/round3/review/R3-execution-status.json`.
 
 **RO-01 - QUEUED 2026-10-07, Codex.** Dec6/7. TikTok limit unresolved. Next: release check. `Docs/RO01_SETUP_RECEIPT_20261007.md`.
 
