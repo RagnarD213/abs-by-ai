@@ -16,7 +16,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
-| [handoff-20261009-ro11-thumbnails-and-video-setup.md](handoff-20261009-ro11-thumbnails-and-video-setup.md) | **Ready 2026-10-09. Claude Sonnet 5.5 / Medium.** RO-11 (LFC), round 4 approved by Dan. Five thumbnails (pool, studio, AI ripped-eating-food Dan, 2 Codex AI designs), stop for his pick, then /video-setup (Sunday queue, expect Dec 13), clip library. |
 | [handoff-20261008-wv01-b-round3-selected-motion-and-opening.md](handoff-20261008-wv01-b-round3-selected-motion-and-opening.md) | **Ready 2026-10-08. Codex GPT-6 Astra / High.** Locked slimmer firing pair and phone coach A: generate two motion clips, integrate R2 picture changes and approved planning inserts, review B opening and A join only. |
 | [handoff-20261008-ro17-round2-current-standard-review-page.md](handoff-20261008-ro17-round2-current-standard-review-page.md) | **Ready 2026-10-08. Claude Opus 5.5 / High.** RO-17 3 Healthy Foods (LFC): keep the 09-25 stage-one cut and audio, rebuild graphics, framing and B-roll to the current standard, show Dan one review page (first minute, graphics, clip choices). No full film this round. |
 | [handoff-20261008-sl03-queue-shorts-2-3-6.md](handoff-20261008-sl03-queue-shorts-2-3-6.md) | **Ready 2026-10-08. Claude Sonnet 5 / Medium.** Queue Daily Salad shorts 2, 3, 6 in Blotato (slots Nov 5, 7, 10) once the queue has room for 12 posts. |
