@@ -6,7 +6,7 @@ Phone screens, in order (frames at 29.97):
   home   the app's own home screen (appcap6.py, local copy of the app), a visible tap on Macro Tracker
   macro  real recording B0038 from frame 30: the salmon plate, "Analyzing your meal", the itemised result (775 cal)
   home   again, a visible tap on AI Trainer (as he says "we're also going to use AI to design a custom workout plan")
-  sheet  the app's own Push-Up sheet, then Reverse Crunch, each with its demo file playing at natural speed in the player's rectangle,
+  sheet  the app's own Push-Up sheet, then Reverse Lunge, each with its demo file playing at natural speed in the player's rectangle,
          AI-GENERATED on the video where the app puts it
 usage: phone_side.py [--stills]"""
 import sys, os, json, subprocess, glob
@@ -36,7 +36,7 @@ class Screens:
         self.home = screen_png("hub")
         raw = dec(B38, "scale=in_color_matrix=bt709:in_range=tv,crop=526:968:24:62,scale=432:795:flags=lanczos"); self.macro = np.frombuffer(raw, np.uint8).reshape(-1, 795, 432, 3)
         self.sheet = {}
-        for ex, n0 in (("pushup", T_SHEET2 - T_SHEET1), ("reverse-crunch", 400)):
+        for ex, n0 in (("pushup", T_SHEET2 - T_SHEET1), ("reverse-lunge", 400)):
             box = json.load(open(f"{CAP}/sheet_{ex}.json"))["video"]; k = 432/390
             x, y, w, h = [int(round(v*k)) for v in box]
             raw = dec(f"{P}/public/exercise-demos/{ex}.mp4", f"fps=30000/1001,scale={w}:{h}:flags=lanczos:in_color_matrix=bt709:in_range=tv", n=n0 + 4, ss=DEMO_SS[ex])
@@ -55,13 +55,13 @@ class Screens:
         elif k < T_HOME2: cur = (self.macro_frame(k - T_MACRO), T_MACRO)
         elif k < T_SHEET1: im = self.home.copy(); ring(im, TAP2, k - (T_SHEET1 - 16)); cur = (im, T_HOME2)
         elif k < T_SHEET2: cur = (self.sheet_frame("pushup", k - T_SHEET1), T_SHEET1)
-        else: cur = (self.sheet_frame("reverse-crunch", k - T_SHEET2), T_SHEET2)
+        else: cur = (self.sheet_frame("reverse-lunge", k - T_SHEET2), T_SHEET2)
         im, t0 = cur
         if t0 and k - t0 < 7:                               # a new screen slides in from the right over 7 frames
             prev = self.at(t0 - 1); q = B.ease((k - t0 + 1)/FPS, 7/FPS); dx = int(round((1 - q)*432))
             c = prev.copy(); c.paste(im, (dx, 0)); return c
         return im
-DEMO_SS = {"pushup": 0.0, "reverse-crunch": 0.0}
+DEMO_SS = {"pushup": 0.0, "reverse-lunge": 0.3}   # second sheet was Reverse Crunch: its demo pauses at the top of the rep (the review read an 8 frame hold in 1.7 s). Reverse Lunge never stops moving
 def presenter(n, src0):
     roll, lf = F.roll_of(src0); ts = lf/FPS; ss = max(0, ts - 1)
     p = subprocess.Popen([FF, "-v", "error", "-ss", f"{ss:.4f}", "-i", F.ROLLS[roll]["path"], "-ss", f"{max(0, ts-ss-0.4/FPS):.4f}", "-frames:v", str(n), "-vf", F.vf(roll, (1920, 1080, 0, 0)), "-f", "rawvideo", "-"], stdout=subprocess.PIPE)

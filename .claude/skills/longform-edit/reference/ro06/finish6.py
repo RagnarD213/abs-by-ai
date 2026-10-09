@@ -142,7 +142,7 @@ for i in R:
         ai_ins.append(dict(name="P01-result", beat=[round(cut + 0.4, 3), round(z, 3)], chip=png, pos=pos, match=score))
     elif i["id"] == "P03":                              # round 6: the two AI exercise demos inside the side phone; the chip sits on the video, where the app puts it (phone_side.py)
         import phone_side as PS
-        for nm, k0, k1, ex in (("P03-pushup", PS.T_SHEET1 + 8, PS.T_SHEET2, "pushup"), ("P03-reverse-crunch", PS.T_SHEET2 + 8, fr(i["t1"]) - fr(i["t0"]), "reverse-crunch")):
+        for nm, k0, k1, ex in (("P03-pushup", PS.T_SHEET1 + 8, PS.T_SHEET2, "pushup"), ("P03-reverse-lunge", PS.T_SHEET2 + 8, fr(i["t1"]) - fr(i["t0"]), "reverse-lunge")):
             vx, vy = [int(round(v*432/390)) for v in json.load(open(f"{PS.CAP}/sheet_{ex}.json"))["video"][:2]]; tw = int(B.text_w("AI-GENERATED", B.font(12)))
             x0 = 102 + PS.OX + 8 + vx + 9; y0 = 40 + 65 + vy + 9; ta = (fr(i["t0"]) + k0)/FPS; tz = (fr(i["t0"]) + k1)/FPS
             png = crop_png(ta + 0.5, (x0, y0, x0 + tw + 19, y0 + 23), f"{od}/chips/{nm}.png"); pos, score = locate(png, (ta + tz)/2)

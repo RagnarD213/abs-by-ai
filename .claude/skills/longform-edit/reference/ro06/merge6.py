@@ -11,19 +11,28 @@ W6 = Bd.W + "/round6"; W5 = Bd.W + "/round5"; FPS = Bd.FPS; NEW = f"{W6}/RO-06 r
 DAN = "Dan, 2026-10-08, on this film: 'hair, leave as shot' (repeated 2026-10-09: 'hair as shot'). The crop's top row is the camera's own top row in this shot, so the camera framed it."
 def tsec(fn):
     m = re.search(r"_(\d\d)-(\d\d\.\d\d)", fn); return int(m.group(1))*60 + float(m.group(2))
-def psnr():
-    p = f"{W6}/logs/r6_vs_r5_psnr.txt"
+R1 = f"{W6}/render1/RO-06 round 6 - full film.mp4"      # the first round 6 render: its 66 changed images were judged by the independent reviewer
+def psnr(tag="r5", ref=None):
+    p = f"{W6}/logs/r6_vs_{tag}_psnr.txt"
     if not os.path.exists(p):
-        subprocess.run([Bd.FF, "-nostdin", "-v", "error", "-i", NEW, "-i", OLD, "-lavfi", f"[0:v][1:v]psnr=stats_file='{p}'", "-an", "-f", "null", "-"], check=True, cwd=W6)
+        subprocess.run([Bd.FF, "-nostdin", "-v", "error", "-i", NEW, "-i", ref or OLD, "-lavfi", f"[0:v][1:v]psnr=stats_file='{p}'", "-an", "-f", "null", "-"], check=True, cwd=W6)
     return [float(re.search(r"psnr_avg:(\S+)", l).group(1).replace("inf", "99")) for l in open(p)]
-if sys.argv[1] == "split":
-    P = psnr(); old = {}
+def pools():
+    a, b = {}, {}
     for e in json.load(open(f"{W5}/logs/findings.json"))["entries"]:
-        if e["image"].startswith("strip_"): old.setdefault(round(tsec(e["image"]), 2), []).append(e)
+        if e["image"].startswith("strip_"): a.setdefault(round(tsec(e["image"]), 2), []).append(e)
+    for e in json.load(open(f"{W6}/render1/logs/findings_r6_fresh.json"))["entries"]:
+        if os.path.basename(e["image"]).startswith("strip_"): b.setdefault(round(tsec(os.path.basename(e["image"])), 2), []).append(e)
+    return a, b
+if sys.argv[1] == "split":
+    P = psnr(); P1 = psnr("render1", R1); old, r1 = pools()
     carry, fresh = [], []
     for fn in sorted(x for x in os.listdir(f"{W6}/watch/strips") if x.startswith("strip_")):
-        t = tsec(fn); f = int(round(t*FPS)); lo = min(P[max(0, f-2):f+3]); k = next((k for k in old if abs(k - t) <= 0.03), None)
-        (carry if lo >= 38.0 and k is not None else fresh).append([fn, round(lo, 1), k])
+        t = tsec(fn); f = int(round(t*FPS)); lo = min(P[max(0, f-2):f+3]); lo1 = min(P1[max(0, f-2):f+3])
+        k = next((k for k in old if abs(k - t) <= 0.03), None); k1 = next((k for k in r1 if abs(k - t) <= 0.03), None)
+        if lo >= 38.0 and k is not None: carry.append([fn, round(lo, 1), k, "r5"])
+        elif lo1 >= 38.0 and k1 is not None: carry.append([fn, round(lo1, 1), k1, "render1"])
+        else: fresh.append([fn, round(min(lo, lo1), 1), None])
     json.dump(dict(carry=carry, fresh=fresh), open(f"{W6}/logs/judge6_split.json", "w"), indent=0)
     sheets = sorted(x for x in os.listdir(f"{W6}/watch/sheets") if x.startswith("sheet_"))
     open(f"{W6}/logs/judge6_fresh_list.txt", "w").write("\n".join([f"watch/sheets/{s}" for s in sheets] + [f"watch/strips/{f[0]}" for f in fresh]) + "\n")
@@ -31,20 +40,18 @@ if sys.argv[1] == "split":
     for i in ch:
         if runs and i - runs[-1][1] <= 15: runs[-1][1] = i
         else: runs.append([i, i])
-    print(len(carry), "strips carried,", len(fresh), "fresh,", len(sheets), "sheets fresh; frames under 38 dB:", len(ch), "of", len(P))
+    print(len(carry), "strips carried (", sum(c[3] == "render1" for c in carry), "from the first round 6 render ),", len(fresh), "fresh,", len(sheets), "sheets fresh; frames under 38 dB:", len(ch), "of", len(P))
     print("changed stretches (s):", [(round(a/FPS, 2), round(b/FPS, 2)) for a, b in runs])
 if sys.argv[1] == "merge":
     split = json.load(open(f"{W6}/logs/judge6_split.json")); r6 = json.load(open(f"{W6}/logs/findings_r6_fresh.json"))["entries"]
-    old = {}
-    for e in json.load(open(f"{W5}/logs/findings.json"))["entries"]:
-        if e["image"].startswith("strip_"): old.setdefault(round(tsec(e["image"]), 2), []).append(e)
+    old, r1 = pools()
     segs = Bd.all_segments()
     def cam_top(t):
         s = next((s for s in segs if s["o0"]/FPS - 0.05 <= t < s["o1"]/FPS + 0.05), None); return bool(s) and s["crop"][3] == 0
     out = []
-    for fn, lo, k in split["carry"]:
-        for e in old[k]:
-            n = dict(e, image=fn); n["note"] = re.sub(r" \[verdict carried.*?\]", "", e.get("note") or "") + f" [verdict carried from the judged round 5 film: these five frames are unchanged in the round 6 file, lowest PSNR {lo} dB]"
+    for fn, lo, k, src in split["carry"]:
+        for e in (old if src == "r5" else r1)[k]:
+            n = dict(e, image=fn); n["note"] = re.sub(r" \[verdict carried.*?\]", "", e.get("note") or "") + f" [verdict carried from the judged {'round 5 film' if src == 'r5' else 'first round 6 render'}: these five frames are unchanged in the delivered file, lowest PSNR {lo} dB]"
             out.append(n)
     names = {x for x in os.listdir(f"{W6}/watch/strips") if x.startswith("strip_")} | {x for x in os.listdir(f"{W6}/watch/sheets") if x.startswith("sheet_")}
     for e in r6:

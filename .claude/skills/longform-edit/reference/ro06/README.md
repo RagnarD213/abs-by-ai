@@ -163,3 +163,20 @@ Round 6 (2026-10-09, Dan's four revisions to the full film: jump rope clip, a wi
   after its picture had rendered. Run one short `build.py range` after any edit to `build.py`, before queueing several.
 - **When a shared template is fixed mid-film** (the lower-third word gap): back up `hf/`, re-render, then diff a late frame of every graphic against its old
   render. Here the single-part lower thirds came back identical and the others moved only from the second part on.
+- **Second pass of round 6 (the first independent review said does not ship; the second said ship):**
+  - **Fix the whole take, not the timestamp Dan named.** The same take came back 8 s later after a cutaway with hair on the top row again. A reviewer sees
+    that at once. When a framing fix is built for a shot, list every other shot of that take in the film and give them the same crop.
+  - **Putting cut hair back from another frame failed twice** (mask matte, then mask and darkness matte): both left a faint ghost above his head in close-up.
+    The plate alone reads as a slightly flat haircut, which the reviewer would ship. Leave `CROWN = False` and tell Dan plainly.
+  - **A still plate needs grain and a little sharpening or it reads frozen and soft** (a median of 14 frames is about 18 % softer than one live frame).
+    `GRAIN = 1.6` overshot: the plate band then changed 3 to 4 times more per frame than the live picture. About 0.8 would match. Measure, do not guess.
+  - **Pick an app demo video by measuring its motion.** The Reverse Crunch demo pauses at the top of each rep, which read as an 8 frame freeze in 1.7 s.
+    Frame-difference per demo (share of 6 frame windows nearly still) picked Reverse Lunge, which never stops.
+  - **A standing rule made the same day binds a film that is not finalized.** The capitals rule (2026-10-09) arrived mid-session; the reviewer cited it.
+    Applied to every lower third outside the approved first minute, five punch words kept, the first minute's one left as approved and offered in the reply box.
+  - **The gate's `compliance:negative_events` row had never been measured on this film.** The watch pass's 12 contact sheets, stacked three to a page, are a
+    300 frame scan one person can read in four looks; record `negative_events_scan.json` beside the master and `finish6.py` puts it in the plan.
+  - **A reviewer's dense frame folders cost 8.5 GB on this drive** (1 MB clusters, thousands of small JPEGs). Tell a reviewer to keep evidence under about
+    150 files, and delete the dense folders after reading its report.
+  - **Carry verdicts from every judged version** (`merge6.py`): a strip unchanged against round 5 keeps round 5's verdict, one unchanged against the first
+    render of this round keeps that reviewer's, and only the rest go to the next fresh judge (41 of 237).

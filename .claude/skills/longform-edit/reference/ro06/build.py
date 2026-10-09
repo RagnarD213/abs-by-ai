@@ -40,11 +40,11 @@ OVERRIDE.update({"mb2.0r0": "T", "mb1.0r5": "W"})
 # cutaways and moving lower thirds re-ran the whole-film solve and flipped 17 shots; only the two changes above are wanted. A new piece after a cutaway takes its shot's size.
 # round 6: every shot keeps the size and crop of the round 5 film Dan reviewed (its build.json), except the two 9:24 shots he asked to have wider and higher.
 _R2 = {g["key"]: g for g in json.load(open(f"{W}/round5/RO-06 round 5 - full film.mp4.build.json"))["segments"]}
-MB2 = ("mb2.0r0", "mb2.0r1")                              # round 6 (Dan, 9:24): one wider, higher crop on a taller canvas (mb2_fix.py); the two shots are one take, so one size and no cut
-BREAK = ("mb2.0r2",)                                      # the take runs on after the toe-touch cutaway at its round 5 crop: not part of the widened run
+MB2 = ("mb2.0r0", "mb2.0r1", "mb2.0r2")                              # round 6 (Dan, 9:24): one wider, higher crop on a taller canvas (mb2_fix.py); the two shots are one take, so one size and no cut
+BREAK = ()                                                # (first render: mb2.0r2 kept its round 5 crop; the review found hair on the top row again 8 s after the fixed shot, so it joins the run)
 for _k, _g in _R2.items():
     if _k.split("+")[0] not in MB2: OVERRIDE[_k] = _g["framing"]
-OVERRIDE.update({"mb2.0r0": "T", "mb2.0r1": "T"})
+OVERRIDE.update({"mb2.0r0": "T", "mb2.0r1": "T", "mb2.0r2": "T"})
 class _Base(dict):
     def __missing__(self, k): raise KeyError(k)
     def __contains__(self, k): return dict.__contains__(self, k) or ("+c" in k and dict.__contains__(self, k.split("+")[0]))
@@ -53,7 +53,7 @@ OVERRIDE = _Base(OVERRIDE)
 STAB = json.load(open(f"{W}/round5/stab.json")) if os.path.exists(f"{W}/round5/stab.json") and not os.environ.get("RO06_NOSTAB") else {}
 STAB.pop("mb2.0r0", None)                                # round 6: mb2_fix.py applies this shot's offsets itself, on the taller canvas
 import mb2_fix
-CROPFIX = {"mb2.0r0": mb2_fix.CROP, "mb2.0r1": mb2_fix.CROP, "tot2.0r0": (1880, 1058, 0, 0), "tot2.0r1": (1880, 1058, 0, 0),
+CROPFIX = {"mb2.0r0": mb2_fix.CROP, "mb2.0r1": mb2_fix.CROP, "mb2.0r2": mb2_fix.CROP, "tot2.0r0": (1880, 1058, 0, 0), "tot2.0r1": (1880, 1058, 0, 0),
            "mb1.0r6": (984, 554, 428, 0), "mb1.0r7": (984, 554, 428, 0)}     # the crop these two had with mb1.0r5 in their run (top row = the camera's: his hair is at the edge on this roll)
 HOLD = 22.0                                              # one size never holds longer than this with nothing else changing
 CLOSE = ("C1580", "C1581")                               # the camera frame is already tighter than Dan's tight shot

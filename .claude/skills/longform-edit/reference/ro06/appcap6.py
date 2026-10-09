@@ -18,7 +18,7 @@ with sync_playwright() as p:
     pg.wait_for_timeout(400); pg.screenshot(path=f"{OUT}/hub.png")
     tiles = pg.evaluate("""() => [...document.querySelectorAll('#hubSection .hub-tile')].filter(e => e.offsetParent).map(e => { const r = e.getBoundingClientRect(); return [e.innerText.split(String.fromCharCode(10)).filter(x => x.trim()).join(' | ').slice(0,60), Math.round(r.x), Math.round(r.y + scrollY), Math.round(r.width), Math.round(r.height)]; })""")
     json.dump(tiles, open(f"{OUT}/hub_tiles.json", "w"), indent=1); print(tiles)
-    for ex in ("pushup", "reverse-crunch"):
+    for ex in ("pushup", "reverse-crunch", "reverse-lunge"):
         pg.evaluate("(ex) => { openExerciseSheet(ex, '', ''); }", ex); pg.wait_for_timeout(1200)
         pg.evaluate("() => { const v = document.getElementById('exSheetDemo'); if (v) v.removeAttribute('controls'); }"); pg.wait_for_timeout(300)
         pg.screenshot(path=f"{OUT}/sheet_{ex}.png")
