@@ -122,7 +122,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **RO-06 NEEDS DAN 2026-10-09, Claude.** Film: localhost:8850. `Handoffs/handoff-20261008-ro06-round6-dan-review.md`.
 
-**RO-07 BUILDING-R1 2026-10-09, Claude.** `/Volumes/Extreme/_edit_work/ro07/`.
+**RO-07-R1-BUILDING 2026-10-09, Claude.**
 
 **RO-12 - QUEUED 2026-10-01, Claude.** Blotato Oct 25. Then: `Docs/RO12_SETUP_RECEIPT_20261001.md`, delete.
 
