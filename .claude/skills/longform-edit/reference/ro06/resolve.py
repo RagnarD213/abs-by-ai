@@ -33,7 +33,7 @@ def resolve():
         if r["kind"] in FULL:
             if r.get("cover_shot"):                                  # the card hides a whole inserted take: both edges on its joins
                 sh = next(s for s in S if s["out_f0"]/FPS <= r["t0"]+0.3 < s["out_f1"]/FPS)
-                r["t0"] = round(sh["out_f0"]/FPS+0.0005, 4); r["t1"] = round(sh["out_f1"]/FPS+0.0005, 4); continue
+                r["t0"] = round(sh["out_f0"]/FPS+0.0005, 4); r["t1"] = round(sh["out_f1"]/FPS+0.0005 + r.get("extend", 0), 4); continue   # extend: hold the card past the take it hides (round 5: a price needs reading time)
             j = [x for x in joins if r["t0"]-0.85 <= x < r["t0"]]
             if j: r["t0"] = round(max(j)+0.0005, 4)
             j = [x for x in joins if abs(x-r["t1"]) <= 0.6]

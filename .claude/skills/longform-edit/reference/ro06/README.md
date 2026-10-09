@@ -96,3 +96,42 @@ Round 4 (2026-10-08, AI motion for the four approved frame pairs, lip sync on tw
   AI clips: `build.py range 0.0 62.9963`, both audio md5s unchanged, 1,204 presenter frames with 0 differences. Page: `page4.py`.
 - **Dan approved all four clips and the first minute as built (2026-10-08):** "I really love the way that you did the lip-syncing and the slap. Both of those
   turned out significantly better than I expected." This method is now the standard for excuse-voice lines (VIDEO-RULES, top section).
+
+Round 5 (2026-10-08, the full film: three length trims, a music bed, two phone demos, three full renders, two independent reviews):
+- **A length trim needs no new ASR pass.** `words_out5.py`: a word in a shot whose source range did not change keeps its old output time plus that
+  shot's shift, so every word before the first trim is identical to the approved round; words in changed shots are remapped from source time and kept
+  only when their middle survives. Re-run `shots.py`, then put the picture-only splits back from the old `shots.json` (it rebuilds the list).
+- **Pin the approved first minute twice: sizes AND crops.** The solve is global and a run of one take shares one crop, so setting a later shot to medium
+  moved an approved shot's crop for 121 frames. `OVERRIDE` pins the sizes, `PINCROP` the crops (from the approved file's `build.json`). Proof: crop and source
+  frame per presenter frame (0 differences), untreated voice sample for sample, and PSNR of every frame against the approved file (all above 40 dB).
+- **After a reviewed render, pin EVERYTHING to it.** Adding eight cutaways and moving ten lower thirds re-ran the solve and flipped 17 shots (one back into
+  a lean). `_R2` in `build.py` holds every shot at the reviewed render's size and crop; only the named changes move. Compare the solve with the last
+  `build.json` before every render.
+- **Pre-flight every clip against its slot before a full render** (the loop is in `render5.py`'s neighbours: duration minus start against slot frames). One
+  B-roll clip 0.9 s shorter than its slot killed an 18 minute render at minute 11; the fault had sat in the plan since round 1 because only the first minute
+  had ever been rendered.
+- **`leanscan.py`** reads the 2-per-second masks framing.py already made and flags, per tight or medium shot, a head drop over 90 px, sideways travel over
+  17 % or hair within 10 px of the top. Bends to the equipment go medium, never tight. Then check every lower third against the same flags: six of them
+  came up exactly as he bent down, so the strip sat over his head (the graphics checker caught one of six, because a bent head has no face box). Start
+  those on the word he says once he is standing, and re-check the solve (a lower third that covers under 45 % of a shot no longer counts in it).
+- **Lower third timing rules that two reviews wanted:** the body fills within about 2 s of the strip appearing (start the item on a phrase about 1.3 s before
+  its first part), and the last part stays up at least 1.5 s (`tail=`). Scan both from `hf/beats.json` before rendering.
+- **The lower-third template sets a later part too close to the one before** (7 to 12 px where a word space is 15 to 19): "RecommendIs". Worked around here
+  by making mid-sentence lower thirds single-part; the template fault is its own task. A leading no-break space is refused by the template.
+- **The camera operator re-aims inside takes on this shoot** (a 166 px pan, a 134 px tilt). `stab.py` measures the background's travel per frame (LK on
+  background corners, his column and the water masked) against where the camera settles; `build.render_seg_stab` slides the crop by it. The wide has no room
+  to slide, so that shot goes medium. Residual after: under 20 px. Both reviewers found the moves; the build's own checks did not.
+- **Phone demos (`phone_demo.py`):** the approved self-generation demo is lifted out of its olive card (display rect measured from the white UI frames, corners
+  squared by extending each row) into the approved iPhone shell on the Soft Blue field; the status area takes the page's own top-corner colour. Labels drawn
+  inside a clip get `label_in_picture=True` so the builder adds no second chip, and `finish5.py` takes the chip reference from the delivered pixels.
+- **Price-card chips drawn by HyperFrames match the PIL chip at 0.83** (other font rendering), under the gate's 0.85. Their own rendered pixels are the reference.
+- **Music bed outdoors:** the lav carries pool and insect noise about 40 dB under the voice, so a bed at RO-12's level cannot be heard. `--bed-db -15` on a
+  bed with 10 dB of headroom lifts the pauses 3 to 4 dB over that noise and still passes the floor row (0.1, -1.0, 1.1 against -3.0).
+- **The audio gate's fixed 20 to 140 s window fails tone on this film (5.5 kHz +6.1) with the chain Dan approved on the first minute.** Not the bed (same
+  result without it). Measured per roll with the gate's own bands the 5.5 kHz reading runs from -5 to +6.8 and follows what he is doing in the stretch as much
+  as the roll, so a per-roll correction would be fitting noise. Left as approved and reported; a 4 dB treble shelf passes the row and is offered as an A/B.
+- **Edit sheet:** the writer now reads a multi-roll build. Plan items need `people` and `physique`; real MOVING footage of Dan is `physique=False` (no label
+  applies to it), price cards and equipment shots are `people="none"`.
+- **Chapters:** anchor on the section's first sentence, not where its lower third comes up, and keep them 10 s apart or more.
+- **Watch pass after a re-render:** compare every frame with the judged render (downscaled, PSNR); a cut strip whose frames are unchanged keeps its verdict
+  and only the changed ones go to a fresh judge. Keep the judged render's 540p copy and never delete `watch/` while a judge is still working in it.

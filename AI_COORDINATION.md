@@ -90,7 +90,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **Meta follower test - RUNNING 2026-10-08, Claude.** Auto-boost OFF; one $40/day ad self-runs Oct 16-22. Resume nothing. Nov 1 report: `Docs/AUTO_BOOST.md`.
 
-**WV01-B-Codex:ACTIVE R3 2026-10-08.** Assembly queued; Replicate-upload approval blocked motion ($0.90). `/Volumes/Extreme/_edit_work/wv01-edit/version-b/round3/review/R3-execution-status.json`.
+**WV01-B-Codex:BLOCKED R3 2026-10-09.** Body checked; Replicate approval pending ($0.90; spend $0). `/Volumes/Extreme/_edit_work/wv01-edit/version-b/round3/review/R3-execution-status.json`.
 
 **RO-01 - QUEUED 2026-10-07, Codex.** Dec6/7. TikTok limit unresolved. Next: release check. `Docs/RO01_SETUP_RECEIPT_20261007.md`.
 
@@ -120,7 +120,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **RO-11 - REVIEW 2026-10-08, Claude.** Round 4 delivered. Next: Dan's notes. Page :8872.
 
-**RO-06 BUILDING 2026-10-08, Claude.** R5: `Handoffs/handoff-20261008-ro06-round5-full-film.md`.
+**RO-06 NEEDS DAN 2026-10-09, Claude.** Film: localhost:8850. `Handoffs/handoff-20261008-ro06-round6-dan-review.md`.
 
 **RO-12 - QUEUED 2026-10-01, Claude.** Blotato Oct 25. Then: `Docs/RO12_SETUP_RECEIPT_20261001.md`, delete.
 

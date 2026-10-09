@@ -20,6 +20,35 @@ OVERRIDE = {"hook.0r0": "X", "hook.0r1": "W",          # round 2 (Dan): open tig
             "hook.0r2+c": "T", "exc1.0": "X", "exc2.0r0": "T", "exc2.0r1": "X",   # first minute: tight on the punch lines, medium between
             "exc3.0r0": "W",                              # "the stuff in front of me right here": the wide, motivated
             "exc3.0r1b": "T"}                             # he leans and points at the equipment ("I still recommend this stuff"): too big a move for the tight
+# round 5: the approved first minute is pinned to its round 4 sizes (the solve is global: a change later in the film must not move it)
+OVERRIDE.update({"hook.0r0+c": "X", "hook.0r1b": "X", "hook.0r2": "X", "exc2.0r0+c": "X", "exc2.0r0+c2": "X", "exc2.0r1+c": "X", "exc2.0r1+c2": "X", "exc3.0r1": "X"})
+# round 5 leans scan (leanscan.py): he bends to the equipment inside these shots, which the tight size cannot hold. Medium, not wide: a lower third is up on three of them
+OVERRIDE.update({"exc3.0r3": "T", "mat.0r2": "T", "rope.1r0": "T", "wheel.0r0": "T",
+                 "towel.0r0": "T", "towel.0r0b": "W"})   # he bends to the ground for the towel: split at "mention | even though" (split_shot.py), the camera frame for the reach (no lower third up yet)
+# round 5: db3.0r10 to r12 held one medium crop for 24.4 s (over the 22 s rule); r12 split at "as you go | You're going to progress" (split_shot.py), tight then medium
+OVERRIDE.update({"db3.0r12": "X", "db3.0r12b": "T"})
+PINCROP = {g["key"]: tuple(g["crop"]) for g in json.load(open(f"{W}/round4/first-minute/DRAFT - RO-06 round 4 - first minute.mp4.build.json"))["segments"]}
+# round 5: under the side list L01 he points toward the card (5:21) and came within 57 px of it (the checker's minimum is 60). A 2 % punch-in anchored
+# top left moves him 18 px further from the card; the top row stays the camera's own (hair), 22 rows come off the bottom.
+# round 5: the retimed lower thirds G05 and G14 no longer cover enough of these shots to count in the solve, which then flipped them to the wide
+# (strip on the equipment at his feet) or the tight (he bends out of it). Held at the medium they had in the first full render.
+OVERRIDE.update({"mat.0r0": "T", "kb1.0r1": "T", "kb1.0r2": "T"})
+# round 5 (both reviews): the operator re-aimed inside these two shots. mb2.0r0 goes to the medium so its crop has room to take the tilt out (stab.py);
+# mb1.0r5 goes to the camera frame because he lifts the medicine ball overhead and the tight size cut the ball and both hands off the top.
+OVERRIDE.update({"mb2.0r0": "T", "mb1.0r5": "W"})
+# round 5, third render: every shot keeps the size and crop it had in the second render (the one both reviews and the three watch judges looked at). Adding
+# cutaways and moving lower thirds re-ran the whole-film solve and flipped 17 shots; only the two changes above are wanted. A new piece after a cutaway takes its shot's size.
+_R2 = {g["key"]: g for g in json.load(open(f"{W}/round5/render2/build.json"))["segments"]} if os.path.exists(f"{W}/round5/render2/build.json") else {}
+for _k, _g in _R2.items():
+    if _k not in ("mb2.0r0", "mb1.0r5"): OVERRIDE[_k] = _g["framing"]
+class _Base(dict):
+    def __missing__(self, k): raise KeyError(k)
+    def __contains__(self, k): return dict.__contains__(self, k) or ("+c" in k and dict.__contains__(self, k.split("+")[0]))
+    def __getitem__(self, k): return dict.__getitem__(self, k) if dict.__contains__(self, k) else dict.__getitem__(self, k.split("+")[0])
+OVERRIDE = _Base(OVERRIDE)
+STAB = json.load(open(f"{W}/round5/stab.json")) if os.path.exists(f"{W}/round5/stab.json") and not os.environ.get("RO06_NOSTAB") else {}
+CROPFIX = {"tot2.0r0": (1880, 1058, 0, 0), "tot2.0r1": (1880, 1058, 0, 0),
+           "mb1.0r6": (984, 554, 428, 0), "mb1.0r7": (984, 554, 428, 0)}     # the crop these two had with mb1.0r5 in their run (top row = the camera's: his hair is at the edge on this roll)
 HOLD = 22.0                                              # one size never holds longer than this with nothing else changing
 CLOSE = ("C1580", "C1581")                               # the camera frame is already tighter than Dan's tight shot
 _SEGS = None
@@ -108,6 +137,13 @@ def all_segments():
         cs = [F.crop_of(segs[k]["shot"], segs[k]["framing"]) for k in seen]; w = [segs[k]["vis"] or segs[k]["o1"] - segs[k]["o0"] for k in seen]
         cw, ch = max(cs)[:2]; x0 = sum(c[2]*n for c, n in zip(cs, w))/sum(w); y0 = min(c[3] for c in cs)
         crop = (cw, ch, int(min(max(0, round(x0/2)*2), 1920-cw)), int(min(y0, 1080-ch)))
+        pin = [PINCROP[segs[k]["key"]] for k in run if segs[k]["key"] in PINCROP]     # round 5: a run that reaches into the approved first minute keeps that minute's crop
+        if pin: crop = pin[0]; cw = crop[0]
+        r2 = [tuple(_R2[segs[k]["key"].split("+")[0] if segs[k]["key"] not in _R2 else segs[k]["key"]]["crop"]) for k in run
+              if (segs[k]["key"] in _R2 or segs[k]["key"].split("+")[0] in _R2) and _R2[segs[k]["key"] if segs[k]["key"] in _R2 else segs[k]["key"].split("+")[0]]["framing"] == segs[k]["framing"]]
+        if r2 and not pin: crop = r2[0]; cw = crop[0]
+        fix = [CROPFIX[segs[k]["key"]] for k in run if segs[k]["key"] in CROPFIX]
+        if fix: crop = fix[0]; cw = crop[0]
         for k in run: segs[k]["crop"] = crop; segs[k]["zoom"] = round(1920/cw, 3)
     _SEGS = segs; return segs
 def jumps():
@@ -131,7 +167,30 @@ SHARP = "unsharp=5:5:{a}:5:5:0.0"
 def sharpen(zoom):                                       # a punch-in on a 1080p roll is an enlargement: restore edge contrast in step with it
     return None if zoom < 1.1 else SHARP.format(a=0.5 if zoom < 1.7 else TIGHT_SHARP)
 TIGHT_SHARP = 0.9
+def render_seg_stab(sg, offs):
+    """A shot the operator re-aimed in: every source frame is cropped at crop + that frame's measured background travel (sub-pixel, bilinear), so the
+    background holds still; then the usual scale, grade and sharpen."""
+    import cv2
+    cw, ch, cx, cy = sg["crop"]; roll, lf = F.roll_of(sg["src0"]); n = sg["o1"] - sg["o0"]; offs = offs[sg["src0"] - sg["stab_src0"]:][:n]; assert len(offs) == n
+    vf = F.vf(roll, (cw, ch, 0, 0)).replace("format=rgb24", "format=yuv420p").replace(f"crop={cw}:{ch}:0:0,", "")
+    if sharpen(sg["zoom"]): vf = vf.replace(",format=yuv420p", f",{sharpen(sg['zoom'])},format=yuv420p")
+    key = hashlib.sha1(json.dumps([sg["src0"], n, vf, list(sg["crop"]), offs]).encode()).hexdigest()[:12]; out = f"{W}/cache/seg_{sg['src0']}_{key}.mp4"
+    if os.path.exists(out): return out
+    ts = lf/FPS; ss_in = max(0, ts-1)
+    dec = subprocess.Popen([FF, "-v", "error", "-ss", f"{ss_in:.4f}", "-i", F.ROLLS[roll]["path"], "-ss", f"{max(0, ts-ss_in-0.4/FPS):.4f}", "-frames:v", str(n),
+                            "-pix_fmt", "yuv444p", "-f", "rawvideo", "-"], stdout=subprocess.PIPE)
+    enc = subprocess.Popen([FF, "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "yuv444p", "-s", f"{cw}x{ch}", "-framerate", FPSS, "-color_range", "tv", "-colorspace", "bt709", "-i", "-",
+                            "-vf", vf, "-an", "-c:v", "libx264", "-crf", "12", "-preset", "veryfast", "-colorspace", "bt709", "-color_primaries", "bt709", "-color_trc", "bt709", out + ".tmp.mp4"], stdin=subprocess.PIPE)
+    for i in range(n):
+        a = np.frombuffer(dec.stdout.read(1920*1080*3), np.uint8).reshape(3, 1080, 1920); dx, dy = offs[i]
+        x, y = cx + dx, cy + dy; assert -0.5 <= x and x + cw <= 1920.5 and -0.5 <= y and y + ch <= 1080.5, (sg["key"], i, x, y)
+        Mx = np.float32([[1, 0, -x], [0, 1, -y]])
+        enc.stdin.write(np.stack([cv2.warpAffine(a[c], Mx, (cw, ch), flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_REPLICATE) for c in range(3)]).tobytes())
+    enc.stdin.close(); enc.wait(); dec.wait(); os.rename(out + ".tmp.mp4", out); return out
 def render_seg(sg):
+    if sg["key"].split("+")[0] in STAB or sg["key"] in STAB:
+        k = sg["key"] if sg["key"] in STAB else sg["key"].split("+")[0]; base = next(s for s in all_segments() if s["key"] == k)
+        return render_seg_stab(dict(sg, stab_src0=base["src0"]), STAB[k])
     crop = sg["crop"]; roll, lf = F.roll_of(sg["src0"])
     vf = F.vf(roll, crop).replace("format=rgb24", "format=yuv420p")
     if sharpen(sg["zoom"]): vf = vf.replace(",format=yuv420p", f",{sharpen(sg['zoom'])},format=yuv420p")
@@ -203,7 +262,7 @@ def render_picture(a, b, out, f0, f1, segs, HCOMP):
         for it in items:
             if it["kind"] == "clip" and fr(it["t0"]) <= g < fr(it["t1"]):
                 im = next(readers[it["id"]])
-                if it.get("label"): G.ai_chip(im)
+                if it.get("label") and not it.get("label_in_picture"): G.ai_chip(im)     # P01 / P02 carry their label inside the clip (phone_demo.py)
         if HCOMP.active(g): im = Image.fromarray(HCOMP.apply(np.asarray(im), g))
         enc.stdin.write(im.tobytes())
     enc.stdin.close(); enc.wait(); dec.wait()
@@ -223,7 +282,10 @@ def render_voice(out, f0, f1):
     raw = out + ".untreated.wav"; o = wave.open(raw, "w"); o.setnchannels(1); o.setsampwidth(2); o.setframerate(SR)
     o.writeframes((np.clip(v, -1, 1)*32767).astype("<i2").tobytes()); o.close()
     eq = ["--eq", json.load(open(f"{W}/FIT.voice_chain.json"))["eq"]] if os.path.exists(f"{W}/FIT.voice_chain.json") else []
-    run(["python3", VC, "--in", raw, "--video", out + ".v.mp4", "--frame-lock", out + ".v.mp4", "--out", out, "--work", out + ".work"] + eq)
+    bed = []
+    if os.environ.get("RO06_BED"):                       # round 5 (Dan: "add a quiet bed"): bed.py's looped Pixabay bed, ducked by the chain; level measured on the gate's floor row
+        bed = ["--bed", os.environ["RO06_BED"], "--bed-db", os.environ.get("RO06_BED_DB", "-20")]
+    run(["python3", VC, "--in", raw, "--video", out + ".v.mp4", "--frame-lock", out + ".v.mp4", "--out", out, "--work", out + ".work"] + eq + bed)
 if __name__ == "__main__":
     if sys.argv[1] == "segs":
         sg = all_segments(); tot = sum(s["o1"]-s["o0"] for s in sg)
