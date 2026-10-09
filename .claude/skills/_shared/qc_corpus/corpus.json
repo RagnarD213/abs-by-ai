@@ -3112,10 +3112,11 @@
       ],
       "dan": "Transition at 1407 is awkward and not smooth. Fix that",
       "must_trigger": [
-        "cut:presenter_continuity"
+        "cut:presenter_continuity",
+        "cut:sentence_order"
       ],
-      "measured": "P6 entry at frame25425 (848.3475seconds) changes source A22272 to C1700 frame3259 while both displayed compositions are wide. Prior pair183 judgment recorded hands reset low and nevertheless marked expected.",
-      "notes": "Review the full pool return, A presenter run, P6 entry and exit at14:10.68. Declared callback source change cannot clear same-framing pose/hand reset. Named automated row remains PENDING; procedural repair does not claim automated coverage."
+      "measured": "P6 entry at frame25425 (848.3475seconds) changes source A22272 to C1700 frame3259 while both displayed compositions are wide. Prior pair183 judgment recorded hands reset low and nevertheless marked expected. Fresh R4 ASR segment246 splits the original phrase: I have never felt better, callback, in my life. Original A life ends743.50seconds; so starts743.66. P6 must follow the complete sentence.",
+      "notes": "Review the full pool return, A presenter run, P6 entry and exit at14:10.68. Declared callback source change cannot clear same-framing pose/hand reset. Named automated row remains PENDING; procedural repair does not claim automated coverage. Sentence-order row also remains PENDING; global surviving-word coverage cannot establish correct order."
     }
   ]
 }
