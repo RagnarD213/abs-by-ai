@@ -119,7 +119,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **RO-11 - QUEUED 2026-10-09, Claude.** YouTube Sun Dec 13, socials Mon. Then: captions, article, links. `Docs/RO11_SETUP_RECEIPT_20261009.md`.
 
-**RO-06 NEEDS DAN 2026-10-09, Claude.** Film: localhost:8850. `Handoffs/handoff-20261008-ro06-round6-dan-review.md`.
+**RO-06 HANDOFF 2026-10-09, Claude.** Four revisions. Fire `Handoffs/handoff-20261009-ro06-round6-revisions.md`.
 
 **RO-07-R1-NEEDS-DAN 2026-10-09.** page:8857,`Handoffs/handoff-20261009-ro07-round1-dan-review.md`
 
