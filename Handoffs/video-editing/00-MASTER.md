@@ -170,7 +170,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 **Will need shorts once final (no handoff yet; add one when the long-form is approved):**
 * Your Belly Fat Is An Emergency (Codex, revision in progress)
 * 04 Why You Should Invest More In Your Health (waiting on your pick: dry vs dereverb audio, and which length)
-* Zeeshan's batch videos not delivered yet: Getting Abs At 40 vs 25 (due 09-24)
+* Getting Abs At 40 vs 25 (Zeeshan Video 5, finalized 10-10; setup handoff `handoff-20261010-zeeshan-batch-video5-setup-and-archive.md`)
 * The Real Reason You Don't Have Abs (reserved for Codex trial phase 07)
 * Every RO-01 … RO-08 once approved
 
@@ -252,6 +252,6 @@ the remaining vertical, square and ≤0:59 variants. Also every RA-01 … RA-16 
 | Codex | Ad 14 trial re-edit (C1603), private; a trial, not a production ad |
 | Codex (reserved) | The Real Reason You Don't Have Abs (C1653): trial phase 07's organic video; no edit started |
 | Muhammad | Ad 7 typo fix + HD · Ads 8, 9, 13, 15 HDs delivered 09-16 for your check · Ad 3 round-6 re-export only if you send it |
-| Zeeshan | STOP Deadlifting · Oura Ring Review · Abs At 40 vs 25 (contract due 09-24) |
+| Zeeshan | nothing: all five batch videos finalized and filed 10-10 |
 | Waleed | nothing: contract ended 09-15; his Ad 1 cut stays unfinished |
 | not filmed yet | /start VSL (`handoff-20260910-start-vsl-edit-and-install.md`) · Shoot 5 long-form outlines (Zepbound tips, Future Body, Alcohol, Not Losing Weight, Lockscreen Trick, What I Eat) · Pushup Masterclass · M100s long-form · Members' Area intro |
