@@ -20,6 +20,16 @@ Exit 0 = decided. Exit 2 = AMBIGUOUS or nothing live: refuse, do not guess.
 Verdicts: two-mics (one earlier/cleaner/drier candidate), single-live (only one channel has
 signal -- the ab-wheel 8/14 rolls, dead left input), dual-mono (channels near-identical at
 lag 0: a true mono/stereo master -> take the mid), ambiguous.
+
+THE DEFAULT WINDOW IS WHERE THE SUBJECT TALKS MOST (2026-10-10). With no --ss the whole file is
+scanned and the window slides to the stretch with the highest speech duty cycle: the share of
+0.1 s frames that are loud on EVERY live channel at once. The subject's voice reaches both mics;
+a crew voice or a plane reaches the far mic and barely reaches the lav, so it does not count.
+The old fixed window (a quarter of the way in, 120 s at most) is kept unless another stretch
+beats it by SPEECH_GAIN. Why: on 7/8 roll C1484 the fixed window [46.7 s, 45 s] held a 17 s
+pause with a plane and the crew talking. The decay score went to noise (3.81 vs 3.76 dB) and the
+FAR mic won 2 to 1. On the speech window the same roll reads 7.5 vs 4.0 dB and picks the lav.
+`--ss`/`--t` still override; the JSON records which rule placed the window.
 """
 import argparse, json, os, sys
 import numpy as np
@@ -28,6 +38,30 @@ import common as C
 
 SILENT_DB = -60.0        # a candidate below this rms is a dead input
 DUAL_MONO_CORR = 0.98    # at lag 0 -> same signal, not two mics
+SCAN_SR, SCAN_HOP = 4000, 0.1   # the speech scan: level per 0.1 s, whole file, every channel
+SPEECH_DROP_DB = 20.0    # a frame is speech when within this of the channel's 95th-percentile level
+SPEECH_GAIN = 0.10       # move off the old fixed window only for this much more speech
+
+
+def speech_window(path, ss0, dur):
+    """(start, how) for the default window: slide `dur` to the highest speech duty cycle."""
+    env = []
+    for s in C.probe_audio(path):
+        x = C.pcm(path, ac=s["channels"], sr=SCAN_SR, amap=f"0:a:{s['a']}").reshape(-1, s["channels"])
+        n = int(SCAN_SR * SCAN_HOP); m = len(x) // n
+        if m: env += list(10 * np.log10((x[:m * n].reshape(m, n, -1) ** 2).mean(1) + 1e-15).T)
+    live = [e for e in env if 10 * np.log10((10 ** (e / 10)).mean()) > SILENT_DB]
+    m = min((len(e) for e in live), default=0); w = int(dur / SCAN_HOP)
+    lo, hi = int(2.0 / SCAN_HOP), m - w - int(1.0 / SCAN_HOP)       # same 2 s head / 1 s tail as before
+    if hi <= lo: return ss0, "fixed (too short to scan)"
+    act = np.all([e[:m] > np.percentile(e[:m], 95) - SPEECH_DROP_DB for e in live], axis=0)
+    cs = np.concatenate([[0], np.cumsum(act)])
+    starts = np.arange(lo, hi + 1, int(1.0 / SCAN_HOP))
+    duty = (cs[starts + w] - cs[starts]) / w
+    i0 = min(max(int(ss0 / SCAN_HOP), lo), hi); d0 = float((cs[i0 + w] - cs[i0]) / w)
+    k = int(np.argmax(duty))
+    if duty[k] - d0 < SPEECH_GAIN: return ss0, f"fixed (speech duty {d0:.2f}, best elsewhere {duty[k]:.2f})"
+    return float(starts[k] * SCAN_HOP), f"speech (duty {duty[k]:.2f} vs {d0:.2f} at the fixed {ss0:.0f} s)"
 
 
 def candidates(path, ss, dur):
@@ -102,9 +136,12 @@ def main():
     d = C.duration(A.file)
     ss = A.ss if A.ss is not None else max(2.0, min(d * 0.25, 120.0))
     dur = A.t if A.t is not None else max(5.0, min(45.0, d - ss - 1.0))
+    how = "given (--ss)"
+    if A.ss is None: ss, how = speech_window(A.file, ss, dur)
     cands = candidates(A.file, ss, dur)
     print(f"pick_lav  {os.path.basename(A.file)}  {d:.1f} s  window {ss:.0f}s +{dur:.0f}s  "
           f"{len(C.probe_audio(A.file))} audio stream(s)")
+    print(f"  window placed by: {how}")
     print(f"  {'stream':6s} {'ch':>2s} {'rms dBFS':>9s} {'SNR':>6s} {'decay':>6s} {'EDT':>6s} {'clip':>6s}")
     for c in cands:
         print(f"  a:{c['stream']:<4d} {c['channel']:>2d} {c['rms_db']:>9.1f} "
@@ -115,7 +152,7 @@ def main():
         a, b = [c for c in cands if c["live"]][p["a"]], [c for c in cands if c["live"]][p["b"]]
         print(f"  a:{a['stream']}c{a['channel']} vs a:{b['stream']}c{b['channel']}: peak {p['peak']:+.3f} at "
               f"{p['lag_ms']:+.2f} ms (zero-lag {p['zero_lag']:+.3f})")
-    res = dict(file=os.path.abspath(A.file), duration=round(d, 3), window=[ss, dur],
+    res = dict(file=os.path.abspath(A.file), duration=round(d, 3), window=[ss, dur], window_source=how,
                candidates=[strip(c) for c in cands], verdict=info["verdict"], why=info["why"],
                lav=strip(lav), far=strip(far), delay_ms=info.get("delay_ms"), polarity=info.get("polarity"),
                pair_corr=info.get("pair_corr"), version=C.STAMP_VERSION)

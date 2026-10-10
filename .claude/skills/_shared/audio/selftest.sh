@@ -8,6 +8,8 @@
 #     tail is not a real room; the real rejected room measured 85)
 #   4 pick_lav picks a:1 on an 8/28 four-track roll, c1 on an 8/3 roll and on the 8/14 ad roll
 #     (polarity inverted), and the single live channel on an 8/14 ab-wheel roll (dead left input)
+#     and c1 on 7/8 roll C1484 with NO window given: its old fixed window held a plane and the crew
+#     talking and picked the far mic (2026-10-10); the default window must now follow the speech
 #   5 voice_chain REFUSES a stacked `pan` pull (ffmpeg renders it as silence, not an error)
 #   6 voice_chain end-to-end with the DEFAULT light touch on an excerpt of C1670 (the DS-17 roll Dan
 #     finalized, dual-mono, dry room) -> no dereverb, the gate PASSES the output incl. artifacts and
@@ -42,6 +44,7 @@ REF="$P/this picture got me abs | muhammad | 16x9 | ad 1.mp4"
 AD1V="$P/this picture got me abs | claude | 9x16 | ad 1.mp4"
 R828="/Volumes/Extreme/abs by ai 8:28 shoot | jeff | dan | ads, dedicated shorts, b roll, scripted long form content/main camera"
 R803="/Volumes/Extreme/abs by ai 8:3 jeff chagrin shoot/main camera"
+R708="/Volumes/Extreme/abs by ai 7:8 Jeff Chagrin shoot/main camera"
 R814="/Volumes/Extreme/abs by ai 8:14 shoot | teleprompter ads, indoor talking content, outdoor workout content | jeff chagrin | dan rose"
 FF="$REPO/Media/video_edit/bin/ffmpeg"
 fail=0
@@ -104,6 +107,7 @@ if [[ -d "$R828" ]]; then
   expect_lav "$R803/C1514.MP4" 1492 40 "0:a:0" "pan=mono|c0=c1" "normal"
   expect_lav "$R814/C1591.MP4" "" "" "0:a:0" "pan=mono|c0=c1" "inverted"
   expect_lav "$R814/C1630.MP4" "" "" "0:a:0" "pan=mono|c0=c1" "None single-live"
+  expect_lav "$R708/C1484.MP4" "" "" "0:a:0" "pan=mono|c0=c1" "inverted"
 else echo "  ⚠ SKIPPED: Seagate not mounted"; fi
 echo "== 5 stacked pan refused"
 if python3 voice_chain.py --in "$AD1V" --out "$S/doublepan.wav" --pull "pan=mono|c0=c1,pan=mono|c0=c1" --work "$S/_dp" >"$S/5.log" 2>&1; then bad "double pan was NOT refused"; else grep -q "SILENT" "$S/5.log" && ok "stacked pan refused as silence" || { bad "refused for another reason"; tail -2 "$S/5.log"; }; fi

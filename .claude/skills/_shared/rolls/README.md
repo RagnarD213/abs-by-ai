@@ -30,6 +30,8 @@ Always run `show` before starting a new transcript, mic analysis, or contact she
 
 `build` is idempotent. It hashes the first and last 64 MB plus file size, so a renamed or moved clip still finds the same record. Use `--force` to refresh generated facts. Any JSON object with `"locked": true` is treated as a human correction and survives a forced rebuild.
 
+**Correcting a wrong mic pick.** `show` prints the recorded pick on its `Lav pick` line. If it names the wrong channel, rebuild that one clip with a window where only the subject is talking: `build "/path/to/C1484.MP4" --force --lav-ss 111 --lav-t 60`. A given window always measures again and ignores any harvested pick; the sidecar records the window and the command. The transcript is redone from the corrected mic unless one can be harvested. Why this exists: C1484's first pick was measured across a pause with a plane and the crew talking, and recorded the far mic (details in `_shared/audio/README.md`).
+
 Use `--no-describe` when the paid Gemini picture description is not needed, including all tests. Before a real description batch, state the estimated Gemini cost. The tool records the returned token counts and estimated actual charge in each JSON sidecar.
 
 Gemini description calls are recorded individually in `Media/footage-index/_gemini_usage.jsonl`, including malformed responses and provider blocks. Empty or malformed descriptions get at most three attempts. A provider content block stops immediately. If that happens, build the clip with `--no-describe`, inspect the contact sheet, and add a human-reviewed, locked description and shot list to both the drive and mirror sidecars. Do not keep paying to retry a blocked sheet.

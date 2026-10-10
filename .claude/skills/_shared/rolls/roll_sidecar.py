@@ -391,8 +391,14 @@ def valid_lav_payload(payload, duration):
     return recorded is None or abs(float(recorded) - duration) <= max(1.0, duration * 0.01)
 
 
-def get_lav(clip, duration, inventory):
-    for candidate in lav_candidates(clip, inventory):
+def get_lav(clip, duration, inventory, ss=None, t=None):
+    """A given window (--lav-ss / --lav-t) always measures: it is how a wrong pick gets corrected."""
+    window = []
+    if ss is not None:
+        window += ["--ss", str(ss)]
+    if t is not None:
+        window += ["--t", str(t)]
+    for candidate in ([] if window else lav_candidates(clip, inventory)):
         try:
             payload = json.loads(candidate.read_text(encoding="utf-8"))
         except (OSError, ValueError):
@@ -403,15 +409,16 @@ def get_lav(clip, duration, inventory):
             return payload
     wait_for_build_slot("lav pick for " + clip.name)
     picker = repo_root() / ".claude" / "skills" / "_shared" / "audio" / "pick_lav.py"
+    source = " ".join(["measured:pick_lav.py"] + window)
     with tempfile.NamedTemporaryFile(suffix=".json", delete=False) as handle:
         output = Path(handle.name)
     try:
-        result = run([sys.executable, str(picker), str(clip), "--out", str(output)], check=False, nice=True)
+        result = run([sys.executable, str(picker), str(clip), "--out", str(output)] + window, check=False, nice=True)
         if result.returncode == 0 and output.exists():
             payload = json.loads(output.read_text(encoding="utf-8"))
-            payload["source"] = "measured:pick_lav.py"
+            payload["source"] = source
             return payload
-        return {"verdict": "unresolved", "source": "measured:pick_lav.py", "error": (result.stderr or result.stdout)[-1000:]}
+        return {"verdict": "unresolved", "source": source, "error": (result.stderr or result.stdout)[-1000:]}
     finally:
         output.unlink(missing_ok=True)
 
@@ -658,6 +665,14 @@ def find_by_content_key(content_key):
     return None, None
 
 
+def lav_pick_text(lav):
+    if not lav.get("map") or not lav.get("filter"):
+        return "none"
+    window = lav.get("window") or []
+    measured = ", measured on {:g} s + {:g} s".format(*window) if len(window) == 2 else ""
+    return "`-map {} -af {}`{}".format(lav["map"], lav["filter"], measured)
+
+
 def markdown(data):
     ident = data["identity"]
     picture = data["picture"]
@@ -679,6 +694,7 @@ def markdown(data):
         "- Roll family: {}".format(grade["roll_family"]),
         "- Grade fit: {}".format(grade["grade_fit"]),
         "- Audio streams: {}. Lav verdict: {}. Lav source: {}".format(len(audio.get("streams", [])), audio.get("lav", {}).get("verdict", "unknown"), audio.get("lav", {}).get("source", "unknown")),
+        "- Lav pick: {}".format(lav_pick_text(audio.get("lav", {}))),
         "- Transcript source: {}".format(data.get("transcript_source")),
         "- Words: {}".format(data.get("transcript", {}).get("word_count", 0)),
         "",
@@ -765,7 +781,8 @@ def build_one(clip, args, inventory, lavs, content_index):
         return {"status": "skipped", "duration": existing.get("identity", {}).get("duration", 0), "transcript_source": existing.get("transcript_source"), "description_cost_usd": 0}
     media = probe(clip)
     words, transcript_source = harvest_transcript(clip, media["duration"], inventory)
-    lav = get_lav(clip, media["duration"], lavs) if media["audio_streams"] else {"verdict": "no-audio", "source": "ffprobe"}
+    lav = (get_lav(clip, media["duration"], lavs, getattr(args, "lav_ss", None), getattr(args, "lav_t", None))
+           if media["audio_streams"] else {"verdict": "no-audio", "source": "ffprobe"})
     if words is None:
         if media["audio_streams"]:
             words, transcript_source = transcribe(clip, lav, args.whisper_model)
@@ -817,6 +834,8 @@ def command_build(args):
     clips = resolve_clips(args.target)
     if not clips:
         raise RuntimeError("no supported source clips found")
+    if (args.lav_ss is not None or args.lav_t is not None) and len(clips) != 1:
+        raise RuntimeError("--lav-ss / --lav-t name a window in one clip; build that clip by itself")
     inventory = transcript_inventory(edit_work_root())
     lavs = lav_inventory(edit_work_root())
     content_index = mirror_content_index()
@@ -1064,6 +1083,9 @@ def parser():
     build.add_argument("--force", action="store_true", help="rebuild while preserving locked fields")
     build.add_argument("--whisper-model", default="small")
     build.add_argument("--gemini-model", default=None)
+    build.add_argument("--lav-ss", type=float, default=None,
+                       help="measure the lav on a window starting here (seconds), ignoring any harvested pick; one clip at a time")
+    build.add_argument("--lav-t", type=float, default=None, help="length of that window in seconds")
     build.set_defaults(func=command_build)
     find = sub.add_parser("find", help="search the local text mirror")
     find.add_argument("words")

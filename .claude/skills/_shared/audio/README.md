@@ -66,7 +66,7 @@ let comb-filtered and roomy audio ship four times.
 
 | file | job |
 |---|---|
-| `pick_lav.py <file>` | **which track is the lav, measured per file.** Probes every stream and channel (2-ch rolls AND the 8/28 four-mono-track rolls), cross-correlates the live candidates ±20 ms, scores arrival / SNR / post-word decay / clipping, writes `<file>.audio_source.json` = `{map, filter, fc_label, lav, far, delay_ms, polarity, verdict}`. Exit 2 on ambiguity — refuse, never guess. Verdicts: `two-mics`, `single-live` (dead input), `dual-mono` (one signal → mid). |
+| `pick_lav.py <file>` | **which track is the lav, measured per file.** Probes every stream and channel (2-ch rolls AND the 8/28 four-mono-track rolls), cross-correlates the live candidates ±20 ms, scores arrival / SNR / post-word decay / clipping, writes `<file>.audio_source.json` = `{map, filter, fc_label, lav, far, delay_ms, polarity, verdict, window, window_source}`. With no `--ss` the window slides to where the subject talks most (see "The window trap" below). Exit 2 on ambiguity: refuse, never guess. Verdicts: `two-mics`, `single-live` (dead input), `dual-mono` (one signal → mid). |
 | `voice_chain.py --in X --out Y` | **the approved chain** (website video rev 2, "you got it nailed"): pull per `audio_source.json` (refuses SILENT input, a stacked `pan`), **no dereverb unless `--dereverb-because` on a room measuring EDT > 55 ms** (opt-in since 2026-09-29), EQ **fitted** to the reference per file (9 bands + shelf, damped, smoothed, never a pasted curve), downward expander, compressor OFF (`--comp` ≤ 1.5:1), `pan=stereo|c0=c0|c1=c0`, `--bed` ≤ −30 dB ducked, `--extra` SFX, measured gain + `alimiter` (delay measured by xcorr) to −14 LUFS / −2.5 dBTP in PCM. The EQ fit uses an adaptive per-band step (the treble shelf moves the top band ~2.4x, and a fixed step oscillated), then **verifies the tone on the DELIVERED file and folds the residual back** (up to two extra renders, best kept): the expander, limiter and AAC encode all move the spectrum, so a fit that only converges on the intermediate ships 0.5–1 dB worse. Length-preserving; `--frame-lock <picture>`; `--finish-only` for an already-finished mix (shortad's reference-mix path). Writes `Y.voice_chain.json`. |
 | `audio_gate.py <delivered> --reference-mix his_mix.wav` | **the editor's-own-mix path (shortad-from-longform).** Provenance is VERIFIED, not assumed: per-second level-normalised correlation against that mix must read ≥ 0.99 at the median (the number that separated his mix from a loudnorm'd one: 0.970) or the flag is refused. With provenance proven, comb / room / tone / floor / dryness / spread are measured and recorded but cannot fail the file — they measure HIS mixing (Ad 2's bed sits 6–7 dB hotter between words than the pinned Ad 1 reference, which is why "passes by construction" was only ever true for Ad 1). Loudness, true peak, silence, length and the L/R image still gate; the stamp carries `mode: reference-mix`, the mix's sha256 and the provenance number. Added 2026-09-03 on the Ad 2 V2 vertical. |
 | `audio_gate.py <delivered>` | **the one gate, on the exact delivered file**: L/R ≥ +0.97 · comb ripple ≤ his + 0.35 dB · EDT ≤ 80 ms · tone mean ≤ 1.2 / max ≤ 2.5 dB · floor within 3 dB of his · dryness ≥ his − 1.5 · −14 ±1 LUFS · speech spread ≥ his − 3 dB · TP ≤ −1.0 dBTP · 0 silent seconds · audio length = picture ± 0.10 s. Writes `<file>.audio_gate.json` (sha256 + every number + PASS/FAIL). `--synthetic` for AI voices keeps loudness/TP/silence/length/image. `--ab out.mp4` = his three sentences, then ours. |
@@ -74,7 +74,7 @@ let comb-filtered and roomy audio ship four times.
 | `reference.py` + `reference/` | the reference **pinned by fingerprint**: a mono 48 k FLAC of his audio + `reference.json` (sha256, bands, floor, EDT, dryness, spread, LUFS). Regenerates from the .mp4 wherever it lives and refuses a mismatch. Moving the file cannot silently break a gate again. |
 | `dereverb.py` | spectral subtraction of the late field. Defaults are the 2026-09-09 approved setting. Its CLI records the do-no-harm baseline on its INPUT; `stash=<delivered path>` parks it where the gate looks. |
 | `common.py` | the measurement functions, verbatim from the approved gates, so today's numbers are yesterday's numbers |
-| `selftest.sh` | **`zsh selftest.sh`** before any batch: identity on the reference, PASS on the Ad 1 vertical and the approved website rev 2, FAIL on rev 1 and on a synthetic both-mics render, `pick_lav` on all four roll types, stacked-pan refusal, the DEFAULT chain end-to-end on the DS-17 roll (C1670, no dereverb, gate PASS incl. artifacts), **step 6b: no dereverb by default on the wet C1650, none without a reason, none on a dry room**, **step 7: the dereverb Dan rejected must FAIL `do_no_harm` while still passing the dry-room row, and a file with no baseline must FAIL**, and **step 8: a `--synthetic` stamp must not satisfy the default `require_stamp`** |
+| `selftest.sh` | **`zsh selftest.sh`** before any batch: identity on the reference, PASS on the Ad 1 vertical and the approved website rev 2, FAIL on rev 1 and on a synthetic both-mics render, `pick_lav` on all four roll types plus the C1484 window trap, stacked-pan refusal, the DEFAULT chain end-to-end on the DS-17 roll (C1670, no dereverb, gate PASS incl. artifacts), **step 6b: no dereverb by default on the wet C1650, none without a reason, none on a dry room**, **step 7: the dereverb Dan rejected must FAIL `do_no_harm` while still passing the dry-room row, and a file with no baseline must FAIL**, and **step 8: a `--synthetic` stamp must not satisfy the default `require_stamp`** |
 
 ## The standard, measured (20–140 s window)
 
@@ -162,6 +162,48 @@ the producing stage: `common.stash_untreated()` while the untreated audio still 
 this row on a re-gate** — that is correct, and it is the input to the regression corpus
 (`_shared/qc_corpus/`). In `--reference-mix` mode the row is informational like the other damage rows:
 the delivered audio is the editor's own mix, which our chain never touched.
+
+## The window trap: pick_lav is only as good as the stretch it measures (2026-10-10)
+
+The pick is a vote of three scores: who arrives first, who has the higher voice-over-floor (SNR), and
+whose words stop more cleanly (decay). On the 7/8 shoot the arrival point always goes to the FAR mic
+(about 1 ms, polarity inverted) and SNR always goes to the lav, so **decay casts the deciding vote**,
+and decay is only meaningful where the subject is actually talking.
+
+Roll C1484 was measured on the old fixed window (a quarter of the way in: 46.7 s + 45 s). That stretch
+holds a 17 s pause with a plane and the crew talking. Decay read 3.81 vs 3.76 dB, which is noise, and
+the far mic (channel 0) won 2 to 1. On three clean windows (`--ss 111 --t 60`, `--ss 8 --t 40`,
+`--ss 27 --t 22`) the lav is channel 1: SNR 39 to 45 dB against 28 to 30, decay 7.5 against 4.0.
+
+What changed:
+
+- **The default window now follows the speech.** With no `--ss`, `pick_lav` scans the whole file
+  (level per 0.1 s on every channel, a few seconds even on a 27-minute roll) and slides the window to
+  the highest *speech duty cycle*: the share of frames that are loud on **every** live channel at once.
+  The subject reaches both mics; a crew voice or a plane reaches the far mic and barely reaches the
+  lav, so those frames do not count. The old fixed window is kept unless another stretch has at least
+  0.10 more speech, so rolls that were measured on a good stretch keep the same window and pick.
+  C1484 now lands on 123 s (duty 0.81 against 0.38) and picks channel 1 unaided.
+- The JSON records `window_source`: `given (--ss)`, `fixed (...)` or `speech (...)`, with the duty numbers.
+- `roll_sidecar.py build --force --lav-ss S --lav-t D` re-measures one clip on a window you name.
+
+Checked against the 197 indexed main-camera rolls that were measured on the old window: 191 keep the
+same pick (66 windows moved, 60 of those with no change of pick). Four talking rolls move to their
+shoot's usual channel by wide margins, the same fault as C1484: **7/8 C1486, 8/14 C1593, 8/3 C1538,
+8/3 C1550** (decay 8.7 to 9.8 dB on the new pick). Their roll sidecars keep the old pick until rebuilt
+with `--force`. Two B-roll rolls with almost no speech (7/8 C1490, 8/3 C1545) flip on a coin toss.
+`selftest.sh` step 4 now includes C1484 with no window given.
+
+What it does not fix, so still check:
+
+- **A pick that disagrees with the rest of its shoot is suspect.** One rig, one channel layout. Compare
+  against the neighbouring rolls before trusting an odd one out, then re-measure on a window where only
+  the subject talks.
+- A decay vote closer than about 1 dB is a coin toss. Read the `why` line, not just the verdict.
+- A roll with no clean stretch at all (B-roll, exercise takes, crew chatter throughout) can still be
+  wrong on any window. Measure by hand or copy the pick from a talking roll of the same setup.
+- Existing `audio_source.json` files and roll sidecars were measured on the old window and are not
+  re-measured by this change.
 
 ## Calibration notes
 
