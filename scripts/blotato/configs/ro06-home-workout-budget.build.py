@@ -11,7 +11,7 @@ cfg = {
   "source": "claude edited long form content/13 - How To Work Out At Home On A Budget/How To Work Out At Home On A Budget | claude round 6 | 16x9 | RO-06.mp4",
   "slug": "ro06-home-workout-budget",
   "title": "How To Work Out At Home On A Budget (Full Setup For $58)",
-  "main": "2026-12-20T15:00:00.000Z",
+  "main": "2026-12-27T15:00:00.000Z",
   "keyword": "TRAIN",
   "ai_generated": True,
   "hook": "You don't need a gym membership to get in shape. A full home gym costs $58.",
