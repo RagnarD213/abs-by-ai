@@ -21,7 +21,8 @@ Everything for writing in Dan's voice lives in the repo, so cloud and local sess
 **Baseline, 2026-10-08 (Dan Voice P2A).** 40 held-out passages, 80 blind trials per setup, judges a fresh Opus 5.5 and
 Gemini: cold Claude was picked out 86% of the time, Claude with today's guide 90% (chance is 50%, the goal is 60% or
 less). The guide did not make Claude harder to catch; it changed the giveaway from "over-acts his voice" to "too clean,
-too even, too organized". Reports: `Docs/voice-bench/`.
+too even, too organized". Dan's own blind test on 2026-10-10: he picked his own writing in 13 of 19 pairs (68%).
+Reports: `Docs/voice-bench/`.
 
 **Why:** Dan's goal is writing "so well that nobody ever thinks that this is AI". Until 10-08 nothing measured it.
 
@@ -31,4 +32,5 @@ his small words ("really", "very", "kind of", "going to", "so", "just"); do not 
 2.4 to 2.8 per 100, not lower). Check a draft with `voice_stats.py`. Any change to the guide or skills gets scored
 with `bench.py` and kept only if the number moves. Next step is Phase B of
 `Handoffs/handoff-20261008-dan-voice-training-part2-plan.md`. Related: [[script-zero-edit-lessons]],
-[[dan-personal-facts-for-scripts]], [[no-em-dashes]], [[swearing-never-cut-never-ask]].
+[[dan-personal-facts-for-scripts]], [[no-em-dashes]], [[swearing-never-cut-never-ask]],
+[[scripts-his-wording-not-his-ramble]].

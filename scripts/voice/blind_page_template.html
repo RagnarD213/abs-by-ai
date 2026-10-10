@@ -162,7 +162,7 @@ function pick(v) { const p = PAIRS[at]; state.picks[p.n] = Object.assign({}, sta
 
 $("pickA").addEventListener("click", () => pick("A"));
 $("pickB").addEventListener("click", () => pick("B"));
-$("why").addEventListener("input", (e) => { const p = PAIRS[at]; state.picks[p.n] = Object.assign({}, state.picks[p.n], { why: e.target.value.slice(0, 500) }); keep(); });
+$("why").addEventListener("input", (e) => { const p = PAIRS[at]; state.picks[p.n] = Object.assign({}, state.picks[p.n], { why: e.target.value.slice(0, 2000) }); keep(); });
 $("who").addEventListener("input", (e) => { state.name = e.target.value.slice(0, 60); keep(); });
 $("prev").addEventListener("click", () => { if (at > 0) { at--; $("finish").hidden = true; render(); window.scrollTo(0, 0); } });
 $("next").addEventListener("click", () => { if (at < PAIRS.length - 1) { at++; render(); window.scrollTo(0, 0); } else showFinish(); });

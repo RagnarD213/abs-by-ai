@@ -27,8 +27,8 @@ their Drive ids and authorship notes.
 
 | type | Tier 1 (the baseline) | words | Tier 2 | words | Tier 3 | words |
 |---|---|---:|---|---:|---|---:|
-| **Content** | 21 Abs By AI videos filmed from outlines, no script (72,600; four are raw rolls with retakes); 9 shorts he wrote himself (1,000 after hold-out); 32 solo videos from the old channel `@danielrose-socialresponse7768`, 2020 to 2021 (120,500); his side of Travel Like a Boss episode 252, 2020 (8,900) | 203,000 | his half of 10 Dan & Dani podcast episodes (36,800); his typed outlines for four shoots and his podcast outlines (7,600) | 44,300 | four Six Pack Shortcuts era videos with him on camera, 2011 to 2017 | 12,800 |
-| **Ads** | Abs By AI Ads 1 and 3 as he wrote them; ten Abs By AI shorts ads ("Approach #2"); his typed lines in batch-1 Ads 2 to 15; six 2020 ads for his book | 9,800 | 107 ads for other presenters: Spy Briefing 58, HBI 19, CPA offers 16, Physio Tru 14 (2019 to 2025) | 66,800 | | |
+| **Content** | 21 Abs By AI videos filmed from outlines, no script (72,600; four are raw rolls with retakes); 8 shorts he wrote himself (900 after hold-out); 32 solo videos from the old channel `@danielrose-socialresponse7768`, 2020 to 2021 (120,500); his side of Travel Like a Boss episode 252, 2020 (8,900) | 203,000 | his half of 10 Dan & Dani podcast episodes (36,800); his typed outlines for four shoots and his podcast outlines (7,600) | 44,300 | four Six Pack Shortcuts era videos with him on camera, 2011 to 2017 | 12,800 |
+| **Ads** | Abs By AI Ads 1 and 3 as he wrote them; nine Abs By AI shorts ads ("Approach #2"); his typed lines in batch-1 Ads 2 to 15; six 2020 ads for his book | 9,800 | 107 ads for other presenters: Spy Briefing 58, HBI 19, CPA offers 16, Physio Tru 14 (2019 to 2025) | 66,800 | | |
 | **Conversion** | 2019 consulting sales video, 2019 DR marketing site VSL and copy, 2020 book sales page, upsells and launch videos (five also as spoken), 2021 Black Belt sales video outline, cart page, sales page and upsells, his sections of the 2026 /start letter, his 2026 VSL outline | 31,300 | 2025 Fujiyama VSL and one host-read launch video | 2,300 | | |
 | **Products** | The Sex God Method, 2007, 50 chapter files (54,400; 29,900 of it explicit technique, tagged and never quoted); 20 Black Belt course videos, 2021 (127,400) | 181,800 | 15 Steps to Profitable YouTube Advertising, 2020 | 122,800 | | |
 
@@ -65,6 +65,20 @@ their scripts at 63 to 77 percent: they are Claude's words and sit in the floor 
 - `sgm.pdf` (`1NlsoD4c-ieqB-alkjHI38d6HnQj21rni`): a 13-page excerpt of one chapter of the same book, not a sales page.
 - The two loose Black Belt files ("EXPLORATION DRILLING STRATEGY", "VIDEO 6 - LTV"): raw takes of lessons whose
   finished versions are in the folder. Nothing on Drive was deleted.
+
+## Dan's answers on authorship (2026-10-10), applied
+
+- **Battle Ropes short:** he believes Claude wrote it. Out of the corpus and out of the hold-out set. Eight shorts are
+  now counted as his.
+- **"AI Took My Job" shorts ad:** his outline, Claude's script. Moved to the Claude floor pile. The other nine
+  "Approach #2" shorts ads stay his (the 2026-08-23 board archive records that he wrote them as his own examples).
+- **15 Steps launch-video scripts that include the host's lines** (videos 6, 9, 12, 13): his writing, but written for
+  someone else to deliver, so "not a good example". Tier 2 now. His own answers in those videos, as spoken, stay Tier 1.
+- **Black Belt folder videos:** confirmed, these are all the product videos he made.
+- **Lutfi Isnin's portfolio doc:** he does not know the name and does not think he wrote for the agency. Stays out.
+- **"What Five Leading Specialists":** he is not sure. Stays out.
+- **Make Time shorts hooks:** he does not recall them. They stay as pairs only.
+- **Six Pack Shortcuts videos:** he will send links.
 
 ## The hold-out set and the bench
 

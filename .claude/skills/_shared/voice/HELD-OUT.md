@@ -16,8 +16,11 @@ short in `shorts-scripting/SKILL.md`, video transcripts inside edit plans). Thos
 setup must not load them: `bench.py` checks every file a setup gives the writer and stops if one holds
 held-out text.
 
-Thin spots: shorts (4 held out, not 6: only nine shorts are wholly his), ads (5 of the 10 are ads he wrote for other
+Thin spots: shorts (4 held out, not 6: only eight shorts are confirmed his), ads (5 of the 10 are ads he wrote for other
 presenters, because his own ads total under 10,000 words), conversion (5 of 6 sell to business owners).
+
+Changed 2026-10-10: `content-short-01` was the Battle Ropes short. Dan believes Claude wrote that script, so it left
+the corpus and the set, and the Kettlebell Deadlift short took its place. Both baselines were re-scored with it.
 
 | id | type | source file (under `voice-corpus/`) | position | words | tier | year | spoken or written |
 |---|---|---|---|---:|---:|---:|---|
@@ -33,7 +36,7 @@ presenters, because his own ads total under 10,000 words), conversion (5 of 6 se
 | content-long-10 | content | `content/tier1/old-channel/2021-build-website-converts-youtube-ad-visitors.txt` | words 2835 to 3169 (middle) | 335 | 1 | 2021 | spoken |
 | content-long-11 | content | `content/tier1/old-channel/2021-college-scam.txt` | words 3079 to 3446 (middle) | 368 | 1 | 2021 | spoken |
 | content-long-12 | content | `content/tier1/tlab/2020-travel-like-a-boss-ep252.txt` | words 5658 to 5933 (middle) | 276 | 1 | 2020 | spoken |
-| content-short-01 | content | `content/tier1/absbyai-shorts/2026-how-to-use-battle-ropes.txt` | words 1 to 170 (whole) | 170 | 1 | 2026 | written |
+| content-short-01 | content | `content/tier1/absbyai-shorts/2026-how-to-kettlebell-deadlift.txt` | words 1 to 148 (whole) | 148 | 1 | 2026 | written |
 | content-short-02 | content | `content/tier1/absbyai-shorts/2026-the-five-levels-of-pushups.txt` | words 1 to 192 (whole) | 192 | 1 | 2026 | written |
 | content-short-03 | content | `content/tier1/absbyai-shorts/2026-how-getting-abs-looksmaxxes-your-face-own-draft.txt` | words 1 to 175 (whole) | 175 | 1 | 2026 | written |
 | content-short-04 | content | `content/tier1/absbyai-shorts/2026-how-to-do-hammer-curls.txt` | words 1 to 199 (whole) | 199 | 1 | 2026 | written |

@@ -146,8 +146,27 @@ judge calls on the subscription plus about $0.55 of Gemini.
 consumer conversion copy is only his sections of the /start letter. Five off-the-cuff takes at the 10/17 shoot, and the
 next ads and sales letter he writes himself, would fix most of it.
 
-**Dan's blind page** (20 pairs from the guide run): https://claude.ai/artifact/P7rivcXAjD9weMTyupvTfm . His votes save
-to the page's database (`votes/<his id>`; read with ArtifactData). People he shares it with can view but not save, so
+**Dan's own blind test (2026-10-10): he picked his own writing in 13 of 19 pairs (68%), fooled 6 times.** Full
+write-up: `Docs/voice-bench/2026-10-10-dan-blind-test.md`. Read it before starting. What it adds to the list above:
+
+7. **Two targets, not one.** Dan said several times that his real off-the-cuff passage was rambling and "might not be
+   ideal for a script", and that Claude's version might be the better script. "Sounds like him" (the blind pairs) and
+   "is a script he would read as written" (his edit rate) are different things. Do not optimize scripts toward
+   verbatim ramble. For content, build the script register from his own written scripts and shorts plus his spoken
+   wording, and start measuring his edit rate (Phase D1) early, on the 10/17 shoot scripts.
+8. **His own tells for Claude:** mild, hedged phrasing where he says it straight ("maybe you need to" against his
+   blunt version); words a notch too formal ("several", "reoxygenated", "cursory"); a caveat before the instruction
+   instead of after; too few "Listen" openers and "number 1, number 2" lists; a profound-sounding line that says
+   nothing. Turn these into contrastive checks (B1, B6), with bands, not bans.
+9. **He is easier to fool than the Claude judge** (68% against 100%), and was fooled most on old client ads and
+   off-the-cuff speech. Keep the Claude judge as the hard gate; use his blind page as the human check after each
+   round, with fresh pairs.
+10. Corpus corrections from his answers (applied): the Battle Ropes short and the "AI Took My Job" shorts ad are
+    Claude's scripts; the 2020 launch-video scripts with host lines are Tier 2. The hold-out set swapped Battle Ropes
+    for the Kettlebell Deadlift short and both baselines were re-scored (unchanged: 86% and 90%).
+
+**Dan's blind page** (20 pairs from the guide run): https://claude.ai/artifact/P7rivcXAjD9weMTyupvTfm . His votes are
+saved in the page's database (`votes/<his id>`; read with ArtifactData). People he shares it with can view but not save, so
 the page gives them a "copy my answers" box to send back. The answer key is in
 `voice-corpus/bench/2026-10-08-guide/blind-key.json` (local and Drive only).
 
@@ -228,8 +247,8 @@ session cap. Pangram is separate and optional.
 **Phase B. Task name `Dan Voice P2B Method`. Local or cloud. Claude Opus 5.5, high effort.**
 
 > Run Phase B of `Handoffs/handoff-20261008-dan-voice-training-part2-plan.md`. Read its "Phase A results" section and
-> `Docs/voice-bench/2026-10-08-guide.md` first. Score every change on the bench and keep only what moves it. My blind
-> page answers, if I have done it: [paste, or "saved on the page"].
+> `Docs/voice-bench/2026-10-08-guide.md` and `Docs/voice-bench/2026-10-10-dan-blind-test.md` first. Score every change
+> on the bench and keep only what moves it. End with a fresh blind page for me.
 
 **Phase C (only if Phase B says so). Task name `Dan Voice P2C Model Pilot`. Local. Claude Opus 5.5, high effort.**
 

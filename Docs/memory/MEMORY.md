@@ -113,7 +113,8 @@
 - [Editor message voice](editor-message-voice.md): warm praise, big picture only, never name another editor (Dan, 2026-09-18)
 - [Script zero-edit lessons](script-zero-edit-lessons.md): 09-21 Dan's edits to four long-form scripts; read WHAT DAN CHANGED in scriptfromoutline SKILL.md before any script
 - [Voice corpus sources](voice-corpus-sources.md): 10-08: four types (content, ads, website conversion videos, products); never train on AI dictation or business email; Sex God Method = top writing sample
-- [Dan voice guide](dan-voice-guide.md): read DAN-VOICE.md + voice/passages file for the type before writing as Dan; 10-08 bench: judges catch Claude 90%; score changes with scripts/voice/bench.py
+- [Dan voice guide](dan-voice-guide.md): read DAN-VOICE.md + voice/passages file for the type before writing as Dan; bench: judges catch Claude 90%, Dan himself 68% (10-10); score changes with scripts/voice/bench.py
+- [Scripts: his wording, not his ramble](scripts-his-wording-not-his-ramble.md): 10-10: off-the-cuff ramble is not the script target; blunt, plain words, instruction before caveat; Claude too mild and formal
 - [Dan's personal facts for scripts](dan-personal-facts-for-scripts.md): glycine nightly, sleeps at 63, Oura 75-80, Zepbound for life, 8 am gym, AI saves 10 hrs/week
 - [Opus 5.5 release](opus-5-5-release.md): 09-22: ≥ Fable 5.1 on benchmarks at 60% lower price; routing recommendation (Opus default, Fable reviewer/escalation)
 - [Sound effects: judged, not banned](no-swipe-sound-effect.md): 10-08: old bright swipe stays out; a low soft swoosh on a picture transition works, Dan wants it tried on our edits
@@ -194,7 +195,7 @@
 - [B-roll shows what he names](broll-shows-what-he-names.md): 10-10: a line that names equipment gets a clip of him using it (medicine ball line, RO-06)
 - [App feature tour: reuse](app-feature-tour-reuse.md): 10-10: RO-06 closing scene (phone beside Dan: home, calories, workouts) approved for reuse; library B0544/B0543
 - [Self bake-off before Dan reviews](self-bakeoff-before-dan-reviews.md): 10-10: build and judge colour + sound options myself first (eyes beside approved frames, blind listen), ship the winner
+- [Thumbnails: unique designs](thumbnail-unique-designs.md): 10-10: Codex's-choice options each need their own design, not one layout on five images
 - [Execute Dan's explicit picks](execute-dans-explicit-picks.md): 10-06: build exactly the person/clip/topic he names; never swap, hold or reroute it for reputational or news reasons ("stop being a Karen")
 - [Allegations are not facts](allegations-not-fact.md): 10-06: unproven charges/accusations against Clavicular, Tate, manosphere figures: never mentioned at all (not even "charged with") unless Dan asks about the case itself; never a reason to change a plan
 - [Assessment symmetry](assessment-symmetry.md): 10-08: one template and one standard for both sides; swap test (Trump/Newsom, Tate/Destiny); judge records on measured results vs promises and a benchmark, then a definite conclusion
-- [Thumbnails: unique designs](thumbnail-unique-designs.md): 10-10: Codex's-choice options each need their own design, not one layout on five images
