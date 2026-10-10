@@ -84,6 +84,7 @@ def lt_scenes(c):
         while j < len(ln):
             k = ln[j][1]; e = j
             while e < len(ln) and ln[e][1] == k: e += 1
+            # x places a line only through its first part; the template sets the rest of the line inline after it
             pre = " ".join(x for x, _ in ln[:j])
             parts.append(dict(s=" ".join(x for x, _ in ln[j:e]), x=round(tx + (H.text_w(pre + " ", 28 * U) if pre else 0), 1),
                               y=ytop + (38 + 36 * li) * U))

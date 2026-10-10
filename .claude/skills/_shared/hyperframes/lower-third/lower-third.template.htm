@@ -64,11 +64,22 @@
       const acc = document.getElementById("accent"); place(acc, ...CFG.accent);
       const topic = document.getElementById("topic"); place(topic, CFG.topic.x, CFG.topic.y);
       topic.textContent = CFG.topic.s;
+      // The point. Parts on the same line (same y; p.y is a wrapped line at 9:16 and 1:1) are set INLINE in one box
+      // placed at the line's first x, so the space between two parts is the same word space as everywhere else in
+      // the line. A later part's own x is not used: it is a PIL estimate, and PIL adds up whole-pixel advances, which
+      // comes out 6 to 10 px short of the browser's line at 56 px and ate half the space ("SetupFor", "?No.").
       const partsBox = document.getElementById("parts");
-      const parts = CFG.parts.map(p => {
-        const e = document.createElement("div"); e.className = "t part"; place(e, p.x, p.y == null ? CFG.point_y : p.y);   // p.y: a wrapped line (9:16)
-        p.s.split(" ").forEach((w, i, a) => { const s = document.createElement("span"); s.textContent = w + (i < a.length - 1 ? " " : ""); e.appendChild(s); });
-        partsBox.appendChild(e); return e;
+      const lines = [];
+      CFG.parts.forEach((p, i) => {
+        const y = p.y == null ? CFG.point_y : p.y, last = lines[lines.length - 1];
+        if (last && last.y === y) last.words.push(...p.s.split(" ").map(w => [w, i]));
+        else lines.push({ x: p.x, y, words: p.s.split(" ").map(w => [w, i]) });
+      });
+      const parts = CFG.parts.map(() => []);               // each part's word spans, for its own rise
+      lines.forEach(l => {
+        const e = document.createElement("div"); e.className = "t part"; place(e, l.x, l.y);
+        l.words.forEach(([w, i], k) => { const s = document.createElement("span"); s.textContent = w + (k < l.words.length - 1 ? " " : ""); e.appendChild(s); parts[i].push(s); });
+        partsBox.appendChild(e);
       });
 
       const tl = gsap.timeline({ paused: true });
@@ -81,8 +92,8 @@
       tl.fromTo(acc, { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: 0.4, ease: "power2.out" }, 0.25);
       tl.fromTo(topic, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.42, ease: "expo.out" }, 0.35);
       // the point: each part rises in on the word Dan says it (words 0.06 s apart), no typing
-      parts.forEach((e, i) => {
-        tl.fromTo(e.children, { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: 0.42, ease: "expo.out", stagger: 0.06 }, Math.max(0.3, CFG.times[i]));
+      parts.forEach((spans, i) => {
+        tl.fromTo(spans, { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: 0.42, ease: "expo.out", stagger: 0.06 }, Math.max(0.3, CFG.times[i]));
       });
 
       // counter bar: long way fills with its counter, then the short way retracts over it with its own counter

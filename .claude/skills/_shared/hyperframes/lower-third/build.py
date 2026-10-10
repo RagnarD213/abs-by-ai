@@ -16,7 +16,8 @@ config.json is a list of scenes; every time is the WORD's start in the finished 
    "drift": -4}
 
 parts: the point copy split where Dan says each piece; joined with single spaces it must equal the approved point.
-Each part rises in on its word (no typing). bar (optional): a track that fills to full while a counter counts
+Each part rises in on its word (no typing). The parts of a line are set inline by the browser, so a multi-part point
+is spaced exactly like the same point given as one part. bar (optional): a track that fills to full while a counter counts
 0 -> grow_value (the long way), then on "shrink" a cyan bar retracts to `ratio` of the track while its counter
 counts from_value -> value, landing on "land"; the long bar stays behind as a dim ghost with its label, so both
 numbers stay on screen. The strip leaves with a 0.33 s fade and 10 px drop that ends exactly on b.
@@ -29,7 +30,6 @@ import hfbuild as H
 B = H.B
 W, Hh = 1920, 1080
 U = 2.0
-PART_GAP = 7          # px added between parts (see layout)
 
 
 def layout(topic, parts, bar, topic_case="upper"):
@@ -41,14 +41,16 @@ def layout(topic, parts, bar, topic_case="upper"):
     wrap_w = x1 - x0 - 31 * U - 24 * U - (bar_zone + 64 if bar else 0)
     assert full_w <= wrap_w, f"point is {full_w:.0f} px; {wrap_w:.0f} px fit beside the bar (shorten it or drop the bar)"
     _, ytop, _, bh = B.lower_third_default_box(W, Hh, 1)
-    # The browser sets this face a little wider than PIL measures it, so a later part came up 7 to 12 px after the one
-    # before it where a word space is 15 to 19 ("RecommendIs", "OVERTRAINING?No."; Dan, 2026-10-09: "add in the space").
-    # Each later part moves right by PART_GAP per part before it; the fit check counts it.
+    # Only the FIRST part's x places anything: the template sets every part of a line inline in one box, so the browser
+    # puts a real word space between two parts. A later part's x is the PIL estimate of where it lands, kept for
+    # callers that read it; never position with it. PIL (basic layout) adds up whole-pixel advances and the browser
+    # fractional ones, so at 56 px the browser's line runs about 1.2 % longer (6 px after "A Full Home Setup"): placing
+    # parts there left 4 to 10 px between them where a word space is 12 ("SetupFor", "OVERTRAINING?No."; 2026-10-10).
+    # The fit check is the same PIL measure, so the real line can end up to 20 px into the 48 px right padding.
     xs, acc = [], ""
-    for k, (p, _) in enumerate(parts):
-        xs.append(round(tx + (H.text_w(acc + " ", 28 * U) if acc else 0) + PART_GAP * k, 1))
+    for p, _ in parts:
+        xs.append(round(tx + (H.text_w(acc + " ", 28 * U) if acc else 0), 1))
         acc = (acc + " " + p).strip()
-    assert full_w + PART_GAP * (len(parts) - 1) <= wrap_w, f"point is {full_w + PART_GAP * (len(parts) - 1):.0f} px with its part gaps; {wrap_w:.0f} px fit"
     L = dict(strip=[x0, ytop, x1 - x0 + 1, bh + 1], radius=18 * U, accent=[x0 + U, ytop + 3 * U, 8 * U, bh - 6 * U],
              topic=dict(x=tx, y=ytop + 13 * U, s=topic if topic_case == "preserve" else topic.upper()), point_y=ytop + 38 * U,
              parts=[dict(s=p, x=x) for (p, _), x in zip(parts, xs)])

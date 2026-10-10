@@ -8,7 +8,7 @@ Research and decision: `Docs/HYPERFRAMES_RESEARCH.md`. Style lock: [../SOFTBLUE.
 | Template | Status | Use for |
 |---|---|---|
 | [`cycle/`](cycle/) | **Approved by Dan 2026-09-30** (C1652 pilot) | a 4-step loop / vicious or virtuous cycle, and its reversal |
-| [`lower-third/`](lower-third/) | **Approved by Dan 2026-09-30** (RO-16 G04 sample) | Motivation lower third; parts land on words; optional counter bar (long way vs short way) |
+| [`lower-third/`](lower-third/) | **Approved by Dan 2026-09-30** (RO-16 G04 sample) | Motivation lower third; parts land on words; optional counter bar (long way vs short way). Part spacing fixed 2026-10-10: see "Rules that bit" |
 | [`before-card/`](before-card/) | **Approved by Dan 2026-09-30** (RO-16 G02 sample) | full-screen photo + glass fact card on the live field; number count-up |
 | [`side-list/`](side-list/) | **Approved by Dan 2026-09-30** (RO-16 G20 sample) | the 3A left card; items land on their words |
 
@@ -169,6 +169,21 @@ frames (pilot: 43 dB PSNR).
   stamp hashes the template text), overwriting renders Dan approved. On a locked film copy `hf/renders` aside first,
   then prove the new renders against the old with ffmpeg `psnr` on rgba (RO-11, 2026-10-08: all identical except the
   side lists' drift default).
+- **Lower third: the parts of a line are set inline by the browser (2026-10-10).** Each part used to be its own box at
+  an x measured in PIL. PIL (basic layout) adds up whole-pixel letter advances; Chrome adds up fractional ones, so at
+  56 px its line runs about 1.2 % longer (6 px after "A Full Home Setup", 8 after "Every Item I Recommend"). The next
+  part started that much early and the gap was 4 to 10 px where a word space is 12: "SetupFor", "Membership.No",
+  "OVERTRAINING?No.". The template now puts every part that shares a line (same `y`) in one box at the line's first
+  `x`, each word still rising on its own part's time, so a multi-part point is spaced exactly like the same point as
+  one part (measured in Chrome at 16:9, 9:16 and 1:1: every word lands on the single-part position). A later part's
+  `x` in the config is only an estimate and places nothing; a script that nudges it has no effect. This replaces the
+  flat 7 px per part of 2026-10-09, which also made the approved `example-ro16-g04.json` fail its fit check.
+  **Re-render notice:** the skip stamp hashes `build.py` and the template, so every film's lower thirds re-render on
+  its next `from_plan.py --render` (RO-10, RO-02, RO-11, RO-06 and any later film). Single-part lower thirds come out
+  identical (RO-11 G10 against its approved render: PSNR infinite on every frame, content and mask). In a multi-part
+  one only the later parts change, from the frame they rise on: up to about 10 px to the right of a render made
+  before 2026-10-09, within a few px of one made with the 7 px patch (RO-11 G05: mask pass and first part identical). Copy `hf/renders` aside first as above. Do not place text after other text from a PIL width:
+  `before-card`'s headline parts still do (`before-card/build.py`, `vertical.py` title parts) and are not changed here.
 - One root composition per folder; a timed `.clip` wrapper with nested content warns. Plain divs + one paused timeline.
 - `@font-face` to a file inside the project, or lint fails.
 - `fromTo` for every initial state; finite `repeat` only; motion along a path = proxy object + `onUpdate`.
