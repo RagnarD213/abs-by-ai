@@ -97,7 +97,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 
 
-**Nightly footage - CLOUD PENDING 2026-10-09, Codex/Claude.** Seagate: 6/6 shoots verified. Drive: 1/6 verified; 9/23 upload resumes tonight. Extreme intact; deletion paused. 8 pm Codex copies to Seagate then Drive with checksums. Next: Codex verifies Drive; Claude decides archives. Detail: `Handoffs/handoff-20261005-claude-nightly-footage-offload.md`.
+**Nightly footage - CLOUD VERIFIED 2026-10-09, Codex/Claude.** All 6 shoots checksum verified on Seagate and Drive. Extreme intact; deletion paused. Active 8 pm Codex routine copies new footage to both. Next: Claude decides archives after Dan's next shoot. Detail: `Handoffs/handoff-20261005-claude-nightly-footage-offload.md`.
 
 **Codex revisions recovery - OPEN 2026-10-05, Codex.** Tool fixes and test Doc delivered; external video judge failed the known case. Fresh passes: 0. Next: eligible short plus sealed Claude Doc, then complete motion/AI coverage and blind comparison. Keep Claude editorial default. Detail: `Handoffs/results-20261005-codex-revisions-quality-recovery.md`.
 
