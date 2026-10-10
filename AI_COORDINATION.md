@@ -39,7 +39,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
   also in its vertical `7XgHxn59Tsg` and square. Pull, or have the beats replaced. (Zeeshan's Ad 1 email screen 3:09, known.)
 - **Web cart: (baseline 2026-09-15; age unknown)** Google Pay on (rec on); OK the shipped defaults (cart video hidden until the file exists, anonymous trial
   reuse, no email before card, no urgency device). `Docs/WEB_CART.md`
-- **Analysis page defaults: (baseline 2026-09-15; age unknown)** women's height 5'4" (men 5'9"). **/start (10-10):** PostHog sign-in (test dashboard).
+- **Analysis page defaults: (baseline 2026-09-15; age unknown)** women's height 5'4" (men 5'9").
 - **/start VSL: (baseline 2026-09-15; age unknown)** read script doc `1DL2V34wePN75m1XxAuhpC2nghvobgr4C9RnTyszqqlA`, decide §7 (on-screen line under real
   photos), record. ⚠ Live post-generation video
   says "thousands of guys" (3:16, 3:41); 75 people have ever generated.

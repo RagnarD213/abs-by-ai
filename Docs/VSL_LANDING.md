@@ -61,11 +61,15 @@ is the only difference. No new software: the page's own code does the split and 
   end of that film's opening (A 2:22.1, B 3:32.4; from that frame on the two films show the same picture). The films
   differ in length, so compare seconds, never the percent marks. `$feature_flag_called` fires once per view with
   `$feature_flag: 'vsl-video-variant'`; no PostHog flag exists and none is needed.
-- **Scoreboard.** `python3 scripts/posthog/vsl_video_test.py` prints A beside B from the launch minute, forced views left
-  out (`--trials` lists every trial start with its film, for matching against Stripe). **The PostHog dashboard
-  "/start video test: A vs B" and its launch annotation are not built:** both stored PostHog keys can only run queries
-  (no dashboard, insight or annotation scope) and neither browser is signed in to PostHog. Once Dan is signed in, a
-  session builds it in a few minutes; the script gives the same numbers meanwhile.
+- **Scoreboard.** PostHog dashboard **"/start video test: A vs B"**, pinned:
+  https://us.posthog.com/project/458833/dashboard/2195388 (built 2026-10-10 through Dan's signed-in Chrome). A note at
+  the top holds the read rules. Tiles: 1 people at each step, 2 sound-on rate (the early warning number), 3 got past
+  the opening, 4 trial starts per visitor (the number that decides), 5 watch time with sound on, 6 page to cart to
+  trial, 7 visitors per day, 8 visitors by film and device. Every tile is split by `video_variant`, starts 2026-10-10,
+  and leaves out forced views and anything not on absbyai.com. Launch annotation: 2026-10-10 20:43 UTC (id 484663).
+  The same numbers from a terminal: `python3 scripts/posthog/vsl_video_test.py` (`--trials` lists every trial start
+  with its film, for matching against Stripe). The stored PostHog keys still cannot edit dashboards (query only): a
+  change to a tile needs Dan signed in to PostHog in Chrome (memory `posthog-api-access`).
 - **How the test is read (Dan's rules).** Minimum run 21 days (to 2026-10-31): no winner before that, even with a
   lead. Early warning at day 14 (2026-10-24) or 500 visitors per film, whichever is later: if B's sound-on rate
   trails A's by a third or more (8% against 12%, say), set `B_SHARE` to 0 and tell Dan; a lead for B changes nothing.

@@ -197,7 +197,7 @@
 - [Self bake-off before Dan reviews](self-bakeoff-before-dan-reviews.md): 10-10: build and judge colour + sound options myself first (eyes beside approved frames, blind listen), ship the winner
 - [Thumbnails: unique designs](thumbnail-unique-designs.md): 10-10: Codex's-choice options each need their own design, not one layout on five images
 - [Funny AI clips for abstract lines](funny-ai-clips-for-abstract-lines.md): 10-10: no literal picture for a line? Propose an obviously unreal, funny AI gag (RO-07 A3 glove); big and readable
-- [PostHog API access](posthog-api-access.md): stored keys are query-only (HogQL); no dashboard/insight/annotation scopes, no signed-in browser; use scripts/posthog/, ask Dan to sign in for dashboards
+- [PostHog API access](posthog-api-access.md): stored keys are query-only (HogQL); dashboards get built from Dan's signed-in Chrome tab (fetch + CSRF recipe inside); scripts/posthog/ for numbers
 - [Amazon Associates](amazon-associates-account.md) — tracking ID danrosefit-20, link.amazon short links, table in Docs/AMAZON_ASSOCIATES.md
 - [Execute Dan's explicit picks](execute-dans-explicit-picks.md): 10-06: build exactly the person/clip/topic he names; never swap, hold or reroute it for reputational or news reasons ("stop being a Karen")
 - [Allegations are not facts](allegations-not-fact.md): 10-06: unproven charges/accusations against Clavicular, Tate, manosphere figures: never mentioned at all (not even "charged with") unless Dan asks about the case itself; never a reason to change a plan

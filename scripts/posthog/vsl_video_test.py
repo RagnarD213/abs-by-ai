@@ -2,7 +2,8 @@
 """Scoreboard for the /start video test: WV-01 Version A against Version B ("Fired Them All").
 
 Reads PostHog with the stored query key (POSTHOG_PERSONAL_KEY in ~/.absbyai-secrets.env) and prints one
-column per film. Forced QA views (?vid=a, ?vid=b) and anything not on absbyai.com are left out.
+column per film. The same numbers as the PostHog dashboard "/start video test: A vs B"
+(https://us.posthog.com/project/458833/dashboard/2195388). Forced QA views (?vid=a, ?vid=b) and anything not on absbyai.com are left out.
 
     python3 scripts/posthog/vsl_video_test.py              the table, from the minute the split went live
     python3 scripts/posthog/vsl_video_test.py --trials     also list each trial start with its film
@@ -55,7 +56,8 @@ def hogql(query):
     if not key:
         sys.exit('No PostHog key: POSTHOG_PERSONAL_KEY is not in ~/.absbyai-secrets.env')
     req = urllib.request.Request(f'https://us.posthog.com/api/projects/{project}/query',
-                                 data=json.dumps({'query': {'kind': 'HogQLQuery', 'query': query}}).encode(),
+                                 # force_blocking: PostHog otherwise answers a repeated query from its cache, which can be hours old
+                                 data=json.dumps({'query': {'kind': 'HogQLQuery', 'query': query}, 'refresh': 'force_blocking'}).encode(),
                                  headers={'Authorization': 'Bearer ' + key, 'Content-Type': 'application/json'})
     try:
         return json.load(urllib.request.urlopen(req, timeout=60))['results']

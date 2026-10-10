@@ -84,7 +84,8 @@ R5 film at 1.2x).** Dan's plan: split on the page (no new software, no second UR
 - Read rules: no winner before day 21 (10-31); day 14 (10-24) or 500 visitors per film: B's sound-on rate a third or more behind
   A's means set `B_SHARE` to 0 and tell Dan; winner on about 20 real Stripe trial starts with the leader holding about 15.
   /start, the cart and the ads are frozen meanwhile; the search-campaigns handoff waits.
-- NOT done: the PostHog dashboard and launch annotation. Both stored keys are query-only and no browser was signed in to PostHog.
+- PostHog dashboard "/start video test: A vs B" (pinned): https://us.posthog.com/project/458833/dashboard/2195388, eight tiles
+  split by film plus a read-rules note, launch annotation 484663. Built through Dan's signed-in Chrome; the stored keys are query-only.
 
 **Why:** Dan wants to know which film sells more trials before putting more budget behind /start. **How to apply:** do not touch
 /start, the cart or its ads while the test runs; read it with the script on the two dates; never call it early.
