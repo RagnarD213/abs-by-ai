@@ -302,6 +302,11 @@ nothing pauses ads here. To refresh by hand after tier 1 changes: `node scripts/
 adds every enabled tier 1 ad that is missing (it never pauses one). Wiring it into `instant.js` is not a one-line change:
 that code assumes one ad group per campaign, and this campaign has two.
 
+**One-off add (Dan, 2026-10-10):** `0zspIJVrv08` (Use AI To Get REAL Six Pack Abs, 6 Strategies) added to both groups,
+ENABLED: `827584375855` (site) and `827584375858` (yt), video asset `429095777113`. It had no tier 1 twin, so the copy
+came from `headlines.js` (lint passed) and the op from `instant.js` `createOp` (in-feed only), final URL `https://absbyai.com`.
+To add any other single video the same way: generate the set, then one `createOp` per group id above.
+
 **Enable both** (after review; ads were still `REVIEW_IN_PROGRESS` when the build session ended):
 `ADS_ALLOW_ENABLE_CAMPAIGN=1 node scripts/ads/api/client.js mutate scripts/ads/api/dgen-ads/rmktg-enable.json --note "enable remarketing campaigns"`,
 then add a PostHog annotation.
