@@ -312,6 +312,8 @@ def cmd_build(a):
         prompt = bench.writer_prompt({"files": []}, c)
         return c["key"], bench.cached(path, lambda: bench.claude_call(prompt, "You are a writer.", bench.WRITER_MODEL))
     colds = dict(bench.pool(cold, keep))
+    with open(heldout_guard.SHINGLES, encoding="utf-8") as fh:
+        hashes = json.load(fh)["hashes"]
     # publish: the repo copy
     for d in (BANK, CONTRAST):
         for t in corpus.TYPES:
@@ -331,6 +333,8 @@ def cmd_build(a):
             fh.write(f"---\n{meta}\n---\n{c['text'].strip()}\n")
         spoken = c["mode"] == "spoken"
         cold_text = dashes(bench.for_judging(colds[c["key"]], spoken))
+        if heldout_guard.scan_text(cold_text, hashes):
+            continue  # Claude happened to write a stock 8-word run that is also in a hold-out passage: no twin
         with open(os.path.join(CONTRAST, c["type"], name), "w", encoding="utf-8") as fh:
             fh.write(f"---\n{meta}\nnote: NOT Dan. The same content as bank/{c['type']}/{name}, written cold by Claude "
                      f"from the brief. Kept to show the gap.\n---\n## The content, as a neutral brief\n{c['brief'].strip()}\n\n"

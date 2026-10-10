@@ -11,5 +11,41 @@
       ".claude/skills/_shared/WRITING-RULES.md",
       "Docs/memory/dan-personal-facts-for-scripts.md"
     ]
+  },
+  "set5": {
+    "about": "Step B2 and B3 alone: no guide and no rules. The writer sees 5 whole real passages from the sample bank, chosen by format and length (never by topic, never from the same source as the test passage), and writes the next piece in the set.",
+    "bank": {
+      "n": 5
+    }
+  },
+  "pairs5": {
+    "about": "Contrast pairs alone: no guide and no rules. The writer sees 5 worked examples from the bank, each one a neutral brief, how Claude wrote it cold, and what Dan really wrote for the same content, then writes Dan's version of a new brief.",
+    "bank": {
+      "n": 5,
+      "pairs": true
+    }
+  },
+  "set5-crit": {
+    "about": "set5, then one revision pass: the dan-voice-critic agent (sees only the draft and 8 real pieces) marks what gives the draft away, the checker script (voice_check.py) reports the numbers outside his bands, and the writer rewrites only the marked spans.",
+    "bank": {
+      "n": 5
+    },
+    "critic": ".claude/agents/dan-voice-critic.md",
+    "revise": [
+      {
+        "critic": true,
+        "check": true
+      }
+    ]
+  },
+  "set5-core": {
+    "about": "set5 plus the short core notes (voice/CORE.md) and the notes for the type (voice/type-<type>.md), placed after the real passages.",
+    "bank": {
+      "n": 5
+    },
+    "files": [
+      ".claude/skills/_shared/voice/CORE.md",
+      ".claude/skills/_shared/voice/type-{type}.md"
+    ]
   }
 }

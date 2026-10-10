@@ -162,7 +162,7 @@ def cached(path, make):
     return val
 
 
-def pool(fn, items, workers=5):
+def pool(fn, items, workers=8):
     out = []
     with cf.ThreadPoolExecutor(workers) as ex:
         futs = {ex.submit(fn, it): it for it in items}
@@ -1068,13 +1068,19 @@ def cmd_blind(a):
     index = load_index()
     rng = random.Random(f"{SEED}-blind")
     pairs, key = [], []
+    seen = set()
+    if a.fresh:  # only passages Dan has not been shown on an earlier blind page
+        for f in glob.glob(os.path.join(BENCH, "*", "blind-key.json")):
+            if os.path.dirname(f) != d:
+                with open(f, encoding="utf-8") as fh:
+                    seen |= {k["id"] for k in json.load(fh)}
     for t, want in BLIND_QUOTA.items():
-        items = [it for it in index if it["type"] == t]
+        items = [it for it in index if it["type"] == t and it["id"] not in seen]
         rng.shuffle(items)
-        if t == "content":  # 5 long-form and 3 shorts
+        if t == "content" and not a.fresh:  # 5 long-form and 3 shorts
             items = [i for i in items if i["bucket"] == "content-long"][:5] + \
                     [i for i in items if i["bucket"] == "content-short"][:3]
-        for it in items[:want]:
+        for it in (items if a.fresh else items[:want]):
             spoken = it["mode"] == "spoken"
             real = for_judging(passage(it, repaired=True), spoken)
             with open(os.path.join(d, "gen", it["id"] + ".txt"), encoding="utf-8") as fh:
@@ -1105,6 +1111,34 @@ def cmd_blind(a):
     print("key:", " ".join(f"{k['n']}{k['dan_is']}" for k in key))
 
 
+def cmd_compare(a):
+    """Two runs, trial by trial (same passage, same judge). Run names are folder names under voice-corpus/bench/."""
+    def load(name):
+        out = {}
+        for f in glob.glob(os.path.join(BENCH, name, "trials", "*.json")):
+            with open(f, encoding="utf-8") as fh:
+                t = json.load(fh)
+            out[(t["id"], os.path.basename(f).split("-")[-2], t["rep"])] = t
+        return out
+    A, B = load(a.base), load(a.new)
+    keys = sorted(set(A) & set(B))
+    print(f"{a.base} -> {a.new}: {len(keys)} paired trials")
+    rows = [("all", lambda k: True), ("judge claude", lambda k: k[1] == "claude"), ("judge gemini", lambda k: k[1] == "gemini")]
+    rows += [(b, (lambda k, b=b: A[k]["bucket"] == b)) for b in QUOTA]
+    for label, f in rows:
+        ks = [k for k in keys if f(k)]
+        if not ks:
+            continue
+        ca, cb = sum(A[k]["correct"] for k in ks), sum(B[k]["correct"] for k in ks)
+        won = sum(1 for k in ks if A[k]["correct"] and not B[k]["correct"])   # newly fooled the judge
+        lost = sum(1 for k in ks if not A[k]["correct"] and B[k]["correct"])  # newly caught
+        n = won + lost
+        # exact two-sided sign test on the trials that changed
+        pval = min(1.0, 2 * sum(math.comb(n, i) for i in range(0, min(won, lost) + 1)) / 2 ** n) if n else 1.0
+        print(f"  {label:14s} caught {ca}/{len(ks)} ({pct(ca, len(ks))}) -> {cb}/{len(ks)} ({pct(cb, len(ks))}); "
+              f"newly fooled {won}, newly caught {lost}, p={pval:.3f}")
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -1116,7 +1150,9 @@ def main():
     p.add_argument("--report-only", action="store_true"); p.add_argument("--no-luar", action="store_true")
     p.set_defaults(fn=cmd_run)
     p = sub.add_parser("blind"); p.add_argument("--setup", required=True); p.add_argument("--date")
+    p.add_argument("--fresh", action="store_true", help="only passages not on an earlier blind page")
     p.set_defaults(fn=cmd_blind)
+    p = sub.add_parser("compare"); p.add_argument("base"); p.add_argument("new"); p.set_defaults(fn=cmd_compare)
     p = sub.add_parser("repair"); p.set_defaults(fn=cmd_repair)
     a = ap.parse_args()
     a.fn(a)
