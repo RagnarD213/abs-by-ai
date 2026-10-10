@@ -91,14 +91,20 @@ Scorecard against the 10-08 list:
 Nothing was listened to by ear: the take announcements are a transcript of the boosted roll sound (the two that matter
 read cleanly and the picture agrees). Rep times inside the raw are good to about a quarter second.
 
-## Paste-ready message to Muhammad
+## Paste-ready message to Muhammad (rewritten after Dan's edit)
 
-Hey Muhammad, thanks for these! Top 3 Ways To Looksmax is FINALIZED. The opener is exactly right now, so send me the high quality export of that one.
+Hey Muhammad, thanks for these! Top 3 Ways To Looksmax and How To Do Side Laterals are both FINALIZED, so send me the high quality exports of those two. The tight shots are exactly what I wanted, and the Looksmax opener is exactly right now. Really nice work!
 
-Side Laterals and Rear Delt Flys look great. The tight shots are exactly what I wanted, the dumbbells stay in the picture the whole time, and the openers and all the caption fixes are in. Really nice work on both!
+Rear Delt Flys looks great too and it's one clip away. The notes are here: https://docs.google.com/document/d/1oluIHk9Q2Oj8MnowiDrMGHmKGrjKqyV1fgzeyqQ5MdM/edit
 
-There's one clip left on each, and the notes are here: https://docs.google.com/document/d/1oluIHk9Q2Oj8MnowiDrMGHmKGrjKqyV1fgzeyqQ5MdM/edit
+From 0:27.9 to 0:35.0 the clip is the take where I'm showing the rounded back mistake, right after I say to keep your back flat. That one's on me, I missed it last time. On the exercise footage I say out loud what each take is before I do it, either "done right" or which mistake I'm showing, but the sound on that clip is really quiet. The doc gives you the exact part of the raw clip to use.
 
-It's the same thing on both. On the exercise footage I say out loud what each take is before I do it, either "done right" or which mistake I'm showing, but the sound on that clip is really quiet. On each video one clip under my instructions is actually one of the mistake takes. The Rear Delt one is on me, I missed it last time. The doc gives you the exact part of the raw clip to use for each.
+Once that clip is swapped, Rear Delt Flys is finished. Thanks for the great work!
 
-Once those two clips are swapped, both videos are finished. Thanks for the great work!
+## Dan's edit (10-10) and what was done after
+- **Deleted by Dan:** the whole Side Laterals section (credit paragraph and the 0:24.6 item), replaced with `FINALIZED & APPROVED`. His reason: good enough for a later round; he would have asked for it on a first round.
+- **Kept:** the Rear Delt Flys item (the rounded back take), the opening take list, and Looksmax as finalized.
+- **Fixed after his edit (rule 34):** the opening section's heading and three sentences that still said both exercise videos had a clip left.
+- Edit queue: DS-12 and DS-23 set to finalized. DS-24 stays in progress.
+- The lesson is calibration pass 12 in the revisions skill (rules 71 and 72).
+- Live doc after these changes: `revision docs/shorts-revisions-muhammad-10-10-26.live-as-sent.txt`.

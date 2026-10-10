@@ -577,6 +577,37 @@ generate" lines. His headline note is the first-5-seconds rule at the top of thi
     M100s clips from my old Six Pack Shortcuts video that you use in this video so they look good on a large
     screen."* When directing archive footage under about 1080p, write that line in.
 
+### Calibration pass 12: Dan's edit to Muhammad's round 2 and 3 shorts (2026-10-10)
+
+Doc `1oluIHk9Q2Oj8MnowiDrMGHmKGrjKqyV1fgzeyqQ5MdM`, first draft `revision docs/shorts-revisions-muhammad-10-10-26.md`, live copy
+`...10-10-26.live-as-sent.txt`. Three sections, two with one item each. Both items were the same class: a clip under
+an instruction was one of his announced mistake takes (lesson 75). He deleted one and kept the other. His words: *"The
+only change I made was to accept the side laterals video. I thought that was good enough for a subsequent editing
+round. That's the type of thing I would have requested if there was a first round... I do agree with you on the
+rounded back and the rear delt video. That would be a good example of the type of thing to request in the next round
+versus the type of thing to leave in."*
+
+71. **On round 2 or later, a wrong take is an item only when a viewer watching once would see that the form is wrong.**
+    Proof from the roll's sound that a take is a mistake take is enough for an item on round 1. On a later round it
+    is not enough by itself.
+    - DELETED, section stamped finalized: Side Laterals 0:24.6 - 0:31.7, his "elbows not high enough" take under
+      "Keep your elbows high". The reps are straight arm side laterals with the dumbbells a little above the elbows.
+      It reads as a normal side lateral, and only the roll announcement says otherwise. This was his answer even
+      though the clip was the editor's reply to Dan's own round 1 item.
+    - KEPT: Rear Delt Flys 0:27.9 - 0:35.0, his "back round" take: head down and back rounded for seven seconds, right
+      after he says "Keep your back as flat as possible". Anybody sees it, and it contradicts the sentence before it.
+      Kept even though it had been on screen since round 1 and we raised it late (the wrong-asset exception in rules
+      40 and 42 held).
+    - How to apply: for each mistake take found on a later round, put the take and the correct take side by side at
+      the top of a rep and ask whether the difference shows without being told. Obvious, or it contradicts the
+      spoken line in a way the picture makes plain: item. Subtle (a few degrees of elbow, a little more bend): no
+      item, finalize if nothing else is left, and list it under "For Dan's call" with the proof still and a
+      paste-ready line. This is rule 55 (one leftover does not hold a late round open) applied to takes.
+72. **His status line this time was `FINALIZED & APPROVED`**, typed over our whole section, with no credit paragraph
+    and no HQ export wording. He still decides the line (rule 39). When he finalizes a section, fix every sentence
+    elsewhere in the doc that still counts that video as open (the opening section said "one clip left on each of
+    the other two"); done here with `replaceAllText` through the Docs connector so his own text is untouched.
+
 **Dan's vocabulary — use his words:** "camera scene" (the talking head), "motion effect" (the
 Ken Burns move on stills), "accelerate footage to fit duration", "clip", "bro", "douchey". A simple
 item is one line in that register; keep the longer form only where the editor needs exact text,
@@ -1580,7 +1611,8 @@ For evidence receipts and blind benchmark freezes, use [REVIEW_EVIDENCE.md](refe
     take. Procedure on every exercise video, every round: (a) transcribe the boosted roll and write the take map
     (announcement time, his words, take range); (b) map every exercise clip in the cut to the roll with
     `reference/rawmatch.py CUT RAW 'a-b,...' T0 T1` and read the per-frame line for a mid-clip jump; (c) a clip under
-    an instruction must be a "done right" take, a mistake take only under the line naming that mistake; (d) the item
+    an instruction must be a "done right" take, a mistake take only under the line naming that mistake; on round 2 or later
+    this is an item only when a viewer would see the wrong form (calibration rule 71), otherwise it goes under "For Dan's call"; (d) the item
     gives the raw range to use and where the rep should land on the words, and the doc's opening section gives the
     editor the take map so he can pick right himself. C1676's map is in
     `revision docs/shorts-revisions-muhammad-10-10-26.summary.md`. This is rule 66 (calibration pass 11) made mechanical.
