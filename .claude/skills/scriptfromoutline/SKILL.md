@@ -209,7 +209,7 @@ title card cue. Update the production notes' study list.
 ## THE 10/17 SHOOT REWRITE PASS (Dan's feedback on 40 scripts, 2026-10-07). READ THIRD.
 
 Dan called the batch good overall and the workout videos the weakest. As delivered:
-`Docs/SCRIPTS_1017_SHOOT_REWRITE_PASS_AS_DELIVERED_20261007.md`. Diff his next edits against it.
+`Docs/SCRIPTS_1017_SHOOT_REWRITE_PASS_AS_DELIVERED_20261007.md`. His edits after it were diffed on 2026-10-10: section U.
 
 **O. Follow-along workouts: nothing is read during a round.** Dan films them outside by his pool, live, in one
 continuous take, with cuts only in the intro and the close. He cannot read a teleprompter while exercising. So:
@@ -254,6 +254,62 @@ struck through.
 
 **T. A shoot doc gets one B-roll filming list at the top**, divided by set (studio, home workouts by the pool,
 gym, plus around the house), each shot listed once with the videos that reuse it.
+
+**U. What Dan changed in the 10/17 doc after the rewrite pass (live doc diffed 2026-10-10).** Raw before and after:
+`references/dan-edits-2026-10-10-1017-shoot.md`. Read it before writing a hook.
+
+The tally: the four follow-along workout scripts came back with **not one word changed**, so section O is the
+format. Of 79 tracked changes he accepted 74 as written, rejected 4 and rewrote 1. Seven of the eleven Clavicular
+shorts are untouched. His own typing (found by its curly apostrophes, see U9) is about 15% of the spoken words, and
+most of it is in two places: the hook, and one or two added paragraphs per script.
+
+- **U1. The hook is still where the edits go: he rewrote it in 15 of 43 scripts.** Every one he replaced was a
+  teaser, a negation reveal or a cute command. Every one he left was already plain. What he writes instead:
+  - The title's promise, said flat, with what the viewer gets: "Here's why taking Zepbound is actually free.
+    Zepbound costs about $400 a month, but it SAVES you far more than what it costs." "Here's how to get in a full
+    workout during commercial breaks of a football game, so you get ripped without missing a single play." "You
+    only need two exercises for bigger arms, and I'm going to show you them today."
+  - A flat verdict with a superlative: "But they're the two WORST ab exercises you can do." "Getting lean is by far
+    the most powerful way to looksmax your face." "Counting reps is a huge mistake for beginners."
+  - Straight at "you": "You think you have man boobs, but you don't. You probably just have chest fat".
+  - In a reaction short: "[Name] says X. Here's why he's right (or wrong), and why I do Y (or why you need to do
+    Z)." "Here's why he's dead wrong, and why I'm right."
+  - What he cut: "That's not bad luck, and side bends won't fix it." "When you count, you rush." "Do NOT try this."
+    "I take one too, and I'm NEVER coming off it." "a way to change your face that costs nothing and can't go
+    wrong". "That's not a cost. It's the best investment you'll ever make."
+  - "Here's why" and "Here's how" are his own hook words (12 uses in his typing here). Do not strip them.
+- **U2. Section Q has a limit: in the section that IS the how-to, his fact is the content.** He put back the meal
+  prep price in the nutrition section of his life story, and the day he injects in "how I take it". He accepted
+  the same facts being cut everywhere the paragraph was about something else. Test: is this paragraph about what he
+  eats, takes or does? Then the detail stays.
+- **U3. No hedge about his own result, least of all in a Short.** "They cleared up my skin... so I can't say
+  exactly how much was the supplements" became "They helped a lot to clear up my skin and to cut down my cystic
+  acne." One plain benefit in his own modest words ("helped a lot"), no sentence about what else might explain it.
+- **U4. Never cut a payoff line to save words.** He restored "Pair that with a daily skincare routine, and you'll
+  see the difference every time you look in the mirror." If a Short is long, cut a setup line.
+- **U5. After a recommendation he says who it is for and who it is not for, by level.** "They're great for
+  beginners. But like planks, they aren't good for average and advanced guys." "If you're an advanced lifter who
+  already knows good cadence, counting reps works just fine." "Bone smashing only matters if you are already
+  lean." "For most of you guys following this channel, you should be taking 2.5 mg or less." Write that line.
+- **U6. After a warning he adds the counterweight, then an exact protocol.** "But don't fall for the scare tactics
+  either." "Don't go from 5 mg to zero. Step down gradually 1 mg per week, and keep weighing yourself daily. Go
+  back up 1 mg if you gain weight." A step with a risk in it gets numbers, not "do it slowly".
+- **U7. He names the things.** "Then I take my capsules" got the list (fish oil, curcumin, ginger, glucosamine, DIM,
+  Vitamin B6, the Thorne testosterone booster). An exercise gets the cue he would give in person and its alternate
+  version: "Stick your butt out like you're twerking", "no kipping like they do in Crossfit", lat pulldowns if you
+  cannot do a pull-up, dumbbell flies if you have no machine. He explains why in gym terms: continuous tension,
+  drop sets, pre-exhaustion. Never "my supplements" or "my stack" without the list or a `[DAN: ...]` cue.
+- **U8. In a reaction video he is fair to the person and hard on the one point.** He added "That is truly
+  impressive discipline", "Bryan Johnson has many useful things to teach us" and "Clavicular himself would agree".
+  Credit what the person does right, pin the disagreement on one claim, and tell the viewer what to copy. He also
+  sharpened the wording himself where he disagrees ("dead wrong", "even better" to "way better", "permanent" to
+  "risky"). Any insult aimed at a person is his to write: never write one for him, never cut one of his.
+- **U9. Other habits in his typing:** he says where he falls short and that he is working on it ("This is a habit
+  I'm still working on"); he states the stance against the medical consensus by name before the opinion; recap
+  lines get their reason ("You'll make more money in the long term by doing this"); he links his other videos by
+  title; status words (elite, mediocre dad bod, ripped and rich, overweight and broke, haters). His own cue format
+  is `[B ROLL: ...]`. **To tell his lines from Claude's in any Google Doc: his have curly apostrophes, pasted text
+  has straight ones.** Check before editing a line, and never "fix" his.
 
 ## Why this skill exists (Dan's goals, 2026-08-23)
 
