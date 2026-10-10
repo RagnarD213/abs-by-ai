@@ -32,6 +32,8 @@ thumbnail and length keep following YouTube.
   page on the same topic.
 - **CTA:** exactly one, `[...]({CTA})` → `absbyai.com/start` with `utm_source=sixpackabs&utm_medium=blog&
   utm_campaign=video-article&utm_content=<video-id>`.
+- **CTA wording (2026-10-10):** the link goes to the /start sales page, so the ask is the 7-day free trial
+  ("try Abs By AI free for 7 days"), not a free AI image. Older articles keep the wording they have.
 - **Links:** 1 to 3 internal links (`/videos/...` pages or old posts). `build.py` enforces this.
 - **Excerpt = the meta description** (the theme feeds it to Yoast): under 155 characters, answers the question.
 - **Compliance:** "This is general fitness information, not medical advice." on every article; add "Some images in
@@ -51,3 +53,12 @@ WordPress.com MCP, site `253647467`: `content-items.update` with `post_type: spa
 `excerpt`, `content` (the `build.py` output), `user_confirmed: true`. Then verify the live page: the article is
 in `.spa-notes`, `<meta name="description">` equals the excerpt, no em dash inside the notes. Updates purge the
 edge cache for that page; no manual cache clear is needed.
+
+## Shorts skipped on purpose (no article; the page keeps its YouTube description)
+
+A gap check should not count these as missing. Each would compete with a page on the same topic.
+
+- `D9v9POAKe_Q` The Deadlift Trick That Saves Your Back: its one tip is step 3 of the kettlebell deadlift article (`R2yNA2ZnsSU`), which links to it.
+- `bi_fpkW-3eE` Try To Knee Yourself In The Face: a form cue for the toe touch, already covered by `I_IpdKpT2-0`.
+- `1AnxJ5JCLa0` Do This Instead Of Crunches: same topic as `le2OyN3biW4` (stomach vacuum) and `GVNzvm5sUbk`.
+- `I_trw1PaMhc` The Full 1 Minute Ab Workout, Follow Along: same workout as `8BaCYcGhRPY` and `Sv5wZha_a8c`.
