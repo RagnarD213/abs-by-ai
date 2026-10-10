@@ -77,7 +77,7 @@
 - [Ad vs organic: classify first](ad-vs-organic-classification.md) — 09-28: closing CTA decides ("tap the button below" = ad); flag a mismatched handoff before uploading
 - [YouTube upload capability](youtube-upload-capability.md) — scripts/youtube/upload.js + refresh token; brand-account trap
 - [Stripe: active before charge](stripe-trial-end-active-before-charge.md) — stamp paid conversion from invoice.paid, never status
-- [VSL landing page](vsl-landing-page.md): /start = Dan's sales letter since 09-30 (build_live.py); old page /start-v1; tests = videos, not designs
+- [VSL landing page](vsl-landing-page.md): /start = Dan's sales letter (build_live.py); 50/50 video test A vs B live since 10-10 (B_SHARE; scripts/posthog/vsl_video_test.py); page frozen
 - [VSL Version B intro](vsl-version-b-intro.md) — 09-18: "fired them all" / 165-hour extended intro in the long VSL doc, for A/B test; unrecorded
 - [No ad agency mention](no-ad-agency-mention.md) — 09-18: never call Dan a marketer/ad agency owner in scripts; say AI coded his site/did bookkeeping instead
 - [Deploy drops locked holds](deploy-drops-locked-holds.md) — every push wipes held images; a 410 after deploy is that

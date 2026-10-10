@@ -1,6 +1,6 @@
 ---
 name: vsl-landing-page
-description: "The /start paid-traffic landing page (built 2026-09-09) — A/B variant mechanics, the PostHog flag that still has to be created by hand, the one-tap photo hand-off, and the shared video slot awaiting Dan's YouTube upload"
+description: "The /start paid-traffic page: Dan's sales letter (letter-v1) built by build_live.py; since 2026-10-10 a 50/50 video test, WV-01 A against B, split in the page head (B_SHARE), scored by scripts/posthog/vsl_video_test.py; older history of the page below"
 metadata: 
   node_type: memory
   type: project
@@ -68,3 +68,23 @@ his @abs.by.ai Instagram avatar (square Speedo shot cropped as shorts, smiling),
 both plan pickers (plan choice happens in the cart) and the FAQ note. WV-01 A 1.2x self-hosted in `public/video/` (1080p
 ships as .part1/.part2, joined by `server.js` `/video/:name`: GitHub rejects files over 100 MB). Buttons go to
 `/?join=1&from=vsl&v=letter-v1` plus click ids. Events and details: `Docs/VSL_LANDING.md`.
+
+**2026-10-10 VIDEO TEST RUNNING (live 3:43 PM Central): WV-01 Version A against Version B ("Fired Them All", R6 = the finalized
+R5 film at 1.2x).** Dan's plan: split on the page (no new software, no second URL, no ad changes), PostHog scores it, 50/50.
+- The split is `B_SHARE` and `VIDEOS` in `build_live.py`, run in the page head: `?vid=a|b` forces a film (QA, never counted),
+  else the film stored in `localStorage.absbyai_vsl_video`, else a stored coin. Rollback = `B_SHARE = 0`, rollout = `1`, rebuild,
+  `verify_live.py`, push.
+- B's web files (`/video/wv01-b-720.mp4` in 2 parts, `wv01-b-1080.mp4` in 3) match A's settings. A's audio encoder is Apple's
+  (`-c:a aac_at`); ffmpeg's own AAC overshot the peak at 96k. Recipe: `/Volumes/Extreme/_edit_work/wv01-edit/version-b/web/encode.sh`.
+- Both films use the page's approved poster: it is the design's still, not a frame of film A (the handoff assumed it was).
+- Events: `video_variant`, `video_forced`, `video_sticky` on every `vsl_` event and on the cart events; new `vsl_video_watch {sec}`
+  and `vsl_opening_done` (A 2:22.1, B 3:32.4). Compare seconds, not percent: the films differ in length.
+- Scoreboard: `python3 scripts/posthog/vsl_video_test.py [--trials]`. QA: `qa_video_test.py` beside the generator (real Chrome;
+  PostHog drops events from automated browsers unless `navigator.webdriver` is hidden).
+- Read rules: no winner before day 21 (10-31); day 14 (10-24) or 500 visitors per film: B's sound-on rate a third or more behind
+  A's means set `B_SHARE` to 0 and tell Dan; winner on about 20 real Stripe trial starts with the leader holding about 15.
+  /start, the cart and the ads are frozen meanwhile; the search-campaigns handoff waits.
+- NOT done: the PostHog dashboard and launch annotation. Both stored keys are query-only and no browser was signed in to PostHog.
+
+**Why:** Dan wants to know which film sells more trials before putting more budget behind /start. **How to apply:** do not touch
+/start, the cart or its ads while the test runs; read it with the script on the two dates; never call it early.

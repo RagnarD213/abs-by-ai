@@ -38,4 +38,4 @@ No generation. One Gemini review, estimated $0.329614 (announced about $0.85); c
 
 ## Next
 
-Dan reviews R6 in VLC. Website setup and split test follow `Handoffs/handoff-20261010-wv01-b-claude-1p2x-then-website-test.md` and the separate test plan.
+Dan approved R6 in VLC on 2026-10-10. It is film B of the /start video test, live since 3:43 PM Central that day (`Docs/VSL_LANDING.md`). The review copies were removed from `Videos to Review/`; this folder's copy and the drive copy stay.

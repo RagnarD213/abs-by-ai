@@ -11,8 +11,9 @@ Round 2 canvas by `.claude/skills/design-sales-page/reference/round2-letter/buil
 `public/start.html`: change the generator and rebuild, then run `verify_live.py`). The page below this section is the
 old two-variant page, kept at **`/start-v1`** (`public/start-v1.html`) for rollback.
 
-- **Video:** WV-01 version A at 1.2x, self-hosted (`public/video/`): 720p for phones, 1080p for desktop. The 1080p file is
-  over GitHub's 100 MB limit, so it ships as `.part1`/`.part2` and `server.js` joins them on boot (`/video/:name`).
+- **Video:** WV-01 at 1.2x, self-hosted (`public/video/`): 720p for phones, 1080p for desktop. Since 2026-10-10 the page
+  runs two films, Version A and Version B, one per browser (next section). A file over GitHub's 100 MB limit ships as
+  `.part1`, `.part2`, ... and `server.js` joins the parts on boot (`/video/:name`).
   Plays muted under the yellow "Tap to turn on sound" box; a tap unmutes and restarts from 0:00. The muted preview pauses
   while scrolled away. A new cut = new file name (the route caches 7 days).
 - **Buttons (8):** all go to `/?join=1&from=vsl&v=letter-v1` plus `utm_*`, `gclid`, `gbraid`, `wbraid`, `fbclid`, `ttclid`,
@@ -26,10 +27,61 @@ old two-variant page, kept at **`/start-v1`** (`public/start-v1.html`) for rollb
   Canvas page "Round 3: guarantee".
 - **Events:** `vsl_landing_seen`, `vsl_video_play` (`autoplay: true, muted: true` when the muted preview starts),
   `vsl_sound_on` (the real "started watching"), `vsl_video_progress` 25/50/75/100 counted only after sound on,
-  `vsl_trial_cta_clicked {position}`. Every event carries `landing: 'vsl', landing_variant: 'letter-v1'`. No coin flip:
-  tests here are between videos, never layouts.
+  `vsl_trial_cta_clicked {position}`. Every event carries `landing: 'vsl', landing_variant: 'letter-v1'`. The layout has
+  no coin flip: tests here are between videos, never layouts. The video test's own events are in the next section.
 - **Same tags as before:** one gtag loader (Ads `AW-18361229851` + GA4), Meta pixel, TikTok pixel, PostHog.
 - **Inside the Android/iOS app:** buy buttons, prices lines, the stripe button and every guarantee element are hidden; "Open Abs By AI" shows instead.
+
+## The video test: Version A against Version B (RUNNING since 2026-10-10, 3:43 PM Central)
+
+Dan's decision (2026-10-10): one page, one URL, the same ads and the same cart. Half of visitors get WV-01 Version A and
+half get Version B ("Fired Them All": the finalized R5 film at 1.2x, the same speed as A, approved by Dan as R6). The film
+is the only difference. No new software: the page's own code does the split and PostHog keeps score.
+
+- **The two films.** `a`: `/video/wv01-a-720.mp4` (phones) and `/video/wv01-a-1080.mp4` (desktop), 10:27. `b`:
+  `/video/wv01-b-720.mp4` and `/video/wv01-b-1080.mp4`, 11:57. B's web files come from the approved R6 file (SHA256
+  `83519c7a...`, used as delivered) with A's exact settings, so the test is not also a picture-quality test: hardware
+  H.264 High, about 1.0 and 2.0 Mbps, a keyframe every 2 seconds, Apple AAC at 96k and 128k, fast start, -14.4 LUFS.
+  At that bitrate both of B's files pass GitHub's limit, so they ship in parts (720p in 2, 1080p in 3). Web masters,
+  the encode recipe and hashes: `/Volumes/Extreme/_edit_work/wv01-edit/version-b/web/`.
+- **Poster: the same for both.** The page's still (`video-poster-wv01.jpg`) is the approved design's picture, not a frame
+  of film A, so B shows it too and the film stays the only difference. `VIDEOS` holds a poster per film if that changes.
+- **The split** is in `build_live.py` (`B_SHARE`, `VIDEOS`) and runs in the page head before anything is drawn. Order:
+  `?vid=a` or `?vid=b` (a forced QA view: never stored, marked `video_forced: true`), then the film stored for this
+  browser in `localStorage.absbyai_vsl_video`, then a coin that is stored. A browser that blocks storage gets a fresh
+  coin on each load and its events say `video_sticky: false`. The browser only ever asks for the one film it was given.
+- **Rollback and rollout are one number.** Set `B_SHARE` to `0` (everyone gets A) or `1` (everyone gets B), then
+  `python3 build_live.py <repo>`, `verify_live.py`, push. At 0 or 1 a stored film is ignored. Never hand-edit
+  `public/start.html`.
+- **Events.** Every `vsl_` event carries `video_variant` (`a` or `b`), `video_forced` and `video_sticky`;
+  `landing_variant` is still `letter-v1`. The film is also registered on the browser, and every buy link carries
+  `vid=<film>` (plus `vf=1` on a forced view), which `index.html` registers again, so `cart_viewed` and
+  `cart_checkout_completed` carry it. New events, both counted only after sound on: `vsl_video_watch {sec}` at 30, 60,
+  120, 240 and 480 seconds really watched (a skip ahead adds nothing), and `vsl_opening_done` when playback passes the
+  end of that film's opening (A 2:22.1, B 3:32.4; from that frame on the two films show the same picture). The films
+  differ in length, so compare seconds, never the percent marks. `$feature_flag_called` fires once per view with
+  `$feature_flag: 'vsl-video-variant'`; no PostHog flag exists and none is needed.
+- **Scoreboard.** `python3 scripts/posthog/vsl_video_test.py` prints A beside B from the launch minute, forced views left
+  out (`--trials` lists every trial start with its film, for matching against Stripe). **The PostHog dashboard
+  "/start video test: A vs B" and its launch annotation are not built:** both stored PostHog keys can only run queries
+  (no dashboard, insight or annotation scope) and neither browser is signed in to PostHog. Once Dan is signed in, a
+  session builds it in a few minutes; the script gives the same numbers meanwhile.
+- **How the test is read (Dan's rules).** Minimum run 21 days (to 2026-10-31): no winner before that, even with a
+  lead. Early warning at day 14 (2026-10-24) or 500 visitors per film, whichever is later: if B's sound-on rate
+  trails A's by a third or more (8% against 12%, say), set `B_SHARE` to 0 and tell Dan; a lead for B changes nothing.
+  The winner is called on trial starts per visitor and cost per trial, never a mid-funnel number: about 20 real trial
+  starts in total with the leader holding about 15, counted from live Stripe without Dan and test accounts, each
+  matched to its film in PostHog. At 70 visitors a day that is about two months.
+- **Frozen while it runs:** /start, the cart, and the ads feeding it.
+  `Handoffs/handoff-20261001-search-campaigns-to-vsl-page.md` changes the traffic mix, so it waits for the test to end.
+- **Accepted, not engineered around:** a visitor who saw A before the launch may get B on the next visit, and a person
+  on two devices can see both. The scoreboard prints how many people saw both films.
+- **Checks.** `verify_live.py` now fails unless both films are complete, on disk in pieces under 95 MB, and named
+  nowhere in the markup. `qa_video_test.py` (same folder) drives real Chrome through both films at phone and desktop
+  sizes: `python3 qa_video_test.py http://localhost:3000 --hold` locally (nothing reaches PostHog or the ad pixels),
+  or against `https://absbyai.com` (only the forced views reach PostHog, and those are never counted). Both passed
+  on 2026-10-10: 123 checks locally, 123 live.
+- **Native apps:** nothing changes inside the Android and iOS apps except which film plays.
 
 ## Why it exists — the funnel on 2026-09-09 (PostHog, last 30 days, absbyai.com only)
 

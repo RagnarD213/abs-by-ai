@@ -39,8 +39,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
   also in its vertical `7XgHxn59Tsg` and square. Pull, or have the beats replaced. (Zeeshan's Ad 1 email screen 3:09, known.)
 - **Web cart: (baseline 2026-09-15; age unknown)** Google Pay on (rec on); OK the shipped defaults (cart video hidden until the file exists, anonymous trial
   reuse, no email before card, no urgency device). `Docs/WEB_CART.md`
-- **Analysis page defaults: (baseline 2026-09-15; age unknown)** women's height 5'4" (men 5'9"). **/start:** create PostHog flag `vsl-landing-variant`
-  (control/analysis 50/50) + experiment — API keys lack flag scopes. `Docs/VSL_LANDING.md`
+- **Analysis page defaults: (baseline 2026-09-15; age unknown)** women's height 5'4" (men 5'9"). **/start (10-10):** PostHog sign-in (test dashboard).
 - **/start VSL: (baseline 2026-09-15; age unknown)** read script doc `1DL2V34wePN75m1XxAuhpC2nghvobgr4C9RnTyszqqlA`, decide §7 (on-screen line under real
   photos), record. ⚠ Live post-generation video
   says "thousands of guys" (3:16, 3:41); 75 people have ever generated.
@@ -82,6 +81,8 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
   (`549946a`); native still shows IAP + account-first; new demo videos on the russian-twist + reverse-crunch exercise sheets (09-28).
 
 # ACTIVE
+
+**/start video test RUNNING 2026-10-10, Claude.** Reads 10-24, 10-31: `Docs/VSL_LANDING.md`.
 
 **Waist-cover 2026-10-08.** TikTok:phone-upload-pending.
 
@@ -205,7 +206,6 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard fire list; the runner deletes that row, this line and its README row.
 
-- `handoff-20261010-start-vsl-split-test-a-vs-b.md` (10-10). Opus high.
 - `handoff-20261010-sixpackabs-article-every-new-video.md` (10-10). Opus high.
 - `handoff-20261007-ro10-subtle-reedit-sunday-reupload.md` (10-07): RO-10 R3 end graphic, Sunday replacement. Codex Sol high.
 - `handoff-20261006-1017-shoot-outlines.md` (10-06)
@@ -214,7 +214,7 @@ Memory `google-ads-ui-automation`.
 
 - `handoff-20261001-move-project-out-of-icloud.md` (10-01): move the project out of iCloud's Documents sync (109k duplicates, 199 cloud-only files). Run when nothing else runs here. Opus 5.5 high.
 - iPhone rebuilt 10-07 outside iCloud, tracked on GitHub. Recovery list partly uninspected after Chrome crash; closes about 10-17. See `Handoffs/results-20261007-ios-rebuild.md`.
-- `handoff-20261001-search-campaigns-to-vsl-page.md` (10-01). Sol high.
+- `handoff-20261001-search-campaigns-to-vsl-page.md` (10-01). Sol high. HOLD: /start test.
 - `handoff-20260924-generator-consult-call-outreach.md` (09-24, overdue).
 - `handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md` [dash]: PHONE ONLY, 3 TikTok covers (updated 09-22). Sonnet 5 or Fable 5.1 / Medium.
 - `handoff-20260915-finalized-ads-6-14-youtube-and-google-ads.md` (09-15). Codex, high.

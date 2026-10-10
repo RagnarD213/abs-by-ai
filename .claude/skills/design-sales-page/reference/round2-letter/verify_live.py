@@ -30,7 +30,7 @@ for i, b in enumerate(json.load(open(a.blocks))):
     for frag in [x.strip() for x in re.split(r'(?<=[.?!…:”"])\s+|→', t) if len(x.strip()) > 2]:
         if frag not in page and frag not in allow:
             missing.append((i, frag))
-dashes = raw.count('—') + raw.count('–')
+dashes = raw.count('\u2014') + raw.count('\u2013')
 forbidden = [f for f in a.forbid if f in raw]
 print(f'missing copy: {len(missing)} | dashes: {dashes} | forbidden present: {forbidden}')
 for m in missing: print('  MISSING', m)
