@@ -1,25 +1,7 @@
 {
-"generated": "2026-10-09T11:25:02+00:00",
+"generated": "2026-10-10T11:24:48+00:00",
 "cap": 200,
 "scheduled": [
-{
-"id": "3584644",
-"platform": "facebook",
-"when": "2026-10-09T22:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "A mirror check is not vanity, it's data.",
-"batch": ""
-},
-{
-"id": "3841913",
-"platform": "instagram",
-"when": "2026-10-09T22:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "The reason people quit tracking calories is gone.",
-"batch": ""
-},
 {
 "id": "5019232",
 "platform": "facebook",
@@ -1056,6 +1038,42 @@
 "batch": "Studio S02-A"
 },
 {
+"id": "5361331",
+"platform": "facebook",
+"when": "2026-11-05T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "I used to pay about $20 for a salad bar salad every day. Now each one costs me about $4.",
+"batch": ""
+},
+{
+"id": "5361332",
+"platform": "instagram",
+"when": "2026-11-05T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "I used to pay about $20 for a salad bar salad every day. Now each one costs me about $4.",
+"batch": ""
+},
+{
+"id": "5361333",
+"platform": "tiktok",
+"when": "2026-11-05T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "I used to pay about $20 for a salad bar salad every day. Now each one costs me about $4.",
+"batch": ""
+},
+{
+"id": "5361334",
+"platform": "youtube",
+"when": "2026-11-05T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "I used to pay about $20 for a salad bar salad every day. Now each one costs me about $4.",
+"batch": ""
+},
+{
 "id": "4315902",
 "platform": "facebook",
 "when": "2026-11-05T23:00:00.000Z",
@@ -1524,6 +1542,42 @@
 "batch": "Studio S07-C"
 },
 {
+"id": "5365814",
+"platform": "youtube",
+"when": "2026-12-13T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "You can still hold onto belly fat in a calorie deficit. Here are the 7 factors outside of calories that decide",
+"batch": ""
+},
+{
+"id": "5365807",
+"platform": "facebook",
+"when": "2026-12-14T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "You can still hold onto belly fat even if you're eating in a calorie deficit. Here are the 7 things outside of",
+"batch": ""
+},
+{
+"id": "5365809",
+"platform": "instagram",
+"when": "2026-12-14T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "You can still hold onto belly fat even if you're eating in a calorie deficit. Here are the 7 things outside of",
+"batch": ""
+},
+{
+"id": "5365811",
+"platform": "tiktok",
+"when": "2026-12-14T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "You can still hold onto belly fat even if you're eating in a calorie deficit. Here are the 7 things outside of",
+"batch": ""
+},
+{
 "id": "4890095",
 "platform": "facebook",
 "when": "2026-12-14T23:00:00.000Z",
@@ -1729,33 +1783,6 @@
 "slides": 1,
 "text": "I built a home gym and still use a gym membership. I like having options. If the drive is the reason your work",
 "batch": "Studio S05-A"
-},
-{
-"id": "5119966",
-"platform": "facebook",
-"when": "2027-01-22T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Make strength training an appointment you can keep. Choose the time, save the workout and get your space ready",
-"batch": "Studio S09-A"
-},
-{
-"id": "5119967",
-"platform": "facebook",
-"when": "2027-01-25T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "I have a home gym and I still pay for a gym membership. The point is having an option that works with your lif",
-"batch": "Studio S03-B"
-},
-{
-"id": "5119969",
-"platform": "facebook",
-"when": "2027-01-27T23:00:00.000Z",
-"kind": "Carousel",
-"slides": 5,
-"text": "Repeating a lunch you enjoy is a planning choice. You can still rotate meals and ingredients across the week. ",
-"batch": "Studio S08-B"
 }
 ],
 "waiting": [
