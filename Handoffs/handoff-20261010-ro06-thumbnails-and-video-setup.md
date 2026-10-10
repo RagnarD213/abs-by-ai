@@ -71,7 +71,7 @@ Backups (Extreme, Drive with anyone-with-link), packaging (title, description wi
 pinned comment), Blotato release: **YouTube first on a Sunday at 9 AM America/Chicago, one long-form per week**, then Facebook, Instagram
 @danrosefit and TikTok no earlier than the following Monday 9 AM, only after the YouTube video is verified public. Read the live Blotato YouTube
 queue first. As of the 10-10 board these Sundays are taken: Oct 11 Stop Deadlifting, Oct 18 RO-05, Oct 25 RO-12, Nov 1 RO-16, Nov 8 Oura,
-Nov 15 RO-13, Nov 22 RO-02, Nov 29 RO-10, Dec 6 RO-01, Dec 13 RO-11. So expect **Dec 20**; use `scripts/blotato/longform_queue.py`, which refuses
+Nov 15 RO-13, Nov 22 RO-02, Nov 29 RO-10, Dec 6 RO-01, Dec 13 RO-11, Dec 20 RO-03. So expect **Dec 27**; use `scripts/blotato/longform_queue.py`, which refuses
 an off-Sunday or occupied slot. Never upload to YouTube yourself; Blotato creates the public video at release time. Receipt in
 `Docs/RO06_SETUP_RECEIPT_<date>.md`, a board entry for the queued release, Edit Queue `uploaded`. The sixpackabs.com article is written now and
 published once the video is public.

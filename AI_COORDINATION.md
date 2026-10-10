@@ -173,7 +173,7 @@ test starts. `BLOTATO_QUEUE_PROGRESS.md`
 tab; stop rather than click into spinners. `Handoffs/handoff-20260908-google-ads-custom-segments.md`
 
 
-**RO-03-APPROVED:2026-10-10,next:fire-`Handoffs/handoff-20261010-ro03-thumbnails-and-video-setup.md`**
+**RO-03 - QUEUED 2026-10-10, Claude.** YouTube Sun Dec 20 9 AM CST, socials Mon Dec 21. Then: captions, article, RO-02 link. `Docs/RO03_SETUP_RECEIPT_20261010.md`.
 
 **RO-02 - QUEUED 2026-10-07, Codex.** Sun Nov 22, 9 AM CST. Then: captions and article. `Docs/RO02_SETUP_RECEIPT_20261005.md`.
 
