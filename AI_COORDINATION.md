@@ -124,6 +124,8 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **Zeeshan batch - HANDOFF 2026-10-10.** `Handoffs/handoff-20261010-zeeshan-batch-video5-setup-and-archive.md`
 
+**RO-20 - BUILDING 2026-10-10, Claude.** Invest In Your Health, from scratch, round 1. Work: `/Volumes/Extreme/_edit_work/ro20/`.
+
 **RO-07 - BUILDING 2026-10-10, Claude.** `Handoffs/handoff-20261010-ro07-round3-full-film.md`
 
 **RO-12 - QUEUED 2026-10-01, Claude.** Blotato Oct 25. Then: `Docs/RO12_SETUP_RECEIPT_20261001.md`, delete.
