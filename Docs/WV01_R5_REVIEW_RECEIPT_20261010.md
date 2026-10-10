@@ -2,7 +2,7 @@ AD: Fired Them All AD R5
 
 # R5 VLC review receipt, 2026-10-10
 
-The two requested repairs are complete. The full 1080p film is copied to Videos to Review and opened in VLC. Dan approval is pending. No platform upload, publication, website installation, derivative formats or thumbnails.
+The two requested repairs are complete. Dan finalized the exact full R5 film on 2026-10-10: "All right this video looks great. This is finalized." The normal-speed master is preserved in `Website Videos/WV-01 Version B/` and the external final folder. This video's VLC review copies and old port-8870 review service were removed. Website installation and split-test launch have not been performed.
 
 The approved physical-phone goal scene replaces the studio freeze at frames [8248,8338), 4:35.208 - 4:38.211. The ending completes "I have never felt better in my life" before P6. Fourteen original moving studio frames finish the sentence, P6 uses fixed tight framing at [25439,25509), and the complete original 283-frame closing animation follows. All final spoken words remain intact. The approved opening and other scenes are preserved.
 
@@ -10,7 +10,7 @@ The recovered sentence frames reproduce the historical color conversions of the 
 
 Audio gate, sheet validation, native seek and complete ending-sentence order pass. Independent content review covers 43 scenes, six intentional photo holds, twelve callback joins, 178 boundary strips and twelve whole-film sheets. The 368 image verdicts include pair identities covered by strip frames. Corrected original reference offsets and graphic blocks verify content, copy and layout; they do not establish 43 full-scene pixel matches. One Gemini review covers the encoded full film at 2fps plus denser repair/source contexts. This is not continuous human real-time playback.
 
-Two inherited picture defects remain open: the same-crop studio pose reset at 6:30.757 and overhead hand/forearm top-edge crop at 14:00.506. Freshly checked on R5, preserved under the scoped request, neither waived.
+Two inherited picture defects remain recorded in the technical evidence: the same-crop studio pose reset at 6:30.757 and overhead hand/forearm top-edge crop at 14:00.506. Freshly checked on R5, preserved under the scoped request, neither waived.
 
 Actual R5 strict gate: **FAIL**, 31 passed, 6 failed, 4 declared not applicable. Initial full run also has two NOT MEASURED rows. Both pass the separately saved evidence-only recheck after adding actual R5 records and approved templates. This is not a new full-run verdict. Failed rows:
 
@@ -27,6 +27,6 @@ One Gemini QC call has token-cost estimate $0.894088, below the announced $3 max
 
 Full film: 14:20.593, 25,792 frames, 30000/1001, 1,195,262,710 bytes. SHA256 `903eca4cd69ba19203394ee2a1c51ebb7bc9fce5d9bd6a9d8710c05297bf16fa`.
 
-Full film, SRT/VTT and both repair contexts: `Videos to Review/`. Recipes, frame map, accounting and exact-file evidence: git-ignored `Media/wv01-r5-20261010/`, especially `review/final-qc-summary.json`, `review/independent/final-review.md` and `review/website-delivery-gate.json`. Heavy sources remain at `/Volumes/Extreme/_edit_work/wv01-edit/version-b/round5/`. R4 and unrelated review copies remain untouched.
+Finalized full film and SRT/VTT: `Website Videos/WV-01 Version B/Fired Them All AD R5 - complete Version B 1080p` with the appropriate extension. Recipes, frame map, accounting and exact-file evidence: git-ignored `Media/wv01-r5-20261010/`, especially `review/final-qc-summary.json`, `review/independent/final-review.md` and `review/website-delivery-gate.json`. Heavy sources remain at `/Volumes/Extreme/_edit_work/wv01-edit/version-b/round5/`. R4 external history and unrelated review copies remain intact. Only this video's project review copies were removed.
 
-Next action: Dan reviews the complete R5 film in VLC.
+Next action: Claude creates a separate uniform 1.2x version for VLC review using [the acceleration and subsequent website-test handoff](../Handoffs/handoff-20261010-wv01-b-claude-1p2x-then-website-test.md). Website setup follows review and Dan's separate split-test software decision.

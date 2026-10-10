@@ -83,8 +83,6 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 # ACTIVE
 
-**Fired Them All AD R5 2026-10-10, Codex.** Awaiting VLC approval.
-
 **Waist-cover 2026-10-08.** TikTok:phone-upload-pending.
 
 

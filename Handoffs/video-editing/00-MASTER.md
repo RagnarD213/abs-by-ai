@@ -138,7 +138,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | job | video | rolls | status | size |
 |---|---|---|---|---|
 | [WV-01](WV-01-vsl-1-analysis-page-video-version-a-version-b-intr.md) | VSL 1: Analysis-page video (version A + version B intro) | C1692-C1700 | FINALIZED | L |
-| [WV-01B](../results-20261007-wv01-b-opening-r1.md) | VSL 1 version B: Fired Them All opening | C1699 | IN PROGRESS | L |
+| [WV-01B](../handoff-20261010-wv01-b-claude-1p2x-then-website-test.md) | VSL 1 version B: Fired Them All, full film R5 | C1699 | FINALIZED | L |
 | [WV-02](WV-02-vsl-2-start-landing-page-video.md) | VSL 2: /start landing-page video | C1701-C1703 | READY | M |
 
 ### 1D · Housekeeping

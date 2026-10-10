@@ -1,7 +1,7 @@
 {
   "_README": "THE STANDARD IS DAN'S WORDS, NOT OUR PARAPHRASE. Every entry quotes him verbatim. See README.md.",
   "version": 2,
-  "updated": "2026-10-09",
+  "updated": "2026-10-10",
   "roots": {
     "repo": ".",
     "ssd": "/Volumes/Extreme/_edit_work"
@@ -3132,6 +3132,21 @@
       "must_trigger": [],
       "measured": "Audio gate fails the tone row only (mean 1.46 against 1.2, max 6.17 against 2.5) with the chain Dan approved on the first minute. Delivery gate 2.5.1: 29 pass, 10 fail (audio:stamp, style:coverage 34 %, framing:hair_top, framing:headroom, framing:no_wide_level, cut:splice_visibility, captions:card_collision, captions:burned, watch:pass, junk:repeated_take). Independent review of the delivered file: SHIP.",
       "notes": "Final-film creative approval with the gate's raw FAIL kept visible; no threshold was changed. His one note (kept as is): the toe-touch cutaway at 9:32 has no medicine ball while he talks about the medicine ball. Record: ro06/round6/round6-record.json, ro06/round7-plan/decisions.json."
+    },
+    {
+      "id": "wv01-b-r5-final-approved-20261010",
+      "date": "2026-10-10",
+      "root": "ssd",
+      "path": "wv01-edit/version-b/round5/final/Fired Them All AD R5 - complete Version B 1080p.mp4",
+      "sha256": "903eca4cd69ba19203394ee2a1c51ebb7bc9fce5d9bd6a9d8710c05297bf16fa",
+      "bytes": 1195262710,
+      "verdict": "approved",
+      "dan": "All right this video looks great. This is finalized.",
+      "scope": "Complete 14:20.593 website VSL Version B R5, approved opening preserved, physical-phone scene restored, complete sentence before P6 and full closing animation retained.",
+      "must_pass": [],
+      "must_trigger": [],
+      "measured": "R5 strict gate FAIL: 31 passed, 6 failed, 2 initially unmeasured, 4 declared not applicable. Two evidence-only rechecks later passed, not a new full-run verdict. Audio PASS; requested repairs independently PASS.",
+      "notes": "Final-film human approval, with historical strict FAIL and two inherited native defects retained. No threshold changes or waivers. R4 rejected controls remain intact. Approval: wv01-edit/version-b/round5/review/final-approval-20261010.json. Claude acceleration handoff: Handoffs/handoff-20261010-wv01-b-claude-1p2x-then-website-test.md"
     }
   ]
 }

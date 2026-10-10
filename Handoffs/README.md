@@ -16,6 +16,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
+| [handoff-20261010-wv01-b-claude-1p2x-then-website-test.md](handoff-20261010-wv01-b-claude-1p2x-then-website-test.md) | **Ready for Claude Opus 5.5, high.** Finalized B: make a separate 1.2x film for VLC review; website installation and test launch follow the separate software decision. |
 | [handoff-20261009-wv01-b-round5-final-two-fixes.md](handoff-20261009-wv01-b-round5-final-two-fixes.md) | **Ready 2026-10-09. GPT-6 Astra / High.** Fired Them All AD R5: restore the phone scene, move final pickup after the complete sentence and repair its joins; full VLC review, no upload/publishing. Analysis and shared QC skill repair completed. |
 | [handoff-20261008-wv01-b-round3-selected-motion-and-opening.md](handoff-20261008-wv01-b-round3-selected-motion-and-opening.md) | **Ready 2026-10-08. Codex GPT-6 Astra / High.** Locked slimmer firing pair and phone coach A: generate two motion clips, integrate R2 picture changes and approved planning inserts, review B opening and A join only. |
 | [handoff-20261008-ro17-round2-current-standard-review-page.md](handoff-20261008-ro17-round2-current-standard-review-page.md) | **Ready 2026-10-08. Claude Opus 5.5 / High.** RO-17 3 Healthy Foods (LFC): keep the 09-25 stage-one cut and audio, rebuild graphics, framing and B-roll to the current standard, show Dan one review page (first minute, graphics, clip choices). No full film this round. |
