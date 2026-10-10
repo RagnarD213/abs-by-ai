@@ -76,7 +76,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
   first-comment? (ask before touching). ⚠ Account shows TRIAL — lapse kills all six keywords. `Docs/MANYCHAT_KEYWORDS.md`
 - **Resend (baseline 09-15):** create a full-access key → `RESEND_READ_API_KEY` in `~/.absbyai-secrets.env`.
 - **Home filming set:** pick an installer, share the work order (https://claude.ai/code/artifact/2b21b748-62f0-455f-aafb-ac9a6a23ad44).
-  VIVO stand return: UPS pickup was Mon 09-14 (# 298404F1F6B) — confirm it went. After install a session builds the look-A telemetry file.
+  VIVO stand return: UPS pickup was Mon 09-14 (# 298404F1F6B), confirm it went.
 - **Native retest (one phone session): (baseline 2026-09-15; age unknown)** analysis page YouTube iframe (inline vs fullscreen, pauses on leaving); `10eda3b`
   member screens; lock-in → sliders → trial CTA and locked result → analysis → unlock; iOS sandbox Restore purchases
   (`549946a`); native still shows IAP + account-first; new demo videos on the russian-twist + reverse-crunch exercise sheets (09-28).
@@ -204,7 +204,7 @@ Memory `google-ads-ui-automation`.
 `[dash]` = on the dashboard fire list; the runner deletes that row, this line and its README row.
 
 - `handoff-20261010-start-vsl-split-test-a-vs-b.md` (10-10). Opus high.
-- `handoff-20261010-sixpackabs-article-backlog.md` and `…-article-every-new-video.md` (10-10): 14 missing video articles, then automation. Opus high.
+- `handoff-20261010-sixpackabs-article-backlog.md`, `…-every-new-video.md` (10-10). Opus high.
 - `handoff-20261007-ro10-subtle-reedit-sunday-reupload.md` (10-07): RO-10 R3 end graphic, Sunday replacement. Codex Sol high.
 - `handoff-20261006-1017-shoot-outlines.md` (10-06)
 - `handoff-20261008-dan-voice-training-part2-plan.md` (B-done-10-10;next:C,D;Dan:Round-2-blind-page)
