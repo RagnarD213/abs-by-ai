@@ -47,5 +47,18 @@
       ".claude/skills/_shared/voice/CORE.md",
       ".claude/skills/_shared/voice/type-{type}.md"
     ]
+  },
+  "set12": {
+    "about": "set5 with 12 real passages instead of 5 (about 3,500 words of him). Still no guide and no rules.",
+    "bank": {
+      "n": 12
+    }
+  },
+  "set5-fable": {
+    "about": "set5 with Fable 5.1 as the writer instead of Opus 5.5. Same passages, same prompt. Tests whether the writer model matters (the hard judge is Opus).",
+    "bank": {
+      "n": 5
+    },
+    "model": "claude-fable-5-1"
   }
 }

@@ -113,7 +113,7 @@
 - [Editor message voice](editor-message-voice.md): warm praise, big picture only, never name another editor (Dan, 2026-09-18)
 - [Script zero-edit lessons](script-zero-edit-lessons.md): 09-21 Dan's edits to four long-form scripts; read WHAT DAN CHANGED in scriptfromoutline SKILL.md before any script
 - [Voice corpus sources](voice-corpus-sources.md): 10-08: four types (content, ads, website conversion videos, products); never train on AI dictation or business email; Sex God Method = top writing sample
-- [Dan voice guide](dan-voice-guide.md): read DAN-VOICE.md + voice/passages file for the type before writing as Dan; bench: judges catch Claude 90%, Dan himself 68% (10-10); score changes with scripts/voice/bench.py
+- [Dan voice guide](dan-voice-guide.md): 10-10 method: content plan from the skill, sentences from dan-voice-writer (clean call, 5 real passages, no rules); rules in the prompt make Claude easier to catch (92% vs 82%)
 - [Scripts: his wording, not his ramble](scripts-his-wording-not-his-ramble.md): 10-10: off-the-cuff ramble is not the script target; blunt, plain words, instruction before caveat; Claude too mild and formal
 - [Dan's personal facts for scripts](dan-personal-facts-for-scripts.md): glycine nightly, sleeps at 63, Oura 75-80, Zepbound for life, 8 am gym, AI saves 10 hrs/week
 - [Opus 5.5 release](opus-5-5-release.md): 09-22: ≥ Fable 5.1 on benchmarks at 60% lower price; routing recommendation (Opus default, Fable reviewer/escalation)

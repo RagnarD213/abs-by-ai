@@ -164,6 +164,14 @@ spoken words in plain text, cues in **bold bracketed ALL-CAPS** (never read alou
 images carried over at their exact cue positions, and a word count + runtime
 estimate (~150–160 wpm) at the top of each ad.
 
+> **Voice method changed 2026-10-10 (Dan Voice P2B; `_shared/DAN-VOICE.md`).** This skill decides WHAT the piece
+> says: build the content plan here (points, facts, numbers, order, the ask, length, Dan's own outline wording word
+> for word). The sentences are then drafted by the **`dan-voice-writer`** agent, in a clean call that sees only real
+> passages of his. Do not draft the words in this session from the voice rules below, and do not polish what the
+> writer returns: on the blind bench, rules in the writer's context made Claude easier to catch (92% against 82%).
+> The voice rules below remain as background for the content plan and for the final read. Format, length, cue and
+> offer rules in this skill still apply in full.
+
 ## Voice rules (rebuilt 2026-10-06 from the voice corpus; read `_shared/DAN-VOICE.md` first)
 
 **Read `.claude/skills/_shared/DAN-VOICE.md` before drafting, then `_shared/voice/ads.md` (his winning HBI and other ad

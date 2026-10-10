@@ -202,9 +202,62 @@ B10. **Rewire the eight writing skills** to hand their content plan to the write
 each carry.
 B11. Re-run the bench after each change, three rounds at most, then a second blind page for Dan.
 
+## Phase B results (2026-10-10). Read before starting Phase C or D
+
+Phase B ran on 2026-10-10. Every step B1 to B11 was built; each one that could be scored was scored, and only what
+moved the number is in the writing path. Full table: `Docs/voice-bench/LEDGER.md`. Method: `.claude/skills/_shared/DAN-VOICE.md`.
+
+| setup | caught (chance 50%, goal 60%) | verdict |
+|---|---:|---|
+| old guide (baseline, re-judged with equal dash handling) | 91% | |
+| `set5`: 5 whole real passages by format and length, no rules | 82% | **kept: the method** |
+| worked pairs (brief, Claude's version, his) | 86% | dropped |
+| set5 plus the new core and type notes | 92% | dropped: notes made it worse |
+| set5 plus a critic and checker revision pass | 82% | dropped: no change |
+| 12 passages instead of 5 | 80% | dropped: noise |
+| set5 with Fable as the writer | 81% | dropped: no change |
+
+What exists now:
+
+- **B1** `Docs/voice-bench/2026-10-10-contrast.md`: 88 pairs (his passage against Claude's cold version), gaps ranked
+  by how many pairs show them. Main finding: cold Claude does not fail by being formal. It puts on a costume of casual
+  speech (fragments, "right?", "honestly", "you've got", "gonna", signposts), where he is plain, direct, a little
+  formal, in full sentences, and repeats the same noun and verb.
+- **B2** `voice/bank/` (91 passages, 11 formats) and `voice/contrast/` (Claude's twins); `scripts/voice/bank.py`.
+- **B3** the layout (passages, his own wording, then "the next piece in this set"): `scripts/voice/write.py`.
+- **B4** `voice/POSITIONS.md`: 31 positions, 7 stock stories, sources, and 13 numbers that conflict between
+  sources (for Dan to settle).
+- **B5** `DAN-VOICE.md` is now the method; `voice/CORE.md` and `voice/type-*.md` hold the gap list with rates;
+  the old guide's structure sections are `voice/STRUCTURE.md`. The notes are NOT loaded by the writer (scored worse).
+- **B6** `scripts/voice/voice_check.py` and `voice_bands.json`: hard rules plus bands. A tripwire only (scored: no gain
+  from revising to it).
+- **B7** `.claude/agents/dan-voice-writer.md` (runs `write.py` in a clean call) and `dan-voice-critic.md` (a second
+  read on request; scored: no gain as a gate).
+- **B8** `scripts/voice/hook_hard_rules.py` in `.claude/settings.json`: em and en dashes and cut phrases, on new text
+  only. Reports until 2026-10-17, then stops the write.
+- **B9** `/dan-voice` skill: WRITE, ASSEMBLE (his take, 80% rule, `assemble_check.py`), CHECK.
+- **B10** the eight writing skills carry a block sending the sentences to `dan-voice-writer`. **Not done:** deleting
+  the voice rules each skill still carries. They are marked as background only. Pruning them is a Phase D job, one
+  skill at a time, because structure and voice rules are mixed in those sections.
+- **B11** three scored rounds, then Dan's Round 2 blind page: https://claude.ai/artifact/QbzMfnMzQzNsrGDxCyRydK
+  (20 pairs from `set5`, none seen before; key in `voice-corpus/bench/2026-10-10-set5/blind-key.json`).
+
+**What this means next.**
+
+1. The judges are at 82%, above the 60% gate, and the Opus judge alone is at 98%. **Phase C is on** by the plan's own
+   rule, unless Dan's Round 2 page says otherwise (12 or fewer right of 20 would meet his own target).
+2. Prompting is close to its ceiling: three different bank-only runs landed at 80 to 82%. Do not spend another
+   session on prompt wording.
+3. Conversion and products did not move at all (92% and 100%). Those are the Lane 1 pieces: get a take from Dan.
+4. Unmeasured: scripts for the teleprompter (`--format script`). Start Phase D1 (edit rate) on the 10/17 shoot scripts.
+5. No fresh held-out passages are left for a third blind page. New ones come from his next off-the-cuff takes, ads
+   and letters (the "What Dan provides" list, item 4).
+6. `voice-corpus/bank/`, the new bench runs and `voice-corpus/bench/*/stages/` are local only: mirror `voice-corpus/`
+   to the Drive folder before a cloud session needs to re-run the bench (the repo copy of the bank is enough to write).
+
 ## Phase C: fine-tune pilot. Gated. Local, Opus 5.5 high
 
-Run only if, after Phase B, judges are still above 60% or Dan picks more than 12 of 20. Data: the pure piles only,
+Run only if, after Phase B, judges are still above 60% or Dan picks more than 12 of 20. (After Phase B: judges 82%. The gate is met unless Dan's Round 2 page comes in at 12 or fewer.) Data: the pure piles only,
 chunks of 250 to 650 words, each paired with a neutral summary of its content; the held-out set stays out. Train a LoRA
 on an 8B to 12B open model with MLX on the Mac (free), or on Together (about $4 to $10 a run). Use it as a re-voicer:
 Claude's draft goes in a chunk at a time, Claude then checks every fact against the content plan and applies the hard

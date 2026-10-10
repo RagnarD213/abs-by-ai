@@ -24,6 +24,14 @@ Working example output: `YouTube Content/channel-intro/` (PACKAGING.md, thumbnai
 
 ## Workflow
 
+> **Voice method changed 2026-10-10 (Dan Voice P2B; `_shared/DAN-VOICE.md`).** This skill decides WHAT the piece
+> says: build the content plan here (points, facts, numbers, order, the ask, length, Dan's own outline wording word
+> for word). The sentences are then drafted by the **`dan-voice-writer`** agent, in a clean call that sees only real
+> passages of his. Do not draft the words in this session from the voice rules below, and do not polish what the
+> writer returns: on the blind bench, rules in the writer's context made Claude easier to catch (92% against 82%).
+> The voice rules below remain as background for the content plan and for the final read. Format, length, cue and
+> offer rules in this skill still apply in full.
+
 1. **Transcribe** the video with the ad-factory Whisper pipeline (word timestamps —
    `bakeoff/.env` has `REPLICATE_API_TOKEN`; model + call shape in
    `ad-factory/the-upload/assembly/transcribe.js`). The transcript drives titles,

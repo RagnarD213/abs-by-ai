@@ -5,6 +5,10 @@ Source: 88 pairs where a fresh Claude wrote the same content as a real passage o
 (2026-10-10). Each line is a gap that showed up again and again, most frequent first. The real passages you were
 given outrank every line here: when a passage and a line disagree, follow the passage.
 
+**Not for a writer's prompt.** Tested 2026-10-10: a writer given real passages plus these notes was caught 92% of
+the time, against 82% with the passages alone. Use this to review a draft or to understand a verdict; the draft
+itself comes from `dan-voice-writer` (`DAN-VOICE.md`).
+
 Strength: **HARD** = never break. **STRONG** = true of most of his pieces. **LIGHT** = a habit, used sparingly.
 
 ## The one idea

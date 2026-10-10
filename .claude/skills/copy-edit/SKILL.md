@@ -179,6 +179,14 @@ techniques" / "five AI tactics" in body copy while the "AI Hack #1" headings sta
 
 ## Dan's voice (protect it)
 
+> **Voice method changed 2026-10-10 (Dan Voice P2B; `_shared/DAN-VOICE.md`).** This skill decides WHAT the piece
+> says: build the content plan here (points, facts, numbers, order, the ask, length, Dan's own outline wording word
+> for word). The sentences are then drafted by the **`dan-voice-writer`** agent, in a clean call that sees only real
+> passages of his. Do not draft the words in this session from the voice rules below, and do not polish what the
+> writer returns: on the blind bench, rules in the writer's context made Claude easier to catch (92% against 82%).
+> The voice rules below remain as background for the content plan and for the final read. Format, length, cue and
+> offer rules in this skill still apply in full.
+
 The full guide is `.claude/skills/_shared/DAN-VOICE.md` (with `_shared/voice/sales.md` for letters and VSLs).
 Read it before deciding a line is "off voice": lines that look rough (ellipsis beats, a capitalized word, a run-on
 sentence, "Listen -") are usually his. The short version:

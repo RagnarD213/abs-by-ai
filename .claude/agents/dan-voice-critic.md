@@ -1,6 +1,6 @@
 ---
 name: dan-voice-critic
-description: Opus 5.5 (high effort) CRITIC for a draft written in Dan Rose's voice. Sees only the draft and 8 real pieces of his (never the writer's prompt, the outline or the guide) and marks what would give the draft away as AI. Returns JSON marks tagged WRONG, OVERSTATED or MISSING. Never rewrites the draft. Called by dan-voice-writer after its first draft; 2 passes at most.
+description: Opus 5.5 (high effort) CRITIC for a draft written in Dan Rose's voice. Sees only the draft and 8 real pieces of his (never the writer's prompt, the outline or the guide) and marks what would give the draft away as AI. Returns JSON marks tagged WRONG, OVERSTATED or MISSING. Never rewrites the draft. A second read on request (/dan-voice CHECK), not a gate: on the 2026-10-10 bench a critic pass did not make drafts harder to catch, and it called 29 of 40 drafts 'would pass' that judges then caught.
 model: opus
 effort: high
 tools: Read, Bash

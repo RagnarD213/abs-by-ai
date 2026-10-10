@@ -35,10 +35,10 @@ talking to the viewer and not to Claude). Do not quietly fall back to WRITE for 
    points in order, every fact and number, the ask. His own outline wording goes in word for word: it is the seed.
 2. Missing take or number? Look in `_shared/voice/POSITIONS.md`. Not there: one question to Dan or a `[DAN: ...]` gap.
    Never invent an opinion, a story or a number for him.
-3. Hand the plan to the **dan-voice-writer** agent with the type and format (table in `DAN-VOICE.md`). It loads the
-   real passages, drafts, runs the checker and the critic, and returns the piece with a short report.
-4. Read the report. A hard fail or a score over the line that the writer could not fix is said to Dan in one line
-   with the draft, not hidden.
+3. Hand the plan to the **dan-voice-writer** agent with the type and format (table in `DAN-VOICE.md`). It drafts in
+   a clean call that sees only 5 real passages of his, his own outline wording and the plan, then checks the hard
+   rules. No voice rules go in that call: on the bench, rules made the draft easier to catch (92% against 82%).
+4. Do not polish what comes back. Fix a wrong fact, a missing point or a hard-rule hit in that sentence only.
 5. Save the delivered draft to `voice-corpus/drafts/<date>-<slug>.md` if the folder exists (local sessions). When Dan
    finalizes it, the difference between the two is how the method learns (Phase D).
 
@@ -68,7 +68,8 @@ Dan talks; Claude is the editor, not the writer.
 1. `python3 scripts/voice/voice_check.py draft.txt --type <type> --format <format>`: hard fails, the score against
    the format's line, the measures outside his band, the lines to look at.
 2. Hand the draft alone to the **dan-voice-critic** agent (it fetches its own 8 real pieces). It returns marks
-   tagged WRONG, OVERSTATED and MISSING.
+   tagged WRONG, OVERSTATED and MISSING. Its marks are a second read, and its "would pass" means little (it passed
+   29 of 40 drafts that judges caught).
 3. Report to Dan in plain words: would it pass, the three biggest giveaways with the line each sits on, and the
    fix for each. Change the draft only if he asked for a fix, and then only the marked spans.
 
