@@ -250,7 +250,8 @@ real suggestions (insertText, deleteContentRange and replaceAllText all work). `
 `docmap.py` and `build.py`: write an ops list (section, then find and replace or paragraph ops), build the request
 list from a fresh `read_doc` snapshot, send it highest index first. Inserted text copies the style of the character
 before it, so fix bold and italic afterward with plain `updateTextStyle` calls. Insert at a paragraph that is not
-struck through.
+struck through. For a polish pass of many small edits use `suggest_builder.py` and `verify_suggestions.py` in the
+same folder (2026-10-10): word-level suggestions, exact-match checks, steps in `/copy-edit`.
 
 **T. A shoot doc gets one B-roll filming list at the top**, divided by set (studio, home workouts by the pool,
 gym, plus around the house), each shot listed once with the videos that reuse it.

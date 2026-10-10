@@ -198,9 +198,44 @@ for a single stressed word. "Guys like us", "regular guys", "dad bod", "slammed"
 dashes anywhere in anything you write; his hyphen-with-spaces (" - ") is his own device
 and stays where he has it.
 
-## Mechanics: Google Docs suggestions from Chrome
+## Mechanics: suggestions through the Docs connector (first choice since 2026-10-10)
 
-The Docs API cannot create suggestions, so this is driven through the UI.
+The Docs connector's `update_doc` now makes real tracked suggestions: `writeControl: {"writeMode": "SUGGEST"}`. No
+Chrome, no Find and replace, and each edit is its own card. Used on the 10/17 shoot doc: 90 suggestions in five calls.
+
+1. `read_doc` saves the doc as JSON. Write the edits as `ops = [(section, old, new), ...]` in a .py file.
+2. `python3 .claude/skills/scriptfromoutline/references/gdoc_edits/suggest_builder.py doc.json ops --show`. It cuts
+   each edit down to the words that differ, refuses an `old` that does not match exactly once in its script, and prints
+   the request batches. Fix every ERROR before sending.
+3. Send two or three ops alone first with `requiredRevisionId` set to the revision it printed. `read_doc` again and run
+   `verify_suggestions.py before.json after.json`: the count must match, and "reject-all view equals the doc before"
+   must be True. Rebuild the rest from that fresh read with `--skip`.
+4. Send the batches highest index first, each with the revision id the last call returned. If a call fails on the
+   revision id, Dan is typing in the doc: read it again and rebuild.
+5. Verify again with the ops file as the third argument, and save the list as `Docs/COPYEDIT_<doc>_AS_DELIVERED_<date>.md`.
+
+Traps: text Dan typed has curly apostrophes and the builder keeps them. A missing space after a period may be a soft
+line break he typed (it shows as `\x0b` in the JSON): look before "fixing" it. Paragraph breaks and moved lines are
+not worth a suggestion; name them in the chat report.
+
+## Polishing scripts, not sales copy (first run 2026-10-10, his verdict pending)
+
+A filming script is spoken, and most of it has already been through his hands. So:
+
+- **Find out whose line it is first.** Curly apostrophes are his typing. In his lines fix only a typo, a dropped
+  word, a missing period or a misspelled name. Leave his loose grammar ("Here's the 9 exercises").
+- **Change a Claude line only for a tell his own lines do not share.** Count the phrase in his typing and in the
+  rest of the same doc before touching it. On the 10/17 doc: "every single" 0 in his lines against 14, "I've got" and
+  "you've got" 1 against 14, so those went to "every" and "I have". "Here's", "actually", "exactly" and "right now"
+  ran at his rate or below it, so they stayed.
+- **Put a fragment back into a sentence** ("No food." "Too hard? Do them from your knees." "Same wake up, same
+  workout."), and turn a colon reveal ("Here's what most guys don't realize:") into the plain statement.
+- **Do not smooth, vary or tighten.** That is what gets a draft caught (`_shared/DAN-VOICE.md`). No new sentences.
+- Hooks, facts, numbers, cues, the order and anything he rejected in an earlier round are not touched.
+
+## Mechanics: Google Docs suggestions from Chrome (fallback)
+
+Use this only when the Docs connector is not connected.
 
 - **Suggesting mode:** click the mode control at the top right of the toolbar ("Editing"),
   choose "Suggesting", zoom on the control and read the word before any edit.
@@ -247,6 +282,7 @@ Dan does not see the tool calls. The report is what he reads before opening the 
 | Date | Doc | Changes | Accepted | Rejected / re-edited | What moved into the rules |
 |---|---|---|---|---|---|
 | 2026-09-29 | Sales letter: AI Got Me Abs at 40 (draft v1) | 46 | 37 | 9 | DON'T 1 to 9 above; the seven claims edits confirmed |
+| 2026-10-10 | 10/17 shoot doc, 43 filming scripts (`1gt8Fi_wUaNaksa8sAdMoBvcdlBhZLek82EpBr-leq-0`) | 90 | pending | pending | List: `Docs/COPYEDIT_1017_SHOOT_POLISH_AS_DELIVERED_20261010.md`. Next session: read the doc, count, fill this row, move rejections into DON'T |
 
 After every run: add a row, and if a rejection reveals a new category, add it to DON'T with
 the before and after text. Three rejections of the same kind become a rule; one is a note.
