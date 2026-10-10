@@ -1,6 +1,6 @@
 # RO-03 — "The Vacuum — Workout Only": follow-along cut from raw footage
 
-**CONTENT (LFC).** List 1 · organic workout-only · round 1 approved by Dan 2026-10-09; round 2 (the full film) is `Handoffs/handoff-20261009-ro03-round2-full-film.md`. Read `00-RULES.md` first.
+**CONTENT (LFC).** List 1 · organic workout-only · round 1 approved by Dan 2026-10-09; round 2 (the full film) delivered 2026-10-10 and with Dan; next: `Handoffs/handoff-20261010-ro03-round3-dan-review.md`. Read `00-RULES.md` first.
 
 **Other filmed holds exist, on other shoots, and are not used (Dan, 2026-10-10: "I just want to make sure we avoid mixing the two shoots").** 8/28 roll C1677 has three vacuum passes and 7/8 roll C1490 two, but his outfit, sunglasses, skin and the background differ from the 8/14 footage. This film shows the one 8/14 hold (C1625) three times.
 
@@ -21,7 +21,7 @@ versions: the full explainer video and a workout-only cut").
 
 ## Starter prompts
 **Claude (Opus 5, high; a small, templated build):**
-> Superseded 2026-10-09. Use the starter prompt in `Handoffs/handoff-20261009-ro03-round2-full-film.md`.
+> Superseded. Use the starter prompt in `Handoffs/handoff-20261010-ro03-round3-dan-review.md`.
 
 **Codex (GPT-6 Astra, high):**
 > Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-03-the-vacuum-workout-only.md` with `$long-form-content-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.

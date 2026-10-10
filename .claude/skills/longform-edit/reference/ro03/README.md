@@ -55,3 +55,40 @@ Traps this build paid for:
   `B0429` were cut from C1677) and the sibling job docs (RO-02's listed C1677 as extra B-roll). The sidecars' vision
   notes call almost any shirtless standing shot a "stomach vacuum", so confirm each hit on a contact sheet. Then show
   him a side-by-side still of the two shoots BEFORE planning around the other footage: he rejected the mix on sight.
+
+## Round 2 (2026-10-10): the full film, the gates, the independent review
+
+Order: re-hash `round2-plan/decisions.json` -> `build.render_range(0, total)` into `round2/` -> prove the first minute
+against the approved file (PSNR per frame, PCM difference) -> `finish_chain.sh` (audio gate on the film, then on the
+speech alone; `finish.py`: SRT, chapters, `plan.json`; watch pass; `../ro02/haircheck.py`; HyperFrames checks) ->
+`sheet.py` + `validate.py --hash` -> one `ra-reviewer` (the watch judge and the review in one run) -> delivery gate ->
+`deliver.sh` -> `page2.py` -> `review_server.py 8877 round2`.
+
+What is new:
+- `finish.py`: `srt_words.json` beside the master lists words to drop or retime, each with the level reading that
+  justifies it. Cues are built sentence first, then split where the halves come out even (a comma preferred).
+- `sheet.py`: the edit sheet for this build family (several rolls, a crop measured per shot, a cube per exposure
+  trim, PIL chips). The shared writer reads single-roll builds and RO-06's layout only.
+- `gfx.work_state`: the rest count is capped at the rest's own length.
+
+Traps this round paid for:
+- **A countdown rounded up shows one frame too many.** Rest 2 measures 30.016 s, so the chip read 31 for one frame.
+  Sheets at one frame a second cannot show it. The reviewer found it by cropping the chip on every frame. Do that
+  for any counter before the review.
+- **The transcriber invents counting over a silent hold** ("One.", "Three, one.", "Three, two.") and times the first
+  word of the next shot inside the hold. Read the lav level at each word before it goes in the SRT: speech reads -10
+  to -20 dB here, the holds -45.
+- **A word that straddles a join gets an end time from the wrong roll** (`fasting.` ended at 29.76 on a 51.94 start).
+  Print every word whose end is missing, before its start, or past the next word.
+- **The watch tool wants a verdict on every `pair_` image too** (61 images, not 34). Say so in the judge's brief.
+- **Re-rendering one frame changes the encoder's output for the next few frames.** Three watch images differed from
+  the judged render by noise (48.9 dB and up). Compare old and new renders per frame, send only the changed images
+  to a fresh judge, and say "identical" only for frames that are.
+- **A second judge without the plan flagged the flash's first white frame as a blank frame.** Give every judge the
+  plan's line on the flash (one all-white frame, a dip, then the bloom: Muhammad's double pulse).
+- **The delivery gate's lip-sync row samples five evenly spaced points.** Two fell inside music-only holds and read
+  -31 and -3 ms at correlation near zero. Measure the talking sections by hand and report both.
+- **"Each repeat changes size at a different moment" was true on paper only.** Set 3 (far to +11.5 s, then near) is
+  set 1 (far to +10.0 s, then near) for 18.5 of 20 seconds. When one take is shown several times, lay the size
+  schedules side by side on the hold's own clock and check no two sets match for long, and that they do not end on the
+  same close picture.

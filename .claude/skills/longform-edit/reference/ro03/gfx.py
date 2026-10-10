@@ -167,7 +167,7 @@ def work_state(tf, it):
         if tf < H[i] and (i == 0 or tf >= Bp[i-1]):
             if i == 0: return "SET 1 OF 3: GET READY", secs, 1.0
             left = H[i] - tf; tot = H[i] - Bp[i-1]
-            return f"REST. SET {i+1} OF 3 IS NEXT", max(1, math.ceil(left - 1e-6)), max(0, min(1, left / tot))
+            return f"REST. SET {i+1} OF 3 IS NEXT", min(int(round(tot)), max(1, math.ceil(left - 1e-6))), max(0, min(1, left / tot))   # capped at the rest's length: rest 2 measures 30.016 s and read 31 for one frame (round 2 review)
         if H[i] <= tf < Bp[i]:
             left = Bp[i] - tf; return f"SET {i+1} OF 3: HOLD", max(1, math.ceil(left - 1e-6)), max(0, min(1, left / secs))
     return "WORKOUT COMPLETE", 3, 0.0

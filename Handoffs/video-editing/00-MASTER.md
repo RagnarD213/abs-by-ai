@@ -97,7 +97,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 |---|---|---|---|---|
 | [RO-01](RO-01-keep-your-muscle-on-zepbound.md) | How To Keep Your Muscle On Zepbound | 8/14 C1605–08 (27 min) | UPLOADED | L |
 | [RO-02](RO-02-the-vacuum-explainer.md) | The Vacuum: Best Ab Exercise For Belly Fat | 8/14 C1614–29 (26 min) | UPLOADED | L |
-| [RO-03](RO-03-the-vacuum-workout-only.md) | The Vacuum — Workout Only | 8/14 C1625 | IN PROGRESS | S |
+| [RO-03](RO-03-the-vacuum-workout-only.md) | The Vacuum — Workout Only | 8/14 C1625 | DELIVERED: awaiting Dan | S |
 | [RO-04](RO-04-arms-shoulders-workout-only.md) | Arms & Shoulders — Workout Only | 8/3 C1586 | READY | S |
 | [RO-05](RO-05-how-i-make-my-daily-salad.md) | How I Make My Daily Salad | 8/3 C1533–56 (50 min) | UPLOADED | L |
 | [RO-06](RO-06-work-out-at-home-on-a-budget.md) | How To Work Out At Home On A Budget | 8/3 C1557–81 (31 min) | FINALIZED | L |
