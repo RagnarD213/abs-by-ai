@@ -15,7 +15,7 @@ The 2026-10-06 version of this file (Part 1, built mostly from ads he wrote for 
 
 | type | Tier 1 (the baseline) | words | Tier 2 and 3 | the floor |
 |---|---|---:|---|---|
-| Content | 21 Abs By AI videos filmed from outlines with no script (2026), 8 shorts he wrote himself, 32 solo videos from his old business channel (2020 to 2021), his side of Travel Like a Boss episode 252 | 203,000 | his half of the Dan & Dani podcast, his typed outlines (44,000); four Six Pack Shortcuts videos (13,000) | Claude's content scripts as delivered (14,900); the same scripts as Dan read them on camera (9,700); two other fitness creators (16,800) |
+| Content | 21 Abs By AI videos filmed from outlines with no script (2026), 8 shorts he wrote himself, 32 solo videos from his old business channel (2020 to 2021), his side of Travel Like a Boss episode 252 | 203,000 | his half of the Dan & Dani podcast, his typed outlines (44,000); fourteen Six Pack Shortcuts era videos, 2010 to 2017 (17,400) | Claude's content scripts as delivered (14,900); the same scripts as Dan read them on camera (9,700); two other fitness creators (16,800) |
 | Ads | ads he wrote for himself: Abs By AI Ads 1 and 3, nine Abs By AI shorts ads, his typed lines in the batch-1 ads, six 2020 book ads | 9,600 | 107 ads he wrote for other presenters, HBI, Spy Briefing, CPA offers, Physio Tru, 2019 to 2025 (66,800): structure and persuasion, not voice numbers | Claude's and Fable's ad scripts (10,900) |
 | Conversion | his own sales videos and letters: the 2019 consulting video and DR site VSL, the 2020 book funnel and launch videos, the 2021 Black Belt sales pages, his sections of the 2026 /start letter | 27,900 | the 2025 Fujiyama VSL and the 2020 launch-video scripts he wrote partly for a host to deliver (5,700) | VSL Version A, the /start VSL scripts, Claude's letter sections (4,500) |
 | Products | The Sex God Method (2007, 54,400) and 20 Black Belt course videos (2021, 127,400) | 181,800 | 15 Steps (122,800) | none: Claude has never written a product for him |
@@ -35,7 +35,7 @@ Per 100 words unless the name says otherwise. Definitions are in the header of `
 | old channel solo, 2020-21 | 120529 | 2.44 | 0.23 | 0.11 | 6.15 | 3.81 | 0.02 | 0.0 | 19.8 | 21.2 | 98.8 | 11.1 | 0.2 |
 | Travel Like a Boss, 2020 | 8899 | 2.64 | 0.21 | 0.13 | 2.05 | 3.65 | 0.02 | 0.0 | 16.7 | 10.1 | 72.3 | 7.8 | 0.0 |
 | content Tier 2 (podcast half, outlines) | 44333 | 2.22 | 0.28 | 0.34 | 4.79 | 4.44 | 0.02 | 0.0 | 14.0 | 16.4 | 75.1 | 30.3 | 5.1 |
-| content Tier 3 (Six Pack Shortcuts) | 12841 | 3.01 | 0.26 | 0.23 | 4.61 | 4.07 | 0.0 | 0.0 | 22.0 | 53.3 | 102.7 | 3.3 | 0.0 |
+| content Tier 3 (Six Pack Shortcuts) | 17406 | 3.08 | 0.33 | 0.38 | 4.78 | 4.15 | 0.0 | 0.0 | 19.3 | 43.6 | 84.1 | 9.6 | 0.0 |
 | Claude content drafts | 14907 | 3.52 | 0.42 | 0.07 | 6.98 | 2.41 | 0.08 | 0.0 | 12.8 | 7.4 | 34.8 | 14.8 | 5.1 |
 | Dan reading Claude scripts | 9666 | 3.32 | 0.57 | 0.09 | 6.95 | 3.2 | 0.05 | 0.0 | 13.6 | 7.9 | 67.1 | 21.8 | 0.7 |
 | Other fitness creators | 16794 | 3.16 | 0.34 | 0.31 | 5.14 | 3.36 | 0.01 | 0.0 | 21.4 | 15.5 | 106.3 | 9.6 | 0.0 |
@@ -65,7 +65,7 @@ Claude's drafts). Spoken sentences run long partly because speech has no full st
 | old channel solo, 2020-21 | 0.95 | 2.75 | 2.23 | 1.27 | 0.13 | 1.4 | 6.06 | 1.12 | 1.56 | 2.43 | 5.78 | 10.25 | 0.53 | 2.85 | 0.69 | 0.66 | 4.16 | 6.87 | 3.75 |
 | Travel Like a Boss, 2020 | 2.02 | 6.29 | 1.35 | 7.19 | 0.11 | 2.47 | 3.03 | 0.0 | 0.67 | 3.71 | 7.98 | 11.12 | 1.12 | 4.61 | 0.67 | 2.47 | 19.44 | 3.48 | 2.02 |
 | content Tier 2 (podcast half, outlines) | 1.49 | 5.1 | 1.06 | 3.11 | 0.2 | 2.98 | 4.56 | 0.02 | 1.17 | 2.28 | 6.43 | 13.26 | 0.72 | 4.15 | 0.65 | 1.15 | 7.71 | 2.35 | 3.32 |
-| content Tier 3 (Six Pack Shortcuts) | 2.02 | 11.45 | 1.17 | 4.52 | 1.87 | 5.06 | 6.0 | 0.0 | 1.71 | 3.97 | 6.78 | 9.11 | 0.31 | 5.53 | 7.01 | 0.39 | 16.28 | 2.73 | 3.58 |
+| content Tier 3 (Six Pack Shortcuts) | 2.07 | 11.61 | 1.9 | 3.73 | 2.13 | 4.42 | 6.72 | 0.0 | 2.3 | 4.37 | 6.26 | 10.86 | 0.63 | 6.61 | 9.31 | 1.15 | 16.66 | 2.24 | 3.56 |
 | Claude content drafts | 0.87 | 0.8 | 0.47 | 0.07 | 0.27 | 0.67 | 4.02 | 0.0 | 0.67 | 3.89 | 3.42 | 7.04 | 0.13 | 2.15 | 0.2 | 0.13 | 2.55 | 4.02 | 2.08 |
 | Dan reading Claude scripts | 1.03 | 0.93 | 0.41 | 0.0 | 0.0 | 0.72 | 2.9 | 0.21 | 0.52 | 3.93 | 3.62 | 6.83 | 0.1 | 1.97 | 0.31 | 0.1 | 3.0 | 3.83 | 2.17 |
 | Other fitness creators | 1.91 | 3.33 | 2.38 | 0.48 | 0.3 | 2.44 | 5.36 | 0.0 | 2.44 | 3.63 | 8.4 | 8.16 | 0.48 | 1.13 | 1.43 | 0.48 | 4.23 | 2.74 | 1.01 |

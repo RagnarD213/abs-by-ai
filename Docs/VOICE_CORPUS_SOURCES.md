@@ -332,12 +332,22 @@ sits in. Files Dan ruled out are not listed.
 | 2026-second-shoot-video-outlines.txt | Abs By AI Second Shoot Video Outlines | content | 2 | 2026 | written | consumer | 1952 | Drive 15gg6GP_Huy93ZBfTpbQuUtHGDrgHL-bs6Op-nN2UBr8 | dan-wrote |
 | 2026-third-batch-video-outlines.txt | Abs By AI Third Batch Video Outlines | content | 2 | 2026 | written | consumer | 1452 | Drive 100prkvoE0lcxTLn1d7w_X1zeUbT0I3Xy6H3dDT6ZDCg | dan-wrote |
 
-## `content/tier3/sps/` (4 files, 12,841 words)
+## `content/tier3/sps/` (14 files, 17,406 words)
 
 | file | title | type | tier | year | spoken or written | audience | words | source | notes |
 |---|---|---|---:|---:|---|---|---:|---|---|
+| 2010-m-100s-home-cardio-workout-with-mike-chang.txt | M-100s -- Insane Home Cardio Workout For Ninjas -- With Six Pack Shortcuts CEO Dan Rose | content | 3 | 2010 | spoken | consumer | 200 | https://youtu.be/bkD9LwDBWW0 | dan-off-cuff; authorship confidence medium |
+| 2010-the-real-way-to-lose-belly-fat-with-mike-chang.txt | The Real Way To Lose Belly Fat - With Six Pack Shortcuts CEO Dan Rose & His First Trainer  | content | 3 | 2010 | spoken | consumer | 856 | https://youtu.be/-UJHNZHbhiw | dan-off-cuff |
+| 2011-3-abs-diet-and-workout-tips-with-mike-chang.txt | 3 Abs Diet & Workout Tips - With Six Pack Shortcuts CEO Dan Rose & His First Trainer Mike  | content | 3 | 2011 | spoken | consumer | 578 | https://youtu.be/vNUXjc3t0_o | dan-off-cuff |
+| 2011-can-you-lose-30-lbs-in-30-days-with-mike-chang.txt | Can You Lose 30 lbs In 30 Days? | content | 3 | 2011 | spoken | consumer | 294 | https://youtu.be/tV57taqTDzw | dan-off-cuff |
+| 2011-crazy-3-min-home-abs-workout-with-mike-chang.txt | Crazy 3 Min Home Abs Workout - With Six Pack Shortcuts CEO Dan Rose | content | 3 | 2011 | spoken | consumer | 61 | https://youtu.be/GJHDRlepMTM | dan-off-cuff |
 | 2011-forget-about-six-pack-abs-video-response.txt | Forget About Six Pack Abs? With Six Pack Shortcuts CEO Dan Rose | content | 3 | 2011 | spoken | consumer | 1430 | https://youtu.be/Skq9U7bnTxA | dan-off-cuff |
 | 2011-how-to-get-a-six-pack-3-mistakes-with-mike-chang.txt | How To Get A Six Pack: with Six Pack Shortcuts CEO Dan Rose & His First Trainer Mike Chang | content | 3 | 2011 | spoken | consumer | 714 | https://youtu.be/Lds_2yDAHsg | dan-off-cuff |
+| 2011-how-to-get-a-six-pack-3-tips-with-mike-chang.txt | How To Get A Six Pack: 3 Tips For Six Pack Abs | content | 3 | 2011 | spoken | consumer | 490 | https://youtu.be/7Ws5tjS8rzY | dan-off-cuff |
+| 2011-how-to-lose-your-belly-fat-with-mike-chang.txt | How To Lose Your Belly Fat | content | 3 | 2011 | spoken | consumer | 572 | https://youtu.be/8bashNpJVHI | dan-off-cuff |
+| 2011-thank-you-to-youtube-and-google-adwords.txt | Thank you to YouTube & Google Adwords -- Six Pack Shortcuts CEO Dan Rose | content | 3 | 2011 | spoken | business | 370 | https://youtu.be/kMEmc8fPIWM | dan-off-cuff; authorship confidence medium |
+| 2011-the-real-truth-about-abs-with-mike-chang.txt | The REAL TRUTH About Abs - With Six Pack Shortcuts CEO Dan Rose & His First Trainer Mike C | content | 3 | 2011 | spoken | consumer | 468 | https://youtu.be/UutyRrpLRSo | dan-off-cuff |
+| 2012-top-3-fat-loss-shortcuts-with-mike-chang.txt | Top 3 Fat Loss SHORTCUTS | content | 3 | 2012 | spoken | consumer | 676 | https://youtu.be/OTP5i4tRGI0 | dan-off-cuff; authorship confidence medium |
 | 2014-the-story-of-sixpackabs.txt | The Story Of SixPackAbs.com, with CEO Dan Rose | content | 3 | 2014 | spoken | consumer | 428 | https://youtu.be/CKf_F_3j6ds | dan-off-cuff |
 | 2017-pajama-ceo-top-6-tips-for-new-entrepreneurs.txt | CEO Dan Rose's Top 6 Tips For New Entrepreneurs (Pajama CEO) | content | 3 | 2017 | spoken | business | 10269 | https://youtu.be/zDZxfZcRG-I | dan-off-cuff |
 

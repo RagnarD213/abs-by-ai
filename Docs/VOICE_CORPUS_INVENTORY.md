@@ -27,7 +27,7 @@ their Drive ids and authorship notes.
 
 | type | Tier 1 (the baseline) | words | Tier 2 | words | Tier 3 | words |
 |---|---|---:|---|---:|---|---:|
-| **Content** | 21 Abs By AI videos filmed from outlines, no script (72,600; four are raw rolls with retakes); 8 shorts he wrote himself (900 after hold-out); 32 solo videos from the old channel `@danielrose-socialresponse7768`, 2020 to 2021 (120,500); his side of Travel Like a Boss episode 252, 2020 (8,900) | 203,000 | his half of 10 Dan & Dani podcast episodes (36,800); his typed outlines for four shoots and his podcast outlines (7,600) | 44,300 | four Six Pack Shortcuts era videos with him on camera, 2011 to 2017 | 12,800 |
+| **Content** | 21 Abs By AI videos filmed from outlines, no script (72,600; four are raw rolls with retakes); 8 shorts he wrote himself (900 after hold-out); 32 solo videos from the old channel `@danielrose-socialresponse7768`, 2020 to 2021 (120,500); his side of Travel Like a Boss episode 252, 2020 (8,900) | 203,000 | his half of 10 Dan & Dani podcast episodes (36,800); his typed outlines for four shoots and his podcast outlines (7,600) | 44,300 | fourteen Six Pack Shortcuts era videos with him on camera, 2010 to 2017 (ten added 2026-10-10 from links Dan sent; in most he hosts and asks Mike Chang the questions, so his text is questions and bridges) | 17,400 |
 | **Ads** | Abs By AI Ads 1 and 3 as he wrote them; nine Abs By AI shorts ads ("Approach #2"); his typed lines in batch-1 Ads 2 to 15; six 2020 ads for his book | 9,800 | 107 ads for other presenters: Spy Briefing 58, HBI 19, CPA offers 16, Physio Tru 14 (2019 to 2025) | 66,800 | | |
 | **Conversion** | 2019 consulting sales video, 2019 DR marketing site VSL and copy, 2020 book sales page, upsells and launch videos (five also as spoken), 2021 Black Belt sales video outline, cart page, sales page and upsells, his sections of the 2026 /start letter, his 2026 VSL outline | 31,300 | 2025 Fujiyama VSL and one host-read launch video | 2,300 | | |
 | **Products** | The Sex God Method, 2007, 50 chapter files (54,400; 29,900 of it explicit technique, tagged and never quoted); 20 Black Belt course videos, 2021 (127,400) | 181,800 | 15 Steps to Profitable YouTube Advertising, 2020 | 122,800 | | |
@@ -78,7 +78,8 @@ their scripts at 63 to 77 percent: they are Claude's words and sit in the floor 
 - **Lutfi Isnin's portfolio doc:** he does not know the name and does not think he wrote for the agency. Stays out.
 - **"What Five Leading Specialists":** he is not sure. Stays out.
 - **Make Time shorts hooks:** he does not recall them. They stay as pairs only.
-- **Six Pack Shortcuts videos:** he will send links.
+- **Six Pack Shortcuts videos:** he sent 15 links on 2026-10-10. Ten new transcripts of his lines (4,561 words), three were
+  already in, and two were left out because only Mike Chang speaks in them (`Cgal68gEPs0`, `dGjvdxyU74w`).
 
 ## The hold-out set and the bench
 
