@@ -19,6 +19,15 @@
 > `--no-dereverb` still works and is now a no-op. Oversample, EQ fit, expander and the finish were the
 > same on both sides and are unchanged.
 >
+> **The expander can be left out, with a reason (2026-10-10).** `--no-expander-because "<what was heard>"`
+> drops the between-words expander and records the reason in the sidecar. Why: on the RO-07 round 1 first
+> minute (7/8 kitchen rolls, room 69 ms) the fitted EQ plus the expander passed the gate 12 of 12, a blind
+> listen put it below its own untreated lav (4 of 10 against 5), and Dan rejected it ("the audio sounds
+> really bad"). He picked the audition with a light dereverb, a gentle fixed EQ (`--eq`) and no expander
+> (8 of 10). The default is unchanged: the expander stays on unless a listener heard it chop word endings.
+> On a wet room, run a level-matched audition (untreated lav and the chain default included) and a blind
+> listen BEFORE the first minute (`_shared/PRE-RENDER-APPROVAL.md`, "Before Dan sees anything").
+>
 > ⚠ **The `edt` row (≤ 80 ms) was not changed and now bites harder.** C1652 R4 (approved, "Audio sounds
 > good") reads EDT 88 ms with no dereverb and fails it; the 09-02 spray-tan short Dan rejected read 85. A
 > wet room that fails `edt` is the *measured* half of the opt-in, never a reason to dereverb unheard.

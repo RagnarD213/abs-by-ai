@@ -6,7 +6,7 @@ with the source track taken from pick_lav's JSON and the EQ FITTED to the refere
   python3 voice_chain.py --in <video|wav> --out <out.wav|.mov|.mp4> [--source audio_source.json]
          [--video picture.mp4] [--bed music.mp3 --bed-db -30] [--extra sfx.wav] [--comp]
          [--target -14] [--tp -2.5] [--no-fit] [--eq "<af>"] [--frame-lock picture.mp4]
-         [--dereverb-because "<what you heard, on which A/B>"]
+         [--dereverb-because "<what you heard, on which A/B>"] [--no-expander-because "<what you heard>"]
 
 Stages (length-preserving, so pictures stay frame-locked):
   pull      lav track only, mono, per `audio_source.json` (refuses without it unless --in is a WAV
@@ -17,7 +17,9 @@ Stages (length-preserving, so pictures stay frame-locked):
             both the measurement and the reason are written to the sidecar
   fit       highpass 70 + 9 parametric bands + a treble shelf, iterated against the reference on the
             gate's own metric, damped and smoothed so it is a voice EQ and never a comb
-  dynamics  downward expander between words (audio3 EXPAND); compressor OFF unless --comp (<= 1.5:1)
+  dynamics  downward expander between words (audio3 EXPAND); compressor OFF unless --comp (<= 1.5:1).
+            The expander can be left out with --no-expander-because (2026-10-10): on an echoey room it
+            chops the room tail off word endings, which Dan rejected on the RO-07 round 1 first minute
   image     pan=stereo|c0=c0|c1=c0 (centred), bed <= -30 dB ducked by the voice, optional SFX
   finish    measured gain + alimiter (NEVER loudnorm: it goes dynamic), limiter delay measured by
             cross-correlation and removed, -14 LUFS, true peak -2.5 in PCM so the AAC lands <= -1.5
@@ -153,6 +155,10 @@ def main():
                                        "'alpha=0.62,floor_db=-24' (TESTING ONLY - the defaults are what Dan "
                                        "approved by ear on 2026-09-09; the selftest uses this to prove the gate "
                                        "still fails the build he rejected)")
+    ap.add_argument("--no-expander-because", metavar="WHAT_YOU_HEARD",
+                    help="leave the between-words expander OUT: what a listener heard on which A/B (e.g. 'word "
+                         "endings chopped on the RO-07 first minute; Dan picked the no-expander audition'). "
+                         "Written to the sidecar. The default (expander on) is unchanged.")
     ap.add_argument("--frame-lock", help="pad/trim the output to exactly this picture's duration")
     ap.add_argument("--finish-only", action="store_true",
                     help="input is an already-finished STEREO mix (e.g. the reference's own mix): no pull/dereverb/fit/expander, just measured gain + limiter to target")
@@ -166,6 +172,9 @@ def main():
         raise SystemExit("--dereverb PARAMS needs --dereverb-because: the dereverb is opt-in (2026-09-29)")
     if A.dereverb_because is not None and len(A.dereverb_because.strip()) < 12:
         raise SystemExit("--dereverb-because needs a real reason: what was heard, on which A/B")
+    if A.no_expander_because is not None and len(A.no_expander_because.strip()) < 12:
+        raise SystemExit("--no-expander-because needs a real reason: what was heard, on which A/B")
+    expand = "" if A.no_expander_because is not None else EXPAND
     work = A.work or os.path.join(os.path.dirname(os.path.abspath(A.out)), "_voice_chain"); os.makedirs(work, exist_ok=True)
     ref_audio, ref = R.resolve()
     log = dict(version=C.STAMP_VERSION, src=os.path.abspath(A.src), out=os.path.abspath(A.out))
@@ -222,8 +231,11 @@ def main():
         elif A.no_fit: eq, gains, fstep = "highpass=f=70", None, None
         else: eq, gains, fstep = fit_eq(lav, ref, work)
         log["eq"] = eq; log["eq_gains"] = gains
-        voice = ",".join(v for v in [eq, EXPAND, (COMPRESS if A.comp else ""), "pan=stereo|c0=c0|c1=c0"] if v)
-        log["voice"] = voice
+        voice = ",".join(v for v in [eq, expand, (COMPRESS if A.comp else ""), "pan=stereo|c0=c0|c1=c0"] if v)
+        log["voice"] = voice; log["expander"] = bool(expand)
+        if not expand:
+            log["no_expander_because"] = A.no_expander_because.strip()
+            print(f"  dynamics: expander OFF ({A.no_expander_because.strip()!r})")
 
     out = A.out
     def render(voice):
@@ -312,7 +324,7 @@ def main():
             prev = err
             g = np.clip(g - step * err, -10, 10); g[1:-1] = 0.15 * g[:-2] + 0.70 * g[1:-1] + 0.15 * g[2:]
             eq = eq_chain(g); log["eq"] = eq; log["eq_gains"] = [round(float(v), 2) for v in g]
-            render(",".join(v for v in [eq, EXPAND, (COMPRESS if A.comp else ""), "pan=stereo|c0=c0|c1=c0"] if v))
+            render(",".join(v for v in [eq, expand, (COMPRESS if A.comp else ""), "pan=stereo|c0=c0|c1=c0"] if v))
             err = out_err(); sc = max(np.abs(err).mean() / 1.2, np.abs(err).max() / 2.5)
             step[np.sign(err) != np.sign(prev)] *= 0.5
             print(f"  verify {k}: delivered tone mean {np.abs(err).mean():.2f} max {np.abs(err).max():.2f}  err {np.round(err,1).tolist()}")
