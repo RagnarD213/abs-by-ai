@@ -84,7 +84,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **/start video test RUNNING 2026-10-10, Claude.** Reads 10-24, 10-31: `Docs/VSL_LANDING.md`.
 
-**Waist-cover 2026-10-08.** TikTok:phone-upload-pending.
+**Waist-cover 2026-10-08.** TikTok phone upload pending.
 
 
 **SL-03 shorts 3/6 - OWED 2026-10-09, Claude.** `Handoffs/handoff-20261008-sl03-queue-shorts-2-3-6.md`
@@ -120,7 +120,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **RO-11 - QUEUED 2026-10-09, Claude.** YouTube Sun Dec 13, socials Mon. Then: captions, article, links. `Docs/RO11_SETUP_RECEIPT_20261009.md`.
 
-**RO-06 - LINKS DONE, NOT QUEUED 2026-10-10, Claude.** Associates links in description + config (`Docs/AMAZON_ASSOCIATES.md`). Dec 20 taken by RO-03; moved to Sun Dec 27. Blotato 198/200, needs 4. Next: when 2+ slots free, rerun `longform_queue.py scripts/blotato/configs/ro06-home-workout-budget.json --apply`, then receipt.
+**RO-06 - HOLD 2026-10-10, Claude.** Blotato full; rerun queue `--apply`.
 
 **Zeeshan batch - HANDOFF 2026-10-10.** Upwork:Dan. `Handoffs/handoff-20261010-zeeshan-batch-video5-setup-and-archive.md`
 
