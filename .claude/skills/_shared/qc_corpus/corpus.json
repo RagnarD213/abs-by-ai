@@ -3162,6 +3162,67 @@
       "must_trigger": [],
       "measured": "Audio gate on the whole film fails four rows (tone, artifacts, dryness, loudness -15.4) because 60 of 152 s are music-only holds; the talking sections alone pass every row at -13.4 LUFS. Delivery gate 2.5.1: 33 pass, 6 fail (audio:stamp, audio:lipsync with two of five checkpoints inside the holds, style:coverage 1 %, framing:no_wide_level, cut:splice_visibility 1 of 15, captions:burned). Independent review of the first render: DOES NOT SHIP (a one-frame 31 on the rest chip, fixed; set 3 ending on him reaching for his phone; the stamps).",
       "notes": "Final-film creative approval with the gate's raw FAIL kept visible; no threshold was changed. Dan was shown two optional changes (recut set 3 so it stops matching set 1; title case on five of six lower thirds) and asked for neither. A follow-along with long music-only holds has no declared PASS route in the audio gate or the lip-sync row yet. Record: ro03/round2-plan/decisions.json, ro03/round2/notes-RO03.md."
+    },
+    {
+      "id": "ro07-r1-first-minute-rejected-20261009",
+      "verdict": "rejected",
+      "date": "2026-10-09",
+      "root": "ssd",
+      "path": "ro07/round1/first-minute/DRAFT - RO-07 round 1 - first minute.mp4",
+      "sha256": "59ff56f27d4bfe3fdd2b3b0ab0716c543ad17bc21cdba867a214066fdaca8a9f",
+      "bytes": 264078640,
+      "excerpt": [
+        0,
+        62
+      ],
+      "dan": "This color looks awful. ... Also, the audio sounds really bad. Give me a few audio options to fix this in the next round. ... Audio looks bad, or audio sounds bad. Color correction was bad. I think you used the wrong mic here. ... With the graphics, a lot of the time you're just blindly capitalizing words in a very AI-slop deterministic way. ... okay, overall feedback: this is one of the worst edits that you have done in a long time. This is really bad.",
+      "must_trigger": [
+        "style:reference_color_fidelity",
+        "audio:listener_rank_vs_untreated",
+        "style:caps_emphasis_overuse",
+        "style:broll_dan_looks_best"
+      ],
+      "must_pass": [],
+      "measured": "Colour: grade option C (skin Y90 0.46, saturation 1.22, hue +7), chosen on numbers and never viewed full size beside an approved frame; it read dim, muddy and orange. Voice: the chain's fitted EQ on a room with 69 ms early decay (+5.15 dB treble shelf at 6.5 kHz, -3.15 dB at 735 Hz) plus the expander. AUDIO GATE: PASS 12 of 12 on this exact file. Blind Gemini listen: 4 of 10, below the untreated lav (5); light dereverb + fixed warm EQ + no expander scored 8. The lav (channel index 1) was the mic used. Capitals: one FULL CAPS word in nearly every lower third (he sent 16 of 45 back). Opener B-roll: push-ups shot from behind and towel rows in poor light.",
+      "notes": "FINDING: the audio gate cannot see this rejection (every row passed); no threshold was tuned. All four named checks are PENDING: nothing automated compares a grade by eye to an approved video, ranks a treatment against its own untreated lav, counts FULL CAPS words across a film's graphics, or judges how Dan looks in a clip. The process fix is in _shared/PRE-RENDER-APPROVAL.md, 'Before Dan sees anything' (look and sound bake-off before the first minute). Lessons: longform-edit/reference/ro07/README.md; VIDEO-RULES.md top section (capitals, B-roll). Record: ro07/round2-plan/decisions.json."
+    },
+    {
+      "id": "ro07-colour-D-approved-20261010",
+      "verdict": "approved",
+      "date": "2026-10-10",
+      "root": "ssd",
+      "path": "ro07/round1b/colour/option-D.mp4",
+      "sha256": "509b1bf9fce458a1cf31cc50d3d0169adcf409c5875b91a6e82dced2ef14ff5f",
+      "bytes": 16354883,
+      "excerpt": [
+        0,
+        15
+      ],
+      "dan": "Let's go with D for the color. I agree with your recommendation.",
+      "scope": "Colour only, for both 7/8 kitchen rolls (C1484, C1485): a 15.9 s moving sample, picked from four options (B, C, D, E) shown side by side. Not a cut, sound or graphics approval.",
+      "must_pass": [],
+      "must_trigger": [],
+      "measured": "Option D: hqdn3d light denoise, shadow-only blue removal, skin Y90 lifted to 0.57 (C was 0.46), saturation 1.08 (C was 1.22), hue +4 (C was +7). Grade strings: ro07/grades.json key D; decisions.json item look-colour-LOCK.",
+      "notes": "Creative approval of a look sample. The poolside B-roll rolls keep their own outdoor grade. Paired with the rejected ro07-r1-first-minute-rejected-20261009 (option C on the same footage)."
+    },
+    {
+      "id": "ro07-voice-4-approved-20261010",
+      "verdict": "approved",
+      "date": "2026-10-10",
+      "root": "ssd",
+      "path": "ro07/round1b/audio/4-warm-less-room.wav",
+      "sha256": "7ad58a5806bd9d6a627f391b350a4bb12ac91ef520229a8cc9a7b154048b01bc",
+      "bytes": 5952078,
+      "excerpt": [
+        0,
+        31
+      ],
+      "dan": "Let's go with 4 for the voice warm less kitchen echo. Agree with both of your recommendations.",
+      "scope": "Voice treatment only: a 31 s audition (first-minute output 13.8 to 44.8 s), picked from five level-matched options. Lav, light dereverb (alpha 0.30, floor -10 dB), EQ highpass 70 / +1.5 dB at 140 Hz / -3 dB at 450 Hz / -1 dB at 3.2 kHz, NO expander, NO fitted EQ, shared finisher to -14 LUFS.",
+      "must_pass": [],
+      "must_trigger": [],
+      "measured": "-14.1 LUFS, -2.4 dBTP, LRA 5.2. Blind Gemini listen against the reference: 8 of 10, ranked first of five (as delivered 4, untreated lav 5, warm EQ only 6, far mic 2). Raw room early decay 69 ms.",
+      "notes": "Audio-only audition, so no camera gate row is claimed here; the film's own gate rows are reported with the round 2 first minute. This is the second approved opt-in dereverb (after website rev 6): the room measured wet AND a listener heard it. Built by ro07/recipe/audio_options.py; the film uses voice_chain.py --eq --dereverb-because --no-expander."
     }
   ]
 }
