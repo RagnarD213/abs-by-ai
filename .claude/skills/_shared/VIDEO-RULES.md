@@ -1,3 +1,28 @@
+## A cutaway shows the thing he is naming (Dan, 2026-10-10)
+
+- **When Dan names a piece of equipment, a food or a product in a line, the clip over that line shows him using that very thing.** Dan, finalizing
+  RO-06: *"I referenced the medicine ball... but then you showed images or a clip of me doing toe touches without the medicine ball. That would
+  have been a little better. Show me doing toe touches with the medicine ball... For the future, if I reference the medicine ball, it'd be better
+  to show something where I'm using the medicine ball rather than something unrelated."*
+- How to apply: for every cutaway, read the sentence it covers and write down the object he names. Search the clip library for that object plus
+  the exercise (`clip_library.py find "medicine ball toe touches"`); the right exercise WITHOUT the named object is the wrong clip. If no clip
+  shows it, prefer another real clip that does show the object, then leave him on camera, before using a look-alike. This also binds a cutaway
+  that is moved or lengthened to cover something else: re-read the words it now sits over.
+- He did not ask for a new round over it (RO-06 9:32, clip B0467 over "I prefer the medicine ball though"): a small miss, noted for next time.
+
+## The app feature tour beside Dan is approved for reuse (Dan, 2026-10-10)
+
+- **RO-06's closing scene (15:44) is approved and saved: Dan on camera, moved right, with the app in an upright phone on the left third, showing
+  the home screen, a tap, calorie tracking from a meal photo, a tap, then AI workout demo videos.** Dan: *"I liked what you did with the clip at
+  the end. That's something I think we want to reuse. Showing the calorie tracking and the workouts, I think, is a couple of our strongest
+  features. I really love what you did at the end. Make sure to save that for future reuse."*
+- Reuse it wherever a video says what the app does beyond the goal picture (the call to action of a content video, a website or ad line about
+  features). Lead with calorie tracking and workouts. Clip library: `B0544` is the phone screen alone (432x920, 10 s, lay it in the approved
+  shell beside the presenter); `B0543` is the finished RO-06 scene (his lips say that film's line, so it is a reference, not a drop-in).
+- Rebuild or retime it with `longform-edit/reference/ro06/phone_side.py` (screens captured from a local copy of the app by `appcap6.py`):
+  one fixed presenter position, the phone never on his face, both arms inside the frame, AI-GENERATED on the exercise videos, and none of the
+  banned screens. It sits beside the two other approved app demos (the self-generation demo and the workout-app format, further down).
+
 ## Capital letters in graphics: emphasis now and then, not in every graphic (Dan, 2026-10-09)
 
 - **Title capitalization is the default for every lower third, card and label. FULL CAPS on a word is for the rare graphic

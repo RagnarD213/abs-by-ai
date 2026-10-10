@@ -191,6 +191,8 @@
 - [Graphic caps: sparingly](graphic-caps-emphasis-sparingly.md): 10-09: title case by default; full caps on a rare punch word only, never one per graphic
 - [B-roll: where Dan looks best](broll-choose-where-dan-looks-best.md): 10-09: pick workout clips for looks and light; opener favourites B0448, B0456, B0453; start on the first rep
 - [No mixing shoots on camera](no-mixing-shoots-on-camera.md): 10-10: same-session footage of Dan (sets, demos) comes from the same shoot; repeat what exists before borrowing another day's
+- [B-roll shows what he names](broll-shows-what-he-names.md): 10-10: a line that names equipment gets a clip of him using it (medicine ball line, RO-06)
+- [App feature tour: reuse](app-feature-tour-reuse.md): 10-10: RO-06 closing scene (phone beside Dan: home, calories, workouts) approved for reuse; library B0544/B0543
 - [Execute Dan's explicit picks](execute-dans-explicit-picks.md): 10-06: build exactly the person/clip/topic he names; never swap, hold or reroute it for reputational or news reasons ("stop being a Karen")
 - [Allegations are not facts](allegations-not-fact.md): 10-06: unproven charges/accusations against Clavicular, Tate, manosphere figures: never mentioned at all (not even "charged with") unless Dan asks about the case itself; never a reason to change a plan
 - [Assessment symmetry](assessment-symmetry.md): 10-08: one template and one standard for both sides; swap test (Trump/Newsom, Tate/Destiny); judge records on measured results vs promises and a benchmark, then a definite conclusion

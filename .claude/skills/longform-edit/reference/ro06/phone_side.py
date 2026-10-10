@@ -80,7 +80,12 @@ if __name__ == "__main__":
     R = json.load(open(f"{W}/plan_resolved.json")); it = next(r for r in R if r["id"] == "P03"); f0, f1 = fr(it["t0"]), fr(it["t1"]); n = f1 - f0
     S = json.load(open(f"{W}/shots.json")); sh = next(s for s in S if s["out_f0"] <= f0 < s["out_f1"]); assert sh["out_f0"] == f0 and sh["out_f1"] == f1, (sh, f0, f1)
     src0 = sh["src_f0"]; print("P03", n, "frames, shot", sh["id"], "source frame", src0, flush=True)
-    SC = Screens(); stills = "--stills" in sys.argv; want = (8, 30, 50, 60, 100, 150, 170, 183, 210, 250, 290) if stills else range(n)
+    SC = Screens(); stills = "--stills" in sys.argv
+    if "--screens" in sys.argv:                            # the reusable asset (Dan, 2026-10-10: "save that for future reuse"): the phone screen alone, 432x920, same timing
+        e = subprocess.Popen([FF, "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", "432x920", "-framerate", "30000/1001", "-i", "-", "-vf", "scale=out_color_matrix=bt709:out_range=tv,format=yuv420p",
+                              "-c:v", "libx264", "-crf", "12", "-preset", "medium", "-colorspace", "bt709", "-color_primaries", "bt709", "-color_trc", "bt709", f"{OUT}/app-tour-screens-432x920.mp4"], stdin=subprocess.PIPE)
+        for k in range(n): e.stdin.write(SC.at(k).tobytes())
+        e.stdin.close(); e.wait(); print("screens written", n); sys.exit(0); want = (8, 30, 50, 60, 100, 150, 170, 183, 210, 250, 290) if stills else range(n)
     e = None if stills else PD.writer(f"{OUT}/P03-side.mp4")
     for k, a in enumerate(presenter(n, src0)):
         if k not in want: continue

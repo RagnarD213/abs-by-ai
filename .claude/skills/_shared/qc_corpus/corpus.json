@@ -3117,6 +3117,21 @@
       ],
       "measured": "P6 entry at frame25425 (848.3475seconds) changes source A22272 to C1700 frame3259 while both displayed compositions are wide. Prior pair183 judgment recorded hands reset low and nevertheless marked expected. Fresh R4 ASR segment246 splits the original phrase: I have never felt better, callback, in my life. Original A life ends743.50seconds; so starts743.66. P6 must follow the complete sentence.",
       "notes": "Review the full pool return, A presenter run, P6 entry and exit at14:10.68. Declared callback source change cannot clear same-framing pose/hand reset. Named automated row remains PENDING; procedural repair does not claim automated coverage. Sentence-order row also remains PENDING; global surviving-word coverage cannot establish correct order."
+    },
+    {
+      "id": "ro06-r6-final-approved-20261010",
+      "date": "2026-10-10",
+      "root": "ssd",
+      "path": "ro06/round6/RO-06 round 6 - full film.mp4",
+      "sha256": "258bf12224414aa23e3e70d29dd230015666e23a3b2218410ba710fab6ba563b",
+      "bytes": 1889063143,
+      "verdict": "approved",
+      "dan": "All right, this looks good. This is finalized and approved. ... Overall, though, this is a very good edit. I liked what you did with the clip at the end. ... I really love what you did at the end.",
+      "scope": "Complete 16:9 RO-06 round 6 film (16:38): four revisions (fast jump rope, wider and higher crop on a taller canvas at 9:24, repaired mic at 11:23, phone beside Dan at 15:44), lower thirds with the word-gap fix and the 2026-10-09 capitals rule.",
+      "must_pass": [],
+      "must_trigger": [],
+      "measured": "Audio gate fails the tone row only (mean 1.46 against 1.2, max 6.17 against 2.5) with the chain Dan approved on the first minute. Delivery gate 2.5.1: 29 pass, 10 fail (audio:stamp, style:coverage 34 %, framing:hair_top, framing:headroom, framing:no_wide_level, cut:splice_visibility, captions:card_collision, captions:burned, watch:pass, junk:repeated_take). Independent review of the delivered file: SHIP.",
+      "notes": "Final-film creative approval with the gate's raw FAIL kept visible; no threshold was changed. His one note (kept as is): the toe-touch cutaway at 9:32 has no medicine ball while he talks about the medicine ball. Record: ro06/round6/round6-record.json, ro06/round7-plan/decisions.json."
     }
   ]
 }

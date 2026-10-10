@@ -180,3 +180,4 @@ Round 6 (2026-10-09, Dan's four revisions to the full film: jump rope clip, a wi
     150 files, and delete the dense folders after reading its report.
   - **Carry verdicts from every judged version** (`merge6.py`): a strip unchanged against round 5 keeps round 5's verdict, one unchanged against the first
     render of this round keeps that reviewer's, and only the rest go to the next fresh judge (41 of 237).
+- **Dan finalized the round 6 film on 2026-10-10:** "this is a very good edit ... I really love what you did at the end. Make sure to save that for future reuse." The closing app scene is library clip B0543, its phone screen B0544 (`phone_side.py --screens`). His one note, kept as is: the toe-touch cutaway moved to 9:32 has no medicine ball under a line about the medicine ball (VIDEO-RULES, top section: a cutaway shows the thing he names).
