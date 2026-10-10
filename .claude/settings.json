@@ -115,6 +115,16 @@
             "timeout": 15
           }
         ]
+      },
+      {
+        "matcher": "Write|Edit|MultiEdit|mcp__.*__(update_doc|create_draft|update_draft|create_file|update_file|reply|send_message)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR\"/scripts/voice/hook_hard_rules.py",
+            "timeout": 10
+          }
+        ]
       }
     ]
   }

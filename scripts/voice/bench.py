@@ -243,6 +243,10 @@ def for_judging(text, spoken):
     text = re.sub(r"(\*\*|__)(.+?)\1", r"\2", text)            # bold
     text = re.sub(r"(?<![\w*])\*(?!\s)(.+?)(?<!\s)\*(?![\w*])", r"\1", text)  # italics
     text = re.sub(r"(?m)^\s*(-{3,}|\*{3,})\s*$", "", text)     # rules
+    # his 2007 book was typeset with en and em dashes and new copy may never have one (hard rule), so a dash would
+    # decide the pair for a reason that is not voice: both sides get his own typed form, a double hyphen (2026-10-10)
+    text = re.sub(r"(?<=\d)[\u2013\u2014](?=\d)", "-", text)
+    text = re.sub(r"[ \t]*[\u2013\u2014][ \t]*", " -- ", text)
     text = re.sub(r"[ \t]+", " ", text)
     if not spoken:
         return re.sub(r"\n{3,}", "\n\n", text)
@@ -644,8 +648,42 @@ def setup_context(setup, item):
     return "\n\n".join(parts)
 
 
+SET_LEAD = ("Below are {n} pieces by Dan Rose. Every one is really his, word for word. {identity}\n\nRead them as a "
+            "set before you write anything: how he starts a sentence, how he joins two thoughts, which plain words he "
+            "reaches for, where he says the same thing twice, how uneven his sentences are.")
+PAIRS_LEAD = ("Below are {n} worked examples. {identity}\n\nEach example has three parts: a neutral brief of some content, "
+              "how an AI assistant wrote that content up from the brief, and what Dan Rose really wrote or said for the "
+              "same content. Readers who know him pick out the AI version every time. Study exactly what differs "
+              "between the AI version and his, example by example, before you write anything.")
+
+
+def bank_items(setup, item):
+    import bank
+    bk = setup["bank"]
+    return bank.pick(item["type"], bank.bench_format(item), item["words"], bk.get("n", 5), seed=item.get("id", ""),
+                     position=item.get("position"), not_file=item["file"], need_twin=bk.get("pairs", False))
+
+
+def task_lines(item):
+    return (f"What it is: {item['kind']}\nWhere in the piece: {item['position']}.\n"
+            f"Length: about {item['words']} words (stay within 10 percent).\n\n"
+            f"Content brief. Say all of it and add no new facts:\n{item['brief']}")
+
+
 def writer_prompt(setup, item):
     ctx = setup_context(setup, item)
+    if setup.get("bank"):
+        import bank
+        items = bank_items(setup, item)
+        pairs = setup["bank"].get("pairs", False)
+        lead = (PAIRS_LEAD if pairs else SET_LEAD).format(n=len(items), identity=IDENTITY)
+        notes = f"\n\n<notes_on_his_voice>\n{ctx}\n</notes_on_his_voice>" if ctx else ""
+        ask = (f"Now piece {len(items) + 1}, the next piece in this set. " +
+               ("Write what belongs in its what_dan_really_wrote part: not the AI version.\n\n" if pairs else
+                "Write it as Dan Rose.\n\n"))
+        return (f"{lead}\n\n{bank.show(items, pairs=pairs)}{notes}\n\n---\n\n{ask}{task_lines(item)}\n\n"
+                + (setup.get("ask", "") + "\n\n" if setup.get("ask") else "")
+                + "Output only the piece itself: no title, no notes, no stage directions, no quotation marks around it.")
     task = (f"Write the following piece as Dan Rose.\n\n{IDENTITY}\n\nWhat it is: {item['kind']}\n"
             f"Where in the piece: {item['position']}.\nLength: about {item['words']} words (stay within 10 percent).\n\n"
             f"Content brief. Say all of it and add no new facts:\n{item['brief']}\n\n"
@@ -655,6 +693,84 @@ def writer_prompt(setup, item):
     lead = setup.get("lead", "Everything you know about how Dan Rose writes and talks is in these files. Read them "
                              "first and write the piece so that people who know him would believe he wrote it.")
     return f"{lead}\n\n{ctx}\n\n---\n\n{task}"
+
+
+def agent_body(rel):
+    """The instructions of an agent file (`.claude/agents/<name>.md`), without its front matter."""
+    with open(os.path.join(ROOT, rel), encoding="utf-8") as fh:
+        raw = fh.read()
+    return re.sub(r"\A---\n.*?\n---\n", "", raw, flags=re.S).strip()
+
+
+def critic_notes(setup, item, draft, n):
+    """What the critic agent says about a draft. It sees the draft and 8 real pieces, never the writer's prompt."""
+    import bank
+    samples = bank.pick(item["type"], bank.bench_format(item), item["words"], 8, seed=f"critic-{item.get('id')}-{n}",
+                        not_file=item["file"])
+    prompt = (f"What the draft is: {item['kind']}\n\nREAL PIECES BY DAN ROSE:\n\n{bank.show(samples)}\n\n"
+              f"THE DRAFT TO CHECK:\n\n{draft}")
+    v = parse_json(claude_call(prompt, agent_body(setup["critic"]), setup.get("critic_model", WRITER_MODEL)))
+    L = []
+    for m in v.get("marks", [])[:10]:
+        L.append(f"- {m.get('tag', 'WRONG')}: \"{m.get('quote', '')}\". {m.get('why', '')} " +
+                 (f"Try: {m['try']}" if m.get("try") else ""))
+    for m in v.get("missing", [])[:4]:
+        L.append(f"- MISSING: {m.get('what', '')}" + (f" (in his pieces: \"{m['sample']}\")" if m.get("sample") else ""))
+    return "\n".join(L), v
+
+
+def check_notes(item, draft):
+    import bank
+    import voice_check
+    _, hard, text = voice_check.report(draft, item["type"], bank.bench_format(item))
+    return text
+
+
+REVISE = """
+
+---
+
+YOUR DRAFT OF PIECE {n}:
+
+{draft}
+
+---
+
+{who} Notes:
+
+{notes}
+
+Rewrite the draft. Change only what the notes point at and leave every sentence they do not mention exactly as it is. Do not fix one thing by overdoing another: add no catchphrase, filler word or mannerism that is not already in the draft unless a MISSING note asks for it, and then once. Where a number is outside his band, move it inside the band, never past it. Keep every fact and add none. Keep the length.
+
+Output only the piece itself: no title, no notes, no stage directions, no quotation marks around it."""
+
+
+def write_piece(setup, item, d):
+    """Draft, then the setup's revision passes (a critic agent, the checker script, or both). Every stage is kept."""
+    system, model = setup.get("system", "You are a writer."), setup.get("model", WRITER_MODEL)
+    base = writer_prompt(setup, item)
+    stage = lambda n: os.path.join(d, "stages", f"{item['id']}-{n}.txt")
+    text = cached(stage(0), lambda: claude_call(base, system, model))
+    for n, step in enumerate(setup.get("revise", []), 1):
+        def make(text=text, n=n, step=step):
+            notes, who = [], []
+            if step.get("critic"):
+                cn, raw = critic_notes(setup, item, text, n)
+                with open(stage(n).replace(".txt", "-critic.json"), "w", encoding="utf-8") as fh:
+                    json.dump(raw, fh, indent=1)
+                if cn:
+                    notes.append(cn)
+                    who.append("A reader who knows Dan's writing compared your draft with real pieces of his.")
+            if step.get("check"):
+                notes.append(check_notes(item, text))
+                who.append("A script measured the draft against his own numbers.")
+            if not notes:
+                return text
+            idx = (setup.get("bank", {}).get("n", 5) + 1) if setup.get("bank") else 1
+            return claude_call(base + REVISE.format(n=idx, draft=text, who=" ".join(who), notes="\n\n".join(notes)),
+                               system, model)
+        text = cached(stage(n), make)
+    return text
 
 
 def run_dir(setup_name, date):
@@ -668,8 +784,7 @@ def generate(setup_name, date):
 
     def one(item):
         path = os.path.join(d, "gen", item["id"] + ".txt")
-        cached(path, lambda: claude_call(writer_prompt(setup, item), setup.get("system", "You are a writer."),
-                                         setup.get("model", WRITER_MODEL)))
+        cached(path, lambda: write_piece(setup, item, d))
         return item["id"]
     print(f"writing {len(index)} pieces under setup '{setup_name}'", file=sys.stderr)
     pool(one, index)
@@ -677,7 +792,7 @@ def generate(setup_name, date):
     hits = heldout_guard.scan_text
     with open(heldout_guard.SHINGLES, encoding="utf-8") as fh:
         hashes = json.load(fh)["hashes"]
-    leaked = [it["id"] for it in index if hits(setup_context(setup, it), hashes)]
+    leaked = [it["id"] for it in index if hits(writer_prompt(setup, dict(it, brief="")), hashes)]
     if leaked:
         sys.exit(f"setup '{setup_name}' shows the writer held-out text (via its files) for: {leaked}. Fix the files.")
 
