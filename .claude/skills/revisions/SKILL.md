@@ -8,6 +8,14 @@ Read `_shared/VIDEO-RULES.md` first.
 **Task name (Dan, 2026-10-01):** every revisions task renames itself at the start to the editor's first name plus
 "revisions" (`Muhammad revisions`, `Zeeshan revisions`), so Dan can find it in the sidebar.
 
+**Round 4 and later: one minor leftover is accepted, not sent back (Dan, 2026-10-10).** *"This is an example of
+something on round 4 that we can just accept for something minor like this. I would have requested that change in
+round 1, or if there are other things. If there was only this one change, I think we should accept something minor
+like that on round 4 and subsequent rounds."* When a round 4 or later cut has only minor things left, write the
+finalized line, no item, and list the leftovers in the summary under "For Dan's call". A minor item rides along only
+when something that truly needs a round is also in the doc. A standing rule missed for under a second counts as minor.
+Full rule and the worked case: calibration pass 12.
+
 **The first 5 seconds get their own pass (Dan, 2026-10-08).** *"For the shorts and for content generally, I want to pay
 more attention to the first 5 seconds. I want to get more ideas for AI-generated clips in the first 5 seconds... request
 AI clips, put in something we already made, or put in something attention-getting in the beginning more often...
@@ -608,6 +616,33 @@ versus the type of thing to leave in."*
     elsewhere in the doc that still counts that video as open (the opening section said "one clip left on each of
     the other two"); done here with `replaceAllText` through the Docs connector so his own text is untouched.
 
+### Calibration pass 12: Dan's edit to a long-form round 4 (Getting Abs At 40 vs 25, 2026-10-10)
+
+Doc `1AHErd86NwRtFG4-Ul_ICpEyZfsD3jr5JTjdc3MoOsGw`, first draft `revision docs/abs-at-40-vs-25-revisions-zeeshan-round4-10-10-26.md`,
+live copy `...round4-10-10-26.live-as-sent.txt`. The editor had done every round 3 item except one: when he moved the
+real picture label to the upper left he dropped it from the first after picture, which is on screen 0.6 seconds. We
+wrote a one-item round 4 with the STANDING RULE line. Dan deleted the whole section, typed `FINALIZED & APPROVED` in its
+place, and kept the "template approved and locked" block with its two notes for the next videos.
+
+71. **On round 4 or later, a lone minor item is not written. The video is finalized.** His words are at the top of this
+    file. This widens rules 40, 42 and 55: it holds even when the leftover breaks a standing rule of his, as long as it
+    is minor (a label missing for under a second, one letter's case, one small jump cut, a size a little off). The
+    test is not "is a rule broken" but "would a viewer stop on it". What still gets an item on any round: the wrong
+    person or asset, a Google Ads compliance break in something that runs as an ad, a missing or wrong section,
+    anything that makes the video unusable.
+72. **A minor item rides along only when a real item already forces the round.** *"I would have requested that change
+    in round 1, or if there are other things."* So on round 4+: first list what truly needs a round. If that list is
+    empty, finalize and put every minor leftover in the summary under "For Dan's call". If it is not empty, the minor
+    ones go in with it.
+73. **His status line on this long-form was `FINALIZED & APPROVED`.** He still picks the wording (rule 39). When our
+    review ends in "finalize", write the section in that form from the start: the heading, one credit paragraph, the
+    finalized line, and nothing that says an item is left.
+74. **Minor leftovers that matter for the editor's template go in a "for the next videos" block, with "No need to
+    change it in this video".** He kept that block untouched. It teaches the fix without holding the video.
+75. **When he deletes the last item, fix our sentences that still promise one** (rule 34 again). The intro still said
+    "One small thing is left" and the close still asked for a new export; both were corrected in the live doc in the
+    same session, before the message went out.
+
 **Dan's vocabulary — use his words:** "camera scene" (the talking head), "motion effect" (the
 Ken Burns move on stills), "accelerate footage to fit duration", "clip", "bro", "douchey". A simple
 item is one line in that register; keep the longer form only where the editor needs exact text,
@@ -921,6 +956,9 @@ For evidence receipts and blind benchmark freezes, use [REVIEW_EVIDENCE.md](refe
    audio says so; every mistake clip has a red arrow and a red MISTAKE graphic directed; no "same AI man" item, no
    item about a dissolve between B-roll takes; archive footage carries the upscale line; sections are in the
    editor's link order.
+   Then the pass-12 check (rules 71-75) on any round 4 or later: sort what is left into "needs a round" and "minor".
+   If nothing needs a round, the section is the finalized form with no item, the minor leftovers are in the summary
+   under "For Dan's call", and template notes say "No need to change it in this video".
 8. **Write the Google Doc** via the Google Drive MCP `create_file` with
    `contentMimeType: text/markdown` — it converts cleanly to a Doc, including links.
    Keep Dan's `\*\*…\*\*` literal-asterisk look for THROUGHOUT headers. Save the

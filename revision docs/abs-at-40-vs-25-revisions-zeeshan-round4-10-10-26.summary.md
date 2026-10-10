@@ -43,18 +43,19 @@ Work dir: `/Volumes/Extreme/_edit_work/revisions-20261010/zeeshan/`.
 ## AI CLIPS FLAGGED - watch before forwarding
 - None. No new AI clips this round, and one fewer (the barbell clip is gone).
 
-## Paste-ready message
+## Dan's ruling (2026-10-10)
+- FINALIZED. He deleted the one-item section, typed "FINALIZED & APPROVED" and kept the template block. His words: "This is an example of something on round 4 that we can just accept for something minor like this. I would have requested that change in round 1, or if there are other things."
+- The two sentences in the doc that still promised an item were corrected in the live doc. Live copy: `abs-at-40-vs-25-revisions-zeeshan-round4-10-10-26.live-as-sent.txt`.
+- Learned into the skill as calibration pass 12.
 
-Hey Zeeshan, this round is great, thank you! The list cards read perfectly now, and you were right to leave my shot where it is, the card clears me on all three. The before pictures, the barbell clip and the two app recordings in the phone are all exactly what I wanted.
+## Paste-ready message (revised after Dan finalized)
 
-Round 4 is at the top of the same doc, and it's one item:
+Hey Zeeshan, this round is great, thank you! Video 5 is FINALIZED and approved. The list cards read perfectly now, and you were right to leave my shot where it is, the card clears me on all three. The before pictures, the barbell clip and the two app recordings in the phone are all exactly what I wanted.
+
+Nothing further from me on this one. I wrote the template down at the top of the doc as approved and locked, with two small notes for the next videos:
 
 https://docs.google.com/document/d/1AHErd86NwRtFG4-Ul_ICpEyZfsD3jr5JTjdc3MoOsGw/edit
 
-The first after picture at 0:08 lost its label when it moved to the corner. Start the label on that picture too and this video is finished.
+On the doc, I've turned on commenting for you, so you can mark each item as you finish it on the next ones.
 
-I also wrote the template down in the doc as approved and locked, with two small notes for the next videos. Nothing to redo in this one.
-
-On the doc, I've turned on commenting for you, so you can mark each item as you finish it.
-
-Thanks for getting the template dialed in, the next ones should go a lot faster. Really appreciate it!
+Thanks for getting the template dialed in, the next videos should go a lot faster. Really appreciate the work on this one!
