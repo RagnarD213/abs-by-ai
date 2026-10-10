@@ -208,12 +208,16 @@ def voice_shots():
         if s.get("split_of") and out and cont(out[-1], s): out[-1] = dict(out[-1], src_f1=s["src_f1"], out_f1=s["out_f1"])
         else: out.append(dict(s))
     return out
+FILM_VOICE = f"{W}/round2/voice/film_voice.wav"       # the whole film's voice through the shared chain, once (build.py filmvoice)
 def render_range(a, b, out, audio=True, picture=True):
     HCOMP = HC.Compositor(json.load(open(MANIFEST)))
     f0, f1 = fr(a), fr(b); segs = segments(f0, f1)
     if picture: render_picture(a, b, out, f0, f1, segs, HCOMP)
     items = [it for it in R if it["t0"] < b and it["t1"] > a]
     if not audio: os.replace(out + ".v.mp4", out); return
+    if audio == "slice":                                  # a review context clip: the same treated voice the film carries, cut at the clip's frames
+        run([FF, "-v", "error", "-y", "-i", out + ".v.mp4", "-ss", f"{f0/FPS:.5f}", "-t", f"{(f1-f0)/FPS:.5f}", "-i", FILM_VOICE, "-map", "0:v", "-map", "1:a",
+             "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", out]); return
     render_voice(out, f0, f1)
     json.dump(dict(range=[a, b], frames=f1-f0, segments=segs, items=[i["id"] for i in items]), open(out + ".build.json", "w"), indent=1)
     print("built", out, f1-f0, "frames", flush=True)
@@ -237,7 +241,22 @@ def render_picture(a, b, out, f0, f1, segs, HCOMP):
         if HCOMP.active(g): im = Image.fromarray(HCOMP.apply(np.asarray(im), g))
         enc.stdin.write(im.tobytes())
     enc.stdin.close(); enc.wait(); dec.wait()
+# VOICE 4, locked by Dan 2026-10-10 ("Let's go with 4 for the voice warm less kitchen echo"): lav, the chain's approved light dereverb
+# (alpha 0.30, floor -10 dB), a gentle fixed EQ instead of the fitted one, NO expander, the shared finisher. decisions.json: audio-LOCK.
+VOICE4 = ["--eq", "highpass=f=70,equalizer=f=140:t=q:w=1.0:g=+1.5,equalizer=f=450:t=q:w=1.2:g=-3.0,equalizer=f=3200:t=q:w=1.5:g=-1.0",
+          "--dereverb-because", "Dan heard the room on the RO-07 round 1 first minute and picked audition 4 (2026-10-10)",
+          "--no-expander-because", "the expander chopped word endings on the RO-07 round 1 first minute; Dan picked audition 4, which has none (2026-10-10)"]
+def film_voice():
+    """The whole film's voice, assembled from the lav at the cut's own frames and run through the shared chain once (voice 4)."""
+    os.makedirs(os.path.dirname(FILM_VOICE), exist_ok=True); f1 = S[-1]["out_f1"]
+    raw = assemble_voice(FILM_VOICE[:-4], 0, f1)
+    run(["python3", VC, "--in", raw, "--out", FILM_VOICE, "--work", FILM_VOICE + ".work"] + VOICE4)
 def render_voice(out, f0, f1):
+    raw = assemble_voice(out, f0, f1); eq = VOICE4; bed = []
+    if os.environ.get("RO07_BED"):                       # round 5 (Dan: "add a quiet bed"): bed.py's looped Pixabay bed, ducked by the chain; level measured on the gate's floor row
+        bed = ["--bed", os.environ["RO07_BED"], "--bed-db", os.environ.get("RO07_BED_DB", "-30")]
+    run(["python3", VC, "--in", raw, "--video", out + ".v.mp4", "--frame-lock", out + ".v.mp4", "--out", out, "--work", out + ".work"] + eq + bed)
+def assemble_voice(out, f0, f1):
     S = voice_shots()
     wv = wave.open(f"{W}/lav.wav"); wv.setpos(0); L = np.frombuffer(wv.readframes(wv.getnframes()), np.int16).astype(np.float32)/32768
     N = int(round((f1-f0)/FPS*SR)); v = np.zeros(N, np.float32); r = int(0.010*SR)
@@ -252,11 +271,7 @@ def render_voice(out, f0, f1):
         e = min(N, at+len(x)); v[at:e] += x[:e-at]
     raw = out + ".untreated.wav"; o = wave.open(raw, "w"); o.setnchannels(1); o.setsampwidth(2); o.setframerate(SR)
     o.writeframes((np.clip(v, -1, 1)*32767).astype("<i2").tobytes()); o.close()
-    eq = ["--eq", json.load(open(f"{W}/FIT.voice_chain.json"))["eq"]] if os.path.exists(f"{W}/FIT.voice_chain.json") else []
-    bed = []
-    if os.environ.get("RO07_BED"):                       # round 5 (Dan: "add a quiet bed"): bed.py's looped Pixabay bed, ducked by the chain; level measured on the gate's floor row
-        bed = ["--bed", os.environ["RO07_BED"], "--bed-db", os.environ.get("RO07_BED_DB", "-30")]
-    run(["python3", VC, "--in", raw, "--video", out + ".v.mp4", "--frame-lock", out + ".v.mp4", "--out", out, "--work", out + ".work"] + eq + bed)
+    return raw
 if __name__ == "__main__":
     if sys.argv[1] == "segs":
         sg = all_segments(); tot = sum(s["o1"]-s["o0"] for s in sg)
@@ -264,5 +279,6 @@ if __name__ == "__main__":
         print("jumps:", jumps()); print("longest holds (s, at):", holds())
         for s in sg:
             if s["o0"]/FPS < float(sys.argv[2] if len(sys.argv) > 2 else 80): print(f"  {s['o0']/FPS:7.2f} {s['key']:14s} {s['roll']} {s['klass']:6s} {s['framing']} {s['crop']} x{s['zoom']}{' lt' if s['lt'] else ''}{' covered' if s['covered_in'] else ''}{' ACTIVE' if s['active'] else ''}")
+    if sys.argv[1] == "filmvoice": film_voice()
     if sys.argv[1] == "range": render_range(float(sys.argv[2]), float(sys.argv[3]), sys.argv[4])
     if sys.argv[1] == "voice": render_range(float(sys.argv[2]), float(sys.argv[3]), sys.argv[4], picture=False)   # picture kept, voice track rebuilt

@@ -121,7 +121,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **RO-06 - APPROVED 2026-10-10, Claude.** Next: fire `Handoffs/handoff-20261010-ro06-thumbnails-and-video-setup.md`.
 
-**RO-07-R2-HANDOFF 2026-10-10.** fire:`Handoffs/handoff-20261010-ro07-round2-revisions.md`
+**RO-07 - NEEDS DAN 2026-10-10.** R2:localhost:8859. `Handoffs/handoff-20261010-ro07-round2-dan-review.md`
 
 **RO-12 - QUEUED 2026-10-01, Claude.** Blotato Oct 25. Then: `Docs/RO12_SETUP_RECEIPT_20261001.md`, delete.
 

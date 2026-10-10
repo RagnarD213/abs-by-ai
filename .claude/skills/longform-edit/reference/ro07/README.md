@@ -63,3 +63,33 @@ Dan: "one of the worst edits that you have done in a long time." Colour and soun
 - **B-roll:** chosen for the exercise it showed, not for how he looks. Opener favourites: B0448, B0456, B0453.
 - The fix for the process is in `_shared/PRE-RENDER-APPROVAL.md`, "Before Dan sees anything".
 Round 1b (`round1b/`, page 8858): colour D and voice 4 locked by Dan on 2026-10-10. Next: `Handoffs/handoff-20261010-ro07-round2-revisions.md`.
+
+## Round 2 (2026-10-10): what was built and the traps
+
+Order: corpus entries -> `voice_chain.py --no-expander-because` (new shared flag) -> `plan.py` (capitals, G43 split, clips,
+10 cutaways) -> `resolve.py` -> `from_plan.py --render --force` (every lower third: the template gap fix) -> `build.py filmvoice`
+-> `r2media.py first | stills | context` -> `page_r2.py`. Page: `round2/index.html`, port 8859.
+
+- **Voice 4 through the shared chain is sample-identical to the approved audition** (`build.VOICE4`: `--eq`, `--dereverb-because`,
+  `--no-expander-because`). Proof on the same 31 s: correlation 1.0, residual 0 (`round2/voice/proof31_chain.wav`). The audio gate
+  fails it on the tone row only (less treble than the reference, by design). Report it; do not tune it.
+- **Review context clips take their voice from one whole-film chain render** (`build.py filmvoice`, then `render_range(...,
+  audio="slice")`). A 10 s clip run through the chain alone can read a dry room and the dereverb opt-in would refuse it; a
+  slice also sounds exactly like the film will.
+- **The B-roll rolls need a grade entry for every kitchen option.** `grades.json` had A/B/C only for C1490 to C1494, so look D
+  raised KeyError on the first poolside clip. D and E now point at their own outdoor grade.
+- **The library filed two clips wrongly, and the plan believed it.** B0433 is his real KNEE push-ups (the round 1 plan said no
+  real footage existed and used the AI demo); B0431 is kettlebell DEADLIFTS, not swings. Contact-sheet the source roll before
+  writing "no footage exists". Both entries are corrected.
+- **8/28 roll C1680 holds every push-up level side on in low sun** (knee 12 to 36 s, regular 48 to 72 s and 144 to 156 s, handles
+  188 to 212 s and 226 to 250 s). `broll_cuts.py` cuts from it with the library's approved grade (1.30 LUT, saturation 0.88,
+  cooled). The 7/8 handle roll C1492 has the from-behind angle Dan disliked.
+- **Start on the first rep means finding it frame by frame**: a 0.25 s contact sheet of the first seconds of each candidate
+  (squats in C1490 start at 85.9 s, not 78; the handstand and decline clips start a rep at 0.0, not 1.0).
+- **No footage twice also means no shared frames between two clips of one take** (round 1 had C08 inside C21's range).
+- **A stock or AI library clip can carry burned-in text from the film it came from** (A0138 has another video's lower third,
+  A0019 ends on a red X). Look at the contact sheet before placing one.
+- Cover went from 20 % to 26 % with 10 cutaways (13 built, 3 cut after their stills were looked at: burned-in text, and two
+  clips of Dan lying flat or seen from behind). Look at every new clip's still on the sheet before the context render, not
+  after: each plan change re-solves the framing. The library has no clip for the alarm clock, commute, couch and
+  tired-at-night lines. More cover needs new stock.
