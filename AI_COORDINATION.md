@@ -122,7 +122,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **RO-06 - HOLD 2026-10-10, Claude.** Blotato full.
 
-**Zeeshan batch - HANDOFF 2026-10-10.** Upwork:Dan. `Handoffs/handoff-20261010-zeeshan-batch-video5-setup-and-archive.md`
+**Zeeshan batch - HANDOFF 2026-10-10.** `Handoffs/handoff-20261010-zeeshan-batch-video5-setup-and-archive.md`
 
 **RO-07 - BUILDING 2026-10-10, Claude.** `Handoffs/handoff-20261010-ro07-round3-full-film.md`
 

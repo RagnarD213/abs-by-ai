@@ -98,9 +98,8 @@ Copy the whole folder for each of the five videos (master, .srt, `youtube-descri
 
 - Video 5 filed and recorded in `.claude/skills/editor-deliveries/state.json` along with videos 3 and 4 and his four newer folders.
 - All five finals measured: 1920x1080, about 10 Mbps, each the newest file in his folder.
-- Upwork: Dan's finalized message for Video 5 went out 10-10 3:42 PM. The contract close-out (release of the $150 milestone, end
-  contract, 5-star feedback) was put to Dan for his go-ahead in the 10-10 session; it is not part of this handoff. No bonus was
-  promised on this batch (nothing in the milestone terms or the message thread).
+- Upwork contract closed 10-10 on Dan's go-ahead: $150 milestone released ($180 paid in total on the contract), contract ended
+  as completed successfully, 5 stars with public feedback, no bonus (none was promised on this batch).
 
 ## 7. Housekeeping
 
