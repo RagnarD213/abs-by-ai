@@ -9,7 +9,8 @@
 # Dan's build decisions (2026-09-30): both plan pickers cut (the cart has its own plan choice; gen.py no longer
 # draws them), the FAQ note "(Change when the stores list the app.)" cut, WV-01 A 1.2x self-hosted with the
 # tap-for-sound box. 2026-10-03: the cart's 365-day guarantee (gen.gcard, gen.gline, the FAQ item), hidden inside
-# the native apps with the rest of the purchase UI.
+# the native apps with the rest of the purchase UI. 2026-10-10: the video test, WV-01 A against B ("Fired Them
+# All") at 50/50, split in the head script (B_SHARE, VIDEOS below). Same page for both; only the film differs.
 #
 # NEVER hand-edit public/start.html. A change made there is lost on the next build: make it in gen.py or here.
 #
@@ -33,8 +34,24 @@ BP = 900  # px: phone layout below, desktop layout at or above
 VARIANT = 'letter-v1'
 CHECKOUT = f'/?join=1&amp;from=vsl&amp;v={VARIANT}'
 POSTER = '/img/letter/video-poster-wv01.jpg'
-VIDEO_PHONE = '/video/wv01-a-720.mp4'
-VIDEO_DESK = '/video/wv01-a-1080.mp4'
+# The /start video test (Dan, 2026-10-10): two films on one page, one per browser, picked by the head script.
+# The film is the only difference, so both arms keep the page's approved poster still.
+#
+# B_SHARE is B's share of visitors. 0.5 is the 50/50 test. 0 sends everyone to A (the rollback) and 1 sends
+# everyone to B (the rollout); at 0 or 1 a browser's stored arm is ignored. Change it, rebuild, deploy.
+B_SHARE = 0.5
+VIDEO_STORE = 'absbyai_vsl_video'   # localStorage: the arm this browser was given
+VIDEO_FLAG = 'vsl-video-variant'    # exposure key, so a PostHog experiment can read the test if the flag is ever made
+# 'opening' is where that film's opening ends, in seconds of the 1.2x web file (vsl_opening_done fires there).
+# From that point the two films show the same picture ("Number one, AI got me back in the gym"):
+#   A: frame 5111 of the normal-speed film (A_entry in version-b/round4/review/assembly-edl.json) = frame 4260 at 1.2x.
+#   B: frame 7640 of the normal-speed film (opening_frames, same file) = frame 6367 at 1.2x (speed-1p2/review/src_index.npy).
+# Checked 2026-10-10 by matching frames between the two web files: they differ before these frames and match after.
+VIDEOS = {
+    'a': {'phone': '/video/wv01-a-720.mp4', 'desk': '/video/wv01-a-1080.mp4', 'poster': POSTER, 'opening': 142.14},
+    'b': {'phone': '/video/wv01-b-720.mp4', 'desk': '/video/wv01-b-1080.mp4', 'poster': POSTER, 'opening': 212.45},
+}
+WATCH_SECONDS = [30, 60, 120, 240, 480]  # vsl_video_watch milestones: seconds watched with sound on
 FOOT_LINKS = {'Terms': '/terms', 'Privacy': '/privacy', 'Refunds': '/refunds', 'Disclaimer': '/disclaimer', 'Contact': '/contact'}
 SOUND_ICON = gen.ICON['mute']
 
@@ -54,10 +71,9 @@ class Live(gen.Build):
                     '<div class="stripe-right app-hide-purchase"><p class="stripe-txt">7-Day Free Trial<br><span>$0 today</span></p>'
                     f'<a class="stripe-cta js-cta" data-pos="stripe" href="{CHECKOUT}">Start Free Trial</a></div></div></header>')
         parts[2] = ('<div data-k="video" class="vwrap"><div class="vbox" id="vbox">'
-                    f'<video id="vsl" muted autoplay playsinline preload="metadata" poster="{POSTER}" '
-                    'aria-label="Video: Dan Rose, founder of Abs By AI">'
-                    f'<source src="{VIDEO_PHONE}" type="video/mp4" media="(max-width: {BP - 1}px)">'
-                    f'<source src="{VIDEO_DESK}" type="video/mp4"></video>'
+                    '<video id="vsl" muted autoplay playsinline preload="metadata" '
+                    'aria-label="Video: Dan Rose, founder of Abs By AI"></video>'
+                    f'{VIDEO_SOURCES}'
                     '<div class="vdim" id="vdim"></div>'
                     '<button type="button" class="soundbox" id="soundBox">'
                     f'<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{SOUND_ICON}</svg>'
@@ -108,6 +124,16 @@ class Live(gen.Build):
 
 
 APP_NOTE = '<a class="app-only-note app-open" href="/">Open Abs By AI</a>'
+
+# The poster and the two sources (720p for phones, 1080p from the desktop width up) are added here, from the arm the
+# head script picked, so the browser asks for that film only: no markup names the other one.
+VIDEO_SOURCES = ('<script>(function () {'
+                 "var f = window.VSL.film, v = document.getElementById('vsl');"
+                 'v.poster = f.poster;'
+                 "function add(src, media) { var s = document.createElement('source'); s.src = src; s.type = 'video/mp4';"
+                 ' if (media) s.media = media; v.appendChild(s); }'
+                 f"add(f.phone, '(max-width: {BP - 1}px)'); add(f.desk);"
+                 '})();</script>')
 
 
 def fluid(h):
@@ -239,6 +265,7 @@ def head(css):
     title = 'I Fired My Personal Trainer And Used AI To Get Abs Instead | Abs By AI'
     desc = gen.plain(6).replace('SUBHEADLINE: ', '', 1)
     tracking = open(os.path.join(HERE, 'tracking_head.html')).read()
+    videos = json.dumps(VIDEOS)
     return f'''<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -259,7 +286,6 @@ def head(css):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="{POSTER}" />
 <script>
   // Inside the Android app (TWA) or the iOS app the purchase UI is hidden, same check as index.html.
   (function () {{
@@ -267,10 +293,37 @@ def head(css):
     var nativeApp = !!(window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform());
     try {{ nativeApp = nativeApp || sessionStorage.getItem('absbyai_twa') === '1'; }} catch (e) {{}}
     if (nativeApp) document.documentElement.classList.add('native-app');
-    window.VSL = {{ variant: '{VARIANT}', nativeApp: nativeApp }};
+
+    // Video test: which film this browser gets, decided here before anything is drawn.
+    // Order: ?vid=a or ?vid=b (a forced QA view, never counted), then the arm this browser was given
+    // before, then a coin that is stored so the same film plays on every visit.
+    var VIDEOS = {videos}, B_SHARE = {B_SHARE}, STORE = '{VIDEO_STORE}';
+    var arm = null, forced = false, sticky = true, ask = null;
+    try {{ ask = new URLSearchParams(location.search).get('vid'); }} catch (e) {{}}
+    if (ask === 'a' || ask === 'b') {{ arm = ask; forced = true; }}
+    else if (B_SHARE <= 0) arm = 'a';
+    else if (B_SHARE >= 1) arm = 'b';
+    else {{
+      try {{ var had = localStorage.getItem(STORE); if (had === 'a' || had === 'b') arm = had; }} catch (e) {{}}
+      if (!arm) {{
+        arm = Math.random() < B_SHARE ? 'b' : 'a';
+        // Storage blocked: the coin is flipped again on the next page load, and the events say so.
+        try {{ localStorage.setItem(STORE, arm); sticky = localStorage.getItem(STORE) === arm; }} catch (e) {{ sticky = false; }}
+      }}
+    }}
+    var film = VIDEOS[arm];
+    window.VSL = {{ variant: '{VARIANT}', nativeApp: nativeApp, video: arm, videoForced: forced, videoSticky: sticky, film: film }};
+    var pre = document.createElement('link'); pre.rel = 'preload'; pre.as = 'image'; pre.href = film.poster;
+    document.head.appendChild(pre);
   }})();
 </script>
 {tracking}
+<script>
+  // The film this browser got rides on every later event, here and in the cart. The exposure event is
+  // what a PostHog experiment on this key reads if the flag is ever created (same pattern as /start-v1).
+  posthog.register({{ video_variant: VSL.video, video_forced: VSL.videoForced }});
+  posthog.capture('$feature_flag_called', {{ $feature_flag: '{VIDEO_FLAG}', $feature_flag_response: VSL.video, forced: VSL.videoForced }});
+</script>
 <style>
 {css}
 </style>
@@ -282,8 +335,11 @@ SCRIPT = f'''<script>
 (function () {{
   var VSL = window.VSL;
   var $ = function (id) {{ return document.getElementById(id); }};
+  // Every event names the film this browser got (a or b), whether it was a forced QA view, and whether
+  // the arm could be stored.
+  var BASE = {{ variant: VSL.variant, video_variant: VSL.video, video_forced: VSL.videoForced, video_sticky: VSL.videoSticky }};
   function ph(ev, props) {{
-    try {{ if (window.posthog && typeof posthog.capture === 'function') posthog.capture(ev, Object.assign({{ variant: VSL.variant }}, props || {{}})); }} catch (e) {{}}
+    try {{ if (window.posthog && typeof posthog.capture === 'function') posthog.capture(ev, Object.assign({{}}, BASE, props || {{}})); }} catch (e) {{}}
   }}
 
   // Every buy button goes into the web checkout and carries the ad click ids and UTMs, so the
@@ -292,6 +348,8 @@ SCRIPT = f'''<script>
   function checkoutUrl() {{
     var out = new URLSearchParams();
     out.set('join', '1'); out.set('from', 'vsl'); out.set('v', VSL.variant);
+    // The film goes with the click, for browsers that drop the stored value between pages.
+    out.set('vid', VSL.video); if (VSL.videoForced) out.set('vf', '1');
     if (query) query.forEach(function (val, key) {{ if (/^(utm_|gclid$|gbraid$|wbraid$|fbclid$|ttclid$|msclkid$)/.test(key)) out.set(key, val); }});
     return '/?' + out.toString();
   }}
@@ -323,8 +381,17 @@ SCRIPT = f'''<script>
     if (!live && !fired.auto) {{ fired.auto = 1; ph('vsl_video_play', {{ kind: 'mp4', autoplay: true, muted: true }}); }}
   }});
   // Progress counts only watching with sound (after the tap), so muted autoplay does not inflate it.
+  // The two films differ in length, so the percent marks do not compare between them. These do:
+  // vsl_video_watch fires at each WATCH mark of seconds really watched with sound (a skip ahead adds
+  // nothing), and vsl_opening_done fires when playback passes the end of this film's opening.
+  var WATCH = {WATCH_SECONDS}, watched = 0, last = null;
   v.addEventListener('timeupdate', function () {{
     if (!live || !v.duration) return;
+    var t = v.currentTime;
+    if (last !== null && t > last && t - last < 2.5) watched += t - last;
+    last = t;
+    WATCH.forEach(function (s) {{ if (watched >= s && !fired['w' + s]) {{ fired['w' + s] = 1; ph('vsl_video_watch', {{ sec: s }}); }} }});
+    if (t >= VSL.film.opening && !v.seeking && !fired.opening) {{ fired.opening = 1; ph('vsl_opening_done', {{ watched_sec: Math.round(watched) }}); }}
     var pct = v.currentTime / v.duration * 100;
     [25, 50, 75, 100].forEach(function (m) {{ if (pct >= m - (m === 100 ? 1.5 : 0) && !fired[m]) {{ fired[m] = 1; ph('vsl_video_progress', {{ pct: m, sound: true }}); }} }});
   }});

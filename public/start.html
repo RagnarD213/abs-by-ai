@@ -18,7 +18,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="/img/letter/video-poster-wv01.jpg" />
 <script>
   // Inside the Android app (TWA) or the iOS app the purchase UI is hidden, same check as index.html.
   (function () {
@@ -26,7 +25,28 @@
     var nativeApp = !!(window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform());
     try { nativeApp = nativeApp || sessionStorage.getItem('absbyai_twa') === '1'; } catch (e) {}
     if (nativeApp) document.documentElement.classList.add('native-app');
-    window.VSL = { variant: 'letter-v1', nativeApp: nativeApp };
+
+    // Video test: which film this browser gets, decided here before anything is drawn.
+    // Order: ?vid=a or ?vid=b (a forced QA view, never counted), then the arm this browser was given
+    // before, then a coin that is stored so the same film plays on every visit.
+    var VIDEOS = {"a": {"phone": "/video/wv01-a-720.mp4", "desk": "/video/wv01-a-1080.mp4", "poster": "/img/letter/video-poster-wv01.jpg", "opening": 142.14}, "b": {"phone": "/video/wv01-b-720.mp4", "desk": "/video/wv01-b-1080.mp4", "poster": "/img/letter/video-poster-wv01.jpg", "opening": 212.45}}, B_SHARE = 0.5, STORE = 'absbyai_vsl_video';
+    var arm = null, forced = false, sticky = true, ask = null;
+    try { ask = new URLSearchParams(location.search).get('vid'); } catch (e) {}
+    if (ask === 'a' || ask === 'b') { arm = ask; forced = true; }
+    else if (B_SHARE <= 0) arm = 'a';
+    else if (B_SHARE >= 1) arm = 'b';
+    else {
+      try { var had = localStorage.getItem(STORE); if (had === 'a' || had === 'b') arm = had; } catch (e) {}
+      if (!arm) {
+        arm = Math.random() < B_SHARE ? 'b' : 'a';
+        // Storage blocked: the coin is flipped again on the next page load, and the events say so.
+        try { localStorage.setItem(STORE, arm); sticky = localStorage.getItem(STORE) === arm; } catch (e) { sticky = false; }
+      }
+    }
+    var film = VIDEOS[arm];
+    window.VSL = { variant: 'letter-v1', nativeApp: nativeApp, video: arm, videoForced: forced, videoSticky: sticky, film: film };
+    var pre = document.createElement('link'); pre.rel = 'preload'; pre.as = 'image'; pre.href = film.poster;
+    document.head.appendChild(pre);
   })();
 </script>
 <script>
@@ -75,6 +95,12 @@ src="https://www.facebook.com/tr?id=908268999001961&ev=PageView&noscript=1"
 </script>
 <!-- TikTok Pixel Code End -->
 
+<script>
+  // The film this browser got rides on every later event, here and in the cart. The exposure event is
+  // what a PostHog experiment on this key reads if the flag is ever created (same pattern as /start-v1).
+  posthog.register({ video_variant: VSL.video, video_forced: VSL.videoForced });
+  posthog.capture('$feature_flag_called', { $feature_flag: 'vsl-video-variant', $feature_flag_response: VSL.video, forced: VSL.videoForced });
+</script>
 <style>
 body{margin:0;font-family:'Manrope',system-ui,sans-serif;color:#05070B;background:#FFFFFF;-webkit-font-smoothing:antialiased}
 a{color:#C9302D}a:hover{color:#9E2522}
@@ -284,7 +310,7 @@ html.native-app #p .app-only-note{display:flex}
 <div id="p" class="page">
 <header data-k="stripe" class="stripe"><div class="stripe-in"><img src="/img/logo.png" alt="Abs by AI" class="stripe-logo" width="360" height="111"><div class="stripe-right app-hide-purchase"><p class="stripe-txt">7-Day Free Trial<br><span>$0 today</span></p><a class="stripe-cta js-cta" data-pos="stripe" href="/?join=1&amp;from=vsl&amp;v=letter-v1">Start Free Trial</a></div></div></header>
 <div data-k="hero" class="r1"><h1 class="fit-h1 r2">I Fired My Personal Trainer And <span class="hl">Used AI To Get Abs Instead</span></h1><p class="fit-sub r3">I Struggled To Lose My Stubborn Belly For Years. Nothing Worked…Until I Found Five Strange Ways To Use AI To Get Six Pack Abs.</p></div>
-<div data-k="video" class="vwrap"><div class="vbox" id="vbox"><video id="vsl" muted autoplay playsinline preload="metadata" poster="/img/letter/video-poster-wv01.jpg" aria-label="Video: Dan Rose, founder of Abs By AI"><source src="/video/wv01-a-720.mp4" type="video/mp4" media="(max-width: 899px)"><source src="/video/wv01-a-1080.mp4" type="video/mp4"></video><div class="vdim" id="vdim"></div><button type="button" class="soundbox" id="soundBox"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5z"></path><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg><span class="sb-top" id="sbTop">Your video is playing</span><span class="sb-main">Tap to turn on sound</span></button></div></div>
+<div data-k="video" class="vwrap"><div class="vbox" id="vbox"><video id="vsl" muted autoplay playsinline preload="metadata" aria-label="Video: Dan Rose, founder of Abs By AI"></video><script>(function () {var f = window.VSL.film, v = document.getElementById('vsl');v.poster = f.poster;function add(src, media) { var s = document.createElement('source'); s.src = src; s.type = 'video/mp4'; if (media) s.media = media; v.appendChild(s); }add(f.phone, '(max-width: 899px)'); add(f.desk);})();</script><div class="vdim" id="vdim"></div><button type="button" class="soundbox" id="soundBox"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5z"></path><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg><span class="sb-top" id="sbTop">Your video is playing</span><span class="sb-main">Tap to turn on sound</span></button></div></div>
 <p data-k="soundline" class="r4"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#05070B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 1px"><path d="M11 5 6 9H2v6h4l5 4V5z"></path><path d="M15.5 8.5a5 5 0 0 1 0 7"></path><path d="M19 5a10 10 0 0 1 0 14"></path></svg><span><strong style="font-weight: 800">Make sure your sound is on.</strong> Prefer to read? The whole story is below.</span></p>
 <section data-k="offer1" class="r5"><div class="r6"><div style="display: flex; flex-direction: column; gap: 6px"><h2 class="h2">Try Abs By AI Free For 7 Days</h2><p class="r7">Here’s What You Get When You Start Your Free 7-Day Trial…</p></div><ul style="display: flex; flex-direction: column; gap: 14px"><li class="chk"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9302D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 3px"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="min-width: 0"><strong>Your AI goal picture:</strong> Motivate yourself to train with an AI image of yourself with the exact body and abs you want. Make it your phone lockscreen, and lock in.</span></li><li class="chk"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9302D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 3px"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="min-width: 0"><strong>A personalized AI workout plan: </strong>Our AI analyzes your current picture, your goal, and the answers to a few quick questions. Then it generates a personalized workout plan just for you, built to close the gap between your current picture and your goal picture.</span></li><li class="chk"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9302D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 3px"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="min-width: 0"><strong>AI calorie tracking: </strong>Snap a picture of your food, and instantly track your calories and macros. No weighing, no calculating, and no hassle!</span></li><li class="chk"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9302D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 3px"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="min-width: 0"><strong>Delicious, healthy meal prep recipes: </strong>Our AI analyzes your goal, your favorite healthy foods, and the foods you don’t like. Then it creates delicious, easy-to-make meal prep recipes built around your tastes.</span></li><li class="chk"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9302D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 3px"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="min-width: 0"><strong>AI Sleep Coaching: </strong>Improve your sleep and recovery with personalized sleep feedback. Integrates with your sleep tracker data from Oura Ring, Whoop, and Apple Watch.</span></li></ul><a class="cta js-cta app-hide-purchase" data-pos="offer1" href="/?join=1&amp;from=vsl&amp;v=letter-v1">Start My 7-Day Free Trial</a><p class="terms app-hide-purchase"><em>$0 today - try it free for a full 7 days. Cancel anytime in the app in two taps.</em></p><p class="gline app-hide-purchase r8"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" style="flex-shrink: 0"><defs><linearGradient id="gm1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FCF1B8"></stop><stop offset="0.45" stop-color="#E3B64B"></stop><stop offset="1" stop-color="#B07A1E"></stop></linearGradient></defs><polygon points="12.0,0.0 14.3,1.9 17.2,1.2 18.5,3.9 21.4,4.5 21.4,7.5 23.7,9.3 22.4,12.0 23.7,14.7 21.4,16.5 21.4,19.5 18.5,20.1 17.2,22.8 14.3,22.1 12.0,24.0 9.7,22.1 6.8,22.8 5.5,20.1 2.6,19.5 2.6,16.5 0.3,14.7 1.6,12.0 0.3,9.3 2.6,7.5 2.6,4.5 5.5,3.9 6.8,1.2 9.7,1.9" fill="url(#gm1)"></polygon><circle cx="12" cy="12" r="8.6" fill="none" stroke="#8A5E12" stroke-width="0.7"></circle><polyline points="7.6 12.4 10.7 15.3 16.4 9.2" fill="none" stroke="#3D2A05" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"></polyline></svg><span>365-Day Money Back Guarantee</span></p><a class="app-only-note app-open" href="/">Open Abs By AI</a></div></section>
 <section data-k="note" class="r9">
@@ -515,8 +541,11 @@ html.native-app #p .app-only-note{display:flex}
 (function () {
   var VSL = window.VSL;
   var $ = function (id) { return document.getElementById(id); };
+  // Every event names the film this browser got (a or b), whether it was a forced QA view, and whether
+  // the arm could be stored.
+  var BASE = { variant: VSL.variant, video_variant: VSL.video, video_forced: VSL.videoForced, video_sticky: VSL.videoSticky };
   function ph(ev, props) {
-    try { if (window.posthog && typeof posthog.capture === 'function') posthog.capture(ev, Object.assign({ variant: VSL.variant }, props || {})); } catch (e) {}
+    try { if (window.posthog && typeof posthog.capture === 'function') posthog.capture(ev, Object.assign({}, BASE, props || {})); } catch (e) {}
   }
 
   // Every buy button goes into the web checkout and carries the ad click ids and UTMs, so the
@@ -525,6 +554,8 @@ html.native-app #p .app-only-note{display:flex}
   function checkoutUrl() {
     var out = new URLSearchParams();
     out.set('join', '1'); out.set('from', 'vsl'); out.set('v', VSL.variant);
+    // The film goes with the click, for browsers that drop the stored value between pages.
+    out.set('vid', VSL.video); if (VSL.videoForced) out.set('vf', '1');
     if (query) query.forEach(function (val, key) { if (/^(utm_|gclid$|gbraid$|wbraid$|fbclid$|ttclid$|msclkid$)/.test(key)) out.set(key, val); });
     return '/?' + out.toString();
   }
@@ -556,8 +587,17 @@ html.native-app #p .app-only-note{display:flex}
     if (!live && !fired.auto) { fired.auto = 1; ph('vsl_video_play', { kind: 'mp4', autoplay: true, muted: true }); }
   });
   // Progress counts only watching with sound (after the tap), so muted autoplay does not inflate it.
+  // The two films differ in length, so the percent marks do not compare between them. These do:
+  // vsl_video_watch fires at each WATCH mark of seconds really watched with sound (a skip ahead adds
+  // nothing), and vsl_opening_done fires when playback passes the end of this film's opening.
+  var WATCH = [30, 60, 120, 240, 480], watched = 0, last = null;
   v.addEventListener('timeupdate', function () {
     if (!live || !v.duration) return;
+    var t = v.currentTime;
+    if (last !== null && t > last && t - last < 2.5) watched += t - last;
+    last = t;
+    WATCH.forEach(function (s) { if (watched >= s && !fired['w' + s]) { fired['w' + s] = 1; ph('vsl_video_watch', { sec: s }); } });
+    if (t >= VSL.film.opening && !v.seeking && !fired.opening) { fired.opening = 1; ph('vsl_opening_done', { watched_sec: Math.round(watched) }); }
     var pct = v.currentTime / v.duration * 100;
     [25, 50, 75, 100].forEach(function (m) { if (pct >= m - (m === 100 ? 1.5 : 0) && !fired[m]) { fired[m] = 1; ph('vsl_video_progress', { pct: m, sound: true }); } });
   });

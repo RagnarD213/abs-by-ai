@@ -5988,7 +5988,12 @@ window.addEventListener('DOMContentLoaded', async () => {
   // so the whole funnel (generation → analysis → trial → paid) splits by it.
   try {
     const q = new URLSearchParams(location.search);
-    if (q.get('from') === 'vsl' && window.posthog) posthog.register({ landing: 'vsl', landing_variant: q.get('v') || 'unknown' });
+    if (q.get('from') === 'vsl' && window.posthog) {
+      posthog.register({ landing: 'vsl', landing_variant: q.get('v') || 'unknown' });
+      // /start video test: the film this visitor saw (a or b) rides on the cart and trial events too.
+      const vid = q.get('vid');
+      if (vid === 'a' || vid === 'b') posthog.register({ video_variant: vid, video_forced: q.get('vf') === '1' });
+    }
   } catch (e) {}
 
   // Fetch public config (Stripe publishable key) from backend
