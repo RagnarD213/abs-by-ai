@@ -52,3 +52,8 @@ The handoff said to pick the cheaper option that works and record why.
   runs first publishes; the other finds nothing to do.
 
 ## First run
+
+Run by hand ("Run now") on 2026-10-10 at 4:07 PM Central, session `local_034311b8-a1a5-45f9-a98d-d042d85c6aa4`:
+one script call, then the answer "sixpackabs articles: 0 gaps (35 with an article, 4 skipped on purpose)", finished in
+7 seconds. The first run with real work is expected Sunday 2026-10-11, after Stop Deadlifting goes public at 9 AM
+(draft `sixpackabs/articles/TBD-stop-deadlifting.md`).
