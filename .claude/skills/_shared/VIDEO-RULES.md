@@ -149,6 +149,13 @@
 - Context: said the day RO-11's finished film came back with one note, that its seven full-screen section cards looked
   empty and each needed a picture on the right.
 
+## Later-round delivery always includes revisions and review timestamps (Dan, 2026-10-10)
+
+- When most of a video is finished and a later round makes only a few revisions, every delivery message lists each change and the exact timestamps to review in the newly delivered full film. This applies to Claude and Codex, content and ads, and every video editing workflow.
+- For each revision, give a short before/after description, its location in the final master, and a practical watch range with a few seconds of surrounding context so Dan can judge the transition. Verify timestamps from the actual delivered timeline, never an earlier round or raw source.
+- Link the full film and any already available short repair-context clips. Clearly separate new revisions from unchanged existing flags. State that the other approved scenes were preserved when that is true.
+- Do this automatically in the chat, not only inside a report or handoff. Dan should be able to inspect the few changed sections without watching the whole long film again. Required internal full-film QC remains unchanged.
+
 ## Sound effects on transitions: judgment, not a blanket ban (Dan, 2026-10-08)
 
 - **A sound effect on a transition is allowed when it works. The ban is on the sounds that failed, not on sound effects.**

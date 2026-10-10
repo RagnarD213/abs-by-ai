@@ -27,6 +27,10 @@ I am a non-technical user. Explain all tasks in simple terms that a non-technica
 **Video, photo, thumbnail, cover, audio and publishing work: read `.claude/skills/_shared/VIDEO-RULES.md` in full before
 doing anything.** It holds Dan's standing production rules. Not having read it is not an excuse.
 
+## Later-round video review timestamps (Dan, 2026-10-10)
+
+- When a video is mostly finished and a later round changes only a few things, always deliver a concise revision list in chat with exact timestamps in the new full film and short watch ranges around each change. Link available repair clips. Dan should not need to watch the whole film again to find a few revisions. This applies to all video workflows and both Claude and Codex. Full procedure: `.claude/skills/_shared/VIDEO-RULES.md`.
+
 ## Thumbnail and cover mix, and who makes them (Dan, 2026-10-02)
 
 Every finished video gets five thumbnail (or cover) choices: one from the pool shoot, one from the studio shoot, and three
