@@ -163,6 +163,18 @@ class RollSidecarTest(unittest.TestCase):
         rebuilt = json.loads(sidecar.read_text(encoding="utf-8"))
         self.assertEqual({"value": "human correction", "locked": True}, rebuilt["grade"])
 
+    def test_lav_window_remeasures_and_ignores_a_harvested_pick(self):
+        harvested = {"map": "0:a:0", "filter": "pan=mono|c0=c0", "verdict": "two-mics", "duration": 10.0}
+        (self.edit_work / "CTEST.audio_source.json").write_text(json.dumps(harvested), encoding="utf-8")
+        sidecar = self.build()
+        first = json.loads(sidecar.read_text(encoding="utf-8"))["audio"]["lav"]
+        self.assertTrue(first["source"].startswith("harvested:"))
+        self.run_tool("build", str(self.clip), "--no-describe", "--force", "--lav-ss", "2", "--lav-t", "6")
+        lav = json.loads(sidecar.read_text(encoding="utf-8"))["audio"]["lav"]
+        self.assertEqual("measured:pick_lav.py --ss 2.0 --t 6.0", lav["source"])
+        self.assertEqual([2.0, 6.0], lav["window"])
+        self.assertIn("measured on 2 s + 6 s", self.clip.with_name("CTEST.roll.md").read_text(encoding="utf-8"))
+
     def test_find_works_from_mirror_when_source_is_offline(self):
         self.build()
         offline = self.temp / "offline.MP4"
