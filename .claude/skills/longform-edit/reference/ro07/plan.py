@@ -11,13 +11,11 @@ def br(roll, t): return f"{SHOOT}/{roll}.MP4@{t}"
 DAN = dict(people="dan", physique=False)          # real MOVING footage of Dan: no photo label applies
 PLAN = [
  # ---------------- hook (first 5 seconds: Dan's own B-roll of the workout, then Dan)
- dict(id="C01", kind="clip", start="Today I'm going to show you why", end="every day", tail=0.1, src=[br("C1491", 3.2), br("C1494", 8.0)], grade=["C1491", "C1494"], **DAN,
-      note="OPENER. Dan's own B-roll from this shoot: push-ups by the pool, then the towel row. Real footage, his voice runs underneath"),
- dict(id="G01", kind="lt", start="In today's video", end="twice per week", topic="WORK OUT EVERY DAY",
+ dict(id="C01", kind="clip", start="Today I'm going to show you why", end="In today's video I'm going to show you why", tail=0.1, src=["B0448@4.0", "B0456@1.0", "B0453@0.3"], **DAN,
+      note="OPENER, round 1b (Dan: better clips where he looks ripped): his fast correct jump rope, handstand push-ups, decline push-ups on the handles. Real footage, his voice runs underneath. Kettlebell deadlifts have no horizontal cut in the library yet"),
+ dict(id="G01", kind="lt", start="5 minute workout done every day", end="twice per week", topic="WORK OUT EVERY DAY",
       point="5 Minutes DAILY Beats 1 Hour Twice A Week.", parts=[["5 Minutes DAILY", "5 minute workout"], ["Beats 1 Hour Twice A Week.", "one hour workout"]]),
  # ---------------- objections
- dict(id="A1", kind="clip", start="I can't even get myself to work out", end="work out every day", tail=0.15, frames=[f"{AI}/A1-start.png", f"{AI}/A1-end.png"], pending=True, label="AI-GENERATED",
-      people="other", physique=False, note="NEW AI CLIP (frames for approval): a man on his couch looks over at the packed gym bag by the door, then sinks back into the cushions"),
  dict(id="G02", kind="lt", start="wouldn't that be", end="make yourself do it", topic="COMMON QUESTION",
       point="Is Every Day OVERTRAINING? No.", parts=[["Is Every Day OVERTRAINING?", "wouldn't that be"], ["No.", "the answer is no"]]),
  dict(id="C02", kind="clip", start="if you start off with a short five minute workout", end="capability to do right now", tail=0.1, src=[br("C1493", 8.0)], grade="C1493", **DAN,
@@ -68,7 +66,7 @@ PLAN = [
  dict(id="G15", kind="lt", start="Mike Tyson once said", end="punched in the face", tail=0.3, topic="MIKE TYSON SAID",
       point="Everyone Has A Plan Until They Get PUNCHED In The Face.", parts=[["Everyone Has A Plan", "everybody has a plan"], ["Until They Get PUNCHED In The Face.", "until you get"]]),
  dict(id="A3", kind="clip", start="And I guarantee you", end="punch you in the face", tail=0.2, frames=[f"{AI}/A3-start.png", f"{AI}/A3-end.png"], pending=True, label="AI-GENERATED",
-      people="other", physique=False, note="NEW AI CLIP (frames for approval): a man heads for his front door with a gym bag; a big red boxing glove on a spring pops out of the bag and bops him. Slapstick, like the RO-06 slap"),
+      people="other", physique=False, note="NEW AI CLIP, round 1b END frame (Dan: the glove comes from outside, much larger, and knocks him down): he opens the front door and a giant cartoon boxing glove on a spring shoots in from outside at the right edge and knocks him flat"),
  dict(id="G16", kind="lt", start="Something would come up on Thursday", end="the day is missed", tail=0.5, topic="HOW ONE SKIPPED DAY SNOWBALLS",
       point="Thursday. Friday. \"Next Week.\"", parts=[["Thursday.", "come up on Thursday"], ["Friday.", "But then tomorrow comes"], ["\"Next Week.\"", "start again next week"]]),
  dict(id="G17", kind="lt", start="There is no decision", end="working out or not", tail=0.5, topic="KEY POINT",
