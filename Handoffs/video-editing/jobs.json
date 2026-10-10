@@ -1037,7 +1037,7 @@
    "updated": "2026-10-10",
    "by": "claude",
    "rev": 6,
-   "syncedRev": 4,
+   "syncedRev": 6,
    "editor": "Claude",
    "needs": ""
   },
@@ -1766,7 +1766,7 @@
    "updated": "2026-10-10",
    "by": "Codex",
    "rev": 2,
-   "syncedRev": 1,
+   "syncedRev": 2,
    "editor": "Codex",
    "needs": ""
   },
@@ -2177,7 +2177,7 @@
    "order": 99,
    "updated": "2026-10-10",
    "rev": 2,
-   "syncedRev": 1,
+   "syncedRev": 2,
    "editor": "Claude",
    "needs": "",
    "by": "Claude"
