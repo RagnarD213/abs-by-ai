@@ -1,0 +1,38 @@
+## READ THIS FIRST - ONE VIDEO FINISHED, ONE CLIP LEFT ON EACH OF THE OTHER TWO
+
+Thanks for these. The videos below are in the same order as the links you sent me. Top 3 Ways To Looksmax is FINALIZED, send me the high quality export. Side Laterals and Rear Delt Flys are both one clip away from finished. You got everything else on both of them: the tight shots are now 25% closer than the wide on every cut, which is exactly what I wanted, both dumbbells stay in the picture for the whole rep, the openers are in, my graphics are on at the right times, and every caption fix is done. The one clip left on each video has the same cause, so here it is once.
+
+- **\*\*WHICH TAKES ARE CORRECT ON THE EXERCISE FOOTAGE\*\***
+    - On the raw clip C1676 I say out loud what each take is right before I do it, either "done right" or which mistake I am about to show. **Only the "done right" takes go under my instructions. A mistake take only goes under the line that names that mistake.** The sound on that clip is very quiet, so turn it all the way up to hear me.
+    - Side laterals on C1676: **0:04 - 0:37 is the only set done right.** After that they are all mistakes: 1:17 - 1:29 using momentum (you have this one on the right line), 1:44 - 1:58 elbows not high enough, 2:06 - 2:18 arms too bent, 2:36 - 2:50 arms not bent enough.
+    - Rear delt flys on C1676: **3:10 - 3:36 is the only set done right.** From 4:01 to 5:40 I show three mistakes: not bending over enough, keeping my back round, and using a weight that is too heavy (you have that last one on the right line).
+    - The other exercise footage from this shoot works the same way. Before you send the next versions of Hammer Curls, Ab Wheel and M100s, turn the sound up on their raw clips and check that every clip under an instruction is a "done right" take.
+- Everything not listed below is approved. Once these two clips are in, these videos are finished.
+
+## HOW TO DO SIDE LATERALS - V2
+
+Almost there, and you got nearly every note. The video now opens on me doing the exercise and cuts back to me right on "and wide shoulders". The tight shots are 25% closer than the wide on every cut, including the last ten seconds, with no zoom during a shot, so I don't jump on screen anywhere. Both dumbbells stay in the picture for the whole rep on every clip, and the blurred fill above and below looks clean. All four of my graphics are on at the right times, and "Then lower" and "and heave" are fixed. Keep all of that. One clip left, and once it is in this video is finished.
+
+**\*\*TIMESTAMPED REVISIONS\*\***
+
+- 0:24.6 - 0:31.7
+    - The new clip here is still one of my mistake takes. Right before these reps, at 1:31 on the raw clip C1676, I say "I'm now going to show a side lateral mistake, not keeping your elbows high enough". You can see it at 0:25.5 and 0:28.5: the dumbbells are well above my elbows. It is playing under "Keep your elbows high", so the picture shows the opposite of what I am saying.
+    - **Replace it with 0:24.4 - 0:31.5 of the raw clip C1676.** That is later in the same set as your clip at 0:10.5 - 0:24.5, the set where I say "side laterals, done right" at the start of the raw clip. With that range I reach the top of a rep on "at the top of the rep" and lower the dumbbells on "Then lower the weight slowly".
+    - Same wide crop as your other clips, with both dumbbells in the picture and the same blurred fill above and below. Keep the dissolves in and out where they are, and keep the captions where they are.
+
+## HOW TO DO REAR DELT FLYS - V2
+
+Almost there, and you got every note from the last list. The video now opens on me doing the exercise and cuts back to me right on "Here's how to do them". The tight shots are 25% closer than the wide on every cut, with my hair under the graphic where there is one. Both dumbbells stay in the picture at the top of every rep, the blurred fill looks clean, and both clips are the same size. The new clip of the man's back shows the back of his shoulders, which is what that line needed, and the pool footage of me is exactly right on "Good posture". All five graphics are on at the right times, the placeholders are gone, and every caption fix is in. Keep all of that. One clip left, and once it is in this video is finished.
+
+**\*\*TIMESTAMPED REVISIONS\*\***
+
+- 0:27.9 - 0:35.0
+    - This one is on me, I missed it in the first cut. At 0:27.9 the strict reps dissolve into a different take, and that take is one of my mistake takes. At 4:37 on the raw clip C1676 I say "I'm now going to show another rear delt fly mistake, keeping your back round". My head is down and my back is rounded for the whole seven seconds, right after I say "Keep your back as flat as possible" and under "Raise the dumbbells out to your sides".
+    - **Take the dissolve out and let the take you are already using at 0:19.7 - 0:27.9 keep running to 0:35.0.** That is 3:18.2 - 3:25.3 of the raw clip C1676, the set where I say "rear delt flys, done right". My arms come up on "Raise the dumbbells", reach the top again on "squeeze your shoulder blades together", and come down on "lower them slowly and under control".
+    - Same wide crop and blurred fill as now, and keep the captions where they are. The bouncing reps at 0:35.0 - 0:41.5 stay exactly as they are. That is the right mistake take for that line.
+
+## TOP 3 WAYS TO LOOKSMAX - V3
+
+**FINALIZED - APPROVED - READY FOR HQ EXPORT**
+
+This one is done, and you got every note. The title now sits in its own band at the top of the opener with the pool clip below it, so the man's head is clear the whole time and the AI-GENERATED label is off him. The middle third is the jawline clip for the full three seconds, with his whole jaw and chin inside the frame. The tight shots are clearly closer than the wide now, the switch still lands right on every cut, and my hair sits under the graphic in every one of them. Nothing further from me on this one.

@@ -1568,3 +1568,22 @@ For evidence receipts and blind benchmark freezes, use [REVIEW_EVIDENCE.md](refe
     is loaded, so check `cut16k.json` exists before starting that cut's reviewer; his links no longer download with
     gdown, use `rclone backend copyid gdrive: <id> <dest>` (in zsh split a "id name" pair with `${=p}`). Work dir:
     `/Volumes/Extreme/_edit_work/revisions-20261008/muhammad/` (BRIEF.md there is the exercise-short version).
+75. ⚠ **Exercise B-roll rolls: Dan announces every take, and the roll sound is nearly silent. Boost it and read it before
+    crediting or directing ANY exercise clip (2026-10-10).** Roll C1676 (8/28, side laterals and rear delt flys) sits at
+    -72 dB, so its sidecar says "no speech" and two reviews mapped its takes by picture. Boosted
+    (`ffmpeg -af "highpass=f=120,volume=48dB,alimiter=limit=0.9"`, then Whisper `small` with `--word_timestamps True
+    --condition_on_previous_text False`; without that flag it repeats one sentence for minutes), it reads "side laterals,
+    done right", then four named mistakes, "rear delt flys, done right", then three named mistakes. Only ONE set of each
+    exercise is correct. What it cost: Rear Delt Flys V1 and V2 ran the "back round" mistake take for seven seconds under
+    "Raise the dumbbells" (round 1 called the stretch "one continuous piece" of the correct take: it was two takes
+    joined by a dissolve), and Side Laterals V2 answered Dan's "this clip is a mistake" item with a different mistake
+    take. Procedure on every exercise video, every round: (a) transcribe the boosted roll and write the take map
+    (announcement time, his words, take range); (b) map every exercise clip in the cut to the roll with
+    `reference/rawmatch.py CUT RAW 'a-b,...' T0 T1` and read the per-frame line for a mid-clip jump; (c) a clip under
+    an instruction must be a "done right" take, a mistake take only under the line naming that mistake; (d) the item
+    gives the raw range to use and where the rep should land on the words, and the doc's opening section gives the
+    editor the take map so he can pick right himself. C1676's map is in
+    `revision docs/shorts-revisions-muhammad-10-10-26.summary.md`. This is rule 66 (calibration pass 11) made mechanical.
+    Also new: `reference/cuts.py VIDEO OUTDIR` prints, for every hard cut, the background scale across the cut (the
+    true punch-in ratio, graphics and captions masked), the eye-distance ratio, and the hair top on both sides, plus
+    in-shot zoom and the lowest hair top per shot. It replaced a reviewer agent per cut on a three-short round 2.
