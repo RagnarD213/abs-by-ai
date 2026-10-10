@@ -1,3 +1,9 @@
+## Codex's-choice thumbnails: every image is its own design (Dan, 2026-10-10)
+
+- **When Dan asks for "three AI designs of Codex's choice" (or any set of options with the designer's choice), each image is a different DESIGN, not a different picture dropped into one layout.** Dan, on RO-06's sheet: *"These all essentially have the same design with different images... For Codex's choices going forward, I want a unique design on every image. We're not just putting the same image or different images in the same design five times."*
+- How to apply: before building, write one line per option naming its layout, type treatment, colour and composition, and check that no two share them. Vary the headline placement (left stack, centred, bottom band, over-the-shoulder, split panel), the type style and colour, the subject scale, and the concept (object hero, before/after split, price tag, comparison, close-up detail). The same bar-plus-two-lines on the left over five backgrounds fails. Same copy is still fine; the design is what changes. The real pool and studio photos can keep the house layout; the three AI options may not.
+- Applies to Claude and Codex, every thumbnail and cover task (`/video-setup`, `/ad-setup`, `/coverimage`, `/youtube-packaging`).
+
 ## A cutaway shows the thing he is naming (Dan, 2026-10-10)
 
 - **When Dan names a piece of equipment, a food or a product in a line, the clip over that line shows him using that very thing.** Dan, finalizing
