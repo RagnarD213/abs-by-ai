@@ -48,3 +48,18 @@ Traps this build paid for:
 - **A stock still used on a fact card is still that stock source** (the traffic clip was also a cutaway: one had to go).
 - Hair: the camera left 20 to 45 px above his hair and it touches the edge for moments in six late shots. Both sizes keep
   the camera's top row; reported, not fixable by a crop.
+
+## Round 1 was rejected (2026-10-09): what went wrong, so it is not repeated
+
+Dan: "one of the worst edits that you have done in a long time." Colour and sound rejected, capitals overused, weak B-roll.
+- **Colour:** option C was picked on numbers (skin median, hue against the published references) and never looked at full
+  size beside an approved frame. It read dim, muddy and orange. D (brighter, lighter saturation, denoised) won once four
+  options were viewed side by side. Dark, backlit footage needs the eye test before anything is rendered for Dan.
+- **Sound:** the chain's automatic tone match was fitted on a room with 69 ms early decay and added 5 dB of treble; the
+  expander chopped the room tail off word endings. The audio gate passed it 12 of 12. A blind listen scored it 4 of 10,
+  below the untreated lav (5), with a light dereverb plus a gentle fixed EQ and no expander at 8. On a wet room, run the
+  five-way audition (`audio_options.py`) BEFORE the first minute.
+- **Capitals:** one FULL CAPS word in almost every lower third. Title case is the default (VIDEO-RULES, top section).
+- **B-roll:** chosen for the exercise it showed, not for how he looks. Opener favourites: B0448, B0456, B0453.
+- The fix for the process is in `_shared/PRE-RENDER-APPROVAL.md`, "Before Dan sees anything".
+Round 1b (`round1b/`, page 8858): colour D and voice 4 locked by Dan on 2026-10-10. Next: `Handoffs/handoff-20261010-ro07-round2-revisions.md`.

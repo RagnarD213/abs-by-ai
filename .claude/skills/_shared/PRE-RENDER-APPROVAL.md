@@ -9,6 +9,30 @@ The model is Codex's WV-01 website video: its first one-shot attempt was rejecte
 locked (study: `/Volumes/Extreme/_edit_work/ro05-fable/CODEX_METHOD_STUDY.md`). Claude's RO-05 salad recut was built in one shot,
 passed four reviews, and was still rejected on sight for its intro, graphics and grade (2026-09-28).
 
+## Before Dan sees anything: run the look and sound bake-off yourself, and ship the winner (Dan, 2026-10-10)
+
+Dan, after rejecting the RO-07 round 1 first minute for colour and sound and then choosing both of the editor's own
+recommendations from options built AFTER his rejection: *"I feel like you could be working up these options before I even
+review... If you had just worked up these options for yourself before the review and then gone with the recommendations,
+I think that we could have saved some time here."* What failed: one grade was chosen by matching numbers and never looked
+at beside an approved video; the voice went through the automatic tone match on an echoey room, the audio gate passed it
+12 of 12, and nobody listened. So, before the first minute is rendered for him, on every video:
+
+1. **Is this set already approved?** Check the footage itself (contact-sheet the reference; do not trust a job note). A set
+   with a locked look and sound reuses them after a source check. A NEW set, or one that measures differently (skin more
+   than half a stop under, raw room decay over 55 ms, a different microphone layout), gets steps 2 to 4.
+2. **Colour: at least three candidates, judged by eye.** Render the same two moments (wide and tight) in each, then LOOK at
+   them at full size beside frames from two approved videos. Write down what is wrong with each (dim, muddy, orange,
+   noisy). Numbers only narrow the field. Then render the winner moving for 10 to 15 seconds and look again.
+3. **Sound: at least four candidates on the same 30 seconds, judged by a listener.** Always include the untreated lav and
+   the chain's default. Level match them through the shared finisher, then get a blind ranking against the reference
+   (Gemini listen, standing authorization). **A treatment that ranks below its own untreated lav never ships**, whatever
+   the gate says. If the listener hears the room, the dereverb opt-in is justified.
+4. **Build the first minute with the winners** and say on the page, in two lines, what was compared and why the winner won.
+   Dan still sees the runner-up as a one-click alternative; he is not asked to do the comparison himself.
+5. Listen to and watch the finished first minute once more through the same checks before sending it. A passed gate is
+   not a listen.
+
 ## Decision budget for organic and other non-VSL videos (Dan, 2026-09-29)
 
 **Round 1 always shows every graphic, stock item and clip (Dan, 2026-10-08).** *"Let's always do graphics review for all

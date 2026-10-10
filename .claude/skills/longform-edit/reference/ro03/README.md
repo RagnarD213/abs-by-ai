@@ -92,3 +92,7 @@ Traps this round paid for:
   set 1 (far to +10.0 s, then near) for 18.5 of 20 seconds. When one take is shown several times, lay the size
   schedules side by side on the hold's own clock and check no two sets match for long, and that they do not end on the
   same close picture.
+
+**Finalized by Dan 2026-10-10, as delivered** ("All right, this looks good. Give me the handoff for setup."). He was
+shown the set 3 recut and the capitals change as options and asked for neither. Setup:
+`Handoffs/handoff-20261010-ro03-thumbnails-and-video-setup.md`.

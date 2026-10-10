@@ -3147,6 +3147,21 @@
       "must_trigger": [],
       "measured": "R5 strict gate FAIL: 31 passed, 6 failed, 2 initially unmeasured, 4 declared not applicable. Two evidence-only rechecks later passed, not a new full-run verdict. Audio PASS; requested repairs independently PASS.",
       "notes": "Final-film human approval, with historical strict FAIL and two inherited native defects retained. No threshold changes or waivers. R4 rejected controls remain intact. Approval: wv01-edit/version-b/round5/review/final-approval-20261010.json. Claude acceleration handoff: Handoffs/handoff-20261010-wv01-b-claude-1p2x-then-website-test.md"
+    },
+    {
+      "id": "ro03-r2-final-approved-20261010",
+      "date": "2026-10-10",
+      "root": "ssd",
+      "path": "ro03/round2/RO03_MASTER.mp4",
+      "sha256": "b18ceaf68af7f84e98ddfd6e60af5ecd4c7d4d781785fe4bf86ec1a151812a7b",
+      "bytes": 151469857,
+      "verdict": "approved",
+      "dan": "All right, this looks good. Give me the handoff for setup.",
+      "scope": "Complete 16:9 RO-03 follow-along (2:31.6): one 8/14 vacuum hold shown three times with 30 s rests, countdown chip, six lower thirds, music up in the holds. No footage from another shoot (his 10-10 rule).",
+      "must_pass": [],
+      "must_trigger": [],
+      "measured": "Audio gate on the whole film fails four rows (tone, artifacts, dryness, loudness -15.4) because 60 of 152 s are music-only holds; the talking sections alone pass every row at -13.4 LUFS. Delivery gate 2.5.1: 33 pass, 6 fail (audio:stamp, audio:lipsync with two of five checkpoints inside the holds, style:coverage 1 %, framing:no_wide_level, cut:splice_visibility 1 of 15, captions:burned). Independent review of the first render: DOES NOT SHIP (a one-frame 31 on the rest chip, fixed; set 3 ending on him reaching for his phone; the stamps).",
+      "notes": "Final-film creative approval with the gate's raw FAIL kept visible; no threshold was changed. Dan was shown two optional changes (recut set 3 so it stops matching set 1; title case on five of six lower thirds) and asked for neither. A follow-along with long music-only holds has no declared PASS route in the audio gate or the lip-sync row yet. Record: ro03/round2-plan/decisions.json, ro03/round2/notes-RO03.md."
     }
   ]
 }
