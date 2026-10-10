@@ -2,7 +2,7 @@
 
 **CONTENT (LFC).** List 1 · organic workout-only · round 1 approved by Dan 2026-10-09; round 2 (the full film) is `Handoffs/handoff-20261009-ro03-round2-full-film.md`. Read `00-RULES.md` first.
 
-**More filmed holds exist than this doc says (found 2026-10-09 after Dan asked for a second look):** 8/28 roll C1677 has three vacuum passes by the same pool (front 0:00-0:28, profile 0:47-1:20, front 1:40-2:52) and 7/8 roll C1490 has a front and a profile pass. Use three differently filmed sets; do not repeat C1625.
+**Other filmed holds exist, on other shoots, and are not used (Dan, 2026-10-10: "I just want to make sure we avoid mixing the two shoots").** 8/28 roll C1677 has three vacuum passes and 7/8 roll C1490 two, but his outfit, sunglasses, skin and the background differ from the 8/14 footage. This film shows the one 8/14 hold (C1625) three times.
 
 **Dan, 2026-10-09: "Don't model it on Zeeshan's videos. He's not the best editor. Model it on Muhammad's workout videos."** The model below is overridden: use the workout sections of Muhammad's ab wheel cut (`YouTube Long Form Video Content/The $17 Ab Wheel Beats Every Crunch - READY FOR UPLOAD/Muhammad edit/`). Structure comes from the Shoot 4 outline: go directly into the routine, 3 standing holds of 20-30 seconds, 30 seconds of rest between.
 
