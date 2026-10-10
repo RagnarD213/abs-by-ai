@@ -83,6 +83,8 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 # ACTIVE
 
+**Fired Them All AD R5 - IN PROGRESS 2026-10-10, Codex.** Restore approved phone scene and repair P6 sentence/order and picture joins. Preserve opening. Next: full candidate, exact-file QC and VLC delivery. No upload or publish. Detail: `Handoffs/handoff-20261009-wv01-b-round5-final-two-fixes.md`.
+
 **Waist-cover 2026-10-08.** TikTok:phone-upload-pending.
 
 
