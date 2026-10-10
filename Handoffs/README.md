@@ -11,7 +11,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
-- `handoff-20261010-start-vsl-split-test-a-vs-b.md`: /start video split test, WV-01 Version B (Fired Them All) vs A at 50/50. Makes B's 1.2x copy and web files, adds the split through the page generator, deploys, builds the PostHog A vs B dashboard. Fire once Dan approves R5. Opus 5.5 high.
+- `handoff-20261010-start-vsl-split-test-a-vs-b.md`: /start video split test, WV-01 Version B (Fired Them All) vs A at 50/50. Uses the approved 1.2x film from the R6 task, makes its web files, adds the split through the page generator, deploys, builds the PostHog A vs B dashboard. Fire once Dan approves the R6 1.2x film. Opus 5.5 high.
 - [Upwork profile and portfolio](handoff-20261007-upwork-profile-and-portfolio.md): interview Dan, verify experience and assets, build and publish the approved profile. Opus 5.5 high.
 - [Upwork jobs and proposals](handoff-20261007-upwork-job-applications.md): interview for criteria and budgets, decide promotion, prepare custom proposals/samples, submit approved batches, assess Grok Bot scouting. GPT-6.1 Sol high.
 

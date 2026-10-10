@@ -10,13 +10,14 @@ Put WV-01 Version B ("Fired Them All") on `https://absbyai.com/start` as a 50/50
 
 ## Precondition: stop if not met
 
-Dan must have approved Version B R5 in VLC. On 2026-10-10 the board still read "Fired Them All AD R5, Codex. Awaiting VLC approval." If the starter prompt does not say R5 is approved and the board entry is still there, ask Dan in one line and do nothing else.
+Dan finalized Version B R5 on 2026-10-10. The 1.2x copy is being made in a separate task, **Fired Them All AD R6** (`Handoffs/handoff-20261010-wv01-b-claude-1p2x-then-website-test.md`), which delivers it to `Videos to Review/` for Dan's VLC review. This task starts only after Dan has approved that 1.2x film. If the starter prompt does not say the 1.2x film is approved, or the R6 file is missing or still being rebuilt, ask Dan in one line and do nothing else.
 
 ## Decisions already made (do not reopen)
 
 - **Split on the page, not at the ad level.** One URL, a sticky per-browser coin flip. No second landing URL, no Google Ads changes.
 - **No new software.** The page's own code does the split. PostHog (already installed) keeps score. No PostHog feature flag: both stored keys lack flag scopes, and the flag is not needed.
-- **Version B runs at 1.2x, the same as A.** The session makes the 1.2x copy itself. Dan does not send it for a re-edit and does not need to review the speed copy before it goes live (uniform speed change of an approved film; the split is reversible).
+- **Version B runs at 1.2x, the same as A.** The 1.2x film comes from the R6 task. Do not render a second speed copy here; use the approved R6 file as delivered.
+- **The test plan in this document is Dan's decision (this task, 2026-10-10):** page-code split, PostHog scoring, 50/50 traffic, the metrics and the read rules below. The R6 handoff says to get these from Dan before activation. They are settled here; do not ask again.
 - **Layout is locked.** Tests on /start are between videos, never page designs (Dan, 2026-09-28). Do not touch copy, layout, buttons or the cart.
 - **Winner is called on trial starts per visitor and cost per trial**, never on a mid-funnel number (Dan's standing rule). Sound-on rate is an early warning only.
 
@@ -33,24 +34,24 @@ Dan must have approved Version B R5 in VLC. On 2026-10-10 the board still read "
 ## Inputs
 
 - Project root: `/Users/danielrose/Documents/Claude/Projects/Abs By AI`.
-- **Version B master (normal speed):** `/Volumes/Extreme/_edit_work/wv01-edit/version-b/round5/final/Fired Them All AD R5 - complete Version B 1080p.mp4`, SHA256 `903eca4cd69ba19203394ee2a1c51ebb7bc9fce5d9bd6a9d8710c05297bf16fa`, with `.srt` and `.vtt` beside it. About 14:21 at normal speed, so about 11:57 at 1.2x. Verify the hash and probe the real duration first. If Dan approved a later round than R5, use that file and record its hash.
-- **How A's 1.2x copy was made:** `Handoffs/handoff-20260929-wv01-final-a-1p2x-speed-variation.md`; its output and checks are in `/Volumes/Extreme/_edit_work/wv01-edit/speed-1p2/` (`exact_verify.py`, `REVIEW.md`). Use the same method for B.
+- **Version B at 1.2x (the file to install):** `/Volumes/Extreme/_edit_work/wv01-edit/version-b/speed-1p2/Fired Them All AD R6 - Version B 1.2x 1080p.mp4`, with `.srt` and `.vtt` beside it, about 11:57. A copy is in project `Videos to Review/`. Take the approved file's hash, duration and time map from the R6 task's delivery record and review folder (`speed-1p2/review/`), not from this document. If Dan approved a later round than R6, use that file.
+- **Normal-speed master, reference only:** `/Volumes/Extreme/_edit_work/wv01-edit/version-b/round5/final/Fired Them All AD R5 - complete Version B 1080p.mp4`, SHA256 `903eca4cd69ba19203394ee2a1c51ebb7bc9fce5d9bd6a9d8710c05297bf16fa`, 14:20.593.
 - **Live A files:** `public/video/wv01-a-720.mp4` (87.1 MB) and `public/video/wv01-a-1080.mp4.part1` / `.part2` (85.3 MB each). Poster: `public/img/letter/video-poster-wv01.jpg`.
 - **Page generator:** `.claude/skills/design-sales-page/reference/round2-letter/build_live.py` (`VARIANT`, `CHECKOUT`, `POSTER`, `VIDEO_PHONE`, `VIDEO_DESK` at lines 33-37; the `<video>` tag near line 57; `window.VSL` near line 270; the event script from line 282). Check with `verify_live.py` in the same folder. **Never hand-edit `public/start.html`.**
 - **Video route:** `server.js` near line 11643. It joins `<name>.part1`, `.part2`, ... from `public/video/` and serves `/video/:name` with a 7-day cache.
 - **Cart side:** `public/index.html` line 5991 registers `landing: 'vsl', landing_variant: q.get('v')` when `from=vsl`.
 - Operating doc: `Docs/VSL_LANDING.md`. Memory: `vsl-landing-page`, `local-funnel-test-recipe`, `cross-platform-retest-rule`, `paying-members-count`.
-- Read `.claude/skills/_shared/VIDEO-RULES.md` in full before the 1.2x render.
+- Read `.claude/skills/_shared/VIDEO-RULES.md` in full before the web encodes.
 
 ## Steps
 
-### 1. Make Version B at 1.2x
+### 1. Confirm the approved 1.2x file
 
-Work in a new folder, `/Volumes/Extreme/_edit_work/wv01-edit/version-b/speed-1p2/`. Uniform 1.2x on picture and sound, pitch preserved, no cuts, no creative changes. Retime the SRT and VTT by the same factor. Run the same exact-file checks A's copy got (full decode, duration, sync from start through the final CTA, last words intact). The approved R5 master stays untouched.
+Do not render anything. Hash the R6 file on the Extreme drive and the copy in `Videos to Review/` and confirm they match each other and the hash in the R6 delivery record. Confirm the R6 task is finished (no render running in `speed-1p2/`, its board entry and results say delivered) and that the file Dan approved is this one. Record the hash and the exact duration in your report. Leave the R6 folder untouched; put web encodes in a new folder, `/Volumes/Extreme/_edit_work/wv01-edit/version-b/web/`.
 
 ### 2. Web files for B
 
-- Encode `wv01-b-720.mp4` (phones) and `wv01-b-1080.mp4` (desktop) with the same codec, bitrate and faststart settings as A's live files. Probe A's files and match them, so the test is not also a picture-quality test.
+- From the approved R6 file, encode `wv01-b-720.mp4` (phones) and `wv01-b-1080.mp4` (desktop) with the same codec, bitrate and faststart settings as A's live files. Probe A's files and match them, so the test is not also a picture-quality test.
 - **GitHub rejects files over 100 MB.** B is about 14% longer than A, so at A's bitrate the 720p file lands near 99.5 MB and the 1080p near 195 MB. Keep every committed file under 95 MB by splitting into numbered parts (720p in 2 parts, 1080p in 3). Do not lower the bitrate to make it fit. Confirm the join route handles three parts and a split 720p before relying on it.
 - New file names only (the route caches 7 days). Leave A's files as they are.
 - Make B's poster the same way A's was made (caption-free early frame of B, 1280x720): `public/img/letter/video-poster-wv01-b.jpg`.
@@ -63,7 +64,7 @@ Work in a new folder, `/Volumes/Extreme/_edit_work/wv01-edit/version-b/speed-1p2
 - Keep `landing_variant: 'letter-v1'` exactly as it is (existing reports depend on it). Add **`video_variant: 'a' | 'b'`** to every `vsl_` event, and `posthog.register({ video_variant })` so later events carry it.
 - Add `vid=<arm>` to the checkout link next to `v=letter-v1`, and extend `public/index.html` line 5991 to register `video_variant` from `vid`. This covers browsers that drop the registered value between pages.
 - Fire `$feature_flag_called` with `$feature_flag: 'vsl-video-variant'` and the arm as the response once per page view, the same pattern the old /start-v1 page used, so a PostHog experiment can read it later if the flag is ever created.
-- **Watch time in seconds.** The two films differ in length and in where the opening ends, so percent milestones do not compare. After sound on, also fire `vsl_video_watch { sec }` at 30, 60, 120, 240 and 480 seconds, and `vsl_opening_done` when the viewer passes the end of that arm's opening. Take the exact opening end for each arm from the edit records (B's opening is frames [0,7640) of the normal-speed film, about 4:15, so about 3:32 at 1.2x; find A's from `version-b/round4/review/assembly-edl.json`) and write both values into the generator with a comment. Keep the existing percent events.
+- **Watch time in seconds.** The two films differ in length and in where the opening ends, so percent milestones do not compare. After sound on, also fire `vsl_video_watch { sec }` at 30, 60, 120, 240 and 480 seconds, and `vsl_opening_done` when the viewer passes the end of that arm's opening. Take the exact opening end for each arm from the edit records (B's opening is frames [0,7640) of the normal-speed film, about 4:15, so about 3:32 at 1.2x; use the R6 time map for the exact value, and find A's from `version-b/round4/review/assembly-edl.json`) and write both values into the generator with a comment. Keep the existing percent events.
 - Inside the Android and iOS apps nothing changes except which video plays.
 
 ### 4. Check before deploy
@@ -105,8 +106,8 @@ No YouTube upload, no Google Ads edits, no budget change (Dan is deciding that s
 
 ## Exact next action
 
-Verify the precondition, hash the R5 master, then start step 1.
+Verify the precondition, then start step 1 (confirm and hash the approved R6 file).
 
 ## Starter prompt
 
-> Rename this task "Fired Them All AD Setup". Version B (Fired Them All R5) is approved. Run `Handoffs/handoff-20261010-start-vsl-split-test-a-vs-b.md`: make the 1.2x copy of Version B, encode its web files, add the 50/50 video split to /start through the page generator, deploy, verify both arms live on phone and desktop, build the PostHog A vs B dashboard, and record the test in the doc, memory and board. Do not change the page, the cart or any ads.
+> Rename this task "Fired Them All AD Setup". This is a website AD. I approved the 1.2x Version B film (Fired Them All AD R6) in VLC. Run `Handoffs/handoff-20261010-start-vsl-split-test-a-vs-b.md`: use that approved 1.2x file as delivered (do not render another speed copy), encode its web files, add the 50/50 video split to /start through the page generator, deploy, verify both arms live on phone and desktop, build the PostHog A vs B dashboard, and record the test in the doc, memory and board. The test plan in the handoff is my decision; do not ask me to choose software or settings. Do not change the page, the cart or any ads.
