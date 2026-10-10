@@ -120,7 +120,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **RO-11 - QUEUED 2026-10-09, Claude.** YouTube Sun Dec 13, socials Mon. Then: captions, article, links. `Docs/RO11_SETUP_RECEIPT_20261009.md`.
 
-**RO-06 - HOLD 2026-10-10, Claude.** Blotato full; rerun queue `--apply`.
+**RO-06 - HOLD 2026-10-10, Claude.** Blotato full.
 
 **Zeeshan batch - HANDOFF 2026-10-10.** Upwork:Dan. `Handoffs/handoff-20261010-zeeshan-batch-video5-setup-and-archive.md`
 
