@@ -1,3 +1,24 @@
+## A hard-to-picture idea gets a funny AI clip, not a forced literal one (Dan, 2026-10-10)
+
+- **When a line has no straightforward literal picture (a saying, a metaphor, an abstract point), make the AI clip funny on
+  purpose: an obviously unreal, cartoonish gag that acts the line out.** Dan, approving RO-07's A3 frames ("life is going to
+  punch you in the face": a giant cartoon boxing glove on a spring comes through the front door and knocks the man off his
+  feet): *"I think a lot of times, when we have a hard-to-illustrate AI concept like this (where there isn't a
+  straightforward literal clip to generate), doing something funny like this is good. It's obviously not real, but making it
+  funny, I think, is going to make it more accepted by the viewer. This looks like it'll be real funny and entertaining. I
+  really like this one."*
+- How to apply: when writing AI clip concepts, sort each line first. A line with a real literal picture (sore after a
+  workout: a man easing down the stairs) gets that picture, played straight. A line without one gets a slapstick or cartoon
+  idea, offered as start and end frames like any other new AI clip. Make the gag big and readable in one glance (his round 1
+  note on the first version: the glove was too small and came from the wrong place). It joins the lip-synced "excuse" clips
+  and the slap he liked on RO-06 (below).
+- Unchanged: frames are approved before motion, the per-video generation budget, the AI label, no fat pinching or belly
+  framing, and the first-30-seconds rules.
+- Same review, two trims (they bind every exercise clip, real or AI): **a clip of an exercise shows the rep from its first
+  second**, not the hold before it (his handstand push-up piece opened on a static handstand), and **a clip of a lift shows
+  the lift itself**, not only the setup (the AI deadlift before A2 showed him gripping the bar and cut away before it moved).
+  Never run a library clip into text or marks burned into its tail.
+
 ## Codex's-choice thumbnails: every image is its own design (Dan, 2026-10-10)
 
 - **When Dan asks for "three AI designs of Codex's choice" (or any set of options with the designer's choice), each image is a different DESIGN, not a different picture dropped into one layout.** Dan, on RO-06's sheet: *"These all essentially have the same design with different images... For Codex's choices going forward, I want a unique design on every image. We're not just putting the same image or different images in the same design five times."*

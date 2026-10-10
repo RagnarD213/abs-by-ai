@@ -3223,6 +3223,25 @@
       "must_trigger": [],
       "measured": "-14.1 LUFS, -2.4 dBTP, LRA 5.2. Blind Gemini listen against the reference: 8 of 10, ranked first of five (as delivered 4, untreated lav 5, warm EQ only 6, far mic 2). Raw room early decay 69 ms.",
       "notes": "Audio-only audition, so no camera gate row is claimed here; the film's own gate rows are reported with the round 2 first minute. This is the second approved opt-in dereverb (after website rev 6): the room measured wet AND a listener heard it. Built by ro07/recipe/audio_options.py; the film uses voice_chain.py --eq --dereverb-because --no-expander."
+    },
+    {
+      "id": "ro07-r2-first-minute-approved-20261010",
+      "verdict": "approved-with-notes",
+      "date": "2026-10-10",
+      "root": "ssd",
+      "path": "ro07/round2/first-minute/DRAFT - RO-07 round 2 - first minute.mp4",
+      "sha256": "0fce424c24da53a4507940c4102a4b05f276e466e4bbaafd844cbdcc1126cdab",
+      "bytes": 111693560,
+      "excerpt": [
+        0,
+        62
+      ],
+      "dan": "for the handstand pushups at 3 seconds. I like this clip, but I want you to start it immediately when I'm doing the reps. This is just me doing the handstand. I want to see the reps from the first second. ... Everything else is looking good.",
+      "scope": "The rebuilt first minute (64.7 s): colour D, voice 4 through the shared chain, the new opener, G01 to G03 with the capitals rule. One note: the handstand push-up piece (2.07 to 4.14 s) must show reps from its first frame. Not a full-film approval.",
+      "must_pass": [],
+      "must_trigger": [],
+      "measured": "Audio gate: FAIL on one row of 13, tone (mean 1.48 dB against 1.2, max 4.89 against 2.5: less treble than the reference, the fitted treble boost of the rejected round 1 left out). -14.2 LUFS, -2.1 dBTP, early decay 40 ms. The same 31 s is sample-identical to the audition he approved (ro07-voice-4-approved-20261010). Blind Gemini listen: same sound as the approved audition, ahead of the round 1 sound.",
+      "notes": "Creative approval with the gate's raw FAIL kept visible; no threshold was changed. Paired with ro07-r1-first-minute-rejected-20261009 (same cut, colour C and the fitted EQ plus expander, gate PASS 12 of 12): the tone row passed the sound he rejected and fails the sound he chose, on this room. Record: ro07/round3-plan/decisions.json."
     }
   ]
 }
