@@ -308,6 +308,22 @@ def ad_guard(project_root):
         return {"status": "error", "reason": "Organic-ad scan unavailable or timed out"}
 
 
+def article_gaps(project_root):
+    """Public videos whose sixpackabs.com page still has no article (sixpackabs/articles/gap.py)."""
+    script = project_root / "sixpackabs/articles/gap.py"
+    if not script.is_file():
+        return {"status": "missing", "reason": "Article gap check unavailable"}
+    try:
+        p = subprocess.run([sys.executable, str(script), "--json"], capture_output=True, text=True, timeout=90, cwd=str(project_root), env={**os.environ, "PYTHONDONTWRITEBYTECODE": "1"})
+        if p.returncode not in (0, 1):
+            return {"status": "error", "reason": "Article gap check failed; no zero inferred"}
+        data = json.loads(p.stdout)
+        return {"status": "ok", "gaps": int(data["summary"]["gaps"]), "late": int(data["summary"]["late"]),
+                "videos": [{"id": safe_text(g["id"]), "title": safe_text(g["title"]), "ageHours": g["age_hours"], "action": safe_text(g.get("action", ""))} for g in data["gaps"][:10]]}
+    except (OSError, ValueError, TypeError, KeyError, subprocess.TimeoutExpired):
+        return {"status": "error", "reason": "Article gap check unavailable or timed out"}
+
+
 def collect(args):
     now = timestamp(args.now) if args.now else datetime.now(timezone.utc)
     state_dir = private_directory(Path(args.state_dir))
@@ -340,11 +356,11 @@ def collect(args):
         sources["watch_review"]["watch"] = [{k: safe_text(row.get(k, "")) for k in ("title", "why")} for row in data.get("watch", [])[:2]]
         sources["watch_review"]["actions"] = [{k: safe_text(row.get(k, "")) for k in ("act", "why")} for row in data.get("actions", [])[:2]]
     if args.live:
-        sources.update(dashboard=dashboard(credentials), google_ads=run_ads(config, window, credentials), sites=posthog(credentials, config, window), ad_guard=ad_guard(project))
+        sources.update(dashboard=dashboard(credentials), google_ads=run_ads(config, window, credentials), sites=posthog(credentials, config, window), ad_guard=ad_guard(project), article_gaps=article_gaps(project))
         sources["subscriber_leads"] = subscriber_leads(project, window, credentials)
         merge_verified_leads(sources["sites"], sources["subscriber_leads"])
     else:
-        for name in ("dashboard", "google_ads", "sites", "ad_guard", "subscriber_leads"):
+        for name in ("dashboard", "google_ads", "sites", "ad_guard", "article_gaps", "subscriber_leads"):
             sources[name] = {"status": "not_checked", "reason": "Network reads require --live"}
     for name in ("gmail", "calendar"):
         sources[name] = {"status": "missing", "reason": "Local intake not configured; the brief writer can use its separately connected source"}

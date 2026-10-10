@@ -31,7 +31,7 @@ session then has no Dan stop; everything is reversible and runs without asking.
 **Blotato-only YouTube (Dan, 2026-10-01): there is NO Private holding upload any more. Blotato creates the one public
 YouTube video at release time (title, description, thumbnail, AI flag all travel in its YouTube target). Never upload to
 YouTube ourselves and never use YouTube native scheduling.** Anything that needs the YouTube id (thumbnail A/B test,
-English captions, the sixpackabs article page) happens after release: see Step 6 and Step 6b.
+English captions, publishing the sixpackabs article) happens after release: see Step 6 and Step 6b.
 
 ## YouTube Shorts cover verification (2026-10-06)
 
@@ -204,24 +204,35 @@ Runs AFTER release, on the public Blotato-created video (Dan 2026-10-01). Worked
      test and upload the English captions" line in the coordination entry for the publish day (captions: Studio
      Subtitles, **Upload file**, never the Languages page: setting the video language there turned on auto-dubbing, 09-30).
 
-## Step 6b: the sixpackabs.com article (write now, publish once the video is public)
+## Step 6b: the sixpackabs.com article (write and commit now; the daily routine publishes it)
 
-Every public video gets a page at `sixpackabs.com/videos/<slug>/` from the hourly `spa_sync`, up to an hour after it
-goes public. Its body starts as the YouTube description; we replace it with a real article, because Google search is
-the only channel that sends sixpackabs.com engaged visitors (GA4, 2026-09-22). Rules, file format, build and verify
-scripts: `sixpackabs/articles/README.md`. Read it, and one finished article there as the bar.
+Every public video gets a page at `sixpackabs.com/videos/<slug>/` from the five-minute `spa_sync`, about 15 minutes
+after it goes public. Its body starts as the YouTube description; we replace it with a real article, because Google
+search is the only channel that sends sixpackabs.com engaged visitors (GA4, 2026-09-22). Rules, file format, build and
+verify scripts: `sixpackabs/articles/README.md`. Read it, and one finished article there as the bar.
 
-1. **Now, in this session:** write `sixpackabs/articles/<youtube-id>.md` from the final's own words (transcribe the
-   delivered file; never invent a claim), 800 to 1,500 words, Dan's first person, one `{CTA}` link, 1 to 3 internal
-   links, excerpt under 155 characters. Leave `post_id: TBD`. `python3 sixpackabs/articles/build.py --check <file>`
-   must print OK (it refuses em and en dashes). Commit it with the config in Step 7.
-2. **Once the video is public** (the Blotato release time; the page appears within the hour): get the page's post id
-   with the WordPress.com MCP (`content-items.list`, `post_type: spa_video`, match `_spa_youtube_id`), fill in
-   `post_id`, publish with `content-items.update` (payload from `build.py <file>`), then
-   `python3 sixpackabs/articles/verify.py <file>` must print OK. If that is a later session, the Step 7 coordination
-   one-liner carries "publish sixpackabs article `<file>` after it posts".
-3. Content videos only. Ads are never organic and never get a page (the feed excludes unlisted videos). A Short gets
-   a 300 to 500 word article only when it answers a searchable question and no existing page covers the same topic.
+**A setup is not done until the receipt has its article row (Dan's system, 2026-10-10).** On 2026-10-10, 14 public
+videos had no article because publishing was left to "someone remembers after release". Nothing depends on memory now:
+
+1. **Now, in this session (long-form):** write `sixpackabs/articles/TBD-<slug>.md` from the final's own words
+   (transcribe the delivered file; never invent a claim), 800 to 1,500 words, Dan's first person through
+   `dan-voice-writer`, one `{CTA}` link, 1 to 3 internal links, excerpt under 155 characters. Front matter:
+   `id: TBD`, `post_id: TBD`, `slug: TBD`, and **`title:` set to the exact YouTube title queued in Blotato** (the daily
+   routine matches the draft to the public video by that title). `python3 sixpackabs/articles/build.py --check <file>`
+   must print OK (it refuses em and en dashes). Commit and push it with the config in Step 7.
+2. **Receipt row, required:** `Article: sixpackabs/articles/TBD-<slug>.md, <N> words, build.py --check OK. Publishes
+   automatically after release (routine sixpackabs-article-gap-daily).` No row, no "done".
+3. **Publishing is automatic.** The Claude routine `sixpackabs-article-gap-daily` runs `sixpackabs/articles/gap.py`
+   every day at 10:30 AM Central, finds each public video whose page has no article, fills `id`, `post_id` and `slug`,
+   renames the draft to `<youtube-id>.md`, publishes and runs `verify.py`. Do not put "publish the article" in a board
+   entry or a follow-up task any more.
+4. **Release check:** whoever verifies the release (the Monday-posts check, a follow-up automation, or this session if
+   the video is already public) runs `python3 sixpackabs/articles/gap.py`. The video must not be listed. If it is
+   listed more than 24 hours after release, the routine failed: publish by hand per the README and report it.
+5. **Shorts and dedicated Shorts:** nothing to write at setup. After release the routine writes a 300 to 500 word
+   article when the Short answers a searchable question, or records it in `sixpackabs/articles/skips.json` with a
+   reason (brag or teaser, or the same topic as a page that already has an article).
+6. Content videos only. Ads are never organic and never get a page (the feed excludes unlisted videos).
 
 ## Step 7 — record and close
 

@@ -22,6 +22,13 @@ Working example output: `YouTube Content/channel-intro/` (PACKAGING.md, thumbnai
 - Read the saved visibility back before calling the upload complete: `unlisted` for an ad, `private` for organic.
   Missing or wrong visibility fails the workflow and must be corrected. If classification is unclear, keep it Private.
 
+## sixpackabs.com article (2026-10-10)
+
+When this skill is what finishes an organic video's setup (no `/video-setup` run follows), the article step still
+applies: follow `/video-setup` Step 6b (long-form: write and commit `sixpackabs/articles/TBD-<slug>.md` with its
+`title:` line, and put the article row in the receipt; Shorts: the daily routine `sixpackabs-article-gap-daily`
+handles them after release). Ads never get an article.
+
 ## Workflow
 
 > **Voice method changed 2026-10-10 (Dan Voice P2B; `_shared/DAN-VOICE.md`).** This skill decides WHAT the piece

@@ -11737,6 +11737,14 @@ const { createSixpackabsFeeds, REFRESH_MS: SPA_FEED_REFRESH_MS } = require('./sc
 const spaFeeds = createSixpackabsFeeds({ fetch, env: process.env });
 app.get('/api/sixpackabs/channel.json', spaFeeds.channelRoute);
 app.get('/api/sixpackabs/instagram.json', spaFeeds.instagramRoute);
+// Early warning: a public video with no article file gets one log line (once per
+// process). The daily routine and sixpackabs/articles/gap.py close the gap.
+const { createArticleGapLogger } = require('./scripts/sixpackabs/article-gaps');
+const spaArticleGaps = createArticleGapLogger({ dir: path.join(__dirname, 'sixpackabs', 'articles') });
+async function spaRefreshAndSync() {
+  const results = await spaFeeds.refreshAndSync();
+  if (results[0] && results[0].status === 'fulfilled') spaArticleGaps.check(results[0].value);
+}
 
 // Serve index.html for all non-API, non-dashboard routes (SPA fallback)
 app.get('*', (req, res) => {
@@ -11802,8 +11810,8 @@ setInterval(() => { assistantDoneSweep(); }, ASSISTANT_SWEEP_MS).unref?.();
 
 // SixPackAbs.com: refresh videos then trigger WordPress every five minutes.
 // Instagram keeps its hourly cache. This works without visitor traffic.
-setTimeout(() => { spaFeeds.refreshAndSync(); }, 50 * 1000).unref?.();
-setInterval(() => { spaFeeds.refreshAndSync(); }, SPA_FEED_REFRESH_MS).unref?.();
+setTimeout(() => { spaRefreshAndSync().catch(() => {}); }, 50 * 1000).unref?.();
+setInterval(() => { spaRefreshAndSync().catch(() => {}); }, SPA_FEED_REFRESH_MS).unref?.();
 
 // Exposed for tests. Requiring this module also starts the server; tests point
 // DATABASE_URL at pgmem:// and stub the stripe / node-fetch modules.

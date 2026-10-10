@@ -35,8 +35,26 @@ Daniel authorized Mac signing access and private publication on October 3. Valid
 
 For daily imagery, keep generated original bytes in the authorized cloud executor. Prepare their SHA-256 and binary upload, request image-only digest authorization from the existing Mac key, then immediately POST those bytes to the private image publisher. Require a matching receipt and stored digest before adding the dated image provenance to the edition. Do not use a Library-to-Mac download for this normal path. Keep the last verified image and its actual date if generation, signing or upload fails. The exact contract is in `Docs/MORNING_BRIEF_PUBLISHING.md`. The October 8 direct upload is proven; the next scheduled execution still needs verification. No schedule or credential changes are implied by this transport repair.
 
+If `sources.article_gaps` reports any gap, add one line with the count. If `late` is above zero, name those videos and say the daily article routine failed (a public video has gone more than 24 hours without its sixpackabs.com article). A status other than `ok` is "article check unavailable", never zero. Added 2026-10-10.
+
 ### October 2 implementation checkpoint
 
 The dedicated identity-only Google client and public signing verification key are configured on the existing Railway website. Signed publication is proven. The implementation session has no browser/computer control, so refreshed owner browser readback and device persistence require Daniel or the parent. Existing Ads credentials remain separate. See `Docs/MORNING_BRIEF_GOOGLE_SIGN_IN.md` for the identity design.
 
 Fresh collection on October 2 succeeded and selected that day's explicit Claude planning priority rather than the September 30 plan. A private writer document and source handoff are prepared outside Git, with connected inbox intake still pending. The separate queue snapshot includes 36 releases and private review flags. Personal imagery remains unconfigured. The coordination board at this branch's base is already exactly 2,500 words with no entry owned by this task; this open checkpoint is recorded here without compressing another owner's entries.
+
+## sixpackabs.com article for every new video
+
+| Item | Current state |
+| --- | --- |
+| Routine | `sixpackabs-article-gap-daily`, a Claude scheduled task (Claude app, Routines) |
+| Schedule | Every day, 10:30 AM America/Chicago. The Mac and the Claude app must be open; a missed run fires at next launch |
+| Owner | Claude. It is the one routine kept on Claude on purpose: the work is writing in Dan's voice (Opus 5.5 through `dan-voice-writer`) and publishing through the WordPress.com connector, and both live on the Claude side |
+| Prompt | `~/.claude/scheduled-tasks/sixpackabs-article-gap-daily/SKILL.md` |
+| Detector | `python3 sixpackabs/articles/gap.py` (no AI, no login). Exit 0 none late, 1 a gap older than 24 hours, 2 could not check |
+| Cost when idle | One script call and a one-line answer |
+| Early warning | Server log line `sixpackabs article gap: ...` after each five-minute feed refresh (`scripts/sixpackabs/article-gaps.js`) |
+| Check on the routine | Morning brief input `sources.article_gaps` and `Docs/BOARD_MORNING_MAINTENANCE.md` step 8 |
+| Rules | `sixpackabs/articles/README.md`. Receipt: `Docs/SIXPACKABS_ARTICLE_AUTOMATION_RECEIPT_20261010.md` |
+
+A Codex release-check automation that also publishes a long-form's article (for example the December 6 Keep Your Muscle check) does not conflict: whichever runs first publishes, and the other finds `gap.py` clean and the draft already renamed.

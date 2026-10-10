@@ -98,6 +98,13 @@ YouTube. An organic Short is uploaded **Private** and stays Private until Blotat
 including on YouTube. Read the visibility back before finishing; if it is Public, Scheduled, missing or otherwise
 wrong, the workflow has failed and must be corrected.
 
+## sixpackabs.com article after release (2026-10-10)
+
+Every public Short gets a page on sixpackabs.com, and that page either gets a 300 to 500 word article or a recorded
+skip. This skill writes nothing for it: the daily routine `sixpackabs-article-gap-daily` decides and publishes after
+release (`sixpackabs/articles/gap.py`, rules in `sixpackabs/articles/README.md`). When this skill is the last step for
+a set of Shorts, say in the receipt: "Articles: handled after release by sixpackabs-article-gap-daily." Never an ad.
+
 ## Square and vertical camera movement — updated 2026-09-16
 
 Read [the shared framing rule](../_shared/framing-motion.md) before choosing crop motion. Keep wider shots steady per shot where possible; track only when a very tight crop needs it. This supersedes any blanket tracking instruction below. For approved-master adaptations, preserve the existing zoom, framing height, edit and audio.
