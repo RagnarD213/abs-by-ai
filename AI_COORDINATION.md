@@ -83,7 +83,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 # ACTIVE
 
-**Fired Them All AD R5 - IN PROGRESS 2026-10-10, Codex.** Phone/P6 repairs. Next: QC and VLC delivery. No publishing.
+**Fired Them All AD R5 2026-10-10, Codex.** Repairing. Next: QC/VLC.
 
 **Waist-cover 2026-10-08.** TikTok:phone-upload-pending.
 
