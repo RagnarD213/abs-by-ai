@@ -204,6 +204,7 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard fire list; the runner deletes that row, this line and its README row.
 
+- `handoff-20261010-start-vsl-split-test-a-vs-b.md` (10-10). Opus high.
 - `handoff-20261007-ro10-subtle-reedit-sunday-reupload.md` (10-07): RO-10 R3 end graphic, Sunday replacement. Codex Sol high.
 - `handoff-20261006-1017-shoot-outlines.md` (10-06)
 - `handoff-20261008-dan-voice-training-part2-plan.md` (PhaseB,10-08)
