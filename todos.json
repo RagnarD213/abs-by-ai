@@ -323,16 +323,6 @@
       "addedAt": "2026-08-08"
     },
     {
-      "text": "Put away dishes",
-      "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-09",
-      "days": [
-        0,
-        4
-      ]
-    },
-    {
       "text": "Load dishwasher",
       "priority": "high",
       "recurring": true,
