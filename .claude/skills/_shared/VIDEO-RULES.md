@@ -17,7 +17,9 @@
 - Same review, two trims (they bind every exercise clip, real or AI): **a clip of an exercise shows the rep from its first
   second**, not the hold before it (his handstand push-up piece opened on a static handstand), and **a clip of a lift shows
   the lift itself**, not only the setup (the AI deadlift before A2 showed him gripping the bar and cut away before it moved).
-  Never run a library clip into text or marks burned into its tail.
+  Never run a library clip into text or marks burned into its tail, or into the frozen frame that often sits under them: print the
+  frame-to-frame change of the clip's last two seconds before trimming near its end (RO-07's deadlift clip was a still for 0.6 s before its
+  red X, and a trim that only avoided the X ran into the freeze).
 
 ## Codex's-choice thumbnails: every image is its own design (Dan, 2026-10-10)
 
