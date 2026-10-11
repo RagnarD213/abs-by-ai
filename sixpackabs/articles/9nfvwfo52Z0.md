@@ -1,7 +1,7 @@
 ---
-id: TBD
-post_id: TBD
-slug: TBD
+id: 9nfvwfo52Z0
+post_id: 865
+slug: why-i-stopped-deadlifting-at-40-do-these-4-exercises-instead
 excerpt: Why I stopped deadlifting at 40: they caused more of my injuries than every other lift combined. Here are the 4 safer exercises I do instead.
 ---
 Stop doing deadlifts. I used to be one of their biggest fans: one of our first videos to go viral back in the Six Pack Shortcuts days was me deadlifting, and as a company we told everyone to do heavy compound lifts. At 40, I've cut deadlifts out of my routine completely.
@@ -59,6 +59,6 @@ Stay injury free on these for a couple of years straight and you'll end up with 
 
 ## See where this can take you
 
-If you want to get started on the body you want, [generate an AI image of your future self with six-pack abs]({CTA}). Seeing how good you could look is what keeps you eating right and training consistently. The app also has an AI personal trainer, an AI nutritionist and an AI macro tracker.
+If you want to get started on the body you want, [try Abs By AI free for 7 days]({CTA}). It makes an AI image of your future self with six-pack abs, and seeing how good you could look is what keeps you eating right and training consistently. The app also has an AI personal trainer, an AI nutritionist and an AI macro tracker.
 
 _This is general fitness information, not medical advice. Some images in the video are AI-generated visualizations, and they're labeled._
