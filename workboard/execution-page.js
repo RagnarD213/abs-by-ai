@@ -7,8 +7,18 @@ async function localCall(path,payload={}){
   const data=await res.json();if(!res.ok)throw new Error(data.error||'Local worker unavailable.');return data;
 }
 async function executionCall(action,payload={}){
+  const ownsBusy=!executionBusy;if(ownsBusy)busySet(true);
+  const previousList=current?getCard()?.listId:null;
+  const moveList=current?$('move-list').value:null,movePosition=current?$('move-position').value:null;
+  try{
   const data=await response(await fetch('/api/workboard/execution',{method:'POST',headers:{'Content-Type':'application/json','X-Workboard-Action':'change'},body:JSON.stringify({action,payload}),signal:AbortSignal.timeout(10000)}));
-  state=data.state;render();if(current)renderCardParts();return data;
+  state=data.state;render();if(current){renderCardParts();
+    if(getCard()?.listId===previousList&&activeLists().some(l=>l.id===moveList)){
+      $('move-list').value=moveList;positions();
+      if([...$('move-position').options].some(o=>o.value===movePosition))$('move-position').value=movePosition;
+    }
+  }busySet(true);return data;
+  }finally{if(ownsBusy)busySet(false);}
 }
 async function connectWorker(){
   try{
@@ -18,7 +28,7 @@ async function connectWorker(){
   }catch(e){notice('Could not connect to the local worker: '+e.message);}
 }
 async function executionTick(){
-  if(!localConnection||executionBusy||busy||conflict)return;executionBusy=true;
+  if(!localConnection||executionBusy||busy||conflict)return;executionBusy=true;busySet(true);
   try{
     if(state.execution?.workerId!==localConnection.workerId)return;
     const heartbeat=await executionCall('heartbeat',{workerId:localConnection.workerId});
@@ -41,7 +51,7 @@ async function executionTick(){
     }
     renderExecution();
   }catch(e){executionArmed=false;localConnection=null;clearInterval(executionTimer);notice('Execution connection interrupted: '+e.message+'. Active agents stop after 35 seconds without a heartbeat. Reconnect explicitly.');renderExecution();}
-  finally{executionBusy=false;}
+  finally{executionBusy=false;busySet(false);}
 }
 function renderExecution(){
   const status=document.getElementById('execution-status');if(status)status.textContent=localConnection?(executionArmed&&!state.execution?.paused?'Local agents enabled':'Local agents paused'):'Local agents disconnected';
