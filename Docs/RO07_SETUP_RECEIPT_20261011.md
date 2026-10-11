@@ -13,6 +13,9 @@
 - **Article:** `sixpackabs/articles/TBD-work-out-every-day.md`, 1,393 words, build.py --check OK. Publishes automatically after release (routine sixpackabs-article-gap-daily).
 - **Delivery gate:** the known FAIL stamps did not block any script.
 
+- **Instagram copy:** Instagram rejects files over about 300 MB, so a smaller copy (254,649,310 bytes, 1.8 Mbps, same frames and audio packets) is uploaded at `.../16b5e0eb-f9f4-4cdf-b165-fdc2969d559f.mp4`; after the queue write, swap only the Instagram post to it with `swap_media.py`.
+- **Automatic release:** scheduled task `ro07-blotato-queue-when-room` runs daily at 8:50 AM, queues this video once the cap has room for it after RO-06 and Video 5, then disables itself.
+
 ## To release (when the queue has 4 free slots, after RO-06 and Video 5 are queued)
 
 1. `python3 scripts/blotato/ad_guard.py --scan`
