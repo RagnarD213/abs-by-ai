@@ -1,0 +1,32 @@
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs'),os=require('node:os'),path=require('node:path'),{randomUUID}=require('node:crypto');
+const {initial,mutate}=require('../model'),runs=require('../runs'),{createWorker}=require('../local-worker');
+let board=initial(),clock=Date.now(),workerId=randomUUID();
+function move(action,p){const previous=board,next=mutate(board,action,p).board;runs.afterChange(next,previous,action,p,clock);board=next;}
+function exec(action,p={}){return runs.transition(board,action,p,clock);}
+const q=a=>runs.config(board)&&runs.agents.includes(a)&&board.lists.find(l=>l.tone===a&&l.name.includes('queue')).id;
+move('card.create',{listId:q('codex'),title:'TEST old queue card'});const old=board.cards[0];
+exec('enable',{workerId});assert.equal(old.run,undefined);assert.equal(exec('claim',{workerId,agent:'codex'}).claim,undefined);
+move('card.update',{id:old.id,title:old.title,description:'edit must not start',labels:[],dueDate:''});assert.equal(old.run,undefined);
+move('card.create',{listId:board.lists[0].id,title:'TEST first'});const first=board.cards.at(-1).id;
+move('card.create',{listId:board.lists[0].id,title:'TEST second'});const second=board.cards.at(-1).id;
+move('card.move',{id:second,listId:q('codex'),index:0});move('card.move',{id:first,listId:q('codex'),index:0});
+let claim=exec('claim',{workerId,agent:'codex'}).claim;assert.equal(claim.id,first);assert.equal(exec('claim',{workerId,agent:'codex'}).claim,undefined);
+const id=claim.run.id;exec('update',{workerId,runId:id,status:'running',summary:'Working'});
+assert.throws(()=>move('card.move',{id:first,listId:board.lists[0].id,index:0}),/Stop/);
+exec('update',{workerId,runId:id,status:'completed',summary:'Verified harmless work.'});assert.match(board.lists.find(l=>l.id===board.cards.find(c=>c.id===first).listId).name,/review/);
+exec('update',{workerId,runId:id,status:'failed',summary:'late duplicate'});assert.equal(board.cards.find(c=>c.id===first).run.status,'completed');
+claim=exec('claim',{workerId,agent:'codex'}).claim;assert.equal(claim.id,second);clock+=91000;exec('heartbeat',{workerId});assert.equal(board.cards.find(c=>c.id===second).run.status,'blocked');assert.equal(exec('claim',{workerId,agent:'codex'}).claim,undefined);
+assert.throws(()=>exec('run',{id:second}),/Continue/);exec('continue',{id:second});assert.notEqual(board.cards.find(c=>c.id===second).run.id,claim.run.id);
+exec('pause');assert.equal(exec('claim',{workerId,agent:'codex'}).claim,undefined);exec('enable',{workerId});assert.equal(board.cards.find(c=>c.id===second).run.status,'cancelled');
+exec('run',{id:second});claim=exec('claim',{workerId,agent:'codex'}).claim;exec('stop',{id:second});exec('update',{workerId,runId:claim.run.id,status:'completed',summary:'late completion'});assert.equal(board.cards.find(c=>c.id===second).run.status,'stopped');
+assert.throws(()=>exec('claim',{workerId:'other',agent:'claude'}),/different worker/);
+const proof=require('../claim-proof'),claimKey='synthetic-existing-secret-123';
+const root=fs.mkdtempSync(path.join(os.tmpdir(),'workboard-fence-'));let launches=0;
+const launch=()=>{launches++;return {unref(){},on(){}};};
+const worker=createWorker({root,binaries:{},claimKey,now:()=>clock,launch});claim.run={id:randomUUID(),status:'claimed',workerId:worker.workerId,agent:'codex'};
+const startProof=proof.sign(claimKey,'start',{workerId:worker.workerId,runId:claim.run.id,cardDigest:proof.digest(claim)},clock);worker.start(claim,startProof);worker.start(claim,startProof);assert.equal(launches,1);
+clock+=16000;const restarted=createWorker({root,binaries:{},claimKey,now:()=>clock,launch});assert.equal(restarted.poll(proof.sign(claimKey,'poll',{workerId:worker.workerId,active:[claim.run.id]},clock)).runs[0].status,'blocked');restarted.start(claim,startProof);assert.equal(launches,1);
+assert.throws(()=>worker.start({...claim,title:'tampered'},startProof),/match/);assert.throws(()=>worker.start(claim,{...startProof,signature:'0'.repeat(64)}),/Invalid/);
+assert.equal(runs.safe('token=abc ghp_abcdefghijklmnopqrst'),'[redacted] [redacted]');
+console.log('PASS: old queue/edit/activation idle; deliberate assignment; priority; one active agent; duplicate terminal events; claim expiry blocks; explicit continuation; pause/stop; durable start fence and restart no-replay; redaction.');

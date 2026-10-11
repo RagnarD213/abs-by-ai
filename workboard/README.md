@@ -1,6 +1,6 @@
 # Private Workboard
 
-Standalone `/dash` (the former `/workboard` address redirects to `/dash`), mounted before the product JSON parser and public static files. It starts with ten empty lists. No old dashboard import, sample cards, AI runners or dispatch actions.
+Standalone `/dash` (the former `/workboard` address redirects to `/dash`), mounted before the product JSON parser and public static files. It starts with ten empty lists. No old dashboard import or sample cards. Local agent dispatch stays disabled until explicit activation.
 
 ## Existing identity, isolated data
 
@@ -78,3 +78,38 @@ node workboard/tests/timer-compat.test.js
 ```
 
 The first verifies shared records, priority versus rank, persistence, stale/CAS rejection, strict balances, private reads, CSRF and unchanged board data. The second runs the actual production clock/payment handlers against synthetic storage and verifies historical payment preservation and active-session settlement/restart. Neither writes production records.
+
+
+## Local agent queues
+
+The Agents control connects this authenticated owner tab to a loopback worker at `127.0.0.1:8843`. The worker is bound only to loopback, checks the exact site Origin and Host plus a custom request header, and requires a 30-second signed grant from the authenticated board for each launch, control heartbeat and Desktop action. HMAC signing reuses the existing ADS_FEED_SECRET with a purpose-specific prefix; the secret stays out of browser responses, task files and agent environments. No permanent credential is issued. Owner-cookie authentication and existing CSRF controls protect every remote execution action. No new key, OAuth scope, account, database privilege or provider credit is required. Keep the authenticated tab open. This is a browser-mediated local runner, not a cloud worker or an unattended account token.
+
+Start from this checkout with the installed subscription CLIs:
+
+```sh
+node workboard/local-worker.js /absolute/private/runner-state --env-file /path/to/existing/private-env-file
+```
+
+The state directory must be outside the repository because the existing product server serves repository files. The helper rejects an in-repository directory and sets private permissions. `WORKBOARD_CLAUDE` and `WORKBOARD_CODEX` can select already-installed CLI paths. It does not install software or change authentication. Claude uses the existing Max login; Codex uses the existing ChatGPT login. API keys are stripped from agent child environments.
+
+Choose Agents, Connect local worker, then Enable new assignments. An existing queue card is idle until its explicit Run action or a move out and back into the agent queue. Creating a card directly in a queue, editing cards, imports, deployment, reload and worker startup do not assign work. Reconnecting and enabling a new activation makes old pending assignments idle; Run assigns them again deliberately. Pause prevents new claims while active work continues; deliberate assignments made while paused remain queued, and Enable resumes them in the same connected tab. Stop run terminates one task; Stop all and disable cancels pending assignments and stops active tasks.
+
+Queue movement arms an execution ID inside the same Postgres transaction as the board movement. Claiming locks the board row and compares the version; it selects the first deliberately armed card in board order, with at most one claimed/running/stopping task per agent. Idle older cards are skipped. A successful claim moves the same card into that agent's in-progress list. Renaming or archiving required routing lists prevents dispatch instead of guessing a destination. Active cards cannot be moved or archived before stopping.
+
+The local journal records launch intent before spawn and never spawns the same run ID twice, including after restart. A separate supervisor watches its heartbeat. Disconnect stops the entire process group after 35 seconds; execution has a one-hour ceiling. Server claims expire to blocked after 90 seconds, with no automatic retry. State reads display expired claims as blocked even without a connected worker. A launch interrupted before its process record becomes blocked. A continuation requires the owner's explicit inspected-changes action, records the prior result, and uses the verified prior local workspace. Paths from card input cannot select a local workspace.
+
+Each run uses an isolated workspace. Claude's restricted file scope and command sandbox stay enabled; unapproved requests are denied rather than bypassed. Codex uses workspace-write with on-request approvals. MCP connectors and inherited provider API credentials are not exposed to these child agents. The task prompt prohibits sensitive external actions without separate human approval. Attachments remain private and preserved on the board; this first runner passes their metadata, not file bytes. A task needing attachment contents or assets outside its workspace must report blocked. Existing project/account work requiring more access needs a separately bounded integration; this implementation does not silently grant it.
+
+The card shows status, bounded progress, a redacted completion summary, session ID, local workspace and log path. Only a zero-exit run with a valid structured completed result and no observed permission denial moves to the agent's review list. Blocked, failed, stopped, connection-lost and uncertain runs remain in progress. Agent review does not mean Done; final approval stays with the owner. Desktop uses the documented Codex `app PATH` workspace launcher with the session ID displayed separately. Claude's CLI exposes terminal resume, but no verified Desktop session-open API, so no speculative deep link is shown. Private local logs are bounded to 5 MB per run and are never copied into card comments.
+
+Verification:
+
+```sh
+node workboard/tests/runs.test.js
+node workboard/tests/execution-api.test.js
+node workboard/tests/supervisor.test.js
+node workboard/tests/postgres-claim.test.js /path/to/existing/private-env-file
+WORKBOARD_AGENT_E2E=1 node workboard/tests/agent-e2e.js /absolute/private/test-state
+```
+
+The Postgres test creates and removes only a unique disposable schema, never production cards. The opt-in real-agent test creates clearly labeled synthetic cards and asks each subscribed agent to create and read back only `proof.txt` in its isolated workspace. It verifies actual session IDs, same-card result writeback, review movement and duplicate launch suppression. Normal activation is separate from these tests.
