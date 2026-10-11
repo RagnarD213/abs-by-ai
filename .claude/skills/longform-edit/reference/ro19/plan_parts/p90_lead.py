@@ -1,22 +1,24 @@
 # Lead editor items that sit inside the other parts' stretches (each is found anywhere in the film by its own words, so this
 # file does not have to be in film order): the new AI clips (frames for approval, motion only after Dan approves them), the real
-# photo scenes, and the closing call to action. No AbsByAI.com mark graphic (Dan, 2026-10-01).
+# photo scenes, and the closing call to action. ROUND 2 (Dan's round 1 notes, 2026-10-11): P04 / P05 are two new same-pose pairs (arms down, side pose)
+# cropped to one body scale by photocrop.py; A1 to A4 have finished motion (round2/motion, the src and trims live in plan_resolved.json, patched by hand: the
+# ai() items below are the round 1 placeholders); A5 (frames) replaces the stock doctor Cc16; Cb02 (library B0437, Dan on his phone) is removed. No AbsByAI.com mark graphic (Dan, 2026-10-01).
 RO6 = "/Volumes/Extreme/_edit_work/ro06"
 PH = dict(people="dan", physique=True, label="Real pictures of me. Not AI-generated.", label_in_picture=True)
 def ai(i, start, end, note, tail=0.1): return dict(id=i, kind="clip", start=start, end=end, tail=tail, frames=[f"{AI}/{i}-start.png", f"{AI}/{i}-end.png"], pending=True, anywhere=True, **AIL, **OTHER, note=note)
 PART = [
- dict(id="P03", kind="clip", start="I decided to go expensive because", end="for my social media,", tail=0.6, src=[f"{W}/gfx/P03.mp4@0"], anywhere=True,
-      portraits=["tan_13", "tan_223", "tan_247"], **PH,
+ dict(id="P03", kind="clip", start="I decided to go expensive because", end="for my social media,", tail=0.6, src=[f"{W}/gfx/r2/P03.mp4@0"], anywhere=True,
+      portraits=["tan_13", "tan_223", "tan_17"], **PH,
       note="Three of his real pictures from the pool photo shoot the tan was for, as three portraits on the Soft Blue field"),
  ai("A4", "So it's actually very quick.", "in about 10 minutes.",
     "THE APPOINTMENT, new AI clip (frames for approval), played straight: a man stands in a pop-up tanning tent while the specialist sprays him; as the mist passes over him his skin goes from untanned to an even golden tan. Pexels has no footage of a real spray tan", tail=0.25),
  ai("A3", "That means that you're going to", "sleep with your tan on.",
     "DESTROY YOUR SHEETS, new AI clip (frames for approval), a gag: a tanned man asleep in spotless white sheets; cut to morning, he pulls back the duvet and finds a brown print of his whole body on the sheet and stares at it"),
- dict(id="P04", kind="clip", start="I'm going to show you a few pictures,", end="what I looked like after.", tail=0.15, src=[f"{W}/gfx/P04.mp4@0"], anywhere=True,
-      pair=["pale_b", "tan_273"], **PH,
+ dict(id="P04", kind="clip", start="I'm going to show you a few pictures,", end="what I looked like after.", tail=0.15, src=[f"{W}/gfx/r2/P04.mp4@0"], anywhere=True,
+      pair=["pale2_down", "tan2_down"], **PH,
       note="Before and after, hands at his hips: the pale earlier shoot on the left, the pool shoot after the tan on the right"),
- dict(id="P05", kind="clip", start="Keep in mind the lighting was", end="for the second shoot.", tail=0.15, src=[f"{W}/gfx/P05.mp4@0"], anywhere=True,
-      pair=["pale_c", "tan_251"], **PH,
+ dict(id="P05", kind="clip", start="Keep in mind the lighting was", end="for the second shoot.", tail=0.15, src=[f"{W}/gfx/r2/P05.mp4@0"], anywhere=True,
+      pair=["pale2_side", "tan2_side"], **PH,
       note="Before and after, in the same teal shorts by the pool: flexing in the pale earlier shoot on the left, standing in the pool after the tan on the right"),
  dict(id="Gp01", kind="lt", start="However, even taking those factors into", end="a significant difference.", tail=0.3, topic="MY TAKE", anywhere=True,
       point="Better Light, Leaner, And The Tan Still Mattered", parts=[["Better Light, Leaner,", "even taking those factors"], ["And The Tan Still Mattered", "the tan really made"]]),

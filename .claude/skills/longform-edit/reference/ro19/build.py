@@ -18,7 +18,7 @@ def hf_item(it): return it["kind"] in ("lt", "l3") or (it["kind"] == "scene" and
 FULL = ("scene", "clip")
 # round 3: every shot is held at the size and crop of the round 2 solve Dan reviewed (round3-plan/segs.round2.json, written before A3's slot moved).
 # The solve is global: moving one clip's edges flipped two shots 10 s away and slid a run's crop 4 px. Only the named changes move.
-_PIN = f"{W}/round3-plan/segs.round2.json"
+_PIN = f"{W}/round2-plan/segs.round1.json"     # RO-19 round 2: every shot keeps the size and crop of the round 1 solve Dan reviewed; only the named changes move
 _R2 = {s["key"]: dict(crop=s["crop"], framing=s["framing"]) for s in json.load(open(_PIN))} if os.path.exists(_PIN) else {}
 OVERRIDE = {k: v["framing"] for k, v in _R2.items()}
 PINCROP = {}
@@ -27,6 +27,7 @@ class _Base(dict):
     def __contains__(self, k): return dict.__contains__(self, k) or ("+c" in k and dict.__contains__(self, k.split("+")[0]))
     def __getitem__(self, k): return dict.__getitem__(self, k) if dict.__contains__(self, k) else dict.__getitem__(self, k.split("+")[0])
 OVERRIDE = _Base(OVERRIDE)
+OVERRIDE["intro.0r0"] = "W"; OVERRIDE["intro.0r0+c"] = "W"     # Dan, round 1: "start the video on the wide shot" (the camera frame, not the 1.3x punch-in)
 STAB = {}
 CROPFIX = {}
 HOLD = 22.0                                              # one size never holds longer than this with nothing else changing
@@ -211,7 +212,7 @@ def voice_shots():
         if s.get("split_of") and out and cont(out[-1], s): out[-1] = dict(out[-1], src_f1=s["src_f1"], out_f1=s["out_f1"])
         else: out.append(dict(s))
     return out
-FILM_VOICE = f"{W}/voice/film_voice.wav"       # the whole film's voice through the shared chain, once (build.py filmvoice)
+FILM_VOICE = f"{W}/voice/film_voice_r2.wav"       # the whole film's voice through the shared chain, once (build.py filmvoice)
 def render_range(a, b, out, audio=True, picture=True):
     HCOMP = HC.Compositor(json.load(open(MANIFEST)))
     f0, f1 = fr(a), fr(b); segs = segments(f0, f1)
@@ -244,12 +245,13 @@ def render_picture(a, b, out, f0, f1, segs, HCOMP):
         if HCOMP.active(g): im = Image.fromarray(HCOMP.apply(np.asarray(im), g))
         enc.stdin.write(im.tobytes())
     enc.stdin.close(); enc.wait(); dec.wait()
-# VOICE 1 (RO-19 bake-off 2026-10-11, audio/trials.log + trials2.log): the lav as recorded with only the rumble below the voice
-# removed, NO expander, NO dereverb, the shared finisher. Nine blind trials on the same 31 s: untreated won 5 and averaged 6.8,
-# the warm tone shape 5.1 (won 3), the chain default 3.9 (won 1), both light-dereverb versions 3.5 and 3.4 (won none).
-# A treatment that ranks below its own untreated lav never ships (PRE-RENDER-APPROVAL).
-VOICE4 = ["--eq", "highpass=f=70",
-          "--no-expander-because", "RO-19 bake-off 2026-10-11: nine blind trials on the same 31 s; the chain default (expander on) won one and averaged 3.9 against the untreated lav's 6.8"]
+# ROUND 2 VOICE (not Dan's pick yet: he chooses by ear from audio/opts2 on the round 2 page). The first minute and the context clips carry
+# W4, the best-measuring of the four warm, less-room-echo options (audio_options19r2.py: room decay 48 ms against 72 untreated and the
+# reference's 40, damage rows inside the gate's limits): the chain's approved light dereverb (alpha 0.30, floor -10 dB), the warm fixed
+# tone shape with a deeper 450 Hz dip, NO expander, the shared finisher. Round 1's "voice 1" was chosen on a silent window and is void.
+VOICE4 = ["--eq", "highpass=f=70,equalizer=f=140:t=q:w=1.0:g=+1.5,equalizer=f=450:t=q:w=1.2:g=-5.0,equalizer=f=3200:t=q:w=1.5:g=-1.0",
+          "--dereverb-because", "Dan asked for warm, less-room-echo options on RO-19 round 1 (2026-10-11); the raw room measures 72 ms on the audition window",
+          "--no-expander-because", "RO-07: word endings chopped with the expander on; Dan picked the no-expander audition (2026-10-10) and asked for the same family here"]
 def film_voice():
     """The whole film's voice, assembled from the lav at the cut's own frames and run through the shared chain once (voice 1: the lav with the rumble filter only)."""
     os.makedirs(os.path.dirname(FILM_VOICE), exist_ok=True); f1 = S[-1]["out_f1"]

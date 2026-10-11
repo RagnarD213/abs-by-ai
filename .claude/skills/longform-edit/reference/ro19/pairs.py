@@ -7,7 +7,7 @@ import sys, os, json, re
 sys.path.insert(0, "/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared")
 import softblue as B
 from PIL import ImageDraw
-W = "/Volumes/Extreme/_edit_work/ro19"; PH = f"{W}/photos"; OUT = f"{W}/gfx"; os.makedirs(OUT, exist_ok=True)
+W = "/Volumes/Extreme/_edit_work/ro19"; PH = f"{W}/photos"; OUT = os.environ.get("PAIRS_OUT", f"{W}/gfx"); os.makedirs(OUT, exist_ok=True)   # round 2 renders to gfx/r2: never overwrite a reviewed file
 LABEL = "Real pictures of me. Not AI-generated."
 def tab(im, cx, y, s, u, t, delay):
     """caption tab under a photo: glass pill, white title-case text"""

@@ -49,3 +49,32 @@ Traps this build paid for:
 - **Hair:** the camera frames his hair at the top edge all roll and cuts it slightly in the opening take. Both sizes keep
   row 0. Reported to Dan, not fixable by a crop.
 - The machine was shared with the RO-20 chain (two workers). This build ran one worker at `nice -n 10` and said so.
+
+## Round 2 (2026-10-11, Dan's round 1 notes): what was added
+
+Page: `round2/index.html`, port 8865. Order: `audio_options19r2.py warm`, then `bass <best warm key>` -> `listen_trials19r2.py check`, then `5` ->
+`photocrop.py` -> `PAIRS_OUT=gfx/r2 pairs.py P02 P03 P04 P05` -> `gen_motion.py <ID> <ID>-t1` (prompts in `motion-prompts/`) ->
+`build.py filmvoice` -> `round2.py first`, `context IDS`, `stills` -> `headroom.py` -> `page19r2.py` -> `review_server.py 8865 round2`.
+
+- **The pale shoot is 1 April 2026 in Dan's Photos library: 96 pictures of him, not four.** Round 1 took the four the old edit had and could not
+  match poses. Query the library copy for that date (`ZASSET`, 14:49 to 15:00), read the 1024 px derivatives for a contact sheet, export the
+  originals with `sips`, then `ImageOps.exif_transpose` (sips keeps the rotation tag, so the pixels come out sideways without it).
+- **A pair is the same pose at the same body size.** `photocrop.py`: head top from the person mask, one landmark row read off a ruled close-up
+  (the navel on front poses, the waistband on a side pose), and both cards are cropped so head-to-landmark is the same fraction of the card.
+  The automatic waistband search (first non-skin run down the torso) was fooled by his forearms on the side pose: read the row by eye.
+- **No hands-on-hips picture exists in the pale shoot.** A third pair would not have been the same pose, so it was not offered.
+- **Pin the framing solve before any plan change** (`round2-plan/segs.round1.json`, `build._PIN`): removing one clip and moving one clip's start
+  changed nothing else because every shot kept its round 1 size and crop. The only named change is `intro.0r0` to W.
+- **Never render into a reviewed file.** Round 2 photo scenes go to `gfx/r2/` (`PAIRS_OUT`), the film voice to `voice/film_voice_r2.wav`.
+- **Veo with a start and end frame that differ a lot fades the difference in.** A3's body print faded in on a bare sheet half a second after the
+  duvet came back. Fix without a new take: play the start (asleep), hard cut on a word ("sheets") to the part where the print is already there.
+  A1's change of pose came as a half second dissolve inside the mist, which reads as part of the gag.
+- **Voice options, measured on the audition window:** alpha 0.40 / floor -12 measured flux 1.11x the reference (limit 1.10), so W3 is
+  alpha 0.35 / floor -11. A deeper 450 Hz dip (W4) measured the driest inside the limits. On the first minute itself W4 still fails the gate's
+  tone row (any fixed warm EQ does) and the damage row by a hair (0.083 against 0.080; untreated 0.079 there). Five blind trials did not
+  separate eight options (five different winners). Dan picks by ear.
+- **`gemini_listen.py` defaults to a retired model**: set `GM=gemini-3.1-pro-preview`.
+- **Library clip B0437 was in the round 1 plan** (Cb02) and Dan banned it the same day on RO-20. Check a plan against VIDEO-RULES' never-use
+  clips before every page, not only when the plan is written.
+- **Headroom proof flaws seen in look F:** the wide shot's hair cap is flat on some frames, and a thin dark line runs from his hair to the top
+  edge on a few frames. Both need fixing before it could run on the film.

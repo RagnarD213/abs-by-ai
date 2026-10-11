@@ -41,7 +41,7 @@
 - [Cover photo selection](cover-photo-selection.md) — shoot photos over frames; never soft/undefined abs
 - [Thumbnail: no claims](thumbnail-no-claims.md) — ad thumbnail copy is a compliance surface; 9:16 for vertical ads; waist crop on pool photos
 - [Thumbnail design system](thumbnail-design-system.md) — black/white Manrope/red bar, abs visible, no blur
-- [Before-photo search](dan-before-photo-search.md) — heaviest era 2022-24; best candidates; how to scan Photos
+- [Before-photo search](dan-before-photo-search.md) — heaviest era 2022-24; best candidates; how to scan Photos; pale pre-tan shoot = 1 Apr 2026 (96 photos)
 - [Standard before picture](standard-before-picture.md): 09-30: shirtless before = deck-chair sunglasses shot; NEVER the bathroom standing shot (A_2024-07-02)
 - [Frowning photos rule](frowning-photos-standing-rule.md) — never default to frowning thumbnails; sorted into Frowning Photos/ subfolder
 - [Daily meal tasks](daily-meal-tasks.md) — one recurring:true entry each, never re-added daily

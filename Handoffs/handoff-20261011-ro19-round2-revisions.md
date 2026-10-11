@@ -1,5 +1,30 @@
 LFC (long-form content). Task name for this session: `My First Spray Tan LFC R2`.
 
+
+## ROUND 2 DELIVERED 2026-10-11 (Claude, Opus 5.5): waiting for Dan's reply
+
+Page: http://127.0.0.1:8865/ (`/Volumes/Extreme/_edit_work/ro19/round2/`). VLC copy: `Videos to Review/My First Spray Tan LFC R2 - first minute.mp4`. Hashes: `round2/round2-hashes.sha256`. Round 1's 235 files re-hashed unchanged before work started.
+
+Built, as listed below: the first minute again (wide open, look F, voice W4); seven voice options plus the untreated one in `audio/opts2/` (W1 to W4 warm with less room echo, B1 to B3 = W4 with +1.5, +3, +4.5 dB of bass) on film 25.99 to 56.99 s, which starts on speech; two new same-pose pairs from the 1 April pale shoot (P04 arms down with photo 247, P05 side pose with photo 107), P02 and P03 each given a new photo so nothing repeats; doctor frames `aiframes/D1-*.png` (plan item A5 replaces Cc16) and four gag frame pairs G1 to G4; motion for A4, A3, A2, A1, one take each, in `round2/motion/`; headroom proofs in look F.
+
+Dan's five questions on the page: voice (recommended B2), the two pairs, the doctor frames, which gag clips get motion (recommended G1 and G3), headroom (recommended yes after two flaws are fixed).
+
+When he replies: record it in `round3-plan/decisions.json` with the hashes; then round 3 = doctor motion and the chosen gag clips (place them in the plan: G1 at 349.2, G2 at 429.6, G3 at 819.1, G4 at 328.2), his voice into `build.VOICE4`, the app tour close, the headroom fix if approved, then the full film with every gate, the watch pass and one independent review.
+
+State to know: `look_option.txt` is F. `build._PIN` holds every shot at the round 1 size and crop; only `intro.0r0` is W. `plan_resolved.json` was patched by hand (round 1 copy: `round2-plan/plan_resolved.round1.json`): A1 to A4 point at the motion files and trims, A3 starts at 373.52 and plays `A3-cut.mp4`, Cb02 (library B0437, banned) is removed. Re-running `resolve.py` would undo these: patch again or move them into the part files first.
+
+Gate status: the first minute's audio gate is 10 of 12 on voice W4 (fails tone and the damage row at 0.083 against 0.080); that voice is not Dan's pick. No delivery gate, watch pass or independent review has run: there is no film.
+
+Cost ledger: motion $3.00 of $5.00 (`round2/motion/ledger.json`). Doctor at 6 s takes it to $3.60; two 6 s gag clips to $4.80. Ten frame images on the Codex subscription. Six Gemini listening calls, a few cents.
+
+Starter prompt for round 3 (Opus 5.5, high), once Dan has replied:
+
+```
+My First Spray Tan LFC R3. Read Handoffs/handoff-20261011-ro19-round2-revisions.md (the ROUND 2 DELIVERED section first) and my reply to the round 2 page below. Record my decisions, then build round 3 of RO-19: my voice pick, the doctor clip and the gag clips I chose as finished motion, the app tour close, the headroom fix if I approved it, then the full film with every gate, the watch pass and an independent review. Use the Codex subscription for any images. Do not upload or queue.
+
+[paste the reply box from http://127.0.0.1:8865/]
+```
+
 # RO-19 "My First Spray Tan": round 2, Dan's round 1 notes
 
 **Written 2026-10-11 by Claude (Opus 5.5), after Dan reviewed round 1.** Job doc: `Handoffs/video-editing/RO-19-my-first-spray-tan.md`. Rules: `Handoffs/video-editing/00-RULES.md`, `.claude/skills/_shared/VIDEO-RULES.md` (read the two sections dated 2026-10-11 at the top: more AI clip ideas, audio clips start on speech), `.claude/skills/_shared/PRE-RENDER-APPROVAL.md`. Recipe and traps: `.claude/skills/longform-edit/reference/ro19/README.md`.
