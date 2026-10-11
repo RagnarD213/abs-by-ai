@@ -239,4 +239,4 @@ Memory `google-ads-ui-automation`.
 ## ACTIVE
 **Ad 6 remarketing 2026-10-04:** Awaiting Dan: copy to enabled campaign 24305381214?
 
-**Meal Prep SFC R2 BUILDING 2026-10-11, Codex.** Owns DS-28 only. Building crop pairs, split-screen start/end frames and stronger graphic previews in `/Volumes/Extreme/_edit_work/ds28/round2/`. Next: deliver choices at review port 8891, then wait for crop/frame picks before paid motion. Round1 preserved; dispatcher paused.
+**Meal Prep SFC R2 REVIEW 2026-10-11, Codex.** http://127.0.0.1:8891/. Next: Dan picks crop A/B/C (recommend B), approves two AI frame pairs and reviews seven graphic beats. Work: `/Volumes/Extreme/_edit_work/ds28/round2/`. No motion or full film. Sound flags remain open. Round1 intact; dispatcher paused.
