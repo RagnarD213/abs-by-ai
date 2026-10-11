@@ -238,3 +238,5 @@ Memory `google-ads-ui-automation`.
 
 ## ACTIVE
 **Ad 6 remarketing 2026-10-04:** Awaiting Dan: copy to enabled campaign 24305381214?
+
+**Meal Prep SFC R1 ACTIVE 2026-10-11, Codex.** DS-28 claimed. Preparing C1720 approval packet. Next: review opening and assets. Work: `/Volumes/Extreme/_edit_work/ds28/`.

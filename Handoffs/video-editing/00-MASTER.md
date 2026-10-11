@@ -111,7 +111,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 |---|---|---|---|---|
 | [DS-26](DS-26-wispr-flow-short.md) | Wispr Flow | 9/23 C1719 | BLOCKED: Alternate hooks on the roll | S |
 | [DS-27](DS-27-home-workouts-short.md) | Home Workouts | 9/23 C1719 | BLOCKED: 'You're seeing it on screen right now' needs equipment b-roll, not filmed | S |
-| [DS-28](DS-28-meal-prep-short.md) | Meal Prep | 9/23 C1720 | READY | S |
+| [DS-28](DS-28-meal-prep-short.md) | Meal Prep | 9/23 C1720 | IN PROGRESS | S |
 | [DS-29](DS-29-robot-lawn-mower-short.md) | Robot Lawn Mower | 9/23 C1720 | BLOCKED: Robot mower b-roll not filmed | S |
 | [DS-30](DS-30-self-driving-car-short.md) | Self-Driving Car | 9/23 C1720 | READY | S |
 | [DS-31](DS-31-ai-homework-short.md) | AI Homework | 9/23 C1720 | READY | S |

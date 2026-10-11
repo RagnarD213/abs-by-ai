@@ -2040,14 +2040,16 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/DS-28-meal-prep-short.md`: cut \"Meal Prep (short)\" from 9/23 roll C1720 with /shorts. Best take of every line, every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-28-meal-prep-short.md` with `$long-form-content-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "ready",
-   "note": "",
+   "state": "in_progress",
+   "note": "Meal Prep SFC R1: source selection and approval packet",
    "sub": "9/23 shoot",
    "order": 94,
-   "updated": "2026-09-24",
-   "by": "claude",
-   "rev": 2,
-   "syncedRev": 2
+   "updated": "2026-10-11",
+   "by": "Codex",
+   "rev": 3,
+   "syncedRev": 2,
+   "editor": "Codex",
+   "needs": ""
   },
   {
    "id": "DS-29",
