@@ -407,6 +407,12 @@
       "priority": "high",
       "recurring": false,
       "addedAt": "2026-10-06"
+    },
+    {
+      "text": "Make meal prep",
+      "priority": "key",
+      "recurring": false,
+      "addedAt": "2026-10-11"
     }
   ],
   "handoffs": [
