@@ -23,7 +23,8 @@ ctx() {  # one worker: every second lower third, eight per call
 import json,sys; x=[r['id'] for r in json.load(open('plan_resolved.json')) if r['kind']=='lt']; print(' '.join(x[int(sys.argv[1])::2]))" $1))
   i=1
   while [ $i -le ${#LT[@]} ]; do
-    python3 recipe/round1.py context ${LT[@]:$((i-1)):8} >> context_w$1.log 2>&1 || echo "CONTEXT FAILED worker $1 near ${LT[$i]}" >> chain.log
+    B=(${LT[@]:$((i-1)):8}); [ ${#B[@]} -eq 0 ] && break      # an empty batch would call round1.py with no ids = every item (it hung at the end of the RO-20 run)
+    python3 recipe/round1.py context $B >> context_w$1.log 2>&1 || echo "CONTEXT FAILED worker $1 near ${LT[$i]}" >> chain.log
     i=$((i+8)); echo "CONTEXT worker $1: $((i-1)) of ${#LT[@]} $(date +%H:%M)" >> chain.log
     [ $1 = 0 ] && { python3 recipe/page20.py >> chain.log 2>&1; python3 "$RS" 8862 $W/round1 > /dev/null 2>&1 }
   done
