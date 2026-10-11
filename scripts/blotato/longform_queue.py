@@ -21,6 +21,7 @@ Config (JSON):
     "tags": "#a #b",
     "youtube_description": "...",
     "mirror_cta": "More from @danrosefit 👇",
+    "instagram_video_url": "https://...mp4",   # optional smaller copy: Instagram rejects files over about 300 MB
     "source": "Zeeshan Content Videos/.../file.mp4"   # optional; checked against the ad folders
   }
 
@@ -98,7 +99,7 @@ def posts(v: dict) -> list:
          v["video_url"]),
         (IG_MAIN, "instagram", social_when, dict(ig),
          lede + f"Comment {v['keyword']} and I'll send you the free AI preview 👇\n\n{v['tags']}",
-         v["video_url"]),
+         v.get("instagram_video_url", v["video_url"])),
         (TIKTOK, "tiktok", social_when, tiktok,
          lede + f"Free AI preview of your own six-pack, link in bio at AbsByAI.com 👇\n\n{link('tiktok')}\n\n{v['tags']}",
          v.get("tiktok_video_url", v["video_url"])),
@@ -156,6 +157,8 @@ def main() -> int:
         url_fields.append("tiktok_video_url")
     if v.get("instagram_cover_url"):
         url_fields.append("instagram_cover_url")
+    if v.get("instagram_video_url"):
+        url_fields.append("instagram_video_url")
     bad_urls = [key for key in url_fields if not str(v[key]).startswith("https://")]
     if bad_urls:
         print("REFUSING - non-HTTPS media fields: " + ", ".join(bad_urls))

@@ -21,6 +21,7 @@ cfg = {
   "mirror_cta": "More from @danrosefit 👇",
   "video_url": P + "f3b25e96-112a-4837-b710-597a8789a24c.mp4",
   "tiktok_video_url": P + "05e590fb-b538-49dc-9298-552aa4c74df9.mp4",
+  "instagram_video_url": P + "16b5e0eb-f9f4-4cdf-b165-fdc2969d559f.mp4",
   "youtube_cover_url": P + "3c566953-7926-4d3a-bea8-fb3cf25ade82.jpg",
   "instagram_cover_url": P + "3c566953-7926-4d3a-bea8-fb3cf25ade82.jpg",
 }

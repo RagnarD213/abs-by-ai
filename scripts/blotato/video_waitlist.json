@@ -1,0 +1,44 @@
+[
+ {
+  "config": "scripts/blotato/configs/sl03-short2-the-20-dollar-salad-for-4.json",
+  "kind": "short",
+  "job": "SL-03 short 2",
+  "label": "The $20 Salad For 4",
+  "added": "2026-10-08"
+ },
+ {
+  "config": "scripts/blotato/configs/sl03-short3-keep-salads-fresh-7-days.json",
+  "kind": "short",
+  "job": "SL-03 short 3",
+  "label": "Keep Salads Fresh 7 Days",
+  "added": "2026-10-08"
+ },
+ {
+  "config": "scripts/blotato/configs/sl03-short6-make-ai-calorie-tracking-accurate.json",
+  "kind": "short",
+  "job": "SL-03 short 6",
+  "label": "Make AI Calorie Tracking Accurate",
+  "added": "2026-10-08"
+ },
+ {
+  "config": "scripts/blotato/configs/ro06-home-workout-budget.json",
+  "kind": "longform",
+  "job": "RO-06",
+  "label": "How To Work Out At Home On A Budget",
+  "added": "2026-10-10"
+ },
+ {
+  "config": "scripts/blotato/configs/abs-at-40-vs-25.json",
+  "kind": "longform",
+  "job": "Zeeshan Video 5",
+  "label": "Getting Abs At 40 vs 25",
+  "added": "2026-10-11"
+ },
+ {
+  "config": "scripts/blotato/configs/ro07-work-out-every-day.json",
+  "kind": "longform",
+  "job": "RO-07",
+  "label": "Why You MUST Work Out Every Day",
+  "added": "2026-10-11"
+ }
+]

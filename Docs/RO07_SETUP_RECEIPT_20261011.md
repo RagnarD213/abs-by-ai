@@ -14,9 +14,9 @@
 - **Delivery gate:** the known FAIL stamps did not block any script.
 
 - **Instagram copy:** Instagram rejects files over about 300 MB, so a smaller copy (254,649,310 bytes, 1.8 Mbps, same frames and audio packets) is uploaded at `.../16b5e0eb-f9f4-4cdf-b165-fdc2969d559f.mp4`; after the queue write, swap only the Instagram post to it with `swap_media.py`.
-- **Automatic release:** scheduled task `ro07-blotato-queue-when-room` was created and then PAUSED the same day at Dan's request (he wants one routine to queue all waiting videos, not one task per video). Nothing queues this video automatically right now.
+- **Automatic release:** RO-07 is on `scripts/blotato/video_waitlist.json` (after SL-03 short 6, RO-06 and Zeeshan's Video 5). The daily routine `social-queue-daily-refresh` runs `video_topup.py` and queues it when there is room; trial run with room assumed gives Sun Jan 10 2027. The config carries `instagram_video_url`, so no manual Instagram swap is needed. The single-video task made earlier that day was deleted at Dan's request.
 
-## To release (when the queue has 4 free slots, after RO-06 and Video 5 are queued)
+## Manual release, only if the routine reports a problem
 
 1. `python3 scripts/blotato/ad_guard.py --scan`
 2. `curl -sI` the three media URLs above; if any is gone, re-upload from `/Volumes/Extreme/_edit_work/ro07/publish/` and edit the `.build.py`.
