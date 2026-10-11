@@ -1,0 +1,180 @@
+{
+ "job": "RO-20",
+ "round_reviewed": 1,
+ "recorded": "2026-10-11",
+ "source": "Dan's chat reply to the round 1 page (http://127.0.0.1:8862/), dictated; IDs as he said them are mapped in 'item'",
+ "items": [
+  {
+   "item": "O1 / O2 (opener)",
+   "verdict": "rejected",
+   "dan": "I don't like that clip in the beginning or the alternative. Just use a camera scene for the intro rather than the AI-generated clip.",
+   "scope": "both opener concepts",
+   "next": "open on camera; remove O1 from the plan; no AI opener",
+   "frames": {
+    "O1": {
+     "start": {
+      "path": "/Volumes/Extreme/_edit_work/ro20/aiframes/O1-start.png",
+      "sha256": "7e262e3dbe522652252c75088dcbabd0f527dfffc36fb09a9005658edcd7140b"
+     },
+     "end": {
+      "path": "/Volumes/Extreme/_edit_work/ro20/aiframes/O1-end.png",
+      "sha256": "0e8c874d97aa3ed49a4481d16a612f5cef8159d9765e2887560e44ff27a4ceda"
+     }
+    },
+    "O2": {
+     "start": {
+      "path": "/Volumes/Extreme/_edit_work/ro20/aiframes/O2-start.png",
+      "sha256": "b9457f35a9195c67fc5e8054e82fe3d1b3922acc7684ed40848fa1b6798125d8"
+     },
+     "end": {
+      "path": "/Volumes/Extreme/_edit_work/ro20/aiframes/O2-end.png",
+      "sha256": "19c1f9c0c3ba3aced6dbd73893613a808e6c92a6a2b7712a6ea073e18e17c833"
+     }
+    }
+   }
+  },
+  {
+   "item": "A1 (fat guy who has money, lip synced)",
+   "verdict": "approved",
+   "dan": "The fat guy who has money. I like that idea. The lip-syncing that we did with that before turned out good.",
+   "scope": "frames; motion + lip sync authorized",
+   "frames": {
+    "start": {
+     "path": "/Volumes/Extreme/_edit_work/ro20/aiframes/A1-start.png",
+     "sha256": "2c0c12397c27619a28a7be0844aed712abfe7158b11bf144a6ab233f5675be59"
+    },
+    "end": {
+     "path": "/Volumes/Extreme/_edit_work/ro20/aiframes/A1-end.png",
+     "sha256": "e3315d372703776d228053137114cba7910f73713398bfd3a28122dde22977fc"
+    }
+   }
+  },
+  {
+   "item": "A2 (the brokie)",
+   "verdict": "approved",
+   "dan": "I like the brokey clip as well. Generally, I think this is good. If I'm imitating some kind of loser to illustrate that with AI, both of those turned out funny and good.",
+   "scope": "frames; motion authorized",
+   "frames": {
+    "start": {
+     "path": "/Volumes/Extreme/_edit_work/ro20/aiframes/A2-start.png",
+     "sha256": "6bc3c9e5dd75480004eb0fe55a3543558ce6232758f2f177b4ca2cf1d97d9ee0"
+    },
+    "end": {
+     "path": "/Volumes/Extreme/_edit_work/ro20/aiframes/A2-end.png",
+     "sha256": "41aa24827dcc8eafbd911a2d54b83de37201677b1195a44d8ec2636f2e574998"
+    }
+   }
+  },
+  {
+   "item": "A3 (cardboard box house)",
+   "verdict": "approved",
+   "dan": "I like the cardboard box house.",
+   "scope": "frames; motion authorized",
+   "frames": {
+    "start": {
+     "path": "/Volumes/Extreme/_edit_work/ro20/aiframes/A3-start.png",
+     "sha256": "522b42801fc13d8a0259ddea6927dbfad1a596581b58278d952908ace59277bf"
+    },
+    "end": {
+     "path": "/Volumes/Extreme/_edit_work/ro20/aiframes/A3-end.png",
+     "sha256": "2ccfbaf5efca698564e691a7c04fabc90ef6920f207e5c003bbf194c54773892"
+    }
+   }
+  },
+  {
+   "item": "A4 (the lawyer)",
+   "verdict": "rejected",
+   "dan": "Just eliminate the lawyer who has no time clip altogether.",
+   "next": "remove A4 from the plan; he stays on camera there",
+   "frames": {
+    "start": {
+     "path": "/Volumes/Extreme/_edit_work/ro20/aiframes/A4-start.png",
+     "sha256": "533efbb3494bebc6961b8b84274ee2b10bcdd4dae407071d5b598bb837dcf9df"
+    },
+    "end": {
+     "path": "/Volumes/Extreme/_edit_work/ro20/aiframes/A4-end.png",
+     "sha256": "be77dc23988d8f7027ad0cc318b3d0fba59b301c3310a147626653c8c8c99ec5"
+    }
+   }
+  },
+  {
+   "item": "Colour",
+   "verdict": "approved",
+   "dan": "Let's go with a bright natural D for the camera frame. D for closer size as well.",
+   "scope": "look D, both sizes: LOCKED",
+   "path": "/Volumes/Extreme/_edit_work/ro20/grades.json",
+   "sha256": "491b6b16461b855750bdd4a1b3f4094ec0969cb41cf3f840c1596ddb71e0fb46"
+  },
+  {
+   "item": "Voice",
+   "verdict": "approved",
+   "dan": "For audio, we'll go with the warm, less room echo that you chose.",
+   "scope": "voice 4 (build.VOICE4): LOCKED"
+  },
+  {
+   "item": "Chapters",
+   "verdict": "approved",
+   "dan": "Chapters look good.",
+   "scope": "the chapter list on the round 1 page (re-cut if the film is split)"
+  },
+  {
+   "item": "Ca02 + Ga04 and Ca03 (job interview stock, office handshake AI clip A0035)",
+   "verdict": "changes requested",
+   "dan": "For GAO4 CAO3, instead of that clip, I want you to generate a couple of other similar clips, not the same. Basically, they are of a guy in great shape getting a job while the fat guy looks on in envy, but make it different than the first one. Not the same scene, maybe in a boardroom. Two similar clips: CAO3 instead of CAO2 and GAO4.",
+   "next": "two NEW AI clips (frames first): one replaces Ca02 (under lower third Ga04), one replaces Ca03. A fit man gets the job while a heavy man looks on in envy; a different scene from A0035, e.g. a boardroom. Editor's reading: Ga04's lower third stays, the pictures under it change",
+   "new_frames_before_motion": true
+  },
+  {
+   "item": "Cb11 + Gb08 (B0437, Dan checking his phone by the pool)",
+   "verdict": "rejected, standing rule",
+   "dan": "For GB08, I don't want you to ever use this clip again. This is just me looking at a phone. It's not appropriate, really, to ever use. Make a note to never use that in any video. Same thing with CB11. What I want to use instead of this is the AI-generated clip we made previously of the fat guy getting no matches on Hinge and the rip guy getting a ton of matches. Use that AI-generated clip we previously made instead.",
+   "next": "replace with library AI clip A0089 (9:16 phone-screen mock: heavier profile, no matches, then the ripped profile with matches), in a phone card, labelled AI-GENERATED. B0437 marked never-use in the clip library and VIDEO-RULES"
+  },
+  {
+   "item": "Cb12 + Gb09 (stock man scrolling his phone)",
+   "verdict": "rejected, replace",
+   "dan": "For CB12 and GBO9, eliminate that. I don't like this clip. It just shows a guy looking at his phone and doesn't add any value. I want to replace that with a full-screen graphic incorporating this image that I included here, and then with text next to it to fill out the graphic.",
+   "next": "full-screen Soft Blue Light graphic with Dan's diagram (ten women, ten men, every arrow pointing at the top few men) and text beside it; show him the still",
+   "asset": {
+    "path": "/Volumes/Extreme/_edit_work/ro20/round1/dan-dating-diagram.png",
+    "sha256": "83b52594777f8096189c3ecde67cbf0e083428a3351aeaa1456e691df070fdf5"
+   }
+  },
+  {
+   "item": "Gb19 + Cb24 (B0455), Gc18 + Cc22 (B0456), Gf17 + Cf16 (B0434): dark B-roll",
+   "verdict": "changes requested, standing rule",
+   "dan": "For GB19 and CB24, I like these clips, but I want you to use the color-corrected versions. This looks very dark, or just use the ab wheel or something already color-corrected. This looks excessively dark. Same thing for GC18 and CC22: make sure to use color-corrected footage, not this dark raw footage. Let's make that a rule going forward for all the B-roll you're using. Make sure that this is color corrected. Same thing for GF17 and CF16. This is very dark. We need to color correct that clip as well. Color correct all B-roll used in this video and all videos going forward.",
+   "next": "grade every one of the 30 clips of Dan's own footage to sit with look D (measure skin, look at each beside a presenter frame); swap to an already bright clip where a grade cannot rescue one"
+  },
+  {
+   "item": "Length",
+   "verdict": "decided: three videos",
+   "dan": "this video turned out much longer than I intended. I'm thinking about breaking it into two videos. I want you to assess the script and the footage and see if that would make sense ... Give me that assessment of whether we can break it into two videos and the optimal point to break it. Then we'll decide on that and make the handoff for the next round.",
+   "next": "three videos: seams at film 14:54 (894.3 s) and 23:40 (1420.8 s); the round 2 task writes the audio pickup scripts and plans what is on screen under each",
+   "dan_decision": "Let's split it into three videos. To better tie these together, I also want you to write scripts for audio pickups that I will do where it's necessary for the video to make sense. For example: At the end of video 1, I could do a pickup and say, \"In the next video, I'm going to tell you what you should cut.\" I could do a pickup at the beginning and end the video too. At the beginning of video 3, give me a handoff document to edit all three videos together in one single task. In that new task, also have it generate any audio pickups necessary to make the videos make sense as three separate videos. Have that new task as well. Plan for the graphics that would be on screen: graphics, stock, or AI-generated clips, or what's going to be on screen when I do that pickup."
+  }
+ ],
+ "not_answered": [
+  "38:18 'you can't afford it' twice (built: as said)",
+  "Bryan Johnson 49:33 (built: name lower third only)",
+  "The app on screen: phone card (not built)",
+  "His own things on screen (as built)"
+ ],
+ "motion_authorized": [
+  "A1",
+  "A2",
+  "A3"
+ ],
+ "lip_sync_authorized": [
+  "A1"
+ ],
+ "new_frames_before_motion": [
+  "replacement for Ca02",
+  "replacement for Ca03"
+ ],
+ "locked": [
+  "look D (both sizes)",
+  "voice 4",
+  "frames A1, A2, A3"
+ ]
+}

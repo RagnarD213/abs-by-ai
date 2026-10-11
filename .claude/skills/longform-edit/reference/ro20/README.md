@@ -61,7 +61,15 @@ Order: `pick_lav.py --ss 600 --t 60` -> lav wav -> `asr_rolls.py` (medium.en, 37
 - **A dying session loses the last tool call.** The chain script had not been written when the session dropped; nothing was
   running overnight. Write the unattended chain to disk and start it before the long wait, then check `chain.log`.
 
-## Round 1 state (2026-10-11)
+## Round 1 state and Dan's verdict (2026-10-11)
 
 Sent to Dan: look D, voice 4, opener O1 (O2 alternative), AI frames A1 to A4, the first minute (70 s), 190 lower thirds and 177
-cutaways as stills, nine decisions. No motion generated, no full render. Next: `Handoffs/handoff-20261011-ro20-round2-after-dan-review.md`.
+cutaways as stills with a context clip per lower third, nine decisions. No motion generated, no full render.
+
+His reply (word for word in `round1-decisions.json`): look D and voice 4 locked; both AI gag openers rejected ("Just use a
+camera scene for the intro"); the excuse-voice clips A1 to A3 approved, the lawyer clip cut; two cutaways of someone looking
+at a phone thrown out (one is now a standing never-use, B0437); three of his own pool clips called "excessively dark", which
+became the standing rule that all B-roll is colour corrected; and the 53 minute film split into THREE videos tied together
+with audio pickups he records. What that taught: check every one of his own B-roll stills beside a presenter still before
+the page goes out, and for a film this long raise the split question with the take map, not after 367 stills.
+Next: `Handoffs/handoff-20261011-ro20-round2-after-dan-review.md`.
