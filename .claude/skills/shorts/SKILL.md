@@ -43,6 +43,15 @@ the stuff on the sides there"). A subject that moves across the frame gets a cro
 `shortad-from-longform/reference/kit9x16/clip_fit.py` (`decide()` returns the window, its shape and `ox`; Dan's own
 note on a clip goes in as an override and wins). Full rule: `_shared/VIDEO-RULES.md`, "Verticals and squares".
 
+## Open like a dedicated video: a recorded pickup, never "Number two" (Dan, 2026-10-11)
+
+A Short never opens on a list number or a line that points back at the long-form ("Number two", "next", "this one").
+Dan records a one-sentence pickup that states the Short's point as its own video ("Here's why Thursday evening is the
+best time to inject Zepbound"), and a clip, graphic or AI clip covers it. One point per Short: a candidate that argues
+two things is split. Write three pickup options per Short through `dan-voice-writer` and put them in the Step 2
+shortlist message, so Dan records them when he picks. Recording, the cover, and matching the pickup to the film's
+voice: `_shared/VIDEO-RULES.md`, "A Short opens like a dedicated video". First used on SL-06 (Top 5 Zepbound Tips).
+
 ## Stand alone: show the whole exercise, not a detail of it (Dan, 2026-09-30)
 
 - **A short must make complete sense to a viewer who never saw the long-form.** Leave out details that only work
@@ -445,6 +454,8 @@ Shape is `{ chunks: [{ text, timestamp: [start, end] }] }`.
 **This is his call, not yours** (standing rule since 2026-08-04). Give him a shortlist
 with, for each candidate: a title, the timecodes, and the **verbatim spoken text**. He
 picks by letter. On V2 he chose 7 from a shortlist of 11.
+
+**Check every candidate's first line: if it points at the long-form, write its pickup now and send the pickup lines with the shortlist** (rule at the top of this file, 2026-10-11).
 
 A short must **stand alone with its own reason to watch** — a complete idea, tip or story.
 **Every exercise it names is shown whole, briefly** (Dan, 2026-09-30, rule at the top of this file): list where each

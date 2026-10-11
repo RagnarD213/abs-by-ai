@@ -3,7 +3,7 @@
 
 Internal queue = studio27_plan.json minus studio27_state.json (approved posts with uploaded media
 that Blotato had no room for). Uses the same payloads as studio27_queue.py. Never touches, moves or
-deletes existing Blotato posts. A planned slot is kept when it is still in the future and its day is
+deletes existing Blotato posts. Holds while any video is waiting in video_waitlist.json (videos first). A planned slot is kept when it is still in the future and its day is
 free on that account; otherwise the item takes the next free Mon/Wed/Fri 5 PM Central slot after
 the previous item placed for that account.
 
@@ -18,6 +18,12 @@ from danrosefit_migration import call, fetch_schedules  # noqa: E402
 
 CAP = 200
 apply = "--apply" in sys.argv
+# Videos go first (Dan, 2026-10-11): while any finished video is waiting in video_waitlist.json,
+# photo posts hold so freed slots go to the videos. video_topup.py queues those.
+import video_topup  # noqa: E402
+if video_topup.pending(video_topup.load()):
+    print(f"photo top-up on hold: {len(video_topup.pending(video_topup.load()))} videos are waiting for room (video_topup.py)")
+    sys.exit(0)
 items = fetch_schedules(s27.KEY)
 free = CAP - len(items)
 state = s27.load_state()

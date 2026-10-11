@@ -41,6 +41,21 @@ Before queueing, download each YouTube and Instagram cover URL, decode it, verif
 
 A recurring release check requires Dan's schedule confirmation. If no recurring check is active, record the post-release thumbnail check as outstanding in the setup handoff. Do not say the queue alone guarantees the cover.
 
+## Blotato full? Add the video to the waiting list; one routine queues everything (Dan, 2026-10-11)
+
+When the queue has no room for a video's 4 posts, finish everything else (thumbnail, backups, packaging, media uploaded,
+config written, article, receipt), then add one entry to `scripts/blotato/video_waitlist.json` and stop:
+`{"config": "scripts/blotato/configs/<slug>.json", "kind": "longform" or "short", "job": "<ID>", "label": "<title>", "added": "<date>"}`.
+The daily routine `social-queue-daily-refresh` runs `scripts/blotato/video_topup.py`, which queues waiting videos in list
+order as room frees up: a long-form on its saved Sunday or the next free one (other platforms Monday), a Short on its
+saved slot or the next free Tue/Thu/Sat. Photo posts wait while any video is waiting. Trial run:
+`python3 scripts/blotato/video_topup.py --assume-free 30`.
+- **Never create a scheduled task for one video.** Dan deleted three of them on 2026-10-11 because they would conflict.
+- **Instagram rejects files over about 300 MB.** For a long-form, upload a smaller copy (1.8 Mbps video, audio copied)
+  and put its URL in the config as `instagram_video_url`; `longform_queue.py` uses it for the Instagram post only, and
+  `video_topup.py` refuses a long-form whose Instagram file is larger.
+- The board entry says HOLD with the receipt path; the routine replaces it when the video is queued.
+
 ## Step 0 — before anything
 
 - **CLASSIFY IT FIRST from the video's own ending** (`_shared/VIDEO-RULES.md`, "Ad or organic?", Dan 2026-09-28):

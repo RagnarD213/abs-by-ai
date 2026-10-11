@@ -16,6 +16,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
+| [handoff-20261011-sl06-zepbound-shorts-pickups-and-build.md](handoff-20261011-sl06-zepbound-shorts-pickups-and-build.md) | **Ready 2026-10-11. Claude Opus 5.5 / High.** SL-06 Top 5 Zepbound Tips shorts (CONTENT): record Dan's four pickup lines, round-1 review page with short D finished, then build six shorts. No covers, no upload. |
 | [handoff-20261010-wv01-b-claude-1p2x-then-website-test.md](handoff-20261010-wv01-b-claude-1p2x-then-website-test.md) | **Ready for Claude Opus 5.5, high.** Finalized B: make a separate 1.2x film for VLC review; website installation and test launch follow the separate software decision. |
 | [handoff-20261009-wv01-b-round5-final-two-fixes.md](handoff-20261009-wv01-b-round5-final-two-fixes.md) | **Ready 2026-10-09. GPT-6 Astra / High.** Fired Them All AD R5: restore the phone scene, move final pickup after the complete sentence and repair its joins; full VLC review, no upload/publishing. Analysis and shared QC skill repair completed. |
 | [handoff-20261008-wv01-b-round3-selected-motion-and-opening.md](handoff-20261008-wv01-b-round3-selected-motion-and-opening.md) | **Ready 2026-10-08. Codex GPT-6 Astra / High.** Locked slimmer firing pair and phone coach A: generate two motion clips, integrate R2 picture changes and approved planning inserts, review B opening and A join only. |

@@ -176,6 +176,10 @@ Full rule: read `.claude/skills/_shared/VIDEO-RULES.md`.
 - If a queued long-form is found on another day, move its YouTube release to the end of the Sunday queue and its other platform posts to the following Monday. Re-read every saved schedule after a move.
 - This rule binds Claude and Codex for setup, queue edits, handoffs and direct Blotato actions. The `/video-setup` skill and `scripts/blotato/longform_queue.py` enforce it.
 
+## One routine queues waiting videos (Dan, 2026-10-11)
+
+- When Blotato is full, a finished video goes on `scripts/blotato/video_waitlist.json`. The daily `social-queue-daily-refresh` routine (`scripts/blotato/video_topup.py`) queues waiting videos as room frees: long-forms on Sundays, Shorts on Tue/Thu/Sat, videos before photo posts. Never create a scheduled task or routine that queues a single video; they conflict. Claude and Codex both. Detail: `/video-setup`.
+
 ## Thumbnails, covers and setup: one Claude handoff (Dan, 2026-10-01)
 
 - Claude can now generate Codex images on Dan's subscription. For a finished video, write **one Claude handoff** that makes
