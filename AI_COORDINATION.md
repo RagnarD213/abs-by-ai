@@ -126,7 +126,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **RO-20 - BUILDING 2026-10-10, Claude.** `/Volumes/Extreme/_edit_work/ro20/`
 
-**RO-19 - BUILDING 2026-10-11, Claude.** Round 1. `/Volumes/Extreme/_edit_work/ro19/`
+**RO-19-BUILDING 2026-10-11.**
 
 **RO-07 - REVIEW 2026-10-10, Claude.** `Handoffs/handoff-20261010-ro07-round3-dan-review.md`
 
