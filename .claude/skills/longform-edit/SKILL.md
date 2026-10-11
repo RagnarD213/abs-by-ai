@@ -56,6 +56,8 @@ For long-form: full-screen cards, lists and photo displays come from `softblue` 
 > **The from-scratch recut that followed** (grade stills, Muhammad component board, sample packet, then the full cut on one
 > code path) and every trap it hit: `reference/ro05-fable/README.md`. Start a Muhammad-style long-form from that recipe.
 >
+> **A long film (over about 25 minutes) or the 8/3 kitchen doorway set (2026-10-11):** start from `reference/ro20/` (RO-20, 53 minutes): the plan written in parts by parallel writers with a per-part checker, the keyless Pexels index, parallel lower-third renders, the grade curve for lifted blacks. Read its README first.
+>
 > **The 9/23 studio set (2026-09-30):** start from `reference/ro12/` (RO-12, review SHIP): the locked WV-01 look, word-anchored graphics, Gemini restart listen, bed/EQ traps, sliver and side-layout rules. Read its README first.
 
 # Editing a longform video from raw shoot footage

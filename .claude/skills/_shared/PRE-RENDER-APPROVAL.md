@@ -28,6 +28,11 @@ at beside an approved video; the voice went through the automatic tone match on 
    the chain's default. Level match them through the shared finisher, then get a blind ranking against the reference
    (Gemini listen, standing authorization). **A treatment that ranks below its own untreated lav never ships**, whatever
    the gate says. If the listener hears the room, the dereverb opt-in is justified.
+   **One blind listen is noise when the options are close (RO-20, 2026-10-10):** the same clip scored 2 and 9 in two runs.
+   Repeat the ranking at least five times with fresh letters and send order and average it
+   (`longform-edit/reference/ro20/listen_trials.py`). Trust only what repeats (there: the chain default never won), settle
+   the rest on the room measurement and Dan's last pick on the closest set, and say on the page that the listener could
+   not separate the finalists.
 4. **Build the first minute with the winners** and say on the page, in two lines, what was compared and why the winner won.
    Dan still sees the runner-up as a one-click alternative; he is not asked to do the comparison himself.
 5. Listen to and watch the finished first minute once more through the same checks before sending it. A passed gate is

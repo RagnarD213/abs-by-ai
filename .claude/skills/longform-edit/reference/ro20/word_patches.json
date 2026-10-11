@@ -1,0 +1,1350 @@
+[
+ {
+  "t0": 363.9,
+  "t1": 378.0,
+  "why": "medium.en full pass folded the retake of 'you need to break into that top ...' into a 7 s gap; words from verify window 363.95-378.2",
+  "words": [
+   [
+    "So,",
+    363.95,
+    364.43
+   ],
+   [
+    "you",
+    364.79,
+    364.85
+   ],
+   [
+    "need",
+    364.85,
+    365.01
+   ],
+   [
+    "to",
+    365.01,
+    365.15
+   ],
+   [
+    "break",
+    365.15,
+    365.29
+   ],
+   [
+    "into",
+    365.29,
+    365.51
+   ],
+   [
+    "that",
+    365.51,
+    365.69
+   ],
+   [
+    "top",
+    365.69,
+    365.93
+   ],
+   [
+    "10",
+    365.93,
+    366.17
+   ],
+   [
+    "%",
+    366.17,
+    366.45
+   ],
+   [
+    "of",
+    366.45,
+    366.57
+   ],
+   [
+    "looks,",
+    366.57,
+    366.81
+   ],
+   [
+    "otherwise",
+    367.45,
+    367.61
+   ],
+   [
+    "your",
+    367.61,
+    368.35
+   ],
+   [
+    "personality,",
+    368.35,
+    369.05
+   ],
+   [
+    "you",
+    370.05,
+    370.63
+   ],
+   [
+    "need",
+    370.63,
+    370.83
+   ],
+   [
+    "to",
+    370.83,
+    371.01
+   ],
+   [
+    "break",
+    371.01,
+    371.17
+   ],
+   [
+    "into",
+    371.17,
+    371.37
+   ],
+   [
+    "that",
+    371.37,
+    371.53
+   ],
+   [
+    "top",
+    371.53,
+    371.77
+   ],
+   [
+    "80",
+    371.77,
+    372.05
+   ],
+   [
+    "%",
+    372.05,
+    372.29
+   ],
+   [
+    "of",
+    372.29,
+    372.41
+   ],
+   [
+    "looks.",
+    372.41,
+    372.67
+   ],
+   [
+    "Otherwise",
+    373.31,
+    373.47
+   ],
+   [
+    "your",
+    373.47,
+    373.87
+   ],
+   [
+    "personality,",
+    373.87,
+    374.55
+   ],
+   [
+    "your",
+    375.35,
+    375.41
+   ],
+   [
+    "money,",
+    375.41,
+    375.81
+   ],
+   [
+    "none",
+    376.25,
+    376.33
+   ],
+   [
+    "of",
+    376.33,
+    376.47
+   ],
+   [
+    "it",
+    376.47,
+    376.63
+   ],
+   [
+    "is",
+    376.63,
+    376.85
+   ],
+   [
+    "really",
+    376.85,
+    377.11
+   ],
+   [
+    "going",
+    377.11,
+    377.31
+   ],
+   [
+    "to",
+    377.31,
+    377.47
+   ],
+   [
+    "matter.",
+    377.47,
+    377.69
+   ]
+  ]
+ },
+ {
+  "t0": 599.75,
+  "t1": 615.0,
+  "why": "full pass hid the restart 'Sacrifice a few days ...' inside a 5.8 s 'now'; words from verify window 599.8-615.2",
+  "words": [
+   [
+    "So",
+    599.8,
+    600.28
+   ],
+   [
+    "engage",
+    600.28,
+    600.68
+   ],
+   [
+    "that",
+    600.68,
+    600.9
+   ],
+   [
+    "long",
+    600.9,
+    601.08
+   ],
+   [
+    "term",
+    601.08,
+    601.32
+   ],
+   [
+    "thinking,",
+    601.32,
+    601.7
+   ],
+   [
+    "sacrifice",
+    602.18,
+    602.5
+   ],
+   [
+    "a",
+    602.5,
+    602.8
+   ],
+   [
+    "few",
+    602.8,
+    603.02
+   ],
+   [
+    "days",
+    603.02,
+    603.32
+   ],
+   [
+    "or",
+    603.32,
+    603.5
+   ],
+   [
+    "a",
+    603.5,
+    603.6
+   ],
+   [
+    "few",
+    603.6,
+    603.76
+   ],
+   [
+    "weeks",
+    603.76,
+    603.98
+   ],
+   [
+    "of",
+    603.98,
+    604.14
+   ],
+   [
+    "productivity",
+    604.14,
+    604.68
+   ],
+   [
+    "for",
+    604.68,
+    605.1
+   ],
+   [
+    "the",
+    605.1,
+    605.2
+   ],
+   [
+    "long",
+    605.2,
+    605.42
+   ],
+   [
+    "term",
+    605.42,
+    605.74
+   ],
+   [
+    "and",
+    605.74,
+    606.04
+   ],
+   [
+    "a",
+    606.04,
+    606.16
+   ],
+   [
+    "few",
+    606.16,
+    606.34
+   ],
+   [
+    "years",
+    606.34,
+    606.6
+   ],
+   [
+    "from",
+    606.6,
+    606.84
+   ],
+   [
+    "Sacrifice",
+    607.84,
+    608.3
+   ],
+   [
+    "a",
+    608.3,
+    608.76
+   ],
+   [
+    "few",
+    608.76,
+    608.92
+   ],
+   [
+    "days",
+    608.92,
+    609.24
+   ],
+   [
+    "or",
+    609.24,
+    609.44
+   ],
+   [
+    "a",
+    609.44,
+    609.56
+   ],
+   [
+    "few",
+    609.56,
+    609.7
+   ],
+   [
+    "weeks",
+    609.7,
+    609.96
+   ],
+   [
+    "of",
+    609.96,
+    610.18
+   ],
+   [
+    "productivity",
+    610.18,
+    610.6
+   ],
+   [
+    "for",
+    610.6,
+    610.86
+   ],
+   [
+    "the",
+    610.86,
+    610.98
+   ],
+   [
+    "long",
+    610.98,
+    611.18
+   ],
+   [
+    "term",
+    611.18,
+    611.46
+   ],
+   [
+    "and",
+    611.46,
+    611.8
+   ],
+   [
+    "a",
+    611.8,
+    611.94
+   ],
+   [
+    "few",
+    611.94,
+    612.08
+   ],
+   [
+    "years",
+    612.08,
+    612.32
+   ],
+   [
+    "from",
+    612.32,
+    612.5
+   ],
+   [
+    "now",
+    612.5,
+    612.68
+   ],
+   [
+    "You",
+    612.68,
+    612.94
+   ],
+   [
+    "will",
+    612.94,
+    613.08
+   ],
+   [
+    "be",
+    613.08,
+    613.24
+   ],
+   [
+    "thanking",
+    613.24,
+    613.54
+   ],
+   [
+    "yourself",
+    613.54,
+    613.94
+   ],
+   [
+    "for",
+    613.94,
+    614.16
+   ],
+   [
+    "doing",
+    614.16,
+    614.34
+   ],
+   [
+    "that",
+    614.34,
+    614.6
+   ]
+  ]
+ },
+ {
+  "t0": 1111.0,
+  "t1": 1125.6,
+  "why": "full pass dropped 'in great shape than someone who is debilitated, who she has to take care of, but' into a 4.1 s 'and'; words from verify window 1110.5-1126",
+  "words": [
+   [
+    "Let's",
+    1111.74,
+    1112.18
+   ],
+   [
+    "say",
+    1112.18,
+    1112.3
+   ],
+   [
+    "your",
+    1112.3,
+    1112.58
+   ],
+   [
+    "wife",
+    1112.58,
+    1113.06
+   ],
+   [
+    "or",
+    1113.06,
+    1113.3
+   ],
+   [
+    "girlfriend",
+    1113.3,
+    1113.8
+   ],
+   [
+    "is",
+    1113.8,
+    1113.98
+   ],
+   [
+    "your",
+    1113.98,
+    1114.16
+   ],
+   [
+    "first",
+    1114.16,
+    1114.36
+   ],
+   [
+    "priority.",
+    1114.36,
+    1114.9
+   ],
+   [
+    "Again,",
+    1115.4,
+    1115.64
+   ],
+   [
+    "she",
+    1115.84,
+    1115.94
+   ],
+   [
+    "would",
+    1115.94,
+    1116.08
+   ],
+   [
+    "far",
+    1116.08,
+    1116.44
+   ],
+   [
+    "rather",
+    1116.44,
+    1116.86
+   ],
+   [
+    "have",
+    1116.86,
+    1117.3
+   ],
+   [
+    "a",
+    1117.3,
+    1117.44
+   ],
+   [
+    "husband",
+    1117.44,
+    1117.8
+   ],
+   [
+    "or",
+    1117.8,
+    1118.04
+   ],
+   [
+    "boyfriend",
+    1118.04,
+    1118.54
+   ],
+   [
+    "who",
+    1118.54,
+    1118.7
+   ],
+   [
+    "is",
+    1118.7,
+    1118.82
+   ],
+   [
+    "alive,",
+    1118.82,
+    1119.26
+   ],
+   [
+    "healthy",
+    1119.6,
+    1119.9
+   ],
+   [
+    "and",
+    1119.9,
+    1120.14
+   ],
+   [
+    "in",
+    1120.14,
+    1120.22
+   ],
+   [
+    "great",
+    1120.22,
+    1120.34
+   ],
+   [
+    "shape",
+    1120.34,
+    1120.72
+   ],
+   [
+    "than",
+    1120.72,
+    1121.12
+   ],
+   [
+    "someone",
+    1121.12,
+    1121.48
+   ],
+   [
+    "who",
+    1121.48,
+    1121.62
+   ],
+   [
+    "is",
+    1121.62,
+    1121.72
+   ],
+   [
+    "debilitated,",
+    1121.72,
+    1122.44
+   ],
+   [
+    "who",
+    1122.7,
+    1122.74
+   ],
+   [
+    "she",
+    1122.74,
+    1122.88
+   ],
+   [
+    "has",
+    1122.88,
+    1123.1
+   ],
+   [
+    "to",
+    1123.1,
+    1123.24
+   ],
+   [
+    "take",
+    1123.24,
+    1123.46
+   ],
+   [
+    "care",
+    1123.46,
+    1123.66
+   ],
+   [
+    "of,",
+    1123.66,
+    1123.94
+   ],
+   [
+    "but",
+    1124.06,
+    1124.18
+   ],
+   [
+    "who",
+    1124.18,
+    1124.3
+   ],
+   [
+    "has",
+    1124.3,
+    1124.46
+   ],
+   [
+    "a",
+    1124.46,
+    1124.58
+   ],
+   [
+    "little",
+    1124.58,
+    1124.74
+   ],
+   [
+    "bit",
+    1124.74,
+    1124.86
+   ],
+   [
+    "more",
+    1124.86,
+    1125.04
+   ],
+   [
+    "money.",
+    1125.04,
+    1125.3
+   ]
+  ]
+ },
+ {
+  "t0": 177.3,
+  "t1": 178.4,
+  "why": "'So' before 'let's say that you're in a relationship' is on the lav (177.84-178.29) but not in the full pass; verify window 176.6-184",
+  "words": [
+   [
+    "So",
+    177.84,
+    178.29
+   ]
+  ]
+ },
+ {
+  "t0": 292.4,
+  "t1": 298.47,
+  "why": "full pass folded an aborted first run at 'in the (modern) online dating environment' (lav 294.78-296.32) into a 5.5 s 'the'; verify windows 293.3-302.3 and 297.0-302.3. The retake starts on the lav at 298.14",
+  "words": [
+   [
+    "in",
+    294.78,
+    294.96
+   ],
+   [
+    "the",
+    294.96,
+    295.1
+   ],
+   [
+    "online",
+    295.1,
+    295.42
+   ],
+   [
+    "dating",
+    295.42,
+    295.82
+   ],
+   [
+    "environment,",
+    295.82,
+    296.32
+   ],
+   [
+    "In",
+    298.14,
+    298.32
+   ],
+   [
+    "the",
+    298.32,
+    298.46
+   ]
+  ]
+ },
+ {
+  "t0": 2524.6,
+  "t1": 2529.7,
+  "why": "second take of 'There's a couple reasons why it's worth making the investment in a good gym membership.' (lav 2525.53-2529.40) is missing from the full pass; verify window 2524.9-2530.0",
+  "words": [
+   [
+    "There's",
+    2525.53,
+    2525.8
+   ],
+   [
+    "a",
+    2525.8,
+    2525.86
+   ],
+   [
+    "couple",
+    2525.86,
+    2526.08
+   ],
+   [
+    "reasons",
+    2526.08,
+    2526.44
+   ],
+   [
+    "why",
+    2526.44,
+    2526.74
+   ],
+   [
+    "it's",
+    2526.74,
+    2527.1
+   ],
+   [
+    "worth",
+    2527.1,
+    2527.26
+   ],
+   [
+    "making",
+    2527.26,
+    2527.62
+   ],
+   [
+    "the",
+    2527.62,
+    2527.78
+   ],
+   [
+    "investment",
+    2527.78,
+    2528.22
+   ],
+   [
+    "in",
+    2528.22,
+    2528.46
+   ],
+   [
+    "a",
+    2528.46,
+    2528.62
+   ],
+   [
+    "good",
+    2528.62,
+    2528.78
+   ],
+   [
+    "gym",
+    2528.78,
+    2528.98
+   ],
+   [
+    "membership.",
+    2528.98,
+    2529.4
+   ]
+  ]
+ },
+ {
+  "t0": 905.97,
+  "t1": 906.33,
+  "why": "doubled 'Now' invented by Whisper at a segment boundary (the small pass has the word once)",
+  "words": []
+ },
+ {
+  "t0": 1258.61,
+  "t1": 1258.67,
+  "why": "doubled 'So' invented by Whisper at a segment boundary (the small pass has the word once)",
+  "words": []
+ },
+ {
+  "t0": 2014.39,
+  "t1": 2014.45,
+  "why": "doubled 'Now,' invented by Whisper at a segment boundary (the small pass has the word once)",
+  "words": []
+ },
+ {
+  "t0": 2737.71,
+  "t1": 2737.73,
+  "why": "doubled 'One,' invented by Whisper at a segment boundary (the small pass has the word once)",
+  "words": []
+ },
+ {
+  "t0": 2767.79,
+  "t1": 2768.21,
+  "why": "'So,' is on the lav at 2767.36-2767.66, 0.4 s before the full pass puts it",
+  "words": [
+   [
+    "So,",
+    2767.36,
+    2767.66
+   ]
+  ]
+ },
+ {
+  "t0": 2772.9,
+  "t1": 2775.3,
+  "why": "full pass folded a restart into a 1.8 s 'you're': he says 'or if you're', stops, then 'Or if you're a little shorter on funds' (lav 2773.02-2773.64, then 2774.72 on); verify window 2770.3-2779.3",
+  "words": [
+   [
+    "or",
+    2773.02,
+    2773.24
+   ],
+   [
+    "if",
+    2773.24,
+    2773.44
+   ],
+   [
+    "you're",
+    2773.44,
+    2773.64
+   ],
+   [
+    "Or",
+    2774.72,
+    2774.88
+   ],
+   [
+    "if",
+    2774.88,
+    2775.12
+   ],
+   [
+    "you're",
+    2775.12,
+    2775.28
+   ],
+   [
+    "a",
+    2775.28,
+    2775.32
+   ]
+  ]
+ },
+ {
+  "t0": 73.636,
+  "t1": 73.644,
+  "why": "piece halo1: 'If' moved from 73.38-73.90 to the lav onset (first word of a kept take; heard from the cut-in on a verify window)",
+  "words": [
+   [
+    "If",
+    74.09,
+    74.21
+   ]
+  ]
+ },
+ {
+  "t0": 74.156,
+  "t1": 74.164,
+  "why": "piece halo1: 'you' moved from 73.90-74.42 to the lav onset (first word of a kept take; heard from the cut-in on a verify window)",
+  "words": [
+   [
+    "you",
+    74.21,
+    74.42
+   ]
+  ]
+ },
+ {
+  "t0": 624.176,
+  "t1": 624.184,
+  "why": "piece mind1: 'The' moved from 623.92-624.44 to the lav onset (first word of a kept take; heard from the cut-in on a verify window)",
+  "words": [
+   [
+    "The",
+    624.29,
+    624.44
+   ]
+  ]
+ },
+ {
+  "t0": 666.696,
+  "t1": 666.704,
+  "why": "piece mind2: 'Now' moved from 666.42-666.98 to the lav onset (first word of a kept take; heard from the cut-in on a verify window)",
+  "words": [
+   [
+    "Now",
+    666.75,
+    666.98
+   ]
+  ]
+ },
+ {
+  "t0": 696.626,
+  "t1": 696.634,
+  "why": "piece mind3: 'This' moved from 696.34-696.92 to the lav onset (first word of a kept take; heard from the cut-in on a verify window)",
+  "words": [
+   [
+    "This",
+    696.69,
+    696.92
+   ]
+  ]
+ },
+ {
+  "t0": 716.416,
+  "t1": 716.424,
+  "why": "piece mind4: 'I' moved from 716.16-716.68 to the lav onset (first word of a kept take; heard from the cut-in on a verify window)",
+  "words": [
+   [
+    "I",
+    716.53,
+    716.68
+   ]
+  ]
+ },
+ {
+  "t0": 738.216,
+  "t1": 738.224,
+  "why": "piece cost1: 'The' moved from 737.98-738.46 to the lav onset (first word of a kept take; heard from the cut-in on a verify window)",
+  "words": [
+   [
+    "The",
+    738.27,
+    738.46
+   ]
+  ]
+ },
+ {
+  "t0": 811.036,
+  "t1": 811.044,
+  "why": "piece cost3: 'Giving' moved from 810.74-811.34 to the lav onset (first word of a kept take; heard from the cut-in on a verify window)",
+  "words": [
+   [
+    "Giving",
+    811.13,
+    811.34
+   ]
+  ]
+ },
+ {
+  "t0": 944.306,
+  "t1": 944.314,
+  "why": "piece dead2: 'if' moved from 943.92-944.70 to the lav onset (first word of a kept take; heard from the cut-in on a verify window)",
+  "words": [
+   [
+    "if",
+    944.53,
+    944.7
+   ]
+  ]
+ },
+ {
+  "t0": 1173.616,
+  "t1": 1173.624,
+  "why": "piece broke1: 'All' moved from 1173.32-1173.92 to the lav onset (first word of a kept take; heard from the cut-in on a verify window)",
+  "words": [
+   [
+    "All",
+    1173.98,
+    1174.1
+   ]
+  ]
+ },
+ {
+  "t0": 1174.216,
+  "t1": 1174.224,
+  "why": "piece broke1: 'right,' moved from 1173.92-1174.52 to the lav onset (first word of a kept take; heard from the cut-in on a verify window)",
+  "words": [
+   [
+    "right,",
+    1174.1,
+    1174.52
+   ]
+  ]
+ },
+ {
+  "t0": 1325.456,
+  "t1": 1325.464,
+  "why": "piece sac2: 'If' moved from 1325.24-1325.68 to the lav onset (first word of a kept take; heard from the cut-in on a verify window)",
+  "words": [
+   [
+    "If",
+    1325.55,
+    1325.68
+   ]
+  ]
+ },
+ {
+  "t0": 1488.756,
+  "t1": 1488.764,
+  "why": "piece rest2: 'When' moved from 1488.48-1489.04 to the lav onset (first word of a kept take; heard from the cut-in on a verify window)",
+  "words": [
+   [
+    "When",
+    1488.83,
+    1489.04
+   ]
+  ]
+ },
+ {
+  "t0": 1570.496,
+  "t1": 1570.504,
+  "why": "piece junk1: 'The' moved from 1570.26-1570.74 to the lav onset (first word of a kept take; heard from the cut-in on a verify window)",
+  "words": [
+   [
+    "The",
+    1570.64,
+    1570.76
+   ]
+  ]
+ },
+ {
+  "t0": 1570.846,
+  "t1": 1570.854,
+  "why": "piece junk1: 'next' moved from 1570.74-1570.96 to the lav onset (first word of a kept take; heard from the cut-in on a verify window)",
+  "words": [
+   [
+    "next",
+    1570.76,
+    1570.96
+   ]
+  ]
+ },
+ {
+  "t0": 1612.196,
+  "t1": 1612.204,
+  "why": "piece vac1: 'The' moved from 1612.00-1612.40 to the lav onset (first word of a kept take; heard from the cut-in on a verify window)",
+  "words": [
+   [
+    "The",
+    1612.28,
+    1612.4
+   ]
+  ]
+ },
+ {
+  "t0": 1798.166,
+  "t1": 1798.174,
+  "why": "piece more2: 'You' moved from 1797.94-1798.40 to the lav onset (first word of a kept take; heard from the cut-in on a verify window)",
+  "words": [
+   [
+    "You",
+    1798.26,
+    1798.4
+   ]
+  ]
+ },
+ {
+  "t0": 2315.316,
+  "t1": 2315.324,
+  "why": "piece matt2: 'If' moved from 2315.08-2315.56 to the lav onset (first word of a kept take; heard from the cut-in on a verify window)",
+  "words": [
+   [
+    "If",
+    2315.81,
+    2315.93
+   ]
+  ]
+ },
+ {
+  "t0": 2315.796,
+  "t1": 2315.804,
+  "why": "piece matt2: 'you' moved from 2315.56-2316.04 to the lav onset (first word of a kept take; heard from the cut-in on a verify window)",
+  "words": [
+   [
+    "you",
+    2315.93,
+    2316.05
+   ]
+  ]
+ },
+ {
+  "t0": 2316.136,
+  "t1": 2316.144,
+  "why": "piece matt2: 'buy' moved from 2316.04-2316.24 to the lav onset (first word of a kept take; heard from the cut-in on a verify window)",
+  "words": [
+   [
+    "buy",
+    2316.05,
+    2316.24
+   ]
+  ]
+ },
+ {
+  "t0": 2498.556,
+  "t1": 2498.564,
+  "why": "piece gym1: 'The' moved from 2498.30-2498.82 to the lav onset (first word of a kept take; heard from the cut-in on a verify window)",
+  "words": [
+   [
+    "The",
+    2498.71,
+    2498.83
+   ]
+  ]
+ },
+ {
+  "t0": 2498.956,
+  "t1": 2498.964,
+  "why": "piece gym1: 'next' moved from 2498.82-2499.10 to the lav onset (first word of a kept take; heard from the cut-in on a verify window)",
+  "words": [
+   [
+    "next",
+    2498.83,
+    2499.1
+   ]
+  ]
+ },
+ {
+  "t0": 2944.336,
+  "t1": 2944.344,
+  "why": "piece glp4: 'And' moved from 2944.08-2944.60 to the lav onset (first word of a kept take; heard from the cut-in on a verify window)",
+  "words": [
+   [
+    "And",
+    2944.44,
+    2944.6
+   ]
+  ]
+ },
+ {
+  "t0": 3077.796,
+  "t1": 3077.804,
+  "why": "piece supp3: 'The' moved from 3077.56-3078.04 to the lav onset (first word of a kept take; heard from the cut-in on a verify window)",
+  "words": [
+   [
+    "The",
+    3077.87,
+    3078.04
+   ]
+  ]
+ },
+ {
+  "t0": 3182.036,
+  "t1": 3182.044,
+  "why": "piece supp4: 'Now' moved from 3181.78-3182.30 to the lav onset (first word of a kept take; heard from the cut-in on a verify window)",
+  "words": [
+   [
+    "Now",
+    3182.09,
+    3182.3
+   ]
+  ]
+ },
+ {
+  "t0": 3251.346,
+  "t1": 3251.354,
+  "why": "piece rich2: 'anyone' moved from 3250.82-3251.88 to the lav onset (first word of a kept take; heard from the cut-in on a verify window)",
+  "words": [
+   [
+    "anyone",
+    3251.56,
+    3251.88
+   ]
+  ]
+ },
+ {
+  "t0": 3465.466,
+  "t1": 3465.474,
+  "why": "piece chef3: 'For' moved from 3465.22-3465.72 to the lav onset (first word of a kept take; heard from the cut-in on a verify window)",
+  "words": [
+   [
+    "For",
+    3465.52,
+    3465.72
+   ]
+  ]
+ },
+ {
+  "t0": 3525.936,
+  "t1": 3525.944,
+  "why": "piece chef5: 'that's' moved from 3525.04-3526.84 to the lav onset (first word of a kept take; heard from the cut-in on a verify window)",
+  "words": [
+   [
+    "that's",
+    3526.48,
+    3526.84
+   ]
+  ]
+ },
+ {
+  "t0": 3547.976,
+  "t1": 3547.984,
+  "why": "piece maid1: 'The' moved from 3547.78-3548.18 to the lav onset (first word of a kept take; heard from the cut-in on a verify window)",
+  "words": [
+   [
+    "The",
+    3548.08,
+    3548.2
+   ]
+  ]
+ },
+ {
+  "t0": 3548.306,
+  "t1": 3548.314,
+  "why": "piece maid1: 'next' moved from 3548.18-3548.44 to the lav onset (first word of a kept take; heard from the cut-in on a verify window)",
+  "words": [
+   [
+    "next",
+    3548.2,
+    3548.44
+   ]
+  ]
+ },
+ {
+  "t0": 3839.576,
+  "t1": 3839.584,
+  "why": "piece sum1: 'All' moved from 3839.36-3839.80 to the lav onset (first word of a kept take; heard from the cut-in on a verify window)",
+  "words": [
+   [
+    "All",
+    3839.64,
+    3839.8
+   ]
+  ]
+ },
+ {
+  "t0": 3923.996,
+  "t1": 3924.004,
+  "why": "piece sum3: 'for' moved from 3923.78-3924.22 to the lav onset (first word of a kept take; heard from the cut-in on a verify window)",
+  "words": [
+   [
+    "for",
+    3924.2,
+    3924.32
+   ]
+  ]
+ },
+ {
+  "t0": 3924.436,
+  "t1": 3924.444,
+  "why": "piece sum3: 'those' moved from 3924.22-3924.66 to the lav onset (first word of a kept take; heard from the cut-in on a verify window)",
+  "words": [
+   [
+    "those",
+    3924.32,
+    3924.66
+   ]
+  ]
+ },
+ {
+  "t0": 78.5,
+  "t1": 78.6,
+  "why": "'need' is missing from the full pass ('then you to be prioritizing'); the small pass has 'then you need to be prioritizing'. Times split the 0.26 s 'you'",
+  "words": [
+   [
+    "you",
+    78.42,
+    78.54
+   ],
+   [
+    "need",
+    78.54,
+    78.68
+   ]
+  ]
+ }
+]
