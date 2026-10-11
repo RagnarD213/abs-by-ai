@@ -1,3 +1,35 @@
+## More AI clip ideas, funny ones, on every video (Dan, 2026-10-11)
+
+- **Offer more AI clip ideas per video than feel safe, and make most of them funny and entertaining.** Dan, approving all four
+  RO-19 frame pairs (a vampire under an umbrella on a beach who ends up tanned, a man sprayed traffic cone orange, a brown
+  body print left on white sheets, and one straight clip of the appointment itself): *"All of these are funny and
+  entertaining, and I think they will make people accept the AI clips... Going forward, I want more of these funny,
+  entertaining AI clip ideas, and I want you to come up with more ideas for AI clips. I am accepting nearly all of them, and
+  I should be rejecting maybe a third of them. Basically, it's not too big of a deal if I reject the clip."*
+- How to apply: if he approves every idea, too few were offered. Aim for a set where about a third could be turned down:
+  on a long-form, bring roughly six to nine frame pairs to round 1, not three or four. Frames are made on the Codex
+  subscription, so extra ideas cost no generation budget; motion is generated only for the ones he approves, inside the
+  per-video cap (say so if the approved set would pass it, and let him pick).
+- A straight, literal clip is still right when it shows the thing the video is about and no real footage exists (his words on
+  the appointment clip: *"not funny... but that just illustrates our concept perfectly. Highly relevant."*).
+- Same review: a stock "doctor" clip used many times was called weak. He asked for a reusable AI clip of **a man who looks
+  like the prospect talking to a male doctor**, for every "talk to your doctor" line. Once approved it goes in the clip
+  library and is the default for those lines.
+
+## Audio comparison clips start on speech (Dan, 2026-10-11)
+
+- **Every audio comparison or audition clip starts with him speaking in its first second and is speech throughout.** Dan, on
+  the RO-19 voice options: *"you didn't choose a good clip for that because the first 28 seconds were nothing... going
+  forward, just always make sure it starts with speech immediately."*
+- What happened: the audition window was typed as a roll time (166 to 197 s) that fell in the gap between two takes: 27 s
+  of room tone and 4 s of speech. Nine blind listening trials were run on it and a voice was chosen from them. All of it
+  was void, and nobody had listened to the clip.
+- How to apply: take the window from the CUT (a kept piece's own start), never from a typed roll time. Before any trial,
+  measure it: speech in the first 0.5 s and no pause over 1.5 s (print the level in 1 s steps). Then listen to one option
+  yourself or have the listener confirm it hears continuous speech. `audio_options` scripts must refuse a window that fails.
+- When he asks for voice options, build what he names (here: four warm, less-room-echo versions and a few with slightly
+  more bass), level matched, on one clean window.
+
 ## A Short opens like a dedicated video: record a pickup, never "Number two" (Dan, 2026-10-11)
 
 - **A Short cut from a long-form must not sound like a piece lifted out of a longer video.** It never opens on a list

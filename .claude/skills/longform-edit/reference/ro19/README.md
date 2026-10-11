@@ -25,10 +25,11 @@ What is new here:
   spoken after the in point (11 pieces lost their first word to the midpoint rule).
 
 Traps this build paid for:
-- **A wet room does not mean the dereverb wins.** This roll measures 72 to 85 ms early decay, the same kitchen as RO-20, and
-  nine blind trials still put the untreated lav first (6.8) and both light-dereverb versions last (3.5, 3.4). Run the
-  trials per roll; do not carry another roll's voice pick over. The audio gate then fails the room and tone rows on the
-  untreated voice: report it, give Dan both by ear.
+- **The round 1 voice bake-off was VOID: the audition window was 27 s of silence.** `audio_options20.py` took a typed
+  roll time (166 s) that sat in the gap between two takes; nine blind trials ranked room tone, the untreated lav "won",
+  and the first minute was built on it. Dan caught it by ear. Take the window from a kept piece's own start, measure it
+  (speech in the first 0.5 s, no pause over 1.5 s) and listen to it before any trial. Nothing about this roll's voice was
+  learned in round 1. VIDEO-RULES, "Audio comparison clips start on speech".
 - **`offset()` can swallow the next word's onset** when Whisper butts two words together (the hi clamp is next start +
   0.25 s). Two cut-outs caught "if" and "from". Print the 20 ms envelope past every out point whose next word starts
   within 0.1 s and set the out by hand (8th field).
