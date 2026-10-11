@@ -244,6 +244,11 @@ used in six scripts reads as a template. The facts are context for you first, sc
 - At the gym he counts reps (a warm-up set of 12 to 15, then two sets of 6 to 10), except vacuums. Home workouts
   always go on a timer, and that is what he tells beginners to do.
 - Never mention the advertising agency, except where his own outline tells his life story.
+- **His 10 weekly gym exercises (2026-10-11):** cable crunches; leg press, hamstring curls, glute bridge machine;
+  side laterals; pull-ups; T-bar rows; chest flies; cable curls; tricep pushdowns. The script for this video was
+  delivered as 9 exercises with no leg exercise in it, while its own intro said every workout has one. He caught it
+  and had it rewritten. **Before scripting a "what I do" list, check the list against the routine the same script
+  states** (1 leg, 3 upper body, 1 ab): every part of the routine needs at least one item on the list.
 
 **S. Track changes work through the Docs connector.** `update_doc` with `writeControl.writeMode: "SUGGEST"` makes
 real suggestions (insertText, deleteContentRange and replaceAllText all work). `references/gdoc_edits/` holds

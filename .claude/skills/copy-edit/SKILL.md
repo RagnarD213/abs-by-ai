@@ -1,11 +1,12 @@
 ---
 name: copy-edit
 description: >
-  Final polish pass on finished sales copy before it goes into production: a sales
-  letter, a landing page, a VSL or ad teleprompter script, a sales email. Tightens
-  the language, fixes typos and inconsistencies, applies the claims rules on record,
-  keeps Dan's voice and the VSL language, and delivers every change as a Google Docs
-  SUGGESTION so Dan accepts or rejects each one. It never changes the marketing
+  Final polish pass on finished copy before it goes into production: a sales
+  letter, a landing page, a VSL or ad teleprompter script, a sales email, or the
+  filming scripts in a shoot doc. Fixes typos and inconsistencies, removes
+  AI-sounding wording, applies the claims rules on record and keeps Dan's voice.
+  Edits Dan is sure to accept go straight into the Google Doc; only the uncertain
+  ones are tracked as suggestions for him to review. It never changes the marketing
   message, the structure or the offer. Use whenever Dan asks to polish, sharpen,
   tighten, proofread, copy-edit, or "do a final pass" on sales copy, even if he
   doesn't say "/copy-edit". Writing the copy is /scriptwriting or /scriptfromoutline;
@@ -22,6 +23,10 @@ letter: AI Got Me Abs at 40" doc (`1zCLn6pIuxGv4H1hkyieCk2T4NoYAQBnaNKMEFMcYV9o`
 "overall, these edits were excellent." The DO and DON'T lists below are those 46 decisions.
 Every future run adds its accept/reject tally to the calibration log at the bottom.
 
+**v2, 2026-10-11.** Second run: 90 suggestions on the 43 filming scripts of the 10/17 shoot doc. Dan accepted 81 as
+written, rejected 6 and rewrote 3, then changed how edits are delivered: the ones he is sure to accept go straight
+into the doc, and only the uncertain ones are tracked. Start at "Straight in, or tracked".
+
 ## What this skill is, and is not
 
 - **It is** the last pass before copy ships: spelling, grammar, consistency, tightening,
@@ -29,8 +34,48 @@ Every future run adds its accept/reject tally to the calibration log at the bott
 - **It is not** a rewrite. The marketing message, the argument order, the section structure,
   the offer, the price, the hooks and the CTAs stay exactly as Dan has them. If a whole
   section reads weak, that is a note in the chat report, never a suggested rewrite.
-- **Every change is a suggestion.** Dan accepts or rejects each one himself. Nothing is ever
-  typed straight into the doc in Editing mode. He explicitly wants to review each change.
+- **Most edits go straight into the doc. Only the uncertain ones are tracked** (Dan, 2026-10-11; this
+  replaces "every change is a suggestion" from 2026-09-29). The two lists are in the next section.
+
+## Straight in, or tracked (Dan, 2026-10-11). READ FIRST.
+
+Dan, after ruling on 90 suggestions: "all the edits that you're highly confident that I will accept are just made
+into the document. The only ones you are putting into track changes in Google Docs for me to review are ones where
+you're not certain whether or not I'll accept it."
+
+**Straight into the doc, no review:**
+
+- Spelling, names, capitalization and punctuation: a missing period, a comma in a run-on, a missing space,
+  "1.5mg" to "1.5 mg", "Brian Johnson" to "Bryan Johnson".
+- Any edit to a filming direction: bracketed cues, on-screen text, B-roll and shot lists, header notes, word counts.
+  His test: "anything that does not substantially change what I'm reading off the teleprompter".
+- A sentence that does not parse without the fix: a dropped word, a doubled word, the wrong form of a word ("safer
+  are more effective", "this gradually approach", "show you them", "realized out that AI was the going to").
+- A swap he has accepted every time. On record: "every single" to "every" (12 of 12). A padding word that
+  appears twice in one sentence loses one.
+- A fact or number brought into line with the same script (the cue says "about 200", the line says "over 200").
+- The mechanical result of an instruction he gave: renumbering after he adds or removes an item, a title he dictated.
+
+**Tracked, for him to review:**
+
+- Any rewording of a sentence he reads, however likely: a fragment put back into a sentence, a colon reveal made
+  plain, a kicker cut. He accepted 18 of 19 on 2026-10-10, but each one is new wording, and three times he kept the
+  idea and wrote his own words.
+- A category with a mixed record: two short sentences merged into one (5 of 7), "I've got" and "you've got" to
+  "I have" and "you have" (9 of 11).
+- A new kind of edit, a new spoken line, a spoken line cut.
+- In sales copy, every claims edit.
+
+**Never** (he rejected each one): DON'T 10 to 12.
+
+**Moving a category between the lists.** After each run read the doc, count, and fill the calibration log. A tracked
+category he has accepted every time over 10 or more decisions moves to the straight-in list with its count. A
+straight-in edit he changes back moves that category to tracked; a second one makes it a DON'T. When it is not
+clear which list an edit belongs on, track it.
+
+**A direct edit is still checked and still recorded.** After the send, diff the whole doc against the read taken
+before it (`verify_suggestions.py --diff`): every changed line must be one that was planned. Both lists go in the
+as-delivered file so the next session can see what he changed back.
 
 **Model + effort:** Opus 5.5, high (updated 2026-10-06 to Dan's 2026-10-02 routing in `AGENTS.md`
 and memory `model-routing-plan`: Opus is the default for all writing, ship-critical copy included).
@@ -54,6 +99,8 @@ Fable 5.1 is an escalation only, for a one-off second opinion where a rewrite co
    doc mixes curly (’) and straight (') apostrophes by section, and a mismatch finds nothing.
    Each pair is one sentence or less. Never plan a change that touches a heading's meaning,
    a price, a CTA, or a bracketed layout note (except to fix a typo inside it).
+   Mark each edit direct or track (section above). **Steps 4 to 6 are the Chrome fallback; with the Docs connector
+   follow "Mechanics: edits through the Docs connector" instead.**
 4. **Open the doc in Chrome** (the Claude in Chrome extension, Dan's logged-in Google
    session), switch the mode control (top right, reads "Editing") to **Suggesting**, and
    zoom in on the control to read the word "Suggesting" before doing anything else.
@@ -198,40 +245,64 @@ for a single stressed word. "Guys like us", "regular guys", "dad bod", "slammed"
 dashes anywhere in anything you write; his hyphen-with-spaces (" - ") is his own device
 and stays where he has it.
 
-## Mechanics: suggestions through the Docs connector (first choice since 2026-10-10)
+## Mechanics: edits through the Docs connector (first choice since 2026-10-10)
 
-The Docs connector's `update_doc` now makes real tracked suggestions: `writeControl: {"writeMode": "SUGGEST"}`. No
-Chrome, no Find and replace, and each edit is its own card. Used on the 10/17 shoot doc: 90 suggestions in five calls.
+The Docs connector's `update_doc` writes both kinds: `"writeMode": "EDIT"` types the change in, `"writeMode":
+"SUGGEST"` makes a tracked suggestion with its own card. No Chrome and no Find and replace. Tools:
+`.claude/skills/scriptfromoutline/references/gdoc_edits/`.
 
-1. `read_doc` saves the doc as JSON. Write the edits as `ops = [(section, old, new), ...]` in a .py file.
-2. `python3 .claude/skills/scriptfromoutline/references/gdoc_edits/suggest_builder.py doc.json ops --show`. It cuts
-   each edit down to the words that differ, refuses an `old` that does not match exactly once in its script, and prints
-   the request batches. Fix every ERROR before sending.
-3. Send two or three ops alone first with `requiredRevisionId` set to the revision it printed. `read_doc` again and run
-   `verify_suggestions.py before.json after.json`: the count must match, and "reject-all view equals the doc before"
-   must be True. Rebuild the rest from that fresh read with `--skip`.
-4. Send the batches highest index first, each with the revision id the last call returned. If a call fails on the
-   revision id, Dan is typing in the doc: read it again and rebuild.
-5. Verify again with the ops file as the third argument, and save the list as `Docs/COPYEDIT_<doc>_AS_DELIVERED_<date>.md`.
+1. `read_doc` saves the doc as JSON. Write the edits in a .py file as `ops = [(section, old, new, 'direct'),
+   (section, old, new, 'track'), ...]`.
+2. `python3 suggest_builder.py doc.json ops --only direct --show`. It cuts each edit down to the words that differ
+   and refuses an `old` that does not match exactly once in its script. Fix every ERROR, read the list, then send
+   the batch with `{"writeMode": "EDIT", "targetRevisionId": <the REVISION it printed>}`.
+3. `read_doc` again and run `verify_suggestions.py before.json after.json --diff`. Read every changed line.
+4. `suggest_builder.py after.json ops --only track`, built from that fresh read, sent with
+   `{"writeMode": "SUGGEST", "targetRevisionId": <its REVISION>}`.
+5. `read_doc` and verify once more (after a tracked send, "reject-all view equals the doc before" must be True).
+   Save both lists as `Docs/COPYEDIT_<doc>_AS_DELIVERED_<date>.md`.
 
-Traps: text Dan typed has curly apostrophes and the builder keeps them. A missing space after a period may be a soft
-line break he typed (it shows as `\x0b` in the JSON): look before "fixing" it. Paragraph breaks and moved lines are
-not worth a suggestion; name them in the chat report.
+Traps:
+- **Dan is often in the doc while this runs.** `targetRevisionId` makes the doc merge the edit with whatever he
+  typed since the read, so nothing of his is overwritten. `requiredRevisionId` fails the whole call instead. Send
+  within a minute or two of the read, and never send with no revision id at all: stale offsets land in the wrong place.
+- Text Dan typed has curly apostrophes and the builder keeps them.
+- A missing space after a period may be a soft line break he typed (`\x0b` in the JSON): look before "fixing" it.
+- A paragraph inserted as a suggestion is one card however long it is. Inserted text takes the format of the
+  character before it. A moved line is not worth an edit; name it in the chat report.
 
-## Polishing scripts, not sales copy (first run 2026-10-10, his verdict pending)
+## Polishing scripts, not sales copy (first run 2026-10-10: 81 of 90 accepted)
 
 A filming script is spoken, and most of it has already been through his hands. So:
 
-- **Find out whose line it is first.** Curly apostrophes are his typing. In his lines fix only a typo, a dropped
-  word, a missing period or a misspelled name. Leave his loose grammar ("Here's the 9 exercises").
+- **Find out whose line it is first.** Curly apostrophes are his typing. In his lines fix only what is on the
+  straight-in list: a typo, a dropped word, a missing period, a misspelled name. Leave his loose grammar ("Here's
+  the 9 exercises"), his conjunctions and his missing articles (DON'T 11).
 - **Change a Claude line only for a tell his own lines do not share.** Count the phrase in his typing and in the
   rest of the same doc before touching it. On the 10/17 doc: "every single" 0 in his lines against 14, "I've got" and
   "you've got" 1 against 14, so those went to "every" and "I have". "Here's", "actually", "exactly" and "right now"
   ran at his rate or below it, so they stayed.
 - **Put a fragment back into a sentence** ("No food." "Too hard? Do them from your knees." "Same wake up, same
-  workout."), and turn a colon reveal ("Here's what most guys don't realize:") into the plain statement.
+  workout."), and turn a colon reveal ("Here's what most guys don't realize:") into the plain statement. All
+  accepted, all tracked (new wording).
 - **Do not smooth, vary or tighten.** That is what gets a draft caught (`_shared/DAN-VOICE.md`). No new sentences.
-- Hooks, facts, numbers, cues, the order and anything he rejected in an earlier round are not touched.
+- Hooks, facts, numbers, the order and anything he rejected in an earlier round are not touched.
+
+DON'T, from his 6 rejections and 3 rewrites (numbering continues the list above):
+
+10. **Don't touch a hook he has left in place, even one Claude wrote.** "Some celebrities on Ozempic look
+    incredible. Others look sick. The difference isn't the drug. It's what they did while they were on it." was
+    offered as one plain sentence and he kept the original. He rewrites the hooks he wants changed himself.
+11. **Don't change the small words in a line he typed.** "But it can be hard to lose your love handles" to "And it
+    can be hard..." and "during commercial breaks of a football game" to "during the commercial breaks..." were
+    both rejected.
+12. **Don't fold a short tag sentence into the one before it.** "...and 1 ab exercise. 3 sets of each." and "At 25%,
+    your belly still sticks out in a shirt. You don't have muscle definition anywhere." stayed as two sentences.
+    Other merges were accepted, which is why a merge is always tracked and never typed in.
+
+When he agrees a line is off but the fix needs new words, he tends to write his own: "for almost none of his money"
+was offered as "for almost no money" and became "without spending anything"; "Let's start with abs. I have three."
+became "Let's start with my three favorite ab exercises." Offer the plainest version and expect it to change.
 
 ## Mechanics: Google Docs suggestions from Chrome (fallback)
 
@@ -266,8 +337,9 @@ Use this only when the Docs connector is not connected.
 
 Dan does not see the tool calls. The report is what he reads before opening the doc.
 
-1. Confirm Suggesting mode was verified with the test change before the run.
-2. The count: changes made, suggestion cards (Replace all groups), none edited directly.
+1. The two counts: how many edits went straight in, and how many are tracked for him. Say the direct edits were
+   checked with a before and after diff of the whole doc.
+2. What is tracked and why it needs his eye, in one line per kind.
 3. Three short groups with two or three examples each: claims rules applied, typos and
    inconsistencies, tightening in his VSL language. State that no em dashes were introduced.
 4. "Left alone for your call": at most three items, one line each (a VSL line the claims
@@ -282,7 +354,8 @@ Dan does not see the tool calls. The report is what he reads before opening the 
 | Date | Doc | Changes | Accepted | Rejected / re-edited | What moved into the rules |
 |---|---|---|---|---|---|
 | 2026-09-29 | Sales letter: AI Got Me Abs at 40 (draft v1) | 46 | 37 | 9 | DON'T 1 to 9 above; the seven claims edits confirmed |
-| 2026-10-10 | 10/17 shoot doc, 43 filming scripts (`1gt8Fi_wUaNaksa8sAdMoBvcdlBhZLek82EpBr-leq-0`) | 90 | pending | pending | List: `Docs/COPYEDIT_1017_SHOOT_POLISH_AS_DELIVERED_20261010.md`. Next session: read the doc, count, fill this row, move rejections into DON'T |
+| 2026-10-10 | 10/17 shoot doc, 43 filming scripts (`1gt8Fi_wUaNaksa8sAdMoBvcdlBhZLek82EpBr-leq-0`) | 90 | 81 | 6 rejected, 3 rewritten | DON'T 10 to 12; the straight-in and tracked lists. List and result: `Docs/COPYEDIT_1017_SHOOT_POLISH_AS_DELIVERED_20261010.md` |
+| 2026-10-11 | Same doc, "10 Exercises" script rewrite (first run under straight in or tracked) | 46 direct, 5 tracked | pending | pending | `Docs/SCRIPT_10_EXERCISES_REWRITE_AS_DELIVERED_20261011.md`. Next session: read the doc, see what he changed back, fill this row |
 
 After every run: add a row, and if a rejection reveals a new category, add it to DON'T with
 the before and after text. Three rejections of the same kind become a rule; one is a note.

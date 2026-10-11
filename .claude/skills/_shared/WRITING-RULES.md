@@ -126,8 +126,9 @@ delivery changes. (Added 2026-10-06.)
   real doc. He or a local session pastes it in. The Drive connector can share only to an email address, so a cloud
   session cannot set anyone-with-link view: say so in the report and leave the doc in Dan's Drive, where he can open
   it. A local session sets the link sharing (memory `drive-always-public`).
-- **`/copy-edit` makes Suggesting-mode edits through the Docs connector** (`update_doc`, `writeMode: SUGGEST`; steps in
-  `/copy-edit`, updated 2026-10-10). Only when that connector is missing: deliver the table of exact find and replace
-  pairs, each with a one-line reason, and the polished text. A local session applies them as suggestions.
+- **`/copy-edit` edits through the Docs connector** (`update_doc`): the edits Dan is sure to accept are typed straight
+  in, the uncertain ones are tracked suggestions (Dan, 2026-10-11; lists and steps in `/copy-edit`). Only when that
+  connector is missing: deliver the table of exact find and replace pairs, each marked direct or tracked with a
+  one-line reason, and the polished text. A local session applies them.
 - **Never say the real doc was edited unless you re-read it and saw the change.**
 - Images called for by an outline are listed by name where they go; a cloud session does not move images between docs.

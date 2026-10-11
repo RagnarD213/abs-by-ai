@@ -329,3 +329,24 @@ Each line is the sentence as it was, then as suggested. The suggestion card in t
 
 - WAS: not read aloud. The one [DAN: ...] line is yours to fill in; it is not counted.
   NEW: not read aloud.
+
+## Result, read from the doc 2026-10-11
+
+Dan ruled on all 90: 81 accepted as written, 6 rejected, 3 rewritten in his own words.
+
+Rejected (the WAS text is still in the doc):
+
+- "...still sticks out in a shirt. You don't have muscle definition anywhere." (merge into one sentence)
+- "At 10%, you've got a clear four pack." (to "you have"; the other nine "got" swaps were accepted)
+- "But it can be hard to lose your love handles." (to "And it can be hard...")
+- The Celebrity Ozempic hook: "...look incredible. Others look sick. The difference isn't the drug. It's what they did while they were on it."
+- "...3 upper body exercises and 1 ab exercise. 3 sets of each." (comma in place of the period)
+- "...during commercial breaks of a football game" (adding "the")
+
+Rewritten by him:
+
+- "And fourth, eating at restaurants as often." Suggested "Fourth, eating at restaurants as often." He wrote "Fourth, I started eating at restaurants less."
+- "...most of his results for almost none of his money." Suggested "for almost no money." He wrote "without spending anything."
+- "Let's start with abs. I've got three." Suggested "I have three." He wrote "Let's start with my three favorite ab exercises."
+
+What this changed: `.claude/skills/copy-edit/SKILL.md`, "Straight in, or tracked" and DON'T 10 to 12.

@@ -25,4 +25,8 @@ Facts Dan gave on 2026-10-07 (10/17 shoot rewrite pass). Use a fact only where i
 - **Hair:** 5% minoxidil on his face daily for beard growth. A scalp topical he believes is 8% minoxidil and 3% finasteride (unconfirmed; the earlier task where he discussed it could not be found, so do not state the strengths).
 - **Filming:** home workout videos are filmed outside by his pool.
 
+Facts Dan gave on 2026-10-11 (10/17 shoot doc, "10 Exercises" script):
+
+- **The 10 exercises he does every week at the gym:** cable crunches (abs); leg press, hamstring curls and the glute bridge machine (legs, one leg exercise per workout); side laterals; pull-ups (lat pulldowns if you cannot do one); T-bar rows (barbell or machine); chest flies (machine, or dumbbells); cable curls; tricep pushdowns. Spiderman planks and V-sit twists are not on this list: he took them out. They belong to his 3 exercise ab workout.
+
 Related: [[member-profile]], [[dan-daily-habits]], [[script-zero-edit-lessons]].
