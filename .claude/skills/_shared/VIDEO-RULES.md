@@ -1,3 +1,28 @@
+## All B-roll is colour corrected before it goes in a video (Dan, 2026-10-11)
+
+- **Every piece of B-roll is colour corrected to sit with the film's approved look before Dan sees it, in every video.** Dan,
+  on the RO-20 round 1 page (three of his own pool clips looked far darker than the kitchen footage around them): *"I like
+  these clips, but I want you to use the color-corrected versions. This looks very dark... make sure to use color-corrected
+  footage, not this dark raw footage. Let's make that a rule going forward for all the B-roll you're using... Color correct
+  all B-roll used in this video and all videos going forward."*
+- How to apply: grade each B-roll clip (library `B####` cuts of Dan, raw rolls, and stock that reads dark or off) against
+  the presenter frames it will cut next to: measure his skin, then LOOK at the clip's still beside a talking-head still. A
+  library note that says "graded" is not proof: B0455, B0456 and B0434 carried the S-Log3 LUT and still read very dark
+  (low sun, shade). Where a grade cannot rescue a clip, pick one that is already bright ("or just use the ab wheel or
+  something already color-corrected"). A B-roll still visibly darker than the presenter frames around it is a defect the
+  editor fixes before the review page goes out.
+- This binds Claude and Codex, every video skill, and every editor brief and revision doc.
+
+## A person looking at a phone is not a picture; never use the clip of Dan on his phone (Dan, 2026-10-11)
+
+- **Library clip `B0437` (Dan checking his phone by the pool) is never used in any video.** Dan: *"I don't want you to ever use
+  this clip again. This is just me looking at a phone. It's not appropriate, really, to ever use. Make a note to never use
+  that in any video."* It is marked rejected in the clip library.
+- The same day he cut a stock clip of a man scrolling his phone: *"It just shows a guy looking at his phone and doesn't add
+  any value."* How to apply: a cutaway of someone looking at a phone illustrates nothing. Show what is ON the phone (the
+  approved dating-app AI clip `A0089`, an app screen in the phone shell), the scene the line describes, or a graphic that
+  makes the point (he supplied a diagram for "winner take all" and asked for a full-screen graphic with text beside it).
+
 ## A hard-to-picture idea gets a funny AI clip, not a forced literal one (Dan, 2026-10-10)
 
 - **When a line has no straightforward literal picture (a saying, a metaphor, an abstract point), make the AI clip funny on
@@ -117,6 +142,9 @@
   start and end frames with Codex. A slapstick payoff on the next line (the slap on "destroy") is welcome where the words
   invite it. The frame approval gate, the applicable per-video clip budget below and the no-belly-framing rule are unchanged. No new voice
   is ever made: the lips follow Dan's recorded impression.
+- Reaffirmed on RO-20 (2026-10-11), approving the lip-synced "fat guy who has money" and the non-speaking "brokie": *"If I'm
+  imitating some kind of loser to illustrate that with AI, both of those turned out funny and good."* The same day he turned
+  down two AI gag OPENERS for that film ("Just use a camera scene for the intro"): the excuse-voice clip is the proven use.
 - Method that Dan approved (motion from the frame pair, lip sync on the speaking character only, the checks):
   `longform-edit/reference/ro06/README.md`, round 4. Scripts: `gen_motion.py`, `lipsync.py`, `syncfix.py` beside it.
 
