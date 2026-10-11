@@ -14,7 +14,7 @@ function attachment(bytes,mime,name){
   if(!valid)throw new BoardError('Supported files: PNG, JPG, PDF, TXT, MD, CSV and SRT. The file contents must match its type.');
   return {id:randomUUID(),bytes,mime,name:name.trim(),size:bytes.length};
 }
-function createRouter({store,ownerStore,env=process.env,origin='https://absbyai.com',now=Date.now}){
+function createRouter({store,ownerStore,env=process.env,origin='https://absbyai.com',now=Date.now,assistant,timesheetAction}){
   const router=express.Router();
   router.use((req,res,next)=>{
     const p=req.path.toLowerCase().replace(/\/+$/,'');
@@ -39,8 +39,12 @@ function createRouter({store,ownerStore,env=process.env,origin='https://absbyai.
   const file=name=>(req,res)=>res.sendFile(path.join(__dirname,name));
   router.get('/dash',file('page.html'));
   router.get('/workboard',(req,res)=>res.redirect(303,'/dash'));
-  for(const name of ['page.js','baseline.css','style.css'])router.get('/api/workboard/'+name,file(name));
+  for(const name of ['page.js','assistant-page.js','baseline.css','style.css'])router.get('/api/workboard/'+name,file(name));
   const run=fn=>async(req,res)=>{try{await fn(req,res);}catch(e){res.status(e.status||503).json({error:e instanceof BoardError?e.message:'Could not save or load the board. Please retry.'});}};
+  if(assistant){
+    router.get('/api/workboard/assistant',run(async(req,res)=>res.json(await assistant.state())));
+    router.get('/api/workboard/assistant/unpaid',run(async(req,res)=>res.json(await assistant.balance())));
+  }
   router.get('/api/workboard/state',run(async(req,res)=>res.json(await store.read())));
   router.get('/api/workboard/files/:id',run(async(req,res)=>{
     const f=await store.file(req.params.id);if(!f)return res.sendStatus(404);
@@ -50,6 +54,11 @@ function createRouter({store,ownerStore,env=process.env,origin='https://absbyai.
     if(!['POST','PUT','PATCH','DELETE'].includes(req.method))return next();
     if(req.headers.origin!==origin||req.headers['x-workboard-action']!=='change')return res.status(403).json({error:'This action must come from your workboard.'});next();
   });
+  if(assistant)router.post('/api/workboard/assistant/change',express.json({limit:'16kb'}),run(async(req,res)=>res.json(await assistant.change(req.body||{}))));
+  if(timesheetAction)router.post('/api/workboard/assistant/time/:action',express.json({limit:'1kb'}),run(async(req,res)=>{
+    if(!['start','stop','mark-paid'].includes(req.params.action))throw new BoardError('Unknown time action.');
+    await timesheetAction(req.params.action,req,res);
+  }));
   router.post('/api/workboard/change',express.json({limit:'64kb'}),run(async(req,res)=>{
     if(!req.body||typeof req.body!=='object'||Array.isArray(req.body)||!req.body.payload||typeof req.body.payload!=='object'||Array.isArray(req.body.payload))throw new BoardError('Invalid board change.');
     res.json(await store.change(req.body.version,req.body.action,req.body.payload));

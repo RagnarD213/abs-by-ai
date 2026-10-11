@@ -2541,6 +2541,8 @@ const picked = [...document.querySelectorAll(`#tf-days-${listKey} .tf-day.on`)].
 if (recurring) task.days = picked.length ? picked : [0, 1, 2, 3, 4, 5, 6];
 task.addedAt = existing?.addedAt || localToday();
 if (existing?.why) task.why = existing.why;
+// Keep the private board ranking when this older form edits an assistant task.
+if (listKey === 'assistant' && Number.isInteger(existing?.boardRank)) task.boardRank = existing.boardRank;
 if (idx == null || idx < 0) todosState[listKey].push(task);
 else todosState[listKey][idx] = task;
 cancelForm(listKey);
