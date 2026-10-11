@@ -1,5 +1,9 @@
 # SL-06: Shorts from "Top 5 Zepbound Tips" (RO-12)
 
+> **STATUS 2026-10-11: segments picked by Dan (six shorts, A to F; four open on a recorded pickup). Nothing is cut.**
+> The build task follows `Handoffs/handoff-20261011-sl06-zepbound-shorts-pickups-and-build.md`, which replaces the
+> "propose segments" step and the starter prompts below. Category: CONTENT. Task name: "Top 5 Zepbound Tips SFC R1".
+
 **List 2 · shorts from a finished long-form · READY.** Read `00-RULES.md` first. Added 2026-10-01 when RO-12 was set up for release.
 
 ## Source

@@ -129,7 +129,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **RO-07 - HOLD 2026-10-11, Claude.** Blotato full. `Docs/RO07_SETUP_RECEIPT_20261011.md`
 
-**SL-06 picks owed 2026-10-10.**
+**SL-06 handoff 2026-10-11.** `Handoffs/handoff-20261011-sl06-zepbound-shorts-pickups-and-build.md`
 
 **RO-12 - QUEUED 2026-10-01, Claude.** Blotato Oct 25. Then: `Docs/RO12_SETUP_RECEIPT_20261001.md`, delete.
 
