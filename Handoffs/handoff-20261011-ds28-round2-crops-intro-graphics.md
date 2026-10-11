@@ -85,10 +85,10 @@ Make most visual beats change every 2-4 seconds where the speech supports it. Al
 
 ## Working files and current verification
 
-Read the earlier handoff for source setup, recipes and open checks: `Handoffs/handoff-20261011-ds 28-round1-dan-review.md`.
+Read the earlier handoff for source setup, recipes and open checks: `Handoffs/handoff-20261011-ds28-round1-dan-review.md`.
 
-- Round 1: `/Volumes/Extreme/_edit_work/ds 28/round1/`. Existing page: http://127.0.0.1:8891/ . Public backup: https://drive.google.com/open?id=122 cUvcBr_Aw 2 U 9-xInddlvUGgXB 30 eSj . Hashes: packet-manifest.json.
-- Raw source: `/Volumes/Extreme/dan rose fitness 9:23 shoot - vsls, long form content, short form content/C1720.MP 4`. Source 9.1-62.15, closing pickup 79.35-85.85. Sony FX 30 S-Cinetone Rec.709, stored 3840x2160 with rotation-90, decodes 2160x3840. Never transpose or apply the older log LUT.
+- Round 1: `/Volumes/Extreme/_edit_work/ds28/round1/`. Existing page: http://127.0.0.1:8891/ . Public backup: https://drive.google.com/open?id=122 cUvcBr_Aw 2 U 9-xInddlvUGgXB 30 eSj . Hashes: packet-manifest.json.
+- Raw source: `/Volumes/Extreme/dan rose fitness 9:23 shoot - vsls, long form content, short form content/C1720.MP4`. Source 9.1-62.15, closing pickup 79.35-85.85. Sony FX 30 S-Cinetone Rec.709, stored 3840x2160 with rotation-90, decodes 2160x3840. Never transpose or apply the older log LUT.
 - Data: edl.json, words_out.json, shots.json, plan_resolved.json, graphics-sheet.json, motion-stats.json. Private build entry points: recipe/prepare.py, picture.py, finish-preview.py, page.py. picture.py caches by presence only; invalidate changed shots explicitly or add fingerprints before reuse.
 - Round 1 exact opening audio PASS 12/12. Context delivery gate 2.5.1 FAIL:33 pass,4 fail,2 unmeasured. Open: tone, coverage, head size and legacy caption-onset timing; missing comparison/evidence rows. Do not inherit a PASS or silently waive these. Distinguish Dan's requested wide crop from other actual framing faults. Independently verify delivered speech/caption timing.
 - Preview visual review inspected 14/14 real images, repaired two caption overlaps and found zero open visual defects in the 40.607 second context. This is not a full-film certification. The complete film remains unassembled.
@@ -97,7 +97,7 @@ Read the earlier handoff for source setup, recipes and open checks: `Handoffs/ha
 
 ## Exact next-round scope and delivery
 
-Read VIDEO-RULES.md, PRE-RENDER-APPROVAL.md, IMAGE-GENERATION.md, the Codex long-form-content-edit skill, the vertical Shorts rules,00-RULES.md and the live board. Claim only DS-28. Work in a new `/Volumes/Extreme/_edit_work/ds 28/round2/`; leave reviewed round1 intact. Record Dan's words above and the replaced round1 assets with their hashes in round2-plan/decisions.json. The new crop and AI frame choices are pending, not approved.
+Read VIDEO-RULES.md, PRE-RENDER-APPROVAL.md, IMAGE-GENERATION.md, the Codex long-form-content-edit skill, the vertical Shorts rules,00-RULES.md and the live board. Claim only DS-28. Work in a new `/Volumes/Extreme/_edit_work/ds28/round2/`; leave reviewed round1 intact. Record Dan's words above and the replaced round1 assets with their hashes in round2-plan/decisions.json. The new crop and AI frame choices are pending, not approved.
 
 Round 2 first produces one compact review page with three paired crop options, both scene start/end pairs and their split/full-screen compositions, and the stronger graphics on real frames with moving previews. Keep the same managed review URL when replacing the displayed packet, refresh its cache and verify 200/206 plus browser playback and seeking. Show only changes; do not repeat the entire colour/audio bake-off by default.
 
@@ -113,4 +113,4 @@ Recommended: **GPT-6 Sol, high effort**, for the organic edit and independent ca
 
 Starter prompt:
 
-> Rename this chat Meal Prep SFC R2. Read Handoffs/handoff-20261011-ds 28-round2-crops-intro-graphics.md and execute the next review round with $long-form-content-edit plus the vertical Shorts rules. Show three wide/tight crop pairs: both blue lights in every wide shot and neither light in every tight shot. Build Dan's exact split-screen intro, return to him on camera afterward, and plan to reuse the ripped man's ready-made meals scene full screen around20 seconds. Add stronger graphics and a faster visual pace. Use the Codex subscription to generate the images. Show the new start/end frames and crop choices before paid motion. Preserve round1, record decisions and hashes, and update the review page and master list. No covers or upload.
+> Rename this chat Meal Prep SFC R2. Read Handoffs/handoff-20261011-ds28-round2-crops-intro-graphics.md and execute the next review round with $long-form-content-edit plus the vertical Shorts rules. Show three wide/tight crop pairs: both blue lights in every wide shot and neither light in every tight shot. Build Dan's exact split-screen intro, return to him on camera afterward, and plan to reuse the ripped man's ready-made meals scene full screen around20 seconds. Add stronger graphics and a faster visual pace. Use the Codex subscription to generate the images. Show the new start/end frames and crop choices before paid motion. Preserve round1, record decisions and hashes, and update the review page and master list. No covers or upload.
