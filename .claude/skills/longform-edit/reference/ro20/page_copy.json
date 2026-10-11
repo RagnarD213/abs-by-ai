@@ -1,0 +1,358 @@
+{
+ "title": "Why You Should Invest More In Your Health: round 1",
+ "sub": "Long-form content, 16:9, re-edited from scratch from the 8/3 kitchen roll (C1511, 68:51 raw). The old edit was not used. The cut runs {TOTAL} and is not rendered yet: this round locks the look, the sound, the opening, the graphics and the clips first.",
+ "locked": "Soft Blue Light graphics and the approved lower third template, text landing on your words; hard cuts, no swipe sounds, no camera movement; the shared voice chain; no burned captions and no AbsByAI.com mark at the end.",
+ "decisions": [
+  {
+   "t": "Colour",
+   "rec": "D, bright and natural (used in the first minute)",
+   "opts": [
+    "D: bright and natural (recommended, as built)",
+    "F: one step richer and darker",
+    "E: as bright as D with more contrast and colour"
+   ],
+   "why": "This kitchen set has never been through the new process, so there was no approved look to reuse. The camera original is dim and milky (the blacks are grey). I built four grades and looked at them full size beside your approved Work Out Every Day frames (the look you picked on 10-10) and the approved Belly Fat Emergency film. D lands closest to what you picked last time: your face is bright, your skin keeps the camera's own tone, the tank top is black and the fridge is clean. A looked dim on your face next to the approved frames. E made your arms go orange. F is the runner-up."
+  },
+  {
+   "t": "Voice",
+   "rec": "4, warm with less room echo (used in the first minute)",
+   "opts": [
+    "4: warm, less room echo (recommended, as built)",
+    "3: warm, room left as recorded",
+    "1: the lav as recorded"
+   ],
+   "why": "This room is more echoey than the Work Out Every Day kitchen (measured 87 against 69; your reference voice is 40). I built five treatments of the same 31 seconds and ran seven blind listening trials. The automatic default never won one and scored lowest, so it is out. The two warm versions won five of seven between them, and the listener could not reliably tell 3 from 4. I went with 4 because it is the voice you picked by ear on 10-10 and it brings the room from 87 down to 52. Both are below so you can hear them."
+  },
+  {
+   "t": "Opening",
+   "rec": "O1, the health vending machine",
+   "opts": [
+    "O1: the health vending machine (recommended, as built)",
+    "O2: the treadmill and the rising chart",
+    "Open on camera, no clip"
+   ],
+   "why": "Your first line is 'let's talk about why you need to be investing more in your health no matter how little you have right now'. There is no literal picture for that, so I went for a gag that acts it out, like the boxing glove you liked. Two concepts are below as start and end frames. The first minute shows O1 as a labelled placeholder."
+  },
+  {
+   "t": "AI clips A1 to A4",
+   "rec": "Approve all four frame pairs",
+   "opts": [
+    "Approve all four (recommended)",
+    "Approve some: name them and say what to change",
+    "No new AI clips besides the opener"
+   ],
+   "why": "You do the excuse voice about 22 times in this film and the $5 clip budget covers four more clips after the opener, so I picked the four where a picture adds the most. A1 (0:20) the fat guy who has money, with his lips synced to your recording. A2 (15:11) the brokie turning out his pockets, surrounded by where the money went. A3 (23:51) the cardboard box house with a home gym beside it. A4 (46:25) the lawyer ironing his own shirt at his desk. A2 to A4 do not speak: your voice does the line. Frames are below; motion is only made after you approve them. Planned spend for all five clips: about $4.05."
+  },
+  {
+   "t": "Length",
+   "rec": "Keep all 53 minutes as one film, with chapters",
+   "opts": [
+    "One film, 53 minutes, with the 31 chapters below (recommended)",
+    "One film, but I name sections to drop",
+    "Two films: the four reasons (0:00 to 14:54), then what to cut and what to buy (14:54 to the end)"
+   ],
+   "why": "Every retake, false start, crew aside and plain repeat is out (68:51 down to 53:04). What is left is your full argument, and I did not cut content for length. The chapter list is further down."
+  },
+  {
+   "t": "38:18, 'you can't afford it, you can't afford it'",
+   "rec": "Leave it as you said it",
+   "opts": [
+    "Leave as said (recommended)",
+    "Cut the second 'you can't afford it'",
+    "It should read 'you say you can't afford it: you can', so subtitle it that way"
+   ],
+   "why": "You say it twice in a row, about savings accounts and tirzepatide. I could not tell whether the second one is emphasis or was meant as 'you can afford it'."
+  },
+  {
+   "t": "Bryan Johnson, 49:33",
+   "rec": "His name on a lower third only",
+   "opts": [
+    "Name on a lower third only (recommended, as built)",
+    "Show a few seconds of his YouTube channel page as a screen capture",
+    "No graphic at all"
+   ],
+   "why": "You recommend his channel for people who want to go further. As built there is no picture of him, only the lower third 'Bryan Johnson's YouTube Channel'."
+  },
+  {
+   "t": "The app on screen",
+   "rec": "Yes, build the phone card",
+   "opts": [
+    "Yes: build a full-screen phone card with meal photo calorie tracking at 19:29 and the workout and nutrition screens in the close (recommended, shown to you next round)",
+    "No: lower thirds only, as built"
+   ],
+   "why": "At 19:29 you say 'we can take a picture of it with our phone, track the calories', and the close lists the AI trainer and nutritionist. The approved app tour from the home workout video sits beside you, and this set has no room beside you (you fill the frame), so it needs a full-screen phone card like the one already used for the picture of yourself with abs. As built, those moments are you on camera with lower thirds."
+  },
+  {
+   "t": "Your own things on screen (optional)",
+   "rec": "As built for now",
+   "opts": [
+    "As built for now (recommended, nothing needed from you)",
+    "I will send phone photos or clips: say which"
+   ],
+   "why": "When you name your own things there is no footage of them, so you stay on camera with a lower third: your Purple mattress, your Oura ring and its sleep score, your Whoop or Apple Watch band, your shed gym (outside and inside), a Clean Eats delivery, a red light panel. Phone photos or a few seconds of phone video of any of these would go straight in."
+  }
+ ],
+ "fm_note": "Colour D, voice 4, no music yet. O1 and A1 show as labelled START / END placeholders until you approve their frames.",
+ "vlc": "Videos to Review / Invest In Your Health LFC R1 - first minute.mp4",
+ "ai": [
+  {
+   "id": "O1",
+   "name": "Opener, recommended: the health vending machine",
+   "act": "An office vending machine stocked with kettlebells, dumbbells, salmon and broccoli instead of snacks. An ordinary guy feeds in a crumpled dollar, a kettlebell drops out and he holds it up like a prize. Plays under your first line (0:00).",
+   "dur": 6.4,
+   "cost": "$0.80 for one 8 s take"
+  },
+  {
+   "id": "O2",
+   "name": "Opener, alternative: the treadmill and the chart",
+   "act": "A tired man walks on a treadmill in front of a wall-size stock chart with a flat green line. As he picks up speed the line climbs to the top corner and he pumps his fist. Would play under the same first line.",
+   "dur": 6.4,
+   "cost": "$0.80 for one 8 s take"
+  },
+  {
+   "id": "A1",
+   "name": "The fat guy who has money (your excuse voice, lips synced)",
+   "act": "A smug overweight businessman behind a desk stacked with cash says your line to camera, then shrugs. Plays under 'Making money is my first priority in life... I'll just be a fat guy who has money and I'll be happy with that' (0:20).",
+   "dur": 7.9,
+   "cost": "$0.80 for the take plus about $0.65 for the lip sync"
+  },
+  {
+   "id": "A2",
+   "name": "The brokie (15:11)",
+   "act": "A guy on his sofa turns his empty pockets inside out and shrugs, surrounded by pizza boxes, a bar cart, a tower of sneaker boxes and a giant TV. Plays under 'But I am a brokie, I don't have any money, so I just can't spend any money on my fitness, nothing I can do.' He does not speak.",
+   "dur": 5.7,
+   "cost": "$0.60 for one 6 s take"
+  },
+  {
+   "id": "A3",
+   "name": "The cardboard box house (23:51)",
+   "act": "A cheerful guy crawls out of a cardboard box house with a full home workout setup laid out beside it, and starts swinging the kettlebell. Plays under 'Let's say you're literally homeless. You're living in the cardboard box.' Your real home setup follows it.",
+   "dur": 4.6,
+   "cost": "$0.60 for one 6 s take"
+  },
+  {
+   "id": "A4",
+   "name": "The lawyer who has no time (46:25)",
+   "act": "A lawyer irons his own shirt on his desk with the phone clamped to his ear, a laundry basket on the client chair, then checks his watch. Plays under 'oh I got such a busy schedule, I'm a lawyer Dan, I don't have time to work out.' He is on the phone, so no lip sync is needed.",
+   "dur": 4.2,
+   "cost": "$0.60 for one 6 s take"
+  }
+ ],
+ "looks": [
+  [
+   "raw",
+   "camera original"
+  ],
+  [
+   "A",
+   "A rich"
+  ],
+  [
+   "F",
+   "F in between (runner-up)"
+  ],
+  [
+   "D",
+   "D bright and natural (chosen)"
+  ],
+  [
+   "E",
+   "E bright, more contrast"
+  ]
+ ],
+ "refs": [
+  [
+   "approved: Work Out Every Day, look D",
+   "/Volumes/Extreme/_edit_work/ro20/look/ref/ro07D_3.png"
+  ],
+  [
+   "approved: Work Out Every Day, closer",
+   "/Volumes/Extreme/_edit_work/ro20/look/ref/ro07D_12.png"
+  ],
+  [
+   "approved: Belly Fat Emergency",
+   "/Volumes/Extreme/_edit_work/ro20/look/ref/c1652_450.png"
+  ]
+ ],
+ "look_note": "The same two moments in each grade, beside frames from two videos you approved. What I saw: the camera original is dim and grey in the blacks; A is rich but your face is dim next to the approved frames; F is close; D matches the brightness you picked on 10-10 with natural skin; E pushes your arms orange and looks crunchy.",
+ "voices": [
+  [
+   "4-warm-less-room",
+   "4: warm, less room echo (chosen)"
+  ],
+  [
+   "3-warm",
+   "3: warm, room as recorded (runner-up)"
+  ],
+  [
+   "1-untreated",
+   "1: the lav as recorded"
+  ],
+  [
+   "5-natural-less-room",
+   "5: less room echo only"
+  ],
+  [
+   "2-chain-default",
+   "2: the automatic default (ruled out)"
+  ]
+ ],
+ "voice_note": "The same 31 seconds, level matched. Measured room echo (lower is drier): as recorded 87, version 3 the same, version 4 52, your reference voice 40. Blind listening trials (seven, a different order each time): version 3 picked three times, version 4 twice, versions 1 and 5 once each, the automatic default never. The scores swung a lot from trial to trial, so the listener cannot really separate 3 and 4; the echo measurement and your own pick on 10-10 decided it. The delivery check passes the first minute on 12 of 13 sound rows; the one it fails is the tone match to the reference voice, which is expected with this fixed tone shape and is the same result as Work Out Every Day.",
+ "chapters": [
+  [
+   "0:00",
+   "Reason 1: The Halo Effect"
+  ],
+  [
+   "1:39",
+   "How Getting Fat Ends Your Relationship"
+  ],
+  [
+   "3:09",
+   "Why Looks Decide Online Dating"
+  ],
+  [
+   "4:41",
+   "Reason 2: Good Health Makes You More Productive"
+  ],
+  [
+   "7:37",
+   "Reason 3: Your Mental Health"
+  ],
+  [
+   "9:01",
+   "Reason 4: Bad Health Is Expensive"
+  ],
+  [
+   "11:50",
+   "Money Does You No Good If You're Dead Or Sick"
+  ],
+  [
+   "14:54",
+   "\"I'm Broke\""
+  ],
+  [
+   "15:36",
+   "What You Should Never Cut"
+  ],
+  [
+   "16:36",
+   "Cut 1: Bars, Clubs And Alcohol"
+  ],
+  [
+   "18:39",
+   "Cut 2: Restaurants"
+  ],
+  [
+   "20:13",
+   "Cut 3: Junk Food"
+  ],
+  [
+   "20:49",
+   "Cut 4: Vacations"
+  ],
+  [
+   "22:00",
+   "Therapy And Psychiatric Medication"
+  ],
+  [
+   "22:56",
+   "Everything Else On The Table"
+  ],
+  [
+   "23:40",
+   "If You're Broke: The $100 Home Workout Setup"
+  ],
+  [
+   "25:03",
+   "If You're Broke: Cheap Healthy Food"
+  ],
+  [
+   "26:21",
+   "Middle Class: The Best Protein"
+  ],
+  [
+   "28:59",
+   "A Better Mattress"
+  ],
+  [
+   "32:17",
+   "A Gym Membership"
+  ],
+  [
+   "34:17",
+   "A Sleep Tracker"
+  ],
+  [
+   "35:42",
+   "GLP-1 Weight Loss Medication"
+  ],
+  [
+   "38:28",
+   "TRT"
+  ],
+  [
+   "39:36",
+   "Three Supplements"
+  ],
+  [
+   "41:58",
+   "Over $10,000 A Month: A Home Gym"
+  ],
+  [
+   "44:38",
+   "A Meal Prep Service Or A Chef"
+  ],
+  [
+   "46:15",
+   "A Maid And A Laundry Service"
+  ],
+  [
+   "46:54",
+   "A Human Trainer And Nutritionist"
+  ],
+  [
+   "48:21",
+   "Beyond The List"
+  ],
+  [
+   "50:11",
+   "Summary"
+  ],
+  [
+   "52:00",
+   "Take The First Step"
+  ]
+ ],
+ "decided": [
+  "Takes: where you said a line more than once I kept your last take when it was clean. Three places use an earlier take: 4:33 'top 10% of looks' (the retake says 'top 80%', a slip, right after 'the bottom 80% are getting nothing'); 39:36 'Here's the final thing you need to be investing in'; 45:03 the Clean Eats line (the last take drops 'every other week').",
+  "0:33: your last take of 'if money is your most important priority in life' has a small stumble on 'priority'. Takes 1 and 2 are clean but end 'then you must look good'. I kept the last take for its wording, 'then you need to be prioritizing your looks'.",
+  "Removed as plain repeats of the sentence before or after them: 'Okay so let's talk about the halo effect' (the third naming in 12 seconds), the second 'money does you no good if you're dead' at 12:05, the short inheritance-fights sentence at 12:34 (the next sentence tells the whole story), 'So go and buy yourself some vitamin D' at 41:21.",
+  "Stealing, 24:00 to 24:57: kept 'I would beg, I would borrow, I would steal' and your own retake 'I'm not endorsing stealing, but...'. The first, blunter take ('steal this stuff from the store') is out because you redid it.",
+  "Removed things said to the crew: silencing notifications, the junk food aside with the cameraman, the focus check, 'do a couple more takes of that'.",
+  "Kept out, as in your notes on the old edit: 'There's all kinds of problems...' at 6:28, the off-centre walk-in at 14:03, 'Your three options are...', and 'if you're middle class' at 39:36. Two hidden false starts the old edit missed are also out.",
+  "Closing call to action: one complete take.",
+  "Swearing and your opinions are untouched.",
+  "Hair: the camera framed the top of your hair right at the edge of the picture for most of this roll (it is clipped by a few pixels in about 7 frames of 10). Both sizes keep every row the camera recorded, and nothing is cropped further. There is no other take, so this cannot be fixed in the edit. One for Jeff on the next shoot.",
+  "Framing: two fixed sizes, the camera frame (waist up) and a 1.3x closer size, changed on cuts so no cut is a jump. No camera movement.",
+  "No side list cards: you stand in the middle of a waist-up frame with no empty wall, so a card would sit on your arm. Lists come up as lower thirds, one part per item as you say it.",
+  "Music: none in this first minute. The quiet bed you chose for the last two videos goes in with the full film unless you say otherwise.",
+  "The whole film is planned: 190 lower thirds (about one every 17 seconds) and 177 cutaways covering 30 % of the film. No stretch longer than 25 seconds has neither. Every item is below, in order.",
+  "Where the pictures come from: 30 cutaways are your own footage (pool workouts, your kitchen, your supplement bottles from this same shoot), 44 are clips already in the library (8 of them older AI clips, labelled), 98 use new free Pexels stock, 5 are the new AI clips above. No source is used twice anywhere in the film (203 sources).",
+  "Each cutaway shows what you name in that sentence, and stories get their scene: the wife sliding her ring off, the ambulance, the lawyer, the bar tab. Where you name your own things and no footage exists, you stay on camera (decision 9).",
+  "Numbered labels follow your own lists: Reason 1 to 4, Sacrifice 1 to 5, Middle Class Buy 1 to 7, Supplement 1 to 3. Prices and percentages on screen are only the ones you say.",
+  "Graphics are in title case. Six of the 190 lower thirds have one word in full capitals (NOTHING, FIRST, SICK, JUNK, RIPPED, CHEAP).",
+  "On-screen text says 'GLP-1 Weight Loss Medication' and 'TRT' rather than a brand name. Your spoken words are untouched, and the subtitles will carry them as you say them.",
+  "22:12, therapy and medication: the label over that lower third uses your own words, 'Opinion, not medical advice'.",
+  "15:30: you say 'bullshit'; the lower third says 'Cut The Waste, Fund Your Fitness.' The audio is untouched.",
+  "24:10, 'I'm going to link to another video': that is the home workout video. The link card goes on at upload; nothing is drawn in the picture.",
+  "41:01, 'I'll show you what it looks like on screen right now': your real vitamin D dropper bottle is on screen there.",
+  "The other excuse voices stay on you: they are funny on camera.",
+  "A lower third that sits over a cutaway is shown below on that cutaway. A cutaway made of two or three short shots shows them side by side.",
+  "Three short stock clips come from 720p sources. I will check them moving before the full film and swap any that look soft.",
+  "Subtitle fixes noted for the caption file: 'maid' (heard as 'made'), 'video alone' (heard as 'video loan'), and three more.",
+  "Spend so far: $0 on generation (twelve pictures made by Codex on the subscription) and under $0.50 on listening checks. Planned for the five AI clips: about $4.05 of the $5 cap.",
+  "The 'Play it moving' buttons are still being rendered for the later parts and appear as they finish. The stills, the copy and the clips are all final for your review."
+ ],
+ "items_note": "Each lower third is a still on its real graded frame (or on the cutaway it sits over). Press the button to play it moving with a few seconds of your speech either side. IDs: the second letter is the part of the film (a to h, in order)."
+}
