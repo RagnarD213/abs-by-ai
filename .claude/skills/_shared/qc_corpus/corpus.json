@@ -3242,6 +3242,21 @@
       "must_trigger": [],
       "measured": "Audio gate: FAIL on one row of 13, tone (mean 1.48 dB against 1.2, max 4.89 against 2.5: less treble than the reference, the fitted treble boost of the rejected round 1 left out). -14.2 LUFS, -2.1 dBTP, early decay 40 ms. The same 31 s is sample-identical to the audition he approved (ro07-voice-4-approved-20261010). Blind Gemini listen: same sound as the approved audition, ahead of the round 1 sound.",
       "notes": "Creative approval with the gate's raw FAIL kept visible; no threshold was changed. Paired with ro07-r1-first-minute-rejected-20261009 (same cut, colour C and the fitted EQ plus expander, gate PASS 12 of 12): the tone row passed the sound he rejected and fails the sound he chose, on this room. Record: ro07/round3-plan/decisions.json."
+    },
+    {
+      "id": "ro07-r3-final-approved-20261011",
+      "date": "2026-10-11",
+      "root": "ssd",
+      "path": "ro07/round3/RO-07 round 3 - full film.mp4",
+      "sha256": "cc3456461691c9b073b72b4ba34cefdef3e0c12d5f1286c30b94040aa3126615",
+      "bytes": 1787327595,
+      "verdict": "approved",
+      "dan": "Okay, this is looking good. This is approved.",
+      "scope": "Complete 16:9 RO-07 round 3 film (18:06.75): the opener's handstand piece re-cut to show reps from its first frame, C31 showing the deadlift rep, the A3 door-and-glove clip, colour D, voice 4, a quiet bed at -30 dB, 18:07 kept, Gymboss as lower thirds. Also in it, found by the independent review of the first render: the C37 crop that removes a crew member, and three mouth clicks turned down.",
+      "must_pass": [],
+      "must_trigger": [],
+      "measured": "Audio gate fails the tone row only (mean 1.28 against 1.2, max 4.77 against 2.5) with voice 4, the audition Dan picked. Delivery gate 2.5.1: 30 pass, 9 fail (audio:stamp, style:coverage 27 %, framing:hair_top, framing:headroom, cut:splice_visibility, captions:card_collision, captions:burned, watch:pass with 29 hair entries open, junk:repeated_take). Independent review of the first render: DOES NOT SHIP (C31 ended on 11 frozen frames; the gate's watch scan reported the same run). Independent review of this file: SHIP.",
+      "notes": "Final-film creative approval with the gate's raw FAIL kept visible; no threshold was changed. Hair touches the top edge in about 2.5 % of presenter frames (camera framing); the delivery message asked leave as shot or add headroom and he approved the film as delivered without a line on hair, so it stays as shot (editor's reading, recorded as such in ro07/final/dan-approval-20261011-verbatim.md). His thumbnail mix for this video is in ro07/round3-plan/decisions.json. Paired with ro07-r2-first-minute-approved-20261010."
     }
   ]
 }
