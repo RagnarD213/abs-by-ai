@@ -1,3 +1,7 @@
+## Released: Stop Deadlifting, approved thumbnail 3 (2026-10-11)
+
+YouTube public `9nfvwfo52Z0`, approved thumbnail 3 installed and verified. Instagram 4976700 and TikTok 4976709 now use thumbnail 3; Facebook 4976695 cover installer prepared. Socials remain Monday Oct 12, 9 AM Central. Three in-feed engagement ads created: tier 2 827748286523, tier 1 827748286526, paused remarketing 827748286529. Google review pending, budgets unchanged. Article draft 1,140 words checked, daily publishing routine due 10:30 AM Central. Details: `Docs/STOP_DEADLIFTING_RELEASE_20261011.md`.
+
 # Blotato IG + Facebook queue — progress
 
 Last updated 2026-10-07.
