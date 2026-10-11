@@ -28,7 +28,11 @@ function afterChange(board,previous,action,p,now=Date.now()){
   if(action==='card.move'&&c&&prior.listId!==c.listId){
     if(c.run?.status==='queued')c.run.status='cancelled';
     const dest=board.lists.find(l=>l.id===c.listId);
-    if(agents.includes(dest.tone)&&dest.name.toLowerCase().includes('queue'))assign(board,c,dest.tone,now);
+    if(agents.includes(dest.tone)&&dest.name.toLowerCase().includes('queue')){
+      // Movement is not a retry authorization for a task that already ran.
+      // Preserve its prior result until the owner explicitly inspects/continues.
+      if(!c.run||c.run.status==='cancelled')assign(board,c,dest.tone,now);
+    }
   }
   if(action==='card.archive'&&c?.run?.status==='queued')c.run.status='cancelled';
 }

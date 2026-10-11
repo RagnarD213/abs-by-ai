@@ -16,6 +16,7 @@ const id=claim.run.id;exec('update',{workerId,runId:id,status:'running',summary:
 assert.throws(()=>move('card.move',{id:first,listId:board.lists[0].id,index:0}),/Stop/);
 exec('update',{workerId,runId:id,status:'completed',summary:'Verified harmless work.'});assert.match(board.lists.find(l=>l.id===board.cards.find(c=>c.id===first).listId).name,/review/);
 exec('update',{workerId,runId:id,status:'failed',summary:'late duplicate'});assert.equal(board.cards.find(c=>c.id===first).run.status,'completed');
+move('card.move',{id:first,listId:q('codex'),index:0});assert.equal(board.cards.find(c=>c.id===first).run.id,id);assert.equal(board.cards.find(c=>c.id===first).run.status,'completed');
 claim=exec('claim',{workerId,agent:'codex'}).claim;assert.equal(claim.id,second);clock+=91000;exec('heartbeat',{workerId});assert.equal(board.cards.find(c=>c.id===second).run.status,'blocked');assert.equal(exec('claim',{workerId,agent:'codex'}).claim,undefined);
 assert.throws(()=>exec('run',{id:second}),/Continue/);exec('continue',{id:second});assert.notEqual(board.cards.find(c=>c.id===second).run.id,claim.run.id);
 exec('pause');assert.equal(exec('claim',{workerId,agent:'codex'}).claim,undefined);exec('enable',{workerId});assert.equal(board.cards.find(c=>c.id===second).run.status,'cancelled');

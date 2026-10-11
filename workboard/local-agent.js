@@ -31,9 +31,11 @@ function supervise(dir){
     let i;while((i=buffer.indexOf('\n'))>=0){const line=buffer.slice(0,i);buffer=buffer.slice(i+1);try{
       const event=JSON.parse(line);events++;
       sessionId=event.session_id||event.thread_id||sessionId;
-      if(event.permission_denials?.length||/approval.*denied|permission.*denied|request.*rejected/i.test(line))denied=true;
+      const failure=event.type==='error'?event.message:event.item?.type==='command_execution'&&event.item.exit_code!==0?event.item.aggregated_output:'';
+      if(event.permission_denials?.length||/approval[^\n]{0,100}denied|permission[^\n]{0,100}denied|request[^\n]{0,100}rejected/i.test(failure||''))denied=true;
       if(event.type==='result')structured=event.structured_output||event.result;
-      fs.writeFileSync(path.join(dir,'progress.json'),JSON.stringify({sessionId,summary:`Local ${card.run.agent} session active. ${events} progress events received.`,workspace}));
+      const phase=event.item?.type==='command_execution'?'Running a local command':event.item?.type==='file_change'?'Updating local files':event.message?.content?.some(c=>c.type==='tool_use')?'Using local task tools':'Working on the assigned task';
+      fs.writeFileSync(path.join(dir,'progress.json'),JSON.stringify({sessionId,summary:`${phase}. ${events} progress events received.`,workspace}));
     }catch{}}
   }
   child.stdout.on('data',output);child.stderr.on('data',chunk=>{bytes+=chunk.length;if(bytes<5*1024*1024)fs.writeSync(log,chunk);});
