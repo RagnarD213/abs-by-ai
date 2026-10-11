@@ -22,7 +22,7 @@ No audio cuts, speed changes or pause removals were applied. The 59.56-second fi
 
 ## Verification and open work
 
-All 33 prior packet hashes matched. Linked local URLs return 200; MP4 byte ranges return 206. Chrome crop B playback and forward/backward seeking succeeded. Opening final concat re-encoded to maintain consistent seekable stream after an initial seek fault. Recheck the fresh cached opening before continuation.
+All 33 prior packet hashes matched. Linked local URLs return 200; MP4 byte ranges return 206. Chrome crop B playback and forward/backward seeking succeeded. Opening final concat re-encoded to maintain consistent seekable stream after an initial seek fault. Fresh cached opening playback and forward/backward seeking verified after the repair.
 
 The exact short opening audio gate FAILS comb ripple, room early decay and word-tail dryness. Tone, loudness, no clipping and measured do-no-harm pass. The short test uses a six-second analysis window. It does not replace round1's longer audio measurements. No thresholds relaxed. Prior full-context tone, coverage, legacy head size and independent caption alignment failures remain open. This creative packet is not final delivery certification. No independent complete-candidate review yet because no complete candidate exists.
 
