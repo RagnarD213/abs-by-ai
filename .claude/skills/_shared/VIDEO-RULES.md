@@ -1,3 +1,27 @@
+## A Short opens like a dedicated video: record a pickup, never "Number two" (Dan, 2026-10-11)
+
+- **A Short cut from a long-form must not sound like a piece lifted out of a longer video.** It never opens on a list
+  number or any line that points back at the long-form ("Number two", "Number three", "next", "also", "this one", "as I
+  said"). Dan, on the SL-06 Zepbound shortlist: *"I want to make this a rule for our shorts going forward: avoid making it
+  very obviously seem like something cut from a long-form video out of context, like starting with number 2 or number 3.
+  Instead, we'll just record a short pickup into my mic right here in Claude, and then cover it with a graphic or AI clip
+  or something."*
+- **The fix is a pickup: one new sentence Dan records that states the Short's point as its own video.** His examples:
+  *"Here's why you should inject Zepbound every Thursday evening"* or *"Here's why Thursday evening is the best time to
+  inject Zepbound."* The pickup replaces the list opening; the film's footage starts on the next sentence.
+- How to apply, every Shorts batch (Claude and Codex):
+  1. At segment selection, mark each candidate whose first line points at the long-form. Trimming the number off is only
+     enough when what is left reads as a dedicated opening.
+  2. Write the pickup lines (three options each, through `dan-voice-writer`) and **put them in the shortlist message
+     itself**, with the line that follows each, so Dan can record them when he picks.
+  3. Dan records into his mic in the editing session. Take every line two or three times and keep the best take.
+  4. The pickup has no picture of him saying it, so **cover all of it with a clip, a graphic or an AI clip** (clip library
+     first; a new AI clip goes through frame approval), then cut to him on camera on the first film word.
+  5. Match the pickup to the film's voice (level, tone, the film's music bed under it) so the join is not heard. The
+     film's approved mix stays untouched after the join. Say in the build report how the pickup was treated.
+- **One point per Short.** Same review: *"It's a little confusing to have two points in a video like that."* A candidate
+  that argues two things (pen versus needle, and which dose) is split, and each half goes where it belongs.
+
 ## All B-roll is colour corrected before it goes in a video (Dan, 2026-10-11)
 
 - **Every piece of B-roll is colour corrected to sit with the film's approved look before Dan sees it, in every video.** Dan,
