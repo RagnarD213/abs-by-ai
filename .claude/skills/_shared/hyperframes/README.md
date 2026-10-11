@@ -182,8 +182,16 @@ frames (pilot: 43 dB PSNR).
   its next `from_plan.py --render` (RO-10, RO-02, RO-11, RO-06 and any later film). Single-part lower thirds come out
   identical (RO-11 G10 against its approved render: PSNR infinite on every frame, content and mask). In a multi-part
   one only the later parts change, from the frame they rise on: up to about 10 px to the right of a render made
-  before 2026-10-09, within a few px of one made with the 7 px patch (RO-11 G05: mask pass and first part identical). Copy `hf/renders` aside first as above. Do not place text after other text from a PIL width:
-  `before-card`'s headline parts still do (`before-card/build.py`, `vertical.py` title parts) and are not changed here.
+  before 2026-10-09, within a few px of one made with the 7 px patch (RO-11 G05: mask pass and first part identical). Copy `hf/renders` aside first as above. Do not place text after other text from a PIL width
+  in a new template.
+- **Before card: the headline parts are still placed from a PIL width, measured and left alone (2026-10-11).** At
+  84 px the whole-pixel rounding goes both ways instead of always short. In the Chrome HyperFrames renders with, the
+  gap between two parts is within 1.5 px of the 17.8 px word space on the example and on every two-part headline
+  shipped so far (RO-02, RO-10, RO-11, RO-13: 17.1 to 19.3 px), the same at 16:9 and 9:16; the 1:1 card stacks its
+  parts, so it has no such gap. Over 124 test strings PIL minus Chrome ran from 2.6 px short to 3.7 px long, mean
+  0.3. Not visible, so `before-card/build.py`, `vertical.py` and the template are unchanged and no fact card
+  re-renders. Measure again before using a long first part or another type size (at 56 px the same sum is up to 8 px
+  short); the fix, if ever needed, is the lower third's: parts on one `y` set inline in one box.
 - One root composition per folder; a timed `.clip` wrapper with nested content warns. Plain divs + one paused timeline.
 - `@font-face` to a file inside the project, or lint fails.
 - `fromTo` for every initial state; finite `repeat` only; motion along a path = proxy object + `onUpdate`.
