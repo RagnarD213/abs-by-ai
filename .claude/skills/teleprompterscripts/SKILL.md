@@ -206,3 +206,42 @@ a read taken mid-sync can look wrong), then:
   The Shoot 5 run built straight from the local markdown that had produced the
   source doc minutes earlier, so the source was never opened in the editor at
   all and `fileSize` was provably identical afterwards.
+
+
+## v3, 2026-10-11: one doc per filming set, built from the Docs connector, uploaded without Chrome
+
+Dan asked for three teleprompter docs from the 10/17 shoot doc (43 scripts): dark green backdrop, green screen, and
+outside by the pool, plus a separate B-roll list. Result: 21, 18 and 4 scripts, every line identical to the source.
+
+- **Build with `reference/tp_from_shoot_doc.py`.** It reads the saved `read_doc` JSON of the shoot doc, finds each
+  script, drops the cues, sorts the scripts into sets and writes one HTML file per set. Edit `SETS` at the top for
+  each shoot. The source doc is only read.
+- **How Dan split the sets (2026-10-11).** Green screen: "all of the reaction videos and anything else you think
+  would make sense on a green screen where there's extensive content behind me". Used: every reaction video and
+  short, plus the three videos with a picture on screen most of the way through (Body Fat Percentage, Ab Ranking,
+  Losing Fat Changed My Face). Outside: the follow-along workouts. Dark green backdrop: everything else.
+- **A follow-along workout stays words only.** No round labels. A blank line is left where each round cue stood, so
+  the rest scripts are apart on the prompter.
+- **No Chrome: upload with rclone.** The clipboard paste takes over Dan's browser and has failed in five sessions.
+  This does not touch his screen:
+
+      ~/bin/rclone copy out_dir gdrive: --max-depth 1 --include "<prefix> - Teleprompter*.html" \
+          --drive-import-formats html --drive-export-formats html --drive-pacer-min-sleep 2s
+      ~/bin/rclone lsjson gdrive: --max-depth 1 --files-only --include "<prefix>*" --drive-export-formats html
+      ~/bin/rclone link "gdrive:<file name>.html" --drive-export-formats html
+
+  The first makes real Google Docs (headings, page breaks, nested bullets all convert). The second gives their IDs.
+  The third turns on anyone-with-the-link viewing. Traps: both format flags are needed, or the upload fails with
+  "can't convert .html to a document with a different export filetype"; no slash in the file name ("10-17", not
+  "10/17"), rclone reads it as a folder; add `--drive-root-folder-id <id>` to land in a folder other than My Drive.
+- **Verify by downloading back as text**, not by eye:
+  `rclone copy gdrive: back --max-depth 1 --files-only --include "<prefix> - Teleprompter*" --drive-export-formats txt`,
+  then compare each file line by line with `built_seq.json` (curly quotes and spaces normalized). 10-11: 518 of 518,
+  345 of 345, 102 of 102. Then `get_file_metadata` on the source: `fileSize` and `modifiedTime` unchanged.
+- **The B-roll list is its own doc**, bullets by set, in the order Dan films (he asked for outdoor first). Nested
+  `<ul>` inside `<li>` imports as real nested bullets. Add what the Edit Queue is blocked on for B-roll:
+  `Handoffs/video-editing/jobs.json`, `state` "blocked" with b-roll in `needs`.
+- **The teleprompter copy matches the filming script word for word.** When Dan edits the shoot doc after the docs
+  are made, rebuild and upload again, then list the folder: whether a second upload replaces the doc or makes a
+  second one with the same name has not been tested.
+
