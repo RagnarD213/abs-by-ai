@@ -13,12 +13,12 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 ## Working rules
 
-1. One owner per task; don't overwrite another session's work without a handoff or review request.
-2. Update when you start, get blocked, hand off or finish. **Re-read from disk before saving; edit only your entry.**
-3. Finished and approved → **delete the entry** (preserve durable details first); report in chat, never as FYI here.
-4. Budget: ≤2,500 words; each bold-titled entry ≤80 words and dated. Run `scripts/board-check.sh` after editing; compress if it fails.
-5. Dates: `Updated: YYYY-MM-DD`; preserve `Decision since: YYYY-MM-DD`. Aging/archive: `Docs/BOARD_MORNING_MAINTENANCE.md`.
-6. Entry format, ≤ 3 lines: `**Title — STATUS date, owner.** State. Next: action. ⚠ only a warning that changes the next action. Detail: path.`
+1. One owner per task; no overwriting without a handoff or review request.
+2. Update on start, block, handoff or finish. **Re-read from disk first; edit only your entry.**
+3. Finished and approved → **delete the entry**, durable details first; report in chat.
+4. Budget: ≤2,500 words; entries ≤80 words, dated. Run `scripts/board-check.sh` after edits.
+5. Dates: `Updated: YYYY-MM-DD`; keep `Decision since: YYYY-MM-DD`. Aging: `Docs/BOARD_MORNING_MAINTENANCE.md`.
+6. Entry, ≤3 lines: `**Title — STATUS date, owner.** State. Next: action. ⚠ = changes the next action. Detail: path.`
 
 ---
 
@@ -125,7 +125,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **RO-20/B/C - R2 REVIEW 2026-10-11, Claude.** `Handoffs/handoff-20261011-ro20-round3-pickups-and-first-minutes.md`
 
-**RO-19-HANDOFF 2026-10-11.** `Handoffs/handoff-20261011-ro19-round2-revisions.md`
+**RO-19 R2 BUILDING 2026-10-11.** `Handoffs/handoff-20261011-ro19-round2-revisions.md`
 
 **RO-07 - HOLD 2026-10-11, Claude.** Blotato full. `Docs/RO07_SETUP_RECEIPT_20261011.md`
 
