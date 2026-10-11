@@ -2407,6 +2407,28 @@
    "rev": 1,
    "syncedRev": 1,
    "by": "Claude"
+  },
+  {
+   "id": "SL-14",
+   "list": "2",
+   "group": "Shorts from long-forms",
+   "sub": "",
+   "title": "Getting Abs At 40 vs 25 (Zeeshan Video 5, YouTube Jan 3 2027)",
+   "roll": "",
+   "size": "S",
+   "file": "SL-14-abs-at-40-vs-25-shorts.md",
+   "claudeModel": "Opus 5.5, high",
+   "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/SL-14-abs-at-40-vs-25-shorts.md`: propose the shorts segments from Zeeshan's Video 5 and wait for my picks, then cut them with /shorts in Soft Blue Light, with gates and an independent audit (no covers). Deliver, send me the review copies, update the master list. Name this session \"Abs At 40 vs 25 SFC R1\".",
+   "codexModel": "GPT-6 Sol, high",
+   "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/SL-14-abs-at-40-vs-25-shorts.md` using `.claude/skills/shorts/SKILL.md` as the method: propose segments from the Video 5 master, wait for Dan's picks, cut, gate, deliver, update `00-MASTER.md`. Name this task \"Abs At 40 vs 25 SFC R1\".",
+   "state": "ready",
+   "note": "Added 10-11 at Video 5 setup; Soft Blue Light shorts; parent public Jan 3 2027",
+   "unattended": false,
+   "unattended_why": "Job doc says show Dan the segment list and wait for picks.",
+   "order": 106,
+   "updated": "2026-10-11",
+   "rev": 1,
+   "syncedRev": 1
   }
  ]
 }

@@ -166,11 +166,11 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [SL-11](SL-11-the-vacuum-shorts.md) | The Stomach Vacuum: The Best Ab Exercise For Belly Fat (RO-02, public Nov 22) | READY | S |
 | [SL-12](SL-12-keep-your-muscle-shorts.md) | How To Keep Your Muscle While You Lose Fat (RO-01, YouTube Dec 6) | READY; hold release until parent is public | S |
 | [SL-13](SL-13-calories-dont-matter-shorts.md) | When Calories Don't Matter For Fat Loss (RO-11, YouTube Dec 13) | READY; hold release until parent is public | S |
+| [SL-14](SL-14-abs-at-40-vs-25-shorts.md) | Getting Abs At 40 vs 25 (Zeeshan Video 5, YouTube Jan 3 2027) | READY; hold release until parent is public | S |
 
 **Will need shorts once final (no handoff yet; add one when the long-form is approved):**
 * Your Belly Fat Is An Emergency (Codex, revision in progress)
 * 04 Why You Should Invest More In Your Health (waiting on your pick: dry vs dereverb audio, and which length)
-* Getting Abs At 40 vs 25 (Zeeshan Video 5, finalized 10-10; setup handoff `handoff-20261010-zeeshan-batch-video5-setup-and-archive.md`)
 * The Real Reason You Don't Have Abs (reserved for Codex trial phase 07)
 * Every RO-01 … RO-08 once approved
 
