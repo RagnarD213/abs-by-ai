@@ -8,7 +8,8 @@
     "assistant::Get quote to fix Audi from Euro Garage — 10921 E Crystal Falls Pkwy, Bldg G-400, Leander, TX 78641",
     "assistant::Get quote to fix Audi from 1 other mechanic of Brittany's choice. Use either personal recommendation or Claude recommendation",
     "assistant::Have Dan select Audi repair vendor and have car repaired",
-    "assistant::Change sheets on bed"
+    "assistant::Change sheets on bed",
+    "assistant::Put away dishes"
   ],
   "log": {
     "health::Shower": [
@@ -196,7 +197,8 @@
     ],
     "assistant::Load dishwasher": [
       "2026-08-11",
-      "2026-08-16"
+      "2026-08-16",
+      "2026-10-11"
     ],
     "assistant::Put away dishes": [
       "2026-08-11",
@@ -241,6 +243,7 @@
     "assistant::Get quote to fix Audi from Euro Garage — 10921 E Crystal Falls Pkwy, Bldg G-400, Leander, TX 78641": "2026-10-05",
     "assistant::Get quote to fix Audi from 1 other mechanic of Brittany's choice. Use either personal recommendation or Claude recommendation": "2026-10-05",
     "assistant::Have Dan select Audi repair vendor and have car repaired": "2026-10-05",
-    "assistant::Change sheets on bed": "2026-10-11"
+    "assistant::Change sheets on bed": "2026-10-11",
+    "assistant::Put away dishes": "2026-10-11"
   }
 }
