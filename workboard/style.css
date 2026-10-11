@@ -6,3 +6,13 @@
 .label-row{display:flex;gap:7px;align-items:center;margin-bottom:8px}.label-row input{min-width:0;flex:1;margin:0}.label-row select{width:92px;margin:0;padding:11px 5px}.label-row .btn{padding:5px 8px}#label-add{font-size:12px;padding:8px 11px}.card h3{text-transform:none}.event:before{display:none}
 
 #panel-notice:not(:empty){padding:14px 24px;background:#3d3220;color:#f0d3a5;font-size:13px}
+
+.assistant-clock {padding:12px;border:1px solid var(--line);border-radius:8px;display:flex;flex-wrap:wrap;gap:7px;margin-bottom:12px}
+.assistant-clock p {width:100%;margin:0 0 5px;font-variant-numeric:tabular-nums}
+.assistant-task input[type=checkbox] {width:18px;height:18px;margin:0 10px 8px 0;vertical-align:middle}
+.assistant-task .btn {margin-top:10px}
+.assistant-done h3 {text-decoration:line-through;opacity:.6}
+.assistant-priority-key {background:#594513;color:#ffe69c}
+.assistant-priority-high {background:#592c31;color:#ffb8be}
+.assistant-priority-med {background:#243e59;color:#b4d9ff}
+.assistant-priority-low,.assistant-priority-unassigned {background:#303640;color:#c4cedb}

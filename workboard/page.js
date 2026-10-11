@@ -27,6 +27,7 @@ function render(){
     column.append(stack,button('＋ Add card',()=>newCard(l),'add'));board.append(column);
   });
   if(!activeLists().length)board.append(button('＋ Create a list',newList,'btn new-list'));
+  window.renderAssistant?.();
 }
 function showPanel(title,content){panel=content;$('panel-heading').textContent=title;$('panel-body').replaceChildren();content($('panel-body'));$('panel-dialog').showModal();}
 function newList(){showPanel('Add list',body=>{const f=el('form'),label=el('label','','List name'),input=el('input');input.required=true;input.maxLength=100;input.setAttribute('aria-label','List name');label.append(input);const b=el('button','btn primary','Create list');f.append(label,b);f.onsubmit=async e=>{e.preventDefault();if(await change('list.create',{name:input.value}))$('panel-dialog').close();};body.append(f);});}

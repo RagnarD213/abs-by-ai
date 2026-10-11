@@ -1,0 +1,42 @@
+'use strict';
+(()=>{
+ let data=null,saving=false,drag=null,lastLoaded=0;
+ const labels={key:'Key',high:'High',med:'Medium',low:'Low',unassigned:'Unassigned'};
+ const node=(tag,cls,text)=>{const n=document.createElement(tag);n.className=cls||'';if(text!==undefined)n.textContent=text;return n;};
+ const btn=(text,fn)=>{const b=node('button','btn',text);b.type='button';b.disabled=saving;b.onclick=fn;return b;};
+ const today=()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;};
+ const done=t=>t.recurring?(data.log['assistant::'+t.text]||[]).includes(today()):(data.checked||[]).includes('assistant::'+t.text);
+ const duration=s=>`${Math.floor(s/3600)}h ${Math.floor(s%3600/60)}m`;
+ async function request(path,body){const res=await fetch(path,{cache:'no-store',...(body?{method:'POST',headers:{'Content-Type':'application/json','X-Workboard-Action':'change'},body:JSON.stringify(body)}:{})});let d;try{d=await res.json();}catch{throw new Error('Assistant data unavailable. Retry.');}if(!res.ok)throw new Error(res.status===401?'Sign in again to load assistant tasks.':d.error||'Assistant save failed. Retry.');return d;}
+ async function load(){if(saving)return;try{data=await request('/api/workboard/assistant');lastLoaded=Date.now();window.renderAssistant();}catch(e){const n=document.getElementById('assistant-error');if(n)n.textContent=e.message;else notice(e.message);}}
+ async function save(action,payload){if(saving||!data)return;saving=true;window.renderAssistant();try{data=await request('/api/workboard/assistant/change',{revision:data.revision,action,...payload});lastLoaded=Date.now();notice('');return true;}catch(e){notice(e.message);await request('/api/workboard/assistant').then(d=>data=d).catch(()=>{});return false;}finally{saving=false;window.renderAssistant();}}
+ async function time(action){if(saving)return;if(action==='mark-paid'&&!confirm('Only confirm after you have paid the assistant. Mark all currently unpaid time as paid in the existing payment history?'))return;saving=true;try{await request('/api/workboard/assistant/time/'+action,{});notice('');}catch(e){notice(e.message);}finally{saving=false;await load();}}
+ function timer(){const n=document.getElementById('assistant-time');if(!n||!data)return;const ts=data.timesheet,active=ts.active?Math.max(0,Math.round((Date.now()-Date.parse(ts.active.startedAt))/1000)):0,total=ts.recordedSeconds+active;n.textContent=`Unpaid: ${duration(total)} · ${ts.active?'Clocked in: '+duration(active):'Not clocked in'}`;}
+ function taskPanel(t){showPanel('Assistant task',body=>{
+  body.append(node('h3','',t.text));if(t.why)body.append(node('p','',t.why));if(t.recurring)body.append(node('p','muted','Recurring task. Existing schedule and completion history are retained.'));
+  const label=node('label','','Priority'),select=node('select');select.setAttribute('aria-label','Assistant priority');Object.entries(labels).forEach(([v,l])=>select.append(new Option(l,v)));select.value=t.priority||'low';label.append(select);body.append(label,btn('Save priority',async()=>{if(await save('priority',{text:t.text,priority:select.value}))$('panel-dialog').close();}));
+  const position=node('select');position.setAttribute('aria-label','Assistant position');data.tasks.forEach((x,i)=>position.append(new Option(String(i+1),String(i))));position.value=String(data.tasks.findIndex(x=>x.text===t.text));body.append(node('label','','Position'),position,btn('Move assistant task',async()=>{if(await save('move',{text:t.text,index:Number(position.value)}))$('panel-dialog').close();}));
+ });}
+ window.renderAssistant=()=>{
+  const board=document.getElementById('board');if(!board)return;document.getElementById('assistant-column')?.remove();
+  const c=node('section','column assistant-column');c.id='assistant-column';c.append(node('div','phase','Assistant · Shared tasks'));
+  const header=node('div','column-head');header.append(node('div','column-title','Assistant'));const link=node('a','btn','Her page ↗');link.href='/assistant';link.target='_blank';link.rel='noopener';header.append(link);c.append(header,node('p','column-note','Top task is next. Priority is a separate label.'));
+  const error=node('p','muted');error.id='assistant-error';c.append(error);
+  if(!data){error.textContent='Loading shared assistant tasks…';c.append(btn('Retry assistant',load));board.append(c);return;}
+  const clock=node('div','assistant-clock'),text=node('p');text.id='assistant-time';clock.append(text,btn(data.timesheet.active?'Clock out':'Clock in',()=>time(data.timesheet.active?'stop':'start')));
+  if(data.timesheet.unpaidSeconds>0||data.timesheet.active)clock.append(btn('Mark time as paid',()=>time('mark-paid')));
+  clock.append(btn('Time history',()=>showPanel('Assistant time history',body=>{body.append(node('p','',`Last payment: ${data.timesheet.lastPaidAt?new Date(data.timesheet.lastPaidAt).toLocaleString():'None recorded'}`));data.timesheet.entries.forEach(e=>body.append(node('p','',`${new Date(e.start).toLocaleString()} · ${duration(e.seconds)} unpaid`)));[...data.timesheet.payments].reverse().forEach(p=>body.append(node('p','',`${new Date(p.paidAt).toLocaleString()} · ${duration(p.seconds)} paid · ${p.sessions} sessions`)));})),btn('Refresh assistant',load));c.append(clock);
+  const stack=node('div','cards assistant-cards'),q=document.getElementById('search')?.value.trim().toLowerCase()||'';
+  data.tasks.filter(t=>[t.text,t.why||'',labels[t.priority]||''].join(' ').toLowerCase().includes(q)).forEach(t=>{
+   const row=node('article','card assistant-task'+(done(t)?' assistant-done':''));row.draggable=!q&&!saving;row.dataset.assistantText=t.text;
+   const cb=node('input');cb.type='checkbox';cb.checked=done(t);cb.disabled=saving;cb.setAttribute('aria-label','Complete assistant task: '+t.text);cb.onchange=async()=>{if(saving)return;saving=true;try{await request('/api/task-checks',{id:'assistant::'+t.text,checked:cb.checked,recurring:!!t.recurring,date:today(),confirmUncheck:true});}catch(e){notice(e.message);}finally{saving=false;await load();}};
+   row.append(cb,node('span','tag assistant-priority-'+t.priority,labels[t.priority]||'Low'),node('h3','',t.text));if(t.why)row.append(node('p','',t.why));if(t.recurring)row.append(node('small','muted','Recurring'+(t.days?.length?' · '+t.days.map(i=>['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][i]).join(', '):'')));row.append(btn('Priority / position',()=>taskPanel(t)));stack.append(row);
+   row.addEventListener('dragstart',e=>{e.stopPropagation();if(q||saving)return e.preventDefault();drag=t.text;e.dataTransfer.effectAllowed='move';e.dataTransfer.setData('text/plain',t.text);row.classList.add('dragging');});row.addEventListener('dragend',()=>{drag=null;row.classList.remove('dragging');});
+  });
+  stack.addEventListener('dragover',e=>{if(drag){e.preventDefault();e.stopPropagation();}});stack.addEventListener('drop',e=>{e.stopPropagation();e.preventDefault();if(!drag)return;const text=drag;drag=null;const nodes=[...stack.querySelectorAll('[data-assistant-text]')].filter(n=>n.dataset.assistantText!==text);let index=nodes.findIndex(n=>e.clientY<n.getBoundingClientRect().y+n.getBoundingClientRect().height/2);if(index<0)index=nodes.length;save('move',{text,index});});
+  if(!stack.children.length)stack.append(node('p','empty',q?'No matching assistant tasks':'No assistant tasks'));c.append(stack);
+  c.append(btn('＋ Delegate task',()=>showPanel('Delegate assistant task',body=>{const f=node('form'),input=node('input'),select=node('select');input.required=true;input.maxLength=500;input.setAttribute('aria-label','Assistant task text');select.setAttribute('aria-label','New assistant priority');Object.entries(labels).forEach(([v,l])=>select.append(new Option(l,v)));select.value='unassigned';const submit=node('button','btn primary','Add assistant task');f.append(input,select,submit);f.onsubmit=async e=>{e.preventDefault();if(await save('add',{text:input.value,priority:select.value}))$('panel-dialog').close();};body.append(f);})));board.append(c);timer();
+ };
+ document.getElementById('assistant-jump').onclick=()=>document.getElementById('assistant-column')?.scrollIntoView({behavior:'smooth',block:'nearest',inline:'start'});
+ window.renderAssistant();load();setInterval(timer,1000);setInterval(()=>{if(!document.hidden&&Date.now()-lastLoaded>30000&&!saving&&!document.querySelector('dialog[open]'))load();},30000);window.addEventListener('focus',load);
+})();

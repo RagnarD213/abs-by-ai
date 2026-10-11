@@ -93,7 +93,22 @@ const {createStore: createWorkboardOwnerStore} = require('./scripts/brief/web/st
 const workboardStore = createWorkboardStore(db,dbReady);
 // Initialize only the board's isolated tables; never log card content or sessions.
 workboardStore.read().then(() => console.log('Workboard database ready')).catch(() => console.error('Workboard database unavailable'));
-app.use(createWorkboardRouter({store:workboardStore,ownerStore:createWorkboardOwnerStore(db,dbReady)}));
+const {createAssistant}=require('./workboard/assistant');
+const workboardAssistant=createAssistant({
+  lock:fn=>withTaskDataLock(fn),
+  read:async name=>{
+    if(!GITHUB_TOKEN)throw new Error('Storage unavailable');
+    const r=await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${name}?ref=main`,{headers:{Authorization:`Bearer ${GITHUB_TOKEN}`,Accept:'application/vnd.github.v3+json','Cache-Control':'no-cache'}});
+    if(!r.ok)throw new Error('Storage read unavailable');
+    const meta=await r.json();return {data:JSON.parse(Buffer.from(meta.content,'base64').toString('utf8')),sha:meta.sha};
+  },
+  write:async(name,data,sha)=>{
+    const r=await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${name}`,{method:'PUT',headers:{Authorization:`Bearer ${GITHUB_TOKEN}`,'Content-Type':'application/json'},body:JSON.stringify({message:'Update assistant task ranking or priority',content:Buffer.from(JSON.stringify(data,null,2)).toString('base64'),sha,branch:'main'})});
+    if(!r.ok){const error=new Error('Assistant save failed. Refresh and retry.');error.status=r.status===409||r.status===422?409:503;throw error;}
+  },
+  onTodos:raw=>{const data=normalizeTodos(raw);todosCache={data,fetchedAt:Date.now(),trustUntil:Date.now()+CACHE_TRUST_MS};broadcastTaskState({todos:data});}
+});
+app.use(createWorkboardRouter({store:workboardStore,ownerStore:createWorkboardOwnerStore(db,dbReady),assistant:workboardAssistant,timesheetAction:(action,req,res)=>({start:startTimesheet,stop:stopTimesheet,'mark-paid':markTimesheetPaid})[action](req,res)}));
 
 const productJson = express.json({ limit: '100mb' });
 // The private publisher owns its bounded parser and verifies exact signed bytes.
@@ -1498,7 +1513,7 @@ app.get('/api/timesheet', async (req, res) => {
   res.json({ active, entries, lastPaidAt: last ? last.paidAt : null });
 });
 
-app.post('/api/timesheet/start', async (req, res) => {
+async function startTimesheet(req, res) {
   if (!GITHUB_TOKEN) return res.status(503).json({ error: 'storage not configured' });
   try {
     for (let attempt = 0; attempt < 4; attempt++) {
@@ -1519,9 +1534,10 @@ app.post('/api/timesheet/start', async (req, res) => {
   } catch (e) {
     res.status(500).json({ error: e.message });
   }
-});
+}
+app.post('/api/timesheet/start', startTimesheet);
 
-app.post('/api/timesheet/stop', async (req, res) => {
+async function stopTimesheet(req, res) {
   if (!GITHUB_TOKEN) return res.status(503).json({ error: 'storage not configured' });
   try {
     for (let attempt = 0; attempt < 4; attempt++) {
@@ -1543,9 +1559,10 @@ app.post('/api/timesheet/stop', async (req, res) => {
   } catch (e) {
     res.status(500).json({ error: e.message });
   }
-});
+}
+app.post('/api/timesheet/stop', stopTimesheet);
 
-app.post('/api/timesheet/mark-paid', async (req, res) => {
+async function markTimesheetPaid(req, res) {
   if (!GITHUB_TOKEN) return res.status(503).json({ error: 'storage not configured' });
   try {
     for (let attempt = 0; attempt < 4; attempt++) {
@@ -1587,7 +1604,8 @@ app.post('/api/timesheet/mark-paid', async (req, res) => {
   } catch (e) {
     res.status(500).json({ error: e.message });
   }
-});
+}
+app.post('/api/timesheet/mark-paid', markTimesheetPaid);
 
 // ── Gmail digest (written directly to GitHub by the morning-brief scheduled
 // job, which has session-level Gmail MCP access the server itself does not
