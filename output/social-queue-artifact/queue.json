@@ -1,70 +1,7 @@
 {
-"generated": "2026-10-10T11:24:48+00:00",
+"generated": "2026-10-11T11:24:52+00:00",
 "cap": 200,
 "scheduled": [
-{
-"id": "5019232",
-"platform": "facebook",
-"when": "2026-10-10T14:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "There are two ways to do bicep curls.",
-"batch": ""
-},
-{
-"id": "5019233",
-"platform": "instagram",
-"when": "2026-10-10T14:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "There are two ways to do bicep curls.",
-"batch": ""
-},
-{
-"id": "5019234",
-"platform": "tiktok",
-"when": "2026-10-10T14:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "There are two ways to do bicep curls.",
-"batch": ""
-},
-{
-"id": "5019235",
-"platform": "youtube",
-"when": "2026-10-10T14:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Two ways to do bicep curls at home, and when to use each one.",
-"batch": ""
-},
-{
-"id": "3563130",
-"platform": "facebook",
-"when": "2026-10-10T22:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "The back move you can do with a towel.",
-"batch": ""
-},
-{
-"id": "3793992",
-"platform": "instagram",
-"when": "2026-10-10T22:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "The back move you can do with a towel.",
-"batch": ""
-},
-{
-"id": "4553200",
-"platform": "tiktok",
-"when": "2026-10-10T22:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "The back move you can do with a towel.",
-"batch": ""
-},
 {
 "id": "4976708",
 "platform": "youtube",
@@ -1630,6 +1567,42 @@
 "slides": 1,
 "text": "Martial arts can challenge your cardio and help you burn calories. Weight training builds and maintains muscle",
 "batch": "Studio S09-C"
+},
+{
+"id": "5415566",
+"platform": "youtube",
+"when": "2026-12-20T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Follow along with me: three standing stomach vacuums, 20 seconds each, with 30 seconds of rest in between. I s",
+"batch": ""
+},
+{
+"id": "5415562",
+"platform": "facebook",
+"when": "2026-12-21T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Do the stomach vacuum with me: three sets of 20 seconds.",
+"batch": ""
+},
+{
+"id": "5415563",
+"platform": "instagram",
+"when": "2026-12-21T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Do the stomach vacuum with me: three sets of 20 seconds.",
+"batch": ""
+},
+{
+"id": "5415565",
+"platform": "tiktok",
+"when": "2026-12-21T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Do the stomach vacuum with me: three sets of 20 seconds.",
+"batch": ""
 },
 {
 "id": "3584760",
