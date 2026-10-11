@@ -1,5 +1,7 @@
 {
-  "active": null,
+  "active": {
+    "startedAt": "2026-10-11T17:57:25.252Z"
+  },
   "entries": [
     {
       "start": "2026-10-05T17:00:50.265Z",
