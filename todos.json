@@ -317,15 +317,6 @@
   ],
   "assistant": [
     {
-      "text": "Wash, dry, and fold 2 laundry loads",
-      "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-08",
-      "days": [
-        0
-      ]
-    },
-    {
       "text": "Clean exterior of all windows",
       "priority": "low",
       "recurring": false,
