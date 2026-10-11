@@ -13,7 +13,7 @@ for(const agent of ['codex','claude']){
   const source=board.lists[0],dest=board.lists.find(l=>l.tone===agent&&l.name.includes('queue'));
   board=mutate(board,'card.create',{listId:source.id,title:'TEST ONLY '+agent+' harmless worker proof'}).board;
   const id=board.cards.at(-1).id;
-  board=mutate(board,'card.update',{id,title:'TEST ONLY '+agent+' harmless worker proof',description:'Create proof.txt in this task workspace containing exactly WORKBOARD_TEST_OK. Read the file back and verify it. Do no other work, do not access external accounts or existing project files. Report the file path and verification.',labels:[],dueDate:''}).board;
+  board=mutate(board,'card.update',{id,title:'TEST ONLY '+agent+' harmless worker proof',description:(agent==='claude'?'Use only the Read and Write/Edit file tools. Do not use Bash or shell commands. ':'Use apply_patch to create the file and a plain cat command to read it. Do not use compound shell syntax. ')+'Create proof.txt in this task workspace containing exactly WORKBOARD_TEST_OK. Read the file back and verify it. Do no other work, do not access external accounts or existing project files. Report the file path and verification.',labels:[],dueDate:''}).board;
   const previous=board;board=mutate(board,'card.move',{id,listId:dest.id,index:0}).board;runs.afterChange(board,previous,'card.move',{id,listId:dest.id});
   const claim=runs.transition(board,'claim',{workerId:worker.workerId,agent}).claim;assert.equal(claim.id,id);
   const signed=proof.sign(claimKey,'start',{workerId:worker.workerId,runId:claim.run.id,cardDigest:proof.digest(claim)});worker.start(claim,signed);worker.start(claim,signed);
