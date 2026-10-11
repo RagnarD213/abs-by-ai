@@ -324,13 +324,13 @@
     },
     {
       "text": "Load dishwasher",
-      "priority": "high",
+      "priority": "key",
       "recurring": true,
-      "addedAt": "2026-08-09",
       "days": [
         0,
         4
-      ]
+      ],
+      "addedAt": "2026-08-09"
     },
     {
       "text": "Get quote to fix Audi from 1 other mechanic of Brittany's choice. Use either personal recommendation or Claude recommendation",
