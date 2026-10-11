@@ -16,7 +16,8 @@ How it reads the shoot doc (the 10/17 format):
 - Pending suggestions are read as accepted. Check there are none before building (the script prints the count).
 
 SETS decides which doc a script goes in, by the start of its title. Edit it for each shoot; anything not matched goes
-to the first set. In a follow-along workout a blank line is left wherever a [ROUND ...] cue stood, so the rest
+to the first set. A set longer than MAX_WORDS (about 45 pages) is split into parts at a script boundary, because Dan
+wants no teleprompter script over 50 pages. Count the real pages after upload (SKILL.md) all the same. In a follow-along workout a blank line is left wherever a [ROUND ...] cue stood, so the rest
 scripts stay apart without adding a word.
 """
 import json, re, html, sys, os
@@ -28,6 +29,8 @@ SETS = [  # (label for the file name, title prefixes that go here, blank line at
     ("Outside By The Pool", ("The 5-Minute No-Equipment Workout", "10-Minute Jump Rope", "20-Minute Jump Rope",
                              "15-Minute Jump Rope"), True),
 ]
+MAX_WORDS = 25000   # Dan, 2026-10-11: at most 50 pages per teleprompter script. A Google Doc of these runs about 565
+                    # words a page (12,437 words = 22 pages), so 25,000 words is about 45. A longer set is split in two.
 SEC = re.compile(r'^(LONG FORM|SHORT FORM|B-ROLL SHOT LIST)')
 GAP = re.compile(r'\[(ROUND|CIRCUIT|TIMER ENDS|NO TALKING)')
 PST = 'style="color:#000000;font-weight:normal;font-style:normal"'
@@ -71,9 +74,18 @@ if __name__ == '__main__':
     S = scripts(P); groups = [[] for _ in SETS]
     for s in S:
         g = next((i for i, (_, pre, _) in enumerate(SETS) if pre and s['title'].startswith(pre)), 0); groups[g].append(s)
-    built = {}
+    built = {}; docs = []
     for i, ((label, _, gaps), lst) in enumerate(zip(SETS, groups)):
-        name = '%s - Teleprompter %d - %s' % (prefix, i + 1, label); seq = []
+        wc = lambda s: sum(len(t.split()) for k, t in s['paras'] if k == 'SAY')
+        total = sum(wc(s) for s in lst); nparts = max(1, -(-total // MAX_WORDS)); parts_, cur, run = [], [], 0
+        for s in lst:                                   # split at script boundaries, parts about equal
+            if cur and len(parts_) < nparts - 1 and run + wc(s) / 2 > total / nparts: parts_.append(cur); cur, run = [], 0
+            cur.append(s); run += wc(s)
+        parts_.append(cur)
+        for n, part in enumerate(parts_):
+            docs.append(('%s - Teleprompter %d - %s%s' % (prefix, i + 1, label, ' (Part %d of %d)' % (n + 1, len(parts_)) if len(parts_) > 1 else ''), gaps, part))
+    for name, gaps, lst in docs:
+        seq = []
         parts = ['<html><head><meta charset="utf-8"></head><body>']
         for n, s in enumerate(lst):
             if n: parts.append(BREAK)
@@ -86,7 +98,7 @@ if __name__ == '__main__':
                 parts.append('<p %s>%s</p>' % (PST, html.escape(t))); seq.append(t)
         parts.append('</body></html>'); open(os.path.join(out_dir, name + '.html'), 'w').write('\n'.join(parts)); built[name] = seq
         words = sum(len(t.split()) for s in lst for k, t in s['paras'] if k == 'SAY')
-        print('%s: %d scripts, %d words' % (name, len(lst), words))
+        print('%s: %d scripts, %d words, about %d pages' % (name, len(lst), words, round(words / 565)))
         for s in lst: print('    ', s['title'])
     json.dump(built, open(os.path.join(out_dir, 'built_seq.json'), 'w'), ensure_ascii=False)
     flat = ' '.join(t for seq in built.values() for t in seq)

@@ -245,6 +245,23 @@ for a single stressed word. "Guys like us", "regular guys", "dad bod", "slammed"
 dashes anywhere in anything you write; his hyphen-with-spaces (" - ") is his own device
 and stays where he has it.
 
+## When the scripts are final: make the filming documents (Dan, 2026-10-11). Always, without being asked.
+
+Dan: "When we finalize everything, going forward, let's always upload teleprompter documents." A polish pass on
+filming scripts is not finished at the last tracked suggestion. It is finished when the documents he films from
+exist. "Final" means he has ruled on every tracked suggestion (none pending in the doc) and has said the scripts are
+good, or has asked for the filming documents. Then do all of this in the same session:
+
+1. **One teleprompter document per filming set**, words only, built with `/teleprompterscripts` (section v3). The
+   sets so far: dark green backdrop, green screen, outside. Ask which set a script is on only if it is not clear.
+2. **No teleprompter script over 50 pages.** A set longer than that is split in two (the build script does it at a
+   script boundary). Count the real pages after upload.
+3. **Upload each teleprompter document into PromptSmart** (`my.promptsmart.com/scripts`, his Chrome, he is logged
+   in). Steps in `/teleprompterscripts`.
+4. **A separate B-roll list**, bullets by set, saved in Google Drive only. It is never put in PromptSmart.
+5. The polished shoot doc stays as it is: it is the editing copy, with every graphic and cue in place.
+6. Report the links, the page counts, and which script went on which set.
+
 ## Mechanics: edits through the Docs connector (first choice since 2026-10-10)
 
 The Docs connector's `update_doc` writes both kinds: `"writeMode": "EDIT"` types the change in, `"writeMode":

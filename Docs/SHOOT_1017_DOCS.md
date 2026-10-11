@@ -10,7 +10,11 @@ Made 2026-10-11. Dan: the shoot doc is kept as it is for editing, and filming us
 | 10-17 Shoot - Teleprompter 3 - Outside By The Pool | Words only, the 4 follow-along workouts, 2,763 words | `1yc2xg1sG4lTncvcAmkA17SN-JZnQSsbB9Q-fpEbXotg` |
 | 10-17 Shoot - B-Roll List | Every B-roll shot by set, outdoor first, plus what the Edit Queue is blocked on | `1WPx31kcSsGtPyRmNBRb8fJHKC4ivi8gxl1k16wVizSY` |
 
-All four are in My Drive beside the shoot doc, viewable by anyone with the link.
+All four are in My Drive beside the shoot doc, viewable by anyone with the link. Page counts: 22, 18 and 6, all under
+Dan's 50-page limit.
+
+**PromptSmart:** the three teleprompter documents were imported on 2026-10-11 as three scripts with the same names
+(`my.promptsmart.com/scripts`). The B-roll list is in Drive only, by his instruction.
 
 ## Which script is on which set
 

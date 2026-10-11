@@ -202,6 +202,7 @@
 - [B-roll always colour corrected](broll-always-colour-corrected.md): 10-11: grade every B-roll clip to the film's look before Dan sees it; a library "graded" note is not proof
 - [Never use Dan's phone clip](never-use-dan-phone-clip.md): 10-11: B0437 never again; a person looking at a phone is not a cutaway, show what is on the phone or a graphic
 - [Copy polish: direct edits](copy-polish-direct-edits.md): 10-11: sure-to-accept edits typed straight in, only uncertain ones tracked; lists in /copy-edit
+- [Filming docs after final polish](filming-docs-after-final-polish.md): 10-11: teleprompter doc per set (50 pages max) into PromptSmart, B-roll list in Drive only; always, unasked
 - [Execute Dan's explicit picks](execute-dans-explicit-picks.md): 10-06: build exactly the person/clip/topic he names; never swap, hold or reroute it for reputational or news reasons ("stop being a Karen")
 - [Allegations are not facts](allegations-not-fact.md): 10-06: unproven charges/accusations against Clavicular, Tate, manosphere figures: never mentioned at all (not even "charged with") unless Dan asks about the case itself; never a reason to change a plan
 - [Assessment symmetry](assessment-symmetry.md): 10-08: one template and one standard for both sides; swap test (Trump/Newsom, Tate/Destiny); judge records on measured results vs promises and a benchmark, then a definite conclusion

@@ -244,4 +244,28 @@ outside by the pool, plus a separate B-roll list. Result: 21, 18 and 4 scripts, 
 - **The teleprompter copy matches the filming script word for word.** When Dan edits the shoot doc after the docs
   are made, rebuild and upload again, then list the folder: whether a second upload replaces the doc or makes a
   second one with the same name has not been tested.
+- **No teleprompter script over 50 pages (Dan, 2026-10-11).** "A maximum length of 50 pages per teleprompter
+  script... If there's more than 50 pages on a single set, break it into two." The build script splits a set over
+  25,000 words (about 45 pages) at a script boundary and names the parts "(Part 1 of 2)". Count the real pages after
+  upload: export as PDF (`rclone copy gdrive: pdf --max-depth 1 --files-only --include "<prefix> - Teleprompter*"
+  --drive-export-formats pdf`) and read the largest `/Count` in each file. 10-11: 22, 18 and 6 pages. The page break
+  before each script does not survive this upload, so the docs run on continuously.
+
+### Upload into PromptSmart (Dan, 2026-10-11): the last step, every time
+
+Dan reads from PromptSmart Pro. Every teleprompter document goes in as its own script; the B-roll list does not.
+
+1. Export the Google Docs as Word files into a folder inside the project (the browser tool can only read files
+   there): `rclone copy gdrive: tmp/promptsmart --max-depth 1 --files-only --include "<prefix> - Teleprompter*"
+   --drive-export-formats docx`. Delete the folder when done.
+2. Claude in Chrome, new tab, `https://my.promptsmart.com/scripts`. He is logged in (the account email shows top
+   right). If it asks for a login, stop and tell him: do not type credentials.
+3. Do not click IMPORT (it opens a file picker the tools cannot see). `find` "file input for importing scripts" and
+   give that element to `file_upload` with the .docx paths. Up to 5 files in one go.
+4. Wait 5 seconds and screenshot: each file shows as a card named after the document. Open one, and with
+   `javascript_tool` read `document.body.innerText`: the word count should be the document's (plus about 200 for the
+   page's own menus), the last lines should be the last script's, and there should be no square brackets.
+5. Close the tab. Tell Dan the three script names as they appear in PromptSmart.
+
+The page shows when his subscription ends. If that date is before the shoot, say so in the report.
 
