@@ -239,4 +239,4 @@ Memory `google-ads-ui-automation`.
 ## ACTIVE
 **Ad 6 remarketing 2026-10-04:** Awaiting Dan: copy to enabled campaign 24305381214?
 
-**Meal Prep SFC R2 HANDOFF 2026-10-11, Codex.** Next: crop options, split-screen intro frames, stronger graphics and faster pace. `Handoffs/handoff-20261011-ds28-round2-crops-intro-graphics.md`.
+**Meal Prep SFC R2 BUILDING 2026-10-11, Codex.** Owns DS-28 only. Building crop pairs, split-screen start/end frames and stronger graphic previews in `/Volumes/Extreme/_edit_work/ds28/round2/`. Next: deliver choices at review port 8891, then wait for crop/frame picks before paid motion. Round1 preserved; dispatcher paused.
