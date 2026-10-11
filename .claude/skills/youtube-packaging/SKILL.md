@@ -48,13 +48,14 @@ handles them after release). Ads never get an article.
 3. **Description:** written in Dan's voice (`.claude/skills/_shared/DAN-VOICE.md`; no em dashes). Hook line, absbyai.com link with
    `utm_source=youtube&utm_medium=video&utm_campaign=<video-slug>`, chapters built
    from the real transcript timestamps, AI-imagery disclosure line, subscribe CTA.
-4. **Tags + pinned comment** (comment carries a `utm_medium=comment` link).
+4. **Tags + pinned comment.** Since 2026-10-11 the pinned comment is a question that gets viewers to reply, with no link
+   (rules and the post-and-pin procedure: `Docs/PINNED_COMMENTS.md`; `/video-setup` Step 6c).
 5. **Thumbnails** — see rules below.
 6. **Shorts** — see rules below.
 7. **Upload checklist:** Not made for kids; **altered/synthetic content disclosure
    box = YES only when the video has realistic AI-generated footage** (a labeled AI goal still does not
    qualify; rule in `_shared/VIDEO-RULES.md` "AI label on uploads"); custom thumbnail; pinned
-   comment posted + pinned; end screens once a second video exists.
+   question comment posted + pinned after release (`Docs/PINNED_COMMENTS.md`); end screens once a second video exists.
 
 ## Thumbnail rules
 
@@ -322,7 +323,7 @@ a set; (2) the BARE `maxresdefault.jpg` can keep serving the old image from a CD
 thumbnail on a long (non-Short) video is served 1280×720 with a blurred zoomed copy of itself
 filling the sides, so compare only the centre strip.
 **Still Studio-only (the token has `youtube.upload` + `youtube.readonly`, not
-`youtube.force-ssl`):** pinned comment, playlists, end screens, captions upload, and
+`youtube.force-ssl`):** pinned comment (done on the watch page in Chrome, `Docs/PINNED_COMMENTS.md`), playlists, end screens, captions upload, and
 the thumbnail A/B "Test & Compare". The browser tricks below are for those.
 Old note, for history: long-form files are 0.4–3 GB and a 3 GB blob crashes the tab,
 which is why the file drag used to be Dan's.

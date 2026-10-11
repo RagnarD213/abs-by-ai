@@ -180,6 +180,13 @@ Full rule: read `.claude/skills/_shared/VIDEO-RULES.md`.
 
 - When Blotato is full, a finished video goes on `scripts/blotato/video_waitlist.json`. The daily `social-queue-daily-refresh` routine (`scripts/blotato/video_topup.py`) queues waiting videos as room frees: long-forms on Sundays, Shorts on Tue/Thu/Sat, videos before photo posts. Never create a scheduled task or routine that queues a single video; they conflict. Claude and Codex both. Detail: `/video-setup`.
 
+## Pinned question comment on every YouTube video (Dan, 2026-10-11)
+
+- Every public video, long-form and Short, carries one pinned comment from the channel that asks the viewer an easy
+  question about that video, to start replies. At setup, write it into the video's Blotato config as `"pinned_comment"`.
+  The daily Claude routine `youtube-pinned-comment-daily` posts and pins it in Chrome after release (the YouTube API
+  cannot pin). Claude and Codex both. Ads get none. Detail: `Docs/PINNED_COMMENTS.md`.
+
 ## Thumbnails, covers and setup: one Claude handoff (Dan, 2026-10-01)
 
 - Claude can now generate Codex images on Dan's subscription. For a finished video, write **one Claude handoff** that makes

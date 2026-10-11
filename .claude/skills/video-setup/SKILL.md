@@ -85,7 +85,8 @@ build the TikTok cover-first copy with `tiktok_cover.build()` (absolute paths: r
 upload master + TikTok copy + cover PNG with `blotato_create_presigned_upload_url` and hash-check each download,
 write `scripts/blotato/configs/<slug>.json` (copy `ds18-kettlebell-deadlift.json`), then
 `python3 scripts/blotato/organic_short_queue.py <config>` and `--apply`. It queues FB, IG @danrosefit, TikTok and the
-public YouTube release (Blotato account 46963) and verifies all four. Shorts go out Tue/Thu/Sat; pick a slot with no
+public YouTube release (Blotato account 46963) and verifies all four. The config also carries `"pinned_comment"`
+(Step 6c; the queue script ignores the field, the daily pinned-comment routine reads it). Shorts go out Tue/Thu/Sat; pick a slot with no
 same-minute post on those accounts.
 
 **Fixing a wrong-path upload:** the upload token cannot change an existing video's visibility (no `youtube` scope).
@@ -163,6 +164,10 @@ It imports the Ad 5 `build_clean.py` for the studio looks and reuses assets, so 
   sheet** (set starts, rests, the CTA — the editor's .srt is often from an earlier cut); a how-to paragraph; a link to
   the related explainer video when one exists; the AI-image disclosure line when an AI goal image appears; subscribe
   CTA; 3–5 hashtags.
+- **Pinned question comment (Dan, 2026-10-11), every video, long-form and Short:** write one question about this
+  video's topic that a viewer can answer in a few words, and save it in the config as `"pinned_comment": "<text>"`.
+  Rules for the question: `Docs/PINNED_COMMENTS.md` (through `dan-voice-writer`, under 180 characters, no link, no em
+  dash). YouTube has no video to comment on until Blotato releases it, so nothing is posted now: see Step 6c.
 - **Schedule:** Sunday at 9 AM America/Chicago only, one new long-form YouTube video per week. A revised replacement uses one slot. Inspect the live Blotato YouTube queue and recent releases, then append this video after the last queued long-form on the next free Sunday. Never use a weekday because Sundays are full. Schedule its Facebook, Instagram and TikTok copies for Monday at 9 AM America/Chicago or later, at least 24 hours after YouTube. Read back every saved time. Verify the YouTube video is public on Sunday; if it is not, postpone the other platform posts before their Monday release. @abs.by.ai retired 2026-09-24; never queue it.
 
 ## Step 4: RETIRED (2026-10-01), no YouTube holding upload
@@ -218,6 +223,21 @@ Runs AFTER release, on the public Blotato-created video (Dan 2026-10-01). Worked
    - Blotato's upload carries thumbnail A; this step only adds B once the video is public. Put a "set up the thumbnail
      test and upload the English captions" line in the coordination entry for the publish day (captions: Studio
      Subtitles, **Upload file**, never the Languages page: setting the video language there turned on auto-dubbing, 09-30).
+
+## Step 6c: the pinned question comment (written now; the daily routine posts and pins it)
+
+Every public video carries one pinned comment from the channel that asks the viewer a question (Dan, 2026-10-11). It can
+only be posted after release, and only in Chrome: the YouTube API cannot pin. Full procedure: `Docs/PINNED_COMMENTS.md`.
+
+1. **Now:** the config has `"pinned_comment"` (Step 3; for a Short, add it when you write its config). No field, no "done".
+2. **Receipt row, required:** `Pinned comment: "<text>". Posts and pins automatically after release (routine
+   youtube-pinned-comment-daily).`
+3. **After release it is automatic.** The Claude routine `youtube-pinned-comment-daily` runs
+   `node scripts/youtube/pinned_comment_gap.js` every day at 9:40 AM Central, posts and pins the question on each new
+   public video, and records it in `scripts/youtube/pinned_comments.json`. Do not put "pin the comment" on the board.
+4. **Release check:** whoever verifies the release runs `node scripts/youtube/pinned_comment_gap.js`. The video must
+   not be listed more than 24 hours after release. If it is, the routine failed: do it by hand per the doc and report it.
+5. Content videos only. Ads are unlisted and get no comment.
 
 ## Step 6b: the sixpackabs.com article (write and commit now; the daily routine publishes it)
 
