@@ -403,6 +403,12 @@
       "priority": "key",
       "recurring": false,
       "addedAt": "2026-10-11"
+    },
+    {
+      "text": "Clean kitchen",
+      "priority": "key",
+      "recurring": false,
+      "addedAt": "2026-10-11"
     }
   ],
   "handoffs": [
