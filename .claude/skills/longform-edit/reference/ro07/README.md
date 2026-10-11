@@ -134,3 +134,8 @@ Order: `broll_cuts.py` (the handstand re-cut) -> `plan.py` (C01, C31, A3) -> `ge
 - Gates on the delivered file, stated honestly: audio gate 12 of 13 (tone: the voice Dan chose); delivery gate fails on the audio stamp,
   cover 27 % (floor 40), hair top and headroom (camera framing), splice visibility, two caption false alarms, a repeated-take false alarm,
   and the watch row (hair open until Dan's word). Review 1 DOES NOT SHIP (the C31 freeze), review 2 SHIP.
+- **Dan approved the round 3 film on 2026-10-11:** "Okay, this is looking good. This is approved." Finalized the same day: footage ranges
+  marked used on seven rolls, clips A0158, A0159 and B0545 to B0549 registered, corpus entry `ro07-r3-final-approved-20261011`, edit sheet
+  approved, queue `finalized`. He wrote no line on hair at the top edge, so it stays as shot (editor's reading, recorded as such). His
+  thumbnail mix for this video (1 pool, 1 studio, 1 real exercise frame or photo, 2 AI, five unique designs) is in
+  `Handoffs/handoff-20261011-ro07-thumbnails-and-video-setup.md`.
