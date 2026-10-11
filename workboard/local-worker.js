@@ -1,8 +1,9 @@
 'use strict';
 const http=require('node:http'),fs=require('node:fs'),path=require('node:path'),{spawn}=require('node:child_process'),{randomUUID}=require('node:crypto');
 const {agents}=require('./runs');
+const proof=require('./claim-proof');
 const origin='https://absbyai.com',port=8843;
-function createWorker({root,binaries,now=Date.now,launch=spawn}){
+function createWorker({root,binaries,claimKey,now=Date.now,launch=spawn}){
   fs.mkdirSync(root,{recursive:true,mode:0o700});
   root=fs.realpathSync(root);const repository=fs.realpathSync(path.join(__dirname,'..'));
   if(root===repository||root.startsWith(repository+path.sep))throw new Error('Runner state must be outside the web repository, which is served publicly.');
@@ -15,7 +16,9 @@ function createWorker({root,binaries,now=Date.now,launch=spawn}){
     let result=null,progress=null;try{result=JSON.parse(fs.readFileSync(path.join(dir,'result.json')));}catch{}try{progress=JSON.parse(fs.readFileSync(path.join(dir,'progress.json')));}catch{}
     return {runId:id,agent:claim.card.run.agent,...progress,...result,status:result?.status||'running',summary:result?.summary||progress?.summary||'Agent starting.',logPath:path.join(dir,'events.jsonl')};
   })};}
-  function start(card){
+  function start(card,claimProof){
+    const grant=proof.verify(claimKey,claimProof,'start',workerId,now());
+    if(grant.runId!==card?.run?.id||grant.cardDigest!==proof.digest(card))throw new Error('Task does not match its authenticated claim.');
     if(!card?.run||!agents.includes(card.run.agent)||!/^[-a-f0-9]{36}$/.test(card.run.id)||card.run.status!=='claimed'||card.run.workerId!==workerId)throw new Error('Invalid claim.');
     const dir=path.join(root,card.run.id);
     if(fs.existsSync(dir))return snapshot(); // Never spawn an existing claim twice.
@@ -36,9 +39,9 @@ function createWorker({root,binaries,now=Date.now,launch=spawn}){
     child.on('error',()=>fs.writeFileSync(path.join(dir,'result.json'),JSON.stringify({status:'failed',summary:'Supervisor launch failed. No automatic retry.'})));
     return snapshot();
   }
-  function poll(stop=[]){lastPoll=now();for(const id of entries()){
+  function poll(controlProof){const grant=proof.verify(claimKey,controlProof,'poll',workerId,now());if(!Array.isArray(grant.active))throw new Error('Invalid control grant.');lastPoll=now();for(const id of entries()){
     const dir=path.join(root,id);
-    if(stop.includes(id))fs.writeFileSync(path.join(dir,'stop'),'');
+    if(!grant.active.includes(id))fs.writeFileSync(path.join(dir,'stop'),'');
     if(!fs.existsSync(path.join(dir,'result.json'))){
       const claim=JSON.parse(fs.readFileSync(path.join(dir,'claim.json')));
       let processAlive=true;
@@ -55,9 +58,11 @@ function createWorker({root,binaries,now=Date.now,launch=spawn}){
     if(req.method!=='POST'||req.headers['x-workboard-local']!=='owner-tab'){res.writeHead(403);res.end('{"error":"Invalid local request."}');return;}
     let body='';req.on('data',chunk=>{body+=chunk;if(body.length>131072)req.destroy();});req.on('end',()=>{try{
       const p=JSON.parse(body||'{}');let result;
-      if(req.url==='/poll')result=poll(p.stop);
-      else if(req.url==='/start')result=start(p.card);
+      if(req.url==='/hello')result={workerId,agents};
+      else if(req.url==='/poll')result=poll(p.proof);
+      else if(req.url==='/start')result=start(p.card,p.proof);
       else if(req.url==='/open'){
+        const grant=proof.verify(claimKey,p.proof,'open',workerId,now());if(grant.runId!==p.runId)throw new Error('Invalid session grant.');
         const run=snapshot().runs.find(r=>r.runId===p.runId);if(!run||!run.workspace)throw new Error('Session unavailable.');
         // Only a documented workspace launch is supported. No guessed deep link.
         if(run.agent!=='codex')throw new Error('Claude CLI does not expose a verified Desktop session-open API. Use claude --resume with the session ID.');
@@ -69,9 +74,11 @@ function createWorker({root,binaries,now=Date.now,launch=spawn}){
   return {workerId,start,poll,snapshot,handler};
 }
 if(require.main===module){
-  const root=process.argv[2];if(!root||!path.isAbsolute(root)){console.error('Usage: node workboard/local-worker.js /absolute/private/runner-state');process.exit(1);}
+  const root=process.argv[2],envFile=process.argv[3]==='--env-file'?process.argv[4]:null;if(!root||!path.isAbsolute(root)||!envFile){console.error('Usage: node workboard/local-worker.js /absolute/private/runner-state --env-file /path/to/existing/private-env-file');process.exit(1);}
+  let claimKey;try{const line=fs.readFileSync(envFile,'utf8').split(/\r?\n/).find(x=>/^(?:export )?ADS_FEED_SECRET=/.test(x));claimKey=line?.replace(/^(?:export )?ADS_FEED_SECRET=/,'').trim();if(/^(["']).*\1$/.test(claimKey))claimKey=claimKey.slice(1,-1);}catch{}
+  if(!claimKey||claimKey.length<16){console.error('The existing signing secret is unavailable. No worker started.');process.exit(1);}
   const binaries={claude:process.env.WORKBOARD_CLAUDE||path.join(process.env.HOME,'.local/bin/claude'),codex:process.env.WORKBOARD_CODEX||'/Applications/ChatGPT.app/Contents/Resources/codex-cli/bin/codex'};
   for(const binary of Object.values(binaries))if(!fs.existsSync(binary)){console.error('An installed agent CLI is missing. Configure WORKBOARD_CLAUDE or WORKBOARD_CODEX.');process.exit(1);}
-  const worker=createWorker({root,binaries});http.createServer(worker.handler).listen(port,'127.0.0.1',()=>console.log('Local workboard worker listening at 127.0.0.1:8843. Open the private board and Connect. No task starts until Enable and a new assignment.'));
+  const worker=createWorker({root,binaries,claimKey});http.createServer(worker.handler).listen(port,'127.0.0.1',()=>console.log('Signed local workboard worker listening at 127.0.0.1:8843. Open the private board and Connect. No task starts until Enable and a new assignment.'));
 }
 module.exports={createWorker,origin,port};

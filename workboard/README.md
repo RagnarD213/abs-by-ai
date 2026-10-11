@@ -82,12 +82,12 @@ The first verifies shared records, priority versus rank, persistence, stale/CAS 
 
 ## Local agent queues
 
-The Agents control connects this authenticated owner tab to a loopback worker at `127.0.0.1:8843`. The worker is bound only to loopback, checks the exact site Origin and Host plus a custom request header, and accepts no credential from the board. Owner-cookie authentication and existing CSRF controls protect every remote execution action. No new key, OAuth scope, account, database privilege or provider credit is required. Keep the authenticated tab open. This is a browser-mediated local runner, not a cloud worker or an unattended account token.
+The Agents control connects this authenticated owner tab to a loopback worker at `127.0.0.1:8843`. The worker is bound only to loopback, checks the exact site Origin and Host plus a custom request header, and requires a 30-second signed grant from the authenticated board for each launch, control heartbeat and Desktop action. HMAC signing reuses the existing ADS_FEED_SECRET with a purpose-specific prefix; the secret stays out of browser responses, task files and agent environments. No permanent credential is issued. Owner-cookie authentication and existing CSRF controls protect every remote execution action. No new key, OAuth scope, account, database privilege or provider credit is required. Keep the authenticated tab open. This is a browser-mediated local runner, not a cloud worker or an unattended account token.
 
 Start from this checkout with the installed subscription CLIs:
 
 ```sh
-node workboard/local-worker.js /absolute/private/runner-state
+node workboard/local-worker.js /absolute/private/runner-state --env-file /path/to/existing/private-env-file
 ```
 
 The state directory must be outside the repository because the existing product server serves repository files. The helper rejects an in-repository directory and sets private permissions. `WORKBOARD_CLAUDE` and `WORKBOARD_CODEX` can select already-installed CLI paths. It does not install software or change authentication. Claude uses the existing Max login; Codex uses the existing ChatGPT login. API keys are stripped from agent child environments.
@@ -107,6 +107,7 @@ Verification:
 ```sh
 node workboard/tests/runs.test.js
 node workboard/tests/execution-api.test.js
+node workboard/tests/supervisor.test.js
 node workboard/tests/postgres-claim.test.js /path/to/existing/private-env-file
 WORKBOARD_AGENT_E2E=1 node workboard/tests/agent-e2e.js /absolute/private/test-state
 ```

@@ -2,6 +2,7 @@
 const express=require('express'),path=require('node:path'),{randomUUID}=require('node:crypto');
 const {COOKIE,cookie}=require('../scripts/brief/web/router');
 const {BoardError}=require('./model');
+const proof=require('./claim-proof');
 const MAX=8*1024*1024;
 function attachment(bytes,mime,name){
   if(!Buffer.isBuffer(bytes)||!bytes.length||bytes.length>MAX)throw new BoardError('Files must be between 1 byte and 8 MB.');
@@ -64,8 +65,18 @@ function createRouter({store,ownerStore,env=process.env,origin='https://absbyai.
     res.json(await store.change(req.body.version,req.body.action,req.body.payload));
   }));
   router.post('/api/workboard/execution',express.json({limit:'32kb'}),run(async(req,res)=>{
-    if(!req.body||!['enable','pause','resume','disable','run','continue','stop','claim','update','heartbeat'].includes(req.body.action))throw new BoardError('Invalid execution action.');
-    res.json(await store.execution(req.body.action,req.body.payload||{}));
+    if(!req.body||!['enable','pause','resume','disable','run','continue','stop','claim','update','heartbeat','open'].includes(req.body.action))throw new BoardError('Invalid execution action.');
+    if(!env.ADS_FEED_SECRET||env.ADS_FEED_SECRET.length<16)throw new BoardError('The existing local-worker signing secret is unavailable.',503);
+    const payload=req.body.payload||{};
+    if(req.body.action==='open'){
+      const state=await store.read(),c=state.cards.find(c=>c.run?.id===payload.runId&&c.run.workerId===payload.workerId);
+      if(!c)throw new BoardError('Session unavailable.',404);
+      return res.json({state,openProof:proof.sign(env.ADS_FEED_SECRET,'open',{workerId:payload.workerId,runId:c.run.id},now())});
+    }
+    const result=await store.execution(req.body.action,payload);
+    if(result.claim)result.claimProof=proof.sign(env.ADS_FEED_SECRET,'start',{workerId:result.claim.run.workerId,runId:result.claim.run.id,cardDigest:proof.digest(result.claim)},now());
+    if(result.state.execution?.workerId)result.controlProof=proof.sign(env.ADS_FEED_SECRET,'poll',{workerId:result.state.execution.workerId,active:result.state.cards.filter(c=>c.run?.workerId===result.state.execution.workerId&&['claimed','running'].includes(c.run.status)).map(c=>c.run.id)},now());
+    res.json(result);
   }));
   router.post('/api/workboard/cards/:id/attachments',express.raw({type:()=>true,limit:MAX}),run(async(req,res)=>{
     let name;try{name=decodeURIComponent(req.headers['x-file-name']||'');}catch{throw new BoardError('Invalid filename.');}

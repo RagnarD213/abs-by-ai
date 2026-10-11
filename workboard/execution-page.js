@@ -12,7 +12,7 @@ async function executionCall(action,payload={}){
 }
 async function connectWorker(){
   try{
-    localConnection=await localCall('poll');executionArmed=false;hasActivation=false;
+    localConnection={...await localCall('hello'),runs:[]};executionArmed=false;hasActivation=false;
     if(executionTimer)clearInterval(executionTimer);executionTimer=setInterval(executionTick,5000);
     notice('Local worker connected. Enable to arm new assignments. Existing queue cards need an explicit Run.');renderExecution();
   }catch(e){notice('Could not connect to the local worker: '+e.message);}
@@ -22,8 +22,7 @@ async function executionTick(){
   try{
     if(state.execution?.workerId!==localConnection.workerId)return;
     const heartbeat=await executionCall('heartbeat',{workerId:localConnection.workerId});
-    const stop=[...heartbeat.stop,...localConnection.runs.filter(r=>!state.cards.some(c=>c.run?.id===r.runId&&['claimed','running'].includes(c.run.status))).map(r=>r.runId)];
-    localConnection=await localCall('poll',{stop});
+    localConnection=await localCall('poll',{proof:heartbeat.controlProof});
     for(const r of localConnection.runs){
       const c=state.cards.find(c=>c.run?.id===r.runId);
       if(!c||!['claimed','running','stopping'].includes(c.run.status))continue;
@@ -35,7 +34,7 @@ async function executionTick(){
       for(const agent of ['claude','codex']){
         const result=await executionCall('claim',{workerId:localConnection.workerId,agent});
         if(result.claim){
-          try{await localCall('start',{card:result.claim});}
+          try{await localCall('start',{card:result.claim,proof:result.claimProof});}
           catch(e){await executionCall('update',{workerId:localConnection.workerId,runId:result.claim.run.id,status:'blocked',summary:'Local launch was not confirmed. Inspect local logs before continuing. No automatic retry.'});}
         }
       }
@@ -49,7 +48,7 @@ function renderExecution(){
 }
 function executionPanel(){showPanel('Local Claude and Codex',body=>{
   body.append(el('p','','Start the local worker on this Mac, connect, then Enable. Keep this authenticated tab open. Each agent runs one card at a time, in queue order. Existing cards stay idle until Run or a new move into the queue.'));
-  body.append(el('p','muted','Local command: node workboard/local-worker.js /absolute/private/runner-state'));
+  body.append(el('p','muted','Local command: node workboard/local-worker.js /absolute/private/runner-state --env-file /path/to/existing/private-env-file'));
   body.append(button('Connect local worker',connectWorker),button('Enable new assignments',async()=>{
     if(!localConnection)return notice('Connect the local worker first.');
     try{await executionCall(hasActivation&&state.execution?.enabled?'resume':'enable',{workerId:localConnection.workerId});hasActivation=true;executionArmed=true;renderExecution();notice('Enabled. Only deliberate assignments or explicit Run actions can start.');await executionTick();}catch(e){notice(e.message);}
@@ -68,7 +67,7 @@ window.renderExecutionCard=function(c){
       if(!confirm('Continue this task after inspecting previous files and side effects? A new session will inspect prior work. External effects are never automatically retried.'))return;
       try{await executionCall('continue',{id:c.id});await executionTick();}catch(e){notice(e.message);}
     }));
-    if(c.run.agent==='codex'&&c.run.workspace)box.append(button('Open workspace in Desktop',async()=>{try{await localCall('open',{runId:c.run.id});notice('Desktop workspace launch requested. Use the displayed session ID to resume this session.');}catch(e){notice(e.message);}}));
+    if(c.run.agent==='codex'&&c.run.workspace)box.append(button('Open workspace in Desktop',async()=>{try{const grant=await executionCall('open',{workerId:localConnection?.workerId,runId:c.run.id});await localCall('open',{runId:c.run.id,proof:grant.openProof});notice('Desktop workspace launch requested. Use the displayed session ID to resume this session.');}catch(e){notice(e.message);}}));
     if(c.run.agent==='claude'&&c.run.sessionId)box.append(el('p','muted','Resume locally: claude --resume '+c.run.sessionId));
     box.append(el('p','muted','Private local logs: runner-state/'+c.run.id+'/events.jsonl'));
   }else box.append(el('p','muted','Idle. This card has never been assigned to a local run.'));

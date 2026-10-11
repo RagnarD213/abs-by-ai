@@ -5,7 +5,8 @@ const {initial,mutate}=require('../model'),runs=require('../runs'),{createWorker
 if(process.env.WORKBOARD_AGENT_E2E!=='1')throw new Error('Opt in with WORKBOARD_AGENT_E2E=1.');
 const root=path.resolve(process.argv[2]||'/tmp/workboard-agent-e2e-'+Date.now());
 const binaries={claude:path.join(process.env.HOME,'.local/bin/claude'),codex:'/Applications/ChatGPT.app/Contents/Resources/codex-cli/bin/codex'};
-const worker=createWorker({root,binaries});let board=initial();
+const proof=require('../claim-proof'),claimKey='synthetic-existing-secret-123';
+const worker=createWorker({root,binaries,claimKey});let board=initial();
 runs.transition(board,'enable',{workerId:worker.workerId});
 const evidence=[];
 for(const agent of ['codex','claude']){
@@ -15,13 +16,13 @@ for(const agent of ['codex','claude']){
   board=mutate(board,'card.update',{id,title:'TEST ONLY '+agent+' harmless worker proof',description:'Create proof.txt in this task workspace containing exactly WORKBOARD_TEST_OK. Read the file back and verify it. Do no other work, do not access external accounts or existing project files. Report the file path and verification.',labels:[],dueDate:''}).board;
   const previous=board;board=mutate(board,'card.move',{id,listId:dest.id,index:0}).board;runs.afterChange(board,previous,'card.move',{id,listId:dest.id});
   const claim=runs.transition(board,'claim',{workerId:worker.workerId,agent}).claim;assert.equal(claim.id,id);
-  worker.start(claim);worker.start(claim);
+  const signed=proof.sign(claimKey,'start',{workerId:worker.workerId,runId:claim.run.id,cardDigest:proof.digest(claim)});worker.start(claim,signed);worker.start(claim,signed);
   evidence.push({agent,cardId:id,runId:claim.run.id,claimList:claim.listId});
 }
 const start=Date.now();
 const interval=setInterval(()=>{
   try{
-    const local=worker.poll();
+    const local=worker.poll(proof.sign(claimKey,'poll',{workerId:worker.workerId,active:board.cards.filter(c=>runs.live.includes(c.run?.status)).map(c=>c.run.id)}));
     for(const r of local.runs){
       const c=board.cards.find(c=>c.run?.id===r.runId);if(!runs.live.includes(c.run.status))continue;
       runs.transition(board,'update',{workerId:worker.workerId,runId:r.runId,status:r.status,summary:r.summary,...(r.sessionId?{sessionId:r.sessionId}:{}),...(r.workspace?{workspace:r.workspace}:{})});

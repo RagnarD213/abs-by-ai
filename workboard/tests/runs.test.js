@@ -21,10 +21,12 @@ assert.throws(()=>exec('run',{id:second}),/Continue/);exec('continue',{id:second
 exec('pause');assert.equal(exec('claim',{workerId,agent:'codex'}).claim,undefined);exec('enable',{workerId});assert.equal(board.cards.find(c=>c.id===second).run.status,'cancelled');
 exec('run',{id:second});claim=exec('claim',{workerId,agent:'codex'}).claim;exec('stop',{id:second});exec('update',{workerId,runId:claim.run.id,status:'completed',summary:'late completion'});assert.equal(board.cards.find(c=>c.id===second).run.status,'stopped');
 assert.throws(()=>exec('claim',{workerId:'other',agent:'claude'}),/different worker/);
+const proof=require('../claim-proof'),claimKey='synthetic-existing-secret-123';
 const root=fs.mkdtempSync(path.join(os.tmpdir(),'workboard-fence-'));let launches=0;
 const launch=()=>{launches++;return {unref(){},on(){}};};
-const worker=createWorker({root,binaries:{},now:()=>clock,launch});claim.run={id:randomUUID(),status:'claimed',workerId:worker.workerId,agent:'codex'};
-worker.start(claim);worker.start(claim);assert.equal(launches,1);
-clock+=16000;const restarted=createWorker({root,binaries:{},now:()=>clock,launch});assert.equal(restarted.poll().runs[0].status,'blocked');restarted.start(claim);assert.equal(launches,1);
+const worker=createWorker({root,binaries:{},claimKey,now:()=>clock,launch});claim.run={id:randomUUID(),status:'claimed',workerId:worker.workerId,agent:'codex'};
+const startProof=proof.sign(claimKey,'start',{workerId:worker.workerId,runId:claim.run.id,cardDigest:proof.digest(claim)},clock);worker.start(claim,startProof);worker.start(claim,startProof);assert.equal(launches,1);
+clock+=16000;const restarted=createWorker({root,binaries:{},claimKey,now:()=>clock,launch});assert.equal(restarted.poll(proof.sign(claimKey,'poll',{workerId:worker.workerId,active:[claim.run.id]},clock)).runs[0].status,'blocked');restarted.start(claim,startProof);assert.equal(launches,1);
+assert.throws(()=>worker.start({...claim,title:'tampered'},startProof),/match/);assert.throws(()=>worker.start(claim,{...startProof,signature:'0'.repeat(64)}),/Invalid/);
 assert.equal(runs.safe('token=abc ghp_abcdefghijklmnopqrst'),'[redacted] [redacted]');
 console.log('PASS: old queue/edit/activation idle; deliberate assignment; priority; one active agent; duplicate terminal events; claim expiry blocks; explicit continuation; pause/stop; durable start fence and restart no-replay; redaction.');
