@@ -19,7 +19,7 @@ def clip_frame(it, k, off):
     """frame of source k of a clip item, `off` seconds after that source's own start"""
     if it.get("frames"):
         return Bd.ai_placeholder(it, 0 if k == 0 else 1, 2) if os.path.exists(it["frames"][0]) else Image.new("RGB", (1920, 1080), (20, 30, 44))
-    sp = it["src"][k]; vf = G.clip_vf(1.0)
+    sp = it["src"][k]; vf = G.clip_vf(1.0, G.src_path(sp) if not sp.startswith("/") else sp)
     if not os.path.exists(G.src_path(sp)): return Image.new("RGB", (1920, 1080), (60, 20, 20))
     if it.get("grade"):
         gk = it["grade"][k] if isinstance(it["grade"], list) else it["grade"]

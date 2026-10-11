@@ -73,3 +73,35 @@ became the standing rule that all B-roll is colour corrected; and the 53 minute 
 with audio pickups he records. What that taught: check every one of his own B-roll stills beside a presenter still before
 the page goes out, and for a film this long raise the split question with the take map, not after 367 stills.
 Next: `Handoffs/handoff-20261011-ro20-round2-after-dan-review.md`.
+
+## Round 2 (2026-10-11): three videos from one roll, audio pickups, his round 1 revisions
+
+Dan split the 53 minute cut into three videos (RO-20, RO-20B, RO-20C) joined by audio pickups he records. Scripts added beside this
+file: `cards20.py` (full-screen cards as pre-rendered plan clips), `brollgrade20.py`, `context2.py`, `page2_20.py`, `gen_motion20.py`,
+`lipsync20.py`. Handoff for the next round: `Handoffs/handoff-20261011-ro20-round3-pickups-and-first-minutes.md`.
+
+- **Split a film without touching its cut:** keep ONE timeline and ONE framing solve, and make each video a set of ranges of it
+  (`build.py range a b`) plus its pickup segments. Before changing the plan, dump the solve Dan reviewed (`all_segments()` on the
+  locked `plan_resolved.json`) to `round2-plan/segs.round1.json` and point `_PIN` at it: after removing the opener and three other
+  items, 499 of 499 shots kept their size and crop.
+- **Grep the transcript for promises that cross the new boundaries** ("in a minute", "later", "like I said"). Two sentences in video 1
+  pointed at material that is now another video; both sit at the end of a piece and come out with no new join.
+- **Pickup scripts:** content plan per pickup, then `dan-voice-writer` with the real sentences either side as his-words, two drafts
+  each (formats `script` and `video`), pick by which carries the plan, do not polish. State the lead-in constraint in the plan
+  ("the last sentence must lead into ..."): three first drafts ended on the wrong beat and were redrafted by seed.
+- **An audio pickup has no camera picture, so plan its pictures with the script.** One reusable three-part card with a picture
+  window (rows light up as he names each part) carries all four pickups; clips from the OTHER videos are fair game in the window
+  because the no-repeat rule is per video. Check whether he already said the hook on camera somewhere in the roll: here the exact
+  line sits in the summary, so video 2 can open on camera and the pickup only bridges.
+- **`curves` works in RGB. Fed YUV it converts with the BT.601 default** and tints the picture (pink concrete, green skin on the first
+  B-roll stills). Decode to RGB with `in_color_matrix=bt709` first (`format=gbrp`), then grade, in the measurement AND in the build.
+- **Grading his outdoor B-roll from the skin MEDIAN alone flattens it:** in hard sun the median is his shaded side, so the gain is far
+  too high and the lit skin loses its shape. `brollgrade20.py` takes the geometric mean of the median and 90th-percentile gains
+  against the presenter, never darkens, caps at 2x and leaves highlights where they are. The hue-based skin meter also reads sunlit
+  concrete and grass as skin (clips "measuring" 0.70): those are skips, decided by eye. Three passes before the stills were right.
+- **A lower third removed from the plan is still in `hf/manifest.json`** and keeps drawing (two retired lower thirds came up over the
+  new full-screen cards in the first context clip). After any plan edit, diff the manifest ids and times against `plan_resolved.json`.
+- **A phone-screen mock that is already drawn inside a flat phone** (library A0089): crop its screen under its own status bar, put
+  the page at the top of a canvas with the shell's aspect, its page colour under it and its tab bar at the very bottom, then use the
+  approved shell. Trim each static screen to its words, never past the screen's own source length.
+- **`zsh` does not split `set -- $v`**, so a download loop over "id slug" pairs silently made no files. Name the files outright.

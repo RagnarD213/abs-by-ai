@@ -205,6 +205,9 @@
 - [Filming docs after final polish](filming-docs-after-final-polish.md): 10-11: teleprompter doc per set (50 pages max) into PromptSmart, B-roll list in Drive only; always, unasked
 - [One routine queues videos](one-routine-queues-videos.md): 10-11: no single-video Blotato queue tasks; add to video_waitlist.json, the daily social-queue routine queues it
 - [Shorts open with a pickup](shorts-open-with-pickup.md): 10-11: never open a Short on 'Number two'; Dan records a one-sentence pickup, covered by a clip; one point per Short; send pickup lines with the shortlist
+- [More, funnier AI clip ideas](ai-clip-ideas-more-and-funnier.md): 10-11: offer more ideas per video, mostly funny; he should reject about a third
+- [Audio comparison clips start on speech](audio-comparison-clips-start-on-speech.md): 10-11: audition window from the cut, speech in the first second; RO-19's was 27 s of silence
+- [YouTube pinned question comment](youtube-pinned-question-comment.md): 10-11: every public video gets a pinned question; config `pinned_comment`, daily routine pins in Chrome; Docs/PINNED_COMMENTS.md
 - [Execute Dan's explicit picks](execute-dans-explicit-picks.md): 10-06: build exactly the person/clip/topic he names; never swap, hold or reroute it for reputational or news reasons ("stop being a Karen")
 - [Allegations are not facts](allegations-not-fact.md): 10-06: unproven charges/accusations against Clavicular, Tate, manosphere figures: never mentioned at all (not even "charged with") unless Dan asks about the case itself; never a reason to change a plan
 - [Assessment symmetry](assessment-symmetry.md): 10-08: one template and one standard for both sides; swap test (Trump/Newsom, Tate/Destiny); judge records on measured results vs promises and a benchmark, then a definite conclusion
