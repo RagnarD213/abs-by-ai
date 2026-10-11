@@ -379,12 +379,6 @@
       "addedAt": "2026-09-01"
     },
     {
-      "text": "Change sheets on bed",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-10-06"
-    },
-    {
       "text": "Take out bathroom and bedroom trash",
       "priority": "high",
       "recurring": false,
