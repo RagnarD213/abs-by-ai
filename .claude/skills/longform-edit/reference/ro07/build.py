@@ -16,9 +16,12 @@ def fr(t): return int(round(t*FPS))
 def run(c): subprocess.run(c, check=True)
 def hf_item(it): return it["kind"] in ("lt", "l3") or (it["kind"] == "scene" and it.get("scene") == "fact")
 FULL = ("scene", "clip")
-OVERRIDE = {}
+# round 3: every shot is held at the size and crop of the round 2 solve Dan reviewed (round3-plan/segs.round2.json, written before A3's slot moved).
+# The solve is global: moving one clip's edges flipped two shots 10 s away and slid a run's crop 4 px. Only the named changes move.
+_PIN = f"{W}/round3-plan/segs.round2.json"
+_R2 = {s["key"]: dict(crop=s["crop"], framing=s["framing"]) for s in json.load(open(_PIN))} if os.path.exists(_PIN) else {}
+OVERRIDE = {k: v["framing"] for k, v in _R2.items()}
 PINCROP = {}
-_R2 = {}
 class _Base(dict):
     def __missing__(self, k): raise KeyError(k)
     def __contains__(self, k): return dict.__contains__(self, k) or ("+c" in k and dict.__contains__(self, k.split("+")[0]))
@@ -246,6 +249,9 @@ def render_picture(a, b, out, f0, f1, segs, HCOMP):
 VOICE4 = ["--eq", "highpass=f=70,equalizer=f=140:t=q:w=1.0:g=+1.5,equalizer=f=450:t=q:w=1.2:g=-3.0,equalizer=f=3200:t=q:w=1.5:g=-1.0",
           "--dereverb-because", "Dan heard the room on the RO-07 round 1 first minute and picked audition 4 (2026-10-10)",
           "--no-expander-because", "the expander chopped word endings on the RO-07 round 1 first minute; Dan picked audition 4, which has none (2026-10-10)"]
+# round 3 (independent review, measured on the untreated lav): three mouth clicks standing alone in a pause, film seconds. 678.07 peaks at -5 dBFS,
+# as loud as his speech, 60 ms after a cut and 160 ms before "What I recommend"; 661.66 (before "Well,") and 838.60 (before "One detail") peak near -16.
+DUCK = [(678.060, 678.125), (661.635, 661.705), (838.592, 838.632)]
 def film_voice():
     """The whole film's voice, assembled from the lav at the cut's own frames and run through the shared chain once (voice 4)."""
     os.makedirs(os.path.dirname(FILM_VOICE), exist_ok=True); f1 = S[-1]["out_f1"]
@@ -269,6 +275,10 @@ def assemble_voice(out, f0, f1):
         if o0 == s["out_f0"] and not cin: x[:r] *= np.linspace(0, 1, r)
         if o1 == s["out_f1"] and not cout: x[-r:] *= np.linspace(1, 0, r)
         e = min(N, at+len(x)); v[at:e] += x[:e-at]
+    for a_, b_ in DUCK:                                   # confirmed mouth clicks in a pause: 40 dB down, 6 ms ramps, nothing else touched
+        i0, i1 = int(round((a_ - f0/FPS)*SR)), int(round((b_ - f0/FPS)*SR)); k = int(0.006*SR)
+        if i0 - k < 0 or i1 + k > N: continue
+        g = np.ones(i1 - i0 + 2*k, np.float32); g[:k] = np.linspace(1, 0.01, k); g[k:-k] = 0.01; g[-k:] = np.linspace(0.01, 1, k); v[i0-k:i1+k] *= g
     raw = out + ".untreated.wav"; o = wave.open(raw, "w"); o.setnchannels(1); o.setsampwidth(2); o.setframerate(SR)
     o.writeframes((np.clip(v, -1, 1)*32767).astype("<i2").tobytes()); o.close()
     return raw

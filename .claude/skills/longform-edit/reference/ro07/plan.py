@@ -11,8 +11,8 @@ def br(roll, t): return f"{SHOOT}/{roll}.MP4@{t}"
 DAN = dict(people="dan", physique=False)          # real MOVING footage of Dan: no photo label applies
 PLAN = [
  # ---------------- hook (first 5 seconds: Dan's own B-roll of the workout, then Dan)
- dict(id="C01", kind="clip", start="Today I'm going to show you why", end="In today's video I'm going to show you why", tail=0.1, src=["B0448@4.0", "B0456@0.0", "B0453@0.0"], **DAN,
-      note="OPENER, round 2 (Dan: better clips where he looks ripped): his fast correct jump rope, then one full handstand push-up and one full decline push-up on the handles, each from the top of the rep. Real footage, his voice runs underneath. Kettlebell deadlifts are in C18 (a 3 s rep is too slow for a 2 s opener piece)"),
+ dict(id="C01", kind="clip", start="Today I'm going to show you why", end="In today's video I'm going to show you why", tail=0.1, src=["B0448@4.0", "/Volumes/Extreme/_edit_work/ro07/broll/handstand_reps.mp4@0.0", "B0453@0.0"], **DAN,
+      note="OPENER, round 2 (Dan: better clips where he looks ripped): his fast correct jump rope, then handstand push-ups and one full decline push-up on the handles. Round 3 (Dan: 'start it immediately when I'm doing the reps ... I want to see the reps from the first second'): the handstand piece is re-cut from roll C1684 (library B0456's crop and grade) from 15.95 s, where he is already lowering, at 1.2x: one whole rep and most of the next descent in its 2.07 s. Real footage, his voice runs underneath. Kettlebell deadlifts are in C18 (a 3 s rep is too slow for a 2 s opener piece)"),
  dict(id="G01", kind="lt", start="5 minute workout done every day", end="twice per week", topic="WORK OUT EVERY DAY",
       point="5 Minutes DAILY Beats 1 Hour Twice A Week.", parts=[["5 Minutes DAILY", "5 minute workout"], ["Beats 1 Hour Twice A Week.", "one hour workout"]]),
  # ---------------- objections
@@ -42,8 +42,8 @@ PLAN = [
  # ---------------- reason 1
  dict(id="G08", kind="lt", start="Reason number one", end="weightlifting", topic="REASON 1 OF 4",
       point="No Soreness. No Dread.", parts=[["No Soreness.", "Reason number one"], ["No Dread.", "when beginners"]]),
- dict(id="C31", kind="clip", start="then you go straight into", end="one hour long workout", tail=0.1, src=["A0019@0.3"], label="AI-GENERATED", people="other", physique=False,
-      note="NEW cutaway, round 2: library AI clip, a lifter strains through an overloaded deadlift in a gym (the brutal first session, right before the stairs clip)"),
+ dict(id="C31", kind="clip", start="then you go straight into", end="one hour long workout", tail=0.1, src=["A0019@2.92"], label="AI-GENERATED", people="other", physique=False,
+      note="cutaway from round 2: library AI clip, a lifter strains through an overloaded deadlift in a gym (the brutal first session, right before the stairs clip). Round 3 (Dan: 'show the rep itself: show him lifting the weight up, not the exit at the end'): from 2.92 s of the clip, so the bar leaves the floor 1.2 s in and locks out at 2.5 s; the slot ends at 6.22 s of the clip. The clip itself is a frozen frame from 6.25 s (the red X was drawn over that still from 6.87 s), so nothing past 6.25 s may be used"),
  dict(id="A2", kind="clip", start="you are going to be sore", end="experience this", tail=0.1, src=["/Volumes/Extreme/_edit_work/ro07/round2/motion/A2-t1.mp4@0.8"], label="AI-GENERATED",
       people="other", physique=False, note="AI CLIP, motion made from the frames Dan approved (one Veo 3.1 Fast take, $0.80): the morning after a brutal first gym session, a beginner eases himself down a staircase one stiff step at a time, gripping the rail. Trimmed to 0.8 to 7.3 s of the 8 s take: it opens just before his first step"),
  dict(id="G09", kind="lt", start="And that feeling is going to make you", end="exhausted again", topic="THE REAL PROBLEM",
@@ -71,8 +71,8 @@ PLAN = [
       point="If You Have To DECIDE, Sometimes You Won't.", parts=[["If You Have To DECIDE,", "making a decision"], ["Sometimes You Won't.", "sometimes you won't"]]),
  dict(id="G15", kind="lt", start="Mike Tyson once said", end="punched in the face", tail=0.3, topic="MIKE TYSON SAID",
       point="Everyone Has A Plan Until They Get Punched In The Face.", parts=[["Everyone Has A Plan", "everybody has a plan"], ["Until They Get Punched In The Face.", "until you get"]]),
- dict(id="A3", kind="clip", start="And I guarantee you", end="punch you in the face", tail=0.2, frames=[f"{AI}/A3-start.png", f"{AI}/A3-end-r1b.png"], pending=True, label="AI-GENERATED",
-      people="other", physique=False, note="NEW AI CLIP, round 1b END frame (Dan: the glove comes from outside, much larger, and knocks him down): he opens the front door and a giant cartoon boxing glove on a spring shoots in from outside at the right edge and knocks him flat"),
+ dict(id="A3", kind="clip", start="once you start working out", late=0.22, end="punch you in the face", tail=0.5, src=["/Volumes/Extreme/_edit_work/ro07/round3/motion/A3-t1.mp4@0.0"], label="AI-GENERATED",
+      people="other", physique=False, note="AI CLIP, round 3: motion made from the frames Dan approved on 2026-10-10 (one Veo 3.1 Fast take, $0.60): he pulls the front door open and a giant red cartoon boxing glove on a spring shoots in from outside at the right edge, hits him in the face and knocks him off his feet. The first 3.4 s of the 6 s take: the glove lands on 'punch' (take 1.95 s), he is off his feet by the cut back to Dan; the take's last 2 s (he hangs in the air at the END frame) are left out"),
  dict(id="G16", kind="lt", start="Something would come up on Thursday", end="the day is missed", tail=0.5, topic="HOW ONE SKIPPED DAY SNOWBALLS",
       point="Thursday. Friday. \"Next Week.\"", parts=[["Thursday.", "come up on Thursday"], ["Friday.", "But then tomorrow comes"], ["\"Next Week.\"", "start again next week"]]),
  dict(id="G17", kind="lt", start="There is no decision", end="working out or not", tail=0.5, topic="KEY POINT",
@@ -117,8 +117,8 @@ PLAN = [
  # ---------------- the plan, month by month
  dict(id="G28", kind="lt", start="I recommend just doing", end="at home every day", tail=0.8, topic="MONTH 1",
       point="5 Minutes. Bodyweight. At Home.", parts=[["5 Minutes.", "short 5 minute"], ["Bodyweight.", "bodyweight workout"], ["At Home.", "at home"]]),
- dict(id="C37", kind="clip", start="short 5 minute bodyweight", end="getting started that way", tail=0.1, src=["B0476@0.5"], **DAN,
-      note="NEW cutaway, round 2: Dan's push-ups on the patio, low angle against the sky (GoPro)"),
+ dict(id="C37", kind="clip", start="short 5 minute bodyweight", end="getting started that way", tail=0.1, src=["B0476@0.5"], crop=(1296, 729, 144, 216), **DAN,
+      note="cutaway from round 2: Dan's push-ups on the patio, low angle against the sky (GoPro). Round 3 (independent review): a crew member stood at the left edge looking into the camera beside a gold reflector; the clip is cropped 10 % (left and top; source is 1440x1080, so the crop is in its pixels) so neither is in the picture"),
  dict(id="F01", kind="scene", scene="fact", people="none", physique=False, start="If you're doing a five minute workout", end="five minute time commitment", tail=0.3, photo="/Volumes/Extreme/_edit_work/ro07/assets/traffic.png",
       eyebrow=["5 MIN GYM WORKOUT", "If you're doing a five"], headline=[["45 min", "45 minute"]],
       detail=["With the drive there and back.", "time commitment"], push=1.05, drift=-8),

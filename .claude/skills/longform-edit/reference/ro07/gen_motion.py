@@ -1,16 +1,18 @@
-"""RO-07: AI motion from Dan's approved frame pairs (round2-plan/decisions.json, hashes in round1-hashes.sha256), Veo 3.1 Fast on Replicate
+"""RO-07: AI motion from Dan's approved frame pairs (round3-plan/decisions.json, hashes in round2-hashes.sha256), Veo 3.1 Fast on Replicate
 (image + last_frame, 1080p, no audio). The 1672x941 frames are scaled to 1920x1080 first. One prediction at a time.
-usage: gen_motion.py <A2|A3> <tag> [seconds]   prompt: round2/motion/<ID>.txt (+ <ID>.neg.txt)
-Writes round2/motion/<tag>.mp4 + <tag>.json and appends the cost to round2/motion/ledger.json. Never overwrites a take."""
+usage: gen_motion.py <A3> <tag> [seconds]   prompt: round3/motion/<ID>.txt (+ <ID>.neg.txt)
+Writes round3/motion/<tag>.mp4 + <tag>.json and appends the cost to round3/motion/ledger.json (round 2's A2 take and its ledger stay in
+round2/motion/). Never overwrites a take. Round 3: A3's END frame is the round 1b one Dan approved on 2026-10-10 (A3-end-r1b.png)."""
 import base64, hashlib, io, json, os, sys, time, urllib.request, urllib.error
 from PIL import Image
-W = "/Volumes/Extreme/_edit_work/ro07"; M = f"{W}/round2/motion"; MODEL = "google/veo-3.1-fast"; USD_S = 0.10
-D = json.load(open(f"{W}/round2-plan/decisions.json")); DUR = {"A2": 8, "A3": 6}
-FULL = {l.split()[1]: l.split()[0] for l in open(f"{W}/round2-plan/round1-hashes.sha256") if l.strip()}
+W = "/Volumes/Extreme/_edit_work/ro07"; M = f"{W}/round3/motion"; MODEL = "google/veo-3.1-fast"; USD_S = 0.10
+D = json.load(open(f"{W}/round3-plan/decisions.json")); DUR = {"A2": 8, "A3": 6}
+END = {"A3": "end-r1b"}
+FULL = {l.split(None, 1)[1].strip(): l.split()[0] for l in open(f"{W}/round2-plan/round2-hashes.sha256") if l.strip()}
 def pair(cid):
     """the frame pair Dan approved: must be listed in decisions.json motion_authorized and match its recorded sha256"""
     assert cid in D["motion_authorized"], f"{cid}: motion is not authorized in decisions.json"
-    return [(f"{W}/aiframes/{cid}-{k}.png", FULL[f"aiframes/{cid}-{k}.png"]) for k in ("start", "end")]
+    return [(f"{W}/aiframes/{cid}-{k}.png", FULL[f"aiframes/{cid}-{k}.png"]) for k in ("start", END.get(cid, "end"))]
 def b64(p, h):
     raw = open(p, "rb").read(); assert hashlib.sha256(raw).hexdigest() == h, f"{p} is not the frame Dan approved"
     buf = io.BytesIO(); Image.open(io.BytesIO(raw)).convert("RGB").resize((1920, 1080), Image.LANCZOS).save(buf, "PNG")

@@ -93,3 +93,44 @@ Order: corpus entries -> `voice_chain.py --no-expander-because` (new shared flag
   clips of Dan lying flat or seen from behind). Look at every new clip's still on the sheet before the context render, not
   after: each plan change re-solves the framing. The library has no clip for the alarm clock, commute, couch and
   tired-at-night lines. More cover needs new stock.
+
+## Round 3 (2026-10-10): two trims, the A3 motion, the full film, and what two independent reviews found
+
+Order: `broll_cuts.py` (the handstand re-cut) -> `plan.py` (C01, C31, A3) -> `gen_motion.py A3 A3-t1 6` -> `resolve.py` -> pin the solve
+(`build._R2` from `round3-plan/segs.round2.json`) -> `from_plan.py --render` (nothing changed) -> `bed.py` -> `render_r3.py` ->
+`finish_chain_r3.sh` (audio gate, transcript, `finish_r3.py`, watch pass, hair, graphics checks) -> `ra-reviewer` -> fixes -> render again ->
+`carry_r3.py` -> a second `ra-reviewer` on the 14 changed images and the fixes -> edit sheet -> delivery gate -> `page_facts_r3.py`,
+`page_r3.py` (port 8860) -> `deliver_r3.sh`.
+
+- **"Start on the rep" needs a per-frame height curve, not a contact sheet.** Template-match his shorts down the frame on a low-res graded
+  proxy of the whole roll (`round3/work/measure_hs3.py`): the handstand roll C1684 holds still until 15.88 s, so library B0456 (12 to 22 s
+  of it) opens on two seconds of nothing. A colour mask of the shorts failed (the hedge is green too); the template match is clean.
+- **A library AI clip can end in a frozen frame before its burned-in mark.** A0019 is one still from 6.25 s; the red X is drawn over that
+  still from 6.87 s. Reading the tail for the X alone passed a cut that ran 0.37 s into the freeze; the watch pass's `scan.frozen` and the
+  reviewer both caught it. Before trimming any library clip near its end, print the frame-to-frame difference of its last two seconds.
+- **A 24 fps clip in a 29.97 film repeats one frame in five.** That is not a hold; a hold is several identical frames in a row.
+- **Veo with a first and last frame reaches the last frame early and hangs there.** A3 hit the end pose at 3.8 s of 6 s and floated for
+  2.2 s. Use the part before it, and move the clip so the action lands on the word (`late=` on the start phrase), not the slot's old start.
+- **Moving one clip's edges re-solves the framing of the whole film.** A3's new start flipped two shots ten seconds away and slid a run's crop
+  4 px. `build._R2` + `OVERRIDE` now pin every shot to the solve Dan reviewed; print the diff against the last `build.json` before rendering.
+- **Low-angle GoPro B-roll shows the set.** B0476 has a crew member at the left edge looking into the lens beside a reflector (nobody saw
+  it on the round 2 stills). Its source is 1440x1080, so a plan `crop` is in SOURCE pixels (the first try in output pixels broke the pipe).
+  Look at the edges of every wide B-roll clip at full size.
+- **Mouth clicks at the head of a take:** `build.DUCK` turns a 60 ms window down 40 dB in the untreated voice (6 ms ramps). The reviewer
+  measured them (peak in 10 ms steps against the pause floor); the audio gate cannot see a 30 ms click.
+- **Subtitles from the roll words drop the first word of many takes** (its start falls in the cut gap) and can splice a false start
+  ("produces This is better"). Diff the SRT against a transcription of the FINISHED film (`difflib` on normalised words), settle each
+  difference with a medium.en pass on a 12 s window, then `round3/srt_words.json` (inserted words with times) and `srt_fixes.json`.
+  An inserted word must sort before the word it precedes, or the cue reads "counting reps Counting to reps can lead".
+- **Chapters:** a lower third's start phrase is often mid-sentence. Anchor each chapter on the sentence's first words (`CHP` in `finish_r3.py`).
+- **Bed level on an indoor lav:** -30 dB (the chain's ceiling) put the pause floor level with the reference (+1.3 / -0.5 / +2.1 against a
+  -3.0 limit on the film); -24 was 1 dB from failing. Whisper returns "Music" tags and a low-confidence phrase at a truncated end on an
+  instrumental; re-run the window with trailing context before reading that as words.
+- **After a reviewed render, compare every frame of the next render with it** (`carry_r3.py`, 480x270 PSNR). Unchanged strips keep their
+  verdict; only 14 of 520 images needed a fresh judge. x264 also re-encodes about 35 frames before each changed stretch (49.9 dB or
+  better): say so in the log.
+- **Gemini's listening check invents dropouts** (again): it heard "digital silence" in pauses that measure the same as every other pause.
+  Measure 20 ms RMS before acting on it. `gemini-2.5-pro` is retired; `GM=gemini-3.1-pro-preview`.
+- Gates on the delivered file, stated honestly: audio gate 12 of 13 (tone: the voice Dan chose); delivery gate fails on the audio stamp,
+  cover 27 % (floor 40), hair top and headroom (camera framing), splice visibility, two caption false alarms, a repeated-take false alarm,
+  and the watch row (hair open until Dan's word). Review 1 DOES NOT SHIP (the C31 freeze), review 2 SHIP.
