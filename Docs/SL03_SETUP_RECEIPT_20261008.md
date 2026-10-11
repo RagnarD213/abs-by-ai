@@ -18,7 +18,7 @@ Queue was 186 of 200. Each short is 4 posts, so only three shorts fit (198 of 20
 | 2 | 4 "Stop Buying Salad Dressing" | Sat Oct 31 14:00Z (CDT) | 5329625 | 5329626 | 5329628 | 5329629 |
 | 3 | 5 "Track A Week Of Meals From 1 Photo" | Tue Nov 3 15:00Z (CST) | 5329631 | 5329632 | 5329633 | 5329634 |
 | 4 | 2 "The $20 Salad You Can Make For $4" | Thu Nov 5 15:00Z | 5361331 | 5361332 | 5361333 | 5361334 |
-| 5 | 3 "Keep Your Salads Fresh For 7 Days" | Sat Nov 7 15:00Z | owed | owed | owed | owed |
+| 5 | 3 "Keep Your Salads Fresh For 7 Days" | Sat Nov 7 15:00Z | 5443391 | 5443392 | 5443393 | 5443394 |
 | 6 | 6 "Make AI Calorie Tracking Accurate" | Tue Nov 10 15:00Z | owed | owed | owed | owed |
 
 Dan's constraints hold: shorts 5 and 6 are 7 days apart; shorts 1 and 2 are not back to back. No same-minute clash on the four accounts. The Ab Wheel shorts post the same days at 5 PM Central (different time, as with SL-05). Clocks go back Nov 1, so slots from Nov 3 are 15:00Z.
@@ -48,3 +48,9 @@ Scheduled task `sl03-queue-shorts-2-3-6` (daily about 8:30 AM, Claude app must b
 - `ad_guard.py --scan` CLEAN (195 posts). Parent still scheduled, none failed (5014534 Oct 18; 5014529, 5014531, 5014533 Oct 19).
 - Fresh pull: text, targets and slot match the config; TikTok `videoCoverTimestamp` 0, `isAiGenerated` false; YouTube public, synthetic off. Hosted media downloaded and SHA-256 matched to local files: master d8c3d4fb (FB, IG, YouTube), TikTok copy e629949e, Instagram PNG 060b9e0d, YouTube JPEG 755843f8.
 - Still owed: short 3 (Sat Nov 7) and short 6 (Tue Nov 10). The task retries daily.
+
+## Short 3 queued (2026-10-11, scheduled task)
+- Queue was 195 of 200, room for one short only. Short 3 queued for Sat Nov 7 15:00Z: Facebook 5443391, Instagram @danrosefit 5443392, TikTok 5443393, YouTube 5443394. Queue now 199 of 200. Nothing else was scheduled on Nov 7 before the write.
+- `ad_guard.py --scan` CLEAN (195 posts). Parent still scheduled, none failed (5014534 Oct 18; 5014529, 5014531, 5014533 Oct 19).
+- Fresh pull: text, targets and slot match the config; TikTok `videoCoverTimestamp` 0, `isAiGenerated` false; YouTube public, synthetic off, title "Keep Your Salads Fresh For 7 Days". Hosted media downloaded and SHA-256 matched to local files: master c270c157 (FB, IG, YouTube), TikTok copy eb475ffa, Instagram PNG 3efa45bb, YouTube JPEG ea67a11b.
+- Still owed: short 6 (Tue Nov 10). The task retries daily.
