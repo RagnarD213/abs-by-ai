@@ -63,9 +63,7 @@ PART = [
       note="Pexels stock (new): a cleaner in red overalls mops the floor of a bright home while a second cleaner works behind her"),
  dict(id="Gg06", kind="lt", start="someone to take care of other", end="you need for working out", tail=0.5, topic="OVER $10,000 A MONTH",
       point="A Maid And A Laundry Service", parts=[["A Maid And A Laundry Service", "someone to take care of other"]]),
- dict(id="A4", kind="clip", start="oh I got such a busy schedule", end="don't have time to work out", tail=0.05,
-      frames=[f"{AI}/A4-start.png", f"{AI}/A4-end.png"], pending=True, **AIL, **OTHER,
-      note="EXCUSE VOICE, new AI clip (frames for approval, added by the lead editor): 'I'm a lawyer Dan, I don't have time to work out'. A lawyer irons his own shirt on his desk with the phone clamped to his ear, a laundry basket on the client chair. He is on the phone, so no lip sync is needed"),
+ # round 2 (Dan, 2026-10-11): "Just eliminate the lawyer who has no time clip altogether." A4 removed; he stays on camera.
  dict(id="Cg08", kind="clip", start="yet they don't have a maid", end="their house for themselves", tail=0.1,
       src=[stock("pexels-7640950-a-man-washing-the-dishes-while-talking-to-his-wife.mp4", 2.0), stock("pexels-6961718-a-person-folding-denim-jeans.mp4", 0.5)], **OTHER,
       note="Pexels stock (new), two shots of doing it yourself: a man washes the dishes at his kitchen sink, then hands fold jeans onto a stack. The lawyer voice just before it stays on camera"),

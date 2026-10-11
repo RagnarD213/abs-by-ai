@@ -133,8 +133,8 @@ PART = [
       point="Health Pays: More Productive, More Money.", parts=[["Health Pays:", "this makes you"], ["More Productive,", "more productive in the long"], ["More Money.", "makes you more money"]]),
  # ---- "I'm broke" (14:54): the brokie voice stays on camera ----
  dict(id="A2", kind="clip", start="But I am a bro-key", end="nothing I can do", tail=0.05,
-      frames=[f"{AI}/A2-start.png", f"{AI}/A2-end.png"], pending=True, **AIL, **OTHER,
-      note="EXCUSE VOICE, new AI clip (frames for approval, added by the lead editor): 'I am a brokie, I don't have any money'. A guy on his sofa turns out his empty pockets and shrugs, surrounded by pizza boxes, a bar cart, sneaker boxes and a giant TV. He does not speak: your voice does the excuse"),
+      src=[f"{W}/round2/motion/A2-t1.mp4@0.12"], **AIL, **OTHER,
+      note="EXCUSE VOICE, AI clip from the frames Dan approved: the brokie turns out his empty pockets and shrugs, surrounded by where the money went. He does not speak"),
  dict(id="Gc17", kind="lt", start="But that is wrong", end="on the wrong things", tail=1.2, topic="THE BROKE EXCUSE",
       point="You Have Money. It Goes To The Wrong Things.", parts=[["You Have Money.", "you do have the money"], ["It Goes To The Wrong Things.", "you're just spending it"]]),
  dict(id="Gc18", kind="lt", start="You could just cut bullshit", end="maximize your fitness", tail=0.1, topic="KEY POINT",

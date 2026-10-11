@@ -18,7 +18,7 @@ def hf_item(it): return it["kind"] in ("lt", "l3") or (it["kind"] == "scene" and
 FULL = ("scene", "clip")
 # round 3: every shot is held at the size and crop of the round 2 solve Dan reviewed (round3-plan/segs.round2.json, written before A3's slot moved).
 # The solve is global: moving one clip's edges flipped two shots 10 s away and slid a run's crop 4 px. Only the named changes move.
-_PIN = f"{W}/round3-plan/segs.round2.json"
+_PIN = f"{W}/round2-plan/segs.round1.json"      # round 2: every shot holds the size and crop of the round 1 solve Dan reviewed
 _R2 = {s["key"]: dict(crop=s["crop"], framing=s["framing"]) for s in json.load(open(_PIN))} if os.path.exists(_PIN) else {}
 OVERRIDE = {k: v["framing"] for k, v in _R2.items()}
 PINCROP = {}
@@ -193,7 +193,7 @@ def clip_frames(it):
         path = G.src_path(sp); st = G.src_start(sp)
         dur = float(subprocess.run([FF.replace("ffmpeg", "ffprobe"), "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", path], capture_output=True, text=True).stdout)
         assert dur - st >= m/FPS - 0.02, f"{it['id']}: {os.path.basename(path)} too short ({dur-st:.2f}s for {m/FPS:.2f}s) -- never hold a clip"
-        vf = "fps=30000/1001," + G.clip_vf(1.0)
+        vf = "fps=30000/1001," + G.clip_vf(1.0, path)
         if it.get("grade"):
             gk = it["grade"][k] if isinstance(it["grade"], list) else it["grade"]
             vf = vf.replace(",format=rgb24", f",format=gbrp16le,{F.GR[gk][F.LOOK]},format=rgb24")

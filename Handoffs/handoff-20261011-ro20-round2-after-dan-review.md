@@ -1,3 +1,5 @@
+**EXECUTED 2026-10-11. Do not fire. Next round: `handoff-20261011-ro20-round3-pickups-and-first-minutes.md`.**
+
 # RO-20 "Why You Should Invest More In Your Health": round 2, now THREE videos, one task
 
 **CONTENT (LFC), organic long-form, 16:9, three videos cut from one roll. Sidebar name: `Invest In Your Health LFC R2`.**
