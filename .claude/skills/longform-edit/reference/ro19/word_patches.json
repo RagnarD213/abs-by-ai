@@ -1,0 +1,143 @@
+[
+ {
+  "t0": 1059.5,
+  "t1": 1065.03,
+  "words": [
+   [
+    "In",
+    1059.82,
+    1060.3
+   ],
+   [
+    "my",
+    1060.3,
+    1060.56
+   ],
+   [
+    "opinion,",
+    1060.56,
+    1060.94
+   ],
+   [
+    "in",
+    1061.86,
+    1063.88
+   ],
+   [
+    "my",
+    1063.88,
+    1064.1
+   ],
+   [
+    "opinion,",
+    1064.1,
+    1064.5
+   ],
+   [
+    "that's",
+    1064.8,
+    1065.04
+   ]
+  ],
+  "why": "verify_asr 1059-1068.5: 'in my opinion' said twice; the full-roll pass folded the second into a 3.9 s 'that's'"
+ },
+ {
+  "t0": 1565.9,
+  "t1": 1572.03,
+  "words": [
+   [
+    "And",
+    1566.0,
+    1566.38
+   ],
+   [
+    "then",
+    1566.38,
+    1566.6
+   ],
+   [
+    "finally,",
+    1566.6,
+    1567.02
+   ],
+   [
+    "before",
+    1567.38,
+    1567.46
+   ],
+   [
+    "your",
+    1567.46,
+    1567.66
+   ],
+   [
+    "shoot,",
+    1567.66,
+    1567.96
+   ],
+   [
+    "just",
+    1568.28,
+    1568.34
+   ],
+   [
+    "spend",
+    1568.34,
+    1568.62
+   ],
+   [
+    "five",
+    1568.62,
+    1568.9
+   ],
+   [
+    "to...",
+    1568.9,
+    1569.58
+   ],
+   [
+    "Finally,",
+    1569.58,
+    1570.5
+   ],
+   [
+    "before",
+    1570.62,
+    1570.9
+   ],
+   [
+    "your",
+    1570.9,
+    1571.12
+   ],
+   [
+    "shoot,",
+    1571.12,
+    1571.38
+   ],
+   [
+    "spend",
+    1571.52,
+    1571.68
+   ],
+   [
+    "five",
+    1571.68,
+    1572.02
+   ]
+  ],
+  "why": "verify_asr 1566-1575: abandoned 'just spend five to...' then 'Finally, before your shoot, spend five to 10 minutes'; the full-roll pass heard one copy with a 3.5 s '5'"
+ },
+ {
+  "t0": 302.0,
+  "t1": 306.45,
+  "words": [
+   [
+    "Alright,",
+    305.9,
+    306.28
+   ]
+  ],
+  "why": "verify_asr 305.3-309.5: the full-roll pass put 'Alright,' at 302.2, 3.6 s early; it is spoken at 305.9"
+ }
+]

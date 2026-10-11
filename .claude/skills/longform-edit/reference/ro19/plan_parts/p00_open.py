@@ -1,0 +1,36 @@
+# 0:00 to 1:55  The opening and why a tan matters on camera (written by the lead editor; the first minute lives here)
+# 0:00 to 0:03 stays on Dan on purpose: "I just got my first spray tan. What do y'all guys think?" is a question about what the
+# viewer is looking at, so he has to be on screen for it. The before / after pair lands at 0:03, on "Here on the left".
+PH = dict(people="dan", physique=True, label="Real pictures of me. Not AI-generated.", label_in_picture=True)
+PART = [
+ dict(id="P01", kind="clip", start="Here on the left I'm going", end="after the spray tan.", tail=0.1, src=[f"{W}/gfx/P01.mp4@0"],
+      pair=["pale_intro", "tan_125"], reveal="here on the right", **PH,
+      note="His real before and after pictures side by side on the Soft Blue field: left, the pale double biceps by the pool (before); right, the double biceps from the pool photo shoot (after). The after picture comes up on 'here on the right'"),
+ dict(id="Ga01", kind="lt", start="And here on video, you", end="faded too much yet.", tail=0.3, topic="MY FIRST SPRAY TAN",
+      point="Day 5 On Camera, Barely Faded", parts=[["Day 5 On Camera,", "here on video"], ["Barely Faded", "hasn't really faded"]]),
+ dict(id="Ga02", kind="lt", start="why you should consider getting", end="how to do it.", tail=0.3, topic="IN THIS VIDEO",
+      point="Why Get One, Who It's For, How To Do It", parts=[["Why Get One,", "why you should consider"], ["Who It's For,", "who it's right for"], ["How To Do It", "how to do it"]]),
+ dict(id="Ca01", kind="clip", start="especially if you want some good", end="for your dating profile,", tail=0.1,
+      src=[stock("pexels-6833576-over-the-shoulder-shot-of-a-person-using-tinder.mp4", 0.5)], **OTHER,
+      note="Pexels stock (new): over a man's shoulder as he swipes through profile photos on a dating app"),
+ dict(id="Ga03", kind="lt", start="The reason for that is that", end="flatten your definition.", tail=1.4, topic="KEY POINT",
+      point="Cameras Flatten Your Definition", parts=[["Cameras Flatten Your Definition", "cameras tend"]]),
+ dict(id="P02", kind="clip", start="But then I take a picture", end="near as defined", tail=0.2, src=[f"{W}/gfx/P02.mp4@0"],
+      photo="pale_a", **dict(PH, label="Real picture of me. Not AI-generated."),
+      note="One of his real pictures from the earlier, pale photo shoot (standing by the pool with his arms down), on the Soft Blue field: the picture he is describing"),
+ dict(id="Ga04", kind="lt", start="But the main reason why is", end="for a fitness photo shoot", tail=0.2, topic="THE MAIN REASON",
+      point="I Was Too Pale For A Fitness Shoot", parts=[["I Was Too Pale", "I was too pale"], ["For A Fitness Shoot", "for a fitness photo"]]),
+ dict(id="Ca02", kind="clip", start="look at all fitness models and", end="they're going very dark", tail=0.1,
+      src=[stock("pexels-38627614-extreme-bodybuilding-competition-in-tijuana.mp4", 0.3)], **OTHER,
+      note="Pexels stock (new): bodybuilders on a competition stage, all tanned very dark, hitting a front double biceps"),
+ dict(id="Ga05", kind="lt", start="Definition on camera is all about", end="that much contrast.", tail=0.3, topic="KEY POINT",
+      point="Definition On Camera Is All About CONTRAST", parts=[["Definition On Camera Is All About", "Definition on camera"], ["CONTRAST", "contrast"]]),
+ dict(id="Ca03", kind="clip", start="if you're doing a photo shoot,", end="dating app pictures,", tail=0.1,
+      src=[stock("pexels-7326269-photographer-taking-picture-of-a-man.mp4", 0.3)], **OTHER,
+      note="Pexels stock (new): a photographer on a city plaza shooting a portrait of a man"),
+ dict(id="Ca04", kind="clip", start="an important event such as a", end="look good for one day", tail=0.1,
+      src=[stock("pexels-30580894-joyful-wedding-celebration-toast-outdoors.mp4", 0.3)], **OTHER,
+      note="Pexels stock (new): guests raise a toast at an outdoor wedding reception"),
+ dict(id="Ga06", kind="lt", start="you're willing to spend a little", end="great solution for that.", tail=0.3, topic="WHEN IT'S WORTH IT",
+      point="Photos, A Shoot, A Wedding: One Day To Look Good", parts=[["Photos, A Shoot, A Wedding: One Day To Look Good", "you're willing to spend"]]),
+]
