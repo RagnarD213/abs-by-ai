@@ -11,6 +11,6 @@ for it in json.load(open("/Volumes/Extreme/_edit_work/ro20/plan_resolved.json"))
     for k, sp in enumerate(s):
         m = per if k < len(s)-1 else n - per*(len(s)-1)
         dur = float(subprocess.run([FP, "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", G.src_path(sp)], capture_output=True, text=True).stdout or 0)
-        if dur - G.src_start(sp) < m/FPS - 0.02:
+        if dur - G.src_start(sp) < m/FPS + 0.15:      # 0.15 s spare: a source that ends within a frame or two of its slot gives a short read (Cd30)
             bad += 1; print(f"{it['id']} src {k+1}/{len(s)} {os.path.basename(G.src_path(sp))[:44]}: has {dur-G.src_start(sp):.2f}s from {G.src_start(sp)}, slot {m/FPS:.2f}s; fits from <= {dur-m/FPS:.2f}")
 print("too short:", bad)

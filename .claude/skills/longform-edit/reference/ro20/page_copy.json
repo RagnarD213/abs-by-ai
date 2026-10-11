@@ -352,7 +352,7 @@
   "Three short stock clips come from 720p sources. I will check them moving before the full film and swap any that look soft.",
   "Subtitle fixes noted for the caption file: 'maid' (heard as 'made'), 'video alone' (heard as 'video loan'), and three more.",
   "Spend so far: $0 on generation (twelve pictures made by Codex on the subscription) and under $0.50 on listening checks. Planned for the five AI clips: about $4.05 of the $5 cap.",
-  "The 'Play it moving' buttons are still being rendered for the later parts and appear as they finish. The stills, the copy and the clips are all final for your review."
+  "Every lower third has a 'Play it moving, in context' button (190 of them). A cutaway that sits under a lower third plays in that clip; cutaways with no lower third over them are shown as stills."
  ],
  "items_note": "Each lower third is a still on its real graded frame (or on the cutaway it sits over). Press the button to play it moving with a few seconds of your speech either side. IDs: the second letter is the part of the film (a to h, in order)."
 }

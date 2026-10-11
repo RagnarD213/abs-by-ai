@@ -76,8 +76,11 @@ Dan has not answered. What the first minute was built with, all open to his over
 - Delivery gate, watch pass, independent review: NOT RUN (no finished film exists).
 - Hair: the camera clipped the top of his hair for most of the roll. Both sizes keep the camera's top row. Reported to Dan.
 - Round 1 stills were looked at by the editor on contact sheets (`round1/qc/`).
-- Context clips ("Play it moving") were still rendering for the later parts when this was written: check `chain.log` for
-  `CHAIN COMPLETE`; if it is missing, re-run the context loop at the end of `recipe/chain.sh`.
+- Context clips ("Play it moving"): all 190 lower thirds have one (`chain.log` ends `CHAIN COMPLETE`; 26 that failed in
+  batches were re-run singly with `recipe/ctx_missing.sh`).
+- `recipe/preflight20.py` (every clip against its resolved slot, 0.15 s spare) is clean except three clips with 0.13 s
+  spare (Cb23, Ce23, Cf11 second shot), which rendered. Run it after every `resolve.py`: four clips were short or had no
+  spare and were fixed by moving their start (Cb11, Cd30, Cg02) or starting 0.2 s later (Cd22).
 
 ## Cost ledger
 

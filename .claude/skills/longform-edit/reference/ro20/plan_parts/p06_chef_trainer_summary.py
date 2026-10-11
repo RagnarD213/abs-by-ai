@@ -38,7 +38,7 @@ PART = [
       note="two shots on the two things he names. Library stock: a prep line scooping food into rows of takeout containers (meal prep service). Pexels stock (new): a chef in a striped apron tastes from a pot (personal chef)"),
  dict(id="Gg01", kind="lt", start="A meal prep service or", end="a personal chef", tail=0.6, topic="OVER $10,000 A MONTH",
       point="A Meal Prep Service Or A Personal Chef", parts=[["A Meal Prep Service", "A meal prep service or"], ["Or A Personal Chef", "even better, a personal chef"]]),
- dict(id="Cg02", kind="clip", start="if you're spending time on cooking", end="then you're wasting your time", tail=0.1, src=["B0312@5.3"], **OTHER,
+ dict(id="Cg02", kind="clip", start="if you're spending time on cooking", end="then you're wasting your time", tail=0.1, src=["B0312@5.1"], **OTHER,
       note="library stock, never used before: a home cook at the stove cracks eggs into a frying pan, from the second egg on so the hands are in frame (spending time on cooking)"),
  dict(id="Gg02", kind="lt", start="having someone else do that", end="doing higher value work", tail=0.5, topic="KEY POINT",
       point="Pay Someone To Cook. Your Time Is Worth More.", parts=[["Pay Someone To Cook.", "having someone else do that"], ["Your Time Is Worth More.", "while you focus on your"]]),
