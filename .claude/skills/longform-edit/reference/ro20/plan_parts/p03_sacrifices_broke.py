@@ -168,7 +168,7 @@ PART = [
       src=[stock("pexels-7154208-a-man-buying-car.mp4", 0.3)], **OTHER,
       note="Pexels stock (new): a handshake and the keys handed over in front of a new car at a dealership, hands only"),
  dict(id="Cd30", kind="clip", start="about not spending any further", end="clothing until you're ripped", tail=1.17,
-      src=[stock("pexels-5699540-a-person-choosing-clothes-on-a-rack.mp4", 3.0)], **OTHER,
+      src=[stock("pexels-5699540-a-person-choosing-clothes-on-a-rack.mp4", 2.6)], **OTHER,
       note="Pexels stock (new): a shopper's hand flips through shirts on a store rack"),
  dict(id="Gd29", kind="lt", start="about not spending any further", end="dates until you're ripped", topic="UNTIL YOU'RE RIPPED",
       point="No New Clothes. No Expensive Dates.", parts=[["No New Clothes.", "about not spending any further"], ["No Expensive Dates.", "about not going on any"]]),

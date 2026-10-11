@@ -54,7 +54,7 @@ PART = [
       point="Top 10% In Looks First. Then Personality.", parts=[["Top 10% In Looks First.", "It's only once you crack"], ["Then Personality.", "that women are even open"]]),
  dict(id="Gb08", kind="lt", start="I'm someone who was in decent", end="10x my matches", topic="DAN'S RESULT",
       point="Decent Shape To Great Shape: 10x The Matches.", parts=[["Decent Shape To Great Shape:", "I'm someone who was in decent"], ["10x The Matches.", "it 10x my matches"]]),
- dict(id="Cb11", kind="clip", start="who was in decent shape before", end="10x my matches", tail=0.1, src=["B0437@0.3"], **DAN,
+ dict(id="Cb11", kind="clip", start="who was in decent shape before", end="10x my matches", tail=0.1, src=["B0437@0.2"], **DAN,
       note="Dan's own footage, never used before: shirtless by the pool after a workout, checking his phone"),
  dict(id="Cb12", kind="clip", start="The guys at the top", end="are getting nothing", tail=0.1, src=[stock("pexels-7504976-man-using-a-cellphone.mp4", 1.0)], **OTHER,
       note="Pexels stock (new): a man in a sweater scrolls his phone with a flat, unimpressed face"),

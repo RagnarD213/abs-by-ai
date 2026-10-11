@@ -53,6 +53,9 @@ Order: `pick_lav.py --ss 600 --t 60` -> lav wav -> `asr_rolls.py` (medium.en, 37
   thirds only (a cutaway under a lower third is seen in that clip), and let the page fill in.
 - **Veo 3.1 Fast takes are 4, 6 or 8 s.** A 6.4 s slot needs the 8 s take; trimming two gag slots to under 6 s (start on the
   second sentence) kept five clips at $4.05 with room for one retry.
+- **`resolve.py` snaps clip edges to shot joins AFTER `resolve_part.py` checked the part**, so a slot can grow past its source:
+  three clips came up 0.06 to 0.4 s short and each killed a batch of context clips. Run `preflight20.py` after every
+  `resolve.py`; it prints the largest start offset that fits.
 - **`stills.py` showed only the first source of a multi-source clip and drew lower thirds over the presenter even when a clip
   covered him.** Use `stills20.py`.
 - **A dying session loses the last tool call.** The chain script had not been written when the session dropped; nothing was
