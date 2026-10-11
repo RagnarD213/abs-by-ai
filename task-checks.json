@@ -10,7 +10,8 @@
     "assistant::Have Dan select Audi repair vendor and have car repaired",
     "assistant::Change sheets on bed",
     "assistant::Put away dishes",
-    "assistant::Make meal prep"
+    "assistant::Make meal prep",
+    "assistant::Clean kitchen"
   ],
   "log": {
     "health::Shower": [
@@ -246,6 +247,7 @@
     "assistant::Have Dan select Audi repair vendor and have car repaired": "2026-10-05",
     "assistant::Change sheets on bed": "2026-10-11",
     "assistant::Put away dishes": "2026-10-11",
-    "assistant::Make meal prep": "2026-10-11"
+    "assistant::Make meal prep": "2026-10-11",
+    "assistant::Clean kitchen": "2026-10-11"
   }
 }
