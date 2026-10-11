@@ -1,0 +1,23 @@
+# RO-07 "Why You MUST Work Out Every Day" setup receipt (2026-10-11)
+
+**State: everything is ready; the Blotato release is ON HOLD because the queue is at 198 of 200 and this video needs 4 posts.**
+
+- **Classification:** organic LFC. Closing words: "Go to AbsByAI.com now. Thanks for watching guys and I'll see you in the next video." No tap-the-button call to action. `ad_guard.py --scan` CLEAN (198 scheduled posts). No Blotato write was made.
+- **Master:** `claude edited long form content/14 - Why You MUST Work Out Every Day/Why You MUST Work Out Every Day | claude round 3 | 16x9 | RO-07.mp4`, 1,787,327,595 bytes, 18:06.75, SHA-256 `cc3456461691c9b073b72b4ba34cefdef3e0c12d5f1286c30b94040aa3126615` (matches the handoff).
+- **Backups:** Extreme `/Volumes/Extreme/Claude Content Videos/Why You MUST Work Out Every Day - RO-07/` (SHA match, with the .srt); Google Drive `Claude Content Videos/Why You MUST Work Out Every Day - RO-07`, https://drive.google.com/open?id=1rjGVBzTbmGO6X-i9O62AHM55Z8_p1bCY (anyone with the link; 1,787,327,595 bytes confirmed).
+- **Thumbnail:** Dan's pick, option 3 variation A: the real jump rope frame (roll C1674 at 106.1 s, graded and sharpened only), yellow and black WORK OUT / EVERY DAY block in the upper left, horizontal. `social media graphics/youtube/thumbnails/Why You MUST Work Out Every Day/Why You MUST Work Out Every Day - thumbnail FINAL.jpg` (1280x720, 344,072 bytes). Round 1: five unique designs (pool photo-228, studio-blue-66, the jump rope frame, AI calendar, AI sunrise push-up). Round 2: four shots in the option 3 treatment (jump rope, push-ups on handles C1680 195.9 s, photo-38, photo-59). 7 Codex images in total (gpt-6.1-sol high): 4 round 1, 1 calendar redraw, 2 left-side background extensions. Build: `_build-2026-10-11/build.py`, `r2/build2.py`.
+- **YouTube packaging:** title "Why You MUST Work Out Every Day (5 Minute Beginner Workout)". Description `youtube-description.md` beside the master: 17 chapters from the chapters file, UTM `utm_content=ro07-work-out-every-day`, the workout, the month plan, six Amazon Associates links from `Docs/AMAZON_ASSOCIATES.md` (kettlebell, mat, ab wheel, jump rope, push-up handles, hand towels; no total price), Gymboss links (App Store `id500887448`, Google Play `com.halcyoni.gymboss2`, both page titles confirmed) with the setting 5 rounds of 30 seconds repeated 4 times. AI flag ON (five realistic AI clips).
+- **Blotato media (uploaded, byte counts confirmed on HEAD):** platform copy 330,080,302 bytes (h264 VideoToolbox 2.5 Mbps, audio stream-copied; 32,570 frames and 50,943 audio packets, same as the master) `.../f3b25e96-112a-4837-b710-597a8789a24c.mp4`; TikTok cover-first copy 330,268,293 bytes (32,571 frames, audio packets equal, cover PSNR 51.4 dB) `.../05e590fb-b538-49dc-9298-552aa4c74df9.mp4`; thumbnail `.../3c566953-7926-4d3a-bea8-fb3cf25ade82.jpg`. Local copies: `/Volumes/Extreme/_edit_work/ro07/publish/`.
+- **Config:** `scripts/blotato/configs/ro07-work-out-every-day.json` (built by the `.build.py` beside it). Keyword TRAIN. Slot: YouTube Sun Jan 10 2027 9 AM CST (15:00Z); Facebook, Instagram @danrosefit and TikTok Mon Jan 11 9 AM CST. Live queue read 10-11: Sundays taken through Dec 20; Dec 27 is claimed by RO-06 and Jan 3 by Zeeshan's Video 5 (both configs written, not queued).
+- **Dry run:** 4 creates, no slot clash, "after 202 of 200": refused on the plan cap only.
+- **Article:** `sixpackabs/articles/TBD-work-out-every-day.md`, 1,393 words, build.py --check OK. Publishes automatically after release (routine sixpackabs-article-gap-daily).
+- **Delivery gate:** the known FAIL stamps did not block any script.
+
+## To release (when the queue has 4 free slots, after RO-06 and Video 5 are queued)
+
+1. `python3 scripts/blotato/ad_guard.py --scan`
+2. `curl -sI` the three media URLs above; if any is gone, re-upload from `/Volumes/Extreme/_edit_work/ro07/publish/` and edit the `.build.py`.
+3. `python3 scripts/blotato/longform_queue.py scripts/blotato/configs/ro07-work-out-every-day.json`, then `--apply`. If Jan 10 has been taken, move `main` to the next free Sunday in the `.build.py` first.
+4. Read back all four schedules; `tiktok_cover.py` audit (the config already carries the cover-first copy). TikTok may refuse 18:07; if so keep the other three and tell Dan.
+5. Edit Queue: `queue.py set RO-07 uploaded`, mirror to the artifact, `mark-synced`. Board: replace the HOLD entry with QUEUED.
+6. After release: verify YouTube public before the Monday posts, upload the .srt as English captions in Studio, add the SL- shorts job for this film.

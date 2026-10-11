@@ -150,6 +150,17 @@ The type treatment stays; the **layout** changed:
 - Working command pattern: see the `thumb-towel-v1` / `thumb-flag-v1` recipe in
   the channel-intro session — crop/scale to 1280×720, then one drawtext per line.
 
+### Approved look: real workout shot, block headline upper left (Dan, 2026-10-11)
+
+Dan picked this over a pool photo, a studio photo and two AI images for RO-07 "Why You MUST Work Out Every Day": a real
+frame of him exercising (fast jump rope, face and abs visible, graded and sharpened only), full bleed, with the headline
+as two stacked blocks (black on yellow, white on black) in the upper left, horizontal, as large as fits with 30 px
+clear of him and a small margin from the left and top edges. He asked for it to be moved there from a small tilted
+sticker at the bottom left. Offer it for workout videos. Build: `thumbnails/Why You MUST Work Out Every Day/_build-2026-10-11/r2/build2.py`.
+A tall photo gets room for the text with a Codex extension of the background to the LEFT only (seed: the real crop at
+the right, a blurred stretch of its own edge at the left, the composition lock paragraph), then the whole real crop is
+pasted back over its side with a 70 px feathered seam. Both tries held position on the first take.
+
 ### Widening a portrait photo to 16:9 with generative fill (added 2026-08-30)
 
 Dan's brief on the 3-minute-total-body thumbnail: *"reduce the blur effect and use a
