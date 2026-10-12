@@ -133,6 +133,8 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **SL-06 BUILDING 2026-10-11, Claude.** `Handoffs/handoff-20261011-sl06-zepbound-shorts-pickups-and-build.md`
 
+**SL-07 R1 BUILDING 2026-10-12, Claude.** `Handoffs/handoff-20261012-sl07-belly-fat-shorts-pickups-and-build.md`
+
 **RO-12 - QUEUED 2026-10-01, Claude.** Blotato Oct 25. Then: `Docs/RO12_SETUP_RECEIPT_20261001.md`, delete.
 
 **RO-13 - QUEUED 2026-10-07, Codex.** Sun Nov 15, 9 AM CST. Then: thumbnail A/B, captions, article. `Docs/RO13_SETUP_RECEIPT_20261005.md`.
@@ -212,7 +214,6 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard fire list; the runner deletes that row, this line and its README row.
 
-- `handoff-20261012-sl07-belly-fat-shorts-pickups-and-build.md`
 - `handoff-20261007-ro10-subtle-reedit-sunday-reupload.md` (10-07): RO-10 R3 end graphic, Sunday replacement. Codex Sol high.
 - `handoff-20261006-1017-shoot-outlines.md` (10-06)
 - `handoff-20261008-dan-voice-training-part2-plan.md` (B-done-10-10;next:C,D;Dan:Round-2-blind-page)
