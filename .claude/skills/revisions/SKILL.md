@@ -1657,3 +1657,13 @@ For evidence receipts and blind benchmark freezes, use [REVIEW_EVIDENCE.md](refe
     Also new: `reference/cuts.py VIDEO OUTDIR` prints, for every hard cut, the background scale across the cut (the
     true punch-in ratio, graphics and captions masked), the eye-distance ratio, and the hair top on both sides, plus
     in-shot zoom and the lowest hair top per shot. It replaced a reviewer agent per cut on a three-short round 2.
+76. **An "HD files for everything" message is not all HD exports of approved cuts: sort the links first (2026-10-12).** Muhammad
+    sent nine "HD files". Four were HD exports of approved cuts, one was the open video's new round, and four were new
+    rounds of videos nobody had approved (two of them at review size). Dan believed eight were approved. Read every
+    file name and size before anything else, and build a table: approved version or new version, review size or HD
+    size. An HD export of an approved cut gets the light check only (same frame count, then subtract every frame from
+    the approved copy at 540x960: re-encode noise reads an average under 3 and a largest pixel difference under about
+    40 of 255; a changed caption or graphic reads over 100). `light.sh` and `fd.py` in
+    `/Volumes/Extreme/_edit_work/revisions-20261012/muhammad/` do it in about 20 seconds a file. A new version gets a
+    real round check against the live doc. He also labels dedicated shorts "AD 08", "Ad 09" (his own running count for
+    DS-08 and DS-09): classify by the closing words, never by his label, before anything ad-related is planned.

@@ -67,8 +67,8 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [DS-05](DS-05-abs-beat-being-a-fat-millionaire.md) | Why Having Abs Beats Being A Fat Millionaire | C1657 | FINALIZED | S |
 | [DS-06](DS-06-what-every-body-fat-percentage-looks-like.md) | What Every Body Fat Percentage Looks Like | C1657 | IN PROGRESS | S |
 | [DS-07](DS-07-top-3-ways-to-use-ai-to-get-abs.md) | Top 3 Ways To Use AI To Get Abs | C1657 + C1658 | IN PROGRESS | S |
-| [DS-08](DS-08-i-was-200-pounds-at-38.md) | I Was 200 Pounds At 38 | C1658 | IN PROGRESS | S |
-| [DS-09](DS-09-how-to-make-time-to-work-out.md) | How To Make Time To Work Out | C1659 | IN PROGRESS | S |
+| [DS-08](DS-08-i-was-200-pounds-at-38.md) | I Was 200 Pounds At 38 | C1658 | FINALIZED | S |
+| [DS-09](DS-09-how-to-make-time-to-work-out.md) | How To Make Time To Work Out | C1659 | FINALIZED | S |
 | [DS-10](DS-10-3-unexpected-ways-zepbound-helped-me.md) | 3 Unexpected Ways Zepbound Helped Me | C1660 | IN PROGRESS | S |
 | [DS-11](DS-11-why-you-must-weigh-yourself-daily.md) | Why You Must Weigh Yourself Daily | C1660 | IN PROGRESS | S |
 | [DS-12](DS-12-top-3-ways-to-looksmax.md) | Top 3 Ways To Looksmax | C1660 | FINALIZED | S |
