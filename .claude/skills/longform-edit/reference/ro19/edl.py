@@ -61,9 +61,9 @@ PIECES = [
  ("pics", "C1512", "Okay so on screen right now", "investing $50 to $100.", 858.6,
   "Okay, so on screen right now, I'm going to show you a few pictures ... if that difference would be worth investing $50 to $100.",
   "only take"),
- ("pros", "C1512", "Okay, so now you see what spray", "goes out in the sun.", 916.8,
+ ("pros", "C1512", "Okay, so now you see what spray", "with him when he goes out in the sun.", 916.8,     # ROUND 3: the end phrase was "goes out in the sun.", which is said twice in this sentence; the first match cut the piece 7.4 s early, mid-sentence ("he only goes out in the sun" / "sun exposure is ..."). Found while proofreading the captions of the full film.
   "Okay, so now you see what spray tanning can do. Let's talk about the pros and cons ... and why he takes an umbrella out with him when he goes out in the sun.",
-  "only take"),
+  "only take", 960.57),     # measured out: Whisper ends "sun." at 960.82 but the lav goes quiet at 960.33; 0.24 s of tail, as shots.py leaves at a pause
  ("sun1", "C1512", "sun exposure is one of the most common causes", "many different health conditions.", 975.4,
   "Sun exposure is one of the most common causes of cancer. Skin cancer is one of the most common cancers ... sun damage really increases your risk for many different health conditions.",
   "last take of three (the first two said 'most common forms of cancer / forms of aging' and trailed off)"),

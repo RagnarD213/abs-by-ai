@@ -78,3 +78,50 @@ Page: `round2/index.html`, port 8865. Order: `audio_options19r2.py warm`, then `
   clips before every page, not only when the plan is written.
 - **Headroom proof flaws seen in look F:** the wide shot's hair cap is flat on some frames, and a thin dark line runs from his hair to the top
   edge on a few frames. Both need fixing before it could run on the film.
+
+## Round 3 (2026-10-12, Dan's round 2 notes, then the full film): what was added
+
+Page: `round3/index.html`, port 8866. Order: re-hash rounds 1 and 2 -> `build.VOICE4` + `FILM_VOICE` (voice B2, new file) -> `gen_motion19r3.py A5|G1|G3 <ID>-t1` ->
+Photos export + `photocrop19r3.py` -> `PAIRS_OUT=gfx/r3 pairs.py P02 P04` -> `phone_side19.py` -> `plan_patch_r3.py` (never `resolve.py`: the plan is hand-patched) ->
+B-roll stills beside presenter frames (`round3/broll/`) -> `round3_19.py bed | first | film` -> `finish_chain19r3.sh` -> `scene_check19.py` -> `ra-reviewer` ->
+edit sheet -> delivery gate -> `page19r3.py` -> `review_server.py 8866 round3`.
+
+- **A phrase anchor that is said twice cut a sentence in half, and two rounds did not catch it.** edl piece `pros` ended on "goes out in the sun.", which Dan says
+  twice in one sentence; the first match ended the piece 7.2 s early ("he only goes out in the sun" / "sun exposure is ..."). Found only while proofreading the full
+  film's captions. Check after `edl.py`: every piece's `heard` must END on the last words of its own `text` line (a ten line script; it flags ASR spellings too, read
+  them). The fix moved everything after 10:23 later by 215 frames: `round3-plan/timeline_shift.json`, applied to shots, words, the plan and the lower third manifest
+  by `plan_patch_r3.py` (rendered lower thirds are timed from their own start, so only their start and end move).
+- **Whisper can end a word half a second late.** "sun." ended at 960.82 in the word list and at 960.33 on the lav. Read the envelope at a piece's out, set it by hand
+  (8th field) when the gap is over 0.3 s.
+- **The full-size original of a Photos picture may be in iCloud only.** `originals/` had 9 of 18 driveway frames; the others had a 1536 px or only a 768 px
+  derivative. `osascript`: `tell application "Photos" to export {media item id "<UUID>/L0/001"} to <folder> with using originals` downloads and writes the HEIC
+  (then `sips` to JPEG and `exif_transpose`). No window comes to the front.
+- **A filtered copy in Photos is a 1:1 crop of the frame taken the same second.** Template-match the copy inside the full frame (0.998 at one offset), then reuse the
+  approved crop box shifted by that offset: the new card is the same framing with the tint gone, so the pair needs no new body-scale work.
+- **Veo with a morning start frame and an evening end frame jumps the light in one frame** (G1, frame 49 of 144), with the clock hands blurred through it. Prompted as
+  a time-lapse it reads as one. Veo also moved a held object to the other hand when the start and end frames disagree about which hand holds it (G3's mitt, six
+  frames). Look at which hand holds what in BOTH frames before asking for frames.
+- **The app tour follows the words of the film it is in.** RO-06 said calorie tracking, then workouts; this film says trainer, then nutritionist, so the screens run
+  workouts first. `phone_side19.py` measures his widest reach over the whole span with the person mask (x 300 to 1620) and picks the shift (270 px) from it. The
+  calorie recording B0038 sits still from frame 102 to 260: show a tap on Log Meal and jump to frame 262 instead of holding a still screen for four seconds.
+- **B-roll against the presenter: measure his skin, not the frame.** Frame median luma flagged dark backgrounds that are fine (money on black, a spray can) and
+  missed nothing, but the number to match is his skin (0.43 in the presenter picture; five of his own clips read 0.27 to 0.35). `build.lift()` raises luma by a gamma
+  with the colour ratios held. Look at the before and after sheet.
+- **The first minute's audio gate is not the film's.** On the first minute B2 fails tone and the processing row by a hair (0.082 against 0.079); on the whole film
+  only tone fails. Gate the film, report both.
+- **Never move a build folder while a chain is still writing into it.** The hair and graphics checks of the first render were lost that way.
+- **Three renders, three independent reviews (2026-10-12).** Final master sha256 `2031c3e3...880d`, 18:48.56, `round3/film/`. Order that worked: render ->
+  `finish_chain19r3.sh` -> `ra-reviewer` on the whole film (666 images) -> fix everything in ONE render -> `carry19r3.py` (frame PSNR against the judged render;
+  only changed frames go to a fresh judge: 80, then 13) -> a fresh `ra-reviewer` on the changed parts -> merge findings -> `watch.py --judge` -> edit sheet -> gate.
+- **What the first review caught that the editor had not:** a stock clip whose own glitch effect (vertical roll, tearing) sat inside the chosen window (Cd10 from
+  7.0 s; clean from 1.0 to 4.2 s), and lower thirds across stock faces. Contact-sheet every stock clip over the EXACT window used, and run
+  `hyperframes/checks.py` on a render BEFORE the review: it flags any face under a strip, stock people included (`min_face_gap`).
+- **A size change can put his chin under a lower third.** Breaking a 54 s wide hold, the first two shots tried at the closer size both failed the face check: he
+  bends down in them. Test a size change on a 30 s `render_range(..., audio=False)` plus `checks.py --film-t0` before the full render (2 minutes, not 90).
+- **The sheet writer reads `hf/manifest.json`, `hf/beats.json` and the lower third configs as they are.** After a timeline shift, hand it a shadow build folder
+  (`round3/sheetbuild/`: symlinks plus the shifted manifest, beats and configs) or the sheet carries the old times.
+- **The bed at the chain's -30 dB is close to inaudible on this roll** (the side channel reads -54 dB in the pauses) and the audio gate's floor row has only about
+  1 dB to spare at one band. Say so on the page. Louder is Dan's call and fails that row.
+- **Gate on the delivered file: 32 pass, 7 fail** (tone stamp, hair x2 by Dan's call, the burned-caption false alarm from lower thirds, coverage 32 %, three take
+  joins a hair over the splice ceiling, one false start at 2:53 left in). Reported on the page, nothing tuned.
+- Do not edit `plan_resolved.json` on disk while a reviewer is reading it for an older render; write the next plan to a side file until the render starts.

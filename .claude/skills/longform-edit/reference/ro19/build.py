@@ -10,7 +10,7 @@ sys.path.insert(0, "/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claud
 import composite as HC
 W = "/Volumes/Extreme/_edit_work/ro19"; FPS = 30000/1001; FPSS = "30000/1001"; FF = F.FF; SR = 48000
 S = json.load(open(f"{W}/shots.json")); R = json.load(open(f"{W}/plan_resolved.json"))
-MANIFEST = f"{W}/hf/manifest.json"
+MANIFEST = f"{W}/hf/manifest.r3.json"     # round 3: the two feature lower thirds the app tour replaces (Gz04, Gz05) are out (plan_patch_r3.py)
 VC = "/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared/audio/voice_chain.py"
 def fr(t): return int(round(t*FPS))
 def run(c): subprocess.run(c, check=True)
@@ -28,6 +28,10 @@ class _Base(dict):
     def __getitem__(self, k): return dict.__getitem__(self, k) if dict.__contains__(self, k) else dict.__getitem__(self, k.split("+")[0])
 OVERRIDE = _Base(OVERRIDE)
 OVERRIDE["intro.0r0"] = "W"; OVERRIDE["intro.0r0+c"] = "W"     # Dan, round 1: "start the video on the wide shot" (the camera frame, not the 1.3x punch-in)
+for _k in ("visit.0r1", "visit.0r4"): OVERRIDE[_k] = "T"     # (0r2 and 0r3 cannot go closer: he bends down at 4:35 and 4:40 and his chin dips 53 and 23 px into lower third Gb09 at the closer size; hyperframes/checks.py caught both)
+#     # round 3, independent review: 4:21 to 5:15 was 54 s on the wide shot (limit 22). 7:35 to 8:01 (26 s wide) stays: its middle shot is where he lifts his shirt to show his abs, which the closer size cuts off, and the shots either side cannot change size without a same-size join. These two are
+# marked active on head sway against the tighter T2 crop; his whole reach (x_extent in shot_framing.json) fits inside the 1.3x window on each, so the closer size cuts nothing off.
+OVERRIDE["pros.0r3"] = "W"     # round 3: the restored end of the Bryan Johnson sentence makes this shot 13.6 s; at the closer size it ran 23.9 s on one size with pros.0r2 (limit 22). Same take, a size change on the sentence start at 10:17
 STAB = {}
 CROPFIX = {}
 HOLD = 22.0                                              # one size never holds longer than this with nothing else changing
@@ -183,6 +187,14 @@ def ai_placeholder(it, i, n):
     im = Image.open(it["frames"][k]).convert("RGB").resize((1920, 1080), Image.LANCZOS)
     B.disclosure(im, f"{it['id']} PLACEHOLDER: {('START', 'END')[k]} frame, motion not generated yet", (960, 990), 2.0, anchor="mt")
     return im
+def lift(im, fx):
+    """Round 3, B-roll graded against the presenter frames (Dan, 2026-10-11: "Color correct all B-roll"): a brightness lift on luma (Y' = Y^(1/gamma), the
+    pixel's RGB scaled by Y'/Y so its colour ratios hold; gain capped at 2.5 so shadow noise is not dug up), then saturation. fx = dict(gamma, sat) or None."""
+    if not fx: return im
+    a = np.asarray(im).astype(np.float32)/255; y = np.maximum(a @ np.float32([0.2126, 0.7152, 0.0722]), 1e-4)
+    a = a*np.minimum(y**(1/fx.get("gamma", 1.0))/y, 2.5)[..., None]
+    if fx.get("sat", 1.0) != 1.0: g = (a @ np.float32([0.2126, 0.7152, 0.0722]))[..., None]; a = g + (a - g)*fx["sat"]
+    return Image.fromarray((np.clip(a, 0, 1)*255 + 0.5).astype(np.uint8))
 def clip_frames(it):
     n = fr(it["t1"]) - fr(it["t0"])
     if it.get("frames"):
@@ -200,9 +212,10 @@ def clip_frames(it):
             vf = vf.replace(",format=rgb24", f",format=gbrp16le,{F.GR[gk][F.LOOK]},format=rgb24")
         if it.get("crop"): vf = vf.replace("scale=1920:1080", "crop={}:{}:{}:{},scale=1920:1080".format(*it["crop"]), 1)
         p = subprocess.Popen([FF, "-v", "error", "-ss", f"{st:.3f}", "-i", path, "-frames:v", str(m), "-vf", vf, "-f", "rawvideo", "-"], stdout=subprocess.PIPE)
+        fx = (it.get("fx") or [None]*len(s))[k]
         for _ in range(m):
             b = p.stdout.read(1920*1080*3); assert len(b) == 1920*1080*3, f"{it['id']} short read"
-            yield Image.frombytes("RGB", (1920, 1080), b)
+            yield lift(Image.frombytes("RGB", (1920, 1080), b), fx)
         p.stdout.close(); p.wait()
 def voice_shots():
     """Shots as the voice track is cut. A picture-only split (split_shot.py) is merged back, so adding a reframe cut never
@@ -212,7 +225,7 @@ def voice_shots():
         if s.get("split_of") and out and cont(out[-1], s): out[-1] = dict(out[-1], src_f1=s["src_f1"], out_f1=s["out_f1"])
         else: out.append(dict(s))
     return out
-FILM_VOICE = f"{W}/voice/film_voice_r2.wav"       # the whole film's voice through the shared chain, once (build.py filmvoice)
+FILM_VOICE = f"{W}/voice/film_voice_r3.wav"       # the whole film's voice through the shared chain, once (build.py filmvoice)
 def render_range(a, b, out, audio=True, picture=True):
     HCOMP = HC.Compositor(json.load(open(MANIFEST)))
     f0, f1 = fr(a), fr(b); segs = segments(f0, f1)
@@ -241,15 +254,17 @@ def render_picture(a, b, out, f0, f1, segs, HCOMP):
         for it in items:
             if it["kind"] == "clip" and fr(it["t0"]) <= g < fr(it["t1"]):
                 im = next(readers[it["id"]])
-                if it.get("label") and not it.get("label_in_picture"): G.ai_chip(im)     # P01 / P02 carry their label inside the clip (phone_demo.py)
+                if it.get("label") and not it.get("label_in_picture"): G.ai_chip(im, (54, 54), "lt") if it.get("chip") == "lt" else G.ai_chip(im)     # P01 / P02 carry their label inside the clip (phone_demo.py)
         if HCOMP.active(g): im = Image.fromarray(HCOMP.apply(np.asarray(im), g))
         enc.stdin.write(im.tobytes())
     enc.stdin.close(); enc.wait(); dec.wait()
+# ROUND 3 VOICE = B2, DAN'S PICK (2026-10-12: "let's go with B2 with more bass"): W4 below plus a wide +3 dB lift at 120 Hz (audio/opts2/B2-W4-bass+3.0.wav). The film voice
+# is written to voice/film_voice_r3.wav; r2 is a reviewed file and is not touched. The round 2 note follows.
 # ROUND 2 VOICE (not Dan's pick yet: he chooses by ear from audio/opts2 on the round 2 page). The first minute and the context clips carry
 # W4, the best-measuring of the four warm, less-room-echo options (audio_options19r2.py: room decay 48 ms against 72 untreated and the
 # reference's 40, damage rows inside the gate's limits): the chain's approved light dereverb (alpha 0.30, floor -10 dB), the warm fixed
 # tone shape with a deeper 450 Hz dip, NO expander, the shared finisher. Round 1's "voice 1" was chosen on a silent window and is void.
-VOICE4 = ["--eq", "highpass=f=70,equalizer=f=140:t=q:w=1.0:g=+1.5,equalizer=f=450:t=q:w=1.2:g=-5.0,equalizer=f=3200:t=q:w=1.5:g=-1.0",
+VOICE4 = ["--eq", "highpass=f=70,equalizer=f=140:t=q:w=1.0:g=+1.5,equalizer=f=450:t=q:w=1.2:g=-5.0,equalizer=f=3200:t=q:w=1.5:g=-1.0,equalizer=f=120:t=q:w=0.8:g=+3.0",
           "--dereverb-because", "Dan asked for warm, less-room-echo options on RO-19 round 1 (2026-10-11); the raw room measures 72 ms on the audition window",
           "--no-expander-because", "RO-07: word endings chopped with the expander on; Dan picked the no-expander audition (2026-10-10) and asked for the same family here"]
 def film_voice():
