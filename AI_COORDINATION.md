@@ -131,6 +131,8 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **SL-06 BUILDING 2026-10-11, Claude.** `Handoffs/handoff-20261011-sl06-zepbound-shorts-pickups-and-build.md`
 
+**SL-07 Belly Fat shorts - NEEDS DAN 2026-10-12, Claude.** Shortlist sent; next: Dan picks, records pickups. `Short-form video content/belly-fat-90-days-SHORTS.md`
+
 **RO-12 - QUEUED 2026-10-01, Claude.** Blotato Oct 25. Then: `Docs/RO12_SETUP_RECEIPT_20261001.md`, delete.
 
 **RO-13 - QUEUED 2026-10-07, Codex.** Sun Nov 15, 9 AM CST. Then: thumbnail A/B, captions, article. `Docs/RO13_SETUP_RECEIPT_20261005.md`.
