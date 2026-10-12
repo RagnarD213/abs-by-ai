@@ -125,7 +125,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **RO-20/B/C - R2 REVIEW 2026-10-11, Claude.** `Handoffs/handoff-20261011-ro20-round3-pickups-and-first-minutes.md`
 
-**RO-19 R2 REVIEW 2026-10-11.** `Handoffs/handoff-20261011-ro19-round2-revisions.md`
+**RO-19 R3 HANDOFF 2026-10-12.** `Handoffs/handoff-20261012-ro19-round3-full-film.md`
 
 **RO-07 - HOLD 2026-10-11, Claude.** Blotato full. `Docs/RO07_SETUP_RECEIPT_20261011.md`
 

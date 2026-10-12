@@ -208,6 +208,7 @@
 - [More, funnier AI clip ideas](ai-clip-ideas-more-and-funnier.md): 10-11: offer more ideas per video, mostly funny; he should reject about a third
 - [Audio comparison clips start on speech](audio-comparison-clips-start-on-speech.md): 10-11: audition window from the cut, speech in the first second; RO-19's was 27 s of silence
 - [YouTube pinned question comment](youtube-pinned-question-comment.md): 10-11: every public video gets a pinned question; config `pinned_comment`, daily routine pins in Chrome; Docs/PINNED_COMMENTS.md
+- [Voice bass standard](voice-bass-standard.md): 10-12: subtle bass lift (+3 dB wide at 120 Hz) on Dan's voice in every video we mix; RO-19 B2
 - [Execute Dan's explicit picks](execute-dans-explicit-picks.md): 10-06: build exactly the person/clip/topic he names; never swap, hold or reroute it for reputational or news reasons ("stop being a Karen")
 - [Allegations are not facts](allegations-not-fact.md): 10-06: unproven charges/accusations against Clavicular, Tate, manosphere figures: never mentioned at all (not even "charged with") unless Dan asks about the case itself; never a reason to change a plan
 - [Assessment symmetry](assessment-symmetry.md): 10-08: one template and one standard for both sides; swap test (Trump/Newsom, Tate/Destiny); judge records on measured results vs promises and a benchmark, then a definite conclusion
