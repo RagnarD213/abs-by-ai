@@ -135,7 +135,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **SL-07 R1 REVIEW 2026-10-12, Claude.** Page 8874. `Handoffs/handoff-20261012-sl07-round1-dan-review.md`
 
-**10/17 kills 2026-10-12.** `Docs/SHOOT_1017_DOCS.md`
+**10/17-kills 2026-10-12.** `Docs/SHOOT_1017_DOCS.md`
 
 **RO-12 - QUEUED 2026-10-01, Claude.** Blotato Oct 25. Then: `Docs/RO12_SETUP_RECEIPT_20261001.md`, delete.
 
