@@ -85,3 +85,6 @@ Traps this build paid for:
   and leave the page down. Run it again and check the URL returns 200 before telling Dan the page is refreshed.
 - **A second page beside a served review needs its own folder and port.** The server caches only files linked from the
   folder's index page, so a `round1b.html` next to it returned 404.
+- **Dan set this video's AI budget to $15 on 2026-10-12** ("For the budget, let's do $15") after eight clip ideas plus two
+  openers priced at about $8.85 against the $5 content cap. The question had to be put three times before it was
+  answered: put a spend question first in the message, alone, with the number to say.

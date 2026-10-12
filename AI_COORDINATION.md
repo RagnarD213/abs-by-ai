@@ -129,7 +129,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **RO-07 - HOLD 2026-10-11, Claude.** Blotato full. `Docs/RO07_SETUP_RECEIPT_20261011.md`
 
-**RO-08 R2 HANDOFF 2026-10-12, Claude.** Needs Dan: AI budget. `Handoffs/handoff-20261012-ro08-round2-motion-and-full-film.md`
+**RO-08 R2 HANDOFF 2026-10-12, Claude.** Ready to fire. `Handoffs/handoff-20261012-ro08-round2-motion-and-full-film.md`
 
 **SL-06 R1 REVIEW 2026-10-12, Claude.** http://127.0.0.1:8817/ `Handoffs/handoff-20261012-sl06-round2-build-after-dan-review.md`
 

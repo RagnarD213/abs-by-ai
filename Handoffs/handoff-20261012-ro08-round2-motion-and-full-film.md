@@ -6,8 +6,8 @@ Job doc: `Handoffs/video-editing/RO-08-intermittent-fasting.md`. Rules: `Handoff
 
 ## Where it stands
 
-Dan reviewed round 1 on 2026-10-12 and answered in three messages, all recorded word for word in
-`/Volumes/Extreme/_edit_work/ro08/round2-plan/decisions.json`. **No full film exists yet.** Spend so far: $0.
+Dan reviewed round 1 on 2026-10-12 and answered in four messages, all recorded word for word in
+`/Volumes/Extreme/_edit_work/ro08/round2-plan/decisions.json`. **No full film exists yet.** Spend so far: $0. Dan answered a fourth time on the frames and the budget; see below.
 
 - Round 1 page (first minute, every graphic and clip): `http://127.0.0.1:8869/`
 - Notes page (opener frames, new A6 end frame, voice options, B-roll colour): `http://127.0.0.1:8870/`
@@ -27,19 +27,16 @@ Dan reviewed round 1 on 2026-10-12 and answered in three messages, all recorded 
   key frames approved: "The workday fast looks good." It is in `plan.py` as a pending clip over the first sentence (0 to 7.7 s).
 - **AI frames approved**: A1 to A5 ("looking good"), A6 with the new end frame `aiframes/A6-end-r2.png` ("A6 looks good").
 
-## Still open with Dan (ask nothing else)
+## Settled by Dan on 2026-10-12 (nothing is open)
 
-1. **AI budget.** The cap is $5 for this video and he has not answered the question (asked twice). Costs: A1 to A6 with
-   the two lip syncs about $4.85; opener OT about $1.80; A7 and A8 about $1.40; opener O6 about $0.80. Everything comes
-   to about $8.85. **Do not pass $5 without his word.** If his reply to this handoff's question is in the starter
-   prompt, use it. If there is still no answer, generate in this order and stop at the cap: OT, A1 (with lip sync),
-   A2 (with lip sync), then tell him what is left.
-2. **A7 and A8.** I read "Everything else is looking good" as approving their frames and told him so twice; he did not
-   object. Treat as approved if the budget allows, and say so in the report.
-3. **Opener idea 6** (split screen, same man two mornings). He asked for new frames: the left man visibly overweight,
-   the right man in a tank top. They are on the notes page (`aiframes/O6-start-r3.png`, `O6-end-r3.png`) and NOT yet
-   approved. No motion for O6 until he approves them. If he approves and the budget allows, make both openers and show
-   him both moving in the first minute so he can choose; otherwise the film opens on OT.
+- **AI budget: $15 for this video.** "For the budget, let's do $15." It replaces the $5 content cap for RO-08 only, all
+  rounds. Estimated use: about $8.85 (A1 to A6 with two lip syncs $4.85, the time-lapse opener $1.80, A7 and A8 $1.40,
+  idea 6 $0.80). The rest is room for retakes; keep the ledger and report the total.
+- **Opener idea 6** (split screen, same man two mornings): the redrawn frames are approved ("starting frames are looking
+  good"): `aiframes/O6-start-r3.png`, `O6-end-r3.png` (left man visibly overweight, right man lean in a tank top).
+  **Make both openers** (OT and O6) and show Dan both moving at the head of the first minute; he chooses. The plan
+  carries OT; O6 uses the same slot (0 to 7.7 s).
+- **A7 and A8:** treated as approved from "Everything else is looking good" (said to him three times, no objection).
 
 ## What to build
 
@@ -49,7 +46,8 @@ Dan reviewed round 1 on 2026-10-12 and answered in three messages, all recorded 
 2. **Motion** (`recipe/gen_motion.py`, Veo 3.1 Fast, image + last_frame, about $0.10 a second; never slow or hold a clip):
    - A1, A2: his excuse voice. Motion from the frame pair, then lip sync the speaking man to Dan's own recording
      (`recipe/lipsync.py`, the RO-06 round 4 method in `reference/ro06/README.md`).
-   - A3 to A6 (A6 uses `A6-end-r2.png`), and A7, A8 if covered. When A5 is in, delete C22 from `plan.py`.
+   - A3 to A8 (A6 uses `A6-end-r2.png`). When A5 is in, delete C22 from `plan.py`.
+   - **O6, the split screen:** one 8 s move from `O6-start-r3.png` to `O6-end-r3.png`, trimmed to the slot. Both halves must keep their own man: read the take for the faces swapping or the divider line bending.
    - **OT, the time-lapse:** three moves, OT-1 to OT-2, OT-2 to OT-3-r2, OT-3-r2 to OT-4 (4 s each), sped up to about
      one second each (speeding up is allowed), then OT-4 to OT-5 at normal speed for the rest of the 7.7 s slot. Check
      the clock hands and the coffee level run forwards at every join, and read every frame for AI faults at playback speed.
@@ -70,10 +68,10 @@ Dan reviewed round 1 on 2026-10-12 and answered in three messages, all recorded 
 - SRT: three one-syllable take openers are missing from `words_out.json`; use the finished-film diff.
 - Chapters must not repeat V3's fasting tips (tips 5 and 6 of "My Top 10 Tips").
 
-## Cost ledger (cap: $5 for this content video unless Dan raises it)
+## Cost ledger (cap: $15 for this video, set by Dan on 2026-10-12)
 
 - Replicate / AI motion: $0.00.
-- Codex images on the subscription: 27 (16 frame pairs for A1 to A8, A6 end redo, 5 time-lapse frames + 1 redo, 4 for idea 6 over two versions + 1 clock fix).
+- Codex images on the subscription: 28 (16 for A1 to A8, 1 A6 end redo, 5 time-lapse frames + 1 redo, 4 for idea 6 over two versions + 1 clock fix).
 - Gemini: three short listens (take choice, voice, first-minute check) and one roll description, a few cents.
 
 ## When Dan finalizes
@@ -88,6 +86,6 @@ Model: **Claude Opus 5.5, high effort** (routine long-form round; Fable only if 
 
 > Intermittent Fasting LFC R2. CONTENT, long-form. Read `Handoffs/handoff-20261012-ro08-round2-motion-and-full-film.md`
 > and `.claude/skills/longform-edit/reference/ro08/README.md`, then run round 2 of RO-08 with /longform-edit: generate
-> the approved AI motion (the time-lapse opener, A1 to A6, the two lip syncs), build the full film, run every gate and
-> the independent review, and send me the review page with timestamps. Rename this task `Intermittent Fasting LFC R2`.
-> AI budget for this video: [$5, or the amount I approved]. Idea 6 frames: [approved / changes / skip]. A7 and A8: [yes / no].
+> the approved AI motion (both openers, the time-lapse and the split screen, plus A1 to A8 and the two lip syncs) inside
+> the $15 budget I set, build the full film, run every gate and the independent review, and send me the review page
+> with timestamps and both openers to choose from. Rename this task `Intermittent Fasting LFC R2`.
