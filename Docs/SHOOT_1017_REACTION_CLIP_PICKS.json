@@ -9,8 +9,9 @@
   "No alternate exists for three: Retatrutide, Eyebrows and the first Face clip. He says each of those once in the whole interview.",
   "The 70% short: the alternates do not have the 70% number. He says it once.",
   "Hair: the alternate where he names the drugs is 22 seconds, 13 longer than my pick, so the study paragraph would have to come out of that short.",
-  "Elon Musk's posts, the Tracy Morgan quote and the cortisol TikTok have nothing to pick.",
-  "When you reply, I put the exact times into the shoot doc and the reaction clips list."
+  "When you reply, I put the exact times into the shoot doc and the reaction clips list.",
+  "Removed on your word (10-12): the doctor's \"Ozempic face\" clip and the Elon Musk posts. Both are out of the script.",
+  "The Tracy Morgan quote and the cortisol TikTok have nothing to pick."
  ],
  "check_title": "Script lines the clips do not back up (your call: change the line, change the clip, or leave it)",
  "check": [
@@ -120,32 +121,6 @@
      ]
     },
     {
-     "slot": "CEL-2",
-     "label": "The doctor on \"Ozempic face\"",
-     "source": "Dr. Amin Hedayat",
-     "video_id": "YT3BxZNJlhs",
-     "options": [
-      {
-       "rank": "recommended",
-       "start": 988,
-       "end": 1008,
-       "first_words": "There's a lot of buzz about ompic face.",
-       "last_words": "skin doesn't always retract at the same pace.",
-       "text": "There's a lot of buzz about ompic face. Here's the truth. It's not the drug damaging the skin. It's rapid fat loss. When fat pads in the face shrink quickly, the skin doesn't always retract at the same pace.",
-       "why": "The clearest explanation of Ozempic face: it is rapid fat loss, and the fat pads in the face shrink faster than the skin can retract, which is what Dan answers with he's right that it happens."
-      },
-      {
-       "rank": "alt1",
-       "start": 1019,
-       "end": 1033,
-       "first_words": "It's not a toxicity reaction. It's physics. Slower,",
-       "last_words": "better. Strength training and protein intake helps too.",
-       "text": "It's not a toxicity reaction. It's physics. Slower, steadier weight loss preserves facial structure better. Strength training and protein intake helps too.",
-       "why": "Shorter and punchier (not a toxicity reaction, it's physics) and it ends on slower weight loss, strength training and protein, which leads straight into Dan's next lines."
-      }
-     ]
-    },
-    {
      "slot": "CEL-3",
      "label": "Fat Joe",
      "source": "Page Six",
@@ -239,19 +214,6 @@
        "text": "Science is the secret. I love it. adding, \"I'm so glad I did because I feel great. I learned a lot of tricks that I had no idea. I was working out so incorrectly for so long.\"",
        "why": "The only part that touches training: she says she had been working out incorrectly for so long, the closest thing in this video to Dan's gym point."
       }
-     ]
-    },
-    {
-     "info": "Elon Musk: his two posts go on screen as text. Nothing to choose.",
-     "links": [
-      [
-       "Post 1 (Oct 2022)",
-       "https://x.com/elonmusk/status/1576367983051489281"
-      ],
-      [
-       "Post 2 (Dec 2024)",
-       "https://x.com/elonmusk/status/1872090468982591558"
-      ]
      ]
     },
     {

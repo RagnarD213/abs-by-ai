@@ -83,3 +83,12 @@ Six script lines the clips do not back up, shown to him on the page for his call
 year, not four months), Meghan Trainor (the two quotes are not in the ET video), Charles Barkley (he does not say he
 regained it), Oprah (15 pounds, and no "a lifetime thing"), Bryan Johnson's plasma (he does not say he stopped), and
 the doctor short (the doctor makes the script's own point about protein and strength training).
+
+## Clips Dan cut after watching (2026-10-12)
+
+- Celebrity Ozempic video: the doctor's "Ozempic face" clip ("too boring to react to") and the Elon Musk posts ("not
+  enough to react to"). Both segments are out of the shoot doc (direct edits, 1,252 spoken words now), the review page
+  (28 clips) and the Reaction Clips doc. One tracked suggestion is pending in the shoot doc: cutting "So anyone who
+  tells you that taking a GLP-1 is cheating is giving you bullshit advice...", which was the payoff of the Elon part.
+- **Teleprompter 2 (Green Screen), in Drive and in PromptSmart, still has both segments.** Rebuild it once his clip
+  review is finished, then replace the PromptSmart script.

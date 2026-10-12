@@ -294,4 +294,8 @@ has reaction videos.
   `_shared/review_server.py PORT out_dir`. Tell each helper to report where the script says something the clip does
   not: on 10-12 that found six lines. If an alternate carries the line Dan reacts to better than the script's
   window does, make it the pick and say so under "What I decided".
+- **A reaction clip has to give him something to react to (Dan, 2026-10-12).** After watching the picks he cut two:
+  a doctor explaining "Ozempic face" ("too boring to react to") and two Elon Musk text posts ("not enough to react
+  to"). A calm explainer or a screenshot of a post is not a reaction clip. Pick the moment with a claim, a result or
+  a face on screen, and say so on the page when a slot has nothing better.
 
