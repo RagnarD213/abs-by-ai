@@ -84,8 +84,7 @@ timestamps of every change. Chapters must not repeat V3's fasting tips (tips 5 a
 finalizes: mark the footage ranges used on the roll sidecar, register the new clips in the clip library, set the queue
 to `finalized`, add the Shorts job (List 2) to `00-MASTER.md`, and delete the VLC copies.
 
-Also owed, small: rebuild the C1486 roll sidecar with the correct lav
-(`roll_sidecar.py build "<roll>" --force --lav-ss 140 --lav-t 45`) when no build is running.
+The C1486 roll sidecar was rebuilt on 2026-10-12 with the correct lav (channel 1).
 
 ## Starter prompt
 
