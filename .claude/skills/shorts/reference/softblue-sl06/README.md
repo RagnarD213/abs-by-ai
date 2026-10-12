@@ -32,6 +32,12 @@ What is new in `batch.py` and `plans.py`:
   Narrow glass columns use `_bar`, not `softblue.glass` (its specular line overhangs a column).
 
 What round 1 learned:
+- **Never record with `ffmpeg -f avfoundation`. Use `~/.cache/absbyai/rec_mic OUT_DIR MAX_SECONDS 30`** (source
+  `_shared/audio/rec_mic.swift`). The ffmpeg capture dropped 11.7 % of the audio on SL-06's pickups (105.95 s of samples in a
+  120 s window, a 512-sample block gone about every 90 ms). Whisper transcribed it, the EQ fit converged and the audio gate
+  passed, so a finished short went to Dan with a faulty opening. **Check every take before using it:** samples against wall
+  time within 2 %, and second-difference spikes whose spacings are multiples of 512 samples (more than two in a take = dropped
+  blocks). All five SL-06 takes from 10-12 failed that check after the fact and were re-recorded.
 - **Never open a recording window blind.** The first 4-minute window caught Dan dictating notes on another video. Show the
   lines, wait for his "go", then record 2 minutes. `pgrep -f` on the ffmpeg command line matches the waiting shell itself:
   wait on the background task, not on a pgrep loop.

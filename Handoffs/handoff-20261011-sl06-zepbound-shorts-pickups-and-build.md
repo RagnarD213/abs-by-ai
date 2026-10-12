@@ -96,7 +96,9 @@ Dan wants to record "right into Claude". His desk mic is the Yeti: ffmpeg audio 
 
 1. Show Dan the four lines in chat. Tell him: when you say go, read each line two or three times with a breath between
    takes, B then C then D then E, at the pace and energy of the film.
-2. Record one take of about 90 seconds in the background:
+2. (Corrected 2026-10-12: do NOT use the ffmpeg command below. It silently dropped 11.7 % of the audio. Record with
+   `~/.cache/absbyai/rec_mic OUT_DIR 120 30`; see `handoff-20261012-sl06-round2-build-after-dan-review.md`.)
+   Record one take of about 90 seconds in the background:
    `Media/video_edit/bin/ffmpeg -f avfoundation -i ":0" -t 90 -ac 1 -ar 48000 /Volumes/Extreme/_edit_work/sl06/pickups/raw_take1.wav`
    If macOS refuses the mic, do not fight it: ask Dan to record a Voice Memo or QuickTime audio file and drop it in the chat.
 3. Transcribe with word times, split on silence, pick the best take of each line (clean first consonant, no clipped

@@ -23,14 +23,32 @@ independent audit. No covers, no upload, no queue. The parent goes public Sun Oc
 ## State at the end of round 1 (2026-10-12)
 
 - Review page: http://127.0.0.1:8817/ (folder `/Volumes/Extreme/_edit_work/sl06/round1/`, managed service on port 8817).
-- Short D finished: `Videos to Review/Top 5 Zepbound Tips SFC R1 - short D - Inject On Thursday Evening.mp4` (50.45 s, audio
-  gate PASS verbatim, stamp beside it). Not yet through `gate.py --format short`, the watch pass or a reviewer.
+- Short D built: `Videos to Review/Top 5 Zepbound Tips SFC R1 - short D - Inject On Thursday Evening.mp4` (50.45 s). Its
+  opening pickup is faulty (below) and gets replaced; picture, captions and film sound stand. The audio gate passed it
+  (the gate cannot see the dropouts). Not yet through `gate.py --format short`, the watch pass or a reviewer.
 - Work folder `/Volumes/Extreme/_edit_work/sl06/`: `plans.py` (all six as data), `build/<S>/` (audio, words, cues, shots,
   track, bars), `clips/` (copies of every stock and library clip used), `pickups/` (recording, takes, treated wavs,
   reports), `aiframes/` (C and E start and end frames + REPORT.md), `round1/` (page, stills, items).
 - Lengths: A 46.2 s, B 53.7 s, C 54.1 s, D 50.5 s, E 57.3 s, F 54.7 s. E has under 3 s of room.
 
-### Pickups (recorded 2026-10-12 on the Yeti, `pickups/raw_take2.wav`)
+### Pickups: THE 10-12 TAKES ARE FAULTY AND MUST BE RE-RECORDED BEFORE ANY BUILD
+
+`pickups/raw_take2.wav` was recorded with `ffmpeg -f avfoundation -i ":0"`, which dropped 11.7 % of the audio on this Mac
+(105.95 s of samples in a 120 s window; a 512-sample block missing about every 90 ms; 10 to 23 discontinuities inside each
+chosen take). Whisper transcribes it and the audio gate passes it, so nothing failed. Found 2026-10-12 after delivery, from
+the SL-07 session's warning. Short D's opening (0:00 to 0:03.2) carries the fault; the film sound after it is untouched.
+The review page says so (decision 1).
+
+**First step of this task: re-record with the fixed recorder**, `~/.cache/absbyai/rec_mic OUT_DIR MAX_SECONDS 30`
+(source `.claude/skills/_shared/audio/rec_mic.swift`; tested here at 4.10 s of samples in 4.16 s). Show Dan the five
+lines, wait for his "go", record 2 minutes into `pickups/take3/`, stop early with `touch pickups/take3/STOP`, join the
+segments, then CHECK the take before using it: samples against wall time within 2 %, and no discontinuities spaced at
+multiples of 512 samples (the check is in `softblue-sl06/README.md`). Ask him to stay a hand's width from the mic for all
+five lines (on 10-12 the first two lines were 8 dB quieter and roomier than the last three, and one take clipped). Then
+`pickup.py asr`, pick the last clean take of each line, `pickup.py fit` (one group if his distance held), `pickup.py make`,
+and rebuild short D (`batch.py audio, words, plan, gfx, render D`).
+
+The table below is the 10-12 recording, kept for the wording and the take rule only.
 
 | | Line as recorded | Take used (s in the recording) | Mic distance | Notes |
 |---|---|---|---|---|
@@ -40,14 +58,14 @@ independent audit. No covers, no upload, no queue. The parent goes public Sun Oc
 | D | Here's why Thursday evening is the best time to inject Zepbound. | 56.36 - 59.31 | close | take 4 of 4; take 3 clipped |
 | E | Here's how to come off Zepbound without gaining the fat back. | 74.10 - 76.22 | close | take 3 of 3 |
 
-Treatment (`pickup.py`): EQ fitted toward the film's voice per mic distance (tone error 0.7 dB mean far, 1.0 dB close), level
-matched to the next film line (within 0.2 dB), the film's `bed.wav` under it at -26.8 dB, 15 ms de-click. No dereverb, no
-noise reduction. Room: film 67 ms; pickups 59 to 80 ms, B reads 101 ms on its single take (far, +17 dB of gain). If Dan
-picks "re-record on the lav", the five lines go on the next shoot list and the shorts wait; tell him that plainly.
+Treatment (`pickup.py`), unchanged for the new takes: EQ fitted toward the film's voice per mic distance, level matched to
+the next film line, the film's `bed.wav` under it at -26.8 dB, 15 ms de-click. No dereverb, no noise reduction. On the
+faulty takes the fit reached 0.7 to 1.0 dB mean tone error and the room read 59 to 80 ms against the film's 67 ms; measure
+again on the clean takes and put the numbers on the round-2 page so Dan can judge the join by ear.
 
 ## Dan's decisions on the page (7). Apply his reply exactly.
 
-1. Pickup sound: use these takes, or re-record on the lav.
+1. Pickups: he re-reads the five lines (the 10-12 takes have recorder dropouts). B may come back in the long or the short wording; build what he says.
 2. Title band: ZEPBOUND TIPS (built) or GLP-1 TIPS. For GLP-1 change `plans.TITLE` eyebrows and F's headline to
    "How Much Protein / You Need On A GLP-1".
 3. Title copy for all six.
@@ -90,7 +108,7 @@ Generation budget: $5 for this video in total, $0 spent. Motion method and check
   adjacent talk joins (0:13 and 0:48), C has seven in-take steps, E has six. If a join reads as a jump, cover it with a clip.
 - C has two clips only (the opener and the needle close-up at 0:24): `style:coverage` may fail. Add a steady cutaway, do not tune.
 - C ends 40 ms before the film's own audio join at 216.12; the last word is whole on the envelope. Listen on the render.
-- B's and C's pickups are the far-mic takes. If the join is heard there and not on D, say so and offer the re-record.
+- A recording can lose audio with no error. Check every take (samples against wall time, 512-sample discontinuities) before fitting it.
 - A caption can hang 0.3 s into the next shot at a clip cut (D 0:20.7). Trim the cue to the cut if the reviewer flags it.
 - The audio gate cannot declare a head span: the reference includes the pickup. Report the pickup numbers from
   `pickups/<S>.report.json` in the notes.
@@ -99,4 +117,4 @@ Generation budget: $5 for this video in total, $0 spent. Motion method and check
 
 ## Starter prompt
 
-> Name this task "Top 5 Zepbound Tips SFC R2". This is CONTENT. Read `Handoffs/handoff-20261012-sl06-round2-build-after-dan-review.md` and execute it: apply my round-1 notes below, build the six Zepbound shorts with /shorts in Soft Blue Light, run the gates and an independent audit, and give me the round-2 review page. No covers, no upload. My notes: [paste the reply box from http://127.0.0.1:8817/]
+> Name this task "Top 5 Zepbound Tips SFC R2". This is CONTENT. Read `Handoffs/handoff-20261012-sl06-round2-build-after-dan-review.md` and execute it: re-record my five pickup lines with the fixed recorder first (wait for my "go"), apply my round-1 notes below, build the six Zepbound shorts with /shorts in Soft Blue Light, run the gates and an independent audit, and give me the round-2 review page. No covers, no upload. My notes: [paste the reply box from http://127.0.0.1:8817/]

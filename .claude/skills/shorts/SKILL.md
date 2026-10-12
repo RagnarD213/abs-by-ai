@@ -50,7 +50,7 @@ Dan records a one-sentence pickup that states the Short's point as its own video
 best time to inject Zepbound"), and a clip, graphic or AI clip covers it. One point per Short: a candidate that argues
 two things is split. Write three pickup options per Short through `dan-voice-writer` and put them in the Step 2
 shortlist message, so Dan records them when he picks. Recording, the cover, and matching the pickup to the film's
-voice: `_shared/VIDEO-RULES.md`, "A Short opens like a dedicated video". First used on SL-06 (Top 5 Zepbound Tips). Tooling for recording, picking and treating the takes (`pickup.py`), and the batch renderer that takes a pickup, stock and library clips and rebuilt film graphics: `reference/softblue-sl06/` (read its README; start there for a batch from a 4K long-form of ours). Wait for Dan's "go" before opening the recording window.
+voice: `_shared/VIDEO-RULES.md`, "A Short opens like a dedicated video". First used on SL-06 (Top 5 Zepbound Tips). Tooling for recording, picking and treating the takes (`pickup.py`), and the batch renderer that takes a pickup, stock and library clips and rebuilt film graphics: `reference/softblue-sl06/` (read its README; start there for a batch from a 4K long-form of ours). Wait for Dan's "go" before opening the recording window. Record with `~/.cache/absbyai/rec_mic`, never `ffmpeg -f avfoundation` (it silently dropped 11 % of the audio on SL-06), and check each take for dropped blocks before using it.
 Record with `_shared/audio/rec_mic.swift` (never `ffmpeg -f avfoundation`: it silently dropped 11 % of the audio, SL-07
 2026-10-12). The pickup tool and the watcher that waits for Dan's lines: `reference/softblue-sl07/` (`pickup.py`, `watch_lines.py`).
 
