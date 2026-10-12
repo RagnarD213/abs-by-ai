@@ -69,6 +69,13 @@
   2. Write the pickup lines (three options each, through `dan-voice-writer`) and **put them in the shortlist message
      itself**, with the line that follows each, so Dan can record them when he picks.
   3. Dan records into his mic in the editing session. Take every line two or three times and keep the best take.
+     **Record with `_shared/audio/rec_mic.swift`, never `ffmpeg -f avfoundation`** (2026-10-12): ffmpeg dropped 11 % of the
+     Yeti's audio on a busy Mac (a 512-sample block missing about every 90 ms; 26.6 s of samples per 30 s) in three takes
+     out of three, and Whisper still transcribed them. Build once: `swiftc -O rec_mic.swift -o ~/.cache/absbyai/rec_mic`.
+     `rec_mic OUT_DIR MAX_SECONDS [SEGMENT_SECONDS]` writes 30 s WAV segments and stops when `OUT_DIR/STOP` exists. Check
+     every take: samples recorded against wall time (its last line prints both). Dan often has several sessions open and
+     reads the lines when he gets to that one, so leave the recorder running in the background with a watcher that
+     transcribes each finished segment and stops it once every line was heard twice; say so in chat, with the time limit.
   4. The pickup has no picture of him saying it, so **cover all of it with a clip, a graphic or an AI clip** (clip library
      first; a new AI clip goes through frame approval), then cut to him on camera on the first film word.
   5. Match the pickup to the film's voice (level, tone, the film's music bed under it) so the join is not heard. The

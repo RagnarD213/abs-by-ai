@@ -51,6 +51,8 @@ best time to inject Zepbound"), and a clip, graphic or AI clip covers it. One po
 two things is split. Write three pickup options per Short through `dan-voice-writer` and put them in the Step 2
 shortlist message, so Dan records them when he picks. Recording, the cover, and matching the pickup to the film's
 voice: `_shared/VIDEO-RULES.md`, "A Short opens like a dedicated video". First used on SL-06 (Top 5 Zepbound Tips).
+Record with `_shared/audio/rec_mic.swift` (never `ffmpeg -f avfoundation`: it silently dropped 11 % of the audio, SL-07
+2026-10-12). The pickup tool and the watcher that waits for Dan's lines: `reference/softblue-sl07/` (`pickup.py`, `watch_lines.py`).
 
 ## Stand alone: show the whole exercise, not a detail of it (Dan, 2026-09-30)
 
