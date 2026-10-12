@@ -294,40 +294,12 @@ Before showing him anything, delete failures — don't deliver them with a cavea
 
 ---
 
-## Reaction shorts: choosing the clip (Dan, 2026-10-12)
+## Reaction shorts have their own skill (Dan, 2026-10-12)
 
-A reaction short is a green screen short where Dan reacts to 10 to 15 seconds of someone else's video. The idea IS
-the clip, so pick the clip by Dan's rules below, in this order. Memory: `reaction-clip-criteria`.
-
-1. **The clip grabs attention in its first seconds.** His words: "If we put this person to sleep with the clip that
-   we're reacting to, they'll never even see me talk." Start the clip on the punch line, never on a wind-up.
-2. **A big, recognizable name:** a celebrity or a high-profile influencer whose views he can piggyback on. No
-   no-names. A smaller creator passes only when the clip is highly relevant, attention-getting and carries a real
-   lesson (Dr. Mike Israetel calling tirzepatide a dial for your appetite passed).
-3. **A hard, controversial position.** "Somewhat good, somewhat bad" is dead.
-4. **A valuable lesson Dan teaches in the short.** State it on the card. No lesson, no idea.
-5. **The clip's point lands in under 15 seconds.**
-6. **Obviously a fitness topic.** If a viewer would ask "why is a fitness guy reacting to this?", drop it.
-7. **About the average guy's problem, not Dan's.** Nothing dated.
-
-**Benchmark: Bill Maher, "fat shaming needs to make a comeback".** Dan: "the best one you chose... I want more like
-this." Batch 1 (2026-10-12): 6 of 20 kept (Ronaldo's ab belt, fake ab surgery, dad bod street interview, Bill Maher,
-Dr. Mike on tirzepatide, Oatzempic). Killed and why: mewing, leg lengthening and Warren Buffett's Cokes (not a fitness
-topic), Ab Circle Pro (dated), Mark Wahlberg, David Goggins, butter coffee and Peter Attia (dull opening, no lesson),
-Hugh Jackman's water cut (not the viewer's problem), the GMA doctor ("puts me to sleep"), a vacuum clip where the
-vacuum was weak (he wants a dramatic one), an AI coach review with no stance. He likes Alex Hormozi and Planet
-Fitness as targets and wanted better clips of both.
-
-**Format and delivery.** Title: who it is, what they say, then "He's Right." or "He's Wrong." Bullets: Hook, the
-`[PLAY CLIP: creator, title, URL, m:ss to m:ss]` line, My take, Do this, Bottom line. Deliver as a review page with
-each clip cued to the second: copy `Docs/shoot-1017-shorts-ideas/index.html`, serve it with `review_server.py`, and
-give Dan the `http://127.0.0.1:PORT/` address, never the file path (YouTube will not play inside a page opened as a
-file: error 153). Say the creator and the view count on every card.
-
-**Finding the second.** `python3 -m yt_dlp` with `--extractor-args youtube:player_client=android` downloads auto
-captions as json3 (search with `ytsearchN:`). YouTube rate-limits caption downloads (HTTP 429) after about 40 in a
-row: pace them, and fall back to the transcript panel in the browser. Check every id at YouTube's oEmbed address:
-200 means it exists and can play in the page, 401 means the owner turned off embedding (link out instead).
+A reaction short is a green screen short where Dan reacts to 10 to 15 seconds of someone else's video. Do not
+pick those clips from this skill. Use **`/reaction-clips`**: it holds his rules for a clip (attention in the
+first seconds, a big name, a hard position, a real lesson, under 15 seconds and never over 25), the two rounds
+of what he kept and killed, the tools that find the exact second, and the review page with a working player.
 
 ## Delivery
 

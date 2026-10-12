@@ -47,25 +47,19 @@ alternates. The other 21 say "pick 10 to 30 seconds" inside a window, because th
 those links open at the start of the window. All 14 YouTube videos answered on 2026-10-12. Dan's own clips (the jump
 rope short, the ab wheel video, the salad video) are not on the list: he is not reacting to them.
 
-## More shorts for this shoot: locked picks and a second round of reactions (2026-10-12)
+## 26 more shorts locked for this shoot, not scripted yet (2026-10-12)
 
-One review page holds all of it: `Docs/shoot-1017-shorts-ideas/index.html`, served at http://127.0.0.1:8881/
-(`review_server.py 8881 Docs/shoot-1017-shorts-ideas`). Nothing from it is in the shoot doc yet.
+Dan locked **15 green screen reactions and 11 outdoor shirtless shorts** over two idea rounds. They are outlines only.
 
-- **Locked by Dan, 7 reactions** (the `LK` list in the page, with his changes): Ronaldo's ab belt, fake ab surgery, the dad
-  bod street interview (3 piece cut), Bill Maher on fat shaming, Dr. Mike on tirzepatide, Oatzempic (lesson: check it with
-  AI first), the ChatGPT coach (new opening cut; he may still kill it).
-- **Locked by Dan, 11 outdoor shirtless shorts** (the `OD` list): towel rows, reverse lunges, bodyweight squats, goblet
-  squats, overhead tricep extensions, 3 Rules For Every Rep, Why I Only Do 3 Sets, Why Cables Beat Dumbbells, total body
-  every day, working out first thing in the morning, train abs every day. **No gym B-roll on this shoot** (Dan): every shot
-  is from the pool and home lists. Three carry an open note on their card (3 sets, cables, the abs list).
-- **Waiting for his picks, 20 new reactions** (the `RX` list), chosen by his rules in `/shortsideas`, "Reaction shorts".
-- The 9 outdoor ideas he killed are parked in `Docs/NEXT_SHOOT_LIST.md` for the next shoot.
-
-Next: when Dan replies with his keeps from the 20, script every locked short with `/shorts-scripting` into the shoot doc
-(reactions under SHORT FORM REACTION OUTLINES, outdoor ones under SHORT FORM WORKOUT OUTLINES), add the clips to the Reaction
-Clips document, add the new B-roll shots (overhead tricep extensions, swapping light for heavy dumbbells) to the B-roll
-list, and rebuild the teleprompter documents. The outdoor shorts are read shirtless by the pool: they go in Teleprompter 3.
+- **Source of truth:** `Docs/shoot-1017-shorts-ideas/ideas.json` (titles, video ids, start and end seconds, first and last
+  words, reaction bullets, B-roll, open notes). The page built from it, with a working player per clip:
+  http://127.0.0.1:8881/ (`review_server.py 8881 Docs/shoot-1017-shorts-ideas`). Rebuild the page with
+  `.claude/skills/reaction-clips/reference/page.py`, never by hand.
+- **No gym B-roll on this shoot** (Dan). The 9 outdoor ideas he killed for that reason are parked in
+  `Docs/NEXT_SHOOT_LIST.md`.
+- **Next:** `Handoffs/handoff-20261012-1017-shoot-shorts-scripts.md` writes the 26 scripts into the shoot doc, adds the 15
+  clips to the Reaction Clips document, adds the new B-roll shots and rebuilds Teleprompter 2 and 3.
+- How the clips were chosen, and the log of what Dan kept and killed: `.claude/skills/reaction-clips/SKILL.md`.
 
 Trap: `review_server.py` treats any quoted string ending in .jpg, .js, .html and so on as a local file, even inside a
 script. Build remote image paths in pieces (`"/hqdefault" + ".jpg"`) or the server refuses to start.

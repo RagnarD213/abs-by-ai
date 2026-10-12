@@ -212,7 +212,9 @@ Memory `google-ads-ui-automation`.
 
 
 
-`[dash]` = on the dashboard fire list; the runner deletes that row, this line and its README row.
+`[dash]` = on the fire list; runner deletes row, line and README row.
+
+- `handoff-20261012-1017-shoot-shorts-scripts.md` (10-12). Opus 5.5 high.
 
 - `handoff-20261007-ro10-subtle-reedit-sunday-reupload.md` (10-07): RO-10 R3 end graphic, Sunday replacement. Codex Sol high.
 - `handoff-20261012-1017-reaction-kills.md` (10-12)

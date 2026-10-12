@@ -19,8 +19,10 @@ first batch for the 10/17 shoot):
    real lesson (his example: Dr. Mike Israetel calling tirzepatide a dial for your appetite).
 3. **Controversial beats balanced.** A clip where the person says "somewhat good, somewhat bad" is dead ("he's not
    really saying anything"). The person must take a hard position.
-4. **There must be a valuable lesson Dan can teach in the short.** No lesson, no short.
-5. **The point of the clip lands in under 15 seconds.**
+4. **There must be a valuable lesson Dan can teach in the short.** No lesson, no short. The viewer needs a purpose
+   for watching his reaction, and Dan must not be "just in the background while the video plays".
+5. **The point of the clip lands in under 15 seconds. 25 seconds is the maximum** (he set the maximum later the
+   same day).
 6. **It must be obvious why a fitness channel is reacting to it.** A viewer who thinks "why is a fitness guy
    reacting to this?" is gone. Killed for this: mewing, leg lengthening surgery, Warren Buffett's Cokes.
 7. **Relevant to the average guy, not to Dan.** Killed: Hugh Jackman dehydrating for a shirtless scene.
@@ -32,8 +34,10 @@ attention-getting, from a known celebrity, controversial. I want more like this.
 **Why:** the first batch was picked for topic fit and a clean verdict. Most clips were dull openers from people the
 viewer does not know or care about, so 14 of 20 died.
 
-**How to apply:** when choosing reaction clips in `/shortsideas` (section "Reaction shorts") or any reaction outline,
-filter on rules 1 to 4 before anything else, and say the name and the view count on each card. Kept from batch 1:
+**How to apply:** use the `/reaction-clips` skill (Dan asked for it on 2026-10-12 to make the process repeatable). It
+holds these rules, the log of both rounds, the tools and the review page with a working player. Filter on rules 1 to 4
+before anything else, and say the name and the view count on each card. Round 2, picked by these rules, kept 8 of 20:
+he said it was "substantially better" but "some were still a little boring, some didn't have a good lesson". Kept from batch 1:
 Ronaldo's ab belt, fake ab surgery, dad bod street interview, Bill Maher, Dr. Mike on tirzepatide, Oatzempic. He likes
 reacting to Alex Hormozi and to Planet Fitness as ideas, but wanted better clips of both. Related:
 [[shorts-reason-to-watch]], [[shorts-organic-research]], [[execute-dans-explicit-picks]].
