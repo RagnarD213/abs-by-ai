@@ -92,3 +92,10 @@ the doctor short (the doctor makes the script's own point about protein and stre
   tells you that taking a GLP-1 is cheating is giving you bullshit advice...", which was the payoff of the Elon part.
 - **Teleprompter 2 (Green Screen), in Drive and in PromptSmart, still has both segments.** Rebuild it once his clip
   review is finished, then replace the PromptSmart script.
+
+## Dan's kills after watching the clips (2026-10-12): handed off
+
+He killed 18 of the 30 reaction clips, nine shorts whole. What survives, what is owed (shoot doc cuts, Green Screen
+teleprompter rebuild in Drive and PromptSmart, the Reaction Clips document with survivors only, better retatrutide
+clips) and the open Bryan Johnson question are in `Handoffs/handoff-20261012-1017-reaction-kills.md`. Until that runs,
+Teleprompter 2 still holds every killed script.

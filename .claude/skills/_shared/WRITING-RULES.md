@@ -68,6 +68,13 @@ A name with no file in `Docs/memory/` is private on purpose. Do not guess what i
   not tightly tied to the title. No generic listicles ("The Five Foods I Never Eat"). (Dan, 2026-07-29 and 2026-09-21.)
 - **Keep it to what the viewer personally cares about.** An aside about someone else (bodybuilders' bubble gut) goes.
   (Dan, 2026-08-25.)
+- **Reaction videos: find the clips first, and Dan watches them before any script is written (Dan, 2026-10-12).** After
+  watching the clips scripted for the 10/17 shoot he killed 18 of 30: "a lot of what you chose is boring or not
+  relevant." A reaction video needs two things. One: "a very attention-getting or controversial clip, ideally under
+  20 seconds, ideally from a big influencer or celebrity people care about". Two: "some type of good lesson I can
+  teach them in 45 seconds", so there is a point in watching him react. Put candidate clips on a review page (pick
+  plus alternates), and script only the ones he keeps. What he killed and why: `/teleprompterscripts`, "What Dan
+  killed".
 - **A short cut from a long-form idea gets its own hook.** Do not transcribe the long-form's points in order.
   (Dan, 2026-09-21.)
 - **Proof stays brief and plain: under 90 seconds, no pile of science talk up front, but it must still prove the

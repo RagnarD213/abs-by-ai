@@ -299,3 +299,28 @@ has reaction videos.
   to"). A calm explainer or a screenshot of a post is not a reaction clip. Pick the moment with a claim, a result or
   a face on screen, and say so on the page when a slot has nothing better.
 
+### What Dan killed after watching the 10/17 reaction clips, and what he kept (2026-10-12)
+
+His rule from this: clips first, he watches, then scripts (`_shared/WRITING-RULES.md`, section 4). Use this list to
+judge a candidate before it reaches him.
+
+| killed | his reason |
+|---|---|
+| A doctor explaining "Ozempic face" | "Too boring to react to" |
+| Two Elon Musk text posts | "Not enough to react to" |
+| Charles Barkley on a GLP-1 shortage | Not attention-getting, does not make sense in context |
+| Six Bryan Johnson clips (bedtime, temperature, eating early, training, pills, plasma) | "Too boring", "no good lesson I can pull out of it" |
+| A trailer line that only says who Bryan Johnson is | "Isn't really saying anything" (he took the alternate) |
+| A 7-day belly fat workout intro | "Terrible choice... doesn't actually say anything. No purpose in watching this video." |
+| A doctor on muscle loss | "Too boring" |
+| Clavicular on GLP-1s, bone smashing | "No good lesson there" |
+| Clavicular on a nose job | "Too boring, not relevant to us" |
+| Clavicular on tanning, sunscreen, skin supplements, eyebrows | "Too boring" |
+| Clavicular's retatrutide mention inside a rapid-fire list | "So many unrelated things in there. I want a clip... of him only talking about" it |
+
+Kept: Clavicular saying looks matter more than personality, that getting lean is 70% of it, that hair is life;
+Sharon Osbourne, Fat Joe, Amy Schumer, Meghan Trainor and Oprah on their own results. What the kept ones share: a
+well-known person makes one blunt claim about looks or results, in a few seconds, that Dan can agree or disagree with
+and then teach from. What the killed ones share: an explainer, a routine, a list, a product detail, or a person the
+viewer does not care about.
+
