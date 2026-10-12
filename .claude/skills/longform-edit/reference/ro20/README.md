@@ -125,3 +125,10 @@ file: `cards20.py` (full-screen cards as pre-rendered plan clips), `brollgrade20
   before reading that error passes against the OTHER page. Assert a string from your own page in the check.
 - **Per-video AI cap:** five AI clips plus retries used video 1's $5 by themselves. For a film with this many AI beats, ask for the
   cap up front in the round 1 packet.
+- **Dan's rule from this round (VIDEO-RULES, 2026-10-12): a lip sync that fails its check once goes in with no lip sync.** A1 is locked as
+  the silent take `round3/motion/A1-t2.mp4`. He picked intro T3 (the piggy bank) from three title concepts.
+- **Recording Dan's pickups on this Mac with `ffmpeg -f avfoundation` scrambled the file.** The Yeti delivered 32-bit float and ffmpeg
+  wrote the float bits as if they were integers (a two second room-tone test before it read normal, so a level check proves nothing).
+  His voice came back by rebuilding a float from bytes 4 and 5 of every 6-byte frame (top two bytes of the float; the rest is lost,
+  which is far below the room noise): `pickups_all_takes_48k_mono.wav`. Next time record with QuickTime or an AVAudioRecorder script,
+  and prove the capture by transcribing a spoken test line before the real take.

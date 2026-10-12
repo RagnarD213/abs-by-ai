@@ -6,8 +6,8 @@ Written 2026-10-11 by the round 2 session (Claude Opus 5.5). Replaces `handoff-2
 ## Goal
 
 Round 2 delivered the pickup scripts, the on-screen plan for each pickup, Dan's round 1 revisions, the three approved AI clips
-and video 1's first minute. Round 3 starts when Dan has (a) recorded the four audio pickups and (b) answered the round 2 page.
-It lays the pickups in, generates the two new job clips if he approves their frames, builds the first minute of videos 2 and 3
+and video 1's first minute. Dan has since recorded the four audio pickups and answered the round 2 and round 3 pages (update below).
+Round 3 lays the pickups in, makes the piggy bank intro and (budget allowing) the two job clip retakes, builds the first minute of videos 2 and 3
 (and video 1's again only if he changes something), then, with nothing pending, the three full films.
 
 ## Read first
@@ -21,34 +21,38 @@ It lays the pickups in, generates the two new job clips if he approves their fra
 5. Dan's reply to the round 2 page. Record it word for word in `round3-plan/decisions.json` before touching anything, then
    re-hash `round2/round2-hashes.sha256`.
 
-## Update 2026-10-12: Dan answered the round 2 page in the round 2 session
+## Update 2026-10-12: everything Dan has answered (his words: `round3-plan/decisions.json`)
 
-His words are in `round3-plan/decisions.json`. Approved: frames J1 and J2, the pickup scripts, and everything else on the round 2
-page (editor's reading: video 2 opens on camera with roll take `sum1`, film 3014.45 to 3026.9 s, since he did not overrule it).
-Two new asks, answered on a small page, http://127.0.0.1:8868/ (`round3/`):
-
-1. **Video 1 intro as an AI-video title graphic.** Three concepts as START and END frames (`aiframes/T1` vault, `T2` health chart,
-   `T3` piggy bank). He picks one; motion is one 8 s take ($0.80) under his first sentence (0:00 to 0:06). Lay the title type in
-   code if the AI warps letters. Recommended: T1.
-2. **A1 lip sync "doesn't match up at all".** Three paid fixes failed (README, round 3 section). The plan now carries a working
-   version with no mismatch: `round3/motion/A1-t2.mp4`, a new take from the approved START frame in which he keeps his mouth shut
-   while Dan's voice does the line. Open choice: try ONE different lip-sync tool on `A1-t2.mp4` (measure it with
-   `lipmeasure20.py` and look at a mouth close-up strip before showing him), or keep the silent version.
-3. **Budget.** Video 1 is at $4.99 of $5.00. Asked: raise video 1 to $10. Until he says yes, spend nothing on video 1.
-
-Also waiting on that budget: retakes of J1 and J2. Both first takes are rejected (`round3/motion/J1-t1.mp4`: the interviewer shakes
-the heavy man's hand for 3 s before the fit man's; `J2-t1.mp4`: the heavy man joins the handshake). Retake with: the heavy man
-never stands, never reaches out, keeps both hands on his folder (J1) or the armrests (J2); in J1 nobody stands until the last 2 s.
-`gen_motion20.py` takes `PROMPT=<name>` for a retake prompt and `NOLAST=1` to drop the end frame.
-
-Pickups: Dan was told to make one Voice Memos recording of all four (each read twice) and AirDrop it to this Mac (Downloads).
-Also look in `~/Library/Group Containers/group.com.apple.VoiceMemos.shared/Recordings/` and `Media/longform-raw/ro20-pickups/`.
+- **Approved and locked:** frames J1 and J2; the pickup scripts; the dating card, diagram card, three-part card, three-levels card;
+  A2 and A3 motion; the 24 B-roll grades. Editor's reading: video 2 opens on camera with roll take `sum1` (film 3014.45 to 3026.9 s).
+- **Intro for video 1: T3, the piggy bank** ("Let's go with T3, the piggy bank, for the intro"). Frames `aiframes/T3-start.png`,
+  `T3-end.png`. One 8 s take ($0.80) under his first sentence (0:00 to 0:06), then he is on camera for "The first reason is the halo
+  effect". Lay the title in code if the AI warps the letters; the pig changing shape is the risk (reject a take that looks like melting).
+- **A1 locked as the silent take** `round3/motion/A1-t2.mp4` ("Fat guy who has money looks good"), already in the plan. New standing
+  rule in VIDEO-RULES (top sections): a lip sync that fails its check once goes in without lip sync.
+- **Read the other new VIDEO-RULES section dated 2026-10-12 before any mix: "A subtle bass lift on his voice is the standard".** It was
+  added by another session after voice 4 was locked here; apply it as that section says and tell Dan what changed on the voice.
+- **Pickups are recorded** (on the Yeti, in the round 2 session). Use `Media/longform-raw/ro20-pickups/pickups_all_takes_48k_mono.wav`
+  (370 s, all four pickups, two or more takes each, he says the pickup number before each) with
+  `pickups_all_takes.transcript.json` (segment and word times). ⚠ It is a RECOVERED file: my capture scrambled the original
+  (`pickups_yeti_20261012.wav`, keep it). Before using a take: listen for clicks (1,394 samples sit at full scale), and note the room
+  is noisier than the shoot lav (room about -55 dB, speech about -27 dB, against -60 and -25 on the roll). Match level and tone to the
+  film voice, judge it by a listener and the audio gate rows, and if a pickup stands out next to the kitchen voice tell Dan it needs a
+  two-minute re-record (QuickTime audio recording, or iPhone Voice Memos and AirDrop) before building on it. He read a few lines his
+  own way (P2, last take: "Being cheap with your health and wasting money on bullshit is literally killing you"): his wording wins.
+- **Budget for video 1: asked twice, not answered.** Video 1 is at $4.99 of $5.00. His T3 pick is a direction to make the intro
+  ($0.80). The J1 and J2 retakes ($1.20), any spare retake, and anything else on video 1 wait for his answer: the starter prompt has
+  a line for it. Small page with the three intro concepts and the A1 clip: http://127.0.0.1:8868/ (`round3/`).
+- **J1 and J2 first takes are rejected** (`round3/motion/J1-t1.mp4`: the interviewer shakes the heavy man's hand for 3 s before the
+  fit man's; `J2-t1.mp4`: the heavy man joins the handshake). Retake with: the heavy man never stands, never reaches out, keeps both
+  hands on his folder (J1) or the armrests (J2); in J1 nobody stands until the last 2 s. `gen_motion20.py` takes `PROMPT=<name>`
+  for a retake prompt and `NOLAST=1` to drop the end frame; add the T3 frame hashes (`round3/round3-hashes.sha256`) to its `FULL` list.
 
 ## Locked (do not reopen)
 
 Colour D for both sizes; voice 4 (`build.VOICE4`); the chapters; every round 1 graphic and clip Dan did not flag; frames A1, A2, A3.
 Locked on 2026-10-12 as well: frames J1 and J2, motion A2 and A3, the dating-app card (Cb11), the diagram card (Cb12), the three-part
-card and the three-levels card (stills), the 24 B-roll grades, the pickup scripts. NOT locked: A1's motion, the intro, video 1's first minute.
+card and the three-levels card (stills), the 24 B-roll grades, the pickup scripts. Also locked: A1 as the silent take, intro concept T3 (frames). NOT locked: the T3 motion, J1 and J2 motion, video 1's first minute.
 
 ## State of the build
 
@@ -104,7 +108,6 @@ Claude Opus 5.5, high: pickup joins judged by ear and eye, a new take-map pass, 
 ## Starter prompt
 
 ```
-Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/handoff-20261011-ro20-round3-pickups-and-first-minutes.md`: round 3 of the three "Invest In Your Health" videos (LFC, content; RO-20, RO-20B, RO-20C in one task). My pickup recording is in Downloads (or Voice Memos) and my answers to the round 3 page (8868) are below. Lay the pickups in, generate the job clips I approved, show me the first minute of videos 2 and 3 and only what else is new, then build the three full films only when nothing is pending. Name this session "Invest In Your Health LFC R3".
+Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/handoff-20261011-ro20-round3-pickups-and-first-minutes.md`: round 3 of the three "Invest In Your Health" videos (LFC, content; RO-20, RO-20B, RO-20C in one task). My pickups are recorded (`Media/longform-raw/ro20-pickups/pickups_all_takes_48k_mono.wav`) and my decisions are in the handoff. Video 1 AI budget: [raise to $10 / hold at $5]. Check the pickup audio first and tell me if any pickup needs a re-record. Then lay the pickups in, make the piggy bank intro and the job clips, show me the first minute of videos 2 and 3 and only what else is new, then build the three full films only when nothing is pending. Name this session "Invest In Your Health LFC R3".
 
-[paste the round 3 page reply here]
 ```

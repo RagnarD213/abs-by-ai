@@ -55,6 +55,39 @@
    "verdict": "approved",
    "dan": "The pickups and everything else look good.",
    "scope": "pickup scripts as written; the three-part card and three-levels card; Cb11 dating card; Cb12 diagram card; A2 and A3 motion; the 24 B-roll grades; the two dropped sentences. Editor's reading: decision 3 (video 2 opens on camera with the sum1 take) stands as recommended, since he did not overrule it"
+  },
+  {
+   "item": "Video 1 intro",
+   "verdict": "T3 picked",
+   "dan": "Let's go with T3, the piggy bank, for the intro.",
+   "scope": "frames T3; motion authorized (8 s take, $0.80, takes video 1 past its $5 cap: see budget)",
+   "frames": {
+    "start": "aiframes/T3-start.png",
+    "end": "aiframes/T3-end.png"
+   }
+  },
+  {
+   "item": "A1 (fat guy who has money)",
+   "verdict": "approved",
+   "dan": "Fat guy who has money looks good.",
+   "scope": "the silent version, round3/motion/A1-t2.mp4: LOCKED"
+  },
+  {
+   "item": "Lip sync, standing rule",
+   "verdict": "new rule",
+   "dan": "I think generally this is a good way to handle it: if our lip sync fails the first time and doesn't pass the quality check, just do it without the lip sync if it's too challenging.",
+   "scope": "VIDEO-RULES.md, 2026-10-12"
+  },
+  {
+   "item": "Pickups",
+   "verdict": "recorded",
+   "dan": "Go ahead and start the mic. I want to record the pickups here. ... Use the Yeti mic. ... Okay, clips are recorded.",
+   "scope": "Media/longform-raw/ro20-pickups/pickups_all_takes_48k_mono.wav (all four, two or more takes each) + pickups_all_takes.transcript.json"
+  },
+  {
+   "item": "Budget for video 1",
+   "verdict": "NOT ANSWERED (asked twice)",
+   "next": "video 1 is at $4.99 of $5.00; the round 3 starter prompt has a line for his answer. Spend nothing on video 1 until he answers, except that his T3 pick is a direction to make the intro"
   }
  ],
  "motion_authorized": [
@@ -62,7 +95,8 @@
   "A2",
   "A3",
   "J1",
-  "J2"
+  "J2",
+  "T3"
  ],
  "lip_sync_authorized": [
   "A1"
@@ -80,6 +114,10 @@
   "Cb12",
   "three-part card",
   "three-levels card",
-  "B-roll grades (round2/broll_grades.json)"
- ]
+  "B-roll grades (round2/broll_grades.json)",
+  "A1 silent version (round3/motion/A1-t2.mp4)",
+  "intro concept T3 (frames)",
+  "pickup recording"
+ ],
+ "reply_2_recorded": "2026-10-12"
 }

@@ -1,3 +1,16 @@
+## A lip sync that fails its check once goes in without lip sync (Dan, 2026-10-12)
+
+- **If a lip-synced AI clip does not pass the quality check on the first try, use the clip with no lip sync: the character keeps his
+  mouth shut and reacts while Dan's voice does the line.** Dan, approving RO-20's silent "fat guy who has money" after three failed
+  sync attempts: *"I think generally this is a good way to handle it: if our lip sync fails the first time and doesn't pass the
+  quality check, just do it without the lip sync if it's too challenging."*
+- The check comes before he sees it: measure the mouth against the audio (`longform-edit/reference/ro20/lipmeasure20.py`) and look at
+  a close-up strip of the mouth on the words. The round 2 clip went out unmeasured and he rejected it on sight ("doesn't match up at
+  all").
+- How to make the fallback: one take from the approved START frame with the mouth closed in the prompt, the way the approved
+  non-speaking "brokie" clip works. Do not spend on a second or third sync attempt. This narrows the excuse-voice rule below: lip
+  sync is still the first try for an excuse-voice line.
+
 ## A subtle bass lift on his voice is the standard (Dan, 2026-10-12)
 
 - **Every video we mix ourselves gives Dan's voice a subtle addition of bass.** Dan, picking the RO-19 voice from seven options
