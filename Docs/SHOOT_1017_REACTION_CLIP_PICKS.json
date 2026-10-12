@@ -1,0 +1,1046 @@
+{
+ "title": "10/17 shoot: reaction clips",
+ "intro": "Every clip you react to, in teleprompter order: my pick, then one or two alternates.",
+ "decided": [
+  "Every pick is 10 to 30 seconds (about 15 for the shorts) and starts and ends on a full sentence. I chose from the captions, not by watching, so the editor may trim a second at either end.",
+  "Clavicular: the clip already in each script stays as my pick. Nine of them cut off a word by a second or two, so I moved those edges: Looks, 70%, Tan, Sunscreen, Skin, Eyebrows, Retatrutide, Hammer and the first Face clip.",
+  "Oprah: my pick starts 32 seconds before the part the script pointed to, because that is where she says she went off it for a year and gained the weight back.",
+  "Bryan Johnson's cold room: my pick is where he cools his bed to 71 degrees and says to change your thermostat. In the part the script pointed to he only says \"not too hot, not too cold\".",
+  "No alternate exists for three: Retatrutide, Eyebrows and the first Face clip. He says each of those once in the whole interview.",
+  "The 70% short: the alternates do not have the 70% number. He says it once.",
+  "Hair: the alternate where he names the drugs is 22 seconds, 13 longer than my pick, so the study paragraph would have to come out of that short.",
+  "Elon Musk's posts, the Tracy Morgan quote and the cortisol TikTok have nothing to pick.",
+  "When you reply, I put the exact times into the shoot doc and the reaction clips list."
+ ],
+ "check_title": "Script lines the clips do not back up (your call: change the line, change the clip, or leave it)",
+ "check": [
+  "Sharon Osbourne: the script says 42 pounds in about four months. The E! clip says 42 pounds in a year.",
+  "Meghan Trainor: the two quotes in the script (\"we don't lose muscle...\" and \"We stay in the gym\") are not in this ET video. It only reads out her post saying she used Mounjaro.",
+  "Charles Barkley: the script says he gained a lot of it back. In this video he says the shortage came and he has been off it almost a year, and that he had lost 50 pounds. He does not say he regained it.",
+  "Oprah: the script says 20 pounds and \"a lifetime thing\". In this video she says she gained 15 pounds, and \"a lifetime thing\" is not said.",
+  "Bryan Johnson's son's blood: the script says he reported no benefits and stopped. In this part he says it \"didn't really work\" on him. He does not say he stopped.",
+  "The doctor short: the script says he is dead wrong. In the clip he says losing weight quickly by any method costs muscle, and a minute later that protein and strength training prevent it, which is the script's own point."
+ ],
+ "sections": [
+  {
+   "title": "How Losing Fat Changed My Face",
+   "set": "Green screen",
+   "slots": [
+    {
+     "slot": "FACE-1",
+     "label": "Clavicular, first clip",
+     "source": "Clavicular on The Iced Coffee Hour",
+     "video_id": "PQaMZceY-0I",
+     "options": [
+      {
+       "rank": "recommended",
+       "start": 554,
+       "end": 582,
+       "first_words": "So, like the gym was kind of something",
+       "last_words": "I was like yeah okay that makes sense.",
+       "text": "So, like the gym was kind of something that looks minned me at the start. And the reason I started doing looks maxing was because I was on these forums and then there was a lot of like the black pill influence like looks maxers coming into the spaces and just that overlap like wait a second guys we're doing all this gym selling and you know dedicating all our time maybe our priorities are wrong maybe we should be focused on the face. I was like yeah okay that makes sense.",
+       "why": "He says the gym made him look worse at first, and that looksmaxxers on the forums made him think the priority should be the face instead of all the time in the gym."
+      }
+     ]
+    },
+    {
+     "slot": "FACE-2",
+     "label": "Clavicular, second clip (the 70% line)",
+     "source": "Clavicular on The Iced Coffee Hour",
+     "video_id": "PQaMZceY-0I",
+     "options": [
+      {
+       "rank": "recommended",
+       "start": 1414,
+       "end": 1434,
+       "first_words": "So if you're able to really like shred",
+       "last_words": "of softmaxing is quite literally just being lean.",
+       "text": "So if you're able to really like shred yourself down to that 101 12 mark uh that facial angularity that you gain is going to serve you so well. So that's the easiest thing that you could do as well. And that's going to largely be about like 70% of what you could accomplish in terms of softmaxing is quite literally just being lean.",
+       "why": "He says shredding down to a low body fat gives you facial angularity, and that about 70% of what softmaxxing can do is quite literally just being lean."
+      },
+      {
+       "rank": "alt1",
+       "start": 1395,
+       "end": 1416,
+       "first_words": "What are the most basic things someone can",
+       "last_words": "typically sitting between 20 to 30% body fat.",
+       "text": "What are the most basic things someone can do to achieve maximum physical appearance? I would say that just as I mentioned being lean, low body fat percentage is going to give you such an advantage over the average especially in a country like America with the obesity rates right people are typically sitting between 20 to 30% body fat.",
+       "why": "Asked for the most basic thing you can do for your appearance, he says being lean, because low body fat puts you far ahead of the average American sitting at 20 to 30% body fat."
+      },
+      {
+       "rank": "alt2",
+       "start": 1377,
+       "end": 1391,
+       "first_words": "looks maxing is not a time inensive thing",
+       "last_words": "one being uh maintaining a low body fat.",
+       "text": "looks maxing is not a time inensive thing whatsoever. It's it's very simple. It's just a few principles to follow like you know the the main one being uh maintaining a low body fat.",
+       "why": "He says looksmaxxing is simple and comes down to a few principles, the main one being keeping a low body fat."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Reacting To Celebrity Ozempic Transformations",
+   "set": "Green screen",
+   "slots": [
+    {
+     "slot": "CEL-1",
+     "label": "Sharon Osbourne",
+     "source": "E! News",
+     "video_id": "oZTHGIoqwI4",
+     "options": [
+      {
+       "rank": "recommended",
+       "start": 0,
+       "end": 28,
+       "first_words": "why Sharon Osborne is cautioning others against using",
+       "last_words": "100 lb and I don't want to be",
+       "text": "why Sharon Osborne is cautioning others against using OIC solely for weight loss the Osborne's Alum who says she lost 42 pounds on the type 2 diabetes injectable medication in a year gives an update on her progress which she says has crossed a line Sharon tells the Daily Mail in an interview published November 17th I'm too gaunt and I can't put any weight on I want to because I feel I'm too skinny I'm under 100 lb and I don't want to be",
+       "why": "Carries all three facts Dan repeats right after it: the 42 pounds, too gaunt and can't put any weight on, and under 100 lb, and it opens by naming her and the drug."
+      },
+      {
+       "rank": "alt1",
+       "start": 27,
+       "end": 46,
+       "first_words": "the 71-year-old says she started taking the drug",
+       "last_words": "she adds be careful what you wish for",
+       "text": "the 71-year-old says she started taking the drug last December but has since quote been off it for a while now but Sharon explains it's been hard to regain some of the pounds telling the outlet I couldn't stop losing weight and I can't afford to lose anymore she adds be careful what you wish for",
+       "why": "Same point from the next part of the report: she is off the drug, could not stop losing weight and finds it hard to regain, ending on be careful what you wish for."
+      },
+      {
+       "rank": "alt2",
+       "start": 51,
+       "end": 74,
+       "first_words": "Osborne previously gave enw an update on her",
+       "last_words": "that her ideal weight is around 105 lbs",
+       "text": "Osborne previously gave enw an update on her progress in September of 2023 saying at the time I'm I'm at the point of losing too much that I have to try and maintain I'm trying to have a healthy balance Sharon who stands at 5'2 in and height also shared that her ideal weight is around 105 lbs",
+       "why": "An earlier quote where she says she is at the point of losing too much, plus her height and 105 lb ideal weight, which sets up Dan's under 100 pounds line."
+      }
+     ]
+    },
+    {
+     "slot": "CEL-2",
+     "label": "The doctor on \"Ozempic face\"",
+     "source": "Dr. Amin Hedayat",
+     "video_id": "YT3BxZNJlhs",
+     "options": [
+      {
+       "rank": "recommended",
+       "start": 988,
+       "end": 1008,
+       "first_words": "There's a lot of buzz about ompic face.",
+       "last_words": "skin doesn't always retract at the same pace.",
+       "text": "There's a lot of buzz about ompic face. Here's the truth. It's not the drug damaging the skin. It's rapid fat loss. When fat pads in the face shrink quickly, the skin doesn't always retract at the same pace.",
+       "why": "The clearest explanation of Ozempic face: it is rapid fat loss, and the fat pads in the face shrink faster than the skin can retract, which is what Dan answers with he's right that it happens."
+      },
+      {
+       "rank": "alt1",
+       "start": 1019,
+       "end": 1033,
+       "first_words": "It's not a toxicity reaction. It's physics. Slower,",
+       "last_words": "better. Strength training and protein intake helps too.",
+       "text": "It's not a toxicity reaction. It's physics. Slower, steadier weight loss preserves facial structure better. Strength training and protein intake helps too.",
+       "why": "Shorter and punchier (not a toxicity reaction, it's physics) and it ends on slower weight loss, strength training and protein, which leads straight into Dan's next lines."
+      }
+     ]
+    },
+    {
+     "slot": "CEL-3",
+     "label": "Fat Joe",
+     "source": "Page Six",
+     "video_id": "XkGHIKXLShA",
+     "options": [
+      {
+       "rank": "recommended",
+       "start": 0,
+       "end": 20,
+       "first_words": "it looks like Fat Joe is now skinny",
+       "last_words": "only have two pieces of your favorite stuff",
+       "text": "it looks like Fat Joe is now skinny Joe the all the way up rapper confessed to using OIC after shedding 200 lbs in a recent interview with US Weekly Joe credited the type 2 diabetes drug while sharing his tips and tricks to losing weight saying quote OIC says you may only have two pieces of your favorite stuff",
+       "why": "The headline itself: he confessed to using Ozempic after losing 200 lbs, which is the fact Dan states right after the clip."
+      },
+      {
+       "rank": "alt1",
+       "start": 25,
+       "end": 41,
+       "first_words": "the rapper shared his Newfound knowledge over what",
+       "last_words": "the rice that's the smartest way to eat",
+       "text": "the rapper shared his Newfound knowledge over what kinds of food to avoid which has also helped with his transformation saying quote we just try to eat everything with the least carbs as possible so we try to stay away from the bread the pasta the rice that's the smartest way to eat",
+       "why": "His own diet quote about staying away from the bread, the pasta and the rice, which Dan repeats a few lines later."
+      },
+      {
+       "rank": "alt2",
+       "start": 38,
+       "end": 55,
+       "first_words": "he also added that he's learned portion control",
+       "last_words": "we cut carbs and try to be smarter",
+       "text": "he also added that he's learned portion control and how to eat in moderation saying quote like this morning I ate breakfast I had this toast I cut the corner off ate it and kept it moving normally I would have ate the whole thing but you know that's what we do we cut carbs and try to be smarter",
+       "why": "A concrete story of his portion control (cutting the corner off the toast) that backs Dan's point that he also follows a disciplined diet."
+      }
+     ]
+    },
+    {
+     "slot": "CEL-4",
+     "label": "Amy Schumer",
+     "source": "The Howard Stern Show",
+     "video_id": "unx1EuJ8t9s",
+     "options": [
+      {
+       "rank": "recommended",
+       "start": 65,
+       "end": 87,
+       "first_words": "I tried it and I was vomiting and",
+       "last_words": "head off the pillow so what's the point",
+       "text": "I tried it and I was vomiting and I'm in bed and I my son's like can you like play tag and I'm like I can I was like shriveling I lost 30 lbs so quick I looked great and I couldn't lift my head off the pillow so what's the point",
+       "why": "Amy herself says the two things Dan repeats: she lost 30 lbs fast and could not lift her head off the pillow."
+      },
+      {
+       "rank": "alt1",
+       "start": 0,
+       "end": 22,
+       "first_words": "I [ __ ] hate OIC you had a horrible",
+       "last_words": "vomiting like and then you have no energy",
+       "text": "I [ __ ] hate OIC you had a horrible experience with it right that's I have this Gan gdf15 which makes you extremely prone to nausea which is why I was so sick during my pregnancy so I tried OIC almost three years ago and I was like veteran I was like vomiting like and then you have no energy",
+       "why": "The opening of the interview: she says she hates Ozempic, explains why it made her so sick, and describes vomiting and having no energy."
+      }
+     ]
+    },
+    {
+     "slot": "CEL-5",
+     "label": "Meghan Trainor",
+     "source": "Entertainment Tonight",
+     "video_id": "DNTlfd8Cbk4",
+     "options": [
+      {
+       "rank": "recommended",
+       "start": 28,
+       "end": 46,
+       "first_words": "She writes, \"No, I don't look like I",
+       "last_words": "Mangaro, to help me after my second pregnancy.\"",
+       "text": "She writes, \"No, I don't look like I did 10 years ago. I've been on a journey to be the healthiest, strongest version of myself for my kids and for me. Yes, I used science and support, shout out to Mangaro, to help me after my second pregnancy.\"",
+       "why": "The only place in the video where Mounjaro is named, in her own written words, along with healthiest, strongest version of myself."
+      },
+      {
+       "rank": "alt1",
+       "start": 0,
+       "end": 14,
+       "first_words": "I'm trying to biohack my body. So, anything",
+       "last_words": "weight loss meds as part of her biohacking.",
+       "text": "I'm trying to biohack my body. So, anything that'll help me age backwards, I'm into it. Megan Trainer now revealing she used weight loss meds as part of her biohacking.",
+       "why": "Opens with Meghan herself on camera, then the host says plainly that she used weight loss meds."
+      },
+      {
+       "rank": "alt2",
+       "start": 50,
+       "end": 65,
+       "first_words": "Science is the secret. I love it. adding,",
+       "last_words": "was working out so incorrectly for so long.\"",
+       "text": "Science is the secret. I love it. adding, \"I'm so glad I did because I feel great. I learned a lot of tricks that I had no idea. I was working out so incorrectly for so long.\"",
+       "why": "The only part that touches training: she says she had been working out incorrectly for so long, the closest thing in this video to Dan's gym point."
+      }
+     ]
+    },
+    {
+     "info": "Elon Musk: his two posts go on screen as text. Nothing to choose.",
+     "links": [
+      [
+       "Post 1 (Oct 2022)",
+       "https://x.com/elonmusk/status/1576367983051489281"
+      ],
+      [
+       "Post 2 (Dec 2024)",
+       "https://x.com/elonmusk/status/1872090468982591558"
+      ]
+     ]
+    },
+    {
+     "slot": "CEL-6",
+     "label": "Charles Barkley",
+     "source": "Ro",
+     "video_id": "fRcpMjo6tBo",
+     "options": [
+      {
+       "rank": "recommended",
+       "start": 39,
+       "end": 63,
+       "first_words": "It was it was incredible the results I",
+       "last_words": "I just couldn't get access to the drug.",
+       "text": "It was it was incredible the results I was getting. But then the shortage came and I haven't had the drug for almost a year now. But I'd lost 50 pounds really, really quickly. And then I then uh I just couldn't get access to the drug.",
+       "why": "Barkley says it all himself: the results were incredible, the shortage came, he has been off the drug almost a year, and he had lost 50 pounds."
+      },
+      {
+       "rank": "alt1",
+       "start": 83,
+       "end": 109,
+       "first_words": "When this opportunity came up, I says, uh,",
+       "last_words": "disappointed I didn't get to finish my journey.",
+       "text": "When this opportunity came up, I says, uh, number one, I really wanted to have access to the medication. That was first and foremost cuz the results I had gotten the first go around were incredible. And I was I wasn't mad because I I accomplished half of my goal, but I was disappointed I didn't get to finish my journey.",
+       "why": "He explains why he wanted the medication back: he reached half his goal and was disappointed he did not get to finish, which supports Dan's line that he had to stop."
+      },
+      {
+       "rank": "alt2",
+       "start": 59,
+       "end": 86,
+       "first_words": "When you lose 10 lbs, you don't notice",
+       "last_words": "my damn back and neck the whole time.",
+       "text": "When you lose 10 lbs, you don't notice different. You lose 20, 25, 30, 40, 50. I mean, you your your back, your knees, your ankles. Um, you know, I play golf every day during the summer and like it was great not having that 50 lb dumbbell on my damn back and neck the whole time.",
+       "why": "The most vivid Barkley moment about the 50 pounds (the 50 lb dumbbell on his back and neck), though it does not mention stopping."
+      }
+     ]
+    },
+    {
+     "slot": "CEL-7",
+     "label": "Oprah",
+     "source": "Oprah, with Serena Williams",
+     "video_id": "g7pw3MJ7QVE",
+     "options": [
+      {
+       "rank": "recommended",
+       "start": 3208,
+       "end": 3224,
+       "first_words": ">> Yeah, I tried I tried to beat",
+       "last_words": "last year, >> and I gained 15 pounds.",
+       "text": ">> Yeah, I tried I tried to beat this, remember? Cuz I said, \"No, I'm going to beat it. I'm going to prove to you that I can do it without it.\" And so I went for like a year uh took myself off the medications for a year, last year, >> and I gained 15 pounds.",
+       "why": "The strongest clip in the video, 16 seconds before the window opens: she says she took herself off the medication for a year and gained 15 pounds."
+      },
+      {
+       "rank": "alt1",
+       "start": 3270,
+       "end": 3288,
+       "first_words": ">> Yeah. And I was able to keep",
+       "last_words": "and I put myself back on in August.",
+       "text": ">> Yeah. And I was able to keep the weight for like a few months and I was like, \"No, Dr. Ana, I'm doing really good.\" And she'd check in and say, \"How are you doing? How you doing?\" I'm doing really good. And I was like, \"Well, I gained three pounds this week and then now I gained two pounds this week.\" So I tried. I tried. Yeah. and I put myself back on in August.",
+       "why": "The best moment inside the window: Oprah says she held the weight for a few months, then gained three pounds one week and two the next, and put herself back on in August."
+      },
+      {
+       "rank": "alt2",
+       "start": 3235,
+       "end": 3258,
+       "first_words": "I was doing all the same things. I",
+       "last_words": "is like, \"Uh-uh. I'm not listening to that.",
+       "text": "I was doing all the same things. I was working out and I was like, \"Okay, so I'm walking 3.5 miles a day. Now I just need to walk. I'm going to add to five miles a day. Then I'm going to add to six miles a day. Great. Great. Now I'm going to not eat need eat just one meal a day. I'm going to eat one smaller meal a day.\" And and I and I put the weight biology is like, \"Uh-uh. I'm not listening to that.",
+       "why": "Shows the even with diet and exercise point: she walked up to six miles a day and ate one meal a day, and her biology would not listen (starts 5 seconds before the window)."
+      }
+     ]
+    },
+    {
+     "info": "Tracy Morgan: no clip. His Tonight Show quote goes on screen as text."
+    }
+   ]
+  },
+  {
+   "title": "Reacting To Bryan Johnson's $2 Million Body",
+   "set": "Green screen",
+   "slots": [
+    {
+     "slot": "BJ-1",
+     "label": "The opener",
+     "source": "Netflix trailer, \"Don't Die\"",
+     "video_id": "kf9e1o7rUeo",
+     "options": [
+      {
+       "rank": "recommended",
+       "start": 15,
+       "end": 30,
+       "first_words": "My name is Bryan Johnson. I've been spending",
+       "last_words": "to be injected with my first gene therapy.",
+       "text": "My name is Bryan Johnson. I've been spending millions of dollars creating an anti-aging protocol. I take 54 pills, red-light therapy, plasma exchanges, and I'm going to be injected with my first gene therapy.",
+       "why": "He names himself, says he has spent millions on an anti-aging protocol and lists the pills, plasma exchanges and gene therapy, which sets up Dan's $2 million line."
+      },
+      {
+       "rank": "alt1",
+       "start": 0,
+       "end": 16,
+       "first_words": "[man 1] As a species, we accept our",
+       "last_words": "to argue that the opposite should be true.",
+       "text": "[man 1] As a species, we accept our inevitable decay, decline, and death. [dramatic music playing] I want to argue that the opposite should be true.",
+       "why": "The opening mission statement: we accept decay and death and he wants to argue the opposite, which sets up the line about trying to become immortal."
+      },
+      {
+       "rank": "alt2",
+       "start": 88,
+       "end": 101,
+       "first_words": "[man 4] It's not science, it's just attention.",
+       "last_words": "don't know how his body's going to react.",
+       "text": "[man 4] It's not science, it's just attention. [man 5] It's just these rich Silicon Valley types chasing the fountain of youth. [woman] I'm worried for him. We just don't know how his body's going to react.",
+       "why": "The critics' montage (not science, rich Silicon Valley types chasing the fountain of youth) sets up Dan's line that most of the money is wasted."
+      }
+     ]
+    },
+    {
+     "slot": "BJ-2",
+     "label": "His bedtime",
+     "source": "Bryan Johnson, \"How I Fixed My Terrible Sleep\"",
+     "video_id": "Wk9p3dhMYdk",
+     "options": [
+      {
+       "rank": "recommended",
+       "start": 132,
+       "end": 155,
+       "first_words": "sleep for my bedtime I've chosen 8:30 I",
+       "last_words": "just choose your bedtime and be consistent level",
+       "text": "sleep for my bedtime I've chosen 8:30 I love the morning time especially the the 4 hours of time I have all by myself no one's calling me no one's messaging me I have it all to myself so I really like to go to bed at 8:30 then I have the morning wide open that said you do you if you're a night ow and you prefer to go to bed later that's okay just choose your bedtime and be consistent level",
+       "why": "He says he chose 8:30 as his bedtime, says it twice, and ends on choose your bedtime and be consistent, which is the point Dan makes next."
+      },
+      {
+       "rank": "alt1",
+       "start": 114,
+       "end": 137,
+       "first_words": "in my family when bedtime arrives Tage and",
+       "last_words": "sleep for my bedtime I've chosen 8:30 I",
+       "text": "in my family when bedtime arrives Tage and I will stop whatever we're doing and run to our bedtimes we do this tongue and cheek it's funny because we're saying to each other we respect bedtime in this family we know we're going to be better family members with each other if we get our sleep for my bedtime I've chosen 8:30 I",
+       "why": "He and his son stop whatever they are doing and run to bed, then he says his bedtime is 8:30; more fun, and the 8:30 lands as the last line."
+      },
+      {
+       "rank": "alt2",
+       "start": 399,
+       "end": 416,
+       "first_words": "things one of my neighbors has barking dogs",
+       "last_words": "home in their kettles very considerate so you",
+       "text": "things one of my neighbors has barking dogs so I called her and she was more than willing to say I understand your bedtime is at 8:30 so after 8:30 I will make sure they're in their in the home in their kettles very considerate so you",
+       "why": "From later in the video: he called his neighbor about her barking dogs after his 8:30 bedtime, which shows the discipline Dan praises next."
+      }
+     ]
+    },
+    {
+     "slot": "BJ-3",
+     "label": "His cold room",
+     "source": "Same video",
+     "video_id": "Wk9p3dhMYdk",
+     "options": [
+      {
+       "rank": "recommended",
+       "start": 351,
+       "end": 373,
+       "first_words": "of the extremes so for my own personal",
+       "last_words": "increased air flow level eight is creating a",
+       "text": "of the extremes so for my own personal temperature control I use an eight Sleep mattress and during my deep sleep it's down to 71 f height and then during my R it's up to 73 consider changing your thermostat or airon settings experimenting with different types of bedding and opening doors for increased air flow level eight is creating a",
+       "why": "Runs past the window: he cools his mattress to 71 degrees in deep sleep and tells viewers to change the thermostat, which fits Dan's cold room line better; trim after 73 for a 12 second version."
+      },
+      {
+       "rank": "alt1",
+       "start": 324,
+       "end": 336,
+       "first_words": "downtime before bed level seven is to maintain",
+       "last_words": "not too hot not too cold you of",
+       "text": "downtime before bed level seven is to maintain an ideal temperature for your sleep now I think Goldilocks got this right not too hot not too cold you of",
+       "why": "The start of his temperature tip: keep an ideal temperature for sleep, not too hot and not too cold; note he never says a cold room."
+      }
+     ]
+    },
+    {
+     "slot": "BJ-4",
+     "label": "When he eats",
+     "source": "Same video",
+     "video_id": "Wk9p3dhMYdk",
+     "options": [
+      {
+       "rank": "recommended",
+       "start": 195,
+       "end": 212,
+       "first_words": "level four is to eat early I know",
+       "last_words": "it is but I got used to it",
+       "text": "level four is to eat early I know this because I tried hundreds of experiments with food types and eating times and I found that I slept the best with blueprint food and my last meal of the day at 11:00 a.m. now that may sound early to you it is but I got used to it",
+       "why": "He says level four is to eat early and that his last meal of the day is at 11 AM, the fact Dan's next line answers."
+      },
+      {
+       "rank": "alt1",
+       "start": 211,
+       "end": 227,
+       "first_words": "now this does not mean that you need",
+       "last_words": "be having a negative effect on your sleep",
+       "text": "now this does not mean that you need to eat at 11:00 a.m. as well what this means is it's an invitation for you to try to explore eating earlier and also trying to avoid big heavy meals at the end of the day that could really be having a negative effect on your sleep",
+       "why": "He says you do not have to eat at 11 AM like him, just eat earlier and skip big late meals; it still names 11 AM and fits Dan's pick your own window point."
+      }
+     ]
+    },
+    {
+     "slot": "BJ-5",
+     "label": "His training",
+     "source": "Bryan Johnson, \"My Complete Anti-Aging Workout\"",
+     "video_id": "sYyVi-H-ozI",
+     "options": [
+      {
+       "rank": "recommended",
+       "start": 1007,
+       "end": 1017,
+       "first_words": "so 15 chin-ups 15 pull-ups I'm going to",
+       "last_words": "already this morning I'm already pretty sore uh",
+       "text": "so 15 chin-ups 15 pull-ups I'm going to skip the pull-ups I did 15 already this morning I'm already pretty sore uh",
+       "why": "The pull-up and chin-up moment in the window: 15 chin-ups, and he skips the pull-ups because he already did 15 that morning, which backs up that he trains every morning."
+      },
+      {
+       "rank": "alt1",
+       "start": 1174,
+       "end": 1187,
+       "first_words": "all right that's it that's my daily exercise",
+       "last_words": "also play basketball and Tennis every Sunday toage",
+       "text": "all right that's it that's my daily exercise protocol in addition to doing this 7 days a week uh I also play basketball and Tennis every Sunday toage",
+       "why": "From the end of the video: he calls it his daily exercise protocol and says he does it 7 days a week, the closest match to Dan's train every day line."
+      },
+      {
+       "rank": "alt2",
+       "start": 1041,
+       "end": 1053,
+       "first_words": "day and 15 bicep curls this is just",
+       "last_words": "45 lb bar 10 lb on each side",
+       "text": "day and 15 bicep curls this is just a 45 lb bar 10 lb on each side",
+       "why": "The curls inside the window: 15 bicep curls with a 45 pound bar and 10 pounds a side, right after the chin-ups, so it shows him lifting."
+      }
+     ]
+    },
+    {
+     "slot": "BJ-6",
+     "label": "His pills",
+     "source": "Bryan Johnson, \"Why I Take 100+ Pills Every Day\"",
+     "video_id": "User8_dkz9s",
+     "options": [
+      {
+       "rank": "recommended",
+       "start": 167,
+       "end": 187,
+       "first_words": "first one down second one I'm not even",
+       "last_words": "the 100 I take on a given day",
+       "text": "first one down second one I'm not even sure what happens in my mouth you know just like I just put it in it's like all right everyone get in line we're gonna go down this is it last one here we go that was 43 of the 100 I take on a given day",
+       "why": "He swallows the pills on camera in three gulps and ends with that was 43 of the 100 I take on a given day, the number Dan's next line repeats."
+      },
+      {
+       "rank": "alt1",
+       "start": 24,
+       "end": 40,
+       "first_words": "my team and I set out to ask",
+       "last_words": "and also 111 supplements in this video we're",
+       "text": "my team and I set out to ask the question what is possible right now with slowing our speed of aging and reversing it to do that we've designed a protocol for sleep and exercise and diet and also 111 supplements in this video we're",
+       "why": "From the intro: he says his protocol covers sleep, exercise, diet and 111 supplements, a clean statement of the number without the swallowing."
+      },
+      {
+       "rank": "alt2",
+       "start": 315,
+       "end": 327,
+       "first_words": "things it's a way of doing things do",
+       "last_words": "the majority of benefits hey everyone I hope",
+       "text": "things it's a way of doing things do you need to take 100 pills a day to be healthy no you can do so many of the basics like sleep and exercise and just having a good diet and getting the majority of benefits hey everyone I hope",
+       "why": "From the end: he asks do you need 100 pills a day to be healthy and answers no, the basics get most of the benefit, which is the point Dan makes next."
+      }
+     ]
+    },
+    {
+     "slot": "BJ-7",
+     "label": "His son's blood",
+     "source": "The Diary Of A CEO",
+     "video_id": "1yfoonW1InE",
+     "options": [
+      {
+       "rank": "recommended",
+       "start": 4130,
+       "end": 4152,
+       "first_words": "was uh a lot of people learned about",
+       "last_words": "it and there was some some sort of",
+       "text": "was uh a lot of people learned about this and then they they immediately imagine like I'm in a dungeon drinking my son's blood and I'm like harvesting his organs and the reality was it was a very is a Whimsical fun you know heartwarming thing that our family was was discussing and so we did it and there was some some sort of",
+       "why": "He says people imagined him in a dungeon drinking his son's blood, calls it a heartwarming family thing and says so we did it; the most quotable line about his son."
+      },
+      {
+       "rank": "alt1",
+       "start": 4150,
+       "end": 4179,
+       "first_words": "it and there was some some sort of",
+       "last_words": "of my phenotypic markers are in their 20s",
+       "text": "it and there was some some sort of efficacy shown in mice or something wasn't there yeah yeah there's so this the evidence is like not bad it's not terribly persuasive it's emergent so it's not like we were going in there and realized thinking that we had a slam dunk it was like it's interesting it's safe so let's give it a shot and it didn't really work so you've on me on you yeah which makes sense I mean so I'm chronologically 45. many of my phenotypic markers are in their 20s",
+       "why": "Starts where the first clip ends: the host asks about the evidence and he says they gave it a shot and it didn't really work on him, the no benefit line in his own words."
+      },
+      {
+       "rank": "alt2",
+       "start": 4114,
+       "end": 4131,
+       "first_words": "so I gave my father a leader of",
+       "last_words": "organic thing around my father and so it",
+       "text": "so I gave my father a leader of my plasma but I was talking to my about this to my son like hey I may give up a liter of positive to my dad and so my son is like cool can I be involved it's like all right so is that this really organic thing around my father and so it",
+       "why": "How it started: he gave his father a liter of his plasma and his son asked to be involved; it says plasma outright but is less punchy."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Reacting To The Worst Ab Workouts On Instagram",
+   "set": "Green screen",
+   "slots": [
+    {
+     "slot": "IG-1",
+     "label": "The ab workout",
+     "source": "Cult Fit, \"Lose Belly Fat In 7 Days Challenge\"",
+     "video_id": "digpucxFbMo",
+     "options": [
+      {
+       "rank": "recommended",
+       "start": 26,
+       "end": 38,
+       "first_words": "i have eight workout movements for you to",
+       "last_words": "lose belly fat all you gotta do is",
+       "text": "i have eight workout movements for you to help you burn that stubborn belly fat today's workout is a seven day challenge to lose belly fat all you gotta do is",
+       "why": "The clearest spoken promise: eight movements to help you burn that stubborn belly fat in a seven day challenge to lose belly fat."
+      },
+      {
+       "rank": "alt1",
+       "start": 0,
+       "end": 15,
+       "first_words": "[Music] hello to all you athletes out there",
+       "last_words": "and i will guide you through this workout",
+       "text": "[Music] hello to all you athletes out there welcome to this loose belly fat in seven days challenge by curefit this is tiffany here and i will guide you through this workout",
+       "why": "The opening line where she welcomes you to the lose belly fat in seven days challenge, the promise stated as the title."
+      },
+      {
+       "rank": "alt2",
+       "start": 51,
+       "end": 64,
+       "first_words": "me for the next seven days after you",
+       "last_words": "your body so let us begin this loose",
+       "text": "me for the next seven days after you do this challenge for the next seven days follow the right nutrition and trust me you will surely see some real changes in your body so let us begin this loose",
+       "why": "She says do it for seven days and trust me you will surely see real changes in your body; note she also says follow the right nutrition, which is Dan's point."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "A Doctor Says Zepbound Eats Your Muscle. He's Wrong.",
+   "set": "Green screen",
+   "slots": [
+    {
+     "slot": "DOC-1",
+     "label": "The doctor",
+     "source": "Dr. Amin Hedayat",
+     "video_id": "YT3BxZNJlhs",
+     "options": [
+      {
+       "rank": "recommended",
+       "start": 896,
+       "end": 912,
+       "first_words": "vulnerabilities. Muscle loss. This is the most underrated",
+       "last_words": "method, you lose both fat and muscle. On",
+       "text": "vulnerabilities. Muscle loss. This is the most underrated biological trade-off and one that surprises almost everyone. When you lose weight quickly from any method, you lose both fat and muscle. On",
+       "why": "He opens the muscle loss section, calls it the most underrated trade-off and says losing weight quickly costs both fat and muscle, the line Dan agrees with next."
+      },
+      {
+       "rank": "alt1",
+       "start": 925,
+       "end": 942,
+       "first_words": "Emerging studies, include those in the Obesity Journal",
+       "last_words": "patients lose a meaningful percentage of lean mass.",
+       "text": "Emerging studies, include those in the Obesity Journal in 2023, show that without deliberate nutritional and resistant training support, some patients lose a meaningful percentage of lean mass.",
+       "why": "He cites 2023 studies showing some patients lose a meaningful percentage of lean mass, a concrete claim Dan's 75 and 25 percent number answers."
+      },
+      {
+       "rank": "alt2",
+       "start": 908,
+       "end": 926,
+       "first_words": "method, you lose both fat and muscle. On",
+       "last_words": "training becomes harder. Nausea can reduce food variety.",
+       "text": "method, you lose both fat and muscle. On GLP-1 medications, appetite drops dramatically. Protein intake often decreases. strength training becomes harder. Nausea can reduce food variety.",
+       "why": "His reasons the drugs cost muscle: appetite drops, protein falls and strength training gets harder, which Dan's protein and lifting advice answers; the sentence starts on the last word of the first caption line and it runs the full 18 seconds."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Clavicular Says Looks Matter More Than Personality. He's Right.",
+   "set": "Green screen",
+   "slots": [
+    {
+     "slot": "CLV-LOOKS",
+     "label": "Clavicular",
+     "source": "Clavicular on The Iced Coffee Hour",
+     "video_id": "PQaMZceY-0I",
+     "options": [
+      {
+       "rank": "recommended",
+       "start": 215,
+       "end": 233,
+       "first_words": "How much would you say looks matters compared",
+       "last_words": "hobbies vastly different if you're good-looking versus not.",
+       "text": "How much would you say looks matters compared to something like personality? um it matters so much more because your personality is correlated with your looks via the halo effect, right? So, people are going to perceive your personality, your interests, your hobbies vastly different if you're good-looking versus not.",
+       "why": "Asked how much looks matter compared to personality, he says they matter so much more, because people judge your personality, interests and hobbies by whether you are good-looking."
+      },
+      {
+       "rank": "alt1",
+       "start": 1448,
+       "end": 1461,
+       "first_words": "What is the halo effect? The halo effect",
+       "last_words": "interests, your hobbies based on your appearance, right?",
+       "text": "What is the halo effect? The halo effect is people receiving you better, your personality, your interests, your hobbies based on your appearance, right?",
+       "why": "Asked what the halo effect is, he says it is people receiving your personality, interests and hobbies better based on your appearance."
+      },
+      {
+       "rank": "alt2",
+       "start": 5341,
+       "end": 5349,
+       "first_words": "What do you think is more important to",
+       "last_words": "money, or looks? >> Looks. Absolutely. Without a question.",
+       "text": "What do you think is more important to get women? Do you think it's status, money, or looks? >> Looks. Absolutely. Without a question.",
+       "why": "Asked whether status, money or looks matters most for getting women, he answers looks, absolutely, without a question."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Clavicular Says Getting Lean Is 70% Of Softmaxxing. He's Right.",
+   "set": "Green screen",
+   "slots": [
+    {
+     "slot": "CLV-LEAN",
+     "label": "Clavicular",
+     "source": "Clavicular on The Iced Coffee Hour",
+     "video_id": "PQaMZceY-0I",
+     "options": [
+      {
+       "rank": "recommended",
+       "start": 1414,
+       "end": 1434,
+       "first_words": "So if you're able to really like shred",
+       "last_words": "of softmaxing is quite literally just being lean.",
+       "text": "So if you're able to really like shred yourself down to that 101 12 mark uh that facial angularity that you gain is going to serve you so well. So that's the easiest thing that you could do as well. And that's going to largely be about like 70% of what you could accomplish in terms of softmaxing is quite literally just being lean.",
+       "why": "He says shredding down to a low body fat gives you facial angularity, and that about 70% of what softmaxxing can do is quite literally just being lean."
+      },
+      {
+       "rank": "alt1",
+       "start": 1395,
+       "end": 1416,
+       "first_words": "What are the most basic things someone can",
+       "last_words": "typically sitting between 20 to 30% body fat.",
+       "text": "What are the most basic things someone can do to achieve maximum physical appearance? I would say that just as I mentioned being lean, low body fat percentage is going to give you such an advantage over the average especially in a country like America with the obesity rates right people are typically sitting between 20 to 30% body fat.",
+       "why": "Asked for the most basic thing you can do for your appearance, he says being lean, because low body fat puts you far ahead of the average American sitting at 20 to 30% body fat."
+      },
+      {
+       "rank": "alt2",
+       "start": 1377,
+       "end": 1391,
+       "first_words": "looks maxing is not a time inensive thing",
+       "last_words": "one being uh maintaining a low body fat.",
+       "text": "looks maxing is not a time inensive thing whatsoever. It's it's very simple. It's just a few principles to follow like you know the the main one being uh maintaining a low body fat.",
+       "why": "He says looksmaxxing is simple and comes down to a few principles, the main one being keeping a low body fat."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Clavicular Says Billionaires Use A GLP-1 To Stay Lean. You Should Too.",
+   "set": "Green screen",
+   "slots": [
+    {
+     "slot": "CLV-GLP1",
+     "label": "Clavicular",
+     "source": "Clavicular on The Iced Coffee Hour",
+     "video_id": "PQaMZceY-0I",
+     "options": [
+      {
+       "rank": "recommended",
+       "start": 3221,
+       "end": 3233,
+       "first_words": "What do you think all the billionaires are",
+       "last_words": "case of TRT and likely a GLB one.",
+       "text": "What do you think all the billionaires are doing to get shredded like a Jeff Bezos? Oh, they're usually doing TRT and OMIC. Jeff Bezos is a classic case of TRT and likely a GLB one.",
+       "why": "Asked how billionaires like Jeff Bezos get shredded, he says they are usually on TRT and Ozempic, and calls Bezos a classic case of TRT and likely a GLP-1."
+      },
+      {
+       "rank": "alt1",
+       "start": 3242,
+       "end": 3259,
+       "first_words": "And even myself, I've been using these things,",
+       "last_words": "guys kind of stole my talking points here.",
+       "text": "And even myself, I've been using these things, talking about them for the longest time now. I see like even moms like driving around minivans doing TikTok lives promoting GLP1s and Ompic. It's just quite comical to me because it's like, okay, you guys kind of stole my talking points here.",
+       "why": "He says he has used and talked about these drugs for the longest time, and that now even moms on TikTok promote GLP-1s and Ozempic, so they took his talking points."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Clavicular Recommends Retatrutide. He's Wrong.",
+   "set": "Green screen",
+   "slots": [
+    {
+     "slot": "CLV-RETA",
+     "label": "Clavicular",
+     "source": "Clavicular on The Iced Coffee Hour",
+     "video_id": "PQaMZceY-0I",
+     "options": [
+      {
+       "rank": "recommended",
+       "start": 6602,
+       "end": 6615,
+       "first_words": "tier thing. Peptides are going to be",
+       "last_words": "tier. It's really like reddish tide and melanotan.",
+       "text": "tier thing. Peptides are going to be [sighs] I'm going to put them B tier. It's really like reddish tide and melanotan.",
+       "why": "He finishes the money item, then puts peptides at B tier and says it is really retatrutide (captioned as reddish tide) and melanotan."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Clavicular Wants A Nose Job. He's Wrong.",
+   "set": "Green screen",
+   "slots": [
+    {
+     "slot": "CLV-NOSE",
+     "label": "Clavicular",
+     "source": "Clavicular on The Iced Coffee Hour",
+     "video_id": "PQaMZceY-0I",
+     "options": [
+      {
+       "rank": "recommended",
+       "start": 317,
+       "end": 328,
+       "first_words": "it's like I I know that uh the",
+       "last_words": "we call a phalo um would be rhinoplasty",
+       "text": "it's like I I know that uh the steps that are required to you know fix this what we call a phalo um would be rhinoplasty",
+       "why": "He says the step needed to fix what he calls his failo (captioned as phalo) would be rhinoplasty."
+      },
+      {
+       "rank": "alt1",
+       "start": 1575,
+       "end": 1593,
+       "first_words": "So, they basically make a cut on the",
+       "last_words": "like they actually have to break your jaw.",
+       "text": "So, they basically make a cut on the lower jaw and then move it forward and apply screws. Um, and same with the upper jaw. It's like a It's called a leaffort osteotomy. They cut along your interior nasal spine and then advance your jaw forward. It's like they actually have to break your jaw.",
+       "why": "He explains his planned double jaw surgery: they cut the lower jaw, move it forward and screw it in place, do the same to the upper jaw, and actually have to break your jaw."
+      },
+      {
+       "rank": "alt2",
+       "start": 1617,
+       "end": 1631,
+       "first_words": "How much is that going to cost?",
+       "last_words": "over like a 3 to 6 month period.",
+       "text": "How much is that going to cost? >> 35,000. What's the recovery like? >> It's it's pretty brutal, I'd say, for the first 3 weeks. Then after that, you just have residual swelling that kind of subsides over like a 3 to 6 month period.",
+       "why": "Asked what it (his jaw surgery) will cost he says 35,000, then says the recovery is pretty brutal for the first 3 weeks, with swelling for 3 to 6 months after."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Clavicular Hits His Face With A Hammer. He's Wrong.",
+   "set": "Green screen",
+   "slots": [
+    {
+     "slot": "CLV-HAMMER",
+     "label": "Clavicular",
+     "source": "Clavicular on The Iced Coffee Hour",
+     "video_id": "PQaMZceY-0I",
+     "options": [
+      {
+       "rank": "recommended",
+       "start": 5065,
+       "end": 5079,
+       "first_words": "Don't go around like me. Obviously, I'm a",
+       "last_words": "around telling people, no one's going to know,",
+       "text": "Don't go around like me. Obviously, I'm a public figure, so everyone knows what I do. Everyone knows that I hit myself in the face with a hammer. But as long as you're just not running around telling people, no one's going to know,",
+       "why": "He says he is a public figure so everyone knows he hits himself in the face with a hammer, and that if you do not tell people, no one will know."
+      },
+      {
+       "rank": "alt1",
+       "start": 5106,
+       "end": 5123,
+       "first_words": "So that's something that you have done and",
+       "last_words": "like 5 years? >> I bone smash after puberty.",
+       "text": "So that's something that you have done and you've noticed permanent >> Yeah, absolutely. >> Growth of those bones. >> Don't you think that could just be puberty though that you're like still developing your face through the next like 5 years? >> I bone smash after puberty.",
+       "why": "The host asks if he has done it and seen permanent growth of those bones, and whether that could just be puberty; he answers yes, absolutely, and that he bone smashes after puberty."
+      },
+      {
+       "rank": "alt2",
+       "start": 5152,
+       "end": 5167,
+       "first_words": "But I I I don't know like like",
+       "last_words": "thing in the world. It's pretty low risk.",
+       "text": "But I I I don't know like like do you hope more people bone smash? What is the the goal? As long as there's no like uh issues of head trauma, like have you properly brace your skull? I mean, it's not the worst thing in the world. It's pretty low risk.",
+       "why": "Asked if he hopes more people bone smash, he says that as long as there is no head trauma and you brace your skull, it is not the worst thing in the world and is pretty low risk."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Clavicular Says Get A Tan. He's Right.",
+   "set": "Green screen",
+   "slots": [
+    {
+     "slot": "CLV-TAN",
+     "label": "Clavicular",
+     "source": "Clavicular on The Iced Coffee Hour",
+     "video_id": "PQaMZceY-0I",
+     "options": [
+      {
+       "rank": "recommended",
+       "start": 1433,
+       "end": 1449,
+       "first_words": "And the next thing you could do that's",
+       "last_words": "coloring for um you know, female sexual attraction.",
+       "text": "And the next thing you could do that's uh a really big one is uh being tan, right? That's another health indicator. And there's a lot of sexual preference surveys that suggest that this is the most optimal uh coloring for um you know, female sexual attraction.",
+       "why": "He says the next really big thing you can do is being tan, which he calls a health indicator and the coloring that surveys suggest women find most attractive."
+      },
+      {
+       "rank": "alt1",
+       "start": 3303,
+       "end": 3311,
+       "first_words": "What about just soft maxing? What would you",
+       "last_words": "would be uh probably the next best thing.",
+       "text": "What about just soft maxing? What would you say is the best thing we can do? say that getting a tan would be uh probably the next best thing.",
+       "why": "Asked for the best softmaxxing step the hosts can take, he says getting a tan would probably be the next best thing."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Clavicular Says Sunscreen Keeps You Looking Young. He's Right.",
+   "set": "Green screen",
+   "slots": [
+    {
+     "slot": "CLV-SUN",
+     "label": "Clavicular",
+     "source": "Clavicular on The Iced Coffee Hour",
+     "video_id": "PQaMZceY-0I",
+     "options": [
+      {
+       "rank": "recommended",
+       "start": 3703,
+       "end": 3714,
+       "first_words": "Um, so you know, going with proper sunscreen",
+       "last_words": "you age quite better than your average person.",
+       "text": "Um, so you know, going with proper sunscreen is is another thing that you could do that really will make sure you age quite better than your average person.",
+       "why": "He says going with proper sunscreen is another thing that will make sure you age better than the average person."
+      },
+      {
+       "rank": "alt1",
+       "start": 3691,
+       "end": 3704,
+       "first_words": "Um so you need SPF with PA+++",
+       "last_words": "That's why they generally age better than us,",
+       "text": "Um so you need SPF with PA+++ which is a another mechanism of protection. It's typically found in like Korean sunscreen brands. That's why they generally age better than us,",
+       "why": "He says you need SPF with PA+++, which is typically found in Korean sunscreen brands, and that this is why they generally age better."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Clavicular Says Supplements Change Your Skin. He's Right.",
+   "set": "Green screen",
+   "slots": [
+    {
+     "slot": "CLV-SKIN",
+     "label": "Clavicular",
+     "source": "Clavicular on The Iced Coffee Hour",
+     "video_id": "PQaMZceY-0I",
+     "options": [
+      {
+       "rank": "recommended",
+       "start": 3478,
+       "end": 3496,
+       "first_words": "more so could certainly benefit from like, you",
+       "last_words": "blend. You could usually buy those on Amazon.",
+       "text": "more so could certainly benefit from like, you know, taking things like carotenoids because you really lack like their reddish like undertones. That's like a health indicator that indicates like proper blood flow. Um would be certainly something that's good. Like a corotenoid blend. You could usually buy those on Amazon.",
+       "why": "He tells the hosts they could benefit from taking carotenoids because they lack reddish undertones, which he calls a sign of proper blood flow, and says you can buy a carotenoid blend on Amazon."
+      },
+      {
+       "rank": "alt1",
+       "start": 3507,
+       "end": 3525,
+       "first_words": "Um you've probably heard of like you know",
+       "last_words": "over the counter. That's like softmax normmy stuff.",
+       "text": "Um you've probably heard of like you know undertones carotenoids. No. Like eating sweet >> eating like different fruits like induce different uh colors. You never heard about this? >> Never. >> Okay. Well, yeah. So, you could either do do that from foods or just taking supplements all over the counter. That's like softmax normmy stuff.",
+       "why": "He says eating different fruits brings out different colors, and that you can get carotenoids from foods or from over the counter supplements."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Clavicular Says Hair Is Life. He's Right.",
+   "set": "Green screen",
+   "slots": [
+    {
+     "slot": "CLV-HAIR",
+     "label": "Clavicular",
+     "source": "Clavicular on The Iced Coffee Hour",
+     "video_id": "PQaMZceY-0I",
+     "options": [
+      {
+       "rank": "recommended",
+       "start": 6569,
+       "end": 6578,
+       "first_words": "Yeah. Hairstyle. Yeah. Hair transplant. Hair is life.",
+       "last_words": "you have no hair, you have no life.",
+       "text": "Yeah. Hairstyle. Yeah. Hair transplant. Hair is life. And if you have no hair, you have no life.",
+       "why": "Going down his tier list he reaches hair transplant and says hair is life, and if you have no hair, you have no life."
+      },
+      {
+       "rank": "alt1",
+       "start": 3364,
+       "end": 3386,
+       "first_words": "your hairline's receding a little bit.",
+       "last_words": "over to DT. take minoxidil to regrow everything.",
+       "text": "your hairline's receding a little bit. >> Yeah. So, I would start with like a hairline a hair loss protocol would be a good place. >> I use finasteride. >> You use finasteride. Okay. Well, even dut might be a little bit better. There's less chance of like the libido related issues. So, I would switch over to DT. take minoxidil to regrow everything.",
+       "why": "He tells a host his hairline is receding, says to start a hair loss protocol, switch from finasteride to dutasteride (he says dut), and take minoxidil to regrow everything."
+      },
+      {
+       "rank": "alt2",
+       "start": 4844,
+       "end": 4858,
+       "first_words": "Yeah. But what about like Jason Staithm? Like",
+       "last_words": "would look better with uh like actually hair,",
+       "text": "Yeah. But what about like Jason Staithm? Like just looks great with a shaved head. >> Well, he's got a top percentile face, right? Of course he looks great with a shaved head. >> The Rock looks great with a shaved head. >> Great faces. It's like but they would look better with uh like actually hair,",
+       "why": "Told that Jason Statham and The Rock look great with shaved heads, he says they have great faces but would look better with actual hair."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Clavicular Says Groom Your Eyebrows. He's Right.",
+   "set": "Green screen",
+   "slots": [
+    {
+     "slot": "CLV-BROWS",
+     "label": "Clavicular",
+     "source": "Clavicular on The Iced Coffee Hour",
+     "video_id": "PQaMZceY-0I",
+     "options": [
+      {
+       "rank": "recommended",
+       "start": 6562,
+       "end": 6569,
+       "first_words": "business setting stuff, but eyebrow grooming.",
+       "last_words": "don't get me wrong, it's just like comparatively.",
+       "text": "business setting stuff, but eyebrow grooming. Like these are all good. Like don't get me wrong, it's just like comparatively.",
+       "why": "He finishes the eye contact item, then names eyebrow grooming and says these are all good, it is just a matter of comparison."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Cortisol Belly Is Real, But TikTok Has It Wrong",
+   "set": "Dark green backdrop",
+   "slots": [
+    {
+     "info": "The cortisol cocktail TikTok. Main: @ebbymoyer (3.5 million views). Backup: @jezebel511. TikTok does not play in the player here, so these open in a new tab. Say in your reply if you want the backup.",
+     "links": [
+      [
+       "Main",
+       "https://www.tiktok.com/@ebbymoyer/video/7260977070203931950"
+      ],
+      [
+       "Backup",
+       "https://www.tiktok.com/@jezebel511/video/7525072235103554846"
+      ]
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -60,3 +60,17 @@ the Reaction Clips document, add the new B-roll shots to the B-roll list, and re
 
 Trap: `review_server.py` treats any quoted string ending in .jpg, .js, .html and so on as a local file, even inside a
 script. Build remote image paths in pieces (`"/hqdefault" + ".jpg"`) or the server refuses to start.
+
+## Reaction clip review page (2026-10-12, waiting for Dan)
+
+`http://localhost:8875/` (managed by `review_server.py`, source `review/1017-reaction-clips/`). 29 clips, each with my
+pick and up to two alternates, 73 options in all. The data is `Docs/SHOOT_1017_REACTION_CLIP_PICKS.json`.
+
+When Dan replies with his choices: put the exact start and end of each chosen clip into the `[PLAY CLIP ...]` cue of
+the shoot doc (direct edits: they are filming directions) and into the Reaction Clips Google Doc, replacing every
+"pick 10 to 30 seconds". Nine Clavicular clips also move by a second or two (ends were cutting off a word).
+
+Six script lines the clips do not back up, shown to him on the page for his call: Sharon Osbourne (42 pounds in a
+year, not four months), Meghan Trainor (the two quotes are not in the ET video), Charles Barkley (he does not say he
+regained it), Oprah (15 pounds, and no "a lifetime thing"), Bryan Johnson's plasma (he does not say he stopped), and
+the doctor short (the doctor makes the script's own point about protein and strength training).

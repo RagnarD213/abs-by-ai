@@ -285,4 +285,13 @@ has reaction videos.
 - Check before upload, in code: every video id, link, time range and quote in the list is found in the shoot doc
   text, and every YouTube id answers at `https://www.youtube.com/oembed?url=...&format=json` (200 and a title).
 - Upload and share it the same way as the other documents. It is not a teleprompter script: Drive only.
+- **Review page with my pick and alternates (Dan, 2026-10-12):** "a review page with all of the clips you recommend
+  and one or two alternatives". How it was made: captions for every source video with `youtube_transcript_api`
+  (start time per line); one helper agent per video group reads the script and the captions and returns, per clip,
+  a pick and up to two alternates with whole-second start and end, first and last words, the words, and a one-line
+  reason; `reference/reaction_clips_page.py page.json out_dir` builds the page (three cards per row, one shared
+  YouTube player that plays start to end, "Use this one" buttons that write the reply); serve it with
+  `_shared/review_server.py PORT out_dir`. Tell each helper to report where the script says something the clip does
+  not: on 10-12 that found six lines. If an alternate carries the line Dan reacts to better than the script's
+  window does, make it the pick and say so under "What I decided".
 
