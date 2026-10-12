@@ -73,7 +73,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [DS-11](DS-11-why-you-must-weigh-yourself-daily.md) | Why You Must Weigh Yourself Daily | C1660 | IN PROGRESS | S |
 | [DS-12](DS-12-top-3-ways-to-looksmax.md) | Top 3 Ways To Looksmax | C1660 | FINALIZED | S |
 | [DS-13](DS-13-number-1-change-to-get-abs-at-40.md) | The #1 Change I Made To Get Abs At 40 | C1661 | IN PROGRESS | S |
-| [DS-14](DS-14-3-ways-to-reduce-alcohol.md) | 3 Ways To Reduce Alcohol | C1662 | IN PROGRESS | S |
+| [DS-14](DS-14-3-ways-to-reduce-alcohol.md) | 3 Ways To Reduce Alcohol | C1662 | FINALIZED | S |
 | [DS-15](DS-15-does-jiu-jitsu-get-you-abs.md) | Does Jiu Jitsu Get You Abs? | C1662 | IN PROGRESS | S |
 | [DS-16](DS-16-how-to-lose-the-last-ten-pounds.md) | How To Lose The Last Ten Pounds Of Fat | C1662 | IN PROGRESS | S |
 
@@ -86,10 +86,10 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [DS-19](DS-19-how-to-use-battle-ropes.md) | How To Use Battle Ropes | C1671 | IN PROGRESS | S |
 | [DS-20](DS-20-five-levels-of-pushups.md) | The Five Levels Of Pushups | C1671 | IN PROGRESS | S |
 | [DS-21](DS-21-how-to-do-hammer-curls.md) | How To Do Hammer Curls | C1672 | IN PROGRESS | S |
-| [DS-22](DS-22-how-to-use-the-ab-wheel.md) | How To Use The Ab Wheel | C1672 | IN PROGRESS | S |
+| [DS-22](DS-22-how-to-use-the-ab-wheel.md) | How To Use The Ab Wheel | C1672 | FINALIZED | S |
 | [DS-23](DS-23-how-to-do-side-laterals.md) | How To Do Side Laterals | C1672 | FINALIZED | S |
-| [DS-24](DS-24-how-to-do-rear-delt-flys.md) | How To Do Rear Delt Flys | C1672 | IN PROGRESS | S |
-| [DS-25](DS-25-how-to-do-m100s.md) | How To Do M100s | C1672 | IN PROGRESS | S |
+| [DS-24](DS-24-how-to-do-rear-delt-flys.md) | How To Do Rear Delt Flys | C1672 | FINALIZED | S |
+| [DS-25](DS-25-how-to-do-m100s.md) | How To Do M100s | C1672 | FINALIZED | S |
 
 ### 1C · Organic long-form (9)
 
