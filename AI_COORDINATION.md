@@ -123,7 +123,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **Video 5 setup - 2026-10-11, Claude.** Queue blocked (200 cap). Task `abs40-vs-25-blotato-queue` queues Jan 3 2027 on Oct 12. `Docs/ABS40VS25_SETUP_RECEIPT_20261011.md`.
 
-**RO-20/B/C R3 2026-10-12.** `Handoffs/handoff-20261011-ro20-round3-pickups-and-first-minutes.md`
+**RO-20/B/C R3b 2026-10-12.** `Handoffs/handoff-20261012-ro20-round3b-pickup-rerecord-first-minutes-films.md`
 
 **RO-19 R3 REVIEW 2026-10-12.** http://127.0.0.1:8866/
 

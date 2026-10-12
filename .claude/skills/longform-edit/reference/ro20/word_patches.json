@@ -1346,5 +1346,245 @@
     78.68
    ]
   ]
+ },
+ {
+  "t0": 3974.296,
+  "t1": 3974.304,
+  "why": "piece v1so1: 'Alright' moved from 3974.08-3974.52 to the lav onset 3974.28 (first word of video 1's sign-off)",
+  "words": [
+   [
+    "Alright",
+    3974.28,
+    3974.52
+   ]
+  ]
+ },
+ {
+  "t0": 3992.506,
+  "t1": 3992.514,
+  "why": "piece v1so2: 'this' moved from 3992.34-3992.68 to the lav onset 3992.49 (first word after the cut 'Not,'); capital, it opens the sentence once 'Not,' is cut",
+  "words": [
+   [
+    "This",
+    3992.49,
+    3992.68
+   ]
+  ]
+ },
+ {
+  "t0": 3994.176,
+  "t1": 3994.184,
+  "why": "piece v1so2: 'Not' (3993.92-3994.44, a 0.22 s pause folded in) moved to its lav onset 3994.24; lower case, it is mid-sentence",
+  "words": [
+   [
+    "not",
+    3994.24,
+    3994.44
+   ]
+  ]
+ },
+ {
+  "t0": 4011.036,
+  "t1": 4011.044,
+  "why": "piece v1so3: 'Once' moved from 4010.80-4011.28 to the lav onset 4011.03 (first word of the kept restart)",
+  "words": [
+   [
+    "Once",
+    4011.03,
+    4011.28
+   ]
+  ]
+ },
+ {
+  "t0": 4023.386,
+  "t1": 4023.394,
+  "why": "piece v1so4: 'An' moved from 4023.00-4023.78 to the lav onset 4023.62 (first word of the kept restart; its old midpoint fell before the cut-in, so the word was dropped)",
+  "words": [
+   [
+    "An",
+    4023.62,
+    4023.78
+   ]
+  ]
+ },
+ {
+  "t0": 4046.416,
+  "t1": 4046.424,
+  "why": "piece v1so4: 'time.' ends at 4046.28 on the lav (the full pass stretched it to 4046.74)",
+  "words": [
+   [
+    "time.",
+    4046.1,
+    4046.3
+   ]
+  ]
+ },
+ {
+  "t0": 3996.326,
+  "t1": 3996.334,
+  "why": "sign-off v1so2: comma (medium.en window run alone: 'pasted on. A real image of you')",
+  "words": [
+   [
+    "on,",
+    3996.22,
+    3996.44
+   ]
+  ]
+ },
+ {
+  "t0": 3996.606,
+  "t1": 3996.614,
+  "why": "sign-off v1so2: 'a' (3996.44-3996.78, a pause folded in) moved to its place on the verify window",
+  "words": [
+   [
+    "a",
+    3996.7,
+    3996.8
+   ]
+  ]
+ },
+ {
+  "t0": 3999.516,
+  "t1": 3999.524,
+  "why": "sign-off v1so2: sentence end (verify window), so the reframe cut lands between the sentences, not inside 'a real image of you'",
+  "words": [
+   [
+    "abs.",
+    3999.34,
+    3999.7
+   ]
+  ]
+ },
+ {
+  "t0": 4000.036,
+  "t1": 4000.044,
+  "why": "sign-off v1so2: 'Once' (3999.70-4000.38, the pause folded in) moved to the verify window's 4000.00",
+  "words": [
+   [
+    "Once",
+    4000.0,
+    4000.38
+   ]
+  ]
+ },
+ {
+  "t0": 4002.826,
+  "t1": 4002.834,
+  "why": "sign-off v1so2: comma (verify window)",
+  "words": [
+   [
+    "abs,",
+    4002.68,
+    4002.98
+   ]
+  ]
+ },
+ {
+  "t0": 4003.246,
+  "t1": 4003.254,
+  "why": "sign-off v1so2: 'you'll' (4002.98-4003.52, a 0.28 s pause folded in) moved to its lav onset 4003.25",
+  "words": [
+   [
+    "you'll",
+    4003.25,
+    4003.52
+   ]
+  ]
+ },
+ {
+  "t0": 4012.406,
+  "t1": 4012.414,
+  "why": "sign-off v1so3: comma, one sentence (verify window)",
+  "words": [
+   [
+    "happen,",
+    4012.28,
+    4012.54
+   ]
+  ]
+ },
+ {
+  "t0": 4015.906,
+  "t1": 4015.914,
+  "why": "sign-off v1so3: sentence end (verify window)",
+  "words": [
+   [
+    "goal.",
+    4015.76,
+    4016.06
+   ]
+  ]
+ },
+ {
+  "t0": 4016.276,
+  "t1": 4016.284,
+  "why": "sign-off v1so3: 'We' (4016.06-4016.50, the pause folded in) moved to its lav onset",
+  "words": [
+   [
+    "We",
+    4016.38,
+    4016.5
+   ]
+  ]
+ },
+ {
+  "t0": 4019.386,
+  "t1": 4019.394,
+  "why": "sign-off v1so3: sentence end; the word ends at 4019.62 on the lav",
+  "words": [
+   [
+    "program.",
+    4019.12,
+    4019.62
+   ]
+  ]
+ },
+ {
+  "t0": 4045.226,
+  "t1": 4045.234,
+  "why": "sign-off v1so4: comma (verify window)",
+  "words": [
+   [
+    "guys,",
+    4045.06,
+    4045.4
+   ]
+  ]
+ },
+ {
+  "t0": 4012.656,
+  "t1": 4012.664,
+  "why": "sign-off v1so3: lower case after the comma (one sentence)",
+  "words": [
+   [
+    "we",
+    4012.54,
+    4012.78
+   ]
+  ]
+ },
+ {
+  "t0": 4004.356,
+  "t1": 4004.364,
+  "why": "sign-off v1so2 (last word kept): 'motivation' ends at 4004.69 on the lav (4004.52 in the full pass); full stop because the piece ends here: the pitch falls to its sentence-end level (98 Hz) and 'to make you happen' after it is cut",
+  "words": [
+   [
+    "motivation.",
+    4004.2,
+    4004.69
+   ]
+  ]
+ },
+ {
+  "t0": 4004.666,
+  "t1": 4004.674,
+  "why": "sign-off: 'to' (4004.52-4004.82 in the full pass) starts at 4004.72 on the lav, after the cut at 4004.70; it is not in the cut",
+  "words": [
+   [
+    "to",
+    4004.72,
+    4004.82
+   ]
+  ]
  }
 ]

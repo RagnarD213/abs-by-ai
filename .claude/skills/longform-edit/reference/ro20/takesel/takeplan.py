@@ -120,6 +120,13 @@ RANGES = [
  ("sum2", 3897.04, 3916.68, "retake of 'You should be investing $500 to $1000 in your health every month' (the first ended on a slip, 'on those lips')"),
  ("sum3", 3923.78, 3962.66, "second start (the first stopped at 'a home gym,')"),
  ("cta", 4062.28, 4126.70, "take 2 of 2 of the close, the last and clean, one unbroken run (take 1, 3966 to 4046 s, has three restarts inside it)"),
+ # ---- video 1's own sign-off (round 3, 2026-10-12): the roll's OTHER complete close, take 1 (roll 3974 to 4046 s), APPENDED after
+ # 'cta' so no frame of the 53 minute timeline (0 to 3184.225 s) moves. Its three internal restarts are cut by the take rule
+ # (the last clean run of each repeated line). Every in / out is measured on the lav (forced), words checked on medium.en windows run alone.
+ ("v1so1", 3974.28, 3990.18, "video 1 sign-off, part 1 of 4. Take 1 of the close, from its second 'Alright guys' (the first, 3966.2 to 3973.0 s, he abandoned at 'in the home workout in'). Ends on 'AI will make a image of your dream physique.' The stray 'Not,' after it (lav 3990.95 to 3991.46 s) is cut: he restarts the thought with 'this will be an image of you, not ...'", 3990.30, 3974.20),
+ ("v1so2", 3992.49, 4004.69, "video 1 sign-off, part 2 of 4: 'This will be an image of you ... Once you see how amazing you look with six-pack abs, you'll be filled with motivation.' Only take of these two sentences. Ends on 'motivation' (his pitch falls to its sentence-end level there, 98 Hz; cut in the 30 ms closure before 'to', lav 4004.70 s). Left out after it: 'to make you happen' (three Whisper passes hear 'you' for 'it': a slip, and the next sentence says 'make it happen' anyway), then lav 4005.62 to 4010.06 s, 'And once you're motivated to make it happen, we have a variety of AI tools with you', the abandoned first run of the next sentence", 4004.70, 3992.41),
+ ("v1so3", 4011.03, 4019.62, "video 1 sign-off, part 3 of 4: the restart, 'Once you're motivated to make it happen, we have a variety of AI tools that you can use to achieve your goal. We have an AI trainer ... customized workout program'. Take 2 of 2 of the sentence, the last and clean. In 0.15 s before 'Once' (clean room, so the gap after 'motivation.' is a normal sentence gap). What follows (lav 4019.89 to 4022.83 s: 'an AI nutritionist which will design a custom meal print') is the abandoned first run of the nutritionist line and is cut", 4019.73, 4010.88),
+ ("v1so4", 4023.62, 4046.30, "video 1 sign-off, part 4 of 4: the restart, 'An AI nutritionist which will design a custom meal plan for you ...' through 'Thank you for watching today's video guys and I'll see you next time.' Take 2 of 2 of the nutritionist line, the last and clean. Out 0.56 s after 'time' (lav 4046.28 s): he holds his look at the camera until about 4047.3 s, then says 'Do a couple more takes of that close' (4047.6 s)", 4046.84, 4023.54),
 ]
 SECTIONS = {
  "intro": "Reason 1: The Halo Effect (Looking Good Makes You More Money)",
@@ -153,4 +160,5 @@ SECTIONS = {
  "beyond1": "Beyond The List: Red Light, Peptides And Bryan Johnson",
  "sum1": "Summary: Stop Being Cheap With Your Health",
  "cta": "Take The First Step: See Yourself With Abs At AbsByAI.com",
+ "v1so1": "APPENDED, Not Part Of The 53 Minute Timeline: Video 1's Own Sign-Off (The Roll's Other Closing Take)",
 }

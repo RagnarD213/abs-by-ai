@@ -86,8 +86,21 @@
   },
   {
    "item": "Budget for video 1",
-   "verdict": "NOT ANSWERED (asked twice)",
-   "next": "video 1 is at $4.99 of $5.00; the round 3 starter prompt has a line for his answer. Spend nothing on video 1 until he answers, except that his T3 pick is a direction to make the intro"
+   "verdict": "answered",
+   "dan": "Video 1 AI budget: $12.",
+   "scope": "video 1 (RO-20) AI generation cap raised from $5 to $12, all rounds counted; J1 and J2 retakes, the T3 intro and spare retakes fit under it",
+   "recorded": "2026-10-12, round 3 execution session starter prompt"
+  },
+  {
+   "item": "Round 3 scope",
+   "verdict": "direction",
+   "dan": "Check the pickup audio first and tell me if any pickup needs a re-record. Then lay the pickups in, make the piggy bank intro and the job clips, show me the first minute of videos 2 and 3 and only what else is new, then build the three full films only when nothing is pending."
+  },
+  {
+   "item": "Pickup recording of 2026-10-12 (ffmpeg avfoundation capture)",
+   "verdict": "REJECTED BY THE EDITOR'S CHECK, re-record requested",
+   "evidence": "pickups_yeti_20261012.wav: every 512-frame block written twice; 13,293,568 unique frames = 276.9 s for about 320 s of wall time (file birth to last write), a break at 13.7 % of block joins inside speech (about 11 a second). Best repair (duplicates removed, 1 ms fades at each break) judged blind by gemini-3.1-pro-preview against the film voice: 2/10 against 9/10, 'constant robotic flutter, digital choppiness', not usable as an insert. pickups_all_takes_48k_mono.wav keeps the duplicated blocks (its pitch reads 93.9 Hz, the block rate).",
+   "next": "re-record with _shared/audio/rec_mic.swift into Media/longform-raw/ro20-pickups/rerecord_20261012/"
   }
  ],
  "motion_authorized": [
@@ -116,8 +129,8 @@
   "three-levels card",
   "B-roll grades (round2/broll_grades.json)",
   "A1 silent version (round3/motion/A1-t2.mp4)",
-  "intro concept T3 (frames)",
-  "pickup recording"
+  "intro concept T3 (frames)"
  ],
- "reply_2_recorded": "2026-10-12"
+ "reply_2_recorded": "2026-10-12",
+ "video1_ai_cap_usd": 12.0
 }

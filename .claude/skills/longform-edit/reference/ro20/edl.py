@@ -325,6 +325,18 @@ PIECES = [
  ("cta", "C1511", "Alright guys, that's today's video. If", "in the next video.", 4062.3,
   "Alright guys, that's today's video. If you want to get started building your dream body and ... you for watching guys, and I'll see you in the next video.",
   "take 2 of 2 of the close, the last and clean, one unbroken run (take 1, 3966 to 4046 s, has three restarts inside it)"),
+ ("v1so1", "C1511", "Alright guys, that's today's video. If", "of your dream physique.", 3974.3,
+  "Alright guys, that's today's video. If you wanna take the first step to getting in shape, ... buttons, and bam, AI will make a image of your dream physique.",
+  "video 1 sign-off, part 1 of 4. Take 1 of the close, from its second 'Alright guys' (the first, 3966.2 to 3973.0 s, he abandoned at 'in the home workout in'). Ends on 'AI will make a image of your dream physique.' The stray 'Not,' after it (lav 3990.95 to 3991.46 s) is cut: he restarts the thought with 'this will be an image of you, not ...'", 3990.3, 3974.2),
+ ("v1so2", "C1511", "This will be an image of", "be filled with motivation.", 3992.5,
+  "This will be an image of you, not an image of somebody else with your head ... amazing you look with six -pack abs, you'll be filled with motivation.",
+  "video 1 sign-off, part 2 of 4: 'This will be an image of you ... Once you see how amazing you look with six-pack abs, you'll be filled with motivation.' Only take of these two sentences. Ends on 'motivation' (his pitch falls to its sentence-end level there, 98 Hz; cut in the 30 ms closure before 'to', lav 4004.70 s). Left out after it: 'to make you happen' (three Whisper passes hear 'you' for 'it': a slip, and the next sentence says 'make it happen' anyway), then lav 4005.62 to 4010.06 s, 'And once you're motivated to make it happen, we have a variety of AI tools with you', the abandoned first run of the next sentence", 4004.7, 3992.41),
+ ("v1so3", "C1511", "Once you're motivated to make it", "a customized workout program.", 4011.0,
+  "Once you're motivated to make it happen, we have a variety of AI tools that you ... AI trainer which is going to make you a customized workout program.",
+  "video 1 sign-off, part 3 of 4: the restart, 'Once you're motivated to make it happen, we have a variety of AI tools that you can use to achieve your goal. We have an AI trainer ... customized workout program'. Take 2 of 2 of the sentence, the last and clean. In 0.15 s before 'Once' (clean room, so the gap after 'motivation.' is a normal sentence gap). What follows (lav 4019.89 to 4022.83 s: 'an AI nutritionist which will design a custom meal print') is the abandoned first run of the nutritionist line and is cut", 4019.73, 4010.88),
+ ("v1so4", "C1511", "An AI nutritionist which will design", "see you next time.", 4023.6,
+  "An AI nutritionist which will design a custom meal plan for you based on your before ... you for watching today's video guys, and I'll see you next time.",
+  "video 1 sign-off, part 4 of 4: the restart, 'An AI nutritionist which will design a custom meal plan for you ...' through 'Thank you for watching today's video guys and I'll see you next time.' Take 2 of 2 of the nutritionist line, the last and clean. Out 0.56 s after 'time' (lav 4046.28 s): he holds his look at the camera until about 4047.3 s, then says 'Do a couple more takes of that close' (4047.6 s)", 4046.84, 4023.54),
 ]
 def norm(s): return re.sub(r"[^a-z0-9]", "", s.lower())
 def find(roll, phrase, after, last=False):

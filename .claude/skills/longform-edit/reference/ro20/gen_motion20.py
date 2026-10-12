@@ -6,9 +6,9 @@ round2/motion/). Never overwrites a take. Round 3: A3's END frame is the round 1
 import base64, hashlib, io, json, os, sys, time, urllib.request, urllib.error
 from PIL import Image
 W = "/Volumes/Extreme/_edit_work/ro20"; M = f"{W}/round3/motion"; MODEL = "google/veo-3.1-fast"; USD_S = 0.10
-D = json.load(open(f"{W}/round3-plan/decisions.json")); DUR = {"A1": 8, "A2": 6, "A3": 6, "J1": 8, "J2": 4}
+D = json.load(open(f"{W}/round3-plan/decisions.json")); DUR = {"A1": 8, "A2": 6, "A3": 6, "J1": 8, "J2": 4, "T3": 8}
 END = {}
-FULL = {l.split(None, 1)[1].strip(): l.split()[0] for hf in ("round1/round1-hashes.sha256", "round2/round2-hashes.sha256") for l in open(f"{W}/{hf}") if l.strip()}
+FULL = {l.split(None, 1)[1].strip(): l.split()[0] for hf in ("round1/round1-hashes.sha256", "round2/round2-hashes.sha256", "round3/round3-hashes.sha256") for l in open(f"{W}/{hf}") if l.strip()}
 def pair(cid):
     """the frame pair Dan approved: must be listed in decisions.json motion_authorized and match its recorded sha256"""
     assert cid in D["motion_authorized"], f"{cid}: motion is not authorized in decisions.json"
@@ -32,6 +32,7 @@ if __name__ == "__main__":
     cid, tag = sys.argv[1], sys.argv[2]; dur = int(sys.argv[3]) if len(sys.argv) > 3 else DUR[cid]
     out = f"{M}/{tag}.mp4"; assert not os.path.exists(out), f"{out} exists: pick a new tag"
     (s, sh), (e, eh) = pair(cid)
+    if os.environ.get("FROM_END"): (s, sh) = (e, eh); os.environ["NOLAST"] = "1"      # round 3: start on the approved END frame, no last frame (J2: Veo kept giving the bystander a handshake)
     pn = os.environ.get("PROMPT", cid); prompt = open(f"{M}/{pn}.txt").read().strip(); nf = f"{M}/{pn}.neg.txt"; neg = open(nf).read().strip() if os.path.exists(nf) else None
     token = [l.split("=", 1)[1].strip().strip("\"'") for l in open(os.path.expanduser("~/.absbyai-secrets.env")) if l.startswith("REPLICATE_API_TOKEN=")][0]
     H = {"Authorization": "Bearer " + token, "Content-Type": "application/json", "User-Agent": "Mozilla/5.0"}

@@ -132,3 +132,33 @@ file: `cards20.py` (full-screen cards as pre-rendered plan clips), `brollgrade20
   His voice came back by rebuilding a float from bytes 4 and 5 of every 6-byte frame (top two bytes of the float; the rest is lost,
   which is far below the room noise): `pickups_all_takes_48k_mono.wav`. Next time record with QuickTime or an AVAudioRecorder script,
   and prove the capture by transcribing a spoken test line before the real take.
+
+## Round 3 execution (2026-10-12): the pickup recording was unusable, three AI clips, video 1's sign-off
+
+Scripts added: `pickups20.py` (the full-screen pickup segments, driven only by a words file), `pickup_watch.py` (transcribes `rec_mic` segments
+and stops the recorder once every pickup was heard twice), `signoff_v1.py` and `plan_parts/p08_signoff_v1.py` (video 1's own sign-off, appended
+after `cta`), `page4_20.py` (the round 3 page, port 8868).
+
+- **A "recovered" recording that Whisper transcribes can still be garbage. Test the samples, not the words.** The `ffmpeg -f avfoundation` capture
+  of the Yeti wrote every 512-frame block twice and dropped about one block in seven. Three checks that each caught it in seconds: (1) mean
+  second difference of the waveform by sample index modulo 512 (one offset read 12 times the others); (2) correlation of consecutive 512 blocks
+  (half of all pairs at 1.00); (3) the autocorrelation pitch of the file read 93.9 Hz, which is 48000/512, not a voice. Unique samples against
+  wall time (file birth to last write) gave the loss: 276.9 s for about 320 s. The best repair (duplicates out, 1 ms fades at each break) scored
+  2 of 10 against 9 of 10 for the film voice in a blind Gemini listen. Record with `_shared/audio/rec_mic.swift` and check its last line
+  (samples against wall time): 2700.00 s in 2700.05 s here.
+- **`pickup_watch.py` needs the project ffmpeg on PATH** (Whisper shells out to `ffmpeg`); the first watcher died on its first segment while the
+  recorder kept running. The mic also hears videos and dictation from Dan's other sessions: delete every segment that holds no pickup.
+- **Do not leave a hot mic waiting for 45 minutes.** Dan did not come to this session inside the window. Ask him to say "record", then start it.
+- **Veo E005 ("flagged as sensitive") on a retake prompt:** the prompt that called a man "heavyset" five times and said he "is ignored" was refused
+  (no charge). The same scene described by clothing ("the man in the rumpled grey suit") went through.
+- **When the bystander keeps taking a turn, start on the END frame.** Two J2 takes from the start and end pair had the heavy man join the
+  handshake whatever the prompt said. `FROM_END=1` (start image = the approved END frame, no last frame) with "they keep the same handshake
+  going" gave a take in which he only looks over and then down. Cost of the lesson: $0.80.
+- **Fitting an AI title take to a sentence:** trim the head and speed it up a little (`setpts=PTS/1.12`, pre-rendered to 29.97) so the finished
+  title holds over two seconds; the plan has no speed field, so the retimed file is the plan source (`T3-t1.x112.mp4`).
+- **Appending a sign-off for one of three videos:** new pieces go AFTER the last piece so no existing output time moves; prove it (shots, words,
+  framing segments, plan times, manifest entries all identical) before rendering. `film_voice.wav` does not cover the appended range until it is
+  rebuilt, and anything that reads the last frame as "the end of the film" now gets 54:04.
+- **The bass-lift rule on a voice Dan already locked:** read the tone row's lowest band on the last gated file first. Voice 4 here read 5.93
+  against the reference's 5.4, so nothing was added.
+- **`pickups20.py --j1` takes an absolute path** (a relative one is read as a clip-library ID), and `--j1-in 6.3` shows the handshake part of J1-t3.
