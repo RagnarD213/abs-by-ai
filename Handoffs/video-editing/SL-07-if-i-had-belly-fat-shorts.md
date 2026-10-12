@@ -1,6 +1,8 @@
 # SL-07: Shorts from "If I Had Belly Fat, Here's How I'd Lose It In 90 Days" (RO-16)
 
-**List 2 · shorts from a finished long-form · READY.** Read `00-RULES.md` first. Added 2026-10-02 when RO-16 was set up for release.
+**List 2 · shorts from a finished long-form · IN PROGRESS.** Read `00-RULES.md` first. Added 2026-10-02 when RO-16 was set up for release.
+
+**2026-10-12: Dan picked five segments (A, B, D, E, F). Continue from `Handoffs/handoff-20261012-sl07-belly-fat-shorts-pickups-and-build.md`, not from the starter prompts below.**
 
 ## Source
 `claude edited long form content/09 - If I Had Belly Fat, Here's How I'd Lose It In 90 Days/If I Had Belly Fat, Here's How I'd Lose It In 90 Days | claude round 3 | 16x9 | RO-16.mp4`

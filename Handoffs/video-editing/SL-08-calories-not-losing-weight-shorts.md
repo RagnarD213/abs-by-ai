@@ -20,6 +20,7 @@ The 156-cue `.srt` and `.chapters.txt` are beside it; the build recipe is `recip
 
 ## This video's specifics
 * Natural shorts by chapter: the Twinkie professor and the Stanford study (0:30 - 1:44, trim), people eat 47% more than they think + track with AI (3:18), fast until 2 PM + black coffee (3:54 - 5:31), salad first (5:31 - 6:21), protein snacks (6:21 - 7:01), liquid calories and the Purdue study (7:01 - 7:57). Expect **4-5 shorts**.
+* Skip the "track with AI" candidate (3:18): Dan picked the same point from RO-16 on 2026-10-12 (SL-07 short F, "Track Your Calories With A Photo"). The 47% finding can still open another short.
 * Organic may name the drug (Dan, 2026-09-30). The GLP-1 chapter (1:44) keeps "Not medical advice. Talk to your doctor." on screen.
 * Realistic AI clips (opener's two, 0:31 kitchen clip, snack cake): keep their AI-GENERATED labels; `ai_generated: true` at setup for any short that uses one.
 * The film's ending teases the next video (RO-11, when calories don't matter); do not carry that line into a short.
