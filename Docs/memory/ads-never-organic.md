@@ -24,3 +24,5 @@ three ways: missing `"content_type": "organic"`, a source path under `<Editor> A
 matching a known ad title or ad YouTube id. Audit any time with `python3 scripts/blotato/ad_guard.py --scan`.
 Never hand-roll a Blotato queue script that skips the guard. Related: [[youtube-upload-capability]],
 [[handoffs-not-auto-added-to-dashboard]].
+
+**Index note (moved from MEMORY.md, 2026-10-12):** 09-17: an ad is never posted organically; ad_guard.py blocks it; "all platforms" is not authorization

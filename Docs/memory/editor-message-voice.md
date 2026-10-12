@@ -26,3 +26,5 @@ short paragraphs, one line saying the rest is in the doc, and a one-line sign-of
 **How to apply:** write the message at about half the length instinct suggests, keep every timecode and typo in the doc,
 and never let a rival editor's name into anything an editor reads. No em dashes ([[no-em-dashes]]). The doc itself stays
 in Dan's measured first person ([[revision-docs-in-dans-voice]]).
+
+**Index note (moved from MEMORY.md, 2026-10-12):** paste-ready editor messages must sound like Dan, praise first; spec in /revisions

@@ -15,3 +15,5 @@ Since 2026-10-01 a finished 16:9 (Claude or Codex) writes `<master>.edit-sheet.j
 - State on 10-01: proven through the first minute and every graphic of RO-10 on a review page; the 9:16 look awaits Dan's lock. NOT yet run on a sheet build: `kit_plan.py`, the gate pre-check, judges, fold, cutdown.
 - The ad gate's ranges (Muhammad's ads) do not fit an organic long-form vertical (RO-10 plans 0 flashes, 0 CTAs, 49 s longest talk). Never move the bounds; it is Dan's ruling.
 - Traps: grade in the 16:9's order (`grade.order`) or the conform crawls; a killed conform leaves a half segment the next run skips; exFAT `._` twins break globs; work tree `~/abs-worktrees/kit-sheet`. Related: [[vertical-kit-autofill]], [[hyperframes-decision]], [[review-page-what-i-decided]].
+
+**Index note (moved from MEMORY.md, 2026-10-12):** 10-01: 16:9s write an edit sheet; kit_run --sheet builds the 9:16 in Soft Blue Light; 9:16 look awaits Dan's lock

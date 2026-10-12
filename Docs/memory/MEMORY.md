@@ -1,214 +1,215 @@
-- [Member profile + quiz](member-profile.md) — users.profile JSONB feeding all AI features + "Build your plan" quiz (Jul 18)
-- [Android TWA build](android-twa-build-setup.md) — keystore, toolchain paths, build command
-- [iOS Capacitor app](ios-capacitor-app.md) — ios-app/ wrapper status, blockers, build command
-- [Load-time optimizations](load-time-optimizations.md) — downscaling, Haiku prompt step, keep-warm; local Anthropic key invalid, test on prod
-- [Printify print flow](printify-print-flow.md) — print fulfillment + no-crop placement caveat
-- [absbyai inbound email](absbyai-inbound-email.md) — dan@absbyai.com → Gmail; Namecheap mode gotcha; self-tests look falsely broken
-- [Auto commit+push](auto-commit-push.md) — push to main without asking, only via scripts/git/safe-push.sh; never rebase or git stash in the shared folder
-- [Bias toward action](bias-toward-action.md) — act without asking on anything reversible (2026-08-06)
-- [Fable included in Max](fable-included-in-max.md) — no extra cost; trade-off is allowance burn, not dollars
-- [Security warning calibration](security-warning-calibration.md) — brief on routine integrations; don't re-litigate
-- [AI trainer + membership](ai-trainer-membership.md) — architecture, endpoints, pending before it can sell
-- [AI Trainer v3 ladder](trainer-v3-ladder.md) — 7 stages, sex + equipment tracks, tiers, timed circuits
-- [AI Nutritionist](ai-nutritionist.md) — meal-prep from photo gap, GLP-1 floor mode, endpoints
-- [Explain simply](explain-simply.md) — plain language; one-step-at-a-time walkthrough template
-- [Sleep Coach](sleep-coach.md) — Go Hard briefing endpoints, gating, sleep context
-- [Supplement Audit](supplement-audit.md) — photo stack audit, endpoints, evals (old plan: [supplement-audit-plan](supplement-audit-plan.md), superseded)
-- [Progress Log](progress-log.md) — shipped + Phase 1/2 batch; Resend key unset
-- [My Transformations](my-transformations.md) — gallery/slider/share/hero-swap/print
-- [Next-phase plan](next-phase-plan.md) — Jul 10 audit + Phase 3 roadmap (NEXT_PHASE_PLAN.md); Stripe live Jul 17
-- [Daily Coach Brief](daily-coach-brief.md) — morning hub card, /api/coach/brief, caching
-- [Cross-platform retest rule](cross-platform-retest-rule.md) — web deploys hit iOS/Android; ALWAYS flag native retests
-- [Platform-scoped compliance](platform-scoped-compliance.md) — Apple/Play fixes go to that platform only unless Dan says
-- [Native app IAP gating](native-app-iap-gating.md) — digital purchases hidden in the apps for store compliance
-- [Female generation fix](female-generation-fix.md) — sex auto-detect, safety settings, female prompts, "Fix my result"
-- [Member unlimited fix](member-unlimited-fix.md) — fixed (afcca82, 0ac348d); no 23/mo cap
-- [Proof-banner image gen](proof-banner-image-gen-process.md) — male marketing images via the live product pipeline
-- [App store policy: verify first](app-store-policy-verify-first.md) — read Play/App Store docs BEFORE advising
-- [iOS App Store prep](ios-appstore-prep.md) — Aug 5 rejection + resubmission; ASC gotchas (iPad shots, alpha, EU trader)
-- [Bake-off round 1 aesthetic](bakeoff-round1-aesthetic.md) — shredded-not-bulky, no tan; condensed prompt; seedream-4.5
-- [Repo is public](repo-is-public.md) — ask before committing personal photos or sensitive data
-- [YouTube ad competitor research](youtube-ad-competitor-research.md) — VidTao: MadMuscles is the model; 10 swipe ads
-- [MadMuscles deep-dive](madmuscles-deep-dive.md) — FTC froze Genesis Tech; funnel teardown, copy vs avoid
-- [AI ad creation research](ai-ad-creation-research.md) — MadMuscles themes, Veo/Kling toolchain, 10 concepts
-- [Video outline style](video-outline-style.md) — no generic listicles; his real specifics; Gymboss sets; red/green highlights
-- [Dan's relationship status](dan-relationship-status.md) — has a girlfriend, not married; never "my wife"
-- [Google Play billing US change](google-play-billing-us-change.md) — Play Billing optional for US; fees from Oct 1 2026
-- [Female Seedream routing](female-seedream-routing.md) — women Gemini + Seedream 4.5, men FLUX
-- [Shorts production style](shorts-production-style.md) — J2 tactical system, benefit-first titles, AbsByAI.com URL
-- [Shorts: reason to watch](shorts-reason-to-watch.md) — never a brag-only Short; viewer leaves with a tactic
-- [Shorts research](shorts-organic-research.md) — organic: 45–60s, avoid "over 40"; ads: [shorts-ads-research](shorts-ads-research.md)
-- [Cover photo selection](cover-photo-selection.md) — shoot photos over frames; never soft/undefined abs
-- [Thumbnail: no claims](thumbnail-no-claims.md) — ad thumbnail copy is a compliance surface; 9:16 for vertical ads; waist crop on pool photos
-- [Thumbnail design system](thumbnail-design-system.md) — black/white Manrope/red bar, abs visible, no blur
-- [Before-photo search](dan-before-photo-search.md) — heaviest era 2022-24; best candidates; how to scan Photos; pale pre-tan shoot = 1 Apr 2026 (96 photos)
-- [Standard before picture](standard-before-picture.md): 09-30: shirtless before = deck-chair sunglasses shot; NEVER the bathroom standing shot (A_2024-07-02)
-- [Frowning photos rule](frowning-photos-standing-rule.md) — never default to frowning thumbnails; sorted into Frowning Photos/ subfolder
-- [Daily meal tasks](daily-meal-tasks.md) — one recurring:true entry each, never re-added daily
-- [Google Docs nested bullets](google-docs-nested-bullets.md) — get nesting from the HTML export, never guess
-- [Autonomy & credentials framing](autonomy-credentials-framing.md) — credential entry is Claude's limit, not Dan's rule; one line
-- [Computer takeover frustration](computer-takeover-frustration.md) — warn before takeovers; long work to background
-- [Browser task fallback](browser-task-fallback.md) — extension drops → one check, then in-app Browser pane; Amazon/CL click traps; ChatGPT threat 09-10
-- [Longform delivery location](longform-delivery-location.md) — finals in `claude edited long form content/`; work files on the Seagate
-- [Never over-strip audio](audio-never-over-strip.md) — never process past the reference; every suppression row needs a damage bound
-- [Editor audio untouched](editor-audio-untouched.md) — cutdowns of an editor's cut carry HIS audio untouched; --verbatim gate
-- [Gate the harm, not just the fix](gate-the-harm-not-just-the-fix.md) — bound a correction's damage vs the file's untreated signal
-- [Shared fix may not reach the pipeline](shared-fix-may-not-reach-the-pipeline.md) — check forks + hardcoded params
-- [Muhammad trial edit analysis](muhammad-trial-edit-analysis.md): 09-24 Dan saw a head-matched cut and a cut on the audio as equally bad jump cuts; the framing step (punch-in) or an insert hides a cut, frame choice alone does not
-- [Framing standard: hair-anchored](framing-standard-hair-anchored.md) — LOCKED: anchor to top of hair, NEAR/FAR only, never wide
-- [8/28 shoot format](shoot-828-slog3-format.md) — three roll families: C1650-53 four-mono/lav a:1; C1654-72 PORTRAIT camera + dual-mono stereo; C1673+ stereo; always pick_lav.py per file
-- [9/23 shoot format](shoot-923-format.md): FX30 S-Cinetone, one dual-mono lav; C1716-20 portrait shorts; roll map in Docs/SHOOT_923_FOOTAGE_REPORT.md
-- [Ad 2 vertical approved](ad2-vertical-approved.md) — finals in `<Editor> Ad Videos/<title> - ad N/`, `title | editor | aspect | number`
-- [Revision docs in Dan's voice](revision-docs-in-dans-voice.md) — always as Dan; never attribute items to Claude
-- [Revisions zero-edit goal](revisions-zero-edit-goal.md) — diff Dan's Doc edits vs the md copy, fold into calibration
-- [Revision status = live doc](revision-status-check-live-doc.md) — Dan deletes/adds items; check the Google Doc, not our local copies
-- [Editor message voice](editor-message-voice.md) — paste-ready editor messages must sound like Dan, praise first; spec in /revisions
-- [Before/after = same person](before-after-same-person.md) — Dan's 2026-09-12 rule; never mix people across a pair
-- [App recording before/after pair](app-recording-before-after-pair.md) — male3-poolside-*; the recording uploads a man who is NOT Dan
-- [Astra vs Fable verdict](astra-vs-fable-verdict.md) — keep everything in Fable; build an FCPXML bridge; no second Mac
-- [Social profiles done](social-profile-graphics-done.md) — FB + TikTok profiles/graphics done (Aug 11); its "Dan launches Ads himself" line predates the 09-09 account work
-- [ManyChat keywords](manychat-comment-abs.md) — six topic keywords + UTMs; contains-match trap; Pro gate
-- [Meta ads Instagram identity](meta-ads-instagram-identity.md) — Ads Manager can't run @danrosefit; use the API script
-- [Google Ads UI automation](google-ads-ui-automation.md) — Chrome traps: ×1.112 Data Manager clicks, CodeMirror 5, MCC ocid
-- [Ad retry rule + no "trick"](ad-retry-rule-and-no-trick.md) — never "trick"; tamer copy → tamer thumbnail → remove
-- [Blotato false failures](blotato-false-failure-large-video.md) — "failed" big videos may be live; verify via Graph; 400 MB cap; schedule reads lag creates
-- [TikTok cover = frame 0](tiktok-cover-frame-0.md) — API takes no cover image, only a timestamp; posted covers editable 7 days, phone only
-- [Ads never go organic](ads-never-organic.md) — 09-17: an ad is never posted organically; ad_guard.py blocks it; "all platforms" is not authorization
-- [Ad vs organic: classify first](ad-vs-organic-classification.md) — 09-28: closing CTA decides ("tap the button below" = ad); flag a mismatched handoff before uploading
-- [YouTube upload capability](youtube-upload-capability.md) — scripts/youtube/upload.js + refresh token; brand-account trap
-- [Stripe: active before charge](stripe-trial-end-active-before-charge.md) — stamp paid conversion from invoice.paid, never status
-- [VSL landing page](vsl-landing-page.md): /start = Dan's sales letter (build_live.py); 50/50 video test A vs B live since 10-10 (B_SHARE; scripts/posthog/vsl_video_test.py); page frozen
-- [VSL Version B intro](vsl-version-b-intro.md) — 09-18: "fired them all" / 165-hour extended intro in the long VSL doc, for A/B test; unrecorded
-- [No ad agency mention](no-ad-agency-mention.md) — 09-18: never call Dan a marketer/ad agency owner in scripts; say AI coded his site/did bookkeeping instead
-- [Deploy drops locked holds](deploy-drops-locked-holds.md) — every push wipes held images; a 410 after deploy is that
-- [index.html screen nesting](index-html-screen-nesting.md) — unclosed div blanks every later screen; count div depth
-- [Railway GraphQL + cron](railway-graphql-and-cron.md) — cron service by API; secrets-cache traps
-- [Local funnel test recipe](local-funnel-test-recipe.md) — live-key config, seeded before/after, hub@local.test admin
-- [GitHub push false failure](github-push-false-failure.md) — "remote rejected" may have succeeded; fetch before retry
-- [Handoff starter-prompt rule](handoff-starter-prompt-rule.md) — end every handoff with a starter prompt + model/effort
-- [Handoffs not on dashboard](handoffs-not-auto-added-to-dashboard.md) — dashboard row only when Dan asks
-- [Skill creation: no auto-execute](skill-creation-no-auto-execute.md) — build the skill, then stop; Dan runs it fresh
-- [iPhone Mirroring control](iphone-mirroring-control.md) — Claude can drive Dan's iPhone via iPhone Mirroring
-- [Google Ads API client](google-ads-api-client.md) — LIVE 09-10: scripts/ads/api/client.js; no dev token; login-customer-id = account, not MCC
-- [Google Ads GA4 link](google-ads-ga4-link.md) — G-1M1SY7GGKF on the existing Ads gtag loader; imports no conversions
-- [Ads account creation blocked](google-ads-account-creation-blocked.md) — API refuses at Explorer access, UI gates on a CAPTCHA; always Dan's
-- [Google Ads Scripts mutate traps](google-ads-scripts-mutate-traps.md) — building campaigns by Ads Script: temp ids, derived resource names, audience-grouped DG, Preview = dry run
-- [Ad copy: no unbelievable claims](ad-copy-no-unbelievable-claims.md) — Dan's 09-10 rule; "How I Got Abs At 40" shapes; rewrite only the flagged line
-- [Evening planning process](evening-planning-process.md) — /prioritize at end of day for tomorrow; brief links back via next-day-plan.json + claude://code/continue
-- [SixPackAbs site stack](sixpackabs-site-stack.md) — WP.com Atomic; MCP can't deploy code (SFTP); YouTube OAuth sees unlisted; IG = @danrosefit; old URLs preserved
-- [Video editing cost/quality feedback](video-editing-cost-quality-feedback.md) — 09-14: Claude video editing too costly/unpublishable; trialing Codex + Grok instead
-- [Cutdown seams: one source](cutdown-seams-single-source.md) — a selection cutdown is where the defects hide; prove the picture against the master
-- [Caption trailing entry](caption-trailing-entry-overprint.md) — Ad 1 + Ad 2 approved verticals print a caption over their closing CTA pill
-- [Claude session cleanup job](claude-session-cleanup-job.md) — auto-closes sessions only if 12h quiet + nothing running; never kill by age (killed Ad 3 renders)
-- [Drive backup capability](drive-backup-capability.md) — rclone + verify script for footage backups; shared client_id quota trap
-- [Untagged video = BT.601 trap](untagged-video-bt601-trap.md) — editor masters have no colour tags; decode as BT.709 or the grade looks wrong in VLC
-- [AI clip giveaways](ai-clip-artifact-giveaways.md): reject what a viewer sees at speed (breath smoke, melting hands); few-frame faults pass, slight speed-up covers them (10-08)
-- [Video editing master list](video-editing-master-list.md) — 09-16: all owed edits in Handoffs/video-editing/00-MASTER.md, one doc per job, Claude+Codex prompts
-- [Video editing executor routing](video-editing-executor-routing.md) — 09-17: Codex = raw-footage first cuts (RA/RO/DS); Claude = secondary cuts (AV/AS/SL); overnight queue handoff
-- [Overnight edit queue](overnight-edit-queue.md) — LIVE since 09-18 (Phase 0 passed); shares Dan's 5-h Claude window; by-hand launches count toward the cap; SL-01/02 unattended:false
-- [Codex C1652 beat Claude: lessons](codex-ds17-beat-claude-lessons.md) — 09-17: C1652 R4 long-form is the bar (DS-17 ≈ equal); story-specific AI scenes, label graphics not slides; read _shared/EDITOR-CARD.md first
-- [Three-role video pipeline](three-role-video-pipeline.md) — Fable plans, Opus edits, fresh Fable reviews blind; 3-round cap; Dan APPROVED RA-01 09-18 as the template for future videos
-- [Analysis card: reuse it](analysis-card-reusable-graphic.md) — Dan 09-18: reuse the body-fat/muscle analysis graphic in future videos; _shared/adkit/analysis_card.py
-- [No em dashes](no-em-dashes.md): never use an em dash in any writing, anywhere (Dan, 2026-09-18)
-- [Editor message voice](editor-message-voice.md): warm praise, big picture only, never name another editor (Dan, 2026-09-18)
-- [Script zero-edit lessons](script-zero-edit-lessons.md): 09-21 Dan's edits to four long-form scripts; read WHAT DAN CHANGED in scriptfromoutline SKILL.md before any script
-- [Voice corpus sources](voice-corpus-sources.md): 10-08: four types (content, ads, website conversion videos, products); never train on AI dictation or business email; Sex God Method = top writing sample
-- [Dan voice guide](dan-voice-guide.md): 10-10 method: content plan from the skill, sentences from dan-voice-writer (clean call, 5 real passages, no rules); rules in the prompt make Claude easier to catch (92% vs 82%)
-- [Scripts: his wording, not his ramble](scripts-his-wording-not-his-ramble.md): 10-10: off-the-cuff ramble is not the script target; blunt, plain words, instruction before caveat; Claude too mild and formal
-- [Dan's personal facts for scripts](dan-personal-facts-for-scripts.md): glycine nightly, sleeps at 63, Oura 75-80, Zepbound for life, 8 am gym, AI saves 10 hrs/week
-- [Opus 5.5 release](opus-5-5-release.md): 09-22: ≥ Fable 5.1 on benchmarks at 60% lower price; routing recommendation (Opus default, Fable reviewer/escalation)
-- [Sound effects: judged, not banned](no-swipe-sound-effect.md): 10-08: old bright swipe stays out; a low soft swoosh on a picture transition works, Dan wants it tried on our edits
-- [RO-05 salad cut rejected](ro05-salad-cut-rejected.md): 09-23 unpublishable; 09-28 recut: intro awful (open on camera, then dish + eating, his audio under), graphics to Soft Blue Light, more saturation
-- [No compliance talk unless asked](audit-focus-growth-not-compliance.md): Dan 09-25: no compliance/legal/policy items in design, research, audits; only when he asks or the task is shipping sales copy
-- [Take selection rule approved](take-selection-rule-approved.md) — 09-24: Dan OK'd the picker on C1512; keep the last take if clean, earlier may be stronger; review picks as a clip, never a table
-- [Proven DR tactics only](proven-direct-response-only.md): Dan 09-24: marketing advice only what V Shred/MadMuscles/top players run; no invented funnels (photo-upload front end failed)
-- [Drive: always public](drive-always-public.md) — 09-24: every Drive upload gets anyone-with-link view; never private
-- [Action items at the bottom](action-items-at-bottom.md) — end with a numbered, self-contained action list; send the file to look at LAST
-- [Edit Queue artifact = working list](edit-queue-artifact-is-working-list.md) — every queue change must show on the artifact page; check group/sub render
-- [Reviews on Opus 5.5](reviews-on-opus-5-5.md) — 09-24: ra-reviewer now Opus, Fable only for escalations
-- [Batch approval once](batch-approval-once.md) — ask once per batch with a count, never per item (09-25)
-- [Covers: separate Codex task](covers-separate-codex-task.md): SUPERSEDED 10-01 by one Claude handoff
-- [iPhone Mirroring: always authorized](iphone-mirroring-standing-authorization.md) — 09-25: never ask permission to use it
-- [YT engagement ads: instant, never pause](ytads-retired-manual-management.md) — 09-27: new videos get ENABLED ads within a minute (instant.js); only the Sunday 10 AM routine pauses (old long-forms, tier1+2); Dan re-enables Tue
-- [Speedo crop rule](speedo-crop-rule.md) — 09-27: Speedo photos always cropped at the waistband to read as shorts; still post them
-- [Graphic lock + AI frames first](graphic-lock-and-ai-frames-first.md) — 09-27: lock a format's graphics before full edits; AI clips start/end frames first for every editor; look for AI openers
-- [Home ab demos: reuse](home-ab-demos-reuse.md): 09-28: toe touches + V-up approved and saved; reuse them, never regenerate from scratch; twist + reverse crunch installed
-- [QC corpus worktree trap](qc-corpus-worktree-trap.md): worktree runs need excerpts/, personmask, media symlinks; ds17-r4 red on main 09-28
-- [Codex stepwise editing](codex-stepwise-editing-approach.md) — 09-28/29: build in steps (first minute, graphics, clips) THEN full render; Claude checks the steps, Dan does not approve each item
-- [Decision budget per video](decision-budget-per-video.md): 09-29: max 10-15 Dan decisions per video in total; Claude decides and locks everything it can check
-- [Swearing: never cut, never ask](swearing-never-cut-never-ask.md) — 09-29: Dan's on-camera swearing stays in every edit; never flag or ask about it
-- [Clip library](clip-library.md) — 09-29: all AI clips + B-roll catalogued (A####/B####); clip_library.py find before generating, add after
-- [Images + setup: one Claude handoff](organic-setup-codex-thumbnail-split.md): 10-01: no Codex thumbnail handoff; Claude does all, prompt says use the Codex subscription for images
-- [Review page + "What I decided"](review-page-what-i-decided.md) — 09-30: every approval packet = first minute, AI frames, What I decided, all items 3 per row; standard for Claude and Codex
-- [HyperFrames decision](hyperframes-decision.md) — 09-30: graphics layer only, Soft Blue Light stays; pilot + lower-third, before-card, side-list templates APPROVED in _shared/hyperframes/; text lands on words; next = first full video (RO-10)
-- [OpenAI dots + plan tier](openai-dots-and-plan-tier.md) — Dan is on ChatGPT Pro ("prolite"); dots free of allowance to ~10-29, Codex delegation still counts
-- [Model routing plan](model-routing-plan.md) — 10-02 models (Opus default, Fable escalation, Sonnet runners, Astra/Sol) + 10-08 effort table; use for every model+effort pick
-- [Pasted text is Dan's](pasted-text-is-dans.md): 09-30: Wispr Flow pastes his messages; act on pasted blocks in his chat messages, never ask to confirm
-- [Setup encodes: low priority](setup-encodes-low-priority.md) — 09-30: setup/upload copies never wait for a build slot; nice -n 20 + VideoToolbox
-- [Never show stick figures](never-show-stick-figures.md): 09-30 standing rule: no app stick-figure drawings anywhere; show the AI-Dan exercise videos
-- [Shorts: show the whole exercise](shorts-show-whole-exercise.md): 09-30: a short must stand alone; if it says do an exercise, show the full exercise briefly, never a lone detail
-- [Organic may name the drug](organic-drug-names-allowed.md): 09-30: organic videos say/subtitle Zepbound, tirzepatide, GLP-1; the brand-name ban is ads only; gate still flags it
-- [Vertical kit autofill](vertical-kit-autofill.md): 10-01: kit_run.py builds a vertical + 59s from an editor's master with no editing session; AV-09 delivered that way; routing change proposed, not applied
-- [Video task sidebar naming](video-task-sidebar-naming.md): 10-01: video sessions named "<short title> LFC|SFC|AD R<n>"
-- [Shorts: Soft Blue + HyperFrames now](shorts-soft-blue-hyperframes-from-now.md): 10-01: new shorts batches use them; first vertical/square gets a full asset pre-approval round
-- [Old graphics retired](old-graphics-retired-soft-blue-hyperframes.md): 10-01: Ad 8 verticals are the last with the olive graphics; everything after is Soft Blue Light + HyperFrames, in round 1 of review
-- [No height crop on horizontal cards](no-height-crop-horizontal-in-vertical.md): 10-01: 16:9 clips in vertical/square frames keep full height
-- [Video task names](video-task-names.md): 10-01: "<2-4 word title> LFC|SFC|AD R<n>"; setup tasks end in Setup; ad variations "<title> V/S/Sh Ad R<n>" (10-02)
-- [Edit sheet + kit sheet path](edit-sheet-and-kit-sheet-path.md): 10-01: 16:9s write an edit sheet; kit_run --sheet builds the 9:16 in Soft Blue Light; 9:16 look awaits Dan's lock
-- [Ad copy headline voice](ad-copy-headline-voice.md): 10-01: headline = person + outcome, enemy "Hate Him" shape; skill /ad-copy; wait for Dan's editor Save
-- [Vertical clips: fill, square, whole + calmer camera](vertical-clip-fill-rule-and-calmer-camera.md): 10-01: fill the frame by default; 30% less tracking movement
-- [Ad image direction](ad-image-direction.md): 10-01: story-at-a-glance images, one short headline; never generic objects, offers, charts
-- [Revision task naming](revision-task-naming.md): 10-01: every /revisions task is named "<Editor> revisions"
-- [No AbsByAI.com end mark](no-absbyai-end-mark.md): 10-01: no AbsByAI.com mark graphic at the end of videos; ignore the old script cue
-- [Vertical clip rule + calm camera](vertical-clip-rule-and-calm-camera.md): 10-01: fill, else square, else whole (clip_fit.py); follow-camera 30% calmer (kit_track --tolerance)
-- [B-roll library first](broll-library-first.md): 10-01: scan clip library every video; real B-roll > existing AI clip > stock > new AI
-- [Editor shorts graphics kit](editor-shorts-graphics-kit.md): 10-01: editor graphics off = we build Soft Blue Light top-strip overlays and link them; look approved
-- [Kit master path in Soft Blue](kit-master-path-soft-blue.md): 10-01: kit_run --master --sbl redraws an editor's ad in blue HyperFrames graphics; Ad 13 round 1 page awaits Dan
-- [Thumbnail standard](thumbnail-standard-codex-in-setup.md): 10-02: 5 choices (pool, studio, 3 AI of Codex's choice), made in the Claude setup task, GPT-6.1 Sol high
-- [Continuity cart teardown](continuity-cart-teardown.md): 10-02 screenshot-led cart research; Dan's proven HBI cart is the healthandwellnesstools.com free-trial cart; capture methods
-- [Research funnel consent: standing OK](research-funnel-consent-standing-ok.md): 10-02: tick consent boxes and terms notices on competitor funnels without asking; never payment details
-- [Cart follows the /start button](cart-follows-start-button.md): 10-02: cart assumes no photo, goal picture or body numbers yet; never Dan's before and after in the cart
-- [No boxes without a reason](no-boxes-without-reason.md): 10-02: squares and verticals fill the frame; a card only with a real reason; Dan B-roll = graded final, not raw
-- [Meal prep demo is not standalone](meal-prep-demo-not-standalone.md): 10-02: C1541 app demo is part of the Daily Salad video; never publish or queue it alone
-- [Stripe test-mode cart recipe](stripe-test-mode-cart-recipe.md): 10-03: test keys in the secrets file; fake-card recipe, iframe typing quirks, block ad tags before every test purchase
-- [Vertical centering standard](vertical-centering-standard.md): 10-03: every vertical's crop lands on Dan after each cut, then holds in a 3.3 % dead band (kit_track --tolerance 20)
-- [Social Queue artifact](social-queue-artifact.md) — Blotato queue + waiting posts page; refresh via queue_artifact_data.py then republish
-- [Categorize before editing](categorize-before-editing.md): 10-04: CONTENT or AD decided first; long-form gets Shorts only, ads get vertical/square/1-min only; wrong kind = stop
-- [No fat pinch / belly focus](no-fat-pinch-belly-focus.md): 10-04: no pinching or zooming on belly fat, esp. first 30 s; show the situation instead
-- [Prioritization task naming](prioritization-task-naming.md): 10-05: planning tasks are renamed "PRIORITIES - MON D YYYY", e.g. PRIORITIES - OCT 5 2026
-- [Dashboard paused](dashboard-paused.md): 10-05: no Victory Dashboard reads, writes or check-offs until Dan says the Codex rebuild is ready
-- [Sonnet for assembled rounds](sonnet-for-assembled-rounds.md): 10-05: RO-13 round 2 built on Sonnet 5.5 to SHIP; Sonnet ok for locked-plan rounds, Opus for round 1 + all reviews
-- [Revision docs: link every picture](revision-docs-link-every-picture.md): 10-05: no empty image slots; name each Before/After picture and link the file
-- [Memory repo copy](memory-repo-copy.md): 10-06: memory mirrors to Docs/memory (public repo); mark private entries in .repo-private; run scripts/sync-memory-to-repo.sh after writing one
-- [Filming scripts first](filming-scripts-first.md): 10-06: shoot scripts carry ALL CAPS bracketed notes for every graphic, B-roll and editor note; teleprompter copy comes later
-- [Personal facts only when relevant](personal-facts-only-when-relevant.md): 10-07: facts wedged into scripts made them worse; use one only where it carries the paragraph's point
-- ["Watch this video if" sparingly](watch-this-video-if-sparingly.md): 10-07: formulaic in most intros; only when it adds something, wording varied
-- [Follow-along workout format](followalong-workout-script-format.md): 10-07: no script during rounds; rests sized to the rest length; "Next Exercise" picture-in-picture
-- [Videos to Review folder](videos-to-review-folder.md): 10-08: every review video 45 s+ also copied to project folder "Videos to Review" for VLC; delete at finalize; page still built
-- [Round 1: full graphics review](round1-full-graphics-review.md): 10-08: round 1 shows Dan all graphics, stock and clips; later rounds only changes
-- [Excuse voice: lip-synced AI clip](excuse-voice-ai-clips.md): 10-08: Dan loved the RO-06 lip sync + slap; excuse-voice lines get AI clip frames in round 1, unasked
-- [Workout videos: model Muhammad](workout-videos-model-muhammad.md): 10-09: workout and follow-along edits copy Muhammad's workout sections, never Zeeshan's videos
-- [Jump rope clip rule](jump-rope-clip-rule.md): 10-09: fast boxer skip B0448 is the correct clip; both-feet B0430 only when he calls it a mistake; B0447 beginner only
-- [Graphic caps: sparingly](graphic-caps-emphasis-sparingly.md): 10-09: title case by default; full caps on a rare punch word only, never one per graphic
-- [B-roll: where Dan looks best](broll-choose-where-dan-looks-best.md): 10-09: pick workout clips for looks and light; opener favourites B0448, B0456, B0453; start on the first rep
-- [No mixing shoots on camera](no-mixing-shoots-on-camera.md): 10-10: same-session footage of Dan (sets, demos) comes from the same shoot; repeat what exists before borrowing another day's
-- [B-roll shows what he names](broll-shows-what-he-names.md): 10-10: a line that names equipment gets a clip of him using it (medicine ball line, RO-06)
-- [App feature tour: reuse](app-feature-tour-reuse.md): 10-10: RO-06 closing scene (phone beside Dan: home, calories, workouts) approved for reuse; library B0544/B0543
-- [Self bake-off before Dan reviews](self-bakeoff-before-dan-reviews.md): 10-10: build and judge colour + sound options myself first (eyes beside approved frames, blind listen), ship the winner
-- [Thumbnails: unique designs](thumbnail-unique-designs.md): 10-10: Codex's-choice options each need their own design, not one layout on five images
-- [Funny AI clips for abstract lines](funny-ai-clips-for-abstract-lines.md): 10-10: no literal picture for a line? Propose an obviously unreal, funny AI gag (RO-07 A3 glove); big and readable
-- [PostHog API access](posthog-api-access.md): stored keys are query-only (HogQL); dashboards get built from Dan's signed-in Chrome tab (fetch + CSRF recipe inside); scripts/posthog/ for numbers
-- [Amazon Associates](amazon-associates-account.md) — tracking ID danrosefit-20, link.amazon short links, table in Docs/AMAZON_ASSOCIATES.md
-- [B-roll always colour corrected](broll-always-colour-corrected.md): 10-11: grade every B-roll clip to the film's look before Dan sees it; a library "graded" note is not proof
-- [Never use Dan's phone clip](never-use-dan-phone-clip.md): 10-11: B0437 never again; a person looking at a phone is not a cutaway, show what is on the phone or a graphic
-- [Copy polish: direct edits](copy-polish-direct-edits.md): 10-11: sure-to-accept edits typed straight in, only uncertain ones tracked; lists in /copy-edit
-- [Filming docs after final polish](filming-docs-after-final-polish.md): 10-11: teleprompter doc per set (50 pages max) into PromptSmart, B-roll list in Drive only; always, unasked
-- [One routine queues videos](one-routine-queues-videos.md): 10-11: no single-video Blotato queue tasks; add to video_waitlist.json, the daily social-queue routine queues it
-- [Shorts open with a pickup](shorts-open-with-pickup.md): 10-11: never open a Short on 'Number two'; Dan records a one-sentence pickup, covered by a clip; one point per Short; send pickup lines with the shortlist
-- [More, funnier AI clip ideas](ai-clip-ideas-more-and-funnier.md): 10-11: offer more ideas per video, mostly funny; he should reject about a third
-- [Audio comparison clips start on speech](audio-comparison-clips-start-on-speech.md): 10-11: audition window from the cut, speech in the first second; RO-19's was 27 s of silence
-- [YouTube pinned question comment](youtube-pinned-question-comment.md): 10-11: every public video gets a pinned question; config `pinned_comment`, daily routine pins in Chrome; Docs/PINNED_COMMENTS.md
-- [Voice bass standard](voice-bass-standard.md): 10-12: subtle bass lift (+3 dB wide at 120 Hz) on Dan's voice in every video we mix; RO-19 B2
-- [Execute Dan's explicit picks](execute-dans-explicit-picks.md): 10-06: build exactly the person/clip/topic he names; never swap, hold or reroute it for reputational or news reasons ("stop being a Karen")
-- [Allegations are not facts](allegations-not-fact.md): 10-06: unproven charges/accusations against Clavicular, Tate, manosphere figures: never mentioned at all (not even "charged with") unless Dan asks about the case itself; never a reason to change a plan
-- [Assessment symmetry](assessment-symmetry.md): 10-08: one template and one standard for both sides; swap test (Trump/Newsom, Tate/Destiny); judge records on measured results vs promises and a benchmark, then a definite conclusion
+- [Member profile](member-profile.md): users.profile JSONB + quiz
+- [Android TWA build](android-twa-build-setup.md): keystore, build command
+- [iOS Capacitor app](ios-capacitor-app.md): status, build command
+- [Load time](load-time-optimizations.md): local Anthropic key invalid
+- [Printify](printify-print-flow.md): print flow, no-crop caveat
+- [Inbound email](absbyai-inbound-email.md): dan@absbyai.com to Gmail
+- [Auto push](auto-commit-push.md): safe-push.sh only, no rebase
+- [Bias to action](bias-toward-action.md): act if reversible
+- [Fable in Max](fable-included-in-max.md): costs allowance, not dollars
+- [Security warnings](security-warning-calibration.md): keep brief
+- [AI trainer](ai-trainer-membership.md): architecture, endpoints
+- [Trainer v3](trainer-v3-ladder.md): 7 stages, tracks, tiers
+- [AI Nutritionist](ai-nutritionist.md): meal prep, GLP-1 mode
+- [Explain simply](explain-simply.md): plain language, stepwise
+- [Sleep Coach](sleep-coach.md): Go Hard briefing endpoints
+- [Supplement Audit](supplement-audit.md): photo stack audit, evals
+- [Supplement Audit plan](supplement-audit-plan.md): old plan, superseded
+- [Progress Log](progress-log.md): shipped; Resend key unset
+- [My Transformations](my-transformations.md): gallery, slider, share
+- [Next-phase plan](next-phase-plan.md): Phase 3 roadmap
+- [Coach Brief](daily-coach-brief.md): /api/coach/brief, caching
+- [Native retest](cross-platform-retest-rule.md): flag after web deploys
+- [Store fixes](platform-scoped-compliance.md): that platform only
+- [Native IAP](native-app-iap-gating.md): purchases hidden in apps
+- [Female generation](female-generation-fix.md): sex detect, prompts
+- [Member unlimited](member-unlimited-fix.md): fixed, no cap
+- [Proof banner](proof-banner-image-gen-process.md): male marketing images
+- [Store policy](app-store-policy-verify-first.md): read docs before advising
+- [iOS App Store](ios-appstore-prep.md): rejection, ASC gotchas
+- [Bake-off look](bakeoff-round1-aesthetic.md): shredded, no tan
+- [Repo is public](repo-is-public.md): ask before personal data
+- [YT ad research](youtube-ad-competitor-research.md): MadMuscles model
+- [MadMuscles](madmuscles-deep-dive.md): funnel teardown
+- [AI ad research](ai-ad-creation-research.md): toolchain, 10 concepts
+- [Outline style](video-outline-style.md): real specifics, no listicles
+- [Relationship](dan-relationship-status.md): girlfriend, not wife
+- [Play billing](google-play-billing-us-change.md): optional in US
+- [Female routing](female-seedream-routing.md): Gemini + Seedream; men FLUX
+- [Shorts style](shorts-production-style.md): J2 type, benefit titles
+- [Shorts tactic](shorts-reason-to-watch.md): never brag-only
+- [Shorts organic](shorts-organic-research.md): 45-60s, no "over 40"
+- [Shorts ads](shorts-ads-research.md): ad research
+- [Cover photos](cover-photo-selection.md): shoot photos, sharp abs
+- [Thumbnail claims](thumbnail-no-claims.md): none; waist crop
+- [Thumbnail system](thumbnail-design-system.md): Manrope, red bar
+- [Before photos](dan-before-photo-search.md): 2022-24 candidates
+- [Standard before](standard-before-picture.md): deck-chair shot
+- [Frowning photos](frowning-photos-standing-rule.md): never default
+- [Meal tasks](daily-meal-tasks.md): one recurring entry each
+- [Suspension prevention](ad-suspension-prevention.md): prevention rules
+- [Docs bullets](google-docs-nested-bullets.md): nesting from HTML export
+- [Credentials](autonomy-credentials-framing.md): Claude's limit, one line
+- [Takeovers](computer-takeover-frustration.md): warn first
+- [Browser fallback](browser-task-fallback.md): use in-app pane
+- [Longform finals](longform-delivery-location.md): folder; work on Seagate
+- [Audio strip](audio-never-over-strip.md): never past reference
+- [Editor audio](editor-audio-untouched.md): untouched, --verbatim
+- [Gate the harm](gate-the-harm-not-just-the-fix.md): bound a fix's damage
+- [Shared fixes](shared-fix-may-not-reach-the-pipeline.md): check forks
+- [Jump cuts](muhammad-trial-edit-analysis.md): punch-in or insert hides
+- [Framing](framing-standard-hair-anchored.md): hair anchor, NEAR/FAR
+- [8/28 shoot](shoot-828-slog3-format.md): three roll families
+- [9/23 shoot](shoot-923-format.md): FX30, roll map
+- [Ad finals](ad2-vertical-approved.md): folder + naming
+- [Revision voice](revision-docs-in-dans-voice.md): always as Dan
+- [Zero-edit goal](revisions-zero-edit-goal.md): diff Dan's edits
+- [Revision status](revision-status-check-live-doc.md): check live Doc
+- [Editor messages](editor-message-voice.md): Dan's voice, praise first
+- [Before/after](before-after-same-person.md): same person
+- [App recording pair](app-recording-before-after-pair.md): man is not Dan
+- [Astra vs Fable](astra-vs-fable-verdict.md): FCPXML bridge
+- [Social profiles](social-profile-graphics-done.md): FB, TikTok done
+- [ManyChat](manychat-comment-abs.md): six keywords, Pro gate
+- [Meta ads IG](meta-ads-instagram-identity.md): use the API script
+- [Ads UI](google-ads-ui-automation.md): Chrome traps
+- [Ad retry](ad-retry-rule-and-no-trick.md): never "trick"; tamer
+- [Blotato fails](blotato-false-failure-large-video.md): may be live; 400 MB
+- [TikTok cover](tiktok-cover-frame-0.md): timestamp only
+- [Ads not organic](ads-never-organic.md): ad_guard.py
+- [Ad or organic](ad-vs-organic-classification.md): closing CTA decides
+- [YouTube upload](youtube-upload-capability.md): upload.js
+- [Stripe](stripe-trial-end-active-before-charge.md): paid = invoice.paid
+- [/start VSL](vsl-landing-page.md): A/B live, page frozen
+- [VSL B intro](vsl-version-b-intro.md): "fired them all"
+- [No agency](no-ad-agency-mention.md): never call Dan a marketer
+- [Deploy holds](deploy-drops-locked-holds.md): push wipes held images
+- [index.html](index-html-screen-nesting.md): count div depth
+- [Railway API](railway-graphql-and-cron.md): cron, cache traps
+- [Local funnel test](local-funnel-test-recipe.md): live-key config, seeded pair
+- [Push rejects](github-push-false-failure.md): fetch before retry
+- [Handoff prompt](handoff-starter-prompt-rule.md): starter + model
+- [Handoff rows](handoffs-not-auto-added-to-dashboard.md): only if asked
+- [New skills](skill-creation-no-auto-execute.md): build, then stop
+- [iPhone Mirroring](iphone-mirroring-control.md): Claude can drive
+- [Ads API](google-ads-api-client.md): client.js
+- [GA4 link](google-ads-ga4-link.md): G-1M1SY7GGKF
+- [Ads accounts](google-ads-account-creation-blocked.md): Dan creates
+- [Ads Scripts](google-ads-scripts-mutate-traps.md): mutate traps
+- [Ad claims](ad-copy-no-unbelievable-claims.md): believable only
+- [Evening plan](evening-planning-process.md): /prioritize for tomorrow
+- [SPA site](sixpackabs-site-stack.md): WP.com Atomic, SFTP
+- [Edit cost](video-editing-cost-quality-feedback.md): too costly, 09-14
+- [Cutdown seams](cutdown-seams-single-source.md): check vs master
+- [Caption overprint](caption-trailing-entry-overprint.md): on CTA pill
+- [Session cleanup](claude-session-cleanup-job.md): never by age
+- [Drive backup](drive-backup-capability.md): rclone, quota trap
+- [BT.601 trap](untagged-video-bt601-trap.md): decode as BT.709
+- [AI giveaways](ai-clip-artifact-giveaways.md): visible at speed
+- [Edit master list](video-editing-master-list.md): 00-MASTER.md
+- [Edit routing](video-editing-executor-routing.md): Codex first cuts
+- [Overnight queue](overnight-edit-queue.md): shares 5-h window
+- [C1652 bar](codex-ds17-beat-claude-lessons.md): read EDITOR-CARD.md
+- [Three roles](three-role-video-pipeline.md): plan, edit, review
+- [Analysis card](analysis-card-reusable-graphic.md): reuse it
+- [No em dashes](no-em-dashes.md): never, in any writing
+- [Script lessons](script-zero-edit-lessons.md): WHAT DAN CHANGED
+- [Voice corpus](voice-corpus-sources.md): four types; no dictation
+- [Voice guide](dan-voice-guide.md): use dan-voice-writer
+- [Script wording](scripts-his-wording-not-his-ramble.md): blunt, plain
+- [Personal facts](dan-personal-facts-for-scripts.md): glycine, Oura
+- [Opus 5.5](opus-5-5-release.md): default; Fable escalates
+- [Sound effects](no-swipe-sound-effect.md): soft low swoosh ok
+- [RO-05 recut](ro05-salad-cut-rejected.md): intro, saturation
+- [No compliance talk](audit-focus-growth-not-compliance.md): unless asked
+- [Take picks](take-selection-rule-approved.md): last clean take
+- [Proven DR only](proven-direct-response-only.md): no invented funnels
+- [Drive public](drive-always-public.md): anyone with link
+- [Action items](action-items-at-bottom.md): numbered, at end
+- [Edit Queue page](edit-queue-artifact-is-working-list.md): show every change
+- [Reviews](reviews-on-opus-5-5.md): on Opus 5.5
+- [Batch approval](batch-approval-once.md): ask once, with count
+- [Mirroring OK](iphone-mirroring-standing-authorization.md): never ask
+- [YT ads](ytads-retired-manual-management.md): instant on, never pause
+- [Speedo crop](speedo-crop-rule.md): at waistband
+- [Graphic lock](graphic-lock-and-ai-frames-first.md): AI frames first
+- [Ab demos](home-ab-demos-reuse.md): reuse, never regenerate
+- [QC worktree](qc-corpus-worktree-trap.md): needs symlinks
+- [Stepwise edits](codex-stepwise-editing-approach.md): steps, then render
+- [Decision budget](decision-budget-per-video.md): 10-15 per video
+- [Swearing](swearing-never-cut-never-ask.md): stays, never ask
+- [Clip library](clip-library.md): find first, add after
+- [One setup handoff](organic-setup-codex-thumbnail-split.md): Claude does images; replaces covers task
+- [Review page](review-page-what-i-decided.md): "What I decided"
+- [HyperFrames](hyperframes-decision.md): graphics layer only
+- [OpenAI plan](openai-dots-and-plan-tier.md): ChatGPT Pro, dots
+- [Model routing](model-routing-plan.md): model + effort table
+- [Pasted text](pasted-text-is-dans.md): Dan's, act on it
+- [Setup encodes](setup-encodes-low-priority.md): nice 20, low priority
+- [Stick figures](never-show-stick-figures.md): never shown
+- [Shorts exercise](shorts-show-whole-exercise.md): show it whole
+- [Drug names](organic-drug-names-allowed.md): ok in organic
+- [Kit autofill](vertical-kit-autofill.md): kit_run.py vertical
+- [Sidebar naming](video-task-sidebar-naming.md): title, type, round
+- [Shorts graphics](shorts-soft-blue-hyperframes-from-now.md): Soft Blue now
+- [Olive retired](old-graphics-retired-soft-blue-hyperframes.md): Soft Blue after Ad 8
+- [16:9 cards](no-height-crop-horizontal-in-vertical.md): keep full height
+- [Task names](video-task-names.md): Setup, V/S/Sh
+- [Edit sheet](edit-sheet-and-kit-sheet-path.md): kit_run --sheet
+- [Headlines](ad-copy-headline-voice.md): person + outcome
+- [Vertical fill](vertical-clip-fill-rule-and-calmer-camera.md): fill; 30% calmer
+- [Ad images](ad-image-direction.md): story at a glance
+- [Revision tasks](revision-task-naming.md): "<Editor> revisions"
+- [End mark](no-absbyai-end-mark.md): no AbsByAI.com end graphic
+- [Clip fit](vertical-clip-rule-and-calm-camera.md): clip_fit.py, tolerance
+- [B-roll first](broll-library-first.md): scan the library
+- [Editor kit](editor-shorts-graphics-kit.md): top-strip overlays
+- [Kit master](kit-master-path-soft-blue.md): --master --sbl
+- [Thumbnail five](thumbnail-standard-codex-in-setup.md): pool, studio, 3 AI
+- [Cart teardown](continuity-cart-teardown.md): HBI trial cart
+- [Funnel consent](research-funnel-consent-standing-ok.md): tick, no payment
+- [Cart entry](cart-follows-start-button.md): no photo or numbers yet
+- [No boxes](no-boxes-without-reason.md): fill the frame
+- [Meal prep demo](meal-prep-demo-not-standalone.md): never alone
+- [Stripe test](stripe-test-mode-cart-recipe.md): fake-card recipe
+- [Centering](vertical-centering-standard.md): crop lands on Dan
+- [Social Queue page](social-queue-artifact.md): refresh recipe
+- [Categorize](categorize-before-editing.md): CONTENT or AD first
+- [Fat pinch](no-fat-pinch-belly-focus.md): no belly pinching or zoom
+- [Priority tasks](prioritization-task-naming.md): PRIORITIES - MON D YYYY
+- [Dashboard](dashboard-paused.md): PAUSED
+- [Sonnet rounds](sonnet-for-assembled-rounds.md): locked plans only
+- [Revision pictures](revision-docs-link-every-picture.md): link each
+- [Memory mirror](memory-repo-copy.md): sync script, .repo-private
+- [Filming scripts](filming-scripts-first.md): caps notes first
+- [Facts in scripts](personal-facts-only-when-relevant.md): only if relevant
+- ["Watch this if"](watch-this-video-if-sparingly.md): sparingly
+- [Follow-along](followalong-workout-script-format.md): no script in rounds
+- [Videos to Review](videos-to-review-folder.md): copy 45 s+
+- [Round 1](round1-full-graphics-review.md): show all graphics
+- [Excuse voice](excuse-voice-ai-clips.md): lip-synced AI clip
+- [Workout edits](workout-videos-model-muhammad.md): model Muhammad
+- [Jump rope](jump-rope-clip-rule.md): B0448 is right
+- [Caps](graphic-caps-emphasis-sparingly.md): rare punch word
+- [B-roll looks](broll-choose-where-dan-looks-best.md): best light
+- [One shoot](no-mixing-shoots-on-camera.md): no mixing days
+- [Named gear](broll-shows-what-he-names.md): show him using it
+- [App tour](app-feature-tour-reuse.md): reuse B0544/B0543
+- [Self bake-off](self-bakeoff-before-dan-reviews.md): judge first
+- [Thumbnail designs](thumbnail-unique-designs.md): each unique
+- [Funny AI clips](funny-ai-clips-for-abstract-lines.md): abstract lines
+- [PostHog API](posthog-api-access.md): query-only keys
+- [Amazon](amazon-associates-account.md): danrosefit-20
+- [B-roll grade](broll-always-colour-corrected.md): grade before Dan sees it
+- [Phone clip](never-use-dan-phone-clip.md): B0437 never
+- [Copy polish](copy-polish-direct-edits.md): sure edits direct
+- [Filming docs](filming-docs-after-final-polish.md): after polish
+- [Queue routine](one-routine-queues-videos.md): video_waitlist.json
+- [Shorts opener](shorts-open-with-pickup.md): pickup line
+- [Clip ideas](ai-clip-ideas-more-and-funnier.md): more, funnier
+- [Audio demos](audio-comparison-clips-start-on-speech.md): start on speech
+- [Pinned comment](youtube-pinned-question-comment.md): question each video
+- [Voice bass](voice-bass-standard.md): +3 dB at 120 Hz
+- [Execute Dan's picks](execute-dans-explicit-picks.md): build exactly what he names
+- [Allegations not facts](allegations-not-fact.md): never mentioned unless Dan asks
+- [Assessment symmetry](assessment-symmetry.md): one standard, swap test, results

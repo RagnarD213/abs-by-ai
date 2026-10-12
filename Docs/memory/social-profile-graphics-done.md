@@ -11,3 +11,5 @@ metadata:
 Dan confirmed on 2026-08-11 that the Facebook and TikTok profiles and their graphics are already created — he did them himself. Do not recommend creating them, and do not regenerate the graphics. The YouTube channel banner/avatar task was NOT confirmed done in the same statement; check the dashboard before assuming either way.
 
 Also from the same conversation: **Dan launches Google Ads campaigns himself** — after the 2026-08-09 suspension he wants total personal control over the first campaigns and their training before any agent builds or enables anything in the ads account. Agents can support with measurement/verification outside the account (PostHog dashboards, site-side tracking), but campaign creation and launch are his. Related: [[ad-suspension-prevention]], [[ad-suspension-composure]].
+
+**Index note (moved from MEMORY.md, 2026-10-12):** FB + TikTok profiles/graphics done (Aug 11); its "Dan launches Ads himself" line predates the 09-09 account work

@@ -12,3 +12,5 @@ Weight & Progress Log SHIPPED July 10, 2026 (commit 367e263), built per repo `HA
 Same commit shipped the rest of Phase 1+2: meal-analysis credit gating (credit consumed past free allowance; refine stays free), password reset (needs `RESEND_API_KEY` + `RESET_FROM` + Resend domain verification — NOT set yet, reset emails silently skipped), Counsel 10/month cap (`COUNSEL_MONTHLY_CAP`), per-user push reminders (15-min sweep, 8 AM local via tzOffset in sub meta: weigh-in, photo day + one follow-up, Sunday meal-prep, Mon/Wed/Fri workout), `eval/meal-eval.js` bias harness.
 
 Untested on prod: recap generation (local Anthropic key invalid), push sweep timing, credit-pack purchase from the meal wall. Membership gap-closure plan + per-model handoffs in `MEMBERSHIP_PLAN.md` / `HANDOFF_membership_*.md` (commit b743a10). [[railway-deploy-workflow]] [[pay-for-generations]]
+
+**Index note (moved from MEMORY.md, 2026-10-12):** shipped + Phase 1/2 batch; Resend key unset

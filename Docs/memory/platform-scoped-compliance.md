@@ -15,3 +15,5 @@ Any change made to satisfy an Apple App Store or Google Play requirement is scop
 **How to apply:** when writing the change, ask "does the web need this, or only the store build?" Default to the store build. Say explicitly in the response which platforms the change is visible on — Dan's standing assumption is that silence means it went everywhere. If the web genuinely should carry it too (a legal requirement rather than a store policy, say), state the reasoning and get his answer before shipping. Keep a lighter web-appropriate equivalent where one makes sense — the consent modal's fix kept a one-line disclosure under the Generate button plus the privacy policy on web, while the full modal stayed native-only.
 
 Related: [[cross-platform-retest-rule]] — the mirror-image obligation, that a web deploy silently changes both native apps and must be flagged for retest. [[ios-appstore-prep]], [[native-app-iap-gating]].
+
+**Index note (moved from MEMORY.md, 2026-10-12):** Apple/Play fixes go to that platform only unless Dan says

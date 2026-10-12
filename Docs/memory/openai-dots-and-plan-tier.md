@@ -14,3 +14,5 @@ metadata:
 - Background work while Dan is away is read-only (research through connected apps); sending, editing, browser control need approval or a Custom Rule.
 
 **How to apply:** route research, monitoring, scheduled checks and connector work to the dot; do not expect video editing or anything delegated to Codex to be free. See [[codex-owns-non-core-work]].
+
+**Index note (moved from MEMORY.md, 2026-10-12):** Dan is on ChatGPT Pro ("prolite"); dots free of allowance to ~10-29, Codex delegation still counts

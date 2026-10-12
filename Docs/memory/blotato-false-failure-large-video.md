@@ -47,3 +47,5 @@ before re-creating. See [[tiktok-cover-frame-0]].
 Instagram's reel API caps files at 300 MB, the likely cause. Graph `/<ig_user>/media` confirmed it never went live
 (token `META_ADS_TOKEN`; @danrosefit IG user `17841401601139982`). Fix: a two-pass x264 re-encode of the master at
 ~2.9 Mbps with `-c:a copy` (editor audio untouched), which came out at 266 MB. Re-queued as 4962222.
+
+**Index note (moved from MEMORY.md, 2026-10-12):** "failed" big videos may be live; verify via Graph; 400 MB cap; schedule reads lag creates

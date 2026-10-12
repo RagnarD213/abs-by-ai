@@ -43,3 +43,5 @@ drops characters — set values with the native value setter plus an `input` eve
 behind the 🔗 icon and has its own Save, separate from the automation's Update. The SPA also wedges
 the Claude-in-Chrome extension after a handful of page loads (every tool call then times out, even
 on unrelated sites); recovery is to close the ManyChat tabs and have Dan bring Chrome to the front.
+
+**Index note (moved from MEMORY.md, 2026-10-12):** six topic keywords + UTMs; contains-match trap; Pro gate

@@ -24,3 +24,5 @@ Related: [[shoot-828-slog3-format]], [[video-editing-master-list]].
 correction looks good. The way you cut it… transitions… this was a template for future videos." The approved hook
 grammar, card rules and kit are in `.claude/skills/ad-edit/SKILL.md` "RA-01 lessons" and `_shared/adkit/`. See
 [[analysis-card-reusable-graphic]].
+
+**Index note (moved from MEMORY.md, 2026-10-12):** Fable plans, Opus edits, fresh Fable reviews blind; 3-round cap; Dan APPROVED RA-01 09-18 as the template for future videos

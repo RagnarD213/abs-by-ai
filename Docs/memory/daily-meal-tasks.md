@@ -15,3 +15,5 @@ Dan wants three meal-timing tasks on the dashboard **every day**: `Salad by 2:00
 **Fixed 2026-08-10** (commit `f83533b`): `POST /api/todos` now diffs against a fresh read — a missing `recurring: true` task is restored unless the caller names it in `allowDeletes`, and a write dropping 3+ other tasks is refused with a 409. The dashboard's `addedAt` backfill also no longer saves on load, which had made every page view rewrite the whole file.
 
 **How to apply:** "Daily" here means ONE permanent entry with `recurring: true` — `dashboard.html` `isDone()` counts a recurring task as done only when `taskLog[id]` holds today's date, so it re-appears unchecked each morning by itself. Never add a task per day. When editing the lists by hand, GET and POST back to back, send all four lists (`business`/`health`/`personal`/`assistant` — an omitted list is deleted), and on a 409 re-read rather than retrying the same body. Renaming changes the check id (`<displayKey>::<exact text>`), so migrate today's completion or the streak looks broken.
+
+**Index note (moved from MEMORY.md, 2026-10-12):** one recurring:true entry each, never re-added daily
