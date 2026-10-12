@@ -86,3 +86,25 @@ Nobody should film these until the script exists. Writing them is its own job.
 - Two microphones. The good lav track is chosen per file afterwards, so record both and do not
   try to pick on set.
 - Demonstration inserts get filmed with space around you so vertical crops have somewhere to go.
+
+---
+
+## Shorts ideas parked for the shoot after 10/17: they need gym B-roll (Dan, 2026-10-12)
+
+Dan killed these from the 10/17 outdoor shorts only because he has no gym B-roll yet. His words: "For the next shoot, I
+want to focus on things that require gym B-roll because I anticipate having that gym B-roll." Offer these first when he
+asks for ideas for that shoot. The bullets are his own cues from the 10 Exercises outline.
+
+| idea | gym B-roll it needs |
+|---|---|
+| How To Do Pull-Ups (And What To Do If You Can't Do One) | pull-ups from behind, lat pulldowns, the assisted machine |
+| How To Do T-Bar Rows | barbell version and machine version, close-up of the flat back |
+| How To Do Chest Flies | machine and dumbbells, close-up of the stretch |
+| How To Do Cable Crunches | side angle, close-up of the ribs crunching down |
+| How To Do Leg Raises | 3 slow reps and one wrong rep swinging. No form cues from Dan on record yet |
+| The Only 3 Leg Exercises I Do Every Week | leg press, hamstring curls, glute bridge machine |
+| Why I Go To A Real Gym When I Own A $20,000 Home Gym | hard sets around other people, the leg press, a pan of the empty home gym |
+| Why Cables Beat Dumbbells For Building Muscle | cable curls, pushdowns, cable crunches. Locked for 10/17 but cannot be cut until these exist |
+
+Also killed on 10/17, for other reasons, so do not re-offer as they stand: How To Do Push-Ups With Handles, The 4 Things I
+Eat Right After Every Workout.

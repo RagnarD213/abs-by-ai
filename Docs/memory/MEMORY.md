@@ -211,6 +211,7 @@
 - [Pinned comment](youtube-pinned-question-comment.md): question each video
 - [Voice bass](voice-bass-standard.md): +3 dB at 120 Hz
 - [Reaction clips](reaction-clip-criteria.md): big name, hooks fast, lesson
+- [Gym B-roll ideas](next-shoot-gym-broll-ideas.md): none on 10/17, next shoot yes
 - [Execute Dan's picks](execute-dans-explicit-picks.md): build exactly what he names
 - [Allegations not facts](allegations-not-fact.md): never mentioned unless Dan asks
 - [Assessment symmetry](assessment-symmetry.md): one standard, swap test, results
