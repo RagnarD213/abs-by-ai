@@ -63,3 +63,25 @@ Traps this build paid for:
   round 1 notes).
 - Hair: the camera left about 14 px above his hair on this roll (median; 0 in most shots at some moment). Both sizes
   keep the camera's top row. Reported to Dan as a decision, as on RO-07.
+
+## After Dan's round 1 review (2026-10-12): what changed before the round 2 handoff
+
+- **The opener.** He cut the workout B-roll opener and asked for AI ideas; of ten he took idea 6 (split screen) and added
+  his own (a time-lapse of a ripped man at his laptop from 8 AM to 2 PM, then a salad at normal speed). A time-lapse
+  needs key frames, not a pair: five were drawn as edits of the first (`ai-frame-prompts/OT-*.txt`). Read the clock in
+  every frame at full size, and compare the room across frames: the first empty-chair frame had a different shelf and
+  sofa, and a prompt that lists what must not move fixed it.
+- **A clock in a generated frame is wrong more often than right.** Idea 6's first start frame read about 12:30 on a
+  breakfast scene. Describe the hands ("short hand between the 7 and the 8, long hand straight down"), then crop and look.
+- **"B-roll is colour corrected" has to be checked on every clip of Dan, not on the one he names.** C38 (library B0427,
+  low sun) read 0.30 on his skin against 0.51 on camera. So did the kettlebell and decline push-up cuts, and the salad
+  film's own grade is darker than this film's look. C38 became B0030 (bright daylight); the others got a lift
+  (`round2-plan/broll_grades.json`). Measure skin and frame median, then look at the still beside a presenter frame.
+- **"A little less echo" is the dereverb's alpha and floor, nothing else.** `audio_options08.py`: four steps on the same
+  31 s with the tone held. The step past alpha 0.45 / floor -13 crossed the gate's damage limits and was not offered.
+  The room-decay meter did not rank the steps (it read 45, 63, 64, 61 ms); Dan chose by ear (1a: 0.35 / -11). The pick
+  goes through the shared chain with `--dereverb alpha=0.35,floor_db=-11`.
+- **`review_server.py` run a second time on the same port can fail once with `launchctl bootstrap ... exit status 5`**
+  and leave the page down. Run it again and check the URL returns 200 before telling Dan the page is refreshed.
+- **A second page beside a served review needs its own folder and port.** The server caches only files linked from the
+  folder's index page, so a `round1b.html` next to it returned 404.

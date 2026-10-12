@@ -14,8 +14,8 @@ def px(name, t): return f"{ST}/{name}.mp4@{t}"
 def ai(i): return [f"{AI}/{i}-start.png", f"{AI}/{i}-end.png"]
 PLAN = [
  # ---------------- hook (first 5 seconds: Dan's own footage, his voice underneath, then Dan on camera)
- dict(id="C01", kind="clip", start="Today, I want to show you why", end="six pack abs", tail=0.1, src=["B0542@0.2", "B0438@0.6"], **DAN,
-      note="OPENER: his fast boxer-style jump rope (the correct one), then his front pose by the pool on 'six-pack abs'. Real footage, his voice runs underneath; he is on camera from the second sentence"),
+ dict(id="OT", kind="clip", start="Today, I want to show you why", end="six pack abs", tail=0.1, frames=[f"{AI}/OT-1.png", f"{AI}/OT-5.png"], pending=True, label="AI-GENERATED", **OTH,
+      note="AI OPENER, Dan's own idea (2026-10-12), key frames approved ('The workday fast looks good'): a lean, ripped man in a short-sleeve collared shirt at his laptop, clock on the wall, coffee pot beside him. A time-lapse from 8 AM to 2 PM in about 3 s (he types, pours coffee, the pot empties, his chair is empty at noon, the light moves), then at 2 PM the salad is in front of him, the time-lapse stops and he eats at normal speed. Five key frames: aiframes/OT-1 (8:00), OT-2 (10:00), OT-3-r2 (12:00, chair empty), OT-4 (2:00, salad), OT-5 (2:00, eating). Round 1's workout B-roll opener is out (Dan: 'eliminate this B-roll of me working out'). The other opener, idea 6 (split screen, aiframes/O6-start-r3 / O6-end-r3), waits on his approval of its redrawn frames"),
  dict(id="G01", kind="lt", start="I've been doing intermittent fasting", end="and I feel better", topic="10 YEARS OF INTERMITTENT FASTING",
       point="Easier To Get Lean. Easier To Keep Abs. More Productive.", parts=[["Easier To Get Lean.", "easier to get lean"], ["Easier To Keep Abs.", "easier to maintain abs"], ["More Productive.", "more productive"]]),
  dict(id="G02", kind="lt", start="In today's video", end="and six pack abs", topic="IN THIS VIDEO",

@@ -253,7 +253,8 @@ def render_picture(a, b, out, f0, f1, segs, HCOMP):
 _B = os.environ.get("RO08_BASS_DB", "1.0")
 BASS = "" if (os.environ.get("RO08_NOBASS") or float(_B) == 0) else f",equalizer=f=120:t=q:w=0.8:g=+{_B}"
 VOICE4 = ["--eq", "highpass=f=70,equalizer=f=140:t=q:w=1.0:g=+1.5,equalizer=f=450:t=q:w=1.2:g=-3.0,equalizer=f=3200:t=q:w=1.5:g=-1.0" + BASS,
-          "--dereverb-because", "Dan heard this room on the RO-07 round 1 first minute (same set, same shoot) and picked audition 4 (2026-10-10)",
+          "--dereverb-because", "Dan heard this room on the RO-07 round 1 first minute (same set, same shoot) and picked audition 4 (2026-10-10); on RO-08 he asked for a little less echo and picked option 1a of four (2026-10-12)",
+          "--dereverb", os.environ.get("RO08_DEREVERB", "alpha=0.35,floor_db=-11"),      # VOICE 1a, LOCKED by Dan 2026-10-12 ("Let's go with 1A for the sound"): a step more echo removed than voice 4's 0.30 / -10; tone and the +1 dB bass unchanged
           "--no-expander-because", "the expander chopped word endings on the RO-07 round 1 first minute; Dan picked audition 4, which has none (2026-10-10)"]
 # round 3 (independent review, measured on the untreated lav): three mouth clicks standing alone in a pause, film seconds. 678.07 peaks at -5 dBFS,
 # as loud as his speech, 60 ms after a cut and 160 ms before "What I recommend"; 661.66 (before "Well,") and 838.60 (before "One detail") peak near -16.
