@@ -16,6 +16,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
+| [handoff-20261012-ro08-round1-dan-review.md](handoff-20261012-ro08-round1-dan-review.md) | **After Dan replies to the round 1 page (http://127.0.0.1:8869/). Claude Opus 5.5 / High.** RO-08 Intermittent Fasting (CONTENT, long-form) round 2: record his answers, motion for the AI clips he approves, his notes, then the full film, gates and review. |
 | [handoff-20261012-sl07-belly-fat-shorts-pickups-and-build.md](handoff-20261012-sl07-belly-fat-shorts-pickups-and-build.md) | **Ready 2026-10-12. Claude Opus 5.5 / High.** SL-07 If I Had Belly Fat shorts (CONTENT): record Dan's two pickup lines, round-1 review page with short B finished and the AI frame pairs, then build the five shorts he picked (A, B, D, E, F). |
 | [handoff-20261011-sl06-zepbound-shorts-pickups-and-build.md](handoff-20261011-sl06-zepbound-shorts-pickups-and-build.md) | **Ready 2026-10-11. Claude Opus 5.5 / High.** SL-06 Top 5 Zepbound Tips shorts (CONTENT): record Dan's four pickup lines, round-1 review page with short D finished, then build six shorts. No covers, no upload. |
 | [handoff-20261010-wv01-b-claude-1p2x-then-website-test.md](handoff-20261010-wv01-b-claude-1p2x-then-website-test.md) | **Ready for Claude Opus 5.5, high.** Finalized B: make a separate 1.2x film for VLC review; website installation and test launch follow the separate software decision. |
