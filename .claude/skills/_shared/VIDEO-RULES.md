@@ -1,3 +1,25 @@
+## A subtle bass lift on his voice is the standard (Dan, 2026-10-12)
+
+- **Every video we mix ourselves gives Dan's voice a subtle addition of bass.** Dan, picking the RO-19 voice from seven options
+  (four warm with less room echo, three of those with more bass): *"For the voice, let's go with B2 with more bass. Let's make
+  a subtle addition of bass to my voice the standard for all Claude and Codex video editing skills. I like that better than
+  the default, just the echo removed."*
+- What B2 is (measured, 2026-10-11): the warm fixed tone shape (`highpass=f=70`, +1.5 dB at 140 Hz, a dip at 450 Hz, -1 dB at
+  3.2 kHz), the chain's light dereverb on a wet room (alpha 0.30, floor -10 dB), no expander, plus **a wide +3 dB lift at
+  120 Hz** (`equalizer=f=120:t=q:w=0.8:g=+3.0`). Its lowest speech band then measures the same as the reference voice (5.4 dB).
+  +1.5 dB was too little to be his pick and +4.5 dB measured close to boomy.
+- How to apply (editor's reading of "subtle"): start every new voice from the +3 dB lift at 120 Hz on top of that film's approved
+  tone, pass it through `voice_chain.py --eq` until the chain has a named option, keep the 70 Hz high-pass so the lav's handling
+  rumble does not come up with it, and listen for boom on his loudest lines. A room or microphone that already reads full
+  (lowest band at or above the reference) gets less. Still show voice options on a new set; the bass version is now the
+  default candidate, not an extra.
+- Unchanged: an editor's finished mix is delivered untouched; never process past the reference; the audio gate's tone row
+  fails on any fixed tone shape, which is the known mismatch, not a reason to drop the lift.
+- Same review, photos: a "pale before" picture has to read as PALE, not as out of shape. He turned down a soft-looking one
+  (*"I'm just looking more fat and not just pale"*) and asked for one with defined abs. And check a personal photo for a
+  filter before using it as a before picture: the pale half of an approved pair was a tan-filtered copy (*"The original was
+  significantly more pale. Find the original"*). In his Photos library, smaller same-second copies are edits of the full-size frame.
+
 ## More AI clip ideas, funny ones, on every video (Dan, 2026-10-11)
 
 - **Offer more AI clip ideas per video than feel safe, and make most of them funny and entertaining.** Dan, approving all four
