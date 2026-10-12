@@ -125,7 +125,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **RO-20/B/C - R2 REVIEW 2026-10-11, Claude.** `Handoffs/handoff-20261011-ro20-round3-pickups-and-first-minutes.md`
 
-**RO-19 R3 HANDOFF 2026-10-12.** `Handoffs/handoff-20261012-ro19-round3-full-film.md`
+**RO-19 R3 BUILDING 2026-10-12.**
 
 **RO-07 - HOLD 2026-10-11, Claude.** Blotato full. `Docs/RO07_SETUP_RECEIPT_20261011.md`
 
@@ -163,7 +163,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **Trial `24316364155` LIVE, remarketing `24305381214`/`24316408288` PAUSED, 2026-10-01, Claude.** 10-04: delivery+policy. `Docs/DGEN_CONVERSION_CAMPAIGN.md`.
 
-**Web push storage — OPEN 2026-09-15.** Move `push-subs.json` to Postgres before enabling web push. Subscriber-list migration is already finished.
+**Web push storage — OPEN 2026-09-15.** Move `push-subs.json` to Postgres before enabling web push.
 
 **PostHog signup funnels — OPEN 2026-09-15.** Rebuild `account_signup` funnels after the web-cart changes. Next: assign a session.
 
