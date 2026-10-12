@@ -35,7 +35,7 @@ three voice options. **No full film exists yet, on purpose.** Nothing is approve
   film's graphics-free base, `broll/salad_*.mp4`), library stock and one library AI clip (A0158), 19 new Pexels clips
   (`stock/px_<id>_*.mp4`), the RO-06 phone demo, and eight NEW AI clips that exist only as start / end frames
   (`aiframes/A1..A8-start/end.png`, prompts in `aiframes/prompts/` and in the repo recipe).
-- **First minute:** `round1/first-minute/DRAFT - RO-08 round 1 - first minute.mp4` (65.6 s, sha256 in the hashes file).
+- **First minute:** `round1/first-minute/DRAFT - RO-08 round 1 - first minute.mp4` (65.6 s, sha256 in the hashes file). The framing solve Dan saw is saved as `round2-plan/segs.round1.json` (pin it with `build._R2` before any plan change).
 
 ## Gate status, stated honestly
 

@@ -12,10 +12,10 @@ PIECES = [
  # ---- intro: take 3 of 3 (the last take; a blind delivery listen scored it 10 against 8 and 5)
  ("hook", "C1486", "Today, I want to show you why intermittent fasting", "and I feel better.", 78.5,
   "Today I want to show you why intermittent fasting is the number one most powerful way to get six pack abs. I've been doing it for about 10 years ... easier to get lean, easier to maintain abs, more productive and I feel better.",
-  "take 3 of 3: the last take and the best delivery (take 1 goes flat on 'so much easier', take 2 restarts 'In today's video')"),
+  "take 3 of 3: the last take and the best delivery (take 1 goes flat on 'so much easier', take 2 restarts 'In today's video'). Out measured on the lav: 'better' ends at 97.72, the cut sentence's 'It's' starts at 97.96; the snap had run 0.1 s into it (heard on the first-minute review)", 97.90),
  ("promise", "C1486", "In today's video, I'm going to show you why intermittent fasting is the simplest", "and six pack abs.", 101.5,
   "In today's video I'm going to show you why intermittent fasting is the simplest way to get abs, why it's a lot easier than you think, and why it is your path to the body you want.",
-  "same take; 'It's really changed so much for me and I'm excited to share it with you today' (97.8 to 101.9) left out: it repeats 'totally changed my life'"),
+  "same take; 'It's really changed so much for me and I'm excited to share it with you today' (97.8 to 101.9) left out: it repeats 'totally changed my life'. In 0.17 s earlier (room tone only, measured) so the film's length and every later time stay as rendered after the hook's out moved", None, 101.87),
  # ---- what it is
  ("def1", "C1486", "Okay, for those of y'all guys who don't know", "and to get lean.", 136.0,
   "For those of y'all who don't know, intermittent fasting is super simple: not eating during a certain part of the day, as a strategy to reduce your calories.", "only take"),

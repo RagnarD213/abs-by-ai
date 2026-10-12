@@ -39,6 +39,12 @@ Traps this build paid for:
   1.4 s of quiet, then 1.9 s of speech where the transcript had one word. Listing every word over 0.8 s inside the kept
   pieces and printing the envelope under each finds these; `verify_asr.py` on a window that starts in the pause settles
   the words. The fix is a patch in `mkglobal.py`, so `edl.py` can anchor on the retake's own first words.
+- **`edl.py`'s out snap can run into the next word when Whisper puts that word within 0.10 s of the last one** (`offset()` is
+  then allowed 0.25 s past the next word's start). The hook ended on 0.1 s of the cut sentence's "It's"; a watch-and-listen
+  pass on the first minute heard it. After `edl.py`, list every piece whose out is past the next roll word's start and print
+  the lav envelope under each (five of six were Whisper's early starts and fine). The fix was two measured edges that keep
+  the film's length identical (hook out 5 frames earlier, the next piece in 5 frames earlier in room tone), so no graphic,
+  clip or context clip after it moved. The same pass also "saw" a black frame and four jump cuts that are not there.
 - **An end phrase that also occurs earlier resolves to the first one** ("the day the same" ended a piece 16 s early).
   After `edl.py`, read every piece's duration against the roll.
 - **`resolve.py` searches each item from the previous item's start.** An item moved to a later start phrase must also
