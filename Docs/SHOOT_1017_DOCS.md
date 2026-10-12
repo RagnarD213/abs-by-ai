@@ -9,8 +9,9 @@ Made 2026-10-11. Dan: the shoot doc is kept as it is for editing, and filming us
 | 10-17 Shoot - Teleprompter 2 - Green Screen | Words only, 18 scripts, 7,609 words | `1KvL0_IilRCxlofnY5luTfRvjiseGGpGGXU4sAsjbgzQ` |
 | 10-17 Shoot - Teleprompter 3 - Outside By The Pool | Words only, the 4 follow-along workouts, 2,763 words | `1yc2xg1sG4lTncvcAmkA17SN-JZnQSsbB9Q-fpEbXotg` |
 | 10-17 Shoot - B-Roll List | Every B-roll shot by set, outdoor first, plus what the Edit Queue is blocked on | `1WPx31kcSsGtPyRmNBRb8fJHKC4ivi8gxl1k16wVizSY` |
+| 10-17 Shoot - Reaction Clips | Made 2026-10-12. Every clip Dan reacts to (35 links, 17 videos), in teleprompter order, each link opening at the clip's start time | `1BcRpzDQYNCssROEvg10Z9cOL2AtdvBdyqHwvxxwHtQA` |
 
-All four are in My Drive beside the shoot doc, viewable by anyone with the link. Page counts: 22, 18 and 6, all under
+All five are in My Drive beside the shoot doc, viewable by anyone with the link. Page counts: 22, 18 and 6, all under
 Dan's 50-page limit.
 
 **PromptSmart:** the three teleprompter documents were imported on 2026-10-11 as three scripts with the same names
@@ -38,3 +39,10 @@ If a script changes in the shoot doc after that, rebuild: `.claude/skills/telepr
 - DS-29 Robot Lawn Mower short: the mower leaving its dock, mowing, passing the camera, returning. Then `queue.py set
   DS-29 ready`.
 - DS-26 Wispr Flow short is blocked on a screen recording (the ScreenFlow demo), not on B-roll.
+
+## Reaction clips
+
+14 of the 35 links are exact (start and end second, first and last words): the 13 Clavicular clips and their two
+alternates. The other 21 say "pick 10 to 30 seconds" inside a window, because the exact seconds were never chosen;
+those links open at the start of the window. All 14 YouTube videos answered on 2026-10-12. Dan's own clips (the jump
+rope short, the ab wheel video, the salad video) are not on the list: he is not reacting to them.

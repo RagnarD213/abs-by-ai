@@ -269,3 +269,20 @@ Dan reads from PromptSmart Pro. Every teleprompter document goes in as its own s
 
 The page shows when his subscription ends. If that date is before the shoot, say so in the report.
 
+### Reaction clip list (Dan, 2026-10-12)
+
+For the 10/17 shoot Dan asked for one more filming document: "a bullet point list of all the clips that I am
+reacting to, queued up to the time frame that I'm going to react to it". Claude's reading: make it whenever a shoot
+has reaction videos.
+
+- One heading per video, in the order of the teleprompter documents. One bullet per clip: a link that opens at the
+  clip's first second (`https://www.youtube.com/watch?v=<id>&t=<seconds>s`), the source, the time range, and the
+  first and last words if the script gives them. X and TikTok links go in as they are.
+- Take every `[PLAY CLIP ...]` cue from the scripts. Where the script cue has no link or no quote (the Clavicular
+  shorts), the outline bullet above the script has both. Leave out his own videos: he is not reacting to those.
+- A cue that says "PICK 10 TO 30 SECONDS INSIDE 0:00 TO 2:11" has no exact time. Link to the start of the window and
+  say "pick" in the bullet. Do not invent a time.
+- Check before upload, in code: every video id, link, time range and quote in the list is found in the shoot doc
+  text, and every YouTube id answers at `https://www.youtube.com/oembed?url=...&format=json` (200 and a title).
+- Upload and share it the same way as the other documents. It is not a teleprompter script: Drive only.
+

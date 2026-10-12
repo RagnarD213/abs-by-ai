@@ -259,8 +259,10 @@ good, or has asked for the filming documents. Then do all of this in the same se
 3. **Upload each teleprompter document into PromptSmart** (`my.promptsmart.com/scripts`, his Chrome, he is logged
    in). Steps in `/teleprompterscripts`.
 4. **A separate B-roll list**, bullets by set, saved in Google Drive only. It is never put in PromptSmart.
-5. The polished shoot doc stays as it is: it is the editing copy, with every graphic and cue in place.
-6. Report the links, the page counts, and which script went on which set.
+5. **If any script reacts to a clip: a reaction clip list**, each link opening at the clip's start time, Drive only
+   (Dan asked for one on 2026-10-12; steps in `/teleprompterscripts`).
+6. The polished shoot doc stays as it is: it is the editing copy, with every graphic and cue in place.
+7. Report the links, the page counts, and which script went on which set.
 
 ## Mechanics: edits through the Docs connector (first choice since 2026-10-10)
 
