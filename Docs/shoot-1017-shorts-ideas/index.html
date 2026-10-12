@@ -95,6 +95,16 @@
 </div>
 
 <script>
+// Opened as a file, YouTube refuses to play inside the page (error 153). Jump to the served copy of this page.
+const SERVED = "http://127.0.0.1:8881/";
+const AS_FILE = !/^https?:$/.test(location.protocol);
+if (AS_FILE) fetch(SERVED + "__review_health", {mode:"no-cors"}).then(() => location.replace(SERVED + location.hash)).catch(() => {});
+if (AS_FILE) addEventListener("DOMContentLoaded", () => {
+  const n = document.createElement("div"); n.className = "note"; n.style.margin = "0 0 14px"; n.style.fontSize = "15px";
+  n.textContent = "This copy was opened as a file, so play buttons open YouTube in a new tab. To play the clips inside the page, open ";
+  const l = document.createElement("a"); l.textContent = SERVED; l.setAttribute("href", SERVED); n.appendChild(l);
+  document.querySelector(".wrap").prepend(n);
+});
 const RX = [
  {t:"Arnold Says Nobody Does Vacuums Anymore. He's Right.", v:"right", id:"QHhAV2R6V2s", s:24, e:44,
   src:"Nick's Strength and Power, \"Arnold asks Classic Physique winner to hit a Vacuum pose\"", views:"3.0M views",
@@ -399,7 +409,7 @@ RX.forEach((r, i) => {
   p.appendChild(im);
   p.appendChild(el("div", "play", "<span>&#9654; Play the clip, " + fmt(r.s) + " to " + fmt(r.e) + (r.noembed ? " (opens YouTube)" : "") + "</span>"));
   const start = () => { p.innerHTML = ""; p.appendChild(frame(r)); p.onclick = null; p.style.cursor = "default"; };
-  p.onclick = () => { if (r.noembed) window.open(url, "_blank"); else start(); };
+  p.onclick = () => { if (r.noembed || AS_FILE) window.open(url, "_blank"); else start(); };
   card.appendChild(p);
   const b = el("div", "body");
   b.innerHTML =
@@ -415,7 +425,7 @@ RX.forEach((r, i) => {
   b.querySelector(".clipline a").setAttribute("href", url);
   const row = el("div", "row");
   row.appendChild(killBtn("rx", i, card));
-  if (!r.noembed) { const rp = el("button", "", "Replay from " + fmt(r.s)); rp.onclick = start; row.appendChild(rp); }
+  if (!r.noembed) { const rp = el("button", "", "Replay from " + fmt(r.s)); rp.onclick = () => { if (AS_FILE) window.open(url, "_blank"); else start(); }; row.appendChild(rp); }
   b.appendChild(row);
   card.appendChild(b);
   document.getElementById("rx").appendChild(card);
