@@ -242,8 +242,10 @@ outside by the pool, plus a separate B-roll list. Result: 21, 18 and 4 scripts, 
   `<ul>` inside `<li>` imports as real nested bullets. Add what the Edit Queue is blocked on for B-roll:
   `Handoffs/video-editing/jobs.json`, `state` "blocked" with b-roll in `needs`.
 - **The teleprompter copy matches the filming script word for word.** When Dan edits the shoot doc after the docs
-  are made, rebuild and upload again, then list the folder: whether a second upload replaces the doc or makes a
-  second one with the same name has not been tested.
+  are made, rebuild and upload again with the same `rclone copy` plus `--ignore-times`. Tested 2026-10-12: it says
+  "Copied (replaced existing)", the doc keeps its id and link, and no second file appears. List the folder anyway.
+  In PromptSmart there is no replace: import the new file, check it, then use the old card's menu, Delete (it asks
+  "Move to trash bin?", and it can be restored). Click the menu by `find` ref; a coordinate click missed it.
 - **No teleprompter script over 50 pages (Dan, 2026-10-11).** "A maximum length of 50 pages per teleprompter
   script... If there's more than 50 pages on a single set, break it into two." The build script splits a set over
   25,000 words (about 45 pages) at a script boundary and names the parts "(Part 1 of 2)". Count the real pages after
@@ -285,6 +287,12 @@ has reaction videos.
 - Check before upload, in code: every video id, link, time range and quote in the list is found in the shoot doc
   text, and every YouTube id answers at `https://www.youtube.com/oembed?url=...&format=json` (200 and a title).
 - Upload and share it the same way as the other documents. It is not a teleprompter script: Drive only.
+- **Changing the list later: edit the doc in place with the Docs connector** (2026-10-12), so the link Dan has keeps
+  working. Text typed into the middle of a linked label does NOT take the link: after changing "opens at 0:00", send
+  an `updateTextStyle` with `link`, `underline` and `foregroundColor` over the whole label, then read back and check
+  that each link's second equals its "opens at" time.
+- `reaction_clips_page.py`: an option may carry its own `video_id` and `source`, for candidates from different videos
+  in one row (used for the retatrutide replacements).
 - **Review page with my pick and alternates (Dan, 2026-10-12):** "a review page with all of the clips you recommend
   and one or two alternatives". How it was made: captions for every source video with `youtube_transcript_api`
   (start time per line); one helper agent per video group reads the script and the captions and returns, per clip,

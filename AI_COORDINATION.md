@@ -135,6 +135,8 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **SL-07 R1 REVIEW 2026-10-12, Claude.** Page 8874. `Handoffs/handoff-20261012-sl07-round1-dan-review.md`
 
+**10/17 reaction kills NEEDS DAN 2026-10-12.** `Docs/SHOOT_1017_DOCS.md`
+
 **RO-12 - QUEUED 2026-10-01, Claude.** Blotato Oct 25. Then: `Docs/RO12_SETUP_RECEIPT_20261001.md`, delete.
 
 **RO-13 - QUEUED 2026-10-07, Codex.** Sun Nov 15, 9 AM CST. Then: thumbnail A/B, captions, article. `Docs/RO13_SETUP_RECEIPT_20261005.md`.
@@ -217,7 +219,6 @@ Memory `google-ads-ui-automation`.
 - `handoff-20261012-1017-shoot-shorts-scripts.md` (10-12). Opus 5.5 high.
 
 - `handoff-20261007-ro10-subtle-reedit-sunday-reupload.md` (10-07): RO-10 R3 end graphic, Sunday replacement. Codex Sol high.
-- `handoff-20261012-1017-reaction-kills.md` (10-12)
 - `handoff-20261008-dan-voice-training-part2-plan.md` (B-done-10-10;next:C,D;Dan:Round-2-blind-page)
 - `handoff-20260930-codex-adopt-review-page-format.md` (09-30). Sol medium.
 

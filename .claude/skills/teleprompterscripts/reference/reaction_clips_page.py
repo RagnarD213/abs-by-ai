@@ -9,7 +9,7 @@ page.json: {"title": "...", "intro": "...", "decided": ["line", ...], "check": [
                           "slots": [{"slot": "CEL-1", "label": "Sharon Osbourne", "source": "E! News, ...",
                                      "video_id": "oZTHGIoqwI4",
                                      "options": [{"rank": "recommended", "start": 12, "end": 34, "first_words": "...",
-                                                  "last_words": "...", "text": "...", "why": "..."}, ...]},
+                                                  "last_words": "...", "text": "...", "why": "..."}, ...]},   (an option may carry its own "video_id" and "source")
                                     {"info": "Elon Musk's two posts: on-screen text, nothing to choose", "links": [["label", "url"]]}]}]}
 Layout follows PRE-RENDER-APPROVAL.md: decisions on top, "What I decided", three cards per row, ONE player in a
 fixed panel on the right, one reply box with a Copy button. YouTube clips play in the shared player from start to end.
@@ -67,12 +67,13 @@ def build(page):
                 rng = '%s to %s' % (ts(o['start']), ts(o['end'])); ln = o['end'] - o['start']
                 labels[slot][o['rank']] = '%s (%s)' % (NAMES[o['rank']].lower(), rng)
                 what = '%s, %s: %s, %d seconds' % (sl['label'], NAMES[o['rank']].lower(), rng, ln)
-                yt = 'https://www.youtube.com/watch?v=%s&t=%ds' % (sl['video_id'], o['start'])
+                vid = o.get('video_id', sl.get('video_id'))   # an option may come from its own video (2026-10-12)
+                yt = 'https://www.youtube.com/watch?v=%s&t=%ds' % (vid, o['start'])
                 body.append('''<div class="card" data-slot="%s" data-rank="%s"><div class="tag">%s</div><div class="time">%s <span class="q">(%d s)</span></div>
 <div class="why">%s</div><div class="q">Starts: "%s"<br>Ends: "%s"</div><details><summary>All the words</summary>%s</details>
 <div class="btns"><button class="play" onclick="play('%s',%d,%d,%s)">&#9654; Play</button><button class="use" onclick="use('%s','%s')">Use this one</button><a class="b" target="_blank" href="%s">YouTube</a></div></div>''' % (
-                    E(slot), o['rank'], NAMES[o['rank']], rng, ln, E(o.get('why', '')), E(o.get('first_words', '')), E(o.get('last_words', '')), E(o.get('text', '')),
-                    sl['video_id'], o['start'], o['end'], E(json.dumps(what)), E(slot), o['rank'], E(yt)))
+                    E(slot), o['rank'], NAMES[o['rank']], rng, ln, E((o['source'] + '. ' if o.get('source') else '') + o.get('why', '')), E(o.get('first_words', '')), E(o.get('last_words', '')), E(o.get('text', '')),
+                    vid, o['start'], o['end'], E(json.dumps(what)), E(slot), o['rank'], E(yt)))
             body.append('</div>')
     head = '''<h1>%s</h1><div>%s</div>
 <div class="box"><b>Your decisions (%d clips).</b> My pick is first in every row and already selected. Press Play to watch a clip in the player. If you like an alternate better, press "Use this one" on it. When you are done, copy the reply at the bottom into the chat. If you change nothing, my picks go in.</div>

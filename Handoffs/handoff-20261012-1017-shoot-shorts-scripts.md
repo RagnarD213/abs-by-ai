@@ -25,6 +25,11 @@ survivors. Check `AI_COORDINATION.md` and the shoot doc before starting:
   "Reacting To The Worst Ab Workouts On Instagram"). Dan called both "too boring". Do not model the new scripts'
   content on them.
 
+**Update 2026-10-12: it has been run.** The shoot doc, Teleprompter 2 (8 scripts), the Reaction Clips document
+(survivors only, exact times) and the B-roll list are cut down. The Bryan Johnson video is out too. One thing is still
+open from it: the Retatrutide short has no clip until Dan picks one. State and ids: `Docs/SHOOT_1017_DOCS.md`,
+"Dan's clip kills, done 2026-10-12".
+
 ## Read first
 
 1. `Docs/shoot-1017-shorts-ideas/ideas.json`: **the source of truth.** Every locked short: title, verdict, video id,
