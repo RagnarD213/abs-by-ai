@@ -100,3 +100,8 @@ maximum off-centre distance). The delivery gate's own centring bound is unchange
 Use `landing.vertical_track(n, raw_head_x, picture_segments, crop_width, fps)` for the scaled preset, or `vertical_dense` for a native-frame track. Both call shared `landing.track` with 170/608 speed, 40/608 fixed range, 20/608 tolerance and k=3. Supply the actual cut-start head measurement, never a later estimate. If a centred crop exceeds the source, choose a wider window instead of clamping him off centre. `vertical_crop_frames` adapts existing crop maps without changing their height or zoom schedule.
 
 Report the four measurements via `landing.motion_stats`: travel, p90 speed, time moving and median/maximum head distance. Exclude picture-cut jumps and non-presenter spans, weight moving time by frame durations, state the pixel space, and define moving as over 5 px/s scaled from the 608 px reference crop. Inspect rendered cut landings, head clearance and native-frame-rate motion. These measurements supplement the unchanged delivery gate. Approved exports stay untouched.
+
+
+## Blue side-light studio set default (Dan, 2026-10-12)
+
+For the set shown in C1720, use approved DS-28 round2 crop pair B: both complete blue lights visible in wide, neither visible in tight. Read `Docs/STUDIO_BLUE_LIGHT_CROP_DEFAULT.md` for geometry, moving reference and approval evidence. Keep the shared land-then-hold method, hair clearance and source-specific landmark checks. This is a set-specific default, not a change to other sets or quality thresholds.
