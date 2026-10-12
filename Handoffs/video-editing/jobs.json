@@ -2326,7 +2326,7 @@
    "sub": "",
    "updated": "2026-10-12",
    "rev": 10,
-   "syncedRev": 8,
+   "syncedRev": 10,
    "editor": "Claude",
    "needs": ""
   },
@@ -2463,7 +2463,7 @@
    "order": 107,
    "updated": "2026-10-12",
    "rev": 4,
-   "syncedRev": 2,
+   "syncedRev": 4,
    "by": "Claude"
   },
   {
@@ -2486,7 +2486,7 @@
    "order": 108,
    "updated": "2026-10-12",
    "rev": 4,
-   "syncedRev": 2,
+   "syncedRev": 4,
    "by": "Claude"
   }
  ]
