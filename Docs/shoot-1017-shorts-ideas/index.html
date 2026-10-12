@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>10/17 Shoot: 40 New Shorts Ideas</title>
+<style>
+  :root { --bg:#f4f6f9; --card:#fff; --ink:#14181f; --mute:#5b6676; --line:#dfe4ec; --blue:#1f5fd0; --blue-soft:#e8f0fe;
+          --green:#157a3c; --green-soft:#e3f5ea; --red:#b42318; --red-soft:#fdeceb; --amber:#8a5a00; --amber-soft:#fff4d6; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#0f1318; --card:#181e26; --ink:#eef2f7; --mute:#9aa6b6; --line:#2a3340; --blue:#7fb0ff; --blue-soft:#1a2a45;
+            --green:#6fd79a; --green-soft:#14301f; --red:#ff8f85; --red-soft:#3a1a18; --amber:#ffd27a; --amber-soft:#3a2d10; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+  .wrap { max-width:1280px; margin:0 auto; padding:24px 16px 80px; }
+  h1 { font-size:30px; line-height:1.15; margin:0 0 6px; letter-spacing:-0.02em; }
+  h2 { font-size:23px; margin:44px 0 4px; letter-spacing:-0.01em; }
+  .sub { color:var(--mute); margin:0 0 18px; }
+  .panel { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px 20px; }
+  .panel h3 { margin:0 0 8px; font-size:17px; }
+  .panel ul { margin:0; padding-left:20px; }
+  .panel li { margin:5px 0; }
+  .grid { display:grid; grid-template-columns:1fr; gap:16px; margin-top:16px; }
+  @media (min-width:980px) { .grid { grid-template-columns:1fr 1fr; } }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px; overflow:hidden; display:flex; flex-direction:column; }
+  .card.killed { opacity:.42; }
+  .card .body { padding:14px 16px 16px; }
+  .num { font-size:12px; font-weight:700; color:var(--mute); letter-spacing:.08em; text-transform:uppercase; }
+  .title { font-size:19px; font-weight:750; line-height:1.25; margin:3px 0 8px; }
+  .tag { display:inline-block; font-size:11.5px; font-weight:700; padding:2px 8px; border-radius:999px; margin-right:6px; letter-spacing:.03em; }
+  .tag.right { background:var(--green-soft); color:var(--green); }
+  .tag.wrong { background:var(--red-soft); color:var(--red); }
+  .tag.plain { background:var(--blue-soft); color:var(--blue); }
+  .tag.check { background:var(--amber-soft); color:var(--amber); }
+  .player { position:relative; aspect-ratio:16/9; background:#000; cursor:pointer; }
+  .player img, .player iframe { position:absolute; inset:0; width:100%; height:100%; border:0; object-fit:cover; }
+  .player .play { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; }
+  .player .play span { background:rgba(0,0,0,.72); color:#fff; font-weight:700; padding:10px 16px; border-radius:999px; font-size:15px; }
+  .clipline { font-size:13.5px; color:var(--mute); margin:0 0 10px; }
+  .clipline a { color:var(--blue); font-weight:600; }
+  .lbl { font-size:11.5px; font-weight:700; color:var(--mute); letter-spacing:.07em; text-transform:uppercase; margin:12px 0 2px; }
+  .card p { margin:0 0 4px; }
+  .card ul { margin:2px 0 0; padding-left:19px; }
+  .card li { margin:3px 0; }
+  .quote { font-size:13.5px; color:var(--mute); font-style:italic; }
+  .note { font-size:13.5px; background:var(--amber-soft); color:var(--amber); border-radius:8px; padding:7px 10px; margin-top:10px; }
+  .broll { font-size:13.5px; background:var(--blue-soft); color:var(--ink); border-radius:8px; padding:7px 10px; margin-top:10px; }
+  .row { display:flex; gap:8px; flex-wrap:wrap; margin-top:12px; }
+  button { font:inherit; font-size:14px; font-weight:650; border-radius:9px; border:1px solid var(--line); background:var(--card); color:var(--ink); padding:7px 12px; cursor:pointer; }
+  button.on.keep { background:var(--green-soft); color:var(--green); border-color:var(--green); }
+  button.on.kill { background:var(--red-soft); color:var(--red); border-color:var(--red); }
+  button.primary { background:var(--blue); color:#fff; border-color:var(--blue); }
+  textarea { width:100%; min-height:190px; font:14px/1.45 ui-monospace, Menlo, monospace; border-radius:10px; border:1px solid var(--line); background:var(--bg); color:var(--ink); padding:12px; margin-top:8px; }
+  .jump { display:flex; gap:10px; flex-wrap:wrap; margin:14px 0 0; }
+  .jump a { color:var(--blue); font-weight:650; text-decoration:none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>10/17 shoot: 40 new shorts ideas</h1>
+  <p class="sub">SFC, dedicated shorts. 20 green screen reactions, each clip cued to the second you react to. 20 outdoor shirtless shorts with workout B-roll. Made 2026-10-12.</p>
+
+  <div class="panel">
+    <h3>What I decided (overrule anything)</h3>
+    <ul>
+      <li><b>Every one is a short.</b> Clips run 10 to 25 seconds so your part still fits under 66 seconds, the same build as "A Doctor Says Zepbound Eats Your Muscle".</li>
+      <li><b>Nothing repeats what is already in the shoot doc.</b> No Clavicular, celebrity Ozempic, Bryan Johnson, Cult Fit, the Zepbound muscle doctor or the cortisol cocktail. No repeat of a how-to short you already have (side laterals, hammer curls, rear delt flys, jump rope, kettlebell deadlift, battle ropes, ab wheel, push-up levels, M100s).</li>
+      <li><b>Reaction titles use your format:</b> who it is, what they say, then "He's Right" or "He's Wrong".</li>
+      <li><b>The Right or Wrong call on each one is my read of what you have said on record.</b> Flip any of them. The one I am least sure of is number 15 (Hormozi and dessert).</li>
+      <li><b>Every clip time comes from the video's own transcript,</b> and all 20 videos answered when I checked them today. Two to check by eye: number 2 (the Ronaldo ad has no speech, so it opens at 0:00) and number 15 (the owner turned off embedding, so it opens on YouTube).</li>
+      <li><b>Only 3 of the 20 reactions are about GLP-1s.</b> The shoot already has several.</li>
+      <li><b>Outdoor shorts: the form cues are your own words</b> from the 10 Exercises, 5 Minute Workout and kettlebell outlines. Where I have no cue from you, the card says so. I did not make one up.</li>
+      <li><b>Most of the B-roll is already on the 10/17 B-roll list.</b> Each card names the shot, and says what would need adding.</li>
+      <li><b>You asked for 20 of each,</b> so this is 20 and 20, not the usual 12.</li>
+      <li><b>Nothing is in the shoot doc yet.</b> Your keeps get scripted and added after you pick.</li>
+    </ul>
+    <div class="jump"><a href="#reactions">Reactions (20)</a><a href="#outdoor">Outdoor shorts (20)</a><a href="#reply">Reply box</a></div>
+  </div>
+
+  <h2 id="reactions">Part 1: 20 green screen reactions</h2>
+  <p class="sub">Press play and the clip starts at the second you react to, and stops where the clip ends.</p>
+  <div class="grid" id="rx"></div>
+
+  <h2 id="outdoor">Part 2: 20 outdoor shirtless shorts</h2>
+  <p class="sub">You read the script shirtless by the pool. The edit cuts to the exercise B-roll under each point.</p>
+  <div class="grid" id="od"></div>
+
+  <h2 id="reply">Reply</h2>
+  <div class="panel">
+    <p style="margin:0">Tap Kill on anything you don't want. Everything else counts as a keep. Add notes at the bottom, then copy and paste it into the chat.</p>
+    <textarea id="reply-box"></textarea>
+    <div class="row"><button class="primary" id="copy">Copy reply</button></div>
+  </div>
+</div>
+
+<script>
+const RX = [
+ {t:"Arnold Says Nobody Does Vacuums Anymore. He's Right.", v:"right", id:"QHhAV2R6V2s", s:24, e:44,
+  src:"Nick's Strength and Power, \"Arnold asks Classic Physique winner to hit a Vacuum pose\"", views:"3.0M views",
+  words:"Starts on \"and the vacuum that you guys did\". Ends on \"look at this, unbelievable\".",
+  what:"Arnold on stage at the Arnold Classic. He tells the Classic Physique winners he has complained for years that bodybuilders stopped doing vacuums, then asks the winner to hit one.",
+  pts:["Hook: Arnold Schwarzenegger says there's one ab move bodybuilders stopped doing, and it's the one that shrinks your waist.",
+       "My take: he's right. The vacuum trains the deep muscle that pulls your waist in. Crunches don't touch it.",
+       "Do this: the vacuum, one 20 second hold, with my cues from the Vacuum video. [SHOW ONE FULL HOLD, SHIRTLESS]",
+       "Bottom line: train the muscle that pulls your waist in, not just the ones on top."]},
+ {t:"Cristiano Ronaldo Sells An Ab Belt. It Won't Give You Abs.", v:"wrong", id:"RA45cq0i2AA", s:0, e:15,
+  src:"\"Cristiano Ronaldo SIXPAD Commercial 2015 in Tokyo\"", views:"349K views",
+  words:"A TV ad with no speech. Pick the best 10 to 15 seconds of him wearing the belt.",
+  what:"Ronaldo's Japanese TV ad for SIXPAD, a pad that sticks to your stomach and shocks your abs.",
+  pts:["Hook: Cristiano Ronaldo will sell you a belt that shocks your abs. He didn't get his abs from it.",
+       "My take: a belt can make a muscle twitch. It can't burn the fat on top of it, and that fat is why you can't see your abs.",
+       "Do this instead: the only ab gadget I'd buy is a $17 ab wheel. [SHOW 3 FULL REPS FROM MY KNEES]",
+       "Bottom line: abs come from low body fat and hard ab training. No belt does either one."],
+  note:"Check by eye: there is no transcript on this one, so I could not pin the exact seconds."},
+ {t:"Surgeons Now Carve Fake Abs Into Belly Fat. Don't Do It.", v:"wrong", id:"gNsElkQnkxE", s:0, e:27,
+  src:"6abc Philadelphia, \"New procedure uses foam to sculpt belly fat into 6-pack abs\"", views:"263K views",
+  words:"Starts on \"you've always wanted six-pack abs but can't seem to get to the gym\". Ends on \"typically six for men\".",
+  what:"A local news report on abdominal etching: plastic surgery that sculpts lines into your belly fat so it looks like a six pack.",
+  pts:["Hook: surgeons will now carve a six pack into your belly fat. It's a terrible deal, and the news report says why.",
+       "My take: they don't build abs. They cut lines into the fat. Seconds later the same report says you still have to diet and train to keep them.",
+       "Do this instead: if you have to eat right and train to keep fake abs, do the same work and get real ones.",
+       "Bottom line: there's no shortcut around your body fat.",
+       "[CLAUDE - INSERT AT SCRIPTING: what ab etching costs]"]},
+ {t:"This Machine Promised Abs In 3 Minutes A Day. It Lied.", v:"wrong", id:"VQhFARaSuts", s:53, e:63,
+  src:"\"AB Circle Pro Commercial - As Seen on TV\"", views:"344K views",
+  words:"Starts on \"best of all it's fun and easy and takes just 3 minutes a day\". Ends on \"equivalent to 100 sit-ups\".",
+  what:"The Ab Circle Pro infomercial. Second clip if you want it: 0:23 to 0:31, \"you'll lose 10 pounds in the first 2 weeks or your money back\".",
+  pts:["Hook: this TV ad promised you abs in 3 minutes a day. Guaranteed.",
+       "My take: no machine burns belly fat in 3 minutes. [CLAUDE - INSERT EVIDENCE AT SCRIPTING: the FTC case against the Ab Circle Pro]",
+       "Do this instead: my 5 minute workout with no equipment, every morning. Squats, push-ups, towel rows, reverse lunges, toe touches. [SHOW EACH ONE]",
+       "Bottom line: 5 minutes you do every day beats any machine sitting in your closet."]},
+ {t:"The Mewing Doctor Says Your Tongue Builds Your Jawline. He's Wrong.", v:"wrong", id:"iqlxAdmky10", s:106, e:124,
+  src:"Mewing By Mike Mew, \"How To Get A Great Jawline\"", views:"2.6M views",
+  words:"Starts on \"if you stand up straight and keep your mouth shut\". Ends on \"come up and forwards\".",
+  what:"Dr. Mike Mew, the man mewing is named after, says that holding your tongue on the roof of your mouth moves your face up and forward.",
+  pts:["Hook: this doctor has millions of views telling you your tongue can build your jawline. It can't. But this will.",
+       "My take: he's wrong. Your jawline is already there. It's buried under face fat.",
+       "Do this instead: lose the fat. Your face and your arms lean out first. [SHOW MY FACE AT 200 POUNDS, THEN NOW]",
+       "Bottom line: get lean before you try anything else for your face."]},
+ {t:"He Paid $80,000 To Be 6 Inches Taller. He's Wrong.", v:"wrong", id:"692v6DfKzdA", s:3, e:25,
+  src:"This Morning, \"Meet The Man Who Paid $80k To Grow 6 Foot Tall\"", views:"90K views",
+  words:"Starts on \"always felt self-conscious about his height at 5 foot 6\". Ends on \"having grown a massive 6 inches\".",
+  what:"A British morning show interviews a man who had 4 leg lengthening surgeries to go from 5 foot 6 to 6 foot. The host says 65,000 pounds, which is the $80,000 in the title.",
+  pts:["Hook: this guy paid $80,000 to have his legs broken 4 times, so he could be 6 inches taller.",
+       "My take: he's wrong. Before you spend $80,000 on your height, fix what's free.",
+       "Do this instead: get lean, get a tan, fix your hair, groom your eyebrows. Getting lean changes how you look more than any surgery.",
+       "Bottom line: you can't change your height, but you can change everything else, and most of it costs nothing."]},
+ {t:"Women Say They Love The Dad Bod. They Don't.", v:"wrong", id:"LbwgABvQdUA", s:0, e:14,
+  src:"Man vs Street, \"Girls Like The Dad Bod Until We Showed Them This\"", views:"90K views",
+  words:"Starts on \"We want to know what your opinion is on the dad bod\". Ends on \"immediately no, no\".",
+  what:"A street interview. Women say the dad bod is attractive, then get shown a picture of one. Second clip if you want it: 2:05 to 2:21, where a woman explains that by dad bod she means a strong guy who still works out. The interviewer says 15 to 17 percent body fat, and she agrees.",
+  pts:["Hook: women keep saying they love the dad bod. Watch what happens when they see one.",
+       "My take: when a woman says dad bod, she means a strong guy at about 15% body fat. She does not mean a guy with a gut.",
+       "Do this: get to about 15% body fat. That's where your upper abs start to show.",
+       "Bottom line: watch what women choose, not what they say."]},
+ {t:"Warren Buffett Drinks 5 Cokes A Day. He's Wrong.", v:"wrong", id:"jPLErUgsTvA", s:0, e:17,
+  src:"CNBC, \"Warren Buffett: I Drink Coca-Cola And I'm Happy\"", views:"208K views",
+  words:"Starts on \"I drink probably five 12 ounce Cokes a day\". Ends on \"I'm happy, I enjoy life\".",
+  what:"Warren Buffett on CNBC, saying he drinks about 700 calories of Coke a day and has done it all his life.",
+  pts:["Hook: Warren Buffett drinks 5 Cokes a day. That's 700 calories, and he's proud of it.",
+       "My take: he's wrong. 700 calories a day out of a can adds up to about 73 pounds of fat a year.",
+       "I did my own version of this. I drank coconut water for years thinking I needed it. Now I use zero calorie electrolyte powder.",
+       "Bottom line: he can buy anything except abs. Stop drinking your calories."],
+  note:"The 73 pounds is my math: 700 calories x 365 days, at 3,500 calories per pound."},
+ {t:"Bill Maher Says Fat Shaming Should Come Back. He's Right.", v:"right", id:"Dm4TAdiEFn0", s:353, e:370,
+  src:"Real Time with Bill Maher, \"New Rule: The Fudge Report\"", views:"2.1M views",
+  words:"Starts on \"fat shaming doesn't need to end\". Ends on \"shame is the first step in reform\".",
+  what:"The end of Bill Maher's monologue on obesity, where he says fat shaming needs to make a comeback.",
+  pts:["Hook: Bill Maher says fat shaming needs to make a comeback. He's right, and here's who you should shame.",
+       "My take: shame works. But don't use it on strangers. Use it on yourself.",
+       "Do this: weigh yourself every morning, and look at yourself shirtless in the mirror. [B-ROLL: STEPPING ON THE SCALE, SHIRTLESS MIRROR SHOT]",
+       "Bottom line: you can't fix what you refuse to look at."]},
+ {t:"Mark Wahlberg Wakes Up At 2:30 AM To Work Out. He's Wrong.", v:"wrong", id:"lzQyH-nX0u0", s:150, e:166,
+  src:"The Late Late Show, \"James Joins Mark Wahlberg's 4am Workout Club\"", views:"32.7M views",
+  words:"Starts on \"so I printed off your schedule\". Ends on \"I laid in the bed till 3:05\".",
+  what:"James Corden reads Mark Wahlberg's real daily schedule back to him: wake up at 2:30, prayer at 2:45.",
+  pts:["Hook: Mark Wahlberg wakes up at 2:30 in the morning to work out. You don't have to.",
+       "My take: he's right about training first thing. He's wrong about the hour. I train at 8 every morning, 7 days a week.",
+       "Since I moved my workout to the morning, I'm less stressed, I eat less junk food, and I stopped eating late at night.",
+       "Bottom line: work out first thing after you wake up, whatever time that is."]},
+ {t:"David Goggins Runs 12 Miles Every Morning. You Need 5 Minutes.", v:"wrong", id:"K1QDYuHGa_I", s:2, e:16,
+  src:"Chris Williamson, \"You Can Achieve More than You Think in 1 Day - David Goggins\"", views:"6.4M views",
+  words:"Starts on \"I run every single morning\". Ends on \"the one thing I hate to do more than anything in the world\".",
+  what:"David Goggins describes his morning: up at 5, then a run. Second clip if you want it: 1:16 to 1:24, where he says the run is never under 12 miles.",
+  pts:["Hook: David Goggins runs at least 12 miles every single morning, and he hates every one of them.",
+       "My take: he's right that you do it every day. He's wrong about how much you need.",
+       "Do this instead: if you hate working out, do 5 minutes every morning. Once it's a habit, go to 10, then 15.",
+       "Bottom line: 5 minutes you do every day beats an hour you skip."]},
+ {t:"Planet Fitness Makes Fun Of Guys Who Lift. That's Backwards.", v:"wrong", id:"q7gzmoqmL7g", s:0, e:11,
+  src:"\"I lift things up and put them down - Planet Fitness Commercial\"", views:"1.4M views",
+  words:"Starts on \"So, what do you do for a living?\". Ends on the second \"I lift things up and put them down\".",
+  what:"The Planet Fitness TV ad where a bodybuilder on a gym tour can only say \"I lift things up and put them down\".",
+  pts:["Hook: Planet Fitness ran a TV ad making fun of guys who lift. That tells you everything about that gym.",
+       "My take: it's backwards. Lifting things up and putting them down is exactly how you build a body.",
+       "I own a $20,000 home gym, and I still go to a real gym every day. I train harder around other people who are training hard.",
+       "Bottom line: pick the gym with the most serious people in it."]},
+ {t:"He Puts Butter In His Coffee Every Morning. He's Wrong.", v:"wrong", id:"4YjLMdx3YZY", s:180, e:190,
+  src:"Bulletproof, \"How to Make Bulletproof Coffee w/ Dave Asprey\"", views:"3.5M views",
+  words:"Starts on \"the first one is butter from grass-fed cows\". Ends on \"you can see this butter is a yellow color\".",
+  what:"Dave Asprey shows how to make Bulletproof Coffee: 2 tablespoons of butter, plus a tablespoon of oil (he adds the oil at 3:49).",
+  pts:["Hook: this guy puts 2 tablespoons of butter in his coffee every morning, and 3 million people watched him do it.",
+       "My take: he's wrong. That's about 200 calories of butter, plus the oil, before you've eaten anything.",
+       "Do this instead: I drink black cold brew. Zero calories. [B-ROLL: MY TWO YETI CUPS OF COLD BREW]",
+       "Bottom line: drinks are the easiest calories to cut. Start there."]},
+ {t:"A Longevity Doctor Pours Out Bad Wine. I Do The Opposite.", v:"plain", id:"zRtdikFQ-Pg", s:2, e:13,
+  src:"Tim Ferriss, \"Dr. Peter Attia: His Rules for Alcohol Consumption\"", views:"348K views",
+  words:"Starts on \"My response to alcohol\". Ends on \"It's just not worth it\".",
+  what:"Dr. Peter Attia says he pours out any drink that doesn't taste incredible. Second clip if you want it: 0:31 to 0:53, his limit of 2 drinks in a day and about 7 in a week.",
+  pts:["Hook: this longevity doctor pours out any drink that doesn't taste incredible. I only drink alcohol that tastes bad.",
+       "My take: he's right about the limit. But the drinks that taste great are the ones you keep pouring.",
+       "Do this: my 3 ways to drink less. Take Zepbound, never drink liquor, and drink bad tasting, low calorie alcohol only.",
+       "Bottom line: if it tastes bad, you stop at one."]},
+ {t:"Alex Hormozi Eats Dessert Every Night And Has Abs. He's Right.", v:"right", id:"fxyhIXZ6Yog", s:0, e:7, noembed:true,
+  src:"Alex Hormozi, \"The Alex Hormozi Diet (REVEALED)\"", views:"731K views",
+  words:"Starts on \"I've eaten dessert virtually every night for 20 years\". Ends on \"for that entire period of time\".",
+  what:"Alex Hormozi opens his diet video by saying he has never skipped dessert and has kept a six pack for 20 years. From 0:57 he gives his numbers: body weight times 10 to 12 for calories, and 1 gram of protein per pound.",
+  pts:["Hook: Alex Hormozi says he's eaten dessert every night for 20 years, and kept a six pack the whole time.",
+       "My take: he's right. Abs come from your total calories and your protein, not from banning foods.",
+       "Do this: his number to lean out is your body weight times 10 to 12 in calories. Mine for protein is at least 0.8 grams per pound of lean body mass.",
+       "Bottom line: hit those two numbers, and the dessert fits."],
+  note:"This is the verdict I am least sure of. Flip it if you disagree. The video's owner turned off embedding, so the button opens it on YouTube at 0:00."},
+ {t:"Hugh Jackman Stops Drinking Water 36 Hours Before A Shirtless Scene.", v:"plain", id:"sUfOcgr7OSI", s:165, e:186,
+  src:"The Late Show with Stephen Colbert, \"Hugh Jackman's Three-Month Prep For A Shirtless Scene\"", views:"1.4M views",
+  words:"Starts on \"and then you stop about 36 hours before you shoot\". Ends on \"you lose about ten pounds of water weight\".",
+  what:"Hugh Jackman explains how he gets ready for a shirtless Wolverine scene: a 3 month run-up, then no water for 36 hours.",
+  pts:["Hook: Hugh Jackman stops drinking water 36 hours before every shirtless scene. That's why you don't look like Wolverine.",
+       "My take: he's being honest, and every guy should hear it. Movie abs last one day. He trains 3 months for one scene, then drops 10 pounds of water.",
+       "Do this instead: the abs you keep all year come from body fat. Your upper abs start to show around 15%.",
+       "Bottom line: stop comparing yourself to a body that exists for one afternoon."]},
+ {t:"A Doctor Says You Regain The Weight When You Stop Ozempic. She's Right.", v:"right", id:"_rXANcA01C0", s:130, e:150,
+  src:"Good Morning America, \"This is what happens when you stop taking Ozempic\"", views:"6.2M views",
+  words:"Starts on \"so if you remove one of those variables\". Ends on \"or even more of the weight that they've lost\".",
+  what:"Dr. Jen Ashton on Good Morning America, saying that people who stop the drug are likely to regain some, all or even more of the weight.",
+  pts:["Hook: this doctor says if you stop Ozempic, you'll probably gain it all back. She's right. So I'm never stopping.",
+       "My take: I went from 192 to 175 pounds in 3 months on Zepbound, and I plan to stay on it for life.",
+       "Do this: don't quit at your goal weight. Drop to the lowest dose that holds it. I take 1.5 milligrams a week, and if I start gaining, I go up to 2.5.",
+       "Bottom line: the people who gain it back are the people who quit."]},
+ {t:"Dr. Mike Says Tirzepatide Is A Dial For Your Body Weight. He's Right.", v:"right", id:"4jmKrdcjurA", s:660, e:683,
+  src:"Renaissance Periodization, \"Three Drugs Every Male Over 40 Should Take\"", views:"531K views",
+  words:"Starts on \"tirzepatide gives you unbelievable benefits\". Ends on \"whatever it is you want with your body weight\".",
+  what:"Dr. Mike Israetel, the exercise scientist, on why tirzepatide (Zepbound) is one of his three picks: near total control of your appetite. His other two picks are testosterone and growth hormone, and the short leaves both out.",
+  pts:["Hook: this exercise scientist says one drug gives you near total control of your appetite. He's right, and I'm on it.",
+       "My take: I was stuck around 190 pounds for nearly a year. On Zepbound I went from 192 to 175 in 3 months.",
+       "Do this: if you're lean and just maintaining, I recommend 1 to 1.5 milligrams a week.",
+       "Bottom line: it's a dial. Turn it up to lose, turn it down to hold."]},
+ {t:"TikTok Says Blended Oats Work Like Ozempic. They Don't.", v:"wrong", id:"HBa5ZBBKAHM", s:26, e:43,
+  src:"Good Morning America, \"What to know about the 'oat-zempic' craze\"", views:"133K views",
+  words:"Starts on \"we need to lose at least 5 pounds\". Ends on \"losing up to 40 pounds in two months\".",
+  what:"A news report on \"Oatzempic\", the TikTok drink made of oats, lime and water that people claim works like Ozempic.",
+  pts:["Hook: TikTok says blending oats, lime and water works like Ozempic, and that people lost 40 pounds in 2 months.",
+       "My take: it's oats, lime and water. That's a low calorie breakfast, not a drug.",
+       "Do this instead: if you want Ozempic results, take the real thing at a low dose. If you want a low calorie breakfast, eat hard boiled eggs.",
+       "Bottom line: no drink in your blender does what the shot does."]},
+ {t:"He Let ChatGPT Coach Him For A Year. Then He Said A Human Is Better.", v:"wrong", id:"r7P9cxULmY8", s:510, e:531,
+  src:"Aaron, \"I Let AI Coach Me for a Year - Here's the Truth\"", views:"150K views",
+  words:"Starts on \"So, was it worth it to train with AI for 1 year?\". Ends on \"way better than I am now\".",
+  what:"A triathlete used ChatGPT as his only coach for a year. His verdict at the end: worth it, but a real coach would have made him better. Second clip if you want it: 0:14 to 0:27, where he hires ChatGPT.",
+  pts:["Hook: this guy let ChatGPT coach him for a whole year. Then he said a human coach would have been better. He's wrong.",
+       "My take: a trainer sees you a few hours a week. AI is there at every meal and every workout.",
+       "Do this: the top 3 ways I use AI. A photo of my plate for the calories, a workout built for the equipment I have, and a picture of what I'll look like lean, at AbsByAI.com.",
+       "Bottom line: a coach who's there every day beats a better coach you see once a week."]}
+];
+
+const OD = [
+ {t:"How To Do Pull-Ups (And What To Do If You Can't Do One)",
+  pts:["Pull-ups build your lats, the muscles that make your back wide.",
+       "Start from a dead hang. Pull your chest to the bar, elbows down to your sides.",
+       "If you can't do one yet: use the assisted pull-up machine, or do lat pulldowns."],
+  br:"On the list: gym shot 7 (pull-ups from behind, lat pulldowns). Add: 3 reps on the assisted machine."},
+ {t:"How To Do T-Bar Rows",
+  pts:["Pull-ups make your back wide. T-bar rows make it thick.",
+       "Hinge at the hips with your back flat. Pull to your lower chest and squeeze your shoulder blades together.",
+       "Don't jerk the weight up with your lower back.",
+       "Show both versions: with a barbell, and on the T-bar machine."],
+  br:"On the list: gym shot 8 (both versions, plus the close-up of the flat back)."},
+ {t:"How To Do Chest Flies",
+  pts:["Lock a slight bend in your elbows the whole time.",
+       "Open wide until you feel a stretch, then squeeze your hands together.",
+       "On the machine at the gym, or with dumbbells at home."],
+  br:"On the list: gym shot 9 (machine and dumbbells, plus the close-up of the stretch)."},
+ {t:"How To Do Cable Crunches",
+  pts:["Weight on your abs makes them grow, so they show sooner.",
+       "Kneel facing the cable, with the rope beside your ears.",
+       "Crunch your ribs down toward your hips. Don't sit back with your hips.",
+       "Squeeze for a second at the bottom."],
+  br:"On the list: gym shot 4 (side angle, close-up of the ribs crunching down)."},
+ {t:"How To Do Leg Raises",
+  pts:["They hit the lower part of your abs, which is the hardest part to get to show.",
+       "Show one wrong rep swinging, then 3 slow ones."],
+  br:"On the list: gym shot 12. Add: one wrong rep, swinging.",
+  note:"I have no form cues from you for leg raises. Give me 2 or 3 and I'll script it."},
+ {t:"The Only 3 Leg Exercises I Do Every Week",
+  pts:["Leg press, hamstring curls and the glute bridge machine. One leg exercise per workout.",
+       "Leg press: feet on the platform, knees stopping just short of locked.",
+       "Hamstring curls: squeeze at the end of the curl.",
+       "Glute bridge machine: at the top, your hips make a straight line from your shoulders to your knees."],
+  br:"On the list: gym shot 5 (all three, side angle) and shot 15 (the leg press machine)."},
+ {t:"How To Do Towel Rows (A Back Exercise With No Equipment)",
+  pts:["Loop a towel around a sturdy post or railing, hold both ends and lean back.",
+       "Pull your chest to your hands and squeeze your shoulder blades.",
+       "To make it easier, stand more upright."],
+  br:"On the list: pool shot 3 (towel rows, plus the close-up of the towel around the post)."},
+ {t:"How To Do Reverse Lunges",
+  pts:["Step back and drop your back knee toward the floor.",
+       "Push through your front heel to stand. Alternate legs.",
+       "Beginner: hold a wall for balance."],
+  br:"On the list: pool shot 4 (with the beginner version)."},
+ {t:"How To Do Bodyweight Squats",
+  pts:["Feet shoulder width. Sit back like there's a chair behind you.",
+       "Chest up, thighs down to parallel.",
+       "Beginner: squat down to a real chair and stand back up."],
+  br:"On the list: pool shot 1 (with the chair version)."},
+ {t:"How To Do Goblet Squats",
+  pts:["Hold the kettlebell at your chest by the horns.",
+       "Sit down between your knees, chest up.",
+       "Add push-ups, and one kettlebell gives you a full body workout at home."],
+  br:"On the list: pool shot 16 (3 reps with the 50 pound kettlebell, plus picking it up)."},
+ {t:"How To Do Overhead Tricep Extensions",
+  pts:["Your triceps are the bigger muscle in your arm, and this is how you train them at home.",
+       "One dumbbell in both hands. Lower it behind your head with your elbows pointing up, then press it back up."],
+  br:"Add to the pool list: 3 slow reps from the side, with a close-up of the elbows pointing up."},
+ {t:"How To Do Push-Ups With Handles",
+  pts:["Hands under your shoulders, body in one straight line.",
+       "Chest all the way down. The handles let your chest go lower than the floor does.",
+       "Beginner: knees on the floor."],
+  br:"On the list: pool shot 8 (with the beginner version). Add: a close-up from the side of how low the chest goes."},
+ {t:"3 Rules For Every Rep",
+  pts:["These 3 rules apply to every exercise you'll ever do.",
+       "1. Slow on the way down.",
+       "2. All the way through: arms straight at the bottom of a curl, full lockout on a pushdown.",
+       "3. No swinging. If you have to swing your body to move the weight, it's too heavy."],
+  br:"On the list: pool shot 10 (3 fast, sloppy curls and 3 slow ones), gym shots 10 and 11 (the straight arm and lockout close-ups)."},
+ {t:"Why I Only Do 3 Sets Per Exercise",
+  pts:["Most guys do too many sets and none of them hard.",
+       "One light warm-up set of 12 to 15 reps.",
+       "Then two hard sets of 6 to 10 reps, with the most weight you can lift."],
+  br:"On the list: gym shot 14 (me training hard, 3 or 4 heavy sets) and shot 3 (moving the pin down the weight stack)."},
+ {t:"Why Cables Beat Dumbbells For Building Muscle",
+  pts:["With dumbbells, your muscle gets a break at the top and bottom of every rep.",
+       "A cable keeps tension on the muscle the whole time.",
+       "The 3 I do every week: cable curls, cable tricep pushdowns and cable crunches."],
+  br:"On the list: gym shots 4, 10 and 11, and pool shot 10 (dumbbell curls) for the comparison."},
+ {t:"Why I Do A Total Body Workout Every Day",
+  pts:["I don't do chest day or leg day. Every workout is total body, 7 days a week.",
+       "15 minutes of cardio, then 1 leg exercise, 3 upper body exercises and 1 ab exercise.",
+       "3 sets of each, and I'm done."],
+  br:"On the list: gym shot 2 (cardio), then one quick shot each from the leg, upper body and ab shots."},
+ {t:"Why I Work Out First Thing In The Morning",
+  pts:["I used to train in the evening. Now I train at 8 every morning.",
+       "Since I switched: I'm much less stressed through the day, I eat less junk food and fewer calories, and I stopped eating late at night.",
+       "Bottom line: do it before your day can get in the way."],
+  br:"On the list: gym shot 1 (walking into the gym in the morning)."},
+ {t:"Why I Go To A Real Gym When I Own A $20,000 Home Gym",
+  pts:["I own a $20,000 home gym, and I still go to a real gym every day.",
+       "I train harder around other people who are training hard.",
+       "A real gym has equipment I don't have at home, like a leg press machine."],
+  br:"On the list: gym shots 14, 15 and 16. Add: a slow pan of the home gym, empty."},
+ {t:"Why You Must Train Your Abs Every Day",
+  pts:["Your abs are a muscle, and a bigger muscle shows sooner.",
+       "My top tier: cable crunches, leg raises, decline sit-ups, the ab wheel, toe touches and the vacuum.",
+       "Pick two, and do them every day."],
+  br:"On the list: gym shots 4, 12 and 13, pool shots 5, 14 and 17."},
+ {t:"The 4 Things I Eat Right After Every Workout",
+  pts:["A small handful of almonds and pumpkin seeds, so my supplements don't upset my stomach.",
+       "Then my capsules.",
+       "Then about 20 grams of protein: one chicken drumstick or a can of sardines.",
+       "Then one cup with EAAs, Cure electrolyte powder, collagen and creatine HCL."],
+  br:"On the list: the \"after the gym\" shots under Around The House.",
+  note:"This is the one idea here that is not an exercise. I added it because every beat is your real routine and the B-roll is already on the list."}
+];
+
+const fmt = s => Math.floor(s/60) + ":" + String(s%60).padStart(2,"0");
+const state = { rx:new Set(), od:new Set() };
+const el = (tag, cls, html) => { const e=document.createElement(tag); if(cls) e.className=cls; if(html!=null) e.innerHTML=html; return e; };
+const esc = s => s.replace(/&/g,"&amp;").replace(/</g,"&lt;");
+const tagFor = v => v==="right" ? '<span class="tag right">RIGHT</span>' : v==="wrong" ? '<span class="tag wrong">WRONG</span>' : '<span class="tag plain">MY SPIN</span>';
+
+function killBtn(kind, i, card) {
+  const b = el("button", "kill", "Kill");
+  b.onclick = () => { const set=state[kind]; set.has(i) ? set.delete(i) : set.add(i);
+    b.classList.toggle("on", set.has(i)); b.textContent = set.has(i) ? "Killed (undo)" : "Kill"; card.classList.toggle("killed", set.has(i)); reply(); };
+  return b;
+}
+
+function frame(r) {
+  const f = document.createElement("iframe");
+  f.allow = "autoplay; encrypted-media; picture-in-picture"; f.allowFullscreen = true; f.referrerPolicy = "strict-origin-when-cross-origin";
+  f.setAttribute("src", "https://www.youtube.com/embed/" + r.id + "?start=" + r.s + "&end=" + r.e + "&autoplay=1&rel=0");
+  return f;
+}
+
+RX.forEach((r, i) => {
+  const card = el("div", "card");
+  const url = "https://www.youtube.com/watch?v=" + r.id + (r.s ? "&t=" + r.s + "s" : "");
+  const p = el("div", "player");
+  const im = document.createElement("img"); im.loading = "lazy"; im.alt = "";
+  im.setAttribute("src", "https://i.ytimg.com/vi/" + r.id + "/hqdefault" + ".jpg");
+  p.appendChild(im);
+  p.appendChild(el("div", "play", "<span>&#9654; Play the clip, " + fmt(r.s) + " to " + fmt(r.e) + (r.noembed ? " (opens YouTube)" : "") + "</span>"));
+  const start = () => { p.innerHTML = ""; p.appendChild(frame(r)); p.onclick = null; p.style.cursor = "default"; };
+  p.onclick = () => { if (r.noembed) window.open(url, "_blank"); else start(); };
+  card.appendChild(p);
+  const b = el("div", "body");
+  b.innerHTML =
+    '<div class="num">Reaction ' + (i+1) + "</div>" +
+    '<div class="title">' + esc(r.t) + "</div>" +
+    "<div>" + tagFor(r.v) + (r.note ? '<span class="tag check">CHECK</span>' : "") + "</div>" +
+    '<div class="lbl">The clip</div>' +
+    '<p class="clipline"><a target="_blank">Opens at ' + fmt(r.s) + "</a>. " + fmt(r.s) + " to " + fmt(r.e) + " (" + (r.e - r.s) + " seconds). " + esc(r.src) + ". " + r.views + ".</p>" +
+    '<p class="quote">' + esc(r.words) + "</p>" +
+    '<div class="lbl">What it is</div><p>' + esc(r.what) + "</p>" +
+    '<div class="lbl">Your reaction</div><ul>' + r.pts.map(x => "<li>" + esc(x) + "</li>").join("") + "</ul>" +
+    (r.note ? '<div class="note">' + esc(r.note) + "</div>" : "");
+  b.querySelector(".clipline a").setAttribute("href", url);
+  const row = el("div", "row");
+  row.appendChild(killBtn("rx", i, card));
+  if (!r.noembed) { const rp = el("button", "", "Replay from " + fmt(r.s)); rp.onclick = start; row.appendChild(rp); }
+  b.appendChild(row);
+  card.appendChild(b);
+  document.getElementById("rx").appendChild(card);
+});
+
+OD.forEach((o, i) => {
+  const card = el("div", "card");
+  const b = el("div", "body");
+  b.innerHTML =
+    '<div class="num">Outdoor ' + (i+1) + "</div>" +
+    '<div class="title">' + esc(o.t) + "</div>" +
+    "<ul>" + o.pts.map(x => "<li>" + esc(x) + "</li>").join("") + "</ul>" +
+    '<div class="broll"><b>B-roll.</b> ' + esc(o.br) + "</div>" +
+    (o.note ? '<div class="note">' + esc(o.note) + "</div>" : "");
+  const row = el("div", "row");
+  row.appendChild(killBtn("od", i, card));
+  b.appendChild(row);
+  card.appendChild(b);
+  document.getElementById("od").appendChild(card);
+});
+
+let notes = "";
+function reply() {
+  const box = document.getElementById("reply-box");
+  const cur = box.value.split("NOTES:");
+  if (cur.length > 1) notes = cur.slice(1).join("NOTES:").replace(/^\n/, "");
+  const line = (kind, n) => { const k = [...state[kind]].sort((a,b)=>a-b).map(x=>x+1);
+    const keep = []; for (let j=1;j<=n;j++) if(!k.includes(j)) keep.push(j);
+    return "keep " + (keep.length ? keep.join(", ") : "none") + "\n  kill " + (k.length ? k.join(", ") : "none"); };
+  box.value = "10/17 SHORTS IDEAS\nREACTIONS: " + line("rx", RX.length) + "\nOUTDOOR: " + line("od", OD.length) +
+    "\nVerdicts to flip (reaction numbers): \nLeg raises cues (outdoor 5): \nNOTES:\n" + notes;
+}
+reply();
+document.getElementById("copy").onclick = e => { const box = document.getElementById("reply-box"); box.select();
+  navigator.clipboard.writeText(box.value).then(() => { e.target.textContent = "Copied"; setTimeout(() => e.target.textContent = "Copy reply", 1500); }); };
+</script>
+</body>
+</html>

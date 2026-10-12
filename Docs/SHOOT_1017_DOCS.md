@@ -46,3 +46,17 @@ If a script changes in the shoot doc after that, rebuild: `.claude/skills/telepr
 alternates. The other 21 say "pick 10 to 30 seconds" inside a window, because the exact seconds were never chosen;
 those links open at the start of the window. All 14 YouTube videos answered on 2026-10-12. Dan's own clips (the jump
 rope short, the ab wheel video, the salad video) are not on the list: he is not reacting to them.
+
+## 40 more shorts ideas, waiting for Dan's picks (2026-10-12)
+
+Dan asked for 20 green screen reaction shorts and 20 outdoor shirtless shorts with workout B-roll. They are on one review
+page, not in the shoot doc yet: `Docs/shoot-1017-shorts-ideas/index.html`, served at http://127.0.0.1:8881/
+(`review_server.py 8881 Docs/shoot-1017-shorts-ideas`). Each reaction card has the clip cued to the second (video id, start
+and end are in the `RX` list in the page), the verdict and the outline bullets. Each outdoor card names its B-roll shot on
+the list above or what to add.
+
+Next: when Dan replies with his keeps, script each one with `/shorts-scripting` into the shoot doc, add the new clips to
+the Reaction Clips document, add the new B-roll shots to the B-roll list, and rebuild the teleprompter documents.
+
+Trap: `review_server.py` treats any quoted string ending in .jpg, .js, .html and so on as a local file, even inside a
+script. Build remote image paths in pieces (`"/hqdefault" + ".jpg"`) or the server refuses to start.
