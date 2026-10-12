@@ -1,4 +1,5 @@
-"""RO-08 "Intermittent Fasting: The Best Way To Get Abs" visual plan (round 1). Every item is anchored to the words Dan says
+"""RO-08 "Intermittent Fasting: The Best Way To Get Abs" visual plan (round 1, with Dan's 2026-10-12 colour note applied: every clip of Dan and of his
+salad is brightened to sit with the presenter look; broll/*_bright.mp4, curves in round2-plan/broll_grades.json). Every item is anchored to the words Dan says
 (phrase -> output time via words_out.json). HyperFrames templates (from_plan.py): lt = the Motivation lower third.
 clip = full-frame cutaway, hard cuts. Order of preference kept: Dan's own footage (library B#### cuts, three clean shots cut
 from the approved salad film's graded base), library clips already made (A0158 the boxing glove gag), new stock (Pexels,
@@ -40,7 +41,7 @@ PLAN = [
       point="A Short Fast, Every Single Day.", parts=[["A Short Fast, Every Single Day.", "simple, short daily fast"]]),
  dict(id="G09", kind="lt", start="All I do, skip breakfast", end="kept me lean", topic="ALL I DO",
       point="Skip Breakfast. Late Lunch. Low Carb.", parts=[["Skip Breakfast.", "skip breakfast"], ["Late Lunch.", "eat a late lunch"], ["Low Carb.", "fairly low carb"]]),
- dict(id="C08", kind="clip", start="eat a late lunch", end="fairly low carb", tail=0.1, src=[f"{BR}/salad_bowl2.mp4@0.0"], **DAN,
+ dict(id="C08", kind="clip", start="eat a late lunch", end="fairly low carb", tail=0.1, src=[f"{BR}/salad_bowl2_bright.mp4@0.0"], **DAN,
       note="Dan's own footage, from the approved salad film (graded, no graphics): he lifts the lid off his finished daily salad"),
  # ---------------- why 1: the simplest
  dict(id="G10", kind="lt", start="Number one, intermittent fasting is the simplest", end="certain part of the day", topic="REASON 1",
@@ -117,8 +118,8 @@ PLAN = [
       note="new stock, Pexels 16125447: a man sits spent on the gym floor after a workout"),
  dict(id="A2", kind="clip", start="oh, I could never do this", end="might as well just quit", tail=0.25, frames=ai("A2"), pending=True, label="AI-GENERATED", **OTH,
       note="NEW AI CLIP (frames for approval), the excuse voice again, lip-synced to Dan's own recording: a beginner flat on his back on the gym floor beside one tiny pink dumbbell whines at the camera, then drags himself toward the exit"),
- dict(id="C38", kind="clip", start="your body adapts to workouts", end="when you first start", tail=0.1, src=["B0427@0.5"], **DAN,
-      note="Dan's own footage: ab wheel rollouts beside the pool, side on (a workout his body adapted to)"),
+ dict(id="C38", kind="clip", start="your body adapts to workouts", end="when you first start", tail=0.1, src=["B0030@0.5"], **DAN,
+      note="Dan's own footage: one full ab wheel rollout by the pool in bright daylight (library B0030, colour corrected). Round 1 note (Dan: 'make sure we're using the color-corrected footage'): B0427, the low-sun cut first used here, read 0.30 on his skin against 0.51 on camera; this cut reads 0.46"),
  dict(id="G26", kind="lt", start="if you stick to it for two or three weeks", end="fasting window", topic="STICK WITH IT",
       point="After 2 To 3 Weeks, The Hunger Fades.", parts=[["After 2 To 3 Weeks,", "two or three weeks"], ["The Hunger Fades.", "no longer get hungry"]]),
  dict(id="G27", kind="lt", start="The first 30 days", end="during my fasting window", topic="MY FIRST 90 DAYS",
@@ -156,7 +157,7 @@ PLAN = [
       point="A Realistic Target In A Couple Of Months.", parts=[["A Realistic Target In A Couple Of Months.", "excellent target"]]),
  dict(id="G39", kind="lt", start="here's how you take things to the next level", end="nutrition habits", topic="THE NEXT LEVEL",
       point="Break Your Fast With A Salad.", parts=[["Break Your Fast With A Salad.", "Eat a salad"]]),
- dict(id="C30", kind="clip", start="Eat a salad or a low carb meal for lunch", end="what I do every day", tail=0.05, src=[f"{BR}/salad_dish.mp4@0.0"], people="none", physique=False,
+ dict(id="C30", kind="clip", start="Eat a salad or a low carb meal for lunch", end="what I do every day", tail=0.05, src=[f"{BR}/salad_dish_bright.mp4@0.0"], people="none", physique=False,
       note="Dan's own footage, from the approved salad film (graded, no graphics): a push in on his finished daily salad"),
  dict(id="G40", kind="lt", start="So that's your game plan. Skip breakfast", end="to break your fast", topic="YOUR GAME PLAN",
       point="Skip Breakfast. Build To 5 Hours. Break It With A Salad.", parts=[["Skip Breakfast.", "Skip breakfast"], ["Build To 5 Hours.", "gradually pushing that back"], ["Break It With A Salad.", "eat a salad"]]),
@@ -192,7 +193,7 @@ PLAN = [
       point="Skip Breakfast. Tell Me How It Goes In The Comments.", parts=[["Skip Breakfast.", "skipping breakfast"], ["Tell Me How It Goes In The Comments.", "let me know"]]),
  dict(id="P01", kind="clip", start="you can generate an AI image of your future self", end="and you had six pack abs", tail=0.2, src=[f"{RO6}/round5/phone/P01-softblue.mp4@0.0"], people="dan", physique=True, label="AI-GENERATED", label_in_picture=True,
       note="the approved self-generation demo (sunglasses photo to pool goal) in the Soft Blue phone card, the same file as RO-06 and RO-07"),
- dict(id="C35", kind="clip", start="Once you see how amazing you would look", end="happen in real life", tail=0.1, src=["B0431@1.0", "B0453@0.3"], **DAN,
+ dict(id="C35", kind="clip", start="Once you see how amazing you would look", end="happen in real life", tail=0.1, src=[f"{BR}/B0431_bright.mp4@1.0", f"{BR}/B0453_bright.mp4@0.3"], **DAN,
       note="Dan's own footage for 'do the work necessary': kettlebell deadlifts by the pool, then decline push-ups on the handles"),
  dict(id="G49", kind="lt", start="we've got an AI macro tracker", end="body you want", tail=0.4, topic="ALSO IN THE APP",
       point="AI Macro Tracker. AI Trainer. AI Nutritionist.", parts=[["AI Macro Tracker.", "macro tracker"], ["AI Trainer.", "personal trainer"], ["AI Nutritionist.", "nutritionist"]]),
