@@ -129,6 +129,8 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **RO-07 - HOLD 2026-10-11, Claude.** Blotato full. `Docs/RO07_SETUP_RECEIPT_20261011.md`
 
+**RO-08 R1 2026-10-12, Claude.** `/Volumes/Extreme/_edit_work/ro08/`
+
 **SL-06 BUILDING 2026-10-11, Claude.** `Handoffs/handoff-20261011-sl06-zepbound-shorts-pickups-and-build.md`
 
 **RO-12 - QUEUED 2026-10-01, Claude.** Blotato Oct 25. Then: `Docs/RO12_SETUP_RECEIPT_20261001.md`, delete.
@@ -141,7 +143,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 **Studio posts - PARTIAL 2026-10-03, Claude.** 40 of 54 live; plan cap blocked 14 FB. Next: as slots free, `studio27_queue.py plan`, `create`. `Docs/STUDIO27_BLOTATO_QUEUE_RECEIPT_20261003.md`
 
-**Stashed edits - NEEDS OWNER 2026-09-29, Claude.** A rebase kept upstream versions of softblue.py, SOFTBLUE.md, GRAPHICS-STANDARDS.md, deliver/gate.py, coverimage SKILL.md, 00-MASTER.md, jobs.json. Uncommitted edits: `stash@{0}` (5d8284a). Next: re-apply.
+**Stashed edits - NEEDS OWNER 2026-09-29, Claude.** Upstream kept: softblue.py, SOFTBLUE.md, GRAPHICS-STANDARDS.md, deliver/gate.py, coverimage SKILL.md, 00-MASTER.md, jobs.json. Edits: `stash@{0}` (5d8284a). Next: re-apply.
 
 **SL-04 shorts - QUEUED 2026-09-30, Claude.** Blotato Oct 6-15; delete once posted. `Docs/SL04_SETUP_RECEIPT_20260930.md`.
 
