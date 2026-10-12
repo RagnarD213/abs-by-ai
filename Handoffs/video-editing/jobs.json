@@ -883,16 +883,16 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/DS-25-how-to-do-m100s.md`: cut the dedicated short \"How To Do M100s\" from its 8/28 raw takes. Best take of every line, 1080×1920, 45–66 s, J2 captions, every b-roll cue filled and labelled, the 8/28 S-Log3 conversion, lav picked per file, cover image. Every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-25-how-to-do-m100s.md` with `$long-form-content-edit` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "finalized",
-   "note": "Dan finalized 10-12 after the HD check",
+   "state": "blocked",
+   "note": "Dan is filming the M100s B-roll and it gets added to the video. Do not make covers or queue it for release until then (Dan, 10-12).",
    "sub": "Workout",
    "order": 41,
    "updated": "2026-10-12",
    "by": "Claude",
-   "rev": 5,
-   "syncedRev": 5,
+   "rev": 6,
+   "syncedRev": 6,
    "editor": "Muhammad",
-   "needs": ""
+   "needs": "Dan needs to film the M100s B-roll"
   },
   {
    "id": "RO-01",

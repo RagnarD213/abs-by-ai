@@ -89,7 +89,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [DS-22](DS-22-how-to-use-the-ab-wheel.md) | How To Use The Ab Wheel | C1672 | FINALIZED | S |
 | [DS-23](DS-23-how-to-do-side-laterals.md) | How To Do Side Laterals | C1672 | FINALIZED | S |
 | [DS-24](DS-24-how-to-do-rear-delt-flys.md) | How To Do Rear Delt Flys | C1672 | FINALIZED | S |
-| [DS-25](DS-25-how-to-do-m100s.md) | How To Do M100s | C1672 | FINALIZED | S |
+| [DS-25](DS-25-how-to-do-m100s.md) | How To Do M100s | C1672 | BLOCKED | S |
 
 ### 1C · Organic long-form (9)
 
