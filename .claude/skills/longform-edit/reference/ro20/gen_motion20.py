@@ -5,10 +5,10 @@ Writes round3/motion/<tag>.mp4 + <tag>.json and appends the cost to round3/motio
 round2/motion/). Never overwrites a take. Round 3: A3's END frame is the round 1b one Dan approved on 2026-10-10 (A3-end-r1b.png)."""
 import base64, hashlib, io, json, os, sys, time, urllib.request, urllib.error
 from PIL import Image
-W = "/Volumes/Extreme/_edit_work/ro20"; M = f"{W}/round2/motion"; MODEL = "google/veo-3.1-fast"; USD_S = 0.10
-D = json.load(open(f"{W}/round2-plan/decisions.json")); DUR = {"A1": 8, "A2": 6, "A3": 6}
+W = "/Volumes/Extreme/_edit_work/ro20"; M = f"{W}/round3/motion"; MODEL = "google/veo-3.1-fast"; USD_S = 0.10
+D = json.load(open(f"{W}/round3-plan/decisions.json")); DUR = {"A1": 8, "A2": 6, "A3": 6, "J1": 8, "J2": 4}
 END = {}
-FULL = {l.split(None, 1)[1].strip(): l.split()[0] for l in open(f"{W}/round1/round1-hashes.sha256") if l.strip()}
+FULL = {l.split(None, 1)[1].strip(): l.split()[0] for hf in ("round1/round1-hashes.sha256", "round2/round2-hashes.sha256") for l in open(f"{W}/{hf}") if l.strip()}
 def pair(cid):
     """the frame pair Dan approved: must be listed in decisions.json motion_authorized and match its recorded sha256"""
     assert cid in D["motion_authorized"], f"{cid}: motion is not authorized in decisions.json"
@@ -32,10 +32,10 @@ if __name__ == "__main__":
     cid, tag = sys.argv[1], sys.argv[2]; dur = int(sys.argv[3]) if len(sys.argv) > 3 else DUR[cid]
     out = f"{M}/{tag}.mp4"; assert not os.path.exists(out), f"{out} exists: pick a new tag"
     (s, sh), (e, eh) = pair(cid)
-    prompt = open(f"{M}/{cid}.txt").read().strip(); nf = f"{M}/{cid}.neg.txt"; neg = open(nf).read().strip() if os.path.exists(nf) else None
+    pn = os.environ.get("PROMPT", cid); prompt = open(f"{M}/{pn}.txt").read().strip(); nf = f"{M}/{pn}.neg.txt"; neg = open(nf).read().strip() if os.path.exists(nf) else None
     token = [l.split("=", 1)[1].strip().strip("\"'") for l in open(os.path.expanduser("~/.absbyai-secrets.env")) if l.startswith("REPLICATE_API_TOKEN=")][0]
     H = {"Authorization": "Bearer " + token, "Content-Type": "application/json", "User-Agent": "Mozilla/5.0"}
-    body = json.dumps({"input": {"prompt": prompt, "image": b64(s, sh), "last_frame": b64(e, eh), "duration": dur, "resolution": "1080p",
+    body = json.dumps({"input": {"prompt": prompt, "image": b64(s, sh), **({} if os.environ.get("NOLAST") else {"last_frame": b64(e, eh)}), "duration": dur, "resolution": "1080p",
                                  "aspect_ratio": "16:9", "generate_audio": False, **({"negative_prompt": neg} if neg else {})}}).encode()
     p = call(urllib.request.Request(f"https://api.replicate.com/v1/models/{MODEL}/predictions", data=body, headers=H))
     print("submitted", p["id"], flush=True)

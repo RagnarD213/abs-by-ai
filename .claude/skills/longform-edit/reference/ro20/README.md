@@ -105,3 +105,23 @@ file: `cards20.py` (full-screen cards as pre-rendered plan clips), `brollgrade20
   the page at the top of a canvas with the shell's aspect, its page colour under it and its tab bar at the very bottom, then use the
   approved shell. Trim each static screen to its words, never past the screen's own source length.
 - **`zsh` does not split `set -- $v`**, so a download loop over "id slug" pairs silently made no files. Name the files outright.
+
+## Round 3 start (2026-10-12): the lip sync that did not sync, and two AI takes that told the wrong story
+
+- **Measure a lip sync before anyone sees it: `lipmeasure20.py CLIP WAV`.** MediaPipe face mesh gives the mouth opening per frame;
+  correlate it with the speech envelope. Real footage of Dan reads about r 0.3 to 0.5 per 2 s window at a steady lag of 0 to +2
+  frames. The round 2 A1 read r -0.1 with lags all over the place, the same as the unsynced take, and Dan rejected it on sight
+  ("doesn't match up at all"). Also print the mouth gap by second: a sync that never opens the mouth reads about 0.002.
+- **sync/lipsync-2-pro did not drive this face (a heavy, smirking AI man, face 235 px wide) in three tries:** on a take where Veo
+  already made him "talk" it kept Veo's mouth movement; enlarging the face window 2x (`LIPUP=2` with a crop) changed nothing; on a
+  closed-mouth take `active_speaker` found no speaker and did nothing, and with it off (`ACTIVE=0`) the mouth still stayed shut.
+  Do not prompt Veo to "talk the whole time" for a clip that will be synced, and test a new face on a 2.5 s segment
+  (`SEG=a:d`, about $0.21) before paying for the whole slot.
+- **The no-sync fallback that cannot mismatch:** a take from the START frame only (`NOLAST=1`) in which the character keeps his
+  mouth shut and reacts while Dan's voice does the line, as the approved brokie clip does.
+- **Veo gives the bystander a turn.** With a start and end frame of "A shakes B's hand while C looks on", it had A shake C's hand
+  first (J1) and had C join the handshake (J2). Say what the bystander's hands do for the whole shot and that he never stands.
+- **Review page ports are registered per review:** `review_server.py` refuses a port another review holds, and a link check run
+  before reading that error passes against the OTHER page. Assert a string from your own page in the check.
+- **Per-video AI cap:** five AI clips plus retries used video 1's $5 by themselves. For a film with this many AI beats, ask for the
+  cap up front in the round 1 packet.

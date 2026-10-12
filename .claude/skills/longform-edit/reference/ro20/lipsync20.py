@@ -17,15 +17,19 @@ if __name__ == "__main__":
     out = f"{M}/{tag}.mp4"; assert not os.path.exists(out), f"{out} exists: pick a new tag"
     it = next(r for r in json.load(open(f"{W}/plan_resolved.json")) if r["id"] == cid)
     f0, f1 = fr(it["t0"]), fr(it["t1"]); n24 = -(-(f1-f0)*24*1001//30000); dur = n24/24.0       # whole 24 fps frames covering the slot
+    SEG = os.environ.get("SEG"); seg0 = 0.0                # round 3: "a:d" = sync only d seconds starting a seconds into the slot (a whole number of 24 fps frames)
+    if SEG: sa, sd = (float(v) for v in SEG.split(":")); k0 = int(round(sa*24)); seg0 = k0/24.0; n24 = int(round(sd*24)); dur = n24/24.0; off += seg0
+    ACTIVE = os.environ.get("ACTIVE", "1") == "1"         # active_speaker looks for a moving mouth: on a closed-mouth base take it finds none and syncs nothing (A1-sync3)
     trim = f"{M}/{tag}.trim.mp4"; wav = f"{M}/{tag}.wav"
-    vf = "format=yuv420p" if not crop else "crop={2}:{3}:{0}:{1},format=yuv420p".format(*crop.split(":"))
+    UP = int(os.environ.get("LIPUP", "1"))          # round 3: a small face (235 px) synced badly; send the face window enlarged, composite it back at its own size
+    vf = "format=yuv420p" if not crop else "crop={2}:{3}:{0}:{1},".format(*crop.split(":")) + (f"scale=iw*{UP}:ih*{UP}:flags=lanczos," if UP > 1 else "") + "format=yuv420p"
     subprocess.run([FF, "-v", "error", "-y", "-ss", f"{off:.4f}", "-i", take, "-frames:v", str(n24), "-vf", vf, "-an", "-c:v", "libx264", "-crf", "10", "-preset", "slow",
                     "-colorspace", "bt709", "-color_primaries", "bt709", "-color_trc", "bt709", trim], check=True)
-    w = wave.open(VOICE); sr = w.getframerate(); w.setpos(int(round(f0/FPS*sr))); pcm = w.readframes(int(round(dur*sr))); w.close()
+    w = wave.open(VOICE); sr = w.getframerate(); w.setpos(int(round((f0/FPS + seg0)*sr))); pcm = w.readframes(int(round(dur*sr))); w.close()
     o = wave.open(wav, "w"); o.setnchannels(1); o.setsampwidth(2); o.setframerate(sr); o.writeframes(pcm); o.close()
     token = [l.split("=", 1)[1].strip().strip("\"'") for l in open(os.path.expanduser("~/.absbyai-secrets.env")) if l.startswith("REPLICATE_API_TOKEN=")][0]
     H = {"Authorization": "Bearer " + token, "Content-Type": "application/json", "User-Agent": "Mozilla/5.0"}
-    body = json.dumps({"input": {"video": uri(trim, "video/mp4"), "audio": uri(wav, "audio/wav"), "sync_mode": "cut_off", "temperature": temp, "active_speaker": True}}).encode()
+    body = json.dumps({"input": {"video": uri(trim, "video/mp4"), "audio": uri(wav, "audio/wav"), "sync_mode": "cut_off", "temperature": temp, "active_speaker": ACTIVE}}).encode()
     print("trim", n24, "frames", round(dur, 3), "s;", round(os.path.getsize(trim)/1e6, 1), "MB", flush=True)
     p = GM.call(urllib.request.Request(f"https://api.replicate.com/v1/models/{MODEL}/predictions", data=body, headers=H))
     print("submitted", p["id"], flush=True)

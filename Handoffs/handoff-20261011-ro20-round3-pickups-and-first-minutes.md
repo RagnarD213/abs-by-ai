@@ -21,22 +21,34 @@ It lays the pickups in, generates the two new job clips if he approves their fra
 5. Dan's reply to the round 2 page. Record it word for word in `round3-plan/decisions.json` before touching anything, then
    re-hash `round2/round2-hashes.sha256`.
 
-## What Dan was asked (four decisions)
+## Update 2026-10-12: Dan answered the round 2 page in the round 2 session
 
-1. Frames J1 (boardroom job interview, replaces Ca02 under lower third Ga04): approve or change. Motion 8 s, $0.80.
-2. Frames J2 (golf clubhouse partnership handshake, replaces Ca03): approve or change. Motion 4 s, $0.40.
-3. Video 2's opening: on camera with roll take `sum1` (film 3014.45 to 3026.9 s), then pickup P2 from "In the last video"
-   (recommended), or the whole opening as pickup audio over pictures.
-4. Pickup scripts: record as written, or his own edits in the Google Doc
-   (`1NI41W27Ipq3yukQ9HX-pLQYxbFEo849Na4Q95UzsGwA`; local copy `round2/pickups/pickups_doc.html`).
+His words are in `round3-plan/decisions.json`. Approved: frames J1 and J2, the pickup scripts, and everything else on the round 2
+page (editor's reading: video 2 opens on camera with roll take `sum1`, film 3014.45 to 3026.9 s, since he did not overrule it).
+Two new asks, answered on a small page, http://127.0.0.1:8868/ (`round3/`):
 
-Pickup audio lands in `Media/longform-raw/ro20-pickups/` as P1 to P4, two takes each. If it is not there, stop and tell Dan in one line.
+1. **Video 1 intro as an AI-video title graphic.** Three concepts as START and END frames (`aiframes/T1` vault, `T2` health chart,
+   `T3` piggy bank). He picks one; motion is one 8 s take ($0.80) under his first sentence (0:00 to 0:06). Lay the title type in
+   code if the AI warps letters. Recommended: T1.
+2. **A1 lip sync "doesn't match up at all".** Three paid fixes failed (README, round 3 section). The plan now carries a working
+   version with no mismatch: `round3/motion/A1-t2.mp4`, a new take from the approved START frame in which he keeps his mouth shut
+   while Dan's voice does the line. Open choice: try ONE different lip-sync tool on `A1-t2.mp4` (measure it with
+   `lipmeasure20.py` and look at a mouth close-up strip before showing him), or keep the silent version.
+3. **Budget.** Video 1 is at $4.99 of $5.00. Asked: raise video 1 to $10. Until he says yes, spend nothing on video 1.
+
+Also waiting on that budget: retakes of J1 and J2. Both first takes are rejected (`round3/motion/J1-t1.mp4`: the interviewer shakes
+the heavy man's hand for 3 s before the fit man's; `J2-t1.mp4`: the heavy man joins the handshake). Retake with: the heavy man
+never stands, never reaches out, keeps both hands on his folder (J1) or the armrests (J2); in J1 nobody stands until the last 2 s.
+`gen_motion20.py` takes `PROMPT=<name>` for a retake prompt and `NOLAST=1` to drop the end frame.
+
+Pickups: Dan was told to make one Voice Memos recording of all four (each read twice) and AirDrop it to this Mac (Downloads).
+Also look in `~/Library/Group Containers/group.com.apple.VoiceMemos.shared/Recordings/` and `Media/longform-raw/ro20-pickups/`.
 
 ## Locked (do not reopen)
 
 Colour D for both sizes; voice 4 (`build.VOICE4`); the chapters; every round 1 graphic and clip Dan did not flag; frames A1, A2, A3.
-Round 2 additions are NOT locked until he answers: the finished motion of A1 (lip synced), A2, A3; the dating-app card (Cb11); the
-diagram card (Cb12); the three-part card and the three-levels card (stills); the 24 B-roll grades; video 1's first minute.
+Locked on 2026-10-12 as well: frames J1 and J2, motion A2 and A3, the dating-app card (Cb11), the diagram card (Cb12), the three-part
+card and the three-levels card (stills), the 24 B-roll grades, the pickup scripts. NOT locked: A1's motion, the intro, video 1's first minute.
 
 ## State of the build
 
@@ -80,9 +92,10 @@ diagram card (Cb12); the three-part card and the three-levels card (stills); the
 
 ## Cost ledger
 
-Spent: $2.66 (Veo 3.1 Fast A1 $0.80, A2 $0.60, A3 $0.60; sync/lipsync-2-pro A1 $0.66). By video: video 1 $1.46, video 2
-$0.60, video 3 $0.60. Planned: J1 $0.80 + J2 $0.40 (video 1, to $2.66). Images: 4 Codex frames on the subscription, $0.
-Cap $5.00 per video; ask before any video passes it.
+Spent: $6.19. Video 1 $4.99 (round 2: A1 take $0.80, lip sync $0.66; round 3: J1 take $0.80, J2 take $0.40, lip sync retries
+$0.66 + $0.66 + $0.21, A1 closed-mouth take $0.80). Video 2 $0.60. Video 3 $0.60. Ledgers: `round2/motion/ledger.json`,
+`round3/motion/ledger.json`. Planned for video 1 if Dan raises its cap: J1 retake $0.80, J2 retake $0.40, intro $0.80, one
+lip-sync try up to $1.50, one spare retake $0.80. Cap $5.00 per video until he says otherwise.
 
 ## Recommended model and effort
 
@@ -91,7 +104,7 @@ Claude Opus 5.5, high: pickup joins judged by ear and eye, a new take-map pass, 
 ## Starter prompt
 
 ```
-Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/handoff-20261011-ro20-round3-pickups-and-first-minutes.md`: round 3 of the three "Invest In Your Health" videos (LFC, content; RO-20, RO-20B, RO-20C in one task). My audio pickups P1 to P4 are in `Media/longform-raw/ro20-pickups/` and my answers to the round 2 page are below. Lay the pickups in, generate the job clips I approved, show me the first minute of videos 2 and 3 and only what else is new, then build the three full films only when nothing is pending. Name this session "Invest In Your Health LFC R3".
+Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/handoff-20261011-ro20-round3-pickups-and-first-minutes.md`: round 3 of the three "Invest In Your Health" videos (LFC, content; RO-20, RO-20B, RO-20C in one task). My pickup recording is in Downloads (or Voice Memos) and my answers to the round 3 page (8868) are below. Lay the pickups in, generate the job clips I approved, show me the first minute of videos 2 and 3 and only what else is new, then build the three full films only when nothing is pending. Name this session "Invest In Your Health LFC R3".
 
-[paste the round 2 page reply here]
+[paste the round 3 page reply here]
 ```

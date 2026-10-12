@@ -1,0 +1,85 @@
+{
+ "job": "RO-20 / RO-20B / RO-20C",
+ "round_reviewed": 2,
+ "recorded": "2026-10-12",
+ "source": "Dan's chat reply to the round 2 page (http://127.0.0.1:8864/), dictated",
+ "dan_full_reply": "For the intro for this, I want to try something new. I want to try a full-screen graphic, but I want a unique full-screen graphic that's better than our regular ones, which we generate as an AI video. Try a couple of ideas for a full-screen graphic: \"Why You Need to Invest More in Your Health,\" generated as an AI video, that are better and more attention-getting than our usual graphics. Show me certain end frames for those in the beginning. For the fat guy saying what I did at 26 seconds, the lip-syncing doesn't match up at all. I want you to try to get that better. Try to get the whole clip better. If that doesn't work, just try to get a segment of it which was the best lined up and use that, but get that lip-syncing better than it is at 26 seconds. Job interview clip looks good. Partnership clip looks good. The pickups and everything else look good. Let's talk about the best way for me to record the pickups. What's the easiest way for me to record the pickups and to get them to you?",
+ "items": [
+  {
+   "item": "Video 1 intro",
+   "verdict": "new request",
+   "dan": "For the intro for this, I want to try something new. I want to try a full-screen graphic, but I want a unique full-screen graphic that's better than our regular ones, which we generate as an AI video. Try a couple of ideas ... Show me certain end frames for those in the beginning.",
+   "next": "two or three title-graphic concepts as START and END frames (editor's reading of 'certain end frames': start and end frames); no motion until he picks one",
+   "new_frames_before_motion": true
+  },
+  {
+   "item": "A1 (fat guy who has money), lip sync",
+   "verdict": "changes requested",
+   "dan": "For the fat guy saying what I did at 26 seconds, the lip-syncing doesn't match up at all. I want you to try to get that better. Try to get the whole clip better. If that doesn't work, just try to get a segment of it which was the best lined up and use that, but get that lip-syncing better than it is at 26 seconds.",
+   "next": "re-sync; fall back to the best-aligned segment"
+  },
+  {
+   "item": "J1 (job interview, boardroom)",
+   "verdict": "approved",
+   "dan": "Job interview clip looks good.",
+   "scope": "frames; motion authorized",
+   "frames": {
+    "start": {
+     "path": "/Volumes/Extreme/_edit_work/ro20/aiframes/J1-start.png",
+     "sha256": "38691506efff475b5544fd557607084d975df3f3d46b4dbc3bd27662a1aaa4ff"
+    },
+    "end": {
+     "path": "/Volumes/Extreme/_edit_work/ro20/aiframes/J1-end.png",
+     "sha256": "5330b1981ccaa60c60a195f2ed2380f4a0695628b6486e9ef7dd0dd66a1486c1"
+    }
+   }
+  },
+  {
+   "item": "J2 (partnership, golf clubhouse)",
+   "verdict": "approved",
+   "dan": "Partnership clip looks good.",
+   "scope": "frames; motion authorized",
+   "frames": {
+    "start": {
+     "path": "/Volumes/Extreme/_edit_work/ro20/aiframes/J2-start.png",
+     "sha256": "6f86e3e438feddbee6ef2ee4f6ac12e666d44f2ae4b228d6d56173d8173cbf40"
+    },
+    "end": {
+     "path": "/Volumes/Extreme/_edit_work/ro20/aiframes/J2-end.png",
+     "sha256": "b04ce131b76e1643edc544dd46ec703eda603f8a40810e7f9f8d49eed0fd3fba"
+    }
+   }
+  },
+  {
+   "item": "Pickup scripts and on-screen plans, and everything else on the round 2 page",
+   "verdict": "approved",
+   "dan": "The pickups and everything else look good.",
+   "scope": "pickup scripts as written; the three-part card and three-levels card; Cb11 dating card; Cb12 diagram card; A2 and A3 motion; the 24 B-roll grades; the two dropped sentences. Editor's reading: decision 3 (video 2 opens on camera with the sum1 take) stands as recommended, since he did not overrule it"
+  }
+ ],
+ "motion_authorized": [
+  "A1",
+  "A2",
+  "A3",
+  "J1",
+  "J2"
+ ],
+ "lip_sync_authorized": [
+  "A1"
+ ],
+ "new_frames_before_motion": [
+  "video 1 intro title graphic"
+ ],
+ "locked": [
+  "look D (both sizes)",
+  "voice 4",
+  "frames A1, A2, A3, J1, J2",
+  "motion A2, A3",
+  "pickup scripts P1 to P4",
+  "Cb11",
+  "Cb12",
+  "three-part card",
+  "three-levels card",
+  "B-roll grades (round2/broll_grades.json)"
+ ]
+}
