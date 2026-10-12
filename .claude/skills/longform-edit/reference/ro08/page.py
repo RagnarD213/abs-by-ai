@@ -93,7 +93,7 @@ for i, (t, rec, opts, why) in enumerate(DEC, 1):
     h.append(f"<div class='dec'><b>{i}. {e(t)}.</b> {e(why)}<div class='opt'>Options: {' &nbsp;|&nbsp; '.join(e(o) for o in opts)}</div></div>")
 fm = "first-minute/DRAFT - RO-08 round 1 - first minute"
 h += ["<h2>The first minute, finished</h2>", f"<video class='big' controls preload='none' poster='{fm}.jpg' src='{fm} - REVIEW 540p.mp4'></video>",
-      f"<p class='muted'>Voice 1, music bed in. No AI clip falls inside the first minute. <a href='{fm}.mp4'>Full 1080p file</a> &nbsp; <a href='first-minute/AB_reference-vs-ours.mp4'>Audio A/B against the reference voice</a><br>Also in the project folder for VLC: <b>Videos to Review / Intermittent Fasting LFC R1 - first minute.mp4</b></p>",
+      f"<p class='muted'>Voice 1. The music bed is in, and it is quiet (the same level as Work Out Every Day); say so if you want it louder. No AI clip falls inside the first minute. Audio check: 12 of 13 rows pass; the tone row fails because this is a fixed voice shape you chose, not a matched one. <a href='{fm}.mp4'>Full 1080p file</a> &nbsp; <a href='first-minute/AB_reference-vs-ours.mp4'>Audio A/B against the reference voice</a><br>Also in the project folder for VLC: <b>Videos to Review / Intermittent Fasting LFC R1 - first minute.mp4</b></p>",
       "<h2>Decision 1: new AI clips, start and end frames</h2>"]
 for k, name, act, lip in AIC:
     r = T[k]; cost = ("$0.80" if r["t1"]-r["t0"] > 6.0 else "$0.60") + " for one take" + (" plus about $0.50 for the lip sync" if lip else "")
