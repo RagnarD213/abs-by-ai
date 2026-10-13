@@ -70,6 +70,23 @@ Record with `_shared/audio/rec_mic.swift` (never `ffmpeg -f avfoundation`: it si
   (inside the segment, or another range of the same source to append, e.g. the live round). A candidate whose exercise
   never appears whole is either paired with a range that shows it or dropped. The reviewer checks it on the delivered file.
 
+## Which segments to shortlist: exercise fixes and food rules first, no AI or app segments (Dan, 2026-10-13)
+
+- **Favor two kinds of segment:** an exercise fix (one move, one form cue or one mistake corrected) and a blunt food
+  rule (one thing to eat, skip or time differently). Put these at the top of the Step 2 shortlist.
+- **Skip AI and app segments.** A segment whose point is using AI, a prompt, the app, photo tracking or any software
+  does not go on the shortlist, even when it is the cleanest clip in the film. Only Dan naming that segment overrides this.
+- If a long-form has fewer than three segments of the two favored kinds, say so on the shortlist and offer what it
+  has. Do not pad the list with AI or app segments.
+- Why: measured 2026-10-13 on free Shorts-feed views (lifetime, YouTube Studio, ad views excluded) across all 31
+  public Shorts. Four of the bottom six were AI or app Shorts: "Make AI Macro Estimates Way More Accurate" 62, "You
+  Don't Need A Food Scale Anymore" 85, "Ask AI This Before It Writes Your Workout" 214, "The AI Trick That Killed My
+  Late-Night Snacking" 255. Exercise fixes and food rules filled the top: "The Deadlift Trick That Saves Your Back"
+  1,278, "Never Start Your Day With Carbs" 1,252, "Make Your Waist Look Smaller With Side Lateral Raises" 1,208,
+  "Why I Skip Breakfast Every Single Day" 1,185. The middle Short got about 790.
+- Judge a Short on Shorts-feed views, never total views: about three quarters of the channel's views are paid.
+- Re-measure once about 10 more Shorts are out; a rule built on 31 videos can move.
+
 ## Default jump-cut and junk-footage QC (Dan, 2026-09-29)
 
 Follow [CUT-CONTINUITY-QC.md](../_shared/CUT-CONTINUITY-QC.md) during source selection, before approval previews, and on the exact final candidate. Inspect every actual source/picture join, including reused composites, for a presenter jump without a distinct fixed wide/tight cut or complete approved clip cover. Fix uncovered jumps and recheck every boundary the repair creates. Detect and remove confirmed unscripted noises, empty lead-ins, unnecessary pauses and off-camera resets while protecting complete words, natural breaths and teaching action. Native consecutive frames plus moving/audio context are required; sparse scans and ASR alone cannot clear a join or authorize deletion. Keep the current still/frame, motion and full-render approval boundaries. This dated rule supersedes older suggestions that a pose match or audio fade alone clears a naked cut.
@@ -458,6 +475,10 @@ with, for each candidate: a title, the timecodes, and the **verbatim spoken text
 picks by letter. On V2 he chose 7 from a shortlist of 11.
 
 **Check every candidate's first line: if it points at the long-form, write its pickup now and send the pickup lines with the shortlist** (rule at the top of this file, 2026-10-11).
+
+**Build the shortlist from exercise fixes and food rules first, and leave AI and app segments off it** (Dan,
+2026-10-13, rule at the top of this file). Label each candidate on the shortlist as an exercise fix, a food rule or
+other, so Dan sees the mix.
 
 A short must **stand alone with its own reason to watch** — a complete idea, tip or story.
 **Every exercise it names is shown whole, briefly** (Dan, 2026-09-30, rule at the top of this file): list where each
