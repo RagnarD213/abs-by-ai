@@ -1,0 +1,25 @@
+{
+ "ranges": [
+  {
+   "name": "HOOK",
+   "lines": "Hook, sole complete read",
+   "after": 254,
+   "from": "why do most guys",
+   "to": "abs"
+  },
+  {
+   "name": "PROBLEM",
+   "lines": "Complete second read, no restart",
+   "after": 265,
+   "from": "its not genetics",
+   "to": "all three"
+  },
+  {
+   "name": "SOLUTION",
+   "lines": "Third complete start through CTA",
+   "after": 286,
+   "from": "first generating image",
+   "to": "get started"
+  }
+ ]
+}

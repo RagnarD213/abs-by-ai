@@ -1,0 +1,55 @@
+{
+  "runs": [
+    {
+      "file": "/Volumes/Extreme/_edit_work/ra13/logs/source-listen-31.txt",
+      "model": "gemini-3.1-pro-preview",
+      "input": 1938,
+      "output": 791,
+      "thought": 3527
+    },
+    {
+      "file": "/Volumes/Extreme/_edit_work/ra13/logs/cut-listen.txt",
+      "model": "gemini-3.1-pro-preview",
+      "input": 1512,
+      "output": 742,
+      "thought": 62915
+    },
+    {
+      "file": "/Volumes/Extreme/_edit_work/ra13/audio-options/trial1/answer.txt",
+      "model": "gemini-3.1-pro-preview",
+      "input": 8993,
+      "output": 220,
+      "thought": 1268
+    },
+    {
+      "file": "/Volumes/Extreme/_edit_work/ra13/audio-options/trial2/answer.txt",
+      "model": "gemini-3.1-pro-preview",
+      "input": 8993,
+      "output": 287,
+      "thought": 1602
+    },
+    {
+      "file": "/Volumes/Extreme/_edit_work/ra13/audio-options/trial3/answer.txt",
+      "model": "gemini-3.1-pro-preview",
+      "input": 8993,
+      "output": 224,
+      "thought": 1584
+    },
+    {
+      "file": "/Volumes/Extreme/_edit_work/ra13/audio-options/trial4/answer.txt",
+      "model": "gemini-3.1-pro-preview",
+      "input": 8993,
+      "output": 274,
+      "thought": 1284
+    },
+    {
+      "file": "/Volumes/Extreme/_edit_work/ra13/audio-options/trial5/answer.txt",
+      "model": "gemini-3.1-pro-preview",
+      "input": 8993,
+      "output": 260,
+      "thought": 1372
+    }
+  ],
+  "actual_billed_usd": null,
+  "note": "Actual billing not exposed. Initial review estimate under $2. No generation spend. Cut listen invalid, not a gate pass."
+}
