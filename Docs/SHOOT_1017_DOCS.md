@@ -23,7 +23,8 @@ on 2026-10-12 (script 1488017) and the 10-11 copy moved to PromptSmart's Trash. 
 Teleprompter 0 (the pickups) was imported on 2026-10-13 as script 1489308, same name, 709 words with its three titles.
 Teleprompter 2 and 3 were imported again on 2026-10-13 after the 26 new shorts went in (scripts 1489354 and 1489353), and the
 older copies moved to PromptSmart's Trash. Later the same day Teleprompter 1, 2 and 3 were rebuilt with a blank line between
-all paragraphs and imported once more (Teleprompter 1 is script 1489797); the three older cards are in the Trash.
+all paragraphs and imported once more (Teleprompter 1 is script 1489797); the three older cards are in the Trash. Teleprompter 0 (the pickups) got the
+same blank lines, edited in place in its Google Doc, and was imported again at 11:16; its 08:03 card is in the Trash.
 
 ## Pickups (Dan, 2026-10-13): recorded first
 
