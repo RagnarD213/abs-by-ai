@@ -191,27 +191,21 @@ def gap_at(gaps, t):
 
 
 # ---------------------------------------------------------------------------- build cap
-def active_builds():
-    """The other sessions' renders, transcriptions and gates (VIDEO-RULES: cap is TWO)."""
-    try:
+def _buildcap():
+    if SKILLS not in sys.path:
         sys.path.insert(0, SKILLS)
-        from _shared.rolls import roll_sidecar as RS
-        return RS.active_builds()
-    except Exception:                                        # noqa: BLE001
-        out = subprocess.run(["ps", "-Ao", "pid=,command="], capture_output=True, text=True).stdout
-        pat = re.compile(r"ffmpeg|whisper|render\.py|gate\.py|qc_style", re.I)
-        me = os.getpid()
-        return [l for l in out.splitlines()
-                if pat.search(l) and not l.strip().startswith(str(me))]
+    from _shared import buildcap
+    return buildcap
+
+
+def active_builds():
+    """The other sessions' builds, one entry per BUILD (VIDEO-RULES: cap is TWO). `_shared/buildcap.py` does
+    the counting; the shell that launched this process is not a build, and one render is one."""
+    return _buildcap().builds()
 
 
 def wait_for_build_slot(label, quiet=False):
-    said = False
-    while len(active_builds()) >= 2:
-        if not said and not quiet:
-            print(f"WAIT {label}: two other builds are active; not taking a third slot", flush=True)
-            said = True
-        time.sleep(20)
+    _buildcap().wait(label, quiet=quiet)
 
 
 # ---------------------------------------------------------------------------- transcription

@@ -137,39 +137,24 @@ def run(command, check=True, capture=True, nice=False, env=None):
     return result
 
 
+def _buildcap():
+    """`_shared/buildcap.py`, loaded by path: this file runs as a script, and putting `_shared` on sys.path
+    would let its folders (audio, cut, voice) shadow real modules."""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("absbyai_buildcap", Path(__file__).resolve().parents[1] / "buildcap.py")
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
 def active_builds():
-    result = run(["ps", "-Ao", "pid=,stat=,command="], check=False)
-    current = os.getpid()
-    matches = []
-    pattern = re.compile(
-        r"(?:^|\s)(?:\([^)]*ffmpeg[^)]*\)|\S*/?ffmpeg)(?:\s|$)"
-        r"|(?:^|\s)(?:\S*/?python\S*)\s+\S*(?:whisper|render\.py|gate\.py|qc_style)",
-        re.I,
-    )
-    for line in result.stdout.splitlines():
-        parts = line.strip().split(None, 2)
-        if len(parts) != 3:
-            continue
-        try:
-            pid = int(parts[0])
-        except ValueError:
-            continue
-        state, command = parts[1], parts[2]
-        if "Z" not in state and pid != current and pattern.search(command) and "roll_sidecar.py" not in command:
-            matches.append((pid, command))
-    return matches
+    """The other BUILDS holding a slot, one (pid, command) per build. Counted by `_shared/buildcap.py`:
+    a render's decoder and encoder are one build, and the shell that launched the caller is none."""
+    return [(b["pids"][0], b["cmd"]) for b in _buildcap().builds()]
 
 
 def wait_for_build_slot(label):
-    announced = False
-    while True:
-        builds = active_builds()
-        if len(builds) < 2:
-            return
-        if not announced:
-            print("WAIT {}: two other builds are active; this indexer is not taking a third slot".format(label), flush=True)
-            announced = True
-        time.sleep(20)
+    _buildcap().wait(label)
 
 
 def content_identity(path):
