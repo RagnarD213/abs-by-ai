@@ -113,6 +113,13 @@
    "verdict": "recorded",
    "dan": "Okay, clips are recorded.",
    "scope": "Media/longform-raw/ro20-pickups/rerecord_20261012/pickups_rerecord_48k_mono.wav (166.2 s, rec_mic, no block breaks) + pickups_rerecord.transcript.json; takes and treatment in recipe/pickup_audio20.py; blind listener still rates the joins 8 of 10 noticeable, shown to Dan as decision 1 on the page"
+  },
+  {
+   "item": "Pickup voice (round 3 page decision 1)",
+   "verdict": "REJECTED: re-record on the studio set at the shoot",
+   "recorded": "2026-10-13",
+   "dan": "Yeah, that audio doesn't work. What I'm going to do is I'm just going to record these pickups on my studio set instead. What I want you to do is to get all of the pickups that we need for this task and every other outstanding video edit that we have. I know there are some other ones that we need to get in addition to this one that aren't going to turn out good on this mic. Make me a list of the pickups and make me a separate document. For pickups, I'll just do those first to make sure we get them, and then I'll just upload the pickups. From there, we can finish out all the videos. Hand off the pickups for everything, and I'll finish this video and all the other ones that need pickups once we have that from Thursday's shoot. This should add the pickups of both the filming scripts document and a separate tellerprompter document for pickups only, which is uploaded to PromptSmart Pro.",
+   "scope": "all four RO-20 pickups wait for the shoot roll; the desk recordings are timing placeholders only; list: Docs/PICKUPS_1017_SHOOT.md. Not answered: the sign-off sentence (page decision 2)"
   }
  ],
  "motion_authorized": [

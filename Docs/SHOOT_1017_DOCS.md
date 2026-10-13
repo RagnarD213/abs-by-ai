@@ -1,22 +1,37 @@
 # 10/17 shoot: which document is which
 
 Made 2026-10-11. Dan: the shoot doc is kept as it is for editing, and filming uses the four documents built from it.
+A fifth filming document, the pickups teleprompter, was added 2026-10-13.
 
 | document | what it is for | id |
 |---|---|---|
 | Content Outlines And Scripts For 10/17 SixPackAbs.com Shoot | **The editing copy.** Outlines, filming scripts, every graphic, on-screen text, B-roll and clip cue in place. Editors and edit sessions work from this one. Never strip it. | `1gt8Fi_wUaNaksa8sAdMoBvcdlBhZLek82EpBr-leq-0` |
+| 10-17 Shoot - Teleprompter 0 - Pickups (Record First) | Words only, the 11 pickups for three earlier videos, each printed twice (pickup 6: long version twice, then short version twice). 688 spoken words, 3 pages. Dan records these first. Made 2026-10-13 | `1E9TzRx-gav2qBS07gdLLX3YFvLYWQaqMFJQoUO6g3xs` |
 | 10-17 Shoot - Teleprompter 1 - Dark Green Backdrop | Words only, 21 scripts, 12,437 words | `1esSBLZldEbmSikeESYaXWo6n4vq1h0Qm8AhqB7Mo8cs` |
 | 10-17 Shoot - Teleprompter 2 - Green Screen | Words only, 8 scripts, 4,958 words, 9 pages (rebuilt 2026-10-12 after Dan's clip kills; same Drive id, replaced in place) | `1KvL0_IilRCxlofnY5luTfRvjiseGGpGGXU4sAsjbgzQ` |
 | 10-17 Shoot - Teleprompter 3 - Outside By The Pool | Words only, the 4 follow-along workouts, 2,763 words | `1yc2xg1sG4lTncvcAmkA17SN-JZnQSsbB9Q-fpEbXotg` |
 | 10-17 Shoot - B-Roll List | Every B-roll shot by set, outdoor first, plus what the Edit Queue is blocked on | `1WPx31kcSsGtPyRmNBRb8fJHKC4ivi8gxl1k16wVizSY` |
 | 10-17 Shoot - Reaction Clips | Every clip Dan reacts to, survivors only since 2026-10-12 (13 links, 8 videos), in teleprompter order, each link opening at the clip's exact start second | `1BcRpzDQYNCssROEvg10Z9cOL2AtdvBdyqHwvxxwHtQA` |
 
-All five are in My Drive beside the shoot doc, viewable by anyone with the link. Page counts: 22, 9 and 6, all under
-Dan's 50-page limit.
+All six are in My Drive beside the shoot doc, viewable by anyone with the link. Page counts: 3 (pickups), 22, 9 and 6,
+all under Dan's 50-page limit.
 
 **PromptSmart:** the three teleprompter documents were imported on 2026-10-11 as three scripts with the same names
 (`my.promptsmart.com/scripts`). The B-roll list is in Drive only, by his instruction. Teleprompter 2 was imported again
 on 2026-10-12 (script 1488017) and the 10-11 copy moved to PromptSmart's Trash. His subscription shows "expires Oct 20, 2026".
+Teleprompter 0 (the pickups) was imported on 2026-10-13 as script 1489308, same name, 709 words with its three titles.
+
+## Pickups (Dan, 2026-10-13): recorded first
+
+The list and the plan for each video are in `Docs/PICKUPS_1017_SHOOT.md`. That file is the source of the wording.
+
+- **Shoot doc:** the section `PICKUPS (RECORD THESE FIRST)` is the first thing in the document, above the B-roll filming
+  list. Each pickup has a bold bracketed note with its number and the film line it goes before or after, then the
+  spoken line in plain text.
+- **Teleprompter 0** is built from `Docs/PICKUPS_1017_SHOOT.md`, not from the shoot doc. `tp_from_shoot_doc.py` does not
+  read the pickups section (it has no "Filming script" line), so rebuilding Teleprompter 1, 2 or 3 is not affected.
+- If a pickup line changes: change it in `Docs/PICKUPS_1017_SHOOT.md`, in the shoot doc section and in Teleprompter 0,
+  then import Teleprompter 0 into PromptSmart again and move the old card to its Trash.
 
 ## Which script is on which set
 
