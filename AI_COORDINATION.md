@@ -221,7 +221,7 @@ Memory `google-ads-ui-automation`.
 `[dash]` = on the fire list; runner deletes row, line and README row.
 
 
-- `handoff-20261013-ro19-thumbnails-and-video-setup.md` (10-13): RO-19 approved; thumbnails, then setup. Opus 5.5 high.
+- `handoff-20261013-ro19-thumbnails-and-video-setup.md` (10-13). Opus 5.5 high.
 - `handoff-20261007-ro10-subtle-reedit-sunday-reupload.md` (10-07): RO-10 R3 end graphic, Sunday replacement. Codex Sol high.
 - `handoff-20261008-dan-voice-training-part2-plan.md` (B-done-10-10;next:C,D;Dan:Round-2-blind-page)
 - `handoff-20260930-codex-adopt-review-page-format.md` (09-30). Sol medium.
