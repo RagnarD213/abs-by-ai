@@ -340,8 +340,9 @@ def program(pid, WD, opt):
         A("good", "money does you no good", "money does no good", "does you no good", "no good if you're dead")
         A("last", "The last video covered what to cut", "The last video covered", "The last video")
         A("spend", "Now let's spend it", "Now let us spend it", "Now let's", "let's spend it")
-        spec = [("clip", 0.0, q["whether"], u["B0429"]),
-                ("levels", q["whether"], q["need"], dict(lands=(q["dead"], q["middle"], q["tenk"]))),
+        # round 3 (Dan, 2026-10-13: "I don't really understand why I'm standing around before the clip, but the graphic itself looks good"):
+        # the B0429 open is out; video 3 opens on the three-levels card from its first frame.
+        spec = [("levels", 0.0, q["need"], dict(lands=(q["dead"], q["middle"], q["tenk"]))),
                 ("clip", q["need"], q["good"], u["B0462"]), ("clip", q["good"], q["last"], u["B0275"]),
                 ("series", q["last"], None, dict(events=[(None, st(done=(0,))), ("light", st(1, "Last Video", (0,))), (q["spend"], st(2, "This Video", (0, 1)))],
                  wins=[("card", None, u["cocktails"])]))]

@@ -162,3 +162,26 @@ after `cta`), `page4_20.py` (the round 3 page, port 8868).
 - **The bass-lift rule on a voice Dan already locked:** read the tone row's lowest band on the last gated file first. Voice 4 here read 5.93
   against the reference's 5.4, so nothing was added.
 - **`pickups20.py --j1` takes an absolute path** (a relative one is read as a clip-library ID), and `--j1-in 6.3` shows the handshake part of J1-t3.
+
+## Round 3, second day (2026-10-13): the re-recorded pickups laid in
+
+Scripts: `pickup_audio20.py` (takes, tone and level match to the film voice, room, room tone; writes `P#.voice.wav` and `words_P#.json`),
+`first_minutes_r3.sh` and `join_r3.py` (pickup segments, film ranges through `context3.py`, joins with 12 ms audio fades).
+
+- **`rec_mic` proved itself twice:** 2700.00 s in 2700.05 s, then 166.20 s in 166.23 s. Run the block test on every capture anyway (mean second
+  difference by index modulo 512 and 4096: 1.04 and 1.15 times the median here; the bad file read 12 times).
+- **Whisper is a take checker.** Take 2 of "That's what to cut" came back as "That's worth a cut" twice, alone and in context: the line was
+  slurred. Its first sentence was taken from take 1 and the join put in the pause.
+- **A desk-mic pickup does not become the lav by spectrum matching.** A third-octave match that hit +6 dB at 250 Hz made a blind listener call
+  the pickup "boomier, closer, drier". What moved its verdict in a five-way comparison: boosts capped near zero (cuts only), a little
+  synthetic room (noise decaying over 0.32 s, band-passed 250 Hz to 5 kHz, at about -16 dB). In absolute terms it still rated every join 8 of
+  10 across three passes, including one with far more room, so that number is not sensitive: rank options against each other, then let Dan's
+  ear decide, and offer the real fix (re-record on the shoot lav in the same room).
+- **A word-end decay metric (level drop 64 ms after a word) did not separate dry from roomy** on 12 to 25 s of speech (film 17.4 dB, dry
+  pickup 16.7). Do not pick a room amount from it.
+- **The audio gate's tone row passes on a first minute that is one third pickup** (0.97 and 1.05 against 1.2) while the film-only opening fails
+  it (1.52): the row measures against the reference voice, not against the film. It says nothing about the join.
+- **zsh reads `$i:a` inside a double-quoted filtergraph as the "absolute path" modifier.** Write `${i}:a`, or build ffmpeg filtergraphs in Python.
+- **Whisper word ends run early on soft last consonants** ("health", "it"): give a pickup 0.45 s after its last word before the join.
+- **Film range starts that were cuts in the long film have no lead-in** (video 3's "All right." begins 4 ms after the range start). For the
+  films, take a short handle from the roll before the first word of each video's first film range.

@@ -101,6 +101,18 @@
    "verdict": "REJECTED BY THE EDITOR'S CHECK, re-record requested",
    "evidence": "pickups_yeti_20261012.wav: every 512-frame block written twice; 13,293,568 unique frames = 276.9 s for about 320 s of wall time (file birth to last write), a break at 13.7 % of block joins inside speech (about 11 a second). Best repair (duplicates removed, 1 ms fades at each break) judged blind by gemini-3.1-pro-preview against the film voice: 2/10 against 9/10, 'constant robotic flutter, digital choppiness', not usable as an insert. pickups_all_takes_48k_mono.wav keeps the duplicated blocks (its pitch reads 93.9 Hz, the block rate).",
    "next": "re-record with _shared/audio/rec_mic.swift into Media/longform-raw/ro20-pickups/rerecord_20261012/"
+  },
+  {
+   "item": "Round 3 page (http://127.0.0.1:8868/), Dan's reply",
+   "verdict": "reply, word for word",
+   "dan": "For 77 seconds of video, one looks good. Oh, the pickup screens look good. For P4, I don't really understand why I'm standing around before the clip, but the graphic itself looks good. Give me those pickups to re-record.",
+   "scope": "video 1 first 77 s APPROVED (T3 intro motion, J1-t3 in place); pickup screens P1 to P4 APPROVED as shown (includes the receipts clip in P2's window: editor's reading, it was on the screen he approved); P4: remove the opening shot of him standing by the pool (B0429), the three-levels graphic stays; pickups to be re-recorded now. NOT answered: the sign-off sentence ended on 'filled with motivation.'; the partnership clip (J2-t3) and the sign-off were not mentioned"
+  },
+  {
+   "item": "Pickups re-recorded 2026-10-13",
+   "verdict": "recorded",
+   "dan": "Okay, clips are recorded.",
+   "scope": "Media/longform-raw/ro20-pickups/rerecord_20261012/pickups_rerecord_48k_mono.wav (166.2 s, rec_mic, no block breaks) + pickups_rerecord.transcript.json; takes and treatment in recipe/pickup_audio20.py; blind listener still rates the joins 8 of 10 noticeable, shown to Dan as decision 1 on the page"
   }
  ],
  "motion_authorized": [
@@ -129,8 +141,13 @@
   "three-levels card",
   "B-roll grades (round2/broll_grades.json)",
   "A1 silent version (round3/motion/A1-t2.mp4)",
-  "intro concept T3 (frames)"
+  "intro concept T3 (frames)",
+  "T3 motion (T3-t1.x112.mp4)",
+  "J1 motion (J1-t3.mp4)",
+  "video 1 first minute (round 3)",
+  "pickup screens P1, P2, P3 as built; P4 without the B0429 open"
  ],
  "reply_2_recorded": "2026-10-12",
- "video1_ai_cap_usd": 12.0
+ "video1_ai_cap_usd": 12.0,
+ "reply_3_recorded": "2026-10-13"
 }
