@@ -102,3 +102,7 @@ Five first reviews all said DOES NOT SHIP. Every item below was a finding; the t
 - **The caption reference file rounded badly** (32.9997 s wrote 32,000): fixed here and in `softblue-sl03/deliver.py`.
 - **The review server shows a cached copy.** After `page_r2.py`, run `review_server.py 8874 <dir>` again or the page Dan
   opens is the old one.
+- **`batch.chip_png` drew the gate's label reference with dark letters** (an int16 overflow), so `compliance:labels`
+  read -0.18 on a short whose label was on screen and correct. Fixed here and in `softblue-sl06/batch.py`. Before a
+  30-minute gate run, measure the reference against the delivered frame yourself: crop the frame at the insert's `pos`,
+  grey both, correlate (the gate's own method, `checks/compliance.py` `labels`). 0.99 is right; under 0.85 fails.

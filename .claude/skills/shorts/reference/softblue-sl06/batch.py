@@ -573,7 +573,7 @@ def chip_png(text, xy, size=30):
     """the AI-GENERATED chip (softblue.disclosure: the same solid rounded chip the film uses), as an RGBA layer + its box."""
     base = Image.new("RGB", (W, H), (0, 0, 0)); a = Image.new("RGB", (W, H), (255, 255, 255))
     B.disclosure(base, text, xy, 2, anchor="lt", size=size); B.disclosure(a, text, xy, 2, anchor="lt", size=size)
-    x = np.asarray(base).astype(np.int16); y = np.asarray(a).astype(np.int16)
+    x = np.asarray(base).astype(np.int32); y = np.asarray(a).astype(np.int32)      # int32: x * 255 overflowed int16 and turned the white letters dark (SL-07, 2026-10-13)
     al = 255 - (y - x).max(2).clip(0, 255); rgba = np.dstack([np.where(al[..., None] > 0, (x * 255 // np.maximum(al[..., None], 1)).clip(0, 255), 0), al]).astype(np.uint8)
     ys, xs = np.where(al > 0); return rgba, (int(xs.min()), int(ys.min()), int(xs.max()) + 1, int(ys.max()) + 1)
 
