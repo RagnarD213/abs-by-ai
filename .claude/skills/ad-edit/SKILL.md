@@ -1342,6 +1342,31 @@ filmed ads the same way:
    three-role run consumed roughly 0.3–0.8 M editor tokens plus ≈0.3 M reviewer tokens per round, which is why it is
    no longer the default.
 
+## RA-07 lessons, round 1 (2026-10-13)
+
+1. **A transcript does not need a build slot.** `reference/replicate_words.js <audio> <offset s> <out.json>` gets
+   word timings from Replicate's Whisper (the model `/ad-setup`'s `transcribe.js` uses, under a cent, about 3 s) in the
+   shape `s03_edl.py` reads. On 2026-10-13 a local Whisper job sat behind the two-build cap for over an hour.
+2. **One pass over 88 s dropped everything after "while human trainers"** and invented a closing line (lesson 62
+   again). Send overlapping pieces of 60 s or less, join them in a pause, and read the joined text against the roll
+   sidecar's transcript before building the EDL.
+3. **Whisper stretches the first word of a take back across the silence before it** ("Get" timed 0.9 s early, "Fire"
+   1.3 s early, "step." ending 0.5 s late). Then the 60 % overlap rule in `s03_edl.py` drops a real word or keeps a
+   ghost one. Print the word list of the cut and correct those times from the 5 ms envelope.
+4. **The level 15 dB over the floor before a first word is usually the inhale, not the word.** Print the envelope in
+   20 ms steps: the breath sits near -50 dB for about 0.2 s, then a dip, then the consonant. Pin the head edge after
+   the breath so the file opens on the word.
+5. **Look at what he does after the last word before choosing the end hold.** On C1664 he holds his smile 0.9 s, then
+   drops his hands and speaks; RA-01's 1.65 s hold would have shown it. The hold is real footage, so it is only as
+   long as the pose lasts.
+6. **Before calling a look "locked", read today's handoffs for the sibling jobs on the same set.** RA-14's round 1
+   came back the same afternoon with "both shots a little too tight" and "we can do better with the colour"; RA-07's
+   page was about to present the same framing and grade as settled. Compare framing between rolls in head heights,
+   not pixels (Dan is 370 px tall in the head on C1663/C1664 and 290 px on C1667).
+7. **A chip on a full-frame AI clip is placed by looking at the clip's people**, not at a fixed corner: top left on
+   A0147 covered the walking trainer's face. And never put a `#` comment in the middle of a `a; b; c` line: it
+   silently removed the `chip.save(...)` that followed it.
+
 ## Decisions locked vs pending
 
 | decision | status |
