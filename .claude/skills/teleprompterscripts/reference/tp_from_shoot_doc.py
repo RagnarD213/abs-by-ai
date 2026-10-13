@@ -25,9 +25,18 @@ import json, re, html, sys, os
 SETS = [  # (label for the file name, title prefixes that go here, blank line at round cues?)
     ("Dark Green Backdrop", (), False),                       # the default: everything not matched below
     ("Green Screen", ("Reacting To", "A Doctor Says", "Clavicular", "What Every Body Fat Percentage",
-                      "I Ranked Every Ab Exercise", "How Losing Fat Changed My Face"), False),
+                      "I Ranked Every Ab Exercise", "How Losing Fat Changed My Face",
+                      # the 15 reaction shorts locked 2026-10-12
+                      "Cristiano Ronaldo Sells", "Surgeons Now Carve", "Women Say They Love The Dad Bod", "Bill Maher",
+                      "Dr. Mike Says", "TikTok Says Blended Oats", "He Hired ChatGPT", "There's Now A Card",
+                      "Bert Kreischer", "Kevin James", "Post Malone", "Terry Crews", "Alex Hormozi", "Mr. Olympia Shows"), False),
     ("Outside By The Pool", ("The 5-Minute No-Equipment Workout", "10-Minute Jump Rope", "20-Minute Jump Rope",
-                             "15-Minute Jump Rope"), True),
+                             "15-Minute Jump Rope",
+                             # the 11 outdoor shirtless shorts locked 2026-10-12
+                             "How To Do Towel Rows", "How To Do Reverse Lunges", "How To Do Bodyweight Squats",
+                             "How To Do Goblet Squats", "How To Do Overhead Tricep Extensions", "3 Rules For Every Rep",
+                             "Why I Only Do 3 Sets", "Why Cables Beat Dumbbells", "Why I Do A Total Body Workout",
+                             "Why I Work Out First Thing", "Why You Must Train Your Abs"), True),
 ]
 MAX_WORDS = 25000   # Dan, 2026-10-11: at most 50 pages per teleprompter script. A Google Doc of these runs about 565
                     # words a page (12,437 words = 22 pages), so 25,000 words is about 45. A longer set is split in two.
