@@ -146,31 +146,57 @@ def lipsync(key, pr, cfg, plan, video):
 def click_at_joins(key, pr, cfg, plan, video):
     """audio:click_at_joins -- a join landing mid-waveform, against the file's OWN natural ceiling.
 
-    The control distribution is 150 random points in this same file, so a busy mix and a dry room
-    are each graded against themselves rather than against a constant somebody picked once.
+    The ceiling is read off this same file, so a busy mix and a dry room are each graded against themselves
+    rather than against a constant somebody picked once.
+
+    ⚠ THE CEILING IS MEASURED, NOT DRAWN (2026-10-13, gate 2.6.0). Until then it was the largest of 150 random
+    points (seed 7, spread over the duration). The largest of 150 is a lottery: over 400 seeds the same file's
+    bar moved 4x on a median file and 8x on the worst (54 delivered files), and a film 2.1 s shorter draws 150
+    different points. RO-19 round 3 drew one loud outlier (bar 0.4244, PASS); round 4, with sample-identical
+    voice at the flagged places, did not (bar 0.1802, FAIL on two joins). The ceiling is now a fixed quantile
+    of EVERY 8 ms window in the file, `control_quantile` in formats.py: the middle of that lottery, so the bar
+    is neither raised nor lowered on average, only held still (both RO-19 films: 0.257).
     """
     # `audio_joins`, when the plan declares it, is where the AUDIO was actually joined. A cutdown of an editor's
     # untouched mix cuts that mix only at its seams; his own picture cuts inside a kept range sit on continuous
     # audio the full file already passed with, and a word onset there read 1.3x a 45 s file's control ceiling
-    # (kit autofill AV-09 cutdown, 2026-10-01). Absent, the row reads `joins` exactly as before.
-    joins = plan.get("audio_joins") if plan.get("audio_joins") is not None else plan.get("joins")
+    # (kit autofill AV-09 cutdown, 2026-10-01). The same holds for a long-form: a punch-in or a cutaway edge
+    # over one continuous take is not an audio join, and 1 window in 540 of ordinary speech beats the bar, so a
+    # film with 219 picture joins is asked to lose that draw 219 times. Absent, the row reads `joins` as before.
+    declared = plan.get("audio_joins") is not None
+    joins = plan.get("audio_joins") if declared else plan.get("joins")
     if not joins:
         return unmeasured(key, "the plan declares no `joins`; declare them, or declare this row "
                                "not applicable (a single continuous take has none)")
-    sr = 48000
+    sr, win = 48000, 0.004
     a = C.pcm(video, ac=1, sr=sr)
+    d = np.abs(np.diff(a))                                   # d[i] = |a[i+1] - a[i]|
 
-    def jump(t, win=0.004):
+    def jump(t):
         i0, i1 = max(1, int((t - win) * sr)), min(len(a) - 1, int((t + win) * sr))
-        return float(np.abs(np.diff(a[i0:i1])).max()) if i1 > i0 + 1 else 0.0
+        return float(d[i0:i1 - 1].max()) if i1 > i0 + 1 else 0.0
 
-    rng = np.random.default_rng(7)
-    ctrl = sorted(jump(float(x)) for x in rng.uniform(5, max(6, len(a) / sr - 5), 150))
-    ceiling = ctrl[-1]
+    # the controls: every window of the same width between 5 s and 5 s from the end (the whole file when that
+    # leaves under 8 s), except the windows a join sits in. A click must not help set its own bar.
+    k = int(2 * win * sr)
+    lo, hi = 5 * sr, len(d) - 5 * sr
+    if hi - lo < 8 * sr:
+        lo, hi = 0, len(d)
+    n = (hi - lo) // k
+    if n < 100:
+        return unmeasured(key, f"{len(a) / sr:.2f} s of audio is too short to measure the file's own ceiling")
+    ctrl = d[lo:lo + n * k].reshape(n, k).max(axis=1)
+    keep = np.ones(n, bool)
+    for t in joins:
+        keep[max(0, int(((t - win) * sr - lo) // k)):max(0, int(((t + win) * sr - lo) // k) + 1)] = False
+    q = cfg.get("control_quantile", 0.9954)
+    ceiling = float(np.quantile(ctrl[keep] if keep.sum() >= 100 else ctrl, q))
     mult = cfg.get("ceiling_mult", 1.25)
     bad = [(round(t, 2), round(jump(t) / max(ceiling, 1e-9), 2)) for t in joins
            if jump(t) > ceiling * mult]
+    which = "audio_joins" if declared else "joins (the plan declares no `audio_joins`, so picture cuts are graded too)"
     return Row(key, not bad,
                f"{len(bad)}/{len(joins)} joins above {mult}x the file's own natural ceiling "
-               f"({ceiling:.4f}): {bad[:6]}",
-               dict(bad=bad[:30], ceiling=round(ceiling, 5), joins=len(joins)))
+               f"({ceiling:.4f}): {bad[:6]}; read from `{which}`",
+               dict(bad=bad[:30], ceiling=round(ceiling, 5), joins=len(joins),
+                    source="audio_joins" if declared else "joins", controls=int(keep.sum()), quantile=q))

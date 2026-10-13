@@ -904,6 +904,11 @@ the current `GATE_VERSION`.
   apply here, add it to that format's `not_applicable` in `formats.py` with a written reason.
 - **Never raise a bound to make a build pass.** `python3 .claude/skills/_shared/qc_corpus/run.py`
   must stay green, and it is what proves a bound change did not resurrect a rejected cut.
+- **Declare `audio_joins` in `plan.json` (2026-10-13).** `joins` is the picture timeline; `audio_joins` is where
+  the voice was actually joined: the output time of each segment boundary in `<film>.build.json` where `roll`
+  changes or `src0` is not the previous segment's `src0 + (o1 - o0)`. Without it `audio:click_at_joins` grades
+  every punch-in and cutaway edge as an audio join (RO-19 round 4 failed on two of those). Detail:
+  `_shared/deliver/README.md`, "Known gaps".
 
 **The shared gate is the only gate (2026-09-16, Phase 3 of `Handoffs/handoff-20260911-video-quality-engine.md`).**
 The per-video QC forks that used to sit in `reference/` are deleted; every row they carried, framing and the watch

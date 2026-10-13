@@ -30,7 +30,11 @@ if [ -z "${ZSH_VERSION:-}" ]; then
   echo "selftest.sh is a zsh script (it uses \${0:A:h}). Run:  zsh $0" >&2; exit 2
 fi
 HERE="${0:A:h}"; cd "$HERE"
-S="${SELFTEST_DIR:-/tmp/audio_selftest}"; mkdir -p "$S"
+# ⚠ ONE SCRATCH FOLDER PER RUN (2026-10-13). This was a fixed /tmp/audio_selftest, and two sessions running the
+# selftest at once (each corpus run starts with it) overwrote each other's excerpts and logs: a run passed 16 of
+# 16, and the same code failed three step-7 rows ten minutes later while another session's run was in the folder.
+# A passing run removes its folder; a failing one keeps it and prints where it is.
+S="${SELFTEST_DIR:-/tmp/audio_selftest.$$}"; mkdir -p "$S"
 REPO="$HERE/../../../.."
 # ⚠ PATHS MOVED 2026-09-08 by the editor-deliveries rename ("<title> - ad N/", filenames gain
 # "| ad N"). Steps 1 and 2 broke outright; 3 and 5 then failed as CASCADES (an unreadable AD1V
@@ -195,4 +199,5 @@ if [[ -f "$S/c1670_chain.mp4" ]]; then
     && ok "--allow-synthetic accepts it explicitly (make-ad / exercisegeneration / findassets)" \
     || bad "--allow-synthetic did not accept a valid synthetic stamp"
 else echo "  ⚠ SKIPPED: step 6 did not produce a chained file (Seagate not mounted)"; fi
-echo; if [[ $fail -eq 0 ]]; then echo "SELFTEST PASS"; else echo "SELFTEST: $fail FAILURE(S)"; exit 1; fi
+echo; if [[ $fail -eq 0 ]]; then [[ -z "${SELFTEST_DIR:-}" ]] && rm -rf "$S"; echo "SELFTEST PASS"
+else echo "logs kept in $S"; echo "SELFTEST: $fail FAILURE(S)"; exit 1; fi
