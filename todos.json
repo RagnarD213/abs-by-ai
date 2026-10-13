@@ -385,6 +385,13 @@
       "priority": "key",
       "recurring": false,
       "addedAt": "2026-10-11"
+    },
+    {
+      "text": "Pick up Audi from shop",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-10-13",
+      "addedBy": "assistant"
     }
   ],
   "handoffs": [
