@@ -48,3 +48,27 @@ Nothing was listened to by ear; audio was compared by level, peak and range only
 Hey Muhammad, got all three, thank you! The HD files for Reduce Alcohol and Rear Delt Flys are exactly the versions I approved, and the caption on Hammer Curls says "bracs" now. All three are FINALIZED.
 
 That's all nine of these done. Really nice work on this batch, they came out great!
+
+## Whole batch tally, 22 shorts (checked 2026-10-13 against the full Upwork thread)
+
+Terms (Dan's Upwork messages): $20 a short ($440 milestone). Bonus, agreed 09-22: $50 for excellent YouTube content
+and $50 for excellent ads. His definition: quality equal to the ab wheel video and the long ads of the last batch;
+strong templates and styles we can reuse; all revisions completed promptly and all videos done by the deadline; the
+first 10 seconds of each video edited in an engaging way. Deadline: 10-13 in the milestone, extended by Dan on 09-27
+to **10-16** ("You can now complete all videos by October 16th and still receive the full bonus").
+
+| State | Count | Videos |
+|---|---|---|
+| Finished, HD in hand | 9 | DS-08, 09, 12, 14, 21, 22, 23, 24, 25 (DS-25 waits on Dan's own B-roll) |
+| Finalized, HD export still owed | 1 | DS-05 Fat Millionaire (asked 10-02, he said he would send it, no link since) |
+| Revision notes sent 10-05, nothing back | 4 | DS-15 Jiu Jitsu, DS-16 Last Ten Pounds, DS-19 Battle Ropes, DS-20 Five Levels Of Pushups. Doc `1FUg4oPmdlyiRqG_jUWOvyaNTC0AQq9JUSL2-_qcjTxg` |
+| Revision notes sent 10-02, nothing back | 5 | DS-06 Body Fat Percentage, DS-07 Top 3 AI, DS-10 Zepbound, DS-11 Weigh Yourself, DS-13 #1 Change. Doc `1AR_8AeBzwhTuGelBlz1IRPcvKi5MHr-HT2kUTQ29o6s` |
+| Revision notes sent 09-27, nothing back | 3 | DS-01 Top 5 Ab Exercises, DS-02 Getting Abs, DS-03 3 Supplements. Doc `1cz-DY55xJ70wtAsZmVbsnDFQKEXC8R9xiGH3pVcyxCc` |
+
+- All 22 first cuts were delivered by 10-07. Every delivery in the thread from 09-25 to 10-13 was matched to a review;
+  none of the 12 open videos has come back since its notes went out. On 10-08 he wrote "All revisions done".
+- ⚠ DS-01, 02 and 03 may be waiting on us. Their 09-27 notes said to wait until the graphic style was locked. The style
+  became our own graphics kit on 10-01, and the kit folder (`1L2Y1EfJTG4rYZNNtQXVieq4x2qbzENvk`) has a folder for every
+  other video but none for these three. Nothing since 09-27 tells him which graphics to use on them.
+- The brief calls all 22 organic content, so there is no ad in this batch to judge the "excellent ads" $50 against.
+- Not verified: his "Daniel HQ" folder (`1br5ehY-CYICMWRCUwvNJtGXznCbXc4Tu`) lists as empty from our side.
