@@ -1,0 +1,86 @@
+{
+ "note": "Extra B-roll so each short clears the delivery gate's style:coverage row (min 30% of runtime off the main scene). Staged, NOT in plans.py: plans.py still matches the delivered round 2 files. Film times; add to plans.COVERS when Dan has seen the stills.",
+ "measured": {
+  "A": "10% (5.3 of 52.1 s)",
+  "E": "21-22% (9.4 of 43.0 s)",
+  "D": "29% (16.3 of 56.6 s)",
+  "B": "51%",
+  "F": "36%"
+ },
+ "add": {
+  "A": [
+   {
+    "name": "scale2",
+    "src": "clips/p6719385.mp4",
+    "a": 53.1,
+    "b": 56.55,
+    "t": 0.0,
+    "fx": 0.5,
+    "line": "Let's say you have 30 pounds to lose and you are losing 1 pound a week.",
+    "short": "0:12.4-0:15.9",
+    "note": "the overhead scale clip (crop proven in two other shorts); the side-view jeans clip p7555158 crops to a bare foot in a tall frame"
+   },
+   {
+    "name": "rope",
+    "src": "clips/B0448.mp4",
+    "a": 63.4,
+    "b": 67.75,
+    "t": 0.3,
+    "fx": 0.5,
+    "eq": "BRIGHT",
+    "line": "It's far, far easier to go all-in for 90 days and get it over with.",
+    "short": "0:22.7-0:27.1"
+   },
+   {
+    "name": "curls",
+    "src": "clips/B0031.mp4",
+    "a": 97.38,
+    "b": 101.45,
+    "t": 1.0,
+    "fx": 0.5,
+    "eq": "BRIGHT",
+    "line": "I would make losing fat the number one priority in my life for 90 days,",
+    "short": "0:46.0-0:50.0"
+   }
+  ],
+  "E": [
+   {
+    "name": "salad",
+    "src": "clips/B0019.mp4",
+    "a": 674.42,
+    "b": 677.94,
+    "t": 2.0,
+    "fx": 0.62,
+    "line": "I would go right back to cutting calories until it's gone.",
+    "short": "0:32.0-0:35.5"
+   },
+   {
+    "name": "abwheel",
+    "src": "clips/B0030.mp4",
+    "a": 682.5,
+    "b": 685.46,
+    "t": 0.9,
+    "speed": 1.25,
+    "fit": "span",
+    "span": [
+     0.13,
+     0.88
+    ],
+    "line": "Losing 30 pounds is 90 days of sacrifice.",
+    "short": "0:40.1-0:43.0"
+   }
+  ],
+  "D": [
+   {
+    "name": "stairs",
+    "change": "extend the end from 308.45 to about 309.75 if the clip is long enough",
+    "short": "0:08.1-0:12.6"
+   }
+  ]
+ },
+ "after": {
+  "A": "about 33% (17.0 of 52.1 s)",
+  "E": "about 37% (15.9 of 43.0 s)",
+  "D": "about 31%"
+ }
+}

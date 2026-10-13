@@ -38,11 +38,12 @@ page = f"""<!doctype html><html lang="en"><meta charset="utf-8"><meta name="view
 button{{background:#1b4b72;color:white;border:1px solid #66acd9;border-radius:9px;padding:8px 12px;cursor:pointer;font-size:14px;margin-top:8px}}nav{{display:flex;gap:14px;flex-wrap:wrap}}@media(max-width:800px){{.grid{{grid-template-columns:1fr}}h1{{font-size:30px}}}}</style>
 <main><h1>If I Had Belly Fat shorts / Round 2: all five, finished</h1><p>{X['intro']}</p>
 <p class="notice"><b>Already locked, reused as is:</b> {X['locked']}</p>
-<nav><a href="#decide">Your {len(X['decisions'])} decision{'s' if len(X['decisions']) != 1 else ''}</a><a href="#shorts">The five shorts</a>{'<a href="#frames">New frames</a>' if X.get('frames') else ''}<a href="#decided">What I decided</a><a href="#checks">Checks</a><a href="#reply">Reply</a></nav>
+<nav><a href="#decide">Your {len(X['decisions'])} decision{'s' if len(X['decisions']) != 1 else ''}</a><a href="#shorts">The five shorts</a>{'<a href="#frames">New frames</a>' if X.get('frames') else ''}{'<a href="#coverage">Extra B-roll</a>' if X.get('coverage') else ''}<a href="#decided">What I decided</a><a href="#checks">Checks</a><a href="#reply">Reply</a></nav>
 <section id="decide"><h2>Your decisions ({len(X['decisions'])})</h2><ol>{''.join('<li>' + x + '</li>' for x in X['decisions'])}</ol></section>
 <section id="shorts"><h2>The five shorts</h2><p class="small">Each button plays that short in the one player (at the right on a wide screen). The players can be scrubbed.</p>
 <div id="dock"><div class="small" id="nowp">Pick a short below to play it here.</div><video id="pv" controls preload="none" playsinline></video></div><div class="grid">{''.join(cards)}</div></section>
 {X.get('frames', '')}
+{X.get('coverage', '')}
 <section id="decided"><h2>What I decided (overrule anything)</h2><ul>{''.join('<li>' + x + '</li>' for x in X['decided'])}</ul></section>
 <section id="checks"><h2>Checks</h2><ul>{''.join('<li>' + x + '</li>' for x in X['checks'])}</ul></section>
 <section id="reply"><h2>One reply</h2><textarea id="r">{E(X['reply'])}</textarea><p><button onclick="navigator.clipboard.writeText(document.getElementById('r').value)">Copy reply</button></p></section></main>

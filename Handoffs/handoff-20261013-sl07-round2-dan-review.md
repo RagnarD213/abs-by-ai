@@ -3,7 +3,7 @@ CONTENT | SL-07 | If I Had Belly Fat SFC R3
 # SL-07: apply Dan's round 2 answers, put the studio pickups in, close out the five Belly Fat shorts
 
 Written 2026-10-13 by Claude (Opus 5.5) at the end of round 2. All five shorts are rendered with Dan's 10-13 answers.
-Three are finished candidates; two wait on studio pickups. Dan has the round 2 page and has not answered it.
+Three passed their independent review (SHIP, 0 open defects); two wait on studio pickups. The delivery gate fails two of the three on B-roll coverage only. Dan has the round 2 page and has not answered it.
 Supersedes `handoff-20261012-sl07-round1-dan-review.md` and `handoff-20261012-sl07-belly-fat-shorts-pickups-and-build.md`
 (kept for the picks, the spoken text and the standing decisions).
 
@@ -21,19 +21,28 @@ The pickup swap after the 10/17 shoot is mechanical once the takes are filed: **
 
 | Short | File | State |
 |---|---|---|
-| Stop Trying To Lose 1 Pound A Week | `belly-fat-90-days-short1_stop-trying-to-lose-1-pound-a-week.mp4` | finished candidate; second review SHIP, then one pause lengthened (third check was running at handoff) |
+| Stop Trying To Lose 1 Pound A Week | `belly-fat-90-days-short1_stop-trying-to-lose-1-pound-a-week.mp4` | third review SHIP, 0 defects; gate fails coverage only (10%) |
 | Weigh Yourself Every Morning | `belly-fat-90-days-short2_weigh-yourself-every-morning PLACEHOLDER PICKUP.mp4` | complete except the pickup (desk-mic placeholder, tagged on screen) |
 | Work Out Every Morning, Not 3 Times A Week | `belly-fat-90-days-short3_work-out-every-morning PLACEHOLDER PICKUP.mp4` | complete except the pickup; the vacation clip waits on Dan's frame answer |
-| The 3-Pound Rule That Keeps Belly Fat Off | `belly-fat-90-days-short4_the-3-pound-rule.mp4` | finished candidate; second review SHIP, judged (0 open defects) |
-| Track Your Calories With A Photo | `belly-fat-90-days-short5_track-your-calories-with-a-photo.mp4` | finished candidate; phone demos rebuilt twice after review, last render made at handoff: needs its watch judge |
+| The 3-Pound Rule That Keeps Belly Fat Off | `belly-fat-90-days-short4_the-3-pound-rule.mp4` | second review SHIP, 0 defects; gate fails coverage only (21%) |
+| Track Your Calories With A Photo | `belly-fat-90-days-short5_track-your-calories-with-a-photo.mp4` | fourth review SHIP, 0 defects, judge folded in; gate result pending |
 
 - Reviews: `r2/reviews/ROUND-2-REVIEW-<S>.md` (first pass, all five DOES NOT SHIP), `ROUND-2B-*` (A, E SHIP; F no),
   `ROUND-2C-*` (A, F third checks). `build/<S>/gate/logs/findings.json` is the judge's file for the current watch pass
   only when its sha matches the delivered file: check before running `watch.py --judge`.
-- **The delivery gate has not produced a stamp for any of the five.** It waits while two other builds are active
-  (`speech.wait_for_build_slot`), and other sessions were rendering all afternoon. Run it when the machine is quiet:
-  `rungate.sh A|E|F` after `watch.py --judge`. Expect the known organic mismatches named in VIDEO-RULES; report every
-  failing row with its numbers and never change a bound.
+- **Delivery gate (2.5.1), run 10-13 afternoon. No short has a stamp yet; the only failing row is B-roll coverage.**
+  "Stop Trying To Lose 1 Pound A Week": 38 pass, 1 fail (`style:coverage` 10%, min 30%). "The 3-Pound Rule": 37 pass,
+  1 fail (`style:coverage` 21%); `compliance:labels` was not measured until `deliver.py plan` supplied
+  `label_chips.real` (it does now), rerun was in progress at handoff. "Track Your Calories With A Photo": fourth review
+  SHIP, judge folded into its watch log, gate was running at handoff (it measures 36%, so coverage should pass).
+  Run the gate only through `rungate.sh S`. Never change a bound.
+- **The coverage fix is staged, not built:** `round3-plan/coverage.json` (five library clips with film times, crops and
+  the lines they play under; `plans.py` still matches the delivered files). Stills are on the page under "Extra B-roll".
+  After Dan's yes: add them to `plans.COVERS`, also lengthen the stairs clip in the workout short (29% now), rebuild
+  A, E (and D), then watch judge, fresh reviewer and gate again.
+- Reviewer note on "Track Your Calories With A Photo" (told to Dan on the page): at 0:37 to 0:40 "it adds up your day
+  for you" plays over the meal list with no "Today's total" line, because the scroll was dropped to remove a corner
+  flash. If Dan wants the total back: end the second phone on a held frame of the scrolled page.
 
 ## Waiting on Dan (the round 2 page)
 
@@ -42,8 +51,9 @@ The pickup swap after the 10/17 shoot is mechanical once the takes are filed: **
    into bodyweight squats; the family watches; locked camera), check it against the three AI sense questions
    (VIDEO-RULES 2026-10-13), then replace the `abwheel` cover in `plans.py` (321.70 to 325.73, `fy=1.0`, chip placed by
    `chipplace.py`). That short then needs its review again.
-2. Four reworded key points (old and new on the page): keep, or his wording.
-3. Any other notes.
+2. The five extra B-roll clips (`round3-plan/coverage.json`): yes, or swaps.
+3. Four reworded key points (old and new on the page): keep, or his wording.
+4. Any other notes.
 
 ## The studio pickups (after the 10/17 shoot)
 
@@ -67,15 +77,15 @@ Then watch pass, a fresh reviewer and the gate for both. Do not spend time match
 
 ## Open risks
 
-- The gate has never completed on these files; rows about captions under the phone, hair, coverage and B-roll may need
-  `declare` entries with Dan's words, as SL-03 did (`softblue-sl03/README.md`, "Gate plumbing").
-- `plan.json`'s `negative_events_scan` text says a reviewer judged the frames; three reviewers objected that it is written
-  before the review. Write it after the judge, or reword it.
+- The gate has not run on the two placeholder shorts (B, D). Their plans need the same inputs A, E and F now get from
+  `deliver.py plan` (banned-screen source, both label templates).
+- `plan.json`'s `negative_events_scan` line now reads the watch log and says who judged, or that nobody has yet. Run
+  `deliver.py plan S` again after `watch.py --judge` so it is current.
 - The scale clip in "The 3-Pound Rule" shows "90.9 kg" for its last 0.5 s (0:29). Dan was told.
 - The metronome needle sweeps more than it bounces. Dan was told.
 
 ## Starter prompt
 
-> Name this task "If I Had Belly Fat SFC R3". This is CONTENT. Read `Handoffs/handoff-20261013-sl07-round2-dan-review.md` and execute it: apply my round 2 answers (pasted below), make the vacation clip if I approved its frames, re-render what changed, then run the watch judge, a fresh independent review and the delivery gate on every finished short. The two shorts with pickups stay placeholders until the 10/17 studio takes are in. Use the Codex subscription for any new images. No covers, no upload.
+> Name this task "If I Had Belly Fat SFC R3". This is CONTENT. Read `Handoffs/handoff-20261013-sl07-round2-dan-review.md` and execute it: apply my round 2 answers (pasted below), make the vacation clip if I approved its frames, add the extra B-roll from `round3-plan/coverage.json`, re-render what changed, then run the watch judge, a fresh independent review and the delivery gate on every finished short. The two shorts with pickups stay placeholders until the 10/17 studio takes are in. Use the Codex subscription for any new images. No covers, no upload.
 >
 > My round 2 answers: [paste the reply box here]

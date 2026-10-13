@@ -54,6 +54,11 @@ voice: `_shared/VIDEO-RULES.md`, "A Short opens like a dedicated video". First u
 Record with `_shared/audio/rec_mic.swift` (never `ffmpeg -f avfoundation`: it silently dropped 11 % of the audio, SL-07
 2026-10-12). The pickup tool and the watcher that waits for Dan's lines: `reference/softblue-sl07/` (`pickup.py`, `watch_lines.py`).
 
+**Check the B-roll share at the plan step, before any render (SL-07, 2026-10-13).** The delivery gate fails a short with
+under 30% of its runtime off the presenter, and key-point bars over Dan do not count. A passage the parent film left as
+talking head makes a talking-head short: add library clips in round 1. How to count and what the gate plan needs:
+`reference/softblue-sl07/README.md`, last section.
+
 ## Stand alone: show the whole exercise, not a detail of it (Dan, 2026-09-30)
 
 - **A short must make complete sense to a viewer who never saw the long-form.** Leave out details that only work

@@ -7,12 +7,13 @@ L = json.load(open(W + "/motion/ledger.json")); spent = sum(e["usd"] for e in L)
 CHECKS = json.load(open(R + "/checks.json")) if os.path.exists(R + "/checks.json") else {}
 X = dict(
  intro=("All five shorts are built with your answers from 10-13: the four AI clips you approved are in and the eight you turned down are out. "
-        "Three are finished and ready for your final look. The two that open on a pickup line are complete except for that line: your rule from today says "
+        "Three are finished and passed their independent review. The two that open on a pickup line are complete except for that line: your rule from today says "
         "pickups get recorded on the studio set, so the desk recording you gave me sits in them as a labelled placeholder until the 10/17 shoot. "
-        "One thing waits on you: the frames for the new \"working out on vacation\" clip. No covers, no upload."),
+        "Two things wait on you: the frames for the new \"working out on vacation\" clip, and five extra B-roll clips the delivery gate asks for in two of the shorts. No covers, no upload."),
  locked=("the Soft Blue shorts look; the film's colour and its approved sound, cut only; your five segment picks; your titles; your yes and no on the 12 AI ideas from 10-13."),
  decisions=[
   "<b>The new \"working out on vacation\" frames</b> for \"Work Out Every Morning, Not 3 Times A Week\" (shown below). Yes, change, or no. If yes, I make the motion (about $0.60) and it replaces the ab wheel on \"You just get up and you do it, even on weekends, even on vacation.\"",
+  "<b>Extra B-roll in two shorts</b> (stills below). The delivery gate wants at least 30% of a short to be clips, not you talking. \"Stop Trying To Lose 1 Pound A Week\" is at 10% and \"The 3-Pound Rule\" at 21%. I picked five clips from the library, three of them your own workout footage. Yes, or name the ones to swap. I build them in the same pass as your other notes.",
   "<b>Four key points were reworded</b> after the independent review (listed under \"What I decided\"). Keep them, or give me your wording.",
   "<b>Anything else</b> you want changed in any of the five.",
  ],
@@ -26,6 +27,18 @@ X = dict(
          "<p><b>What you see:</b> he finishes a push-up, gets up and drops into squats; his wife toasts him with her coffee and the younger kid starts copying him.</p>"
          "<p><b>If you say no:</b> your ab wheel clip stays there, as in the finished short above.</p>"
          "<p><b>Note:</b> the title band covers the top of the frame (sky and palms) and the captions sit over the pool deck under him.</p></div></div></section>"),
+ coverage=("<section id=\"coverage\"><h2>Extra B-roll to approve: two shorts are too much talking head</h2>"
+         "<p>The gate's rule: at least 30% of a short's runtime shows something other than you on camera. Measured now: \"Stop Trying To Lose 1 Pound A Week\" 10%, \"The 3-Pound Rule\" 21%, \"Work Out Every Morning\" 29% (I lengthen the stairs clip by about a second there), the other two pass at 51% and 36%. The parent film has almost no B-roll over these passages, so these are new picks from the clip library. Nothing is generated and nothing costs money.</p>"
+         "<h3>In \"Stop Trying To Lose 1 Pound A Week\" (10% now, about 33% after)</h3>"
+         "<div style=\"display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:start\">"
+         "<div><img src=\"cov/A_scale.jpg\"><div class=\"small\"><b>0:12 to 0:16. The overhead scale clip.</b> Plays under \"Let's say you have 30 pounds to lose and you are losing 1 pound a week.\" Before it: you on camera, \"...are still fat.\" After it: you on camera with the 7 MONTHS key point.</div></div>"
+         "<div><img src=\"cov/A_rope.jpg\"><div class=\"small\"><b>0:23 to 0:27. You jumping rope by the pool.</b> Plays under \"It's far, far easier to go all-in for 90 days and get it over with.\" Before it: you on camera, \"almost nobody can stay motivated for that long.\" After it: you on camera, \"Most people are trying to squeeze fat loss into their life.\"</div></div>"
+         "<div><img src=\"cov/A_curls.jpg\"><div class=\"small\"><b>0:46 to 0:50. You curling dumbbells by the pool.</b> Plays under \"I would make losing fat the number one priority in my life for 90 days,\" with the key point on screen. After it: back to you on camera for the last line, \"and everything else would have to fit around that.\"</div></div></div>"
+         "<h3>In \"The 3-Pound Rule That Keeps Belly Fat Off\" (21% now, about 37% after)</h3>"
+         "<div style=\"display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:start\">"
+         "<div><img src=\"cov/E_salad.jpg\"><div class=\"small\"><b>0:32 to 0:35. Salad being packed into meal containers.</b> Plays under \"I would go right back to cutting calories until it's gone,\" with the 3-pound key point on screen. Before it: you on camera, \"if I ever got more than 3 pounds above my goal weight.\" After it: you on camera, \"Losing 3 pounds is not a big deal.\"</div></div>"
+         "<div><img src=\"cov/E_abwheel.jpg\"><div class=\"small\"><b>0:40 to 0:43, the ending. Your ab wheel rollout,</b> shown as a wide card so the whole move is in frame. Plays under the last line, \"Losing 30 pounds is 90 days of sacrifice.\" Before it: you on camera, \"You could do that in a week or two.\" If you would rather end on your face, say so and I put a clip under \"gain 5 pounds, gain 10 pounds, gain 20 pounds\" instead (I would need a clip idea from you; you turned down the dusty scale and the popping button there).</div></div>"
+         "</div></section>"),
  decided=[
   "<b>Your answers, as I read them</b> (they were dictated): \"Stop Trying To Lose 1 Pound A Week\": all three ideas killed. \"Weigh Yourself Every Morning\": both made (the metronome needle and praying to the scale). \"Work Out Every Morning\": both killed, new vacation frames requested. \"The 3-Pound Rule\": the beer on the patio made; the dusty scale and the button killed. \"Track Your Calories With A Photo\": buried in measuring cups made; the moth killed.",
   "<b>The pickups are placeholders.</b> You recorded both lines at 12:50; a few minutes later, after hearing desk pickups in another video (RO-20), you ruled that desk-mic pickups do not work and go on the studio shoot list. Both lines are already on the 10/17 pickup list (Docs/PICKUPS_1017_SHOOT.md). Until then \"Weigh Yourself Every Morning\" and \"Work Out Every Morning\" carry the desk take with a small PLACEHOLDER AUDIO tag on screen while it plays, and their file names say PLACEHOLDER PICKUP, so neither can be uploaded by mistake. Swapping in the studio take is an audio-only change.",
@@ -48,10 +61,10 @@ X = dict(
   B="<b>Complete except the pickup</b> (desk-mic placeholder, tagged on screen, 0:00 to 0:03). Changed since round 1: the overhead scale clip under the pickup; a new first key point at 0:04; the metronome needle at 0:24 to 0:29; the chart at 0:29 to 0:36; praying to the scale at 0:48 to 0:52 (two shots). Watch 0:00 to 0:10, 0:22 to 0:46 and the last 6 seconds.",
   D="<b>Complete except the pickup</b> (desk-mic placeholder, tagged on screen, 0:00 to 0:02). Changed since round 1: the sore man on the stairs at 0:08 to 0:11; the ab wheel a little faster so the return shows (0:25 to 0:29, where the vacation clip would go); the ending is you curling dumbbells by the pool (0:53 to 0:57). Watch 0:00 to 0:14, 0:24 to 0:30 and the last 5 seconds.",
   E="<b>Finished.</b> Changed since round 1: the beer on the patio at 0:06 to 0:10; a reworded key point at 0:19; the last word is whole now. Watch 0:03 to 0:11, 0:18 to 0:25 and the last 4 seconds.",
-  F="<b>Finished.</b> Changed since round 1: buried in measuring cups at 0:09 to 0:13; the first phone fills its screen (0:18 to 0:25); the second phone's corners are clean (0:33 to 0:40); a reworded key point at 0:25. Watch 0:05 to 0:14 and 0:18 to 0:40.",
+  F="<b>Finished.</b> Changed since round 1: buried in measuring cups at 0:09 to 0:13; the first phone fills its screen (0:18 to 0:25); the second phone's corners are clean (0:33 to 0:40); a reworded key point at 0:25. Watch 0:05 to 0:14 and 0:18 to 0:40. <b>One thing to judge at 0:37 to 0:40:</b> to get rid of a flash in the phone's corner I dropped the scroll down to \"Today's total\", so \"it adds up your day for you\" now plays over the day's meal list (775 cal) with no total line. Say if you want the total back.",
  ),
  checks=CHECKS.get("checks", ["Checks are still running."]),
- reply=("1. Vacation frames: yes / change / no\n2. Reworded key points: keep / my wording:\n3. Stop Trying To Lose 1 Pound A Week: \n4. Weigh Yourself Every Morning: \n"
+ reply=("1. Vacation frames: yes / change / no\n2. Extra B-roll (five clips): yes / swap these:\n2b. Reworded key points: keep / my wording:\n3. Stop Trying To Lose 1 Pound A Week: \n4. Weigh Yourself Every Morning: \n"
         "5. Work Out Every Morning, Not 3 Times A Week: \n6. The 3-Pound Rule That Keeps Belly Fat Off: \n7. Track Your Calories With A Photo: \n"),
 )
 os.makedirs(R, exist_ok=True); json.dump(X, open(R + "/extra.json", "w"), indent=1); print("extra.json written, spent", round(spent, 2))

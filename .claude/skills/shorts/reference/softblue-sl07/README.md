@@ -88,3 +88,17 @@ Five first reviews all said DOES NOT SHIP. Every item below was a finding; the t
   each other in the delivery folder.
 - **The delivery gate waits while two other builds run** and may never start on a busy afternoon; a stale gate process also
   counts as a build for other sessions. Kill a gate whose file has been re-rendered.
+- **Count the B-roll share BEFORE the first render.** The gate's `style:coverage` row wants 30% of a short's runtime off
+  the presenter, and it counts clips, scenes and phone demos only: key-point bars over Dan count for nothing. Two shorts
+  here passed three independent reviews and then failed the gate at 10% and 21%, because the parent film has almost no
+  B-roll over those passages and the shorts inherited that. Sum the non-talk rows of `build/<S>/shots.json` at the plan
+  step; under about 33%, add library clips to the stills page in round 1, not after the reviews.
+- **What `deliver.py plan` must hand the gate** (each cost a 6 to 8 minute run to find): `banned_source` and
+  `banned_times` (else `compliance:banned_screen` is not measured), BOTH `label_chips.ai` and `label_chips.real` when a
+  short has an AI clip (the row checks the AI label is there and the real-photo label is not, so it needs both images),
+  and a `negative_events_scan` line that is true at the moment it is written (it reads the watch log now).
+- **Run the gate only through `rungate.sh`**: started from a shell line that itself contains "gate.py", the gate counts
+  its own launcher as a build and waits on itself.
+- **The caption reference file rounded badly** (32.9997 s wrote 32,000): fixed here and in `softblue-sl03/deliver.py`.
+- **The review server shows a cached copy.** After `page_r2.py`, run `review_server.py 8874 <dir>` again or the page Dan
+  opens is the old one.
