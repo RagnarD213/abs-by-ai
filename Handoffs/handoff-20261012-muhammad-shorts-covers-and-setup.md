@@ -84,6 +84,10 @@ Five choices per short, each in both layouts (Instagram grid and YouTube), which
 - After any Blotato write, re-read the saved schedule and run the ad guard scan.
 
 ## 5. The two that follow
+**Update 2026-10-13:** Muhammad sent both HD files at 09:42 UTC (Gmail message `1a134a751d5802e9`, links labeled
+"3 Ways To Reduce Alcohol HD" and "How to do Rare Delt HD"). Not yet downloaded or checked. Hammer Curls and DS-05 are in
+`handoff-20261013-muhammad-shorts-batch2-setup-and-ads-check.md`.
+
 Muhammad owes high quality exports of DS-24 Rear Delt Flys V3 and DS-14 3 Ways To Reduce Alcohol V3 (both finalized,
 his files were review size, about 22 MB). When they arrive:
 - Prove each export is the finalized cut before using it:

@@ -215,6 +215,7 @@ Memory `google-ads-ui-automation`.
 `[dash]` = on the fire list; runner deletes row, line and README row.
 
 - `handoff-20261012-1017-shoot-shorts-scripts.md` (10-12). Opus 5.5 high.
+- `handoff-20261013-muhammad-shorts-batch2-setup-and-ads-check.md` (10-13): DS-21, DS-05 setup; ad check. Opus 5.5 high.
 
 - `handoff-20261007-ro10-subtle-reedit-sunday-reupload.md` (10-07): RO-10 R3 end graphic, Sunday replacement. Codex Sol high.
 - `handoff-20261008-dan-voice-training-part2-plan.md` (B-done-10-10;next:C,D;Dan:Round-2-blind-page)
