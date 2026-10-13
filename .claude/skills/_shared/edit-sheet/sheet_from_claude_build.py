@@ -77,7 +77,10 @@ def video_block(master, rolls):
 def label_kind(label):
     if not label:
         return "none"
-    return "ai" if "AI-GEN" in label.upper() else ("real" if "REAL" in label.upper() else "none")
+    u = label.upper()
+    if "NOT AI" in u or u.startswith("REAL"):   # "Real picture of me. Not AI-generated." contains "AI-GEN": test the real chip first (RO-19 round 4: five real photo scenes were written as ai)
+        return "real"
+    return "ai" if "AI-GEN" in u else ("real" if "REAL" in u else "none")
 
 
 _CAT = None
