@@ -127,7 +127,7 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 
 **RA-04 BUILDING 2026-10-13.**
 
-**RA-14 R2 HANDOFF 2026-10-13.** Fire `Handoffs/handoff-20261013-ra14-cheat-code-round2-after-dan-review.md`
+**RA-14-R2-BUILDING 2026-10-13.**
 
 **RA-07 BUILDING 2026-10-13, Claude.**
 
