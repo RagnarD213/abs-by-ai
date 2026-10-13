@@ -250,4 +250,4 @@ Memory `google-ads-ui-automation`.
 ## ACTIVE
 **Ad 6 remarketing 2026-10-04:** Awaiting Dan: copy to enabled campaign 24305381214?
 
-**Meal Prep SFC R4 COLOR 2026-10-13, Codex.** Everything except color approved. Building three moving color options on identical excerpts. Next: Dan chooses; apply in following round. http://127.0.0.1:8891/. No covers/uploads; dispatcher paused.
+**Meal Prep SFC R4 COLOR 2026-10-13, Codex.** Color options only; everything else approved. Next: Dan chooses, then apply next round. http://127.0.0.1:8891/. No covers/uploads; dispatcher paused.
