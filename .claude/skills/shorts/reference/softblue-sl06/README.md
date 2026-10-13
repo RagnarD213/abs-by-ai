@@ -38,6 +38,11 @@ What round 1 learned:
   passed, so a finished short went to Dan with a faulty opening. **Check every take before using it:** samples against wall
   time within 2 %, and second-difference spikes whose spacings are multiples of 512 samples (more than two in a take = dropped
   blocks). All five SL-06 takes from 10-12 failed that check after the fact and were re-recorded.
+- **Pickups now come from the studio lav, not the desk mic (Dan, 2026-10-13; VIDEO-RULES, "Pickups are recorded on the studio
+  set").** The desk recording is a timing placeholder: build pictures, captions and timing against it, label it on the page,
+  then swap in the lav take. `pickup.py` works the same on a lav WAV: `pick_lav.py` on the shoot clip, pull the lav to a mono
+  48 kHz WAV, `asr`, pick the last clean take, `fit ... _lav` (expect a small correction), `make`. Every head changes length,
+  so re-run audio, words, plan, gfx and render for each pickup short. The notes below about the desk recorder apply to placeholders.
 - **Never open a recording window blind.** The first 4-minute window caught Dan dictating notes on another video. Show the
   lines, wait for his "go", then record 2 minutes. `pgrep -f` on the ffmpeg command line matches the waiting shell itself:
   wait on the background task, not on a pgrep loop.

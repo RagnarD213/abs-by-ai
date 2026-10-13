@@ -11,9 +11,9 @@ LOCKED = ("the Soft Blue shorts look you approved on the salad shorts (title ban
           "approved sound, cut only; your segment picks and changes from 10-11; \"Not medical advice. Talk to your doctor.\" small in the "
           "corner of every short; AI-GENERATED chips on the AI clips.")
 D_REVIEW = "review/Top 5 Zepbound Tips SFC R1 - short D - Inject On Thursday Evening - REVIEW 540p.mp4"
-_pk = ("<p><b>Known fault in this copy:</b> your opening line (0:00 to 0:03) carries dropouts from the recording tool and will be replaced "
-       "with a clean re-read. The film's own sound from 0:03 on is untouched. When the clean take is in, it gets the same treatment as planned: "
-       "tone and level matched to your voice in the film, the film's music under it, no echo or noise removal.</p>")
+_pk = ("<p><b>The opening line is a placeholder.</b> 0:00 to 0:03 is the desk-mic take, and it has dropouts from the old recorder, so it sounds rough. "
+       "Do not judge its sound. Your lav recording from Thursday replaces it in round 2, matched in level to the film line that follows, with the film's "
+       "music under it. Judge the picture, the timing of the cut to you at 0:03, and everything after it.</p>")
 D_TEXT = ("<p><b>What to check:</b> the first 4 seconds (your recorded opening line over the calendar clip, then the cut to you on "
           "\"The medication is strongest...\"), the weekly chart at 0:07, the four weekend clips from 0:21, and the key point at 0:32.</p>"
           + _pk +
@@ -27,7 +27,7 @@ AI = [("C", "<b>Short C opener (0:00 to about 0:04), under your pickup \"Here's 
             "literal picture): he winds up to hop off a low garage roof with the stairs right beside him, then hard cut to him strolling down the stairs. "
             "Two short clips, about $2 to $3 together. If you turn it down, E ends on the plain staircase clip shown in short E below.")]
 DECISIONS = [
- "<b>Your pickups need one more read (2 minutes).</b> The recording tool dropped tiny slices of sound on every take from 10-12 (about 11 % of the audio, a 10 ms slice missing every 90 ms). You will hear it in short D's first 3 seconds as a rough, slightly hurried stutter. It cannot be repaired, so none of these takes ship. The recorder is replaced and tested clean. Say \"go\" in the task and read the five lines once more; short D's opening is then rebuilt. Judge D's picture, timing and everything after 0:03 as it is.",
+ "<b>Short B's opening line: long or short.</b> You are recording the pickups on the lav on Thursday, both wordings of B. A (the one you settled on, built here): \"Here's why you should stop using the pen to inject Zepbound, and why you should use a needle instead.\" (about 4.3 s). B: \"Here's why you should stop using the pen to inject Zepbound.\" (about 2.6 s). Every opening line you hear or see on this page is a desk-mic placeholder; the lav takes replace them in round 2.",
  "<b>Drug name in the title band.</b> A: <b>ZEPBOUND TIPS</b> as shown on every still (recommended: the film says Zepbound in every sentence and the captions spell it). B: <b>GLP-1 TIPS</b> (the two versions are side by side at the top of short D). With B, short F's headline becomes \"How Much Protein You Need On A GLP-1\".",
  "<b>Title copy</b> for all six (in the reply box). Title case, two lines each.",
  "<b>Steps in shorts C and E.</b> A (recommended): one step at a time in the key-point bar, with a counter (STEP 1 OF 5), each landing on your words. B: the film's whole list as a card at the bottom. I planned B, then built it: with the title band on top the card pushes the captions onto your face (the still is in short C). Your call.",
@@ -36,8 +36,8 @@ DECISIONS = [
  "<b>Key-point copy.</b> Every bar is listed in the reply box. Edit any line; two lines each, about 24 letters a line.",
 ]
 DECIDED = [
- "<b>Pickup takes: the rule is your last clean take of each line.</b> The 10-12 takes all carry recorder dropouts, so they are placeholders until the re-read (decision 1). Take 3 of the Thursday line also hit the mic's limit: stay about a hand's width from the mic and keep the same distance for all five lines.",
- "<b>B uses the wording you settled on while recording:</b> \"Here's why you should stop using the pen to inject Zepbound, and why you should use a needle instead.\" It runs 4.3 s. Say it that way again on the re-read, or go back to the short version.",
+ "<b>Pickups come from your lav recording on Thursday.</b> Round 2 pulls the five lines from it (your last clean take of each) and lays them in. The desk-mic takes here are placeholders for timing only.",
+ "<b>B uses the wording you settled on while recording:</b> \"Here's why you should stop using the pen to inject Zepbound, and why you should use a needle instead.\" Both wordings are on Thursday's list, so you choose in decision 1.",
  "<b>You recorded A's pickup, so A opens on it</b> (\"Here's why you should start Zepbound at 1 milligram to avoid the side effects.\") over the vials clip, then you on camera at \"And for most of you watching this channel...\"",
  "<b>D opens on your pickup over the calendar clip</b> (turned the right way up so the dates read), then cuts to you on \"The medication is strongest in the first few days after your shot\", so your face is on screen by 0:04. The weekly chart comes in on \"and it fades\".",
  "<b>\"Again,\" is not in D's captions.</b> The film's subtitle has \"Again, Monday through Thursday\". Two speech models, four listens: you say \"Monday through Thursday, I am dialed in.\" Captions print what you say.",
@@ -86,7 +86,7 @@ def _bars():
 def _titles():
     import plans as P
     return "\n".join(f"   Short {S}: {P.TITLE[S][0]} / {' / '.join(P.TITLE[S][1])}" for S in ORDER)
-REPLY = f"""1. Pickups: I will re-read the five lines (say "go" in the task)
+REPLY = f"""1. Short B's opening line: A long (settled wording) / B short
 2. Title band: A ZEPBOUND TIPS / B GLP-1 TIPS
 3. Title copy: approved / edits:
 {_titles()}
