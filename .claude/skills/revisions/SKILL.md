@@ -1667,3 +1667,15 @@ For evidence receipts and blind benchmark freezes, use [REVIEW_EVIDENCE.md](refe
     `/Volumes/Extreme/_edit_work/revisions-20261012/muhammad/` do it in about 20 seconds a file. A new version gets a
     real round check against the live doc. He also labels dedicated shorts "AD 08", "Ad 09" (his own running count for
     DS-08 and DS-09): classify by the closing words, never by his label, before anything ad-related is planned.
+77. **Check the kit folder against the whole batch, and answer a status question from the whole batch (2026-10-13).**
+    Three of Muhammad's 22 shorts (the first three, reviewed 09-27 before the kit existed) were told to wait for the
+    graphic lock and never got a kit folder. Nobody noticed for 16 days, and they sat unreturned into his bonus
+    deadline. At every round list the kit folder (`rclone lsd --drive-root-folder-id <kit id> gdrive:`) against the
+    brief's video table and name any video with no folder in the summary. When Dan asks "is everything done" or "did
+    he earn the bonus", count from the brief's full video table and read the whole Upwork room, where the terms and
+    any deadline change live (his side is not in Gmail). The room loads newest first in a reversed scroller: set
+    `.scroll-wrapper.custom-scrollbar` `scrollTop = -scrollHeight` in a loop until the first date is old enough, then
+    `get_page_text`. `javascript_tool` output is cut at about 1,000 characters, so read with `get_page_text`. Build
+    trap from the same day: `nice` in front of `kit.py --render` kills the HyperFrames render
+    (`uv_os_setpriority EACCES`). Run it at normal priority. A kit for an old cut reuses that cut's prep
+    (`revisions-20260926/dl` and `work`); the 10-13 kit and its `gen.py` are in `revisions-20261013/muhammad/`.

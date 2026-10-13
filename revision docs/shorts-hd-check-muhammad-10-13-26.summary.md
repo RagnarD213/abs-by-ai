@@ -67,8 +67,7 @@ to **10-16** ("You can now complete all videos by October 16th and still receive
 
 - All 22 first cuts were delivered by 10-07. Every delivery in the thread from 09-25 to 10-13 was matched to a review;
   none of the 12 open videos has come back since its notes went out. On 10-08 he wrote "All revisions done".
-- ⚠ DS-01, 02 and 03 may be waiting on us. Their 09-27 notes said to wait until the graphic style was locked. The style
-  became our own graphics kit on 10-01, and the kit folder (`1L2Y1EfJTG4rYZNNtQXVieq4x2qbzENvk`) has a folder for every
-  other video but none for these three. Nothing since 09-27 tells him which graphics to use on them.
+- DS-01, 02 and 03 were waiting on us: their 09-27 notes said to wait for the graphic lock and no kit folder was ever
+  made for them. Built 10-13 (kit folders 21 to 23) with updated notes: `shorts-revisions-muhammad-first-three-10-13-26.summary.md`.
 - The brief calls all 22 organic content, so there is no ad in this batch to judge the "excellent ads" $50 against.
 - Not verified: his "Daniel HQ" folder (`1br5ehY-CYICMWRCUwvNJtGXznCbXc4Tu`) lists as empty from our side.
