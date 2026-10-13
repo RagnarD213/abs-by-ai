@@ -1,3 +1,20 @@
+## Pickups are recorded on the studio set at a shoot, not on the desk mic (Dan, 2026-10-13)
+
+- **A pickup line for any video goes on the next shoot's list and is recorded on the studio set with the shoot's clip-on mic.** Dan,
+  after hearing desk-mic pickups laid into the RO-20 first minutes: *"Yeah, that audio doesn't work. What I'm going to do is I'm just
+  going to record these pickups on my studio set instead... get all of the pickups that we need for this task and every other
+  outstanding video edit that we have... For pickups, I'll just do those first to make sure we get them, and then I'll just upload
+  the pickups."*
+- What was tried first: the desk Yeti, tone, level and room matched to the film voice over three passes. A blind listener still called
+  every join "closer, drier, fuller", and Dan rejected it on first listen. Do not spend a round on matching a desk recording again.
+- How to apply (editor's reading): when a video needs a pickup, write the line, add it to the shoot's pickups list (a PICKUPS section
+  at the top of the shoot doc and a pickups-only teleprompter document loaded into PromptSmart; for the next shoot:
+  `Docs/PICKUPS_1017_SHOOT.md`), tell Dan the job waits for the shoot, and build the rest. A desk recording is fine as a timing
+  placeholder so the pictures can be built and approved, labelled as a placeholder. Each pickup is printed twice in the teleprompter
+  document so he reads it twice.
+- This replaces step 3 of "A Short opens like a dedicated video" below (record into the desk mic in the editing session). The rest of
+  that section stands: the pickup line, the cover clip, one point per Short.
+
 ## AI clips that make no physical sense, or do not show the line, never reach Dan (Dan, 2026-10-13)
 
 - **An AI clip is checked for sense before Dan sees it, and a clip that fails is regenerated, cut down to the part that works, or

@@ -1,5 +1,8 @@
 CONTENT | SL-07 | If I Had Belly Fat SFC R1
 
+> **2026-10-13, Dan: pickups are recorded on the studio set at the shoot, not on the desk mic.** After hearing the desk-mic pickups in the RO-20 first minutes: "that audio doesn't work... I'm just going to record these pickups on my studio set instead... get all of the pickups that we need for this task and every other outstanding video edit". This job's pickup lines are on the shoot list (`Docs/PICKUPS_1017_SHOOT.md`, the PICKUPS section of the shoot doc, and the pickups teleprompter document). Do not ask him to read them into the desk mic again; build the pickup shorts when the shoot roll is uploaded. Desk takes are timing placeholders only.
+
+
 # SL-07: record Dan's two pickups, then build five "If I Had Belly Fat" shorts (round 1)
 
 Written 2026-10-12 by Claude (Opus 5.5) at the end of the segment-selection session. Dan picked five segments from a

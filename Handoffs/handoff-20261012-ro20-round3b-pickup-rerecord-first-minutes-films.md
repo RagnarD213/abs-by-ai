@@ -1,12 +1,12 @@
 # RO-20 / RO-20B / RO-20C "Invest In Your Health": round 3b, Dan's answers to the first minutes, then the three films
 
 **CONTENT (LFC), organic long-form, 16:9, three videos cut from one roll, one task. Sidebar name: `Invest In Your Health LFC R3b`.**
-Updated 2026-10-13 by the round 3 session (Claude Opus 5.5). The pickups are re-recorded and laid in; the first minutes are on the page.
+Updated 2026-10-13 by the round 3 session (Claude Opus 5.5). **BLOCKED until the studio shoot:** Dan heard the desk-mic pickups in the first minutes and rejected the sound ("Yeah, that audio doesn't work... I'm just going to record these pickups on my studio set instead"). He records all four again on the studio set with the shoot's clip-on mic and uploads them. List and the other jobs waiting on the same shoot: `Docs/PICKUPS_1017_SHOOT.md`.
 
 ## Goal
 
-Record Dan's answers to the round 3 page, re-record the pickups in the kitchen only if he says the voice does not sit, then, with nothing
-pending, build the three full films.
+When the studio pickups are uploaded: lay them in, show Dan the first minutes of videos 2 and 3 and video 1's ending again, get his answer on
+the sign-off sentence, then, with nothing pending, build the three full films.
 
 ## Read first
 
@@ -28,8 +28,10 @@ pending, build the three full films.
 
 ## Order of work
 
-1. Record Dan's reply word for word; re-hash. If he wants the kitchen re-record: he stands in the doorway with the shoot's lav; record with `rec_mic`
-   or the camera, run the block test, rerun `pickup_audio20.py` (new `D`, `TAKES`; the match EQ should then come out near flat) and `first_minutes_r3.sh`, show the joins again.
+1. Find the four pickups on the shoot roll Dan uploads (he reads each twice; `pick_lav.py` per file, never a typed channel; `roll_sidecar.py`). Take the
+   last clean take of each (his wording wins). In `pickup_audio20.py` point `D` and `TAKES` at the new audio and turn the desk-mic treatment down: the match EQ
+   should come out near flat, no added room, and the level set to the film's. Rerun `first_minutes_r3.sh`, judge the joins with a blind listener against each
+   other and against the 10-13 desk version, update the page (`page4_20.py`), copy to `Videos to Review/`, and stop for Dan. Ask the sign-off sentence again.
 2. Rebuild `voice/film_voice.wav` (`build.py filmvoice`): it does not cover the appended sign-off yet.
 3. Per video, assemble from `videos.json`: film ranges (set the two dropped sentences' exact frames on the voice envelope; v1 end 900.35, v2 film start 904.70,
    v2 open 3014.45 to 3026.62, v3 film start 1420.786 with a short lead-in handle from the roll before "All right."), pickup segments, video 1's sign-off.
@@ -39,7 +41,7 @@ pending, build the three full films.
 
 ## Open risks
 
-- The pickup joins (above). The sign-off sentence cut was judged on measurements and Whisper only.
+- The sign-off sentence cut was judged on measurements and Whisper only; Dan has not answered it.
 - Gi03 is on screen 3.2 s. Pool clips B0427 and B0032 read more orange than the presenter inside the card window.
 - B0275 (heart monitor strip) is graded inside `pickups20.py` only; video 1's item Cc04 uses it ungraded.
 - P2's J1 window is 0.04 s shorter than its slot (the window closes early; nothing is held).
@@ -52,5 +54,5 @@ Claude Opus 5.5, high: three long builds with joins judged by ear and measuremen
 ## Starter prompt
 
 ```
-Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/handoff-20261012-ro20-round3b-pickup-rerecord-first-minutes-films.md`: round 3b of the three "Invest In Your Health" videos (LFC, content; RO-20, RO-20B, RO-20C in one task). My answers to the round 3 page: [pickup voice: good enough / I will re-record in the kitchen] [sign-off sentence: keep / put the words back] [any other notes]. With nothing pending, build the three full films. Name this session "Invest In Your Health LFC R3b".
+Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/handoff-20261012-ro20-round3b-pickup-rerecord-first-minutes-films.md`: round 3b of the three "Invest In Your Health" videos (LFC, content; RO-20, RO-20B, RO-20C in one task). The studio pickups from the shoot are uploaded here: [folder or file names]. Lay them in, show me the first minute of videos 2 and 3 and video 1's ending, then build the three full films only when nothing is pending. Sign-off sentence: [keep it ended on "filled with motivation." / put the words back]. Name this session "Invest In Your Health LFC R3b".
 ```
