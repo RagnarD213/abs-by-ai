@@ -4,7 +4,15 @@ LFC (long-form content). Task name for this session: `My First Spray Tan LFC R4`
 
 **Written 2026-10-13 by Claude (Opus 5.5), after Dan reviewed the round 3 full film.** Job doc: `Handoffs/video-editing/RO-19-my-first-spray-tan.md`. Rules: `.claude/skills/_shared/VIDEO-RULES.md` (read in full), `.claude/skills/_shared/PRE-RENDER-APPROVAL.md`, `.claude/skills/_shared/CUT-CONTINUITY-QC.md`. Recipe and traps: `.claude/skills/longform-edit/reference/ro19/README.md` (the "Round 3" section lists the order of scripts and every trap this film paid for). Earlier round: `Handoffs/handoff-20261012-ro19-round3-full-film.md`.
 
-## Where it stands
+## Round 4 is built and waiting for Dan (added 2026-10-13, end of the round 4 session)
+
+- Film: `/Volumes/Extreme/_edit_work/ro19/round4/film/RO-19 round 4 - full film.mp4`, 18:46.46, 33,760 frames, sha256 `b4b309991b414674e2469fadad7f9b6fb3352ee61f5b02654d1567bbf5b317d8`. Page: http://127.0.0.1:8867/ (folder `round4/`). VLC copy: `Videos to Review/My First Spray Tan LFC R4 - full film.mp4` (the two R3 copies are deleted). Hashes: `round4/round4-hashes.sha256`.
+- Both changes are in: P02 is his picture (0:48.6 to 0:55.1); the false start is out (the join is at 9:05.545, 63 frames removed, everything after is 2.102 s earlier). Nothing else differs from round 3 (every frame compared).
+- Checks on that file: audio gate 12 of 13 (tone); delivery gate 31 pass, 8 fail (round 3's seven plus `audio:click_at_joins`, which flipped on the gate's random baseline; the two flagged cuts measure the same in round 3); watch pass 664 of 664 judged, 0 open; independent review `round4/film/ROUND-4-REVIEW.md`: SHIP, no defects; scene check 69 of 69; edit sheet valid. One note told to Dan: a 7 ms left/right encoding blip at 15:29.7.
+- Not done, waiting for his "final": everything under "When Dan says the film is final" below. Use the round 4 film and `round4/` paths there (stop page service 8867 too). The recipe's "Round 4" section in `.claude/skills/longform-edit/reference/ro19/README.md` has the order and the traps. `round4/film/review4/` is 6.5 GB of the reviewer's evidence: clear it at finalization.
+- If he asks for another change: build in `round5/` on a new port, never into `round4/`.
+
+## Where it stood before round 4
 
 - Round 3 film: `/Volumes/Extreme/_edit_work/ro19/round3/film/RO-19 round 3 - full film.mp4`, 18:48.56, 33,823 frames, sha256 `2031c3e31eb5f3f2ea7620182134e29583417ba7a0c8517969a4b7056bdb880d`. Page: http://127.0.0.1:8866/ (folder `round3/`, do not overwrite; build in `round4/` on a new port, 8867 if free).
 - Dan: "Those are the only revisions." Everything else in the film is approved. His words and hashes: `round4-plan/decisions.json`. Re-hash `round3/round3-hashes.sha256` (42 files) first and record expected against actual.

@@ -47,7 +47,7 @@ DECIDED = [
  f"Everything after {tenth(CUT)} is {GONE:.1f} seconds earlier than in round 3. Nothing else moved: every shot kept its size and crop, and every lower third, clip and photo is the same and in the same place against your words.",
  "Your picture is used as you sent it. I pulled the full-size copy from your Photos library (it matches your attachment) and cropped it the way the old card was cropped, head to just below the hands, so your abs read at the same size.",
  "One thing about that picture, for your information only: it is a slightly warmer copy of the camera frame taken the same second in your library (chest skin a little more orange than the frame). It still reads clearly pale next to the tanned shots. It is your pick, so it is in as sent.",
- "The music bed and the voice are the same files and settings as round 3.",
+ "The music bed and the voice are the same files and settings as round 3. The bed fades out about 5 seconds before the film ends, as it did in the film you approved; I left that alone.",
  "The doctor clip stays in. When you call the film final I save it to the clip library as the default for 'talk to your doctor' lines, with the other new clips.",
 ] + X.get("extra_decided", []) + ["Spend this round: $0. No images or AI motion were needed. Total for this video stays $4.80 of the $5.00 limit.", "Nothing is uploaded or queued."]
 css = open(f"{W}/recipe/page20.py").read().split('css = """')[1].split('"""')[0] + ".three{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.rev td{padding:7px 14px 7px 0;border-top:1px solid #26354d;vertical-align:top}.rev th{text-align:left;color:#9fb2cc;font-weight:600;padding-right:14px}"

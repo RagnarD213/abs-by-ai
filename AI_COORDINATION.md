@@ -125,7 +125,7 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 
 **RO-20/B/C WAITS-SHOOT 2026-10-13.** `Docs/PICKUPS_1017_SHOOT.md`
 
-**RO-19 R4 BUILDING 2026-10-13, Claude.** Film rendering; page 8867 next. `Handoffs/handoff-20261013-ro19-round4-final-revisions.md`
+**RO-19 R4 REVIEW 2026-10-13, Claude.** http://127.0.0.1:8867/ `Handoffs/handoff-20261013-ro19-round4-final-revisions.md`
 
 **RA-04 BUILDING 2026-10-13.**
 

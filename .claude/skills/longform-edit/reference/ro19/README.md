@@ -154,3 +154,16 @@ edit sheet -> delivery gate -> `page19r4.py media` -> `review_server.py 8867 rou
   Contact sheets cannot be carried when the length changes (every tile samples a different frame): all 12 go to the fresh judge, which also gives the new master its
   own negative-events read.
 - **The edit sheet's shadow folder** is now a script (`sheetbuild_r4.py`): round 3's shadow copies with the new shift, checked against the manifest the film used.
+- **The delivery gate waited on itself for 74 minutes.** Launched as `python3 ".../deliver/gate.py" ...` typed into a shell command, the launching shell's own command
+  line matches the build counter (`rolls/roll_sidecar.py active_builds`: "python ... gate.py"), and with one other match the gate sees two builds and waits forever at
+  0 % CPU. Launch it from a script file (`rungate_r4.sh`) and watch its CPU: a gate at 0 % with no child process is waiting, not working. Its Whisper step
+  (`cut/speech.py`) waits the same way whenever two or more ffmpeg processes of other sessions are alive, and one render is already two.
+- **`audio:click_at_joins` flipped to FAIL on audio that did not change.** Its bar is the largest of 150 random points in the file (seed 7, spread over the duration);
+  a film 2.1 s shorter draws 150 different points. Round 3's draw held one loud outlier (bar 0.42), round 4's did not (bar 0.18), so two picture cuts over continuous
+  speech (1:59, 15:29; no audio splice within 3.6 s of either) read 1.3x the bar. Both measure the same in the round 3 film. Reported on the page, nothing tuned.
+  Before calling a new failing row a regression, measure the same spot in the approved film.
+- **ffmpeg's AAC can put a one-channel blip in a mono voice.** Round 4 has a 7 ms left/right disagreement at 15:29.7 (0.28 of full scale; the PCM voice is identical
+  in both channels there), about twice round 3's largest. It sits 13 dB or more under the voice in its band. Found by the reviewer's left-minus-right scan; told to
+  Dan with the time. A re-encode moves these blips, it does not remove them.
+- **Gate on the delivered file: 31 pass, 8 fail** (round 3's seven, plus the click row above). Audio gate 12 of 13 (tone). Watch pass 664 of 664 judged, 0 open:
+  20 fresh by the independent reviewer (SHIP, no defects), 644 carried on frames proved unchanged. Master sha256 `b4b30999...17d8`, 18:46.46, 33,760 frames.
