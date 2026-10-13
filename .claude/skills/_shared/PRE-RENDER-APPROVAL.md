@@ -82,6 +82,14 @@ to review than looking at all this in the browser panel one at a time."* Every a
    genuine questions, numbered, 2-3 options each, recommendation first.
 2. **The first minute** (or the current finished section) in one lazy player at the top, with the 1080p master and audio A/B links.
 3. **AI opener / new AI clip frames** directly below: START and END side by side, the action, duration and cost under each pair.
+   **Name the video and give the context for every pair (Dan, 2026-10-13, SL-07 round 1).** *"For the AI clips, I don't really
+   understand what video each one goes on. Rather than just saying 'short A,' 'short B,' 'short D,' give me the title of it
+   and the context for when this appears a little bit more extensively."* On a batch page, group the pairs under each
+   video's TITLE with one line on what that video says. Under each pair, as labelled rows: when it appears, what he says
+   just before it, the line it plays under (bold, word for word), what comes right after, what you see, and what plays
+   there if he says no. Give each idea a plain name ("Snail on the scale") beside its ID, and use the names and titles in
+   the decisions, the "What I decided" list and the reply box. A bare letter or ID never stands alone anywhere on the page.
+   Generator: `shorts/reference/softblue-sl07/page_r1.py` + `notes_r1.py` (`AI_ITEMS`).
 4. **"What I decided (overrule anything)":** one line per call Claude/Codex made without asking: take choices and restarts cut,
    numbers used on screen, rejected assets and why, reviewer findings fixed, spend so far. Plain language, no jargon.
 5. **All graphics and clips, in timeline order, three per row:** each a still on its real graded frame, with its ID, output time
