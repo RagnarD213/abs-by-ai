@@ -1,0 +1,1 @@
+camera movement, zoom, cut, scene change, text, subtitles, captions, watermark, extra workers, melting, slow motion

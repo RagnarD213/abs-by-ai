@@ -88,3 +88,52 @@ Traps this build paid for:
 - **Dan set this video's AI budget to $15 on 2026-10-12** ("For the budget, let's do $15") after eight clip ideas plus two
   openers priced at about $8.85 against the $5 content cap. The question had to be put three times before it was
   answered: put a spend question first in the message, alone, with the number to say.
+
+## Round 2 (2026-10-12): the AI motion, two openers, the full film
+
+Order: re-hash (`round2-plan/round2-start-hashes.sha256`) -> pin the solve (`build._PIN` = `round2-plan/segs.round1.json`) -> prompts in
+`round2/motion/` (kept here in `ai-motion-prompts/`) -> `gen_motion08.py` (13 takes, four at a time) -> `lipsync08.py` + `lipstrip08.py` ->
+`opener_ot.py` -> `plan.py` (motion in, C22 out) -> `resolve.py` -> `from_plan.py --render` -> `round2.py first`, `first O6`, `context` ->
+`render_r2.py` -> `finish_chain_r2.sh` (`finish08.py`) -> `ra-reviewer` -> edit sheet -> delivery gate -> `page_r2.py` (port 8871) -> `deliver_r2.sh`.
+
+- **Several Veo takes at once need a ledger with no shared file.** `gen_motion08.py` writes one json per take and sums them; it refuses a
+  take that would pass the cap. Thirteen takes ran four at a time in about seven minutes.
+- **A time-lapse from key frames:** one 4 s move per pair, prompted as time-lapse footage ("two hours pass in four seconds", the clock
+  only ever moves clockwise), then `opener_ot.py` DROPS frames (never blends) so 10.6 s runs in 2.9 s, and the last pair plays at normal
+  speed. The clock hands wander inside a take and a numeral can flash on the dial for a frame; at 3.6x nobody sees it. What has to be right
+  is each join: the same hour and the same coffee level on both sides. Key frames drawn at slightly different sizes read as the camera
+  breathing once in the fast part.
+- **Veo turned an analog wall clock into a digital "8:00" display for three seconds** (split screen, first take) when the prompt only said
+  the hands move. The second take described the clock ("a plain white face and two thin black hands, never a digital display, no digits")
+  and put "digital clock, digits" in the negative prompt: clean. A clock is the first thing to read in any take that has one.
+- **Lip sync on a face that lies sideways works if the model gets it upright.** `lipsync08.py` sends only a window round the head, turned
+  90 degrees and enlarged 2x, and lays the result back through a feathered mask (nothing outside the window changes: 0.2 levels). Tested
+  on 2.5 s first ($0.21). Sync only the stretch where he faces the camera; Veo started the roll-over at 3.5 s though the prompt said 5.5.
+- **`lipmeasure20.py`'s number is weak on a whining, grimacing mouth:** A1 read r 0.18 against the unsynced take's -0.10, A2 0.05 against
+  -0.06, yet in both the lips close on every m and b. `lipstrip08.py` (the mouth followed with the face mesh, every second frame labelled
+  with the word being said) is the check that decides; give both to the reviewer.
+- **The AI label's default corner can cover what the clip is about.** Top right sat on the wall clock in the opener and the donut clip, and
+  top left sat on a man's forehead in the split screen. `chip_xy` / `chip_anchor` on a plan item (`build.py`). Look at the chip on a frame
+  of every new AI clip.
+- **A lower third planned over a placeholder can hide the gag once the clip moves.** G20 lay over the donut box for A5's first 2.6 s, the
+  exact stretch where the box empties. Its text now lands on the sentence before ("And there's a reason for that") and it is off as the
+  clip starts. After motion arrives, list every lower third that overlaps an AI clip and look.
+- **A take that is longer than its slot can lose its slow start, not its payoff:** A6 starts 1.6 s in (the walk to the fridge is out), A7
+  0.6 s in. Print the frame-to-frame change over the part used: no take here hangs on its end frame.
+- **The gate's `compliance:negative_events` row wants a recorded scan** (`negative_events_scan.json` beside the master, sha256 and
+  findings); the watch pass's contact sheets stacked three to a page are that scan in four looks.
+- **Subtitles:** four take openers ("The", "In", "Now that's", "The") come from the finished-film diff (`round2/srt_words.json`), one doubled
+  word is dropped (`srt_drop.json`, new in `finish08.py`), drug names are spelled in `srt_fixes.json`, and a sentence that starts inside
+  a cue now gets its capital.
+- **What two independent reviews found on this round (the build's own checks found none of it):** the lip-sync paste left the last
+  synced face on the floor for 3.4 s after the man rolled away (`alphamerge` repeats its last frame: the mask is now trimmed to the
+  synced frames, and a composite is checked at its END, not at two early frames); the AI label sat on a background bartender's face;
+  a Veo take's last frame was 9.7 levels from the key frame the next take starts on, so a cut between them at normal speed jumped
+  (search the take's tail for the closest frame and end there: frame 88 of 96 here, 2.2 levels); "9 a .m." and "o 'clock" in the SRT.
+  The first render did not ship; the second did. `carry_r2.py` kept 474 of 494 image verdicts (a defect verdict is never carried).
+- **The no-sync fallback take does not reach the approved end frame** (it is made from the START frame only). Say so on the page and
+  ask Dan to watch that clip; a mouth that pants a little with the eyes shut does not read as speech.
+- **Chapter stamps are whole seconds:** anchor each on the sentence's true first word ("The", "Now,"), then `floor(t + 0.25)`. An
+  anchor on the second word stamps the chapter after the first word has been said.
+- Round 2 delivered 2026-10-13: page 8871, audio gate 12 of 13, delivery gate 32 pass and 7 known fails, $10.57 of the $15 cap.
+  Next: `Handoffs/handoff-20261013-ro08-round3-after-dan-review.md`.

@@ -3,10 +3,14 @@ salad is brightened to sit with the presenter look; broll/*_bright.mp4, curves i
 (phrase -> output time via words_out.json). HyperFrames templates (from_plan.py): lt = the Motivation lower third.
 clip = full-frame cutaway, hard cuts. Order of preference kept: Dan's own footage (library B#### cuts, three clean shots cut
 from the approved salad film's graded base), library clips already made (A0158 the boxing glove gag), new stock (Pexels,
-stock/px_<id>_*.mp4), then new AI (eight ideas, frames first, pending=True). No side-list cards: the roll is a centred waist-up
+stock/px_<id>_*.mp4), then new AI (eight clips and the opener, motion made in round 2 from the frames Dan approved). No side-list cards: the roll is a centred waist-up
 medium at 1080p (the RO-07 set), so lists land as lower thirds whose parts come up on the words. No stock source twice.
 Title capitalisation everywhere; no FULL CAPS word in any point (Dan, 2026-10-09)."""
-W = "/Volumes/Extreme/_edit_work/ro08"; ST = W + "/stock"; BR = W + "/broll"; AI = W + "/aiframes"
+import os
+W = "/Volumes/Extreme/_edit_work/ro08"; ST = W + "/stock"; BR = W + "/broll"; AI = W + "/aiframes"; MO = W + "/round2/motion"
+# round 2: two openers for Dan to choose from, both from his approved frames. The plan carries the time-lapse (his own idea); RO08_OPENER=O6 builds the split screen in the same slot.
+OPENER = {"OT": f"{MO}/OT-final.mp4@0.0", "O6": f"{MO}/O6-t2.mp4@0.0"}[os.environ.get("RO08_OPENER", "OT")]
+OPENER_CHIP = {"OT": (54, 54), "O6": (54, 1000)}[os.environ.get("RO08_OPENER", "OT")]     # the label stays off the wall clocks and off the left man's head
 RO6 = "/Volumes/Extreme/_edit_work/ro06"
 DAN = dict(people="dan", physique=False)          # real MOVING footage of Dan: no photo label applies
 OTH = dict(people="other", physique=False)
@@ -14,8 +18,8 @@ def px(name, t): return f"{ST}/{name}.mp4@{t}"
 def ai(i): return [f"{AI}/{i}-start.png", f"{AI}/{i}-end.png"]
 PLAN = [
  # ---------------- hook (first 5 seconds: Dan's own footage, his voice underneath, then Dan on camera)
- dict(id="OT", kind="clip", start="Today, I want to show you why", end="six pack abs", tail=0.1, frames=[f"{AI}/OT-1.png", f"{AI}/OT-5.png"], pending=True, label="AI-GENERATED", **OTH,
-      note="AI OPENER, Dan's own idea (2026-10-12), key frames approved ('The workday fast looks good'): a lean, ripped man in a short-sleeve collared shirt at his laptop, clock on the wall, coffee pot beside him. A time-lapse from 8 AM to 2 PM in about 3 s (he types, pours coffee, the pot empties, his chair is empty at noon, the light moves), then at 2 PM the salad is in front of him, the time-lapse stops and he eats at normal speed. Five key frames: aiframes/OT-1 (8:00), OT-2 (10:00), OT-3-r2 (12:00, chair empty), OT-4 (2:00, salad), OT-5 (2:00, eating). Round 1's workout B-roll opener is out (Dan: 'eliminate this B-roll of me working out'). The other opener, idea 6 (split screen, aiframes/O6-start-r3 / O6-end-r3), waits on his approval of its redrawn frames"),
+ dict(id="OT", kind="clip", start="Today, I want to show you why", end="six pack abs", tail=0.1, src=[OPENER], label="AI-GENERATED", chip_xy=OPENER_CHIP, chip_anchor="lt", **OTH,
+      note="AI OPENER, round 2 motion from Dan's approved frames. OT (his own idea, 'The workday fast looks good'): a lean man in a polo shirt at his laptop, the wall clock runs from 8 AM to 2 PM in 2.9 s (four Veo moves between the five key frames, frames dropped, never blended), then the salad is in front of him and he eats at normal speed. O6 (idea 6, 'starting frames are looking good'): split screen, the overweight man shovels pancakes and bolts for work, the lean man in a tank top drinks black coffee and leaves relaxed (second take: the first turned a wall clock into a digital display)"),
  dict(id="G01", kind="lt", start="I've been doing intermittent fasting", end="and I feel better", topic="10 YEARS OF INTERMITTENT FASTING",
       point="Easier To Get Lean. Easier To Keep Abs. More Productive.", parts=[["Easier To Get Lean.", "easier to get lean"], ["Easier To Keep Abs.", "easier to maintain abs"], ["More Productive.", "more productive"]]),
  dict(id="G02", kind="lt", start="In today's video", end="and six pack abs", topic="IN THIS VIDEO",
@@ -35,8 +39,8 @@ PLAN = [
       point="No Breakfast. First Meal At 2 PM. 5 Hours Fasted.", parts=[["No Breakfast.", "skipping breakfast"], ["First Meal At 2 PM.", "until about 2"], ["5 Hours Fasted.", "five hour fasting window"]]),
  dict(id="C05", kind="clip", start="I typically wake up around 9", end="I don't eat breakfast", tail=0.2, src=["B0486@1.0"], people="none", physique=False,
       note="library stock: black coffee poured into a dark mug (his morning: no breakfast, black coffee)"),
- dict(id="A4", kind="clip", start="Some people even go entire days", end="on the other", tail=0.6, frames=ai("A4"), pending=True, label="AI-GENERATED", **OTH,
-      note="NEW AI CLIP (frames for approval), funny: an office worker who has not eaten all day stares at a coworker's sandwich; by the end he has a napkin tucked in his collar and a knife and fork in his fists, like a cartoon wolf"),
+ dict(id="A4", kind="clip", start="Some people even go entire days", end="on the other", tail=0.6, src=[f"{MO}/A4-t1.mp4@0.0"], label="AI-GENERATED", **OTH,
+      note="AI CLIP, round 2 motion from the approved frames (one 6 s Veo take, used whole), funny: an office worker who has not eaten all day stares at a coworker's sandwich; by the end he has a napkin tucked in his collar and a knife and fork in his fists, like a cartoon wolf"),
  dict(id="G08", kind="lt", start="what's gotten me the best result", end="every single day", tail=0.6, topic="WHAT WORKS BEST",
       point="A Short Fast, Every Single Day.", parts=[["A Short Fast, Every Single Day.", "simple, short daily fast"]]),
  dict(id="G09", kind="lt", start="All I do, skip breakfast", end="kept me lean", topic="ALL I DO",
@@ -75,8 +79,8 @@ PLAN = [
       point="When You Fast, Your Cells Run Out Of Fuel.", parts=[["When You Fast, Your Cells Run Out Of Fuel.", "Autophagy is essentially"]]),
  dict(id="G17", kind="lt", start="they break down the most diseased", end="of your cells for fuel", topic="AUTOPHAGY",
       point="So They Break Down Their Old, Damaged Parts.", parts=[["So They Break Down Their Old, Damaged Parts.", "they break down"]]),
- dict(id="A8", kind="clip", start="This process of breaking down", end="makes you younger", tail=0.3, frames=ai("A8"), pending=True, label="AI-GENERATED", people="none", physique=False,
-      note="NEW AI CLIP (frames for approval), a cartoon for an idea with no real picture: inside a cell, a tiny clean-up crew in hard hats wheels the broken old parts into a furnace and the cell glows brighter"),
+ dict(id="A8", kind="clip", start="This process of breaking down", end="makes you younger", tail=0.3, src=[f"{MO}/A8-t1.mp4@0.0"], label="AI-GENERATED", people="none", physique=False,
+      note="AI CLIP, round 2 motion from the approved frames (one 8 s Veo take, its first 7.4 s), a cartoon for an idea with no real picture: inside a cell, a tiny clean-up crew in hard hats wheels the broken old parts into a furnace and the cell glows brighter"),
  # ---------------- why 3: time
  dict(id="G18", kind="lt", start="Here's the third reason", end="need it the most", topic="REASON 3",
       point="It Saves You Time Every Morning.", parts=[["It Saves You Time Every Morning.", "Intermittent fasting is convenient"]]),
@@ -91,16 +95,15 @@ PLAN = [
       point="You Get More Done.", parts=[["You Get More Done.", "improves your productivity"]]),
  dict(id="C18", kind="clip", start="the donuts and muffins", end="destroying my productivity", tail=0.1, src=[px("px_7034537_donuts", 0.5)], people="none", physique=False,
       note="new stock, Pexels 7034537: a close slide across frosted donuts"),
- dict(id="G20", kind="lt", start="And there's a reason for that", end="to digest", tail=0.3, topic="WHY BREAKFAST SLOWS YOU DOWN",
-      point="Digesting A Heavy Meal Takes Energy.", parts=[["Digesting A Heavy Meal Takes Energy.", "heavy breakfast"]]),
- dict(id="A5", kind="clip", start="your body has to consume energy to digest", end="type of feeling", tail=0.4, frames=ai("A5"), pending=True, label="AI-GENERATED", **OTH,
-      note="NEW AI CLIP (frames for approval), funny: 9 o'clock, a cheerful office worker bites into a donut beside a full bakery box; by 10 the box is empty and he is asleep face down on his keyboard"),
+ dict(id="G20", kind="lt", start="And there's a reason for that", end="heavy breakfast", tail=1.1, topic="WHY BREAKFAST SLOWS YOU DOWN",
+      point="Digesting A Heavy Meal Takes Energy.", parts=[["Digesting A Heavy Meal Takes Energy.", "there's a reason"]]),   # round 2: on from "And there's a reason" and off as the donut gag (A5) starts; it used to sit over the donut box for the clip's first 2.6 s
+ dict(id="A5", kind="clip", start="your body has to consume energy to digest", end="type of feeling", tail=0.4, src=[f"{MO}/A5-t1.mp4@0.0"], label="AI-GENERATED", chip_xy=(54, 54), chip_anchor="lt", **OTH,
+      note="AI CLIP, round 2 motion from the approved frames (one 6 s Veo take: a bite at normal speed, a fast-forward while the box empties and the clock runs to ten, then he sinks onto the keyboard), funny: 9 o'clock, a cheerful office worker bites into a donut beside a full bakery box; by 10 the box is empty and he is asleep face down on his keyboard"),
  dict(id="G21", kind="lt", start="the real problem with eating during your workday", end="is the carbs", tail=1.0, topic="KEY POINT",
       point="It's The Carbs That Make You Tired.", parts=[["It's The Carbs That Make You Tired.", "real problem"]]),
  dict(id="C21", kind="clip", start="Nobody is grinding out", end="12 hour days", tail=0.1, src=[px("px_35331910_laptop-home-office", 0.5)], **OTH,
       note="new stock, Pexels 35331910: a man works at his laptop in a home office"),
- dict(id="C22", kind="clip", start="You just can't do it", end="make you tired", tail=0.15, src=[px("px_6615062_asleep-at-desk", 2.0)], **OTH,
-      note="new stock, Pexels 6615062: a man asleep on his office desk. Used only if A5 (the donut gag) is turned down; if A5 is approved this slot goes back to Dan on camera so the film does not show two men asleep at desks",),
+ # C22 (stock: a man asleep on his desk) is out: A5, the donut gag, is in, so the film does not show two men asleep at desks (round 2)
  dict(id="G22", kind="lt", start="What people are doing who are the most productive", end="when they're working", topic="WHAT PRODUCTIVE PEOPLE DO",
       point="Skip Breakfast. Eat A Low Carb Lunch.", parts=[["Skip Breakfast.", "skipping breakfast"], ["Eat A Low Carb Lunch.", "low carb lunch"]]),
  # ---------------- why 5: your body adapts
@@ -108,16 +111,16 @@ PLAN = [
       point="Your Body Adapts To Fasting.", parts=[["Your Body Adapts To Fasting.", "most important reason"]]),
  dict(id="C23", kind="clip", start="They skip breakfast", end="used to eating breakfast", tail=0.1, src=[px("px_7015397_pancakes", 1.0)], people="none", physique=False,
       note="new stock, Pexels 7015397: a stack of pancakes with fruit (the breakfast they are used to)"),
- dict(id="A3", kind="clip", start="They've done this for the past 40 years", end="really lets them know", tail=0.5, frames=ai("A3"), pending=True, label="AI-GENERATED", **OTH,
-      note="NEW AI CLIP (frames for approval), funny: a quiet office meeting; his empty stomach rumbles so loudly that the water in the glasses ripples and everyone turns to stare. Framed chest up, the stomach is never shown"),
- dict(id="A1", kind="clip", start="oh, this is just too hard", end="I'm not cut out for it", tail=0.25, frames=ai("A1"), pending=True, label="AI-GENERATED", **OTH,
-      note="NEW AI CLIP (frames for approval), the excuse voice, lip-synced to Dan's own recording: 7 AM, a man whines at his empty breakfast plate, then slumps back in his chair and groans"),
+ dict(id="A3", kind="clip", start="They've done this for the past 40 years", end="really lets them know", tail=0.5, src=[f"{MO}/A3-t1.mp4@0.0"], label="AI-GENERATED", **OTH,
+      note="AI CLIP, round 2 motion from the approved frames (one 6 s Veo take: the water jumps in the glasses on 'all of a sudden', everyone stares on 'really lets them know'), funny: a quiet office meeting; his empty stomach rumbles so loudly that the water in the glasses ripples and everyone turns to stare. Framed chest up, the stomach is never shown"),
+ dict(id="A1", kind="clip", start="oh, this is just too hard", end="I'm not cut out for it", tail=0.25, src=[f"{MO}/A1-sync1.mp4@0.0"], label="AI-GENERATED", **OTH,
+      note="AI CLIP, round 2 motion from the approved frames (one 6 s Veo take, lips synced to Dan's own recording through a window round the face; the rest of the picture is the untouched take), the excuse voice, lip-synced to Dan's own recording: 7 AM, a man whines at his empty breakfast plate, then slumps back in his chair and groans"),
  dict(id="G24", kind="lt", start="your digestive system adapts", end="to workouts", tail=0.6, topic="KEY POINT",
       point="Your Digestive System Adapts, Like Your Muscles Do.", parts=[["Your Digestive System Adapts,", "digestive system adapts"], ["Like Your Muscles Do.", "muscular system"]]),
  dict(id="C24", kind="clip", start="you do a super intense hour long workout", end="really sore", tail=0.1, src=[px("px_16125447_tired-after-workout", 3.0)], **OTH,
       note="new stock, Pexels 16125447: a man sits spent on the gym floor after a workout"),
- dict(id="A2", kind="clip", start="oh, I could never do this", end="might as well just quit", tail=0.25, frames=ai("A2"), pending=True, label="AI-GENERATED", **OTH,
-      note="NEW AI CLIP (frames for approval), the excuse voice again, lip-synced to Dan's own recording: a beginner flat on his back on the gym floor beside one tiny pink dumbbell whines at the camera, then drags himself toward the exit"),
+ dict(id="A2", kind="clip", start="oh, I could never do this", end="might as well just quit", tail=0.25, src=[f"{MO}/A2-t2.mp4@0.4"], label="AI-GENERATED", **OTH,
+      note="AI CLIP, round 2, NO lip sync (Dan's rule, 2026-10-12: a sync that fails its check once goes in without). The first take was synced for the 3.4 s he faces the camera; the independent review failed it (the mouth held one grimace) and found the synced window left pasted on the floor after he rolled away. This is a second take from the approved START frame only: flat on his back beside the tiny pink dumbbell, eyes shut, panting, his head lolling while Dan's voice does the line; then he heaves himself over and crawls off on 'I might as well just quit'. Used from 0.4 s in"),
  dict(id="C38", kind="clip", start="your body adapts to workouts", end="when you first start", tail=0.1, src=["B0030@0.5"], **DAN,
       note="Dan's own footage: one full ab wheel rollout by the pool in bright daylight (library B0030, colour corrected). Round 1 note (Dan: 'make sure we're using the color-corrected footage'): B0427, the low-sun cut first used here, read 0.30 on his skin against 0.51 on camera; this cut reads 0.46"),
  dict(id="G26", kind="lt", start="if you stick to it for two or three weeks", end="fasting window", topic="STICK WITH IT",
@@ -164,8 +167,8 @@ PLAN = [
  # ---------------- mistakes
  dict(id="G41", kind="lt", start="the first one is binge eating late at night", end="out of control", topic="MISTAKE 1",
       point="Binge Eating Late At Night.", parts=[["Binge Eating Late At Night.", "binge eating"]]),
- dict(id="A6", kind="clip", start="If you do binge on junk food", end="not going to work for you", tail=0.3, frames=ai("A6"), pending=True, label="AI-GENERATED", **OTH,
-      note="NEW AI CLIP (frames for approval), funny: he tiptoes through a dark kitchen at night; the fridge light catches him frozen like a raccoon, arms full of ice cream, pizza and cake, a spoon in his mouth"),
+ dict(id="A6", kind="clip", start="If you do binge on junk food", end="not going to work for you", tail=0.3, src=[f"{MO}/A6-t1.mp4@1.6"], label="AI-GENERATED", **OTH,
+      note="AI CLIP, round 2 motion from the approved frames (one 8 s Veo take, from 1.6 s in: the fridge opens, his arms fill, he turns and freezes, then tiptoes off), funny: he tiptoes through a dark kitchen at night; the fridge light catches him frozen like a raccoon, arms full of ice cream, pizza and cake, a spoon in his mouth"),
  dict(id="G42", kind="lt", start="You still have to eat reasonable portions", end="healthy food", tail=1.0, topic="KEY POINT",
       point="Reasonable Portions Of Reasonably Healthy Food.", parts=[["Reasonable Portions Of Reasonably Healthy Food.", "reasonable portions"]]),
  dict(id="G43", kind="lt", start="you do have some flexibility", end="eating reasonable", topic="THE GOOD NEWS",
@@ -184,8 +187,8 @@ PLAN = [
       point="Never Break Your Fast With Alcohol.", parts=[["Never Break Your Fast With Alcohol.", "Do not break your fast"]]),
  dict(id="C34", kind="clip", start="Don't drink alcohol with your first meal", end="anything at all", tail=0.1, src=[px("px_5847854_beer-mug", 1.0)], **OTH,
       note="new stock, Pexels 5847854: a man drinks a mug of beer in a bar"),
- dict(id="A7", kind="clip", start="It's going to hit you faster", end="a lot worse", tail=0.3, frames=ai("A7"), pending=True, label="AI-GENERATED", **OTH,
-      note="NEW AI CLIP (frames for approval), funny: lunchtime at a bar, no food yet; one sip of beer on an empty stomach and he slides off his stool, hugging the counter while the bartender stares"),
+ dict(id="A7", kind="clip", start="It's going to hit you faster", end="a lot worse", tail=0.3, src=[f"{MO}/A7-t1.mp4@0.6"], label="AI-GENERATED", chip_xy=(54, 54), chip_anchor="lt", **OTH,
+      note="AI CLIP, round 2 motion from the approved frames (one 6 s Veo take, from 0.6 s in: the end of the first sip, the sway, the slide off the stool), funny: lunchtime at a bar, no food yet; one sip of beer on an empty stomach and he slides off his stool, hugging the counter while the bartender stares"),
  dict(id="G47", kind="lt", start="no alcohol until 30 minutes", end="broken your fast", tail=1.2, topic="THE RULE",
       point="No Alcohol Until 30 Minutes After You Eat.", parts=[["No Alcohol Until 30 Minutes After You Eat.", "no alcohol"]]),
  # ---------------- outro

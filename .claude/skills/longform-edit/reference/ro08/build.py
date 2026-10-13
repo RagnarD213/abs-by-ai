@@ -16,9 +16,9 @@ def fr(t): return int(round(t*FPS))
 def run(c): subprocess.run(c, check=True)
 def hf_item(it): return it["kind"] in ("lt", "l3") or (it["kind"] == "scene" and it.get("scene") == "fact")
 FULL = ("scene", "clip")
-# round 3: every shot is held at the size and crop of the round 2 solve Dan reviewed (round3-plan/segs.round2.json, written before A3's slot moved).
-# The solve is global: moving one clip's edges flipped two shots 10 s away and slid a run's crop 4 px. Only the named changes move.
-_PIN = f"{W}/round3-plan/segs.round2.json"
+# round 2: every shot is held at the size and crop of the round 1 solve Dan reviewed (round2-plan/segs.round1.json, written before the opener and
+# any AI slot moved). The solve is global: moving one clip's edges can flip shots 10 s away and slide a run's crop. Only the named changes move.
+_PIN = f"{W}/round2-plan/segs.round1.json"
 _R2 = {s["key"]: dict(crop=s["crop"], framing=s["framing"]) for s in json.load(open(_PIN))} if os.path.exists(_PIN) else {}
 OVERRIDE = {k: v["framing"] for k, v in _R2.items()}
 PINCROP = {}
@@ -240,7 +240,7 @@ def render_picture(a, b, out, f0, f1, segs, HCOMP):
         for it in items:
             if it["kind"] == "clip" and fr(it["t0"]) <= g < fr(it["t1"]):
                 im = next(readers[it["id"]])
-                if it.get("label") and not it.get("label_in_picture"): G.ai_chip(im)     # P01 / P02 carry their label inside the clip (phone_demo.py)
+                if it.get("label") and not it.get("label_in_picture"): G.ai_chip(im, *([tuple(it["chip_xy"]), it.get("chip_anchor", "rt")] if it.get("chip_xy") else []))     # P01 carries its label inside the clip; chip_xy moves the chip off something the clip is about (a wall clock)
         if HCOMP.active(g): im = Image.fromarray(HCOMP.apply(np.asarray(im), g))
         enc.stdin.write(im.tobytes())
     enc.stdin.close(); enc.wait(); dec.wait()
