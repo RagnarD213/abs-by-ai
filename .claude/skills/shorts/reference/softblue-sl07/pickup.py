@@ -52,8 +52,19 @@ def cmd_fit(raw, spans):
     y = C.pcm(PK + "/fit_in.wav", af=af); b = C.analyse(y)[0]; err = b - np.array(ref["bands"])
     json.dump(dict(eq=af, gains=gains, tone_err_mean=float(np.abs(err).mean()), tone_err_max=float(np.abs(err).max()), edt_ms_yeti=C.edt(x), edt_ms_film=ref["edt_ms"]), open(PK + "/fit.json", "w"), indent=1)
     print("fitted:", af, "| tone error mean %.2f max %.2f dB | room: Yeti %.0f ms, film %.0f ms" % (np.abs(err).mean(), np.abs(err).max(), C.edt(x), ref["edt_ms"]))
+def cmd_fit1(X, raw, t0, t1):
+    """fit the tone EQ on ONE take (tiled 4x so the analysis has enough speech frames) toward the film's voice. The six-take
+    fit left each take 3 to 6 dB off in single bands (his distance to the Yeti changes take to take) and a blind listener
+    called both pickups boomy (listen/trials.json, 2026-10-13)."""
+    x = np.tile(rd(raw, t0 - 0.02, t1 + 0.05).mean(1), 4); wr(PK + f"/fit_in_{X}.wav", x)
+    ref = film_ref(); os.makedirs(PK + f"/fit_{X}", exist_ok=True)
+    af, gains, _ = VC.fit_eq(PK + f"/fit_in_{X}.wav", ref, PK + f"/fit_{X}", iters=14)
+    y = C.pcm(PK + f"/fit_in_{X}.wav", af=af); err = C.analyse(y)[0] - np.array(ref["bands"])
+    json.dump(dict(eq=af, gains=gains, tone_err_mean=float(np.abs(err).mean()), tone_err_max=float(np.abs(err).max()), err=[float(v) for v in err],
+                   edt_ms_yeti=json.load(open(PK + "/fit.json"))["edt_ms_yeti"], edt_ms_film=ref["edt_ms"]), open(PK + f"/fit_{X}.json", "w"), indent=1)
+    print(X, "fitted:", af, "| tone error mean %.2f max %.2f dB |" % (np.abs(err).mean(), np.abs(err).max()), " ".join("%+.1f" % v for v in err))
 def cmd_make(X, raw, t0, t1, lead=0.10, tail=0.16):
-    ref = film_ref(); fit = json.load(open(PK + "/fit.json")); a = P.SEG[X][0][0]
+    ref = film_ref(); fit = json.load(open(PK + (f"/fit_{X}.json" if os.path.exists(PK + f"/fit_{X}.json") else "/fit.json"))); a = P.SEG[X][0][0]
     wr(PK + f"/{X}_cut.wav", rd(raw, t0 - lead, t1 + tail).mean(1))
     v = C.pcm(PK + f"/{X}_cut.wav", af=fit["eq"])
     film = rd(WORK + "/master_audio.wav", a, a + 4.0).mean(1)
@@ -76,3 +87,4 @@ if __name__ == "__main__":
     elif c == "ref": print(json.dumps(film_ref(), indent=1))
     elif c == "fit": cmd_fit(sys.argv[2], json.loads(sys.argv[3]))
     elif c == "make": cmd_make(sys.argv[2], sys.argv[3], float(sys.argv[4]), float(sys.argv[5]))
+    elif c == "fit1": cmd_fit1(sys.argv[2], sys.argv[3], float(sys.argv[4]), float(sys.argv[5]))

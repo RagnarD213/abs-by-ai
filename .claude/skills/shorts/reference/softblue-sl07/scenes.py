@@ -49,7 +49,7 @@ def chart(tt, c, t):
     for wk in range(4):
         xx = X(wk * 7); d.line((xx, py1, xx, py1 + 14), fill=(80, 120, 160), width=3)
         S.text(im, (xx + 10, py1 + 22), f"WEEK {wk + 1}", 26, SOFT, bold=False)
-    shown = int(min(n, max(0, (tt - .4) * 9)))
+    shown = int(min(n, max(0, (tt - .3) * (n / c.get('dots', 3.1)))))            # the 28 dots arrive over c['dots'] seconds
     for i in range(shown):
         r = 11; d.ellipse((X(i) - r, Y(daily[i]) - r, X(i) + r, Y(daily[i]) + r), fill=DOT)
     k = int(min(n, max(0, (tt - a_at) * 12)))

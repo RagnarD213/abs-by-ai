@@ -202,7 +202,8 @@ def cmd_cues(S):
     # reader, pair it with the first occurrence. Move the boundary one word earlier.
     nz = lambda x: re.sub(r"[^a-z0-9]", "", x.lower())
     for k in range(1, len(out)):
-        if out[k][0]["p"] == out[k - 1][-1]["p"] and len(out[k - 1]) > 2 and nz(out[k][0]["w"]) in [nz(x["w"]) for x in out[k - 1]]:
+        if out[k][0]["p"] == out[k - 1][-1]["p"] and len(out[k - 1]) > 2 and nz(out[k][0]["w"]) in [nz(x["w"]) for x in out[k - 1]] \
+           and not re.search(r"[.!?]$", out[k - 1][-1]["w"]):      # never carry a sentence's last word into the next sentence's cue (SL-07 A: "happens. So if I was")
             out[k].insert(0, out[k - 1].pop())
     res = []
     for i, c in enumerate(out):
@@ -238,6 +239,8 @@ def cmd_plan(S, quiet=False):
         if cv:
             c = cv[2]; key = ("scene" if c.get("scene") else "clip", c["id"], 0); roll = c["id"]
             raw = c.get("t", 0.0) + (o - cv[0]) * c.get("speed", 1)      # clip time (or scene-local time)
+            for a_, b_ in c.get("skip", []):                                # leave a stretch of the clip out (a screen recording's own messy transition): the picture jumps inside the clip
+                if raw >= a_: raw += b_ - a_
             if c.get("phone"):
                 a_ = next(a for a in A if a["at"] - 1e-6 <= f < a["end"]); camt = a_["in"] + (f - a_["at"]); key = ("phone", c["id"], round((camt - f) * 10))
         else:
@@ -370,7 +373,9 @@ def window_path(sh, track, cw):
         inside = [r for r in rows if raw[0] - 0.2 <= r["t"] <= raw[-1] + 0.2] or rows
         lo = min(r["fx"] - r["fw"] / 2 for r in inside); hi = max(r["fx"] + r["fw"] / 2 for r in inside)
         if hi - lo <= cw - 20 and not sh.get("follow"):      # his whole face fits one window: a steady crop (Dan: steady per shot)
-            return np.clip(np.full(n, (lo + hi) / 2), cw / 2, 1920 - cw / 2)
+            med = float(np.median([r["fx"] for r in inside])); m_ = 45                    # centre on his median position, as long as his whole face (+45 px) stays inside
+            c0 = min(max(med, hi + m_ - cw / 2), lo - m_ + cw / 2) if hi - lo + 2 * m_ <= cw else (lo + hi) / 2
+            return np.clip(np.full(n, c0), cw / 2, 1920 - cw / 2)
         if sh.get("lead") is not None:                # a close-up that must keep his whole face: centre on where he will be
             hr = [r for r in rows if "hx0" in r and r["hx1"] - r["hx0"] < cw + 200 and r["hx0"] < r["fx"] < r["hx1"]]
             if sh.get("head") and len(hr) >= 2:           # an extreme close-up: centre his HEAD (ears in), not his face box (reviewer, S4 0:08.8 / S5 0:03.2)
@@ -574,10 +579,10 @@ def cap_png(lines, top, size=86):
 def over_box(frame, rgba, box):
     x0, y0, x1, y1 = box; a = rgba[y0:y1, x0:x1, 3:4].astype(np.float32) / 255
     frame[y0:y1, x0:x1] = (frame[y0:y1, x0:x1].astype(np.float32) * (1 - a) + rgba[y0:y1, x0:x1, :3].astype(np.float32) * a + 0.5).astype(np.uint8)
-def chip_png(text, xy, size=30):
+def chip_png(text, xy, size=23, u=2):
     """the AI-GENERATED chip (softblue.disclosure: the same solid rounded chip the film uses), as an RGBA layer + its box."""
     base = Image.new("RGB", (W, H), (0, 0, 0)); a = Image.new("RGB", (W, H), (255, 255, 255))
-    B.disclosure(base, text, xy, 2, anchor="lt", size=size); B.disclosure(a, text, xy, 2, anchor="lt", size=size)
+    B.disclosure(base, text, xy, u, anchor="lt", size=size); B.disclosure(a, text, xy, u, anchor="lt", size=size)
     x = np.asarray(base).astype(np.int16); y = np.asarray(a).astype(np.int16)
     al = 255 - (y - x).max(2).clip(0, 255); rgba = np.dstack([np.where(al[..., None] > 0, (x * 255 // np.maximum(al[..., None], 1)).clip(0, 255), 0), al]).astype(np.uint8)
     ys, xs = np.where(al > 0); return rgba, (int(xs.min()), int(ys.min()), int(xs.max()) + 1, int(ys.max()) + 1)
@@ -610,8 +615,15 @@ class Short:
         for i, c in enumerate(self.cues):
             sh = self.shot_at(min(fr(c["a"]), self.N - 1)); top = sh.get("cap", 1412)
             im = cap_png(c["lines"], top); p = f"{d}/cap/cue{i:03d}.png"; im.save(p); bb = im.getbbox()
-            self.caps.append(dict(f0=fr(c["a"]), f1=fr(c["b"]), arr=np.asarray(im), box=bb, png=p, top=top))
+            f0_, f1_ = fr(c["a"]), fr(c["b"])
+            for s2 in self.shots[1:]:                        # a cut inside the cue's last 10 frames: the cue ends on the cut (reviewers 10-13: captions trailed 2 to 4 frames past cuts)
+                if f0_ + 8 < s2["f0"] < f1_ <= s2["f0"] + 10: f1_ = s2["f0"]      # a cue lingers at most 0.30 s (9 frames) after its last word
+            self.caps.append(dict(f0=f0_, f1=f1_, arr=np.asarray(im), box=bb, png=p, top=top))
         man = f"{d}/hf/manifest.json"; self.man = json.load(open(man)) if os.path.exists(man) else []
+        self.ph = None
+        if P.PICKUP.get(S, {}).get("placeholder") and self.T.get("head"):
+            o2 = Image.new("RGB", (W, 100), (0, 0, 0)); bx_ = B.disclosure(o2, "PLACEHOLDER AUDIO: studio pickup 10/17", (W - 40, 10), 2, anchor="rt", size=17)
+            self.ph = (np.asarray(o2), int(bx_[0]), fr(self.T["head"]))
         self.chips = {}
         import scenes; self.scenes = scenes
     def shot_at(self, i): return next(sh for sh in self.shots if sh["f0"] <= i < sh["f1"])
@@ -646,8 +658,8 @@ class Short:
             if c["id"] not in self.clips: self.clips[c["id"]] = clip_seq(c)
             bx, by, bw, bh = clip_box(c); frame[by:by + bh, bx:bx + bw] = self.clips[c["id"]].get(int(np.floor(raw * FPS + 0.25)))
             if graphics and c.get("ai"):
-                x0_, y0_ = c["ai"]; reg = Image.fromarray(frame[y0_ - 10:y0_ + 90, 0:W])            # the film's own chip (softblue.disclosure), drawn on the frame
-                B.disclosure(reg, "AI-GENERATED", (x0_, 10), 2, anchor="lt", size=30); frame[y0_ - 10:y0_ + 90, 0:W] = np.asarray(reg)
+                x0_, y0_ = c["ai"][:2]; reg = Image.fromarray(frame[y0_ - 10:y0_ + 90, 0:W])            # the film's own chip (softblue.disclosure), drawn on the frame
+                B.disclosure(reg, "AI-GENERATED", (x0_, 10), c["ai"][2] if len(c["ai"]) > 2 else 2, anchor="lt"); frame[y0_ - 10:y0_ + 90, 0:W] = np.asarray(reg)      # default size: the chip's own proportions (size 30 sat on its bottom edge, reviewers 10-13)
         elif sh["kind"] == "phone":                         # the approved shorts phone demo: phone beside Dan on the field (GRAPHICS-STANDARDS)
             c = sh["cover"]
             if "shell" not in self.__dict__:
@@ -656,7 +668,22 @@ class Short:
             if c["id"] not in self.clips:                  # the app recording, its own status bar cropped off (RO-12 phone_frame), fitted inside the shell's screen
                 self.clips[c["id"]] = Seq(c["src"], f"fps={FPSS}," + c.get("vf", f"crop=660:1330:0:104,scale=-2:{SCR_WH[1]}:flags=lanczos,pad={SCR_WH[0]}:{SCR_WH[1]}:(ow-iw)/2:0:color=0xF8FAFC") + ",format=rgb24", SCR_WH, FPS)
             px, py = PHONE_XY; box = (px, py, px + 624, py + 1290); full = np.zeros((H, W, 4), np.uint8); full[py:py + 1290, px:px + 624] = self.shell; over_box(frame, full, box)
-            frame[py + 114:py + 114 + SCR_WH[1], px + 48:px + 48 + SCR_WH[0]] = self.clips[c["id"]].get(int(np.floor(sh["clip"][j] * FPS + 0.25)))
+            scr = self.clips[c["id"]].get(int(np.floor(sh["clip"][j] * FPS + 0.25)))
+            if c.get("round"):                              # a recording that carries its own rounded bezel: its corner wedges take the page's own colour, so the page is a plain rectangle like any other
+                if "smask" not in self.__dict__ or self.smask[0] != c["round"]:
+                    mm = Image.new("L", SCR_WH, 0); ImageDraw.Draw(mm).rounded_rectangle((0, 0, SCR_WH[0] - 1, SCR_WH[1] - 1), c["round"], fill=255); self.smask = (c["round"], np.asarray(mm)[..., None].astype(np.float32) / 255)
+                r_ = c["round"]; hh_, ww_ = scr.shape[:2]; out_ = scr.astype(np.float32); m_ = self.smask[1]
+                for ys_, xs_, sy_, sx_ in ((slice(0, r_), slice(0, r_), 3, r_ + 6), (slice(0, r_), slice(ww_ - r_, ww_), 3, ww_ - r_ - 7),
+                                           (slice(hh_ - r_, hh_), slice(0, r_), hh_ - 4, r_ + 6), (slice(hh_ - r_, hh_), slice(ww_ - r_, ww_), hh_ - 4, ww_ - r_ - 7)):
+                    bg_ = np.median(scr[sy_ - 2:sy_ + 3, sx_ - 3:sx_ + 4].reshape(-1, 3), 0).astype(np.float32)      # each wedge takes the colour of the page edge right beside it, frame by frame
+                    out_[ys_, xs_] = bg_ * (1 - m_[ys_, xs_]) + out_[ys_, xs_] * m_[ys_, xs_]
+                scr = (out_ + 0.5).astype(np.uint8)
+            if c.get("darkfill") and scr[4:40, 20:SCR_WH[0] - 20].mean() < 45:      # a black screen in the recording (the iPhone camera): the WHOLE phone screen goes black, not a black box inside a white one (reviewers, 10-13)
+                if "scrmask" not in self.__dict__:
+                    mm = Image.new("L", (W, H), 0); ImageDraw.Draw(mm).rounded_rectangle((px + 38, py + 36, px + 38 + 538, py + 36 + 1200), 65, fill=255); self.scrmask = np.asarray(mm) > 127
+                frame[self.scrmask] = (0, 0, 0)
+                scr = scr.copy(); k_ = (SCR_WH[0] - 488) // 2; scr[:, :k_ + 1] = 0; scr[:, SCR_WH[0] - k_ - 1:] = 0      # the white side padding of the fitted recording (488 px wide in a 518 px screen)
+            frame[py + 114:py + 114 + SCR_WH[1], px + 48:px + 48 + SCR_WH[0]] = scr
             if roll not in self.cams: self.cams[roll] = cam(roll, *self.strip)
             src = self.cams[roll].get(self.fidx(sh, raw)); cw, ch = sh["cw"], sh["ch"]
             x = int(round((sh["path"][j] - cw / 2 - self.strip[0]) * 2)); y = sh["y0"] * 2
@@ -670,6 +697,7 @@ class Short:
     def finish(self, frame, sh, i, C=None):
         if C is not None: frame = np.ascontiguousarray(C.apply(frame, i))
         wm, box = self.wm; over_box(frame, wm, box)
+        if self.ph is not None and i < self.ph[2]: frame[330:420, self.ph[1] - 4:W - 36] = self.ph[0][6:96, self.ph[1] - 4:W - 36]      # only while the placeholder pickup plays
         for c in self.caps:
             if c["f0"] <= i < c["f1"]: over_box(frame, c["arr"], c["box"])
         return frame
