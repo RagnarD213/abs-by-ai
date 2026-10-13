@@ -118,6 +118,67 @@ run): render all colour and framing candidates' strips in ONE decode. The Mac wa
 
 Audio gate on `mix.wav`: PASS. Nothing else has run; there is no finished file.
 
-## Starter prompt (Claude Opus 5.5, high effort)
+## ROUND 2 BUILT 2026-10-13: waiting for Dan's six picks (page http://127.0.0.1:8815/)
+
+Everything above this line is the brief round 2 was built from. State now:
+
+- **Page:** `/Volumes/Extreme/_edit_work/ra14/round2/index.html` (generator `s74_page.py`, text in `round2/notes_r2.json`). Six
+  decisions: opener idea, framing pair, colour, and the three round 1 questions asked again. None is answered.
+- **Opener frames (Codex subscription, 6 images, $0):** clean frames for a motion model in `round2/frames/O1..O3-start/end.png`;
+  as-played stills (our slider, counter, AI-GENERATED chip, caption) in `round2/stills/`. Prompts: `round2/opener/prompts/`.
+  All lettering is drawn in code (`s71_opener_frames.py`). Recommended: O1 Character creator. **No motion is authorized.**
+- **Framing:** pairs F1 540x960 / 666x1184, F2 576x1024 / 720x1280 (recommended, written to `framing_choice.json` so the
+  sample could be built; NOT his pick yet), F3 612x1088 / 756x1344. `ra01lib.Aspect` reads `framing_choice.json`.
+- **Colour:** three baked 65-point LUTs in `round2/colour/luts/` (`bake.py`, numbers in `looks.json`): C1 RA-01 level, C2
+  brighter with golden skin (recommended), C3 brighter with a cooler background. `grade.json` is still round 1's; write the
+  pick into it. The head track was measured on round 1's grade and does not need re-measuring for a new grade.
+- **Opening re-planned (`s60_plan.py`, `beats.json`; round 1's are `round1/beats_r1.json`, `round1/s60_plan_r1.py`):** G1 is
+  out. O0 is the pending opener slot 0 to 3.64 s. The 4.44 s pause splice is a visible jump once G1 is gone, so the holds
+  are close "It's AI." / wide "I'm not talking about an AI picture." / close "real abs in real life" / wide "Here's how it
+  works." / close from the R1|R2 seam (10.58 s) with L1. This differs from section D above on purpose. After the P1 card the
+  levels are round 1's. `beats_camopen.json` is the same plan with the camera scene as the opening (`OPENER=0`).
+- **Head track:** `framing_holdstart.json` adds a measurement on the first and last frame of every hold (`s04b_holdstart.py`);
+  landing error is now 0 px. `framing.json` (locked) is untouched.
+- **Samples (10.58 s, under 45 s, so not copied to `Videos to Review/`):** four files in `round2/`, built by `s72_sample.py`
+  with an input seek instead of a decode from frame 0.
+- **Not done, still carried:** measure the other inside-hold splices (11.38, 19.72, 31.13, 41.38, 42.64 s); L1 on the close
+  shot needs its still re-checked for face clearance; captions above the recap card; the phone demo renderer; music tail;
+  16:9. Captions (`cap_9x16`) were not rebuilt: the opening's word timing did not change.
+- **Spend:** $0 of $10.
+
+### Round 2 files (sha256, first 16; none is approved yet)
+
+| file (under `/Volumes/Extreme/_edit_work/ra14/`) | hash |
+|---|---|
+| `round2/frames/O1-end.png` | 30cf35f7ea6426a4 |
+| `round2/frames/O1-start.png` | 10d42e5204184026 |
+| `round2/frames/O2-end.png` | da3f482f899b023c |
+| `round2/frames/O2-start.png` | 44323801cacdf80d |
+| `round2/frames/O3-end.png` | d79b372b206cacc3 |
+| `round2/frames/O3-start.png` | 81c3cffaa87ff159 |
+| `round2/colour/luts/ra14_C1_approved_level.cube` | 29c01696a71e84b8 |
+| `round2/colour/luts/ra14_C2_brighter_gold.cube` | 4e222c22be62cdfd |
+| `round2/colour/luts/ra14_C3_brighter_cool.cube` | c03902f7a2da83f5 |
+| `round2/RA-14 round 2 - opening - RA-01 level colour - opener placeholder.mp4` | 6172af0faa1a704a |
+| `round2/RA-14 round 2 - opening - brighter gold colour - camera opening.mp4` | f47417c60749d242 |
+| `round2/RA-14 round 2 - opening - brighter gold colour - opener placeholder - more bass.mp4` | dc6a32c2f5914e67 |
+| `round2/RA-14 round 2 - opening - brighter gold colour - opener placeholder.mp4` | 39b2d1ceb974232d |
+| `beats.json` | a837a254683b5992 |
+| `beats_camopen.json` | 025e117b265aa3f9 |
+| `framing_holdstart.json` | 0e526c3efea8af97 |
+| `framing_choice.json` | fbea024afe893fc8 |
+
+### Next action (round 3)
+
+Record Dan's reply in `/Volumes/Extreme/_edit_work/ra14/round3-plan/decisions.json` (his words, per item, with hashes of the
+approved frames), write his framing and colour picks into `framing_choice.json` and `grade.json`, re-run `s04b_holdstart.py`
+and `s60_plan.py`, then: opener motion from the approved frames only, moving previews of every graphic and clip, the
+finished first 30 seconds. Stop for his review.
+
+### Starter prompt for round 3 (Claude Opus 5.5, high effort)
+
+> AD. Rename this task `Cheat Code Six Pack AD R3`. Read `Handoffs/handoff-20261013-ra14-cheat-code-round2-after-dan-review.md` (the ROUND 2 BUILT section) and run round 3 of RA-14 "The Cheat Code For Six Pack Abs" with /ad-edit. My round 2 picks: [paste the reply box from http://127.0.0.1:8815/]. Make the opener motion from the frames I approved, show me every graphic and clip moving in context, then the finished first 30 seconds. One review page, then stop.
+
+## Original round 2 starter prompt (already run)
 
 > AD. Rename this task `Cheat Code Six Pack AD R2`. Read `Handoffs/handoff-20261013-ra14-cheat-code-round2-after-dan-review.md` and run round 2 of RA-14 "The Cheat Code For Six Pack Abs" with /ad-edit. Use the Codex subscription to generate the images. Make start and end frames for the three opener ideas I picked (Character creator, 8-bit power-up, Arcade combo), show me two or three wider framing pairs and at least three colour correction options beside approved videos, take the AI picture at 5 seconds out, and re-ask the three round 1 questions I have not answered. One review page, then stop for my picks. No motion until I approve frames.
