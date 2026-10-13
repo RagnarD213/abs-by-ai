@@ -1,0 +1,10 @@
+{
+ "_note": "Take spans for RA-04, anchored to PHRASES in the C1664 word list. Last clean take of every retaken line: L3b take 2 (108.6), L5 take 2 (129.9), L6 take 2 (153.1), L9 take 2 (183.4).",
+ "ranges": [
+  {"name": "R1", "lines": "L1-L3a", "after": 76.0,  "from": "here are my top three tips", "to": "yourself like this"},
+  {"name": "R2", "lines": "L3b-L4", "after": 108.0, "from": "just go to",                 "to": "in real life"},
+  {"name": "R3", "lines": "L5",     "after": 129.0, "from": "the abs by ai app can tell", "to": "and your goal"},
+  {"name": "R4", "lines": "L6-L8",  "after": 152.5, "from": "and you can use it",         "to": "solve them for you"},
+  {"name": "R5", "lines": "L9",     "after": 182.5, "from": "so take the first step",     "to": "by ai app"}
+ ]
+}

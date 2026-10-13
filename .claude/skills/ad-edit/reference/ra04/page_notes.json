@@ -1,0 +1,130 @@
+{
+ "intro": "A paid ad (it ends on \"Tap the button below\"). Vertical 9:16, 58.9 seconds, under the 0:59 limit with no line cut. This round shows the look, every graphic and clip, and the finished first 30 seconds. The full ad and the 16:9 are built once these are approved.",
+ "locked": "colour (the RA-01 grade you approved on 09-18, checked side by side on this roll: same set, same light), the two shot sizes, the voice chain and music bed from RA-01, Soft Blue Light graphics, burned captions.",
+ "first30": "Checked before building: this roll beside RA-01's roll in the approved grade (they match, so the grade is reused). The voice uses the RA-01 chain; its tone match already brings your low end up to the reference voice, so the extra bass is option B here, not applied.",
+ "decisions": [
+  {
+   "short": "Completely free (A keep / B cut)",
+   "q": "\"Completely free\" at 0:17: keep or cut?",
+   "body": "You say \"you can generate an image of yourself with abs in seconds, completely free.\" The web cart is a 7 day free trial that takes a card first. <b>A (in the cut): keep it as filmed.</b> B: cut the two words. The cut is clean (there is a pause before them) and the ad gets 1.3 seconds shorter."
+  },
+  {
+   "short": "Analysis card colours (A blue / B olive)",
+   "q": "Analysis card: Soft Blue, or the RA-01 colours?",
+   "body": "This is the card you asked to reuse. <b>A (in the cut): recoloured to Soft Blue so it matches the other graphics.</b> B: the olive and green it had in RA-01. Both stills are below."
+  },
+  {
+   "short": "Voice (A approved / B more bass)",
+   "q": "Voice: the RA-01 sound, or with more bass?",
+   "body": "<b>A (in the cut): the sound you approved on RA-01.</b> B: the same plus the bass lift you chose on RO-19. Two short clips sit beside the first 30 seconds."
+  },
+  {
+   "short": "AI clips for tip 3 (A real clips / B make frames)",
+   "q": "Tip 3: keep the real clips, or do you want AI clips?",
+   "body": "<b>A (in the cut): a stock clip of a man with a knee brace, and your real squats on the lawn.</b> B: I make start and end frames for one or both of these ideas and you approve them before any motion is generated. <i>Gym is closed</i>: a man walks up to a gym door with a CLOSED sign, shrugs, cut to him doing push-ups in his living room (for \"If you can't make it to the gym one day\"). <i>Tweaked back</i>: a man picks up a dumbbell, grabs his lower back, sits down and opens his phone (for \"When you get injured\")."
+  }
+ ],
+ "decided": [
+  "<b>Takes:</b> one pass of the script. Where you read a line twice I kept the last clean take: \"Just go to AbsByAI.com...\" (take 2), \"The Abs By AI app can tell exactly...\" (take 2, take 1 was a flub), \"And you can use it to create a full workout and eating plan...\" (take 2), and the closing call to action (take 2). The false start \"Just go to abs...\" is out.",
+  "<b>Length:</b> 58.9 s with every line in. The hold after your last word is 1.0 s (RA-01 had 1.65 s) so nothing had to be cut.",
+  "<b>Opening:</b> you on camera from the first frame, framed hair to shorts so your abs are in the shot while you say \"six pack abs\". Your real abs are the strongest picture this ad has, so no clip goes in front of them.",
+  "<b>App demo person:</b> the generate flow is the real phone recording used in Ad 1. The man who uploads the photo is the same man in the result, and the analysis card shows that same result picture. Your own AI goal picture appears once, on the lock screen.",
+  "<b>Not shown:</b> the app's photo crop screen, the \"Meet the new you\" before and after screen and the email form are all left out of the flow.",
+  "<b>Lower thirds:</b> one per tip, title case, each lands on the first word after \"Number one / two / three\".",
+  "<b>Call to action:</b> a glass button, \"Tap The Button Below To / See Yourself With Abs\", from the words \"Tap the button below\" to the end. No AbsByAI.com end mark (your 10-01 rule; the job doc was older).",
+  "<b>Caption highlight:</b> the spoken word lights up in the Soft Blue cyan instead of RA-01's lime, to match the graphics. Captions say \"Abs By AI\" and \"AbsByAI.com\"; \"abs\" alone stays lower case.",
+  "<b>No sound effects</b> on cuts or graphics, as in RA-01.",
+  "<b>Claim lines kept as spoken, not put on screen:</b> \"The Abs By AI app can tell exactly how to design your program from the picture you upload and your goal\" and \"Whatever problems come up, AI can solve them for you.\" No graphic repeats either one.",
+  "<b>Spend:</b> $0. Every clip came from the clip library."
+ ],
+ "items": [
+  {
+   "id": "G1",
+   "key": "LT1",
+   "name": "Tip 1 lower third",
+   "copy": "TIP 1 · Put Your Goal Picture On Your Lock Screen",
+   "source": "Soft Blue lower third",
+   "at": 0.7
+  },
+  {
+   "id": "C1",
+   "key": "lock",
+   "name": "Goal picture on a lock screen",
+   "copy": "Chip: AI-GENERATED",
+   "source": "Clip library A0074 (AI clip, from Ad 1). Fills the frame.",
+   "at": 0.5
+  },
+  {
+   "id": "C2",
+   "key": "flow_a",
+   "name": "App: options, then generating",
+   "copy": "No added text. The app's own screens.",
+   "source": "Clip library B0049: real phone recording of absbyai.com (from Ad 1)",
+   "at": 0.75
+  },
+  {
+   "id": "C3",
+   "key": "flow_b",
+   "name": "App: the result",
+   "copy": "Chip: AI-GENERATED. Same man as the upload.",
+   "source": "Clip library B0049, the result screen with the email form cropped out",
+   "at": 0.5
+  },
+  {
+   "id": "G2",
+   "key": "LT2",
+   "name": "Tip 2 lower third",
+   "copy": "TIP 2 · Get A Plan Built For Your Body",
+   "source": "Soft Blue lower third",
+   "at": 0.7
+  },
+  {
+   "id": "C4",
+   "key": "analysis",
+   "name": "Analysis card",
+   "copy": "BODY FAT · FAT TO LOSE · MUSCLE TO GAIN · YOUR WORKOUT PLAN. No numbers. Chip: AI-GENERATED",
+   "source": "The RA-01 analysis card you asked to reuse, on the app man's result picture",
+   "at": 0.85
+  },
+  {
+   "id": "C5",
+   "key": "tour",
+   "name": "App tour: workout, then meal",
+   "copy": "No added text. The app's own screens (its exercise videos carry the app's AI-GENERATED tag).",
+   "source": "Clip library B0544: the RO-06 app tour you approved on 10-10",
+   "at": 0.25
+  },
+  {
+   "id": "G3",
+   "key": "LT3",
+   "name": "Tip 3 lower third",
+   "copy": "TIP 3 · Let AI Fix What Gets In Your Way",
+   "source": "Soft Blue lower third",
+   "at": 0.7
+  },
+  {
+   "id": "C6",
+   "key": "knee",
+   "name": "When you get injured",
+   "copy": "No text",
+   "source": "Clip library B0126: stock (Pexels), used in Ad 1. Fills the frame.",
+   "at": 0.5
+  },
+  {
+   "id": "C7",
+   "key": "home",
+   "name": "Home workout",
+   "copy": "No text (real moving footage of you needs no label)",
+   "source": "Clip library B0464: your real squats on the lawn. Fills the frame.",
+   "at": 0.5
+  },
+  {
+   "id": "G4",
+   "key": "CTA",
+   "name": "Call to action button",
+   "copy": "Tap The Button Below To / See Yourself With Abs",
+   "source": "Soft Blue glass button",
+   "at": 0.5
+  }
+ ]
+}

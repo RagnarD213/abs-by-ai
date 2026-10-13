@@ -1,0 +1,558 @@
+{
+  "total": 58.892167,
+  "total_frames": 1765,
+  "timeline": [
+    {
+      "kind": "dan",
+      "name": "dan00",
+      "a": 0.0,
+      "f0": 0,
+      "f1": 96,
+      "n": 96
+    },
+    {
+      "kind": "dan",
+      "name": "dan01",
+      "a": 3.2032,
+      "f0": 96,
+      "f1": 116,
+      "n": 20
+    },
+    {
+      "kind": "dan",
+      "name": "dan02",
+      "a": 3.870533,
+      "f0": 116,
+      "f1": 205,
+      "n": 89
+    },
+    {
+      "kind": "card",
+      "name": "lock",
+      "a": 6.840167,
+      "f0": 205,
+      "f1": 298,
+      "n": 93
+    },
+    {
+      "kind": "dan",
+      "name": "dan03",
+      "a": 9.943267,
+      "f0": 298,
+      "f1": 366,
+      "n": 68
+    },
+    {
+      "kind": "card",
+      "name": "flow_a",
+      "a": 12.2122,
+      "f0": 366,
+      "f1": 459,
+      "n": 93
+    },
+    {
+      "kind": "card",
+      "name": "flow_b",
+      "a": 15.3153,
+      "f0": 459,
+      "f1": 536,
+      "n": 77
+    },
+    {
+      "kind": "dan",
+      "name": "dan04",
+      "a": 17.884533,
+      "f0": 536,
+      "f1": 555,
+      "n": 19
+    },
+    {
+      "kind": "dan",
+      "name": "dan05",
+      "a": 18.5185,
+      "f0": 555,
+      "f1": 665,
+      "n": 110
+    },
+    {
+      "kind": "dan",
+      "name": "dan06",
+      "a": 22.188833,
+      "f0": 665,
+      "f1": 754,
+      "n": 89
+    },
+    {
+      "kind": "card",
+      "name": "analysis",
+      "a": 25.158467,
+      "f0": 754,
+      "f1": 934,
+      "n": 180
+    },
+    {
+      "kind": "card",
+      "name": "tour",
+      "a": 31.164467,
+      "f0": 934,
+      "f1": 1091,
+      "n": 157
+    },
+    {
+      "kind": "dan",
+      "name": "dan07",
+      "a": 36.403033,
+      "f0": 1091,
+      "f1": 1111,
+      "n": 20
+    },
+    {
+      "kind": "dan",
+      "name": "dan08",
+      "a": 37.070367,
+      "f0": 1111,
+      "f1": 1210,
+      "n": 99
+    },
+    {
+      "kind": "card",
+      "name": "knee",
+      "a": 40.373667,
+      "f0": 1210,
+      "f1": 1302,
+      "n": 92
+    },
+    {
+      "kind": "dan",
+      "name": "dan09",
+      "a": 43.4434,
+      "f0": 1302,
+      "f1": 1354,
+      "n": 52
+    },
+    {
+      "kind": "card",
+      "name": "home",
+      "a": 45.178467,
+      "f0": 1354,
+      "f1": 1446,
+      "n": 92
+    },
+    {
+      "kind": "dan",
+      "name": "dan10",
+      "a": 48.2482,
+      "f0": 1446,
+      "f1": 1482,
+      "n": 36
+    },
+    {
+      "kind": "dan",
+      "name": "dan11",
+      "a": 49.4494,
+      "f0": 1482,
+      "f1": 1539,
+      "n": 57
+    },
+    {
+      "kind": "dan",
+      "name": "dan12",
+      "a": 51.3513,
+      "f0": 1539,
+      "f1": 1571,
+      "n": 32
+    },
+    {
+      "kind": "dan",
+      "name": "dan13",
+      "a": 52.419033,
+      "f0": 1571,
+      "f1": 1765,
+      "n": 194
+    }
+  ],
+  "dur_talk": 58.058,
+  "end_hold": 0.85,
+  "cards": [
+    {
+      "name": "lock",
+      "kind": "clip",
+      "beat": [
+        6.840167,
+        9.943267
+      ],
+      "asset": "A0074",
+      "chip": "ai",
+      "frames": 93
+    },
+    {
+      "name": "flow_a",
+      "kind": "phone",
+      "beat": [
+        12.2122,
+        15.3153
+      ],
+      "asset": "B0049",
+      "chip": null,
+      "frames": 93
+    },
+    {
+      "name": "flow_b",
+      "kind": "phone",
+      "beat": [
+        15.3153,
+        17.884533
+      ],
+      "asset": "B0049",
+      "chip": "ai",
+      "frames": 77
+    },
+    {
+      "name": "analysis",
+      "kind": "scan",
+      "beat": [
+        25.158467,
+        31.164467
+      ],
+      "asset": "after",
+      "chip": "ai",
+      "frames": 180
+    },
+    {
+      "name": "tour",
+      "kind": "phone",
+      "beat": [
+        31.164467,
+        36.403033
+      ],
+      "asset": "B0544",
+      "chip": null,
+      "frames": 157
+    },
+    {
+      "name": "knee",
+      "kind": "clip",
+      "beat": [
+        40.373667,
+        43.4434
+      ],
+      "asset": "B0126",
+      "chip": null,
+      "frames": 92
+    },
+    {
+      "name": "home",
+      "kind": "clip",
+      "beat": [
+        45.178467,
+        48.2482
+      ],
+      "asset": "B0460",
+      "chip": null,
+      "frames": 92
+    }
+  ],
+  "punch": [
+    {
+      "beat": [
+        0.0,
+        3.2032
+      ],
+      "level": "FAR",
+      "hair_min": 1106.0,
+      "cx": 1226.1,
+      "samples": 18,
+      "face_span": 284.6,
+      "cx_pref": 1226.1,
+      "cx_moved": 0.0,
+      "gap": 0,
+      "cx16": 1088.0,
+      "cx16_from": 0,
+      "frames": 96
+    },
+    {
+      "beat": [
+        3.2032,
+        3.870533
+      ],
+      "level": "NEAR",
+      "hair_min": 1106.0,
+      "cx": 1248.5,
+      "samples": 5,
+      "face_span": 275.1,
+      "cx_pref": 1248.5,
+      "cx_moved": 0.0,
+      "gap": 0,
+      "cx16": 1088.0,
+      "cx16_from": 0,
+      "frames": 20
+    },
+    {
+      "beat": [
+        3.870533,
+        6.840167
+      ],
+      "level": "FAR",
+      "hair_min": 1106.0,
+      "cx": 1226.7,
+      "samples": 18,
+      "face_span": 409.2,
+      "cx_pref": 1226.7,
+      "cx_moved": 0.0,
+      "gap": 0,
+      "cx16": 1088.0,
+      "cx16_from": 2,
+      "frames": 89
+    },
+    {
+      "beat": [
+        9.943267,
+        12.2122
+      ],
+      "level": "NEAR",
+      "hair_min": 1108.0,
+      "cx": 1284.8,
+      "samples": 14,
+      "face_span": 443.3,
+      "cx_pref": 1284.8,
+      "cx_moved": 0.0,
+      "gap": 1,
+      "cx16": 1088.0,
+      "cx16_from": 2,
+      "frames": 68
+    },
+    {
+      "beat": [
+        17.884533,
+        18.5185
+      ],
+      "level": "FAR",
+      "hair_min": 1112.0,
+      "cx": 1300.8,
+      "samples": 5,
+      "face_span": 342.1,
+      "cx_pref": 1300.8,
+      "cx_moved": 0.0,
+      "gap": 2,
+      "cx16": 1088.0,
+      "cx16_from": 4,
+      "frames": 19
+    },
+    {
+      "beat": [
+        18.5185,
+        22.188833
+      ],
+      "level": "NEAR",
+      "hair_min": 1110.0,
+      "cx": 1242.7,
+      "samples": 21,
+      "face_span": 356.2,
+      "cx_pref": 1242.7,
+      "cx_moved": 0.0,
+      "gap": 2,
+      "cx16": 1088.0,
+      "cx16_from": 4,
+      "frames": 110
+    },
+    {
+      "beat": [
+        22.188833,
+        25.158467
+      ],
+      "level": "FAR",
+      "hair_min": 1110.0,
+      "cx": 1246.4,
+      "samples": 17,
+      "face_span": 386.8,
+      "cx_pref": 1246.4,
+      "cx_moved": 0.0,
+      "gap": 2,
+      "cx16": 1088.0,
+      "cx16_from": 6,
+      "frames": 89
+    },
+    {
+      "beat": [
+        36.403033,
+        37.070367
+      ],
+      "level": "NEAR",
+      "hair_min": 1116.0,
+      "cx": 1104.2,
+      "samples": 6,
+      "face_span": 400.3,
+      "cx_pref": 1104.2,
+      "cx_moved": 0.0,
+      "gap": 3,
+      "cx16": 1088.0,
+      "cx16_from": 6,
+      "frames": 20
+    },
+    {
+      "beat": [
+        37.070367,
+        40.373667
+      ],
+      "level": "FAR",
+      "hair_min": 1104.0,
+      "cx": 1088.9,
+      "samples": 18,
+      "face_span": 321.3,
+      "cx_pref": 1088.9,
+      "cx_moved": 0.0,
+      "gap": 3,
+      "cx16": 1088.0,
+      "cx16_from": 8,
+      "frames": 99
+    },
+    {
+      "beat": [
+        43.4434,
+        45.178467
+      ],
+      "level": "NEAR",
+      "hair_min": 1108.0,
+      "cx": 1164.6,
+      "samples": 11,
+      "face_span": 400.6,
+      "cx_pref": 1164.6,
+      "cx_moved": 0.0,
+      "gap": 4,
+      "cx16": 1088.0,
+      "cx16_from": 8,
+      "frames": 52
+    },
+    {
+      "beat": [
+        48.2482,
+        49.4494
+      ],
+      "level": "FAR",
+      "hair_min": 1114.0,
+      "cx": 1132.1,
+      "samples": 9,
+      "face_span": 259.8,
+      "cx_pref": 1132.1,
+      "cx_moved": 0.0,
+      "gap": 5,
+      "cx16": 1088.0,
+      "cx16_from": 10,
+      "frames": 36
+    },
+    {
+      "beat": [
+        49.4494,
+        51.3513
+      ],
+      "level": "NEAR",
+      "hair_min": 1094.0,
+      "cx": 1117.0,
+      "samples": 12,
+      "face_span": 275.4,
+      "cx_pref": 1117.0,
+      "cx_moved": 0.0,
+      "gap": 5,
+      "cx16": 1088.0,
+      "cx16_from": 10,
+      "frames": 57
+    },
+    {
+      "beat": [
+        51.3513,
+        52.419033
+      ],
+      "level": "FAR",
+      "hair_min": 1104.0,
+      "cx": 1129.9,
+      "samples": 8,
+      "face_span": 285.9,
+      "cx_pref": 1129.9,
+      "cx_moved": 0.0,
+      "gap": 5,
+      "cx16": 1088.0,
+      "cx16_from": 12,
+      "frames": 32
+    },
+    {
+      "beat": [
+        52.419033,
+        58.892167
+      ],
+      "level": "NEAR",
+      "hair_min": 1098.0,
+      "cx": 1147.9,
+      "samples": 29,
+      "face_span": 408.5,
+      "cx_pref": 1147.9,
+      "cx_moved": 0.0,
+      "gap": 5,
+      "cx16": 1088.0,
+      "cx16_from": 12,
+      "frames": 194
+    }
+  ],
+  "cta": [
+    [
+      52.419033,
+      58.892167
+    ]
+  ],
+  "lt": [
+    {
+      "id": "LT1",
+      "a": 3.2032,
+      "b": 6.840167,
+      "topic": "TIP 1",
+      "parts": [
+        [
+          "Put Your Goal Picture On Your Lock Screen",
+          4.061
+        ]
+      ]
+    },
+    {
+      "id": "LT2",
+      "a": 17.884533,
+      "b": 22.188833,
+      "topic": "TIP 2",
+      "parts": [
+        [
+          "Get A Plan Built For Your Body",
+          18.723
+        ]
+      ]
+    },
+    {
+      "id": "LT3",
+      "a": 36.403033,
+      "b": 40.373667,
+      "topic": "TIP 3",
+      "parts": [
+        [
+          "Let AI Fix What Gets In Your Way",
+          37.205
+        ]
+      ]
+    }
+  ],
+  "seams": [
+    {
+      "t": 12.212,
+      "what": "R1|R2"
+    },
+    {
+      "t": 25.158,
+      "what": "R2|R3"
+    },
+    {
+      "t": 31.164,
+      "what": "R3|R4"
+    },
+    {
+      "t": 51.351,
+      "what": "R4|R5"
+    }
+  ],
+  "framing_notes": []
+}

@@ -1292,6 +1292,14 @@ $0.00 spend, all gates green. Two rules came out of it, and the second one is wo
    kill and restage; threads in encode/decode = genuinely slow, wait.** A caption burn on the same box at the same
    moment ran at 242 % CPU with 53 threads, which is the control.
 
+## RA-04: the 8/28 raw ads in Soft Blue Light (2026-10-13)
+
+Start RA-02 and RA-05 to RA-16 from `reference/ra04/` (README: stage order and eleven lessons), not from the RA-01 recipe
+alone. It is the RA-01 cut, grade, voice chain and crops with Soft Blue lower thirds, a glass CTA button and phone plates
+through `_shared/hyperframes/vertical.py`. The three that cost a rebuild: every pause splice inside a same-size shot needs a
+level change on it (the plan asserts it); phone cards must end above the caption line; the caption word list needs the
+zero-length-word and per-ad fix-map patches.
+
 ## RA-01 lessons — first cut from the 8/28 outdoor portrait rolls (2026-09-18, three-role pipeline)
 
 Built as planner (Fable) → editor (Opus) → independent reviewer (fresh Fable), plan + rulings in
