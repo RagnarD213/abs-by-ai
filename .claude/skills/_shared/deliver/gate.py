@@ -58,7 +58,7 @@ from _shared.deliver.common import Row                       # noqa: E402
 #   1.0.0  2026-09-11  first version. Folds in the rows of the seventeen per-video QC forks, adds
 #                      audio:lipsync and the compliance rows, and moves every bound into formats.py
 #                      with the file and date it was measured on.
-GATE_VERSION = "2.5.1"        # 1.1.0: an insert may declare its own label chip + position
+GATE_VERSION = "2.6.0"        # 1.1.0: an insert may declare its own label chip + position
                               # (a card hangs its chip off the card, not at the full-bleed waistline)
                               # 1.2.0  2026-09-12  Phase 2: five framing: rows on a portable tracker
                               # (FaceMesh + Apple Vision, no set-specific background) and stage 3 of
@@ -91,12 +91,20 @@ GATE_VERSION = "2.5.1"        # 1.1.0: an insert may declare its own label chip 
 
 # 2.5.1 (2026-10-09): apply explicit website SRT mode after loading the plan.
 # Caption configuration already exists in formats.py; other bounds are unchanged.
+# 2.6.0 (2026-10-13): audio:click_at_joins reads its ceiling from every 8 ms window of the file (a fixed
+# quantile, formats.py `control_quantile`) instead of the largest of 150 random points, whose draw failed
+# RO-19 round 4 on audio that passed in round 3. The 1.25x multiplier is unchanged. The row now names which
+# list it graded. Also outside the gate's rows: the build-slot wait no longer counts the launching shell or
+# each ffmpeg process (`_shared/buildcap.py`).
 STAMP_SUFFIX = ".deliver_gate.json"
 
 PLAN_KEYS = """
   target_seconds / target_frames   what the build meant to deliver  (container:duration, :frames)
   reference_cut                    the cut this one reproduces; sets target_seconds if absent
   joins            [t, ...]        splice times on the DELIVERED timeline
+  audio_joins      [t, ...]        where the AUDIO itself was joined, when that is not every entry of
+                                   `joins` (a punch-in or a cutaway edge over one continuous take is a
+                                   picture join only). audio:click_at_joins reads this list when present.
   covered          [[a, b], ...]   beats that hide a join
   punch            [[a, b, LEVEL]] framing segments;  punch_covered [bool] marks the hidden ones
                                    (full-frame framing needs no geometry; composites use the v2

@@ -192,8 +192,17 @@ def _common(drop=(), **over):
         # no bound of its own: two adjacent VISIBLE segments at one framing is a jump cut, full
         # stop (website-video/recipe/qc.py check 2, hardened on rev 4 to ignore covered segments).
         "cut:splice_visibility": dict(ceiling_mult=1.0),
-        "audio:click_at_joins": dict(ceiling_mult=1.25),
-        # 1.25x the file's OWN natural ceiling: longform-edit/qc_style.check_splices.
+        "audio:click_at_joins": dict(ceiling_mult=1.25, control_quantile=0.9954),
+        # 1.25x the file's OWN natural ceiling: longform-edit/qc_style.check_splices. UNCHANGED.
+        # control_quantile (2026-10-13, gate 2.6.0) is where that ceiling is read: the 99.54th percentile of
+        # every 8 ms window in the file. It replaces "the largest of 150 random points", and 0.9954 is that
+        # draw's own middle (0.5 ** (1/150) = 0.99539), so the bar is not moved, only held still. Measured on
+        # 54 delivered files against 400 seeds of the old draw: this bar / the median draw = 0.95 to 1.04
+        # (median 1.00), where the draws themselves spanned 1.6x to 8.2x on one file. Verdicts, old seed 7 to
+        # fixed: 51 PASS stay PASS; ad6_vertical_9x16 FAIL stays FAIL (3 joins to 1); RO-19 round 4 and Fired
+        # Them All R6 go FAIL to PASS, both on a draw in the lowest tenth of their own lottery (0.180 and 0.202
+        # against medians 0.266 and 0.317). 600 hard splices cut into loud speech per file: caught 43-48% on
+        # RO-19, where the old rule caught 2% to 66% depending on the seed. ⚠ Do not move 0.9954 to pass a file.
     }
     for k in drop:
         d.pop(k, None)

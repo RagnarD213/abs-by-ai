@@ -132,6 +132,8 @@ cannot request this override. The exact-file stamp records the selected mode.
 python3 .claude/skills/_shared/deliver/tests/test_contract_v2.py
 python3 .claude/skills/_shared/deliver/tests/test_watch_scan.py
 python3 .claude/skills/_shared/deliver/tests/test_placeholder_gate.py
+python3 .claude/skills/_shared/deliver/tests/test_click_at_joins.py
+python3 .claude/skills/_shared/buildcap.py --selftest           # the two-build wait the gate's Whisper step uses
 python3 .claude/skills/_shared/deliver/gate.py --audit          # no format has a hole
 python3 .claude/skills/_shared/qc_corpus/run.py                 # must stay green (~15 min)
 ```
@@ -162,6 +164,10 @@ single-frame violation. The email-capture form was once exposed for **exactly on
 and a 2 fps scan stepped straight over it.
 
 ## Known gaps, stated rather than hidden
+
+- **`audio:click_at_joins` grades PICTURE joins unless the plan declares `audio_joins` (2026-10-13, gate 2.6.0).** A long-form's `joins` are its picture timeline: punch-ins, cutaway edges and cuts inside an insert, most of them over one continuous take. On RO-19 only 44 of 219 were places the voice was actually joined, every one of those 44 sat in a pause (worst 0.06x the bar), and the two joins that failed round 4 were picture cuts 3.6 s from the nearest voice splice. About 1 window in 540 of ordinary speech beats the bar, so a film with 200 picture joins that fell at random would fail this row one time in three with nothing wrong. **A long-form finish script should declare `audio_joins`:** the output time of every segment boundary in the build record where the voice source is not continuous (`roll` changes, or `src0` is not the previous segment's `src0 + (o1 - o0)`). The row prints which list it read.
+- **`audio:click_at_joins` sees about half of hard cuts in loud speech (measured 2026-10-13, not changed by 2.6.0).** 600 unfaded 5 to 40 ms cuts made in the loudest 30% of each film: 43 to 48% caught on RO-19, 18 to 45% on four other masters, 87 to 94% of the louder half on RO-19. A cut whose step is smaller than the film's own consonants is invisible to a largest-step measure. The six flagged joins that could be measured again (RO-19 round 4, Fired Them All R6, ad6 vertical; `RO05_r6`'s plan is no longer beside it) were all speech: the largest step was 1.6 to 2.0x the twentieth largest in the same 8 ms, where a splice is one isolated step. A row that measures isolation instead of size would see more; it is not built.
+- **The build-slot wait (`_shared/buildcap.py`) counts builds, not processes (2026-10-13).** Before that the gate's Whisper step counted the shell that launched the gate and every ffmpeg process, so a gate typed inline waited for itself (74 minutes on RO-19 round 4, 22 on SL-07) and one render filled both slots. The `rungate.sh` workaround in older recipe notes is no longer needed. A gate at 0 % CPU is waiting: `python3 .claude/skills/_shared/buildcap.py` prints what it is waiting behind, and the gate prints the same list when it starts to wait.
 
 - **Undeclared joins bypass `cut:jump_cut` and `cut:naked_splices` (found 2026-09-16, DS-04 round 1).** The render passed every row and `watch.py` scored 0.00 naked splices/min while a judge found nine visible jump cuts; the joins were not in the plan's `joins`/`punch`. The rows check what the plan declares. A cross-check that finds joins from the picture itself (frame-diff peaks) and fails on any undeclared one is the fix; not built yet, and the corpus would need that rejected render first.
 

@@ -97,6 +97,9 @@ IMPLEMENTED = {
     # report in _shared/cut/junk.py, and these two rows measured off the delivered audio.
     "junk:repeated_take": "deliver_gate",
     "junk:dead_air": "deliver_gate",
+    # 2026-10-13 (gate 2.6.0): an entry may now name this row. No entry does yet; the row is proven on
+    # its own fixture in step 0d below.
+    "audio:click_at_joins": "deliver_gate",
 }
 # Row key by human name, so an entry can name either.
 ROWKEY = {"one voice": "lr_corr", "no comb": "comb", "dry room": "edt", "tone": "tone",
@@ -413,6 +416,20 @@ def main():
         if not ok_:
             print((r.stdout + r.stderr)[-3000:])
             print("\nCORPUS FAIL -- the placeholder gate's own fixture is failing; fix that first.")
+            return 1
+        # ---- step 0d (2026-10-13): audio:click_at_joins. Nobody rejected a file for a click at a join, so
+        # no entry can hold this row up. The fixture cuts a click in, and holds the verdict steady when 2.1 s
+        # comes out of the file (the RO-19 round 4 fault), so a change to the row cannot ship unproven.
+        t_ = os.path.join(SHARED_DELIVER, "tests", "test_click_at_joins.py")
+        print("_shared/deliver/tests/test_click_at_joins.py ...", flush=True)
+        r = subprocess.run([sys.executable, t_], capture_output=True, text=True,
+                           cwd=os.path.dirname(SHARED_DELIVER))
+        ok_ = r.returncode == 0
+        tail = [l for l in (r.stdout + r.stderr).splitlines() if l.strip()][-1:]
+        print(f"  {'PASS' if ok_ else 'FAIL'}  {tail[0].strip() if tail else ''}")
+        if not ok_:
+            print((r.stdout + r.stderr)[-3000:])
+            print("\nCORPUS FAIL -- the click-at-joins fixture is failing; fix that first.")
             return 1
     print(f"\nQC CORPUS  {len(entries)} entries  (corpus v{corpus['version']}, {corpus['updated']})\n")
     out, t0 = [], time.time()
