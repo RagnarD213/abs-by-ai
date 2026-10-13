@@ -46,6 +46,11 @@
   (2026-10-11 rule below); expect about five approvals, and spend the rest of the budget on retakes of those.
 - This narrows "AI clip faults: judge at playback speed; small faults pass" (2026-10-08, below): that rule covers a fault of a few
   frames inside an action that makes sense. It never covered what the clip shows happening.
+- **How to check question 1 (added 2026-10-13, after RO-08 round 3 needed three renders): measure it, do not only look.** For each shot of
+  an AI clip, compare its first frame with its tenth over the whole picture (tolerant of a pixel or two of drift), mask out the person, and
+  look at every region left, enlarged, frame by frame. Two independent reviewers each found a leftover of the rejected effect that the
+  editor's eye had passed on a contact sheet: a wisp on the desk, then an orange smear in the box. A cut out of a rejected take starts where
+  the whole picture has settled, not where the subject has. Tool: the self-change map in `longform-edit/reference/ro08/a5_cut.py`.
 - Why it was missed: the editor wrote both faults on the review page ("around its fifth second the junk clears in one sweep", "the
   rumble reads as water splashing up out of three glasses") and shipped them anyway, and the reviewers were asked about frame faults,
   labels and lip sync, not whether the scene made sense.
