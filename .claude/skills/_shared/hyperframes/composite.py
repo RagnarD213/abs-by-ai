@@ -16,6 +16,7 @@ Two ways in:
   * CLI, on a finished base file:
         python3 composite.py manifest.json --base base.mp4 --base-t0 <film s of base frame 0> --out out.mp4 [--audio a.wav]
 """
+import time
 import argparse, json, subprocess, sys
 import numpy as np
 from PIL import Image, ImageFilter
@@ -90,6 +91,9 @@ class _Track:
             self.it = reader(self.path, g - self.g0, self.g0 + self.n - g, self.rgba, self.wh)
         self.next_g = g + 1
         f = next(self.it, None)
+        for k in range(4):                    # a busy external drive drops a read now and then ("Interrupted system call" as ffmpeg opens the
+            if f is not None: break           # file; RO-08 round 3 lost a 25 minute render to it at minute 6): open the render again, same frame
+            time.sleep(1.5 * (k + 1)); self.it = reader(self.path, g - self.g0, self.g0 + self.n - g, self.rgba, self.wh); f = next(self.it, None)
         assert f is not None, f"{self.path}: no frame {g - self.g0} of {self.n} (render shorter than its slot)"
         return f
 
