@@ -41,7 +41,7 @@ def transcript(S, V):
 
 def srt(S, s):
     """the burned captions as an .srt (same cues, same times) for the gate's caption rows."""
-    def ts(t): return f"{int(t // 3600):02d}:{int(t % 3600 // 60):02d}:{int(t % 60):02d},{int(round((t % 1) * 1000)) % 1000:03d}"
+    def ts(t): m = int(round(t * 1000)); return f"{m // 3600000:02d}:{m % 3600000 // 60000:02d}:{m % 60000 // 1000:02d},{m % 1000:03d}"      # round the whole time: 32.9997 s is 33,000, not 32,000
     p = f"{Bt.D(S)}/gate/captions.srt"
     open(p, "w").write("\n".join(f"{i + 1}\n{ts(c['f0'] / FPS)} --> {ts(c['f1'] / FPS)}\n{chr(10).join(s.cues[i]['lines'])}\n" for i, c in enumerate(s.caps)))
     return p

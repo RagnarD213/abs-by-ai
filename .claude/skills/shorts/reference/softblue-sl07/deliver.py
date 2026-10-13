@@ -44,7 +44,7 @@ def transcript(S, V):
 
 def srt(S, s):
     """the burned captions as an .srt (same cues, same times) for the gate's caption rows."""
-    def ts(t): return f"{int(t // 3600):02d}:{int(t % 3600 // 60):02d}:{int(t % 60):02d},{int(round((t % 1) * 1000)) % 1000:03d}"
+    def ts(t): m = int(round(t * 1000)); return f"{m // 3600000:02d}:{m % 3600000 // 60000:02d}:{m % 60000 // 1000:02d},{m % 1000:03d}"      # round the whole time: 32.9997 s is 33,000, not 32,000
     p = f"{Bt.D(S)}/gate/captions.srt"
     open(p, "w").write("\n".join(f"{i + 1}\n{ts(c['f0'] / FPS)} --> {ts(max(c['f1'], c['f0'] + 2) / FPS)}\n{chr(10).join(s.cues[i]['lines'])}\n" for i, c in enumerate(s.caps)))
     return p
@@ -123,11 +123,17 @@ def plan(S):
               speech_words_evidence=dict(method="verbatim_source_ctc", video_sha256=h, pipeline="plans.TEXT forced-aligned (torchaudio WAV2VEC2_ASR_BASE_960H CTC) to the same cut of RO-16's approved mix this file carries verbatim (audio gate --verbatim); a pickup at the head is Dan's own recording, aligned the same way"),
               words=[dict(w=w["w"], t=w["t"], e=w["e"]) for w in words], transcript_words=[dict(w=w["w"]) for w in asr["words"]],
               srt=srt(S, s), source_audio=f"{d}/his_mix.wav", source_picture=f"{d}/source_picture.mp4",
+              banned_source=f"{ROOT}/Media/longform-raw/absbyai-0803-shoot/screen_capture_TAKE2.MP4", banned_times=[15.0, 289.5, 255.4],      # the recording that holds the banned app screens (softblue-sl03 lib.SCREEN)
               watch_log=f"{G}/logs/watch_pass.json")
+    if ai:                                                  # the chip as drawn (u=1.6), so compliance:labels can look for it on every AI clip
+        from PIL import Image
+        rgba, cb = Bt.chip_png("AI-GENERATED", (0, 0), u=1.6); Image.fromarray(rgba[cb[1]:cb[3], cb[0]:cb[2]]).save(f"{G}/ai_chip.png")
+        rg2, c2 = Bt.chip_png("Real picture of me. Not AI-generated.", (0, 0), u=1.6); Image.fromarray(rg2[c2[1]:c2[3], c2[0]:c2[2]]).save(f"{G}/real_chip.png")      # the gate scans for both labels; no real photo is in these shorts
+        pl["label_chips"] = dict(ai=f"{G}/ai_chip.png", real=f"{G}/real_chip.png")
     if os.path.exists(f"{G}/declare.json"): pl["declare"] = json.load(open(f"{G}/declare.json"))
     import datetime                                          # the negative-events look, bound to THIS render
     pl["negative_events_scan"] = dict(sha256=h, when=datetime.datetime.now().isoformat(timespec="seconds"), frames_checked=int(dur) + 1,
-        method="one frame per second (watch-pass contact sheets, judged image by image by the independent reviewer) plus every shot's first, "
+        method="one frame per second (watch-pass contact sheets; " + (lambda w: f"judged image by image by {w['judged_by']}, {w.get('open_defects')} open defect(s)" if w.get("judged_by") and w.get("sha256") == h else "scanned by the builder only, the independent judge has not run on this file yet")(json.load(open(f"{G}/logs/watch_pass.json")) if os.path.exists(f"{G}/logs/watch_pass.json") else {}) + ") plus every shot's first, "
                "middle and last frame on the build's proof sheets; the footage is Dan clothed in a tank top talking in the studio, stock and library B-roll, "
                "AI clips with the AI-GENERATED chip and (short F) an app screen",
         findings=[])
