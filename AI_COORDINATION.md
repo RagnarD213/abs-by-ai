@@ -244,4 +244,4 @@ Memory `google-ads-ui-automation`.
 ## ACTIVE
 **Ad 6 remarketing 2026-10-04:** Awaiting Dan: copy to enabled campaign 24305381214?
 
-**Meal Prep SFC R3 BUILDING 2026-10-13, Codex.** Owner: this chat. Pair B, both frame pairs and seven graphics approved. Generating two motions (estimated $1.40), then sound/captions and complete candidate review. Work: `/Volumes/Extreme/_edit_work/ds28/round3/`. No covers/uploads; dispatcher paused.
+**Meal Prep SFC R3 REVIEW 2026-10-13, Codex.** Complete candidate: http://127.0.0.1:8891/. Independent picture review clear; automatic sound/caption/framing checks failed. Next: Dan reviews. `Docs/DS28_R3_FINISH_REVIEW_20261013.md`. No covers/uploads; dispatcher paused.
