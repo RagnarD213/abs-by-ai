@@ -37,3 +37,21 @@ New folder `Claude Ad Videos/ai took my job - RA-16/` (or `Codex Ad Videos/…`)
 
 **Codex (GPT-6 Astra, high):**
 > Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RA-16-ai-took-my-job.md` with `$abs-edit-ad`: 9:16 master ≤0:59 plus 16:9 from the same edit. Deliver, send Dan the review copy, update `00-MASTER.md`.
+
+
+## Codex preparation, 2026-10-13
+
+AD. R1 preparation is saved, not delivered or finalized.
+
+- Review of the proposed cut, color/framing stills and voice auditions: http://127.0.0.1:8976/ (managed local review service).
+- Work folder: `/Volumes/Extreme/_edit_work/ra16/`. Read `WORK_PACKET.json`, `proposed-cut.json`, `cost-ledger.json` and `recipe/` before continuing.
+- The actual C1668 source is native portrait footage by the pool, stored 3840x2160 with rotation -90. It has one two-channel dual-mono microphone stream. The indoor, horizontal and four-track description above is incorrect for this roll. The existing sidecar and direct ffprobe agree; the picture was inspected.
+- Selected full-script ranges total about 73.4 seconds before further pause trimming. A proposed 50.4-second version keeps the complete hook, introduction, three product steps and final CTA. Source boundaries remain provisional until heard-word checks. Removing the persona line would shorten it further.
+- Dan has been asked to choose the opening and approve the line cuts. No answer or waiver has been recorded. Keep both decisions pending.
+- Proposed removals: both free-app passages and the early CTA; the obsolete/everyone passage; the second human-plan comparison; the human-trainers-leave-you-confused tail. Exact kept words and ranges are in `proposed-cut.json` and on the review page.
+- Three color variants were inspected at two moments. B is preferred: e1.45 daylight LUT, saturation 1.12, gamma 1.03. This is a proposal, not Dan approval. The framing uses the shared land-and-hold module for vertical and fixed crops for horizontal.
+- Audio self-test PASS. Four voice auditions and five randomized blind listens are saved. Default won 3/5, with varying scores. Internal 9.943-second motion excerpts fail the audio gate on tone and spread; an exact-excerpt refit still misses tone. They are withheld as review videos. Do not claim delivery PASS or change thresholds.
+- A model's claim that the excerpt used unrelated voice/picture was contradicted by zero-lag source waveform comparison and matching source/candidate mouth and hand frames. Evidence is in `source/sync-proof/` and `round1/audio-checks.json`. No complete-candidate audit has happened.
+- Existing opener candidates A0147/A0148 provide the robot-replaces-trainer scene in both formats. The approved Dan self-generation demo is available. B0037 was rejected because it contains stick figures. Graphics, exact clip placements and the opening are not locked.
+- No image or motion generation charges. Six Gemini quality-review calls returned token usage, retained in the ledger; actual billed dollars were not exposed. Estimated review cost was under $1. Subscription token usage is unavailable.
+- Next: resolve Dan's two editorial choices; verify the final speech edges; prepare the 30-second opening and complete graphics/clip review; finish the chosen timeline's sound; then render both masters, run exact-file checks and one independent complete-candidate review, and deliver the review copies. Do not set delivered or finalized yet.
