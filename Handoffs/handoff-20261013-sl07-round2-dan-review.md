@@ -3,7 +3,7 @@ CONTENT | SL-07 | If I Had Belly Fat SFC R3
 # SL-07: apply Dan's round 2 answers, put the studio pickups in, close out the five Belly Fat shorts
 
 Written 2026-10-13 by Claude (Opus 5.5) at the end of round 2. All five shorts are rendered with Dan's 10-13 answers.
-Three passed their independent review (SHIP, 0 open defects); two wait on studio pickups. The delivery gate fails two of the three on B-roll coverage only. Dan has the round 2 page and has not answered it.
+Three passed their independent review (SHIP, 0 open defects); two wait on studio pickups. One of them also passed the delivery gate; the gate fails the other two on B-roll coverage only. Dan has the round 2 page and has not answered it.
 Supersedes `handoff-20261012-sl07-round1-dan-review.md` and `handoff-20261012-sl07-belly-fat-shorts-pickups-and-build.md`
 (kept for the picks, the spoken text and the standing decisions).
 
@@ -25,17 +25,15 @@ The pickup swap after the 10/17 shoot is mechanical once the takes are filed: **
 | Weigh Yourself Every Morning | `belly-fat-90-days-short2_weigh-yourself-every-morning PLACEHOLDER PICKUP.mp4` | complete except the pickup (desk-mic placeholder, tagged on screen) |
 | Work Out Every Morning, Not 3 Times A Week | `belly-fat-90-days-short3_work-out-every-morning PLACEHOLDER PICKUP.mp4` | complete except the pickup; the vacation clip waits on Dan's frame answer |
 | The 3-Pound Rule That Keeps Belly Fat Off | `belly-fat-90-days-short4_the-3-pound-rule.mp4` | second review SHIP, 0 defects; gate fails coverage only (21%) |
-| Track Your Calories With A Photo | `belly-fat-90-days-short5_track-your-calories-with-a-photo.mp4` | fourth review SHIP, 0 defects, judge folded in; gate result pending |
+| Track Your Calories With A Photo | `belly-fat-90-days-short5_track-your-calories-with-a-photo.mp4` | fourth review SHIP, 0 defects; delivery gate PASS (39 of 39) |
 
 - Reviews: `r2/reviews/ROUND-2-REVIEW-<S>.md` (first pass, all five DOES NOT SHIP), `ROUND-2B-*` (A, E SHIP; F no),
   `ROUND-2C-*` (A, F third checks). `build/<S>/gate/logs/findings.json` is the judge's file for the current watch pass
   only when its sha matches the delivered file: check before running `watch.py --judge`.
-- **Delivery gate (2.5.1), run 10-13 afternoon. No short has a stamp yet; the only failing row is B-roll coverage.**
-  "Stop Trying To Lose 1 Pound A Week": 38 pass, 1 fail (`style:coverage` 10%, min 30%). "The 3-Pound Rule": 37 pass,
-  1 fail (`style:coverage` 21%); `compliance:labels` was not measured until `deliver.py plan` supplied
-  `label_chips.real` (it does now), rerun was in progress at handoff. "Track Your Calories With A Photo": fourth review
-  SHIP, judge folded into its watch log, gate was running at handoff (it measures 36%, so coverage should pass).
-  Run the gate only through `rungate.sh S`. Never change a bound.
+- **Delivery gate (2.5.1), 10-13.** "Track Your Calories With A Photo": PASS, 39 of 39, stamped
+  (`...short5_track-your-calories-with-a-photo.mp4.deliver_gate.json`). "Stop Trying To Lose 1 Pound A Week": 38 pass,
+  1 fail (`style:coverage` 10%, min 30%). "The 3-Pound Rule": 38 pass, 1 fail (`style:coverage` 21%). Nothing else
+  fails on either. Run the gate only through `rungate.sh S`. Never change a bound.
 - **The coverage fix is staged, not built:** `round3-plan/coverage.json` (five library clips with film times, crops and
   the lines they play under; `plans.py` still matches the delivered files). Stills are on the page under "Extra B-roll".
   After Dan's yes: add them to `plans.COVERS`, also lengthen the stairs clip in the workout short (29% now), rebuild
