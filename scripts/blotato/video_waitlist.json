@@ -4,28 +4,44 @@
   "kind": "short",
   "job": "SL-03 short 2",
   "label": "The $20 Salad For 4",
-  "added": "2026-10-08"
+  "added": "2026-10-08",
+  "queued": {
+   "found": "2026-10-13",
+   "main": "2026-11-05T15:00:00.000Z"
+  }
  },
  {
   "config": "scripts/blotato/configs/sl03-short3-keep-salads-fresh-7-days.json",
   "kind": "short",
   "job": "SL-03 short 3",
   "label": "Keep Salads Fresh 7 Days",
-  "added": "2026-10-08"
+  "added": "2026-10-08",
+  "queued": {
+   "found": "2026-10-13",
+   "main": "2026-11-07T15:00:00.000Z"
+  }
  },
  {
   "config": "scripts/blotato/configs/sl03-short6-make-ai-calorie-tracking-accurate.json",
   "kind": "short",
   "job": "SL-03 short 6",
   "label": "Make AI Calorie Tracking Accurate",
-  "added": "2026-10-08"
+  "added": "2026-10-08",
+  "queued": {
+   "date": "2026-10-13",
+   "main": "2026-11-10T15:00:00.000Z"
+  }
  },
  {
   "config": "scripts/blotato/configs/ro06-home-workout-budget.json",
   "kind": "longform",
   "job": "RO-06",
   "label": "How To Work Out At Home On A Budget",
-  "added": "2026-10-10"
+  "added": "2026-10-10",
+  "queued": {
+   "date": "2026-10-13",
+   "main": "2026-12-27T15:00:00.000Z"
+  }
  },
  {
   "config": "scripts/blotato/configs/abs-at-40-vs-25.json",

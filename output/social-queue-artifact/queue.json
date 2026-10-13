@@ -1,52 +1,7 @@
 {
-"generated": "2026-10-12T11:25:04+00:00",
+"generated": "2026-10-13T11:25:49+00:00",
 "cap": 200,
 "scheduled": [
-{
-"id": "4976695",
-"platform": "facebook",
-"when": "2026-10-12T14:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "I used to be one of the biggest deadlift fans on the internet. At 40, I stopped doing them completely.",
-"batch": ""
-},
-{
-"id": "4976700",
-"platform": "instagram",
-"when": "2026-10-12T14:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "I used to be one of the biggest deadlift fans on the internet. At 40, I stopped doing them completely.",
-"batch": ""
-},
-{
-"id": "4976709",
-"platform": "tiktok",
-"when": "2026-10-12T14:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "I used to be one of the biggest deadlift fans on the internet. At 40, I stopped doing them completely.",
-"batch": ""
-},
-{
-"id": "3584647",
-"platform": "facebook",
-"when": "2026-10-12T22:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "One extra sentence makes AI macros far more accurate.",
-"batch": ""
-},
-{
-"id": "3841918",
-"platform": "instagram",
-"when": "2026-10-12T22:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Slam it. Don't place it.",
-"batch": ""
-},
 {
 "id": "5019237",
 "platform": "facebook",
@@ -1128,6 +1083,42 @@
 "batch": "Studio S04-A"
 },
 {
+"id": "5524573",
+"platform": "facebook",
+"when": "2026-11-10T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Photos alone get your calorie tracking close. One extra line gets it accurate.",
+"batch": ""
+},
+{
+"id": "5524576",
+"platform": "instagram",
+"when": "2026-11-10T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Photos alone get your calorie tracking close. One extra line gets it accurate.",
+"batch": ""
+},
+{
+"id": "5524579",
+"platform": "tiktok",
+"when": "2026-11-10T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Photos alone get your calorie tracking close. One extra line gets it accurate.",
+"batch": ""
+},
+{
+"id": "5524580",
+"platform": "youtube",
+"when": "2026-11-10T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Photos alone get your calorie tracking close. One extra line gets it accurate.",
+"batch": ""
+},
+{
 "id": "3584693",
 "platform": "facebook",
 "when": "2026-11-11T23:00:00.000Z",
@@ -1675,6 +1666,42 @@
 "slides": 1,
 "text": "The last session is already done, or it didn't happen. Either way, the next one still needs a plan. Pick the t",
 "batch": "Studio S03-C"
+},
+{
+"id": "5524588",
+"platform": "youtube",
+"when": "2026-12-27T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "You can build a full home gym for $58, or about $150 for the complete setup. Here is every item I recommend, w",
+"batch": ""
+},
+{
+"id": "5524584",
+"platform": "facebook",
+"when": "2026-12-28T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "You don't need a gym membership to get in shape. A full home gym costs $58.",
+"batch": ""
+},
+{
+"id": "5524586",
+"platform": "instagram",
+"when": "2026-12-28T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "You don't need a gym membership to get in shape. A full home gym costs $58.",
+"batch": ""
+},
+{
+"id": "5524587",
+"platform": "tiktok",
+"when": "2026-12-28T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "You don't need a gym membership to get in shape. A full home gym costs $58.",
+"batch": ""
 },
 {
 "id": "3584766",
