@@ -9,7 +9,7 @@ Made 2026-10-11. Dan: the shoot doc is kept as it is for editing, and filming us
 | 10-17 Shoot - Teleprompter 2 - Green Screen | Words only, 8 scripts, 4,958 words, 9 pages (rebuilt 2026-10-12 after Dan's clip kills; same Drive id, replaced in place) | `1KvL0_IilRCxlofnY5luTfRvjiseGGpGGXU4sAsjbgzQ` |
 | 10-17 Shoot - Teleprompter 3 - Outside By The Pool | Words only, the 4 follow-along workouts, 2,763 words | `1yc2xg1sG4lTncvcAmkA17SN-JZnQSsbB9Q-fpEbXotg` |
 | 10-17 Shoot - B-Roll List | Every B-roll shot by set, outdoor first, plus what the Edit Queue is blocked on | `1WPx31kcSsGtPyRmNBRb8fJHKC4ivi8gxl1k16wVizSY` |
-| 10-17 Shoot - Reaction Clips | Every clip Dan reacts to, survivors only since 2026-10-12 (12 links, 7 videos), in teleprompter order, each link opening at the clip's exact start second | `1BcRpzDQYNCssROEvg10Z9cOL2AtdvBdyqHwvxxwHtQA` |
+| 10-17 Shoot - Reaction Clips | Every clip Dan reacts to, survivors only since 2026-10-12 (13 links, 8 videos), in teleprompter order, each link opening at the clip's exact start second | `1BcRpzDQYNCssROEvg10Z9cOL2AtdvBdyqHwvxxwHtQA` |
 
 All five are in My Drive beside the shoot doc, viewable by anyone with the link. Page counts: 22, 9 and 6, all under
 Dan's 50-page limit.
@@ -44,7 +44,7 @@ If a script changes in the shoot doc after that, rebuild: `.claude/skills/telepr
 
 Every time in the Reaction Clips document is exact since 2026-10-12, and matches the `[PLAY CLIP ...]` cue in the
 shoot doc. Dan's own clips (the jump rope short, the ab wheel video, the salad video) are not on the list: he is not
-reacting to them. The Retatrutide short has no clip yet (see below).
+reacting to them.
 
 ## 26 more shorts locked for this shoot, not scripted yet (2026-10-12)
 
@@ -78,12 +78,10 @@ Teleprompter 2.
 
 **Open, all Dan's:**
 
-- **Retatrutide clip.** Three candidates are on the review page, `http://127.0.0.1:8875/` (source
-  `review/1017-reaction-clips/`, data `Docs/SHOOT_1017_REACTION_CLIP_PICKS.json`): VladTV `GRHcYzsTvlM` 1:42 to 1:55
-  (my pick, "I advocate for retatrutide"), Hannity `al13dc8reXg` 30:42 to 30:51 ("reta is extremely safe"), VladTV
-  4:37 to 4:50. Times are from captions, good to a second or two. When he chooses: put it in the outline cue, the
-  script cue and the header of that short, change the series note ("The clips are from one video..."), add the link
-  to the Reaction Clips document, and check the script still fits the clip. The script has not been touched.
+- **Retatrutide clip: chosen 2026-10-13.** Dan took the VladTV clip, `GRHcYzsTvlM` 1:42 to 1:55 ("I advocate for
+  retatrutide"). It is in the short's outline cue, script cue and header, and in the Reaction Clips document (13
+  links now). The spoken words did not change, so Teleprompter 2 was not rebuilt. The times are from captions: set
+  the edges by ear in the edit.
 - **Two tracked suggestions in the Celebrity script:** cutting "So anyone who tells you that taking a GLP-1 is
   cheating..." (from the earlier pass) and "They all stopped" to "They both stopped". Teleprompter 2 was built with
   both accepted. If he rejects either, rebuild it.

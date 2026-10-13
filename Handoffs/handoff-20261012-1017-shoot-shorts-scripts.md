@@ -26,8 +26,9 @@ survivors. Check `AI_COORDINATION.md` and the shoot doc before starting:
   content on them.
 
 **Update 2026-10-12: it has been run.** The shoot doc, Teleprompter 2 (8 scripts), the Reaction Clips document
-(survivors only, exact times) and the B-roll list are cut down. The Bryan Johnson video is out too. One thing is still
-open from it: the Retatrutide short has no clip until Dan picks one. State and ids: `Docs/SHOOT_1017_DOCS.md`,
+(survivors only, exact times) and the B-roll list are cut down. The Bryan Johnson video is out too. Dan picked the new
+Retatrutide clip on 10-13 (VladTV) and it is in. Every surviving old clip already has its script, so the only reaction
+scripts left to write are the 15 below. State and ids: `Docs/SHOOT_1017_DOCS.md`,
 "Dan's clip kills, done 2026-10-12".
 
 ## Read first
