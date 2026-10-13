@@ -50,6 +50,7 @@
 - [Suspension prevention](ad-suspension-prevention.md): prevention rules
 - [Docs bullets](google-docs-nested-bullets.md): nesting from HTML export
 - [Script blank lines](scripts-blank-line-between-paragraphs.md): blank line between ALL paragraphs, teleprompter too
+- [Reactions clip first](reaction-shorts-clip-first.md): clip plays first, no line before it, never repeat the clip
 - [Credentials](autonomy-credentials-framing.md): Claude's limit, one line
 - [Takeovers](computer-takeover-frustration.md): warn first
 - [Browser fallback](browser-task-fallback.md): use in-app pane

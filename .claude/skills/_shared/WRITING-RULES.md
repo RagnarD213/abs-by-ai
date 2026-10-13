@@ -75,6 +75,10 @@ A name with no file in `Docs/memory/` is private on purpose. Do not guess what i
   teach them in 45 seconds", so there is a point in watching him react. Put candidate clips on a review page (pick
   plus alternates), and script only the ones he keeps. What he killed and why: `/teleprompterscripts`, "What Dan
   killed".
+- **A reaction short opens on the clip, not on Dan talking (Dan, 2026-10-13).** He is on screen watching it in
+  silence, then reacts. No spoken line before the clip, no HOOK TAKES, and his first line is his verdict, never a
+  repeat of what the clip said. Detail and his own first lines: `/shorts-scripting`, "REACTION SHORTS"; memory
+  `reaction-shorts-clip-first`.
 - **A short cut from a long-form idea gets its own hook.** Do not transcribe the long-form's points in order.
   (Dan, 2026-09-21.)
 - **Proof stays brief and plain: under 90 seconds, no pile of science talk up front, but it must still prove the

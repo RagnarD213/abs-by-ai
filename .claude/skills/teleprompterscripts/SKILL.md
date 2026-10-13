@@ -307,6 +307,19 @@ has reaction videos.
   to"). A calm explainer or a screenshot of a post is not a reaction clip. Pick the moment with a claim, a result or
   a face on screen, and say so on the page when a slot has nothing better.
 
+### When Dan edits a teleprompter document himself, it becomes the master (2026-10-13)
+
+On 10-13 Dan rewrote most of the reaction shorts directly in Teleprompter 2, not in the shoot doc. From that moment a
+rebuild from the shoot doc would have erased his edits.
+
+- **Before any rebuild, diff the live teleprompter document against `built_seq.json` from the last build.** Any
+  difference is his: stop, and carry his words back into the shoot doc's filming scripts first. Only then rebuild.
+- Make further changes to that document in place with the Docs connector: `deleteContentRange` for a paragraph and
+  the blank line after it (highest index first, with `requiredRevisionId` from the read you planned on, so a
+  keystroke of his in between fails the call instead of landing edits in the wrong place), `replaceAllText` for
+  wording. Then re-import that one document into PromptSmart.
+- Save a snapshot of his version in `Docs/` and write the lessons into the writing skill that drafted the scripts.
+
 ### A blank line between ALL paragraphs (Dan, 2026-10-13)
 
 Dan opened Teleprompter 2 and saw a solid block of text: "The scripts don't have line breaks between them... always

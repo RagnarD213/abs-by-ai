@@ -3,12 +3,21 @@
 Made 2026-10-11. Dan: the shoot doc is kept as it is for editing, and filming uses the four documents built from it.
 A fifth filming document, the pickups teleprompter, was added 2026-10-13.
 
+> **2026-10-13, read this before touching Teleprompter 2 or the reaction shorts in the shoot doc.** Dan edited the
+> reaction shorts directly in Teleprompter 2 (he rewrote 12 of the 15 new ones; all 19 are now clip first, with no
+> line before the clip and no hook takes). **Teleprompter 2 is ahead of the shoot doc. Do not rebuild it from the
+> shoot doc: that would erase his edits.** Still to do, once he says he has finished editing: carry his words into
+> the shoot doc's filming scripts, move each clip cue to the top with "Dan on screen, watching, silent", redo the
+> B-roll and on-screen cues that his rewrites moved, and take out the hook takes there. His version as it stood:
+> `Docs/SCRIPTS_1017_SHOOT_REACTION_SHORTS_DAN_EDITED_20261013.md` (11 of the 19 run over 66 seconds with the clip).
+> PromptSmart has this version (imported 13:02).
+
 | document | what it is for | id |
 |---|---|---|
 | Content Outlines And Scripts For 10/17 SixPackAbs.com Shoot | **The editing copy.** Outlines, filming scripts, every graphic, on-screen text, B-roll and clip cue in place. Editors and edit sessions work from this one. Never strip it. | `1gt8Fi_wUaNaksa8sAdMoBvcdlBhZLek82EpBr-leq-0` |
 | 10-17 Shoot - Teleprompter 0 - Pickups (Record First) | Words only, the 11 pickups for three earlier videos, each printed twice (pickup 6: long version twice, then short version twice). 688 spoken words, 3 pages. Dan records these first. Made 2026-10-13 | `1E9TzRx-gav2qBS07gdLLX3YFvLYWQaqMFJQoUO6g3xs` |
 | 10-17 Shoot - Teleprompter 1 - Dark Green Backdrop | Words only, 21 scripts, 12,437 words, 32 pages | `1esSBLZldEbmSikeESYaXWo6n4vq1h0Qm8AhqB7Mo8cs` |
-| 10-17 Shoot - Teleprompter 2 - Green Screen | Words only, 23 scripts, 7,656 words, 22 pages (rebuilt 2026-10-13 with the 15 reaction shorts locked on 10-12; same Drive id, replaced in place) | `1KvL0_IilRCxlofnY5luTfRvjiseGGpGGXU4sAsjbgzQ` |
+| 10-17 Shoot - Teleprompter 2 - Green Screen | Words only, 23 scripts, about 7,750 words after Dan's own edit pass on 2026-10-13 (see the note above; same Drive id) | `1KvL0_IilRCxlofnY5luTfRvjiseGGpGGXU4sAsjbgzQ` |
 | 10-17 Shoot - Teleprompter 3 - Outside By The Pool | Words only, 15 scripts: the 4 follow-along workouts and the 11 outdoor shirtless shorts. 4,873 words, 15 pages (rebuilt 2026-10-13; same Drive id) | `1yc2xg1sG4lTncvcAmkA17SN-JZnQSsbB9Q-fpEbXotg` |
 | 10-17 Shoot - B-Roll List | Every B-roll shot by set, outdoor first, plus what the Edit Queue is blocked on | `1WPx31kcSsGtPyRmNBRb8fJHKC4ivi8gxl1k16wVizSY` |
 | 10-17 Shoot - Reaction Clips | Every clip Dan reacts to, in teleprompter order, each link opening at the clip's start second: the survivors of the 10-12 cuts plus the 15 reaction shorts added 2026-10-13 (31 links). Two are still marked check by eye: Ronaldo and Chris Bumstead | `1BcRpzDQYNCssROEvg10Z9cOL2AtdvBdyqHwvxxwHtQA` |

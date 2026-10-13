@@ -81,6 +81,8 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 
 # ACTIVE
 
+**RA-16:ACTIVE:Codex:2026-10-13.** Next:preview.
+
 **RA-13 QUEUED 2026-10-13.** Next: look samples; localhost:8973.
 
 
@@ -145,8 +147,6 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 **SL-06 R1 REVIEW 2026-10-13, Claude.** http://127.0.0.1:8817/ Lav pickups Thu. `Handoffs/handoff-20261012-sl06-round2-build-after-dan-review.md`
 
 **SL-07 R2 REVIEW 2026-10-13.** `Handoffs/handoff-20261013-sl07-round2-dan-review.md`
-
-**10/17-kills 2026-10-12.** `Docs/SHOOT_1017_DOCS.md`
 
 **RO-12 - QUEUED 2026-10-01, Claude.** Blotato Oct 25. Then: `Docs/RO12_SETUP_RECEIPT_20261001.md`, delete.
 

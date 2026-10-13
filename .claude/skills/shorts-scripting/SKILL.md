@@ -21,6 +21,45 @@ Ab Exercises" and "How Getting Abs Looksmaxxes Your Face") and, more usefully, f
 what he REVERTED when Claude edited them. Both finished scripts landed at 177 and
 176 spoken words. That is not a coincidence and it is the spec.**
 
+## REACTION SHORTS: THE CLIP PLAYS FIRST (Dan, 2026-10-13). This overrides HOOK FIRST for a reaction short.
+
+Dan, editing the 19 reaction shorts for the 10/17 shoot: "I want the clip to play first. I'm on screen non-verbally
+watching the clip as it plays in the background, and then I deliver the reaction. No line for me before the clip
+starts." And: "There's no reason for me to... just repeat what was just said in the clip."
+
+- **Shape:** the clip (Dan on screen, silent, the clip behind him on the green screen), then his verdict in his
+  first sentence, then the lesson, then the close. The clip is the hook.
+- **First cue of the filming script:** `[OPEN ON THE CLIP, PLAYING BEHIND DAN ON THE GREEN SCREEN. DAN IS ON SCREEN
+  WATCHING IT AND DOES NOT SPEAK UNTIL IT ENDS: <source>, m:ss TO m:ss]`. No `[COLD OPEN ... ALREADY TALKING]`.
+- **His first line is a verdict, never a recap.** His own, from that edit: "Bill Maher is right here. Fat shaming is
+  good." "Dr. Mike is right. Willpower is now obsolete, and Tirzepatide has replaced it." "This is a genius move that
+  anyone who's drinking soda should copy right now." "This is hands down the stupidest fitness trend I've seen on
+  social media." "It's easy to laugh at Bert Kreischer for this. But YOU are probably doing the same thing."
+- **No HOOK TAKES on a reaction short.** He deleted them from every script he edited.
+- A clip with no speech may get one line of context after it. A long-form reaction video keeps its intro and short
+  lead-ins between clips, but a lead-in never restates the clip.
+
+**What else he changed in that pass** (his versions: `Docs/SCRIPTS_1017_SHOOT_REACTION_SHORTS_DAN_EDITED_20261013.md`;
+the drafts: `Docs/SCRIPTS_1017_SHOOT_26_SHORTS_AS_DELIVERED_20261013.md`). Read both before the next batch.
+
+- **He rewrote 12 of 15, and nearly every take got harder.** "Being overfat is a serious failure of character." "Human
+  trainers have gone obsolete." "That lie is literally killing you." The drafts were a reasonable point per beat; his
+  are a position someone will argue with. "Obsolete" is his word for the thing he is replacing.
+- **He swore in three of them** ("smart as fuck", "shut the fuck up", "bullshit"). The "no profanity in a short"
+  rule below came from his 2026-08 shorts; for reaction shorts his own edits now say otherwise. Still never add one
+  for colour: leave room and let him.
+- **He replaced lessons he found thin with his own.** Fat shaming: weigh daily and feel shame at three pounds over,
+  plus standing vacuums in the mirror (not "look in the mirror"). The 90-year-old: a BMI table and "treat your belly
+  fat as an emergency" (not body fat levels). ChatGPT coach: calorie photos, a workout program built from a picture
+  of his body, meal prep recipes, then a spoken AbsByAI.com price line. Weight loss medication is his answer more
+  often than the drafts allowed (fake abs, Hormozi).
+- **His number is three pounds** ("more than three pounds over your goal weight"), not the two the draft took from
+  an older line.
+- **Closes are tied to the topic:** "If you want to learn how to get started with intermittent fasting, subscribe
+  to my channel." "Subscribe to my channel for more workout and nutrition tips." Not one stock line on all of them.
+- **He writes long.** 11 of the 19 came back over 66 seconds with the clip (up to 214 words plus an 18 second clip).
+  Re-count after his pass and give him the table (lesson 30); do not cut his words unasked.
+
 ## HOOK FIRST (Dan, 2026-09-21). Read `../_shared/HOOKS.md` before writing a word.
 
 Dan's verdict on the 9/23 short-form batch: the bodies were good, the hooks were the weakest part,
