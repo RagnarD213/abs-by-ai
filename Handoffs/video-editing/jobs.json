@@ -101,14 +101,16 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/RA-05-how-ai-can-get-you-real-six-pack-abs.md`: cut the \"How AI Can Get You REAL Six Pack Abs\" short-form ad from its 8/28 raw takes with /ad-edit. Best take of every line, 9:16 master ≤0:59 plus the 16:9 from the same edit, lav picked per file, the 8/28 S-Log3 conversion, same-person before/after, claim lines flagged to me. Every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RA-05-how-ai-can-get-you-real-six-pack-abs.md` with `$abs-edit-ad`: 9:16 master ≤0:59 plus 16:9 from the same edit. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "ready",
-   "note": "",
+   "state": "in_progress",
+   "note": "Round 1 started 10-13",
    "sub": "",
    "order": 5,
-   "updated": "2026-09-16",
-   "by": "master list",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-10-13",
+   "by": "Claude",
+   "rev": 2,
+   "syncedRev": 2,
+   "editor": "Claude",
+   "needs": ""
   },
   {
    "id": "RA-06",
@@ -278,7 +280,7 @@
    "updated": "2026-10-13",
    "by": "Codex",
    "rev": 3,
-   "syncedRev": 1,
+   "syncedRev": 3,
    "editor": "Codex",
    "needs": "Render slot for look samples, then look approval"
   },
@@ -2063,7 +2065,7 @@
    "updated": "2026-10-13",
    "by": "Codex",
    "rev": 9,
-   "syncedRev": 8,
+   "syncedRev": 9,
    "editor": "Codex",
    "needs": ""
   },
