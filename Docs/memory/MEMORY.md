@@ -166,7 +166,7 @@
 - [B-roll first](broll-library-first.md): scan the library
 - [Editor kit](editor-shorts-graphics-kit.md): top-strip overlays
 - [Kit master](kit-master-path-soft-blue.md): --master --sbl
-- [Thumbnail five](thumbnail-standard-codex-in-setup.md): pool, studio, 3 AI
+- [Thumbnail five](thumbnail-standard-codex-in-setup.md): pool, studio, AI Dan, 2 Codex picks
 - [Cart teardown](continuity-cart-teardown.md): HBI trial cart
 - [Funnel consent](research-funnel-consent-standing-ok.md): tick, no payment
 - [Cart entry](cart-follows-start-button.md): no photo or numbers yet
@@ -197,7 +197,7 @@
 - [Named gear](broll-shows-what-he-names.md): show him using it
 - [App tour](app-feature-tour-reuse.md): reuse B0544/B0543
 - [Self bake-off](self-bakeoff-before-dan-reviews.md): judge first
-- [Thumbnail designs](thumbnail-unique-designs.md): each unique
+- [Thumbnail designs](thumbnail-unique-designs.md): all five unique
 - [Funny AI clips](funny-ai-clips-for-abstract-lines.md): abstract lines
 - [PostHog API](posthog-api-access.md): query-only keys
 - [Amazon](amazon-associates-account.md): danrosefit-20
