@@ -1,6 +1,6 @@
 # Abs By AI — Coordination / Status Board
 
-A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Facts: `Docs/BOARD_REFERENCE.md`.
+Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Facts: `Docs/BOARD_REFERENCE.md`.
 
 | what | where it belongs |
 |---|---|
@@ -13,7 +13,7 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 
 ## Working rules
 
-1. One owner per task; no overwriting without a handoff or review request.
+1. One owner per task; no overwriting without handoff or review request.
 2. Update on start, block, handoff or finish. **Re-read from disk first; edit only your entry.**
 3. Finished and approved → **delete the entry**, durable details first; report in chat.
 4. Budget: ≤2,500 words; entries ≤80 words, dated. Run `scripts/board-check.sh` after edits.
@@ -124,6 +124,8 @@ A STATUS BOARD, not a log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATI
 **RO-20/B/C WAITS-SHOOT 2026-10-13.** `Docs/PICKUPS_1017_SHOOT.md`
 
 **RO-19 R4 BUILDING 2026-10-13, Claude.** Film rendering; page 8867 next. `Handoffs/handoff-20261013-ro19-round4-final-revisions.md`
+
+**RA-04 BUILDING 2026-10-13.**
 
 **RO-07 - HOLD 2026-10-11, Claude.** Blotato full. `Docs/RO07_SETUP_RECEIPT_20261011.md`
 
