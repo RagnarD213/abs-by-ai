@@ -137,3 +137,22 @@ Order: re-hash (`round2-plan/round2-start-hashes.sha256`) -> pin the solve (`bui
   anchor on the second word stamps the chapter after the first word has been said.
 - Round 2 delivered 2026-10-13: page 8871, audio gate 12 of 13, delivery gate 32 pass and 7 known fails, $10.57 of the $15 cap.
   Next: `Handoffs/handoff-20261013-ro08-round3-after-dan-review.md`.
+
+## After Dan's round 2 review (2026-10-13): three AI clips rejected that every check had passed
+
+He chose opener A, removed A4 ("I don't think that illustrates the idea well, or the joke really lands here") and A3 ("The water jumps
+up in the air for no reason... It makes no physics sense"), and sent A5 back ("all the donuts just disappear, vaporize, and go
+nowhere... things that look like AI slop like this get caught in quality control and don't make it to my review"). His words are in
+`round3-plan/decisions.json`; the rule is VIDEO-RULES.md, top section (2026-10-13). What the build did wrong, so it is not repeated:
+
+- **A fault I can describe on the review page is a fault I should have fixed.** Both oddities were written there ("the rumble reads as
+  water splashing up out of three glasses", "the box empties in a one second fast-forward") and shipped as if naming them were enough.
+- **Never ask the model for a time jump inside one take.** The A5 prompt said "time speeds up into a fast time-lapse for a moment...
+  the box empties". Veo cannot eat five donuts in a second, so they vanish. An hour passing is a CUT between a shot at nine and a shot
+  at ten. The opener's time-lapse works because the whole shot is one, and nothing in it has to disappear.
+- **A cause the viewer cannot see is no cause.** "A deep rumble comes from him" is sound; the picture only showed water jumping.
+  If the idea needs the prompt to explain it, pick another idea or leave the camera scene.
+- **Give the reviewer the three questions per clip** (cause and effect, sound-off test, does it show the line). Two reviewers read
+  every frame of these clips for melting hands and labels and were never asked whether the scene made sense.
+- Removing a cutaway can break the hold rule under a pinned solve: with A4 out, three shots of one take run 30 s at one size.
+  Next: `Handoffs/handoff-20261013-ro08-round3-revisions.md`.

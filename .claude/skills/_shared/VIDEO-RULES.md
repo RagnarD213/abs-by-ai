@@ -1,3 +1,38 @@
+## AI clips that make no physical sense, or do not show the line, never reach Dan (Dan, 2026-10-13)
+
+- **An AI clip is checked for sense before Dan sees it, and a clip that fails is regenerated, cut down to the part that works, or
+  dropped. It is never sent to review with the oddity described as "a gag".** Dan, on the RO-08 round 2 film, about three clips the
+  editor and two independent reviews had passed: *"when he grabs the muffin out at the end, all the donuts just disappear, vaporize,
+  and go nowhere. It doesn't make sense. We need better quality control on these clips, so things that look like AI slop like this get
+  caught in quality control and don't make it to my review."* And: *"The water jumps up in the air for no reason. Not clear how that
+  water jumping in the air is connected to the guy or that it is hungry... It makes no physics sense what's happening in this video.
+  It doesn't support what I'm saying. These types of clips should be caught in QC going forward."* And of a third: *"I don't think
+  that illustrates the idea well, or the joke really lands here."*
+- **The three questions, asked of every take at playback speed, by the editor and again by the independent reviewer (put them in
+  the reviewer's brief, one answer per clip):**
+  1. **Does everything obey cause and effect?** Nothing vanishes, appears, melts or changes by itself. Food that leaves the plate is
+     eaten or carried; an object that moves is moved by something the viewer sees.
+  2. **With the sound off, would a stranger say what the clip is showing?** If the answer needs the prompt to explain it (the water
+     ripples because his stomach rumbled), it fails.
+  3. **Does it show the line he is saying, and if it is a joke, does the joke land in one viewing?**
+- A time jump (a clock moving an hour, a full box becoming an empty one) is shown with a CUT between two natural shots, never by
+  asking the model to fast-forward inside one take.
+- His order of repair, said about the donut clip: *"regenerate this so it looks natural. Use a part of the clip only. If you can't
+  make it look natural, eliminate all the food just vaporizing into the air and disappearing. If you can't make it look natural, then
+  just use the camera scene here."* The camera scene is always an acceptable result; a bad clip is not.
+- **At the budget cap with clips that still have obvious problems, ask for more budget. Never ship them.** *"If we hit budget but
+  the clips are still having obvious problems, then I would rather you ask for authorization for more budget than ship something
+  with shitty clips like this."* Put the ask first in the message, alone, with the number.
+- **About five AI clips per video at most, chosen by Dan from many ideas.** *"I like the approach that you took of generating many
+  ideas and certain end frames for AI clips... I'm just going to be a little bit more selective in what we generate. Maybe a max of 5
+  clips per video, but keep coming up with lots of ideas. I'm just going to reject more of them."* Nothing changes in what is offered
+  (2026-10-11 rule below); expect about five approvals, and spend the rest of the budget on retakes of those.
+- This narrows "AI clip faults: judge at playback speed; small faults pass" (2026-10-08, below): that rule covers a fault of a few
+  frames inside an action that makes sense. It never covered what the clip shows happening.
+- Why it was missed: the editor wrote both faults on the review page ("around its fifth second the junk clears in one sweep", "the
+  rumble reads as water splashing up out of three glasses") and shipped them anyway, and the reviewers were asked about frame faults,
+  labels and lip sync, not whether the scene made sense.
+
 ## A lip sync that fails its check once goes in without lip sync (Dan, 2026-10-12)
 
 - **If a lip-synced AI clip does not pass the quality check on the first try, use the clip with no lip sync: the character keeps his
@@ -645,7 +680,7 @@ no content-style edits of ads ("such as making 5 shorts out of an ad").
 
 ## Video clip generation budget and frame approval (Dan, 2026-09-15)
 
-- **Updated by Dan, 2026-10-09:** Replicate image and motion generation is standing-authorized up to **$50 total per website video**, **$5 total per content video posted on YouTube or Instagram**, and **$10 total per ad uploaded unlisted and advertised**. Dan: "You're always authorized to generate whatever you need with Replicate" within those limits. Use existing project Replicate keys and send the necessary project image inputs to Replicate for that generation without asking again. This replaces the earlier $5 Replicate limit. The existing Gemini authorization is unchanged.
+- **Updated by Dan, 2026-10-09:** Replicate image and motion generation is standing-authorized up to **$50 total per website video**, **$15 total per long-form content video (Dan, 2026-10-13, raised from $5; he said "$15 per clip", recorded as per video until he confirms) and $5 total per other content video posted on YouTube or Instagram**, and **$10 total per ad uploaded unlisted and advertised**. Dan: "You're always authorized to generate whatever you need with Replicate" within those limits. Use existing project Replicate keys and send the necessary project image inputs to Replicate for that generation without asking again. This replaces the earlier $5 Replicate limit. The existing Gemini authorization is unchanged.
 - Count supporting start/end-frame generation and paid retries in the video's total across all revisions; a new task or revision does not reset it. Preserve unknown charges honestly and track provider receipts. Ask for spend authorization only before exceeding the applicable cap, stating the specific clips and estimated new total.
 - Show Dan the **start and end frames plus the intended action** for approval before generating motion. Budget authorization does not replace frame approval. Materially different replacement frames require approval again.
 - Current stock choice (Dan, 2026-09-15): **Pexels and existing assets with known usage rights only; no paid stock service or subscription.** Use AI where the intended scene needs it. Keep a per-video generation total, including paid unsuccessful attempts. Gemini quality-review spend remains governed by its separate standing authorization.

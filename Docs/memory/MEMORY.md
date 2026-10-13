@@ -213,6 +213,7 @@
 - [Reaction clips](reaction-clip-criteria.md): big name, hooks fast, lesson
 - [Gym B-roll ideas](next-shoot-gym-broll-ideas.md): none on 10/17, next shoot yes
 - [Reaction videos: clips first](reaction-videos-clips-first.md): 10-12: Dan watches candidate clips before any script; attention-getting, under 20 s, big name, a lesson in 45 s
+- [AI clip sense QC](ai-clip-sense-qc.md): cause and effect, shows the line; ~5 clips; ask budget
 - [Execute Dan's picks](execute-dans-explicit-picks.md): build exactly what he names
 - [Allegations not facts](allegations-not-fact.md): never mentioned unless Dan asks
 - [Assessment symmetry](assessment-symmetry.md): one standard, swap test, results

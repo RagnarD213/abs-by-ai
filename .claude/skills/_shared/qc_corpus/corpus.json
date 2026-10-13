@@ -1,7 +1,7 @@
 {
   "_README": "THE STANDARD IS DAN'S WORDS, NOT OUR PARAPHRASE. Every entry quotes him verbatim. See README.md.",
   "version": 2,
-  "updated": "2026-10-10",
+  "updated": "2026-10-13",
   "roots": {
     "repo": ".",
     "ssd": "/Volumes/Extreme/_edit_work"
@@ -3257,6 +3257,28 @@
       "must_trigger": [],
       "measured": "Audio gate fails the tone row only (mean 1.28 against 1.2, max 4.77 against 2.5) with voice 4, the audition Dan picked. Delivery gate 2.5.1: 30 pass, 9 fail (audio:stamp, style:coverage 27 %, framing:hair_top, framing:headroom, cut:splice_visibility, captions:card_collision, captions:burned, watch:pass with 29 hair entries open, junk:repeated_take). Independent review of the first render: DOES NOT SHIP (C31 ended on 11 frozen frames; the gate's watch scan reported the same run). Independent review of this file: SHIP.",
       "notes": "Final-film creative approval with the gate's raw FAIL kept visible; no threshold was changed. Hair touches the top edge in about 2.5 % of presenter frames (camera framing); the delivery message asked leave as shot or add headroom and he approved the film as delivered without a line on hair, so it stays as shot (editor's reading, recorded as such in ro07/final/dan-approval-20261011-verbatim.md). His thumbnail mix for this video is in ro07/round3-plan/decisions.json. Paired with ro07-r2-first-minute-approved-20261010."
+    },
+    {
+      "id": "ro08-r2-full-film-ai-clips-rejected-20261013",
+      "verdict": "rejected",
+      "date": "2026-10-13",
+      "root": "ssd",
+      "path": "ro08/round2/RO-08 round 2 - full film.mp4",
+      "sha256": "75d08be47b45b3a744af4fa939f5435b0f57c85ec1bd46ae8bd8f8365bde949a",
+      "bytes": 1288486811,
+      "excerpt": [
+        365,
+        8
+      ],
+      "dan": "For the clip at 06:07, we need to regenerate this. This looks very AI because when he grabs the muffin out at the end, all the donuts just disappear, vaporize, and go nowhere. It doesn't make sense. We need better quality control on these clips, so things that look like AI slop like this get caught in quality control and don't make it to my review. ... This clip at 7:18 doesn't work. The water jumps up in the air for no reason. Not clear how that water jumping in the air is connected to the guy or that it is hungry. ... It makes no physics sense what's happening in this video. It doesn't support what I'm saying. These types of clips should be caught in QC going forward. ... Let's eliminate that clip at 202. I don't think that illustrates the idea well, or the joke really lands here.",
+      "scope": "Three of eight AI clips in the complete 16:9 film (A5 6:05.86 to 6:11.67 regenerate, A3 7:16.54 to 7:22.05 and A4 1:58.70 to 2:04.42 removed). The same reply chose opener A; the rest of the film drew no note and is not finalized.",
+      "must_trigger": [
+        "clip:ai_cause_and_effect",
+        "clip:ai_shows_the_line"
+      ],
+      "must_pass": [],
+      "measured": "Delivery gate 2.5.1 on this file: 32 pass, 7 fail (audio stamp on tone, cover 24 %, two hair rows, splice visibility 17 of 149, two false alarms); watch pass 494 of 494 images judged, 0 open defects; second independent review: SHIP. A5: one Veo take prompted to fast-forward inside the shot, the donuts leave the box in about a second with no hand taking most of them. A3: water leaps out of three glasses with no visible cause tied to the man.",
+      "notes": "FINDING: no gate and neither independent review saw this rejection. Both named checks are PENDING: nothing automated judges whether an AI clip obeys cause and effect or shows the spoken line. The process fix is VIDEO-RULES.md, top section (2026-10-13): three questions per take at playback speed, asked again of the independent reviewer per clip; a time jump is a cut between two natural shots. Record: ro08/round3-plan/decisions.json; lessons: longform-edit/reference/ro08/README.md."
     }
   ]
 }
