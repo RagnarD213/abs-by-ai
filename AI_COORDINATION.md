@@ -118,7 +118,7 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 
 
 
-**SL-05 shorts - QUEUED 2026-10-01, Claude.** Blotato Oct 17-27. Next: Oct 11, confirm parent posted, else hold these. `Docs/SL05_SETUP_RECEIPT_20261001.md`.
+**SL-05 shorts - QUEUED 2026-10-13, Claude.** Moved to Nov 5-14. `Docs/SL05_SETUP_RECEIPT_20261001.md`.
 
 **RO-11 - QUEUED 2026-10-09, Claude.** YouTube Sun Dec 13, socials Mon. Then: captions, article, links. `Docs/RO11_SETUP_RECEIPT_20261009.md`.
 
@@ -126,7 +126,7 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 
 **Video 5 setup - 2026-10-11, Claude.** Queue blocked (200 cap). Task `abs40-vs-25-blotato-queue` queues Jan 3 2027 on Oct 12. `Docs/ABS40VS25_SETUP_RECEIPT_20261011.md`.
 
-**Muhammad-Shorts-SFC-Setup 2026-10-13.** `Handoffs/handoff-20261013-muhammad-shorts-batch2-setup-and-ads-check.md`
+**Muhammad Shorts - QUEUED 2026-10-13, Claude.** Oct 15-31; 7 on waitlist. DS-05 HD owed. `Docs/MUHAMMAD_SHORTS_SETUP_RECEIPT_20261013.md`
 
 **RO-20/B/C WAITS-SHOOT 2026-10-13.** `Docs/PICKUPS_1017_SHOOT.md`
 
@@ -138,7 +138,7 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 
 **RA-07 R1 REVIEW 2026-10-13.** http://127.0.0.1:8807/ `Handoffs/handoff-20261013-ra07-fire-your-trainer-round2-after-dan-review.md`
 
-**RO-19 NEEDS-DAN-thumbnail-pick 2026-10-13.**
+**RO-19 HOLD 2026-10-13.** `Docs/RO19_SETUP_RECEIPT_20261013.md`
 
 **RO-07 - HOLD 2026-10-11, Claude.** Blotato full. `Docs/RO07_SETUP_RECEIPT_20261011.md`
 
@@ -160,7 +160,7 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 
 **Stashed edits - NEEDS OWNER 2026-09-29, Claude.** Upstream kept: softblue.py, SOFTBLUE.md, GRAPHICS-STANDARDS.md, deliver/gate.py, coverimage SKILL.md, 00-MASTER.md, jobs.json. Edits: `stash@{0}` (5d8284a). Next: re-apply.
 
-**SL-04 shorts - QUEUED 2026-09-30, Claude.** Blotato Oct 6-15; delete once posted. `Docs/SL04_SETUP_RECEIPT_20260930.md`.
+**SL-04 shorts - QUEUED 2026-10-13, Claude.** Last one moved to Nov 3; delete once posted. `Docs/SL04_SETUP_RECEIPT_20260930.md`.
 
 
 
