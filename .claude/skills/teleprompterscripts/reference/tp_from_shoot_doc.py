@@ -13,6 +13,7 @@ How it reads the shoot doc (the 10/17 format):
   by a bullet), or a section heading (LONG FORM..., SHORT FORM..., B-ROLL SHOT LIST).
 - A paragraph that starts with [ and ends with ] is a cue and is dropped. So is the "Filming script..." note line.
   Everything else is spoken. A soft line break inside a paragraph (shift+enter) starts a new teleprompter paragraph.
+- Every spoken paragraph is followed by a blank line (Dan, 2026-10-13: without them the document is one block of text).
 - Pending suggestions are read as accepted. Check there are none before building (the script prints the count).
 
 SETS decides which doc a script goes in, by the start of its title. Edit it for each shoot; anything not matched goes
@@ -38,12 +39,13 @@ SETS = [  # (label for the file name, title prefixes that go here, blank line at
                              "Why I Only Do 3 Sets", "Why Cables Beat Dumbbells", "Why I Do A Total Body Workout",
                              "Why I Work Out First Thing", "Why You Must Train Your Abs"), True),
 ]
-MAX_WORDS = 25000   # Dan, 2026-10-11: at most 50 pages per teleprompter script. A Google Doc of these runs about 565
-                    # words a page (12,437 words = 22 pages), so 25,000 words is about 45. A longer set is split in two.
+MAX_WORDS = 16000   # Dan, 2026-10-11: at most 50 pages per teleprompter script. With a blank line after every paragraph a Google Doc
+                    # of these runs about 390 words a page (12,437 words = 32 pages, 2026-10-13), so 16,000 words is about 41. A longer set is split in two.
 SEC = re.compile(r'^(LONG FORM|SHORT FORM|B-ROLL SHOT LIST)')
 GAP = re.compile(r'\[(ROUND|CIRCUIT|TIMER ENDS|NO TALKING)')
 PST = 'style="color:#000000;font-weight:normal;font-style:normal"'
 BREAK = '<p><br clear="all" style="page-break-before:always"></p>'
+BLANK = '<p %s><br></p>' % PST   # an empty paragraph: imports into Google Docs and PromptSmart as a blank line
 
 def load(path):
     P, pend = [], 0
@@ -102,7 +104,8 @@ if __name__ == '__main__':
             for kind, t in s['paras']:
                 if kind == 'CUE':
                     gap = gap or (gaps and bool(GAP.match(t))); continue
-                if gap and not first: parts.append('<p %s><br></p>' % PST)
+                if not first: parts.append(BLANK)          # Dan, 2026-10-13: a blank line between ALL paragraphs, always
+                if gap and not first: parts.append(BLANK)  # and a second one where a round cue stood
                 gap = False; first = False
                 parts.append('<p %s>%s</p>' % (PST, html.escape(t))); seq.append(t)
         parts.append('</body></html>'); open(os.path.join(out_dir, name + '.html'), 'w').write('\n'.join(parts)); built[name] = seq

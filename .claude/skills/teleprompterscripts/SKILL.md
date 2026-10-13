@@ -307,6 +307,26 @@ has reaction videos.
   to"). A calm explainer or a screenshot of a post is not a reaction clip. Pick the moment with a claim, a result or
   a face on screen, and say so on the page when a slot has nothing better.
 
+### A blank line between ALL paragraphs (Dan, 2026-10-13)
+
+Dan opened Teleprompter 2 and saw a solid block of text: "The scripts don't have line breaks between them... always
+have line breaks between paragraphs so they look normal." The builder had written each spoken line as a paragraph with
+nothing after it, and the 10-11 and 10-12 checks (lines matched, no brackets) could not see that.
+
+- `tp_from_shoot_doc.py` now writes an empty paragraph (`<p><br></p>`) after every spoken paragraph, and a second one
+  where a round cue stood. Any other builder or hand-made filming document does the same. The pickups document was
+  fixed in place through the Docs connector: one `insertText` of a line break at the start of each paragraph that sat
+  directly under another, highest index first.
+- **New check, every build:** export as text and count non-empty lines directly followed by a non-empty line. The
+  count must equal the number of scripts (each title sits on its first paragraph) and nothing more. Then open one
+  document in the browser and look.
+- Blank lines cost pages: about 390 words a page now (12,437 words = 32 pages), so `MAX_WORDS` is 16,000 (about 41
+  pages) to stay under his 50. Count pages from the PDF by page objects (`/Type /Page`); the largest `/Count` can be
+  the bookmark count instead.
+- PromptSmart keeps the blank lines from the Word export. After re-importing, move the older cards to its Trash. A
+  script can do the card menu, Delete and the confirm button with `element.click()`; read the dialog's text (it names
+  the script) before confirming.
+
 ### Writing new scripts into a long shoot doc with the Docs connector (2026-10-13)
 
 Used for the 26 shorts added to the 10/17 shoot doc (290,000 characters). No Chrome, no clipboard.

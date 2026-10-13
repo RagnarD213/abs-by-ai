@@ -7,21 +7,23 @@ A fifth filming document, the pickups teleprompter, was added 2026-10-13.
 |---|---|---|
 | Content Outlines And Scripts For 10/17 SixPackAbs.com Shoot | **The editing copy.** Outlines, filming scripts, every graphic, on-screen text, B-roll and clip cue in place. Editors and edit sessions work from this one. Never strip it. | `1gt8Fi_wUaNaksa8sAdMoBvcdlBhZLek82EpBr-leq-0` |
 | 10-17 Shoot - Teleprompter 0 - Pickups (Record First) | Words only, the 11 pickups for three earlier videos, each printed twice (pickup 6: long version twice, then short version twice). 688 spoken words, 3 pages. Dan records these first. Made 2026-10-13 | `1E9TzRx-gav2qBS07gdLLX3YFvLYWQaqMFJQoUO6g3xs` |
-| 10-17 Shoot - Teleprompter 1 - Dark Green Backdrop | Words only, 21 scripts, 12,437 words | `1esSBLZldEbmSikeESYaXWo6n4vq1h0Qm8AhqB7Mo8cs` |
-| 10-17 Shoot - Teleprompter 2 - Green Screen | Words only, 23 scripts, 7,656 words, 23 pages (rebuilt 2026-10-13 with the 15 reaction shorts locked on 10-12; same Drive id, replaced in place) | `1KvL0_IilRCxlofnY5luTfRvjiseGGpGGXU4sAsjbgzQ` |
+| 10-17 Shoot - Teleprompter 1 - Dark Green Backdrop | Words only, 21 scripts, 12,437 words, 32 pages | `1esSBLZldEbmSikeESYaXWo6n4vq1h0Qm8AhqB7Mo8cs` |
+| 10-17 Shoot - Teleprompter 2 - Green Screen | Words only, 23 scripts, 7,656 words, 22 pages (rebuilt 2026-10-13 with the 15 reaction shorts locked on 10-12; same Drive id, replaced in place) | `1KvL0_IilRCxlofnY5luTfRvjiseGGpGGXU4sAsjbgzQ` |
 | 10-17 Shoot - Teleprompter 3 - Outside By The Pool | Words only, 15 scripts: the 4 follow-along workouts and the 11 outdoor shirtless shorts. 4,873 words, 15 pages (rebuilt 2026-10-13; same Drive id) | `1yc2xg1sG4lTncvcAmkA17SN-JZnQSsbB9Q-fpEbXotg` |
 | 10-17 Shoot - B-Roll List | Every B-roll shot by set, outdoor first, plus what the Edit Queue is blocked on | `1WPx31kcSsGtPyRmNBRb8fJHKC4ivi8gxl1k16wVizSY` |
 | 10-17 Shoot - Reaction Clips | Every clip Dan reacts to, in teleprompter order, each link opening at the clip's start second: the survivors of the 10-12 cuts plus the 15 reaction shorts added 2026-10-13 (31 links). Two are still marked check by eye: Ronaldo and Chris Bumstead | `1BcRpzDQYNCssROEvg10Z9cOL2AtdvBdyqHwvxxwHtQA` |
 
-All six are in My Drive beside the shoot doc, viewable by anyone with the link. Page counts: 3 (pickups), 22, 23 and 15,
-all under Dan's 50-page limit.
+All six are in My Drive beside the shoot doc, viewable by anyone with the link. Page counts: 2 (pickups), 32, 22 and 15,
+all under Dan's 50-page limit. **All four have a blank line between every paragraph since 2026-10-13** (Dan: they read
+as one block of text without them); the word counts did not change.
 
 **PromptSmart:** the three teleprompter documents were imported on 2026-10-11 as three scripts with the same names
 (`my.promptsmart.com/scripts`). The B-roll list is in Drive only, by his instruction. Teleprompter 2 was imported again
 on 2026-10-12 (script 1488017) and the 10-11 copy moved to PromptSmart's Trash. His subscription shows "expires Oct 20, 2026".
 Teleprompter 0 (the pickups) was imported on 2026-10-13 as script 1489308, same name, 709 words with its three titles.
 Teleprompter 2 and 3 were imported again on 2026-10-13 after the 26 new shorts went in (scripts 1489354 and 1489353), and the
-older copies moved to PromptSmart's Trash.
+older copies moved to PromptSmart's Trash. Later the same day Teleprompter 1, 2 and 3 were rebuilt with a blank line between
+all paragraphs and imported once more (Teleprompter 1 is script 1489797); the three older cards are in the Trash.
 
 ## Pickups (Dan, 2026-10-13): recorded first
 
