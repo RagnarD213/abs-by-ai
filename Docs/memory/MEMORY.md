@@ -49,7 +49,8 @@
 - [Meal tasks](daily-meal-tasks.md): one recurring entry each
 - [Suspension prevention](ad-suspension-prevention.md): prevention rules
 - [Docs bullets](google-docs-nested-bullets.md): nesting from HTML export
-- [Script blank lines](scripts-blank-line-between-paragraphs.md): blank line between ALL paragraphs, teleprompter too
+- [Script blank lines](scripts-blank-line-between-paragraphs.md): in the shoot doc; not teleprompter docs
+- [Teleprompter spacing](teleprompter-no-blank-lines.md): no blank lines; edit in Filming doc
 - [Reactions clip first](reaction-shorts-clip-first.md): clip plays first, no line before it, never repeat the clip
 - [Credentials](autonomy-credentials-framing.md): Claude's limit, one line
 - [Takeovers](computer-takeover-frustration.md): warn first
@@ -204,7 +205,7 @@
 - [Amazon](amazon-associates-account.md): danrosefit-20
 - [B-roll grade](broll-always-colour-corrected.md): grade before Dan sees it
 - [Phone clip](never-use-dan-phone-clip.md): B0437 never
-- [Copy polish](copy-polish-direct-edits.md): sure edits direct
+- [Copy polish](copy-polish-direct-edits.md): spelling fixes direct, never tracked
 - [Filming docs](filming-docs-after-final-polish.md): after polish
 - [Queue routine](one-routine-queues-videos.md): video_waitlist.json
 - [Shorts opener](shorts-open-with-pickup.md): pickup line

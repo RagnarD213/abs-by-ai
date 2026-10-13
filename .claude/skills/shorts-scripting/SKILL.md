@@ -59,6 +59,8 @@ the drafts: `Docs/SCRIPTS_1017_SHOOT_26_SHORTS_AS_DELIVERED_20261013.md`). Read 
   to my channel." "Subscribe to my channel for more workout and nutrition tips." Not one stock line on all of them.
 - **He writes long.** 11 of the 19 came back over 66 seconds with the clip (up to 214 words plus an 18 second clip).
   Re-count after his pass and give him the table (lesson 30); do not cut his words unasked.
+  When he asked for the cut (10-13), 22 of 29 whole-sentence cuts were accepted as written: what he kept and why is in
+  `/copy-edit`, "Cutting a script to length".
 
 ## HOOK FIRST (Dan, 2026-09-21). Read `../_shared/HOOKS.md` before writing a word.
 

@@ -73,6 +73,13 @@ category he has accepted every time over 10 or more decisions moves to the strai
 straight-in edit he changes back moves that category to tracked; a second one makes it a DON'T. When it is not
 clear which list an edit belongs on, track it.
 
+**Reaffirmed 2026-10-13, after a run that tracked everything.** Mid-run he said "make sure you're using the track
+changes feature... so I can review all these edits", and the five spelling and capitalization fixes were tracked
+along with the cuts. Afterwards: "only changes you're not sure whether or not to accept need to be done with track
+changes. Things like correcting a spelling error, capitalization, or things like that should be made directly in the
+document... so that I don't spend time reviewing them going forward." So a request to use track changes covers the
+edits that need his judgment. Spelling, obvious grammar and obvious capitalization still go straight in.
+
 **A direct edit is still checked and still recorded.** After the send, diff the whole doc against the read taken
 before it (`verify_suggestions.py --diff`): every changed line must be one that was planned. Both lists go in the
 as-delivered file so the next session can see what he changed back.
@@ -319,6 +326,33 @@ DON'T, from his 6 rejections and 3 rewrites (numbering continues the list above)
     your belly still sticks out in a shirt. You don't have muscle definition anywhere." stayed as two sentences.
     Other merges were accepted, which is why a merge is always tracked and never typed in.
 
+## Cutting a script to length (first run 2026-10-13: 22 of 29 cuts accepted)
+
+Dan asked for the 19 reaction shorts to be cut to 66 seconds with the clip. Whole sentences only, every cut tracked.
+
+- **A leftover draft line that repeats a paragraph he wrote: cut it.** 9 of 9 accepted (straight apostrophes mark
+  the draft, curly ones his typing).
+- **His own lines: 13 of 20 accepted, 2 replaced by a shorter line of his, 5 put back.** What he put back:
+  - short emphasis tags he had just typed ("And you should too." "As in, you should start them right now." "That's
+    hard for a lot of people to believe."). Same family as DON'T 8 and 12: they are weight, not filler.
+  - the instruction said again at the close ("Just up your Zepbound dose, and you can lose all the weight you want.").
+    That is the takeaway, not a restatement.
+  - the other half of a contrast ("If you're not fasting, then you'll probably have to eat a small, low calorie dinner").
+- **What he cut himself to make room:** a study statistic (the finasteride numbers) and a proof-by-crowd line ("Terry
+  Crews does it, I do it, and literally millions of other men are doing it too"). He gives up outside proof before
+  his own instruction or emphasis. So cut a quoted study or a second proof before a line that tells the viewer what
+  to do. His own numbers (doses, pounds, days) stay.
+- **A cut that removes a payoff he wants comes back shorter, in his words.** "And at the same time, you'll actually be
+  training a deep ab muscle that makes your belly bulge out less." became "And vacuums will actually make your belly
+  bulge out less." Offer the cut and expect this; never write the short version for him.
+- **The sentences he typed in his most recent pass are the last to cut.** All five he put back were from the edit he
+  made that afternoon.
+- **He may leave a script over the limit on purpose.** After his rulings three ran 68 to 72 seconds. Re-count, give
+  him the list once, and do not cut again unasked.
+- Tool for the sends: a plan of `('sent' | 'para', script, text)` cuts turned into `deleteContentRange` requests,
+  highest index first, sent in one call with `writeMode: SUGGEST` and `targetRevisionId`. A whole paragraph takes the
+  blank line after it. Verify with `verify_suggestions.py` and re-count the accept-all view.
+
 When he agrees a line is off but the fix needs new words, he tends to write his own: "for almost none of his money"
 was offered as "for almost no money" and became "without spending anything"; "Let's start with abs. I have three."
 became "Let's start with my three favorite ab exercises." Offer the plainest version and expect it to change.
@@ -375,7 +409,7 @@ Dan does not see the tool calls. The report is what he reads before opening the 
 | 2026-09-29 | Sales letter: AI Got Me Abs at 40 (draft v1) | 46 | 37 | 9 | DON'T 1 to 9 above; the seven claims edits confirmed |
 | 2026-10-10 | 10/17 shoot doc, 43 filming scripts (`1gt8Fi_wUaNaksa8sAdMoBvcdlBhZLek82EpBr-leq-0`) | 90 | 81 | 6 rejected, 3 rewritten | DON'T 10 to 12; the straight-in and tracked lists. List and result: `Docs/COPYEDIT_1017_SHOOT_POLISH_AS_DELIVERED_20261010.md` |
 | 2026-10-11 | Same doc, "10 Exercises" script rewrite (first run under straight in or tracked) | 46 direct, 5 tracked | pending | pending | `Docs/SCRIPT_10_EXERCISES_REWRITE_AS_DELIVERED_20261011.md`. Next session: read the doc, see what he changed back, fill this row |
-| 2026-10-13 | Teleprompter 2, 19 reaction shorts (`1KvL0_IilRCxlofnY5luTfRvjiseGGpGGXU4sAsjbgzQ`): cut to 66 s with the clip | 0 direct, 34 tracked (29 whole-sentence cuts, 5 one-word fixes) | pending | pending | Dan asked mid-run for every edit to be tracked, typo fixes included. `Docs/COPYEDIT_1017_REACTION_SHORTS_66S_AS_DELIVERED_20261013.md`. Next session: read the doc, see which cuts he put back, fill this row |
+| 2026-10-13 | Teleprompter 2, 19 reaction shorts (`1KvL0_IilRCxlofnY5luTfRvjiseGGpGGXU4sAsjbgzQ`): cut to 66 s with the clip | 0 direct, 34 tracked (29 whole-sentence cuts, 5 one-word fixes) | 22 cuts and all 5 fixes | 5 cuts rejected, 2 cuts replaced by a shorter line of his own | "Cutting a script to length" below; simple fixes are never tracked, whatever else is. `Docs/COPYEDIT_1017_REACTION_SHORTS_66S_AS_DELIVERED_20261013.md` |
 
 After every run: add a row, and if a rejection reveals a new category, add it to DON'T with
 the before and after text. Three rejections of the same kind become a rule; one is a note.

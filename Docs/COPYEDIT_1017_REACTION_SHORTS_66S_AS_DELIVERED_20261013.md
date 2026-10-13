@@ -136,6 +136,17 @@ No edits. Fits as it is.
 - Left alone on the defaults, pending his answer: Hormozi "two pounds" (his other scripts say three), and Ronaldo's context line after the clip.
 - Not touched: titles, first lines, closes, swearing, the six scripts that already fit.
 
-## Next (after Dan rules on the suggestions)
+## Result (Dan ruled the same evening)
 
-Fill the calibration row in `.claude/skills/copy-edit/SKILL.md` from what he accepted, re-count from the live doc, re-import Teleprompter 2 into PromptSmart, then carry the final words into the shoot doc (handoff steps 2 and 3).
+- The 5 one-word fixes: all accepted. He then said fixes like these never need review: type them straight in.
+- The 29 cuts: 22 accepted as written, 5 put back, 2 put back as a shorter line of his own.
+- Put back: Terry Crews "That's hard for a lot of people to believe." and "If you're not fasting, then you'll probably have to eat a small, low calorie dinner to hit your calories."; Retatrutide "Just up your Zepbound dose, and you can lose all the weight you want."; Hair "As in, you should start them right now." and "And you should too."
+- Put back shorter, his words: Dad Bod "Put in the work in the gym, and it'll save you a ton of rejection and unnecessary work with women."; Fat Shaming "And vacuums will actually make your belly bulge out less."
+- Cut by him to make room: Terry Crews "Terry Crews does it, I do it, and literally millions of other men are doing it too."; Hair "In the 5 year finasteride study, 9 out of 10 men kept their hair or grew more."
+- Other edits of his: Fat Shaming "But fat shaming other people is a pointless waste of energy."; Dad Bod close "Subscribe to my channel to learn how to build an aesthetic physique."; Retatrutide "Reta is proven in clinical trials to be far more effective than tirzepatide for losing fat."; Terry Crews close now starts "And if you want...".
+- Lengths after his rulings: 15 at or under 66 seconds, Fat Shaming at 66.1, and three over by his choice: Dad Bod 72.2, Retatrutide 69.4, Terry Crews 68.4. Not cut again.
+- Final wording: `Docs/SCRIPTS_1017_SHOOT_REACTION_SHORTS_FINAL_20261013.md`. Lessons: `.claude/skills/copy-edit/SKILL.md`, "Cutting a script to length".
+
+## Still to do
+
+Carry the final words into the shoot doc (handoff step 3). PromptSmart was re-imported on 2026-10-13 with the final wording and no blank lines.

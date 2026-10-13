@@ -114,11 +114,10 @@ A name with no file in `Docs/memory/` is private on purpose. Do not guess what i
 - **Outlines keep real nested bullets** (sub-points indented under their parent), never a flat list of dashes.
   (Dan, 2026-08-14.)
 - **Scripts: a blank line between paragraphs and between a filming note and the spoken words.** (Dan, 2026-09-16.)
-- **That holds for every copy of a script, the teleprompter documents included (Dan, 2026-10-13).** He opened Teleprompter 2
-  and found one block of text: "always have line breaks between paragraphs so they look normal." A real empty line
-  between ALL paragraphs, in the shoot doc, the teleprompter copies, pickups documents and PromptSmart. Check in code
-  (export as text; no non-empty line directly under another, except a title and its first paragraph), then look at it
-  once in the browser. Memory `scripts-blank-line-between-paragraphs`.
+- **Teleprompter documents are the one exception: no blank line between paragraphs (Dan, 2026-10-13, evening).** He
+  asked for blank lines in them that morning and reversed it the same day, to save space on the prompter. The Filming
+  document (the shoot doc) and every other script document keep the blank lines. Detail and the tool for changing an
+  existing document: `/teleprompterscripts`. Memory `teleprompter-no-blank-lines`.
 - **A script written for a shoot is a FILMING script.** Every graphic, photo, B-roll shot, on-screen text, clip and editor
   note goes in as its own ALL CAPS bracketed line, before the words it covers. Label the note line "Filming script". The
   clean teleprompter copy is made later (`/teleprompterscripts`). (Dan, 2026-10-06; memory `filming-scripts-first`.)

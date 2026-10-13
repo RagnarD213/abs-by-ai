@@ -12,24 +12,29 @@ A fifth filming document, the pickups teleprompter, was added 2026-10-13.
 > `Docs/SCRIPTS_1017_SHOOT_REACTION_SHORTS_DAN_EDITED_20261013.md` (11 of the 19 run over 66 seconds with the clip).
 > PromptSmart has this version (imported 13:02).
 >
-> **Later on 2026-10-13: 34 tracked suggestions are pending in Teleprompter 2** (29 cuts that bring every reaction
-> short to 66 seconds or less with its clip, 5 one-word fixes). Dan also rewrote Retatrutide and Hair Is Life after
-> the snapshot above. Until he rules on them, do not re-import or carry anything into the shoot doc. List:
-> `Docs/COPYEDIT_1017_REACTION_SHORTS_66S_AS_DELIVERED_20261013.md`.
+> **Evening of 2026-10-13: Dan ruled on all 34 suggestions; nothing is pending.** Final wording of the 19 shorts:
+> `Docs/SCRIPTS_1017_SHOOT_REACTION_SHORTS_FINAL_20261013.md`. What he accepted and put back:
+> `Docs/COPYEDIT_1017_REACTION_SHORTS_66S_AS_DELIVERED_20261013.md`. Three run over 66 seconds by his choice.
+> **The shoot doc still has the old versions of these 19 shorts and of his long-video edits in Teleprompter 2.**
+>
+> **Same evening, Dan: no blank lines between paragraphs in any teleprompter document.** All four were re-flowed in
+> place with `tp_reflow.py` (every word kept, same Drive ids) and imported into PromptSmart again; the four older
+> cards are in its Trash. From now on script edits happen in the shoot doc, not in a teleprompter copy.
 
 | document | what it is for | id |
 |---|---|---|
 | Content Outlines And Scripts For 10/17 SixPackAbs.com Shoot | **The editing copy.** Outlines, filming scripts, every graphic, on-screen text, B-roll and clip cue in place. Editors and edit sessions work from this one. Never strip it. | `1gt8Fi_wUaNaksa8sAdMoBvcdlBhZLek82EpBr-leq-0` |
-| 10-17 Shoot - Teleprompter 0 - Pickups (Record First) | Words only, the 11 pickups for three earlier videos, each printed twice (pickup 6: long version twice, then short version twice). 688 spoken words, 3 pages. Dan records these first. Made 2026-10-13 | `1E9TzRx-gav2qBS07gdLLX3YFvLYWQaqMFJQoUO6g3xs` |
-| 10-17 Shoot - Teleprompter 1 - Dark Green Backdrop | Words only, 21 scripts, 12,437 words, 32 pages | `1esSBLZldEbmSikeESYaXWo6n4vq1h0Qm8AhqB7Mo8cs` |
-| 10-17 Shoot - Teleprompter 2 - Green Screen | Words only, 23 scripts, about 7,750 words after Dan's own edit pass on 2026-10-13 (see the note above; same Drive id) | `1KvL0_IilRCxlofnY5luTfRvjiseGGpGGXU4sAsjbgzQ` |
+| 10-17 Shoot - Teleprompter 0 - Pickups (Record First) | Words only, the 11 pickups for three earlier videos, each printed twice (pickup 6: long version twice, then short version twice). 688 spoken words, 2 pages. Dan records these first. Made 2026-10-13 | `1E9TzRx-gav2qBS07gdLLX3YFvLYWQaqMFJQoUO6g3xs` |
+| 10-17 Shoot - Teleprompter 1 - Dark Green Backdrop | Words only, 21 scripts, 12,437 words, 22 pages | `1esSBLZldEbmSikeESYaXWo6n4vq1h0Qm8AhqB7Mo8cs` |
+| 10-17 Shoot - Teleprompter 2 - Green Screen | Words only, 23 scripts, 7,421 words with titles after Dan's edits and rulings on 2026-10-13, 14 pages (see the note above; same Drive id) | `1KvL0_IilRCxlofnY5luTfRvjiseGGpGGXU4sAsjbgzQ` |
 | 10-17 Shoot - Teleprompter 3 - Outside By The Pool | Words only, 15 scripts: the 4 follow-along workouts and the 11 outdoor shirtless shorts. 4,873 words, 15 pages (rebuilt 2026-10-13; same Drive id) | `1yc2xg1sG4lTncvcAmkA17SN-JZnQSsbB9Q-fpEbXotg` |
 | 10-17 Shoot - B-Roll List | Every B-roll shot by set, outdoor first, plus what the Edit Queue is blocked on | `1WPx31kcSsGtPyRmNBRb8fJHKC4ivi8gxl1k16wVizSY` |
 | 10-17 Shoot - Reaction Clips | Every clip Dan reacts to, in teleprompter order, each link opening at the clip's start second: the survivors of the 10-12 cuts plus the 15 reaction shorts added 2026-10-13 (31 links). Two are still marked check by eye: Ronaldo and Chris Bumstead | `1BcRpzDQYNCssROEvg10Z9cOL2AtdvBdyqHwvxxwHtQA` |
 
-All six are in My Drive beside the shoot doc, viewable by anyone with the link. Page counts: 2 (pickups), 32, 22 and 15,
-all under Dan's 50-page limit. **All four have a blank line between every paragraph since 2026-10-13** (Dan: they read
-as one block of text without them); the word counts did not change.
+All six are in My Drive beside the shoot doc, viewable by anyone with the link. Page counts: 2 (pickups), 22, 14 and 10,
+all under Dan's 50-page limit. **None of the four has blank lines between paragraphs** (Dan, 2026-10-13 evening, to save
+space on the prompter; this reversed the blank lines added that morning). Backup of the blank-line versions:
+`tmp/tp-backup-with-blank-lines-20261013/` (local only).
 
 **PromptSmart:** the three teleprompter documents were imported on 2026-10-11 as three scripts with the same names
 (`my.promptsmart.com/scripts`). The B-roll list is in Drive only, by his instruction. Teleprompter 2 was imported again
@@ -39,6 +44,8 @@ Teleprompter 2 and 3 were imported again on 2026-10-13 after the 26 new shorts w
 older copies moved to PromptSmart's Trash. Later the same day Teleprompter 1, 2 and 3 were rebuilt with a blank line between
 all paragraphs and imported once more (Teleprompter 1 is script 1489797); the three older cards are in the Trash. Teleprompter 0 (the pickups) got the
 same blank lines, edited in place in its Google Doc, and was imported again at 11:16; its 08:03 card is in the Trash.
+On the evening of 2026-10-13 all four were imported again without blank lines (Teleprompter 2 is script 1489981) and the
+four cards from earlier that day moved to the Trash.
 
 ## Pickups (Dan, 2026-10-13): recorded first
 

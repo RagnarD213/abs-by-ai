@@ -319,26 +319,31 @@ rebuild from the shoot doc would have erased his edits.
   keystroke of his in between fails the call instead of landing edits in the wrong place), `replaceAllText` for
   wording. Then re-import that one document into PromptSmart.
 - Save a snapshot of his version in `Docs/` and write the lessons into the writing skill that drafted the scripts.
+- **From 2026-10-13 on, script edits happen in the Filming document, not in the teleprompter copy.** Dan: "Going
+  forward, when you generate the scripts for me, we'll just do it within the Filming document, rather than doing the
+  edits in the teleprompter like we did here." Polish, cuts and rewrites go into the shoot doc; the teleprompter
+  documents are rebuilt from it. If he does edit a teleprompter copy again, the rules above still apply.
 
-### A blank line between ALL paragraphs (Dan, 2026-10-13)
+### No blank lines between paragraphs in a teleprompter document (Dan, 2026-10-13, evening)
 
-Dan opened Teleprompter 2 and saw a solid block of text: "The scripts don't have line breaks between them... always
-have line breaks between paragraphs so they look normal." The builder had written each spoken line as a paragraph with
-nothing after it, and the 10-11 and 10-12 checks (lines matched, no brackets) could not see that.
+That morning Dan asked for a blank line between all paragraphs in the teleprompter documents. After reading from them
+he reversed it: "I want to change back to your teleprompter documents not having line breaks to conserve space on the
+teleprompter... Going forward, keep doing the teleprompter documents without line breaks between paragraphs."
 
-- `tp_from_shoot_doc.py` now writes an empty paragraph (`<p><br></p>`) after every spoken paragraph, and a second one
-  where a round cue stood. Any other builder or hand-made filming document does the same. The pickups document was
-  fixed in place through the Docs connector: one `insertText` of a line break at the start of each paragraph that sat
-  directly under another, highest index first.
-- **New check, every build:** export as text and count non-empty lines directly followed by a non-empty line. The
-  count must equal the number of scripts (each title sits on its first paragraph) and nothing more. Then open one
-  document in the browser and look.
-- Blank lines cost pages: about 390 words a page now (12,437 words = 32 pages), so `MAX_WORDS` is 16,000 (about 41
-  pages) to stay under his 50. Count pages from the PDF by page objects (`/Type /Page`); the largest `/Count` can be
-  the bookmark count instead.
-- PromptSmart keeps the blank lines from the Word export. After re-importing, move the older cards to its Trash. A
-  script can do the card menu, Delete and the confirm button with `element.click()`; read the dialog's text (it names
-  the script) before confirming.
+- **Teleprompter documents: each paragraph sits directly under the one before.** No empty paragraph between them. The
+  only blank line left is the single one where a round cue stood in a follow-along workout. `tp_from_shoot_doc.py`
+  builds this way again.
+- **The Filming document (the shoot doc) keeps its blank lines** between paragraphs and between a cue and the spoken
+  words. The rule changed for the teleprompter copies only.
+- **To change spacing in a document that already exists, use `reference/tp_reflow.py`,** not a rebuild. It reads the
+  live document (so anything Dan typed in it is kept), writes the same HTML the builder writes, and the usual
+  `rclone copy ... --ignore-times` replaces the Google Doc under the same id. Used 2026-10-13 on Teleprompter 0, 1, 2
+  and 3. Back the documents up first (`--drive-export-formats docx` into `tmp/`).
+- **Check:** download back as text and compare every non-empty line with the `.seq.json` the script wrote; the word
+  count before and after must match. 10-13: 27, 518, 333 and 223 lines, all matching.
+- Pages went from 3, 32, 22 and 15 to 2, 22, 14 and 10, about 570 words a page. `MAX_WORDS` is back to 25,000.
+- PromptSmart: import the new Word exports, open one card and check the paragraphs sit together (the only empty
+  elements are the page breaks between scripts), then move the older cards to its Trash.
 
 ### Writing new scripts into a long shoot doc with the Docs connector (2026-10-13)
 

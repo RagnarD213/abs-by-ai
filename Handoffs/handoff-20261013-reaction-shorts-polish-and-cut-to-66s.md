@@ -3,6 +3,27 @@
 **SFC (short-form content). Written 2026-10-13 by Claude, at Dan's request. Not started.**
 Sidebar name for the new task: `10/17 Reaction Shorts SFC Polish`.
 
+## State at 2026-10-13 18:50 (read this first; it replaces the steps below where they differ)
+
+**Done:** the polish and the cuts (34 tracked suggestions), Dan's rulings on all of them, the re-count, and the
+PromptSmart import. Dan also had all four teleprompter documents changed to no blank lines between paragraphs.
+
+**Left: step 3 only, carrying his final words into the shoot doc** (`1gt8Fi_wUaNaksa8sAdMoBvcdlBhZLek82EpBr-leq-0`).
+- The words to use: `Docs/SCRIPTS_1017_SHOOT_REACTION_SHORTS_FINAL_20261013.md` (the 19 shorts), and for the long
+  videos diff Teleprompter 2 against the shoot doc's filming scripts (Body Fat intro, Celebrity Ozempic passages).
+- Three shorts run over 66 seconds by Dan's choice (Dad Bod 72.2, Retatrutide 69.4, Terry Crews 68.4). Do not cut them.
+- Hormozi stays at "two pounds" and Ronaldo keeps its context line: Dan did not change either.
+- New standing rules from this run: spelling, grammar and capitalization fixes go straight in, never tracked
+  (`/copy-edit`); teleprompter documents have no blank lines and script edits happen in the shoot doc from now on
+  (`/teleprompterscripts`). The shoot doc keeps its blank lines.
+- When the shoot doc matches Teleprompter 2, remove the warning at the top of `Docs/SHOOT_1017_DOCS.md`. Do not
+  rebuild Teleprompter 2 from the shoot doc until then.
+
+Starter prompt: SFC. Rename this task `10/17 Reaction Shorts SFC Shoot Doc`. Read
+`Handoffs/handoff-20261013-reaction-shorts-polish-and-cut-to-66s.md`, "State at 2026-10-13 18:50", and do the one
+step left: carry the final wording of the 19 reaction shorts and my long-video edits from Teleprompter 2 into the
+shoot doc's filming scripts, clip cue first, no hook takes. Claude Opus 5.5, high.
+
 ## Goal
 
 Dan films these on 10/17. He edited the reaction shorts himself on 10-13, directly in the teleprompter document, and

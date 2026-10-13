@@ -227,7 +227,7 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the fire list; runner deletes row, line, README row.
 
-- `handoff-20261013-reaction-shorts-polish-and-cut-to-66s.md`: NEEDS-DAN:accept-34-suggestions;then-steps-2,3
+- `handoff-20261013-reaction-shorts-polish-and-cut-to-66s.md`: left:shoot-doc-step
 
 
 - `handoff-20261007-ro10-subtle-reedit-sunday-reupload.md` (10-07): RO-10 R3 end graphic, Sunday replacement. Codex Sol high.

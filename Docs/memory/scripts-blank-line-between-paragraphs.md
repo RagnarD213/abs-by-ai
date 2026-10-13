@@ -1,12 +1,14 @@
 ---
 name: scripts-blank-line-between-paragraphs
-description: "Dan 2026-10-13: every script document, teleprompter copies included, has a blank line between ALL paragraphs; never a solid block of text"
+description: "Script documents (the shoot doc, filming scripts) have a blank line between all paragraphs; teleprompter documents are the exception since 2026-10-13 evening: no blank lines"
 metadata:
   node_type: memory
   type: feedback
   originSessionId: dfcd4510-3e7f-4133-bb01-62ee9099047b
   modified: 2026-10-13T21:14:21.844Z
 ---
+
+**Changed the same day (2026-10-13, evening): teleprompter documents and their PromptSmart imports have NO blank lines between paragraphs.** See [[teleprompter-no-blank-lines]]. What follows still holds for the Filming document (the shoot doc) and other script documents; where it names teleprompter copies, the newer rule wins.
 
 Every script I write or build has a blank line between all paragraphs, in every document it lands in: the shoot doc, the teleprompter-only copies, the pickups document, PromptSmart imports. Never deliver scripts as a solid block of text.
 
