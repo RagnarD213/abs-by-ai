@@ -244,4 +244,4 @@ Memory `google-ads-ui-automation`.
 ## ACTIVE
 **Ad 6 remarketing 2026-10-04:** Awaiting Dan: copy to enabled campaign 24305381214?
 
-**Meal Prep SFC R3 HANDOFF 2026-10-12, Codex.** Pair B is the set default; both frame pairs and seven graphics approved. Next: approved motion, contextual check, sound/caption repairs and complete candidate. `Handoffs/handoff-20261012-ds28-round3-approved-motion.md`. No motion spent; dispatcher paused.
+**Meal Prep SFC R3 BUILDING 2026-10-13, Codex.** Owner: this chat. Pair B, both frame pairs and seven graphics approved. Generating two motions (estimated $1.40), then sound/captions and complete candidate review. Work: `/Volumes/Extreme/_edit_work/ds28/round3/`. No covers/uploads; dispatcher paused.
