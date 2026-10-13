@@ -1,0 +1,48 @@
+{
+ "_note": "Take spans for RA-14, anchored to PHRASES in the C1667 word list (never seconds). Step one: third attempt (the first stops after 'yourself', the second is the two words alone). Step three: the fluent second read of its first sentence, then the WHOLE restated 'Whatever problem comes up' sentence (the first read stops after 'gym'). CTA: the last take, which is the scripted wording with 'now'.",
+ "ranges": [
+  {
+   "name": "R1",
+   "lines": "hook + setup",
+   "after": 338.0,
+   "from": "guys have figured out",
+   "to": "heres how it works"
+  },
+  {
+   "name": "R2",
+   "lines": "step one",
+   "after": 356.5,
+   "from": "step one upload a photo of yourself to abs",
+   "to": "its completely free"
+  },
+  {
+   "name": "R3",
+   "lines": "step two",
+   "after": 366.5,
+   "from": "step two the ai analyzes",
+   "to": "to get you there"
+  },
+  {
+   "name": "R4",
+   "lines": "step three a",
+   "after": 382.5,
+   "from": "step three execute with ai",
+   "to": "the whole way"
+  },
+  {
+   "name": "R5",
+   "lines": "step three b + recap",
+   "after": 393.5,
+   "from": "whatever problem comes up",
+   "to": "a coach thats always there"
+  },
+  {
+   "name": "R6",
+   "lines": "CTA",
+   "after": 411.5,
+   "from": "tap the button below now",
+   "to": "get started",
+   "start_at": 412.33
+  }
+ ]
+}

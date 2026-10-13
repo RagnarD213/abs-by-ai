@@ -1,0 +1,110 @@
+{
+ "sample": "RA-14 round 1 - look sample (opening).mp4",
+ "sample_bass": "RA-14 round 1 - look sample (opening) - more bass.mp4",
+ "sample_note": "The first 10 seconds as they will ship: the cut, the colour, the two framing sizes, the captions, the AI picture card and the music bed. Use the two buttons to compare the voice.",
+ "look_note": "Colour: this roll is the same pool set, same day and same outfit as RA-01, which you approved (\"color correction looks good\"). I put it through RA-01's exact grade and checked it beside RA-01's delivered frames (below: RA-01 on top, this ad underneath). It matches, so I reused it and did not build new options.",
+ "locked": [
+  "Colour: the RA-01 daylight grade for this pool set (approved 09-18).",
+  "Framing: the two approved sizes only, hair to belly button and hair to shorts line, cut between them. The vertical lands on you at each cut and holds.",
+  "Graphics family: Soft Blue Light, with the approved lower third, list card, CTA button and iPhone shell.",
+  "The self-generation demo (your sunglasses photo to the pool goal picture, approved 09-17 for reuse) and the app tour (approved 10-10 for reuse).",
+  "Captions: the RA-01 style, every word, with the current word lit in the Soft Blue cyan as on the approved Ad 13 vertical."
+ ],
+ "decisions": [
+  {
+   "short": "Analysis card look",
+   "q": "The analysis card (A1) is the one you asked me to reuse from RA-01. It is still drawn in the old dark olive look.",
+   "opts": "A (recommended): I redraw it in Soft Blue Light, same layout, same bars, so the whole ad is one look. B: keep it exactly as approved on RA-01."
+  },
+  {
+   "short": "Voice",
+   "q": "Voice: as approved on RA-01, or with the subtle bass lift?",
+   "opts": "A (recommended): as approved on RA-01. It already measures as full in the low end as the reference voice, and it passes the audio check. B: the same with 3 dB more bass (second button on the player). It reads slightly past the reference tone."
+  },
+  {
+   "short": "Recap list",
+   "q": "The recap list card (R1) on \"That's the cheat code. A goal you can see, a plan built just for you, and a coach that's always there.\"",
+   "opts": "A (recommended): keep it, each line landing as you say it. B: no card, you on camera with captions only."
+  }
+ ],
+ "decided": [
+  "Takes. Step one: the third attempt (the first stops after \"yourself\", the second is only the two words). Step three: the clean second read of \"execute with AI coaching you the whole way\", then the whole restated \"Whatever problem comes up\" sentence, because the first read stops after \"gym\". Call to action: the last take, the one with \"now\", as scripted.",
+  "Removed a small click half a second before \"Tap the button\". Pauses are tightened throughout; no word is clipped.",
+  "Nothing is cut from the script. You say \"getting real abs in real life with AI\" where the script has \"real abs, in real life\": your words stay.",
+  "You stand further from the camera on this roll than on RA-01, so the close shot is a 2.1x enlargement of the 4K picture (RA-01 was 1.8x) and reads a little softer. I kept the two approved framing sizes. Say if you would rather the close shot were looser and sharper.",
+  "You sway more on this roll, so the vertical crop follows you with the land-then-hold method instead of one fixed crop per shot. In the opening it moves in three of the four shots.",
+  "The opening is you on camera, not a picture. A shirtless man with abs by a pool saying the hook is the proof, and the first cut comes at 3.7 s when it punches in on \"It's AI.\"",
+  "The AI goal picture appears twice on purpose: once on \"I'm not talking about an AI picture\", then as the result of the demo in step one.",
+  "The demo starts on the options screen and goes to Generate, the progress bar over your photo, then the result. The photo crop screen is skipped. \"Real picture of me. Not AI-generated.\" shows while your real photo is on the phone; the result carries AI-GENERATED.",
+  "Phones sit above the caption line so the captions never cover the app, in the approved iPhone shell. That leaves blue field at the sides; making the phone bigger would put captions over the app text.",
+  "On \"A home workout when you can't make it to the gym\" the app tour shows the Push-Up demo. It is a bodyweight exercise, but the demo's background is a gym. Say if you want a different picture there.",
+  "\"An adjusted plan when you're injured\" stays on you. No app screen shows that well.",
+  "The button reads \"Tap The Button Below / Get Started\". No web address on it and no end mark (your 10-01 rule). The job sheet from September asked for AbsByAI.com on screen; say if you want it on the button.",
+  "Music: the RA-01 track at the RA-01 level. No sound effects.",
+  "Spend on AI generation: $0. Everything is real footage or an asset you already approved.",
+  "The junk-footage scan found one visible jump where a pause was tightened (before \"Then it builds you\"). The analysis card ends exactly there, so the cut back to you covers it."
+ ],
+ "claims": [
+  "\"It takes seconds, and it's completely free.\" (about the goal picture)",
+  "\"It measures exactly how much fat you have to lose, and where you need to gain muscle.\"",
+  "\"Whatever problem comes up, AI solves it instantly.\"",
+  "\"Guys have figured out the cheat code for getting six pack abs.\"",
+  "On screen there is no number, no user count and no comparison."
+ ],
+ "items": {
+  "G1": {
+   "name": "The AI picture",
+   "copy": "Your AI goal picture by the pool, chip AI-GENERATED under it.",
+   "source": "Media/example pictures/dan by pool.png",
+   "why": "Shows the thing you say you are NOT talking about, for under two seconds, then cuts back to you for \"real abs in real life\"."
+  },
+  "L1": {
+   "name": "Step 1 label",
+   "copy": "STEP 1 / Generate Your Goal Picture",
+   "source": "Soft Blue lower third template",
+   "why": "Signpost for step one. The point lands on \"upload\"."
+  },
+  "P1": {
+   "name": "Generating your picture",
+   "copy": "Phone: options, tap Generate, the progress bar over your photo (chip: Real picture of me. Not AI-generated.). Then the result, full card, AI-GENERATED.",
+   "source": "The approved self-generation demo (Ad 14 R3), lifted into the approved iPhone shell; the result from the original picture",
+   "why": "Same person before and after. The result lands on \"dream body\" and holds through \"It takes seconds\"."
+  },
+  "L2": {
+   "name": "Step 2 label",
+   "copy": "STEP 2 / AI Builds Your Custom Plan",
+   "source": "Soft Blue lower third template",
+   "why": "Signpost for step two."
+  },
+  "A1": {
+   "name": "The analysis card",
+   "copy": "The goal picture with a scan line, then bars: BODY FAT, FAT TO LOSE, MUSCLE TO GAIN, and a YOUR WORKOUT PLAN band. No numbers.",
+   "source": "The shared analysis card you approved on RA-01 (shown here in its old look, see decision 1)",
+   "why": "On \"It measures exactly how much fat you have to lose and where you need to gain muscle.\""
+  },
+  "L3": {
+   "name": "Step 3 label",
+   "copy": "STEP 3 / AI Coaches You Every Day",
+   "source": "Soft Blue lower third template",
+   "why": "Signpost for step three."
+  },
+  "T1": {
+   "name": "The app solving it",
+   "copy": "Phone: a meal photo analysed to 775 calories, then a tap on AI Trainer and the Push-Up demo video (the app's own AI-GENERATED chip).",
+   "source": "App tour B0544, approved for reuse 10-10, in the approved iPhone shell",
+   "why": "Calorie tracking plays under \"Whatever problem comes up, AI solves it instantly\"; the workout demo lands on \"A home workout\"."
+  },
+  "R1": {
+   "name": "The recap list",
+   "copy": "The Cheat Code / 1. A Goal You Can See / 2. A Plan Built Just For You / 3. A Coach That's Always There",
+   "source": "Soft Blue list card template (the 3A card, bottom of frame)",
+   "why": "Sums up the three steps as you say them. Captions lift above the card."
+  },
+  "C1": {
+   "name": "The button",
+   "copy": "Tap The Button Below / Get Started",
+   "source": "Soft Blue CTA button template",
+   "why": "On from \"Tap the button below now to get started\" to the last frame."
+  }
+ }
+}
