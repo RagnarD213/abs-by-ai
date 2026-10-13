@@ -1,84 +1,123 @@
-# RA-14 "The Cheat Code For Six Pack Abs": round 2, after Dan reviews round 1
+# RA-14 "The Cheat Code For Six Pack Abs": round 2 (opener frames, wider framing, colour options)
 
 **AD (short-form, filmed).** Sidebar name for the next task: `Cheat Code Six Pack AD R2`.
-Written 2026-10-13 by the round 1 session (Claude Opus 5.5). Job doc: `Handoffs/video-editing/RA-14-cheat-code-for-six-pack-abs.md`.
-Read first: `Handoffs/video-editing/00-RULES.md`, `.claude/skills/_shared/VIDEO-RULES.md`, the `/ad-edit` skill, `_shared/PRE-RENDER-APPROVAL.md`.
+Rewritten 2026-10-13 after Dan reviewed round 1 (Claude Opus 5.5). Job doc: `Handoffs/video-editing/RA-14-cheat-code-for-six-pack-abs.md`.
+Read first: `Handoffs/video-editing/00-RULES.md`, `.claude/skills/_shared/VIDEO-RULES.md`, the `/ad-edit` skill,
+`_shared/PRE-RENDER-APPROVAL.md`, `_shared/IMAGE-GENERATION.md`.
+Dan's words, verbatim, with every item: `/Volumes/Extreme/_edit_work/ra14/round2-plan/decisions.json`.
 
-## Scope of round 2
+## What Dan said about round 1 (page http://127.0.0.1:8814/)
 
-Dan has NOT replied yet. Round 1's page is http://127.0.0.1:8814/ (folder `/Volumes/Extreme/_edit_work/ra14/round1/`).
-When he replies: record his words in `/Volumes/Extreme/_edit_work/ra14/round2-plan/decisions.json`, apply them, then build
-the moving previews of every graphic and clip in context plus the finished first 30 seconds (9:16), and show those.
-The full film, the 16:9, the gates, the watch pass and the independent review are round 3, only once nothing is pending.
-Do not start round 2 before he answers the three decisions.
+1. **Framing:** "I want both the tight and the wide shot a little bit wider. Both are a little bit too tight."
+2. **Colour:** "I want to see some color correction options here. I feel like we can do better with the color corrections."
+3. **The AI picture at 5 seconds (G1): out.** "That's kind of the opposite of the point we're trying to get across here,
+   and just use the camera scene. That'll be right after the AI-generated clip we're about to make in the beginning."
+4. **A new AI opener.** From ten ideas he picked three for START and END frames: **Character creator, 8-bit power-up,
+   Arcade combo.**
 
-## What round 1 settled (work dir `/Volumes/Extreme/_edit_work/ra14/`, sha256 first 16)
+He has NOT answered round 1's three questions (analysis card look, voice, recap list). They stay open: ask again on the
+round 2 page, never treat a recommendation as his answer.
+
+## Round 2 deliverable: one review page, then stop
+
+Build in `/Volumes/Extreme/_edit_work/ra14/round2/`, serve with `review_server.py` on a free port (8814 is round 1; keep it).
+
+### A. Opener frames (top of the page)
+
+START and END frame for each of the three ideas, 1080x1920. **Use the Codex subscription to generate the images**
+(`.claude/skills/_shared/codex-image.sh`, GPT-6.1 Sol high). No motion is generated this round. The clip fills 0.00 to
+3.64 s under "Guys have figured out the cheat code for getting six pack abs.", then hard cut to Dan, close size, on
+"It's AI." If he approves none, the opening stays the camera scene.
+
+| id | name | what you see |
+|---|---|---|
+| O1 | Character creator | A video game character screen: an ordinary guy shown head to knees. A slider drags from one end to the other and his body goes from soft to ripped as it moves. START = slider at the low end, soft build. END = slider at the top, ripped. |
+| O2 | 8-bit power-up | An old pixel side-scroller. A little pixel dude runs, grabs a glowing six-pack icon like a power-up, instantly has pixel abs and flexes. START = running toward the icon. END = flexing with pixel abs. |
+| O3 | Arcade combo | A guy at an arcade machine slams in a button combo, the machine lights up like a jackpot, he steps back, lifts his shirt and finds abs, the guys behind him lose it. START = hands on the buttons, machine dim. END = shirt lifted, abs, machine lit, friends reacting. |
+
+Rules that bind the frames: men shown whole, never a shot built around a stomach, no hands grabbing a belly; ordinary
+non-model faces (ad-edit Step 4.5 prompt rules); the subject in the centre third; no generated lettering (any slider
+label, score or "cheat" text is drawn by us in code afterwards); a cut, not a morph, where the idea is a time jump (O3
+may be two shots); the AI-GENERATED chip on the delivered clip, clear of faces. For each pair on the page, as labelled
+rows: when it appears, the line it plays under (bold, word for word), what comes right after, what you see, the
+intended action and length, the cost to animate, and what plays if he says no. Under the frames answer the three sense
+questions (cause and effect, readable with the sound off, shows the line).
+Budget: $10 for this ad in total across all rounds, retries included. Spent so far: $0. Frames cost nothing.
+
+### B. Framing options
+
+Round 1 sizes on this roll: close 504x896, wide 612x1088 (source px, exact 9:16 lattice w=18m h=32m; y0 = the hold's
+minimum hair top minus 4 % of the crop height). Show two or three wider PAIRS as numbered stills on the same two
+moments (one close, one wide) with their crop values, for example close 540x960 / wide 666x1184, close 576x1024 / wide
+720x1280, close 612x1088 / wide 756x1344. Keep the wide at least 1.10x the close and the hair rule unchanged. Wider is
+also sharper (round 1's close was a 2.14x enlargement). Recommend one pair; he picks. This is his call for this roll
+and is wider than the written framing standard; record his pick with his words.
+
+### C. Colour options (the bake-off in PRE-RENDER-APPROVAL, steps 2 and 4)
+
+At least three candidates on the same two moments (wide and close), LOOKED AT at full size beside frames from two
+approved videos (RA-01's master, the approved Ad 1 vertical; the website video for a third reference), with what is
+wrong with each written down. Then the best two as moving 10 to 15 s samples of the opening. What I saw in round 1's
+grade (`grade.json`, RA-01's LUT at 1.15 exposure + saturation 1.25): skin reads orange-brown, shadows and the trees
+are heavy, the picture is flat for an outdoor pool. RA-01's "no white balance change" was a planner's ruling, not
+Dan's; a candidate with a daylight white-balance correction is allowed and expected (ad-edit RA-01 lesson 3: build a
+daylight LUT rather than lifting saturation). Tools: `/Volumes/Extreme/_edit_work/ra01/s32_grade.py` (face luma and
+chroma against references), `/Volumes/Extreme/_edit_work/website-video-828/slog3_709_e*.cube`. Decode as BT.709.
+
+### D. The opening without the AI picture
+
+Remove card G1 from `s60_plan.py` (`CARDS`) and re-plan the holds so a size change still lands every few seconds:
+opener clip 0 to 3.64, close on "It's AI. I'm not talking about an AI picture.", wide on "I'm talking about getting
+real abs in real life with AI.", close on "Here's how it works." Re-render the opening sample with the recommended
+framing and colour; where the opener clip will go, show the recommended START and END frames as a labelled
+placeholder (VIDEO-RULES "Future contextual previews"). The goal picture still appears later as the result of the
+step one demo; say so in "What I decided" so he can overrule it.
+
+### E. Ask again (unanswered from round 1)
+
+Analysis card: redraw in Soft Blue Light (recommended) or keep the RA-01 card. Voice: `mix.wav` (recommended) or
+`mix_bass.wav`. Recap list card R1: keep (recommended) or none.
+
+Then record his answers, write the round 3 handoff (opener motion from approved frames, moving previews of every
+graphic and clip, the finished first 30 seconds) and stop.
+
+## Locked from round 1 (work dir `/Volumes/Extreme/_edit_work/ra14/`, sha256 first 16; re-hash before touching)
 
 | file | what | hash |
 |---|---|---|
-| `cut.json` | the take map and airtight cut: 48.81 s of talk, 23 source pieces, 4 take seams (10.57, 30.30, 33.43, 46.46 s) | 394e9127a580ce5c |
-| `mix.wav` | voice through `voice_chain.py` (fitted tone, no dereverb) + Realizer bed at -32; audio gate PASS 12 of 12 | fe821bf0b0c5c108 |
-| `mix_bass.wav` | the same with +3 dB at 120 Hz (Dan's option B; gate tone row fails at 2.55 against 2.5, the known fixed-shape mismatch) | a969e60b871ecd8d |
+| `cut.json` | take map and airtight cut: 48.81 s of talk, 4 take seams (10.57, 30.30, 33.43, 46.46 s) | 394e9127a580ce5c |
+| `mix.wav` | voice chain (fitted tone, no dereverb) + Realizer bed at -32; audio gate PASS 12 of 12 | fe821bf0b0c5c108 |
+| `mix_bass.wav` | the same with +3 dB at 120 Hz | a969e60b871ecd8d |
 | `words_aligned.json` | 168 words, CTC aligned to `mix.wav` | b01781a5203792fb |
-| `framing.json` | head and hair track, 241 of 241 samples, 5 per second | d798e48e215d593a |
-| `beats.json` | the beat plan: 4 inserts, 5 overlays, 12 holds, each hold's land-then-hold crop track | f220cbe03847c48d |
-| `grade.json` | RA-01's approved daylight grade, reused after a side-by-side check | 38c3929d700e32e6 |
-| `round1/RA-14 round 1 - look sample (opening).mp4` | the first 10.68 s finished | 898f943a05fd2264 |
+| `framing.json` | head and hair track, 241 samples | d798e48e215d593a |
 
-Total length 50.45 s (1.65 s end hold), 8.55 s under the 0:59 limit. No line cut. Spend on AI generation: $0.
+Dan did not object to the cut, the takes, the captions, the graphics family or the other eight items; none of those is
+approved in words either, so they stay as shown, not locked. `beats.json` and `grade.json` change this round.
+Total length 50.45 s, no line cut. Roll `C1667.MP4`, native portrait, dual-mono lav.
 
-Source facts: roll `C1667.MP4` (8/28 pool set, native portrait 2160x3840, dual-mono lav, `C1667.MP4.audio_source.json`
-written by `pick_lav.py` on 340 s + 70 s). Takes used, source seconds: 340.09-351.63, 357.54-366.78, 366.78-379.23,
-382.70-387.00, 394.01-408.92, 412.33-414.69 (the last edge is pinned past a 50 ms click at 411.95).
-Framing sizes measured for THIS roll (he stands further back than on C1663): NEAR 504x896, FAR 612x1088, y0 = hold's
-minimum hair top minus 4 % of the crop height. NEAR is a 2.14x enlargement.
+## Carried work (decided, not questions)
 
-## The plan Dan is looking at (tight seconds)
+- Add one head measurement on the exact first frame of each hold (`s04_track.py`), then `s60_plan.py`; the crop
+  landed 5 to 20 source px off in round 1 because the head is sampled 5 times a second.
+- Five pause splices sit inside a hold (11.38, 19.72, 31.13, 41.38, 42.64 s): measure on rendered picture and give each
+  visible one a size change or cover.
+- Captions lift above the recap card; `s07_captions.py` needs a per-state y.
+- The phone demos need a renderer (`s63_stills.py` `phone_card` has the shell and placement).
+- Music tail fix (`s42_bed.py`) and frame-lock of the mix once the length is final.
+- 16:9 not started. At delivery: edit sheet, delivery gate, watch pass, one independent review, review copies, audio
+  A/B, `Videos to Review/`, `roll_sidecar.py mark-used`, clip library `used-in`, queue to `delivered`.
 
-G1 AI goal picture 4.44-6.31 · L1 "STEP 1 / Generate Your Goal Picture" 10.68-14.18 · P1 self-generation demo 14.18-17.55
-(phone to about 15.7, then the result) · L2 "STEP 2 / AI Builds Your Custom Plan" 18.99-22.42 · A1 analysis card
-22.42-26.59 · L3 "STEP 3 / AI Coaches You Every Day" 30.30-33.43 · T1 app tour B0544 33.43-38.27 (play the source from
-about 2.8 s so the Push-Up sheet at source 6.0 s lands on "A home workout") · R1 recap list 40.21-46.45 · C1 button
-"Tap The Button Below / Get Started" 46.45-50.45. Holds alternate FAR and NEAR; every take seam sits on a size change
-or under an insert.
+## Recipe and machine
 
-## Dan's three decisions (page, "Your decisions")
+Scripts: `/Volumes/Extreme/_edit_work/ra14/` and `.claude/skills/ad-edit/reference/ra14/` (`s60_plan.py`, `s62_sample.py`,
+`s63_stills.py`, `s64_page.py`, `s07_captions.py`). `s62_sample.py` decodes the roll from frame 0 (about 6.5 minutes per
+run): render all colour and framing candidates' strips in ONE decode. The Mac was saturated on 10-13; use
+`./capwait.sh`, and note it also counts idle gate processes.
 
-1. Analysis card: redraw in Soft Blue Light (recommended) or keep the RA-01 dark olive card as approved.
-2. Voice: `mix.wav` as approved on RA-01 (recommended) or `mix_bass.wav`.
-3. Recap list card R1: keep (recommended) or no card.
+## Gate status
 
-## Known work for round 2 (already decided, not questions)
-
-- The crop track lands 5 to 20 source px off at hold starts because the head is sampled 5 times a second. Add one head
-  measurement on the exact first frame of each hold (`s04_track.py`), then re-run `s60_plan.py`. The standard asks for the
-  actual cut-start measurement.
-- Five pause splices sit inside a hold (11.38, 19.72, 31.13, 41.38, 42.64 s). Measure them on rendered picture
-  (`s25_hard.py` or `_shared/cut/piccuts.py`) and give each visible one a size change or cover.
-- Captions must lift above the recap card R1 (the still shows the lifted position); `s07_captions.py` needs a per-state y.
-- The phone demos need a renderer: `s63_stills.py` has the shell and placement (`phone_card`); the demo display rect is
-  `DISP` there. Keep the real-photo chip only while his photo is visible.
-- The music bed's tail needs the RA-01 fix (`s42_bed.py`) once the length is final, and the mix must be frame-locked
-  to the picture (`LOCK=`).
-- 16:9: levels and centres are not chosen yet (RA-01's rule: both levels share the FAR window's centre).
-- At delivery: edit sheet + `validate.py`, delivery gate, watch pass, one independent review (`ra-reviewer`), 540p review
-  copies, audio A/B, `Videos to Review/` copy, `roll_sidecar.py mark-used` for the six source ranges, clip library
-  `used-in` for B0544, queue to `delivered`.
-
-## Recipe
-
-Scripts are in `/Volumes/Extreme/_edit_work/ra14/` and copied to `.claude/skills/ad-edit/reference/ra14/`. Order:
-`s00_source.sh` (lav pick, pull, transcript) · `s03_edl.py` (reads `edl_spec.json`) · `s08_audio.py` · `s09_align.py` ·
-`s04_track.py` · `s60_plan.py` · `s07_captions.py 9x16` · `s63_stills.py cards analysis overlays` · `s62_sample.py` ·
-`s64_page.py` · `review_server.py 8814 round1`. The machine was saturated all afternoon: use `./capwait.sh` and expect
-long waits.
-
-## Gate status, stated plainly
-
-Only the audio gate has run (on `mix.wav`, PASS). No delivery gate, no watch pass and no independent review yet: there
-is no finished file. Junk scan: `junk_report.json`; its one high row (a visible jump at source 374.85) is covered by the
-A1 card's exit.
+Audio gate on `mix.wav`: PASS. Nothing else has run; there is no finished file.
 
 ## Starter prompt (Claude Opus 5.5, high effort)
 
-> AD. Rename this task `Cheat Code Six Pack AD R2`. Read `Handoffs/handoff-20261013-ra14-cheat-code-round2-after-dan-review.md` and continue RA-14 "The Cheat Code For Six Pack Abs" with /ad-edit: record my round 1 answers below, apply them, then build the moving previews of every graphic and clip in context and the finished first 30 seconds, and show me. My answers: [paste the reply box from http://127.0.0.1:8814/]
+> AD. Rename this task `Cheat Code Six Pack AD R2`. Read `Handoffs/handoff-20261013-ra14-cheat-code-round2-after-dan-review.md` and run round 2 of RA-14 "The Cheat Code For Six Pack Abs" with /ad-edit. Use the Codex subscription to generate the images. Make start and end frames for the three opener ideas I picked (Character creator, 8-bit power-up, Arcade combo), show me two or three wider framing pairs and at least three colour correction options beside approved videos, take the AI picture at 5 seconds out, and re-ask the three round 1 questions I have not answered. One review page, then stop for my picks. No motion until I approve frames.
