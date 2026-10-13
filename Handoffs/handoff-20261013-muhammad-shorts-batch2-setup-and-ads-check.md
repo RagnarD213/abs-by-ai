@@ -1,6 +1,6 @@
-# Muhammad short-form batch, all nine: classify, then ads to Google Ads and content to Blotato
+# Muhammad dedicated Shorts, all nine: covers, then into the Blotato queue (ALL CONTENT, NO ADS)
 
-**Category: CONTENT on record (dedicated Shorts, `SFC`), confirmed per video in section 0. Edited by Muhammad. Written 2026-10-13 by Claude (Opus 5.5).
+**Category: CONTENT. All nine are dedicated Shorts (`SFC`). None is an ad. Edited by Muhammad. Written 2026-10-13 by Claude (Opus 5.5).
 Task name: `Muhammad Shorts Batch SFC Setup`.** One Claude handoff covers covers, picks, filing and queue
 (Dan's rule, 2026-10-01). **Use the Codex subscription to generate the images.**
 
@@ -9,17 +9,32 @@ Task name: `Muhammad Shorts Batch SFC Setup`.** One Claude handoff covers covers
 **This is the only handoff to fire for Muhammad's shorts.** It replaces
 `handoff-20261012-muhammad-shorts-covers-and-setup.md` (superseded 10-13, do not run it) and is self-contained.
 
-## Why this exists
-Dan, 2026-10-13: one handoff for everything Muhammad delivered short-form. His rules for it, in his words and order:
-- **Ads:** upload to YouTube **unlisted** and set up in Google Ads. Never Blotato, never any organic channel.
-- **Content:** into Blotato only, held **private** until its release slot. **No content goes into Google Ads here.**
-- Muhammad's content Shorts go **ahead of our other short-form content**; the other queued Shorts move back.
-- Muhammad's 13 long ads are already on YouTube and in Google Ads. They are out of scope.
+## ALL NINE ARE CONTENT. THERE ARE NO ADS IN THIS TASK.
+Verified 2026-10-13 three ways: the brief sent to Muhammad says "These are organic content videos, not ads"; every one
+of his rows on the live Edit Queue page is under "Dedicated shorts"; and the 10-12 check found each one ends on a
+comment call to action. Muhammad named two files "AD 08" and "Ad 09". Those are his file names only: they are DS-08 and
+DS-09, and they are content.
+
+**Never, for any video in this task:**
+- no Google Ads work of any kind: no ad, no ad group, no campaign edit, no `/ad-setup`, no `client.js mutate`;
+- no unlisted YouTube upload, and no row in `Docs/AD_VIDEO_IDS.md`;
+- no change to Muhammad's 13 long ads or to any campaign they sit in.
+
+**Always:** `/video-setup` only. Every video goes into the Blotato queue for YouTube, Facebook, Instagram @danrosefit
+and TikTok, and stays private until Blotato releases it.
+
+Safety stop: if a finished file turns out to end on "tap the button below", do not set it up either way. Quote the
+line to Dan and carry on with the others.
+
+## What Dan asked for (2026-10-13)
+One handoff for all of Muhammad's finished Shorts: make covers, get his picks, add them to the Blotato queue, private
+until release, **ahead of our other short-form content**, with the other queued Shorts moved back.
 
 ## Goal
-Classify each of the nine videos as AD or CONTENT from its own ending (section 0). Take every CONTENT short to "queued
-in Blotato for YouTube, Facebook, Instagram @danrosefit and TikTok, private until release", each with a cover Dan
-picked, in the earliest Short slots. Take any AD to "unlisted on YouTube and running in Google Ads".
+Take all nine Shorts to "queued in Blotato for YouTube, Facebook, Instagram @danrosefit and TikTok, private until
+release", each with a cover Dan picked, in the earliest Short slots, with our other queued Shorts moved back behind
+them. The task is finished when every Short that passed its file check has a saved Blotato schedule that was read back
+(or a waitlist row if Blotato is still full) and Dan has the list of release dates.
 
 | Group | Shorts | What stands between it and covers |
 |---|---|---|
@@ -41,23 +56,9 @@ path later) and the 12 shorts still in revision rounds.
 1. `.claude/skills/_shared/VIDEO-RULES.md` in full.
 2. `.claude/skills/_shared/IMAGE-GENERATION.md` and `/coverimage` (locked cover type, grid-safe crop, five choices).
 3. `/video-setup`, "Shorts" section, the waitlist section and "YouTube Shorts cover verification".
-4. `Docs/PINNED_COMMENTS.md`. `/ad-setup` only if section 0 finds an ad.
+4. `Docs/PINNED_COMMENTS.md`.
 5. Closest worked example: `Handoffs/handoff-20261008-sl03-daily-salad-shorts-covers-and-setup.md` and its receipt.
 6. `revision docs/shorts-hd-check-muhammad-10-12-26.summary.md` (how the HD files were proven).
-
-## 0. Classify every video first (before any cover, upload or queue write)
-Watch the last 10 seconds of each finished file and write its closing line into the receipt.
-- **AD** = a definite direct-response call to action ("tap the button below"). **CONTENT** = a softer ending ("leave me
-  a comment", "go to AbsByAI.com") with no tap-the-button line. Memory `ad-vs-organic-classification`.
-- On record from the 10-12 check: all nine end on a comment call to action, so all nine read as CONTENT, including the
-  files Muhammad named "AD 08" and "Ad 09". Expect zero ads. Do not take that on trust; confirm from each file.
-- Tell Dan the split in one line before the cover page (for example "9 content, 0 ads"), quoting the closing line of
-  anything classified AD.
-- **A video classified AD:** `/ad-setup` only. Upload it to YouTube **unlisted**, register it in `Docs/AD_VIDEO_IDS.md`,
-  add it to Google Ads per `/ad-setup` (match the final URL domain of the ad group's existing ads), read policy back.
-  It gets no cover round, no Blotato config, no waitlist row. Already vertical, so nothing else is derived from it.
-- **A video classified CONTENT:** sections 5 to 7 only. It is never uploaded unlisted, never passed to `/ad-setup`, and
-  nothing in this task creates, edits or enables a Google Ads ad for it.
 
 ## 1. Group A: the five files ready now
 In `/Volumes/Extreme/_edit_work/revisions-20261012/muhammad/dl/<folder>/`. All 1080x1920, about 30 fps, 10.6 to 12.9
@@ -130,7 +131,7 @@ Five choices per short, each in both layouts (Instagram grid and YouTube), which
 - **One review page for every short that passed its checks**, one numbered sheet per short, so Dan answers in one line
   per short. Then **stop for Dan's picks**. A short still waiting on Muhammad gets its covers in a second pass.
 
-## 7. Queue (second half, after his picks; CONTENT only)
+## 7. Add them to the Blotato queue (second half, after his picks)
 - **Private until release.** Follow `/video-setup`: any YouTube copy stays non-public until Blotato releases it at its
   slot. Read back the visibility after setup. Never Public at upload, never YouTube's native scheduling.
 - **Muhammad's Shorts go first; our other Shorts move back (Dan, 10-13).** Read the live Blotato queue and
@@ -149,10 +150,6 @@ Five choices per short, each in both layouts (Instagram grid and YouTube), which
 - TikTok takes no cover image through the API; follow `/video-setup` for the cover-first copy or the phone step.
 - After any Blotato write, re-read the saved schedule and run the ad guard scan.
 
-## Out of scope (Dan, 2026-10-13)
-- Muhammad's 13 long ads: do not add, move, enable or copy any of them into the trial campaign or any other campaign.
-- No Google Ads work of any kind for a CONTENT video.
-
 ## Open risks
 - The Extreme drive must be mounted; the Drive ids in the table are the fallback source for group A.
 - Groups B, C and D depend on Muhammad's files passing; each can drop to a second pass without holding the others.
@@ -163,8 +160,8 @@ Five choices per short, each in both layouts (Instagram grid and YouTube), which
 
 ## Exact next action
 Rename the task `Muhammad Shorts Batch SFC Setup`, read the files in "Read first", re-hash the five group A files, open
-Gmail message `1a134a751d5802e9`, download the three new files, run the checks in sections 2 and 3, then classify all
-nine (section 0) and give Dan the split.
+Gmail message `1a134a751d5802e9`, download the three new files and run the checks in sections 2 and 3, then build the
+cover page and stop for Dan's picks.
 
 ## Starter prompt (also in the chat message)
-> Execute `Handoffs/handoff-20261013-muhammad-shorts-batch2-setup-and-ads-check.md`. Task name: `Muhammad Shorts Batch SFC Setup`. Nine short-form videos from Muhammad. Five are ready (Looksmax, Side Laterals, 200 Pounds At 38, Make Time To Work Out, Ab Wheel). Check the three files he sent 10-13 (Reduce Alcohol HD, Rear Delt Flys HD, and Hammer Curls with the "bracs" caption fix), and find or request the HD file for Why Having Abs Beats Being A Fat Millionaire. M100s is not part of this task. First classify each one as an ad or content from its own ending and tell me the split. Any ad: upload it unlisted and set it up in Google Ads, never Blotato. Content: no Google Ads at all. Make five cover choices per content short (one pool photo, one studio photo, three different AI designs), show them all on one page and stop for my picks. Use the Codex subscription to generate the images. After my picks, queue them in Blotato, private until release, in the earliest Short slots, and push our other queued short-form content back behind them.
+> Execute `Handoffs/handoff-20261013-muhammad-shorts-batch2-setup-and-ads-check.md`. Task name: `Muhammad Shorts Batch SFC Setup`. Category: CONTENT. Nine dedicated Shorts (SFC) from Muhammad, all organic content, none is an ad: no Google Ads work and no unlisted uploads for any of them. Five are ready (Looksmax, Side Laterals, 200 Pounds At 38, Make Time To Work Out, Ab Wheel). Check the three files he sent 10-13 (Reduce Alcohol HD, Rear Delt Flys HD, and Hammer Curls with the "bracs" caption fix), and find or request the HD file for Why Having Abs Beats Being A Fat Millionaire. M100s is not part of this task. Make five cover choices per short (one pool photo, one studio photo, three different AI designs), show them all on one page and stop for my picks. Use the Codex subscription to generate the images. After my picks, add them to the Blotato queue, private until release, in the earliest Short slots, and push our other queued short-form content back behind them. Give me the release dates when it is done.
