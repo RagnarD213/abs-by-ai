@@ -1375,6 +1375,29 @@ filmed ads the same way:
    A0147 covered the walking trainer's face. And never put a `#` comment in the middle of a `a; b; c` line: it
    silently removed the `chip.save(...)` that followed it.
 
+## RA-14 round 2 lessons: colour and framing on the 8/28 pool rolls (2026-10-13)
+
+Dan on round 1, which reused RA-01's grade and framing rule on roll C1667: "both are a little bit too tight" and "we can
+do better with the color corrections". Recipe: `reference/ra14/round2/`. Nothing here is approved yet; his picks are pending.
+
+1. **On these rolls the fault is exposure, not white balance. Measure before choosing a fix.** Clouds read neutral in
+   linear (R/G 1.00, B/G 1.04), so the camera was set right. His face sat 1.5 stops under mid grey in front of a bright
+   sky; RA-01's exposure rule (face luma against an INDOOR reference) left it there. Face luma 64 against 77 to 78 on
+   the approved RA-01 and Ad 1.
+2. **Brightening alone turns his skin pink** (Lab hue 51 falls to 44 at one stop up). Hold the skin on the approved hue
+   (53 to 55) with a secondary on skin tones only, baked into the LUT (`colour/lab.py` `skin_rot`). 8 degrees is the
+   natural tan; 10 and over goes yellow in the shadows of his face, which only shows at NATIVE size.
+3. **Each candidate is one 65-point .cube** (`colour/bake.py`), so a look is a single `lut3d` and candidates render in
+   the same decode (split after the crop).
+4. **Do not decode a roll from frame 0 to reach a late take.** An input seek to half a frame before frame N lands on
+   exactly N (checked against a full-decode strip: difference 0.0 at offset 0, 4.5 one frame either side). RA-14's
+   opening went from a 6.5 minute decode to the 18 seconds it uses (`s72_sample.py`).
+5. **Removing a card can uncover a splice.** The AI picture Dan cut at 5 s had been covering a tightened pause; with
+   it gone the join was a visible jump (frame difference 19 against 7.6 beside it). Re-run the inside-hold splice check
+   whenever a card comes out, and put the size change on the splice.
+6. **Measure his head on the exact first frame of every hold** (`s04b_holdstart.py`). The 5-per-second track put the
+   landing 5 to 20 source px off; with the extra sample it is 0.
+
 ## Decisions locked vs pending
 
 | decision | status |

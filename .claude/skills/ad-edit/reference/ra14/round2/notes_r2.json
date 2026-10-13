@@ -1,0 +1,133 @@
+{
+ "decisions": [
+  {
+   "short": "Opener (Character creator / 8-bit power-up / Arcade combo / none)",
+   "q": "The opener. Which idea do I animate for the first 3.6 seconds?",
+   "opts": "A (recommended): Character creator. It reads fastest and is the safest to get right. B: 8-bit power-up. C: Arcade combo. D: none, the ad opens on you by the pool. You can approve more than one and choose after seeing them move: all three together come to about $6 to $8 of this ad's $10."
+  },
+  {
+   "short": "Framing (A little wider / Wider / Widest)",
+   "q": "Framing. Both shots wider, as you asked. Which pair?",
+   "opts": "A (recommended): Wider, 14% and 18% wider than round 1. B: A little wider, 7% and 9%. C: Widest, 21% and 24%."
+  },
+  {
+   "short": "Colour (Brighter golden skin / RA-01 level / Brighter cooler background)",
+   "q": "Colour. Three new candidates, round 1 beside them.",
+   "opts": "A (recommended): Brighter, golden skin. B: RA-01 level, the deepest tan. C: Brighter, cooler background. A and B are on the player, moving."
+  },
+  {
+   "short": "Analysis card (Soft Blue redraw / keep RA-01 card)",
+   "q": "The analysis card (A1) is the one you asked me to reuse from RA-01. It is still drawn in the old dark olive look. (Asked in round 1, not answered yet.)",
+   "opts": "A (recommended): I redraw it in Soft Blue Light, same layout, same bars, so the whole ad is one look. B: keep it exactly as approved on RA-01."
+  },
+  {
+   "short": "Voice (as on RA-01 / more bass)",
+   "q": "Voice: as approved on RA-01, or with the bass lift? (Asked in round 1, not answered yet.)",
+   "opts": "A (recommended): as approved on RA-01. On this roll it already measures as full in the low end as the reference voice. B: the same with 3 dB more bass, which is your 10-12 standard lift for new voices (last button on the player)."
+  },
+  {
+   "short": "Recap list (keep / none)",
+   "q": "The recap list card (R1) on \"That's the cheat code. A goal you can see, a plan built just for you, and a coach that's always there.\" (Asked in round 1, not answered yet.)",
+   "opts": "A (recommended): keep it, each line landing as you say it. B: no card, you on camera with captions only."
+  }
+ ],
+ "decided": [
+  "The AI picture at 5 seconds is out. You stay on camera for \"I'm not talking about an AI picture.\" The goal picture still appears once, later, as the result of the step one demo. Say if you want it out there too.",
+  "With that picture gone, the pause I tightened between \"It's AI.\" and \"I'm not talking\" showed as a jump: your head shifts and your mouth snaps open. So the shot size changes right on it. The opening now goes: opener clip, close for \"It's AI.\", wide for \"I'm not talking about an AI picture.\", close for \"real abs in real life\" (the wider close still shows your abs to the waistband), wide for \"Here's how it works.\" The handoff had planned close, wide, close; I changed it because of the jump.",
+  "Step one now starts on the close shot, exactly on the change of take instead of 3 frames after it. The new close is about the size of round 1's wide, so the Step 1 label still sits clear of your face. You will see every label again, moving, next round.",
+  "The crop now lands exactly on your head at every cut. In round 1 it landed 5 to 20 pixels off because your head was measured 5 times a second; I added a measurement on the first frame of every shot.",
+  "Colour, what was actually wrong: not the white balance (the clouds measure neutral, so the camera was set right). You were a stop and a half darker than mid grey in front of a bright sky, and round 1 left you there. Face brightness was 64; the approved RA-01 and Ad 1 sit at 77 to 78.",
+  "I looked at every colour candidate at full size beside frames from RA-01's master and the approved Ad 1 vertical before choosing. Simply brightening the picture turned your skin pink, so each candidate holds your skin on the golden hue of the approved videos with a correction that touches skin tones only. I also tried a stronger gold and threw it out: it went yellow in the shadows of your face.",
+  "Wider is also sharper. The close shot was a 2.14x enlargement of the 4K picture in round 1; in the recommended pair it is 1.88x.",
+  "The opening sample shows the Character creator frames where the opener goes, with a yellow PLACEHOLDER banner. They are still frames with a cut between them. No motion exists.",
+  "On the opener frames, every letter is drawn by me in code (the slider, the percentages, the ABS counter). The pictures came from Codex with no lettering. AI-GENERATED sits low on the left, on no face.",
+  "Each opener shows men whole, with ordinary faces, and nobody touching a stomach. In the arcade END frame his hands hold the shirt only.",
+  "Spend on AI generation so far: $0 of this ad's $10. The six frames were made on your Codex subscription.",
+  "Not in this round, still to do before the full ad: check four more tightened pauses inside shots (11.4, 19.7, 31.1 and 41.4 / 42.6 s), lift the captions above the recap card, build the phone demos moving, fix the music tail, then the 16:9."
+ ],
+ "ideas": [
+  {
+   "id": "O1",
+   "name": "Character creator",
+   "rec": true,
+   "see": "A video game character screen. An ordinary guy stands on the turntable, soft around the middle. A slider marked BODY: ABS sits above his head with a pointer on it.",
+   "action": "One shot, 3.6 seconds. The pointer drags the slider from 0% to 100% over about 2.2 seconds and his body leans out as it moves. It holds on 100% for the last second. I draw the slider, the pointer and the numbers over the clip myself, so they stay sharp; the model only changes his body.",
+   "cost": "About $1 a take. I would plan up to two takes: about $2.",
+   "sense": [
+    "Yes. The pointer moves the slider and the body follows it, the way a game slider works. Nothing changes without a cause.",
+    "Yes. A stranger sees a game slider marked ABS go from 0% to 100% and a man get abs.",
+    "Yes. A setting that simply hands you abs is a cheat. It reads in one viewing."
+   ]
+  },
+  {
+   "id": "O2",
+   "name": "8-bit power-up",
+   "rec": false,
+   "see": "An old pixel side-scroller. A little pixel dude with a round tummy runs toward a glowing six-pack power-up. The counter in the corner reads ABS x0.",
+   "action": "One shot, 3.6 seconds. He runs for about 1.2 seconds, touches the power-up, the screen flashes white for 3 frames, and he is flexing with pixel abs while the counter flips to ABS x6. I draw the counter myself.",
+   "cost": "I would build this one in code from a few more Codex sprite frames, which costs nothing. If that looks stiff, a video model take is about $1.",
+   "sense": [
+    "Yes. He touches the power-up and changes, like every game power-up.",
+    "Yes. Run, grab, abs. The counter says it in two words.",
+    "Mostly. A power-up is a shortcut more than a cheat code, so it is a little less exact than the slider. It is the most charming of the three."
+   ]
+  },
+  {
+   "id": "O3",
+   "name": "Arcade combo",
+   "rec": false,
+   "see": "A guy at an arcade machine with two friends watching. START: hands on the buttons, the machine dim. END: he has stepped back and lifted his shirt to find abs, the machine is lit up like a jackpot and his friends are losing it.",
+   "action": "Two shots with a cut between them (a time jump is a cut, never a morph). Shot 1, about 1.6 seconds: he slams the buttons and the machine comes alive. Cut. Shot 2, about 2.0 seconds: shirt already lifted, he looks down, the friends react. I can put CHEAT CODE ACCEPTED on the machine's screen in code.",
+   "cost": "Two clips at about $1 a take, two takes each: about $4.",
+   "sense": [
+    "Only as a joke. Pressing buttons does not give a man abs, and the clip never pretends it does: the machine pays out, he checks, they are there.",
+    "Partly. A stranger sees friends, a jackpot and a man surprised by his own abs. Without the words CHEAT CODE on the machine it would not say cheat code.",
+    "Yes, and it is the funniest. It is also the most to fit into 3.6 seconds and the hardest for the model: three faces, hands and a shirt."
+   ]
+  }
+ ],
+ "looks": [
+  {
+   "key": "R1_round1",
+   "name": "Round 1 (what you saw)",
+   "rec": false,
+   "txt": "Dim. Your skin reads dark red-brown, the trees are heavy and the picture is flat for a pool."
+  },
+  {
+   "key": "C1_approved_level",
+   "name": "RA-01 level",
+   "rec": false,
+   "txt": "Lifted to the brightness of the approved RA-01, and cleaner. The deepest tan and the hardest abs shadows of the three. Wrong with it: still reads as a dull day, and your face stays a little dark."
+  },
+  {
+   "key": "C2_brighter_gold",
+   "name": "Brighter, golden skin",
+   "rec": true,
+   "txt": "About one stop brighter than round 1, so it reads as a day by the pool. Skin on the golden hue of the approved videos. Wrong with it: the lightest stones in the wall are close to white (nothing is clipped), and the abs shadows are a little softer than at RA-01 level."
+  },
+  {
+   "key": "C3_brighter_cool",
+   "name": "Brighter, cooler background",
+   "rec": false,
+   "txt": "The same brightness with a cooler balance: the whitest wall and the bluest pool. Wrong with it: your skin is slightly less rich, and the whole picture feels a little colder."
+  }
+ ],
+ "videos": [
+  [
+   "Brighter, golden skin (recommended colour), opener placeholder",
+   "RA-14 round 2 - opening - brighter gold colour - opener placeholder.mp4"
+  ],
+  [
+   "RA-01 level colour (runner-up), opener placeholder",
+   "RA-14 round 2 - opening - RA-01 level colour - opener placeholder.mp4"
+  ],
+  [
+   "If you approve no opener: camera opening",
+   "RA-14 round 2 - opening - brighter gold colour - camera opening.mp4"
+  ],
+  [
+   "Voice with more bass",
+   "RA-14 round 2 - opening - brighter gold colour - opener placeholder - more bass.mp4"
+  ]
+ ]
+}

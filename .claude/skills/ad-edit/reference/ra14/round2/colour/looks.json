@@ -1,0 +1,57 @@
+{
+ "C1_approved_level": {
+  "params": {
+   "expo": 1.8,
+   "knee": 0.55,
+   "sat": 0.85,
+   "vib": 0.5,
+   "contrast": 0.15,
+   "pivot": 0.44,
+   "skin_rot": 5,
+   "skin_sat": 0.98
+  },
+  "lut": "/Volumes/Extreme/_edit_work/ra14/round2/colour/luts/ra14_C1_approved_level.cube",
+  "filter": "lut3d=file=/Volumes/Extreme/_edit_work/ra14/round2/colour/luts/ra14_C1_approved_level.cube:interp=tetrahedral"
+ },
+ "C2_brighter_gold": {
+  "params": {
+   "expo": 2.4,
+   "knee": 0.45,
+   "sat": 0.85,
+   "vib": 0.5,
+   "contrast": 0.2,
+   "pivot": 0.46,
+   "skin_rot": 8,
+   "skin_sat": 0.96
+  },
+  "lut": "/Volumes/Extreme/_edit_work/ra14/round2/colour/luts/ra14_C2_brighter_gold.cube",
+  "filter": "lut3d=file=/Volumes/Extreme/_edit_work/ra14/round2/colour/luts/ra14_C2_brighter_gold.cube:interp=tetrahedral"
+ },
+ "C3_brighter_cool": {
+  "params": {
+   "expo": 2.4,
+   "knee": 0.45,
+   "sat": 0.85,
+   "vib": 0.5,
+   "contrast": 0.2,
+   "pivot": 0.46,
+   "wb": [
+    0.955,
+    1.0,
+    1.055
+   ],
+   "skin_rot": 9,
+   "skin_sat": 0.97
+  },
+  "lut": "/Volumes/Extreme/_edit_work/ra14/round2/colour/luts/ra14_C3_brighter_cool.cube",
+  "filter": "lut3d=file=/Volumes/Extreme/_edit_work/ra14/round2/colour/luts/ra14_C3_brighter_cool.cube:interp=tetrahedral"
+ },
+ "R1_round1": {
+  "params": {
+   "expo": 1.15,
+   "post_sat": 1.25
+  },
+  "lut": "/Volumes/Extreme/_edit_work/website-video-828/slog3_709_e1.15.cube",
+  "filter": "lut3d=file=/Volumes/Extreme/_edit_work/website-video-828/slog3_709_e1.15.cube:interp=tetrahedral,eq=saturation=1.25"
+ }
+}

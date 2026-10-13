@@ -1,0 +1,21 @@
+{
+ "NEAR": [
+  576,
+  1024
+ ],
+ "FAR": [
+  720,
+  1280
+ ],
+ "status": "round 2 RECOMMENDED pair 2, not yet Dan's pick",
+ "round1": {
+  "NEAR": [
+   504,
+   896
+  ],
+  "FAR": [
+   612,
+   1088
+  ]
+ }
+}

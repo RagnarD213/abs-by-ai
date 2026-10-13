@@ -1,0 +1,5 @@
+Edit the attached pixel art image and keep it the same game screen: the same 8-bit style, the same palette, the same sky, clouds, hills and brick ground in the same positions, pure chunky pixels with hard edges and no blur.
+
+Change this: the golden six-pack power-up is gone, because he has just collected it. The same little pixel man (same brown hair, same red shorts, same size) now stands in the exact centre of the frame on the ground, facing the viewer, in a double-biceps flex pose with both arms raised. His body has changed: a clearly drawn pixel six-pack on his torso (six blocks, two columns of three), a broad chest, bigger shoulders and arms. He has a big happy grin. A few bright pixel stars and sparkles burst around him.
+
+He stays inside the middle third of the frame width. No text, letters, numbers, score or HUD anywhere.
