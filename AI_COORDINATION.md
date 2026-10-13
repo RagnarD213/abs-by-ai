@@ -9,7 +9,7 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 | work spec'd but not executed | **`Handoffs/`** + `Handoffs/README.md`; dashboard only if Dan asks |
 | durable facts about Dan, the product or providers | **memory**, or a `Docs/` note |
 | standing rules and authorizations | **`AGENTS.md`** / **`CLAUDE.md`** |
-| open state between sessions | **here**, in ≤ 3 lines |
+| open state | **here**, in ≤3 lines |
 
 ## Working rules
 
@@ -127,7 +127,7 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 
 **RA-04 BUILDING 2026-10-13.**
 
-**RA-14 R1 BUILDING 2026-10-13, Claude.** Cheat Code ad, round 1 (look, takes, graphics). Work: `/Volumes/Extreme/_edit_work/ra14/`.
+**RA-14 BUILDING 2026-10-13.**
 
 **RO-07 - HOLD 2026-10-11, Claude.** Blotato full. `Docs/RO07_SETUP_RECEIPT_20261011.md`
 
