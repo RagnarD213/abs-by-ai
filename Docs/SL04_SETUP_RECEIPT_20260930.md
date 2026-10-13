@@ -35,3 +35,8 @@ Per VIDEO-RULES (Dan, 2026-10-01: organic = Blotato only), no Private upload was
 
 ## After release
 - Captions are burned in; no SRT to upload.
+
+
+## Moved 2026-10-13 (Dan: Muhammad's Shorts go first)
+
+Time-only moves, same schedule ids, all four platforms together. New dates (9 AM Central): sl04-short4 Stop Swinging Your Bicep Curls: 2026-11-03. Detail: `Docs/MUHAMMAD_SHORTS_SETUP_RECEIPT_20261013.md`.

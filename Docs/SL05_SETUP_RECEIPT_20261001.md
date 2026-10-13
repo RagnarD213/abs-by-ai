@@ -38,3 +38,8 @@ Blotato creates each public YouTube Short at release (Dan, 2026-10-01).
 
 ## After release
 - Captions are burned in; no SRT to upload.
+
+
+## Moved 2026-10-13 (Dan: Muhammad's Shorts go first)
+
+Time-only moves, same schedule ids, all four platforms together. New dates (9 AM Central): sl05-short2 Safer Lifts Build MORE Muscle Long Term: 2026-11-10; sl05-short5 Train Legs Without Deadlifts: 2026-11-12; sl05-short4 2 Back Exercises To Do Instead Of Deadlifts: 2026-11-07; sl05-short3 Deadlifts Build A Powerlifter Body, Not An Aesthetic One: 2026-11-14; sl05-short1 Deadlifts Cause More Injuries Than Every Other Lift: 2026-11-05. Detail: `Docs/MUHAMMAD_SHORTS_SETUP_RECEIPT_20261013.md`.

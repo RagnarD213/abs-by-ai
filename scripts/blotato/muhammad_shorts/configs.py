@@ -1,0 +1,73 @@
+#!/usr/bin/env python3
+"""Write the Blotato configs for the eight Muhammad dedicated Shorts (all organic content, 2026-10-13).
+Media URLs come from upload.py's state file. Slots: the earliest Tue/Thu/Sat 9 AM Central, in Dan's order."""
+import json,os
+ROOT=os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+st=json.load(open('/Volumes/Extreme/_edit_work/muhammad-shorts-publish/uploads.json'))
+L=lambda c,s:f"https://absbyai.com/?utm_source=youtube&utm_medium=short&utm_campaign={c}&utm_content={s}"
+V=[
+ dict(k='ds-12',file='ds12-top-3-ways-to-looksmax',src='ds-12_top-3-ways-to-looksmax',campaign='looksmax',title='Top 3 Ways To Looksmax',main='2026-10-15T14:00:00.000Z',keyword='COACH',ai=True,
+  hook='Here are the top three ways to looksmax as a man.',
+  body="First, get lean. Attraction is visual and it happens before you say a single word. Second, get a defined jawline, and almost all of that is just body fat. Third, fix your skin with your diet, not just a skincare routine. Getting lean doesn't just get you abs. It also makes your face look better, which is what most guys don't expect.",
+  close="If you've lost a ton of weight, comment and let me know how women are treating you differently now.",
+  tags='#Looksmaxxing #Looksmax #GetLean #MensFitness #AbsByAI',yt_tags='#Looksmaxxing #GetLean #MensFitness #Shorts',
+  points="1. Get lean.\n2. Get a defined jawline. Almost all of it is just body fat.\n3. Fix your skin with your diet and supplements, not just a skincare routine.",
+  pinned='Getting lean, your jawline, or your skin. Which one are you working on first?'),
+ dict(k='ds-23',file='ds23-how-to-do-side-laterals',src='ds-23_how-to-do-side-laterals',campaign='side-laterals',title='How To Do Side Laterals',main='2026-10-17T14:00:00.000Z',keyword='TRAIN',ai=False,
+  hook='Side laterals are the number one exercise for wide shoulders, and wide shoulders make your waist look smaller.',
+  body="Grab a light pair of dumbbells. This is the one exercise where everybody goes too heavy. Raise them to your sides, leading with your elbows, and stop at shoulder height. Tilt the dumbbells like you're dumping out two jugs of water at the top, then lower slowly. The most common mistake is swinging the weight up with momentum.",
+  close='Try side laterals in your next workout and comment to let me know how they are working for you.',
+  tags='#SideLaterals #LateralRaise #ShoulderWorkout #WorkoutTips #AbsByAI',yt_tags='#SideLaterals #ShoulderWorkout #WorkoutTips #Shorts',
+  points="1. Grab a light pair of dumbbells.\n2. Lead with your elbows and stop at shoulder height.\n3. Tilt the dumbbells like you're dumping out two jugs of water at the top.\n4. Lower slowly. Do 15 to 20 slow reps.",
+  pinned='What weight dumbbells are you using for side laterals?'),
+ dict(k='ds-08',file='ds08-i-was-200-pounds-at-38',src='ds-08_i-was-200-pounds-at-38',campaign='200-pounds-at-38',title='I Was 200 Pounds At 38',main='2026-10-20T14:00:00.000Z',keyword='COACH',ai=True,
+  hook='This was me at 38 years old, 200 pounds, and the thing that finally fixed it was not a workout.',
+  body="I already knew everything I needed to know. I knew how to lift and I knew what a calorie was. I didn't have an information problem. I had a motivation problem. What changed my body was generating a picture of myself lean and making it my phone lock screen. I saw the guy I was supposed to be 40 times a day.",
+  close='Comment and let me know what you think is really holding you back.',
+  tags='#WeightLossJourney #Motivation #FitOver40 #GetLean #AbsByAI',yt_tags='#Motivation #FitOver40 #GetLean #Shorts',
+  points="I didn't have an information problem. I had a motivation problem. A picture of myself lean on my phone lock screen is what got me to eat right when nobody was watching.",
+  pinned="Pull out your phone. What's on your lock screen right now?"),
+ dict(k='ds-09',file='ds09-how-to-make-time-to-work-out',src='ds-09_how-to-make-time-to-work-out',campaign='make-time-to-work-out',title='How To Make Time To Work Out',main='2026-10-22T14:00:00.000Z',keyword='COACH',ai=True,
+  hook='Here are three ways to make time to work out.',
+  body="First, work out at home. Driving 15 minutes back and forth to the gym doubles a short workout. Second, work out every day for a short time instead of three long sessions a week. Third, use AI to get more done in less time, at school, at work and on personal tasks.",
+  close="You're not too busy to get in shape. Start with a 15-minute home workout every morning, then comment and let me know how it worked for you.",
+  tags='#HomeWorkout #NoTimeToWorkOut #WorkoutMotivation #BusyLife #AbsByAI',yt_tags='#HomeWorkout #WorkoutMotivation #BusyLife #Shorts',
+  points="1. Work out at home.\n2. Work out every day for a short time instead of three long sessions a week.\n3. Use AI to get more done in less time.",
+  pinned='If you had to fit in 15 minutes every day, would you do it in the morning or at night?'),
+ dict(k='ds-22',file='ds22-how-to-use-the-ab-wheel',src='ds-22_how-to-use-the-ab-wheel',campaign='ab-wheel-how-to',title='How To Use The Ab Wheel',main='2026-10-24T14:00:00.000Z',keyword='ABS',ai=False,
+  hook="This is the best ab exercise you can do at home. Here's how to use the ab wheel the right way.",
+  body="Start on your knees with the wheel right under your shoulders. Roll out slow and only go as far as you can with control. Keep your body in a straight line from your head to your knees. The biggest mistake is letting your hips sag at the bottom. Then pull yourself back with your abs, not your arms.",
+  close='Start with three sets of eight from your knees, and leave a comment to let me know how far you can roll out.',
+  tags='#AbWheel #AbWorkout #HomeWorkout #SixPackAbs #AbsByAI',yt_tags='#AbWheel #AbWorkout #HomeWorkout #Shorts',
+  points="1. Start on your knees with the wheel under your shoulders.\n2. Keep your body in a straight line from your head to your knees.\n3. Pull yourself back with your abs, not your arms.\n4. Start with three sets of eight.",
+  pinned='How many ab wheel rollouts can you do from your knees?'),
+ dict(k='ds-14',file='ds14-3-ways-to-reduce-alcohol',src='ds-14_3-ways-to-reduce-alcohol',campaign='reduce-alcohol',title='3 Ways To Reduce Alcohol',main='2026-10-27T14:00:00.000Z',keyword='FOOD',ai=True,
+  hook="Here are three ways to cut your alcohol down. If you're serious about getting lean, this is the fastest thing you can fix.",
+  body="First, Zepbound. I did not decide to drink less. The wanting to drink just left. Second, never drink liquor. Liquor is how a two drink night turns into a six drink night. Third, only drink zero sugar drinks that taste bad, like plain hard seltzer or vodka and soda. You'll drink less if you hate the taste.",
+  close='Start with the liquor rule this weekend, then comment and let me know if reducing your drinking has helped you get lean.',
+  tags='#DrinkLess #AlcoholAndFatLoss #GetLean #FatLossTips #AbsByAI',yt_tags='#DrinkLess #GetLean #FatLossTips #Shorts',
+  points="1. Zepbound took away my desire to drink.\n2. Never drink liquor.\n3. Only drink zero sugar drinks that taste bad.",
+  pinned='Be honest, how many drinks are you having a week right now?'),
+ dict(k='ds-24',file='ds24-how-to-do-rear-delt-flys',src='ds-24_how-to-do-rear-delt-flys',campaign='rear-delt-flys',title='How To Do Rear Delt Flys',main='2026-10-29T14:00:00.000Z',keyword='TRAIN',ai=False,
+  hook='Rear delt flys work the most neglected muscle on your entire body.',
+  body="Your rear delts are the back of your shoulders. Training them pulls your posture back so you stop looking slouched. Grab a light pair of dumbbells and hinge forward at your hips with your back flat. Raise the dumbbells out to your sides, leading with your elbows, and squeeze your shoulder blades together at the top. Lower them slowly.",
+  close='Do three sets of 15 at the end of each workout, then comment to let me know how they work for you.',
+  tags='#RearDelts #RearDeltFly #ShoulderWorkout #Posture #AbsByAI',yt_tags='#RearDelts #ShoulderWorkout #Posture #Shorts',
+  points="1. Hinge forward at your hips with your back flat.\n2. Raise the dumbbells out to your sides, leading with your elbows.\n3. Squeeze your shoulder blades together at the top.\n4. Go light. Three sets of 15.",
+  pinned='Yes or no, do you train your rear delts at all?'),
+ dict(k='ds-21',file='ds21-how-to-do-hammer-curls',src='ds-21_how-to-do-hammer-curls',campaign='hammer-curls',title='How To Do Hammer Curls',main='2026-10-31T14:00:00.000Z',keyword='TRAIN',ai=False,
+  hook="Here's how to do hammer curls.",
+  body="Hammer curls work a separate muscle from your biceps, so you need to do hammer curls and regular curls. Hold the dumbbells vertically and curl the weight up like a regular curl. The most common mistake is letting the weight get horizontal at the top and the bottom. That takes the tension off your muscle. Use a lighter weight and a slow, controlled pace.",
+  close='Try that out and let me know how hammer curls are working for you.',
+  tags='#HammerCurls #ArmWorkout #BiggerArms #WorkoutTips #AbsByAI',yt_tags='#HammerCurls #ArmWorkout #WorkoutTips #Shorts',
+  points="1. Hold the dumbbells vertically.\n2. Keep the weight as vertical as possible the whole time.\n3. Use a lighter weight.\n4. Use a slow, controlled pace.",
+  pinned='Hammer curls or regular curls, which one do you do more?'),
+]
+for v in V:
+    k=v['k'];c=dict(content_type='organic',source=f"Short-form video content/{v['src']}.mp4",slug=k,campaign=v['campaign'],title=v['title'],
+      video_url=st[f'{k}:video']['url'],tiktok_video_url=st[f'{k}:tiktok']['url'],instagram_cover_url=st[f'{k}:ig_cover']['url'],youtube_cover_url=st[f'{k}:yt_cover']['url'],
+      main=v['main'],keyword=v['keyword'],ai_generated=v['ai'],hook=v['hook'],body=v['body'],close=v['close'],tags=v['tags'],
+      youtube_description=f"{v['hook']}\n\nTry your free Abs By AI preview: {L(v['campaign'],k)}\n\n{v['points']}\n\n{v['close']}\n\n{v['yt_tags']}",
+      pinned_comment=v['pinned'])
+    assert '—' not in json.dumps(c,ensure_ascii=False) and '–' not in json.dumps(c,ensure_ascii=False)
+    p=os.path.join(ROOT,'scripts/blotato/configs',v['file']+'.json');open(p,'w').write(json.dumps(c,indent=2,ensure_ascii=False)+'\n');print('wrote',p.split('/')[-1],v['main'][:10])

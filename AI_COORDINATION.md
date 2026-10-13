@@ -126,7 +126,7 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 
 **Video 5 setup - 2026-10-11, Claude.** Queue blocked (200 cap). Task `abs40-vs-25-blotato-queue` queues Jan 3 2027 on Oct 12. `Docs/ABS40VS25_SETUP_RECEIPT_20261011.md`.
 
-**Muhammad Shorts - QUEUED 2026-10-13, Claude.** Oct 15-31; 7 on waitlist. DS-05 HD owed. `Docs/MUHAMMAD_SHORTS_SETUP_RECEIPT_20261013.md`
+**Muhammad-Shorts QUEUED 2026-10-13.** DS-05 HD owed. `Docs/MUHAMMAD_SHORTS_SETUP_RECEIPT_20261013.md`
 
 **RO-20/B/C WAITS-SHOOT 2026-10-13.** `Docs/PICKUPS_1017_SHOOT.md`
 
@@ -160,7 +160,7 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 
 **Stashed edits - NEEDS OWNER 2026-09-29, Claude.** Upstream kept: softblue.py, SOFTBLUE.md, GRAPHICS-STANDARDS.md, deliver/gate.py, coverimage SKILL.md, 00-MASTER.md, jobs.json. Edits: `stash@{0}` (5d8284a). Next: re-apply.
 
-**SL-04 shorts - QUEUED 2026-10-13, Claude.** Last one moved to Nov 3; delete once posted. `Docs/SL04_SETUP_RECEIPT_20260930.md`.
+**SL-04 shorts - QUEUED 2026-10-13, Claude.** Last: Nov 3. `Docs/SL04_SETUP_RECEIPT_20260930.md`.
 
 
 

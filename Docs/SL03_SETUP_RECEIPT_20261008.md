@@ -54,3 +54,8 @@ Scheduled task `sl03-queue-shorts-2-3-6` (daily about 8:30 AM, Claude app must b
 - `ad_guard.py --scan` CLEAN (195 posts). Parent still scheduled, none failed (5014534 Oct 18; 5014529, 5014531, 5014533 Oct 19).
 - Fresh pull: text, targets and slot match the config; TikTok `videoCoverTimestamp` 0, `isAiGenerated` false; YouTube public, synthetic off, title "Keep Your Salads Fresh For 7 Days". Hosted media downloaded and SHA-256 matched to local files: master c270c157 (FB, IG, YouTube), TikTok copy eb475ffa, Instagram PNG 3efa45bb, YouTube JPEG ea67a11b.
 - Still owed: short 6 (Tue Nov 10). The task retries daily.
+
+
+## Moved 2026-10-13 (Dan: Muhammad's Shorts go first)
+
+Time-only moves, same schedule ids, all four platforms together. New dates (9 AM Central): sl03-short5 Track A Week Of Meals From 1 Photo: 2026-11-21; sl03-short4 Stop Buying Salad Dressing: 2026-11-19; sl03-short3 Keep Your Salads Fresh For 7 Days: 2026-11-26; sl03-short6 Make AI Calorie Tracking Accurate: 2026-11-28; sl03-short2 The $20 Salad You Can Make For $4: 2026-11-24; sl03-short1 Break Your Fast With This: 2026-11-17. Detail: `Docs/MUHAMMAD_SHORTS_SETUP_RECEIPT_20261013.md`.
