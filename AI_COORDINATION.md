@@ -125,8 +125,6 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 
 **RO-20/B/C WAITS-SHOOT 2026-10-13.** `Docs/PICKUPS_1017_SHOOT.md`
 
-**RO-19 R4 REVIEW 2026-10-13, Claude.** http://127.0.0.1:8867/ `Handoffs/handoff-20261013-ro19-round4-final-revisions.md`
-
 **RA-04 BUILDING 2026-10-13.**
 
 **RA-14 R1 REVIEW 2026-10-13.** http://127.0.0.1:8814/ `Handoffs/handoff-20261013-ra14-cheat-code-round2-after-dan-review.md`
@@ -223,6 +221,7 @@ Memory `google-ads-ui-automation`.
 `[dash]` = on the fire list; runner deletes row, line and README row.
 
 
+- `handoff-20261013-ro19-thumbnails-and-video-setup.md` (10-13): RO-19 approved; thumbnails, then setup. Opus 5.5 high.
 - `handoff-20261007-ro10-subtle-reedit-sunday-reupload.md` (10-07): RO-10 R3 end graphic, Sunday replacement. Codex Sol high.
 - `handoff-20261008-dan-voice-training-part2-plan.md` (B-done-10-10;next:C,D;Dan:Round-2-blind-page)
 - `handoff-20260930-codex-adopt-review-page-format.md` (09-30). Sol medium.
