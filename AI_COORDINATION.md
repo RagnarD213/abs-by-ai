@@ -121,6 +121,8 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 
 **Video 5 setup - 2026-10-11, Claude.** Queue blocked (200 cap). Task `abs40-vs-25-blotato-queue` queues Jan 3 2027 on Oct 12. `Docs/ABS40VS25_SETUP_RECEIPT_20261011.md`.
 
+**Muhammad Shorts Batch SFC Setup - IN PROGRESS 2026-10-13, Claude.** Eight HD files proven and filed; covers building. Next: Dan's picks, then Blotato. DS-05 HD owed by Muhammad. `Handoffs/handoff-20261013-muhammad-shorts-batch2-setup-and-ads-check.md`
+
 **RO-20/B/C WAITS-SHOOT 2026-10-13.** `Docs/PICKUPS_1017_SHOOT.md`
 
 **RO-19 R4 BUILDING 2026-10-13, Claude.** Film rendering; page 8867 next. `Handoffs/handoff-20261013-ro19-round4-final-revisions.md`
@@ -220,7 +222,6 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the fire list; runner deletes row, line and README row.
 
-- `handoff-20261013-muhammad-shorts-batch2-setup-and-ads-check.md` (10-13). Opus.
 
 - `handoff-20261007-ro10-subtle-reedit-sunday-reupload.md` (10-07): RO-10 R3 end graphic, Sunday replacement. Codex Sol high.
 - `handoff-20261008-dan-voice-training-part2-plan.md` (B-done-10-10;next:C,D;Dan:Round-2-blind-page)
