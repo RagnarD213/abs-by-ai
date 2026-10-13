@@ -11,8 +11,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
-- [Muhammad shorts batch 2 and ad check](handoff-20261013-muhammad-shorts-batch2-setup-and-ads-check.md): Hammer Curls (new file 10-13) and Fat Millionaire (HD owed) setup; confirm all nine shorts get engagement ads at release. Opus 5.5 high.
-- [Muhammad shorts: covers and release queue](handoff-20261012-muhammad-shorts-covers-and-setup.md): five finalized dedicated shorts now, two when HD exports arrive; Hammer Curls and M100s excluded. Opus 5.5 high.
+- [Muhammad shorts, all nine: covers, queue, ad check](handoff-20261013-muhammad-shorts-batch2-setup-and-ads-check.md): five ready, three files from 10-13 to check, Fat Millionaire HD owed; M100s excluded. Replaces the 10-12 handoff. Opus 5.5 high.
 - [Upwork profile and portfolio](handoff-20261007-upwork-profile-and-portfolio.md): interview Dan, verify experience and assets, build and publish the approved profile. Opus 5.5 high.
 - [Upwork jobs and proposals](handoff-20261007-upwork-job-applications.md): interview for criteria and budgets, decide promotion, prepare custom proposals/samples, submit approved batches, assess Grok Bot scouting. GPT-6.1 Sol high.
 

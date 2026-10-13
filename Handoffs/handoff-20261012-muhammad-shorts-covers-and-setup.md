@@ -1,3 +1,6 @@
+> **SUPERSEDED 2026-10-13. Do not run.** Everything here is folded into
+> `handoff-20261013-muhammad-shorts-batch2-setup-and-ads-check.md`, which covers all nine shorts.
+
 # Muhammad dedicated shorts (5 now, 2 to follow): covers, then release queue
 
 **Category: CONTENT. Dedicated Shorts (`SFC`), edited by Muhammad. Written 2026-10-12 by Claude (Opus 5.5).
