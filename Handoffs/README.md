@@ -11,7 +11,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
-- [Muhammad shorts, all nine: covers, queue, ad check](handoff-20261013-muhammad-shorts-batch2-setup-and-ads-check.md): five ready, three files from 10-13 to check, Fat Millionaire HD owed; M100s excluded. Replaces the 10-12 handoff. Opus 5.5 high.
+- [Muhammad short-form batch, all nine](handoff-20261013-muhammad-shorts-batch2-setup-and-ads-check.md): classify each; ads unlisted to Google Ads, content to Blotato first in line and private until release, other Shorts pushed back. Replaces the 10-12 handoff. Opus 5.5 high.
 - [Upwork profile and portfolio](handoff-20261007-upwork-profile-and-portfolio.md): interview Dan, verify experience and assets, build and publish the approved profile. Opus 5.5 high.
 - [Upwork jobs and proposals](handoff-20261007-upwork-job-applications.md): interview for criteria and budgets, decide promotion, prepare custom proposals/samples, submit approved batches, assess Grok Bot scouting. GPT-6.1 Sol high.
 
