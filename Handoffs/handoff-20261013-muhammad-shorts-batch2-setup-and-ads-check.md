@@ -12,7 +12,7 @@ Task name: `Muhammad Shorts Batch SFC Setup`.** One Claude handoff covers covers
 ## Why this exists
 Dan asked on 10-13 for a check that everything Muhammad delivered is in the ad campaigns, then for one handoff that
 covers everything.
-- Muhammad's 13 ads are all on YouTube unlisted and all have ads in Google Ads. Nothing to upload ("Audit record" below).
+- Muhammad's 13 ads are all on YouTube unlisted and all have ads in Google Ads. Nothing to upload, and they are out of scope here.
 - Muhammad's short-form batch is 22 dedicated Shorts, **every one CONTENT, not an ad** (each ends on a comment call to
   action; he named files "Ad 08", "Ad 09", "Ad 13" but they are DS-08, DS-09, DS-13). None is on YouTube yet. They go
   through `/video-setup` only, never `/ad-setup`. The engagement campaigns pick each one up by themselves at release
@@ -142,25 +142,10 @@ ENABLED ad per campaign within minutes of going public. Missing: look for `creat
 `via: "instant"` and the Railway log line "YTADS instant". Do not pause, enable or remove anything on this path;
 report what is missing to Dan.
 
-## Audit record, Muhammad's ads in Google Ads (read 2026-10-13)
-| Ad | YouTube 16:9 | Where it has ads | Running now? |
-|---|---|---|---|
-| 3 Stop Paying Human Trainers | `86jbUhqBTUQ` + 3 formats | trial campaign `24316364155` and conversion campaign | Yes |
-| 4 Stop Wasting Money On Supplements | `R08TPEtkjuQ` + 4 formats | trial | Yes |
-| 6 You're Not Too Old | `Je2yvk00SHE` + 4 formats | trial | Yes |
-| 10 My Dad Bod At 38 / 40 | `Sg3vcEY2P_8` + 4 formats | trial | Yes |
-| 13 What Getting Abs Was Supposed To Cost | Codex R4 `NQeyZ2jylVU` + 4 formats (Muhammad's `-SuKGXGcbIg` retired 10-05) | trial | Yes |
-| 1 This Picture Got Me Abs | `lf46ytHacss` + 4 formats | conversion campaign only | No, campaign is paused |
-| 2 Stop Wasting Money On Nutritionists | `Dtk5knWM7c8` + 2 formats | conversion campaign only | No |
-| 7 In 2010 I Photoshopped My Face | `92A3JhaU4wE` | conversion campaign only | No |
-| 8 AI Showed Me My Two Futures | `HMZdiJMAI3Y` + 2 formats | conversion campaign only | No |
-| 9 I Tried To Get Abs With ChatGPT | `zvVk680kSfo` | conversion campaign only | No |
-| 14 I Watched 400 Workout Videos | `SGJoPjnl6AU` (+ Codex R4 `ACfVyQqPK08`) | conversion campaign only | No |
-| 15 The Dad Who Swam In A T-Shirt | `5GQQHP8bpM4` | conversion campaign only | No |
-| 5 Every Diet You've Tried Failed | `bwfSQopZy1w` | one paused ad in the paused engagement remarketing campaign | No, and it has no conversion or trial ad |
-
-All ads read APPROVED. "Conversion campaign" is `[DGEN] [CONVERSION] MU 25-54 | US+CA`, paused at campaign level.
-Moving any of the eight idle ads into the live trial campaign is Dan's call and is not part of this task.
+## Out of scope (Dan, 2026-10-13)
+This task is the dedicated Shorts only. Do not touch Muhammad's 13 long ads: do not add, move, enable or copy any of them
+into the trial campaign or any other campaign, and do not create or edit any ad by hand. The only Google Ads work here
+is the read-only check in section 8.
 
 ## Open risks
 - The Extreme drive must be mounted; the Drive ids in the table are the fallback source for group A.
