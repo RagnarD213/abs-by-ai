@@ -1,3 +1,34 @@
+## Thumbnails: the five, each its own design, always made by Codex (Dan, 2026-10-13)
+
+Dan, finalizing RO-19: *"Let's make this a standard way of making thumbnails going forward. We always have one pool, one
+studio, one AI-enhanced or AI-generated image of me, and two other AI-generated images, which can be me or not. We'll leave
+the other two up to Codex's judgment, and then we always have five unique designs for thumbnails... Make sure that Codex is
+always the one making these thumbnails."*
+
+- **The five, every video:**
+  1. one real **pool-shoot** photo of Dan;
+  2. one real **studio-shoot** photo of Dan;
+  3. one **AI-enhanced or AI-generated image of Dan** (on a topic video, Dan in the video's subject: for RO-19 he asked for
+     "an AI-enhanced image of me getting a spray tan, or an AI-generated image of me getting a spray tan");
+  4. and 5. **two more AI-generated images of Codex's choice**, which may show Dan or not. That call is Codex's.
+- **Five unique designs, all five.** His words on the RO-19 request: "Unique design for all thumbnails." No two share a
+  layout, type treatment, colour and composition. This now covers the pool and studio options as well: the 2026-10-10 note
+  that the real photos could keep the house layout is replaced. Write one line per option naming its design before building.
+- **Codex always makes them.** The Claude upload and setup task (`/video-setup`, `/ad-setup`) makes all five by calling Codex
+  in the command line on Dan's subscription (`_shared/codex-image.sh --model gpt-6.1-sol --effort high`); a Codex task makes
+  them the same way. Codex chooses the designs of options 3 to 5. No other image model, and no design drawn by Claude in
+  place of a Codex one.
+- **Options 1 and 2 stay real.** His real cutout over a Codex background, type set in code ([IMAGE-GENERATION.md](IMAGE-GENERATION.md):
+  Codex redraws people). **Option 3 is the one place a picture of Dan may be AI-enhanced or AI-generated**, by this
+  instruction. Give Codex a real photo of him as the reference, ask for "lean and shredded, not bulky, same size as the
+  reference", and look at the face before it goes on the sheet: it has to read as him.
+- Unchanged: one review sheet, then **stop for Dan's pick** before any upload or scheduling; the same copy on all five unless
+  he asks for copy options; no claims, no "Real picture" label and no AbsByAI.com on a thumbnail; text off his face and hair;
+  no frowning photo; the Speedo crop.
+- Editor's reading, not his words: Shorts covers follow the same five (each still in its Instagram and YouTube layouts), as
+  they followed the mix this replaces.
+- This replaces the 2026-10-02 mix below (pool, studio, three AI designs of Codex's choice).
+
 ## Pickups are recorded on the studio set at a shoot, not on the desk mic (Dan, 2026-10-13)
 
 - **A pickup line for any video goes on the next shoot's list and is recorded on the studio set with the shoot's clip-on mic.** Dan,
@@ -201,7 +232,7 @@
   frame-to-frame change of the clip's last two seconds before trimming near its end (RO-07's deadlift clip was a still for 0.6 s before its
   red X, and a trim that only avoided the X ran into the freeze).
 
-## Codex's-choice thumbnails: every image is its own design (Dan, 2026-10-10)
+## Codex's-choice thumbnails: every image is its own design (Dan, 2026-10-10; widened to all five on 2026-10-13, top of this file)
 
 - **When Dan asks for "three AI designs of Codex's choice" (or any set of options with the designer's choice), each image is a different DESIGN, not a different picture dropped into one layout.** Dan, on RO-06's sheet: *"These all essentially have the same design with different images... For Codex's choices going forward, I want a unique design on every image. We're not just putting the same image or different images in the same design five times."*
 - How to apply: before building, write one line per option naming its layout, type treatment, colour and composition, and check that no two share them. Vary the headline placement (left stack, centred, bottom band, over-the-shoulder, split panel), the type style and colour, the subject scale, and the concept (object hero, before/after split, price tag, comparison, close-up detail). The same bar-plus-two-lines on the left over five backgrounds fails. Same copy is still fine; the design is what changes. The real pool and studio photos can keep the house layout; the three AI options may not.
@@ -439,7 +470,7 @@
   item on the review page. "The label was easier to place" is not a reason: try a smaller chip or a corner first.
 - This extends the 2026-10-01 rule below (a horizontal clip in a vertical) to squares and to photos.
 
-## Thumbnails: five choices, made by Codex inside the Claude setup task (Dan, 2026-10-02)
+## Superseded mix (2026-10-13, section at the top of this file); who and how still hold: five choices, made by Codex inside the Claude setup task (Dan, 2026-10-02)
 
 Dan, finalizing RO-16: *"the standardized way is we do the upload and setup with Claude. Claude calls Codex within the
 command-line interface and uses my subscription to make the images. We don't use external models like Gemini to make any

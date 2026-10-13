@@ -61,7 +61,7 @@ handles them after release). Ads never get an article.
 
 ### Required five-choice review (Dan, 2026-09-30)
 
-Follow `_shared/VIDEO-RULES.md`, "Five cover and thumbnail choices per video": one pool photo, two different studio photos on topic-specific Jelly Beans style photographic backgrounds, one enhanced screenshot from this video, and one designer choice. Handoffs list all five. Keep copy consistent, show the finished five choices and stop for Dan's picks. This supersedes older two-thumbnail counts and two-pool mixes below. If an A/B test is requested, Dan selects its contenders from the five.
+Follow `_shared/VIDEO-RULES.md`, "Thumbnails: the five, each its own design, always made by Codex" (Dan, 2026-10-13): one pool photo, one studio photo, one AI-enhanced or AI-generated image of Dan, and two more AI-generated images of Codex's choice (Dan or not). Five unique designs, always made by Codex (`_shared/codex-image.sh --model gpt-6.1-sol --effort high`). Handoffs list all five. Keep copy consistent, show the finished five choices and stop for Dan's picks. This supersedes older two-thumbnail counts and two-pool mixes below. If an A/B test is requested, Dan selects its contenders from the five.
 
 
 ### Source-photo variety (Dan, 2026-09-16)

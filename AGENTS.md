@@ -31,14 +31,15 @@ doing anything.** It holds Dan's standing production rules. Not having read it i
 
 - When a video is mostly finished and a later round changes only a few things, always deliver a concise revision list in chat with exact timestamps in the new full film and short watch ranges around each change. Link available repair clips. Dan should not need to watch the whole film again to find a few revisions. This applies to all video workflows and both Claude and Codex. Full procedure: `.claude/skills/_shared/VIDEO-RULES.md`.
 
-## Thumbnail and cover mix, and who makes them (Dan, 2026-10-02)
+## Thumbnail and cover mix, and who makes them (Dan, 2026-10-13)
 
-Every finished video gets five thumbnail (or cover) choices: one from the pool shoot, one from the studio shoot, and three
-AI-generated images, each a different design of Codex's choice. The Claude upload and setup task makes them itself by calling
-Codex in the command line on Dan's subscription (`.claude/skills/_shared/codex-image.sh --model gpt-6.1-sol --effort high`),
-shows all five, stops for Dan's pick, then uploads. GPT-6.1 Sol at high effort is the default for every thumbnail task. No
-Gemini or other outside image model. This is the standard unless Dan says otherwise for a given video. It replaces the
-2026-09-30 mix (pool, two studio, screenshot, designer choice). Full rule: `.claude/skills/_shared/VIDEO-RULES.md`.
+Every finished video gets five thumbnail (or cover) choices, each a unique design: one from the pool shoot, one from the
+studio shoot, one AI-enhanced or AI-generated image of Dan, and two more AI-generated images of Codex's choice, which may
+show Dan or not. Codex always makes them: the Claude upload and setup task calls Codex in the command line on Dan's
+subscription (`.claude/skills/_shared/codex-image.sh --model gpt-6.1-sol --effort high`), shows all five, stops for Dan's
+pick, then uploads. GPT-6.1 Sol at high effort is the default for every thumbnail task. No Gemini or other outside image
+model. This is the standard unless Dan says otherwise for a given video. It replaces the 2026-10-02 mix (pool, studio, three
+AI designs). Full rule: `.claude/skills/_shared/VIDEO-RULES.md`, first section.
 
 ## Context preservation
 

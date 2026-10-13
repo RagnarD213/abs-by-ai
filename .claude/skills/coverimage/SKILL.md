@@ -27,7 +27,7 @@ FAIL if the abs don't read. Reject and keep looking rather than shipping one.
 
 ## Required five-choice review
 
-Follow `_shared/VIDEO-RULES.md`, "Five cover and thumbnail choices per video" (Dan, 2026-09-30): one pool photo, two distinct studio photos on Jelly Beans style topic backgrounds, one enhanced screenshot from this video, and one designer choice. This mix overrides the photo-first fallback restriction below: a screenshot is now required. Show each option in separate Instagram and YouTube layouts, then stop for picks. Handoffs must list all five slots.
+Follow `_shared/VIDEO-RULES.md`, "Thumbnails: the five, each its own design, always made by Codex" (Dan, 2026-10-13; applied to covers as the editor's reading of his thumbnail standard): one pool photo, one studio photo, one AI-enhanced or AI-generated image of Dan, and two more AI-generated images of Codex's choice (Dan or not). Five unique designs, always made by Codex (`_shared/codex-image.sh --model gpt-6.1-sol --effort high`). The 2026-09-30 mix (two studio photos, a required screenshot, a designer choice) is retired. Show each option in separate Instagram and YouTube layouts, then stop for picks. Handoffs must list all five slots.
 
 ## The rules, in priority order
 

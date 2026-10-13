@@ -18,9 +18,11 @@ descriptions and thumbnails… Before setting it up, though, make the thumbnail 
 Everything below ran end to end that day. Historical result: YouTube `b_bS9NdmL-g` (scheduled under the retired native-publication workflow for Sun 09-20 9 AM CT, thumbnails 5 vs 1 in Test & Compare), Blotato
 schedules 4413699 / 4413701 / 4413702 / 4413703; record in `BLOTATO_QUEUE_PROGRESS.md`.
 
-**Thumbnails are made HERE, by this Claude task, since 2026-10-02 (Dan).** Five choices: one pool-shoot photo, one studio-shoot
-photo, three AI-generated designs of Codex's choice, built with `_shared/codex-image.sh --model gpt-6.1-sol --effort high` on
-Dan's subscription, shown on one sheet, then STOP for his pick. Rule: `_shared/VIDEO-RULES.md`, first section. The split
+**Thumbnails are made HERE, by this Claude task, with Codex (Dan, 2026-10-02; mix updated 2026-10-13).** Five choices, each a
+unique design: one pool-shoot photo, one studio-shoot photo, one AI-enhanced or AI-generated image of Dan, and two more
+AI-generated images of Codex's choice (Dan or not, its call). Codex always makes them: `_shared/codex-image.sh --model
+gpt-6.1-sol --effort high` on Dan's subscription, shown on one sheet, then STOP for his pick. Rule: `_shared/VIDEO-RULES.md`,
+"Thumbnails: the five, each its own design, always made by Codex". The split
 described next and "CODEX's task" in Step 2 are superseded; Step 2 stays as the build spec with the new mix.
 
 **Superseded 2026-10-02.** Thumbnail split (Dan, 2026-09-30, every organic content video from now on): Codex makes the thumbnail, Claude does the
@@ -126,7 +128,7 @@ spec. Codex delivers `<title> - thumbnail FINAL.jpg` (1280x720 JPEG, under 2 MB)
 `social media graphics/youtube/thumbnails/<title>/` and Dan pastes the path into the Claude setup task, which only checks the
 file conforms (size, format, under 2 MB) and uses it for the YouTube upload and Blotato's `youtube_cover_url`.
 
-Dan's standing mix (updated 2026-09-30): **one pool photo, two different studio photos on topic-specific Jelly Beans style photographic backgrounds, one enhanced screenshot from the video, and one designer choice.** Same copy on all five. Every Codex cover/thumbnail handoff must list these five slots and link `_shared/VIDEO-RULES.md`, "Five cover and thumbnail choices per video". Read `/youtube-packaging` for the photo, crop and text-clearance rules. The older recipe below is an asset reference; adapt its source count and studio backgrounds to this mix.
+Dan's standing mix (updated 2026-10-13): **one pool photo, one studio photo, one AI-enhanced or AI-generated image of Dan, and two more AI-generated images of Codex's choice (Dan or not). Five unique designs, all made by Codex.** Same copy on all five. Every setup handoff must list these five slots and link `_shared/VIDEO-RULES.md`, "Thumbnails: the five, each its own design, always made by Codex". (The 2026-09-30 mix of one pool, two studio, a screenshot and a designer choice is retired.) Read `/youtube-packaging` for the photo, crop and text-clearance rules. The older recipe below is an asset reference; adapt its source count and studio backgrounds to this mix.
 
 Working build to copy: `social media graphics/youtube/thumbnails/Ab Wheel Workout/_build-2026-09-13/build.py`.
 It imports the Ad 5 `build_clean.py` for the studio looks and reuses assets, so it costs **$0**:
