@@ -227,7 +227,7 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the fire list; runner deletes row, line, README row.
 
-- `handoff-20261013-reaction-shorts-polish-and-cut-to-66s.md` (10-13): step 1 done, 34 tracked suggestions in Teleprompter 2. NEEDS DAN: accept or reject. Then steps 2 and 3 (PromptSmart, shoot doc). `Docs/COPYEDIT_1017_REACTION_SHORTS_66S_AS_DELIVERED_20261013.md`
+- `handoff-20261013-reaction-shorts-polish-and-cut-to-66s.md`: NEEDS-DAN:accept-34-suggestions;then-steps-2,3
 
 
 - `handoff-20261007-ro10-subtle-reedit-sunday-reupload.md` (10-07): RO-10 R3 end graphic, Sunday replacement. Codex Sol high.
