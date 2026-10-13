@@ -2326,7 +2326,7 @@
    "sub": "",
    "updated": "2026-10-13",
    "rev": 11,
-   "syncedRev": 10,
+   "syncedRev": 11,
    "editor": "Claude",
    "needs": "Studio pickups from the shoot (Docs/PICKUPS_1017_SHOOT.md)"
   },
@@ -2463,7 +2463,7 @@
    "order": 107,
    "updated": "2026-10-13",
    "rev": 5,
-   "syncedRev": 4,
+   "syncedRev": 5,
    "by": "Claude"
   },
   {
@@ -2486,7 +2486,7 @@
    "order": 108,
    "updated": "2026-10-13",
    "rev": 5,
-   "syncedRev": 4,
+   "syncedRev": 5,
    "by": "Claude"
   }
  ]
