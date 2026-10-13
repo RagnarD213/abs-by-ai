@@ -137,7 +137,7 @@ always the one making these thumbnails."*
   the appointment clip: *"not funny... but that just illustrates our concept perfectly. Highly relevant."*).
 - Same review: a stock "doctor" clip used many times was called weak. He asked for a reusable AI clip of **a man who looks
   like the prospect talking to a male doctor**, for every "talk to your doctor" line. Once approved it goes in the clip
-  library and is the default for those lines.
+  library and is the default for those lines. **It is library clip `A0166`** (approved in RO-19, 2026-10-13).
 
 ## Audio comparison clips start on speech (Dan, 2026-10-11)
 

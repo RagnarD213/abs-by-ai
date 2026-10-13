@@ -3279,6 +3279,42 @@
       "must_pass": [],
       "measured": "Delivery gate 2.5.1 on this file: 32 pass, 7 fail (audio stamp on tone, cover 24 %, two hair rows, splice visibility 17 of 149, two false alarms); watch pass 494 of 494 images judged, 0 open defects; second independent review: SHIP. A5: one Veo take prompted to fast-forward inside the shot, the donuts leave the box in about a second with no hand taking most of them. A3: water leaps out of three glasses with no visible cause tied to the man.",
       "notes": "FINDING: no gate and neither independent review saw this rejection. Both named checks are PENDING: nothing automated judges whether an AI clip obeys cause and effect or shows the spoken line. The process fix is VIDEO-RULES.md, top section (2026-10-13): three questions per take at playback speed, asked again of the independent reviewer per clip; a time jump is a cut between two natural shots. Record: ro08/round3-plan/decisions.json; lessons: longform-edit/reference/ro08/README.md."
+    },
+    {
+      "id": "ro19-r3-full-film-false-start-20261013",
+      "verdict": "approved-with-notes",
+      "date": "2026-10-13",
+      "root": "ssd",
+      "path": "ro19/round3/film/RO-19 round 3 - full film.mp4",
+      "sha256": "2031c3e31eb5f3f2ea7620182134e29583417ba7a0c8517969a4b7056bdb880d",
+      "bytes": 1544081477,
+      "excerpt": [
+        538,
+        558
+      ],
+      "dan": "Okay, revisions: the picture at 49 seconds, change it to this picture here. At 0:07, we have a small amount of repeated footage. I say \"in my normal life,\" then say \"in my normal life\" again. Cut that so that it is smooth at 0:07. No repeated junk footage there. Those are the only revisions. ... That repeated footage is at 9:07, where I say \"in my normal life\" twice.",
+      "scope": "Complete 16:9 RO-19 round 3 film (18:48.56), approved with two changes: the single pale photo at 0:48 replaced by a picture he sent, and a false start at 9:05.5 to 9:07.6 removed. Everything else approved.",
+      "must_pass": [],
+      "must_trigger": [
+        "junk:false_start_before_restart"
+      ],
+      "measured": "At film 9:05.545 he says 'In my normal life, I'm' (roll C1512 837.9 to 839.4 s), pauses 1.1 s, and says the whole sentence from 840.60. The full-roll Whisper pass wrote the restart's first five words as one stretched 'in' and 'the', so the word list, the captions and the 4-word repeat scan all read one clean sentence. Delivery gate 2.5.1 on this file: 32 pass, 7 fail; junk:repeated_take reports one restart at 2:49.90 and nothing at 9:05. Audio gate 12 of 13 (tone). Three independent reviews, the last SHIP; none caught it. Only the lav envelope (speech, silence, speech) and a standalone transcript of the 10 s window show it.",
+      "notes": "FINDING: no gate row and no reviewer saw this false start; Dan heard it. junk:repeated_take did not flag it, and no threshold was tuned. The named check is PENDING: nothing automated looks for a short spoken fragment followed by a pause of 0.7 s or more and then the same opening words (a per-shot standalone transcript would have). Process fix and the candidate rule (every shot under 2.5 s followed by a long pause gets its own transcript and an envelope read): longform-edit/reference/ro19/README.md, Round 4. Record: ro19/round4-plan/decisions.json. Paired with ro19-r4-final-approved-20261013."
+    },
+    {
+      "id": "ro19-r4-final-approved-20261013",
+      "date": "2026-10-13",
+      "root": "ssd",
+      "path": "ro19/round4/film/RO-19 round 4 - full film.mp4",
+      "sha256": "b4b309991b414674e2469fadad7f9b6fb3352ee61f5b02654d1567bbf5b317d8",
+      "bytes": 1541852019,
+      "verdict": "approved",
+      "dan": "Okay, everything looks good.",
+      "scope": "Complete 16:9 RO-19 round 4 film (18:46.46): the round 3 film with his picture at 0:48 and the false start at 9:05 removed (63 frames). Every other frame matches round 3 (frame comparison at the 63 frame offset). Voice B2 (warm, light dereverb, +3 dB at 120 Hz), a quiet bed at -30 dB.",
+      "must_pass": [],
+      "must_trigger": [],
+      "measured": "Audio gate fails the tone row only (mean 1.73 against 1.2, max 3.62 against 2.5) with voice B2, the audition Dan picked. -14.1 LUFS, -1.6 dBTP. Delivery gate 2.5.1: 31 pass, 8 fail (audio:stamp, audio:click_at_joins, style:coverage 32 %, framing:hair_top, framing:headroom, cut:splice_visibility, captions:burned, junk:repeated_take). audio:click_at_joins passed on round 3 and fails here on two joins (1:59, 15:29) whose audio measures the same in both films: its bar is the largest of 150 random points and this file's draw came out at 0.18 against round 3's 0.42. Watch pass 664 of 664 judged, 0 open. Independent review of this file: SHIP, no defects. One 7 ms left/right AAC blip at 15:29.7 was reported to Dan with the time.",
+      "notes": "Final-film creative approval with the gate's raw FAIL kept visible; no threshold was changed. FINDING for the gate: audio:click_at_joins flips between two files with identical join audio because of its random baseline (see the round 4 section of longform-edit/reference/ro19/README.md). Hair at the top edge is the camera's framing on this roll and Dan said to leave it. His thumbnail request for this video and the new standing thumbnail mix are in VIDEO-RULES (2026-10-13, first section). Paired with ro19-r3-full-film-false-start-20261013."
     }
   ]
 }
