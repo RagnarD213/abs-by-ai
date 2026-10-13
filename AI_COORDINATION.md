@@ -81,6 +81,9 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 
 # ACTIVE
 
+**RA-13 BUILDING 2026-10-13, Codex.** Next: opening review.
+
+
 **/start video test RUNNING 2026-10-10, Claude.** Reads 10-24, 10-31: `Docs/VSL_LANDING.md`.
 
 **Waist-cover 2026-10-08.** TikTok phone upload pending.
