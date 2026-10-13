@@ -8,7 +8,8 @@
     "assistant::Change sheets on bed",
     "assistant::Put away dishes",
     "assistant::Make meal prep",
-    "assistant::Clean kitchen"
+    "assistant::Clean kitchen",
+    "assistant::Pick up Audi from shop"
   ],
   "log": {
     "health::Shower": [
@@ -242,6 +243,7 @@
     "assistant::Change sheets on bed": "2026-10-11",
     "assistant::Put away dishes": "2026-10-11",
     "assistant::Make meal prep": "2026-10-11",
-    "assistant::Clean kitchen": "2026-10-11"
+    "assistant::Clean kitchen": "2026-10-11",
+    "assistant::Pick up Audi from shop": "2026-10-13"
   }
 }
