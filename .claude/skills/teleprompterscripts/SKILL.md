@@ -307,6 +307,23 @@ has reaction videos.
   to"). A calm explainer or a screenshot of a post is not a reaction clip. Pick the moment with a claim, a result or
   a face on screen, and say so on the page when a slot has nothing better.
 
+### Writing new scripts into a long shoot doc with the Docs connector (2026-10-13)
+
+Used for the 26 shorts added to the 10/17 shoot doc (290,000 characters). No Chrome, no clipboard.
+
+- **Insert every group at the same index, last group first.** Pick the empty paragraph where the block belongs, send
+  `insertText` at its index with `"\n" + lines + "\n"`, and repeat at the SAME index with the group that goes before
+  it. Nothing depends on the length of what was typed, so one slip cannot push the next insert into the wrong place.
+  Two or three scripts per call (about 8,000 characters).
+- **Then read the doc back and diff it against the local copy before any formatting.** Compute bold, italic and bullet
+  ranges from where the text actually landed (`createParagraphBullets` on the outline lines; without real bullets
+  `tp_from_shoot_doc.py` cannot tell where a script ends). 10-13: 1,251 new paragraphs, 0 differences.
+- **Hook takes** go under the Subscribe line as a `[HOOK TAKES: ...]` cue followed by the two extra first lines as
+  plain spoken lines, so they reach the teleprompter and Dan can film them.
+- rclone's Drive login cannot call the Docs API (the API is off for that client), so the connector is the only way in.
+- A YouTube frame cannot be checked by eye from the built-in browser pane: the video area screenshots black. A clip
+  with no speech stays "check by eye" in the Reaction Clips document until Dan or a Chrome session looks at it.
+
 ### What Dan killed after watching the 10/17 reaction clips, and what he kept (2026-10-12)
 
 His rule from this: clips first, he watches, then scripts (`_shared/WRITING-RULES.md`, section 4). Use this list to
