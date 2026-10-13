@@ -125,3 +125,32 @@ edit sheet -> delivery gate -> `page19r3.py` -> `review_server.py 8866 round3`.
 - **Gate on the delivered file: 32 pass, 7 fail** (tone stamp, hair x2 by Dan's call, the burned-caption false alarm from lower thirds, coverage 32 %, three take
   joins a hair over the splice ceiling, one false start at 2:53 left in). Reported on the page, nothing tuned.
 - Do not edit `plan_resolved.json` on disk while a reviewer is reading it for an older render; write the next plan to a side file until the render starts.
+
+## Round 4 (2026-10-13, Dan's two final revisions after the round 3 film): what was added
+
+Page: `round4/index.html`, port 8867. Order: re-hash round 3 (42 files) -> lav envelope + `verify_asr.py` on the stretch -> `edl.py` (piece `water2`: new hint and a
+measured in point) + `word_patches.json` + `mkglobal.py` -> shots edited surgically (drop `water2.0`, move `water2.1`'s start, move every later shot earlier;
+`round4-plan/timeline_shift.json`) -> `words_src_out.py` -> Photos export + `photocrop19r4.py` -> `PAIRS_OUT=gfx/r4 pairs.py P02` -> `plan_patch_r4.py` (two shifts) ->
+`build.py segs` against the DELIVERED film's `.build.json` -> `test_r4.py pic` + `checks.py --film-t0` -> `build.py filmvoice` + a 20 s listen slice ->
+`round4_19.py film` -> `finish_chain19r4.sh` -> `carry19r4.py` -> `scene_check19.py` -> `ra-reviewer` on what changed -> `watch.py --judge` -> `sheetbuild_r4.py` +
+edit sheet -> delivery gate -> `page19r4.py media` -> `review_server.py 8867 round4`.
+
+- **A false start hid inside one stretched Whisper word, and the 4-word repeat scan could not see it.** Piece `water2` began "In my normal life, I'm", a 1.1 s pause,
+  then the whole sentence. The full-roll pass wrote the restart's first five words as one long "in" and "the", so the word list, the captions and the repeat scan
+  all read as one clean sentence for three rounds. Dan heard it. Only the lav shows it: speech, silence, speech. Check after `shots.py`: every shot under 2.5 s that
+  is followed by a pause of 0.7 s or more is a false-start candidate; transcribe it alone with `verify_asr.py` and look at the envelope. The delivery gate's
+  `junk:repeated_take` row passed it too.
+- **Fix the word list, not only the cut.** A measured in point alone left the captions reading "in the water all the time" (five words gone). The stretch went into
+  `word_patches.json` (both attempts, timed from the two standalone transcripts and the envelope), `mkglobal.py` was re-run (lav and rolls unchanged, 11 words
+  differ), and the piece's hint moved to the restart so `heard` is true. Then the old caption fix for the stretched word comes out of the finish script.
+- **`segs_r3.txt` was not the delivered film's framing.** It was written before three size overrides were added during the round 3 reviews. Compare a new solve with
+  the `segments` list in the delivered master's own `.build.json`: that showed zero size or crop changes; the text file showed three false ones.
+- **The voice chain refuses to dereverb a 20 s range** (that window's room measures 53 ms, under the 55 ms "wet" line), so `render_range(..., audio=True)` fails on
+  a short test. For a listen check build the whole film voice once (`build.py filmvoice`, one minute) and slice it.
+- **Round 3's bed and film voice files were 1121.4 s, 7 s shorter than its film** (both made before the restored sentence added 215 frames). The bed faded out
+  7 s before the end of the film Dan approved. Round 4 uses that same bed file, unchanged, and says so on the page. A new film should build its bed after the last
+  timeline change.
+- **Carrying verdicts across a cut:** `carry19r4.py` reads both masters once, skips the removed frames in the old one, and compares frame for frame at the offset.
+  Contact sheets cannot be carried when the length changes (every tile samples a different frame): all 12 go to the fresh judge, which also gives the new master its
+  own negative-events read.
+- **The edit sheet's shadow folder** is now a script (`sheetbuild_r4.py`): round 3's shadow copies with the new shift, checked against the manifest the film used.

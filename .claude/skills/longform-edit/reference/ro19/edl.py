@@ -55,9 +55,9 @@ PIECES = [
  ("water1", "C1512", "Now, here is another downside.", "you're taking care of it.", 791.4,
   "Now, here is another downside. If you go in the water ... a fair example of how it looks like five days in if you're taking care of it.",
   "only take, up to the sentence he says twice"),
- ("water2", "C1512", "In my normal life, I'm in", "this in my normal life.", 837.2,
+ ("water2", "C1512", "In my normal life, I'm in", "this in my normal life.", 840.9,     # ROUND 4: the hint was 837.2, which anchored on the false start; 840.9 anchors on the restart (word_patches.json now holds both attempts)
   "In my normal life, I'm in the water all the time, so I'm not entirely sure it would hold up as good as this in my normal life.",
-  "second take of the 'In my normal life' sentence (Dan's earlier note: drop the repeat)"),
+  "second take of the 'In my normal life' sentence (Dan's earlier note: drop the repeat)", None, 840.50),     # ROUND 4 (Dan, 2026-10-13: "I say 'in my normal life,' then say 'in my normal life' again. Cut that so that it is smooth"): the start phrase matched a FALSE START inside this take ("In my normal life, I'm", lav speech 837.9 to 839.4, silence to 840.5, then the sentence said in full from 840.60; Whisper stretched "I'm" over the restart, so no word list showed it). Measured in: 840.50, 0.10 s before the restart's onset on the 20 ms lav envelope and after the tick at 840.32. Proof: round4/logs/cut-907-proof.txt
  ("pics", "C1512", "Okay so on screen right now", "investing $50 to $100.", 858.6,
   "Okay, so on screen right now, I'm going to show you a few pictures ... if that difference would be worth investing $50 to $100.",
   "only take"),

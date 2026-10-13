@@ -10,7 +10,7 @@ sys.path.insert(0, "/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claud
 import composite as HC
 W = "/Volumes/Extreme/_edit_work/ro19"; FPS = 30000/1001; FPSS = "30000/1001"; FF = F.FF; SR = 48000
 S = json.load(open(f"{W}/shots.json")); R = json.load(open(f"{W}/plan_resolved.json"))
-MANIFEST = f"{W}/hf/manifest.r3.json"     # round 3: the two feature lower thirds the app tour replaces (Gz04, Gz05) are out (plan_patch_r3.py)
+MANIFEST = f"{W}/hf/manifest.r4.json"     # round 4: round 3's list (Gz04, Gz05 out) with the second timeline shift, the 63 frames cut at 9:07 (plan_patch_r4.py)
 VC = "/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared/audio/voice_chain.py"
 def fr(t): return int(round(t*FPS))
 def run(c): subprocess.run(c, check=True)
@@ -225,7 +225,7 @@ def voice_shots():
         if s.get("split_of") and out and cont(out[-1], s): out[-1] = dict(out[-1], src_f1=s["src_f1"], out_f1=s["out_f1"])
         else: out.append(dict(s))
     return out
-FILM_VOICE = f"{W}/voice/film_voice_r3.wav"       # the whole film's voice through the shared chain, once (build.py filmvoice)
+FILM_VOICE = f"{W}/voice/film_voice_r4.wav"       # the whole film's voice through the shared chain, once (build.py filmvoice); r3 is a reviewed file and is not touched
 def render_range(a, b, out, audio=True, picture=True):
     HCOMP = HC.Compositor(json.load(open(MANIFEST)))
     f0, f1 = fr(a), fr(b); segs = segments(f0, f1)

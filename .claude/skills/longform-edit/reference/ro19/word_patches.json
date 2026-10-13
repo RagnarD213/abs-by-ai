@@ -139,5 +139,77 @@
    ]
   ],
   "why": "verify_asr 305.3-309.5: the full-roll pass put 'Alright,' at 302.2, 3.6 s early; it is spoken at 305.9"
+ },
+ {
+  "t0": 837.0,
+  "t1": 842.2,
+  "words": [
+   [
+    "In",
+    837.9,
+    838.04
+   ],
+   [
+    "my",
+    838.04,
+    838.26
+   ],
+   [
+    "normal",
+    838.26,
+    838.56
+   ],
+   [
+    "life,",
+    838.56,
+    838.86
+   ],
+   [
+    "I'm",
+    839.12,
+    839.4
+   ],
+   [
+    "In",
+    840.6,
+    840.75
+   ],
+   [
+    "my",
+    840.75,
+    840.95
+   ],
+   [
+    "normal",
+    840.95,
+    841.21
+   ],
+   [
+    "life,",
+    841.21,
+    841.49
+   ],
+   [
+    "I'm",
+    841.61,
+    841.81
+   ],
+   [
+    "in",
+    841.81,
+    841.89
+   ],
+   [
+    "the",
+    841.89,
+    842.01
+   ],
+   [
+    "water",
+    842.01,
+    842.21
+   ]
+  ],
+  "why": "ROUND 4. verify_asr 837.0-847.0 and 840.45-847.0, and the lav envelope (speech 837.9 to 839.4, silence to 840.5, speech from 840.60): a false start 'In my normal life, I'm', then the whole sentence. The full-roll pass folded the restart's first five words into a stretched 'in' and 'the', so no word list showed the repeat Dan heard at 9:07"
  }
 ]
