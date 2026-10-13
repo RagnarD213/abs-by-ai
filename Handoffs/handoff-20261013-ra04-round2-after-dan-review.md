@@ -76,6 +76,14 @@ Recipe and lessons: `.claude/skills/ad-edit/reference/ra04/` (README has the sta
 * The fitted voice EQ already lifts the lows to the reference; voice B may read boomy on his loudest lines.
 * Face sharpness: these rolls upscale 1.5x to 1.8x in 9:16 (same as RA-01, which Dan approved).
 
+## ⚠ Added 2026-10-13 by the RA-05 session: fix before anything else in round 2
+
+The round 1 draft shows the banned before/after app screen ("Meet the new you") for about 0.3 s at 0:15.3, the first
+frames of the result card `flow_b` (it is inside the first 30 seconds on the round 1 page). Cause: the card starts B0049
+at 27.3 s and the banned screen runs to about 27.6 s. Fix: start it at 28.0 s (already changed in
+`.claude/skills/ad-edit/reference/ra04/s06_inserts04.py`; the work folder copy still has 27.3), rebuild `flow_b`, and
+check the card's first five frames. Proof still: `/Volumes/Extreme/_edit_work/ra05/look/ra04_flowb_check.jpg`.
+
 ## Starter prompt (paste into a fresh Claude Code session)
 
 > Read `Handoffs/handoff-20261013-ra04-round2-after-dan-review.md` and `.claude/skills/ad-edit/reference/ra04/README.md`, then

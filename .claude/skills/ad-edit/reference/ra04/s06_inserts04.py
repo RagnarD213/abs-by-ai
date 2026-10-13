@@ -76,8 +76,11 @@ if want("flow_a"):
     d = dur("flow_a"); a = min(1.5, d * 0.4)
     plate_card("flow_a", [(P["B0049"], 6.3, a), (P["B0049"], 13.0, d - a)], "crop=1320:2420:0:170")
 if want("flow_b"):
-    assert dur("flow_b") <= 2.9, dur("flow_b")      # the result screen holds from 27.3 s; the crop keeps the email form out
-    plate_card("flow_b", [(P["B0049"], 27.3, dur("flow_b"))], "crop=1320:1600:0:170")
+    # ⚠ B0049's banned "Meet the new you" BEFORE/AFTER screen runs to about 27.6 s (found 2026-10-13 by RA-05: a start at
+    # 27.3 s put it on screen for the card's first 0.3 s). The result screen alone starts at 28.0 s and holds to 34 s.
+    FLOW_B_T0 = 28.0
+    assert FLOW_B_T0 >= 27.9 and dur("flow_b") <= 5.5, dur("flow_b")      # the crop keeps the email form out
+    plate_card("flow_b", [(P["B0049"], FLOW_B_T0, dur("flow_b"))], "crop=1320:1600:0:170")
 if want("tour"):
     d = dur("tour"); a = min(2.5, d * 0.47)
     plate_card("tour", [(P["B0544"], 6.05, a), (P["B0544"], 2.1, d - a)], "null")

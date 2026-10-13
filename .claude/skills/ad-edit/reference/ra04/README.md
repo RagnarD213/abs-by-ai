@@ -46,6 +46,10 @@ FAR/NEAR crops, captions) and Soft Blue Light graphics through the shared HyperF
     `cardlib.field`) in `s06_inserts04.py`; `ANALYSIS=olive` renders the RA-01 colours. If Dan picks blue, move the
     palette switch into `adkit/analysis_card.py` as an argument.
 
+12. **The app recording B0049 shows the banned before/after screen ("Meet the new you") until about 27.6 s.** Round 1 started
+    the result card at 27.3 s, so the banned screen was on screen for the card's first 0.3 s (0:15.3 in the round 1 draft).
+    Start the result at 28.0 s (fixed in `s06_inserts04.py`) and look at the first five frames of every app card.
+
 ## Open for the final round
 
 Land-then-hold centring is not wired in (crops are fixed per hold, the RA-01 method); measure with `cut/landing.py
