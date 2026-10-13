@@ -162,6 +162,20 @@ A tall photo gets room for the text with a Codex extension of the background to 
 the right, a blurred stretch of its own edge at the left, the composition lock paragraph), then the whole real crop is
 pasted back over its side with a 70 px feathered seam. Both tries held position on the first take.
 
+### Approved look: AI picture of Dan on the left, tall stacked words on the right, navy (Dan, 2026-10-13)
+
+Dan picked this for RO-19 "My First Spray Tan" over a pool photo, a studio photo and two other AI images: a Codex picture of
+him in the video's subject (in a tanning tent, being sprayed) on the left half, and three words stacked on the right in tall
+condensed caps (Impact), every line set to the same width, white on navy with a gold bar under the stack and a soft shadow.
+Codex first made it pale pink on plum; he asked for "more masculine color variations" and chose navy from navy, black, steel,
+dark red and forest green. **Brief Codex without pink, plum, purple or pastel palettes** (memory `thumbnail-masculine-colours`).
+To change the colour of a picture he already likes, do not regenerate it: re-colour only the background's hue range in code and
+leave his skin alone (`thumbnails/My First Spray Tan/_build-2026-10-13/build_v3.py`, `recolour()`). He also changed the words
+from the title (MY FIRST SPRAY TAN) to SPRAY TANNING GUIDE.
+**Letting Codex choose options 3 to 5:** one text call to Codex (`codex exec -m gpt-6.1-sol`, high) returned the three concepts,
+their image prompts and a layout each as JSON, told what options 1 and 2 already look like; its prompts then went to
+`codex-image.sh` unchanged. All three came back usable on the first take (`_build-2026-10-13/assets/plan_prompt.txt`).
+
 ### Widening a portrait photo to 16:9 with generative fill (added 2026-08-30)
 
 Dan's brief on the 3-minute-total-body thumbnail: *"reduce the blur effect and use a
