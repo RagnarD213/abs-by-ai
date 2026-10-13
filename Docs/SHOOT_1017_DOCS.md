@@ -11,6 +11,11 @@ A fifth filming document, the pickups teleprompter, was added 2026-10-13.
 > B-roll and on-screen cues that his rewrites moved, and take out the hook takes there. His version as it stood:
 > `Docs/SCRIPTS_1017_SHOOT_REACTION_SHORTS_DAN_EDITED_20261013.md` (11 of the 19 run over 66 seconds with the clip).
 > PromptSmart has this version (imported 13:02).
+>
+> **Later on 2026-10-13: 34 tracked suggestions are pending in Teleprompter 2** (29 cuts that bring every reaction
+> short to 66 seconds or less with its clip, 5 one-word fixes). Dan also rewrote Retatrutide and Hair Is Life after
+> the snapshot above. Until he rules on them, do not re-import or carry anything into the shoot doc. List:
+> `Docs/COPYEDIT_1017_REACTION_SHORTS_66S_AS_DELIVERED_20261013.md`.
 
 | document | what it is for | id |
 |---|---|---|

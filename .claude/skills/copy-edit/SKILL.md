@@ -375,6 +375,7 @@ Dan does not see the tool calls. The report is what he reads before opening the 
 | 2026-09-29 | Sales letter: AI Got Me Abs at 40 (draft v1) | 46 | 37 | 9 | DON'T 1 to 9 above; the seven claims edits confirmed |
 | 2026-10-10 | 10/17 shoot doc, 43 filming scripts (`1gt8Fi_wUaNaksa8sAdMoBvcdlBhZLek82EpBr-leq-0`) | 90 | 81 | 6 rejected, 3 rewritten | DON'T 10 to 12; the straight-in and tracked lists. List and result: `Docs/COPYEDIT_1017_SHOOT_POLISH_AS_DELIVERED_20261010.md` |
 | 2026-10-11 | Same doc, "10 Exercises" script rewrite (first run under straight in or tracked) | 46 direct, 5 tracked | pending | pending | `Docs/SCRIPT_10_EXERCISES_REWRITE_AS_DELIVERED_20261011.md`. Next session: read the doc, see what he changed back, fill this row |
+| 2026-10-13 | Teleprompter 2, 19 reaction shorts (`1KvL0_IilRCxlofnY5luTfRvjiseGGpGGXU4sAsjbgzQ`): cut to 66 s with the clip | 0 direct, 34 tracked (29 whole-sentence cuts, 5 one-word fixes) | pending | pending | Dan asked mid-run for every edit to be tracked, typo fixes included. `Docs/COPYEDIT_1017_REACTION_SHORTS_66S_AS_DELIVERED_20261013.md`. Next session: read the doc, see which cuts he put back, fill this row |
 
 After every run: add a row, and if a rejection reveals a new category, add it to DON'T with
 the before and after text. Three rejections of the same kind become a rule; one is a note.
