@@ -149,7 +149,7 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 
 **Meal Prep SFC R4 COLOR REVIEW 2026-10-13, Codex.** A/B/C: http://127.0.0.1:8891/. Everything else approved. Next: Dan chooses, apply next round. `Docs/DS28_R4_COLOR_OPTIONS_20261013.md`. No uploads; dispatcher paused.
 
-**RA-06 R3-READY 2026-10-14, Claude.** `Handoffs/handoff-20261014-ra06-round3-after-frames.md`
+**RA-06-R3-BUILDING 2026-10-14,Claude.**
 
 **RA-07 R3 BUILDING 2026-10-14, Claude.**
 
@@ -243,7 +243,7 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the fire list; runner deletes row, line, README row.
 
--`handoff-20261014-ra04-round3-after-frames.md`+`handoff-20261014-frame-qc-upgrade.md`
+-`handoff-20261014-ra04-round3-after-frames.md`+`handoff-20261014-frame-qc-upgrade.md`(step4)
 
 
 
