@@ -28,6 +28,18 @@
    "path": "round2/frames/F5b_a.png",
    "sha256": "5640dee91839b226741e1941a2dd203c0ff270b252dbaa6a29d79809140b6dc5",
    "prompt": "round2/frames/prompts/F5b.txt"
+  },
+  "F4c": {
+   "path": "round2/frames/F4c_a.png",
+   "sha256": "75170719eae9b0a213e223e65243dff85c17f3bb8b0f20a9c1169f87a6aa1fc4",
+   "prompt": "round2/frames/prompts/F4c.txt",
+   "made": "2026-10-14 round 2b"
+  },
+  "F5c": {
+   "path": "round2/frames/F5c_b.png",
+   "sha256": "4051998b79f4fdb2a267e59a1c575f587302c5ceec28c43978574a4a6348b55c",
+   "prompt": "round2/frames/prompts/F5c.txt (edit of F4c)",
+   "made": "2026-10-14 round 2b"
   }
  },
  "shots": {
@@ -44,8 +56,8 @@
    "use Abs By AI to"
   ],
   "AI1-3": [
-   "F4",
-   "F5",
+   "F4c",
+   "F5c",
    "42.509-43.4434",
    "adjust your plan."
   ]
@@ -61,7 +73,10 @@
  "fallback": "B0126 (knee card, round 1)",
  "rejected": {
   "F1_a": "walks toward camera, away from the rack",
-  "F1b_a/F3_a/F5_a": "different camera angle from their pair's other frame"
+  "F1b_a/F3_a/F5_a": "different camera angle from their pair's other frame",
+  "F4b_a/F5b_a": "Dan: plates not loaded like a real leg press, foot on the plates",
+  "F4c_b": "plates beside the platform, legs folded",
+  "F5c_a": "plates drift ~40 px against the platform (sled not rigid)"
  },
  "built": {
   "cards_9x16/flow_b.mp4": "25071b27d5c22e0d36591a66ea6bbafb4d76fff88f9fbb69201a6ca10f960102",

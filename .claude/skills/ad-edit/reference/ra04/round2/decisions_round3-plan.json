@@ -1,0 +1,71 @@
+{
+ "job": "RA-04",
+ "round": 2,
+ "recorded": "2026-10-14",
+ "by": "Claude (Opus 5.5)",
+ "dan_words": "All of the frames are looking good except for shot 3. We need some adjustments to that. For shot 3, if you look at the plates, that's not how a leg press machine is loaded. In addition to that, he's putting his foot on the plates rather than the platform. I need you to regenerate both of those shots. Make the leg press machine look realistic with the way a leg press machine is actually loaded. Make sure his feet are on the platform. Make sure when you generate this, the physics on this makes sense. I want to change his facial expression as well. I want the start frame to be him smiling, looking at the phone, and then the end frame is him smiling but also exerting himself, doing the rep. I want to emphasize here the importance of the physics on this. If this physics is off, you have to regenerate. Your budget is approved up to $20 for generations. Give me the new start and end frames for shot 3, and then we'll go on to the next round.",
+ "items": [
+  {
+   "id": "AI1-1",
+   "frames": [
+    "S1",
+    "F2"
+   ],
+   "sha256": [
+    "0fb43996d74b3b4f3765081d5522e05ba9eca36c0d1b5b3b47a57a51646491da",
+    "157edd1096409c066c96312093de036b79095a9d170e80cf5d5de49cb2ad4780"
+   ],
+   "verdict": "approved",
+   "scope": "frames only"
+  },
+  {
+   "id": "AI1-2",
+   "frames": [
+    "F2",
+    "F3"
+   ],
+   "sha256": [
+    "157edd1096409c066c96312093de036b79095a9d170e80cf5d5de49cb2ad4780",
+    "802a4c9e7014614ca85b8bda6a7e7e7265c45fb5953731146e133dd9bbbe6c0f"
+   ],
+   "verdict": "approved",
+   "scope": "frames only"
+  },
+  {
+   "id": "AI1-3",
+   "frames": [
+    "F4",
+    "F5"
+   ],
+   "sha256": [
+    "77d2656dee096ece5663c85f67cfa31b273fdd26349f7d4f0787509449cf9b85",
+    "5640dee91839b226741e1941a2dd203c0ff270b252dbaa6a29d79809140b6dc5"
+   ],
+   "verdict": "rejected",
+   "words": "that's not how a leg press machine is loaded... he's putting his foot on the plates rather than the platform",
+   "next": "new START: smiling, looking at the phone, feet on the platform, realistically loaded machine; new END: smiling and exerting, mid-rep; physics must make sense or regenerate"
+  },
+  {
+   "id": "slot",
+   "verdict": "not answered: slot A (recommended) 39.139-43.443"
+  },
+  {
+   "id": "AI1-3-v2",
+   "frames": [
+    "F4c",
+    "F5c"
+   ],
+   "sha256": [
+    "75170719eae9b0a213e223e65243dff85c17f3bb8b0f20a9c1169f87a6aa1fc4",
+    "4051998b79f4fdb2a267e59a1c575f587302c5ceec28c43978574a4a6348b55c"
+   ],
+   "verdict": "pending Dan (round 2b page 8896)"
+  }
+ ],
+ "budget_usd": 20,
+ "budget_note": "Dan raised the generation budget for this ad from $10 to $20 (2026-10-14)",
+ "motion_authorized": [],
+ "new_frames_before_motion": [
+  "AI1-3"
+ ]
+}
