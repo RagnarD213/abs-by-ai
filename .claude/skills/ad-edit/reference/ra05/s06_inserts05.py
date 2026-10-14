@@ -69,9 +69,9 @@ if want("lock"):
     meta["lock"] = {"chip": "AI-GENERATED", "chip_box": fill_card("lock", [(P["A0074"], 0.5, dur("lock"))], "null", chip=("AI-GENERATED", (60, 236)))}
 if want("curls"):      # Dan's real dumbbell curls by the pool (library B0458, 16:9): a steady 608 px window on him, full height
     fill_card("curls", [(P["B0458"], float(os.environ.get("CURLS_T", "0.9")), dur("curls"))], f"crop=608:1080:{os.environ.get('CURLS_X', '656')}:0,eq=gamma=0.94:saturation=1.10,colorbalance=rm=0.02:bm=-0.03")   # colour brought toward the presenter look (sunny-day clip)
-if want("pose"):       # Dan's real physique poses from the same pool shoot (library B0435, native 9:16): hair to mid thigh, steady window.
+if want("pose"):       # Dan's real physique poses from the same pool shoot (library B0435, native 9:16): hair to mid thigh, steady window. From 4.3 s: he faces the camera to the end (between 2 and 4 s he looks away).
     # Colour matched to the presenter's FAR shot in the C2 look (chest skin 137/92/66 there; 137/95/64 here after the eq).
-    fill_card("pose", [(P["B0435"], float(os.environ.get("POSE_T", "1.2")), dur("pose"))], os.environ.get("POSE_VF", "crop=630:1120:332:300,eq=gamma=1.04:saturation=1.26,colorbalance=rm=0.03:bm=-0.02"))
+    fill_card("pose", [(P["B0435"], float(os.environ.get("POSE_T", "4.3")), dur("pose"))], os.environ.get("POSE_VF", "crop=630:1120:332:300,eq=gamma=1.04:saturation=1.26,colorbalance=rm=0.03:bm=-0.02"))
 if want("flow_b"):
     # B0049's banned "Meet the new you" BEFORE/AFTER screen runs to about 27.6 s; the result screen alone starts at 28.0 s
     # (confetti, then it holds to 34 s). The crop keeps the email form out.
