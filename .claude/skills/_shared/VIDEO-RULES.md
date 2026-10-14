@@ -164,6 +164,9 @@ always the one making these thumbnails."*
   look at every region left, enlarged, frame by frame. Two independent reviewers each found a leftover of the rejected effect that the
   editor's eye had passed on a contact sheet: a wisp on the desk, then an orange smear in the box. A cut out of a rejected take starts where
   the whole picture has settled, not where the subject has. Tool: the self-change map in `longform-edit/reference/ro08/a5_cut.py`.
+- **START/END frames get the same treatment before motion is even generated (2026-10-14, after RA-04's leg press):** a frame spec, the
+  frame gate and a fresh `frame-reviewer` agent; no page shows the pair until `.claude/skills/_shared/framecheck/gate.py START END
+  --verify` exits 0. Routine and proof: `_shared/framecheck/README.md`.
 - Why it was missed: the editor wrote both faults on the review page ("around its fifth second the junk clears in one sweep", "the
   rumble reads as water splashing up out of three glasses") and shipped them anyway, and the reviewers were asked about frame faults,
   labels and lip sync, not whether the scene made sense.

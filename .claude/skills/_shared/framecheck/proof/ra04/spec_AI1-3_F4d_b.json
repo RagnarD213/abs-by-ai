@@ -1,0 +1,142 @@
+{
+ "shot": "RA-04 AI1-3 (round 2c attempt 1): leg press push",
+ "start_frame": "F4d_b.png (START; every box below is in START pixels)",
+ "intent": "Same action as spec_AI1-3_F4h.json on an earlier START frame.",
+ "person": {
+  "count": 1,
+  "guide": {
+   "line": [
+    566,
+    985,
+    757,
+    794
+   ],
+   "max_deg": 10
+  },
+  "anchored": [
+   "hip",
+   "shoulder",
+   "nose"
+  ],
+  "reach": true
+ },
+ "rigid": [
+  {
+   "name": "sled",
+   "parts": {
+    "footplate_top": [
+     655,
+     490,
+     705,
+     530
+    ],
+    "footplate_bolt": [
+     600,
+     520,
+     650,
+     560
+    ],
+    "plate_top": [
+     770,
+     495,
+     830,
+     530
+    ],
+    "plate_hub": [
+     790,
+     595,
+     840,
+     640
+    ],
+    "horn_tip": [
+     855,
+     598,
+     895,
+     632
+    ]
+   },
+   "guide": [
+    566,
+    985,
+    757,
+    794
+   ],
+   "move_px": [
+    15,
+    200
+   ],
+   "extent": [
+    565,
+    480,
+    941,
+    790
+   ]
+  }
+ ],
+ "contacts": [
+  {
+   "name": "near_shoe",
+   "box": [
+    632,
+    565,
+    685,
+    700
+   ],
+   "rides": "sled"
+  },
+  {
+   "name": "far_shoe",
+   "box": [
+    588,
+    570,
+    628,
+    660
+   ],
+   "rides": "sled"
+  }
+ ],
+ "still": {
+  "frame_top": [
+   870,
+   330,
+   935,
+   420
+  ],
+  "upper_bracket": [
+   875,
+   440,
+   935,
+   500
+  ],
+  "upright": [
+   880,
+   800,
+   925,
+   900
+  ],
+  "base": [
+   15,
+   1150,
+   100,
+   1225
+  ],
+  "rack_left": [
+   120,
+   450,
+   200,
+   520
+  ]
+ },
+ "props": [
+  {
+   "name": "phone",
+   "box": [
+    276,
+    655,
+    304,
+    708
+   ],
+   "held_by": "right"
+  }
+ ]
+}
