@@ -1,0 +1,168 @@
+{
+ "intro": "A paid ad (it ends on \"Tap the button below\"). Vertical 9:16, 51.2 seconds, every line of the script in (no line cut for length). Filmed outdoors by the pool, so this first round shows colour, shot size and voice options (your 10-14 rule). It also shows every graphic and clip, four AI clip ideas as start and end frames, and the finished first 31 seconds. The full ad and the 16:9 come after you approve these.",
+ "locked": "the RA-01 cut method and voice chain, Soft Blue Light graphics, burned captions, the Realizer music bed. Your RA-14 picks for this same pool set (brighter golden colour, the wider shot pair, a bass lift) are the starting point and are recommended below, re-measured for this roll.",
+ "first30": "Built with the recommended options: golden colour, the wider pair, the subtle bass lift. The two opener and \"printout\" slots use our library clips (museum and meal-plan factory gags from Ad 2); if you approve the new AI ideas, those replace them. Nothing here is gated or delivered yet.",
+ "decisions": [
+  {
+   "short": "Hook wording (A obsolete / B never pay)",
+   "q": "Hook: which wording?",
+   "body": "<b>A (in the cut): \"Nutritionists have gone obsolete. AI just took their job.\"</b> On set you changed the script's opening to this and read it three times; the cut uses the last read, which runs straight into the rest of the ad in one take. B: the script's wording, \"Never pay a nutritionist again. AI just took their job.\" (your first read). Listen: <a href=\"audio/Hook B - script wording - REVIEW 540p.mp4\">Hook B clip</a>. B costs one more take join at 0:04."
+  },
+  {
+   "short": "Colour (C2 golden / C1 level / C3 cooler)",
+   "q": "Colour: which look?",
+   "body": "<b>C2 (in the cut): brighter, golden skin, your RA-14 pick.</b> This roll was shot about a fifth of a stop brighter than the Cheat Code roll, so I re-made the look for it: your face lands on the same brightness you approved there (91.9 against 91.7). C1: the RA-01 brightness level. C3: brighter with a cooler background. Stills below."
+  },
+  {
+   "short": "Shot size (F2 / F1 / F3)",
+   "q": "Shot size: which pair?",
+   "body": "<b>F2 (in the cut): your RA-14 pick, the wider pair</b>, converted to this roll by your height in frame (you are 2 % taller here). F1 is a little tighter, F3 wider still. Close and wide stills below."
+  },
+  {
+   "short": "Voice (V1 subtle bass / V2 Cheat Code bass / V3 none)",
+   "q": "Voice: how much bass?",
+   "body": "<b>V1 (in the cut): a subtle lift (+1.5 dB at 120 Hz).</b> On this roll your voice already reads a little full in the lowest band before any lift, and the bass rule says a full-reading mic gets less. V1 passes every audio check. V2: the same +3 dB lift you picked on Cheat Code (it reads boomier here and fails the tone check by 0.4 dB, the known mismatch). V3: no lift. Three 10-second clips of the same lines below."
+  },
+  {
+   "short": "AI clip ideas (yes or no to each: I1 office, I2 fridge, I4 restaurant, I5 cardboard)",
+   "q": "Four AI clip ideas: yes or no to each?",
+   "body": "Frames are below. A yes means I make the motion from those frames (ad budget $10, spent $0) and show it to you moving before it goes in. A no keeps what is in the cut. I1 and I2 would replace the two library gags; I4 and I5 add new cover."
+  },
+  {
+   "short": "Claim lines as spoken (A keep / B name the cut)",
+   "q": "Two spoken claim lines: OK as spoken?",
+   "body": "Both are in the captions only, in no graphic. \"Thousands of guys are replacing expensive nutritionists with AI.\" and \"A nutritionist charges hundreds of dollars per month and sees you twice.\" <b>A (in the cut): keep as filmed.</b> B: tell me which to cut."
+  }
+ ],
+ "decided": [
+  "<b>Takes:</b> your last full read (C1668 1:12 to 2:10) is one clean pass of the whole script, so the ad is one take. Inside it you started \"Generate an image of yourself.\", stopped, and restarted the sentence; the first attempt is cut and the restart kept (an isolated re-transcription confirmed it). A mouth noise after \"sees you twice\" is cut too.",
+  "<b>Your spoken wording wins over the script</b> where they differ: \"how much body fat\", \"Start with a picture\", \"and to get a personalized nutrition plan\".",
+  "<b>Pauses:</b> tightened, except the beat after \"One,\", \"Two,\" and \"And three,\". Cutting those made three 0.4-second shot changes in a row; keeping them reads better and costs 0.8 s. Every other tightened pause has a shot size change on it or a clip over it.",
+  "<b>Opener:</b> the library museum gag (a human nutritionist in a display case, \"Human Nutritionist 1985-2025\") under \"Nutritionists have gone obsolete\", then you on \"AI just took their job\" at 2.3 s. It ran in Ad 2, which this ad competes with; I1 is the fresh alternative.",
+  "<b>App demo (same person before and after):</b> the man's own photo being refined, then HIS result alone, AI-GENERATED. The before-and-after screen and the email form are left out. The analysis card uses that same man's result picture.",
+  "<b>Meal photo to macros</b> (the job's ask): the real recording of a chicken and broccoli plate photographed and itemized, under \"every single meal. Eating at a restaurant? Ask it what to order.\"",
+  "<b>\"Not a printout that says chicken and broccoli\":</b> the library meal-plan factory gag (\"MEAL PLANS\", \"ONE SIZE FITS ALL\"). Filling the phone screen would keep only one of the two signs and the joke needs both, so it is a square card.",
+  "<b>\"A plan you'll actually stick to\":</b> the library clip of a lean man smiling, taking a bite of steak and savouring it (from the website video), AI-GENERATED. Also a square card: filling the screen cut either his face or the plate.",
+  "<b>\"Start with a picture\":</b> your AI goal picture on a phone lock screen (library, AI-GENERATED), with the button coming up on \"Tap the button below\".",
+  "<b>Signposts:</b> \"1 of 3 / Knows The Fat You Need To Lose\", \"2 of 3 / Built Around Foods You Like\", \"3 of 3 / With You At Every Meal\". No numbers or claims in any graphic.",
+  "<b>Analysis card:</b> the Soft Blue version used on RA-05. The shared HyperFrames version you asked for on 10-14 is being built in the Cheat Code round 3 and replaces this one in the full build.",
+  "<b>End:</b> the button stays from \"Tap the button below\" to the last frame; no AbsByAI.com end mark (your 10-01 rule). You hold your smile with hands on hips for the 0.85 s end hold.",
+  "<b>Spend:</b> $0 (frames on the Codex subscription, transcription under a cent)."
+ ],
+ "items": [
+  {
+   "id": "O1",
+   "key": "opener",
+   "name": "Opener: museum gag",
+   "copy": "\"Human Nutritionist 1985-2025\" in a display case. AI-GENERATED label top left.",
+   "source": "Library A0016 (Ad 2), a steady window on the case",
+   "at": 0.5
+  },
+  {
+   "id": "L1",
+   "key": "LT1",
+   "name": "Signpost 1",
+   "copy": "<b>1 of 3</b><br>Knows The Fat You Need To Lose",
+   "source": "Soft Blue Light lower third (Motivation format)",
+   "at": 0.6
+  },
+  {
+   "id": "P1",
+   "key": "flow",
+   "name": "App: his photo, then his result",
+   "copy": "The man's photo being refined, then his result alone. AI-GENERATED under the phone card.",
+   "source": "Library B0049 (real recording): 13.0 s, then 28.0 s (after the banned screen)",
+   "at": 0.75
+  },
+  {
+   "id": "A1",
+   "key": "analysis",
+   "name": "Analysis card",
+   "copy": "Scan of the same man's result, the three bars, the plan band. No numbers.",
+   "source": "Shared analysis card, Soft Blue colours",
+   "at": 0.7
+  },
+  {
+   "id": "L2",
+   "key": "LT2",
+   "name": "Signpost 2",
+   "copy": "<b>2 of 3</b><br>Built Around Foods You Like",
+   "source": "Soft Blue Light lower third",
+   "at": 0.6
+  },
+  {
+   "id": "F1",
+   "key": "factory",
+   "name": "Meal plan factory",
+   "copy": "\"MEAL PLANS\" press over identical chicken, rice and broccoli trays, \"ONE SIZE FITS ALL\". Square card, AI-GENERATED.",
+   "source": "Library A0017 (Ad 2)",
+   "at": 0.5
+  },
+  {
+   "id": "E1",
+   "key": "enjoy",
+   "name": "Enjoying his food",
+   "copy": "A lean man smiles, takes a bite of steak and savours it. Square card, AI-GENERATED.",
+   "source": "Library A0086 (website video)",
+   "at": 0.5
+  },
+  {
+   "id": "L3",
+   "key": "LT3",
+   "name": "Signpost 3",
+   "copy": "<b>3 of 3</b><br>With You At Every Meal",
+   "source": "Soft Blue Light lower third",
+   "at": 0.6
+  },
+  {
+   "id": "M1",
+   "key": "macro",
+   "name": "Meal photo to macros",
+   "copy": "Camera photographs the plate, Analyze Meal, the itemized breakdown. Real app recording, no label.",
+   "source": "Library B0035",
+   "at": 0.8
+  },
+  {
+   "id": "K1",
+   "key": "lock",
+   "name": "Your goal picture on a lock screen",
+   "copy": "AI-GENERATED label.",
+   "source": "Library A0074",
+   "at": 0.4
+  },
+  {
+   "id": "C1",
+   "key": "CTA",
+   "name": "Button",
+   "copy": "<b>Tap The Button Below To</b><br>See Yourself With Abs",
+   "source": "Soft Blue glass button, up to the last frame",
+   "at": 0.5
+  }
+ ],
+ "ideas": [
+  {
+   "id": "I1",
+   "name": "Cleared out",
+   "slot": "0:00.0 to 0:02.3, \"Nutritionists have gone obsolete.\" (replaces the museum gag)",
+   "body": "A nutritionist in a white coat carries a moving box of her things (poster, plastic broccoli, a plant) out of her office, glancing back. A small friendly robot that was waiting in the corner walks over and sits in her chair with her clipboard. One take, fixed camera."
+  },
+  {
+   "id": "I2",
+   "name": "Chicken and broccoli forever",
+   "slot": "0:29.0 to 0:31.3, \"not a printout that says chicken and broccoli\" (replaces the factory gag)",
+   "body": "An ordinary guy opens his fridge: every shelf is packed with identical containers of plain chicken and broccoli. He stares at it, deadpan. One take."
+  },
+  {
+   "id": "I4",
+   "name": "Ask it what to order",
+   "slot": "0:37.0 to 0:39.0, \"Eating at a restaurant? Ask it what to order.\" (the meal photo screen keeps 0:35.6 to 0:37.0)",
+   "body": "The same guy at a restaurant, stuck behind a big menu while the waiter waits. He checks his phone, puts the menu down and points at a dish, decided; the waiter writes it down. Nothing readable on the menu or the phone."
+  },
+  {
+   "id": "I5",
+   "name": "The cardboard nutritionist",
+   "slot": "0:39.0 to 0:42.5, \"A nutritionist charges hundreds of dollars per month and sees you twice.\" (now you on camera)",
+   "body": "The same guy eats dinner across from a life-size cardboard cutout of his smiling nutritionist. The cutout slowly tips over onto the floor; he glances down and keeps eating."
+  }
+ ]
+}

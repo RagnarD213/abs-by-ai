@@ -1,0 +1,26 @@
+{
+ "_note": "RA-15 take map (option A, in the cut). Main take C1668 72.1-130.2 is one unbroken read of every line; the hook is its own last take ('Nutritionists have gone obsolete. AI just took their job.', Dan's on-set rewording of the script's 'Never pay a nutritionist again!'). R1/R2 split drops the hidden restart 'Generate an image of yourself.' (91.0-94.1, confirmed by an isolated re-transcription). R2/R3 split drops a mouth noise after 'twice.' (121.4-121.8).",
+ "ranges": [
+  {
+   "name": "R1",
+   "lines": "L1-L3a",
+   "after": 70.0,
+   "from": "nutritionists have gone obsolete",
+   "to": "to get six-pack abs"
+  },
+  {
+   "name": "R2",
+   "lines": "L3b-L5",
+   "after": 93.0,
+   "from": "generate an image of yourself with abs",
+   "to": "and sees you twice"
+  },
+  {
+   "name": "R3",
+   "lines": "L6",
+   "after": 121.5,
+   "from": "start with a picture",
+   "to": "to make it real"
+  }
+ ]
+}
