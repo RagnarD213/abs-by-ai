@@ -138,6 +138,12 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 
 **RA-15:R1-REVIEW:8818:2026-10-14.**
 
+**RO-17-R2-BUILDING 2026-10-14,Claude.**
+
+**Ad 6 remarketing 2026-10-04:** Awaiting Dan: copy to enabled campaign 24305381214?
+
+**Meal Prep SFC R4 COLOR REVIEW 2026-10-13, Codex.** A/B/C: http://127.0.0.1:8891/. Everything else approved. Next: Dan chooses, apply next round. `Docs/DS28_R4_COLOR_OPTIONS_20261013.md`. No uploads; dispatcher paused.
+
 **RA-06 R1 BUILDING 2026-10-14, Claude.** `/Volumes/Extreme/_edit_work/ra06/`.
 
 **RA-07 R1 REVIEW 2026-10-13.** http://127.0.0.1:8807/ `Handoffs/handoff-20261013-ra07-fire-your-trainer-round2-after-dan-review.md`
@@ -258,8 +264,3 @@ Memory `google-ads-ui-automation`.
 - `handoff-20260812-purchase-before-account.md` [dash] — after approval and the RevenueCat audit.
 - `handoff-20260818-android-public-build-swap.md` [dash] — needs Dan's Android on adb.
 - `handoff-20260826-danrosefit-abs-image-gap-fill.md` [dash] — once Blotato has 7 free slots.
-
-## ACTIVE
-**Ad 6 remarketing 2026-10-04:** Awaiting Dan: copy to enabled campaign 24305381214?
-
-**Meal Prep SFC R4 COLOR REVIEW 2026-10-13, Codex.** A/B/C: http://127.0.0.1:8891/. Everything else approved. Next: Dan chooses, apply next round. `Docs/DS28_R4_COLOR_OPTIONS_20261013.md`. No uploads; dispatcher paused.
