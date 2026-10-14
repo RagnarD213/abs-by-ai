@@ -81,7 +81,7 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 
 # ACTIVE
 
-**SL-08:SELECTING:2026-10-14:Codex.** Next: Dan picks segments.
+**SL-08:PICKS:2026-10-14:Codex.**
 
 **RA-16:NEEDS-CHOICES:Codex:2026-10-13.** Review:localhost:8976.
 
