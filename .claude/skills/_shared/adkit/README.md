@@ -4,7 +4,9 @@
 > that version is the standard for every video: *"Redo the analysis card in our graphics in soft blue light with our
 > hyperframes. Make that standardized with the rest of our videos."* Same content and rules as below, new look. The J2
 > card in `analysis_card.py` is kept only for re-exports of films already approved with it (RA-01). Rule:
-> `VIDEO-RULES.md`, second section.
+> `VIDEO-RULES.md`, second section. **Build new ones with [`../hyperframes/analysis-card/`](../hyperframes/analysis-card/)**
+> (template `analysis-card` in a 9:16 or 1:1 sheet, kind `analysis` in `from_plan.py`, `build.py` for 16:9). Config and
+> rules: that folder's `build.py` docstring.
 
 Dan, approving "The AI Trick That Got Me Abs": *"I think this was a template for future videos… I especially like this
 graphic that you made with the things to lose body fat and gain muscle. Let's make this something that we reuse in

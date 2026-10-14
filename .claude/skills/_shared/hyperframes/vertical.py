@@ -18,6 +18,8 @@ OUT/manifest.json (what the vertical's renderer needs). --snap also writes OUT/s
   softblue:recap        title-card/ with glass rows, one column
   (kit) card / phone    media-card/ (new): the field with a hole for the clip, chip under it      media_card_scene()
   (kit) cta             cta/ (new): a glass button over footage                                    cta_scenes()
+  analysis-card         analysis-card/ (2026-10-14, THE analysis card for every video): picture on top, chip under it,
+                        glass card with the three bars and the plan band ending 24 px above the caption line
 
 Anything else in the sheet (softblue:study, :chart, :portraits, adkit:*, codex:*) has no 9:16 template yet and STOPS
 the run with its id: a graphic is never dropped or redrawn by hand.
@@ -299,6 +301,15 @@ def tally_scenes(gid, dur, label, value, frm=0, prefix="$", unit="/ month", at=0
     return out, dict(kind="glass", band=[int(y - 40), int(y + bh + 40)], box=[round(x0), y, round(x0 + bw), y + bh])
 
 
+# ------------------------------------------------------------------ the analysis card (Dan, 2026-10-14: the standard everywhere)
+def analysis_scenes(c):
+    """The Soft Blue analysis card at this module's canvas (9:16 here; square.py's copy draws the 1:1). Layout, rules and
+    config: analysis-card/build.py. The card ends above the caption line, so captions keep running under it."""
+    AC = _mod(HERE / "analysis-card" / "build.py", "analysis_card_build")
+    cfg, assets, box = AC.layout(c, (W, Hh), bottom=globals().get("CARD_END", CAP_TOP - 24))
+    return [(AC.TPL, cfg, assets)], dict(kind="opaque", **box)
+
+
 # ------------------------------------------------------------------ the sheet's graphics
 def scenes_for(g):
     t, c = g["template"], g["config"]
@@ -310,6 +321,7 @@ def scenes_for(g):
     if t == "softblue:recap": return title_scenes(g["id"], g["t0"], g["t1"], c.get("eyebrow"), c.get("headline") or "", c["items"])
     if t == "tally": return tally_scenes(g["id"], g["t1"] - g["t0"], c["label"], c["value"], c.get("frm", 0), c.get("prefix", "$"), c.get("unit", "/ month"))
     if t == "cta": return cta_scenes(g["id"], g["t1"] - g["t0"], c["top"], c["big"], hold_out=c.get("hold_out", False))
+    if t == "analysis-card": return analysis_scenes(dict(c, id=g["id"], a=c.get("a", g["t0"]), b=c.get("b", g["t1"])))
     raise SystemExit(f"{g['id']}: template {t!r} has no 9:16 layout (vertical.py). Add one; a graphic is never dropped.")
 
 
@@ -317,6 +329,7 @@ def tsha(scenes):
     h = hashlib.sha256()
     for tpl, cfg, assets in scenes:
         h.update(pathlib.Path(tpl).read_bytes()); h.update(json.dumps(cfg, sort_keys=True).encode())
+        if pathlib.Path(tpl).parent.name == "analysis-card": h.update((pathlib.Path(tpl).parent / "build.py").read_bytes())
         for src, _ in assets: h.update(pathlib.Path(src).read_bytes())
     h.update((HERE / "vertical.py").read_bytes())
     return h.hexdigest()[:16]

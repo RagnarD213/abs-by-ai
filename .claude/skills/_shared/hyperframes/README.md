@@ -11,6 +11,7 @@ Research and decision: `Docs/HYPERFRAMES_RESEARCH.md`. Style lock: [../SOFTBLUE.
 | [`lower-third/`](lower-third/) | **Approved by Dan 2026-09-30** (RO-16 G04 sample) | Motivation lower third; parts land on words; optional counter bar (long way vs short way). Part spacing fixed 2026-10-10: see "Rules that bit" |
 | [`before-card/`](before-card/) | **Approved by Dan 2026-09-30** (RO-16 G02 sample) | full-screen photo + glass fact card on the live field; number count-up |
 | [`side-list/`](side-list/) | **Approved by Dan 2026-09-30** (RO-16 G20 sample) | the 3A left card; items land on their words |
+| [`analysis-card/`](analysis-card/) | **The standard analysis card for every video (Dan, 2026-10-14)**; first shown on RA-14 round 3 | "AI reads your picture": the subject picture + scan line, BODY FAT / FAT TO LOSE / MUSCLE TO GAIN bars, the plan band; no numbers, one chip under the picture. 16:9 (`build.py`), 9:16 (`vertical.py`), 1:1 (`square.py`), `from_plan.py` kind `analysis`. Replaces `adkit/analysis_card.py` for new films |
 
 Round-2 samples, beat sheet, bases, compositor and review page: `Media/hyperframes/round2-templates/`
 (`BEATS.md`, `bases.py`, `composite.py`, `clearance.py`, `page.py`); heavy media in `/Volumes/Extreme/_edit_work/hyperframes-r2/`.
@@ -70,6 +71,7 @@ unchanged: the edited lower third re-renders to PSNR infinity against RO-10's ap
 | `title-card/` (new) | eyebrow + accent + headline lines on the field; with `rows` it is the recap card (one column). Replaces `softblue` title and recap cards in a vertical |
 | `media-card/` (new) | the field with a transparent rounded hole for a clip, photo or phone, its frame, the chip 68 px under it; the video build lays the plate over the picture |
 | `cta/` (new) | a glass button over footage (content + mask pass), or full screen with `full` |
+| `analysis-card/` (2026-10-14) | picture on top, chip under it, glass card with the three bars and the plan band ending 24 px above the caption line (captions keep running under it). Sheet template name `analysis-card`; config in `analysis-card/build.py` |
 | `tally/` (new, 2026-10-01) | a small glass running-total chip (label + counting number + unit) top left, content + mask pass. Not used at 9:16 over a talking head: his hair is there |
 
 `composite.py` takes `Compositor(manifest, wh=(1080, 1920))`. New templates are NOT approved by Dan until he passes the

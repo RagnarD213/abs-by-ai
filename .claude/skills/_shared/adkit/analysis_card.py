@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""adkit.analysis_card -- the "AI reads your picture" card. REUSE THIS.
+"""adkit.analysis_card -- the J2 "AI reads your picture" card, KEPT ONLY FOR RE-EXPORTS OF RA-01.
+
+SUPERSEDED 2026-10-14 (Dan, RA-14): every new film uses the Soft Blue Light HyperFrames card in
+`_shared/hyperframes/analysis-card/` ("Redo the analysis card in our graphics in soft blue light with our hyperframes.
+Make that standardized with the rest of our videos."). Same content and rules, new look.
 
 Dan, 2026-09-18, approving RA-01 ("The AI Trick That Got Me Abs"): "I especially like this graphic that you
 made with the things to lose body fat and gain muscle. Let's make this something that we reuse in future

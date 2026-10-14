@@ -11,6 +11,8 @@ softblue.py / the video's own build):
   kind "scene", scene "fact" -> before-card/   full-screen photo + glass fact card (opaque)
   kind "l3"                  -> side-list/     the 3A left card, items land on their words
   kind "cycle"               -> cycle/         4-step loop in the left-third card
+  kind "analysis"            -> analysis-card/ the analysis card: picture + scan + three bars + plan band (opaque;
+                                               Dan 2026-10-14, the standard for every video)
 
 Plan items carry t0 / t1 (the resolved in and out, film seconds) and the template copy. Every time inside a graphic is
 given as a PHRASE Dan says ("seven months"), resolved here to the start of its first word in words_out.json, searched
@@ -25,6 +27,9 @@ Per kind (fields beyond id / kind / t0 / t1):
          count {value, from, dur} (optional; the number starting headline part 0), detail [text, phrase] (optional),
          sweep phrase (optional), push, drift
   l3:    heading, points [..] (max 4), reveal [phrase per point], drift
+  analysis: photo, label (chip; "AI-GENERATED" or the real-picture line), reveal [phrase per row], band [text, phrase],
+         rows (optional, default BODY FAT / FAT TO LOSE / MUSCLE TO GAIN), levels (optional), scan [phrase, phrase]
+         (optional), push, drift. No digit anywhere (the build refuses one).
   cycle: title, hue red|teal, direction cw|ccw, boxes [TL, TR, BR, BL], reveal {TL: phrase, ...}, close phrase,
          pulse phrase, drift  (a flip scene: cycle_kind "flip", old_title, old_boxes, title_swap, flip {corner: phrase})
 
@@ -42,7 +47,7 @@ sys.path.insert(0, str(HERE))
 import hfbuild as H                                  # noqa: E402
 B = H.B
 FPS = 30000 / 1001
-TEMPLATE = {"lt": "lower-third", "fact": "before-card", "l3": "side-list", "cycle": "cycle"}
+TEMPLATE = {"lt": "lower-third", "fact": "before-card", "l3": "side-list", "cycle": "cycle", "analysis": "analysis-card"}
 NUM = {"zero": "0", "one": "1", "two": "2", "three": "3", "four": "4", "five": "5", "six": "6", "seven": "7", "eight": "8",
        "nine": "9", "ten": "10", "twelve": "12", "fifteen": "15", "twenty": "20", "thirty": "30", "forty": "40",
        "fifty": "50", "hundred": "100", "ninety": "90", "first": "first", "percent": "%"}
@@ -175,12 +180,27 @@ def cycle_cfg(it, W, beats):
     return cfg
 
 
-BUILD = {"lt": lt_cfg, "fact": fact_cfg, "l3": l3_cfg, "cycle": cycle_cfg}
+def analysis_cfg(it, W, beats):
+    a, b = it["t0"], it["t1"]; at = lambda ph, what: round(max(a, W.at(ph, a - 1.0, b, f"{it['id']} {what}")), 3)
+    rows = it.get("rows") or ["BODY FAT", "FAT TO LOSE", "MUSCLE TO GAIN"]
+    rv = [at(ph, f"row {k + 1}") for k, ph in enumerate(it["reveal"])]
+    band = [it["band"][0], at(it["band"][1], "band")]
+    cfg = dict(id=it["id"], a=a, b=b, photo=it["photo"], label=it.get("label"), rows=rows, reveal=rv, band=band,
+               push=it.get("push", 1.05), drift=it.get("drift", -6))
+    if it.get("levels"): cfg["levels"] = it["levels"]
+    if it.get("scan"): cfg["scan"] = [at(it["scan"][0], "scan in"), at(it["scan"][1], "scan out")]
+    beats += [(a, "", "cut in: picture" + (" with its chip" if it.get("label") else "") + ", empty glass card; the scan line sweeps the picture")]
+    beats += [(t, W.text(t, t + 0.4), f"row lands, bar fills: {r}") for r, t in zip(rows, rv)]
+    beats += [(band[1], W.text(band[1], band[1] + 0.4), f"plan band lands: {band[0]}"), (b, "", "hard cut out")]
+    return cfg
+
+
+BUILD = {"lt": lt_cfg, "fact": fact_cfg, "l3": l3_cfg, "cycle": cycle_cfg, "analysis": analysis_cfg}
 
 
 def tkind(it):
     if it["kind"] == "scene": return "fact" if it.get("scene") == "fact" else None
-    return it["kind"] if it["kind"] in ("lt", "l3", "cycle") else None
+    return it["kind"] if it["kind"] in ("lt", "l3", "cycle", "analysis") else None
 
 
 def render_scene(tk, cfg, out, force):
@@ -222,7 +242,7 @@ def main():
         cfg = BUILD[tk](it, W, beats)
         rd = out / "renders"
         m = dict(id=it["id"], template=TEMPLATE[tk], a=cfg["a"], b=cfg["b"], mov=str(rd / f"{it['id']}.mov"),
-                 kind={"fact": "opaque", "lt": "glass"}.get(tk, "overlay"))
+                 kind={"fact": "opaque", "analysis": "opaque", "lt": "glass"}.get(tk, "overlay"))
         if tk == "lt": m.update(mask=str(rd / f"{it['id']}_mask.mov"), band=[760, 1080])
         if tk == "l3":
             x0, y0, x1, y1 = B.left_third_box(1920, 1080, it["heading"], it["points"])

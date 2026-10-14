@@ -16,6 +16,7 @@ hold in a square. softblue.py already carries the 1:1 geometry for the lower thi
                         the square caption line (y 848, the approved Ad 1 square's rule); the chip 68 px under the hole
   cta                   a glass button at the bottom (captions pause under it)
   tally                 the top-left chip (under the top 48 px)
+  analysis-card         picture left, chip under it, glass card right with each label above its bar, ending at y 848
 
 NOT approved by Dan until he passes a square graphic-lock page (VIDEO-RULES 2026-10-01: the first square gets a full
 pre-approval round).
@@ -38,6 +39,7 @@ SQ.U = B.unit(W, Hh)                                 # 2.0
 SQ.CAP_TOP = CAP_LINE
 SQ.CARD_BOTTOM = Hh - SQ.SIDE                        # the 3A card's 1:1 bottom (softblue._lt_geom)
 SQ.CAPTION_BAND = (CAP_LINE - 20, CAP_LINE + 100)
+SQ.CARD_END = CARD_END                              # the analysis card ends here under running captions
 U, SIDE = SQ.U, SQ.SIDE
 
 
@@ -46,7 +48,9 @@ def media_card_scene(gid, dur, media_ar, label=None, kicker=None, spans=None, ma
     (a horizontal clip is never cropped shorter). Under running captions the card and its chip end above y 848;
     a card whose captions are off (a phone) may use the frame down to y 1040."""
     extra = (68 + 80 if label else 0)
-    top, bottom = 64, (CARD_END if caps else Hh - 40)
+    # a kicker ("AbsByAI.com") sits 84 px above the card as in the vertical: a full-height card at top 64 pushed it to
+    # y 8, onto the card's own accent line (Ad 6 square, two judges, 2:48 and 2:58)
+    top, bottom = 64 + (56 if kicker else 0), (CARD_END if caps else Hh - 40)
     max_w = max_w or (W - 2 * SIDE)
     max_h = min(max_h or 10 ** 6, bottom - top - extra)
     hw = max_w; hh = hw / media_ar
