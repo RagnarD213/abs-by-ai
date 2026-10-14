@@ -1,10 +1,10 @@
 AD (paid ad: it ends on "Tap the button below"). Sidebar name for the next task: `Top 3 Tips AD R3`.
 
-# RA-04 "Top 3 Tips For Getting Abs": round 3 (after Dan answers the round 2 frames page)
+# RA-04 "Top 3 Tips For Getting Abs": round 3, motion for the approved broken-arm clip
 
 **Written 2026-10-14 by the round 2 session (Claude, Opus 5.5).** Job doc: `Handoffs/video-editing/RA-04-top-3-tips-for-getting-abs.md`.
 Rules: `Handoffs/video-editing/00-RULES.md`, `.claude/skills/_shared/VIDEO-RULES.md`, `/ad-edit`, `_shared/PRE-RENDER-APPROVAL.md`.
-Recipe and lessons: `.claude/skills/ad-edit/reference/ra04/README.md` (lessons 13 and 14 are new). Work folder: `/Volumes/Extreme/_edit_work/ra04/`.
+Recipe and lessons: `.claude/skills/ad-edit/reference/ra04/README.md` (lessons 13 to 16 are new). Frame QC tools: `.claude/skills/_shared/framecheck/README.md`. Work folder: `/Volumes/Extreme/_edit_work/ra04/`.
 Round 2 page: http://127.0.0.1:8895/; round 2b: http://127.0.0.1:8896/; **round 2c (current shot 3): http://127.0.0.1:8897/**. Frame hashes: `round2/frames_manifest.json`.
 
 ## Dan's answers so far (2026-10-14), recorded in `round3-plan/decisions.json`
@@ -14,27 +14,16 @@ Round 2 page: http://127.0.0.1:8895/; round 2b: http://127.0.0.1:8896/; **round 
   He asked for a realistically loaded machine, feet on the platform, start smiling at the phone, end smiling while exerting, and
   **"If this physics is off, you have to regenerate."** The 2b pair (F4c_a / F5c_b) was then **rejected** too: "He's doing the leg
   press at a 90 degree angle, but his legs need to be in line with his body... No human body works like that."
-* **Current shot 3 pair, pending his OK on the 2c page: F4h** f49c75616613b51a (start, lying back, smiling at the phone) and
-  **F5p** 4e8095cfec446bdd (end: machine built in code from F4h by `reference/ra04/r2c_sled.py`, man from Codex F5i_a). Passed
-  the 7th independent review after six fails (list: README lesson 15). Short honest push (knee 127 to 165 degrees, sled ~42 px).
-* **Dan's second ask, for the handoff after shot 3 is approved:** "do some research and see if there are some kinds of skills, repos,
-  or modifications for Claude where we can do better QC on these start and end frames." See step 0b.
+* **Shot 3 frames APPROVED: F4h** f49c75616613b51a (start, lying back, smiling at the phone) and **F5p** 4e8095cfec446bdd (end: machine
+  built in code from F4h by `reference/ra04/r2c_sled.py`, man from Codex F5i_a): "Those frames look good." They passed the 7th
+  independent review after six fails (README lesson 15). Short honest push (knee 127 to 165 degrees, sled ~42 px).
+* **All five frames approved, so motion is authorized** for AI1-1 (S1 to F2), AI1-2 (F2 to F3b), AI1-3 (F4h to F5p) (`motion_authorized`
+  in the decisions file). Assert each frame's sha256 before generating.
+* The frame-QC research Dan asked for is done: `Handoffs/handoff-20261014-frame-qc-upgrade.md` (a separate task; this round does not
+  wait for it).
 * **Budget raised to $20 for this ad** ("Your budget is approved up to $20 for generations"). $0 spent.
 * Slot not answered: **A** (0:39.139 to 0:43.443) is the default, said on the 2b page.
 
-## Step 0: record Dan's answer on the 2c page
-
-Add his words on shot 3 (F4h / F5p) to `round3-plan/decisions.json`. If he asks for changes: rebuild only shot 3 with
-`_shared/framecheck/` (pose angles, bone lengths, rigid tracking) and a fresh independent reviewer before any page; for a deeper rep,
-a new start with the knees bent further (lesson 16). Back on a page, stop again.
-
-## Step 0b: the frame-QC research Dan asked for (once shot 3 is approved, in the session that writes the next handoff)
-
-Research skills, repos and Claude modifications that catch anatomy and physics faults in AI start/end frames automatically (pose
-estimators such as MediaPipe, RTMPose/ViTPose or SMPL body fitting; physical-plausibility checkers; VLM judges; contact and
-penetration tests), compare against what `_shared/framecheck/` already does, and recommend one plan with costs. Deliver it as a
-page or doc for Dan; do not execute it in that session (brainstorm rule).
-If he says no to the clip: B0126 stays (as in round 1) and go straight to step 2.
 
 ## Done in round 2 (do not redo)
 
@@ -49,7 +38,7 @@ If he says no to the clip: B0126 stays (as in round 1) and go straight to step 2
 
 ## Round 3 work, in order
 
-1. **Motion (after frame approval):** three takes on Replicate `google/veo-3.1-fast`, `image` + `last_frame`, 9:16, 4 s, no audio,
+1. **Motion (frames approved 2026-10-14):** three takes on Replicate `google/veo-3.1-fast`, `image` + `last_frame`, 9:16, 4 s, no audio,
    $0.40 each. Template: `.claude/skills/longform-edit/reference/ro06/gen_motion.py` (assert each frame's sha256 against the decisions
    file; ledger every call). Pairs: AI1-1 S1 to F2 (walks to the rack, stops, shakes his head); AI1-2 F2 to F3b (finishes the shake,
    takes out the phone, reads it); AI1-3 F4h to F5p (lowers the phone to his chest and straightens his legs, a short push along the rails). Prompts: plain actions, Step 4.5 vocabulary (no camera
@@ -59,7 +48,9 @@ If he says no to the clip: B0126 stays (as in round 1) and go straight to step 2
    allowed, slowing or holding is not. Slot B: same three shots squeezed into 3.1 s (about 1.0 s each), or ask.
 2. **Before Dan sees motion:** every take gets the three sense questions (cause and effect, reads with the sound off, shows the line),
    the self-change map (`longform-edit/reference/ro08/a5_cut.py`), first and last second strips, then a fresh independent reviewer
-   with the three questions in its brief. Fix failures by retake or trim. Budget **$20 for this ad, $0 spent so far** (frames were
+   with the three questions in its brief AND the measured checklist used on the frames (`_shared/framecheck/README.md`: body line
+   along the rails, bone lengths, rigid sled, contact, nothing appearing or vanishing), run on sampled frames of each take
+   (`posecheck.py`, `rigid.py` between the take's first and last frames). Fix failures by retake or trim. Budget **$20 for this ad, $0 spent so far** (frames were
    Codex). Ask Dan first, alone, before passing $20. **Shot 3 physics is Dan's named check:** the platform, horns and plates move up
    the rails together, both feet stay on the platform, the phone stays in his hand. Any take that breaks it is regenerated, never trimmed around.
 3. **Build the card:** replace the `knee` card (`s05_plan04.py` beat, `s06_inserts04.py fill_card`) with the AI clip, AI-GENERATED chip
@@ -83,7 +74,8 @@ If he says no to the clip: B0126 stays (as in round 1) and go straight to step 2
 ## Starter prompt
 
 > Read `Handoffs/handoff-20261014-ra04-round3-after-frames.md` and `.claude/skills/ad-edit/reference/ra04/README.md`, then run round 3
-> of RA-04 "Top 3 Tips For Getting Abs" (an AD) with /ad-edit. Name this task `Top 3 Tips AD R3`. My answers to the round 2 page:
-> [paste your reply to the 2c page]. Generate the motion for the approved frames, check every take before I see it, and put it in context on a review page.
+> of RA-04 "Top 3 Tips For Getting Abs" (an AD) with /ad-edit. Name this task `Top 3 Tips AD R3`. All five frames of the broken-arm
+> clip are approved. Generate the motion with the Replicate budget ($20 for this ad), check every take for physics before I see it,
+> and put it in context on a review page.
 
 **Recommended model and effort: Opus 5.5, high.** Motion takes from F4h/F5p must keep the sled moving along the rails and the feet on the platform: run `rigid.py` on sampled video frames too.

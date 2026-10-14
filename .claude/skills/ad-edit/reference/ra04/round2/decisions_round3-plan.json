@@ -60,12 +60,39 @@
     "4051998b79f4fdb2a267e59a1c575f587302c5ceec28c43978574a4a6348b55c"
    ],
    "verdict": "pending Dan (round 2b page 8896)"
+  },
+  {
+   "id": "AI1-3-v2",
+   "verdict": "rejected",
+   "words": "his body is all fucked up here. He's doing the leg press at a 90 degree angle, but his legs need to be in line with his body... No human body works like that.",
+   "frames": [
+    "F4c",
+    "F5c"
+   ]
+  },
+  {
+   "id": "AI1-3-v3",
+   "frames": [
+    "F4h",
+    "F5p"
+   ],
+   "sha256": [
+    "f49c75616613b51a49fd65aa8916a21be5a12f0af7bee52c6718350918278a8d",
+    "4e8095cfec446bdd192c1f0f12fd46be84a32dfa8f3b254cbf62e934145b0d07"
+   ],
+   "verdict": "approved",
+   "words": "Those frames look good.",
+   "scope": "frames only"
   }
  ],
  "budget_usd": 20,
  "budget_note": "Dan raised the generation budget for this ad from $10 to $20 (2026-10-14)",
- "motion_authorized": [],
- "new_frames_before_motion": [
-  "AI1-3"
- ]
+ "motion_authorized": [
+  "AI1-1 S1->F2",
+  "AI1-2 F2->F3b",
+  "AI1-3 F4h->F5p"
+ ],
+ "new_frames_before_motion": [],
+ "dan_words_2": "Once we have this one done and we have the handoff, I want you to do some research and see if there are some kinds of skills, repos, or modifications for Claude where we can do better QC on these start and end frames.",
+ "approved_by_dan_2026-10-14": "all five frames of AI1 (S1, F2, F3b, F4h, F5p); slot A by default"
 }
