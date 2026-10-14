@@ -1,3 +1,5 @@
+**SUPERSEDED 2026-10-14:** Dan answered round 1; fire `handoff-20261014-ra06-round3-after-frames.md` instead.
+
 AD (paid ad: it ends on "Tap the button below now to get started"). Sidebar name for the next task: `Best Ab Exercise AD R2`.
 
 # RA-06 "What's The Best Ab Exercise?": round 2, after Dan reviews the round 1 page
