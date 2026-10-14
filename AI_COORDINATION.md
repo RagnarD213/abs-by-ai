@@ -139,7 +139,7 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 
 **RA-15-R3-BUILDING 2026-10-14.**
 
-**RA-04 R3 BUILDING 2026-10-14, Claude.** Veo motion for the broken-arm clip, physics checks, review page. Work: `/Volumes/Extreme/_edit_work/ra04/round3/`.
+**RA-04-R3-BUILDING 2026-10-14, Claude.**
 
 **RO-17-R2-BUILDING 2026-10-14,Claude.**
 
