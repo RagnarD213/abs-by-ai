@@ -343,6 +343,9 @@ def encode_h264(frames, out, size, crf=16):
             im.convert("RGB").save(os.path.join(tmp, "f_%05d.png" % n), compress_level=1); n += 1
         subprocess.run([FF, "-nostdin", "-y", "-v", "error", "-framerate", "30000/1001",
                         "-i", os.path.join(tmp, "f_%05d.png"),
+                        # RGB -> YUV with the BT.709 matrix the file is tagged with. Without this ffmpeg used BT.601
+                        # under a BT.709 tag (found 2026-10-14 on RA-14 O2: greens 148 -> 126, frame 0 26 levels off)
+                        "-vf", "scale=in_range=pc:out_color_matrix=bt709:out_range=tv",
                         "-c:v", "libx264", "-preset", "medium", "-crf", str(crf),
                         "-pix_fmt", "yuv420p", "-r", "30000/1001",
                         "-colorspace", "bt709", "-color_primaries", "bt709",
