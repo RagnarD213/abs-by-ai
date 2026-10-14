@@ -10,12 +10,13 @@ no cold open and no hook takes, and its note line carries the new word count and
 his choice (Dad Bod, Terry Crews, Retatrutide). Edit scripts in the shoot doc from now on; rebuilding a teleprompter from
 it is safe again. Teleprompter documents have no blank lines between paragraphs (Dan, 2026-10-13); the shoot doc keeps them.
 
-**2026-10-14, later: the 13 short form content shorts moved from the dark green backdrop to the pool, and Teleprompter 3
-runs shorts first** (Dan). `tp_from_shoot_doc.py` knows both, so a rebuild keeps them. The 11 outdoor shorts got the copy
-polish: 7 sure fixes typed into Teleprompter 3 and the shoot doc, 9 tracked suggestions in Teleprompter 3 only
-(`Docs/COPYEDIT_1017_OUTDOOR_SHORTS_AS_DELIVERED_20261014.md`). After Dan rules, carry the accepted ones into the shoot doc
-before any rebuild, then import Teleprompters 1 and 3 into PromptSmart (both changed; neither is re-imported yet). One old
-difference: the 5-Minute workout reads "Good. Next up is push-ups" in the shoot doc and "Next up is push-ups" in Teleprompter 3.
+**2026-10-14, final check before the shoot.** Dan ruled on the 9 outdoor-short suggestions in Teleprompter 3 (7 accepted,
+1 rewritten as "sit down with good posture", the tricep cut rejected) and edited the Ronaldo opener in Teleprompter 2 ("But does it
+really work?"). All of it, plus two sure fixes (the Zepbound health list in parentheses, "pressdown" to "pushdown" in Bigger Arms)
+and the 5-Minute workout without "Good." before "Next up is push-ups", is in the shoot doc. A rebuild from the shoot doc matches
+Teleprompters 1, 2 and 3 word for word, and Teleprompter 0 matches `Docs/PICKUPS_1017_SHOOT.md`. **PromptSmart holds exactly four
+10/17 cards, all current:** Teleprompter 0 (1491684), 1 (1491698), 2 (1491700), 3 (1491699); the 10/13 cards are in its Trash.
+The 13 short form content shorts are on the pool set, shorts first (`tp_from_shoot_doc.py` knows both).
 
 | document | what it is for | id |
 |---|---|---|
@@ -23,7 +24,7 @@ difference: the 5-Minute workout reads "Good. Next up is push-ups" in the shoot 
 | 10-17 Shoot - Teleprompter 0 - Pickups (Record First) | Words only, the 12 pickups for four earlier videos, each printed twice (pickup 6: long version twice, then short version twice). 766 spoken words, 2 pages. Dan records these first. Made 2026-10-13; pickup 12 (RO-14) added 2026-10-14 | `1E9TzRx-gav2qBS07gdLLX3YFvLYWQaqMFJQoUO6g3xs` |
 | 10-17 Shoot - Teleprompter 1 - Dark Green Backdrop | Words only, the 8 long videos, 10,080 words (the 13 shorts moved to Teleprompter 3 on 2026-10-14) | `1esSBLZldEbmSikeESYaXWo6n4vq1h0Qm8AhqB7Mo8cs` |
 | 10-17 Shoot - Teleprompter 2 - Green Screen | Words only, 23 scripts, 7,421 words with titles after Dan's edits and rulings on 2026-10-13, 14 pages (see the note above; same Drive id) | `1KvL0_IilRCxlofnY5luTfRvjiseGGpGGXU4sAsjbgzQ` |
-| 10-17 Shoot - Teleprompter 3 - Outside By The Pool | Words only, 28 scripts, shorts first (Dan, 2026-10-14): the 13 shorts moved from Teleprompter 1, the 11 outdoor shorts, then the 4 follow-along workouts. 7,511 words. 9 tracked suggestions pending on the outdoor shorts (see the note above) | `1yc2xg1sG4lTncvcAmkA17SN-JZnQSsbB9Q-fpEbXotg` |
+| 10-17 Shoot - Teleprompter 3 - Outside By The Pool | Words only, 28 scripts, shorts first (Dan, 2026-10-14): the 13 shorts moved from Teleprompter 1, the 11 outdoor shorts, then the 4 follow-along workouts. 7,437 words | `1yc2xg1sG4lTncvcAmkA17SN-JZnQSsbB9Q-fpEbXotg` |
 | 10-17 Shoot - B-Roll Bullets By Priority | Bullets only, by priority: blocking a video already in editing, needed for this shoot, nice to have. Made 2026-10-14 | `1u0Vackqk6gRUNidfXK-z0P6Pl4olInjPGPSVgVePlKU` |
 | 10-17 Shoot - B-Roll List | Every B-roll shot by set, outdoor first, plus what the Edit Queue is blocked on | `1WPx31kcSsGtPyRmNBRb8fJHKC4ivi8gxl1k16wVizSY` |
 | 10-17 Shoot - Reaction Clips | Every clip Dan reacts to, in teleprompter order, each link opening at the clip's start second: the survivors of the 10-12 cuts plus the 15 reaction shorts added 2026-10-13 (31 links). Two are still marked check by eye: Ronaldo and Chris Bumstead | `1BcRpzDQYNCssROEvg10Z9cOL2AtdvBdyqHwvxxwHtQA` |
