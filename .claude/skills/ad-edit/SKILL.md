@@ -1312,6 +1312,12 @@ Recipe and eight lessons: `reference/ra05/README.md`. The three that would have 
 3. **Count the words before building.** 231 scripted words is 61 s airtight. When the ad cannot fit 0:59, cut the sentence
    that sells nothing, keep the full take map on disk (`edl_spec_full.json`) and make the cut Dan's first decision.
 
+## RA-15: two traps on the 8/28 raw ads (2026-10-14)
+
+Recipe and seven lessons: `reference/ra15/README.md`. The two that would have shipped a defect: a single clean-looking
+take hid a stopped-and-restarted sentence that only 8 s re-transcription windows heard (window the whole kept take);
+and a caption sat on the AI clip's punchline (the museum plaque), so check every clip's text against the caption band.
+
 ## RA-01 lessons — first cut from the 8/28 outdoor portrait rolls (2026-09-18, three-role pipeline)
 
 Built as planner (Fable) → editor (Opus) → independent reviewer (fresh Fable), plan + rulings in
