@@ -1,0 +1,122 @@
+{
+ "job": "RA-07",
+ "round_reviewed": 1,
+ "received": "2026-10-14",
+ "page": "http://127.0.0.1:8807/",
+ "dan_words_verbatim": "Okay, for the intro, I want the AI-generated clip of the trainer getting fired and the robot spotting right in the first few seconds: \"Fire your trainer now and replace them with AI.\" Then cut to the camera scene after that. Yes, I want the wider framing like in the cheat code, the color in the cheat code. Basically, all the cheat code settings are good. All the claim lines are fine. For the AI clips, skip I1, generate I2, and generate I2 through I5. However, I want additional frames for I3, I4, and I5 of essentially the problem being solved in the next clip.\n\nHe injures his shoulder, then he looks at his phone, and then he gets an alternate exercise. Let's say he can't do the press, and instead he goes to the side lateral machine for that, out of order. Let's say the leg squat machine is broken. He goes to the hack squat machine instead.\n\n\"Back next week\" is actually good as is, give me the handoff for the next round",
+ "items": [
+  {
+   "id": "OPENING",
+   "verdict": "approved",
+   "choice": "A: library clip A0147 from frame 0 under the hook line, then the camera",
+   "words": "for the intro, I want the AI-generated clip of the trainer getting fired and the robot spotting right in the first few seconds: \"Fire your trainer now and replace them with AI.\" Then cut to the camera scene after that.",
+   "files": {
+    "A0147 (clip library)": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/04 AI-Generated Clips/concepts-and-gags/A0147_robot-spots-bench-press-fired-trainer-walks-out-9x16_9x16_4s.mp4"
+   },
+   "next": "H1 from 0.00 to the 'AI.'|'Why' splice (about 3.5 s, inside the clip's 4.04 s), then Dan on camera on 'Why are thousands'"
+  },
+  {
+   "id": "FRAMING",
+   "verdict": "approved",
+   "choice": "the RA-14 pick (F2 wider), converted to this roll",
+   "words": "Yes, I want the wider framing like in the cheat code",
+   "scope": "same apparent size as RA-14's 576x1024 / 720x1280 on C1667",
+   "next": "on C1664 Dan's head is 370 px against 290 on C1667 (x1.276): close 738x1312 (m=41), wide 918x1632 (m=51); check beside RA-14 round 3 frames"
+  },
+  {
+   "id": "GRADE",
+   "verdict": "approved",
+   "choice": "the RA-14 pick C2 Brighter, golden skin",
+   "words": "the color in the cheat code. Basically, all the cheat code settings are good.",
+   "files": {
+    "/Volumes/Extreme/_edit_work/ra14/round2/colour/luts/ra14_C2_brighter_gold.cube": "4e222c22be62cdfd (per RA-14 decisions)"
+   },
+   "next": "grade.json points at that LUT; check skin luma and saturation against RA-14's approved frames, by eye too"
+  },
+  {
+   "id": "VOICE",
+   "verdict": "approved",
+   "choice": "the RA-14 pick: the bass lift (+3 dB at 120 Hz on top of the fitted tone)",
+   "words": "Basically, all the cheat code settings are good.",
+   "next": "re-make the mix the way RA-14's mix_bass.wav was made (its voice_chain.json), then frame-lock it"
+  },
+  {
+   "id": "CLAIMS",
+   "verdict": "approved",
+   "choice": "run as spoken",
+   "words": "All the claim lines are fine."
+  },
+  {
+   "id": "I1",
+   "verdict": "rejected",
+   "choice": "The sad paper: not made",
+   "words": "skip I1",
+   "files": {
+    "round1/frames/I1-start.png": "eb69753fe801dde9",
+    "round1/frames/I1-end.png": "5a4ca9d6440185ec"
+   },
+   "next": "Dan on camera for 'A paper from your trainer that says Goal: lose 20 pounds does not.'"
+  },
+  {
+   "id": "I2",
+   "verdict": "approved",
+   "choice": "Same sheet for everyone",
+   "words": "generate I2",
+   "files": {
+    "round1/frames/I2-start.png": "80f17f837d2ae9d0",
+    "round1/frames/I2-end.png": "867a448cd188438c"
+   },
+   "next": "make the motion"
+  },
+  {
+   "id": "I3",
+   "verdict": "approved-with-notes",
+   "choice": "Tweaked shoulder, plus a new follow-on clip of the fix",
+   "words": "generate I2 through I5. However, I want additional frames for I3, I4, and I5 of essentially the problem being solved in the next clip. He injures his shoulder, then he looks at his phone, and then he gets an alternate exercise. Let's say he can't do the press, and instead he goes to the side lateral machine for that",
+   "files": {
+    "round1/frames/I3-start.png": "935e6cd7af9cc3ff",
+    "round1/frames/I3-end.png": "f604259ecebf9064"
+   },
+   "next": "I3a motion from the approved frames (press, wince). New frames I3b: he looks at his phone, then he is on the side lateral raise machine instead of the press. Frames to Dan before motion."
+  },
+  {
+   "id": "I4",
+   "verdict": "approved-with-notes",
+   "choice": "Out of order, re-set on a leg squat machine, plus a new follow-on clip of the fix",
+   "words": "out of order. Let's say the leg squat machine is broken. He goes to the hack squat machine instead.",
+   "files": {
+    "round1/frames/I4-start.png": "2caf603e7d86e3b8",
+    "round1/frames/I4-end.png": "0711c94e9648acf2"
+   },
+   "next": "New frames I4a: the same gag with the OUT OF ORDER sign on a leg squat machine (the round 1 frames show a cable machine). New frames I4b: he goes to the hack squat machine and does it. Both to Dan before motion; no motion on the cable-machine frames."
+  },
+  {
+   "id": "I5",
+   "verdict": "approved",
+   "choice": "Back next week, as is",
+   "words": "\"Back next week\" is actually good as is",
+   "files": {
+    "round1/frames/I5-start.png": "4a195663905d7f47",
+    "round1/frames/I5-end.png": "4ff95fc374d5964c"
+   },
+   "next": "make the motion; no follow-on clip"
+  }
+ ],
+ "not_answered_but_shown": [
+  "everything else on the round 1 page (cut, takes, L1-L3 copy, P1, K1, W1, T1, M1, C1, end hold, no analysis card): no objection, not approved in words; carried as shown"
+ ],
+ "motion_authorized": [
+  "I2 (round1/frames/I2-start.png, I2-end.png)",
+  "I3a (round1/frames/I3-start.png, I3-end.png)",
+  "I5 (round1/frames/I5-start.png, I5-end.png)"
+ ],
+ "new_frames_before_motion": [
+  "I3b phone then side lateral raise machine",
+  "I4a OUT OF ORDER on a leg squat machine",
+  "I4b hack squat machine instead"
+ ],
+ "budget": {
+  "cap_usd": 10,
+  "spent_usd": 0
+ }
+}
