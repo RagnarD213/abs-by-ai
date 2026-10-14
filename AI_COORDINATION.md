@@ -81,6 +81,8 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 
 # ACTIVE
 
+**SL-08 - SELECTING 2026-10-14, Codex.** Calories Not Losing Weight SFC R1. Preparing RO-10 segment shortlist; Dan picks before cuts. No upload.
+
 **RA-16:NEEDS-CHOICES:Codex:2026-10-13.** Review:localhost:8976.
 
 **RA-13 QUEUED 2026-10-13.** Next: look samples; localhost:8973.
