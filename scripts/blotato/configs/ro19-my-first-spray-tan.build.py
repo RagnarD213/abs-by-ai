@@ -9,7 +9,7 @@ cfg = {
   "content_type": "organic",
   "source": "claude edited long form content/16 - My First Spray Tan (RO-19 re-edit)/My First Spray Tan | claude round 4 | 16x9 | RO-19.mp4",
   "slug": "ro19-my-first-spray-tan",
-  "title": "My First Spray Tan: What To Expect, Cost, Before And After",
+  "title": "Spray Tanning Guide: How To Looksmax With A Spray Tan",
   "main": "2027-01-17T15:00:00.000Z",
   "keyword": "TRACK",
   "ai_generated": True,

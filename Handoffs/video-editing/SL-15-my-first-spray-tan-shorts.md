@@ -1,4 +1,4 @@
-# SL-15: Shorts from "My First Spray Tan: What To Expect, Cost, Before And After" (RO-19)
+# SL-15: Shorts from "Spray Tanning Guide: How To Looksmax With A Spray Tan" (RO-19)
 
 **CONTENT, long-form (LFC): it gets Shorts cut from it and nothing else.**
 **List 2 · shorts from a finished long-form · READY.** Read `00-RULES.md` first. Added 2026-10-13 when RO-19 was set up for release.

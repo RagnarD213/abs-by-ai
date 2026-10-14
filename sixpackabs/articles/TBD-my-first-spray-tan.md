@@ -2,7 +2,7 @@
 id: TBD
 post_id: TBD
 slug: TBD
-title: My First Spray Tan: What To Expect, Cost, Before And After
+title: Spray Tanning Guide: How To Looksmax With A Spray Tan
 excerpt: Is a spray tan worth it? For photos, yes. You look much more defined. Mine cost about $100, a cheaper one is about $50, and it held up through day five.
 ---
 A spray tan makes you look much more defined in photos, mine cost me about $100, and it was still going strong on day five. If you're doing a photo shoot, if you're doing dating profile pictures, if you're doing an important event such as a wedding, spray tanning is a great, great solution for that. It's for any day you want to look your best and you're willing to spend a little bit of money to do that.
