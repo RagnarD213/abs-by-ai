@@ -16,6 +16,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
+| [handoff-20261014-ra14-cheat-code-setup.md](handoff-20261014-ra14-cheat-code-setup.md) | **Ready 2026-10-14. Claude Opus 5.5 / High.** RA-14 The Cheat Code For Six Pack Abs (AD): the approved 9:16 to YouTube Unlisted and the trial campaign; five Codex thumbnails, stop for Dan's pick first. |
 | [handoff-20261014-ro17-round3-ai-motion-and-full-film.md](handoff-20261014-ro17-round3-ai-motion-and-full-film.md) | **Waits on Dan's round 2 page (http://127.0.0.1:8877/). Claude Opus 5.5 / High.** RO-17 3 Healthy Foods (LFC), round 3: record his opener and AI clip picks, make the approved motion and check it before he sees it, then the full film, every gate, independent review, deliver. |
 | [handoff-20261014-ra05-round3-after-frames.md](handoff-20261014-ra05-round3-after-frames.md) | **Ready 2026-10-14 (Dan answered round 2). Claude Opus 5.5 / High.** RA-05 How AI Can Get You REAL Six Pack Abs (AD), round 3: couch clip motion from the approved frames, the body scan rebuilt vertical, then the whole 9:16. Round 2 (executed): `handoff-20261014-ra05-round2-after-dan-answers.md`. |
 | [handoff-20261014-ra04-round3-after-frames.md](handoff-20261014-ra04-round3-after-frames.md) | **Ready 2026-10-14. Claude Opus 5.5 / High.** RA-04 Top 3 Tips For Getting Abs (AD), round 3: all five broken-arm frames approved; Veo motion ($20 cap), physics-checked before Dan sees it, then the full film. |
