@@ -144,5 +144,8 @@
   "platform_delivery_notes": {
     "instagram": "1280x720 272050044 bytes; exact duration/frame count; audio stream copied. Schedule patched and verified.",
     "tiktok": "Full 712.845s cover-first copy queued, but documented API limit is 10 minutes. Native Studio shows 60-minute support. Account-specific API duration acceptance is unconfirmed; Dan choice pending."
-  }
+  },
+  "tiktok_direct": true,
+  "tiktok_direct_caption": "Lose the fat. Keep the muscle you worked to build.\n\nWeight loss medication made it harder for me to eat enough protein. When my strength started dropping, I knew the scale was not telling me the whole story.\n\nHere is how I approach resistance training, protein-first meals and tracking my lifts while losing fat. I also share my own Zepbound experience.\n\nWatch the full video, then start recording your body weight, sets and reps. My medication experience is personal, not medical advice. Talk with your doctor before changing your medication.\n\nSome clips are labeled AI-GENERATED visualizations.\n\nGo to AbsByAI.com: https://absbyai.com/?utm_source=tiktok&utm_medium=video&utm_campaign=longform&utm_content=ro01-keep-your-muscle\n\n#fatloss #muscle #protein #zepbound #absbyai",
+  "tiktok_direct_note": "Dan 2026-10-14: move to the direct TikTok route. Blotato TikTok schedule 5295785 deleted; one-off task ro01-tiktok-direct-upload posts it Mon Dec 7 2026."
 }
