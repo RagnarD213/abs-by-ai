@@ -94,6 +94,17 @@ always the one making these thumbnails."*
   3. **Does it show the line he is saying, and if it is a joke, does the joke land in one viewing?**
 - A time jump (a clock moving an hour, a full box becoming an empty one) is shown with a CUT between two natural shots, never by
   asking the model to fast-forward inside one take.
+- **Standard on every video, before Dan's FIRST look at any AI clip (Dan, 2026-10-14, approving RO-08 round 3).** *"I like how you
+  cleaned up those AI clips... I'd like you to do these kinds of checks as a standardized thing going forward, so ideally, this is caught
+  before I review it for the first time. You can spend a little bit more aggressively on regeneration to facilitate that, but I want you
+  to catch these kinds of mistakes before I see them."* How to apply, Claude and Codex, every skill that puts an AI clip in front of him:
+  1. Every take gets the measured check below and the three questions from the editor, then from a fresh independent reviewer with the
+     three questions in its brief, before the first page or review copy that shows it moving. Not only after he has rejected something.
+  2. A take that fails is fixed before he sees it: regenerate it (a retake from the approved frames, or two short takes joined by a cut),
+     or cut it down to the part that passes. Do not send it with the fault described, and do not hand him the choice of fixes.
+  3. Spend on retakes more readily than before: retakes of approved frames inside the video's AI budget need no question. At the cap,
+     ask for more first (the budget rule below), never ship the fault.
+  4. Plan for it: expect a retake or two per clip, and say so in the round 1 cost estimate.
 - His order of repair, said about the donut clip: *"regenerate this so it looks natural. Use a part of the clip only. If you can't
   make it look natural, eliminate all the food just vaporizing into the air and disappearing. If you can't make it look natural, then
   just use the camera scene here."* The camera scene is always an acceptable result; a bad clip is not.
