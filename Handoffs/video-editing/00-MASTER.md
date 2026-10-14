@@ -25,7 +25,6 @@ Replaces `Handoffs/handoff-20260913-ad-variants-master-queue.md` (jobs J1–J18)
 | RA-16 | "AI Took My Job" opens *"I'm a personal trainer."* That's a deceptive-claim risk on a paid ad. Open on the second line, or keep it as filmed? |
 | DS-15 | "Does Jiu Jitsu Get You Abs?" needs BJJ b-roll that was never filmed. Film it at the academy, use your own archive footage, or use stock? On the shoot list: `Docs/NEXT_SHOOT_LIST.md`. |
 | DS-25 | "How To Do M100s" pulls b-roll from an M100 long-form that was never filmed. RX-01 confirmed 2026-09-18 that no roll anywhere shows the three moves. On the shoot list now: `Docs/NEXT_SHOOT_LIST.md`. Film 30 s of each move, or use stock? |
-| RA-06, RA-07, RA-15 (+ RA-08, RA-16) | Spoken lines say *"thousands of guys"* / *"far better than any human trainer"*. They stay off on-screen text either way. OK to run as spoken? |
 | AS-01 | A square for **Zeeshan's** Ad 1, when Muhammad's Ad 1 square is already live. Still wanted? |
 
 ---

@@ -1,3 +1,26 @@
+## Scripted claim lines are already approved; never ask about them (Dan, 2026-10-14)
+
+- **A claim line that is in the script Dan filmed is approved. Do not flag it, list it or ask him to approve it again.** Dan,
+  on RA-06: *"Claim lines are okay, and going forward, you don't need to ask me to approve claim lines anymore. If they're
+  in the script, then they're already approved."*
+- How to apply: spoken lines and the captions that print them stay as filmed, with no "claim lines" decision on a review page,
+  in a handoff or in a delivery report. This replaces the job docs' "claim lines flagged to me" step and the master list's open
+  claim question (RA-06, RA-07, RA-15, RA-08, RA-16). Unchanged: on-screen GRAPHICS (cards, lower thirds, headlines) still
+  never print a number, user count or comparison he cannot back (memory `ad-copy-no-unbelievable-claims`), and a line he
+  ad-libbed that is NOT in the script can still be raised in one line.
+
+## Never a shot of Dan just standing around (Dan, 2026-10-14)
+
+- **A cutaway of Dan standing, posing or waiting, doing nothing that illustrates the line, is never used.** Dan, removing
+  RA-06's physique-poses clip (library B0435) from "your goals, your body, and your injuries": *"Remove B1. That doesn't make
+  any sense or add any value to the video. A shot of me just standing around. Generally, there isn't really any reason to put
+  in the shot of me just standing around in the video. It doesn't really illustrate anything."*
+- Same review, the exercise version: an exercise clip shows him actively DOING it (*"make sure I'm actively doing the vacuum
+  when you show, not just standing around"*): for the stomach vacuum, the draw-in itself, not the hold before or after.
+- How to apply: every cutaway of Dan must show an action the line is about (an exercise rep, cooking, using the app). Posing
+  and standing B-roll (B0435, B0438, B0459 and the like) is not a cutaway; leave him on camera instead, or use a clip that acts
+  the line out. It joins the phone-scrolling rule (B0437) below. Reviewers check every Dan cutaway for it.
+
 ## Short-form and ads: build the whole video instead of only the first 30 seconds when it is nearly approved (Dan, 2026-10-14)
 
 - **For a Short or an ad, when most assets are already approved and nothing left in the rest of the video is likely to be turned
