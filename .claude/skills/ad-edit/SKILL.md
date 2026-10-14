@@ -1451,6 +1451,23 @@ Recipe: `reference/ra14/round3/` (s81 opener, s82 holds, s83 phone cards, s84 pl
 5. **Captions over a bottom card:** lift whole lines (never mid-line) while the card is up, and clip held states at the card's in and
    out frames, or a caption touches the card for one frame at each hand-over (`s85_captions.py`, checked by `s88_checks.py`).
 
+## RA-14 round 4 lessons: the full 9:16 from locked parts, gated (2026-10-14)
+
+Recipe: `reference/ra14/round4/` (s91 tail, s92 chips, s93 gate plan, s94 phone box, s95 trim).
+
+1. **The end hold Dan never saw finished is where the defect hides.** A first-30-seconds round never shows the last second. The
+   watch-pass judge found Dan mouthing silently, then stepping out of frame with the crop chasing him, in the last 0.97 s. Before
+   building the full video, print the mouth frame by frame after the last word and end on the last frame of the held pose.
+2. **Smooth a music tail on the MIX, after the last word, not by re-running the chain.** The chain loudness-normalises the whole file,
+   so a new bed moves every voice sample. After the last word the mix is the bed alone, so s42's inverse envelope applied there leaves
+   the approved voice bit-identical (integer null test). Measure the tail with the chain's fade divided out: 15.7 dB here.
+3. **A 9:16 gate plan with lower thirds over Dan needs `talking_head_windows`** (one full-frame window per hold). Without them the
+   framing rows drop every beat a graphic sits over him and measured 11 samples in 50 s. List the full-screen cards in `punch` too,
+   with `punch_covered: true`, or `cut:jump_cut` pairs the NEAR shots either side of a card.
+4. **A phone shell's image box is not the phone.** `cards.json` `phone_box` reached y 1386 with transparent padding; the phone ends
+   at 1348. Declare the measured rectangle (`s94_phonebox.py`) or caption clearance grades air.
+5. **The edit-sheet writer reads 16:9 builds only.** The 9:16 has no sheet; it is written with the 16:9.
+
 ## Decisions locked vs pending
 
 | decision | status |
