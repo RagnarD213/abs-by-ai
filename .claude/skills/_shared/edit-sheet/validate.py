@@ -20,7 +20,7 @@ TYPES = {"LFC", "SFC", "AD"}
 LABELS = {"ai", "real", "none"}
 PEOPLE = {"dan", "other", "none"}
 LAYERS = {"overlay", "side", "full"}
-HF_TEMPLATES = {"lower-third", "before-card", "side-list", "cycle", "title-card", "cta", "media-card"}
+HF_TEMPLATES = {"lower-third", "before-card", "side-list", "cycle", "title-card", "cta", "media-card", "analysis-card"}   # analysis-card: 2026-10-14 (vertical.py scenes_for draws it)
 
 
 def strings(o):
