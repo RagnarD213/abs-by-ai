@@ -128,9 +128,7 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 
 **Video 5 setup - 2026-10-11, Claude.** Queue blocked (200 cap). Task `abs40-vs-25-blotato-queue` queues Jan 3 2027 on Oct 12. `Docs/ABS40VS25_SETUP_RECEIPT_20261011.md`.
 
-**Muhammad-Shorts QUEUED 2026-10-13.**
-
-**DS-05 Fat Millionaire SFC Setup - PICKS 2026-10-14, Claude.** HD verified and filed. Next: Dan picks cover, then waitlist queue. `Docs/MUHAMMAD_SHORTS_SETUP_RECEIPT_20261013.md`
+**Muhammad-Shorts QUEUED 2026-10-13.** DS-05 cover pick 10-14. `Docs/MUHAMMAD_SHORTS_SETUP_RECEIPT_20261013.md`
 
 **RO-20/B/C WAITS-SHOOT 2026-10-13.** `Docs/PICKUPS_1017_SHOOT.md`
 
