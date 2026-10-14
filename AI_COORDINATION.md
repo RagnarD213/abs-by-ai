@@ -146,7 +146,6 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 
 **RO-07 - HOLD 2026-10-11, Claude.** Blotato full. `Docs/RO07_SETUP_RECEIPT_20261011.md`
 
-**RO-08 R3 REVIEW 2026-10-13, Claude.** Page 8872. `Handoffs/handoff-20261013-ro08-round4-after-dan-review.md`
 
 **SL-06 R1 REVIEW 2026-10-13, Claude.** http://127.0.0.1:8817/ Lav pickups Thu. `Handoffs/handoff-20261012-sl06-round2-build-after-dan-review.md`
 
@@ -231,6 +230,7 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the fire list; runner deletes row, line, README row.
 
+- `handoff-20261014-ro08-thumbnails-and-video-setup.md` (10-14): RO-08 approved. Opus 5.5 high.
 - `handoff-20261013-reaction-shorts-polish-and-cut-to-66s.md`: left:shoot-doc-step
 
 

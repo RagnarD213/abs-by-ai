@@ -1,6 +1,6 @@
 ---
 name: ai-clip-artifact-giveaways
-description: Dan rejects AI clips with giveaways a viewer sees at speed (breath smoke, fogging mirrors, melting hands); small faults of a few frames are acceptable and a slight speed-up can cover them (calibrated 2026-10-08)
+description: Dan rejects AI clips with giveaways a viewer sees at speed; small faults of a few frames pass (10-08), but anything that vanishes or makes no sense is caught and regenerated before his first look (10-14)
 metadata:
   type: feedback
 ---
@@ -32,3 +32,11 @@ speed-up of the clip is an allowed way to hide such a fault (holding or slowing 
 The 09-14 rule above still stands for faults a viewer sees at speed or that grow over a second or more. Rule text:
 `_shared/VIDEO-RULES.md`, "AI clip faults: judge at playback speed".
 
+
+**Narrowed 2026-10-13/14 (RO-08, sessions "Intermittent Fasting LFC R2/R3").** The 10-08 calibration covers a fault of a few frames
+inside an action that makes sense. It never covered what a clip SHOWS happening: Dan rejected donuts vanishing from a box and water
+jumping out of glasses ("AI slop... should be caught in QC"). On the round 3 film, after independent reviewers caught three more
+leftovers of rejected effects that the editor had passed by eye, he approved and said: *"I'd like you to do these kinds of checks as a
+standardized thing going forward, so ideally, this is caught before I review it for the first time. You can spend a little bit more
+aggressively on regeneration to facilitate that."* Rule and procedure: VIDEO-RULES.md top section (the three questions, the measured
+first-frame-against-later check, a fresh reviewer per clip, retakes inside the video's budget without asking).
