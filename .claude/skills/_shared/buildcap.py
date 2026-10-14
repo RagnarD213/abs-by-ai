@@ -78,7 +78,7 @@ def _script(p):
     """The script (or -m module) a Python process is running. Arguments after it are not read: a page server
     started with `--words final.whisper.json` is not a build."""
     cmd, exe = p["cmd"], p["exe"]
-    args = cmd[len(exe):] if exe and cmd.startswith(exe) else (cmd.split(None, 1) + [""])[1]
+    args = cmd[len(exe):] if exe and cmd.startswith(exe) else (cmd.split(None, 1) + ["", ""])[1]   # an empty command line (a process mid-exit) has no args
     m = re.match(_OPTS + r"-m\s+(\S+)", args)
     if m:
         return m.group(1)
