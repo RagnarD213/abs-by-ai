@@ -1,0 +1,171 @@
+{
+ "version": 1,
+ "gate_version": "2.0.0",
+ "file": "/Volumes/Extreme/_edit_work/ra14/round4/the cheat code for six pack abs | claude | 9x16 | RA-14.mp4",
+ "sha256": "4b520fd149ddb1d0e8acd5d369c5b0b730139309aad0c8de99399b8361442138",
+ "size": 193279471,
+ "gated_at": "2026-10-14 14:26:56",
+ "reference": {
+  "name": "this picture got me abs | muhammad | 16x9.mp4",
+  "sha256": "3b4641dbcb40e9851e7f9c9a144c39e854af500504f42211b890f6b85309f391"
+ },
+ "synthetic": false,
+ "profile": null,
+ "window": [
+  0.988988,
+  47.4494
+ ],
+ "limits": {
+  "corr": 0.97,
+  "comb_margin": 0.35,
+  "edt": 80.0,
+  "tone_mean": 1.2,
+  "tone_max": 2.5,
+  "floor": 3.0,
+  "dry": 1.5,
+  "artifact_x": 1.1,
+  "harm_x": 1.35,
+  "lufs": -14.0,
+  "lufs_tol": 1.0,
+  "spread": 3.0,
+  "tp": -1.0,
+  "silent": 0,
+  "length": 0.1,
+  "vb_med": 0.1,
+  "vb_sec": 0.5,
+  "vb_image": 0.01,
+  "vb_lufs": 0.3,
+  "vb_lra": 0.3
+ },
+ "rows": [
+  {
+   "key": "lr_corr",
+   "ok": true,
+   "text": "one voice: L/R correlation +0.9998 (>= +0.97)",
+   "value": 0.9998
+  },
+  {
+   "key": "comb",
+   "ok": true,
+   "text": "no comb: spectral ripple 0.46 dB vs his 0.54 (<= his + 0.35)",
+   "value": 0.464
+  },
+  {
+   "key": "edt",
+   "ok": true,
+   "text": "dry room: early decay 32 ms (<= 80; his 40)",
+   "value": 32.0
+  },
+  {
+   "key": "tone",
+   "ok": false,
+   "text": "tone: mean |err| 1.18 dB (<= 1.2), max 2.54 (<= 2.5)",
+   "value": {
+    "mean": 1.179,
+    "max": 2.539,
+    "bands": [
+     7.95,
+     12.31,
+     13.19,
+     12.03,
+     10.01,
+     2.42,
+     -2.63,
+     -8.34,
+     -20.12,
+     -26.81
+    ]
+   }
+  },
+  {
+   "key": "floor",
+   "ok": true,
+   "text": "clean between words: voice-over-floor [29.1, 35.3, 27.3] vs his [27.6, 34.7, 28.0] (diff [1.5, 0.6, -0.6], >= -3.0)",
+   "value": [
+    29.09,
+    35.33,
+    27.33
+   ]
+  },
+  {
+   "key": "artifacts",
+   "ok": true,
+   "text": "no processing damage: flux 0.094 (his 0.072; the untreated recording reads 0.109, so processing added none of it), HF swirl 0.783 (his 0.835); each <= his x1.1 unless the untreated recording already carried it",
+   "value": {
+    "flux": 0.0943,
+    "sfm": 0.0594,
+    "swirl": 0.7834,
+    "gap": 33.8001,
+    "carried": {
+     "flux": 0.109
+    }
+   }
+  },
+  {
+   "key": "do_no_harm",
+   "ok": true,
+   "text": "no worse than untreated: flux 0.094 vs untreated 0.109 (x0.87), swirl 0.783 vs untreated 0.964 (x0.81), both <= x1.35 (untreated EDT 24.0 ms)   [reported, not gated: gap x0.69, sfm x0.80]",
+   "value": {
+    "ratios": {
+     "flux": 0.865,
+     "sfm": 0.803,
+     "swirl": 0.813,
+     "gap": 0.691
+    },
+    "untreated": {
+     "flux": 0.109,
+     "sfm": 0.074,
+     "swirl": 0.9638,
+     "gap": 48.9097
+    }
+   }
+  },
+  {
+   "key": "dryness",
+   "ok": true,
+   "text": "words stop cleanly: drop 10.6 dB 64 ms after a word vs his 7.4 (>= his - 1.5)",
+   "value": 10.64
+  },
+  {
+   "key": "lufs",
+   "ok": true,
+   "text": "loudness: -14.20 LUFS (-14.0 +/-1.0)",
+   "value": -14.2
+  },
+  {
+   "key": "spread",
+   "ok": true,
+   "text": "not crushed: speech spread p90-p10 6.9 dB vs his 8.2 (>= his - 3.0); LRA 4.0 LU (his 3.5)",
+   "value": {
+    "spread": 6.93,
+    "lra": 4.0
+   }
+  },
+  {
+   "key": "tp",
+   "ok": true,
+   "text": "no clipping: true peak -2.20 dBTP (<= -1.0)",
+   "value": -2.2
+  },
+  {
+   "key": "silence",
+   "ok": true,
+   "text": "nothing missing: 0 digitally silent second(s) (< -60 dBFS); 0 below -50 dBFS",
+   "value": {
+    "dead": 0,
+    "quiet": 0
+   }
+  },
+  {
+   "key": "length",
+   "ok": true,
+   "text": "audio 49.449 s vs picture 49.449 s (within 0.1 s)",
+   "value": {
+    "audio": 49.449,
+    "video": 49.449
+   }
+  }
+ ],
+ "verdict": "FAIL",
+ "ab": "/Volumes/Extreme/_edit_work/ra14/round4/AB - RA-14 R4 audio.mp4"
+}
