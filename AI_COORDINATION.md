@@ -137,7 +137,7 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 
 **RA-14-SETUP-HANDOFF 2026-10-14.** `handoff-20261014-ra14-cheat-code-setup.md`
 
-**RA-15-R3-HANDOFF-READY 2026-10-14.** `handoff-20261014-ra15-nutritionist-round3-full-build.md`
+**RA-15 R3 BUILDING 2026-10-14, Claude.** Salmon macro swap, 9:16 + 16:9 masters, gates. `handoff-20261014-ra15-nutritionist-round3-full-build.md`
 
 **RO-17-R2-BUILDING 2026-10-14,Claude.**
 
