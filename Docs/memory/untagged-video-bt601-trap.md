@@ -28,3 +28,10 @@ shortad-from-longform skill's Ad 3 section. Related: [[editor-audio-untouched]].
 path reads ~1.7 levels dark (round trip yuv→rgb→yuv biased −1.72 Y). Add `flags=accurate_rnd+full_chroma_int` to the
 scale filter on decode AND encode — then the round trip is exact. A fit hides it (both sides share the bias); a patch
 spliced into the editor's own frames shows it as a 2-level brightness step.
+
+**Third trap, ENCODE side (2026-10-14, RA-14 R3):** piping RGB frames (PNG, rawvideo) into libx264 with
+`-pix_fmt yuv420p` and BT.709 tags but no matrix filter makes ffmpeg convert with **BT.601** under a BT.709 label.
+Saturated colour shifts most (RA-14 O2 hills green 148 -> 126, frame 0 26 levels off its approved still); RA-01's cards
+moved about 3 levels on average (skin a touch more orange), neutrals not at all. Fix: add
+`-vf scale=in_range=pc:out_color_matrix=bt709:out_range=tv` before the codec args. Fixed in `_shared/adkit/cardlib.py`
+and the repo `ra01lib.py` copies; any new RGB-to-video writer needs the same filter.
