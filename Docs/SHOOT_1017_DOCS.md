@@ -3,23 +3,12 @@
 Made 2026-10-11. Dan: the shoot doc is kept as it is for editing, and filming uses the four documents built from it.
 A fifth filming document, the pickups teleprompter, was added 2026-10-13.
 
-> **2026-10-13, read this before touching Teleprompter 2 or the reaction shorts in the shoot doc.** Dan edited the
-> reaction shorts directly in Teleprompter 2 (he rewrote 12 of the 15 new ones; all 19 are now clip first, with no
-> line before the clip and no hook takes). **Teleprompter 2 is ahead of the shoot doc. Do not rebuild it from the
-> shoot doc: that would erase his edits.** Still to do, once he says he has finished editing: carry his words into
-> the shoot doc's filming scripts, move each clip cue to the top with "Dan on screen, watching, silent", redo the
-> B-roll and on-screen cues that his rewrites moved, and take out the hook takes there. His version as it stood:
-> `Docs/SCRIPTS_1017_SHOOT_REACTION_SHORTS_DAN_EDITED_20261013.md` (11 of the 19 run over 66 seconds with the clip).
-> PromptSmart has this version (imported 13:02).
->
-> **Evening of 2026-10-13: Dan ruled on all 34 suggestions; nothing is pending.** Final wording of the 19 shorts:
-> `Docs/SCRIPTS_1017_SHOOT_REACTION_SHORTS_FINAL_20261013.md`. What he accepted and put back:
-> `Docs/COPYEDIT_1017_REACTION_SHORTS_66S_AS_DELIVERED_20261013.md`. Three run over 66 seconds by his choice.
-> **The shoot doc still has the old versions of these 19 shorts and of his long-video edits in Teleprompter 2.**
->
-> **Same evening, Dan: no blank lines between paragraphs in any teleprompter document.** All four were re-flowed in
-> place with `tp_reflow.py` (every word kept, same Drive ids) and imported into PromptSmart again; the four older
-> cards are in its Trash. From now on script edits happen in the shoot doc, not in a teleprompter copy.
+**2026-10-14: the shoot doc and Teleprompter 2 match again.** Dan's final wording of the 19 reaction shorts
+(`Docs/SCRIPTS_1017_SHOOT_REACTION_SHORTS_FINAL_20261013.md`) and his edits to the Body Fat, Face and Celebrity Ozempic
+scripts are in the shoot doc's filming scripts. Each reaction short opens on the clip cue (Dan on screen, silent), has
+no cold open and no hook takes, and its note line carries the new word count and length. Three run over 66 seconds by
+his choice (Dad Bod, Terry Crews, Retatrutide). Edit scripts in the shoot doc from now on; rebuilding a teleprompter from
+it is safe again. Teleprompter documents have no blank lines between paragraphs (Dan, 2026-10-13); the shoot doc keeps them.
 
 | document | what it is for | id |
 |---|---|---|
@@ -136,9 +125,6 @@ Teleprompter 2.
   retatrutide"). It is in the short's outline cue, script cue and header, and in the Reaction Clips document (13
   links now). The spoken words did not change, so Teleprompter 2 was not rebuilt. The times are from captions: set
   the edges by ear in the edit.
-- **Two tracked suggestions in the Celebrity script:** cutting "So anyone who tells you that taking a GLP-1 is
-  cheating..." (from the earlier pass) and "They all stopped" to "They both stopped". Teleprompter 2 was built with
-  both accepted. If he rejects either, rebuild it.
 - **Three script lines the surviving clips do not back up:** Sharon Osbourne (script: 42 pounds in about four months;
   clip: in a year), Meghan Trainor (the two quotes are not in the ET video), Oprah (script: 20 pounds and "a lifetime
   thing"; clip: 15 pounds, and the phrase is not said). Not changed without his word.

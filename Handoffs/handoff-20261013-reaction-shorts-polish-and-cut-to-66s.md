@@ -1,6 +1,6 @@
 # Handoff: copy polish the 19 reaction shorts in Teleprompter 2 and cut each one to 66 seconds
 
-**SFC (short-form content). Written 2026-10-13 by Claude, at Dan's request. Not started.**
+**SFC (short-form content). Written 2026-10-13 by Claude, at Dan's request. DONE 2026-10-14: every step, including the shoot doc.**
 Sidebar name for the new task: `10/17 Reaction Shorts SFC Polish`.
 
 ## State at 2026-10-13 18:50 (read this first; it replaces the steps below where they differ)

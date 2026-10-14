@@ -358,6 +358,12 @@ Used for the 26 shorts added to the 10/17 shoot doc (290,000 characters). No Chr
   `tp_from_shoot_doc.py` cannot tell where a script ends). 10-13: 1,251 new paragraphs, 0 differences.
 - **Hook takes** go under the Subscribe line as a `[HOOK TAKES: ...]` cue followed by the two extra first lines as
   plain spoken lines, so they reach the teleprompter and Dan can film them.
+- **Carrying a teleprompter's words back into the shoot doc (10-14, 19 shorts and 3 long videos):** never retype his
+  words. Build each script from the teleprompter's own paragraphs (a list of paragraph numbers with the cues placed
+  between them), replace the whole body from the first cue to the last line in one delete plus insert, last script
+  first. Apply every request to a local text copy first and check `tp_from_shoot_doc.py`'s parse of it equals the
+  teleprompter, then send, then read back: 23 of 23 matched. A paragraph holding a pending suggestion has indices that
+  do not match its visible text, so edit it by raw index.
 - rclone's Drive login cannot call the Docs API (the API is off for that client), so the connector is the only way in.
 - A YouTube frame cannot be checked by eye from the built-in browser pane: the video area screenshots black. A clip
   with no speech stays "check by eye" in the Reaction Clips document until Dan or a Chrome session looks at it.
