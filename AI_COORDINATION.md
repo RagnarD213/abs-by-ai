@@ -85,7 +85,7 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 
 **RA-16:NEEDS-CHOICES:Codex:2026-10-13.** Review:localhost:8976.
 
-**RA-13 R2-READY 2026-10-14.** Look locked; headroom fix. Handoff: `Handoffs/handoff-20261014-ra13-round2-approved-look.md`.
+**RA-13 R2-READY 2026-10-14.** Headroom fix: `Handoffs/handoff-20261014-ra13-round2-approved-look.md`.
 
 
 **/start video test RUNNING 2026-10-10, Claude.** Reads 10-24, 10-31: `Docs/VSL_LANDING.md`.
