@@ -142,7 +142,7 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 
 **RO-17-R2-BUILDING 2026-10-14,Claude.**
 
-**RO-14 R1 BUILDING 2026-10-14, Claude.** `/Volumes/Extreme/_edit_work/RO-14/round1/`.
+**RO-14-R1-BUILDING:2026-10-14:Claude.**
 
 **Ad 6 remarketing 2026-10-04:** Awaiting Dan: copy to enabled campaign 24305381214?
 
