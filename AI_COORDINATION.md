@@ -130,11 +130,13 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 
 **RO-20/B/C WAITS-SHOOT 2026-10-13.** `Docs/PICKUPS_1017_SHOOT.md`
 
-**RA-04 REVIEW 2026-10-13.**
+**RA-04 R2-READY 2026-10-14.**
 
 **RA-05-R1-REVIEW:8805 2026-10-13.**
 
 **RA-14-R3-HANDOFF 2026-10-14.** `handoff-20261014-ra14-cheat-code-round3-after-dan-picks.md`
+
+**RA-15-R1-BUILDING-2026-10-14.**
 
 **RA-06 R1 BUILDING 2026-10-14, Claude.** `/Volumes/Extreme/_edit_work/ra06/`.
 
