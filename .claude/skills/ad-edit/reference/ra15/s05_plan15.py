@@ -69,13 +69,16 @@ CARDS = [
  {"name": "opener",   "kind": "clip",  "beat": [0.0, snap_to(t_ait, SPL, 0.3)],                      "asset": "A0016", "chip": "ai"},
  {"name": "flow",     "kind": "phone", "beat": [s_gen, snapf(t_meas)],                                "asset": "B0049", "chip": "ai"},
  {"name": "analysis", "kind": "scan",  "beat": [snapf(t_meas), snap_to(t_two, SPL, 0.2)],             "asset": "after", "chip": "ai"},
- {"name": "factory",  "kind": "clip",  "beat": [snap_to(t_not, SPL, 0.2), snap_to(t_plan, SPL, 0.2)], "asset": "A0017", "chip": "ai"},
+ # ROUND 2 (Dan, 2026-10-14: "yes to all four ideas except for the cleared-out idea"): I2 replaces the A0017 factory
+ {"name": "fridge",   "kind": "clip",  "beat": [snap_to(t_not, SPL, 0.2), snap_to(t_plan, SPL, 0.2)], "asset": "I2", "chip": "ai"},
  {"name": "enjoy",    "kind": "clip",  "beat": [snap_to(t_plan, SPL, 0.2), snap_to(t_three, SPL, 0.2)], "asset": "A0086", "chip": "ai"},
- {"name": "macro",    "kind": "phone", "beat": [snapf(t_every), snap_to(t_anut, SPL, 0.2)],           "asset": "B0035", "chip": None},
+ {"name": "macro",    "kind": "phone", "beat": [snapf(t_every), snapf(t_eat)],                        "asset": "B0035", "chip": None},
+ {"name": "restaurant", "kind": "clip", "beat": [snapf(t_eat), snap_to(t_anut, SPL, 0.2)],            "asset": "I4", "chip": "ai"},
+ {"name": "cutout",   "kind": "clip",  "beat": [snap_to(t_anut, SPL, 0.2), s_start],                  "asset": "I5", "chip": "ai"},
  {"name": "lock",     "kind": "clip",  "beat": [s_start, snapf(t_togen)],                             "asset": "A0074", "chip": "ai"},
 ]
-# AI clip ideas waiting for frame approval (round 1): Dan stays on camera in their slots until he approves frames.
-IDEAS = {"I1": "opener", "I2": "factory", "I4": [snapf(t_eat), snap_to(t_anut, SPL, 0.2)], "I5": [snap_to(t_anut, SPL, 0.2), s_start]}
+# Round 1 ideas, all decided by Dan on 2026-10-14: I1 rejected (A0016 stays), I2/I4/I5 placed above as fridge/restaurant/cutout.
+IDEAS = {"I1": "rejected: A0016 museum opener kept", "I2": "fridge", "I4": "restaurant", "I5": "cutout"}
 _cov = lambda t: any(c["beat"][0] - 0.02 <= t <= c["beat"][1] + 0.02 for c in CARDS)
 EXTRA_CUTS = sorted(set([snapf(t_and)] + [snapf(x) for x in SPL if not _cov(x)]))
 LT = [

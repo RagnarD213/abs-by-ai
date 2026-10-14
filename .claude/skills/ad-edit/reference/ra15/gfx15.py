@@ -27,7 +27,8 @@ if not os.environ.get('PLATES_ONLY'):
 # plates: name -> (media aspect, label, max_h)
 # Round 1 self-check: a phone that ran down behind the captions put white words on the app's white screens and a caption
 # across the result picture's abs. Every card now ENDS ABOVE the caption line (y 1376), so the words sit on the field.
-PL = {"flow": (1320/1600, "AI-GENERATED", 888), "macro": (660/1434, None, 480), "factory": (1.0, "AI-GENERATED", 860), "enjoy": (1.0, "AI-GENERATED", 860)}
+# Round 2: the factory card is gone (I2, the fridge, fills the frame in its slot); macro is rebuilt at its new 1.50 s length.
+PL = {"flow": (1320/1600, "AI-GENERATED", 888), "macro": (660/1434, None, 480), "enjoy": (1.0, "AI-GENERATED", 860)}
 by = {c["name"]: c for c in B["cards"]}; plates = {}
 for name, (ar, label, mh) in PL.items():
     n = by[name]["frames"]

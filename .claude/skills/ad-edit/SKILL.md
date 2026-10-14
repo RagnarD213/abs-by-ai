@@ -1324,7 +1324,8 @@ Recipe and eight lessons: `reference/ra05/README.md`. The three that would have 
 
 ## RA-15: two traps on the 8/28 raw ads (2026-10-14)
 
-Recipe and seven lessons: `reference/ra15/README.md`. The two that would have shipped a defect: a single clean-looking
+Recipe and twelve lessons: `reference/ra15/README.md` (round 2: Veo cannot drop a rigid cardboard cutout, so a locked-camera take is
+cut to itself, standing then fallen; Veo bakes hard cuts into takes, found by the frame-difference spike in `round2/check15.py`). The two that would have shipped a defect: a single clean-looking
 take hid a stopped-and-restarted sentence that only 8 s re-transcription windows heard (window the whole kept take);
 and a caption sat on the AI clip's punchline (the museum plaque), so check every clip's text against the caption band.
 

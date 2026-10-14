@@ -70,6 +70,19 @@ if want("opener"):     # A0016 museum gag (16:9): a steady window on the display
 if want("factory"):    # A0017 'MEAL PLANS / ONE SIZE FITS ALL' conveyor (16:9). A full-frame window keeps only one of the two signs and the gag
     # needs both, so it is the centre-square rule (VIDEO-RULES 2026-10-01): a 1080 px square at x 440 holds both signs, in a card.
     plate_card("factory", [(P["A0017"], float(os.environ.get("FAC_T", "1.0")), dur("factory"))], "crop=1080:1080:440:0")
+CH = json.load(open("round2/chip_place.json"))     # AI-GENERATED chip spots, measured clear of every person over the used frames
+chip_at = lambda k: ("AI-GENERATED", tuple(CH[k]["chip_xy"][:2]))
+if want("fridge"):     # I2 take 1 (Veo, 9:16, 24 fps), from take frame 33: the door is on its hinge swing, the full shelves are there from the
+    # first frame of the open fridge, he stares at it. Take frames 0-26 are never shown (he lets go of the handle and the fridge slides toward him).
+    meta["fridge"] = {"chip": "AI-GENERATED", "chip_box": fill_card("fridge", [(P["I2"], 33/24, dur("fridge"))], "null", chip=chip_at("I2"))}
+if want("restaurant"): # I4 take 2, from take frame 32 (after a baked cut at 29/30, where the menu jumps flat): he picks up the one phone, looks, points
+    # at the menu; the waiter writes the whole time.
+    meta["restaurant"] = {"chip": "AI-GENERATED", "chip_box": fill_card("restaurant", [(P["I4"], 32/24, dur("restaurant"))], "null", chip=chip_at("I4"))}
+if want("cutout"):     # I5 take 1 as TWO SHOTS on one locked camera (measured: scale 1.000, < 0.3 px between the parts). Shot A take frames 2-35: the
+    # cutout stands across the table while he eats (from frame 6: the take brightens 4 % over frames 2-5, independent review). CUT. Shot B from
+    # take frame 89 (the cutout moves under 0.3 px from there on, measured): she lies flat on the floor, he looks over at where she stood.
+    # The fall itself (take frames 36-88) is never shown: in every take Veo spun her round and stood her back up (VIDEO-RULES 2026-10-13).
+    a = 30/24; meta["cutout"] = {"chip": "AI-GENERATED", "chip_box": fill_card("cutout", [(P["I5"], 6/24, a), (P["I5"], 89/24, dur("cutout") - round(a*30000/1001)*1001/30000)], "null", chip=chip_at("I5"))}
 if want("enjoy"):      # A0086 man enjoying a steak plate (16:9). Filling the screen cut his face or the plate he is enjoying, so it is
     # the centre square in a card (VIDEO-RULES 2026-10-01). 0.0-2.0 s: he smiles, takes the bite, savours it.
     plate_card("enjoy", [(P["A0086"], float(os.environ.get("ENJ_T", "0.0")), dur("enjoy"))], "crop=1080:1080:420:0")
