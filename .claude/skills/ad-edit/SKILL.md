@@ -1416,6 +1416,31 @@ do better with the color corrections". Recipe: `reference/ra14/round2/`. Nothing
 6. **Measure his head on the exact first frame of every hold** (`s04b_holdstart.py`). The 5-per-second track put the
    landing 5 to 20 source px off; with the extra sample it is 0.
 
+## RA-14 round 3 lessons: a code-built AI opener and the shared analysis card (2026-10-14)
+
+Recipe: `reference/ra14/round3/` (s81 opener, s82 holds, s83 phone cards, s84 plan, s85 captions, s86 assemble, s87 page, s88 checks).
+
+1. **An 8-bit / pixel-art opener can move in code from the approved frames at $0.** Lift the sprites off the approved START and END
+   frames, get any extra poses from ONE Codex sprite sheet on flat magenta with the start frame as reference, map the sheet onto the
+   start sprite's own palette, and composite on a plate made from the frames themselves. Four independent reviews were needed; their
+   catches are the checklist: (a) sheet poses that are a different drawing (half-turned) read as AI, keep only side-on ones; (b) anchor
+   poses by measured upper-body overlap, not bounding boxes, and move every frame, or he lurches; (c) never hole-fill a sprite mask,
+   the sky between his legs travels with him; (d) stop sprite masks at the ground's top edge, or ground specks travel with his feet;
+   (e) repaint lifted areas row by row from that row's own sky, a flat patch shows as an outline; (f) never draw a prop over a face, a
+   hop that punched the tile read as a layering mistake, running into it reads at once; (g) an idle "pump" made by moving only the arms
+   opens gaps at the elbows, raise the whole upper body and repeat a shin row.
+2. **`encode_h264` in `ra01lib.py` and `_shared/adkit/cardlib.py` wrote BT.601 under a BT.709 tag** (PNG frames into libx264 with no
+   `out_color_matrix`). Every code-drawn card or clip is affected. Fixed in `reference/ra14/round3/ra01lib.py`; the shared one is a
+   separate task. Check any PIL-rendered mp4 by decoding frame 0 as BT.709 against its source PNG.
+3. **Measure in-hold pause splices on the RENDERED picture, all of them.** On RA-14 all five were visible (head moved 15-40 px,
+   frame difference 2-3.3x its neighbours); each got a size change. Also check the frame either side of every take seam: rounding put
+   a one-frame flash of the other take at the end of a hold. A join a few frames into a hold that sits in a pause can be removed by
+   slipping the picture into the removed pause (`picture_slip`), audio untouched.
+4. **The analysis card is `_shared/hyperframes/analysis-card/`** (Soft Blue, every aspect). Its rows land on the word that starts their
+   clause; check its first frame is empty (a GSAP `fromTo` without `immediateRender: false` wrote a later state at time 0).
+5. **Captions over a bottom card:** lift whole lines (never mid-line) while the card is up, and clip held states at the card's in and
+   out frames, or a caption touches the card for one frame at each hand-over (`s85_captions.py`, checked by `s88_checks.py`).
+
 ## Decisions locked vs pending
 
 | decision | status |

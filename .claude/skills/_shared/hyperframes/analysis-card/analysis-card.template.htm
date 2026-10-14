@@ -149,8 +149,8 @@
       const S = CFG.scan;
       tl.fromTo("#scan", { y: 0 }, { y: P.h, duration: S[1] - S[0], ease: "power1.inOut" }, S[0]);
       tl.fromTo("#wash", { scaleY: 0 }, { scaleY: 1, duration: S[1] - S[0], ease: "power1.inOut" }, S[0]);
-      tl.fromTo(["#scan", "#wash"], { opacity: 1 }, { opacity: 0, duration: 0.3, ease: "power1.out" }, S[1]);
-      tl.fromTo(".bracket", { opacity: 0.55, scale: 1 }, { opacity: 1, scale: 1.08, duration: 0.18, ease: "power2.out", yoyo: true, repeat: 1 }, S[1] - 0.05);
+      tl.fromTo(["#scan", "#wash"], { opacity: 1 }, { opacity: 0, duration: 0.3, ease: "power1.out", immediateRender: false }, S[1]);
+      tl.fromTo(".bracket", { opacity: 0.55, scale: 1 }, { opacity: 1, scale: 1.08, duration: 0.18, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, S[1] - 0.05);
       // the glass: specular line runs its top edge; one light sweep when the band lands
       const specN = Math.max(1, Math.round(D / 2.4));
       tl.fromTo("#spec", { x: 40 }, { x: kw - 40 - 180 - 40, duration: D / specN, ease: "sine.inOut", yoyo: true, repeat: specN - 1 }, 0);
@@ -161,7 +161,9 @@
         tl.fromTo(g, { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.36, ease: "expo.out" }, r.t);
         tl.fromTo(f, { scaleX: 0 }, { scaleX: r.v, duration: 0.7, ease: "power3.out" }, r.t + 0.08);
         const rest = D - (r.t + 0.8);
-        if (rest > 0.2) tl.fromTo(f, { scaleX: r.v }, { scaleX: r.v + 0.05, duration: rest, ease: "none" }, r.t + 0.8);
+        // immediateRender false: a later fromTo would otherwise write its start value at time 0 (the bars showed filled
+        // on the card's first frame, RA-14 round 3)
+        if (rest > 0.2) tl.fromTo(f, { scaleX: r.v }, { scaleX: r.v + 0.05, duration: rest, ease: "none", immediateRender: false }, r.t + 0.8);
       });
       tl.fromTo("#band", { opacity: 0, y: 20, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.38, ease: "back.out(1.6)" }, BD.t);
       tl.fromTo("#sweep", { x: -320 }, { x: kw + 80, duration: 0.8, ease: "power1.inOut" }, Math.min(D - 0.8, BD.t + 0.05));

@@ -1,0 +1,19 @@
+[
+ "The opener is built in code from your two approved frames, at $0. Frame 0 is your approved start frame; the flexing man is lifted from your approved end frame; one Codex sprite sheet gave the second run pose. The ABS counter is drawn by me.",
+ "No hop: he runs straight into the power-up, as the plan in round 2 described. A punching hop put the tile over his face, which an independent reviewer flagged.",
+ "He flexes where he touched the power-up, a little right of centre, instead of jumping back to the exact centre of your end frame, so nothing teleports.",
+ "I added the classic game power-up flicker (small, big, small, big) for a quarter second after the flash. Overrule it and it becomes a straight flash to the flex.",
+ "The counter moved from top left to top right: at top left it sat on a cloud.",
+ "The opener went through four independent reviews before you see it (the three sense questions plus frame-by-frame checks). They caught a lurching run, sky patches carried with him, specks on the ground line, a smear where he had stood and a frozen flex. All fixed.",
+ "No game sound effects on the opener: the voice and music run exactly as approved.",
+ "Every tightened pause inside a shot was measured on the rendered picture: all five (11.4, 19.7, 31.1, 41.4 and 42.6 s) were visible jumps, your head moving 15 to 40 pixels between two frames. Each now has a size change on it, so the shot order changed in those places: Step 1 goes close then wide on \"of yourself\", Step 2 wide then close, Step 3 wide then close, and the recap goes wide, close, wide.",
+ "Fixed a one-frame flash of the other take at 10.54 s, just before \"Step one\". The pause right after it now runs on without a join.",
+ "Captions move up above the recap card while it is on screen, whole lines at a time, so no caption jumps in the middle of a line.",
+ "The phone demos now move at normal speed. Step 1 starts on the options screen (the crop screen is skipped) and \"Real picture of me. Not AI-generated.\" shows only while your photo is on the phone. The app tour goes straight from the 775 calorie breakdown to the Push-Up demo on \"A home workout\".",
+ "The analysis card's rows land on your words: BODY FAT on \"fat\", FAT TO LOSE on \"lose\", MUSCLE TO GAIN on \"where you need to gain muscle\", the plan band on \"need\". The chip sits under the picture, never on you. Captions keep running under the card.",
+ "The analysis card is built once as a shared template for every video, in vertical, horizontal and square. The old dark olive version stays only for re-exports of RA-01.",
+ "Voice: your bass-lift pick, trimmed to the last frame. The music's last 1.5 seconds dip 6 to 7 dB at two rests inside the fade; I will listen to that on the full ad in round 4 and smooth it if it is audible.",
+ "Found and fixed a colour fault in the tool that saves graphics as video: it used the wrong colour formula for the label it wrote, which made the sky harsher and greens darker. The same tool is used by other ads; I flagged that as a separate task rather than touch them here.",
+ "Spend on AI generation: $0 of this ad's $10.",
+ "Still to do after this round: the full 9:16 ad, every quality check on the finished file, an independent review, then the horizontal version."
+]

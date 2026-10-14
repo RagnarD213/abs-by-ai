@@ -200,4 +200,7 @@ frames (pilot: 43 dB PSNR).
 - `check` shows "0/0 text checks" on a transparent overlay; judge contrast on composite stills.
 - Render speed about 5 to 6 s per second of 1080p overlay.
 
+- **A later `fromTo` on the same property writes its start value at time 0** (GSAP `immediateRender` defaults to true). The
+  analysis card's bars showed filled on the card's first frame because a slow "creep" tween started from the filled value. Every
+  follow-on tween on a property already animated needs `immediateRender: false`; look at frame 0 of every new template render.
 - Side-list cards hold still by default (2026-10-04). Fractional drift can make settled type appear to shrink as its edges redraw. Keep the spoken reveals and specular sweep; use `drift: 0` for a steady text hold. Existing approved exports are unchanged.
