@@ -1,6 +1,7 @@
 """RO-08 builder (the RO-07 recipe, same set). render_range(a, b, out): graded presenter (per-roll grade, two
 fixed sizes solved for the whole film, the punch-in by default) + every plan item, hard cuts, shared voice chain.
 usage: build.py range <t0> <t1> <out.mp4> | build.py voice <t0> <t1> <out.mp4> | build.py segs [seconds to list]"""
+import time
 import sys, os, json, subprocess, hashlib, wave
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import numpy as np
@@ -18,9 +19,12 @@ def hf_item(it): return it["kind"] in ("lt", "l3") or (it["kind"] == "scene" and
 FULL = ("scene", "clip")
 # round 2: every shot is held at the size and crop of the round 1 solve Dan reviewed (round2-plan/segs.round1.json, written before the opener and
 # any AI slot moved). The solve is global: moving one clip's edges can flip shots 10 s away and slide a run's crop. Only the named changes move.
-_PIN = f"{W}/round2-plan/segs.round1.json"
+_PIN = f"{W}/round3-plan/segs.round2.json"            # round 3: the solve of the round 2 film Dan reviewed (round 2 pinned round2-plan/segs.round1.json)
 _R2 = {s["key"]: dict(crop=s["crop"], framing=s["framing"]) for s in json.load(open(_PIN))} if os.path.exists(_PIN) else {}
 OVERRIDE = {k: v["framing"] for k, v in _R2.items()}
+# round 3, the ONE named framing change: with the AI clip A4 out (Dan, 2026-10-13), mine2.0r0, mine2.0r1 and mine2.0r2 would run 1:44.77 to 2:14.77 at the
+# punch-in with nothing over them, 30 s against the 22 s hold rule. mine2.0r1 (1:53.35 to 2:04.42) goes to the camera frame: a reframe inside one take, no jump.
+OVERRIDE.update({"mine2.0r1": "W", "mine2.0r1+c": "W"})
 PINCROP = {}
 class _Base(dict):
     def __missing__(self, k): raise KeyError(k)
@@ -182,6 +186,13 @@ def ai_placeholder(it, i, n):
     im = Image.open(it["frames"][k]).convert("RGB").resize((1920, 1080), Image.LANCZOS)
     B.disclosure(im, f"{it['id']} PLACEHOLDER: {('START', 'END')[k]} frame, motion not generated yet", (960, 990), 2.0, anchor="mt")
     return im
+def probe_dur(path):
+    """A clip's duration. Retried: on the busy external drive ffprobe comes back empty now and then (round 3 lost a render at minute 16 to it)."""
+    for k in range(6):
+        o = subprocess.run([FF.replace("ffmpeg", "ffprobe"), "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", path], capture_output=True, text=True).stdout.strip()
+        if o: return float(o)
+        time.sleep(1.5*(k + 1))
+    raise RuntimeError(f"ffprobe gave no duration for {path} in 6 tries")
 def clip_frames(it):
     n = fr(it["t1"]) - fr(it["t0"])
     if it.get("frames"):
@@ -191,17 +202,24 @@ def clip_frames(it):
     for k, sp in enumerate(s):
         m = per if k < len(s)-1 else n - per*(len(s)-1)
         path = G.src_path(sp); st = G.src_start(sp)
-        dur = float(subprocess.run([FF.replace("ffmpeg", "ffprobe"), "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", path], capture_output=True, text=True).stdout)
+        dur = probe_dur(path)
         assert dur - st >= m/FPS - 0.02, f"{it['id']}: {os.path.basename(path)} too short ({dur-st:.2f}s for {m/FPS:.2f}s) -- never hold a clip"
         vf = "fps=30000/1001," + G.clip_vf(1.0)
         if it.get("grade"):
             gk = it["grade"][k] if isinstance(it["grade"], list) else it["grade"]
             vf = vf.replace(",format=rgb24", f",format=gbrp16le,{F.GR[gk][F.LOOK]},format=rgb24")
         if it.get("crop"): vf = vf.replace("scale=1920:1080", "crop={}:{}:{}:{},scale=1920:1080".format(*it["crop"]), 1)
-        p = subprocess.Popen([FF, "-v", "error", "-ss", f"{st:.3f}", "-i", path, "-frames:v", str(m), "-vf", vf, "-f", "rawvideo", "-"], stdout=subprocess.PIPE)
-        for _ in range(m):
-            b = p.stdout.read(1920*1080*3); assert len(b) == 1920*1080*3, f"{it['id']} short read"
-            yield Image.frombytes("RGB", (1920, 1080), b)
+        def spawn(): return subprocess.Popen([FF, "-v", "error", "-ss", f"{st:.3f}", "-i", path, "-frames:v", str(m), "-vf", vf, "-f", "rawvideo", "-"], stdout=subprocess.PIPE)
+        p = spawn(); tries = 0; j = 0
+        while j < m:
+            b = p.stdout.read(1920*1080*3)
+            if len(b) != 1920*1080*3:                                 # round 3: the external drive drops a read when two sessions render to it at once (two full renders died
+                p.stdout.close(); p.wait(); tries += 1                # on "short read" / "Interrupted system call"). Open the clip again and skip the frames already used:
+                assert tries <= 4, f"{it['id']} short read"           # the same decode, so the same frames
+                time.sleep(1.5*tries); p = spawn()
+                for _ in range(j): p.stdout.read(1920*1080*3)
+                continue
+            j += 1; yield Image.frombytes("RGB", (1920, 1080), b)
         p.stdout.close(); p.wait()
 def voice_shots():
     """Shots as the voice track is cut. A picture-only split (split_shot.py) is merged back, so adding a reframe cut never

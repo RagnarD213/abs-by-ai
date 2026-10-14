@@ -39,8 +39,7 @@ PLAN = [
       point="No Breakfast. First Meal At 2 PM. 5 Hours Fasted.", parts=[["No Breakfast.", "skipping breakfast"], ["First Meal At 2 PM.", "until about 2"], ["5 Hours Fasted.", "five hour fasting window"]]),
  dict(id="C05", kind="clip", start="I typically wake up around 9", end="I don't eat breakfast", tail=0.2, src=["B0486@1.0"], people="none", physique=False,
       note="library stock: black coffee poured into a dark mug (his morning: no breakfast, black coffee)"),
- dict(id="A4", kind="clip", start="Some people even go entire days", end="on the other", tail=0.6, src=[f"{MO}/A4-t1.mp4@0.0"], label="AI-GENERATED", **OTH,
-      note="AI CLIP, round 2 motion from the approved frames (one 6 s Veo take, used whole), funny: an office worker who has not eaten all day stares at a coworker's sandwich; by the end he has a napkin tucked in his collar and a knife and fork in his fists, like a cartoon wolf"),
+ # A4 (AI clip: the man who has not eaten all day and the coworker's sandwich) is out, round 3. Dan, 2026-10-13: "I don't think that illustrates the idea well, or the joke really lands here." He is on camera in the slot
  dict(id="G08", kind="lt", start="what's gotten me the best result", end="every single day", tail=0.6, topic="WHAT WORKS BEST",
       point="A Short Fast, Every Single Day.", parts=[["A Short Fast, Every Single Day.", "simple, short daily fast"]]),
  dict(id="G09", kind="lt", start="All I do, skip breakfast", end="kept me lean", topic="ALL I DO",
@@ -79,8 +78,8 @@ PLAN = [
       point="When You Fast, Your Cells Run Out Of Fuel.", parts=[["When You Fast, Your Cells Run Out Of Fuel.", "Autophagy is essentially"]]),
  dict(id="G17", kind="lt", start="they break down the most diseased", end="of your cells for fuel", topic="AUTOPHAGY",
       point="So They Break Down Their Old, Damaged Parts.", parts=[["So They Break Down Their Old, Damaged Parts.", "they break down"]]),
- dict(id="A8", kind="clip", start="This process of breaking down", end="makes you younger", tail=0.3, src=[f"{MO}/A8-t1.mp4@0.0"], label="AI-GENERATED", people="none", physique=False,
-      note="AI CLIP, round 2 motion from the approved frames (one 8 s Veo take, its first 7.4 s), a cartoon for an idea with no real picture: inside a cell, a tiny clean-up crew in hard hats wheels the broken old parts into a furnace and the cell glows brighter"),
+ dict(id="A8", kind="clip", start="This process of breaking down", end="makes you younger", tail=0.3, end_at=299.9005, src=[f"{MO}/A8-t1.mp4@0.0"], label="AI-GENERATED", people="none", physique=False,
+      note="ROUND 3: the clip ends at frame 8988 (4:59.9), on 'for fuel', before the furnace flares and the heaps of junk clear by themselves; Dan is on camera for 'renews your cells and makes you younger'. Three independent reviews marked that sweep under the 2026-10-13 rule. A version with the sweep replaced by a hard cut to the clean cell (a8_cut.py) was built and rejected by the fourth review: in the clean part rubble at the workers' feet goes on fading and a wheelbarrow breaks up, so the take has no clean second shot. Dan had not named this clip: the page tells him first and offers the round 2 version and a remake. Before: AI CLIP, round 2 motion from the approved frames (one 8 s Veo take, its first 7.4 s), a cartoon for an idea with no real picture: inside a cell, a tiny clean-up crew in hard hats wheels the broken old parts into a furnace and the cell glows brighter"),
  # ---------------- why 3: time
  dict(id="G18", kind="lt", start="Here's the third reason", end="need it the most", topic="REASON 3",
       point="It Saves You Time Every Morning.", parts=[["It Saves You Time Every Morning.", "Intermittent fasting is convenient"]]),
@@ -97,8 +96,8 @@ PLAN = [
       note="new stock, Pexels 7034537: a close slide across frosted donuts"),
  dict(id="G20", kind="lt", start="And there's a reason for that", end="heavy breakfast", tail=1.1, topic="WHY BREAKFAST SLOWS YOU DOWN",
       point="Digesting A Heavy Meal Takes Energy.", parts=[["Digesting A Heavy Meal Takes Energy.", "there's a reason"]]),   # round 2: on from "And there's a reason" and off as the donut gag (A5) starts; it used to sit over the donut box for the clip's first 2.6 s
- dict(id="A5", kind="clip", start="your body has to consume energy to digest", end="type of feeling", tail=0.4, src=[f"{MO}/A5-t1.mp4@0.0"], label="AI-GENERATED", chip_xy=(54, 54), chip_anchor="lt", **OTH,
-      note="AI CLIP, round 2 motion from the approved frames (one 6 s Veo take: a bite at normal speed, a fast-forward while the box empties and the clock runs to ten, then he sinks onto the keyboard), funny: 9 o'clock, a cheerful office worker bites into a donut beside a full bakery box; by 10 the box is empty and he is asleep face down on his keyboard"),
+ dict(id="A5", kind="clip", start="to digest", late=0.27, end="type of feeling", tail=0.4, src=[f"{W}/round3/motion/A5-cut.mp4@0.0"], subcuts=[31], label="AI-GENERATED", chip_xy=(54, 54), chip_anchor="lt", **OTH,
+      note="AI CLIP, round 3: a two-shot cut of the round 2 take (a5_cut.py), funny. Shot one, 1.0 s: nine o'clock, a cheerful office worker bites into a donut beside a full bakery box. HARD CUT (the hour passing). Shot two: ten o'clock, the box is down to crumbs, one half-eaten muffin lies on the desk, his eyes close and he sinks face down onto his keyboard on 'food coma'. The take's fast-forward, where the donuts faded out of the box, is never shown (Dan, 2026-10-13: 'all the donuts just disappear, vaporize, and go nowhere... Use a part of the clip only'). The wall clock is one steady clock per shot, pasted from a clean frame of the same take. The clip starts on 'to digest' (it started 1.8 s earlier) so the sink still lands on 'food coma'. Shot two starts on take frame 74 (68 in the first round 3 render: the independent review found the tail of the old dissolve there, a wisp beside the muffin), with the last of that wisp cloned out"),
  dict(id="G21", kind="lt", start="the real problem with eating during your workday", end="is the carbs", tail=1.0, topic="KEY POINT",
       point="It's The Carbs That Make You Tired.", parts=[["It's The Carbs That Make You Tired.", "real problem"]]),
  dict(id="C21", kind="clip", start="Nobody is grinding out", end="12 hour days", tail=0.1, src=[px("px_35331910_laptop-home-office", 0.5)], **OTH,
@@ -111,8 +110,7 @@ PLAN = [
       point="Your Body Adapts To Fasting.", parts=[["Your Body Adapts To Fasting.", "most important reason"]]),
  dict(id="C23", kind="clip", start="They skip breakfast", end="used to eating breakfast", tail=0.1, src=[px("px_7015397_pancakes", 1.0)], people="none", physique=False,
       note="new stock, Pexels 7015397: a stack of pancakes with fruit (the breakfast they are used to)"),
- dict(id="A3", kind="clip", start="They've done this for the past 40 years", end="really lets them know", tail=0.5, src=[f"{MO}/A3-t1.mp4@0.0"], label="AI-GENERATED", **OTH,
-      note="AI CLIP, round 2 motion from the approved frames (one 6 s Veo take: the water jumps in the glasses on 'all of a sudden', everyone stares on 'really lets them know'), funny: a quiet office meeting; his empty stomach rumbles so loudly that the water in the glasses ripples and everyone turns to stare. Framed chest up, the stomach is never shown"),
+ # A3 (AI clip: the stomach rumble in the meeting) is out, round 3. Dan, 2026-10-13: "The water jumps up in the air for no reason... It makes no physics sense." He is on camera in the slot
  dict(id="A1", kind="clip", start="oh, this is just too hard", end="I'm not cut out for it", tail=0.25, src=[f"{MO}/A1-sync1.mp4@0.0"], label="AI-GENERATED", **OTH,
       note="AI CLIP, round 2 motion from the approved frames (one 6 s Veo take, lips synced to Dan's own recording through a window round the face; the rest of the picture is the untouched take), the excuse voice, lip-synced to Dan's own recording: 7 AM, a man whines at his empty breakfast plate, then slumps back in his chair and groans"),
  dict(id="G24", kind="lt", start="your digestive system adapts", end="to workouts", tail=0.6, topic="KEY POINT",
@@ -167,8 +165,8 @@ PLAN = [
  # ---------------- mistakes
  dict(id="G41", kind="lt", start="the first one is binge eating late at night", end="out of control", topic="MISTAKE 1",
       point="Binge Eating Late At Night.", parts=[["Binge Eating Late At Night.", "binge eating"]]),
- dict(id="A6", kind="clip", start="If you do binge on junk food", end="not going to work for you", tail=0.3, src=[f"{MO}/A6-t1.mp4@1.6"], label="AI-GENERATED", **OTH,
-      note="AI CLIP, round 2 motion from the approved frames (one 8 s Veo take, from 1.6 s in: the fridge opens, his arms fill, he turns and freezes, then tiptoes off), funny: he tiptoes through a dark kitchen at night; the fridge light catches him frozen like a raccoon, arms full of ice cream, pizza and cake, a spoon in his mouth"),
+ dict(id="A6", kind="clip", start="If you do binge on junk food", end="not going to work for you", tail=0.3, end_at=734.9347, src=[f"{MO}/A6-t1.mp4@1.6"], label="AI-GENERATED", **OTH,
+      note="ROUND 3: the clip ends at frame 22027 (12:14.97), 1.4 s earlier, on the frozen stare; the last second, where he lifts one leg out to the side and holds it in the air, is out and Dan is on camera for 'is not going to work for you'. The first independent review would not bet on Dan passing the held leg; Dan had not named this clip, so the page tells him first and offers the round 2 version. Before: AI CLIP, round 2 motion from the approved frames (one 8 s Veo take, from 1.6 s in: the fridge opens, his arms fill, he turns and freezes, then tiptoes off), funny: he tiptoes through a dark kitchen at night; the fridge light catches him frozen like a raccoon, arms full of ice cream, pizza and cake, a spoon in his mouth"),
  dict(id="G42", kind="lt", start="You still have to eat reasonable portions", end="healthy food", tail=1.0, topic="KEY POINT",
       point="Reasonable Portions Of Reasonably Healthy Food.", parts=[["Reasonable Portions Of Reasonably Healthy Food.", "reasonable portions"]]),
  dict(id="G43", kind="lt", start="you do have some flexibility", end="eating reasonable", topic="THE GOOD NEWS",

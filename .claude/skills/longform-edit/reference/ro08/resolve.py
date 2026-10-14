@@ -40,6 +40,7 @@ def resolve():
             if j: r["t1"] = round(min(j, key=lambda x: abs(x-r["t1"]))+0.0005, 4)
     for r in out:                                                    # round 4: a clip that starts a beat after its phrase (A3 opens on the wind-up)
         if r.get("late"): r["t0"] = round(r["t0"] + r["late"], 4)
+        if r.get("end_at"): r["t1"] = r["end_at"]                     # round 3: a clip cut down to the part that works ends on a named frame, not on a phrase (A6)
     fs = [r for r in out if r["kind"] in FULL]
     for x, y in zip(fs, fs[1:]):
         if 0 < y["t0"]-x["t1"] < 0.9 or x["t1"] > y["t0"]: x["t1"] = y["t0"]

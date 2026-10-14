@@ -121,6 +121,7 @@ for i in FULL:
     if i["kind"] == "clip" and len(i.get("src", [])) > 1:
         n = fr(i["t1"]) - fr(i["t0"]); per = n // len(i["src"])
         subcuts += [fr(i["t0"]) + per*k for k in range(1, len(i["src"]))]
+    if i["kind"] == "clip": subcuts += [fr(i["t0"]) + k for k in i.get("subcuts", [])]      # round 3: a cut inside a pre-cut clip (A5, a5_cut.py), in frames from the clip's first
 joins = sorted(set(round(p["a"]/FPS, 3) for p in merged[1:]) | set(round(f/FPS, 3) for f in subcuts))
 punch = [[round(p["a"]/FPS, 3), round(p["b"]/FPS, 3), p["lab"]] for p in merged]
 punch_cov = [p["cov"] for p in merged]

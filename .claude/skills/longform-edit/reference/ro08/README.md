@@ -156,3 +156,57 @@ nowhere... things that look like AI slop like this get caught in quality control
   every frame of these clips for melting hands and labels and were never asked whether the scene made sense.
 - Removing a cutaway can break the hold rule under a pinned solve: with A4 out, three shots of one take run 30 s at one size.
   Next: `Handoffs/handoff-20261013-ro08-round3-revisions.md`.
+
+## Round 3 (2026-10-13): Dan's three revisions, and the new three-question check on every AI clip
+
+Order: re-hash (`round3-plan/round2-hashes.sha256`) -> `build._PIN` = `round3-plan/segs.round2.json` plus the one named override -> `plan.py`
+(two clips out, the donut clip re-cut, two clips ended early with `end_at=`) -> `resolve.py` -> `a5_cut.py` (the clip's length comes from the
+resolved slot) -> `build.py segs` -> `from_plan.py` dry run (no graphic may move) -> `r3_render.py` -> `r3_finish_chain.sh` (first render) or
+`r3_finish_chain_short.sh` (a later render with the same sound) -> `r3_carry.py` -> one fresh `ra-reviewer` on what changed -> `r3_judge.py` ->
+edit sheet -> delivery gate -> `r3_media.py context` and `alts` -> `r3_page_extra.py`, `r3_page_facts.py`, `r3_page.py` (port 8872) ->
+`r3_deliver.sh`. Five renders and five reviewers this round; the bullets below are why.
+
+- **A rejected take can be the fix: two parts of it joined by a hard cut** (Dan's own second option, "use a part of the clip only"). `a5_cut.py`
+  builds one pre-cut file (frames laid 24 on 29.97 by repeating, never retimed); the plan item carries `subcuts=[31]` so `finish08.py`
+  tells the watch pass about the cut inside the clip, and `late=` in `resolve.py` starts the clip after its phrase so the payoff still
+  lands on its word. Size the file from the resolved slot, not the other way round.
+- **Read every frame of a generated clock's DIAL, not only its hands.** The take's minute hand ran a full circle in 2.5 s while the man
+  sank at natural speed, and the 12 at the top of the dial was a 10 for 40 frames. One clean frame per shot pasted through a feathered
+  disc that covers the whole rim fixes it (measure the rim's position on every frame used, and the wall under the feather).
+- **Where a rejected effect ended, its tail is still on screen, and it is not only where you are looking.** Three renders: the first cut
+  started shot two where the muffin had landed (take frame 68) and the first reviewer found a translucent wisp beside it; the second
+  started at 74 with the wisp patched and the second reviewer found an orange smear in the box, the last of the glazed donut, fading
+  over 7 frames; the third patches both. I had looked at the desk and not at the box. `a5_cut.py` now prints every region away from the
+  man that differs between the shot's first frame and its tenth (drift tolerant) and writes a heat map: look at it before any render.
+- **`cv2.seamlessClone` is not to be trusted in this OpenCV build (5.0.0): every second call returned the destination untouched**, so
+  alternate frames kept what the patch was meant to remove, and a sheet of every third frame looked clean. The patch is plain numpy now:
+  the later frame's picture plus this frame's own shading, read outside the ellipse and blurred into it. Count the fault on EVERY frame
+  after a patch (`a5_cut.py` counts orange pixels in the box per frame and refuses a build that still has them).
+- **Removing a cutaway exposes what it hid.** Both new stretches of Dan on camera put his hair at the top edge (the as-shot framing of
+  this roll, 60 of 103 shots). The watch judge records each as a defect; it clears only with Dan's own words. His round 1 answer to
+  the page's hair question ("Everything else is looking good.") is recorded on those entries as `accepted_by_dan`, and the page says so.
+- **The three questions found things in clips Dan had not named** (the fridge raid's held leg, the cell cartoon's sweep). They were not
+  changed and not shipped silently: each is a decision at the top of the page with the free fix already rendered as a context clip
+  (`r3_media.py alts`, `a8_alt.py`), because he watched both in round 2 and both end frames are his approvals.
+- **`r3_carry.py` matches watch images on kind and time, not on the running number in the name.** Two clips left the film, so every
+  strip after 1:58 was renumbered and a name match would have carried nothing.
+- **The external drive drops reads when two sessions render to it at once.** One full render died at minute 6 on
+  `G21.mov: Interrupted system call`, one context clip on a "short read", and the edit sheet's `ffprobe` came back empty once. Each
+  worked on a plain retry. A full render is 25 minutes here: wait on the process id, read the log's last line, retry before debugging.
+- **A wait loop that greps for the script's name matches itself** (`pgrep -f "python3 recipe/r3_render.py"` from a shell whose own
+  command line contains that text). It never ends. `kill -0 <pid>` on the pid captured at launch.
+- **Never start a context clip while a full render is starting.** Both render the same missing cache segments; one renamed its temp file
+  first and the other died, and the full render's concat read a half-written segment ("Invalid data found when processing input") and
+  kept running on a broken base. Probe every file in `<master>.base.mp4.txt` for its frame count before trusting a render that shared the
+  cache, and run context clips after the full render's concat step has finished.
+- **The three questions changed two clips Dan had not named.** The first plan was to leave them and ask (the handoff: tell him first, with
+  the fix and its price). The second reviewer pointed out that the rule itself quotes the cartoon's sweep as a fault that was written on
+  a page and shipped anyway, and that a fix can be applied AND told first. So the film carries both clips cut down to the part that
+  works (`end_at=` on the fridge raid and on the cartoon, see the next bullet), the page opens with both, and the round 2 version of each
+  plays beside it. A render waiting on a reviewer is written to `round3/next/` (`RO08_R3_OUT`) and moved in after.
+- **A take with one thing clearing by itself usually has more, and may have no clean second shot at all.** The cell cartoon's sweep was
+  replaced by a hard cut to its clean ending (`a8_cut.py`), first from take frame 156, then from 164 after I saw rubble still thinning.
+  The fourth reviewer measured the floor against the take's last frame: rubble at the workers' feet goes on fading for 25 of the clean
+  shot's 35 frames and a wheelbarrow breaks up; only the last 6 frames of the take are settled. Run the first-against-last measurement
+  on the candidate second shot BEFORE building the cut. The film carries the clip ended before the sweep (`end_at=299.9005`); the clean
+  cell needs two new takes from the two approved frames ($0.80), which is Dan's call.
