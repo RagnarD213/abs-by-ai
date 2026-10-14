@@ -56,6 +56,10 @@ The gate catches only what the spec declares and cannot count fingers or judge e
 | F4h / F5m | review FAIL: smeared, stair-stepped footplate | FAIL | footplate corners sharpness 0.29 and 0.56 of START where the sled's move puts them |
 | F4h / F5p | review PASS, Dan approved | PASS | every row |
 
+Reviewer proof: the `frame-reviewer` instructions, run fresh on F4h/F5m and F4h/F5p with only the pictures, the spec and the
+evidence, failed F5m on the smeared footplate (its own sharpness 0.04 and 0.12 of START) and passed F5p (two optional flaws), and
+recorded both in the stamps. `gate.py --verify` now passes F4h/F5p and refuses F4h/F5m.
+
 Robustness: every box in the F4h spec shifted by 4 to 5 px in eight directions: F5p passed all nine runs and the three
 rejected F4h pairs failed all nine, each on its named fault. The first version, which trusted each part's own free
 search, failed the approved F5p in four of eight.
