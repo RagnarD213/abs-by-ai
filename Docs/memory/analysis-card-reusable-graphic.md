@@ -1,6 +1,6 @@
 ---
 name: analysis-card-reusable-graphic
-description: Dan's 2026-09-18 instruction to REUSE the body-fat / fat-to-lose / muscle-to-gain analysis card from RA-01 in future videos; it lives in .claude/skills/_shared/adkit/analysis_card.py
+description: Dan's 2026-09-18 instruction to REUSE the body-fat / fat-to-lose / muscle-to-gain analysis card from RA-01; since 2026-10-14 it is redrawn in Soft Blue Light with HyperFrames as the standard for every video
 metadata:
   type: feedback
 ---
@@ -16,3 +16,8 @@ bars → YOUR WORKOUT PLAN) more clearly than the older stats-scan and app-scree
 `.claude/skills/_shared/adkit/analysis_card.py` (9:16 / 16:9, README beside it) rather than inventing a new graphic.
 No printed numbers in it, one label chip placed by person mask, same person as the video's before/after. Extend the
 kit (1:1, new cards) instead of forking it. Related: [[three-role-video-pipeline]], [[ad-copy-no-unbelievable-claims]].
+
+**Update 2026-10-14 (Dan, RA-14):** *"Redo the analysis card in our graphics in soft blue light with our hyperframes. Make
+that standardized with the rest of our videos."* Same content and rules, new look: a Soft Blue HyperFrames template is
+the standard from now on; the J2 `analysis_card.py` card is only for re-exports of films approved with it (RA-01). The
+first Soft Blue build is RA-14 round 3. Rule: `.claude/skills/_shared/VIDEO-RULES.md`, second section.

@@ -114,7 +114,8 @@
 - [Overnight queue](overnight-edit-queue.md): shares 5-h window
 - [C1652 bar](codex-ds17-beat-claude-lessons.md): read EDITOR-CARD.md
 - [Three roles](three-role-video-pipeline.md): plan, edit, review
-- [Analysis card](analysis-card-reusable-graphic.md): reuse it
+- [Outdoor looks](outdoor-look-options-round-one.md): colour, audio, crop options round 1; studio standard
+- [Analysis card](analysis-card-reusable-graphic.md): reuse it; Soft Blue HyperFrames since 10-14
 - [No em dashes](no-em-dashes.md): never, in any writing
 - [Script lessons](script-zero-edit-lessons.md): WHAT DAN CHANGED
 - [Voice corpus](voice-corpus-sources.md): four types; no dictation
