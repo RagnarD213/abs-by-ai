@@ -17,6 +17,7 @@ cfg = {
   "body": "Cameras flatten your definition, and definition on camera is all about contrast, so the same physique looks much more defined with a tan. It cost me about $100 with the contouring, or about $50 at a cheaper studio without it. I was in and out in about 10 minutes, and it lasts about seven days.",
   "close": "So get your spray tan before your next photo shoot, wedding or big event, and follow for more.",
   "tags": "#SprayTan #SprayTanning #FitnessPhotos #AbsByAI",
+  "tiktok_direct": True,  # 18:46 is over Blotato's TikTok limit; Dan 10-14: "Upload it directly on the day you think makes sense"
   "pinned_comment": "Have you ever had a spray tan? If so, was it professional or do-it-yourself at home?",
   "youtube_description": desc,
   "mirror_cta": "More from @danrosefit 👇",

@@ -105,13 +105,14 @@ def main() -> int:
         path = os.path.join(ROOT, e["config"]); v = json.load(open(path))
         marker = f"utm_content={v['slug']}"
         have = sum(1 for b in blob if marker in b)
-        if have >= NEED:
+        need = NEED - (1 if v.get("tiktok_direct") else 0)  # TikTok uploaded by hand for that film
+        if have >= need:
             e["queued"] = {"found": str(today), "main": v["main"]}
             print(f"  already queued  {e['job']} {e['label']}"); continue
         if have:
-            problem = f"{e['job']} is partly queued ({have} of {NEED} posts): finish it by hand"; break
-        if free < NEED:
-            print(f"  no room yet     {e['job']} {e['label']} (needs {NEED}, free {free})"); break
+            problem = f"{e['job']} is partly queued ({have} of {need} posts): finish it by hand"; break
+        if free < need:
+            print(f"  no room yet     {e['job']} {e['label']} (needs {need}, free {free})"); break
 
         for key in ("video_url", "tiktok_video_url", "youtube_cover_url", "instagram_video_url"):
             if v.get(key) and not head_bytes(v[key]):
@@ -151,7 +152,7 @@ def main() -> int:
             e["queued"] = {"date": str(today), "main": main}
             json.dump(entries, open(WAITLIST, "w"), indent=1)
         queued_now.append(e["job"])
-        free -= NEED
+        free -= need
         day = local_day(main); yt_days.add(day)
         if e["kind"] == "longform":
             longform_sundays.add(day)

@@ -201,6 +201,12 @@ incomplete organic setup. Confirm the schedule by reading it back before reporti
    using the same release time and media, and verify all five schedules on a fresh pull. Do not fall back to YouTube
    native scheduling if Blotato needs repair; leave the release unscheduled until the Blotato path works.
    - Facebook gets no `mediaType` (FB Reels cap at 90 s). TikTok long-form over ~10 min may exceed the account cap.
+   - **A film over Blotato's 10 minute TikTok limit goes to TikTok directly (Dan, 2026-10-14, RO-19: "Upload it directly on
+     the day you think makes sense").** Put `"tiktok_direct": true` in the config: `longform_queue.py` then queues only YouTube,
+     Facebook and Instagram, and `video_topup.py` counts three posts. Upload the TikTok cover-first copy in TikTok Studio
+     (Chrome) on the Monday after the YouTube release, once YouTube reads public, with `longform_queue.tiktok_caption(config)`
+     as the caption and the AI-generated label on. TikTok Studio schedules at most 10 days ahead, so this is done near release,
+     by a one-off task for that day (it queues nothing in Blotato, so it does not clash with the waiting-list routine).
    - Organic links go to the absbyai.com root, never `/start` (keeps organic out of the `/start` A/B test).
 4. **Give the TikTok post its cover — this step is not optional and cannot be done later.**
    TikTok's API takes no cover image, only a timestamp, so an uncovered post falls back to frame 0 of the video:

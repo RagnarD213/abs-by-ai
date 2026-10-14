@@ -22,6 +22,8 @@ Config (JSON):
     "youtube_description": "...",
     "mirror_cta": "More from @danrosefit 👇",
     "instagram_video_url": "https://...mp4",   # optional smaller copy: Instagram rejects files over about 300 MB
+    "tiktok_direct": true,                     # optional: TikTok is uploaded by hand in TikTok Studio (films over Blotato's
+                                               # 10 minute TikTok limit, Dan 2026-10-14); no TikTok post is queued here
     "source": "Zeeshan Content Videos/.../file.mp4"   # optional; checked against the ad folders
   }
 
@@ -93,7 +95,7 @@ def posts(v: dict) -> list:
                "shouldNotifySubscribers": True, "isMadeForKids": False,
                "containsSyntheticMedia": bool(v["ai_generated"]),
                "thumbnailUrl": v["youtube_cover_url"]}
-    return [
+    out = [
         (FACEBOOK, "facebook", social_when, {"targetType": "facebook", "pageId": FB_PAGE},
          lede + f"See what you'd look like with a six-pack. Free AI preview:\n{link('facebook')}\n\n{v['tags']}",
          v["video_url"]),
@@ -106,6 +108,13 @@ def posts(v: dict) -> list:
         # @abs.by.ai (65632) retired 2026-09-24: never queue it. No mirror post.
         (YOUTUBE, "youtube", v["main"], youtube, v["youtube_description"], v["video_url"]),
     ]
+    # A film TikTok cannot take through Blotato is uploaded directly in TikTok Studio instead (Dan, 2026-10-14).
+    return [p for p in out if not (v.get("tiktok_direct") and p[1] == "tiktok")]
+
+
+def tiktok_caption(v: dict) -> str:
+    """The TikTok caption this script would queue; used for a direct TikTok Studio upload."""
+    return next(p[4] for p in posts({**v, "tiktok_direct": False}) if p[1] == "tiktok")
 
 
 def acct_of(i: dict) -> str:
