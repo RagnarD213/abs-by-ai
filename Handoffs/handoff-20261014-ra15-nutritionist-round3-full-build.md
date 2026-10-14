@@ -1,4 +1,4 @@
-AD (paid ad: it ends on "Tap the button below"). Sidebar name for the next task: `Never Pay Nutritionist AD R3`. Fire it after Dan answers the round 2 page.
+AD (paid ad: it ends on "Tap the button below"). Sidebar name for the next task: `Never Pay Nutritionist AD R3`. Dan answered the round 2 page on 2026-10-14: build the full film.
 
 # RA-15 "Never Pay A Nutritionist Again": round 3 (the full build: 9:16 and 16:9 masters, every delivery check)
 
@@ -7,17 +7,24 @@ Rules: `Handoffs/video-editing/00-RULES.md`, `.claude/skills/_shared/VIDEO-RULES
 Recipe: `.claude/skills/ad-edit/reference/ra15/` (README: stage order, twelve lessons; `round2/` holds this round's scripts), on top of `../ra05/` and `../ra04/`.
 Work folder: `/Volumes/Extreme/_edit_work/ra15/`.
 
-## First: read Dan's answer to the round 2 page
+## Dan's answer to round 2 (2026-10-14), recorded in `round3-plan/decisions.json` (sha256 e03d8ca44ec97c7c)
 
-Page: http://127.0.0.1:8828/ (keep it; round 1 is 8818). VLC copy: `Videos to Review/Never Pay Nutritionist AD R2 - whole ad review copy.mp4`.
-Record his words verbatim with file hashes in `round3-plan/decisions.json`, the way `round2-plan/decisions.json` does.
+> "I'll just start on the frames where clips look good. For the meal photo to macro, I want the clip that we previously generated of the
+> salmon meal, which looks better. This just looks like a poverty meal. Get me that salmon meal, which looks like a more luxurious, better
+> meal, in the meal photo and the macros. Give me the handoff in the next round. Build the full film in the next round, and then, if
+> necessary, we'll do revisions, but I think we're set to build the full film."
 
-- **He approves the three clips:** build round 3 below.
-- **He sends a clip back:** fix that clip only (retake from the approved frames with `round2/batch.sh`, inside the $10 cap: $7.00 left;
-  or another range of an existing take), re-run the measured check and a fresh independent reviewer with the three sense questions,
-  show it moving in context, then build. The cardboard fallback he was offered is the round 1 picture: Dan on camera for 39.01-42.54
-  (remove the `cutout` card in `s05_plan15.py`; the inside-hold splice assert must still pass).
-- He may also comment on the whole-ad review copy. Anything he does not mention stands.
+- **The three AI clips are approved** as built (fridge, restaurant, cardboard). "Start on the frames" is a dictation slip for "saw the clips".
+- **One change: the macro phone card (35.57-37.07, 1.50 s) uses B0038, the salmon meal, instead of B0035 (chicken and broccoli).**
+  `B0038_app-meal-log-salmon-775-calories-phone_574x1080_15s.mp4` (sha256 7c943b8fd013b4de, library path in the clip library; used
+  before in WV-01 and RO-16, so this is its third use). Its timeline, read at 5 fps: 0.0-1.2 s the salmon plate photo in the
+  Macro Tracker; 1.6-2.0 Analyze Meal; 2.2-2.8 "Analyzing your meal"; from 2.8 the itemized result (salmon fillet 425, wild rice blend
+  201, green beans 52, lemon 5, oil 92 = 775 cal) holding to about 8.6 s, then "logged". Suggested split for 1.50 s: photo 0.0-0.55,
+  analyzing 2.2-2.45, result 2.8 onward. Do it in `s06_inserts15.py` (`macro`: add `B0038` to `clip_paths.json`) and in `gfx15.py`
+  (`PL["macro"]`: aspect 574/1080, as wide as fits with the hole ending at or above y 1376; B0035 at 480 wide ended at 1376 because it
+  is taller), then `PLATES_ONLY=1 python3 gfx15.py`. Check the first frame is the photo screen (not an empty field) and the last frames
+  are the one stable result screen. The 16:9 uses the same three segments in its phone panel.
+- Then build the full film (below). Revisions, if any, come after Dan sees it.
 
 ## What round 2 delivered (all in the 9:16 draft, V2 voice)
 
@@ -43,7 +50,7 @@ Record his words verbatim with file hashes in `round3-plan/decisions.json`, the 
 ## Round 3: build and deliver
 
 1. Re-hash the files in the table below before touching anything.
-2. Freeze the 9:16 edit. Then the owed items, in this order: frame-lock the mix to the picture (`s08_audio.py` with `LOCK=`; it hung on a
+2. Make the salmon swap above, look at the macro card on its real frames, then freeze the 9:16 edit. Then the owed items, in this order: frame-lock the mix to the picture (`s08_audio.py` with `LOCK=`; it hung on a
    saturated machine in RA-05, round 1 here muxed with `-shortest`, mix 16 ms longer), `s04b_holdstart.py`, the land-then-hold check
    (`cut/landing.py motion_stats`), `piccuts.py decide`, `junk.py` on the final cut, `roll_sidecar.py mark-used`.
 3. The 16:9 from the same edit (`ra01lib.Aspect("16x9")`): the three AI clips are native 9:16, so in 16:9 each needs the placement rule
@@ -89,8 +96,8 @@ Record his words verbatim with file hashes in `round3-plan/decisions.json`, the 
 
 > AD. Rename this task `Never Pay Nutritionist AD R3`. Read `Handoffs/handoff-20261014-ra15-nutritionist-round3-full-build.md` and
 > `.claude/skills/ad-edit/reference/ra15/README.md`, then run round 3 of RA-15 "Never Pay A Nutritionist Again" with /ad-edit.
-> My answer to the round 2 page: [paste it]. Record it, fix anything I sent back, then build the finished 9:16 and 16:9 masters from
-> the same edit, run every delivery check and the independent review, deliver to the RA-15 ad folder and Videos to Review, and give me
+> My round 2 answer is recorded there: the three AI clips are approved, and the macro card switches to the salmon meal (B0038).
+> Make that swap, then build the finished 9:16 and 16:9 masters from the same edit, run every delivery check and the independent review, deliver to the RA-15 ad folder and Videos to Review, and give me
 > the list of what changed with timestamps.
 
 **Recommended model and effort: Opus 5.5, high.** Two masters, the full gate set, the watch pass and an independent review.

@@ -137,7 +137,7 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 
 **RA-14-R4-REVIEW:8821 2026-10-14.** Then 16:9.
 
-**RA-15-R2-REVIEW:8828 2026-10-14.** `handoff-20261014-ra15-nutritionist-round3-full-build.md`
+**RA-15-R3-HANDOFF-READY 2026-10-14.** `handoff-20261014-ra15-nutritionist-round3-full-build.md`
 
 **RO-17-R2-BUILDING 2026-10-14,Claude.**
 
