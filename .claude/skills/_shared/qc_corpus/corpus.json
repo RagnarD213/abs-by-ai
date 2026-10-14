@@ -3016,7 +3016,8 @@
         "style:text_raster_stability"
       ],
       "measured": "SARDINES white glyph bounds stay 183 x 27 px, but drift changes their y position by one pixel at excerpt 11.47s. Fractional translation changes edge rasterization.",
-      "notes": "Scoped graphics proof approval except text stability. Existing style gate does not measure this; named check is pending. No gate threshold changed."
+      "notes": "Scoped graphics proof approval except text stability. Existing style gate does not measure this; named check is pending. No gate threshold changed.",
+      "bytes": 122442593
     },
     {
       "id": "ro11-r2-full-film-approved-with-notes-20261008",
@@ -3096,7 +3097,8 @@
         "cut:scene_content"
       ],
       "measured": "Shared watch scan flagged t275.24, 2.97seconds, inside_declared true. R4 frames8248:8338 map to A5631:5721 and show frozen tight studio instead of independently approved round2/previews/P04-lock.mp4.",
-      "notes": "Instrument found the hold; judgment wrongly cleared declared card metadata. Candidate-derived graphic proxy gave corr0.996 on wrong camera pixels. Both named automated rows remain PENDING in corpus runner; no threshold or gate code changed. Shared CUT-CONTINUITY-QC section5 requires independent content and all freeze dispositions."
+      "notes": "Instrument found the hold; judgment wrongly cleared declared card metadata. Candidate-derived graphic proxy gave corr0.996 on wrong camera pixels. Both named automated rows remain PENDING in corpus runner; no threshold or gate code changed. Shared CUT-CONTINUITY-QC section5 requires independent content and all freeze dispositions.",
+      "bytes": 1237077657
     },
     {
       "verdict": "rejected",
@@ -3116,7 +3118,8 @@
         "cut:sentence_order"
       ],
       "measured": "P6 entry at frame25425 (848.3475seconds) changes source A22272 to C1700 frame3259 while both displayed compositions are wide. Prior pair183 judgment recorded hands reset low and nevertheless marked expected. Fresh R4 ASR segment246 splits the original phrase: I have never felt better, callback, in my life. Original A life ends743.50seconds; so starts743.66. P6 must follow the complete sentence.",
-      "notes": "Review the full pool return, A presenter run, P6 entry and exit at14:10.68. Declared callback source change cannot clear same-framing pose/hand reset. Named automated row remains PENDING; procedural repair does not claim automated coverage. Sentence-order row also remains PENDING; global surviving-word coverage cannot establish correct order."
+      "notes": "Review the full pool return, A presenter run, P6 entry and exit at14:10.68. Declared callback source change cannot clear same-framing pose/hand reset. Named automated row remains PENDING; procedural repair does not claim automated coverage. Sentence-order row also remains PENDING; global surviving-word coverage cannot establish correct order.",
+      "bytes": 1237077657
     },
     {
       "id": "ro06-r6-final-approved-20261010",
