@@ -14,7 +14,7 @@ desk mic in the editing session; Dan's words above replace that part.)
 - First thing on the shoot, on the studio set, wearing the shoot's clip-on mic, camera rolling (only the sound is used; every pickup is
   covered by a graphic or a clip).
 - Read each pickup twice. They are printed twice in the pickups teleprompter document for that reason.
-- 11 pickups, about two and a half minutes of talking in total.
+- 12 pickups, about two and three quarter minutes of talking in total.
 - Documents: the "PICKUPS" section at the top of the shoot doc (`1gt8Fi_wUaNaksa8sAdMoBvcdlBhZLek82EpBr-leq-0`) and the pickups-only
   teleprompter document (id in `Docs/SHOOT_1017_DOCS.md`), also loaded into PromptSmart.
 
@@ -63,6 +63,16 @@ Each one opens a Short. Read them like the first line of a video.
 11. **Short D** (before "Most guys do it the opposite way."):
     Here's why you should work out every single morning.
 
+### Why You're Not Losing Weight, long-form (RO-14)
+
+Read this in the energy of the 9/23 dark green backdrop video (roll C1708). The intro promises five hidden reasons, the video gives
+four, and every take says five. Cutting the word "five" sounded like a splice, so the line is re-recorded.
+
+12. **Opening, replaces the filmed line at 0:16** (after "It is not your hormones, and it is not your genetics.", before "Then I'm
+    going to give you the simple system that fixes all of it."). Covered by the full-screen "In this video" card:
+    I'm going to give you the four ways you are eating more calories than you think, then four hidden reasons you are eating them in
+    the first place. And some of those four are going to make you angry.
+
 ## Not pickups, but waiting on this shoot (already on the B-roll list or the next-shoot list)
 
 - RO-09 Pushup Masterclass: the on-camera talking was never found and level 1 countertop pushups need about 30 seconds of filming. No
@@ -81,6 +91,7 @@ tone matching; check it by ear and on the audio gate rows.
 | RO-20, RO-20B, RO-20C | `Handoffs/handoff-20261012-ro20-round3b-pickup-rerecord-first-minutes-films.md` | first minutes of videos 2 and 3 again, then the three films |
 | SL-06 | `Handoffs/handoff-20261012-sl06-round2-build-after-dan-review.md` | round 2 build of the six shorts |
 | SL-07 | `Handoffs/handoff-20261012-sl07-belly-fat-shorts-pickups-and-build.md` | shorts B and D |
+| RO-14 | `Handoffs/handoff-20261014-ro14-round2-full-film.md` | the opening line with "four hidden reasons" under the In this video card |
 
 Desk recordings kept for timing only: `Media/longform-raw/ro20-pickups/`, `/Volumes/Extreme/_edit_work/sl06/pickups/`,
 `/Volumes/Extreme/_edit_work/sl07/pickups/`.
