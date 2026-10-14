@@ -136,7 +136,7 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 
 **RA-14-R3-HANDOFF 2026-10-14.** `handoff-20261014-ra14-cheat-code-round3-after-dan-picks.md`
 
-**RA-15-R1-BUILDING-2026-10-14.**
+**RA-15:R1-BUILDING:Claude:2026-10-14.**
 
 **RA-06 R1 BUILDING 2026-10-14, Claude.** `/Volumes/Extreme/_edit_work/ra06/`.
 
