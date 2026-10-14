@@ -20,7 +20,7 @@ difference: the 5-Minute workout reads "Good. Next up is push-ups" in the shoot 
 | document | what it is for | id |
 |---|---|---|
 | Content Outlines And Scripts For 10/17 SixPackAbs.com Shoot | **The editing copy.** Outlines, filming scripts, every graphic, on-screen text, B-roll and clip cue in place. Editors and edit sessions work from this one. Never strip it. | `1gt8Fi_wUaNaksa8sAdMoBvcdlBhZLek82EpBr-leq-0` |
-| 10-17 Shoot - Teleprompter 0 - Pickups (Record First) | Words only, the 11 pickups for three earlier videos, each printed twice (pickup 6: long version twice, then short version twice). 688 spoken words, 2 pages. Dan records these first. Made 2026-10-13 | `1E9TzRx-gav2qBS07gdLLX3YFvLYWQaqMFJQoUO6g3xs` |
+| 10-17 Shoot - Teleprompter 0 - Pickups (Record First) | Words only, the 12 pickups for four earlier videos, each printed twice (pickup 6: long version twice, then short version twice). 766 spoken words, 2 pages. Dan records these first. Made 2026-10-13; pickup 12 (RO-14) added 2026-10-14 | `1E9TzRx-gav2qBS07gdLLX3YFvLYWQaqMFJQoUO6g3xs` |
 | 10-17 Shoot - Teleprompter 1 - Dark Green Backdrop | Words only, the 8 long videos, 10,080 words (the 13 shorts moved to Teleprompter 3 on 2026-10-14) | `1esSBLZldEbmSikeESYaXWo6n4vq1h0Qm8AhqB7Mo8cs` |
 | 10-17 Shoot - Teleprompter 2 - Green Screen | Words only, 23 scripts, 7,421 words with titles after Dan's edits and rulings on 2026-10-13, 14 pages (see the note above; same Drive id) | `1KvL0_IilRCxlofnY5luTfRvjiseGGpGGXU4sAsjbgzQ` |
 | 10-17 Shoot - Teleprompter 3 - Outside By The Pool | Words only, 28 scripts, shorts first (Dan, 2026-10-14): the 13 shorts moved from Teleprompter 1, the 11 outdoor shorts, then the 4 follow-along workouts. 7,511 words. 9 tracked suggestions pending on the outdoor shorts (see the note above) | `1yc2xg1sG4lTncvcAmkA17SN-JZnQSsbB9Q-fpEbXotg` |
@@ -43,6 +43,8 @@ all paragraphs and imported once more (Teleprompter 1 is script 1489797); the th
 same blank lines, edited in place in its Google Doc, and was imported again at 11:16; its 08:03 card is in the Trash.
 On the evening of 2026-10-13 all four were imported again without blank lines (Teleprompter 2 is script 1489981) and the
 four cards from earlier that day moved to the Trash.
+On 2026-10-14 pickup 12 (RO-14, the "four hidden reasons" opening line) was added and Teleprompter 0 was imported again as
+script 1491684, 792 words with its four titles. The 10-13 Teleprompter 0 card is in the Trash.
 
 ## Pickups (Dan, 2026-10-13): recorded first
 
