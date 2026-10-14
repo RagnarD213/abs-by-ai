@@ -135,9 +135,11 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 
 **RA-05-R3-HANDOFF-READY 2026-10-14.** `handoff-20261014-ra05-round3-after-frames.md`
 
-**RA-14-SETUP-HANDOFF 2026-10-14.** `handoff-20261014-ra14-cheat-code-setup.md`
+**RA-14-SETUP:THUMBS 2026-10-14,Claude.**
 
 **RA-15-R3-BUILDING 2026-10-14.**
+
+**RA-04 R3 BUILDING 2026-10-14, Claude.** Veo motion for the broken-arm clip, physics checks, review page. Work: `/Volumes/Extreme/_edit_work/ra04/round3/`.
 
 **RO-17-R2-BUILDING 2026-10-14,Claude.**
 
