@@ -50,6 +50,19 @@ FAR/NEAR crops, captions) and Soft Blue Light graphics through the shared HyperF
     the result card at 27.3 s, so the banned screen was on screen for the card's first 0.3 s (0:15.3 in the round 1 draft).
     Start the result at 28.0 s (fixed in `s06_inserts04.py`) and look at the first five frames of every app card.
 
+## Round 2 (2026-10-14)
+
+`r2_chain_a.sh` rebuilds the picture with the fixed `flow_b` and mixes voice B locked to it (`s08_audio.py` now takes `EQ=`
+and `OUT=`). `r2_context.py` builds a context preview with AI frames as labelled stills on the real words; `page_r2.py`
+writes the round 2 page. Frame prompts and hashes: `round2/`.
+
+13. **Make an AI clip's END frame by editing its START frame** (pass the start frame as `--image` with "keep the camera
+    position, framing and background exactly; change only ..."). Frames generated separately from one reference come back
+    from different camera angles (side-on start, front-on end), and a start/end pair from two cameras makes the video model
+    warp the room. Generate the shot's anchor frame first, then derive its partner from it.
+14. **Check where the subject is walking, not only who he is.** The first walk-in frame was clean on every checklist item
+    and still wrong: he walked toward the camera with the rack behind him, so it could not read as "walks up to the rack".
+
 ## Open for the final round
 
 Land-then-hold centring is not wired in (crops are fixed per hold, the RA-01 method); measure with `cut/landing.py

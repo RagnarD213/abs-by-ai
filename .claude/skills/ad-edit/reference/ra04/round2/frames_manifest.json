@@ -1,0 +1,72 @@
+{
+ "job": "RA-04",
+ "round": 2,
+ "made": "2026-10-14",
+ "by": "Claude (Opus 5.5) via codex-image.sh, default model, effort high",
+ "frames": {
+  "S1": {
+   "path": "round2/frames/S1_a.png",
+   "sha256": "0fb43996d74b3b4f3765081d5522e05ba9eca36c0d1b5b3b47a57a51646491da",
+   "prompt": "round2/frames/prompts/S1.txt"
+  },
+  "F2": {
+   "path": "round2/frames/F2_a.png",
+   "sha256": "157edd1096409c066c96312093de036b79095a9d170e80cf5d5de49cb2ad4780",
+   "prompt": "round2/frames/prompts/F2.txt"
+  },
+  "F3": {
+   "path": "round2/frames/F3b_a.png",
+   "sha256": "802a4c9e7014614ca85b8bda6a7e7e7265c45fb5953731146e133dd9bbbe6c0f",
+   "prompt": "round2/frames/prompts/F3b.txt"
+  },
+  "F4": {
+   "path": "round2/frames/F4b_a.png",
+   "sha256": "77d2656dee096ece5663c85f67cfa31b273fdd26349f7d4f0787509449cf9b85",
+   "prompt": "round2/frames/prompts/F4b.txt"
+  },
+  "F5": {
+   "path": "round2/frames/F5b_a.png",
+   "sha256": "5640dee91839b226741e1941a2dd203c0ff270b252dbaa6a29d79809140b6dc5",
+   "prompt": "round2/frames/prompts/F5b.txt"
+  }
+ },
+ "shots": {
+  "AI1-1": [
+   "S1",
+   "F2",
+   "39.139-41.374",
+   "when life gets in the way. When you get injured,"
+  ],
+  "AI1-2": [
+   "F2",
+   "F3",
+   "41.374-42.509",
+   "use Abs By AI to"
+  ],
+  "AI1-3": [
+   "F4",
+   "F5",
+   "42.509-43.4434",
+   "adjust your plan."
+  ]
+ },
+ "slot_A": [
+  39.139,
+  43.4434
+ ],
+ "slot_B": [
+  40.373667,
+  43.4434
+ ],
+ "fallback": "B0126 (knee card, round 1)",
+ "rejected": {
+  "F1_a": "walks toward camera, away from the rack",
+  "F1b_a/F3_a/F5_a": "different camera angle from their pair's other frame"
+ },
+ "built": {
+  "cards_9x16/flow_b.mp4": "25071b27d5c22e0d36591a66ea6bbafb4d76fff88f9fbb69201a6ca10f960102",
+  "round2/draft_r2_9x16.mp4": "cdcd88337698319cfa7e2fcaae6da3693ca4b64b16b3e282712135a91c39309e",
+  "mix_r2.wav": "62dea6861a358d461a2103867f6bd9b77c4cddbf1ea5e37f52a650ceef403773"
+ },
+ "spend_usd": 0.0
+}

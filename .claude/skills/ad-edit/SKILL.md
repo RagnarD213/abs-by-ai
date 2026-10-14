@@ -304,6 +304,11 @@ or the shorts line.)
 signage, anything in the background that shouldn't be there. Whatever is in the
 reference gets rebuilt as a solid object in the footage.
 
+**Derive each END frame from its START frame (RA-04 round 2, 2026-10-14).** Pass the start
+frame to `codex-image.sh --image` with "keep the camera position, framing and background
+exactly; change only ...". Frames generated separately from one reference come back from
+different camera angles, and a pair from two cameras makes the video model warp the room.
+
 **If the clip has dialogue or a voice**, write it caught rather than performed:
 contractions, hedges, stalls, sentences that stop and restart. Fragments are
 correct. Keep any endorsement smaller than the product deserves — "okay, that's

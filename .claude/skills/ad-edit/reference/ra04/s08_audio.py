@@ -37,7 +37,8 @@ print(f"cut_audio.wav  {len(x)/SR:.3f}s  ({len(CUT['pieces'])} pieces, {XF/SR*10
 
 BED = os.environ.get("BED", "/Volumes/Extreme/_edit_work/ad1-8-14/music/Realizer.mp3")
 BEDDB = os.environ.get("BED_DB", "-32")
-cmd = [sys.executable, f"{SH}/voice_chain.py", "--in", "cut_audio.wav", "--out", "mix.wav",
+OUT = os.environ.get("OUT", "mix.wav")
+cmd = [sys.executable, f"{SH}/voice_chain.py", "--in", "cut_audio.wav", "--out", OUT,
        "--bed", BED, "--bed-db", BEDDB, "--work", "audiowork"]
 # ⚠ LOCK THE MIX TO THE PICTURE. The end hold is frame-snapped in the plan, so the picture is a
 # frame or two longer than dur + END_HOLD; the chain's own --frame-lock makes the mix exactly the
@@ -46,6 +47,10 @@ cmd = [sys.executable, f"{SH}/voice_chain.py", "--in", "cut_audio.wav", "--out",
 LOCK = os.environ.get("LOCK")
 if LOCK:
     cmd += ["--frame-lock", LOCK]
+# Round 2 (Dan, 2026-10-14: "the voice with the extra bass"): the fitted EQ + the +3 dB 120 Hz lift, passed whole.
+EQ = os.environ.get("EQ")
+if EQ:
+    cmd += ["--eq", EQ]
 print(" ".join(cmd))
 subprocess.run(cmd, check=True)
-print("mix.wav written")
+print(OUT, "written")
