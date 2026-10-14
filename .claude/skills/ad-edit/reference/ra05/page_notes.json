@@ -1,0 +1,117 @@
+{
+ "intro": "A paid ad (it ends on \"Tap the button below\"). Vertical 9:16, 55.0 seconds with one sentence taken out (decision 1). This round shows the look, every graphic and clip, and the finished first 30 seconds. The full ad and the 16:9 are built once these are approved.",
+ "locked": "the cut method, voice chain and music bed from RA-01 (approved 09-18), Soft Blue Light graphics, burned captions. Colour and the two shot sizes are NOT locked: they wait on your picks on the Cheat Code page (RA-14), see below.",
+ "first30": "What I checked before building: four colour versions on this roll's own frames at full size beside RA-01 and Ad 1, and the voice chain's tone match (mean 1.0 dB from the reference, inside the 1.2 limit). Nothing here is gated or delivered yet.",
+ "look": "You are already choosing colour and shot size for this pool set on the Cheat Code page (RA-14). So I am not asking again here: this sample uses what that page recommends (brighter, golden skin, both shots a little wider), and whatever you pick there gets applied to this ad. One thing I had to adjust: this roll was shot about half a stop brighter than the Cheat Code roll, so its colour files came out too bright here (face at 122 against 96). I re-made the same three looks at this roll's exposure so your face lands on the same brightness that page shows you.",
+ "decisions": [
+  {
+   "short": "Line to cut for length (A transformative technology / B it's free / C both)",
+   "q": "Length: which sentence comes out?",
+   "body": "With every line in, the tightest honest cut is 62.1 seconds. The limit is 59. One sentence has to go. <b>A (in the cut): \"AI is a transformative technology that's rapidly changing the world. And now you can change your body with AI too.\"</b> It is the only sentence that sells nothing. Result: 55.0 s. B: keep that and cut \"It's free, it only takes a few seconds, and it could change your life.\" Result: about 57.9 s, and the word \"free\" goes with it (the web cart is a 7 day trial that takes a card first). C: cut both, about 51 s."
+  },
+  {
+   "short": "Opening (A you first / B app first)",
+   "q": "Opening: you first, or the app first?",
+   "body": "<b>A (in the cut): you on camera for the first 1.4 seconds (\"We all know AI can\"), then the app's finished picture on \"generate an image of you with six pack abs\", then back to you.</b> Why: your real abs are the strongest first frame this ad has. B: the app from the first frame, as the script cue has it: the Generating screen with the man's starting photo, then his result. That puts a heavy shirtless man on frame one."
+  },
+  {
+   "short": "Claim lines as spoken (A keep / B name the line to cut)",
+   "q": "Claim lines: OK to run as spoken?",
+   "body": "These are spoken and print in the captions. None of them is in a graphic. \"But now guys are using AI to get them six pack abs in real life.\" \"It's free, it only takes a few seconds, and it could change your life.\" <b>A (in the cut): keep both as filmed.</b> B: tell me which to cut."
+  },
+  {
+   "short": "AI clip ideas (yes or no to each: Steps out of the phone / Robot tailor)",
+   "q": "Two AI clip ideas: yes or no to each?",
+   "body": "If yes, I make START and END frames next round and you approve them before any motion is generated. <i>Steps out of the phone</i> (plays 0:03.7 to 0:08.4 under \"but now guys are using AI to get them six pack abs in real life\"): an ordinary guy in a t-shirt on his couch holds up his phone, and on it is a picture of him with a six pack. Hard cut, same couch: now he is the guy in the picture, shirt off, same abs, holding the phone next to them and grinning. If no: you on camera with your abs in the shot (in the cut). <i>Robot tailor</i> (plays 0:27.6 to 0:31.7 under \"It will see exactly where you need to gain muscle and tailor your workout program\"): a friendly robot with a tailor's tape measures a guy's arm and shoulders and writes the numbers on a clipboard, like fitting a suit. If no: your real dumbbell curls by the pool (in the cut)."
+  }
+ ],
+ "decided": [
+  "<b>Takes:</b> one pass of the script. The opening is one unbroken take, your second read (the first \"We all know AI can generate\" stopped short). \"Seriously, I'll show you how\" is the first read, the scripted words; the later read came out as \"seriously, and I'm gonna show you how\". Where you restarted a line I kept the restart: \"It'll determine how much fat you have to lose\" (second read), \"And once you have your goal picture\" (second read), and the closing call to action (last read).",
+  "<b>Colour and shot size:</b> the brighter, golden look and the wider pair that the Cheat Code page recommends, re-made for this roll. Your picks there replace them. The four colour versions on this roll are in the section below, for the record.",
+  "<b>Voice:</b> the RA-01 sound. Your answer on extra bass (asked on Top 3 Tips and Cheat Code) gets applied here too.",
+  "<b>App demo:</b> only the finished picture screen, alone, with the AI-GENERATED label. The side by side before and after screen and the email form are left out. The analysis card shows that same man's picture.",
+  "<b>Your goal picture</b> appears once, on a phone lock screen (library clip, AI-GENERATED label), under \"That's not just for motivation.\"",
+  "<b>Two real clips of you</b>, no label because they are real moving footage: your dumbbell curls by the pool under \"where you need to gain muscle\", and your physique poses by the pool under \"the personalized AI fitness plan you need to make your abs real\".",
+  "<b>Lower thirds:</b> two signposts, \"STEP 1 / Generate Your Goal Body\" and \"STEP 2 / Get A Plan Built For Your Goal\". No numbers or claims in any graphic.",
+  "<b>Analysis card:</b> in Soft Blue. Your Top 3 Tips answer (blue or the RA-01 colours) gets applied here.",
+  "<b>End:</b> the button stays up from \"Tap the button below\" to the last frame. No AbsByAI.com mark at the end (your 10-01 rule; the job doc from September asked for one). The hold after your last word is 0.85 s; you keep the smile for about a second, then drop your hands.",
+  "<b>Captions:</b> \"Abs By AI\" corrected (the transcript heard \"Addis by AI\"). They say \"how great you look\" and \"your AI fitness plan\" because that is what you said.",
+  "<b>Every pause I tightened</b> has a shot size change on it or a clip over it, so none shows as a jump.",
+  "<b>Known:</b> the lower thirds and captions sit across your torso (the approved vertical layout puts them there; there is no empty band in a shirtless shot).",
+  "<b>Spend:</b> $0."
+ ],
+ "items": [
+  {
+   "id": "P1",
+   "key": "flow_b",
+   "name": "App result",
+   "copy": "The app's finished picture screen with confetti, AI-GENERATED label under the phone card.",
+   "source": "Library B0049, the real phone recording from Ad 1 and RA-01. Starts at 28.0 s of the recording, after the before and after screen.",
+   "at": 0.5
+  },
+  {
+   "id": "L1",
+   "key": "LT1",
+   "name": "Step 1 lower third",
+   "copy": "<b>STEP 1</b><br>Generate Your Goal Body",
+   "source": "Soft Blue Light lower third (Motivation format)",
+   "at": 0.75
+  },
+  {
+   "id": "K1",
+   "key": "lock",
+   "name": "Goal picture on a lock screen",
+   "copy": "AI-GENERATED label, top left.",
+   "source": "Library A0074 (AI clip, used in Ad 1)",
+   "at": 0.5
+  },
+  {
+   "id": "A1",
+   "key": "analysis",
+   "name": "Analysis card",
+   "copy": "Where you are now and where you want to be: weight, body fat, fat to lose, muscle to gain, then \"Recommended Workout Plan\". AI-GENERATED on the picture.",
+   "source": "The reusable analysis card you approved on RA-01, in Soft Blue",
+   "at": 0.8
+  },
+  {
+   "id": "T1",
+   "key": "tour",
+   "name": "App tour",
+   "copy": "The AI Trainer exercise sheet with its demo video, then a meal photo analysed to 775 calories.",
+   "source": "Library B0544, the app tour you approved for reuse on RO-06",
+   "at": 0.3
+  },
+  {
+   "id": "L2",
+   "key": "LT2",
+   "name": "Step 2 lower third",
+   "copy": "<b>STEP 2</b><br>Get A Plan Built For Your Goal",
+   "source": "Soft Blue Light lower third (Motivation format)",
+   "at": 0.6
+  },
+  {
+   "id": "B1",
+   "key": "curls",
+   "name": "Your dumbbell curls",
+   "copy": "No text.",
+   "source": "Library B0458, your real footage by the pool",
+   "at": 0.4
+  },
+  {
+   "id": "B2",
+   "key": "pose",
+   "name": "Your physique poses",
+   "copy": "No text.",
+   "source": "Library B0435, your real footage from the same pool shoot",
+   "at": 0.5
+  },
+  {
+   "id": "C1",
+   "key": "CTA",
+   "name": "Button",
+   "copy": "<b>Tap The Button Below To</b><br>See Yourself With Abs",
+   "source": "Soft Blue Light glass button",
+   "at": 0.5
+  }
+ ]
+}

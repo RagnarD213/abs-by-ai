@@ -1300,6 +1300,18 @@ through `_shared/hyperframes/vertical.py`. The three that cost a rebuild: every 
 level change on it (the plan asserts it); phone cards must end above the caption line; the caption word list needs the
 zero-length-word and per-ad fix-map patches.
 
+## RA-05: three traps on the 8/28 raw ads (2026-10-13)
+
+Recipe and eight lessons: `reference/ra05/README.md`. The three that would have shipped a defect:
+
+1. **The app recording B0049 shows the banned before/after screen ("Meet the new you") until about 27.6 s.** Start the
+   result screen at 28.0 s and look at the first five frames of every app card. RA-04's round 1 draft started at 27.3 s.
+2. **A colour pick made on one roll is carried to the next roll as a LOOK, not as its LUT file.** C1664 is half a stop
+   brighter than C1667; RA-14's LUTs put his face at 122 here against 96 there. Re-bake the exposure per roll
+   (`reference/ra05/s31_bake.py`) and measure the face on that roll's own frames.
+3. **Count the words before building.** 231 scripted words is 61 s airtight. When the ad cannot fit 0:59, cut the sentence
+   that sells nothing, keep the full take map on disk (`edl_spec_full.json`) and make the cut Dan's first decision.
+
 ## RA-01 lessons — first cut from the 8/28 outdoor portrait rolls (2026-09-18, three-role pipeline)
 
 Built as planner (Fable) → editor (Opus) → independent reviewer (fresh Fable), plan + rulings in

@@ -1,0 +1,32 @@
+{
+ "_rule": "RA-05 round 1: RA-14 round 2's RECOMMENDED look (C2 brighter gold), re-baked for roll C1664 (half a stop brighter in the source than C1667) so the face lands on the same brightness RA-14 showed Dan (about 96 against 82 on the approved RA-01 level). NOT Dan's pick yet: his RA-14 answer replaces this.",
+ "look": "C2_brighter_gold",
+ "params": {
+  "expo": 1.6,
+  "knee": 0.45,
+  "sat": 0.85,
+  "vib": 0.5,
+  "contrast": 0.2,
+  "pivot": 0.46,
+  "skin_rot": 8,
+  "skin_sat": 0.96
+ },
+ "lut": "/Volumes/Extreme/_edit_work/ra05/colour/luts/ra05_C2_brighter_gold.cube",
+ "filter": "lut3d=file=/Volumes/Extreme/_edit_work/ra05/colour/luts/ra05_C2_brighter_gold.cube:interp=tetrahedral",
+ "measured": {
+  "close": {
+   "R1": 78.6,
+   "C1": 77.4,
+   "C2": 90.7,
+   "C3": 90.1
+  },
+  "wide": {
+   "R1": 86.6,
+   "C1": 86.4,
+   "C2": 101.2,
+   "C3": 98.4
+  },
+  "note": "face luma, skin pixels, look/close_*.png and look/wide_*.png"
+ },
+ "previous": "grade_ra01.json (RA-01's approved grade, used by RA-04 on this roll)"
+}
