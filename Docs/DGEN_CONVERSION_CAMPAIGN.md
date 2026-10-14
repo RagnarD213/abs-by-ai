@@ -51,6 +51,16 @@ at that time. Re-run the command to re-check.
 **Dan's copy rule (2026-09-10):** no claim that reads unbelievable without the video's context. *"This
 picture got me abs"* is too much; *"How I get abs at 40"* / *"How AI got me abs"* are the shapes to reuse.
 
+## 2026-10-14: RA-14 "The Cheat Code For Six Pack Abs" added to the trial campaign, thumbnail A/B
+
+- **Campaign** `24316364155` (ENABLED, budget `15911255930` read **$30/day** before and after, not changed; now shared by 7 ad groups).
+- **Ad group** `199824307366` "RA-14 The Cheat Code": ENABLED, $40 target CPA, US + CA, English, Audience `359952376` (reused from RA-01's trial group).
+- **Thumbnail A/B (Dan 10-14: options 2 and 3):** the approved 9:16 uploaded twice, Unlisted, one thumbnail each. Ad `828015334077` = `DRhhts5i7gU`, thumb A studio (asset `429947389022`, utm_content `claude-9x16-thumbA-vsl`). Ad `828015303786` = `CruqOCBcsiY`, thumb B AI Dan (asset `430047846865`, `claude-9x16-thumbB-vsl`). Compare CTR, cost per trial by ad (or utm_content) after both have spent; Google weights delivery, so judge on rates, not volume.
+- **Copy (linted):** headlines The Cheat Code For Six Pack Abs / How AI Got Me Abs / How I Got Abs At 40 / See Your Goal Body First / A Plan Built Just For You. Long: Daniel Rose shows the three steps: see your goal, get a plan, follow your AI coach. / Here is how I use AI to plan my workouts, my meals and my coaching at 40. / Upload a photo, see your goal body, then follow a plan built just for you. Descriptions: Daniel Rose shows how AI turns a goal picture into a workout and nutrition plan. / AI fitness coaching explained by a guy who did it at 40 years old. / Your AI coach adjusts your plan when you are injured or cannot make it to the gym.
+- Logo `400941168572`, CTA `401407635767`, business name Abs by AI. Final URL `https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ra14&utm_content=claude-9x16-thumb{A|B}-vsl`.
+- Built by `scripts/ads/api/dgen-ra14.js` (config `dgen-ads/ra14.json`, result `ra14.result.json`). Policy 10-14: both REVIEW_IN_PROGRESS (`dgen-ads/ra14.policy-20261014.txt`); recheck 10-15.
+- Seen in the same report: 13 older ads in this campaign still carry the long headline "Korean AI prodigy discovers..." DISAPPROVED as CLICKBAIT (ads APPROVED_LIMITED).
+
 ## 2026-09-11 — first full day, the retry, Ad 5
 
 **Numbers (09-10 16:12 CT → 09-11 ~10:00 CT):** $20.14 spent, 1,091 impressions, 17 clicks, 225 views,
