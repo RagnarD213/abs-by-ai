@@ -9,11 +9,6 @@
   "businessName": "Abs by AI",
   "videos": [
     {
-      "youtubeId": "DRhhts5i7gU",
-      "version": "Claude 9:16 thumb A studio",
-      "utm": "claude-9x16-thumbA"
-    },
-    {
       "youtubeId": "CruqOCBcsiY",
       "version": "Claude 9:16 thumb B AI",
       "utm": "claude-9x16-thumbB"
@@ -38,5 +33,5 @@
       "Your AI coach adjusts your plan when you are injured or cannot make it to the gym."
     ]
   },
-  "abTest": "Dan 2026-10-14: thumbnail A/B, option 2 (studio, 8-bit) vs option 3 (AI Dan with controller). Same video uploaded twice, one thumbnail each; one ad per upload in the same ad group."
+  "abTest": "Ended 2026-10-14 by Dan before launch: thumbnail 3 (AI) only. Thumbnail A ad 828015334077 REMOVED; its upload DRhhts5i7gU stays Unlisted and unused."
 }

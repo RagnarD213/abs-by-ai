@@ -54,11 +54,14 @@ const DAN_APPROVED = new Set([
   'Trainers Hate This AI App', 'Human Trainers Hate This AI', 'Trainers Despise Him', 'Human Trainers Despise Him',
   'How Men 40+ Lose Belly Fat', 'How To Get Abs After 40', 'How Busy 40+ Dads Lose Fat', 'How AI Got Me Abs At 40',
   'Supplement Corps Hate Him',
+  // Dan's replacement long headline, 2026-10-14 (trial campaign).
+  'Scientists in China have discovered how to use AI to lose belly fat.',
 ]);
 
 // Lines Google has already refused in this account — never reuse them.
 const GOOGLE_REFUSED = new Set([
   'This Picture Got Me Abs', 'Abs At 40 - The Photo That Did It', 'Why My Diets Kept Failing',
+  'Korean AI prodigy discovers how to use AI to lose belly fat. Video reveals full story.',
 ]);
 
 function checkCopy(copy) {
