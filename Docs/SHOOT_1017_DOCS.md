@@ -14,8 +14,11 @@ it is safe again. Teleprompter documents have no blank lines between paragraphs 
 1 rewritten as "sit down with good posture", the tricep cut rejected) and edited the Ronaldo opener in Teleprompter 2 ("But does it
 really work?"). All of it, plus two sure fixes (the Zepbound health list in parentheses, "pressdown" to "pushdown" in Bigger Arms)
 and the 5-Minute workout without "Good." before "Next up is push-ups", is in the shoot doc. A rebuild from the shoot doc matches
-Teleprompters 1, 2 and 3 word for word, and Teleprompter 0 matches `Docs/PICKUPS_1017_SHOOT.md`. **PromptSmart holds exactly four
-10/17 cards, all current:** Teleprompter 0 (1491684), 1 (1491698), 2 (1491700), 3 (1491699); the 10/13 cards are in its Trash.
+Teleprompters 1, 2 and 3 word for word, and Teleprompter 0 matches `Docs/PICKUPS_1017_SHOOT.md`. **Dan's last rulings, same evening:** he trains at 9:30 (the Morning short's opener and hook take now say 9:30), the
+sleep-study line in I Wasted My Life now says the same dieters were tested twice, the Face video says "Step three is the extras I
+do now", and the shoot doc carries a RELEASE ASAP note under I Wasted My Life and the Zepbound health video (both say "this
+year"). He kept the ad agency and dating lines as written. **PromptSmart holds exactly four 10/17 cards, all current:**
+Teleprompter 0 (1491684), 1 (1491712), 2 (1491714), 3 (1491713); every older card is in its Trash.
 The 13 short form content shorts are on the pool set, shorts first (`tp_from_shoot_doc.py` knows both).
 
 | document | what it is for | id |
