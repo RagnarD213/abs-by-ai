@@ -13,11 +13,13 @@ Live Blotato queue and public channel checked October 7. The latest public long-
 | YouTube 46963 | 5295786 | Sunday December 6, 9 AM CST | 2026-12-06T15:00:00.000Z |
 | Facebook Abs by AI, 47105/page 1294282227094660 | 5295779 | Monday December 7, 9 AM CST | 2026-12-07T15:00:00.000Z |
 | Instagram @danrosefit, 67203 | 5295782 | Monday December 7, 9 AM CST | 2026-12-07T15:00:00.000Z |
-| TikTok @absbyai, 58181 | 5295785 | Monday December 7, 9 AM CST | 2026-12-07T15:00:00.000Z |
+| TikTok @absbyai, 58181 | 5295785 DELETED 10-14 (direct upload instead, below) | Monday December 7, 9 AM CST | 2026-12-07T15:00:00.000Z |
 
 All four saved times, accounts, captions, targets and media were read back. All returned submission status scheduled. No @abs.by.ai mirror. Full downloaded media SHA256 verified for every schedule. YouTube and Instagram cover URLs match B1's uploaded JPEG, checked byte for byte. TikTok videoCoverTimestamp is 0. Realistic AI-motion flags are true.
 
 **TikTok remains an unresolved delivery risk:** the full 11:52 film exceeds Blotato's documented 10-minute TikTok limit, although Blotato accepted and saved the schedule. Saved status does not prove TikTok's final acceptance. Native TikTok Studio on this account displays 60-minute support. Dan was offered the full-length direct-upload route, pending setup, or retaining the full-length Blotato schedule. No shortening or film change is authorized. Leave the full-length schedule intact until this choice is resolved. Native scheduling supports only 10 days ahead, so a December 7 direct schedule would be made near release. References: https://help.blotato.com/rest-api-reference/publish-post/media and https://ads.tiktok.com/business/en-US/blog/introducing-video-scheduler-now-you-can-plan-tiktoks-in-advance.
+
+**Resolved 2026-10-14 (Dan: "Yes, move Keep Your Muscle to the same route", the direct TikTok route):** Blotato TikTok schedule 5295785 was deleted (read back: not found); its caption is kept as `tiktok_direct_caption` in `scripts/blotato/configs/ro01-keep-your-muscle.json`, which now carries `"tiktok_direct": true`. The one-off Claude task `ro01-tiktok-direct-upload` runs Mon Dec 7 2026 9:05 AM Central: it checks the YouTube release (schedule 5295786) is public, then posts `RO01_TIKTOK_B1.mp4` (hash below) in TikTok Studio with the AI label on, and records the link here. YouTube, Facebook and Instagram stay in Blotato. `ad_guard.py --scan` CLEAN before and after.
 
 ## Locked files and backups
 
