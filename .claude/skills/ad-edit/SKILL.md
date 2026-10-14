@@ -1322,6 +1322,15 @@ Recipe and eight lessons: `reference/ra05/README.md`. The three that would have 
 3. **Count the words before building.** 231 scripted words is 61 s airtight. When the ad cannot fit 0:59, cut the sentence
    that sells nothing, keep the full take map on disk (`edl_spec_full.json`) and make the cut Dan's first decision.
 
+## RA-05 round 2: speeding an ad up instead of cutting a line (2026-10-14)
+
+Recipe and seven lessons: `reference/ra05/round2/README.md`. When Dan says keep every line and accelerate: one factor
+(`ra01lib.SPEED`), `cut.json` rewritten in film time (`s03s_speed.py`), every film-to-source mapping multiplied by it, the end hold
+at normal speed. Stretch the voice with Rubber Band (`rb_stretch.py`, pylibrb venv), not ffmpeg `atempo`: it passed every
+audio-gate row where `atempo` failed two. A blind AI listener cannot tell stretch methods apart (it scored three identically), so
+decide on the gate's measurements. And the old splice crossfade shortened the voice 6 ms per splice; the round 2 `s08_audio.py`
+keeps it exactly as long as the picture.
+
 ## RA-15: two traps on the 8/28 raw ads (2026-10-14)
 
 Recipe and twelve lessons: `reference/ra15/README.md` (round 2: Veo cannot drop a rigid cardboard cutout, so a locked-camera take is

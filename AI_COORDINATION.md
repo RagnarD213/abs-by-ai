@@ -134,7 +134,7 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 
 **RA-04-R2c-BUILDING:2026-10-14.**
 
-**RA-05-R2-HANDOFF-READY:2026-10-14.**
+**RA-05-R2-REVIEW:8808 2026-10-14.** `handoff-20261014-ra05-round3-after-frames.md`
 
 **RA-14-R4-REVIEW:8821 2026-10-14.** Then 16:9.
 
