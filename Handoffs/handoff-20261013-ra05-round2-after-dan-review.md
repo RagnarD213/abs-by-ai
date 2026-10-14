@@ -1,6 +1,9 @@
 AD (paid ad: it ends on "Tap the button below"). Sidebar name for the next task: `How AI Real Abs AD R2`.
 
-# RA-05 "How AI Can Get You REAL Six Pack Abs": round 2, after Dan reviews the round 1 page
+# RA-05 "How AI Can Get You REAL Six Pack Abs": round 1 record (SUPERSEDED for the next action)
+
+**Dan answered round 1 on 2026-10-14. Fire `handoff-20261014-ra05-round2-after-dan-answers.md` instead.** This file stays as
+the round 1 record: take map, traps, file hashes.
 
 **Written 2026-10-13 by the round 1 session (Claude, Opus 5.5).** Job doc: `Handoffs/video-editing/RA-05-how-ai-can-get-you-real-six-pack-abs.md`.
 Rules: `Handoffs/video-editing/00-RULES.md`, `.claude/skills/_shared/VIDEO-RULES.md`, `/ad-edit`, `_shared/PRE-RENDER-APPROVAL.md`.
