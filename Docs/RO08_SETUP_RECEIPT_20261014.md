@@ -25,8 +25,8 @@
 
 ## Still open
 - Whoever queues it (the routine): after the three schedules read back, `queue.py set RO-08 uploaded`, mirror to the artifact, `mark-synced`, and replace the board entry.
-- After release: verify YouTube is public before the Monday posts, check the public thumbnail, start the Studio thumbnail test with B (`Intermittent Fasting - thumbnail B FINAL.jpg`, /video-setup Step 6), upload the .srt in Studio (Subtitles, Upload file), run `pinned_comment_gap.js` and `sixpackabs/articles/gap.py`.
-- Not done (optional): roll C1486's used ranges in the roll index. `/Volumes/Extreme/_edit_work/ro08/round3/review*` (about 30 GB of reviewer stills) can be deleted.
+- After release: the one-off task `ro08-tiktok-direct-upload` (Mon Jan 25 2027 9:05 AM Central) also checks the public thumbnail is A, starts the Studio thumbnail A/B test with B (`Intermittent Fasting - thumbnail B FINAL.jpg`, /video-setup Step 6) and uploads the .srt (Subtitles, Upload file). An early or "Run now" run posts nothing and changes nothing; it only confirms TikTok Studio and YouTube Studio are signed in. Still by hand at release: run `pinned_comment_gap.js` and `sixpackabs/articles/gap.py` if their routines fail.
+- Not done (optional): roll C1486's used ranges in the roll index. The round 3 reviewer stills (about 30 GB) were deleted 10-14 at Dan's word.
 
 ## Manual release, only if the routine reports a problem
 1. `python3 scripts/blotato/ad_guard.py --scan`
