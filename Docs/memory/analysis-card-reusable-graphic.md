@@ -21,3 +21,7 @@ kit (1:1, new cards) instead of forking it. Related: [[three-role-video-pipeline
 that standardized with the rest of our videos."* Same content and rules, new look: a Soft Blue HyperFrames template is
 the standard from now on; the J2 `analysis_card.py` card is only for re-exports of films approved with it (RA-01). The
 first Soft Blue build is RA-14 round 3. Rule: `.claude/skills/_shared/VIDEO-RULES.md`, second section.
+
+**Approved 2026-10-14 (RA-14 round 3):** the Soft Blue card in `.claude/skills/_shared/hyperframes/analysis-card/` passed Dan's
+review ("Everything is approved and looks good."). Use it, not `adkit/analysis_card.py`, on every new video: template
+`analysis-card` in a 9:16 or 1:1 sheet, kind `analysis` in `from_plan.py`, `build.py` for 16:9.

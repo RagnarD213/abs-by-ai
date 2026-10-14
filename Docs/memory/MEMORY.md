@@ -116,6 +116,7 @@
 - [Three roles](three-role-video-pipeline.md): plan, edit, review
 - [Outdoor looks](outdoor-look-options-round-one.md): colour, audio, crop options round 1; studio standard
 - [Analysis card](analysis-card-reusable-graphic.md): reuse it; Soft Blue HyperFrames since 10-14
+- [Whole short in one round](short-form-whole-video-round.md): ads/shorts nearly approved: full video, not 30 s
 - [No em dashes](no-em-dashes.md): never, in any writing
 - [Script lessons](script-zero-edit-lessons.md): WHAT DAN CHANGED
 - [Voice corpus](voice-corpus-sources.md): four types; no dictation
