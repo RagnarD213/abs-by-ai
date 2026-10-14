@@ -1,0 +1,46 @@
+# RO-17 "3 Healthy Foods That Made Me Fat" (9/23 C1713): round 2 recipe (Claude Opus 5.5, 2026-10-14)
+
+One 11:10 talk roll on the 9/23 studio set, re-edited from scratch to the current standard (the 09-25 queue-pilot draft was
+discarded). Starts from RO-13's WORKING recipe on the SSD (`/Volumes/Extreme/_edit_work/ro13/recipe/`) plus RO-11's `gfx.py` and
+`titles.py` (section cards with a picture on the right). Only the files that differ are kept here. Work dir and media:
+`/Volumes/Extreme/_edit_work/RO-17/round2/` (never commit media; the repo is public). Review page: port 8877.
+
+Order: lav (`pick_lav` map from the roll sidecar) -> medium.en words on the roll (`whisper_words.py`) -> Gemini verbatim listen in
+four 190 s chunks (`gemini_listen.py`, `GM=gemini-3.1-pro-preview`, about $0.15 a chunk) -> `edl.py` (last clean take, reason per
+piece) -> level envelope at every edge -> `shots.py` -> `assemble_audio.py` -> `hair_pre.py` -> voice fit (`voice_chain.py` on the
+whole assembled voice) -> `words_src_out.py` -> `plan.py` -> `resolve.py` -> `from_plan.py` (dry run for fit, then `--render`) ->
+`chain_r2.sh` (stills, first minute, audio gate, hair, context for every item, page).
+
+What is new here:
+- **`words_src_out.py`: no second ASR pass.** The roll's medium.en words are mapped straight onto the film through `shots.json`.
+  A word is kept when 0.08 s (or 60 %) of it lies inside a shot: a midpoint test dropped six join words whose Whisper start sat a hair
+  before the cut ("And the third one", "You only get"), and a zero-length word ("Number" before "2, hard boiled eggs") needs its own
+  case or a phrase that starts on it never resolves.
+- **`hair_pre.py` + per-shot crop lift (`framing/crop_y.json`, `frames.crop(framing, shot)`).** On C1713 Dan stands closer to camera
+  at times; the locked T2 crop would have left 12 px above his hair on the opening. Measured every 0.5 s on the source, the crop is
+  lifted per shot only where his hair would sit under 4 % of the crop height (never lowered). The segment cache key carries the crop.
+- **`review_media.py context_all`: a context clip for EVERY item** (graphics, clips, AI slots), rendered as merged blocks so no frame
+  renders twice, each item cut from its block. The blocks are render units only, never joined or shown as a film.
+- **`gfx.swap_card`:** the closing throw-out / replace-with card, each row landing on its word (`reveal_left` / `reveal_right`
+  resolved by `resolve.py`). `gfx.clip_vf(..., grade)`: a per-clip ffmpeg eq for flat stock (B-roll colour rule, 10-11).
+- **`page.py`:** the player floats at the right on a screen 1500 px wide or more; every AI pair shows its name and its context rows
+  (when, line before, line under in bold, after, what you see, fallback, cost) per Dan's 10-13 note.
+
+Traps this round paid for:
+1. **Eight Codex image jobs at once hit 429 Too Many Requests**; five came back empty. Two at a time with a 90 s retry
+   (`aiframes/run_queue.sh`) never failed.
+2. **An edited end frame can add furniture.** One can and done's first end frame had a coffee table that was not in the start frame
+   and his hand on his stomach (cause-and-effect and belly rules). Say "do not add any furniture or objects" and "hands well away from
+   his body" in every end-frame edit.
+3. **A stock clip named for the food is not enough; look at what is in it.** Every "snacking at a desk" clip on Pexels shows chips;
+   Dan names trail mix there, so those lines got an AI clip or stayed on camera. The one chips clip sits under "Carbs and sugar are
+   addictive", where no food is named.
+4. **A brand on a stock photo next to a put-down.** The only coconut-water carton photo showed a brand beside "it's sugar water"; the
+   carton is a Codex still, unbranded, labelled AI-GENERATED.
+5. **Bass lift on this lav:** the lowest band already read 6.2 dB against the reference 5.4 (the "reads full" case), but three blind
+   listens ranked +3 dB first every time and never called it boomy, so the standard +3 dB stayed. The gate's tone row fails on it
+   (max 3.33 dB), the known mismatch.
+6. **The machine was over the two-build cap from other sessions** (load 185). HyperFrames with two workers spawns 12 Chrome
+   capture workers; `buildcap.py` does not count them. Use one worker when anyone else is rendering.
+7. **Lower thirds whose first part lands 3 s or more after the strip appears** were caught from `hf/BEATS.md` with a small script
+   (first-part delay per lower third) before rendering; re-anchor the start on the part's own phrase.

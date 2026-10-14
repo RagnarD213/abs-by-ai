@@ -61,6 +61,8 @@ For long-form: full-screen cards, lists and photo displays come from `softblue` 
 > **The 7/8 kitchen set, rolls C1484 to C1489 (2026-10-12):** start from `reference/ro08/` (RO-08, one roll; it sits on `reference/ro07/`, whose film Dan approved): the locked colour D and voice 4 for this set, the bass lift sized to this microphone, lower thirds that come on with their first words, and the hidden-retake check on the lav envelope. Read both READMEs first.
 >
 > **The 9/23 studio set (2026-09-30):** start from `reference/ro12/` (RO-12, review SHIP): the locked WV-01 look, word-anchored graphics, Gemini restart listen, bed/EQ traps, sliver and side-layout rules. Read its README first.
+> A 9/23 roll edited after 2026-10-14 starts from `reference/ro17/` (RO-17: roll words mapped without a second ASR pass, per-shot hair
+> crop lift, a context clip for every item, named AI pairs with their context on the page, two-at-a-time Codex frames). Read its README.
 
 # Editing a longform video from raw shoot footage
 
