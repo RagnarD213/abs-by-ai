@@ -1404,6 +1404,24 @@ filmed ads the same way:
    A0147 covered the walking trainer's face. And never put a `#` comment in the middle of a `a; b; c` line: it
    silently removed the `chip.save(...)` that followed it.
 
+## RA-07 round 2 lessons: carrying a sibling's approved look, and the fix clips (2026-10-14)
+
+Recipe: `reference/ra07/round2/` (s70 plan, s75 clips, s83 phone cards, s86 assemble, s88 checks, s87 page, gen_motion.py).
+
+1. **Carry an approved look by comparing against the frames Dan APPROVED, side by side.** On C1664, RA-14's C2 LUT as is put his
+   face at 117-120 against 113-120 on RA-14's approved round 3 frames; RA-05's re-bake for this roll (expo 1.6) measured 91-96, a
+   stop darker. The head-size framing conversion (738/918) filled the frame like RA-14; RA-05's landmark conversion (648/810) was
+   tighter. RA-05 lessons 2-3 were measured against round 2 stills: render both candidates beside the approved frames and look.
+2. **A lower third whose headline waits for a later phrase is an empty glass strip over him** ("2 OF 3" up at "Two,", headline on
+   "AI can design": 0.55-0.9 s of blank blur that a viewer reads as a mistake). Land the headline on the first word of the line.
+3. **Kling faults on hand-outs and exits:** a loose stack of paper turned into a black binder, and a second trainer appeared when the
+   walk-off path was left open. Write "exactly N people", the path ("walks straight back on the LEFT, never behind them") and "loose
+   white paper only, no folder". Most faults sit in the last second: check the tail, then trim from the head if the slot allows.
+4. **A take that holds a pause in the middle (knock, 2 s of standing, then the turn) cannot be cut to fit**: use the end that carries
+   the joke and say what was dropped. A move between two places (bench to machine) is two takes joined by a cut.
+5. **`s82_holds.py` concat dies on a zero-frame span** when a piece edge rounds onto a hold start: filter `b > a`.
+6. Real-ESRGAN is not installed on this Mac; the gemini_listen helper's default model is retired (`GM=gemini-3.1-pro-preview`).
+
 ## RA-14 round 2 lessons: colour and framing on the 8/28 pool rolls (2026-10-13)
 
 Dan on round 1, which reused RA-01's grade and framing rule on roll C1667: "both are a little bit too tight" and "we can
