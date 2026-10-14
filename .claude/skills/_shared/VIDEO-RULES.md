@@ -1,3 +1,32 @@
+## Outdoor videos: colour, audio and crop options in round 1; studio videos use the standard (Dan, 2026-10-14)
+
+- **Every video shot OUTDOORS, ad or content, shows Dan colour correction options, audio options and cropping options in
+  its first round, and he picks.** Dan, choosing RA-14's round 2 options: *"Let's make this standardized for first-round
+  edits of outdoor videos going forward... Outdoors, we need to look at color correction, audio, and cropping options every
+  first round for every outdoor video going forward. Ad or content: always show those options first round."*
+- **Studio videos use the standard look and sound without options:** *"In the studio, when we have everything
+  standardized, I think that we can basically make the color correction and the audio standard. Just do it the way we've
+  always done it."* Still run the source check in PRE-RENDER-APPROVAL step 1 (a studio roll that measures differently is
+  the exception, and says so).
+- How to apply (editor's reading): outdoor round 1 page carries three colour candidates beside frames of approved videos
+  (with round 1's or the reused look shown for comparison), two or three wider/tighter framing pairs as stills on the same
+  two moments with their crop values, and the voice options on the player. Recommend one of each; Dan picks. Run the
+  bake-off yourself first (PRE-RENDER-APPROVAL, "Before Dan sees anything") so the options are worth his time. The
+  RA-14 round 2 page (`ad-edit/reference/ra14/round2/`, lessons in the ad-edit skill) is the worked example.
+- Why: RA-14 reused RA-01's pool look and framing in round 1 without options and Dan sent both back ("a little bit too
+  tight", "we can do better with the color corrections"). The light outdoors changes from roll to roll.
+
+## The analysis card is Soft Blue Light, built with HyperFrames, in every video (Dan, 2026-10-14)
+
+- **The body-fat / fat-to-lose / muscle-to-gain analysis card (the RA-01 card he asked to reuse) is redrawn in Soft Blue
+  Light with the HyperFrames templates, and that version is the standard for every video from now on.** Dan, on RA-14:
+  *"Redo the analysis card in our graphics in soft blue light with our hyperframes. Make that standardized with the rest
+  of our videos."*
+- Keep what he approved on RA-01 (subject picture, scan line, the three bars, the plan band, no printed numbers, one
+  label chip placed by person mask); change only the look. Build it once as a shared template beside the other
+  HyperFrames templates and point `_shared/adkit/analysis_card.py` users at it. The J2 version stays only for re-exports
+  of films already approved with it (RA-01).
+
 ## Thumbnails: the five, each its own design, always made by Codex (Dan, 2026-10-13)
 
 Dan, finalizing RO-19: *"Let's make this a standard way of making thumbnails going forward. We always have one pool, one

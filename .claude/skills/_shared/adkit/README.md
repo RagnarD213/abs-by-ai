@@ -1,5 +1,11 @@
 # `_shared/adkit` — the card kit Dan approved on RA-01 (2026-09-18)
 
+> **2026-10-14 (Dan, RA-14):** the analysis card is now redrawn in **Soft Blue Light with the HyperFrames templates** and
+> that version is the standard for every video: *"Redo the analysis card in our graphics in soft blue light with our
+> hyperframes. Make that standardized with the rest of our videos."* Same content and rules as below, new look. The J2
+> card in `analysis_card.py` is kept only for re-exports of films already approved with it (RA-01). Rule:
+> `VIDEO-RULES.md`, second section.
+
 Dan, approving "The AI Trick That Got Me Abs": *"I think this was a template for future videos… I especially like this
 graphic that you made with the things to lose body fat and gain muscle. Let's make this something that we reuse in
 future videos… I think that illustrated it better than we did in past videos."*

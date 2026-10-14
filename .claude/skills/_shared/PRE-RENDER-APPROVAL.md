@@ -18,6 +18,9 @@ I think that we could have saved some time here."* What failed: one grade was ch
 at beside an approved video; the voice went through the automatic tone match on an echoey room, the audio gate passed it
 12 of 12, and nobody listened. So, before the first minute is rendered for him, on every video:
 
+**Outdoor sets (Dan, 2026-10-14): Dan sees the colour, audio and crop options in round 1 and picks; studio sets reuse the
+standard look and sound after the source check. Full rule: VIDEO-RULES.md, first section.**
+
 1. **Is this set already approved?** Check the footage itself (contact-sheet the reference; do not trust a job note). A set
    with a locked look and sound reuses them after a source check. A NEW set, or one that measures differently (skin more
    than half a stop under, raw room decay over 55 ms, a different microphone layout), gets steps 2 to 4.
