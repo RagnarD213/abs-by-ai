@@ -1,6 +1,6 @@
 AD (paid ad: it ends on "Tap the button below now to get started"). Sidebar name for the next task: `Best Ab Exercise AD R3`.
 
-# RA-06 "What's The Best Ab Exercise?": round 3, after Dan reviews the AI clip frames
+# RA-06 "What's The Best Ab Exercise?": round 3, motion for the approved frames and the full film
 
 **Written 2026-10-14 by the round 1/2 session (Claude, Opus 5.5).** Job doc: `Handoffs/video-editing/RA-06-whats-the-best-ab-exercise.md`.
 Rules: `Handoffs/video-editing/00-RULES.md`, `.claude/skills/_shared/VIDEO-RULES.md` (read the two 2026-10-14 sections at the
@@ -8,8 +8,11 @@ top: scripted claim lines are pre-approved; never a shot of Dan just standing ar
 Recipe: `.claude/skills/ad-edit/reference/ra06/` (README: stage order and ten lessons). Work dir `/Volumes/Extreme/_edit_work/ra06/`.
 Supersedes `Handoffs/handoff-20261014-ra06-round2-after-dan-review.md` (written before Dan answered round 1).
 
-**Do not fire this until Dan has replied to the frames page: http://127.0.0.1:8836/** (folder `ra06/round2/`).
-His frame verdicts go word for word into `ra06/round3-plan/decisions.json` before anything is built.
+**READY TO FIRE (2026-10-14).** Dan answered the frames page (http://127.0.0.1:8836/), recorded word for word in
+`ra06/round3-plan/decisions.json`: *"All the start and end frames look good. You're good to generate all of them except for
+I5. Let's skip this one and keep the exercise split screen that you had previously. Generate everything except I5 in the next
+round, and make me the full film in the next round."* So: **motion for I1, I3 and I4** (authorized, from the exact frames
+below), **I5 is out** (the three-exercise split screen stays the opener), and this round ends with **the full 9:16 film**.
 
 ## What Dan already decided (round 1, recorded word for word in `ra06/round2-plan/decisions.json`)
 
@@ -31,18 +34,18 @@ His frame verdicts go word for word into `ra06/round3-plan/decisions.json` befor
 | I1 | The copier: same sheet off the copier to three different men | 11.28 to 15.65 ("generic plans ... always fail") | start 6ff2a15af054ec6b, end 86346750b48a17e5 |
 | I3 | The body scan, played straight | 5.97 to 11.28 ("depends on your body fat ... other things") | start 007f091edf75e32d, end 4cb5bee5f1850ac3 |
 | I4 | Robot waves goodbye (A0147's two characters, A0147 frame as reference) | 41.47 to 43.58 ("Fire your trainer and replace him with AI") | start 83a3e87dc69cec66, end c1112686f9f54468 |
-| I5 | Exercise wheel, opener alternative | 0.00 to 2.30 (instead of or before the split screen) | start 0e9b91038d859308, end 06432b340a01b5d6 |
+| ~~I5~~ | Exercise wheel: REJECTED, the split screen stays | 0.00 to 2.30 (instead of or before the split screen) | start 0e9b91038d859308, end 06432b340a01b5d6 |
 
 Hashes also in `ra06/round2/frames/HASHES.txt`. Re-hash before generating motion; materially different frames need his approval again.
 
 ## Next action (round 3)
 
-1. Record his frame reply. For each approved idea: motion from its exact START and END frames (the method Dan approved on RO-06:
+1. For I1, I3 and I4 (approved, motion authorized): motion from the exact START and END frames (the method Dan approved on RO-06:
    `longform-edit/reference/ro06/gen_motion.py`; RA-14's O2 opener is the latest ad example). Ad budget $10 for the whole ad,
    $0 spent; state the estimate before each take. Check every take with the three sense questions in VIDEO-RULES (cause and
    effect, readable with the sound off, shows the line) and the first/last-second frame strips. Specific risks: I1 the trainer
    must visibly hand each man his sheet (sheets never appear in hands by themselves); I3 the outlines must not crawl or morph;
-   I4 the door must open as he pushes it; I5 the pictograms stay put until the wheel blurs. A take that fails once: cut to the
+   I4 the door must open as he pushes it. A take that fails once: cut to the
    part that works, or one retry; at the cap with problems left, ask Dan for budget first, never ship it. AI-GENERATED chip on
    each, placed by looking at the people. Register approved takes in the clip library.
 2. Apply the round 1 decisions:
@@ -63,12 +66,12 @@ Hashes also in `ra06/round2/frames/HASHES.txt`. Re-hash before generating motion
    - **Button**: the new copy in `gfx06.py`.
    - **Placement of approved clips**: I3 covers 5.97 to ~11.0 (LT1 drops if I3 is in: the scan makes that point); I1 covers 11.28
      to 15.65 (LT2 then runs 15.65 to 19.95 over Dan); I4 covers 41.47 to 43.58 under the button (button stays on top, clear of
-     faces); I5: show it first then the split screen (about 1.2 s each) unless he says otherwise. Re-check `_cov` / bare-splice
+     faces). The opener stays the split screen (0 to 2.30). Re-check `_cov` / bare-splice
      asserts in the planner and the cut QC on every new boundary.
 3. Rebuild with `r1_chain_c.sh` then `r1_chain_d.sh` (round 3 folder `round3/`, new page on 8836 or a free port), and run the
    independent review on the full 9:16 (brief: `review_r1b/ROUND-1B-REVIEW.md` shows the format; include the AI-clip sense
    questions and the no-standing-around rule). Fix what it finds before Dan sees it. Copy the full file to `Videos to Review/`.
-4. Page: the full 9:16 with the clips moving in context, only what changed since round 1, a short "What I decided" list, no claim
+4. Page: **the full 9:16 film** with the three clips moving in context, only what changed since round 1, a short "What I decided" list, no claim
    question. Then a round 4 handoff for the final round (16:9 from the same edit, edit sheet, `deliver/gate.py` both formats, watch
    pass, independent review of both, delivery folder `Claude Ad Videos/whats the best ab exercise - RA-06/`, `queue.py set RA-06
    delivered` + artifact db, `roll_sidecar.py mark-used`, clip library `add --used-in "RA-06"`), and stop.
@@ -90,10 +93,10 @@ Review copies to delete when the ad is finalized: `Videos to Review/Best Ab Exer
 ## Starter prompt (paste into a fresh Claude Code session)
 
 > AD. Rename this task `Best Ab Exercise AD R3`. Read `Handoffs/handoff-20261014-ra06-round3-after-frames.md` and
-> `.claude/skills/ad-edit/reference/ra06/README.md`, then continue RA-06 "What's The Best Ab Exercise?" with /ad-edit. My answers
-> to the frames page are: [paste the reply box]. Record them word for word first. Make the motion for the frames I approved and
-> check it before I see it, apply my round 1 answers (pair 3 with the close centred, brighter split screen with the vacuum
-> actually happening, poses clip out, new button text), rebuild the full 9:16, run the independent review, fix what it finds,
-> send me the page and the round 4 handoff, and stop. Use the Codex subscription to generate any images.
+> `.claude/skills/ad-edit/reference/ra06/README.md`, then continue RA-06 "What's The Best Ab Exercise?" with /ad-edit. My frame
+> answers are already recorded in the handoff: make the motion for I1, I3 and I4 (not I5; keep the split screen) and check it
+> before I see it, apply my round 1 answers (pair 3 with the close centred, brighter split screen with the vacuum actually
+> happening, poses clip out, new button text), make me the full 9:16 film, run the independent review, fix what it finds, send
+> me the page and the round 4 handoff, and stop.
 
 **Recommended model and effort: Opus 5.5, high.** Motion generation with sense checks plus a recipe-backed rebuild.
