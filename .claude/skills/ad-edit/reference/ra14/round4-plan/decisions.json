@@ -1,0 +1,81 @@
+{
+ "job": "RA-14",
+ "round_reviewed": 3,
+ "received": "2026-10-14",
+ "page": "http://127.0.0.1:8819/",
+ "dan_words_verbatim": "Everything is approved and looks good. Give me the handoff to build the full video in the next round.",
+ "items": [
+  {
+   "id": "O2",
+   "verdict": "approved",
+   "words": "Everything is approved and looks good. Give me the handoff to build the full video in the next round.",
+   "scope": "the moving opener as built, 0.00-3.64 s",
+   "files": {
+    "round3/opener/O2.mp4": "fb479022004e9c07",
+    "round3/opener/raw/o2_runsheet.png": "188f184a1535b220",
+    "s81_opener.py": "071da09df63e602a"
+   },
+   "next": "use as is in the full 9:16"
+  },
+  {
+   "id": "A1",
+   "verdict": "approved",
+   "words": "Everything is approved and looks good. Give me the handoff to build the full video in the next round.",
+   "scope": "the Soft Blue HyperFrames analysis card, as the standard for every video, and its RA-14 timing",
+   "files": {
+    "round3/gfx/renders/A1.mov": "7cfa16597c98b7bd",
+    "round3/gfx_sheet_r3.json": "21c12a4576511615",
+    "/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared/hyperframes/analysis-card/analysis-card.template.htm": "7fc81756c520bcf8",
+    "/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared/hyperframes/analysis-card/build.py": "637e49a371eb1182"
+   },
+   "next": "use as is; the template is the approved standard"
+  },
+  {
+   "id": "R1",
+   "verdict": "approved",
+   "choice": "keep the recap list card (option A, as shown moving)",
+   "words": "Everything is approved and looks good. Give me the handoff to build the full video in the next round.",
+   "scope": "R1 as shown on the page with captions lifted above it",
+   "files": {
+    "round3/gfx/renders/R1.mov": "d25f9a2dddb922aa",
+    "round3/cap_9x16/captions.mov": "f3116b522e4ab7ce"
+   },
+   "next": "keep"
+  },
+  {
+   "id": "L1 L2 L3 P1 T1 C1",
+   "verdict": "approved",
+   "words": "Everything is approved and looks good. Give me the handoff to build the full video in the next round.",
+   "scope": "every graphic and clip as shown moving in context",
+   "files": {
+    "round3/gfx/renders/L1.mov": "c524ab3668112f1f",
+    "round3/gfx/renders/L2.mov": "157e4667408fe2a1",
+    "round3/gfx/renders/L3.mov": "f38794ec6d3f8e19",
+    "round3/gfx/renders/C1.mov": "f771c595440c1642",
+    "round3/cards/P1.mp4": "04b715ab683b7b00",
+    "round3/cards/T1.mp4": "39a2f9bdf5b5f2ee"
+   },
+   "next": "use as is"
+  },
+  {
+   "id": "FIRST30",
+   "verdict": "approved",
+   "words": "Everything is approved and looks good. Give me the handoff to build the full video in the next round.",
+   "scope": "the finished first 30.3 s: cut, shot plan beats_r3.json, captions, voice mix_bass_r3.wav",
+   "files": {
+    "round3/DRAFT - RA-14 round 3 - first 30 seconds.mp4": "c7b1188389096ead",
+    "beats_r3.json": "5ccd71cb0aad3d14",
+    "mix_bass_r3.wav": "84d5c8831b57c2c3",
+    "round3/work/picture_9x16.mp4": "9da73ea7ea1447a9"
+   },
+   "next": "build the full 9:16 from these locked parts"
+  }
+ ],
+ "motion_authorized": [],
+ "new_frames_before_motion": [],
+ "pending": [],
+ "budget": {
+  "cap_usd": 10,
+  "spent_usd": 0
+ }
+}

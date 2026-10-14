@@ -139,6 +139,8 @@ Each step is its own round unless the items are ready together. Nothing later st
    before its frames are approved; never ask twice about unchanged approved frames. Records: [ASSET-APPROVAL.md](ASSET-APPROVAL.md).
 5. **The first minute.** Export the first 60 seconds finished (approved look, intro, graphics and clips in place; anything still pending
    is a clearly labelled placeholder). This is what Dan is pickiest about. For a video under two minutes, the first 30 seconds.
+   **Short-form and ads (Dan, 2026-10-14): when most assets are approved and the rest holds nothing new or likely to be turned down,
+   build and show the WHOLE video in this round instead of the first 30 seconds** (VIDEO-RULES.md, first section).
 6. **The full video**, only when nothing is pending. Build from the locked components, rebuild only affected joins, then the exact-file
    gates, the watch pass and one independent complete-candidate review, then deliver.
 

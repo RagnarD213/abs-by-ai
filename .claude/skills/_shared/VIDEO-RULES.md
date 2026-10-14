@@ -1,3 +1,22 @@
+## Short-form and ads: build the whole video instead of only the first 30 seconds when it is nearly approved (Dan, 2026-10-14)
+
+- **For a Short or an ad, when most assets are already approved and nothing left in the rest of the video is likely to be turned
+  down, the round that would deliver the finished first 30 seconds delivers the whole video instead.** Dan, approving RA-14 round 3
+  (the first 30 s of a 50 s ad): *"I think it would have been better in this round to build out the full video because it would be only another 30 seconds.
+  Everything else was pretty close to approval, and if we had to regenerate or re-render the video, then it wouldn't take that many
+  resources. In situations like this where we have short-form content or an ad, I think it'd be better to just generate the whole
+  video. In situations like this where most assets are approved and it's unlikely that anything in the last 30 seconds would be
+  disapproved."*
+- How to apply (editor's reading): it is the round that would otherwise be "the first minute / first 30 seconds" (PRE-RENDER-APPROVAL
+  step 5). If the remaining part only adds a few seconds of render and holds no new or unapproved kind of item (no AI clip whose frames
+  or motion he has not seen, no new graphic family), build and show the whole video in that round, with the moving previews of the
+  remaining items still on the page. If something in the rest is genuinely uncertain (an unseen AI clip, a new graphic type, a look he
+  has not picked), keep the first-30-seconds step. Long-form content is unchanged: first minute, then the full film.
+- The approval gates before it are unchanged (look options, every graphic and clip shown, AI frames before motion). Delivery to the ad
+  folder still needs the exact-file gates and the independent review; a whole-video review copy shown in a round is a review copy.
+- Why: on RA-14 the first 30 s round came back fully approved and the remaining 20 s held only items Dan had already seen moving, so
+  stopping at 30 s cost him a whole extra round for a render of a few minutes.
+
 ## Outdoor videos: colour, audio and crop options in round 1; studio videos use the standard (Dan, 2026-10-14)
 
 - **Every video shot OUTDOORS, ad or content, shows Dan colour correction options, audio options and cropping options in

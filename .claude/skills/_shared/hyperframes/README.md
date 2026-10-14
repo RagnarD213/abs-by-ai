@@ -11,7 +11,7 @@ Research and decision: `Docs/HYPERFRAMES_RESEARCH.md`. Style lock: [../SOFTBLUE.
 | [`lower-third/`](lower-third/) | **Approved by Dan 2026-09-30** (RO-16 G04 sample) | Motivation lower third; parts land on words; optional counter bar (long way vs short way). Part spacing fixed 2026-10-10: see "Rules that bit" |
 | [`before-card/`](before-card/) | **Approved by Dan 2026-09-30** (RO-16 G02 sample) | full-screen photo + glass fact card on the live field; number count-up |
 | [`side-list/`](side-list/) | **Approved by Dan 2026-09-30** (RO-16 G20 sample) | the 3A left card; items land on their words |
-| [`analysis-card/`](analysis-card/) | **The standard analysis card for every video (Dan, 2026-10-14)**; first shown on RA-14 round 3 | "AI reads your picture": the subject picture + scan line, BODY FAT / FAT TO LOSE / MUSCLE TO GAIN bars, the plan band; no numbers, one chip under the picture. 16:9 (`build.py`), 9:16 (`vertical.py`), 1:1 (`square.py`), `from_plan.py` kind `analysis`. Replaces `adkit/analysis_card.py` for new films |
+| [`analysis-card/`](analysis-card/) | **Approved by Dan 2026-10-14 (RA-14 round 3) as the standard analysis card for every video** | "AI reads your picture": the subject picture + scan line, BODY FAT / FAT TO LOSE / MUSCLE TO GAIN bars, the plan band; no numbers, one chip under the picture. 16:9 (`build.py`), 9:16 (`vertical.py`), 1:1 (`square.py`), `from_plan.py` kind `analysis`. Replaces `adkit/analysis_card.py` for new films |
 
 Round-2 samples, beat sheet, bases, compositor and review page: `Media/hyperframes/round2-templates/`
 (`BEATS.md`, `bases.py`, `composite.py`, `clearance.py`, `page.py`); heavy media in `/Volumes/Extreme/_edit_work/hyperframes-r2/`.
