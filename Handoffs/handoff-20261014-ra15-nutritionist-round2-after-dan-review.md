@@ -1,38 +1,33 @@
-AD (paid ad: it ends on "Tap the button below"). Sidebar name for the next task: `Never Pay Nutritionist AD R2`.
+AD (paid ad: it ends on "Tap the button below"). Sidebar name for the next task: `Never Pay Nutritionist AD R2`. Dan's round 1 answers are in (2026-10-14).
 
-# RA-15 "Never Pay A Nutritionist Again": round 2, after Dan reviews the round 1 page
+# RA-15 "Never Pay A Nutritionist Again": round 2 (Dan's round 1 picks applied; AI clip motion)
 
 **Written 2026-10-14 by the round 1 session (Claude, Opus 5.5).** Job doc: `Handoffs/video-editing/RA-15-never-pay-a-nutritionist-again.md`.
 Rules: `Handoffs/video-editing/00-RULES.md`, `.claude/skills/_shared/VIDEO-RULES.md`, `/ad-edit`, `_shared/PRE-RENDER-APPROVAL.md`.
 Recipe: `.claude/skills/ad-edit/reference/ra15/` (README: stage order and seven lessons), on top of `../ra05/` and `../ra04/`.
 
-**Do not fire this until Dan has replied to the round 1 page.** His reply goes, word for word, into
-`/Volumes/Extreme/_edit_work/ra15/round2-plan/decisions.json` (per item: id, files with sha256, verdict, his words,
-scope, next action; `motion_authorized` for each AI idea he says yes to) before anything is built.
+**Dan answered the round 1 page on 2026-10-14.** His words, verbatim, with hashes per item:
+`/Volumes/Extreme/_edit_work/ra15/round2-plan/decisions.json`.
 
-## Where it stands
+> "Hook A, C2, F2, V2, yes to all four ideas except for the cleared-out idea, I want to keep the nutritionist museum clip
+> there. Everything else, you can go ahead and generate, keep both give me the handoff for the next round of edits."
 
-Round 1 page: **http://127.0.0.1:8818/** (managed review service, folder `/Volumes/Extreme/_edit_work/ra15/round1/`).
-It shows six decisions, the finished first 31 seconds (to the end of the factory card), four AI clip ideas as start
-and end frames, the colour, shot size and voice options (outdoor rule, 10-14), "What I decided", and every graphic and
-clip as a still with a play-in-context button. A full 9:16 draft (51.18 s) exists for internal checks only.
-Nothing is gated, stamped, audited, delivered or uploaded. Queue state: `in_progress`. Spend: $0 of the $10 ad cap.
+## What Dan picked
 
-## The six decisions waiting for Dan
+| item | pick | state in the work folder |
+|---|---|---|
+| Hook | **A** "Nutritionists have gone obsolete. AI just took their job." | already the cut (`edl_spec.json`, `cut.json`) |
+| Colour | **C2** brighter, golden skin (re-baked for C1668, exposure 2.0) | already `grade.json` |
+| Shot size | **F2** close 594x1056, wide 738x1312 | already `framing_choice.json` |
+| Voice | **V2** +3 dB at 120 Hz, `mix_bass.wav` | ⚠ round 1 muxed `mix_bass15.wav` (V1). Every mux from now on uses `mix_bass.wav`. Its tone row fails (max 2.90 dB): the known mismatch of the bass standard (VIDEO-RULES 2026-10-12), recorded in the notes, never tuned away |
+| I1 Cleared out | **No.** Keep library A0016, the museum gag, in the opener | as round 1 |
+| I2 Chicken and broccoli forever | **Yes, motion authorized** (replaces A0017 at 29.03 to 31.26) | frames `round1/frames/I2-*.png` |
+| I4 Ask it what to order | **Yes, motion authorized** (37.07 to 39.01; the macro screen keeps 35.57 to 37.07) | frames `round1/frames/I4-*.png` |
+| I5 The cardboard nutritionist | **Yes, motion authorized** (39.01 to 42.54, now Dan on camera) | frames `round1/frames/I5-*.png` |
+| Claim lines | **Keep both** as spoken (captions only) | as round 1 |
 
-1. **Hook wording.** A (in the cut): "Nutritionists have gone obsolete. AI just took their job." (his on-set rewording, last
-   read, one take with the rest). B: the script's "Never pay a nutritionist again. AI just took their job." (hook take 1,
-   C1668 13.1 to 17.4 s). B = `edl_spec_B.json` (49.4 s of talk, one more seam at about 4.0 s).
-2. **Colour.** C2 golden (in the cut, his RA-14 pick re-baked: exposure 2.0 here vs 2.4 on C1667), C1 level, C3 cooler.
-3. **Shot size.** F2 (in the cut, his RA-14 pick converted: close 594x1056, wide 738x1312), F1 tighter (558x992 /
-   684x1216), F3 wider (630x1120 / 774x1376). All in `framing_choice.json` `options`.
-4. **Voice.** V1 +1.5 dB at 120 Hz (in the sample, recommended, audio gate PASS), V2 +3 dB as on Cheat Code (fails the tone
-   row, max 2.90, the known mismatch), V3 none (PASS).
-5. **AI clip ideas, yes or no each.** I1 "Cleared out" (opener 0.00 to 2.34, replaces library A0016), I2 "Chicken and
-   broccoli forever" (fridge, 29.03 to 31.26, replaces A0017), I4 "Ask it what to order" (restaurant, 37.07 to 39.01; the
-   macro screen keeps 35.57 to 37.07), I5 "The cardboard nutritionist" (39.01 to 42.54, now Dan on camera).
-6. **Claim lines as spoken** (captions only): "Thousands of guys are replacing expensive nutritionists with AI." and "A
-   nutritionist charges hundreds of dollars per month and sees you twice." A keep, B he names the cut.
+Everything else on the round 1 page drew no note and stands as shown. Round 1 page: http://127.0.0.1:8818/ (keep it).
+Queue state: `in_progress`. Spend: $0 of $10. Nothing is gated, delivered or uploaded yet.
 
 ## The cut, for the record
 
@@ -65,26 +60,36 @@ Nothing is gated, stamped, audited, delivered or uploaded. Queue state: `in_prog
 
 Insert coverage 38.5 % (gate minimum 38 %). If I5 is approved coverage rises to about 45 %.
 
-## Next action (round 2)
+## Round 2 deliverable: the three AI clips moving in context, then stop
 
-1. Record Dan's reply; re-hash the files below before touching anything; build in `round2/`, serve on a new port
-   (8818 is round 1, keep it).
-2. Apply his picks: hook (B = `cp edl_spec_B.json edl_spec.json`, rerun from `s03_edl.py`, then remap `framing.json` by
-   source time as round 1 did, re-plan), colour (`grade.json` filter to the picked LUT), shot size (`framing_choice.json`
-   NEAR/FAR), voice (the mix file the render muxes).
-3. AI motion only for the ideas he approves, from their approved frames (`round1/frames/I*-start.png`, `-end.png`).
-   Ask the three sense questions of every take; frame strips of the first and last second. I1: the robot must walk to the
-   chair, never appear. I5: the cutout tips over and lies flat, never vanishes. AI-GENERATED chip on each, clear of faces.
-   Then show each moving in context and stop.
-4. Analysis card: switch to the shared Soft Blue HyperFrames card once the RA-14 round 3 session has built it (Dan's 10-14
-   standard). Until then the RA-05 recolour stays.
-5. When nothing is pending, the full film: 9:16 master, then the 16:9 from the same edit (`ra01lib.Aspect("16x9")`),
-   then everything round 1 did not do: frame-lock the mix to the picture, `s04b_holdstart.py`, the land-then-hold check
-   (`cut/landing.py motion_stats`), `piccuts.py decide`, `junk.py` on the final cut, `roll_sidecar.py mark-used`, the
-   edit sheet for the 16:9, `audio_gate.py` with the A/B clip on the delivered file, `deliver/gate.py --format
-   ad9x16|ad16x9`, the watch pass, one fresh independent reviewer (`ra-reviewer`), the negative-imagery scan, REVIEW 540p
-   copies, notes, delivery folder `Claude Ad Videos/never pay a nutritionist again - RA-15/`, a copy in `Videos to Review/`,
-   `queue.py set RA-15 delivered` plus the artifact db, clip library `add --used-in "RA-15"` for new AI clips.
+Build in `/Volumes/Extreme/_edit_work/ra15/round2/`; serve on a new port (8818 is round 1, keep it).
+
+1. Re-hash the files below against this table before touching anything.
+2. **Motion for I2, I4, I5** from their approved frame pairs, 9:16, about 4 to 5 s each (the slots are 2.2, 1.9 and 3.5 s).
+   Method: `longform-edit/reference/ro06/gen_motion.py` (motion from a frame pair, as RO-06 and RA-14 did). Ad cap $10 for
+   the whole ad, retries included; state the estimate before each batch and keep a running total. No lip sync (nobody
+   speaks). Prompts describe only the action between the two frames; nothing appears or vanishes.
+3. **Check every take before Dan sees it** (VIDEO-RULES 2026-10-13): the three sense questions per clip, the measured
+   first-versus-tenth-frame self-change map with the people masked (`longform-edit/reference/ro08/a5_cut.py`), and frame
+   strips of the first and last second. I2: his hand opens the door and the containers are there from the first frame of
+   the open fridge; nothing grows or melts. I4: menu down, phone up, finger points, waiter writes; no readable text appears.
+   I5: the cutout tips over and lies flat on the floor; it never vanishes or bends. A take that fails is regenerated, cut to
+   the part that works, or dropped back to the round 1 picture, never sent with the fault described. At the cap with
+   problems left, ask Dan for more budget, first line of the message, with the number.
+4. Place each in its slot (`s05_plan15.py` CARDS: `fridge` replaces `factory`; `restaurant` splits `macro` at `t_eat`;
+   `cutout` 39.01 to 42.54). Fill the 9:16 frame; AI-GENERATED chip placed by looking at the people. Re-run the plan: the
+   inside-hold splice assert must still pass (the cutout removes the 0.8 s hold at 41.74).
+5. Rebuild inserts and the 9:16 render, mux with `mix_bass.wav`. Page: the three clips each moving in context (3 s either
+   side), stills of anything that changed, a short "What I decided", only real questions. Then stop and write the round 3
+   handoff.
+6. Round 3 (after his OK on the motion): the full 9:16 master, then the 16:9 from the same edit (`ra01lib.Aspect("16x9")`),
+   and everything owed before delivery: frame-lock the mix to the picture, `s04b_holdstart.py`, the land-then-hold check
+   (`cut/landing.py motion_stats`), `piccuts.py decide`, `junk.py` on the final cut, `roll_sidecar.py mark-used`, the edit
+   sheet for the 16:9, `audio_gate.py` with the A/B clip on the delivered file, `deliver/gate.py --format ad9x16|ad16x9`,
+   the watch pass, one fresh independent reviewer (`ra-reviewer`), the negative-imagery scan, REVIEW 540p copies, notes,
+   delivery folder `Claude Ad Videos/never pay a nutritionist again - RA-15/`, a copy in `Videos to Review/`,
+   `queue.py set RA-15 delivered` plus the artifact db, clip library `add --used-in "RA-15"` for the new AI clips. The
+   analysis card switches to the shared Soft Blue HyperFrames card once RA-14 round 3 has built it.
 
 ## Traps found in round 1
 
@@ -106,21 +111,22 @@ Insert coverage 38.5 % (gate minimum 38 %). If I5 is approved coverage rises to 
 | `words_aligned.json` | 733e5141011e10b3 | 164 words, CTC aligned |
 | `framing.json` | 3bb8d028900a271a | head and hair track, 245 samples, remapped to this cut |
 | `beats.json` | a182643842594678 | cards, holds, lower thirds, button, AI idea slots |
-| `grade.json` | cd54130dda466616 | C2 for this roll (not his pick yet) |
-| `framing_choice.json` | cd313c42f3439553 | F2 and the options (not his pick yet) |
-| `mix_bass15.wav` / `mix_bass.wav` / `mix.wav` | 6cdf0898274c6471 / c05a8be1bdd1973b / e2235bc49802f83e | V1 / V2 / V3 |
+| `grade.json` | cd54130dda466616 | C2 for this roll, Dan's pick |
+| `framing_choice.json` | cd313c42f3439553 | F2, Dan's pick (options kept for the record) |
+| `mix_bass.wav` | c05a8be1bdd1973b | **V2, Dan's pick** (`mix_bass15.wav` 6cdf0898274c6471 and `mix.wav` e2235bc49802f83e are the unpicked V1 and V3) |
 | `colour/luts/ra15_C1/C2/C3*.cube` | 7a2cc0a720ac27c6 / 1f78063a62b4e800 / e42207e8bd5bcbfc | the three looks |
 | `hf9/manifest.json` | ce79e4d677b8c163 | lower thirds and button |
 | `round1/index.html` | 25abd425a3ca7069 | the review page |
+| `round2-plan/decisions.json` | see file | Dan's answers, verbatim |
 | `round1/frames/I1..I5-start/end.png` | I1 3a0b07a0701d3918 / 13fc38f400743063, I2 7916bf8ec21fac74 / ac34d3ebea3ef580, I4 4367184f1a882c14 / a0266def042a31fd, I5 77a55370f59b026c / 09742a16788e20cc | AI idea frames (Codex, $0) |
 
 ## Starter prompt (paste into a fresh Claude Code session)
 
 > AD. Rename this task `Never Pay Nutritionist AD R2`. Read `Handoffs/handoff-20261014-ra15-nutritionist-round2-after-dan-review.md`
-> and `.claude/skills/ad-edit/reference/ra15/README.md`, then continue RA-15 "Never Pay A Nutritionist Again" with /ad-edit.
-> My answers to the round 1 page are: [paste the reply box]. Record them word for word first. Apply my hook, colour, shot
-> size and voice picks, make the motion for any AI clip I said yes to from its approved frames and show it to me moving in
-> context; if nothing is pending, build the full 9:16 and the 16:9 from the same edit, run every gate and the independent
-> review, deliver, and send me the review copy. Use the Codex subscription to generate the images.
+> and `.claude/skills/ad-edit/reference/ra15/README.md`, then run round 2 of RA-15 "Never Pay A Nutritionist Again" with /ad-edit.
+> My round 1 picks are recorded there (hook A, C2, F2, V2 voice, keep the museum opener, keep both claim lines). Generate the
+> motion for the fridge, restaurant and cardboard-cutout clips from their approved frames, check each one for sense before I
+> see it, put them in the ad with the V2 voice, and show me each clip moving in context on one review page. Then stop and
+> give me the handoff for the full build. Use the Codex subscription to generate the images.
 
-**Recommended model and effort: Opus 5.5, high.** A bounded revision plus a recipe-backed full build with gates.
+**Recommended model and effort: Opus 5.5, high.** AI motion with sense checks, a re-plan and a 9:16 re-render.
