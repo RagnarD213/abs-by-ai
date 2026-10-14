@@ -126,5 +126,12 @@
   "job": "RO-19",
   "label": "My First Spray Tan",
   "added": "2026-10-13"
+ },
+ {
+  "config": "scripts/blotato/configs/ro08-intermittent-fasting.json",
+  "kind": "longform",
+  "job": "RO-08",
+  "label": "Intermittent Fasting: The Best Way To Get Abs",
+  "added": "2026-10-14"
  }
 ]

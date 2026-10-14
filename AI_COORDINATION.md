@@ -150,6 +150,8 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 
 **RO-19 HOLD 2026-10-13.** `Docs/RO19_SETUP_RECEIPT_20261013.md`
 
+**RO-08 HOLD 2026-10-14.** Jan 24 2027; B test after. `Docs/RO08_SETUP_RECEIPT_20261014.md`
+
 **RO-07 - HOLD 2026-10-11, Claude.** Blotato full. `Docs/RO07_SETUP_RECEIPT_20261011.md`
 
 
@@ -236,7 +238,6 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the fire list; runner deletes row, line, README row.
 
-- `handoff-20261014-ro08-thumbnails-and-video-setup.md` (10-14): RO-08 approved. Opus 5.5 high.
 - `handoff-20261013-reaction-shorts-polish-and-cut-to-66s.md`: left:shoot-doc-step
 
 
