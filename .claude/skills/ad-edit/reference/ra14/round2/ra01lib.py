@@ -262,6 +262,10 @@ def grade(expo=None, sat=None):
     white-balance or hue change. Every stage that touches the roll reads this one function so the
     tracker, the CTA probe and the render can never grade differently.
     """
+    if expo is None and sat is None:
+        g = json.load(open("/Volumes/Extreme/_edit_work/ra14/grade.json"))
+        if g.get("filter") and g.get("exposure") is None:      # ROUND 2: a baked LUT (round2/colour/bake.py) is the whole grade
+            return g["filter"]
     if expo is None or sat is None:
         g = json.load(open("/Volumes/Extreme/_edit_work/ra14/grade.json"))
         expo = expo or g["exposure"]

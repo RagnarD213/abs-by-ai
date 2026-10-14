@@ -1,0 +1,90 @@
+{
+ "job": "RA-14",
+ "round_reviewed": 2,
+ "received": "2026-10-14",
+ "page": "http://127.0.0.1:8815/",
+ "dan_words_verbatim": "Okay, let's go with opener O2: the 8-bit power-up. Let's go with a wider crop, the recommended crop. Go with the brighter golden skin, the recommended color. Redo the analysis card in our graphics in soft blue light with our hyperframes. Make that standardized with the rest of our videos. Let's do the voice with a bass lift. Give me the handoff for the next round. Also, let's make this standardized for first-round edits of outdoor videos going forward. In the studio, when we have everything standardized, I think that we can basically make the color correction and the audio standard. Just do it the way we've always done it. Outdoors, we need to look at color correction, audio, and cropping options every first round for every outdoor video going forward. Ad or content: always show those options first round.",
+ "items": [
+  {
+   "id": "OPENER",
+   "verdict": "approved",
+   "choice": "O2 8-bit power-up",
+   "words": "Okay, let's go with opener O2: the 8-bit power-up.",
+   "scope": "frames approved; motion authorized for O2 only",
+   "files": {
+    "round2/frames/O2-start.png": "44323801cacdf80d",
+    "round2/frames/O2-end.png": "da3f482f899b023c",
+    "round2/stills/O2-start.jpg": "615ddd0bf9425bd8",
+    "round2/stills/O2-end.jpg": "c26f63e54c5c353b",
+    "round2/opener/raw/o2_start.png": "c39d2e345e3185d0",
+    "round2/opener/raw/o2_end.png": "be1b50caf0ecc7c9"
+   },
+   "not_chosen": [
+    "O1 Character creator",
+    "O3 Arcade combo"
+   ],
+   "next": "make the O2 motion (code from extra Codex sprite frames first, $0; a video model take about $1 only if that looks stiff), then show it moving in context"
+  },
+  {
+   "id": "FRAMING",
+   "verdict": "approved",
+   "choice": "F2 Wider: close 576x1024, wide 720x1280",
+   "words": "Let's go with a wider crop, the recommended crop.",
+   "files": {
+    "framing_choice.json": "e1ffe218871b0e2e"
+   },
+   "next": "use for every hold"
+  },
+  {
+   "id": "GRADE",
+   "verdict": "approved",
+   "choice": "C2 Brighter, golden skin",
+   "words": "Go with the brighter golden skin, the recommended color.",
+   "files": {
+    "round2/colour/luts/ra14_C2_brighter_gold.cube": "4e222c22be62cdfd"
+   },
+   "next": "grade.json now points at this LUT"
+  },
+  {
+   "id": "A1",
+   "verdict": "approved-with-notes",
+   "choice": "redraw in Soft Blue Light with the HyperFrames templates",
+   "words": "Redo the analysis card in our graphics in soft blue light with our hyperframes. Make that standardized with the rest of our videos.",
+   "next": "build a Soft Blue HyperFrames analysis card as the SHARED standard (it replaces the J2 adkit card for new videos), then use it here; show it as a still and moving in context"
+  },
+  {
+   "id": "VOICE",
+   "verdict": "approved",
+   "choice": "mix_bass.wav (+3 dB at 120 Hz)",
+   "words": "Let's do the voice with a bass lift.",
+   "files": {
+    "mix_bass.wav": "a969e60b871ecd8d"
+   },
+   "next": "frame-lock mix_bass.wav once the length is final"
+  },
+  {
+   "id": "R1",
+   "verdict": "not answered",
+   "words": null,
+   "next": "asked in rounds 1 and 2 without an answer; ask once more with R1 shown moving in context. Do not treat the recommendation (keep) as his answer."
+  },
+  {
+   "id": "STANDING_RULE",
+   "verdict": "new rule",
+   "words": "Outdoors, we need to look at color correction, audio, and cropping options every first round for every outdoor video going forward. Ad or content: always show those options first round.",
+   "recorded_in": [
+    ".claude/skills/_shared/VIDEO-RULES.md",
+    ".claude/skills/_shared/PRE-RENDER-APPROVAL.md",
+    "memory outdoor-look-options-round-one"
+   ]
+  }
+ ],
+ "motion_authorized": [
+  "O2 8-bit power-up (from round2/frames/O2-start.png and O2-end.png)"
+ ],
+ "new_frames_before_motion": [],
+ "budget": {
+  "cap_usd": 10,
+  "spent_usd": 0
+ }
+}

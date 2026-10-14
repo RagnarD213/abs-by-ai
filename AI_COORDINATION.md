@@ -134,7 +134,7 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 
 **RA-05-R1-REVIEW:8805 2026-10-13.**
 
-**RA-14-R2-REVIEW:8815 2026-10-13.**
+**RA-14-R3-HANDOFF 2026-10-14.** `handoff-20261014-ra14-cheat-code-round3-after-dan-picks.md`
 
 **RA-07 R1 REVIEW 2026-10-13.** http://127.0.0.1:8807/ `Handoffs/handoff-20261013-ra07-fire-your-trainer-round2-after-dan-review.md`
 
