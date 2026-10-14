@@ -153,7 +153,7 @@ def swap_card(t, it):
     im = B.field(t)
     cols = [("THROW OUT", it["left"], it["reveal_left_t"], B.BAD, "x"), ("REPLACE WITH", it["right"], it["reveal_right_t"], B.GOOD, "v")]
     for c, (head, rows, rts, col, mark) in enumerate(cols):
-        x0 = 200 + c * 800; y0 = 170
+        x0 = 200 + c * 800; y0 = 235                         # block centred: header 235, rows to about 855
         if t > .05 + c * .1:
             a = rise(t - .05 - c * .1); B.rr(im, (x0, y0 + 8, x0 + 8 + 70 * a, y0 + 16), col, 3)
             B.text(im, (x0, y0 + 30), head, 34, col)

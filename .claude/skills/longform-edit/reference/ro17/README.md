@@ -44,3 +44,21 @@ Traps this round paid for:
    capture workers; `buildcap.py` does not count them. Use one worker when anyone else is rendering.
 7. **Lower thirds whose first part lands 3 s or more after the strip appears** were caught from `hf/BEATS.md` with a small script
    (first-part delay per lower third) before rendering; re-anchor the start on the part's own phrase.
+
+The independent check of the round 2 page (29 findings, all fixed or explained before Dan saw it) added these:
+8. **W4S on C1713 shows the backdrop's edge**: two orange spring clamps and a strip of wall at the 4K frame's left edge. A mirrored
+   paint-out left visible rectangles; cropping 4 % in (`W4S = 2690x1513 @ 110,183`) is clean and the side cards keep 85 px or more
+   of clearance (they had 127-178).
+9. **A reframe-only join under a side card** made Dan change size under a static card. `build.all_segments` now skips reframe
+   joins (continuous source) inside a card window; framing changes only on the card's own in and out.
+10. **Look at a stock clip's frames, not its title.** Pexels "woman checking dry fruits packaging" holds a wrapped loaf of bread;
+    "nuts on a person palm" is out of focus and one kind of nut; a "man walking city" clip had readable convention-centre and shop
+    signs; a big-box aisle had readable product tags. White powder under "electrolyte powder" reads as sugar.
+11. **AI end frames: every object's change needs a visible cause inside the take.** A scoop and a sticker that must move to new
+    places teleport; a measuring cup tips itself with no second hand; a knife vanishes when the hand that held it lifts a dome.
+    Start the state that does not change already in place (the sticker on the jar), give every moving object a hand, keep
+    utensils on the table, and frame a heavier man from the chest up so his stomach is never the centre.
+12. **AI placeholder chips go where the action is not** (`chip=((54, 54), "lt")` on a plan item): top right covered the pouring
+    hand on the opener and an executive's face.
+13. **Lower thirds within 0.8 s of each other blink** (one fades, the next rises). Merge them or move one; the scan is in
+    the resolve step's output (`back-to-back lower thirds`).

@@ -42,7 +42,10 @@ def all_segments():
     N = S[-1]["out_f1"]
     cards = [(fr(it["t0"]), fr(it["t1"]), it) for it in R if it["kind"] in ("l3", "cycle", "phone") and it["t1"]]
     full = [(fr(it["t0"]), fr(it["t1"])) for it in R if it["kind"] in FULL and it["t1"]]
-    cuts = sorted(set([0, N]) | {s["out_f0"] for s in S} | {a for a, b, i in cards} | {b for a, b, i in cards})
+    # RO-17 independent check: a reframe-only join (continuous source) under a side card changed Dan's size under a static card;
+    # under a card the shot simply runs on (its framing changes only on the card's own in and out).
+    cuts = sorted(set([0, N]) | {s["out_f0"] for s in S if not (s.get("reframe") and any(a < s["out_f0"] < b for a, b, i in cards))}
+                  | {a for a, b, i in cards} | {b for a, b, i in cards})
     segs = []
     for a, b in zip(cuts, cuts[1:]):
         sh = next(s for s in S if s["out_f0"] <= a < s["out_f1"])
@@ -129,7 +132,8 @@ class ClipReader:
 
 def ai_placeholder(it, i, n):
     ph = it.get("ph", "A"); im = Image.open(f"{W}/aiframes/{ph}-{'start' if i < n/2 else 'end'}.png").convert("RGB").resize((1920, 1080))
-    B.disclosure(im, "AI-GENERATED", (1866, 54), 2.0, anchor="rt")   # new A frame: his head is top-left
+    xy, anc = it.get("chip", ((1866, 54), "rt"))                      # per slot, clear of faces and of the action (A3, A8 top left)
+    B.disclosure(im, "AI-GENERATED", tuple(xy), 2.0, anchor=anc)
     B.disclosure(im, "PLACEHOLDER: " + ("START frame" if i < n/2 else "END frame") + ", motion not generated yet", (960, 990), 2.0, anchor="mt")
     return im
 

@@ -17,7 +17,7 @@ TITLES = {
  "T1": dict(src=f"{W}/assets/photos/px11509787.jpg", label=None, what="a hand holding a handful of trail mix over a jar",
             licence=PEX, url="https://www.pexels.com/photo/11509787/", frame=(.08, 0, .92, 1), bleed=(.10, 0, .90, 1)),
  "T2": dict(src=f"{W}/assets/photos/px32282191.jpg", label=None, what="bowls of dried pineapple, cranberries, apricots and nuts",
-            licence=PEX, url="https://www.pexels.com/photo/32282191/", frame=(0, 0, 1, 1), bleed=(0, 0, 1, 1)),
+            licence=PEX, url="https://www.pexels.com/photo/32282191/", frame=(.25, .35, 1, 1), bleed=(.25, .35, 1, 1)),
  "T3": dict(src=f"{W}/assets/photos/px11398730.jpg", label=None, what="two coconuts with drinking straws",
             licence=PEX, url="https://www.pexels.com/photo/11398730/", frame=(.2, 0, 1, 1), bleed=(.25, 0, 1, 1)),
  "T4": dict(src=f"{W}/assets/photos/px6901802.jpg", label=None, what="an open tin of sardines on yellow",

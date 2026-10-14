@@ -101,3 +101,16 @@ def context_all(only=()):
             print("context", i, round(x, 2), round(y, 2), flush=True)
 
 if __name__ == "__main__" and sys.argv[1] == "context_all": context_all(set(sys.argv[2:]))
+
+def context_one(ids):
+    """Re-render only these items' windows (a fresh small block each), e.g. after one graphic changed."""
+    R = {it["id"]: it for it in json.load(open(f"{W}/plan_resolved.json"))}; N = Bd.S[-1]["out_f1"] / Bd.FPS
+    for i in ids:
+        it = R[i]; a, b = max(0.0, it["t0"] - 3.0), min(N, (it["t1"] or it["t0"] + 3) + 3.0)
+        out = f"{OUT}/blocks/one_{i}.mp4"; Bd.render_range(a, b, out); base = f"{OUT}/context/{i}-context"
+        subprocess.run([FF, "-v", "error", "-y", "-i", out, "-vf", "scale=960:540", "-c:v", "libx264", "-crf", "23", "-preset", "medium",
+                        "-c:a", "aac", "-b:a", "160k", "-movflags", "+faststart", base + " - REVIEW 540p.mp4"], check=True)
+        subprocess.run([FF, "-v", "error", "-y", "-ss", f"{min(3.0, (b - a) / 2):.3f}", "-i", base + " - REVIEW 540p.mp4", "-frames:v", "1", "-q:v", "3", base + ".jpg"], check=True)
+        json.dump(dict(id=i, t0=a, t1=b, block=out, block_t0=a), open(base + ".t0.json", "w")); print("context (fresh)", i, flush=True)
+
+if __name__ == "__main__" and sys.argv[1] == "context_one": context_one(sys.argv[2:])
