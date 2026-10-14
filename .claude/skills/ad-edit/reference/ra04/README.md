@@ -63,6 +63,14 @@ writes the round 2 page. Frame prompts and hashes: `round2/`.
 14. **Check where the subject is walking, not only who he is.** The first walk-in frame was clean on every checklist item
     and still wrong: he walked toward the camera with the rack behind him, so it could not read as "walks up to the rack".
 
+15. **Dan rejected round 2b's leg press: the man sat upright and pushed 26 to 43 degrees off the rails** ("No human body works
+    like that"). Round 2c measured every frame (`_shared/framecheck/posecheck.py`), and seven fresh independent reviews caught, in
+    turn: a stretching machine frame, a sled sliding off its rails, an upright platform, legs 24 % longer in the END, a floating
+    leftover phone, a phantom toe, a pillar patch, feet sliding down the platform, a smeared platform corner and a vanished shoe.
+    The pair that passed (F4h / F5p) builds the END machine in code from the START (`r2c_sled.py`); only the man is generated.
+16. **With the start knee at 127 degrees, the honest push is short** (about 42 px, ~10 cm). A deeper rep needs a start frame with
+    the knees bent further; the image model shrinks bent legs, so check bone lengths again if that is tried.
+
 ## Open for the final round
 
 Land-then-hold centring is not wired in (crops are fixed per hold, the RA-01 method); measure with `cut/landing.py

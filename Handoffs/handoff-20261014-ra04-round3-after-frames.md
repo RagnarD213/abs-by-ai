@@ -5,23 +5,35 @@ AD (paid ad: it ends on "Tap the button below"). Sidebar name for the next task:
 **Written 2026-10-14 by the round 2 session (Claude, Opus 5.5).** Job doc: `Handoffs/video-editing/RA-04-top-3-tips-for-getting-abs.md`.
 Rules: `Handoffs/video-editing/00-RULES.md`, `.claude/skills/_shared/VIDEO-RULES.md`, `/ad-edit`, `_shared/PRE-RENDER-APPROVAL.md`.
 Recipe and lessons: `.claude/skills/ad-edit/reference/ra04/README.md` (lessons 13 and 14 are new). Work folder: `/Volumes/Extreme/_edit_work/ra04/`.
-Round 2 page: http://127.0.0.1:8895/; round 2b page (new shot 3 only): http://127.0.0.1:8896/. Frame hashes: `round2/frames_manifest.json`.
+Round 2 page: http://127.0.0.1:8895/; round 2b: http://127.0.0.1:8896/; **round 2c (current shot 3): http://127.0.0.1:8897/**. Frame hashes: `round2/frames_manifest.json`.
 
 ## Dan's answers so far (2026-10-14), recorded in `round3-plan/decisions.json`
 
 * **Shots 1 and 2 frames approved** (S1 0fb43996d74b3b4f, F2 157edd1096409c06, F3b 802a4c9e7014614c): "All of the frames are looking good except for shot 3."
 * **Shot 3 rejected** (F4b/F5b): "that's not how a leg press machine is loaded... he's putting his foot on the plates rather than the platform."
   He asked for a realistically loaded machine, feet on the platform, start smiling at the phone, end smiling while exerting, and
-  **"If this physics is off, you have to regenerate."** New pair on the 2b page, pending his OK: **F4c_a** 75170719eae9b0a2 (start) and
-  **F5c_b** 4051998b79f4fdb2 (end, an edit of F4c_a; plates and platform move up the rails as one piece).
+  **"If this physics is off, you have to regenerate."** The 2b pair (F4c_a / F5c_b) was then **rejected** too: "He's doing the leg
+  press at a 90 degree angle, but his legs need to be in line with his body... No human body works like that."
+* **Current shot 3 pair, pending his OK on the 2c page: F4h** f49c75616613b51a (start, lying back, smiling at the phone) and
+  **F5p** 4e8095cfec446bdd (end: machine built in code from F4h by `reference/ra04/r2c_sled.py`, man from Codex F5i_a). Passed
+  the 7th independent review after six fails (list: README lesson 15). Short honest push (knee 127 to 165 degrees, sled ~42 px).
+* **Dan's second ask, for the handoff after shot 3 is approved:** "do some research and see if there are some kinds of skills, repos,
+  or modifications for Claude where we can do better QC on these start and end frames." See step 0b.
 * **Budget raised to $20 for this ad** ("Your budget is approved up to $20 for generations"). $0 spent.
 * Slot not answered: **A** (0:39.139 to 0:43.443) is the default, said on the 2b page.
 
-## Step 0: record Dan's answer on the 2b page
+## Step 0: record Dan's answer on the 2c page
 
-Add his words on shot 3 (F4c_a / F5c_b) to `round3-plan/decisions.json`. If he asks for changes: regenerate only shot 3, END derived
-from START (lesson 13), check the leg press physics (one platform on the sled, plates only on side horns, feet on the platform, sled
-and plates moving as one piece), back on a page, stop again.
+Add his words on shot 3 (F4h / F5p) to `round3-plan/decisions.json`. If he asks for changes: rebuild only shot 3 with
+`_shared/framecheck/` (pose angles, bone lengths, rigid tracking) and a fresh independent reviewer before any page; for a deeper rep,
+a new start with the knees bent further (lesson 16). Back on a page, stop again.
+
+## Step 0b: the frame-QC research Dan asked for (once shot 3 is approved, in the session that writes the next handoff)
+
+Research skills, repos and Claude modifications that catch anatomy and physics faults in AI start/end frames automatically (pose
+estimators such as MediaPipe, RTMPose/ViTPose or SMPL body fitting; physical-plausibility checkers; VLM judges; contact and
+penetration tests), compare against what `_shared/framecheck/` already does, and recommend one plan with costs. Deliver it as a
+page or doc for Dan; do not execute it in that session (brainstorm rule).
 If he says no to the clip: B0126 stays (as in round 1) and go straight to step 2.
 
 ## Done in round 2 (do not redo)
@@ -40,7 +52,7 @@ If he says no to the clip: B0126 stays (as in round 1) and go straight to step 2
 1. **Motion (after frame approval):** three takes on Replicate `google/veo-3.1-fast`, `image` + `last_frame`, 9:16, 4 s, no audio,
    $0.40 each. Template: `.claude/skills/longform-edit/reference/ro06/gen_motion.py` (assert each frame's sha256 against the decisions
    file; ledger every call). Pairs: AI1-1 S1 to F2 (walks to the rack, stops, shakes his head); AI1-2 F2 to F3b (finishes the shake,
-   takes out the phone, reads it); AI1-3 F4c_a to F5c_b (glances up from the phone, still smiling, one push of the leg press). Prompts: plain actions, Step 4.5 vocabulary (no camera
+   takes out the phone, reads it); AI1-3 F4h to F5p (lowers the phone to his chest and straightens his legs, a short push along the rails). Prompts: plain actions, Step 4.5 vocabulary (no camera
    or film words), "camera stays still".
    Slots (slot A): AI1-1 39.139 to 41.374 under "when life gets in the way. When you get injured,"; AI1-2 41.374 to 42.509 under
    "use Abs By AI to"; AI1-3 42.509 to 43.443 under "adjust your plan." Trim each take to its best-flowing part; a slight speed-up is
@@ -72,6 +84,6 @@ If he says no to the clip: B0126 stays (as in round 1) and go straight to step 2
 
 > Read `Handoffs/handoff-20261014-ra04-round3-after-frames.md` and `.claude/skills/ad-edit/reference/ra04/README.md`, then run round 3
 > of RA-04 "Top 3 Tips For Getting Abs" (an AD) with /ad-edit. Name this task `Top 3 Tips AD R3`. My answers to the round 2 page:
-> [paste your reply to the 2b page]. Generate the motion for the approved frames, check every take before I see it, and put it in context on a review page.
+> [paste your reply to the 2c page]. Generate the motion for the approved frames, check every take before I see it, and put it in context on a review page.
 
-**Recommended model and effort: Opus 5.5, high.**
+**Recommended model and effort: Opus 5.5, high.** Motion takes from F4h/F5p must keep the sled moving along the rails and the feet on the platform: run `rigid.py` on sampled video frames too.

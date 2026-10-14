@@ -40,6 +40,16 @@
    "sha256": "4051998b79f4fdb2a267e59a1c575f587302c5ceec28c43978574a4a6348b55c",
    "prompt": "round2/frames/prompts/F5c.txt (edit of F4c)",
    "made": "2026-10-14 round 2b"
+  },
+  "F4h": {
+   "path": "round2/frames/F4h.png",
+   "sha256": "f49c75616613b51a49fd65aa8916a21be5a12f0af7bee52c6718350918278a8d",
+   "made": "2026-10-14 round 2c: Codex F4f_c (prompt F4f.txt) + leg-skin filter (r2c_sled.legskin)"
+  },
+  "F5p": {
+   "path": "round2/frames/F5p.png",
+   "sha256": "4e8095cfec446bdd192c1f0f12fd46be84a32dfa8f3b254cbf62e934145b0d07",
+   "made": "2026-10-14 round 2c: r2c_sled.py F4h.png F5i_a.png --t 30 --footfix 625,600,-16,-16,60 (man from Codex F5i_a, prompt F5i.txt; machine and sled from F4h)"
   }
  },
  "shots": {
@@ -56,8 +66,8 @@
    "use Abs By AI to"
   ],
   "AI1-3": [
-   "F4c",
-   "F5c",
+   "F4h",
+   "F5p",
    "42.509-43.4434",
    "adjust your plan."
   ]
@@ -76,12 +86,27 @@
   "F1b_a/F3_a/F5_a": "different camera angle from their pair's other frame",
   "F4b_a/F5b_a": "Dan: plates not loaded like a real leg press, foot on the plates",
   "F4c_b": "plates beside the platform, legs folded",
-  "F5c_a": "plates drift ~40 px against the platform (sled not rigid)"
+  "F5c_a": "plates drift ~40 px against the platform (sled not rigid)",
+  "F4c_a/F5c_b": "Dan 10-14: legs push at ~90 deg to the body (measured 26-43 deg off the rails)",
+  "F4d_b/F5e_b": "review 1: frame top stretched, sled 7 deg off rails, footplate too upright",
+  "F4f_c/F5f_b_locked": "review 2: ghost phone, sled 36-38 deg vs 45, shoes changed, skin texture",
+  "F4f_c/F5g_d_locked": "review 3: footplate slid vs plates, feathered seam, rails jog, face laughing",
+  "F4h/F5h2": "review 4: ghost phone, legs +24 %",
+  "F4h/F5j": "review 5: phantom toe, pillar patch, near foot slid",
+  "F4h/F5m": "review 6: smeared footplate corner (toe-fill caught the rim)"
  },
  "built": {
   "cards_9x16/flow_b.mp4": "25071b27d5c22e0d36591a66ea6bbafb4d76fff88f9fbb69201a6ca10f960102",
   "round2/draft_r2_9x16.mp4": "cdcd88337698319cfa7e2fcaae6da3693ca4b64b16b3e282712135a91c39309e",
   "mix_r2.wav": "62dea6861a358d461a2103867f6bd9b77c4cddbf1ea5e37f52a650ceef403773"
  },
- "spend_usd": 0.0
+ "spend_usd": 0.0,
+ "review_pass": {
+  "pair": [
+   "F4h",
+   "F5p"
+  ],
+  "by": "7th independent subagent 2026-10-14",
+  "note": "optional: footplate lower-left bevel soft (660-703,707-723)"
+ }
 }

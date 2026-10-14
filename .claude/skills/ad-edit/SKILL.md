@@ -304,6 +304,13 @@ or the shorts line.)
 signage, anything in the background that shouldn't be there. Whatever is in the
 reference gets rebuilt as a solid object in the footage.
 
+**Measure every START/END pair for body and physics faults, then have a fresh reviewer check it, BEFORE Dan sees it (Dan,
+2026-10-14: "This is something which should have been caught in quality control. You never should have shown me this").**
+Tools and rules: `_shared/framecheck/README.md` (pose angles and bone lengths, rigid-part tracking, still-pixel lock). A
+person using a machine pushes along the machine's guide, bone lengths match between frames, rigid parts move as one piece,
+nothing appears or vanishes. RA-04's leg press took seven independent reviews; when a machine part must move exactly, build
+the END in code (`reference/ra04/r2c_sled.py`).
+
 **Derive each END frame from its START frame (RA-04 round 2, 2026-10-14).** Pass the start
 frame to `codex-image.sh --image` with "keep the camera position, framing and background
 exactly; change only ...". Frames generated separately from one reference come back from
