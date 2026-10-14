@@ -1,0 +1,32 @@
+{
+ "_rule": "RA-06 round 1: Dan's RA-14 pick (round 3 decisions, 2026-10-14: 'Go with the brighter golden skin, the recommended color'), carried to roll C1664 as a LOOK with RA-05's re-bake for this roll (expo 1.6 here vs 2.4 on C1667). Options C1/C3 and RA-01 shown on the page per the outdoor rule.",
+ "look": "C2_brighter_gold",
+ "params": {
+  "expo": 1.6,
+  "knee": 0.45,
+  "sat": 0.85,
+  "vib": 0.5,
+  "contrast": 0.2,
+  "pivot": 0.46,
+  "skin_rot": 8,
+  "skin_sat": 0.96
+ },
+ "lut": "/Volumes/Extreme/_edit_work/ra06/colour/luts/ra05_C2_brighter_gold.cube",
+ "filter": "lut3d=file=/Volumes/Extreme/_edit_work/ra06/colour/luts/ra05_C2_brighter_gold.cube:interp=tetrahedral",
+ "measured": {
+  "close": {
+   "R1": 78.6,
+   "C1": 77.4,
+   "C2": 90.7,
+   "C3": 90.1
+  },
+  "wide": {
+   "R1": 86.6,
+   "C1": 86.4,
+   "C2": 101.2,
+   "C3": 98.4
+  },
+  "note": "face luma, skin pixels, look/close_*.png and look/wide_*.png"
+ },
+ "previous": "grade_ra01.json (RA-01's approved grade, used by RA-04 on this roll)"
+}

@@ -147,7 +147,7 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 
 **Meal Prep SFC R4 COLOR REVIEW 2026-10-13, Codex.** A/B/C: http://127.0.0.1:8891/. Everything else approved. Next: Dan chooses, apply next round. `Docs/DS28_R4_COLOR_OPTIONS_20261013.md`. No uploads; dispatcher paused.
 
-**RA-06 R1 BUILDING 2026-10-14, Claude.** `/Volumes/Extreme/_edit_work/ra06/`.
+**RA-06 R1 REVIEW 2026-10-14, Claude.** `Handoffs/handoff-20261014-ra06-round2-after-dan-review.md`
 
 **RA-07-R2-REVIEW:8827 2026-10-14.** `handoff-20261014-ra07-fire-your-trainer-round3-after-dan-review.md`
 

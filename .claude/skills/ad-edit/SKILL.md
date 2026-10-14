@@ -1345,6 +1345,14 @@ cut to itself, standing then fallen; Veo bakes hard cuts into takes, found by th
 take hid a stopped-and-restarted sentence that only 8 s re-transcription windows heard (window the whole kept take);
 and a caption sat on the AI clip's punchline (the museum plaque), so check every clip's text against the caption band.
 
+## RA-06: three traps on the 8/28 raw ads (2026-10-14)
+
+Recipe and ten lessons: `reference/ra06/README.md` (the split-screen opener, land-then-hold wired into the render). The three
+that would have shipped a defect: (1) Replicate's large-v3 word times are CONTIGUOUS, so every pause hides inside a word;
+re-time word edges from the envelope (`s02b_patch.py`) before the EDL. (2) Look at what he does after the last word: on
+RA-06 his hands rise 0.7 s later (end hold 0.30 s), and RA-05's planner kept its own `END_HOLD`. (3) `-shortest` on the
+draft mux drops the last frames; mux with `apad -t <total>`.
+
 ## RA-01 lessons — first cut from the 8/28 outdoor portrait rolls (2026-09-18, three-role pipeline)
 
 Built as planner (Fable) → editor (Opus) → independent reviewer (fresh Fable), plan + rulings in

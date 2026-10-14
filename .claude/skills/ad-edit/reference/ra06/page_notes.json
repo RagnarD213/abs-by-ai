@@ -1,0 +1,119 @@
+{
+ "intro": "A paid ad: it ends on \"Tap the button below now to get started\". Vertical 9:16, 45.7 seconds, every line of the script in, nothing cut. The whole ad is shorter than a minute, so the round 1 sample IS the whole ad, finished with the picks below. Not yet gated, audited or delivered: that happens once you answer, together with the 16:9 from the same edit.",
+ "locked": "the cut method, voice chain and music bed from RA-01 (approved 09-18), Soft Blue Light graphics, burned captions, the land-then-hold vertical framing (approved 10-05). From your Cheat Code answers this morning (RA-14): the brighter golden colour, the wider shot pair and the bass lift on your voice are already applied here.",
+ "first30": "Built with your Cheat Code picks. Before you saw it, an independent reviewer watched the first build frame by frame and said it did not ship. I fixed what it found: the vacuum label sat on your head, you walked out of frame at the end of the poses clip, split-screen panels too dark or too bright, captions across your head and then across the toe-touch rep, a 2-frame flicker on the phone, the phone showing a meal on \"workout\", the app's before picture too short (0.8 s, now 1.8 s), a caption saying \"him\" where the audio says \"them\", KEY POINT lines that echoed your words, and two lines you said quietly (\"make your abs real\" and \"An AI trainer can design...\"), now lifted to sit with the rest. A second reviewer confirmed nine of the ten; the last two (the quiet line and the caption placement in the split screen) I fixed and measured after it. Audio gate passes on this file.",
+ "look": "The outdoor rule (your words on RA-14): colour, crop and voice options every first round for an outdoor video. You picked these for the same pool set and the same afternoon on the Cheat Code ad, and this roll matches it, so the recommended option in each row is that pick, already in the ad. Answer only if you want a different one.",
+ "decisions": [
+  {
+   "short": "Look (A keep your Cheat Code picks / B name a different colour, shot pair or voice)",
+   "q": "Colour, shot size and voice: keep your Cheat Code picks?",
+   "body": "<b>A (in the ad): colour C2 brighter gold, shot pair 2 (close 648x1152, wide 810x1440), voice with the bass lift.</b> B: name another one from the sheets and the two voice clips below. Face brightness on this roll: C2 98 close / 96 wide, against 84 and 83 for the RA-01 grade."
+  },
+  {
+   "short": "Claim lines as spoken (A keep all three / B name the line to cut)",
+   "q": "Claim lines: OK to run as spoken?",
+   "body": "Spoken and printed in the captions only; none is in a graphic. (1) \"That's why thousands of guys have FIRED their trainer and replaced him with AI\" at 0:20.0 (the product has about 75 people who ever generated; this is the master list's open question for RA-06, RA-07 and RA-15). (2) \"the generic plans that human personal trainers give you always fail\" at 0:11.3. (3) \"you'll get far better results\" at 0:31.2. <b>A (in the ad): keep all three as filmed.</b> B: name the line to cut. Cutting (1) takes the robot clip with it and makes the ad about 3.5 s shorter."
+  },
+  {
+   "short": "AI clip ideas (yes or no to each: 1 copier / 2 one-size tracksuit / 3 body scan / 4 robot waves goodbye / 5 exercise wheel)",
+   "q": "Five AI clip ideas: yes or no to each?",
+   "body": "Ideas only. For each yes I make START and END frames next round (Codex subscription, $0) and you approve them before any motion is made (ad budget $10, $0 spent). Where you say no, the ad stays as it is now.<br>1. <i>The copier</i> (0:11.3 to 0:15.6, \"the generic plans that human personal trainers give you always fail\"): a bored trainer at a gym desk feeds a photocopier that spits out a tall stack of the same workout sheet; he hands one each, without looking up, to a skinny teenager, a big guy and an older man in a knee brace.<br>2. <i>One-size tracksuit</i> (0:15.6 to 0:20.0, \"giving everyone the same workout plan, not tailoring it specifically for you\"): three very different men stand in a row in the exact same grey tracksuit: the tall one's sleeves stop at his elbows, the short one's legs pool on the floor. They look at each other.<br>3. <i>The body scan</i> (0:06.0 to 0:11.3, \"depends on your body fat, how long you've been training, how strong your abs are\"): an ordinary man stands in a gym while a soft blue scan line passes down him and plain shapes (no lettering) light up on his arms and stomach area, the way the app analyses a photo. Played straight, not a gag.<br>4. <i>Robot waves goodbye</i> (0:41.5 to 0:43.6, \"Fire your trainer and replace him with AI\"): the trainer from the robot clip stands at the gym door with his box; the silver robot cheerfully waves him off with a towel. Same characters as the clip at 0:20, so it pays off the joke.<br>5. <i>Exercise wheel</i> (opener alternative, 0:00 to 0:02.3): a guy in a gym spins a giant game-show wheel covered in exercise pictures; it spins and spins. I recommend keeping the split screen (it is your script's cue and it is real footage of you), so this one is only if you want a gag opener."
+  }
+ ],
+ "decided": [
+  "<b>Takes:</b> the script was read once straight through (5:13 to 5:40 on the roll), then you re-read \"That's why thousands of guys have fired their trainer\" and ran on to the end. I used the first read up to \"specifically for you\" and the re-read from there. An isolated listen of the first read of that line hears \"hired their trainer\".",
+  "<b>Length:</b> 45.7 s with every line in: 13 pauses tightened (4.3 s), nothing cut from the script, 13 s under the 0:59 ceiling.",
+  "<b>Opening:</b> the script's cue, a split screen of your toe touches, stomach vacuum and spiderman plank, all from the same pool shoot (C1682, C1677, C1683), under \"What's the best exercise for getting abs?\", then you on camera by 2.3 s. The spiderman plank is the plank up to a push-up and back, the way you teach it in the spiderman plank short.",
+  "<b>Split screen order:</b> spiderman plank, toe touches, vacuum (top to bottom), so the opening captions cross the vacuum panel at your chest, never your face or a rep. The spiderman plank panel is the plank up to a push-up and back, the way you teach it in the spiderman plank short; the reviewer expected knee-to-elbow, so tell me if you meant that version.",
+  "<b>End:</b> 0.30 s after \"started\": you hold the pose that long, then raise your hands (RA-05 used 0.85 s; here it would show the hands going up).",
+  "<b>Cutaways:</b> \"fired their trainer\" = library clip A0147 (the robot spots the lifter while the fired trainer carries his box), AI-GENERATED on the floor clear of every face; \"An AI trainer can design a workout program\" = the real AI Trainer's Monday workout list (B0034); \"your goals, your body, and your injuries\" = your physique poses from the same pool shoot (B0435), ending before you step out of frame; \"workout and nutrition plan\" = the app's Push-Up sheet (its own AI-GENERATED badge), then the meal analysed to 775 cal (B0544).",
+  "<b>Two KEY POINT lower thirds</b> that sum up rather than repeat you: \"Your Plan Should Fit YOUR Body\" (0:04 to 0:11) and \"Copy-Paste Plans Ignore Your Body\" (0:11 to 0:20).",
+  "<b>Same person before and after:</b> the app demo shows one man throughout: his own photo on the Generating screen, you on camera for 0.9 s, then his result alone (from 28.0 s of the recording, after the banned before/after screen ends). AI-GENERATED on the result.",
+  "<b>Captions:</b> as spoken. Both \"replaced ... with AI\" lines are captioned \"them\": that is what the audio says (the script has \"him\").",
+  "<b>Button:</b> \"Tap The Button Below To / Fire Your Trainer\", from \"Fire your trainer\" to the end. No AbsByAI.com mark (your 10-01 rule).",
+  "<b>Not used:</b> an analysis card. Its Soft Blue version is being built as the shared standard after your Cheat Code answer; idea 3 covers that line if you want a picture there.",
+  "<b>Framing:</b> your locked land-then-hold vertical method. You move a lot in two holds (0:06 to 0:11 and 0:27 to 0:29), so the crop follows you there; elsewhere it barely moves."
+ ],
+ "items": [
+  {
+   "id": "S1",
+   "key": "split",
+   "name": "Split screen: three exercises",
+   "copy": "Labels: Spiderman Plank \u00b7 Toe Touches \u00b7 Stomach Vacuum",
+   "source": "C1683 135.5 s, C1682 16.0 s, C1677 122.0 s (8/28 pool B-roll), C2 look plus a brightness match per panel",
+   "at": 0.5
+  },
+  {
+   "id": "L1",
+   "key": "LT1",
+   "name": "Lower third",
+   "copy": "KEY POINT \u00b7 Your Plan Should Fit YOUR Body",
+   "source": "HyperFrames Motivation lower third",
+   "at": 0.5
+  },
+  {
+   "id": "L2",
+   "key": "LT2",
+   "name": "Lower third",
+   "copy": "KEY POINT \u00b7 Copy-Paste Plans Ignore Your Body",
+   "source": "HyperFrames Motivation lower third",
+   "at": 0.5
+  },
+  {
+   "id": "H1",
+   "key": "fired",
+   "name": "Fired trainer, robot spotter (AI)",
+   "copy": "Chip: AI-GENERATED (on the floor, clear of faces)",
+   "source": "library A0147 (Ad 13), 720x1280 sharpened to 1080x1920",
+   "at": 0.5
+  },
+  {
+   "id": "T1",
+   "key": "tour",
+   "name": "AI Trainer: Monday's workout",
+   "copy": "Real app screen, no label (no AI picture in this part)",
+   "source": "library B0034 0.0 to 3.7 s",
+   "at": 0.5
+  },
+  {
+   "id": "B1",
+   "key": "pose",
+   "name": "Your physique poses (real footage)",
+   "copy": "No label (moving footage of you, not a photo)",
+   "source": "library B0435 from 4.3 s for 2.3 s (he steps out of the crop after that), same pool shoot",
+   "at": 0.5
+  },
+  {
+   "id": "P1",
+   "key": "flow_a",
+   "name": "App: his photo, Generating",
+   "copy": "The man's own upload (not you)",
+   "source": "library B0049 13.0 s, 1.8 s",
+   "at": 0.5
+  },
+  {
+   "id": "P2",
+   "key": "flow_b",
+   "name": "App: his result (AI)",
+   "copy": "Chip: AI-GENERATED",
+   "source": "library B0049 from 28.0 s (after the banned before/after screen)",
+   "at": 0.5
+  },
+  {
+   "id": "T2",
+   "key": "tour2",
+   "name": "App: workout sheet, then the meal analysed",
+   "copy": "Push-Up sheet (the app's own AI-GENERATED badge on the demo video), then the meal photo analysed to 775 cal",
+   "source": "library B0544 6.05 s, then from 2.6 s to 5.2 s",
+   "at": 0.25
+  },
+  {
+   "id": "C1",
+   "key": "CTA",
+   "name": "Button",
+   "copy": "Tap The Button Below To / Fire Your Trainer",
+   "source": "HyperFrames glass button",
+   "at": 0.6
+  }
+ ]
+}
