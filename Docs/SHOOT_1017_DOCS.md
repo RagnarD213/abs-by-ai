@@ -10,13 +10,21 @@ no cold open and no hook takes, and its note line carries the new word count and
 his choice (Dad Bod, Terry Crews, Retatrutide). Edit scripts in the shoot doc from now on; rebuilding a teleprompter from
 it is safe again. Teleprompter documents have no blank lines between paragraphs (Dan, 2026-10-13); the shoot doc keeps them.
 
+**2026-10-14, later: the 13 short form content shorts moved from the dark green backdrop to the pool, and Teleprompter 3
+runs shorts first** (Dan). `tp_from_shoot_doc.py` knows both, so a rebuild keeps them. The 11 outdoor shorts got the copy
+polish: 7 sure fixes typed into Teleprompter 3 and the shoot doc, 9 tracked suggestions in Teleprompter 3 only
+(`Docs/COPYEDIT_1017_OUTDOOR_SHORTS_AS_DELIVERED_20261014.md`). After Dan rules, carry the accepted ones into the shoot doc
+before any rebuild, then import Teleprompters 1 and 3 into PromptSmart (both changed; neither is re-imported yet). One old
+difference: the 5-Minute workout reads "Good. Next up is push-ups" in the shoot doc and "Next up is push-ups" in Teleprompter 3.
+
 | document | what it is for | id |
 |---|---|---|
 | Content Outlines And Scripts For 10/17 SixPackAbs.com Shoot | **The editing copy.** Outlines, filming scripts, every graphic, on-screen text, B-roll and clip cue in place. Editors and edit sessions work from this one. Never strip it. | `1gt8Fi_wUaNaksa8sAdMoBvcdlBhZLek82EpBr-leq-0` |
 | 10-17 Shoot - Teleprompter 0 - Pickups (Record First) | Words only, the 11 pickups for three earlier videos, each printed twice (pickup 6: long version twice, then short version twice). 688 spoken words, 2 pages. Dan records these first. Made 2026-10-13 | `1E9TzRx-gav2qBS07gdLLX3YFvLYWQaqMFJQoUO6g3xs` |
-| 10-17 Shoot - Teleprompter 1 - Dark Green Backdrop | Words only, 21 scripts, 12,437 words, 22 pages | `1esSBLZldEbmSikeESYaXWo6n4vq1h0Qm8AhqB7Mo8cs` |
+| 10-17 Shoot - Teleprompter 1 - Dark Green Backdrop | Words only, the 8 long videos, 10,080 words (the 13 shorts moved to Teleprompter 3 on 2026-10-14) | `1esSBLZldEbmSikeESYaXWo6n4vq1h0Qm8AhqB7Mo8cs` |
 | 10-17 Shoot - Teleprompter 2 - Green Screen | Words only, 23 scripts, 7,421 words with titles after Dan's edits and rulings on 2026-10-13, 14 pages (see the note above; same Drive id) | `1KvL0_IilRCxlofnY5luTfRvjiseGGpGGXU4sAsjbgzQ` |
-| 10-17 Shoot - Teleprompter 3 - Outside By The Pool | Words only, 15 scripts: the 4 follow-along workouts and the 11 outdoor shirtless shorts. 4,873 words, 15 pages (rebuilt 2026-10-13; same Drive id) | `1yc2xg1sG4lTncvcAmkA17SN-JZnQSsbB9Q-fpEbXotg` |
+| 10-17 Shoot - Teleprompter 3 - Outside By The Pool | Words only, 28 scripts, shorts first (Dan, 2026-10-14): the 13 shorts moved from Teleprompter 1, the 11 outdoor shorts, then the 4 follow-along workouts. 7,511 words. 9 tracked suggestions pending on the outdoor shorts (see the note above) | `1yc2xg1sG4lTncvcAmkA17SN-JZnQSsbB9Q-fpEbXotg` |
+| 10-17 Shoot - B-Roll Bullets By Priority | Bullets only, by priority: blocking a video already in editing, needed for this shoot, nice to have. Made 2026-10-14 | `1u0Vackqk6gRUNidfXK-z0P6Pl4olInjPGPSVgVePlKU` |
 | 10-17 Shoot - B-Roll List | Every B-roll shot by set, outdoor first, plus what the Edit Queue is blocked on | `1WPx31kcSsGtPyRmNBRb8fJHKC4ivi8gxl1k16wVizSY` |
 | 10-17 Shoot - Reaction Clips | Every clip Dan reacts to, in teleprompter order, each link opening at the clip's start second: the survivors of the 10-12 cuts plus the 15 reaction shorts added 2026-10-13 (31 links). Two are still marked check by eye: Ronaldo and Chris Bumstead | `1BcRpzDQYNCssROEvg10Z9cOL2AtdvBdyqHwvxxwHtQA` |
 
@@ -54,8 +62,8 @@ The list and the plan for each video are in `Docs/PICKUPS_1017_SHOOT.md`. That f
   Every Ab Exercise From Worst To Best, Reacting To Celebrity Ozempic Transformations, and four Clavicular shorts
   (Looks Matter More Than Personality, Getting Lean Is 70%, Retatrutide, Hair Is Life). The reaction videos were Dan's
   call. The first three were Claude's pick (a picture on screen most of the video) and wait for his word.
-- **Outside by the pool (15):** the 5, 10, 15 and 20 minute follow-along workouts, plus the 11 outdoor shirtless shorts added 2026-10-13.
-- **Dark green backdrop (21):** everything else.
+- **Outside by the pool (28):** shorts first: the 13 short form content shorts (moved 2026-10-14), the 11 outdoor shirtless shorts, then the 5, 10, 15 and 20 minute follow-along workouts.
+- **Dark green backdrop (8):** the 8 long videos. The 13 short form content shorts moved to the pool on 2026-10-14 (Dan).
 
 ## Keeping them in step
 

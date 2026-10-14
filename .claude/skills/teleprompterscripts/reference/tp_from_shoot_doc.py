@@ -38,8 +38,18 @@ SETS = [  # (label for the file name, title prefixes that go here, blank line at
                              "How To Do Towel Rows", "How To Do Reverse Lunges", "How To Do Bodyweight Squats",
                              "How To Do Goblet Squats", "How To Do Overhead Tricep Extensions", "3 Rules For Every Rep",
                              "Why I Only Do 3 Sets", "Why Cables Beat Dumbbells", "Why I Do A Total Body Workout",
-                             "Why I Work Out First Thing", "Why You Must Train Your Abs"), True),
+                             "Why I Work Out First Thing", "Why You Must Train Your Abs",
+                             # the 13 short form content shorts, moved here from the dark green backdrop (Dan, 2026-10-14)
+                             "The Only 2 Exercises You Need", "Why Jump Rope Beats The Treadmill",
+                             "Why I Stopped Drinking Coconut Water", "Why I Sleep At 63 Degrees",
+                             "3 Ways To Lose Fat Without Losing Muscle", "Why Zepbound Is Actually Free",
+                             "The Only 2 Kettlebell Exercises", "The 3 Exercises I'd Do If I Only Had 5 Minutes",
+                             "The Only Ab Exercise That Hits All 4", "Why I Train With A Timer",
+                             "3 Exercises You Can Do In One Commercial Break"), True),
 ]
+# Dan, 2026-10-14: in the pool document the shorts come first (in shoot-doc order), then the long-form workouts.
+SHORTS_FIRST = {"Outside By The Pool": ("The 5-Minute No-Equipment Workout", "10-Minute Jump Rope", "20-Minute Jump Rope",
+                                        "15-Minute Jump Rope")}
 MAX_WORDS = 25000   # Dan, 2026-10-11: at most 50 pages per teleprompter script. With no blank lines a Google Doc of these runs
                     # about 570 words a page (12,615 words = 22 pages, 2026-10-13), so 25,000 words is about 44. A longer set is split in two.
 SEC = re.compile(r'^(LONG FORM|SHORT FORM|B-ROLL SHOT LIST)')
@@ -86,6 +96,8 @@ if __name__ == '__main__':
     S = scripts(P); groups = [[] for _ in SETS]
     for s in S:
         g = next((i for i, (_, pre, _) in enumerate(SETS) if pre and s['title'].startswith(pre)), 0); groups[g].append(s)
+    for i, (label, _, _) in enumerate(SETS):
+        if label in SHORTS_FIRST: groups[i].sort(key=lambda s: s['title'].startswith(SHORTS_FIRST[label]))   # stable
     built = {}; docs = []
     for i, ((label, _, gaps), lst) in enumerate(zip(SETS, groups)):
         wc = lambda s: sum(len(t.split()) for k, t in s['paras'] if k == 'SAY')
