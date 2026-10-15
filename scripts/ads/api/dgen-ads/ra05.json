@@ -1,0 +1,37 @@
+{
+  "campaignId": "24316364155",
+  "label": "RA-05 Real Six Pack Abs",
+  "key": "ra05",
+  "targetCpa": 40,
+  "copyTargetCpaFromAdGroup": "199824307366",
+  "audienceFromAdGroup": "206348100928",
+  "logoAsset": "400941168572",
+  "ctaAsset": "401407635767",
+  "businessName": "Abs by AI",
+  "videos": [
+    {
+      "youtubeId": "PENDING_UPLOAD",
+      "version": "Claude 9:16",
+      "utm": "claude-9x16"
+    }
+  ],
+  "copy": {
+    "headlines": [
+      "How AI Can Get You Real Six Pack Abs",
+      "How AI Got Me Abs",
+      "How I Got Abs At 40",
+      "See Yourself With Your Goal Body",
+      "A Plan Built For Your Goal"
+    ],
+    "longHeadlines": [
+      "Daniel Rose shows how guys are using AI to plan their workouts and meals.",
+      "Here is how AI turns a picture of your goal body into a workout and meal plan.",
+      "Generate a picture of your goal body, then follow a plan built for that goal."
+    ],
+    "descriptions": [
+      "Daniel Rose shows how AI builds a workout and nutrition plan from your goal picture.",
+      "AI fitness coaching explained by a guy who did it at 40 years old.",
+      "See yourself with your goal body, then get a training and meal plan built for it."
+    ]
+  }
+}
