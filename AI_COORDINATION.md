@@ -139,7 +139,7 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 
 **RA-14 POLICY-RECHECK 2026-10-15,Claude.**
 
-**RA-15-R3-BUILDING 2026-10-14.**
+**RA-15-R3-REVIEW:8839:2026-10-15.** `handoff-20261015-ra15-after-dan-review-round3.md`
 
 **RA-04 R4-BUILDING 2026-10-14, Claude.**
 
