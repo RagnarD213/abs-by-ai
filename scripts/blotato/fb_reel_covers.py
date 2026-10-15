@@ -28,6 +28,8 @@ re-run the copy step (see the 2026-09-28 cover installation report) so the live 
 from __future__ import annotations
 
 import argparse
+import hashlib
+from PIL import Image, ImageChops, ImageStat
 import datetime as dt
 import io
 import json
@@ -67,6 +69,19 @@ def preferred(vid: str, tok: str) -> dict | None:
     return None
 
 
+def matches_cover(thumbnail, path):
+    """Facebook rescales landscape thumbnails. Compare the actual image, not dimensions."""
+    if not thumbnail:
+        return False
+    with urllib.request.urlopen(thumbnail["uri"], timeout=30) as response:
+        actual = Image.open(io.BytesIO(response.read())).convert("RGB")
+    expected = Image.open(path).convert("RGB")
+    if abs(actual.width / actual.height - expected.width / expected.height) > 0.03:
+        return False
+    difference = ImageChops.difference(actual.resize((128, 128)), expected.resize((128, 128)))
+    return max(ImageStat.Stat(difference).rms) < 15
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true")
@@ -74,13 +89,27 @@ def main() -> int:
     tok = token()
     config = json.load(open(CONFIG))
     state = json.load(open(STATE)) if os.path.exists(STATE) else {}
-    reels = get(f"{PAGE}/video_reels?fields=id,description,created_time&limit=25", tok)["data"]
+    reels = []
+    page = get(f"{PAGE}/video_reels?fields=id,description,created_time&limit=100", tok)
+    while True:
+        reels.extend(page.get("data", []))
+        next_url = page.get("paging", {}).get("next")
+        if not next_url:
+            break
+        page = get(next_url.split(GRAPH + "/", 1)[1], tok)
     for r in reels:
-        if r["id"] in state:
-            continue
         line = first_line(r.get("description"))
         hit = next((c for c in config if first_line(c["match"]) == line), None)
         if not hit:
+            continue
+        digest = hashlib.sha256(open(hit["cover"], "rb").read()).hexdigest()
+        if state.get(r["id"], {}).get("cover_sha256") == digest:
+            continue
+        before = preferred(r["id"], tok)
+        if matches_cover(before, hit["cover"]):
+            state[r["id"]] = {"caption": line, "cover": hit["cover"], "cover_sha256": digest, "verified_at": dt.datetime.now(dt.timezone.utc).isoformat()}
+            if not a.dry_run:
+                json.dump(state, open(STATE, "w"), indent=1)
             continue
         print(f"{r['created_time'][:16]} {r['id']} {line[:50]} -> {os.path.basename(hit['cover'])}")
         if a.dry_run:
@@ -91,11 +120,11 @@ def main() -> int:
             capture_output=True, text=True).stdout
         ok = '"success":true' in out
         pref = preferred(r["id"], tok) if ok else None
-        good = bool(pref) and (pref["width"], pref["height"]) == (hit.get("w", 1080), hit.get("h", 1920))
+        good = matches_cover(pref, hit["cover"])
         print(f"   set={ok} preferred={pref and (pref['width'], pref['height'])} {'VERIFIED' if good else 'CHECK'}")
         if good:
             state[r["id"]] = {"caption": line, "cover": hit["cover"],
-                              "set_at": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")}
+                              "cover_sha256": digest, "set_at": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")}
             json.dump(state, open(STATE, "w"), indent=1)
     return 0
 

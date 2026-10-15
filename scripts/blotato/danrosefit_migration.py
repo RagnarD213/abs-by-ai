@@ -141,6 +141,12 @@ def api_key() -> str:
 
 
 def call(method: str, path: str, key: str, body=None, retries: int = 4):
+    if method == "POST" and path == "/posts":
+        from cover_guard import assert_video_cover
+        try:
+            assert_video_cover(body or {})
+        except Exception as exc:
+            raise SystemExit(f"REFUSING video without a valid cover: {exc}") from None
     data = json.dumps(body).encode() if body is not None else None
     for attempt in range(retries):
         headers = {"blotato-api-key": key}
