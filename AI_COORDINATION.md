@@ -82,7 +82,6 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 # ACTIVE
 
 **RO-04:R1:2026-10-15:Codex:PREVIEW**
-
 **COVERS:MOBILE:2026-10-15:Docs/COVER_AUDIT_20261015.md**
 
 **SL-08:PICKS:2026-10-14:Codex.**
@@ -142,6 +141,8 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 **RA-05-SETUP-READY 2026-10-14.** `handoff-20261014-ra05-setup.md`
 
 **RA-14 POLICY-RECHECK 2026-10-15,Claude.**
+
+**RA-12:R1-BUILDING:2026-10-15:Claude.**
 
 **RA-15-R3-REVIEW:8839:2026-10-15.** `handoff-20261015-ra15-after-dan-review-round3.md`
 
