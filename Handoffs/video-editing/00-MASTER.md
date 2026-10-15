@@ -50,7 +50,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [RA-13](RA-13-why-do-most-guys-never-get-abs.md) | Why Do Most Guys Never Get Abs? | C1667 | IN PROGRESS | S |
 | [RA-14](RA-14-cheat-code-for-six-pack-abs.md) | The Cheat Code For Six Pack Abs | C1667 | UPLOADED | S |
 | [RA-15](RA-15-never-pay-a-nutritionist-again.md) | Never Pay A Nutritionist Again | C1668 | IN PROGRESS | S |
-| [RA-16](RA-16-ai-took-my-job.md) | AI Took My Job | C1668 | IN PROGRESS | S |
+| [RA-16](RA-16-ai-took-my-job.md) | AI Took My Job | C1668 | DRAFT: asset choices waiting for Dan | S |
 
 ### 1B · Organic: dedicated shorts filmed as shorts (25, 8/28 shoot, vertical)
 
