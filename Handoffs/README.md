@@ -11,6 +11,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Meal Prep SFC R5: approved Color A](handoff-20261014-ds28-round5-approved-color-a-finish.md): apply Clean and balanced to the complete Short; preserve all other approvals. GPT-6 Sol, high.
+
 - [Render gatekeeper](handoff-20261014-render-gatekeeper.md): enforce two builds at a time with file-lock slots; brainstorm risks first. Opus 5.5 high.
 - [Upwork profile and portfolio](handoff-20261007-upwork-profile-and-portfolio.md): interview Dan, verify experience and assets, build and publish the approved profile. Opus 5.5 high.
 - [Upwork jobs and proposals](handoff-20261007-upwork-job-applications.md): interview for criteria and budgets, decide promotion, prepare custom proposals/samples, submit approved batches, assess Grok Bot scouting. GPT-6.1 Sol high.
