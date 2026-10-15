@@ -86,6 +86,7 @@ def matches_cover(thumbnail, path):
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--recheck", action="store_true", help="Compare installed pixels again, including previously verified posts")
     a = ap.parse_args()
     lock = open(STATE + ".lock", "w")
     try:
@@ -109,7 +110,7 @@ def main() -> int:
         if not hit:
             continue
         digest = hashlib.sha256(open(hit["cover"], "rb").read()).hexdigest()
-        if state.get(r["id"], {}).get("cover_sha256") == digest:
+        if not a.recheck and state.get(r["id"], {}).get("cover_sha256") == digest:
             continue
         before = preferred(r["id"], tok)
         if matches_cover(before, hit["cover"]):

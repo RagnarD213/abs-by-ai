@@ -43,6 +43,16 @@ Before queueing, download each YouTube and Instagram cover URL, decode it, verif
 
 A recurring release check requires Dan's schedule confirmation. If no recurring check is active, record the post-release thumbnail check as outstanding in the setup handoff. Do not say the queue alone guarantees the cover.
 
+## Covers on all platforms: enforced preflight and release check (2026-10-15)
+
+Run `python3 scripts/blotato/cover_audit.py` before and after queue work. The shared Blotato client now blocks a new video schedule when YouTube or Instagram lacks a downloadable, decodable cover, YouTube's image exceeds its size limit, TikTok lacks `videoCoverTimestamp: 0`, or Facebook lacks an approved cover in BOTH the repository registry and the live installer. Do not bypass that client with a hand-written request. A photo uses its own image.
+
+Before scheduling Facebook, register the approved cover and exact first caption line in `scripts/blotato/fb_reel_covers.json`, copy the image into `~/.absbyai/fb-reel-covers/covers/`, and sync that registry to `~/.absbyai/fb-reel-covers/fb_reel_covers.json` with the live image paths. Sync the installer script there when changing it. Commit and push source and cover assets. Facebook's API applies a cover after publication, so its preferred thumbnail must then be verified from the actual image. Its installer runs every 20 minutes. `--recheck` compares previously verified posts again. It compares pixels and aspect rather than absolute dimensions, because Facebook rescales landscape covers.
+
+TikTok's timestamp alone is insufficient: inspect the uploaded media's actual first frame against the approved cover before queueing. Direct TikTok uploads follow the same cover requirement. After release, inspect the static grid image rather than the hover autoplay preview. Older TikTok cover problems may require the mobile editor and may be outside its editing window; preserve engagement and report the exact unresolved posts.
+
+The existing `check-youtube-shorts-covers` monitor now checks all four platforms at 9:05, 9:15, 17:05 and 17:15 America/Chicago. Actual public tiles decide success. Do not mark a platform passed from a filename, thumbnail URL, API response or an old ledger entry. Record unobserved or blocked checks honestly. This is verification and repair after release, not a guarantee that a platform will honor its supplied cover on the first attempt. Receipt: `Docs/COVER_AUDIT_20261015.md`.
+
 ## Blotato full? Add the video to the waiting list; one routine queues everything (Dan, 2026-10-11)
 
 When the queue has no room for a video's 4 posts, finish everything else (thumbnail, backups, packaging, media uploaded,
