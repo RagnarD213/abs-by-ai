@@ -1340,6 +1340,14 @@ audio-gate row where `atempo` failed two. A blind AI listener cannot tell stretc
 decide on the gate's measurements. And the old splice crossfade shortened the voice 6 ms per splice; the round 2 `s08_audio.py`
 keeps it exactly as long as the picture.
 
+## RA-05 round 3: a phone picture that Veo animates, and a 16:9 callout clip made vertical (2026-10-14)
+
+Recipe and five lessons: `reference/ra05/round3/README.md`. Veo animates (and degrades) a photo on a phone screen in every take,
+whatever the prompt says: hold it still in code with `reference/ra05/round3/lockscreen.py` (tracks the phone against frame 0, lays
+the APPROVED frame's picture back in). From a celebratory END frame Veo adds a fist pump; "smiles warmly... only his head moves"
+fixed it. Cropping a callout clip to 9:16 cuts its leader lines loose: keep the clip's own lines, trace new ones over them into new
+cards, paint only what the cards hide (painting over skin left seams).
+
 ## RA-15: two traps on the 8/28 raw ads (2026-10-14)
 
 Recipe and twelve lessons: `reference/ra15/README.md` (round 2: Veo cannot drop a rigid cardboard cutout, so a locked-camera take is
