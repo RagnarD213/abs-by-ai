@@ -83,7 +83,7 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 
 **SL-08:PICKS:2026-10-14:Codex.**
 
-**RA-16:R2:LOOK-REVIEW:2026-10-14:Codex.** 8976; R3 handoff.
+**RA-16:R2:LOOK-REVIEW:2026-10-14:Codex.** 8976. Main merge blocked:00-MASTER/jobs/tapir_cpu/tapir_mps. Records pushed.
 
 **RA-13 R2 REVIEW 2026-10-14, Codex.** Both formats delivered. Numerical flags recorded. Next: Dan's review. http://127.0.0.1:8973/
 
