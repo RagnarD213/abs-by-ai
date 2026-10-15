@@ -146,7 +146,7 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 
 **RA-15-R3-REVIEW:8839:2026-10-15.** `handoff-20261015-ra15-after-dan-review-round3.md`
 
-**RA-04 R5-READY 2026-10-15.** `handoff-20261015-ra04-round5-white-guy-generation-and-shorter-end.md`
+**RA-04:R5-BUILDING:2026-10-15:Claude.**
 
 **RO-17-R3-BUILDING 2026-10-14.**
 
