@@ -150,7 +150,7 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 
 **RA-04:R5-BUILDING:2026-10-15:Claude.**
 
-**RO-17-R4-READY 2026-10-15.**
+**RO-17:R4-BUILDING:2026-10-15:Claude.** A10 motion, full film, review.
 
 **RO-14-R1-REVIEW:8964:2026-10-14.**
 
