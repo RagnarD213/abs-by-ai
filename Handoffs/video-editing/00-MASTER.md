@@ -22,7 +22,6 @@ Replaces `Handoffs/handoff-20260913-ad-variants-master-queue.md` (jobs J1–J18)
 | job | the decision |
 |---|---|
 | RA-08 | "Why Are Trainers Going Out Of Business?" was filmed only up to *"Here's how it works"*. Cut a ~30 s version ending on the filmed CTA, or drop it? |
-| RA-16 | "AI Took My Job" opens *"I'm a personal trainer."* That's a deceptive-claim risk on a paid ad. Open on the second line, or keep it as filmed? |
 | DS-15 | "Does Jiu Jitsu Get You Abs?" needs BJJ b-roll that was never filmed. Film it at the academy, use your own archive footage, or use stock? On the shoot list: `Docs/NEXT_SHOOT_LIST.md`. |
 | DS-25 | "How To Do M100s" pulls b-roll from an M100 long-form that was never filmed. RX-01 confirmed 2026-09-18 that no roll anywhere shows the three moves. On the shoot list now: `Docs/NEXT_SHOOT_LIST.md`. Film 30 s of each move, or use stock? |
 | AS-01 | A square for **Zeeshan's** Ad 1, when Muhammad's Ad 1 square is already live. Still wanted? |
@@ -51,7 +50,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [RA-13](RA-13-why-do-most-guys-never-get-abs.md) | Why Do Most Guys Never Get Abs? | C1667 | BLOCKED | S |
 | [RA-14](RA-14-cheat-code-for-six-pack-abs.md) | The Cheat Code For Six Pack Abs | C1667 | UPLOADED | S |
 | [RA-15](RA-15-never-pay-a-nutritionist-again.md) | Never Pay A Nutritionist Again | C1668 | IN PROGRESS | S |
-| [RA-16](RA-16-ai-took-my-job.md) | AI Took My Job | C1668 | **NEEDS DAN** | S |
+| [RA-16](RA-16-ai-took-my-job.md) | AI Took My Job | C1668 | READY | S |
 
 ### 1B · Organic: dedicated shorts filmed as shorts (25, 8/28 shoot, vertical)
 

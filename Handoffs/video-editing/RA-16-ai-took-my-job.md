@@ -1,3 +1,5 @@
+AD. Latest instructions: [R2 handoff, approved cut and voice](../handoff-20261014-ra16-round2-approved-cut-and-voice.md), 2026-10-14. Dan kept the full opening, allowed only two line deletions, authorized acceleration and selected warm voice with added bass. This supersedes the pending decisions and 50.4-second proposal below.
+
 # RA-16 — "AI Took My Job": short-form ad, first cut from raw footage
 
 **List 1 · ad (raw only) · NEEDS DAN (see "This ad's specifics" / "This short's specifics").** Read `00-RULES.md` first. One of 16 short-form ad scripts Dan filmed on 8/28, all in the

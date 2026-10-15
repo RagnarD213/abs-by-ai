@@ -83,7 +83,7 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 
 **SL-08:PICKS:2026-10-14:Codex.**
 
-**RA-16:NEEDS-CHOICES:Codex:2026-10-13.** Review:localhost:8976.
+**RA-16:R2-READY:Codex:2026-10-14.** `Handoffs/handoff-20261014-ra16-round2-approved-cut-and-voice.md`.
 
 **RA-13 R2-READY 2026-10-14.** Headroom fix: `Handoffs/handoff-20261014-ra13-round2-approved-look.md`.
 
