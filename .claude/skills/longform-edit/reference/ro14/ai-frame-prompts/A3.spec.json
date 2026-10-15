@@ -1,0 +1,57 @@
+{
+ "shot": "RO-14 A3 Smashing the piggy bank",
+ "start_frame": "A3-start.png",
+ "intent": "Friday night kitchen table. START: a man in a tropical party shirt, grinning, holds a claw hammer raised over a large pink ceramic piggy bank on the table; an open pizza box with a whole pepperoni pizza and three beer bottles beside it. END: the hammer has come down: the piggy bank lies smashed in pink shards with coins spilled across the table; his right hand still grips the hammer, resting on the table among the shards; his left arm is thrown up in a triumphant fist and he laughs. The pizza and the bottles are untouched.",
+ "hands": {
+  "right": "holds the hammer raised in START; still holds the same hammer, resting on the table, in END",
+  "left": "on the table edge in START; raised in a fist in END"
+ },
+ "may_change": {
+  "table_smash_coins_pizza": [
+   230,
+   690,
+   1220,
+   941
+  ],
+  "opened_bottle_neck": [
+   240,
+   420,
+   340,
+   560
+  ],
+  "hammer_arm_START": [
+   440,
+   400,
+   800,
+   700
+  ],
+  "the_man_and_his_arms": [
+   320,
+   20,
+   1470,
+   830
+  ],
+  "arm_START": [
+   170,
+   0,
+   800,
+   700
+  ]
+ },
+ "bounds": {},
+ "note": "person block left out (legs out of frame, pose visibility under 0.15, so the bone row measures nothing); the person is a declared may_change box and the reviewer judges the body",
+ "still": {
+  "pizza": [
+   1110,
+   700,
+   1650,
+   800
+  ],
+  "bottles": [
+   10,
+   440,
+   330,
+   860
+  ]
+ }
+}

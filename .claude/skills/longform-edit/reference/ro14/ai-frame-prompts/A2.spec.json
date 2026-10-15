@@ -1,0 +1,25 @@
+{
+ "shot": "RO-14 A2 The trash-can nuggets",
+ "start_frame": "A2-start.png",
+ "intent": "Evening family kitchen. START: a slightly heavy dad in a navy tee holds a small blue plastic kid's plate over an open stainless step trash can; on it three chicken nuggets and a few fries. END: the three nuggets are gone from the plate (he ate them), the fries remain; he has the last nugget in his mouth, cheeks full, his other hand at his lips, glancing sideways toward the doorway. The plate is still held over the open bin.",
+ "hands": {
+  "right": "holds the plate over the bin in both frames",
+  "left": "at his side in START; at his mouth in END (just put the nugget in)"
+ },
+ "may_change": {
+  "plate_nuggets": [
+   920,
+   590,
+   1090,
+   750
+  ],
+  "the_dad": [
+   460,
+   0,
+   1000,
+   941
+  ]
+ },
+ "bounds": {},
+ "note": "person block left out (legs out of frame, pose visibility under 0.15, so the bone row measures nothing); the person is a declared may_change box and the reviewer judges the body"
+}

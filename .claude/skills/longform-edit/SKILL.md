@@ -63,6 +63,8 @@ For long-form: full-screen cards, lists and photo displays come from `softblue` 
 > **The 9/23 studio set (2026-09-30):** start from `reference/ro12/` (RO-12, review SHIP): the locked WV-01 look, word-anchored graphics, Gemini restart listen, bed/EQ traps, sliver and side-layout rules. Read its README first.
 > A 9/23 roll edited after 2026-10-14 starts from `reference/ro17/` (RO-17: roll words mapped without a second ASR pass, per-shot hair
 > crop lift, a context clip for every item, named AI pairs with their context on the page, two-at-a-time Codex frames). Read its README.
+> Then `reference/ro14/` (RO-14, 2026-10-14): restarts that medium.en folds into one stretched word (level strip + word patch), the
+> frame gate and reviewer on waist-up AI frames (people as may_change boxes), and the week, study and picture-list cards.
 
 # Editing a longform video from raw shoot footage
 

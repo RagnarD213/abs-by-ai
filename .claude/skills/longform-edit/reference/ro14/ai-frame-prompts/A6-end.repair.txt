@@ -1,0 +1,1 @@
+A6-end v2: v1's END with the front glazed donut (row 2, column 3) restored from START inside a feathered ellipse (1001,827)-(1199,907); the taken slot behind it stays empty as generated
