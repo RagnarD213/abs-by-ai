@@ -1,5 +1,5 @@
 {
- "_note": "RA-15 take map (option A, in the cut). Main take C1668 72.1-130.2 is one unbroken read of every line; the hook is its own last take ('Nutritionists have gone obsolete. AI just took their job.', Dan's on-set rewording of the script's 'Never pay a nutritionist again!'). R1/R2 split drops the hidden restart 'Generate an image of yourself.' (91.0-94.1, confirmed by an isolated re-transcription). R2/R3 split drops a mouth noise after 'twice.' (121.4-121.8).",
+ "_note": "RA-15 take map (option A, in the cut). Main take C1668 72.1-130.2 is one unbroken read of every line; the hook is its own last take ('Nutritionists have gone obsolete. AI just took their job.', Dan's on-set rewording of the script's 'Never pay a nutritionist again!'). R1/R2 split drops the hidden restart 'Generate an image of yourself.' (91.0-94.1, confirmed by an isolated re-transcription). R2/R3: round 1 dropped 121.4-121.8 as 'a mouth noise'; it was the word \"twice\" (round 3 review). Build with EDGE_OVERRIDE=\"R2.end=121.92,R3.start=122.2469\" (README lesson 13).",
  "ranges": [
   {
    "name": "R1",

@@ -87,16 +87,17 @@ if want("enjoy"):      # A0086 man enjoying a steak plate (16:9). Filling the sc
     # the centre square in a card (VIDEO-RULES 2026-10-01). 0.0-2.0 s: he smiles, takes the bite, savours it.
     plate_card("enjoy", [(P["A0086"], float(os.environ.get("ENJ_T", "0.0")), dur("enjoy"))], "crop=1080:1080:420:0")
 if want("lock"):
-    meta["lock"] = {"chip": "AI-GENERATED", "chip_box": fill_card("lock", [(P["A0074"], 0.5, dur("lock"))], "null", chip=("AI-GENERATED", (60, 236)))}
+    meta["lock"] = {"chip": "AI-GENERATED", "chip_box": fill_card("lock", [(P["A0074"], float(os.environ.get("LOCK_T", "0.0")), dur("lock"))], "null", chip=("AI-GENERATED", (60, 236)))}
 if want("flow"):
     # B0049: the man's own photo being refined (13.0 s), then HIS result alone from 28.0 s (the banned "Meet the new you"
     # before/after screen runs to about 27.6 s). The crop ends above the email form.
     d = dur("flow"); a = min(1.6, d * 0.45)
-    plate_card("flow", [(P["B0049"], 13.0, a), (P["B0049"], 28.0, d - a)], "crop=1320:1600:0:170")
-if want("macro"):      # B0035: the camera photographs a chicken-and-broccoli plate, Analyze Meal returns the itemized breakdown
-    # 2 fps strip: camera 0-1.5 s (shutter at 1.5), Retake/Use Photo 2.0-3.0, the app with the photo 3.5, results from 4.0 to the end
-    d = dur("macro"); a = min(1.3, d * 0.38); b = 0.5
-    plate_card("macro", [(P["B0035"], 0.4, a), (P["B0035"], 3.5, b), (P["B0035"], 4.0, d - a - b)], "null")
+    plate_card("flow", [(P["B0049"], 13.0, a), (P["B0049"], 28.0, d - a)], "crop=1320:1600:0:205")   # round 3: y 205 clears the app header text "Your future self" (ends y ~192; review D3), and ends above the email form (y ~1832)
+if want("macro"):      # Round 3 (Dan, 2026-10-14: "Get me that salmon meal ... in the meal photo and the macros"): B0038, the salmon plate.
+    # 5 fps strip: 0.0-1.4 s the plate photo in the Macro Tracker, 1.6 Analyze Meal, 2.2-2.8 "Analyzing your meal", from 2.8 the
+    # itemized 775 cal result, still to about 8.6 s. Crop 538x1016 at (18, 32) = the screen inside the recording's drawn bezel.
+    d = dur("macro"); a = 0.55; b = 0.25
+    plate_card("macro", [(P["B0038"], 0.0, a), (P["B0038"], 2.2, b), (P["B0038"], 2.8, d - a - b)], "crop=538:1016:18:32")
 if want("analysis"):
     import analysis_card as AC, cardlib as L
     if os.environ.get("ANALYSIS") != "olive":

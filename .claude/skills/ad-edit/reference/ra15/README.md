@@ -63,3 +63,44 @@ Dan's round 1 picks: `round2-plan/decisions.json` in the work dir. Round 2 page 
    sat on the fridge man's head.
 12. **The punchline can land in the caption band again** (lesson 5): the fallen cutout's face lay at y 1380-1550. Lines that
    START inside that card are lifted whole to y 1215 (`LIFTS` in `s07_captions15.py`), never mid-line.
+
+## Round 3: the full build, both masters (2026-10-14)
+
+Dan's round 2 answer: `round3-plan/decisions.json` in the work dir (the three AI clips approved; the macro card shows the salmon meal B0038).
+Scripts: `round3/` here (work-dir copies of everything that changed). Order:
+
+| # | command | makes |
+|---|---|---|
+| 1 | `HEAD_SRC=72.06 EDGE_OVERRIDE="R2.end=121.92,R3.start=122.2469" python3 s03_edl.py` | `cut.json` with "twice" back in (lesson 13) |
+| 2 | `round3/r3_twice_a.sh` | cut audio, V2 chain (same EQ), CTC words, head track, hold starts (incl. the end hold), plan |
+| 3 | `round3/s_analysis.py` | the Soft Blue HyperFrames analysis card, 9:16 and 16:9 |
+| 4 | `round3/r3_twice_b.sh` | `gfx15.py`, `gfx16.py` (16:9 via `hv16.py`), cards both shapes, captions, pictures, frame-locked mix, masters |
+| 5 | `round3/r3_measure.sh KEY master`, `s20_neg.py`, `round3/s_chips15.py`, `round3/s_gateplan15.py KEY master` | CTC + Whisper + junk on the delivered file, chips, gate plan |
+| 6 | `watch.py` + judge, `gate.py --format ad9x16 / ad16x9`, `round3/s_sheet15.py <16x9 master>` | stamps, edit sheet |
+
+13. **A word Whisper times early can be cut as "a mouth noise".** Round 1's take map dropped "121.4-121.8, a mouth noise after
+    'twice.'": it WAS "twice" (envelope 121.42-121.87; an isolated medium.en pass hears " twice."). Whisper on the delivered file
+    heard "sees you start with a picture" for two rounds and nobody read it. Before calling a span junk, transcribe it ALONE, and read
+    the delivered-file transcript against the script line by line. The independent reviewer caught it.
+14. **A clip with no frames left is never slowed or held to fill a slot.** "twice" added 0.62 s and I5 take 1 ends at frame 143, so
+    the cutout card keeps its length and Dan says "twice." on camera (0.64 s, NEAR) before the lock card.
+15. **B0038 carries its own drawn phone bezel.** Crop it to the screen (538x1016 at 18, 32) and let the media-card plate be the only
+    frame; the plate's 44 px corner radius covers the recording's ~22 px screen corners. 640 wide ends at y 1376.
+16. **`s04b_holdstart.py` copied from RA-14 still imported RA-14's `ra01lib` (its roll)**; point it at the job's own lib. RA-15's
+    planner never read `framing_holdstart.json` until round 3, and nothing sampled the END HOLD, so the last second's crop could not
+    follow him (his elbow left the frame). `s04b` now samples the end hold every 0.1 s.
+17. **Land-then-hold on this roll: RA-14's settings panned visibly.** 170 px/s with a 20 px band moved 163 px un-eased at 7.54 s
+    (independent judge). `TRACK=70,52,10` in `s05_plan15.py` (70 px/s, 52 px band per 608, Gaussian ease 10 frames, landing frame
+    pinned): two holds move at all, max 82 px/s, every hold's median within 4.3 % of centre.
+18. **16:9 from a 9:16-first build.** `hv16.py` loads `vertical.py` at 1920x1080 (as `square.py` does); lower thirds land on the
+    approved 16:9 box (bottom 1016), so captions LIFT whole lines above them (`s07_captions.py` 16:9 block); a line that starts in a
+    card and runs into a strip is clipped at the strip's first frame, a lifted line that runs into a card at the card's; a line that
+    can do neither (LT2 into the fridge card) ends the strip a frame before it. Vertical clips go full height (852 px) in a
+    media-card plate with the chip beside the hole.
+19. **`framing:no_wide_level` on a portrait roll in 16:9.** His head is 270-296 px here, so 2144x1206 / 1888x1062 read 22.6-26.6 %
+    (needs 27 %). FAR 1696x954, NEAR 1504x846 (`ra01lib.Aspect("16x9")`).
+20. **The 16:9 CTA goes where his arms are not, measured on the delivered picture.** Bottom left (RA-01's spot) worked at the wide
+    windows and failed at the tight ones (arm inside the box on 53 of 66 frames); upper left beside the shoulder (x 60-641, y 296-416).
+21. **The shared edit-sheet writer's ad path is RA-01's** (every card Dan with physique, adkit graphics); `round3/s_sheet15.py` writes
+    the same schema from this build with the real people / physique / labels. `validate.py` now accepts `analysis-card`.
+22. **`buildcap.wait()` crashed on a process with an empty command line and the caller ran unthrottled** (fixed in `_shared`).

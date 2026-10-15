@@ -56,6 +56,7 @@ t_every= at("every single meal", after=t_three)
 t_eat  = at("eating at a restaurant", after=t_every)
 t_anut = at("a nutritionist charges", after=t_eat)
 t_start= at("start with a picture", after=t_anut)
+t_twice= at("twice", after=t_anut)
 t_tap  = at("tap the button below", after=t_start)
 t_togen= at("to generate", after=t_tap)
 t_and  = at("and to get", after=t_tap)
@@ -72,9 +73,12 @@ CARDS = [
  # ROUND 2 (Dan, 2026-10-14: "yes to all four ideas except for the cleared-out idea"): I2 replaces the A0017 factory
  {"name": "fridge",   "kind": "clip",  "beat": [snap_to(t_not, SPL, 0.2), snap_to(t_plan, SPL, 0.2)], "asset": "I2", "chip": "ai"},
  {"name": "enjoy",    "kind": "clip",  "beat": [snap_to(t_plan, SPL, 0.2), snap_to(t_three, SPL, 0.2)], "asset": "A0086", "chip": "ai"},
- {"name": "macro",    "kind": "phone", "beat": [snapf(t_every), snapf(t_eat)],                        "asset": "B0035", "chip": None},
+ {"name": "macro",    "kind": "phone", "beat": [snapf(t_every), snapf(t_eat)],                        "asset": "B0038", "chip": None},
  {"name": "restaurant", "kind": "clip", "beat": [snapf(t_eat), snap_to(t_anut, SPL, 0.2)],            "asset": "I4", "chip": "ai"},
- {"name": "cutout",   "kind": "clip",  "beat": [snap_to(t_anut, SPL, 0.2), s_start],                  "asset": "I5", "chip": "ai"},
+ # ROUND 3 (review D1): "twice" is back in the cut (+0.62 s). I5 take 1 has no frames left after shot B (take frame 143 is its last), and
+ # a clip is never slowed or held to fill a slot, so the card ends where its frames do (just before "twice") and Dan says "twice." on
+ # camera; the lock card still starts on the R2|R3 seam.
+ {"name": "cutout",   "kind": "clip",  "beat": [snap_to(t_anut, SPL, 0.2), min(t_twice - 0.03, snap_to(t_anut, SPL, 0.2) + 3.54)], "asset": "I5", "chip": "ai"},
  {"name": "lock",     "kind": "clip",  "beat": [s_start, snapf(t_togen)],                             "asset": "A0074", "chip": "ai"},
 ]
 # Round 1 ideas, all decided by Dan on 2026-10-14: I1 rejected (A0016 stays), I2/I4/I5 placed above as fridge/restaurant/cutout.
@@ -151,6 +155,8 @@ for gi, (a, b) in enumerate(gaps):
             segs[-1][1] = cuts[i+1]
 
 SAM = TRK["samples"]
+if os.path.exists("framing_holdstart.json"):          # ROUND 3 (RA-14 round 2 lesson 6): one measurement on the exact first and last frame of each hold
+    SAM = sorted(SAM + json.load(open("framing_holdstart.json"))["samples"], key=lambda x: x["t"])
 def hold_stats(a, b):
     s = [x for x in SAM if a - 0.26 <= x["t"] <= b + 0.26]
     if not s: s = SAM
@@ -239,7 +245,7 @@ for i, (a, b) in enumerate(segs):
 # at every zoom cut. Round 3 gives every 16:9 NEAR hold its neighbouring FAR hold's MEASURED centre,
 # so the two levels share a centre line and the cut is a pure zoom. (9:16 is unaffected: there the
 # FAR window is 702 px of 2160 and both levels are centred on him.)
-W16 = {"NEAR": 1888, "FAR": 2144}
+W16 = {"NEAR": 1504, "FAR": 1696}      # ROUND 3: = ra01lib.Aspect("16x9").levels widths (the no-wide-level gate row)
 
 
 def x16(cx, level):
@@ -288,6 +294,45 @@ for i, it in enumerate(_items):
 FRAMES = {it["name"]: it["n"] for it in _items}
 for c in CARDS: c["frames"] = FRAMES[c["name"]]
 for i, p in enumerate(punch): p["frames"] = FRAMES[f"dan{i:02d}"]
+
+# ------------------------------------------------------------------ ROUND 3: land, then hold (Dan, 2026-10-03, locked 10-05)
+# round3/landing_check.json measured his head 3.5-16.5 % of the crop width off the fixed centre in 6 of 8 holds. The 9:16 crop
+# now lands on his measured head centre at each cut, holds inside the dead band, and follows only when he leaves it, through
+# _shared/cut/landing.py with RA-14 round 3's settings (approved 2026-10-14). One centre per output frame of the hold in
+# punch[i]["track"]; s10_render05.py crops from it. The 16:9 keeps its fixed cx16 (horizontal stays static, 2026-09-17).
+sys.path.insert(0, "/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared/cut")
+import landing
+_sn = np.array([frx(x["t"]) for x in SAM]); _sx = np.array([x["cx"] for x in SAM], float)
+_o = np.argsort(_sn, kind="stable"); _sn, _sx = _sn[_o], _sx[_o]
+_u = np.concatenate([[True], np.diff(_sn) > 0]); _sn, _sx = _sn[_u], _sx[_u]
+_hold = {it["name"]: it for it in _items if it["kind"] == "dan"}
+for lvl in ("NEAR", "FAR"):
+    idx = [i for i, p in enumerate(punch) if p["level"] == lvl]
+    if not idx: continue
+    segs_l = [{"n0": _hold[f"dan{i:02d}"]["f0"], "n1": _hold[f"dan{i:02d}"]["f1"]} for i in idx]
+    # ROUND 3 b (watch-pass judge, 2026-10-14): RA-14's settings (170 px/s, 20 px band) panned 163 px at 7.54 s and 120 px at 25.69 s
+    # with no easing. A slower follow, RA-14's 6.6 % hold band and a Gaussian ease inside each hold, the landing frame kept exact.
+    _SL, _TOL, _SIG = (float(v) for v in os.environ.get("TRACK", "170,20,8").split(","))
+    n_all, x_all, _info = landing.track(_sn, _sx, segs_l, slope_px_s=_SL*CW[lvl]/608, k=3, fixed_under=_TOL*CW[lvl]/608,
+                                        fps=FPSX, tolerance=_TOL*CW[lvl]/608)
+    n_all, x_all = np.asarray(n_all), np.asarray(x_all)
+    for i, sg in zip(idx, segs_l):
+        m = (n_all >= sg["n0"]) & (n_all < sg["n1"])
+        fr_ = np.arange(sg["n0"], sg["n1"])
+        cxf = np.interp(fr_, n_all[m], x_all[m]) if m.sum() > 1 else np.full(len(fr_), float(x_all[m][0]) if m.any() else punch[i]["cx"])
+        if _SIG > 0 and len(cxf) > 3:
+            _k = np.arange(-3*int(_SIG), 3*int(_SIG)+1); _w = np.exp(-_k**2/(2*_SIG**2)); _w /= _w.sum()
+            _c0 = cxf[0]; cxf = np.convolve(np.pad(cxf, (len(_k)//2, len(_k)//2), mode="edge"), _w, "valid")
+            cxf = cxf - (cxf[0] - _c0)*np.exp(-np.arange(len(cxf))/_SIG)          # the landing frame stays exactly on him
+        cxf = np.clip(cxf, CW[lvl]/2, 2160 - CW[lvl]/2)
+        head = np.interp(fr_, _sn, _sx)
+        p = punch[i]; p["cx_fixed_r2"] = p["cx"]
+        p["track"] = [round(float(v), 2) for v in cxf]; p["cx"] = round(float(cxf[0]), 1)
+        off = np.abs(head - cxf)/CW[lvl]*100; sp = np.abs(np.diff(cxf))*FPSX if len(cxf) > 1 else np.zeros(1)
+        p.update(track_travel_px=round(float(np.abs(np.diff(cxf)).sum()), 1), landing_err_px=round(float(abs(head[0] - cxf[0])), 1),
+                 off_centre_pct_med=round(float(np.median(off)), 2), off_centre_pct_max=round(float(off.max()), 2),
+                 pan_p90_px_s=round(float(np.percentile(sp, 90)), 1), moving_frac=round(float((sp > 5*CW[lvl]/608).mean()), 3),
+                 off_centre_pct_signed_med=round(float(np.median((head - cxf)/CW[lvl]*100)), 2), track_max_px_s=round(float(sp.max()), 1), track_settings=[_SL, _TOL, _SIG])
 
 CTA = [[s_tap, TOTAL]]
 _hb = {round(p["beat"][0], 3) for p in punch} | {round(p["beat"][1], 3) for p in punch}

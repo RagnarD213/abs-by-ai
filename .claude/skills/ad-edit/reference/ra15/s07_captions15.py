@@ -124,6 +124,36 @@ for s in states:
     s["line_t0"] = _cur
 for s in states:
     s["cap_y"] = next((y for a0, b0, y in LIFTS if a0 <= s["line_t0"] < b0), A.CAP_Y)
+# ROUND 3, 16:9: the lower thirds sit at the bottom of the frame (approved 16:9 box, top ~840) over the caption band (930-1040), so a
+# line that is on screen at any moment a lower third is up is lifted WHOLE above the strip (standing rule 2026-09-02: captions never
+# overlap a graphic; lift, never mid-line). The lift is measured from the rendered strip's box (hf16/manifest.json) and the ink's own
+# height incl. the 9 px shadow blur, with 24 px to spare.
+if KEY == "16x9":
+    _man = json.load(open("hf16/manifest.json"))
+    _ink_h = sum(F.getmetrics()) + 12          # cap_y is the top of the ascent box; the ink and its blur end by ascent+descent+12
+    _lts = [(m["a"], m["b"], m["box"][1]) for m in _man if m["template"] == "lower-third"]
+    _lines = {}
+    for s in states: _lines.setdefault(s["line_t0"], []).append(s)
+    _cards = [tuple(c["beat"]) for c in B["cards"]]
+    for t0, ss in _lines.items():
+        a1, b1 = ss[0]["beat"][0], ss[-1]["beat"][1]
+        hit = [(a0, b0, top) for a0, b0, top in _lts if a1 < b0 and b1 > a0 - 0.02]
+        if not hit: continue
+        if any(ca <= a1 < cb for ca, cb in _cards):
+            # the line STARTS in a card (it sits on the field under the card) and runs into a strip: not lifted; its held state ends on
+            # the strip's first frame (RA-14 round 3 lesson 5: clip at the hand-over, never lift mid-line)
+            la = min(a0 for a0, _, _ in hit)
+            assert all(s["beat"][0] < la for s in ss), ("a word starts under the strip", t0)
+            for s in ss: s["beat"][1] = min(s["beat"][1], snapf(la))
+            continue
+        y = min(top for *_, top in hit) - 30 - _ink_h      # 30: the gate measured 19 px at 24 (min 20)
+        for s in ss: s["cap_y"] = y
+        # a lifted line that runs on into a card stops on the card's first frame (the card's picture sits where the lift puts it)
+        for ca, cb in _cards:
+            if a1 < ca < b1:
+                assert all(s["beat"][0] < ca for s in ss), ("a word starts inside the card", t0)
+                for s in ss: s["beat"][1] = min(s["beat"][1], snapf(ca))
+    print("16:9 lifts:", sorted({(round(t0, 2), ss[0]["cap_y"]) for t0, ss in _lines.items() if ss[0]["cap_y"] != A.CAP_Y}))
 for s in states:
     BASE = s["cap_y"] + F.getmetrics()[0]
     words = s["line"].split(" ")
@@ -159,15 +189,19 @@ for si, st in enumerate(states):
     f0 = max(0, min(TOTALF-1, f0)); f1 = max(f0+1, min(TOTALF, f1))
     for f in range(f0, f1): frame_state[f] = si
     st["beat"] = [round(f0*FD, 6), round(f1*FD, 6)]      # the beat IS the rendered frame span
-with open(f"{OUT}/list.txt", "w") as f:
-    for i in range(TOTALF):
-        p = states[frame_state[i]]["image"] if frame_state[i] is not None else os.path.abspath(blank)
-        f.write(f"file '{p}'\nduration {FD:.6f}\n")
-    last = states[frame_state[-1]]["image"] if frame_state[-1] is not None else os.path.abspath(blank)
-    f.write(f"file '{last}'\n")
-subprocess.run([L.FF, "-nostdin", "-v", "error", "-y", "-f", "concat", "-safe", "0",
-                "-i", f"{OUT}/list.txt", "-r", "30000/1001", "-frames:v", str(TOTALF),
-                "-c:v", "qtrle", "-pix_fmt", "argb", f"{OUT}/captions.mov"], check=True)
+# ROUND 3 (review): the concat list's rounded 0.033367 s durations drift against the exact frame grid, and a held state ran one frame onto
+# the macro card at 35.536 s (16:9). The track is now written frame by frame from frame_state, so frame g shows exactly state frame_state[g].
+_cache = {}
+def _rgba(p):
+    if p not in _cache:
+        if len(_cache) > 40: _cache.clear()
+        _cache[p] = Image.open(p).convert("RGBA").tobytes()
+    return _cache[p]
+_enc = subprocess.Popen([L.FF, "-nostdin", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgba", "-s", f"{A.VW}x{A.VH}", "-framerate", "30000/1001",
+                         "-i", "-", "-c:v", "qtrle", "-pix_fmt", "argb", f"{OUT}/captions.mov"], stdin=subprocess.PIPE)
+for i in range(TOTALF):
+    _enc.stdin.write(_rgba(states[frame_state[i]]["image"] if frame_state[i] is not None else os.path.abspath(blank)))
+_enc.stdin.close(); assert _enc.wait() == 0
 # an SRT sidecar describing the LINES (what captions:card_collision and captions:within_runtime read)
 def ts(x):
     h = int(x//3600); m = int(x % 3600//60); s = x - h*3600 - m*60

@@ -17,6 +17,8 @@ for c in ([] if os.environ.get('PLATES_ONLY') else B["lt"]):
     print(c["id"], meta, flush=True)
 if not os.environ.get('PLATES_ONLY'):
     a, b = B["cta"][0]
+    # round 3 (review): in the 9:16 the button would build over the abs of the AI picture on the lock-screen card; it starts as the card ends
+    a = max(a, next(c["beat"][1] for c in B["cards"] if c["name"] == "lock"))
     scenes, meta = V.cta_scenes("CTA", b - a, *CTA_COPY, hold_out=True)
     V.build(scenes, OUT, render=True, snap=max(0.5, b - a - 0.6))
     man.append(dict(id="CTA", template="cta", a=a, b=b, canvas=V.CANVAS, copy=CTA_COPY,
@@ -28,7 +30,9 @@ if not os.environ.get('PLATES_ONLY'):
 # Round 1 self-check: a phone that ran down behind the captions put white words on the app's white screens and a caption
 # across the result picture's abs. Every card now ENDS ABOVE the caption line (y 1376), so the words sit on the field.
 # Round 2: the factory card is gone (I2, the fridge, fills the frame in its slot); macro is rebuilt at its new 1.50 s length.
-PL = {"flow": (1320/1600, "AI-GENERATED", 888), "macro": (660/1434, None, 480), "enjoy": (1.0, "AI-GENERATED", 860)}
+# Round 3: macro is B0038 (the salmon meal, Dan 2026-10-14), cropped to its own screen (538x1016: the recording carries a drawn
+# phone bezel that the plate already provides). 640 wide is as large as fits with the hole ending above y 1376.
+PL = {"flow": (1320/1600, "AI-GENERATED", 888), "macro": (538/1016, None, 640), "enjoy": (1.0, "AI-GENERATED", 860)}
 by = {c["name"]: c for c in B["cards"]}; plates = {}
 for name, (ar, label, mh) in PL.items():
     n = by[name]["frames"]
