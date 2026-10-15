@@ -1470,6 +1470,32 @@ Recipe: `reference/ra07/round2/` (s70 plan, s75 clips, s83 phone cards, s86 asse
 5. **`s82_holds.py` concat dies on a zero-frame span** when a piece edge rounds onto a hold start: filter `b > a`.
 6. Real-ESRGAN is not installed on this Mac; the gemini_listen helper's default model is retired (`GM=gemini-3.1-pro-preview`).
 
+## RA-07 round 3 lessons: machine clips, carried takes and gate evidence (2026-10-14)
+
+Recipe: `reference/ra07/round3/` (s70r3 plan with I2/I3B/I4B camera switches, s75r3 clips with per-clip chip spots, s86r3/s88r3,
+s91_tail07, s92r3 chips, s93r3 gate plan, s96_ctc1 alignment, gen_motion3, lock_tone, s87r3 page).
+
+1. **Gym-machine frames are where the image model fails, and the frame reviewer catches it every time.** Lateral raise: twelve
+   arms-up frames failed (Codex puts the lever pivots beside the neck, so the pads would slide off the arms). What passed: the START of
+   the rep, arms down, levers hidden behind the upper arms, pads on the outside of the elbows, handle brackets drawn in. Hack squat: ten
+   frames failed (wedge or shelf foot platform, plates welded to the rail, kinked rails, a seat ledge, two handles per fist). Budget
+   machine frames at several review rounds, and prefer a pose that hides the joint the model gets wrong.
+2. **Rep takes from a single frame do not rep.** start = end gave a still; start-only gave a rep where the FOOT PLATFORM rode up with
+   him (a leg press). The take from the client's approved START/END pair passed only for its walk-on part (it bakes a cut at 2.9 s).
+3. **Fix one area of a passing frame by pasting, never by a whole-frame edit.** A Codex "relax the face" edit redrew the machine too;
+   pasting only the face (feathered ellipse, phase-correlated) passed. `lockstill.py` leaves a tone step where START's person stood:
+   `reference/ra07/round3/lock_tone.py` shifts the fill by the smooth START-minus-END field and feathers 15 px; force a box over the
+   frame edge, where the segmenter misses a cut-off sleeve.
+4. **Carried takes go through clipcheck and a fresh reviewer too, before you build.** I2 had been on Dan's round 2 page with no
+   objection; under the 10-14 rule its reviewer found a phantom shoe (f0-8), a ghost head (f9-10) and a paper stack turning to cloth
+   (f33 on), leaving 0.9 s clean, under the 1.2 s floor. Run the take reviews first, not after the full render.
+5. **Caption-sync evidence: one CTC window over the whole file.** Whisper's delivered word times ran about 180 ms late; windowed CTC
+   handed words the previous word's audio at window edges ("lose" onto "goal,"); a single window over a 53 s ad put every word on its
+   audio. Spell numbers out ("20" had no tokens and shifted its neighbours). `reference/ra07/round3/s96_ctc1.py`.
+6. **A card with a slow push moves its label chip.** Declare one chip reference per 9-frame window, scaled and placed by the push
+   (`s93r3_gateplan.py`, K1), or `compliance:labels` reads it as missing.
+7. **Codex image saves fail intermittently with three or four jobs at once.** Run two at a time and retry a missing file.
+
 ## RA-14 round 2 lessons: colour and framing on the 8/28 pool rolls (2026-10-13)
 
 Dan on round 1, which reused RA-01's grade and framing rule on roll C1667: "both are a little bit too tight" and "we can
