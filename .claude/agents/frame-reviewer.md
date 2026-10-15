@@ -20,7 +20,11 @@ me this").
   achieve it.
 - **The gate's evidence sheet and JSON** (`<END>.framecheck.jpg`, the stamp `<END>.framecheck.json`). The gate only
   measures what the spec declares. It is a second opinion, not your answer.
-- For a motion take instead of a pair: the take, and sampled frames (first, last, and about every 0.25 s).
+- For a motion take instead of a pair: the take (and the frame range the edit uses), the spec, and `clipcheck.py`'s evidence:
+  `clipcheck/<take>.fA-B.clipcheck.jpg` next to the take (first and last frame with every point lost in place or come from nowhere, and a strip of crops
+  across each event), the stamp `<take>[.fA-B].clipcheck.json`, and the folder of sampled frames every 0.25 s
+  (`clipcheck/<take>.fA-B.frames/`). The tracker only sees what vanishes, appears, slips or drifts; it does not judge anatomy,
+  hands, cause and effect or whether the clip shows the line.
 
 ## How to review
 
@@ -80,6 +84,7 @@ measured evidence. Name your scratch files that show each fault. Then exactly on
 and, for FAIL, a numbered list of exactly what must change. Be strict but fair: report only what a viewer could notice
 at full resolution or at playback speed; a minor flaw you would still ship goes under the verdict as "optional".
 
-Then record it: `python3 .claude/skills/_shared/framecheck/gate.py START END --review <your review file>`. Your final
+Then record it: `python3 .claude/skills/_shared/framecheck/gate.py START END --review <your review file>`, or for a motion
+take `python3 .claude/skills/_shared/framecheck/clipcheck.py TAKE [--frames A:B] --review <your review file>`. Your final
 message repeats the VERDICT line and the must-change list. Do not fix anything, regenerate anything, or edit any other
 file.
