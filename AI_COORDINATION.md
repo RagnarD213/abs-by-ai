@@ -147,7 +147,7 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 
 **Ad 6 remarketing 2026-10-04:** Awaiting Dan: copy to enabled campaign 24305381214?
 
-**Meal Prep SFC R5 BUILDING 2026-10-15, Codex.** Color A only. Preserve all other approvals. Next: complete render and independent review. Work: `/Volumes/Extreme/_edit_work/ds28/round5/`. Dispatcher paused.
+**Meal Prep R5 BUILDING 2026-10-15,Codex.** Color A. Next:review. Dispatcher paused.
 
 **RA-06 R3-REVIEW 2026-10-14.** :8837
 
