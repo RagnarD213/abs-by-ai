@@ -94,6 +94,32 @@ lower third re-rendered), `r3_context.py` (context preview over the round 2 base
 21. **Shot choice by the prop, not only the physics.** Both leg press takes passed the sled checks; take A's phone smeared as he turned
     it to his chest, take B holds it flat and sharp the whole push.
 
+## Round 4 (2026-10-14): the full 9:16 and 16:9
+
+Scripts in `round4/`: `r4_home.py` (home card re-timed), `r4_track.py` (land-then-hold track + per-hold level and track overrides,
+writes `beats.json`), `s10_render04r4.py` (RA-15's render with the tracked strip and the input seek, RA-04's grade), `gfx16_04.py` +
+`hv16.py` + `s06_inserts16_04.py` (the 16:9 graphics and cards), `r4_plate9.py`, `cta16_check.py`, `r4_measure.sh`, `s_chips04.py`,
+`s_gateplan04.py`, `s_sheet04.py`, chains `r4_chain*.sh`.
+
+22. **Measure the drift before keeping fixed 9:16 crops.** On C1664 his head drifted 3.5-20.8 % of the crop width off the fixed centre in
+    11 of 14 holds. The standard track (20 px band per 608, 170 px/s, Gaussian ease) keeps every hold's median within the gate's 6 %;
+    RA-15's slower 70/52 left four holds at 6-12 %. Calming a follow by slowing it only moves him off centre. Two levers that work: a
+    hold with a card on BOTH sides can go FAR (no zoom cut to keep), and a long hold under the CTA can take a wider band (dan14: 100 px/s,
+    35 px, sigma 12). `r4_track.py` HOLD_LEVEL / HOLD_TRACK.
+23. **The caption concat list put every caption change ONE FRAME LATE** (`duration 0.033367` is longer than 1001/30000; 217 of 217
+    changes late). Harmless on a word, a defect where a lifted 16:9 line is clipped at a card's first frame (the caption sat on the card
+    picture for one frame). `s07_captions.py` now writes one symlink per frame and encodes an image sequence at 30000/1001. The
+    `seq/` folder on the Extreme drive collects `._*` AppleDouble files: read only names that do not start with a dot.
+24. **Person-mask a library clip over its whole window before using it.** B0464 (lawn squats) cuts his head off at the top of EVERY rep in
+    the source (`round4/b0464_mask.json`); the only clean stretch is 7.30-9.45 s, so the card became 64 frames and Dan comes back on
+    camera for "to do instead". A tighter crop cannot fix a head the camera did not record.
+25. **App recording crops:** B0049's result screen cropped from y 170 sliced the "Your future self" header (y 150-196). y 250-1770 sits
+    below it and above the email text (y 1830). B0544's page slide runs 6.00-6.23 s: start the tour at 6.25.
+26. **16:9 from this portrait roll:** one fixed centre (cx16 1088) for every hold, both levels; the 9:16 clips and phone recordings whole in
+    a media-card plate (hole y 40-892), chip on the field; the CTA upper left beside his shoulder, cleared by person mask on the CTA hold
+    (`cta16_check.py`). The lower thirds keep the locked full-width 16:9 Motivation box (a reviewer called it wide over his abs; that is
+    Dan's call, not a defect).
+
 ## Open for the final round
 
 Land-then-hold centring is not wired in (crops are fixed per hold, the RA-01 method); measure with `cut/landing.py
