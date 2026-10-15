@@ -62,14 +62,22 @@
   "kind": "short",
   "job": "DS-23",
   "label": "How To Do Side Laterals",
-  "added": "2026-10-13"
+  "added": "2026-10-13",
+  "queued": {
+   "date": "2026-10-15",
+   "main": "2026-10-17T14:00:00.000Z"
+  }
  },
  {
   "config": "scripts/blotato/configs/ds08-i-was-200-pounds-at-38.json",
   "kind": "short",
   "job": "DS-08",
   "label": "I Was 200 Pounds At 38",
-  "added": "2026-10-13"
+  "added": "2026-10-13",
+  "queued": {
+   "date": "2026-10-15",
+   "main": "2026-10-20T14:00:00.000Z"
+  }
  },
  {
   "config": "scripts/blotato/configs/ds09-how-to-make-time-to-work-out.json",
