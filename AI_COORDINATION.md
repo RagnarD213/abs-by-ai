@@ -245,7 +245,7 @@ Memory `google-ads-ui-automation`.
 
 - `handoff-20261014-render-gatekeeper.md` (10-14). Opus high.
 
--`handoff-20261014-frame-qc-upgrade.md`(step5: Dan HF access)
+-`handoff-20261014-frame-qc-upgrade.md`(step5:HF-access;push-waits-00-MASTER)
 
 
 
