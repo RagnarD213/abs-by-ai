@@ -1,0 +1,29 @@
+[
+  {
+    "id": "A1",
+    "a": 28.971,
+    "b": 34.353,
+    "photo": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/example pictures/dan by pool.png",
+    "label": "AI-GENERATED",
+    "rows": [
+      "Body Fat",
+      "Fat To Lose",
+      "Muscle To Gain"
+    ],
+    "reveal": [
+      29.731,
+      31.952,
+      33.233
+    ],
+    "band": [
+      "Your Workout Plan",
+      33.813
+    ],
+    "push": 1.05,
+    "drift": -6,
+    "scan": [
+      28.971,
+      30.312
+    ]
+  }
+]

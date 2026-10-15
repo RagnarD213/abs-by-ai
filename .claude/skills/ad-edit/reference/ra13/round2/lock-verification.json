@@ -1,0 +1,50 @@
+[
+  {
+    "path": "/Volumes/Extreme/_edit_work/ra13/round1/stills/B-256.jpg",
+    "expected": "7e40e20481f426c3cbb45488d6b0ac638bcb939b837c0fd72fe78a967901a894",
+    "actual": "7e40e20481f426c3cbb45488d6b0ac638bcb939b837c0fd72fe78a967901a894",
+    "ok": true
+  },
+  {
+    "path": "/Volumes/Extreme/_edit_work/ra13/round1/stills/B-289.jpg",
+    "expected": "c3c12c2b342388b4e087dbb4bae2a81f37a2b7aaf5277935b8d6bba72edb2f01",
+    "actual": "c3c12c2b342388b4e087dbb4bae2a81f37a2b7aaf5277935b8d6bba72edb2f01",
+    "ok": true
+  },
+  {
+    "path": "/Volumes/Extreme/_edit_work/ra13/grade-options.json",
+    "expected": "f0c5b67720eed72fcf58a7528332a4eb5e14346935b186e32b0f5a851c332dbb",
+    "actual": "f0c5b67720eed72fcf58a7528332a4eb5e14346935b186e32b0f5a851c332dbb",
+    "ok": true
+  },
+  {
+    "path": "/Volumes/Extreme/_edit_work/ra13/round1/stills/crop-wide.jpg",
+    "expected": "73465851939edf10563f5a47d43d406aaecd846387d7e474cd9baebedcc3059a",
+    "actual": "73465851939edf10563f5a47d43d406aaecd846387d7e474cd9baebedcc3059a",
+    "ok": true
+  },
+  {
+    "path": "/Volumes/Extreme/_edit_work/ra13/round1/stills/crop-close.jpg",
+    "expected": "5aaa94207ac23114579e07529615cd0de779315f9e140db517369d44ab82c242",
+    "actual": "5aaa94207ac23114579e07529615cd0de779315f9e140db517369d44ab82c242",
+    "ok": true
+  },
+  {
+    "path": "/Volumes/Extreme/_edit_work/ra13/round1/stills/crop-horizontal-close.jpg",
+    "expected": "69dd350863bfc9e08fa9061d9c411ff13594ed6dda31cc0cc666ef9336c661b4",
+    "actual": "69dd350863bfc9e08fa9061d9c411ff13594ed6dda31cc0cc666ef9336c661b4",
+    "ok": true
+  },
+  {
+    "path": "/Volumes/Extreme/_edit_work/ra13/audio-options/lighter-bass.wav",
+    "expected": "e9240e3ae96f31bf75e0dcd2c64572da22ca8eec22c2da96191c812db24a703f",
+    "actual": "e9240e3ae96f31bf75e0dcd2c64572da22ca8eec22c2da96191c812db24a703f",
+    "ok": true
+  },
+  {
+    "path": "/Volumes/Extreme/_edit_work/ra13/round1/audio/lighter-bass.wav",
+    "expected": "e9240e3ae96f31bf75e0dcd2c64572da22ca8eec22c2da96191c812db24a703f",
+    "actual": "e9240e3ae96f31bf75e0dcd2c64572da22ca8eec22c2da96191c812db24a703f",
+    "ok": true
+  }
+]
