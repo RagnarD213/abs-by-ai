@@ -1,0 +1,133 @@
+{
+ "video": "RO-17 3 Healthy Foods That Made Me Fat",
+ "round": 2,
+ "recorded": "2026-10-14",
+ "page": "http://127.0.0.1:8877/",
+ "opener": {
+  "choice": "A3 The calorie scale",
+  "dan_words": "I like this idea for the opener, but I want to change the trail mix."
+ },
+ "ai": [
+  {
+   "id": "A3",
+   "name": "The calorie scale (opener)",
+   "start": "/Volumes/Extreme/_edit_work/RO-17/round2/aiframes/A3-start.png",
+   "start_sha256": "57c7c8b6b87264c7cc370698ccd4107b4556b4f6c333353cea11092dc929657f",
+   "end": "/Volumes/Extreme/_edit_work/RO-17/round2/aiframes/A3-end.png",
+   "end_sha256": "03d9c582913f3634b5168d92cf9f23b575d3d18df7806d49c815ef93bd523ee5",
+   "verdict": "approved-with-notes",
+   "dan_words": "I like this idea for the opener, but I want to change the trail mix. Keep everything else the same, but the trail mix, those M&M's, I want to change them to white little orbs that look like M&M's, like white M&M's, like yogurt-covered raisins type of thing. Something that isn't obviously unhealthy. Just change that. Keep everything else in the opening frames the same.",
+   "scope": "concept and frames approved except the trail mix's candy-coated chocolates, which become white yogurt-covered-raisin orbs; motion authorized from the revised frames",
+   "next": "edit both frames (only the candy), frame gate + fresh frame-reviewer, then motion"
+  },
+  {
+   "id": "A2",
+   "name": "Couch snacking",
+   "start": "/Volumes/Extreme/_edit_work/RO-17/round2/aiframes/A2-start.png",
+   "start_sha256": "7ebeb2c0f518d38b96ded684eed181b184045f78ef38d3e6975e883fa3fbca08",
+   "end": "/Volumes/Extreme/_edit_work/RO-17/round2/aiframes/A2-end.png",
+   "end_sha256": "4d04a4e7246d53c19b37ba9626ab079f699ab886ba7766105db798e115ac4f25",
+   "verdict": "approved-with-notes",
+   "dan_words": "Same revision for the couch snacking. Make it like white yogurt-covered raisins instead of M&M's in the trail mix. Keep everything else the same.",
+   "scope": "concept and frames approved except the trail mix's candy-coated chocolates, which become white yogurt-covered-raisin orbs; motion authorized from the revised frames",
+   "next": "edit both frames (only the candy), frame gate + fresh frame-reviewer, then motion"
+  },
+  {
+   "id": "A4",
+   "name": "Candy in the nut jar",
+   "start": "/Volumes/Extreme/_edit_work/RO-17/round2/aiframes/A4-start.png",
+   "start_sha256": "ae30b9e6432342a23c929151d9369ca42f16eedccba8b724a2060c4c1d3dd744",
+   "end": "/Volumes/Extreme/_edit_work/RO-17/round2/aiframes/A4-end.png",
+   "end_sha256": "569c2478ad81f0493d4d0ef933f3b7d07740c92835dcdcafa58b752ecfbf679e",
+   "verdict": "approved",
+   "dan_words": "Keep candy in the nut jar the same. Generate as is.",
+   "scope": "frames approved as is; motion authorized",
+   "next": "generate motion from exactly these frames"
+  },
+  {
+   "id": "A1",
+   "name": "The hiker at his desk",
+   "start": "/Volumes/Extreme/_edit_work/RO-17/round2/aiframes/A1-start.png",
+   "start_sha256": "24ee7e7aa2ea5ea8ba63e3d198fbe269c69b7ac22a1382e1b1eadfcf6778c4e9",
+   "end": "/Volumes/Extreme/_edit_work/RO-17/round2/aiframes/A1-end.png",
+   "end_sha256": "030a1f8c0f305731a826ebbb5f6dac106aec4e0d1d1e2be862bc1b2619d3dd3e",
+   "verdict": "approved",
+   "dan_words": "Generate hiker at his desk as is.",
+   "scope": "frames approved as is; motion authorized",
+   "next": "generate motion from exactly these frames"
+  },
+  {
+   "id": "A5",
+   "name": "Grapes vs raisins",
+   "start": "/Volumes/Extreme/_edit_work/RO-17/round2/aiframes/A5-start.png",
+   "start_sha256": "67b53f2c6dca84e62870169afe3194671c1642560da6fece427c4463a643c51a",
+   "end": "/Volumes/Extreme/_edit_work/RO-17/round2/aiframes/A5-end.png",
+   "end_sha256": "3e0420f6d86c585890cb1c92600f8130fb5efe7b39e35a1e20c3e3684bdc9f37",
+   "verdict": "approved",
+   "dan_words": "Grapes versus raisins looks good.",
+   "scope": "frames approved as is; motion authorized",
+   "next": "generate motion from exactly these frames"
+  },
+  {
+   "id": "A7",
+   "name": "Nothing left for dinner",
+   "start": "/Volumes/Extreme/_edit_work/RO-17/round2/aiframes/A7-start.png",
+   "start_sha256": "0860aab1640e858f22c39bc05d54ccd0d98e003ddfaa5bed0c7767081139e136",
+   "end": "/Volumes/Extreme/_edit_work/RO-17/round2/aiframes/A7-end.png",
+   "end_sha256": "ad381324d571fa69610f8b7d9a71d1b1c72af812e89db388753890d0f2ad7ba4",
+   "verdict": "approved",
+   "dan_words": "Nothing left for dinner looks good.",
+   "scope": "frames approved as is; motion authorized",
+   "next": "generate motion from exactly these frames"
+  },
+  {
+   "id": "A8",
+   "name": "The boardroom",
+   "start": "/Volumes/Extreme/_edit_work/RO-17/round2/aiframes/A8-start.png",
+   "start_sha256": "6ce495024f10aa81d0397ba146a9e6af386a9d667696a9dc07a8d4f40d2646fa",
+   "end": "/Volumes/Extreme/_edit_work/RO-17/round2/aiframes/A8-end.png",
+   "end_sha256": "3e913f50a723a20c9935ddd25a0a692b6a3676d68dc0f8d88554aee249077512",
+   "verdict": "approved",
+   "dan_words": "The boardroom looks good.",
+   "scope": "frames approved as is; motion authorized",
+   "next": "generate motion from exactly these frames"
+  },
+  {
+   "id": "A10",
+   "name": "One can and done",
+   "start": "/Volumes/Extreme/_edit_work/RO-17/round2/aiframes/A10-start.png",
+   "start_sha256": "eb1a426f924028566596dc783e98f701f3bca50e2dbfdb39dc4ebf4622a9cd23",
+   "end": "/Volumes/Extreme/_edit_work/RO-17/round2/aiframes/A10-end.png",
+   "end_sha256": "9eade0b9381075328fdd3455ed5b30ba3150e8bb9ce573fdad03b5e4957d2a81",
+   "verdict": "approved-with-notes",
+   "dan_words": "I like the idea for 'One can and, you're done,' but I want to make this a guy who's ripped and in shape, wearing a tank top.",
+   "scope": "idea approved; the man is replaced by a ripped, in-shape man in a tank top (new character: new frames)",
+   "next": "new START/END frames, frame gate + fresh frame-reviewer, show Dan the pair before motion (materially different frames)"
+  }
+ ],
+ "motion_authorized": [
+  "A1",
+  "A4",
+  "A5",
+  "A7",
+  "A8",
+  "A2 (after the candy edit)",
+  "A3 (after the candy edit)"
+ ],
+ "new_frames_before_motion": [
+  "A10 (new character: ripped man in a tank top)"
+ ],
+ "clips": [
+  {
+   "id": "C13",
+   "verdict": "rejected",
+   "source": "library B0479 (Dan drinking from his green bottle)",
+   "dan_words": "Eliminate clip C13. This is literally relevant, but it's a weird clip where I'm looking down and off-center here. Eliminate that clip and just use the camera scene.",
+   "next": "delete C13 from plan.py; Dan on camera for 'Just drink water' (check the source join at about 4:21 is a W2/T2 size change)"
+  }
+ ],
+ "everything_else": {
+  "verdict": "approved",
+  "dan_words": "Everything else looks good. Give me the handoff for the next round."
+ }
+}
