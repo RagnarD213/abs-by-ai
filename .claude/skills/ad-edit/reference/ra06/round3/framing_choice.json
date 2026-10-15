@@ -1,0 +1,31 @@
+{
+ "NEAR": [
+  684,
+  1216
+ ],
+ "FAR": [
+  846,
+  1504
+ ],
+ "status": "RA-06 round 3: Dan's round 1 pick 'let's go with pair 3' (2026-10-14), look/crops.json pair 3 (landmark conversion). Round 1 used pair 2 (kept under round1_pair2).",
+ "ra01": {
+  "NEAR": [
+   594,
+   1056
+  ],
+  "FAR": [
+   702,
+   1248
+  ]
+ },
+ "round1_pair2": {
+  "NEAR": [
+   648,
+   1152
+  ],
+  "FAR": [
+   810,
+   1440
+  ]
+ }
+}

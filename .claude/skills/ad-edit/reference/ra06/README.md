@@ -1,5 +1,7 @@
 # RA-06 "What's The Best Ab Exercise?": round 1 (2026-10-14)
 
+Round 3 (AI motion from approved frames, brighter split screen, centred close, the full 9:16): `round3/README.md`.
+
 A 9:16 ad cut from portrait roll C1664 (313 to 369 s) on the RA-05 recipe, with Dan's RA-14 picks applied (C2 colour,
 pair 2 shot sizes, bass lift) and the land-then-hold vertical crop wired into the render. Work dir:
 `/Volumes/Extreme/_edit_work/ra06/`. Only files that differ from `../ra05/` and `../ra04/` are here.

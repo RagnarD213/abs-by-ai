@@ -1370,6 +1370,13 @@ re-time word edges from the envelope (`s02b_patch.py`) before the EDL. (2) Look 
 RA-06 his hands rise 0.7 s later (end hold 0.30 s), and RA-05's planner kept its own `END_HOLD`. (3) `-shortest` on the
 draft mux drops the last frames; mux with `apad -t <total>`.
 
+## RA-06 round 3: AI hand-offs, the close-centring band, dark B-roll (2026-10-14)
+
+Recipe and six lessons: `reference/ra06/round3/README.md`. The three that cost the most: Kling cannot draw three hand-offs between a
+START (people waiting) and an END (people holding the thing), so build it as two shots and a cut; the 9:16 preset's `fixed_under`
+is what lets a close sit off centre (use `landing.track` with `fixed_under=None` and a 1 % band when Dan asks for centring); and judge
+"too dark" B-roll by his body's skin inside a box on him, not by the panel mean.
+
 ## RA-01 lessons — first cut from the 8/28 outdoor portrait rolls (2026-09-18, three-role pipeline)
 
 Built as planner (Fable) → editor (Opus) → independent reviewer (fresh Fable), plan + rulings in

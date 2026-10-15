@@ -1,0 +1,33 @@
+{
+ "C1683": {
+  "params": {
+   "expo": 3.4,
+   "gamma": 1.18
+  },
+  "lut": "/Volumes/Extreme/_edit_work/ra06/round3/split/luts/C1683.cube",
+  "filter": "lut3d=file=/Volumes/Extreme/_edit_work/ra06/round3/split/luts/C1683.cube:interp=tetrahedral",
+  "body_skin_median": 112.1,
+  "clipped_pct": 4.2
+ },
+ "C1682": {
+  "params": {
+   "expo": 2.9,
+   "gamma": 1.05
+  },
+  "lut": "/Volumes/Extreme/_edit_work/ra06/round3/split/luts/C1682.cube",
+  "filter": "lut3d=file=/Volumes/Extreme/_edit_work/ra06/round3/split/luts/C1682.cube:interp=tetrahedral",
+  "body_skin_median": 112.0,
+  "clipped_pct": 1.7
+ },
+ "C1677": {
+  "params": {
+   "expo": 1.5,
+   "gamma": 1.0
+  },
+  "lut": "/Volumes/Extreme/_edit_work/ra06/round3/split/luts/C1677.cube",
+  "filter": "lut3d=file=/Volumes/Extreme/_edit_work/ra06/round3/split/luts/C1677.cube:interp=tetrahedral",
+  "body_skin_median": 149.8,
+  "clipped_pct": 7.6
+ },
+ "_rule": "talking-head torso skin measures 107-113 on the round 1 draft; panels aim at or above it"
+}
