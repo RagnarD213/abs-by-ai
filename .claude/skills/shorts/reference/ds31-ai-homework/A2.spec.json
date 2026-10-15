@@ -1,0 +1,34 @@
+{
+ "shot": "DS-31 A2 gag: furious professor snaps his chalk",
+ "start_frame": "A2-start.png",
+ "intent": "Lecture room, green chalkboard. START: a bald professor in a tweed jacket glares into the camera, holding one long piece of chalk horizontally in both fists at chest height. END: same position; he has snapped the chalk in two, one half in each fist, hands about 15 cm further apart, a small puff of chalk dust between his hands. Only his hands, the chalk and his expression change.",
+ "person": {},
+ "still": {
+  "board_top_left": [
+   0,
+   0,
+   300,
+   300
+  ],
+  "board_right": [
+   880,
+   100,
+   1080,
+   420
+  ]
+ },
+ "may_change": {
+  "hands_forearms_chalk_and_dust": [
+   100,
+   760,
+   960,
+   1320
+  ]
+ },
+ "hands": {
+  "right": "one end of the chalk in START, one broken half in END",
+  "left": "the other end in START, the other half in END"
+ },
+ "bounds": {},
+ "person_note": "Pose rows removed: his legs are out of frame, so the bone/reach rows measure guessed off-frame joints (frame reviewer, A2 review 1). Head and shoulders are checked by the reviewer."
+}
