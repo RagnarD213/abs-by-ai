@@ -1,0 +1,17 @@
+{
+ "shot": "RO-17 A3",
+ "start_frame": "A3-start.png",
+ "intent": "A brass balance scale on a kitchen counter, a double cheeseburger on the left pan. A hand holds a measuring cup of trail mix above the empty right pan. END: the trail mix has been poured onto the right pan, the hand holds the empty cup, and the right pan has sunk while the burger pan rose.",
+ "hands": {
+  "right": "holds the measuring cup in both frames (full, then empty)"
+ },
+ "may_change": {
+  "scale_burger_cup_hand": [
+   230,
+   0,
+   1672,
+   900
+  ]
+ },
+ "bounds": {}
+}

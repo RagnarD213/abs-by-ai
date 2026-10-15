@@ -1,0 +1,25 @@
+{
+ "shot": "RO-17 A2",
+ "start_frame": "A2-start.png",
+ "intent": "Night, a heavier man in a grey hoodie on a sofa lit by an off-screen TV, a big bag of trail mix on his lap, right hand in the bag. END: eyes still on the TV, he lifts a handful to his mouth; the bag is a little emptier.",
+ "hands": {
+  "right": "in the bag in START, at his mouth in END",
+  "left": "rests by the bag"
+ },
+ "may_change": {
+  "bag_on_lap": [
+   440,
+   600,
+   960,
+   941
+  ],
+  "man": [
+   300,
+   60,
+   1350,
+   941
+  ]
+ },
+ "bounds": {},
+ "note": "may_change also declares the people: MediaPipe's person mask misses most of the body in this frame (dark, or several people), so the static check would read the people as background"
+}

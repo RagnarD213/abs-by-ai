@@ -16,6 +16,11 @@ KIND = {"clip": "Clip", "scene": "Full-screen graphic", "fact": "Fact card", "ti
         "lt": "Lower third", "l3": "Side list (3A)"}
 NAMES = {it["id"]: it.get("name") for it in json.load(open(f"{W}/plan_resolved.json"))}
 
+# ---------------- AI frame pairs: refused unless the frame gate AND a fresh frame-reviewer passed this exact pair (VIDEO-RULES 2026-10-14)
+sys.path.insert(0, "/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared/framecheck")
+from gate import require_pass
+for a in X["ai"]:
+    require_pass(f"{W}/aiframes/{a['id']}-start.png", f"{W}/aiframes/{a['id']}-end.png")
 # ---------------- AI frame pairs, each named and placed in context (Dan 2026-10-13: "give me ... the context")
 ai_html = []
 for a in X["ai"]:

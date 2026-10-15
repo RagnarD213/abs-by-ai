@@ -1,0 +1,18 @@
+{
+ "shot": "RO-17 A5",
+ "start_frame": "A5-start.png",
+ "intent": "Close-up on a kitchen counter: a big glass bowl of green grapes on the left. START: one hand holds a quarter-cup measure of raisins already tipped over the other, open palm; the first raisins are sliding out and falling. END: the same hand and cup in exactly the same position and grip, the cup now empty; all the raisins sit in a mound in the lower, slightly cupped palm; the grape bowl is unchanged.",
+ "hands": {
+  "upper": "holds the tipped cup by its handle in both frames, same pose",
+  "lower": "open palm with a few raisins, then holding the mound"
+ },
+ "may_change": {
+  "hands_cup_raisins": [
+   740,
+   0,
+   1672,
+   941
+  ]
+ },
+ "bounds": {}
+}

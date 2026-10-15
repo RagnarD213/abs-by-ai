@@ -1,0 +1,19 @@
+{
+ "shot": "RO-17 A10",
+ "start_frame": "A10-start.png",
+ "intent": "Night, the heavier man in the grey hoodie on the sofa, closer framing (head and upper body). START: he lifts the last sardine on a fork to his mouth, an empty open tin in his other hand. END: he has set the empty tin with the fork in it on the top of the sofa back beside his shoulder and leans back, hands clasped behind his head, content.",
+ "hands": {
+  "left": "holds the empty tin in START, behind his head in END",
+  "right": "holds the fork in START, behind his head in END"
+ },
+ "may_change": {
+  "man_and_tin": [
+   100,
+   0,
+   1672,
+   941
+  ]
+ },
+ "bounds": {},
+ "note": "may_change also declares the people: MediaPipe's person mask misses most of the body in this frame (dark, or several people), so the static check would read the people as background"
+}

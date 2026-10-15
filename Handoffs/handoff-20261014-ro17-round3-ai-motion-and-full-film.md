@@ -14,14 +14,17 @@ budget, thumbnails do not apply here), `.claude/skills/_shared/PRE-RENDER-APPROV
 - Round 2 review page: http://127.0.0.1:8877/ (`python3 .claude/skills/_shared/review_server.py 8877 /Volumes/Extreme/_edit_work/RO-17/round2/review`).
   First minute copy for VLC: `Videos to Review/3 Healthy Foods LFC R2 - first minute.mp4`.
 - Roll: 9/23 C1713. Take map `recipe/edl.py` (19 pieces, last clean take of every line, reasons per piece), `shots.json` (42 shots),
-  `words_out.json` (roll medium.en words mapped to the film), `plan.py` / `plan_resolved.json` (62 items), `hf/` (31 HyperFrames graphics).
+  `words_out.json` (roll medium.en words mapped to the film), `plan.py` / `plan_resolved.json` (60 items), `hf/` (28 HyperFrames graphics).
 - Film length 7:32.2.
 
 ## Locked by the editor in round 2 (Dan sees them as "What I decided"; reopen only if he names them)
 
 Look C + W2/T2 (C1713 measured the same as C1707; per-shot crop lifts in `framing/crop_y.json` where hair came within 4 %);
 voice = audio B (chain fit on this roll + 0.9 dB at 150 Hz) + the standard +3 dB at 120 Hz (`fit/eq_B_bass3.txt`; ranked first in 3 of 3
-blind listens; tone row fails as the known mismatch); no music; all graphics Soft Blue HyperFrames; B-roll grades on C05, C08, C10, C12.
+blind listens; tone row fails as the known mismatch); no music; all graphics Soft Blue HyperFrames; B-roll grades on C05, C10, C12;
+side-card framing W4S = 2690x1513 @ 110,183 (4 % in so the backdrop's edge and clamps never show); no reframe cut under a side card.
+Before Dan saw it, two independent checks ran on the page (`review/INDEPENDENT-CHECK.md`, the first in `review/_superseded_r2a/`);
+the frames of A4, A5, A7 and A10 were redrawn after the first (rejected versions in `aiframes/rejected_r2a/`).
 
 ## Dan's decisions on the round 2 page (record his words, then act)
 
@@ -34,7 +37,12 @@ blind listens; tone row fails as the known mismatch); no music; all graphics Sof
 ## Then, in order
 
 1. Write `round3-plan/decisions.json` (ID, sha256 of each approved frame in `aiframes/`, Dan's words, `motion_authorized`).
-2. Motion for each approved pair from exactly those frames: `.claude/skills/ai-clip-ideas/reference/gen-veo-keyframes.js` (RO-13
+2. Motion for each approved pair from exactly those frames. Every pair already passed the frame gate and a fresh `frame-reviewer`
+   (stamps `aiframes/<ID>-end.png.framecheck.json`, specs `aiframes/specs/<ID>.spec.json`, reviews `aiframes/framecheck/`); call
+   `require_pass(START, END)` before generating, and re-gate plus re-review if a frame changes. Reviewers' notes to watch in the
+   takes: A1 the hand must dip into the bag before the mouth; A3 the beam's left half and the burger's cheese may shimmer; A4 the
+   scoop must not grow; A5 the raisins must not change shape as they land; A10 he must eat the sardine (not vanish it) and the tin
+   must not slide. Generate with `.claude/skills/ai-clip-ideas/reference/gen-veo-keyframes.js` (RO-13
    used it: no audio, Veo 3.1 Fast, about $0.15 a second). Durations: A3 4 s, A2 6 s, A4 6 s, A1 6 s, A5 8 s, A7 6 s, A8 4 s, A10 6 s.
    Guard any generation script with `if __name__ == "__main__":` (RO-12 trap 12).
 3. **Before Dan sees any motion**, every take gets the measured self-change map (`longform-edit/reference/ro08/a5_cut.py`) and the three
@@ -54,7 +62,7 @@ blind listens; tone row fails as the known mismatch); no music; all graphics Sof
 
 ## Cost ledger
 
-Known: Gemini listening about $0.75 (round 2). Codex images: 18, on the subscription ($0). Veo: $0 so far. Cap: $15 for this
+Known: Gemini listening about $0.75 (round 2). Codex images: 34, on the subscription ($0). Veo: $0 so far. Cap: $15 for this
 long-form (Dan 2026-10-13). Unknown: none.
 
 ## Starter prompt

@@ -62,3 +62,11 @@ The independent check of the round 2 page (29 findings, all fixed or explained b
     hand on the opener and an executive's face.
 13. **Lower thirds within 0.8 s of each other blink** (one fades, the next rises). Merge them or move one; the scan is in
     the resolve step's output (`back-to-back lower thirds`).
+14. **The frame gate (`_shared/framecheck`, new 2026-10-14) on a talking-head film's AI pairs:** MediaPipe's person mask misses
+    most of a person in a dark room or with several people, so the static row reads the people as moving background. Declare each
+    person as a `may_change` box in the spec (`frame-specs/`), then `lockstill.py` with the same boxes. In zsh, build the
+    `--box` arguments in Python: an unquoted `$BOXES` is one word and lockstill silently never runs.
+15. **Frame reviewers catch what the gate cannot:** a cup that turns inside a still hand (twice, so A5 became a pour from an
+    already-tipped cup: nothing rotates), a fork that shrank 35 % when set down, a fish appearing in an empty tin. Design pairs
+    so every object either holds its pose or is visibly moved by a hand, and repair a single corner with Codex given the START
+    as a size reference (`--image END --image START`).

@@ -1,0 +1,36 @@
+{
+ "shot": "RO-17 A8",
+ "start_frame": "A8-start.png",
+ "intent": "A corporate boardroom: three executives around a table with a leafy bag of trail mix and stacks of cash; the centre man holds a fan of bills. END: all three laugh, heads back; he has tossed the bills into the air above the table; bag and cash stacks unchanged.",
+ "hands": {
+  "centre man": "holds a fan of bills in START, has tossed them in END"
+ },
+ "may_change": {
+  "bills_in_air": [
+   430,
+   0,
+   1130,
+   360
+  ],
+  "centre_exec": [
+   420,
+   180,
+   1150,
+   941
+  ],
+  "left_exec": [
+   40,
+   150,
+   520,
+   941
+  ],
+  "right_exec": [
+   1080,
+   0,
+   1630,
+   941
+  ]
+ },
+ "bounds": {},
+ "note": "may_change also declares the people: MediaPipe's person mask misses most of the body in this frame (dark, or several people), so the static check would read the people as background"
+}
