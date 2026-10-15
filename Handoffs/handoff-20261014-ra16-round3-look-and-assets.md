@@ -29,7 +29,7 @@ The source is native portrait pool footage C1668, encoded 3840x2160 with -90 rot
 Planned assets, with mapped spoken anchors:
 
 - D01 app demo, approximately 19.40-24.19: reuse the approved sunglasses-to-pool simulated same-person sequence. `recipe/round2_demo.py` rebuilds the approved modern shell in both formats. It carries the REAL chip through source demo frames 0-107, the AI chip from 108 onward, then the original AI pool picture. Labels are outside the photo/person and separate from captions. No phone-scrolling filler or stick figures.
-- G01 analysis card, 26.07-32.81, `That shows` to `Next`: shared HyperFrames `analysis-card`, original AI pool picture, no printed numbers, three bars and plan band. Title-case row copy, one AI label below the photo.
+- G01 analysis card, 25.25-32.81, `motivate you` to `Next`: shared HyperFrames `analysis-card`, original AI pool picture, no printed numbers, three bars and plan band. Title-case row copy, one AI label below the photo.
 - G02 Motivation lower third, 32.81-38.11, `Next` to `It's far better`: "A Plan Built Around Your Goal."
 - G03 Motivation lower third, 42.66-47.42, `And finally` to `when you can't make`: "Keep Progress Going When Life Changes." Parts land on `AI adjusts` and `when life gets`.
 - Opening is Dan on camera. The previously proposed robot clip is unused. No ending URL mark.
@@ -39,12 +39,13 @@ Planned assets, with mapped spoken anchors:
 The helper recipes are in work-root `recipe/`:
 
 - `round2_cut.py`: speech selection, pitch-preserving rate, shared voice processing and audio check. Do not rerun merely to rebuild picture.
-- `round2_visuals.py`: source sampling and isolated graded plates. Existing source plates were built before the last tracker correction. The recipe now passes `FPS * speed` to shared landing, preserving 0.75-second easing and speed caps in delivered time. Final picture must use this corrected timing; do not describe old look plates as a native final centering PASS. Crop sizes and color choices are unaffected.
-- `round2_graphics.py`: shared `from_plan.py` phrase resolution and shared horizontal/vertical template builds. G01 was rendered; remaining builds may still be waiting or running. Reuse matching configs/render stamps.
+- `round2_visuals.py`: source sampling and isolated graded plates. Existing source plates were built before the last tracker correction. The recipe now passes `FPS * speed` to shared landing, preserving 0.75-second easing and speed caps in delivered time. Final picture must use this corrected timing, split again at returns from full-screen assets, and measure the actual return frame (including the G01 return inside P07); do not describe old look plates as a native final centering PASS. Crop sizes and color choices are unaffected.
+- `round2_camera_lead.py`: continues P03 through the short silent camera lead before D01, preventing a four-frame punch-in island. It changes picture only, without changing the voice or cut timing.
++- `round2_graphics.py`: shared `from_plan.py` phrase resolution and shared horizontal/vertical template builds. G01 was rendered; remaining builds may still be waiting or running. Reuse matching configs/render stamps.
 - `round2_demo.py`: approved app/goal context in both formats.
 - `round2_context.py`: shared RGB compositor, exact-duration contexts and 540p copies. Updated captions use balanced three/four-word phrases, Manrope ExtraBold, and lift above horizontal lower thirds. App labels clear the captions. This avoids an internal earlier horizontal caption overlap.
 - `round2_preview_queue.py`: waits for the base-plate process to finish, then builds graphics, demo and contexts sequentially. The running queue was launched with completed source PID 56206. Observe the log and process; do not duplicate it.
-- `round2_stills.py`: earlier independent template snapshots. **Existing G02/G03 stills are stale relative to the shortened graphic spans and caption repair. Do not show them.** The context renderer will replace them with exact fresh composite frames.
+- `round2_stills.py`: earlier independent template snapshots. **Existing snapshot stills are stale relative to the latest spans and caption repairs. Do not show them.** The context renderer will replace them with exact fresh composite frames. G01 now starts on `motivate you` before the P05/P06 splice, preventing a brief presenter island before the card. Caption punctuation marks the full opening as two sentences and changes the cut clause ending to `seconds.`; no words, audio or timing changed.
 - `round2_page.py`: publishes look choices only until `round2/asset-preview-QA.json` exists. Do not create that file before checking all asset previews and binding the checks to their hashes. Then regenerate the page and refresh the same managed port.
 
 # Required review and delivery
