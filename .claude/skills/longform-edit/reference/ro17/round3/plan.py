@@ -1,0 +1,168 @@
+"""RO-17 visual plan ("3 Healthy Foods That Made Me Fat", 9/23 roll C1713). Every item is anchored to the words Dan says
+(phrase -> output time via words_out.json). Kinds from the approved HyperFrames templates (hyperframes/from_plan.py): lt (Motivation
+lower third, parts land on their words), scene/fact (photo + glass fact card), l3 (3A side list, items land on their words).
+Kinds that stay softblue.py: title (full-screen section card with a picture on the right, RO-11 layout "bleed"), scene/portraits_codex
+(RO-16's three-photo slate), scene/photo (one real photo), scene/swap (the closing throw-out / replace-with card). clip = full-frame
+cutaway (Pexels / clip library), hard cuts. ai = an AI clip slot: labelled START/END placeholder frames until Dan approves the frames
+and the motion exists. start = phrase whose first word starts the item; end = phrase whose last word ends it (or dur).
+Capitals: title case by default; FULL CAPS on a word only where it carries the punch (VIDEO-RULES 2026-10-09, about 1 in 6)."""
+LIB = "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library"
+ST = "/Volumes/Extreme/_edit_work/RO-17/round2/stock"
+PH = "/Volumes/Extreme/_edit_work/RO-17/round2/assets/photos"
+AF = "/Volumes/Extreme/_edit_work/RO-17/round3/aiframes"
+TP = "/Volumes/Extreme/_edit_work/RO-17/round2/assets/titles"
+BEFORE = "/Users/danielrose/Documents/Claude/Projects/Abs By AI/before-photo-candidates/B_deckchair_UPSCALED_3x_1080x1440.jpg"
+REAL = "Real picture of me. Not AI-generated."
+REALS = "Real pictures of me. Not AI-generated."
+PLAN = [
+ # ---------------- opening (0:00 - 0:46)
+ dict(id="A3", kind="ai", ph="A3", chip=((54, 54), "lt"), start="You can get fat", end="why this happens", tail=0.15, name="The calorie scale",
+      note="AI opener: a brass balance scale, a double cheeseburger on one pan; trail mix poured on the other and the trail mix side sinks"),
+ dict(id="G01", kind="lt", start="Listen, some healthy foods", end="calories and carbs", tail=0.0, topic="The Problem",
+      point="'Healthy' Doesn't Mean Low Calorie.", parts=[["'Healthy'", "healthy foods"], ["Doesn't Mean Low Calorie.", "high in calories"]]),
+ dict(id="C01", kind="clip", start="It doesn't matter if they're organic", end="at Whole Foods", src=[f"{ST}/p15645011.mp4@1.0"],
+      note="Pexels 15645011: a fresh fruit and vegetable display (720p source; replaces a big-box aisle with readable tags)"),
+ dict(id="G02", kind="lt", start="why I struggled", end="saw my abs", topic="My Story",
+      point="Why My Last 10 Pounds Wouldn't Come Off", parts=[["Why My Last 10 Pounds", "last 10 pounds"], ["Wouldn't Come Off", "before I saw"]]),
+ dict(id="P01", kind="scene", scene="portraits_codex", start="But once I cut out", end="for years", tail=0.3,
+      photos=["studio-white-23", "studio-blue-173", "studio-blue-240"], label=REALS,
+      note="the three-photo slate Dan picked on RO-16 (09-30), reused as on RO-13"),
+ dict(id="G03", kind="l3", drift=-6, start="Here are three healthy foods", end="workout program I ever followed", heading="In This Video",
+      points=["3 'healthy' foods I quit", "What I snack on instead", "Better than any workout"],
+      reveal=["three healthy foods", "what I snack on", "Making that one change"]),
+ # ---------------- food 1: trail mix (0:46 - 2:20)
+ dict(id="T1", kind="title", start="Food number one is trail mix", dur=2.4, step=1, headline="Trail Mix", photo=f"{TP}/T1", layout="bleed"),
+ dict(id="C02", kind="clip", start="It's what people eat when they go hiking", end="good for you", src=[f"{ST}/p4763784.mp4@3.0"],
+      note="Pexels 4763784: a couple sitting on a mountain trail eating a snack"),
+ dict(id="G04", kind="scene", scene="fact", start="3 tablespoons", end="14 grams of carbs", photo=f"{PH}/px11350074.jpg",
+      eyebrow=["1 SERVING = 3 TBSP", "3 tablespoons"], headline=[["170", "170"], ["Calories", "calories"]],
+      count={"value": "170", "from": 0, "dur": 0.55}, detail=["and 14 g of carbs", "14 grams"], push=1.06, drift=-8),
+ dict(id="A2", kind="ai", ph="A2", start="What really happens", end="reaching into the bag", tail=0.2, name="Couch snacking",
+      note="AI: a man on the sofa at night, eyes on the TV, keeps reaching into a big bag of trail mix on his lap"),
+ dict(id="G05", kind="scene", scene="fact", start="One cup of trail mix", end="than a Big Mac", photo=f"{PH}/px38727566.jpg",
+      eyebrow=["1 CUP OF TRAIL MIX", "One cup of trail mix"], headline=[["700", "700"], ["Calories", "calories and"]],
+      count={"value": "700", "from": 0, "dur": 0.6}, detail=["More than a Big Mac.", "more calories than"], push=1.06, drift=-8),
+ dict(id="G06", kind="lt", start="That's how you become", end="why you're still fat", topic="The Trap",
+      point="A 700-Calorie 'Healthy' Snack", parts=[["A 700-Calorie", "700 calories of"], ["'Healthy' Snack", "healthy trail mix"]]),
+ dict(id="G07", kind="l3", drift=-6, start="It's nuts, which are", end="on top of that", heading="What's In Trail Mix",
+      points=["Nuts: very calorie dense", "Raisins: basically sugar", "Plus M&M's or chocolate"],
+      reveal=["It's nuts", "It's raisins", "M &M's"]),
+ dict(id="A4", kind="ai", ph="A4", start="So really what you're eating", end="as a health food", tail=0.2, name="Candy in the nut jar",
+      note="AI: a factory worker tips candy-coated chocolates into a jar of nuts and raisins that already wears a green leaf sticker, then winks"),
+ dict(id="C05", kind="clip", grade="eq=contrast=1.10:saturation=1.30:gamma=0.97", start="Now if you're hiking up", end="need the calories", src=[f"{ST}/p30068068.mp4@0.5"],
+      note="Pexels 30068068: a hiker with a big red pack on a rocky mountain trail"),
+ dict(id="A1", kind="ai", ph="A1", start="sitting at a desk", end="any of that off", tail=0.42, name="The hiker at his desk",
+      note="AI: a man in full hiking gear (pack, hat, poles) at an office desk, eating trail mix while he types"),
+ dict(id="P02", kind="scene", scene="photo", photo=BEFORE, start="For years my meals", end="still wasn't lean", tail=0.3, label=REAL,
+      note="the standard before picture (deck chair by the pool, heavier), real, labelled"),
+ dict(id="G08", kind="lt", start="It wasn't my dinner", end="in between meals", topic="My Mistake",
+      point="Clean Meals. 'Healthy' Snacks.", parts=[["Clean Meals.", "my dinner"], ["'Healthy' Snacks.", "healthy snacks"]]),
+ # ---------------- food 2: dried fruit (2:20 - 3:34)
+ dict(id="T2", kind="title", start="Alright, let's talk about the second one", dur=2.6, step=2, headline="Dried Fruit", photo=f"{TP}/T2", layout="bleed"),
+ dict(id="C06", kind="clip", start="Now, real fruit is fairly low", end="high in fiber", src=[f"{ST}/p7889647.mp4@2.0"],
+      note="Pexels 7889647: a bowl of fresh purple grapes"),
+ dict(id="C07", kind="clip", zoom=1.35, start="but dried fruit is a totally", end="explain to you why", src=[f"{ST}/p36326071.mp4@1.0"],
+      note="Pexels 36326071: a market stall heaped with dried apricots, dates and figs"),
+ dict(id="G09", kind="lt", start="taking the water out", end="quarter of the size", topic="Dried Fruit",
+      point="Water Out. Same Sugar. A Quarter Of The Size.", parts=[["Water Out.", "taking the water out"], ["Same Sugar.", "All of the sugar"], ["A Quarter Of The Size.", "quarter of the size"]]),
+ dict(id="G10", kind="scene", scene="fact", start="A quarter cup of raisins", end="grams are sugar", photo=f"{PH}/px32567875.jpg",
+      eyebrow=["1/4 CUP OF RAISINS", "A quarter cup"], headline=[["120", "120"], ["Calories", "calories and"]],
+      count={"value": "120", "from": 0, "dur": 0.5}, detail=["26 g of sugar", "26"], push=1.06, drift=-8),
+ dict(id="A5", kind="ai", ph="A5", start="and all the water in it", end="palm of your hand", tail=0.2, name="Grapes vs raisins",
+      note="AI (straight, not a gag): a big bowl of grapes beside a quarter cup of raisins; one hand tips the cup into the other palm"),
+ dict(id="G11", kind="lt", start="So you end up eating", end="a little bit of fruit", topic="The Math",
+      point="3-4 Handfuls = 400-500 Calories", parts=[["3-4 Handfuls", "three or four times"], ["= 400-500 Calories", "four or five hundred"]]),
+ dict(id="G12", kind="scene", scene="fact", start="And it's even worse with dried mango", end="can of Coke", tail=1.2, photo=f"{AF}/S2-mango.png", label="AI-GENERATED",
+      eyebrow=["DRIED MANGO", "dried mango"], headline=[["Added Sugar", "add more sugar"]], detail=["1 bag = more sugar than a Coke", "can of Coke"],
+      push=1.06, drift=-8),
+ dict(id="C09", kind="clip", start="eat the real thing", end="eat some berries", src=[f"{ST}/p4473012.mp4@0.3"],
+      note="Pexels 4473012: a bowl of strawberries and blueberries"),
+ # ---------------- food 3: coconut water (3:34 - 4:37)
+ dict(id="T3", kind="title", start="the third one is coconut water", dur=2.4, step=3, headline="Coconut Water", photo=f"{TP}/T3", layout="bleed"),
+ dict(id="C10", kind="clip", grade="eq=contrast=1.08:saturation=1.25", start="Coconut water is sold as", end="has potassium", src=[f"{ST}/p8249559.mp4@0.5"],
+      note="Pexels 8249559: a man under a palm tree drinking from a fresh coconut"),
+ dict(id="G13", kind="lt", start="but really it's sugar water", end="20 grams of sugar", tail=0.2, topic="Coconut Water",
+      point="Really, It's SUGAR WATER.", parts=[["Really, It's SUGAR WATER.", "really it's sugar"]]),
+ dict(id="G15", kind="scene", scene="fact", start="a lot of people buy", end="40 grams of sugar", photo=f"{AF}/S1-carton.png", label="AI-GENERATED",
+      eyebrow=["THE 1-LITER CARTON", "big one liter"], headline=[["180", "a hundred and eighty"], ["Calories", "calories and 40"]],
+      count={"value": "180", "from": 0, "dur": 0.5}, detail=["and 40 g of sugar", "40 grams"], push=1.06, drift=-8),
+ dict(id="C11", kind="clip", start="So in my opinion", end="as bad as soda", tail=0.75, src=["B0408@25.0"],
+      note="library B0408: dark soda poured over ice on a bright white background (replaces a near-black clip)"),
+ dict(id="G16", kind="lt", start="you should be avoiding all", end="ate for the day", topic="Liquid Calories",
+      point="Skip Them. They Don't Fill You Up.", parts=[["Skip Them.", "avoiding all"], ["They Don't Fill You Up.", "don't fill you up"]]),
+ dict(id="C12", kind="clip", grade="eq=contrast=1.08:saturation=1.30", start="Unless you're running a marathon", end="sugar to fix it", src=[f"{ST}/p28569519.mp4@0.3"],
+      note="Pexels 28569519: a city marathon in hard sunshine"),
+ # C13 (B0479, Dan drinking from his bottle) cut in round 3, Dan 2026-10-14: "Eliminate that clip and just use the camera scene."
+ dict(id="C14", kind="clip", start="get a zero calorie electrolyte", end="in your water", src=[f"{ST}/p13662132.mp4@0.5"],
+      note="Pexels 13662132: a drink mix stirred into a glass of water (replaces white powder that read as sugar)"),
+ dict(id="G18", kind="lt", start="these days I stay", end="electrolyte powder", topic="My Swap",
+      point="Zero-Calorie Electrolytes Instead", parts=[["Zero-Calorie Electrolytes Instead", "these days"]]),
+ # ---------------- why these make you fat (4:37 - 5:17)
+ dict(id="G19", kind="lt", start="I'm not saying these foods", end="difficult to eat small amounts of them", topic="To Be Clear",
+      point="Not Unhealthy. Just Too Easy To Overeat.", parts=[["Not Unhealthy.", "I'm not saying"], ["Just Too Easy To Overeat.", "very difficult"]]),
+ dict(id="G20", kind="lt", start="the number one most important", end="eating fewer calories", tail=1.6, topic="Belly Fat",
+      point="#1 Rule: Eat Fewer Calories", parts=[["#1 Rule:", "number one"], ["Eat Fewer Calories", "eating fewer"]]),
+ dict(id="A7", kind="ai", ph="A7", start="that didn't even fill me up", end="left for dinner", tail=0.3, name="Nothing left for dinner",
+      note="AI gag: a hungry man rubs his hands, lifts the silver dome off his dinner with one hand: one broccoli floret"),
+ dict(id="G22", kind="lt", start="just because it says healthy", end="help you lose fat", topic="On The Bag",
+      point="'Healthy' Is A Label, Not A Calorie Count", parts=[["'Healthy' Is A Label,", "says healthy"], ["Not A Calorie Count", "doesn't mean"]]),
+ dict(id="A8", kind="ai", ph="A8", chip=((54, 54), "lt"), start="That's marketing", end="money off of it", tail=0.25, name="The boardroom",
+      note="AI gag: food executives around a bag of trail mix laugh and throw cash in the air"),
+ # ---------------- what I eat instead (5:17 - 7:11)
+ dict(id="T4", kind="title", start="So what do I eat instead", dur=2.0, step="THE SWAP", headline="What I Snack\nOn Instead", photo=f"{TP}/T4", layout="bleed"),
+ dict(id="C15", kind="clip", start="I eat larger meals now", end="less need to snack", src=["B0524@0.0"],
+      note="library B0524 (real): Dan's daily salad bowl, a medium shot then a slow close-up"),
+ dict(id="G23", kind="lt", start="my experience, if you're snacking", end="meals are too small", tail=0.05, topic="In My Experience",
+      point="Snacking All Day? Eat Bigger Meals.", parts=[["Snacking All Day?", "snacking all day"], ["Eat Bigger Meals.", "your meals"]]),
+ dict(id="G24", kind="lt", start="I snack on something", end="Here's what I eat", topic="My Snack Rule",
+      point="High Protein. Low Carb.", parts=[["High Protein.", "high in protein"], ["Low Carb.", "low in carbs"]]),
+ dict(id="C16", kind="clip", start="Number one, sardines", end="Number one, sardines", tail=1.1, src=["B0501@0.5"],
+      note="library B0501: a tin of sardines being pulled open"),
+ dict(id="G25", kind="lt", start="A can of sardines is", end="cook anything", topic="1. Sardines",
+      point="18 g Protein. 0 Carbs. About $2.", parts=[["18 g Protein.", "18 grams"], ["0 Carbs.", "zero carbs"], ["About $2.", "$2"]]),
+ dict(id="C17", kind="clip", start="If you've never eaten sardines", end="really like them, like me", src=[f"{ST}/p6398604.mp4@3.0"],
+      note="Pexels 6398604: a fork lifting a fish from an open tin"),
+ dict(id="C18", kind="clip", start="Number 2, hard boiled eggs", end="hard boiled eggs", tail=0.4, src=["B0046@2.0"],
+      note="library B0046: hands peeling a hard-boiled egg"),
+ dict(id="G26", kind="lt", start="Two eggs are about 150", end="snacks for the whole week", topic="2. Hard-Boiled Eggs",
+      point="2 Eggs: 150 Calories, 12 g Protein", parts=[["2 Eggs:", "Two eggs"], ["150 Calories,", "150"], ["12 g Protein", "12 grams"]]),
+ dict(id="G27", kind="lt", start="Number 3, rotisserie chicken", end="already cooked", topic="3. Rotisserie Chicken",
+      point="$5 At Costco. Already Cooked.", parts=[["$5 At Costco.", "$5"], ["Already Cooked.", "already cooked"]]),
+ dict(id="C19", kind="clip", start="You just pull some off", end="and eat it", tail=0.25, src=["B0443@0.5"],
+      note="library B0443 (real): Dan's gloved hands pulling a rotisserie chicken apart"),
+ dict(id="G28b", kind="scene", scene="fact", start="It's just a cup of", end="about $7", photo=f"{AF}/S3-chickencup.png", label="AI-GENERATED",
+      eyebrow=["4. CHIPOTLE CUP", "cup of chicken"], headline=[["180", "180"], ["Calories", "calories and"]],
+      count={"value": "180", "from": 0, "dur": 0.5}, detail=["32 g protein, about $7", "32 grams"], push=1.06, drift=-8),
+ dict(id="G29", kind="l3", drift=-6, start="So these foods are lower", end="carb heavy snacks are", heading="Why These Work",
+      points=["Fewer calories", "More protein", "Fill you up far better", "Not addictive"],
+      reveal=["lower in calories", "higher in protein", "fill you up", "not addictive"]),
+ dict(id="A10", kind="ai", ph="A10", start="Nobody has ever binged", end="then you're done", tail=0.3, name="One can and done",
+      note="AI callback to the couch man, closer: he eats the last sardine of one tin, sets the empty tin on the sofa back and leans back, hands behind his head, content"),
+ dict(id="G30", kind="lt", start="After about three weeks", end="so much easier", topic="What Surprised Me",
+      point="After 3 Weeks, The Cravings STOPPED.", parts=[["After 3 Weeks,", "three weeks"], ["The Cravings STOPPED.", "I stopped"]]),
+ dict(id="C21", kind="clip", start="Carbs and sugar are addictive", end="just like alcohol", src=[f"{ST}/p10973447.mp4@1.5"],
+      note="Pexels 10973447: a hand keeps grabbing chips from a plate"),
+ dict(id="G31", kind="lt", start="The less you have", end="help you lose weight", topic="Carbs And Sugar",
+      point="Eat Less Sugar, Crave Less Sugar.", parts=[["Eat Less Sugar,", "The less you have"], ["Crave Less Sugar.", "the less you want"]]),
+ # ---------------- wrap (7:11 - 7:32)
+ dict(id="G32", kind="scene", scene="swap", start="Trail mix, dried fruit", end="eggs, and chicken", tail=0.6,
+      left=["Trail mix", "Dried fruit", "Coconut water"], right=["Sardines", "Eggs", "Chicken"],
+      reveal_left=["Trail mix", "dried fruit", "coconut water"], reveal_right=["sardines", "eggs", "chicken"],
+      note="closing recap: throw out / replace with, each item on its word"),
+]
+
+
+# ---------------- round 3: AI slots whose motion passed the gate + an independent reviewer become clips (motion/final/<ID>.mp4,
+# the exact take range the review covered). The AI-GENERATED chip goes in the corner measured clear of every head on the take
+# (motion/prep_clips.py). A slot never runs longer than its clip (max_len): never hold or slow a clip. A5 starts on "and all the
+# water in it" (round 3): the take's clean pour is 4.3 s, so the raisins fill his palm on "palm of your hand". A1 starts on "sitting at a
+# desk" (round 3): three takes failed review once he reached into the bag (bag reshaping, food vanishing), so the clip is the clean
+# first 1.9 s of take 2, the hiker typing at his desk beside the trail mix (Dan's repair order: "Use a part of the clip only").
+import json as _j, os as _o
+_MF = "/Volumes/Extreme/_edit_work/RO-17/round3/motion/final"
+_CH = _j.load(open(f"{_MF}/chips.json")) if _o.path.exists(f"{_MF}/chips.json") else {}
+for _it in PLAN:
+    if _it["kind"] == "ai" and _it["id"] in _CH:
+        _c = _CH[_it["id"]]
+        _it.update(kind="clip", src=[f"{_MF}/{_it['id']}.mp4@0"], label="AI-GENERATED", chip=(tuple(_c["chip"][0]), _c["chip"][1]),
+                   max_len=round(_c["secs"] - 0.02, 3), note=_it.get("note", "") + f" | round 3 motion: {_c['take']} frames {_c['frames'][0]}-{_c['frames'][1]}")
