@@ -141,7 +141,7 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 
 **RA-04-R3-REVIEW:8898 2026-10-14, Claude.** `handoff-20261014-ra04-round4-full-film.md`
 
-**RO-17 R3 BUILDING 2026-10-14, Claude.** AI frames, motion, full film.
+**RO-17-R3-BUILDING 2026-10-14.**
 
 **RO-14-R1-BUILDING:2026-10-14:Claude.**
 
