@@ -18,7 +18,7 @@ words,source=transcribe(str(video),model='small',quiet=True);(D/'transcript.json
 rc=run([sys.executable,str(SH/'audio/audio_gate.py'),str(video),'--untreated',str(O/'audio/mix.wav.audio_untreated.json'),'--ab',str(D/'Audio AB - reference then RA13.m4a')],'audio-gate.log')
 print('AUDIO GATE',fmt,rc,flush=True)
 subprocess.run([sys.executable,str(O/'recipe/prepare_checks.py')],check=True)
-rc=run([sys.executable,str(SH/'deliver/watch.py'),str(video),'--plan',str(D/'plan.json'),'--out',str(D/'watch'),'--log',str(D/'watch/logs/watch_pass.json')],'native-watch.log');assert rc==0
+rc=run([sys.executable,str(SH/'deliver/watch.py'),str(video),'--plan',str(D/'watch-plan.json'),'--out',str(D/'watch-final'),'--log',str(D/'watch-final/logs/watch_pass.json')],'native-watch.log');assert rc==0
 # Use the exact shared checks, normalizing only its decoder's canvas for a vertical.
 man=json.load(open(O/f'hf-manifest{fmt}.json'))
 for m in man:m['template']='analysis-card' if m['id']=='A1' else 'cta'

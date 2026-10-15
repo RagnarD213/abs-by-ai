@@ -7,5 +7,6 @@ for fmt,label in [('9x16','vertical'),('16x9','horizontal')]:
  buildcap.wait('RA13 '+fmt+' review exports')
  out=P/f'Most Guys Abs AD R2 - {fmt} - REVIEW540p.mp4';subprocess.run([FF,'-nostdin','-v','error','-y','-i',str(src),'-vf','scale=540:960' if fmt=='9x16' else'scale=960:540','-c:v','libx264','-preset','fast','-crf','23','-c:a','aac','-b:a','128k','-movflags','+faststart',str(out)],check=True);shutil.copy2(out,D/out.name)
  for name,a,b in [('P1',13,27),('A1',27,35),('P2',32.5,40),('CTA',49,53.920533)]+([('headroom',1,7)] if fmt=='16x9' else[]):
+  if os.environ.get('CTA_REPAIR_ONLY') and name!='CTA':continue
   out=P/f'{name}-{fmt}-context.mp4';subprocess.run([FF,'-nostdin','-v','error','-y','-i',str(src),'-ss',str(a),'-t',str(b-a),'-vf','scale=540:960' if fmt=='9x16' else'scale=960:540','-c:v','libx264','-preset','fast','-crf','22','-c:a','aac','-b:a','128k','-movflags','+faststart',str(out)],check=True)
 print('REVIEW EXPORTS COMPLETE',flush=True)

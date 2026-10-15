@@ -118,13 +118,10 @@ for fmt,wh in [('9',(1080,1920)),('16',(1920,1080))]:
   sp=importlib.util.spec_from_file_location('horizontal_cta_layout',SH/'hyperframes/vertical.py');mod=importlib.util.module_from_spec(sp);sp.loader.exec_module(mod);mod.W,mod.Hh=wh;mod.CANVAS=list(wh);mod.U=2.;import types;mod.B=types.SimpleNamespace(**{**vars(B),'lower_third_default_box':lambda w,h,nlines=1:(430,0,1490,0)})
  # Avoid altering any shared module globals by loading an isolated instance above.
  scenes,meta=mod.cta_scenes('CTA',cta_b-cta_a,'Tap The Button Below','Get Started',hold_out=True)
- if fmt=='16':
-  # Standard horizontal CTA box ends at 880, leaving captions at 930 clear.
-  for _,c,_ in scenes:
-   old=c['btn'][1];dy=762-old;c['btn'][1]=762;c['btn'][3]=118
-   for key in ('top','big','arrow'):c[key]['y']+=dy
-   c['top']['y']=773;c['top']['px']=24;c['big']['y']=810;c['big']['px']=46;c['arrow']['y']=810;c['arrow']['px']=46
-  meta.update(box=[430,762,1490,880],band=[740,910])
+ layout=json.load(open(O/'cta-layout.json'))[fmt];x,y,bw,bh=layout['box'];toppx,bigpx=layout['top_px'],layout['big_px'];H=mod.H;bx=x+(bw-H.text_w('Get Started',bigpx)-56)/2
+ for _,c,_ in scenes:
+  c['canvas']=list(wh);c['btn']=[x,y,bw,bh];c['radius']=layout['radius'];c['top']=dict(x=round(x+(bw-H.text_w('Tap The Button Below',toppx))/2),y=y+layout['top_offset'],px=toppx,s='Tap The Button Below');c['big']=dict(x=round(bx),y=y+layout['big_offset'],px=bigpx,s='Get Started');c['arrow']=dict(x=round(bx+H.text_w('Get Started',bigpx)+22),y=y+layout['big_offset'],px=bigpx)
+ meta.update(box=[x,y,x+bw,y+bh],band=[y-12,y+bh+12])
  mod.build(scenes,O/f'cta{fmt}',render=True)
  mov=O/f'cta{fmt}/renders/CTA.mov';mask=O/f'cta{fmt}/renders/CTA_mask.mov'
  man[fmt]=[dict(id='A1',a=A1A,b=A1B,kind='opaque',mov=str(O/('hf9/renders/A1.mov' if fmt=='9' else 'hf16/A1.mov'))),dict(id='CTA',a=cta_a,b=cta_b,kind='glass',mov=str(mov),mask=str(mask),**{k:v for k,v in meta.items() if k!='kind'})]

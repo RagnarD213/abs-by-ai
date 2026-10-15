@@ -1,0 +1,36 @@
+AD. Most Guys Abs AD R2. Delivered for review.
+
+Both formats: 53.9205 seconds, 1616 frames at 30000/1001 fps.
+9:16: 1080 x 1920. 16:9: 1920 x 1080. Same edit and bit-identical audio.
+Review: http://127.0.0.1:8973/
+Full-quality physical copies: Videos to Review/Most Guys Abs AD R2 - vertical.mp4 and horizontal.mp4.
+
+Approved choices preserved: Brighter Natural B, vertical 738 x 1312/630 x 1120, horizontal 2144 x 1206/1728 x 972, lighter bass voice with no dereverb.
+Horizontal close headroom reduced by 20 source pixels, about 30.9% of the original 64.8 px gap; crop size and fixed center 1080 retained. Minimum sampled close hair clearance 38 source pixels.
+
+Changes and short watch ranges on the NEW full film:
+0.00: removed 0.6006 seconds of empty lead, all spoken words preserved. Watch 0-3.
+2.27-14.35,25.16-28.36,42.61-46.58: horizontal close headroom. Quick ranges 2-6,24.5-29,42-47.
+14.35-25.16: approved same-person real sunglasses photo to AI pool goal; brief presenter island covered. Watch 13-27.
+25.16-28.36: distorted proposed lockscreen clip removed, presenter carries the line. Watch 24.5-29.
+28.36-33.77: shared current analysis card, same photo/scan/three bars/plan, no printed numbers. Watch 27-35.
+33.77-38.97: retained workout and food phone tour; source scene changes at 35.769. Watch 32.5-40.
+38.97-46.58: stick-figure workout clip removed, presenter carries the changing-plan lines. Watch 39-47.
+51.38-53.92: CTA moved clear of abs/captions. Vertical sits over shorts, horizontal in left pool. Same wording, no URL. Watch 51-53.92.
+
+Independent media audit: passed after CTA repair. Both full actual files were supplied with audio; model video sampling requested 4 fps high resolution. Separate all-frame scans and 74 individually accounted native review images,17 inspection points per format, include every required scene, freeze candidate, app-screen cut and final five frames. Identical observed images were carried only with verified SHA matching. No human native-rate playback is claimed.
+
+Exact numerical delivery gates remain FAIL. No thresholds changed, no invented pass and no repeat request to approve locked voice or crops. The independent reviewer observed deliberate scale changes at flagged zoom cuts and continuous picture at the audio-only seam.
+
+9x16 open numerical rows:
+- audio:stamp: no valid audio-gate stamp: AUDIO GATE FAILED on why do most guys never get abs | codex | 9x16 | RA-13 R2.mp4: tone, floor -- fix the audio, do not deliver
+- cut:splice_visibility: 1/10 joins above the file's own p99 ceiling (25.21): [(42.61, 25.51)]
+
+16x9 open numerical rows:
+- audio:stamp: no valid audio-gate stamp: AUDIO GATE FAILED on why do most guys never get abs | codex | 16x9 | RA-13 R2.mp4: tone, floor -- fix the audio, do not deliver
+- framing:no_wide_level: 6 talking holds; head height (hair -> chin) per hold: smallest 23.6% of its window at 46.5s (min 27.0%); 3 wide hold(s) [(0.0, 0.23778), (39.0, 0.23963), (46.5, 0.23583500000000002)]
+- cut:splice_visibility: 2/10 joins above the file's own p99 ceiling (36.45): [(2.27, 36.8), (42.61, 39.19)]
+
+All raw gate results and independent findings are in QC/. The audio A/B, edit sheet, framing proof and source-specific rebuild facts are included. Natural camera motion continues through the ending tail. No video was uploaded or published. Master-list status is delivered for review, not finalized.
+
+Provider review estimate: under $3 for this session. Actual billed dollars unavailable; Gemini token receipts are retained. New generation spend $0. Codex editor/reviewer model and token totals unavailable.

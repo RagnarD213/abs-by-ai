@@ -1,0 +1,322 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-18T22:51:49+00:00",
+  "identity": {
+    "content_key": "7717932801:a5b781b8e8fd7e3a3d592d860fefc91571c8ac2ce21c0897f400da338b2c6371",
+    "size_bytes": 7717932801,
+    "sample_sha256": "a5b781b8e8fd7e3a3d592d860fefc91571c8ac2ce21c0897f400da338b2c6371",
+    "file_name": "C1667.MP4",
+    "current_path": "/Volumes/Extreme/abs by ai 8:28 shoot | jeff | dan | ads, dedicated shorts, b roll, scripted long form content/main camera/C1667.MP4",
+    "shoot": "abs by ai 8:28 shoot | jeff | dan | ads, dedicated shorts, b roll, scripted long form content - main camera",
+    "duration": 419.419
+  },
+  "picture": {
+    "stored_resolution": "3840x2160",
+    "decoded_resolution": "2160x3840",
+    "fps": 29.97003,
+    "fps_fraction": "30000/1001",
+    "rotation_degrees": -90,
+    "portrait": true,
+    "codec": "h264",
+    "pixel_format": "yuv422p10le",
+    "color_tags": {
+      "color_space": null,
+      "color_transfer": null,
+      "color_primaries": null,
+      "color_range": "pc"
+    },
+    "color_tags_status": "ABSENT",
+    "untagged_decode_assumption": "BT.709"
+  },
+  "audio": {
+    "streams": [
+      {
+        "audio_index": 0,
+        "stream_index": 1,
+        "codec": "pcm_s16be",
+        "channels": 2,
+        "channel_layout": null,
+        "sample_rate": 48000
+      }
+    ],
+    "lav": {
+      "file": "/Volumes/Extreme/abs by ai 8:28 shoot | jeff | dan | ads, dedicated shorts, b roll, scripted long form content/main camera/C1667.MP4",
+      "duration": 419.419,
+      "window": [
+        104.85475,
+        45.0
+      ],
+      "candidates": [
+        {
+          "stream": 0,
+          "channel": 0,
+          "nch": 2,
+          "rms_db": -27.4,
+          "live": true,
+          "snr_db": 44.5,
+          "dryness_db": 7.37,
+          "edt_ms": 24.0,
+          "clipped": 0
+        },
+        {
+          "stream": 0,
+          "channel": 1,
+          "nch": 2,
+          "rms_db": -27.4,
+          "live": true,
+          "snr_db": 44.6,
+          "dryness_db": 7.36,
+          "edt_ms": 24.0,
+          "clipped": 0
+        }
+      ],
+      "verdict": "dual-mono",
+      "why": "channels correlate +1.000 at lag 0 -- one signal",
+      "lav": {
+        "stream": 0,
+        "channel": 0,
+        "nch": 2,
+        "rms_db": -27.4,
+        "live": true,
+        "snr_db": 44.5,
+        "dryness_db": 7.37,
+        "edt_ms": 24.0,
+        "clipped": 0
+      },
+      "far": {
+        "stream": 0,
+        "channel": 1,
+        "nch": 2,
+        "rms_db": -27.4,
+        "live": true,
+        "snr_db": 44.6,
+        "dryness_db": 7.36,
+        "edt_ms": 24.0,
+        "clipped": 0
+      },
+      "delay_ms": null,
+      "polarity": null,
+      "pair_corr": null,
+      "version": 1,
+      "map": "0:a:0",
+      "filter": "pan=mono|c0=0.5*c0+0.5*c1",
+      "fc_label": "[0:a:0]",
+      "source": "measured:pick_lav.py"
+    }
+  },
+  "grade": {
+    "roll_family": "8/28 native portrait outdoor talking, dual-mono lav",
+    "grade_fit": "8/28 outdoor daylight S-Log3 family; use the approved per-roll daylight fit, never the indoor LUT blindly",
+    "source": "Docs/SHOOT_828_FOOTAGE_REPORT.md and .claude/skills/_shared/reference/picture.json"
+  },
+  "transcript_source": "whisper:small",
+  "transcript": {
+    "text": "The video I'm about to film is AI is changing the world. AI is transforming our world. So why aren't you using it to transform your body? I'm not just talking about making an AI generated picture of yourself with apps. I'm talking about using AI to get real six pack apps in real life. Here's how you do it in three simple steps. First, upload a picture of where you're at now. And use AI to generate an image of you. And use AI to generate an image of you with your dream body in seconds, completely free. And use AI to generate an image of you with your dream body in seconds, completely free. That picture isn't just for motivation. It also shows the AI exactly how much fat that picture isn't just for motivation. It also shows your AI exactly how much fat you need to lose and where you need to gain muscle to make your dream The AI then generates a personalized workout and nutrition plan designed to get you to your goal body. Then you execute the plan with AI always there to coach you along the way. When life gets in the way, use AI to solve the problem. Gut injured, AI will adjust your plan to work around it. Can't make it to the gym one day? AI will swap out your gym workout for a home workout. Whatever problem comes up, AI can solve it for you instantly and for free. Tap the button below now to get started. The video I'm about to film is, what would you look like with abs? What would you look like with six pack abs? What would you look like with six pack abs? You've wondered. Now you can actually see it. Just upload one picture of yourself to abs by AI and it generates an image of you with ripped six pack abs. your face, your body in seconds, completely free. To see yourself with abs, tap the button below. And that picture does a lot more than satisfy your curiosity. Most guys make their phone lock screen and that picture does a lot more than satisfy your curiosity. And that picture does a lot more than satisfy your curiosity. Most guys make it their phone lock screen because once you see yourself with abs you'll be motivated to make it real. It also shows your AI exactly how much fat you have to lose and where you need to gain muscle to reach your goal. Then the AI builds you a personalized workout and nutrition plan designed to make your dream body real. Stop wondering what you'd look like with abs. Tap the button below and see it right now. Alright, the video I'm about to film is the first step to getting abs is in a workout. The first step to getting six pack abs Six Pack abs isn't a workout and it's not a diet. It's a picture. Before you can change your body, you have to see your goal. That's why guys who generate an AI image of themselves with abs and look at it every day stay motivated when everyone else quits. With abs by AI, you can generate a picture of yourself with ripped Six Pack abs in seconds, completely free. Just upload one photo, tap the button. could you roll it back a little bit? With abs by AI, you can generate a picture of yourself with RIP 6 back abs in seconds, completely free. Just upload one photo. Tap the button below to generate yours. And your picture isn't just motivation. It shows your AI trainer exactly how much fat you have to lose and where you need to gain muscle to make your dream body real. Then the AI creates It's a personalized workout and nutrition plan designed specifically to get you there. Workouts and diets fail without a goal. So take the first step. Tap the button below to see yourself with abs. Alright, the video I'm about to film is Why do most guys never get abs? Why do most guys never get six-back abs? It's not genetics and it's not because they're lazy. It's because they're working blind. No clear goal. It's not genetics and it's not because they're lazy. It's because they're working blind. No clear goal, a generic workout plan, and zero motivation when results slow down. So they quit. AI fixes all three. First generating image of yourself. First generating image of yourself. First generating image of yourself with apps using apps by AI. It's free, it takes seconds, and now you have a visual goal you can actually see. Put it on your lock screen and quitting gets a lot harder. Second, That picture shows your AI exactly how much fat you have to lose and where you need to gain muscle. So the workout and nutrition plan it builds is designed specifically for you and not for everyone. And third, when life gets in the way, AI adjusts your plan in seconds. Injured, can't make it to the gym, your plan updates instantly. Most guys never get abs because they try to do it alone. You don't have to. Tap the button below to get started. I'll do one more then I'll take a break. The video I'm about to film is the cheat code for 6-pack abs. Guys have figured out the cheat code for getting 6-pack abs. It's AI. I'm not talking about an AI picture. I'm talking about getting real abs in real life with AI. Here's how it works. Step one, upload a photo of yourself. Step 1. Step 1. Upload a photo of yourself to abs by AI and generate an image of you with your dream body. It takes seconds and it's completely free. Step two, the AI analyzes your picture and your goal. It measures exactly how much fat you have to lose and where you need to gain muscle. Then it builds you a personalized workout and nutrition plan to get you there. Step three, execute with AI coaching you the whole way. Okay, whatever problem comes up, AI solves it instantly. A home workout when you can't make it to the gym. Whatever problem comes up, AI solves it instantly. A home workout when you can't make it to the gym. An adjusted plan when you're injured. That's the cheat code, a goal you can see. A plan built just for you and a coach that's always there. Tap the button below to get started. Tap the button below now to get started. Alright, let's break in charge.",
+    "word_count": 1114
+  },
+  "takes": [
+    {
+      "take": 1,
+      "start": 0.62,
+      "end": 4.06,
+      "first_12_words": "the video i'm about to film is ai is changing the world",
+      "text": "The video I'm about to film is AI is changing the world.",
+      "retake_of": null,
+      "script_line": null
+    },
+    {
+      "take": 2,
+      "start": 10.58,
+      "end": 91.04,
+      "first_12_words": "ai is transforming our world so why aren't you using it to",
+      "text": "AI is transforming our world. So why aren't you using it to transform your body? I'm not just talking about making an AI generated picture of yourself with apps. I'm talking about using AI to get real six pack apps in real life. Here's how you do it in three simple steps. First, upload a picture of where you're at now. And use AI to generate an image of you. And use AI to generate an image of you with your dream body in seconds, completely free. And use AI to generate an image of you with your dream body in seconds, completely free. That picture isn't just for motivation. It also shows the AI exactly how much fat that picture isn't just for motivation. It also shows your AI exactly how much fat you need to lose and where you need to gain muscle to make your dream The AI then generates a personalized workout and nutrition plan designed to get you to your goal body. Then you execute the plan with AI always there to coach you along the way. When life gets in the way, use AI to solve the problem. Gut injured, AI will adjust your plan to work around it. Can't make it to the gym one day? AI will swap out your gym workout for a home workout. Whatever problem comes up, AI can solve it for you instantly and for free. Tap the button below now to get started.",
+      "retake_of": null,
+      "script_line": null
+    },
+    {
+      "take": 3,
+      "start": 93.28,
+      "end": 96.88,
+      "first_12_words": "the video i'm about to film is what would you look like",
+      "text": "The video I'm about to film is, what would you look like with abs?",
+      "retake_of": null,
+      "script_line": null
+    },
+    {
+      "take": 4,
+      "start": 102.54,
+      "end": 104.88,
+      "first_12_words": "what would you look like with six pack abs",
+      "text": "What would you look like with six pack abs?",
+      "retake_of": null,
+      "script_line": null
+    },
+    {
+      "take": 5,
+      "start": 106.16,
+      "end": 163.46,
+      "first_12_words": "what would you look like with six pack abs you've wondered now",
+      "text": "What would you look like with six pack abs? You've wondered. Now you can actually see it. Just upload one picture of yourself to abs by AI and it generates an image of you with ripped six pack abs. your face, your body in seconds, completely free. To see yourself with abs, tap the button below. And that picture does a lot more than satisfy your curiosity. Most guys make their phone lock screen and that picture does a lot more than satisfy your curiosity. And that picture does a lot more than satisfy your curiosity. Most guys make it their phone lock screen because once you see yourself with abs you'll be motivated to make it real. It also shows your AI exactly how much fat you have to lose and where you need to gain muscle to reach your goal. Then the AI builds you a personalized workout and nutrition plan designed to make your dream body real. Stop wondering what you'd look like with abs. Tap the button below and see it right now.",
+      "retake_of": null,
+      "script_line": null
+    },
+    {
+      "take": 6,
+      "start": 165.34,
+      "end": 170.14,
+      "first_12_words": "alright the video i'm about to film is the first step to",
+      "text": "Alright, the video I'm about to film is the first step to getting abs is in a workout.",
+      "retake_of": null,
+      "script_line": null
+    },
+    {
+      "take": 7,
+      "start": 177.96,
+      "end": 208.74,
+      "first_12_words": "the first step to getting six pack abs six pack abs isn't",
+      "text": "The first step to getting six pack abs Six Pack abs isn't a workout and it's not a diet. It's a picture. Before you can change your body, you have to see your goal. That's why guys who generate an AI image of themselves with abs and look at it every day stay motivated when everyone else quits. With abs by AI, you can generate a picture of yourself with ripped Six Pack abs in seconds, completely free. Just upload one photo, tap the button. could you roll it back a little bit?",
+      "retake_of": null,
+      "script_line": null
+    },
+    {
+      "take": 8,
+      "start": 211.4,
+      "end": 244.66,
+      "first_12_words": "with abs by ai you can generate a picture of yourself with",
+      "text": "With abs by AI, you can generate a picture of yourself with RIP 6 back abs in seconds, completely free. Just upload one photo. Tap the button below to generate yours. And your picture isn't just motivation. It shows your AI trainer exactly how much fat you have to lose and where you need to gain muscle to make your dream body real. Then the AI creates It's a personalized workout and nutrition plan designed specifically to get you there. Workouts and diets fail without a goal. So take the first step. Tap the button below to see yourself with abs.",
+      "retake_of": null,
+      "script_line": null
+    },
+    {
+      "take": 9,
+      "start": 247.24,
+      "end": 250.66,
+      "first_12_words": "alright the video i'm about to film is why do most guys",
+      "text": "Alright, the video I'm about to film is Why do most guys never get abs?",
+      "retake_of": null,
+      "script_line": null
+    },
+    {
+      "take": 10,
+      "start": 254.74,
+      "end": 263.54,
+      "first_12_words": "why do most guys never get six back abs it's not genetics",
+      "text": "Why do most guys never get six-back abs? It's not genetics and it's not because they're lazy. It's because they're working blind. No clear goal.",
+      "retake_of": null,
+      "script_line": null
+    },
+    {
+      "take": 11,
+      "start": 265.56,
+      "end": 281.86,
+      "first_12_words": "it's not genetics and it's not because they're lazy it's because they're",
+      "text": "It's not genetics and it's not because they're lazy. It's because they're working blind. No clear goal, a generic workout plan, and zero motivation when results slow down. So they quit. AI fixes all three. First generating image of yourself.",
+      "retake_of": null,
+      "script_line": null
+    },
+    {
+      "take": 12,
+      "start": 283.14,
+      "end": 285.28,
+      "first_12_words": "first generating image of yourself",
+      "text": "First generating image of yourself.",
+      "retake_of": null,
+      "script_line": null
+    },
+    {
+      "take": 13,
+      "start": 286.52,
+      "end": 325.78,
+      "first_12_words": "first generating image of yourself with apps using apps by ai it's",
+      "text": "First generating image of yourself with apps using apps by AI. It's free, it takes seconds, and now you have a visual goal you can actually see. Put it on your lock screen and quitting gets a lot harder. Second, That picture shows your AI exactly how much fat you have to lose and where you need to gain muscle. So the workout and nutrition plan it builds is designed specifically for you and not for everyone. And third, when life gets in the way, AI adjusts your plan in seconds. Injured, can't make it to the gym, your plan updates instantly. Most guys never get abs because they try to do it alone. You don't have to. Tap the button below to get started.",
+      "retake_of": null,
+      "script_line": null
+    },
+    {
+      "take": 14,
+      "start": 327.62,
+      "end": 332.98,
+      "first_12_words": "i'll do one more then i'll take a break the video i'm",
+      "text": "I'll do one more then I'll take a break. The video I'm about to film is the cheat code for 6-pack abs.",
+      "retake_of": null,
+      "script_line": null
+    },
+    {
+      "take": 15,
+      "start": 340.42,
+      "end": 355.62,
+      "first_12_words": "guys have figured out the cheat code for getting 6 pack abs",
+      "text": "Guys have figured out the cheat code for getting 6-pack abs. It's AI. I'm not talking about an AI picture. I'm talking about getting real abs in real life with AI. Here's how it works. Step one, upload a photo of yourself. Step 1.",
+      "retake_of": null,
+      "script_line": null
+    },
+    {
+      "take": 16,
+      "start": 357.92,
+      "end": 392.22,
+      "first_12_words": "step 1 upload a photo of yourself to abs by ai and",
+      "text": "Step 1. Upload a photo of yourself to abs by AI and generate an image of you with your dream body. It takes seconds and it's completely free. Step two, the AI analyzes your picture and your goal. It measures exactly how much fat you have to lose and where you need to gain muscle. Then it builds you a personalized workout and nutrition plan to get you there. Step three, execute with AI coaching you the whole way. Okay, whatever problem comes up, AI solves it instantly. A home workout when you can't make it to the gym.",
+      "retake_of": null,
+      "script_line": null
+    },
+    {
+      "take": 17,
+      "start": 394.12,
+      "end": 411.1,
+      "first_12_words": "whatever problem comes up ai solves it instantly a home workout when",
+      "text": "Whatever problem comes up, AI solves it instantly. A home workout when you can't make it to the gym. An adjusted plan when you're injured. That's the cheat code, a goal you can see. A plan built just for you and a coach that's always there. Tap the button below to get started.",
+      "retake_of": null,
+      "script_line": null
+    },
+    {
+      "take": 18,
+      "start": 412.14,
+      "end": 414.34,
+      "first_12_words": "tap the button below now to get started",
+      "text": "Tap the button below now to get started.",
+      "retake_of": null,
+      "script_line": null
+    },
+    {
+      "take": 19,
+      "start": 415.9,
+      "end": 417.24,
+      "first_12_words": "alright let's break in charge",
+      "text": "Alright, let's break in charge.",
+      "retake_of": null,
+      "script_line": null
+    }
+  ],
+  "description": {
+    "summary": "Dan speaks to camera in outdoors by a pool.",
+    "source": "gemini-contact-sheet"
+  },
+  "shots": [
+    {
+      "start": 0.0,
+      "end": 415.0,
+      "setting": "outdoors by a pool",
+      "framing": "medium",
+      "angle": "front",
+      "shirt": "none",
+      "action": "speaking to camera",
+      "props": "none",
+      "other_people": "none",
+      "description": "Dan speaks to camera."
+    }
+  ],
+  "description_usage": {
+    "provider": "Google Gemini",
+    "model": "gemini-3.1-flash-lite",
+    "input_tokens": 1238,
+    "output_tokens": 175,
+    "estimated_actual_usd": 0.000572,
+    "pricing_assumption": "$0.25/1M input and $1.50/1M output"
+  },
+  "contact_sheet": {
+    "interval_seconds": 5,
+    "frame_count": 84,
+    "drive_path": "/Volumes/Extreme/abs by ai 8:28 shoot | jeff | dan | ads, dedicated shorts, b roll, scripted long form content/main camera/C1667.roll/contact.jpg"
+  },
+  "used_in": []
+}

@@ -2433,17 +2433,17 @@
         "a": 51.3794,
         "b": 53.92053333333333,
         "kind": "glass",
-        "mov": "/Volumes/Extreme/_edit_work/ra13/round2/cta9/renders/CTA.mov",
-        "mask": "/Volumes/Extreme/_edit_work/ra13/round2/cta9/renders/CTA_mask.mov",
+        "mov": "/Volumes/Extreme/_edit_work/ra13/round2/cta-clear9/renders/CTA.mov",
+        "mask": "/Volumes/Extreme/_edit_work/ra13/round2/cta-clear9/renders/CTA_mask.mov",
         "band": [
-          1073,
-          1365
+          1518,
+          1722
         ],
         "box": [
           68,
-          1086,
+          1530,
           1012,
-          1306
+          1710
         ]
       }
     ],
@@ -2460,16 +2460,16 @@
         "a": 51.3794,
         "b": 53.92053333333333,
         "kind": "glass",
-        "mov": "/Volumes/Extreme/_edit_work/ra13/round2/cta16/renders/CTA.mov",
-        "mask": "/Volumes/Extreme/_edit_work/ra13/round2/cta16/renders/CTA_mask.mov",
+        "mov": "/Volumes/Extreme/_edit_work/ra13/round2/cta-clear16/renders/CTA.mov",
+        "mask": "/Volumes/Extreme/_edit_work/ra13/round2/cta-clear16/renders/CTA_mask.mov",
         "band": [
-          740,
-          910
+          728,
+          892
         ],
         "box": [
-          430,
-          762,
-          1490,
+          68,
+          740,
+          658,
           880
         ]
       }
