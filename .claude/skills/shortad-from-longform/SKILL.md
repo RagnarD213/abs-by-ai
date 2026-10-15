@@ -537,7 +537,10 @@ each one was arrived at by getting it wrong first.
 10. **Render captions with PIL, not libass.** Manrope is a VARIABLE font and libass takes the
    default instance — ASS captions come out Regular while every graphic is ExtraBold. Build
    one PNG per word state and assemble with the concat demuxer (`duration` directives); that
-   is fast and keeps one type system.
+   is fast and keeps one type system. ⚠ Never one entry per frame with `duration 0.033367`: it is
+   longer than 1001/30000 and put every caption change one frame late (measured 2026-10-15, 139 of
+   139 on RA-01). For a per-frame list, encode an image sequence at 30000/1001 instead
+   (`ad-edit/reference/ra04/s07_captions.py`).
 
 11. **[UPDATED 2026-09-16] Wider shots hold steady; very tight shots track only when necessary.**
    Follow [the shared framing rule](../_shared/framing-motion.md). Choose and inspect a

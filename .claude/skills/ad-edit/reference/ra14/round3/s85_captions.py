@@ -190,15 +190,16 @@ for si, st in enumerate(states):
     f0 = max(0, min(TOTALF-1, f0)); f1 = max(f0+1, min(TOTALF, f1))
     for f in range(f0, f1): frame_state[f] = si
     st["beat"] = [round(f0*FD, 6), round(f1*FD, 6)]      # the beat IS the rendered frame span
-with open(f"{OUT}/list.txt", "w") as f:
-    for i in range(TOTALF):
-        p = states[frame_state[i]]["image"] if frame_state[i] is not None else os.path.abspath(blank)
-        f.write(f"file '{p}'\nduration {FD:.6f}\n")
-    last = states[frame_state[-1]]["image"] if frame_state[-1] is not None else os.path.abspath(blank)
-    f.write(f"file '{last}'\n")
-subprocess.run([L.FF, "-nostdin", "-v", "error", "-y", "-f", "concat", "-safe", "0",
-                "-i", f"{OUT}/list.txt", "-r", "30000/1001", "-frames:v", str(TOTALF),
+# The concat list's 6-decimal duration (0.033367 > 1001/30000) made every state change ONE FRAME LATE (RA-04 round 4: 217 of 217
+# changes late). One symlink per output frame, read as an image sequence at exactly 30000/1001, maps frame n to state n.
+import shutil, tempfile
+# the symlinks live on the internal disk: on the exFAT Extreme drive each symlink and its ._ file take a 1 MB cluster (3.4 GB a track)
+SEQ = tempfile.mkdtemp(prefix="capseq_")
+for i in range(TOTALF):
+    os.symlink(states[frame_state[i]]["image"] if frame_state[i] is not None else os.path.abspath(blank), f"{SEQ}/{i:05d}.png")
+subprocess.run([L.FF, "-nostdin", "-v", "error", "-y", "-framerate", "30000/1001", "-i", f"{SEQ}/%05d.png", "-frames:v", str(TOTALF),
                 "-c:v", "qtrle", "-pix_fmt", "argb", f"{OUT}/captions.mov"], check=True)
+shutil.rmtree(SEQ)
 # an SRT sidecar describing the LINES (what captions:card_collision and captions:within_runtime read)
 def ts(x):
     h = int(x//3600); m = int(x % 3600//60); s = x - h*3600 - m*60

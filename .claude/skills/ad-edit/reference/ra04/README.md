@@ -116,7 +116,9 @@ writes `beats.json`), `s10_render04r4.py` (RA-15's render with the tracked strip
 23. **The caption concat list put every caption change ONE FRAME LATE** (`duration 0.033367` is longer than 1001/30000; 217 of 217
     changes late). Harmless on a word, a defect where a lifted 16:9 line is clipped at a card's first frame (the caption sat on the card
     picture for one frame). `s07_captions.py` now writes one symlink per frame and encodes an image sequence at 30000/1001. The
-    `seq/` folder on the Extreme drive collects `._*` AppleDouble files: read only names that do not start with a dot.
+    symlinks go in a temp folder on the internal disk, deleted after the encode: on the exFAT Extreme drive each symlink and its `._`
+    file take a 1 MB cluster, 3.4 GB a track (RA-04's two `seq/` folders held 6.8 GB on 2026-10-15, with the drive at 0 bytes free).
+    Patched 10-15 in ra06, ra07 (+ recipe), the RA-01 and DS-04 recipes, and the ra04/ra14 reference copies; ra15 pipes raw frames.
 24. **Person-mask a library clip over its whole window before using it.** B0464 (lawn squats) cuts his head off at the top of EVERY rep in
     the source (`round4/b0464_mask.json`); the only clean stretch is 7.30-9.45 s, so the card became 64 frames and Dan comes back on
     camera for "to do instead". A tighter crop cannot fix a head the camera did not record.
