@@ -70,3 +70,15 @@ The independent check of the round 2 page (29 findings, all fixed or explained b
     already-tipped cup: nothing rotates), a fork that shrank 35 % when set down, a fish appearing in an empty tin. Design pairs
     so every object either holds its pose or is visibly moved by a hand, and repair a single corner with Codex given the START
     as a size reference (`--image END --image START`).
+
+## Round 3 (2026-10-15): AI motion, what it cost (scripts in `round3/`)
+16. **Veo prints measuring marks on a glass measuring jug** mid-pour and they vanish again (2 of 2 takes); painting them out failed twice (faint ticks,
+    a broken rim line, mushy glass). Prompting "a small, completely plain clear glass water pitcher, no markings, no numbers" fixed it (A3 take 4).
+17. **Kling v3 holds hands and props steadier than Veo** (A5 raisins, A7 dome) and gets through Veo's E005 filter, but it pours through glass, outputs
+    720p (about 3x softer upscaled; `prep_clips.py` adds a light unsharp) and costs about $1 a take.
+18. **`clipcheck.py` cannot see gaze, fill levels, beam angles or markings**; every one of those was caught by the fresh frame reviewer. Budget one or
+    two fails per clip, and when a clip keeps failing, use the clean part of a take (A1: 1.9 s of typing; A3: frames 0-84).
+19. **429 on submit and E005 filter failures are not billed** (no `video_output_duration_seconds` in the prediction metrics); check before counting them.
+20. **Hand-stamped replacement pieces read as stickers** (identical copies, wrong tint, over the bag edge). Edit a 4x crop of the area with Codex and paste
+    it back into the approved frame (`aiframes/paste_box.py`).
+21. **`pkill -f` matched the parent shell holding the same pattern** and killed a running generation; queue gate runs with `motion/after.sh`.

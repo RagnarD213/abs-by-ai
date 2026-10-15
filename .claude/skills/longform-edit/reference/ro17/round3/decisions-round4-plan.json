@@ -1,0 +1,223 @@
+{
+ "video": "RO-17 3 Healthy Foods That Made Me Fat",
+ "round": 3,
+ "recorded": "2026-10-15",
+ "dan_words": "Everything looks good. Give me the handoff to build the full film in the next round.",
+ "frames_page": "http://127.0.0.1:8879/",
+ "A10": {
+  "start": "aiframes/A10-start.png",
+  "start_sha256": "c38f345458e5c3412f3837e39560de68e07b0ce0a97d48453fde679ba67a9e6b",
+  "end": "aiframes/A10-end.png",
+  "end_sha256": "fddba98064cbe37bfe3568eea5b8fb59f77cb908c174b2f416305327b4399dcb",
+  "verdict": "approved",
+  "scope": "new character frames approved; motion authorized (6 s Veo 3.1 Fast, about $0.90)"
+ },
+ "A2_A3_frames": {
+  "A2-start": "96bb086d8684a45bbf65103e07e100493fcdfd13652290ff15f8882f18e142d6",
+  "A2-end": "ed678e46095afdf7f58d0bdbb0a688c2f49b856662223f9135b403ee52547b9c",
+  "A3-start": "ab9473d6cf81cf928159da2aba677d8a3e98e9de216038823cfbad95221246fd",
+  "A3-end": "55e9a94bf92705d279f6d9fdf794fe32e82dedc15c25a06af0593e71b3dfc0b3"
+ },
+ "locked_clips": {
+  "A2": {
+   "file": "motion/final/A2.mp4",
+   "sha256": "d4bdc7360ca47c3635b32bb1e71dc8a56f92c4e85cf0254b4eec4cae243b4c7b",
+   "take": "A2_t1",
+   "frames": [
+    16,
+    143
+   ],
+   "black_rows": [
+    0,
+    0
+   ],
+   "n": 128,
+   "secs": 5.333,
+   "chip": [
+    [
+     1866,
+     54
+    ],
+    "rt"
+   ],
+   "heads_seen": 32,
+   "free": [
+    "rt",
+    "lt"
+   ]
+  },
+  "A8": {
+   "file": "motion/final/A8.mp4",
+   "sha256": "6f96dc143fc47784ae9e1e885c4bf21a52c25c850d98fe11a3537320ef34c620",
+   "take": "A8_t2",
+   "frames": [
+    24,
+    119
+   ],
+   "black_rows": [
+    0,
+    0
+   ],
+   "n": 96,
+   "secs": 4.0,
+   "chip": [
+    [
+     54,
+     54
+    ],
+    "lt"
+   ],
+   "heads_seen": 68,
+   "free": [
+    "lt"
+   ]
+  },
+  "A4": {
+   "file": "motion/final/A4.mp4",
+   "sha256": "4661812f8ffd6bd5917d308a31964e8469d20be460b738e8d4faa1d98c869a6b",
+   "take": "A4_t2",
+   "frames": [
+    8,
+    128
+   ],
+   "black_rows": [
+    0,
+    0
+   ],
+   "n": 121,
+   "secs": 5.042,
+   "chip": [
+    [
+     1866,
+     54
+    ],
+    "rt"
+   ],
+   "heads_seen": 31,
+   "free": [
+    "rt",
+    "lt"
+   ]
+  },
+  "A7": {
+   "file": "motion/final/A7.mp4",
+   "sha256": "3c230f1e7af54d51e027c819cbe5876fdc44a8108029085a3b0a8e1ca5c8f1dc",
+   "take": "A7_t3",
+   "frames": [
+    10,
+    115
+   ],
+   "black_rows": [
+    0,
+    0
+   ],
+   "n": 106,
+   "secs": 4.417,
+   "chip": [
+    [
+     1866,
+     54
+    ],
+    "rt"
+   ],
+   "heads_seen": 27,
+   "free": [
+    "rt",
+    "lt"
+   ]
+  },
+  "A1": {
+   "file": "motion/final/A1.mp4",
+   "sha256": "badd4703f4fb602f7147a55ff1f29a175f37767d4165eeaeb468c6bb10e4dea0",
+   "take": "A1_t2",
+   "frames": [
+    0,
+    45
+   ],
+   "black_rows": [
+    0,
+    0
+   ],
+   "n": 46,
+   "secs": 1.917,
+   "chip": [
+    [
+     1866,
+     54
+    ],
+    "rt"
+   ],
+   "heads_seen": 16,
+   "free": [
+    "rt",
+    "lt"
+   ]
+  },
+  "A5": {
+   "file": "motion/final/A5.mp4",
+   "sha256": "866ff1893c9cebd31c8f1f99a076b517e048953f9a84a2b25cfeacf54fdc2676",
+   "take": "A5_t3",
+   "frames": [
+    18,
+    120
+   ],
+   "black_rows": [
+    0,
+    0
+   ],
+   "n": 103,
+   "secs": 4.292,
+   "chip": [
+    [
+     1866,
+     54
+    ],
+    "rt"
+   ],
+   "heads_seen": 1,
+   "free": [
+    "rt",
+    "lt"
+   ]
+  },
+  "A3": {
+   "file": "motion/final/A3.mp4",
+   "sha256": "588f6cc70a50a846012c9a532e55fc9517a33e173d7a56c7b1efd267302358b7",
+   "take": "A3_t4",
+   "frames": [
+    0,
+    84
+   ],
+   "black_rows": [
+    0,
+    0
+   ],
+   "n": 85,
+   "secs": 3.542,
+   "chip": [
+    [
+     1866,
+     54
+    ],
+    "rt"
+   ],
+   "heads_seen": 0,
+   "free": [
+    "rt",
+    "lt"
+   ]
+  }
+ },
+ "plan_changes_round3": [
+  "C13 cut (Dan)",
+  "A5 starts on 'and all the water in it'",
+  "A1 starts on 'sitting at a desk' (1.9 s typing part of take 2)",
+  "A3 is frames 0-84 of take 4 (3.54 s)",
+  "A4 frames 8-128 of take 2 (full wink)"
+ ],
+ "motion_authorized": [
+  "A10"
+ ],
+ "spend_usd_conservative": 13.9,
+ "cap_usd": 15.0
+}
