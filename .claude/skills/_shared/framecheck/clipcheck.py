@@ -57,6 +57,8 @@ DEFAULTS = dict(grid_px=40,             # grid spacing at 1080p (scaled with the
                 camera_max_px=8.0,      # only with "camera": "locked"
                 window_zoom=1.15, window_shift=0.08,   # a moving camera: the vanish test runs in windows across which the
                 window_min_s=1.0, window_max_s=3.0,    # picture zooms at most 15 % and shifts at most 8 % of the width
+                region_found=0.5,       # an event's whole region found again within 3 grid steps at this match = it moved while
+                                        # covered, not vanished (RO-08 A7's bar stool, tilted under his arm: 0.69; A5's donut box: 0.10-0.18)
                 prop_lost=0.7)          # share of a prop's points lost for good, away from the person, to call it vanished
 
 
@@ -106,7 +108,7 @@ def box_points(b, n=4):
     return np.array([(x, y) for y in np.linspace(y0 + iy, y1 - iy, n) for x in np.linspace(x0 + ix, x1 - ix, n)], np.float32)
 
 
-TRACKERS = {"tapir": "tapir_mps", "cotracker": "cotracker_mps"}
+TRACKERS = {"tapir": "tapir_cpu", "cotracker": "cotracker_mps"}
 
 
 def run_tracker(small, seeds, W, tracker):
@@ -222,6 +224,22 @@ def lost_in_place(P, V, nmot, seeds, use, grays, mask_end, scale, other, D, H, W
             continue                                             # the spot looks the same: the tracker lost it, nothing changed
         out.append(dict(n=int(n), t=t, seed=seeds[n].tolist(), end=end.tolist(), ncc=round(s, 2), how=how))
     return out
+
+
+def region_found(A, B, box, hs, R, z):
+    """Best match of grey frame A's region (box, full pixels) anywhere within R px of it in grey frame B (half size, scaled by
+    the zoom z): is the content still there, a little way off?"""
+    import cv2, numpy as np
+    x0, y0, x1, y1 = [int(round(max(0, v) * hs)) for v in box]; r = int(R * hs)
+    t = A[y0:y1, x0:x1]
+    if t.size == 0 or t.std() < 2:
+        return 0.0
+    win = B[max(0, y0 - r):y1 + r, max(0, x0 - r):x1 + r]; best = -1.0
+    for s in (0.94 * z, z, 1.06 * z):
+        tt = cv2.resize(t, None, fx=s, fy=s)
+        if tt.shape[0] < win.shape[0] and tt.shape[1] < win.shape[1]:
+            best = max(best, float(cv2.minMaxLoc(cv2.matchTemplate(win, tt, cv2.TM_CCOEFF_NORMED))[1]))
+    return best
 
 
 def clusters(pts, g, min_n):
@@ -360,6 +378,7 @@ def run(clip, spec, frames, outdir, cache=True, tracker="cotracker"):
     mk = {k: (masks[0] if k == 0 else masks[1] if k == K - 1 else person_mask(f, int(D["person_pad_frac"] * f.shape[0])))
           for k, f in hf.items()}
     lost_f, lost_b, events, biggest = [], [], [], {"vanish": 0, "appear": 0}
+    moved_away = {"vanish": 0, "appear": 0}
     for (i, j) in windows:
         if len(windows) == 1:
             Pw, Vw, sw = Pf, Vf, fwd_seeds
@@ -384,10 +403,14 @@ def run(clip, spec, frames, outdir, cache=True, tracker="cotracker"):
             biggest[kind] = max(biggest[kind], max([len(c) for c in clusters(lost, g, 1)] or [0]))
             for ev in clusters(lost, g, D["min_event_pts"]):
                 S = np.array([p["seed"] for p in ev])
+                bx = [int(S[:, 0].min() - g / 2), int(S[:, 1].min() - g / 2), int(S[:, 0].max() + g / 2), int(S[:, 1].max() + g / 2)]
+                found = region_found(gk[j] if backward else gk[i], gk[i] if backward else gk[j], bx, hs, 3 * g, 1 / z if backward else z)
+                if found >= D["region_found"]:
+                    moved_away[kind] += 1                                  # the same content is there, a little way off: it moved
+                    continue
                 fr = sorted(idx[j - p["t"] + 1] if backward else idx[i + p["t"]] for p in ev)   # last / first frame it was there
                 events.append(dict(kind=kind, n=len(ev), frames=[fr[0], fr[-1]], window=[idx[i], idx[j]],
-                                   box=[int(S[:, 0].min() - g / 2), int(S[:, 1].min() - g / 2), int(S[:, 0].max() + g / 2),
-                                        int(S[:, 1].max() + g / 2)], box_frame=idx[j] if backward else idx[i],
+                                   box=bx, found_nearby=round(found, 2), box_frame=idx[j] if backward else idx[i],
                                    ncc=round(float(np.median([p["ncc"] for p in ev])), 2)))
         if len(windows) == 1:
             lost_f, lost_b = lf, lb
@@ -409,6 +432,7 @@ def run(clip, spec, frames, outdir, cache=True, tracker="cotracker"):
                 if kind == "vanish" else "grid points there at the end, came from nowhere (traced backward: no move, nothing moved off it)")
         nl = len(lost_f if kind == "vanish" else lost_b) if len(windows) == 1 else "some"
         rows.add(kind, not evs, f"{nl} {what}{wtxt}; biggest cluster {biggest[kind]} (an event at {D['min_event_pts']})"
+                 + (f"; {moved_away[kind]} cluster(s) found again nearby (moved while covered, not counted)" if moved_away[kind] else "")
                  + "".join(f"; {e['n']} pts in box {e['box']} (f{e['box_frame']} pixels) frames {e['frames'][0]}-{e['frames'][1]} "
                            f"(spot match {e['ncc']})" for e in evs[:5]), events=evs[:8])
 
