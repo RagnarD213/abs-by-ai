@@ -1,0 +1,176 @@
+{
+ "A2": {
+  "take": "A2_t1",
+  "frames": [
+   16,
+   143
+  ],
+  "black_rows": [
+   0,
+   0
+  ],
+  "n": 128,
+  "secs": 5.333,
+  "chip": [
+   [
+    1866,
+    54
+   ],
+   "rt"
+  ],
+  "heads_seen": 32,
+  "free": [
+   "rt",
+   "lt"
+  ]
+ },
+ "A8": {
+  "take": "A8_t2",
+  "frames": [
+   24,
+   119
+  ],
+  "black_rows": [
+   0,
+   0
+  ],
+  "n": 96,
+  "secs": 4.0,
+  "chip": [
+   [
+    54,
+    54
+   ],
+   "lt"
+  ],
+  "heads_seen": 68,
+  "free": [
+   "lt"
+  ]
+ },
+ "A4": {
+  "take": "A4_t2",
+  "frames": [
+   8,
+   128
+  ],
+  "black_rows": [
+   0,
+   0
+  ],
+  "n": 121,
+  "secs": 5.042,
+  "chip": [
+   [
+    1866,
+    54
+   ],
+   "rt"
+  ],
+  "heads_seen": 31,
+  "free": [
+   "rt",
+   "lt"
+  ]
+ },
+ "A7": {
+  "take": "A7_t3",
+  "frames": [
+   10,
+   115
+  ],
+  "black_rows": [
+   0,
+   0
+  ],
+  "n": 106,
+  "secs": 4.417,
+  "chip": [
+   [
+    1866,
+    54
+   ],
+   "rt"
+  ],
+  "heads_seen": 27,
+  "free": [
+   "rt",
+   "lt"
+  ]
+ },
+ "A1": {
+  "take": "A1_t2",
+  "frames": [
+   0,
+   45
+  ],
+  "black_rows": [
+   0,
+   0
+  ],
+  "n": 46,
+  "secs": 1.917,
+  "chip": [
+   [
+    1866,
+    54
+   ],
+   "rt"
+  ],
+  "heads_seen": 16,
+  "free": [
+   "rt",
+   "lt"
+  ]
+ },
+ "A5": {
+  "take": "A5_t3",
+  "frames": [
+   18,
+   120
+  ],
+  "black_rows": [
+   0,
+   0
+  ],
+  "n": 103,
+  "secs": 4.292,
+  "chip": [
+   [
+    1866,
+    54
+   ],
+   "rt"
+  ],
+  "heads_seen": 1,
+  "free": [
+   "rt",
+   "lt"
+  ]
+ },
+ "A3": {
+  "take": "A3_t4",
+  "frames": [
+   0,
+   84
+  ],
+  "black_rows": [
+   0,
+   0
+  ],
+  "n": 85,
+  "secs": 3.542,
+  "chip": [
+   [
+    1866,
+    54
+   ],
+   "rt"
+  ],
+  "heads_seen": 0,
+  "free": [
+   "rt",
+   "lt"
+  ]
+ }
+}
