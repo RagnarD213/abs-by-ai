@@ -1,218 +1,500 @@
 [
- {
-  "schedule": "3563027",
-  "when": "2026-09-29T22:00:00.000Z",
-  "match": "8 hours in bed is not 8 hours of sleep.",
-  "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/next-five-redesign-20260922/finalized/upload/03-sleep-o1v3wPkNI2I.jpg",
-  "w": 1080,
-  "h": 1920
- },
- {
-  "schedule": "3876752",
-  "when": "2026-10-01T22:00:00.000Z",
-  "match": "Why bodybuilders suck their stomach in.",
-  "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/next-five-redesign-20260922/finalized/upload/04-vacuum-QuswpGj635A.jpg",
-  "w": 1080,
-  "h": 1920
- },
- {
-  "schedule": "3876762",
-  "when": "2026-10-06T22:00:00.000Z",
-  "match": "Try to knee yourself in the face.",
-  "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/next-five-redesign-20260922/finalized/upload/05-knee-bi_fpkW-3eE.jpg",
-  "w": 1080,
-  "h": 1920
- },
- {
-  "schedule": "4066386",
-  "when": "2026-10-08T22:00:00.000Z",
-  "match": "The deadlift trick that saves your back.",
-  "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/17-A-youtube.jpg",
-  "w": 1080,
-  "h": 1920
- },
- {
-  "schedule": "3563130",
-  "when": "2026-10-10T22:00:00.000Z",
-  "match": "The back move you can do with a towel.",
-  "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/18-A-youtube.jpg",
-  "w": 1080,
-  "h": 1920
- },
- {
-  "schedule": "4066409",
-  "when": "2026-10-13T22:00:00.000Z",
-  "match": "You always have three minutes.",
-  "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/19-A-youtube.jpg",
-  "w": 1080,
-  "h": 1920
- },
- {
-  "schedule": "3563151",
-  "when": "2026-10-17T22:00:00.000Z",
-  "match": "You have 4 ab muscles — not just a six-pack.",
-  "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/07-A-youtube.jpg",
-  "w": 1080,
-  "h": 1920
- },
- {
-  "schedule": "3563159",
-  "when": "2026-10-20T22:00:00.000Z",
-  "match": "The toe touch — a killer six-pack move you can do at home.",
-  "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/08-A-youtube.jpg",
-  "w": 1080,
-  "h": 1920
- },
- {
-  "schedule": "3563168",
-  "when": "2026-10-22T22:00:00.000Z",
-  "match": "Work your obliques with V-sit twists.",
-  "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/09-A-youtube.jpg",
-  "w": 1080,
-  "h": 1920
- },
- {
-  "schedule": "3563172",
-  "when": "2026-10-24T22:00:00.000Z",
-  "match": "Build superhero abs with spiderman planks.",
-  "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/10-A-youtube.jpg",
-  "w": 1080,
-  "h": 1920
- },
- {
-  "schedule": "4315877",
-  "when": "2026-10-27T22:00:00.000Z",
-  "match": "Your abs never get a break on the ab wheel.",
-  "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/11-A-youtube.jpg",
-  "w": 1080,
-  "h": 1920
- },
- {
-  "schedule": "4315886",
-  "when": "2026-10-29T22:00:00.000Z",
-  "match": "The biggest ab wheel mistake is an arched back.",
-  "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round4-unfinished-20260926/covers/12-A-youtube.jpg",
-  "w": 1080,
-  "h": 1920
- },
- {
-  "schedule": "4315892",
-  "when": "2026-10-31T22:00:00.000Z",
-  "match": "How far should you roll out on the ab wheel?",
-  "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round4-unfinished-20260926/covers/13-A-youtube.jpg",
-  "w": 1080,
-  "h": 1920
- },
- {
-  "schedule": "4315896",
-  "when": "2026-11-03T23:00:00.000Z",
-  "match": "You're rolling out too fast.",
-  "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round4-unfinished-20260926/covers/14-A-youtube.jpg",
-  "w": 1080,
-  "h": 1920
- },
- {
-  "schedule": "4315902",
-  "when": "2026-11-05T23:00:00.000Z",
-  "match": "Crunches mostly train one ab muscle.",
-  "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/15-A-youtube.jpg",
-  "w": 1080,
-  "h": 1920
- },
- {
-  "schedule": "published 2026-09-24",
-  "when": "2026-09-24T22:00:00.000Z",
-  "match": "Weigh yourself every single day. Here's why.",
-  "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/next-five-redesign-20260922/finalized/upload/01-weigh-tqURi3qdrIc.jpg",
-  "w": 1080,
-  "h": 1920
- },
- {
-  "schedule": "4757780",
-  "when": "2026-10-04T14:00:00.000Z",
-  "match": "Belly fat affects far more than the mirror.",
-  "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/final-installation-20260928/installation/belly-fat-youtube-thumbnail.jpg",
-  "w": 1280,
-  "h": 720
- },
- {
-  "match": "Kettlebell deadlifts are a great exercise you can do at home, but most people do them wrong.",
-  "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds18-kettlebell-deadlift.jpg",
-  "w": 1080,
-  "h": 1920
- },
- {
-  "match": "Do this before a photo shoot or a pool party.",
-  "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/sl04-short2-arm-pump.jpg",
-  "w": 1080,
-  "h": 1920
- },
- {
-  "match": "If you can't lose weight, it usually comes down to one thing: calories. I'll show you the proof, then 8 ways to eat less without being hungry all day.",
-  "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ro10-calories-thumbnail.jpg",
-  "w": 1280,
-  "h": 720
- },
- {
-  "match": "Bigger shoulders make your waist look smaller.",
-  "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/sl04-short1-waist-smaller.jpg",
-  "w": 1080,
-  "h": 1920
- },
- {
-  "schedule": "4976695",
-  "when": "2026-10-12T14:00:00.000Z",
-  "match": "I used to be one of the biggest deadlift fans on the internet. At 40, I stopped doing them completely.",
-  "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/stop-deadlifting-approved-03.jpg",
-  "w": 1280,
-  "h": 720
- },
- {
-  "match": "Here are the top three ways to looksmax as a man.",
-  "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds-12_top-3-ways-to-looksmax-cover-D.jpg",
-  "w": 1080,
-  "h": 1920
- },
- {
-  "match": "Side laterals are the number one exercise for wide shoulders, and wide shoulders make your waist look smaller.",
-  "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds-23_how-to-do-side-laterals-cover-C.jpg",
-  "w": 1080,
-  "h": 1920
- },
- {
-  "match": "This was me at 38 years old, 200 pounds, and the thing that finally fixed it was not a workout.",
-  "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds-08_i-was-200-pounds-at-38-cover-F.jpg",
-  "w": 1080,
-  "h": 1920
- },
- {
-  "match": "Here are three ways to make time to work out.",
-  "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds-09_how-to-make-time-to-work-out-cover-F.jpg",
-  "w": 1080,
-  "h": 1920
- },
- {
-  "match": "This is the best ab exercise you can do at home. Here's how to use the ab wheel the right way.",
-  "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds-22_how-to-use-the-ab-wheel-cover-C.jpg",
-  "w": 1080,
-  "h": 1920
- },
- {
-  "match": "Here are three ways to cut your alcohol down. If you're serious about getting lean, this is the fastest thing you can fix.",
-  "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds-14_3-ways-to-reduce-alcohol-cover-C.jpg",
-  "w": 1080,
-  "h": 1920
- },
- {
-  "match": "Rear delt flys work the most neglected muscle on your entire body.",
-  "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds-24_how-to-do-rear-delt-flys-cover-C.jpg",
-  "w": 1080,
-  "h": 1920
- },
- {
-  "match": "Here's how to do hammer curls.",
-  "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds-21_how-to-do-hammer-curls-cover-C.jpg",
-  "w": 1080,
-  "h": 1920
- }
+  {
+    "schedule": "3563027",
+    "when": "2026-09-29T22:00:00.000Z",
+    "match": "8 hours in bed is not 8 hours of sleep.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/next-five-redesign-20260922/finalized/upload/03-sleep-o1v3wPkNI2I.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "schedule": "3876752",
+    "when": "2026-10-01T22:00:00.000Z",
+    "match": "Why bodybuilders suck their stomach in.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/next-five-redesign-20260922/finalized/upload/04-vacuum-QuswpGj635A.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "schedule": "3876762",
+    "when": "2026-10-06T22:00:00.000Z",
+    "match": "Try to knee yourself in the face.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/next-five-redesign-20260922/finalized/upload/05-knee-bi_fpkW-3eE.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "schedule": "4066386",
+    "when": "2026-10-08T22:00:00.000Z",
+    "match": "The deadlift trick that saves your back.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/17-A-youtube.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "schedule": "3563130",
+    "when": "2026-10-10T22:00:00.000Z",
+    "match": "The back move you can do with a towel.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/18-A-youtube.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "schedule": "4066409",
+    "when": "2026-10-13T22:00:00.000Z",
+    "match": "You always have three minutes.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/19-A-youtube.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "schedule": "3563151",
+    "when": "2026-10-17T22:00:00.000Z",
+    "match": "You have 4 ab muscles \u2014 not just a six-pack.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/07-A-youtube.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "schedule": "3563159",
+    "when": "2026-10-20T22:00:00.000Z",
+    "match": "The toe touch \u2014 a killer six-pack move you can do at home.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/08-A-youtube.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "schedule": "3563168",
+    "when": "2026-10-22T22:00:00.000Z",
+    "match": "Work your obliques with V-sit twists.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/09-A-youtube.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "schedule": "3563172",
+    "when": "2026-10-24T22:00:00.000Z",
+    "match": "Build superhero abs with spiderman planks.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/10-A-youtube.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "schedule": "4315877",
+    "when": "2026-10-27T22:00:00.000Z",
+    "match": "Your abs never get a break on the ab wheel.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/11-A-youtube.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "schedule": "4315886",
+    "when": "2026-10-29T22:00:00.000Z",
+    "match": "The biggest ab wheel mistake is an arched back.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round4-unfinished-20260926/covers/12-A-youtube.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "schedule": "4315892",
+    "when": "2026-10-31T22:00:00.000Z",
+    "match": "How far should you roll out on the ab wheel?",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round4-unfinished-20260926/covers/13-A-youtube.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "schedule": "4315896",
+    "when": "2026-11-03T23:00:00.000Z",
+    "match": "You're rolling out too fast.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round4-unfinished-20260926/covers/14-A-youtube.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "schedule": "4315902",
+    "when": "2026-11-05T23:00:00.000Z",
+    "match": "Crunches mostly train one ab muscle.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/15-A-youtube.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "schedule": "published 2026-09-24",
+    "when": "2026-09-24T22:00:00.000Z",
+    "match": "Weigh yourself every single day. Here's why.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/next-five-redesign-20260922/finalized/upload/01-weigh-tqURi3qdrIc.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "schedule": "4757780",
+    "when": "2026-10-04T14:00:00.000Z",
+    "match": "Belly fat affects far more than the mirror.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/final-installation-20260928/installation/belly-fat-youtube-thumbnail.jpg",
+    "w": 1280,
+    "h": 720
+  },
+  {
+    "match": "Kettlebell deadlifts are a great exercise you can do at home, but most people do them wrong.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds18-kettlebell-deadlift.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "match": "Do this before a photo shoot or a pool party.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/sl04-short2-arm-pump.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "match": "If you can't lose weight, it usually comes down to one thing: calories. I'll show you the proof, then 8 ways to eat less without being hungry all day.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ro10-calories-thumbnail.jpg",
+    "w": 1280,
+    "h": 720
+  },
+  {
+    "match": "Bigger shoulders make your waist look smaller.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/sl04-short1-waist-smaller.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "schedule": "4976695",
+    "when": "2026-10-12T14:00:00.000Z",
+    "match": "I used to be one of the biggest deadlift fans on the internet. At 40, I stopped doing them completely.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/stop-deadlifting-approved-03.jpg",
+    "w": 1280,
+    "h": 720
+  },
+  {
+    "match": "Here are the top three ways to looksmax as a man.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds-12_top-3-ways-to-looksmax-cover-D.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "match": "Side laterals are the number one exercise for wide shoulders, and wide shoulders make your waist look smaller.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds-23_how-to-do-side-laterals-cover-C.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "match": "This was me at 38 years old, 200 pounds, and the thing that finally fixed it was not a workout.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds-08_i-was-200-pounds-at-38-cover-F.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "match": "Here are three ways to make time to work out.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds-09_how-to-make-time-to-work-out-cover-F.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "match": "This is the best ab exercise you can do at home. Here's how to use the ab wheel the right way.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds-22_how-to-use-the-ab-wheel-cover-C.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "match": "Here are three ways to cut your alcohol down. If you're serious about getting lean, this is the fastest thing you can fix.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds-14_3-ways-to-reduce-alcohol-cover-C.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "match": "Rear delt flys work the most neglected muscle on your entire body.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds-24_how-to-do-rear-delt-flys-cover-C.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "match": "Here's how to do hammer curls.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds-21_how-to-do-hammer-curls-cover-C.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "match": "This salad is how I break my fast almost every day, and it's my most important nutrition habit.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ro05-daily-salad-approved.jpg",
+    "w": 1280,
+    "h": 720
+  },
+  {
+    "match": "I've been on Zepbound for about two months, and I screwed some things up when I started. Here are my top 5 tips to get the most out of it.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ro12-zepbound-tips-approved.jpg",
+    "w": 1280,
+    "h": 720
+  },
+  {
+    "match": "If I woke up 30 pounds heavier tomorrow, I'm confident I could lose it all and get my abs back in 3 months. Here's the exact plan.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ro16-belly-fat-90-days-approved.jpg",
+    "w": 1280,
+    "h": 720
+  },
+  {
+    "match": "If you're swinging your curls, you're not really working your biceps.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/sl04-short4-approved.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "match": "Deadlifts caused more of my injuries than every other lift combined.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/sl05-short1-approved.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "match": "Skip the deadlift. Here are the 2 back exercises I do instead.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/sl05-short4-approved.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "match": "I've worn the Oura Ring for a year and a half, and I paid for it myself. Here's my honest review.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/oura-ring-review-approved.jpg",
+    "w": 1280,
+    "h": 720
+  },
+  {
+    "match": "Over the long term, the safer exercise builds more muscle.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/sl05-short2-approved.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "match": "You can train your legs hard without deadlifts.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/sl05-short5-approved.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "match": "Want an aesthetic body? Deadlifts build a powerlifter body.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/sl05-short3-approved.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "match": "Can you drink alcohol and still have six pack abs? Yes, but only if you put rules on it.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ro13-alcohol-and-abs-approved.jpg",
+    "w": 1280,
+    "h": 720
+  },
+  {
+    "match": "I fast until about 2 PM every day, and this is what I break my fast with.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/sl03-short1-approved.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "match": "Store-made salad dressing can ruin a good salad.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/sl03-short4-approved.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "match": "You can track a whole week of meal prep without logging every ingredient by hand.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/sl03-short5-approved.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "match": "If you have belly fat, stop doing crunches. The one ab exercise that can shrink your waist is the stomach vacuum.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ro02-the-vacuum-approved.jpg",
+    "w": 1280,
+    "h": 720
+  },
+  {
+    "match": "I used to pay about $20 for a salad bar salad every day. Now each one costs me about $4.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/sl03-short2-approved.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "match": "A giant open bowl turns your salads bad in a couple of days.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/sl03-short3-approved.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "match": "Photos alone get your calorie tracking close. One extra line gets it accurate.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/sl03-short6-approved.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "match": "Lose the fat. Keep the muscle you worked to build.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ro01-keep-your-muscle-approved.jpg",
+    "w": 1280,
+    "h": 720
+  },
+  {
+    "match": "You can still hold onto belly fat even if you're eating in a calorie deficit. Here are the 7 things outside of calories that decide it.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ro11-calories-dont-matter-approved.jpg",
+    "w": 1280,
+    "h": 720
+  },
+  {
+    "match": "Do the stomach vacuum with me: three sets of 20 seconds.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ro03-vacuum-workout-approved.jpg",
+    "w": 1280,
+    "h": 720
+  },
+  {
+    "match": "You don't need a gym membership to get in shape. A full home gym costs $58.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ro06-home-workout-budget-approved.jpg",
+    "w": 1280,
+    "h": 720
+  },
+  {
+    "match": "Most people do side laterals wrong.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/sl04-short3-approved.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "match": "There are two ways to do bicep curls.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/sl04-short5-approved.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "match": "This is the arm workout I do before every photo shoot.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/arms-shoulders-home-workout-approved.jpg",
+    "w": 1280,
+    "h": 720
+  },
+  {
+    "match": "Never start your day with carbs.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/v3-short9-approved.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "match": "Why I skip breakfast every single day.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/v3-short7-approved.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "match": "The stomach vacuum is the one ab exercise that can actually pull your waist in.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds-04-approved.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "match": "3 sets of ab wheel rollouts. Grab a wheel and do this one with me.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/abwheel-workout-approved.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "match": "Most people jump rope with both feet \u2014 and that's why they keep tripping.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds-17-approved.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "match": "Jelly beans beat soda. Here's the study.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/v3-short5-approved.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "match": "Train abs every single day.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/v3-short4-approved.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "match": "Milk is not a health food if you want abs.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/v3-short3-approved.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "match": "Your protein shake might be stopping your abs.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/v3-short2-approved.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "match": "The three-minute total body workout, follow-along version.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/v7-approved.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "match": "Make AI macro estimates way more accurate.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/v2-short7-approved.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "match": "Hire a maid instead of a personal trainer.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/v2-short6-approved.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "match": "Ask AI this before it writes your workout.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/v2-short5-approved.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "match": "A three-minute total body workout with almost no equipment.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/v6-approved.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "match": "You don't need a food scale anymore. Just a photo.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/v2-short4-approved.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "match": "Your supplements are only 3% of your results.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/v2-short3-approved.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "match": "The one-minute ab workout, follow-along version.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/v5-approved.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "match": "The trick that killed my late-night snacking.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/v2-short1-approved.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "match": "A one-minute ab workout that hits all four ab muscle groups.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/v4-approved.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "match": "Do this instead of crunches.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/v3-short6-approved.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "match": "The full 1-minute ab workout. Follow along.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/short5-approved.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "match": "Here's how to do Spiderman Planks, a great home ab exercise that can shrink your waistline.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/short4-approved.jpg",
+    "w": 1080,
+    "h": 1920
+  }
 ]
