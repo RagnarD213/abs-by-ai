@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""RA-04 round 4: rebuild ONLY the named 9:16 media-card plates for the round 4 B0049 crops (flow_b 1320x1520 from y 250, flow_a 1320x2300 from y 170),
+"""RA-04 round 4: rebuild ONLY the named 9:16 media-card plates for the round 4 B0049 crops (flow_b 1320x1520 from y 250, flow_a 1320x2300, y 170 (options screen) / y 215 (generating screen)),
 with gfx04.py's own call (same label, same max_w), and update hf9/plates.json. The lower thirds and CTA are untouched."""
 import json, os, sys
 HF = "/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared/hyperframes"

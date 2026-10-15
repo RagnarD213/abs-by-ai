@@ -26,9 +26,10 @@ D709 = "scale=in_color_matrix=bt709:in_range=tv:out_color_matrix=bt709"
 def media(name, segs, vf, wh, n):
     """segs = [(path, t0, dur)] -> media/<name>.mp4, wh, exactly n frames at 29.97."""
     out = f"media/{name}.mp4"; ins, ch = [], []
-    for i, (p, t0, d) in enumerate(segs):
+    for i, seg in enumerate(segs):
+        p, t0, d = seg[:3]; vf_i = seg[3] if len(seg) > 3 else vf      # round 4: a segment may carry its own crop (same size)
         ins += ["-ss", f"{t0:.3f}", "-t", f"{d + 0.2:.3f}", "-i", p]
-        ch.append(f"[{i}:v]fps={FPSS},{vf},scale={wh[0]}:{wh[1]}:flags=lanczos,setsar=1,trim=end_frame={round(d * 30000 / 1001)},setpts=PTS-STARTPTS[v{i}]")
+        ch.append(f"[{i}:v]fps={FPSS},{vf_i},scale={wh[0]}:{wh[1]}:flags=lanczos,setsar=1,trim=end_frame={round(d * 30000 / 1001)},setpts=PTS-STARTPTS[v{i}]")
     ch.append("".join(f"[v{i}]" for i in range(len(segs))) + f"concat=n={len(segs)}:v=1:a=0,tpad=stop_mode=clone:stop_duration=1[v]")
     subprocess.run([FF, "-nostdin", "-y", "-v", "error"] + ins + ["-filter_complex", ";".join(ch), "-map", "[v]", "-frames:v", str(n)] + ENC + [out], check=True)
     return out
@@ -78,7 +79,10 @@ if want("home"):
     fill_card("home", [(P["B0464"], T0, dur("home"))], f"crop=608:1080:{X0}:0")
 if want("flow_a"):
     d = dur("flow_a"); a = min(1.5, d * 0.4)
-    plate_card("flow_a", [(P["B0049"], 6.3, a), (P["B0049"], 13.0, d - a)], "crop=1320:2300:0:170")   # round 4: ends at y 2470, above the "Generate my future self" button (y 2488-2680) and below "Two AI steps" (2460)
+    # round 4: one 1320x2300 window per screen. The options screen keeps y 170-2470 (above the "Generate my future self" button box at
+    # y 2488, text 2569-2622); the generating screen scrolls 72 px while it plays (footnote "Two AI steps" at 2462-2492, then 2390-2420), so
+    # its window is y 215-2515: the footnote whole at both positions, above the browser bar (2601). Measured: round4/README lesson 25.
+    plate_card("flow_a", [(P["B0049"], 6.3, a, "crop=1320:2300:0:170"), (P["B0049"], 13.0, d - a, "crop=1320:2300:0:215")], "null")
 if want("flow_b"):
     # ⚠ B0049's banned "Meet the new you" BEFORE/AFTER screen runs to about 27.6 s (found 2026-10-13 by RA-05: a start at
     # 27.3 s put it on screen for the card's first 0.3 s). The result screen alone starts at 28.0 s and holds to 34 s.
@@ -87,7 +91,7 @@ if want("flow_b"):
     plate_card("flow_b", [(P["B0049"], FLOW_B_T0, dur("flow_b"))], "crop=1320:1520:0:250")   # round 4: below the "Your future self" header (y 150-196), above the email text (y 1830)
 if want("tour"):
     d = dur("tour"); a = min(2.5, d * 0.47)
-    plate_card("tour", [(P["B0544"], 6.25, a), (P["B0544"], 2.1, d - a)], "null")   # round 4: the app's page slide runs 6.00-6.23 s
+    plate_card("tour", [(P["B0544"], 6.25, a), (P["B0544"], 2.50, d - a)], "null")   # round 4: 2.1-2.47 s scrolls a half sentence through the top edge, then the screen changes at 2.47   # round 4: the app's page slide runs 6.00-6.23 s
 if want("analysis"):
     import analysis_card as AC, cardlib as L
     if os.environ.get("ANALYSIS") != "olive":

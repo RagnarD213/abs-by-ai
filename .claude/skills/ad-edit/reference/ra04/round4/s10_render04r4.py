@@ -24,7 +24,7 @@ GRADE = L.grade(EXPO, SAT)
 FPS = L.FPS
 fr = lambda t: int(round(t*FPS))
 TOTALF = fr(B["total"])
-SEG = f"seg_{KEY}"; os.makedirs(SEG, exist_ok=True)
+SEG = os.environ.get("SEG_DIR", f"seg_{KEY}"); os.makedirs(SEG, exist_ok=True)   # round 4: SEG_DIR on the internal disk when the Extreme drive is full
 
 # ---- frame-exact timeline (computed once, in s05_plan.py, and used by the card builder too) ----
 TOTALF = B["total_frames"]

@@ -70,5 +70,21 @@ for lvl in ("NEAR", "FAR"):
 # sideways hop on the dan07 -> dan08 zoom cut. One centre for the whole film.
 for i, p in enumerate(punch):
     if abs(p.get("cx16", 1088.0) - 1088.0) > 0.5: print(f"dan{i:02d} cx16 {p['cx16']} -> 1088.0"); p["cx16_r3"] = p["cx16"]; p["cx16"] = 1088.0
+# ROUND 4 f (4th 9:16 judge): on this roll he is usually moving AT the cut, so a landed crop starts panning on its first frame (four
+# shots called visible pans). Hold the crop still at his median position wherever that keeps him within HOLD_MAX % of the width at his
+# furthest (face stays well inside; the hold's median head centre is then exactly on the centre line, the gate's framing:centering
+# measure). Only the shots where he travels further than that keep the follow (dan02, the CTA hold dan15).
+HOLD_MAX = float(os.environ.get("HOLD_MAX", "12"))
+for i, p in enumerate(punch):
+    it = items[f"dan{i:02d}"]; fr_ = np.arange(it["f0"], it["f1"]); head = np.interp(fr_, _sn, _sx); cw = CW[p["level"]]
+    # ROUND 4 g (5th 9:16 judge): centred on his MEDIAN, dan10 opened with him at 33 % and his arm cut at the left edge. Centre on the
+    # middle of his range instead (caps the worst excursion), kept within 5 % of the median (the gate's centering measure, bound 6 %).
+    med = float(np.median(head)); c = float(np.clip((head.min() + head.max())/2, med - 0.05*cw, med + 0.05*cw))
+    c = float(np.clip(c, cw/2, 2160 - cw/2)); offmax = float(np.abs(head - c).max())/cw*100
+    if offmax <= HOLD_MAX:
+        p["track"] = [round(c, 2)]*len(fr_); p["cx"] = round(c, 1)
+        p.update(track_travel_px=0.0, landing_err_px=round(float(abs(head[0] - c)), 1), off_centre_pct_med=round(float(np.median(np.abs(head - c))/cw*100), 2), median_off_pct=round(abs(med - c)/cw*100, 2),
+                 off_centre_pct_max=round(offmax, 2), pan_p90_px_s=0.0, moving_frac=0.0, track_max_px_s=0.0, track_settings="held at the middle of his range (round 4 g)")
+    print(f"dan{i:02d} {p['level']:4} {'HELD ' if offmax <= HOLD_MAX else 'TRACK'} fixed-at-median max off {offmax:5.1f}%")
 if not os.environ.get("DRY"): json.dump(B, open("beats.json", "w"), indent=2)
 print("beats.json: track on", sum("track" in p for p in punch), "holds")

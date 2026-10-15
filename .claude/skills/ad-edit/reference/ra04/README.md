@@ -107,7 +107,12 @@ writes `beats.json`), `s10_render04r4.py` (RA-15's render with the tracked strip
     hold with a card on BOTH sides can go FAR (no zoom cut to keep), and a long hold under the CTA can take a wider band (dan14: 100 px/s,
     35 px, sigma 12). `r4_track.py` HOLD_LEVEL / HOLD_TRACK. When he walks a third of the frame inside one hold (dan03, 1187 -> 1408 px in
     1.6 s), no follow passes a judge: cut the hold in two at a word boundary with a zoom change (`r4_split.py`, "make a | picture"), so
-    each half lands on him and the recentring is a cut, not a pan. Three judge passes failed the pan before the split.
+    each half lands on him and the recentring is a cut, not a pan. Three judge passes failed the pan before the split. **What finally
+    passed: hold the crop STILL at his median position wherever that keeps him within 16 % of the width at his furthest** (14 of 16
+    holds; his median head centre is then exactly on the centre line, the gate's framing:centering measure). On a roll where he is
+    moving at most cuts, a landed crop pans from its first frame and every judge calls it drift; only the two holds where he travels
+    over a fifth of the frame keep the follow (`r4_track.py` HOLD_MAX 12). Centre a held crop on the MIDDLE of his range (kept within 5 %
+    of his median), not on his median: a median centre opened dan10 with him at 33 % and empty space on the other side.
 23. **The caption concat list put every caption change ONE FRAME LATE** (`duration 0.033367` is longer than 1001/30000; 217 of 217
     changes late). Harmless on a word, a defect where a lifted 16:9 line is clipped at a card's first frame (the caption sat on the card
     picture for one frame). `s07_captions.py` now writes one symlink per frame and encodes an image sequence at 30000/1001. The
@@ -117,7 +122,9 @@ writes `beats.json`), `s10_render04r4.py` (RA-15's render with the tracked strip
     camera for "to do instead". A tighter crop cannot fix a head the camera did not record.
 25. **App recording crops:** B0049's result screen cropped from y 170 sliced the "Your future self" header (y 150-196). y 250-1770 sits
     below it and above the email text (y 1830). Its generate screen cropped to y 2590 sliced the blue "Generate my future self" button
-    (y 2488-2680); y 170-2470 ends above it and below "Two AI steps" on the generating screen. B0544's page slide runs 6.00-6.23 s: start the tour at 6.25.
+    (y 2488-2680). The generating screen SCROLLS 72 px while it plays (footnote 2462-2492, then 2390-2420), so each screen gets its own
+    1320x2300 window: y 170 (options) and y 215 (generating); a segment may carry its own crop in `media()`. Check every frame of an app
+    card that scrolls, not one frame. B0544 at 2.1-2.47 s scrolls a half sentence through the top edge: its second shot starts at 2.50. B0544's page slide runs 6.00-6.23 s: start the tour at 6.25.
 26. **16:9 from this portrait roll:** one fixed centre (cx16 1088) for every hold, both levels; the 9:16 clips and phone recordings whole in
     a media-card plate (hole y 40-892), chip on the field; the CTA upper left beside his shoulder, cleared by person mask on the CTA hold
     (`cta16_check.py`). The lower thirds keep the locked full-width 16:9 Motivation box (a reviewer called it wide over his abs; that is

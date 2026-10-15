@@ -72,7 +72,7 @@ plan = {
     "transcript_words": [dict(w=w) for w in TX],
     "source_audio": os.path.abspath("cut_audio.wav"),
     "banned_source": json.load(open("clip_paths.json"))["B0049"], "banned_times": [26.5, 27.5, 29.5, 31.0],
-    "watch_log": os.path.abspath(f"round4/watch_{KEY}/logs/watch_pass.json"),
+    "watch_log": os.path.abspath(os.path.join(os.environ.get("WATCH_ROOT", "round4"), f"watch_{KEY}/logs/watch_pass.json")),
     "source_picture": os.path.abspath(f"seg_{KEY}/base.mp4"),
     "negative_events_scan": NEG,
     "junk_report": os.path.abspath(f"round4/junk_{KEY}.json"),
