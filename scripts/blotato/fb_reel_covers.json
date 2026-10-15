@@ -496,5 +496,43 @@
     "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/short4-approved.jpg",
     "w": 1080,
     "h": 1920
+  },
+  {
+    "schedule": "3563168",
+    "when": "2026-10-22T22:00:00.000Z",
+    "match": "Work Your Obliques With V-Sit Twists! Try this exercies for a great home ab workout.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/09-A-youtube.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "schedule": "3563159",
+    "when": "2026-10-20T22:00:00.000Z",
+    "match": "Here's a intense, simple six pack abs exercise you can do at home: the toe touch!",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/08-A-youtube.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "schedule": "3563151",
+    "when": "2026-10-17T22:00:00.000Z",
+    "match": "Did you know you need to train FOUR ab muscle groups to build six pack abs?",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/07-A-youtube.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "schedule": "3563151",
+    "when": "2026-10-17T22:00:00.000Z",
+    "match": "Did you know you need to train FOUR ab muscle groups to build six pack abs?",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/07-A-youtube.jpg",
+    "w": 1080,
+    "h": 1920
+  },
+  {
+    "match": "This $17 infomercial gimmick beats every crunch.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/abwheel-approved.jpg",
+    "w": 1280,
+    "h": 720
   }
 ]
