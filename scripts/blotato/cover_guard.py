@@ -1,5 +1,6 @@
 """Block video scheduling when required cover settings are absent or broken."""
 import io
+import hashlib
 import json
 from pathlib import Path
 from urllib.request import urlopen
@@ -44,3 +45,8 @@ def assert_video_cover(body):
             raise ValueError('Facebook video requires its approved cover in fb_reel_covers.json and the live installer')
         with Image.open(hit['cover']) as image:
             image.verify()
+        live = Path.home() / '.absbyai/fb-reel-covers/fb_reel_covers.json'
+        installed = json.loads(live.read_text())
+        current = next((r for r in installed if r['match'].strip().split('\n')[0].strip() == line), None)
+        if not current or not Path(current['cover']).is_file() or hashlib.sha256(Path(current['cover']).read_bytes()).digest() != hashlib.sha256(Path(hit['cover']).read_bytes()).digest():
+            raise ValueError('Facebook approved cover has not been synced to the live installer')

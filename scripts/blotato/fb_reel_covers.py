@@ -29,6 +29,7 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import fcntl
 from PIL import Image, ImageChops, ImageStat
 import datetime as dt
 import io
@@ -86,6 +87,11 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true")
     a = ap.parse_args()
+    lock = open(STATE + ".lock", "w")
+    try:
+        fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    except BlockingIOError:
+        return 0
     tok = token()
     config = json.load(open(CONFIG))
     state = json.load(open(STATE)) if os.path.exists(STATE) else {}
