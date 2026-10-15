@@ -81,7 +81,7 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 
 # ACTIVE
 
-**RO-04:R1:2026-10-15:Codex.** C1586 workout. Next: preview.
+**RO-04:R1:2026-10-15:Codex:PREVIEW**
 
 **COVERS:MOBILE:2026-10-15:Docs/COVER_AUDIT_20261015.md**
 
