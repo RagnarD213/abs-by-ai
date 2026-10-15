@@ -81,7 +81,7 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 
 # ACTIVE
 
-**Cover audit - MOBILE BLOCKED 2026-10-15, Codex.** Today DS-12 YouTube fixed; 30 older Facebook covers repaired; all 190 queued posts pass preflight. New scheduling guard and four-platform monitor installed. Two older Instagram covers need mobile repair; older TikTok frame/distortion defects need mobile availability check. iPhone Mirroring requests unlock. Next: Dan unlocks iPhone, then finish mobile edits. `Docs/COVER_AUDIT_20261015.md`.
+**Covers 2026-10-15: MOBILE BLOCKED.** Unlock iPhone; resume `Docs/COVER_AUDIT_20261015.md`.
 
 **SL-08:PICKS:2026-10-14:Codex.**
 
