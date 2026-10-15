@@ -108,13 +108,10 @@ def box_points(b, n=4):
     return np.array([(x, y) for y in np.linspace(y0 + iy, y1 - iy, n) for x in np.linspace(x0 + ix, x1 - ix, n)], np.float32)
 
 
-TRACKERS = {"tapir": "tapir_cpu", "cotracker": "cotracker_mps"}
-
-
-def run_tracker(small, seeds, W, tracker):
+def run_tracker(small, seeds, W, tracker="cotracker"):
     """Seeds (N, 2) in full pixels on small[0] -> tracks (K, N, 2) in full pixels, visibility (K, N)."""
-    import numpy as np, importlib
-    track = importlib.import_module(TRACKERS[tracker]).track
+    import numpy as np
+    from cotracker_mps import track
     s = (small.shape[2] - 1) / (W - 1)
     q = np.concatenate([np.zeros((len(seeds), 1), np.float32), seeds * s], 1)
     tr, vis = track(small, q)
@@ -492,7 +489,7 @@ def run(clip, spec, frames, outdir, cache=True, tracker="cotracker"):
                  f"last {D['min_gone_s']} s, {len(away)} of them away from any person ({frac:.0%}; a vanished prop at {D['prop_lost']:.0%})")
 
     secs = time.time() - t0
-    rows.insert(0, dict(key="tracker", ok=True, detail=f"{dict(tapir='BootsTAPIR', cotracker='CoTracker3')[tracker]}: {K} frames of {a}-{b} (every {stride}), {len(fwd_seeds)} points "
+    rows.insert(0, dict(key="tracker", ok=True, detail=f"CoTracker3: {K} frames of {a}-{b} (every {stride}), {len(fwd_seeds)} points "
                         f"forward + {nG} backward, grid {g:.0f} px, {secs:.0f} s"))
     sheet, fdir = evidence(clip, idx, first, last, events, lost_f, lost_b, W, H, outdir, rows, fps, (a, b))
     return rows, sheet, fdir, dict(frames=[a, b], stride=stride, samples=K, fps=fps)
@@ -589,8 +586,6 @@ def main():
     ap.add_argument("--review"); ap.add_argument("--verify", action="store_true")
     ap.add_argument("--no-stamp", action="store_true", help="measure only (proof runs)")
     ap.add_argument("--no-cache", action="store_true", help="re-track even if this take's tracks are cached in the out folder")
-    ap.add_argument("--tracker", choices=sorted(TRACKERS), default="cotracker",
-                    help="cotracker = CoTracker3 (CC BY-NC); tapir = BootsTAPIR (Apache 2.0). README, Licences")
     ap.add_argument("--json")
     a = ap.parse_args()
     fr = tuple(int(v) for v in a.frames.split(":")) if a.frames else None
@@ -614,12 +609,12 @@ def main():
     if not a.spec:
         ap.error("--spec is required to run the check")
     out = a.out or os.path.join(os.path.dirname(os.path.abspath(a.clip)), "clipcheck")
-    rows, sheet, fdir, info = run(a.clip, a.spec, fr, out, cache=not a.no_cache, tracker=a.tracker)
+    rows, sheet, fdir, info = run(a.clip, a.spec, fr, out, cache=not a.no_cache)
     verdict = "PASS" if all(r["ok"] for r in rows) else "FAIL"
     for r in rows:
         print(f"  {'PASS' if r['ok'] else 'FAIL'}  {r['key']:<26} {r['detail']}")
     print(f"VERDICT {verdict}  (clipcheck {CLIP_VERSION}; evidence {sheet}; frames for the reviewer {fdir})")
-    d = dict(clip_version=CLIP_VERSION, verdict=verdict, tracker=a.tracker, clip=os.path.abspath(a.clip), clip_sha256=sha256(a.clip), **info,
+    d = dict(clip_version=CLIP_VERSION, verdict=verdict, tracker="cotracker3", clip=os.path.abspath(a.clip), clip_sha256=sha256(a.clip), **info,
              spec=os.path.abspath(a.spec), spec_sha256=sha256(a.spec), evidence=sheet, review_frames=fdir,
              when=time.strftime("%Y-%m-%dT%H:%M:%S%z"), rows=rows)
     if a.json:

@@ -3,7 +3,18 @@ Tooling task (no video category). Sidebar name for the next task: `Frame QC Moti
 **Steps 1 to 3 DONE 2026-10-14 (Frame QC Upgrade session, commit 777a5e6):** `.claude/agents/frame-reviewer.md`, the frame spec
 (`_shared/framecheck/spec.example.json`), `_shared/framecheck/gate.py` with stamps and `--verify`, wired into `PRE-RENDER-APPROVAL.md`,
 `VIDEO-RULES.md`, `/ad-edit` and `/longform-edit`. Proof: the five rejected RA-04 pairs fail, F4h/F5p passes, also with every box
-shifted 4 to 5 px (`_shared/framecheck/README.md`, Proof). Open: steps 4 and 5 below.
+shifted 4 to 5 px (`_shared/framecheck/README.md`, Proof).
+
+**Step 4 DONE 2026-10-14 (Frame QC Motion Takes session):** `_shared/framecheck/clipcheck.py` (CoTracker3 on the Mac GPU; it is CC BY-NC,
+and the Apache 2.0 BootsTAPIR failed on this Mac, README "Licences"), wired into the same four files and the `frame-reviewer` agent. Proof on RO-08 (README, "Motion takes"):
+the donut take fails on the donut box (frames 39 to 54), the two parts that shipped pass, A6 and A7 pass at three grid spacings;
+fresh reviewers failed the donut take and, stricter than round 3, its shipped shot two (tilted muffin, see-through fingers).
+
+**Step 5 NOT BUILT: the licence check did not clear it.** SMPL-X (the body model both tools need), SMPLest-X (S-Lab) and Multi-HMR
+(NAVER, also its Anny checkpoint) are all non-commercial. The clean path is Meta's **SAM 3D Body** (SAM License: commercial use
+allowed; its MHR body model is Apache 2.0), but its weights are gated: Dan must request access on Hugging Face
+(`facebook/sam-3d-body-dinov3`) with his own account and accept Meta's terms, then give a session an HF read token. Only then build
+step 5 on SAM 3D Body (README, "Licences").
 
 # Catch impossible AI frames and clips before Dan sees them: the frame-QC upgrade
 

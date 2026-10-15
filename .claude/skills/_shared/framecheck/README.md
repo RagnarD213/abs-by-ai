@@ -1,4 +1,4 @@
-# framecheck: measure AI start/end frames for body and physics faults before Dan sees them
+# framecheck: measure AI start/end frames and motion takes for body and physics faults before Dan sees them
 
 Built 2026-10-14 on RA-04's leg press clip, after Dan rejected a frame pair where the man pushed at about 90 degrees to
 the machine ("No human body works like that... You never should have shown me this"). Every AI clip's START and END
@@ -72,6 +72,97 @@ search, failed the approved F5p in four of eight.
 | `posecheck.py IMG [--rail x1,y1,x2,y2] [--out overlay.jpg] [--json]` | MediaPipe pose: torso, thigh and shin angles and lengths, hip and knee angles, the leg line against a machine's guide line | a push at the wrong angle to the body or machine; impossible joints; limbs that grow or shrink between START and END (compare the lengths) |
 | `rigid.py START END --part name:box ... --still name:box ... [--guide line]` | local template tracking: each part's displacement, the spread between parts, travel angle against the guide, drift of things that should stand still | a sled or prop that does not move as one piece, moves off its rails, or a frame or background that stretches |
 | `lockstill.py START END OUT --box ...` | copies every pixel outside the person and the listed moving boxes from START into END | image-model drift of static machinery and background |
+| `clipcheck.py TAKE --spec spec.json [--frames A:B]` | point tracks through a motion take (grid forward and backward, the spec's parts on every frame), with a stamp | things that vanish in place or come from nowhere, parts off their guide, slipping contacts, drifting still parts, a camera that moves when it should be locked ("Motion takes" below) |
+| `cotracker_mps.py`, `mps_ops.py` | the tracker behind clipcheck, and the Apple-GPU replacements for ops CoTracker needs | |
+
+## Motion takes: `clipcheck.py` (2026-10-14)
+
+Built on RO-08's donut take, which Dan rejected on 2026-10-13: *"all the donuts just disappear, vaporize, and go nowhere... things
+that look like AI slop like this get caught in quality control and don't make it to my review."* Every AI motion take goes through
+it, and then through a fresh `frame-reviewer`, before any review page shows it.
+
+1. **The spec:** the frame pair's spec (above) serves the take too; frame 0 of the take is START. Add `"camera": "locked"` when the
+   prompt asks for a locked-off camera, and declare under `may_change` what the intent says opens or changes (a fridge door, a
+   furnace door and its fire, a wall clock whose hands run, a TV). **Never add a `may_change` box because a check failed:** that is
+   how a vanish gets waved through. A prop that is meant to go (food eaten) gets `"may_leave": true`.
+2. **Run it:** `python3 .claude/skills/_shared/framecheck/clipcheck.py TAKE.mp4 --spec spec.json [--frames A:B]`. `--frames` checks
+   only the part an edit uses (both ends included; the spec's boxes are then in frame A's pixels). Exit 0 PASS, 1 FAIL. It writes
+   `clipcheck/<take>.fA-B.clipcheck.jpg` next to the take (the first and last frame with every point lost in place in magenta,
+   every point that came from nowhere in orange, event boxes in red, then a strip of crops across each event), a folder of frames
+   every 0.25 s for the reviewer (`clipcheck/<take>.fA-B.frames/`) and the stamp `TAKE[.fA-B].clipcheck.json`. A FAIL is
+   regenerated, cut around (a part of the take that passes, checked with `--frames`), or dropped; never shown to Dan.
+3. **A fresh reviewer:** `frame-reviewer` with the take, the range, the spec and the evidence. It answers A to I plus the three
+   sense questions on the sampled frames and records its verdict: `clipcheck.py TAKE [--frames A:B] --review REVIEW.md`.
+4. **Pages refuse a take without both:** `clipcheck.py TAKE [--frames A:B] --verify`, or in Python
+   `from clipcheck import require_pass; require_pass(TAKE, frames=(A, B))`.
+
+How it works. CoTracker3 (Meta, 2025) tracks a 40 px grid of points (1,296 at 1080p, not on people, not in `may_change` boxes)
+forward from the first frame, and a second grid backward from the last frame. A point **vanished** when it is never visible again
+(at least 0.4 s before the end), had not moved against what its neighbours say (a local fit, so a pan or zoom is followed), its spot
+is still in the picture, no person and no moving thing covers the spot at the end, and the spot looks different at the end than at
+the start (patch correlation under 0.5, scaled for zoom). Traced backward, the same test finds what **came from nowhere**. Six or
+more neighbouring points make an event. When the camera moves (zoom past 15 % or a shift past 8 % of the width), the test runs in
+overlapping windows of 1 to 3 s instead, because a first-vs-last comparison needs the two ends to look alike. The spec's `rigid`,
+`contacts`, `still` and `props` boxes get 16 points each and are checked on every sampled frame (parts together and on their guide,
+riders not slipping, still parts not moving against the camera, props not lost away from a person). A take is sampled to at most 64
+frames (a 6 s take every 3rd frame, 8 per second). About 1 to 2 minutes per take on the M2 Pro when nothing else is rendering.
+
+### Proof (2026-10-14): `proof/ro08/run_proof.sh` and `proof/ro08/run_grid_shift.sh`
+
+| take | Dan's verdict | clipcheck | what it found |
+|---|---|---|---|
+| A5 donuts, whole take | rejected: "the donuts just disappear, vaporize" | **FAIL** | 50 points in the donut box lost in place, frames 39 to 54 (spot match 0.0); 55 points of empty box "from nowhere" in the same place, 42 to 69 |
+| A5 frames 0-24 | shipped as round 3's shot one | PASS | nothing lost |
+| A5 frames 84-143 | shipped as round 3's shot two | PASS | nothing lost |
+| A6 fridge raid | no note, shipped | PASS | biggest stray cluster 2 points. Without the fridge declared in `may_change`, its two doors swinging open read as a vanish (34 points): the spec has to say what opens |
+| A7 bar | no note, shipped | PASS | biggest stray cluster 3 points |
+| A8 cartoon cell, 2x push-in | no note | **FAIL** | real morphing the 10-13 review let through: as the camera pushes in, a broken mitochondrion on the right dissolves into the floor (frames 117 to 131) and the purple junk band across the foreground melts into clean floor with nobody sweeping it. Strict, but it is the fault class Dan named |
+| A3 water jumps | rejected: "makes no physics sense" | PASS | not this tool's fault class: the water is in its glasses at both ends; what is wrong is cause and effect. The reviewer's three sense questions catch it |
+
+Robustness (`run_grid_shift.sh`): the same verdicts with the grid at 32 px and 48 px. The donut take fails at every spacing
+(event 35 to 81 points); its two shipped parts, A6 and A7 pass at every spacing. A7 first failed at 32 and 48 px: the back rail
+of his bar stool, hidden under his arm while the stool tilted. That is why an event is dropped when its whole region is found again
+within three grid steps (match 0.5 or better: A7's stool 0.69, the donut box 0.10 to 0.18). "Biggest cluster" in the rows counts
+before that test.
+
+Reviewer proof (the whole routine, on scratch copies, with the spec's note about Dan's verdict removed): a fresh `frame-reviewer`
+failed the whole take on the box emptying (frames 39 to 66), and found on its own the donut in his hand fading out (24 to 30) and a
+wall clock that runs backwards and grows a second "10". On frames 84 to 143, the raw take behind round 3's shipped shot two, it also
+failed: a muffin standing tilted on its edge with nothing holding it (84 to 116), fingers going see-through as he grabs it (104 to
+114, checked: the desk shows through his knuckles) and the clock (which the edit had patched). So the routine is stricter than the
+round that shipped: that is the 10-13 standard. `--verify` refused both; on a separate copy with a placeholder PASS review it passed,
+and refused again once the spec was edited.
+
+**What it does not catch** (the reviewer's job): a change on the person (hands, faces, clothes, fingers); something that happens
+and undoes itself inside the take (A3's splash); a small, faint change under the grid (A5's last glaze smear, frames 74 to 78, was
+found by a reviewer, not by this); anything a tracker follows smoothly while it morphs into something else.
+
+### Rules learned building it
+
+1. **Compare the ends, not the moment of loss.** A version that compared each lost spot just before and just after the loss failed
+   the two shipped takes: in A6's dark kitchen the person mask missed the man who walks in front of the window and stays there. At
+   the end the backward-traced points on that spot plainly came from elsewhere, which is what tells a mover from a vanish.
+2. **A moving camera needs windows.** On A8's push-in, a spot 40 px wide at the end was 15 blurred px at the start, and first-vs-last
+   flagged 160 points of plain zoom. Windows over which the picture changes little fix that and still see real morphing.
+3. **The spec says what opens.** Doors, lids, screens and fires are legitimate changes the tracker cannot tell from a vanish.
+4. **Memory, on a Mac other sessions render on.** GPU memory grows with frames x points (64 x 650: 7.8 GB; 96 x 650: 12 GB). At
+   144 frames with the swap full a take ran 8 minutes and once never finished. Hence the 64-frame cap and point batches
+   (`cotracker_mps.py`). Two ops CoTracker needs are missing on Apple's GPU; `mps_ops.py` replaces them with exact equivalents
+   (tracks within 0.05 px of the CPU run).
+
+### Licences (checked 2026-10-14)
+
+- **CoTracker3 is CC BY-NC 4.0, code and weights: non-commercial.** Dan chose it (2026-10-14 starter prompt); these are ads and
+  content for a paid product, so running it on them sits outside that licence. The licence-clean tracker is **BootsTAPIR**
+  (Google DeepMind; code and checkpoints Apache 2.0). Tried 2026-10-14 and dropped: on Apple's GPU it returns wrong tracks
+  (points 150 px off on a still desk, with or without the `mps_ops` patches), and on the CPU a 2 s range ran over 40 minutes
+  while other sessions rendered. A licence-clean motion gate needs a CUDA machine for BootsTAPIR, or a test of TAPNext++
+  (same repo, same licence) on this Mac; `run_tracker` in `clipcheck.py` is the one place to swap it in.
+- **Step 5, 3D body fitting, is not built: the named tools are all non-commercial.** The SMPL-X body model (commercial licence
+  only through Meshcapade), SMPLest-X (S-Lab License: non-commercial) and Multi-HMR (NAVER: non-commercial, its Anny checkpoint
+  too). The clean path is **Meta's SAM 3D Body** (SAM License, commercial use allowed; its MHR body model is Apache 2.0), whose
+  weights are gated: Dan requests access on Hugging Face (`facebook/sam-3d-body-dinov3`) with his own account, then a session gets
+  an HF read token. Open in `Handoffs/handoff-20261014-frame-qc-upgrade.md`.
 
 ## Rules learned on the first run (seven independent reviews, six fails)
 
