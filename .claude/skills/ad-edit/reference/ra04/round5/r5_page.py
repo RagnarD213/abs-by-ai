@@ -19,6 +19,7 @@ ROWS = [("1", "0:01 to 0:11", "0:03.2 to 0:06.8: a white man's real generation i
          "strip stays up, so the phone sits above it."),
         ("6.5", "0:06.8 to 0:09.9", "The lock-screen phone now shows his AI picture instead of yours (same phone, same glare, his picture held still on the screen)."),
         ("54", "0:54 to the end", "The ending is 0.97 s shorter: it now stops 0.41 s after \"app.\" on your held smile (0:57.9, was 0:58.9)."),
+        ("1", "0:02.3 to 0:03.2 (16:9 only)", "The caption \"six-pack abs.\" now stays on the normal line over you; before, it jumped up onto your chest a second before the TIP 1 strip appeared."),
         (None, "everything else", "Unchanged from round 4: the Asian demo man's app cards (0:12.2 to 0:17.9) and analysis card (0:25 to 0:31), every "
          "other shot, graphic and caption, the voice and the music.")]
 rows = "".join(f'<tr><td>{f"<a class=t data-t={t}>{w}</a>" if t else w}</td><td>{x}</td></tr>' for t, w, x in ROWS)
@@ -28,7 +29,8 @@ DECIDED = ["<b>His before photo is AI-generated</b> (Codex): Pexels had no ordin
            "<b>His AI picture is a real generation</b> in the live app (Male, Heavier, Ripped), same man before and after. The app's own "
            "before/after screen was hidden on the page before generating, so it never appears.",
            "The 16:9 phone is smaller than the other app cards (644 px tall), because it has to end above the TIP 1 strip and the captions lifted over it.",
-           "The ending stops on your held smile, not on black or a fade."]
+           "The ending stops on your held smile, not on black or a fade.",
+           "In the 16:9 there is no caption for 4 frames (0.13 s) at the cut into the new card, in a pause between words. The reviewer called it minor; I left it."]
 html = f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Top 3 Tips AD R5</title>
 <style>

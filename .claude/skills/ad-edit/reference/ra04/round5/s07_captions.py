@@ -148,6 +148,13 @@ if KEY == "16x9":
             assert all(s["beat"][0] < la for s in ss), ("a word starts under the strip", t0)
             for s in ss: s["beat"][1] = min(s["beat"][1], snapf(la))
             continue
+        la = min(a0 for a0, _, _ in hit)
+        if all(s["beat"][0] < la - 1e-6 for s in ss):
+            # ROUND 5: every word of the line is spoken BEFORE the strip appears ("six-pack abs.", 2.34 s, strip at 3.20): lifting it
+            # put it on his chest for 0.87 s with no strip under it (16:9 watch-pass judge). It stays on the normal line and its held
+            # state ends on the strip's first frame (a hard cut into the gen card there).
+            for s in ss: s["beat"][1] = min(s["beat"][1], snapf(la))
+            continue
         y = min(top for *_, top in hit) - 30 - _ink_h      # 30: the gate measured 19 px at 24 (min 20)
         for s in ss: s["cap_y"] = y
         # a lifted line that runs on into a card stops on the card's first frame (the card's picture sits where the lift puts it)
