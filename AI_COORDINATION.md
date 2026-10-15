@@ -81,7 +81,7 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 
 # ACTIVE
 
-**Covers 2026-10-15: MOBILE BLOCKED.** Unlock iPhone; resume `Docs/COVER_AUDIT_20261015.md`.
+**COVERS:MOBILE:2026-10-15.** `Docs/COVER_AUDIT_20261015.md`
 
 **SL-08:PICKS:2026-10-14:Codex.**
 
