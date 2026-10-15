@@ -1,0 +1,50 @@
+{
+ "job": "RA-04",
+ "round": 5,
+ "recorded": "2026-10-15",
+ "by": "Claude (Opus 5.5), session Top 3 Tips AD R5",
+ "dan_words": "From 3 seconds to 7 seconds, I'd like to put in the generation clip of generating abs with the Asian guy's image, not my image, but the AI-generated Asian guy's image, and then go into the picture of him on the phone rather than me. Same clip at 8 seconds, but use a clip of him on the phone instead of me. When this appears again at 15 seconds, change this to the different guy. Change it to the image of the white guy. Actually, switch: I use the white guy in the beginning. Use the Asian guy where he is. Keep that where it is at 15 seconds, and then put in the white guy generation clip at the beginning. For the end of the video, I want you to end it about 1 second earlier. There's about a second of awkward silence at the end.",
+ "reading": [
+  "0:03.20-0:06.84: a real app generation of a WHITE man replaces Dan on camera (holds dan01 + dan02)",
+  "0:06.84-0:09.94: the lock-screen card shows that same white man's AI picture instead of Dan's",
+  "the Asian demo man stays where he is (flow_a/flow_b 0:12.2-0:17.9, analysis 0:25-0:31)",
+  "end about 1 s earlier"
+ ],
+ "items": [
+  {
+   "id": "R5-before",
+   "verdict": "editor's pick, shown to Dan on the page for veto",
+   "what": "the white man's before photo: no Pexels photo fit (searched 'overweight man shirtless', 'dad bod', 'chubby man beach', 'shirtless man pool' and others; none an ordinary heavier white man standing facing the camera), so Codex generated two (backyard pool, lake dock); the lake dock one picked (hands and face checked at full size). Then given plain-sky headroom and the app's 4:5 shape (r5_before45.py) because the app trims a 2:3 upload to 4:5 and the first result had his hair on the top edge.",
+   "files": {
+    "round5/before_white_man.png": "8feb030e33b62f88735d045814a82818b60c0d027ede7bef2fdb278c26c158e0",
+    "round5/before_white_man_45.png": "579139cdab1a8c7ebfa451b1598768bc1987a8a85c72a9fa43260f7b8a659efc"
+   },
+   "label": "AI-GENERATED (chip on the whole gen card)"
+  },
+  {
+   "id": "R5-generation",
+   "verdict": "editor's build",
+   "what": "ONE real generation on the live absbyai.com (Male, Heavier, Ripped) recorded by CDP screencast at 1320x2868 (round5/r5_record.py); the result screen drawn after-only by the app (before column and body-fat row hidden in the page before Generate, so the banned pair never rendered). Three live generations were run in all: take 1 recorded at 440 px (screencast ignored DPR), take 2 had his hair on the top edge (2:3 upload), take 3 is used.",
+   "files": {
+    "round5/gen_white_man_rec.mp4": "108e0b9b9eaf17c6268c11aa62ad8f2745e92f0dc7c2a118438ffddb790b6d84",
+    "round5/after_white_man.jpg": "dd9e88b936db9216163a8e3396669f976e388f185cb096113598e06ebb388763"
+   }
+  },
+  {
+   "id": "R5-gen-card",
+   "verdict": "editor's build",
+   "what": "loader 3.40-5.80 s (one full scan sweep), hard cut to the result 36.60 s on with a 4 % push-in; plate ends above the TIP 1 strip (9:16 hole 628x736 at y 150, chip to y 1034; 16:9 hole 548x644 at y 40)"
+  },
+  {
+   "id": "R5-lock",
+   "verdict": "editor's build",
+   "what": "A0074 with the screen picture replaced by the white man's AI result (round5/r5_lock.py): ECC tracking on a high-passed band round the phone edge, notch drawn back, the glass glare carried over"
+  },
+  {
+   "id": "R5-end",
+   "verdict": "editor's build",
+   "what": "film ends at frame 1736 (57.92 s, was 58.89 s): last word ends 57.51 s, he holds a still smile 57.66-58.17 s; the last frame is inside it (round5/end_strip.jpg)"
+  }
+ ],
+ "spend_usd_note": "three live generations on absbyai.com (server-side, a few cents each; estimated $0.30 total, provider receipts not itemised per call); Codex images on the subscription ($0). RA-04 total before this round: $5.80."
+}

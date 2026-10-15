@@ -137,3 +137,37 @@ writes `beats.json`), `s10_render04r4.py` (RA-15's render with the tracked strip
 Land-then-hold centring is not wired in (crops are fixed per hold, the RA-01 method); measure with `cut/landing.py
 motion_stats` and switch if any hold drifts past 3.3 % of the crop width. The 16:9, the edit sheet, the delivery and
 audio gates, the watch pass and the independent review all belong to the round that builds the full film.
+
+## Round 5 (2026-10-15): a second demo man's real generation, his picture on the lock screen, the end 1 s earlier
+
+Scripts in `round5/` (run from the work dir): `r5_record.py` (one live generation on absbyai.com, screencast), `r5_cast2mp4.py`
+(screencast to 60 fps CFR), `r5_before45.py` (headroom + 4:5), `r5_plan.py` (dan01+dan02 -> the `gen` card, end at frame 1736;
+applied AFTER `r4_track.py`, so its index-keyed overrides stay baked in), `r5_lock.py` (A0074 with a new screen picture),
+`r5_cards.py` (plates + gen + lock cards, both aspects), chains `r5_chain_*.sh`, gates `r5_gates_a.sh` / `r5_gates_b.sh`.
+Decisions with Dan's words: `round5/decisions.json`.
+
+27. **A screen recording of the live site at phone size, full resolution: a 1320x2868 viewport at DPR 1 with `html { zoom: 3 }`.**
+    A DPR 3 context (440x956) lays out right but headless Chromium's CDP screencast AND `captureScreenshot` return 440 px frames;
+    a 3x clip screenshot gives 1320 but only 12 fps. The zoomed page measured 3.5 levels from the DPR 3 screenshot (identical
+    layout) and screencasts at 54 fps. Hide the app's before/after pair with a style injected BEFORE Generate, so the banned
+    screen never renders on any frame (`r5_record.py` HIDE_PAIR).
+28. **The app returns a 4:5 result and trims a 2:3 upload top and bottom to get it.** Take 2's result had his hair on the top
+    edge, so the lock screen's notch sat on his head. Give the before photo headroom and the 4:5 shape before generating
+    (`r5_before45.py`: stretch a plain sky band, matched grain). Three live generations in all; spend a few cents each.
+29. **Replacing a phone's screen picture in a Veo clip: track the bezel by ECC on a high-passed band, not SIFT, not per-frame
+    detection.** SIFT outside the screen fell from 58 to 8 inliers on dark marble; per-frame "inside the bezel" fill leaked once
+    the glare lit the bezel. ECC homography against frame 0 on image minus its blur (the smooth glare drops out), in a band from
+    10 px inside to 90 px outside the screen edge: 0.6 px max frame jump, reviewer-measured jitter 0.32 px.
+30. **The notch took four independent reviews.** Each failure is now a rule in `r5_lock.py`: replace the WHOLE screen (keeping
+    old notch pixels under a drawn edge left a strip of the old picture's trees); keep the clip's own pixels in an 8 px band
+    under the bezel edge (a soft paste edge drew a 1 px light seam); fill the notch per frame from the clip's own notch, column
+    by column, 20th percentile, the camera dot's columns bridged (flat black stepped against the glare-lit top; a median took
+    the camera dot in and the left end read 18-32 levels light). Carry the glass glare as the low-frequency positive change
+    against frame 0 (sigma 35 px), never as the full difference (the old picture would ghost through).
+31. **A card under a lower third:** give it a shorter plate that ends above the strip (9:16 hole 628x736 at y 150, chip to
+    y 1034; strip box 1058). In 16:9 the captions lift above the strip (ascent box from y 709), so the plate ends at 684 and
+    `s07_captions.py` lifts a line that starts inside that card (the `gen` exception) instead of asserting.
+32. **When the picture is SHORTER than the voice track, `voice_chain.py --frame-lock` stalls** (ffmpeg at 0 % CPU for 24 min;
+    it pads a short voice fine). `s08_audio.py` now takes `AUDIO_END` and builds the cut audio at the picture's length.
+33. **A push-in on a still app screen is anchored on the edge that holds text.** Centred, the 4 % push took the app's
+    "AI-GENERATED IMAGE" label off the top by the last frame.
