@@ -139,7 +139,7 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 
 **RA-15-R3-BUILDING 2026-10-14.**
 
-**RA-04-R3-BUILDING 2026-10-14, Claude.**
+**RA-04-R3-REVIEW:8898 2026-10-14, Claude.** `handoff-20261014-ra04-round4-full-film.md`
 
 **RO-17-R2-BUILDING 2026-10-14,Claude.**
 
@@ -243,7 +243,7 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the fire list; runner deletes row, line, README row.
 
--`handoff-20261014-ra04-round3-after-frames.md`+`handoff-20261014-frame-qc-upgrade.md`(step4)
+-`handoff-20261014-ra04-round4-full-film.md`+`handoff-20261014-frame-qc-upgrade.md`(step4)
 
 
 
