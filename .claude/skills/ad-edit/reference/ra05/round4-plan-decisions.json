@@ -1,0 +1,33 @@
+{
+ "job": "RA-05",
+ "round_answered": 3,
+ "date": "2026-10-14",
+ "page": "http://127.0.0.1:8838/",
+ "dan_verbatim": "Everything looks great. This ad is approved. Give me the handoff for setup.",
+ "items": [
+  {
+   "id": "WHOLE",
+   "verdict": "approved",
+   "files": {
+    "round3/draft_9x16.mp4": "eb19a240b473eb037b940cd01cb9b85662cf2252061681b48412c2e0e6a27982",
+    "master (faststart copy)": "c0a57092fc85b01575d507ec3dcedf28cd1d60b35c1e56ef96f9a298acbcaceb"
+   }
+  },
+  {
+   "id": "COUCH",
+   "verdict": "approved",
+   "files": {
+    "round3/cards_9x16/couch.mp4": "fcbc9295c9187a6621ff5125e250fd8a46ee6ec77fd8112184ba6c66df09288b"
+   }
+  },
+  {
+   "id": "SCAN",
+   "verdict": "approved",
+   "files": {
+    "round3/cards_9x16/scan.mp4": "c5cc29f6a578066cb8ba024c0f17151dbb7b8e29079a36cf7956c2f0e2f9137f"
+   }
+  }
+ ],
+ "next": "setup: Handoffs/handoff-20261014-ra05-setup.md",
+ "spend_usd": 3.2
+}

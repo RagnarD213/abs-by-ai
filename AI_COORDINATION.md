@@ -133,7 +133,7 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 **RO-20/B/C WAITS-SHOOT 2026-10-13.** `Docs/PICKUPS_1017_SHOOT.md`
 
 
-**RA-05-R3-REVIEW:8838 2026-10-14.** `handoff-20261014-ra05-round4-delivery.md`
+**RA-05-SETUP-READY 2026-10-14.** `handoff-20261014-ra05-setup.md`
 
 **RA-14 POLICY-RECHECK 2026-10-15,Claude.**
 
