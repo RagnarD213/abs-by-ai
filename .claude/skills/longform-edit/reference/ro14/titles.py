@@ -18,11 +18,11 @@ TITLES = {
             licence=PEX, url="https://www.pexels.com/photo/1309595/", frame=(.25, 0, 1, 1), bleed=(.30, 0, 1, 1)),
  "T2": dict(src=f"{W}/assets/photos/px15572592.jpg", label=None, what="olive oil poured into a white bowl",
             licence=PEX, url="https://www.pexels.com/photo/15572592/", frame=(.2, 0, .85, 1), bleed=(.2, 0, .85, 1)),
- "T3": dict(src=f"{W}/aiframes/A5-start.png", label=AI, what="the AI 'salad guy' bar table (Codex still, start frame of A5)",
-            licence="Codex image on Dan's subscription", url=None, frame=(.08, 0, .72, 1), bleed=(.08, 0, .72, 1)),
+ "T3": dict(src=f"{W}/assets/photos/px36729762.jpg", label=None, what="four friends sharing a pizza at a cafe table",
+            licence=PEX, url="https://www.pexels.com/photo/36729762/", frame=(.3, 0, 1, 1), bleed=(.35, 0, 1, 1)),
  "G02": dict(src=f"{W}/assets/photos/px7991910.jpg", label=None, what="feet in grey socks on a bathroom scale (the 'In this video' card)",
             licence=PEX, url="https://www.pexels.com/photo/7991910/", frame=(.1, 0, .9, 1), bleed=(.12, 0, .88, 1)),
- "T4": dict(src=f"{W}/assets/photos/px6373219.jpg", label=None, what="a cup of black coffee beside a phone",
+ "T4": dict(src=f"{W}/assets/photos/px6373219_app.jpg", label=None, what="a cup of black coffee beside a phone showing the app's photo-to-calories result (real B0035 frame put on the blank screen)",
             licence=PEX, url="https://www.pexels.com/photo/6373219/", frame=(.15, .05, .85, .95), bleed=(.15, .05, .85, .95)),
 }
 # gentle, per-picture: (brightness, contrast, saturation). Bright studio stills come down so they do not glare on the navy field.

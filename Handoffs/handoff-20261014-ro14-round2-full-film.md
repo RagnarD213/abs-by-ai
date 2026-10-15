@@ -18,6 +18,15 @@ Read first: `Handoffs/video-editing/00-RULES.md`, `.claude/skills/_shared/VIDEO-
   plus five patched restart starts, `recipe/patch_words.py`), `words_out.json`, `plan.py` / `plan_resolved.json` (about 66 items), `hf/` (30 HyperFrames graphics).
 - Film length 8:27.4.
 
+## Round 1 independent check (done before Dan saw the page)
+
+`review/INDEPENDENT-CHECK.md` (fresh reviewer, all 75 items, every first-minute join frame by frame): 7 must-fix items, all fixed and
+rebuilt (`run_fix_r1.sh`): coffee clip lifted, G03 part 2 on its word (G04 starts on "People underestimate"), scale clip C19 removed,
+P04 ends on the cut, reason lower thirds in Dan's own words, page text, "47%". Notes fixed too: C10 amber pint (p4752641), C12
+dressing on a salad (p6162044), G15 photo a cup of oil (px10420382), T3 friends with pizza (px36729762), T4 phone shows the app result,
+A4 chip top centre, G36 longer. Kept as notes: 24/25 fps stock judder, 14 s of full-screen cards in the first 32 s (G02 is where the
+pickup goes). Page now 74 items.
+
 ## Locked by the editor in round 1 (Dan saw them as "What I decided"; reopen only if he names them)
 
 Look C + W2/T2 (C1708 measures 0.294 vs 0.296 on C1713; per-shot crop lifts in `framing/crop_y.json`); voice = audio B (chain fit on this

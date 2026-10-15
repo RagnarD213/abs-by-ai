@@ -149,7 +149,9 @@ def recap_card(t, eyebrow, items, headline="What I'd do if I had belly fat", rts
         col, row = divmod(i, per); x = 150 + col * 830; y = y0 + row * dy + (1 - rise(tt)) * 18
         B.glass(im, (x, y, x + (620 if photo else 780), y + 118), t, U, 18)
         B.text(im, (x + 34, y + 34), f"{i + 1}", 44, B.CYAN)
-        B.text(im, (x + 100, y + 38), s, 38)
+        sz = 38; room = (620 if photo else 780) - 130
+        while sz > 28 and B.text_w(s, B.font(sz)) > room: sz -= 1          # RO-14: a long item shrinks to fit its box
+        B.text(im, (x + 100, y + 38 + (38 - sz) * .5), s, sz)
     return im
 
 def swap_card(t, it):
