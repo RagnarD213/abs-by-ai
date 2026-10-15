@@ -83,7 +83,7 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 
 **SL-08:PICKS:2026-10-14:Codex.**
 
-**RA-16:R2-READY:Codex:2026-10-14.** `Handoffs/handoff-20261014-ra16-round2-approved-cut-and-voice.md`.
+**RA-16 R2 BUILDING 2026-10-14, Codex.** Restore full script except two approved deletions; retime to 59s with warm bass. Remaining outdoor look/assets review on port 8976. Work: `/Volumes/Extreme/_edit_work/ra16/round2/`.
 
 **RA-13 R2 BUILDING 2026-10-14, Codex.** Applying locked look/voice and horizontal headroom correction. Next: asset checks, both formats, exact-file gates and independent audit. `Handoffs/handoff-20261014-ra13-round2-approved-look.md`.
 
