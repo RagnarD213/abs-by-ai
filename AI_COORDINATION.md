@@ -243,6 +243,8 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the fire list; runner deletes row, line, README row.
 
+- `handoff-20261014-render-gatekeeper.md` (10-14). Opus high.
+
 -`handoff-20261014-frame-qc-upgrade.md`(step4)
 
 
