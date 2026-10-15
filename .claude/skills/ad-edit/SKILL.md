@@ -308,6 +308,8 @@ reference gets rebuilt as a solid object in the footage.
 2026-10-14: "This is something which should have been caught in quality control. You never should have shown me this").**
 **The routine (2026-10-14): write the frame spec from START, run `_shared/framecheck/gate.py START END --spec spec.json`, then a
 fresh `frame-reviewer` agent; the review page refuses the pair until `gate.py START END --verify` exits 0.**
+**Then the motion take: `_shared/framecheck/clipcheck.py TAKE --spec spec.json --frames A:B` on the part the edit uses, a fresh
+`frame-reviewer`, and `clipcheck.py TAKE --frames A:B --verify` before any page shows it (README, "Motion takes").**
 Tools and rules: `_shared/framecheck/README.md` (pose angles and bone lengths, rigid-part tracking, still-pixel lock). A
 person using a machine pushes along the machine's guide, bone lengths match between frames, rigid parts move as one piece,
 nothing appears or vanishes. RA-04's leg press took seven independent reviews; when a machine part must move exactly, build

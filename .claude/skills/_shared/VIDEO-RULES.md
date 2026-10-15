@@ -167,6 +167,11 @@ always the one making these thumbnails."*
 - **START/END frames get the same treatment before motion is even generated (2026-10-14, after RA-04's leg press):** a frame spec, the
   frame gate and a fresh `frame-reviewer` agent; no page shows the pair until `.claude/skills/_shared/framecheck/gate.py START END
   --verify` exits 0. Routine and proof: `_shared/framecheck/README.md`.
+- **Every motion take gets the motion gate before any page shows it (2026-10-14, after RO-08's donut take):** the same spec, then
+  `.claude/skills/_shared/framecheck/clipcheck.py TAKE --spec spec.json [--frames A:B]` (point tracking: anything that vanishes in
+  place or comes from nowhere, parts off their guide, slipping contacts), then a fresh `frame-reviewer` on the take; no page shows it
+  until `clipcheck.py TAKE [--frames A:B] --verify` exits 0. It caught the donuts on the take Dan rejected and passed the parts that
+  shipped. It does not judge cause and effect (A3's water): the reviewer's three questions still do. `_shared/framecheck/README.md`.
 - Why it was missed: the editor wrote both faults on the review page ("around its fifth second the junk clears in one sweep", "the
   rumble reads as water splashing up out of three glasses") and shipped them anyway, and the reviewers were asked about frame faults,
   labels and lip sync, not whether the scene made sense.

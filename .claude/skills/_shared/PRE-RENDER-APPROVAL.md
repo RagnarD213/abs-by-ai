@@ -138,7 +138,9 @@ Each step is its own round unless the items are ready together. Nothing later st
    concepts), then START and END frames with the action, duration and cost, then the finished motion in context. Never generate motion
    before its frames are approved; never ask twice about unchanged approved frames. Records: [ASSET-APPROVAL.md](ASSET-APPROVAL.md).
    A frame pair reaches Dan's page only after the frame gate and a fresh frame reviewer both pass it (`framecheck/gate.py START END
-   --verify` exits 0; routine in [framecheck/README.md](framecheck/README.md), 2026-10-14).
+   --verify` exits 0; routine in [framecheck/README.md](framecheck/README.md), 2026-10-14). The finished motion reaches his page
+   only after the motion gate and a fresh frame reviewer pass the part of the take the edit uses (`framecheck/clipcheck.py TAKE
+   --frames A:B --verify` exits 0; same README, "Motion takes").
 5. **The first minute.** Export the first 60 seconds finished (approved look, intro, graphics and clips in place; anything still pending
    is a clearly labelled placeholder). This is what Dan is pickiest about. For a video under two minutes, the first 30 seconds.
    **Short-form and ads (Dan, 2026-10-14): when most assets are approved and the rest holds nothing new or likely to be turned down,
