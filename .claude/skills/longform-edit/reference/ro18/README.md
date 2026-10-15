@@ -47,6 +47,16 @@ port: see the round's handoff. Never commit media.
      size the person's box for both poses.
 8. **Headless Chrome screenshots of a page anchor (`#all`) with lazy images come out blank.** The top of the page works.
 
+9. **`build.render_range` wrote one shared `tmp_base.mp4`.** Two renders at once (a first-minute render started by hand during
+   `context_all`) truncated each other ("AssertionError: 899" in the decoder loop). The base is now `out + ".base.mp4"`.
+10. **A full disk fails silently:** the Extreme drive reached 0 bytes mid-chain; the first-minute step left an EMPTY log (it could
+    not even write the traceback) and the chain echoed "FIRST done". If a step's log is empty, run `df -h` first. The whole work
+    folder now lives on Expansion with `/Volumes/Extreme/_edit_work/RO-18` a link to it.
+11. **`/private/tmp/claude-501` is shared by every session:** a contact sheet written as `fm_sheet.jpg` there picked up another
+    session's frames with the same names. Scratch files go in the session's own scratchpad.
+12. **A vertical library clip in a 16:9 slot is centre-cropped:** A0089 (the dating-app clip) became a shirtless man's belly. Check
+    the aspect of every library clip before planning it into a full-frame slot.
+
 ## Files
 `frames.py` (two rolls), `build.py` (roll_of, room tone per roll), `edl.py`, `plan.py`, `gfx.py` (tiles, dictate, split; the G16 case
 removed), `resolve.py`, `page.py`, `page_extra.py`, `titles.py`, `hair_pre.py`, `patch_words.py`, `chain_r1.sh`. AI frame prompts and
