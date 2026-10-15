@@ -18,7 +18,7 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 3. Finished and approved → **delete the entry**, durable details first; report in chat.
 4. Budget: ≤2,500 words; entries ≤80 words, dated. Run `scripts/board-check.sh` after edits.
 5. Dates: `Updated: YYYY-MM-DD`; keep `Decision since: YYYY-MM-DD`. Aging: `Docs/BOARD_MORNING_MAINTENANCE.md`.
-6. Entry, ≤3 lines: `**Title — STATUS date, owner.** State. Next: action. ⚠ = changes the next action. Detail: path.`
+6. Entry, ≤3 lines: `**Title — STATUS date, owner.** State. Next: action. ⚠ = changes next action. Detail: path.`
 
 ---
 
@@ -84,6 +84,8 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 **COVERS:MOBILE:2026-10-15:Docs/COVER_AUDIT_20261015.md**
 
 **SL-08:PICKS:2026-10-14:Codex.**
+
+**SL-09:PICKS:2026-10-15:Claude.**
 
 **RA-16:R3-READY:2026-10-15:Codex.** B/medium/intro approved. Next: asset QA.
 
