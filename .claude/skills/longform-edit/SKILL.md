@@ -65,6 +65,9 @@ For long-form: full-screen cards, lists and photo displays come from `softblue` 
 > crop lift, a context clip for every item, named AI pairs with their context on the page, two-at-a-time Codex frames). Read its README.
 > Then `reference/ro14/` (RO-14, 2026-10-14): restarts that medium.en folds into one stretched word (level strip + word patch), the
 > frame gate and reviewer on waist-up AI frames (people as may_change boxes), and the week, study and picture-list cards.
+> A 9/23 film cut from TWO rolls starts from `reference/ro18/` (RO-18, 2026-10-15): one virtual source timeline for both rolls,
+> room tone per roll, the word-map traps after `patch_words.py`, and the AI frame traps (lockstill masks instead of boxes across
+> a touched surface, Codex redrawing hair and gloves, people walking toward the camera).
 
 # Editing a longform video from raw shoot footage
 

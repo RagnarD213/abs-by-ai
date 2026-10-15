@@ -1,0 +1,69 @@
+{
+ "shot": "RO-18 A7 The teacher slams the laptop",
+ "start_frame": "A7-start.png",
+ "intent": "An empty classroom after hours. START: a teacher in a green cardigan and glasses sits at her desk with a red pen over a stack of papers, staring at her open laptop in outraged shock, mouth open. END: she has slammed the SAME laptop shut in the same place on the desk and sits back with her arms crossed, scowling straight at the camera; the red pen she held now lies on the papers. Desk, papers, chairs, bookcase and blackboard do not move.",
+ "hands": {
+  "right": "holds the red pen over the papers in START; crossed arms in END (pen set down on the papers)",
+  "left": "out of sight behind the laptop in START; crossed arms in END"
+ },
+ "may_change": {
+  "the_teacher": [
+   370,
+   30,
+   1200,
+   720
+  ],
+  "laptop": [
+   640,
+   470,
+   1300,
+   810
+  ],
+  "pen_on_papers": [
+   320,
+   640,
+   660,
+   760
+  ]
+ },
+ "still": {
+  "bookcase": [
+   400,
+   140,
+   540,
+   400
+  ],
+  "blackboard": [
+   1000,
+   60,
+   1500,
+   300
+  ],
+  "pen_cup": [
+   0,
+   560,
+   90,
+   800
+  ],
+  "papers_left": [
+   60,
+   700,
+   380,
+   800
+  ],
+  "right_tray": [
+   1420,
+   700,
+   1672,
+   840
+  ],
+  "globe": [
+   440,
+   60,
+   520,
+   140
+  ]
+ },
+ "bounds": {},
+ "note": "person block left out (legs out of frame or the body changes pose completely); people are declared may_change boxes and the reviewer judges bodies. END background locked to START outside the teacher, laptop and pen spot; the pen-cap tip that START had in mid-air (x 407-424, y 572-590) is filled from its blurred surroundings"
+}

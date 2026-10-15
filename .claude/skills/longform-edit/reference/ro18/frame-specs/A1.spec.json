@@ -1,0 +1,63 @@
+{
+ "shot": "RO-18 A1 The treadmill clothes rack (opener)",
+ "start_frame": "A1-start.png",
+ "intent": "A home office at night. START: a tired man in a wrinkled dress shirt and loosened tie types on a laptop at his desk; behind him a home treadmill is buried under laundry: shirts on hangers on its handrails, clothes heaped on the belt. END: he has turned his head to look over at the laundry-covered treadmill with a guilty, tired sigh, hands still on the keyboard. Nothing else changes.",
+ "hands": {
+  "right": "on the laptop keyboard in both frames",
+  "left": "on the laptop keyboard in both frames"
+ },
+ "may_change": {
+  "the_man": [
+   440,
+   40,
+   1080,
+   700
+  ]
+ },
+ "still": {
+  "treadmill_laundry_rack": [
+   1080,
+   150,
+   1600,
+   460
+  ],
+  "treadmill_belt_heap": [
+   1080,
+   480,
+   1560,
+   660
+  ],
+  "desk_lamp": [
+   0,
+   60,
+   280,
+   240
+  ],
+  "iced_coffee": [
+   30,
+   500,
+   180,
+   700
+  ],
+  "papers": [
+   840,
+   680,
+   1300,
+   880
+  ],
+  "phone": [
+   780,
+   680,
+   940,
+   760
+  ],
+  "window": [
+   280,
+   0,
+   680,
+   260
+  ]
+ },
+ "bounds": {},
+ "note": "person block left out (seated, legs hidden by the desk); the man is a may_change box and the reviewer judges face, hair and hands"
+}

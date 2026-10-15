@@ -1,0 +1,51 @@
+{
+ "shot": "RO-18 A3 Gym clothes in traffic",
+ "start_frame": "A3-start.png",
+ "intent": "Inside a car in rush-hour traffic. START: a man in a gym tank top and grey sweatband grips the wheel with both hands, bored, staring ahead; seat belt across his chest; gym bag on the passenger seat; stopped cars with brake lights outside. END: he has let his forehead drop onto the top of the steering wheel in defeat, eyes closed, both hands still gripping the wheel where they were, seat belt still buckled across his chest. Traffic, bag and car interior unchanged.",
+ "hands": {
+  "right": "grips the steering wheel in both frames",
+  "left": "grips the steering wheel in both frames"
+ },
+ "may_change": {
+  "the_driver": [
+   560,
+   0,
+   1400,
+   941
+  ]
+ },
+ "still": {
+  "gym_bag": [
+   20,
+   780,
+   500,
+   941
+  ],
+  "rear_headrest": [
+   300,
+   240,
+   470,
+   420
+  ],
+  "left_seat": [
+   0,
+   100,
+   250,
+   700
+  ],
+  "traffic_right": [
+   1300,
+   300,
+   1600,
+   560
+  ],
+  "windshield_skyline": [
+   1250,
+   40,
+   1500,
+   200
+  ]
+ },
+ "bounds": {},
+ "note": "person block left out (seated, legs out of frame); the driver's box covers both head positions (upright in START, forward on the wheel in END) and the headrest/ceiling his head uncovers"
+}

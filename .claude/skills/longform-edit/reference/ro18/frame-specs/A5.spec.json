@@ -1,0 +1,63 @@
+{
+ "shot": "RO-18 A5 The dish mountain",
+ "start_frame": "A5-start.png",
+ "intent": "A home kitchen in the evening. START: a man in a grey t-shirt stands at the sink staring up in disbelief at a towering pile of dirty pots, pans, plates and bowls taller than his head; a pair of yellow rubber gloves lies on the counter right beside his right hand. END: he has picked that pair of gloves up and is pulling one onto his hand, still staring up at the pile, defeated; the counter spot where they lay is empty. The pile does not change.",
+ "hands": {
+  "right": "open, gesturing in START; holds the glove cuff in END",
+  "left": "open, gesturing in START; going into the glove in END"
+ },
+ "may_change": {
+  "the_man": [
+   480,
+   120,
+   1000,
+   941
+  ],
+  "gloves_on_counter": [
+   800,
+   600,
+   1010,
+   720
+  ]
+ },
+ "still": {
+  "dish_pile_top": [
+   1130,
+   0,
+   1320,
+   200
+  ],
+  "dish_pile_mid": [
+   1060,
+   300,
+   1350,
+   560
+  ],
+  "dish_pile_base": [
+   980,
+   640,
+   1430,
+   800
+  ],
+  "soap_bottle": [
+   1500,
+   500,
+   1600,
+   750
+  ],
+  "pendant_lamp": [
+   150,
+   240,
+   280,
+   330
+  ],
+  "window": [
+   1380,
+   0,
+   1672,
+   500
+  ]
+ },
+ "bounds": {},
+ "note": "person block left out (legs out of frame or the body changes pose completely); people are declared may_change boxes and the reviewer judges bodies"
+}
