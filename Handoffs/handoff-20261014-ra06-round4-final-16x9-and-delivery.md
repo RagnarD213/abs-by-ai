@@ -8,10 +8,10 @@ Step 9.9 THE WATCH PASS, "RA-14 round 4 lessons"), `_shared/PRE-RENDER-APPROVAL.
 Recipe: `.claude/skills/ad-edit/reference/ra06/` (round 1 README) and `reference/ra06/round3/` (README: order and six lessons).
 Work dir `/Volumes/Extreme/_edit_work/ra06/`.
 
-**WAITS FOR DAN'S ROUND 3 ANSWER** on the page http://127.0.0.1:8837/ (`round3/index.html`). Record his words verbatim in
-`round4-plan/decisions.json` first. If he names changes, make them on the 9:16 first (same recipe, `r3_chain_c.sh` for a plan
-change, `r3_chain_f.sh` for a card-only change), re-gate, show him only the changes with timestamps, and stop. Only when he
-approves the 9:16 does the rest of this handoff run.
+**READY TO FIRE (2026-10-15). Dan approved the 9:16**, recorded in `/Volumes/Extreme/_edit_work/ra06/round4-plan/decisions.json`:
+*"Everything looks good. This is approved. Give me the handoff or setup."* The 9:16 below is locked as delivered; do not rebuild
+or "improve" it. Hashes re-checked 2026-10-15, all match the table. What is left before `/ad-setup`: the 16:9 from the same edit,
+the gates and independent review on both formats, and filing to the ad folder.
 
 ## What round 3 built (the review copy Dan watched)
 
@@ -30,10 +30,10 @@ approves the 9:16 does the rest of this handoff run.
 - Watch items the reviews left for Dan's eye: the wide at 27.56 s follows his lean (standard tracker); the trainer's sheet rests on
   his palm about 0.9 s in I1; his hand presses beside the navel during the draw-in (his own technique, as in B0419).
 
-## Round 4 (after Dan approves the 9:16)
+## Round 4
 
 1. **Re-hash** the locked files below into `round4/HASHES.json`; build in `round4/`, never overwrite `round3/`.
-2. **The 9:16 master**: the approved `draft_9x16.mp4` as is → `round4/whats the best ab exercise | claude | 9x16 | RA-06.mp4`.
+2. **The 9:16 master**: the approved `draft_9x16.mp4` (423653d81972ae48) as is, bit for bit → `round4/whats the best ab exercise | claude | 9x16 | RA-06.mp4`.
 3. **The 16:9 from the same edit** (`s10_render06.py 16x9`, `s07_captions.py 16x9`, the 16:9 HyperFrames templates for LT2 and the
    CTA, the split screen and AI cards re-laid for 16:9). Horizontal framing stays static per shot (VIDEO-RULES; `cx16` in the plan
    already shares the wide's centre so a zoom cut is a pure zoom). The AI clips are 9:16: place them as phone-shaped panels beside
@@ -64,9 +64,9 @@ approves the 9:16 does the rest of this handoff run.
 
 ## Starter prompt (paste into a fresh Claude Code session)
 
-> AD. Rename this task `Best Ab Exercise AD R4`. Read `Handoffs/handoff-20261014-ra06-round4-final-16x9-and-delivery.md` and continue
-> RA-06 "What's The Best Ab Exercise?" with /ad-edit. My round 3 answer: [paste it]. If I asked for changes, make them on the 9:16, show me
-> only those with timestamps, and stop. If I approved, build the 16:9 from the same edit, run every gate and the independent review on
-> both, fix what they find, deliver both to the ad folder, update the queue and clip library, and stop.
+> AD. Rename this task `Best Ab Exercise 16x9 AD R4`. Read `Handoffs/handoff-20261014-ra06-round4-final-16x9-and-delivery.md` and continue
+> RA-06 "What's The Best Ab Exercise?" with /ad-edit. I approved the round 3 9:16 as is. Build the 16:9 from the same edit, run every gate
+> and the independent review on both formats, fix what they find, deliver both to the ad folder, update the queue and the clip library,
+> and stop. Setup (/ad-setup) is the next task after that.
 
 **Recommended model and effort: Opus 5.5, high.** A recipe-backed format build plus the delivery gates.
