@@ -1,5 +1,7 @@
 AD. AI Took Job AD R3. Continue the existing edit and required review.
 
+Superseded October 15 by `Handoffs/handoff-20261015-ra16-round3-approved-look-and-intro.md`. Color B, medium crop pair 1 and intro are approved; all asset contexts have rendered.
+
 # State and next action
 
 Use the exact `Media/codex-video-trial/skills/abs-edit-ad/SKILL.md` Dan named. Read current VIDEO-RULES and the coordination board. Work root stays `/Volumes/Extreme/_edit_work/ra16/`; R2 materials are in `round2/`. Do not start over. Recommended model: GPT-6 Sol, high effort.
