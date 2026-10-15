@@ -1,0 +1,148 @@
+{
+ "shot": "RA-04 AI1-3 motion take AI1-3_b: the push used in the ad, take frames 60 (bottom) to 87 (top)",
+ "start_frame": "AI1-3_b frame 60 at 941x1672. Sled parts and the shoe box are the example spec's F4h boxes moved by the sled's measured offset at frame 60 (-41,+48); still boxes, guide and person rules unchanged.",
+ "intent": "He lies back on a 45-degree plate-loaded leg press, left forearm in a cast and sling, phone in his right hand. START: knees bent, feet flat on the footplate, smiling at the phone. END: legs straighter, the sled a short way up the rails, smiling while working, phone at his chest.",
+ "person": {
+  "guide": {
+   "line": [
+    533,
+    1021,
+    721,
+    833
+   ],
+   "what": "the near chrome rail; the hip-to-ankle line runs along it",
+   "max_deg": 10
+  },
+  "anchored": [
+   "hip",
+   "shoulder",
+   "nose"
+  ],
+  "reach": true
+ },
+ "rigid": [
+  {
+   "name": "sled",
+   "what": "footplate, horns and plates ride the rails as one piece",
+   "parts": {
+    "plate_rim": [
+     649,
+     603,
+     709,
+     658
+    ],
+    "plate_hub": [
+     739,
+     668,
+     789,
+     718
+    ],
+    "horn_tip": [
+     779,
+     676,
+     829,
+     710
+    ],
+    "footplate_face_slots": [
+     494,
+     566,
+     528,
+     596
+    ]
+   },
+   "guide": [
+    533,
+    1021,
+    721,
+    833
+   ],
+   "move_px": [
+    15,
+    120
+   ],
+   "extent": [
+    449,
+    518,
+    941,
+    790
+   ]
+  }
+ ],
+ "contacts": [
+  {
+   "name": "near_shoe",
+   "box": [
+    554,
+    658,
+    599,
+    713
+   ],
+   "rides": "sled",
+   "what": "the near shoe's logo panel"
+  }
+ ],
+ "still": {
+  "frame_top": [
+   860,
+   320,
+   930,
+   410
+  ],
+  "upright": [
+   880,
+   800,
+   925,
+   900
+  ],
+  "base": [
+   15,
+   1150,
+   100,
+   1225
+  ],
+  "lower_rails": [
+   430,
+   1080,
+   500,
+   1140
+  ],
+  "rack_left": [
+   120,
+   450,
+   200,
+   520
+  ]
+ },
+ "props": [
+  {
+   "name": "phone",
+   "box": [
+    243,
+    765,
+    282,
+    815
+   ],
+   "held_by": "right"
+  }
+ ],
+ "hands": {
+  "right": "holds the phone flat on his chest in both frames",
+  "left": "forearm in a white cast inside a navy sling in both frames"
+ },
+ "may_change": {
+  "gym_members_left_edge": [
+   0,
+   430,
+   100,
+   970
+  ],
+  "rail_uncovered_by_sled": [
+   690,
+   780,
+   755,
+   840
+  ]
+ },
+ "bounds": {},
+ "note": "Re-gated after review2: the two corner boxes were mostly background (the corner passes from a dark rack to the grey pillar); replaced by a box on the footplate face with its two slots, measured on a 3x gridded crop of frame 60. The rail strip the plates uncover as they rise may change."
+}

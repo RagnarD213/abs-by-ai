@@ -71,6 +71,29 @@ writes the round 2 page. Frame prompts and hashes: `round2/`.
 16. **With the start knee at 127 degrees, the honest push is short** (about 42 px, ~10 cm). A deeper rep needs a start frame with
     the knees bent further; the image model shrinks bent legs, so check bone lengths again if that is tried.
 
+## Round 3 (2026-10-14): the broken-arm clip in motion
+
+Scripts in `round3/`: `gen_motion04.py` (Veo 3.1 Fast, asserts every frame's sha256 against `decisions.json`, ledger, budget stop),
+`check_take04.py` (sheets, first/last second, cut scan, self-change, pose and rigid per take), `strip04.py`, `platform04.py` (masked
+platform-rim tracker), `selfchange04.py`, `assemble04.py` (raw-YUV frame picking into the card's exact frame count), `r3_lt3.py` (one
+lower third re-rendered), `r3_context.py` (context preview over the round 2 base without a full render), `page_r3.py`. Prompts in
+`round3/prompts/`, gate spec `round3/AI1-3_b.spec.json`. Spend $5.80 of $20 (12 takes).
+
+17. **Veo lands NEAR its last_frame, not on it.** Two takes that share an approved middle frame (A ends on F2, B starts on F2) do not
+    join: take A's last frame was 20.6 levels off F2 on the man, so at the join he jumped 21-37 px in one frame, the floor grain
+    switched and an earring vanished. The first independent review caught it; my own check had measured the 12.8-level jump and
+    waved it through because the pose matched. Continuous action is ONE take from the first approved frame to the last (6 s held
+    walk, stop, reaction, phone out, reading). Never cut inside a continuous action between two takes.
+18. **Pick whole source frames.** 24 fps played at 1.12x on 29.97 repeats every tenth frame, and the sled visibly paused three times.
+    At 1.249x every output frame is a distinct source frame (`assemble04.py`); a slight speed-up, no repeats.
+19. **Veo fills the duration.** A 4 s take of "take out the phone" spent 2 s fumbling in the pocket; "in one quick smooth movement...
+    within the first second" fixed the pacing. A 4 s leg press take did two full reps; use one push, bottom to top.
+20. **A gate box on a moving edge measures the background.** The footplate corner boxes failed (0.50, 0.63) because the corner passes
+    from a dark rack to the grey pillar. A box on the footplate FACE (its two slots) and a mask on the platform rim both track within
+    3-7 px of the plates. The rail strip the plates uncover is a `may_change` region, not a static fault.
+21. **Shot choice by the prop, not only the physics.** Both leg press takes passed the sled checks; take A's phone smeared as he turned
+    it to his chest, take B holds it flat and sharp the whole push.
+
 ## Open for the final round
 
 Land-then-hold centring is not wired in (crops are fixed per hold, the RA-01 method); measure with `cut/landing.py

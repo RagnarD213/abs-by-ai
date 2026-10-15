@@ -313,6 +313,11 @@ person using a machine pushes along the machine's guide, bone lengths match betw
 nothing appears or vanishes. RA-04's leg press took seven independent reviews; when a machine part must move exactly, build
 the END in code (`reference/ra04/r2c_sled.py`).
 
+**Continuous action is ONE motion take, never two takes joined at a shared frame (RA-04 round 3, 2026-10-14).** Veo lands near its
+`last_frame`, not on it: a walk take ending on the approved middle frame and a phone take starting on it jumped 21-37 px at the join
+(failed independent review). Generate the whole action from the first approved frame to the last; play whole source frames (1.25x at
+29.97, not 1.12x with repeated frames). Recipe and lessons 17-21: `reference/ra04/README.md`.
+
 **Derive each END frame from its START frame (RA-04 round 2, 2026-10-14).** Pass the start
 frame to `codex-image.sh --image` with "keep the camera position, framing and background
 exactly; change only ...". Frames generated separately from one reference come back from

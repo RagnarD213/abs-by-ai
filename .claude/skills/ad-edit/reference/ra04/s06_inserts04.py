@@ -5,7 +5,7 @@
   flow_a/b  B0049 (the app's own generate flow, same man before and after) under a HyperFrames media-card plate
   analysis  the approved adkit analysis card, recoloured to Soft Blue Light (ANALYSIS=olive keeps RA-01's colours)
   tour      B0544 (the approved app tour) under a media-card plate: workout sheet first, then the meal analysis
-  knee      B0126 fills the frame;  home  B0464 (Dan's real squats on the lawn), a steady 608 px window on him
+  brokenarm  the AI broken-arm clip (round 3, media/ai1.mp4) + chip; knee  B0126 (round 1-2, retired);  home  B0464 (Dan's real squats on the lawn), a steady 608 px window on him
 """
 import json, os, subprocess, sys
 import numpy as np
@@ -69,6 +69,10 @@ if want("lock"):
     meta["lock"] = {"chip": "AI-GENERATED", "chip_box": fill_card("lock", [(P["A0074"], 0.5, dur("lock"))], "null", chip=("AI-GENERATED", (60, 236)))}
 if want("knee"):
     fill_card("knee", [(P["B0126"], 0.4, dur("knee"))], "null")
+if want("brokenarm"):
+    # round 3: the AI broken-arm clip (assemble04.py -> media/ai1.mp4, already the card's exact frames). The chip sits top left,
+    # above and beside the man in all three shots (he stands centre-left at the rack, then lies with his head at mid-left).
+    meta["brokenarm"] = {"chip": "AI-GENERATED", "chip_box": fill_card("brokenarm", [("media/ai1.mp4", 0.0, dur("brokenarm"))], "null", chip=("AI-GENERATED", (60, 236)))}
 if want("home"):
     X0 = int(os.environ.get("HOME_X", "704")); T0 = float(os.environ.get("HOME_T", "0.2"))
     fill_card("home", [(P["B0464"], T0, dur("home"))], f"crop=608:1080:{X0}:0")

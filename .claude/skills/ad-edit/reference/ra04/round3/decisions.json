@@ -1,0 +1,158 @@
+{
+ "job": "RA-04",
+ "round": 2,
+ "recorded": "2026-10-14",
+ "by": "Claude (Opus 5.5)",
+ "dan_words": "All of the frames are looking good except for shot 3. We need some adjustments to that. For shot 3, if you look at the plates, that's not how a leg press machine is loaded. In addition to that, he's putting his foot on the plates rather than the platform. I need you to regenerate both of those shots. Make the leg press machine look realistic with the way a leg press machine is actually loaded. Make sure his feet are on the platform. Make sure when you generate this, the physics on this makes sense. I want to change his facial expression as well. I want the start frame to be him smiling, looking at the phone, and then the end frame is him smiling but also exerting himself, doing the rep. I want to emphasize here the importance of the physics on this. If this physics is off, you have to regenerate. Your budget is approved up to $20 for generations. Give me the new start and end frames for shot 3, and then we'll go on to the next round.",
+ "items": [
+  {
+   "id": "AI1-1",
+   "frames": [
+    "S1",
+    "F2"
+   ],
+   "sha256": [
+    "0fb43996d74b3b4f3765081d5522e05ba9eca36c0d1b5b3b47a57a51646491da",
+    "157edd1096409c066c96312093de036b79095a9d170e80cf5d5de49cb2ad4780"
+   ],
+   "verdict": "approved",
+   "scope": "frames only"
+  },
+  {
+   "id": "AI1-2",
+   "frames": [
+    "F2",
+    "F3"
+   ],
+   "sha256": [
+    "157edd1096409c066c96312093de036b79095a9d170e80cf5d5de49cb2ad4780",
+    "802a4c9e7014614ca85b8bda6a7e7e7265c45fb5953731146e133dd9bbbe6c0f"
+   ],
+   "verdict": "approved",
+   "scope": "frames only"
+  },
+  {
+   "id": "AI1-3",
+   "frames": [
+    "F4",
+    "F5"
+   ],
+   "sha256": [
+    "77d2656dee096ece5663c85f67cfa31b273fdd26349f7d4f0787509449cf9b85",
+    "5640dee91839b226741e1941a2dd203c0ff270b252dbaa6a29d79809140b6dc5"
+   ],
+   "verdict": "rejected",
+   "words": "that's not how a leg press machine is loaded... he's putting his foot on the plates rather than the platform",
+   "next": "new START: smiling, looking at the phone, feet on the platform, realistically loaded machine; new END: smiling and exerting, mid-rep; physics must make sense or regenerate"
+  },
+  {
+   "id": "slot",
+   "verdict": "not answered: slot A (recommended) 39.139-43.443"
+  },
+  {
+   "id": "AI1-3-v2",
+   "frames": [
+    "F4c",
+    "F5c"
+   ],
+   "sha256": [
+    "75170719eae9b0a213e223e65243dff85c17f3bb8b0f20a9c1169f87a6aa1fc4",
+    "4051998b79f4fdb2a267e59a1c575f587302c5ceec28c43978574a4a6348b55c"
+   ],
+   "verdict": "pending Dan (round 2b page 8896)"
+  },
+  {
+   "id": "AI1-3-v2",
+   "verdict": "rejected",
+   "words": "his body is all fucked up here. He's doing the leg press at a 90 degree angle, but his legs need to be in line with his body... No human body works like that.",
+   "frames": [
+    "F4c",
+    "F5c"
+   ]
+  },
+  {
+   "id": "AI1-3-v3",
+   "frames": [
+    "F4h",
+    "F5p"
+   ],
+   "sha256": [
+    "f49c75616613b51a49fd65aa8916a21be5a12f0af7bee52c6718350918278a8d",
+    "4e8095cfec446bdd192c1f0f12fd46be84a32dfa8f3b254cbf62e934145b0d07"
+   ],
+   "verdict": "approved",
+   "words": "Those frames look good.",
+   "scope": "frames only"
+  }
+ ],
+ "budget_usd": 20,
+ "budget_note": "Dan raised the generation budget for this ad from $10 to $20 (2026-10-14)",
+ "motion_authorized": [
+  "AI1-1 S1->F2",
+  "AI1-2 F2->F3b",
+  "AI1-3 F4h->F5p"
+ ],
+ "new_frames_before_motion": [],
+ "dan_words_2": "Once we have this one done and we have the handoff, I want you to do some research and see if there are some kinds of skills, repos, or modifications for Claude where we can do better QC on these start and end frames.",
+ "approved_by_dan_2026-10-14": "all five frames of AI1 (S1, F2, F3b, F4h, F5p); slot A by default",
+ "round3_motion": {
+  "made": "2026-10-14",
+  "by": "Claude (Opus 5.5)",
+  "model": "google/veo-3.1-fast 1080p 9:16 no audio, image+last_frame",
+  "takes_generated": [
+   "AI1-1_a",
+   "AI1-1_b",
+   "AI1-2_a",
+   "AI1-2_b",
+   "AI1-3_a",
+   "AI1-3_b",
+   "AI1-2_c",
+   "AI1-2_e",
+   "AI1-2_d",
+   "AI1-12_b",
+   "AI1-12_c",
+   "AI1-12_a"
+  ],
+  "spend_usd": 5.8,
+  "v1": {
+   "verdict": "FAILED independent review 1 (round3/review/REVIEW.md): AI1-1_b + AI1-2_d joined at F2, but AI1-1_b did not land on F2 (man jumped 21-37 px, floor grain switched, earring vanished); 1.12x repeated 13 frames",
+   "backup": "round3/backup/ai1_v1.mp4"
+  },
+  "chosen": {
+   "AI1-12 (shots 1+2, one take S1->F3b, 6 s)": {
+    "take": "AI1-12_c",
+    "frames": [
+     4,
+     104
+    ],
+    "sha256": "7b166c18b99784540a0e7265973308e01975ae56da2ded306f5e3cd13e9541a4"
+   },
+   "AI1-3 (shot 3)": {
+    "take": "AI1-3_b",
+    "frames": [
+     60,
+     87
+    ],
+    "sha256": "e10428f60c481a627c1d5bd0ff98f9f781cc6cee442cd0e99be588fe07017995"
+   }
+  },
+  "speed": "1.249x everywhere: every output frame a distinct source frame (no repeats)",
+  "clip": {
+   "path": "media/ai1.mp4",
+   "sha256": "17fe55205a2279f2a08279f6bf70ca50a0b9d18cae0f5a86e928eeb9f41bf129",
+   "frames": 129,
+   "slot": "A 39.139-43.4434",
+   "shot3_from_output_frame": 101
+  },
+  "card": {
+   "path": "cards_9x16/brokenarm.mp4",
+   "sha256": "a467a5d1cd0ca7ae61e42e9a7fd70ce47ecf6cd38043c6846fd1145193909695",
+   "chip": "AI-GENERATED (60,236)-(467,316)"
+  },
+  "review": "PASS, independent review 2 (round3/review2/REVIEW.md); frame gate 1.0.0 PASS + reviewer PASS on AI1-3_b 60->87 (round3/gate/AI1-3_b.spec.json, stamp check/AI1-3_b/f/087.png.framecheck.json)",
+  "open_for_dan": "his reaction at the barbell: pursed-lip blow for ~0.75 s (output 28-50), then eyes closed frown",
+  "beats_changed": "knee card -> brokenarm [39.1391, 43.4434] (129 f); dan08 now 37.07-39.139 (62 f, cx 1078.3); LT3 ends 39.1391 (re-rendered, r3_lt3.py); captions rebuilt (s07)",
+  "page": "round3/index.html, http://127.0.0.1:8898/",
+  "verdict": "pending Dan"
+ }
+}

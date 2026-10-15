@@ -72,6 +72,8 @@ appin = snap_to(t_app, SEAMS)           # R2|R3 under the analysis card
 usein = snap_to(t_use, SEAMS)           # R3|R4 card to card
 ctain = snap_to(t_cta, SEAMS)           # R4|R5: Dan to Dan, covered by the level change below
 flow_end = snap_to(e_free + TAIL, SPL, 0.3)
+SLOT_A = snapf(39.139)                  # round 3: AI1 starts here; LT3 now ends here too (its copy has 1.9 s from 37.205)
+assert t_use3 < SLOT_A < at("when life gets", after=t_use3), SLOT_A
 flow_mid = snapf(go + (flow_end - go) * 0.55)
 CARDS = [
  {"name": "lock",     "kind": "clip",  "beat": [snap_to(t_lock, SPL, 0.2), snap_to(t_easy, SPL, 0.2)],        "asset": "A0074", "chip": "ai"},
@@ -79,7 +81,9 @@ CARDS = [
  {"name": "flow_b",   "kind": "phone", "beat": [flow_mid, flow_end],                  "asset": "B0049", "chip": "ai"},
  {"name": "analysis", "kind": "scan",  "beat": [appin, usein],                        "asset": "after", "chip": "ai"},
  {"name": "tour",     "kind": "phone", "beat": [usein, snap_to(e_body + TAIL, SPL, 0.3)],         "asset": "B0544", "chip": None},
- {"name": "knee",     "kind": "clip",  "beat": [snap_to(t_inj, SPL, 0.2), snap_to(t_cant, SPL, 0.2)],         "asset": "B0126", "chip": None},
+ # ROUND 3 (2026-10-14): the knee stock clip is replaced by the AI broken-arm clip (AI1: walk to the rack, phone out, leg press),
+ # in slot A, which Dan left on the default: 39.139 (the pause before "when life gets in the way") to the "If you can't" splice.
+ {"name": "brokenarm", "kind": "clip", "beat": [SLOT_A, snap_to(t_cant, SPL, 0.2)],                          "asset": "AI1",   "chip": "ai"},
  {"name": "home",     "kind": "clip",  "beat": [snapf(t_have), snap_to(e_inst + TAIL, SPL, 0.3)], "asset": "B0460", "chip": None},
 ]
 # RA-04 round 1 self-check: a pause splice inside a same-size shot is a jump cut (Dan, 2026-09-24). EVERY splice that is
