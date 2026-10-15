@@ -8,4 +8,4 @@ Current fresh-build route: build_full.py reads original cut and locked inputs fr
 
 repair_cta.py and post_cta_checks.py preserve the scoped historical repair phase. Do not rerun them as an extra phase after a fresh full build. All inputs/assets are source-specific, fingerprinted and read-only; paths are in roll.json, decisions.json, build-record.json and the edit sheet. Large raw media is not duplicated in Git.
 
-The source-specific raw camera, LUT, approved assets and untreated cut are retained in the external work root and delivery Rebuild folder. No AI motion was generated. Original rejected A0074 and B0037 clips never appear in these masters.
+Raw camera, LUT and approved source assets stay at the absolute paths recorded in the input facts. Rebuild includes the source locators and untreated cut. No AI motion was generated. Rejected A0074 and B0037 clips never appear in these masters.
