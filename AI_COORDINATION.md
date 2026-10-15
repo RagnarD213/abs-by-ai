@@ -6,7 +6,7 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 |---|---|
 | a technique, trap, recipe or calibration | the relevant **skill** (`.claude/skills/…`) |
 | what changed in code and why | **git history** |
-| work spec'd but not executed | **`Handoffs/`** + `Handoffs/README.md`; dashboard only if Dan asks |
+| work spec'd, not executed | **`Handoffs/`** + `Handoffs/README.md`; dashboard only if Dan asks |
 | durable facts about Dan, the product or providers | **memory**, or a `Docs/` note |
 | standing rules and authorizations | **`AGENTS.md`** / **`CLAUDE.md`** |
 | open state | **here**, in ≤3 lines |
@@ -147,7 +147,7 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 
 **RO-14-R1-REVIEW:8964:2026-10-14.**
 
-**RO-18 R1 BUILDING 2026-10-15, Claude.** Make Time Exercise LFC round 1 (C1714-C1715).
+**RO-18:R1-BUILDING:2026-10-15:Claude.**
 
 **Ad 6 remarketing 2026-10-04:** Awaiting Dan: copy to enabled campaign 24305381214?
 
