@@ -61,7 +61,7 @@ Deliver both masters, 540p copies, A/B, stamps, notes and rebuild recipe to `Cod
 
 Generation spend remains $0. R2 has one Gemini audio-listening call, estimated below $0.50: 3316 input, 418 output and 2068 thought tokens. The cumulative prior estimate plus R2 is below $1.50. Billed dollars and subscription editor token usage are unavailable, not zero. Full independent candidate review has not happened.
 
-Task records were committed to main through a clean worktree so unrelated live sessions' shared-file edits were not included. R2 initial build status commit: `fdff7a5`. The clean records worktree is `/Users/danielrose/.codex/worktrees/ra16-r2-records/Abs By AI`. Later record commits may follow. Railway's read-only API returned `Not Authorized`; no application code was changed or manual deployment performed.
+Task records were committed to main through a clean worktree so unrelated live sessions' shared-file edits were not included. R2 initial build status commit: `fdff7a5`. The clean records worktree is `/Users/danielrose/.codex/worktrees/ra16-r2-records/Abs By AI`. Later record commits may follow. The main checkout safe-push stopped on live `Handoffs/video-editing/00-MASTER.md`, `Handoffs/video-editing/jobs.json`, staged `.claude/skills/_shared/framecheck/tapir_cpu.py`, and staged deletion of `.claude/skills/_shared/framecheck/tapir_mps.py`. None was adopted or reset. Own records reached main through the clean worktree. Railway's read-only API returned `Not Authorized`; no application code was changed or manual deployment performed.
 
 # Starter prompt
 
