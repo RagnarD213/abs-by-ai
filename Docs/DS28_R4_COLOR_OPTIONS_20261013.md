@@ -1,6 +1,8 @@
 # CONTENT: Meal Prep SFC R4 color options
 
-Updated: 2026-10-13. Owner: Codex, Meal Prep SFC R4.
+Updated: 2026-10-14. Owner: Codex, Meal Prep SFC R4.
+
+**APPROVED: Color A, Clean and balanced.** Dan selected it on 2026-10-14: "Let's go with the clean and balanced". Exact filter and preview hash: `Docs/DS28_APPROVED_COLOR_A_20261014.json`. Everything else remains approved. The following round applies the selected grade to the complete Short.
 
 Dan rejected the color of the R3 complete Short and approved everything else. His instruction: "The color correction in this looks off. I want you to fix this. Give me a few options for color correction. This looks weird. Everything else is approved. Give me a few options for color correction. In the next round we'll choose that and then re-edit in the next round after that".
 
@@ -20,7 +22,7 @@ The page lets Dan switch grades at the same playback moment and jump to wide/clo
 
 Files: `round4-color/review/A.mp4`, B.mp4, C.mp4 and Current.mp4 on Extreme. Reproduction: `round4-color/recipe/build.py`, options.json (exact filters), excerpt-map.json (every preview frame mapped to approved R3 frame), captions.ass, approval.json, review/manifest.json (hashes and checks). Still comparison: review/comparison-final.jpg. Color is applied to original camera footage, never to the flattened approved full master.
 
-Next action: Dan chooses A/B/C or requests a named adjustment. Only after that choice, the following round applies the exact selected filter to all camera scenes in the complete Short, preserving all approved assets, crops, audio, cuts and captions. Check native camera/AI color continuity, then review the complete changed file and keep exact-file gate outcomes honest. Do not reopen non-color approvals or change gate thresholds. No covers/uploads or dispatcher resume.
+Next action: R5 applies the exact approved Color A filter to all camera scenes in the complete Short, preserving all approved assets, crops, audio, cuts and captions. Check native camera/AI color continuity, then review the complete changed file and keep exact-file gate outcomes honest. Do not reopen non-color approvals or change gate thresholds. No covers/uploads or dispatcher resume.
 
 Provider charges for R4: $0. No generation or paid external review. Editor token total unavailable. Comparison previews were inspected by the editor; no independent complete-film review was invoked because no new complete-film candidate exists.
 

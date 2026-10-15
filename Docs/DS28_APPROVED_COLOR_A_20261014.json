@@ -1,0 +1,14 @@
+{
+  "category": "CONTENT SFC",
+  "video": "Meal Prep",
+  "approved_on": "2026-10-14",
+  "user_words": "Let's go with the clean and balanced",
+  "selected_color": "A",
+  "name": "Clean and balanced",
+  "filter": "hqdn3d=1.5:1.5:3:3,curves=all='0/0 0.06/0.045 0.15/0.19 0.25/0.35 0.5/0.61 0.8/0.87 1/1',colorbalance=rs=0.006:gs=-0.008:bs=0.014:rm=0.005:gm=-0.018:bm=0.045:pl=0,eq=saturation=0.90,unsharp=5:5:0.3:5:5:0",
+  "approved_preview_sha256": "561f5744d7b305e782b805e8fa6628144eafa9b62ff607c5a103bf4665ce223c",
+  "approved_preview": "/Volumes/Extreme/_edit_work/ds28/round4-color/review/A.mp4",
+  "preserved": "All non-color elements of R3 remain approved, including Pair B, audio, captions, seven graphics, AI clips, edit timing and placement.",
+  "next_round": "R5 applies Color A to original camera footage before graphics/captions, then reviews the complete Short. No full re-edit in this selection round.",
+  "no_covers_or_uploads": true
+}
