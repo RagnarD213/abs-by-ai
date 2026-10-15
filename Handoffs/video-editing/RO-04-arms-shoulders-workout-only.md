@@ -1,7 +1,8 @@
-# RO-04 — "Arms & Shoulders Home Workout — Workout Only": follow-along cut from raw footage
+# CONTENT (LFC): Arms & Shoulders Workout Only
 
-**List 1 · organic workout-only · BLOCKED: Zeeshan's Arms & Shoulders explainer is in revision round 2.** Fire when Dan
-finalizes it, so this cut matches its approved grade, music and graphics. Read `00-RULES.md` first.
+**List 1: organic workout-only. The Zeeshan finalization blocker is cleared.** The filed master matches the September 22 final MD5 `49c7dfb3d189043dbb2bc4b326e8fd81`; the September 27 release is recorded in `Docs/SL04_SETUP_RECEIPT_20260930.md`. Read `00-RULES.md` first.
+
+Round 1 is being prepared from C1586, matching the final color and original audio. Current rules require the first-minute and complete graphics review before full assembly. Do not treat an opening preview as the completed workout.
 
 ## Source
 8/3 shoot (`/Volumes/Extreme/abs by ai 8:3 jeff chagrin shoot/main camera/`): **C1586**, the workout walkthrough and live
