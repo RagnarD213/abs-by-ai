@@ -42,7 +42,7 @@ if not os.environ.get("PLATES_ONLY"):
     json.dump(man, open(f"{OUT}/manifest.json", "w"), indent=1)
 
 # plates: name -> (media aspect, label); the same crops as the 9:16 (s06_inserts04.py)
-PL = {"lock": (9/16, "AI-GENERATED"), "flow_a": (1320/2420, None), "flow_b": (1320/1520, "AI-GENERATED"), "tour": (432/920, None),
+PL = {"lock": (9/16, "AI-GENERATED"), "flow_a": (1320/2300, None), "flow_b": (1320/1520, "AI-GENERATED"), "tour": (432/920, None),
       "brokenarm": (9/16, "AI-GENERATED")}
 by = {c["name"]: c for c in B["cards"]}; plates = {}
 for name, (ar, label) in PL.items():

@@ -27,9 +27,10 @@ dur = lambda k: by[k]["frames"] * 1001 / 30000
 
 def media(name, segs, vf, wh, n):
     out = f"media16/{name}.mp4"; ins, ch = [], []
-    for i, (p, t0, d) in enumerate(segs):
+    for i, sg in enumerate(segs):
+        p, t0, d = sg[:3]; vfi = sg[3] if len(sg) > 3 else vf          # round 3: a segment may carry its own crop
         ins += ["-ss", f"{t0:.3f}", "-t", f"{d + 0.2:.3f}", "-i", p]
-        ch.append(f"[{i}:v]fps={FPSS},{vf},scale={wh[0]}:{wh[1]}:flags=lanczos,setsar=1,trim=end_frame={round(d * 30000 / 1001)},setpts=PTS-STARTPTS[v{i}]")
+        ch.append(f"[{i}:v]fps={FPSS},{vfi},scale={wh[0]}:{wh[1]}:flags=lanczos,setsar=1,trim=end_frame={round(d * 30000 / 1001)},setpts=PTS-STARTPTS[v{i}]")
     ch.append("".join(f"[v{i}]" for i in range(len(segs))) + f"concat=n={len(segs)}:v=1:a=0,tpad=stop_mode=clone:stop_duration=1[v]")
     subprocess.run([FF, "-nostdin", "-y", "-v", "error"] + ins + ["-filter_complex", ";".join(ch), "-map", "[v]", "-frames:v", str(n)] + ENC + [out], check=True)
     return out
@@ -87,7 +88,8 @@ if want("cutout"):
 if want("lock"): plate_card("lock", [(P["A0074"], float(os.environ.get("LOCK_T", "0.0")), dur("lock"))], "null")
 if want("flow"):
     d = dur("flow"); a = min(1.6, d * 0.45)
-    plate_card("flow", [(P["B0049"], 13.0, a), (P["B0049"], 28.0, d - a)], "crop=1320:1600:0:205")   # round 3: y 205 clears the app header text "Your future self" (ends y ~192; review D3), and ends above the email form (y ~1832)
+    # round 3 (review): the generating screen scrolls; y 440 keeps the photo card, "Refining your silhouette" and its subtitle whole
+    plate_card("flow", [(P["B0049"], 13.0, a, "crop=1320:1600:0:440"), (P["B0049"], 28.0, d - a)], "crop=1320:1600:0:205")   # round 3: y 205 clears the app header text "Your future self" (ends y ~192; review D3), and ends above the email form (y ~1832)
 if want("macro"):
     d = dur("macro"); a = 0.55; b = 0.25
     plate_card("macro", [(P["B0038"], 0.0, a), (P["B0038"], 2.2, b), (P["B0038"], 2.8, d - a - b)], "crop=538:1016:18:32")

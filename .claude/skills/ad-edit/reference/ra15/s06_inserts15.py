@@ -26,9 +26,10 @@ D709 = "scale=in_color_matrix=bt709:in_range=tv:out_color_matrix=bt709"
 def media(name, segs, vf, wh, n):
     """segs = [(path, t0, dur)] -> media/<name>.mp4, wh, exactly n frames at 29.97."""
     out = f"media/{name}.mp4"; ins, ch = [], []
-    for i, (p, t0, d) in enumerate(segs):
+    for i, sg in enumerate(segs):
+        p, t0, d = sg[:3]; vfi = sg[3] if len(sg) > 3 else vf          # round 3: a segment may carry its own crop
         ins += ["-ss", f"{t0:.3f}", "-t", f"{d + 0.2:.3f}", "-i", p]
-        ch.append(f"[{i}:v]fps={FPSS},{vf},scale={wh[0]}:{wh[1]}:flags=lanczos,setsar=1,trim=end_frame={round(d * 30000 / 1001)},setpts=PTS-STARTPTS[v{i}]")
+        ch.append(f"[{i}:v]fps={FPSS},{vfi},scale={wh[0]}:{wh[1]}:flags=lanczos,setsar=1,trim=end_frame={round(d * 30000 / 1001)},setpts=PTS-STARTPTS[v{i}]")
     ch.append("".join(f"[v{i}]" for i in range(len(segs))) + f"concat=n={len(segs)}:v=1:a=0,tpad=stop_mode=clone:stop_duration=1[v]")
     subprocess.run([FF, "-nostdin", "-y", "-v", "error"] + ins + ["-filter_complex", ";".join(ch), "-map", "[v]", "-frames:v", str(n)] + ENC + [out], check=True)
     return out
@@ -92,7 +93,8 @@ if want("flow"):
     # B0049: the man's own photo being refined (13.0 s), then HIS result alone from 28.0 s (the banned "Meet the new you"
     # before/after screen runs to about 27.6 s). The crop ends above the email form.
     d = dur("flow"); a = min(1.6, d * 0.45)
-    plate_card("flow", [(P["B0049"], 13.0, a), (P["B0049"], 28.0, d - a)], "crop=1320:1600:0:205")   # round 3: y 205 clears the app header text "Your future self" (ends y ~192; review D3), and ends above the email form (y ~1832)
+    # round 3 (review): the generating screen scrolls; y 440 keeps the photo card, "Refining your silhouette" and its subtitle whole
+    plate_card("flow", [(P["B0049"], 13.0, a, "crop=1320:1600:0:440"), (P["B0049"], 28.0, d - a)], "crop=1320:1600:0:205")   # round 3: y 205 clears the app header text "Your future self" (ends y ~192; review D3), and ends above the email form (y ~1832)
 if want("macro"):      # Round 3 (Dan, 2026-10-14: "Get me that salmon meal ... in the meal photo and the macros"): B0038, the salmon plate.
     # 5 fps strip: 0.0-1.4 s the plate photo in the Macro Tracker, 1.6 Analyze Meal, 2.2-2.8 "Analyzing your meal", from 2.8 the
     # itemized 775 cal result, still to about 8.6 s. Crop 538x1016 at (18, 32) = the screen inside the recording's drawn bezel.

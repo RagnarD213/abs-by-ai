@@ -25,7 +25,7 @@ json.dump(man, open(f"{OUT}/manifest.json", "w"), indent=1)
 # plates: name -> (media aspect, label, max_h)
 # Round 1 self-check: a phone that ran down behind the captions put white words on the app's white screens and a caption
 # across the result picture's abs. Every card now ENDS ABOVE the caption line (y 1376), so the words sit on the field.
-PL = {"flow_a": (1320/2420, None, 668), "flow_b": (1320/1520, "AI-GENERATED", 888), "tour": (432/920, None, 574)}
+PL = {"flow_a": (1320/2300, None, 668), "flow_b": (1320/1520, "AI-GENERATED", 888), "tour": (432/920, None, 574)}
 by = {c["name"]: c for c in B["cards"]}; plates = {}
 for name, (ar, label, mh) in PL.items():
     n = by[name]["frames"]

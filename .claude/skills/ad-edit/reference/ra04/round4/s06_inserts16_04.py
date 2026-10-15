@@ -84,7 +84,7 @@ if want("home"):
     fill_card("home", [(P["B0464"], T0, dur("home"))], "null")      # 16:9 clip, full frame
 if want("flow_a"):
     d = dur("flow_a"); a = min(1.5, d * 0.4)
-    plate_card("flow_a", [(P["B0049"], 6.3, a), (P["B0049"], 13.0, d - a)], "crop=1320:2420:0:170")
+    plate_card("flow_a", [(P["B0049"], 6.3, a), (P["B0049"], 13.0, d - a)], "crop=1320:2300:0:170")   # round 4: ends at y 2470, above the "Generate my future self" button (y 2488-2680) and below "Two AI steps" (2460)
 if want("flow_b"):
     # ⚠ B0049's banned "Meet the new you" BEFORE/AFTER screen runs to about 27.6 s (found 2026-10-13 by RA-05: a start at
     # 27.3 s put it on screen for the card's first 0.3 s). The result screen alone starts at 28.0 s and holds to 34 s.

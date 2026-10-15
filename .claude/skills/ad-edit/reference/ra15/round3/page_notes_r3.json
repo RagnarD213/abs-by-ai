@@ -2,24 +2,78 @@
  "intro": "Round 3 is the finished ad in both shapes, built from your round 2 answer: the three AI clips as approved, and the salmon meal on the macro card. The ad now runs 51.9 s (it was 51.2 s; see the change at 0:42). Every delivery check and two independent reviews were run on these exact files. Spend on AI generation this round: $0 (total $3.00 of $10).",
  "files": "Full quality files (and the same files in Videos to Review for VLC): never pay a nutritionist again | claude | 9x16 | RA-15.mp4 and ... | 16x9 | RA-15.mp4, in Claude Ad Videos/never pay a nutritionist again - RA-15/.",
  "changes": [
-  {"id": "C1", "name": "Salmon meal on the macro card", "at": "0:35.5 to 0:37.0", "watch": [33.0, 39.5], "still": 36.6,
+  {
+   "id": "C1",
+   "name": "Salmon meal on the macro card",
+   "at": "0:35.5 to 0:37.0",
+   "watch": [
+    33.0,
+    39.5
+   ],
+   "still": 36.6,
    "before": "the app photographing a chicken and broccoli plate (B0035).",
-   "now": "the salmon plate (B0038): the photo, \"Analyzing your meal\", then the itemized 775 cal result, which holds still. The recording's own drawn phone frame is cropped off so the card's frame is the only one."},
-  {"id": "C2", "name": "\"twice\" is back in the audio", "at": "0:42.5 to 0:43.2", "watch": [39.0, 45.5], "still": 42.8,
+   "now": "the salmon plate (B0038): the photo, \"Analyzing your meal\", then the itemized 775 cal result, which holds still. The recording's own drawn phone frame is cropped off so the card's frame is the only one."
+  },
+  {
+   "id": "C2",
+   "name": "\"twice\" is back in the audio",
+   "at": "0:42.5 to 0:43.2",
+   "watch": [
+    39.0,
+    45.5
+   ],
+   "still": 42.8,
    "before": "the cut had dropped the word \"twice\" since round 1 (it was mistaken for a mouth noise), so you said \"...and sees you\" and went straight to \"Start with a picture\", and the cutout joke had no payoff.",
-   "now": "\"...per month and sees you twice.\" The cutout clip has no frames left to stretch, so you say \"twice.\" on camera in a close shot (0.6 s), then the lock screen. Everything after 0:42.5 is 0.64 s later than in round 2."},
-  {"id": "C3", "name": "The analysis card in Soft Blue (the new standard)", "at": "0:20.9 to 0:25.0", "watch": [19.5, 26.5], "still": 24.6,
+   "now": "\"...per month and sees you twice.\" The cutout clip has no frames left to stretch, so you say \"twice.\" on camera in a close shot (0.6 s), then the lock screen. Everything after 0:42.5 is 0.64 s later than in round 2."
+  },
+  {
+   "id": "C3",
+   "name": "The analysis card in Soft Blue (the new standard)",
+   "at": "0:20.9 to 0:25.0",
+   "watch": [
+    19.5,
+    26.5
+   ],
+   "still": 24.6,
    "before": "the older card recoloured blue, with \"YOUR WORKOUT PLAN\" on the band.",
-   "now": "the shared Soft Blue HyperFrames card you approved on RA-14 today, rows landing on \"measures\", \"gap\" and \"where you want to be\", and the band reads \"YOUR NUTRITION PLAN\" for this ad."},
-  {"id": "C4", "name": "The vertical crop follows you", "at": "0:07.5 to 0:10.8, 0:25.0 to 0:29.0 and the last 4 s", "watch": [7.0, 11.5], "still": 9.0,
+   "now": "the shared Soft Blue HyperFrames card you approved on RA-14 today, rows landing on \"measures\", \"gap\" and \"where you want to be\", and the band reads \"YOUR NUTRITION PLAN\" for this ad."
+  },
+  {
+   "id": "C4",
+   "name": "The vertical crop follows you",
+   "at": "0:07.5 to 0:10.8, 0:25.0 to 0:29.0 and 0:47.4 to the end",
+   "watch": [
+    7.0,
+    11.5
+   ],
+   "still": 9.0,
    "before": "one fixed crop per shot; when you leaned, your head ended up as far as 16 % off centre.",
-   "now": "the standard land-then-hold: the crop lands on you at each cut, holds, and follows smoothly when you lean. 9:16 only; the 16:9 stays still."},
-  {"id": "C5", "name": "Flow card top edge", "at": "0:17.5 to 0:20.9", "watch": [17.0, 21.5], "still": 19.6,
-   "before": "the card's top edge sliced the app's \"Your future self\" header.",
-   "now": "it starts just below the header. Same frames otherwise."},
-  {"id": "C6", "name": "The 16:9 version (new)", "at": "the whole film", "watch": [0.0, 12.0], "still": 12.0,
+   "now": "the standard land-then-hold: the crop lands on you at each cut, holds, and follows smoothly when you move. It centres your whole upper body (arms included) rather than just your head, so a wide gesture stays in frame. The three holds with the biggest gestures (0:07.5, 0:25.0 and the ending) are now the wider shot size. 9:16 only; the 16:9 stays still."
+  },
+  {
+   "id": "C5",
+   "name": "Flow card top edge",
+   "at": "0:17.5 to 0:20.9",
+   "watch": [
+    17.0,
+    21.5
+   ],
+   "still": 19.6,
+   "before": "the card's edges sliced the app's header text at the top and the progress line at the bottom.",
+   "now": "the first part (the photo being refined) now shows the whole photo card, the \"Refining your silhouette\" line and its subtitle; the second part starts just below the header."
+  },
+  {
+   "id": "C6",
+   "name": "The 16:9 version (new)",
+   "at": "the whole film",
+   "watch": [
+    0.0,
+    12.0
+   ],
+   "still": 12.0,
    "before": "not built yet.",
-   "now": "the same edit and audio. The vertical AI clips and phones sit full height in a Soft Blue card with the AI label beside them (your approved RA-01 16:9 layout), the museum and steak clips fill the frame, lower thirds sit at the bottom with captions lifted above them, and the button sits upper left beside your shoulder. Play the 16:9 button on any change to compare."}
+   "now": "the same edit and audio. The vertical AI clips and phones sit full height in a Soft Blue card with the AI label beside them (your approved RA-01 16:9 layout), the museum and steak clips fill the frame, lower thirds sit at the bottom with captions lifted above them, and the button sits upper left beside your shoulder. Play the 16:9 button on any change to compare."
+  }
  ],
  "eye": [
   "The audio check's tone row reads 2.94 dB against a 2.5 dB limit: the known effect of the bass lift that is your standard (RA-14 shipped the same way). Every other audio check passes.",
@@ -28,6 +82,7 @@
   "In the 16:9 the framing is tighter than RA-01's: the delivery check does not allow a shot where your head is under 27 % of the frame height, and on this roll you stand far from the camera."
  ],
  "decided": [
+  "Shot sizes: the holds at 0:02.3, 0:07.5, 0:25.0 and 0:47.4 are now the wide size and the ones between them tight, so the shots where you gesture most have room for your arms. Wide and tight still alternate at every visible cut.",
   "Salmon card: the recording cropped to its screen and made as large as fits above the captions (640 px wide in the 9:16).",
   "The 9:16 button starts as the lock-screen card ends (0:45.3) so it never sits on the AI picture of you; in the 16:9 it starts on \"Tap the button below\" (0:44.2), beside the card.",
   "16:9 button upper left beside your shoulder: with the tighter framing your arms fill the bottom left on most frames (measured).",

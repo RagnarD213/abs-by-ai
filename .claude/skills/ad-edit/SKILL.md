@@ -1361,6 +1361,9 @@ Recipe and twelve lessons: `reference/ra15/README.md` (round 2: Veo cannot drop 
 cut to itself, standing then fallen; Veo bakes hard cuts into takes, found by the frame-difference spike in `round2/check15.py`). The two that would have shipped a defect: a single clean-looking
 take hid a stopped-and-restarted sentence that only 8 s re-transcription windows heard (window the whole kept take);
 and a caption sat on the AI clip's punchline (the museum plaque), so check every clip's text against the caption band.
+Round 3 (README lessons 13-27): a payoff word ("twice") had been cut since round 1 as "a mouth noise" because Whisper timed it early;
+read the DELIVERED file's transcript against the script every round. And a following 9:16 crop needs three things together: an eased
+track at the standard band, centred on his body (arms) rather than his head, and the wide size on the holds with big gestures.
 
 ## RA-06: three traps on the 8/28 raw ads (2026-10-14)
 

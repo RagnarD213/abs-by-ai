@@ -89,9 +89,13 @@ Scripts: `round3/` here (work-dir copies of everything that changed). Order:
 16. **`s04b_holdstart.py` copied from RA-14 still imported RA-14's `ra01lib` (its roll)**; point it at the job's own lib. RA-15's
     planner never read `framing_holdstart.json` until round 3, and nothing sampled the END HOLD, so the last second's crop could not
     follow him (his elbow left the frame). `s04b` now samples the end hold every 0.1 s.
-17. **Land-then-hold on this roll: RA-14's settings panned visibly.** 170 px/s with a 20 px band moved 163 px un-eased at 7.54 s
-    (independent judge). `TRACK=70,52,10` in `s05_plan15.py` (70 px/s, 52 px band per 608, Gaussian ease 10 frames, landing frame
-    pinned): two holds move at all, max 82 px/s, every hold's median within 4.3 % of centre.
+17. **Land-then-hold on this roll took four renders to get right; the answer is three settings together.** RA-14's 170 px/s with a
+    20 px band panned 163 px un-eased (judge: "a camera operator hunting"); 70 px/s with a 52 px band was smooth but left him 12 %
+    off centre with an arm off the edge. What passed: (a) `TRACK=170,20,8` (standard band, Gaussian ease 8 frames, landing frame
+    pinned: peak acceleration 200-300 px/s2 against 1,900); (b) the tracker follows his BODY (`s04c_body.py`: person-mask extent
+    from hair to waist, arms included) clamped to 8 % of the crop width of his head; (c) `LEVELS` gives the WIDE size to the holds
+    with the biggest gestures, keeping the alternation on every uncovered join. Measure with `round3/s_edgecheck.py` (frames where
+    his body touches one side while the other has room): 16/18/29 down to 6/12/11.
 18. **16:9 from a 9:16-first build.** `hv16.py` loads `vertical.py` at 1920x1080 (as `square.py` does); lower thirds land on the
     approved 16:9 box (bottom 1016), so captions LIFT whole lines above them (`s07_captions.py` 16:9 block); a line that starts in a
     card and runs into a strip is clipped at the strip's first frame, a lifted line that runs into a card at the card's; a line that
@@ -104,3 +108,12 @@ Scripts: `round3/` here (work-dir copies of everything that changed). Order:
 21. **The shared edit-sheet writer's ad path is RA-01's** (every card Dan with physique, adkit graphics); `round3/s_sheet15.py` writes
     the same schema from this build with the real people / physique / labels. `validate.py` now accepts `analysis-card`.
 22. **`buildcap.wait()` crashed on a process with an empty command line and the caller ran unthrottled** (fixed in `_shared`).
+23. **A concat-demuxer caption track drifts a frame.** Per-state PNGs at `duration 0.033367` put a held caption one frame onto
+    the next card (35.536 s); `s07_captions.py` now pipes one RGBA frame per output frame from `frame_state`.
+24. **Look at the whole 16:9 frame of a 16:9 clip you only ever showed through a 9:16 window.** A0016's first 6 frames show a boy
+    who vanishes and walks back in, outside the 9:16 window; the 16:9 starts the clip at 0.25 s. A0074 carries a screen glare from
+    2.17 s: use 0.0-2.13 s.
+25. **The shared analysis card's band defaults to "YOUR WORKOUT PLAN"**; in a nutrition ad set `band` to "YOUR NUTRITION PLAN".
+26. **A scrolling app screen needs a crop per segment** (`segs` may carry their own crop): the B0049 generating screen scrolls, so
+    one crop sliced its text at the top in one part and the bottom in another.
+27. **In the 9:16 the CTA must not build over an AI picture of Dan** (the lock card): it starts as the card ends.

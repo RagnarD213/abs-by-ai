@@ -11,7 +11,7 @@ import numpy as np
 sys.path.insert(0, "/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared/cut")
 sys.path.insert(0, "/Volumes/Extreme/_edit_work/ra04")
 import landing, ra01lib as L
-B = json.load(open("round4/beats_r4base.json"))   # round 3 plan + the r4_home.py re-timing
+B = json.load(open("round4/beats_r4base.json"))   # round 3 plan + r4_home.py (home card) + r4_split.py (dan03 split)
 SAM = sorted(json.load(open("framing.json"))["samples"] + json.load(open("framing_holdstart.json"))["samples"], key=lambda x: x["t"])
 FPSX = 30000/1001; frx = lambda t: int(round(t*FPSX))
 CW = {k: v[0] for k, v in L.Aspect("9x16").levels.items()}
@@ -19,8 +19,10 @@ punch = B["punch"]; items = {it["name"]: it for it in B["timeline"]}
 # 9:16 watch-pass judge 2 (round 4 b): dan03 and dan09 panned 326 / 178 output px from their first frame (he sways ~36 % of the NEAR
 # width in 1.6 s). Both sit between two cards (no zoom cut either side), so they go FAR, followed at 140 px/s, 25 px band: ~19 % less
 # pan, median off centre 4.0 / 4.9 %. Slower follows put him 6-10 % off centre (gate bound 6 %).
+# After the 3rd judge pass dan03 still panned 23 % of the frame, so r4_split.py cut it in two (FAR | NEAR at "make a | picture");
+# the overrides below are indexed AFTER that split (old dan09 = dan10, the CTA hold = dan15).
 # per-hold level override "i:LEVEL,..." (env HOLD_LEVEL): only for a hold with a card on BOTH sides (no zoom cut to keep)
-for k, v in (x.split(":") for x in os.environ.get("HOLD_LEVEL", "3:FAR,9:FAR").split(",") if x):
+for k, v in (x.split(":") for x in os.environ.get("HOLD_LEVEL", "10:FAR").split(",") if x):
     i = int(k); tl = B["timeline"]; j = next(n for n, it in enumerate(tl) if it["name"] == f"dan{i:02d}")
     assert tl[j-1]["kind"] == "card" and tl[j+1]["kind"] == "card", (i, "a level change here would make a same-size join")
     print(f"dan{i:02d} level {punch[i]['level']} -> {v}"); punch[i]["level_r3"] = punch[i]["level"]; punch[i]["level"] = v
@@ -37,7 +39,7 @@ for lvl in ("NEAR", "FAR"):
     # per-hold override "i:slope,band,sigma;..." (env HOLD_TRACK). Default: the CTA hold (dan14) at 100 px/s, 35 px band, sigma 12: the
     # 9:16 watch-pass judge called its 170/20 sway (169 src px of back-and-forth under the CTA) the least justified follow; this cuts
     # travel to 120 px and peak speed 87 -> 51 px/s, median off-centre 4.9 % (a fixed crop: 6.4 %, over the gate's 6 %): the hold gets its own landing.track run with those settings
-    OVR = {int(k): tuple(float(v) for v in vs.split(",")) for k, vs in (x.split(":") for x in os.environ.get("HOLD_TRACK", "3:140,25,10;9:140,25,10;14:100,35,12").split(";") if x)}
+    OVR = {int(k): tuple(float(v) for v in vs.split(",")) for k, vs in (x.split(":") for x in os.environ.get("HOLD_TRACK", "10:140,25,10;15:100,35,12").split(";") if x)}
     for i, sg in zip(idx, segs_l):
         if i in OVR:
             sl, tol, _ = OVR[i]

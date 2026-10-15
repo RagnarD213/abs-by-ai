@@ -223,6 +223,11 @@ for i, (a, b) in enumerate(segs):
     s = hold_stats(a, b)
     desired = "NEAR" if last_level != "NEAR" else "FAR"
     if i == 0: desired = "NEAR"
+    # ROUND 3 (independent review): with the crop following him, his arms still left the TIGHT frame in the big-gesture holds (7.51,
+    # 24.99) and both elbows in the last second. LEVELS sets each hold's level; the wide level goes to those three, and the alternation
+    # across every uncovered join is kept (holds 0-3 one run, 4 / 5 / 6 each between cards, 7-8 one run). Checked below.
+    _LV = [x for x in os.environ.get("LEVELS", "FAR,NEAR,FAR,NEAR,FAR,NEAR,NEAR,NEAR,FAR").split(",") if x]
+    if len(_LV) == len(segs): desired = _LV[i]
     f = fit(desired, s, beat=a)
     level = desired
     if not f["ok"]:
@@ -306,14 +311,22 @@ _sn = np.array([frx(x["t"]) for x in SAM]); _sx = np.array([x["cx"] for x in SAM
 _o = np.argsort(_sn, kind="stable"); _sn, _sx = _sn[_o], _sx[_o]
 _u = np.concatenate([[True], np.diff(_sn) > 0]); _sn, _sx = _sn[_u], _sx[_u]
 _hold = {it["name"]: it for it in _items if it["kind"] == "dan"}
+_BODY = json.load(open("framing_body.json"))["samples"] if os.path.exists("framing_body.json") else []
 for lvl in ("NEAR", "FAR"):
     idx = [i for i, p in enumerate(punch) if p["level"] == lvl]
     if not idx: continue
     segs_l = [{"n0": _hold[f"dan{i:02d}"]["f0"], "n1": _hold[f"dan{i:02d}"]["f1"]} for i in idx]
     # ROUND 3 b (watch-pass judge, 2026-10-14): RA-14's settings (170 px/s, 20 px band) panned 163 px at 7.54 s and 120 px at 25.69 s
     # with no easing. A slower follow, RA-14's 6.6 % hold band and a Gaussian ease inside each hold, the landing frame kept exact.
+    # ROUND 3 (review): centre on his BODY (arms included, s04c_body.py), held within 8 % of the crop width of his head, so a wide
+    # gesture no longer leaves one arm off the edge with the other side empty. Head samples are the fallback.
+    _tsn, _tsx = _sn, _sx
+    if _BODY:
+        _bn = np.array([frx(x["t"]) for x in _BODY]); _bm = np.array([x["mid"] for x in _BODY], float)
+        _o2 = np.argsort(_bn, kind="stable"); _bn, _bm = _bn[_o2], _bm[_o2]; _u2 = np.concatenate([[True], np.diff(_bn) > 0]); _bn, _bm = _bn[_u2], _bm[_u2]
+        _hd = np.interp(_bn, _sn, _sx); _tsn, _tsx = _bn, np.clip(_bm, _hd - 0.08*CW[lvl], _hd + 0.08*CW[lvl])
     _SL, _TOL, _SIG = (float(v) for v in os.environ.get("TRACK", "170,20,8").split(","))
-    n_all, x_all, _info = landing.track(_sn, _sx, segs_l, slope_px_s=_SL*CW[lvl]/608, k=3, fixed_under=_TOL*CW[lvl]/608,
+    n_all, x_all, _info = landing.track(_tsn, _tsx, segs_l, slope_px_s=_SL*CW[lvl]/608, k=3, fixed_under=_TOL*CW[lvl]/608,
                                         fps=FPSX, tolerance=_TOL*CW[lvl]/608)
     n_all, x_all = np.asarray(n_all), np.asarray(x_all)
     for i, sg in zip(idx, segs_l):
