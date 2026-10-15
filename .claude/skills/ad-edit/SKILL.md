@@ -1564,6 +1564,14 @@ Recipe: `reference/ra14/round4/` (s91 tail, s92 chips, s93 gate plan, s94 phone 
    at 1348. Declare the measured rectangle (`s94_phonebox.py`) or caption clearance grades air.
 5. **The edit-sheet writer reads 16:9 builds only.** The 9:16 has no sheet; it is written with the 16:9.
 
+## RA-12: three traps when starting from RA-14's recipe (2026-10-15)
+
+Recipe and eleven lessons: `reference/ra12/README.md`. The three that would have shipped a defect: (1) RA-14's `s08_audio.py`
+still drops 6 ms per splice, so the voice ran up to 90 ms ahead of his lips by the end; use RA-05 round 2's length-preserving
+crossfade and measure every delivered piece against the lav. (2) A pause cut can clip a word's final /s/ or /z/ (the -40 dB
+silence starts inside it): `TAIL_EXTRA` in `s03_edl.py`. (3) A look carries across one roll, its fitted EQ does not: refit per cut.
+Library traps: A0138 has a burned KEY POINT banner; A0069 is pizza and cuts to push-ups at 1.9 s; A0074's phone photo moves.
+
 ## Decisions locked vs pending
 
 | decision | status |
