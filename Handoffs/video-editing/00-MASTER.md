@@ -41,16 +41,16 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [RA-04](RA-04-top-3-tips-for-getting-abs.md) | Top 3 Tips For Getting Abs | C1664 | DRAFT: asset choices waiting for Dan | S |
 | [RA-05](RA-05-how-ai-can-get-you-real-six-pack-abs.md) | How AI Can Get You REAL Six Pack Abs | C1664 | FINALIZED | S |
 | [RA-06](RA-06-whats-the-best-ab-exercise.md) | What's The Best Ab Exercise? | C1664 | IN PROGRESS | S |
-| [RA-07](RA-07-fire-your-trainer.md) | Fire Your Trainer! | C1664 | IN PROGRESS | S |
+| [RA-07](RA-07-fire-your-trainer.md) | Fire Your Trainer! | C1664 | DELIVERED: awaiting Dan | S |
 | [RA-08](RA-08-why-are-trainers-going-out-of-business.md) | Why Are Trainers Going Out Of Business? | C1665 | **NEEDS DAN** | S |
 | [RA-09](RA-09-do-you-think-ai-is-changing-the-world.md) | Do You Think AI Is Changing The World? | C1666 | READY | S |
 | [RA-10](RA-10-ai-is-changing-the-world.md) | AI Is Changing The World | C1667 | READY | S |
 | [RA-11](RA-11-what-would-you-look-like-with-abs.md) | What Would You Look Like With Abs? | C1667 | READY | S |
 | [RA-12](RA-12-first-step-to-getting-abs-isnt-a-workout.md) | The First Step To Getting Abs Isn't A Workout | C1667 | READY | S |
-| [RA-13](RA-13-why-do-most-guys-never-get-abs.md) | Why Do Most Guys Never Get Abs? | C1667 | IN PROGRESS | S |
+| [RA-13](RA-13-why-do-most-guys-never-get-abs.md) | Why Do Most Guys Never Get Abs? | C1667 | DELIVERED: awaiting Dan | S |
 | [RA-14](RA-14-cheat-code-for-six-pack-abs.md) | The Cheat Code For Six Pack Abs | C1667 | UPLOADED | S |
 | [RA-15](RA-15-never-pay-a-nutritionist-again.md) | Never Pay A Nutritionist Again | C1668 | IN PROGRESS | S |
-| [RA-16](RA-16-ai-took-my-job.md) | AI Took My Job | C1668 | IN PROGRESS | S |
+| [RA-16](RA-16-ai-took-my-job.md) | AI Took My Job | C1668 | DRAFT: asset choices waiting for Dan | S |
 
 ### 1B · Organic: dedicated shorts filmed as shorts (25, 8/28 shoot, vertical)
 
