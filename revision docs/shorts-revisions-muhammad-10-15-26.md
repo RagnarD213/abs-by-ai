@@ -1,0 +1,39 @@
+## ALL SIX ARE FINISHED
+
+Every revision from my October 2 notes is in, on all five videos, and they look great. The jump cuts are fixed everywhere: every cut between takes is now a clean switch between the wide and the tight shot, with no zooming inside a shot, and my hair stays below the top graphic. Nothing is left to change on any of these. All I need now is the high quality export of the five below that say READY FOR HQ EXPORT.
+
+## WHY YOU MUST WEIGH YOURSELF DAILY - V3
+
+The cuts between takes are all clean wide and tight switches now. The feet on the scale clip fills the screen edge to edge, the man on the scale ends while he is still looking down at the number with his mouth closed, and the key point comes in right on "and never react to one day". Great job on this one.
+
+**FINALIZED - APPROVED - READY FOR HQ EXPORT**
+
+## THE #1 CHANGE I MADE TO GET ABS AT 40 - V3
+
+Every cut between takes switches between the wide and the tight shot, and the zooms inside the shots are gone. My whole face is below the "Hard Boiled EGGS" graphic now, and the steak clip keeps the food on the plate all the way to the end. Great job on this one.
+
+**FINALIZED - APPROVED - READY FOR HQ EXPORT**
+
+## 3 UNEXPECTED WAYS ZEPBOUND HELPED ME - V3
+
+The split screen opener came out great. The guy turning down the drink and grabbing his water, the guy at the computer and the guy sleeping all look real, and my title sits above them with the label right under it. "First" is in the captions, the chips and the bartender are on the right lines with the alcohol graphic staying on over both, "Zepbound" has its capital Z, and every cut from 0:37 to the end is a clean wide and tight switch. Great job on this one.
+
+**FINALIZED - APPROVED - READY FOR HQ EXPORT**
+
+## WHAT EVERY BODY FAT PERCENTAGE LOOKS LIKE - V4
+
+Every cut between takes is a clean wide and tight switch now and the slow zooms are gone. The old label letters are off the clip at 0:36.6, and the AI-GENERATED label is off his face. Great job on this one.
+
+**FINALIZED - APPROVED - READY FOR HQ EXPORT**
+
+## WHY HAVING ABS BEATS BEING A FAT MILLIONAIRE - HD
+
+Got the high quality export, and it is exactly the version I approved.
+
+**FINALIZED - APPROVED - HQ EXPORT DELIVERED**
+
+## TOP 3 WAYS TO USE AI TO GET ABS - V3
+
+Both AI clips came out really well. On the split screen opener my title has its own band at the top, the guy in the phone picture is the same guy, lean and ripped, and the bottom clip is one shot of him photographing the supplement and throwing it in the trash. The supplement clip at 0:23 is one continuous shot with real looking bottles. The cuts between takes are clean wide and tight switches and the slow zoom is gone. Great job on this one.
+
+**FINALIZED - APPROVED - READY FOR HQ EXPORT**
