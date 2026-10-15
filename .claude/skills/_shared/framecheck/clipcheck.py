@@ -40,6 +40,7 @@ STAMP_SUFFIX = ".clipcheck.json"
 BIN = "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video_edit/bin"
 FF, FP = os.path.join(BIN, "ffmpeg"), os.path.join(BIN, "ffprobe")
 SMALL_W = 512             # the tracker works at 384x512; frames go in at this width
+HALF_W = 960              # the vanish test compares patches and finds people at this width
 
 DEFAULTS = dict(grid_px=40,             # grid spacing at 1080p (scaled with the take's height): 48 x 27 points
                 max_frames=64,          # memory (cotracker_mps.py): longer takes are sampled, a 6 s take every 3rd frame (8 per s)
@@ -48,12 +49,14 @@ DEFAULTS = dict(grid_px=40,             # grid spacing at 1080p (scaled with the
                 ncc_same=0.5,           # patch correlation at or above this = the spot looks the same (the tracker lost it, nothing changed)
                 flat_std=4.0,           # a patch with less grey-level spread than this is flat; two flat patches compare by mean
                 flat_mean_diff=25.0,
-                min_event_pts=4,        # points in one cluster to call it an event
+                min_event_pts=6,        # points in one cluster to call it an event (RO-08: shipped takes at most 3, the donuts 50)
                 person_pad_frac=0.03,   # person masks grown by this fraction of the height
                 still_px=5.0,           # still boxes: tracker noise over a take is 1 to 3 px
                 contact_slip_px=12.0,
                 rigid_disagree_px=10.0, rigid_disagree_frac=0.12, guide_travel_deg=5.0, guide_min_move=15.0,
                 camera_max_px=8.0,      # only with "camera": "locked"
+                window_zoom=1.15, window_shift=0.08,   # a moving camera: the vanish test runs in windows across which the
+                window_min_s=1.0, window_max_s=3.0,    # picture zooms at most 15 % and shifts at most 8 % of the width
                 prop_lost=0.7)          # share of a prop's points lost for good, away from the person, to call it vanished
 
 
@@ -122,8 +125,9 @@ def in_box(p, b):
 
 # ---------------------------------------------------------------- the vanish test (one direction)
 def neighbour_motion(P, V, seeds, use, R):
-    """For every point and sampled frame: the median displacement of its visible neighbours (within R px at the seed frame,
-    from the points in `use`), the local background motion its own move is judged against."""
+    """For every point and sampled frame: the displacement its neighbours say its spot has (a local affine fit to the visible
+    neighbours within R px at the seed frame, outliers dropped, so a zoom or a pan is followed), the motion its own move is
+    judged against. Fewer than 6 neighbours: their median; fewer than 3: the global median."""
     import numpy as np
     K, N, _ = P.shape
     d2 = ((seeds[:, None, :] - seeds[None, :, :]) ** 2).sum(-1)
@@ -131,27 +135,39 @@ def neighbour_motion(P, V, seeds, use, R):
     L = max(1, max(len(x) for x in nb)); idx = np.full((N, L), -1)
     for n, x in enumerate(nb):
         idx[n, :len(x)] = x
+    ic = np.clip(idx, 0, None)
+    X = np.concatenate([(seeds[ic] - seeds[:, None]) / R, np.ones((N, L, 1))], 2)          # N L 3, centred on the point
     disp = P - P[0:1]; valid = V & V[0:1]
-    out = np.zeros_like(P)
-    glob = np.array([np.median(disp[k][valid[k] & use], 0) if (valid[k] & use).sum() >= 3 else np.zeros(2) for k in range(K)])
+    out = np.zeros_like(P); lam = np.diag([1e-3, 1e-3, 0.0])
     for k in range(K):
-        dd = np.where((idx >= 0)[..., None] & valid[k][np.clip(idx, 0, None)][..., None], disp[k][np.clip(idx, 0, None)], np.nan)
-        cnt = (~np.isnan(dd[..., 0])).sum(1)
+        w = ((idx >= 0) & valid[k][ic]).astype(np.float64); Y = disp[k][ic]
+        cnt = w.sum(1)
+        glob = np.median(disp[k][valid[k] & use], 0) if (valid[k] & use).sum() >= 3 else np.zeros(2)
+        for _ in range(2):                                                                    # fit, drop outliers, refit
+            A = np.einsum("nl,nli,nlj->nij", w, X, X) + lam; B = np.einsum("nl,nli,nlj->nij", w, X, Y)
+            beta = np.linalg.solve(A + np.eye(3) * 1e-9, B)
+            r = np.linalg.norm(Y - np.einsum("nli,nij->nlj", X, beta), axis=2)
+            with np.errstate(all="ignore"):
+                med = np.nanmedian(np.where(w > 0, r, np.nan), 1)
+            w = w * (r <= np.maximum(3 * np.nan_to_num(med)[:, None], 4.0))
+        dd = np.where(w[..., None] > 0, Y, np.nan)
         with np.errstate(all="ignore"):
-            med = np.nanmedian(dd, 1)
-        out[k] = np.where((cnt >= 3)[:, None], med, glob[k])
+            mdn = np.nanmedian(dd, 1)
+        fit = beta[:, 2, :]
+        out[k] = np.where((w.sum(1) >= 6)[:, None], fit, np.where((cnt >= 3)[:, None] & ~np.isnan(mdn), mdn, glob))
     return out
 
 
-def ncc(A, pa, B, pb, h, D):
-    """Do the patches around pa in grey frame A and pb in grey frame B show the same thing? (correlation, gain/offset-proof)"""
-    import numpy as np
-    def crop(G, p):
+def ncc(A, pa, B, pb, h, hb, D):
+    """Do the patch around pa in grey frame A (half size h) and the one around pb in grey frame B (half size hb, the camera's
+    scale change) show the same thing? Correlation, so a lighting change does not count."""
+    import cv2, numpy as np
+    def crop(G, p, r):
         x, y = int(round(p[0])), int(round(p[1]))
-        if x - h < 0 or y - h < 0 or x + h + 1 > G.shape[1] or y + h + 1 > G.shape[0]:
+        if x - r < 0 or y - r < 0 or x + r + 1 > G.shape[1] or y + r + 1 > G.shape[0]:
             return None
-        return G[y - h:y + h + 1, x - h:x + h + 1].astype(np.float32)
-    a, b = crop(A, pa), crop(B, pb)
+        return cv2.resize(G[y - r:y + r + 1, x - r:x + r + 1], (2 * h + 1, 2 * h + 1), interpolation=cv2.INTER_AREA).astype(np.float32)
+    a, b = crop(A, pa, h), crop(B, pb, hb)
     if a is None or b is None:
         return None, "edge"
     sa, sb = a.std(), b.std()
@@ -162,42 +178,48 @@ def ncc(A, pa, B, pb, h, D):
     return float(((a - a.mean()) * (b - b.mean())).mean() / (sa * sb)), "ncc"
 
 
-def lost_in_place(P, V, nmot, seeds, use, first_g, last_g, mask_last, other, D, H, W, fps_s):
-    """The points of one run that vanished in place. other = (P, V, nmot) of the opposite run, seeded on this run's last frame,
-    sampled in reverse order; its points at this run's lost spots tell whether a moving thing now covers the spot."""
+def lost_in_place(P, V, nmot, seeds, use, grays, mask_end, scale, other, D, H, W, fps_s, hs):
+    """The points of one run that vanished in place. grays: this run's first and last frame (half size, grey); mask_end: the
+    people on its last frame; scale: the camera's zoom at its last frame against its first; other = (P, V, nmot) of the
+    opposite run, seeded on this run's last frame, in reverse sample order.
+    A point vanished when it is never visible again (at least min_gone_s before the end), had not moved against what its
+    neighbours say (local fit, so a zoom or pan is followed), its spot is inside the picture, no person and no moving thing
+    covers the spot at the end (the opposite run's points there did not come in from elsewhere), and the spot looks different
+    at the end than at the start (patch correlation, scaled by the zoom). Comparing the ends, not the moment of loss, is what
+    keeps a person who walks in front of something and stays there from counting: their points at the end came from elsewhere.
+    (A near-moment comparison was tried on 2026-10-14 and failed A6 and A7: the person mask misses people in dark scenes.)"""
     import numpy as np
     K, N, _ = P.shape
-    place = D["place_frac"] * H; margin = 0.02 * W; h = max(8, int(round(0.018 * H)))
+    place = D["place_frac"] * H; margin = 0.02 * W; h = max(6, int(round(0.009 * H * hs)))
     alive_after = np.flip(np.logical_or.accumulate(np.flip(V, 0), 0), 0)
     min_gone = max(2, int(math.ceil(D["min_gone_s"] * fps_s)))
-    disp = P - P[0:1]; rel = np.linalg.norm(disp - nmot, axis=2)
-    Po, Vo, no = other; relo = np.linalg.norm((Po - Po[0:1]) - no, axis=2)
+    rel = np.linalg.norm((P - P[0:1]) - nmot, axis=2)
+    Po, Vo, no = other; relo = np.linalg.norm((Po - Po[0:1]) - no, axis=2); r_near = D["grid_px"] * H / 1080
+    inside = lambda p: margin <= p[0] <= W - margin and margin <= p[1] <= H - margin
+    hb = max(2, int(round(h * scale)))
     out = []
     for n in np.nonzero(use)[0]:
         if not (V[0, n] and V[1, n]) or alive_after[-1, n]:
             continue
-        t = int(np.argmin(alive_after[:, n]))                      # first sample after which it is never visible again
+        t = int(np.argmin(alive_after[:, n]))                    # never visible again from sample t on
         if K - t < min_gone:
             continue
-        seen = V[:t, n]
-        if rel[:t][seen, n].max() > place:                         # it was moving: carried, eaten, swung; not vanished in place
+        if rel[:t][V[:t, n], n].max() > place:                   # it was moving: carried, eaten, swung; not vanished in place
             continue
-        end = seeds[n] + nmot[-1, n]                               # where its spot is at the end, by its neighbours' move
-        last_seen = P[t - 1, n]
-        if not (margin <= end[0] <= W - margin and margin <= end[1] <= H - margin and
-                margin <= last_seen[0] <= W - margin and margin <= last_seen[1] <= H - margin):
-            continue                                               # left the picture
-        if mask_last[int(min(H - 1, end[1])), int(min(W - 1, end[0]))]:
-            continue                                               # a person covers the spot at the end
-        near = np.nonzero(np.linalg.norm(Po[0] - end, axis=1) <= 1.0 * D["grid_px"] * H / 1080)[0]
-        upto = K - t                                               # the other run's samples from the end back to the loss
+        end = seeds[n] + nmot[-1, n]                             # where its spot is at the end, by its neighbours
+        if not (inside(end) and inside(P[t - 1, n])):
+            continue                                             # left the picture
+        if mask_end[int(end[1] * hs), int(end[0] * hs)]:
+            continue                                             # a person covers the spot at the end
+        near = np.nonzero(np.linalg.norm(Po[0] - end, axis=1) <= r_near)[0]
+        upto = K - t                                             # the opposite run's samples from the end back to the loss
         if len(near):
             mv = [relo[:upto][Vo[:upto, m], m].max() if Vo[:upto, m].any() else 0.0 for m in near]
             if float(np.median(mv)) > place:
-                continue                                           # a moving thing now covers it (it came in from elsewhere)
-        s, how = ncc(first_g, seeds[n], last_g, end, h, D)
+                continue                                         # a moving thing now covers it (it came in from elsewhere)
+        s, how = ncc(grays[0], seeds[n] * hs, grays[1], end * hs, h, hb, D)
         if s is None or s >= D["ncc_same"]:
-            continue                                               # the spot looks the same: the tracker lost it, nothing changed
+            continue                                             # the spot looks the same: the tracker lost it, nothing changed
         out.append(dict(n=int(n), t=t, seed=seeds[n].tolist(), end=end.tolist(), ncc=round(s, 2), how=how))
     return out
 
@@ -238,9 +260,9 @@ def run(clip, spec, frames, outdir, cache=True, tracker="cotracker"):
     rows = Rows(); t0 = time.time()
     small = decode(clip, idx, W, H, SMALL_W)
     first, last = decode(clip, [idx[0], idx[-1]], W, H)
-    first_g, last_g = cv2.cvtColor(first, cv2.COLOR_RGB2GRAY), cv2.cvtColor(last, cv2.COLOR_RGB2GRAY)
-    pad = int(D["person_pad_frac"] * H)
-    m_first, m_last = person_mask(first, pad), person_mask(last, pad)
+    half = decode(clip, [idx[0], idx[-1]], W, H, HALF_W); hs = half.shape[2] / W
+    masks = [person_mask(f, int(D["person_pad_frac"] * half.shape[1])) for f in half]
+    m_last = cv2.resize(masks[-1], (W, H), interpolation=cv2.INTER_NEAREST)
 
     # seeds: the grid on each end frame, plus the spec's boxes on the first
     G = grid_points(W, H, g)
@@ -269,19 +291,20 @@ def run(clip, spec, frames, outdir, cache=True, tracker="cotracker"):
         Pf, Vf = run_tracker(small, fwd_seeds, W, tracker)
         Pb, Vb = run_tracker(np.ascontiguousarray(small[::-1]), G, W, tracker)        # backward: seeded on the last frame
         np.savez_compressed(cpath, Pf=Pf, Vf=Vf, Pb=Pb, Vb=Vb)
-    secs = time.time() - t0
     nG = len(G)
 
-    # what the grid test may use: not on a person at its seed frame, not in a may_change box
-    mc = list(sp.get("may_change", {}).values())
-    def usable(seeds, mask):
-        return np.array([not mask[int(y), int(x)] and not any(in_box((x, y), bb) for bb in mc) for x, y in seeds])
-    use_f = np.zeros(len(fwd_seeds), bool); use_f[:nG] = usable(G, m_first)
-    use_b = usable(G, m_last)
-    # may_change boxes are in first-frame pixels; on the last frame they sit where the camera took them (checked below)
+    # what the grid test may use: not on a person at its seed frame, not in a may_change box (boxes are in first-frame
+    # pixels; on a later frame they sit where the camera took them)
     R = 5 * g
-    nf = neighbour_motion(Pf, Vf, fwd_seeds, use_f, R)
-    nb_ = neighbour_motion(Pb, Vb, G, use_b, R)
+    mc = list(sp.get("may_change", {}).values())
+    def warp(bb, M):
+        c = np.array([[bb[0], bb[1]], [bb[2], bb[1]], [bb[0], bb[3]], [bb[2], bb[3]]], np.float64) @ M[:, :2].T + M[:, 2]
+        return [c[:, 0].min(), c[:, 1].min(), c[:, 0].max(), c[:, 1].max()]
+    def usable(seeds, mask, M):
+        boxes = [warp(bb, M) for bb in mc]
+        return np.array([not mask[int(y * hs), int(x * hs)] and not any(in_box((x, y), bb) for bb in boxes) for x, y in seeds])
+    ident = np.array([[1, 0, 0], [0, 1, 0]], np.float64)
+    use_f = np.zeros(len(fwd_seeds), bool); use_f[:nG] = usable(G, masks[0], ident)
 
     # camera: a similarity fitted to the background grid points, first frame -> each sampled frame
     cams, cam_px = [], []
@@ -290,7 +313,7 @@ def run(clip, spec, frames, outdir, cache=True, tracker="cotracker"):
         M = None
         if ok.sum() >= 6:
             M, _ = cv2.estimateAffinePartial2D(Pf[0, :nG][ok], Pf[k, :nG][ok], method=cv2.RANSAC, ransacReprojThreshold=3.0)
-        M = M if M is not None else np.array([[1, 0, 0], [0, 1, 0]], np.float64)
+        M = M if M is not None else ident.copy()
         cams.append(M)
         corners = np.array([[0, 0], [W, 0], [0, H], [W, H], [W / 2, H / 2]], np.float64)
         cam_px.append(float(np.linalg.norm(corners @ M[:, :2].T + M[:, 2] - corners, axis=1).max()))
@@ -307,33 +330,87 @@ def run(clip, spec, frames, outdir, cache=True, tracker="cotracker"):
              f"camera moved the picture by up to {worst_cam:.0f} px (frame {idx[kc]}; corners and centre, fitted to the background)"
              + (f"; spec says locked, max {D['camera_max_px']:g}" if locked else "; not declared locked, information only"),
              px=round(worst_cam, 1))
+    scale = [math.sqrt(abs(np.linalg.det(M[:, :2]))) for M in cams]
 
-    # may_change boxes on the last frame: where the camera took them
-    Mend = cams[-1]
-    mc_end = []
-    for bb in mc:
-        c = np.array([[bb[0], bb[1]], [bb[2], bb[3]]], np.float64) @ Mend[:, :2].T + Mend[:, 2]
-        mc_end.append([c[:, 0].min(), c[:, 1].min(), c[:, 0].max(), c[:, 1].max()])
-    use_b &= np.array([not any(in_box(p, bb) for bb in mc_end) for p in G])
-
-    # ---- vanish (forward) and appear (backward)
-    lost_f = lost_in_place(Pf, Vf, nf, fwd_seeds, use_f, first_g, last_g, m_last, (Pb, Vb, nb_), D, H, W, fps_s)
-    lost_b = lost_in_place(Pb, Vb, nb_, G, use_b, last_g, first_g, m_first, (Pf[:, :nG], Vf[:, :nG], nf[:, :nG]), D, H, W, fps_s)
-    ev_f = clusters(lost_f, g, D["min_event_pts"]); ev_b = clusters(lost_b, g, D["min_event_pts"])
-
-    def describe(ev, backward):
-        S = np.array([p["seed"] for p in ev]); ts = [p["t"] for p in ev]
-        fr = sorted(idx[K - t] if backward else idx[t] for t in ts)          # the frame where it was last / first there
-        box = [int(S[:, 0].min() - g / 2), int(S[:, 1].min() - g / 2), int(S[:, 0].max() + g / 2), int(S[:, 1].max() + g / 2)]
-        return dict(box=box, n=len(ev), frames=[fr[0], fr[-1]], ncc=round(float(np.median([p["ncc"] for p in ev])), 2))
-    events = [dict(kind="vanish", **describe(e, False)) for e in ev_f] + [dict(kind="appear", **describe(e, True)) for e in ev_b]
-    for kind, evs, lost in (("vanish", [e for e in events if e["kind"] == "vanish"], lost_f),
-                            ("appear", [e for e in events if e["kind"] == "appear"], lost_b)):
-        what = ("lost for good in place (no move, inside the picture, nothing moving over it, the spot looks different at the end)"
-                if kind == "vanish" else "there at the end, came from nowhere (traced backward: no move, nothing moved off it)")
-        rows.add(kind, not evs, f"{len(lost)} grid points {what}; {len(evs)} cluster(s) of {D['min_event_pts']}+"
-                 + "".join(f"; {e['n']} pts in box {e['box']} frames {e['frames'][0]}-{e['frames'][1]} (spot match {e['ncc']})"
-                           for e in evs[:5]), events=evs[:8])
+    # ---- vanish (forward) and appear (backward), in windows the camera barely changes across. A first-vs-last comparison
+    # needs the two ends to look alike: on RO-08 A8 (a 2x push-in) a spot 40 px wide at the end was 15 blurred px at the start.
+    def cam_change(i, j):                  # zoom ratio and centre shift (px) from sample i to sample j
+        A3 = lambda M: np.vstack([M, [0, 0, 1]])
+        T = A3(cams[j]) @ np.linalg.inv(A3(cams[i])); c = np.array([W / 2, H / 2, 1.0])
+        return scale[j] / scale[i], float(np.linalg.norm((T @ c)[:2] - c[:2]))
+    def calm(i, j):
+        z, sh = cam_change(i, j)
+        return 1 / D["window_zoom"] <= z <= D["window_zoom"] and sh <= D["window_shift"] * W
+    if all(calm(0, k) for k in range(K)):
+        windows = [(0, K - 1)]
+    else:
+        lo, hi = max(2, int(math.ceil(D["window_min_s"] * fps_s))), max(3, int(D["window_max_s"] * fps_s))
+        windows, i = [], 0
+        while True:
+            j = min(K - 1, i + lo)
+            while j + 1 <= K - 1 and j + 1 - i <= hi and calm(i, j + 1):
+                j += 1
+            windows.append((i, j))
+            if j >= K - 1:
+                break
+            i = max(i + 1, i + (j - i) // 2)                       # half-window overlap: an event at a seam is inside the next
+    ends = sorted({k for w in windows for k in w})
+    hf = dict(zip(ends, decode(clip, [idx[k] for k in ends], W, H, HALF_W))) if len(windows) > 1 else {0: half[0], K - 1: half[1]}
+    gk = {k: cv2.cvtColor(f, cv2.COLOR_RGB2GRAY) for k, f in hf.items()}
+    mk = {k: (masks[0] if k == 0 else masks[1] if k == K - 1 else person_mask(f, int(D["person_pad_frac"] * f.shape[0])))
+          for k, f in hf.items()}
+    lost_f, lost_b, events, biggest = [], [], [], {"vanish": 0, "appear": 0}
+    for (i, j) in windows:
+        if len(windows) == 1:
+            Pw, Vw, sw = Pf, Vf, fwd_seeds
+            Qw, Uw = Pb, Vb
+            uf = use_f
+        else:
+            sub = np.ascontiguousarray(small[i:j + 1])
+            wkey = hashlib.sha256(json.dumps([key, i, j]).encode()).hexdigest()[:16]
+            wpath = os.path.join(outdir, f".tracks-{wkey}.npz")
+            if cache and os.path.exists(wpath):
+                z = np.load(wpath); Pw, Vw, Qw, Uw = z["Pf"], z["Vf"], z["Pb"], z["Vb"]
+            else:
+                Pw, Vw = run_tracker(sub, G, W, tracker); Qw, Uw = run_tracker(np.ascontiguousarray(sub[::-1]), G, W, tracker)
+                np.savez_compressed(wpath, Pf=Pw, Vf=Vw, Pb=Qw, Vb=Uw)
+            sw = G; uf = usable(G, mk[i], cams[i])
+        ub = usable(G, mk[j], cams[j])
+        nfw = neighbour_motion(Pw, Vw, sw, uf, R); nbw = neighbour_motion(Qw, Uw, G, ub, R)
+        z = scale[j] / scale[i]
+        lf = lost_in_place(Pw, Vw, nfw, sw, uf, (gk[i], gk[j]), mk[j], z, (Qw, Uw, nbw), D, H, W, fps_s, hs)
+        lb = lost_in_place(Qw, Uw, nbw, G, ub, (gk[j], gk[i]), mk[i], 1 / z, (Pw[:, :nG], Vw[:, :nG], nfw[:, :nG]), D, H, W, fps_s, hs)
+        for kind, lost, backward in (("vanish", lf, False), ("appear", lb, True)):
+            biggest[kind] = max(biggest[kind], max([len(c) for c in clusters(lost, g, 1)] or [0]))
+            for ev in clusters(lost, g, D["min_event_pts"]):
+                S = np.array([p["seed"] for p in ev])
+                fr = sorted(idx[j - p["t"] + 1] if backward else idx[i + p["t"]] for p in ev)   # last / first frame it was there
+                events.append(dict(kind=kind, n=len(ev), frames=[fr[0], fr[-1]], window=[idx[i], idx[j]],
+                                   box=[int(S[:, 0].min() - g / 2), int(S[:, 1].min() - g / 2), int(S[:, 0].max() + g / 2),
+                                        int(S[:, 1].max() + g / 2)], box_frame=idx[j] if backward else idx[i],
+                                   ncc=round(float(np.median([p["ncc"] for p in ev])), 2)))
+        if len(windows) == 1:
+            lost_f, lost_b = lf, lb
+    # an event seen by two overlapping windows is one event
+    def same(e, f):
+        if e["kind"] != f["kind"] or e["frames"][1] < f["frames"][0] - 2 * stride or f["frames"][1] < e["frames"][0] - 2 * stride:
+            return False
+        ix = max(0, min(e["box"][2], f["box"][2]) - max(e["box"][0], f["box"][0])) * max(0, min(e["box"][3], f["box"][3]) - max(e["box"][1], f["box"][1]))
+        return ix > 0.3 * min((e["box"][2] - e["box"][0]) * (e["box"][3] - e["box"][1]), (f["box"][2] - f["box"][0]) * (f["box"][3] - f["box"][1]))
+    merged = []
+    for e in sorted(events, key=lambda e: -e["n"]):
+        if not any(same(e, m) for m in merged):
+            merged.append(e)
+    events = merged
+    wtxt = "" if len(windows) == 1 else f" [{len(windows)} windows, the camera moves]"
+    for kind in ("vanish", "appear"):
+        evs = [e for e in events if e["kind"] == kind]
+        what = ("grid points lost for good in place (no move, inside the picture, nothing moving over it, the spot looks different at the end)"
+                if kind == "vanish" else "grid points there at the end, came from nowhere (traced backward: no move, nothing moved off it)")
+        nl = len(lost_f if kind == "vanish" else lost_b) if len(windows) == 1 else "some"
+        rows.add(kind, not evs, f"{nl} {what}{wtxt}; biggest cluster {biggest[kind]} (an event at {D['min_event_pts']})"
+                 + "".join(f"; {e['n']} pts in box {e['box']} (f{e['box_frame']} pixels) frames {e['frames'][0]}-{e['frames'][1]} "
+                           f"(spot match {e['ncc']})" for e in evs[:5]), events=evs[:8])
 
     # ---- the spec's parts, on every sampled frame
     def ids(k_):
@@ -390,6 +467,7 @@ def run(clip, spec, frames, outdir, cache=True, tracker="cotracker"):
         rows.add(f"prop:{pr['name']}.kept", frac < D["prop_lost"], f"{pr['name']}: {len(gone)} of {len(ii)} points not seen in the "
                  f"last {D['min_gone_s']} s, {len(away)} of them away from any person ({frac:.0%}; a vanished prop at {D['prop_lost']:.0%})")
 
+    secs = time.time() - t0
     rows.insert(0, dict(key="tracker", ok=True, detail=f"{dict(tapir='BootsTAPIR', cotracker='CoTracker3')[tracker]}: {K} frames of {a}-{b} (every {stride}), {len(fwd_seeds)} points "
                         f"forward + {nG} backward, grid {g:.0f} px, {secs:.0f} s"))
     sheet, fdir = evidence(clip, idx, first, last, events, lost_f, lost_b, W, H, outdir, rows, fps, (a, b))
@@ -410,7 +488,7 @@ def evidence(clip, idx, first, last, events, lost_f, lost_b, W, H, outdir, rows,
         im = A if e["kind"] == "vanish" else B
         x0, y0, x1, y1 = e["box"]
         cv2.rectangle(im, (x0, y0), (x1, y1), (0, 0, 255), 4)
-        cv2.putText(im, f"{e['kind']} f{e['frames'][0]}-{e['frames'][1]}", (x0, max(30, y0 - 10)), cv2.FONT_HERSHEY_SIMPLEX, 1.1, (0, 0, 255), 3)
+        cv2.putText(im, f"{e['kind']} f{e['frames'][0]}-{e['frames'][1]}" + ("" if e.get("box_frame") in (idx[0], idx[-1]) else f" (box in f{e.get('box_frame')})"), (x0, max(30, y0 - 10)), cv2.FONT_HERSHEY_SIMPLEX, 1.1, (0, 0, 255), 3)
     cv2.putText(A, f"FIRST f{idx[0]} (magenta: lost in place)", (20, 50), cv2.FONT_HERSHEY_SIMPLEX, 1.4, (0, 0, 255), 4)
     cv2.putText(B, f"LAST f{idx[-1]} (orange: from nowhere)", (20, 50), cv2.FONT_HERSHEY_SIMPLEX, 1.4, (0, 0, 255), 4)
     top = np.hstack([A, B]); top = cv2.resize(top, (2400, int(2400 * top.shape[0] / top.shape[1])))
