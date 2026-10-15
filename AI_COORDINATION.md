@@ -85,7 +85,7 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 
 **RA-16:R2-READY:Codex:2026-10-14.** `Handoffs/handoff-20261014-ra16-round2-approved-cut-and-voice.md`.
 
-**RA-13 R2-READY 2026-10-14.** Headroom fix: `Handoffs/handoff-20261014-ra13-round2-approved-look.md`.
+**RA-13 R2 BUILDING 2026-10-14, Codex.** Applying locked look/voice and horizontal headroom correction. Next: asset checks, both formats, exact-file gates and independent audit. `Handoffs/handoff-20261014-ra13-round2-approved-look.md`.
 
 
 **/start video test RUNNING 2026-10-10, Claude.** Reads 10-24, 10-31: `Docs/VSL_LANDING.md`.
