@@ -2,7 +2,7 @@
 
 **List 1: organic workout-only. The Zeeshan finalization blocker is cleared.** The filed master matches the September 22 final MD5 `49c7dfb3d189043dbb2bc4b326e8fd81`; the September 27 release is recorded in `Docs/SL04_SETUP_RECEIPT_20260930.md`. Read `00-RULES.md` first.
 
-Round 1 is being prepared from C1586, matching the final color and original audio. Current rules require the first-minute and complete graphics review before full assembly. Do not treat an opening preview as the completed workout.
+Round 1 opening and all graphic designs are ready at http://127.0.0.1:8974/ . The exact opening passes the audio/delivery gates and independent preview review. The master list is draft_review while Dan chooses the look. Full assembly follows approval. Continue from [the Round 1 handoff](../handoff-20261015-ro04-round1-review.md); do not treat this preview as the completed workout.
 
 ## Source
 8/3 shoot (`/Volumes/Extreme/abs by ai 8:3 jeff chagrin shoot/main camera/`): **C1586**, the workout walkthrough and live
