@@ -82,7 +82,10 @@ CARDS = [
  {"name": "lock",     "kind": "clip",     "beat": [snapf(t_use), snap_to(t_shows, SPL, 0.2)],           "asset": "A0074", "chip": "ai"},
  {"name": "A1",       "kind": "analysis", "beat": [snap_to(t_shows, SPL, 0.2), snap_to(t_cre, SPL, 0.2)], "asset": "after", "chip": "ai"},
  {"name": "tour",     "kind": "phone",    "beat": [snap_to(t_cre, SPL, 0.2), s_itll],                   "asset": "B0544", "chip": None},
- {"name": "scan",     "kind": "clip",     "beat": [snap_to(t_see, SPL, 0.2), snapf(t_make)],            "asset": "A0044 vertical", "chip": "ai"},   # ROUND 3: s06_scan3.py
+ {"name": "scan",     "kind": "clip",     "beat": [snap_to(t_see, SPL, 0.2), snapf(snap_to(t_see, SPL, 0.2) + 110 * FD)], "asset": "A0044 vertical", "chip": "ai"},
+ # ROUND 3 (s06_scan3.py): 110 frames, the most the clip gives AFTER its own line-growth glow ends (source frame 40 of 150; the
+ # independent re-review found that glow's hard-edged boxes in every earlier version). Ends at 29.66 s, inside "program"; no splice
+ # falls between 26.0 and 31 s, so the longer Dan hold after it needs no level change.
 ]
 # ROUND 3: the B0435 physique-poses cutaway ("pose") is REMOVED. Standing rule, Dan 2026-10-14 (on RA-06, the same clip): never a shot
 # of him just standing or posing; leave him on camera. "get the personalized AI fitness plan..." plays on Dan.

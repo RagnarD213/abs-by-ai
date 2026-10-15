@@ -1,37 +1,101 @@
 {
  "intro": "Round 3 builds the whole ad, 58.4 s at 1.06x, with the couch clip moving and the body scan rebuilt vertical. Everything else is as you saw it in round 2. AI spend: $3.20 of the $10 cap (eight 4-second Veo takes to get two clean ones).",
  "locked": "the opening as built; the couch START and END frames; 1.06x; the bass-lift voice; the Soft Blue analysis card; the Step 1 and Step 2 lower thirds, the lock screen, the app tour, the Tap The Button Below button and the end hold as in round 2.",
- "whole": "AUDIO_LINE Captions after 30 s were checked against a fresh transcript of the mix: they match word for word. The end hold was checked frame by frame: your mouth is closed and you hold the pose to the last frame.",
+ "whole": "Audio passes the full audio gate on this exact file (-14.2 LUFS, true peak -2.4 dB, same voice and music as round 2). Captions after 30 s match a fresh transcript of the mix word for word. The end hold was checked frame by frame: your mouth closes two frames after \"real.\" and you hold the smile to the last frame. Every shot keeps your hair 77 to 113 px below the top edge and your face inside the frame's middle 84 %.",
  "decisions": [
-  {"short": "Whole ad (approve / changes)", "q": "The whole 9:16: approve it?", "body": "Recommended: approve. Round 4 is then delivery: the 16:9 from the same edit, the delivery checks and an independent review, the ad folder, and setup."},
-  {"short": "Couch clip motion (approve / changes)", "q": "The couch clip moving: approve it?", "body": "Recommended: approve. Two takes joined by a cut, the cut on \"six-pack abs in real life\". Detail below."},
-  {"short": "Vertical body scan (approve / changes / try the AI fallback)", "q": "The vertical body scan: approve it?", "body": "Recommended: approve. If the enlarged picture reads soft to you on your phone, the fallback is a new 9:16 frame of the same scan scene made on the Codex subscription, then one Veo take (about $0.40), frames shown to you first."}
+  {
+   "short": "Whole ad (approve / changes)",
+   "q": "The whole 9:16: approve it?",
+   "body": "Recommended: approve. Round 4 is then delivery: the 16:9 from the same edit, the delivery checks and an independent review, the ad folder, and setup."
+  },
+  {
+   "short": "Couch clip motion (approve / changes)",
+   "q": "The couch clip moving: approve it?",
+   "body": "Recommended: approve. Two takes joined by a cut, the cut on \"six-pack abs in real life\". Detail below."
+  },
+  {
+   "short": "Vertical body scan (approve / changes / try the AI fallback)",
+   "q": "The vertical body scan: approve it?",
+   "body": "Recommended: approve. If the enlarged picture reads soft to you on your phone, the fallback is a new 9:16 frame of the same scan scene made on the Codex subscription, then one Veo take (about $0.40), frames shown to you first."
+  }
  ],
  "items": [
-  {"id": "COUCH", "key": "couch", "title": "The couch clip, moving (new)", "stills": [0.2, 2.2, 2.4, 4.3],
-   "captions": ["shot A starts", "end of shot A", "shot B, just after the cut", "end of shot B"],
-   "rows": [["What you see", "Shot A (2.3 s): the guy on the couch holds his phone toward the camera, tilts it a little closer and settles into a half smile. CUT. Shot B (2.1 s): same guy, same couch, shirt off, the abs in real life, the phone beside his stomach, a big grin and a proud tilt of the head. AI-GENERATED chip top left on both."],
-            ["Made from", "Your approved START and END frames (hashes checked before every call), Veo 3.1 Fast, image only, 4 s takes, no sound. Both shots play at natural speed, never slowed or held."]],
-   "sense": ["<b>Cause and effect:</b> nothing appears or vanishes inside either shot (measured: outside him, nothing in the room changes from the first frame to the last). The change happens across the cut.",
-             "<b>Sound off:</b> a guy shows a picture of himself with abs, then the same guy has those abs. A stranger gets it.",
-             "<b>The line:</b> \"guys are using AI to get them six-pack abs in real life\"; the cut lands on \"six-pack abs in real life\".",
-             "<b>Hands, phone, face:</b> five fingers on every hand, the phone picture stays the same picture, the same man across the cut, his mouth never talks.",
-             "REVIEWER_LINE"]},
-  {"id": "SCAN", "key": "scan", "title": "The body scan, rebuilt vertical (new)", "stills": [0.15, 0.9, 3.3],
-   "captions": ["the notes landing", "all four up", "late in the shot"],
-   "rows": [["What you see", "The start VSL scan (A0044), his body filling the full 9:16 frame from the scanner ring to his thighs. Four notes as Soft Blue cards, two at the top beside his head and two at the bottom over his shorts, each on a cyan line to the glowing dot it is about. They land one after another in the first 0.8 s. AI-GENERATED chip top left."],
-            ["The notes", "Top left: Add Deltoid Volume to Make Waist Look Smaller (shoulder). Top right: Deploy Sleep Coaching for Better Recovery (head). Bottom left: Deploy Fasting for More Fat Loss (abs). Bottom right: Train Transverse Abdominis to Tighten Waist (waist). Same four texts as the clip, title case, 36 px bold (captions are 64 px), ending above the captions."],
-            ["Picture", "A full-height window of the 16:9 clip enlarged 1.78x (sharpened lightly). At the same face size his face carries about 85 % of the fine detail of your close shot: it reads clean on a phone."]],
-   "sense": ["<b>Cause and effect:</b> the scanner, his breathing and the glowing dots are the clip's own; the new lines grow out of the dots with the clip's own lines, so no line ever points at nothing.",
-             "<b>Sound off:</b> an AI scanner marking body parts with what to do about each. A stranger gets it.",
-             "<b>The line:</b> \"It will see exactly where you need to gain muscle, and tailor your workout program\"."]}
+  {
+   "id": "COUCH",
+   "key": "couch",
+   "title": "The couch clip, moving (new)",
+   "stills": [
+    0.2,
+    2.2,
+    2.4,
+    4.3
+   ],
+   "captions": [
+    "shot A starts",
+    "end of shot A",
+    "shot B, just after the cut",
+    "end of shot B"
+   ],
+   "rows": [
+    [
+     "What you see",
+     "Shot A (2.3 s): the guy on the couch holds his phone toward the camera, tilts it a little closer and settles into a half smile. CUT. Shot B (2.1 s): same guy, same couch, shirt off, the abs in real life, the phone beside his stomach, a big grin and a proud tilt of the head. AI-GENERATED chip top left on both."
+    ],
+    [
+     "Made from",
+     "Your approved START and END frames (hashes checked before every call), Veo 3.1 Fast, image only, 4 s takes, no sound. Both shots play at natural speed, never slowed or held."
+    ]
+   ],
+   "sense": [
+    "<b>Cause and effect:</b> nothing appears or vanishes inside either shot (measured: outside him, nothing in the room changes from the first frame to the last). The change happens across the cut.",
+    "<b>Sound off:</b> a guy shows a picture of himself with abs, then the same guy has those abs. A stranger gets it.",
+    "<b>The line:</b> \"guys are using AI to get them six-pack abs in real life\"; the cut lands on \"six-pack abs in real life\".",
+    "<b>Hands, phone, face:</b> five fingers on every hand, the phone picture stays the same picture, the same man across the cut, his mouth never talks.",
+    "<b>Independent review, three passes:</b> both shots pass the three questions. The first pass found the face on the phone in shot B slightly malformed (Veo's copy of the picture): the phone now shows the picture from your approved frame in both shots, confirmed clean, and seated in the phone within 3 px on every frame (the last pass measured it). It also noted a thin dark beard edge along his jaw in shot B, which is in your approved END frame; I left it."
+   ]
+  },
+  {
+   "id": "SCAN",
+   "key": "scan",
+   "title": "The body scan, rebuilt vertical (new)",
+   "stills": [
+    0.05,
+    0.9,
+    3.2
+   ],
+   "captions": [
+    "the notes fading in",
+    "all four up",
+    "late in the shot"
+   ],
+   "rows": [
+    [
+     "What you see",
+     "The start VSL scan (A0044), his body filling the full 9:16 frame from the scanner ring to his thighs. Four notes as Soft Blue cards, two at the top beside his head and two at the bottom over his shorts, each on a cyan line to the glowing dot it is about. The lines are there from the first frame and the four cards fade in together in the first quarter second. AI-GENERATED chip top left."
+    ],
+    [
+     "The notes",
+     "Top left: Add Deltoid Volume to Make Waist Look Smaller (shoulder). Top right: Deploy Sleep Coaching for Better Recovery (head). Bottom left: Deploy Fasting for More Fat Loss (abs). Bottom right: Train Transverse Abdominis to Tighten Waist (waist). Same four texts as the clip, title case, 36 px bold (captions are 64 px), ending above the captions."
+    ],
+    [
+     "Picture",
+     "A full-height window of the 16:9 clip enlarged 1.78x (sharpened lightly). At the same face size his face carries about 85 % of the fine detail of your close shot: it reads clean on a phone."
+    ]
+   ],
+   "sense": [
+    "<b>Cause and effect:</b> the scanner, his breathing and the glowing dots are the clip's own; every line runs from its dot to its card on every frame, so no line points at nothing.",
+    "<b>Sound off:</b> an AI scanner marking body parts with what to do about each. A stranger gets it.",
+    "<b>The line:</b> \"It will see exactly where you need to gain muscle, and tailor your workout program\".",
+    "<b>Independent review, three passes:</b> the first found the clip's own line-drawing glow (hard-edged boxes) and paint leftovers in its first quarter second. The card now starts after that animation is over (source frame 40), so it is 0.3 s shorter: it ends at 29.66 s, inside \"program\", and you are on camera from there. The last pass found nothing blocking; I still straightened two small kinks in the lines and made the cards appear with their lines."
+   ]
+  }
  ],
  "decided": [
   "<b>Eight takes to get two clean ones ($3.20 of $10).</b> In every take Veo animated the photo on the phone like a live photo (the face on it smiled and turned, in one take it turned into a different face). Three takes of the second shot added a fist pump, one started talking, one dropped his head to look at his lap. I used A2 (its first 2.3 s, before he lowers the phone) and B5 (its first 2.1 s).",
   "<b>The phone picture is held still in code:</b> the phone is tracked in every frame and the picture from the first frame is laid back into it, so it is the same picture the whole time.",
   "<b>The scan's old lines:</b> the clip's own lines ran to boxes outside the vertical crop. Painting them out over his arms left visible seams, so the clip's own lines are kept and the new cyan lines are drawn exactly over them into the new cards. The abs and waist lines turn straight down at the frame edge to the bottom cards. Only the parts hidden under the cards are painted out.",
-  "<b>The notes land in the first 0.8 s</b>, with the clip's own lines growing, not on later words: landing them on \"gain muscle\" and \"tailor\" would have left the clip's lines pointing at nothing for up to 2.8 s.",
-  "<b>Removed the physique poses</b> (library B0435) under \"get the personalized AI fitness plan you need to make your abs real\": your standing rule from today on RA-06, the same clip, \"a shot of me just standing around\". You are on camera there instead (your wider shot, 5.1 s). Clips and cards now cover 38.5 % of the ad.",
+  "<b>The scan is 3.7 s, not 4.0 s:</b> the clip is 5 seconds long and its first 1.3 s is its own line-drawing animation, which cannot be cropped cleanly. Starting after it leaves 110 frames, so the cut back to you comes 0.3 s earlier (29.66 s). Clips and cards now cover 38.0 % of the ad.",
+  "<b>Removed the physique poses</b> (library B0435) under \"get the personalized AI fitness plan you need to make your abs real\": your standing rule from today on RA-06, the same clip, \"a shot of me just standing around\". You are on camera there instead (your wider shot, 5.1 s). ",
   "<b>No other change:</b> same cut, same takes, same 1.06x, same captions, same voice and music. The picture is the same 1,749 frames, so the round 2 mix still lines up frame for frame.",
   "<b>Your face first appears at 7.9 s</b> (after the opening and the couch clip), as in round 2."
  ]

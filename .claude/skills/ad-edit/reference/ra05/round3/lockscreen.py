@@ -6,7 +6,9 @@
 3. paste: frame 0's screen picture into the tracked screen, feathered, leaving out the strip where his fingers overlap it
 4. check: correlation of the bezel ring between the warped frame 0 and frame n (ring_ncc), per frame
 usage: lockscreen.py <take.mp4> <out.mp4> <n_frames> <cfg.json>
-cfg: {"outer": [[x,y]x4], "inner": [[x,y]x4], "exclude": [[x,y],...] (optional), "smooth": 1.6}  corners TL, TR, BR, BL"""
+cfg: {"outer": [[x,y]x4], "inner": [[x,y]x4], "exclude": [[x,y],...] (optional), "smooth": 1.6,
+      "model": "similarity" (optional), "ref": "<approved frame png>" (optional: the picture laid in comes from the APPROVED frame, registered to frame 0 by SIFT and
+      colour-matched to frame 0's screen, because Veo already degrades the phone picture in its first frame)}  corners TL, TR, BR, BL"""
 import json, subprocess, sys, numpy as np, cv2
 FF = "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video_edit/bin/ffmpeg"
 src, out, N, cfg = sys.argv[1], sys.argv[2], int(sys.argv[3]), json.load(open(sys.argv[4]))
@@ -51,22 +53,49 @@ for n in range(1, N):
     Af, _ = cv2.estimateAffinePartial2D(A, Bp, method=cv2.RANSAC, ransacReprojThreshold=2.5)
     cand = [np.linalg.inv(Hs).astype(np.float32), np.linalg.inv(np.vstack([Af, [0, 0, 1]])).astype(np.float32)]
     jump = [float(np.abs(cor(M) - cor(Wp)).max()) for M in cand]
-    Wp = cand[0] if jump[0] <= 12 or jump[0] <= jump[1] else cand[1]
+    if cfg.get("model") == "similarity": Wp = cand[1]                  # a small phone that barely tilts: 4 parameters are steadier
+    else: Wp = cand[0] if jump[0] <= 12 or jump[0] <= jump[1] else cand[1]
     cc = -2.0
     try:
         Wc = (Shi @ Wp @ Sh).astype(np.float32)
         c2, Wc = cv2.findTransformECC(T, g(a), Wc, cv2.MOTION_HOMOGRAPHY,
                                       (cv2.TERM_CRITERIA_EPS | cv2.TERM_CRITERIA_COUNT, 100, 1e-6), ringc, 5)
         We = (Sh @ Wc @ Shi).astype(np.float32)
-        if c2 > 0.95 and float(np.abs(cor(We) - cor(Wp)).max()) <= 3: Wp, cc = We, c2
+        if c2 > 0.95 and float(np.abs(cor(We) - cor(Wp)).max()) <= 3 and cfg.get("model") != "similarity": Wp, cc = We, c2
     except cv2.error:
         pass
+    if cfg.get("bezel_ecc"):     # tried on RA-05 B5: it locked onto the hand at times (bezel ncc mean 0.742 vs 0.803 without); off
+        # lock to the BEZEL itself: affine ECC on the bezel ring only, started from the feature estimate (kept when it converges near it)
+        try:
+            Wc = (Shi @ Wp @ Sh).astype(np.float32)
+            c3, A2 = cv2.findTransformECC(T, g(a), Wc[:2].copy(), cv2.MOTION_AFFINE,
+                                          (cv2.TERM_CRITERIA_EPS | cv2.TERM_CRITERIA_COUNT, 200, 1e-6), ringc, 3)
+            We = (Sh @ np.vstack([A2, [0, 0, 1]]) @ Shi).astype(np.float32)
+            if c3 > 0.85 and float(np.abs(cor(We) - cor(Wp)).max()) <= 10: Wp, cc = We, c3
+        except cv2.error:
+            pass
     WPS.append(Wp.copy()); INF.append((round(float(cc), 4), int(inl.sum())))
 C = np.array([cor(M) for M in WPS]); Cs = C.copy(); sg = float(cfg.get("smooth", 1.6))
 if sg > 0:
     k = np.exp(-0.5 * (np.arange(-4, 5) / sg) ** 2); k /= k.sum()
     P = np.pad(C, ((4, 4), (0, 0), (0, 0)), mode="edge")
     Cs = np.stack([np.tensordot(k, P[i:i + 9], axes=(0, 0)) for i in range(len(C))])
+SRCPIC = fr[0]; Mref = np.eye(3, dtype=np.float32)
+if cfg.get("ref"):
+    from PIL import Image
+    im = Image.open(cfg["ref"]).convert("RGB"); sw, sh = im.size; tw = round(sh * 9 / 16)
+    ref = np.asarray(im.crop(((sw - tw) // 2, 0, (sw - tw) // 2 + tw, sh)).resize((W, H), Image.LANCZOS)).copy()  # as gen_couch fed Veo
+    kr, dr = sift.detectAndCompute(cv2.cvtColor(ref, cv2.COLOR_RGB2GRAY), fm)
+    mt = [m for m, m2 in bf.knnMatch(dr, d0, k=2) if m.distance < 0.75 * m2.distance]
+    Hr, inr = cv2.findHomography(np.float32([kr[m.queryIdx].pt for m in mt]), np.float32([k0[m.trainIdx].pt for m in mt]), cv2.RANSAC, 2.0)
+    Mref = np.linalg.inv(Hr).astype(np.float32)                 # frame-0 coords -> ref coords
+    scr = np.zeros((H, W), np.uint8); cv2.fillPoly(scr, [np.int32(inner)], 255); scr = cv2.erode(scr, np.ones((15, 15), np.uint8)) > 0
+    rw = cv2.warpPerspective(ref, Mref, (W, H), flags=cv2.INTER_LANCZOS4 | cv2.WARP_INVERSE_MAP)
+    a0, a1 = fr[0][scr].astype(np.float32), rw[scr].astype(np.float32)
+    gain = a0.std(0) / np.maximum(a1.std(0), 1); off = a0.mean(0) - a1.mean(0) * gain
+    ref = np.clip(ref.astype(np.float32) * gain + off, 0, 255).astype(np.uint8)
+    print("ref registered:", int(inr.sum()), "inliers; colour gain", gain.round(3), "offset", off.round(1))
+    SRCPIC = ref
 enc = subprocess.Popen([FF, "-nostdin", "-y", "-v", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-framerate", "24",
                         "-i", "-", "-vf", "scale=out_color_matrix=bt709:out_range=tv,format=yuv420p", "-c:v", "libx264", "-crf", "12",
                         "-preset", "medium", "-pix_fmt", "yuv420p", "-colorspace", "bt709", "-color_primaries", "bt709", "-color_trc", "bt709",
@@ -74,7 +103,7 @@ enc = subprocess.Popen([FF, "-nostdin", "-y", "-v", "error", "-f", "rawvideo", "
 log = []
 for n, a in enumerate(fr):
     Wp = np.linalg.inv(cv2.getPerspectiveTransform(outer, np.float32(Cs[n]))).astype(np.float32) if n else np.eye(3, dtype=np.float32)
-    warped = cv2.warpPerspective(fr[0], Wp, (W, H), flags=cv2.INTER_LINEAR | cv2.WARP_INVERSE_MAP)
+    warped = cv2.warpPerspective(SRCPIC, (Mref @ Wp).astype(np.float32), (W, H), flags=cv2.INTER_LINEAR | cv2.WARP_INVERSE_MAP)
     m = cv2.warpPerspective(paste, Wp, (W, H), flags=cv2.INTER_LINEAR | cv2.WARP_INVERSE_MAP)[..., None]
     o = (a * (1 - m) + warped * m + 0.5).astype(np.uint8)
     rm = cv2.warpPerspective(ring, Wp, (W, H), flags=cv2.INTER_NEAREST | cv2.WARP_INVERSE_MAP) > 0

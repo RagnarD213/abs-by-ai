@@ -19,7 +19,7 @@ import softblue as SB
 FF = SB.FF; FPSS = "30000/1001"; W, H = 1080, 1920
 SRC = "/Volumes/Extreme/_edit_work/wv01-edit/round4/motion/SCAN-readable.mp4"
 SRC_SHA = "68ef87d8c63ac0b6c1a357ec5f6748bb2e2d231f4403896abeec559fc2f4ba31"
-X0, WW, T0 = 653, 608, 1.0                   # window; source time of the card's first frame (callouts all up by 1.0 s)
+X0, WW, T0 = 653, 608, 40 * 1001 / 30000                   # window; source frame 40: the clip's own lines and their glow have finished growing (re-review, round 3)
 K = W / WW                                    # 1.7763
 B = json.load(open("beats.json")); card = next(c for c in B["cards"] if c["name"] == "scan")
 N = card["frames"]; A0 = card["beat"][0]
@@ -37,10 +37,10 @@ STUBS = {"head":     [(367, 112), (515, 157), (608, 157)],
 # kept up to the card edge too. Only the parts hidden under the cards are painted. All four land in the first 0.6 s, with the
 # source's own line growth (0 to 0.3 s), so no line ends in the air for more than a few frames.
 NOTES = [
- ("abs",      "Deploy Fasting for More Fat Loss",              (20, None, 520, 1352),  0.12),
+ ("abs",      "Deploy Fasting for More Fat Loss",              (20, None, 520, 1352),  0.10),
  ("waist",    "Train Transverse Abdominis to Tighten Waist",   (560, None, 1062, 1352), 0.20),
  ("shoulder", "Add Deltoid Volume to Make Waist Look Smaller", (20, None, 372, 486),   0.00),
- ("head",     "Deploy Sleep Coaching for Better Recovery",     (704, 150, 1044, None), 0.06),
+ ("head",     "Deploy Sleep Coaching for Better Recovery",     (704, 150, 1044, None), 0.05),
 ]
 TURN = {"abs": 28, "waist": 582, "head": 396, "shoulder": 49}   # window x where each kept line ends (head, shoulder: the card edge)
 DOWN = {"abs", "waist"}                                          # these turn straight down to their card
@@ -76,8 +76,14 @@ PATHS = {}
 if os.path.exists("scan3/stub_paths.json"):           # traced from the stubs' own pixels (scan3/fit_paths.py), smoothed
     for k, pts in json.load(open("scan3/stub_paths.json")).items():
         xs = np.array([p[0] for p in pts], float); ys = np.array([p[1] for p in pts], float)
-        ys = np.array([np.median(ys[max(0, i-6):i+7]) for i in range(len(ys))])
-        PATHS[k] = (xs, ys)
+        # straight segments between the measured bends (the old lines are straight; a median trace jogged where it crossed the
+        # forearm outline, final check note N2): least squares per segment of the reference polyline
+        ref = STUBS[k]; fy = ys.copy()
+        for (xa, _), (xb, _) in zip(ref[:-1], ref[1:]):
+            lo, hi = min(xa, xb), max(xa, xb); sel = (xs >= lo) & (xs <= hi)
+            if sel.sum() >= 5:
+                a_, b_ = np.polyfit(xs[sel], ys[sel], 1); fy[sel] = a_ * xs[sel] + b_
+        PATHS[k] = (xs, fy)
 BAND, KEEP_R = int(os.environ.get("STUB_BAND", "25")), int(os.environ.get("KEEP_R", "13"))
 SHIFT = int(os.environ.get("SHIFT", "18"))
 
@@ -90,19 +96,15 @@ def paint(a, dots):
         w = np.clip(np.abs(xs - ex) / max(1.0, abs(r0[0] - ex)), 0, 1)        # 1 at the dot, 0 at the edge
         pts = np.stack([xs + w * (d[0] - r0[0]), ys + w * (d[1] - r0[1])], 1)
         if k not in PAINT_WHOLE:                                   # only the part past the turn, toward the frame edge
-            tx = TURN[k]; pts = pts[(pts[:, 0] <= tx - 4) if ex < r0[0] else (pts[:, 0] >= tx + 4)]
+            tx = TURN[k]; pts = pts[(pts[:, 0] <= tx + 3) if ex < r0[0] else (pts[:, 0] >= tx - 3)]   # from just inside the turn: the new line covers the overlap
         if len(pts) > 1: cv2.polylines(band, [np.int32(np.round(pts))], False, 1, BAND)
         cv2.circle(keep, (int(d[0]), int(d[1])), KEEP_R, 1, -1)
     bl = a[..., 2]; th = cv2.subtract(bl, cv2.morphologyEx(bl, cv2.MORPH_OPEN, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (15, 15))))
     m = ((band > 0) & (keep == 0)).astype(np.uint8)          # the WHOLE band: a thresholded mask leaves ragged glow edges
     # Fill by copying texture from SHIFT px above and below (the arms and the scanner pillars run vertically, so a vertical
     # copy keeps their edges and skin grain); Telea only where both copies are themselves masked. Feathered 2 px.
-    D = SHIFT; up = np.roll(a, D, 0); dn = np.roll(a, -D, 0); mu = np.roll(m, D, 0); md = np.roll(m, -D, 0)
-    fill = a.astype(np.float32).copy(); ok_u = (mu == 0); ok_d = (md == 0)
-    fill[ok_u] = up[ok_u]; fill[~ok_u & ok_d] = dn[~ok_u & ok_d]      # ONE side, never an average (an average blurs the skin)
-    hole = (m > 0) & ~ok_u & ~ok_d
-    if hole.any():
-        fill = np.where(hole[..., None], cv2.inpaint(a, (hole * 255).astype(np.uint8), 4, cv2.INPAINT_TELEA), fill)
+    # every painted part now lies on plain background (the kept lines cover everything over his arms): a smooth inpaint, no copy
+    fill = cv2.inpaint(a, m * 255, 7, cv2.INPAINT_TELEA).astype(np.float32)
     al = cv2.GaussianBlur(m.astype(np.float32), (5, 5), 1.0); al = np.maximum(al, m.astype(np.float32))[..., None]
     out = a * (1 - al) + fill * al
     return np.clip(out + 0.5, 0, 255).astype(np.uint8), m
@@ -153,13 +155,12 @@ def note_layer(im, t, dots):
     glow = Image.new("RGBA", im.size); gd = ImageDraw.Draw(glow); sharp = Image.new("RGBA", im.size); sd = ImageDraw.Draw(sharp)
     cards = []
     for key, txt, box, ta in NOTES:
-        if t < ta: continue
         bx, lines, lh = box_of(txt, box)
         pts = leader(key, dots[key], bx)
-        q = SB.ease(t - ta, LINE_IN); seg = partial(pts, q)
+        seg = pts                      # the clip's own lines exist from frame 0, so the new ones do too (nothing points at nothing)
         if len(seg) > 1:
             gd.line(seg, fill=SB.LT_CYAN + (110,), width=12, joint="curve"); sd.line(seg, fill=SB.LT_CYAN + (255,), width=5, joint="curve")
-        qb = SB.ease(t - ta - (0.0 if key not in DOWN else LINE_IN * 0.75), BOX_IN)   # head, shoulder: their old lines exist from frame 0
+        qb = SB.ease(t + 0.06, BOX_IN) # all four cards fade in together, already half up on frame 0, with their lines (final check N1)
         if qb > 0: cards.append((bx, lines, lh, qb, t))
     im = Image.alpha_composite(im.convert("RGBA"), glow.filter(ImageFilter.GaussianBlur(5)))
     im = Image.alpha_composite(im, sharp).convert("RGB")
@@ -174,8 +175,24 @@ def note_layer(im, t, dots):
         im = Image.blend(im, lay, qb)
     return im
 
+G_CLEAN = 0  # was 16 with the old start; at source frame 40 no clean plate is needed
+                                 # card frame by which the clip's own lines have finished growing (measured: by 9)
+def zones():
+    """window-px mask: each kept line's part past its turn, thick, feathered wide. In the first G_CLEAN frames the
+    clip's growing glow passes through here and the narrow paint band left edges and patches (independent review, frames 5 to 9)."""
+    z = np.zeros((1080, WW), np.uint8)
+    for k in STUBS:
+        xs, ys = PATHS[k]; r0 = STUBS[k][0]; tx = TURN[k]
+        sel = (xs <= tx) if tx < r0[0] else (xs >= tx)
+        pts = np.stack([xs[sel], ys[sel]], 1)
+        if len(pts) > 1: cv2.polylines(z, [np.int32(np.round(pts))], False, 1, 41)
+    # no disc on the turn point: the plate (no glow) read as a dark disc where the growing glow lights the wall (frames 6-7)
+    z = cv2.GaussianBlur(z.astype(np.float32), (31, 31), 8)
+    return z[..., None]
+
 def render(only_t=None):
-    dots = {k: v[0] for k, v in STUBS.items()}; out = []
+    dots = {k: v[0] for k, v in STUBS.items()}
+    FR = list(frames()); Z = zones(); plate = None
     e = None
     if only_t is None:
         e = subprocess.Popen([FF, "-nostdin", "-y", "-v", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-framerate", FPSS,
@@ -183,16 +200,21 @@ def render(only_t=None):
                               "-crf", "15", "-pix_fmt", "yuv420p", "-r", FPSS, "-colorspace", "bt709", "-color_primaries", "bt709", "-color_trc",
                               "bt709", "-color_range", "tv", "-x264-params", "keyint=30:min-keyint=1:scenecut=0", "cards_9x16/scan.mp4"],
                              stdin=subprocess.PIPE)
+    # the clean plate: frame G_CLEAN painted, its lines complete (dots fixed at their measured places there)
+    cmp_ = core(FR[G_CLEAN]); dp = {k: track(cmp_, STUBS[k][0])[:2] for k in STUBS}
+    plate = paint(FR[G_CLEAN], dp)[0].astype(np.float32)
     log = []
-    for g, a in enumerate(frames()):
+    for g, a in enumerate(FR):
         t = g * 1001 / 30000
         if only_t is not None and abs(t - only_t) > 0.5 / 29.97: continue
         cm = core(a)
         for k in dots: x, y, mv = track(cm, dots[k] if g else STUBS[k][0]); dots[k] = (x, y)
         pa, m = paint(a, dots)
+        if g < G_CLEAN:
+            pa = np.clip(pa * (1 - Z) + plate * Z + 0.5, 0, 255).astype(np.uint8)
         im = upscale(pa); im = note_layer(im, t, dots)
         box = SB.disclosure(im, "AI-GENERATED", CHIP_XY, size=20)
-        log.append({"g": g, "dots": {k: list(map(int, v)) for k, v in dots.items()}, "painted_px": int(m.sum())})
+        log.append({"g": g, "dots": {k: list(map(int, v)) for k, v in dots.items()}, "painted_px": int(m.sum()), "plate": g < G_CLEAN})
         if e: e.stdin.write(np.ascontiguousarray(np.asarray(im)).tobytes())
         else:
             im.save(f"scan3/still_{only_t:.2f}.png"); Image.fromarray(pa).save(f"scan3/painted_{only_t:.2f}.png")
@@ -200,7 +222,7 @@ def render(only_t=None):
             print("still", only_t, "chip", box, log[-1]); return
     e.stdin.close(); assert e.wait() == 0
     meta = json.load(open("cards_9x16/meta.json")) if os.path.exists("cards_9x16/meta.json") else {}
-    meta["scan"] = {"source": SRC, "sha256": SRC_SHA, "window": [X0, 0, WW, 1080], "src_t0": T0, "scale": K, "frames": N,
+    meta["scan"] = {"source": SRC, "sha256": SRC_SHA, "window": [X0, 0, WW, 1080], "src_t0": round(T0, 4), "scale": K, "frames": N,
                     "chip": "AI-GENERATED", "chip_box": [round(v) for v in box],
                     "notes": [{"dot": k, "text": s_, "box": list(box_of(s_, b)[0]), "lands_card_t": ta} for k, s_, b, ta in NOTES]}
     json.dump(meta, open("cards_9x16/meta.json", "w"), indent=1)
