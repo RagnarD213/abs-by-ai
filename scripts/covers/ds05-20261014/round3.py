@@ -8,11 +8,11 @@ import json,importlib.util
 from PIL import Image
 spec=importlib.util.spec_from_file_location('ds05build',Path(__file__).resolve().parent/'build.py');m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m);b=m.b
 k='ds-05';slug=b.COPY[k][2];mp=b.R/'manifest.json';man=json.loads(mp.read_text())
-KIND={'F1':'F with a black bikini, no cover-up (FLUX Kontext Pro edit)','F2':'F with a one-piece swimsuit, no cover-up'}
+KIND={'F3':'F with a modest sporty two-piece: full-coverage top, boy-short bottoms (Codex edit of F2, Dan 2026-10-16)','F1':'F with a black bikini, no cover-up (FLUX Kontext Pro edit)','F2':'F with a one-piece swimsuit, no cover-up'}
 man['outputs']=[r for r in man['outputs'] if r['variant'] not in KIND]
 for v in KIND:
  for pl in ['instagram','youtube']:
   im,gp=b.plate(k,v.lower(),False);tm=Image.new('L',(b.W,b.H));b.copy_band(im,tm,k,pl=='instagram')
   p=b.R/pl/f'{slug}_cover-{v}.png';im.convert('RGB').save(p);tm.save(p.with_name(p.stem+'.text-mask.png'))
   man['outputs'].append(dict(short=k,variant=v,platform=pl,path=str(p),sha256=b.sha(p),kind=KIND[v],copy={'badge':b.COPY[k][0],'headline':b.COPY[k][1]},plate=str(gp)))
-mp.write_text(json.dumps(man,indent=1)+'\n');print('built F1, F2')
+mp.write_text(json.dumps(man,indent=1)+'\n');print('built',', '.join(KIND))
