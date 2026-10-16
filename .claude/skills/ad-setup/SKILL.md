@@ -169,6 +169,11 @@ node scripts/youtube/set-thumbnail.js --video <id> --file "<thumb FINAL.jpg>" --
 
 ## 6. Google Ads — the Demand Gen conversion campaign
 
+**A short ad going into the TRIAL campaign `24316364155` (every current RA- ad) uses `scripts/ads/api/dgen-trial-group.js <key>`**
+(config `dgen-ads/<key>.json`, copy `ra05.json`): one ad group per ad, target CPA checked live against a reference group,
+the reference group's Audience, final URL on absbyai.com/start, budget read before and after. Dry run, then `--apply`.
+The `dgen-add-ad.js` steps below are for the old conversion campaign. (Added 2026-10-16, RA-05.)
+
 Write `scripts/ads/api/dgen-ads/adN.json` (copy `ad3.json`), then:
 
 ```bash
