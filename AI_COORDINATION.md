@@ -25,7 +25,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**RO-26:R2-REVISIONS:2026-10-16:Codex:** Dan reviewing :8982. Clear Studio Look B and Nutrition B frames approved. Quicker archive/Flight Club agency context and full-screen black-belt footage under Martial Arts heading queued; picture/audio QA pending. Workout replacement needs anatomy repair and approval; voice pending. Next: inspect exports, replace context links, finish remaining revisions. Detail: `/Volumes/Extreme/_edit_work/ro26/round2/revisions-20261016/revisions.json`.
+**RO-26:R2-REVISIONS:2026-10-16:Codex:** Clear Studio Look B, Warm Bass C and Nutrition B frames approved. Dan reviewing :8982. Quicker archive/Flight Club agency and full-screen promotion with Martial Arts heading queued; picture/audio QA pending. Replace earlier D audio with C before revised delivery. Workout replacement needs anatomy repair and approval. Next: inspect exports, update contexts, finish revisions. Detail: `/Volumes/Extreme/_edit_work/ro26/round2/revisions-20261016/revisions.json`.
 
 **RO-25:R2-NEEDS:2026-10-16:Codex:** Frames review8825; previews parked for capacity. Packet: `/Volumes/Extreme/_edit_work/RO-25/round2/WORK_PACKET.md`.
 

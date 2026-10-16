@@ -3611,11 +3611,11 @@
    "codexModel": "GPT-6 Sol, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-26-im-41-my-life-is-top-1-how-i-did-it.md` with `$long-form-content-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
    "state": "draft_review",
-   "note": "Colour B Clear Studio Look selected and approved by Dan; current draft and queued renders already use exact B grade. Nutrition B frames approved. Quicker business/Flight Club agency context and black-belt footage under Martial Arts lower third queued, require picture/audio QA before page update. Workout replacement still needs anatomy correction and frame approval. Voice remains pending. Review :8982. Decisions /Volumes/Extreme/_edit_work/ro26/round2/revisions-20261016/revisions.json",
+   "note": "Dan locked Voice C Warm Bass and Colour B Clear Studio Look; exact audition settings recorded and future builder selects separate warm-bass audio cache. Existing/already-running previews have D and need C audio replacement before delivery. Nutrition B frames approved. Quicker archive/Flight Club agency and full-screen promotion with Martial Arts heading contexts queued, QA pending. Workout frame replacement still needs anatomy repair and approval. :8982. /Volumes/Extreme/_edit_work/ro26/round2/revisions-20261016/revisions.json",
    "needs": "",
    "order": 160,
    "updated": "2026-10-16",
-   "rev": 15,
+   "rev": 16,
    "syncedRev": 10,
    "editor": "Codex",
    "by": "Codex"
