@@ -3611,11 +3611,11 @@
    "codexModel": "GPT-6 Sol, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-26-im-41-my-life-is-top-1-how-i-did-it.md` with `$long-form-content-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
    "state": "draft_review",
-   "note": "Dan is continuing R2 review. New revisions staged: replace opening raw trio with previous retouched portrait graphic; exact matching Flight Club gray-shirt speech found in Drive Copy of 1-Dan Rose.mp4 (1YtxOSTAVA28l8wErSDYtMVOVBnkJukvg), full1080p original downloaded and317.0-318.75s stage passage selected for multimillionaire line. Keep real Instagram belt ceremony and add supplied black-belt group photo. Current review remains unchanged while notes arrive. AI motion unapproved. Revision packet: /Volumes/Extreme/_edit_work/ro26/round2/revisions-20261016/revisions.json",
+   "note": "R2 revisions collected while Dan continues reviewing. Exact Flight Club speech downloaded; previous retouched portrait graphic and black-belt group photo staged. At about7sec reuse prior Hinge profile-to24matches animation, replacing fictional man with Dan studio-blue-11 social photo, Dan/41/Austin and Dan avatar; replacement screens prepared and short native UI render queued. Planned dating slot5.906-7.841sec, Matches visible from6.507sec. AI frame-pair motion still unapproved. Revision packet: /Volumes/Extreme/_edit_work/ro26/round2/revisions-20261016/revisions.json",
    "needs": "",
    "order": 160,
    "updated": "2026-10-16",
-   "rev": 9,
+   "rev": 10,
    "syncedRev": 1,
    "editor": "Codex",
    "by": "Codex"
