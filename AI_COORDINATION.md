@@ -87,7 +87,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Muhammad-Shorts QUEUED 2026-10-13.** DS-05 waitlisted 10-16; queued: set Edit Queue uploaded. `Docs/MUHAMMAD_SHORTS_SETUP_RECEIPT_20261013.md`
 
-**RA-07:R5-REVIEW:2026-10-16:Claude.** Whole 9:16 with both new clips moving, gates and independent review SHIP; page :8856. $12 of $20 AI spent. Next: Dan's call; the 16:9 only after he approves. Detail: `Handoffs/video-editing/RA-07-fire-your-trainer.md`.
+**RA-07:R6-HANDOFF:2026-10-16:Claude.** Dan reviewed R5: trim gym closed ~1 s; new leg-press clip where he pulls out his phone. Next: fire `Handoffs/handoff-20261016-ra07-fire-your-trainer-round6-trim-and-phone.md` (frames first). Page :8856. $12 of $20 AI spent.
 
 **RO-20/B/C:R3b-REVIEW:8868:2026-10-16:Claude.** Studio pickups laid in. Next: Dan's pickup A/B + sign-off answers, then three films (handoff step 2).
 
