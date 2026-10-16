@@ -24,3 +24,7 @@ Deliverable: 16:9 long-form, 1920x1080 or 4K per /longform-edit; round method (g
 
 **Codex (GPT-6 Sol, high):**
 > Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-25-im-41-i-wasted-my-life.md` with `$long-form-content-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.
+
+## Revision planning, 2026-10-16
+
+Dan reviewed round one and requested revisions. Current task: present ten text AI-clip concepts per each of six points (60 total), then wait for his selections before next-task frame generation and the next-round handoff. Detailed timestamped requests and source research are saved at `/Volumes/Extreme/_edit_work/RO-25/round2-plan/revision-requests.json`; the concept menu is beside it in `ai-clip-ideas-60.md`. Round one is preserved and is not blanket-approved. The full film remains in progress.

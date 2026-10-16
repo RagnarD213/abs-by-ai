@@ -83,7 +83,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-26:ACTIVE:2026-10-16:Codex.**
 
-**RO-25:R1-REVIEW:8725:2026-10-16:Codex.** First-minute/look/assets packet awaits Dan; complete film and delivery gates pending. `Handoffs/video-editing/handoff-20261016-ro25-round1-look-assets-first-minute.md`.
+**RO-25:R2-IDEAS:2026-10-16:Codex.** Dan requested revisions and 60 AI concepts before next-task frames/handoff. Picks pending; full film remains in progress. `/Volumes/Extreme/_edit_work/RO-25/round2-plan/`.
 
 **RO-04:R1-REVIEW:8974:2026-10-15:Codex**
 **COVERS:MOBILE:2026-10-15:Docs/COVER_AUDIT_20261015.md**
