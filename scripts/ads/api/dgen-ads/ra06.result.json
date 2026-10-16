@@ -1,0 +1,206 @@
+{
+ "at": "2026-10-16T18:38:47.710Z",
+ "budgetBefore": {
+  "status": "ENABLED",
+  "budgetId": "15911255930",
+  "perDay": 30
+ },
+ "budgetAfter": {
+  "status": "ENABLED",
+  "budgetId": "15911255930",
+  "perDay": 30
+ },
+ "results": [
+  "customers/3427170837/adGroups/199908283143",
+  "customers/3427170837/adGroupCriteria/199908283143~2840",
+  "customers/3427170837/adGroupCriteria/199908283143~2124",
+  "customers/3427170837/adGroupCriteria/199908283143~1000",
+  "customers/3427170837/adGroupCriteria/199908283143~2498784755180",
+  "customers/3427170837/assets/430719923166",
+  "customers/3427170837/adGroupAds/199908283143~828274063389",
+  "customers/3427170837/assets/430719923259",
+  "customers/3427170837/adGroupAds/199908283143~828320387740"
+ ],
+ "readBack": [
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/199908283143",
+    "status": "ENABLED",
+    "id": "199908283143",
+    "name": "RA-06 Best Ab Exercise",
+    "targetCpaMicros": "40000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/199908283143~828274063389",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/828274063389",
+     "id": "828274063389",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ra06&utm_content=claude-16x9-vsl"
+     ],
+     "name": "RA-06 Best Ab Exercise | Claude 16:9 | vsl",
+     "demandGenVideoResponsiveAd": {
+      "headlines": [
+       {
+        "text": "The Best Ab Exercise For You"
+       },
+       {
+        "text": "How AI Got Me Abs"
+       },
+       {
+        "text": "How I Got Abs At 40"
+       },
+       {
+        "text": "Fire Your Personal Trainer"
+       },
+       {
+        "text": "A Workout Built Just For You"
+       }
+      ],
+      "longHeadlines": [
+       {
+        "text": "Daniel Rose explains why the best ab exercise depends on your body."
+       },
+       {
+        "text": "Here is why generic trainer plans fall short and how AI builds one just for you."
+       },
+       {
+        "text": "An AI trainer designs your workout around your goals, your body and your injuries."
+       }
+      ],
+      "descriptions": [
+       {
+        "text": "Daniel Rose shows how AI builds a workout plan for your body and your goals."
+       },
+       {
+        "text": "AI fitness coaching explained by a guy who did it at 40 years old."
+       },
+       {
+        "text": "There is no best ab exercise for everyone. Get a plan built for you."
+       }
+      ],
+      "videos": [
+       {
+        "asset": "customers/3427170837/assets/430719923166"
+       }
+      ]
+     }
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/199908283143",
+    "status": "ENABLED",
+    "id": "199908283143",
+    "name": "RA-06 Best Ab Exercise",
+    "targetCpaMicros": "40000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/199908283143~828320387740",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/828320387740",
+     "id": "828320387740",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ra06&utm_content=claude-9x16-vsl"
+     ],
+     "name": "RA-06 Best Ab Exercise | Claude 9:16 | vsl",
+     "demandGenVideoResponsiveAd": {
+      "headlines": [
+       {
+        "text": "The Best Ab Exercise For You"
+       },
+       {
+        "text": "How AI Got Me Abs"
+       },
+       {
+        "text": "How I Got Abs At 40"
+       },
+       {
+        "text": "Fire Your Personal Trainer"
+       },
+       {
+        "text": "A Workout Built Just For You"
+       }
+      ],
+      "longHeadlines": [
+       {
+        "text": "Daniel Rose explains why the best ab exercise depends on your body."
+       },
+       {
+        "text": "Here is why generic trainer plans fall short and how AI builds one just for you."
+       },
+       {
+        "text": "An AI trainer designs your workout around your goals, your body and your injuries."
+       }
+      ],
+      "descriptions": [
+       {
+        "text": "Daniel Rose shows how AI builds a workout plan for your body and your goals."
+       },
+       {
+        "text": "AI fitness coaching explained by a guy who did it at 40 years old."
+       },
+       {
+        "text": "There is no best ab exercise for everyone. Get a plan built for you."
+       }
+      ],
+      "videos": [
+       {
+        "asset": "customers/3427170837/assets/430719923259"
+       }
+      ]
+     }
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  }
+ ],
+ "criteria": [
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/199908283143~1000",
+    "type": "LANGUAGE",
+    "language": {
+     "languageConstant": "languageConstants/1000"
+    }
+   }
+  },
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/199908283143~2124",
+    "type": "LOCATION",
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2124"
+    }
+   }
+  },
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/199908283143~2840",
+    "type": "LOCATION",
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2840"
+    }
+   }
+  },
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/199908283143~2498784755180",
+    "type": "AUDIENCE",
+    "audience": {
+     "audience": "customers/3427170837/audiences/359952376"
+    }
+   }
+  }
+ ]
+}

@@ -51,6 +51,14 @@ at that time. Re-run the command to re-check.
 **Dan's copy rule (2026-09-10):** no claim that reads unbelievable without the video's context. *"This
 picture got me abs"* is too much; *"How I get abs at 40"* / *"How AI got me abs"* are the shapes to reuse.
 
+## 2026-10-16: RA-06 "What's The Best Ab Exercise?" added to the trial campaign, 16:9 + 9:16
+
+- **Campaign** `24316364155` (ENABLED, budget `15911255930` read **$30/day** before and after, not changed; now shared by one more ad group).
+- **Ad group** `199908283143` "RA-06 Best Ab Exercise": ENABLED, $40 target CPA (copied from RA-04's `204926161127`), US + CA, English, Audience `359952376`.
+- **Ads:** `828274063389` = 16:9 `6WRVb61mY0Y` (asset `430719923166`, utm_content `claude-16x9-vsl`); `828320387740` = 9:16 `CuN3CBE6ITs` (asset `430719923259`, `claude-9x16-vsl`). Final URL `https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ra06&utm_content=<aspect>-vsl`, same domain and page as the campaign's other ads.
+- **Copy (linted):** headlines The Best Ab Exercise For You / How AI Got Me Abs / How I Got Abs At 40 / Fire Your Personal Trainer / A Workout Built Just For You. Long: Daniel Rose explains why the best ab exercise depends on your body. / Here is why generic trainer plans fall short and how AI builds one just for you. / An AI trainer designs your workout around your goals, your body and your injuries. Descriptions: Daniel Rose shows how AI builds a workout plan for your body and your goals. / AI fitness coaching explained by a guy who did it at 40 years old. / There is no best ab exercise for everyone. Get a plan built for you.
+- Logo `400941168572`, CTA `401407635767`, business name Abs by AI. Built by `scripts/ads/api/dgen-trial-group.js ra06` (config `dgen-ads/ra06.json`, result `ra06.result.json`). Policy 10-16: both REVIEW_IN_PROGRESS, nothing in the campaign disapproved or limited (`dgen-ads/ra06.policy-20261016.txt`); recheck 10-17.
+
 ## 2026-10-16: RA-04 "Top 3 Tips For Getting Abs" added to the trial campaign, 9:16 + 16:9
 
 - **Campaign** `24316364155` (ENABLED, budget `15911255930` read **$30/day** before and after, not changed; now shared by one more ad group).
