@@ -4,7 +4,9 @@ the desk Yeti; this makes it sit in front of the film's approved mix so the join
   pickup.py asr RAW.wav                 Whisper word times of the recording -> pickups/<raw>.asr.json (+ prints the takes)
   pickup.py fit RAW.wav                 fit the tone EQ on ALL of his takes (about 40 s of speech) toward the FILM's voice on
                                         this roll (the gate's 10 bands, voice_chain.fit_eq), not the default reference
-  pickup.py make X RAW.wav T0 T1        treat one take -> pickups/X.wav (stereo, exactly the head of short X) + X.report.json
+  pickup.py make X RAW.wav T0 T1 [--film-chain]   treat one take -> pickups/X.wav (stereo, exactly the head of short X) + X.report.json
+                                        --film-chain: a studio-set lav take (round 3, roll C1722) gets the FILM's own voice EQ
+                                        (RO-16 round 3 voice_chain.json `eq`), never the desk-mic fit
 What `make` does, in order: cut on silence with a short pad, the fitted EQ, level matched to the film line that follows it
 (speech-frame RMS, the first 4 s after the join), a true-peak cap at the film's own peak, an 8 ms fade in and a 15 ms de-click at the join (RO-16's mix has no
 music bed, so nothing runs under it).
@@ -63,8 +65,18 @@ def cmd_fit1(X, raw, t0, t1):
     json.dump(dict(eq=af, gains=gains, tone_err_mean=float(np.abs(err).mean()), tone_err_max=float(np.abs(err).max()), err=[float(v) for v in err],
                    edt_ms_yeti=json.load(open(PK + "/fit.json"))["edt_ms_yeti"], edt_ms_film=ref["edt_ms"]), open(PK + f"/fit_{X}.json", "w"), indent=1)
     print(X, "fitted:", af, "| tone error mean %.2f max %.2f dB |" % (np.abs(err).mean(), np.abs(err).max()), " ".join("%+.1f" % v for v in err))
-def cmd_make(X, raw, t0, t1, lead=0.10, tail=0.16):
-    ref = film_ref(); fit = json.load(open(PK + (f"/fit_{X}.json" if os.path.exists(PK + f"/fit_{X}.json") else "/fit.json"))); a = P.SEG[X][0][0]
+FILM_CHAIN = "/Volumes/Extreme/_edit_work/ro16/round3/RO16_MASTER.mp4.voice_chain.json"
+def film_chain_fit(raw, t0, t1):
+    """the film's own voice EQ (no dereverb, no gate: the chain's agate is not taken), with the tone error it leaves on this take"""
+    eq = json.load(open(FILM_CHAIN))["eq"]; ref = film_ref()
+    tmp = PK + "/fit_in_film.wav"; wr(tmp, np.tile(rd(raw, t0 - 0.02, t1 + 0.05).mean(1), 4))
+    err = C.analyse(C.pcm(tmp, af=eq))[0] - np.array(ref["bands"])
+    return dict(eq=eq, chain=FILM_CHAIN, tone_err_mean=float(np.abs(err).mean()), tone_err_max=float(np.abs(err).max()), err=[float(v) for v in err])
+def cmd_make(X, raw, t0, t1, lead=0.10, tail=0.16, film_chain=False, eq_json=None, out=None, fade_out=0.015):
+    """eq_json: a fit file (pickups/lavfit/fit_X.json, a tone fit of the lav take itself) instead; out: write X.wav and the report there"""
+    ref = film_ref(); a = P.SEG[X][0][0]
+    fit = json.load(open(eq_json)) if eq_json else film_chain_fit(raw, t0, t1) if film_chain else json.load(open(PK + (f"/fit_{X}.json" if os.path.exists(PK + f"/fit_{X}.json") else "/fit.json")))
+    OUT = out or PK
     wr(PK + f"/{X}_cut.wav", rd(raw, t0 - lead, t1 + tail).mean(1))
     v = C.pcm(PK + f"/{X}_cut.wav", af=fit["eq"])
     film = rd(WORK + "/master_audio.wav", a, a + 4.0).mean(1)
@@ -72,19 +84,21 @@ def cmd_make(X, raw, t0, t1, lead=0.10, tail=0.16):
     cap = ref["peak"]; pk = np.abs(v).max()
     if pk > cap:                                    # a soft knee onto the film's own peak, only where it is exceeded
         thr = cap * 0.8; over = np.abs(v) > thr; v[over] = np.sign(v[over]) * (thr + (cap - thr) * np.tanh((np.abs(v[over]) - thr) / (cap - thr)))
-    n = len(v); k = int(0.008 * SR); v[:k] *= np.linspace(0, 1, k); k = int(0.015 * SR); v[-k:] *= np.linspace(1, 0, k)
-    out = np.repeat(v[:, None], 2, 1); wr(PK + f"/{X}.wav", out)                 # dual mono, as the film's mix is (L/R correlation 1.000)
-    ph = PK + f"/{X}.PLACEHOLDER"
+    n = len(v); k = int(0.008 * SR); v[:k] *= np.linspace(0, 1, k); k = int(fade_out * SR); v[-k:] *= np.linspace(1, 0, k)
+    out = np.repeat(v[:, None], 2, 1); wr(OUT + f"/{X}.wav", out)                 # dual mono, as the film's mix is (L/R correlation 1.000)
+    ph = OUT + f"/{X}.PLACEHOLDER"
     if os.path.exists(ph): os.remove(ph)
     rep = dict(short=X, raw=raw, take=[t0, t1], seconds=n / SR, gain_db=float(20 * np.log10(g)), speech_rms_pickup=speech_rms(v), speech_rms_film_next=speech_rms(film),
-               peak=float(np.abs(out).max()), film_peak=cap, eq=fit["eq"], tone_err_mean=fit["tone_err_mean"], tone_err_max=fit["tone_err_max"],
+               peak=float(np.abs(out).max()), film_peak=cap, chain=eq_json if eq_json else "film (RO-16 round 3)" if film_chain else "desk fit", eq=fit["eq"], tone_err=fit.get("err"), tone_err_mean=fit["tone_err_mean"], tone_err_max=fit["tone_err_max"],
                edt_ms_pickup=C.edt(np.concatenate([v] * 3)), edt_ms_film=ref["edt_ms"],
                floor_db_pickup=float(20 * np.log10(np.sqrt((v[:int(lead * SR * 0.8)] ** 2).mean()) + 1e-9)), floor_db_film=ref["floor_db"])
-    json.dump(rep, open(PK + f"/{X}.report.json", "w"), indent=1); print(json.dumps(rep, indent=1))
+    json.dump(rep, open(OUT + f"/{X}.report.json", "w"), indent=1); print(json.dumps(rep, indent=1))
 if __name__ == "__main__":
     c = sys.argv[1]
     if c == "asr": cmd_asr(sys.argv[2])
     elif c == "ref": print(json.dumps(film_ref(), indent=1))
     elif c == "fit": cmd_fit(sys.argv[2], json.loads(sys.argv[3]))
-    elif c == "make": cmd_make(sys.argv[2], sys.argv[3], float(sys.argv[4]), float(sys.argv[5]))
+    elif c == "make": cmd_make(sys.argv[2], sys.argv[3], float(sys.argv[4]), float(sys.argv[5]), film_chain="--film-chain" in sys.argv,
+                                eq_json=sys.argv[sys.argv.index("--eq-json") + 1] if "--eq-json" in sys.argv else None, out=sys.argv[sys.argv.index("--out") + 1] if "--out" in sys.argv else None,
+                                fade_out=float(sys.argv[sys.argv.index("--fade-out") + 1]) if "--fade-out" in sys.argv else 0.015)
     elif c == "fit1": cmd_fit1(sys.argv[2], sys.argv[3], float(sys.argv[4]), float(sys.argv[5]))

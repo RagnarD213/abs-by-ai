@@ -90,6 +90,10 @@ def plan(S):
                dict(name="wordmark_talk", beat=[0.0, round(dur, 4)], rect=[64, 1800, 260, 50])]
     for m in s.man:
         regions.append(dict(name=m["id"], beat=[m["a"], m["b"]], rect=[m["box"][0], m["box"][1], m["box"][2] - m["box"][0], m["box"][3] - m["box"][1]]))
+    # the rebuilt film graphics (scenes.py) are drawn above canvas y 1380 and leave the caption band (from 1412) clear, so captions run
+    # over them as RA-14 approved: they are graphic regions (the gate measures caption clearance), not full-screen cards
+    for sh in shots:
+        if sh["kind"] == "scene": regions.append(dict(name=f"scene_{sh['cover']['id']}", beat=beat(sh), rect=[0, 310, 1080, 1070]))      # scenes.py: everything above canvas y 1380
     thw = []
     shell = np.asarray(Bt.phone_shell())[..., 3] > 40; ys, xs = np.where(shell)          # the phone's real outline (not its shadow)
     for sh in shots:
@@ -117,7 +121,7 @@ def plan(S):
     pl = dict(target_seconds=round(dur, 6), target_frames=T["frames"], joins=joins, covered=covered,
               punch=punch, punch_covered=punch_cov,
               graphics=[dict(name=m["id"], beat=[m["a"], m["b"]], mov=m["mov"]) for m in s.man], graphic_regions=regions,
-              ai_inserts=ai, real_photos=[], cards=[beat(sh) for sh in shots if sh["kind"] == "scene"], talking_head_windows=thw,
+              ai_inserts=ai, real_photos=[], cards=[], talking_head_windows=thw,
               evidence_contract=dict(version=2, video_sha256=h), caption_states=states,
               speech_words=[dict(w=w["w"], t=w["t"], e=w["e"]) for w in first],
               speech_words_evidence=dict(method="verbatim_source_ctc", video_sha256=h, pipeline="plans.TEXT forced-aligned (torchaudio WAV2VEC2_ASR_BASE_960H CTC) to the same cut of RO-16's approved mix this file carries verbatim (audio gate --verbatim); a pickup at the head is Dan's own recording, aligned the same way"),

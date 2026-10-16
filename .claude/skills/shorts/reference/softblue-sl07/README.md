@@ -106,3 +106,35 @@ Five first reviews all said DOES NOT SHIP. Every item below was a finding; the t
   read -0.18 on a short whose label was on screen and correct. Fixed here and in `softblue-sl06/batch.py`. Before a
   30-minute gate run, measure the reference against the delivered frame yourself: crop the frame at the insert's `pos`,
   grey both, correlate (the gate's own method, `checks/compliance.py` `labels`). 0.99 is right; under 0.85 fails.
+
+## Round 3 (2026-10-16): the studio pickups, the B-roll share, and what the checks caught
+
+- **A lav pickup from another set is measured before it is treated.** The plan was the film's own voice EQ (RO-16 round 3
+  `voice_chain.json` `eq`) on the 10/15 green-screen takes (roll C1722). Measured band by band against the film line after
+  it (`r3probe/bands.py` in the work folder: speech frames, dB relative to the total), the film EQ moved both takes FURTHER
+  from the film: the green-screen lav already reads fuller and much brighter on s sounds, and the film EQ adds bass and top.
+  Two independent reviewers flagged it. `pickup.py make --eq-json` takes any fit file; a band-by-band match from the raw take
+  (shrink 0.8, cap 9 dB, plus `deesser=i=0.35`) measured 0.7 to 1.8 dB off instead of 5.5 to 6.2.
+- **The blind listener is noisy; use enough tries and the controls.** 6 to 8 tries a version, Gemini 3.1 Pro (2.5 Pro is gone).
+  It preferred the matched version on one take and the film-EQ version on the other, and called a half-way version worse than
+  both. Ship the better one per take, and give Dan both on the page: the call is his ear.
+- **No hole at the pickup join:** `plans.PICKUP[S]["xfade"]` crossfades the pickup's last 60 ms into the film's own audio from
+  just before its first piece, which then runs on with no 15 ms fade-in (`batch.cmd_audio`). Two fades meeting left a 20 ms dip
+  to -82 dB that a listener heard as a tick.
+- **Check library AI clips like new ones, and before choosing them.** A0083 and A0086 (a lean man eating) carry a white-and-black
+  outline on every edge, invisible in the contact sheet, obvious when a vertical enlarges them 1.8x. Frame-reviewer FAIL.
+- **An approved AI take can fail on what it shows.** AI_B1 (the metronome scale): the model interpolated START to END, so the
+  needle made one 180-degree sweep (reads as weight gain) and stretched. The man and room were still, so `r3_needle.py` keeps the
+  take and redraws only the dial: a needle-free plate (left half of one frame, right half of another), a drawn needle swinging
+  +-24 degrees every 1.3 s in the dial's perspective. Motion gate and a fresh reviewer passed it. AI_B2a changed the man's hair
+  texture mid-shot: dropped, the candles shot carries the whole line.
+- **Run `clipcheck.py` and a fresh `frame-reviewer` on every AI clip a page will show, old ones included** (`r3_clipcheck.py`,
+  `r3_fr_brief.py`). Three of seven failed here; all three had passed earlier reviews that were asked about other things.
+- **Captions break at a picture cut** that falls in a gap between words, and the cue after it starts on the cut
+  (`batch.cmd_cues`: `cuts`). The "never open a cue on a word the cue before says" rule had pulled a word across a cut.
+- **B0031 (curls) has a rest with both arms down about every 2 s.** Start at t=0.0 and the clip ends mid-rep; at t=1.0 a
+  4 s window ended on him standing still. B0073 freezes from 3.67 s; past 3.0 s the dad walks out of frame.
+- **Shell traps that cost an hour:** `sed -i` on a log another process appends to replaces the file, and that process keeps
+  writing to the deleted one (wait on a PID instead: `r3_post.py ... pid=N`). `pgrep -f "text"` inside `sh -c '...text...'`
+  matches itself.
+- **The Extreme drive filled (0 bytes free) mid-round.** Put frame dumps in the session scratchpad on the internal disk.

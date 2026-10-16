@@ -33,7 +33,7 @@ def head(S):
     """seconds of recorded pickup before the first film piece (VIDEO-RULES 2026-10-11); 0 when the short opens on a film line."""
     p = P.PICKUP.get(S)
     if not p or os.path.exists(f"{WORK}/{p['wav'][:-4]}.PLACEHOLDER"): return 0.0     # not recorded yet: the short opens on the film line
-    w = wave.open(f"{WORK}/{p['wav']}"); return w.getnframes() / w.getframerate()
+    w = wave.open(f"{WORK}/{p['wav']}"); return w.getnframes() / w.getframerate() + p.get("preroll", 0.0)      # preroll: the film's own pause before its first piece, after the pickup
 
 # ------------------------------------------------------------------ timeline: audio cuts and the picture's film time
 def timeline(S):
@@ -83,13 +83,20 @@ def cmd_audio(S):
     if hd:                                              # the treated pickup (pickup.py: fitted voice + the film's bed, already faded at its tail)
         pw = wave.open(f"{WORK}/{P.PICKUP[S]['wav']}"); assert pw.getframerate() == SR and pw.getnchannels() == 2
         x = np.frombuffer(pw.readframes(pw.getnframes()), "<i2").astype(np.float32).reshape(-1, 2) / 32768
+        xf = P.PICKUP[S].get("xfade", 0.0)
+        if xf:                                          # round 3: the pickup's tail crossfades into the film's own audio from just before its first piece, which then runs on
+            k = int(xf * SR); pr = int(round(P.PICKUP[S].get("preroll", 0.0) * SR))       # unbroken (no 15 ms fade-in at the join: no hole in the room tone, reviewer r3, D N2); preroll adds
+            w.setpos(int(round(seg[0]["a"] * SR)) - k - pr)                                 # that much more of the film's own pause before its first word (reviewer r3: 130 ms against his usual 400 to 500)
+            rt = np.frombuffer(w.readframes(k + pr), "<i2").astype(np.float32).reshape(-1, 2) / 32768
+            r_ = np.linspace(0, 1, k)[:, None]; x = x.copy(); x[-k:] = x[-k:] * (1 - r_) + rt[:k] * r_
+            if pr: x = np.concatenate([x, rt[k:]])
         parts.append(x); raw.append(x.copy())
     for i, s in enumerate(seg):
         n0 = int(round(s["a"] * SR)); n = int(round((s["o1"] - hd) * SR)) - int(round((s["o0"] - hd) * SR))
         w.setpos(n0); x = np.frombuffer(w.readframes(n), "<i2").astype(np.float32).reshape(-1, 2) / 32768
         raw.append(x.copy())
         first = i == 0 or abs(s["a"] - seg[i - 1]["b"]) > 1e-6; last = i == len(seg) - 1 or abs(seg[i + 1]["a"] - s["b"]) > 1e-6
-        if first: k = int(0.015 * SR); x[:k] *= np.linspace(0, 1, k)[:, None]
+        if first and not (i == 0 and hd and P.PICKUP[S].get("xfade")): k = int(0.015 * SR); x[:k] *= np.linspace(0, 1, k)[:, None]
         if last: k = int((0.04 if i == len(seg) - 1 else 0.015) * SR); x[-k:] *= np.linspace(1, 0, k)[:, None]
         parts.append(x)
     for name, xs in (("audio.wav", parts), ("his_mix.wav", raw)):
@@ -181,7 +188,11 @@ def cmd_cues(S):
     cues, cur = [], []
     def flush():
         if cur: cues.append(list(cur)); cur.clear()
+    cuts = []                                   # a cut between B-roll and Dan that falls in a gap between two words breaks the caption there (reviewer r3, E 0:06.44)
+    if os.path.exists(f"{d}/shots.json"):
+        sh_ = json.load(open(f"{d}/shots.json")); cuts = [b["f0"] / FPS for a, b in zip(sh_, sh_[1:]) if (a["kind"] == "talk") != (b["kind"] == "talk")]
     for i, w in enumerate(words):
+        if cur and any(cur[-1]["e"] - 0.02 <= c <= w["t"] + 0.05 for c in cuts): flush()
         ends = bool(re.search(r"[.!?]$", w["w"])); n = len(" ".join(x["w"] for x in cur)) + len(w["w"])
         if cur and (w["p"] != cur[-1]["p"] or w["t"] - cur[-1]["e"] > 0.6 or (len(cur) >= 4 and not (ends and n <= 30)) or (n > 24 and not (ends and n <= 30))): flush()
         cur.append(w)
@@ -203,7 +214,8 @@ def cmd_cues(S):
     nz = lambda x: re.sub(r"[^a-z0-9]", "", x.lower())
     for k in range(1, len(out)):
         if out[k][0]["p"] == out[k - 1][-1]["p"] and len(out[k - 1]) > 2 and nz(out[k][0]["w"]) in [nz(x["w"]) for x in out[k - 1]] \
-           and not re.search(r"[.!?]$", out[k - 1][-1]["w"]):      # never carry a sentence's last word into the next sentence's cue (SL-07 A: "happens. So if I was")
+           and not re.search(r"[.!?]$", out[k - 1][-1]["w"]) \
+           and not any(out[k - 1][-1]["e"] - 0.02 <= c <= out[k][0]["t"] + 0.05 for c in cuts):      # nor across a picture cut (r3, E 0:06.44); never carry a sentence's last word into the next sentence's cue (SL-07 A: "happens. So if I was")
             out[k].insert(0, out[k - 1].pop())
     res = []
     for i, c in enumerate(out):
@@ -212,6 +224,10 @@ def cmd_cues(S):
         for j in T["joins"]:
             if a < j < e: e = j
         e = min(e, T["total"] - 0.02); a = max(0.0, a - 0.03)
+        for c_ in cuts:                         # a cue that starts a hair before a picture cut starts on the cut, and the one before it runs to the cut
+            if a < c_ <= a + 0.12 and c_ < c[0]["e"]:
+                a = c_
+                if res and abs(res[-1]["b"] - c_) < 0.12: res[-1]["b"] = round(c_, 3)
         if res and res[-1]["b"] > a: res[-1]["b"] = round(a, 3)
         if i + 1 < len(out): e = min(e, out[i + 1][0]["t"] - 0.03)
         txt = " ".join(x["w"] for x in c)
