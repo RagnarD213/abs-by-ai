@@ -224,6 +224,7 @@
 - [Thumbnail colours](thumbnail-masculine-colours.md): masculine palettes, no pink or plum
 - [Claims pre-approved](script-claim-lines-preapproved.md): scripted lines, never ask
 - [No standing shots](no-standing-around-shots.md): cutaways show action
+- [Long-form ranking](longform-strength-ranking.md): studio>kitchen, scripted>cuff; Sun strong, Wed weak
 - [Execute Dan's picks](execute-dans-explicit-picks.md): build exactly what he names
 - [Allegations not facts](allegations-not-fact.md): never mentioned unless Dan asks
 - [Assessment symmetry](assessment-symmetry.md): one standard, swap test, results
