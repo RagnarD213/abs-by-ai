@@ -58,7 +58,7 @@ from _shared.deliver.common import Row                       # noqa: E402
 #   1.0.0  2026-09-11  first version. Folds in the rows of the seventeen per-video QC forks, adds
 #                      audio:lipsync and the compliance rows, and moves every bound into formats.py
 #                      with the file and date it was measured on.
-GATE_VERSION = "2.6.0"        # 1.1.0: an insert may declare its own label chip + position
+GATE_VERSION = "2.6.1"        # 1.1.0: an insert may declare its own label chip + position
                               # (a card hangs its chip off the card, not at the full-bleed waistline)
                               # 1.2.0  2026-09-12  Phase 2: five framing: rows on a portable tracker
                               # (FaceMesh + Apple Vision, no set-specific background) and stage 3 of
@@ -96,6 +96,10 @@ GATE_VERSION = "2.6.0"        # 1.1.0: an insert may declare its own label chip 
 # RO-19 round 4 on audio that passed in round 3. The 1.25x multiplier is unchanged. The row now names which
 # list it graded. Also outside the gate's rows: the build-slot wait no longer counts the launching shell or
 # each ffmpeg process (`_shared/buildcap.py`).
+# 2.6.1 (2026-10-16): compliance:labels samples whole frames inside each card (half a frame after its
+# start, 1.5 frames before its end; a very short card on its middle frame) and seeks half a frame before
+# the frame it means. A 0.9 s card's "0.9 s in" sample decoded the NEXT card's first frame and failed
+# RA-12's D1 and P1 real-photo chips that were on every frame. Bounds are unchanged.
 STAMP_SUFFIX = ".deliver_gate.json"
 
 PLAN_KEYS = """

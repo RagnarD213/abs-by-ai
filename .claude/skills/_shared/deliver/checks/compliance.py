@@ -10,6 +10,7 @@ same requirement with no check behind it.
 """
 import importlib.util
 import json
+import math
 import os
 import re
 import shutil
@@ -561,11 +562,41 @@ def labels(key, pr, cfg, plan, video, work):
             extra[c] = chip_ref(c)
         return extra[c]
 
-    def reads(kind, t, b=None):
+    fps = float(pr.get("fps") or 0) or 30000 / 1001
+
+    def card_frames(a, z):
+        """Frame indices to sample INSIDE the card [a, z): about 0.9 s in, the middle, about 0.9 s
+        before the end, each clamped to the card's own frames.
+
+        ⚠ A SAMPLE TIME IS NOT A FRAME. `-ss t` returns the first frame whose pts >= t, so a time a
+        hair under the card's end decodes the NEXT card's first frame. RA-12's D1 is a 0.9 s card
+        (3.2366-4.1374 s at 29.97 fps): `a + 0.9` sat 0.0015 s under `z`, the "too late" guard let
+        it through, the row read the following card and reported D1's chip missing (-0.05) while the
+        chip was on every D1 frame. So samples are whole frames, kept at least half a frame after
+        the card's start and 1.5 frames before its end; a card too short for that is sampled on its
+        middle frame(s).
+        """
+        eps = 1e-3                                     # plan beats are rounded to the microsecond
+        first = math.ceil(a * fps - eps)               # first frame shown at or after a
+        last = math.ceil(z * fps - eps) - 1            # last frame shown before z
+        lo = math.ceil((a + 0.5 / fps) * fps - eps)
+        hi = math.floor((z - 1.5 / fps) * fps + eps)
+        if last < first:
+            return []
+        if hi < lo:
+            mid = (first + last) / 2
+            return sorted({math.floor(mid), math.ceil(mid)})
+        want = (a + 0.9, (a + z) / 2, z - 0.9)
+        return sorted({min(hi, max(lo, round(t * fps))) for t in want})
+
+    def reads(kind, n, b=None):
         ref = _ref_for(kind, b)
         h, w = ref.shape
         x, y = ((b or {}).get("pos") or pos.get(kind, (40, 40)))
-        raw = subprocess.run([C.FF, "-v", "error", "-ss", f"{t:.3f}", "-i", video, "-frames:v", "1",
+        # Seek half a frame BEFORE frame n: the first pts >= that time is frame n itself, with no
+        # rounding of a 1001/30000 timestamp able to land on a neighbour.
+        t = max(0.0, (n - 0.5) / fps)
+        raw = subprocess.run([C.FF, "-v", "error", "-ss", f"{t:.6f}", "-i", video, "-frames:v", "1",
                               "-vf", f"crop={w}:{h}:{x}:{y},format=gray", "-f", "rawvideo", "-"],
                              capture_output=True).stdout
         if len(raw) < w * h:
@@ -579,12 +610,14 @@ def labels(key, pr, cfg, plan, video, work):
     for kind, beats in (("ai", ai), ("real", real)):
         other = "real" if kind == "ai" else "ai"
         for b in beats:
-            a, z = b["beat"]
-            for t in (a + 0.9, (a + z) / 2, max(a + 0.9, z - 0.9)):
-                if t >= z:
-                    continue
-                c = reads(kind, t, b)
-                o = reads(other, t)
+            a, z = (float(v) for v in b["beat"])
+            frames = card_frames(a, z)
+            if not frames:
+                missing.append((b.get("name", "?"), round(a, 2), "beat holds no frame"))
+            for n in frames:
+                t = n / fps
+                c = reads(kind, n, b)
+                o = reads(other, n)
                 if c is None:
                     missing.append((b.get("name", "?"), round(t, 2), "no frame"))
                     continue
