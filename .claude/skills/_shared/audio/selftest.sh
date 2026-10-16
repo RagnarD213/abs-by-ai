@@ -50,6 +50,11 @@ R828="/Volumes/Extreme/abs by ai 8:28 shoot | jeff | dan | ads, dedicated shorts
 R803="/Volumes/Extreme/abs by ai 8:3 jeff chagrin shoot/main camera"
 R708="/Volumes/Extreme/abs by ai 7:8 Jeff Chagrin shoot/main camera"
 R814="/Volumes/Extreme/abs by ai 8:14 shoot | teleprompter ads, indoor talking content, outdoor workout content | jeff chagrin | dan rose"
+# The nightly offload moves finished shoots' originals off Extreme to the Seagate archive and leaves
+# `.roll` stand-ins behind (7/8 C1484 and 8/14 C1591/C1630 went 2026-10, and the selftest then failed
+# three pick_lav steps on "No such file"). Read a roll from Extreme while it is there, else its archive copy.
+ARCHIVE="/Volumes/Expansion/Abs By AI Raw Footage"
+roll() { if [[ -e "$1" ]]; then echo "$1"; else echo "$ARCHIVE/${1#/Volumes/Extreme/}"; fi; }
 FF="$REPO/Media/video_edit/bin/ffmpeg"
 fail=0
 ok()   { echo "  ✓ $1"; }
@@ -106,12 +111,12 @@ EOF
 if python3 audio_gate.py "$S/ad1v_summed_mics.wav" --video "$AD1V" --no-stamp >"$S/3.log" 2>&1; then bad "summed-mics render PASSED the gate"; else
   grep -q "FAIL  no comb" "$S/3.log" && grep -q "FAIL  clean between words" "$S/3.log" && ok "summed-mics render FAILS on comb + floor ($(grep -c FAIL "$S/3.log") rows)" || { bad "summed-mics failed, but not on the comb/floor rows"; grep FAIL "$S/3.log"; }; fi
 echo "== 4 pick_lav on every roll type"
-if [[ -d "$R828" ]]; then
-  expect_lav "$R828/C1650.MP4" "" "" "0:a:1" "pan=mono|c0=c0" "inverted"
-  expect_lav "$R803/C1514.MP4" 1492 40 "0:a:0" "pan=mono|c0=c1" "normal"
-  expect_lav "$R814/C1591.MP4" "" "" "0:a:0" "pan=mono|c0=c1" "inverted"
-  expect_lav "$R814/C1630.MP4" "" "" "0:a:0" "pan=mono|c0=c1" "None single-live"
-  expect_lav "$R708/C1484.MP4" "" "" "0:a:0" "pan=mono|c0=c1" "inverted"
+if [[ -d "$R828" || -d "$ARCHIVE" ]]; then
+  expect_lav "$(roll "$R828/C1650.MP4")" "" "" "0:a:1" "pan=mono|c0=c0" "inverted"
+  expect_lav "$(roll "$R803/C1514.MP4")" 1492 40 "0:a:0" "pan=mono|c0=c1" "normal"
+  expect_lav "$(roll "$R814/C1591.MP4")" "" "" "0:a:0" "pan=mono|c0=c1" "inverted"
+  expect_lav "$(roll "$R814/C1630.MP4")" "" "" "0:a:0" "pan=mono|c0=c1" "None single-live"
+  expect_lav "$(roll "$R708/C1484.MP4")" "" "" "0:a:0" "pan=mono|c0=c1" "inverted"
 else echo "  ⚠ SKIPPED: Seagate not mounted"; fi
 echo "== 5 stacked pan refused"
 if python3 voice_chain.py --in "$AD1V" --out "$S/doublepan.wav" --pull "pan=mono|c0=c1,pan=mono|c0=c1" --work "$S/_dp" >"$S/5.log" 2>&1; then bad "double pan was NOT refused"; else grep -q "SILENT" "$S/5.log" && ok "stacked pan refused as silence" || { bad "refused for another reason"; tail -2 "$S/5.log"; }; fi
@@ -119,8 +124,8 @@ echo "== 6 the DEFAULT chain end-to-end on the DS-17 roll (C1670, dual-mono, dry
 # 2026-09-29: this used to chain the WET C1650 excerpt and assert "EDT 83 > 55 -> dereverb -> 45 ms".
 # The dereverb is opt-in now, so the default end-to-end fixture is the roll whose light-touch
 # treatment Dan finalized (DS-17 R4: "All right this works and this is finalized").
-if [[ -d "$R828" ]]; then
-  "$FF" -nostdin -y -v error -ss 7 -t 70 -i "$R828/C1670.MP4" -vn -map 0:a -c:a copy "$S/c1670_ex.mov" \
+if [[ -d "$R828" || -d "$ARCHIVE" ]]; then
+  "$FF" -nostdin -y -v error -ss 7 -t 70 -i "$(roll "$R828/C1670.MP4")" -vn -map 0:a -c:a copy "$S/c1670_ex.mov" \
   && python3 pick_lav.py "$S/c1670_ex.mov" >"$S/6a.log" 2>&1 \
   && python3 voice_chain.py --in "$S/c1670_ex.mov" --out "$S/c1670_chain.mp4" --work "$S/_vc" >"$S/6b.log" 2>&1 \
   && python3 audio_gate.py "$S/c1670_chain.mp4" >"$S/6c.log" 2>&1 \
@@ -135,8 +140,8 @@ if [[ -d "$R828" ]]; then
   cp "$S/c1670_chain.mp4" "$S/c1670_chain_copy.mp4"; python3 require_stamp.py "$S/c1670_chain_copy.mp4" >/dev/null 2>&1 && bad "an unstamped copy passed require_stamp" || ok "unstamped copy refused"
 else echo "  ⚠ SKIPPED: Seagate not mounted"; fi
 echo "== 6b the dereverb is OPT-IN: not by default on a wet room, never without a reason, never on a dry room"
-if [[ -d "$R828" ]]; then
-  "$FF" -nostdin -y -v error -ss 40 -t 90 -i "$R828/C1650.MP4" -vn -map 0:a -c:a copy "$S/c1650_ex.mov" \
+if [[ -d "$R828" || -d "$ARCHIVE" ]]; then
+  "$FF" -nostdin -y -v error -ss 40 -t 90 -i "$(roll "$R828/C1650.MP4")" -vn -map 0:a -c:a copy "$S/c1650_ex.mov" \
   && python3 pick_lav.py "$S/c1650_ex.mov" >"$S/6d.log" 2>&1
   python3 voice_chain.py --in "$S/c1650_ex.mov" --out "$S/c1650_default.mp4" --work "$S/_vcw" >"$S/6e.log" 2>&1 \
     && python3 -c "import json,sys;d=json.load(open(sys.argv[1]));sys.exit(0 if d.get('dereverb') is None and d['edt_raw']>55 else 1)" "$S/c1650_default.mp4.voice_chain.json" \
