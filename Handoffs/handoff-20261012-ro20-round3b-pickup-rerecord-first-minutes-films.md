@@ -1,7 +1,7 @@
 # RO-20 / RO-20B / RO-20C "Invest In Your Health": round 3b, Dan's answers to the first minutes, then the three films
 
 **CONTENT (LFC), organic long-form, 16:9, three videos cut from one roll, one task. Sidebar name: `Invest In Your Health LFC R3b`.**
-Updated 2026-10-13 by the round 3 session (Claude Opus 5.5). **BLOCKED until the studio shoot:** Dan heard the desk-mic pickups in the first minutes and rejected the sound ("Yeah, that audio doesn't work... I'm just going to record these pickups on my studio set instead"). He records all four again on the studio set with the shoot's clip-on mic and uploads them. List and the other jobs waiting on the same shoot: `Docs/PICKUPS_1017_SHOOT.md`.
+Updated 2026-10-16 by the round 3 session (Claude Opus 5.5). **READY: the four pickups are recorded** on the shoot lav (10/15 shoot, roll C1722, green screen set) after Dan rejected the desk-mic sound on 10-13 ("Yeah, that audio doesn't work... I'm just going to record these pickups on my studio set instead"). Take map: `Docs/PICKUPS_1017_SHOOT.md`, section "Recorded 2026-10-15: where every take is (roll C1722)".
 
 ## Goal
 
@@ -28,10 +28,17 @@ the sign-off sentence, then, with nothing pending, build the three full films.
 
 ## Order of work
 
-1. Find the four pickups on the shoot roll Dan uploads (he reads each twice; `pick_lav.py` per file, never a typed channel; `roll_sidecar.py`). Take the
-   last clean take of each (his wording wins). In `pickup_audio20.py` point `D` and `TAKES` at the new audio and turn the desk-mic treatment down: the match EQ
-   should come out near flat, no added room, and the level set to the film's. Rerun `first_minutes_r3.sh`, judge the joins with a blind listener against each
-   other and against the 10-13 desk version, update the page (`page4_20.py`), copy to `Videos to Review/`, and stop for Dan. Ask the sign-off sentence again.
+1. **Pickups from roll C1722** (`/Volumes/Extreme/10:15 dan rose fitness shoot - green screen, outdoor shorts, outdoor b roll, studio backdrop/C1722.MP4`; lav on the LEFT channel only, `-map 0:a:0 -af pan=mono|c0=c0`;
+   take map in `Docs/PICKUPS_1017_SHOOT.md`, section "Recorded 2026-10-15: where every take is (roll C1722)"). Takes to use, set exactly on the lav envelope and confirmed by ear first:
+   P1 35.9 to 47.7 s; **P2 53.0 to 66.6 s** (take 1: take 2 drops "makes you more money" and stumbles); P3 116.4 to 136.9 s; P4 166.1 to 183.2 s.
+   - Extract the lav to a 48 k mono WAV, transcribe it with Whisper medium.en word times, and point `pickup_audio20.py` at it (`D`, the transcript
+     file name, `TAKES`; drop the P3 two-take splice, take 2 is clean). The lav flat-tops at -0.49 dBFS on loud words on this shoot: check each take.
+   - **Treatment: same mic as the film now, so start from the film's own chain**, not the desk-mic recipe: the pickup lav through
+     `voice_chain.py` with `build.VOICE4` (dereverb only if the green screen room measures wet), then level matched to the film's speech. Compare
+     blind against two others (the `pickup_audio20.py` match with BOOST 0, WET off, LOWCUT 0; and the raw lav level-matched) on the three join
+     clips, rank, pick. Keep the film's room tone under the pickup only if the floor drops at the join.
+   - Rerun `first_minutes_r3.sh` (it renders P1 to P4 and the joins), update `page4_20.py` (decision 1 becomes "do the studio pickups sit?"),
+     copy to `Videos to Review/`, refresh port 8868, and stop for Dan. Ask the sign-off sentence again (page decision 2).
 2. Rebuild `voice/film_voice.wav` (`build.py filmvoice`): it does not cover the appended sign-off yet.
 3. Per video, assemble from `videos.json`: film ranges (set the two dropped sentences' exact frames on the voice envelope; v1 end 900.35, v2 film start 904.70,
    v2 open 3014.45 to 3026.62, v3 film start 1420.786 with a short lead-in handle from the roll before "All right."), pickup segments, video 1's sign-off.
@@ -54,5 +61,5 @@ Claude Opus 5.5, high: three long builds with joins judged by ear and measuremen
 ## Starter prompt
 
 ```
-Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/handoff-20261012-ro20-round3b-pickup-rerecord-first-minutes-films.md`: round 3b of the three "Invest In Your Health" videos (LFC, content; RO-20, RO-20B, RO-20C in one task). The studio pickups from the shoot are uploaded here: [folder or file names]. Lay them in, show me the first minute of videos 2 and 3 and video 1's ending, then build the three full films only when nothing is pending. Sign-off sentence: [keep it ended on "filled with motivation." / put the words back]. Name this session "Invest In Your Health LFC R3b".
+Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/handoff-20261012-ro20-round3b-pickup-rerecord-first-minutes-films.md`: round 3b of the three "Invest In Your Health" videos (LFC, content; RO-20, RO-20B, RO-20C in one task). My four pickups are recorded on the shoot lav (10/15 shoot, roll C1722; the take map is in the handoff). Lay them in, show me the first minute of videos 2 and 3 and video 1's ending, then build the three full films only when nothing is pending. Sign-off sentence: [keep it ended on "filled with motivation." / put the words back]. Name this session "Invest In Your Health LFC R3b".
 ```

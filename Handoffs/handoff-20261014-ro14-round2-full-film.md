@@ -1,5 +1,8 @@
 # RO-14 "Why You're Not Losing Weight": round 2, apply Dan's round 1 picks, AI motion, the pickup, then the full film
 
+> **2026-10-16: the studio pickups for this job are recorded** (Dan, 10/15 shoot, shoot lav, roll C1722, green screen set): `/Volumes/Extreme/10:15 dan rose fitness shoot - green screen, outdoor shorts, outdoor b roll, studio backdrop/C1722.MP4`. Lav on the LEFT channel only (`-map 0:a:0 -af pan=mono|c0=c0`); it flat-tops at -0.49 dBFS on loud words, so check each take. Takes to use (Whisper small times, set exactly on the lav envelope, confirm by ear): the opening line (pickup 12) 342.4 to 350.5 s, the last full take; fallback 319.0 to 327.3 s. Whisper hears "the four ways you were eating" in the last take (script: "you are eating"), so listen to both. He says "four hidden reasons why you're eating them", his wording. Full take map: `Docs/PICKUPS_1017_SHOOT.md`, section "Recorded 2026-10-15: where every take is (roll C1722)". Same mic as the film: run the pickup through the film's own voice chain settings and level-match it to the film line it joins, rather than the desk-mic matching; the desk takes in this job's `pickups/` folder are timing placeholders only and do not ship.
+
+
 **LFC (long-form content, 16:9).** Sidebar name: `Not Losing Weight LFC R2`.
 Written 2026-10-14 by Claude (Opus 5.5) at the end of round 1. Recommended: **Claude Opus 5.5, high effort.**
 

@@ -1,5 +1,10 @@
 CONTENT | SL-07 | If I Had Belly Fat SFC R3
 
+**SUPERSEDED 2026-10-16 by `handoff-20261016-sl07-round3-studio-pickups-and-full-review.md`.** Dan skipped this round's review; the pickups are recorded. Do not fire this one.
+
+> **2026-10-16: the studio pickups for this job are recorded** (Dan, 10/15 shoot, shoot lav, roll C1722, green screen set): `/Volumes/Extreme/10:15 dan rose fitness shoot - green screen, outdoor shorts, outdoor b roll, studio backdrop/C1722.MP4`. Lav on the LEFT channel only (`-map 0:a:0 -af pan=mono|c0=c0`); it flat-tops at -0.49 dBFS on loud words, so check each take. Takes to use (Whisper small times, set exactly on the lav envelope, confirm by ear): short B 284.6 to 286.7 s ("Here's how to know if your fat loss plan is working."); short D 291.9 to 294.2 s ("Here's why you should work out every single morning."). Full take map: `Docs/PICKUPS_1017_SHOOT.md`, section "Recorded 2026-10-15: where every take is (roll C1722)". Same mic as the film: run the pickup through the film's own voice chain settings and level-match it to the film line it joins, rather than the desk-mic matching; the desk takes in this job's `pickups/` folder are timing placeholders only and do not ship.
+
+
 # SL-07: apply Dan's round 2 answers, put the studio pickups in, close out the five Belly Fat shorts
 
 Written 2026-10-13 by Claude (Opus 5.5) at the end of round 2. All five shorts are rendered with Dan's 10-13 answers.
