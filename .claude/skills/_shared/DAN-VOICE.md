@@ -42,6 +42,10 @@ Reports and the ledger: `Docs/voice-bench/`. Three things follow.
    `/shorts-scripting`, `/ad-copy`, `/ad-outlines`, `/copy-edit`, `/youtube-packaging`). Hooks, order, proof, the
    offer and the close come from that skill and `voice/STRUCTURE.md`. The result is a **content plan**: what the
    piece is, who it is for, every point, fact and number in order, the ask, the length. No style words in it.
+   **The plan keeps his exact words for every claim and label, the strong ones most of all** ("ugly", "grossly
+   obese", "lied", "worship the ground you walk on", "whopping", "the pounds melt off"). Never neutralize them in
+   the plan: the writer copies the plan's wording, and softened language is the tell Dan named first in his Round 2
+   blind test (2026-10-16, `Docs/voice-bench/2026-10-16-dan-blind-test-round2.md`).
 2. **His take, his story, his number:** from the outline, or `voice/POSITIONS.md`. Not there: one question to Dan
    or a `[DAN: ...]` gap. Never invented.
 3. **Hand the plan and his own outline wording to the `dan-voice-writer` agent.** It runs

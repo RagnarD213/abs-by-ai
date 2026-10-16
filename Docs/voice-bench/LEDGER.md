@@ -33,12 +33,18 @@ Gemini column: includes the few pairs where Sonnet 5.5 stood in because Gemini r
 - **Still above the 60% goal.** By the plan's own gate, Phase C (a small model trained on his text) is the next
   step, along with Lane 1 (his words first) for the pieces that matter most.
 
+**A fault in the bench, found from Round 2 (2026-10-16).** The content brief is written by Claude in "neutral, plain
+wording", and the writer copies it. In every pair where Dan flagged softened words, the soft word came from the
+brief ("unattractive" for "ugly", "overstated" for "lied"). Every score above shares this fault. Before Phase C, the
+brief rule changes to keep the strength of each claim and label, and `guide` and `set5` are re-scored on the new
+briefs.
+
 ## Dan's blind pages
 
 | page | pairs from | Dan's score |
 |---|---|---|
 | Round 1, https://claude.ai/artifact/P7rivcXAjD9weMTyupvTfm | `guide` run, 20 pairs | picked his own in 13 of 19 (68%), 2026-10-10 |
-| Round 2, https://claude.ai/artifact/QbzMfnMzQzNsrGDxCyRydK | `set5` run, the 20 passages he has not seen | open |
+| Round 2, https://claude.ai/artifact/QbzMfnMzQzNsrGDxCyRydK | `set5` run, the 20 passages he has not seen | picked his own in 17 of 20 (85%), 2026-10-16; fooled only on off-the-cuff speech. Different passages from Round 1, so not a method comparison: on these 20 the judges caught the old guide 38 of 40 and `set5` 33 of 40. Write-up: `2026-10-16-dan-blind-test-round2.md` |
 
 Round 2 uses every held-out passage he has not seen. A third page needs new held-out passages first (his next
 off-the-cuff takes, ads and letters).

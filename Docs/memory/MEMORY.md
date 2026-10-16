@@ -123,6 +123,7 @@
 - [Script lessons](script-zero-edit-lessons.md): WHAT DAN CHANGED
 - [Voice corpus](voice-corpus-sources.md): four types; no dictation
 - [Voice guide](dan-voice-guide.md): use dan-voice-writer
+- [Softened words](claude-softens-strong-language.md): his top tell; keep ugly, lied, whopping
 - [Script wording](scripts-his-wording-not-his-ramble.md): blunt, plain
 - [Personal facts](dan-personal-facts-for-scripts.md): glycine, Oura
 - [Opus 5.5](opus-5-5-release.md): default; Fable escalates

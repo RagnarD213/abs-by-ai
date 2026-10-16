@@ -30,8 +30,10 @@ list); `dan-voice-critic` agent (second read on request; its "would pass" means 
 `voice/HELD-OUT.md` (never quote; `heldout_guard.py` checks). Raw corpus: `voice-corpus/` (git-ignored) and Drive
 folder `1FE1_fv6XhV96w4OQDji51w7Lrz6ZpiOM`.
 
-**Open:** Dan's Round 2 blind page (https://claude.ai/artifact/QbzMfnMzQzNsrGDxCyRydK); Phase C (small model trained
-on his text) is on by the plan's gate; teleprompter scripts (`--format script`) are unscored, measure by his edit
+**Round 2 (2026-10-16):** Dan picked his own in 17 of 20 (Round 1 was 13 of 19, other passages); fooled only on
+off-the-cuff speech. His first tell: softened words, which on the bench came from Claude's neutral content brief: see
+[[claude-softens-strong-language]]. A content plan keeps his exact strong words. **Open:** Phase C (small model trained
+on his text) is on, starting with C0 (fix the bench brief); teleprompter scripts (`--format script`) are unscored, measure by his edit
 rate; the voice rules still inside the eight writing skills are background only and due for pruning (Phase D).
 Plan: `Handoffs/handoff-20261008-dan-voice-training-part2-plan.md`. Dan's own blind test 10-10: right 13 of 19.
 Related: [[scripts-his-wording-not-his-ramble]], [[script-zero-edit-lessons]], [[dan-personal-facts-for-scripts]],

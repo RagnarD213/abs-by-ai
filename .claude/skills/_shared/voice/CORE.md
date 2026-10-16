@@ -40,7 +40,12 @@ is **plain, direct and a little formal, in full sentences, and he repeats himsel
    (`scripts/voice/voice_check.py`) holds the band for his spread; stay inside it.
 7. **Blunt, and the instruction comes first.** He tells the viewer what to do and names the problem by its plain
    name. A caveat, if he gives one, comes after and is short. He does not say "maybe you need to".
-8. **Loose grammar stays loose.** A number that does not agree, a sentence that restarts, a dangling "with" at the
+8. **He does not soften (Dan's Round 2 blind test, 2026-10-16: "one of the biggest Claude tells").** "Ugly" and
+   "grossly obese", not "unattractive" and "severely overweight". "Lied", not "overstated". "Worship the ground you
+   walk on", not "love you". Strong direct-response words: "whopping", "BLOWN AWAY", "the pounds melt off", "a
+   single cent". His book uses "slut" and "whore" where the point needs them. The one exception he named: careful
+   wording on disease claims (a sensitive ad category), never on fitness results.
+9. **Loose grammar stays loose.** A number that does not agree, a sentence that restarts, a dangling "with" at the
    end. Do not repair what he would not notice.
 
 ## What he does sometimes (LIGHT: once in a piece at most, and never required)

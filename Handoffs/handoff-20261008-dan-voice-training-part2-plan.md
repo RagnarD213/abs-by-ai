@@ -255,7 +255,22 @@ What exists now:
 6. `voice-corpus/bank/`, the new bench runs and `voice-corpus/bench/*/stages/` are local only: mirror `voice-corpus/`
    to the Drive folder before a cloud session needs to re-run the bench (the repo copy of the bank is enough to write).
 
+**Dan's Round 2 blind test (2026-10-16): he picked his own writing in 17 of 20 (85%); the goal is 12 or fewer, so
+Phase C is on.** Fooled only on off-the-cuff speech; right on all 13 written pieces. His first tell: softened
+language ("unattractive" for "ugly", "overstated" for "lied", "love" for "worship the ground you walk on") and weak
+direct-response words. Checked after: every one of those soft words came from the bench's neutral content brief,
+which the writer copies. Write-up: `Docs/voice-bench/2026-10-16-dan-blind-test-round2.md`. Pair 8 (the Five Levels Of
+Pushups short) may be Claude's script: question logged in `Docs/DAN_DECISIONS.md`.
+
 ## Phase C: fine-tune pilot. Gated. Local, Opus 5.5 high
+
+**C0, before anything else (added 2026-10-16).** Fix the bench brief: in `scripts/voice/bench.py` `BRIEF_PROMPT`, keep
+the strength of every claim and the bluntness of every label (single charged words such as "ugly", "lied", "whopping"
+are allowed; still no run of 4 or more words from the passage). Re-brief the 40 passages (`bench.py briefs` on the
+locked candidates, then rebuild `index.json` briefs only; keep the same passages and ids), re-run `guide` and `set5`
+under a new date, and record both in `Docs/voice-bench/LEDGER.md`. Score the pilot against the new `set5`. Also apply
+the same rule to `scripts/voice/bank.py` briefs for the contrast twins.
+
 
 Run only if, after Phase B, judges are still above 60% or Dan picks more than 12 of 20. (After Phase B: judges 82%. The gate is met unless Dan's Round 2 page comes in at 12 or fewer.) Data: the pure piles only,
 chunks of 250 to 650 words, each paired with a neutral summary of its content; the held-out set stays out. Train a LoRA

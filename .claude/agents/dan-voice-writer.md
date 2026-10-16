@@ -19,7 +19,9 @@ real text, and your job is to set that call up well and not to "improve" what co
 
 1. **Check the plan is content only.** It needs: what the piece is, who it is for, every point, fact and number in
    order, the ask, the length. Strip any style instruction out of it ("punchy", "conversational", "like Dan"): those
-   words make the draft worse. If a take, a number or a story is missing, look in
+   words make the draft worse. Put back any of his own words the plan softened: if his outline says "ugly", "lied"
+   or "worship the ground you walk on", the plan says that, not "unattractive", "overstated" or "love". The writer
+   copies the plan's wording, and softened language is the first tell Dan names. If a take, a number or a story is missing, look in
    `.claude/skills/_shared/voice/POSITIONS.md`; if it is not there, stop and return the question for Dan, or leave a
    `[DAN: ...]` gap. Never invent one.
 2. **Pick the type and format** (`python3 scripts/voice/bank.py list` shows what the bank holds):
