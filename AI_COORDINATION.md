@@ -25,7 +25,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**RO-26:R2-REVISIONS:2026-10-16:Codex:** Clear Studio Look B, Warm Bass C and Nutrition B frames approved. Dan reviewing :8982. Quicker archive/Flight Club agency and full-screen promotion with Martial Arts heading queued; picture/audio QA pending. Replace earlier D audio with C before revised delivery. Workout replacement needs anatomy repair and approval. Next: inspect exports, update contexts, finish revisions. Detail: `/Volumes/Extreme/_edit_work/ro26/round2/revisions-20261016/revisions.json`.
+**RO-26:R2-WORKERS:2026-10-16:Codex:** R2 review closed. Two limited preview workers remain queued: business/Flight Club and black-belt/lower-third context. Inspect their processes and receipts before starting duplicates. They imported old Voice D; replace with approved C before delivery. Neither publishes unreviewed output. R3 execution is indexed in Handoffs/README.md. Detail: `/Volumes/Extreme/_edit_work/ro26/round2/revisions-20261016/`.
 
 **RO-25:R2-NEEDS:2026-10-16:Codex:** Frames review8825; previews parked for capacity. Packet: `/Volumes/Extreme/_edit_work/RO-25/round2/WORK_PACKET.md`.
 
