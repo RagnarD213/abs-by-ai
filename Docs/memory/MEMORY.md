@@ -64,6 +64,7 @@
 - [Framing](framing-standard-hair-anchored.md): hair anchor, NEAR/FAR
 - [8/28 shoot](shoot-828-slog3-format.md): three roll families
 - [9/23 shoot](shoot-923-format.md): FX30, roll map
+- [10/15 shoot](shoot-1015-format.md): lav left only, clips; roll map
 - [Ad finals](ad2-vertical-approved.md): folder + naming
 - [Revision voice](revision-docs-in-dans-voice.md): always as Dan
 - [Zero-edit goal](revisions-zero-edit-goal.md): diff Dan's edits
