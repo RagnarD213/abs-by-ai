@@ -38,7 +38,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [RA-01](RA-01-ai-trick-that-got-me-abs.md) | The AI Trick That Got Me Abs | C1663 | UPLOADED | S |
 | [RA-02](RA-02-how-to-generate-abs-with-ai.md) | How To Generate Abs With AI | C1663 | READY | S |
 | [RA-03](RA-03-watch-ai-put-abs-on-me-in-30-seconds.md) | Watch AI Put Abs On Me In 30 Seconds | C1664 | READY (needs a recording of your own generation) | S |
-| [RA-04](RA-04-top-3-tips-for-getting-abs.md) | Top 3 Tips For Getting Abs | C1664 | DELIVERED: awaiting Dan | S |
+| [RA-04](RA-04-top-3-tips-for-getting-abs.md) | Top 3 Tips For Getting Abs | C1664 | FINALIZED | S |
 | [RA-05](RA-05-how-ai-can-get-you-real-six-pack-abs.md) | How AI Can Get You REAL Six Pack Abs | C1664 | FINALIZED | S |
 | [RA-06](RA-06-whats-the-best-ab-exercise.md) | What's The Best Ab Exercise? | C1664 | DELIVERED: awaiting Dan | S |
 | [RA-07](RA-07-fire-your-trainer.md) | Fire Your Trainer! | C1664 | DELIVERED: awaiting Dan | S |
@@ -87,7 +87,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [DS-22](DS-22-how-to-use-the-ab-wheel.md) | How To Use The Ab Wheel | C1672 | FINALIZED | S |
 | [DS-23](DS-23-how-to-do-side-laterals.md) | How To Do Side Laterals | C1672 | UPLOADED | S |
 | [DS-24](DS-24-how-to-do-rear-delt-flys.md) | How To Do Rear Delt Flys | C1672 | FINALIZED | S |
-| [DS-25](DS-25-how-to-do-m100s.md) | How To Do M100s | C1672 | BLOCKED | S |
+| [DS-25](DS-25-how-to-do-m100s.md) | How To Do M100s | C1672 | READY | S |
 
 ### 1C · Organic long-form (9)
 
@@ -108,7 +108,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | job | short | roll | status | size |
 |---|---|---|---|---|
 | [DS-26](DS-26-wispr-flow-short.md) | Wispr Flow | 9/23 C1719 | BLOCKED: Alternate hooks on the roll | S |
-| [DS-27](DS-27-home-workouts-short.md) | Home Workouts | 9/23 C1719 | BLOCKED: 'You're seeing it on screen right now' needs equipment b-roll, not filmed | S |
+| [DS-27](DS-27-home-workouts-short.md) | Home Workouts | 9/23 C1719 | READY | S |
 | [DS-28](DS-28-meal-prep-short.md) | Meal Prep | 9/23 C1720 | R5 COMPLETE: Color A review | S |
 | [DS-29](DS-29-robot-lawn-mower-short.md) | Robot Lawn Mower | 9/23 C1720 | BLOCKED: Robot mower b-roll not filmed | S |
 | [DS-30](DS-30-self-driving-car-short.md) | Self-Driving Car | 9/23 C1720 | READY | S |
@@ -129,9 +129,88 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [RO-17](RO-17-3-healthy-foods-that-made-me-fat.md) | 3 Healthy Foods That Made Me Fat | 9/23 C1713 | DELIVERED: awaiting Dan | L |
 | [RO-18](RO-18-how-to-make-time-for-exercise-nutrition.md) | How To Make Time For Exercise & Nutrition | 9/23 C1714-C1715 | IN PROGRESS | L |
 | [RO-19](RO-19-my-first-spray-tan.md) | My First Spray Tan (old edit scrapped 10-02, redo from scratch) | 8/3 C1512 (31 min) | FINALIZED | L |
-| [RO-20](RO-20-invest-more-in-your-health.md) | Why You Should Invest More In Your Health (part 1 of 3 since 10-11; old edit scrapped 10-02) | 8/3 C1511 (69 min) | BLOCKED | L |
-| [RO-20B](RO-20-invest-more-in-your-health.md) | What To Cut To Afford Getting In Shape (part 2 of 3, split from RO-20 on 10-11) | 8/3 C1511 (69 min) | BLOCKED | L |
-| [RO-20C](RO-20-invest-more-in-your-health.md) | What To Buy For Your Health At Every Income Level (part 3 of 3, split from RO-20 on 10-11) | 8/3 C1511 (69 min) | BLOCKED | L |
+| [RO-20](RO-20-invest-more-in-your-health.md) | Why You Should Invest More In Your Health (part 1 of 3 since 10-11; old edit scrapped 10-02) | 8/3 C1511 (69 min) | READY | L |
+| [RO-20B](RO-20-invest-more-in-your-health.md) | What To Cut To Afford Getting In Shape (part 2 of 3, split from RO-20 on 10-11) | 8/3 C1511 (69 min) | READY | L |
+| [RO-20C](RO-20-invest-more-in-your-health.md) | What To Buy For Your Health At Every Income Level (part 3 of 3, split from RO-20 on 10-11) | 8/3 C1511 (69 min) | READY | L |
+
+### 1C3 · 10/15 shoot (59 jobs, added 2026-10-16): release-ASAP first, then shorts, then long-forms
+
+Roll map and editor warnings: `Docs/SHOOT_1015_FOOTAGE_REPORT.md`. BLOCKED rows marked *not filmed* are on the next shoot's filming document.
+
+**Release ASAP (2): the scripts say "this year"**
+
+| job | video | rolls | status | size |
+|---|---|---|---|---|
+| [RO-25](RO-25-im-41-i-wasted-my-life.md) | I'm 41. I Wasted My Life. | 10/15 C1767 | READY | L |
+| [RO-28](RO-28-why-zepbound-improves-your-health-even-if-youre-ripped.md) | Why Zepbound Improves Your Health Even If You're Ripped | 10/15 C1771 | READY | L |
+
+**Shorts (43)**
+
+| job | video | rolls | status | size |
+|---|---|---|---|---|
+| [DS-33](DS-33-cristiano-ronaldo-sells-an-ab-belt-its-harder-than-a-workout.md) | Cristiano Ronaldo Sells An Ab Belt. It's Harder Than A Workout. | 10/15 C1729-C1730 | READY | S |
+| [DS-34](DS-34-surgeons-now-carve-fake-abs-into-belly-fat-dont-do-it.md) | Surgeons Now Carve Fake Abs Into Belly Fat. Don't Do It. | 10/15 C1729-C1730 | READY | S |
+| [DS-35](DS-35-women-say-they-love-the-dad-bod-they-dont.md) | Women Say They Love The Dad Bod. They Don't. | 10/15 C1729-C1730 | READY | S |
+| [DS-36](DS-36-bill-maher-says-fat-shaming-should-come-back-hes-right.md) | Bill Maher Says Fat Shaming Should Come Back. He's Right. | 10/15 C1730 | READY | S |
+| [DS-37](DS-37-dr-mike-says-tirzepatide-is-a-dial-for-your-body-weight-hes.md) | Dr. Mike Says Tirzepatide Is A Dial For Your Body Weight. He's Right. | 10/15 C1730 | READY | S |
+| [DS-38](DS-38-tiktok-says-blended-oats-work-like-ozempic-they-dont.md) | TikTok Says Blended Oats Work Like Ozempic. They Don't. | 10/15 C1730 | READY | S |
+| [DS-39](DS-39-he-hired-chatgpt-as-his-coach-for-a-year-hes-right.md) | He Hired ChatGPT As His Coach For A Year. He's Right. | 10/15 C1730 | READY | S |
+| [DS-40](DS-40-bill-maher-asks-if-youve-ever-seen-a-fat-90-year-old-hes-rig.md) | Bill Maher Asks If You've Ever Seen A Fat 90-Year-Old. He's Right. | 10/15 C1730 | READY | S |
+| [DS-41](DS-41-kevin-james-tried-one-cheat-day-a-week-it-wrecked-his-diet.md) | Kevin James Tried One Cheat Day A Week. It Wrecked His Diet. | 10/15 C1730 | READY | S |
+| [DS-42](DS-42-post-malone-lost-55-pounds-by-cutting-out-one-drink-hes-righ.md) | Post Malone Lost 55 Pounds By Cutting Out One Drink. He's Right. | 10/15 C1730 | READY | S |
+| [DS-43](DS-43-terry-crews-doesnt-eat-until-2-pm-hes-right.md) | Terry Crews Doesn't Eat Until 2 PM. He's Right. | 10/15 C1730 | READY | S |
+| [DS-44](DS-44-alex-hormozi-asks-a-fat-guy-why-he-isnt-200-pounds-heavier-h.md) | Alex Hormozi Asks A Fat Guy Why He Isn't 200 Pounds Heavier. He's Right. | 10/15 C1730 | READY | S |
+| [DS-45](DS-45-mr-olympia-shows-the-vacuum-heres-how-to-do-it-at-home.md) | Mr. Olympia Shows The Vacuum. Here's How To Do It At Home. | 10/15 C1730 | READY | S |
+| [DS-46](DS-46-the-only-2-exercises-you-need-for-lower-abs.md) | The Only 2 Exercises You Need For Lower Abs | 10/15 C1755-C1756 | READY | S |
+| [DS-47](DS-47-the-only-2-exercises-you-need-for-a-v-taper.md) | The Only 2 Exercises You Need For A V-Taper | 10/15 C1756 | READY | S |
+| [DS-48](DS-48-why-jump-rope-beats-the-treadmill-for-fat-loss.md) | Why Jump Rope Beats The Treadmill For Fat Loss | 10/15 C1758 | READY | S |
+| [DS-49](DS-49-why-i-stopped-drinking-coconut-water.md) | Why I Stopped Drinking Coconut Water | 10/15 C1758-C1759 | READY | S |
+| [DS-50](DS-50-why-i-sleep-at-63-degrees.md) | Why I Sleep At 63 Degrees | 10/15 C1759 | READY | S |
+| [DS-51](DS-51-3-ways-to-lose-fat-without-losing-muscle.md) | 3 Ways To Lose Fat Without Losing Muscle | 10/15 C1759 | READY | S |
+| [DS-52](DS-52-why-zepbound-is-actually-free.md) | Why Zepbound Is Actually Free | 10/15 C1760-C1761 | READY | S |
+| [DS-53](DS-53-the-only-2-exercises-you-need-for-bigger-arms.md) | The Only 2 Exercises You Need For Bigger Arms | 10/15 C1761 | BLOCKED: cable curl and cable tricep pushdown B-roll (next gym shoot) | S |
+| [DS-54](DS-54-the-only-2-kettlebell-exercises-you-need.md) | The Only 2 Kettlebell Exercises You Need | 10/15 C1761-C1765 | READY | S |
+| [DS-55](DS-55-the-3-exercises-id-do-if-i-only-had-5-minutes.md) | The 3 Exercises I'd Do If I Only Had 5 Minutes | 10/15 C1765 | READY | S |
+| [DS-56](DS-56-the-only-ab-exercise-that-hits-all-4-ab-muscles.md) | The Only Ab Exercise That Hits All 4 Ab Muscles | 10/15 C1765-C1766 | READY | S |
+| [DS-57](DS-57-why-i-train-with-a-timer-instead-of-counting-reps.md) | Why I Train With A Timer Instead Of Counting Reps | 10/15 C1777 | READY | S |
+| [DS-58](DS-58-3-exercises-you-can-do-in-one-commercial-break.md) | 3 Exercises You Can Do In One Commercial Break | 10/15 C1777-C1778 | BLOCKED: home B-roll: the couch when the game cuts to a commercial, then the exercises in front of the projector | S |
+| [DS-59](DS-59-how-to-do-towel-rows-a-back-exercise-with-no-equipment.md) | How To Do Towel Rows (A Back Exercise With No Equipment) | 10/15 C1778 | BLOCKED: towel rows demo B-roll (not filmed 10-15) | S |
+| [DS-60](DS-60-how-to-do-reverse-lunges.md) | How To Do Reverse Lunges | 10/15 C1779 | READY | S |
+| [DS-61](DS-61-how-to-do-bodyweight-squats.md) | How To Do Bodyweight Squats | 10/15 C1780 | READY | S |
+| [DS-62](DS-62-how-to-do-goblet-squats.md) | How To Do Goblet Squats | 10/15 C1781 | READY | S |
+| [DS-63](DS-63-how-to-do-overhead-tricep-extensions.md) | How To Do Overhead Tricep Extensions | 10/15 C1782 | READY | S |
+| [DS-64](DS-64-3-rules-for-every-rep.md) | 3 Rules For Every Rep | 10/15 C1783 | READY | S |
+| [DS-65](DS-65-theres-now-a-card-that-tells-your-doctor-not-to-weigh-you-bi.md) | There's Now A Card That Tells Your Doctor Not To Weigh You. Bill Maher Is Right. | next shoot | BLOCKED: not filmed 10-15: on the next shoot's filming document | S |
+| [DS-66](DS-66-bert-kreischer-thought-his-billboard-was-photoshopped-it-was.md) | Bert Kreischer Thought His Billboard Was Photoshopped. It Wasn't. | next shoot | BLOCKED: not filmed 10-15: on the next shoot's filming document | S |
+| [DS-67](DS-67-clavicular-says-looks-matter-more-than-personality-hes-right.md) | Clavicular Says Looks Matter More Than Personality. He's Right. | next shoot | BLOCKED: not filmed 10-15: on the next shoot's filming document | S |
+| [DS-68](DS-68-clavicular-says-getting-lean-is-70-of-softmaxxing-hes-right.md) | Clavicular Says Getting Lean Is 70% Of Softmaxxing. He's Right. | next shoot | BLOCKED: not filmed 10-15: on the next shoot's filming document | S |
+| [DS-69](DS-69-clavicular-recommends-retatrutide-hes-wrong.md) | Clavicular Recommends Retatrutide. He's Wrong. | next shoot | BLOCKED: not filmed 10-15: on the next shoot's filming document | S |
+| [DS-70](DS-70-clavicular-says-hair-is-life-hes-right.md) | Clavicular Says Hair Is Life. He's Right. | next shoot | BLOCKED: not filmed 10-15: on the next shoot's filming document | S |
+| [DS-71](DS-71-why-i-only-do-3-sets-per-exercise.md) | Why I Only Do 3 Sets Per Exercise | next shoot | BLOCKED: not filmed 10-15: on the next shoot's filming document | S |
+| [DS-72](DS-72-why-cables-beat-dumbbells-for-building-muscle.md) | Why Cables Beat Dumbbells For Building Muscle | next shoot | BLOCKED: not filmed 10-15: on the next shoot's filming document; also needs gym cable B-roll | S |
+| [DS-73](DS-73-why-i-do-a-total-body-workout-every-day.md) | Why I Do A Total Body Workout Every Day | next shoot | BLOCKED: not filmed 10-15: on the next shoot's filming document | S |
+| [DS-74](DS-74-why-i-work-out-first-thing-in-the-morning.md) | Why I Work Out First Thing In The Morning | next shoot | BLOCKED: not filmed 10-15: on the next shoot's filming document | S |
+| [DS-75](DS-75-why-you-must-train-your-abs-every-day.md) | Why You Must Train Your Abs Every Day | next shoot | BLOCKED: not filmed 10-15: on the next shoot's filming document | S |
+
+**Long-forms (14)**
+
+| job | video | rolls | status | size |
+|---|---|---|---|---|
+| [RO-21](RO-21-what-every-body-fat-percentage-looks-like-on-me.md) | What Every Body Fat Percentage Looks Like (On Me) | 10/15 C1723-C1724 | READY | L |
+| [RO-22](RO-22-how-losing-fat-changed-my-face.md) | How Losing Fat Changed My Face | 10/15 C1725-C1730 | READY | L |
+| [RO-23](RO-23-i-ranked-every-ab-exercise-from-worst-to-best.md) | I Ranked Every Ab Exercise From Worst To Best | 10/15 C1726 | READY | L |
+| [RO-24](RO-24-reacting-to-celebrity-ozempic-transformations.md) | Reacting To Celebrity Ozempic Transformations | 10/15 C1726 | READY | L |
+| [RO-26](RO-26-im-41-my-life-is-top-1-how-i-did-it.md) | I'm 41. My Life Is Top 1%. How I Did It. | 10/15 C1768 | READY | L |
+| [RO-27](RO-27-its-boring-but-it-got-me-abs-at-40.md) | It's Boring, But It Got Me Abs At 40 | 10/15 C1769-C1770 | READY | L |
+| [RO-29](RO-29-cortisol-belly-is-real-but-tiktok-has-it-wrong.md) | Cortisol Belly Is Real, But TikTok Has It Wrong | 10/15 C1772-C1773 | READY | L |
+| [RO-30](RO-30-the-fastest-way-to-lose-stubborn-love-handles.md) | The Fastest Way To Lose Stubborn Love Handles | 10/15 C1774 | READY | L |
+| [RO-31](RO-31-how-to-get-rid-of-man-boobs.md) | How To Get Rid Of Man Boobs | 10/15 C1775 | READY | L |
+| [RO-32](RO-32-im-41-here-are-the-10-exercises-i-do-every-week.md) | I'm 41. Here Are The 10 Exercises I Do Every Week | 10/15 C1776 | BLOCKED: gym B-roll of the exercises (next gym shoot) | L |
+| [RO-33](RO-33-the-5-minute-no-equipment-workout-for-guys-who-hate-working.md) | The 5-Minute No-Equipment Workout For Guys Who Hate Working Out | next shoot | BLOCKED: not filmed 10-15: on the next shoot's filming document (the spoken cue track) | L |
+| [RO-34](RO-34-10-minute-jump-rope-and-kettlebell-fat-burning-workout.md) | 10-Minute Jump Rope And Kettlebell Fat Burning Workout | next shoot | BLOCKED: not filmed 10-15: on the next shoot's filming document (the spoken cue track) | L |
+| [RO-35](RO-35-20-minute-jump-rope-and-dumbbell-full-body-workout.md) | 20-Minute Jump Rope And Dumbbell Full Body Workout | next shoot | BLOCKED: not filmed 10-15: on the next shoot's filming document (the spoken cue track) | L |
+| [RO-36](RO-36-15-minute-jump-rope-and-abs-workout.md) | 15-Minute Jump Rope And Abs Workout | next shoot | BLOCKED: not filmed 10-15: on the next shoot's filming document (the spoken cue track) | L |
+
 
 ### 1E · Website VSLs, 9/23 shoot (2)
 
