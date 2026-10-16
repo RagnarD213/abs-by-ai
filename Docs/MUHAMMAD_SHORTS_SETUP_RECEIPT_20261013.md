@@ -50,6 +50,11 @@ Backup of the queue before any change: `/Volumes/Extreme/_edit_work/muhammad-sho
 
 ## DS-05 Why Having Abs Beats Being A Fat Millionaire (added 2026-10-16)
 
+**REOPENED AND HELD 2026-10-16. The setup below is superseded for release readiness.** The actual hosted master matches the October 14 V3 HD; it still contains the before photo and repeated closing title reopened by the October 16 revision instructions. F3 is a cover approval only. Fresh live read: 197 Blotato schedules, zero DS-05 matches. Neither the November 3 config date nor December 1 dry-run estimate is a live booking.
+
+DS-05 is held in both waitlist and config. Automatic top-up skips held entries, and the organic submission guard refuses held configs. The master/edit queue is BLOCKED and its existing status file is updated. No corrected full master exists yet; rendering/full QC/independent review are pending a build slot, then Daniel must approve the exact corrected file. Preserve F3, all other entries and the date intent. Sanitized continuation: `Handoffs/handoff-20261016-ds05-correct-version.md`. Full asset provenance remains only in the private task packet. No posts, campaigns, spend or access controls were changed.
+
+
 - HD export arrived 10-14 (Drive `1oS4rytE_X457rpcm-f_9nhQgBMFSHwhB`, "V3 (HD)"). Proven against the approved V3 review copy: 1,201 frames both, 50.09 s, average difference 0.93 levels, largest 32, loudness -13.6 vs -13.7 LUFS, 10.4 Mbps. Master sha256 (16) `4b0534a4283e3dca`.
 - Category: CONTENT (SFC); ends "Comment and let me know...". AI flag true (opener, cliff couple, dating app clips).
 - Filed: `Short-form video content/ds-05_why-having-abs-beats-being-a-fat-millionaire.mp4`, same on Extreme, and on Google Drive in the Short-form video content folder (md5 `ad9207b6...` all three).
