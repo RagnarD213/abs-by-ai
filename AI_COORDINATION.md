@@ -1,6 +1,6 @@
 # Abs By AI — Coordination / Status Board
 
-Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Facts: `Docs/BOARD_REFERENCE.md`.
+Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Facts: `Docs/BOARD_REFERENCE.md`.
 
 | what | where it belongs |
 |---|---|
@@ -81,6 +81,10 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 
 # ACTIVE
 
+**RO-26:ACTIVE:2026-10-16:Codex.**
+
+**RO-25:Codex:2026-10-16:ACTIVE.**
+
 **RO-04:R1-REVIEW:8974:2026-10-15:Codex**
 **COVERS:MOBILE:2026-10-15:Docs/COVER_AUDIT_20261015.md**
 
@@ -148,7 +152,7 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 
 **RA-15:R4-READY:2026-10-16.** `handoff-20261016-ra15-round4-cutout-to-camera.md`
 
-**RA-04-SETUP-READY 2026-10-16.**`handoff-20261016-ra04-setup.md`
+**RA-04:PICKS:2026-10-16:Claude.** Five thumbnails in 9:16 + 16:9 await Dan; then upload + trial campaign. `handoff-20261016-ra04-setup.md`
 
 **RO-17:R4-REVIEW:8880:2026-10-15:Claude.**
 

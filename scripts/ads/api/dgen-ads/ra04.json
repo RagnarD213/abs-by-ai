@@ -1,0 +1,42 @@
+{
+  "campaignId": "24316364155",
+  "label": "RA-04 Top 3 Tips",
+  "key": "ra04",
+  "targetCpa": 40,
+  "copyTargetCpaFromAdGroup": "199824307366",
+  "audienceFromAdGroup": "206348100928",
+  "logoAsset": "400941168572",
+  "ctaAsset": "401407635767",
+  "businessName": "Abs by AI",
+  "videos": [
+    {
+      "youtubeId": "PENDING_UPLOAD",
+      "version": "Claude 9:16",
+      "utm": "claude-9x16"
+    },
+    {
+      "youtubeId": "PENDING_UPLOAD",
+      "version": "Claude 16:9",
+      "utm": "claude-16x9"
+    }
+  ],
+  "copy": {
+    "headlines": [
+      "Top 3 Tips For Getting Abs",
+      "How AI Got Me Abs",
+      "How I Got Abs At 40",
+      "Make Your Goal Your Lock Screen",
+      "A Plan That Adjusts With You"
+    ],
+    "longHeadlines": [
+      "Daniel Rose shares his top three tips for getting six pack abs with AI.",
+      "Here is how I use AI to picture my goal, plan my workouts and adjust my plan.",
+      "See your goal body, get a plan built for it, and let AI handle the setbacks."
+    ],
+    "descriptions": [
+      "Daniel Rose shows three simple ways he uses AI for his workouts and meals.",
+      "AI fitness tips explained by a guy who did it at 40 years old.",
+      "When you get injured or miss the gym, AI adjusts your plan for you."
+    ]
+  }
+}
