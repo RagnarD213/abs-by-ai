@@ -1,8 +1,8 @@
-**LFC.** Task name: `Wasted My Life LFC R1`.
+**LFC.** Task name for continuation: `Wasted My Life LFC R2`.
 
 # RO-25: "I'm 41. I Wasted My Life.", first cut from raw footage
 
-**Organic long-form · 10/15 shoot · READY.** Added 2026-10-16 at Dan's request. Read `00-RULES.md` first.
+**Organic long-form · 10/15 shoot · IN PROGRESS.** Added 2026-10-16 at Dan's request. Read `00-RULES.md` first.
 
 ## Source (10/15 shoot, called the 10/17 shoot in the planning docs)
 Folder: `/Volumes/Extreme/10:15 dan rose fitness shoot - green screen, outdoor shorts, outdoor b roll, studio backdrop/`
@@ -11,7 +11,7 @@ Scripts: the editing copy with every cue is the shoot doc `1gt8Fi_wUaNaksa8sAdMo
 
 ## This video
 Rolls: **C1767**.
-Set: Studio, dark green backdrop with two cyan tubes and the desk, 16:9. Studio look and sound are the standard (no options round). Both glasses lenses carry a blue-white reflection.
+Set: Studio, dark green backdrop with two cyan tubes and the desk, 16:9. Use the studio look and sound as the baseline, then show the requested brighter, more saturated colour choices and bassier, level-matched voice choices. The current shared first-round options rule supersedes the original studio exemption. Both glasses lenses carry a blue-white reflection.
 Deliverable: 16:9 long-form, 1920x1080 or 4K per /longform-edit; round method (graphics, AI frames and first minute approved before the full render). Shorts come later from the approved film (`/shorts`), nothing else.
 
 - B-roll on this shoot: the pool demos and equipment (C1732 to C1754, listed in the report). Clip library first for anything else.
@@ -25,6 +25,8 @@ Deliverable: 16:9 long-form, 1920x1080 or 4K per /longform-edit; round method (g
 **Codex (GPT-6 Sol, high):**
 > Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-25-im-41-i-wasted-my-life.md` with `$long-form-content-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.
 
-## Revision planning, 2026-10-16
+## Round-two continuation, 2026-10-16
 
-Dan reviewed round one and requested revisions. Current task: present ten text AI-clip concepts per each of six points (60 total), then wait for his selections before next-task frame generation and the next-round handoff. Detailed timestamped requests and source research are saved at `/Volumes/Extreme/_edit_work/RO-25/round2-plan/revision-requests.json`; the concept menu is beside it in `ai-clip-ideas-60.md`. Round one is preserved and is not blanket-approved. The full film remains in progress.
+Dan selected frame concepts and corrected the tone to somber and serious. Execute [the selected-frame and revision handoff](handoff-20261016-ro25-r2-selected-frames-and-revisions.md) next with GPT-6 Sol, high, and `$long-form-content-edit`. It supersedes the earlier instruction to wait for concept selections. Generate the requested frame pairs for review before motion, carry forward all colour/audio/graphics/pacing/Elon revisions, and preserve the round-one evidence. The full film remains in progress; neither frame selections nor this handoff approve motion or the full render.
+
+Earlier feedback and the unselected menu remain at `/Volumes/Extreme/_edit_work/RO-25/round2-plan/` for history. The new handoff is the current creative brief.

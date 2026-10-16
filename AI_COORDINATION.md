@@ -83,7 +83,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-26:R2-PICKS:2026-10-16:Codex:**[handoff](Handoffs/handoff-20261016-ro26-round2-context-and-ai-concepts.md)
 
-**RO-25:R2-IDEAS:2026-10-16:Codex.** Pending: `/Volumes/Extreme/_edit_work/RO-25/round2-plan/`.
+**RO-25:R2-HANDOFF:2026-10-16:Codex:**[handoff](Handoffs/video-editing/handoff-20261016-ro25-r2-selected-frames-and-revisions.md)
 
 **RO-04:R1-REVIEW:8974:2026-10-15:Codex**
 **COVERS:MOBILE:2026-10-15:Docs/COVER_AUDIT_20261015.md**
