@@ -3611,11 +3611,11 @@
    "codexModel": "GPT-6 Sol, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-26-im-41-my-life-is-top-1-how-i-did-it.md` with `$long-form-content-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
    "state": "draft_review",
-   "note": "Dan approved three Six Pack Shortcuts clip choices but requested quicker cuts. Revised shot lengths2.002/1.802/2.169s, followed by exact verified real Flight Club speech3.003s over agency sentence166.533-169.536s. Revised BUSINESS context queued behind build cap; picture/audio QA and page publication pending. Nutrition B frames approved; workout replacement still needs anatomy correction and frame approval. Current review preserved at :8982. Details /Volumes/Extreme/_edit_work/ro26/round2/revisions-20261016/revisions.json",
+   "note": "Dan requests real black-belt promotion full screen from Martial Arts introduction, under existing G04 lower third. Align to actual fourth thing phrase211.269s; footage211.278-218.785s, graphic211.269-215.089s. Revised MARTIAL context queued, needs actual face/belt/hands and audio QA before page update. Quicker business/Flight Club context also queued. Nutrition B approved; workout replacement frames pending. :8982 current previews preserved with revision notices. /Volumes/Extreme/_edit_work/ro26/round2/revisions-20261016/revisions.json",
    "needs": "",
    "order": 160,
    "updated": "2026-10-16",
-   "rev": 13,
+   "rev": 14,
    "syncedRev": 10,
    "editor": "Codex",
    "by": "Codex"
