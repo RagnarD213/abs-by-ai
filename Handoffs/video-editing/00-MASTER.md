@@ -144,6 +144,8 @@ Roll map and editor warnings: `Docs/SHOOT_1015_FOOTAGE_REPORT.md`. BLOCKED rows 
 | [RO-25](RO-25-im-41-i-wasted-my-life.md) | I'm 41. I Wasted My Life. | 10/15 C1767 | IN PROGRESS | L |
 | [RO-28](RO-28-why-zepbound-improves-your-health-even-if-youre-ripped.md) | Why Zepbound Improves Your Health Even If You're Ripped | 10/15 C1771 | READY | L |
 
+RO-25 round-one look, assets, and finished opening review is ready for Dan at http://127.0.0.1:8725/. The full film remains in progress pending his creative decision, full assembly, exact-file checks, SRT, and independent review. See [round-one handoff](handoff-20261016-ro25-round1-look-assets-first-minute.md).
+
 **Shorts (43)**
 
 | job | video | rolls | status | size |

@@ -2580,11 +2580,11 @@
    "codexModel": "GPT-6 Sol, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-25-im-41-i-wasted-my-life.md` with `$long-form-content-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
    "state": "in_progress",
-   "note": "RELEASE ASAP (shoot doc note: the script says \"this year\").",
+   "note": "Round-one look, assets, and finished opening review ready at http://127.0.0.1:8725/; awaiting Dan. Full film, SRT, exact-file gates, and independent review pending; see handoff-20261016-ro25-round1-look-assets-first-minute.md.",
    "needs": "",
    "order": 111,
    "updated": "2026-10-16",
-   "rev": 2,
+   "rev": 3,
    "syncedRev": 1,
    "editor": "Codex",
    "by": "Codex"
