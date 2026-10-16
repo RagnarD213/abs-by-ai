@@ -46,6 +46,18 @@ Backup of the queue before any change: `/Volumes/Extreme/_edit_work/muhammad-sho
 
 ## Still open
 
-- DS-05 Why Having Abs Beats Being A Fat Millionaire: finalized, but Muhammad never sent the HD export (promised 10-02). Covers and queue after it arrives.
+- DS-05: on the waiting list, see below. Once queued, set the Edit Queue row to `uploaded`.
+
+## DS-05 Why Having Abs Beats Being A Fat Millionaire (added 2026-10-16)
+
+- HD export arrived 10-14 (Drive `1oS4rytE_X457rpcm-f_9nhQgBMFSHwhB`, "V3 (HD)"). Proven against the approved V3 review copy: 1,201 frames both, 50.09 s, average difference 0.93 levels, largest 32, loudness -13.6 vs -13.7 LUFS, 10.4 Mbps. Master sha256 (16) `4b0534a4283e3dca`.
+- Category: CONTENT (SFC); ends "Comment and let me know...". AI flag true (opener, cliff couple, dating app clips).
+- Filed: `Short-form video content/ds-05_why-having-abs-beats-being-a-fat-millionaire.mp4`, same on Extreme, and on Google Drive in the Short-form video content folder (md5 `ad9207b6...` all three).
+- Cover: Dan picked F3 on 10-16 (beach road, Dan and a woman in a modest sporty two-piece, fat millionaire envious in his convertible). Review: `Short-form video content/covers/review/ds05-20261014/`, scripts `scripts/covers/ds05-20261014/`. Locked files in `covers/approved-muhammad-batch/`, hashes in `finals-locked.json`. Replicate spend about $0.19 (FLUX Kontext edits; Dan asked for Replicate).
+- Blotato media uploaded and hash-checked (master, TikTok cover-first copy, both covers): `uploads.json`, script `scripts/blotato/muhammad_shorts/ds05_setup.py`. Facebook cover row in `fb_reel_covers.json` and the live copy.
+- Config `scripts/blotato/configs/ds05-why-having-abs-beats-being-a-fat-millionaire.json`, keyword ABS. Queue 197/200 on 10-16, so it is last on `video_waitlist.json`; trial run puts it on Tue Dec 1, 9 AM Central.
+- Pinned comment: "Under 2% of American men under 50 have six pack abs, and about 8% are millionaires. If you had to pick one, a million dollars or six pack abs?" Posts and pins automatically after release (routine youtube-pinned-comment-daily).
+- Article: none at setup (Short); routine sixpackabs-article-gap-daily decides after release.
+- Ad guard scan: CLEAN before and after.
 - After each YouTube release: check the Shorts tile shows the approved cover (fix in desktop Studio if it shows a frame), per `/video-setup`.
 - Release check for the seven waiting Shorts: `python3 scripts/blotato/video_topup.py --pending` should fall to the long-forms only by Oct 30.

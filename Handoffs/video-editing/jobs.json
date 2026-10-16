@@ -458,13 +458,13 @@
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-05-abs-beat-being-a-fat-millionaire.md` with `$long-form-content-edit` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Deliver, send Dan the review copy, update `00-MASTER.md`.",
    "state": "finalized",
-   "note": "Dan finalized Muhammad's V3 10-02; HD export received 10-14, verified same cut (1080x1920, 10.4 Mbps). Covers next.",
+   "note": "HD verified; cover F3 picked 10-16; on Blotato waiting list (Dec 1 est.). Set uploaded once queued.",
    "sub": "Talking",
    "order": 21,
-   "updated": "2026-10-14",
+   "updated": "2026-10-16",
    "by": "Claude",
-   "rev": 5,
-   "syncedRev": 5,
+   "rev": 6,
+   "syncedRev": 6,
    "needs": ""
   },
   {

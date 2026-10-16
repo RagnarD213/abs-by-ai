@@ -141,5 +141,12 @@
   "job": "RO-08",
   "label": "Intermittent Fasting: The Best Way To Get Abs",
   "added": "2026-10-14"
+ },
+ {
+  "config": "scripts/blotato/configs/ds05-why-having-abs-beats-being-a-fat-millionaire.json",
+  "kind": "short",
+  "job": "DS-05",
+  "label": "Why Having Abs Beats Being A Fat Millionaire",
+  "added": "2026-10-16"
  }
 ]

@@ -81,7 +81,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Video 5 setup - 2026-10-11, Claude.** Queue blocked (200 cap). Task `abs40-vs-25-blotato-queue` queues Jan 3 2027 on Oct 12. `Docs/ABS40VS25_SETUP_RECEIPT_20261011.md`.
 
-**Muhammad-Shorts QUEUED 2026-10-13.** DS-05 cover pick 10-14. `Docs/MUHAMMAD_SHORTS_SETUP_RECEIPT_20261013.md`
+**Muhammad-Shorts QUEUED 2026-10-13.** DS-05 waitlisted 10-16; queued: set Edit Queue uploaded. `Docs/MUHAMMAD_SHORTS_SETUP_RECEIPT_20261013.md`
 
 **RO-20/B/C:R3b-ACTIVE:2026-10-16:Claude.** Laying C1722 pickups into first minutes, port 8868. Next: Dan's ear + sign-off answer, then three films.
 
