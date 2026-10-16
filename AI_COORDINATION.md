@@ -25,7 +25,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**RO-26:R2-WORKERS:2026-10-16:Codex:** R2 review closed. Two limited preview workers remain queued: business/Flight Club and black-belt/lower-third context. Inspect their processes and receipts before starting duplicates. They imported old Voice D; replace with approved C before delivery. Neither publishes unreviewed output. R3 execution is indexed in Handoffs/README.md. Detail: `/Volumes/Extreme/_edit_work/ro26/round2/revisions-20261016/`.
+**RO-26:R3-ACTIVE:2026-10-16:Codex.** Executing selected revisions in isolated round3. R2 workers completed; reuse pictures with approved Voice C. Build revised first minute and narrated contexts, repair workout frames, generate/check Nutrition B only. No workout motion or full-film render. Detail: `/Volumes/Extreme/_edit_work/ro26/round3/`.
 
 **RO-25:R2-NEEDS:2026-10-16:Codex:** Frames review8825; previews parked for capacity. Packet: `/Volumes/Extreme/_edit_work/RO-25/round2/WORK_PACKET.md`.
 
@@ -82,7 +82,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Muhammad-Shorts QUEUED 2026-10-13.** DS-05 waitlisted 10-16; queued: set Edit Queue uploaded. `Docs/MUHAMMAD_SHORTS_SETUP_RECEIPT_20261013.md`
 
-**RA-07:R4-REVIEW:8856:2026-10-16:Claude.** Whole 9:16 with 2 placeholders on :8856; frames for gym closed + leg press out of order wait for Dan's yes ($10 of $20 spent). Next: motion for both (frames-first checks), then gate, watch, reviewer, 16:9. Work `/Volumes/Extreme/_edit_work/ra07/round4/`.
+**RA-07:R5-READY:2026-10-16:Claude.** Dan approved the R4 frames (gym closed, leg press out of order). Next: fire `Handoffs/handoff-20261016-ra07-fire-your-trainer-round5-full-film.md` (motion, full 9:16, gates). Page :8856 stays up. $10 of $20 AI budget left.
 
 **RO-20/B/C:R3b-REVIEW:8868:2026-10-16:Claude.** Studio pickups laid in. Next: Dan's pickup A/B + sign-off answers, then three films (handoff step 2).
 
