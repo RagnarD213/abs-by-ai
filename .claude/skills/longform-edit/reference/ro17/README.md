@@ -82,3 +82,17 @@ The independent check of the round 2 page (29 findings, all fixed or explained b
 20. **Hand-stamped replacement pieces read as stickers** (identical copies, wrong tint, over the bag edge). Edit a 4x crop of the area with Codex and paste
     it back into the approved frame (`aiframes/paste_box.py`).
 21. **`pkill -f` matched the parent shell holding the same pattern** and killed a running generation; queue gate runs with `motion/after.sh`.
+
+## Round 4 (2026-10-15): the last AI clip and the full film
+22. **A busy four-beat action fits one 6 s Veo take when the prompt numbers the beats** (A10: bite and chew, fork into tin, tin onto the
+    sofa back, hands behind head). One take, $0.90, passed the gate and a fresh reviewer; frames 4-101 fill the 4.06 s slot.
+23. **A hand-off of a small prop at speed can drop it for 2 frames** (A10 f68-f69: the tin is gone under motion-blurred fingers, then
+    fades in on the cushion). The reviewer measured it at 0.33 s inside a blurred move: a note under the playback-speed rule, not a
+    retake. Ask for the prop's frames around any set-down in the reviewer brief; the gate's tracking did not flag it.
+24. **The Extreme SSD filled to 0 bytes mid-render** (ffmpeg exit 228 = ENOSPC, the first attempt died silently). Render to the internal
+    disk: `round3/final` is a link to `tmp/ro17_r4` in the project (mp4 git-ignored), `build.py` takes `RO17_BASE` for the base file,
+    and `finish_chain.sh` uses absolute recipe paths because `..` from a linked dir resolves to the link target's parent.
+25. **The independent review caught two things every gate passed** (round 4, first render): the AI chip that `prep_clips.py` places by
+    heads only sat on the pouring hand of the opener (A3: chip to the top left), and A5's last 1.2 s was a held still after the pour
+    (0.07 % of pixels changing): `max_len` 3.40 ends it on the last moving frame. Check chip corners against hands and the moving
+    object, and trim every AI take's still tail, before the render.

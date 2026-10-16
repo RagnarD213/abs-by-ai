@@ -166,3 +166,9 @@ for _it in PLAN:
         _c = _CH[_it["id"]]
         _it.update(kind="clip", src=[f"{_MF}/{_it['id']}.mp4@0"], label="AI-GENERATED", chip=(tuple(_c["chip"][0]), _c["chip"][1]),
                    max_len=round(_c["secs"] - 0.02, 3), note=_it.get("note", "") + f" | round 3 motion: {_c['take']} frames {_c['frames'][0]}-{_c['frames'][1]}")
+# round 4 independent review: (D1) A3's top-right chip covered the pouring hand's knuckles and the jar handle on every frame; the top
+# left is plain cabinet and window. (D2) A5's last 1.2 s is a held still (0.07 % of pixels change after the pour); end it on the
+# last moving frame (3.40 s of the clip) and go back to Dan for "of your hand". Never hold or slow a clip.
+for _it in PLAN:
+    if _it["id"] == "A3": _it["chip"] = ((54, 54), "lt")
+    if _it["id"] == "A5": _it["max_len"] = 3.40
