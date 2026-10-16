@@ -12,7 +12,7 @@ WO = [w for w in json.load(open(f"{W}/words_out.json")) if w["t0"] is not None]
 E = html.escape
 def mmss(t): return f"{int(t // 60)}:{t % 60:04.1f}"
 FIXES = [("apps by AI", "Abs By AI"), ("cloud plan", "Claude plan"), ("Kelly Blue", "Kelley Blue"), ("Robo Taxis", "robotaxis"), ("WhisperFlow", "Wispr Flow"),
-         ("Whisper flow", "Wispr Flow"), ("whisper flow", "Wispr Flow"), ("chat GPT", "ChatGPT"), ("absbyai .com", "AbsByAI.com"), (" ,000", ",000"), (" -", "-"), (" %", "%")]
+         ("Whisper flow", "Wispr Flow"), ("whisper flow", "Wispr Flow"), ("chat GPT", "ChatGPT"), ("paid cloud", "paid Claude"), ("whisper", "Wispr"), ("absbyai .com", "AbsByAI.com"), (" ,000", ",000"), (" -", "-"), (" %", "%")]
 def clean(t):
     for a, b in FIXES: t = t.replace(a, b)
     return t
@@ -65,7 +65,7 @@ for r in rows:
     beat = ""
     if r.get("beats"):
         beat = "<details><summary>Beat sheet (what moves on which word)</summary><table>" + "".join(
-            f"<tr><td>{mmss(b['t'])}</td><td>{E(b['word'])}</td><td>{E(b['beat'])}</td></tr>" for b in r["beats"]) + "</table></details>"
+            f"<tr><td>{mmss(b['t'])}</td><td>{E(clean(b['word']))}</td><td>{E(b['beat'])}</td></tr>" for b in r["beats"]) + "</table></details>"
     nm = NAMES.get(r["id"]); title = f"{E(nm)} <span class='tag'>{r['id']}</span>" if nm else r["id"]
     t1 = r["t1"] if r["t1"] else r["t0"]
     cards.append(f"""<article id="{r['id']}"><h3>{title} <span class="tag">{KIND.get(r['kind'], r['kind'])}</span> <span class="small">{mmss(r['t0'])} to {mmss(t1)}</span></h3>

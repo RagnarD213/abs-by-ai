@@ -115,15 +115,16 @@ class ClipReader:
             dur = float(subprocess.run([F.FF.replace("ffmpeg", "ffprobe"), "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", path],
                                        capture_output=True, text=True).stdout)
             assert dur - st >= m/FPS - 0.02, f"{self.it['id']}: {os.path.basename(path)} too short ({dur-st:.2f}s for {m/FPS:.2f}s) -- never hold a clip"
+            ct = int(self.it.get("crop_top", 0))      # RO-18: a recording that keeps its own iPhone status bar (B0035) loses it here
             if self.it["kind"] == "phone":
-                vf = "fps=30000/1001,format=rgb24"; size = None
+                vf = (f"crop=iw:ih-{ct}:0:{ct}," if ct else "") + "fps=30000/1001,format=rgb24"; size = None
             else:
                 vf = "fps=30000/1001," + G.clip_vf(self.it.get("zoom", 1.0), self.it.get("grade")); size = (1920, 1080)
             p = subprocess.Popen([FF, "-v", "error", "-ss", f"{st:.3f}", "-i", path, "-frames:v", str(m), "-vf", vf, "-f", "rawvideo", "-"], stdout=subprocess.PIPE)
             if size is None:
                 w, h = map(int, subprocess.run([F.FF.replace("ffmpeg", "ffprobe"), "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=width,height",
                                                 "-of", "csv=p=0", path], capture_output=True, text=True).stdout.strip().split(","))
-                size = (w, h)
+                size = (w, h - ct)
             for _ in range(m):
                 b = p.stdout.read(size[0]*size[1]*3)
                 assert len(b) == size[0]*size[1]*3, f"{self.it['id']} short read"

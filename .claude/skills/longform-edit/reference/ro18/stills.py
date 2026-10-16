@@ -36,7 +36,7 @@ for it in R:
         if it["kind"] == "clip":
             clip = G.clip_frame(src, G.src_start(it["src"][0]) + min(1.0, (t - it["t0"]) * 0.5), it.get("zoom", 1.0), it.get("grade"))
         else:
-            p = subprocess.run([G.FF, "-v", "error", "-ss", "5", "-i", src, "-frames:v", "1", "-vf", "format=rgb24", "-f", "image2pipe", "-vcodec", "png", "-"], capture_output=True).stdout
+            p = subprocess.run([G.FF, "-v", "error", "-ss", "5", "-i", src, "-frames:v", "1", "-vf", (f"crop=iw:ih-{int(it['crop_top'])}:0:{int(it['crop_top'])}," if it.get("crop_top") else "") + "format=rgb24", "-f", "image2pipe", "-vcodec", "png", "-"], capture_output=True).stdout
             clip = Image.open(io.BytesIO(p)).convert("RGB")
     if it["kind"] == "ai":
         im = Bd.ai_placeholder(it, 0, 10)

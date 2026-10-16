@@ -66,7 +66,17 @@ port: see the round's handoff. Never commit media.
     graphic, rows that appeared before their word, lower thirds under 3 s, a stock clip that did not show the line, repeated stock
     scenes, two dark clips). Brief the reviewer on the plan and rules only; `review/REVIEWER-BRIEF.md` is the template.
 
+16. **A screen recording that kept its own iPhone status bar shows two clocks and two islands in the phone card.** B0035 (660 x 1434)
+    has the recording's bar and red dot over scrolling content; the shell draws its own 9:41 bar. Phone items now take
+    `crop_top` (px in the source; B0035 needs 92) in `build.ClipReader` and `stills.py`. Look at the top 100 px of every library
+    recording before planning it into a phone card; B0544 is already clean.
+17. **A study-card value label can run past the card:** bars were scaled to a fixed width, so "about 150 words a minute" ended 33 px
+    outside the border. `gfx.study_card` now shrinks the bars so the longest label fits, and shows the detail line on its own word
+    (one more `reveal` than bars) or 0.6 s after the last row, never 1.6 s after the card opens.
+18. **A second, narrower independent re-check after the fixes found two more fix-level problems** (17 and 18 above). Budget one.
+
 ## Files
 `frames.py` (two rolls), `build.py` (roll_of, room tone per roll), `edl.py`, `plan.py`, `gfx.py` (tiles, dictate, split; the G16 case
-removed), `resolve.py`, `page.py`, `page_extra.py`, `titles.py`, `hair_pre.py`, `patch_words.py`, `chain_r1.sh`. AI frame prompts and
+removed), `resolve.py`, `page.py`, `page_extra.py`, `titles.py`, `hair_pre.py`, `patch_words.py`, `grid.py` (the 3 x 3 grid of this film's own graphics for P02), `chain_r1.sh`,
+`chain_r1b.sh` (stills to page), `chain_r1d.sh` (re-render only the blocks holding changed items). AI frame prompts and
 specs: `ai-frame-prompts/`, `frame-specs/`.

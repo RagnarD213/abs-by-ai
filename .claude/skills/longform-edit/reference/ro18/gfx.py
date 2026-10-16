@@ -71,15 +71,19 @@ def study_card(t, eyebrow, headline, detail, bars, rts=None):
         tt = t - .3 - i * .2
         if tt > 0: B.text(im, (x0 + 66, y0 + 120 + i * 78 + (1 - rise(tt)) * 20), ln, 62)
     by = y0 + 330; vmax = max(v for _, v, _, _ in bars)
+    lw = max(B.text_w(vt, B.font(32, True)) for _, _, _, vt in bars)   # RO-18 re-check: the longest value label stays inside the card
+    wmax = min(x1 - x0 - 480, x1 - 60 - (x0 + 90) - lw)
     for i, (lab, v, col, vt) in enumerate(bars):
         tt = t - (rts[i] if rts else 1.0 + i * .35)          # RO-18: each row on its word when the plan gives reveal times
         if tt <= 0: continue
         q = rise(tt, .9); y = by + i * 120
         B.text(im, (x0 + 70, y), lab, 30, B.WHITE)
-        w = (x1 - x0 - 480) * v / vmax * q
+        w = wmax * v / vmax * q
         B.rr(im, (x0 + 70, y + 46, x0 + 70 + max(6, w), y + 92), col, 12)
         if q > .6: B.text(im, (x0 + 90 + w, y + 50), vt, 32, col)
-    if t > 1.6: B.text(im, (x0 + 70, y1 - 70), detail, 22, (170, 200, 225), bold=False)
+    # the detail line: on its own word when the plan gives one more reveal than bars, else just after the last row lands
+    dt = rts[len(bars)] if rts and len(rts) > len(bars) else (max(rts[:len(bars)]) + .6 if rts else 1.6)
+    if t > dt: B.text(im, (x0 + 70, y1 - 70), detail, 22, (170, 200, 225), bold=False)
     return im
 
 def split_bar_card(t, eyebrow, headline, detail, parts):
