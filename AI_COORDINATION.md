@@ -92,6 +92,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **RO-20/B/C:R3b-REVIEW:8868:2026-10-16:Claude.** Studio pickups laid in. Next: Dan's pickup A/B + sign-off answers, then three films (handoff step 2).
 
 
+**RA-15 setup PICK 2026-10-16, Claude.** Five thumbnails on sheet; waiting Dan's pick. Next: upload both Unlisted, trial group, policy. `Handoffs/handoff-20261016-ra15-setup.md`
+
 **RA-05:POLICY-RECHECK:2026-10-16:Claude.** Live: `0DswKDBFW2E`, ad `828398569805` in review. Next 10-17: `node scripts/ads/api/client.js policy 24316364155`; clean, delete this.
 
 **RA-14 POLICY-RECHECK 2026-10-15,Claude.**
