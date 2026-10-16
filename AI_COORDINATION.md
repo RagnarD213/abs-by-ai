@@ -120,7 +120,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **RO-07 - HOLD 2026-10-11, Claude.** Blotato full. `Docs/RO07_SETUP_RECEIPT_20261011.md`
 
 
-**SL-06 R1 REVIEW 2026-10-13, Claude.** http://127.0.0.1:8817/ Lav pickups Thu. `Handoffs/handoff-20261012-sl06-round2-build-after-dan-review.md`
+**SL-06 R2 READY 2026-10-16, Claude.** Lav pickups in. `Handoffs/handoff-20261012-sl06-round2-build-after-dan-review.md`
 
 **SL-07 R3 READY 2026-10-16.** Pickups recorded. `Handoffs/handoff-20261016-sl07-round3-studio-pickups-and-full-review.md`
 

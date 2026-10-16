@@ -94,7 +94,7 @@ take rule (last clean take) unless the note says why not. Confirm each pick by e
 | 5 | SL-06 short A | 198.6 to 202.3; 203.6 to 207.3 | 203.6 to 207.3 | |
 | 6 | SL-06 short B, long | 212.1 to 216.1; 217.3 to 221.4 | 217.3 to 221.4 | |
 | 6 | SL-06 short B, short | 224.9 to 227.7; 229.0 to 231.8 | 229.0 to 231.8 | |
-| 7 | SL-06 short C | 233.8 to 235.4 (stops at "with a needle"); 237.6 to 242.3 | 237.6 to about 240.3 | take 2 says "step by step by... step": end it after the first "step by step" (about 240.0 to 240.3) |
+| 7 | SL-06 short C | 234.0 to 236.6; 237.8 to 240.4 (both complete; checked 10-16 with Whisper medium and the lav envelope: nothing is spoken after 240.4) | 237.8 to 240.4 | the earlier reading of a stopped take 1 and a "step by step by... step" take 2 came from Whisper small merging the two takes |
 | 8 | SL-06 short D | 245.7 to 248.7; 249.7 to 253.1 | 249.7 to 253.1 | |
 | 9 | SL-06 short E | 257.3 to 260.1; 261.5 to 264.4 | 261.5 to 264.4 | |
 | 10 | SL-07 short B | 281.5 to 283.5; 284.6 to 286.7 | 284.6 to 286.7 | |

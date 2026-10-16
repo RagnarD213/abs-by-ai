@@ -1,5 +1,9 @@
 CONTENT | SL-06 | Top 5 Zepbound Tips SFC R1
 
+> **2026-10-16: round 1 is done and its recording steps are history.** The pickups were recorded on the shoot lav (roll
+> C1722) and are chosen and matched. The next step is `handoff-20261012-sl06-round2-build-after-dan-review.md`; this file stays
+> the spec for the segment picks and Dan's words.
+
 # SL-06: record Dan's pickups, then build six Zepbound shorts (round 1)
 
 Written 2026-10-11 by Claude (Opus 5.5) at the end of the segment-selection session. Dan picked the segments and changed
