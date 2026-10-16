@@ -1380,6 +1380,14 @@ START (people waiting) and an END (people holding the thing), so build it as two
 is what lets a close sit off centre (use `landing.track` with `fixed_under=None` and a 1 % band when Dan asks for centring); and judge
 "too dark" B-roll by his body's skin inside a box on him, not by the panel mean.
 
+## RA-06 round 4: the 16:9 from an approved 9:16 (2026-10-15)
+
+Recipe and nine lessons: `reference/ra06/round4/README.md`. The three that would have shipped a defect: (1) run the full delivery
+gate on the approved 9:16 too; it found two caption collisions in a file Dan had approved. (2) In 16:9, app screens go beside Dan
+(`s06_beside16.py`), never as a small phone on an empty field; showing him under a former card exposes the source joins at its edges,
+so give each beside card a size that changes at every join. (3) The full-width 16:9 lower third covers his abs in a wide shot; use a
+narrow strip in the corner his body leaves clear.
+
 ## RA-01 lessons — first cut from the 8/28 outdoor portrait rolls (2026-09-18, three-role pipeline)
 
 Built as planner (Fable) → editor (Opus) → independent reviewer (fresh Fable), plan + rulings in
