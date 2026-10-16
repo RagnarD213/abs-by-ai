@@ -111,7 +111,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **DS28:R5:REVIEW:2026-10-15:Codex.** :8891. Next:Dan.
 
 
-**RA-07 R3 REVIEW 2026-10-14.** `handoff-20261014-ra07-fire-your-trainer-round4-after-dan-r3.md`
 
 **RO-19 HOLD 2026-10-13.** `Docs/RO19_SETUP_RECEIPT_20261013.md`
 
