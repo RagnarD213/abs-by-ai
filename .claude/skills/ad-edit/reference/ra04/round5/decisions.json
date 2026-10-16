@@ -46,5 +46,13 @@
    "what": "film ends at frame 1736 (57.92 s, was 58.89 s): last word ends 57.51 s, he holds a still smile 57.66-58.17 s; the last frame is inside it (round5/end_strip.jpg)"
   }
  ],
- "spend_usd_note": "three live generations on absbyai.com (server-side, a few cents each; estimated $0.30 total, provider receipts not itemised per call); Codex images on the subscription ($0). RA-04 total before this round: $5.80."
+ "spend_usd_note": "three live generations on absbyai.com (server-side, a few cents each; estimated $0.30 total, provider receipts not itemised per call); Codex images on the subscription ($0). RA-04 total before this round: $5.80.",
+ "approved_by_dan_2026-10-16": {
+  "words": "This looks good. This ad is finalized. Give me the handoff for setup.",
+  "scope": "round 5 full film, both aspects",
+  "masters": {
+   "9x16": "c97bd87651f32d66d53d499c4fea39866ca061f46a9a28e2161b40b6683db6cb",
+   "16x9": "d8d95ab3e74b40ea3708f28ae83b0942afbbaf8bb73d9068a494a1501704fdc4"
+  }
+ }
 }
