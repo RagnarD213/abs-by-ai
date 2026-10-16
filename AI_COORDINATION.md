@@ -82,6 +82,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Muhammad-Shorts QUEUED 2026-10-13.** DS-05 waitlisted 10-16; queued: set Edit Queue uploaded. `Docs/MUHAMMAD_SHORTS_SETUP_RECEIPT_20261013.md`
 
+**RA-07:R4-ACTIVE:2026-10-16:Claude.** Whole 9:16 with placeholders for the gym-closed and leg-press-out-of-order clips; their frames wait for Dan's yes. Work `/Volumes/Extreme/_edit_work/ra07/round4/`. Next: page on :8856, then motion only after Dan approves frames ($10 left of $20).
+
 **RO-20/B/C:R3b-ACTIVE:2026-10-16:Claude.** Laying C1722 pickups into first minutes, port 8868. Next: Dan's ear + sign-off answer, then three films.
 
 
