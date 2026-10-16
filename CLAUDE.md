@@ -21,6 +21,16 @@ Do not ask permission for anything reversible. Dan explicitly prefers aggressive
 
 When Dan asks a "what should we work on" / "what should I use my limit for" / "help me prioritize" type of question, the deliverable is the **prioritized recommendation itself — do NOT start executing the recommended work in that session.** Dan executes handoffs and recommended tasks in separate sessions on purpose, to save tokens and keep each execution session's context window clean. In a brainstorming session: read whatever is needed to ground the recommendation (board, coordination file, handoffs), give the priorities with reasoning, and stop. Bias toward action still applies fully once a session IS the execution session.
 
+## Suggested-task chips: plain language only (Dan, 2026-10-16)
+
+When you flag a side task with `spawn_task`, Dan sees a card with a title and a short description (the `tldr` field), and the full `prompt` only on hover. He cannot read the technical version and was asking in chat "what is this?" every time.
+
+- **`title`:** plain words a non-coder understands (e.g. "Fix a check that wrongly fails very short ads"), never function names, file names or flags.
+- **`tldr`:** two short sentences, no jargon, no file paths, no code, no numbers like "0.9 s" unless he would recognize them. Sentence 1: what went wrong or what you noticed, in everyday words. Sentence 2: what the new session will do and why it matters to him. If a technical term is unavoidable, translate it in the same sentence.
+- **`prompt`:** stays full and technical (paths, functions, rules, tests). It is for the next Claude, not for Dan.
+- Test before sending: would a smart friend who does not code understand the card without asking anything? If not, rewrite it.
+- Example: title "Fix a check that wrongly fails very short ads". tldr "While finishing the RA-12 ad, the automatic quality check said the AI label was missing on a very short card, but the label was there. The new session will fix the check so it stops raising false alarms."
+
 ## Shared-workflow requirements
 
 - Before doing project work, inspect the current Git state. `AI_COORDINATION.md` is already loaded above.
