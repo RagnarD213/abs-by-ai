@@ -1,3 +1,9 @@
+## Review-panel testing stays silent (Dan, 2026-10-16)
+
+- Never play sound from a review panel while checking its player, controls, seeking, format switches or playback speed. It interrupts Dan's work.
+- Mute the testing video or browser before pressing play. Keep it muted throughout the checks, and leave playback paused when finished. Hearing audio through model/file analysis does not require audible browser playback.
+- Only play a review panel aloud when Dan explicitly asks to hear it. This rule concerns assistant testing; preserve Dan's ability to play his review copy normally.
+
 ## Long-form round 1: first-minute draft and playable context (Dan, 2026-10-16, RO-26)
 
 - Every new long-form first round includes a playable first-minute draft, colour-correction options and level-matched audio options, including studio videos, alongside all graphics, photos and clips. Do not make Dan approve an isolated asset catalogue before he can see the first minute.
