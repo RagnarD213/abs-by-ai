@@ -167,11 +167,13 @@ def raw_files(shoot, config):
 def inventory(shoot, files):
     digest = hashlib.sha256()
     total = 0
-    newest = 0
+    # Finder can preserve a camera file's old timestamp while copying it.
+    # Directory activity gives the nightly job a recent-ingest signal.
+    newest = shoot.stat().st_mtime
     for p in files:
         st = p.stat()
         total += st.st_size
-        newest = max(newest, st.st_mtime)
+        newest = max(newest, st.st_mtime, p.parent.stat().st_mtime)
         digest.update(f"{p.relative_to(shoot)}\0{st.st_size}\0{st.st_mtime_ns}\n".encode())
     return {"fingerprint": digest.hexdigest(), "files": len(files), "bytes": total, "newest": newest}
 

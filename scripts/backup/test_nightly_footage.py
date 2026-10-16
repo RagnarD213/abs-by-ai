@@ -20,6 +20,7 @@ class CopyOnlyDriveTests(unittest.TestCase):
         old = time.time() - 3600
         os.utime(self.raw, (old, old))
         (self.shoot / backup.READY_MARKER).touch()
+        os.utime(self.shoot, (old, old))
         self.config = {"drive": self.shoot.name, "raw": ["."]}
         self.deadline = datetime.now(backup.TZ) + timedelta(hours=1)
 
@@ -45,6 +46,15 @@ class CopyOnlyDriveTests(unittest.TestCase):
             self.assertEqual(backup.copy_only_to_drive(state, self.deadline, False), 1)
         self.assertTrue(self.raw.exists())
         self.assertNotIn("drive_verified", state["shoots"][self.shoot.name])
+
+    def test_recent_folder_waits_even_when_camera_file_has_old_timestamp(self):
+        os.utime(self.shoot, None)
+        state = {"shoots": {}}
+        with patch.object(backup, "eligible_shoots", return_value=[(self.shoot, self.config)]), \
+             patch.object(backup, "rclone_transfer") as transfer:
+            self.assertEqual(backup.copy_only_to_drive(state, self.deadline, False), 0)
+        transfer.assert_not_called()
+        self.assertTrue(self.raw.exists())
 
 
 class ShootDiscoveryTests(unittest.TestCase):
