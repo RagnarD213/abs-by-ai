@@ -9,8 +9,8 @@ port: see the round's handoff. Never commit media.
   number of frames and of samples: 13800 x 1601.6), then C1715's lav. Every recipe script keeps working in virtual time;
   `frames.roll_of(f)` / `frames.roll_t(t)` map a virtual frame or second to (roll path, local time) for `frame_src`,
   `build.render_seg` and `hair_pre`. A piece never spans the gap. One medium.en pass and one Gemini listen cover both rolls.
-- **Room tone per roll** in `build.py` (C1714 285.5-288.5, C1715 virtual 985-988, both measured steady); the RO-14 timestamp
-  landed on speech here.
+- **Room tone per roll** in `build.py` (C1714 286.75-289.0, C1715 virtual 944.3-947.3, both measured steady and click-free); the
+  RO-14 timestamp landed on speech here.
 - **gfx scenes:** `tiles` (six pictures, 3 x 2, each rising on its word via `reveal_items`), `dictate` (what you say, the fillers
   struck out, what it types; rows on `reveal` words), `split` (one bar in two parts). `resolve.py` resolves a plain `reveal` list
   to `reveal_t` too.
@@ -56,6 +56,15 @@ port: see the round's handoff. Never commit media.
     session's frames with the same names. Scratch files go in the session's own scratchpad.
 12. **A vertical library clip in a 16:9 slot is centre-cropped:** A0089 (the dating-app clip) became a shirtless man's belly. Check
     the aspect of every library clip before planning it into a full-frame slot.
+
+13. **Room tone that starts on a click ticks at every join.** The first C1714 window (285.5) began on a small click; the reviewer heard
+    it at every C1714 piece edge. Listen to the chosen window on its own (and look at its peak) before using it.
+14. **A full-screen clip and a phone card that overlap wrap the picture.** `build.py` took one "current clip" for both; the app-tour
+    phone card at the close overlapped the last full-screen clip and the frame came out the wrong size. `resolve.py` now starts the
+    second one where the first ends, and `build.py` keeps one reader per item and asserts every frame is 1920 x 1080 RGB.
+15. **An independent check before Dan sees the page pays for itself:** 17 fix-level findings in round 1 (wording meant for Dan inside a
+    graphic, rows that appeared before their word, lower thirds under 3 s, a stock clip that did not show the line, repeated stock
+    scenes, two dark clips). Brief the reviewer on the plan and rules only; `review/REVIEWER-BRIEF.md` is the template.
 
 ## Files
 `frames.py` (two rolls), `build.py` (roll_of, room tone per roll), `edl.py`, `plan.py`, `gfx.py` (tiles, dictate, split; the G16 case

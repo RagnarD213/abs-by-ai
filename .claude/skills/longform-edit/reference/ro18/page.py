@@ -11,7 +11,12 @@ X = json.load(open(f"{OUT}/page_extra.json"))
 WO = [w for w in json.load(open(f"{W}/words_out.json")) if w["t0"] is not None]
 E = html.escape
 def mmss(t): return f"{int(t // 60)}:{t % 60:04.1f}"
-def speech(a, b): return " ".join(w["w"] for w in WO if a <= w["t0"] < b)
+FIXES = [("apps by AI", "Abs By AI"), ("cloud plan", "Claude plan"), ("Kelly Blue", "Kelley Blue"), ("Robo Taxis", "robotaxis"), ("WhisperFlow", "Wispr Flow"),
+         ("Whisper flow", "Wispr Flow"), ("whisper flow", "Wispr Flow"), ("chat GPT", "ChatGPT"), ("absbyai .com", "AbsByAI.com"), (" ,000", ",000"), (" -", "-"), (" %", "%")]
+def clean(t):
+    for a, b in FIXES: t = t.replace(a, b)
+    return t
+def speech(a, b): return clean(" ".join(w["w"] for w in WO if a <= w["t0"] < b))
 KIND = {"clip": "Clip", "scene": "Full-screen graphic", "fact": "Fact card", "title": "Section card", "ai": "AI clip slot (frames only)",
         "lt": "Lower third", "l3": "Side list (3A)", "phone": "Phone beside you"}
 NAMES = {it["id"]: it.get("name") for it in json.load(open(f"{W}/plan_resolved.json"))}
@@ -66,7 +71,7 @@ for r in rows:
     cards.append(f"""<article id="{r['id']}"><h3>{title} <span class="tag">{KIND.get(r['kind'], r['kind'])}</span> <span class="small">{mmss(r['t0'])} to {mmss(t1)}</span></h3>
 <a href="stills/{r['id']}.jpg"><img loading="lazy" src="stills/{r['id']}.jpg"></a><button onclick="play('context/{r['id']}-context - REVIEW 540p.mp4','{r['id']}')">Play it moving, in context</button>
 <div class="copy">{'<br>'.join(lines)}</div>{beat}
-<details><summary>Speech before / during / after</summary><p class="small"><b>before</b>: {E(r['before'])}<br><b>during</b>: {E(r['during'])}<br><b>after</b>: {E(r['after'])}</p></details></article>""")
+<details><summary>Speech before / during / after</summary><p class="small"><b>before</b>: {E(clean(r['before']))}<br><b>during</b>: {E(clean(r['during']))}<br><b>after</b>: {E(clean(r['after']))}</p></details></article>""")
 
 fm = X["first_minute"]
 page = f"""<!doctype html><html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Make Time, round 1</title>

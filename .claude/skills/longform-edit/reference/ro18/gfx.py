@@ -62,7 +62,7 @@ def title_card(t, step, headline, photo=None, label=None, layout="frame", chip=N
         if tt > 0: B.text(im, (x - 4, y + 98 + i * size * 1.22 + (1 - rise(tt)) * 26), ln, size)
     return im
 
-def study_card(t, eyebrow, headline, detail, bars):
+def study_card(t, eyebrow, headline, detail, bars, rts=None):
     """Glass card, headline, then bars [(label, value, color)] growing in; citation line under."""
     im = B.field(t); x0, y0, x1, y1 = 180, 150, 1740, 930
     B.glass(im, (x0, y0, x1, y1), t, U, 22)
@@ -72,7 +72,7 @@ def study_card(t, eyebrow, headline, detail, bars):
         if tt > 0: B.text(im, (x0 + 66, y0 + 120 + i * 78 + (1 - rise(tt)) * 20), ln, 62)
     by = y0 + 330; vmax = max(v for _, v, _, _ in bars)
     for i, (lab, v, col, vt) in enumerate(bars):
-        tt = t - 1.0 - i * .35
+        tt = t - (rts[i] if rts else 1.0 + i * .35)          # RO-18: each row on its word when the plan gives reveal times
         if tt <= 0: continue
         q = rise(tt, .9); y = by + i * 120
         B.text(im, (x0 + 70, y), lab, 30, B.WHITE)
@@ -226,6 +226,9 @@ def tiles_card(t, it):
         c, r = i % 3, i // 3; x = x0 + c * (tw + gx); y = y0 + r * (th + gy + 40) + (1 - rise(tt)) * 20
         B.photo_card(im, path, (x, y, tw, th), tt, 0, fit=True, u=U)
         if tt > .15: B.text(im, (x + 4, y + th + 16), lab, 32)
+    if it.get("footer") and it.get("reveal_t") and t > it["reveal_t"][0]:
+        q = rise(t - it["reveal_t"][0]); f = it["footer"]
+        B.text(im, (1770 - B.text_w(f, B.font(48, True)), 150 + (1 - q) * 14), f, 48, B.CYAN)   # right-aligned on the headline row
     return im
 
 def dictate_card(t, it):
@@ -252,7 +255,23 @@ def dictate_card(t, it):
     return im
 
 def split_card(t, it):
-    return split_bar_card(t, it["eyebrow"], it["headline"], it.get("detail", ""), [(a, b, tuple(c)) for a, b, c in it["parts"]])
+    """RO-18: one bar in parts, each part growing in on its word (it["reveal_t"]), its label under it."""
+    im = B.field(t); x0, y0, x1, y1 = 180, 150, 1740, 930
+    B.glass(im, (x0, y0, x1, y1), t, U, 22)
+    if t > .1: B.text(im, (x0 + 70, y0 + 60), it["eyebrow"], 28, B.CYAN)
+    for i, ln in enumerate(it["headline"].split("\n")):
+        tt = t - .3 - i * .2
+        if tt > 0: B.text(im, (x0 + 66, y0 + 120 + i * 78 + (1 - rise(tt)) * 20), ln, 62)
+    rts = it.get("reveal_t") or [1.0 + i * .5 for i in range(len(it["parts"]))]
+    bx0, bx1, by = x0 + 70, x1 - 70, y0 + 400; x = bx0
+    for (lab, share, col), rt in zip(it["parts"], rts):
+        q = rise(t - rt, .8) if t > rt else 0; w = (bx1 - bx0) * share * q
+        if w > 2:
+            B.rr(im, (x, by, x + w, by + 110), tuple(col), 16)
+            if q > .8: B.text(im, (x + 26, by + 128), lab, 30, tuple(col))
+        x += (bx1 - bx0) * share
+    if t > 1.6 and it.get("detail"): B.text(im, (x0 + 70, y1 - 70), it["detail"], 22, (170, 200, 225), bold=False)
+    return im
 
 def scene(it, t):
     k = it["scene"]
@@ -283,7 +302,7 @@ def scene(it, t):
             B.disclosure(im, it["label"], (960, (1080 - ph) / 2 - 10 * U + ph + 22 * U), U, anchor="mt")
         return im
     if k == "study" and it.get("bars"):
-        return study_card(t, it["eyebrow"], it["headline"], it["detail"], [(b[0], b[1], tuple(b[2]), b[3]) for b in it["bars"]])
+        return study_card(t, it["eyebrow"], it["headline"], it["detail"], [(b[0], b[1], tuple(b[2]), b[3]) for b in it["bars"]], it.get("reveal_t"))
     if k == "week": return week_card(t, it)
     if k == "tiles": return tiles_card(t, it)
     if k == "dictate": return dictate_card(t, it)

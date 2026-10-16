@@ -155,10 +155,15 @@ def render_range(a, b, out, placeholder_ai=True):
         t = g/FPS; im = Image.frombytes("RGB", (1920, 1080), buf)
         sg = next(s for s in segs if s["o0"] <= g < s["o1"])
         act = [it for it in items if fr(it["t0"]) <= g < fr(it["t1"])]
-        clip = None
+        clips = {}
         for it in act:
-            if it["id"] in readers: clip = next(readers[it["id"]])
-            if it["kind"] == "ai": clip = ai_placeholder(it, g - fr(it["t0"]), fr(it["t1"]) - fr(it["t0"]))
+            if it["id"] in readers: clips[it["id"]] = next(readers[it["id"]])
+            if it["kind"] == "ai": clips[it["id"]] = ai_placeholder(it, g - fr(it["t0"]), fr(it["t1"]) - fr(it["t0"]))
+        # RO-18: each item paints with ITS OWN clip (one shared variable let a phone screen frame be painted as a full-screen clip
+        # where the demo clip overlapped the phone card by 0.2 s: a 432x920 frame went to the encoder and wrapped the rest of the film)
+        fulls = [x for x in act if x["kind"] in ("clip", "ai") and x["id"] in clips]
+        phones = [x for x in act if x["kind"] == "phone" and x["id"] in clips]
+        clip = clips[fulls[-1]["id"]] if fulls else (clips[phones[-1]["id"]] if phones else None)
         if sg["shifted"] and sg["framing"] == "W2" and not any(x["kind"] == "phone" for x in act):
             im = B.shift_presenter(im, **G.SHIFT["W2"])          # W2 has only 144 px of room: keep the wall stretch
         pil = [x for x in act if not hf_item(x)]
@@ -167,6 +172,7 @@ def render_range(a, b, out, placeholder_ai=True):
             im = G.paint(im, t, span, sg["framing"], clip) if not any(x["kind"] == "ai" for x in pil) else clip
         if HCOMP.active(g):
             im = Image.fromarray(HCOMP.apply(np.asarray(im), g))
+        assert im.size == (1920, 1080) and im.mode == "RGB", (g, im.size, im.mode)
         enc.stdin.write(im.tobytes())
     enc.stdin.close(); enc.wait(); dec.wait()
     # ---- audio: lav on the shot timeline, audio B chain
@@ -187,8 +193,8 @@ def render_range(a, b, out, placeholder_ai=True):
         e = min(N, at+len(x)); v[at:e] += x[:e-at]
     # room tone at every join (+/-60 ms, 20 ms ramps) from a steady stretch of this roll (RO-18: per roll, below),
     # so a join never drops below the room (review r1: 60 ms at -75 dB where the air conditioning cycled)
-    # RO-18: one steady stretch per roll, measured: C1714 285.5-288.5 (-77 dB, std 3.0), C1715 virtual 985-988 (-75 dB, std 3.8)
-    RT = {False: L[int(285.5*SR):int(288.5*SR)].copy(), True: L[int(985.0*SR):int(988.0*SR)].copy()}
+    # RO-18: one steady stretch per roll, measured: C1714 286.75-289.0 (-79 dB; 285.5 began on a click that ticked every join, found by the round 1 independent check), C1715 virtual 944.3-947.3 (-66 dB, crest 3.0; 985 had a small transient)
+    RT = {False: L[int(286.75*SR):int(289.0*SR)].copy(), True: L[int(944.3*SR):int(947.3*SR)].copy()}
     for s in S:
         rt = RT[s["src_f0"] >= F.OFF_F]
         j = s["out_f0"]

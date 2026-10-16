@@ -84,6 +84,11 @@ def resolve():
                 if h["kind"] == "lt": h["t0"] = round(f["t1"] + 0.034, 4)
                 else: f["t1"] = h["t0"]
             if h["t0"] < f["t0"] < h["t1"]: h["t1"] = round(f["t0"] - (0.034 if h["kind"] == "lt" else 0), 4)
+    # RO-18: a full-screen item never overlaps a phone card: whichever starts second starts where the other ends
+    for p_ in [r for r in out if r["kind"]=="phone" and r["t1"]]:
+        for f in [r for r in out if r["kind"] in FULL and r["t1"]]:
+            if f["t0"] < p_["t0"] < f["t1"]: f["t1"]=p_["t0"]
+            elif p_["t0"] < f["t0"] < p_["t1"]: p_["t1"]=f["t0"]
     for a,b in zip(out,out[1:]):
         if a.get("pad_to_next"): a["t1"]=b["t0"]
     # RO-14: a full-screen item that starts < 0.5 s after the previous one ends starts where it ends (no 3-frame presenter flash
