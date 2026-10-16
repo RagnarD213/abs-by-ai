@@ -47,5 +47,19 @@ class CopyOnlyDriveTests(unittest.TestCase):
         self.assertNotIn("drive_verified", state["shoots"][self.shoot.name])
 
 
+class ShootDiscoveryTests(unittest.TestCase):
+    def test_date_first_shoot_is_included_without_photo_folders(self):
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory)
+            dated = source / "10:15 dan rose fitness shoot - studio and outdoor"
+            dated.mkdir()
+            (source / "Photo Shoots").mkdir()
+            (source / "Abs By AI Photo Shoots").mkdir()
+            with patch.object(backup, "SOURCE", source), patch.object(backup, "mounted", return_value=True):
+                shoots = backup.eligible_shoots()
+            self.assertEqual([(path.name, config) for path, config in shoots],
+                             [(dated.name, {"drive": dated.name, "raw": ["."]})])
+
+
 if __name__ == "__main__":
     unittest.main()

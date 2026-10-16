@@ -135,7 +135,8 @@ def eligible_shoots():
         low = name.lower()
         if low in {"photo shoots", "abs by ai photo shoots"}:
             continue
-        if "shoot" in low and (low.startswith("abs by ai ") or low.startswith("dan rose fitness ")):
+        dated_shoot = re.match(r"^\d{1,2}[:/／-]\d{1,2}\b", low)
+        if "shoot" in low and (low.startswith("abs by ai ") or low.startswith("dan rose fitness ") or dated_shoot):
             known[name] = {"drive": name, "raw": ["."]}
     # The unbacked welcome shoot comes first, then the newest shoot. Existing
     # Drive shoots are checked after those two.
