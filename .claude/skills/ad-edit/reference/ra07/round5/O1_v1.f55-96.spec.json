@@ -1,0 +1,53 @@
+{
+ "shot": "RA-07 round 5 take O1_v1, frames 55-96 as used in the film",
+ "start_frame": "O1_v1.mp4 frame 55 (720x1280); every box is in that frame's pixels",
+ "intent": "A gym member in a navy t-shirt and grey shorts, a white towel folded over his left shoulder, stands in front of a plate-loaded leg press with a yellow OUT OF ORDER sign hanging from a string over its backrest. Frames 55-96: his feet and hips stay where they are, his head turns from the sign to glance back over his right shoulder at the camera with a tired look, shoulders lifting in a small shrug. The machine, the sign, the plates, the dumbbell rack and the floor do not move. The camera is locked.",
+ "person": {
+  "reach": false
+ },
+ "camera": "locked",
+ "still": {
+  "sign": [
+   327,
+   539,
+   398,
+   631
+  ],
+  "plate_rim": [
+   624,
+   419,
+   720,
+   474
+  ],
+  "base_foot_left": [
+   318,
+   731,
+   371,
+   759
+  ],
+  "base_foot_right": [
+   490,
+   788,
+   570,
+   817
+  ],
+  "dumbbells": [
+   269,
+   356,
+   337,
+   413
+  ],
+  "rail_bolts": [
+   562,
+   712,
+   612,
+   757
+  ]
+ },
+ "hands": {
+  "right": "hanging at his side, empty, in START and END",
+  "left": "out of sight behind his body in START and END"
+ },
+ "may_change": {},
+ "bounds": {}
+}

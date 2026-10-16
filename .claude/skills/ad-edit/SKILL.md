@@ -1522,6 +1522,17 @@ Recipe: `reference/ra07/round4/` (s70r4 plan, s75r4 clips with `start_frame` pie
 5. **A placeholder band at y 760-1000 covers the sign and the machine in the contextual clip.** Put it on the floor (y about 1080-1280, above the caption ink at 1407) next time.
 6. The build waits behind other sessions' renders (`buildcap.wait`); queue one chain script (assemble, md5 check, cuts) and wait on its log for `WORK_DONE` and `CUTS_DONE`.
 
+## RA-07 round 5 lessons: motion for frame pairs that stop mid-step, and a gate that moved under us (2026-10-16)
+
+Recipe: `reference/ra07/round5/` (gen_motion5 with the round 4 pairs, s75r5 clips with a `retime` source, s70r5/s86r5 with PENDING empty, s92r5b K1 chips, s93r5 gate plan, s87r5 page, the two take specs).
+
+1. **A Kling take from a mid-stride START and a same-feet END walks in place for its first 2.5 s** (the man cycles his legs and does not travel against a locked camera), then stops and does the gesture. Find the window by tracking the shoes, use only the planted part (G1 frames 59-96, O1 frames 55-96), and say so; never cut the treadmill part in. The slot then opens on him already stopped, and clipcheck plus a fresh reviewer pass because nothing slides.
+2. **A 24 fps take enters the 29.97 film one source frame per film frame (1.25x):** `trim=start_frame=N:end_frame=N+n,setpts=N/(30000/1001)/TB` instead of `fps=30000/1001` (which repeats every fifth frame). Clip frames needed = slot frames, so pick the in-point from the end of the take.
+3. **Delivery gate 2.6.1 (same day) samples `compliance:labels` on whole frames at the start, middle and end of every declared beat.** A push-in card's chip reference must be accurate at the window edges: K1's 9-frame windows read 0.838 and 0.833 against 0.85. Draw the references from the component in 3-frame windows (`s92r5b_k1push.py`), never from the delivered file, and never touch the bound.
+4. **A re-render changes the bytes of frames next to the changed ones (30-frame GOPs).** Prove "everything else unchanged" by pixel difference (MSE under 0.3 outside the slots, 900+ inside), not by framemd5; md5 matched only up to the first changed GOP.
+5. **The Extreme drive hit 100% (176 MB free) mid-build:** the 540p cut and the A/B mux died with "No space left on device". Delete only regenerable frame dumps (`round*/checks/frames`, superseded `work_v*` pictures), never other sessions' files, and re-run the stage that failed.
+6. The audio gate's `tone` row (fixed bass lift) and one caption-timing miss on "20" at 21.3 s (inside the approved first 30 s) fail identically to round 3 and are reported, not tuned.
+
 ## RA-14 round 2 lessons: colour and framing on the 8/28 pool rolls (2026-10-13)
 
 Dan on round 1, which reused RA-01's grade and framing rule on roll C1667: "both are a little bit too tight" and "we can
