@@ -9,6 +9,10 @@ The model is Codex's WV-01 website video: its first one-shot attempt was rejecte
 locked (study: `/Volumes/Extreme/_edit_work/ro05-fable/CODEX_METHOD_STUDY.md`). Claude's RO-05 salad recut was built in one shot,
 passed four reviews, and was still rejected on sight for its intro, graphics and grade (2026-09-28).
 
+## Long-form first-round override (Dan, 2026-10-16, RO-26)
+
+For long-form, the first review round contains the first-minute DRAFT, colour options, level-matched audio options and all proposed assets in narrated context together. Do not defer the draft to step 5 or a later approval round. Use the recommended provisional look and available visuals; identify pending AI inserts and keep presenter footage until approved motion exists. Every graphic/photo/existing clip gets a playable edit excerpt with roughly 3–5 seconds of narration either side, using the shared floating, scrubbable player below. Still frames and isolated clips are supplementary. AI frame approval before motion and locked assets before the FULL film remain required. This overrides conflicting sequencing below.
+
 ## Before Dan sees anything: run the look and sound bake-off yourself, and ship the winner (Dan, 2026-10-10)
 
 Dan, after rejecting the RO-07 round 1 first minute for colour and sound and then choosing both of the editor's own
@@ -67,8 +71,7 @@ continues to guide organic videos and other formats.
 
 **Organic path (Dan, 2026-09-29):** use `$long-form-content-edit` with GPT-6 Sol throughout. Reuse the approved studio
 framing and graphic family after a source-specific check; include first-round colour and audio choices even for studio footage. Build still and motion checks internally for
-every new graphic and clip, but group only material new choices into one early look-and-assets packet. Show the
-finished first minute next, then the complete film after all assets are locked. Keep the AI start/end-frame approval
+every new graphic and clip. Include the first-minute draft, colour/audio options and narrated contextual asset previews together in the first round, then the complete film after all assets are locked. Keep the AI start/end-frame approval
 gate before new motion. Revisions reuse locked work and need only the affected previews.
 
 ## The review page: one layout, and a "What I decided" list on every packet (Dan, 2026-09-30)

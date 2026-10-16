@@ -1,3 +1,10 @@
+## Long-form round 1: first-minute draft and playable context (Dan, 2026-10-16, RO-26)
+
+- Every new long-form first round includes a playable first-minute draft, colour-correction options and level-matched audio options, including studio videos, alongside all graphics, photos and clips. Do not make Dan approve an isolated asset catalogue before he can see the first minute.
+- Every graphic and existing clip must play in its intended edit with actual narration and about 3–5 seconds before and after. Include entrance/exit and return to presenter. Isolated silent animation or B-roll is supplemental, never the only review evidence. Use the shared floating, scrubbable context player and test its sound and seeking.
+- The limited first-minute draft uses recommended provisional choices; identify pending inserts and retain presenter footage until AI motion is approved. New AI motion still requires approved start/end frames. The complete film still waits for required choices and assets to be locked. This supersedes older instructions to show the first minute only in a later round.
+- Photo correction: RO-26 O01 is AI-generated, confirmed by Dan. Never label it a real picture. See `Docs/memory/ro26-ai-pool-photo-correction.md` for exact asset identity; verify provenance before any real-picture label.
+
 ## First-round options and AI ideas: Claude and Codex use the same standard (Dan, 2026-10-16)
 
 - Every new video's first review round includes visible colour-correction choices and playable, level-matched voice choices, including studio videos. Start from the approved source-specific look/sound, but show meaningful alternatives and recommend one. This replaces the 2026-10-14 studio exemption from options; an internal blind comparison does not replace Dan's audition controls. Preserve choices already approved for that exact film unless Dan reopens them.

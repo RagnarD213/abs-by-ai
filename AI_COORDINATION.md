@@ -81,7 +81,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**RO-26:ACTIVE:2026-10-16:Codex.**
+**RO-26:R2-PICKS:2026-10-16:Codex:**[handoff](Handoffs/handoff-20261016-ro26-round2-context-and-ai-concepts.md)
 
 **RO-25:R2-IDEAS:2026-10-16:Codex.** Pending: `/Volumes/Extreme/_edit_work/RO-25/round2-plan/`.
 

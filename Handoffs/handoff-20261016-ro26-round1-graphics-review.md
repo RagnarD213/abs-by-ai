@@ -1,3 +1,5 @@
+> SUPERSEDED by [Dan’s round-2 corrections](handoff-20261016-ro26-round2-context-and-ai-concepts.md). O01 was AI-generated, not real. G05 design approved; other items require narrated context. Do not follow the old approval sequence below.
+
 # RO-26 round 1: visual choices waiting for Dan
 
 **Status 2026-10-16:** Round-1 graphics and clip packet is live at http://127.0.0.1:8982/ on Dan's Mac. The managed review server caches the linked assets locally and starts at login. Source page and assets: `/Volumes/Extreme/_edit_work/ro26/round1/review/`. Queue state is `draft_review`. Dan's call is to approve the visual choices or name changes by item number. No finished first minute or full film has been rendered or delivered.

@@ -1,3 +1,4 @@
+- [AI pool photo correction](ro26-ai-pool-photo-correction.md): dan by pool.png is AI-generated; never label real (Dan 2026-10-16)
 - [Member profile](member-profile.md): users.profile JSONB + quiz
 - [Android TWA build](android-twa-build-setup.md): keystore, build command
 - [iOS Capacitor app](ios-capacitor-app.md): status, build command
