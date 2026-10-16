@@ -84,7 +84,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-07:R4-ACTIVE:2026-10-16:Claude.** Whole 9:16 with placeholders for the gym-closed and leg-press-out-of-order clips; their frames wait for Dan's yes. Work `/Volumes/Extreme/_edit_work/ra07/round4/`. Next: page on :8856, then motion only after Dan approves frames ($10 left of $20).
 
-**RO-20/B/C:R3b-ACTIVE:2026-10-16:Claude.** Laying C1722 pickups into first minutes, port 8868. Next: Dan's ear + sign-off answer, then three films.
+**RO-20/B/C:R3b-REVIEW:8868:2026-10-16:Claude.** Studio pickups laid in. Next: Dan's pickup A/B + sign-off answers, then three films (handoff step 2).
 
 
 **RA-05:POLICY-RECHECK:2026-10-16:Claude.** Live: `0DswKDBFW2E`, ad `828398569805` in review. Next 10-17: `node scripts/ads/api/client.js policy 24316364155`; clean, delete this.

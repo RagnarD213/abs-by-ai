@@ -1,7 +1,11 @@
 # RO-20 / RO-20B / RO-20C "Invest In Your Health": round 3b, Dan's answers to the first minutes, then the three films
 
 **CONTENT (LFC), organic long-form, 16:9, three videos cut from one roll, one task. Sidebar name: `Invest In Your Health LFC R3b`.**
-Updated 2026-10-16 by the round 3 session (Claude Opus 5.5). **READY: the four pickups are recorded** on the shoot lav (10/15 shoot, roll C1722, green screen set) after Dan rejected the desk-mic sound on 10-13 ("Yeah, that audio doesn't work... I'm just going to record these pickups on my studio set instead"). Take map: `Docs/PICKUPS_1017_SHOOT.md`, section "Recorded 2026-10-15: where every take is (roll C1722)".
+Updated 2026-10-16 (later) by the round 3b session (Claude Opus 5.5). **Step 1 DONE, waiting on Dan:** the C1722 pickups are laid in and shown on
+http://127.0.0.1:8868/ (generator `recipe/page5_20.py`) with two questions: (1) do the studio pickups sit (A: cuts-only tone match, recommended and used in the clips;
+B: film chain only), (2) the sign-off sentence (Dan's starter prompt left the bracket unfilled, so it is asked again). Treatment, takes and lessons:
+`.claude/skills/longform-edit/reference/ro20/README.md`, "Round 3b". Pickups in `round3/pickups/` are option A (`OPT=match pickup_audio20b.py`);
+option B is in `round3b/opts/chain/`. Desk-mic outputs backed up in `round3/backup_desk_20261013/`. **Next: Dan's two answers, then steps 2 to 4.**
 
 ## Goal
 

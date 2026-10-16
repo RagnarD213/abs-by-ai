@@ -185,3 +185,23 @@ Scripts: `pickup_audio20.py` (takes, tone and level match to the film voice, roo
 - **Whisper word ends run early on soft last consonants** ("health", "it"): give a pickup 0.45 s after its last word before the join.
 - **Film range starts that were cuts in the long film have no lead-in** (video 3's "All right." begins 4 ms after the range start). For the
   films, take a short handle from the roll before the first word of each video's first film range.
+
+## Round 3b (2026-10-16): the pickups re-recorded on the shoot lav
+
+Scripts: `asr_c1722.py` (medium.en word times for the lav, waits for a build slot), `pickup_audio20b.py` (takes and three treatments, `OPT=chain|match|raw`),
+`join_listen20b.py` (blind join listen, repeated), `first_minutes_r3b.sh` + `join_r3b.py` (pickup segments and joins only; the film context clips are
+unchanged), `page5_20.py` (port 8868; the 10-13 page is kept as `index-r3-desk.html`).
+
+- **Same microphone is not the same sound.** Roll C1722's lav (green screen set) measured +10 to +12 dB at 80 to 125 Hz and +7 to +9 dB at 4 to 6 kHz
+  against the kitchen lav on speech, level normalised (the mic sat closer, more proximity bass and more air). The room itself was not the problem:
+  early decay 56 ms raw against the film's 52 ms after its light dereverb, so no dereverb. The film chain alone left a 4 to 5 dB tone gap; a cuts-only
+  third-octave match (boost cap 0, no synthetic room) brought it under 2 dB.
+- **The blind listener could not separate the three treatments** (21 listens each across three joins: film chain 5.2, cuts-only match 5.9, raw 6.0 out of 10
+  for "noticeable"; single scores still swung 2 to 9). The desk Yeti scored 8 every time. With the listener tied, the gate rows decided: the film chain failed
+  tone on two clips (peaks 2.9 dB) and the processing row on both first minutes; the match passed everything on video 1's ending and missed two rows by
+  0.002 and 0.06 dB. Both versions are on the page as an A/B for Dan's ear.
+- **On a review clip, the gate's tone and processing rows measure the clip against the reference voice, not the join.** The film-only context clips fail
+  them by more than the pickups do (tone peaks 2.7 to 4.1 dB; v2film processing 0.082). Do not tune pickups to these rows; the full film is where they mean something.
+- **The pickup lav's floor sits higher than the treated film's** (-43 to -50 dBFS against -50 after level match), so the film's room tone was not added under it:
+  the floor rises at the join instead of dropping. Two words flat-top for up to 5 samples (P2 at 60.25 s, P3's first word): not audible, left alone.
+- **Whisper medium.en confirmed every take word for word against the approved scripts** before anything was built; P2 is take 1 (take 2 drops a clause).
