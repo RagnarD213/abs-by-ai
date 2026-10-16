@@ -63,11 +63,16 @@ sessions (and any other assistant, if one is in use).
   have written to it. Edit only your own entry.
 - **Board budget: at most 2,500 words; each bold-titled entry at most 80 words and dated.**
   Run `scripts/board-check.sh` after editing the board; compress before finishing if it fails.
+  The hook fails only the session that edited the board; that session trims its own entry, never another's.
+- **The board holds open coordination only (Dan, 2026-10-16).** Decisions only Dan can make go in
+  `Docs/DAN_DECISIONS.md` (dated, `Decision since:` kept). Unexecuted handoffs are listed only in the OPEN
+  section of `Handoffs/README.md`; the board's HANDOFFS section is a one-line pointer there.
 - Report finished work in chat and the morning brief, never as FYI on the board.
   The morning brief follows `Docs/BOARD_MORNING_MAINTENANCE.md` for aging and weekly cleanup.
 - When a task is finished, delivered and approved, **delete its entry**, having first put
   anything durable where it belongs: techniques and traps in the relevant skill, code history
-  in Git, unexecuted work in `Handoffs/`, lasting facts in memory, standing rules here.
+  in Git, unexecuted work in `Handoffs/` + `Handoffs/README.md`, Dan's open decisions in
+  `Docs/DAN_DECISIONS.md`, lasting facts in memory, standing rules here.
 
 ## Standing authorization for routine provider configuration
 
