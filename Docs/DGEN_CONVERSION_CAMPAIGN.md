@@ -51,6 +51,14 @@ at that time. Re-run the command to re-check.
 **Dan's copy rule (2026-09-10):** no claim that reads unbelievable without the video's context. *"This
 picture got me abs"* is too much; *"How I get abs at 40"* / *"How AI got me abs"* are the shapes to reuse.
 
+## 2026-10-16: RA-04 "Top 3 Tips For Getting Abs" added to the trial campaign, 9:16 + 16:9
+
+- **Campaign** `24316364155` (ENABLED, budget `15911255930` read **$30/day** before and after, not changed; now shared by one more ad group).
+- **Ad group** `204926161127` "RA-04 Top 3 Tips": ENABLED, $40 target CPA (copied from RA-14's group), US + CA, English, Audience `359952376`.
+- **Ads:** `828272644005` = 9:16 `8vKyOqqbe-s` (asset `430714710960`, utm_content `claude-9x16-vsl`); `828398458259` = 16:9 `wCfKZT-m1aw` (asset `430628598994`, `claude-16x9-vsl`). Final URL `https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ra04&utm_content=<aspect>-vsl`, same domain and page as the campaign's other ads.
+- **Copy (linted):** headlines Top 3 Tips For Getting Abs / How AI Got Me Abs / How I Got Abs At 40 / Make Your Goal Your Lock Screen / A Plan That Adjusts With You. Long: Daniel Rose shares his top three tips for getting six pack abs with AI. / Here is how I use AI to picture my goal, plan my workouts and adjust my plan. / See your goal body, get a plan built for it, and let AI handle the setbacks. Descriptions: Daniel Rose shows three simple ways he uses AI for his workouts and meals. / AI fitness tips explained by a guy who did it at 40 years old. / When you get injured or miss the gym, AI adjusts your plan for you.
+- Logo `400941168572`, CTA `401407635767`, business name Abs by AI. Built by `scripts/ads/api/dgen-trial-group.js ra04` (config `dgen-ads/ra04.json`, result `ra04.result.json`). Policy 10-16: both REVIEW_IN_PROGRESS, nothing disapproved in the campaign (`dgen-ads/ra04.policy-20261016.txt`); recheck 10-17.
+
 ## 2026-10-14: RA-14 "The Cheat Code For Six Pack Abs" added to the trial campaign, thumbnail A/B
 
 - **Campaign** `24316364155` (ENABLED, budget `15911255930` read **$30/day** before and after, not changed; now shared by 7 ad groups).

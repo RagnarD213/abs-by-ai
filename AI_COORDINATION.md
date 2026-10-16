@@ -96,7 +96,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-15:R4-READY:2026-10-16.** `handoff-20261016-ra15-round4-cutout-to-camera.md`
 
-**RA-04:PICKS:2026-10-16:Claude.**
+**RA-04 POLICY-RECHECK 2026-10-16,Claude.**
 
 **RO-17:R4-REVIEW:8880:2026-10-15:Claude.**
 

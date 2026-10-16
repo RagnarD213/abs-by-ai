@@ -10,12 +10,12 @@
   "businessName": "Abs by AI",
   "videos": [
     {
-      "youtubeId": "PENDING_UPLOAD",
+      "youtubeId": "8vKyOqqbe-s",
       "version": "Claude 9:16",
       "utm": "claude-9x16"
     },
     {
-      "youtubeId": "PENDING_UPLOAD",
+      "youtubeId": "wCfKZT-m1aw",
       "version": "Claude 16:9",
       "utm": "claude-16x9"
     }
@@ -38,5 +38,6 @@
       "AI fitness tips explained by a guy who did it at 40 years old.",
       "When you get injured or miss the gym, AI adjusts your plan for you."
     ]
-  }
+  },
+  "thumbnail": "Design B split screen (vacuum, salad, medicine-ball crunch), blue title; social media graphics/youtube/thumbnails/RA-04 Top 3 Tips For Getting Abs/RA-04 | <aspect> | FINAL.jpg"
 }
