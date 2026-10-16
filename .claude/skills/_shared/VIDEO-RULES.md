@@ -25,6 +25,20 @@
   never print a number, user count or comparison he cannot back (memory `ad-copy-no-unbelievable-claims`), and a line he
   ad-libbed that is NOT in the script can still be raised in one line.
 
+## Junk footage between takes is never a cutaway (Dan, 2026-10-16)
+
+- **A shot of Dan between takes (drinking water, looking away or down, resetting, waiting) is junk footage. Never use it as
+  B-roll or a cutaway in any video, and never direct an editor to it.** Dan, on Muhammad's DS-11 Weigh Daily V3, where the
+  clip of him drinking from his green bottle covered "your weight swings three pounds on water alone": *"I want to remove
+  this clip of me drinking water at 43 seconds and just use the camera scene. Generally, I don't think this is a good clip
+  to use. If we need something to illustrate water, we'll film new B-roll of me actually looking at the camera. This wasn't
+  intended to be used as footage. This is just junk footage... make a note to not use these kinds of clips where I'm looking
+  away and drinking water. That's junk footage between takes."*
+- How to apply: a cutaway of Dan must be footage he filmed AS B-roll, acting the line out (the never-standing-around rule
+  above). Raw-roll moments between takes are not B-roll even when they show the thing he names. If a line needs a picture
+  that only exists as between-takes footage, leave him on camera and put the shot on the next shoot's B-roll list. Library
+  clip `B0479` (the green bottle) is rejected; reviewers flag any clip of this kind in an editor's cut as a removal item.
+
 ## Never a shot of Dan just standing around (Dan, 2026-10-14)
 
 - **A cutaway of Dan standing, posing or waiting, doing nothing that illustrates the line, is never used.** Dan, removing
