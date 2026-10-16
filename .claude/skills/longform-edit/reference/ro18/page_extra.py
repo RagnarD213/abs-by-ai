@@ -21,7 +21,7 @@ AI = [
  dict(id="A2", name="Voice-to-text rage", action="A guy on his couch holds his phone to his mouth and whines into it; then he lowers it and glares at the screen in disgust. His lips are synced to YOUR recorded impression voice on the line (you do the whiny voice there, as on RO-06), the way you liked it on RO-06 and RO-20.",
       fallback="You on camera doing the voice.", cost="6 s take about $0.90, plus about $0.50 of lip sync. If the sync fails its check once, it goes in with his mouth shut and your voice over it (your 10-12 rule)."),
  dict(id="A6", name="Robot mower, kettlebell on the patio", action="The script's own cue. A white robot mower cuts neat stripes across a suburban lawn while a fit man does kettlebell swings on the patio in front of it. Plays under 'Buy a robot lawnmower like you're seeing on the screen right now'.",
-      fallback="Your own robot mower footage from Thursday's shoot (decision 4), or a Pexels push mower.", cost="6 s take, about $0.90."),
+      fallback="Your own robot mower footage from Saturday's (10/17) shoot (decision 4), or a Pexels push mower.", cost="6 s take, about $0.90."),
  dict(id="A7", name="The teacher slams the laptop", action="An empty classroom after school. A teacher at her desk, red pen in hand, stares at her laptop in outraged shock (she is watching this video); then she slams it shut, crosses her arms and scowls at the camera.",
       fallback="You on camera.", cost="5 s take, about $0.75."),
  dict(id="A8", name="Essays by hand", action="A dorm room at 2 AM. A heavy-set student writes an essay by hand on a legal pad, surrounded by textbook stacks, chips and an energy drink; he puts the pen down and shakes out his cramping hand, wincing at the stack still left.",
@@ -34,8 +34,8 @@ decisions = [
  "<b>Opener (0:00 to 0:07), under \"You don't have belly fat because you lack knowledge. You have belly fat because you don't have the time to work out and eat right.\"</b> (a) <b>The treadmill clothes rack</b> (A1, recommended): a busy man at his laptop glances back at his treadmill buried under laundry. (b) You on camera.",
  "<b>AI clip frames: which of the 6 get motion?</b> Name any to drop. All 6 are below with their frames and the line each plays under. Motion is about $0.15 a second: all 6 first takes about $6.00 plus about $0.50 of lip sync on the voice-to-text guy, about $8 to $11 with the retakes I expect, inside the $15 long-form cap. My ranking: The treadmill clothes rack, Nobody at work has to know, The teacher slams the laptop, Voice-to-text rage, Essays by hand, Robot mower.",
  "<b>Wispr Flow on screen.</b> The script cues your phone and Mac running Wispr Flow and a typing-vs-dictating race; neither was filmed, and your ScreenFlow demo is still on your side (DS-26 waits for it too). This round shows Pexels dictation and typing clips, a 'what you say vs what it types' card and a typing-vs-talking card. (a) <b>Upload the ScreenFlow demo</b> and I put your real Wispr Flow under \"You hold down a button, you talk...\" (0:55), recommended: real beats stock. (b) Keep it as is.",
- "<b>Robot mower footage.</b> You say \"like you're seeing on the screen right now\" (4:21). Thursday's shoot films your own mower for DS-29. (a) <b>Swap in your real mower after Thursday</b> (recommended: real beats AI; the AI mower clip then drops). (b) Keep the AI clip A6.",
- "<b>Equipment.</b> On \"All you need is a yoga mat, push-up handles, a pair of light dumbbells, a kettlebell, an ab wheel, and a jump rope. And you're seeing that on screen right now\" (2:36) I built a six-picture card, each picture landing on its word (the push-up handles are yours, from your 3-minute workout video). Thursday's shoot also films the six pieces. (a) <b>Keep the card</b> (recommended: it names each piece as you say it). (b) Your Thursday footage instead.",
+ "<b>Robot mower footage.</b> You say \"like you're seeing on the screen right now\" (4:21). Saturday's (10/17) shoot films your own mower for DS-29. (a) <b>Swap in your real mower after Saturday's shoot</b> (recommended: real beats AI; the AI mower clip then drops). (b) Keep the AI clip A6.",
+ "<b>Equipment.</b> On \"All you need is a yoga mat, push-up handles, a pair of light dumbbells, a kettlebell, an ab wheel, and a jump rope. And you're seeing that on screen right now\" (2:36) I built a six-picture card, each picture landing on its word (the push-up handles are yours, from your 3-minute workout video). Saturday's (10/17) shoot also films the six pieces. (a) <b>Keep the card</b> (recommended: it names each piece as you say it). (b) Your Saturday footage instead.",
 ]
 
 locked = ("the 9/23 studio colour (look C) and the wide/tight framing (W2/T2) from the website video and RO-10 to RO-17; the approved studio voice "
@@ -63,7 +63,7 @@ decided = [
 ]
 
 reply = ("1. Opener: (a) treadmill clothes rack / (b) camera\n2. AI clips to drop: \n3. Wispr Flow: (a) I'll upload the ScreenFlow demo / (b) keep as is\n"
-         "4. Robot mower: (a) swap in my real mower after Thursday / (b) keep the AI clip\n5. Equipment: (a) keep the card / (b) my Thursday footage\n\nOther notes (item ID + what to change):\n")
+         "4. Robot mower: (a) swap in my real mower after Saturday's shoot / (b) keep the AI clip\n5. Equipment: (a) keep the card / (b) my Saturday footage\n\nOther notes (item ID + what to change):\n")
 checks = []
 if fm_gate:
     rows = fm_gate.get("rows", []); bad = [r.get("key", r.get("name", "?")) for r in rows if not r.get("ok", r.get("pass", True))]
