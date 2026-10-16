@@ -152,6 +152,8 @@ Each step is its own round unless the items are ready together. Nothing later st
 
 ## How a round works
 
+Use the current [video editing task naming rule](VIDEO-RULES.md#video-editing-task-names-dan-2026-10-16) for the chat and every handoff starter: recognizable video title, content type (LFC/SFC/SFL as applicable), then R1/R2/etc. Keep job IDs inside the handoff, not in its proposed chat title.
+
 - **One round is one session.** It starts from the previous round's handoff, reads the decisions file, and re-hashes every locked file
   (record expected vs actual) before touching anything. It builds in a new `roundN/` folder and never overwrites a reviewed round.
 - **Show only what changed or is still pending.** Locked items appear as a record list, never as a question. Stay inside the decision

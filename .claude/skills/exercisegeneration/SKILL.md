@@ -3,6 +3,10 @@ name: exercisegeneration
 description: Generate a photorealistic AI exercise demo video for the Abs By AI Trainer — AI-Dan (Dan's likeness in the logo tank top) performing the movement in the canonical gym as a seamless looping rep, narrated by Dan's cloned voice reading the form cues. Use whenever Dan asks to generate exercise demos, demo videos, replace stick figures, or run a batch of exercises from the library — even if he doesn't say "/exercisegeneration". For ad videos use /make-ad; for retouching Dan's real photos use /photo-edit.
 ---
 
+## Video editing task names (Dan, 2026-10-16)
+
+At the start of a video editing/review task, name the chat `<Recognizable Video Title> <Type> R<round>` under the [shared naming rule](../_shared/VIDEO-RULES.md#video-editing-task-names-dan-2026-10-16). Use LFC for long-form, SFC for dedicated shorts, and SFL for shorts extracted from long-form; retain existing paid-ad type labels. Put the recognizable video title first, omit internal job codes and generic action prefixes, and use the same name in handoff prompts. Asset/brief work supporting an existing editing task keeps that task's name and round.
+
 > **Image generation: Codex only (Dan, 2026-10-01).** Every still image this skill generates (backgrounds, plates, AI frames, thumbnails, covers, posts, retouch passes) is made with `.claude/skills/_shared/codex-image.sh` on the ChatGPT subscription. Where the steps below name Nano Banana Pro, Gemini, Seedream, FLUX, `gemini-image.js`, `rep-t2i.js` or `replicate-edit.js` for a still image, use the helper instead. Read `.claude/skills/_shared/IMAGE-GENERATION.md` first. Video generation is unchanged.
 
 Read `_shared/VIDEO-RULES.md` first.

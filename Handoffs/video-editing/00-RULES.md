@@ -20,6 +20,8 @@ before editing it". Retired by this rule: AV-13 and AS-12 (ad formats of the org
 
 ## 1. Before you start (every job)
 
+Name the editing chat `<Recognizable Video Title> <Type> R<round>` using the shared VIDEO-RULES naming section. Use LFC, SFC or SFL for the applicable content workflow; keep existing ad labels for ads. The video title comes first; queue IDs stay out of sidebar titles. Use the same format in handoff starter prompts.
+
 1. **Check that the job is still open.** Open `Handoffs/video-editing/00-MASTER.md` and read the job's row. If it says DONE,
    IN PROGRESS (someone else) or BLOCKED, stop and tell Dan. Then read `AI_COORDINATION.md` from disk and look for an
    ACTIVE entry naming the same video.

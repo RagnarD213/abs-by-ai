@@ -3,6 +3,10 @@ name: editor-deliveries
 description: File a freelance editor's FINAL high-quality video into the project folder under the fixed naming convention — and decide, from the Upwork thread, whether a delivery is final or a draft. Used by the daily `editor-deliveries-daily` scheduled task and whenever Dan says "file Muhammad's / Zeeshan's / Waleed's ad", "organize the ads folder", or "download the HD version". Reviewing a cut is /revisions; this skill only files finished ones.
 ---
 
+## Video editing task names (Dan, 2026-10-16)
+
+At the start of a video editing/review task, name the chat `<Recognizable Video Title> <Type> R<round>` under the [shared naming rule](../_shared/VIDEO-RULES.md#video-editing-task-names-dan-2026-10-16). Use LFC for long-form, SFC for dedicated shorts, and SFL for shorts extracted from long-form; retain existing paid-ad type labels. Put the recognizable video title first, omit internal job codes and generic action prefixes, and use the same name in handoff prompts. Asset/brief work supporting an existing editing task keeps that task's name and round.
+
 # /editor-deliveries — file finished editor cuts, ignore drafts
 
 Built 2026-09-08 from Dan's instructions in the "Ads folder organization" session. The rule, the

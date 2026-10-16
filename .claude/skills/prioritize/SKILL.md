@@ -3,6 +3,10 @@ name: prioritize
 description: Brainstorm and rank what Dan should work on next — "what should I use my limit for", "what's the priority", "help me plan my hour/day". Reads the dashboard, coordination file and open handoffs, then delivers a ranked recommendation with a ready-to-paste starter prompt per item. NEVER executes the recommended work — Dan runs execution in separate sessions to preserve tokens and context.
 ---
 
+## Video editing assignments
+
+Name proposed video editing chats `<Recognizable Video Title> <Type> R<round>`: LFC for long-form, SFC for dedicated shorts, SFL for shorts extracted from long-form. Retain existing paid-ad type labels. Use a brief recognizable video title first, no queue ID or generic action prefix, and preserve the actual round. Full rule: `/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared/VIDEO-RULES.md`, "Video editing task names". This affects proposed editing chats, not this planning chat's own title.
+
 # /prioritize — brainstorming & prioritization session
 
 **Dashboard PAUSED 2026-10-05 (Dan):** do not read or write the Victory Dashboard (`/api/todos`, `/api/task-checks`, `/api/plan`) until Dan says the Codex rebuild is ready. Plan from his message, `AI_COORDINATION.md`, `Docs/DAN_DECISIONS.md`, handoffs and task lists only.

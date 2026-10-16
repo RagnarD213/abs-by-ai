@@ -214,17 +214,12 @@ Full rule: read `.claude/skills/_shared/VIDEO-RULES.md`.
 
 Full rule: read `.claude/skills/_shared/VIDEO-RULES.md`.
 
-## Video task names in the sidebar (Dan, 2026-10-01)
+## Video task names in the sidebar (Dan, 2026-10-16)
 
-- Every video task renames itself at the start, and every handoff starter prompt states the name. The name **begins with
-  2-4 words that identify the video**, so Dan can tell which video it is from the first few words in the sidebar. Then
-  the type: `LFC` long-form content, `SFC` short-form content, `AD` ad.
-- Editing tasks end with the round: `<2-4 word title> <type> R<round>`, e.g. `Calories Don't Matter LFC R1`. A new round
-  gets the next R number.
-- Upload and setup tasks end with `Setup` instead: `<2-4 word title> <type> Setup`, e.g. `Stop Deadlifting SFC Setup`.
-- **Ad format variations (Dan, 2026-10-02):** a task that makes other formats of an ad puts the formats before `Ad`:
-  `V` vertical, `S` square, `Sh` short (the 0:59 cutdown), joined with slashes. All three: `You're Not Too Old V/S/Sh Ad R1`.
-  Vertical only: `You're Not Too Old V Ad R1`. Use this for every ad variation task and its handoff starter prompt.
+- Every video editing task uses `<Recognizable Video Title> <Type> R<round>`: a few words that identify the video, then its type, then `R1`, `R2`, etc. Examples: `Top 1% LFC R2`, `I'm 41 Wasted Life LFC R2`, `Stop Deadlifting SFC R1`, `Top 1% SFL R1`.
+- `LFC` means long-form content; `SFC` means dedicated short-form content; `SFL` means shorts extracted from long-form. Existing paid-ad labels remain `AD` (with existing V/S/Sh format markers where applicable). This is a sidebar naming rule, not a change to job IDs or internal content schemas.
+- Rename at the start, preserve the actual round on resume, and use the same format in recommended task names and handoff starter prompts. Never put queue IDs in the chat title or lead with `Prepare`, `Edit`, `Continue` or an editor's name. The video title comes first. Use the condensed `R2`, not `Round 2`.
+- Upload/setup tasks retain their `Setup` suffix. Full editing naming rule: `.claude/skills/_shared/VIDEO-RULES.md`, "Video editing task names".
 
 ## Image generation goes through Codex (Dan, 2026-10-01)
 

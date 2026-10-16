@@ -3,10 +3,11 @@ name: revisions
 description: Review a video cut delivered by an editor (human or a cheaper-model pipeline session) and produce a revisions document in Dan's exact format — timestamped, with specific directions, specific replacement text, and direct links to the exact assets to use. Use whenever Dan shares a video (usually a Google Drive link) and asks to "review it", "give revisions", "write up revision notes", or "check the editor's cut" — even if he doesn't say "/revisions". Also use it for STATUS CHECKS on an editor's batch ("did he make the revisions?", "what's still outstanding?", "he says he sent everything — is anything left?") and whenever Dan needs a paste-ready message written to an editor in his voice. For revising videos OUR pipeline will re-render itself, /ad-edit and /longform-edit remain the execution skills; this skill produces the review document.
 ---
 
-Read `_shared/VIDEO-RULES.md` first.
+## Video editing task names (Dan, 2026-10-16)
 
-**Task name (Dan, 2026-10-01):** every revisions task renames itself at the start to the editor's first name plus
-"revisions" (`Muhammad revisions`, `Zeeshan revisions`), so Dan can find it in the sidebar.
+At the start of a video editing/review task, name the chat `<Recognizable Video Title> <Type> R<round>` under the [shared naming rule](../_shared/VIDEO-RULES.md#video-editing-task-names-dan-2026-10-16). Use LFC for long-form, SFC for dedicated shorts, and SFL for shorts extracted from long-form; retain existing paid-ad type labels. Put the recognizable video title first, omit internal job codes and generic action prefixes, and use the same name in handoff prompts. Asset/brief work supporting an existing editing task keeps that task's name and round.
+
+Read `_shared/VIDEO-RULES.md` first.
 
 **Round 4 and later: one minor leftover is accepted, not sent back (Dan, 2026-10-10).** *"This is an example of
 something on round 4 that we can just accept for something minor like this. I would have requested that change in

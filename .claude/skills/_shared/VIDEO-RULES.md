@@ -1,3 +1,10 @@
+## Video editing task names (Dan, 2026-10-16)
+
+- Rename every video editing chat at the start to `<Recognizable Video Title> <Type> R<round>`. Put a brief, recognizable video title first, in a few plain words. Use `R1`, `R2`, etc., not `Round 1` or `Round 2`. Examples: `Top 1% LFC R2`, `I'm 41 Wasted Life LFC R2`, `Stop Deadlifting SFC R1`, `Top 1% SFL R1`.
+- Content types: `LFC` = long-form content; `SFC` = a dedicated short-form content video; `SFL` = shorts extracted from a long-form content video. Use SFL for those extraction/editing tasks, including batches. Existing AD and ad-format type labels continue for paid ads, in the same title-first, type, R-number order.
+- Never put queue/job codes such as RO-25, ORO-25, RO-617, DS- or SL- numbers in the sidebar title, or lead with generic instructions such as `Prepare`, `Edit` or `Continue`. Keep internal IDs in job records, handoffs and filenames where needed. This changes task naming, not internal categories, IDs or schemas.
+- Apply the same title to proposed editing tasks and ready-to-paste handoff prompts. Preserve the actual round when resuming; advance it only for a new editing/review round. Use the available chat-title tool to apply the name. This supersedes older editor-first names such as `Muhammad revisions` and inconsistent SFC labels for shorts extracted from long-form.
+
 ## Review-panel testing stays silent (Dan, 2026-10-16)
 
 - Never play sound from a review panel while checking its player, controls, seeking, format switches or playback speed. It interrupts Dan's work.
@@ -474,7 +481,7 @@ always the one making these thumbnails."*
   stop wasting hard drive space. Do that for this and every video going forward."*
 - How to apply: copy the full-quality delivered file (not the 540p review copy), named so he can tell which video and
   round it is from the name alone, starting with the task name: `<task name> - <what it is>.mp4`, for example
-  `Daily Salad SFC R3 - short 4 - Stop Buying Salad Dressing.mp4`. After a re-render he will review, replace the copy.
+  `Daily Salad SFL R3 - short 4 - Stop Buying Salad Dressing.mp4`. After a re-render he will review, replace the copy.
   Then open the folder for him (`open "Videos to Review"`) and list the file names in the chat message beside the page
   link. The review page is still built every time.
 - **When Dan finalizes a video, delete its copies from `Videos to Review/` in that same session.** They are copies for
@@ -767,6 +774,7 @@ no content-style edits of ads ("such as making 5 shorts out of an ad").
 | long-form content | `LFC` | Shorts cut out of it, each standing alone | `/shorts` | a full-length vertical, a square, a 1-minute version of the whole video |
 | ad | `AD` | the vertical (`V`), the square (`S`) and the 1-minute cut (`Sh`) of the ad | `/shortad-from-longform` | a batch of organic Shorts mined from the ad |
 | dedicated Short | `SFC` | nothing: it is already the short | | any re-format |
+| Shorts extracted from long-form content | `SFL` | already the derived Shorts | `/shorts` | ad-format adaptations of the source film |
 
 - **Decide the category before any edit work**, the same way the upload rule below decides it (the video's own ending:
   a tap-the-button call to action is an ad; anything softer is content), and write it on the first line of the task

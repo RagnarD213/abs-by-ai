@@ -7,6 +7,10 @@ name: ai-clip-ideas
 description: Brainstorm AI-generated concept-clip ideas to illustrate a specific line or moment in one of Dan's videos, generate START and END keyframes for EVERY idea up front, then — after Dan picks — generate the keyframe-locked video clip. Use whenever Dan asks for "AI clip ideas", "an AI-generated clip for this line", a visual gag to open a video, or to illustrate a concept in an ad or content video — even if he doesn't say "/ai-clip-ideas". For exercise demos use /exercisegeneration; for full AI-generated ads use /make-ad; for finding EXISTING footage use /findassets.
 ---
 
+## Video editing task names (Dan, 2026-10-16)
+
+At the start of a video editing/review task, name the chat `<Recognizable Video Title> <Type> R<round>` under the [shared naming rule](../_shared/VIDEO-RULES.md#video-editing-task-names-dan-2026-10-16). Use LFC for long-form, SFC for dedicated shorts, and SFL for shorts extracted from long-form; retain existing paid-ad type labels. Put the recognizable video title first, omit internal job codes and generic action prefixes, and use the same name in handoff prompts. Asset/brief work supporting an existing editing task keeps that task's name and round.
+
 Proven end-to-end on 2026-08-31 (Ad 2 "nutritionists obsolete" museum-exhibit opener — Dan: "This
 process worked well, and I like the result"). Follow the flow exactly; every step below earned its
 place in that session.

@@ -3,6 +3,10 @@ name: plantheday
 description: Plan and prioritize Dan's workday for Abs By AI from his current ideas, relevant recent tasks, and a checked dashboard. Produce a realistic schedule and ready-to-paste task prompts with model and effort recommendations. Use for /plantheday, planning today or tomorrow, or deciding what deserves today's attention.
 ---
 
+## Video editing assignments
+
+Name proposed video editing chats `<Recognizable Video Title> <Type> R<round>`: LFC for long-form, SFC for dedicated shorts, SFL for shorts extracted from long-form. Retain existing paid-ad type labels. Use a brief recognizable video title first, no queue ID or generic action prefix, and preserve the actual round. Full rule: `/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared/VIDEO-RULES.md`, "Video editing task names". This affects proposed editing chats, not this planning chat's own title.
+
 # Plan the day
 
 Help Dan decide what deserves his time, contribute a few well-grounded ideas, and produce a usable day plan. Business priorities: profitability, adoption, product quality, then marketing performance. Explain decisions plainly and challenge busywork that crowds out the main outcome.

@@ -3,6 +3,10 @@ name: findassets
 description: Find an asset Dan called for in a revision note — a B-roll shot, a clip from one of our own finished videos, a stock or AI clip, a photo — then CUT the exact portion out, upload just that portion to Google Drive, and drop the link into the revision doc at the right place. Use whenever Dan writes a revision that names footage instead of linking it ("replace this with footage of me doing X", "use the clip from the Y video", "find that B-roll"), or leaves a "[CLAUDE - FIND THIS CLIP...]" placeholder in a doc — even if he doesn't say "/findassets". Writing the revision review itself is /revisions; re-rendering our own cuts is /ad-edit and /longform-edit.
 ---
 
+## Video editing task names (Dan, 2026-10-16)
+
+At the start of a video editing/review task, name the chat `<Recognizable Video Title> <Type> R<round>` under the [shared naming rule](../_shared/VIDEO-RULES.md#video-editing-task-names-dan-2026-10-16). Use LFC for long-form, SFC for dedicated shorts, and SFL for shorts extracted from long-form; retain existing paid-ad type labels. Put the recognizable video title first, omit internal job codes and generic action prefixes, and use the same name in handoff prompts. Asset/brief work supporting an existing editing task keeps that task's name and round.
+
 Read `_shared/VIDEO-RULES.md` first.
 
 # /findassets — locate the asset, cut it, upload it, link it
