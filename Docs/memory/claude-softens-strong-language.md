@@ -19,5 +19,9 @@ wording on disease claims in ads (a sensitive Google Ads category), never on fit
 **How to apply:** in any content plan, outline, brief or script for Dan, keep his exact charged and hyperbolic words;
 never neutralize a label or a claim in an intermediate step (the writer copies whatever wording it is given). My own
 finding, not his words: on the bench every softened word he flagged came from Claude's neutral content brief, so
-the softening happens in the in-between steps as much as in the final draft. Related: [[dan-voice-guide]],
+the softening happens in the in-between steps as much as in the final draft. **Confirmed 2026-10-16:** right after the test, Dan had Claude write a short script, "never tolerate a fat wife or
+girlfriend", in his language. Verdict: not exactly his, but "significantly better", the Claude tells removed, "a good
+example of how to use my language when dealing with this type of topic". The script and what made it work are in
+`.claude/skills/_shared/voice/profanity-and-controversy.md` (last section; Claude's text, never a bank sample).
+Related: [[dan-voice-guide]],
 [[scripts-his-wording-not-his-ramble]], [[swearing-never-cut-never-ask]], [[audit-focus-growth-not-compliance]].
