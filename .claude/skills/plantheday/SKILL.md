@@ -17,11 +17,11 @@ Rename every planning task at the start, without being asked: `PRIORITIES - MON 
 
 ## Evidence and conversation
 
-**Dashboard PAUSED 2026-10-05 (Dan):** do not read or write the Victory Dashboard (`/api/todos`, `/api/task-checks`, `/api/plan`) until Dan says the Codex rebuild is ready. Plan from his message, `AI_COORDINATION.md`, handoffs and task lists only.
+**Dashboard PAUSED 2026-10-05 (Dan):** do not read or write the Victory Dashboard (`/api/todos`, `/api/task-checks`, `/api/plan`) until Dan says the Codex rebuild is ready. Plan from his message, `AI_COORDINATION.md`, `Docs/DAN_DECISIONS.md`, handoffs and task lists only.
 
 1. Start with Dan's current ideas, stated priorities, deadlines, energy, and constraints. These are the primary source. Do not make him repeat information already supplied.
 2. Ask early for missing work windows, appointments, or a decision that changes the plan; continue independent reading while awaiting his answer. Without exact times, give ordered blocks and label assumptions.
-3. Read `AI_COORDINATION.md`, inspect pinned and relevant recent tasks with available task tools, and read only the handoffs needed for candidate work. Prefer compact status and final messages over complete tool histories. Use returned task titles verbatim. A pin is not proof work is unfinished; distinguish running, review-ready, blocked, completed, and unknown.
+3. Read `AI_COORDINATION.md` (open coordination), `Docs/DAN_DECISIONS.md` (Dan's open decisions) and the OPEN section of `Handoffs/README.md` (unexecuted handoffs), inspect pinned and relevant recent tasks with available task tools, and read only the handoffs needed for candidate work. Prefer compact status and final messages over complete tool histories. Use returned task titles verbatim. A pin is not proof work is unfinished; distinguish running, review-ready, blocked, completed, and unknown.
 4. Read the live dashboard at https://absbyai.com/dashboard through its APIs using `.claude/skills/dashboard-tasks/SKILL.md` for authentication and mechanics. Read `/api/todos`, `/api/task-checks`, and `/api/plan`; interpret completion from task-checks. If access fails, disclose it and proceed using current conversation and verified local context.
 5. The dashboard and coordination board are fallible memory. Check dated or contradictory rows against newer evidence before reviving them. Do not turn the entire backlog into today's agenda. Check editor-deliveries `state.json` pending items when relevant; do not send or file editor work within planning.
 

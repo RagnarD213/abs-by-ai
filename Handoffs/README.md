@@ -4,8 +4,8 @@ Every handoff document for Abs By AI, in one place. 225 documents (index updated
 
 A handoff is a self-contained brief written so a fresh session can pick up work with no prior context.
 
-**Since 2026-09-08 a handoff does NOT get a dashboard row automatically** (Dan's rule). The table below and the
-HANDOFFS section of `../AI_COORDINATION.md` are the record; the ones Dan has said to fire also sit on the
+**Since 2026-09-08 a handoff does NOT get a dashboard row automatically** (Dan's rule). This README is the only list
+of open handoffs (the board's HANDOFFS section is a one-line pointer here since 2026-10-16); the ones Dan has said to fire also sit on the
 dashboard's **Handoffs to fire** list with a copy-able starter prompt. A session that executes one removes it from all three.
 Anything not in the Open table is executed, superseded or dead — history only.
 

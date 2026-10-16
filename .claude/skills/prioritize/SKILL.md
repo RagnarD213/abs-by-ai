@@ -5,7 +5,7 @@ description: Brainstorm and rank what Dan should work on next — "what should I
 
 # /prioritize — brainstorming & prioritization session
 
-**Dashboard PAUSED 2026-10-05 (Dan):** do not read or write the Victory Dashboard (`/api/todos`, `/api/task-checks`, `/api/plan`) until Dan says the Codex rebuild is ready. Plan from his message, `AI_COORDINATION.md`, handoffs and task lists only.
+**Dashboard PAUSED 2026-10-05 (Dan):** do not read or write the Victory Dashboard (`/api/todos`, `/api/task-checks`, `/api/plan`) until Dan says the Codex rebuild is ready. Plan from his message, `AI_COORDINATION.md`, `Docs/DAN_DECISIONS.md`, handoffs and task lists only.
 
 ## The one hard rule
 
@@ -40,7 +40,8 @@ Output shape in evening mode: a **timeline for the day** — tonight's 5-minute 
 
 1. **Dashboard tasks:** these endpoints are key-gated as of 2026-08-19 — set `DASH=$(grep '^DASH_SECRET=' ~/.absbyai-secrets.env | cut -d= -f2-)` first, then `curl -s -H "X-Dash-Key: $DASH" https://absbyai.com/api/todos` and `curl -s -H "X-Dash-Key: $DASH" https://absbyai.com/api/task-checks` (a bare curl now returns 401) — what's open, what priority, what's already done. Remember `business` displays as `money`.
 2. **`AI_COORDINATION.md`** — the active task, anything another session owns right now (do not recommend work that would collide with it), and "EXACT NEXT ACTION" lines.
-3. **Unexecuted handoffs:** the dashboard's `handoffs` list (the "Handoffs to fire" card — each row already carries its starter prompt and model), the HANDOFFS section of `AI_COORDINATION.md` and the Open table in `Handoffs/README.md` (since 2026-09-08 handoffs are never auto-added to the board), plus any dashboard row whose `why` names a `handoff-*.md` file — cross-checked against the coordination file for whether they already ran.
+   **`Docs/DAN_DECISIONS.md`**: the open decisions only Dan can make (moved off the board 2026-10-16). Any that unblock a recommended item go first, with the decision's age from its date or `Decision since:`.
+3. **Unexecuted handoffs:** the dashboard's `handoffs` list (the "Handoffs to fire" card; each row already carries its starter prompt and model), the OPEN section of `Handoffs/README.md` (the only handoff list since 2026-10-16; never auto-added to the dashboard since 2026-09-08), plus any dashboard row whose `why` names a `handoff-*.md` file; cross-checked against the coordination file for whether they already ran.
 4. **Anything time-sensitive:** deadlines recorded in task `why` fields or the coordination file (store-review windows, targetSdk dates, ad-account states, shoot dates).
 5. **Editor deliveries waiting on Dan's call** (added 2026-09-08): `cat .claude/skills/editor-deliveries/state.json` and read `pending`. Each row is an Upwork editor file (Muhammad / Zeeshan / Waleed) that the daily `editor-deliveries-daily` task could not classify as final or draft. **Mention every pending row in the session** — "Muhammad sent `<file>` for Ad N on <date>; is it the final? Say final and a session files it, or draft and it's dropped." — and if Dan answers in this session, either file it per `/editor-deliveries` (this is the one execution allowed here, it is a download and a `mv`) or delete the row. Empty list → say nothing.
 
