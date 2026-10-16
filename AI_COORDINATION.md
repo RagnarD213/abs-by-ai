@@ -36,7 +36,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **SL-09:PICKS:2026-10-15:Claude.**
 
-**RA-16:R3-ACTIVE:2026-10-16:Codex.** B/medium/intro/warm-bass locked. Reviewing eight existing asset contexts at `/Volumes/Extreme/_edit_work/ra16/round2/`. Next: checked asset review on :8976, then both <=59s masters after remaining asset approval.
+**RA-16:R3-BUILD-WAIT:2026-10-16:Codex.** B/medium/intro/warm-bass locked. Independent eight-asset review done; caption collision and double-layer fixes queued behind build cap. Work `/Volumes/Extreme/_edit_work/ra16/round3/`, worker `recipe/round3_render.py`. Next: inspect native QA, refresh :8976, remaining asset approval, then both <=59s masters.
 
 
 
