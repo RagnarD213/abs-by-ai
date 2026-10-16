@@ -117,3 +117,19 @@ Scripts: `round3/` here (work-dir copies of everything that changed). Order:
 26. **A scrolling app screen needs a crop per segment** (`segs` may carry their own crop): the B0049 generating screen scrolls, so
     one crop sliced its text at the top in one part and the bottom in another.
 27. **In the 9:16 the CTA must not build over an AI picture of Dan** (the lock card): it starts as the card ends.
+
+## Round 4: the cardboard cutout out, Dan on camera (2026-10-16)
+
+Dan's round 3 answer: everything approved except the cutout card ("That clip didn't really land"); use a camera scene. Scripts: `round4/` here
+(work-dir copies). Order: delete the `cutout` entry in `s05_plan15.py` (the 41.742 pause splice then splits the span into two holds, so
+`LEVELS` has 10 entries: `...NEAR,FAR,NEAR,NEAR,FAR`), `s04b_holdstart.py beats.json`, `s04c_body.py`, `s05_plan15.py`, then `gfx16.py` (the
+16:9 manifest drops the cutout plate), `s07_captions.py` and `s10_render05.py` both shapes, mux with the unchanged `mix_bass_r3c.wav`.
+Cards, graphics and audio are not rebuilt (their frame counts did not change).
+
+28. **Two holds in a span that had been one card: the size alternation decides which is wide.** Body width in the span is 650-680 px
+    against a NEAR crop of 594, so a NEAR hold touches an edge; the short (1.4 s) hold gets NEAR, the 2.7 s hold FAR. Checked with
+    `round4/s_edgecheck.py`: 0 touches in the FAR hold, 4 frames in the NEAR one (the same as round 3's "twice" shot).
+29. **`Interrupted system call` on the external drive killed two long steps** (`s04c_body.py` at frame 2278, `gfx16.py` on an ffprobe).
+    Retry the step; `s04c_body.py` now retries each read.
+30. **A watch-pass judge may list the macOS `._sheet_*.jpg` resource-fork files instead of the sheets**; rename the entries before `--judge`.
+31. **The delivery gate's framing rows count 9 of 10 holds** here (both independent reviewers measured the skipped one by hand); not a build fault.

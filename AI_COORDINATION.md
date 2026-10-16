@@ -25,7 +25,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**RA-13:R3-ACTIVE:2026-10-16:Codex.** Most Guys Abs: vertical exact-frame centering, B0550 generation/results in one phone, matching analysis image. R2 protected. Next: scoped build, full checks and independent review; page :8973. Work `/Volumes/Extreme/_edit_work/ra13/round3/`.
+**RA-13:R3-ACTIVE:2026-10-16:Codex.** Most Guys Abs: vertical exact-frame centering, B0550 generation/results in one phone, matching analysis image. R2 protected. Next: scoped build, full checks and independent review; page :8973. Work `/Volumes/Expansion/Abs By AI Edit Work/ra13/round3/` (Extreme full).
 
 **Fat Millionaire SFC R4 BLOCKED 2026-10-16, Codex.** This is the active task in Dan's screenshot. Stale DS-05 held; live Blotato has no DS-05 booking. Next: free build slot, supplied corrections, full QC/independent review, then Dan approval. Packet: `Handoffs/handoff-20261016-ds05-correct-version.md`. No date selected.
 
@@ -99,7 +99,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-31:R1-REVIEW:8931:2026-10-15:Claude.**
 
-**RA-15:R4-ACTIVE:2026-10-16:Claude.** Cutout card out, Dan on camera 39.01-43.18; work `/Volumes/Extreme/_edit_work/ra15/round4/`. Next: build, gates, review, deliver.
+**RA-15:R4-REVIEW:8978:2026-10-16:Claude.** Cutout out, Dan on camera 39.0-43.2; gates 38/39, both reviews SHIP. Next: Dan's review of http://127.0.0.1:8978/ (files in Videos to Review). `Claude Ad Videos/never pay a nutritionist again - RA-15/notes.md`.
 
 **RA-04 POLICY-RECHECK 2026-10-16,Claude.**
 
