@@ -152,7 +152,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-15:R4-READY:2026-10-16.** `handoff-20261016-ra15-round4-cutout-to-camera.md`
 
-**RA-04:PICKS:2026-10-16:Claude.** Five thumbnails in 9:16 + 16:9 await Dan; then upload + trial campaign. `handoff-20261016-ra04-setup.md`
+**RA-04:PICKS:2026-10-16:Claude.**
 
 **RO-17:R4-REVIEW:8880:2026-10-15:Claude.**
 
