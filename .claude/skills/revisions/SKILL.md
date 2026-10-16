@@ -643,6 +643,36 @@ place, and kept the "template approved and locked" block with its two notes for 
     "One small thing is left" and the close still asked for a new export; both were corrected in the live doc in the
     same session, before the message went out.
 
+### Calibration pass 13: Dan's edits to Muhammad's round 3 and 4 shorts and an HD export (2026-10-16)
+
+Doc `1MSGEToSR_tXDndUVFaFNF0oNQxwLHlB6mggTOPn0pP0`, first draft `revision docs/shorts-revisions-muhammad-10-15-26.md`. We
+finalized all six. Dan kept three finalized and reopened three: *"you did a good job accepting a few of the videos, but
+there were a few critical things you missed here... on the one hand, we're not being too picky about small things in these
+final rounds of revisions, but for things like this, which are significant, I would like to request a change."*
+
+76. **A picture that contradicts the line, or does not show it, is significant on ANY round, including an HD export of an
+    approved cut.** What he reopened:
+    - Fat Millionaire HD, 0:10.4 - 0:14.4: his fat deck-chair before picture under "First, it is rarer. About 8% of men
+      are millionaires", with the "Six-Pack Abs Are 4X RARER" key point over it. Dan had stamped this cut FINALIZED himself
+      in round 3; we checked only that the HD matched it frame for frame. *"Using that fat picture of me when I said
+      having six-pack abs... is a significant error."* He asked for a full screen card (our build) in its place.
+    - Weigh Daily V3, 0:42.8 - 0:45.2: the clip of him drinking water, looking down, between takes (VIDEO-RULES, "Junk
+      footage between takes"). *"This is just junk footage."*
+    - Top 3 Ways V3, 0:06.4 - 0:08.1: the AI after picture full screen under "Then set it as your lock screen". He wants it
+      on an iPhone as its lock screen, so the picture shows the idea in the line.
+    - How to apply: on every round, and on every HD light check, write one line per picture beat (photo, clip, AI
+      picture, app screen): the words under it and what the picture shows. An approved cut, an earlier round and a
+      frame-identical HD prove nothing about this (VIDEO-RULES "Scene-content and freeze review"). Rule 71's "would a
+      viewer see it" test is for form details and small leftovers; it never clears a picture that says the opposite of
+      the sentence, a between-takes shot, or a picture that leaves out the thing the line names.
+77. **Once one significant item opens a round, the smaller upgrades ride along (rule 72, confirmed).** With those three
+    open he also changed the closing top graphic on two of them: *"I wouldn't have requested that graphic if that was the
+    only thing wrong with the video, but given that we're already requesting the revisions, I think it makes sense."*
+78. **The last top graphic is the takeaway, not the title again.** Both times the editor repeated the title as the closing
+    graphic; Dan replaced it with eyebrow `THE LESSON` and a one-line takeaway in his words ("Focus On Getting Abs First,
+    Then Money Later", "AI Is The Ultimate Tool For Getting Six-Pack Abs"). When a round is already open, write that item
+    (and build the graphic, step 6b) wherever the closing graphic repeats the title.
+
 **Dan's vocabulary — use his words:** "camera scene" (the talking head), "motion effect" (the
 Ken Burns move on stills), "accelerate footage to fit duration", "clip", "bro", "douchey". A simple
 item is one line in that register; keep the longer form only where the editor needs exact text,
