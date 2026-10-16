@@ -25,7 +25,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**RO-26:R2-REVISIONS:2026-10-16:Codex:** Dan reviewing :8982. Nutrition B selected and frames approved; motion authorized only for B, not generated. High-school incline replacement still fails anatomy QA. Flight Club source, retouched portraits, black-belt photo and Dan Hinge animation staged. Next: repair workout pair, collect notes, generate approved nutrition motion and rebuild contexts. Detail: `/Volumes/Extreme/_edit_work/ro26/round2/revisions-20261016/revisions.json`.
+**RO-26:R2-REVISIONS:2026-10-16:Codex:** Dan reviewing :8982. Three archive choices approved; quicker2.0/1.8/2.2s cuts then exact Flight Club agency shot queued behind build cap. Revised context needs picture/audio QA before publication. Nutrition B frames approved; workout replacement needs anatomy repair and approval. Next: inspect queued export, update context, finish remaining revisions. Detail: `/Volumes/Extreme/_edit_work/ro26/round2/revisions-20261016/revisions.json`.
 
 **RO-25:R2-NEEDS:2026-10-16:Codex:** Frames review8825; previews parked for capacity. Packet: `/Volumes/Extreme/_edit_work/RO-25/round2/WORK_PACKET.md`.
 

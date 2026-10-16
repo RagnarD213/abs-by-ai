@@ -3611,11 +3611,11 @@
    "codexModel": "GPT-6 Sol, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-26-im-41-my-life-is-top-1-how-i-did-it.md` with `$long-form-content-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
    "state": "draft_review",
-   "note": "Dan selected Nutrition B, Patio Salad Bite, and approved its exact frame pair on2026-10-16. Motion authorized for N-B only, not generated yet. Workout replacement remains pending anatomy corrections and frame approval. Retouched portraits, exact Flight Club speech, black-belt photo and Dan Hinge animation staged. User still reviewing :8982; collect remaining notes and rebuild affected contexts. /Volumes/Extreme/_edit_work/ro26/round2/revisions-20261016/revisions.json",
+   "note": "Dan approved three Six Pack Shortcuts clip choices but requested quicker cuts. Revised shot lengths2.002/1.802/2.169s, followed by exact verified real Flight Club speech3.003s over agency sentence166.533-169.536s. Revised BUSINESS context queued behind build cap; picture/audio QA and page publication pending. Nutrition B frames approved; workout replacement still needs anatomy correction and frame approval. Current review preserved at :8982. Details /Volumes/Extreme/_edit_work/ro26/round2/revisions-20261016/revisions.json",
    "needs": "",
    "order": 160,
    "updated": "2026-10-16",
-   "rev": 12,
+   "rev": 13,
    "syncedRev": 10,
    "editor": "Codex",
    "by": "Codex"
