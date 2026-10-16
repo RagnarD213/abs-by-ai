@@ -59,6 +59,15 @@ picture got me abs"* is too much; *"How I get abs at 40"* / *"How AI got me abs"
 - **Copy (linted):** headlines Top 3 Tips For Getting Abs / How AI Got Me Abs / How I Got Abs At 40 / Make Your Goal Your Lock Screen / A Plan That Adjusts With You. Long: Daniel Rose shares his top three tips for getting six pack abs with AI. / Here is how I use AI to picture my goal, plan my workouts and adjust my plan. / See your goal body, get a plan built for it, and let AI handle the setbacks. Descriptions: Daniel Rose shows three simple ways he uses AI for his workouts and meals. / AI fitness tips explained by a guy who did it at 40 years old. / When you get injured or miss the gym, AI adjusts your plan for you.
 - Logo `400941168572`, CTA `401407635767`, business name Abs by AI. Built by `scripts/ads/api/dgen-trial-group.js ra04` (config `dgen-ads/ra04.json`, result `ra04.result.json`). Policy 10-16: both REVIEW_IN_PROGRESS, nothing disapproved in the campaign (`dgen-ads/ra04.policy-20261016.txt`); recheck 10-17.
 
+## 2026-10-16: RA-05 "How AI Can Get You Real Six Pack Abs" added to the trial campaign
+
+- **Campaign** `24316364155` (ENABLED, budget `15911255930` read **$30/day** before and after, not changed; now shared by one more ad group).
+- **Ad group** `199904676174` "RA-05 Real Six Pack Abs": ENABLED, $40 target CPA (checked live against RA-14's `199824307366`), US + CA, English, Audience `359952376` (RA-01's trial Audience).
+- **Ad** `828398569805` "RA-05 Real Six Pack Abs | Claude 9:16 | vsl" = `0DswKDBFW2E` (asset `430628964901`), thumbnail option 6 (AI Dan with a hologram coach, WHY AI IS THE ULTIMATE TRAINER). Final URL `https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ra05&utm_content=claude-9x16-vsl`.
+- **Copy (linted):** headlines How AI Can Get You Real Six Pack Abs / How AI Got Me Abs / How I Got Abs At 40 / See Yourself With Your Goal Body / Why AI Is The Ultimate Trainer. Long: Daniel Rose shows how guys are using AI to plan their workouts and meals. / Here is how AI turns a picture of your goal body into a workout and meal plan. / Generate a picture of your goal body, then follow a plan built for that goal. Descriptions: Daniel Rose shows how AI builds a workout and nutrition plan from your goal picture. / AI fitness coaching explained by a guy who did it at 40 years old. / See yourself with your goal body, then get a training and meal plan built for it.
+- Logo `400941168572`, CTA `401407635767`, business name Abs by AI.
+- Built by `scripts/ads/api/dgen-trial-group.js ra05` (generic version of `dgen-ra14.js`; config `dgen-ads/ra05.json`, result `ra05.result.json`). Policy 10-16: REVIEW_IN_PROGRESS, nothing in the campaign disapproved or limited (`dgen-ads/ra05.policy-20261016.txt`); recheck 10-17.
+
 ## 2026-10-14: RA-14 "The Cheat Code For Six Pack Abs" added to the trial campaign, thumbnail A/B
 
 - **Campaign** `24316364155` (ENABLED, budget `15911255930` read **$30/day** before and after, not changed; now shared by 7 ad groups).
