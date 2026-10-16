@@ -103,6 +103,9 @@ def main() -> int:
     print(f"queue {len(items)}/{CAP}, free {free}, videos waiting {len(pending(entries))}")
     for e in pending(entries):
         path = os.path.join(ROOT, e["config"]); v = json.load(open(path))
+        if e.get("release_hold") or v.get("release_hold"):
+            print(f"  held            {e['job']}: release approval/corrections pending")
+            continue
         marker = f"utm_content={v['slug']}"
         have = sum(1 for b in blob if marker in b)
         need = NEED - (1 if v.get("tiktok_direct") else 0)  # TikTok uploaded by hand for that film

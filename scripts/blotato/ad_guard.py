@@ -109,6 +109,8 @@ def assert_organic(config: dict, *, texts: list[str] = (), sources: list[str] = 
     texts    every caption / hook / body / title actually going out
     sources  every local file path the media came from, when the caller knows them
     """
+    if config.get("release_hold"):
+        raise AdGuardError("Release is held: " + str(config["release_hold"]))
     declared = str(config.get("content_type", "")).strip().lower()
     if declared != "organic":
         raise AdGuardError(
