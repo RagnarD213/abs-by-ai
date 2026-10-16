@@ -33,6 +33,8 @@ The `task-wrapup` mod (`~/.claude/mods/task-wrapup`, on for every session on thi
 
 At most 4 steps. Video edit: the first step is the review page link; setup task: the thumbnail choices. A handoff step says fire now or after review, with its starter prompt above the boxes. Nothing to do: the only step is "Nothing. This is done." Skip the boxes only for a quick question-and-answer reply. Dan: *"make all tasks going forward use that modification."*
 
+**Enforcement (2026-10-16):** the prompt rule alone was skipped in long or older sessions, so a Stop hook (`~/.claude/hooks/wrapup-check.py`, registered in `~/.claude/settings.json`) now sends Claude back to add the boxes when a turn that used tools ends without them. Takes effect in sessions opened after this date.
+
 ## Suggested-task chips: plain language only (Dan, 2026-10-16)
 
 When you flag a side task with `spawn_task`, Dan sees a card with a title and a short description (the `tldr` field), and the full `prompt` only on hover. He cannot read the technical version and was asking in chat "what is this?" every time.
