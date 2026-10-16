@@ -1,0 +1,28 @@
+{
+  "category": "AD",
+  "job": "RA-13",
+  "next_task": "Most Guys Abs AD R3",
+  "date": "2026-10-16",
+  "scope": "Handoff only; R3 not executed",
+  "requests": [
+    "Fix vertical opening centering and audit every other vertical presenter hold for the same issue.",
+    "Horizontal presenter centering is approved; preserve it.",
+    "Replace Dan generation demo with existing white-man demo B0550. Keep generating and after-only results screens inside the same unchanged phone frame throughout.",
+    "Use matching white-man after picture in the analysis graphic, never Dan AI picture.",
+    "Apply demo and analysis changes to both formats.",
+    "All review-panel testing stays silent."
+  ],
+  "references": [
+    "/Volumes/Extreme/_edit_work/ra13/round3-plan/references/Dan-R3-note-1.png",
+    "/Volumes/Extreme/_edit_work/ra13/round3-plan/references/Dan-R3-note-2.png",
+    "/Volumes/Extreme/_edit_work/ra13/round3-plan/references/Dan-R3-note-3.png",
+    "/Volumes/Extreme/_edit_work/ra13/round3-plan/references/Dan-R3-note-4.png"
+  ],
+  "asset": {
+    "clip_id": "B0550",
+    "source": "/Volumes/Extreme/_edit_work/ra04/round5/gen_white_man_rec.mp4",
+    "sha256": "108e0b9b9eaf17c6268c11aa62ad8f2745e92f0dc7c2a118438ffddb790b6d84",
+    "after": "/Volumes/Extreme/_edit_work/ra04/round5/after_white_man.jpg",
+    "after_sha256": "dd9e88b936db9216163a8e3396669f976e388f185cb096113598e06ebb388763"
+  }
+}
