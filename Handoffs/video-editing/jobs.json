@@ -2579,13 +2579,15 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/RO-25-im-41-i-wasted-my-life.md`: cut \"I'm 41. I Wasted My Life.\" from 10/15 roll C1767 with /longform-edit. Best take of every line, every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Sol, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-25-im-41-i-wasted-my-life.md` with `$long-form-content-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "ready",
+   "state": "in_progress",
    "note": "RELEASE ASAP (shoot doc note: the script says \"this year\").",
    "needs": "",
    "order": 111,
    "updated": "2026-10-16",
-   "rev": 1,
-   "syncedRev": 1
+   "rev": 2,
+   "syncedRev": 1,
+   "editor": "Codex",
+   "by": "Codex"
   },
   {
    "id": "RO-28",
@@ -3608,13 +3610,15 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/RO-26-im-41-my-life-is-top-1-how-i-did-it.md`: cut \"I'm 41. My Life Is Top 1%. How I Did It.\" from 10/15 roll C1768 with /longform-edit. Best take of every line, every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Sol, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-26-im-41-my-life-is-top-1-how-i-did-it.md` with `$long-form-content-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "ready",
-   "note": "",
+   "state": "draft_review",
+   "note": "Round 1 graphics and clip choices: http://127.0.0.1:8982/ . Waiting for Dan approval before the finished first minute.",
    "needs": "",
    "order": 160,
    "updated": "2026-10-16",
-   "rev": 1,
-   "syncedRev": 1
+   "rev": 3,
+   "syncedRev": 1,
+   "editor": "Codex",
+   "by": "Codex"
   },
   {
    "id": "RO-27",
