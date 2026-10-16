@@ -40,7 +40,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [RA-03](RA-03-watch-ai-put-abs-on-me-in-30-seconds.md) | Watch AI Put Abs On Me In 30 Seconds | C1664 | READY (needs a recording of your own generation) | S |
 | [RA-04](RA-04-top-3-tips-for-getting-abs.md) | Top 3 Tips For Getting Abs | C1664 | FINALIZED | S |
 | [RA-05](RA-05-how-ai-can-get-you-real-six-pack-abs.md) | How AI Can Get You REAL Six Pack Abs | C1664 | FINALIZED | S |
-| [RA-06](RA-06-whats-the-best-ab-exercise.md) | What's The Best Ab Exercise? | C1664 | DELIVERED: awaiting Dan | S |
+| [RA-06](RA-06-whats-the-best-ab-exercise.md) | What's The Best Ab Exercise? | C1664 | FINALIZED | S |
 | [RA-07](RA-07-fire-your-trainer.md) | Fire Your Trainer! | C1664 | DELIVERED: awaiting Dan | S |
 | [RA-08](RA-08-why-are-trainers-going-out-of-business.md) | Why Are Trainers Going Out Of Business? | C1665 | **NEEDS DAN** | S |
 | [RA-09](RA-09-do-you-think-ai-is-changing-the-world.md) | Do You Think AI Is Changing The World? | C1666 | READY | S |
