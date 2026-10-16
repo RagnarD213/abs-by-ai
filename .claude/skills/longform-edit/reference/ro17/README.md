@@ -95,4 +95,5 @@ The independent check of the round 2 page (29 findings, all fixed or explained b
 25. **The independent review caught two things every gate passed** (round 4, first render): the AI chip that `prep_clips.py` places by
     heads only sat on the pouring hand of the opener (A3: chip to the top left), and A5's last 1.2 s was a held still after the pour
     (0.07 % of pixels changing): `max_len` 3.40 ends it on the last moving frame. Check chip corners against hands and the moving
-    object, and trim every AI take's still tail, before the render.
+    object, and trim every AI take's still tail, before the render. The re-review then caught the same chip fault on A5 (top right on
+    the arm tipping the cup): of 8 AI chips placed by heads only, 2 sat on the hand doing the action. Both are top left now.

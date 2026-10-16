@@ -1,7 +1,7 @@
 """RO-17 round 4 film page: the full film (540p review copy) in one player, the revision list with jump buttons and watch ranges,
 "What I decided", the AI clips with their reviews, the gate results. One reply box (local copy only). Dan 2026-09-30, 10-10."""
 import json, html, os, sys
-W = "/Volumes/Extreme/_edit_work/RO-17/round3"; OUT = f"{W}/review_r4"; E = html.escape
+W = "/Volumes/Extreme/_edit_work/RO-17/round3"; OUT = os.environ.get("RO17_PAGE", f"{W}/review_r4"); E = html.escape
 X = json.load(open(f"{OUT}/page_r4.json"))
 def mmss(t): return f"{int(t // 60)}:{int(t % 60):02d}"
 rev = "".join(f"""<li><b>{E(r['what'])}</b> <span class="small">at {mmss(r['t'])}</span><br>{E(r['detail'])}<br>
