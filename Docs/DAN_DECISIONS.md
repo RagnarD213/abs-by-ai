@@ -6,6 +6,8 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 
 ---
 
+- **AI Took Job AD R3 assets (updated 2026-10-16; Decision since: 2026-10-16):** Approve the app demo, analysis card and two key-point graphics together in both formats at http://127.0.0.1:8976/. Color B, medium crop pair 1, intro and warm bass voice are already locked. Both complete 58.89-second masters follow this approval. Evidence: `/Volumes/Extreme/_edit_work/ra16/round2/asset-preview-QA.json`.
+
 - **Belly Fat Emergency early copies (09-23):** the Sep 23 FB reel is still live; only a permanent delete exists (Business Suite → Content → ⋯ → Manage post → Delete post). Dan deletes it, or leaves it.
 - **TikTok covers on older posts (09-22):** every post before Sep 16 still shows a screenshot; TikTok's
   7-day edit window has closed on them, so the only fix is delete + re-upload (loses views/comments). Do it, or leave them? `Docs/TIKTOK_COVERS.md`
