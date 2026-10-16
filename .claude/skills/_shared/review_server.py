@@ -148,6 +148,8 @@ def snapshot(root, destination):
         refs += re.findall(r"[\"']([^\"'<>\n]+\.(?:mp4|webm|mov|m4v|mp3|wav|m4a|jpg|jpeg|png|webp|gif|svg|css|js|woff2?|ttf|vtt|srt|html?)(?:[?#][^\"'<>\n]*)?)[\"']", text, re.I)
         refs += re.findall(r'url\([\"\']?([^()\"\']+)[\"\']?\)', text)
         for ref in refs:
+            if re.search(r'[(){}$`]', ref):
+                continue          # a fragment of JavaScript that builds a path (a template literal), not a path
             url = urlsplit(ref)
             if url.scheme or url.netloc or not url.path or url.path.startswith('data:'):
                 continue
