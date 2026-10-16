@@ -3611,11 +3611,11 @@
    "codexModel": "GPT-6 Sol, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-26-im-41-my-life-is-top-1-how-i-did-it.md` with `$long-form-content-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
    "state": "draft_review",
-   "note": "Dan reviewing R2 at :8982. Retouched portrait trio, exact Flight Club speech, black-belt group photo and native Dan Hinge animation staged. Curls A rejected; tank-top high-school incline bench with other students selected at42.31-44.58s. Replacement frames fail anatomy QA and are not approval-ready. Repair pair and collect remaining notes before rebuilding contexts. No AI motion authorized. Details: /Volumes/Extreme/_edit_work/ro26/round2/revisions-20261016/revisions.json",
+   "note": "Dan selected Nutrition B, Patio Salad Bite, and approved its exact frame pair on2026-10-16. Motion authorized for N-B only, not generated yet. Workout replacement remains pending anatomy corrections and frame approval. Retouched portraits, exact Flight Club speech, black-belt photo and Dan Hinge animation staged. User still reviewing :8982; collect remaining notes and rebuild affected contexts. /Volumes/Extreme/_edit_work/ro26/round2/revisions-20261016/revisions.json",
    "needs": "",
    "order": 160,
    "updated": "2026-10-16",
-   "rev": 11,
+   "rev": 12,
    "syncedRev": 10,
    "editor": "Codex",
    "by": "Codex"
