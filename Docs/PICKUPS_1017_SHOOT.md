@@ -73,6 +73,36 @@ four, and every take says five. Cutting the word "five" sounded like a splice, s
     I'm going to give you the four ways you are eating more calories than you think, then four hidden reasons you are eating them in
     the first place. And some of those four are going to make you angry.
 
+## Recorded 2026-10-15: where every take is (roll C1722)
+
+All 12 pickups are on **roll C1722** of the 10/15 shoot (the shoot every planning doc calls "10/17"):
+`/Volumes/Extreme/10:15 dan rose fitness shoot - green screen, outdoor shorts, outdoor b roll, studio backdrop/C1722.MP4`
+(368 s, 4K 29.97, recorded on the **green screen set**, not the studio backdrop). Sound: the shoot's lav on the **left channel only**
+(`pick_lav.py` verdict single-live, `-map 0:a:0 -af pan=mono|c0=c0`); it flat-tops at -0.49 dBFS on loud words on this shoot, so
+check emphatic words for clipping. Roll sidecar with a Whisper small transcript: `C1722.roll.md`, `C1722.roll/words.json` beside it.
+C1721 is a short pickup test (Invest In Your Health); ignore it. Shoot report: `Docs/SHOOT_1015_FOOTAGE_REPORT.md`.
+
+Times below are from the Whisper small word list (good to about 0.3 s): set every in and out on the lav envelope. "Use" follows the
+take rule (last clean take) unless the note says why not. Confirm each pick by ear before building on it.
+
+| # | pickup | takes on C1722 (s) | use | note |
+|---|---|---|---|---|
+| 1 | RO-20 video 1 ending | 19.6 to 31.6; 35.9 to 47.7 | 35.9 to 47.7 | both read clean |
+| 2 | RO-20B video 2 opening | 53.0 to 66.6; about 71.5 to 84.9 | **53.0 to 66.6** | take 2 drops "makes you more money" and stumbles before "bad health is ludicrously expensive" (a 1.8 s gap); take 1 is clean |
+| 3 | RO-20B video 2 ending | 90.8 to 112.7; 116.4 to 136.9 | 116.4 to 136.9 | take 1 restarts at "To take the next step, to take the first step" |
+| 4 | RO-20C video 3 opening | 147.0 to 164.3; 166.1 to 183.2 | 166.1 to 183.2 | take 1 says "dead or you're sick" (no "if") |
+| 5 | SL-06 short A | 198.6 to 202.3; 203.6 to 207.3 | 203.6 to 207.3 | |
+| 6 | SL-06 short B, long | 212.1 to 216.1; 217.3 to 221.4 | 217.3 to 221.4 | |
+| 6 | SL-06 short B, short | 224.9 to 227.7; 229.0 to 231.8 | 229.0 to 231.8 | |
+| 7 | SL-06 short C | 233.8 to 235.4 (stops at "with a needle"); 237.6 to 242.3 | 237.6 to about 240.3 | take 2 says "step by step by... step": end it after the first "step by step" (about 240.0 to 240.3) |
+| 8 | SL-06 short D | 245.7 to 248.7; 249.7 to 253.1 | 249.7 to 253.1 | |
+| 9 | SL-06 short E | 257.3 to 260.1; 261.5 to 264.4 | 261.5 to 264.4 | |
+| 10 | SL-07 short B | 281.5 to 283.5; 284.6 to 286.7 | 284.6 to 286.7 | |
+| 11 | SL-07 short D | 288.4 to 290.6; 291.9 to 294.2 | 291.9 to 294.2 | |
+| 12 | RO-14 opening | false starts 303.1 and 315.7; full takes about 307.0 to 314.9 and 319.0 to 327.3; after a re-roll, 336.1 to 339.0 (first half only), then 342.4 to 350.5 | 342.4 to 350.5 | last full take; Whisper hears "the four ways you were eating" in it (script: "you are eating"), so listen; 319.0 to 327.3 is the fallback. He says "four hidden reasons why you're eating them", his wording |
+
+Slates between groups (he names the video before each set): 10.2, 188.9, 269.0, 296.6 s. Nothing after 353 s is a pickup.
+
 ## Not pickups, but waiting on this shoot (already on the B-roll list or the next-shoot list)
 
 - RO-09 Pushup Masterclass: the on-camera talking was never found and level 1 countertop pushups need about 30 seconds of filming. No
@@ -82,7 +112,7 @@ four, and every take says five. Cutting the word "five" sounded like a splice, s
 
 ## After the shoot: which task finishes which video
 
-When the pickup clips are uploaded (Dan uploads them himself), each job below finds its lines on the shoot roll (`pick_lav.py` per file,
+Each job below takes its lines from roll C1722 (table above) (`pick_lav.py` per file,
 `roll_sidecar.py`), takes the last clean take, and lays it in with the film's own voice chain. The studio lav should need little or no
 tone matching; check it by ear and on the audio gate rows.
 
@@ -90,7 +120,7 @@ tone matching; check it by ear and on the audio gate rows.
 |---|---|---|
 | RO-20, RO-20B, RO-20C | `Handoffs/handoff-20261012-ro20-round3b-pickup-rerecord-first-minutes-films.md` | first minutes of videos 2 and 3 again, then the three films |
 | SL-06 | `Handoffs/handoff-20261012-sl06-round2-build-after-dan-review.md` | round 2 build of the six shorts |
-| SL-07 | `Handoffs/handoff-20261012-sl07-belly-fat-shorts-pickups-and-build.md` | shorts B and D |
+| SL-07 | `Handoffs/handoff-20261013-sl07-round2-dan-review.md` | shorts B and D |
 | RO-14 | `Handoffs/handoff-20261014-ro14-round2-full-film.md` | the opening line with "four hidden reasons" under the In this video card |
 
 Desk recordings kept for timing only: `Media/longform-raw/ro20-pickups/`, `/Volumes/Extreme/_edit_work/sl06/pickups/`,
