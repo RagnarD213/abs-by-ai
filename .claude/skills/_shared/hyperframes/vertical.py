@@ -46,6 +46,11 @@ def _mod(path, name):
 
 
 # ------------------------------------------------------------------ lower third
+
+def tcase(c):
+    """topic line as written when topic_case="preserve" (title case, VIDEO-RULES 2026-10-16: never uppercase in code); legacy default upper."""
+    return c["topic"] if c.get("topic_case") == "preserve" else c["topic"].upper()
+
 def lt_scenes(c):
     assert not c.get("bar"), f"{c['id']}: the counter bar has no 9:16 layout yet"
     a = c["a"]
@@ -93,8 +98,8 @@ def lt_scenes(c):
             times.append(H.rel(c["parts"][k][1], a))
             j = e
     L = dict(strip=[x0, ytop, x1 - x0 + 1, bh + 1], radius=18 * U, accent=[x0 + U, ytop + 3 * U, 8 * U, bh - 6 * U],
-             topic=dict(x=tx, y=ytop + 13 * U, s=c["topic"].upper()), point_y=ytop + 38 * U, parts=parts)
-    assert H.text_w(c["topic"].upper(), 14 * U) <= wrap_w, f"{c['id']}: topic too wide for 9:16"
+             topic=dict(x=tx, y=ytop + 13 * U, s=tcase(c)), point_y=ytop + 38 * U, parts=parts)
+    assert H.text_w(tcase(c), 14 * U) <= wrap_w, f"{c['id']}: topic too wide for 9:16"
     out = []
     for mode in ("content", "mask"):
         out.append((HERE / "lower-third" / "lower-third.template.htm",
