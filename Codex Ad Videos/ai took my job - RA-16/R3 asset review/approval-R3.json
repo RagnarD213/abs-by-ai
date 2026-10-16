@@ -1,0 +1,332 @@
+{
+  "job": "RA-16",
+  "category": "AD",
+  "date": "2026-10-16",
+  "round_approved": 3,
+  "next_round": 4,
+  "next_chat_name": "AI Took Job AD R4",
+  "approver": "Dan",
+  "user_exact_words": "Everything is approved. Go ahead and give me the handoff for the next round to generate the full film",
+  "scope": "All four presented D01/G01/G02/G03 assets in both formats, with prior color B, medium crop pair 1, complete intro and warm-bass voice preserved. Full film assembly is authorized for the next round. Final film does not yet exist and has not been approved.",
+  "full_assembly_authorized": true,
+  "publishing_authorized": false,
+  "approved_asset_contexts": [
+    {
+      "id": "G01",
+      "aspect": "9x16",
+      "verdict": "approved",
+      "files": [
+        {
+          "kind": "native",
+          "path": "/Volumes/Extreme/_edit_work/ra16/round2/context/G01-9x16-R3-context.mp4",
+          "sha256": "c510b1bd668069cf2476cf42f54fd0d01fa158f0e59d7670ee2b20d2c72ad3d2"
+        },
+        {
+          "kind": "review",
+          "path": "/Volumes/Extreme/_edit_work/ra16/round2/context/G01-9x16-R3-context-REVIEW.mp4",
+          "sha256": "b7bbfd8c5c0585d5c52b9f03af7405d0078434e78455aefe073df489756afe07"
+        },
+        {
+          "kind": "poster",
+          "path": "/Volumes/Extreme/_edit_work/ra16/round2/stills/G01-9x16-R3.jpg",
+          "sha256": "53f0c08e96c6ba55118746ee42434794a51ed8626a404c10d9315ef8d5edd6a8"
+        }
+      ]
+    },
+    {
+      "id": "G02",
+      "aspect": "9x16",
+      "verdict": "approved",
+      "files": [
+        {
+          "kind": "native",
+          "path": "/Volumes/Extreme/_edit_work/ra16/round2/context/G02-9x16-context.mp4",
+          "sha256": "739aadf7c8f0467561068e57ecdef7fb1d546b07b19ed5f678115e4183422502"
+        },
+        {
+          "kind": "review",
+          "path": "/Volumes/Extreme/_edit_work/ra16/round2/context/G02-9x16-context-REVIEW.mp4",
+          "sha256": "cccd3121b2d62b219f327bd6960c5f76671abc50627ca7a3f523e0dfd22207fd"
+        },
+        {
+          "kind": "poster",
+          "path": "/Volumes/Extreme/_edit_work/ra16/round2/stills/G02-9x16.jpg",
+          "sha256": "341529e510c6077f547fbe75a56faf4169db493b4f2a8ba18233c98eb89f0f2b"
+        }
+      ]
+    },
+    {
+      "id": "G03",
+      "aspect": "9x16",
+      "verdict": "approved",
+      "files": [
+        {
+          "kind": "native",
+          "path": "/Volumes/Extreme/_edit_work/ra16/round2/context/G03-9x16-context.mp4",
+          "sha256": "b63c782bba5ec64b41ae13178ca5f4bcdc90dc80cc6f4f6667c1c63da720f5c3"
+        },
+        {
+          "kind": "review",
+          "path": "/Volumes/Extreme/_edit_work/ra16/round2/context/G03-9x16-context-REVIEW.mp4",
+          "sha256": "018c15c6ecd1b9ed03454f1354dcdcf9a0661766ec0afdc10b13b064be50ebee"
+        },
+        {
+          "kind": "poster",
+          "path": "/Volumes/Extreme/_edit_work/ra16/round2/stills/G03-9x16.jpg",
+          "sha256": "f77bc0eb868c59634de2dd308488fc0f7785362860abfb2cd2eaaf866df5c49a"
+        }
+      ]
+    },
+    {
+      "id": "D01",
+      "aspect": "9x16",
+      "verdict": "approved",
+      "files": [
+        {
+          "kind": "native",
+          "path": "/Volumes/Extreme/_edit_work/ra16/round2/context/D01-9x16-R3-context.mp4",
+          "sha256": "f692e28bdd730473376ecdfcd3ad6a14f0e7ac9988ead77c65f82439fcd62f0d"
+        },
+        {
+          "kind": "review",
+          "path": "/Volumes/Extreme/_edit_work/ra16/round2/context/D01-9x16-R3-context-REVIEW.mp4",
+          "sha256": "675a074e101480556bc47ca2442229a6a860483aa24c3b9739cf442c8ba89e0b"
+        },
+        {
+          "kind": "poster",
+          "path": "/Volumes/Extreme/_edit_work/ra16/round2/stills/D01-9x16-R3.jpg",
+          "sha256": "9ae6023ba337862fb0c4e87ac2d00bf248a1fa09b97894fb749315851917615b"
+        }
+      ]
+    },
+    {
+      "id": "G03",
+      "aspect": "16x9",
+      "verdict": "approved",
+      "files": [
+        {
+          "kind": "native",
+          "path": "/Volumes/Extreme/_edit_work/ra16/round2/context/G03-16x9-context.mp4",
+          "sha256": "e991d1b333e3c402d48c5fca4ba29fc862357ed0806c55863596e3b22a2ebafb"
+        },
+        {
+          "kind": "review",
+          "path": "/Volumes/Extreme/_edit_work/ra16/round2/context/G03-16x9-context-REVIEW.mp4",
+          "sha256": "ef56379902d3672ff557ede381f540f815a9bff14d0117d36f83c0d7bd655736"
+        },
+        {
+          "kind": "poster",
+          "path": "/Volumes/Extreme/_edit_work/ra16/round2/stills/G03-16x9.jpg",
+          "sha256": "f7cc3f4b9e0e6d3d71389f897d44ae2a2c4d0580aefe55b27a1b5be6c92bb611"
+        }
+      ]
+    },
+    {
+      "id": "G01",
+      "aspect": "16x9",
+      "verdict": "approved",
+      "files": [
+        {
+          "kind": "native",
+          "path": "/Volumes/Extreme/_edit_work/ra16/round2/context/G01-16x9-R3-context.mp4",
+          "sha256": "e24d7fcbfe358f41cda4aa0f56e139a6881abedb217690ae1afeb8116c7126b2"
+        },
+        {
+          "kind": "review",
+          "path": "/Volumes/Extreme/_edit_work/ra16/round2/context/G01-16x9-R3-context-REVIEW.mp4",
+          "sha256": "16a3ba0db2ae77f4190dd407efee9c2f5fcd228620a9c647c85327eedce41877"
+        },
+        {
+          "kind": "poster",
+          "path": "/Volumes/Extreme/_edit_work/ra16/round2/stills/G01-16x9-R3.jpg",
+          "sha256": "9d5e848948643d93af21def780a9d264455c7139beafc4e1484796946dd43698"
+        }
+      ]
+    },
+    {
+      "id": "G02",
+      "aspect": "16x9",
+      "verdict": "approved",
+      "files": [
+        {
+          "kind": "native",
+          "path": "/Volumes/Extreme/_edit_work/ra16/round2/context/G02-16x9-R3-context.mp4",
+          "sha256": "8029ac38fc6ad50eda1810323fc4b69aa3eed4f94d4ddc3da6e9538383e52332"
+        },
+        {
+          "kind": "review",
+          "path": "/Volumes/Extreme/_edit_work/ra16/round2/context/G02-16x9-R3-context-REVIEW.mp4",
+          "sha256": "cbcca5dc29b5371456637b21db9c673628f3cf887832ec7630b2f1b60be6cbee"
+        },
+        {
+          "kind": "poster",
+          "path": "/Volumes/Extreme/_edit_work/ra16/round2/stills/G02-16x9-R3.jpg",
+          "sha256": "242b8d20af4c16c059a879930b1937541b9dbabbc975b7c34a6060289e954614"
+        }
+      ]
+    },
+    {
+      "id": "D01",
+      "aspect": "16x9",
+      "verdict": "approved",
+      "files": [
+        {
+          "kind": "native",
+          "path": "/Volumes/Extreme/_edit_work/ra16/round2/context/D01-16x9-R3-context.mp4",
+          "sha256": "7df42210b6e1a30c6655750cbf95b3a7f7d99fcb87d387d8aaf9015550b233e1"
+        },
+        {
+          "kind": "review",
+          "path": "/Volumes/Extreme/_edit_work/ra16/round2/context/D01-16x9-R3-context-REVIEW.mp4",
+          "sha256": "6943a440631adae705d0b4a5b58d5ba9feab371f97c3decf448493c6bf359934"
+        },
+        {
+          "kind": "poster",
+          "path": "/Volumes/Extreme/_edit_work/ra16/round2/stills/D01-16x9-R3.jpg",
+          "sha256": "5d9a220f46931026517f51a28ea284f0113e1cf3eb2c521b61cc8d3574d7b1b1"
+        }
+      ]
+    }
+  ],
+  "prior_look_approval": {
+    "job": "RA-16",
+    "category": "AD",
+    "date": "2026-10-15",
+    "round_approved": 2,
+    "next_round": 3,
+    "user_exact_words": "Let's go with the brighter natural color and the medium crop pair. Give me the handoff for the next round Everything in the intro looks good",
+    "color": {
+      "choice": "B, brighter natural",
+      "lut": "/Volumes/Extreme/_edit_work/website-video-828/slog3_709_e1.45.cube",
+      "saturation": 1.12,
+      "gamma": 1.03
+    },
+    "crop_pair": {
+      "choice": 1,
+      "name": "medium / closer",
+      "vertical_source_windows": [
+        [
+          800,
+          1422
+        ],
+        [
+          612,
+          1088
+        ]
+      ],
+      "horizontal_source_windows": [
+        [
+          2160,
+          1216
+        ],
+        [
+          1728,
+          972
+        ]
+      ]
+    },
+    "intro": "approved as shown, full personal-trainer opening retained",
+    "assets": [
+      {
+        "id": "P01-9x16-B-far",
+        "path": "/Volumes/Extreme/_edit_work/ra16/round2/context/P01-9x16-B-far.mp4",
+        "sha256": "bfb7074d01f368df21722694639adb2f79f42999cff837f3bde2a95348dbb213",
+        "verdict": "approved",
+        "approver": "Dan",
+        "scope": "Color B and medium/closer crop pair 1; intro look and content shown on the R2 page",
+        "next_action": "Preserve these choices; continue remaining asset review"
+      },
+      {
+        "id": "P01-9x16-B-near",
+        "path": "/Volumes/Extreme/_edit_work/ra16/round2/context/P01-9x16-B-near.mp4",
+        "sha256": "07774ea20c8943042f34bbb75b878256af35ac812a82eb34c7b338e3dcaa0844",
+        "verdict": "approved",
+        "approver": "Dan",
+        "scope": "Color B and medium/closer crop pair 1; intro look and content shown on the R2 page",
+        "next_action": "Preserve these choices; continue remaining asset review"
+      },
+      {
+        "id": "P01-16x9-B-far",
+        "path": "/Volumes/Extreme/_edit_work/ra16/round2/context/P01-16x9-B-far.mp4",
+        "sha256": "6c1bef38372814a20f45851c0a64b9a72c07b266635c34831d202931ebc4e9c9",
+        "verdict": "approved",
+        "approver": "Dan",
+        "scope": "Color B and medium/closer crop pair 1; intro look and content shown on the R2 page",
+        "next_action": "Preserve these choices; continue remaining asset review"
+      },
+      {
+        "id": "P01-16x9-B-near",
+        "path": "/Volumes/Extreme/_edit_work/ra16/round2/context/P01-16x9-B-near.mp4",
+        "sha256": "3dd0351aaf48d2c6ff681f3a54bb99aa4d71df99a05c30f7b22c8a383a7de8b1",
+        "verdict": "approved",
+        "approver": "Dan",
+        "scope": "Color B and medium/closer crop pair 1; intro look and content shown on the R2 page",
+        "next_action": "Preserve these choices; continue remaining asset review"
+      },
+      {
+        "id": "B-225.2-far",
+        "path": "/Volumes/Extreme/_edit_work/ra16/round2/stills/B-225.2-far.jpg",
+        "sha256": "e7a7b7472ae92fc5de51c77eaad5757f29924cdff282a461797fc1d69b69778f",
+        "verdict": "approved",
+        "approver": "Dan",
+        "scope": "Color B and medium/closer crop pair 1; intro look and content shown on the R2 page",
+        "next_action": "Preserve these choices; continue remaining asset review"
+      },
+      {
+        "id": "B-225.2-near",
+        "path": "/Volumes/Extreme/_edit_work/ra16/round2/stills/B-225.2-near.jpg",
+        "sha256": "d7a36d105394a142ea52af2ff413ddaff099ff2663e8acef7ae53a79ba76ae6e",
+        "verdict": "approved",
+        "approver": "Dan",
+        "scope": "Color B and medium/closer crop pair 1; intro look and content shown on the R2 page",
+        "next_action": "Preserve these choices; continue remaining asset review"
+      }
+    ],
+    "pending": [
+      "Source-specific graphic and app-demo contexts",
+      "Complete candidate review and final delivery gates"
+    ],
+    "scope_limit": "No approval of unseen graphics, app-demo contexts or a complete ad is inferred from intro approval.",
+    "full_assembly_authorized": false,
+    "publishing_authorized": false,
+    "next_action": "Inspect the already rendered eight D01/G01/G02/G03 contexts across both formats; hash-bind QA, then expose checked previews on managed port 8976."
+  },
+  "protected_inputs": [
+    {
+      "path": "/Volumes/Extreme/_edit_work/ra16/round2/cut.json",
+      "sha256": "2d3d48cd8ec0f29a43859482a8d8e07fa55285bfb2ac3f2ea8a221f2a3c79ae3"
+    },
+    {
+      "path": "/Volumes/Extreme/_edit_work/ra16/round2/words_out.json",
+      "sha256": "c9980f6cf29221d29e3e6df8787743602d1f9723624febd3c866da8a9a452097"
+    },
+    {
+      "path": "/Volumes/Extreme/_edit_work/ra16/round2/plan_resolved.json",
+      "sha256": "02519b0c69b20df43499cdb9f20c4641efd206176e66eb96fbf3e034cc61cfb7"
+    },
+    {
+      "path": "/Volumes/Extreme/_edit_work/ra16/round2/audio/warm-bass-final-timing.wav",
+      "sha256": "00eef07fc0028d1a1632151f740207366a27ecc9b3d6e7b346f8c39f1b8922d1"
+    },
+    {
+      "path": "/Volumes/Extreme/_edit_work/ra16/round3/DEMO-9x16-CLEAN.mp4",
+      "sha256": "ed575e741716f9a2be54db02f44060dd50147827616556932fb2a803bbff2d39"
+    },
+    {
+      "path": "/Volumes/Extreme/_edit_work/ra16/round3/DEMO-16x9-CLEAN.mp4",
+      "sha256": "1542719b8eb06cd44369e08a1f942570a0846e93835220d41123c1e89b5d3256"
+    }
+  ],
+  "target": {
+    "formats": [
+      "1080x1920",
+      "1920x1080"
+    ],
+    "fps": "30000/1001",
+    "frames": 1765,
+    "seconds": 58.89216666666667,
+    "maximum_seconds": 59
+  },
+  "remaining_asset_approvals": [],
+  "next_action": "Build and review complete R4 films in both formats, using the approved assets and corrected final native tracking."
+}

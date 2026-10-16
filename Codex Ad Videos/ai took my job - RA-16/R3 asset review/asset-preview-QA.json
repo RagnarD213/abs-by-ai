@@ -1,0 +1,1202 @@
+{
+  "job": "RA-16",
+  "category": "AD",
+  "round": 3,
+  "date": "2026-10-16",
+  "status": "ASSETS APPROVED BY DAN; FULL ASSEMBLY AUTHORIZED",
+  "ready_for_dan_review": true,
+  "full_assembly_authorized": true,
+  "publishing_authorized": false,
+  "items": [
+    {
+      "id": "G01",
+      "aspect": "9x16",
+      "native_relative": "context/G01-9x16-R3-context.mp4",
+      "review_relative": "context/G01-9x16-R3-context-REVIEW.mp4",
+      "poster_relative": "stills/G01-9x16-R3.jpg",
+      "native_sha256": "c510b1bd668069cf2476cf42f54fd0d01fa158f0e59d7670ee2b20d2c72ad3d2",
+      "review_sha256": "b7bbfd8c5c0585d5c52b9f03af7405d0078434e78455aefe073df489756afe07",
+      "poster_sha256": "53f0c08e96c6ba55118746ee42434794a51ed8626a404c10d9315ef8d5edd6a8",
+      "frames": 408,
+      "clip_film_start": 22.288933333333333,
+      "audio_packets_preserved": true,
+      "audio_packet_fingerprint": "e4d75381e90bb6aa7378c0688211c0d76615ba5e4a6afc2443bb90a880ae8023",
+      "native_evidence": {
+        "id": "G01",
+        "aspect": "9x16",
+        "path": "/Volumes/Extreme/_edit_work/ra16/round3/G01-9x16-context.mp4",
+        "sha256": "c510b1bd668069cf2476cf42f54fd0d01fa158f0e59d7670ee2b20d2c72ad3d2",
+        "clip_film_start": 22.288933333333333,
+        "frames": 408,
+        "stream": {
+          "index": 0,
+          "codec_name": "h264",
+          "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+          "profile": "High",
+          "codec_type": "video",
+          "codec_tag_string": "avc1",
+          "codec_tag": "0x31637661",
+          "width": 1080,
+          "height": 1920,
+          "coded_width": 1080,
+          "coded_height": 1920,
+          "closed_captions": 0,
+          "film_grain": 0,
+          "has_b_frames": 2,
+          "pix_fmt": "yuv420p",
+          "level": 40,
+          "color_range": "tv",
+          "color_space": "bt709",
+          "color_transfer": "bt709",
+          "color_primaries": "bt709",
+          "chroma_location": "left",
+          "field_order": "progressive",
+          "refs": 1,
+          "is_avc": "true",
+          "nal_length_size": "4",
+          "id": "0x1",
+          "r_frame_rate": "30000/1001",
+          "avg_frame_rate": "30000/1001",
+          "time_base": "1/30000",
+          "start_pts": 0,
+          "start_time": "0.000000",
+          "duration_ts": 408408,
+          "duration": "13.613600",
+          "bit_rate": "5734309",
+          "bits_per_raw_sample": "8",
+          "nb_frames": "408",
+          "extradata_size": 49,
+          "disposition": {
+            "default": 1,
+            "dub": 0,
+            "original": 0,
+            "comment": 0,
+            "lyrics": 0,
+            "karaoke": 0,
+            "forced": 0,
+            "hearing_impaired": 0,
+            "visual_impaired": 0,
+            "clean_effects": 0,
+            "attached_pic": 0,
+            "timed_thumbnails": 0,
+            "captions": 0,
+            "descriptions": 0,
+            "metadata": 0,
+            "dependent": 0,
+            "still_image": 0
+          },
+          "tags": {
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "vendor_id": "[0][0][0][0]",
+            "encoder": "Lavc60.3.100 libx264"
+          }
+        },
+        "sheets": [
+          "/Volumes/Extreme/_edit_work/ra16/round3/qa/G01-9x16-sequence-1.jpg",
+          "/Volumes/Extreme/_edit_work/ra16/round3/qa/G01-9x16-sequence-2.jpg",
+          "/Volumes/Extreme/_edit_work/ra16/round3/qa/G01-9x16-sequence-3.jpg"
+        ],
+        "boundary_strips": [
+          {
+            "join": "P05",
+            "global_frame": 725,
+            "path": "/Volumes/Extreme/_edit_work/ra16/round3/qa/G01-9x16-boundary-P05.jpg"
+          },
+          {
+            "join": "P06",
+            "global_frame": 777,
+            "path": "/Volumes/Extreme/_edit_work/ra16/round3/qa/G01-9x16-boundary-P06.jpg"
+          },
+          {
+            "join": "P07",
+            "global_frame": 980,
+            "path": "/Volumes/Extreme/_edit_work/ra16/round3/qa/G01-9x16-boundary-P07.jpg"
+          },
+          {
+            "join": "G01 IN",
+            "global_frame": 757,
+            "path": "/Volumes/Extreme/_edit_work/ra16/round3/qa/G01-9x16-boundary-G01-IN.jpg"
+          },
+          {
+            "join": "G01 OUT",
+            "global_frame": 983,
+            "path": "/Volumes/Extreme/_edit_work/ra16/round3/qa/G01-9x16-boundary-G01-OUT.jpg"
+          },
+          {
+            "join": "Demo-Caption-679",
+            "global_frame": 679,
+            "path": "/Volumes/Extreme/_edit_work/ra16/round3/qa/G01-9x16-boundary-Demo-Caption-679.jpg"
+          },
+          {
+            "join": "Demo-Caption-722",
+            "global_frame": 722,
+            "path": "/Volumes/Extreme/_edit_work/ra16/round3/qa/G01-9x16-boundary-Demo-Caption-722.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "id": "G02",
+      "aspect": "9x16",
+      "native_relative": "context/G02-9x16-context.mp4",
+      "review_relative": "context/G02-9x16-context-REVIEW.mp4",
+      "poster_relative": "stills/G02-9x16.jpg",
+      "native_sha256": "739aadf7c8f0467561068e57ecdef7fb1d546b07b19ed5f678115e4183422502",
+      "review_sha256": "cccd3121b2d62b219f327bd6960c5f76671abc50627ca7a3f523e0dfd22207fd",
+      "poster_sha256": "341529e510c6077f547fbe75a56faf4169db493b4f2a8ba18233c98eb89f0f2b",
+      "frames": 341,
+      "clip_film_start": 29.896533333333334,
+      "audio_packets_preserved": true,
+      "audio_packet_fingerprint": "86e994775e9b253feb3e505c1dd98e31c4dab514a224f6d251f0e5f93b2e1a1b",
+      "native_evidence": {
+        "id": "G02",
+        "aspect": "9x16",
+        "path": "/Volumes/Extreme/_edit_work/ra16/round2/context/G02-9x16-context.mp4",
+        "sha256": "739aadf7c8f0467561068e57ecdef7fb1d546b07b19ed5f678115e4183422502",
+        "clip_film_start": 29.896533333333334,
+        "frames": 341,
+        "stream": {
+          "index": 0,
+          "codec_name": "h264",
+          "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+          "profile": "High",
+          "codec_type": "video",
+          "codec_tag_string": "avc1",
+          "codec_tag": "0x31637661",
+          "width": 1080,
+          "height": 1920,
+          "coded_width": 1080,
+          "coded_height": 1920,
+          "closed_captions": 0,
+          "film_grain": 0,
+          "has_b_frames": 2,
+          "pix_fmt": "yuv420p",
+          "level": 40,
+          "color_range": "tv",
+          "color_space": "bt709",
+          "color_transfer": "bt709",
+          "color_primaries": "bt709",
+          "chroma_location": "left",
+          "field_order": "progressive",
+          "refs": 1,
+          "is_avc": "true",
+          "nal_length_size": "4",
+          "id": "0x1",
+          "r_frame_rate": "30000/1001",
+          "avg_frame_rate": "30000/1001",
+          "time_base": "1/30000",
+          "start_pts": 0,
+          "start_time": "0.000000",
+          "duration_ts": 341341,
+          "duration": "11.378033",
+          "bit_rate": "9052662",
+          "bits_per_raw_sample": "8",
+          "nb_frames": "341",
+          "extradata_size": 49,
+          "disposition": {
+            "default": 1,
+            "dub": 0,
+            "original": 0,
+            "comment": 0,
+            "lyrics": 0,
+            "karaoke": 0,
+            "forced": 0,
+            "hearing_impaired": 0,
+            "visual_impaired": 0,
+            "clean_effects": 0,
+            "attached_pic": 0,
+            "timed_thumbnails": 0,
+            "captions": 0,
+            "descriptions": 0,
+            "metadata": 0,
+            "dependent": 0,
+            "still_image": 0
+          },
+          "tags": {
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "vendor_id": "[0][0][0][0]",
+            "encoder": "Lavc60.3.100 libx264"
+          }
+        },
+        "sheets": [
+          "/Volumes/Extreme/_edit_work/ra16/round3/qa/G02-9x16-sequence-1.jpg",
+          "/Volumes/Extreme/_edit_work/ra16/round3/qa/G02-9x16-sequence-2.jpg",
+          "/Volumes/Extreme/_edit_work/ra16/round3/qa/G02-9x16-sequence-3.jpg"
+        ],
+        "boundary_strips": [
+          {
+            "join": "P07",
+            "global_frame": 980,
+            "path": "/Volumes/Extreme/_edit_work/ra16/round3/qa/G02-9x16-boundary-P07.jpg"
+          },
+          {
+            "join": "P08",
+            "global_frame": 1139,
+            "path": "/Volumes/Extreme/_edit_work/ra16/round3/qa/G02-9x16-boundary-P08.jpg"
+          },
+          {
+            "join": "G02 IN",
+            "global_frame": 983,
+            "path": "/Volumes/Extreme/_edit_work/ra16/round3/qa/G02-9x16-boundary-G02-IN.jpg"
+          },
+          {
+            "join": "G02 OUT",
+            "global_frame": 1142,
+            "path": "/Volumes/Extreme/_edit_work/ra16/round3/qa/G02-9x16-boundary-G02-OUT.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "id": "G03",
+      "aspect": "9x16",
+      "native_relative": "context/G03-9x16-context.mp4",
+      "review_relative": "context/G03-9x16-context-REVIEW.mp4",
+      "poster_relative": "stills/G03-9x16.jpg",
+      "native_sha256": "b63c782bba5ec64b41ae13178ca5f4bcdc90dc80cc6f4f6667c1c63da720f5c3",
+      "review_sha256": "018c15c6ecd1b9ed03454f1354dcdcf9a0661766ec0afdc10b13b064be50ebee",
+      "poster_sha256": "f77bc0eb868c59634de2dd308488fc0f7785362860abfb2cd2eaaf866df5c49a",
+      "frames": 322,
+      "clip_film_start": 39.6396,
+      "audio_packets_preserved": true,
+      "audio_packet_fingerprint": "f6127e5104b44b2d7e58545eb2a199b8d59179ef5e8dcaf8f9bef8e062a3f5b7",
+      "native_evidence": {
+        "id": "G03",
+        "aspect": "9x16",
+        "path": "/Volumes/Extreme/_edit_work/ra16/round2/context/G03-9x16-context.mp4",
+        "sha256": "b63c782bba5ec64b41ae13178ca5f4bcdc90dc80cc6f4f6667c1c63da720f5c3",
+        "clip_film_start": 39.6396,
+        "frames": 322,
+        "stream": {
+          "index": 0,
+          "codec_name": "h264",
+          "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+          "profile": "High",
+          "codec_type": "video",
+          "codec_tag_string": "avc1",
+          "codec_tag": "0x31637661",
+          "width": 1080,
+          "height": 1920,
+          "coded_width": 1080,
+          "coded_height": 1920,
+          "closed_captions": 0,
+          "film_grain": 0,
+          "has_b_frames": 2,
+          "pix_fmt": "yuv420p",
+          "level": 40,
+          "color_range": "tv",
+          "color_space": "bt709",
+          "color_transfer": "bt709",
+          "color_primaries": "bt709",
+          "chroma_location": "left",
+          "field_order": "progressive",
+          "refs": 1,
+          "is_avc": "true",
+          "nal_length_size": "4",
+          "id": "0x1",
+          "r_frame_rate": "30000/1001",
+          "avg_frame_rate": "30000/1001",
+          "time_base": "1/30000",
+          "start_pts": 0,
+          "start_time": "0.000000",
+          "duration_ts": 322322,
+          "duration": "10.744067",
+          "bit_rate": "11802934",
+          "bits_per_raw_sample": "8",
+          "nb_frames": "322",
+          "extradata_size": 49,
+          "disposition": {
+            "default": 1,
+            "dub": 0,
+            "original": 0,
+            "comment": 0,
+            "lyrics": 0,
+            "karaoke": 0,
+            "forced": 0,
+            "hearing_impaired": 0,
+            "visual_impaired": 0,
+            "clean_effects": 0,
+            "attached_pic": 0,
+            "timed_thumbnails": 0,
+            "captions": 0,
+            "descriptions": 0,
+            "metadata": 0,
+            "dependent": 0,
+            "still_image": 0
+          },
+          "tags": {
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "vendor_id": "[0][0][0][0]",
+            "encoder": "Lavc60.3.100 libx264"
+          }
+        },
+        "sheets": [
+          "/Volumes/Extreme/_edit_work/ra16/round3/qa/G03-9x16-sequence-1.jpg",
+          "/Volumes/Extreme/_edit_work/ra16/round3/qa/G03-9x16-sequence-2.jpg",
+          "/Volumes/Extreme/_edit_work/ra16/round3/qa/G03-9x16-sequence-3.jpg"
+        ],
+        "boundary_strips": [
+          {
+            "join": "P09",
+            "global_frame": 1390,
+            "path": "/Volumes/Extreme/_edit_work/ra16/round3/qa/G03-9x16-boundary-P09.jpg"
+          },
+          {
+            "join": "G03 IN",
+            "global_frame": 1279,
+            "path": "/Volumes/Extreme/_edit_work/ra16/round3/qa/G03-9x16-boundary-G03-IN.jpg"
+          },
+          {
+            "join": "G03 OUT",
+            "global_frame": 1421,
+            "path": "/Volumes/Extreme/_edit_work/ra16/round3/qa/G03-9x16-boundary-G03-OUT.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "id": "D01",
+      "aspect": "9x16",
+      "native_relative": "context/D01-9x16-R3-context.mp4",
+      "review_relative": "context/D01-9x16-R3-context-REVIEW.mp4",
+      "poster_relative": "stills/D01-9x16-R3.jpg",
+      "native_sha256": "f692e28bdd730473376ecdfcd3ad6a14f0e7ac9988ead77c65f82439fcd62f0d",
+      "review_sha256": "675a074e101480556bc47ca2442229a6a860483aa24c3b9739cf442c8ba89e0b",
+      "poster_sha256": "9ae6023ba337862fb0c4e87ac2d00bf248a1fa09b97894fb749315851917615b",
+      "frames": 324,
+      "clip_film_start": 16.483133333333335,
+      "audio_packets_preserved": true,
+      "audio_packet_fingerprint": "bf8937bf893958a578afd0a57aa0b750fd4e6b71422b99e262c73f4b3eec2440",
+      "native_evidence": {
+        "id": "D01",
+        "aspect": "9x16",
+        "path": "/Volumes/Extreme/_edit_work/ra16/round3/D01-9x16-context.mp4",
+        "sha256": "f692e28bdd730473376ecdfcd3ad6a14f0e7ac9988ead77c65f82439fcd62f0d",
+        "clip_film_start": 16.483133333333335,
+        "frames": 324,
+        "stream": {
+          "index": 0,
+          "codec_name": "h264",
+          "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+          "profile": "High",
+          "codec_type": "video",
+          "codec_tag_string": "avc1",
+          "codec_tag": "0x31637661",
+          "width": 1080,
+          "height": 1920,
+          "coded_width": 1080,
+          "coded_height": 1920,
+          "closed_captions": 0,
+          "film_grain": 0,
+          "has_b_frames": 2,
+          "pix_fmt": "yuv420p",
+          "level": 40,
+          "color_range": "tv",
+          "color_space": "bt709",
+          "color_transfer": "bt709",
+          "color_primaries": "bt709",
+          "chroma_location": "left",
+          "field_order": "progressive",
+          "refs": 1,
+          "is_avc": "true",
+          "nal_length_size": "4",
+          "id": "0x1",
+          "r_frame_rate": "30000/1001",
+          "avg_frame_rate": "30000/1001",
+          "time_base": "1/30000",
+          "start_pts": 0,
+          "start_time": "0.000000",
+          "duration_ts": 324324,
+          "duration": "10.810800",
+          "bit_rate": "5950010",
+          "bits_per_raw_sample": "8",
+          "nb_frames": "324",
+          "extradata_size": 49,
+          "disposition": {
+            "default": 1,
+            "dub": 0,
+            "original": 0,
+            "comment": 0,
+            "lyrics": 0,
+            "karaoke": 0,
+            "forced": 0,
+            "hearing_impaired": 0,
+            "visual_impaired": 0,
+            "clean_effects": 0,
+            "attached_pic": 0,
+            "timed_thumbnails": 0,
+            "captions": 0,
+            "descriptions": 0,
+            "metadata": 0,
+            "dependent": 0,
+            "still_image": 0
+          },
+          "tags": {
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "vendor_id": "[0][0][0][0]",
+            "encoder": "Lavc60.3.100 libx264"
+          }
+        },
+        "sheets": [
+          "/Volumes/Extreme/_edit_work/ra16/round3/qa/D01-9x16-sequence-1.jpg",
+          "/Volumes/Extreme/_edit_work/ra16/round3/qa/D01-9x16-sequence-2.jpg",
+          "/Volumes/Extreme/_edit_work/ra16/round3/qa/D01-9x16-sequence-3.jpg"
+        ],
+        "boundary_strips": [
+          {
+            "join": "P04",
+            "global_frame": 578,
+            "path": "/Volumes/Extreme/_edit_work/ra16/round3/qa/D01-9x16-boundary-P04.jpg"
+          },
+          {
+            "join": "P05",
+            "global_frame": 725,
+            "path": "/Volumes/Extreme/_edit_work/ra16/round3/qa/D01-9x16-boundary-P05.jpg"
+          },
+          {
+            "join": "P06",
+            "global_frame": 777,
+            "path": "/Volumes/Extreme/_edit_work/ra16/round3/qa/D01-9x16-boundary-P06.jpg"
+          },
+          {
+            "join": "D01 IN",
+            "global_frame": 581,
+            "path": "/Volumes/Extreme/_edit_work/ra16/round3/qa/D01-9x16-boundary-D01-IN.jpg"
+          },
+          {
+            "join": "D01 OUT",
+            "global_frame": 725,
+            "path": "/Volumes/Extreme/_edit_work/ra16/round3/qa/D01-9x16-boundary-D01-OUT.jpg"
+          },
+          {
+            "join": "Demo-Caption-618",
+            "global_frame": 618,
+            "path": "/Volumes/Extreme/_edit_work/ra16/round3/qa/D01-9x16-boundary-Demo-Caption-618.jpg"
+          },
+          {
+            "join": "Demo-Caption-661",
+            "global_frame": 661,
+            "path": "/Volumes/Extreme/_edit_work/ra16/round3/qa/D01-9x16-boundary-Demo-Caption-661.jpg"
+          },
+          {
+            "join": "Demo-Caption-679",
+            "global_frame": 679,
+            "path": "/Volumes/Extreme/_edit_work/ra16/round3/qa/D01-9x16-boundary-Demo-Caption-679.jpg"
+          },
+          {
+            "join": "Demo-Caption-722",
+            "global_frame": 722,
+            "path": "/Volumes/Extreme/_edit_work/ra16/round3/qa/D01-9x16-boundary-Demo-Caption-722.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "id": "G03",
+      "aspect": "16x9",
+      "native_relative": "context/G03-16x9-context.mp4",
+      "review_relative": "context/G03-16x9-context-REVIEW.mp4",
+      "poster_relative": "stills/G03-16x9.jpg",
+      "native_sha256": "e991d1b333e3c402d48c5fca4ba29fc862357ed0806c55863596e3b22a2ebafb",
+      "review_sha256": "ef56379902d3672ff557ede381f540f815a9bff14d0117d36f83c0d7bd655736",
+      "poster_sha256": "f7cc3f4b9e0e6d3d71389f897d44ae2a2c4d0580aefe55b27a1b5be6c92bb611",
+      "frames": 322,
+      "clip_film_start": 39.6396,
+      "audio_packets_preserved": true,
+      "audio_packet_fingerprint": "f6127e5104b44b2d7e58545eb2a199b8d59179ef5e8dcaf8f9bef8e062a3f5b7",
+      "native_evidence": {
+        "id": "G03",
+        "aspect": "16x9",
+        "path": "/Volumes/Extreme/_edit_work/ra16/round2/context/G03-16x9-context.mp4",
+        "sha256": "e991d1b333e3c402d48c5fca4ba29fc862357ed0806c55863596e3b22a2ebafb",
+        "clip_film_start": 39.6396,
+        "frames": 322,
+        "stream": {
+          "index": 0,
+          "codec_name": "h264",
+          "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+          "profile": "High",
+          "codec_type": "video",
+          "codec_tag_string": "avc1",
+          "codec_tag": "0x31637661",
+          "width": 1920,
+          "height": 1080,
+          "coded_width": 1920,
+          "coded_height": 1080,
+          "closed_captions": 0,
+          "film_grain": 0,
+          "has_b_frames": 2,
+          "pix_fmt": "yuv420p",
+          "level": 40,
+          "color_range": "tv",
+          "color_space": "bt709",
+          "color_transfer": "bt709",
+          "color_primaries": "bt709",
+          "chroma_location": "left",
+          "field_order": "progressive",
+          "refs": 1,
+          "is_avc": "true",
+          "nal_length_size": "4",
+          "id": "0x1",
+          "r_frame_rate": "30000/1001",
+          "avg_frame_rate": "30000/1001",
+          "time_base": "1/30000",
+          "start_pts": 0,
+          "start_time": "0.000000",
+          "duration_ts": 322322,
+          "duration": "10.744067",
+          "bit_rate": "8620513",
+          "bits_per_raw_sample": "8",
+          "nb_frames": "322",
+          "extradata_size": 49,
+          "disposition": {
+            "default": 1,
+            "dub": 0,
+            "original": 0,
+            "comment": 0,
+            "lyrics": 0,
+            "karaoke": 0,
+            "forced": 0,
+            "hearing_impaired": 0,
+            "visual_impaired": 0,
+            "clean_effects": 0,
+            "attached_pic": 0,
+            "timed_thumbnails": 0,
+            "captions": 0,
+            "descriptions": 0,
+            "metadata": 0,
+            "dependent": 0,
+            "still_image": 0
+          },
+          "tags": {
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "vendor_id": "[0][0][0][0]",
+            "encoder": "Lavc60.3.100 libx264"
+          }
+        },
+        "sheets": [
+          "/Volumes/Extreme/_edit_work/ra16/round3/qa/G03-16x9-sequence-1.jpg",
+          "/Volumes/Extreme/_edit_work/ra16/round3/qa/G03-16x9-sequence-2.jpg",
+          "/Volumes/Extreme/_edit_work/ra16/round3/qa/G03-16x9-sequence-3.jpg"
+        ],
+        "boundary_strips": [
+          {
+            "join": "P09",
+            "global_frame": 1390,
+            "path": "/Volumes/Extreme/_edit_work/ra16/round3/qa/G03-16x9-boundary-P09.jpg"
+          },
+          {
+            "join": "G03 IN",
+            "global_frame": 1279,
+            "path": "/Volumes/Extreme/_edit_work/ra16/round3/qa/G03-16x9-boundary-G03-IN.jpg"
+          },
+          {
+            "join": "G03 OUT",
+            "global_frame": 1421,
+            "path": "/Volumes/Extreme/_edit_work/ra16/round3/qa/G03-16x9-boundary-G03-OUT.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "id": "G01",
+      "aspect": "16x9",
+      "native_relative": "context/G01-16x9-R3-context.mp4",
+      "review_relative": "context/G01-16x9-R3-context-REVIEW.mp4",
+      "poster_relative": "stills/G01-16x9-R3.jpg",
+      "native_sha256": "e24d7fcbfe358f41cda4aa0f56e139a6881abedb217690ae1afeb8116c7126b2",
+      "review_sha256": "16a3ba0db2ae77f4190dd407efee9c2f5fcd228620a9c647c85327eedce41877",
+      "poster_sha256": "9d5e848948643d93af21def780a9d264455c7139beafc4e1484796946dd43698",
+      "frames": 408,
+      "clip_film_start": 22.288933333333333,
+      "audio_packets_preserved": true,
+      "audio_packet_fingerprint": "e4d75381e90bb6aa7378c0688211c0d76615ba5e4a6afc2443bb90a880ae8023",
+      "native_evidence": {
+        "id": "G01",
+        "aspect": "16x9",
+        "path": "/Volumes/Extreme/_edit_work/ra16/round3/v2/G01-16x9-context.mp4",
+        "sha256": "e24d7fcbfe358f41cda4aa0f56e139a6881abedb217690ae1afeb8116c7126b2",
+        "clip_film_start": 22.288933333333333,
+        "frames": 408,
+        "stream": {
+          "index": 0,
+          "codec_name": "h264",
+          "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+          "profile": "High",
+          "codec_type": "video",
+          "codec_tag_string": "avc1",
+          "codec_tag": "0x31637661",
+          "width": 1920,
+          "height": 1080,
+          "coded_width": 1920,
+          "coded_height": 1080,
+          "closed_captions": 0,
+          "film_grain": 0,
+          "has_b_frames": 2,
+          "pix_fmt": "yuv420p",
+          "level": 40,
+          "color_range": "tv",
+          "color_space": "bt709",
+          "color_transfer": "bt709",
+          "color_primaries": "bt709",
+          "chroma_location": "left",
+          "field_order": "progressive",
+          "refs": 1,
+          "is_avc": "true",
+          "nal_length_size": "4",
+          "id": "0x1",
+          "r_frame_rate": "30000/1001",
+          "avg_frame_rate": "30000/1001",
+          "time_base": "1/30000",
+          "start_pts": 0,
+          "start_time": "0.000000",
+          "duration_ts": 408408,
+          "duration": "13.613600",
+          "bit_rate": "5152470",
+          "bits_per_raw_sample": "8",
+          "nb_frames": "408",
+          "extradata_size": 49,
+          "disposition": {
+            "default": 1,
+            "dub": 0,
+            "original": 0,
+            "comment": 0,
+            "lyrics": 0,
+            "karaoke": 0,
+            "forced": 0,
+            "hearing_impaired": 0,
+            "visual_impaired": 0,
+            "clean_effects": 0,
+            "attached_pic": 0,
+            "timed_thumbnails": 0,
+            "captions": 0,
+            "descriptions": 0,
+            "metadata": 0,
+            "dependent": 0,
+            "still_image": 0
+          },
+          "tags": {
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "vendor_id": "[0][0][0][0]",
+            "encoder": "Lavc60.3.100 libx264"
+          }
+        },
+        "sheets": [
+          "/Volumes/Extreme/_edit_work/ra16/round3/v2/qa/G01-16x9-sequence-1.jpg",
+          "/Volumes/Extreme/_edit_work/ra16/round3/v2/qa/G01-16x9-sequence-2.jpg",
+          "/Volumes/Extreme/_edit_work/ra16/round3/v2/qa/G01-16x9-sequence-3.jpg"
+        ],
+        "boundary_strips": [
+          {
+            "join": "P05",
+            "global_frame": 725,
+            "path": "/Volumes/Extreme/_edit_work/ra16/round3/v2/qa/G01-16x9-boundary-P05.jpg"
+          },
+          {
+            "join": "P06",
+            "global_frame": 777,
+            "path": "/Volumes/Extreme/_edit_work/ra16/round3/v2/qa/G01-16x9-boundary-P06.jpg"
+          },
+          {
+            "join": "P07",
+            "global_frame": 980,
+            "path": "/Volumes/Extreme/_edit_work/ra16/round3/v2/qa/G01-16x9-boundary-P07.jpg"
+          },
+          {
+            "join": "G01 IN",
+            "global_frame": 757,
+            "path": "/Volumes/Extreme/_edit_work/ra16/round3/v2/qa/G01-16x9-boundary-G01-IN.jpg"
+          },
+          {
+            "join": "G01 OUT",
+            "global_frame": 983,
+            "path": "/Volumes/Extreme/_edit_work/ra16/round3/v2/qa/G01-16x9-boundary-G01-OUT.jpg"
+          },
+          {
+            "join": "Demo-Caption-679",
+            "global_frame": 679,
+            "path": "/Volumes/Extreme/_edit_work/ra16/round3/v2/qa/G01-16x9-boundary-Demo-Caption-679.jpg"
+          },
+          {
+            "join": "Demo-Caption-722",
+            "global_frame": 722,
+            "path": "/Volumes/Extreme/_edit_work/ra16/round3/v2/qa/G01-16x9-boundary-Demo-Caption-722.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "id": "G02",
+      "aspect": "16x9",
+      "native_relative": "context/G02-16x9-R3-context.mp4",
+      "review_relative": "context/G02-16x9-R3-context-REVIEW.mp4",
+      "poster_relative": "stills/G02-16x9-R3.jpg",
+      "native_sha256": "8029ac38fc6ad50eda1810323fc4b69aa3eed4f94d4ddc3da6e9538383e52332",
+      "review_sha256": "cbcca5dc29b5371456637b21db9c673628f3cf887832ec7630b2f1b60be6cbee",
+      "poster_sha256": "242b8d20af4c16c059a879930b1937541b9dbabbc975b7c34a6060289e954614",
+      "frames": 341,
+      "clip_film_start": 29.896533333333334,
+      "audio_packets_preserved": true,
+      "audio_packet_fingerprint": "86e994775e9b253feb3e505c1dd98e31c4dab514a224f6d251f0e5f93b2e1a1b",
+      "native_evidence": {
+        "id": "G02",
+        "aspect": "16x9",
+        "path": "/Volumes/Extreme/_edit_work/ra16/round3/v2/G02-16x9-context.mp4",
+        "sha256": "8029ac38fc6ad50eda1810323fc4b69aa3eed4f94d4ddc3da6e9538383e52332",
+        "clip_film_start": 29.896533333333334,
+        "frames": 341,
+        "stream": {
+          "index": 0,
+          "codec_name": "h264",
+          "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+          "profile": "High",
+          "codec_type": "video",
+          "codec_tag_string": "avc1",
+          "codec_tag": "0x31637661",
+          "width": 1920,
+          "height": 1080,
+          "coded_width": 1920,
+          "coded_height": 1080,
+          "closed_captions": 0,
+          "film_grain": 0,
+          "has_b_frames": 2,
+          "pix_fmt": "yuv420p",
+          "level": 40,
+          "color_range": "tv",
+          "color_space": "bt709",
+          "color_transfer": "bt709",
+          "color_primaries": "bt709",
+          "chroma_location": "left",
+          "field_order": "progressive",
+          "refs": 1,
+          "is_avc": "true",
+          "nal_length_size": "4",
+          "id": "0x1",
+          "r_frame_rate": "30000/1001",
+          "avg_frame_rate": "30000/1001",
+          "time_base": "1/30000",
+          "start_pts": 0,
+          "start_time": "0.000000",
+          "duration_ts": 341341,
+          "duration": "11.378033",
+          "bit_rate": "7153255",
+          "bits_per_raw_sample": "8",
+          "nb_frames": "341",
+          "extradata_size": 49,
+          "disposition": {
+            "default": 1,
+            "dub": 0,
+            "original": 0,
+            "comment": 0,
+            "lyrics": 0,
+            "karaoke": 0,
+            "forced": 0,
+            "hearing_impaired": 0,
+            "visual_impaired": 0,
+            "clean_effects": 0,
+            "attached_pic": 0,
+            "timed_thumbnails": 0,
+            "captions": 0,
+            "descriptions": 0,
+            "metadata": 0,
+            "dependent": 0,
+            "still_image": 0
+          },
+          "tags": {
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "vendor_id": "[0][0][0][0]",
+            "encoder": "Lavc60.3.100 libx264"
+          }
+        },
+        "sheets": [
+          "/Volumes/Extreme/_edit_work/ra16/round3/v2/qa/G02-16x9-sequence-1.jpg",
+          "/Volumes/Extreme/_edit_work/ra16/round3/v2/qa/G02-16x9-sequence-2.jpg",
+          "/Volumes/Extreme/_edit_work/ra16/round3/v2/qa/G02-16x9-sequence-3.jpg"
+        ],
+        "boundary_strips": [
+          {
+            "join": "P07",
+            "global_frame": 980,
+            "path": "/Volumes/Extreme/_edit_work/ra16/round3/v2/qa/G02-16x9-boundary-P07.jpg"
+          },
+          {
+            "join": "P08",
+            "global_frame": 1139,
+            "path": "/Volumes/Extreme/_edit_work/ra16/round3/v2/qa/G02-16x9-boundary-P08.jpg"
+          },
+          {
+            "join": "G02 IN",
+            "global_frame": 983,
+            "path": "/Volumes/Extreme/_edit_work/ra16/round3/v2/qa/G02-16x9-boundary-G02-IN.jpg"
+          },
+          {
+            "join": "G02 OUT",
+            "global_frame": 1142,
+            "path": "/Volumes/Extreme/_edit_work/ra16/round3/v2/qa/G02-16x9-boundary-G02-OUT.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "id": "D01",
+      "aspect": "16x9",
+      "native_relative": "context/D01-16x9-R3-context.mp4",
+      "review_relative": "context/D01-16x9-R3-context-REVIEW.mp4",
+      "poster_relative": "stills/D01-16x9-R3.jpg",
+      "native_sha256": "7df42210b6e1a30c6655750cbf95b3a7f7d99fcb87d387d8aaf9015550b233e1",
+      "review_sha256": "6943a440631adae705d0b4a5b58d5ba9feab371f97c3decf448493c6bf359934",
+      "poster_sha256": "5d9a220f46931026517f51a28ea284f0113e1cf3eb2c521b61cc8d3574d7b1b1",
+      "frames": 324,
+      "clip_film_start": 16.483133333333335,
+      "audio_packets_preserved": true,
+      "audio_packet_fingerprint": "bf8937bf893958a578afd0a57aa0b750fd4e6b71422b99e262c73f4b3eec2440",
+      "native_evidence": {
+        "id": "D01",
+        "aspect": "16x9",
+        "path": "/Volumes/Extreme/_edit_work/ra16/round3/v2/D01-16x9-context.mp4",
+        "sha256": "7df42210b6e1a30c6655750cbf95b3a7f7d99fcb87d387d8aaf9015550b233e1",
+        "clip_film_start": 16.483133333333335,
+        "frames": 324,
+        "stream": {
+          "index": 0,
+          "codec_name": "h264",
+          "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+          "profile": "High",
+          "codec_type": "video",
+          "codec_tag_string": "avc1",
+          "codec_tag": "0x31637661",
+          "width": 1920,
+          "height": 1080,
+          "coded_width": 1920,
+          "coded_height": 1080,
+          "closed_captions": 0,
+          "film_grain": 0,
+          "has_b_frames": 2,
+          "pix_fmt": "yuv420p",
+          "level": 40,
+          "color_range": "tv",
+          "color_space": "bt709",
+          "color_transfer": "bt709",
+          "color_primaries": "bt709",
+          "chroma_location": "left",
+          "field_order": "progressive",
+          "refs": 1,
+          "is_avc": "true",
+          "nal_length_size": "4",
+          "id": "0x1",
+          "r_frame_rate": "30000/1001",
+          "avg_frame_rate": "30000/1001",
+          "time_base": "1/30000",
+          "start_pts": 0,
+          "start_time": "0.000000",
+          "duration_ts": 324324,
+          "duration": "10.810800",
+          "bit_rate": "5565877",
+          "bits_per_raw_sample": "8",
+          "nb_frames": "324",
+          "extradata_size": 49,
+          "disposition": {
+            "default": 1,
+            "dub": 0,
+            "original": 0,
+            "comment": 0,
+            "lyrics": 0,
+            "karaoke": 0,
+            "forced": 0,
+            "hearing_impaired": 0,
+            "visual_impaired": 0,
+            "clean_effects": 0,
+            "attached_pic": 0,
+            "timed_thumbnails": 0,
+            "captions": 0,
+            "descriptions": 0,
+            "metadata": 0,
+            "dependent": 0,
+            "still_image": 0
+          },
+          "tags": {
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "vendor_id": "[0][0][0][0]",
+            "encoder": "Lavc60.3.100 libx264"
+          }
+        },
+        "sheets": [
+          "/Volumes/Extreme/_edit_work/ra16/round3/v2/qa/D01-16x9-sequence-1.jpg",
+          "/Volumes/Extreme/_edit_work/ra16/round3/v2/qa/D01-16x9-sequence-2.jpg",
+          "/Volumes/Extreme/_edit_work/ra16/round3/v2/qa/D01-16x9-sequence-3.jpg"
+        ],
+        "boundary_strips": [
+          {
+            "join": "P04",
+            "global_frame": 578,
+            "path": "/Volumes/Extreme/_edit_work/ra16/round3/v2/qa/D01-16x9-boundary-P04.jpg"
+          },
+          {
+            "join": "P05",
+            "global_frame": 725,
+            "path": "/Volumes/Extreme/_edit_work/ra16/round3/v2/qa/D01-16x9-boundary-P05.jpg"
+          },
+          {
+            "join": "P06",
+            "global_frame": 777,
+            "path": "/Volumes/Extreme/_edit_work/ra16/round3/v2/qa/D01-16x9-boundary-P06.jpg"
+          },
+          {
+            "join": "D01 IN",
+            "global_frame": 581,
+            "path": "/Volumes/Extreme/_edit_work/ra16/round3/v2/qa/D01-16x9-boundary-D01-IN.jpg"
+          },
+          {
+            "join": "D01 OUT",
+            "global_frame": 725,
+            "path": "/Volumes/Extreme/_edit_work/ra16/round3/v2/qa/D01-16x9-boundary-D01-OUT.jpg"
+          },
+          {
+            "join": "Demo-Caption-618",
+            "global_frame": 618,
+            "path": "/Volumes/Extreme/_edit_work/ra16/round3/v2/qa/D01-16x9-boundary-Demo-Caption-618.jpg"
+          },
+          {
+            "join": "Demo-Caption-661",
+            "global_frame": 661,
+            "path": "/Volumes/Extreme/_edit_work/ra16/round3/v2/qa/D01-16x9-boundary-Demo-Caption-661.jpg"
+          },
+          {
+            "join": "Demo-Caption-679",
+            "global_frame": 679,
+            "path": "/Volumes/Extreme/_edit_work/ra16/round3/v2/qa/D01-16x9-boundary-Demo-Caption-679.jpg"
+          },
+          {
+            "join": "Demo-Caption-722",
+            "global_frame": 722,
+            "path": "/Volumes/Extreme/_edit_work/ra16/round3/v2/qa/D01-16x9-boundary-Demo-Caption-722.jpg"
+          }
+        ]
+      }
+    }
+  ],
+  "approved_look_hashes": [
+    {
+      "id": "P01-9x16-B-far",
+      "expected": "bfb7074d01f368df21722694639adb2f79f42999cff837f3bde2a95348dbb213",
+      "actual": "bfb7074d01f368df21722694639adb2f79f42999cff837f3bde2a95348dbb213"
+    },
+    {
+      "id": "P01-9x16-B-near",
+      "expected": "07774ea20c8943042f34bbb75b878256af35ac812a82eb34c7b338e3dcaa0844",
+      "actual": "07774ea20c8943042f34bbb75b878256af35ac812a82eb34c7b338e3dcaa0844"
+    },
+    {
+      "id": "P01-16x9-B-far",
+      "expected": "6c1bef38372814a20f45851c0a64b9a72c07b266635c34831d202931ebc4e9c9",
+      "actual": "6c1bef38372814a20f45851c0a64b9a72c07b266635c34831d202931ebc4e9c9"
+    },
+    {
+      "id": "P01-16x9-B-near",
+      "expected": "3dd0351aaf48d2c6ff681f3a54bb99aa4d71df99a05c30f7b22c8a383a7de8b1",
+      "actual": "3dd0351aaf48d2c6ff681f3a54bb99aa4d71df99a05c30f7b22c8a383a7de8b1"
+    },
+    {
+      "id": "B-225.2-far",
+      "expected": "e7a7b7472ae92fc5de51c77eaad5757f29924cdff282a461797fc1d69b69778f",
+      "actual": "e7a7b7472ae92fc5de51c77eaad5757f29924cdff282a461797fc1d69b69778f"
+    },
+    {
+      "id": "B-225.2-near",
+      "expected": "d7a36d105394a142ea52af2ff413ddaff099ff2663e8acef7ae53a79ba76ae6e",
+      "actual": "d7a36d105394a142ea52af2ff413ddaff099ff2663e8acef7ae53a79ba76ae6e"
+    }
+  ],
+  "editor_review": {
+    "chronological_native_sampling_hz": 4,
+    "all_eight_contexts_sampled": true,
+    "unique_structural_boundaries_per_format": [
+      578,
+      581,
+      725,
+      757,
+      777,
+      980,
+      983,
+      1139,
+      1142,
+      1279,
+      1390,
+      1421
+    ],
+    "caption_boundary_frames": [
+      618,
+      661,
+      679,
+      722
+    ],
+    "observations": "Phone sequence, same-person images, real/AI labels, scan and three bars, plan band, lower-third reveals/exits, moving presenter and hair inspected. Captions clear in both formats. This is not a continuous human playback watch or final native centering gate."
+  },
+  "independent_reports": [
+    {
+      "path": "/Volumes/Extreme/_edit_work/ra16/round3/qa/independent-assets-3.1.txt",
+      "sha256": "5a8758d38ec07e9124dae7ee3efc6194a19413495addeff01ed75a2a42a8cd96",
+      "model": "gemini-3.1-pro-preview",
+      "input_tokens": 33714,
+      "output_tokens": 3145,
+      "thought_tokens": 10480,
+      "raw_report_preserved": true
+    },
+    {
+      "path": "/Volumes/Extreme/_edit_work/ra16/round3/qa/independent-repaired-assets.txt",
+      "sha256": "836ab046156f2445541041620171190628a7cf8f3d91ad6cf79500c4bbbcada2",
+      "model": "gemini-3.1-pro-preview",
+      "input_tokens": 21794,
+      "output_tokens": 1343,
+      "thought_tokens": 7362,
+      "raw_report_preserved": true
+    },
+    {
+      "path": "/Volumes/Extreme/_edit_work/ra16/round3/v2/qa/independent-layout.txt",
+      "sha256": "0af039ece197db88d3fa9ebdbbe8303f1a586385dd375035cee7fbdcd1b14ded",
+      "model": "gemini-3.1-pro-preview",
+      "input_tokens": 1272,
+      "output_tokens": 102,
+      "thought_tokens": 1052,
+      "raw_report_preserved": true
+    }
+  ],
+  "independent_findings_dispositions": [
+    {
+      "finding": "G02 presenter cut flagged at context 7.8 seconds",
+      "disposition": "cleared",
+      "reason": "Native frame 1139 changes fixed wide to distinct fixed close (800 to 612 source width vertical, 2160 to 1728 horizontal). This is the required size change, not an uncovered same-framing reset.",
+      "proof_frames": [
+        1137,
+        1138,
+        1139,
+        1140,
+        1141
+      ]
+    },
+    {
+      "finding": "G02 graphic abruptly disappears",
+      "disposition": "cleared",
+      "reason": "Native frames 1139-1141 show a progressive fade; absent from 1142 onward, with presenter motion continuing. The low-frame-rate model missed the short exit.",
+      "proof_frames": [
+        1139,
+        1140,
+        1141,
+        1142,
+        1143
+      ]
+    },
+    {
+      "finding": "G03 jump at And finally",
+      "disposition": "cleared",
+      "reason": "The source take P08 is uninterrupted through And finally. Consecutive frames 1277-1281 show continuous hands/head while only the lower third enters.",
+      "proof_frames": [
+        1277,
+        1278,
+        1279,
+        1280,
+        1281
+      ]
+    },
+    {
+      "finding": "G03 jump and abrupt graphic exit near context 6.6 seconds",
+      "disposition": "cleared",
+      "reason": "Frame 1390 changes distinct close to wide while the lower third stays visible. The graphic exits later, fading at 1419-1420 and absent at 1421. Two separate events were conflated.",
+      "proof_frames": [
+        1388,
+        1389,
+        1390,
+        1391,
+        1392,
+        1419,
+        1420,
+        1421,
+        1422,
+        1423
+      ]
+    },
+    {
+      "finding": "Same-framing pose reset after full-screen D01 or G01",
+      "disposition": "cleared",
+      "reason": "These are returns after complete full-screen covers, not adjacent presenter splices. D01 covers 581-724; G01 covers 757-982. The source discontinuities are completely covered, and the entry/exit consecutive frames have no presenter island or flash.",
+      "proof_frames": [
+        579,
+        580,
+        581,
+        582,
+        723,
+        724,
+        725,
+        726,
+        755,
+        756,
+        757,
+        981,
+        982,
+        983,
+        984
+      ]
+    },
+    {
+      "finding": "D01 AI label appears over generation grid just before goal photo",
+      "disposition": "retained_intentional",
+      "reason": "The real photo remains labelled Real through its final visible source frame 107. The AI chip starts at source frame 108 on the grid, before the goal is revealed. No real photo is mislabeled, and the AI image retains its chip. This matches the approved reusable simulation."
+    },
+    {
+      "finding": "Horizontal analysis caption/AI-label overlap",
+      "disposition": "repaired",
+      "reason": "Original collision confirmed by editor. Final captions sit below the right-hand panel, clear of the left-hand AI label and bottom edge. V1 lowered captions were superseded to preserve a comfortable bottom margin. Independent exact native still check reports no overlap/clipping; native chronological samples and boundary strips confirm.",
+      "evidence": "/Volumes/Extreme/_edit_work/ra16/round3/v2/qa/independent-layout.txt"
+    },
+    {
+      "finding": "Two caption layers in D01",
+      "disposition": "repaired",
+      "reason": "Clean demo contains no burned captions. Each revised context applies one caption layer on the common timeline. Native frames 661 and 679 plus adjacent frames show one complete phrase per frame.",
+      "proof_frames": [
+        659,
+        660,
+        661,
+        662,
+        663,
+        677,
+        678,
+        679,
+        680,
+        681
+      ]
+    }
+  ],
+  "audio_status": {
+    "full_voice_sha256": "00eef07fc0028d1a1632151f740207366a27ecc9b3d6e7b346f8c39f1b8922d1",
+    "input_audio_gate": "FAIL tone only, 11/12 rows passed, approved fixed warm-bass mismatch retained",
+    "all_eight_context_aac_packets_and_times_preserved": true
+  },
+  "cost": {
+    "generation_usd": 0,
+    "review_batch_estimate_upper_usd": 2,
+    "billed_usd": null,
+    "billed_reason": "Provider returned token usage but no billing receipt. Initial unavailable-model HTTP 404 is retained separately.",
+    "editor_model_and_token_usage": null,
+    "editor_usage_reason": "Runtime does not expose exact editor model/effort or session token counts."
+  },
+  "pending": [
+    "Full 1765-frame candidate in both formats",
+    "Corrected final native vertical landings and dense hair check",
+    "Final renderer caption/label state, delivered ASR and validated edit sheet",
+    "Final exact-file audio/delivery gates, full chronological picture/audio review and independent complete-candidate audit"
+  ],
+  "approval": {
+    "date": "2026-10-16",
+    "approver": "Dan",
+    "user_exact_words": "Everything is approved. Go ahead and give me the handoff for the next round to generate the full film",
+    "record": "/Volumes/Extreme/_edit_work/ra16/round3/round4-plan/decisions.json"
+  }
+}

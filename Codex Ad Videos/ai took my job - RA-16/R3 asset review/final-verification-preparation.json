@@ -1,0 +1,199 @@
+{
+  "status": "PREPARATION ONLY. Not final timings, not a gate stamp.",
+  "fps": "30000/1001",
+  "target_frames": 1765,
+  "target_seconds": 58.89216666666667,
+  "speech_cut": "/Volumes/Extreme/_edit_work/ra16/round2/cut.json",
+  "native_frame_word_rebuild_required": true,
+  "source_joins": [
+    {
+      "piece": "P02",
+      "frame": 284,
+      "at": 9.476133333333333,
+      "framing": "near"
+    },
+    {
+      "piece": "P03",
+      "frame": 451,
+      "at": 15.048366666666666,
+      "framing": "far"
+    },
+    {
+      "piece": "P04",
+      "frame": 578,
+      "at": 19.285933333333332,
+      "framing": "near"
+    },
+    {
+      "piece": "P05",
+      "frame": 725,
+      "at": 24.190833333333334,
+      "framing": "far"
+    },
+    {
+      "piece": "P06",
+      "frame": 777,
+      "at": 25.925900000000002,
+      "framing": "near"
+    },
+    {
+      "piece": "P07",
+      "frame": 980,
+      "at": 32.699333333333335,
+      "framing": "far"
+    },
+    {
+      "piece": "P08",
+      "frame": 1139,
+      "at": 38.00463333333333,
+      "framing": "near"
+    },
+    {
+      "piece": "P09",
+      "frame": 1390,
+      "at": 46.379666666666665,
+      "framing": "far"
+    },
+    {
+      "piece": "P10",
+      "frame": 1523,
+      "at": 50.817433333333334,
+      "framing": "near"
+    },
+    {
+      "piece": "P11",
+      "frame": 1593,
+      "at": 53.1531,
+      "framing": "far"
+    },
+    {
+      "piece": "P12",
+      "frame": 1710,
+      "at": 57.057,
+      "framing": "near"
+    }
+  ],
+  "assets": [
+    {
+      "id": "D01",
+      "in_frame": 581,
+      "out_frame": 725,
+      "source": {
+        "id": "D01",
+        "t0": 19.402,
+        "t1": 24.193
+      }
+    },
+    {
+      "id": "G01",
+      "in_frame": 757,
+      "out_frame": 983,
+      "source": {
+        "id": "G01",
+        "kind": "analysis",
+        "start": "motivate you",
+        "end": "Next",
+        "t0": 25.25182759671031,
+        "t1": 32.81392019494364,
+        "photo": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/example pictures/dan by pool.png",
+        "label": "AI-GENERATED",
+        "rows": [
+          "Body Fat",
+          "Fat To Lose",
+          "Muscle To Gain"
+        ],
+        "reveal": [
+          "your AI trainer",
+          "how much fat",
+          "gain muscle"
+        ],
+        "band": [
+          "Your Workout Plan",
+          "your dream body real"
+        ]
+      }
+    },
+    {
+      "id": "G02",
+      "in_frame": 983,
+      "out_frame": 1142,
+      "source": {
+        "id": "G02",
+        "kind": "lt",
+        "start": "Next",
+        "end": "It's far better",
+        "t0": 32.81392019494364,
+        "t1": 38.10648796832165,
+        "topic": "KEY POINT",
+        "point": "A Plan Built Around Your Goal",
+        "parts": [
+          [
+            "A Plan Built Around Your Goal",
+            "personalized workout"
+          ]
+        ],
+        "drift": 0
+      }
+    },
+    {
+      "id": "G03",
+      "in_frame": 1279,
+      "out_frame": 1421,
+      "source": {
+        "id": "G03",
+        "kind": "lt",
+        "start": "And finally",
+        "end": "when you can't make",
+        "t0": 42.66347852573866,
+        "t1": 47.4178190679257,
+        "topic": "KEY POINT",
+        "point": "Keep Progress Going When Life Changes",
+        "parts": [
+          [
+            "Keep Progress Going",
+            "AI adjusts"
+          ],
+          [
+            "When Life Changes",
+            "when life gets"
+          ]
+        ],
+        "drift": 0
+      }
+    }
+  ],
+  "native_crop_return_frames": [
+    0,
+    284,
+    451,
+    725,
+    983,
+    1139,
+    1390,
+    1523,
+    1593,
+    1710
+  ],
+  "picture_lead": {
+    "film_in_frame": 578,
+    "film_out_frame": 581,
+    "source_piece": "P03 continues before D01",
+    "audio_piece": "P04",
+    "reason": "Avoid four-frame close-up island before the full-screen phone."
+  },
+  "pending": [
+    "Corrected native crop timeline and return measurements",
+    "Final caption and label states emitted by renderer",
+    "Delivered ASR",
+    "Complete validated edit sheet",
+    "Final audio/delivery gates",
+    "Full native watch and per-freeze dispositions",
+    "Independent complete-candidate review"
+  ],
+  "demo_source_requirement": {
+    "path_pattern": "round3/DEMO-{aspect}-CLEAN.mp4",
+    "captions": "No captions in demo source. Apply final caption layer once after composition.",
+    "reason": "Old demo had baked captions about 16 ms offset from outer layer. Confirmed timing risk at film frames 661 and 679."
+  },
+  "approval_record": "/Volumes/Extreme/_edit_work/ra16/round3/round4-plan/decisions.json"
+}

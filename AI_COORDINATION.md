@@ -40,7 +40,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **SL-09:PICKS:2026-10-15:Claude.**
 
-**RA-16:R3-ASSET-REVIEW:2026-10-16:Codex.** Eight checked contexts on :8976; captions and black player repaired, approved look/intro/voice preserved. Work `/Volumes/Extreme/_edit_work/ra16/round3/`; notes and playback proof in `Codex Ad Videos/ai took my job - RA-16/R3 asset review/`. Next: group asset decision in `Docs/DAN_DECISIONS.md`, then both <=59s masters and final gates.
 
 
 

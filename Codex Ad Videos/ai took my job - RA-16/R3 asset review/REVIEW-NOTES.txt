@@ -24,3 +24,7 @@ Next: record Dan's group asset decision against the exact eight native/review ha
 
 PLAYER REPAIR 2026-10-16
 Reproduced the black review player, while the source and cached video contained the correct picture. Updated the same :8976 page to create a fresh video element for each clip and bring it on screen before loading. Added initial poster/preload, explicit play/pause, reload and separate-clip controls. Verified moving vertical and horizontal pictures and paused seeking. No media, audio or approval changed. Evidence: player-repair-verification.json and player-repair-proof.png.
+
+ASSET APPROVAL 2026-10-16
+Dan: "Everything is approved. Go ahead and give me the handoff for the next round to generate the full film"
+All four assets in both formats are approved. Verified all 24 native/review/poster hashes and six saved look hashes. Full assembly is authorized for R4. No final film exists yet. Approval record: round3/round4-plan/decisions.json, mirrored as approval-R3.json in this package. Prior descriptions of pending asset approval above are historical.
