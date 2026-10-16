@@ -49,7 +49,7 @@ def load() -> list:
 
 
 def pending(entries: list) -> list:
-    return [e for e in entries if not e.get("queued")]
+    return [e for e in entries if not e.get("queued") and not e.get("release_hold")]
 
 
 def utc(day: date) -> str:
@@ -76,6 +76,10 @@ def head_bytes(url: str) -> int | None:
 def main() -> int:
     apply = "--apply" in sys.argv
     entries = load()
+    if "--pending" not in sys.argv:
+        for e in entries:
+            if e.get("release_hold") and not e.get("queued"):
+                print(f"  held            {e['job']}: release approval/corrections pending")
     if "--pending" in sys.argv:
         print(len(pending(entries))); return 0
     if not pending(entries):

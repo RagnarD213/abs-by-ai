@@ -48,6 +48,12 @@ class ReleaseHoldTests(unittest.TestCase):
             self.assertIn('held', output.getvalue())
             self.assertNotIn('queue   DS-05', output.getvalue())
 
+    def test_held_entry_does_not_reserve_capacity_ahead_of_other_posts(self):
+        ready = {'job': 'other-ready'}
+        held = {'job': 'DS-05', 'release_hold': 'reopened'}
+        queued = {'job': 'other-queued', 'queued': {'date': '2026-10-16'}}
+        self.assertEqual(video_topup.pending([ready, held, queued]), [ready])
+
     def test_entry_hold_blocks_auto_submission(self):
         self.run_topup(True, False)
 
