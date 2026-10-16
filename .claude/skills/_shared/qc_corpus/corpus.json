@@ -3333,6 +3333,22 @@
       "must_trigger": [],
       "measured": "Audio gate fails the tone row only (voice 1a, Dan's pick). Delivery gate 2.6.0: 32 pass, 7 fail (audio:stamp, style:coverage 22 %, framing:hair_top, framing:headroom, cut:splice_visibility 20/149, captions:burned false alarm on lower thirds, junk:repeated_take false alarm at 10:51). Watch pass 494/494 images judged, 0 open defects (hair_top entries carry Dan's round 1 words).",
       "notes": "Final-film creative approval with the gate's raw FAIL kept visible; no threshold changed. It took five renders and five fresh independent reviews: three renders were stopped for leftovers of rejected AI effects the editor had passed by eye (a wisp on the desk, an orange smear in the box, rubble fading in a cartoon's clean shot). The measured first-frame-against-later-frames check is now in VIDEO-RULES.md top section and is standard before Dan's first review (Dan, 2026-10-14). Lessons: longform-edit/reference/ro08/README.md, Round 3."
+    },
+    {
+      "id": "ra13-r2-vertical-centering-rejected-20261016",
+      "date": "2026-10-16",
+      "root": "ssd",
+      "path": "ra13/round2/final/why do most guys never get abs | codex | 9x16 | RA-13 R2.mp4",
+      "sha256": "2f10b36412e1890c8618161c628725876cce1f794e329bc5c31e7f49abaa90ed",
+      "verdict": "rejected",
+      "dan": "Okay in that opening frame, I am off-center. I want you to fix centering in this opening frame and throughout the video if there are any other incidents of that",
+      "scope": "Vertical presenter centering rejected. Horizontal presenter positioning approved. Replace P1 with B0550 generating and matching after-only results inside the same phone; matching after picture in A1, both formats.",
+      "must_pass": [],
+      "must_trigger": [
+        "framing:exact_vertical_landing"
+      ],
+      "measured": "R2 used source sample interpolation at some cut starts. New exact measured landing and native rendered verification required. Semantic exact landing predicate remains PENDING; no threshold changed.",
+      "notes": "Source words transcribed from Dan-R3-note-3.png; instructions in Handoffs/handoff-20261016-ra13-round3-centering-white-man-phone.md. Independent R2 review did not clear this newly rejected centering."
     }
   ]
 }
