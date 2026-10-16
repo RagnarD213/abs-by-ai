@@ -1,10 +1,20 @@
-﻿ALL SIX ARE FINISHED
-Every revision from my October 2 notes is in, on all five videos, and they look great. The jump cuts are fixed everywhere: every cut between takes is now a clean switch between the wide and the tight shot, with no zooming inside a shot, and my hair stays below the top graphic. Nothing is left to change on any of these. All I need now is the high quality export of the five below that say READY FOR HQ EXPORT.
+﻿THREE FINISHED, THREE WITH A SHORT LIST
+Every revision from my October 2 notes is in, and they look great. The jump cuts are fixed everywhere: every cut between takes is now a clean switch between the wide and the tight shot, with no zooming inside a shot, and my hair stays below the top graphic.
+
+
+* The #1 Change, 3 Unexpected Ways Zepbound and Body Fat Percentage are finished. All I need is the high quality export of each.
+* Weigh Yourself Daily, Fat Millionaire and Top 3 Ways each have a short list below. I made every new graphic for you; the links are in the items. Once these are in, those three are finished too.
 WHY YOU MUST WEIGH YOURSELF DAILY - V3
-The cuts between takes are all clean wide and tight switches now. The feet on the scale clip fills the screen edge to edge, the man on the scale ends while he is still looking down at the number with his mouth closed, and the key point comes in right on "and never react to one day". Great job on this one.
+The cuts between takes are all clean wide and tight switches now. The feet on the scale clip fills the screen edge to edge, the man on the scale ends while he is still looking down at the number with his mouth closed, and the key point comes in right on "and never react to one day". One thing left.
 
 
-FINALIZED - APPROVED - READY FOR HQ EXPORT
+TIMESTAMPED REVISIONS
+
+
+* 0:42.8 - 0:45.2
+   * The clip of me drinking water is footage from between takes, where I'm looking down and away. Remove this clip and use camera scene.
+   * There is a cut between takes under it at 0:45.2. Make 0:42.8 - 0:45.2 the tight shot, so the framing switches at 0:42.8 and again at 0:45.2. Keep the key point on as it is.
+   * STANDING RULE: Don't use clips where I'm looking away and drinking water, or any footage of me between takes. That's junk footage. If we need something to illustrate a line, we'll film new B-roll of me actually looking at the camera.
 THE #1 CHANGE I MADE TO GET ABS AT 40 - V3
 Every cut between takes switches between the wide and the tight shot, and the zooms inside the shots are gone. My whole face is below the "Hard Boiled EGGS" graphic now, and the steak clip keeps the food on the plate all the way to the end. Great job on this one.
 
@@ -21,12 +31,30 @@ Every cut between takes is a clean wide and tight switch now and the slow zooms 
 
 FINALIZED - APPROVED - READY FOR HQ EXPORT
 WHY HAVING ABS BEATS BEING A FAT MILLIONAIRE - HD
-Got the high quality export, and it is exactly the version I approved.
+Got the high quality export, thank you. Watching it again I caught two things I missed before, and they're on me, not you.
 
 
-FINALIZED - APPROVED - HQ EXPORT DELIVERED
+TIMESTAMPED REVISIONS
+
+
+* 0:10.4 - 0:16.9
+   * Right now my fat before picture plays while I say six-pack abs are rarer, which says the opposite of the line. Replace 0:10.4 - 0:16.9 with this full screen graphic I made for you, from the frame my before picture starts on to the cut at 0:16.9 ("Second"). It has a real picture of me with abs and an AI picture of me looking rich, and the dots fill on my words (the 8% on "About 8%", the 2% on "Fewer than 2%"), so play it from its first frame at 0:10.4.
+      * https://drive.google.com/file/d/1Rw9pGSgCmdfJt58lrSrysZDCo3yEa8yF/view
+   * Keep my "Six-Pack Abs Are 4X RARER" key point on top of it, and keep it on until 0:16.9 instead of 0:14.7.
+   * While the graphic is up, move the captions down to the empty band at the bottom of the screen (around 1550 px from the top), so they don't sit on the pictures.
+* 0:42.8 to the end
+   * Replace the repeated title graphic with this one: "THE LESSON" / "Focus On Getting Abs First, Then Money Later", same position and timing.
+      * https://drive.google.com/file/d/1v-LPsOhnmc93TEHdNPj74fwLiZQPbBc-/view
 TOP 3 WAYS TO USE AI TO GET ABS - V3
-Both AI clips came out really well. On the split screen opener my title has its own band at the top, the guy in the phone picture is the same guy, lean and ripped, and the bottom clip is one shot of him photographing the supplement and throwing it in the trash. The supplement clip at 0:23 is one continuous shot with real looking bottles. The cuts between takes are clean wide and tight switches and the slow zoom is gone. Great job on this one.
+Both AI clips came out really well. On the split screen opener my title has its own band at the top, the guy in the phone picture is the same guy, lean and ripped, and the bottom clip is one shot of him photographing the supplement and throwing it in the trash. The supplement clip at 0:23 is one continuous shot with real looking bottles. The cuts between takes are clean wide and tight switches and the slow zoom is gone. Two things left.
 
 
-FINALIZED - APPROVED - READY FOR HQ EXPORT
+TIMESTAMPED REVISIONS
+
+
+* 0:06.4 - 0:08.1
+   * I say "set it as your lock screen", but the after picture plays full screen, so it doesn't show the idea. Show this after picture on an iPhone as its lock screen (the time and date at the top of the phone), with the phone filling as much of the screen as it can. Same idea as the lock screen clip right after it at 0:08.1. Keep the AI-GENERATED label.
+* 0:34.5 to the end
+   * Replace the repeated title graphic with this one: "THE LESSON" / "AI Is The Ultimate Tool For Getting Six-Pack Abs", same timing.
+      * https://drive.google.com/file/d/1k50N_gySnxXCgIz2ufhWVcGKR37ulbaf/view
+   * This one is two lines, so it sits a little lower than the title. In the tight shots from 0:34.5 to the end, frame me about 30 px lower so the top of my hair stays below the graphic.

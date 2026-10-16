@@ -69,14 +69,27 @@ Supplements and Top 5 Ab Exercises (10-13 notes), and HQ exports of today's five
 Nothing was listened to beyond loudness numbers (round 3+: level and peaks are in range, so no audio item). Captions were
 spot-read on the contact sheets, not transcribed word for word, since no caption item was open.
 
+## Update 2026-10-16: Dan reopened three (calibration pass 13)
+Dan kept #1 Change, Zepbound and Body Fat finalized and reopened three. The doc was regenerated in place (same link);
+he had not edited it.
+- **Weigh Daily:** remove the between-takes water clip at 0:42.8 - 0:45.2, camera scene, that stretch tight so both cuts switch.
+- **Fat Millionaire HD:** the fat before picture at 0:10.4 - 0:14.4 contradicted "abs are rarer". Replaced by our full
+  screen rarity card, 0:10.4 - 0:16.9 (real studio-blue-201 with 2 of 100 dots, AI Dan on a yacht in a blazer with 8 of
+  100; dots fill on "About 8%" at 11.42 and "Fewer than 2%" at 14.74), key point held to 0:16.9, captions moved to the
+  bottom band. Closing graphic now THE LESSON / "Focus On Getting Abs First, Then Money Later". Kit folder 24.
+- **Top 3 Ways:** the 0:06.4 after picture goes on an iPhone as its lock screen; closing graphic THE LESSON / "AI Is The
+  Ultimate Tool For Getting Six-Pack Abs" (tight shots 30 px lower). Kit folder 25.
+- Files: card ProRes 422 HQ `1Rw9pGSgCmdfJt58lrSrysZDCo3yEa8yF`, g10 `1v-LPsOhnmc93TEHdNPj74fwLiZQPbBc-`, g11
+  `1k50N_gySnxXCgIz2ufhWVcGKR37ulbaf`. Build: `/Volumes/Extreme/_edit_work/revisions-20261015/muhammad/card/`
+  (`rarity.template.htm`, `rarity.json`; AI image `rich_dan.png`, Codex gpt-6.1-sol high, 1 image).
+- Batch: 12 of 22 finished.
+
 ## Paste-ready message to Muhammad
 
-Hey Muhammad, got all six, thank you! Weigh Yourself Daily, The #1 Change At 40, 3 Unexpected Ways Zepbound Helped Me, Body Fat Percentage and Top 3 Ways To Use AI are all FINALIZED. The jump cuts are fixed on every one of them, and the AI openers on Zepbound and Top 3 Ways came out really good. The Fat Millionaire HD came through too, and it's exactly the version I approved, so that one is done.
+Hey Muhammad, got all six, thank you! The jump cuts are fixed on every one of them, and the AI openers on Zepbound and Top 3 Ways came out really good.
 
-Notes are here, nothing to change on any of them: https://docs.google.com/document/d/1MSGEToSR_tXDndUVFaFNF0oNQxwLHlB6mggTOPn0pP0/edit
+The #1 Change At 40, 3 Unexpected Ways Zepbound Helped Me and Body Fat Percentage are FINALIZED. Please send me the high quality exports of those three.
 
-Please send me the high quality exports of those five when you can.
+Weigh Yourself Daily, Fat Millionaire and Top 3 Ways each have a short list. On Fat Millionaire, the before picture at 0:10 was my miss, I approved it last round when it doesn't fit what I'm saying there. I made a full screen graphic to replace it, plus new closing graphics for Fat Millionaire and Top 3 Ways, and every file is linked in the notes: https://docs.google.com/document/d/1MSGEToSR_tXDndUVFaFNF0oNQxwLHlB6mggTOPn0pP0/edit
 
-That makes 15 of the 22 finished. What's left for the bonus by tomorrow: Jiu Jitsu, Last Ten Pounds, Battle Ropes and Five Levels Of Pushups from my October 5 notes, Getting Abs, 3 Most Important Supplements and Top 5 Ab Exercises from my October 13 notes, and those five HQ exports.
-
-Really appreciate the work on this batch!
+Once these are in, those three are finished too. Really appreciate the work on this batch!
