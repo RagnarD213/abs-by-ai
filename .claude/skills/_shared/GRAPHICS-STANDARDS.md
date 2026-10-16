@@ -2,6 +2,10 @@
 
 Dan locked these treatments while reviewing WV-01 round 3. On 2026-09-26 he expanded Soft Blue Light from website videos to all videos. Apply this family prospectively to website VSLs, paid ads, organic long-form, dedicated Shorts, extracted Shorts and square/vertical adaptations when creating or revising graphics. These specific approvals supersede older conflicting graphic examples. Do not reopen an approved film or treat approval of a style as approval of every source or layout in its demonstration.
 
+## Capitalization (Dan, reaffirmed 2026-10-16)
+
+Use title capitalization for all new or revised graphic text, including the small topic line. Preserve acronyms such as AI, ADHD and JAMA. Rare full-capital emphasis requires a specific reason; do not use an automatic uppercase transform. Historical screenshots and sample strings below are layout references, not instructions to reproduce their all-capital copy. See VIDEO-RULES.md for the current shared rule.
+
 ## Soft Blue Light: all videos
 
 Use **Soft Blue Light**, option 1 from WV-01 round 3, for graphics across all videos going forward. The reference has a deep navy field, restrained drifting blue light, soft depth, pale readable type and purposeful entrances. Motion should be visible but quiet. This is a selected treatment, not permission to invent another Blue Glass variation.
@@ -12,7 +16,7 @@ This is the standard graphic family across all video formats. Use the moving nav
 
 ## Motivation lower third: all videos
 
-Use the approved **Motivation lower-third format for all lower thirds going forward**: restrained translucent blue glass strip, slim cyan accent at the left, small uppercase topic pre-header, bold readable main point and the demonstrated entrance/reveal. Preserve its proportions, hierarchy and quiet movement. Adapt the topic and point to the actual narration; MOTIVATION is the topic for the gym beat, not mandatory text on every lower third.
+Use the approved **Motivation lower-third format for all lower thirds going forward**: restrained translucent blue glass strip, slim cyan accent at the left, small title-capitalized topic pre-header, bold readable main point and the demonstrated entrance/reveal. Preserve its proportions, hierarchy and quiet movement. Adapt the topic and point to the actual narration; Motivation is the topic for the gym beat, not mandatory text on every lower third.
 
 Exact visual reference: `graphics/G-motivation.mp4` under the root above; implementation is `lower_layer` in `recipe/blueglass.py`. WV-01's revised copy is `#1 AI got me back in the gym`, keeping `MOTIVATION`. The old word `One` is superseded. Topic labels, numbering and explicit user copy remain allowed under the shared key-point rule. Check the lower third over moving footage and preserve caption clearance where captions apply.
 
@@ -70,4 +74,4 @@ Preserve the approved visual references and adapt their content. New renderings 
 
 ## Content density and approval (Dan, RO-01 review, 2026-09-26)
 
-Use [the pre-render approval package](PRE-RENDER-APPROVAL.md) for every planned graphic with speech before, during and after it. A single useful point normally uses the Motivation lower third with `KEY POINT:` in capitals and a short actionable sentence. Keep explicitly requested `TIP:` and numbered headings. Do not use a random spoken word as decoration or put a few words in a huge empty full-screen/left-third card. Larger layouts should earn their space with a legible study abstract, comparison, diagram or substantive list. Research screenshots must support the proposed wording. RO-01's specific requested key-point lower thirds supersede the older generic KEY POINT rejection; preserve this approved blue treatment rather than reviving rejected homemade bars.
+Use [the pre-render approval package](PRE-RENDER-APPROVAL.md) for every planned graphic with speech before, during and after it. A single useful point normally uses the Motivation lower third with `Key Point:` in title capitalization and a short actionable sentence. Keep explicitly requested tip labels and numbered headings in title capitalization. Do not use a random spoken word as decoration or put a few words in a huge empty full-screen/left-third card. Larger layouts should earn their space with a legible study abstract, comparison, diagram or substantive list. Research screenshots must support the proposed wording. RO-01's specific requested key-point lower thirds supersede the older generic KEY POINT rejection; preserve this approved blue treatment rather than reviving rejected homemade bars.

@@ -1,3 +1,11 @@
+## First-round options and AI ideas: Claude and Codex use the same standard (Dan, 2026-10-16)
+
+- Every new video's first review round includes visible colour-correction choices and playable, level-matched voice choices, including studio videos. Start from the approved source-specific look/sound, but show meaningful alternatives and recommend one. This replaces the 2026-10-14 studio exemption from options; an internal blind comparison does not replace Dan's audition controls. Preserve choices already approved for that exact film unless Dan reopens them.
+- Offer a broad range of funny, entertaining AI clip ideas tied to the actual spoken lines, following the 2026-10-11 ideation rule below. Literal illustrations are still useful where they fit. Give each idea a clear visual setup and payoff, with a short name and the surrounding speech; keep the action understandable in one viewing. Read the current Claude longform reference before adapting an older Codex recipe. Codex must not silently reduce the selection to one cautious idea.
+- If Dan asks to choose text concepts first, deliver the ideas before generating their start/end frames. Frame selection and motion approval remain separate. A requested count applies to that job: RO-25 asks for ten ideas per each of six points and one selected AI clip per point; that does not impose sixty ideas on every video. His explicit six-point plan overrides the older approximate five-clip preference for RO-25 only. Generation spending limits still apply.
+- All new or revised graphic copy uses title capitalization, including lower-third main points and topic lines, headings, cards, and recap rows. Do not uppercase text automatically in code or CSS. Preserve genuine acronyms and proper names; ALL CAPS emphasis is rare and deliberate, never a default on every card. This reaffirms the 2026-10-09 rule and replaces older uppercase topic/KEY POINT defaults.
+- Offer colour options that vary a useful property on matching frames, and voice options on the same continuous spoken passage with matched loudness. If Dan asks for more saturation at the existing brightness or more bass, vary that requested property rather than substituting an unrelated adjustment. Keep source-specific quality checks and report actual gate outcomes.
+
 ## Scripted claim lines are already approved; never ask about them (Dan, 2026-10-14)
 
 - **A claim line that is in the script Dan filmed is approved. Do not flag it, list it or ask him to approve it again.** Dan,
@@ -40,7 +48,7 @@
 - Why: on RA-14 the first 30 s round came back fully approved and the remaining 20 s held only items Dan had already seen moving, so
   stopping at 30 s cost him a whole extra round for a render of a few minutes.
 
-## Outdoor videos: colour, audio and crop options in round 1; studio videos use the standard (Dan, 2026-10-14)
+## Historical outdoor/studio distinction (2026-10-14; first-round colour/audio exemption superseded 2026-10-16)
 
 - **Every video shot OUTDOORS, ad or content, shows Dan colour correction options, audio options and cropping options in
   its first round, and he picks.** Dan, choosing RA-14's round 2 options: *"Let's make this standardized for first-round

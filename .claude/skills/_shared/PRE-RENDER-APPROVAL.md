@@ -18,11 +18,10 @@ I think that we could have saved some time here."* What failed: one grade was ch
 at beside an approved video; the voice went through the automatic tone match on an echoey room, the audio gate passed it
 12 of 12, and nobody listened. So, before the first minute is rendered for him, on every video:
 
-**Outdoor sets (Dan, 2026-10-14): Dan sees the colour, audio and crop options in round 1 and picks; studio sets reuse the
-standard look and sound after the source check. Full rule: VIDEO-RULES.md, first section.**
+**All new videos (Dan, 2026-10-16): show colour and level-matched voice options in round 1, including studio sets. Use the approved studio treatment as a starting candidate, not as a reason to omit options. Outdoor crop options remain required. Preserve approvals already locked for the exact film. Full rule: VIDEO-RULES.md, first section.**
 
 1. **Is this set already approved?** Check the footage itself (contact-sheet the reference; do not trust a job note). A set
-   with a locked look and sound reuses them after a source check. A NEW set, or one that measures differently (skin more
+   with a locked look and sound uses them as the first-round baseline; only an approval for this exact film removes the need to show options. A NEW set, or one that measures differently (skin more
    than half a stop under, raw room decay over 55 ms, a different microphone layout), gets steps 2 to 4.
 2. **Colour: at least three candidates, judged by eye.** Render the same two moments (wide and tight) in each, then LOOK at
    them at full size beside frames from two approved videos. Write down what is wrong with each (dim, muddy, orange,
@@ -37,7 +36,7 @@ standard look and sound after the source check. Full rule: VIDEO-RULES.md, first
    the rest on the room measurement and Dan's last pick on the closest set, and say on the page that the listener could
    not separate the finalists.
 4. **Build the first minute with the winners** and say on the page, in two lines, what was compared and why the winner won.
-   Dan still sees the runner-up as a one-click alternative; he is not asked to do the comparison himself.
+   Show the recommended treatment and the meaningful colour and voice alternatives together, with one-click voice auditions. Internal listening supports the recommendation; it does not replace Dan's first-round options.
 5. Listen to and watch the finished first minute once more through the same checks before sending it. A passed gate is
    not a listen.
 
@@ -67,7 +66,7 @@ continues to guide organic videos and other formats.
 - Dan still sees the first minute and the finished film; his notes there are the check on Claude's calls.
 
 **Organic path (Dan, 2026-09-29):** use `$long-form-content-edit` with GPT-6 Sol throughout. Reuse the approved studio
-framing, color, audio and graphic family after a source-specific check. Build still and motion checks internally for
+framing and graphic family after a source-specific check; include first-round colour and audio choices even for studio footage. Build still and motion checks internally for
 every new graphic and clip, but group only material new choices into one early look-and-assets packet. Show the
 finished first minute next, then the complete film after all assets are locked. Keep the AI start/end-frame approval
 gate before new motion. Revisions reuse locked work and need only the affected previews.
