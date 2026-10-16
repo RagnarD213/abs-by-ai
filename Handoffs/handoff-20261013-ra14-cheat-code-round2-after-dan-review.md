@@ -43,6 +43,8 @@ rows: when it appears, the line it plays under (bold, word for word), what comes
 intended action and length, the cost to animate, and what plays if he says no. Under the frames answer the three sense
 questions (cause and effect, readable with the sound off, shows the line).
 Budget: $10 for this ad in total across all rounds, retries included. Spent so far: $0. Frames cost nothing.
+Before the page: run `.claude/skills/_shared/framecheck/gate.py` on each pair, then a fresh `frame-reviewer` agent per pair
+(and per retry). Review pages refuse AI frames without both (added 2026-10-16).
 
 ### B. Framing options
 
