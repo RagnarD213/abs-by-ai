@@ -27,7 +27,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **AI Took Job AD R4 WAITING 2026-10-16, Codex.** R3 inputs verified; both complete films and initial checks queued through buildcap. Extreme full, work on Expansion. Next: completed candidates, editor QA, independent review and :8976 delivery. No publishing. Packet: `Codex Ad Videos/ai took my job - RA-16/R4 production/WORK_PACKET.json`.
 
-**RA-13:R3-ACTIVE:2026-10-16:Codex.** Most Guys Abs: vertical exact-frame centering, B0550 generation/results in one phone, matching analysis image. R2 protected. Next: scoped build, full checks and independent review; page :8973. Work `/Volumes/Expansion/Abs By AI Edit Work/ra13/round3/` (Extreme full).
+**RA-13:R3-CHECKS:2026-10-16:Codex.** Both complete 53.9s copies built. Whole-head vertical centering, B0550 in one phone and matching analysis image. Next: exact-file checks, independent review, then :8973 delivery. Work `/Volumes/Expansion/Abs By AI Edit Work/ra13/round3/` (Extreme full).
 
 **Fat Millionaire SFC R4 BLOCKED 2026-10-16, Codex.** This is the active task in Dan's screenshot. Stale DS-05 held; live Blotato has no DS-05 booking. Next: free build slot, supplied corrections, full QC/independent review, then Dan approval. Packet: `Handoffs/handoff-20261016-ds05-correct-version.md`. No date selected.
 
