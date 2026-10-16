@@ -25,7 +25,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**RO-26:R2-ACTIVE:2026-10-16:Codex:** Building contextual review, eight AI stills and real archive/promotion clips in `/Volumes/Extreme/_edit_work/ro26/round2/`. No AI motion before frame approval.
+**RO-26:R2-EXPORT:2026-10-16:Codex:** Draft review :8982 is live; all four frame pairs passed. Only W-B narrated storyboard composition waits on buildcap. `/Volumes/Extreme/_edit_work/ro26/round2/finalize_packet.py` (PID 637) refreshes the page after export. Next: finish export/link verification, then remove this entry. No AI motion before Dan approves frames.
 
 **RO-25:R2-ACTIVE:2026-10-16:Codex:** `/Volumes/Extreme/_edit_work/RO-25/round2/` frames/previews.
 
