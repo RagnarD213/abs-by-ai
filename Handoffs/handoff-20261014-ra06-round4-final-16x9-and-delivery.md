@@ -50,7 +50,7 @@ the gates and independent review on both formats, and filing to the ad folder.
    `roll_sidecar.py mark-used` for C1664, C1677, C1682, C1683; clip library `add --status used-final --used-in "RA-06"` for the three
    AI clips (I3_v1 cut, I1 two-shot cut, I4_v2 cut) and `clip_library.py sheet`. Then stop for Dan.
 8. **When Dan finalizes**: delete `Videos to Review/Best Ab Exercise AD R1 - full ad draft.mp4` and `... R3 - full ad.mp4`, then
-   `review_server.py 8806 --remove`, `8836 --remove`, `8837 --remove`; set the queue to `finalized`; delete the board entry.
+   `review_server.py 8806 --remove`, `8836 --remove`, `8837 --remove`, `8977 --remove` (round 4 page); set the queue to `finalized`; delete the board entry.
 
 ## Locked files (sha256 first 16; re-hash before touching)
 

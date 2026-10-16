@@ -160,7 +160,7 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 
 **DS28:R5:REVIEW:2026-10-15:Codex.** :8891. Next:Dan.
 
-**RA-06:R4-REVIEW:2026-10-15.** Dan reviews 16:9.
+**RA-06:R4-REVIEW:8977:2026-10-15.** Dan reviews 16:9.
 
 **RA-07 R3 REVIEW 2026-10-14.** `handoff-20261014-ra07-fire-your-trainer-round4-after-dan-r3.md`
 
