@@ -1,0 +1,26 @@
+AD. AI Took Job AD R3.
+
+ASSET REVIEW, NOT FINAL MASTERS
+
+Review: http://127.0.0.1:8976/
+
+Locked: color B (brighter natural), medium crop pair 1, the complete approved intro, warm bass voice, all retained words, only the two approved deletions, and authorized pitch-preserving acceleration. All six saved look hashes still match.
+
+Four pending asset choices in both formats: D01 app demo (film 19.40-24.19), G01 analysis (25.25-32.81), G02 personalized plan point (32.81-38.11), G03 life changes point (42.66-47.42). The page contains narrated before/during/after contexts. Those are planned film times, not timestamps from a finished master.
+
+Repairs completed before this review: clean app demo with one caption layer, eliminating doubled phrases at film frames 661 and 679; horizontal analysis captions positioned beneath the right-hand card, away from the AI chip and bottom edge. Original reviewed files are retained. The final caption bounds leave at least 381.5 pixels of horizontal separation from the label and 61 pixels at the bottom. No audio was reprocessed. AAC packets and timestamps match all eight original contexts.
+
+QC: native quarter-second chronological samples, consecutive-frame boundary strips, phone sequence and disclosures, bar and plan reveals, lower-third entrances/exits, presenter motion and hair inspected. Gemini reviewed eight moving contexts; follow-up reviewed affected contexts and the exact final layout still. Preserve the raw model rejections and their native-frame dispositions in asset-preview-QA.json: the model mistook complete cutaway returns for naked presenter splices and missed short lower-third fades. Final still layout check reports no overlap or clipping. This is asset QC, not final-film clearance or a continuous human watch.
+
+Audio input remains FAIL on tone only: 11 of 12 measured rows passed. This is the documented mismatch from Dan's approved fixed warm-bass EQ. No gate thresholds changed.
+
+Still required after asset approval: complete native 1765-frame masters at 30000/1001 (58.892 seconds), corrected vertical landing at every actual return (including G01 inside P07), final dense hair clearance, final word/caption timing and label states, delivered ASR, complete validated edit sheet, exact-file audio/delivery gates, full chronological picture/audio review, freeze/join dispositions and one independent complete-candidate review. No complete ad exists yet. No publishing or setup performed.
+
+Rebuild: the authoritative work root is /Volumes/Extreme/_edit_work/ra16/. Recipe copies here are records and retain work-root paths. First asset repair: recipe/round3_render.py. Final horizontal caption layout: recipe/round3_caption_render.py. Package: recipe/round3_package_assets.py, then recipe/round3_page.py. Do not restart the old completed R2 preview queue or reprocess the chosen voice. Future final assembly must use round3/DEMO-9x16-CLEAN.mp4 and round3/DEMO-16x9-CLEAN.mp4 and apply captions once.
+
+Spend: generation USD 0. Three successful Gemini asset/layout calls this round returned 56,780 input tokens, 4,590 output tokens and 18,894 thought tokens. Review batch estimated below USD 2; billed charges unavailable. Earlier review estimate was below USD 1.50. Editor model, effort and session usage are unavailable from runtime. One obsolete-model request returned HTTP 404; response retained.
+
+Next: record Dan's group asset decision against the exact eight native/review hashes in asset-preview-QA.json, then complete both formats and final checks.
+
+PLAYER REPAIR 2026-10-16
+Reproduced the black review player, while the source and cached video contained the correct picture. Updated the same :8976 page to create a fresh video element for each clip and bring it on screen before loading. Added initial poster/preload, explicit play/pause, reload and separate-clip controls. Verified moving vertical and horizontal pictures and paused seeking. No media, audio or approval changed. Evidence: player-repair-verification.json and player-repair-proof.png.
