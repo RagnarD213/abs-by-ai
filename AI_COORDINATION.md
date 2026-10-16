@@ -29,11 +29,11 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-13:R3-CHECKS:2026-10-16:Codex.** Both complete 53.9s copies built. Whole-head vertical centering, B0550 in one phone and matching analysis image. Next: exact-file checks, independent review, then :8973 delivery. Work `/Volumes/Expansion/Abs By AI Edit Work/ra13/round3/` (Extreme full).
 
-**Fat Millionaire SFC R4 BLOCKED 2026-10-16, Codex.** This is the active task in Dan's screenshot. Stale DS-05 held; live Blotato has no DS-05 booking. Next: free build slot, supplied corrections, full QC/independent review, then Dan approval. Packet: `Handoffs/handoff-20261016-ds05-correct-version.md`. No date selected.
+**Fat Millionaire SFC R4 WAITING 2026-10-16, Codex.** Actual correction worker registered through shared buildcap.wait; earlier waiters retain priority. Posting hold/F3/date intent preserved. Next: candidate, full QC, independent review, then exact-file Dan approval. Packet: `Handoffs/handoff-20261016-ds05-correct-version.md`.
 
 **RO-26:R3-ACTIVE:2026-10-16:Codex.** Nutrition B motion auto+independent PASS ($0.60 estimate); Voice C built. R3 preview batch waiting shared cap over20min: ra16 r4_after_render.py is idle but counted beside active r4_render.py. Workout still repairs/quality checks continue; pair withheld. No workout motion/full film/upload. Detail: `/Volumes/Extreme/_edit_work/ro26/round3/`.
 
-**I'm 41 Wasted Life LFC R3 ACTIVE 2026-10-16, Codex.** Rich Balanced locked; skip 3/6/13. Three revised pairs dual PASS; party QA queued. Three motion takes estimated $1.05/$5: night/lotion dual PASS, coffee range QA queued. Graphics/opening/recap workers on Expansion after Extreme filled. Completion heartbeat active. Next: finish contexts, QA and notify Dan. Packet: `/Volumes/Extreme/_edit_work/RO-25/round3/WORK_PACKET.md`.
+**I'm 41 Wasted Life LFC R3 ACTIVE 2026-10-16, Codex.** Rich Balanced locked; skip3/6/13. Four revised pairs dual PASS, awaiting Dan. Night/lotion motion dual PASS; coffee full/range withheld FAIL. Medication and briefcase generation active, projected total$2.80/$5. Graphics/opening/recap/context workers waiting shared cap on Expansion. Next: exact QA, fresh reviewers, complete packet, notify Dan. Heartbeat active. Packet: `/Volumes/Extreme/_edit_work/RO-25/round3/WORK_PACKET.md`.
 
 **RO-04:R1-REVIEW:8974:2026-10-15:Codex**
 **COVERS:MOBILE:2026-10-15:Docs/COVER_AUDIT_20261015.md**

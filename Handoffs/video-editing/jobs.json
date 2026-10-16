@@ -457,15 +457,22 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/DS-05-abs-beat-being-a-fat-millionaire.md`: cut the dedicated short \"Why Having Abs Is Better Than Being A Fat Millionaire\" from its 8/28 raw takes. Best take of every line, 1080×1920, 45–66 s, J2 captions, every b-roll cue filled and labelled, the 8/28 S-Log3 conversion, lav picked per file, cover image. Every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-05-abs-beat-being-a-fat-millionaire.md` with `$long-form-content-edit` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "blocked",
-   "note": "October 16 revisions reopened. Stale V3 HD held in Blotato preparation; no live booking. F3 cover stays approved. Repair packet: Handoffs/handoff-20261016-ds05-correct-version.md",
+   "state": "in_progress",
+   "note": "Actual R4 correction worker registered fairly through shared buildcap.wait; no heavy work until its slot opens. Posting hold and F3 preserved. Corrected candidate/QC/review pending; not release-approved.",
    "sub": "Talking",
    "order": 21,
    "updated": "2026-10-16",
    "by": "Codex",
-   "rev": 7,
+   "rev": 8,
    "syncedRev": 6,
-   "needs": "A free video build slot, then corrected candidate, exact-file gates, independent review and Daniel approval."
+   "needs": "",
+   "claim": {
+    "by": "Codex",
+    "pid": 88132,
+    "started": "2026-10-16T18:28:09",
+    "heartbeat": "2026-10-16T18:28:09"
+   },
+   "editor": "Codex"
   },
   {
    "id": "DS-06",

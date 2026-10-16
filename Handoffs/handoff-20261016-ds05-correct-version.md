@@ -31,3 +31,7 @@ Full private provenance, asset identities and production evidence remain in this
 No corrected master has been rendered, quality-certified or approved in this task. Production remains pending because the shared build limit is already occupied. Do not resume the globally paused queue, interrupt another worker, contact the external editor, spend money, generate credentials or broaden access.
 
 Recommended continuation: GPT-6 Sol, medium effort. Resume Fat Millionaire SFC R4 using the private repair packet, then complete the scoped corrections and checks above. No new task or render has been scheduled automatically.
+
+## Fair waiting registration, 2026-10-16
+
+The actual scoped repair worker is now registered through the existing shared buildcap.wait mechanism, behind earlier waiters and ahead of later arrivals. The master/edit queue is IN PROGRESS, with a live worker claim. The worker waits before heavy work, then renders and runs local shared quality checks. It performs no publishing, schedule selection, upload or approval-state change. A fresh independent review and Daniel exact-file approval still follow the complete candidate. This is not a separate watcher or a global dispatcher activation.
