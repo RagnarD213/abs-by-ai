@@ -10,14 +10,18 @@ reason.
 
 Keep this file current: when something is filmed, delete its row and note the roll number.
 
-**Shoot-day document (the one to actually open on the day):**
-https://docs.google.com/document/d/1tTPTksuG_YwifjMWohtmXpelrjTFdo8KzjfxyuVvxq4/edit
-It carries the M100 pickup, the b-roll suggestions built from the whole edit queue, and both
-/start VSL teleprompter scripts.
+**Shoot-day document (the one to actually open on the day), since 2026-10-16:**
+"Next Shoot - Filming Document (Not Filmed On 10-15)",
+https://docs.google.com/document/d/1fNCxSNNDGmAn_nkNgzRJbWIUDuvmxum2LBNCpyKveVg/edit
+Everything the 10/15 shoot did not film: 6 reaction shorts (DS-65 to DS-70), 5 studio shorts (DS-71 to DS-75), the 4
+follow-along cue tracks (RO-33 to RO-36), and all owed B-roll by location, each tagged with its Edit Queue job. Script
+words match the 10-17 teleprompter documents; edit scripts in the 10/17 shoot doc and rebuild.
 
 ---
 
 ## 1. Quick pickups (about 15 minutes total)
+
+**Filmed 10/15:** the three M100 moves (roll C1736) and the countertop pushups (C1732). Nothing left in this section.
 
 These are tiny. Shoot them at the start of the next session while the lights are already up.
 

@@ -121,6 +121,8 @@ All 8 long-forms are filmed.
 
 ## Not filmed
 
+All of it is on "Next Shoot - Filming Document (Not Filmed On 10-15)" (`1fNCxSNNDGmAn_nkNgzRJbWIUDuvmxum2LBNCpyKveVg`), and every filmed and unfilmed video has an Edit Queue job: RO-21 to RO-36, DS-33 to DS-75 (`Handoffs/video-editing/00-MASTER.md`, section 1C3).
+
 - **Green screen reactions (6):** There's Now A Card That Tells Your Doctor Not To Weigh You and Bert Kreischer
   (Dan skipped both on the roll at 26:15), and all four Clavicular shorts (Looks Matter, 70% Of Softmaxxing,
   Retatrutide, Hair Is Life). The session moved outside after Mr. Olympia.
