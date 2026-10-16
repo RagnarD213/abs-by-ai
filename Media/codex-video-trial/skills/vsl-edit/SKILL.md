@@ -3,6 +3,10 @@ name: vsl-edit
 description: Edit or revise Abs By AI website video sales letters from filmed footage using detailed asset approval rounds before a full render. Use for website VSLs with a sales story, proof, product demonstration, offer and CTA. Organic teaching videos, paid ads and speed or aspect changes to an approved master use their own workflows.
 ---
 
+## Current shared editorial rules (Dan, 2026-10-16)
+
+Read the live project [VIDEO-RULES.md](../../../../.claude/skills/_shared/VIDEO-RULES.md) before the historical recipes. In every new first round, including studio footage, show colour and level-matched voice options; offer the broad, entertaining AI clip selection described there; use title capitalization for new graphic copy with rare all-capital emphasis. An internal audio ranking is not a substitute for Dan's audition options. If he requests text ideas before frames, keep that order. Preserve source-specific locks and the existing frame/motion approval gates.
+
 ## Shared HyperFrames graphics (2026-10-03)
 
 For every new build or graphics revision, read the project's [shared HyperFrames method](../../../../.claude/skills/_shared/hyperframes/README.md). Lower thirds, before/fact cards, 3A side lists and cycles use that folder through `from_plan.py`, the shared `composite.py` and `checks.py`, pinned to **hyperframes 0.8.97**. Do not copy or fork its templates. `orglib` and `modern_graphics` panels are superseded for those four kinds; historical recipes remain reproduction records.
