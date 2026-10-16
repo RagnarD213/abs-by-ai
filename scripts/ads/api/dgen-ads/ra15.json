@@ -1,0 +1,35 @@
+{
+  "campaignId": "24316364155",
+  "label": "RA-15 Never Pay A Nutritionist",
+  "key": "ra15",
+  "targetCpa": 40,
+  "copyTargetCpaFromAdGroup": "204926161127",
+  "audienceFromAdGroup": "206348100928",
+  "logoAsset": "400941168572",
+  "ctaAsset": "401407635767",
+  "businessName": "Abs by AI",
+  "videos": [
+    { "youtubeId": "TBD16", "version": "Claude 16:9", "utm": "claude-16x9" },
+    { "youtubeId": "TBD9", "version": "Claude 9:16", "utm": "claude-9x16" }
+  ],
+  "copy": {
+    "headlines": [
+      "Never Pay A Nutritionist Again",
+      "How AI Got Me Abs",
+      "How I Got Abs At 40",
+      "AI Took The Nutritionist's Job",
+      "Meal Plans Built Around Your Food"
+    ],
+    "longHeadlines": [
+      "Daniel Rose explains why he replaced his nutritionist with AI.",
+      "Here is how AI builds a nutrition plan around the foods you actually like.",
+      "An AI nutrition coach that is with you at every meal, even at a restaurant."
+    ],
+    "descriptions": [
+      "Daniel Rose shows how AI builds a nutrition plan around foods you like.",
+      "AI nutrition coaching explained by a guy who did it at 40 years old.",
+      "Ask AI what to order at a restaurant and get a plan you will stick to."
+    ]
+  },
+  "thumbnail": "TBD after Dan's pick"
+}
