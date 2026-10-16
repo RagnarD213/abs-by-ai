@@ -31,9 +31,9 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Fat Millionaire SFC R4 BLOCKED 2026-10-16, Codex.** This is the active task in Dan's screenshot. Stale DS-05 held; live Blotato has no DS-05 booking. Next: free build slot, supplied corrections, full QC/independent review, then Dan approval. Packet: `Handoffs/handoff-20261016-ds05-correct-version.md`. No date selected.
 
-**RO-26:R3-ACTIVE:2026-10-16:Codex.** Executing selected revisions in isolated round3. R2 workers completed; reuse pictures with approved Voice C. Build revised first minute and narrated contexts, repair workout frames, generate/check Nutrition B only. No workout motion or full-film render. Detail: `/Volumes/Extreme/_edit_work/ro26/round3/`.
+**RO-26:R3-ACTIVE:2026-10-16:Codex.** Nutrition B motion automatic+independent PASS ($0.60 estimate). Voice C built; selected opening/context preview batch waiting shared two-build cap. Workout pair remains withheld after anatomy/seam FAIL; correcting stills only. No workout motion/full film/upload. Detail: `/Volumes/Extreme/_edit_work/ro26/round3/`.
 
-**RO-25:R2-NEEDS:2026-10-16:Codex:** Frames review8825; previews parked for capacity. Packet: `/Volumes/Extreme/_edit_work/RO-25/round2/WORK_PACKET.md`.
+**I'm 41 Wasted Life LFC R3 ACTIVE 2026-10-16, Codex.** Rich Balanced locked; skip 3/6/13. Three revised pairs dual PASS; party QA queued. Three motion takes estimated $1.05/$5: night/lotion dual PASS, coffee range QA queued. Graphics/opening/recap workers on Expansion after Extreme filled. Completion heartbeat active. Next: finish contexts, QA and notify Dan. Packet: `/Volumes/Extreme/_edit_work/RO-25/round3/WORK_PACKET.md`.
 
 **RO-04:R1-REVIEW:8974:2026-10-15:Codex**
 **COVERS:MOBILE:2026-10-15:Docs/COVER_AUDIT_20261015.md**
@@ -87,7 +87,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Muhammad-Shorts QUEUED 2026-10-13.** DS-05 waitlisted 10-16; queued: set Edit Queue uploaded. `Docs/MUHAMMAD_SHORTS_SETUP_RECEIPT_20261013.md`
 
-**RA-07:R5-READY:2026-10-16:Claude.** Dan approved the R4 frames (gym closed, leg press out of order). Next: fire `Handoffs/handoff-20261016-ra07-fire-your-trainer-round5-full-film.md` (motion, full 9:16, gates). Page :8856 stays up. $10 of $20 AI budget left.
+**RA-07:R5-REVIEW:2026-10-16:Claude.** Whole 9:16 with both new clips moving, gates and independent review SHIP; page :8856. $12 of $20 AI spent. Next: Dan's call; the 16:9 only after he approves. Detail: `Handoffs/video-editing/RA-07-fire-your-trainer.md`.
 
 **RO-20/B/C:R3b-REVIEW:8868:2026-10-16:Claude.** Studio pickups laid in. Next: Dan's pickup A/B + sign-off answers, then three films (handoff step 2).
 
