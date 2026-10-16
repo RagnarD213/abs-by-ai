@@ -1511,6 +1511,17 @@ s91_tail07, s92r3 chips, s93r3 gate plan, s96_ctc1 alignment, gen_motion3, lock_
    (`s93r3_gateplan.py`, K1), or `compliance:labels` reads it as missing.
 7. **Codex image saves fail intermittently with three or four jobs at once.** Run two at a time and retry a missing file.
 
+## RA-07 round 4 lessons: a library clip cut around its faults, and frame pairs that stop mid-step (2026-10-16)
+
+Recipe: `reference/ra07/round4/` (s70r4 plan, s75r4 clips with `start_frame` pieces, s86r4 assemble with labelled placeholders, s87r4 page, specs).
+
+1. **A library clip Dan approved earlier still goes through clipcheck and a fresh reviewer, window by window.** A0179 (RA-04) is AI1-12_c raw frames 4+ then AI1-3_b raw 61-87, played 1:1 at 29.97. Windows 32-67 and 8-43 failed (no head shake that reads, a smeared phone out of the pocket, his arm rising to his hip from frame 35); frames 0-34 and 101-128 passed. Cut around the fault and say so on the page; the slot boundary moved one frame to fit the clean 62 frames.
+2. **Find a library clip's scene change from the frame difference (a spike of about 40), not from a 3 fps sheet.** I read it as frame 102 and the true first frame is 101. Seeking half a frame early and letting `fps=` run duplicated the first frame at the join (a 0.01 difference after the spike); conform with `trim=start_frame=N:end_frame=N+n,setpts=PTS-STARTPTS` and no `-ss` when the source is already 29.97.
+3. **A START mid-stride and an END standing fail the bone check (shin -9 to -17 %).** Tell Codex "BOTH FEET STAY EXACTLY WHERE THEY ARE ... same stride, same shoes", and change only the upper body. That passed the gate; the reviewer then failed what the model did next: a chest turned 90 degrees over still hips (turn the HEAD, keep shoulders within about 45 degrees of the hips), a forearm bent across the spine (elbow stays at the side), and a hand over the sign text (keep a hand-width and a half of clear air). Four tries on the leg press END; the head-turn-plus-shoulder-lift version passed. Both pairs keep the same feet in START and END, so the video model has to supply the last step: check the motion take for sliding feet.
+4. **Reuse unchanged holds by matching plan time, frame count, level and end to an earlier round's `holds.json`** and copy the mp4 (15 of 15 matched): no Dan shot re-rendered, first 30 s frame-identical by md5.
+5. **A placeholder band at y 760-1000 covers the sign and the machine in the contextual clip.** Put it on the floor (y about 1080-1280, above the caption ink at 1407) next time.
+6. The build waits behind other sessions' renders (`buildcap.wait`); queue one chain script (assemble, md5 check, cuts) and wait on its log for `WORK_DONE` and `CUTS_DONE`.
+
 ## RA-14 round 2 lessons: colour and framing on the 8/28 pool rolls (2026-10-13)
 
 Dan on round 1, which reused RA-01's grade and framing rule on roll C1667: "both are a little bit too tight" and "we can

@@ -1,0 +1,19 @@
+{
+ "shot": "RA-07 round 4 A1 piece 2: A0179 frames 102-128 (the man with the broken arm does the leg press)",
+ "start_frame": "A0179.mp4 frame 102 (1080x1920); every box is in that frame's pixels",
+ "intent": "A man in a grey t-shirt and navy shorts, his left forearm in a white cast inside a navy sling, lies back on a black 45-degree plate-loaded leg press and pushes the sled slowly up the rails with both legs, smiling. The base frame, the uprights and the floor do not move. Other gym members in the far background move on their own. The camera is locked.",
+ "person": {"reach": false},
+ "camera": "locked",
+ "still": {
+  "base_foot_left": [30, 1330, 115, 1398],
+  "base_foot_right": [1005, 1340, 1070, 1402],
+  "upright_bolts": [1012, 415, 1062, 475],
+  "pivot_bolt": [305, 1155, 365, 1215]
+ },
+ "may_change": {
+  "bg_left": [0, 500, 100, 820],
+  "bg_woman": [240, 540, 340, 800]
+ },
+ "hands": {"right": "arm folded over his chest", "left": "forearm in a white cast inside a navy sling in every frame"},
+ "bounds": {}
+}

@@ -1,0 +1,52 @@
+{
+ "shot": "RA-07 round 4 'Leg press out of order': one take, START to END, same locked camera",
+ "start_frame": "LP-start_v1.png (941x1672)",
+ "intent": "A gym member in a navy t-shirt and grey shorts, a white towel folded over his left shoulder, walks toward a plate-loaded leg press. A yellow OUT OF ORDER sign hangs from a string looped over the top of the backrest. START: seen from behind and the side, mid-stride, head turned toward the sign, has not stopped. END: same camera, same feet, hips and back (he does not twist his body); he has stopped, glances back at the camera over his right shoulder with a tired look and his shoulders lift slightly in a small shrug. The machine, the sign, the plates, the dumbbell rack and the floor do not move.",
+ "person": {
+  "reach": false
+ },
+ "still": {
+  "sign": [
+   428,
+   705,
+   520,
+   825
+  ],
+  "plate_rim": [
+   815,
+   548,
+   941,
+   620
+  ],
+  "base_foot_left": [
+   415,
+   955,
+   485,
+   992
+  ],
+  "base_foot_right": [
+   640,
+   1030,
+   745,
+   1068
+  ],
+  "dumbbells": [
+   352,
+   465,
+   440,
+   540
+  ],
+  "rail_bolts": [
+   735,
+   930,
+   800,
+   990
+  ]
+ },
+ "hands": {
+  "right": "hanging at his side, empty, in START and END",
+  "left": "out of sight behind his body in START and END"
+ },
+ "may_change": {},
+ "bounds": {}
+}

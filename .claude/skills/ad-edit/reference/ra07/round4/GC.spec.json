@@ -1,0 +1,16 @@
+{
+ "shot": "RA-07 round 4 'Gym closed': one take, START to END, same locked camera",
+ "start_frame": "GC-start_v1.png (941x1672)",
+ "intent": "A man in a black t-shirt and black shorts walks along the sidewalk toward the glass door of a gym. A printed red and white CLOSED sign hangs on the inside of the glass. START: mid-stride, eyes on the door, has not stopped. END: same camera, he has stopped, feet planted, both palms up and empty at waist height, shoulders dropped, head tilted, a resigned look at the sign. The door, the sign, the building, the sidewalk and the dark gym interior do not move.",
+ "person": {"reach": false},
+ "still": {
+  "sign": [712, 300, 855, 425],
+  "door_handle": [852, 690, 938, 925],
+  "hinge_top": [512, 98, 540, 172],
+  "hinge_mid": [512, 605, 540, 668],
+  "door_corner": [850, 1440, 935, 1535]
+ },
+ "hands": {"right": "empty, hanging in START; palm up, empty, in END", "left": "empty, swinging back in START; palm up, empty, in END"},
+ "may_change": {},
+ "bounds": {}
+}

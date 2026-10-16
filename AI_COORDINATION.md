@@ -82,7 +82,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Muhammad-Shorts QUEUED 2026-10-13.** DS-05 waitlisted 10-16; queued: set Edit Queue uploaded. `Docs/MUHAMMAD_SHORTS_SETUP_RECEIPT_20261013.md`
 
-**RA-07:R4-ACTIVE:2026-10-16:Claude.** Whole 9:16 with placeholders for the gym-closed and leg-press-out-of-order clips; their frames wait for Dan's yes. Work `/Volumes/Extreme/_edit_work/ra07/round4/`. Next: page on :8856, then motion only after Dan approves frames ($10 left of $20).
+**RA-07:R4-REVIEW:8856:2026-10-16:Claude.** Whole 9:16 with 2 placeholders on :8856; frames for gym closed + leg press out of order wait for Dan's yes ($10 of $20 spent). Next: motion for both (frames-first checks), then gate, watch, reviewer, 16:9. Work `/Volumes/Extreme/_edit_work/ra07/round4/`.
 
 **RO-20/B/C:R3b-REVIEW:8868:2026-10-16:Claude.** Studio pickups laid in. Next: Dan's pickup A/B + sign-off answers, then three films (handoff step 2).
 
