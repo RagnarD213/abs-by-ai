@@ -83,7 +83,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Muhammad-Shorts QUEUED 2026-10-13.** DS-05 cover pick 10-14. `Docs/MUHAMMAD_SHORTS_SETUP_RECEIPT_20261013.md`
 
-**RO-20/B/C READY 2026-10-16.** `Docs/PICKUPS_1017_SHOOT.md`
+**RO-20/B/C:R3b-ACTIVE:2026-10-16:Claude.** Laying C1722 pickups into first minutes, port 8868. Next: Dan's ear + sign-off answer, then three films.
 
 
 **RA-05:POLICY-RECHECK:2026-10-16:Claude.** Live: `0DswKDBFW2E`, ad `828398569805` in review. Next 10-17: `node scripts/ads/api/client.js policy 24316364155`; clean, delete this.
