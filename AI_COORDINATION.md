@@ -25,7 +25,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**RO-26:R2-REVISIONS:2026-10-16:Codex:** Dan is still reviewing :8982. Searching real Flight Club speech; Drive `Copy of 1-Dan Rose.mp4` is downloading for visual verification. Earlier retouched portrait graphic located; supplied black-belt group photo staged. Next: verify speech against gray-shirt reference, preserve further review notes, then rebuild changed contexts. No AI motion approved. Work: `/Volumes/Extreme/_edit_work/ro26/round2/revisions-20261016/`.
+**RO-26:R2-REVISIONS:2026-10-16:Codex:** Dan is still reviewing :8982. Exact Flight Club gray-shirt speech found, full1080p original downloaded;317.0-318.75s selected. Previous retouched portrait trio and supplied black-belt group photo staged. Next: combine remaining notes and rebuild changed opening/martial contexts. Current draft preserved; no AI motion approved. Detail: `/Volumes/Extreme/_edit_work/ro26/round2/revisions-20261016/revisions.json`.
 
 **RO-25:R2-ACTIVE:2026-10-16:Codex:** `/Volumes/Extreme/_edit_work/RO-25/round2/` frames/previews.
 
