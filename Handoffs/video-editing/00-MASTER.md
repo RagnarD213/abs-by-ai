@@ -141,7 +141,7 @@ Roll map and editor warnings: `Docs/SHOOT_1015_FOOTAGE_REPORT.md`. BLOCKED rows 
 
 | job | video | rolls | status | size |
 |---|---|---|---|---|
-| [RO-25](RO-25-im-41-i-wasted-my-life.md) | I'm 41. I Wasted My Life. | 10/15 C1767 | IN PROGRESS | L |
+| [RO-25](RO-25-im-41-i-wasted-my-life.md) | I'm 41. I Wasted My Life. | 10/15 C1767 | **NEEDS DAN** | L |
 | [RO-28](RO-28-why-zepbound-improves-your-health-even-if-youre-ripped.md) | Why Zepbound Improves Your Health Even If You're Ripped | 10/15 C1771 | READY | L |
 
 RO-25 selections received 2026-10-16. Next: [round-two selected frames and revisions](handoff-20261016-ro25-r2-selected-frames-and-revisions.md), including the serious tone correction. Generate frame pairs for review before motion; the full film remains in progress. Preserve the [round-one record](handoff-20261016-ro25-round1-look-assets-first-minute.md).

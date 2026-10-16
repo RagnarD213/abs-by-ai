@@ -25,9 +25,9 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**RO-26:R2-REVISIONS:2026-10-16:Codex:** Dan continues reviewing :8982. Flight Club source, retouched portrait trio and black-belt group photo staged. Previous Hinge animation adapted to Dan portrait/name/avatar; short native UI render queued for5.9-7.8s dating line. Next: combine remaining notes and rebuild changed contexts. Current draft preserved; lifting/eating AI motion unapproved. Detail: `/Volumes/Extreme/_edit_work/ro26/round2/revisions-20261016/revisions.json`.
+**RO-26:R2-REVISIONS:2026-10-16:Codex:** Dan reviewing :8982. Flight Club source, retouched portraits, black-belt photo and Dan Hinge animation staged. Curls rejected; high-school tank-top incline replacement frames fail anatomy QA and remain unpublished. Motion unapproved. Next: repair frame pair, collect remaining notes, rebuild affected contexts. Current draft preserved. Detail: `/Volumes/Extreme/_edit_work/ro26/round2/revisions-20261016/revisions.json`.
 
-**RO-25:R2-ACTIVE:2026-10-16:Codex:** `/Volumes/Extreme/_edit_work/RO-25/round2/` frames/previews.
+**RO-25:R2-NEEDS:2026-10-16:Codex:** Frames review8825; previews parked for capacity. Packet: `/Volumes/Extreme/_edit_work/RO-25/round2/WORK_PACKET.md`.
 
 **RO-04:R1-REVIEW:8974:2026-10-15:Codex**
 **COVERS:MOBILE:2026-10-15:Docs/COVER_AUDIT_20261015.md**
