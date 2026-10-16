@@ -94,7 +94,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-31:R1-REVIEW:8931:2026-10-15:Claude.**
 
-**RA-15:R4-READY:2026-10-16.** `handoff-20261016-ra15-round4-cutout-to-camera.md`
+**RA-15:R4-ACTIVE:2026-10-16:Claude.** Cutout card out, Dan on camera 39.01-43.18; work `/Volumes/Extreme/_edit_work/ra15/round4/`. Next: build, gates, review, deliver.
 
 **RA-04 POLICY-RECHECK 2026-10-16,Claude.**
 
@@ -122,7 +122,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **SL-06:R2-ACTIVE:2026-10-16:Claude.** Building six shorts with lav pickups. Next: gates, audit, review page.
 
-**SL-07 R3 READY 2026-10-16.** Pickups recorded. `Handoffs/handoff-20261016-sl07-round3-studio-pickups-and-full-review.md`
+**SL-07:R3-BUILDING:2026-10-16:Claude.** Studio pickups in B, D; extra B-roll in A, D, E; renders, reviews, gates running. Next: page :8874. `Handoffs/handoff-20261016-sl07-round3-studio-pickups-and-full-review.md`
 
 **RO-12 - QUEUED 2026-10-01, Claude.** Blotato Oct 25. Then: `Docs/RO12_SETUP_RECEIPT_20261001.md`, delete.
 
