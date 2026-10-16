@@ -171,4 +171,5 @@ for _it in PLAN:
 # last moving frame (3.40 s of the clip) and go back to Dan for "of your hand". Never hold or slow a clip.
 for _it in PLAN:
     if _it["id"] == "A3": _it["chip"] = ((54, 54), "lt")
+    if _it["id"] == "A10": _it["chip"] = ((40, 40), "lt", 1.5)   # re-review 3: his raised arm passes under the top-right chip in the last second; no full-size corner is clear, a 3/4-size chip top left keeps 56 px from him on every frame
     if _it["id"] == "A5": _it["max_len"] = 3.40; _it["chip"] = ((54, 54), "lt")   # re-review: top right sat on the arm tipping the cup

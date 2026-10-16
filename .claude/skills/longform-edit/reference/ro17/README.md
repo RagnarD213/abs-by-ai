@@ -96,4 +96,6 @@ The independent check of the round 2 page (29 findings, all fixed or explained b
     heads only sat on the pouring hand of the opener (A3: chip to the top left), and A5's last 1.2 s was a held still after the pour
     (0.07 % of pixels changing): `max_len` 3.40 ends it on the last moving frame. Check chip corners against hands and the moving
     object, and trim every AI take's still tail, before the render. The re-review then caught the same chip fault on A5 (top right on
-    the arm tipping the cup): of 8 AI chips placed by heads only, 2 sat on the hand doing the action. Both are top left now.
+    the arm tipping the cup), and a third review the same on A10 (his raised arm under the chip in the last second, where no
+    full-size corner is clear): 3 of 8 heads-only chip corners failed. A10 got a 3/4-size chip top left (`chip=((40,40),"lt",1.5)`,
+    `gfx.ai_chip(u=)`, `finish.chip_png(u=)`). Mask every frame of a clip against the chip box plus a ring before the render.

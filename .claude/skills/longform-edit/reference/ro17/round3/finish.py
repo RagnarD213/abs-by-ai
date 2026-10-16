@@ -104,8 +104,8 @@ def grab(t):
     raw = subprocess.run([FF, "-v", "error", "-ss", f"{t:.3f}", "-i", master, "-frames:v", "1", "-vf", "scale=in_color_matrix=bt709:in_range=tv,format=gray",
                           "-f", "rawvideo", "-"], capture_output=True).stdout
     return np.frombuffer(raw, np.uint8).reshape(1080, 1920).astype(np.float32)
-def chip_png(text, path):
-    u = B.unit(1920, 1080); tmp = Image.new("RGBA", (1920, 200), (0, 0, 0, 0))
+def chip_png(text, path, u=None):
+    u = u or B.unit(1920, 1080); tmp = Image.new("RGBA", (1920, 200), (0, 0, 0, 0))
     x0, y0, x1, y1 = B.disclosure(tmp, text, (100, 50), u)
     tmp.crop((int(round(x0)), int(round(y0)), int(round(x1)), int(round(y1)))).save(path); return path
 def locate(ref_png, t):
@@ -119,9 +119,19 @@ ai_ins, real = [], []
 for i in R:
     if not i.get("label") or not i["t1"]: continue
     if True:
-        png = chip_png(i["label"], f"{od}/chips/{i['id']}.png")
+        cu = i["chip"][2] if isinstance(i.get("chip"), (list, tuple)) and len(i["chip"]) > 2 else None   # per-item chip scale (A10)
+        png = chip_png(i["label"], f"{od}/chips/{i['id']}.png", cu)
         a, z = fr(i["t0"])/FPS, fr(i["t1"])/FPS
         pos, score = locate(png, (a + z)/2)
+        if i["kind"] == "scene" and i.get("scene") == "fact":
+            # round 4: the fact card's chip is drawn by HyperFrames (its own type metrics, correlation 0.826 against the softblue chip);
+            # the exact reference is that graphic's own render (hf/renders/<id>.mov, never the film), cropped where the chip sits
+            mov = next(m["mov"] for m in json.load(open(f"{W}/hf/manifest.json")) if m["id"] == i["id"])
+            ref = Image.open(png); w, h = ref.size
+            fr_ = subprocess.run([FF, "-v", "error", "-ss", f"{(z - a)/2:.3f}", "-i", mov, "-frames:v", "1", "-f", "image2pipe", "-vcodec", "png", "-"], capture_output=True).stdout
+            import io
+            Image.open(io.BytesIO(fr_)).convert("RGBA").crop((pos[0], pos[1], pos[0] + w, pos[1] + h)).save(png)
+            pos, score = locate(png, (a + z)/2)
         rec = dict(name=i["id"], beat=[round(a, 3), round(z, 3)], chip=png, pos=pos, match=score)
         (ai_ins if i["label"] == "AI-GENERATED" else real).append(rec)
 chips = dict(ai=chip_png("AI-GENERATED", f"{od}/chips/ai.png"), real=chip_png("Real picture of me. Not AI-generated.", f"{od}/chips/real.png"))
