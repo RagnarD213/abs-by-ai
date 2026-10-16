@@ -1,3 +1,5 @@
+> Superseded by Dan’s selected directions in [the current handoff](handoff-20261016-ro26-round2-context-and-ai-concepts.md): lifting/salad frame options; real business and black-belt footage. No concept-ID picks remain pending.
+
 # RO-26 — 40 AI clip concepts for Dan’s selection
 
 Text ideas only. No selections or frame/motion approvals are inferred. Choose one or more IDs per point; after picks, create start/end-frame options, then obtain frame approval before motion variants. These are illustrative AI scenes, not historical footage. Use an approved identity reference if Dan is the character. Each chosen top-level point also gets a lower third naming that point.
