@@ -66,17 +66,22 @@ def main():
     hook = sys.argv[1:] == ['--hook']
     path = ROOT / 'AI_COORDINATION.md'
     if hook:
+        # Fail only the session that edited the board, so other sessions are not
+        # blocked by an over-budget board they never touched.
         payload = json.load(sys.stdin)
         tool = payload.get('tool_name', '')
+        tool_input = payload.get('tool_input', {}) or {}
         if tool in ('Edit', 'Write', 'MultiEdit'):
-            edited = Path(payload.get('tool_input', {}).get('file_path', ''))
+            edited = Path(tool_input.get('file_path', ''))
             if not edited.is_absolute():
                 edited = Path(payload.get('cwd', str(ROOT))) / edited
             if edited.resolve() != path:
                 return 0
-        elif tool != 'Bash':
+        elif tool == 'Bash':
+            if 'AI_COORDINATION.md' not in str(tool_input.get('command', '')):
+                return 0
+        else:
             return 0
-        # Check after every Bash: scripts/redirects can edit the board indirectly.
     elif len(sys.argv) == 2:
         path = Path(sys.argv[1])
     elif len(sys.argv) != 1:
@@ -85,7 +90,11 @@ def main():
     errors, words = check(path)
     if errors:
         print('Board check FAILED:\n' + '\n'.join(errors), file=sys.stderr)
-        print('Compress or archive finished work, fix dates, then rerun scripts/board-check.sh.', file=sys.stderr)
+        if hook:
+            print('You edited the board. Trim YOUR OWN entry only (never another session\'s), '
+                  'then rerun scripts/board-check.sh.', file=sys.stderr)
+        else:
+            print('Compress or archive finished work, fix dates, then rerun scripts/board-check.sh.', file=sys.stderr)
         return 2 if hook else 1  # PostToolUse exit 2 feeds stderr back to Claude.
     if not hook:
         print(f'Board check PASS: {words}/2,500 words; dated entries all <=80 words.')
