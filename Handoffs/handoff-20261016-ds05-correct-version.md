@@ -35,3 +35,7 @@ Recommended continuation: GPT-6 Sol, medium effort. Resume Fat Millionaire SFC R
 ## Fair waiting registration, 2026-10-16
 
 The actual scoped repair worker is now registered through the existing shared buildcap.wait mechanism, behind earlier waiters and ahead of later arrivals. The master/edit queue is IN PROGRESS, with a live worker claim. The worker waits before heavy work, then renders and runs local shared quality checks. It performs no publishing, schedule selection, upload or approval-state change. A fresh independent review and Daniel exact-file approval still follow the complete candidate. This is not a separate watcher or a global dispatcher activation.
+
+## Initial candidate inspection and sequential repair
+
+The registered worker survived reconnect and rendered an initial full candidate with the original audio packets preserved. Editor and independent still inspection returned it for repair: a brief old-photo leak at the replacement entrance, caption scene residue/lost glyphs during the former photo transition, and the closing replacement plate outlasting its fade. The candidate remains private and unapproved. Only our own queued QC of that rejected candidate was stopped; a sequential corrected worker was registered through the same fair capacity mechanism. No duplicate build or unrelated process interruption occurred. Full native/moving/audio QC and independent review remain pending the revised candidate. The posting hold stays intact.

@@ -29,7 +29,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-13:R3-CHECKS:2026-10-16:Codex.** Both complete 53.9s copies built. Whole-head vertical centering, B0550 in one phone and matching analysis image. Next: exact-file checks, independent review, then :8973 delivery. Work `/Volumes/Expansion/Abs By AI Edit Work/ra13/round3/` (Extreme full).
 
-**Fat Millionaire SFC R4 QC-WAITING 2026-10-16, Codex.** Actual worker survived reconnect; complete candidate rendered, original audio packets preserved. Shared full-QC stage is waiting fairly; editor/independent still inspection started. Posting hold/F3/date intent intact. Next: full checks and independent watch, then exact-file Dan review. Packet: `Handoffs/handoff-20261016-ds05-correct-version.md`.
+**Fat Millionaire SFC R4 REPAIR-WAITING 2026-10-16, Codex.** Initial candidate returned by editor/independent still review for photo-boundary, caption and closing-fade repairs. Sequential actual worker registered fairly; no duplicate. Posting hold/F3/date intent intact. Next: corrected candidate, full QC/independent watch, then Dan approval. Packet: `Handoffs/handoff-20261016-ds05-correct-version.md`.
 
 **RO-26:R3-ACTIVE:2026-10-16:Codex.** R3 first minute/changed narrated contexts built with B colour/C voice. Nutrition motion PASS ($0.60 estimate); Martial composite/picture/listener PASS. Business remaining desktop-chrome cleanup and clearer workout still gate queued under shared cap; bad frames withheld. Strict reference audio failures recorded, approved EQ unchanged. No workout motion/full film/upload. Detail: `/Volumes/Extreme/_edit_work/ro26/round3/`.
 
