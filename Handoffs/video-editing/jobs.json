@@ -85,7 +85,7 @@
    "updated": "2026-10-16",
    "by": "",
    "rev": 15,
-   "syncedRev": 14,
+   "syncedRev": 15,
    "editor": "Claude",
    "needs": ""
   },
@@ -154,7 +154,7 @@
    "updated": "2026-10-16",
    "by": "Claude",
    "rev": 10,
-   "syncedRev": 9,
+   "syncedRev": 10,
    "editor": "Claude",
    "needs": ""
   },
@@ -284,7 +284,7 @@
    "updated": "2026-10-14",
    "by": "Codex",
    "rev": 5,
-   "syncedRev": 3,
+   "syncedRev": 5,
    "editor": "Codex",
    "needs": ""
   },
@@ -330,7 +330,7 @@
    "updated": "2026-10-16",
    "by": "Claude",
    "rev": 8,
-   "syncedRev": 7,
+   "syncedRev": 8,
    "editor": "Claude",
    "needs": ""
   },
@@ -353,7 +353,7 @@
    "updated": "2026-10-15",
    "by": "Codex",
    "rev": 7,
-   "syncedRev": 3,
+   "syncedRev": 7,
    "editor": "Codex",
    "needs": ""
   },
@@ -998,7 +998,7 @@
    "updated": "2026-10-15",
    "by": "Codex",
    "rev": 4,
-   "syncedRev": 2,
+   "syncedRev": 4,
    "editor": "Codex",
    "needs": ""
   },
@@ -1991,7 +1991,7 @@
    "updated": "2026-10-15",
    "by": "Claude",
    "rev": 12,
-   "syncedRev": 7,
+   "syncedRev": 12,
    "queue_owned": true,
    "needs": "",
    "editor": "Claude"
@@ -2008,14 +2008,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/RO-18-how-to-make-time-for-exercise-nutrition.md`: cut \"How To Make Time For Exercise & Nutrition\" from 9/23 roll C1714-C1715 with /longform-edit. Best take of every line, every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-18-how-to-make-time-for-exercise-nutrition.md` with `$long-form-content-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "in_progress",
-   "note": "R1 started 10-15 (Opus 5.5)",
+   "state": "draft_review",
+   "note": "R1 page 10-16: first minute + every graphic, clip and AI frame pair for review: http://127.0.0.1:8981/ . VLC copy in Videos to Review. Two independent checks, 19 fixes made. Next: Handoffs/handoff-20261015-ro18-round2-full-film.md",
    "sub": "",
    "order": 91,
-   "updated": "2026-10-15",
+   "updated": "2026-10-16",
    "by": "Claude",
-   "rev": 2,
-   "syncedRev": 2,
+   "rev": 3,
+   "syncedRev": 3,
    "editor": "Claude",
    "needs": ""
   },
@@ -2082,7 +2082,7 @@
    "updated": "2026-10-15",
    "by": "Codex",
    "rev": 10,
-   "syncedRev": 9,
+   "syncedRev": 10,
    "editor": "Codex",
    "needs": ""
   },
@@ -2148,7 +2148,7 @@
    "updated": "2026-10-15",
    "by": "Claude",
    "rev": 4,
-   "syncedRev": 2,
+   "syncedRev": 4,
    "editor": "Claude",
    "needs": ""
   },
@@ -2585,7 +2585,7 @@
    "order": 111,
    "updated": "2026-10-16",
    "rev": 6,
-   "syncedRev": 1,
+   "syncedRev": 6,
    "editor": "Codex",
    "by": "Codex"
   },
@@ -3616,7 +3616,7 @@
    "order": 160,
    "updated": "2026-10-16",
    "rev": 10,
-   "syncedRev": 1,
+   "syncedRev": 10,
    "editor": "Codex",
    "by": "Codex"
   },

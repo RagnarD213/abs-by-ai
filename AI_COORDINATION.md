@@ -105,7 +105,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-14-R1-REVIEW:8964:2026-10-14.**
 
-**RO-18:R1-BUILDING:2026-10-15:Claude.**
+**RO-18:R1-REVIEW:8981:2026-10-16:Claude.** `handoff-20261015-ro18-round2-full-film.md`
 
 **Ad 6 remarketing 2026-10-04:** Awaiting Dan: copy to enabled campaign 24305381214?
 

@@ -18,7 +18,7 @@ full), then Dan's reply to the round 1 page.
 - Rolls: 9/23 C1714 + C1715 (sidecars beside them). `frames.py` maps the virtual timeline (C1715 starts at frame 13800).
   Take map `recipe/edl.py` (29 pieces, last clean take of every line, reason per piece). `shots.json` (57 shots), `words.json` (medium.en,
   14 folded restarts patched, hand fixes listed in the README), `words_out.json`, `plan.py` / `plan_resolved.json`, `hf/` (18 lower thirds).
-- Film length 10:47 (646.81 s).
+- Film length 10:45 (645.28 s, from `shots.json`; `piece_map.json` runs on audio time and sits up to 1.5 s off, never map film time through it).
 
 ## Locked by the editor in round 1 (Dan saw them as "What I decided"; reopen only if he names them)
 
@@ -30,7 +30,7 @@ HyperFrames / softblue graphics; the take map; all stock and Dan clips as listed
 
 1. **Opener** (0:00 to 0:07): A1 "The treadmill clothes rack" (recommended) / camera.
 2. **AI clips to drop** from A1 treadmill, A2 voice-to-text rage (lip-synced to Dan's impression voice from "oh Dan, my phone", film 66.3 to
-   70.0; source virtual 237.94 to 241.61 on C1714), A6 robot mower, A7 teacher slams the laptop, A8 essays by hand, A9 nobody at work has to know. A dropped
+   70.0; source virtual 238.54 to 242.21 on C1714), A6 robot mower, A7 teacher slams the laptop, A8 essays by hand, A9 nobody at work has to know. A dropped
    idea becomes the fallback named on the page.
 3. **Wispr Flow demo:** if Dan uploads the ScreenFlow recording, lay his real Wispr Flow under C02 ("You hold down a button, you talk",
    film 54.5 to 60.0) and consider it for C03 to C05; keep the G03 dictation card.
@@ -53,7 +53,7 @@ HyperFrames / softblue graphics; the take map; all stock and Dan clips as listed
    top; A7 the lid must close onto its own base; A8 the pen must not grow a second clip as it drops; A9 the boss must walk in, not appear.
 3. Plan: each approved `ai` item becomes `kind="clip"`, `label="AI-GENERATED"`, chip measured clear of faces. `resolve.py`, then
    `from_plan.py --render` (only changed graphics re-render), `dupscan.py`.
-4. Full film: `build.render_range(0, 646.81, round2/RO18_MASTER.mp4)`, then the finish chain from RO-17 (`finish.py`, `finish_chain.sh`:
+4. Full film: `build.render_range(0, 645.28, round2/RO18_MASTER.mp4)`, then the finish chain from RO-17 (`finish.py`, `finish_chain.sh`:
    audio gate, transcript, SRT from the delivered audio with the spellings Wispr Flow, Claude, Abs By AI, ChatGPT, robotaxis, Kelley Blue
    Book; chapters; watch pass; `haircheck.py`; hyperframes `checks.py`), one `ra-reviewer` independent review (the three AI questions per
    clip in its brief), edit sheet + `validate.py`, delivery gate (`--format longform`), deliver to
@@ -68,7 +68,9 @@ close overlapped a full-screen clip and wrapped the picture (`resolve.py` now ne
 at every C1714 join (the room-tone window began on a click, now 286.75 to 289.0 and C1715 944.3 to 947.3); notes-to-Dan wording inside
 graphics; rows that appeared before their words (now `reveal` on the word); lower thirds under 3 s; the intro clip, a standing man on
 "sitting", a student writing by hand on "AI", two pairs of repeated stock scenes, two dark clips (lifted), the vertical dating-app clip
-(dropped); and the RO-14 review-page screenshot (now a grid of this video's own graphics). Report: `round1/review/INDEPENDENT-CHECK.md`.
+(dropped); and the RO-14 review-page screenshot (now a grid of this video's own graphics, `recipe/grid.py`). Report:
+`round1/review/INDEPENDENT-CHECK.md`. A second reviewer confirmed all 17 and found two more, also fixed: the B0035 app recording's own
+status bar doubled in the phone card (`crop_top=92` on P01) and a G04 label ran past the card edge. Report: `INDEPENDENT-RECHECK.md`.
 
 ## Cost ledger
 
