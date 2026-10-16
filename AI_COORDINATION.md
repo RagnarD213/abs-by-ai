@@ -107,7 +107,7 @@ Status board, not log. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_A
 
 
 
-**Nightly footage - NEW SHOOT PENDING 2026-10-15, Codex/Claude.** Six verified on Seagate and Drive; three archived from Extreme at Dan's instruction. New 10/15 shoot still ingesting. Codex fixed date-first discovery and monitors its overnight copy. Deletion pause remains. Detail: `Handoffs/handoff-20261005-claude-nightly-footage-offload.md`.
+**Nightly footage - DRIVE PENDING 2026-10-16, Codex/Claude.** Six prior shoots verified on both destinations. New 10/15 shoot: 126 files, 239.9 GB, checksum verified on Seagate; Drive hit cutoff and resumes at 8 pm. Extreme originals remain; deletion paused. Detail: `Handoffs/handoff-20261005-claude-nightly-footage-offload.md`.
 
 **Codex revisions recovery - OPEN 2026-10-05, Codex.** Tool fixes and test Doc delivered; external video judge failed the known case. Fresh passes: 0. Next: eligible short plus sealed Claude Doc, then complete motion/AI coverage and blind comparison. Keep Claude editorial default. Detail: `Handoffs/results-20261005-codex-revisions-quality-recovery.md`.
 
