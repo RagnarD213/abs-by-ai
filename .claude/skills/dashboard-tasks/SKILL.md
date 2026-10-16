@@ -100,7 +100,7 @@ Row shape — every field matters to the render:
 
 ## Adding a handoff row — ONLY when Dan explicitly asks
 
-**Rule change 2026-09-08 (Dan):** a new handoff doc does NOT get a dashboard row by default. The board had filled with executed and superseded handoff rows until the real priorities were invisible (two sweeps: `scripts/dashboard/cleanup_20260901_handoffs.py`, `cleanup_20260908_dashboard.py`). The queue of unexecuted handoffs is the HANDOFFS section of `AI_COORDINATION.md` plus `Handoffs/README.md`. If Dan says to put one on the board: fetch `GET /api/todos`, append to the **`handoffs`** list (row shape above — NOT a `business` Key task any more):
+**Rule change 2026-09-08 (Dan):** a new handoff doc does NOT get a dashboard row by default. The board had filled with executed and superseded handoff rows until the real priorities were invisible (two sweeps: `scripts/dashboard/cleanup_20260901_handoffs.py`, `cleanup_20260908_dashboard.py`). The queue of unexecuted handoffs is the OPEN section of `Handoffs/README.md` (the board only points there since 2026-10-16). If Dan says to put one on the board: fetch `GET /api/todos`, append to the **`handoffs`** list (row shape above — NOT a `business` Key task any more):
 
 ```json
 { "text": "Execute handoff: <short description>", "priority": "key", "why": "<filename> — created but not yet run", "addedAt": "YYYY-MM-DD" }

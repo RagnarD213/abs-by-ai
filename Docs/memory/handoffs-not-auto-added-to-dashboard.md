@@ -1,12 +1,12 @@
 ---
 name: handoffs-not-auto-added-to-dashboard
-description: Dan's rule 2026-09-08 — never add a dashboard row for a new handoff doc unless he explicitly asks; the queue is the coordination file's HANDOFFS section + Handoffs/README.md
+description: Dan's rule 2026-09-08: never add a dashboard row for a new handoff doc unless he explicitly asks; the queue is the OPEN section of Handoffs/README.md (board only points there since 2026-10-16)
 metadata:
   type: feedback
 ---
 
 On 2026-09-08 Dan retired the "every handoff doc gets a Key dashboard task" rule. New handoff docs are
-listed in the HANDOFFS section of `AI_COORDINATION.md` and the Open table of `Handoffs/README.md`,
+listed in the OPEN section of `Handoffs/README.md` (since 2026-10-16 the only list; the board's HANDOFFS section is a pointer),
 and get a dashboard row ONLY when Dan explicitly asks for one.
 
 **Why:** the money column had filled with executed and superseded "Execute handoff:" rows (two sweeps

@@ -180,7 +180,7 @@ local), with a README of the rebuild steps.
 When Dan approves the mockup, write `Handoffs/handoff-YYYYMMDD-<page>-build.md` modelled on
 `Handoffs/handoff-20260930-sales-page-build.md`: the canvas and board files as the spec, every locked rule above, the
 assets folder, the video slot, the checkout hand-off and plan choice, tracking, native-app gating, deploy and live
-verification, and the open decisions with their defaults. Record it in the HANDOFFS section of `AI_COORDINATION.md` and in
+verification, and the open decisions with their defaults. Record it in the OPEN section of
 `Handoffs/README.md` (dashboard row only if Dan asks). The live page is built by a generator too:
 `reference/round2-letter/build_live.py` turns the approved boards into one responsive `public/start.html` (phone below
 900 px, desktop above) and `verify_live.py` proves the copy. A new page copies that pair. In chat, give the ready-to-paste starter prompt and the model +
