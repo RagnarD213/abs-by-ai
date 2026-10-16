@@ -38,7 +38,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-16:R3-ACTIVE:2026-10-16:Codex.** B/medium/intro/warm-bass locked. Reviewing eight existing asset contexts at `/Volumes/Extreme/_edit_work/ra16/round2/`. Next: checked asset review on :8976, then both <=59s masters after remaining asset approval.
 
-**RA-13 R2 REVIEW 2026-10-14, Codex.** Both formats delivered. Numerical flags recorded. Next: Dan's review. http://127.0.0.1:8973/
 
 
 **/start video test RUNNING 2026-10-10, Claude.** Reads 10-24, 10-31: `Docs/VSL_LANDING.md`.
