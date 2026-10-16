@@ -125,6 +125,16 @@
             "timeout": 10
           }
         ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR\"/scripts/review/hook_no_plain_http_server.py",
+            "timeout": 5
+          }
+        ]
       }
     ]
   }

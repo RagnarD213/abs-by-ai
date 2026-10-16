@@ -31,7 +31,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Fat Millionaire SFC R4 BLOCKED 2026-10-16, Codex.** This is the active task in Dan's screenshot. Stale DS-05 held; live Blotato has no DS-05 booking. Next: free build slot, supplied corrections, full QC/independent review, then Dan approval. Packet: `Handoffs/handoff-20261016-ds05-correct-version.md`. No date selected.
 
-**RO-26:R3-ACTIVE:2026-10-16:Codex.** Nutrition B motion automatic+independent PASS ($0.60 estimate). Voice C built; selected opening/context preview batch waiting shared two-build cap. Workout pair remains withheld after anatomy/seam FAIL; correcting stills only. No workout motion/full film/upload. Detail: `/Volumes/Extreme/_edit_work/ro26/round3/`.
+**RO-26:R3-ACTIVE:2026-10-16:Codex.** Nutrition B motion auto+independent PASS ($0.60 estimate); Voice C built. R3 preview batch waiting shared cap over20min: ra16 r4_after_render.py is idle but counted beside active r4_render.py. Workout still repairs/quality checks continue; pair withheld. No workout motion/full film/upload. Detail: `/Volumes/Extreme/_edit_work/ro26/round3/`.
 
 **I'm 41 Wasted Life LFC R3 ACTIVE 2026-10-16, Codex.** Rich Balanced locked; skip 3/6/13. Three revised pairs dual PASS; party QA queued. Three motion takes estimated $1.05/$5: night/lotion dual PASS, coffee range QA queued. Graphics/opening/recap workers on Expansion after Extreme filled. Completion heartbeat active. Next: finish contexts, QA and notify Dan. Packet: `/Volumes/Extreme/_edit_work/RO-25/round3/WORK_PACKET.md`.
 
@@ -99,8 +99,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **RA-12:R1-REVIEW:8842:2026-10-15:Claude.**
 
 **DS-31:R1-REVIEW:8931:2026-10-15:Claude.**
-
-**RA-15:R4-REVIEW:8978:2026-10-16:Claude.** Cutout out, Dan on camera 39.0-43.2; gates 38/39, both reviews SHIP. Next: Dan's review of http://127.0.0.1:8978/ (files in Videos to Review). `Claude Ad Videos/never pay a nutritionist again - RA-15/notes.md`.
 
 **RA-04 POLICY-RECHECK 2026-10-16,Claude.**
 

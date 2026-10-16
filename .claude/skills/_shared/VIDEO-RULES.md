@@ -497,6 +497,10 @@ always the one making these thumbnails."*
   drives. Only files linked from the page are cached; raw footage and build intermediates are excluded. Run the same
   command after updating a review page or export to refresh its cache before giving Dan the link. The command checks
   the served page before reporting success. VLC copies are actual files, not shortcuts to the external drive.
+- **Enforced by a hook (Dan, 2026-10-16).** On RA-15 round 4 a review page was served with `python3 -m http.server` and Dan could not drag the video
+  timeline ("I can't move the slider back and forth on the timeline"). The rule above already forbade it; the project hook
+  `scripts/review/hook_no_plain_http_server.py` (PreToolUse, Bash, in `.claude/settings.json`) now blocks any command that starts an
+  `http.server`. Serve with `review_server.py PORT DIR`, check `curl -r 0-99` says 206, and seek a video in the browser before sending the link.
 - Before sending a page link, load the page and request a byte range of one video (expect 200 and 206), then verify
   browser seeking. When changing server lifecycle code, also terminate its managed worker and prove the same URL
   recovers automatically. Never claim a reboot test unless the Mac was actually restarted.
