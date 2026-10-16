@@ -1,0 +1,36 @@
+{
+  "category": "AD",
+  "round": 4,
+  "status": "waiting-for-build-slot",
+  "requested_changes": [
+    "Assemble both complete films from approved R3 components",
+    "Rebuild presenter framing on native visible cut/return grid",
+    "Final exact-file checks and independent complete-candidate review"
+  ],
+  "approved_elements": [
+    "Color B",
+    "Crop pair 1",
+    "Full intro",
+    "Warm bass voice",
+    "D01/G01/G02/G03 in both formats"
+  ],
+  "publishing_authorized": false,
+  "protected_inputs_verified": 36,
+  "work_root": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4",
+  "render_state": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/BUILD_STATE.json",
+  "render_log": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/logs/render.log",
+  "initial_checks": "Run automatically after both complete candidates exist. Watch judgments remain pending.",
+  "remaining": [
+    "Inspect final native hair clearance and every actual join",
+    "Complete full chronological picture/audio review",
+    "Dispose every watch/freeze candidate on exact hashes",
+    "Complete one independent full-candidate review",
+    "Regate after watch judgment and report all real failures",
+    "Deliver native masters and review copies; refresh and visibly test managed :8976 page",
+    "Place full masters in Videos to Review"
+  ],
+  "review_cost_estimate": "No new generation needed. Announce next independent batch estimate before calling provider; prior estimate under $3 for full-film review.",
+  "provider_spend_this_round": 0,
+  "editor_token_usage": null,
+  "editor_token_usage_reason": "Current desktop runtime does not expose per-session token counters"
+}

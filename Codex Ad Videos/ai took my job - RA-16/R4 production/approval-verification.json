@@ -1,0 +1,218 @@
+[
+  {
+    "path": "/Volumes/Extreme/_edit_work/ra16/round2/cut.json",
+    "expected": "2d3d48cd8ec0f29a43859482a8d8e07fa55285bfb2ac3f2ea8a221f2a3c79ae3",
+    "actual": "2d3d48cd8ec0f29a43859482a8d8e07fa55285bfb2ac3f2ea8a221f2a3c79ae3",
+    "matches": true
+  },
+  {
+    "path": "/Volumes/Extreme/_edit_work/ra16/round2/words_out.json",
+    "expected": "c9980f6cf29221d29e3e6df8787743602d1f9723624febd3c866da8a9a452097",
+    "actual": "c9980f6cf29221d29e3e6df8787743602d1f9723624febd3c866da8a9a452097",
+    "matches": true
+  },
+  {
+    "path": "/Volumes/Extreme/_edit_work/ra16/round2/plan_resolved.json",
+    "expected": "02519b0c69b20df43499cdb9f20c4641efd206176e66eb96fbf3e034cc61cfb7",
+    "actual": "02519b0c69b20df43499cdb9f20c4641efd206176e66eb96fbf3e034cc61cfb7",
+    "matches": true
+  },
+  {
+    "path": "/Volumes/Extreme/_edit_work/ra16/round2/audio/warm-bass-final-timing.wav",
+    "expected": "00eef07fc0028d1a1632151f740207366a27ecc9b3d6e7b346f8c39f1b8922d1",
+    "actual": "00eef07fc0028d1a1632151f740207366a27ecc9b3d6e7b346f8c39f1b8922d1",
+    "matches": true
+  },
+  {
+    "path": "/Volumes/Extreme/_edit_work/ra16/round3/DEMO-9x16-CLEAN.mp4",
+    "expected": "ed575e741716f9a2be54db02f44060dd50147827616556932fb2a803bbff2d39",
+    "actual": "ed575e741716f9a2be54db02f44060dd50147827616556932fb2a803bbff2d39",
+    "matches": true
+  },
+  {
+    "path": "/Volumes/Extreme/_edit_work/ra16/round3/DEMO-16x9-CLEAN.mp4",
+    "expected": "1542719b8eb06cd44369e08a1f942570a0846e93835220d41123c1e89b5d3256",
+    "actual": "1542719b8eb06cd44369e08a1f942570a0846e93835220d41123c1e89b5d3256",
+    "matches": true
+  },
+  {
+    "path": "/Volumes/Extreme/_edit_work/ra16/round2/context/G01-9x16-R3-context.mp4",
+    "expected": "c510b1bd668069cf2476cf42f54fd0d01fa158f0e59d7670ee2b20d2c72ad3d2",
+    "actual": "c510b1bd668069cf2476cf42f54fd0d01fa158f0e59d7670ee2b20d2c72ad3d2",
+    "matches": true
+  },
+  {
+    "path": "/Volumes/Extreme/_edit_work/ra16/round2/context/G01-9x16-R3-context-REVIEW.mp4",
+    "expected": "b7bbfd8c5c0585d5c52b9f03af7405d0078434e78455aefe073df489756afe07",
+    "actual": "b7bbfd8c5c0585d5c52b9f03af7405d0078434e78455aefe073df489756afe07",
+    "matches": true
+  },
+  {
+    "path": "/Volumes/Extreme/_edit_work/ra16/round2/stills/G01-9x16-R3.jpg",
+    "expected": "53f0c08e96c6ba55118746ee42434794a51ed8626a404c10d9315ef8d5edd6a8",
+    "actual": "53f0c08e96c6ba55118746ee42434794a51ed8626a404c10d9315ef8d5edd6a8",
+    "matches": true
+  },
+  {
+    "path": "/Volumes/Extreme/_edit_work/ra16/round2/context/G02-9x16-context.mp4",
+    "expected": "739aadf7c8f0467561068e57ecdef7fb1d546b07b19ed5f678115e4183422502",
+    "actual": "739aadf7c8f0467561068e57ecdef7fb1d546b07b19ed5f678115e4183422502",
+    "matches": true
+  },
+  {
+    "path": "/Volumes/Extreme/_edit_work/ra16/round2/context/G02-9x16-context-REVIEW.mp4",
+    "expected": "cccd3121b2d62b219f327bd6960c5f76671abc50627ca7a3f523e0dfd22207fd",
+    "actual": "cccd3121b2d62b219f327bd6960c5f76671abc50627ca7a3f523e0dfd22207fd",
+    "matches": true
+  },
+  {
+    "path": "/Volumes/Extreme/_edit_work/ra16/round2/stills/G02-9x16.jpg",
+    "expected": "341529e510c6077f547fbe75a56faf4169db493b4f2a8ba18233c98eb89f0f2b",
+    "actual": "341529e510c6077f547fbe75a56faf4169db493b4f2a8ba18233c98eb89f0f2b",
+    "matches": true
+  },
+  {
+    "path": "/Volumes/Extreme/_edit_work/ra16/round2/context/G03-9x16-context.mp4",
+    "expected": "b63c782bba5ec64b41ae13178ca5f4bcdc90dc80cc6f4f6667c1c63da720f5c3",
+    "actual": "b63c782bba5ec64b41ae13178ca5f4bcdc90dc80cc6f4f6667c1c63da720f5c3",
+    "matches": true
+  },
+  {
+    "path": "/Volumes/Extreme/_edit_work/ra16/round2/context/G03-9x16-context-REVIEW.mp4",
+    "expected": "018c15c6ecd1b9ed03454f1354dcdcf9a0661766ec0afdc10b13b064be50ebee",
+    "actual": "018c15c6ecd1b9ed03454f1354dcdcf9a0661766ec0afdc10b13b064be50ebee",
+    "matches": true
+  },
+  {
+    "path": "/Volumes/Extreme/_edit_work/ra16/round2/stills/G03-9x16.jpg",
+    "expected": "f77bc0eb868c59634de2dd308488fc0f7785362860abfb2cd2eaaf866df5c49a",
+    "actual": "f77bc0eb868c59634de2dd308488fc0f7785362860abfb2cd2eaaf866df5c49a",
+    "matches": true
+  },
+  {
+    "path": "/Volumes/Extreme/_edit_work/ra16/round2/context/D01-9x16-R3-context.mp4",
+    "expected": "f692e28bdd730473376ecdfcd3ad6a14f0e7ac9988ead77c65f82439fcd62f0d",
+    "actual": "f692e28bdd730473376ecdfcd3ad6a14f0e7ac9988ead77c65f82439fcd62f0d",
+    "matches": true
+  },
+  {
+    "path": "/Volumes/Extreme/_edit_work/ra16/round2/context/D01-9x16-R3-context-REVIEW.mp4",
+    "expected": "675a074e101480556bc47ca2442229a6a860483aa24c3b9739cf442c8ba89e0b",
+    "actual": "675a074e101480556bc47ca2442229a6a860483aa24c3b9739cf442c8ba89e0b",
+    "matches": true
+  },
+  {
+    "path": "/Volumes/Extreme/_edit_work/ra16/round2/stills/D01-9x16-R3.jpg",
+    "expected": "9ae6023ba337862fb0c4e87ac2d00bf248a1fa09b97894fb749315851917615b",
+    "actual": "9ae6023ba337862fb0c4e87ac2d00bf248a1fa09b97894fb749315851917615b",
+    "matches": true
+  },
+  {
+    "path": "/Volumes/Extreme/_edit_work/ra16/round2/context/G03-16x9-context.mp4",
+    "expected": "e991d1b333e3c402d48c5fca4ba29fc862357ed0806c55863596e3b22a2ebafb",
+    "actual": "e991d1b333e3c402d48c5fca4ba29fc862357ed0806c55863596e3b22a2ebafb",
+    "matches": true
+  },
+  {
+    "path": "/Volumes/Extreme/_edit_work/ra16/round2/context/G03-16x9-context-REVIEW.mp4",
+    "expected": "ef56379902d3672ff557ede381f540f815a9bff14d0117d36f83c0d7bd655736",
+    "actual": "ef56379902d3672ff557ede381f540f815a9bff14d0117d36f83c0d7bd655736",
+    "matches": true
+  },
+  {
+    "path": "/Volumes/Extreme/_edit_work/ra16/round2/stills/G03-16x9.jpg",
+    "expected": "f7cc3f4b9e0e6d3d71389f897d44ae2a2c4d0580aefe55b27a1b5be6c92bb611",
+    "actual": "f7cc3f4b9e0e6d3d71389f897d44ae2a2c4d0580aefe55b27a1b5be6c92bb611",
+    "matches": true
+  },
+  {
+    "path": "/Volumes/Extreme/_edit_work/ra16/round2/context/G01-16x9-R3-context.mp4",
+    "expected": "e24d7fcbfe358f41cda4aa0f56e139a6881abedb217690ae1afeb8116c7126b2",
+    "actual": "e24d7fcbfe358f41cda4aa0f56e139a6881abedb217690ae1afeb8116c7126b2",
+    "matches": true
+  },
+  {
+    "path": "/Volumes/Extreme/_edit_work/ra16/round2/context/G01-16x9-R3-context-REVIEW.mp4",
+    "expected": "16a3ba0db2ae77f4190dd407efee9c2f5fcd228620a9c647c85327eedce41877",
+    "actual": "16a3ba0db2ae77f4190dd407efee9c2f5fcd228620a9c647c85327eedce41877",
+    "matches": true
+  },
+  {
+    "path": "/Volumes/Extreme/_edit_work/ra16/round2/stills/G01-16x9-R3.jpg",
+    "expected": "9d5e848948643d93af21def780a9d264455c7139beafc4e1484796946dd43698",
+    "actual": "9d5e848948643d93af21def780a9d264455c7139beafc4e1484796946dd43698",
+    "matches": true
+  },
+  {
+    "path": "/Volumes/Extreme/_edit_work/ra16/round2/context/G02-16x9-R3-context.mp4",
+    "expected": "8029ac38fc6ad50eda1810323fc4b69aa3eed4f94d4ddc3da6e9538383e52332",
+    "actual": "8029ac38fc6ad50eda1810323fc4b69aa3eed4f94d4ddc3da6e9538383e52332",
+    "matches": true
+  },
+  {
+    "path": "/Volumes/Extreme/_edit_work/ra16/round2/context/G02-16x9-R3-context-REVIEW.mp4",
+    "expected": "cbcca5dc29b5371456637b21db9c673628f3cf887832ec7630b2f1b60be6cbee",
+    "actual": "cbcca5dc29b5371456637b21db9c673628f3cf887832ec7630b2f1b60be6cbee",
+    "matches": true
+  },
+  {
+    "path": "/Volumes/Extreme/_edit_work/ra16/round2/stills/G02-16x9-R3.jpg",
+    "expected": "242b8d20af4c16c059a879930b1937541b9dbabbc975b7c34a6060289e954614",
+    "actual": "242b8d20af4c16c059a879930b1937541b9dbabbc975b7c34a6060289e954614",
+    "matches": true
+  },
+  {
+    "path": "/Volumes/Extreme/_edit_work/ra16/round2/context/D01-16x9-R3-context.mp4",
+    "expected": "7df42210b6e1a30c6655750cbf95b3a7f7d99fcb87d387d8aaf9015550b233e1",
+    "actual": "7df42210b6e1a30c6655750cbf95b3a7f7d99fcb87d387d8aaf9015550b233e1",
+    "matches": true
+  },
+  {
+    "path": "/Volumes/Extreme/_edit_work/ra16/round2/context/D01-16x9-R3-context-REVIEW.mp4",
+    "expected": "6943a440631adae705d0b4a5b58d5ba9feab371f97c3decf448493c6bf359934",
+    "actual": "6943a440631adae705d0b4a5b58d5ba9feab371f97c3decf448493c6bf359934",
+    "matches": true
+  },
+  {
+    "path": "/Volumes/Extreme/_edit_work/ra16/round2/stills/D01-16x9-R3.jpg",
+    "expected": "5d9a220f46931026517f51a28ea284f0113e1cf3eb2c521b61cc8d3574d7b1b1",
+    "actual": "5d9a220f46931026517f51a28ea284f0113e1cf3eb2c521b61cc8d3574d7b1b1",
+    "matches": true
+  },
+  {
+    "path": "/Volumes/Extreme/_edit_work/ra16/round2/context/P01-9x16-B-far.mp4",
+    "expected": "bfb7074d01f368df21722694639adb2f79f42999cff837f3bde2a95348dbb213",
+    "actual": "bfb7074d01f368df21722694639adb2f79f42999cff837f3bde2a95348dbb213",
+    "matches": true
+  },
+  {
+    "path": "/Volumes/Extreme/_edit_work/ra16/round2/context/P01-9x16-B-near.mp4",
+    "expected": "07774ea20c8943042f34bbb75b878256af35ac812a82eb34c7b338e3dcaa0844",
+    "actual": "07774ea20c8943042f34bbb75b878256af35ac812a82eb34c7b338e3dcaa0844",
+    "matches": true
+  },
+  {
+    "path": "/Volumes/Extreme/_edit_work/ra16/round2/context/P01-16x9-B-far.mp4",
+    "expected": "6c1bef38372814a20f45851c0a64b9a72c07b266635c34831d202931ebc4e9c9",
+    "actual": "6c1bef38372814a20f45851c0a64b9a72c07b266635c34831d202931ebc4e9c9",
+    "matches": true
+  },
+  {
+    "path": "/Volumes/Extreme/_edit_work/ra16/round2/context/P01-16x9-B-near.mp4",
+    "expected": "3dd0351aaf48d2c6ff681f3a54bb99aa4d71df99a05c30f7b22c8a383a7de8b1",
+    "actual": "3dd0351aaf48d2c6ff681f3a54bb99aa4d71df99a05c30f7b22c8a383a7de8b1",
+    "matches": true
+  },
+  {
+    "path": "/Volumes/Extreme/_edit_work/ra16/round2/stills/B-225.2-far.jpg",
+    "expected": "e7a7b7472ae92fc5de51c77eaad5757f29924cdff282a461797fc1d69b69778f",
+    "actual": "e7a7b7472ae92fc5de51c77eaad5757f29924cdff282a461797fc1d69b69778f",
+    "matches": true
+  },
+  {
+    "path": "/Volumes/Extreme/_edit_work/ra16/round2/stills/B-225.2-near.jpg",
+    "expected": "d7a36d105394a142ea52af2ff413ddaff099ff2663e8acef7ae53a79ba76ae6e",
+    "actual": "d7a36d105394a142ea52af2ff413ddaff099ff2663e8acef7ae53a79ba76ae6e",
+    "matches": true
+  }
+]
