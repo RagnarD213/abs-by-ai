@@ -31,11 +31,12 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-13:R3-REVIEW:8973:2026-10-16:Codex.** Both full R3 formats delivered. Vertical centering, B0550 one-phone demo and matching analysis photo fixed. Independent media review: no open defects. Full numerical gates retain approved audio/framing/cut flags. Master list updated. Next: Dan reviews :8973; not finalized. Report: `Handoffs/video-editing/reports/RA-13-R3-review-report.txt`.
 
-**Fat Millionaire SFC R4 REPAIR 2026-10-16, Codex.** October 16 corrections rendered. Minimal inherited label/pose repairs and export normalization are now authorized and running sequentially under the shared limit, followed by exact-file checks and independent review. Posting hold/F3/date intent intact. Next: verified review candidate, then Dan exact-file approval. Receipt: `Handoffs/handoff-20261016-ds05-correct-version.md`.
 
 **RO-26:R3-REVIEW:8982:2026-10-16:Codex.** Selected revisions applied; B colour/C voice/G05 locked. First minute and narrated contexts picture/listening/browser play+seek checked. Corrected incline frames and Nutrition motion automatic+fresh independent PASS ($0.60 motion estimate). Strict reference audio flags retained. Next: Dan approves workout frames and revised assets/motion. No workout motion/full film/upload. Full-quality first minute in Videos to Review. Detail: `/Volumes/Extreme/_edit_work/ro26/round3/`.
 
-**I'm 41 Wasted Life LFC R3 ACTIVE 2026-10-16, Codex.** Rich Balanced/skip3,6,13 preserved; four revised pairs await Dan. First-minute picture QA ready, current tone-only FAIL disclosed; reviewed VLCcopies verified. Last graphic advisory and two narrated-motion repairs finishing. Six takes dual PASS, five withheld FAIL; $4.90/$5. Next: final packet/browser QA, then one proposed allowance decision and :8825 notification. Quiet heartbeat active. Packet: `/Volumes/Extreme/_edit_work/RO-25/round3/WORK_PACKET.md`.
+**I'm 41 Wasted Life LFC R3 REVIEW 2026-10-16, Codex.** All graphics, first-minute picture/pacing and five passing motion contexts ready at :8825; labels/play/seek verified. Four revised pairs await Dan; Rich Balanced/skip3,6,13 preserved. $4.90/$5 motion estimate, five failed takes withheld; extra $4.55 proposed only. Tone/self-test FAIL and full-film checks pending. Next: Dan's page choices. Ready notified; heartbeat paused. Packet: `/Volumes/Extreme/_edit_work/RO-25/round3/WORK_PACKET.md`.
+
+**Voice P2C commits UNPUSHED 2026-10-16, Claude.** Two local commits (bench fix, pilot results) wait on main; safe-push stopped on live edits to the board, DAN_DECISIONS, 00-MASTER, jobs.json. Next: any safe-push from the main folder carries them; then delete this.
 
 **RO-04:R1-REVIEW:8974:2026-10-15:Codex**
 **COVERS:MOBILE:2026-10-15:Docs/COVER_AUDIT_20261015.md**
@@ -61,7 +62,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 
 
-**Nightly footage - DRIVE PENDING 2026-10-16, Codex/Claude.** Six prior shoots verified on both destinations. New 10/15 shoot: 126 files, 239.9 GB, checksum verified on Seagate; Drive hit cutoff and resumes at 8 pm. Extreme originals remain; deletion paused. Detail: `Handoffs/handoff-20261005-claude-nightly-footage-offload.md`.
+**Nightly footage - COPYING ACTIVE 2026-10-17, Codex/Claude.** Seven shoots, including 10/15, checksum verified on Seagate and Drive. Nightly 8 pm copy-only routine remains active. Extreme originals remain; deletion paused. Next: decide the offload rule before enabling deletion. Detail: `Handoffs/handoff-20261005-claude-nightly-footage-offload.md`.
 
 **Codex revisions recovery - OPEN 2026-10-05, Codex.** Tool fixes and test Doc delivered; external video judge failed the known case. Fresh passes: 0. Next: eligible short plus sealed Claude Doc, then complete motion/AI coverage and blind comparison. Keep Claude editorial default. Detail: `Handoffs/results-20261005-codex-revisions-quality-recovery.md`.
 
