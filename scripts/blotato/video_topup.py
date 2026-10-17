@@ -10,9 +10,11 @@ A setup that cannot queue because the plan cap is full adds its entry here and s
 needs a finished config (media uploaded, thumbnail, captions) that the normal helper accepts.
 
 For each waiting entry, in order, while the queue has room for its 4 posts:
-  - long-form: keeps the config's Sunday if it is still free and at least 2 days away, otherwise takes
-    the first free Sunday after the last queued long-form. 9 AM America/Chicago. The other platforms
-    follow on Monday (longform_queue.py does that). One long-form per Sunday.
+  - long-form: keeps the config's Sunday or Wednesday if it is still free and at least 1 day away,
+    otherwise takes the first free Sunday or Wednesday after the last queued long-form. 9 AM
+    America/Chicago. The other platforms follow the next day (longform_queue.py does that). One
+    long-form per day (Dan, 2026-10-17: two a week, Sunday and Wednesday; was Sunday only).
+    Release order and dates come from the approved calendar written into each config's "main".
   - short: keeps the config's slot if it is still free and in the future, otherwise takes the next
     free Tuesday, Thursday or Saturday at 9 AM America/Chicago with no other YouTube post that day.
 Then it runs the normal helper (longform_queue.py or organic_short_queue.py) with --apply, which
@@ -42,6 +44,7 @@ CT = ZoneInfo("America/Chicago")
 YOUTUBE, ACCOUNTS = "46963", ("47105", "67203", "58181", "46963")
 IG_MAX_BYTES = 300_000_000
 HELPER = {"longform": "longform_queue.py", "short": "organic_short_queue.py"}
+LONGFORM_DAYS = (6, 2)  # Sunday and Wednesday (Dan, 2026-10-17)
 
 
 def load() -> list:
@@ -93,7 +96,7 @@ def main() -> int:
         free = int(sys.argv[sys.argv.index("--assume-free") + 1])
     now = datetime.now(timezone.utc); today = now.astimezone(CT).date()
 
-    yt_days, longform_sundays, minutes = set(), set(), set()
+    yt_days, longform_days, minutes = set(), set(), set()
     for i in items:
         when = i.get("scheduledAt") or ""
         minutes.add((acct(i), when[:16]))
@@ -101,7 +104,7 @@ def main() -> int:
             yt_days.add(local_day(when))
             text = ((i.get("draft") or {}).get("content") or {}).get("text") or ""
             if "utm_campaign=longform" in text:
-                longform_sundays.add(local_day(when))
+                longform_days.add(local_day(when))
 
     queued_now, problem = [], None
     print(f"queue {len(items)}/{CAP}, free {free}, videos waiting {len(pending(entries))}")
@@ -130,10 +133,10 @@ def main() -> int:
 
         want = local_day(v["main"])
         if e["kind"] == "longform":
-            ok = want.weekday() == 6 and want >= today + timedelta(days=2) and want not in longform_sundays
+            ok = want.weekday() in LONGFORM_DAYS and want >= today + timedelta(days=1) and want not in longform_days
             if not ok:
-                want = max(max(longform_sundays, default=today), today + timedelta(days=1)) + timedelta(days=1)
-                while want.weekday() != 6 or want in longform_sundays:
+                want = max(max(longform_days, default=today), today + timedelta(days=1)) + timedelta(days=1)
+                while want.weekday() not in LONGFORM_DAYS or want in longform_days:
                     want += timedelta(days=1)
             main = utc(want)
         else:
@@ -162,7 +165,7 @@ def main() -> int:
         free -= need
         day = local_day(main); yt_days.add(day)
         if e["kind"] == "longform":
-            longform_sundays.add(day)
+            longform_days.add(day)
         for a in ACCOUNTS:
             minutes.add((a, main[:16]))
 

@@ -1,5 +1,33 @@
 [
  {
+  "config": "scripts/blotato/configs/ro19-my-first-spray-tan.json",
+  "kind": "longform",
+  "job": "RO-19",
+  "label": "My First Spray Tan",
+  "added": "2026-10-13"
+ },
+ {
+  "config": "scripts/blotato/configs/ro07-work-out-every-day.json",
+  "kind": "longform",
+  "job": "RO-07",
+  "label": "Why You MUST Work Out Every Day",
+  "added": "2026-10-11"
+ },
+ {
+  "config": "scripts/blotato/configs/ro08-intermittent-fasting.json",
+  "kind": "longform",
+  "job": "RO-08",
+  "label": "Intermittent Fasting: The Best Way To Get Abs",
+  "added": "2026-10-14"
+ },
+ {
+  "config": "scripts/blotato/configs/abs-at-40-vs-25.json",
+  "kind": "longform",
+  "job": "Zeeshan Video 5",
+  "label": "Getting Abs At 40 vs 25",
+  "added": "2026-10-11"
+ },
+ {
   "config": "scripts/blotato/configs/sl03-short2-the-20-dollar-salad-for-4.json",
   "kind": "short",
   "job": "SL-03 short 2",
@@ -117,34 +145,6 @@
   "job": "DS-21",
   "label": "How To Do Hammer Curls",
   "added": "2026-10-13"
- },
- {
-  "config": "scripts/blotato/configs/abs-at-40-vs-25.json",
-  "kind": "longform",
-  "job": "Zeeshan Video 5",
-  "label": "Getting Abs At 40 vs 25",
-  "added": "2026-10-11"
- },
- {
-  "config": "scripts/blotato/configs/ro07-work-out-every-day.json",
-  "kind": "longform",
-  "job": "RO-07",
-  "label": "Why You MUST Work Out Every Day",
-  "added": "2026-10-11"
- },
- {
-  "config": "scripts/blotato/configs/ro19-my-first-spray-tan.json",
-  "kind": "longform",
-  "job": "RO-19",
-  "label": "My First Spray Tan",
-  "added": "2026-10-13"
- },
- {
-  "config": "scripts/blotato/configs/ro08-intermittent-fasting.json",
-  "kind": "longform",
-  "job": "RO-08",
-  "label": "Intermittent Fasting: The Best Way To Get Abs",
-  "added": "2026-10-14"
  },
  {
   "config": "scripts/blotato/configs/ds05-why-having-abs-beats-being-a-fat-millionaire.json",

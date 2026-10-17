@@ -54,14 +54,17 @@ IG_MAIN, IG_MIRROR, TIKTOK, YOUTUBE = "67203", "65632", "58181", "46963"
 CHICAGO = ZoneInfo("America/Chicago")
 
 
-def check_longform_sunday(when: str, slug: str, items: list) -> None:
-    """Refuse a weekday, wrong time, or second long-form in a Sunday slot."""
+LONGFORM_DAYS = (6, 2)  # Sunday and Wednesday, 9 AM Chicago (Dan, 2026-10-17; was Sunday only)
+
+
+def check_longform_day(when: str, slug: str, items: list) -> None:
+    """Refuse a day other than Sunday or Wednesday, a wrong time, or a second long-form that day."""
     try:
         local = datetime.fromisoformat(when.replace("Z", "+00:00")).astimezone(CHICAGO)
     except ValueError as exc:
         raise ValueError(f"invalid main release time: {when}") from exc
-    if local.weekday() != 6 or (local.hour, local.minute, local.second) != (9, 0, 0):
-        raise ValueError(f"long-form release must be Sunday at 9 AM Chicago time: {when}")
+    if local.weekday() not in LONGFORM_DAYS or (local.hour, local.minute, local.second) != (9, 0, 0):
+        raise ValueError(f"long-form release must be Sunday or Wednesday at 9 AM Chicago time: {when}")
     for item in items:
         draft = item.get("draft") or {}
         target = draft.get("target") or {}
@@ -72,13 +75,21 @@ def check_longform_sunday(when: str, slug: str, items: list) -> None:
             continue
         existing = datetime.fromisoformat(item["scheduledAt"].replace("Z", "+00:00")).astimezone(CHICAGO)
         if existing.date() == local.date() and f"utm_content={slug}" not in body:
-            raise ValueError(f"Sunday {local.date()} already has long-form YouTube schedule {item['id']}")
+            raise ValueError(f"{local:%A} {local.date()} already has long-form YouTube schedule {item['id']}")
+
+
+def social_time(main: str) -> str:
+    """Facebook, Instagram and TikTok follow the next day: Monday 9 AM after a Sunday release, Thursday
+    noon after a Wednesday release (Thursday 9 AM is a Shorts slot on those accounts)."""
+    local = datetime.fromisoformat(main.replace("Z", "+00:00")).astimezone(CHICAGO) + timedelta(days=1)
+    hour = 12 if local.weekday() == 3 else 9
+    local = datetime(local.year, local.month, local.day, hour, 0, tzinfo=CHICAGO)
+    return local.astimezone(ZoneInfo("UTC")).strftime("%Y-%m-%dT%H:%M:%S.000Z")
 
 
 def posts(v: dict) -> list:
-    # YouTube releases on Sunday; the other platforms follow 24 hours later.
-    social_when = (datetime.fromisoformat(v["main"].replace("Z", "+00:00"))
-                   + timedelta(days=1)).isoformat(timespec="milliseconds").replace("+00:00", "Z")
+    # YouTube releases on Sunday or Wednesday; the other platforms follow the next day.
+    social_when = social_time(v["main"])
     utm = f"utm_medium=video&utm_campaign=longform&utm_content={v['slug']}"
     link = lambda source: f"https://absbyai.com/?utm_source={source}&{utm}"  # noqa: E731
     lede = f"{v['hook']}\n\n{v['body']}\n\n{v['close']}\n\n"
@@ -186,7 +197,7 @@ def main() -> int:
     key = api_key()
     items = fetch_schedules(key)
     try:
-        check_longform_sunday(v["main"], v["slug"], items)
+        check_longform_day(v["main"], v["slug"], items)
     except ValueError as exc:
         print(f"REFUSING - {exc}")
         return 1

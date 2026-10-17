@@ -10,7 +10,7 @@ cfg = {
   "source": "claude edited long form content/15 - Intermittent Fasting The Best Way To Get Abs/Intermittent Fasting The Best Way To Get Abs | claude round 3 | 16x9 | RO-08.mp4",
   "slug": "ro08-intermittent-fasting",
   "title": "Intermittent Fasting: The Best Way To Get Abs",
-  "main": "2027-01-24T15:00:00.000Z",
+  "main": "2026-11-18T15:00:00.000Z",
   "keyword": "FOOD",
   "ai_generated": True,
   "hook": "Here's the simplest way to do intermittent fasting to get abs.",
