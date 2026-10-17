@@ -26,7 +26,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**Top 1 Percent LFC Setup - ACTIVE 2026-10-17, Codex.** RO-26 five thumbnail choices building in `social media graphics/youtube/thumbnails/Top 1 Percent/`. Stop for Dan's pick before upload/setup. Approved R5 stays unchanged; RO-25 release order and previous-video link must be verified after the pick.
+**Top 1 Percent LFC Setup - PICKS 2026-10-17, Codex.** Five checked choices and comparison sheet in `social media graphics/youtube/thumbnails/Top 1 Percent/`. Await Dan's pick, then /video-setup and live RO-25 link/release-order check. R5 hash unchanged; no uploads/scheduling. Ownership commit bb96205 local; safe-push blocked by live qc_corpus/corpus.json and DAN_DECISIONS.md edits.
 
 **RO-25 R6 REVIEW READY 2026-10-17, Codex.** Dan approved exact one-pill START/open-bottle END and raised cumulative AI cap to $30; conservative spend $21.58 including failures. Hailuo take6 and first minute/P01 passed independent picture reviews; accepted O-POOL composite v2 used. Managed 8825 page live: twelve previews plus thirty labeled rejected clips for repair choices. All 12 exact numerical audio gates FAIL; P04 dating AI remains provisional presenter fallback. Full film unassembled/unapproved; no upload. Final page/cache/browser audit PASS. Detail: `/Volumes/Extreme/_edit_work/RO-25/round6/WORK_PACKET.md`.
 
@@ -46,6 +46,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 
 **Continue-or-handoff rule UNPUSHED 2026-10-17, Claude.** Commits 204433a, 74e0fbb (AGENTS, VIDEO-RULES, PRE-RENDER-APPROVAL: auto continue-or-handoff) are local; safe-push stopped on live edits by other sessions. Next: any later safe-push from the main folder carries it; then delete this.
+
+**Veo Flow helper commits UNPUSHED 2026-10-17, Claude.** Commits c778a01, ca37c53 (subscription-first Veo rule, `_shared/veo/`, flow-veo agent) wait on main; safe-push stopped on live corpus.json and DAN_DECISIONS edits. Next: any safe-push from the main folder carries them; then delete this.
 
 **Voice P2C commits UNPUSHED 2026-10-16, Claude.** Two local commits (bench fix, pilot results) wait on main; safe-push stopped on live edits to the board, DAN_DECISIONS, 00-MASTER, jobs.json. Next: any safe-push from the main folder carries them; then delete this.
 
