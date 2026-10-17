@@ -457,22 +457,16 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/DS-05-abs-beat-being-a-fat-millionaire.md`: cut the dedicated short \"Why Having Abs Is Better Than Being A Fat Millionaire\" from its 8/28 raw takes. Best take of every line, 1080×1920, 45–66 s, J2 captions, every b-roll cue filled and labelled, the 8/28 S-Log3 conversion, lav picked per file, cover image. Every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-05-abs-beat-being-a-fat-millionaire.md` with `$long-form-content-edit` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "in_progress",
-   "note": "October 16 corrections rendered. Authorized minimal inherited-label/pose and export repairs are running sequentially, followed by full exact-file evidence checks. Posting held; F3 retained; no date selected.",
+   "state": "blocked",
+   "note": "Corrected review candidate and local approved-F3 TikTok preparation verified. Full checks: 37 pass, 2 retained-source failures, 0 missing; independent43-image review has no scored defects. Existing hosted cut is superseded and held. No upload, booking or date selected.",
    "sub": "Talking",
    "order": 21,
    "updated": "2026-10-16",
    "by": "Codex",
-   "rev": 10,
+   "rev": 11,
    "syncedRev": 6,
-   "needs": "",
-   "editor": "Codex",
-   "claim": {
-    "by": "Codex",
-    "pid": 95079,
-    "started": "2026-10-16T19:41:07",
-    "heartbeat": "2026-10-16T19:42:23"
-   }
+   "needs": "Approve the exact corrected review copy with original camera framing and caption timing retained, or request a broader pass. Posting hold remains until exact-file approval, verified replacement media and release intent are resolved.",
+   "editor": "Codex"
   },
   {
    "id": "DS-06",

@@ -1,24 +1,33 @@
-# Fat Millionaire SFC R4: version reconciliation
+# Fat Millionaire SFC R4: corrected review and release hold
 
 CONTENT, dedicated organic Short. Updated 2026-10-16.
 
-The October 16 revision notes reopened this video, while the prepared hosted master still matched the older October 14 export. F3 remains the approved cover; it does not waive the video edits.
+## Verified outcome
 
-## Release protection
+The actual hosted master matched the older October 14 export, while the October 16 revision notes still requested the rarity replacement, longer key point, lower captions and lesson closer. The authoritative document was rechecked and is still modified October 16 at 18:04:44 UTC. F3 cover selection did not waive the video edits.
 
-The existing Blotato config and waitlist entry are held. Both direct submission and automatic top-up reject or skip the held asset before choosing dates. Other waitlist entries and existing access controls are preserved. Latest live read found 195 schedules and no DS-05 booking. Neither the November 3 config date nor December 1 dry-run estimate proves a booking. This task has created no posts and selected no date.
+A corrected full-quality review candidate is now rendered. The supplied rarity animation replaces the contradictory photograph, the key point holds through the cut to Second, captions clear the graphic and its labels, and the supplied lesson replaces the repeated closing title. The authorized minimal label-entrance and camera-cut repairs are also present. Prior defective candidates are retained as rejected evidence.
 
-## Current work
+The current candidate is an inspection copy, not an approved master. Full decode and reference-mix audio checks pass. The audio retains the complete editor mix with a justified constant 0.35 dB reduction; 29.97 fps export preserves timing. The independent reviewer inspected all 43 exact encoded watch images and found no scored defects. The full delivery gate completes with 37 PASS, 2 FAIL, 0 NOT MEASURED and 7 explicitly inapplicable rows. No threshold was loosened or failure represented as PASS.
 
-The supplied rarity graphic, longer key point, lower captions and lesson closer have been rendered. Full-candidate review exposed an inherited late AI label and an inherited same-framing pose jump. Minimal repairs to those issues and justified frame-rate/audio normalization are now authorized. Sequential repair candidates are being checked under the existing shared build limit. Defective earlier candidates are retained as rejected evidence. There is one actual scoped worker, with its current claim recorded in the edit queue; no global dispatcher was resumed.
+## Exact owner decision
 
-The task is not release-ready. It is IN PROGRESS rather than FINALIZED. The existing Drive status file was updated without changing sharing. A persistent local inspection page exists, but its current revision is clearly marked QC inspection only and is not approved.
+Approve this exact corrected review copy with the original camera framing and caption timing retained, or request a broader pass on those original parts. The remaining strict-preset failures are the source's wider body portrait and nine original caption onsets outside its 120 ms timing bound. Median caption offset is about 33 ms and worst about 245 ms. These inherited measurements are disclosed rather than waived.
 
-## Remaining steps
+The full native scan and independent saved-image review are complete. Automated audio checks and a silent functional playback test are separate evidence; they are not represented as an audible human listen or continuous perceptual certification. Owner review of the exact full-quality file remains required. Private QC includes the player's test record and one accidental unmuted test that was stopped and disclosed; the player is left muted and paused.
 
-1. Complete exact-file full-video checks, missing measured evidence and independent review. Document any truly inapplicable preset with a verified reason rather than declaring PASS.
-2. Present the verified full-quality candidate and concise timestamped changes. Assistant player tests remain muted and leave playback paused with normal user controls.
-3. Obtain Daniel's approval of that exact file. Keep the release hold while approval or release intent remains unresolved.
-4. After approval, rebuild the F3 TikTok cover-first copy, verify it and hosted bytes, inspect live status again, and replace identities in the existing preparation. Do not create duplicate posts or choose a new date.
+## Queue and preparation state
 
-Private source identities, asset paths, checksums, candidate history and detailed measurements remain in this task's local repair packet and are excluded from Git. No editor was contacted, money spent, credential generated or access broadened. Recommended continuation: GPT-6 Sol, medium effort.
+Fresh live read on October 17 at 01:14:59 UTC: 195 Blotato schedules and no DS-05 booking. No post or schedule was created, changed or deleted. Neither the November 3 config date nor December 1 dry-run estimate proves a booking. No new date was chosen.
+
+The existing config and waitlist entry retain their release holds. Automatic top-up skips held items before media checks or date selection, and direct submission refuses the held config. The master/edit queue is BLOCKED with the owner decision stated, no active claim or worker, and the existing Drive status file was read back as blocked. The implementation board entry was removed because only the owner decision and this OPEN handoff remain. Other queue rows and access controls were preserved.
+
+The local preparation manifest points to the corrected clean video, the verified F3 TikTok cover-first derivative and the unchanged approved F3 covers. TikTok verification confirms exactly one added F3 frame, original candidate audio packets unchanged, zero full-decode errors and a cover match above the required threshold. Nothing was uploaded. The existing hosted URLs remain superseded and held, and must not be used as release-ready assets.
+
+## After the owner decision
+
+1. Record approval of the exact candidate and explicit acceptance of the retained-source framing/timing, or perform the requested broader pass. Keep the release hold while either remains unresolved.
+2. Before replacing hosted media, read live Blotato status again. Upload only the approved corrected clean master and its verified F3 TikTok derivative through the existing service, verify hosted bytes, and replace the media identities in the existing preparation.
+3. Preserve existing accounts, captions, F3 selection, other queue rows and release intent. Do not create duplicate posts, choose a date, publish immediately or remove the hold while release intent remains unresolved.
+
+Old and new asset identities, checksums, local paths, detailed gate rows, source provenance, rejected candidates and preparation checks remain in this task's private repair packet and full QC receipt. They are intentionally excluded from Git. No external editor was contacted, money spent, credential generated or access broadened. The globally paused dispatcher remains paused. Recommended continuation: GPT-6 Sol, medium effort, in this existing task.
