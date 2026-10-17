@@ -1,0 +1,101 @@
+{
+  "category": "CONTENT",
+  "job": "DS-28",
+  "status": "scheduled",
+  "date": "2026-10-17",
+  "title": "Stop Cooking Your Meals: Use A Meal Prep Service",
+  "scheduled_utc": "2026-10-24T14:00:00.000Z",
+  "scheduled_local": "Saturday 2026-10-24 09:00 America/Chicago (CDT)",
+  "master_sha256": "200afaaab059109b3fc168624136c0bb074d809d521d733ffee5b94ddf4298da",
+  "master_bytes": 124841554,
+  "cover_approval": {
+    "youtube": {
+      "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/Meal Prep - DS-28/covers/round2/3-tall-larger-text.jpg",
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/Meal Prep - DS-28/setup/meal-prep-youtube-approved.jpg",
+      "sha256": "e3906d10484cb12e559bcd50825613b4d879e114b744ade5721f58dd9cd0826f",
+      "bytes": 569790
+    },
+    "instagram": {
+      "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/Meal Prep - DS-28/covers/round2/3-short-A-clean-navy.jpg",
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/Meal Prep - DS-28/setup/meal-prep-instagram-approved.jpg",
+      "sha256": "b043fc5ed6f1d44ba1b5a04dcbde192aba7265c695ca1a06625e7c8f58f3f31d",
+      "bytes": 457640
+    },
+    "date": "2026-10-17",
+    "dan": "The tall looks good. Let's go with A, the clean navy. Go ahead and install that",
+    "status": "approved",
+    "category": "CONTENT"
+  },
+  "drive_folder": "https://drive.google.com/drive/folders/1QStsSUo4DJZU3QRdKR3dvtm2ovcgTl9a",
+  "drive_anyone_reader_verified": true,
+  "uploads": {
+    "youtube_cover": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/33942519-16c0-4f6d-bbdc-02f0c68043b4.jpg",
+      "sha256": "e3906d10484cb12e559bcd50825613b4d879e114b744ade5721f58dd9cd0826f",
+      "bytes": 569790,
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/Meal Prep - DS-28/setup/meal-prep-youtube-approved.jpg",
+      "download_verified": true
+    },
+    "instagram_cover": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/9962c560-c96c-4110-84cd-a77012fc29b1.jpg",
+      "sha256": "b043fc5ed6f1d44ba1b5a04dcbde192aba7265c695ca1a06625e7c8f58f3f31d",
+      "bytes": 457640,
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/Meal Prep - DS-28/setup/meal-prep-instagram-approved.jpg",
+      "download_verified": true
+    },
+    "video": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/367ab819-2f0d-46e3-b767-43a3019670d5.mp4",
+      "sha256": "200afaaab059109b3fc168624136c0bb074d809d521d733ffee5b94ddf4298da",
+      "bytes": 124841554,
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/Meal Prep - DS-28/Meal Prep SFC R5 - complete Short.mp4",
+      "download_verified": true
+    }
+  },
+  "tiktok_upload": {
+    "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/0367ce6d-d42a-4685-acf2-ef3529959ae3.mp4",
+    "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/Meal Prep - DS-28/setup/Meal Prep SFC R5 - TikTok cover first.mp4",
+    "sha256": "81d6e9ce7868b9ca2bdb800befe7e2410331957b1ebfe51f0df18e0137138bee",
+    "bytes": 124962424,
+    "download_verified": true
+  },
+  "posts": [
+    {
+      "platform": "facebook",
+      "schedule_id": "5694638",
+      "media_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/636c5e91-ec1c-486a-a04d-c2bb57a3a464.mp4",
+      "bytes": 124841554,
+      "sha256": "200afaaab059109b3fc168624136c0bb074d809d521d733ffee5b94ddf4298da",
+      "matches_expected": true
+    },
+    {
+      "platform": "instagram",
+      "schedule_id": "5694640",
+      "media_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/e357ff5e-00b4-4e4d-9af4-0f59137d8a41.mp4",
+      "bytes": 124841554,
+      "sha256": "200afaaab059109b3fc168624136c0bb074d809d521d733ffee5b94ddf4298da",
+      "matches_expected": true
+    },
+    {
+      "platform": "tiktok",
+      "schedule_id": "5694641",
+      "media_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/1ce1c159-52e9-4ce9-8dfb-933f01eb0b0d.mp4",
+      "bytes": 124962424,
+      "sha256": "81d6e9ce7868b9ca2bdb800befe7e2410331957b1ebfe51f0df18e0137138bee",
+      "matches_expected": true
+    },
+    {
+      "platform": "youtube",
+      "schedule_id": "5694642",
+      "media_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/b66c399b-54d3-4948-a149-33e2390b520b.mp4",
+      "bytes": 124841554,
+      "sha256": "200afaaab059109b3fc168624136c0bb074d809d521d733ffee5b94ddf4298da",
+      "matches_expected": true
+    }
+  ],
+  "pinned_comment": "What meal prep service have you tried?",
+  "public_cover_checks": "Outstanding until release; existing all-platform check-youtube-shorts-covers monitor",
+  "article": "Dedicated Short; existing sixpackabs-article-gap-daily writes or records skip after release",
+  "edit_queue": "uploaded; Drive status file uploaded, artifact fallback mirror deferred to next Claude pending sync",
+  "voice": "Clean Codex writer fallback from five real passages after Claude CLI authentication expired; hard checks passed",
+  "dispatcher": "paused; unchanged"
+}
