@@ -61,3 +61,5 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
   member screens; lock-in → sliders → trial CTA and locked result → analysis → unlock; iOS sandbox Restore purchases
   (`549946a`); native still shows IAP + account-first; new demo videos on the russian-twist + reverse-crunch exercise sheets (09-28).
 - **Voice corpus, two questions (2026-10-16, Dan Voice P2B):** (1) Did Claude write the "Five Levels Of Pushups" short script? You thought so on Round 2 pair 8; if yes it leaves the corpus and the test set. (2) Settle the 13 numbers that differ between your videos (Zepbound start dose 2.5 or 1.5 mg, weight 192 to 181 or to 175, height 5'7" or 5'6", and 10 more): each is marked "conflict" inside its entry in `.claude/skills/_shared/voice/POSITIONS.md`.
+
+- **Fat Millionaire SFC R4 (2026-10-16), Decision since: 2026-10-16:** Exact-file approval remains pending after the corrected candidate completes all checks. Minimal inherited label/pose repairs and justified export normalization are authorized; that scope decision is resolved. Posting hold remains active. `Handoffs/handoff-20261016-ds05-correct-version.md`

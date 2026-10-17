@@ -458,20 +458,20 @@
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-05-abs-beat-being-a-fat-millionaire.md` with `$long-form-content-edit` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Deliver, send Dan the review copy, update `00-MASTER.md`.",
    "state": "in_progress",
-   "note": "Initial candidate inspected and returned for boundary/caption/title-fade repairs. Sequential corrected worker registered fairly; no duplicate. Posting hold/F3/date intent preserved. Full QC and exact-file owner approval pending.",
+   "note": "October 16 corrections rendered. Authorized minimal inherited-label/pose and export repairs are running sequentially, followed by full exact-file evidence checks. Posting held; F3 retained; no date selected.",
    "sub": "Talking",
    "order": 21,
    "updated": "2026-10-16",
    "by": "Codex",
-   "rev": 8,
+   "rev": 10,
    "syncedRev": 6,
    "needs": "",
    "editor": "Codex",
    "claim": {
     "by": "Codex",
-    "pid": 45589,
-    "started": "2026-10-16T18:43:03",
-    "heartbeat": "2026-10-16T18:43:03"
+    "pid": 95079,
+    "started": "2026-10-16T19:41:07",
+    "heartbeat": "2026-10-16T19:42:23"
    }
   },
   {

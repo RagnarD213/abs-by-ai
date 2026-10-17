@@ -2,40 +2,23 @@
 
 CONTENT, dedicated organic Short. Updated 2026-10-16.
 
-## Current state
+The October 16 revision notes reopened this video, while the prepared hosted master still matched the older October 14 export. F3 remains the approved cover; it does not waive the video edits.
 
-The October 16 revision instructions reopen this video. The actual hosted master is byte-identical to the older October 14 V3 HD export. It still shows the contradictory before photograph and repeated closing title. The supplied replacement graphics exist, but no corrected full export was found in the relevant authorized sources.
+## Release protection
 
-Fresh live read: 197 Blotato schedules and no DS-05 schedule. No post was created, changed or deleted. Neither the November 3 config date nor the December 1 dry-run estimate proves a booking; no date was selected or changed. Blotato remains the posting service.
+The existing Blotato config and waitlist entry are held. Both direct submission and automatic top-up reject or skip the held asset before choosing dates. Other waitlist entries and existing access controls are preserved. Latest live read found 195 schedules and no DS-05 booking. Neither the November 3 config date nor December 1 dry-run estimate proves a booking. This task has created no posts and selected no date.
 
-F3 remains the approved cover. Its two locked cover files match their recorded hashes. Cover selection does not waive video corrections.
+## Current work
 
-## Completed protections
+The supplied rarity graphic, longer key point, lower captions and lesson closer have been rendered. Full-candidate review exposed an inherited late AI label and an inherited same-framing pose jump. Minimal repairs to those issues and justified frame-rate/audio normalization are now authorized. Sequential repair candidates are being checked under the existing shared build limit. Defective earlier candidates are retained as rejected evidence. There is one actual scoped worker, with its current claim recorded in the edit queue; no global dispatcher was resumed.
 
-- DS-05 has a release hold in its existing config and waitlist entry.
-- Automatic top-up skips held entries before media checks or date selection. Direct organic submission refuses a held config.
-- The master/edit queue is BLOCKED rather than FINALIZED; the existing status file was updated without changing sharing.
-- Other waitlist entries and existing schedule intent were preserved.
-- No second active Fat Millionaire task was found; the active task with this title is the worker that made this reconciliation. No duplicate render was launched.
+The task is not release-ready. It is IN PROGRESS rather than FINALIZED. The existing Drive status file was updated without changing sharing. A persistent local inspection page exists, but its current revision is clearly marked QC inspection only and is not approved.
 
-Full private provenance, asset identities and production evidence remain in this task's local repair packet and are intentionally excluded from Git.
+## Remaining steps
 
-## Remaining production work
+1. Complete exact-file full-video checks, missing measured evidence and independent review. Document any truly inapplicable preset with a verified reason rather than declaring PASS.
+2. Present the verified full-quality candidate and concise timestamped changes. Assistant player tests remain muted and leave playback paused with normal user controls.
+3. Obtain Daniel's approval of that exact file. Keep the release hold while approval or release intent remains unresolved.
+4. After approval, rebuild the F3 TikTok cover-first copy, verify it and hosted bytes, inspect live status again, and replace identities in the existing preparation. Do not create duplicate posts or choose a new date.
 
-1. When fewer than two video jobs occupy the shared build slots, implement only the October 16 revisions: the full-screen rarity animation at approximately 0:10.4-0:16.9, the extended key point through that cut, captions in the clear bottom band, and the supplied lesson closer from approximately 0:42.8 through the end.
-2. Resolve exact native frame bounds and the differing master/graphic frame rates. The flattened master already contains its old title; fully remove that footprint before compositing the replacement. Measure captions against the actual card/label extent to prevent overlap. Preserve all other picture choices and the original editor audio.
-3. Run full decode, verbatim audio comparison/gate, the shared full-video watch and delivery gate, every join/freeze/required-scene check, and a fresh independent full-candidate review. Missing checks remain open.
-4. Deliver the persistent review page and full-quality review copy. Keep assistant playback tests muted, leave paused and preserve user controls. Provide watch ranges around 0:08-0:19 and 0:40-end.
-5. Daniel must approve the exact corrected file. Then rebuild and verify its TikTok cover-first copy using F3, verify hosted bytes after upload, and update the existing preparation identities. Inspect live status again before replacing any media. Keep the hold until exact-file approval and release-date intent are resolved; do not create duplicate posts or choose a date.
-
-No corrected master has been rendered, quality-certified or approved in this task. Production remains pending because the shared build limit is already occupied. Do not resume the globally paused queue, interrupt another worker, contact the external editor, spend money, generate credentials or broaden access.
-
-Recommended continuation: GPT-6 Sol, medium effort. Resume Fat Millionaire SFC R4 using the private repair packet, then complete the scoped corrections and checks above. No new task or render has been scheduled automatically.
-
-## Fair waiting registration, 2026-10-16
-
-The actual scoped repair worker is now registered through the existing shared buildcap.wait mechanism, behind earlier waiters and ahead of later arrivals. The master/edit queue is IN PROGRESS, with a live worker claim. The worker waits before heavy work, then renders and runs local shared quality checks. It performs no publishing, schedule selection, upload or approval-state change. A fresh independent review and Daniel exact-file approval still follow the complete candidate. This is not a separate watcher or a global dispatcher activation.
-
-## Initial candidate inspection and sequential repair
-
-The registered worker survived reconnect and rendered an initial full candidate with the original audio packets preserved. Editor and independent still inspection returned it for repair: a brief old-photo leak at the replacement entrance, caption scene residue/lost glyphs during the former photo transition, and the closing replacement plate outlasting its fade. The candidate remains private and unapproved. Only our own queued QC of that rejected candidate was stopped; a sequential corrected worker was registered through the same fair capacity mechanism. No duplicate build or unrelated process interruption occurred. Full native/moving/audio QC and independent review remain pending the revised candidate. The posting hold stays intact.
+Private source identities, asset paths, checksums, candidate history and detailed measurements remain in this task's local repair packet and are excluded from Git. No editor was contacted, money spent, credential generated or access broadened. Recommended continuation: GPT-6 Sol, medium effort.
