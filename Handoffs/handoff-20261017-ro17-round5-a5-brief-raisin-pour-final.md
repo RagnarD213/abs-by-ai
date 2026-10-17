@@ -6,6 +6,10 @@ Written 2026-10-17 by Claude (Opus 5.5) at the end of round 4. Recommended: **Cl
 Read first: `Handoffs/video-editing/00-RULES.md`, `.claude/skills/_shared/VIDEO-RULES.md` (top sections), `.claude/skills/longform-edit/SKILL.md`
 (edit sheet, delivery gate, watch pass, Step 8.6) and `.claude/skills/longform-edit/reference/ro17/README.md` (lessons 1 to 25, round 4 at the end).
 
+**Paths:** every relative path here (`tmp/ro17_r4`, `claude edited long form content/...`, `Videos to Review/`, `scripts/...`) is under the MAIN project
+folder `/Users/danielrose/Documents/Claude/Projects/Abs By AI`. If this task opened in a worktree, work and push from the main folder: the media and
+the render link live there, and `safe-push.sh` refuses to run in a worktree.
+
 ## Dan's decision (2026-10-17, his words)
 
 *"Okay, final revision. Everything looks good except the grapes versus raisins clip. I want to make this extremely brief, just around 2:58 to 2:59: a
