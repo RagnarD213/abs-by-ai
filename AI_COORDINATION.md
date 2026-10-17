@@ -28,9 +28,9 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Long-form calendar LIVE 2026-10-17, Claude.** Sun+Wed 9 AM; 36 Blotato posts moved and re-read; dates in `Docs/LONGFORM_RELEASE_CALENDAR.md` override older RO entries. Next: RO-25 setup for Sun Oct 18 when Dan's file lands; top-up queues RO-19 (Wed Oct 21) as room frees; local commits f47634a, 75fa6fb await safe-push (live files blocked).
 
-**Top 1 Percent LFC Setup - PICKS 2026-10-17, Codex.** Five checked choices and comparison sheet in `social media graphics/youtube/thumbnails/Top 1 Percent/`. Await Dan's pick, then /video-setup and live RO-25 link/release-order check. R5 hash unchanged; no uploads/scheduling. Ownership commit bb96205 local; safe-push blocked by live qc_corpus/corpus.json and DAN_DECISIONS.md edits.
+**Top 1 Percent LFC Setup - PICKS 2026-10-17, Codex.** R2: three checked AI wealth-setting thumbnails with Dan's exact new headline. Review: `social media graphics/youtube/thumbnails/Top 1 Percent/THUMBNAIL-REVIEW-R2.md`. Await pick, then /video-setup and live RO-25 link/release-order verification. R5 unchanged; no uploads/scheduling. Shared-record push previously blocked by live corpus.json and DAN_DECISIONS.md edits.
 
-**RO-25 R6 REVIEW READY 2026-10-17, Codex.** Dan approved exact one-pill START/open-bottle END and raised cumulative AI cap to $30; conservative spend $21.58 including failures. Hailuo take6 and first minute/P01 passed independent picture reviews; accepted O-POOL composite v2 used. Managed 8825 page live: twelve previews plus thirty labeled rejected clips for repair choices. All 12 exact numerical audio gates FAIL; P04 dating AI remains provisional presenter fallback. Full film unassembled/unapproved; no upload. Final page/cache/browser audit PASS. Detail: `/Volumes/Extreme/_edit_work/RO-25/round6/WORK_PACKET.md`.
+**RO-25 R7 FULL-FILM HANDOFF READY 2026-10-17, Codex.** Dan selected R5 DATE-A take2 for P04 despite retained technical FAIL, and P05 returns at local9.009s. Revised contexts passed independent join review; 8825 page has12 previews/30 historic rejects. All12 audio gates FAIL; study join source445.84–451.48 open. Motion estimate$21.58/$30. R7 full-film review assembly authorized, no publication or final approval. `Handoffs/handoff-20261017-ro25-r7-full-film-after-dating-take2-and-looksmaxing-trim.md`; W6/WORK_PACKET.md.
 
 **RA-16 POLICY-RECHECK 2026-10-17, Codex.** Exact R4 films Unlisted and processed; selected R2 thumbnail 3 installed/read back. Trial group 202854620044, ads 828352448280 / 828398913310 enabled, review pending. Next 2026-10-18: existing campaign policy process, `node scripts/ads/api/client.js policy 24316364155`; if clear, delete this entry. Receipt: `Docs/RA16_SETUP_RECEIPT_20261017.md`.
 
@@ -47,7 +47,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 
 
-**Continue-or-handoff rule UNPUSHED 2026-10-17, Claude.** Commits 204433a, 74e0fbb (AGENTS, VIDEO-RULES, PRE-RENDER-APPROVAL: auto continue-or-handoff) are local; safe-push stopped on live edits by other sessions. Next: any later safe-push from the main folder carries it; then delete this.
+**Continue-or-handoff rule UNPUSHED 2026-10-17, Claude.** Commits 204433a, 74e0fbb, 8e73dff (AGENTS, VIDEO-RULES, PRE-RENDER-APPROVAL: auto continue-or-handoff) are local; safe-push stopped on live edits by other sessions. Next: any later safe-push from the main folder carries it; then delete this.
 
 **Veo Flow helper commits UNPUSHED 2026-10-17, Claude.** Commits c778a01, ca37c53 (subscription-first Veo rule, `_shared/veo/`, flow-veo agent) wait on main; safe-push stopped on live corpus.json and DAN_DECISIONS edits. Next: any safe-push from the main folder carries them; then delete this.
 
