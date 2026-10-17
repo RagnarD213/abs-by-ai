@@ -25,7 +25,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**AI Took Job AD Setup ACTIVE 2026-10-17, Codex.** Both R4 native hashes verified. Five Codex thumbnail designs in progress; no existing RA-16 YouTube uploads or trial groups found. Next: show both aspect ratios and wait for Dan's pick, then upload Unlisted and add trial group. Films stay unchanged.
+**AI Took Job AD Setup PICK 2026-10-17, Codex.** Five unique Codex thumbnail choices delivered in 16:9 and 9:16. Both approved R4 masters verified unchanged. Next: Dan picks, then upload both Unlisted and add RA-16 to trial 24316364155. No upload or Ads write yet. Detail: `Docs/RA16_SETUP_RECEIPT_20261017.md`.
 
 **Meal Prep SFC Setup PICK 2026-10-17, Codex.** Dan chose image 3 and requested larger text. Revised tall cover plus three shorter text treatments (A/B/C) delivered. Next: Dan picks shorter treatment and approves the updated tall cover, then finish four-platform organic setup. No upload yet. Detail: `Docs/DS28_SETUP_RECEIPT_20261017.md`.
 
