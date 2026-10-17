@@ -1543,6 +1543,9 @@ Recipe: `reference/ra07/round6/` (s70r6 plan with G1 at 14 frames, s75r6 clips w
 4. **Library AI clips can carry a few rows of black letterbox; a 9:16 crop enlarges it into a visible band.** Crop inside it (`pre="crop=598:1064:602:8,"` on A0080) and check row 0 and the last row of every film frame.
 5. **A START frame for a "pull out his phone" beat: turn him three-quarters to the camera** with the right hand beside the shorts pocket, and in END have the screen face him (only the phone's back shows: no generated UI text). Gate and reviewer passed on the first pair (`PH.spec.json`).
 
+6. **Stage 2, the phone pull-out:** from a START with the hand beside the pocket, a Kling v3 5 s take put the hand into the pocket and drew the phone out of it (frames 40-58); the 4 s take skipped the pocket and the phone appeared in an open hand. Ask for 5 s when the action has three steps, and read the hand frame by frame at 3x around the moment the prop leaves the pocket.
+7. **A library swap still faces the whole-film sense check.** A0080 passed clipcheck and its frame reviewer, but the independent ra-reviewer failed it in context: a power rack behind him reads as a gym under "can't make it to the gym", and he is a different man from the clip before on the same sentence. Judge a replacement against the line and the neighbouring clip's casting, not only its own faults. Fixed with new frames of G1's man at home (`HC.spec.json`); a head that tilts toward the curling arm fails `anchored_nose` (124 px), so tell Codex the head stays exactly where it is and only the eyes move. A still box on a straight horizontal edge (a frame's top edge) slides along it: use a textured patch.
+
 ## RA-14 round 2 lessons: colour and framing on the 8/28 pool rolls (2026-10-13)
 
 Dan on round 1, which reused RA-01's grade and framing rule on roll C1667: "both are a little bit too tight" and "we can

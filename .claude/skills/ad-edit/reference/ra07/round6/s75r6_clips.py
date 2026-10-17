@@ -39,6 +39,8 @@ SRC = {
              why="round 3's reviewed take (I4bW_v1, PASS for source frames 22-67) from 1.17 s, 48 frames: he pulls the towel off, tosses it onto the machine, grips the handle and lifts a knee to step on; ends at 2.77 s, before the take's baked cut at 2.896 s and before the ghosted shoe of frames 69-70",
              chip_xy=(600, 1285), chip_anchor="lt", chip_size=18,
              chip_why="low right, beside his legs and above the captions (round 3's spot from the person mask over every 2nd frame)"),
+ "O1":  dict(file="round6/motion/O1L_v2.mp4", t_in=round(36 / 24, 4), start_frame=36, retime=True,
+             why="round 6 take O1L_v2 (Kling v3 standard 5 s from Dan's approved PH-start / PH-end_v1a frames, 2026-10-17), source frames 36-77 at 24 fps, one source frame per film frame (1.25x): he stands beside the out-of-order leg press reading the sign, his right hand goes into his shorts pocket, comes out with his phone and lifts it to his chest; he looks down at it. Feet planted throughout (clipcheck + fresh reviewer on 36:77). Take O1_v1 (4 s) not used: the phone appears in his hand without the hand entering the pocket."),
  "G1":  dict(file="round5/motion/G1_v1.mp4", t_in=round(59 / 24, 4), start_frame=59, retime=True,
              why="round 5 take G1_v1 (Kling v3 from the approved GC start/end frames), round 6: source frames 59-72 only (14 film frames, 1.25x): he has arrived, feet planted, and opens both hands palm up at the CLOSED sign; the standing-and-looking frames 73-96 are cut on Dan's note (clipcheck + fresh reviewer on 59:72). The walk-on before frame 59 walks in place, so it is not used."),
 }

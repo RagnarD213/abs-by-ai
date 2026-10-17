@@ -1,0 +1,87 @@
+{
+ "shot": "RA-07 round 6 M1 'Trains at home instead': one take, START to END, same locked camera",
+ "start_frame": "HC-start.png (941x1672)",
+ "intent": "The same man as the gym-closed clip (dark hair, short beard, black t-shirt, black shorts, grey running shoes) stands in his bright living room (grey sofa with a knitted throw, framed landscape picture, floor lamp, curtains and window, wooden table, rug), facing the camera, feet planted. START: both arms hang at his sides, a black hex dumbbell in each hand. Motion: his right arm (on the left of the picture) curls its dumbbell up to his shoulder, upper arm staying at his side; his left arm keeps its dumbbell hanging at his side. END: same camera, same feet, legs, hips and room; right forearm vertical with the dumbbell in front of his right shoulder, left arm unchanged; he looks at the curling dumbbell. He does not walk, turn or lean. Nothing in the room moves.",
+ "camera": "locked",
+ "person": {
+  "reach": false,
+  "anchored": [
+   "hip",
+   "nose"
+  ]
+ },
+ "still": {
+  "lamp_joint": [
+   672,
+   500,
+   708,
+   543
+  ],
+  "table_corner": [
+   94,
+   1065,
+   158,
+   1108
+  ],
+  "sofa_leg": [
+   610,
+   1065,
+   648,
+   1108
+  ],
+  "plant": [
+   690,
+   690,
+   770,
+   745
+  ],
+  "shoe_left_of_picture": [
+   290,
+   1285,
+   410,
+   1412
+  ],
+  "shoe_right_of_picture": [
+   510,
+   1285,
+   628,
+   1412
+  ],
+  "picture_trees": [
+   60,
+   320,
+   120,
+   380
+  ]
+ },
+ "props": [
+  {
+   "name": "dumbbell_right_hand",
+   "box": [
+    134,
+    778,
+    327,
+    874
+   ],
+   "held_by": "right",
+   "note": "his right hand (left of the picture): START at his side, END curled to his shoulder"
+  },
+  {
+   "name": "dumbbell_left_hand",
+   "box": [
+    580,
+    778,
+    770,
+    874
+   ],
+   "held_by": "left",
+   "note": "his left hand: hangs at his side in START and END"
+  }
+ ],
+ "hands": {
+  "right": "START: hanging at his side, wrapped around a hex dumbbell handle. END: curled up, the same dumbbell in front of his right shoulder, hand still wrapped around the handle",
+  "left": "hanging at his side holding its dumbbell in START and END"
+ },
+ "may_change": {},
+ "bounds": {}
+}

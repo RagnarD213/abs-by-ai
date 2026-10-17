@@ -1,0 +1,82 @@
+{
+ "shot": "RA-07 round 6 take O1L_v2, frames 36-77 as used in the film (slot O1, 42 film frames)",
+ "start_frame": "O1L_v2.mp4 frame 36 (720x1280); every box is in that frame's pixels (camera locked; frame-spec boxes scaled 720/941)",
+ "intent": "A gym member in a navy t-shirt and grey shorts, a white towel over his left shoulder, stands still beside a black plate-loaded leg press with a yellow OUT OF ORDER sign hanging over its backrest, head turned down toward the sign. Frames 36-77: his right hand goes into his right shorts pocket, comes out holding one plain black phone and lifts it in front of his chest; he looks down at it. His feet, legs and hips stay where they are; his left arm hangs still. The machine, the sign, the plates, the dumbbell racks and the floor do not move. The camera is locked.",
+ "camera": "locked",
+ "person": {
+  "reach": false,
+  "anchored": [
+   "hip",
+   "nose"
+  ]
+ },
+ "still": {
+  "sign": [
+   329,
+   539,
+   394,
+   627
+  ],
+  "plate_rim": [
+   624,
+   419,
+   720,
+   474
+  ],
+  "base_foot_left": [
+   318,
+   731,
+   371,
+   759
+  ],
+  "base_foot_right": [
+   490,
+   788,
+   570,
+   817
+  ],
+  "rail_bolts": [
+   562,
+   712,
+   612,
+   757
+  ],
+  "dumbbell_rack": [
+   329,
+   360,
+   383,
+   413
+  ],
+  "shoe_left_of_picture": [
+   73,
+   865,
+   172,
+   933
+  ],
+  "shoe_right_of_picture": [
+   168,
+   826,
+   291,
+   888
+  ]
+ },
+ "props": [
+  {
+   "name": "phone",
+   "box": [
+    100,
+    550,
+    165,
+    615
+   ],
+   "held_by": "right",
+   "note": "frame 36: hidden in his right shorts pocket beside his right hand; it comes out in that hand around frame 58 and is raised to his chest"
+  }
+ ],
+ "hands": {
+  "right": "START: hanging empty beside the right shorts pocket. END: holding one plain black phone upright in front of the lower chest, thumb on its edge, four fingers behind it",
+  "left": "hanging at his side, empty, in START and END"
+ },
+ "may_change": {},
+ "bounds": {}
+}

@@ -30,10 +30,10 @@ WAV = os.environ.get("WAV", "round3/mix_bass_r3.wav")
 CAPS = "cap_9x16/captions.mov"
 SRC = {k: f"round2/clips/{k}.mp4" for k in ("H1",)}
 SRC.update({k: f"round5/clips/{k}.mp4" for k in ("A1", "H2", "I5")})
-SRC.update({k: f"round6/clips/{k}.mp4" for k in ("G1", "M1")})
+SRC.update({k: f"round6/clips/{k}.mp4" for k in ("G1", "M1", "O1")})
 SRC.update({k: f"round2/cards/{k}.mp4" for k in ("P1", "K1", "W1")})
-PENDING = {"O1"}
-PLACE = {"O1": ("round6/frames/PH-start.png", "Out of order, phone out")}
+PENDING = {"M1"}   # stage 2: A0080 failed the independent review (reads as a gym, a different man); new home frames await Dan's yes
+PLACE = {"O1": ("round6/frames/PH-start.png", "Out of order, phone out"), "M1": ("round6/frames_m1/HC-start.png", "Trains at home (new)")}
 END30 = next(it["f0"] for it in PL["timeline"] if it["kind"] == "dan" and it["a"] > 30.0)     # "you'll get far better results"
 X264 = ["-c:v", "libx264", "-preset", "medium", "-crf", "14", "-pix_fmt", "yuv420p", "-colorspace", "bt709", "-color_primaries", "bt709",
         "-color_trc", "bt709", "-color_range", "tv", "-x264-params", "keyint=30:min-keyint=1:scenecut=0"]

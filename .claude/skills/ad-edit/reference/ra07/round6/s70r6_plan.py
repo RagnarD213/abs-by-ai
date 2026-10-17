@@ -97,7 +97,7 @@ t_tap      = on_splice(at("tap the button"))
 A0147_LEN  = 4.04
 assert t_why <= A0147_LEN, "H1 plays from its first frame at its own speed: the slot must fit the clip"
 
-PENDING = {"O1"}                           # round 6: O1 is a NEW clip (phone pull-out), frames await Dan's yes
+PENDING = set()                            # round 6 stage 2: O1 is take O1L_v2 frames 36-77 (Dan approved the PH frames 2026-10-17)
 CARDS = [
  {"name": "H1",  "kind": "clip",  "beat": [0.0, t_why], "what": "library clip A0147: the fired trainer walks out with his box while a robot spots the lifter",
   "label": "ai", "people": "other", "physique": False},
@@ -112,9 +112,9 @@ CARDS = [
   "label": "ai", "people": "other", "physique": False},
  {"name": "G1",  "kind": "ai_clip", "beat": [t_gym, t_curls], "what": "AI clip 'Gym closed' (round 5 take, trimmed): he arrives at the door, opens both palms at the CLOSED sign",
   "label": "ai", "people": "other", "physique": False},
- {"name": "M1",  "kind": "clip",  "beat": [t_curls, t_oo], "what": "library clip A0039: a man curling dumbbells in his living room",
+ {"name": "M1",  "kind": "clip",  "beat": [t_curls, t_oo], "what": "library clip A0080: a man in his 40s curling dumbbells in his home garage gym",
   "label": "ai", "people": "other", "physique": False},
- {"name": "O1",  "kind": "ai_clip", "beat": [t_oo, t_hack], "what": "NEW AI clip 'Out of order, phone out': he stands beside the leg press, reads the OUT OF ORDER sign and pulls his phone out of his pocket",
+ {"name": "O1",  "kind": "ai_clip", "beat": [t_oo, t_hack], "what": "NEW AI clip 'Out of order, phone out' (take O1L_v2 frames 36-77): he stands beside the leg press, reads the OUT OF ORDER sign and pulls his phone out of his pocket",
   "label": "ai", "people": "other", "physique": False},
  {"name": "H2",  "kind": "ai_clip", "beat": [t_hack, t_while], "what": "AI clip 'Hack squat instead' (round 3's approved take): he nods, hangs his towel on it and steps on",
   "label": "ai", "people": "other", "physique": False},
