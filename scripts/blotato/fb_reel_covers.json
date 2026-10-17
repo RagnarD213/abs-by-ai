@@ -540,5 +540,13 @@
     "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds-05_why-having-abs-beats-being-a-fat-millionaire-cover-F3.jpg",
     "w": 1080,
     "h": 1920
+  },
+  {
+    "match": "Stop cooking your own meals.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/Meal Prep - DS-28/setup/meal-prep-instagram-approved.jpg",
+    "w": 1080,
+    "h": 1920,
+    "job": "DS-28",
+    "when": "2026-10-24T14:00:00.000Z"
   }
 ]
