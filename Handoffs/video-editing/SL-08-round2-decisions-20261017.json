@@ -1,0 +1,115 @@
+{
+  "category": "CONTENT / SFL",
+  "job": "SL-08",
+  "date": "2026-10-17",
+  "next_task": "Calories Not Losing Weight SFL R2",
+  "source_sha256": "655c71882ea3e6baa1c71d661fdcd8465e94d972183f4969e09d2430787bb76e",
+  "proposal_sha256": "e63d8d614b838cabd0cd644eb1612949f1996ad020f49789e556adb5227a2412",
+  "candidates": [
+    {
+      "id": "A",
+      "title": "Why I fast until 2 pm every day.",
+      "ranges": [
+        [
+          248.906,
+          288.845
+        ]
+      ],
+      "seconds": "About 40",
+      "why": "One way to leave more of the daily calorie allowance for dinner.",
+      "opening": "Here's what I do. I don't eat anything until 2 in the afternoon.",
+      "visual": "Open with the dinner payoff, then show the eating window and the salad mentioned in the source.",
+      "verdict": "approved-with-notes",
+      "scope": "Segment text and selection only; no finished video or new asset approved",
+      "pickup_required": false,
+      "approved_text": "Here's what I do. I don't eat anything until 2 in the afternoon. Then I break my fast with a big salad and I eat dinner in the evening. And here's why I love this. Let's say your number is 2000 calories. If you eat breakfast, a snack, and lunch you've already spent 1200 of them by the afternoon. Now dinner has to be tiny and you go to bed hungry. But when you fast until 2, you still have most of your calories left for dinner. So you can sit down with your family, eat a real meal, and still be under your number for the day. That's the reason why I fast until 2 every day. You can enjoy a big delicious dinner every day and still lose fat.",
+      "dan_words": "Okay let's do A but cut the first couple sentences and start here. Retitle this one: \"Why I fast until 2 pm every day.\""
+    },
+    {
+      "id": "B",
+      "title": "Eat a Salad First to Eat Less",
+      "ranges": [
+        [
+          334.932,
+          381.891
+        ]
+      ],
+      "seconds": "47",
+      "why": "One meal-order tactic, the study, an explanation and alternatives.",
+      "opening": "Start every meal with a big serving of something low in calories.",
+      "visual": "Open on the finished salad; show salad before the main meal and retain the study visual in a portrait layout.",
+      "verdict": "approved",
+      "scope": "Segment text and selection only; no finished video or new asset approved",
+      "dan_words": "B looks good. Let's do that as is."
+    },
+    {
+      "id": "C",
+      "title": "Stop Drinking Your Calories",
+      "ranges": [
+        [
+          423.272,
+          424.991
+        ],
+        [
+          429.212,
+          476.811
+        ]
+      ],
+      "seconds": "50",
+      "why": "The jelly-beans-versus-soda comparison leads to specific drink swaps.",
+      "opening": "Stop drinking liquid calories.",
+      "visual": "Open on soda versus jelly beans, then show the drinks named and the water/black-coffee swaps.",
+      "verdict": "approved",
+      "scope": "Segment text and selection only; no finished video or new asset approved",
+      "dan_words": "Let's do C as is"
+    },
+    {
+      "id": "D",
+      "title": "Snack on Protein, Not Carbs",
+      "ranges": [
+        [
+          383.392,
+          418.491
+        ]
+      ],
+      "seconds": "35 (shorter option)",
+      "why": "Specific replacement snacks and a complete ending: You get full and you stop.",
+      "opening": "Snack on protein, not on carbs.",
+      "visual": "Open on the snack swap; show the actual named protein foods.",
+      "verdict": "approved",
+      "scope": "Segment text and selection only; no finished video or new asset approved",
+      "dan_words": "Yeah let's do D&E as is as well. Basically make all of them"
+    },
+    {
+      "id": "E",
+      "title": "Make Fasting Easier With Black Coffee",
+      "ranges": [
+        [
+          291.886,
+          324.165
+        ]
+      ],
+      "seconds": "32 (shorter option)",
+      "why": "One way to make the morning fast easier, with the cream/sugar warning and practical close.",
+      "opening": "Drink black coffee while you're fasting.",
+      "visual": "Open on black coffee being poured; show the cream/sugar comparison when spoken.",
+      "verdict": "approved",
+      "scope": "Segment text and selection only; no finished video or new asset approved",
+      "dan_words": "Yeah let's do D&E as is as well. Basically make all of them"
+    }
+  ],
+  "selected": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "pickup_required": false,
+  "cuts_applied": [],
+  "rendered": false,
+  "gates_run": false,
+  "motion_authorized": [],
+  "new_frames_before_motion": "Any newly proposed AI clip requires frame approval first.",
+  "cost_usd_this_phase": 0
+}
