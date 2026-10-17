@@ -13,3 +13,13 @@ Executed the two-revision handoff on 2026-10-17 with the exact project long-form
 - Updated only RO-26 queue/master, its handoff-index row and own coordination entry. Dispatcher and dashboard untouched. No platform upload, scheduling or publishing.
 
 The current shared recap code is committed locally, including outline correction 2145530. Main-folder safe-push remains subject to other live owners' edits. Their active changes must not be adopted; current local review files are authoritative for this R5 candidate.
+
+## Finalized after Dan approval, 2026-10-17
+
+Dan: "All right this looks great. This is approved. Go ahead and finalize this and give me the handoff for setup"
+
+The exact master SHA above is unchanged. Primary delivery: `Codex Content Videos/Top 1 Percent - RO-26/Top 1 Percent | codex | 16x9 | RO-26.mp4`. Subtitles, full review, QA ZIP, original stamps, approved edit sheet, recipes and approval manifest are adjacent. Extreme backup: `/Volumes/Extreme/Codex Content Videos/Top 1 Percent - RO-26/`. Both copies are hash-verified. Historical FAIL stamps and disclosed inherited findings remain unchanged; whole-film user approval is recorded separately in `Handoffs/video-editing/RO-26-R5-approval.json`.
+
+Edit queue: finalized, rev 23; Drive status JSON uploaded. This is metadata only. No film upload or scheduling. Claude artifact-db mirror remains for the next Claude task. Setup handoff: `Handoffs/handoff-20261017-ro26-thumbnails-and-video-setup.md`, start with five thumbnail choices and stop for Dan's pick. Verify RO-25 is available before RO-26 releases.
+
+R5 review duplicates are removed only after project and Extreme copies verify. The old review port is retired on approval; use the final delivery folder. Prior-round original masters and graded caches remain unchanged. Google Drive media backup belongs to setup after thumbnail selection.
