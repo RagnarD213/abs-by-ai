@@ -26,7 +26,9 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**RO-25 R6 BUILDING 2026-10-17, Codex.** Dan approved exact one-pill START/open-bottle END and $25 motion cap. Four Kling takes failed; Seedance take5 provider rejected; Hailuo take6 passed native tracker and fresh independent action review. Conservative estimate $21.58/$25, failed-request invoice pending. First minute and six intros rendered; contextual QA/page pending. R5 O-POOL exact take withheld for independent frozen-water FAIL; R4 opening picture retained. All exact numerical audio gates FAIL. Components only, no full film. Detail: `/Volumes/Extreme/_edit_work/RO-25/round6/WORK_PACKET.md`.
+**Top 1 Percent LFC Setup - ACTIVE 2026-10-17, Codex.** RO-26 five thumbnail choices building in `social media graphics/youtube/thumbnails/Top 1 Percent/`. Stop for Dan's pick before upload/setup. Approved R5 stays unchanged; RO-25 release order and previous-video link must be verified after the pick.
+
+**RO-25 R6 REVIEW READY 2026-10-17, Codex.** Dan approved exact one-pill START/open-bottle END and raised cumulative AI cap to $30; conservative spend $21.58 including failures. Hailuo take6 and first minute/P01 passed independent picture reviews; accepted O-POOL composite v2 used. Managed 8825 page live: twelve previews plus thirty labeled rejected clips for repair choices. All 12 exact numerical audio gates FAIL; P04 dating AI remains provisional presenter fallback. Full film unassembled/unapproved; no upload. Final page/cache/browser audit PASS. Detail: `/Volumes/Extreme/_edit_work/RO-25/round6/WORK_PACKET.md`.
 
 **RA-16 POLICY-RECHECK 2026-10-17, Codex.** Exact R4 films Unlisted and processed; selected R2 thumbnail 3 installed/read back. Trial group 202854620044, ads 828352448280 / 828398913310 enabled, review pending. Next 2026-10-18: existing campaign policy process, `node scripts/ads/api/client.js policy 24316364155`; if clear, delete this entry. Receipt: `Docs/RA16_SETUP_RECEIPT_20261017.md`.
 
