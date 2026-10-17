@@ -42,7 +42,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **RO-04:R1-REVIEW:8974:2026-10-15:Codex**
 **COVERS:MOBILE:2026-10-15:Docs/COVER_AUDIT_20261015.md**
 
-**SL-08:PICKS:2026-10-14:Codex.**
+**Calories Not Losing Weight SFL R2 - REVIEW 2026-10-17, Codex.** Five selections preserved; 19 narrated asset excerpts independently checked. Dan reviews clips/graphics: http://127.0.0.1:8998/. Next: apply approval or revisions, then complete five Shorts and final gates. No covers/publishing. Receipt: `Handoffs/results-20261017-sl08-r2-asset-review.md`.
 
 **SL-09:PICKS:2026-10-15:Claude.**
 
