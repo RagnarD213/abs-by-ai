@@ -26,6 +26,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**RO-25 thumbnail sync BLOCKED 2026-10-17, Codex.** Final thumbnail C and deferred setup handoff are saved with verified Extreme backups. Commit `4b5b483` remains local; safe-push stopped on live `qc_corpus/corpus.json` and `scripts/blotato/fb_reel_covers.json`, plus stale files listed by the tool. Next: retry after owners clear; do not adopt live edits. Setup handoff is indexed in `Handoffs/README.md` and waits for the approved final film.
+
 **SL-15:PICKS:2026-10-17:Claude.** My First Spray Tan SFL R1: 10-candidate shortlist sent, waiting for Dan's 3 picks. No renders until Dan's Codex job finishes. Short 1 airs Fri Oct 30, review copies by Oct 26.
 
 **Release calendars LIVE 2026-10-17, Claude.** Long-forms Sun+Wed, Shorts Mon-Sat minus Wed/Sun (DS Thu); 105 Blotato posts moved, re-read. Dates: `Docs/LONGFORM_RELEASE_CALENDAR.md`, `Docs/SHORTS_RELEASE_CALENDAR.md` (override older RO/SL entries). Next: RO-25 setup when file lands; top-up queues RO-19 Oct 21. Local commits f47634a, 75fa6fb, fe42792 await safe-push (live files).
@@ -122,7 +124,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-12:R2-HANDOFF:2026-10-17:Claude.** Card `First Step Abs AD R2`; commit e2dffdc local.
 
-**DS-31:R1-REVIEW:8931:2026-10-15:Claude.**
+**DS-31:R2-HANDOFF:2026-10-17:Claude.** Card `AI Homework SFC R2`.
 
 **RA-04 POLICY-RECHECK 2026-10-16,Claude.**
 

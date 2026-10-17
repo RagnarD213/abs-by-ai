@@ -16,6 +16,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 
 
+- [AI Homework SFC R2](handoff-20261017-ds31-round2-color-options-and-a1-motion.md): DS-31 round 2: warmer, more vivid colour options (Dan reopened Color A) and the approved A1 homework-tower opener made on the Flow subscription, whole Short rebuilt; one-click card shown 10-17. Opus 5.5 high.
 - [First Step Abs AD R2](handoff-20261017-ra12-round2-prospect-and-graphics.md): RA-12 round 2 from Dan's answers (AI prospect instead of Dan, graphics under captions, new opening clips); one-click card shown 10-17. Opus 5.5 high.
 - [Render gatekeeper](handoff-20261014-render-gatekeeper.md): enforce two builds at a time with file-lock slots; brainstorm risks first. Opus 5.5 high.
 - [Upwork profile and portfolio](handoff-20261007-upwork-profile-and-portfolio.md): interview Dan, verify experience and assets, build and publish the approved profile. Opus 5.5 high.
