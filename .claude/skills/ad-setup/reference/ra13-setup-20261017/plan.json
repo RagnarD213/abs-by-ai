@@ -1,0 +1,84 @@
+{
+  "category": "AD",
+  "job": "RA-13",
+  "title": "Why Do Most Guys Never Get Abs?",
+  "headline": "Why Most Guys Never Get Abs",
+  "generator": "Codex subscription via codex-image.sh",
+  "model": "gpt-6.1-sol",
+  "effort": "high",
+  "generation_count": 5,
+  "api_spend_usd": 0,
+  "status": "waiting for Dan thumbnail pick; no upload or ad creation",
+  "options": {
+    "1": "Real pool photo, turquoise photographic pool, left white condensed stack",
+    "2": "Real studio photo, lime gym, centered cutout and bottom headline",
+    "3": "AI Dan, cobalt planning room, cream serif headline",
+    "4": "Red and ivory physical failed-plan still life, tilted black headline",
+    "5": "Charcoal and gold gym maze, top gold and white headline"
+  },
+  "source_cutouts": {
+    "1": "RA-05 setup pool photo-167 cutout, copied unchanged",
+    "2": "studio-blue-221_CUTOUT.png, copied unchanged"
+  },
+  "approved_sha256": {
+    "9x16": "6bb5d4767de0e5b922e08b90c43eba9b66c1b4af78ea60b7ce4ea78ea648ce2a",
+    "16x9": "0a58d484df06a7a076dd03b74944c64b498425e1c3462cd766ddfc51a3e6510b"
+  },
+  "codex_tokens": 100337,
+  "review_sheet": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-13 Why Most Guys Never Get Abs/REVIEW-five-options.jpg",
+  "review_checks": {
+    "all_ten_files_under_2mb": true,
+    "real_cutout_text_clearance": "31 px or greater",
+    "manual_visual_review": "All five designs inspected. AI Dan face recognizable. Face and hair clear. Pool crop stops at shorts line.",
+    "master_files": "unchanged, hashes verified before generation"
+  },
+  "files": [
+    {
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-13 Why Most Guys Never Get Abs/option-1-16x9.jpg",
+      "sha256": "51e72166e1cdee40d0fa325e5df277b329b60097dfd3888bd4ff6ee0f0f092d1"
+    },
+    {
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-13 Why Most Guys Never Get Abs/option-1-9x16.jpg",
+      "sha256": "0494ebd098d545f801441e57c38d200ab024ea36c3dc88a5be2921329a9abbe3"
+    },
+    {
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-13 Why Most Guys Never Get Abs/option-2-16x9.jpg",
+      "sha256": "4c97021916bd82c30aac06740fda3c7620f36a463b5f46f8d907a0c4cb53c99b"
+    },
+    {
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-13 Why Most Guys Never Get Abs/option-2-9x16.jpg",
+      "sha256": "b5e200c860a94fc610b09b2ceafc1d843aef2963ae865a0f31c97168bacaaf85"
+    },
+    {
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-13 Why Most Guys Never Get Abs/option-3-16x9.jpg",
+      "sha256": "efddd2e90ba480fc80fe45e34603f24513d656ed1acfe25773f80faf73ce075c"
+    },
+    {
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-13 Why Most Guys Never Get Abs/option-3-9x16.jpg",
+      "sha256": "c9bfde27b9eec959c191afdb62be28c4176e6f689d333b84b4ea9203d033a2fa"
+    },
+    {
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-13 Why Most Guys Never Get Abs/option-4-16x9.jpg",
+      "sha256": "ad64f3fb2f28a1a0a15c3862b2568fc00d278d5ff6eb82896a4c9a8c7bccb2d0"
+    },
+    {
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-13 Why Most Guys Never Get Abs/option-4-9x16.jpg",
+      "sha256": "f56afbdc74f84938d65a661a74d7511e095a7b7f1fcd8c476b249e4bcc2c6c6c"
+    },
+    {
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-13 Why Most Guys Never Get Abs/option-5-16x9.jpg",
+      "sha256": "8299e5a35ecb29fee7fe333f095b0f1f0665392bd94f7224fd20fa75e171ef30"
+    },
+    {
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-13 Why Most Guys Never Get Abs/option-5-9x16.jpg",
+      "sha256": "f44e3674974fa421d53090df89206d83739f2684e9ebb2e884b1a1ae978ffe68"
+    }
+  ],
+  "prompts": {
+    "1": "Use case: ads-marketing. Generate a premium photographic swimming-pool BACKGROUND ONLY for a fitness ad thumbnail. Wide 16:9. Beautiful turquoise water caustics, dark navy deep end at left, bright cyan sunlit ripples on right, sliver of modern pool deck along bottom right, warm sunshine. Camera near water level. Keep left 55 percent simple dark navy water for huge white typography that will be added later. Crisp saturated photographic detail, not abstract waves. NO PEOPLE, no bodies, no text, no logos, no writing. Right half will receive a real photographic cutout of a man. Make an environment, not a completed design.\n",
+    "2": "Use case: ads-marketing. Premium photographic and graphic background plate for a masculine fitness thumbnail. Wide 16:9. Near-black modern gym, dramatic acid green edge lights, two enormous softly defocused weight plates at rear sides, diagonal green beam through black atmosphere, central middle area empty black for a real man's cutout added later. Strong black and electric lime green palette, high contrast, light grain, tactile premium sports campaign. Keep bottom third simple near-black for a later text band. NO PEOPLE, no faces, NO TEXT, no letters, no logos, no writing.\n",
+    "3": "Use case: ads-marketing. Portrait 4:5 premium cinematic photo illustration. The attached photograph is an IDENTITY REFERENCE for Dan, the Asian male fitness coach. Show recognizable Dan from hair to upper shorts, lean and shredded, not bulky, same size and proportions as the reference, natural smile and same hairstyle. He stands in a cobalt-blue futuristic training room, looking at camera, one hand confidently holding a slim transparent luminous blue planning tablet at waist level. Subtle geometric workout-planning paths in the environment, no legible interface. Main subject centered horizontally; entire head with clear headroom, shoulders and both forearms intact; keep him inside the central 70 percent. Leave top 18 percent as clean dark blue atmosphere. Photorealistic face and skin, premium editorial lighting, natural anatomy. No before/after, no belly closeup, no text, no lettering, no logos, no watermark. Image is intentionally AI-generated; not a real-photo edit.\n",
+    "4": "Use case: ads-marketing. Portrait 4:5 high-end conceptual still life photograph for a fitness ad about men following generic plans and working blind. Overhead flat lay on a rich warm ivory desk: a single crumpled sheet with an unreadable generic workout grid sits prominently beside two graphite dumbbells and a closed red training notebook. An oversized vivid scarlet red X made from two physical strips of tape lies across the crumpled sheet. Sharp hard side light, strong editorial shadows, red and ivory palette. Subject cluster in central 75 percent and upper 60 percent; lower third clean ivory desk for headline added later. Real tangible paper and steel, simple immediately legible concept, no clutter. NO PEOPLE, no body parts, no legible letters, no numbers, no brand marks, no logo, no generated typography.\n",
+    "5": "Use case: ads-marketing. Portrait 4:5 cinematic conceptual image: one ordinary adult man seen from behind, wearing a charcoal workout T-shirt and black training shorts, standing at the entrance of a huge dark physical maze whose towering walls are made from gym weight plates and workout equipment. He is small enough to see his entire body, at bottom center; the maze stretches into the distance, a subtle warm gold path winds through it toward a golden doorway at far distance. Theme: working hard without a clear plan. Intriguing premium photographic realism, charcoal black and amber gold, no science-fiction figures, no fantastical anatomy. Keep top 30 percent dark atmospheric negative space with no important subject for headline added later. View from elevated behind the man, man within central third, no face required, all clothes intact. No text, no letters, no logos, no words, no watermark.\n"
+  }
+}
