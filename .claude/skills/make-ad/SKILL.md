@@ -145,6 +145,8 @@ Veo takes and ~$33 on Kling in one month, and **most of those takes were iterati
 not the finished shot.** Dan pays for **Google AI Pro** ($19.99/mo), which includes
 Veo generation in the Gemini app at zero marginal cost. Use it for the deciding pass.
 
+**Superseded for Veo motion (2026-10-17):** frames-to-video now runs in Google Flow, 1080p, no visible watermark, through `_shared/veo/README.md` (the default for every clip). The Gemini-app notes below are history.
+
 **How:** drive `gemini.google.com/app` with the claude-in-chrome tools (Dan is already
 signed in; no OAuth grant is needed, unlike `labs.google` Flow which prompts for one).
 `+` → **Create video** → type the shot prompt → Enter. Poll with screenshots; the tab

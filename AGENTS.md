@@ -233,6 +233,10 @@ Full rule: read `.claude/skills/_shared/VIDEO-RULES.md`.
 - Rename at the start, preserve the actual round on resume, and use the same format in recommended task names and handoff starter prompts. Never put queue IDs in the chat title or lead with `Prepare`, `Edit`, `Continue` or an editor's name. The video title comes first. Use the condensed `R2`, not `Round 2`.
 - Upload/setup tasks retain their `Setup` suffix. Full editing naming rule: `.claude/skills/_shared/VIDEO-RULES.md`, "Video editing task names".
 
+## AI video clips: Flow subscription first (Dan, 2026-10-17)
+
+- Every Veo clip is generated in Google Flow on Dan's Google AI Pro credits by a background sub-agent driving Chrome while the main agent keeps editing (Claude: `flow-veo` agent; Codex: `_shared/veo/FLOW-RUNBOOK.md`). The paid Replicate API only when Dan says rush, accelerate or as fast as possible. Credits out: ask Dan before paying. Full rule: `.claude/skills/_shared/VIDEO-RULES.md`, top section; how: `.claude/skills/_shared/veo/README.md`.
+
 ## Image generation goes through Codex (Dan, 2026-10-01)
 
 - **Every still image a session generates is made by Codex on the ChatGPT subscription, never a paid API.** Generated images, backgrounds, AI frames, thumbnails, covers, Instagram posts, retouch passes: all of it, in every skill and every ad hoc request. Call `.claude/skills/_shared/codex-image.sh` directly; no handoff or separate Codex task is needed.

@@ -1,3 +1,13 @@
+## AI video clips: Google Flow subscription first, paid API only on "rush" (Dan, 2026-10-17)
+
+Dan: *"Default to the subscription; switch to the paid API only when I say rush, accelerate, or as fast as possible. If the subscription credits run out, ask me before paying."* Binds Claude and Codex, every skill that makes Veo motion.
+
+- **Default:** every Veo clip is generated in Google Flow on Dan's Google AI Pro credits (Veo 3.1 Fast, 20 credits a clip), by a background sub-agent driving his Chrome while the main agent keeps editing. Claude spawns the `flow-veo` agent with `run_in_background`; Codex runs `_shared/veo/FLOW-RUNBOOK.md` in its own browser. Queue clips with `_shared/veo/veo.py add`; procedure and measurements: `_shared/veo/README.md`.
+- **Paid Replicate API only when** Dan's own words say rush, accelerate or as fast as possible (`veo.py route --said` checks), for that video. A per-job `gen_motion*.py` that calls Replicate directly is the paid path and falls under this rule.
+- **Credits run out:** stop and ask Dan once, with the clip count and the dollar estimate ($0.80 per 8 s Veo 3.1 Fast take). Never pay without his yes. Never buy credits or upgrade the plan.
+- **Watermark:** Flow's "Visible watermarking" switch (avatar menu) stays OFF; the 2026-10-17 test downloads carry no visible mark. Downloads are the 1080p upscale.
+- Unchanged: frames approved and gated before motion, the motion gate and frame-reviewer on every take, the per-video budget for any paid take, the AI label.
+
 ## Continue in the same task or hand off: decide, then do it yourself (Dan, 2026-10-17)
 
 When Dan replies to a delivered round (an approval, a pick, notes), the task decides on its own whether to keep working here or move to a fresh task, and carries out the move itself. Dan never asks for the handoff and never pastes a starter prompt. Do not default to a handoff. Check this task's context with `get_usage` (session "self") before deciding.

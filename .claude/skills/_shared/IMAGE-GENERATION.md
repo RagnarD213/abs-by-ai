@@ -39,7 +39,8 @@ State the image count before a batch; it draws on the Codex allowance, so do not
 ## Not covered
 
 - The live app. `server.js` generates for visitors through the API and cannot use a subscription.
-- AI video generation (Kling, Veo, Wan). There is no subscription path; it stays on the API.
+- AI video generation (Kling, Veo, Wan). Veo now has a subscription path (Google Flow on Dan's Google AI Pro, 2026-10-17)
+  and it is the default: `_shared/veo/README.md`. Kling and Wan stay on the API.
 - Background removal, upscaling, cropping and compositing. These are local tools, not generation.
 
 ## The old API scripts are locked

@@ -32,8 +32,9 @@ Biggest line items: `nano-banana-pro` 315 runs ≈ $42 · `kling-v3-video` 33 �
      ~2× faster) for exploration, Pro for the keeper.
 2. **Batch API, 50% off.** Google-direct only; Replicate has no batch tier. A
    2-image batch measured **under 4 minutes**, not the documented 24-hour worst case.
-3. **Draft video on Dan's Google AI Pro subscription, free.** See the `make-ad`
-   skill. Watermarked and 720p, so drafts only — but ~30 of 40 takes are drafts.
+3. **Veo video on Dan's Google AI Pro subscription, the default since 2026-10-17.** Google Flow,
+   20 credits a Veo 3.1 Fast clip, 1080p upscaled download, no visible watermark with the switch
+   off. Paid API only on "rush" or after Dan approves paying: `_shared/veo/README.md`.
 
 ## Levers that do NOT work — do not re-derive these
 
