@@ -1,3 +1,5 @@
+> **SUPERSEDED 2026-10-17** by `handoff-20261017-ra12-round2-prospect-and-graphics.md` (written from Dan's actual round 1 answers). Do not fire this one.
+
 # RA-12 "The First Step To Getting Abs Isn't A Workout": round 2, after Dan's round 1 answers
 
 **AD (short-form, filmed).** Sidebar name for the next task: `First Step Abs AD R2`.
