@@ -1533,6 +1533,16 @@ Recipe: `reference/ra07/round5/` (gen_motion5 with the round 4 pairs, s75r5 clip
 5. **The Extreme drive hit 100% (176 MB free) mid-build:** the 540p cut and the A/B mux died with "No space left on device". Delete only regenerable frame dumps (`round*/checks/frames`, superseded `work_v*` pictures), never other sessions' files, and re-run the stage that failed.
 6. The audio gate's `tone` row (fixed bass lift) and one caption-timing miss on "20" at 21.3 s (inside the approved first 30 s) fail identically to round 3 and are reported, not tuned.
 
+## RA-07 round 6 lessons: lengthening a library clip's window, and labels on a tight crop (2026-10-17)
+
+Recipe: `reference/ra07/round6/` (s70r6 plan with G1 at 14 frames, s75r6 clips with a `pre` crop and `no_chip`, s86r6 with the placeholder band on the floor, s87r6 page, the phone frame spec and prompts).
+
+1. **A library clip whose window grows is a new window: clipcheck plus a fresh reviewer, even if Dan saw it before.** A0039 (home curls) passed round 5 unreviewed; stretched from 1.2 s to 2.0 s, its reviewer found the left hand melting into a see-through blob (source frames 17-19, 35-38, 62-68) and a hand opening off the dumbbell. Those frames were inside round 5's window too. A red-blotch count per frame (`R - G > 70` inside the hand area) finds the melt fast. Replaced by A0080 frames 127-186.
+2. **Check casting before swapping a clip.** The real stock curls clip B0117 had no AI faults but a pale young man in an over-bright room beside the 40-something man of A1, G1 and O1: rejected on sight. A0070's shoulder press lost both dumbbells in a 9:16 crop.
+3. **On a crop the man fills, place the chip from the person mask over the whole take, dilated 20 px**, and pass the reviewer's gap numbers. The automatic spot touched his face, a top-right spot touched his temple; the wall right of his shoulder from y 480 down was clear.
+4. **Library AI clips can carry a few rows of black letterbox; a 9:16 crop enlarges it into a visible band.** Crop inside it (`pre="crop=598:1064:602:8,"` on A0080) and check row 0 and the last row of every film frame.
+5. **A START frame for a "pull out his phone" beat: turn him three-quarters to the camera** with the right hand beside the shorts pocket, and in END have the screen face him (only the phone's back shows: no generated UI text). Gate and reviewer passed on the first pair (`PH.spec.json`).
+
 ## RA-14 round 2 lessons: colour and framing on the 8/28 pool rolls (2026-10-13)
 
 Dan on round 1, which reused RA-01's grade and framing rule on roll C1667: "both are a little bit too tight" and "we can

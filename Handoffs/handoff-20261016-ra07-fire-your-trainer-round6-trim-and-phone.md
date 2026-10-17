@@ -73,6 +73,14 @@ Claude Opus 5.5, high effort (editorial and frame work). Frames by Codex GPT-6.1
 
 > AD. Rename this task `Fire Your Trainer AD R6`. Read `Handoffs/handoff-20261016-ra07-fire-your-trainer-round6-trim-and-phone.md` and run stage 1 of round 6 of RA-07 "Fire Your Trainer!" with /ad-edit: trim the gym-closed clip to its arrival-and-shrug beat (about a second shorter) and let the home curls fill the gap, and make start and end frames for a new leg-press clip where he sees the OUT OF ORDER sign, stands next to the machine and pulls out his phone (Codex subscription for the images, frame gate and a fresh reviewer first). Build the whole 9:16 with the new clip as a labelled placeholder so I can see the trim, send me the page with a timestamped list of what changed, and stop for my yes on the frames. AI clip budget: $20 total, $12 already spent.
 
+
+## Stage 1 done (2026-10-17, Claude Opus 5.5)
+
+- Page :8856 (`round6/page`), VLC copy `Videos to Review/Fire Your Trainer AD R6 - whole 9x16 (phone placeholder).mp4`. Plan `beats_r6.json`; G1 = G1_v1 frames 59-72 (clipcheck + reviewer PASS), first 30 s md5-identical, outside the slots MSE max 0.31.
+- **M1 changed:** A0039 FAILED its fresh review on the 2.0 s window (melting hand). M1 is now library **A0080** frames 127-186 (1.25x, crop inside its letterbox, chip at (710,520)); clipcheck + third fresh reviewer PASS. Its chip is fixed in `s75r6_clips.py`; the stage 2 gate plan must declare it.
+- **O1 frames waiting for Dan's yes:** `round6/frames/PH-start.png` and `PH-end_v1a.png`, spec `PH.spec.json`, gate + reviewer PASS (`gate.py --verify` exits 0). Record his words in `round6-plan/decisions.json` before motion.
+- Stage 2 scripts: start from `s70r6_plan.py` (set `PENDING = set()`), `s75r6_clips.py` (add an O1 entry for the new take), `s86r6_assemble.py` (PENDING empty, SRC O1 to round6/clips). $12 of $20 still spent; nothing paid this stage.
+
 ## Starter prompt (stage 2, only after Dan says yes to the frames)
 
 > AD. Name this task `Fire Your Trainer AD R6`. Read `Handoffs/handoff-20261016-ra07-fire-your-trainer-round6-trim-and-phone.md` and run stage 2: Dan approved the new leg-press phone frames (the pair is in `/Volumes/Extreme/_edit_work/ra07/round6/frames/`, his words in `round6-plan/decisions.json`). Make the motion (each take through clipcheck and a fresh reviewer first), build the whole 9:16 with it in, run every gate, the watch pass and the independent review, and send me the page with a timestamped list of what changed. AI clip budget: $20 total, $12 already spent.

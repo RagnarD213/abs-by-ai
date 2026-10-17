@@ -25,13 +25,16 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**RO-25 LFC R4 — EDITING 2026-10-17, Codex.** One editor owns Bass 2, G08 credit, G16 copy and existing approved motion integration in isolated round4 scratch. Next: exact-file/context QA, managed review packet, then one decision on extra motion allowance; no paid motion above the $5 job cap. Detail: `/Volumes/Extreme/_edit_work/RO-25/round4/WORK_PACKET.md`.
+**I'm 41 Wasted Life LFC R5 — EDITING 2026-10-17, Codex.** Executing approved motion/revisions under $15 cumulative motion cap. Next: reconcile receipts, exact-pair retries, clock/day composite, X→A0043 and animated recap; component/motion review before separate full-film approval. Work: `/Volumes/Extreme/_edit_work/RO-25/round5/`.
+
+**RA-13 POLICY-RECHECK 2026-10-17, Codex.** Both R3 films are Unlisted and processed; trial group 201534026375, ads 828468045056 / 828468037364 ENABLED, review pending. Next 2026-10-18: `node scripts/ads/api/client.js policy 24316364155`; if clear, delete this entry. Receipt: `Docs/RA13_SETUP_RECEIPT_20261017.md`.
+
+**Top 1 Percent LFC R4 — EDITING 2026-10-17, Codex.** Approved R3 choices locked; presenter base rendered, incline motion quality review and full composite pending. Next: exact-file QA, independent full-candidate review and private :8982 delivery. No upload or release. Work: `/Volumes/Extreme/_edit_work/ro26/round4/`.
 
 **Main Git cloud read BLOCKED 2026-10-16, Codex.** Main-folder fetch waits on an iCloud-evicted local object, `.git/objects/29/f0dd02ad6df53b23db29ba79c5dcda29923390`. Download requested; object absent from GitHub. RA-13 records safely pushed via clean checkout, commit `f3d725b`. Next: restore that local object before main-folder pushes. No other session files or refs changed.
 
-**AI Took Job AD R4 WAITING 2026-10-16, Codex.** R3 inputs verified; both complete films and initial checks queued through buildcap. Extreme full, work on Expansion. Next: completed candidates, editor QA, independent review and :8976 delivery. No publishing. Packet: `Codex Ad Videos/ai took my job - RA-16/R4 production/WORK_PACKET.json`.
+**AI Took Job AD R4 ACTIVE 2026-10-17, Codex.** Complete renders exist. Editor QA caught bad hair masks moving crops above Dan; rebuilding with face-connected silhouettes and approved positions. Next: final exact-file checks, independent review and :8976 delivery. No publishing. Work: `/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/`.
 
-**RA-13:R3-REVIEW:8973:2026-10-16:Codex.** Both full R3 formats delivered. Vertical centering, B0550 one-phone demo and matching analysis photo fixed. Independent media review: no open defects. Full numerical gates retain approved audio/framing/cut flags. Master list updated. Next: Dan reviews :8973; not finalized. Report: `Handoffs/video-editing/reports/RA-13-R3-review-report.txt`.
 
 
 
@@ -92,7 +95,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Muhammad-Shorts QUEUED 2026-10-13.** DS-05 waitlisted 10-16; queued: set Edit Queue uploaded. `Docs/MUHAMMAD_SHORTS_SETUP_RECEIPT_20261013.md`
 
-**RA-07:R6-HANDOFF:2026-10-16:Claude.** Dan reviewed R5: trim gym closed ~1 s; new leg-press clip where he pulls out his phone. Next: fire `Handoffs/handoff-20261016-ra07-fire-your-trainer-round6-trim-and-phone.md` (frames first). Page :8856. $12 of $20 AI spent.
+**RA-07:R6-FRAMES:8856:2026-10-17:Claude.** Stage 1 on the page: gym closed trimmed, curls clip replaced (A0039 failed review), phone frames gated and reviewed. Next: Dan's yes on the phone frames, then stage 2 of `Handoffs/handoff-20261016-ra07-fire-your-trainer-round6-trim-and-phone.md`. $12 of $20 spent.
 
 **RO-20/B/C:R3b-REVIEW:8868:2026-10-16:Claude.** Studio pickups laid in. Next: Dan's pickup A/B + sign-off answers, then three films (handoff step 2).
 
@@ -119,7 +122,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Ad 6 remarketing 2026-10-04:** Awaiting Dan: copy to enabled campaign 24305381214?
 
-**DS28:R5:REVIEW:2026-10-15:Codex.** :8891. Next:Dan.
 
 
 

@@ -1,0 +1,7 @@
+{
+ "shot": "RA-07 round 6 M1: library clip A0080 (home garage-gym curls), source frames 127-186 at 24 fps, the window the 2.0 s slot plays",
+ "intent": "A grey-haired man in his 40s in a black tank top stands in his home garage gym in front of a power rack and curls a hex dumbbell in each hand: arms down, then his right arm curls the dumbbell up to his chest and lowers it, his left hand holds its dumbbell at his side. Handheld camera with a slight drift. The rack, the walls and the dumbbells on the floor do not change.",
+ "person": {"reach": false},
+ "may_change": {},
+ "bounds": {}
+}
