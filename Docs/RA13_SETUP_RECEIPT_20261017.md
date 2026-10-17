@@ -22,6 +22,6 @@ Final URLs:
 
 All existing non-removed campaign ads, including paused ads, used absbyai.com. The destination returned HTTP 200. Budget `15911255930` remains $30/day before and after, now shared with the new group. Campaign status stayed ENABLED. No campaign status or budget operation was sent.
 
-Queue RA-13 was changed from finalized to uploaded after both YouTube readbacks and Ads entries existed. Codex does not mark the Claude artifact mirror synced; queue.py pending leaves its entry for Claude. No organic distribution or public upload. No browser playback during setup; Victory Dashboard skipped. Five generated assets used the Codex subscription, 100337 tokens, with zero paid image API spend.
+Queue RA-13 was changed from finalized to uploaded (rev 9) after both YouTube readbacks and Ads entries existed. The Drive status upload confirmed success. Codex does not mark the Claude artifact mirror synced; queue.py pending leaves its entry for Claude. No organic distribution or public upload. No browser playback during setup; Victory Dashboard skipped. Five generated assets used the Codex subscription, 100337 tokens, with zero paid image API spend.
 
 Recipe and durable evidence: `.claude/skills/ad-setup/reference/ra13-setup-20261017/`, `scripts/ads/api/dgen-ads/ra13.json` and `ra13.result.json`. Master-local logs: `Codex Ad Videos/why do most guys never get abs - RA-13/`. Task records pushed from the clean checkout because main contains concurrent edits and an open Git object issue.
