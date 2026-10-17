@@ -1,733 +1,763 @@
 {
- "editors": {
-  "Muhammad": {
-   "upwork_name": "Muhammad Arsalan",
-   "drive_owners": [
-    "wadeededitteam@gmail.com",
-    "sharkimageryproduction@gmail.com"
-   ],
-   "upwork_room": "room_49041dfecc20c11fb2d7b9b0b8aac744",
-   "shares_by": "individual files — BUT his 09-14 batch (7 files, links ending usp=drivesdk) has NO sharedWithMeTime and every Drive search (sharedWithMe + owner + modifiedTime) returned {} for it on 09-15; found only by resolving the Gmail message links + get_file_metadata. Always resolve his message links; do not trust search for him either."
-  },
-  "Zeeshan": {
-   "upwork_name": "Zeeshan Haider",
-   "drive_owners": [
-    "teamcrackhow4@gmail.com"
-   ],
-   "upwork_room": "room_b9aa351b873dee61f71699f8c98b2946",
-   "shared_folders": [
-    {
-     "id": "1vYlOONGymhV_0tkpqHLfI-oiwqj3nmKe",
-     "title": "Final Video 1"
+  "editors": {
+    "Muhammad": {
+      "upwork_name": "Muhammad Arsalan",
+      "drive_owners": [
+        "wadeededitteam@gmail.com",
+        "sharkimageryproduction@gmail.com"
+      ],
+      "upwork_room": "room_49041dfecc20c11fb2d7b9b0b8aac744",
+      "shares_by": "individual files — BUT his 09-14 batch (7 files, links ending usp=drivesdk) has NO sharedWithMeTime and every Drive search (sharedWithMe + owner + modifiedTime) returned {} for it on 09-15; found only by resolving the Gmail message links + get_file_metadata. Always resolve his message links; do not trust search for him either."
     },
-    {
-     "id": "1xEK_71af1L8toiSEk2F_Jqwarw5mW2RC",
-     "title": "video 2"
+    "Zeeshan": {
+      "upwork_name": "Zeeshan Haider",
+      "drive_owners": [
+        "teamcrackhow4@gmail.com"
+      ],
+      "upwork_room": "room_b9aa351b873dee61f71699f8c98b2946",
+      "shared_folders": [
+        {
+          "id": "1vYlOONGymhV_0tkpqHLfI-oiwqj3nmKe",
+          "title": "Final Video 1"
+        },
+        {
+          "id": "1xEK_71af1L8toiSEk2F_Jqwarw5mW2RC",
+          "title": "video 2"
+        },
+        {
+          "id": "1UpJwDPWplSH_Sf1HctTZwEXd28gn_fnI",
+          "title": "content batch video 1 (ab wheel workout only) — rev 1"
+        },
+        {
+          "id": "1mvqEowzfNNprOCxPta6DASIT20MdYfvX",
+          "title": "Video 2 (content batch video 2, first cut 09-13)"
+        },
+        {
+          "id": "1W-hYEPL_ATzMFE9tb8c6tRGknlwOIqbH",
+          "title": "arms and shoulders (batch video 2) finals"
+        },
+        {
+          "id": "1KSgdrBmiX8REMqJ47tg7naAfTXc25bJn",
+          "title": "Video 3 (stop deadlifting)"
+        },
+        {
+          "id": "15kJXFS7hbxWn2XCnBXYnP6M1iPL9Xh9M",
+          "title": "Video 4 (oura review)"
+        },
+        {
+          "id": "1z0URDLA5cBYsi44fe2AAqwSVPUn09rfR",
+          "title": "Video 5 (abs at 40 vs 25)"
+        }
+      ],
+      "shares_by": "folder — files inside are INVISIBLE to every Drive query until opened; list the folders in the browser every run",
+      "folder_scan_expected": 10,
+      "batch_note": "Five-video content batch closed 2026-10-10: all five finals filed, each his latest revision, each 1920x1080 at about 10 Mbps."
     },
-    {
-     "id": "1UpJwDPWplSH_Sf1HctTZwEXd28gn_fnI",
-     "title": "content batch video 1 (ab wheel workout only) — rev 1"
-    },
-    {
-     "id": "1mvqEowzfNNprOCxPta6DASIT20MdYfvX",
-     "title": "Video 2 (content batch video 2, first cut 09-13)"
-    },
-    {
-     "id": "1W-hYEPL_ATzMFE9tb8c6tRGknlwOIqbH",
-     "title": "arms and shoulders (batch video 2) finals"
-    },
-    {
-     "id": "1KSgdrBmiX8REMqJ47tg7naAfTXc25bJn",
-     "title": "Video 3 (stop deadlifting)"
-    },
-    {
-     "id": "15kJXFS7hbxWn2XCnBXYnP6M1iPL9Xh9M",
-     "title": "Video 4 (oura review)"
-    },
-    {
-     "id": "1z0URDLA5cBYsi44fe2AAqwSVPUn09rfR",
-     "title": "Video 5 (abs at 40 vs 25)"
+    "Waleed": {
+      "upwork_name": "Waleed Ahmad",
+      "drive_owners": [
+        "info.taimoormirzaa@gmail.com",
+        "waleedatwork124@gmail.com"
+      ],
+      "upwork_room": "room_6238c4790346683db7c5ddf3f3d48122",
+      "shares_by": "individual files (each gets sharedWithMeTime) — Drive search finds these",
+      "owner_note": "Delivered from info.taimoormirzaa@gmail.com through 09-05; the 09-12 round-4 cut came from waleedatwork124@gmail.com. Query BOTH owners."
     }
-   ],
-   "shares_by": "folder — files inside are INVISIBLE to every Drive query until opened; list the folders in the browser every run",
-   "folder_scan_expected": 10,
-   "batch_note": "Five-video content batch closed 2026-10-10: all five finals filed, each his latest revision, each 1920x1080 at about 10 Mbps."
   },
-  "Waleed": {
-   "upwork_name": "Waleed Ahmad",
-   "drive_owners": [
-    "info.taimoormirzaa@gmail.com",
-    "waleedatwork124@gmail.com"
-   ],
-   "upwork_room": "room_6238c4790346683db7c5ddf3f3d48122",
-   "shares_by": "individual files (each gets sharedWithMeTime) — Drive search finds these",
-   "owner_note": "Delivered from info.taimoormirzaa@gmail.com through 09-05; the 09-12 round-4 cut came from waleedatwork124@gmail.com. Query BOTH owners."
-  }
- },
- "filed": [
-  {
-   "drive_id": "12wDmd7-ziEKux8ioVi9gkJYCo7LZP3iv",
-   "editor": "Muhammad",
-   "title": "this picture got me abs",
-   "kind": "ad",
-   "number": 1,
-   "path": "Muhammad Ad Videos/this picture got me abs - ad 1/this picture got me abs | muhammad | 16x9 | ad 1.mp4",
-   "size": 313570091,
-   "filed_on": "2026-08-27"
-  },
-  {
-   "drive_id": "1o2wBl4Y8l6_yl6ExBMQGFD16EqaZLjlN",
-   "editor": "Muhammad",
-   "title": "stop wasting money on nutritionists",
-   "kind": "ad",
-   "number": 2,
-   "path": "Muhammad Ad Videos/stop wasting money on nutritionists - ad 2/stop wasting money on nutritionists | muhammad | 16x9 | ad 2.mp4",
-   "size": 372767004,
-   "filed_on": "2026-09-03"
-  },
-  {
-   "drive_id": "1nn_vIldhp3R6BJnUei0unHOJXiv6Ck3m",
-   "editor": "Zeeshan",
-   "title": "this picture got me abs",
-   "kind": "ad",
-   "number": 1,
-   "path": "Zeeshan Ad Videos/this picture got me abs - ad 1/this picture got me abs | zeeshan | 16x9 | ad 1 | h264.mov",
-   "size": 289333241,
-   "filed_on": "2026-09-08"
-  },
-  {
-   "drive_id": "1LaqSYdLqfoPtQAeJTa6_VFiP4IA9raFo",
-   "editor": "Zeeshan",
-   "title": "this picture got me abs",
-   "kind": "ad",
-   "number": 1,
-   "path": "Zeeshan Ad Videos/this picture got me abs - ad 1/this picture got me abs | zeeshan | 16x9 | ad 1 | h265.mov",
-   "size": 594268291,
-   "filed_on": "2026-09-08"
-  },
-  {
-   "drive_id": "1Jby6q3qJGaplKFuJn96vdMXfMXUwOl-A",
-   "editor": "Zeeshan",
-   "title": "the 17 dollar ab wheel beats every crunch",
-   "kind": "content",
-   "number": 1,
-   "path": "Zeeshan Content Videos/the 17 dollar ab wheel beats every crunch - video 1/the 17 dollar ab wheel beats every crunch | zeeshan | 16x9 | video 1.mp4",
-   "size": 545035144,
-   "filed_on": "2026-09-10",
-   "why_final": "Video 2 Rev 3 (delivered 09-09 04:42Z). Dan in the Upwork room 09-09 10:15: 'this video is looking great, and it's finalized'; milestone approved 10:16. No revision round after round 3 (09-08). Downloaded by curl, size matches Drive exactly."
-  },
-  {
-   "drive_id": "1y41uH1mmjVuxaieq49ANMrB3Bp7F0qLM",
-   "editor": "Zeeshan",
-   "title": "the 17 dollar ab wheel beats every crunch",
-   "kind": "content",
-   "number": 1,
-   "path": "Zeeshan Content Videos/the 17 dollar ab wheel beats every crunch - video 1/the 17 dollar ab wheel beats every crunch | zeeshan | 16x9 | video 1.srt",
-   "size": 11980,
-   "filed_on": "2026-09-10"
-  },
-  {
-   "drive_id": "19ApOsUNPRToq9YCfpZE74pQkj3IxsouG",
-   "editor": "Muhammad",
-   "title": "every diet you've tried failed for the same reason",
-   "kind": "ad",
-   "number": 5,
-   "path": "Muhammad Ad Videos/every diet you've tried failed for the same reason - ad 5/every diet you've tried failed for the same reason | muhammad | 16x9 | ad 5.mp4",
-   "size": 310935286,
-   "filed_on": "2026-09-10"
-  },
-  {
-   "drive_id": "14on08ZTz2bXPJtwp8_fAENrtEGASo0bg",
-   "editor": "Muhammad",
-   "title": "stop wasting money on supplements",
-   "kind": "ad",
-   "number": 4,
-   "path": "Muhammad Ad Videos/stop wasting money on supplements - ad 4/stop wasting money on supplements | muhammad | 16x9 | ad 4.mp4",
-   "size": 321084473,
-   "filed_on": "2026-09-11"
-  },
-  {
-   "drive_id": "1qsBpkrm8T7BDaYF67NL1k_x67sTsxsb3",
-   "editor": "Muhammad",
-   "title": "stop paying human trainers",
-   "kind": "ad",
-   "number": 3,
-   "path": "Muhammad Ad Videos/stop paying human trainers - ad 3/stop paying human trainers | muhammad | 16x9 | ad 3.mp4",
-   "size": 358548186,
-   "filed_on": "2026-09-11"
-  },
-  {
-   "drive_id": "1PRMKJVmnYZThT9MqnXSZBM-G4zOqApcG",
-   "editor": "Zeeshan",
-   "title": "ab wheel workout",
-   "kind": "content",
-   "number": 1,
-   "path": "Zeeshan Content Videos/ab wheel workout - video 1/ab wheel workout | zeeshan | 16x9 | video 1.mp4",
-   "size": 300660846,
-   "filed_on": "2026-09-13",
-   "why_final": "Video 1 Rev 2 (09-13 13:54Z). Dan called Rev 2 final; filed + scheduled by the /video-setup session 09-13 (YouTube b_bS9NdmL-g). Recorded here 09-13 by the ads-variant audit; local size = Drive size."
-  },
-  {
-   "drive_id": "1Ek2t1KdhMKCh-TJsG5qLP445w7x53L7p",
-   "editor": "Zeeshan",
-   "title": "ab wheel workout",
-   "kind": "content",
-   "number": 1,
-   "path": "Zeeshan Content Videos/ab wheel workout - video 1/ab wheel workout | zeeshan | 16x9 | video 1.srt",
-   "size": 3081,
-   "filed_on": "2026-09-13"
-  },
-  {
-   "drive_id": "1D7sc0Nyq_ViM1bEJGP4xXStMphpVzmFs",
-   "editor": "Muhammad",
-   "title": "in 2010 i photoshopped my face on a fitness model ai just did it for real",
-   "kind": "ad",
-   "number": 7,
-   "path": "Muhammad Ad Videos/in 2010 i photoshopped my face on a fitness model ai just did it for real - ad 7/in 2010 i photoshopped my face on a fitness model ai just did it for real | muhammad | 16x9 | ad 7.mp4",
-   "size": 283996801,
-   "filed_on": "2026-09-15",
-   "why_final": "Replaced the 09-13 master with Muhammad's 09-14 re-export. It fixes the off-screen header at 2:48-2:51 but its label reads 'AI-GENERATEd' on that beat. Dan explicitly authorized uploading everything on 2026-09-15 after this defect was reported. The prior 283970782-byte master is preserved beside it as *.superseded-20260913.mp4. Downloaded by curl and truncated to Drive's exact recorded size after the endpoint appended an extra trailing range; ffprobe confirms 1920x1080, 6358 frames, 212.145 s."
-  },
-  {
-   "drive_id": "1582XKVpH-6LYq8fEJlFQksMZE0HL1Ct5",
-   "editor": "Muhammad",
-   "title": "my dad bod at 38 my dad bod at 40",
-   "kind": "ad",
-   "number": 10,
-   "path": "Muhammad Ad Videos/my dad bod at 38 my dad bod at 40 - ad 10/my dad bod at 38 my dad bod at 40 | muhammad | 16x9 | ad 10.mp4",
-   "size": 240209477,
-   "filed_on": "2026-09-13",
-   "why_final": "Dan in the Upwork room 09-12 2:46 PM CT: 'Both HD videos at 7 and 10 are looking good, and those are finalized.' That message came AFTER the round-3 revision doc written on this same file (14:25 CT), so the 09-12/09-13 runs wrongly held it as not final: the Gmail notifications never carry Dan's own messages. Downloaded by curl, size = Drive; first 2 MB identical to the reviewed copy in revisions-0912m/dl/."
-  },
-  {
-   "drive_id": null,
-   "editor": "Muhammad",
-   "title": "stop paying human trainers",
-   "kind": "ad",
-   "number": 3,
-   "path": "Muhammad Ad Videos/stop paying human trainers - ad 3/stop paying human trainers | muhammad (smoke shot replaced) | 16x9 | ad 3.mp4",
-   "size": 542401194,
-   "filed_on": "2026-09-14",
-   "why_final": "Not a Drive delivery: Muhammad's approved v6 HD with the AI breath-smoke shot (1:13.5-1:18) replaced by Claude, his audio bit for bit (notes-16x9-smoke-shot.md). Dan 2026-09-14: 'Okay, all these are looking good, and they are approved.' sha256 85a7da67edc2fc47... Uploaded unlisted as 86jbUhqBTUQ. Muhammad's round-6 re-export will replace it."
-  },
-  {
-   "drive_id": "1jO-re15wKmdzD6SQsQLHkSbnVXdDUPOI",
-   "editor": "Muhammad",
-   "title": "you're not too old to get abs i'm proof",
-   "kind": "ad",
-   "number": 6,
-   "path": "Muhammad Ad Videos/you're not too old to get abs i'm proof - ad 6/you're not too old to get abs i'm proof | muhammad | 16x9 | ad 6.mp4",
-   "size": 363314897,
-   "filed_on": "2026-09-15",
-   "why_final": "Daniel HQ Ad 6 V4 HD.mp4 (created 09-14 07:39Z). Answers Dan's Upwork message 09-14 4:50 PM CT 'please send over the high-quality files for video 6 and 14'; Muhammad replied 11:04 PM CT with the link. No revision doc after the 09-12 round 3. 363 MB. Downloaded by curl, size = Drive exactly. Title from the round-3 doc heading ('You're Not Too Old to Get Abs. I'm Proof.'), apostrophes kept like the Ad 5 folder. Filing is not approval: Dan has not yet confirmed round 3's four items landed."
-  },
-  {
-   "drive_id": "1SF5FpJ2vIiqi2BmHm6NqwhHsP3azvl9l",
-   "editor": "Muhammad",
-   "title": "i watched 400 workout videos and gained weight",
-   "kind": "ad",
-   "number": 14,
-   "path": "Muhammad Ad Videos/i watched 400 workout videos and gained weight - ad 14/i watched 400 workout videos and gained weight | muhammad | 16x9 | ad 14.mp4",
-   "size": 260253922,
-   "filed_on": "2026-09-16",
-   "why_final": "Daniel HQ Ad 14 V3 HD.mp4. Exact-match verification against the approved V3 review export: same 5,924 frames and 197.664 s timeline, equivalent untouched audio, and no sampled visual changes beyond re-encode noise. SHA-256 4a20de7fff32dd67bd4c2bb5df722aa9825fcd6160b49ed3ec18ba5ef6c4e845. The prior 79,337,649-byte review-grade master is preserved beside it as a superseded archive. Uploaded unlisted as SGJoPjnl6AU and installed in Demand Gen on 2026-09-16."
-  },
-  {
-   "drive_id": "1sFlj6qpO8c8EGwAdJMZQFBubsdRX_BSV",
-   "editor": "Muhammad",
-   "title": "ai showed me two futures",
-   "kind": "ad",
-   "number": 8,
-   "path": "Muhammad Ad Videos/ai showed me two futures - ad 8/ai showed me two futures | muhammad | 16x9 | ad 8.mp4",
-   "size": 285993141,
-   "filed_on": "2026-09-16",
-   "why_final": "Daniel HQ Ad 8 V4 HD.mp4. Dan reviewed the visual changes from the V3 proxy and explicitly declared this delivered HD export finalized on 2026-09-16. SHA-256 3bb8f92da6ea05fb0fb878ac32400abcf3861d070578d757892bd0d6b4f6deb8. Audio uploaded untouched: -14.3 LUFS / -1.9 dBTP. Uploaded unlisted as HMZdiJMAI3Y and installed in Demand Gen."
-  },
-  {
-   "drive_id": "16WCOA3ZfSbTkV229PYAUutZkslM2ksyz",
-   "editor": "Muhammad",
-   "title": "i tried to get abs with chatgpt heres what happened",
-   "kind": "ad",
-   "number": 9,
-   "path": "Muhammad Ad Videos/i tried to get abs with chatgpt heres what happened - ad 9/i tried to get abs with chatgpt heres what happened | muhammad | 16x9 | ad 9.mp4",
-   "size": 262881985,
-   "filed_on": "2026-09-21",
-   "why_final": "Round 4 HD, Dan finalized 09-21 15:28 in the Upwork room; local size = Drive size. 09-16 file kept as (09-16)."
-  },
-  {
-   "drive_id": "1m4QtkkGFBsMWsLfeBGvO-Q1YFnYhHKS7",
-   "editor": "Muhammad",
-   "title": "i added up what getting abs was supposed to cost",
-   "kind": "ad",
-   "number": 13,
-   "path": "Muhammad Ad Videos/i added up what getting abs was supposed to cost - ad 13/i added up what getting abs was supposed to cost | muhammad | 16x9 | ad 13.mp4",
-   "size": 328905730,
-   "filed_on": "2026-09-21",
-   "why_final": "Round 4 HD, Dan finalized 09-21 15:28 in the Upwork room; local size = Drive size. 09-16 file kept as (09-16)."
-  },
-  {
-   "drive_id": "1C8vI9zitXlp9U9BJRnbMfvCwQUm29Xr7",
-   "editor": "Muhammad",
-   "title": "i was the dad who swam in a tshirt",
-   "kind": "ad",
-   "number": 15,
-   "path": "Muhammad Ad Videos/i was the dad who swam in a tshirt - ad 15/i was the dad who swam in a tshirt | muhammad | 16x9 | ad 15.mp4",
-   "size": 279269753,
-   "filed_on": "2026-09-16",
-   "why_final": "Daniel HQ Ad 15 V3 HD.mp4. Dan reviewed the visual changes from the V2 proxy and explicitly declared this delivered HD export finalized on 2026-09-16. SHA-256 02e559489f9c3f50172de636e3457c4888011ee5c5fdb3576d5f4ed59befa94f. Audio uploaded untouched: -14.0 LUFS / -0.9 dBTP. Uploaded unlisted as TqXD2dGgAPs and installed in Demand Gen."
-  },
-  {
-   "drive_id": "local:AV-01-20260918",
-   "editor": "Claude",
-   "title": "this picture got me abs",
-   "kind": "ad",
-   "number": 1,
-   "path": "Muhammad Ad Videos/this picture got me abs - ad 1/this picture got me abs | claude | 9x16 59s | ad 1.mp4",
-   "size": 61749767,
-   "filed_on": "2026-09-18",
-   "why_final": "AV-01 exact approved cutdown, copied without transcoding from /Volumes/Extreme/_edit_work/AV-01/ad1_vertical_59s.mp4. SHA-256 aaa81b8a09c673285f18dd4df776a6355dc238e713e13f1cbdc9096d86f61c69. Dan: 'That ad looks good to me. I think that's actually good to ship.' Audio remains Muhammad's cut mix verbatim: -14.40 LUFS / -1.30 dBTP. Uploaded Unlisted as Rk7JxYyKawg and installed in the two existing Ad 1 Demand Gen groups."
-  },
-  {
-   "drive_id": "10WgV9hT9Ct39LifPwr5gvo4riPMuYn4V",
-   "editor": "Zeeshan",
-   "title": "arms and shoulders home workout",
-   "kind": "content",
-   "number": 2,
-   "path": "Zeeshan Content Videos/arms and shoulders home workout - video 2/arms and shoulders home workout | zeeshan | 16x9 | video 2.mp4",
-   "size": 858396944,
-   "md5": "49c7dfb3d189043dbb2bc4b326e8fd81",
-   "filed_on": "2026-09-22",
-   "why_final": "Video2 Rev 3 (09-18), round 4 review said picture final pending the talking-bed track name + .srt. Dan 09-22 sent this exact link: 'get it uploaded to YouTube and all platforms'. His 09-22 'Video 2 No music .mp4' strips the approved live-round gym track too, so it was NOT used."
-  },
-  {
-   "drive_id": "folder 1W-hYEPL_ATzMFE9tb8c6tRGknlwOIqbH",
-   "editor": "Zeeshan",
-   "title": "arms and shoulders home workout",
-   "kind": "content",
-   "number": 2,
-   "path": "Zeeshan Content Videos/arms and shoulders home workout - video 2/arms and shoulders home workout | zeeshan | 16x9 | video 2.srt",
-   "size": 25496,
-   "filed_on": "2026-09-22",
-   "why_final": "Video 2 Subtitle.srt: now the arms video (opens 'All right, today I'm going to show you my home arm workout'), 'Gymboss' fixed, last cue 10:54."
-  },
-  {
-   "drive_id": "1CyBYWWoNPELBr-XpUKPBBB12nhJnIL_V",
-   "editor": "Zeeshan",
-   "title": "stop deadlifting",
-   "kind": "content",
-   "number": 3,
-   "path": "Zeeshan Content Videos/stop deadlifting - video 3/stop deadlifting | zeeshan | 16x9 | video 3.mp4",
-   "size": 728005370,
-   "md5": "e98bbb9bace1085df31950e9e51fd326",
-   "filed_on": "2026-09-29",
-   "why_final": "Video 3 Rev 5, his latest file in the folder. Filed by the setup session 09-29; recorded here 10-10 at batch close. Local size = Drive size, 1920x1080."
-  },
-  {
-   "drive_id": "16-IaJu9AKlivTdU4wszz8zpm1vmqkloU",
-   "editor": "Zeeshan",
-   "title": "my honest oura ring review",
-   "kind": "content",
-   "number": 4,
-   "path": "Zeeshan Content Videos/my honest oura ring review - video 4/my honest oura ring review | zeeshan | 16x9 | video 4.mp4",
-   "size": 1558234846,
-   "md5": "5264285762af41f2a6644366e0bae7eb",
-   "filed_on": "2026-10-02",
-   "why_final": "Video 4 Rev 3, his latest. Dan in the room 10-02: finalized and approved. Recorded here 10-10 at batch close. 1920x1080."
-  },
-  {
-   "drive_id": "1RoGnpSSUTN0yM06-pGUeCrxBydtvBmz6",
-   "editor": "Zeeshan",
-   "title": "getting abs at 40 vs 25",
-   "kind": "content",
-   "number": 5,
-   "path": "Zeeshan Content Videos/getting abs at 40 vs 25 - video 5/getting abs at 40 vs 25 | zeeshan | 16x9 | video 5.mp4",
-   "size": 1598113122,
-   "md5": "dfdad6d05e9aba3c4ba34d41495d8f9e",
-   "filed_on": "2026-10-10",
-   "why_final": "Video 5 Rev 3, his latest. Dan in the room 10-10 3:42 PM: FINALIZED and approved. Local size = Drive size, 1920x1080."
-  },
-  {
-   "drive_id": "1Vl0VaA11OM-nn4OnlzYtahQmxK6Gjin5",
-   "editor": "Zeeshan",
-   "title": "getting abs at 40 vs 25",
-   "kind": "content",
-   "number": 5,
-   "path": "Zeeshan Content Videos/getting abs at 40 vs 25 - video 5/getting abs at 40 vs 25 | zeeshan | 16x9 | video 5.srt",
-   "size": 54277,
-   "filed_on": "2026-10-10"
-  },
-  {
-   "drive_id": null,
-   "source": "local approved Codex R3 master",
-   "editor": "Codex",
-   "title": "why do most guys never get abs",
-   "kind": "ad",
-   "number": "RA-13",
-   "aspect": "9x16",
-   "version": "R3",
-   "path": "Codex Ad Videos/why do most guys never get abs - RA-13/why do most guys never get abs | codex | 9x16 | RA-13 R3.mp4",
-   "size": 116949752,
-   "sha256": "6bb5d4767de0e5b922e08b90c43eba9b66c1b4af78ea60b7ce4ea78ea648ce2a",
-   "filed_on": "2026-10-17",
-   "uploaded_on": "2026-10-17",
-   "youtube_id": "KSq1OBlWvPI",
-   "privacy": "unlisted",
-   "ad_group": "201534026375",
-   "ad_id": "828468045056"
-  },
-  {
-   "drive_id": null,
-   "source": "local approved Codex R3 master",
-   "editor": "Codex",
-   "title": "why do most guys never get abs",
-   "kind": "ad",
-   "number": "RA-13",
-   "aspect": "16x9",
-   "version": "R3",
-   "path": "Codex Ad Videos/why do most guys never get abs - RA-13/why do most guys never get abs | codex | 16x9 | RA-13 R3.mp4",
-   "size": 110712956,
-   "sha256": "0a58d484df06a7a076dd03b74944c64b498425e1c3462cd766ddfc51a3e6510b",
-   "filed_on": "2026-10-17",
-   "uploaded_on": "2026-10-17",
-   "youtube_id": "cnkrWRfFsTc",
-   "privacy": "unlisted",
-   "ad_group": "201534026375",
-   "ad_id": "828468037364"
-  }
- ],
- "not_final_seen": [
-  {
-   "drive_id": "1o96syme-vP549sjtgfdtezvFXtwz-_n2",
-   "editor": "Zeeshan",
-   "file": "Test Video 2 Revision 2.mp4",
-   "why": "$17 ab wheel round 3 — 8 revision items open 2026-09-08 (superseded by Rev 3, filed 09-10)"
-  },
-  {
-   "drive_id": "1YtpMv-U9sSMbHqEEiUsDKDS82S51xldz",
-   "editor": "Zeeshan",
-   "file": "video-2.mov",
-   "size": 770091169,
-   "delivered_on": "2026-08-27",
-   "why": "Aug 27 round-1 ab-wheel cut in the 'Final Video 1' folder; superseded. Recorded so folder_scan.py does not re-flag it."
-  },
-  {
-   "drive_id": "1EXUtWvtJibT9zlTpf5NWJjJf7XK5c1ak",
-   "editor": "Zeeshan",
-   "file": "Video  2.mov (double space)",
-   "size": 770091180,
-   "delivered_on": "2026-08-27",
-   "why": "NOT a new delivery — 770,091,180 B near-duplicate of video-2.mov (770,091,169 B), same Aug 27 round-1 ab-wheel cut re-uploaded. Recorded so folder_scan.py does not re-flag it every run."
-  },
-  {
-   "drive_id": "1KqmGfSPQkXRiXdvPkt9c419KMlmvz6YW",
-   "editor": "Waleed",
-   "file": "Test Video 1_Final.mp4",
-   "why": "round-3 revisions written 2026-09-08 (Sep 3 audio must be restored)"
-  },
-  {
-   "drive_id": "1J8yDrV6dL_rE__22Uu1J0826PTWbN9uW",
-   "editor": "Muhammad",
-   "file": "Daniel HQ Ad 3 V3.mp4",
-   "why": "Ad 3 round 3 revisions 2026-09-08"
-  },
-  {
-   "drive_id": "1fsAnRYpVR89jExW6yAOK01sybyjBEBLh",
-   "editor": "Muhammad",
-   "file": "Daniel HQ Ad 3 V4.mp4",
-   "size": 358591399,
-   "delivered_on": "2026-09-09",
-   "why": "HD-class size, but Ad 3 round 4 revisions written on it 2026-09-09 ('This list ends the job') and his 09-09 message lists it as a review link, no final wording. Watch for the V5 / HD after round 4."
-  },
-  {
-   "drive_id": "1DHZZbNP7LfTzc_iiHjq5KKqSI3Xi875I",
-   "editor": "Muhammad",
-   "file": "Daniel HQ Fitness Video Ad4 V2.mp4",
-   "why": "28 MB draft; Ad 4 round 2 open. His 09-09 'AD 02 v2' link is byte-identical to this file (per coordination)."
-  },
-  {
-   "drive_id": "1ow6KQTQGVXS9ZACpprA-3D2f07MPnU1W",
-   "editor": "Muhammad",
-   "file": "Daniel HQ Fitness Video Ad 5 V2.mp4",
-   "why": "94 MB draft; Ad 5 round 2 open"
-  },
-  {
-   "drive_id": "1LIGwbXpOM8BS_DIKbbVNm0FvHb3qnO5L",
-   "editor": "Muhammad",
-   "file": "Daniel HQ Fitness Video Ad 6.mp4",
-   "why": "110 MB draft; Ad 6 round 1 open"
-  },
-  {
-   "drive_id": "1T8RjW4iZ_RoEbyS6QyosbesAZw78i8e9",
-   "editor": "Muhammad",
-   "file": "Daniel HQ Ad 6 v2.mp4",
-   "size": 110884131,
-   "delivered_on": "2026-09-09",
-   "why": "draft size; Ad 6 round 2 revisions 2026-09-09"
-  },
-  {
-   "drive_id": "1XOrNxCsDczxI35SLQFJRQqksFN4kmDpb",
-   "editor": "Muhammad",
-   "file": "Daniel HQ Ad 7.mp4",
-   "why": "86 MB draft; Ad 7 round 1 open"
-  },
-  {
-   "drive_id": "1oNkL-N1rn08HZIGTXX1tbvG8TUYkIY47",
-   "editor": "Muhammad",
-   "file": "Daniel HQ Ad 7 v2.mp4",
-   "size": 86284979,
-   "delivered_on": "2026-09-09",
-   "why": "draft size; Ad 7 round 2 revisions 2026-09-09"
-  },
-  {
-   "drive_id": "12T8bhMLYuhFamLTHq9_8gAPXe86QinJP",
-   "editor": "Muhammad",
-   "file": "Daniel HQ Ad 8.mp4",
-   "why": "26 MB draft; Ad 8 round 1 open (re-linked unchanged in his 09-09 message)"
-  },
-  {
-   "drive_id": "1jCUzkg1ov-uk1jWDfa7Z8mp045EZEZ-h",
-   "editor": "Muhammad",
-   "file": "Daniel HQ Ad 9.mp4",
-   "size": 24122610,
-   "delivered_on": "2026-09-08",
-   "why": "draft size; Ad 9 round 1 revisions 2026-09-09"
-  },
-  {
-   "drive_id": "1BQSO_Puwf08HtS8RGDtIY9uog2rnM5zr",
-   "editor": "Muhammad",
-   "file": "Daniel HQ Ad 10.mp4",
-   "size": 21400488,
-   "delivered_on": "2026-09-08",
-   "why": "draft size; Ad 10 round 1 revisions 2026-09-09"
-  },
-  {
-   "drive_id": "1Wujumw4rtohhQ3LT1LtuvboVImUB9-F0",
-   "editor": "Muhammad",
-   "file": "Daniel HQ Ad 13.mp4",
-   "size": 30212736,
-   "delivered_on": "2026-09-08",
-   "why": "draft size; Ad 13 round 1 revisions 2026-09-09"
-  },
-  {
-   "drive_id": "1FCQcXVLPsqsKecRTTp_RqOsM6fubEWbC",
-   "editor": "Muhammad",
-   "file": "Daniel HQ ads 14.mp4",
-   "size": 79399678,
-   "delivered_on": "2026-09-09",
-   "why": "draft size; Ad 14 round 1 revisions 2026-09-09"
-  },
-  {
-   "drive_id": "1uySIxi5xjboDi8Dre6-kLtzEOslqQ6-O",
-   "editor": "Muhammad",
-   "file": "Daniel HQ Ad 3 V5.mp4",
-   "size": 32881260,
-   "delivered_on": "2026-09-10",
-   "why": "33 MB review cut. Dan APPROVED it in round 5 (09-10: 'Send the 1080p export and it is final'). The HD export is owed and not delivered yet (Muhammad 09-11 01:46Z: 'Alright got it.'). File the HD when it lands."
-  },
-  {
-   "drive_id": "1yMrwUbJNVDT1o8kRb7OACVJhfG44qBpP",
-   "editor": "Muhammad",
-   "file": "Daniel HQ Ad 4 V3.mp4",
-   "size": 29579632,
-   "delivered_on": "2026-09-10",
-   "why": "30 MB review cut. Dan APPROVED it in round 3 (09-10: 'Send the 1080p export of this exact cut'). HD owed, not delivered yet. File the HD when it lands."
-  },
-  {
-   "drive_id": "1QfFatHM7_f6WEUzuYwRf0bFRmwcFvXnR",
-   "editor": "Muhammad",
-   "file": "Daniel HQ Ad 13 V2.mp4",
-   "size": 30390831,
-   "delivered_on": "2026-09-10",
-   "why": "draft size; Ad 13 round 2 revisions 2026-09-10"
-  },
-  {
-   "drive_id": "1ZXhKEFEK500d1pqlboQVRGaCaycEN8Od",
-   "editor": "Muhammad",
-   "file": "Daniel HQ Ad 9 v2.mp4",
-   "size": 24162803,
-   "delivered_on": "2026-09-10",
-   "why": "draft size; Ad 9 round 2 revisions 2026-09-10"
-  },
-  {
-   "drive_id": "1lQMNQ0LR8YpnstyDWUIZZvB8jHSL00vp",
-   "editor": "Muhammad",
-   "file": "Daniel HQ Ad 8 V2.mp4",
-   "size": 26170836,
-   "delivered_on": "2026-09-09",
-   "why": "draft size; Ad 8 round 2 revisions 2026-09-10"
-  },
-  {
-   "drive_id": "1iGNMkhAd5Pp_-SuiLYwnmrDKjRRx387S",
-   "editor": "Muhammad",
-   "file": "Daniel HQ Ad 15.mp4",
-   "size": 25719141,
-   "delivered_on": "2026-09-09",
-   "why": "draft size; Ad 15 round 1 revisions 2026-09-10"
-  },
-  {
-   "drive_id": "1gFRPDZviN3-p7Revup51LrOW2YqYtq81",
-   "editor": "Waleed",
-   "file": "Test Video 1 Final Audio.mp4",
-   "size": 336639610,
-   "delivered_on": "2026-09-02",
-   "why": "superseded: Waleed round-3 revisions 2026-09-08. Recorded so owner queries without a date filter do not re-flag it."
-  },
-  {
-   "drive_id": "1iezCU6YHY3TSIExmtR4I4Ty30NJe6Fnz",
-   "editor": "Waleed",
-   "file": "Test Video 1 Revision.mp4",
-   "size": 344996790,
-   "delivered_on": "2026-08-28",
-   "why": "superseded by rounds 2-3 (08-30, 09-08)"
-  },
-  {
-   "drive_id": "1sdFuT_aS9D47WAE6xCRtkeZ1PpZqN31w",
-   "editor": "Waleed",
-   "file": "Test Video 1 (1).mp4",
-   "size": 344999804,
-   "delivered_on": "2026-08-27",
-   "why": "superseded by rounds 2-3"
-  },
-  {
-   "drive_id": "1ZWv5t3rNitubDUDaSKcrn5SqVJCEX2ip",
-   "editor": "Waleed",
-   "file": "Test Video 1.mp4",
-   "size": 345003623,
-   "delivered_on": "2026-08-24",
-   "why": "round-1 cut; superseded"
-  },
-  {
-   "drive_id": "1Cm1RetVlHpVfEFmEaCV3QhK_xZRDKWHC",
-   "editor": "Zeeshan",
-   "file": "Video 3.mp4",
-   "size": 276692587,
-   "delivered_on": "2026-09-11",
-   "why": "content batch VIDEO 1 (ab wheel workout only) round-1 cut — 'Video 3' is his own running count, his message says 'the first video'. Round-1 revisions written 2026-09-11 at the top of 'Zeeshan Video Revisions'. Shared as a single file (has sharedWithMeTime), not in a folder."
-  },
-  {
-   "drive_id": "1vKp_AVbHapPFkg2prpNI2Sh4x5p5Mlwj",
-   "editor": "Muhammad",
-   "file": "Daniel HQ Ad 7 v3.mp4",
-   "size": 26259199,
-   "delivered_on": "2026-09-11",
-   "why": "26 MB draft; Ad 7 round 3 revisions written 2026-09-11 on this exact cut (revision docs/ad7-revisions-muhammad-round3-9-11-26.md). Sent in his 09-11 18:16Z message as 'AD 7 V3', no final wording."
-  },
-  {
-   "drive_id": "1mMJbTvk1cRcAbEzW0IbTW5pGr7xCcIAq",
-   "editor": "Muhammad",
-   "file": "Daniel HQ Ad 10 V2.mp4",
-   "size": 21413677,
-   "delivered_on": "2026-09-11",
-   "why": "21 MB draft; Ad 10 round 2 revisions written 2026-09-11 on this exact cut (revision docs/ad10-revisions-muhammad-round2-9-11-26.md). Sent in his 09-11 18:18Z message as 'AD 10 v2', no final wording."
-  },
-  {
-   "drive_id": "1dPbNikLQAQSl39184qUs78EAiXIJofz2",
-   "editor": "Muhammad",
-   "file": "Daniel HQ Ad 6 V3.mp4",
-   "size": 110783688,
-   "delivered_on": "2026-09-12",
-   "why": "111 MB draft size AND Ad 6 round 3 revisions written on it 09-12 (4 items). Size matches revisions-0912m/dl/ad6_v3.mp4. Fails rules 2 and 3."
-  },
-  {
-   "drive_id": "13UAyggL-r3in0Y6fyKVj7MDfWaaCyDL4",
-   "editor": "Muhammad",
-   "file": "Daniel HQ ad 14 V2.mp4",
-   "size": 79567016,
-   "delivered_on": "2026-09-12",
-   "why": "80 MB draft size AND Ad 14 round 2 revisions written on it 09-12 (4 items). Size matches revisions-0912m/dl/ad14_v2.mp4. Fails rules 2 and 3."
-  },
-  {
-   "drive_id": "1Q-cmEcXKhNwB7c8fVF0OMtsejLj3XdE4",
-   "editor": "Waleed",
-   "file": "Test Video 1.mp4",
-   "size": 345053547,
-   "delivered_on": "2026-09-12",
-   "why": "THE ROUND-4 CUT OF VIDEO 1, and it is NOT final. 345 MB and his 09-12 17:18Z message says 'Video 1 done, as per feedback' with a milestone payment request - but rule 2 fails: round-4 revisions were written on this exact file the same day (video1-revisions-waleed-round4-9-12-26.md, 14:32 CT = 19:32Z; file created 17:12Z, message 17:18Z). Four items open, one a compliance problem (0:06.6-0:08.1 holds both phones on screen = a side-by-side before/after), plus true peak +2.9 dBTP. New owner account waleedatwork124@gmail.com. File the cut that answers round 4."
-  },
-  {
-   "drive_id": "1u2wS_z4AVhPBMOQIcqdDe99GuNHquUZ_",
-   "editor": "Zeeshan",
-   "file": "Video Rev 1.mp4",
-   "size": 300779658,
-   "delivered_on": "2026-09-12",
-   "why": "superseded by 'Video 1 Rev 2.mp4' (09-13), which Dan called final; was pending 09-12"
-  },
-  {
-   "drive_id": "15lZb4RyoKCy2kvmpCQ4rjZE7gs3cdUwb",
-   "editor": "Zeeshan",
-   "file": "Video2.mp4",
-   "size": 847776641,
-   "delivered_on": "2026-09-13",
-   "why": "Content batch VIDEO 2 FIRST CUT (not reviewed yet). His 09-14 00:52Z message is just '2nd video: <link>' -> new folder 1mvqEowzfNNprOCxPta6DASIT20MdYfvX (added to shared_folders). No final wording and no Dan review exists, so rule 1 fails. Which of the five brief videos it is was not checked (not downloaded). .srt beside it: 1KLjM1ueMYlsTLCOc0FGGd8GfyRbJFnjj (26,452 B). SUPERSEDED: no longer in the folder as of 09-16 (replaced by Video 2 Rev 1.mp4)."
-  },
-  {
-   "drive_id": "1KLjM1ueMYlsTLCOc0FGGd8GfyRbJFnjj",
-   "editor": "Zeeshan",
-   "file": "Video 2 Subtitle.srt",
-   "size": 26452,
-   "delivered_on": "2026-09-13",
-   "why": "subtitle file for the batch video 2 first cut above; file it with the final Superseded by 1IWmYM4g_ck-Cy_R7ned2jexL7-6z5NHK (09-15); no longer in the folder."
-  },
-  {
-   "drive_id": "1N_tlSX3AkbHD0XF4CO9GJYOIOP_tqBgT",
-   "editor": "Muhammad",
-   "file": "Daniel HQ Ad 8 V3.mp4",
-   "size": 26183989,
-   "delivered_on": "2026-09-14",
-   "why": "26 MB review cut, answers Ad 8 round 2 (09-10). Not reviewed yet — needs /revisions."
-  },
-  {
-   "drive_id": "1JBEwPZWuDy7nTlIRlCO4Bpjpu5EsxjBo",
-   "editor": "Muhammad",
-   "file": "Daniel HQ Ad 9 v3.mp4",
-   "size": 24166217,
-   "delivered_on": "2026-09-14",
-   "why": "24 MB review cut, answers Ad 9 round 2 (09-10). Not reviewed yet — needs /revisions."
-  },
-  {
-   "drive_id": "1WWdDs4RXQWGAxRDKaQ4PXg8pNAK49J48",
-   "editor": "Muhammad",
-   "file": "Daniel HQ Ad 13 V3.mp4",
-   "size": 30359315,
-   "delivered_on": "2026-09-14",
-   "why": "30 MB review cut, answers Ad 13 round 2 (09-10). Not reviewed yet — needs /revisions."
-  },
-  {
-   "drive_id": "1jSdEMnAlng1td8LDyuVl3nFaUxSFCERi",
-   "editor": "Muhammad",
-   "file": "Daniel HQ Ad 15 V2.mp4",
-   "size": 25756346,
-   "delivered_on": "2026-09-14",
-   "why": "26 MB review cut, answers Ad 15 round 1 (09-10). Not reviewed yet — needs /revisions."
-  },
-  {
-   "drive_id": "1OdafvhzbHiCPw14Iqs8vDnBhqxiv58xi",
-   "editor": "Zeeshan",
-   "file": "Video 2 Rev 1.mp4",
-   "size": 857881377,
-   "delivered_on": "2026-09-15",
-   "why": "Arms & shoulders (content batch video 2) rev 1, announced 09-15 17:49Z with the folder link. Fails rule 2: round-2 revisions written on this exact file 09-15 (revision docs/arms-shoulders-revisions-zeeshan-round2-9-15-26.md). Zeeshan 09-16 06:46Z: 'I will send you revised video soon'; 07:17Z asks whether to change all the music or only under the sets."
-  },
-  {
-   "drive_id": "1IWmYM4g_ck-Cy_R7ned2jexL7-6z5NHK",
-   "editor": "Zeeshan",
-   "file": "Video 2 Subtitle.srt",
-   "size": 25535,
-   "delivered_on": "2026-09-15",
-   "why": "subtitle for Video 2 Rev 1 (draft); file the .srt that ships with the final"
-  }
- ],
- "pending": [],
- "resolved_2026-09-10": [
-  "Zeeshan 'thread unread' — room read in Chrome 09-10: Dan called Rev 3 finalized 09-09 10:15; filed.",
-  "Romaisa R. (room_3a0dd1a1…) — not an editor on the job: an applicant following up ('I hope you've found a good editor… available to work'). Same for Abdul W. (room_549d5bcc…, proposal) and Gbadamosi I. (room_3f398d8b…, 'How are you?'). None delivered anything."
- ],
- "last_run": "2026-09-16",
- "watch": [
-  "Zeeshan's 5-video content batch ($30/video, started 09-10): batch VIDEO 1 (ab wheel workout only) round 1 landed 09-11 as 'Video 3.mp4', shared as a single FILE, not in a folder — so an owner query finds it, but check his two folders too. His file names are his own running count, not the brief's numbers: identify each by content and his Upwork message. Finals file under 'Zeeshan Content Videos/<title> - video N/'. A first cut is a draft, not a final.",
-  "Zeeshan's content batch VIDEO 2 first cut (Video2.mp4, 848 MB) landed 09-13 16:30Z in a NEW folder (1mvqEowzfNNprOCxPta6DASIT20MdYfvX), announced 09-14 00:52Z. It needs a /revisions review; nothing to file until Dan calls a later cut final.",
-  "Muhammad batch: Ads 8 V4, 9 V3, 13 V4, 14 V3 and 15 V3 HD filed/uploaded 09-16 after Dan finalized the delivered exports; Ad 6 V4 HD filed 09-15. Second Ad 7 V4 HD still needs classification.",
-  "Waleed 09-14 18:17Z: proposes ending the job at video 1 for the $50 milestone and asks for 5-star feedback. No new delivery; his round-4 cut (1Q-cmEcX…) stays not final. Nothing to file unless Dan accepts that cut as final.",
-  "Zeeshan 09-16: arms & shoulders Rev 1 (09-15) got round-2 revisions; he promised a revised cut and asked 07:17Z 'Do we need to change the entire music, or just the music underneath the sets?' — Dan's answer needed. Also 09-15 17:49Z explained a framing/crop limit (little headroom in raw). Muhammad 09-16 03:21Z 'Thanks Sure.' — no delivery."
- ]
+  "filed": [
+    {
+      "drive_id": "12wDmd7-ziEKux8ioVi9gkJYCo7LZP3iv",
+      "editor": "Muhammad",
+      "title": "this picture got me abs",
+      "kind": "ad",
+      "number": 1,
+      "path": "Muhammad Ad Videos/this picture got me abs - ad 1/this picture got me abs | muhammad | 16x9 | ad 1.mp4",
+      "size": 313570091,
+      "filed_on": "2026-08-27"
+    },
+    {
+      "drive_id": "1o2wBl4Y8l6_yl6ExBMQGFD16EqaZLjlN",
+      "editor": "Muhammad",
+      "title": "stop wasting money on nutritionists",
+      "kind": "ad",
+      "number": 2,
+      "path": "Muhammad Ad Videos/stop wasting money on nutritionists - ad 2/stop wasting money on nutritionists | muhammad | 16x9 | ad 2.mp4",
+      "size": 372767004,
+      "filed_on": "2026-09-03"
+    },
+    {
+      "drive_id": "1nn_vIldhp3R6BJnUei0unHOJXiv6Ck3m",
+      "editor": "Zeeshan",
+      "title": "this picture got me abs",
+      "kind": "ad",
+      "number": 1,
+      "path": "Zeeshan Ad Videos/this picture got me abs - ad 1/this picture got me abs | zeeshan | 16x9 | ad 1 | h264.mov",
+      "size": 289333241,
+      "filed_on": "2026-09-08"
+    },
+    {
+      "drive_id": "1LaqSYdLqfoPtQAeJTa6_VFiP4IA9raFo",
+      "editor": "Zeeshan",
+      "title": "this picture got me abs",
+      "kind": "ad",
+      "number": 1,
+      "path": "Zeeshan Ad Videos/this picture got me abs - ad 1/this picture got me abs | zeeshan | 16x9 | ad 1 | h265.mov",
+      "size": 594268291,
+      "filed_on": "2026-09-08"
+    },
+    {
+      "drive_id": "1Jby6q3qJGaplKFuJn96vdMXfMXUwOl-A",
+      "editor": "Zeeshan",
+      "title": "the 17 dollar ab wheel beats every crunch",
+      "kind": "content",
+      "number": 1,
+      "path": "Zeeshan Content Videos/the 17 dollar ab wheel beats every crunch - video 1/the 17 dollar ab wheel beats every crunch | zeeshan | 16x9 | video 1.mp4",
+      "size": 545035144,
+      "filed_on": "2026-09-10",
+      "why_final": "Video 2 Rev 3 (delivered 09-09 04:42Z). Dan in the Upwork room 09-09 10:15: 'this video is looking great, and it's finalized'; milestone approved 10:16. No revision round after round 3 (09-08). Downloaded by curl, size matches Drive exactly."
+    },
+    {
+      "drive_id": "1y41uH1mmjVuxaieq49ANMrB3Bp7F0qLM",
+      "editor": "Zeeshan",
+      "title": "the 17 dollar ab wheel beats every crunch",
+      "kind": "content",
+      "number": 1,
+      "path": "Zeeshan Content Videos/the 17 dollar ab wheel beats every crunch - video 1/the 17 dollar ab wheel beats every crunch | zeeshan | 16x9 | video 1.srt",
+      "size": 11980,
+      "filed_on": "2026-09-10"
+    },
+    {
+      "drive_id": "19ApOsUNPRToq9YCfpZE74pQkj3IxsouG",
+      "editor": "Muhammad",
+      "title": "every diet you've tried failed for the same reason",
+      "kind": "ad",
+      "number": 5,
+      "path": "Muhammad Ad Videos/every diet you've tried failed for the same reason - ad 5/every diet you've tried failed for the same reason | muhammad | 16x9 | ad 5.mp4",
+      "size": 310935286,
+      "filed_on": "2026-09-10"
+    },
+    {
+      "drive_id": "14on08ZTz2bXPJtwp8_fAENrtEGASo0bg",
+      "editor": "Muhammad",
+      "title": "stop wasting money on supplements",
+      "kind": "ad",
+      "number": 4,
+      "path": "Muhammad Ad Videos/stop wasting money on supplements - ad 4/stop wasting money on supplements | muhammad | 16x9 | ad 4.mp4",
+      "size": 321084473,
+      "filed_on": "2026-09-11"
+    },
+    {
+      "drive_id": "1qsBpkrm8T7BDaYF67NL1k_x67sTsxsb3",
+      "editor": "Muhammad",
+      "title": "stop paying human trainers",
+      "kind": "ad",
+      "number": 3,
+      "path": "Muhammad Ad Videos/stop paying human trainers - ad 3/stop paying human trainers | muhammad | 16x9 | ad 3.mp4",
+      "size": 358548186,
+      "filed_on": "2026-09-11"
+    },
+    {
+      "drive_id": "1PRMKJVmnYZThT9MqnXSZBM-G4zOqApcG",
+      "editor": "Zeeshan",
+      "title": "ab wheel workout",
+      "kind": "content",
+      "number": 1,
+      "path": "Zeeshan Content Videos/ab wheel workout - video 1/ab wheel workout | zeeshan | 16x9 | video 1.mp4",
+      "size": 300660846,
+      "filed_on": "2026-09-13",
+      "why_final": "Video 1 Rev 2 (09-13 13:54Z). Dan called Rev 2 final; filed + scheduled by the /video-setup session 09-13 (YouTube b_bS9NdmL-g). Recorded here 09-13 by the ads-variant audit; local size = Drive size."
+    },
+    {
+      "drive_id": "1Ek2t1KdhMKCh-TJsG5qLP445w7x53L7p",
+      "editor": "Zeeshan",
+      "title": "ab wheel workout",
+      "kind": "content",
+      "number": 1,
+      "path": "Zeeshan Content Videos/ab wheel workout - video 1/ab wheel workout | zeeshan | 16x9 | video 1.srt",
+      "size": 3081,
+      "filed_on": "2026-09-13"
+    },
+    {
+      "drive_id": "1D7sc0Nyq_ViM1bEJGP4xXStMphpVzmFs",
+      "editor": "Muhammad",
+      "title": "in 2010 i photoshopped my face on a fitness model ai just did it for real",
+      "kind": "ad",
+      "number": 7,
+      "path": "Muhammad Ad Videos/in 2010 i photoshopped my face on a fitness model ai just did it for real - ad 7/in 2010 i photoshopped my face on a fitness model ai just did it for real | muhammad | 16x9 | ad 7.mp4",
+      "size": 283996801,
+      "filed_on": "2026-09-15",
+      "why_final": "Replaced the 09-13 master with Muhammad's 09-14 re-export. It fixes the off-screen header at 2:48-2:51 but its label reads 'AI-GENERATEd' on that beat. Dan explicitly authorized uploading everything on 2026-09-15 after this defect was reported. The prior 283970782-byte master is preserved beside it as *.superseded-20260913.mp4. Downloaded by curl and truncated to Drive's exact recorded size after the endpoint appended an extra trailing range; ffprobe confirms 1920x1080, 6358 frames, 212.145 s."
+    },
+    {
+      "drive_id": "1582XKVpH-6LYq8fEJlFQksMZE0HL1Ct5",
+      "editor": "Muhammad",
+      "title": "my dad bod at 38 my dad bod at 40",
+      "kind": "ad",
+      "number": 10,
+      "path": "Muhammad Ad Videos/my dad bod at 38 my dad bod at 40 - ad 10/my dad bod at 38 my dad bod at 40 | muhammad | 16x9 | ad 10.mp4",
+      "size": 240209477,
+      "filed_on": "2026-09-13",
+      "why_final": "Dan in the Upwork room 09-12 2:46 PM CT: 'Both HD videos at 7 and 10 are looking good, and those are finalized.' That message came AFTER the round-3 revision doc written on this same file (14:25 CT), so the 09-12/09-13 runs wrongly held it as not final: the Gmail notifications never carry Dan's own messages. Downloaded by curl, size = Drive; first 2 MB identical to the reviewed copy in revisions-0912m/dl/."
+    },
+    {
+      "drive_id": null,
+      "editor": "Muhammad",
+      "title": "stop paying human trainers",
+      "kind": "ad",
+      "number": 3,
+      "path": "Muhammad Ad Videos/stop paying human trainers - ad 3/stop paying human trainers | muhammad (smoke shot replaced) | 16x9 | ad 3.mp4",
+      "size": 542401194,
+      "filed_on": "2026-09-14",
+      "why_final": "Not a Drive delivery: Muhammad's approved v6 HD with the AI breath-smoke shot (1:13.5-1:18) replaced by Claude, his audio bit for bit (notes-16x9-smoke-shot.md). Dan 2026-09-14: 'Okay, all these are looking good, and they are approved.' sha256 85a7da67edc2fc47... Uploaded unlisted as 86jbUhqBTUQ. Muhammad's round-6 re-export will replace it."
+    },
+    {
+      "drive_id": "1jO-re15wKmdzD6SQsQLHkSbnVXdDUPOI",
+      "editor": "Muhammad",
+      "title": "you're not too old to get abs i'm proof",
+      "kind": "ad",
+      "number": 6,
+      "path": "Muhammad Ad Videos/you're not too old to get abs i'm proof - ad 6/you're not too old to get abs i'm proof | muhammad | 16x9 | ad 6.mp4",
+      "size": 363314897,
+      "filed_on": "2026-09-15",
+      "why_final": "Daniel HQ Ad 6 V4 HD.mp4 (created 09-14 07:39Z). Answers Dan's Upwork message 09-14 4:50 PM CT 'please send over the high-quality files for video 6 and 14'; Muhammad replied 11:04 PM CT with the link. No revision doc after the 09-12 round 3. 363 MB. Downloaded by curl, size = Drive exactly. Title from the round-3 doc heading ('You're Not Too Old to Get Abs. I'm Proof.'), apostrophes kept like the Ad 5 folder. Filing is not approval: Dan has not yet confirmed round 3's four items landed."
+    },
+    {
+      "drive_id": "1SF5FpJ2vIiqi2BmHm6NqwhHsP3azvl9l",
+      "editor": "Muhammad",
+      "title": "i watched 400 workout videos and gained weight",
+      "kind": "ad",
+      "number": 14,
+      "path": "Muhammad Ad Videos/i watched 400 workout videos and gained weight - ad 14/i watched 400 workout videos and gained weight | muhammad | 16x9 | ad 14.mp4",
+      "size": 260253922,
+      "filed_on": "2026-09-16",
+      "why_final": "Daniel HQ Ad 14 V3 HD.mp4. Exact-match verification against the approved V3 review export: same 5,924 frames and 197.664 s timeline, equivalent untouched audio, and no sampled visual changes beyond re-encode noise. SHA-256 4a20de7fff32dd67bd4c2bb5df722aa9825fcd6160b49ed3ec18ba5ef6c4e845. The prior 79,337,649-byte review-grade master is preserved beside it as a superseded archive. Uploaded unlisted as SGJoPjnl6AU and installed in Demand Gen on 2026-09-16."
+    },
+    {
+      "drive_id": "1sFlj6qpO8c8EGwAdJMZQFBubsdRX_BSV",
+      "editor": "Muhammad",
+      "title": "ai showed me two futures",
+      "kind": "ad",
+      "number": 8,
+      "path": "Muhammad Ad Videos/ai showed me two futures - ad 8/ai showed me two futures | muhammad | 16x9 | ad 8.mp4",
+      "size": 285993141,
+      "filed_on": "2026-09-16",
+      "why_final": "Daniel HQ Ad 8 V4 HD.mp4. Dan reviewed the visual changes from the V3 proxy and explicitly declared this delivered HD export finalized on 2026-09-16. SHA-256 3bb8f92da6ea05fb0fb878ac32400abcf3861d070578d757892bd0d6b4f6deb8. Audio uploaded untouched: -14.3 LUFS / -1.9 dBTP. Uploaded unlisted as HMZdiJMAI3Y and installed in Demand Gen."
+    },
+    {
+      "drive_id": "16WCOA3ZfSbTkV229PYAUutZkslM2ksyz",
+      "editor": "Muhammad",
+      "title": "i tried to get abs with chatgpt heres what happened",
+      "kind": "ad",
+      "number": 9,
+      "path": "Muhammad Ad Videos/i tried to get abs with chatgpt heres what happened - ad 9/i tried to get abs with chatgpt heres what happened | muhammad | 16x9 | ad 9.mp4",
+      "size": 262881985,
+      "filed_on": "2026-09-21",
+      "why_final": "Round 4 HD, Dan finalized 09-21 15:28 in the Upwork room; local size = Drive size. 09-16 file kept as (09-16)."
+    },
+    {
+      "drive_id": "1m4QtkkGFBsMWsLfeBGvO-Q1YFnYhHKS7",
+      "editor": "Muhammad",
+      "title": "i added up what getting abs was supposed to cost",
+      "kind": "ad",
+      "number": 13,
+      "path": "Muhammad Ad Videos/i added up what getting abs was supposed to cost - ad 13/i added up what getting abs was supposed to cost | muhammad | 16x9 | ad 13.mp4",
+      "size": 328905730,
+      "filed_on": "2026-09-21",
+      "why_final": "Round 4 HD, Dan finalized 09-21 15:28 in the Upwork room; local size = Drive size. 09-16 file kept as (09-16)."
+    },
+    {
+      "drive_id": "1C8vI9zitXlp9U9BJRnbMfvCwQUm29Xr7",
+      "editor": "Muhammad",
+      "title": "i was the dad who swam in a tshirt",
+      "kind": "ad",
+      "number": 15,
+      "path": "Muhammad Ad Videos/i was the dad who swam in a tshirt - ad 15/i was the dad who swam in a tshirt | muhammad | 16x9 | ad 15.mp4",
+      "size": 279269753,
+      "filed_on": "2026-09-16",
+      "why_final": "Daniel HQ Ad 15 V3 HD.mp4. Dan reviewed the visual changes from the V2 proxy and explicitly declared this delivered HD export finalized on 2026-09-16. SHA-256 02e559489f9c3f50172de636e3457c4888011ee5c5fdb3576d5f4ed59befa94f. Audio uploaded untouched: -14.0 LUFS / -0.9 dBTP. Uploaded unlisted as TqXD2dGgAPs and installed in Demand Gen."
+    },
+    {
+      "drive_id": "local:AV-01-20260918",
+      "editor": "Claude",
+      "title": "this picture got me abs",
+      "kind": "ad",
+      "number": 1,
+      "path": "Muhammad Ad Videos/this picture got me abs - ad 1/this picture got me abs | claude | 9x16 59s | ad 1.mp4",
+      "size": 61749767,
+      "filed_on": "2026-09-18",
+      "why_final": "AV-01 exact approved cutdown, copied without transcoding from /Volumes/Extreme/_edit_work/AV-01/ad1_vertical_59s.mp4. SHA-256 aaa81b8a09c673285f18dd4df776a6355dc238e713e13f1cbdc9096d86f61c69. Dan: 'That ad looks good to me. I think that's actually good to ship.' Audio remains Muhammad's cut mix verbatim: -14.40 LUFS / -1.30 dBTP. Uploaded Unlisted as Rk7JxYyKawg and installed in the two existing Ad 1 Demand Gen groups."
+    },
+    {
+      "drive_id": "10WgV9hT9Ct39LifPwr5gvo4riPMuYn4V",
+      "editor": "Zeeshan",
+      "title": "arms and shoulders home workout",
+      "kind": "content",
+      "number": 2,
+      "path": "Zeeshan Content Videos/arms and shoulders home workout - video 2/arms and shoulders home workout | zeeshan | 16x9 | video 2.mp4",
+      "size": 858396944,
+      "md5": "49c7dfb3d189043dbb2bc4b326e8fd81",
+      "filed_on": "2026-09-22",
+      "why_final": "Video2 Rev 3 (09-18), round 4 review said picture final pending the talking-bed track name + .srt. Dan 09-22 sent this exact link: 'get it uploaded to YouTube and all platforms'. His 09-22 'Video 2 No music .mp4' strips the approved live-round gym track too, so it was NOT used."
+    },
+    {
+      "drive_id": "folder 1W-hYEPL_ATzMFE9tb8c6tRGknlwOIqbH",
+      "editor": "Zeeshan",
+      "title": "arms and shoulders home workout",
+      "kind": "content",
+      "number": 2,
+      "path": "Zeeshan Content Videos/arms and shoulders home workout - video 2/arms and shoulders home workout | zeeshan | 16x9 | video 2.srt",
+      "size": 25496,
+      "filed_on": "2026-09-22",
+      "why_final": "Video 2 Subtitle.srt: now the arms video (opens 'All right, today I'm going to show you my home arm workout'), 'Gymboss' fixed, last cue 10:54."
+    },
+    {
+      "drive_id": "1CyBYWWoNPELBr-XpUKPBBB12nhJnIL_V",
+      "editor": "Zeeshan",
+      "title": "stop deadlifting",
+      "kind": "content",
+      "number": 3,
+      "path": "Zeeshan Content Videos/stop deadlifting - video 3/stop deadlifting | zeeshan | 16x9 | video 3.mp4",
+      "size": 728005370,
+      "md5": "e98bbb9bace1085df31950e9e51fd326",
+      "filed_on": "2026-09-29",
+      "why_final": "Video 3 Rev 5, his latest file in the folder. Filed by the setup session 09-29; recorded here 10-10 at batch close. Local size = Drive size, 1920x1080."
+    },
+    {
+      "drive_id": "16-IaJu9AKlivTdU4wszz8zpm1vmqkloU",
+      "editor": "Zeeshan",
+      "title": "my honest oura ring review",
+      "kind": "content",
+      "number": 4,
+      "path": "Zeeshan Content Videos/my honest oura ring review - video 4/my honest oura ring review | zeeshan | 16x9 | video 4.mp4",
+      "size": 1558234846,
+      "md5": "5264285762af41f2a6644366e0bae7eb",
+      "filed_on": "2026-10-02",
+      "why_final": "Video 4 Rev 3, his latest. Dan in the room 10-02: finalized and approved. Recorded here 10-10 at batch close. 1920x1080."
+    },
+    {
+      "drive_id": "1RoGnpSSUTN0yM06-pGUeCrxBydtvBmz6",
+      "editor": "Zeeshan",
+      "title": "getting abs at 40 vs 25",
+      "kind": "content",
+      "number": 5,
+      "path": "Zeeshan Content Videos/getting abs at 40 vs 25 - video 5/getting abs at 40 vs 25 | zeeshan | 16x9 | video 5.mp4",
+      "size": 1598113122,
+      "md5": "dfdad6d05e9aba3c4ba34d41495d8f9e",
+      "filed_on": "2026-10-10",
+      "why_final": "Video 5 Rev 3, his latest. Dan in the room 10-10 3:42 PM: FINALIZED and approved. Local size = Drive size, 1920x1080."
+    },
+    {
+      "drive_id": "1Vl0VaA11OM-nn4OnlzYtahQmxK6Gjin5",
+      "editor": "Zeeshan",
+      "title": "getting abs at 40 vs 25",
+      "kind": "content",
+      "number": 5,
+      "path": "Zeeshan Content Videos/getting abs at 40 vs 25 - video 5/getting abs at 40 vs 25 | zeeshan | 16x9 | video 5.srt",
+      "size": 54277,
+      "filed_on": "2026-10-10"
+    },
+    {
+      "drive_id": null,
+      "source": "local approved Codex R3 master",
+      "editor": "Codex",
+      "title": "why do most guys never get abs",
+      "kind": "ad",
+      "number": "RA-13",
+      "aspect": "9x16",
+      "version": "R3",
+      "path": "Codex Ad Videos/why do most guys never get abs - RA-13/why do most guys never get abs | codex | 9x16 | RA-13 R3.mp4",
+      "size": 116949752,
+      "sha256": "6bb5d4767de0e5b922e08b90c43eba9b66c1b4af78ea60b7ce4ea78ea648ce2a",
+      "filed_on": "2026-10-17",
+      "uploaded_on": "2026-10-17",
+      "youtube_id": "KSq1OBlWvPI",
+      "privacy": "unlisted",
+      "ad_group": "201534026375",
+      "ad_id": "828468045056"
+    },
+    {
+      "drive_id": null,
+      "source": "local approved Codex R3 master",
+      "editor": "Codex",
+      "title": "why do most guys never get abs",
+      "kind": "ad",
+      "number": "RA-13",
+      "aspect": "16x9",
+      "version": "R3",
+      "path": "Codex Ad Videos/why do most guys never get abs - RA-13/why do most guys never get abs | codex | 16x9 | RA-13 R3.mp4",
+      "size": 110712956,
+      "sha256": "0a58d484df06a7a076dd03b74944c64b498425e1c3462cd766ddfc51a3e6510b",
+      "filed_on": "2026-10-17",
+      "uploaded_on": "2026-10-17",
+      "youtube_id": "cnkrWRfFsTc",
+      "privacy": "unlisted",
+      "ad_group": "201534026375",
+      "ad_id": "828468037364"
+    },
+    {
+      "drive_id": null,
+      "source": "local approved Codex R4 native master",
+      "editor": "Codex",
+      "title": "ai took my job",
+      "kind": "ad",
+      "number": "RA-16",
+      "aspect": "9x16",
+      "version": "R4",
+      "path": "Codex Ad Videos/ai took my job - RA-16/AI Took Job AD R4 - 9x16.mp4",
+      "size": 100282648,
+      "sha256": "fdc6ad507531a2f5b113dea8b03c23680db4bcec4e43102c1fefc39c9749e5fb",
+      "filed_on": "2026-10-17",
+      "approval": "Handoffs/video-editing/RA-16-R4-approval.json"
+    },
+    {
+      "drive_id": null,
+      "source": "local approved Codex R4 native master",
+      "editor": "Codex",
+      "title": "ai took my job",
+      "kind": "ad",
+      "number": "RA-16",
+      "aspect": "16x9",
+      "version": "R4",
+      "path": "Codex Ad Videos/ai took my job - RA-16/AI Took Job AD R4 - 16x9.mp4",
+      "size": 85885396,
+      "sha256": "789944e4dc7ee70b2e5b0af55d5ece8c73dda446155e609c28420553e84c963d",
+      "filed_on": "2026-10-17",
+      "approval": "Handoffs/video-editing/RA-16-R4-approval.json"
+    }
+  ],
+  "not_final_seen": [
+    {
+      "drive_id": "1o96syme-vP549sjtgfdtezvFXtwz-_n2",
+      "editor": "Zeeshan",
+      "file": "Test Video 2 Revision 2.mp4",
+      "why": "$17 ab wheel round 3 — 8 revision items open 2026-09-08 (superseded by Rev 3, filed 09-10)"
+    },
+    {
+      "drive_id": "1YtpMv-U9sSMbHqEEiUsDKDS82S51xldz",
+      "editor": "Zeeshan",
+      "file": "video-2.mov",
+      "size": 770091169,
+      "delivered_on": "2026-08-27",
+      "why": "Aug 27 round-1 ab-wheel cut in the 'Final Video 1' folder; superseded. Recorded so folder_scan.py does not re-flag it."
+    },
+    {
+      "drive_id": "1EXUtWvtJibT9zlTpf5NWJjJf7XK5c1ak",
+      "editor": "Zeeshan",
+      "file": "Video  2.mov (double space)",
+      "size": 770091180,
+      "delivered_on": "2026-08-27",
+      "why": "NOT a new delivery — 770,091,180 B near-duplicate of video-2.mov (770,091,169 B), same Aug 27 round-1 ab-wheel cut re-uploaded. Recorded so folder_scan.py does not re-flag it every run."
+    },
+    {
+      "drive_id": "1KqmGfSPQkXRiXdvPkt9c419KMlmvz6YW",
+      "editor": "Waleed",
+      "file": "Test Video 1_Final.mp4",
+      "why": "round-3 revisions written 2026-09-08 (Sep 3 audio must be restored)"
+    },
+    {
+      "drive_id": "1J8yDrV6dL_rE__22Uu1J0826PTWbN9uW",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Ad 3 V3.mp4",
+      "why": "Ad 3 round 3 revisions 2026-09-08"
+    },
+    {
+      "drive_id": "1fsAnRYpVR89jExW6yAOK01sybyjBEBLh",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Ad 3 V4.mp4",
+      "size": 358591399,
+      "delivered_on": "2026-09-09",
+      "why": "HD-class size, but Ad 3 round 4 revisions written on it 2026-09-09 ('This list ends the job') and his 09-09 message lists it as a review link, no final wording. Watch for the V5 / HD after round 4."
+    },
+    {
+      "drive_id": "1DHZZbNP7LfTzc_iiHjq5KKqSI3Xi875I",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Fitness Video Ad4 V2.mp4",
+      "why": "28 MB draft; Ad 4 round 2 open. His 09-09 'AD 02 v2' link is byte-identical to this file (per coordination)."
+    },
+    {
+      "drive_id": "1ow6KQTQGVXS9ZACpprA-3D2f07MPnU1W",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Fitness Video Ad 5 V2.mp4",
+      "why": "94 MB draft; Ad 5 round 2 open"
+    },
+    {
+      "drive_id": "1LIGwbXpOM8BS_DIKbbVNm0FvHb3qnO5L",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Fitness Video Ad 6.mp4",
+      "why": "110 MB draft; Ad 6 round 1 open"
+    },
+    {
+      "drive_id": "1T8RjW4iZ_RoEbyS6QyosbesAZw78i8e9",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Ad 6 v2.mp4",
+      "size": 110884131,
+      "delivered_on": "2026-09-09",
+      "why": "draft size; Ad 6 round 2 revisions 2026-09-09"
+    },
+    {
+      "drive_id": "1XOrNxCsDczxI35SLQFJRQqksFN4kmDpb",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Ad 7.mp4",
+      "why": "86 MB draft; Ad 7 round 1 open"
+    },
+    {
+      "drive_id": "1oNkL-N1rn08HZIGTXX1tbvG8TUYkIY47",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Ad 7 v2.mp4",
+      "size": 86284979,
+      "delivered_on": "2026-09-09",
+      "why": "draft size; Ad 7 round 2 revisions 2026-09-09"
+    },
+    {
+      "drive_id": "12T8bhMLYuhFamLTHq9_8gAPXe86QinJP",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Ad 8.mp4",
+      "why": "26 MB draft; Ad 8 round 1 open (re-linked unchanged in his 09-09 message)"
+    },
+    {
+      "drive_id": "1jCUzkg1ov-uk1jWDfa7Z8mp045EZEZ-h",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Ad 9.mp4",
+      "size": 24122610,
+      "delivered_on": "2026-09-08",
+      "why": "draft size; Ad 9 round 1 revisions 2026-09-09"
+    },
+    {
+      "drive_id": "1BQSO_Puwf08HtS8RGDtIY9uog2rnM5zr",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Ad 10.mp4",
+      "size": 21400488,
+      "delivered_on": "2026-09-08",
+      "why": "draft size; Ad 10 round 1 revisions 2026-09-09"
+    },
+    {
+      "drive_id": "1Wujumw4rtohhQ3LT1LtuvboVImUB9-F0",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Ad 13.mp4",
+      "size": 30212736,
+      "delivered_on": "2026-09-08",
+      "why": "draft size; Ad 13 round 1 revisions 2026-09-09"
+    },
+    {
+      "drive_id": "1FCQcXVLPsqsKecRTTp_RqOsM6fubEWbC",
+      "editor": "Muhammad",
+      "file": "Daniel HQ ads 14.mp4",
+      "size": 79399678,
+      "delivered_on": "2026-09-09",
+      "why": "draft size; Ad 14 round 1 revisions 2026-09-09"
+    },
+    {
+      "drive_id": "1uySIxi5xjboDi8Dre6-kLtzEOslqQ6-O",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Ad 3 V5.mp4",
+      "size": 32881260,
+      "delivered_on": "2026-09-10",
+      "why": "33 MB review cut. Dan APPROVED it in round 5 (09-10: 'Send the 1080p export and it is final'). The HD export is owed and not delivered yet (Muhammad 09-11 01:46Z: 'Alright got it.'). File the HD when it lands."
+    },
+    {
+      "drive_id": "1yMrwUbJNVDT1o8kRb7OACVJhfG44qBpP",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Ad 4 V3.mp4",
+      "size": 29579632,
+      "delivered_on": "2026-09-10",
+      "why": "30 MB review cut. Dan APPROVED it in round 3 (09-10: 'Send the 1080p export of this exact cut'). HD owed, not delivered yet. File the HD when it lands."
+    },
+    {
+      "drive_id": "1QfFatHM7_f6WEUzuYwRf0bFRmwcFvXnR",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Ad 13 V2.mp4",
+      "size": 30390831,
+      "delivered_on": "2026-09-10",
+      "why": "draft size; Ad 13 round 2 revisions 2026-09-10"
+    },
+    {
+      "drive_id": "1ZXhKEFEK500d1pqlboQVRGaCaycEN8Od",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Ad 9 v2.mp4",
+      "size": 24162803,
+      "delivered_on": "2026-09-10",
+      "why": "draft size; Ad 9 round 2 revisions 2026-09-10"
+    },
+    {
+      "drive_id": "1lQMNQ0LR8YpnstyDWUIZZvB8jHSL00vp",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Ad 8 V2.mp4",
+      "size": 26170836,
+      "delivered_on": "2026-09-09",
+      "why": "draft size; Ad 8 round 2 revisions 2026-09-10"
+    },
+    {
+      "drive_id": "1iGNMkhAd5Pp_-SuiLYwnmrDKjRRx387S",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Ad 15.mp4",
+      "size": 25719141,
+      "delivered_on": "2026-09-09",
+      "why": "draft size; Ad 15 round 1 revisions 2026-09-10"
+    },
+    {
+      "drive_id": "1gFRPDZviN3-p7Revup51LrOW2YqYtq81",
+      "editor": "Waleed",
+      "file": "Test Video 1 Final Audio.mp4",
+      "size": 336639610,
+      "delivered_on": "2026-09-02",
+      "why": "superseded: Waleed round-3 revisions 2026-09-08. Recorded so owner queries without a date filter do not re-flag it."
+    },
+    {
+      "drive_id": "1iezCU6YHY3TSIExmtR4I4Ty30NJe6Fnz",
+      "editor": "Waleed",
+      "file": "Test Video 1 Revision.mp4",
+      "size": 344996790,
+      "delivered_on": "2026-08-28",
+      "why": "superseded by rounds 2-3 (08-30, 09-08)"
+    },
+    {
+      "drive_id": "1sdFuT_aS9D47WAE6xCRtkeZ1PpZqN31w",
+      "editor": "Waleed",
+      "file": "Test Video 1 (1).mp4",
+      "size": 344999804,
+      "delivered_on": "2026-08-27",
+      "why": "superseded by rounds 2-3"
+    },
+    {
+      "drive_id": "1ZWv5t3rNitubDUDaSKcrn5SqVJCEX2ip",
+      "editor": "Waleed",
+      "file": "Test Video 1.mp4",
+      "size": 345003623,
+      "delivered_on": "2026-08-24",
+      "why": "round-1 cut; superseded"
+    },
+    {
+      "drive_id": "1Cm1RetVlHpVfEFmEaCV3QhK_xZRDKWHC",
+      "editor": "Zeeshan",
+      "file": "Video 3.mp4",
+      "size": 276692587,
+      "delivered_on": "2026-09-11",
+      "why": "content batch VIDEO 1 (ab wheel workout only) round-1 cut — 'Video 3' is his own running count, his message says 'the first video'. Round-1 revisions written 2026-09-11 at the top of 'Zeeshan Video Revisions'. Shared as a single file (has sharedWithMeTime), not in a folder."
+    },
+    {
+      "drive_id": "1vKp_AVbHapPFkg2prpNI2Sh4x5p5Mlwj",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Ad 7 v3.mp4",
+      "size": 26259199,
+      "delivered_on": "2026-09-11",
+      "why": "26 MB draft; Ad 7 round 3 revisions written 2026-09-11 on this exact cut (revision docs/ad7-revisions-muhammad-round3-9-11-26.md). Sent in his 09-11 18:16Z message as 'AD 7 V3', no final wording."
+    },
+    {
+      "drive_id": "1mMJbTvk1cRcAbEzW0IbTW5pGr7xCcIAq",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Ad 10 V2.mp4",
+      "size": 21413677,
+      "delivered_on": "2026-09-11",
+      "why": "21 MB draft; Ad 10 round 2 revisions written 2026-09-11 on this exact cut (revision docs/ad10-revisions-muhammad-round2-9-11-26.md). Sent in his 09-11 18:18Z message as 'AD 10 v2', no final wording."
+    },
+    {
+      "drive_id": "1dPbNikLQAQSl39184qUs78EAiXIJofz2",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Ad 6 V3.mp4",
+      "size": 110783688,
+      "delivered_on": "2026-09-12",
+      "why": "111 MB draft size AND Ad 6 round 3 revisions written on it 09-12 (4 items). Size matches revisions-0912m/dl/ad6_v3.mp4. Fails rules 2 and 3."
+    },
+    {
+      "drive_id": "13UAyggL-r3in0Y6fyKVj7MDfWaaCyDL4",
+      "editor": "Muhammad",
+      "file": "Daniel HQ ad 14 V2.mp4",
+      "size": 79567016,
+      "delivered_on": "2026-09-12",
+      "why": "80 MB draft size AND Ad 14 round 2 revisions written on it 09-12 (4 items). Size matches revisions-0912m/dl/ad14_v2.mp4. Fails rules 2 and 3."
+    },
+    {
+      "drive_id": "1Q-cmEcXKhNwB7c8fVF0OMtsejLj3XdE4",
+      "editor": "Waleed",
+      "file": "Test Video 1.mp4",
+      "size": 345053547,
+      "delivered_on": "2026-09-12",
+      "why": "THE ROUND-4 CUT OF VIDEO 1, and it is NOT final. 345 MB and his 09-12 17:18Z message says 'Video 1 done, as per feedback' with a milestone payment request - but rule 2 fails: round-4 revisions were written on this exact file the same day (video1-revisions-waleed-round4-9-12-26.md, 14:32 CT = 19:32Z; file created 17:12Z, message 17:18Z). Four items open, one a compliance problem (0:06.6-0:08.1 holds both phones on screen = a side-by-side before/after), plus true peak +2.9 dBTP. New owner account waleedatwork124@gmail.com. File the cut that answers round 4."
+    },
+    {
+      "drive_id": "1u2wS_z4AVhPBMOQIcqdDe99GuNHquUZ_",
+      "editor": "Zeeshan",
+      "file": "Video Rev 1.mp4",
+      "size": 300779658,
+      "delivered_on": "2026-09-12",
+      "why": "superseded by 'Video 1 Rev 2.mp4' (09-13), which Dan called final; was pending 09-12"
+    },
+    {
+      "drive_id": "15lZb4RyoKCy2kvmpCQ4rjZE7gs3cdUwb",
+      "editor": "Zeeshan",
+      "file": "Video2.mp4",
+      "size": 847776641,
+      "delivered_on": "2026-09-13",
+      "why": "Content batch VIDEO 2 FIRST CUT (not reviewed yet). His 09-14 00:52Z message is just '2nd video: <link>' -> new folder 1mvqEowzfNNprOCxPta6DASIT20MdYfvX (added to shared_folders). No final wording and no Dan review exists, so rule 1 fails. Which of the five brief videos it is was not checked (not downloaded). .srt beside it: 1KLjM1ueMYlsTLCOc0FGGd8GfyRbJFnjj (26,452 B). SUPERSEDED: no longer in the folder as of 09-16 (replaced by Video 2 Rev 1.mp4)."
+    },
+    {
+      "drive_id": "1KLjM1ueMYlsTLCOc0FGGd8GfyRbJFnjj",
+      "editor": "Zeeshan",
+      "file": "Video 2 Subtitle.srt",
+      "size": 26452,
+      "delivered_on": "2026-09-13",
+      "why": "subtitle file for the batch video 2 first cut above; file it with the final Superseded by 1IWmYM4g_ck-Cy_R7ned2jexL7-6z5NHK (09-15); no longer in the folder."
+    },
+    {
+      "drive_id": "1N_tlSX3AkbHD0XF4CO9GJYOIOP_tqBgT",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Ad 8 V3.mp4",
+      "size": 26183989,
+      "delivered_on": "2026-09-14",
+      "why": "26 MB review cut, answers Ad 8 round 2 (09-10). Not reviewed yet — needs /revisions."
+    },
+    {
+      "drive_id": "1JBEwPZWuDy7nTlIRlCO4Bpjpu5EsxjBo",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Ad 9 v3.mp4",
+      "size": 24166217,
+      "delivered_on": "2026-09-14",
+      "why": "24 MB review cut, answers Ad 9 round 2 (09-10). Not reviewed yet — needs /revisions."
+    },
+    {
+      "drive_id": "1WWdDs4RXQWGAxRDKaQ4PXg8pNAK49J48",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Ad 13 V3.mp4",
+      "size": 30359315,
+      "delivered_on": "2026-09-14",
+      "why": "30 MB review cut, answers Ad 13 round 2 (09-10). Not reviewed yet — needs /revisions."
+    },
+    {
+      "drive_id": "1jSdEMnAlng1td8LDyuVl3nFaUxSFCERi",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Ad 15 V2.mp4",
+      "size": 25756346,
+      "delivered_on": "2026-09-14",
+      "why": "26 MB review cut, answers Ad 15 round 1 (09-10). Not reviewed yet — needs /revisions."
+    },
+    {
+      "drive_id": "1OdafvhzbHiCPw14Iqs8vDnBhqxiv58xi",
+      "editor": "Zeeshan",
+      "file": "Video 2 Rev 1.mp4",
+      "size": 857881377,
+      "delivered_on": "2026-09-15",
+      "why": "Arms & shoulders (content batch video 2) rev 1, announced 09-15 17:49Z with the folder link. Fails rule 2: round-2 revisions written on this exact file 09-15 (revision docs/arms-shoulders-revisions-zeeshan-round2-9-15-26.md). Zeeshan 09-16 06:46Z: 'I will send you revised video soon'; 07:17Z asks whether to change all the music or only under the sets."
+    },
+    {
+      "drive_id": "1IWmYM4g_ck-Cy_R7ned2jexL7-6z5NHK",
+      "editor": "Zeeshan",
+      "file": "Video 2 Subtitle.srt",
+      "size": 25535,
+      "delivered_on": "2026-09-15",
+      "why": "subtitle for Video 2 Rev 1 (draft); file the .srt that ships with the final"
+    }
+  ],
+  "pending": [],
+  "resolved_2026-09-10": [
+    "Zeeshan 'thread unread' — room read in Chrome 09-10: Dan called Rev 3 finalized 09-09 10:15; filed.",
+    "Romaisa R. (room_3a0dd1a1…) — not an editor on the job: an applicant following up ('I hope you've found a good editor… available to work'). Same for Abdul W. (room_549d5bcc…, proposal) and Gbadamosi I. (room_3f398d8b…, 'How are you?'). None delivered anything."
+  ],
+  "last_run": "2026-09-16",
+  "watch": [
+    "Zeeshan's 5-video content batch ($30/video, started 09-10): batch VIDEO 1 (ab wheel workout only) round 1 landed 09-11 as 'Video 3.mp4', shared as a single FILE, not in a folder — so an owner query finds it, but check his two folders too. His file names are his own running count, not the brief's numbers: identify each by content and his Upwork message. Finals file under 'Zeeshan Content Videos/<title> - video N/'. A first cut is a draft, not a final.",
+    "Zeeshan's content batch VIDEO 2 first cut (Video2.mp4, 848 MB) landed 09-13 16:30Z in a NEW folder (1mvqEowzfNNprOCxPta6DASIT20MdYfvX), announced 09-14 00:52Z. It needs a /revisions review; nothing to file until Dan calls a later cut final.",
+    "Muhammad batch: Ads 8 V4, 9 V3, 13 V4, 14 V3 and 15 V3 HD filed/uploaded 09-16 after Dan finalized the delivered exports; Ad 6 V4 HD filed 09-15. Second Ad 7 V4 HD still needs classification.",
+    "Waleed 09-14 18:17Z: proposes ending the job at video 1 for the $50 milestone and asks for 5-star feedback. No new delivery; his round-4 cut (1Q-cmEcX…) stays not final. Nothing to file unless Dan accepts that cut as final.",
+    "Zeeshan 09-16: arms & shoulders Rev 1 (09-15) got round-2 revisions; he promised a revised cut and asked 07:17Z 'Do we need to change the entire music, or just the music underneath the sets?' — Dan's answer needed. Also 09-15 17:49Z explained a framing/crop limit (little headroom in raw). Muhammad 09-16 03:21Z 'Thanks Sure.' — no delivery."
+  ]
 }

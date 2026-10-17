@@ -1,0 +1,79 @@
+{
+  "category": "AD",
+  "job": "RA-16",
+  "round": 4,
+  "date": "2026-10-17",
+  "status": "finalized",
+  "dan": "Everything looks good. This is approved. Give me the handoff or setup",
+  "scope": "Both exact delivered R4 native films approved in this chat after final checks and independent review. Setup handoff requested; thumbnails and uploads have not started.",
+  "videos": [
+    {
+      "format": "9x16",
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Codex Ad Videos/ai took my job - RA-16/AI Took Job AD R4 - 9x16.mp4",
+      "sha256": "fdc6ad507531a2f5b113dea8b03c23680db4bcec4e43102c1fefc39c9749e5fb",
+      "size": 100282648,
+      "frames": 1765,
+      "fps": "30000/1001",
+      "duration": 58.892167,
+      "delivery_gate": "FAIL",
+      "open_rows": [
+        {
+          "key": "audio:stamp",
+          "detail": "no valid audio-gate stamp: AUDIO GATE FAILED on AI Took Job AD R4 - 9x16.mp4: tone -- fix the audio, do not deliver"
+        },
+        {
+          "key": "style:coverage",
+          "detail": "31% of runtime is off the main scene (min 38%)"
+        },
+        {
+          "key": "framing:centering",
+          "detail": "10 tracked hold(s) + 0 intentional fixed-wide; head centre vs its window centre: worst +6.5% at 57.0s (max +-6%); 1 hold(s) off [(57.0, 0.06486)]"
+        },
+        {
+          "key": "cut:splice_visibility",
+          "detail": "3/11 joins above the file's own p99 ceiling (35.40): [(15.05, 37.82), (50.82, 35.41), (57.06, 36.36)]"
+        },
+        {
+          "key": "captions:sync",
+          "detail": "NOT MEASURED -- no caption words sequence-align with delivered-audio words"
+        }
+      ]
+    },
+    {
+      "format": "16x9",
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Codex Ad Videos/ai took my job - RA-16/AI Took Job AD R4 - 16x9.mp4",
+      "sha256": "789944e4dc7ee70b2e5b0af55d5ece8c73dda446155e609c28420553e84c963d",
+      "size": 85885396,
+      "frames": 1765,
+      "fps": "30000/1001",
+      "duration": 58.892167,
+      "delivery_gate": "FAIL",
+      "open_rows": [
+        {
+          "key": "audio:stamp",
+          "detail": "no valid audio-gate stamp: AUDIO GATE FAILED on AI Took Job AD R4 - 16x9.mp4: tone -- fix the audio, do not deliver"
+        },
+        {
+          "key": "style:coverage",
+          "detail": "23% of runtime is off the main scene (min 35%)"
+        },
+        {
+          "key": "framing:no_wide_level",
+          "detail": "11 talking holds; head height (hair -> chin) per hold: smallest 22.0% of its window at 46.5s (min 27.0%); 7 wide hold(s) [(0.0, 0.23361500000000002), (15.0, 0.23249999999999998), (24.25, 0.2275), (33.0, 0.228425), (46.5, 0.220465)]"
+        },
+        {
+          "key": "cut:splice_visibility",
+          "detail": "4/11 joins above the file's own p99 ceiling (39.95): [(9.48, 39.97), (15.05, 42.55), (50.82, 40.64), (53.15, 41.66)]"
+        },
+        {
+          "key": "captions:sync",
+          "detail": "NOT MEASURED -- no caption words sequence-align with delivered-audio words"
+        }
+      ]
+    }
+  ],
+  "independent_media_defects": [],
+  "numerical_gate_failures_preserved": true,
+  "setup_handoff": "Handoffs/handoff-20261017-ra16-setup.md",
+  "uploaded": false
+}

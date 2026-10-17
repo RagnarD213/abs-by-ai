@@ -1,1 +1,1 @@
-AD. R4 complete films delivered for Dan review. Both 58.89 seconds. Final gates retain approved tone and generic picture-metric flags; phrase-caption sync is not a highlighted-word test. Native media stays private. No publishing. See final-review-status.json and INDEPENDENT_REVIEW.txt.
+AD. R4 finalized by Dan on 2026-10-17. Exact identities: ../APPROVAL.json or Handoffs/video-editing/RA-16-R4-approval.json. Setup handoff written; no uploads. Machine gate flags preserved.

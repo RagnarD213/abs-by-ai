@@ -11,6 +11,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [AI Took Job AD Setup](handoff-20261017-ra16-setup.md): **Ready now (2026-10-17). Claude Opus 5.5 / High.** Both R4 films approved. Five Codex thumbnail choices, Dan picks, then both Unlisted and trial campaign 24316364155.
+
 
 - [RA-15 setup](handoff-20261016-ra15-setup.md): **Ready now (2026-10-16). Claude Opus 5.5 / High.** Never Pay A Nutritionist AD: five Codex thumbnail choices, stop for Dan's pick, upload both Unlisted, trial campaign 24316364155 ad group, policy check.
 - [Meal Prep SFC Setup](handoff-20261017-ds28-meal-prep-setup.md): **Ready now (2026-10-17). Claude Opus 5.5 / High.** Dan finalized exact R5. Five Codex cover choices, stop for his pick, then organic four-platform setup.

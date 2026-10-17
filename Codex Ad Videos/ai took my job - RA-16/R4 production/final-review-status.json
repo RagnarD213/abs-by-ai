@@ -4,9 +4,9 @@
   "when": "2026-10-17T10:50:21-0500",
   "ready_for_dan_review": true,
   "approved_for_release": false,
-  "dan_final_approval": "pending",
+  "dan_final_approval": "approved",
   "published": false,
-  "summary": "Both complete films are ready for Dan review. Editor and independent picture/audio review found no remaining correction to the film content after one early phrase caption was delayed to its audible onset. Exact native scans found no black frames, freezes, unexplained jumps or naked splices. Approved Color B, crop pair 1, intro, warm bass voice and all R3 assets are retained. Automated delivery gates remain FAIL: approved voice tone and generic style/framing/cut metrics are outside their preset bounds; the word-highlight sync test cannot score phrase captions. These results remain in the record. This is private review, with final approval and release pending.",
+  "summary": "Dan approved both exact R4 films on October 17, 2026. Native media and all checks are preserved. Independent review found zero confirmed film defects. Historical numerical delivery verdicts remain FAIL with the original flags; no stamps or thresholds were changed. Finalized for thumbnail selection and setup, not uploaded.",
   "films": [
     {
       "aspect": "9x16",
@@ -577,5 +577,12 @@
     },
     "editor_and_reviewer_desktop_usage": "Unavailable in runtime; not zero",
     "note": "Both initial full-film model reviews were within the under-$4 combined estimate. Actual billed provider charge unavailable. See review report for its estimate."
+  },
+  "state": "finalized",
+  "approved_for_setup": true,
+  "dan_approval": {
+    "date": "2026-10-17",
+    "quote": "Everything looks good. This is approved. Give me the handoff or setup",
+    "record": "Handoffs/video-editing/RA-16-R4-approval.json"
   }
 }
