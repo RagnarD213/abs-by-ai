@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=__W__, height=__H__">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+@font-face{font-family:Poppins;src:url('assets/Poppins-Bold.ttf') format('truetype');font-weight:700}
+*{margin:0;padding:0;box-sizing:border-box}html,body,#root{width:__W__px;height:__H__px;overflow:hidden;background:#040e1b}
+#field{position:absolute;width:100%;height:100%;image-rendering:auto}#heading{position:absolute;left:0;top:0;width:1920px;height:215px}
+.row{position:absolute;overflow:hidden;border-radius:60px}.row img{width:100%;height:100%;display:block}.spec{position:absolute;left:0;top:1px;width:181px;height:4px;background:rgb(135,210,248);box-shadow:0 0 13px rgba(104,197,255,.25)}
+</style></head><body><div id="root" data-composition-id="__ID__" data-start="0" data-duration="__DUR__" data-width="__W__" data-height="__H__"><canvas id="field" width="480" height="270"></canvas><img id="heading" src="assets/heading.png" alt=""><div id="rows"></div></div>
+<script>
+const CFG=__CFG__,D=CFG.dur;
+const ctx=document.getElementById('field').getContext('2d'),pix=ctx.createImageData(480,270),clock={t:0};
+function drawField(){const t=18+clock.t,gx=.14+.13*Math.sin(t*.65),gy=.2+.13*Math.cos(t*.4),hx=.83+.12*Math.cos(t*.6),hy=.88;
+ for(let y=0;y<270;y++){for(let x=0;x<480;x++){const xx=x/480,yy=y/270,g=Math.exp(-((xx-gx)**2/.18+(yy-gy)**2/.35)),k=Math.exp(-((xx-hx)**2/.12+(yy-hy)**2/.18)),i=(y*480+x)*4;
+ pix.data[i]=4+g*5+k*3;pix.data[i+1]=14+g*53+k*26;pix.data[i+2]=27+g*94+k*62;pix.data[i+3]=255;}}ctx.putImageData(pix,0,0);}
+const tl=gsap.timeline({paused:true});
+tl.fromTo(clock,{t:0},{t:D,duration:D,ease:'none',onUpdate:drawField},0);
+CFG.rows.forEach((b,i)=>{const e=document.createElement('div');e.className='row';e.id='row'+i;Object.assign(e.style,{left:b[0]+'px',top:b[1]+'px',width:(b[2]-b[0])+'px',height:(b[3]-b[1])+'px'});
+ const p=document.createElement('img');p.src='assets/row'+i+'.png';p.alt='';e.appendChild(p);const s=document.createElement('div');s.className='spec';e.appendChild(s);document.getElementById('rows').appendChild(e);
+ tl.fromTo(e,{opacity:0},{opacity:1,duration:.22,ease:'power2.out'},Math.max(0,CFG.times[i]));
+ const n=Math.max(1,Math.round((D-CFG.times[i])/3.4));tl.fromTo(s,{x:107},{x:510,duration:(D-CFG.times[i])/n,ease:'sine.inOut',repeat:n-1,yoyo:true},Math.max(0,CFG.times[i]));
+});
+window.__timelines['__ID__']=tl;tl.seek(0);drawField();
+</script></body></html>

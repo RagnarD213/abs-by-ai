@@ -51,7 +51,7 @@ def build(plan, words, shots, out, render=True):
         if it['kind'] == 'lt':
             drivers = [p[1] for p in it.get('parts', [])]
             drivers += [it['bar'][k] for k in ('grow', 'shrink', 'land')] if it.get('bar') else []
-        elif it['kind'] == 'l3':
+        elif it['kind'] in ('l3', 'recap-motion'):
             drivers = it['reveal']
         elif it['kind'] == 'cycle':
             drivers = list(it.get('reveal', it.get('flip', {})).values()) + [it['close'], it['pulse']]
@@ -99,7 +99,10 @@ def edit_sheet_graphics(plan, words, out):
     for m in json.loads((Path(out) / 'manifest.json').read_text()):
         cfg = json.loads((Path(out) / 'configs' / m['template'] / (m['id'] + '.json')).read_text())[0]
         it = items[m['id']]
-        if m['template'] == 'lower-third': text = [cfg['topic']] + [p[0] for p in cfg['parts']]
+        if m['template'] == 'recap-card':
+            copy = [it['heading']] + it['points']
+            drivers = it['reveal']
+        elif m['template'] == 'lower-third': text = [cfg['topic']] + [p[0] for p in cfg['parts']]
         elif m['template'] == 'side-list': text = ([cfg['heading']] if isinstance(cfg['heading'], str) else cfg['heading']) + cfg['items']
         elif m['template'] == 'before-card': text = [cfg['eyebrow'][0]] + [p[0] for p in cfg['headline']] + ([cfg['detail'][0]] if cfg.get('detail') else [])
         else:
@@ -107,7 +110,10 @@ def edit_sheet_graphics(plan, words, out):
             if cfg.get('old_title'): text += [cfg['old_title']] + cfg['old_boxes']
         if cfg.get('label'): text += [cfg['label']]
         drivers = [dict(part='in', phrase=it['start'], t=cfg['a']), dict(part='out', phrase=it['end'], t=cfg['b'])]
-        if m['template'] == 'lower-third':
+        if m['template'] == 'recap-card':
+            copy = [it['heading']] + it['points']
+            drivers = it['reveal']
+        elif m['template'] == 'lower-third':
             pairs = [(text, phrase, t) for (text, phrase), (_, t) in zip(it['parts'], cfg['parts'])]
             if it.get('bar'): pairs += [(k, it['bar'][k], cfg['bar'][k]) for k in ('grow', 'shrink', 'land')]
         elif m['template'] == 'side-list':

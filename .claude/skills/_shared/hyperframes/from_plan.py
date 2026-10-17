@@ -47,7 +47,7 @@ sys.path.insert(0, str(HERE))
 import hfbuild as H                                  # noqa: E402
 B = H.B
 FPS = 30000 / 1001
-TEMPLATE = {"lt": "lower-third", "fact": "before-card", "l3": "side-list", "cycle": "cycle", "analysis": "analysis-card"}
+TEMPLATE = {"lt": "lower-third", "fact": "before-card", "l3": "side-list", "cycle": "cycle", "analysis": "analysis-card", "recap-motion": "recap-card"}
 NUM = {"zero": "0", "one": "1", "two": "2", "three": "3", "four": "4", "five": "5", "six": "6", "seven": "7", "eight": "8",
        "nine": "9", "ten": "10", "twelve": "12", "fifteen": "15", "twenty": "20", "thirty": "30", "forty": "40",
        "fifty": "50", "hundred": "100", "ninety": "90", "first": "first", "percent": "%"}
@@ -195,12 +195,21 @@ def analysis_cfg(it, W, beats):
     return cfg
 
 
-BUILD = {"lt": lt_cfg, "fact": fact_cfg, "l3": l3_cfg, "cycle": cycle_cfg, "analysis": analysis_cfg}
+def recap_cfg(it,W,beats):
+    a,b=it["t0"],it["t1"]
+    rv=[W.at(ph,a-1,b,it["id"]+" recap reveal") for ph in it["reveal"]]
+    beats += [(a,"","Live Soft Blue Light field throughout; approved heading and fixed card geometry")]
+    beats += [(t,W.text(t,t+.4),"Approved row lands; specular bar keeps moving") for t in rv]
+    return dict(id=it["id"],a=a,b=b,heading=it["heading"],points=it["points"],reveal=rv,
+                approved_card=it["approved_card"],rows=it["rows"])
+
+
+BUILD = {"lt": lt_cfg, "fact": fact_cfg, "l3": l3_cfg, "cycle": cycle_cfg, "analysis": analysis_cfg, "recap-motion": recap_cfg}
 
 
 def tkind(it):
     if it["kind"] == "scene": return "fact" if it.get("scene") == "fact" else None
-    return it["kind"] if it["kind"] in ("lt", "l3", "cycle", "analysis") else None
+    return it["kind"] if it["kind"] in ("lt", "l3", "cycle", "analysis", "recap-motion") else None
 
 
 def render_scene(tk, cfg, out, force):
@@ -242,7 +251,7 @@ def main():
         cfg = BUILD[tk](it, W, beats)
         rd = out / "renders"
         m = dict(id=it["id"], template=TEMPLATE[tk], a=cfg["a"], b=cfg["b"], mov=str(rd / f"{it['id']}.mov"),
-                 kind={"fact": "opaque", "analysis": "opaque", "lt": "glass"}.get(tk, "overlay"))
+                 kind={"fact": "opaque", "analysis": "opaque", "recap-motion": "opaque", "lt": "glass"}.get(tk, "overlay"))
         if tk == "lt": m.update(mask=str(rd / f"{it['id']}_mask.mov"), band=[760, 1080])
         if tk == "l3":
             x0, y0, x1, y1 = B.left_third_box(1920, 1080, it["heading"], it["points"])
