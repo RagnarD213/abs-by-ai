@@ -11,6 +11,12 @@
 - Mute the testing video or browser before pressing play. Keep it muted throughout the checks, and leave playback paused when finished. Hearing audio through model/file analysis does not require audible browser playback.
 - Only play a review panel aloud when Dan explicitly asks to hear it. This rule concerns assistant testing; preserve Dan's ability to play his review copy normally.
 
+## All new or revised video graphics move in Soft Blue Light HyperFrames (Dan, 2026-10-17)
+
+- Every new or revised video graphic uses the Soft Blue Light theme and HyperFrames motion. Animate the graphic for its actual on-screen duration, not only its entrance, exit or word reveals. For a full-screen card, keep the Soft Blue Light field moving and give a suitable accent, edge light or bar continuing motion. A still PNG over a frozen field does not satisfy this rule.
+- Preserve the exact approved words, layout, design and color when Dan requests motion only. Build the motion from the shared HyperFrames templates and method in `_shared/hyperframes/`; if the graphic kind lacks a suitable template, add or adapt a shared HyperFrames template and show its moving context for the required graphic approval. Do not fall back to a static `softblue.py` card for a new or revised graphic.
+- This applies prospectively. Do not retrofit an already approved graphic in another film unless Dan requests it. RO-26 round 5 is an explicit revision: turn its approved “Four Things I Did Right” recap into a continuous motion graphic while preserving its copy and composition. Use the approved RO-16 G04 moving counter-bar sample at `/Volumes/Extreme/_edit_work/hyperframes-r2/review/media/g04_new.mp4` as a motion reference, not as permission to change the recap into a math graphic. Its shared config is `_shared/hyperframes/lower-third/example-ro16-g04.json`.
+
 ## Long-form round 1: first-minute draft and playable context (Dan, 2026-10-16, RO-26)
 
 - Every new long-form first round includes a playable first-minute draft, colour-correction options and level-matched audio options, including studio videos, alongside all graphics, photos and clips. Do not make Dan approve an isolated asset catalogue before he can see the first minute.
@@ -978,6 +984,12 @@ something that we can publish."* Every point below is a standing rule for every 
 ## Cover text never covers Dan's face or hair (Dan, 2026-09-18)
 
 - On every thumbnail or cover image, keep all text completely clear of Dan's face **and every part of his hair**. Measure the rendered placement against the actual portrait; move or resize the text into clear negative space rather than allowing even a partial overlap.
+
+## Real-photo labels include touched-up photographs (Dan, 2026-10-17)
+
+- Label a real photograph as real, not AI-generated, even when it has been retouched or touched up. Use **“Real photo of me, not AI-generated”** for one photo and **“Real photos of me, not AI-generated”** for a group (title capitalization in the graphic). Do not substitute “Retouched photo(s) of me.” The distinction is a real photographic source versus a fundamentally AI-generated image; ordinary touch-ups do not change that classification.
+- Dan's exact RO-26 revision: replace “Retouched Photos Of Me” on the opening trio at about 0:01 with **“Real Photos Of Me, Not AI-Generated.”** Preserve the photographs, composition and timing.
+- Keep source provenance internally. A fundamentally AI-generated image remains AI-generated; this does not reclassify RO-26's rejected pool image. Keep the existing label-clearance rules and the thumbnail/real-moving-footage exceptions below.
 
 ## Label Dan's real pictures (Dan, 2026-09-11)
 
