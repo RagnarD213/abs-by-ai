@@ -25,7 +25,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**Meal Prep SFC Setup COVER REVIEW 2026-10-17, Codex.** R5 master/SRT hashes match final approval; five unique covers generating on Codex subscription. Next: show one sheet and wait for Dan's pick before uploads or Blotato scheduling. Assets: `Short-form video content/Meal Prep - DS-28/covers/round1/`.
+**Meal Prep SFC Setup PICK 2026-10-17, Codex.** Five unique covers delivered on one review sheet, with full-size YouTube/Instagram files. Exact R5 master/SRT copies verified. Next: Dan picks 1-5, then finish backup and four-platform organic Blotato setup. No upload yet. Detail: `Docs/DS28_SETUP_RECEIPT_20261017.md`.
 
 **RA-13 POLICY-RECHECK 2026-10-17, Codex.** Both R3 films are Unlisted and processed; trial group 201534026375, ads 828468045056 / 828468037364 ENABLED, review pending. Next 2026-10-18: `node scripts/ads/api/client.js policy 24316364155`; if clear, delete this entry. Receipt: `Docs/RA13_SETUP_RECEIPT_20261017.md`.
 
