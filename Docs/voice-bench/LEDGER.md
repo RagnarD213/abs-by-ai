@@ -14,6 +14,8 @@ goal is 60% or less, and about 8 trials in 80 is noise. A change is kept only if
 | 10-10 | `set5-crit` | set5, then a critic and checker revision pass | 66 of 80, 82% | 98% | 68% | 83% | 75% | 75% | 75% | 100% | dropped: no change (8 trials each way) |
 | 10-10 | `set12` | 12 passages instead of 5 | 64 of 80, 80% | 98% | 62% | 88% | 88% | 50% | 92% | 94% | dropped: inside the noise (p = 0.77), more cost |
 | 10-10 | `set5-fable` | set5 with Fable 5.1 as the writer | 65 of 80, 81% | 100% | 62% | 75% | 88% | 70% | 83% | 100% | dropped: no change; Opus stays the writer |
+| 10-16 | `guide` (new briefs) | the old guide, on the full-strength briefs; API backend | 70 of 80, 88% | 98% | 78% | 92% | 88% | 75% | 83% | 100% | new baseline |
+| 10-16 | `set5` (new briefs) | 5 real passages, on the full-strength briefs; API backend | 72 of 80, 90% | 100% | 80% | 96% | 88% | 75% | 92% | 100% | **the score the pilot must beat** (no longer ahead of `guide`: p = 0.75) |
 
 Gemini column: includes the few pairs where Sonnet 5.5 stood in because Gemini refused the pair.
 
@@ -38,6 +40,17 @@ wording", and the writer copies it. In every pair where Dan flagged softened wor
 brief ("unattractive" for "ugly", "overstated" for "lied"). Every score above shares this fault. Before Phase C, the
 brief rule changes to keep the strength of each claim and label, and `guide` and `set5` are re-scored on the new
 briefs.
+
+**Re-scored on full-strength briefs (2026-10-16, Phase C step C0).** `bench.py rebrief` rewrote the 40 briefs under the
+new rule (same passages and ids; old briefs kept in `voice-corpus/heldout/index-v1-briefs.json`). The strong words now
+reach the writer: "ugly" and "obese" where the old brief had "unattractive" and "overweight", plus "lied", "whopping",
+"blown away", "worship", "melt". Results: `guide` 88%, `set5` 90%. The `set5` gain over the old guide is gone, and
+Gemini now catches `set5` 80% of the time against 68% on 10-10 (p = 0.06; long-form 79% to 96%). Two things changed at
+once, so neither can be blamed alone: the briefs, and the backend. The `claude` command line's login had expired, so
+every Claude call ran through the batch API (Opus 5.5, effort high: `scripts/voice/api_batch.py`). Rows from 10-16 on
+compare only with each other. The new briefs also reuse a few more of his 5-word runs (18 in 7 briefs, against 4 in 3),
+which if anything helps the writer. Cost: $11.61 of batch API and about $1 of Gemini, over the $10 budget, mostly
+because each judge call carries about 10,000 tokens of reference passages.
 
 ## Dan's blind pages
 

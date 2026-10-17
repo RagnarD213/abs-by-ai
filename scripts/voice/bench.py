@@ -86,8 +86,14 @@ def claude_bin():
     return "claude"
 
 
+BACKEND = os.environ.get("VOICE_BENCH_BACKEND", "cli")  # "batch": the API at half price (api_batch.py)
+
+
 def claude_call(prompt, system, model):
     """One fresh Claude with no tools, no project rules and no memory. Returns its text."""
+    if BACKEND == "batch":
+        import api_batch
+        return api_batch.call(prompt, system, model)
     cold = os.path.join(tempfile.gettempdir(), "voice-bench-cold")
     os.makedirs(cold, exist_ok=True)
     cmd = [claude_bin(), "-p", "--model", model, "--system-prompt", system, "--tools", "", "--setting-sources", "",
@@ -104,6 +110,14 @@ def claude_call(prompt, system, model):
         except ValueError:
             last = (raw or p.stderr)[:300]
     raise RuntimeError("claude call failed: " + last)
+
+
+def batched(stage, label):
+    """Run a stage once (command line backend), or until every batched call is back (batch backend)."""
+    if BACKEND != "batch":
+        return stage()
+    import api_batch
+    api_batch.drive(stage, label)
 
 
 def secret(name):
@@ -145,10 +159,13 @@ def gemini_call(prompt):
 
 
 def parse_json(text):
-    m = re.search(r"\{.*\}", text, re.S)
-    if not m:
+    i = text.find("{")
+    if i < 0:
         raise ValueError("no JSON in reply: " + text[:200])
-    return json.loads(m.group(0))
+    try:
+        return json.loads(text[i:text.rindex("}") + 1])
+    except ValueError:  # two JSON objects, or prose after it: take the first object (2026-10-16)
+        return json.JSONDecoder().raw_decode(text[i:])[0]
 
 
 def cached(path, make):
@@ -170,8 +187,10 @@ def pool(fn, items, workers=8):
             try:
                 out.append(f.result())
             except Exception as e:
+                if type(e).__name__ == "Pending":
+                    continue  # api_batch: sent in the next batch, then the stage runs again
                 print(f"  FAILED {futs[f] if isinstance(futs[f], str) else ''}: {e}", file=sys.stderr)
-            if i % 10 == 0 or i == len(futs):
+            if (i % 10 == 0 or i == len(futs)) and BACKEND != "batch":
                 print(f"  {i}/{len(futs)}", file=sys.stderr)
     return out
 
@@ -425,12 +444,13 @@ def cmd_pick(a):
 
 # ---------------------------------------------------------------- briefs
 
-BRIEF_SYS = "You write neutral content briefs. You answer with JSON only."
+BRIEF_SYS = "You write content briefs that keep every claim at full strength. You answer with JSON only."
 BRIEF_PROMPT = """Below is a passage by a writer or speaker. Write a CONTENT-ONLY BRIEF of it for another writer who will never see the passage and must write the same content from your brief alone.
 
 Rules for the brief:
-- Your own neutral, plain wording. Never reuse a run of 4 or more words from the passage. No quotations.
-- Say nothing about style, tone, rhythm, word choice, humour or swearing. Content only.
+- Your own wording. Never reuse a run of 4 or more words from the passage. No quotations.
+- Keep the STRENGTH of every claim and the BLUNTNESS of every label exactly as the passage has them. Never soften, hedge, tone down or make polite. If he calls someone ugly, write ugly, not unattractive. If he says he lied, write lied, not overstated. If he says grossly obese, a whopping saving, not a single cent, write that, not a milder version. A single charged or blunt word from the passage may be reused as it is (ugly, lied, whopping, slut, worship, melt). Keep his judgments, insults, boasts, exaggerations and promises as strong as he made them, and keep his point of view even where you would not share it. Strength is in the claim, not in his phrasing: reword every phrase, and keep only the single charged word itself.
+- Say nothing about style, rhythm, humour or swearing. Content only, at the passage's own strength.
 - Include every fact, number, name, example, claim, instruction and step, in the order the passage makes them, as 4 to 12 short bullets under the line "Points, in order:".
 - Then one line starting "The point:" with what the passage is trying to get across or get the audience to do.
 - If the passage addresses a particular audience or is read by a named presenter, say so in one line starting "Who:".
@@ -453,19 +473,20 @@ def five_gram_leaks(brief, passage):
     return [g for g in (" ".join(b[i:i + 5]) for i in range(len(b) - 4)) if g in grams]
 
 
-def cmd_briefs(a):
-    with open(os.path.join(HELD, "candidates.json"), encoding="utf-8") as fh:
-        cands = json.load(fh)
+def cmd_briefs(a, cands=None, folder="candidate-briefs"):
+    if cands is None:
+        with open(os.path.join(HELD, "candidates.json"), encoding="utf-8") as fh:
+            cands = json.load(fh)
 
     def one(c):
-        path = os.path.join(HELD, "candidate-briefs", c["cid"] + ".json")
+        path = os.path.join(HELD, folder, c["cid"] + ".json")
         with open(os.path.join(HELD, "candidates", c["cid"] + ".txt"), encoding="utf-8") as fh:
             passage = fh.read()
 
         def make():
             prompt = BRIEF_PROMPT.format(kind=c["kind"], passage=passage)
             best = None
-            for attempt in range(3):
+            for attempt in range(4):
                 d = parse_json(claude_call(prompt, BRIEF_SYS, WRITER_MODEL))
                 leaks = five_gram_leaks(d.get("brief", ""), passage)
                 d["leaks"] = len(leaks)
@@ -481,9 +502,41 @@ def cmd_briefs(a):
     pool(one, cands)
     ok = 0
     for c in cands:
-        with open(os.path.join(HELD, "candidate-briefs", c["cid"] + ".json"), encoding="utf-8") as fh:
+        f = os.path.join(HELD, folder, c["cid"] + ".json")
+        if not os.path.isfile(f):
+            continue  # batch backend: not back yet
+        with open(f, encoding="utf-8") as fh:
             ok += bool(json.load(fh).get("usable"))
     print(f"briefs written: {len(cands)}; usable: {ok}")
+
+
+def cmd_rebrief(a):
+    """Phase C0 (2026-10-16): the first briefs were written "in neutral, plain wording", which turned his "ugly" into
+    "unattractive" and "lied" into "overstated", and the writer copied the soft word. Dan read that softening as Claude's
+    biggest tell. This re-briefs only the 40 locked passages under the full-strength rule into `candidate-briefs-v2/`
+    and swaps the briefs in index.json. Same passages, same ids; the old index is kept as index-v1-briefs.json.
+    Scores from before this date used the soft briefs and are not comparable with later ones."""
+    with open(os.path.join(HELD, "candidates.json"), encoding="utf-8") as fh:
+        cands = json.load(fh)
+    index = load_index()
+    by_pos = {(c["file"], c["start"], c["end"]): c for c in cands}
+    locked = [by_pos[(it["file"], it["start"], it["end"])] for it in index]
+    batched(lambda: cmd_briefs(a, locked, "candidate-briefs-v2"), "rebrief")
+    backup = os.path.join(HELD, "index-v1-briefs.json")
+    if not os.path.isfile(backup):
+        with open(backup, "w", encoding="utf-8") as fh:
+            json.dump(index, fh, indent=1)
+    unusable = []
+    for it, c in zip(index, locked):
+        with open(os.path.join(HELD, "candidate-briefs-v2", c["cid"] + ".json"), encoding="utf-8") as fh:
+            b = json.load(fh)
+        if b.get("brief"):
+            it["brief"] = b["brief"]
+        if not b.get("usable"):
+            unusable.append(it["id"])
+    with open(os.path.join(HELD, "index.json"), "w", encoding="utf-8") as fh:
+        json.dump(index, fh, indent=1)
+    print(f"index.json: {len(index)} briefs swapped" + (f"; marked unusable this time (kept anyway): {unusable}" if unusable else ""))
 
 
 # ---------------------------------------------------------------- finalize
@@ -784,6 +837,10 @@ def generate(setup_name, date):
 
     def one(item):
         path = os.path.join(d, "gen", item["id"] + ".txt")
+        if setup.get("external"):  # written by another program (the Phase C pilot: scripts/voice/pilot_write.py)
+            if not os.path.isfile(path):
+                raise RuntimeError(f"{item['id']}: no draft yet. Run: {setup['external']}")
+            return item["id"]
         cached(path, lambda: write_piece(setup, item, d))
         return item["id"]
     print(f"writing {len(index)} pieces under setup '{setup_name}'", file=sys.stderr)
@@ -1055,8 +1112,8 @@ def report(setup_name, date, luar=True):
 def cmd_run(a):
     date = a.date or datetime.date.today().isoformat()
     if not a.report_only:
-        generate(a.setup, date)
-        judge(a.setup, date)
+        batched(lambda: generate(a.setup, date), "write")
+        batched(lambda: judge(a.setup, date), "judge")
     report(a.setup, date, luar=not a.no_luar)
 
 
@@ -1144,6 +1201,7 @@ def main():
     sub = ap.add_subparsers(dest="cmd", required=True)
     p = sub.add_parser("pick"); p.add_argument("--force", action="store_true"); p.set_defaults(fn=cmd_pick)
     p = sub.add_parser("briefs"); p.set_defaults(fn=cmd_briefs)
+    p = sub.add_parser("rebrief", help="re-brief the 40 locked passages at full strength (C0)"); p.set_defaults(fn=cmd_rebrief)
     p = sub.add_parser("finalize"); p.add_argument("--force", action="store_true")
     p.add_argument("--drop", help="comma-separated candidate ids to leave out"); p.set_defaults(fn=cmd_finalize)
     p = sub.add_parser("run"); p.add_argument("--setup", required=True); p.add_argument("--date")
