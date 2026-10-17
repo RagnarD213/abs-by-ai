@@ -8,7 +8,7 @@ The actual hosted master matched the older October 14 export, while the October 
 
 A corrected full-quality review candidate is now rendered. The supplied rarity animation replaces the contradictory photograph, the key point holds through the cut to Second, captions clear the graphic and its labels, and the supplied lesson replaces the repeated closing title. The authorized minimal label-entrance and camera-cut repairs are also present. Prior defective candidates are retained as rejected evidence.
 
-The current candidate is an inspection copy, not an approved master. Full decode and reference-mix audio checks pass. The audio retains the complete editor mix with a justified constant 0.35 dB reduction; 29.97 fps export preserves timing. The independent reviewer inspected all 43 exact encoded watch images and found no scored defects. The full delivery gate completes with 37 PASS, 2 FAIL, 0 NOT MEASURED and 7 explicitly inapplicable rows. No threshold was loosened or failure represented as PASS.
+The current candidate is an inspection copy, not an approved master. Full decode and reference-mix audio checks pass. The audio retains the complete editor mix with a justified constant 0.35 dB reduction; 29.97 fps export preserves timing. The independent reviewer inspected all 43 exact encoded watch images and found no scored defects. The full delivery gate completes with 30 PASS, 2 FAIL, 0 NOT MEASURED and 7 explicitly inapplicable rows. No threshold was loosened or failure represented as PASS.
 
 ## Exact owner decision
 
