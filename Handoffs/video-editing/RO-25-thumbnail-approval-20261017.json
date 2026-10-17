@@ -1,0 +1,21 @@
+{
+  "job": "RO-25",
+  "video": "I'm 41. I Wasted My Life.",
+  "approved_at_local_date": "2026-10-17",
+  "timezone": "America/Chicago",
+  "approval_quote": "Let's go with C. Finalize that. The video is not edited yet but give me the handoff for setup with this thumbnail once we have the video edit completed",
+  "thumbnail_status": "Approved and finalized",
+  "video_status": "Not finalized by this task; setup waits for completed, approved final film",
+  "selected_variant": "Round 4 C: red age, white regret, larger Impact text",
+  "text": "I'm 41. I wasted my life.",
+  "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/Im 41 I Wasted My Life/Im 41 I Wasted My Life - thumbnail FINAL.jpg",
+  "sha256": "d7c8a844889a350552c07f029176ad4282a5e5cd8f2e6619649c404965f70223",
+  "bytes": 410326,
+  "width": 1280,
+  "height": 720,
+  "format": "JPEG",
+  "source": "/Users/danielrose/Documents/ChatGPT/Sleep Coach/output/ro25-thumbnails-20261017-round4-colors/C-red-age-white-regret.jpg",
+  "uploaded": false,
+  "scheduled": false,
+  "published": false
+}
