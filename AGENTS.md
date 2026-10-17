@@ -230,6 +230,10 @@ Full rule: read `.claude/skills/_shared/VIDEO-RULES.md`.
 
 Full rule: read `.claude/skills/_shared/VIDEO-RULES.md`.
 
+## Always name videos by title when talking to Dan (Dan, 2026-10-17)
+
+- Whenever you mention a video to Dan (chat, wrap-up boxes, recommendations, handoff summaries, review pages), give its recognizable title, e.g. "Calories: The Reason You're Not Losing Weight (RO-10)". A code like RO-10, SL-15 or RA-07 may follow the title, never stand alone. Why: Dan cannot tell which video a code means.
+
 ## Video task names in the sidebar (Dan, 2026-10-16)
 
 - Every video editing task uses `<Recognizable Video Title> <Type> R<round>`: a few words that identify the video, then its type, then `R1`, `R2`, etc. Examples: `Top 1% LFC R2`, `I'm 41 Wasted Life LFC R2`, `Stop Deadlifting SFC R1`, `Top 1% SFL R1`.

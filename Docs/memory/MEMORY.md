@@ -231,6 +231,7 @@
 - [Suggested tasks](suggested-task-plain-language.md): plain title and tldr, tech in prompt
 - [Review pages seek](review-page-must-seek.md): review_server.py only; http.server cannot scrub
 - [Shorts cadence](shorts-release-cadence.md): DS Thu; long-form Shorts Mon/Tue/Fri/Sat; 3 per film
+- [Video titles](video-title-not-code.md): title first, code optional
 - [Execute Dan's picks](execute-dans-explicit-picks.md): build exactly what he names
 - [Allegations not facts](allegations-not-fact.md): never mentioned unless Dan asks
 - [Assessment symmetry](assessment-symmetry.md): one standard, swap test, results
