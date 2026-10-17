@@ -1,0 +1,18 @@
+{
+  "youtube": {
+    "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/Meal Prep - DS-28/covers/round2/3-tall-larger-text.jpg",
+    "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/Meal Prep - DS-28/setup/meal-prep-youtube-approved.jpg",
+    "sha256": "e3906d10484cb12e559bcd50825613b4d879e114b744ade5721f58dd9cd0826f",
+    "bytes": 569790
+  },
+  "instagram": {
+    "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/Meal Prep - DS-28/covers/round2/3-short-A-clean-navy.jpg",
+    "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/Meal Prep - DS-28/setup/meal-prep-instagram-approved.jpg",
+    "sha256": "b043fc5ed6f1d44ba1b5a04dcbde192aba7265c695ca1a06625e7c8f58f3f31d",
+    "bytes": 457640
+  },
+  "date": "2026-10-17",
+  "dan": "The tall looks good. Let's go with A, the clean navy. Go ahead and install that",
+  "status": "approved",
+  "category": "CONTENT"
+}
