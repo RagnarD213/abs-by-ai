@@ -35,9 +35,9 @@ Real photographs remain labelled “Real photo(s) of me, not AI-generated” eve
 
 Every new or revised video graphic uses the Soft Blue Light theme and real HyperFrames motion throughout its screen time. A full-screen graphic keeps its Soft Blue Light field moving, with appropriate continuing accent or bar motion; a static image with only word reveals or an entrance is not enough. Preserve approved copy and layout when Dan requests motion only. Existing approved graphics stay locked unless he asks to revise them. Full rule and moving references: `.claude/skills/_shared/VIDEO-RULES.md`.
 
-## Video rounds: continue in the task or hand off (Dan, 2026-10-17)
+## Video rounds: continue in the task or hand off, automatically (Dan, 2026-10-17)
 
-- After Dan replies to a delivered round, keep going in the same task if the reply is a quick approval or small note, the work left is short, the task is under about 40% full and he replied within about an hour. Hand off for a new round, heavy work left on a task over about 40%, a reply hours later, a struggling task, or a model change. State the choice in one line. Full rule: `.claude/skills/_shared/VIDEO-RULES.md`, first section.
+- After Dan replies to a delivered round, the task decides itself: continue here for small work on a task under about 40% full when he replied within about an hour; otherwise hand off. When handing off, it writes the handoff, starts the new task itself (one-click card if it cannot), pins the new task and unpins itself. Dan never asks for or fires the handoff. State the choice in one line. Full rule: `.claude/skills/_shared/VIDEO-RULES.md`, first section.
 
 ## Later-round video review timestamps (Dan, 2026-10-10)
 

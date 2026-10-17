@@ -1,11 +1,23 @@
-## Continue in the same task or hand off: decide by size, not habit (Dan, 2026-10-17)
+## Continue in the same task or hand off: decide, then do it yourself (Dan, 2026-10-17)
 
-- When Dan replies to a delivered round (an approval, a pick, notes), decide whether to keep working in this task or write a handoff for a fresh one. Do not default to a handoff. Check this task's context with `get_usage` (session "self") before deciding.
-- **Keep going in this task when all are true:** Dan's reply is an approval, a pick or one or two small notes; the work left is short and routine (deliver, upload, a small trim, one re-render, a setup step); the task is under about 40% of its context window; and Dan replied within about an hour (the conversation cache is still warm).
-- **Write a handoff for a fresh task when any is true:** it is a new round (Dan watched the film and gave a list of notes, so the round number goes up); the task is over about 40% full and heavy work remains (new AI frames or motion with retakes, a full-film rebuild, the full gate chain, independent reviewers); Dan replied hours later (the cache has expired, and re-reading a large task costs more than a fresh start of about 200k tokens); the task struggled (repeated failed attempts or wrong turns); or the next part belongs to a different model or to Codex.
-- Under about 30% full: keep going unless it is a new round. 30 to 50%: decide by how much work is left. Over 50%: hand off. Video quality outranks token savings: when in doubt on a heavy stage, hand off.
-- State the choice and the reason in one line in the reply (for example: "Continuing here: 18% full, only delivery left"). A handoff still carries the starter prompt and model + effort in chat.
-- Why: on 2026-10-17 Dan asked when to continue versus hand off after RA-07 R6, which wrote a stage 2 handoff after a one-word approval. That task was 42% full (421k of 1M) with the heaviest stage still ahead, so the handoff was right there, but sessions were handing off by habit even when continuing was cheaper.
+When Dan replies to a delivered round (an approval, a pick, notes), the task decides on its own whether to keep working here or move to a fresh task, and carries out the move itself. Dan never asks for the handoff and never pastes a starter prompt. Do not default to a handoff. Check this task's context with `get_usage` (session "self") before deciding.
+
+**Decide.** Video quality outranks token savings; when in doubt on a heavy stage, hand off.
+- **Continue here when all are true:** the work Dan asked for is small (an approval, a pick, or a few contained notes: a trim, a text fix, one swapped clip, one re-render, delivery, a setup step); the task is under about 40% of its context window; and Dan replied within about an hour (the conversation cache is still warm).
+- **Hand off when any is true:** the task is over about 40% full and heavy work remains (new AI frames or motion with retakes, a full-film rebuild, the full gate chain, independent reviewers); Dan's notes are a long list that amounts to a substantial new round; Dan replied hours later (the cache has expired, and re-reading a large task costs more than a fresh start of about 200k tokens); the task struggled (repeated failed attempts or wrong turns); or the next part belongs to a different model or to Codex.
+- Rough guide: under about 30% full, continue unless the work is heavy. 30 to 50%, decide by how much work is left. Over 50%, hand off.
+- State the choice and reason in one line at the top of the reply, for example: "Continuing here: 18% full, small trim only" or "Handing off: 46% full and new AI motion plus the full gate chain are left."
+
+**If continuing:** record Dan's words in the decisions file as usual. If his notes start a new round, rename this task to the next round number (`<Title> <Type> R<n+1>`) and build in a new `roundN/` folder; never overwrite a reviewed round. Keep the pin.
+
+**If handing off, do all of this in the same turn, then stop:**
+1. Write the handoff (`Handoffs/handoff-YYYYMMDD-<job>-roundN-<topic>.md`, contents per PRE-RENDER-APPROVAL.md) and push it with `safe-push.sh`.
+2. Start the new task yourself with the app's start-session tool (`mcp__ccd_session_mgmt__start_session` or the equivalent listed in this session; load it with ToolSearch first). Title `<Title> <Type> R<n>` per the naming rule, the starter prompt as its first message, the recommended model and effort (`set_session_model` / `set_session_effort` if the start tool cannot set them). Since it starts at once, do not add it to the OPEN list in `Handoffs/README.md`.
+3. Pin the new task (`mcp__ccd_sidebar__set_pinned`, pinned true) and unpin this one (session "self", pinned false).
+4. End the reply with the starter prompt, the model and effort, and a link to the new task as `[its title](#<sessionId>)`. Do not archive this task.
+- **Fallback when no start-session tool is available:** put up a `spawn_task` card carrying the full starter prompt (plain-language title and tldr per CLAUDE.md), add the handoff to the OPEN list in `Handoffs/README.md`, still unpin this task, and tell Dan in one line that one click on the card starts it. Note in the reply which path was used.
+- Never auto-start a task that would spend beyond a standing cap or do anything Dan reserved for approval (uploads, publishing); the new task stops at those points as usual.
+- Why: on 2026-10-17 Dan asked when to continue versus hand off after RA-07 R6 wrote a stage 2 handoff after a one-word approval. That task was 42% full (421k of 1M) with the heaviest stage still ahead, so a handoff was right there, but sessions were handing off by habit even when continuing was cheaper, and Dan had to fire every handoff himself. Dan: make the call yourself, fire the handoff automatically, pin the new task and unpin the old one.
 
 ## Video editing task names (Dan, 2026-10-16)
 

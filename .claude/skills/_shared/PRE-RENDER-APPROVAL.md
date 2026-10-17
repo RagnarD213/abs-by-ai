@@ -154,7 +154,7 @@ Each step is its own round unless the items are ready together. Nothing later st
 
 Use the current [video editing task naming rule](VIDEO-RULES.md#video-editing-task-names-dan-2026-10-16) for the chat and every handoff starter: recognizable video title, content type (LFC/SFC/SFL as applicable), then R1/R2/etc. Keep job IDs inside the handoff, not in its proposed chat title.
 
-- **One round is one session.** It starts from the previous round's handoff, reads the decisions file, and re-hashes every locked file
+- **One round is one session by default** (a small follow-up may continue in the same session under the continue-or-handoff rule in VIDEO-RULES.md, first section). A new session starts from the previous round's handoff, reads the decisions file, and re-hashes every locked file
   (record expected vs actual) before touching anything. It builds in a new `roundN/` folder and never overwrites a reviewed round.
 - **Show only what changed or is still pending.** Locked items appear as a record list, never as a question. Stay inside the decision
   budget above (10 to 15 per video in total); items Claude checked are listed as decided, not asked. A one-variable question (a crop, a transparency) gets its own tiny page so it can be
@@ -168,7 +168,7 @@ Use the current [video editing task naming rule](VIDEO-RULES.md#video-editing-ta
 - **Record every decision** when Dan replies, in `round(N+1)-plan/decisions.json`: per item its ID, path, sha256, verdict (approved /
   approved-with-notes / rejected), Dan's exact words, scope (for example "frames only", "text approved, timing pending") and next action,
   plus `motion_authorized` and `new_frames_before_motion` lists. A locked item is never reopened unless Dan reopens it.
-- **Close every round with a handoff** (`Handoffs/handoff-YYYYMMDD-<job>-roundN-<topic>.md`): scope; files to read; locks with hashes
+- **Close every round that moves to a new session with a handoff, and start that session yourself** (VIDEO-RULES.md, first section) (`Handoffs/handoff-YYYYMMDD-<job>-roundN-<topic>.md`): scope; files to read; locks with hashes
   and Dan's words; each requested change anchored to heard words and output times; exact authorizations per AI item; cuts already
   applied (so none is applied twice); gate status stated honestly; a cost ledger (known, unknown, cap); the recommended model and effort;
   the exact next action; a ready-to-paste starter prompt. Then stop. No session stays alive polling for Dan's answer.
