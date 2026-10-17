@@ -84,7 +84,11 @@
   "kind": "short",
   "job": "DS-09",
   "label": "How To Make Time To Work Out",
-  "added": "2026-10-13"
+  "added": "2026-10-13",
+  "queued": {
+   "date": "2026-10-17",
+   "main": "2026-10-22T14:00:00.000Z"
+  }
  },
  {
   "config": "scripts/blotato/configs/ds22-how-to-use-the-ab-wheel.json",
