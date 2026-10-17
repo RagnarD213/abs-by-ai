@@ -27,7 +27,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **AI Took Job AD R4 WAITING 2026-10-16, Codex.** R3 inputs verified; both complete films and initial checks queued through buildcap. Extreme full, work on Expansion. Next: completed candidates, editor QA, independent review and :8976 delivery. No publishing. Packet: `Codex Ad Videos/ai took my job - RA-16/R4 production/WORK_PACKET.json`.
 
-**RA-13:R3-CHECKS:2026-10-16:Codex.** Both complete 53.9s copies built. Whole-head vertical centering, B0550 in one phone and matching analysis image. Next: exact-file checks, independent review, then :8973 delivery. Work `/Volumes/Expansion/Abs By AI Edit Work/ra13/round3/` (Extreme full).
+**RA-13:R3-REVIEW:8973:2026-10-16:Codex.** Both full R3 formats delivered. Vertical centering, B0550 one-phone demo and matching analysis photo fixed. Independent media review: no open defects. Full numerical gates retain approved audio/framing/cut flags. Master list updated. Next: Dan reviews :8973; not finalized. Report: `Handoffs/video-editing/reports/RA-13-R3-review-report.txt`.
 
 **Fat Millionaire SFC R4 REPAIR-WAITING 2026-10-16, Codex.** Initial candidate returned by editor/independent still review for photo-boundary, caption and closing-fade repairs. Sequential actual worker registered fairly; no duplicate. Posting hold/F3/date intent intact. Next: corrected candidate, full QC/independent watch, then Dan approval. Packet: `Handoffs/handoff-20261016-ds05-correct-version.md`.
 

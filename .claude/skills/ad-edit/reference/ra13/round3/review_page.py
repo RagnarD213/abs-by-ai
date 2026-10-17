@@ -24,3 +24,7 @@ doc=doc.replace('<h2>Changes to check</h2><section>','<h2>Changes to check</h2><
 doc=doc.replace("const playbackStatus=", "const soundToggle=document.querySelector('#soundToggle');\nfunction syncSoundLabel(){soundToggle.textContent=film.muted?'Unmute':'Mute';}\nfilm.addEventListener('volumechange',syncSoundLabel);syncSoundLabel();\nconst playbackStatus=")
 assert '\u2014' not in doc and '\u2013' not in doc
 (P/'index.html').write_text(doc)
+
+# Keep the player from intercepting lower review controls while scrolling.
+doc=(P/'index.html').read_text().replace('.player{position:sticky;top:0;','.player{position:relative;top:auto;').replace('<video id="film" controls','<video id="film" muted controls')
+(P/'index.html').write_text(doc)
