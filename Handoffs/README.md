@@ -14,7 +14,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 - [Most Guys Abs AD Setup](handoff-20261017-ra13-setup.md): **Ready now (2026-10-17). Claude Opus 5.5 / High.** Approved R3 vertical and horizontal: five Codex thumbnail choices, Dan picks, then both Unlisted and trial Ads setup.
 
 - [RA-15 setup](handoff-20261016-ra15-setup.md): **Ready now (2026-10-16). Claude Opus 5.5 / High.** Never Pay A Nutritionist AD: five Codex thumbnail choices, stop for Dan's pick, upload both Unlisted, trial campaign 24316364155 ad group, policy check.
-- [Meal Prep SFC R5: approved Color A](handoff-20261014-ds28-round5-approved-color-a-finish.md): apply Clean and balanced to the complete Short; preserve all other approvals. GPT-6 Sol, high.
+- [Meal Prep SFC Setup](handoff-20261017-ds28-meal-prep-setup.md): **Ready now (2026-10-17). Claude Opus 5.5 / High.** Dan finalized exact R5. Five Codex cover choices, stop for his pick, then organic four-platform setup.
 
 - [Render gatekeeper](handoff-20261014-render-gatekeeper.md): enforce two builds at a time with file-lock slots; brainstorm risks first. Opus 5.5 high.
 - [Upwork profile and portfolio](handoff-20261007-upwork-profile-and-portfolio.md): interview Dan, verify experience and assets, build and publish the approved profile. Opus 5.5 high.

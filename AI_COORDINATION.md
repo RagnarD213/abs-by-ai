@@ -116,7 +116,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Ad 6 remarketing 2026-10-04:** Awaiting Dan: copy to enabled campaign 24305381214?
 
-**DS28:R5:REVIEW:2026-10-15:Codex.** :8891. Next:Dan.
 
 
 
