@@ -1,0 +1,43 @@
+{
+  "campaignId": "24316364155",
+  "label": "RA-16 AI Took Job",
+  "key": "ra16",
+  "targetCpa": 40.0,
+  "copyTargetCpaFromAdGroup": "199824307366",
+  "audienceFromAdGroup": "206348100928",
+  "logoAsset": "400941168572",
+  "ctaAsset": "401407635767",
+  "businessName": "Abs by AI",
+  "videos": [
+    {
+      "youtubeId": "StkalQUjWSw",
+      "version": "Codex R4 9:16",
+      "utm": "codex-9x16"
+    },
+    {
+      "youtubeId": "g8GWwOYzelM",
+      "version": "Codex R4 16:9",
+      "utm": "codex-16x9"
+    }
+  ],
+  "copy": {
+    "headlines": [
+      "AI Took My Job",
+      "How AI Plans Your Workouts",
+      "A Trainer Explains AI Fitness",
+      "Workout And Nutrition Plans With AI",
+      "A Fitness Plan That Adapts To You"
+    ],
+    "longHeadlines": [
+      "A personal trainer explains how AI builds a workout and nutrition plan around a goal.",
+      "Daniel Rose shows how a goal picture guides an AI fitness plan.",
+      "AI adjusts the plan around injuries, missed gym sessions and everyday life."
+    ],
+    "descriptions": [
+      "A personal trainer explains the AI tools changing fitness coaching.",
+      "See how AI builds a workout and nutrition plan around a personal goal.",
+      "Daniel Rose shows how AI adapts a fitness plan when life gets in the way."
+    ]
+  },
+  "thumbnail": "Dan selected R2 option 3: AI Dan leaving with belongings as a phone projects the AI trainer; Fire your trainer. (2026-10-17)"
+}
