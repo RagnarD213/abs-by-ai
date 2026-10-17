@@ -29,12 +29,12 @@ the subscription credits run out, ask me before paying."*
 
 | | Flow on Google AI Pro | Replicate API (paid) |
 |---|---|---|
-| Cost | 20 credits a clip (Veo 3.1 Fast); 1,000 credits a month + 50 a day | $0.10/s, $0.80 for 8 s |
+| Cost | $0 extra; 20 credits a clip (Veo 3.1 Fast); 1,000 credits a month + 50 a day | $0.10/s, $0.80 for 8 s |
 | Allowance | about 50 Fast clips a month, plus 2 or 3 a day from the daily 50 | no cap |
 | Length | 8 s only in frames mode (trim in the edit) | 4, 6 or 8 s |
 | Resolution | 720p generated, 1080p upscaled download (1920x1080, 24 fps) | 1080p |
 | Watermark | none visible with "Visible watermarking" off (avatar menu); SynthID always | none visible |
-| Speed | see `TEST-20261017.md` | about 80 to 130 s a take |
+| Speed | 5 clips in about 10 min wall (all submitted in 2 min; about 70 s to generate each; the one-at-a-time 1080p download is the bottleneck) | about 80 to 130 s a take, run in parallel |
 | Negative prompt | not supported (prompt must say what must not happen) | supported |
 
 Other models in Flow, if a job asks: Veo 3.1 Lite 10 credits, Veo 3.1 Quality 100, Omni 1.1 Flash 12 (`--model`).
@@ -46,3 +46,6 @@ Other models in Flow, if a job asks: Veo 3.1 Lite 10 credits, Veo 3.1 Quality 10
 - `FLOW-RUNBOOK.md`: the click-by-click Flow procedure. Flow changes its interface often; whoever finds a step that no
   longer matches fixes the runbook in the same session.
 - `TEST-20261017.md`: the timed 5-clip test and the watermark check.
+
+The background agent itself is not free: the 5-clip test used about 205,000 Sonnet tokens of Claude allowance (about
+40,000 a clip, mostly screenshots). Batch clips into one agent run per job rather than one agent per clip.

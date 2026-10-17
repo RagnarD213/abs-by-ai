@@ -165,8 +165,8 @@ def framecheck(c, out):
     """Flow's picker re-sorts while uploads finish, so a click can land on the wrong frame (2026-10-17: A1 went out with the
     END frame in both slots). The take must OPEN on START, and closer to START than to END. The closing frame is reported but
     only warns: Veo drifts off the END frame in its last frames (RO-20's good API take closed 24.2 from END, 25.2 from START)."""
-    s0, e1 = framediff(out, 0, c["start"]), (framediff(out, -0.05, c["end"]) if c["end"] else None)
-    s1 = framediff(out, -0.05, c["start"]); e0 = framediff(out, 0, c["end"]) if c["end"] else None
+    s0, e1 = framediff(out, 0, c["start"]), (framediff(out, -0.25, c["end"]) if c["end"] else None)
+    s1 = framediff(out, -0.25, c["start"]); e0 = framediff(out, 0, c["end"]) if c["end"] else None
     ok = s0 < 25 and (e0 is None or s0 < e0)
     warn = e1 is not None and e1 >= s1
     return {"open_vs_start": s0, "open_vs_end": e0, "close_vs_end": e1, "close_vs_start": s1, "ok": ok,

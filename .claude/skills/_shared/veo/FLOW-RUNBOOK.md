@@ -72,8 +72,9 @@ its X. After a page reload the hook is gone: run it again before the next upload
 
 For each queued clip, in job order:
 
-1. Click **Start** → type the clip's exact start file name (`A1-start`) in "Search assets" so only that file is listed →
-   click it → confirm with `find` that the highlighted item is `A1-start.jpg` → **Add to prompt**.
+1. Click **Start** → type the clip's exact start file name (`A1-start`) in "Search assets" so only that file is listed
+   (it is highlighted already) → click **Add to prompt** directly. Do not click the result row: on the test that sometimes
+   closed the picker and added the frame on its own. The End picker is wider, so its Add to prompt button sits further right.
 2. If the clip has an end frame: click **End** → search `A1-end` → click it → confirm the name → **Add to prompt**. Zoom on
    the two thumbnails in the prompt box and compare them with the job's frames: START left, END right (⇄ swaps them).
    **This step is the one that went wrong on the first test (2026-10-17): the END frame landed in both slots.**
@@ -94,11 +95,15 @@ play icon instead of a percentage. A failed tile shows an error or a "violates p
 the same frames is reported, not retried with a changed prompt).
 
 Flow titles each finished tile itself ("Businessman smirking at desk"). Tie it to the clip first: hover the tile → **⋮
-More options** → **Rename** → the clip id (`A1`). Tiles appear newest first, in submit order reversed.
+More options** → **Rename**, **wait about a second** for the box, select all (cmd+a), type the clip id (`A1`), Enter.
+Typing too early appends to the old title. Tiles start newest first, but the grid re-sorts after renames and reloads:
+find tiles by name, or click **Videos** in the left sidebar to hide the uploaded frames.
 
 To get the file: ⋮ **More options** → **Download** → **1080p Upscaled** (720p "Original size" only if 1080p is missing;
 4K needs Ultra, never click its Upgrade). Upscaling takes about 50 s and Flow asks you not to run several at once: start
-one, wait until the file is in `~/Downloads` (named `<tile title>_1080p_<YYYYMMDDHHMMSS>.mp4`), then the next. Then:
+one, wait until the file is in `~/Downloads` (usually `<tile title>_1080p_<YYYYMMDDHHMMSS>.mp4`; once it came without
+"1080p" in the name and was still 1920x1080), then the next. Watch `~/Downloads`, not the "Upscaling" toast, which lingers
+for minutes. The submenu is translucent for a moment after it opens: 1080p Upscaled is its third entry. Then:
 
 ```bash
 python3 .claude/skills/_shared/veo/veo.py collect JOBDIR A1 --from ~/Downloads/<the new file>.mp4
