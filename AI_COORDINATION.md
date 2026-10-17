@@ -25,6 +25,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**RO-25 LFC R4 — EDITING 2026-10-17, Codex.** One editor owns Bass 2, G08 credit, G16 copy and existing approved motion integration in isolated round4 scratch. Next: exact-file/context QA, managed review packet, then one decision on extra motion allowance; no paid motion above the $5 job cap. Detail: `/Volumes/Extreme/_edit_work/RO-25/round4/WORK_PACKET.md`.
+
 **Main Git cloud read BLOCKED 2026-10-16, Codex.** Main-folder fetch waits on an iCloud-evicted local object, `.git/objects/29/f0dd02ad6df53b23db29ba79c5dcda29923390`. Download requested; object absent from GitHub. RA-13 records safely pushed via clean checkout, commit `f3d725b`. Next: restore that local object before main-folder pushes. No other session files or refs changed.
 
 **AI Took Job AD R4 WAITING 2026-10-16, Codex.** R3 inputs verified; both complete films and initial checks queued through buildcap. Extreme full, work on Expansion. Next: completed candidates, editor QA, independent review and :8976 delivery. No publishing. Packet: `Codex Ad Videos/ai took my job - RA-16/R4 production/WORK_PACKET.json`.
@@ -32,9 +34,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **RA-13:R3-REVIEW:8973:2026-10-16:Codex.** Both full R3 formats delivered. Vertical centering, B0550 one-phone demo and matching analysis photo fixed. Independent media review: no open defects. Full numerical gates retain approved audio/framing/cut flags. Master list updated. Next: Dan reviews :8973; not finalized. Report: `Handoffs/video-editing/reports/RA-13-R3-review-report.txt`.
 
 
-**RO-26:R3-REVIEW:8982:2026-10-16:Codex.** Selected revisions applied; B colour/C voice/G05 locked. First minute and narrated contexts picture/listening/browser play+seek checked. Corrected incline frames and Nutrition motion automatic+fresh independent PASS ($0.60 motion estimate). Strict reference audio flags retained. Next: Dan approves workout frames and revised assets/motion. No workout motion/full film/upload. Full-quality first minute in Videos to Review. Detail: `/Volumes/Extreme/_edit_work/ro26/round3/`.
 
-**I'm 41 Wasted Life LFC R3 REVIEW 2026-10-16, Codex.** All graphics, first-minute picture/pacing and five passing motion contexts ready at :8825; labels/play/seek verified. Four revised pairs await Dan; Rich Balanced/skip3,6,13 preserved. $4.90/$5 motion estimate, five failed takes withheld; extra $4.55 proposed only. Tone/self-test FAIL and full-film checks pending. Next: Dan's page choices. Ready notified; heartbeat paused. Packet: `/Volumes/Extreme/_edit_work/RO-25/round3/WORK_PACKET.md`.
 
 **Voice P2C commits UNPUSHED 2026-10-16, Claude.** Two local commits (bench fix, pilot results) wait on main; safe-push stopped on live edits to the board, DAN_DECISIONS, 00-MASTER, jobs.json. Next: any safe-push from the main folder carries them; then delete this.
 
@@ -63,6 +63,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 
 **Nightly footage - COPYING ACTIVE 2026-10-17, Codex/Claude.** Seven shoots, including 10/15, checksum verified on Seagate and Drive. Nightly 8 pm copy-only routine remains active. Extreme originals remain; deletion paused. Next: decide the offload rule before enabling deletion. Detail: `Handoffs/handoff-20261005-claude-nightly-footage-offload.md`.
+
+**Repository merge blocked 2026-10-17, Codex.** The verified footage status is committed locally, but `safe-push.sh` stopped on conflicts in `Docs/DAN_DECISIONS.md`, `Handoffs/README.md`, and `Handoffs/handoff-20261016-ds05-correct-version.md`. Next: hand merge those files, then push. Do not commit more on top.
 
 **Codex revisions recovery - OPEN 2026-10-05, Codex.** Tool fixes and test Doc delivered; external video judge failed the known case. Fresh passes: 0. Next: eligible short plus sealed Claude Doc, then complete motion/AI coverage and blind comparison. Keep Claude editorial default. Detail: `Handoffs/results-20261005-codex-revisions-quality-recovery.md`.
 
@@ -95,7 +97,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **RO-20/B/C:R3b-REVIEW:8868:2026-10-16:Claude.** Studio pickups laid in. Next: Dan's pickup A/B + sign-off answers, then three films (handoff step 2).
 
 
-**RA-15 setup PICK 2026-10-16, Claude.** Five thumbnails on sheet; waiting Dan's pick. Next: upload both Unlisted, trial group, policy. `Handoffs/handoff-20261016-ra15-setup.md`
+**RA-15 setup PICK 2026-10-17, Claude.** Dan rejected round 1; round 2 sheet (3 designs, NUTRITIONISTS DESPISE HIM) waiting his pick. Next: upload both Unlisted, trial group, policy. `Handoffs/handoff-20261016-ra15-setup.md`
 
 **RA-05:POLICY-RECHECK:2026-10-16:Claude.** Live: `0DswKDBFW2E`, ad `828398569805` in review. Next 10-17: `node scripts/ads/api/client.js policy 24316364155`; clean, delete this.
 
