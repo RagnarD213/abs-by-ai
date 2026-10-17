@@ -60,7 +60,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Voice P2C commits UNPUSHED 2026-10-16, Claude.** Two local commits (bench fix, pilot results) wait on main; safe-push stopped on live edits to the board, DAN_DECISIONS, 00-MASTER, jobs.json. Next: any safe-push from the main folder carries them; then delete this.
 
-**RO-04:R1-REVIEW:8974:2026-10-15:Codex**
+**Arms & Shoulders Workout Only (RO-04) - R2 EDIT 2026-10-17, Codex.** Sole editor under explicit handoff. New vivid color choices and 20% less headroom only; preserve timing, graphics and audio. Next: checked comparisons and provisional first minute on port 8974, then Dan chooses color. No full-film build. Own corpus additions appended; unrelated shared edits preserved.
 **COVERS:MOBILE:2026-10-15:Docs/COVER_AUDIT_20261015.md**
 
 **Calories Not Losing Weight SFL R2 - BUILD 2026-10-17, Codex.** Sole editor under the R1 handoff. Five selections locked, no pickups. Next: source/continuity checks and narrated Soft Blue HyperFrames asset-review packet. No covers or publishing. Detail: `Handoffs/handoff-20261017-sl08-round2-five-approved-shorts.md`.
