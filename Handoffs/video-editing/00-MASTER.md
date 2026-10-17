@@ -127,7 +127,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [RO-15](RO-15-sleep-better-with-glycine.md) | Sleep Better With Glycine | 9/23 C1709 | READY | L |
 | [RO-16](RO-16-if-i-had-belly-fat-here-s-how-i-d-lose-it-in-90-da.md) | If I Had Belly Fat, Here's How I'd Lose It In 90 Days | 9/23 C1710 | UPLOADED | L |
 | [RO-17](RO-17-3-healthy-foods-that-made-me-fat.md) | 3 Healthy Foods That Made Me Fat | 9/23 C1713 | DELIVERED: awaiting Dan | L |
-| [RO-18](RO-18-how-to-make-time-for-exercise-nutrition.md) | How To Make Time For Exercise & Nutrition | 9/23 C1714-C1715 | DRAFT: asset choices waiting for Dan | L |
+| [RO-18](RO-18-how-to-make-time-for-exercise-nutrition.md) | How To Make Time For Exercise & Nutrition | 9/23 C1714-C1715 | FINALIZED 2026-10-17: R7 approved by Dan; existing setup handoff | L |
 | [RO-19](RO-19-my-first-spray-tan.md) | My First Spray Tan (old edit scrapped 10-02, redo from scratch) | 8/3 C1512 (31 min) | FINALIZED | L |
 | [RO-20](RO-20-invest-more-in-your-health.md) | Why You Should Invest More In Your Health (part 1 of 3 since 10-11; old edit scrapped 10-02) | 8/3 C1511 (69 min) | IN PROGRESS | L |
 | [RO-20B](RO-20-invest-more-in-your-health.md) | What To Cut To Afford Getting In Shape (part 2 of 3, split from RO-20 on 10-11) | 8/3 C1511 (69 min) | IN PROGRESS | L |
@@ -219,7 +219,7 @@ RO-25 selections received 2026-10-16. Next: [round-two selected frames and revis
 | job | video | rolls | status | size |
 |---|---|---|---|---|
 | [WV-01](WV-01-vsl-1-analysis-page-video-version-a-version-b-intr.md) | VSL 1: Analysis-page video (version A + version B intro) | C1692-C1700 | FINALIZED | L |
-| [WV-01B](../handoff-20261010-wv01-b-claude-1p2x-then-website-test.md) | VSL 1 version B: Fired Them All, full film R5 | C1699 | FINALIZED | L |
+| [WV-01B](../handoff-20261010-wv01-b-claude-1p2x-then-website-test.md) | VSL 1 version B: Fired Them All, full film R5 | C1699 | CANCELED 2026-10-17 (Dan dropped this funnel; staying with the VSL funnel) | L |
 | [WV-02](WV-02-vsl-2-start-landing-page-video.md) | VSL 2: /start landing-page video | C1701-C1703 | READY | M |
 
 ### 1D · Housekeeping
