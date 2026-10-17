@@ -1,5 +1,19 @@
 # AI Took Job AD setup, October 17, 2026
 
+## Current thumbnail round: R2
+
+Dan rejected all five R1 designs and requested three replacements with the exact headline "Fire your trainer." His explicit choice replaces the default five-design mix for this round. He has not selected an R2 design yet.
+
+1. Reused the exact A0147 original end frames, native 16:9 and 9:16, showing a fired trainer carrying his box while a robot spots a bench press. Source: `/Volumes/Extreme/_edit_work/kit9x16/av11-ad13/round2/opener/end_16x9.png` and `end_9x16.png`. Source hashes retained. No regenerated picture or color changes; resized and text composited.
+2. AI Dan is the fired trainer leaving with a box; a silver robot coaches his former client. Bright white/red gym, bold red top headline.
+3. AI Dan leaves with a box while a phone projects a cyan holographic trainer coaching his former client. Midnight-blue gym, italic white/cyan bottom headline.
+
+Options 2 and 3 used the real identity reference on the Codex subscription, gpt-6.1-sol high, four helper calls for native horizontal and vertical assets. 104,118 Codex tokens, zero paid image API spend. R2 recipe, prompts and receipts: `.claude/skills/ad-setup/reference/ra16-setup-20261017/round2/`.
+
+Review sheet: `social media graphics/youtube/thumbnails/RA-16 AI Took My Job/R2/REVIEW-three-options-R2.jpg`. Full-size files beside it: `option-N-16x9.jpg` and `option-N-9x16.jpg`. All six are below 2 MB, visually inspected for readable exact copy, recognizable face and clear face/hair. Both approved films remain untouched. No uploads, Ads writes or organic publishing. Next: Dan selects R2 1, 2 or 3, then execute the upload and trial setup instructions below after refreshing preflight. R1 copy and files are historical, not approved.
+
+## Earlier setup preparation and R1 history
+
 AD. Setup is waiting for Dan's thumbnail selection. No upload, ad creation, campaign change or budget change has occurred.
 
 Both exact approved R4 native files were verified against `Handoffs/video-editing/RA-16-R4-approval.json`:

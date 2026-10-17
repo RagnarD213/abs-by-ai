@@ -1,0 +1,30 @@
+[
+  {
+    "ok": true,
+    "out": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-16 AI Took My Job/_build-r2-2026-10-17/assets/option2-16x9.png",
+    "width": 1672,
+    "height": 941,
+    "codex_tokens": 26980
+  },
+  {
+    "ok": true,
+    "out": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-16 AI Took My Job/_build-r2-2026-10-17/assets/option2-9x16.png",
+    "width": 941,
+    "height": 1672,
+    "codex_tokens": 30562
+  },
+  {
+    "ok": true,
+    "out": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-16 AI Took My Job/_build-r2-2026-10-17/assets/option3-16x9.png",
+    "width": 1672,
+    "height": 941,
+    "codex_tokens": 24585
+  },
+  {
+    "ok": true,
+    "out": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-16 AI Took My Job/_build-r2-2026-10-17/assets/option3-9x16.png",
+    "width": 941,
+    "height": 1672,
+    "codex_tokens": 21991
+  }
+]

@@ -25,7 +25,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**AI Took Job AD Setup PICK 2026-10-17, Codex.** Five unique Codex thumbnail choices delivered in 16:9 and 9:16. Both approved R4 masters verified unchanged. Next: Dan picks, then upload both Unlisted and add RA-16 to trial 24316364155. No upload or Ads write yet. Detail: `Docs/RA16_SETUP_RECEIPT_20261017.md`.
+**AI Took Job AD Setup PICK 2026-10-17, Codex.** R1 rejected. Three new R2 designs use "Fire your trainer.": original A0147 end frame, AI Dan replaced by robot, AI Dan replaced by phone hologram. Both formats checked. Next: Dan picks R2 1-3, then both unchanged R4 films Unlisted and trial 24316364155. No upload or Ads write. Detail: `Docs/RA16_SETUP_RECEIPT_20261017.md`.
 
 
 **RA-13 POLICY-RECHECK 2026-10-17, Codex.** Both R3 films are Unlisted and processed; trial group 201534026375, ads 828468045056 / 828468037364 ENABLED, review pending. Next 2026-10-18: `node scripts/ads/api/client.js policy 24316364155`; if clear, delete this entry. Receipt: `Docs/RA13_SETUP_RECEIPT_20261017.md`.
