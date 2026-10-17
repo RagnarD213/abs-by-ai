@@ -106,7 +106,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **RO-20/B/C:R3b-REVIEW:8868:2026-10-16:Claude.** Studio pickups laid in. Next: Dan's pickup A/B + sign-off answers, then three films (handoff step 2).
 
 
-**RA-15:POLICY-RECHECK:2026-10-17:Claude.** Ads `828399044620`, `828399056794` in review. Next 10-18: `node scripts/ads/api/client.js policy 24316364155`; clean, delete this.
+**RA-15:POLICY-RECHECK:2026-10-17:Claude.** Ads `828399044620`, `828399056794` in review. Next 10-18: `node scripts/ads/api/client.js policy 24316364155`; clean, delete this. ⚠ Records committed locally (c640d8a, 9244b41), push blocked by live DAN_DECISIONS/qc_corpus edits; next safe-push carries them.
 
 **RA-05:POLICY-RECHECK:2026-10-16:Claude.** Live: `0DswKDBFW2E`, ad `828398569805` in review. Next 10-17: `node scripts/ads/api/client.js policy 24316364155`; clean, delete this.
 
