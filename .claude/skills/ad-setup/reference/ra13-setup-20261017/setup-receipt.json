@@ -1,0 +1,428 @@
+{
+  "category": "AD",
+  "job": "RA-13",
+  "date": "2026-10-17",
+  "state": "uploaded",
+  "thumbnail_choice": 3,
+  "thumbnail_text": "How to get real abs with AI.",
+  "thumbnail_type": "Impact bold, same cobalt and cream design",
+  "dan_choice": "Or change it to \"How to get real abs with AI.\"",
+  "videos": {
+    "9x16": {
+      "youtube": "KSq1OBlWvPI",
+      "ad": "828468045056",
+      "asset": "430845852830",
+      "sha256": "6bb5d4767de0e5b922e08b90c43eba9b66c1b4af78ea60b7ce4ea78ea648ce2a",
+      "file": "Codex Ad Videos/why do most guys never get abs - RA-13/why do most guys never get abs | codex | 9x16 | RA-13 R3.mp4",
+      "thumbnail": "social media graphics/youtube/thumbnails/RA-13 Why Most Guys Never Get Abs/FINAL-APPROVED/FINAL-9x16.jpg",
+      "finalUrl": "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ra13&utm_content=codex-9x16-vsl"
+    },
+    "16x9": {
+      "youtube": "cnkrWRfFsTc",
+      "ad": "828468037364",
+      "asset": "431033327331",
+      "sha256": "0a58d484df06a7a076dd03b74944c64b498425e1c3462cd766ddfc51a3e6510b",
+      "file": "Codex Ad Videos/why do most guys never get abs - RA-13/why do most guys never get abs | codex | 16x9 | RA-13 R3.mp4",
+      "thumbnail": "social media graphics/youtube/thumbnails/RA-13 Why Most Guys Never Get Abs/FINAL-APPROVED/FINAL-16x9.jpg",
+      "finalUrl": "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ra13&utm_content=codex-16x9-vsl"
+    }
+  },
+  "youtube_readback": {
+    "at": "2026-10-17T15:28:47.620Z",
+    "kind": "youtube#videoListResponse",
+    "etag": "Lts33yoceOb8_-kugCE4fUikGDk",
+    "items": [
+      {
+        "kind": "youtube#video",
+        "etag": "LRVfpiIVgeJo8koKLrnloDbBnLg",
+        "id": "KSq1OBlWvPI",
+        "snippet": {
+          "publishedAt": "2026-10-17T15:26:41Z",
+          "channelId": "UC236gjadarHAhEhOMYNGJ9g",
+          "title": "Why Do Most Guys Never Get Abs?",
+          "description": "Most guys are not lazy. They are training without a clear goal or a plan built for them.\nI show how AI connects a visual goal with a workout and nutrition plan that adapts when life changes.\n\nExplore Abs By AI: https://absbyai.com/?utm_source=youtube&utm_medium=video_ad_description&utm_campaign=dgen-trial-ra13\n\nIn this video, I explain how a goal image can guide a personal workout and nutrition plan, and how AI adjusts that plan around injuries, missed gym sessions and everyday life.\n\nChapters\n0:00 Working without a clear plan\n0:14 See your goal\n0:28 Build a personal plan\n0:39 Adjust when life changes\n\nSome images and exercise demonstrations shown in the app are AI-generated. Goal images illustrate a possible result, not a guarantee.",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/KSq1OBlWvPI/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/KSq1OBlWvPI/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/KSq1OBlWvPI/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/KSq1OBlWvPI/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/KSq1OBlWvPI/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            },
+            "qhd": {
+              "url": "https://i.ytimg.com/vi/KSq1OBlWvPI/qhddefault.jpg",
+              "width": 2560,
+              "height": 1440
+            }
+          },
+          "channelTitle": "Dan Rose Fitness",
+          "tags": [
+            "ab workout",
+            "abs by ai",
+            "ai fitness",
+            "ai nutrition",
+            "personalized workout",
+            "six pack abs"
+          ],
+          "categoryId": "26",
+          "liveBroadcastContent": "none",
+          "defaultLanguage": "en",
+          "localized": {
+            "title": "Why Do Most Guys Never Get Abs?",
+            "description": "Most guys are not lazy. They are training without a clear goal or a plan built for them.\nI show how AI connects a visual goal with a workout and nutrition plan that adapts when life changes.\n\nExplore Abs By AI: https://absbyai.com/?utm_source=youtube&utm_medium=video_ad_description&utm_campaign=dgen-trial-ra13\n\nIn this video, I explain how a goal image can guide a personal workout and nutrition plan, and how AI adjusts that plan around injuries, missed gym sessions and everyday life.\n\nChapters\n0:00 Working without a clear plan\n0:14 See your goal\n0:28 Build a personal plan\n0:39 Adjust when life changes\n\nSome images and exercise demonstrations shown in the app are AI-generated. Goal images illustrate a possible result, not a guarantee."
+          }
+        },
+        "contentDetails": {
+          "duration": "PT54S",
+          "dimension": "2d",
+          "definition": "hd",
+          "caption": "false",
+          "licensedContent": false,
+          "contentRating": {},
+          "projection": "rectangular",
+          "hasCustomThumbnail": true
+        },
+        "status": {
+          "uploadStatus": "processed",
+          "privacyStatus": "unlisted",
+          "license": "youtube",
+          "embeddable": true,
+          "publicStatsViewable": true,
+          "madeForKids": false,
+          "selfDeclaredMadeForKids": false
+        },
+        "processingDetails": {
+          "processingStatus": "succeeded",
+          "fileDetailsAvailability": "available",
+          "processingIssuesAvailability": "available",
+          "tagSuggestionsAvailability": "inProgress",
+          "editorSuggestionsAvailability": "inProgress",
+          "thumbnailsAvailability": "inProgress"
+        }
+      },
+      {
+        "kind": "youtube#video",
+        "etag": "_GN-mjgz17EdGSLwoEfah5w2rbw",
+        "id": "cnkrWRfFsTc",
+        "snippet": {
+          "publishedAt": "2026-10-17T15:26:41Z",
+          "channelId": "UC236gjadarHAhEhOMYNGJ9g",
+          "title": "Why Do Most Guys Never Get Abs?",
+          "description": "Most guys are not lazy. They are training without a clear goal or a plan built for them.\nI show how AI connects a visual goal with a workout and nutrition plan that adapts when life changes.\n\nExplore Abs By AI: https://absbyai.com/?utm_source=youtube&utm_medium=video_ad_description&utm_campaign=dgen-trial-ra13\n\nIn this video, I explain how a goal image can guide a personal workout and nutrition plan, and how AI adjusts that plan around injuries, missed gym sessions and everyday life.\n\nChapters\n0:00 Working without a clear plan\n0:14 See your goal\n0:28 Build a personal plan\n0:39 Adjust when life changes\n\nSome images and exercise demonstrations shown in the app are AI-generated. Goal images illustrate a possible result, not a guarantee.",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/cnkrWRfFsTc/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/cnkrWRfFsTc/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/cnkrWRfFsTc/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/cnkrWRfFsTc/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/cnkrWRfFsTc/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "Dan Rose Fitness",
+          "tags": [
+            "ab workout",
+            "abs by ai",
+            "ai fitness",
+            "ai nutrition",
+            "personalized workout",
+            "six pack abs"
+          ],
+          "categoryId": "26",
+          "liveBroadcastContent": "none",
+          "defaultLanguage": "en",
+          "localized": {
+            "title": "Why Do Most Guys Never Get Abs?",
+            "description": "Most guys are not lazy. They are training without a clear goal or a plan built for them.\nI show how AI connects a visual goal with a workout and nutrition plan that adapts when life changes.\n\nExplore Abs By AI: https://absbyai.com/?utm_source=youtube&utm_medium=video_ad_description&utm_campaign=dgen-trial-ra13\n\nIn this video, I explain how a goal image can guide a personal workout and nutrition plan, and how AI adjusts that plan around injuries, missed gym sessions and everyday life.\n\nChapters\n0:00 Working without a clear plan\n0:14 See your goal\n0:28 Build a personal plan\n0:39 Adjust when life changes\n\nSome images and exercise demonstrations shown in the app are AI-generated. Goal images illustrate a possible result, not a guarantee."
+          }
+        },
+        "contentDetails": {
+          "duration": "PT54S",
+          "dimension": "2d",
+          "definition": "hd",
+          "caption": "false",
+          "licensedContent": false,
+          "contentRating": {},
+          "projection": "rectangular",
+          "hasCustomThumbnail": true
+        },
+        "status": {
+          "uploadStatus": "processed",
+          "privacyStatus": "unlisted",
+          "license": "youtube",
+          "embeddable": true,
+          "publicStatsViewable": true,
+          "madeForKids": false,
+          "selfDeclaredMadeForKids": false
+        },
+        "processingDetails": {
+          "processingStatus": "succeeded",
+          "fileDetailsAvailability": "available",
+          "processingIssuesAvailability": "available",
+          "tagSuggestionsAvailability": "inProgress",
+          "editorSuggestionsAvailability": "inProgress",
+          "thumbnailsAvailability": "inProgress"
+        }
+      }
+    ],
+    "pageInfo": {
+      "totalResults": 2,
+      "resultsPerPage": 2
+    }
+  },
+  "google_ads_result": {
+    "at": "2026-10-17T15:28:32.408Z",
+    "budgetBefore": {
+      "status": "ENABLED",
+      "budgetId": "15911255930",
+      "perDay": 30
+    },
+    "budgetAfter": {
+      "status": "ENABLED",
+      "budgetId": "15911255930",
+      "perDay": 30
+    },
+    "results": [
+      "customers/3427170837/adGroups/201534026375",
+      "customers/3427170837/adGroupCriteria/201534026375~2840",
+      "customers/3427170837/adGroupCriteria/201534026375~2124",
+      "customers/3427170837/adGroupCriteria/201534026375~1000",
+      "customers/3427170837/adGroupCriteria/201534026375~2498784755180",
+      "customers/3427170837/assets/430845852830",
+      "customers/3427170837/adGroupAds/201534026375~828468045056",
+      "customers/3427170837/assets/431033327331",
+      "customers/3427170837/adGroupAds/201534026375~828468037364"
+    ],
+    "readBack": [
+      {
+        "adGroup": {
+          "resourceName": "customers/3427170837/adGroups/201534026375",
+          "status": "ENABLED",
+          "id": "201534026375",
+          "name": "RA-13 Most Guys Abs",
+          "targetCpaMicros": "40000000"
+        },
+        "adGroupAd": {
+          "resourceName": "customers/3427170837/adGroupAds/201534026375~828468037364",
+          "status": "ENABLED",
+          "ad": {
+            "resourceName": "customers/3427170837/ads/828468037364",
+            "id": "828468037364",
+            "finalUrls": [
+              "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ra13&utm_content=codex-16x9-vsl"
+            ],
+            "name": "RA-13 Most Guys Abs | Codex R3 16:9 | vsl",
+            "demandGenVideoResponsiveAd": {
+              "headlines": [
+                {
+                  "text": "How AI Builds Your Fitness Plan"
+                },
+                {
+                  "text": "How AI Got Me Abs"
+                },
+                {
+                  "text": "How I Got Abs At 40"
+                },
+                {
+                  "text": "AI Workouts Built Around Your Goal"
+                },
+                {
+                  "text": "A Fitness Plan That Adapts To You"
+                }
+              ],
+              "longHeadlines": [
+                {
+                  "text": "Daniel Rose shows how AI builds workouts and nutrition plans around a clear goal."
+                },
+                {
+                  "text": "See how a goal picture guides a personal workout and nutrition plan."
+                },
+                {
+                  "text": "AI adjusts the plan around injuries, missed gym sessions and everyday life."
+                }
+              ],
+              "descriptions": [
+                {
+                  "text": "Daniel Rose shows how AI builds a workout and nutrition plan from your goal picture."
+                },
+                {
+                  "text": "AI fitness coaching explained by a guy who did it at 40 years old."
+                },
+                {
+                  "text": "See yourself with your goal body, then get a training and meal plan built for it."
+                }
+              ],
+              "videos": [
+                {
+                  "asset": "customers/3427170837/assets/431033327331"
+                }
+              ]
+            }
+          },
+          "policySummary": {
+            "reviewStatus": "REVIEW_IN_PROGRESS",
+            "approvalStatus": "UNKNOWN"
+          }
+        }
+      },
+      {
+        "adGroup": {
+          "resourceName": "customers/3427170837/adGroups/201534026375",
+          "status": "ENABLED",
+          "id": "201534026375",
+          "name": "RA-13 Most Guys Abs",
+          "targetCpaMicros": "40000000"
+        },
+        "adGroupAd": {
+          "resourceName": "customers/3427170837/adGroupAds/201534026375~828468045056",
+          "status": "ENABLED",
+          "ad": {
+            "resourceName": "customers/3427170837/ads/828468045056",
+            "id": "828468045056",
+            "finalUrls": [
+              "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ra13&utm_content=codex-9x16-vsl"
+            ],
+            "name": "RA-13 Most Guys Abs | Codex R3 9:16 | vsl",
+            "demandGenVideoResponsiveAd": {
+              "headlines": [
+                {
+                  "text": "How AI Builds Your Fitness Plan"
+                },
+                {
+                  "text": "How AI Got Me Abs"
+                },
+                {
+                  "text": "How I Got Abs At 40"
+                },
+                {
+                  "text": "AI Workouts Built Around Your Goal"
+                },
+                {
+                  "text": "A Fitness Plan That Adapts To You"
+                }
+              ],
+              "longHeadlines": [
+                {
+                  "text": "Daniel Rose shows how AI builds workouts and nutrition plans around a clear goal."
+                },
+                {
+                  "text": "See how a goal picture guides a personal workout and nutrition plan."
+                },
+                {
+                  "text": "AI adjusts the plan around injuries, missed gym sessions and everyday life."
+                }
+              ],
+              "descriptions": [
+                {
+                  "text": "Daniel Rose shows how AI builds a workout and nutrition plan from your goal picture."
+                },
+                {
+                  "text": "AI fitness coaching explained by a guy who did it at 40 years old."
+                },
+                {
+                  "text": "See yourself with your goal body, then get a training and meal plan built for it."
+                }
+              ],
+              "videos": [
+                {
+                  "asset": "customers/3427170837/assets/430845852830"
+                }
+              ]
+            }
+          },
+          "policySummary": {
+            "reviewStatus": "REVIEW_IN_PROGRESS",
+            "approvalStatus": "UNKNOWN"
+          }
+        }
+      }
+    ],
+    "criteria": [
+      {
+        "adGroupCriterion": {
+          "resourceName": "customers/3427170837/adGroupCriteria/201534026375~1000",
+          "type": "LANGUAGE",
+          "language": {
+            "languageConstant": "languageConstants/1000"
+          }
+        }
+      },
+      {
+        "adGroupCriterion": {
+          "resourceName": "customers/3427170837/adGroupCriteria/201534026375~2124",
+          "type": "LOCATION",
+          "location": {
+            "geoTargetConstant": "geoTargetConstants/2124"
+          }
+        }
+      },
+      {
+        "adGroupCriterion": {
+          "resourceName": "customers/3427170837/adGroupCriteria/201534026375~2840",
+          "type": "LOCATION",
+          "location": {
+            "geoTargetConstant": "geoTargetConstants/2840"
+          }
+        }
+      },
+      {
+        "adGroupCriterion": {
+          "resourceName": "customers/3427170837/adGroupCriteria/201534026375~2498784755180",
+          "type": "AUDIENCE",
+          "audience": {
+            "audience": "customers/3427170837/audiences/359952376"
+          }
+        }
+      }
+    ]
+  },
+  "synthetic": {
+    "submitted": true,
+    "reason": "Realistic AI exercise demonstration in app tour",
+    "readback": "YouTube Data API omits containsSyntheticMedia"
+  },
+  "policy": "Both ENABLED, UNKNOWN / REVIEW_IN_PROGRESS on 2026-10-17; no RA-13 finding yet",
+  "policy_recheck": "2026-10-18 through existing process",
+  "masters_preserved": true,
+  "numerical_gate_flags_preserved": true,
+  "landing_http_status": 200,
+  "paid_image_api_spend_usd": 0,
+  "browser_playback": "No browser playback during setup",
+  "queue_drive_sync": "Queue command running; verify its result",
+  "public_or_organic_posting": false
+}

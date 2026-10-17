@@ -874,3 +874,11 @@ Final URLs: `https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm
 The live Ad 10 16:9 and both vertical ads remain ENABLED and unchanged. The live 16:9's "Korean AI prodigy ... Video reveals full story." long headline was already DISAPPROVED for CLICKBAIT before this setup. It was copied unchanged, as instructed. Policy ran after creation: both new ads are in review. Recheck on **2026-10-06** with `node scripts/ads/api/client.js policy 24316364155`.
 
 No remarketing mutation was sent. Dan's open decision: add these two squares to conversion remarketing `24305381214`, as was done for Ad 4? The engagement campaign, paused legacy campaign and Performance Max were left alone.
+
+## 2026-10-17: RA-13 Most Guys Abs added to trial campaign
+
+Approved R3 9:16 `KSq1OBlWvPI` and 16:9 `cnkrWRfFsTc` uploaded unchanged as Unlisted, both processed and embeddable. Dan selected AI Dan thumbnail 3, bold Impact text, "How to get real abs with AI." Both served thumbnails inspected.
+
+Trial `24316364155`, new group `201534026375` (RA-13 Most Guys Abs), target CPA $40 from live reference `199824307366`; audience `359952376` from `206348100928`. US + Canada, English. Ads `828468045056` (9:16, asset `430845852830`) and `828468037364` (16:9, asset `431033327331`), both ENABLED. Google validateOnly passed before the atomic nine-operation apply. Both actual policy results UNKNOWN / REVIEW_IN_PROGRESS, recheck 2026-10-18 through the existing process.
+
+Final URLs use `https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ra13&utm_content=codex-9x16-vsl` and `codex-16x9-vsl`. Existing campaign domains checked, landing HTTP 200. Budget `15911255930` $30/day before and after, shared with this additional group. Campaign remains ENABLED; no budget or campaign-status mutation. Full receipt: `Docs/RA13_SETUP_RECEIPT_20261017.md`. Config/result: `scripts/ads/api/dgen-ads/ra13*`. RA-13 queue state uploaded. No organic posting.

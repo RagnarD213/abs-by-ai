@@ -95,3 +95,12 @@ source shows.
 
 When a new ad goes final, upload it the same way and add a row here. Replacing a video means a
 new id, so the ads pointing at the old id have to be updated in Google Ads.
+
+## 2026-10-17: RA-13 Most Guys Abs R3
+
+| Ad | Version | Aspect | Length | Link | Approved? | Thumbnail |
+|---|---|---|---|---|---|---|
+| RA-13 Why Do Most Guys Never Get Abs? | Codex R3 | 9:16 | 0:54 | https://youtu.be/KSq1OBlWvPI | yes, exact R3 finalized 10-17 | Option 3, bold HOW TO GET REAL ABS WITH AI., FINAL-9x16.jpg, installed and read back |
+| RA-13 Why Do Most Guys Never Get Abs? | Codex R3 | 16:9 | 0:54 | https://youtu.be/cnkrWRfFsTc | yes, exact R3 finalized 10-17 | Option 3, bold HOW TO GET REAL ABS WITH AI., FINAL-16x9.jpg, installed and read back |
+
+Both Unlisted, processed and embeddable. Trial group 201534026375. Details: `Docs/RA13_SETUP_RECEIPT_20261017.md`.

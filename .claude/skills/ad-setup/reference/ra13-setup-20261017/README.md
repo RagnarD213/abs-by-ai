@@ -1,9 +1,3 @@
-AD. Most Guys Abs setup, October 17, 2026.
+AD. Most Guys Abs R3 setup is complete, October 17, 2026.
 
-Status: waiting for Dan to pick option 1-5. No YouTube upload or Google Ads mutation has occurred.
-
-Local media and runnable build: `/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-13 Why Most Guys Never Get Abs`. `plan.json` records exact files, source provenance, generation prompts and hashes. `build.py` is a source snapshot; run the local copy beside its assets. Five images were generated through Codex subscription, gpt-6.1-sol high, 100337 tokens, no paid image API spend. All ten thumbnail exports are below 2 MB. Measured real-cutout clearance is at least 31 px. All finished choices were visually inspected; generated Dan is recognizable and all headline text clears faces and hair.
-
-After the pick, execute the existing `Handoffs/handoff-20261017-ra13-setup.md` from step 4. Recheck live campaign and duplicate uploads, then upload both approved R3 masters as Unlisted with synthetic=true. Use the matching selected aspect thumbnail and the maintained trial builder. Current read-only preflight: enabled, $30/day shared budget, reference CPA $40, destination host absbyai.com, no matching RA-13 upload among the last 50 or ad group. Re-read live values before writing.
-
-The main checkout contains concurrent edits and its Git object issue is open. Recipe and board changes were pushed from `/tmp/abs-ra13-setup-20261017`; do not include other sessions' edits.
+Dan selected image/design 3, the bold Impact text style, and "How to get real abs with AI." Both approved native R3 films are Unlisted and processed; both Google Ads entries exist in trial group 201534026375. Google review is pending. Budget stays $30/day. See `Docs/RA13_SETUP_RECEIPT_20261017.md`, `setup-receipt.json`, `youtube-readback.json` and `policy-20261017.txt`. Historical design choices and generation prompts remain preserved in this folder. No new image generation for text revisions.
