@@ -916,12 +916,12 @@ def reference_pool(item):
     return refs
 
 
-def judge(setup_name, date):
+def judge(setup_name, date, judges=("claude", "gemini")):
     index = load_index()
     d = run_dir(setup_name, date)
     reps = max(1, math.ceil(MIN_TRIALS / (len(index) * 2)))
     pools = {it["id"]: reference_pool(it) for it in index}
-    jobs = [(it, j, r) for it in index for j in ("claude", "gemini") for r in range(reps)]
+    jobs = [(it, j, r) for it in index for j in judges for r in range(reps)]
     print(f"judging: {len(jobs)} trials ({len(index)} passages x 2 judges x {reps})", file=sys.stderr)
 
     def one(job):
@@ -1113,7 +1113,7 @@ def cmd_run(a):
     date = a.date or datetime.date.today().isoformat()
     if not a.report_only:
         batched(lambda: generate(a.setup, date), "write")
-        batched(lambda: judge(a.setup, date), "judge")
+        batched(lambda: judge(a.setup, date, tuple(a.judges.split(","))), "judge")
     report(a.setup, date, luar=not a.no_luar)
 
 
@@ -1206,6 +1206,7 @@ def main():
     p.add_argument("--drop", help="comma-separated candidate ids to leave out"); p.set_defaults(fn=cmd_finalize)
     p = sub.add_parser("run"); p.add_argument("--setup", required=True); p.add_argument("--date")
     p.add_argument("--report-only", action="store_true"); p.add_argument("--no-luar", action="store_true")
+    p.add_argument("--judges", default="claude,gemini", help="gemini alone is a cheap first read (2026-10-16)")
     p.set_defaults(fn=cmd_run)
     p = sub.add_parser("blind"); p.add_argument("--setup", required=True); p.add_argument("--date")
     p.add_argument("--fresh", action="store_true", help="only passages not on an earlier blind page")

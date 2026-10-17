@@ -62,7 +62,7 @@
     "model": "claude-fable-5-1"
   },
   "pilot": {
-    "about": "Phase C pilot (2026-10-16): Llama 3.1 8B Instruct (4-bit, MLX) with a LoRA trained on Dan's tier 1 text only (no file that holds a held-out passage), 726 chunks each paired with a full-strength brief. It writes from the bench's brief directly, with no passages and no rules in its prompt. Drafts come from scripts/voice/pilot_write.py.",
+    "about": "Phase C pilot (2026-10-16): Llama 3.1 8B Instruct (4-bit, MLX) with a LoRA trained on Dan's tier 1 text only (no file that holds a held-out passage), 589 training chunks (of 726 cut; Haiku marked the rest unusable, mostly explicit sex instruction) each paired with a full-strength brief. It writes from the bench's brief directly, with no passages and no rules in its prompt. Drafts come from scripts/voice/pilot_write.py.",
     "external": "~/.venvs/voice-pilot/bin/python scripts/voice/pilot_write.py --adapter <dir> --date <date>"
   }
 }

@@ -279,6 +279,37 @@ Claude's draft goes in a chunk at a time, Claude then checks every fact against 
 rules. Adopt it only if it beats Phase B by 10 points or more on the judges. Known risks: voice drift, em dashes
 creeping back, a corpus still smaller than anything the research tested.
 
+## Phase C results (2026-10-16). Read before starting Phase D
+
+**C0 done.** The bench brief now keeps the strength of every claim and label (`bench.py rebrief`; same 40 passages and
+ids, old briefs in `voice-corpus/heldout/index-v1-briefs.json`). His strong words now reach the writer ("ugly",
+"obese", "lied", "whopping", "blown away", "worship", "melt"). Re-scored: `guide` 88%, `set5` 90% (p = 0.75: the
+`set5` lead is gone). Gemini catches `set5` 80% now against 68% on 10-10. Two things changed at once, so the cause is
+open: the briefs, and the backend (the `claude` command line's login had expired, so every call went through the batch
+API, Opus 5.5 at effort high: `scripts/voice/api_batch.py`, `VOICE_BENCH_BACKEND=batch`). Rows from 10-16 compare only
+with each other. Bench contrast twins (`bank.py`) use the same rule from now on (shared prompt); they were not rebuilt.
+
+**Pilot: not adopted.** Llama 3.1 8B Instruct, 4-bit, LoRA on 16 layers with MLX on the Mac (free). Trained on 589
+chunks of his tier 1 text (no file that holds a held-out passage; only 4 ad chunks survived), each paired with a
+full-strength brief. Validation loss 1.56 to 1.19 (best: step 600; learning rate 1e-4 diverged, 3e-5 worked). It writes
+from the brief directly. Gemini-only first read, 36 pairs: caught 89%, against 78% for `set5` on the same pairs. Better
+only on off-the-cuff speech (it fooled Gemini on 4 content passages), far worse on ads and sales copy. The plan needed
+10 points better. The Opus judge (98 to 100% on everything so far) was not run: the session was over its $10 budget.
+
+**What this means.**
+
+1. Lane 3 stops here. The one place it helped, verbatim off-the-cuff speech, is not what Dan wants a script to be
+   (Phase A point 7). A bigger base model (Gemma 3 12B) or more of his ads might move it, but not 10 points on the
+   hard judge with this corpus.
+2. Phase D is next: measure his edit rate on real drafts (D1), and use Lane 1 (his take first) for conversion and
+   products, which no method has moved.
+3. Spend: $11.61 batch API (judge calls carry about 10,000 tokens of references each) plus about $1.50 Gemini. Run the
+   bench on the subscription when the command line is logged in (`claude auth login`, Dan's step); the API backend
+   is the fallback.
+4. Files: `scripts/voice/pilot_data.py`, `pilot_lora.yaml`, `pilot_write.py`; data `voice-corpus/pilot/`; model and
+   adapters `/Volumes/Expansion/voice-pilot/` (copy in `~/.cache/voice-pilot/`, about 4 GB, safe to delete); Python
+   3.12 venv `~/.venvs/voice-pilot` (has `anthropic` and `mlx-lm`).
+
 ## Phase D: learning loop and rollout. Sonnet 5.5 medium
 
 D1. `scripts/voice/voice_diff.py`: save each delivered draft; when Dan finalizes, diff it against his final, keep voice

@@ -16,6 +16,7 @@ goal is 60% or less, and about 8 trials in 80 is noise. A change is kept only if
 | 10-10 | `set5-fable` | set5 with Fable 5.1 as the writer | 65 of 80, 81% | 100% | 62% | 75% | 88% | 70% | 83% | 100% | dropped: no change; Opus stays the writer |
 | 10-16 | `guide` (new briefs) | the old guide, on the full-strength briefs; API backend | 70 of 80, 88% | 98% | 78% | 92% | 88% | 75% | 83% | 100% | new baseline |
 | 10-16 | `set5` (new briefs) | 5 real passages, on the full-strength briefs; API backend | 72 of 80, 90% | 100% | 80% | 96% | 88% | 75% | 92% | 100% | **the score the pilot must beat** (no longer ahead of `guide`: p = 0.75) |
+| 10-16 | `pilot` (Gemini only) | nothing: Llama 3.1 8B with a LoRA trained on 589 chunks of his tier 1 text, writing from the brief | 32 of 36, 89% | not run | 89% | 83% | 50% | 100% | 100% | 100% | **not adopted**: on the same 36 pairs Gemini caught `set5` 78% (p = 0.34); needed 10 points better |
 
 Gemini column: includes the few pairs where Sonnet 5.5 stood in because Gemini refused the pair.
 
@@ -51,6 +52,14 @@ every Claude call ran through the batch API (Opus 5.5, effort high: `scripts/voi
 compare only with each other. The new briefs also reuse a few more of his 5-word runs (18 in 7 briefs, against 4 in 3),
 which if anything helps the writer. Cost: $11.61 of batch API and about $1 of Gemini, over the $10 budget, mostly
 because each judge call carries about 10,000 tokens of reference passages.
+
+**Phase C pilot (2026-10-16).** A LoRA on Llama 3.1 8B (MLX on the Mac, free; 700 steps, best checkpoint step 600,
+validation loss 1.56 to 1.19) writes straight from the brief. First read, Gemini only, the 36 pairs it judges: caught
+89%, against 78% for `set5` on the same pairs. It is better only on off-the-cuff content (long-form 10 of 12 against
+11 of 12, shorts 2 of 4 against 3 of 4; 4 passages fooled Gemini) and far worse on ads (10 of 10 against 5 of 10,
+with only 4 ad chunks to train on) and sales copy. Below the plan's bar (10 points better), so not adopted. Judges'
+cues on it: rhythm and structure, not "too clean". Model, data and adapters: `/Volumes/Expansion/voice-pilot/`,
+`voice-corpus/pilot/`; rerun with `scripts/voice/pilot_data.py`, `pilot_lora.yaml`, `pilot_write.py`.
 
 ## Dan's blind pages
 
