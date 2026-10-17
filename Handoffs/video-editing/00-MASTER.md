@@ -47,7 +47,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [RA-10](RA-10-ai-is-changing-the-world.md) | AI Is Changing The World | C1667 | READY | S |
 | [RA-11](RA-11-what-would-you-look-like-with-abs.md) | What Would You Look Like With Abs? | C1667 | READY | S |
 | [RA-12](RA-12-first-step-to-getting-abs-isnt-a-workout.md) | The First Step To Getting Abs Isn't A Workout | C1667 | DELIVERED: awaiting Dan | S |
-| [RA-13](RA-13-why-do-most-guys-never-get-abs.md) | Why Do Most Guys Never Get Abs? | C1667 | IN PROGRESS | S |
+| [RA-13](RA-13-why-do-most-guys-never-get-abs.md) | Why Do Most Guys Never Get Abs? | C1667 | DELIVERED: awaiting Dan | S |
 | [RA-14](RA-14-cheat-code-for-six-pack-abs.md) | The Cheat Code For Six Pack Abs | C1667 | UPLOADED | S |
 | [RA-15](RA-15-never-pay-a-nutritionist-again.md) | Never Pay A Nutritionist Again | C1668 | FINALIZED | S |
 | [RA-16](RA-16-ai-took-my-job.md) | AI Took My Job | C1668 | DRAFT: asset choices waiting for Dan | S |
@@ -62,7 +62,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [DS-02](DS-02-how-getting-abs-looksmaxxes-your-face.md) | How Getting Abs Looksmaxxes Your Face | C1654 | IN PROGRESS | S |
 | [DS-03](DS-03-3-most-important-supplements-for-men.md) | The 3 Most Important Supplements For Men | C1655 | IN PROGRESS | S |
 | [DS-04](DS-04-only-ab-exercise-that-shrinks-belly-fat.md) | The Only Ab Exercise That Shrinks Your Belly Fat | C1656 | UPLOADED | S |
-| [DS-05](DS-05-abs-beat-being-a-fat-millionaire.md) | Why Having Abs Beats Being A Fat Millionaire | C1657 | IN PROGRESS | S |
+| [DS-05](DS-05-abs-beat-being-a-fat-millionaire.md) | Why Having Abs Beats Being A Fat Millionaire | C1657 | BLOCKED | S |
 | [DS-06](DS-06-what-every-body-fat-percentage-looks-like.md) | What Every Body Fat Percentage Looks Like | C1657 | IN PROGRESS | S |
 | [DS-07](DS-07-top-3-ways-to-use-ai-to-get-abs.md) | Top 3 Ways To Use AI To Get Abs | C1657 + C1658 | IN PROGRESS | S |
 | [DS-08](DS-08-i-was-200-pounds-at-38.md) | I Was 200 Pounds At 38 | C1658 | UPLOADED | S |
