@@ -33,12 +33,13 @@ JOBS = {
     "never move. The towel stays on his shoulder. " + COMMON)),
 }
 JOBS["O1L"] = dict(JOBS["O1"], duration=5)
-JOBS["M1"] = dict(start="/Volumes/Extreme/_edit_work/ra07/round6/frames_m1/HC-start.png", end="/Volumes/Extreme/_edit_work/ra07/round6/frames_m1/HC-end.png", duration=4, prompt=(
+JOBS["M1"] = dict(start="/Volumes/Extreme/_edit_work/ra07/round6/frames_m1/HC-start.png", end="/Volumes/Extreme/_edit_work/ra07/round6/frames_m1/HC-end_v2a.png", duration=4, prompt=(
     "Static locked-off camera on a tripod, no camera movement, no zoom. Real footage in a bright ordinary living room. A man in a black t-shirt and black shorts "
     "stands on the rug facing the camera holding a black hex dumbbell in each hand at his sides. He does one smooth dumbbell curl with his right arm (on the left of the picture): "
     "his upper arm stays against his side and the forearm lifts the dumbbell up to his shoulder; his eyes follow the dumbbell up while his head stays still. His left arm keeps its "
     "dumbbell hanging at his side. Each hand stays wrapped around its handle; exactly two rigid dumbbells. His feet stay planted, he does not walk, turn or lean. The sofa, the throw, "
     "the picture, the lamp, the curtains, the table and the rug never move. " + COMMON))
+JOBS["M1L"] = dict(JOBS["M1"], duration=5)
 H = {"Authorization": "Bearer " + T, "Content-Type": "application/json", "User-Agent": "Mozilla/5.0"}
 
 

@@ -103,3 +103,9 @@ Claude Opus 5.5, high effort (editorial and frame work). Frames by Codex GPT-6.1
 ## Starter prompt (stage 3)
 
 > AD. Name this task `Fire Your Trainer AD R6`. Read `Handoffs/handoff-20261016-ra07-fire-your-trainer-round6-trim-and-phone.md` ("Stage 2 done" and "Stage 3") and run stage 3: I approved the home-curls frames (`/Volumes/Extreme/_edit_work/ra07/round6/frames_m1/`) [and my gym-closed answer: keep / drop]. Make the motion (clipcheck and a fresh reviewer first), build the whole 9:16 with it in, run every gate, the watch pass and the independent review, and send me the page with a timestamped list of what changed. AI clip budget: $20 total, $14.25 already spent.
+
+## Stage 3 done (2026-10-17, Claude Opus 5.5)
+
+Dan: "Everything is approved. Let's edit the full film." M1 = take `M1L_v2` frames 48-107 (Kling, submitted on Replicate seconds before Dan moved all editing AI clips to the Google Veo subscription; any retake now goes through Flow), clipcheck + fresh reviewer PASS, chip fixed on the rug at (718, 1290). Delivered `Claude Ad Videos/fire your trainer - RA-07/` (sha ca75555c), gate 37/39 (tone, "20" caption), watch judge 0 defects, ra-reviewer SHIP (`round6/deliver/ROUND-6-REVIEW.md`), page :8856 (`s87r6c_page.py`), VLC `Videos to Review/Fire Your Trainer AD R6 - whole 9x16.mp4`, edit queue `delivered`. $16.50 of $20 spent.
+
+Next after Dan's yes: the 16:9. Raise first: the real-photo chip at 15.7 s reads "Real picture of me. Not AI-generated."; the 2026-10-17 rule wording is "Real Photo Of Me, Not AI-Generated" (inside the approved first 30 s; Dan's call). Still open from round 3: the hack squat lift and the same-sheet clip.

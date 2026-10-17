@@ -112,7 +112,7 @@ CARDS = [
   "label": "ai", "people": "other", "physique": False},
  {"name": "G1",  "kind": "ai_clip", "beat": [t_gym, t_curls], "what": "AI clip 'Gym closed' (round 5 take, trimmed): he arrives at the door, opens both palms at the CLOSED sign",
   "label": "ai", "people": "other", "physique": False},
- {"name": "M1",  "kind": "clip",  "beat": [t_curls, t_oo], "what": "library clip A0080: a man in his 40s curling dumbbells in his home garage gym",
+ {"name": "M1",  "kind": "clip",  "beat": [t_curls, t_oo], "what": "NEW AI clip 'Trains at home' (take M1L_v2 frames 48-107): the same man as G1 curls a dumbbell in his living room",
   "label": "ai", "people": "other", "physique": False},
  {"name": "O1",  "kind": "ai_clip", "beat": [t_oo, t_hack], "what": "NEW AI clip 'Out of order, phone out' (take O1L_v2 frames 36-77): he stands beside the leg press, reads the OUT OF ORDER sign and pulls his phone out of his pocket",
   "label": "ai", "people": "other", "physique": False},
