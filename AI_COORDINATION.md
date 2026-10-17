@@ -26,6 +26,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**Long-form calendar LIVE 2026-10-17, Claude.** Sun+Wed 9 AM; 36 Blotato posts moved and re-read; dates in `Docs/LONGFORM_RELEASE_CALENDAR.md` override older RO entries. Next: RO-25 setup for Sun Oct 18 when Dan's file lands; top-up queues RO-19 (Wed Oct 21) as room frees; local commits f47634a, 75fa6fb await safe-push (live files blocked).
+
 **Top 1 Percent LFC Setup - PICKS 2026-10-17, Codex.** Five checked choices and comparison sheet in `social media graphics/youtube/thumbnails/Top 1 Percent/`. Await Dan's pick, then /video-setup and live RO-25 link/release-order check. R5 hash unchanged; no uploads/scheduling. Ownership commit bb96205 local; safe-push blocked by live qc_corpus/corpus.json and DAN_DECISIONS.md edits.
 
 **RO-25 R6 REVIEW READY 2026-10-17, Codex.** Dan approved exact one-pill START/open-bottle END and raised cumulative AI cap to $30; conservative spend $21.58 including failures. Hailuo take6 and first minute/P01 passed independent picture reviews; accepted O-POOL composite v2 used. Managed 8825 page live: twelve previews plus thirty labeled rejected clips for repair choices. All 12 exact numerical audio gates FAIL; P04 dating AI remains provisional presenter fallback. Full film unassembled/unapproved; no upload. Final page/cache/browser audit PASS. Detail: `/Volumes/Extreme/_edit_work/RO-25/round6/WORK_PACKET.md`.
