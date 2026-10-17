@@ -251,6 +251,8 @@ RO-25 selections received 2026-10-16. Next: [round-two selected frames and revis
 | [SL-15](SL-15-my-first-spray-tan-shorts.md) | My First Spray Tan (RO-19, on the Blotato waiting list, expected YouTube Jan 17 2027) | READY; hold release until parent is public | S |
 | [SL-16](SL-16-intermittent-fasting-shorts.md) | Intermittent Fasting: The Best Way To Get Abs (RO-08, finalized 10-14; release date set at setup) | READY; hold release until parent is public | S |
 
+| [SL-17](SL-17-top-1-percent-shorts.md) | Top 1 Percent (RO-26, finalized; release on hold) | READY; hold release until parent is public | S |
+
 **Will need shorts once final (no handoff yet; add one when the long-form is approved):**
 * Your Belly Fat Is An Emergency (Codex, revision in progress)
 * 04 Why You Should Invest More In Your Health (waiting on your pick: dry vs dereverb audio, and which length)

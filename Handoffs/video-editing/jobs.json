@@ -3612,11 +3612,11 @@
    "codexModel": "GPT-6 Sol, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-26-im-41-my-life-is-top-1-how-i-did-it.md` with `$long-form-content-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
    "state": "finalized",
-   "note": "Dan approved exact R5 as-is on 2026-10-17 and requested finalization plus setup handoff. Film SHA256 395cd8fb4c99d0c235e9df691c8256e333d21a0f4efa09b60be53126fd6d24ce. No new edit, video upload or scheduling.",
+   "note": "Dan approved R4 A frosted yacht thumbnail on 2026-10-17. Master and captions unchanged; Drive backup and platform media verified. Setup prepared, waitlisted on release hold until RO-25 public URL and earlier release are verified; no posts queued. Receipt Docs/RO26_SETUP_RECEIPT_20261017.md.",
    "needs": "",
    "order": 160,
    "updated": "2026-10-17",
-   "rev": 23,
+   "rev": 24,
    "syncedRev": 10,
    "editor": "Codex",
    "by": "Codex"
@@ -3809,6 +3809,28 @@
    "updated": "2026-10-16",
    "rev": 1,
    "syncedRev": 1
+  },
+  {
+   "id": "SL-17",
+   "list": "2",
+   "group": "Shorts from long-forms",
+   "sub": "",
+   "title": "Top 1 Percent (RO-26, release held until RO-25 link is verified)",
+   "roll": "10/15 C1768",
+   "size": "S",
+   "file": "SL-17-top-1-percent-shorts.md",
+   "claudeModel": "Opus 5.5, high",
+   "claude": "Read Handoffs/video-editing/00-RULES.md, then execute Handoffs/video-editing/SL-17-top-1-percent-shorts.md: propose standalone segments and wait for Dan picks before rendering. Use current /shorts. Name the task \"Top 1 Percent SFL R1\".",
+   "codexModel": "GPT-6 Sol, high",
+   "codex": "Read Handoffs/video-editing/00-RULES.md and Handoffs/video-editing/SL-17-top-1-percent-shorts.md. Follow .claude/skills/shorts/SKILL.md: propose segments, wait for Dan picks, build and review selected Shorts. Name the task \"Top 1 Percent SFL R1\".",
+   "state": "ready",
+   "note": "Separate extraction job registered after exact R5 approval; propose segments only, wait for Dan; no publication before parent is public.",
+   "unattended": false,
+   "unattended_why": "Dan selects standalone Shorts segments before rendering.",
+   "order": 170,
+   "updated": "2026-10-17",
+   "rev": 1,
+   "syncedRev": 0
   }
  ]
 }
