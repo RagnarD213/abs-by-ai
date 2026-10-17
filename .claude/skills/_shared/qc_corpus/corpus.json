@@ -1,7 +1,7 @@
 {
   "_README": "THE STANDARD IS DAN'S WORDS, NOT OUR PARAPHRASE. Every entry quotes him verbatim. See README.md.",
   "version": 2,
-  "updated": "2026-10-13",
+  "updated": "2026-10-17",
   "roots": {
     "repo": ".",
     "ssd": "/Volumes/Extreme/_edit_work"
@@ -3349,6 +3349,44 @@
       ],
       "measured": "R2 used source sample interpolation at some cut starts. New exact measured landing and native rendered verification required. Semantic exact landing predicate remains PENDING; no threshold changed.",
       "notes": "Source words transcribed from Dan-R3-note-3.png; instructions in Handoffs/handoff-20261016-ra13-round3-centering-white-man-phone.md. Independent R2 review did not clear this newly rejected centering."
+    },
+    {
+      "id": "ra13-r3-9x16-approved-20261017",
+      "date": "2026-10-17",
+      "root": "repo",
+      "path": "Codex Ad Videos/why do most guys never get abs - RA-13/why do most guys never get abs | codex | 9x16 | RA-13 R3.mp4",
+      "sha256": "6bb5d4767de0e5b922e08b90c43eba9b66c1b4af78ea60b7ce4ea78ea648ce2a",
+      "bytes": 116949752,
+      "verdict": "approved",
+      "dan": "All right this looks good. Give me the handoff for setup",
+      "scope": "Both complete R3 formats approved in this chat; setup handoff requested.",
+      "excerpt": [
+        0,
+        53.92053333333333
+      ],
+      "must_pass": [],
+      "must_trigger": [],
+      "measured": "Fresh independent media review: zero open defects; native watch35/35 and16/16 boundaries. Full exact-file gate 37/39; actual FAIL retained for approved audio/cut metrics.",
+      "notes": "Approval identity: Handoffs/video-editing/RA-13-R3-approval.json. This records Dan approval; it does not alter or bypass any numerical gate."
+    },
+    {
+      "id": "ra13-r3-16x9-approved-20261017",
+      "date": "2026-10-17",
+      "root": "repo",
+      "path": "Codex Ad Videos/why do most guys never get abs - RA-13/why do most guys never get abs | codex | 16x9 | RA-13 R3.mp4",
+      "sha256": "0a58d484df06a7a076dd03b74944c64b498425e1c3462cd766ddfc51a3e6510b",
+      "bytes": 110712956,
+      "verdict": "approved",
+      "dan": "All right this looks good. Give me the handoff for setup",
+      "scope": "Both complete R3 formats approved in this chat; setup handoff requested.",
+      "excerpt": [
+        0,
+        53.92053333333333
+      ],
+      "must_pass": [],
+      "must_trigger": [],
+      "measured": "Fresh independent media review: zero open defects; native watch35/35 and16/16 boundaries. Full exact-file gate 36/39; actual FAIL retained for approved audio/cut metrics and horizontal wide head size.",
+      "notes": "Approval identity: Handoffs/video-editing/RA-13-R3-approval.json. This records Dan approval; it does not alter or bypass any numerical gate."
     }
   ]
 }
