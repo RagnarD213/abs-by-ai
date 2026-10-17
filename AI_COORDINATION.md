@@ -128,7 +128,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-06:POLICY-RECHECK:2026-10-16:Claude.** Ads `828274063389`, `828320387740` in review. Next 10-17: `node scripts/ads/api/client.js policy 24316364155`; clean, delete this.
 
-**RO-17:R4-REVIEW:8880:2026-10-15:Claude.**
+**RO-17:R5-HANDOFF:2026-10-17:Claude.** Card `3 Healthy Foods LFC R5`.
 
 **RO-14-R1-REVIEW:8964:2026-10-14.**
 
