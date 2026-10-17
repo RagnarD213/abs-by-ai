@@ -25,7 +25,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**Most Guys Abs AD Setup TEXT PICK 2026-10-17, Codex.** Dan chose thumbnail 3 image/design; four bolder headline choices A-D are ready in both formats. Next: Dan picks text, then exact R3 Unlisted uploads and trial campaign 24316364155. No uploads or ad creation. Recipe: `.claude/skills/ad-setup/reference/ra13-setup-20261017/text-variations.json`.
+**Most Guys Abs AD Setup UPLOADING 2026-10-17, Codex.** Dan chose thumbnail 3, bold type and "How to get real abs with AI." Both final thumbnail formats inspected; exact R3 master hashes reconfirmed. Next: two Unlisted uploads, readbacks, trial group 24316364155 and policy. Recipe: `.claude/skills/ad-setup/reference/ra13-setup-20261017/`.
 
 **Main Git cloud read BLOCKED 2026-10-16, Codex.** Main-folder fetch waits on an iCloud-evicted local object, `.git/objects/29/f0dd02ad6df53b23db29ba79c5dcda29923390`. Download requested; object absent from GitHub. RA-13 records safely pushed via clean checkout, commit `f3d725b`. Next: restore that local object before main-folder pushes. No other session files or refs changed.
 

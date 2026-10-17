@@ -1,0 +1,79 @@
+{
+  "category": "AD",
+  "job": "RA-13",
+  "date": "2026-10-17",
+  "status": "approved image and bold style with Dan exact headline applied",
+  "dan_request": "Or change it to \"How to get real abs with AI.\"",
+  "source_image_sha256": "a17d34f3e8f5ba995821d1c41d0340fa32924ec5eb532f7b81bc5328f41e8626",
+  "additional_image_generation": 0,
+  "variants": {
+    "FINAL": {
+      "copy": "How to get real abs with AI.",
+      "horizontal": [
+        "HOW TO GET",
+        "REAL ABS",
+        "WITH AI."
+      ],
+      "vertical": [
+        "HOW TO GET REAL",
+        "ABS WITH AI."
+      ]
+    }
+  },
+  "checks": [
+    {
+      "variant": "FINAL",
+      "copy": "How to get real abs with AI.",
+      "format": "16x9",
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-13 Why Most Guys Never Get Abs/FINAL-APPROVED/FINAL-16x9.jpg",
+      "font": "Impact",
+      "font_size": 106,
+      "text_boxes": [
+        [
+          58,
+          217,
+          557,
+          305
+        ],
+        [
+          58,
+          318,
+          440,
+          406
+        ],
+        [
+          58,
+          419,
+          407,
+          503
+        ]
+      ],
+      "photograph_pixels_unchanged_before_encoding": true,
+      "bytes": 244944
+    },
+    {
+      "variant": "FINAL",
+      "copy": "How to get real abs with AI.",
+      "format": "9x16",
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-13 Why Most Guys Never Get Abs/FINAL-APPROVED/FINAL-9x16.jpg",
+      "font": "Impact",
+      "font_size": 144,
+      "text_boxes": [
+        [
+          56,
+          128,
+          1024,
+          246
+        ],
+        [
+          178,
+          263,
+          902,
+          381
+        ]
+      ],
+      "photograph_pixels_unchanged_before_encoding": true,
+      "bytes": 527497
+    }
+  ]
+}
