@@ -25,6 +25,8 @@ Config (JSON):
     "tiktok_direct": true,                     # optional: TikTok is uploaded by hand in TikTok Studio (films over Blotato's
                                                # 10 minute TikTok limit, Dan 2026-10-14); no TikTok post is queued here
     "source": "Zeeshan Content Videos/.../file.mp4"   # optional; checked against the ad folders
+    "platform_ctas": {"facebook": "Try Abs By AI free for 7 days: {link}"},
+    "release_hold": "Previous-video URL and release order not yet verified"  # optional; blocks --apply
   }
 
 Idempotent: a post counts as done when a schedule exists for that account at that time whose payload
@@ -92,9 +94,13 @@ def posts(v: dict) -> list:
     social_when = social_time(v["main"])
     utm = f"utm_medium=video&utm_campaign=longform&utm_content={v['slug']}"
     link = lambda source: f"https://absbyai.com/?utm_source={source}&{utm}"  # noqa: E731
+    def cta(platform, fallback):
+        template = (v.get("platform_ctas") or {}).get(platform, fallback)
+        source = "instagram" if platform == "instagram_first_comment" else platform
+        return template.replace("{link}", link(source)).replace("{keyword}", v["keyword"])
     lede = f"{v['hook']}\n\n{v['body']}\n\n{v['close']}\n\n"
     ig = {"targetType": "instagram", "mediaType": "reel", "shareToFeed": True,
-          "firstComment": f"See what you'd look like with a six-pack: {link('instagram')}"}
+          "firstComment": cta("instagram_first_comment", "See what you'd look like with a six-pack: {link}")}
     if v.get("instagram_cover_url"):
         ig["coverImageUrl"] = v["instagram_cover_url"]
     tiktok = {"targetType": "tiktok", "privacyLevel": "PUBLIC_TO_EVERYONE",
@@ -108,13 +114,13 @@ def posts(v: dict) -> list:
                "thumbnailUrl": v["youtube_cover_url"]}
     out = [
         (FACEBOOK, "facebook", social_when, {"targetType": "facebook", "pageId": FB_PAGE},
-         lede + f"See what you'd look like with a six-pack. Free AI preview:\n{link('facebook')}\n\n{v['tags']}",
+         lede + cta("facebook", "See what you'd look like with a six-pack. Free AI preview:\n{link}") + f"\n\n{v['tags']}",
          v["video_url"]),
         (IG_MAIN, "instagram", social_when, dict(ig),
-         lede + f"Comment {v['keyword']} and I'll send you the free AI preview 👇\n\n{v['tags']}",
+         lede + cta("instagram", "Comment {keyword} and I'll send you the free AI preview 👇") + f"\n\n{v['tags']}",
          v.get("instagram_video_url", v["video_url"])),
         (TIKTOK, "tiktok", social_when, tiktok,
-         lede + f"Free AI preview of your own six-pack, link in bio at AbsByAI.com 👇\n\n{link('tiktok')}\n\n{v['tags']}",
+         lede + cta("tiktok", "Free AI preview of your own six-pack, link in bio at AbsByAI.com 👇\n\n{link}") + f"\n\n{v['tags']}",
          v.get("tiktok_video_url", v["video_url"])),
         # @abs.by.ai (65632) retired 2026-09-24: never queue it. No mirror post.
         (YOUTUBE, "youtube", v["main"], youtube, v["youtube_description"], v["video_url"]),
@@ -164,6 +170,9 @@ def main() -> int:
     ap.add_argument("--apply", action="store_true")
     args = ap.parse_args()
     v = json.load(open(args.config))
+    if args.apply and v.get("release_hold"):
+        print(f"REFUSING - release hold: {v['release_hold']}")
+        return 1
 
     required = ["content_type", "source", "slug", "title", "video_url",
                 "youtube_cover_url", "main", "keyword", "ai_generated",
