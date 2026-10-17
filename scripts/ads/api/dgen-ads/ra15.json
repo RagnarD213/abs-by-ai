@@ -9,8 +9,16 @@
   "ctaAsset": "401407635767",
   "businessName": "Abs by AI",
   "videos": [
-    { "youtubeId": "TBD16", "version": "Claude 16:9", "utm": "claude-16x9" },
-    { "youtubeId": "TBD9", "version": "Claude 9:16", "utm": "claude-9x16" }
+    {
+      "youtubeId": "Tqra4f_SEj8",
+      "version": "Claude 16:9",
+      "utm": "claude-16x9"
+    },
+    {
+      "youtubeId": "8ZoEMD_uPZ0",
+      "version": "Claude 9:16",
+      "utm": "claude-9x16"
+    }
   ],
   "copy": {
     "headlines": [
@@ -31,5 +39,5 @@
       "Ask AI what to order at a restaurant and get a plan you will stick to."
     ]
   },
-  "thumbnail": "TBD after Dan's pick"
+  "thumbnail": "Dan's pick 10-17, round 3 design 1: studio-gray-55 smirk in front of a crowd of angry nutritionists, NUTRITIONISTS DESPISE HIM on a red banner; social media graphics/youtube/thumbnails/RA-15 Never Pay A Nutritionist Again/RA-15 | <aspect> | thumbnail mob red banner FINAL.jpg"
 }

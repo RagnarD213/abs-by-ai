@@ -51,6 +51,15 @@ at that time. Re-run the command to re-check.
 **Dan's copy rule (2026-09-10):** no claim that reads unbelievable without the video's context. *"This
 picture got me abs"* is too much; *"How I get abs at 40"* / *"How AI got me abs"* are the shapes to reuse.
 
+## 2026-10-17: RA-15 "Never Pay A Nutritionist Again" added to the trial campaign, 16:9 + 9:16
+
+- **Campaign** `24316364155` (ENABLED, budget `15911255930` read **$30/day** before and after, not changed; now shared by one more ad group).
+- **Ad group** `204288183347` "RA-15 Never Pay A Nutritionist": ENABLED, $40 target CPA (copied from RA-04's `204926161127`), US + CA, English, Audience `359952376`.
+- **Ads:** `828399044620` = 16:9 `Tqra4f_SEj8` (asset `431060991861`, utm_content `claude-16x9-vsl`); `828399056794` = 9:16 `8ZoEMD_uPZ0` (asset `431060991954`, `claude-9x16-vsl`). Final URL `https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ra15&utm_content=<aspect>-vsl`, same domain and page as the campaign's other ads.
+- **Copy (linted; Dan's two shapes allowed):** headlines Never Pay A Nutritionist Again / How AI Got Me Abs / How I Got Abs At 40 / AI Took The Nutritionist's Job / Meal Plans Built Around Your Food. Long headlines and descriptions in `dgen-ads/ra15.json`.
+- **Thumbnail:** Dan's pick on 10-17 after three rounds, NUTRITIONISTS DESPISE HIM over a crowd of angry nutritionists (studio-gray-55).
+- Logo `400941168572`, CTA `401407635767`, business name Abs by AI. Built by `scripts/ads/api/dgen-trial-group.js ra15` (config `dgen-ads/ra15.json`, result `ra15.result.json`). Policy 10-17: both REVIEW_IN_PROGRESS, nothing in the campaign disapproved or limited (`dgen-ads/ra15.policy-20261017.txt`); recheck 10-18.
+
 ## 2026-10-16: RA-06 "What's The Best Ab Exercise?" added to the trial campaign, 16:9 + 9:16
 
 - **Campaign** `24316364155` (ENABLED, budget `15911255930` read **$30/day** before and after, not changed; now shared by one more ad group).
@@ -874,3 +883,19 @@ Final URLs: `https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm
 The live Ad 10 16:9 and both vertical ads remain ENABLED and unchanged. The live 16:9's "Korean AI prodigy ... Video reveals full story." long headline was already DISAPPROVED for CLICKBAIT before this setup. It was copied unchanged, as instructed. Policy ran after creation: both new ads are in review. Recheck on **2026-10-06** with `node scripts/ads/api/client.js policy 24316364155`.
 
 No remarketing mutation was sent. Dan's open decision: add these two squares to conversion remarketing `24305381214`, as was done for Ad 4? The engagement campaign, paused legacy campaign and Performance Max were left alone.
+
+## 2026-10-17: RA-13 Most Guys Abs added to trial campaign
+
+Approved R3 9:16 `KSq1OBlWvPI` and 16:9 `cnkrWRfFsTc` uploaded unchanged as Unlisted, both processed and embeddable. Dan selected AI Dan thumbnail 3, bold Impact text, "How to get real abs with AI." Both served thumbnails inspected.
+
+Trial `24316364155`, new group `201534026375` (RA-13 Most Guys Abs), target CPA $40 from live reference `199824307366`; audience `359952376` from `206348100928`. US + Canada, English. Ads `828468045056` (9:16, asset `430845852830`) and `828468037364` (16:9, asset `431033327331`), both ENABLED. Google validateOnly passed before the atomic nine-operation apply. Both actual policy results UNKNOWN / REVIEW_IN_PROGRESS, recheck 2026-10-18 through the existing process.
+
+Final URLs use `https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ra13&utm_content=codex-9x16-vsl` and `codex-16x9-vsl`. Existing campaign domains checked, landing HTTP 200. Budget `15911255930` $30/day before and after, shared with this additional group. Campaign remains ENABLED; no budget or campaign-status mutation. Full receipt: `Docs/RA13_SETUP_RECEIPT_20261017.md`. Config/result: `scripts/ads/api/dgen-ads/ra13*`. RA-13 queue state uploaded. No organic posting.
+
+## 2026-10-17: RA-16 AI Took Job added to trial campaign
+
+Exact R4 masters Unlisted: 9:16 `StkalQUjWSw`, 16:9 `g8GWwOYzelM`; both processed, embeddable and carrying Dan's selected R2 option 3 thumbnails, "Fire your trainer." Film hashes and approved gate records preserved.
+
+Trial `24316364155`, group `202854620044` (RA-16 AI Took Job), target CPA $40 from live reference `199824307366`; audience `359952376` from `206348100928`. US + Canada, English. Ads `828352448280` (9:16, asset `431059916190`) and `828398913310` (16:9, asset `431059888638`), both ENABLED. Google validateOnly passed before the atomic nine-operation apply. Policy command completed: both new ads UNKNOWN / REVIEW_IN_PROGRESS, no rejection. Recheck 2026-10-18 through the existing process.
+
+Final URLs use `https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ra16&utm_content=codex-9x16-vsl` and `codex-16x9-vsl`. Existing campaign domains checked including paused ads. Landing HTTP 200. Budget `15911255930` stayed $30/day before and after, shared with the additional group. Campaign remains ENABLED; no budget or campaign-status operation. Config/results: `scripts/ads/api/dgen-ads/ra16*`; receipt `Docs/RA16_SETUP_RECEIPT_20261017.md`. Queue uploaded, no organic publishing.

@@ -60,6 +60,8 @@ goal images of Dan). Every video was read back after upload: processed, HD, embe
 | RA-04 Top 3 Tips For Getting Abs | Claude R5 16:9 | 16:9 | 0:58 (57.92 s, sha256 d8d95ab3...) | https://youtu.be/wCfKZT-m1aw | yes, same approval; same ad group, ad `828398458259` since 10-16 | Design B split screen (vacuum, AI salad, medicine-ball crunch photo-44), blue title, Dan approved 10-16 after one revision round, `RA-04 Top 3 Tips For Getting Abs/RA-04 \| 16x9 \| FINAL.jpg` (set at upload 10-16). Unlisted, AI flag true submitted (realistic AI person 39.14-43.44 s, AI phone clip). |
 | RA-06 What's The Best Ab Exercise? | Claude R4 16:9 | 16:9 | 0:46 (45.71 s, sha256 db9a35d0...) | https://youtu.be/6WRVb61mY0Y | yes, Dan approved both formats 10-16; trial campaign ad group `199908283143`, ad `828274063389` since 10-16 | Dan's split-screen design B (round 3): enhanced real frames of the stomach vacuum, V-sit twist and ab wheel, one-line yellow BEST AB EXERCISE?, Dan approved 10-16 after two revision rounds, `RA-06 Whats The Best Ab Exercise/RA-06 \| 16x9 \| thumbnail B split FINAL.jpg` (set at upload 10-16). Unlisted, AI flag true submitted (AI body scan, copier, fired trainer, app result, robot). |
 | RA-06 What's The Best Ab Exercise? | Claude R4 9:16 | 9:16 | 0:46 (45.71 s, sha256 93fd39ba...) | https://youtu.be/CuN3CBE6ITs | yes, same approval; same ad group, ad `828320387740` since 10-16 | Dan's split-screen design B (round 3): enhanced real frames of the stomach vacuum, V-sit twist and ab wheel, one-line yellow BEST AB EXERCISE?, Dan approved 10-16 after two revision rounds, `RA-06 Whats The Best Ab Exercise/RA-06 \| 9x16 \| thumbnail B split FINAL.jpg` (set at upload 10-16). Unlisted, AI flag true submitted (AI body scan, copier, fired trainer, app result, robot). |
+| RA-15 Never Pay A Nutritionist Again | Claude R4 16:9 | 16:9 | 0:52 (51.85 s, sha256 f3ba15d6...) | https://youtu.be/Tqra4f_SEj8 | yes, Dan finalized round 4 on 10-16; trial campaign ad group `204288183347`, ad `828399044620` since 10-17 | Dan's pick 10-17 after three rounds: studio-gray-55 smirk in front of a crowd of angry nutritionists (Codex backdrop), NUTRITIONISTS DESPISE HIM on a red banner, `RA-15 Never Pay A Nutritionist Again/RA-15 \| 16x9 \| thumbnail mob red banner FINAL.jpg` (set at upload 10-17). Unlisted, AI flag true submitted (AI museum man 0.0-2.3 s, app generation of a man who is not Dan 17.5-25.0 s, fridge, steak, restaurant scenes, AI lock-screen goal picture 43.2-45.3 s). |
+| RA-15 Never Pay A Nutritionist Again | Claude R4 9:16 | 9:16 | 0:52 (51.85 s, sha256 2d990d91...) | https://youtu.be/8ZoEMD_uPZ0 | yes, same approval; same ad group, ad `828399056794` since 10-17 | Dan's pick 10-17 after three rounds: studio-gray-55 smirk in front of a crowd of angry nutritionists (Codex backdrop), NUTRITIONISTS DESPISE HIM on a red banner, `RA-15 Never Pay A Nutritionist Again/RA-15 \| 9x16 \| thumbnail mob red banner FINAL.jpg` (set at upload 10-17). Unlisted, AI flag true submitted (AI museum man 0.0-2.3 s, app generation of a man who is not Dan 17.5-25.0 s, fridge, steak, restaurant scenes, AI lock-screen goal picture 43.2-45.3 s). |
 | Ad 3 Stop Paying Human Trainers | Muhammad v6 HD, AI breath-smoke shot (1:13.5–1:18) replaced | 16:9 | 4:26 | https://youtu.be/86jbUhqBTUQ | yes (09-14) — DGen campaign since 09-14 | `ad3-muhammad-16x9_O1-dark-studio-studio-gray-87-FINAL.jpg` (set + read back 09-14) **Since 2026-10-02: trial-campaign thumbnail 3-R2A, `Ad 3 Stop Paying Human Trainers/trial-20261001/Ad 3 | 16x9 | FINAL.jpg` (set + read back 10-02).** |
 | Ad 3 Stop Paying Human Trainers | Claude vertical (render 12) | 9:16 | 4:26 | https://youtu.be/xlC-tigurnA | yes (09-14) — DGen campaign since 09-14 | `ad3-claude-9x16_O1-dark-studio-studio-gray-87-FINAL.jpg` (built + set + read back 09-14) **Since 2026-10-02: trial-campaign thumbnail 3-R2A, `Ad 3 Stop Paying Human Trainers/trial-20261001/Ad 3 | 9x16 | FINAL.jpg` (set + read back 10-02).** |
 | Ad 3 Stop Paying Human Trainers | Claude vertical 59s cutdown | 9:16 | 0:58 | https://youtu.be/-wTErCSi640 | yes (09-14; its −0.90 dBTP accepted) — DGen campaign since 09-14 | same 9:16 file (set + read back 09-14) **Since 2026-10-02: trial-campaign thumbnail 3-R2A, `Ad 3 Stop Paying Human Trainers/trial-20261001/Ad 3 | 9x16 | FINAL.jpg` (set + read back 10-02).** |
@@ -95,3 +97,23 @@ source shows.
 
 When a new ad goes final, upload it the same way and add a row here. Replacing a video means a
 new id, so the ads pointing at the old id have to be updated in Google Ads.
+
+## 2026-10-17: RA-13 Most Guys Abs R3
+
+| Ad | Version | Aspect | Length | Link | Approved? | Thumbnail |
+|---|---|---|---|---|---|---|
+| RA-13 Why Do Most Guys Never Get Abs? | Codex R3 | 9:16 | 0:54 | https://youtu.be/KSq1OBlWvPI | yes, exact R3 finalized 10-17 | Option 3, bold HOW TO GET REAL ABS WITH AI., FINAL-9x16.jpg, installed and read back |
+| RA-13 Why Do Most Guys Never Get Abs? | Codex R3 | 16:9 | 0:54 | https://youtu.be/cnkrWRfFsTc | yes, exact R3 finalized 10-17 | Option 3, bold HOW TO GET REAL ABS WITH AI., FINAL-16x9.jpg, installed and read back |
+
+Both Unlisted, processed and embeddable. Trial group 201534026375. Details: `Docs/RA13_SETUP_RECEIPT_20261017.md`.
+
+## 2026-10-17: RA-16 AI Took Job R4
+
+Both exact native masters uploaded unchanged and verified Unlisted, processed and embeddable on channel UC236gjadarHAhEhOMYNGJ9g. Dan selected R2 option 3, AI Dan fired with phone hologram trainer, "Fire your trainer." Both thumbnails installed and served images checked.
+
+| Ad | Version | Aspect | Length | YouTube | Approved | Thumbnail |
+|---|---|---|---|---|---|---|
+| RA-16 AI Took My Job | Codex R4 | 9:16 | 0:59 | https://youtu.be/StkalQUjWSw | yes, exact R4 finalized 10-17 | R2 option 3, FINAL-9x16.jpg, installed/read back |
+| RA-16 AI Took My Job | Codex R4 | 16:9 | 0:59 | https://youtu.be/g8GWwOYzelM | yes, exact R4 finalized 10-17 | R2 option 3, FINAL-16x9.jpg, installed/read back |
+
+Trial group 202854620044, ads 828352448280 / 828398913310. Receipt: `Docs/RA16_SETUP_RECEIPT_20261017.md`. No organic publishing.

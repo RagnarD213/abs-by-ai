@@ -1,0 +1,206 @@
+{
+ "at": "2026-10-17T19:10:58.732Z",
+ "budgetBefore": {
+  "status": "ENABLED",
+  "budgetId": "15911255930",
+  "perDay": 30
+ },
+ "budgetAfter": {
+  "status": "ENABLED",
+  "budgetId": "15911255930",
+  "perDay": 30
+ },
+ "results": [
+  "customers/3427170837/adGroups/204288183347",
+  "customers/3427170837/adGroupCriteria/204288183347~2840",
+  "customers/3427170837/adGroupCriteria/204288183347~2124",
+  "customers/3427170837/adGroupCriteria/204288183347~1000",
+  "customers/3427170837/adGroupCriteria/204288183347~2498784755180",
+  "customers/3427170837/assets/431060991861",
+  "customers/3427170837/adGroupAds/204288183347~828399044620",
+  "customers/3427170837/assets/431060991954",
+  "customers/3427170837/adGroupAds/204288183347~828399056794"
+ ],
+ "readBack": [
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/204288183347",
+    "status": "ENABLED",
+    "id": "204288183347",
+    "name": "RA-15 Never Pay A Nutritionist",
+    "targetCpaMicros": "40000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/204288183347~828399044620",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/828399044620",
+     "id": "828399044620",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ra15&utm_content=claude-16x9-vsl"
+     ],
+     "name": "RA-15 Never Pay A Nutritionist | Claude 16:9 | vsl",
+     "demandGenVideoResponsiveAd": {
+      "headlines": [
+       {
+        "text": "Never Pay A Nutritionist Again"
+       },
+       {
+        "text": "How AI Got Me Abs"
+       },
+       {
+        "text": "How I Got Abs At 40"
+       },
+       {
+        "text": "AI Took The Nutritionist's Job"
+       },
+       {
+        "text": "Meal Plans Built Around Your Food"
+       }
+      ],
+      "longHeadlines": [
+       {
+        "text": "Daniel Rose explains why he replaced his nutritionist with AI."
+       },
+       {
+        "text": "Here is how AI builds a nutrition plan around the foods you actually like."
+       },
+       {
+        "text": "An AI nutrition coach that is with you at every meal, even at a restaurant."
+       }
+      ],
+      "descriptions": [
+       {
+        "text": "Daniel Rose shows how AI builds a nutrition plan around foods you like."
+       },
+       {
+        "text": "AI nutrition coaching explained by a guy who did it at 40 years old."
+       },
+       {
+        "text": "Ask AI what to order at a restaurant and get a plan you will stick to."
+       }
+      ],
+      "videos": [
+       {
+        "asset": "customers/3427170837/assets/431060991861"
+       }
+      ]
+     }
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/204288183347",
+    "status": "ENABLED",
+    "id": "204288183347",
+    "name": "RA-15 Never Pay A Nutritionist",
+    "targetCpaMicros": "40000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/204288183347~828399056794",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/828399056794",
+     "id": "828399056794",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ra15&utm_content=claude-9x16-vsl"
+     ],
+     "name": "RA-15 Never Pay A Nutritionist | Claude 9:16 | vsl",
+     "demandGenVideoResponsiveAd": {
+      "headlines": [
+       {
+        "text": "Never Pay A Nutritionist Again"
+       },
+       {
+        "text": "How AI Got Me Abs"
+       },
+       {
+        "text": "How I Got Abs At 40"
+       },
+       {
+        "text": "AI Took The Nutritionist's Job"
+       },
+       {
+        "text": "Meal Plans Built Around Your Food"
+       }
+      ],
+      "longHeadlines": [
+       {
+        "text": "Daniel Rose explains why he replaced his nutritionist with AI."
+       },
+       {
+        "text": "Here is how AI builds a nutrition plan around the foods you actually like."
+       },
+       {
+        "text": "An AI nutrition coach that is with you at every meal, even at a restaurant."
+       }
+      ],
+      "descriptions": [
+       {
+        "text": "Daniel Rose shows how AI builds a nutrition plan around foods you like."
+       },
+       {
+        "text": "AI nutrition coaching explained by a guy who did it at 40 years old."
+       },
+       {
+        "text": "Ask AI what to order at a restaurant and get a plan you will stick to."
+       }
+      ],
+      "videos": [
+       {
+        "asset": "customers/3427170837/assets/431060991954"
+       }
+      ]
+     }
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  }
+ ],
+ "criteria": [
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/204288183347~1000",
+    "type": "LANGUAGE",
+    "language": {
+     "languageConstant": "languageConstants/1000"
+    }
+   }
+  },
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/204288183347~2124",
+    "type": "LOCATION",
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2124"
+    }
+   }
+  },
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/204288183347~2840",
+    "type": "LOCATION",
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2840"
+    }
+   }
+  },
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/204288183347~2498784755180",
+    "type": "AUDIENCE",
+    "audience": {
+     "audience": "customers/3427170837/audiences/359952376"
+    }
+   }
+  }
+ ]
+}

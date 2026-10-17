@@ -12,7 +12,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 | standing rules and authorizations | **`AGENTS.md`** / **`CLAUDE.md`** |
 | open state | **here**, in ≤3 lines |
 
-**RO-26 R5 REVIEW 2026-10-17, Codex.** Two requested revisions, full film, subtitles and complete QA delivered at `:8982/r5/` and `Videos to Review`. Full gate FAIL: 31/39 pass; three inherited crop flashes remain open. Next: Dan reviews. Shared recap code committed locally; cloud sync blocked by other live-session edits, none adopted. Detail: `Docs/RO26_R5_DELIVERY_RECEIPT_20261017.md`. No platform upload or publishing.
 
 ## Working rules
 
@@ -27,15 +26,15 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**RO-25 R6 BUILDING 2026-10-17, Codex.** Dan approved exact one-pill START/new open-bottle END and $25 cumulative motion cap; approved-pair 10s take4 is processing, estimated cumulative $17.50 including three rejected takes. Free clock, bed, lotion, recap, X audio and six intros built; audio numeric gates FAIL. Next: whole-take naturalness/independent review, then limited R6 opening and component page if passing. Detail: `/Volumes/Extreme/_edit_work/RO-25/round6/WORK_PACKET.md`.
+**RO-25 R6 BUILDING 2026-10-17, Codex.** Dan approved exact one-pill START/open-bottle END and $25 motion cap. Four Kling takes failed; Seedance take5 provider rejected; Hailuo take6 passed native tracker and fresh independent action review. Conservative estimate $21.58/$25, failed-request invoice pending. First minute and six intros rendered; contextual QA/page pending. R5 O-POOL exact take withheld for independent frozen-water FAIL; R4 opening picture retained. All exact numerical audio gates FAIL. Components only, no full film. Detail: `/Volumes/Extreme/_edit_work/RO-25/round6/WORK_PACKET.md`.
 
-**AI Took Job AD Setup PICK 2026-10-17, Codex.** Five unique Codex thumbnail choices delivered in 16:9 and 9:16. Both approved R4 masters verified unchanged. Next: Dan picks, then upload both Unlisted and add RA-16 to trial 24316364155. No upload or Ads write yet. Detail: `Docs/RA16_SETUP_RECEIPT_20261017.md`.
+**RA-16 POLICY-RECHECK 2026-10-17, Codex.** Exact R4 films Unlisted and processed; selected R2 thumbnail 3 installed/read back. Trial group 202854620044, ads 828352448280 / 828398913310 enabled, review pending. Next 2026-10-18: existing campaign policy process, `node scripts/ads/api/client.js policy 24316364155`; if clear, delete this entry. Receipt: `Docs/RA16_SETUP_RECEIPT_20261017.md`.
 
 
 
 **RA-13 POLICY-RECHECK 2026-10-17, Codex.** Both R3 films are Unlisted and processed; trial group 201534026375, ads 828468045056 / 828468037364 ENABLED, review pending. Next 2026-10-18: `node scripts/ads/api/client.js policy 24316364155`; if clear, delete this entry. Receipt: `Docs/RA13_SETUP_RECEIPT_20261017.md`.
 
-**RO-26 RULE SYNC BLOCKED 2026-10-17, Codex.** Dan reviewed R4; the ready R5 handoff is in `Handoffs/README.md`. New graphics guidance is saved locally in AGENTS, VIDEO-RULES and the long-form skill. `safe-push.sh` committed `0534f03` and `ee3e292` locally but exited 2 on six live other-session files. Next: retry only after those owners clear; do not adopt their work. R4 stays a review baseline, no upload.
+**RO-26 RULE SYNC BLOCKED 2026-10-17, Codex.** R5 finalized after Dan approval; setup handoff in `Handoffs/README.md`. Local commits include `0534f03`, `ee3e292`, `2145530`, `3ff330e`, `200ebe4`; safe-push still stops on live owners. Own RO-26 queue/index/QC updates stay local alongside their changes. Next: retry after owners clear; do not adopt live work. Final files and verified Extreme backup are available. See `Docs/RO26_R5_DELIVERY_RECEIPT_20261017.md`.
 
 **Main Git cloud read BLOCKED 2026-10-16, Codex.** Main-folder fetch waits on an iCloud-evicted local object, `.git/objects/29/f0dd02ad6df53b23db29ba79c5dcda29923390`. Download requested; object absent from GitHub. RA-13 records safely pushed via clean checkout, commit `f3d725b`. Next: restore that local object before main-folder pushes. No other session files or refs changed.
 
@@ -43,6 +42,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 
 
+
+**Continue-or-handoff rule UNPUSHED 2026-10-17, Claude.** Commits 204433a, 74e0fbb (AGENTS, VIDEO-RULES, PRE-RENDER-APPROVAL: auto continue-or-handoff) are local; safe-push stopped on live edits by other sessions. Next: any later safe-push from the main folder carries it; then delete this.
 
 **Voice P2C commits UNPUSHED 2026-10-16, Claude.** Two local commits (bench fix, pilot results) wait on main; safe-push stopped on live edits to the board, DAN_DECISIONS, 00-MASTER, jobs.json. Next: any safe-push from the main folder carries them; then delete this.
 
@@ -105,7 +106,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **RO-20/B/C:R3b-REVIEW:8868:2026-10-16:Claude.** Studio pickups laid in. Next: Dan's pickup A/B + sign-off answers, then three films (handoff step 2).
 
 
-**RA-15 setup PICK 2026-10-17, Claude.** Dan rejected round 1; round 2 sheet (3 designs, NUTRITIONISTS DESPISE HIM) waiting his pick. Next: upload both Unlisted, trial group, policy. `Handoffs/handoff-20261016-ra15-setup.md`
+**RA-15:POLICY-RECHECK:2026-10-17:Claude.** Ads `828399044620`, `828399056794` in review. Next 10-18: `node scripts/ads/api/client.js policy 24316364155`; clean, delete this.
 
 **RA-05:POLICY-RECHECK:2026-10-16:Claude.** Live: `0DswKDBFW2E`, ad `828398569805` in review. Next 10-17: `node scripts/ads/api/client.js policy 24316364155`; clean, delete this.
 
