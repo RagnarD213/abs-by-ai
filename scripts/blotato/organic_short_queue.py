@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Queue one approved organic Short across the five Abs By AI destinations.
+"""Queue one approved organic Short across the four Abs By AI destinations.
 
-The YouTube Data API holding copy remains Private. Blotato creates the public
-release at the scheduled time, which is why the YouTube target below is public.
+Blotato creates the YouTube release at the scheduled time. No holding upload is
+created by this helper. Configs may supply caption_overrides by platform and
+instagram_first_comment to preserve their approved setup copy.
 TikTok receives a one-frame cover-prefixed derivative and pins its cover to 0 ms.
 
 Usage:
@@ -45,7 +46,7 @@ def post_plan(v: dict) -> list[dict]:
         "mediaType": "reel",
         "shareToFeed": True,
         "coverImageUrl": v["instagram_cover_url"],
-        "firstComment": f"Try your free Abs By AI preview: {link('instagram')}",
+        "firstComment": v.get("instagram_first_comment", f"Try your free Abs By AI preview: {link('instagram')}"),
     }
     tiktok_target = {
         "targetType": "tiktok",
@@ -67,7 +68,7 @@ def post_plan(v: dict) -> list[dict]:
         "containsSyntheticMedia": bool(v["ai_generated"]),
         "thumbnailUrl": v["youtube_cover_url"],
     }
-    return [
+    posts = [
         {
             "account": FACEBOOK,
             "platform": "facebook",
@@ -102,6 +103,10 @@ def post_plan(v: dict) -> list[dict]:
             "media": v["video_url"],
         },
     ]
+    for post in posts:
+        if post["platform"] in v.get("caption_overrides", {}):
+            post["text"] = v["caption_overrides"][post["platform"]]
+    return posts
 
 
 def main() -> int:
