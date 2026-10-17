@@ -1,0 +1,150 @@
+{
+  "status": "awaiting-final-text-pick",
+  "image_option": 3,
+  "photo_unchanged": true,
+  "new_generations": 0,
+  "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/Meal Prep - DS-28/covers/round1/assets/upscaled-3.png",
+  "source_sha256": "e0b1e205d02f755bd5921959ee300906242f5701381958b4e5b39aa151ba1900",
+  "outputs": [
+    {
+      "name": "3-tall-larger-text",
+      "layout": "youtube",
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/Meal Prep - DS-28/covers/round2/3-tall-larger-text.jpg",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "bytes": 569790,
+      "sha256": "e3906d10484cb12e559bcd50825613b4d879e114b744ade5721f58dd9cd0826f",
+      "text": [
+        {
+          "copy": "Stop Cooking",
+          "font": "manrope",
+          "size": 151,
+          "bounds": [
+            36,
+            1440,
+            1044,
+            1590
+          ]
+        },
+        {
+          "copy": "Your Meals",
+          "font": "manrope",
+          "size": 187,
+          "bounds": [
+            35,
+            1622,
+            1044,
+            1763
+          ]
+        }
+      ]
+    },
+    {
+      "name": "3-short-A-clean-navy",
+      "layout": "instagram",
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/Meal Prep - DS-28/covers/round2/3-short-A-clean-navy.jpg",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "bytes": 457640,
+      "sha256": "b043fc5ed6f1d44ba1b5a04dcbde192aba7265c695ca1a06625e7c8f58f3f31d",
+      "text": [
+        {
+          "copy": "Stop Cooking",
+          "font": "manrope",
+          "size": 149,
+          "bounds": [
+            43,
+            1305,
+            1036,
+            1453
+          ]
+        },
+        {
+          "copy": "Your Meals",
+          "font": "manrope",
+          "size": 185,
+          "bounds": [
+            40,
+            1476,
+            1039,
+            1615
+          ]
+        }
+      ]
+    },
+    {
+      "name": "3-short-B-gold-panel",
+      "layout": "instagram",
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/Meal Prep - DS-28/covers/round2/3-short-B-gold-panel.jpg",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "bytes": 471424,
+      "sha256": "25b3252b9116b7be71b50a4265c512bdc4e5086da3675bc0c9000d253cecb0d6",
+      "text": [
+        {
+          "copy": "Stop Cooking",
+          "font": "impact",
+          "size": 182,
+          "bounds": [
+            49,
+            1250,
+            1030,
+            1417
+          ]
+        },
+        {
+          "copy": "Your Meals",
+          "font": "impact",
+          "size": 217,
+          "bounds": [
+            49,
+            1432,
+            1031,
+            1607
+          ]
+        }
+      ]
+    },
+    {
+      "name": "3-short-C-bold-display",
+      "layout": "instagram",
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/Meal Prep - DS-28/covers/round2/3-short-C-bold-display.jpg",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "bytes": 456953,
+      "sha256": "df2e4ec91e793a403bfd83fd1c4614d66aa6abefb0145fc16c068d5847b81aac",
+      "text": [
+        {
+          "copy": "Stop Cooking",
+          "font": "impact",
+          "size": 186,
+          "bounds": [
+            38,
+            1250,
+            1042,
+            1421
+          ]
+        },
+        {
+          "copy": "Your Meals",
+          "font": "impact",
+          "size": 223,
+          "bounds": [
+            35,
+            1438,
+            1045,
+            1617
+          ]
+        }
+      ]
+    }
+  ]
+}

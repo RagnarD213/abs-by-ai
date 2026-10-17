@@ -41,6 +41,22 @@ Generation: five calls through `.claude/skills/_shared/codex-image.sh --model gp
 - Edit Queue: remains finalized. Do not mark uploaded unless all four saved schedules exist and read back correctly. If capacity is insufficient, use the shared waitlist and preserve finalized state.
 - Dispatcher remains paused. Victory Dashboard untouched.
 
+## Option 3 text revision, 2026-10-17
+
+Dan selected the image concept for option 3 and requested larger text near the edges on its tall cover, plus clearer treatments for its shorter profile thumbnail. Final text approval is still pending; this is not authorization to upload the earlier files.
+
+Revised assets: `Short-form video content/Meal Prep - DS-28/covers/round2/`.
+
+- Tall: `3-tall-larger-text.jpg`. Two lines span about 1,010 px of the 1,080 px canvas, leaving about 35 px at either edge. The shorter second line is also enlarged to match the first line's width.
+- Shorter A: `3-short-A-clean-navy.jpg`, larger white/gold Manrope on a clear navy field.
+- Shorter B: `3-short-B-gold-panel.jpg`, dark condensed display text on a solid gold panel.
+- Shorter C: `3-short-C-bold-display.jpg`, large condensed white/gold text with strong contrast and shadow.
+- Review: `REVIEW-option-3-text-variations.jpg`, one revised tall cover, three 3:4 profile previews and three phone-size comparisons.
+
+The exact existing AI image is reused. No new generation or film edit. Four full-size files decode as 1080x1920 RGB JPEG, are under 2 MB, and preserve face, hair, abdominal definition and the held meal trays. Text bounds are recorded in `manifest.json`; Instagram text ends by y=1620. Sources, outputs and the review sheet are backed up on Extreme with matching hashes. Recipe: `Handoffs/video-editing/DS-28-cover-review/round2-build.py` (pass the absolute round2 media folder as its positional argument).
+
+Next: record Dan's shorter-cover pick A/B/C and updated tall-cover approval, then resume the original setup handoff. The film remains finalized; no uploads or schedules exist from this setup task.
+
 ## Exact next action
 
 Record Dan's chosen cover number, then execute steps 3-8 of `Handoffs/handoff-20261017-ds28-meal-prep-setup.md`. Preserve the exact approved film. Complete backup filing and organic setup on YouTube, Facebook, Instagram @danrosefit and TikTok through the maintained Blotato clients. Reuse existing IDs on resume. No extra format, new film edit, per-video scheduling routine or direct Public YouTube upload.
