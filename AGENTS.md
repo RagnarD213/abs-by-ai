@@ -193,12 +193,16 @@ Full rule: read `.claude/skills/_shared/VIDEO-RULES.md`.
 - Release organic long-form YouTube videos on Sunday and Wednesday at 9 AM America/Chicago through Blotato: two a week, one per day, started as a six-week test on Wed Oct 21, 2026. Never another weekday, never two long-forms on one day. A revised replacement upload uses one slot.
 - The dated calendar Dan approved is `Docs/LONGFORM_RELEASE_CALENDAR.md`. Sundays get the strongest available film, Wednesdays the weakest (memory `longform-strength-ranking`). Every already-edited film releases in 2026; a film finished before December takes the 2026 Sunday of the newest not-yet-edited studio film. RO-20/B/C are off the schedule until Dan says otherwise.
 - Before scheduling, inspect the live Blotato YouTube queue, not just a local receipt. A film not on the calendar goes after the last queued long-form on the next free Sunday or Wednesday.
-- YouTube goes first. Facebook, Instagram and TikTok follow the next day: Monday 9 AM after a Sunday release, Thursday noon after a Wednesday release. Never at the same time as YouTube. Verify the YouTube video is public before the other platforms release; if it is not, postpone those posts.
+- YouTube goes first. Facebook, Instagram and TikTok follow the next day at noon (Monday after a Sunday release, Thursday after a Wednesday release); 9 AM those days is a Shorts slot. Never at the same time as YouTube. Verify the YouTube video is public before the other platforms release; if it is not, postpone those posts.
 - Re-read every saved schedule after a move. This binds Claude and Codex for setup, queue edits, handoffs and direct Blotato actions; `/video-setup`, `scripts/blotato/longform_queue.py` and `video_topup.py` enforce it.
+
+## Shorts release cadence (Dan, 2026-10-17)
+
+- Five Shorts a week at 9 AM America/Chicago: one dedicated Short on Thursday; Shorts cut from long-forms on Monday (from Sunday's film), Tuesday, Friday (from Wednesday's film) and Saturday. Never before the parent long-form is public. Every already-edited Short releases in 2026. Each new long-form gets 3 Shorts. Dated plan and editing deadlines: `Docs/SHORTS_RELEASE_CALENDAR.md`.
 
 ## One routine queues waiting videos (Dan, 2026-10-11)
 
-- When Blotato is full, a finished video goes on `scripts/blotato/video_waitlist.json`. The daily `social-queue-daily-refresh` routine (`scripts/blotato/video_topup.py`) queues waiting videos as room frees: long-forms on Sundays and Wednesdays, Shorts on Tue/Thu/Sat, videos before photo posts. Never create a scheduled task or routine that queues a single video; they conflict. Claude and Codex both. Detail: `/video-setup`.
+- When Blotato is full, a finished video goes on `scripts/blotato/video_waitlist.json`. The daily `social-queue-daily-refresh` routine (`scripts/blotato/video_topup.py`) queues waiting videos as room frees: long-forms on Sundays and Wednesdays, dedicated Shorts on Thursday, Shorts cut from long-forms on Mon/Tue/Fri/Sat, videos before photo posts. Never create a scheduled task or routine that queues a single video; they conflict. Claude and Codex both. Detail: `/video-setup`.
 
 ## Pinned question comment on every YouTube video (Dan, 2026-10-11)
 

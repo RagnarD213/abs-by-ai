@@ -15,8 +15,10 @@ For each waiting entry, in order, while the queue has room for its 4 posts:
     America/Chicago. The other platforms follow the next day (longform_queue.py does that). One
     long-form per day (Dan, 2026-10-17: two a week, Sunday and Wednesday; was Sunday only).
     Release order and dates come from the approved calendar written into each config's "main".
-  - short: keeps the config's slot if it is still free and in the future, otherwise takes the next
-    free Tuesday, Thursday or Saturday at 9 AM America/Chicago with no other YouTube post that day.
+  - short: keeps the config's slot if it is still free, in the future and on its kind's day, otherwise
+    takes the next free such day at 9 AM America/Chicago with no other YouTube post that day. A dedicated
+    Short (job DS-...) goes on Thursday, one a week; a Short cut from a long-form goes on Monday, Tuesday,
+    Friday or Saturday (Dan, 2026-10-17; was Tue/Thu/Sat). Dated plan: Docs/SHORTS_RELEASE_CALENDAR.md.
 Then it runs the normal helper (longform_queue.py or organic_short_queue.py) with --apply, which
 verifies on a fresh pull. Entries never jump the line: if the first waiting one does not fit, nothing
 behind it is queued. Never touches, moves or deletes existing Blotato posts. Photo posts
@@ -45,6 +47,12 @@ YOUTUBE, ACCOUNTS = "46963", ("47105", "67203", "58181", "46963")
 IG_MAX_BYTES = 300_000_000
 HELPER = {"longform": "longform_queue.py", "short": "organic_short_queue.py"}
 LONGFORM_DAYS = (6, 2)  # Sunday and Wednesday (Dan, 2026-10-17)
+DEDICATED_DAYS = (3,)  # Thursday: one dedicated Short a week (Dan, 2026-10-17)
+CUT_SHORT_DAYS = (0, 1, 4, 5)  # Mon, Tue, Fri, Sat: Shorts cut from long-forms
+
+
+def short_days(entry: dict) -> tuple:
+    return DEDICATED_DAYS if str(entry.get("job", "")).startswith("DS-") else CUT_SHORT_DAYS
 
 
 def load() -> list:
@@ -142,9 +150,11 @@ def main() -> int:
         else:
             main = v["main"]
             clash = any((a, main[:16]) in minutes for a in ACCOUNTS)
-            if datetime.fromisoformat(main.replace("Z", "+00:00")) < now + timedelta(hours=2) or clash:
+            days = short_days(e)
+            if (datetime.fromisoformat(main.replace("Z", "+00:00")) < now + timedelta(hours=2) or clash
+                    or want.weekday() not in days):
                 want = max(want, today) + timedelta(days=1)
-                while (want.weekday() not in (1, 3, 5) or want in yt_days
+                while (want.weekday() not in days or want in yt_days
                        or any((a, utc(want)[:16]) in minutes for a in ACCOUNTS)):
                     want += timedelta(days=1)
                 main = utc(want)

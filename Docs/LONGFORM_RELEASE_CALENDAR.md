@@ -1,8 +1,8 @@
 # Long-form release calendar (approved by Dan 2026-10-17)
 
 Two organic long-forms a week: **Sunday and Wednesday, 9 AM America/Chicago**, one per day. Six-week test from Wed
-Oct 21, 2026. Facebook, Instagram and TikTok follow the next day: Monday 9 AM after a Sunday release, Thursday noon after
-a Wednesday release (Thursday 9 AM is a Shorts slot). Rule: `AGENTS.md`, "Long-form YouTube release cadence".
+Oct 21, 2026. Facebook, Instagram and TikTok follow the next day at noon: Monday after a Sunday release, Thursday after a
+Wednesday release (9 AM those days is a Shorts slot). Shorts: `Docs/SHORTS_RELEASE_CALENDAR.md`. Rule: `AGENTS.md`, "Long-form YouTube release cadence".
 Ranking rules: memory `longform-strength-ranking`.
 
 Dan's rules for this calendar:

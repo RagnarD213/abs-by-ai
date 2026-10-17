@@ -18,6 +18,14 @@ At the start of a video editing/review task, name the chat `<Recognizable Video 
 
 Read `_shared/VIDEO-RULES.md` first.
 
+## Three Shorts per new long-form, released Mon/Tue/Fri/Sat (Dan, 2026-10-17)
+
+- Cut **3 Shorts** from each new long-form: its three best moments. Sets already cut before 2026-10-17 keep their count.
+  Why: at four long-form Shorts a week we have about twice as many as there are slots.
+- Shorts cut from long-forms go out Monday, Tuesday, Friday and Saturday at 9 AM Chicago; Thursday is the one dedicated
+  Short of the week. Never before the parent long-form is public. Dated plan and editing deadlines:
+  `Docs/SHORTS_RELEASE_CALENDAR.md`.
+
 ## This skill is for CONTENT only (Dan, 2026-10-04)
 
 Shorts are cut from a long-form CONTENT video. An ad is never mined for a batch of organic Shorts: an ad gets its

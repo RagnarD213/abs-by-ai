@@ -81,11 +81,10 @@ def check_longform_day(when: str, slug: str, items: list) -> None:
 
 
 def social_time(main: str) -> str:
-    """Facebook, Instagram and TikTok follow the next day: Monday 9 AM after a Sunday release, Thursday
-    noon after a Wednesday release (Thursday 9 AM is a Shorts slot on those accounts)."""
+    """Facebook, Instagram and TikTok follow the next day at noon: Monday after a Sunday release, Thursday
+    after a Wednesday release. 9 AM on those days is a Shorts slot on the same accounts (Dan, 2026-10-17)."""
     local = datetime.fromisoformat(main.replace("Z", "+00:00")).astimezone(CHICAGO) + timedelta(days=1)
-    hour = 12 if local.weekday() == 3 else 9
-    local = datetime(local.year, local.month, local.day, hour, 0, tzinfo=CHICAGO)
+    local = datetime(local.year, local.month, local.day, 12, 0, tzinfo=CHICAGO)
     return local.astimezone(ZoneInfo("UTC")).strftime("%Y-%m-%dT%H:%M:%S.000Z")
 
 

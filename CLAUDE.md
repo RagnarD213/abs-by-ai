@@ -3,7 +3,7 @@
 @AGENTS.md
 @AI_COORDINATION.md
 
-**Long-form releases (Dan, 2026-10-17):** Two a week, Sunday and Wednesday 9 AM America/Chicago, one per day, per the dated calendar in `Docs/LONGFORM_RELEASE_CALENDAR.md` and the rule in `AGENTS.md`. Never another weekday. YouTube publishes first; Facebook, Instagram and TikTok follow the next day (Monday 9 AM, or Thursday noon after a Wednesday release) once the YouTube post is verified public.
+**Long-form releases (Dan, 2026-10-17):** Two a week, Sunday and Wednesday 9 AM America/Chicago, one per day, per the dated calendar in `Docs/LONGFORM_RELEASE_CALENDAR.md` and the rule in `AGENTS.md`. Never another weekday. YouTube publishes first; Facebook, Instagram and TikTok follow the next day at noon (Monday, or Thursday after a Wednesday release) once the YouTube post is verified public. Shorts: `Docs/SHORTS_RELEASE_CALENDAR.md`.
 
 **Memory entries are in `Docs/memory/` (index: `Docs/memory/MEMORY.md`).** When a skill or rule says "memory `name`", read `Docs/memory/name.md`. Local sessions also have the same entries in the auto-memory folder; the repo copy is the cloud copy. A name with no file there is private on purpose: do not guess its content.
 After writing or changing a memory entry locally, run `scripts/sync-memory-to-repo.sh`, then push `Docs/memory`. In a cloud session, write the entry straight into `Docs/memory/` and add its index line.
