@@ -122,7 +122,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [RO-10](RO-10-calories-the-reason-you-re-not-losing-weight.md) | Calories: The Reason You're Not Losing Weight | 9/23 C1704 | UPLOADED | L |
 | [RO-11](RO-11-when-calories-don-t-matter-for-fat-loss.md) | When Calories Don't Matter For Fat Loss | 9/23 C1705 | UPLOADED | L |
 | [RO-12](RO-12-top-5-zepbound-tips.md) | Top 5 Zepbound Tips | 9/23 C1706 | UPLOADED | L |
-| [RO-13](RO-13-can-you-drink-alcohol-and-still-have-abs.md) | Can You Drink Alcohol And Still Have Abs? | 9/23 C1707 | UPLOADED | L |
+| [RO-13](RO-13-can-you-drink-alcohol-and-still-have-abs.md) | Can You Drink Alcohol And Still Have Abs? | 9/23 C1707 | FINALIZED | L |
 | [RO-14](RO-14-why-you-re-not-losing-weight.md) | Why You're Not Losing Weight | 9/23 C1708 | IN PROGRESS | L |
 | [RO-15](RO-15-sleep-better-with-glycine.md) | Sleep Better With Glycine | 9/23 C1709 | READY | L |
 | [RO-16](RO-16-if-i-had-belly-fat-here-s-how-i-d-lose-it-in-90-da.md) | If I Had Belly Fat, Here's How I'd Lose It In 90 Days | 9/23 C1710 | UPLOADED | L |
@@ -141,10 +141,10 @@ Roll map and editor warnings: `Docs/SHOOT_1015_FOOTAGE_REPORT.md`. BLOCKED rows 
 
 | job | video | rolls | status | size |
 |---|---|---|---|---|
-| [RO-25](RO-25-im-41-i-wasted-my-life.md) | I'm 41. I Wasted My Life. | 10/15 C1767 | DRAFT: asset choices waiting for Dan | L |
+| [RO-25](RO-25-im-41-i-wasted-my-life.md) | I'm 41. I Wasted My Life. | 10/15 C1767 | UPLOADED | L |
 | [RO-28](RO-28-why-zepbound-improves-your-health-even-if-youre-ripped.md) | Why Zepbound Improves Your Health Even If You're Ripped | 10/15 C1771 | READY | L |
 
-RO-25 selections received 2026-10-16. Next: [round-two selected frames and revisions](handoff-20261016-ro25-r2-selected-frames-and-revisions.md), including the serious tone correction. Generate frame pairs for review before motion; the full film remains in progress. Preserve the [round-one record](handoff-20261016-ro25-round1-look-assets-first-minute.md).
+RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled for Sunday October 18 at 9 AM Chicago time, with Facebook and Instagram Monday at noon. The setup receipt is `Docs/RO25_SETUP_RECEIPT_20261017.md`. The separate SL-18 Shorts job can start from this approved master.
 
 **Shorts (43)**
 
@@ -203,7 +203,7 @@ RO-25 selections received 2026-10-16. Next: [round-two selected frames and revis
 | [RO-23](RO-23-i-ranked-every-ab-exercise-from-worst-to-best.md) | I Ranked Every Ab Exercise From Worst To Best | 10/15 C1726 | READY | L |
 | [RO-24](RO-24-reacting-to-celebrity-ozempic-transformations.md) | Reacting To Celebrity Ozempic Transformations | 10/15 C1726 | READY | L |
 | [RO-26](RO-26-im-41-my-life-is-top-1-how-i-did-it.md) | I'm 41. My Life Is Top 1%. How I Did It. | 10/15 C1768 | FINALIZED | L |
-| [RO-27](RO-27-its-boring-but-it-got-me-abs-at-40.md) | It's Boring, But It Got Me Abs At 40 | 10/15 C1769-C1770 | READY | L |
+| [RO-27](RO-27-its-boring-but-it-got-me-abs-at-40.md) | It's Boring, But It Got Me Abs At 40 | 10/15 C1769-C1770 | IN PROGRESS | L |
 | [RO-29](RO-29-cortisol-belly-is-real-but-tiktok-has-it-wrong.md) | Cortisol Belly Is Real, But TikTok Has It Wrong | 10/15 C1772-C1773 | READY | L |
 | [RO-30](RO-30-the-fastest-way-to-lose-stubborn-love-handles.md) | The Fastest Way To Lose Stubborn Love Handles | 10/15 C1774 | READY | L |
 | [RO-31](RO-31-how-to-get-rid-of-man-boobs.md) | How To Get Rid Of Man Boobs | 10/15 C1775 | READY | L |
@@ -243,7 +243,7 @@ RO-25 selections received 2026-10-16. Next: [round-two selected frames and revis
 | [SL-07](SL-07-if-i-had-belly-fat-shorts.md) | If I Had Belly Fat, Here's How I'd Lose It In 90 Days (RO-16, public Nov 1) | IN PROGRESS | S |
 | [SL-08](SL-08-calories-not-losing-weight-shorts.md) | Calories: The Reason You're Not Losing Weight (RO-10 replacement pending; old YouTube copy Private) | IN PROGRESS | S |
 | [SL-09](SL-09-oura-ring-review-shorts.md) | My Honest Oura Ring Review (Zeeshan Video 4, public Nov 8) | IN PROGRESS | S |
-| [SL-10](SL-10-alcohol-and-abs-shorts.md) | Can You Drink Alcohol And Still Have Abs? (RO-13, public Nov 15) | READY | S |
+| [SL-10](SL-10-alcohol-and-abs-shorts.md) | Can You Drink Alcohol And Still Have Abs? (RO-13, Dec 30 target, waitlisted after Dan authorized queue displacement Oct 17) | READY | S |
 | [SL-11](SL-11-the-vacuum-shorts.md) | The Stomach Vacuum: The Best Ab Exercise For Belly Fat (RO-02, public Nov 22) | READY | S |
 | [SL-12](SL-12-keep-your-muscle-shorts.md) | How To Keep Your Muscle While You Lose Fat (RO-01, YouTube Dec 6) | READY; hold release until parent is public | S |
 | [SL-13](SL-13-calories-dont-matter-shorts.md) | When Calories Don't Matter For Fat Loss (RO-11, YouTube Dec 13) | READY; hold release until parent is public | S |
@@ -252,7 +252,7 @@ RO-25 selections received 2026-10-16. Next: [round-two selected frames and revis
 | [SL-16](SL-16-intermittent-fasting-shorts.md) | Intermittent Fasting: The Best Way To Get Abs (RO-08, finalized 10-14; release date set at setup) | READY; hold release until parent is public | S |
 
 | [SL-17](SL-17-top-1-percent-shorts.md) | Top 1 Percent (RO-26, finalized; release on hold) | READY; hold release until parent is public | S |
-| [SL-18](SL-18-wasted-my-life-shorts.md) | I'm 41. I Wasted My Life. (RO-25, YouTube Sun Oct 18; 3 Shorts, Short 1 airs Mon Oct 26) | WAITS: approved RO-25 film; due Oct 24 | S |
+| [SL-18](SL-18-wasted-my-life-shorts.md) | I'm 41. I Wasted My Life. (RO-25, YouTube Sun Oct 18; 3 Shorts, Short 1 airs Mon Oct 26) | READY: approved parent filed; due Oct 24 | S |
 
 **Will need shorts once final (no handoff yet; add one when the long-form is approved):**
 * Your Belly Fat Is An Emergency (Codex, revision in progress)

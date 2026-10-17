@@ -26,15 +26,18 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**It's Boring, But It Got Me Abs At 40 (RO-27) - R1 EDIT 2026-10-17, Codex.** Sole editor. Building first-minute draft, colour and voice choices, and contextual asset previews from C1769-C1770. Next: playable review page for Dan's choices; full film waits on approvals.
+
 **RO-25 thumbnail sync BLOCKED 2026-10-17, Codex.** Final thumbnail C and deferred setup handoff are saved with verified Extreme backups. Commit `4b5b483` remains local; safe-push stopped on live `qc_corpus/corpus.json` and `scripts/blotato/fb_reel_covers.json`, plus stale files listed by the tool. Next: retry after owners clear; do not adopt live edits. Setup handoff is indexed in `Handoffs/README.md` and waits for the approved final film.
 
 **SL-15:PICKS:2026-10-17:Claude.** My First Spray Tan SFL R1: 10-candidate shortlist sent, waiting for Dan's 3 picks. No renders until Dan's Codex job finishes. Short 1 airs Fri Oct 30, review copies by Oct 26.
+
+**I'm 41. I Wasted My Life. LFC Setup QUEUED 2026-10-17, Codex.** Dan approved exact R7 film and thumbnail C. Blotato readback: YouTube Sun Oct 18 9 AM, Facebook/Instagram Mon Oct 19 noon. Direct TikTok Monday after public YouTube check. To free capacity, Dan authorized removal of the last queued video, RO-13; its four schedules are backed up and RO-13 is on the waitlist for Dec 30. Receipt: Docs/RO25_SETUP_RECEIPT_20261017.md. Next: verify public release, covers, TikTok, RO-26 link.
 
 **Release calendars LIVE 2026-10-17, Claude.** Long-forms Sun+Wed, Shorts Mon-Sat minus Wed/Sun (DS Thu); 105 Blotato posts moved, re-read. Dates: `Docs/LONGFORM_RELEASE_CALENDAR.md`, `Docs/SHORTS_RELEASE_CALENDAR.md` (override older RO/SL entries). Next: RO-25 setup when file lands; top-up queues RO-19 Oct 21. Local commits f47634a, 75fa6fb, fe42792 await safe-push (live files).
 
 **Top 1 Percent LFC Setup - RELEASE HOLD 2026-10-17, Codex.** Dan's frosted A cover installed; media/Drive backups verified, article ready, SL-17 registered. RO-26 finalized, not queued. RO-25 setup/release owner: once public, add actual watch URL and clear both holds, then existing top-up queues Oct25/26 when room opens. Receipt: `Docs/RO26_SETUP_RECEIPT_20261017.md`. Git sync blocked by live other-owner edits; shared FB/index changes preserved locally.
 
-**RO-25 R7 FULL-FILM HANDOFF READY 2026-10-17, Codex.** Dan selected R5 DATE-A take2 for P04 despite retained technical FAIL, and P05 returns at local9.009s. Revised contexts passed independent join review; 8825 page has12 previews/30 historic rejects. All12 audio gates FAIL; study join source445.84–451.48 open. Motion estimate$21.58/$30. R7 full-film review assembly authorized, no publication or final approval. `Handoffs/handoff-20261017-ro25-r7-full-film-after-dating-take2-and-looksmaxing-trim.md`; W6/WORK_PACKET.md.
 
 **RA-16 POLICY-RECHECK 2026-10-17, Codex.** Exact R4 films Unlisted and processed; selected R2 thumbnail 3 installed/read back. Trial group 202854620044, ads 828352448280 / 828398913310 enabled, review pending. Next 2026-10-18: existing campaign policy process, `node scripts/ads/api/client.js policy 24316364155`; if clear, delete this entry. Receipt: `Docs/RA16_SETUP_RECEIPT_20261017.md`.
 
@@ -60,7 +63,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **RO-04:R1-REVIEW:8974:2026-10-15:Codex**
 **COVERS:MOBILE:2026-10-15:Docs/COVER_AUDIT_20261015.md**
 
-**SL-08:PICKS:2026-10-14:Codex.**
+**Calories Not Losing Weight SFL R2 - BUILD 2026-10-17, Codex.** Sole editor under the R1 handoff. Five selections locked, no pickups. Next: source/continuity checks and narrated Soft Blue HyperFrames asset-review packet. No covers or publishing. Detail: `Handoffs/handoff-20261017-sl08-round2-five-approved-shorts.md`.
 
 **SL-09:PICKS:2026-10-15:Claude.**
 
@@ -208,6 +211,8 @@ tab; stop rather than click into spinners. `Handoffs/handoff-20260908-google-ads
 (`Handoffs/handoff-20260909-audio-match-muhammad.md`); nothing posts until a parent long-form is public.
 
 ⚠ **Ad 5 vertical: BT.601 colour fault in its build (baseline 2026-09-15).** Memory `untagged-video-bt601-trap`; method: shortad SKILL [A15].
+
+**Video-title rule UNPUSHED 2026-10-17, Claude.** Commit bd14929 (AGENTS rule, README) local; safe-push stopped on live edits. Next: any later safe-push carries it; then delete this.
 
 # BLOCKED — external
 
