@@ -37,7 +37,7 @@ Every new or revised video graphic uses the Soft Blue Light theme and real Hyper
 
 ## Video rounds: continue in the task or hand off, automatically (Dan, 2026-10-17)
 
-- After Dan replies to a delivered round, the task decides itself: continue here for small work on a task under about 40% full when he replied within about an hour; otherwise hand off. When handing off, it writes the handoff, starts the new task itself (one-click card if it cannot), pins the new task and unpins itself. Dan never asks for or fires the handoff. State the choice in one line. Full rule: `.claude/skills/_shared/VIDEO-RULES.md`, first section.
+- After Dan replies to a delivered round, the task decides itself: continue here for small work on a task under about 40% full when he replied within about an hour; otherwise hand off. When handing off, it writes the handoff, starts the new task itself named with the next round number (R6 hands off to R7, never a second R6; one-click card if it cannot), pins the new task and unpins itself. Dan never asks for or fires the handoff. State the choice in one line. Full rule: `.claude/skills/_shared/VIDEO-RULES.md`, first section.
 
 ## Later-round video review timestamps (Dan, 2026-10-10)
 
@@ -230,7 +230,7 @@ Full rule: read `.claude/skills/_shared/VIDEO-RULES.md`.
 
 - Every video editing task uses `<Recognizable Video Title> <Type> R<round>`: a few words that identify the video, then its type, then `R1`, `R2`, etc. Examples: `Top 1% LFC R2`, `I'm 41 Wasted Life LFC R2`, `Stop Deadlifting SFC R1`, `Top 1% SFL R1`.
 - `LFC` means long-form content; `SFC` means dedicated short-form content; `SFL` means shorts extracted from long-form. Existing paid-ad labels remain `AD` (with existing V/S/Sh format markers where applicable). This is a sidebar naming rule, not a change to job IDs or internal content schemas.
-- Rename at the start, preserve the actual round on resume, and use the same format in recommended task names and handoff starter prompts. Never put queue IDs in the chat title or lead with `Prepare`, `Edit`, `Continue` or an editor's name. The video title comes first. Use the condensed `R2`, not `Round 2`.
+- Rename at the start, preserve the actual round on resume of the same task (a handoff to a new task always takes the next round number), and use the same format in recommended task names and handoff starter prompts. Never put queue IDs in the chat title or lead with `Prepare`, `Edit`, `Continue` or an editor's name. The video title comes first. Use the condensed `R2`, not `Round 2`.
 - Upload/setup tasks retain their `Setup` suffix. Full editing naming rule: `.claude/skills/_shared/VIDEO-RULES.md`, "Video editing task names".
 
 ## AI video clips: Flow subscription first (Dan, 2026-10-17)
