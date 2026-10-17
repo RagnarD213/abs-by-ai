@@ -19,7 +19,7 @@ def scene(c,out):
         x0,y0,x1,y1=box;p=im.crop(box).convert("RGBA");a=np.array(p)
         # Remove only the old 181x4 cyan accent. The moving accent has identical dimensions and colour.
         a[1:5,107:288,:3]=a[6:7,107:288,:3];p=Image.fromarray(a)
-        mask=Image.new("L",p.size);ImageDraw.Draw(mask).rounded_rectangle((0,0,p.width-1,p.height-1),60,fill=255)
+        mask=Image.new("L",p.size);ImageDraw.Draw(mask).rounded_rectangle((0,0,p.width-1,p.height-1),56,fill=255)
         p.putalpha(mask);p.save(d/"assets"/f"row{i}.png")
     return d
 if __name__=="__main__":
