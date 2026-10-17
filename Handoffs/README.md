@@ -11,6 +11,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Invest In Your Health LFC R4](handoff-20261017-ro20-round4-three-films.md): RO-20/B/C, Dan approved everything on the round 3b page 10-17 (studio pickups A, sign-off kept); build the three full films, gates, a review each, deliver. One-click card shown 10-17. Opus 5.5 high.
 - [I'm 41 Wasted Life LFC Setup](handoff-20261017-ro25-approved-thumbnail-and-video-setup.md): **Film approved and finalized 2026-10-17; existing setup handoff ready.** Thumbnail C approved and finalized, red age and white regret text. Use the exact final JPEG; skip new thumbnail choices. Target Oct 18 YouTube / Oct 19 socials, verify live slots. Claude Opus 5.5 / High.
 
 
