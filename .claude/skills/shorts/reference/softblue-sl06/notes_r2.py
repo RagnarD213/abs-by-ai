@@ -32,8 +32,8 @@ VOICE = [("/Volumes/Extreme/_edit_work/sl06/round2/joins/D_voiceA.mp4", "media/D
 AI_INTRO = ("Stills only. Each pair passed the frame checks and an independent reviewer before it reached this page. Motion is made "
             "only after you approve the frames.")
 AI = [("C", "<b>Short C opener (0:00 to 0:03), under your pickup \"Here's how to inject Zepbound with a needle, step by step.\"</b> "
-            "A seated man brings a small insulin syringe down to the outer front of his thigh, midway down, until only the needle tip "
-            "touches. No pinch, stomach covered. About 3 to 4 seconds of motion, about $1 to $2. If you turn it down, C keeps the clip of a hand drawing a dose that it opens on now."),
+            "A seated man brings a small insulin syringe down to the outer front of his thigh, midway down, and the short needle "
+            "goes in. No pinch, stomach covered. About 3 to 4 seconds of motion, about $1 to $2. If you turn it down, C keeps the clip of a hand drawing a dose that it opens on now."),
       ("E", "<b>Short E's last line: \"Walk down the stairs instead of jumping off the roof.\"</b> A gag on purpose (your rule for lines "
             "with no literal picture): he winds up to hop off a low garage roof with the stairs right beside him, then a hard cut to him "
             "strolling down the stairs. Two short clips, about $2 to $3 together. If you turn it down, E keeps the staircase clip it ends on now.")]
@@ -58,7 +58,7 @@ DECIDED = [
  "<b>Also caught by the frame-by-frame checks:</b> you look up at the ceiling just before A's chart (the chart now comes in 0.4 s earlier); a smeared hand in the last second of A's AI clip (the clip now ends before it); a size step in E too small to read as a deliberate cut (now covered by the calendar clip); F's ab wheel cut your head off at full rollout (now a card as wide as the rollout); E opened on an empty scale for most of a second (now opens on the step).",
  "<b>More clips in C and E.</b> Both were mostly you on camera, which fails the 30% clip share the delivery check requires. Now C 34% and E 38%. E adds hands grabbing pizza (\"go off it again, and then regain\"), a calendar (\"per week\") and your fast jump rope by the pool (\"hold your new body the entire time\").",
  "<b>F: the film's AI split screen is out.</b> Both men's bodies change inside one take (soft to ripped), which fails your 10-13 rule, and it showed the gain on the \"loses muscle\" line. You stay on camera there. Only A now has an AI clip, so only A gets the AI flag at setup.",
- "<b>Rejected along the way:</b> a man massaging his knee (you say \"not down by your knee\"), a man eating on his phone (your phone rule), a shirtless heavy man on a scale (belly framing in the first 30 seconds), a burger shot centred on a stomach, and a reviewer's call that F's curls clip shows an ab wheel (it is an adjustable dumbbell; the curls are real).",
+ "<b>Rejected along the way:</b> a man massaging his knee (you say \"not down by your knee\"), a man eating on his phone (your phone rule), a shirtless heavy man on a scale (belly framing in the first 30 seconds), and a burger shot centred on a stomach. F's weight-training clip is now your real dumbbell curls (B0031); the clip the library called curls (B0458) is you holding the ab roller, so it is out and its library entry is corrected.",
  "<b>The AI frames were fixed before you saw them.</b> C's end frame took four regenerations and three hand fixes to pass the independent reviewer (the needle vanished, then the syringe changed shape, then a ghost needle, then the syringe read as empty). E's end frame had a leftover shoe on the roof, painted out.",
  "<b>D's couch clip was replaced</b> (a man on his phone) by a hand grabbing chips. <b>No pen-injection stock in B</b>: every pen clip frames a bare stomach.",
  "<b>Spend: about $0.10</b> (the Gemini listens). Frames were made on the ChatGPT subscription; the new stock is free Pexels footage. Motion for both AI clips, if you approve them: about $3 to $5, inside the $5 per video limit.",
@@ -68,7 +68,7 @@ CHECKS = [
  "<b>Delivery gate</b> (the one quality check every video passes, 39 rows: format, framing, captions in sync, sound, labels, banned screens, jump cuts, B-roll share): PASS on all six final files.",
  "<b>Sound:</b> the film's approved mix is cut only, never processed (checked sample for sample against the film); each short measures about -14.5 LUFS. Your pickups are level matched to the next film line within 0.7 dB.",
  "<b>Watch pass:</b> every frame of every short scanned for freezes, black frames and jump cuts, then a fresh judge looked at every cut frame by frame. No open defects.",
- "<b>Independent review:</b> two fresh reviewers watched all six without the editor's notes and sent every short back once; every item was fixed (see What I decided), then the fixed shorts were judged again.",
+ "<b>Independent review:</b> two fresh reviewers watched all six without the editor's notes and sent every short back once; every item was fixed (see What I decided). A third fresh reviewer then re-checked all six: A to E ship; its one remaining item on F (the curls clip) was fixed, and F was judged and gated again.",
  "<b>AI frames:</b> both pairs passed the frame gate and a fresh independent reviewer before reaching this page.",
  "<b>Lengths:</b> A 47 s, B 54 s, C 54 s, D 51 s, E 58 s, F 55 s. All under 60 s.",
 ]
@@ -77,7 +77,7 @@ ITEM = {
  "D.chips": "Replaces the film's man-on-his-phone clip (your rule: a person looking at a phone is not a picture).",
  "A.ramp": "The film's 1 mg, 2 mg, 2.5 mg ramp, redrawn for the tall frame. Each step lands on its number.",
  "A.nausea": "Our AI clip from the film (A0137). This short gets the AI flag at setup.",
- "F.abwheel": "A card as wide as the rollout (full height): a full-screen or square crop cuts you off at full extension.", "F.curls": "Your own footage, in place of the film's gym stock.",
+ "F.abwheel": "A card as wide as the rollout (full height): a full-screen or square crop cuts you off at full extension.", "F.curls": "Your real dumbbell curls by the pool (B0031), lifted for the overcast light.",
  "F.app": "The phone-beside-you layout you approved on the salad shorts.", "C.draw": "Stays only if you turn down the AI frames.", "C.plunger": "Lifted to your brightness (a black-background product shot).", "C.blood": "For \"draw blood out of your arm\".",
  "E.stairs": "Stays only if you turn down the AI gag.", "B.vialhand": "The film's 2:02 clip, under your pickup.",
  "B.draw": "A different clip from the film's here, because the film's is B's opening.",

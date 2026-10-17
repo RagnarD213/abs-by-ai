@@ -31,11 +31,11 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-13:R3-REVIEW:8973:2026-10-16:Codex.** Both full R3 formats delivered. Vertical centering, B0550 one-phone demo and matching analysis photo fixed. Independent media review: no open defects. Full numerical gates retain approved audio/framing/cut flags. Master list updated. Next: Dan reviews :8973; not finalized. Report: `Handoffs/video-editing/reports/RA-13-R3-review-report.txt`.
 
-**Fat Millionaire SFC R4 QC-BLOCKED 2026-10-16, Codex.** Corrected inspection copy rendered; all 95 independent watch images reviewed. Inherited label/pose issues, source-format/audio conflicts and missing evidence remain open. No active worker. Hold/F3/date intent intact. Next: scope decision in `Docs/DAN_DECISIONS.md`, then remaining checks and exact-file approval. Receipt: `Handoffs/handoff-20261016-ds05-correct-version.md`.
+**Fat Millionaire SFC R4 REPAIR 2026-10-16, Codex.** October 16 corrections rendered. Minimal inherited label/pose repairs and export normalization are now authorized and running sequentially under the shared limit, followed by exact-file checks and independent review. Posting hold/F3/date intent intact. Next: verified review candidate, then Dan exact-file approval. Receipt: `Handoffs/handoff-20261016-ds05-correct-version.md`.
 
-**RO-26:R3-ACTIVE:2026-10-16:Codex.** R3 first minute/changed narrated contexts built with B colour/C voice. Nutrition motion PASS ($0.60 estimate); Martial composite/picture/listener PASS. Business remaining desktop-chrome cleanup and clearer workout still gate queued under shared cap; bad frames withheld. Strict reference audio failures recorded, approved EQ unchanged. No workout motion/full film/upload. Detail: `/Volumes/Extreme/_edit_work/ro26/round3/`.
+**RO-26:R3-REVIEW:8982:2026-10-16:Codex.** Selected revisions applied; B colour/C voice/G05 locked. First minute and narrated contexts picture/listening/browser play+seek checked. Corrected incline frames and Nutrition motion automatic+fresh independent PASS ($0.60 motion estimate). Strict reference audio flags retained. Next: Dan approves workout frames and revised assets/motion. No workout motion/full film/upload. Full-quality first minute in Videos to Review. Detail: `/Volumes/Extreme/_edit_work/ro26/round3/`.
 
-**I'm 41 Wasted Life LFC R3 ACTIVE 2026-10-16, Codex.** Rich Balanced locked; skip3/6/13. Four revised pairs await Dan. Night/lotion motion dual PASS; coffee/medication withheld FAIL. Briefcase review active; X native sampling queued. Dawn pair dual PASS, motion generating; reservations$3.85/$5. G03 context QA PASS. Remaining shot gates/review and graphics/opening/recap workers on Expansion. Next: finish packet before budget decision, then notify Dan. Heartbeat active. Packet: `/Volumes/Extreme/_edit_work/RO-25/round3/WORK_PACKET.md`.
+**I'm 41 Wasted Life LFC R3 ACTIVE 2026-10-16, Codex.** Rich Balanced/skip3,6,13 preserved; four revised pairs await Dan. First-minute picture QA ready, current tone-only FAIL disclosed; reviewed VLCcopies verified. Last graphic advisory and two narrated-motion repairs finishing. Six takes dual PASS, five withheld FAIL; $4.90/$5. Next: final packet/browser QA, then one proposed allowance decision and :8825 notification. Quiet heartbeat active. Packet: `/Volumes/Extreme/_edit_work/RO-25/round3/WORK_PACKET.md`.
 
 **RO-04:R1-REVIEW:8974:2026-10-15:Codex**
 **COVERS:MOBILE:2026-10-15:Docs/COVER_AUDIT_20261015.md**
@@ -127,7 +127,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **RO-07 - HOLD 2026-10-11, Claude.** Blotato full. `Docs/RO07_SETUP_RECEIPT_20261011.md`
 
 
-**SL-06:R2-ACTIVE:2026-10-16:Claude.** Building six shorts with lav pickups. Next: gates, audit, review page.
+**SL-06:R2-REVIEW:8819:2026-10-16:Claude.** All six delivered, gated. Next: Dan's review.
 
 **SL-07:R3-REVIEW:8874:2026-10-16:Claude.** All five pass review and gate 39/39. Next: Dan replies on the page, then `Handoffs/handoff-20261016-sl07-round4-after-dan-r3-review.md`.
 

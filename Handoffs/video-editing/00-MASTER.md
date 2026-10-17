@@ -62,7 +62,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [DS-02](DS-02-how-getting-abs-looksmaxxes-your-face.md) | How Getting Abs Looksmaxxes Your Face | C1654 | IN PROGRESS | S |
 | [DS-03](DS-03-3-most-important-supplements-for-men.md) | The 3 Most Important Supplements For Men | C1655 | IN PROGRESS | S |
 | [DS-04](DS-04-only-ab-exercise-that-shrinks-belly-fat.md) | The Only Ab Exercise That Shrinks Your Belly Fat | C1656 | UPLOADED | S |
-| [DS-05](DS-05-abs-beat-being-a-fat-millionaire.md) | Why Having Abs Beats Being A Fat Millionaire | C1657 | BLOCKED | S |
+| [DS-05](DS-05-abs-beat-being-a-fat-millionaire.md) | Why Having Abs Beats Being A Fat Millionaire | C1657 | IN PROGRESS | S |
 | [DS-06](DS-06-what-every-body-fat-percentage-looks-like.md) | What Every Body Fat Percentage Looks Like | C1657 | IN PROGRESS | S |
 | [DS-07](DS-07-top-3-ways-to-use-ai-to-get-abs.md) | Top 3 Ways To Use AI To Get Abs | C1657 + C1658 | IN PROGRESS | S |
 | [DS-08](DS-08-i-was-200-pounds-at-38.md) | I Was 200 Pounds At 38 | C1658 | UPLOADED | S |
@@ -202,7 +202,7 @@ RO-25 selections received 2026-10-16. Next: [round-two selected frames and revis
 | [RO-22](RO-22-how-losing-fat-changed-my-face.md) | How Losing Fat Changed My Face | 10/15 C1725-C1730 | READY | L |
 | [RO-23](RO-23-i-ranked-every-ab-exercise-from-worst-to-best.md) | I Ranked Every Ab Exercise From Worst To Best | 10/15 C1726 | READY | L |
 | [RO-24](RO-24-reacting-to-celebrity-ozempic-transformations.md) | Reacting To Celebrity Ozempic Transformations | 10/15 C1726 | READY | L |
-| [RO-26](RO-26-im-41-my-life-is-top-1-how-i-did-it.md) | I'm 41. My Life Is Top 1%. How I Did It. | 10/15 C1768 | IN PROGRESS | L |
+| [RO-26](RO-26-im-41-my-life-is-top-1-how-i-did-it.md) | I'm 41. My Life Is Top 1%. How I Did It. | 10/15 C1768 | DRAFT: asset choices waiting for Dan | L |
 | [RO-27](RO-27-its-boring-but-it-got-me-abs-at-40.md) | It's Boring, But It Got Me Abs At 40 | 10/15 C1769-C1770 | READY | L |
 | [RO-29](RO-29-cortisol-belly-is-real-but-tiktok-has-it-wrong.md) | Cortisol Belly Is Real, But TikTok Has It Wrong | 10/15 C1772-C1773 | READY | L |
 | [RO-30](RO-30-the-fastest-way-to-lose-stubborn-love-handles.md) | The Fastest Way To Lose Stubborn Love Handles | 10/15 C1774 | READY | L |
@@ -239,7 +239,7 @@ RO-25 selections received 2026-10-16. Next: [round-two selected frames and revis
 | [SL-03](SL-03-meal-prep-app-demo-shorts.md) | How I Make My Daily Salad (RO-05, public Oct 18) | FINALIZED | S |
 | [SL-04](SL-04-arms-shoulders-shorts.md) | Arms & Shoulders Home Workout (Zeeshan, 11:00) | UPLOADED | S |
 | [SL-05](SL-05-stop-deadlifting-shorts.md) | Stop Deadlifting (Zeeshan, 9:16, public Oct 11) | UPLOADED | S |
-| [SL-06](SL-06-top-5-zepbound-tips-shorts.md) | Top 5 Zepbound Tips (RO-12, public Oct 25) | IN PROGRESS | S |
+| [SL-06](SL-06-top-5-zepbound-tips-shorts.md) | Top 5 Zepbound Tips (RO-12, public Oct 25) | DELIVERED: awaiting Dan | S |
 | [SL-07](SL-07-if-i-had-belly-fat-shorts.md) | If I Had Belly Fat, Here's How I'd Lose It In 90 Days (RO-16, public Nov 1) | IN PROGRESS | S |
 | [SL-08](SL-08-calories-not-losing-weight-shorts.md) | Calories: The Reason You're Not Losing Weight (RO-10 replacement pending; old YouTube copy Private) | IN PROGRESS | S |
 | [SL-09](SL-09-oura-ring-review-shorts.md) | My Honest Oura Ring Review (Zeeshan Video 4, public Nov 8) | IN PROGRESS | S |

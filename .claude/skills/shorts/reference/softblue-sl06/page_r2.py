@@ -3,7 +3,7 @@
 decisions, the six finished shorts with one floating player, the pickup joins and the voice choice, the AI frame pairs,
 what I decided, every title / crop / clip / graphic / key point of all six as stills (three per row, each plays in the
 finished short with about 3 s either side), checks, one reply box.
-  export_stills_r2.py A B C D E F ; page_r2.py      serve: review_server.py 8818 /Volumes/Extreme/_edit_work/sl06/round2"""
+  export_stills_r2.py A B C D E F ; page_r2.py      serve: review_server.py 8819 /Volumes/Extreme/_edit_work/sl06/round2"""
 import html, json, os, shutil, subprocess, sys
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
 import plans as P, batch as Bt, notes_r2 as N
@@ -32,10 +32,10 @@ for S in N.ORDER:
     join = ""
     if S in P.PICKUP:
         j = cp(f"{R}/joins/{S}_join.mp4", f"media/{S} - pickup into film.mp4")
-        join = f'<button onclick="play(\'{j}\',{json.dumps("Short " + S + ": your pickup into the film")!r},0)">Pickup into film (6 s)</button>'
+        join = f'<button onclick="play(\'{j}\',{E(json.dumps("Short " + S + ": your pickup into the film"))},0)">Pickup into film (6 s)</button>'
     gate = json.load(open(Dl.dname(S) + ".deliver_gate.json")) if os.path.exists(Dl.dname(S) + ".deliver_gate.json") else {}
     cards.append(f"""<article id="f{S}"><h3>{S}: {E(name)} <span class="small">{mmss(T['total'])}</span></h3>
-<a href="{rv}" target="_blank"><img loading="lazy" src="{poster}"></a><button onclick="play('{rv}',{json.dumps('Short ' + S + ': ' + name)!r},0)">Play it</button> {join}
+<a href="{rv}" target="_blank"><img loading="lazy" src="{poster}"></a><button onclick="play('{rv}',{E(json.dumps('Short ' + S + ': ' + name))},0)">Play it</button> {join}
 <div class="copy">{N.SHORT[S]}<br>Key points:<ul>{bars}</ul><a href="{full}">1080 x 1920 file</a>{f' · <a href="{ab}">sound check (the film, then the short)</a>' if ab else ''}</div></article>""")
 
 # ---- AI frame pairs (only pairs that passed the frame gate AND an independent reviewer)
@@ -56,7 +56,7 @@ def card(it, S):
     sp = (f'<details><summary>What you are saying</summary><b>before:</b> {E(it["before"] or "(start of the short)")}<br>'
           f'<b>during:</b> {E(it["during"])}<br><b>after:</b> {E(it["after"] or "(end of the short)")}</details>')
     return (f'<article><a href="stills/{it["img"]}.jpg" target="_blank"><img loading="lazy" src="stills/{it["img"]}_sm.jpg"></a>'
-            f'<h3>{S}: {kind}: {E(it["id"])}{t}</h3><button onclick="play(\'{vids[S]}\',{json.dumps(S + ": " + it["id"] + " in context")!r},{a0:.2f})">Play it in the short ({mmss(a0)})</button>'
+            f'<h3>{S}: {kind}: {E(it["id"])}{t}</h3><button onclick="play(\'{vids[S]}\',{E(json.dumps(S + ": " + it["id"] + " in context"))},{a0:.2f})">Play it in the short ({mmss(a0)})</button>'
             f'<div class="copy">{mmss(it["a"])} to {mmss(it["b"])}. {E(it["note"])}' + (f"<br>{extra}" if extra else "") + f'{sp}</div></article>')
 def extra_card(img, title, text, tag=""):
     t = f' <span class="tag">{E(tag)}</span>' if tag else ""
@@ -66,7 +66,7 @@ for S in N.ORDER:
     J = json.load(open(f"{R}/items_{S}.json")); cs = [card(it, S) for it in J["items"]] + [extra_card(*x) for x in N.EXTRA.get(S, [])]
     secs.append(f'<section id="s{S}"><h2>Short {S}, every item: {E(" ".join(J["title"][1]))} <span class="small">{J["total"]:.0f} s</span></h2><div class="grid">{"".join(cs)}</div></section>')
 
-voice = "".join(f'<li><button onclick="play(\'{cp(src, dst)}\',{json.dumps(lab)!r},0)">{E(lab)}</button> {E(why)}</li>' for src, dst, lab, why in N.VOICE)
+voice = "".join(f'<li><button onclick="play(\'{cp(src, dst)}\',{E(json.dumps(lab))},0)">{E(lab)}</button> {E(why)}</li>' for src, dst, lab, why in N.VOICE)
 page = f"""<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Top 5 Zepbound Tips SFC R2</title>
 <style>:root{{--bg:#071221;--panel:#101f32;--line:#29425b;--text:#edf5ff;--muted:#bdd0e4}}
 body{{margin:0;background:var(--bg);color:var(--text);font:17px system-ui,-apple-system,sans-serif;line-height:1.55}}main{{max-width:1280px;margin:auto;padding:28px 16px}}

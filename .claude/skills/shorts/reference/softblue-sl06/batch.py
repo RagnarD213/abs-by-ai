@@ -203,6 +203,15 @@ def cmd_cues(S):
         c, nx = out[k], out[k + 1]
         if len(c) == 1 and not re.search(r"[.!?,]$", c[0]["w"]) and nx[0]["p"] == c[0]["p"] and nx[0]["t"] - c[0]["e"] < 1.5 and len(nx) <= 4: out[k:k + 2] = [c + nx]
         else: k += 1
+    # SL-06 r2 (judge F): a picture cut that falls inside a cue splits it at the nearest word boundary, so the caption changes on the cut
+    k = 0
+    while k < len(out):
+        c = out[k]; done = False
+        for c_ in cuts:
+            if len(c) >= 2 and c[0]["t"] + 0.25 < c_ < c[-1]["e"] - 0.12:
+                j = min(range(1, len(c)), key=lambda q: abs(c[q]["t"] - c_))
+                if abs(c[j]["t"] - c_) < 0.45: out[k:k + 1] = [c[:j], c[j:]]; done = True; break
+        if not done: k += 1
     # a cue never opens on a word the cue before it also says ("start doing what I'm | doing right here"): the gate, and a
     # reader, pair it with the first occurrence. Move the boundary one word earlier.
     nz = lambda x: re.sub(r"[^a-z0-9]", "", x.lower())
@@ -625,7 +634,7 @@ class Short:
             im = cap_png(c["lines"], top); p = f"{d}/cap/cue{i:03d}.png"; im.save(p); bb = im.getbbox()
             f0_, f1_ = fr(c["a"]), fr(c["b"])
             for s2 in self.shots[1:]:                        # a cut inside the cue's last 10 frames: the cue ends on the cut (SL-07 reviewers 10-13; SL-06 r2 reviewer)
-                if f0_ + 8 < s2["f0"] < f1_ <= s2["f0"] + 10: f1_ = s2["f0"]
+                if f0_ + 8 < s2["f0"] < f1_ <= s2["f0"] + 14: f1_ = s2["f0"]      # r2: 14 frames (judge F 0:52.42 hung 12)
             self.caps.append(dict(f0=f0_, f1=f1_, arr=np.asarray(im), box=bb, png=p, top=top))
         man = f"{d}/hf/manifest.json"; self.man = json.load(open(man)) if os.path.exists(man) else []
         self.chips = {}

@@ -46,7 +46,7 @@ COVERS = {
  "C": [dict(id="draw", a="o0.0", b=167.63, src=STOCK + "cand/px6824057.mp4", t=1.0, fy=0.45),      # r2: drawing a dose with an insulin syringe through "This takes about 10 seconds" (reviewer C: dark opener, staring man)
        dict(id="needle", a="o23.89", b="o26.40", src=STOCK + "px6824121.mp4", t=1.0, fx=0.5),      # r2: an insulin syringe with its short needle, being flicked (the held-up syringe had a long needle, judge B)
        dict(id="blood", a="o26.40", b="o29.80", src=STOCK + "B0536.mp4", t=1.0, fx=0.5),      # r2: "draw blood out of your arm"
-       dict(id="plunger", a="o29.80", b="o36.62", src=STOCK + "B0352.mp4", t=2.0, fx=0.75, eq="eq=gamma=1.7:brightness=0.04:saturation=1.1")],      # r2: a thumb pressing an insulin plunger, "Inject the Zepbound slowly"; the arm-injection stock is out (reviewer C)
+       dict(id="plunger", a="o29.80", b="o38.15", src=STOCK + "B0352.mp4", t=2.0, fx=0.75, eq="eq=gamma=1.7:brightness=0.04:saturation=1.1")],      # r2: a thumb pressing an insulin plunger, "Inject the Zepbound slowly"; the arm-injection stock is out (reviewer C)
  "E": [dict(id="scale", a="o0.0", b="head", src=STOCK + "B0376.mp4", t=1.0, fx=0.85),      # r2: opens on the step, not the empty scale (reviewer E)
        dict(id="regain", a=347.83, b=350.95, src=STOCK + "px8045155.mp4", t=4.0, fx=0.45),           # r2: "go off it again, and then regain..."
        dict(id="week", a=372.80, b=375.68, src=STOCK + "px9057559.mp4", t=4.0, fx=0.40, rot=180),     # r2: covers a weak size step at 0:23.5 (judge E), "Keep lowering... per week"
@@ -55,9 +55,9 @@ COVERS = {
        dict(id="stairs", a=404.47, b=407.30, src=STOCK + "px9154824.mp4", t=2.0, fx=0.85)],
  "F": [dict(id="chicken", a="o0.0", b="o2.5", src=STOCK + "px6107302.mp4", t=3.0, fx=0.42),
        # r2: the film's AI split screen (A0058) is out: the body changes inside one take (VIDEO-RULES 2026-10-13, time jumps need a cut), judge F 4.3
-       dict(id="curls", a=423.76, b=426.19, src=STOCK + "B0458.mp4", t=1.0, fx=0.5),      # r2: kept; reviewer F-1 read the adjustable dumbbell as an ab wheel (frames show single-arm curls)
+       dict(id="curls", a=423.76, b=426.19, src=STOCK + "B0031.mp4", t=0.5, fx=0.5, eq="eq=gamma=1.25:brightness=0.02:saturation=1.05"),      # r2: real alternating dumbbell curls, lifted; B0458 is him holding the ab roller (two reviewers; the library called it curls)
        dict(id="abwheel", a=426.19, b=429.76, src=STOCK + "B0030.mp4", t=0.5, fit="span", span=(250, 1670)),      # r2: the rollout travels x 330-1620 of 1920; the square cut his head off (judge F 17.4)
-       dict(id="app", a=441.14, b=444.98, src=LIB + "03 B-Roll - Real Footage/screen-recordings/B0035_app-meal-photo-macro-analysis-chicken-broccoli_660x1434_9s.mp4", t=3.85, phone=True),      # r2: starts after the recording's camera-dismiss transition (black block, reviewer F-5)
+       dict(id="app", a=441.14, b=444.98, src=LIB + "03 B-Roll - Real Footage/screen-recordings/B0035_app-meal-photo-macro-analysis-chicken-broccoli_660x1434_9s.mp4", t=3.99, phone=True),      # r2: starts after the recording's camera-dismiss transition (black block, reviewer F-5)
        dict(id="plate", a=452.95, b=455.35, src=STOCK + "B0063.mp4", t=0.0, fx=0.5),
        dict(id="slices", a=455.35, b=457.76, src=STOCK + "px10348440.mp4", t=1.2, fx=0.5),      # r2: jerky on a plate for "protein-focused snacks" (reviewer F-6: third chicken shot)
        dict(id="rotisserie", a=457.76, b=458.89, src=STOCK + "B0047.mp4", t=1.0, fx=1.0),
