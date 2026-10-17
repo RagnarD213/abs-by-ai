@@ -62,5 +62,37 @@ What round 1 learned:
 - `review_server.py PORT DIR` run twice within seconds can fail at `launchctl bootstrap` and leave the page down. Run it once
   after the last page build, then curl the page and a byte range.
 
-Not done yet (round 2 of SL-06 does it): `deliver.py` for this batch (gate plan, watch pass, 540p, stamps), AI clip motion
-covers, and a `declare.json` for the gate rows that measure Dan's approved layout.
+## Round 2 (2026-10-16): lav pickups laid in, all six built, gated, judged, reviewed twice
+
+```
+render_queue.sh S..      renders one at a time behind buildcap.wait (the 2-build cap counts other sessions; the machine sat at load 200+)
+deliver_watch.sh S       deliver.py copy (copy, audio gate --verbatim, 540p, Whisper diff, gate plan) + watch.py into a CLEARED watch folder
+gate_queue.sh S..        the delivery gate once the watch judge is recorded (watch_pass.json "inspected"), one gate at a time
+make_joins.py            6 s "pickup into film" clips per short + D's two pickup treatments (fitted EQ vs the film's chain EQ) for the page
+listen_joins.py          blind Gemini listen of the pickup joins with two film-internal joins as controls (about $0.05)
+page_r2.py + notes_r2.py the review page: six finished shorts in one floating player, joins, voice A/B, AI frames, every item as a still
+                         that plays inside the finished short from 3 s before it (media seek, no extra clips), checks, one reply box
+```
+
+What round 2 taught (every item was a reviewer or judge finding first):
+- **Today's rule: graphic copy is title case, never uppercased in code** (VIDEO-RULES 2026-10-16). `_shared/hyperframes/vertical.py`
+  takes `topic_case="preserve"`; scenes.py labels and the title band eyebrow are written in title case. Emphasis caps on about one bar in six.
+- **Brand names stay out of on-screen graphics until Dan rules** (VIDEO-RULES 2026-09-30): the title band defaults to "GLP-1 Tips" with
+  "Zepbound Tips" as the option on the page. A reviewer will block a Zepbound band otherwise.
+- **Check the B-roll share at plan time** (SL-07 lesson): C and E were 16-17% and would have failed `style:coverage`.
+- **Stock syringes: look at the needle.** Most Pexels "insulin" footage (the green-background series 8670928/8670930) uses long
+  hypodermic needles; the blue-background / white-sweater series (6824057, 6824121, 6824226) is real insulin syringes. A clinician
+  injecting someone's arm contradicts a self-injection how-to. B0329's ampoules read "COVID-19 vaccine" at full size: never use it
+  for a drug short. B0352's barrel is a 1-4 ml scale, not insulin units (judges call it the weakest choice).
+- **An old AI clip is checked like a new one:** the film's A0058 split screen changes both bodies inside one take, which fails the
+  2026-10-13 time-jump rule; it was dropped (Dan on camera). A0137 passes but has a smeared hand in its last second: trim before it.
+- **Captions end on picture cuts:** `cmd_cues` (ported from SL-07) breaks a cue at every picture cut that falls between two words
+  (size steps included) and never carries a sentence's last word into the next cue; `Short.__init__` ends a cue on a cut inside its
+  last 10 frames. A cut that lands mid-word still lets the caption hang: move the cut into the next gap instead (E 46.85, C 36.62).
+- **A rollout needs a card as wide as the travel** (`fit="span"`, full source height); a square cut his head off at full extension.
+- **A phone recording's camera-dismiss transition shows as a black block** sliding over the screen: start the window after it.
+- **Watch folders keep stale strips from earlier renders**; a judge then skips or mixes images and the gate refuses the log.
+  `deliver_watch.sh` clears the folder first. A judge once returned an empty findings.json: have it read the file back.
+- **A gate process can be killed by another session's cleanup** (exit 143); re-run it.
+- **The pickup's last word on D reads "Zep out" to Whisper on the raw lav too**: how it was said, not the cut. Report, do not chase.
+

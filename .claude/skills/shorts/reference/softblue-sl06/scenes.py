@@ -18,8 +18,8 @@ def _bar(im, box, r=22):
 def week(tt, c, t):
     """RO-12 S03 'HOW ONE WEEKLY SHOT WORKS' (build.py week): seven glass bars, strongest right after the shot, fading by day 7."""
     im = S.field(t, W, H); u = 2; oy = DROP
-    S.text(im, (60, oy + 56), "HOW ONE WEEKLY SHOT WORKS", 34, S.CYAN)
-    _wrapc(im, oy + 108, "Strongest Right After Your Shot, Fading By Day 7", 62)
+    S.text(im, (60, oy + 56), "How One Weekly Shot Works", 34, S.CYAN)
+    _wrapc(im, oy + 108, "Strongest In The First Few Days, Fading By Day 7", 62)
     heights = [0.95, 1.0, 0.9, 0.78, 0.64, 0.5, 0.38]; bw, gap = 118, 22; x00 = (W - (7 * bw + 6 * gap)) // 2; y1 = oy + 970
     for i, hgt in enumerate(heights):
         q = S.ease(tt - 0.35 - i * 0.16, .5)
@@ -29,20 +29,24 @@ def week(tt, c, t):
         _bar(im, (x0, y1 - hh, x0 + bw, y1))
         S.rr(im, (x0 + 8, y1 - hh + 8, x0 + bw - 8, y1 - hh + 20), S.CYAN, 6)
         lab = f"Day {i + 1}"; f = S.font(30); S.text(im, (x0 + (bw - S.text_w(lab, f)) / 2, y1 + 18), lab, 30)
-    if tt > 0.35: S.text(im, (x00 + 4, y1 - 560 * 0.95 - 58), "SHOT", 32, S.CYAN)
+    if tt > 0.35: S.text(im, (x00 + 4, y1 - 560 * 0.95 - 58), "Shot", 32, S.CYAN)
     return im.crop((0, DROP, W, H))
 def ramp(tt, c, t):
     """RO-12 S02 'THE STARTING RAMP' (build.py ramp): three glass steps, each landing on its word; same copy and numbers."""
     im = S.field(t, W, H); u = 2; oy = DROP
-    S.text(im, (60, oy + 56), "THE STARTING RAMP", 34, S.CYAN)
+    S.text(im, (60, oy + 56), "The Starting Ramp", 34, S.CYAN)
     _wrapc(im, oy + 108, "Step Up Slowly To Avoid Side Effects", 62)
     bw, gap = 300, 30; x00 = (W - (3 * bw + 2 * gap)) // 2; y1 = oy + 1000
+    for i, (lab, d) in enumerate(c["steps"]):           # r2: the three steps show as faint outlines from the first frame (reviewer A: 2.4 s of empty field)
+        if tt < d + 0.5:
+            x0 = x00 + i * (bw + gap); h = 300 + i * 150
+            ImageDraw.Draw(im).rounded_rectangle((x0, y1 - h, x0 + bw, y1), 26, outline=(70, 120, 175), width=3)
     for i, (lab, d) in enumerate(c["steps"]):
         if tt < d: continue
         q = S.ease(tt - d, .5); x0 = x00 + i * (bw + gap); h = 300 + i * 150; y0 = y1 - h + (1 - q) * 40
         _bar(im, (x0, y0, x0 + bw, y1), 26)
         f = S.font(84); S.text(im, (x0 + (bw - S.text_w(lab, f)) / 2, y0 + 36), lab, 84, S.CYAN)
-        sub = ["Start here", "Then", "Then"][i]; f2 = S.font(34, bold=False); S.text(im, (x0 + (bw - S.text_w(sub, f2)) / 2, y0 + 150), sub, 34, bold=False)
+        sub = ["Start Here", "Then", "Then"][i]; f2 = S.font(34, bold=False); S.text(im, (x0 + (bw - S.text_w(sub, f2)) / 2, y0 + 150), sub, 34, bold=False)
         if i: ImageDraw.Draw(im).polygon([(x0 - gap + 4, y1 - 82), (x0 - 4, y1 - 60), (x0 - gap + 4, y1 - 38)], fill=S.CYAN)
     return im.crop((0, DROP, W, H))
 SCENES = {"week": week, "ramp": ramp}

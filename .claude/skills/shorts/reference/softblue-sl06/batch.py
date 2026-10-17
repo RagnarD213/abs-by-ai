@@ -182,7 +182,11 @@ def cmd_cues(S):
     cues, cur = [], []
     def flush():
         if cur: cues.append(list(cur)); cur.clear()
+    cuts = []                                   # a cut between B-roll and Dan that falls in a gap between two words breaks the caption there (reviewer r3, E 0:06.44)
+    if os.path.exists(f"{d}/shots.json"):
+        sh_ = json.load(open(f"{d}/shots.json")); cuts = [b["f0"] / FPS for a, b in zip(sh_, sh_[1:])]      # SL-06 r2: every picture cut, size steps included (reviewer E 0:15.38)
     for i, w in enumerate(words):
+        if cur and any(cur[-1]["e"] - 0.02 <= c <= w["t"] + 0.05 for c in cuts): flush()
         ends = bool(re.search(r"[.!?]$", w["w"])); n = len(" ".join(x["w"] for x in cur)) + len(w["w"])
         if cur and (w["p"] != cur[-1]["p"] or w["t"] - cur[-1]["e"] > 0.6 or (len(cur) >= 4 and not (ends and n <= 30)) or (n > 24 and not (ends and n <= 30))): flush()
         cur.append(w)
@@ -203,7 +207,9 @@ def cmd_cues(S):
     # reader, pair it with the first occurrence. Move the boundary one word earlier.
     nz = lambda x: re.sub(r"[^a-z0-9]", "", x.lower())
     for k in range(1, len(out)):
-        if out[k][0]["p"] == out[k - 1][-1]["p"] and len(out[k - 1]) > 2 and nz(out[k][0]["w"]) in [nz(x["w"]) for x in out[k - 1]]:
+        if out[k][0]["p"] == out[k - 1][-1]["p"] and len(out[k - 1]) > 2 and nz(out[k][0]["w"]) in [nz(x["w"]) for x in out[k - 1]] \
+           and not re.search(r"[.!?]$", out[k - 1][-1]["w"]) \
+           and not any(out[k - 1][-1]["e"] - 0.02 <= c <= out[k][0]["t"] + 0.05 for c in cuts):      # nor across a picture cut (r3, E 0:06.44); never carry a sentence's last word into the next sentence's cue (SL-07 A: "happens. So if I was")
             out[k].insert(0, out[k - 1].pop())
     res = []
     for i, c in enumerate(out):
@@ -212,6 +218,10 @@ def cmd_cues(S):
         for j in T["joins"]:
             if a < j < e: e = j
         e = min(e, T["total"] - 0.02); a = max(0.0, a - 0.03)
+        for c_ in cuts:                         # a cue that starts a hair before a picture cut starts on the cut, and the one before it runs to the cut
+            if a < c_ <= a + 0.12 and c_ < c[0]["e"]:
+                a = c_
+                if res and abs(res[-1]["b"] - c_) < 0.12: res[-1]["b"] = round(c_, 3)
         if res and res[-1]["b"] > a: res[-1]["b"] = round(a, 3)
         if i + 1 < len(out): e = min(e, out[i + 1][0]["t"] - 0.03)
         txt = " ".join(x["w"] for x in c)
@@ -484,7 +494,7 @@ def cmd_gfx(S, snap_only=False):
     V.B.lower_third_default_box = lt._shifted
     d = D(S); man = []
     for c in bar_times(S):
-        scenes, meta = V.lt_scenes(dict(c, drift=-4)); assert meta["lines"] <= 2, (S, c["id"], "wraps to", meta["lines"], "lines")
+        scenes, meta = V.lt_scenes(dict(c, drift=-4, topic_case="preserve")); assert meta["lines"] <= 2, (S, c["id"], "wraps to", meta["lines"], "lines")
         assert meta["box"][1] >= 1128 and meta["box"][3] <= 1380, meta
         movs = []
         for tpl, cfg, assets in scenes:
@@ -529,6 +539,7 @@ def clip_box(c):
     if fit == "fill": return (0, DROP, W, PIC_H)
     if fit == "square": return (0, c.get("y", DROP + 40), W, W)
     if fit == "whole": return (0, c.get("y", DROP + 200), W, 608)
+    if fit == "span": x0, x1 = c["span"]; return (0, c.get("y", DROP + 80), W, round(W * 1080 / (x1 - x0)))      # r2: a card as tall as the subject's sideways travel allows (full source height; SL-07 fit="span")
     if fit == "stack2": return (0, DROP, W, PIC_H)
     raise ValueError(fit)
 def clip_seq(c):
@@ -540,6 +551,10 @@ def clip_seq(c):
         half = lambda xx: f"crop=iw/2:ih:{xx}:0,scale={w}:-2:flags=lanczos,crop={w}:{hh}:0:(ih-{hh})*{fy}"
         vf = (f"fps={FPSS},scale=in_color_matrix=bt709,split[a][b];[a]{half(0)}[t];[b]{half('iw/2')}[u];[t][u]vstack" + ("," + c["eq"] if c.get("eq") else "") + f",drawbox=0:{hh - 1}:{w}:2:color=0x4070A0,format=rgb24")
         return Seq(c["src"], vf, (w, h), FPS, cplx=True)
+    if c.get("fit") == "span":
+        x0, x1 = c["span"]
+        vf = f"fps={FPSS},scale=in_color_matrix=bt709,crop={x1 - x0}:ih:{x0}*iw/1920:0,scale={w}:{h}:flags=lanczos" + ("," + c["eq"] if c.get("eq") else "") + ",format=rgb24"
+        return Seq(c["src"], vf, (w, h), FPS)
     vf = (("hflip,vflip," if c.get("rot") == 180 else "") + f"fps={FPSS},scale={round(w * z)}:{round(h * z)}:force_original_aspect_ratio=increase:flags=lanczos:in_color_matrix=bt709,"
           f"crop={w}:{h}:(iw-{w})*{fx}:(ih-{h})*{fy}" + ("," + c["eq"] if c.get("eq") else "") + ",format=rgb24")
     return Seq(c["src"], vf, (w, h), FPS)
@@ -569,10 +584,10 @@ def cap_png(lines, top, size=86):
 def over_box(frame, rgba, box):
     x0, y0, x1, y1 = box; a = rgba[y0:y1, x0:x1, 3:4].astype(np.float32) / 255
     frame[y0:y1, x0:x1] = (frame[y0:y1, x0:x1].astype(np.float32) * (1 - a) + rgba[y0:y1, x0:x1, :3].astype(np.float32) * a + 0.5).astype(np.uint8)
-def chip_png(text, xy, size=30):
+def chip_png(text, xy, size=23, u=2):
     """the AI-GENERATED chip (softblue.disclosure: the same solid rounded chip the film uses), as an RGBA layer + its box."""
     base = Image.new("RGB", (W, H), (0, 0, 0)); a = Image.new("RGB", (W, H), (255, 255, 255))
-    B.disclosure(base, text, xy, 2, anchor="lt", size=size); B.disclosure(a, text, xy, 2, anchor="lt", size=size)
+    B.disclosure(base, text, xy, u, anchor="lt", size=size); B.disclosure(a, text, xy, u, anchor="lt", size=size)
     x = np.asarray(base).astype(np.int32); y = np.asarray(a).astype(np.int32)      # int32: x * 255 overflowed int16 and turned the white letters dark (SL-07, 2026-10-13)
     al = 255 - (y - x).max(2).clip(0, 255); rgba = np.dstack([np.where(al[..., None] > 0, (x * 255 // np.maximum(al[..., None], 1)).clip(0, 255), 0), al]).astype(np.uint8)
     ys, xs = np.where(al > 0); return rgba, (int(xs.min()), int(ys.min()), int(xs.max()) + 1, int(ys.max()) + 1)
@@ -595,16 +610,23 @@ class Short:
         self.cams = {}; self.clips = {}
         self.plan_windows()
         f = B.font(30); xy = (64, 1800)
-        o = Image.new("RGBA", (W, H), (0, 0, 0, 0)); dd = ImageDraw.Draw(o); dd.text((xy[0] + 2, xy[1] + 2), "AbsByAI.com", font=f, fill=(0, 0, 0, 140)); dd.text(xy, "AbsByAI.com", font=f, fill=(244, 250, 255, 170))
+        o = Image.new("RGBA", (W, H), (0, 0, 0, 0)); dd = ImageDraw.Draw(o)
         fd = B.font(24, bold=False); disc = P.DISC; wd = B.text_w(disc, fd)       # "Not medical advice. Talk to your doctor." small, every short, whole short
-        dd.text((W - 64 - wd + 2, 1806), disc, font=fd, fill=(0, 0, 0, 140)); dd.text((W - 64 - wd, 1804), disc, font=fd, fill=(244, 250, 255, 170))
+        sh_ = Image.new("RGBA", (W, H), (0, 0, 0, 0)); ds = ImageDraw.Draw(sh_)    # r2: a soft dark halo under both so they read over white B-roll (reviewer, batch-wide)
+        ds.text((xy[0] + 1, xy[1] + 2), "AbsByAI.com", font=f, fill=(0, 0, 0, 255)); ds.text((W - 64 - wd + 1, 1806), disc, font=fd, fill=(0, 0, 0, 255))
+        sh_ = sh_.filter(ImageFilter.GaussianBlur(3)); a_ = np.asarray(sh_).copy(); a_[..., 3] = np.minimum(255, a_[..., 3].astype(int) * 2).astype(np.uint8)
+        o = Image.alpha_composite(o, Image.fromarray(a_)); dd = ImageDraw.Draw(o)
+        dd.text(xy, "AbsByAI.com", font=f, fill=(244, 250, 255, 190)); dd.text((W - 64 - wd, 1804), disc, font=fd, fill=(244, 250, 255, 200))
         self.wm = (np.asarray(o), (60, 1796, W - 60, 1850))
         # captions: one RGBA state per cue, at the caption top of the shot it starts in
         os.makedirs(f"{d}/cap", exist_ok=True); self.caps = []
         for i, c in enumerate(self.cues):
             sh = self.shot_at(min(fr(c["a"]), self.N - 1)); top = sh.get("cap", 1412)
             im = cap_png(c["lines"], top); p = f"{d}/cap/cue{i:03d}.png"; im.save(p); bb = im.getbbox()
-            self.caps.append(dict(f0=fr(c["a"]), f1=fr(c["b"]), arr=np.asarray(im), box=bb, png=p, top=top))
+            f0_, f1_ = fr(c["a"]), fr(c["b"])
+            for s2 in self.shots[1:]:                        # a cut inside the cue's last 10 frames: the cue ends on the cut (SL-07 reviewers 10-13; SL-06 r2 reviewer)
+                if f0_ + 8 < s2["f0"] < f1_ <= s2["f0"] + 10: f1_ = s2["f0"]
+            self.caps.append(dict(f0=f0_, f1=f1_, arr=np.asarray(im), box=bb, png=p, top=top))
         man = f"{d}/hf/manifest.json"; self.man = json.load(open(man)) if os.path.exists(man) else []
         self.chips = {}
         import scenes; self.scenes = scenes
@@ -640,8 +662,8 @@ class Short:
             if c["id"] not in self.clips: self.clips[c["id"]] = clip_seq(c)
             bx, by, bw, bh = clip_box(c); frame[by:by + bh, bx:bx + bw] = self.clips[c["id"]].get(int(np.floor(raw * FPS + 0.25)))
             if graphics and c.get("ai"):
-                x0_, y0_ = c["ai"]; reg = Image.fromarray(frame[y0_ - 10:y0_ + 90, 0:W])            # the film's own chip (softblue.disclosure), drawn on the frame
-                B.disclosure(reg, "AI-GENERATED", (x0_, 10), 2, anchor="lt", size=30); frame[y0_ - 10:y0_ + 90, 0:W] = np.asarray(reg)
+                x0_, y0_ = c["ai"][:2]; reg = Image.fromarray(frame[y0_ - 10:y0_ + 90, 0:W])            # the film's own chip (softblue.disclosure), drawn on the frame
+                B.disclosure(reg, "AI-GENERATED", (x0_, 10), c["ai"][2] if len(c["ai"]) > 2 else 2, anchor="lt"); frame[y0_ - 10:y0_ + 90, 0:W] = np.asarray(reg)      # default size: size 30 sat on its bottom edge (SL-07 reviewers 10-13)
         elif sh["kind"] == "phone":                         # the approved shorts phone demo: phone beside Dan on the field (GRAPHICS-STANDARDS)
             c = sh["cover"]
             if "shell" not in self.__dict__:
