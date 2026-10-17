@@ -116,7 +116,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-07:R6-FRAMES-PICK:8856:2026-10-17:Claude.** Phone clip done and gated. Home curls (A0080) failed independent review; new same-man-at-home frames passed, await Dan's yes. Next: stage 3 of `Handoffs/handoff-20261016-ra07-fire-your-trainer-round6-trim-and-phone.md`. $14.25 of $20 spent. Commit 91edcd5 local: push blocked by live edits; next safe-push carries it.
 
-**RO-20/B/C:R4-HANDOFF:2026-10-17:Claude.** Dan approved R3b. Card `Invest In Your Health LFC R4` builds the three films.
+**RO-20/B/C:R4-HANDOFF:2026-10-17:Claude.** Dan approved R3b. Card `Invest In Your Health LFC R4` builds the three films. Commits 8e01a77+ local: push blocked by live edits; next safe-push carries them.
 
 
 **RA-15:POLICY-RECHECK:2026-10-17:Claude.** Ads `828399044620`, `828399056794` in review. Next 10-18: `node scripts/ads/api/client.js policy 24316364155`; clean, delete this. ⚠ Records committed locally (c640d8a, 9244b41), push blocked by live DAN_DECISIONS/qc_corpus edits; next safe-push carries them.
