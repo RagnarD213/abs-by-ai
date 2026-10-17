@@ -188,17 +188,17 @@ Full rule: read `.claude/skills/_shared/VIDEO-RULES.md`.
 
 Full rule: read `.claude/skills/_shared/VIDEO-RULES.md`.
 
-## Long-form YouTube release cadence (Dan, 2026-10-07)
+## Long-form YouTube release cadence (Dan, 2026-10-17, replaces 2026-10-07)
 
-- Release new organic long-form YouTube videos only on Sunday at 9 AM America/Chicago through Blotato, at most one per week. Never release a long-form on another day or put two long-form releases on one Sunday. A revised replacement upload counts as that week's one release.
-- Before scheduling, inspect the live Blotato YouTube queue and recent releases, not just a local receipt. If a Sunday is occupied, append the video after the last queued long-form on the next free Sunday. Do not use a midweek slot to clear a backlog.
-- YouTube goes first. Schedule that long-form's Facebook, Instagram and TikTok copies no earlier than Monday at 9 AM America/Chicago, 24 hours after its Sunday YouTube slot. Never publish them at the same time as YouTube. Verify the YouTube video is actually public before the other platforms release; if it is not, postpone those posts until after the YouTube release succeeds.
-- If a queued long-form is found on another day, move its YouTube release to the end of the Sunday queue and its other platform posts to the following Monday. Re-read every saved schedule after a move.
-- This rule binds Claude and Codex for setup, queue edits, handoffs and direct Blotato actions. The `/video-setup` skill and `scripts/blotato/longform_queue.py` enforce it.
+- Release organic long-form YouTube videos on Sunday and Wednesday at 9 AM America/Chicago through Blotato: two a week, one per day, started as a six-week test on Wed Oct 21, 2026. Never another weekday, never two long-forms on one day. A revised replacement upload uses one slot.
+- The dated calendar Dan approved is `Docs/LONGFORM_RELEASE_CALENDAR.md`. Sundays get the strongest available film, Wednesdays the weakest (memory `longform-strength-ranking`). Every already-edited film releases in 2026; a film finished before December takes the 2026 Sunday of the newest not-yet-edited studio film. RO-20/B/C are off the schedule until Dan says otherwise.
+- Before scheduling, inspect the live Blotato YouTube queue, not just a local receipt. A film not on the calendar goes after the last queued long-form on the next free Sunday or Wednesday.
+- YouTube goes first. Facebook, Instagram and TikTok follow the next day: Monday 9 AM after a Sunday release, Thursday noon after a Wednesday release. Never at the same time as YouTube. Verify the YouTube video is public before the other platforms release; if it is not, postpone those posts.
+- Re-read every saved schedule after a move. This binds Claude and Codex for setup, queue edits, handoffs and direct Blotato actions; `/video-setup`, `scripts/blotato/longform_queue.py` and `video_topup.py` enforce it.
 
 ## One routine queues waiting videos (Dan, 2026-10-11)
 
-- When Blotato is full, a finished video goes on `scripts/blotato/video_waitlist.json`. The daily `social-queue-daily-refresh` routine (`scripts/blotato/video_topup.py`) queues waiting videos as room frees: long-forms on Sundays, Shorts on Tue/Thu/Sat, videos before photo posts. Never create a scheduled task or routine that queues a single video; they conflict. Claude and Codex both. Detail: `/video-setup`.
+- When Blotato is full, a finished video goes on `scripts/blotato/video_waitlist.json`. The daily `social-queue-daily-refresh` routine (`scripts/blotato/video_topup.py`) queues waiting videos as room frees: long-forms on Sundays and Wednesdays, Shorts on Tue/Thu/Sat, videos before photo posts. Never create a scheduled task or routine that queues a single video; they conflict. Claude and Codex both. Detail: `/video-setup`.
 
 ## Pinned question comment on every YouTube video (Dan, 2026-10-11)
 

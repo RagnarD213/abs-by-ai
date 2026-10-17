@@ -18,6 +18,9 @@ Dan's rule of thumb for ranking long-forms for release (2026-10-16), when he mov
 - Weakest of all: "Invest In Your Health" (RO-20/B/C), split into three though it was never meant to be.
 - His top priorities: RO-25 "I'm 41. I Wasted My Life." and RO-26 "I'm 41. My Life Is Top 1%." take the next two Sundays.
 
+**Approved calendar (Dan, 2026-10-17):** Sunday + Wednesday 9 AM, one per day; every already-edited film releases in
+2026; RO-20/B/C off the schedule; dated list in `Docs/LONGFORM_RELEASE_CALENDAR.md`.
+
 **Why:** a ~33 long-form backlog at one a week would hold the best studio work until spring 2027.
 
 **How to apply:** any release-queue planning ranks every long-form with these criteria and shows Dan the proposed

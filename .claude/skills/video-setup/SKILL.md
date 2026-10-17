@@ -59,7 +59,7 @@ When the queue has no room for a video's 4 posts, finish everything else (thumbn
 config written, article, receipt), then add one entry to `scripts/blotato/video_waitlist.json` and stop:
 `{"config": "scripts/blotato/configs/<slug>.json", "kind": "longform" or "short", "job": "<ID>", "label": "<title>", "added": "<date>"}`.
 The daily routine `social-queue-daily-refresh` runs `scripts/blotato/video_topup.py`, which queues waiting videos in list
-order as room frees up: a long-form on its saved Sunday or the next free one (other platforms Monday), a Short on its
+order as room frees up: a long-form on its saved Sunday or Wednesday or the next free one (other platforms the next day), a Short on its
 saved slot or the next free Tue/Thu/Sat. Photo posts wait while any video is waiting. Trial run:
 `python3 scripts/blotato/video_topup.py --assume-free 30`.
 - **Never create a scheduled task for one video.** Dan deleted three of them on 2026-10-11 because they would conflict.
@@ -180,7 +180,7 @@ It imports the Ad 5 `build_clean.py` for the studio looks and reuses assets, so 
   video's topic that a viewer can answer in a few words, and save it in the config as `"pinned_comment": "<text>"`.
   Rules for the question: `Docs/PINNED_COMMENTS.md` (through `dan-voice-writer`, under 180 characters, no link, no em
   dash). YouTube has no video to comment on until Blotato releases it, so nothing is posted now: see Step 6c.
-- **Schedule:** Sunday at 9 AM America/Chicago only, one new long-form YouTube video per week. A revised replacement uses one slot. Inspect the live Blotato YouTube queue and recent releases, then append this video after the last queued long-form on the next free Sunday. Never use a weekday because Sundays are full. Schedule its Facebook, Instagram and TikTok copies for Monday at 9 AM America/Chicago or later, at least 24 hours after YouTube. Read back every saved time. Verify the YouTube video is public on Sunday; if it is not, postpone the other platform posts before their Monday release. @abs.by.ai retired 2026-09-24; never queue it.
+- **Schedule (Dan, 2026-10-17: two a week, replaces Sunday only):** Sunday or Wednesday at 9 AM America/Chicago, one long-form per day, two per week. A revised replacement uses one slot. The dated calendar Dan approved is `Docs/LONGFORM_RELEASE_CALENDAR.md`: use the date it gives this video. A video not on it goes on the next free Sunday or Wednesday after the last queued long-form; Sundays get the stronger films and Wednesdays the weaker ones (memory `longform-strength-ranking`), and anything already edited releases before anything not yet edited. Never use another weekday. Facebook, Instagram and TikTok follow the next day: Monday 9 AM after a Sunday release, Thursday noon after a Wednesday release (Thursday 9 AM is a Shorts slot); `longform_queue.py` sets both. Read back every saved time. Verify the YouTube video is public on release day; if it is not, postpone the other platform posts before they go out. @abs.by.ai retired 2026-09-24; never queue it.
 
 ## Step 4: RETIRED (2026-10-01), no YouTube holding upload
 
@@ -214,7 +214,7 @@ incomplete organic setup. Confirm the schedule by reading it back before reporti
    - **A film over Blotato's 10 minute TikTok limit goes to TikTok directly (Dan, 2026-10-14, RO-19: "Upload it directly on
      the day you think makes sense").** Put `"tiktok_direct": true` in the config: `longform_queue.py` then queues only YouTube,
      Facebook and Instagram, and `video_topup.py` counts three posts. Upload the TikTok cover-first copy in TikTok Studio
-     (Chrome) on the Monday after the YouTube release, once YouTube reads public, with `longform_queue.tiktok_caption(config)`
+     (Chrome) on the day after the YouTube release (Monday, or Thursday for a Wednesday release), once YouTube reads public, with `longform_queue.tiktok_caption(config)`
      as the caption and the AI-generated label on. TikTok Studio schedules at most 10 days ahead, so this is done near release,
      by a one-off task for that day (it queues nothing in Blotato, so it does not clash with the waiting-list routine).
    - Organic links go to the absbyai.com root, never `/start` (keeps organic out of the `/start` A/B test).
@@ -279,7 +279,7 @@ videos had no article because publishing was left to "someone remembers after re
    every day at 10:30 AM Central, finds each public video whose page has no article, fills `id`, `post_id` and `slug`,
    renames the draft to `<youtube-id>.md`, publishes and runs `verify.py`. Do not put "publish the article" in a board
    entry or a follow-up task any more.
-4. **Release check:** whoever verifies the release (the Monday-posts check, a follow-up automation, or this session if
+4. **Release check:** whoever verifies the release (the next-day posts check, a follow-up automation, or this session if
    the video is already public) runs `python3 sixpackabs/articles/gap.py`. The video must not be listed. If it is
    listed more than 24 hours after release, the routine failed: publish by hand per the README and report it.
 5. **Shorts and dedicated Shorts:** nothing to write at setup. After release the routine writes a 300 to 500 word
