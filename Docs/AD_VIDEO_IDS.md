@@ -104,3 +104,14 @@ new id, so the ads pointing at the old id have to be updated in Google Ads.
 | RA-13 Why Do Most Guys Never Get Abs? | Codex R3 | 16:9 | 0:54 | https://youtu.be/cnkrWRfFsTc | yes, exact R3 finalized 10-17 | Option 3, bold HOW TO GET REAL ABS WITH AI., FINAL-16x9.jpg, installed and read back |
 
 Both Unlisted, processed and embeddable. Trial group 201534026375. Details: `Docs/RA13_SETUP_RECEIPT_20261017.md`.
+
+## 2026-10-17: RA-16 AI Took Job R4
+
+Both exact native masters uploaded unchanged and verified Unlisted, processed and embeddable on channel UC236gjadarHAhEhOMYNGJ9g. Dan selected R2 option 3, AI Dan fired with phone hologram trainer, "Fire your trainer." Both thumbnails installed and served images checked.
+
+| Ad | Version | Aspect | Length | YouTube | Approved | Thumbnail |
+|---|---|---|---|---|---|---|
+| RA-16 AI Took My Job | Codex R4 | 9:16 | 0:59 | https://youtu.be/StkalQUjWSw | yes, exact R4 finalized 10-17 | R2 option 3, FINAL-9x16.jpg, installed/read back |
+| RA-16 AI Took My Job | Codex R4 | 16:9 | 0:59 | https://youtu.be/g8GWwOYzelM | yes, exact R4 finalized 10-17 | R2 option 3, FINAL-16x9.jpg, installed/read back |
+
+Trial group 202854620044, ads 828352448280 / 828398913310. Receipt: `Docs/RA16_SETUP_RECEIPT_20261017.md`. No organic publishing.

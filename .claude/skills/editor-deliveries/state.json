@@ -407,7 +407,12 @@
    "size": 100282648,
    "sha256": "fdc6ad507531a2f5b113dea8b03c23680db4bcec4e43102c1fefc39c9749e5fb",
    "filed_on": "2026-10-17",
-   "approval": "Handoffs/video-editing/RA-16-R4-approval.json"
+   "approval": "Handoffs/video-editing/RA-16-R4-approval.json",
+   "uploaded_on": "2026-10-17",
+   "youtube_id": "StkalQUjWSw",
+   "privacy": "unlisted",
+   "ad_group": "202854620044",
+   "ad_id": "828352448280"
   },
   {
    "drive_id": null,
@@ -422,7 +427,12 @@
    "size": 85885396,
    "sha256": "789944e4dc7ee70b2e5b0af55d5ece8c73dda446155e609c28420553e84c963d",
    "filed_on": "2026-10-17",
-   "approval": "Handoffs/video-editing/RA-16-R4-approval.json"
+   "approval": "Handoffs/video-editing/RA-16-R4-approval.json",
+   "uploaded_on": "2026-10-17",
+   "youtube_id": "g8GWwOYzelM",
+   "privacy": "unlisted",
+   "ad_group": "202854620044",
+   "ad_id": "828398913310"
   }
  ],
  "not_final_seen": [

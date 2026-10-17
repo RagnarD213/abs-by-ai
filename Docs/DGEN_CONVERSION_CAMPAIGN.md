@@ -882,3 +882,11 @@ Approved R3 9:16 `KSq1OBlWvPI` and 16:9 `cnkrWRfFsTc` uploaded unchanged as Unli
 Trial `24316364155`, new group `201534026375` (RA-13 Most Guys Abs), target CPA $40 from live reference `199824307366`; audience `359952376` from `206348100928`. US + Canada, English. Ads `828468045056` (9:16, asset `430845852830`) and `828468037364` (16:9, asset `431033327331`), both ENABLED. Google validateOnly passed before the atomic nine-operation apply. Both actual policy results UNKNOWN / REVIEW_IN_PROGRESS, recheck 2026-10-18 through the existing process.
 
 Final URLs use `https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ra13&utm_content=codex-9x16-vsl` and `codex-16x9-vsl`. Existing campaign domains checked, landing HTTP 200. Budget `15911255930` $30/day before and after, shared with this additional group. Campaign remains ENABLED; no budget or campaign-status mutation. Full receipt: `Docs/RA13_SETUP_RECEIPT_20261017.md`. Config/result: `scripts/ads/api/dgen-ads/ra13*`. RA-13 queue state uploaded. No organic posting.
+
+## 2026-10-17: RA-16 AI Took Job added to trial campaign
+
+Exact R4 masters Unlisted: 9:16 `StkalQUjWSw`, 16:9 `g8GWwOYzelM`; both processed, embeddable and carrying Dan's selected R2 option 3 thumbnails, "Fire your trainer." Film hashes and approved gate records preserved.
+
+Trial `24316364155`, group `202854620044` (RA-16 AI Took Job), target CPA $40 from live reference `199824307366`; audience `359952376` from `206348100928`. US + Canada, English. Ads `828352448280` (9:16, asset `431059916190`) and `828398913310` (16:9, asset `431059888638`), both ENABLED. Google validateOnly passed before the atomic nine-operation apply. Policy command completed: both new ads UNKNOWN / REVIEW_IN_PROGRESS, no rejection. Recheck 2026-10-18 through the existing process.
+
+Final URLs use `https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ra16&utm_content=codex-9x16-vsl` and `codex-16x9-vsl`. Existing campaign domains checked including paused ads. Landing HTTP 200. Budget `15911255930` stayed $30/day before and after, shared with the additional group. Campaign remains ENABLED; no budget or campaign-status operation. Config/results: `scripts/ads/api/dgen-ads/ra16*`; receipt `Docs/RA16_SETUP_RECEIPT_20261017.md`. Queue uploaded, no organic publishing.
