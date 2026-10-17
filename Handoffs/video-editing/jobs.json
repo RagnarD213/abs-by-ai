@@ -2536,14 +2536,17 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/SL-15-my-first-spray-tan-shorts.md`: propose the shorts segments from the RO-19 My First Spray Tan master and wait for my picks, then cut them with /shorts in Soft Blue Light, with gates and an independent audit (no covers). Deliver, send me the review copies, update the master list. Name this session \"My First Spray Tan SFC R1\".",
    "codexModel": "GPT-6 Sol, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/SL-15-my-first-spray-tan-shorts.md` using `.claude/skills/shorts/SKILL.md` as the method: propose segments from the RO-19 master, wait for Dan's picks, cut, gate, deliver, update `00-MASTER.md`. Name this task \"My First Spray Tan SFC R1\".",
-   "state": "ready",
-   "note": "Added 10-13 at RO-19 setup; Soft Blue Light shorts; parent on the Blotato waiting list, expected Jan 17 2027",
+   "state": "in_progress",
+   "note": "My First Spray Tan SFL R1: shortlist sent to Dan 10-17, waiting for picks",
    "unattended": false,
    "unattended_why": "Job doc says show Dan the segment list and wait for picks.",
    "order": 109,
-   "updated": "2026-10-13",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-10-17",
+   "rev": 2,
+   "syncedRev": 2,
+   "editor": "Claude",
+   "needs": "",
+   "by": "Claude"
   },
   {
    "id": "SL-16",
