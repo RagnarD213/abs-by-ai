@@ -78,7 +78,7 @@ Claude Opus 5.5, high effort (editorial and frame work). Frames by Codex GPT-6.1
 
 - Page :8856 (`round6/page`), VLC copy `Videos to Review/Fire Your Trainer AD R6 - whole 9x16 (phone placeholder).mp4`. Plan `beats_r6.json`; G1 = G1_v1 frames 59-72 (clipcheck + reviewer PASS), first 30 s md5-identical, outside the slots MSE max 0.31.
 - **M1 changed:** A0039 FAILED its fresh review on the 2.0 s window (melting hand). M1 is now library **A0080** frames 127-186 (1.25x, crop inside its letterbox, chip at (710,520)); clipcheck + third fresh reviewer PASS. Its chip is fixed in `s75r6_clips.py`; the stage 2 gate plan must declare it.
-- **O1 frames waiting for Dan's yes:** `round6/frames/PH-start.png` and `PH-end_v1a.png`, spec `PH.spec.json`, gate + reviewer PASS (`gate.py --verify` exits 0). Record his words in `round6-plan/decisions.json` before motion.
+- **O1 frames APPROVED by Dan, 2026-10-17:** "Phone frames approved, go ahead with stage 2. Handoff for new task" (recorded in `round6-plan/decisions.json`; PH-start.png sha256 eecfbcf6..., PH-end_v1a.png 7ef1f9b0...). Stage 2 is next, in a new task. Earlier note: `round6/frames/PH-start.png` and `PH-end_v1a.png`, spec `PH.spec.json`, gate + reviewer PASS (`gate.py --verify` exits 0). Record his words in `round6-plan/decisions.json` before motion.
 - Stage 2 scripts: start from `s70r6_plan.py` (set `PENDING = set()`), `s75r6_clips.py` (add an O1 entry for the new take), `s86r6_assemble.py` (PENDING empty, SRC O1 to round6/clips). $12 of $20 still spent; nothing paid this stage.
 
 ## Starter prompt (stage 2, only after Dan says yes to the frames)

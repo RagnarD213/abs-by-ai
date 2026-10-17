@@ -12,6 +12,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 | standing rules and authorizations | **`AGENTS.md`** / **`CLAUDE.md`** |
 | open state | **here**, in ≤3 lines |
 
+**RO-26 R5 REVIEW 2026-10-17, Codex.** Two requested revisions, full film, subtitles and complete QA delivered at `:8982/r5/` and `Videos to Review`. Full gate FAIL: 31/39 pass; three inherited crop flashes remain open. Next: Dan reviews. Shared recap code committed locally; cloud sync blocked by other live-session edits, none adopted. Detail: `Docs/RO26_R5_DELIVERY_RECEIPT_20261017.md`. No platform upload or publishing.
+
 ## Working rules
 
 1. One owner per task; no overwriting without handoff or review request.
@@ -25,15 +27,18 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**I'm 41 Wasted Life LFC R5 — EDITING 2026-10-17, Codex.** Executing approved motion/revisions under $15 cumulative motion cap. Next: reconcile receipts, exact-pair retries, clock/day composite, X→A0043 and animated recap; component/motion review before separate full-film approval. Work: `/Volumes/Extreme/_edit_work/RO-25/round5/`.
+**RO-25 R6 BUILDING 2026-10-17, Codex.** Dan approved exact one-pill START/new open-bottle END and $25 cumulative motion cap; approved-pair 10s take4 is processing, estimated cumulative $17.50 including three rejected takes. Free clock, bed, lotion, recap, X audio and six intros built; audio numeric gates FAIL. Next: whole-take naturalness/independent review, then limited R6 opening and component page if passing. Detail: `/Volumes/Extreme/_edit_work/RO-25/round6/WORK_PACKET.md`.
+
+**AI Took Job AD Setup PICK 2026-10-17, Codex.** Five unique Codex thumbnail choices delivered in 16:9 and 9:16. Both approved R4 masters verified unchanged. Next: Dan picks, then upload both Unlisted and add RA-16 to trial 24316364155. No upload or Ads write yet. Detail: `Docs/RA16_SETUP_RECEIPT_20261017.md`.
+
+
 
 **RA-13 POLICY-RECHECK 2026-10-17, Codex.** Both R3 films are Unlisted and processed; trial group 201534026375, ads 828468045056 / 828468037364 ENABLED, review pending. Next 2026-10-18: `node scripts/ads/api/client.js policy 24316364155`; if clear, delete this entry. Receipt: `Docs/RA13_SETUP_RECEIPT_20261017.md`.
 
-**Top 1 Percent LFC R4 — EDITING 2026-10-17, Codex.** Approved R3 choices locked; presenter base rendered, incline motion quality review and full composite pending. Next: exact-file QA, independent full-candidate review and private :8982 delivery. No upload or release. Work: `/Volumes/Extreme/_edit_work/ro26/round4/`.
+**RO-26 RULE SYNC BLOCKED 2026-10-17, Codex.** Dan reviewed R4; the ready R5 handoff is in `Handoffs/README.md`. New graphics guidance is saved locally in AGENTS, VIDEO-RULES and the long-form skill. `safe-push.sh` committed `0534f03` and `ee3e292` locally but exited 2 on six live other-session files. Next: retry only after those owners clear; do not adopt their work. R4 stays a review baseline, no upload.
 
 **Main Git cloud read BLOCKED 2026-10-16, Codex.** Main-folder fetch waits on an iCloud-evicted local object, `.git/objects/29/f0dd02ad6df53b23db29ba79c5dcda29923390`. Download requested; object absent from GitHub. RA-13 records safely pushed via clean checkout, commit `f3d725b`. Next: restore that local object before main-folder pushes. No other session files or refs changed.
 
-**AI Took Job AD R4 ACTIVE 2026-10-17, Codex.** Complete renders exist. Editor QA caught bad hair masks moving crops above Dan; rebuilding with face-connected silhouettes and approved positions. Next: final exact-file checks, independent review and :8976 delivery. No publishing. Work: `/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/`.
 
 
 
@@ -95,7 +100,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Muhammad-Shorts QUEUED 2026-10-13.** DS-05 waitlisted 10-16; queued: set Edit Queue uploaded. `Docs/MUHAMMAD_SHORTS_SETUP_RECEIPT_20261013.md`
 
-**RA-07:R6-FRAMES:8856:2026-10-17:Claude.** Stage 1 on the page: gym closed trimmed, curls clip replaced (A0039 failed review), phone frames gated and reviewed. Next: Dan's yes on the phone frames, then stage 2 of `Handoffs/handoff-20261016-ra07-fire-your-trainer-round6-trim-and-phone.md`. $12 of $20 spent. Commit d8f5c20 local: push blocked by live edits; next safe-push carries it.
+**RA-07:R6-STAGE2-HANDOFF:2026-10-17:Claude.** Dan approved the phone frames. Next: fire stage 2 of `Handoffs/handoff-20261016-ra07-fire-your-trainer-round6-trim-and-phone.md` (motion, full film, gates). $12 of $20 spent. Commits d8f5c20, d398cc9 local: push blocked by live edits; next safe-push carries them.
 
 **RO-20/B/C:R3b-REVIEW:8868:2026-10-16:Claude.** Studio pickups laid in. Next: Dan's pickup A/B + sign-off answers, then three films (handoff step 2).
 
