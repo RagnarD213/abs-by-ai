@@ -196,7 +196,7 @@ def analysis_cfg(it, W, beats):
 
 
 def recap_cfg(it,W,beats):
-    a,b=it["t0"],it["t1"]
+    a,b=it.get("scene_span", [it["t0"],it["t1"]])
     rv=[W.at(ph,a-1,b,it["id"]+" recap reveal") for ph in it["reveal"]]
     beats += [(a,"","Live Soft Blue Light field throughout; approved heading and fixed card geometry")]
     beats += [(t,W.text(t,t+.4),"Approved row lands; specular bar keeps moving") for t in rv]
