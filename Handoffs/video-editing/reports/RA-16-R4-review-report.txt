@@ -1,0 +1,18 @@
+AD. AI Took Job AD R4, complete films ready for Dan review, 2026-10-17.
+
+Both complete films are ready for Dan review. Editor and independent picture/audio review found no remaining correction to the film content after one early phrase caption was delayed to its audible onset. Exact native scans found no black frames, freezes, unexplained jumps or naked splices. Approved Color B, crop pair 1, intro, warm bass voice and all R3 assets are retained. Automated delivery gates remain FAIL: approved voice tone and generic style/framing/cut metrics are outside their preset bounds; the word-highlight sync test cannot score phrase captions. These results remain in the record. This is private review, with final approval and release pending.
+
+9x16: 58.892167 seconds, 1765 frames at 30000/1001. SHA256 fdc6ad507531a2f5b113dea8b03c23680db4bcec4e43102c1fefc39c9749e5fb
+Final delivery gate: FAIL. Failed rows: audio:stamp, style:coverage, framing:centering, cut:splice_visibility. Unmeasured: captions:sync.
+
+16x9: 58.892167 seconds, 1765 frames at 30000/1001. SHA256 789944e4dc7ee70b2e5b0af55d5ece8c73dda446155e609c28420553e84c963d
+Final delivery gate: FAIL. Failed rows: audio:stamp, style:coverage, framing:no_wide_level, cut:splice_visibility. Unmeasured: captions:sync.
+
+Final caption repair: the phrase And finally, AI adjusts begins at 43.1431. Watch 42-45 seconds. The horizontal prior phrase clears before the graphic changes caption position.
+
+Review: http://127.0.0.1:8976/
+Native copies: Videos to Review and Codex Ad Videos/ai took my job - RA-16.
+
+No generation spend. Combined model-review estimate was under $4; actual provider billing and desktop editor/reviewer usage are unavailable, not zero. Provider token counts are retained in final-review-status.json.
+
+The main checkout has unrelated Git object/merge problems. Task-only records were saved through a clean remote checkout without modifying other sessions' implementation. No video media is pushed.

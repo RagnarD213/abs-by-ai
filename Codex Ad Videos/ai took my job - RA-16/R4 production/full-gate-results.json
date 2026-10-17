@@ -1,0 +1,14 @@
+[
+  {
+    "aspect": "9x16",
+    "audio_exit": 1,
+    "delivery_exit": 1,
+    "sha256": "96a04133d47da806765efce434fc22fdf78d6bd4b2e5c9d960fa62fde6978baf"
+  },
+  {
+    "aspect": "16x9",
+    "audio_exit": 1,
+    "delivery_exit": 1,
+    "sha256": "05dd6d4591fcd4bfa9363450f7fcde6909d32c5756626e85f5f7c00d2438d7e2"
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "model": "gemini-3.1-pro-preview",
+  "full_clips": 2,
+  "duration_each_seconds": 58.892167,
+  "video_input_fps": 5,
+  "prompt_tokens": 42111,
+  "candidate_tokens": 1704,
+  "thoughts_tokens": 3583,
+  "estimated_usd": 0.147666,
+  "actual_billed_usd": null,
+  "actual_billed_reason": "Helper exposes token usage but no billed-dollar receipt. Estimate includes visible output and thinking at official <=200k standard rates.",
+  "pricing_source": "https://ai.google.dev/gemini-api/docs/gemini-3",
+  "limit_usd": 2,
+  "prompt_file": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/independent-gemini-prompt.txt",
+  "result_file": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/independent-gemini-review.txt",
+  "limitations": [
+    "5fps cannot clear individual native frames or precise lip synchronization.",
+    "Provider timestamps are approximate and some jump assertions do not match native boundary evidence.",
+    "Full audio was supplied; Codex did not perform a human real-time listening watch."
+  ]
+}

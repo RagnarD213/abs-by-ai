@@ -31,7 +31,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Main Git cloud read BLOCKED 2026-10-16, Codex.** Main-folder fetch waits on an iCloud-evicted local object, `.git/objects/29/f0dd02ad6df53b23db29ba79c5dcda29923390`. Download requested; object absent from GitHub. RA-13 records safely pushed via clean checkout, commit `f3d725b`. Next: restore that local object before main-folder pushes. No other session files or refs changed.
 
-**AI Took Job AD R4 WAITING 2026-10-16, Codex.** R3 inputs verified; both complete films and initial checks queued through buildcap. Extreme full, work on Expansion. Next: completed candidates, editor QA, independent review and :8976 delivery. No publishing. Packet: `Codex Ad Videos/ai took my job - RA-16/R4 production/WORK_PACKET.json`.
+**AI Took Job AD R4 REVIEW 2026-10-17, Codex.** Both 58.89-second full films checked and independently reviewed at :8976; native copies in Videos to Review. Approved choices retained; actual technical flags remain in the report. Next: Dan reviews both complete films. No publishing. Detail: `Handoffs/video-editing/reports/RA-16-R4-review-report.txt`.
 
 
 

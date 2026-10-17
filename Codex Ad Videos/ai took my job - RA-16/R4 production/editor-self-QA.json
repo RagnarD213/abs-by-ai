@@ -1,0 +1,72 @@
+{
+  "editor": "Codex",
+  "date": "2026-10-17",
+  "films": [
+    {
+      "aspect": "9x16",
+      "sha256": "96a04133d47da806765efce434fc22fdf78d6bd4b2e5c9d960fa62fde6978baf",
+      "frames": 1765,
+      "duration": "58.892167",
+      "chronological_sheets_inspected": [
+        "sheet_00_00-00.00_to_00-23.99.jpg",
+        "sheet_01_00-24.99_to_00-49.02.jpg",
+        "sheet_02_00-50.02_to_00-57.99.jpg"
+      ],
+      "native_boundaries_inspected": 16,
+      "boundary_evidence": "All four editor-audit/9x16-strips-N.jpg montages inspected, representing all original native five-frame strips. Distinct wide/tight cuts, phone/goal/grid transitions, proper full-screen cover and lower-third fades.",
+      "required_scene_comparisons": 11,
+      "independent_scene_evidence": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/editor-audit/independent-components.json",
+      "frozen_candidates": [],
+      "frozen_dispositions": [],
+      "black_frames": [],
+      "pickup_joins": "Not applicable: no new pickups or callbacks in R4. All original source/picture joins mapped and inspected.",
+      "full_motion_audio_support": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/logs/editor-full-motion.txt",
+      "full_motion_status": "Completed; see supporting model report. Native evidence remains separately recorded."
+    },
+    {
+      "aspect": "16x9",
+      "sha256": "05dd6d4591fcd4bfa9363450f7fcde6909d32c5756626e85f5f7c00d2438d7e2",
+      "frames": 1765,
+      "duration": "58.892167",
+      "chronological_sheets_inspected": [
+        "sheet_00_00-00.00_to_00-23.99.jpg",
+        "sheet_01_00-24.99_to_00-49.02.jpg",
+        "sheet_02_00-50.02_to_00-57.99.jpg"
+      ],
+      "native_boundaries_inspected": 16,
+      "boundary_evidence": "All four editor-audit/16x9-strips-N.jpg montages inspected, representing all original native five-frame strips. Distinct wide/tight cuts, phone/goal/grid transitions, proper full-screen cover and lower-third fades.",
+      "required_scene_comparisons": 11,
+      "independent_scene_evidence": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/editor-audit/independent-components.json",
+      "frozen_candidates": [],
+      "frozen_dispositions": [],
+      "black_frames": [],
+      "pickup_joins": "Not applicable: no new pickups or callbacks in R4. All original source/picture joins mapped and inspected.",
+      "full_motion_audio_support": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/logs/editor-full-motion.txt",
+      "full_motion_status": "Completed; see supporting model report. Native evidence remains separately recorded."
+    }
+  ],
+  "local_visual_observation": "Both films preserve the approved scenes and color, captions appear once, hair and face stay clear in the observed native boundary and chronological picture. No visible picture defect in these inspected frames.",
+  "limits": "This record separates local still observations, native automated scans and a pending complete moving/audio model review. No human real-time watch or native audio perception claimed.",
+  "full_motion_model": {
+    "provider": "Gemini",
+    "model": "gemini-3.1-pro-preview",
+    "input_fps": 5,
+    "full_audio": true,
+    "report": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/logs/editor-full-motion.txt",
+    "report_sha256": "67faf7b0491f23d8b905042fab63ab5c67996bbac9572abb163df21181bcfa4b",
+    "verdict": "No open picture/audio defects",
+    "usage": {
+      "input_tokens": 42335,
+      "output_tokens": 706,
+      "thought_tokens": 4983
+    },
+    "billed_usd": null,
+    "note": "Provider reported intelligibility and lip-sync 3/5 despite no defect finding. Preserve exact score; complete CTA and normal voice were affirmed. This is model evidence, not a human watch."
+  },
+  "self_QA_complete": true,
+  "local_visual_verdict": "No open picture defect after repair. Independent review remains required.",
+  "caption_repair_final": {
+    "scope": "Only the phrase at 42.676 delayed to 43.1431 in both films; all final identities, independent review and machine flags in final-review-status.json",
+    "status_path": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/final-review-status.json"
+  }
+}

@@ -1,7 +1,7 @@
 {
   "category": "AD",
   "round": 4,
-  "status": "waiting-for-build-slot",
+  "status": "repairing-framing-before-final-review",
   "requested_changes": [
     "Assemble both complete films from approved R3 components",
     "Rebuild presenter framing on native visible cut/return grid",
@@ -32,5 +32,7 @@
   "review_cost_estimate": "No new generation needed. Announce next independent batch estimate before calling provider; prior estimate under $3 for full-film review.",
   "provider_spend_this_round": 0,
   "editor_token_usage": null,
-  "editor_token_usage_reason": "Current desktop runtime does not expose per-session token counters"
+  "editor_token_usage_reason": "Current desktop runtime does not expose per-session token counters",
+  "date": "2026-10-17",
+  "repair": "The first complete R4 candidate was rejected in editor QA: disconnected background tree masks moved crops upward. Repair keeps face-connected head silhouettes and approved crop positions. Exact-file checks resume after repaired candidates exist."
 }

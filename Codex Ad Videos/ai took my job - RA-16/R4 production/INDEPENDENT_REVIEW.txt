@@ -1,0 +1,36 @@
+AD. AI Took Job R4, independent consolidated review.
+Verdict: Ready for Dan's private review. No confirmed picture correction remains. Automated delivery status remains FAIL; this is not release approval.
+
+Both complete films received one fresh full-film Gemini motion/audio review with full sound at 5fps. This was supplemented by every chronological watch sheet, every native five-frame strip and pair, independent approved scene references, and targeted native checks. No human real-time watch is claimed.
+
+The early caption at 42.676 was corrected to 43.1431, close to the spoken And onset 43.17. The horizontal prior-caption two-frame bounce was also removed. Native repair entry, first caption frame and exit were checked. Both final exports preserve the complete AAC packets and timestamps exactly.
+
+9x16: fdc6ad507531a2f5b113dea8b03c23680db4bcec4e43102c1fefc39c9749e5fb
+1765 frames. 1628 decoded frames are exactly identical to the original reviewed candidate. Remaining changes are the caption repair plus local codec spill; minimum full-frame PSNR outside the caption interval is 42.06dB.
+Watch: 35/35 images, 16/16 boundaries, zero open defects. Audio gate FAIL; delivery gate FAIL.
+  FAIL audio:stamp: no valid audio-gate stamp: AUDIO GATE FAILED on AI Took Job AD R4 - 9x16.mp4: tone -- fix the audio, do not deliver
+  FAIL style:coverage: 31% of runtime is off the main scene (min 38%)
+  FAIL framing:centering: 10 tracked hold(s) + 0 intentional fixed-wide; head centre vs its window centre: worst +6.5% at 57.0s (max +-6%); 1 hold(s) off [(57.0, 0.06486)]
+  FAIL cut:splice_visibility: 3/11 joins above the file's own p99 ceiling (35.40): [(15.05, 37.82), (50.82, 35.41), (57.06, 36.36)]
+  NOT MEASURED captions:sync: NOT MEASURED -- no caption words sequence-align with delivered-audio words
+  Audio FAIL tone: tone: mean |err| 2.71 dB (<= 1.2), max 5.28 (<= 2.5)
+
+16x9: 789944e4dc7ee70b2e5b0af55d5ece8c73dda446155e609c28420553e84c963d
+1765 frames. 1644 decoded frames are exactly identical to the original reviewed candidate. Remaining changes are the caption repair plus local codec spill; minimum full-frame PSNR outside the caption interval is 40.83dB.
+Watch: 35/35 images, 16/16 boundaries, zero open defects. Audio gate FAIL; delivery gate FAIL.
+  FAIL audio:stamp: no valid audio-gate stamp: AUDIO GATE FAILED on AI Took Job AD R4 - 16x9.mp4: tone -- fix the audio, do not deliver
+  FAIL style:coverage: 23% of runtime is off the main scene (min 35%)
+  FAIL framing:no_wide_level: 11 talking holds; head height (hair -> chin) per hold: smallest 22.0% of its window at 46.5s (min 27.0%); 7 wide hold(s) [(0.0, 0.23361500000000002), (15.0, 0.23249999999999998), (24.25, 0.2275), (33.0, 0.228425), (46.5, 0.220465)]
+  FAIL cut:splice_visibility: 4/11 joins above the file's own p99 ceiling (39.95): [(9.48, 39.97), (15.05, 42.55), (50.82, 40.64), (53.15, 41.66)]
+  NOT MEASURED captions:sync: NOT MEASURED -- no caption words sequence-align with delivered-audio words
+  Audio FAIL tone: tone: mean |err| 2.71 dB (<= 1.2), max 5.28 (<= 2.5)
+
+All 8 required scenes were checked against independent approved components. The modern phone, same-person sunglasses photo, AI pool goal, correct real/AI transitions, animated analysis bars and both lower thirds are present. Labels clear face/abs. All source/picture joins, including concealed source splices near 25.93 and 32.70, were inspected. Deliberate wide/tight cuts at 38.005 and 46.380 are acceptable. Zero frozen candidates remain undisposed. No new pickups or callbacks.
+
+Provider conflict retained: Gemini claimed clipped vertical hair and multiple early jump cuts. Native pixels contradict the hair claim and its early cut times. Actual presenter joins use deliberate distinct compositions; the concealed joins are fully covered. Gemini heard coherent natural speech, stable normal sound, acceptable lip sync within its sampling limit, complete opening and final CTA, and no obvious junk or clipped/repeated words.
+
+Horizontal panel clearance was verified from independent alpha masks at y 840, with 66px and 52px actual gaps above G02/G03. No caption collision is present. Shared word-highlight sync is not replaced by this visual judgment; any remaining NOT MEASURED/FAIL stays listed above.
+
+Provider usage: 42111 input tokens, 1704 visible output tokens, 3583 thinking tokens. Estimated charge $0.147666 at official $2/$12 per million rates. Actual billed charge and Codex session token/model telemetry are unavailable. Pricing: https://ai.google.dev/gemini-api/docs/gemini-3
+
+Evidence: independent-findings-9x16.json; independent-findings-16x9.json; independent-repair/all-frame-comparison.json; independent-extra/; independent-gemini-review.txt. No media or quality thresholds were altered by this reviewer.
