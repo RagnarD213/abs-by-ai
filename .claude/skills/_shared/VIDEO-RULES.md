@@ -1,3 +1,12 @@
+## Continue in the same task or hand off: decide by size, not habit (Dan, 2026-10-17)
+
+- When Dan replies to a delivered round (an approval, a pick, notes), decide whether to keep working in this task or write a handoff for a fresh one. Do not default to a handoff. Check this task's context with `get_usage` (session "self") before deciding.
+- **Keep going in this task when all are true:** Dan's reply is an approval, a pick or one or two small notes; the work left is short and routine (deliver, upload, a small trim, one re-render, a setup step); the task is under about 40% of its context window; and Dan replied within about an hour (the conversation cache is still warm).
+- **Write a handoff for a fresh task when any is true:** it is a new round (Dan watched the film and gave a list of notes, so the round number goes up); the task is over about 40% full and heavy work remains (new AI frames or motion with retakes, a full-film rebuild, the full gate chain, independent reviewers); Dan replied hours later (the cache has expired, and re-reading a large task costs more than a fresh start of about 200k tokens); the task struggled (repeated failed attempts or wrong turns); or the next part belongs to a different model or to Codex.
+- Under about 30% full: keep going unless it is a new round. 30 to 50%: decide by how much work is left. Over 50%: hand off. Video quality outranks token savings: when in doubt on a heavy stage, hand off.
+- State the choice and the reason in one line in the reply (for example: "Continuing here: 18% full, only delivery left"). A handoff still carries the starter prompt and model + effort in chat.
+- Why: on 2026-10-17 Dan asked when to continue versus hand off after RA-07 R6, which wrote a stage 2 handoff after a one-word approval. That task was 42% full (421k of 1M) with the heaviest stage still ahead, so the handoff was right there, but sessions were handing off by habit even when continuing was cheaper.
+
 ## Video editing task names (Dan, 2026-10-16)
 
 - Rename every video editing chat at the start to `<Recognizable Video Title> <Type> R<round>`. Put a brief, recognizable video title first, in a few plain words. Use `R1`, `R2`, etc., not `Round 1` or `Round 2`. Examples: `Top 1% LFC R2`, `I'm 41 Wasted Life LFC R2`, `Stop Deadlifting SFC R1`, `Top 1% SFL R1`.
