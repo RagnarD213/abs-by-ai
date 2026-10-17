@@ -44,6 +44,7 @@
 - [Cover photos](cover-photo-selection.md): shoot photos, sharp abs
 - [Thumbnail claims](thumbnail-no-claims.md): none; waist crop
 - [Thumbnail system](thumbnail-design-system.md): Manrope, red bar
+- [Smirk + DESPISE HIM](ad-thumbnail-arrogant-controversial.md): RA-15 ad thumb pick, controversial
 - [Before photos](dan-before-photo-search.md): 2022-24 candidates
 - [Standard before](standard-before-picture.md): deck-chair shot
 - [Frowning photos](frowning-photos-standing-rule.md): never default
@@ -161,6 +162,7 @@
 - [Sidebar naming](video-task-sidebar-naming.md): title, type, round
 - [Shorts graphics](shorts-soft-blue-hyperframes-from-now.md): Soft Blue now
 - [Olive retired](old-graphics-retired-soft-blue-hyperframes.md): Soft Blue after Ad 8
+- [Veo subscription](veo-subscription-first.md): Flow first; API on rush
 - [16:9 cards](no-height-crop-horizontal-in-vertical.md): keep full height
 - [Task names](video-task-names.md): Setup, V/S/Sh
 - [Edit sheet](edit-sheet-and-kit-sheet-path.md): kit_run --sheet
