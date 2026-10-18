@@ -3859,6 +3859,28 @@
    "updated": "2026-10-17",
    "rev": 1,
    "syncedRev": 0
+  },
+  {
+   "id": "SL-19",
+   "list": "2",
+   "group": "Shorts from long-forms",
+   "sub": "",
+   "title": "3 Healthy Foods That Made Me Fat (RO-17, YouTube Sun Dec 13; 3 Shorts, Short 1 airs Mon Dec 14)",
+   "roll": "9/23 C1713",
+   "size": "S",
+   "file": "SL-19-3-healthy-foods-shorts.md",
+   "claudeModel": "Opus 5.5, high",
+   "claude": "CONTENT (SFL). Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/SL-19-3-healthy-foods-shorts.md`: confirm the approved RO-17 master, propose the Shorts segments and wait for my picks, then cut three Shorts with /shorts in Soft Blue Light, with gates and an independent audit (no covers, no upload). Short 1 airs Mon Dec 14. Name this session \"3 Healthy Foods SFL R1\".",
+   "codexModel": "GPT-6 Sol, high",
+   "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/SL-19-3-healthy-foods-shorts.md` using `.claude/skills/shorts/SKILL.md` as the method: confirm the approved RO-17 master, propose segments, wait for Dan's picks, cut three Shorts, gate, deliver, update `00-MASTER.md`. Name this task \"3 Healthy Foods SFL R1\".",
+   "state": "ready",
+   "note": "Approved RO-17 parent filed Oct 18. Propose segments and wait for Dan picks; Short 1 airs Mon Dec 14, due Dec 13.",
+   "unattended": false,
+   "unattended_why": "Dan selects standalone Shorts segments before rendering.",
+   "order": 172,
+   "updated": "2026-10-18",
+   "rev": 1,
+   "syncedRev": 1
   }
  ]
 }

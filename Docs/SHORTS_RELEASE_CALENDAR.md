@@ -22,7 +22,7 @@ Key: plain = edited (in Blotato or on the waiting list). **\*** = still to be ed
 | Nov 23 | Body Fat % 1\* | Salad (sl03-short6) | How To Do Hammer Curls (DS-21) | Home Budget 1\* | Zepbound Tips 3 |
 | Nov 30 | Love Handles 1\* | Zepbound Tips 4 | AI Homework (DS-31, needs Dan's OK) | 40 vs 25 1\* (SL-14) | Zepbound Tips 5 |
 | Dec 7 | Zepbound Ripped 1\* | Zepbound Tips 6 | Fat Millionaire (DS-05, corrections) | Vacuum 1\* (SL-11) | Wasted My Life 2\* |
-| Dec 14 | Face 1\* | Wasted My Life 3\* | #1 Change For Abs At 40\* (DS-13) | Keep Your Muscle 1\* (SL-12) | Top 1% 1\* |
+| Dec 14 | 3 Healthy Foods 1\* (SL-19) | Wasted My Life 3\* | #1 Change For Abs At 40\* (DS-13) | Keep Your Muscle 1\* (SL-12) | Top 1% 1\* |
 | Dec 21 | Belly Fat 1 (SL-07, needs Dan's OK) | Belly Fat 2 | Lose The Last 10 Pounds\* (DS-16) | Calories Don't Matter 1\* (SL-13) | Belly Fat 3 |
 | Dec 28 | Belly Fat 4 | Belly Fat 5 | Top 5 Ab Exercises\* (DS-01) | | |
 

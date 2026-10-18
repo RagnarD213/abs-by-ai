@@ -605,5 +605,13 @@
   "h": 1920,
   "job": "SL-07",
   "when": "2026-12-29T15:00:00.000Z"
+ },
+ {
+  "match": "One cup of trail mix is about 700 calories. That's more than a Big Mac.",
+  "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/3 Healthy Foods/3 Healthy Foods - thumbnail FINAL.jpg",
+  "w": 1280,
+  "h": 720,
+  "job": "RO-17",
+  "when": "2026-12-14T18:00:00.000Z"
  }
 ]
