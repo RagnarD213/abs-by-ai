@@ -104,7 +104,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-12:R1-REVIEW:8842:2026-10-15:Claude.**
 
-**DS-31:R1-REVIEW:8931:2026-10-15:Claude.**
+**DS-31:R2-REVIEW:8931:2026-10-18:Claude.** AI Homework SFC R2 on the page: colour C (warm vivid) in the film, options A-E for Dan's pick; A1 opener moving. Audit SHIP. Next: Dan's colour pick and A1 approval.
 
 **RA-04 POLICY-RECHECK 2026-10-16,Claude.**
 

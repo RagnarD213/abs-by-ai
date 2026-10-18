@@ -24,3 +24,20 @@ Reuses the DS-28 Meal Prep approvals for this studio set (Pair B crops, Color A,
 - **AI frames:** END frames come back 941x1672; resize to 1080x1920 before the gate. A model END that shortens a prop
   (snapped chalk) can be fixed in code by moving the broken tip and filling with the prop's own body, with a connected
   mask limited to the prop's rows. Feather any background lock (45 px) after gain-matching, or the reviewer sees the seam.
+
+## Round 2 (2026-10-18): colour options + A1 motion, recipe in `r2/`
+Work folder `/Volumes/Extreme/_edit_work/ds31/round2/`. Order: `col_options.py stills samples` > `col_options.py pick C` (writes
+`col/pick.json`, read by `picture.py`) > `col_options.py broll` > `a1_cut.py TAKE 1.042 4.0` > `picture.py` > `finish.py` >
+`gateplan.py` > `page.py`. Dan asked for warmer, more vivid colour at the same brightness.
+- **Warming the whole picture greys a teal backdrop.** colorbalance red-up / blue-down on this set made skin warmer but cut the
+  backdrop's saturation and pushed its hue toward green; global saturation or vibrance on top turned skin orange first. Fix:
+  one luma-preserving 3D LUT (BT.709 Y'CbCr) after A's denoise + curve: a warm chroma push on warm hues and near-neutrals only
+  (hard-edged mask off the cool band, eased in shadows), a base saturation, an extra lift on the cool band (backdrop, tubes)
+  with a few degrees of rotation toward blue, a small lift on skin. `build_lut()` in `r2/col_options.py`.
+- **ffmpeg `huesaturation` measured as a no-op** on these frames (backdrop saturation unchanged at every setting). Do not rely on it.
+- **Match brightness on MEAN luma with a gamma term.** The median luma sits inside the black tank top's cluster and jumps, and
+  `eq=brightness` clips blacks non-linearly; both made the search oscillate. Bisection on `eq=gamma` converges to 0.001.
+- **Veo motion (Flow, subscription):** take 1 of the first prompt bent the stack like rubber and dropped it AWAY from him while
+  he still ended up buried; the prompt must say which side he is on, that the stack is rigid real books, that it falls
+  toward him, and that nothing falls in from above the frame (`r2/A1-motion-used.txt`). Of two retakes, one bent into an arch
+  over his head (rejected by eye); the other passed clipcheck and a fresh frame-reviewer. Budget a retake per AI clip.
