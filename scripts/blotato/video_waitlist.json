@@ -183,5 +183,40 @@
   "label": "Can You Drink Alcohol And Still Have Abs? (My 6 Rules)",
   "added": "2026-10-17",
   "note": "Four Dec 30-31 schedules removed at Dan request to secure RO-25 Sun Oct 18. Exact backup Docs/RO25_CAPACITY_REMOVED_RO13_20261017.json. Restore on original 2026 date when capacity opens."
+ },
+ {
+  "config": "scripts/blotato/configs/sl07-short1-stop-trying-to-lose-1-pound-a-week.json",
+  "kind": "short",
+  "job": "SL-07",
+  "label": "Belly Fat 1: Stop Trying To Lose 1 Pound A Week",
+  "added": "2026-10-18"
+ },
+ {
+  "config": "scripts/blotato/configs/sl07-short2-weigh-yourself-every-morning.json",
+  "kind": "short",
+  "job": "SL-07",
+  "label": "Belly Fat 2: Weigh Yourself Every Morning",
+  "added": "2026-10-18"
+ },
+ {
+  "config": "scripts/blotato/configs/sl07-short3-work-out-every-morning.json",
+  "kind": "short",
+  "job": "SL-07",
+  "label": "Belly Fat 3: Work Out Every Morning, Not 3 Times A Week",
+  "added": "2026-10-18"
+ },
+ {
+  "config": "scripts/blotato/configs/sl07-short4-the-3-pound-rule.json",
+  "kind": "short",
+  "job": "SL-07",
+  "label": "Belly Fat 4: The 3-Pound Rule That Keeps Belly Fat Off",
+  "added": "2026-10-18"
+ },
+ {
+  "config": "scripts/blotato/configs/sl07-short5-track-your-calories-with-a-photo.json",
+  "kind": "short",
+  "job": "SL-07",
+  "label": "Belly Fat 5: Track Your Calories With A Photo",
+  "added": "2026-10-18"
  }
 ]

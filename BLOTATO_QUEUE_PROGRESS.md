@@ -491,3 +491,13 @@ CONTENT. Approved R10/B1 preserved and archived with matching hashes. YouTube 52
 
 ## SL-03 Daily Salad shorts (2026-10-08)
 Shorts 1, 4, 5 queued (FB, IG @danrosefit, TikTok, YouTube) Oct 29, Oct 31, Nov 3 at 9 AM Central; queue 198 of 200. Short 2 queued 2026-10-09 for Thu Nov 5 (5361331 to 5361334); queue 199 of 200. Short 3 queued 2026-10-11 for Sat Nov 7 (5443391 to 5443394); queue 199 of 200. Short 6 owed (Nov 10) once there is room for 4 posts. Receipt: `Docs/SL03_SETUP_RECEIPT_20261008.md`. Handoff: `Handoffs/handoff-20261008-sl03-queue-shorts-2-3-6.md`.
+
+## DONE: I'm 41. I Wasted My Life. (RO-25), scheduled 2026-10-17
+
+Dan approved the exact R7 master (SHA256 `6045ac0e61b6323934477c5c60a3cdca095e658ef689b8493717cf50e82848a7`). Thumbnail C is the single approved design (SHA256 `d7c8a844889a350552c07f029176ad4282a5e5cd8f2e6619649c404965f70223`). Blotato live readback: YouTube 5699404, Sunday October 18 at 9 AM Chicago; Facebook 5699402 and Instagram 5699403, Monday October 19 at noon. The long-form exceeds Blotato's TikTok limit; cover-first direct TikTok file is ready for Monday after YouTube is verified public. Keyword ABS, organic root UTM `ro25-wasted-my-life`. Drive package: https://drive.google.com/drive/folders/1prfWWYTJ3NsTc4dzMFPQq8qPS6yU5tac. Full details: `Docs/RO25_SETUP_RECEIPT_20261017.md`. Nothing public at setup time.
+
+To make room at the 200-post cap, Dan authorized removing the last queued video. Four schedules for Can You Drink Alcohol And Still Have Abs? (RO-13), originally December 30/31, were saved in `Docs/RO25_CAPACITY_REMOVED_RO13_20261017.json`, removed and verified absent. The finished video remains on the normal waitlist with its December 30 target. The edit queue now reflects finalized, not uploaded, for RO-13 until it is scheduled again.
+
+
+## SL-07 If I Had Belly Fat shorts (2026-10-18)
+Five shorts set up and waiting for room (queue 198/200): on `scripts/blotato/video_waitlist.json`, slots Mon Dec 21, Tue Dec 22, Sat Dec 26, Mon Dec 28, Tue Dec 29, 9 AM Central, after RO-16 (YouTube Dec 20). Configs `scripts/blotato/configs/sl07-short{1..5}-*.json`. Receipt `Docs/SL07_SETUP_RECEIPT_20261018.md`.

@@ -155,7 +155,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **SL-06:R3-HANDOFF:2026-10-17:Claude.** Dan replied; R3 card `Top 5 Zepbound Tips SFL R3` (flex intros, C injection clips). Commits b1e35a1, 2a22a47, 016500c local; next safe-push carries them.
 
-**SL-07 setup PICKS 2026-10-18, Claude.** 25 covers on page :8893, all measured PASS. Waiting Dan's letter per short. Next: export picks, upload, Blotato Dec 21-29 (parent Dec 20 confirmed). `Handoffs/handoff-20261018-sl07-belly-fat-shorts-covers-and-setup.md`
+**SL-07 HOLD 2026-10-18, Claude.** Covers picked, media and configs ready; Blotato full, five shorts on the waitlist for Dec 21-29. `Docs/SL07_SETUP_RECEIPT_20261018.md`
 
 **RO-12 - QUEUED 2026-10-01, Claude.** Blotato Oct 25. Then: `Docs/RO12_SETUP_RECEIPT_20261001.md`, delete.
 
@@ -214,7 +214,7 @@ tab; stop rather than click into spinners. `Handoffs/handoff-20260908-google-ads
 
 ⚠ **Ad 5 vertical: BT.601 colour fault in its build (baseline 2026-09-15).** Memory `untagged-video-bt601-trap`; method: shortad SKILL [A15].
 
-**Handoff-start rule UNPUSHED 2026-10-18, Claude.** Commits 00fb2c7, ac57346 (VIDEO-RULES: handoff start tool name, keep pin on fallback) local; safe-push stopped on live edits. Next: any later safe-push carries it; then delete this.
+**Handoff-pin rule UNPUSHED 2026-10-18, Claude.** VIDEO-RULES + AGENTS: handoffs put up a card and stay pinned (Dan unpins); commits local, safe-push stopped on live edits. Next: any later safe-push carries them; then delete this.
 
 **Engagement-ads rule UNPUSHED 2026-10-18, Claude.** Commit 3f10579 (AGENTS, YTADS, memory: new engagement ads go in tier1, tier2 and both rmktg ad groups) local; safe-push stopped on live corpus.json and ra16 prompt edits. Next: any later safe-push carries it; then delete this.
 
