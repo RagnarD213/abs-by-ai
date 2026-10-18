@@ -11,6 +11,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Top 5 Zepbound Tips SFL R4](handoff-20261018-sl06-round4-shirtless-gym-intros-and-better-thigh-clips.md): **Ready now (2026-10-18). Claude Opus 5.5 / High.** CONTENT. Dan rejected the R3 stage 1 look: regenerate all six flex-intro frame pairs shirtless in a real gym with a real-looking poster, find better front-thigh injection clips for C, refresh page 8821, then Flow motion and rebuild. One-click card shown 10-18.
 - [3 Healthy Foods LFC Setup](handoff-20261018-ro17-thumbnails-and-video-setup.md): RO-17 **finalized 2026-10-18** (Dan: "final"). **Ready now.** One-click card shown 10-18. Five Codex thumbnails, stop for his pick, then `/video-setup` on the Sunday long-form queue. Opus 5.5 high.
 
 
