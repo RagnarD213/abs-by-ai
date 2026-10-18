@@ -11,6 +11,17 @@
   }
  },
  {
+  "config": "scripts/blotato/configs/ro26-top-1-percent.json",
+  "kind": "longform",
+  "job": "RO-26",
+  "label": "I'm 41. I'm Top 1%. How I Did It.",
+  "added": "2026-10-17",
+  "queued": {
+   "date": "2026-10-18",
+   "main": "2026-10-25T14:00:00.000Z"
+  }
+ },
+ {
   "config": "scripts/blotato/configs/ro19-my-first-spray-tan.json",
   "kind": "longform",
   "job": "RO-19",
@@ -164,13 +175,6 @@
   "label": "Why Having Abs Beats Being A Fat Millionaire",
   "added": "2026-10-16",
   "release_hold": "October 16 corrections, exact-file QC and Daniel approval pending"
- },
- {
-  "config": "scripts/blotato/configs/ro26-top-1-percent.json",
-  "kind": "longform",
-  "job": "RO-26",
-  "label": "I'm 41. I'm Top 1%. How I Did It.",
-  "added": "2026-10-17"
  },
  {
   "config": "scripts/blotato/configs/ro13-alcohol-and-abs.json",

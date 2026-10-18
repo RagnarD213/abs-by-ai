@@ -85,3 +85,10 @@ Full setup evidence: `/Volumes/Extreme/_edit_work/ro26-setup-20261017/` (verific
 The executed setup handoff was moved out of the OPEN index into Recently retired. Handoffs/README.md and fb_reel_covers.json include other owners' pre-existing edits, so those mixed files are preserved locally rather than adopting foreign changes in this task's commit. Both local operational records already include RO-26.
 
 Final safe-push attempt: local commit `26275a9` retained; exit 2 before merging because three mixed/live files belonged to active work. No push completed. Local commits and operational files remain intact. The final receipt was refreshed in both delivery folders and backed up to Drive.
+
+## 2026-10-18: RO-25 linked, RO-26 queued (Claude, scheduled task)
+
+- RO-25 "I'm 41. I Wasted My Life." is public: https://www.youtube.com/watch?v=xyi-B_5tccw (published 2026-10-18 9:00 AM Central, processed). An earlier session today had already put that URL in the config and cleared both release holds.
+- The top-up routine reads the waiting list in file order, so RO-26 sat behind November films. RO-26's entry was moved to just after RO-25. RO-19 (My First Spray Tan, Oct 21) stays waiting: its run failed because its Facebook cover is not in `fb_reel_covers.json`.
+- `video_topup.py --apply` queued RO-26, verified 198 of 200. Blotato read-back: YouTube 5723694 Sun Oct 25 9:00 AM Central (description carries the RO-25 link); Facebook 5723691, Instagram 5723692, TikTok 5723693, all Mon Oct 26 12:00 PM Central.
+- Edit Queue: RO-26 set to uploaded (rev 25), mirrored to the page and marked synced.

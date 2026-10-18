@@ -3615,15 +3615,15 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/RO-26-im-41-my-life-is-top-1-how-i-did-it.md`: cut \"I'm 41. My Life Is Top 1%. How I Did It.\" from 10/15 roll C1768 with /longform-edit. Best take of every line, every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Sol, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-26-im-41-my-life-is-top-1-how-i-did-it.md` with `$long-form-content-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "finalized",
-   "note": "Dan approved R4 A frosted yacht thumbnail on 2026-10-17. Master and captions unchanged; Drive backup and platform media verified. Setup prepared, waitlisted on release hold until RO-25 public URL and earlier release are verified; no posts queued. Receipt Docs/RO26_SETUP_RECEIPT_20261017.md.",
+   "state": "uploaded",
+   "note": "Blotato YT Oct 25 9 AM CT, FB/IG/TikTok Oct 26 noon, read back 10-18",
    "needs": "",
    "order": 160,
-   "updated": "2026-10-17",
-   "rev": 24,
-   "syncedRev": 10,
+   "updated": "2026-10-18",
+   "rev": 25,
+   "syncedRev": 25,
    "editor": "Codex",
-   "by": "Codex"
+   "by": "Claude"
   },
   {
    "id": "RO-27",
