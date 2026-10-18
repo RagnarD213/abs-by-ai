@@ -119,8 +119,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **Invest In Your Health LFC R4 ACTIVE 2026-10-18, Claude.** Building the three full films (RO-20/B/C), then gates, one reviewer per film, review page :8868. Work: `/Volumes/Extreme/_edit_work/ro20/round4/`.
 
 
-**RA-15:POLICY-RECHECK:2026-10-17:Claude.** Ads `828399044620`, `828399056794` in review. Next 10-18: `node scripts/ads/api/client.js policy 24316364155`; clean, delete this. ⚠ Records committed locally (c640d8a, 9244b41), push blocked by live DAN_DECISIONS/qc_corpus edits; next safe-push carries them.
-
 **RA-05:POLICY-RECHECK:2026-10-16:Claude.** Live: `0DswKDBFW2E`, ad `828398569805` in review. Next 10-17: `node scripts/ads/api/client.js policy 24316364155`; clean, delete this.
 
 **RA-14 POLICY-RECHECK 2026-10-15,Claude.**
@@ -137,7 +135,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-14-R1-REVIEW:8964:2026-10-14.**
 
-**RO-18:R2-HANDOFF:2026-10-18:Claude.** Dan answered R1. Card `Make Time Exercise LFC R2` (`Handoffs/handoff-20261015-ro18-round2-full-film.md`).
+**RO-18:R2-HANDOFF:2026-10-18:Claude.** Dan answered R1. Card `Make Time Exercise LFC R2` (`Handoffs/handoff-20261015-ro18-round2-full-film.md`). Commit c1203a1 local: push blocked by live edits; next safe-push carries it.
 
 **Ad 6 remarketing 2026-10-04:** Awaiting Dan: copy to enabled campaign 24305381214?
 
