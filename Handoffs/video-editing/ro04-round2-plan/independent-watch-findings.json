@@ -1,0 +1,62 @@
+{
+  "reviewer": "independent_review, GPT-6 Sol",
+  "video": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video-edits/RO-04/round2/Arms Shoulders Workout LFC R2 - first minute.mp4",
+  "video_sha256": "3c905347a0b51e3468dc78b19f9fd2dde058026d1c71fe4fdc3e985971c29a8f",
+  "scope": "Round 2 preview visual inspection only, not full-film approval",
+  "entries": [
+    {
+      "image": "sheet_00_00-00.00_to_00-23.99.jpg",
+      "verdict": "clean",
+      "t": 0,
+      "note": "Inspected every tile. Full body, hair, hands and weights remain within picture; functional Get ready and curls timers stay clear of the face and abs. Bending at 2-5 s is purposeful equipment pickup in the approved workout, not a junk cutaway. No placeholder, black frame or inappropriate insert visible. This contact sheet does not establish continuous playback."
+    },
+    {
+      "image": "sheet_01_00-24.99_to_00-49.02.jpg",
+      "verdict": "clean",
+      "t": 24.99,
+      "note": "Inspected every tile. Curls continue, then the declared timer changes to side lateral raises during the purposeful weight change. Full raised-arm exercise remains inside the frame. Graphics are readable and clear of the body. No extra cut, junk card or missing declared graphic visible."
+    },
+    {
+      "image": "sheet_02_00-50.02_to_00-58.99.jpg",
+      "verdict": "clean",
+      "t": 50.02,
+      "note": "Inspected all ten tiles, including near 52 and 56 seconds. Hair, hands and raised dumbbells retain space inside the picture. No unnatural skin discontinuity, obvious black, repeated hold, extra label or placeholder visible. Native crop-B-40 and crop-B-60 further confirm close raised-weight clearances; the sheet alone cannot rule out a one-frame issue between its samples."
+    },
+    {
+      "image": "strip_000_00-05.85_Bicep_Curls_timer_in___Get_ready_out.jpg",
+      "verdict": "expected",
+      "t": 5.8497,
+      "note": "Five consecutive native-index frames inspected. Presenter motion and background continue without a picture splice. Only the planned Get ready to Bicep Curls timer switch occurs after the boundary. No hair or hand clipping visible."
+    },
+    {
+      "image": "pair_000_00-05.85.jpg",
+      "verdict": "expected",
+      "t": 5.8497,
+      "note": "Inspected the -1/0 pair at half native resolution. Foot and arm movement is a natural one-frame continuation; background framing is unchanged. Both frames precede the visible timer update in the five-frame strip. No same-framing reset."
+    },
+    {
+      "image": "strip_001_00-35.85_Bicep_Curls_timer_out___Side_Lateral_Rai.jpg",
+      "verdict": "expected",
+      "t": 35.8497,
+      "note": "All five consecutive frames inspected. Bent-body movement continues naturally while changing dumbbells. Planned Bicep Curls to Side Lateral Raises timer switch appears; there is no naked splice, frozen presenter or jump in scale."
+    },
+    {
+      "image": "pair_001_00-35.85.jpg",
+      "verdict": "expected",
+      "t": 35.8497,
+      "note": "Inspected the -1/0 pair at half native resolution. Natural continuous lowering movement, matching static background and intact hands/weights. The purposeful equipment change is approved, not a discarded between-takes moment."
+    }
+  ],
+  "counts": {
+    "clean": 3,
+    "expected": 4,
+    "defect": 0
+  },
+  "open_visual_defects": [],
+  "limits": [
+    "No claim of continuous human picture playback or native audio listening.",
+    "IAB playback advanced muted but screenshot rendering was blank; video left paused and muted.",
+    "No new native extraction while shared buildcap exceeded two.",
+    "Consolidated delivery gate remains a separate required check."
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "status": "stopped, not PASS",
+  "reason": "Initial diagnostic redundantly began music-as-speech transcription/verification despite exact unchanged AAC and timing. Stopped own process and preserved log. Final run uses hash-verified same-audio ASR reuse and the independently substantiated lyric-model exception, with no gate thresholds or code changes.",
+  "video_sha256": "3c905347a0b51e3468dc78b19f9fd2dde058026d1c71fe4fdc3e985971c29a8f"
+}

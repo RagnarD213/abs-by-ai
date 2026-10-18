@@ -1,0 +1,28 @@
+{
+  "url": "http://127.0.0.1:8974/",
+  "browser": "Codex in-app browser (WebKit); Chrome automation timed out twice.",
+  "page_http_status": 200,
+  "video_range_status": 206,
+  "duration": 59.71,
+  "playback_muted": true,
+  "initial_time": 3.501372,
+  "paused_before_seek": 21.437777,
+  "forward_seek_time": 47.893173,
+  "backward_seek_time": 9.729646,
+  "color_sample": {
+    "B": "8.022 s, ready and muted playback"
+  },
+  "date": "2026-10-17",
+  "comparison_samples_verified": {
+    "A": "8.022 s; muted playback advances, no player error",
+    "B": "8.022 s; muted playback advances",
+    "C": "8.022 s; muted playback advances",
+    "overhead": "16.035 s; muted playback advances and reaches ended state"
+  },
+  "final_player": {
+    "source": "first minute",
+    "time": 4.145187,
+    "paused": true,
+    "muted": true
+  }
+}

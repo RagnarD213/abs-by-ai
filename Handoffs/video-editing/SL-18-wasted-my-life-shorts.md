@@ -5,8 +5,9 @@ Added 2026-10-17 from the approved Shorts calendar (`Docs/SHORTS_RELEASE_CALENDA
 Task name: **`I'm 41 Wasted Life SFL R1`**.
 
 ## Start condition
-Start only after Dan approves the complete RO-25 film (R7 or later; see the latest RO-25 entry in `Handoffs/README.md`).
-Cut from that exact approved master and record its path and SHA-256 here when you start. Do not cut from a review
+Dan approved the complete RO-25 R7 film on 2026-10-17. Cut from the exact approved master
+`Codex Content Videos/Im 41 Wasted Life - RO-25/Im 41 Wasted Life | codex | 16x9 | RO-25.mp4`,
+SHA-256 `6045ac0e61b6323934477c5c60a3cdca095e658ef689b8493717cf50e82848a7`. Do not cut from a review
 candidate, a round folder preview or the raw roll.
 
 ## Deadlines (Dan's calendar, 2026-10-17)

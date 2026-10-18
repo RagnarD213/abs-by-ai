@@ -30,3 +30,7 @@ Deliverable: 16:9 long-form, 1920x1080 or 4K per /longform-edit; round method (g
 Dan selected frame concepts and corrected the tone to somber and serious. Execute [the selected-frame and revision handoff](handoff-20261016-ro25-r2-selected-frames-and-revisions.md) next with GPT-6 Sol, high, and `$long-form-content-edit`. It supersedes the earlier instruction to wait for concept selections. Generate the requested frame pairs for review before motion, carry forward all colour/audio/graphics/pacing/Elon revisions, and preserve the round-one evidence. The full film remains in progress; neither frame selections nor this handoff approve motion or the full render.
 
 Earlier feedback and the unselected menu remain at `/Volumes/Extreme/_edit_work/RO-25/round2-plan/` for history. The new handoff is the current creative brief.
+
+## Finalized October 17, 2026
+
+Dan approved the exact R7 full film, SHA6045ac0e61b6323934477c5c60a3cdca095e658ef689b8493717cf50e82848a7. Final delivery and approval: `/Users/danielrose/Documents/Claude/Projects/Abs By AI/Codex Content Videos/Im 41 Wasted Life - RO-25`. Use the existing setup handoff, `../handoff-20261017-ro25-approved-thumbnail-and-video-setup.md`; no further editing is pending. Historical QA results are preserved.
