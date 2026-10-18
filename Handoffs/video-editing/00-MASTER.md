@@ -112,7 +112,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [DS-28](DS-28-meal-prep-short.md) | Meal Prep | 9/23 C1720 | UPLOADED | S |
 | [DS-29](DS-29-robot-lawn-mower-short.md) | Robot Lawn Mower | 9/23 C1720 | BLOCKED: Robot mower b-roll not filmed | S |
 | [DS-30](DS-30-self-driving-car-short.md) | Self-Driving Car | 9/23 C1720 | READY | S |
-| [DS-31](DS-31-ai-homework-short.md) | AI Homework | 9/23 C1720 | IN PROGRESS | S |
+| [DS-31](DS-31-ai-homework-short.md) | AI Homework | 9/23 C1720 | DELIVERED: awaiting Dan | S |
 | [DS-32](DS-32-ai-job-short.md) | AI Job | 9/23 C1720 | READY | S |
 
 ### 1C2 · Organic long-form, 9/23 shoot (9)
