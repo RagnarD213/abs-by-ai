@@ -1,0 +1,58 @@
+{
+ "shot": "SL-06 short F R4 AI flex intro (9:16), under the opening line 'Zepbound reduces your appetite, so eating less calories is easier.'",
+ "start_frame": "F_start.jpg",
+ "intent": "AI Dan, shirtless in black gym shorts, dark grey rectangular glasses, smiling, in a real gym (charcoal wall, power rack at left edge, cable machine at right edge, dumbbell rack low behind him) at a slight three-quarter angle, his flexed left arm in the foreground. His left arm (picture right) is raised in a one-arm biceps flex, its fist pinching a tiny Zepbound vial between thumb and index finger, label toward camera. A printed navy poster with a yellow top band and border on the wall at picture left reads exactly 'How much / protein do you / need on / a GLP-1?' with a small yellow dumbbell icon, no other text. START: his right arm (picture left) points up at the poster, fingertip in empty air about 110 px below the poster's lower-left corner, against the dark wall. END: a beat later, camera locked, the pointing hand has moved up and the fingertip is just inside the poster's lower-left corner without covering any letter; the vial is still pinched; poster, gym, wall, face, glasses and shorts unchanged. Only his arms and hands move.",
+ "person": {
+  "anchored": [
+   "nose",
+   "shoulder"
+  ],
+  "reach": false
+ },
+ "still": {
+  "poster_line1": [
+   130,
+   285,
+   445,
+   375
+  ],
+  "poster_line4": [
+   145,
+   565,
+   435,
+   655
+  ],
+  "rack_left": [
+   5,
+   120,
+   60,
+   560
+  ],
+  "cable_pulley": [
+   970,
+   180,
+   1075,
+   320
+  ]
+ },
+ "props": [
+  {
+   "name": "vial",
+   "box": [
+    801,
+    593,
+    845,
+    670
+   ],
+   "held_by": "left"
+  }
+ ],
+ "hands": {
+  "right": "points at the poster (empty air in START, fingertip at the poster's lower-left corner in END)",
+  "left": "flexed, pinches the tiny vial between thumb and index finger in both frames"
+ },
+ "may_change": {},
+ "bounds": {},
+ "camera": "locked",
+ "note": "Waist-up framing: the legs are off-frame (pose visibility near 0), and no limb straightens, so person.reach is false."
+}
