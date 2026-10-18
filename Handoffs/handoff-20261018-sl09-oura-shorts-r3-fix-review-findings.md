@@ -33,8 +33,13 @@ project folder until that folder's pending commits reach GitHub), and the batch 
   point G1 start on Dan after it, or start the clip later; keep Zeeshan's lower third covered to o6.7. Advisories worth fixing: crop pan
   0:20.4-0:23.5 on his near shot (steady window or a cover), caption "if you're doing the" 0.5 s late at 0:28, the deadlifter's head
   touching the top at 0:32.7 (portrait 12890962: set `fy`). Already fixed: head off-frame at 0:48 (now covered), curls end.
-- **I (short 2): first review started 14:55 in the R2 task (agent writes `build/I/ROUND-2-REVIEW.md`).** Read it when it exists; if it
-  is missing, launch a fresh `ra-reviewer` with the brief in step 2 below.
+- **I (short 2), review 1: DOES NOT SHIP.** D1 0:35.80 (frame 1073) one frame of Zeeshan's white flash (source 1024.957, his flash
+  fades 1024.67-1025.00): run the `awake` cover 2-3 frames longer (to about o35.90). D2 0:55.13-0:55.29 his low transition swoosh
+  starts under the last 0.15 s (master 1065.20-1065.46): end the audio at about 1065.30 master (o55.12) and check the picture end.
+  D3 0:39.1-0:44.7 the key point "Someone Wrecks Your Sleep? / They Have To Go" repeats his words: write one that distills (for
+  example "Your Sleep Score Shows / Who's Bad For You"), first line under about 26 letters. Minor: three captions 0.17-0.24 s late
+  (0:01.2, 0:07.9, 0:19.0); orphan "how" at 0:47.2; office stress clip over "weeks of arguments"; the woman leaving smiles; the opener
+  couple clip judders (25 fps). Passed: join step at 0:46.18, chart scene, lower third covered, audio verbatim.
 - **H (short 3), review 2: DOES NOT SHIP** (review 1's six fixes held). D1 0.00-0.60 the tunnel opener (31196473) starts on cars at
   a red light with a readable Honda "FREED" badge and plate: start about 0.7 s later. D2 10.177 and D3 20.020: two crop jumps INSIDE
   Zeeshan's own animated zooms (no cut in his source there): ZCUTS 27885 and 28180 are zoom transitions, not hard cuts, so the window
