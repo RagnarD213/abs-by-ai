@@ -3406,6 +3406,7 @@
       "must_trigger": [],
       "measured": "Gate2.6.0:30 measured PASS,6FAIL,3N/A,0 NOT MEASURED. Approved fixed audio tone/framing/cut and legacy caption detector flags retained. Independent review:41images,19joins,17camera holds,no confirmed new media defect.",
       "notes": "Exact approval: Handoffs/video-editing/DS-28-R5-approval.json. Records human approval without changing gates, thresholds or stamps."
+<<<<<<< HEAD
     },
     {
       "id": "ro25-r5-medication-two-hand-rejected-20261017",
@@ -3679,6 +3680,8 @@
       "must_pass": [],
       "measured": "All other reviewed elements, including timer designs, rest treatment and original audio",
       "notes": "Reuse without redesign or a new approval question; partial approval is scoped, not a whole-file artistic approval."
+=======
+>>>>>>> origin/main
     }
   ]
 }
