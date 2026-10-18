@@ -32,7 +32,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-25 thumbnail sync BLOCKED 2026-10-17, Codex.** Final thumbnail C and deferred setup handoff are saved with verified Extreme backups. Commit `4b5b483` remains local; safe-push stopped on live `qc_corpus/corpus.json` and `scripts/blotato/fb_reel_covers.json`, plus stale files listed by the tool. Next: retry after owners clear; do not adopt live edits. Setup handoff is indexed in `Handoffs/README.md` and waits for the approved final film.
 
-**RO-25 post-release sync BLOCKED 2026-10-18, Codex.** Article post 886 is live and verified; English SRT remains absent, with only auto-generated captions public. Receipt update committed as bcb23a1. Safe-push stopped on live edits to qc corpus, RA-16 prompt 5, and video-editing jobs. Next: upload SRT via Studio Subtitles > Upload file when available; retry safe-push after other owners clear, without adopting live edits.
+**RO-25 Git sync BLOCKED 2026-10-18, Codex.** Public video, article post 886, and manually uploaded 257-cue English SRT are verified; receipt is current. The new caption uploader and receipt need GitHub sync. Safe-push previously stopped on other sessions' live edits. Next: retry after owners clear, without adopting live edits.
 
 **SL-15:R2-ACTIVE:2026-10-18:Claude.** My First Spray Tan SFL R2 building Shorts A and C from RO-19 (Dan's two picks). Next: gates, audit, review page. Work: `/Volumes/Extreme/_edit_work/SL-15/`.
 
@@ -69,7 +69,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Calories Not Losing Weight SFL R2 - REVIEW 2026-10-17, Codex.** Five selections preserved; 19 narrated asset excerpts independently checked. Dan reviews clips/graphics: http://127.0.0.1:8998/. Next: apply approval or revisions, then complete five Shorts and final gates. No covers/publishing. Receipt: `Handoffs/results-20261017-sl08-r2-asset-review.md`.
 
-**SL-09:R3-HANDOFF:2026-10-18:Claude.** Five shorts built; reviewers sent back A, H, K, J fixes (I review pending). Next: fire `Handoffs/handoff-20261018-sl09-oura-shorts-r3-fix-review-findings.md` (Oura Ring Review SFL R3). Nothing sent to Dan yet.
+**SL-09:R3-HANDOFF:2026-10-18:Claude.** Five shorts built; reviewers sent back fixes. Next: fire `Handoffs/handoff-20261018-sl09-oura-shorts-r3-fix-review-findings.md` (on GitHub, ea16897). ⚠ Main-folder safe-push needs a hand merge: 9 conflicting files, ahead 107/behind 60.
 
 
 
