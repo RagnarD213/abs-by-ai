@@ -96,3 +96,26 @@ What round 2 taught (every item was a reviewer or judge finding first):
 - **A gate process can be killed by another session's cleanup** (exit 143); re-run it.
 - **The pickup's last word on D reads "Zep out" to Whisper on the raw lav too**: how it was said, not the cut. Report, do not chase.
 
+
+## Round 3 stage 1 (2026-10-18): AI flex intros as frames, credited YouTube clips (`round3/`)
+
+```
+preview_intros.py S..    START then END still (AI-GENERATED chip) over the short's real opening line, then the round-2 film (band returns)
+preview_c_open.py        C's new opening: intro stills, two-clip thigh-injection montage, Karli Sine card, credits lower right, C's own captions
+page_r3a.py              the stage-1 page (frame pairs + C clips); refuses pairs without gate + reviewer PASS (served on 8821)
+dl_low.sh / dl_hd.sh     YouTube: scan at 360p first, then download only the seconds used in HD
+```
+
+- **YouTube HD needs the standalone yt-dlp (2026-10-18).** `python3 -m yt_dlp` on this Mac is stuck at 2025.10.14 (Python 3.9) and
+  YouTube now answers "The page needs to be reloaded" on the web clients; the android client still gives captions and 360p only.
+  Use the official build `~/.cache/absbyai/ytdlp/yt-dlp_macos --js-runtimes node` (checksum-verified from the GitHub release):
+  1080p and 4K, `--download-sections "*m:ss-m:ss"` works. Scan candidates at 360p with a timestamped contact sheet, then pull only the
+  used seconds in HD.
+- **AI Dan likeness:** one real face reference gave a generic man with glasses. A four-face sheet (two film stills in his glasses,
+  two smiling studio close-ups) plus the line "LIKENESS IS THE MOST IMPORTANT THING ... broad face, high cheekbones, wide jaw" read as
+  him. Add "natural skin, no dark specks, no crackle texture": a reviewer failed one pair on invented freckles at 2 to 3x his density.
+- **Frame specs for a waist-up subject:** set `person.reach: false` (no limb straightens; the legs are off-frame and MediaPipe guesses
+  them). Mark prop boxes on a gridded zoom of the prop itself: two reviewers found the vial boxes sat on the knuckles.
+- **Real thigh injections with a needle are rare on YouTube**: Zepbound vial tutorials inject the belly, thigh videos use the pen.
+  Usable: Karli Sine `HcAsUbiFJyw` 2:28.6 (pinch and insulin syringe, vertical, her captions on her chest: card on the thigh),
+  Nurse Scott `Pz49hyOla6s` 6:20, Clinical Skills Training `4v3kQNFLID8` 0:42.6 (square: a fill crop shows only the gown).
