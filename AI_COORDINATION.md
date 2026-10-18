@@ -67,7 +67,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Calories Not Losing Weight SFL R2 - REVIEW 2026-10-17, Codex.** Five selections preserved; 19 narrated asset excerpts independently checked. Dan reviews clips/graphics: http://127.0.0.1:8998/. Next: apply approval or revisions, then complete five Shorts and final gates. No covers/publishing. Receipt: `Handoffs/results-20261017-sl08-r2-asset-review.md`.
 
-**SL-09:R2-HANDOFF:2026-10-18:Claude.** Card `Oura Ring Review SFL R2` builds A, H, I, J, K. Commit 350bd26 local; next safe-push carries it.
+**SL-09:R2-ACTIVE:2026-10-18:Claude.** Oura Ring Review SFL R2 building shorts A, H, I, J, K in `/Volumes/Extreme/_edit_work/sl09/round2/`. Next: B-roll, render, gates, review page.
 
 
 
