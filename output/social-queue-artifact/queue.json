@@ -1,77 +1,14 @@
 {
-"generated": "2026-10-17T11:25:57+00:00",
+"generated": "2026-10-18T11:25:26+00:00",
 "cap": 200,
 "scheduled": [
 {
-"id": "5620985",
-"platform": "facebook",
-"when": "2026-10-17T14:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "Side laterals are the number one exercise for wide shoulders, and wide shoulders make your waist look smaller.",
-"batch": ""
-},
-{
-"id": "5620988",
-"platform": "instagram",
-"when": "2026-10-17T14:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "Side laterals are the number one exercise for wide shoulders, and wide shoulders make your waist look smaller.",
-"batch": ""
-},
-{
-"id": "5620990",
-"platform": "tiktok",
-"when": "2026-10-17T14:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Side laterals are the number one exercise for wide shoulders, and wide shoulders make your waist look smaller.",
-"batch": ""
-},
-{
-"id": "5620992",
-"platform": "youtube",
-"when": "2026-10-17T14:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Side laterals are the number one exercise for wide shoulders, and wide shoulders make your waist look smaller.",
-"batch": ""
-},
-{
-"id": "3563151",
-"platform": "facebook",
-"when": "2026-10-17T22:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "You have 4 ab muscles \u2014 not just a six-pack.",
-"batch": ""
-},
-{
-"id": "3793994",
-"platform": "instagram",
-"when": "2026-10-17T22:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "You have 4 ab muscles \u2014 not just a six-pack.",
-"batch": ""
-},
-{
-"id": "4553209",
-"platform": "tiktok",
-"when": "2026-10-17T22:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "You have 4 ab muscles \u2014 not just a six-pack.",
-"batch": ""
-},
-{
-"id": "5014534",
+"id": "5699404",
 "platform": "youtube",
 "when": "2026-10-18T14:00:00.000Z",
 "kind": "Video",
 "slides": 1,
-"text": "This is the salad I eat almost every day to stay lean: about 700 calories, about $4 a bowl, and it stays fresh",
+"text": "I turned 41 and felt like I had wasted my life. These are the six decisions I wish I could change, and what I ",
 "batch": ""
 },
 {
@@ -84,30 +21,57 @@
 "batch": ""
 },
 {
-"id": "5014529",
+"id": "5053506",
 "platform": "facebook",
 "when": "2026-10-19T14:00:00.000Z",
-"kind": "Video",
+"kind": "Reel",
 "slides": 1,
-"text": "This salad is how I break my fast almost every day, and it's my most important nutrition habit.",
+"text": "Deadlifts caused more of my injuries than every other lift combined.",
 "batch": ""
 },
 {
-"id": "5014531",
+"id": "5053507",
 "platform": "instagram",
 "when": "2026-10-19T14:00:00.000Z",
 "kind": "Reel",
 "slides": 1,
-"text": "This salad is how I break my fast almost every day, and it's my most important nutrition habit.",
+"text": "Deadlifts caused more of my injuries than every other lift combined.",
 "batch": ""
 },
 {
-"id": "5014533",
+"id": "5053509",
 "platform": "tiktok",
 "when": "2026-10-19T14:00:00.000Z",
 "kind": "Video",
 "slides": 1,
-"text": "This salad is how I break my fast almost every day, and it's my most important nutrition habit.",
+"text": "Deadlifts caused more of my injuries than every other lift combined.",
+"batch": ""
+},
+{
+"id": "5053510",
+"platform": "youtube",
+"when": "2026-10-19T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Deadlifts caused more of my injuries than every other lift combined. Here is why I stopped doing them at 40.",
+"batch": ""
+},
+{
+"id": "5699402",
+"platform": "facebook",
+"when": "2026-10-19T17:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "I turned 41 and felt like I had wasted my life. These are the six decisions I wish I could take back.",
+"batch": ""
+},
+{
+"id": "5699403",
+"platform": "instagram",
+"when": "2026-10-19T17:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "I turned 41 and felt like I had wasted my life. These are the six decisions I wish I could take back.",
 "batch": ""
 },
 {
@@ -129,39 +93,39 @@
 "batch": ""
 },
 {
-"id": "5620997",
+"id": "5019247",
 "platform": "facebook",
 "when": "2026-10-20T14:00:00.000Z",
 "kind": "Reel",
 "slides": 1,
-"text": "This was me at 38 years old, 200 pounds, and the thing that finally fixed it was not a workout.",
+"text": "If you're swinging your curls, you're not really working your biceps.",
 "batch": ""
 },
 {
-"id": "5620998",
+"id": "5019250",
 "platform": "instagram",
 "when": "2026-10-20T14:00:00.000Z",
 "kind": "Reel",
 "slides": 1,
-"text": "This was me at 38 years old, 200 pounds, and the thing that finally fixed it was not a workout.",
+"text": "If you're swinging your curls, you're not really working your biceps.",
 "batch": ""
 },
 {
-"id": "5621000",
+"id": "5019251",
 "platform": "tiktok",
 "when": "2026-10-20T14:00:00.000Z",
 "kind": "Video",
 "slides": 1,
-"text": "This was me at 38 years old, 200 pounds, and the thing that finally fixed it was not a workout.",
+"text": "If you're swinging your curls, you're not really working your biceps.",
 "batch": ""
 },
 {
-"id": "5621001",
+"id": "5019252",
 "platform": "youtube",
 "when": "2026-10-20T14:00:00.000Z",
 "kind": "Video",
 "slides": 1,
-"text": "This was me at 38 years old, 200 pounds, and the thing that finally fixed it was not a workout.",
+"text": "Swinging your bicep curls takes the work off your biceps. Keep your form strict.",
 "batch": ""
 },
 {
@@ -210,39 +174,39 @@
 "batch": ""
 },
 {
-"id": "5682356",
+"id": "5620997",
 "platform": "facebook",
 "when": "2026-10-22T14:00:00.000Z",
 "kind": "Reel",
 "slides": 1,
-"text": "Here are three ways to make time to work out.",
+"text": "This was me at 38 years old, 200 pounds, and the thing that finally fixed it was not a workout.",
 "batch": ""
 },
 {
-"id": "5682358",
+"id": "5620998",
 "platform": "instagram",
 "when": "2026-10-22T14:00:00.000Z",
 "kind": "Reel",
 "slides": 1,
-"text": "Here are three ways to make time to work out.",
+"text": "This was me at 38 years old, 200 pounds, and the thing that finally fixed it was not a workout.",
 "batch": ""
 },
 {
-"id": "5682361",
+"id": "5621000",
 "platform": "tiktok",
 "when": "2026-10-22T14:00:00.000Z",
 "kind": "Video",
 "slides": 1,
-"text": "Here are three ways to make time to work out.",
+"text": "This was me at 38 years old, 200 pounds, and the thing that finally fixed it was not a workout.",
 "batch": ""
 },
 {
-"id": "5682363",
+"id": "5621001",
 "platform": "youtube",
 "when": "2026-10-22T14:00:00.000Z",
 "kind": "Video",
 "slides": 1,
-"text": "Here are three ways to make time to work out.",
+"text": "This was me at 38 years old, 200 pounds, and the thing that finally fixed it was not a workout.",
 "batch": ""
 },
 {
@@ -273,6 +237,42 @@
 "batch": ""
 },
 {
+"id": "5682356",
+"platform": "facebook",
+"when": "2026-10-23T14:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Here are three ways to make time to work out.",
+"batch": ""
+},
+{
+"id": "5682358",
+"platform": "instagram",
+"when": "2026-10-23T14:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Here are three ways to make time to work out.",
+"batch": ""
+},
+{
+"id": "5682361",
+"platform": "tiktok",
+"when": "2026-10-23T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Here are three ways to make time to work out.",
+"batch": ""
+},
+{
+"id": "5682363",
+"platform": "youtube",
+"when": "2026-10-23T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Here are three ways to make time to work out.",
+"batch": ""
+},
+{
 "id": "3584657",
 "platform": "facebook",
 "when": "2026-10-23T22:00:00.000Z",
@@ -288,6 +288,42 @@
 "kind": "Photo",
 "slides": 1,
 "text": "Take a progress photo, not a progress weight.",
+"batch": ""
+},
+{
+"id": "5053515",
+"platform": "facebook",
+"when": "2026-10-24T14:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Skip the deadlift. Here are the 2 back exercises I do instead.",
+"batch": ""
+},
+{
+"id": "5053516",
+"platform": "instagram",
+"when": "2026-10-24T14:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Skip the deadlift. Here are the 2 back exercises I do instead.",
+"batch": ""
+},
+{
+"id": "5053517",
+"platform": "tiktok",
+"when": "2026-10-24T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Skip the deadlift. Here are the 2 back exercises I do instead.",
+"batch": ""
+},
+{
+"id": "5053518",
+"platform": "youtube",
+"when": "2026-10-24T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "The 2 back exercises I do instead of deadlifts: wide-grip T-bar or barbell rows, then wide-grip lat pulldowns.",
 "batch": ""
 },
 {
@@ -318,42 +354,6 @@
 "batch": ""
 },
 {
-"id": "5046550",
-"platform": "youtube",
-"when": "2026-10-25T14:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Five tips to get the most out of Zepbound, so you lose fat while keeping your muscle. I screwed some of these ",
-"batch": ""
-},
-{
-"id": "5046547",
-"platform": "facebook",
-"when": "2026-10-26T14:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "I've been on Zepbound for about two months, and I screwed some things up when I started. Here are my top 5 tip",
-"batch": ""
-},
-{
-"id": "5046548",
-"platform": "instagram",
-"when": "2026-10-26T14:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "I've been on Zepbound for about two months, and I screwed some things up when I started. Here are my top 5 tip",
-"batch": ""
-},
-{
-"id": "5046549",
-"platform": "tiktok",
-"when": "2026-10-26T14:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "I've been on Zepbound for about two months, and I screwed some things up when I started. Here are my top 5 tip",
-"batch": ""
-},
-{
 "id": "3584661",
 "platform": "facebook",
 "when": "2026-10-26T22:00:00.000Z",
@@ -370,6 +370,42 @@
 "slides": 1,
 "text": "Put your next workout on the calendar before the week fills up. Pick the time, the place and what you plan to ",
 "batch": "Studio S01-A"
+},
+{
+"id": "5053520",
+"platform": "facebook",
+"when": "2026-10-27T14:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Over the long term, the safer exercise builds more muscle.",
+"batch": ""
+},
+{
+"id": "5053522",
+"platform": "instagram",
+"when": "2026-10-27T14:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Over the long term, the safer exercise builds more muscle.",
+"batch": ""
+},
+{
+"id": "5053523",
+"platform": "tiktok",
+"when": "2026-10-27T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Over the long term, the safer exercise builds more muscle.",
+"batch": ""
+},
+{
+"id": "5053524",
+"platform": "youtube",
+"when": "2026-10-27T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Why the safer lift builds more muscle over the long term, especially past 40.",
+"batch": ""
 },
 {
 "id": "4315877",
@@ -399,6 +435,15 @@
 "batch": ""
 },
 {
+"id": "5295786",
+"platform": "youtube",
+"when": "2026-10-28T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Losing weight is not enough if you lose the muscle you worked to build. Here is how I approach resistance trai",
+"batch": ""
+},
+{
 "id": "4934272",
 "platform": "facebook",
 "when": "2026-10-28T22:00:00.000Z",
@@ -415,6 +460,60 @@
 "slides": 5,
 "text": "Save this for your next weekly reset. Choose your training times, make a simple food plan and write down what ",
 "batch": "Studio S07-A"
+},
+{
+"id": "5694638",
+"platform": "facebook",
+"when": "2026-10-29T14:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Stop cooking your own meals.",
+"batch": ""
+},
+{
+"id": "5694640",
+"platform": "instagram",
+"when": "2026-10-29T14:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Stop cooking your own meals.",
+"batch": ""
+},
+{
+"id": "5694641",
+"platform": "tiktok",
+"when": "2026-10-29T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Stop cooking your own meals.",
+"batch": ""
+},
+{
+"id": "5694642",
+"platform": "youtube",
+"when": "2026-10-29T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Stop cooking your own meals. If you want more time to work out, a meal prep service can save you hours every w",
+"batch": ""
+},
+{
+"id": "5295779",
+"platform": "facebook",
+"when": "2026-10-29T17:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Lose the fat. Keep the muscle you worked to build.",
+"batch": ""
+},
+{
+"id": "5295782",
+"platform": "instagram",
+"when": "2026-10-29T17:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Lose the fat. Keep the muscle you worked to build.",
+"batch": ""
 },
 {
 "id": "4315886",
@@ -462,6 +561,42 @@
 "batch": "Studio S03-A"
 },
 {
+"id": "5053527",
+"platform": "facebook",
+"when": "2026-10-31T14:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "You can train your legs hard without deadlifts.",
+"batch": ""
+},
+{
+"id": "5053528",
+"platform": "instagram",
+"when": "2026-10-31T14:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "You can train your legs hard without deadlifts.",
+"batch": ""
+},
+{
+"id": "5053529",
+"platform": "tiktok",
+"when": "2026-10-31T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "You can train your legs hard without deadlifts.",
+"batch": ""
+},
+{
+"id": "5053530",
+"platform": "youtube",
+"when": "2026-10-31T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "How I train legs without deadlifts: the leg press, with the safety stops set.",
+"batch": ""
+},
+{
 "id": "4315892",
 "platform": "facebook",
 "when": "2026-10-31T22:00:00.000Z",
@@ -489,39 +624,75 @@
 "batch": ""
 },
 {
-"id": "5090110",
+"id": "5014534",
 "platform": "youtube",
 "when": "2026-11-01T15:00:00.000Z",
 "kind": "Video",
 "slides": 1,
-"text": "If I woke up 30 pounds heavier tomorrow, this is the exact 8-step plan I would follow to get my abs back in 90",
+"text": "This is the salad I eat almost every day to stay lean: about 700 calories, about $4 a bowl, and it stays fresh",
 "batch": ""
 },
 {
-"id": "5090105",
+"id": "5329617",
 "platform": "facebook",
 "when": "2026-11-02T15:00:00.000Z",
-"kind": "Video",
+"kind": "Reel",
 "slides": 1,
-"text": "If I woke up 30 pounds heavier tomorrow, I'm confident I could lose it all and get my abs back in 3 months. He",
+"text": "I fast until about 2 PM every day, and this is what I break my fast with.",
 "batch": ""
 },
 {
-"id": "5090106",
+"id": "5329619",
 "platform": "instagram",
 "when": "2026-11-02T15:00:00.000Z",
 "kind": "Reel",
 "slides": 1,
-"text": "If I woke up 30 pounds heavier tomorrow, I'm confident I could lose it all and get my abs back in 3 months. He",
+"text": "I fast until about 2 PM every day, and this is what I break my fast with.",
 "batch": ""
 },
 {
-"id": "5090108",
+"id": "5329622",
 "platform": "tiktok",
 "when": "2026-11-02T15:00:00.000Z",
 "kind": "Video",
 "slides": 1,
-"text": "If I woke up 30 pounds heavier tomorrow, I'm confident I could lose it all and get my abs back in 3 months. He",
+"text": "I fast until about 2 PM every day, and this is what I break my fast with.",
+"batch": ""
+},
+{
+"id": "5329624",
+"platform": "youtube",
+"when": "2026-11-02T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "I fast until about 2 PM every day, and this is what I break my fast with.",
+"batch": ""
+},
+{
+"id": "5014529",
+"platform": "facebook",
+"when": "2026-11-02T18:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "This salad is how I break my fast almost every day, and it's my most important nutrition habit.",
+"batch": ""
+},
+{
+"id": "5014531",
+"platform": "instagram",
+"when": "2026-11-02T18:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "This salad is how I break my fast almost every day, and it's my most important nutrition habit.",
+"batch": ""
+},
+{
+"id": "5014533",
+"platform": "tiktok",
+"when": "2026-11-02T18:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "This salad is how I break my fast almost every day, and it's my most important nutrition habit.",
 "batch": ""
 },
 {
@@ -543,39 +714,39 @@
 "batch": "Studio S06-A"
 },
 {
-"id": "5019247",
+"id": "5053535",
 "platform": "facebook",
 "when": "2026-11-03T15:00:00.000Z",
 "kind": "Reel",
 "slides": 1,
-"text": "If you're swinging your curls, you're not really working your biceps.",
+"text": "Want an aesthetic body? Deadlifts build a powerlifter body.",
 "batch": ""
 },
 {
-"id": "5019250",
+"id": "5053536",
 "platform": "instagram",
 "when": "2026-11-03T15:00:00.000Z",
 "kind": "Reel",
 "slides": 1,
-"text": "If you're swinging your curls, you're not really working your biceps.",
+"text": "Want an aesthetic body? Deadlifts build a powerlifter body.",
 "batch": ""
 },
 {
-"id": "5019251",
+"id": "5053538",
 "platform": "tiktok",
 "when": "2026-11-03T15:00:00.000Z",
 "kind": "Video",
 "slides": 1,
-"text": "If you're swinging your curls, you're not really working your biceps.",
+"text": "Want an aesthetic body? Deadlifts build a powerlifter body.",
 "batch": ""
 },
 {
-"id": "5019252",
+"id": "5053539",
 "platform": "youtube",
 "when": "2026-11-03T15:00:00.000Z",
 "kind": "Video",
 "slides": 1,
-"text": "Swinging your bicep curls takes the work off your biceps. Keep your form strict.",
+"text": "Deadlifts build a thick powerlifter body, not the lean, aesthetic look most of us want.",
 "batch": ""
 },
 {
@@ -624,42 +795,6 @@
 "batch": "Studio S02-A"
 },
 {
-"id": "5053506",
-"platform": "facebook",
-"when": "2026-11-05T15:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "Deadlifts caused more of my injuries than every other lift combined.",
-"batch": ""
-},
-{
-"id": "5053507",
-"platform": "instagram",
-"when": "2026-11-05T15:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "Deadlifts caused more of my injuries than every other lift combined.",
-"batch": ""
-},
-{
-"id": "5053509",
-"platform": "tiktok",
-"when": "2026-11-05T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Deadlifts caused more of my injuries than every other lift combined.",
-"batch": ""
-},
-{
-"id": "5053510",
-"platform": "youtube",
-"when": "2026-11-05T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Deadlifts caused more of my injuries than every other lift combined. Here is why I stopped doing them at 40.",
-"batch": ""
-},
-{
 "id": "4315902",
 "platform": "facebook",
 "when": "2026-11-05T23:00:00.000Z",
@@ -705,75 +840,75 @@
 "batch": "Studio S08-A"
 },
 {
-"id": "5053515",
+"id": "5329625",
 "platform": "facebook",
 "when": "2026-11-07T15:00:00.000Z",
 "kind": "Reel",
 "slides": 1,
-"text": "Skip the deadlift. Here are the 2 back exercises I do instead.",
+"text": "Store-made salad dressing can ruin a good salad.",
 "batch": ""
 },
 {
-"id": "5053516",
+"id": "5329626",
 "platform": "instagram",
 "when": "2026-11-07T15:00:00.000Z",
 "kind": "Reel",
 "slides": 1,
-"text": "Skip the deadlift. Here are the 2 back exercises I do instead.",
+"text": "Store-made salad dressing can ruin a good salad.",
 "batch": ""
 },
 {
-"id": "5053517",
+"id": "5329628",
 "platform": "tiktok",
 "when": "2026-11-07T15:00:00.000Z",
 "kind": "Video",
 "slides": 1,
-"text": "Skip the deadlift. Here are the 2 back exercises I do instead.",
+"text": "Store-made salad dressing can ruin a good salad.",
 "batch": ""
 },
 {
-"id": "5053518",
+"id": "5329629",
 "platform": "youtube",
 "when": "2026-11-07T15:00:00.000Z",
 "kind": "Video",
 "slides": 1,
-"text": "The 2 back exercises I do instead of deadlifts: wide-grip T-bar or barbell rows, then wide-grip lat pulldowns.",
+"text": "Store-made salad dressing can ruin a good salad.",
 "batch": ""
 },
 {
-"id": "5095442",
+"id": "5046550",
 "platform": "youtube",
 "when": "2026-11-08T15:00:00.000Z",
 "kind": "Video",
 "slides": 1,
-"text": "I've worn the Oura Ring for about a year and a half. I bought it myself, this video is not sponsored, and here",
+"text": "Five tips to get the most out of Zepbound, so you lose fat while keeping your muscle. I screwed some of these ",
 "batch": ""
 },
 {
-"id": "5095439",
+"id": "5046547",
 "platform": "facebook",
-"when": "2026-11-09T15:00:00.000Z",
+"when": "2026-11-09T18:00:00.000Z",
 "kind": "Video",
 "slides": 1,
-"text": "I've worn the Oura Ring for a year and a half, and I paid for it myself. Here's my honest review.",
+"text": "I've been on Zepbound for about two months, and I screwed some things up when I started. Here are my top 5 tip",
 "batch": ""
 },
 {
-"id": "5095440",
+"id": "5046548",
 "platform": "instagram",
-"when": "2026-11-09T15:00:00.000Z",
+"when": "2026-11-09T18:00:00.000Z",
 "kind": "Reel",
 "slides": 1,
-"text": "I've worn the Oura Ring for a year and a half, and I paid for it myself. Here's my honest review.",
+"text": "I've been on Zepbound for about two months, and I screwed some things up when I started. Here are my top 5 tip",
 "batch": ""
 },
 {
-"id": "5095441",
+"id": "5046549",
 "platform": "tiktok",
-"when": "2026-11-09T15:00:00.000Z",
+"when": "2026-11-09T18:00:00.000Z",
 "kind": "Video",
 "slides": 1,
-"text": "I've worn the Oura Ring for a year and a half, and I paid for it myself. Here's my honest review.",
+"text": "I've been on Zepbound for about two months, and I screwed some things up when I started. Here are my top 5 tip",
 "batch": ""
 },
 {
@@ -795,39 +930,48 @@
 "batch": "Studio S04-A"
 },
 {
-"id": "5053520",
+"id": "5329631",
 "platform": "facebook",
 "when": "2026-11-10T15:00:00.000Z",
 "kind": "Reel",
 "slides": 1,
-"text": "Over the long term, the safer exercise builds more muscle.",
+"text": "You can track a whole week of meal prep without logging every ingredient by hand.",
 "batch": ""
 },
 {
-"id": "5053522",
+"id": "5329632",
 "platform": "instagram",
 "when": "2026-11-10T15:00:00.000Z",
 "kind": "Reel",
 "slides": 1,
-"text": "Over the long term, the safer exercise builds more muscle.",
+"text": "You can track a whole week of meal prep without logging every ingredient by hand.",
 "batch": ""
 },
 {
-"id": "5053523",
+"id": "5329633",
 "platform": "tiktok",
 "when": "2026-11-10T15:00:00.000Z",
 "kind": "Video",
 "slides": 1,
-"text": "Over the long term, the safer exercise builds more muscle.",
+"text": "You can track a whole week of meal prep without logging every ingredient by hand.",
 "batch": ""
 },
 {
-"id": "5053524",
+"id": "5329634",
 "platform": "youtube",
 "when": "2026-11-10T15:00:00.000Z",
 "kind": "Video",
 "slides": 1,
-"text": "Why the safer lift builds more muscle over the long term, especially past 40.",
+"text": "You can track a whole week of meal prep without logging every ingredient by hand.",
+"batch": ""
+},
+{
+"id": "5095442",
+"platform": "youtube",
+"when": "2026-11-11T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "I've worn the Oura Ring for about a year and a half. I bought it myself, this video is not sponsored, and here",
 "batch": ""
 },
 {
@@ -849,39 +993,30 @@
 "batch": "Studio S05-A"
 },
 {
-"id": "5053527",
+"id": "5095439",
 "platform": "facebook",
-"when": "2026-11-12T15:00:00.000Z",
-"kind": "Reel",
+"when": "2026-11-12T18:00:00.000Z",
+"kind": "Video",
 "slides": 1,
-"text": "You can train your legs hard without deadlifts.",
+"text": "I've worn the Oura Ring for a year and a half, and I paid for it myself. Here's my honest review.",
 "batch": ""
 },
 {
-"id": "5053528",
+"id": "5095440",
 "platform": "instagram",
-"when": "2026-11-12T15:00:00.000Z",
+"when": "2026-11-12T18:00:00.000Z",
 "kind": "Reel",
 "slides": 1,
-"text": "You can train your legs hard without deadlifts.",
+"text": "I've worn the Oura Ring for a year and a half, and I paid for it myself. Here's my honest review.",
 "batch": ""
 },
 {
-"id": "5053529",
+"id": "5095441",
 "platform": "tiktok",
-"when": "2026-11-12T15:00:00.000Z",
+"when": "2026-11-12T18:00:00.000Z",
 "kind": "Video",
 "slides": 1,
-"text": "You can train your legs hard without deadlifts.",
-"batch": ""
-},
-{
-"id": "5053530",
-"platform": "youtube",
-"when": "2026-11-12T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "How I train legs without deadlifts: the leg press, with the safety stops set.",
+"text": "I've worn the Oura Ring for a year and a half, and I paid for it myself. Here's my honest review.",
 "batch": ""
 },
 {
@@ -903,75 +1038,39 @@
 "batch": "Studio S09-A"
 },
 {
-"id": "5053535",
+"id": "5361331",
 "platform": "facebook",
 "when": "2026-11-14T15:00:00.000Z",
 "kind": "Reel",
 "slides": 1,
-"text": "Want an aesthetic body? Deadlifts build a powerlifter body.",
+"text": "I used to pay about $20 for a salad bar salad every day. Now each one costs me about $4.",
 "batch": ""
 },
 {
-"id": "5053536",
+"id": "5361332",
 "platform": "instagram",
 "when": "2026-11-14T15:00:00.000Z",
 "kind": "Reel",
 "slides": 1,
-"text": "Want an aesthetic body? Deadlifts build a powerlifter body.",
+"text": "I used to pay about $20 for a salad bar salad every day. Now each one costs me about $4.",
 "batch": ""
 },
 {
-"id": "5053538",
+"id": "5361333",
 "platform": "tiktok",
 "when": "2026-11-14T15:00:00.000Z",
 "kind": "Video",
 "slides": 1,
-"text": "Want an aesthetic body? Deadlifts build a powerlifter body.",
+"text": "I used to pay about $20 for a salad bar salad every day. Now each one costs me about $4.",
 "batch": ""
 },
 {
-"id": "5053539",
+"id": "5361334",
 "platform": "youtube",
 "when": "2026-11-14T15:00:00.000Z",
 "kind": "Video",
 "slides": 1,
-"text": "Deadlifts build a thick powerlifter body, not the lean, aesthetic look most of us want.",
-"batch": ""
-},
-{
-"id": "5194487",
-"platform": "youtube",
-"when": "2026-11-15T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Can you drink alcohol and still have six pack abs? Yes, but only if you put rules on it. Here is exactly what ",
-"batch": ""
-},
-{
-"id": "5194483",
-"platform": "facebook",
-"when": "2026-11-16T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Can you drink alcohol and still have six pack abs? Yes, but only if you put rules on it.",
-"batch": ""
-},
-{
-"id": "5194485",
-"platform": "instagram",
-"when": "2026-11-16T15:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "Can you drink alcohol and still have six pack abs? Yes, but only if you put rules on it.",
-"batch": ""
-},
-{
-"id": "5194486",
-"platform": "tiktok",
-"when": "2026-11-16T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Can you drink alcohol and still have six pack abs? Yes, but only if you put rules on it.",
+"text": "I used to pay about $20 for a salad bar salad every day. Now each one costs me about $4.",
 "batch": ""
 },
 {
@@ -993,39 +1092,39 @@
 "batch": "Studio S03-B"
 },
 {
-"id": "5329617",
+"id": "5443391",
 "platform": "facebook",
 "when": "2026-11-17T15:00:00.000Z",
 "kind": "Reel",
 "slides": 1,
-"text": "I fast until about 2 PM every day, and this is what I break my fast with.",
+"text": "A giant open bowl turns your salads bad in a couple of days.",
 "batch": ""
 },
 {
-"id": "5329619",
+"id": "5443392",
 "platform": "instagram",
 "when": "2026-11-17T15:00:00.000Z",
 "kind": "Reel",
 "slides": 1,
-"text": "I fast until about 2 PM every day, and this is what I break my fast with.",
+"text": "A giant open bowl turns your salads bad in a couple of days.",
 "batch": ""
 },
 {
-"id": "5329622",
+"id": "5443393",
 "platform": "tiktok",
 "when": "2026-11-17T15:00:00.000Z",
 "kind": "Video",
 "slides": 1,
-"text": "I fast until about 2 PM every day, and this is what I break my fast with.",
+"text": "A giant open bowl turns your salads bad in a couple of days.",
 "batch": ""
 },
 {
-"id": "5329624",
+"id": "5443394",
 "platform": "youtube",
 "when": "2026-11-17T15:00:00.000Z",
 "kind": "Video",
 "slides": 1,
-"text": "I fast until about 2 PM every day, and this is what I break my fast with.",
+"text": "A giant open bowl turns your salads bad in a couple of days.",
 "batch": ""
 },
 {
@@ -1047,42 +1146,6 @@
 "batch": "Studio S08-B"
 },
 {
-"id": "5329625",
-"platform": "facebook",
-"when": "2026-11-19T15:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "Store-made salad dressing can ruin a good salad.",
-"batch": ""
-},
-{
-"id": "5329626",
-"platform": "instagram",
-"when": "2026-11-19T15:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "Store-made salad dressing can ruin a good salad.",
-"batch": ""
-},
-{
-"id": "5329628",
-"platform": "tiktok",
-"when": "2026-11-19T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Store-made salad dressing can ruin a good salad.",
-"batch": ""
-},
-{
-"id": "5329629",
-"platform": "youtube",
-"when": "2026-11-19T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Store-made salad dressing can ruin a good salad.",
-"batch": ""
-},
-{
 "id": "3584708",
 "platform": "facebook",
 "when": "2026-11-20T23:00:00.000Z",
@@ -1099,78 +1162,6 @@
 "slides": 1,
 "text": "I use a meal prep service. Having food ready removes one more decision from a busy day. You can do the same ki",
 "batch": "Studio S02-B"
-},
-{
-"id": "5329631",
-"platform": "facebook",
-"when": "2026-11-21T15:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "You can track a whole week of meal prep without logging every ingredient by hand.",
-"batch": ""
-},
-{
-"id": "5329632",
-"platform": "instagram",
-"when": "2026-11-21T15:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "You can track a whole week of meal prep without logging every ingredient by hand.",
-"batch": ""
-},
-{
-"id": "5329633",
-"platform": "tiktok",
-"when": "2026-11-21T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "You can track a whole week of meal prep without logging every ingredient by hand.",
-"batch": ""
-},
-{
-"id": "5329634",
-"platform": "youtube",
-"when": "2026-11-21T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "You can track a whole week of meal prep without logging every ingredient by hand.",
-"batch": ""
-},
-{
-"id": "5211312",
-"platform": "youtube",
-"when": "2026-11-22T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "If you have belly fat, stop doing crunches. The one ab exercise that works on your waist is the standing stoma",
-"batch": ""
-},
-{
-"id": "5211308",
-"platform": "facebook",
-"when": "2026-11-23T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "If you have belly fat, stop doing crunches. The one ab exercise that can shrink your waist is the stomach vacu",
-"batch": ""
-},
-{
-"id": "5211309",
-"platform": "instagram",
-"when": "2026-11-23T15:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "If you have belly fat, stop doing crunches. The one ab exercise that can shrink your waist is the stomach vacu",
-"batch": ""
-},
-{
-"id": "5211310",
-"platform": "tiktok",
-"when": "2026-11-23T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "If you have belly fat, stop doing crunches. The one ab exercise that can shrink your waist is the stomach vacu",
-"batch": ""
 },
 {
 "id": "3584711",
@@ -1191,39 +1182,48 @@
 "batch": "Studio S05-B"
 },
 {
-"id": "5361331",
+"id": "5524573",
 "platform": "facebook",
 "when": "2026-11-24T15:00:00.000Z",
 "kind": "Reel",
 "slides": 1,
-"text": "I used to pay about $20 for a salad bar salad every day. Now each one costs me about $4.",
+"text": "Photos alone get your calorie tracking close. One extra line gets it accurate.",
 "batch": ""
 },
 {
-"id": "5361332",
+"id": "5524576",
 "platform": "instagram",
 "when": "2026-11-24T15:00:00.000Z",
 "kind": "Reel",
 "slides": 1,
-"text": "I used to pay about $20 for a salad bar salad every day. Now each one costs me about $4.",
+"text": "Photos alone get your calorie tracking close. One extra line gets it accurate.",
 "batch": ""
 },
 {
-"id": "5361333",
+"id": "5524579",
 "platform": "tiktok",
 "when": "2026-11-24T15:00:00.000Z",
 "kind": "Video",
 "slides": 1,
-"text": "I used to pay about $20 for a salad bar salad every day. Now each one costs me about $4.",
+"text": "Photos alone get your calorie tracking close. One extra line gets it accurate.",
 "batch": ""
 },
 {
-"id": "5361334",
+"id": "5524580",
 "platform": "youtube",
 "when": "2026-11-24T15:00:00.000Z",
 "kind": "Video",
 "slides": 1,
-"text": "I used to pay about $20 for a salad bar salad every day. Now each one costs me about $4.",
+"text": "Photos alone get your calorie tracking close. One extra line gets it accurate.",
+"batch": ""
+},
+{
+"id": "5524588",
+"platform": "youtube",
+"when": "2026-11-25T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "You can build a full home gym for $58, or about $150 for the complete setup. Here is every item I recommend, w",
 "batch": ""
 },
 {
@@ -1245,39 +1245,30 @@
 "batch": "Studio S07-B"
 },
 {
-"id": "5443391",
+"id": "5524584",
 "platform": "facebook",
-"when": "2026-11-26T15:00:00.000Z",
-"kind": "Reel",
+"when": "2026-11-26T18:00:00.000Z",
+"kind": "Video",
 "slides": 1,
-"text": "A giant open bowl turns your salads bad in a couple of days.",
+"text": "You don't need a gym membership to get in shape. A full home gym costs $58.",
 "batch": ""
 },
 {
-"id": "5443392",
+"id": "5524586",
 "platform": "instagram",
-"when": "2026-11-26T15:00:00.000Z",
+"when": "2026-11-26T18:00:00.000Z",
 "kind": "Reel",
 "slides": 1,
-"text": "A giant open bowl turns your salads bad in a couple of days.",
+"text": "You don't need a gym membership to get in shape. A full home gym costs $58.",
 "batch": ""
 },
 {
-"id": "5443393",
+"id": "5524587",
 "platform": "tiktok",
-"when": "2026-11-26T15:00:00.000Z",
+"when": "2026-11-26T18:00:00.000Z",
 "kind": "Video",
 "slides": 1,
-"text": "A giant open bowl turns your salads bad in a couple of days.",
-"batch": ""
-},
-{
-"id": "5443394",
-"platform": "youtube",
-"when": "2026-11-26T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "A giant open bowl turns your salads bad in a couple of days.",
+"text": "You don't need a gym membership to get in shape. A full home gym costs $58.",
 "batch": ""
 },
 {
@@ -1297,51 +1288,6 @@
 "slides": 1,
 "text": "Before you head out, decide what you'll eat when you get home. Put a meal in place or choose your order ahead ",
 "batch": "Studio S04-B"
-},
-{
-"id": "5524573",
-"platform": "facebook",
-"when": "2026-11-28T15:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "Photos alone get your calorie tracking close. One extra line gets it accurate.",
-"batch": ""
-},
-{
-"id": "5524576",
-"platform": "instagram",
-"when": "2026-11-28T15:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "Photos alone get your calorie tracking close. One extra line gets it accurate.",
-"batch": ""
-},
-{
-"id": "5524579",
-"platform": "tiktok",
-"when": "2026-11-28T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Photos alone get your calorie tracking close. One extra line gets it accurate.",
-"batch": ""
-},
-{
-"id": "5524580",
-"platform": "youtube",
-"when": "2026-11-28T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Photos alone get your calorie tracking close. One extra line gets it accurate.",
-"batch": ""
-},
-{
-"id": "5287937",
-"platform": "youtube",
-"when": "2026-11-29T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "If you're struggling to lose weight, there's usually one reason: you're eating too many calories. Here is the ",
-"batch": ""
 },
 {
 "id": "3584718",
@@ -1398,33 +1344,6 @@
 "batch": "Studio S01-B"
 },
 {
-"id": "5295786",
-"platform": "youtube",
-"when": "2026-12-06T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Losing weight is not enough if you lose the muscle you worked to build. Here is how I approach resistance trai",
-"batch": ""
-},
-{
-"id": "5295779",
-"platform": "facebook",
-"when": "2026-12-07T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Lose the fat. Keep the muscle you worked to build.",
-"batch": ""
-},
-{
-"id": "5295782",
-"platform": "instagram",
-"when": "2026-12-07T15:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "Lose the fat. Keep the muscle you worked to build.",
-"batch": ""
-},
-{
 "id": "3584739",
 "platform": "facebook",
 "when": "2026-12-07T23:00:00.000Z",
@@ -1441,6 +1360,15 @@
 "slides": 1,
 "text": "Missed a day? Decide what happens next. Open the calendar, choose a realistic time and set out what you need. ",
 "batch": "Studio S06-C"
+},
+{
+"id": "5211312",
+"platform": "youtube",
+"when": "2026-12-09T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "If you have belly fat, stop doing crunches. The one ab exercise that works on your waist is the standing stoma",
+"batch": ""
 },
 {
 "id": "3584741",
@@ -1461,6 +1389,33 @@
 "batch": "Studio S04-C"
 },
 {
+"id": "5211308",
+"platform": "facebook",
+"when": "2026-12-10T18:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "If you have belly fat, stop doing crunches. The one ab exercise that can shrink your waist is the stomach vacu",
+"batch": ""
+},
+{
+"id": "5211309",
+"platform": "instagram",
+"when": "2026-12-10T18:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "If you have belly fat, stop doing crunches. The one ab exercise that can shrink your waist is the stomach vacu",
+"batch": ""
+},
+{
+"id": "5211310",
+"platform": "tiktok",
+"when": "2026-12-10T18:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "If you have belly fat, stop doing crunches. The one ab exercise that can shrink your waist is the stomach vacu",
+"batch": ""
+},
+{
 "id": "4890094",
 "platform": "facebook",
 "when": "2026-12-11T23:00:00.000Z",
@@ -1477,42 +1432,6 @@
 "slides": 5,
 "text": "Your backup plan should be specific enough to use on a busy day. Name the obstacle, choose an alternative and ",
 "batch": "Studio S07-C"
-},
-{
-"id": "5365814",
-"platform": "youtube",
-"when": "2026-12-13T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "You can still hold onto belly fat in a calorie deficit. Here are the 7 factors outside of calories that decide",
-"batch": ""
-},
-{
-"id": "5365807",
-"platform": "facebook",
-"when": "2026-12-14T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "You can still hold onto belly fat even if you're eating in a calorie deficit. Here are the 7 things outside of",
-"batch": ""
-},
-{
-"id": "5365809",
-"platform": "instagram",
-"when": "2026-12-14T15:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "You can still hold onto belly fat even if you're eating in a calorie deficit. Here are the 7 things outside of",
-"batch": ""
-},
-{
-"id": "5365811",
-"platform": "tiktok",
-"when": "2026-12-14T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "You can still hold onto belly fat even if you're eating in a calorie deficit. Here are the 7 things outside of",
-"batch": ""
 },
 {
 "id": "4890095",
@@ -1533,6 +1452,15 @@
 "batch": "Studio S01-C"
 },
 {
+"id": "5415566",
+"platform": "youtube",
+"when": "2026-12-16T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Follow along with me: three standing stomach vacuums, 20 seconds each, with 30 seconds of rest in between. I s",
+"batch": ""
+},
+{
 "id": "3584749",
 "platform": "facebook",
 "when": "2026-12-16T23:00:00.000Z",
@@ -1549,6 +1477,33 @@
 "slides": 1,
 "text": "A missed day needs a next step, not a speech about starting your whole life over. Pick the next available time",
 "batch": "Studio S05-C"
+},
+{
+"id": "5415562",
+"platform": "facebook",
+"when": "2026-12-17T18:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Do the stomach vacuum with me: three sets of 20 seconds.",
+"batch": ""
+},
+{
+"id": "5415563",
+"platform": "instagram",
+"when": "2026-12-17T18:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Do the stomach vacuum with me: three sets of 20 seconds.",
+"batch": ""
+},
+{
+"id": "5415565",
+"platform": "tiktok",
+"when": "2026-12-17T18:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Do the stomach vacuum with me: three sets of 20 seconds.",
+"batch": ""
 },
 {
 "id": "3584754",
@@ -1569,39 +1524,39 @@
 "batch": "Studio S09-C"
 },
 {
-"id": "5415566",
+"id": "5090110",
 "platform": "youtube",
 "when": "2026-12-20T15:00:00.000Z",
 "kind": "Video",
 "slides": 1,
-"text": "Follow along with me: three standing stomach vacuums, 20 seconds each, with 30 seconds of rest in between. I s",
+"text": "If I woke up 30 pounds heavier tomorrow, this is the exact 8-step plan I would follow to get my abs back in 90",
 "batch": ""
 },
 {
-"id": "5415562",
+"id": "5090105",
 "platform": "facebook",
-"when": "2026-12-21T15:00:00.000Z",
+"when": "2026-12-21T18:00:00.000Z",
 "kind": "Video",
 "slides": 1,
-"text": "Do the stomach vacuum with me: three sets of 20 seconds.",
+"text": "If I woke up 30 pounds heavier tomorrow, I'm confident I could lose it all and get my abs back in 3 months. He",
 "batch": ""
 },
 {
-"id": "5415563",
+"id": "5090106",
 "platform": "instagram",
-"when": "2026-12-21T15:00:00.000Z",
+"when": "2026-12-21T18:00:00.000Z",
 "kind": "Reel",
 "slides": 1,
-"text": "Do the stomach vacuum with me: three sets of 20 seconds.",
+"text": "If I woke up 30 pounds heavier tomorrow, I'm confident I could lose it all and get my abs back in 3 months. He",
 "batch": ""
 },
 {
-"id": "5415565",
+"id": "5090108",
 "platform": "tiktok",
-"when": "2026-12-21T15:00:00.000Z",
+"when": "2026-12-21T18:00:00.000Z",
 "kind": "Video",
 "slides": 1,
-"text": "Do the stomach vacuum with me: three sets of 20 seconds.",
+"text": "If I woke up 30 pounds heavier tomorrow, I'm confident I could lose it all and get my abs back in 3 months. He",
 "batch": ""
 },
 {
@@ -1623,6 +1578,15 @@
 "batch": "Studio S02-C"
 },
 {
+"id": "5365814",
+"platform": "youtube",
+"when": "2026-12-23T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "You can still hold onto belly fat in a calorie deficit. Here are the 7 factors outside of calories that decide",
+"batch": ""
+},
+{
 "id": "3584762",
 "platform": "facebook",
 "when": "2026-12-23T23:00:00.000Z",
@@ -1639,6 +1603,33 @@
 "slides": 5,
 "text": "Missing Monday doesn't make Tuesday disappear. Name what got in the way, choose your next opening and make one",
 "batch": "Studio S08-C"
+},
+{
+"id": "5365807",
+"platform": "facebook",
+"when": "2026-12-24T18:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "You can still hold onto belly fat even if you're eating in a calorie deficit. Here are the 7 things outside of",
+"batch": ""
+},
+{
+"id": "5365809",
+"platform": "instagram",
+"when": "2026-12-24T18:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "You can still hold onto belly fat even if you're eating in a calorie deficit. Here are the 7 things outside of",
+"batch": ""
+},
+{
+"id": "5365811",
+"platform": "tiktok",
+"when": "2026-12-24T18:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "You can still hold onto belly fat even if you're eating in a calorie deficit. Here are the 7 things outside of",
+"batch": ""
 },
 {
 "id": "3584764",
@@ -1659,39 +1650,12 @@
 "batch": "Studio S03-C"
 },
 {
-"id": "5524588",
+"id": "5287937",
 "platform": "youtube",
 "when": "2026-12-27T15:00:00.000Z",
 "kind": "Video",
 "slides": 1,
-"text": "You can build a full home gym for $58, or about $150 for the complete setup. Here is every item I recommend, w",
-"batch": ""
-},
-{
-"id": "5524584",
-"platform": "facebook",
-"when": "2026-12-28T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "You don't need a gym membership to get in shape. A full home gym costs $58.",
-"batch": ""
-},
-{
-"id": "5524586",
-"platform": "instagram",
-"when": "2026-12-28T15:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "You don't need a gym membership to get in shape. A full home gym costs $58.",
-"batch": ""
-},
-{
-"id": "5524587",
-"platform": "tiktok",
-"when": "2026-12-28T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "You don't need a gym membership to get in shape. A full home gym costs $58.",
+"text": "If you're struggling to lose weight, there's usually one reason: you're eating too many calories. Here is the ",
 "batch": ""
 },
 {
