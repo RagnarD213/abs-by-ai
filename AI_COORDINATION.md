@@ -125,7 +125,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-12:R2-HANDOFF:2026-10-17:Claude.** Card `First Step Abs AD R2`; commit e2dffdc local.
 
-**DS-31:R2-HANDOFF:2026-10-17:Claude.** Card `AI Homework SFC R2`; commit 3b13f31 local, next safe-push carries it.
+**DS-31:R2-ACTIVE:2026-10-18:Claude.** AI Homework SFC R2: colour options + A1 Flow motion (t1 failed sense check, retake running), whole Short with the pick. Work `/Volumes/Extreme/_edit_work/ds31/round2/`.
 
 **RA-04 POLICY-RECHECK 2026-10-16,Claude.**
 
