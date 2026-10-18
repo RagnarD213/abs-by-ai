@@ -26,6 +26,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**Main folder merge NEEDS HAND MERGE 2026-10-18, Claude (RO-17).** Main is 97 ahead / 53 behind GitHub; safe-push hits conflicts in 9 files (board, `Handoffs/README.md`, `00-MASTER.md`, `DAN_DECISIONS.md`, `qc_corpus/corpus.json`, `fb_reel_covers.json`, ds05 and ro25-r4 handoffs, RA-16 `r4_save_records.py`). Merge aborted, nothing lost. Next: owners hand-merge. RO-17 pushed from a worktree (da088a3).
+
 **It's Boring, But It Got Me Abs At 40 (RO-27) - R1 REVIEW 2026-10-17, Codex.** Sole editor. Playable R1 at http://127.0.0.1:8932/ with opening, choices and all contextual asset previews. Next: Dan picks colour, voice and AI frame pairs; full film waits on approvals.
 
 **RO-25 thumbnail sync BLOCKED 2026-10-17, Codex.** Final thumbnail C and deferred setup handoff are saved with verified Extreme backups. Commit `4b5b483` remains local; safe-push stopped on live `qc_corpus/corpus.json` and `scripts/blotato/fb_reel_covers.json`, plus stale files listed by the tool. Next: retry after owners clear; do not adopt live edits. Setup handoff is indexed in `Handoffs/README.md` and waits for the approved final film.
@@ -127,7 +129,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-12:R2-HANDOFF:2026-10-17:Claude.** Card `First Step Abs AD R2`; commit e2dffdc local.
 
-**DS-31:R2-ACTIVE:2026-10-18:Claude.** AI Homework SFC R2: colour options + A1 Flow motion (t1 failed sense check, retake running), whole Short with the pick. Work `/Volumes/Extreme/_edit_work/ds31/round2/`.
+**DS-31:R2-REVIEW:8931:2026-10-18:Claude.** AI Homework SFC R2 on the page: colour C (warm vivid) in the film, options A-E for Dan's pick; A1 opener moving. Audit SHIP. Next: Dan's colour pick and A1 approval.
 
 **RA-04 POLICY-RECHECK 2026-10-16,Claude.**
 
