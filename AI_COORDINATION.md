@@ -114,7 +114,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Muhammad-Shorts QUEUED 2026-10-13.** DS-05 waitlisted 10-16; queued: set Edit Queue uploaded. `Docs/MUHAMMAD_SHORTS_SETUP_RECEIPT_20261013.md`
 
-**RA-07:R6-REVIEW:8856:2026-10-17:Claude.** Whole 9:16 delivered with the phone and home-curls clips; gate 37/39 (known rows), reviewer SHIP. Next: Dan finalizes, then the 16:9 (`Handoffs/handoff-20261016-ra07-fire-your-trainer-round6-trim-and-phone.md`). $16.50 of $20. Commits local until safe-push clears.
+**RA-07:SETUP-HANDOFF:2026-10-18:Claude.** Dan approved the R6 9:16; finalized. Card `Fire Your Trainer AD Setup` (`Handoffs/handoff-20261018-ra07-setup.md`). Commits local until safe-push clears.
 
 **RO-20/B/C:R4-HANDOFF:2026-10-17:Claude.** Dan approved R3b. Card `Invest In Your Health LFC R4` builds the three films. Commits 8e01a77+ local: push blocked by live edits; next safe-push carries them.
 
@@ -211,6 +211,8 @@ tab; stop rather than click into spinners. `Handoffs/handoff-20260908-google-ads
 (`Handoffs/handoff-20260909-audio-match-muhammad.md`); nothing posts until a parent long-form is public.
 
 ⚠ **Ad 5 vertical: BT.601 colour fault in its build (baseline 2026-09-15).** Memory `untagged-video-bt601-trap`; method: shortad SKILL [A15].
+
+**Engagement-ads rule UNPUSHED 2026-10-18, Claude.** Commit 3f10579 (AGENTS, YTADS, memory: new engagement ads go in tier1, tier2 and both rmktg ad groups) local; safe-push stopped on live corpus.json and ra16 prompt edits. Next: any later safe-push carries it; then delete this.
 
 **Video-title rule UNPUSHED 2026-10-17, Claude.** Commit bd14929 (AGENTS rule, README) local; safe-push stopped on live edits. Next: any later safe-push carries it; then delete this.
 
