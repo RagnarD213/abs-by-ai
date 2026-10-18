@@ -11,6 +11,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [My First Spray Tan SFL R2](handoff-20261018-sl15-spray-tan-shorts-r2-build-a-and-c.md): SL-15, Dan picked Shorts A and C 2026-10-18 ("Let's do A and C"); build both, gates, independent audit, deliver. Short 1 airs Fri Oct 30. One-click card shown 10-18. Opus 5.5 high.
 - [Fire Your Trainer AD Setup](handoff-20261018-ra07-setup.md): RA-07 "Fire Your Trainer!" 9:16 approved 2026-10-18 (Dan: "do the setup in the next round"); five Codex thumbnails, stop for Dan's pick, Unlisted upload, trial campaign group. One-click card shown 10-18. Opus 5.5 high.
 - [Invest In Your Health LFC R4](handoff-20261017-ro20-round4-three-films.md): RO-20/B/C, Dan approved everything on the round 3b page 10-17 (studio pickups A, sign-off kept); build the three full films, gates, a review each, deliver. One-click card shown 10-17. Opus 5.5 high.
 - [I'm 41 Wasted Life LFC Setup](handoff-20261017-ro25-approved-thumbnail-and-video-setup.md): **Film approved and finalized 2026-10-17; existing setup handoff ready.** Thumbnail C approved and finalized, red age and white regret text. Use the exact final JPEG; skip new thumbnail choices. Target Oct 18 YouTube / Oct 19 socials, verify live slots. Claude Opus 5.5 / High.
