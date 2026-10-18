@@ -1,5 +1,7 @@
 # YouTube engagement champion — every new video gets a $5 test ad in each Demand Gen campaign, one champion per campaign
 
+**Standing rule (Dan, 2026-10-18):** new engagement ads go in all three campaigns and both remarketing ad groups (4 ads); copy changes apply to every instance. See `AGENTS.md`.
+
 ## SUNDAY PAUSE (Dan 2026-09-29): newest long-form gets the traffic
 
 Every Sunday at 10 AM CT, `scripts/ads/ytads/sunday.js` (started from `routes.js` when `YTADS_SUNDAY=1`)

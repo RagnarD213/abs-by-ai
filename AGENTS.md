@@ -177,6 +177,10 @@ sessions (and any other assistant, if one is in use).
 
 Full rule: read `.claude/skills/_shared/VIDEO-RULES.md`.
 
+## New engagement ads go in all three engagement campaigns, every ad group (Dan, 2026-10-18)
+
+- Every new engagement ("AT ·") ad is created in all three campaigns: tier 1 `24163535721`, tier 2 `24122099676`, and remarketing `24316408288`, which has two ad groups (Website visitors `200887799219`, YouTube viewers `209156230708`), so four ads in all. Same video, headlines, long headlines, descriptions. Name suffixes: `tier1`, `tier2`, `rmktg-site`, `rmktg-yt`. A headline or copy change to an existing engagement ad is applied to every instance of it across all three. Check the live account for missing instances before saying it is done. Detail: `Docs/YTADS.md`.
+
 ## Google Ads final URLs within ad groups (Dan, 2026-10-05)
 
 - Every new ad must use a final URL on the same top-level domain as the existing ads in its ad group. Check the ad group's existing URLs before creating or editing an ad, and match them.

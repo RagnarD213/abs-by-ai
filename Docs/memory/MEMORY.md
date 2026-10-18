@@ -235,3 +235,4 @@
 - [Execute Dan's picks](execute-dans-explicit-picks.md): build exactly what he names
 - [Allegations not facts](allegations-not-fact.md): never mentioned unless Dan asks
 - [Assessment symmetry](assessment-symmetry.md): one standard, swap test, results
+- [Engagement ads](engagement-ads-all-campaigns.md): all 3 campaigns, 4 ads
