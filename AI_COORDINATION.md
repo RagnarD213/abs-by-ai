@@ -127,7 +127,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-12:R2-HANDOFF:2026-10-17:Claude.** Card `First Step Abs AD R2`; commit e2dffdc local.
 
-**RO-17 setup PICK 2026-10-18, Claude.** 3 Healthy Foods LFC Setup: five thumbnails on the sheet, waiting for Dan's pick; backups, platform copies, article and copy prepared. Next: upload media, Blotato queue on next free Sunday. Handoff: `Handoffs/handoff-20261018-ro17-thumbnails-and-video-setup.md`.
+**RO-17 - HOLD 2026-10-18, Claude.** On the waitlist (Blotato 197/200); routine queues YouTube Sun Dec 13, socials Mon Dec 14 noon. `Docs/RO17_SETUP_RECEIPT_20261018.md`.
 
 **DS-31:R2-REVIEW:8931:2026-10-18:Claude.** AI Homework SFC R2 on the page: colour C (warm vivid) in the film, options A-E for Dan's pick; A1 opener moving. Audit SHIP. Next: Dan's colour pick and A1 approval.
 

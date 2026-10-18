@@ -218,5 +218,12 @@
   "job": "SL-07",
   "label": "Belly Fat 5: Track Your Calories With A Photo",
   "added": "2026-10-18"
+ },
+ {
+  "config": "scripts/blotato/configs/ro17-3-healthy-foods.json",
+  "kind": "longform",
+  "job": "RO-17",
+  "label": "3 Healthy Foods That Made Me Fat",
+  "added": "2026-10-18"
  }
 ]
