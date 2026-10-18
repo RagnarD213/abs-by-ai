@@ -30,7 +30,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-25 thumbnail sync BLOCKED 2026-10-17, Codex.** Final thumbnail C and deferred setup handoff are saved with verified Extreme backups. Commit `4b5b483` remains local; safe-push stopped on live `qc_corpus/corpus.json` and `scripts/blotato/fb_reel_covers.json`, plus stale files listed by the tool. Next: retry after owners clear; do not adopt live edits. Setup handoff is indexed in `Handoffs/README.md` and waits for the approved final film.
 
-**SL-15:PICKS:2026-10-17:Claude.** My First Spray Tan SFL R1: 10-candidate shortlist sent, waiting for Dan's 3 picks. No renders until Dan's Codex job finishes. Short 1 airs Fri Oct 30, review copies by Oct 26.
+**SL-15:R2-HANDOFF:2026-10-18:Claude.** My First Spray Tan: Dan picked A and C (two Shorts). Task `My First Spray Tan SFL R2` builds them; A airs Fri Oct 30. `Handoffs/handoff-20261018-sl15-spray-tan-shorts-r2-build-a-and-c.md`. Commit 0793081 local.
 
 **I'm 41. I Wasted My Life. LFC Setup QUEUED 2026-10-17, Codex.** Dan approved exact R7 film and thumbnail C. Blotato readback: YouTube Sun Oct 18 9 AM, Facebook/Instagram Mon Oct 19 noon. Direct TikTok Monday after public YouTube check. To free capacity, Dan authorized removal of the last queued video, RO-13; its four schedules are backed up and RO-13 is on the waitlist for Dec 30. Receipt: Docs/RO25_SETUP_RECEIPT_20261017.md. Next: verify public release, covers, TikTok, RO-26 link.
 
@@ -211,6 +211,8 @@ tab; stop rather than click into spinners. `Handoffs/handoff-20260908-google-ads
 (`Handoffs/handoff-20260909-audio-match-muhammad.md`); nothing posts until a parent long-form is public.
 
 ⚠ **Ad 5 vertical: BT.601 colour fault in its build (baseline 2026-09-15).** Memory `untagged-video-bt601-trap`; method: shortad SKILL [A15].
+
+**Handoff-start rule UNPUSHED 2026-10-18, Claude.** Commit 00fb2c7 (VIDEO-RULES: correct start-session tool name, keep pin on fallback) local; safe-push stopped on live edits. Next: any later safe-push carries it; then delete this.
 
 **Engagement-ads rule UNPUSHED 2026-10-18, Claude.** Commit 3f10579 (AGENTS, YTADS, memory: new engagement ads go in tier1, tier2 and both rmktg ad groups) local; safe-push stopped on live corpus.json and ra16 prompt edits. Next: any later safe-push carries it; then delete this.
 
