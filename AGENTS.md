@@ -37,7 +37,7 @@ Every new or revised video graphic uses the Soft Blue Light theme and real Hyper
 
 ## Video rounds: continue in the task or hand off, automatically (Dan, 2026-10-17)
 
-- After Dan replies to a delivered round, the task decides itself: continue here for small work on a task under about 40% full when he replied within about an hour; otherwise hand off. When handing off, it writes the handoff, starts the new task itself named with the next round number (R6 hands off to R7, never a second R6; one-click card if it cannot), pins the new task and unpins itself. Dan never asks for or fires the handoff. State the choice in one line. Full rule: `.claude/skills/_shared/VIDEO-RULES.md`, first section.
+- After Dan replies to a delivered round, the task decides itself: continue here for small work on a task under about 40% full when he replied within about an hour; otherwise hand off. When handing off, it writes the handoff and puts up a suggested-task card whose starter prompt names the next round (R6 hands off to R7, never a second R6). It stays pinned; Dan fires the card and unpins it himself (Dan, 2026-10-18). State the choice in one line. Full rule: `.claude/skills/_shared/VIDEO-RULES.md`, first section.
 
 ## Later-round video review timestamps (Dan, 2026-10-10)
 
