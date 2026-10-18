@@ -65,7 +65,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Calories Not Losing Weight SFL R2 - REVIEW 2026-10-17, Codex.** Five selections preserved; 19 narrated asset excerpts independently checked. Dan reviews clips/graphics: http://127.0.0.1:8998/. Next: apply approval or revisions, then complete five Shorts and final gates. No covers/publishing. Receipt: `Handoffs/results-20261017-sl08-r2-asset-review.md`.
 
-**SL-09:R2-HANDOFF:2026-10-18:Claude.** Card `Oura Ring Review SFL R2` builds A, H, I, J, K.
+**SL-09:R2-HANDOFF:2026-10-18:Claude.** Card `Oura Ring Review SFL R2` builds A, H, I, J, K. Commit 350bd26 local; next safe-push carries it.
 
 
 
@@ -116,7 +116,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-07:SETUP-HANDOFF:2026-10-18:Claude.** Dan approved the R6 9:16; finalized. Card `Fire Your Trainer AD Setup` (`Handoffs/handoff-20261018-ra07-setup.md`). Commits local until safe-push clears.
 
-**RO-20/B/C:R4-HANDOFF:2026-10-17:Claude.** Dan approved R3b. Card `Invest In Your Health LFC R4` builds the three films. Commits 8e01a77+ local: push blocked by live edits; next safe-push carries them.
+**Invest In Your Health LFC R4 ACTIVE 2026-10-18, Claude.** Building the three full films (RO-20/B/C), then gates, one reviewer per film, review page :8868. Work: `/Volumes/Extreme/_edit_work/ro20/round4/`.
 
 
 **RA-15:POLICY-RECHECK:2026-10-17:Claude.** Ads `828399044620`, `828399056794` in review. Next 10-18: `node scripts/ads/api/client.js policy 24316364155`; clean, delete this. ⚠ Records committed locally (c640d8a, 9244b41), push blocked by live DAN_DECISIONS/qc_corpus edits; next safe-push carries them.
