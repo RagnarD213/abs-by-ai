@@ -11,6 +11,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Oura Ring Review SFL R2](handoff-20261018-sl09-oura-shorts-r2-build-a-h-i-j-k.md): SL-09, Dan picked Shorts A, H, I, J, K 2026-10-18 ("let's do A, H, I, J, and K") from My Honest Oura Ring Review (Video 4); build all five, round-1 page, gates, independent audit, deliver. Oura 1 airs Fri Nov 13. One-click card shown 10-18. Opus 5.5 high.
 - [My First Spray Tan SFL R2](handoff-20261018-sl15-spray-tan-shorts-r2-build-a-and-c.md): SL-15, Dan picked Shorts A and C 2026-10-18 ("Let's do A and C"); build both, gates, independent audit, deliver. Short 1 airs Fri Oct 30. One-click card shown 10-18. Opus 5.5 high.
 - [Fire Your Trainer AD Setup](handoff-20261018-ra07-setup.md): RA-07 "Fire Your Trainer!" 9:16 approved 2026-10-18 (Dan: "do the setup in the next round"); five Codex thumbnails, stop for Dan's pick, Unlisted upload, trial campaign group. One-click card shown 10-18. Opus 5.5 high.
 - [Invest In Your Health LFC R4](handoff-20261017-ro20-round4-three-films.md): RO-20/B/C, Dan approved everything on the round 3b page 10-17 (studio pickups A, sign-off kept); build the three full films, gates, a review each, deliver. One-click card shown 10-17. Opus 5.5 high.

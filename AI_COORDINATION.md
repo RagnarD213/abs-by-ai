@@ -65,7 +65,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Calories Not Losing Weight SFL R2 - REVIEW 2026-10-17, Codex.** Five selections preserved; 19 narrated asset excerpts independently checked. Dan reviews clips/graphics: http://127.0.0.1:8998/. Next: apply approval or revisions, then complete five Shorts and final gates. No covers/publishing. Receipt: `Handoffs/results-20261017-sl08-r2-asset-review.md`.
 
-**SL-09:PICKS:2026-10-15:Claude.**
+**SL-09:R2-HANDOFF:2026-10-18:Claude.** Card `Oura Ring Review SFL R2` builds A, H, I, J, K.
 
 
 
@@ -212,7 +212,7 @@ tab; stop rather than click into spinners. `Handoffs/handoff-20260908-google-ads
 
 ⚠ **Ad 5 vertical: BT.601 colour fault in its build (baseline 2026-09-15).** Memory `untagged-video-bt601-trap`; method: shortad SKILL [A15].
 
-**Handoff-start rule UNPUSHED 2026-10-18, Claude.** Commit 00fb2c7 (VIDEO-RULES: correct start-session tool name, keep pin on fallback) local; safe-push stopped on live edits. Next: any later safe-push carries it; then delete this.
+**Handoff-start rule UNPUSHED 2026-10-18, Claude.** Commits 00fb2c7, ac57346 (VIDEO-RULES: handoff start tool name, keep pin on fallback) local; safe-push stopped on live edits. Next: any later safe-push carries it; then delete this.
 
 **Engagement-ads rule UNPUSHED 2026-10-18, Claude.** Commit 3f10579 (AGENTS, YTADS, memory: new engagement ads go in tier1, tier2 and both rmktg ad groups) local; safe-push stopped on live corpus.json and ra16 prompt edits. Next: any later safe-push carries it; then delete this.
 
