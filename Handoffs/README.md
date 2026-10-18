@@ -11,7 +11,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
-- [3 Healthy Foods LFC Setup](handoff-20261018-ro17-thumbnails-and-video-setup.md): RO-17 round 5 final delivered 2026-10-18; **fire after Dan confirms the 1 s raisin pour** (the rest he already approved). Five Codex thumbnails, stop for his pick, then `/video-setup` on the Sunday long-form queue. Opus 5.5 high.
+- [3 Healthy Foods LFC Setup](handoff-20261018-ro17-thumbnails-and-video-setup.md): RO-17 **finalized 2026-10-18** (Dan: "final"). **Ready now.** One-click card shown 10-18. Five Codex thumbnails, stop for his pick, then `/video-setup` on the Sunday long-form queue. Opus 5.5 high.
 
 
 - [RA-15 setup](handoff-20261016-ra15-setup.md): **Ready now (2026-10-16). Claude Opus 5.5 / High.** Never Pay A Nutritionist AD: five Codex thumbnail choices, stop for Dan's pick, upload both Unlisted, trial campaign 24316364155 ad group, policy check.
