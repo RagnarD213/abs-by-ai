@@ -1,0 +1,40 @@
+AD. Most Guys Abs AD R3. Both complete review candidates delivered.
+
+Both: 53.9205 seconds, 1616 frames, 30000/1001 fps. Native vertical 1080x1920 and horizontal 1920x1080.
+Review: http://127.0.0.1:8973/
+Physical full-quality copies: Videos to Review/Most Guys Abs AD R3 - vertical.mp4 and horizontal.mp4.
+
+Changes in the NEW full films:
+Vertical centering: exact whole-head anchors at 0.000, 2.269, 25.158, 38.972, 42.609 and 46.580. Shared land-then-hold track. Watch 0 - 6, 24.5 - 29, and 38.5 - 48. Hair and crop sizes preserved.
+14.348 - 25.158: existing B0550 white-man generation and his own settled after-only result, both inside the same unchanged phone frame. Internal screen cut at 20.587. Watch 13 - 27.
+28.362 - 33.767: matching white-man after picture in the existing analysis scan, three bars and plan, both formats. Watch 27 - 35.
+
+Preserved: full spoken edit and captions, Brighter Natural B, approved lighter-bass audio, horizontal static framing and close-shot headroom, P2 workout/food tour, repaired CTA. Original AAC packets are identical. Rejected lockscreen and stick-figure scenes remain absent. No new generation and no upload/setup.
+
+Independent complete-candidate media review and native evidence are in R3 QC. Every-frame scans and native consecutive join/scene evidence supplement sampled full-video model reviews. No human continuous native-rate playback is claimed. All browser tests were muted and players left paused.
+
+Exact numerical gate results, separate from the media revisions:
+
+Native-frame vertical crop measurements in source pixels (2160x3840):
+cam0: travel 0.0 px; p90 speed 0.0 px/s; moving 0.0%; head offset median/max 13.5/18.0 px.
+cam1: travel 128.0 px; p90 speed 30.0 px/s; moving 26.0%; head offset median/max 14.0/47.0 px.
+cam5: travel 68.0 px; p90 speed 59.9 px/s; moving 41.0%; head offset median/max 11.2/49.0 px.
+cam7: travel 83.0 px; p90 speed 59.9 px/s; moving 58.3%; head offset median/max 22.5/36.7 px.
+cam8: travel 95.0 px; p90 speed 89.9 px/s; moving 40.7%; head offset median/max 18.7/48.0 px.
+cam9: travel 17.0 px; p90 speed 0.0 px/s; moving 7.8%; head offset median/max 8.7/38.0 px.
+Motion uses actual integer crop coordinates; head offset uses source whole-head samples interpolated per frame. Exact finished landing positions are checked separately in native-proof/report.json.
+
+9x16:
+- audio:stamp: no valid audio-gate stamp: AUDIO GATE FAILED on why do most guys never get abs | codex | 9x16 | RA-13 R3.mp4: tone, floor -- fix the audio, do not deliver
+- cut:splice_visibility: 2/10 joins above the file's own p99 ceiling (23.92): [(2.27, 24.35), (42.61, 25.24)]
+
+16x9:
+- audio:stamp: no valid audio-gate stamp: AUDIO GATE FAILED on why do most guys never get abs | codex | 16x9 | RA-13 R3.mp4: tone, floor -- fix the audio, do not deliver
+- framing:no_wide_level: 6 talking holds; head height (hair -> chin) per hold: smallest 23.6% of its window at 46.5s (min 27.0%); 3 wide hold(s) [(0.0, 0.23778), (39.0, 0.23963), (46.5, 0.23583500000000002)]
+- cut:splice_visibility: 2/10 joins above the file's own p99 ceiling (36.45): [(2.27, 36.8), (42.61, 39.19)]
+
+No thresholds were changed and no PASS stamp was invented. These are private review candidates awaiting Dan, not finalized videos.
+
+New generation: $0. Review estimate: under $3. Actual provider billing and editor/reviewer token totals unavailable where the runtime does not expose them; available model usage is retained in cost-ledger-r3.json.
+
+Recipe backup: .claude/skills/ad-edit/reference/ra13/round3/

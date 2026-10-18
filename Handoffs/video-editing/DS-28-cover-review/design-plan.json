@@ -1,0 +1,33 @@
+{
+  "headline": "Stop Cooking Your Meals",
+  "options": [
+    {
+      "number": 1,
+      "slot": "real pool photo",
+      "source": "photo-247_FINAL_PRIMARY.jpg",
+      "design": "Poolside editorial, white serif and red rule, centered portrait beneath top headline"
+    },
+    {
+      "number": 2,
+      "slot": "real studio photo",
+      "source": "studio-blue-222_CUTOUT.png",
+      "design": "Forest green food poster, oversized warm yellow condensed headline, white portrait keyline"
+    },
+    {
+      "number": 3,
+      "slot": "AI Dan",
+      "reference": "studio-white-23_FINAL_PRIMARY.jpg",
+      "design": "Navy kitchen portrait with prepared trays, brass and white lower headline"
+    },
+    {
+      "number": 4,
+      "slot": "AI choice",
+      "design": "Cream and orange overhead meal delivery, geometric Futura headline through central space"
+    },
+    {
+      "number": 5,
+      "slot": "AI choice",
+      "design": "Midnight microwave and clock hero, blue-white staggered left typography"
+    }
+  ]
+}

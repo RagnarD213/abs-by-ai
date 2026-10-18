@@ -1,0 +1,20 @@
+{
+  "youtube_cover": {
+    "download_sha256": "e3906d10484cb12e559bcd50825613b4d879e114b744ade5721f58dd9cd0826f",
+    "bytes": 569790,
+    "size": [
+      1080,
+      1920
+    ],
+    "matches_approved": true
+  },
+  "instagram_cover": {
+    "download_sha256": "b043fc5ed6f1d44ba1b5a04dcbde192aba7265c695ca1a06625e7c8f58f3f31d",
+    "bytes": 457640,
+    "size": [
+      1080,
+      1920
+    ],
+    "matches_approved": true
+  }
+}

@@ -1,0 +1,272 @@
+{
+  "category": "AD",
+  "job": "RA-13",
+  "date": "2026-10-17",
+  "status": "Option 3 image and design selected; waiting for text pick A-D",
+  "dan_request": "Okay I like thumbnail 3 but I don't like the text. Make the text bolder and more attention-getting. Show me a few text variations while keeping the image and design the same",
+  "source_image_sha256": "a17d34f3e8f5ba995821d1c41d0340fa32924ec5eb532f7b81bc5328f41e8626",
+  "additional_image_generation": 0,
+  "variants": {
+    "A": {
+      "copy": "Why Most Guys Never Get Abs",
+      "horizontal": [
+        "WHY MOST",
+        "GUYS NEVER",
+        "GET ABS"
+      ],
+      "vertical": [
+        "WHY MOST GUYS",
+        "NEVER GET ABS"
+      ]
+    },
+    "B": {
+      "copy": "Stop Training Blind",
+      "horizontal": [
+        "STOP",
+        "TRAINING",
+        "BLIND"
+      ],
+      "vertical": [
+        "STOP TRAINING",
+        "BLIND"
+      ]
+    },
+    "C": {
+      "copy": "No Plan. No Abs.",
+      "horizontal": [
+        "NO PLAN.",
+        "NO ABS."
+      ],
+      "vertical": [
+        "NO PLAN.",
+        "NO ABS."
+      ]
+    },
+    "D": {
+      "copy": "Stop Guessing. Use AI.",
+      "horizontal": [
+        "STOP",
+        "GUESSING.",
+        "USE AI."
+      ],
+      "vertical": [
+        "STOP GUESSING.",
+        "USE AI."
+      ]
+    }
+  },
+  "checks": [
+    {
+      "variant": "A",
+      "copy": "Why Most Guys Never Get Abs",
+      "format": "16x9",
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-13 Why Most Guys Never Get Abs/option-3-text-variations/A-16x9.jpg",
+      "font": "Impact",
+      "font_size": 106,
+      "text_boxes": [
+        [
+          58,
+          215,
+          510,
+          303
+        ],
+        [
+          58,
+          316,
+          555,
+          404
+        ],
+        [
+          58,
+          417,
+          396,
+          505
+        ]
+      ],
+      "photograph_pixels_unchanged_before_encoding": true,
+      "bytes": 254378
+    },
+    {
+      "variant": "A",
+      "copy": "Why Most Guys Never Get Abs",
+      "format": "9x16",
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-13 Why Most Guys Never Get Abs/option-3-text-variations/A-9x16.jpg",
+      "font": "Impact",
+      "font_size": 149,
+      "text_boxes": [
+        [
+          54,
+          124,
+          1026,
+          246
+        ],
+        [
+          108,
+          264,
+          972,
+          386
+        ]
+      ],
+      "photograph_pixels_unchanged_before_encoding": true,
+      "bytes": 541206
+    },
+    {
+      "variant": "B",
+      "copy": "Stop Training Blind",
+      "format": "16x9",
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-13 Why Most Guys Never Get Abs/option-3-text-variations/B-16x9.jpg",
+      "font": "Impact",
+      "font_size": 133,
+      "text_boxes": [
+        [
+          58,
+          182,
+          328,
+          292
+        ],
+        [
+          58,
+          308,
+          552,
+          416
+        ],
+        [
+          58,
+          432,
+          366,
+          538
+        ]
+      ],
+      "photograph_pixels_unchanged_before_encoding": true,
+      "bytes": 238574
+    },
+    {
+      "variant": "B",
+      "copy": "Stop Training Blind",
+      "format": "9x16",
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-13 Why Most Guys Never Get Abs/option-3-text-variations/B-9x16.jpg",
+      "font": "Impact",
+      "font_size": 164,
+      "text_boxes": [
+        [
+          54,
+          112,
+          1026,
+          247
+        ],
+        [
+          350,
+          267,
+          730,
+          397
+        ]
+      ],
+      "photograph_pixels_unchanged_before_encoding": true,
+      "bytes": 513832
+    },
+    {
+      "variant": "C",
+      "copy": "No Plan. No Abs.",
+      "format": "16x9",
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-13 Why Most Guys Never Get Abs/option-3-text-variations/C-16x9.jpg",
+      "font": "Impact",
+      "font_size": 148,
+      "text_boxes": [
+        [
+          58,
+          230,
+          557,
+          351
+        ],
+        [
+          58,
+          369,
+          506,
+          490
+        ]
+      ],
+      "photograph_pixels_unchanged_before_encoding": true,
+      "bytes": 231602
+    },
+    {
+      "variant": "C",
+      "copy": "No Plan. No Abs.",
+      "format": "9x16",
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-13 Why Most Guys Never Get Abs/option-3-text-variations/C-9x16.jpg",
+      "font": "Impact",
+      "font_size": 222,
+      "text_boxes": [
+        [
+          166,
+          58,
+          914,
+          241
+        ],
+        [
+          204,
+          268,
+          876,
+          451
+        ]
+      ],
+      "photograph_pixels_unchanged_before_encoding": true,
+      "bytes": 519329
+    },
+    {
+      "variant": "D",
+      "copy": "Stop Guessing. Use AI.",
+      "format": "16x9",
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-13 Why Most Guys Never Get Abs/option-3-text-variations/D-16x9.jpg",
+      "font": "Impact",
+      "font_size": 121,
+      "text_boxes": [
+        [
+          58,
+          195,
+          304,
+          295
+        ],
+        [
+          58,
+          310,
+          557,
+          410
+        ],
+        [
+          58,
+          425,
+          376,
+          525
+        ]
+      ],
+      "photograph_pixels_unchanged_before_encoding": true,
+      "bytes": 242062
+    },
+    {
+      "variant": "D",
+      "copy": "Stop Guessing. Use AI.",
+      "format": "9x16",
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-13 Why Most Guys Never Get Abs/option-3-text-variations/D-9x16.jpg",
+      "font": "Impact",
+      "font_size": 154,
+      "text_boxes": [
+        [
+          54,
+          118,
+          1026,
+          246
+        ],
+        [
+          338,
+          264,
+          742,
+          390
+        ]
+      ],
+      "photograph_pixels_unchanged_before_encoding": true,
+      "bytes": 518287
+    }
+  ],
+  "review_sheet": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-13 Why Most Guys Never Get Abs/option-3-text-variations/REVIEW-text-variations.jpg",
+  "upload_or_ads_mutations": false
+}

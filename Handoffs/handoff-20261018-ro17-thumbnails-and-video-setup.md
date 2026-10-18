@@ -4,9 +4,8 @@ Written 2026-10-18 by Claude (Opus 5.5) at the end of round 5. Sidebar name: **3
 **Recommended model:** Claude Opus 5.5, high effort. **Use the Codex subscription to generate the images.** Every generated still
 uses `.claude/skills/_shared/codex-image.sh --model gpt-6.1-sol --effort high`.
 
-**Fire only after Dan confirms the round 5 film** (the one change: the 1 s raisin pour at 2:58.4). His 2026-10-17 note already said
-"that's our final edit"; the editing task finalizes RO-17 (`queue.py set RO-17 finalized`) when he confirms. Check `Handoffs/video-editing/jobs.json`
-says RO-17 `finalized` before starting.
+**Ready now: Dan confirmed the round 5 film on 2026-10-18 ("final"); RO-17 is `finalized` in the edit queue.** Approval record:
+`claude edited long form content/17 - 3 Healthy Foods That Made Me Fat/approval-round5.json`.
 
 ## Exact approved files
 

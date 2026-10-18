@@ -1,0 +1,222 @@
+[
+  {
+    "aspect": "9x16",
+    "id": "D01",
+    "frame": 581,
+    "reference": "/Volumes/Extreme/_edit_work/ra16/round3/DEMO-9x16-CLEAN.mp4",
+    "reference_sha256": "ed575e741716f9a2be54db02f44060dd50147827616556932fb2a803bbff2d39",
+    "reference_frame": 0,
+    "psnr_above_caption": 41.69,
+    "proof": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/editor-audit/9x16-D01-581-comparison.jpg"
+  },
+  {
+    "aspect": "9x16",
+    "id": "D01",
+    "frame": 620,
+    "reference": "/Volumes/Extreme/_edit_work/ra16/round3/DEMO-9x16-CLEAN.mp4",
+    "reference_sha256": "ed575e741716f9a2be54db02f44060dd50147827616556932fb2a803bbff2d39",
+    "reference_frame": 39,
+    "psnr_above_caption": 41.11,
+    "proof": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/editor-audit/9x16-D01-620-comparison.jpg"
+  },
+  {
+    "aspect": "9x16",
+    "id": "D01",
+    "frame": 680,
+    "reference": "/Volumes/Extreme/_edit_work/ra16/round3/DEMO-9x16-CLEAN.mp4",
+    "reference_sha256": "ed575e741716f9a2be54db02f44060dd50147827616556932fb2a803bbff2d39",
+    "reference_frame": 99,
+    "psnr_above_caption": 41.28,
+    "proof": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/editor-audit/9x16-D01-680-comparison.jpg"
+  },
+  {
+    "aspect": "9x16",
+    "id": "D01",
+    "frame": 681,
+    "reference": "/Volumes/Extreme/_edit_work/ra16/round3/DEMO-9x16-CLEAN.mp4",
+    "reference_sha256": "ed575e741716f9a2be54db02f44060dd50147827616556932fb2a803bbff2d39",
+    "reference_frame": 100,
+    "psnr_above_caption": 40.87,
+    "proof": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/editor-audit/9x16-D01-681-comparison.jpg"
+  },
+  {
+    "aspect": "9x16",
+    "id": "D01",
+    "frame": 683,
+    "reference": "/Volumes/Extreme/_edit_work/ra16/round3/DEMO-9x16-CLEAN.mp4",
+    "reference_sha256": "ed575e741716f9a2be54db02f44060dd50147827616556932fb2a803bbff2d39",
+    "reference_frame": 102,
+    "psnr_above_caption": 41.68,
+    "proof": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/editor-audit/9x16-D01-683-comparison.jpg"
+  },
+  {
+    "aspect": "9x16",
+    "id": "D01",
+    "frame": 724,
+    "reference": "/Volumes/Extreme/_edit_work/ra16/round3/DEMO-9x16-CLEAN.mp4",
+    "reference_sha256": "ed575e741716f9a2be54db02f44060dd50147827616556932fb2a803bbff2d39",
+    "reference_frame": 143,
+    "psnr_above_caption": 39.8,
+    "proof": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/editor-audit/9x16-D01-724-comparison.jpg"
+  },
+  {
+    "aspect": "9x16",
+    "id": "G01",
+    "frame": 757,
+    "reference": "/Volumes/Extreme/_edit_work/ra16/round2/hf9/renders/G01.mov",
+    "reference_sha256": "7679eac101860cb55f472d61ebafdcf8845de49e6f377bbbea273a61b5314eff",
+    "reference_frame": 0,
+    "psnr_above_caption": 38.48,
+    "proof": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/editor-audit/9x16-G01-757-comparison.jpg"
+  },
+  {
+    "aspect": "9x16",
+    "id": "G01",
+    "frame": 790,
+    "reference": "/Volumes/Extreme/_edit_work/ra16/round2/hf9/renders/G01.mov",
+    "reference_sha256": "7679eac101860cb55f472d61ebafdcf8845de49e6f377bbbea273a61b5314eff",
+    "reference_frame": 33,
+    "psnr_above_caption": 39.07,
+    "proof": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/editor-audit/9x16-G01-790-comparison.jpg"
+  },
+  {
+    "aspect": "9x16",
+    "id": "G01",
+    "frame": 850,
+    "reference": "/Volumes/Extreme/_edit_work/ra16/round2/hf9/renders/G01.mov",
+    "reference_sha256": "7679eac101860cb55f472d61ebafdcf8845de49e6f377bbbea273a61b5314eff",
+    "reference_frame": 93,
+    "psnr_above_caption": 38.52,
+    "proof": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/editor-audit/9x16-G01-850-comparison.jpg"
+  },
+  {
+    "aspect": "9x16",
+    "id": "G01",
+    "frame": 940,
+    "reference": "/Volumes/Extreme/_edit_work/ra16/round2/hf9/renders/G01.mov",
+    "reference_sha256": "7679eac101860cb55f472d61ebafdcf8845de49e6f377bbbea273a61b5314eff",
+    "reference_frame": 183,
+    "psnr_above_caption": 38.28,
+    "proof": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/editor-audit/9x16-G01-940-comparison.jpg"
+  },
+  {
+    "aspect": "9x16",
+    "id": "G01",
+    "frame": 982,
+    "reference": "/Volumes/Extreme/_edit_work/ra16/round2/hf9/renders/G01.mov",
+    "reference_sha256": "7679eac101860cb55f472d61ebafdcf8845de49e6f377bbbea273a61b5314eff",
+    "reference_frame": 225,
+    "psnr_above_caption": 38.35,
+    "proof": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/editor-audit/9x16-G01-982-comparison.jpg"
+  },
+  {
+    "aspect": "16x9",
+    "id": "D01",
+    "frame": 581,
+    "reference": "/Volumes/Extreme/_edit_work/ra16/round3/DEMO-16x9-CLEAN.mp4",
+    "reference_sha256": "1542719b8eb06cd44369e08a1f942570a0846e93835220d41123c1e89b5d3256",
+    "reference_frame": 0,
+    "psnr_above_caption": 50.09,
+    "proof": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/editor-audit/16x9-D01-581-comparison.jpg"
+  },
+  {
+    "aspect": "16x9",
+    "id": "D01",
+    "frame": 620,
+    "reference": "/Volumes/Extreme/_edit_work/ra16/round3/DEMO-16x9-CLEAN.mp4",
+    "reference_sha256": "1542719b8eb06cd44369e08a1f942570a0846e93835220d41123c1e89b5d3256",
+    "reference_frame": 39,
+    "psnr_above_caption": 46.96,
+    "proof": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/editor-audit/16x9-D01-620-comparison.jpg"
+  },
+  {
+    "aspect": "16x9",
+    "id": "D01",
+    "frame": 680,
+    "reference": "/Volumes/Extreme/_edit_work/ra16/round3/DEMO-16x9-CLEAN.mp4",
+    "reference_sha256": "1542719b8eb06cd44369e08a1f942570a0846e93835220d41123c1e89b5d3256",
+    "reference_frame": 99,
+    "psnr_above_caption": 48.88,
+    "proof": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/editor-audit/16x9-D01-680-comparison.jpg"
+  },
+  {
+    "aspect": "16x9",
+    "id": "D01",
+    "frame": 681,
+    "reference": "/Volumes/Extreme/_edit_work/ra16/round3/DEMO-16x9-CLEAN.mp4",
+    "reference_sha256": "1542719b8eb06cd44369e08a1f942570a0846e93835220d41123c1e89b5d3256",
+    "reference_frame": 100,
+    "psnr_above_caption": 50.11,
+    "proof": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/editor-audit/16x9-D01-681-comparison.jpg"
+  },
+  {
+    "aspect": "16x9",
+    "id": "D01",
+    "frame": 683,
+    "reference": "/Volumes/Extreme/_edit_work/ra16/round3/DEMO-16x9-CLEAN.mp4",
+    "reference_sha256": "1542719b8eb06cd44369e08a1f942570a0846e93835220d41123c1e89b5d3256",
+    "reference_frame": 102,
+    "psnr_above_caption": 50.93,
+    "proof": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/editor-audit/16x9-D01-683-comparison.jpg"
+  },
+  {
+    "aspect": "16x9",
+    "id": "D01",
+    "frame": 724,
+    "reference": "/Volumes/Extreme/_edit_work/ra16/round3/DEMO-16x9-CLEAN.mp4",
+    "reference_sha256": "1542719b8eb06cd44369e08a1f942570a0846e93835220d41123c1e89b5d3256",
+    "reference_frame": 143,
+    "psnr_above_caption": 46.01,
+    "proof": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/editor-audit/16x9-D01-724-comparison.jpg"
+  },
+  {
+    "aspect": "16x9",
+    "id": "G01",
+    "frame": 757,
+    "reference": "/Volumes/Extreme/_edit_work/ra16/round2/hf16/renders/G01.mov",
+    "reference_sha256": "a7cbfd08345bf1a6f0cf7daa188d518a3ba69d5e2e6814a0633ec1da05ca6253",
+    "reference_frame": 0,
+    "psnr_above_caption": 38.93,
+    "proof": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/editor-audit/16x9-G01-757-comparison.jpg"
+  },
+  {
+    "aspect": "16x9",
+    "id": "G01",
+    "frame": 790,
+    "reference": "/Volumes/Extreme/_edit_work/ra16/round2/hf16/renders/G01.mov",
+    "reference_sha256": "a7cbfd08345bf1a6f0cf7daa188d518a3ba69d5e2e6814a0633ec1da05ca6253",
+    "reference_frame": 33,
+    "psnr_above_caption": 39.01,
+    "proof": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/editor-audit/16x9-G01-790-comparison.jpg"
+  },
+  {
+    "aspect": "16x9",
+    "id": "G01",
+    "frame": 850,
+    "reference": "/Volumes/Extreme/_edit_work/ra16/round2/hf16/renders/G01.mov",
+    "reference_sha256": "a7cbfd08345bf1a6f0cf7daa188d518a3ba69d5e2e6814a0633ec1da05ca6253",
+    "reference_frame": 93,
+    "psnr_above_caption": 38.78,
+    "proof": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/editor-audit/16x9-G01-850-comparison.jpg"
+  },
+  {
+    "aspect": "16x9",
+    "id": "G01",
+    "frame": 940,
+    "reference": "/Volumes/Extreme/_edit_work/ra16/round2/hf16/renders/G01.mov",
+    "reference_sha256": "a7cbfd08345bf1a6f0cf7daa188d518a3ba69d5e2e6814a0633ec1da05ca6253",
+    "reference_frame": 183,
+    "psnr_above_caption": 38.51,
+    "proof": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/editor-audit/16x9-G01-940-comparison.jpg"
+  },
+  {
+    "aspect": "16x9",
+    "id": "G01",
+    "frame": 982,
+    "reference": "/Volumes/Extreme/_edit_work/ra16/round2/hf16/renders/G01.mov",
+    "reference_sha256": "a7cbfd08345bf1a6f0cf7daa188d518a3ba69d5e2e6814a0633ec1da05ca6253",
+    "reference_frame": 225,
+    "psnr_above_caption": 37.72,
+    "proof": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/editor-audit/16x9-G01-982-comparison.jpg"
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "platform": "facebook",
+    "schedule_id": "5694638",
+    "media_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/636c5e91-ec1c-486a-a04d-c2bb57a3a464.mp4",
+    "bytes": 124841554,
+    "sha256": "200afaaab059109b3fc168624136c0bb074d809d521d733ffee5b94ddf4298da",
+    "matches_expected": true
+  },
+  {
+    "platform": "instagram",
+    "schedule_id": "5694640",
+    "media_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/e357ff5e-00b4-4e4d-9af4-0f59137d8a41.mp4",
+    "bytes": 124841554,
+    "sha256": "200afaaab059109b3fc168624136c0bb074d809d521d733ffee5b94ddf4298da",
+    "matches_expected": true
+  },
+  {
+    "platform": "tiktok",
+    "schedule_id": "5694641",
+    "media_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/1ce1c159-52e9-4ce9-8dfb-933f01eb0b0d.mp4",
+    "bytes": 124962424,
+    "sha256": "81d6e9ce7868b9ca2bdb800befe7e2410331957b1ebfe51f0df18e0137138bee",
+    "matches_expected": true
+  },
+  {
+    "platform": "youtube",
+    "schedule_id": "5694642",
+    "media_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/b66c399b-54d3-4948-a149-33e2390b520b.mp4",
+    "bytes": 124841554,
+    "sha256": "200afaaab059109b3fc168624136c0bb074d809d521d733ffee5b94ddf4298da",
+    "matches_expected": true
+  }
+]

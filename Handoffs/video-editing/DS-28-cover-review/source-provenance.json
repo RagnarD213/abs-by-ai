@@ -1,0 +1,12 @@
+[
+  {
+    "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/_cutouts/photo-247_CUTOUT.png",
+    "sha256": "0a2d90444afa58867a7216a3c11fc5a0c059cf05ed445bcf43eb1cabe8793646",
+    "treatment": "real cutout, deterministic resize and composite; no AI redraw"
+  },
+  {
+    "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/_cutouts/studio-blue-222_CUTOUT.png",
+    "sha256": "70aa7b106afc27bacff82339b2205db1c6d2fd0852fb6ba99f5ac2d67aaeacdd",
+    "treatment": "real cutout, deterministic resize and composite; no AI redraw"
+  }
+]

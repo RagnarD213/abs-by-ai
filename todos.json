@@ -339,12 +339,6 @@
       "addedAt": "2026-08-03"
     },
     {
-      "text": "Put away dishes",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-09-01"
-    },
-    {
       "text": "Hire contractor to powerwash deck, driveway, and house. Discuss with Dan first",
       "priority": "med",
       "recurring": false,
@@ -373,18 +367,6 @@
       "priority": "high",
       "recurring": false,
       "addedAt": "2026-10-06"
-    },
-    {
-      "text": "Make meal prep",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-10-11"
-    },
-    {
-      "text": "Clean kitchen",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-10-11"
     },
     {
       "text": "Pick up Audi from shop",

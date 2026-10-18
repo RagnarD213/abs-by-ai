@@ -1,13 +1,1 @@
-AD. AI Took Job AD R4. Production waiting packet, not a delivery or approval.
-
-All 36 approval-record files verified. Native R4 preflight passed for both formats. The running r4_render.py process owns one capacity-controlled job and retains its original wait timestamp. r4_after_render.py waits without an AI session and runs the initial exact-file measurements once both candidates exist. The global dispatcher stays paused.
-
-Work: /Volumes/Expansion/Abs By AI Edit Work/ra16/round4/. Extreme/ra16/round4 is a symlink there. Approved source media and prior rounds are read-only. Heavy files use Expansion because Extreme has about 2.4 GB available.
-
-Next action: read BUILD_STATE.json and CHECK_STATE.json. Do not start duplicate render or check workers. If waiting, leave the supported shared buildcap waiter in charge. If candidates exist, inspect them and finish the remaining review obligations in WORK_PACKET.json. Initial measurement reports are not a complete film review. No unseen final film is approved.
-
-Known audio finding: the approved warm bass source failed tone only, with 11 of 12 measurements passing. Preserve it and report exact-file results. Never alter thresholds or sound to hide that mismatch.
-
-Preserve color B, crop pair 1, full intro, selected voice and exact approved D01/G01/G02/G03 components. No new assets. Target 1765 frames at 30000/1001, about 58.8922 seconds, 1080x1920 and 1920x1080. One common AAC encoding. Final captions applied once. Vertical tracking splits at actual visible returns, including frame 983.
-
-The new recipes are syntax-checked and preflighted. The measure/render/check paths have not run yet and are not claimed verified. Any runtime failure must remain explicit. No publishing.
+AD. R4 finalized by Dan on 2026-10-17. Exact identities: ../APPROVAL.json or Handoffs/video-editing/RA-16-R4-approval.json. Setup handoff written; no uploads. Machine gate flags preserved.

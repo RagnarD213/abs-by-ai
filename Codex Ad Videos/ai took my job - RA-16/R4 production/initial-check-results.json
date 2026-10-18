@@ -1,0 +1,24 @@
+[
+  {
+    "aspect": "9x16",
+    "path": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/masters/AI Took Job AD R4 - 9x16.mp4",
+    "sha256": "fdc6ad507531a2f5b113dea8b03c23680db4bcec4e43102c1fefc39c9749e5fb",
+    "aac_sha256": "4f79bb41a50bc0080c9056f36d77ad149a0d9f04d9ea2b4c471463aa0e02dec4",
+    "sheet_exit": 0,
+    "audio_gate_exit": 1,
+    "watch_scan_exit": 0,
+    "delivery_gate_exit": null,
+    "watch_judgment": "Pending exact-candidate independent image inspection. Initial gate may fail this row."
+  },
+  {
+    "aspect": "16x9",
+    "path": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/masters/AI Took Job AD R4 - 16x9.mp4",
+    "sha256": "789944e4dc7ee70b2e5b0af55d5ece8c73dda446155e609c28420553e84c963d",
+    "aac_sha256": "4f79bb41a50bc0080c9056f36d77ad149a0d9f04d9ea2b4c471463aa0e02dec4",
+    "sheet_exit": 0,
+    "audio_gate_exit": 1,
+    "watch_scan_exit": 0,
+    "delivery_gate_exit": null,
+    "watch_judgment": "Pending exact-candidate independent image inspection. Initial gate may fail this row."
+  }
+]

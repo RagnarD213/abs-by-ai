@@ -1,0 +1,32 @@
+{
+  "when": "2026-10-17T10:51:16-0500",
+  "url": "http://127.0.0.1:8976/",
+  "method": "Actual in-app browser UI, muted playback for each full film, paused seeking through page controls, format switch and visible native-frame screenshot. Playback ended paused and mute disabled.",
+  "formats": [
+    {
+      "aspect": "16x9",
+      "duration": 58.892167,
+      "playing_probe": 0.183584,
+      "muted_during_test": true,
+      "readyState": 4,
+      "seek_from": 6.065916,
+      "seek_forward": 9.065916,
+      "seek_back": 6.065916
+    },
+    {
+      "aspect": "9x16",
+      "duration": 58.892167,
+      "playing_probe": 0.184889,
+      "muted_during_test": true,
+      "readyState": 4,
+      "seek_from": 5.810615,
+      "seek_forward": 8.810615,
+      "seek_back": 5.810615
+    }
+  ],
+  "final": {
+    "paused": true,
+    "muted": false
+  },
+  "screenshot": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/evidence/R4-review-player.png"
+}

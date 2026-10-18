@@ -1,0 +1,70 @@
+{
+  "category": "AD",
+  "job": "RA-16",
+  "round": 2,
+  "headline": "Fire your trainer.",
+  "status": "awaiting Dan choice of R2 1, 2 or 3; no upload or Ads write",
+  "user_direction": "Three unique designs, exact existing fired-trainer bench-press frame for option 1, AI Dan as fired trainer in options 2 and 3. Round 1 rejected.",
+  "generator": "Codex subscription, gpt-6.1-sol high",
+  "generation_count": 4,
+  "api_spend_usd": 0,
+  "identity_reference": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-16 AI Took My Job/_build-2026-10-17/cut/dan-reference.jpg",
+  "options": {
+    "1": "Exact existing A0147 end frames, warm brick gym, bold yellow and white bottom type",
+    "2": "AI Dan fired as silver robot coaches client, bright white/red sports campaign, red top headline",
+    "3": "AI Dan leaves as phone hologram coaches client, midnight cyan lighting, integrated luminous bottom headline"
+  },
+  "existing_sources": {
+    "16x9": "/Volumes/Extreme/_edit_work/kit9x16/av11-ad13/round2/opener/end_16x9.png",
+    "9x16": "/Volumes/Extreme/_edit_work/kit9x16/av11-ad13/round2/opener/end_9x16.png"
+  },
+  "prompts": {
+    "2-16x9": "Use case: ads-marketing. Photorealistic cinematic thumbnail scene, premium real-camera aesthetic, natural hands and consistent scale. The attached real photo is an IDENTITY REFERENCE for Dan, a recognizable Asian male personal trainer with short black swept-up hair. Use his face and hairstyle faithfully. Lean and shredded, not bulky, same size as reference. Dan is the FIRED HUMAN TRAINER, never the customer or AI. He wears a fitted black trainer polo and black athletic pants. This is intentionally AI-generated imagery. No generated text, no letters, no logos, no watermark. All people fully clothed. Preserve full hair and faces, no chopped heads. Wide landscape 16:9, composition for a YouTube thumbnail. A bright modern luxury gym with white concrete and warm red accents. Foreground Dan, wearing the black trainer polo, holds a cardboard box of his belongings (whistle, small potted plant, blank clipboard), turned toward the exit, with a mildly incredulous resigned expression, looking back over his shoulder. Behind him a sleek silver humanoid robot has taken over as trainer, professionally coaching a middle-aged male client in a grey workout shirt doing a dumbbell curl. The client is focused on the robot, making the replacement immediately clear. No handshake, no robot attacking him. Dan is the largest and nearest face, left center; robot and client grouped right center; do not obscure faces with arms or box. Reserve the entire upper 22 percent as simple pale gym wall with no faces, objects or ceiling beams, for huge headline added later. Strong daylight, crisp red/white/silver sports-campaign palette, subtle humorous fired-trainer story, natural anatomy. Dan occupies left 40 percent, robot and client right half.",
+    "3-16x9": "Use case: ads-marketing. Photorealistic cinematic thumbnail scene, premium real-camera aesthetic, natural hands and consistent scale. The attached real photo is an IDENTITY REFERENCE for Dan, a recognizable Asian male personal trainer with short black swept-up hair. Use his face and hairstyle faithfully. Lean and shredded, not bulky, same size as reference. Dan is the FIRED HUMAN TRAINER, never the customer or AI. He wears a fitted black trainer polo and black athletic pants. This is intentionally AI-generated imagery. No generated text, no letters, no logos, no watermark. All people fully clothed. Preserve full hair and faces, no chopped heads. Wide landscape 16:9, composition for a YouTube thumbnail. A moody upscale midnight-blue gym with neon cyan light. Foreground Dan in black trainer polo and dark training pants, carrying a cardboard box with his trainer whistle, blank clipboard and water bottle, glances back in amused disbelief as he walks toward the exit. A large realistic smartphone stands upright on a gym bench to his side, projecting a luminous transparent cyan human-shaped AI coach, with a believable digital light column visibly connected to the phone screen. The holographic coach is guiding a fully clothed middle-aged male client through a dumbbell curl. The client is focused on the hologram while the fired human trainer is leaving. Make the physical phone, hologram, and departing Dan all clearly visible in one instantly readable scene. Distinct from a physical robot: the coach is visibly made of blue light with transparent body. Dan is the nearest, largest recognizable face, at right-center, the phone and hologram left-center, client behind the phone, natural cause and effect. Reserve the lower 22 percent as simple dark navy floor with no important objects or feet, for headline added later. Dan on right third, phone and hologram on left third, client center-left, clear central connection.",
+    "2-9x16": "Use case: ads-marketing. Photorealistic cinematic thumbnail scene, premium real-camera aesthetic, natural hands and consistent scale. The attached real photo is an IDENTITY REFERENCE for Dan, a recognizable Asian male personal trainer with short black swept-up hair. Use his face and hairstyle faithfully. Lean and shredded, not bulky, same size as reference. Dan is the FIRED HUMAN TRAINER, never the customer or AI. He wears a fitted black trainer polo and black athletic pants. This is intentionally AI-generated imagery. No generated text, no letters, no logos, no watermark. All people fully clothed. Preserve full hair and faces, no chopped heads. Tall portrait 9:16, composition for a mobile thumbnail. A bright modern luxury gym with white concrete and warm red accents. Foreground Dan, wearing the black trainer polo, holds a cardboard box of his belongings (whistle, small potted plant, blank clipboard), turned toward the exit, with a mildly incredulous resigned expression, looking back over his shoulder. Behind him a sleek silver humanoid robot has taken over as trainer, professionally coaching a middle-aged male client in a grey workout shirt doing a dumbbell curl. The client is focused on the robot, making the replacement immediately clear. No handshake, no robot attacking him. Dan is the largest and nearest face, left center; robot and client grouped right center; do not obscure faces with arms or box. Reserve the entire upper 22 percent as simple pale gym wall with no faces, objects or ceiling beams, for huge headline added later. Strong daylight, crisp red/white/silver sports-campaign palette, subtle humorous fired-trainer story, natural anatomy. Keep all three faces and the box inside the middle 80 percent of image width.",
+    "3-9x16": "Use case: ads-marketing. Photorealistic cinematic thumbnail scene, premium real-camera aesthetic, natural hands and consistent scale. The attached real photo is an IDENTITY REFERENCE for Dan, a recognizable Asian male personal trainer with short black swept-up hair. Use his face and hairstyle faithfully. Lean and shredded, not bulky, same size as reference. Dan is the FIRED HUMAN TRAINER, never the customer or AI. He wears a fitted black trainer polo and black athletic pants. This is intentionally AI-generated imagery. No generated text, no letters, no logos, no watermark. All people fully clothed. Preserve full hair and faces, no chopped heads. Tall portrait 9:16, composition for a mobile thumbnail. A moody upscale midnight-blue gym with neon cyan light. Foreground Dan in black trainer polo and dark training pants, carrying a cardboard box with his trainer whistle, blank clipboard and water bottle, glances back in amused disbelief as he walks toward the exit. A large realistic smartphone stands upright on a gym bench to his side, projecting a luminous transparent cyan human-shaped AI coach, with a believable digital light column visibly connected to the phone screen. The holographic coach is guiding a fully clothed middle-aged male client through a dumbbell curl. The client is focused on the hologram while the fired human trainer is leaving. Make the physical phone, hologram, and departing Dan all clearly visible in one instantly readable scene. Distinct from a physical robot: the coach is visibly made of blue light with transparent body. Dan is the nearest, largest recognizable face, at right-center, the phone and hologram left-center, client behind the phone, natural cause and effect. Reserve the lower 22 percent as simple dark navy floor with no important objects or feet, for headline added later. Compact triangular grouping, all three heads inside central 80 percent width, phone large and visible lower left above empty floor."
+  },
+  "source_sha256": {
+    "/Volumes/Extreme/_edit_work/kit9x16/av11-ad13/round2/opener/end_16x9.png": "f29d95e9b8517e063246ad51f7ae9874d4698bed0b53ddd86cedecca6a1492bb",
+    "/Volumes/Extreme/_edit_work/kit9x16/av11-ad13/round2/opener/end_9x16.png": "47f5a53b60e575cb6412aad9a27a97803fea7ec40b0d712ecb907a248c99ed85"
+  },
+  "identity_reference_sha256": "9ee755f823e94c1057b8fb41d9503380753836c01230e94066c312e834d5b36e",
+  "codex_tokens": 104118,
+  "review_sheet": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-16 AI Took My Job/R2/REVIEW-three-options-R2.jpg",
+  "qa": {
+    "all_six_files_under_2mb": true,
+    "all_six_visually_checked": true,
+    "AI_Dan_face_recognizable": true,
+    "AI_Dan_is_departing_trainer": true,
+    "face_and_hair_clear_of_type": true,
+    "exact_headline": "Fire your trainer.",
+    "original_end_frame_pictures_preserved": "Resized native source frames with code-set type; no regeneration or recolor.",
+    "approved_films": "untouched"
+  },
+  "files": [
+    {
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-16 AI Took My Job/R2/option-1-16x9.jpg",
+      "sha256": "731556f7038804c84d58a52c398f1838537b268184cf929e74269ff6c0bc23be"
+    },
+    {
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-16 AI Took My Job/R2/option-1-9x16.jpg",
+      "sha256": "963594ee8d7b490b73c95fe5d801cdd8e26ec21ee9c3d744521018f7fee3bb8f"
+    },
+    {
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-16 AI Took My Job/R2/option-2-16x9.jpg",
+      "sha256": "78e0c107fc79c817948fbeca5c196e738c7be1cc27bfe084ffb4ef43c5e6c7ea"
+    },
+    {
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-16 AI Took My Job/R2/option-2-9x16.jpg",
+      "sha256": "b2ffabc29ddb44260573ca7402c7e13827235da6a53a199c02857325e84c7f50"
+    },
+    {
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-16 AI Took My Job/R2/option-3-16x9.jpg",
+      "sha256": "583b9524bb1b53a52aa743ecd485879a0c4fa8dc62068139a89c690bbe93f807"
+    },
+    {
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-16 AI Took My Job/R2/option-3-9x16.jpg",
+      "sha256": "71f7cb4381890046a6149b29f5b47ac941b56080e67c92e5e94a761940ca1248"
+    }
+  ]
+}

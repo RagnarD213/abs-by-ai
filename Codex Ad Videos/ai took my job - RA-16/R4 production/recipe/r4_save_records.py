@@ -4,7 +4,7 @@ from pathlib import Path
 R=Path('/Users/danielrose/Documents/Claude/Projects/Abs By AI');O=Path('/Volumes/Expansion/Abs By AI Edit Work/ra16/round4');C=Path(json.load(open('/tmp/ra16-r4-save-checkout.json'))['path']);rel=Path('Codex Ad Videos/ai took my job - RA-16/R4 production');D=C/rel;D.mkdir(parents=True,exist_ok=True)
 q=json.load(open(O/'final-review-status.json'));assert q['ready_for_dan_review']
 paths=list((O/'recipe').glob('*.py'))+list(O.glob('*.json'))+[O/'INDEPENDENT_REVIEW.txt',O/'production-lessons.md']
-for part in ['evidence','editor-audit','independent-extra']:
+for part in ['evidence','editor-audit','independent-extra','independent-repair']:
  paths+=list((O/part).glob('*.json'))
 paths+=list((O/'watch').glob('*/watch_pass.json'))
 for p in paths:

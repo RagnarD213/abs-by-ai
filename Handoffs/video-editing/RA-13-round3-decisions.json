@@ -3,7 +3,7 @@
   "job": "RA-13",
   "next_task": "Most Guys Abs AD R3",
   "date": "2026-10-16",
-  "scope": "Handoff only; R3 not executed",
+  "scope": "R3 executed and both complete candidates delivered for Dan review; not finalized.",
   "requests": [
     "Fix vertical opening centering and audit every other vertical presenter hold for the same issue.",
     "Horizontal presenter centering is approved; preserve it.",
@@ -24,5 +24,17 @@
     "sha256": "108e0b9b9eaf17c6268c11aa62ad8f2745e92f0dc7c2a118438ffddb790b6d84",
     "after": "/Volumes/Extreme/_edit_work/ra04/round5/after_white_man.jpg",
     "after_sha256": "dd9e88b936db9216163a8e3396669f976e388f185cb096113598e06ebb388763"
+  },
+  "execution": {
+    "date": "2026-10-16",
+    "build_dir": "/Volumes/Expansion/Abs By AI Edit Work/ra13/round3",
+    "review_url": "http://127.0.0.1:8973/",
+    "report": "Handoffs/video-editing/reports/RA-13-R3-review-report.txt",
+    "independent_media_defects": 0,
+    "full_gates": {
+      "vertical": "FAIL,37/39",
+      "horizontal": "FAIL,36/39"
+    },
+    "browser": "Muted throughout testing, left paused."
   }
 }

@@ -85,7 +85,22 @@ def measure():
     z=np.where((m[:,v['b0']:v['b1']]>.65).mean(1)>=.20)[0];assert len(z),(s,v['n'])
     v['hair_vision']=float(z[0])*4
    write(d/'measure.json',vals)
-  vals=json.load(open(d/'measure.json'));ns=np.array([x['n'] for x in vals]);cx=np.array([x['cx'] for x in vals]);hair=min(min(x['hair_mp'],x['hair_vision']) for x in vals if x['hair_mp'] is not None)
+  vals=json.load(open(d/'measure.json'))
+  if any(v.get('hair_method')!='face-neighborhood-connected' for v in vals):
+   for v in vals:
+    ar=np.array(Image.open(v['head_crop']).convert('RGB'));y0=max(0,int((v['fore']-1.1*v['face_h'])/4))
+    mask_mp=segmodel.process(ar[y0:]).segmentation_mask
+    mask_v=np.array(Image.open(d/'masks'/(Path(v['head_crop']).stem+'.mask.png')).convert('L'))[y0:]/255
+    v.setdefault('old_unconstrained_hair_mp',v['hair_mp']);v.setdefault('old_unconstrained_hair_vision',v['hair_vision'])
+    for key,mask in [('hair_mp',mask_mp),('hair_vision',mask_v)]:
+     rows=(mask[:,v['b0']:v['b1']]>.65).mean(1)>=.20;k=min(len(rows)-1,round(v['fore']/4)-y0)
+     if not rows[k]:v[key]=None;continue
+     while k>0 and rows[k-1]:k-=1
+     v[key]=(k+y0)*4 if k>0 else None
+    assert v['hair_vision'] is not None,('Vision hair needs manual measurement',v['g'])
+    v['hair_method']='face-neighborhood-connected'
+   write(d/'measure.json',vals)
+  ns=np.array([x['n'] for x in vals]);cx=np.array([x['cx'] for x in vals]);hair=min(v for x in vals for v in [x['hair_mp'],x['hair_vision']] if v is not None)
   # Same crop dimensions and approved vertical placement recipe, now using measured silhouettes.
   crops={}
   for aspect in ['9x16','16x9']:
@@ -116,6 +131,11 @@ def captions(aspect):
    cnt=(len(sen)+3)//4;q,r=divmod(len(sen),cnt);start=0
    for j in range(cnt):
     size=q+(j>=cnt-r if r else 0);group=sen[start:start+size];start+=size;cues.append({'text':' '.join(x['w'] for x in group),'t0':group[0]['t0'],'t1':group[-1]['t1']+.06})
+ # R4 self-QA: the breath after 'just for you' ends at 43.15s in the exact approved mix.
+ # Delay this phrase until its audible onset; do not alter any spoken audio or graphic cue.
+ for cue in cues:
+  if cue['text']=='And finally, AI adjusts':cue['t0']=43.14
+  if aspect=='16x9' and cue['text']=='designed just for you.':cue['t1']=min(cue['t1'],42.66)
  states=[];frames={};lastkey=None;active=None;cache={}
  for g in range(N):
   t=g/FPS;hits=[c for c in cues if c['t0']<=t<c['t1']];c=hits[-1] if hits else None
@@ -133,18 +153,19 @@ def captions(aspect):
    if key:
     if key not in cache:
      text,sz,x,y=key;f=caption_font(sz,'ExtraBold');full=Image.new('RGBA',wh);d=ImageDraw.Draw(full);d.text((x,y),text,font=f,fill='white',stroke_width=3,stroke_fill='black');box=full.getbbox();im=full.crop(box);dest=O/'captions'/f'{aspect}-{len(cache):03}.png';im.save(dest);cache[key]=(dest,box,im)
-    dest,box,im=cache[key];active={'beat':[g/FPS,D],'frame0':g,'frame1':N,'image':str(dest),'image_sha256':sha(dest),'pos':list(box[:2]),'rect':list(box),'word':text};states.append(active)
+    dest,box,im=cache[key];active={'beat':[g/FPS,D],'frame0':g,'frame1':N,'image':str(dest),'image_sha256':sha(dest),'pos':list(box[:2]),'rect':[box[0],box[1],box[2]-box[0],box[3]-box[1]],'word':text};states.append(active)
    else:active=None
    lastkey=key
   if key:frames[g]=cache[key]
  write(O/f'caption-states-{aspect}.json',states)
  return frames
-def render():
+def render(aspects=None):
  framing=json.load(open(O/'framing.json'))
  # Encode the approved common sound once. Only the unused 27 ms tail is shortened.
  au=O/'audio/common.m4a'
  if not au.exists():run([FF,'-v','error','-y','-i',W/'round2/audio/warm-bass-final-timing.wav','-t',D,'-c:a','aac','-b:a','192k','-movflags','+faststart',au])
  for aspect,folder,wh in [('9x16','hf9',(1080,1920)),('16x9','hf16',(1920,1080))]:
+  if aspects and aspect not in aspects:continue
   for s in framing:
    out=O/'plates'/f"{s['id']}-{s['n0']}-{aspect}.mp4";nf=s['n1']-s['n0'];c=s['crops'][aspect]
    if out.exists() and int(next(x for x in probe(out)['streams'] if x['codec_type']=='video')['nb_frames'])==nf:continue

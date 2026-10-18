@@ -26,8 +26,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**Main folder merge NEEDS HAND MERGE 2026-10-18, Claude (RO-17).** Main is 97 ahead / 53 behind GitHub; safe-push hits conflicts in 9 files (board, `Handoffs/README.md`, `00-MASTER.md`, `DAN_DECISIONS.md`, `qc_corpus/corpus.json`, `fb_reel_covers.json`, ds05 and ro25-r4 handoffs, RA-16 `r4_save_records.py`). Merge aborted, nothing lost. Next: owners hand-merge. RO-17 pushed from a worktree (da088a3).
-
 **It's Boring, But It Got Me Abs At 40 (RO-27) - R1 REVIEW 2026-10-17, Codex.** Sole editor. Playable R1 at http://127.0.0.1:8932/ with opening, choices and all contextual asset previews. Next: Dan picks colour, voice and AI frame pairs; full film waits on approvals.
 
 **RO-25 thumbnail sync BLOCKED 2026-10-17, Codex.** Final thumbnail C and deferred setup handoff are saved with verified Extreme backups. Commit `4b5b483` remains local; safe-push stopped on live `qc_corpus/corpus.json` and `scripts/blotato/fb_reel_covers.json`, plus stale files listed by the tool. Next: retry after owners clear; do not adopt live edits. Setup handoff is indexed in `Handoffs/README.md` and waits for the approved final film.
@@ -135,8 +133,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-06:POLICY-RECHECK:2026-10-16:Claude.** Ads `828274063389`, `828320387740` in review. Next 10-17: `node scripts/ads/api/client.js policy 24316364155`; clean, delete this.
 
-**RO-17:R5-REVIEW:8880:2026-10-18:Claude.** Final film delivered (A5 = 1 s raisin pour at 2:58.4), review SHIP. Next: Dan confirms, then finalize, clear `Videos to Review`, `review_server.py 8880 --remove`, fire setup handoff.
-
 **RO-14-R1-REVIEW:8964:2026-10-14.**
 
 **RO-18:R2-HANDOFF:2026-10-18:Claude.** Dan answered R1. Card `Make Time Exercise LFC R2` (`Handoffs/handoff-20261015-ro18-round2-full-film.md`). Commit c1203a1 local: push blocked by live edits; next safe-push carries it.
@@ -153,7 +149,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **RO-07 - HOLD 2026-10-11, Claude.** Blotato full. `Docs/RO07_SETUP_RECEIPT_20261011.md`
 
 
-**SL-06:R3-FRAMES:8821:2026-10-18:Claude.** Six AI flex-intro frame pairs (gate + reviewer PASS) and C's credited YouTube thigh clips on :8821, awaiting Dan. Next: on his yes, Flow motion (flow-veo), rebuild six, gates, review. ⚠ Push blocked: main 104 ahead/59 behind, 9-file hand merge (others' files); commit 2ba01bb plus b1e35a1, 2a22a47, 016500c, 014d467 local. Work: `/Volumes/Extreme/_edit_work/sl06/round3/`.
+**SL-06:R3-FRAMES:8821:2026-10-18:Claude.** Six AI flex-intro frame pairs (gate + reviewer PASS) and C's credited YouTube thigh clips on :8821, awaiting Dan. Next: on his yes, Flow motion (flow-veo), rebuild six, gates, review. Work: `/Volumes/Extreme/_edit_work/sl06/round3/`.
 
 **SL-07 HOLD 2026-10-18, Claude.** Covers picked, media and configs ready; Blotato full, five shorts on the waitlist for Dec 21-29. ⚠ Commits 5bbabe6, 481dc9d local only: main folder 103 ahead / 59 behind GitHub, safe-push hand-merge conflict in 9 shared files. Next: hand merge, then push. `Docs/SL07_SETUP_RECEIPT_20261018.md`
 

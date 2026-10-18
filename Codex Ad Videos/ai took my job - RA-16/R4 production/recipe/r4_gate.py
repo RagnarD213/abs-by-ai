@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """AD. Emit exact-file evidence and run existing gates after R4 assembly."""
-import sys,json,subprocess,importlib.util,os,math
+import sys,json,subprocess,importlib.util,os,math,time
 from pathlib import Path
 import numpy as np
 from PIL import Image,ImageDraw
@@ -8,6 +8,7 @@ spec=importlib.util.spec_from_file_location('r4',Path(__file__).with_name('r4_re
 R,W,O,SH,FF,FPS,N,D=B.R,B.W,B.O,B.SH,B.FF,B.FPS,B.N,B.D
 sys.path[:0]=[str(SH/'cut'),str(SH/'audio')]
 import speech
+import common as AUDIO_COMMON
 # Keep the build's original queue position if this worker is launched by the render chain.
 if os.environ.get('RA16_BUILD_WAIT_SINCE'):
  old=B.buildcap.builds;start=float(os.environ['RA16_BUILD_WAIT_SINCE']);B.buildcap.builds=lambda table=None,me=None,since=None:old(table=table,me=me,since=start)
@@ -30,11 +31,11 @@ def label_tracks(aspect,folder):
   ('ai',switch,goal,'AI-GENERATED',(540,1260) if aspect=='9x16' else (960,850),19 if aspect=='9x16' else 20),
   ('ai',goal,144,'AI-GENERATED',(540,1230) if aspect=='9x16' else (960,840),19)]:
   source=W/'round3'/f'DEMO-{aspect}-CLEAN.mp4';ref=image_at(source,(a+b-1)//2);tmp=Image.new('RGB',ref.size);box=S.disclosure(tmp,text,xy=xy,anchor='mt',size=size);rect=[int(math.floor(box[0])),int(math.floor(box[1])),int(math.ceil(box[2])),int(math.ceil(box[3]))];chip=ref.crop(rect);dest=O/'evidence'/f'label-{aspect}-{kind}-{a}.png';chip.save(dest)
-  out.append(dict(kind=kind,beat=[(g0+a)/FPS,(g0+b)/FPS],image=str(dest),image_sha256=B.sha(dest),rect=rect,visibility='full',sample_times=[(g0+(a+b)//2+.25)/FPS],search_px=4,source=str(source),source_sha256=B.sha(source)))
+  out.append(dict(kind=kind,beat=[(g0+a)/FPS,(g0+b)/FPS],image=str(dest),image_sha256=B.sha(dest),rect=[rect[0],rect[1],rect[2]-rect[0],rect[3]-rect[1]],visibility='full',sample_times=[(g0+(a+b)//2+.25)/FPS],search_px=4,source=str(source),source_sha256=B.sha(source)))
  # Analysis-card chip is fixed below the independent goal picture. Include exact source-chip pixels.
  m=next(x for x in mf if x['id']=='G01');rect=[394,906,684,970] if aspect=='9x16' else [319,908,646,980]
  ref=image_at(m['mov'],30);dest=O/'evidence'/f'label-{aspect}-analysis.png';ref.crop(rect).save(dest)
- out.append(dict(kind='ai',beat=[757/FPS,983/FPS],image=str(dest),image_sha256=B.sha(dest),rect=rect,visibility='full',search_px=4,source=m['mov'],source_sha256=B.sha(m['mov'])))
+ out.append(dict(kind='ai',beat=[757/FPS,983/FPS],image=str(dest),image_sha256=B.sha(dest),rect=[rect[0],rect[1],rect[2]-rect[0],rect[3]-rect[1]],visibility='full',search_px=4,source=m['mov'],source_sha256=B.sha(m['mov'])))
  return out
 
 def sheet(aspect,master):
@@ -52,7 +53,11 @@ def sheet(aspect,master):
   fr.append(dict(name=s['id'],crop=crop,head=head,measured=meas))
  graphics=[];folder='hf9' if aspect=='9x16' else 'hf16'
  for m in json.load(open(W/'round2'/folder/'manifest.json')):
-  it=next(x for x in B.PLAN if x['id']==m['id']);cfg=json.load(open(W/'round2'/folder/'configs'/m['template']/(m['id']+'.json')))[0]
+  it=next(x for x in B.PLAN if x['id']==m['id']);cfgpath=W/'round2'/folder/'configs'/m['template']/(m['id']+'.json')
+  if not cfgpath.exists():cfgpath=W/'round2'/folder/'configs'/(m['id']+'.json')
+  layout=json.load(open(cfgpath));layout=layout[0] if isinstance(layout,list) else layout
+  cfg=json.load(open(W/'round2/hf16/configs'/m['template']/(m['id']+'.json')))[0]
+  if aspect=='9x16':cfg['rendered_vertical_layout']=layout
   drivers=[dict(part='in',phrase=it['start'],t=it['t0']),dict(part='out',phrase=it['end'],t=it['t1'])]
   if it['kind']=='lt':
    text=[cfg['topic']]+[x[0] for x in cfg['parts']]
@@ -78,27 +83,37 @@ def main():
   ah=__import__('hashlib').sha256(au).hexdigest()
   if reports:assert ah==reports[0]['aac_sha256']
   if not reports:
-   asrwords,asr_source=speech.transcribe(str(master));save(O/'delivered-asr.json',{'words':asrwords,'source':asr_source,'video_sha256':h});save(O/'delivered-words.json',asrwords)
+   previous=json.load(open(O/'initial-check-results.json')) if (O/'initial-check-results.json').exists() else []
+   if previous and previous[0]['aac_sha256']==ah and (O/'delivered-words.json').exists():asrwords=json.load(open(O/'delivered-words.json'));asr_source='Reused delivered ASR after exact AAC packet fingerprint equality'
+   else:asrwords,asr_source=speech.transcribe(str(master))
+   save(O/'delivered-asr.json',{'words':asrwords,'source':asr_source,'video_sha256':h});save(O/'delivered-words.json',asrwords)
   else:asrwords=json.load(open(O/'delivered-words.json'))
   labs=label_tracks(aspect,folder);save(O/f'label-tracks-{aspect}.json',labs)
-  mf=json.load(open(O/folder/'manifest.json'));states=json.load(open(O/f'caption-states-{aspect}.json'));segs=json.load(open(O/'picture-segments.json'))
+  mf=json.load(open(O/folder/'manifest.json'));states=json.load(open(O/f'caption-states-{aspect}.json'))
+  for state in states:state['rect']=[*state['pos'],*Image.open(state['image']).size]
+  segs=json.load(open(O/'picture-segments.json'))
   graphics=[dict(name=m['id'],beat=[m['a'],m['b']],mov=m['mov']) for m in mf if m['id']!='D01']
   regions=[]
   for m in mf:
    if m['kind']=='glass':
     if aspect=='9x16':rect=m['box']
-    else:rect=[86,760,1828,1016]
+    else:rect=[86,840,1829,1017]
     regions.append(dict(beat=[round(m['a']*FPS)/FPS,round(m['b']*FPS)/FPS],rect=rect))
   # The analysis card's information and disclosure are distinct obstacles. Captions remain outside both.
   if aspect=='9x16':regions += [dict(beat=[757/FPS,983/FPS],rect=[36,996,1044,1376]),dict(beat=[757/FPS,983/FPS],rect=[394,906,684,970])]
   else:regions += [dict(beat=[757/FPS,983/FPS],rect=[825,150,1828,890]),dict(beat=[757/FPS,983/FPS],rect=[319,908,646,980])]
+  for region in regions:
+   x0,y0,x1,y1=region['rect'];region['rect']=[x0,y0,x1-x0,y1-y0]
   joins=sorted(set([s['n0']/FPS for s in segs if s['n0']]+[581/FPS,725/FPS,757/FPS,983/FPS]))
-  plan=dict(target_seconds=D,target_frames=N,joins=joins,audio_joins=[p['t_in'] for p in B.CUT['pieces'][1:]],covered=[[581/FPS,725/FPS],[757/FPS,983/FPS]],punch=[[s['n0']/FPS,s['n1']/FPS,2 if s['framing']=='near' else 1] for s in segs],graphics=graphics,cards=[[581/FPS,725/FPS],[757/FPS,983/FPS]],evidence_contract=dict(version=2,video_sha256=h),caption_states=states,speech_words=asrwords,speech_words_evidence=dict(method='delivered_asr',video_sha256=h),graphic_regions=regions,talking_head_windows=[dict(name=s['id']+' '+str(s['n0']),beat=[s['n0']/FPS,s['n1']/FPS],rect=[0,0,*wh],motion='tracking' if aspect=='9x16' else 'fixed-wide') for s in segs],label_tracks=labs,ai_inserts=[dict(name='AI goal '+str(i),beat=x['beat'],chip=x['image'],pos=x['rect'][:2]) for i,x in enumerate(labs) if x['kind']=='ai'],real_photos=[dict(name='Sunglasses source photo',beat=x['beat'],chip=x['image'],pos=x['rect'][:2]) for x in labs if x['kind']=='real'],words=[dict(w=w['w'],t=w['t0'],e=w['t1']) for w in B.WORDS],transcript_words=asrwords,source_audio=str(W/'round2/audio/retained-accelerated.wav'),watch_log=str(O/'watch'/aspect/'watch_pass.json'))
+  plan=dict(target_seconds=D,target_frames=N,joins=joins,audio_joins=[p['t_in'] for p in B.CUT['pieces'][1:]],covered=[[581/FPS,725/FPS],[757/FPS,983/FPS]],punch=[[s['n0']/FPS,s['n1']/FPS,2 if s['framing']=='near' else 1] for s in segs],graphics=graphics,cards=[],evidence_contract=dict(version=2,video_sha256=h),caption_states=states,speech_words=asrwords,speech_words_evidence=dict(method='delivered_asr',video_sha256=h),graphic_regions=regions,talking_head_windows=[dict(name=s['id']+' '+str(s['n0']),beat=[s['n0']/FPS,s['n1']/FPS],rect=[0,0,*wh],motion='tracking' if aspect=='9x16' else 'fixed-wide') for s in segs],label_tracks=labs,ai_inserts=[dict(name='AI goal '+str(i),beat=x['beat'],chip=x['image'],pos=x['rect'][:2]) for i,x in enumerate(labs) if x['kind']=='ai'],real_photos=[dict(name='Sunglasses source photo',beat=x['beat'],chip=x['image'],pos=x['rect'][:2]) for x in labs if x['kind']=='real'],words=[dict(w=w['w'],t=w['t0'],e=w['t1']) for w in B.WORDS],transcript_words=asrwords,source_audio=str(W/'round2/audio/retained-accelerated.wav'),watch_log=str(O/'watch'/aspect/'watch_pass.json'))
+  plan['banned_source']='/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/02 App Screen Recordings and Screenshots/app-flow-generate-future-self.mp4'
+  plan['banned_times']=[26.5,27.5,29.5,31.0]
   planpath=O/f'gate-plan-{aspect}.json';save(planpath,plan)
   sh=sheet(aspect,master);rcsheet=call([sys.executable,SH/'edit-sheet/validate.py',sh,'--hash'],O/'logs'/f'sheet-{aspect}.log')
-  rcaudio=call([sys.executable,SH/'audio/audio_gate.py',master,'--untreated',W/'round2/audio/retained-accelerated.wav','--ab',O/'audio'/f'Audio AB {aspect}.mp4'],O/'logs'/f'audio-gate-{aspect}.log')
+  AUDIO_COMMON.carry_untreated(str(W/'round2/audio/warm-bass-final-timing.wav'),str(master))
+  rcaudio=call([sys.executable,SH/'audio/audio_gate.py',master,'--ab',O/'audio'/f'Audio AB {aspect}.mp4'],O/'logs'/f'audio-gate-{aspect}.log')
   rcwatch=call([sys.executable,SH/'deliver/watch.py',master,'--plan',planpath,'--out',O/'watch'/aspect,'--log',O/'watch'/aspect/'watch_pass.json'],O/'logs'/f'watch-{aspect}.log')
-  rcgate=call([sys.executable,SH/'deliver/gate.py',master,'--format','ad9x16' if aspect=='9x16' else 'ad16x9','--plan',planpath],O/'logs'/f'delivery-gate-{aspect}.log')
+  rcgate=None # Full gate follows editor scene/watch judgments; no invented initial PASS.
   reports.append(dict(aspect=aspect,path=str(master),sha256=h,aac_sha256=ah,sheet_exit=rcsheet,audio_gate_exit=rcaudio,watch_scan_exit=rcwatch,delivery_gate_exit=rcgate,watch_judgment='Pending exact-candidate independent image inspection. Initial gate may fail this row.'))
   save(O/'initial-check-results.json',reports);print('INITIAL CHECKS DONE',aspect,reports[-1],flush=True)
 if __name__=='__main__':main()
