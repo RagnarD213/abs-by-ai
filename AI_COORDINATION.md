@@ -151,7 +151,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **SL-06:R4-FRAMES:8821:2026-10-18:Claude.** Top 5 Zepbound Tips SFL R4: regenerating six flex-intro pairs (shirtless, real gym, designed poster) and new front-thigh clips for C. Next: gate + reviewer, refresh :8821 for Dan; then Flow motion, rebuild six. Work: `/Volumes/Extreme/_edit_work/sl06/round3/`.
 
-**SL-07 HOLD 2026-10-18, Claude.** Covers picked, media and configs ready; Blotato full, five shorts on the waitlist for Dec 21-29. ⚠ Commits 5bbabe6, 481dc9d local only: main folder 103 ahead / 59 behind GitHub, safe-push hand-merge conflict in 9 shared files. Next: hand merge, then push. `Docs/SL07_SETUP_RECEIPT_20261018.md`
+**SL-07 HOLD 2026-10-18, Claude.** Covers picked, media and configs ready; Blotato full, five shorts on the waitlist for Dec 21-29. Next: the daily top-up routine queues them as slots free. `Docs/SL07_SETUP_RECEIPT_20261018.md`
 
 **RO-12 - QUEUED 2026-10-01, Claude.** Blotato Oct 25. Then: `Docs/RO12_SETUP_RECEIPT_20261001.md`, delete.
 
