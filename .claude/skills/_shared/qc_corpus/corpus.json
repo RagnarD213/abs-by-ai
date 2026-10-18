@@ -1,7 +1,7 @@
 {
   "_README": "THE STANDARD IS DAN'S WORDS, NOT OUR PARAPHRASE. Every entry quotes him verbatim. See README.md.",
   "version": 2,
-  "updated": "2026-10-13",
+  "updated": "2026-10-17",
   "roots": {
     "repo": ".",
     "ssd": "/Volumes/Extreme/_edit_work"
@@ -3349,6 +3349,336 @@
       ],
       "measured": "R2 used source sample interpolation at some cut starts. New exact measured landing and native rendered verification required. Semantic exact landing predicate remains PENDING; no threshold changed.",
       "notes": "Source words transcribed from Dan-R3-note-3.png; instructions in Handoffs/handoff-20261016-ra13-round3-centering-white-man-phone.md. Independent R2 review did not clear this newly rejected centering."
+    },
+    {
+      "id": "ra13-r3-9x16-approved-20261017",
+      "date": "2026-10-17",
+      "root": "repo",
+      "path": "Codex Ad Videos/why do most guys never get abs - RA-13/why do most guys never get abs | codex | 9x16 | RA-13 R3.mp4",
+      "sha256": "6bb5d4767de0e5b922e08b90c43eba9b66c1b4af78ea60b7ce4ea78ea648ce2a",
+      "bytes": 116949752,
+      "verdict": "approved",
+      "dan": "All right this looks good. Give me the handoff for setup",
+      "scope": "Both complete R3 formats approved in this chat; setup handoff requested.",
+      "excerpt": [
+        0,
+        53.92053333333333
+      ],
+      "must_pass": [],
+      "must_trigger": [],
+      "measured": "Fresh independent media review: zero open defects; native watch35/35 and16/16 boundaries. Full exact-file gate 37/39; actual FAIL retained for approved audio/cut metrics.",
+      "notes": "Approval identity: Handoffs/video-editing/RA-13-R3-approval.json. This records Dan approval; it does not alter or bypass any numerical gate."
+    },
+    {
+      "id": "ra13-r3-16x9-approved-20261017",
+      "date": "2026-10-17",
+      "root": "repo",
+      "path": "Codex Ad Videos/why do most guys never get abs - RA-13/why do most guys never get abs | codex | 16x9 | RA-13 R3.mp4",
+      "sha256": "0a58d484df06a7a076dd03b74944c64b498425e1c3462cd766ddfc51a3e6510b",
+      "bytes": 110712956,
+      "verdict": "approved",
+      "dan": "All right this looks good. Give me the handoff for setup",
+      "scope": "Both complete R3 formats approved in this chat; setup handoff requested.",
+      "excerpt": [
+        0,
+        53.92053333333333
+      ],
+      "must_pass": [],
+      "must_trigger": [],
+      "measured": "Fresh independent media review: zero open defects; native watch35/35 and16/16 boundaries. Full exact-file gate 36/39; actual FAIL retained for approved audio/cut metrics and horizontal wide head size.",
+      "notes": "Approval identity: Handoffs/video-editing/RA-13-R3-approval.json. This records Dan approval; it does not alter or bypass any numerical gate."
+    },
+    {
+      "id": "ds28-r5-approved-20261017",
+      "date": "2026-10-17",
+      "root": "repo",
+      "path": "Short-form video content/Meal Prep - DS-28/Meal Prep SFC R5 - complete Short.mp4",
+      "sha256": "200afaaab059109b3fc168624136c0bb074d809d521d733ffee5b94ddf4298da",
+      "bytes": 124841554,
+      "verdict": "approved",
+      "dan": "All right everything looks good. This is finalized. Give me the handoff for setup",
+      "scope": "Complete R5 Short finalized in this chat; setup handoff requested.",
+      "excerpt": [
+        0,
+        59.5595
+      ],
+      "must_pass": [],
+      "must_trigger": [],
+      "measured": "Gate2.6.0:30 measured PASS,6FAIL,3N/A,0 NOT MEASURED. Approved fixed audio tone/framing/cut and legacy caption detector flags retained. Independent review:41images,19joins,17camera holds,no confirmed new media defect.",
+      "notes": "Exact approval: Handoffs/video-editing/DS-28-R5-approval.json. Records human approval without changing gates, thresholds or stamps."
+    },
+    {
+      "id": "ro25-r5-medication-two-hand-rejected-20261017",
+      "date": "2026-10-17",
+      "root": "ssd",
+      "path": "RO-25/round5/motion/1-DESK-r5-take1.mp4",
+      "sha256": "21de2b89866c904e39cfd3072f46fdc153f68a0ea9cad358b2128460ed8e1696",
+      "bytes": 7350180,
+      "verdict": "rejected",
+      "dan": "He takes a pill from his left hand, then from his right hand. That doesn't really make sense. He should only be taking the pill from one hand not a pill from each hand. Regenerate so he takes the pill from one hand only, from his right hand, and then he drinks the water with his left hand",
+      "scope": "Whole R5 medication take; earlier automated and independent PASS contradicted by Dan. Body-relative right hand supplies exactly one swallowed pill; body-relative left hand holds water.",
+      "excerpt": [
+        0,
+        10.1
+      ],
+      "must_trigger": [
+        "motion:handedness_and_single_pill"
+      ],
+      "must_pass": [],
+      "measured": "Dan observed second pill action from opposite hand; R5 motion gate and independent PASS are invalid for this requirement.",
+      "notes": "Pending motion-semantic check. Keep take withheld; test all native action and cause/effect before any R6 publication."
+    },
+    {
+      "id": "ro26-r5-approved-20261017",
+      "date": "2026-10-17",
+      "root": "repo",
+      "path": "Codex Content Videos/Top 1 Percent - RO-26/Top 1 Percent | codex | 16x9 | RO-26.mp4",
+      "sha256": "395cd8fb4c99d0c235e9df691c8256e333d21a0f4efa09b60be53126fd6d24ce",
+      "bytes": 169874229,
+      "verdict": "approved",
+      "dan": "All right this looks great. This is approved. Go ahead and finalize this and give me the handoff for setup",
+      "scope": "Complete exact R5 film approved as-is after disclosed review, finalized for separate thumbnail/setup handoff.",
+      "excerpt": [
+        0,
+        303.7367666667
+      ],
+      "must_pass": [],
+      "must_trigger": [],
+      "measured": "Exact-file complete gate 2.6.1 FAIL: 31 PASS, 8 FAIL, 0 unmeasured, 39 rows. Strict audio FAIL; untreated do-no-harm PASS. Three inherited 3-frame crop flashes retained. Independent native scene/action review complete.",
+      "notes": "Exact approval: Handoffs/video-editing/RO-26-R5-approval.json. Human approval does not change technical FAIL stamps. No film re-render or gate threshold change."
+    },
+    {
+      "id": "ro04-r1-opening-0",
+      "verdict": "approved-with-notes",
+      "date": "2026-10-17",
+      "root": "repo",
+      "path": "Media/video-edits/RO-04/round1/Arms Shoulders Workout LFC R1 - first minute.mp4",
+      "sha256": "7c477da0d6c473e1ef01b693e6f2bee5eb3228da0cf031c44f5f4783bf36a15b",
+      "dan": "The first minute and everything is looking good except the color correction. I think slightly warm was the best but I don't like any of these options. I feel like they're all a little washed out and the colors aren't saturated or vivid enough. Give me a few more options with more saturated and vivid colors.\n\nFor the frame the closer with headroom is almost there but reduce that headroom by about 20%. Everything else looks good. Give me the handoff for the next round of edits",
+      "must_trigger": [],
+      "must_pass": [],
+      "measured": "Opening content, edit, timing and audio approved; camera color and headroom remain open",
+      "notes": "Preserve all but requested color and crop changes; partial approval is scoped, not a whole-file artistic approval."
+    },
+    {
+      "id": "ro04-r1-colors-A-B-C-0",
+      "verdict": "rejected",
+      "date": "2026-10-17",
+      "root": "repo",
+      "path": "Media/video-edits/RO-04/round1/stills/colour-A-12.jpg",
+      "sha256": "bf58fe0c1436f30b618d123ae3785cc8a41c880cee6254b6e6e79bd19f0a3b3e",
+      "dan": "The first minute and everything is looking good except the color correction. I think slightly warm was the best but I don't like any of these options. I feel like they're all a little washed out and the colors aren't saturated or vivid enough. Give me a few more options with more saturated and vivid colors.\n\nFor the frame the closer with headroom is almost there but reduce that headroom by about 20%. Everything else looks good. Give me the handoff for the next round of edits",
+      "must_trigger": [
+        "style:colour_vividness"
+      ],
+      "must_pass": [],
+      "measured": "All three colors rejected as washed out. Slightly warm B preferred only as a starting point, not approved",
+      "notes": "Three meaningfully richer warm options on matching frames and moving samples; partial approval is scoped, not a whole-file artistic approval."
+    },
+    {
+      "id": "ro04-r1-colors-A-B-C-1",
+      "verdict": "rejected",
+      "date": "2026-10-17",
+      "root": "repo",
+      "path": "Media/video-edits/RO-04/round1/stills/colour-A-78.jpg",
+      "sha256": "a49d89b59e06a2ac93dad73e74355ab06d4bd0c575b181b2303a6f26977625fd",
+      "dan": "The first minute and everything is looking good except the color correction. I think slightly warm was the best but I don't like any of these options. I feel like they're all a little washed out and the colors aren't saturated or vivid enough. Give me a few more options with more saturated and vivid colors.\n\nFor the frame the closer with headroom is almost there but reduce that headroom by about 20%. Everything else looks good. Give me the handoff for the next round of edits",
+      "must_trigger": [
+        "style:colour_vividness"
+      ],
+      "must_pass": [],
+      "measured": "All three colors rejected as washed out. Slightly warm B preferred only as a starting point, not approved",
+      "notes": "Three meaningfully richer warm options on matching frames and moving samples; partial approval is scoped, not a whole-file artistic approval."
+    },
+    {
+      "id": "ro04-r1-colors-A-B-C-2",
+      "verdict": "rejected",
+      "date": "2026-10-17",
+      "root": "repo",
+      "path": "Media/video-edits/RO-04/round1/stills/colour-B-12.jpg",
+      "sha256": "321b7db64d70e063c377ee643e7791495802e69cb06d3f4b8d08c66c70a2dff8",
+      "dan": "The first minute and everything is looking good except the color correction. I think slightly warm was the best but I don't like any of these options. I feel like they're all a little washed out and the colors aren't saturated or vivid enough. Give me a few more options with more saturated and vivid colors.\n\nFor the frame the closer with headroom is almost there but reduce that headroom by about 20%. Everything else looks good. Give me the handoff for the next round of edits",
+      "must_trigger": [
+        "style:colour_vividness"
+      ],
+      "must_pass": [],
+      "measured": "All three colors rejected as washed out. Slightly warm B preferred only as a starting point, not approved",
+      "notes": "Three meaningfully richer warm options on matching frames and moving samples; partial approval is scoped, not a whole-file artistic approval."
+    },
+    {
+      "id": "ro04-r1-colors-A-B-C-3",
+      "verdict": "rejected",
+      "date": "2026-10-17",
+      "root": "repo",
+      "path": "Media/video-edits/RO-04/round1/stills/colour-B-78.jpg",
+      "sha256": "06dcc787416ec9998597f7b6be545d3c8021ab5c78fdbf27d3804223f871807c",
+      "dan": "The first minute and everything is looking good except the color correction. I think slightly warm was the best but I don't like any of these options. I feel like they're all a little washed out and the colors aren't saturated or vivid enough. Give me a few more options with more saturated and vivid colors.\n\nFor the frame the closer with headroom is almost there but reduce that headroom by about 20%. Everything else looks good. Give me the handoff for the next round of edits",
+      "must_trigger": [
+        "style:colour_vividness"
+      ],
+      "must_pass": [],
+      "measured": "All three colors rejected as washed out. Slightly warm B preferred only as a starting point, not approved",
+      "notes": "Three meaningfully richer warm options on matching frames and moving samples; partial approval is scoped, not a whole-file artistic approval."
+    },
+    {
+      "id": "ro04-r1-colors-A-B-C-4",
+      "verdict": "rejected",
+      "date": "2026-10-17",
+      "root": "repo",
+      "path": "Media/video-edits/RO-04/round1/stills/colour-C-12.jpg",
+      "sha256": "d03f9427b2f3914efe761802abe3c0a23ff526814a76f3d9c1ab2603361a1d53",
+      "dan": "The first minute and everything is looking good except the color correction. I think slightly warm was the best but I don't like any of these options. I feel like they're all a little washed out and the colors aren't saturated or vivid enough. Give me a few more options with more saturated and vivid colors.\n\nFor the frame the closer with headroom is almost there but reduce that headroom by about 20%. Everything else looks good. Give me the handoff for the next round of edits",
+      "must_trigger": [
+        "style:colour_vividness"
+      ],
+      "must_pass": [],
+      "measured": "All three colors rejected as washed out. Slightly warm B preferred only as a starting point, not approved",
+      "notes": "Three meaningfully richer warm options on matching frames and moving samples; partial approval is scoped, not a whole-file artistic approval."
+    },
+    {
+      "id": "ro04-r1-colors-A-B-C-5",
+      "verdict": "rejected",
+      "date": "2026-10-17",
+      "root": "repo",
+      "path": "Media/video-edits/RO-04/round1/stills/colour-C-78.jpg",
+      "sha256": "654e97c555bdf09a20160fdfe7f97952d3193134173838b4ed9246ea6a228550",
+      "dan": "The first minute and everything is looking good except the color correction. I think slightly warm was the best but I don't like any of these options. I feel like they're all a little washed out and the colors aren't saturated or vivid enough. Give me a few more options with more saturated and vivid colors.\n\nFor the frame the closer with headroom is almost there but reduce that headroom by about 20%. Everything else looks good. Give me the handoff for the next round of edits",
+      "must_trigger": [
+        "style:colour_vividness"
+      ],
+      "must_pass": [],
+      "measured": "All three colors rejected as washed out. Slightly warm B preferred only as a starting point, not approved",
+      "notes": "Three meaningfully richer warm options on matching frames and moving samples; partial approval is scoped, not a whole-file artistic approval."
+    },
+    {
+      "id": "ro04-r1-crop-B-0",
+      "verdict": "approved-with-notes",
+      "date": "2026-10-17",
+      "root": "repo",
+      "path": "Media/video-edits/RO-04/round1/stills/crop-B-12.jpg",
+      "sha256": "9f01cf9f8e3895263e130eed26dc28e799e2e976e0d1446cc139413307cc9918",
+      "dan": "The first minute and everything is looking good except the color correction. I think slightly warm was the best but I don't like any of these options. I feel like they're all a little washed out and the colors aren't saturated or vivid enough. Give me a few more options with more saturated and vivid colors.\n\nFor the frame the closer with headroom is almost there but reduce that headroom by about 20%. Everything else looks good. Give me the handoff for the next round of edits",
+      "must_trigger": [],
+      "must_pass": [],
+      "measured": "Closer with headroom accepted as base; reduce space above hair about20%, not a20% whole-frame zoom",
+      "notes": "Measure and reduce headroom; preserve hair and complete exercise action; partial approval is scoped, not a whole-file artistic approval."
+    },
+    {
+      "id": "ro04-r1-crop-B-1",
+      "verdict": "approved-with-notes",
+      "date": "2026-10-17",
+      "root": "repo",
+      "path": "Media/video-edits/RO-04/round1/stills/crop-B-78.jpg",
+      "sha256": "95536efc56cf6cff7d595d7a9d0662272acbf10d30244771970abef858044a4b",
+      "dan": "The first minute and everything is looking good except the color correction. I think slightly warm was the best but I don't like any of these options. I feel like they're all a little washed out and the colors aren't saturated or vivid enough. Give me a few more options with more saturated and vivid colors.\n\nFor the frame the closer with headroom is almost there but reduce that headroom by about 20%. Everything else looks good. Give me the handoff for the next round of edits",
+      "must_trigger": [],
+      "must_pass": [],
+      "measured": "Closer with headroom accepted as base; reduce space above hair about20%, not a20% whole-frame zoom",
+      "notes": "Measure and reduce headroom; preserve hair and complete exercise action; partial approval is scoped, not a whole-file artistic approval."
+    },
+    {
+      "id": "ro04-r1-G01-G05-and-audio-0",
+      "verdict": "approved",
+      "date": "2026-10-17",
+      "root": "repo",
+      "path": "Media/video-edits/RO-04/round1/stills/G01.jpg",
+      "sha256": "08d9f0da4d71d9e877d0b1a3b21a92df7fab463b1de50cb428167cfb2120de1f",
+      "dan": "The first minute and everything is looking good except the color correction. I think slightly warm was the best but I don't like any of these options. I feel like they're all a little washed out and the colors aren't saturated or vivid enough. Give me a few more options with more saturated and vivid colors.\n\nFor the frame the closer with headroom is almost there but reduce that headroom by about 20%. Everything else looks good. Give me the handoff for the next round of edits",
+      "must_trigger": [],
+      "must_pass": [],
+      "measured": "All other reviewed elements, including timer designs, rest treatment and original audio",
+      "notes": "Reuse without redesign or a new approval question; partial approval is scoped, not a whole-file artistic approval."
+    },
+    {
+      "id": "ro04-r1-G01-G05-and-audio-1",
+      "verdict": "approved",
+      "date": "2026-10-17",
+      "root": "repo",
+      "path": "Media/video-edits/RO-04/round1/stills/G02.jpg",
+      "sha256": "2896fa5b3062f70e83d881a985f4012e018b4ae2aa52a0d867a87018d7f85523",
+      "dan": "The first minute and everything is looking good except the color correction. I think slightly warm was the best but I don't like any of these options. I feel like they're all a little washed out and the colors aren't saturated or vivid enough. Give me a few more options with more saturated and vivid colors.\n\nFor the frame the closer with headroom is almost there but reduce that headroom by about 20%. Everything else looks good. Give me the handoff for the next round of edits",
+      "must_trigger": [],
+      "must_pass": [],
+      "measured": "All other reviewed elements, including timer designs, rest treatment and original audio",
+      "notes": "Reuse without redesign or a new approval question; partial approval is scoped, not a whole-file artistic approval."
+    },
+    {
+      "id": "ro04-r1-G01-G05-and-audio-2",
+      "verdict": "approved",
+      "date": "2026-10-17",
+      "root": "repo",
+      "path": "Media/video-edits/RO-04/round1/stills/G03.jpg",
+      "sha256": "91541b0d63fca13bbd07baff4f95ea9d19dcdbaeb3df525f5fe2d5a30530e7ce",
+      "dan": "The first minute and everything is looking good except the color correction. I think slightly warm was the best but I don't like any of these options. I feel like they're all a little washed out and the colors aren't saturated or vivid enough. Give me a few more options with more saturated and vivid colors.\n\nFor the frame the closer with headroom is almost there but reduce that headroom by about 20%. Everything else looks good. Give me the handoff for the next round of edits",
+      "must_trigger": [],
+      "must_pass": [],
+      "measured": "All other reviewed elements, including timer designs, rest treatment and original audio",
+      "notes": "Reuse without redesign or a new approval question; partial approval is scoped, not a whole-file artistic approval."
+    },
+    {
+      "id": "ro04-r1-G01-G05-and-audio-3",
+      "verdict": "approved",
+      "date": "2026-10-17",
+      "root": "repo",
+      "path": "Media/video-edits/RO-04/round1/stills/G04.jpg",
+      "sha256": "aee1ab1a877d91c7c5d69f5da28b2762ede90bbf890834406acd827b986904d1",
+      "dan": "The first minute and everything is looking good except the color correction. I think slightly warm was the best but I don't like any of these options. I feel like they're all a little washed out and the colors aren't saturated or vivid enough. Give me a few more options with more saturated and vivid colors.\n\nFor the frame the closer with headroom is almost there but reduce that headroom by about 20%. Everything else looks good. Give me the handoff for the next round of edits",
+      "must_trigger": [],
+      "must_pass": [],
+      "measured": "All other reviewed elements, including timer designs, rest treatment and original audio",
+      "notes": "Reuse without redesign or a new approval question; partial approval is scoped, not a whole-file artistic approval."
+    },
+    {
+      "id": "ro04-r1-G01-G05-and-audio-4",
+      "verdict": "approved",
+      "date": "2026-10-17",
+      "root": "repo",
+      "path": "Media/video-edits/RO-04/round1/stills/G05.jpg",
+      "sha256": "d85de09a44926062f92aa52889018b4cdd11b5561786d3cbe10d92b7d561118c",
+      "dan": "The first minute and everything is looking good except the color correction. I think slightly warm was the best but I don't like any of these options. I feel like they're all a little washed out and the colors aren't saturated or vivid enough. Give me a few more options with more saturated and vivid colors.\n\nFor the frame the closer with headroom is almost there but reduce that headroom by about 20%. Everything else looks good. Give me the handoff for the next round of edits",
+      "must_trigger": [],
+      "must_pass": [],
+      "measured": "All other reviewed elements, including timer designs, rest treatment and original audio",
+      "notes": "Reuse without redesign or a new approval question; partial approval is scoped, not a whole-file artistic approval."
+    },
+    {
+      "id": "ro04-r1-G01-G05-and-audio-5",
+      "verdict": "approved",
+      "date": "2026-10-17",
+      "root": "repo",
+      "path": "Media/video-edits/RO-04/round1/context/G04-context.mp4",
+      "sha256": "f38b1bc4f93b59412ce0fc05515b6fb69f29a3c83ade56b0ebeaeeee1c719211",
+      "dan": "The first minute and everything is looking good except the color correction. I think slightly warm was the best but I don't like any of these options. I feel like they're all a little washed out and the colors aren't saturated or vivid enough. Give me a few more options with more saturated and vivid colors.\n\nFor the frame the closer with headroom is almost there but reduce that headroom by about 20%. Everything else looks good. Give me the handoff for the next round of edits",
+      "must_trigger": [],
+      "must_pass": [],
+      "measured": "All other reviewed elements, including timer designs, rest treatment and original audio",
+      "notes": "Reuse without redesign or a new approval question; partial approval is scoped, not a whole-file artistic approval."
+    },
+    {
+      "id": "ro04-r1-G01-G05-and-audio-6",
+      "verdict": "approved",
+      "date": "2026-10-17",
+      "root": "repo",
+      "path": "Media/video-edits/RO-04/round1/context/G05-context.mp4",
+      "sha256": "5157f5bb69352f3fb04bfcda8572c274b6aabea38f9b3b06a75d2c50256ff9e0",
+      "dan": "The first minute and everything is looking good except the color correction. I think slightly warm was the best but I don't like any of these options. I feel like they're all a little washed out and the colors aren't saturated or vivid enough. Give me a few more options with more saturated and vivid colors.\n\nFor the frame the closer with headroom is almost there but reduce that headroom by about 20%. Everything else looks good. Give me the handoff for the next round of edits",
+      "must_trigger": [],
+      "must_pass": [],
+      "measured": "All other reviewed elements, including timer designs, rest treatment and original audio",
+      "notes": "Reuse without redesign or a new approval question; partial approval is scoped, not a whole-file artistic approval."
+    },
+    {
+      "id": "ro04-r1-G01-G05-and-audio-7",
+      "verdict": "approved",
+      "date": "2026-10-17",
+      "root": "repo",
+      "path": "Media/video-edits/RO-04/round1/audio/audio-AB.mp4",
+      "sha256": "be074defa1fe37e199057e450d115ac2f370f4bdac559a508ffc2396c53e0205",
+      "dan": "The first minute and everything is looking good except the color correction. I think slightly warm was the best but I don't like any of these options. I feel like they're all a little washed out and the colors aren't saturated or vivid enough. Give me a few more options with more saturated and vivid colors.\n\nFor the frame the closer with headroom is almost there but reduce that headroom by about 20%. Everything else looks good. Give me the handoff for the next round of edits",
+      "must_trigger": [],
+      "must_pass": [],
+      "measured": "All other reviewed elements, including timer designs, rest treatment and original audio",
+      "notes": "Reuse without redesign or a new approval question; partial approval is scoped, not a whole-file artistic approval."
     }
   ]
 }

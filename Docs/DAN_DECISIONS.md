@@ -6,7 +6,8 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 
 ---
 
-- **I'm 41 Wasted Life LFC R4 motion allowance (Updated: 2026-10-17; Decision since: 2026-10-17):** $4.90/$5 estimated including five withheld failed takes. Authorize up to $4.55 more (cumulative cap $9.45) for the specified five retries and four newly approved pairs, or retain presenter footage? Invoice unavailable. Bass 2, revised frames and first-minute pacing are approved. Independent credit/recap/audio changes can proceed. [Handoff](../Handoffs/handoff-20261017-ro25-r4-selected-voice-ai-inserts-and-credits.md).
+- **I'm 41 Wasted Life LFC R6 — medication motion allowance (Updated: 2026-10-17; Decision since: 2026-10-17):** R5 feedback is recorded for the R6 handoff. Motion spend is estimated $14.70 of $15; a ten-second retry at the prior rate costs $0.70, reaching $15.40. Approve a new bounded allowance before paid regeneration; independent free revisions may proceed. Detail: `Handoffs/handoff-20261017-ro25-r6-point-intros-physical-clock-and-trims.md`.
+
 
 - **Belly Fat Emergency early copies (09-23):** the Sep 23 FB reel is still live; only a permanent delete exists (Business Suite → Content → ⋯ → Manage post → Delete post). Dan deletes it, or leaves it.
 - **TikTok covers on older posts (09-22):** every post before Sep 16 still shows a screenshot; TikTok's

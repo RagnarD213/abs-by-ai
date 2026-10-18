@@ -540,5 +540,23 @@
     "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds-05_why-having-abs-beats-being-a-fat-millionaire-cover-F3.jpg",
     "w": 1080,
     "h": 1920
-  }
+  },
+  {
+    "match": "Stop cooking your own meals.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/Meal Prep - DS-28/setup/meal-prep-instagram-approved.jpg",
+    "w": 1080,
+    "h": 1920,
+    "job": "DS-28",
+    "when": "2026-10-24T14:00:00.000Z",
+    "schedule": "5694638"
+  },
+  {
+    "match": "I'm 41, I have six-pack abs, I'm a multimillionaire and a Brazilian Jiu-Jitsu black belt, and in this video I'm going to show you the four things I did right that made my life so much better.",
+    "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/Top 1 Percent/Top 1 Percent - thumbnail FINAL.jpg",
+    "w": 1280,
+    "h": 720,
+    "job": "RO-26",
+    "when": "2026-10-26T14:00:00.000Z"
+  },
+  {"match": "I turned 41 and felt like I had wasted my life. These are the six decisions I wish I could take back.", "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Codex Content Videos/Im 41 Wasted Life - RO-25/Im 41 I Wasted My Life - thumbnail FINAL.jpg", "w": 1280, "h": 720, "job": "RO-25", "when": "2026-10-19T17:00:00.000Z"}
 ]

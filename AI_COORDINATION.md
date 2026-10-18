@@ -63,7 +63,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **Arms & Shoulders Workout Only (RO-04) - R2 REVIEW 2026-10-17, Codex.** Three vivid colors, revised headroom, first minute and overhead check delivered on port 8974. Exact-file gate PASS; public Drive media verified. Next: Dan chooses A/B/C; no full film yet. Git sync blocked by live corpus/covers/setup edits; own claim 514f12e local. Records: `Handoffs/video-editing/ro04-round2-plan/review-receipt.json`.
 **COVERS:MOBILE:2026-10-15:Docs/COVER_AUDIT_20261015.md**
 
-**Calories Not Losing Weight SFL R2 - BUILD 2026-10-17, Codex.** Sole editor under the R1 handoff. Five selections locked, no pickups. Next: source/continuity checks and narrated Soft Blue HyperFrames asset-review packet. No covers or publishing. Detail: `Handoffs/handoff-20261017-sl08-round2-five-approved-shorts.md`.
+**Calories Not Losing Weight SFL R2 - REVIEW 2026-10-17, Codex.** Five selections preserved; 19 narrated asset excerpts independently checked. Dan reviews clips/graphics: http://127.0.0.1:8998/. Next: apply approval or revisions, then complete five Shorts and final gates. No covers/publishing. Receipt: `Handoffs/results-20261017-sl08-r2-asset-review.md`.
 
 **SL-09:PICKS:2026-10-15:Claude.**
 
