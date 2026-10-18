@@ -110,7 +110,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-06:POLICY-RECHECK:2026-10-16:Claude.** Ads `828274063389`, `828320387740` in review. Next 10-17: `node scripts/ads/api/client.js policy 24316364155`; clean, delete this.
 
-**RO-17:R4-REVIEW:8880:2026-10-15:Claude.**
+**RO-17:R5-REVIEW:8880:2026-10-18:Claude.** Final film delivered (A5 = 1 s raisin pour at 2:58.4), review SHIP. Next: Dan confirms, then finalize, clear `Videos to Review`, `review_server.py 8880 --remove`, fire setup handoff.
 
 **RO-14-R1-REVIEW:8964:2026-10-14.**
 

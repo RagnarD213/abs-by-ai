@@ -173,3 +173,8 @@ for _it in PLAN:
     if _it["id"] == "A3": _it["chip"] = ((54, 54), "lt")
     if _it["id"] == "A10": _it["chip"] = ((40, 40), "lt", 1.5)   # re-review 3: his raised arm passes under the top-right chip in the last second; no full-size corner is clear, a 3/4-size chip top left keeps 56 px from him on every frame
     if _it["id"] == "A5": _it["max_len"] = 3.40; _it["chip"] = ((54, 54), "lt")   # re-review: top right sat on the arm tipping the cup
+# round 5 (Dan, 2026-10-17): "make this extremely brief, just around 2:58 to 2:59: a very brief clip of the raisins going into the hand...
+# The longer clip looks weird because the hand is frozen in place." Only the pour: take frames 42-67 of A5.mp4 (1.75-2.83 s of the clip,
+# raisins falling from the tipped cup into the palm on every frame), on "water in it fills you up", then back on Dan.
+for _it in PLAN:
+    if _it["id"] == "A5": _it.update(start="water in it fills you up", src=[f"{_MF}/A5.mp4@1.745"], max_len=1.08)

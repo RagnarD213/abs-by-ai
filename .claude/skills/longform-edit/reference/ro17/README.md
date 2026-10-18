@@ -99,3 +99,14 @@ The independent check of the round 2 page (29 findings, all fixed or explained b
     the arm tipping the cup), and a third review the same on A10 (his raised arm under the chip in the last second, where no
     full-size corner is clear): 3 of 8 heads-only chip corners failed. A10 got a 3/4-size chip top left (`chip=((40,40),"lt",1.5)`,
     `gfx.ai_chip(u=)`, `finish.chip_png(u=)`). Mask every frame of a clip against the chip box plus a ring before the render.
+
+## Round 5 (2026-10-18): the brief clip Dan asked for
+26. **"The hand looks frozen" on a 3.4 s AI pour: cut to the 1 s where the object actually moves.** Dan asked for A5 at about 1 s. Measure
+    frame-to-frame change on the clip (`mean |diff|` and the share of pixels over 12 levels at 480x270), then look at a crop of the action
+    every 2 frames: the take moved from 0.5 to 2.9 s, the raisins fell visibly from 1.75 to 2.82 s. `src=[f"{_MF}/A5.mp4@1.745"]`,
+    `max_len=1.08`, start phrase moved to "water in it fills you up". The resolve rule slid the clip +0.16 s so it ends exactly on the next
+    framing cut (no presenter island). 1.07 s read as one whole action; the reviewer called anything under about 0.8 s a flash.
+27. **Prove "only this changed" with a full-film diff before review:** 192x108 grey decode of both masters, mean |diff| per frame; only the old
+    A5 span moved (max 0.19 levels elsewhere). It lets the reviewer and Dan skip the rest of a film he already approved.
+28. **`review_server.py` can fail with `launchctl bootstrap ... status 5`** when the port's old service is half-gone; `launchctl bootout
+    gui/501/com.absbyai.review.<port>` (it may say "No such process") and run the command again.
