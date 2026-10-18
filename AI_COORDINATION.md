@@ -69,7 +69,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Calories Not Losing Weight SFL R2 - REVIEW 2026-10-17, Codex.** Five selections preserved; 19 narrated asset excerpts independently checked. Dan reviews clips/graphics: http://127.0.0.1:8998/. Next: apply approval or revisions, then complete five Shorts and final gates. No covers/publishing. Receipt: `Handoffs/results-20261017-sl08-r2-asset-review.md`.
 
-**SL-09:R2-ACTIVE:2026-10-18:Claude.** Oura Ring Review SFL R2 building shorts A, H, I, J, K in `/Volumes/Extreme/_edit_work/sl09/round2/`. Next: B-roll, render, gates, review page.
+**SL-09:R3-HANDOFF:2026-10-18:Claude.** Five shorts built; reviewers sent back A, H, K, J fixes (I review pending). Next: fire `Handoffs/handoff-20261018-sl09-oura-shorts-r3-fix-review-findings.md` (Oura Ring Review SFL R3). Nothing sent to Dan yet.
 
 
 
@@ -153,7 +153,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **RO-07 - HOLD 2026-10-11, Claude.** Blotato full. `Docs/RO07_SETUP_RECEIPT_20261011.md`
 
 
-**SL-06:R3-FRAMES:8821:2026-10-18:Claude.** Six AI flex-intro frame pairs (gate + reviewer PASS) and C's credited YouTube thigh clips on :8821, awaiting Dan. Next: on his yes, Flow motion (flow-veo), rebuild six, gates, review. Work: `/Volumes/Extreme/_edit_work/sl06/round3/`.
+**SL-06:R3-FRAMES:8821:2026-10-18:Claude.** Six AI flex-intro frame pairs (gate + reviewer PASS) and C's credited YouTube thigh clips on :8821, awaiting Dan. Next: on his yes, Flow motion (flow-veo), rebuild six, gates, review. ⚠ Push blocked: main 104 ahead/59 behind, 9-file hand merge (others' files); commit 2ba01bb plus b1e35a1, 2a22a47, 016500c, 014d467 local. Work: `/Volumes/Extreme/_edit_work/sl06/round3/`.
 
 **SL-07 HOLD 2026-10-18, Claude.** Covers picked, media and configs ready; Blotato full, five shorts on the waitlist for Dec 21-29. ⚠ Commits 5bbabe6, 481dc9d local only: main folder 103 ahead / 59 behind GitHub, safe-push hand-merge conflict in 9 shared files. Next: hand merge, then push. `Docs/SL07_SETUP_RECEIPT_20261018.md`
 
