@@ -1,5 +1,16 @@
 [
  {
+  "config": "scripts/blotato/configs/ro25-wasted-my-life.json",
+  "kind": "longform",
+  "job": "RO-25",
+  "label": "I'm 41. I Wasted My Life.",
+  "added": "2026-10-17",
+  "queued": {
+   "found": "2026-10-17",
+   "main": "2026-10-18T14:00:00.000Z"
+  }
+ },
+ {
   "config": "scripts/blotato/configs/ro19-my-first-spray-tan.json",
   "kind": "longform",
   "job": "RO-19",
@@ -159,7 +170,14 @@
   "kind": "longform",
   "job": "RO-26",
   "label": "I'm 41. I'm Top 1%. How I Did It.",
+  "added": "2026-10-17"
+ },
+ {
+  "config": "scripts/blotato/configs/ro13-alcohol-and-abs.json",
+  "kind": "longform",
+  "job": "RO-13",
+  "label": "Can You Drink Alcohol And Still Have Abs? (My 6 Rules)",
   "added": "2026-10-17",
-  "release_hold": "RO-25 public watch URL and earlier release must be verified first. See Docs/RO26_SETUP_RECEIPT_20261017.md."
+  "note": "Four Dec 30-31 schedules removed at Dan request to secure RO-25 Sun Oct 18. Exact backup Docs/RO25_CAPACITY_REMOVED_RO13_20261017.json. Restore on original 2026 date when capacity opens."
  }
 ]

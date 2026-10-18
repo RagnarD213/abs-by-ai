@@ -1,0 +1,47 @@
+# I'm 41. I Wasted My Life. setup receipt, 2026-10-17
+
+**Sunday October 18 release check, about 9:15 AM Chicago time:** YouTube published the film at 9:00:13 AM and reports processing succeeded, public and embeddable. Watch URL: https://www.youtube.com/watch?v=xyi-B_5tccw. The public channel's first long-form tile visibly shows finalized thumbnail C. Studio shows the same cover, exact title, description and AI disclosure. The seven saved keyword tags were added and saved in Studio. The approved question was posted, pinned and verified by the public label "Pinned by @danrosefit"; its local ledger was marked. Facebook 5699402 and Instagram 5699403 remain in the live queue for Monday October 19 at noon Chicago time. RO-26's previous-video URL was updated and its release hold cleared. The site imported RO-25 at https://sixpackabs.com/videos/im-41-i-wasted-my-life/ (post 886); its full 1,042-word article remains a draft file pending the 10:30 AM article routine. The English SRT remains local and captions are not yet present on the public video. Studio's current UI opened an empty timing editor, and the existing YouTube OAuth token lacks the caption-upload scope. Do not count captions or article publication as complete until verified.
+
+**CONTENT, long-form. Dan approved the exact R7 film on October 17. The live Blotato schedules were created and read back: YouTube Sunday October 18 at 9 AM Chicago time, Facebook and Instagram Monday October 19 at noon. Nothing is public yet. TikTok is a direct release after YouTube is verified public.**
+
+## Approved film and locked thumbnail
+
+- Dan's film approval: `Codex Content Videos/Im 41 Wasted Life - RO-25/approval.json`. His words: "All right this looks good. Mark, this is finalized and I've already made the handoff for setup".
+- Approved master: `Codex Content Videos/Im 41 Wasted Life - RO-25/Im 41 Wasted Life | codex | 16x9 | RO-25.mp4`. SHA256 `6045ac0e61b6323934477c5c60a3cdca095e658ef689b8493717cf50e82848a7`, 407,067,395 bytes, 11:51.144, 1920x1080, 21,313 frames at 30000/1001 fps.
+- Matching SRT: `Im 41 Wasted Life | codex | 16x9 | RO-25.srt`, 21,835 bytes, SHA256 `ec57030e8849b5414f027e850e2008aa8b62c62bab95a228cf3b3b7079bde5a1`. Last cue ends at 11:50.725. Chapter starts were checked against this exact film's delivered chapter file and transcript.
+- The editor's 65-file finalization manifest matches every filed source. The exact master and sidecars have a verified byte-matching Extreme backup. The film's historical technical gate remains FAIL with seven failing classes and six unmeasured rows. Dan's approval is recorded separately; no check was relabeled.
+- Dan's final choice is thumbnail C, used without design changes. `Im 41 I Wasted My Life - thumbnail FINAL.jpg`: 1280x720, 410,326 bytes, SHA256 `d7c8a844889a350552c07f029176ad4282a5e5cd8f2e6619649c404965f70223`.
+
+## Copies and media checks
+
+- Project package: `Codex Content Videos/Im 41 Wasted Life - RO-25/`.
+- Extreme backup: `/Volumes/Extreme/Codex Content Videos/Im 41 Wasted Life - RO-25/`. Approved master, SRT and thumbnail match the project hashes.
+- Google Drive: [approved film package](https://drive.google.com/drive/folders/1prfWWYTJ3NsTc4dzMFPQq8qPS6yU5tac). Live permission metadata shows anyone with the link can read the folder. Drive master, SRT and JPEG SHA256 values match the approved source files.
+- Blotato copy, made only to fit platform upload limits: 157,250,582 bytes, SHA256 `7a20c28aa125293976bafbd1098aea114e9efc643e5d641160cb8f04948ea583`. Runtime 11:51.144, video 21,313 frames and audio 33,336 packets match the master. Hosted copy was downloaded and SHA256 checked: https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/174127ad-d6d0-4a2f-878f-06e442b6ae8f.mp4.
+- Hosted cover was downloaded and matched to the exact approved JPEG: https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/cbbe15d1-5086-4832-b34c-4d548295231d.jpg. Both YouTube and Instagram config fields use this URL. Facebook's repository and live cover registries point at byte-matching copies of the approved JPEG.
+- Direct TikTok cover-first file: `tiktok-cover-first.mp4` in the project package, with an Extreme copy. SHA256 `9b000ec37999b2d7d14a5aac9b7ed9639da2a3694a076a2e2ff0450284dc66ef`, 157,392,879 bytes. It has 21,314 frames, the same 33,336 audio packets, no decode errors and measured frame-zero cover PSNR 52.70 dB. Actual frame zero was inspected and shows thumbnail C centered with blurred side fill.
+
+## Packaging
+
+- YouTube title: **I'm 41. I Wasted My Life.**
+- Config: `scripts/blotato/configs/ro25-wasted-my-life.json`; description: `youtube-description.md` beside the master. Both use the organic AbsByAI.com root link with `utm_campaign=longform` and `utm_content=ro25-wasted-my-life`.
+- Chapters: 0:00 opening; 0:30 medication experience; 2:57 health and money; 4:32 sleep; 5:32 dating; 7:02 appearance; 8:24 AI; 9:46 recap.
+- Organic classification: the final film ends with a subscribe invitation for the next video and no button CTA. `content_type` is organic. Realistic AI scenes in the film require `ai_generated: true`; the thumbnail alone was not used to set that flag. The description notes that labeled AI scenes are present.
+- Pinned comment: "Which regret hit closest to home: sleep, health, dating, looks, or waiting to use AI?" The existing daily routine can post and pin it after release.
+- Article draft: `sixpackabs/articles/TBD-ro25-wasted-my-life.md`, 1,042 words, `build.py --check` OK. Two linked live article pages returned HTTP 200. The existing article routine can publish it after the YouTube video is public.
+- YouTube and Instagram hosted cover decode checks passed. Facebook cover registry and live installer hash checks passed. The pre-release live cover audit found zero issues. Public platform tiles remain unverified until release.
+
+## Calendar and queue
+
+- YouTube schedule **5699404**: Sunday October 18, 2026 at 9 AM America/Chicago. Facebook schedule **5699402** and Instagram schedule **5699403**: Monday October 19 at noon. A fresh live pull confirmed all three times, exact RO-25 UTM marker, approved cover URLs on YouTube and Instagram, and the YouTube synthetic-media flag. Queue count after scheduling was 198/200. The post-queue cover audit reported zero issues. These are saved schedules, not public posts or public-cover verification.
+- The first dry run found the queue at 199/200, with room for only one of three required posts. Dan explicitly authorized removing the last queued video if needed to secure this Sunday release. The latest scheduled video was **Can You Drink Alcohol And Still Have Abs? (RO-13)** on December 30/31. Its four exact schedules and full payloads were backed up in `Docs/RO25_CAPACITY_REMOVED_RO13_20261017.json`, then removed and verified absent. RO-13 was added to the existing video waitlist with its December 30 target intact. It is not currently scheduled; the normal daily top-up must restore it when capacity opens. No other video or photo post was removed.
+- RO-25's existing waitlist entry is marked queued to prevent a duplicate. No per-video queue routine was created.
+- Direct TikTok target: Monday October 19 at noon, after YouTube is verified public. The cover-first file and exact caption are ready in the project package. No TikTok post has been uploaded or scheduled.
+- One-time Codex follow-ups are active: `verify-ro-25-after-9-am-release` for Sunday October 18, 9:15 AM Chicago time to verify the public YouTube release and complete post-release setup, and `release-ro-25-tiktok` for Monday October 19, 11:45 AM Chicago time to handle the direct TikTok release after confirming YouTube is public. The first Sunday follow-up fired at 4:15 AM Chicago time because its rule was interpreted in UTC; it was paused and replaced with the corrected one. At 4:15 AM the live queue still showed YouTube schedule 5699404 for 14:00 UTC and Facebook/Instagram schedules 5699402/5699403 for Monday 17:00 UTC. These are follow-ups and queued posts, not proof of publication.
+- No direct Public YouTube upload, native YouTube schedule, Private holding copy, new per-video queue routine or duplicate Shorts job was made.
+
+## After the scheduled release
+
+1. Verify the YouTube video is public and capture its real watch URL. If delayed, postpone Facebook, Instagram and TikTok. Check the public YouTube and Instagram covers, the Facebook installer result and the TikTok static grid image.
+2. Upload the direct TikTok cover-first copy on the approved release day with the prepared caption. Add the YouTube SRT and saved keyword tags after its public ID exists. Check the pinned comment and article routine results.
+3. Once RO-25 is public, put its actual watch URL in the RO-26 setup and clear that video's release hold only after verifying release order. Preserve the existing SL-18 Shorts job. Confirm the normal top-up restores displaced RO-13 on its December 30 slot before its release.

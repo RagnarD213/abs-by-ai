@@ -19,7 +19,7 @@ date at setup.
 
 | Date | Video | Status |
 |---|---|---|
-| Sun Oct 18 | RO-25 I'm 41. I Wasted My Life. | Not finished (Dan finishing it for this date) |
+| Sun Oct 18 | RO-25 I'm 41. I Wasted My Life. | YouTube public https://www.youtube.com/watch?v=xyi-B_5tccw at 9:00 AM; Facebook/Instagram live schedules Oct 19 noon |
 | Wed Oct 21 | RO-19 My First Spray Tan | Waitlist (TikTok uploaded by hand Thu Oct 22) |
 | Sun Oct 25 | RO-26 I'm 41. My Life Is Top 1%. | Not finished |
 | Wed Oct 28 | RO-01 Keep Your Muscle While You Lose Fat | Live (TikTok uploaded by hand Thu Oct 29) |
@@ -40,7 +40,7 @@ date at setup.
 | Sun Dec 20 | RO-16 If I Had Belly Fat, 90 Days | Live |
 | Wed Dec 23 | RO-11 When Calories Don't Matter | Live |
 | Sun Dec 27 | RO-10 Calories: The Reason You're Not Losing Weight | Live (YouTube only; socials went out Oct 8) |
-| Wed Dec 30 | RO-13 Can You Drink Alcohol And Still Have Abs? | Live |
+| Wed Dec 30 | RO-13 Can You Drink Alcohol And Still Have Abs? | Waitlist, four schedules removed Oct 17 to secure RO-25; original date retained |
 
 **2027, tentative:** Sundays RO-24, RO-29, RO-31, RO-23; Wednesdays RO-04, RO-09, RO-15, RO-18, RO-14, RO-17 (weakest
 first by the ranking). RO-32 waits for gym B-roll; RO-33 to RO-36 are not filmed.

@@ -1,5 +1,7 @@
 # RO-26 Top 1 Percent setup receipt, 2026-10-17
 
+**October 18 release dependency update:** RO-25 is public and processing succeeded at https://www.youtube.com/watch?v=xyi-B_5tccw. Its previous-video URL is now in the RO-26 config and the release hold has been cleared in both the config and video waitlist. Earlier statements below that RO-25 is not public are historical setup observations. RO-26 still requires its own live queue readback before anyone calls it scheduled or released.
+
 **CONTENT, long-form. State: approved thumbnail installed in the release package; media uploaded and verified; release on explicit hold. No YouTube, Facebook, Instagram or TikTok post is queued or public from this setup.**
 
 ## Approval and selected cover
@@ -81,3 +83,5 @@ Source code/config/article commits include `8e62d12` and `cc49ab4`. Safe-push is
 Full setup evidence: `/Volumes/Extreme/_edit_work/ro26-setup-20261017/` (verification JSON, original writer prompts, media readbacks, live queue snapshot, sharing checks and chapter stills).
 
 The executed setup handoff was moved out of the OPEN index into Recently retired. Handoffs/README.md and fb_reel_covers.json include other owners' pre-existing edits, so those mixed files are preserved locally rather than adopting foreign changes in this task's commit. Both local operational records already include RO-26.
+
+Final safe-push attempt: local commit `26275a9` retained; exit 2 before merging because three mixed/live files belonged to active work. No push completed. Local commits and operational files remain intact. The final receipt was refreshed in both delivery folders and backed up to Drive.
