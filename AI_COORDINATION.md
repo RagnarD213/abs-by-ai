@@ -151,7 +151,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **RO-07 - HOLD 2026-10-11, Claude.** Blotato full. `Docs/RO07_SETUP_RECEIPT_20261011.md`
 
 
-**SL-06:R4-FRAMES:8821:2026-10-18:Claude.** Top 5 Zepbound Tips SFL R4: regenerating six flex-intro pairs (shirtless, real gym, designed poster) and new front-thigh clips for C. Next: gate + reviewer, refresh :8821 for Dan; then Flow motion, rebuild six. Work: `/Volumes/Extreme/_edit_work/sl06/round3/`.
+**SL-06:R4-REVIEW:8821:2026-10-18:Claude.** Top 5 Zepbound Tips SFL R4: six shirtless gym intro pairs (gate + reviewer PASS) and three new front-thigh clips for C on :8821, awaiting Dan. Next: on his yes, Flow motion (flow-veo, prompt "points at the poster"), rebuild six, gates, review. Work: `/Volumes/Extreme/_edit_work/sl06/round3/`.
 
 **SL-07 HOLD 2026-10-18, Claude.** Covers picked, media and configs ready; Blotato full, five shorts on the waitlist for Dec 21-29. Next: the daily top-up routine queues them as slots free. `Docs/SL07_SETUP_RECEIPT_20261018.md`
 
