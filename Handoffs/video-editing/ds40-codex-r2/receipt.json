@@ -71,5 +71,6 @@
   "independent_audit": "complete; minor hair fringe remains 8-9 seconds; ready for calibration review only",
   "round_external_review_cost_usd": 0.0517,
   "browser_verification": "HTTP 206 range; muted playback and seek; A/B/C switches and hair comparison loaded; final three-choice page inspected",
-  "raw_media_modified": false
+  "raw_media_modified": false,
+  "queue_status": "Master row delivered awaiting Dan; DS-40 rev 5 note verified by connected Drive readback. Codex records committed and pushed."
 }
