@@ -205,3 +205,35 @@ unchanged), `page5_20.py` (port 8868; the 10-13 page is kept as `index-r3-desk.h
 - **The pickup lav's floor sits higher than the treated film's** (-43 to -50 dBFS against -50 after level match), so the film's room tone was not added under it:
   the floor rises at the join instead of dropping. Two words flat-top for up to 5 samples (P2 at 60.25 s, P3's first word): not audible, left alone.
 - **Whisper medium.en confirmed every take word for word against the approved scripts** before anything was built; P2 is take 1 (take 2 drops a clause).
+
+## Round 4 (2026-10-18): the three full films from parts of the one cut, pickups laid in, four review loops
+
+Scripts: `films_r4.py` (each video a list of parts: `film f0 f1 [bare]`, `pickup Pn`, `handle s0 s1 shot`; picture per part, stream-copy concat; voice = the
+film voice sliced at the part frames + the pickup voices as they are + treated room tone under roll handles; untreated twin for the gate; the RO-07 bed;
+`voice_chain.py --finish-only --bed`), `finish_r4.py` (SRT, chapters on spoken phrases, chips, plan.json per video), `chain_r4_picture.sh`,
+`chain_r4_post.sh`, `deliver_r4.sh`, `page6_20.py`. All review fixes are applied IN MEMORY in `films_r4.py` (the approved plan files are untouched).
+
+- **An RGB round trip is not neutral.** Re-encoding an approved segment through `scale=in_color_matrix=bt709...,format=rgb24,scale=out_color_matrix...`
+  made it 2 grey levels darker. Pickup segments are re-encoded with `-vf format=yuv420p` only (0.04 to 0.2 levels from the approved file); film footage
+  goes through `render_picture` itself (roll handles included), so it matches the film around it.
+- **The approved review clips' joins carried their own artefacts.** The round 3b join script's `aformat=channel_layouts=stereo` on a mono pickup played it
+  about 3 dB low, and its `fps` filter added a frame after each pickup. The films use the treatment's own level (matched to the film's speech) and exact
+  frames; tell Dan the pickups now sit level with the kitchen voice.
+- **Missing approved asset:** `ro06/round5/phone/P01-softblue.mp4` (the self-generation demo) had been deleted. Rebuilt from RO-06's own `phone_demo.py`
+  and `softblue.py` (copied, OUT changed) into `round4/phone/`; a 40-frame render matched the approved clip at 0.12 to 0.16 grey levels, zero bias.
+  Register it in the clip library so it has a permanent home.
+- **Camera skips look like jump cuts.** Roll C1511 skips a beat in places (consecutive roll frames, 40 px head jump): 345.11 and 2628.23. The shot list
+  had put a reframe exactly there; the pinned round 1 solve held both sides tight. Fix: wide on one side (patch `_SEGS` after `all_segments`), checking
+  that the other neighbour is not a same-size different take.
+- **Removing a cutaway exposes what it covered.** Before taking one out, list the presenter segments under it: same take + same crop is safe; two takes
+  at one size (vac2|vac3) need a size change. Removed under the standing rules: four posing/standing clips (B0429, B0458, B0438, B0459), two clips a
+  lower third sat on (head at the bottom of handstand reps, abs in V-ups), the near-black beer can, the AI leg curl's floating pad (its first shot kept).
+- **A lower third crossing a trim, or sitting empty:** make a re-timed copy of its ProRes (and mask): keep the entrance (frames 0 to 18), resume where
+  the main line is about to reveal (`select='lt(n,19)+gte(n,K)'`), start it K-19 frames later. The reveal stays on its word. Gb20 (trim) and Gf24,
+  Gf25, Ge32, Gf08 (3 to 8 s with only the top line).
+- **Watch judges and reviewers find different things.** Judges caught the camera skips, a label on a passer-by's face, dark/blue stock (lifted with
+  `curves 0/0 0.06/0.09 0.20/0.32 0.50/0.66 1/1`, plus warmth on blue shots); reviewers caught stray words from dropped sentences in the SRT (filter words
+  by their midpoint, not their start), chapters that start after the topic's first sentence (anchor chapters on spoken phrases), drug-name spellings.
+  Expect three loops on a long film; move a reviewed file aside (`r4a/`, `r4b/`) and symlink it while its reviewer is still reading.
+- **Session restarts kill subagents** (an expired login) and orphan background waits; a `pkill -f "chain ... v3"` missed a lane waiting in
+  `buildcap.wait`, which then rendered in parallel. Check `ps` after every lane change.

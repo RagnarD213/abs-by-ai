@@ -240,7 +240,7 @@ def render_picture(a, b, out, f0, f1, segs, HCOMP):
         for it in items:
             if it["kind"] == "clip" and fr(it["t0"]) <= g < fr(it["t1"]):
                 im = next(readers[it["id"]])
-                if it.get("label") and not it.get("label_in_picture"): G.ai_chip(im)     # P01 / P02 carry their label inside the clip (phone_demo.py)
+                if it.get("label") and not it.get("label_in_picture"): G.ai_chip(im, *it["chip_at"]) if it.get("chip_at") else G.ai_chip(im)   # round 4: chip_at = ((x, y), anchor) moves one clip's chip     # P01 / P02 carry their label inside the clip (phone_demo.py)
         if HCOMP.active(g): im = Image.fromarray(HCOMP.apply(np.asarray(im), g))
         enc.stdin.write(im.tobytes())
     enc.stdin.close(); enc.wait(); dec.wait()
