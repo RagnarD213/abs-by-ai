@@ -62,10 +62,10 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Voice P2C commits UNPUSHED 2026-10-16, Claude.** Two local commits (bench fix, pilot results) wait on main; safe-push stopped on live edits to the board, DAN_DECISIONS, 00-MASTER, jobs.json. Next: any safe-push from the main folder carries them; then delete this.
 
-**Arms & Shoulders Workout Only (RO-04) - R2 REVIEW 2026-10-17, Codex.** Three vivid colors, revised headroom, first minute and overhead check delivered on port 8974. Exact-file gate PASS; public Drive media verified. Next: Dan chooses A/B/C; no full film yet. Git sync blocked by live corpus/covers/setup edits; own claim 514f12e local. Records: `Handoffs/video-editing/ro04-round2-plan/review-receipt.json`.
+**Arms & Shoulders Workout Only (RO-04) - R2 REVIEW 2026-10-19, Codex.** Review panel on port 8974 repaired. Playback, clip switches, timeline and 4x speed checked silently. Three vivid colors, headroom, first minute and overhead check await Dan. Next: choose A/B/C; no full film yet. Records: `Handoffs/video-editing/ro04-round2-plan/panel-repair-20261019.json`.
 **COVERS:MOBILE:2026-10-15:Docs/COVER_AUDIT_20261015.md**
 
-**Calories Not Losing Weight SFL R2 - REVIEW 2026-10-17, Codex.** Five selections preserved; 19 narrated asset excerpts independently checked. Dan reviews clips/graphics: http://127.0.0.1:8998/. Next: apply approval or revisions, then complete five Shorts and final gates. No covers/publishing. Receipt: `Handoffs/results-20261017-sl08-r2-asset-review.md`.
+**Calories Not Losing Weight SFL R2 - REVIEW 2026-10-19, Codex.** Dan confirms the panel works and approves audio. New fasting/protein intro revisions recorded; next-round handoff is in Handoffs/README.md. No complete Shorts approved. No covers/publishing. Do not click Dan's active review panel.
 
 **SL-09:R3-REVIEW:8989:2026-10-18:Claude.** Five Oura shorts delivered: every independent review SHIP, every delivery gate PASS. Page :8989; VLC copies of shorts 1, 2, 3, 5. Next: Dan's notes and his call on three AI frame ideas (J1, J2, K1). Short 3 carries Zeeshan's cropped AI Tesla clip: AI flag at setup.
 

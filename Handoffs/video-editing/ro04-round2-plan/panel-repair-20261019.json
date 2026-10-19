@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-19",
+  "request": "The review panel isn't working. Fix that",
+  "url": "http://127.0.0.1:8974/",
+  "changes": [
+    "Start playback directly from the click rather than waiting on a potentially missed metadata event.",
+    "Show playback status and recover from loading/play failures.",
+    "Add independent timeline, five-second backward/forward buttons, replay and play/pause controls.",
+    "Return to a visible opening frame after a clip ends.",
+    "Reserve video aspect ratio and remove smooth auto-scroll during clip changes."
+  ],
+  "browser_checks": {
+    "first_minute": "plays and pauses",
+    "color_A_B_C": "all switch and play, readyState 4, no media errors",
+    "old_reference": "plays",
+    "overhead_check": "plays and pauses",
+    "timeline": "seek to 45 seconds confirmed, Back 5s confirms 40 seconds",
+    "forward_5s": "4.756929 to 9.756929 confirmed",
+    "ended": "color A returns to 0, paused, readyState 4, Finished message",
+    "speed": "4x confirmed then restored 1x",
+    "final_state": "paused and muted",
+    "responsive": "existing narrow panel and wide fixed dock inspected"
+  },
+  "http_range_check": {
+    "http_status": 206,
+    "content_range": "bytes 100000-100099/14712298",
+    "received_bytes": 100
+  },
+  "media_changed": false,
+  "approval_status": "Color A/B/C still pending; full film not built"
+}
