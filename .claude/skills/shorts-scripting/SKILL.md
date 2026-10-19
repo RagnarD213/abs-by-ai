@@ -679,3 +679,11 @@ doc already ends with a blank paragraph) — the third paste of the session did 
 and landed clean. Also: a paste sent immediately after `navigate` can silently no-op
 because the editor doesn't have focus yet — ALWAYS verify by Drive re-read, never by
 the screenshot alone (the no-op looks identical to success at the top of the doc).
+
+**39 - 2026-10-19, 27 gym how-to shorts. THE OPENER GETS MORE EFFORT THAN THE BODY.** Dan rewrote 23 of 26
+openers and almost nothing else: "you're more just writing the whole script at the same effort level." Lesson 11's
+deictic "THIS is the..." became a bare label ("This is the pull-up.") and he replaced every one with a ranking claim
+("Pull-ups are the king of back exercises"), an attack on the popular alternative ("Stop doing squats - the leg press
+machine is way better"), or the look the viewer wants ("peaked, attention-getting biceps"). Lesson 11 still applies
+only when the THIS-sentence itself makes a claim. The four moves and the before/after pairs: `../_shared/HOOKS.md`,
+"Exercise and how-to openers". Write the opener last, after the body, and spend the most time on it.

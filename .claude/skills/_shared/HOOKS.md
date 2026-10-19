@@ -28,7 +28,9 @@ writing effort, not the least.
      membership."
    - a first-person proof claim only Dan can make: "I've never written a single line of code,
      and AI built my entire app."
-   - a deictic open on something visible on screen: "THIS robot mows your lawn by itself..."
+   - a deictic open on something visible on screen: "THIS robot mows your lawn by itself..." Only when
+     the same sentence makes a claim. A bare label ("This is the pull-up.", "See this exercise right
+     here?") is not a hook: Dan rewrote all 15 of them on 2026-10-19 (section below).
    - a line that picks a fight with an institution: "Your teachers are going to hate this video."
 3. **By second 5 the viewer knows what HE gets for staying.** Name the payoff in his terms: hours
    back, belly fat gone, abs, better grades, a price he already pays. A personal story or a topic
@@ -57,3 +59,29 @@ writing effort, not the least.
   topic stop scrolling? Does sentence two tell him what he gets? If either answer is no, rewrite.
 - Long-form and VSL: the same rules govern the first 30 seconds, and the stopper still has to land
   in the first 5.
+
+## Exercise and how-to openers: Dan's rewrites, 2026-10-19 (23 of 26 rewritten)
+
+Gym shorts for the 10/23 shoot. Dan: the bodies were strong, the beginnings were "very informational, claudish,
+straightforward" and not attention-getting. "Put more effort into the beginning... every word counts in those
+first few sentences." What he wrote instead, in four moves. Use them before anything else for a how-to:
+
+1. **Rank the exercise, in absolutes.** "Pull-ups are the king of back exercises." "Dips are the king of triceps
+   exercises." "Preacher curls are the best exercise for building peaked, attention-getting biceps." "This machine
+   is the key to building a wide back and a V-taper physique."
+2. **Attack the popular alternative and name the winner.** "Stop doing squats - the leg press machine is way
+   better." "Stop doing bench press. The chest press machine is a way safer and more effective way to build your
+   pecs." "Stop doing military presses." "Chest flies are far superior to bench press." "Stop doing flat bench
+   press. It's one of the stupidest exercises in the gym." Safety is part of the win: "without the risk of injury",
+   "and they're safer".
+3. **Name the look the viewer wants, in his words:** a wide back and a V-taper physique, strong, defined, blocky
+   abs, thick legs, well-balanced aesthetic legs, peaked biceps, an aesthetic chest, defined six pack abs.
+4. **Then a short "Here's how to do them (right)."** "But most guys are doing them wrong" is his bridge when the
+   body corrects form.
+
+Never again as sentence one: "This is the X.", "See this exercise right here?", "This right here is...", "Here's how
+to do X" with no claim before it, and a "If you want to lose your belly fat..." preamble standing in for a claim.
+Before and after (mine, then his): "This is the hamstring curl, and here's how to do it with good form." became
+"Hamstring curls are the key to building well-balanced aesthetic legs." "I don't do flat bench press, and here's
+why." became "Stop doing flat bench press. It's one of the stupidest exercises in the gym."
+Full list: `Docs/COPYEDIT_GYM_SHORTS_1023_AS_DELIVERED_20261019.md`.

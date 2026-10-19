@@ -232,7 +232,8 @@
 - [Review pages seek](review-page-must-seek.md): review_server.py only; http.server cannot scrub
 - [Shorts cadence](shorts-release-cadence.md): DS Thu; long-form Shorts Mon/Tue/Fri/Sat; 3 per film
 - [Video titles](video-title-not-code.md): title first, code optional
+- [Engagement ads](engagement-ads-all-campaigns.md): all 3 campaigns, 4 ads
+- [Hooks get most effort](hooks-need-most-effort.md): rank it, attack the alternative, name the look; never 'This is the X'
 - [Execute Dan's picks](execute-dans-explicit-picks.md): build exactly what he names
 - [Allegations not facts](allegations-not-fact.md): never mentioned unless Dan asks
 - [Assessment symmetry](assessment-symmetry.md): one standard, swap test, results
-- [Engagement ads](engagement-ads-all-campaigns.md): all 3 campaigns, 4 ads
