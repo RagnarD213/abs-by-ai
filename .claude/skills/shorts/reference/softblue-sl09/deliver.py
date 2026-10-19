@@ -87,7 +87,11 @@ def plan(S):
                    rect=[0, 0, 1080, 1920], word=s.cues[i]["text"].split()[0]) for i, c in enumerate(s.caps)]
     words = json.load(open(f"{d}/words.json"))
     regions = [dict(name="title_band", beat=[0.0, round(dur, 4)], rect=[0, 0, 1080, 310]),
-               dict(name="wordmark_talk", beat=[0.0, round(dur, 4)], rect=[64, 1800, 260, 50])]
+               ]
+    wm_cut = [beat(sh) for sh in shots if sh["kind"] == "psolo"]; t_ = 0.0     # the wordmark is not drawn while the phone is alone on screen
+    for a_, b_ in wm_cut + [[round(dur, 4), round(dur, 4)]]:
+        if a_ - t_ > 0.05: regions.append(dict(name=f"wordmark_talk{len(regions)}", beat=[round(t_, 4), round(a_, 4)], rect=[64, 1800, 260, 50]))
+        t_ = b_
     for m in s.man:
         regions.append(dict(name=m["id"], beat=[m["a"], m["b"]], rect=[m["box"][0], m["box"][1], m["box"][2] - m["box"][0], m["box"][3] - m["box"][1]]))
     # the rebuilt film graphics (scenes.py) are drawn above canvas y 1380 and leave the caption band (from 1412) clear, so captions run
@@ -95,7 +99,7 @@ def plan(S):
     for sh in shots:
         if sh["kind"] in ("scene", "hf"): regions.append(dict(name=f"scene_{sh['cover']['id']}", beat=beat(sh), rect=[0, 310, 1080, 1070]))      # our scenes keep everything above canvas y 1380
         if sh["kind"] == "psolo":                                  # the phone alone: its bezel outline (shell 520 x 1075 at 1.0, bezel 24..590 x 22..1250 at 1.2x), captions start 28 px under it
-            k = Bt.PS_K; px0 = (1080 - round(624 * k)) // 2; regions.append(dict(name=f"phone_{sh['cover']['id']}", beat=beat(sh), rect=[px0 + round(24 * k), Bt.PS_Y + round(22 * k), round(566 * k), round(1228 * k)]))
+            k = Bt.PS_K; px0 = (1080 - round(624 * k)) // 2; rz = sh["cover"].get("rise", 0); regions.append(dict(name=f"phone_{sh['cover']['id']}", beat=beat(sh), rect=[px0 + round(24 * k), Bt.PS_Y + round(22 * k) - rz, round(566 * k), round(1228 * k) + rz]))      # rise: the phone's whole travel
     thw = []
     shell = np.asarray(Bt.phone_shell())[..., 3] > 40; ys, xs = np.where(shell)          # the phone's real outline (not its shadow)
     for sh in shots:
@@ -141,7 +145,7 @@ def plan(S):
     pl["negative_events_scan"] = dict(sha256=h, when=datetime.datetime.now().isoformat(timespec="seconds"), frames_checked=int(dur) + 1,
         method="one frame per second (watch-pass contact sheets; " + (lambda w: f"judged image by image by {w['judged_by']}, {w.get('open_defects')} open defect(s)" if w.get("judged_by") and w.get("sha256") == h else "scanned by the builder only, the independent judge has not run on this file yet")(json.load(open(f"{G}/logs/watch_pass.json")) if os.path.exists(f"{G}/logs/watch_pass.json") else {}) + ") plus every shot's first, "
                "middle and last frame on the build's proof sheets; the footage is Dan clothed in a tank top talking in Zeeshan's studio shots, Pexels and library "
-               "B-roll (people clothed, no belly framing), Dan's real Oura app screens in a phone frame, and our Soft Blue scenes; no AI clips",
+               "B-roll (people clothed, no belly framing), Dan's real Oura app screens in a phone frame, and our Soft Blue scenes; " + ("AI clips: " + ", ".join(x["name"] for x in ai) + " (each with the AI-GENERATED chip)" if ai else "no AI clips"),
         findings=[])
     json.dump(pl, open(f"{G}/plan.json", "w"), indent=1)
     print(S, "plan", f"{G}/plan.json", "joins", len(joins), "covered", len(covered), "cues", len(states))

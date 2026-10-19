@@ -17,6 +17,8 @@ render_all.sh S..            plan, gfx, render each short in turn, waiting for a
 post.py S..                  deliver.py copy (audio gate --verbatim, REVIEW 540p, delivered ASR, plan) + watch.py, per short
 rungate.sh S                 the delivery gate (never from a shell line that says gate.py)
 export_stills.py S.., decided.py, page_r1.py (+ notes_r1.py)   the round-1 page: stills, context clips, one floating player
+chain_r3.sh S..              R3: render_all + fix_tp + clear stale watch images + post, per short (queue several with a wait-for-done shell)
+r3/brief.py S                R3: the independent reviewer's brief for one short (file sha, sources, what changed, standing rules, judge + audit jobs)
 ```
 
 ## What is different from SL-07
@@ -55,3 +57,42 @@ export_stills.py S.., decided.py, page_r1.py (+ notes_r1.py)   the round-1 page:
   meaninglessly; declare the man as `may_change`, lock the kitchen with `lockstill.py`, and let the reviewer judge his anatomy.
   Lock with a box over START's head as well: START's fine flyaway hairs escaped the person mask and were copied back as two stray
   strands on the cabinet (frame-reviewer FAIL).
+
+## What round 2's reviews taught (SFL R3, 2026-10-18)
+
+- **An editor's animated zoom is not a cut.** `cutframes.py` reported Zeeshan's zoom starts (930.43, 940.27) as cuts, so the shot
+  split there and the window hopped sideways or snapped size in the middle of his zoom, mid-word (reviewer H D2, D3). Before a
+  ZCUT splits a shot, check the source is discontinuous there: per-frame scale through a real cut jumps; through his zoom it
+  runs smoothly (0.95-0.99 or 1.03-1.05 per frame). Keep one window through a zoom; put the size step on his real hard cut.
+- **Night driving in a vertical is mostly black sky.** A 16:9 road clip filled into 1080 x 1610 puts the horizon near y 1150
+  and leaves the top two thirds empty; a gamma lift then turns it into a flat grey screen (reviewer H D5). Zoom 1.7 at fy 0.95
+  lifts the horizon to about y 660 so road and lights fill the picture, and `curves=all='0/0 0.06/0.04 0.3/0.42 1/1'` lifts
+  the mids while black stays black.
+- **A stock gag runs to its payoff.** The alarm-clock opener cut away with the hammer raised (reviewer A D2); it now runs to the
+  hit and cuts to Dan in the next word gap. Look at the clip's whole action before trimming its end.
+- **A call-out on a phone screen must win against the screen.** A thin outline in the app's own blue read as the app's
+  selected row while "Sleep Score 90 Optimal" stayed the biggest thing (reviewer K D1). `psolo` `hl` now takes `dim` (the
+  rest of the screen to 35 %), a warm `color` and `arrow` (an arrow beside the phone that bobs for its whole screen time).
+- **A caption never ends before its last word.** The "cue ends on a cut in its last 10 frames" rule cut three cues mid-word;
+  it now applies only when the cut falls after the cue's last word ends.
+- **Check a reviewer's word timing on the waveform before moving a caption.** A reviewer's Whisper put a word 0.5 s early;
+  the 50 ms level print showed the CTC timing was right.
+- **No Oura ring or WHOOP stock exists** (Pexels: wedding bands, branded straps). The film's own ring footage (5:48-5:57) has
+  Dan talking behind his hand, so lips would not match the short's audio; the ring and band are AI frame ideas (J1, J2) for Dan.
+- **The delivery gate's framing rows on an editor's master.** `framing:headroom` grades only TRACKED holds (fixed crops are
+  exempt): a crop that follows Dan must anchor his hair 30-70 normalized px down. Fix it in the window, not with a waiver:
+  `wh`/`y0` per shot (a slightly smaller window starting lower), or `y0k` keys that glide the top edge inside the editor's own
+  zoom when his zoom moves the hair. `framing:push_coverage` wants two holds at the main framing at least 1.1x apart: a
+  punch-in (`SPLIT`) on a WIDE shot at a sentence break, never on a near shot (captions land on his mouth).
+- **Every cover you remove may have been hiding one of his lower thirds.** Before dropping a clip, list his graphics in that
+  span (`gfxspan.py`); short 3's restless-man clip was also covering "High Adrenaline Driving Can Disrupt Your Sleep".
+- **An editor's AI clip with a flaw can come back cropped.** His AI Tesla clip (speed read 190 against a spoken 120) works at
+  zoom 1.22, fy 1.0: the zoom drops his burned "*AI Generated" text off the top whole and the window leaves the speed display
+  out; our chip goes on.
+- **The phone alone (`psolo`):** the recording fills the whole rounded screen (538 x 1200 at radius 65), cropped above the
+  recording's own home bar; `rise` px keeps it moving; the AbsByAI.com mark is not drawn under it (two-line captions under
+  the phone touched it: gate `captions:graphic_clearance`). Pick recording stretches by a frame-change map so no screen
+  switch or bounce sits at either end.
+- **A long pause inside one piece trips `junk:dead_air` (max 1.0 s):** `TRIM` takes the middle out (audio cut only).
+- **Reviewer word disputes:** score the candidates with forced alignment (WAV2VEC2 path log-probability) before changing a
+  caption; "near bedtime" beat "in your bedtime" (-32 / -69), "your behavior" beat "their behavior" (-95 / -116).

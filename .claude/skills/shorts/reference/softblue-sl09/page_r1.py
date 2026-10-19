@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""SL-09 round 1 review page (Oura Ring Review SFL R2). PRE-RENDER-APPROVAL layout: header, decisions, the five finished shorts,
+"""SL-09 round 1 review page (Oura Ring Review SFL R3). PRE-RENDER-APPROVAL layout: header, decisions, the five finished shorts,
 the AI frame ideas, "What I decided", then every title / crop / clip / phone screen / scene / key point of each short as a still
 on its real frame, three per row, each with "Play it moving, in context" feeding ONE floating player at the right; one reply box.
   page_r1.py  -> review/index.html     serve: review_server.py 8987 /Volumes/Extreme/_edit_work/sl09/round2/review"""
@@ -25,7 +25,7 @@ for S in N.ORDER:
 shorts = "".join(
     f'<div class="sh"><h3>Short {N.NUM[S]}: {E(N.NAMES[S])}</h3><p class="len">{N.LEN[S]}</p>'
     f'<button class="play" data-src="{E(N.REVIEW[S])}" data-label="Short {N.NUM[S]}: {E(N.NAMES[S])} (whole short)">Play the whole short</button>'
-    f'<p>{N.CHECK[S]}</p><p class="small">VLC copy: <b>Videos to Review / {E(N.VLC[S])}</b><br>Sound check (Zeeshan\'s own cut of this passage, then the short): '
+    f'<p>{N.CHECK[S]}</p><p class="small">{("VLC copy: <b>Videos to Review / " + E(N.VLC[S]) + "</b>") if N.LONG[S] else "No VLC copy (under 45 seconds): play it here."}<br>Sound check (Zeeshan\'s own cut of this passage, then the short): '
     f'<a href="{E(N.AB[S])}" target="_blank">A/B clip</a></p></div>' for S in N.ORDER)
 def ai_card(i):
     k, S, name, when, before, under, after, see, ifno, note = i
@@ -35,7 +35,7 @@ def ai_card(i):
             f'<div><a href="ai/{k}_end.jpg" target="_blank"><img loading="lazy" src="ai/{k}_end_sm.jpg"></a><span>END</span></div><dl>{dl}</dl></div>')
 ai = "".join(f'<div class="aigroup"><h3>In short {N.NUM[S]}, "{E(N.NAMES[S])}"</h3><p>{E(N.ABOUT_AI[S])}</p><div class="pairs">{"".join(ai_card(i) for i in N.AI_ITEMS if i[1] == S)}</div></div>'
              for S in N.ORDER if any(i[1] == S for i in N.AI_ITEMS))
-page = f"""<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Oura Ring Review SFL R2</title>
+page = f"""<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Oura Ring Review SFL R3</title>
 <style>:root{{--bg:#050d1c;--panel:#0b1a30;--line:#234a6e;--cy:#68c5ff;--text:#f4faff;--muted:#b4c6d8}}
 body{{margin:0;background:var(--bg);color:var(--text);font:17px system-ui,-apple-system,sans-serif;line-height:1.55}}
 main{{max-width:1180px;margin:0;padding:28px 16px 28px 28px}}#dock{{position:fixed;right:18px;top:18px;width:min(420px,32vw);background:#030915;border:1px solid var(--line);border-radius:14px;padding:12px;z-index:5}}

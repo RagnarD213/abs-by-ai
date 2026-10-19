@@ -32,7 +32,7 @@ def chart_cfg():
     assert card_y + ch <= 1066, card_y + ch
     return (SHARED / "before-card/before-card.template.htm", c, [(photo, "photo.png")]), (a, b)
 def compare_cfg():
-    S = "J"; a = round(1087.553 - 1066.95, 3); b = round(1113.17 - 1066.95, 3)      # a: on his cut at 18:07.55; b: the end of the short (the card holds over "And for some people, there's no subscription and the cost is low")
+    S = "J"; a = round(1087.553 - 1066.95, 3); b = round(json.load(open(f"build/{S}/timeline.json"))["total"], 3)      # R3: b is the short's real end (a pause trim shortened it)      # a: on his cut at 18:07.55; b: the end of the short (the card holds over "And for some people, there's no subscription and the cost is low")
     x, wd, pad, hp, rp, ck, rh = 48, 984, 44, 54, 42, 48, 78
     def panel(head, t_head, rows, y, until):
         rs = []; ry = 128
