@@ -65,7 +65,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **Arms & Shoulders Workout Only (RO-04) - R2 REVIEW 2026-10-19, Codex.** Review panel on port 8974 repaired. Playback, clip switches, timeline and 4x speed checked silently. Three vivid colors, headroom, first minute and overhead check await Dan. Next: choose A/B/C; no full film yet. Records: `Handoffs/video-editing/ro04-round2-plan/panel-repair-20261019.json`.
 **COVERS:MOBILE:2026-10-15:Docs/COVER_AUDIT_20261015.md**
 
-**Calories Not Losing Weight SFL R3 - ACTIVE 2026-10-19, Codex.** Sole editor after R2 handoff. Preserve approved audio; trim fasting intro, verify desk/salad reuse, prepare protein split-screen frames. Next: checked frame approval and independent assembly. R2 intact. No panel interaction, covers or publishing. Work: `/Volumes/Extreme/_edit_work/sl08/round3/`.
+**Calories Not Losing Weight SFL R3 - REVIEW 2026-10-19, Codex.** Checked desk-fasting/salad and stacked protein frame pairs await Dan on http://127.0.0.1:9008/. Next: frame approval, Flow motion, full fasting/protein assembly and checks. Three complete Shorts are on the page. R2 and its panel untouched. No covers or publishing.
 
 **SL-09:R3-REVIEW:8989:2026-10-18:Claude.** Five Oura shorts delivered: every independent review SHIP, every delivery gate PASS. Page :8989; VLC copies of shorts 1, 2, 3, 5. Next: Dan's notes and his call on three AI frame ideas (J1, J2, K1). Short 3 carries Zeeshan's cropped AI Tesla clip: AI flag at setup.
 
