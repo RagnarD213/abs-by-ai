@@ -1,0 +1,55 @@
+{
+  "category": "CONTENT (SFL)",
+  "round": 3,
+  "date": "2026-10-19",
+  "parent": "Calories: The Reason You're Not Losing Weight (RO-10)",
+  "mapping": {
+    "A": 1,
+    "B": 2,
+    "C": 3,
+    "D": 4,
+    "E": 5
+  },
+  "audio": {
+    "status": "approved by Dan",
+    "quote": "Audio sounds good.",
+    "treatment": "Preserve current approved source mix; no voice reprocessing."
+  },
+  "fasting": {
+    "title": "Why I fast until 2 pm every day.",
+    "replace_assets": [
+      "A01",
+      "A02"
+    ],
+    "visual_request": "Existing AI-generated Dan fasting at his desk, then breaking his fast with a salad. Dan believes it was used in I'm 41, My Life Is in the Top 1%. Locate and verify; crop vertically if it works, regenerate only if necessary.",
+    "remove_opening": "Here's what I do.",
+    "new_opening": "I don't eat anything until 2 in the afternoon.",
+    "trim_boundary": "Must be silence/word-attack verified in R3; not yet measured."
+  },
+  "protein": {
+    "title": "Snack on Protein, Not Carbs",
+    "replace_asset": "D01",
+    "concept": "Vertical stacked split screen: ripped Dan snacking on sardines in the top half, fat Dan snacking on chips and crackers in the bottom half.",
+    "status": "Concept selected by Dan; start/end frames and motion not yet generated or approved."
+  },
+  "other_openings": {
+    "instruction": "Remove unnecessary throat-clearing before real content when possible; preserve substantive selected narration.",
+    "initial_text_audit": "B starts Start every meal; C starts Stop drinking liquid calories; D starts Snack on protein; E starts Drink black coffee. All already begin directly with content. Confirm against exact audio before changing anything."
+  },
+  "preserve": [
+    "All five selected Shorts and titles",
+    "B-E selected narration except a genuinely unnecessary opening if found",
+    "Intentional shorter lengths; do not pad",
+    "Current approved grade",
+    "Current approved audio",
+    "Continuous Soft Blue Light HyperFrames graphics",
+    "Reviewed R2 files unchanged"
+  ],
+  "panel": {
+    "status": "working, confirmed by Dan",
+    "quote": "Okay the review panel is working. Stop clicking on things on it",
+    "instruction": "No more interaction with Dan's active panel unless he asks. Validate future repairs offline or in an isolated test page."
+  },
+  "approval_limits": "Audio approved. No claim that complete Shorts, unseen AI frames or new motion are approved. No covers, uploads, publishing or scheduling authorized.",
+  "starter_prompt": "CONTENT (SFL). Name this task \"Calories Not Losing Weight SFL R3\". Read Handoffs/handoff-20261019-sl08-round3-fasting-and-protein-intros.md and execute the five-Short revision round using .claude/skills/shorts/SKILL.md. Preserve Dan's five selections and approved audio. For \"Why I fast until 2 pm every day.\", remove \"Here's what I do\" and start \"I don't eat anything until 2 in the afternoon\"; replace the steak/salad opening with his existing AI desk-fasting then salad clip, checking the vertical crop before regenerating. For \"Snack on Protein, Not Carbs\", replace the intro with ripped Dan eating sardines on top and fat Dan eating chips and crackers below. Check the other openings for unnecessary throat-clearing. Use the Codex subscription to generate the images and obtain frame approval before new Flow subscription motion. Preserve the working review-panel repair, do not click or play Dan's review panel unless he asks, and complete the required checks at the correct stage. No covers or publishing. Start now."
+}
