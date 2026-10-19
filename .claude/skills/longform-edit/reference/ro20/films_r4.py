@@ -38,7 +38,11 @@ VIDEOS = {
     "v3": dict(job="RO-20C", title="What To Buy For Your Health At Every Income Level", parts=[
         ("pickup", "P4"),
         ("handle", 55249, 55258, "home1.0r0"),   # 0.30 s of the roll before "All right." (he is still, hands together, mouth closed; lav -60 dB)
-        ("film", 42581, 95434),        # "All right. So let me walk you through it." to "I'll see you in the next video."
+        # "All right. So let me walk you through it." to "I'll see you in the next video.", with three silent take tails trimmed (video 3 final judge):
+        ("film", 42581, 43466),        # to 0.2 s after "...my life depends on it." (he looked down in the 0.6 s before the cut)
+        ("film", 43483, 64194),        # to 0.23 s after "...at all times." (eyes dropped to the floor)
+        ("film", 64206, 85311),        # to after "...real baller." (looked down before the zoom cut)
+        ("film", 85321, 95434),
         ("handle", 123680, 123698, "cta.0r7")]), # 0.60 s of his held smile after the last word (roll; lav room tone; the thumbs-up starts at 123706)
 }
 def probe_frames(p):
@@ -111,7 +115,19 @@ for _s in Bd._SEGS:
     if _s["key"] == "rich3.0r3": _s.update(framing="W", crop=(1920, 1080, 0, 0), zoom=1.0)
 # 8. Lower thirds whose main line is spoken 3 to 8 s after they appear sat with only the small top line (video 3 judge, junk_card): a copy keeps the
 #    entrance (frames 0 to 18) and resumes at K, so the main line still reveals on the same word; the graphic starts K - 19 frames later.
-LT_RETIME = {"Gf24": 232, "Gf25": 100, "Ge32": 84, "Gf08": 72}
+# 10. Video 3 final judge, picture only: Cd32 squats end before his head leaves the top of the frame; Cd34 curls end before he stands still with his
+#     eyes shut; Ce20 (bed) starts on "So," so his turn to profile in the pause is covered; Ce25 (dumbbell rack) holds 3 frames over the off-centre
+#     start of gym3.1r3; Cf21 (AI home gym) ends before its dumbbells double; the beyond5 zoom cut moves 21 frames later, past his head turn.
+for _it in Bd.R:
+    if _it["id"] == "Cd32": _it["t1"] = 43095/FPS
+    if _it["id"] == "Cd34": _it["t1"] = 43811/FPS
+    if _it["id"] == "Ce20": _it["t0"] = 57782/FPS; _it["src"] = [_it["src"][0].replace("@4.0", "@3.0")]
+    if _it["id"] == "Ce25": _it["t1"] = 59455/FPS
+    if _it["id"] == "Cf21": _it["t1"] = 76256/FPS
+for _i, _s in enumerate(Bd._SEGS):
+    if _s["key"] == "beyond5.0r3" and _s["o0"] == 90001:
+        Bd._SEGS[_i - 1]["o1"] = 90022; _s.update(o0=90022, src0=_s["src0"] + 21)
+LT_RETIME = {"Gf24": 232, "Gf25": 100, "Ge32": 84, "Gf08": 72, "Gd39": 90}   # Gd39: starts on the cut back to Dan (it covered his face at the bottom of the push-up rep)
 def _retime(m, K):
     out = {}
     for key in ("mov", "mask"):

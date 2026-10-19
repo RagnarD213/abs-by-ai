@@ -12,6 +12,7 @@ for v in S["videos"]:
     last = revs[-1]; verdict = (re.findall(r"VERDICT:\s*(SHIP|DOES NOT SHIP)", open(f"{d}/{last}").read()) or ["?"])[-1]
     v["review_verdict"] = (f"{len(revs)} independent reviews of successive builds plus a fresh watch judge on the final file; every defect they found was fixed, "
                            f"except the items listed for your call. Last review ({last}): {verdict}" + ("" if verdict == "SHIP" else " on items fixed after it (subtitle text only)") + ".")
+    v["changes"].sort(key=lambda c: int(c["at"].split(":")[0])*60 + float(c["at"].split(":")[1]))
     v["chapters"] = open(f"{d}/{NAME[v['n']]}.chapters.txt").read().strip()
 S["decisions"] = [
  dict(q="Video 2, 0:54: keep the handstand clip out?", why="The handstand push-ups were in the first minute you approved, but the \"Cut The Waste, Fund Your Fitness\" key point covered your head at the bottom of every rep, so you are on camera there now.", opts=["Keep it out (recommended)", "Put it back"]),
@@ -22,9 +23,10 @@ S["decided"] = [
  "Video 1's sign-off now plays at the film's own level, about 1 dB softer than the separately mixed round 3b ending clip.",
  "Your 10-14 rule (never a shot of you standing or posing) and 10-16 library ruling took out four cutaways that were in the plan: the vacuum hold (video 1, 2:22), the ab-roller pose (video 1, 14:46, inside the approved ending), and the two pool poses (video 2, 7:04 and 7:58). You are on camera there.",
  "Three cutaways came out because a graphic covered you: the handstand push-ups (video 2, 0:54, your decision 1) and the medicine-ball V-ups (video 3, 16:57, the key point sat on your abs). The near-black beer-can shot (video 2, 3:53) came out after a lift could not save it.",
- "Lower thirds sit over your hands on the push-up clip in video 3 (2:40 to 2:42) and over the kettlebell at 15:49 to 15:51. Not covered by a standing rule, and moving them meant another 90-minute render, so they stay. Say if you want them moved.",
+ "Video 3, 15:48 to 15:50: a lower third sits over the kettlebell and your shins at the bottom of each kettlebell rep (not your face or abs). Left as is; say if you want it moved. The one at 2:40 that covered your face on the push-ups now enters after the clip.",
  "Dark stock shots were lifted to sit with the kitchen footage (couch and brain scan in video 1; smoking pan, sofa couple, old car, two men on a sofa, gamers in video 2; salmon, bedroom, gyms, dumbbell racks, vitamin D, trainer in video 3). Naturally dim scenes that read fine (bars, nightclub, toast) were left as shot.",
  "The camera's own recording skips a frame in two places (video 1, 5:45; video 3, 20:25). Each is now a zoom cut, the way the original shot list intended.",
+ "Video 3 got the most polish from the checkers: three silent pauses where you glanced down at the end of a take were trimmed (0.33 to 0.6 s each), three cutaways end a beat earlier (squats, curls, AI home gym), a zoom cut moved past a head turn, and a black-and-white bedroom clip came out. Each is listed with its time under the film.",
  "Video 3's AI clip on \"a leg curl machine\": the leg-curl shot had a pad floating with no machine arm, so only the leg-press shot is kept.",
  "The approved app demo's file had been deleted from the RO-06 folder. I rebuilt it from its own recipe; it matches the approved render frame for frame (encoder noise only).",
  "A one-frame slide-in of the AI pool picture inside that demo (its label clipped for one frame) is the approved animation and stays.",

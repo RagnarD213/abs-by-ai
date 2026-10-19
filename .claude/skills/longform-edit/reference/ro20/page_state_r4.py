@@ -43,11 +43,21 @@ V2 = [
 V3 = [
  row(0.0, "Pickup P4 opens the video (level now matches your kitchen voice).", 0, 22),
  row(part_at("v3", 1), "New: 0.3 s of the roll before \"All right.\" so the first word is no longer clipped."),
- row(fmap("v3", 1614.5), "Dark stock lifted here and at the bedroom (5:58), gym (8:57, 9:59), dumbbell racks (9:38, 10:17), vitamin D bottle (17:34) and trainer (24:16) shots."),
+ row(fmap("v3", 43041/FPS), "Squat clip now ends before your head leaves the top of the frame; you are on camera for the rest of the sentence."),
+ row(fmap("v3", 46910/FPS), "The \"Two Buys\" lower third now enters after the push-up clip (it covered your face at the bottom of the rep)."),
+ row(part_at("v3", 3), "0.6 s of silent pause trimmed after \"...my life depends on it.\" (you looked down before the cut)."),
+ row(fmap("v3", 43714/FPS), "Curl clip now ends before you stand still with your eyes shut at the end of the set."),
+ row(fmap("v3", 1614.5), "Dark stock lifted here and at about the bedroom (5:57), gyms (8:56, 9:58), dumbbell racks (9:37, 10:16), vitamin D bottle (17:33) and trainer (24:15) shots."),
+ row(fmap("v3", 57782/FPS), "Bed B-roll now starts on \"So,\" so your turn to the side in that pause is covered; the black-and-white bedroom clip (about 8:01) is out and you are on camera."),
+ row(fmap("v3", 59363/FPS), "Dumbbell-rack clip holds 3 frames longer over an off-centre take start."),
  row(fmap("v3", 1977.52), "AI clip: only the leg-press shot is kept. The leg-curl shot had a pad floating with no machine arm; you are on camera for \"a leg curl machine\"."),
- row(fmap("v3", R["Ge32"]["t0"]) + 2.15, "Lower third: the empty lead before its main line is shortened (also at 15:06, 18:39, 18:55)."),
+ row(fmap("v3", R["Ge32"]["t0"]) + 2.15, "Lower third: the empty lead before its main line is shortened (also at about 15:05, 18:38 and 18:54)."),
+ row(part_at("v3", 4), "0.4 s of silent pause trimmed after \"...at all times.\" (eyes dropped to the floor)."),
  row(fmap("v3", 2419.78), "Medicine-ball V-up clip removed: the key point covered your abs; you stay on camera."),
  row(fmap("v3", 2628.23), "Wide-to-tight zoom cut over a frame skip in the camera's own recording."),
+ row(fmap("v3", 76180/FPS), "AI home-gym clip now ends before its dumbbells briefly double."),
+ row(part_at("v3", 5), "A silent look-down before a zoom cut trimmed (0.33 s) after \"...real baller.\""),
+ row(fmap("v3", 90001/FPS), "Zoom cut moved 0.7 s later so it no longer lands in the middle of a head turn."),
  row(lay("v3")["frames"]/FPS - 0.6, "New: 0.6 s of your held smile after the last word, so the film does not end on the word.", lay("v3")["frames"]/FPS - 8, lay("v3")["frames"]/FPS),
 ]
 S = dict(videos=[
