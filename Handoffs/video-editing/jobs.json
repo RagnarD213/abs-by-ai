@@ -2775,13 +2775,15 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/DS-40-bill-maher-asks-if-youve-ever-seen-a-fat-90-year-old-hes-rig.md`: cut \"Bill Maher Asks If You've Ever Seen A Fat 90-Year-Old. He's Right.\" from 10/15 roll C1730 with /shorts. Best take of every line, every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Sol, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-40-bill-maher-asks-if-youve-ever-seen-a-fat-90-year-old-hes-rig.md` with `$long-form-content-edit` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "ready",
-   "note": "",
+   "state": "in_progress",
+   "note": "Dan authorized parallel Claude/Codex competition. Codex R1 only: 10-second green-screen, color and voice sample. Separate work folder DS-40-codex; full edit waits for review.",
    "needs": "",
    "order": 120,
-   "updated": "2026-10-16",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-10-19",
+   "rev": 2,
+   "syncedRev": 1,
+   "editor": "Codex",
+   "by": "Codex"
   },
   {
    "id": "DS-41",
