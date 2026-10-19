@@ -1,7 +1,7 @@
 {
   "_README": "THE STANDARD IS DAN'S WORDS, NOT OUR PARAPHRASE. Every entry quotes him verbatim. See README.md.",
   "version": 2,
-  "updated": "2026-10-17",
+  "updated": "2026-10-19",
   "roots": {
     "repo": ".",
     "ssd": "/Volumes/Extreme/_edit_work"
@@ -3679,6 +3679,25 @@
       "must_pass": [],
       "measured": "All other reviewed elements, including timer designs, rest treatment and original audio",
       "notes": "Reuse without redesign or a new approval question; partial approval is scoped, not a whole-file artistic approval."
+    },
+    {
+      "id": "ds40-codex-r1-hair-motion-20261019",
+      "verdict": "rejected",
+      "date": "2026-10-19",
+      "root": "ssd",
+      "path": "DS-40-codex/round1/review/media/sample.mp4",
+      "sha256": "874c8363a832bb20a57453a74d6b5da808886524b6013d12a06ea8f1b2eddceb",
+      "excerpt": [
+        0,
+        10.01
+      ],
+      "dan": "Also this chroma key is decent but I feel like there's some room for improvement here. The main thing I don't like is that when I move around the key is not clean in my hair, which is the most challenging part of it. I want you to do some more work on that chroma key and see if you can get that a little bit cleaner so everything looks good. I like how it is around my body but I want it cleaned up around my hair.",
+      "must_trigger": [
+        "key:hair_temporal_edges"
+      ],
+      "must_pass": [],
+      "measured": "The prior independent review did not catch the hair-motion defect Dan identified. Existing watch scan does not measure temporal matte quality.",
+      "notes": "Partial rejection of moving hair edges only. Body key decent. Warmer grade selected. Existing audio fairly decent, not rejected; retain as baseline alongside gentle alternatives. R2 requested wider sample, not full edit."
     }
   ]
 }
