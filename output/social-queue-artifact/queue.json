@@ -1,25 +1,7 @@
 {
-"generated": "2026-10-18T11:25:26+00:00",
+"generated": "2026-10-19T11:25:45+00:00",
 "cap": 200,
 "scheduled": [
-{
-"id": "5699404",
-"platform": "youtube",
-"when": "2026-10-18T14:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "I turned 41 and felt like I had wasted my life. These are the six decisions I wish I could change, and what I ",
-"batch": ""
-},
-{
-"id": "3841933",
-"platform": "instagram",
-"when": "2026-10-18T22:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "The muscle that makes your waist look smaller isn't your abs.",
-"batch": ""
-},
 {
 "id": "5053506",
 "platform": "facebook",
@@ -351,6 +333,42 @@
 "kind": "Video",
 "slides": 1,
 "text": "Build superhero abs with spiderman planks.",
+"batch": ""
+},
+{
+"id": "5723694",
+"platform": "youtube",
+"when": "2026-10-25T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "I'm 41, and there are four things I'm really glad I did to get here. I didn't do everything right. I made a lo",
+"batch": ""
+},
+{
+"id": "5723691",
+"platform": "facebook",
+"when": "2026-10-26T17:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "I'm 41, I have six-pack abs, I'm a multimillionaire and a Brazilian Jiu-Jitsu black belt, and in this video I'",
+"batch": ""
+},
+{
+"id": "5723692",
+"platform": "instagram",
+"when": "2026-10-26T17:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "I'm 41, I have six-pack abs, I'm a multimillionaire and a Brazilian Jiu-Jitsu black belt, and in this video I'",
+"batch": ""
+},
+{
+"id": "5723693",
+"platform": "tiktok",
+"when": "2026-10-26T17:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "I'm 41, I have six-pack abs, I'm a multimillionaire and a Brazilian Jiu-Jitsu black belt, and in this video I'",
 "batch": ""
 },
 {
