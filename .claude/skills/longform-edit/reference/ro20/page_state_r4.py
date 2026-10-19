@@ -48,6 +48,7 @@ V3 = [
  row(part_at("v3", 3), "0.6 s of silent pause trimmed after \"...my life depends on it.\" (you looked down before the cut)."),
  row(fmap("v3", 43714/FPS), "Curl clip now ends before you stand still with your eyes shut at the end of the set."),
  row(fmap("v3", 1614.5), "Dark stock lifted here and at about the bedroom (5:57), gyms (8:56, 9:58), dumbbell racks (9:37, 10:16), vitamin D bottle (17:33) and trainer (24:15) shots."),
+ row(fmap("v3", 56195/FPS), "New zoom cut to the wide shot on \"And I've come to believe...\" and back to tight 8.5 s later: taking out the black-and-white bedroom clip had left 36 s on one framing."),
  row(fmap("v3", 57782/FPS), "Bed B-roll now starts on \"So,\" so your turn to the side in that pause is covered; the black-and-white bedroom clip (about 8:01) is out and you are on camera."),
  row(fmap("v3", 59363/FPS), "Dumbbell-rack clip holds 3 frames longer over an off-centre take start."),
  row(fmap("v3", 1977.52), "AI clip: only the leg-press shot is kept. The leg-curl shot had a pad floating with no machine arm; you are on camera for \"a leg curl machine\"."),

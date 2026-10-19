@@ -8,10 +8,13 @@ for v in S["videos"]:
     rows = dg["rows"]; fails = [k for k, r in rows.items() if not r.get("ok")]
     v["gate"] = (f"delivery gate {dg['gate_version']}: {sum(1 for r in rows.values() if r.get('ok'))} of {len(rows)} rows pass. "
                  f"Not passing, all explained in the notes (none is a new fault of this build): {', '.join(fails)}.")
-    revs = sorted(f for f in os.listdir(d) if f.startswith("ROUND-4-REVIEW"))
+    revs = sorted((f for f in os.listdir(d) if f.startswith("ROUND-4-REVIEW")), key=lambda f: int((re.findall(r"REVIEW-(\d+)", f) or ["1"])[0]))
     last = revs[-1]; verdict = (re.findall(r"VERDICT:\s*(SHIP|DOES NOT SHIP)", open(f"{d}/{last}").read()) or ["?"])[-1]
-    v["review_verdict"] = (f"{len(revs)} independent reviews of successive builds plus a fresh watch judge on the final file; every defect they found was fixed, "
-                           f"except the items listed for your call. Last review ({last}): {verdict}" + ("" if verdict == "SHIP" else " on items fixed after it (subtitle text only)") + ".")
+    AFTER = {1: "its defects were all subtitle wording, each corrected in the delivered subtitles",
+             2: "its defects were all subtitle wording, each corrected in the delivered subtitles",
+             3: "its defects were subtitle wording and three chapter starts, all corrected; after it, two fresh watch judges found picture items (listed above with times), all fixed, and the final judge found none"}
+    v["review_verdict"] = (f"{len(revs)} independent reviews of successive builds, then a fresh frame-by-frame watch judge on the final file (0 open defects). "
+                           f"The last written review ({last}) said {verdict}" + ("." if verdict == "SHIP" else f"; {AFTER[v['n']]}."))
     v["changes"].sort(key=lambda c: int(c["at"].split(":")[0])*60 + float(c["at"].split(":")[1]))
     v["chapters"] = open(f"{d}/{NAME[v['n']]}.chapters.txt").read().strip()
 S["decisions"] = [
@@ -26,12 +29,13 @@ S["decided"] = [
  "Video 3, 15:48 to 15:50: a lower third sits over the kettlebell and your shins at the bottom of each kettlebell rep (not your face or abs). Left as is; say if you want it moved. The one at 2:40 that covered your face on the push-ups now enters after the clip.",
  "Dark stock shots were lifted to sit with the kitchen footage (couch and brain scan in video 1; smoking pan, sofa couple, old car, two men on a sofa, gamers in video 2; salmon, bedroom, gyms, dumbbell racks, vitamin D, trainer in video 3). Naturally dim scenes that read fine (bars, nightclub, toast) were left as shot.",
  "The camera's own recording skips a frame in two places (video 1, 5:45; video 3, 20:25). Each is now a zoom cut, the way the original shot list intended.",
- "Video 3 got the most polish from the checkers: three silent pauses where you glanced down at the end of a take were trimmed (0.33 to 0.6 s each), three cutaways end a beat earlier (squats, curls, AI home gym), a zoom cut moved past a head turn, and a black-and-white bedroom clip came out. Each is listed with its time under the film.",
+ "Video 3 got the most polish from the checkers: three silent pauses where you glanced down at the end of a take were trimmed (0.33 to 0.6 s each), three cutaways end a beat earlier (squats, curls, AI home gym), a zoom cut moved past a head turn, and a black-and-white bedroom clip came out (a zoom cut to the wide shot at 7:52 now breaks up what would have been 36 s on one framing). Each is listed with its time under the film.",
  "Video 3's AI clip on \"a leg curl machine\": the leg-curl shot had a pad floating with no machine arm, so only the leg-press shot is kept.",
  "The approved app demo's file had been deleted from the RO-06 folder. I rebuilt it from its own recipe; it matches the approved render frame for frame (encoder noise only).",
  "A one-frame slide-in of the AI pool picture inside that demo (its label clipped for one frame) is the approved animation and stays.",
- "Quiet music bed (the RO-07 bed) under all three films, pickups included, at the level that passes the audio check.",
+ "Music bed under all three films, pickups included: the same acoustic track, loop and level as the approved RO-05 and RO-12 films, ducked under your voice. It is very quiet (a reviewer measured it below the room tone), so say if you want it louder.",
  "Subtitles were corrected by ear and transcript: drug names (tirzepatide, retatrutide), Bryan Johnson, sentence breaks, and a few misheard words. In video 2 at 8:35 you say \"if you're broke and you're also in shape\"; the subtitle prints what you said.",
+ "Video 2 subtitle at 0:30: it reads \"oh, well, damn, that's easy for you to say.\" The transcribers split between \"damn\" and \"Dan\". If you said \"Dan\", tell me and I will change that one subtitle.",
  "The audio check's tone row fails by a fraction on all three, as on every film with voice 4 (your locked voice), and video 2's echo-removal row misses by 0.001. Not changed.",
  "No upload or setup: the release calendar holds these three until you say otherwise. AI spend this round: $0.",
 ]
