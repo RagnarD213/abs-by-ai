@@ -1,0 +1,24 @@
+{
+  "comparison": {
+    "better_version": "Revised (Bottom)",
+    "reason": "The revised version shows significantly less green/gray fringing around the hair edges compared to the old version. The hair strands appear more natural and less 'pasted' on. The edge shimmer is also reduced in the revised version."
+  },
+  "defects": [
+    {
+      "time": "00:02",
+      "severity": "Minor",
+      "description": "Slight edge shimmer on the left side of the hair in the revised version."
+    },
+    {
+      "time": "00:05",
+      "severity": "Minor",
+      "description": "A small amount of gray fringing is still visible on the top right of the hair in the revised version."
+    },
+    {
+      "time": "00:08",
+      "severity": "Minor",
+      "description": "Slight ghosting trail visible when the presenter moves his head quickly."
+    }
+  ],
+  "ready_for_calibration": true
+}

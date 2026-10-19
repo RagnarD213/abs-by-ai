@@ -26,7 +26,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**Bill Maher Fat 90-Year-Old SFC R2 - ACTIVE 2026-10-19, Codex.** Warmer color selected. Refining moving hair edges; widening the 10-second sample and adding gentle audio options beside R1 baseline. Own folder: `/Volumes/Extreme/_edit_work/DS-40-codex/round2/`. Full edit waits. R1 preserved; Claude competition separate.
+**Bill Maher Fat 90-Year-Old SFC R2 - REVIEW 2026-10-19, Codex.** Warmer wide 10-second sample: http://127.0.0.1:9021/. Hair improved; slight fringe remains. Three gentle audio choices. Next: Dan picks voice and judges edges before full edit. Records: `Handoffs/video-editing/ds40-codex-r2/`. Claude separate.
 
 
 **It's Boring, But It Got Me Abs At 40 (RO-27) - R1 REVIEW 2026-10-17, Codex.** Sole editor. Playable R1 at http://127.0.0.1:8932/ with opening, choices and all contextual asset previews. Next: Dan picks colour, voice and AI frame pairs; full film waits on approvals.

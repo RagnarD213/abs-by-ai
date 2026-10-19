@@ -1,0 +1,41 @@
+{
+ "version": 1,
+ "src": "/Volumes/Extreme/_edit_work/DS-40-codex/round1/lav.wav",
+ "out": "/Volumes/Extreme/_edit_work/DS-40-codex/round2/voice-focused.wav",
+ "pull": "wav as given",
+ "untreated": {
+  "version": 1,
+  "note": "pull: wav as given",
+  "seconds": 8.01,
+  "edt_ms": 68.0,
+  "flux": 0.0897,
+  "sfm": 0.298,
+  "swirl": 0.9046,
+  "gap": 30.4797
+ },
+ "edt_raw": 68.0,
+ "dereverb": null,
+ "eq": "highpass=f=70,equalizer=f=110:t=q:w=1.3:g=-5.70,equalizer=f=194:t=q:w=1.3:g=-0.88,equalizer=f=316:t=q:w=1.3:g=+1.80,equalizer=f=490:t=q:w=1.3:g=+3.55,equalizer=f=735:t=q:w=1.3:g=+2.68,equalizer=f=1122:t=q:w=1.3:g=+4.17,equalizer=f=1755:t=q:w=1.3:g=+1.39,equalizer=f=4387:t=q:w=1.3:g=-1.26,treble=g=-0.25:f=6500:width_type=q:width=0.6",
+ "eq_gains": [
+  -5.7,
+  -0.88,
+  1.8,
+  3.55,
+  2.68,
+  4.17,
+  1.39,
+  -0.1,
+  -1.26,
+  -0.25
+ ],
+ "voice": "highpass=f=70,equalizer=f=110:t=q:w=1.3:g=-5.39,equalizer=f=194:t=q:w=1.3:g=-0.97,equalizer=f=316:t=q:w=1.3:g=+1.79,equalizer=f=490:t=q:w=1.3:g=+3.96,equalizer=f=735:t=q:w=1.3:g=+3.22,equalizer=f=1122:t=q:w=1.3:g=+4.60,equalizer=f=1755:t=q:w=1.3:g=+1.98,equalizer=f=2775:t=q:w=1.3:g=+0.34,equalizer=f=4387:t=q:w=1.3:g=-1.25,treble=g=-0.23:f=6500:width_type=q:width=0.6,pan=stereo|c0=c0|c1=c0",
+ "expander": false,
+ "no_expander_because": "R1 listening found chopped word tails with expansion; user wants natural processing and thinks the open baseline decent.",
+ "oversample": 4,
+ "limiter_delay_samples": 240,
+ "gain_db": 7.0,
+ "lufs": -14.3,
+ "tp_pcm": -1.5,
+ "lra": 2.0,
+ "duration": 10.01
+}

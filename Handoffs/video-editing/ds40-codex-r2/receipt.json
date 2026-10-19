@@ -1,0 +1,75 @@
+{
+  "title": "Bill Maher Asks If You've Ever Seen A Fat 90-Year-Old. He's Right.",
+  "category": "CONTENT SFC",
+  "round": 2,
+  "scope": "10-second calibration only",
+  "approved": false,
+  "full_edit_started": false,
+  "review_url": "http://127.0.0.1:9021/",
+  "drive_folder": "https://drive.google.com/drive/folders/1K52GrFaKbqWnoTORTR9bfdQt__IjHCX5",
+  "media": [
+    {
+      "file": "sample.mp4",
+      "size": 9614079,
+      "sha256": "8c11624a8cc9857e19d5bd972fe7c85eafdbf26cc43506e590b4d1938aca6991"
+    },
+    {
+      "file": "balanced.mp4",
+      "size": 9615573,
+      "sha256": "622ec8a71b344a13496277ce3e7c3de17a8229d6d7d71bcea1084256273d0100"
+    },
+    {
+      "file": "clearer.mp4",
+      "size": 9615688,
+      "sha256": "8172f67effb8675f56d83a74bedc01b1ffe39394adf81441af4d9287425e6dc6"
+    },
+    {
+      "file": "hair.mp4",
+      "size": 7229727,
+      "sha256": "13954ae9e9d26a5a50824a2d8ab99c8f8f5c6bc77d14aef989472e27e312ad48"
+    },
+    {
+      "file": "dark.mp4",
+      "size": 9533524,
+      "sha256": "4cd11d692af9976f7cded90ea13467e15b78361cbc3c4f3051988fb37fad888c"
+    },
+    {
+      "file": "phone.mp4",
+      "size": 1545462,
+      "sha256": "4993e9dac8ed228fead3a54d2888db21cfb5090e867fc8b75b829a97d3785d67"
+    },
+    {
+      "file": "reference-ab.mp4",
+      "size": 530018,
+      "sha256": "6d8a6bb3fdad87062b3a4deb37ff2ddf4ef9aac769f03c6c423d5d5a85f0c9cb"
+    },
+    {
+      "file": "oldwide.mp4",
+      "size": 9690619,
+      "sha256": "7bda442772e988dd3a52dfbee2de4ca53fcce0a949646c908153e830b0d4df43"
+    }
+  ],
+  "drive_verification": "All six uploaded file sizes match local files. Anyone-with-link reader permissions verified for folder and files. Connector metadata does not expose checksums, so remote hash equivalence is not claimed.",
+  "gate": "37 PASS, 1 FAIL (audio), 1 NOT MEASURED (zero-boundary watch), 18 declared NA",
+  "audio_failed_rows": {
+    "A": [
+      "comb",
+      "tone",
+      "dryness",
+      "spread"
+    ],
+    "B": [
+      "comb",
+      "tone"
+    ],
+    "C": [
+      "comb",
+      "tone",
+      "dryness"
+    ]
+  },
+  "independent_audit": "complete; minor hair fringe remains 8-9 seconds; ready for calibration review only",
+  "round_external_review_cost_usd": 0.0517,
+  "browser_verification": "HTTP 206 range; muted playback and seek; A/B/C switches and hair comparison loaded; final three-choice page inspected",
+  "raw_media_modified": false
+}

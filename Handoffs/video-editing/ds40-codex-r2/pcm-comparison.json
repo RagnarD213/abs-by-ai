@@ -1,0 +1,26 @@
+{
+  "baseline": {
+    "ripple": 1.041,
+    "tone_error": 4.073,
+    "dryness": 5.334,
+    "spread": 4.911
+  },
+  "balanced": {
+    "ripple": 1.017,
+    "tone_error": 3.286,
+    "dryness": 6.821,
+    "spread": 5.875
+  },
+  "clearer": {
+    "ripple": 0.984,
+    "tone_error": 4.245,
+    "dryness": 4.932,
+    "spread": 5.294
+  },
+  "fuller": {
+    "ripple": 0.99,
+    "tone_error": 4.149,
+    "dryness": 6.003,
+    "spread": 4.837
+  }
+}

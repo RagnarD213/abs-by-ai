@@ -1,0 +1,82 @@
+[
+  {
+    "mapping": {
+      "A": "balanced",
+      "B": "clearer",
+      "C": "fuller",
+      "D": "baseline"
+    },
+    "result": {
+      "scores": {
+        "A": {
+          "naturalness": 6,
+          "clarity": 6,
+          "body": 7,
+          "specific_issue": "Noticeable room echo and background noise."
+        },
+        "B": {
+          "naturalness": 7,
+          "clarity": 7,
+          "body": 7,
+          "specific_issue": "Slightly muffled compared to the best mix."
+        },
+        "C": {
+          "naturalness": 6,
+          "clarity": 7,
+          "body": 6,
+          "specific_issue": "Sounds a bit harsh and thin, likely due to processing."
+        },
+        "D": {
+          "naturalness": 8,
+          "clarity": 8,
+          "body": 8,
+          "specific_issue": "None."
+        }
+      },
+      "preference": "D",
+      "reason": "D effectively reduces the room echo and noise while maintaining a natural, clear voice with good body, avoiding the muffled or harsh qualities found in the other processed mixes.",
+      "transcript": "That's why you need to treat your belly fat as an emergency, because the future is going to be amazing, and if you don't lose the weight, you aren't going to be around to see how awesome it will be.",
+      "clipped_words": false
+    }
+  },
+  {
+    "mapping": {
+      "A": "fuller",
+      "B": "balanced",
+      "C": "clearer",
+      "D": "baseline"
+    },
+    "result": {
+      "scores": {
+        "A": {
+          "naturalness": 7,
+          "clarity": 8,
+          "body": 6,
+          "specific_issue": "Untreated camera audio with noticeable background noise."
+        },
+        "B": {
+          "naturalness": 7,
+          "clarity": 8,
+          "body": 6,
+          "specific_issue": "Untreated camera audio with noticeable background noise."
+        },
+        "C": {
+          "naturalness": 7,
+          "clarity": 8,
+          "body": 6,
+          "specific_issue": "Untreated camera audio with noticeable background noise."
+        },
+        "D": {
+          "naturalness": 7,
+          "clarity": 8,
+          "body": 6,
+          "specific_issue": "Untreated camera audio with noticeable background noise."
+        }
+      },
+      "preference": "tie",
+      "reason": "All four audio samples sound identical, retaining the exact same background noise, room acoustics, and vocal characteristics.",
+      "transcript": "That's why you need to treat your belly fat as an emergency. Because the future is going to be amazing, and if you don't lose the weight, you aren't going to be around to see how awesome it will be.",
+      "clipped_words": false
+    }
+  }
+]

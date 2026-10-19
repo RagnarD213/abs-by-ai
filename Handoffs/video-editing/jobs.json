@@ -2776,11 +2776,11 @@
    "codexModel": "GPT-6 Sol, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-40-bill-maher-asks-if-youve-ever-seen-a-fat-90-year-old-hes-rig.md` with `$long-form-content-edit` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Deliver, send Dan the review copy, update `00-MASTER.md`.",
    "state": "delivered",
-   "note": "Codex R1: only 10-second key/color/audio calibration delivered for Dan review at http://127.0.0.1:9017/. Independent audit complete; audio reference gate failures disclosed. Full Short not edited or approved. Parallel Claude competition remains authorized.",
+   "note": "Codex R2 calibration only: 10-second warmer wide sample with improved moving hair and A/B/C gentle audio choices at http://127.0.0.1:9021/. Independent audit complete; minor hair fringe at 8-9s and audio failures disclosed (A four, B two, C three). Awaiting Dan choice. Full Short not edited or approved. Claude parallel competition remains authorized.",
    "needs": "",
    "order": 120,
    "updated": "2026-10-19",
-   "rev": 4,
+   "rev": 5,
    "syncedRev": 1,
    "editor": "Claude",
    "by": "Codex"

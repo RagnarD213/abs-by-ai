@@ -1,0 +1,83 @@
+{
+ "watch_version": "1.2.0",
+ "tool": "_shared/deliver/watch.py",
+ "video": "sample.mp4",
+ "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round2/review/media/sample.mp4",
+ "sha256": "8c11624a8cc9857e19d5bd972fe7c85eafdbf26cc43506e590b4d1938aca6991",
+ "bytes": 9614079,
+ "size": "1080x1920",
+ "fps": 29.97,
+ "duration": 10.01,
+ "when": "2026-10-19T18:44:39-0500",
+ "plan": "/Volumes/Extreme/_edit_work/DS-40-codex/round2/plan.json",
+ "out": "/Volumes/Extreme/_edit_work/DS-40-codex/round2/watch",
+ "boundaries": 0,
+ "boundary_list": [],
+ "reviewed": 0,
+ "inspected": true,
+ "judged": [
+  {
+   "image": "sheet_00_00-00.00_to_00-09.01.jpg",
+   "verdict": "expected",
+   "t": 0.0,
+   "note": "The continuous wide presenter shot, blank test field, laptop at the bottom and absence of captions or graphics match the declared 10.01-second color, key and audio calibration scope. The sampled full-width body and arms show no cut, black frame, freeze or misplaced overlay. Fine moving hair edge observations are recorded separately in the independent audit and cannot be cleared from this one-second contact sheet."
+  }
+ ],
+ "judged_by": "Independent Codex R2 audit",
+ "open_defects": 0,
+ "scan": {
+  "frames": 300,
+  "fps": 29.97,
+  "median_diff": 2.402,
+  "mad": 0.706,
+  "p99": 5.283,
+  "threshold": 6.637,
+  "frozen": [],
+  "black": [],
+  "jumps": [],
+  "explained_jumps": 0
+ },
+ "naked_splices": {
+  "count": 0,
+  "per_min": 0.0,
+  "candidates": 0,
+  "naked": [],
+  "settings": {
+   "grid": "90x160",
+   "blocks": "9x16",
+   "peak": 20.0,
+   "sharp": 2.0,
+   "still": 0.25,
+   "hot_min": 8,
+   "subject_rows": 0.7,
+   "tex_min": 6.0,
+   "palette": 0.1,
+   "align_explains": 0.4,
+   "align_margin_blocks": 1
+  }
+ },
+ "graphic_presence": [],
+ "sheets": [
+  "sheet_00_00-00.00_to_00-09.01.jpg"
+ ],
+ "sheet_interval_s": 1.0,
+ "strips": [],
+ "pairs": [],
+ "clips": [],
+ "checklist": [
+  "hair_top",
+  "out_of_frame",
+  "junk_card",
+  "naked_splice",
+  "label_over_face",
+  "black_or_frozen",
+  "wide_level",
+  "visual_junk",
+  "graphic_missing",
+  "ai_giveaway",
+  "placeholder"
+ ],
+ "seconds": 1.0,
+ "judged_at": "2026-10-19T18:53:22-0500",
+ "judge_problems": []
+}

@@ -1,0 +1,5 @@
+{
+  "clearer": "highpass=f=75,equalizer=f=180:t=q:w=0.8:g=-1.5,equalizer=f=450:t=q:w=0.8:g=-1.5,equalizer=f=2500:t=q:w=0.8:g=1",
+  "fuller": "highpass=f=65,equalizer=f=120:t=q:w=0.8:g=2.5,equalizer=f=400:t=q:w=0.9:g=-1.5,equalizer=f=4000:t=q:w=0.8:g=-0.7",
+  "balanced": "highpass=f=70,equalizer=f=110:t=q:w=0.8:g=-1.5,equalizer=f=550:t=q:w=0.8:g=1.3,equalizer=f=1100:t=q:w=0.8:g=1.6,equalizer=f=3200:t=q:w=0.8:g=-0.7"
+}
