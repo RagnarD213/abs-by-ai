@@ -1,0 +1,194 @@
+[
+  {
+    "map": {
+      "A": "raw",
+      "B": "open",
+      "C": "dry",
+      "D": "warm"
+    },
+    "result": {
+      "transcript": "That's why you need to treat your belly fat as an emergency because the future is going to be amazing and if you don't lose the weight you aren't going to be around to see how awesome it will be.",
+      "first_last_intact": true,
+      "scores": {
+        "A": {
+          "score": 4,
+          "fault": "Harsh highs, slight hiss.",
+          "room": false,
+          "chopped": false
+        },
+        "B": {
+          "score": 5,
+          "fault": "Slight bass boom, minor echo.",
+          "room": true,
+          "chopped": false
+        },
+        "C": {
+          "score": 3,
+          "fault": "Over-processed, unnatural tails.",
+          "room": false,
+          "chopped": true
+        },
+        "D": {
+          "score": 6,
+          "fault": "Slightly muffled, natural tone.",
+          "room": false,
+          "chopped": false
+        }
+      },
+      "best": "D"
+    }
+  },
+  {
+    "map": {
+      "A": "raw",
+      "B": "dry",
+      "C": "open",
+      "D": "warm"
+    },
+    "result": {
+      "transcript": "That's why you need to treat your belly fat as an emergency because the future is going to be amazing and if you don't lose the weight you aren't going to be around to see how awesome it will be. First and last words are intact.",
+      "scores": {
+        "A": {
+          "score": 5,
+          "fault": "Slight harshness.",
+          "room": true,
+          "chopped": false
+        },
+        "B": {
+          "score": 4,
+          "fault": "Bass boom.",
+          "room": true,
+          "chopped": false
+        },
+        "C": {
+          "score": 7,
+          "fault": "Natural balance.",
+          "room": false,
+          "chopped": false
+        },
+        "D": {
+          "score": 3,
+          "fault": "Chopped tails.",
+          "room": false,
+          "chopped": true
+        }
+      },
+      "best": "C"
+    }
+  },
+  {
+    "map": {
+      "A": "raw",
+      "B": "dry",
+      "C": "open",
+      "D": "warm"
+    },
+    "result": {
+      "transcript": "That's why you need to treat your belly fat as an emergency because the future is going to be amazing and if you don't lose the weight you aren't going to be around to see how awesome it will be. First and last words are intact.",
+      "scores": {
+        "A": {
+          "score": 5,
+          "fault": "Slight harshness.",
+          "room": true,
+          "chopped": false
+        },
+        "B": {
+          "score": 4,
+          "fault": "Bass boom.",
+          "room": true,
+          "chopped": false
+        },
+        "C": {
+          "score": 7,
+          "fault": "Natural balance.",
+          "room": false,
+          "chopped": false
+        },
+        "D": {
+          "score": 3,
+          "fault": "Chopped tails.",
+          "room": false,
+          "chopped": true
+        }
+      },
+      "best": "C"
+    }
+  },
+  {
+    "map": {
+      "A": "warm",
+      "B": "raw",
+      "C": "open",
+      "D": "dry"
+    },
+    "result": {
+      "transcript": "That's why you need to treat your belly fat as an emergency because the future is going to be amazing and if you don't lose the weight you aren't going to be around to see how awesome it will be",
+      "scores": {
+        "A": {
+          "score": 5,
+          "fault": "Thin, slight echo. Words intact.",
+          "room": true,
+          "chopped": false
+        },
+        "B": {
+          "score": 4,
+          "fault": "Harsh, hiss. Words intact.",
+          "room": false,
+          "chopped": false
+        },
+        "C": {
+          "score": 7,
+          "fault": "Natural, balanced. Words intact.",
+          "room": false,
+          "chopped": false
+        },
+        "D": {
+          "score": 3,
+          "fault": "Bass boom. Tails cut.",
+          "room": false,
+          "chopped": true
+        }
+      },
+      "best": "C"
+    }
+  },
+  {
+    "map": {
+      "A": "warm",
+      "B": "open",
+      "C": "dry",
+      "D": "raw"
+    },
+    "result": {
+      "transcript": "That's why you need to treat your belly fat as an emergency because the future is going to be amazing and if you don't lose the weight you aren't going to be around to see how awesome it will be.",
+      "first_last_intact": true,
+      "scores": {
+        "A": {
+          "score": 5,
+          "fault": "Slight harshness.",
+          "room": true,
+          "chopped": false
+        },
+        "B": {
+          "score": 4,
+          "fault": "Chopped tails.",
+          "room": false,
+          "chopped": true
+        },
+        "C": {
+          "score": 7,
+          "fault": "Natural balance.",
+          "room": false,
+          "chopped": false
+        },
+        "D": {
+          "score": 3,
+          "fault": "Bass boom.",
+          "room": true,
+          "chopped": false
+        }
+      },
+      "best": "C"
+    }
+  }
+]

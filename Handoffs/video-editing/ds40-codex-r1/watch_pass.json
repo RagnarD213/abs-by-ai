@@ -1,0 +1,83 @@
+{
+ "watch_version": "1.2.0",
+ "tool": "_shared/deliver/watch.py",
+ "video": "sample.mp4",
+ "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round1/review/media/sample.mp4",
+ "sha256": "874c8363a832bb20a57453a74d6b5da808886524b6013d12a06ea8f1b2eddceb",
+ "bytes": 12863236,
+ "size": "1080x1920",
+ "fps": 29.97,
+ "duration": 10.01,
+ "when": "2026-10-19T17:11:06-0500",
+ "plan": "/Volumes/Extreme/_edit_work/DS-40-codex/round1/plan.json",
+ "out": "/Volumes/Extreme/_edit_work/DS-40-codex/round1/watch",
+ "boundaries": 0,
+ "boundary_list": [],
+ "reviewed": 0,
+ "inspected": true,
+ "judged": [
+  {
+   "image": "sheet_00_00-00.00_to_00-09.01.jpg",
+   "verdict": "clean",
+   "t": 0.0,
+   "note": "All ten tiles inspected. Continuous presenter shot with clear hair top, centered face, intact shoulders, no black frame, frozen segment, junk card, placeholder, or undeclared cut. Plain light background is the planned key/color/audio calibration field. Full-resolution frames and dark edge test are detailed in audit/report.json."
+  }
+ ],
+ "judged_by": "Independent Codex audit agent",
+ "open_defects": 0,
+ "scan": {
+  "frames": 300,
+  "fps": 29.97,
+  "median_diff": 3.799,
+  "mad": 1.032,
+  "p99": 7.529,
+  "threshold": 9.991,
+  "frozen": [],
+  "black": [],
+  "jumps": [],
+  "explained_jumps": 0
+ },
+ "naked_splices": {
+  "count": 0,
+  "per_min": 0.0,
+  "candidates": 0,
+  "naked": [],
+  "settings": {
+   "grid": "90x160",
+   "blocks": "9x16",
+   "peak": 20.0,
+   "sharp": 2.0,
+   "still": 0.25,
+   "hot_min": 8,
+   "subject_rows": 0.7,
+   "tex_min": 6.0,
+   "palette": 0.1,
+   "align_explains": 0.4,
+   "align_margin_blocks": 1
+  }
+ },
+ "graphic_presence": [],
+ "sheets": [
+  "sheet_00_00-00.00_to_00-09.01.jpg"
+ ],
+ "sheet_interval_s": 1.0,
+ "strips": [],
+ "pairs": [],
+ "clips": [],
+ "checklist": [
+  "hair_top",
+  "out_of_frame",
+  "junk_card",
+  "naked_splice",
+  "label_over_face",
+  "black_or_frozen",
+  "wide_level",
+  "visual_junk",
+  "graphic_missing",
+  "ai_giveaway",
+  "placeholder"
+ ],
+ "seconds": 2.4,
+ "judged_at": "2026-10-19T17:21:22-0500",
+ "judge_problems": []
+}

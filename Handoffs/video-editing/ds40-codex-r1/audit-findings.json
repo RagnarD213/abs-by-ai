@@ -1,0 +1,10 @@
+{
+  "entries": [
+    {
+      "image": "sheet_00_00-00.00_to_00-09.01.jpg",
+      "verdict": "clean",
+      "t": 0.0,
+      "note": "All ten tiles inspected. Continuous presenter shot with clear hair top, centered face, intact shoulders, no black frame, frozen segment, junk card, placeholder, or undeclared cut. Plain light background is the planned key/color/audio calibration field. Full-resolution frames and dark edge test are detailed in audit/report.json."
+    }
+  ]
+}

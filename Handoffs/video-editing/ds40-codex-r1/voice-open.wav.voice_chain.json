@@ -1,0 +1,30 @@
+{
+ "version": 1,
+ "src": "/Volumes/Extreme/_edit_work/DS-40-codex/round1/lav.wav",
+ "out": "/Volumes/Extreme/_edit_work/DS-40-codex/round1/voice-open.wav",
+ "pull": "wav as given",
+ "untreated": {
+  "version": 1,
+  "note": "pull: wav as given",
+  "seconds": 8.01,
+  "edt_ms": 68.0,
+  "flux": 0.0897,
+  "sfm": 0.298,
+  "swirl": 0.9046,
+  "gap": 30.4797
+ },
+ "edt_raw": 68.0,
+ "dereverb": null,
+ "eq": "highpass=f=70,equalizer=f=120:t=q:w=0.8:g=1.5,equalizer=f=450:t=q:w=1:g=-1,equalizer=f=3200:t=q:w=1:g=-1",
+ "eq_gains": null,
+ "voice": "highpass=f=70,equalizer=f=120:t=q:w=0.8:g=1.5,equalizer=f=450:t=q:w=1:g=-1,equalizer=f=3200:t=q:w=1:g=-1,pan=stereo|c0=c0|c1=c0",
+ "expander": false,
+ "no_expander_because": "Blind listening on this exact sample reported clipped word tails on warm/bass options; retain natural speech decays.",
+ "oversample": 1,
+ "limiter_delay_samples": 239,
+ "gain_db": 10.6,
+ "lufs": -14.1,
+ "tp_pcm": -2.4,
+ "lra": 1.9,
+ "duration": 10.01
+}

@@ -26,7 +26,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**Bill Maher Fat 90-Year-Old SFC R1 - ACTIVE 2026-10-19, Codex.** Dan explicitly authorized a parallel Claude/Codex competition. Codex owns only `/Volumes/Extreme/_edit_work/DS-40-codex/round1/`: 10-second key, color and voice sample. Full edit waits for Dan; do not overwrite Claude work. Next: sample, independent audit, review.
+**Bill Maher Fat 90-Year-Old SFC R1 - REVIEW 2026-10-19, Codex.** Ten-second key/color/voice sample: http://127.0.0.1:9017/. Independent audit complete; numeric audio reference failures disclosed. Full Short waits for Dan. Next: choose key, color and voice. Recipe and Drive links: `Handoffs/video-editing/ds40-codex-r1/README.md`. Parallel Claude work remains separate.
 
 
 **It's Boring, But It Got Me Abs At 40 (RO-27) - R1 REVIEW 2026-10-17, Codex.** Sole editor. Playable R1 at http://127.0.0.1:8932/ with opening, choices and all contextual asset previews. Next: Dan picks colour, voice and AI frame pairs; full film waits on approvals.
@@ -34,6 +34,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **RO-25 thumbnail sync BLOCKED 2026-10-17, Codex.** Final thumbnail C and deferred setup handoff are saved with verified Extreme backups. Commit `4b5b483` remains local; safe-push stopped on live `qc_corpus/corpus.json` and `scripts/blotato/fb_reel_covers.json`, plus stale files listed by the tool. Next: retry after owners clear; do not adopt live edits. Setup handoff is indexed in `Handoffs/README.md` and waits for the approved final film.
 
 **RO-25 Git sync BLOCKED 2026-10-18, Codex.** Public video, article post 886, and manually uploaded 257-cue English SRT are verified. Caption uploader and receipt are committed locally as `340ed22`. Safe-push aborted on nine merge conflicts across other sessions' files; no merge is in progress. Next: hand-merge shared main with owners or push these records from a clean checkout, without discarding their work.
+
+**DS-40:R1:2026-10-19:Claude.** Green screen key/audio/colour sample; Codex bake-off. `/Volumes/Extreme/_edit_work/ds40/`.
 
 **SL-15:R2-ACTIVE:2026-10-18:Claude.** My First Spray Tan SFL R2 building Shorts A and C from RO-19 (Dan's two picks). Next: gates, audit, review page. Work: `/Volumes/Extreme/_edit_work/SL-15/`.
 

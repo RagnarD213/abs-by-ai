@@ -1,0 +1,35 @@
+{
+  "A": {
+    "naturalness": 8,
+    "clear_speech": 9,
+    "warm_but_not_boomy_bass": 8,
+    "non_harsh_highs": 8,
+    "absence_of_room_reverb": 9,
+    "intact_consonants_and_word_tails": 9,
+    "dynamic_expression": 8,
+    "audible_defect": "None",
+    "boomy": false,
+    "harsh": false,
+    "dull": false,
+    "muffled": false,
+    "over_processed": false,
+    "damaged": false
+  },
+  "B": {
+    "naturalness": 8,
+    "clear_speech": 9,
+    "warm_but_not_boomy_bass": 8,
+    "non_harsh_highs": 8,
+    "absence_of_room_reverb": 9,
+    "intact_consonants_and_word_tails": 9,
+    "dynamic_expression": 8,
+    "audible_defect": "None",
+    "boomy": false,
+    "harsh": false,
+    "dull": false,
+    "muffled": false,
+    "over_processed": false,
+    "damaged": false
+  },
+  "preference": "Both A and B are virtually identical in sound quality. There is no discernible difference between them, and both are excellent. I would give the subject either A or B for listening preference, as they are indistinguishable."
+}
