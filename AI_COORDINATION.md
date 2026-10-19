@@ -118,7 +118,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-07:SETUP-HANDOFF:2026-10-18:Claude.** Dan approved the R6 9:16; finalized. Card `Fire Your Trainer AD Setup` (`Handoffs/handoff-20261018-ra07-setup.md`). Commits local until safe-push clears.
 
-**Invest In Your Health LFC R4 ACTIVE 2026-10-18, Claude.** Building the three full films (RO-20/B/C), then gates, one reviewer per film, review page :8868. Work: `/Volumes/Extreme/_edit_work/ro20/round4/`.
+**Invest In Your Health LFC R4:REVIEW:8868:2026-10-19:Claude.** Three full films (RO-20/B/C) gated, judged, delivered; VLC copies in Videos to Review. Next: Dan's notes or finalize; 2 decisions on the page. C1722 sidecar mark-used pending (Seagate unplugged). Work: `/Volumes/Extreme/_edit_work/ro20/round4/`.
 
 
 **RA-05:POLICY-RECHECK:2026-10-16:Claude.** Live: `0DswKDBFW2E`, ad `828398569805` in review. Next 10-17: `node scripts/ads/api/client.js policy 24316364155`; clean, delete this.
