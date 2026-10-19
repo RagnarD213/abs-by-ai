@@ -10,12 +10,15 @@ reason.
 
 Keep this file current: when something is filmed, delete its row and note the roll number.
 
-**Shoot-day document (the one to actually open on the day), since 2026-10-16:**
-"Next Shoot - Filming Document (Not Filmed On 10-15)",
-https://docs.google.com/document/d/1fNCxSNNDGmAn_nkNgzRJbWIUDuvmxum2LBNCpyKveVg/edit
-Everything the 10/15 shoot did not film: 6 reaction shorts (DS-65 to DS-70), 5 studio shorts (DS-71 to DS-75), the 4
-follow-along cue tracks (RO-33 to RO-36), and all owed B-roll by location, each tagged with its Edit Queue job. Script
-words match the 10-17 teleprompter documents; edit scripts in the 10/17 shoot doc and rebuild.
+**Shoot-day documents, since 2026-10-19:**
+- "Next Studio Shoot, Not Yet Filmed" (was "Next Shoot - Filming Document"),
+  https://docs.google.com/document/d/1fNCxSNNDGmAn_nkNgzRJbWIUDuvmxum2LBNCpyKveVg/edit
+  Green screen (6 reaction shorts, DS-65 to DS-70) and studio (5 shorts, DS-71 to DS-75), plus the B-roll still owed
+  and the parked gym ideas.
+- "The 10/23 Shoot Scripts", https://docs.google.com/document/d/11nUmri621xbb7K44Wxan7IAljK2mJeizDFCRgK752AA/edit
+  The 27 gym shorts filmed by the pool on Fri 10/23, and at the end the 4 follow-along long-forms (RO-33 to RO-36),
+  moved there from the studio doc on 2026-10-19. Shot list and day plan:
+  https://docs.google.com/document/d/1XBOfCig7uB4vCnq5Gt76Lk-HdOlagF7YXoO3RrBdWeI/edit
 
 ---
 
