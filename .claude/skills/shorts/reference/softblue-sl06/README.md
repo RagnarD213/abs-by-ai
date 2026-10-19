@@ -119,3 +119,27 @@ dl_low.sh / dl_hd.sh     YouTube: scan at 360p first, then download only the sec
 - **Real thigh injections with a needle are rare on YouTube**: Zepbound vial tutorials inject the belly, thigh videos use the pen.
   Usable: Karli Sine `HcAsUbiFJyw` 2:28.6 (pinch and insulin syringe, vertical, her captions on her chest: card on the thigh),
   Nurse Scott `Pz49hyOla6s` 6:20, Clinical Skills Training `4v3kQNFLID8` 0:42.6 (square: a fill crop shows only the gown).
+
+## Round 4 stage 1 (2026-10-18): shirtless gym intros, front-thigh clips (`round4/`)
+
+```
+prompts/gym_plate.txt   an empty-gym plate, generated once and given to every START as ref3 (same gym on all six)
+prompts/_common3.txt    shirtless, physique sheet as ref2, printed navy/yellow poster, "lit brighter than the room"
+deskin.py, finalize.py  raw Codex PNG -> remove the wormy skin texture (1-4 px band, colour skin mask) -> 1080x1920 JPEG
+lock_tight.py           lockstill variant: inside --tight boxes keep END only on a skin mask (yellow-safe), so a poster
+                        border is not dragged by the grown person mask; --keep boxes for a moved fist
+page_r4a.py, preview_c_open.py, dl_hd4.sh   the R4 page, C's opening with three fill-frame credited clips, the HD pulls
+```
+
+- **Codex skin texture:** shirtless frames came back with a wormy, crackled pattern on chest and face at 1:1. A reviewer had failed
+  R3 B on specks. Smoothing only the 1-4 px band on a colour skin mask (`deskin.py`) fixed it; apply the same to START and END.
+- **Codex END edits barely move a hand.** Three prompt wordings ("touch the poster", "rise a hand's length", "up by 8 %") moved the
+  pointing hand 30 to 110 px. When the move is too small, keep the good frame as END and ask for a START with the hand LOWERED
+  (an easier edit), then lock END's background to the new START (`lock_tight.py`). A reviewer failed F until that was done.
+- **Real gym depth:** the poster sits on a wall behind him, so "fingertip touches the poster" is not physical; reviewers accept
+  the finger in front of the corner. Prompt the motion as "points at the poster".
+- **lockstill traps:** a grown person mask keeps END's drifted poster border (a 2-3 px step); a START fingertip outside the
+  segmentation is copied back as a floating blob. Both were caught only by the fresh reviewer.
+- **Thigh clips that exist:** University of Iowa Health Care `e0wDPZ0D9Wk` 6:00.9 (gloved nurse, front thigh), Seattle Children's
+  `7TP0rTlQVao` 6:59.5 (self, pinch, front thigh, logo bug bottom right), SynergenX `FeweDb3Xfxg` 1:39.5 (pinch and inject,
+  front thigh, 4K). All three fill a 9:16 frame on the needle. Search notes and rejects: `round3/yt/sheets4/`.

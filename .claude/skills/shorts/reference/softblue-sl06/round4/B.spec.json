@@ -1,0 +1,58 @@
+{
+ "shot": "SL-06 short B R4 AI flex intro (9:16), under the opening line 'Here's why you should stop using the pen to inject Zepbound, and why you should use a needle instead.'",
+ "start_frame": "B_start.jpg",
+ "intent": "AI Dan, shirtless in black gym shorts, dark grey rectangular glasses, smiling, in a real gym (charcoal wall, power rack at left edge, cable machine at right edge, dumbbell rack low behind him). His left arm (picture right) is raised in a one-arm biceps flex, its fist pinching a tiny Zepbound vial between thumb and index finger, label toward camera. A printed navy poster with a yellow top band and border on the wall at picture left reads exactly 'Use a needle, / not a / KwikPen' with a small yellow dumbbell icon, no other text. START: his right arm (picture left) points up at the poster, fingertip in empty air below the poster's lower-left corner. END: a beat later, camera locked, the pointing hand has moved up and the fingertip is at the poster's lower-left corner without covering any letter, and the flexed arm squeezes a little tighter; the vial is still pinched; poster, gym, wall, face, glasses and shorts unchanged. Only his arms and hands move.",
+ "person": {
+  "anchored": [
+   "nose",
+   "shoulder"
+  ],
+  "reach": false
+ },
+ "still": {
+  "poster_line1": [
+   105,
+   262,
+   488,
+   372
+  ],
+  "poster_line3": [
+   140,
+   506,
+   462,
+   602
+  ],
+  "rack_left": [
+   5,
+   120,
+   60,
+   560
+  ],
+  "cable_pulley": [
+   1000,
+   110,
+   1075,
+   330
+  ]
+ },
+ "props": [
+  {
+   "name": "vial",
+   "box": [
+    784,
+    576,
+    828,
+    656
+   ],
+   "held_by": "left"
+  }
+ ],
+ "hands": {
+  "right": "points at the poster (empty air in START, fingertip at the poster's lower-left corner in END)",
+  "left": "flexed, pinches the tiny vial between thumb and index finger in both frames"
+ },
+ "may_change": {},
+ "bounds": {},
+ "camera": "locked",
+ "note": "Waist-up framing: the legs are off-frame (pose visibility near 0), and no limb straightens, so person.reach is false."
+}

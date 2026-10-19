@@ -35,12 +35,12 @@ date at setup.
 | Wed Dec 2 | Video 5: Getting Abs At 40 vs 25 | Waitlist |
 | Sun Dec 6 | RO-28 Why Zepbound Improves Your Health Even If You're Ripped | Not finished (script says "this year") |
 | Wed Dec 9 | RO-02 The Stomach Vacuum | Live |
-| Sun Dec 13 | RO-22 How Losing Fat Changed My Face | Not finished |
+| Sun Dec 13 | RO-17 3 Healthy Foods That Made Me Fat | Set up 2026-10-18 (took RO-22's Sunday by the rule above); Facebook/Instagram/TikTok Mon Dec 14 noon. Receipt `Docs/RO17_SETUP_RECEIPT_20261018.md` |
 | Wed Dec 16 | RO-03 The Vacuum Workout | Live |
 | Sun Dec 20 | RO-16 If I Had Belly Fat, 90 Days | Live |
 | Wed Dec 23 | RO-11 When Calories Don't Matter | Live |
 | Sun Dec 27 | RO-10 Calories: The Reason You're Not Losing Weight | Live (YouTube only; socials went out Oct 8) |
 | Wed Dec 30 | RO-13 Can You Drink Alcohol And Still Have Abs? | Waitlist, four schedules removed Oct 17 to secure RO-25; original date retained |
 
-**2027, tentative:** Sundays RO-24, RO-29, RO-31, RO-23; Wednesdays RO-04, RO-09, RO-15, RO-18, RO-14, RO-17 (weakest
+**2027, tentative:** Sundays RO-22 (gave Dec 13 to RO-17), RO-24, RO-29, RO-31, RO-23; Wednesdays RO-04, RO-09, RO-15, RO-18, RO-14 (weakest
 first by the ranking). RO-32 waits for gym B-roll; RO-33 to RO-36 are not filmed.

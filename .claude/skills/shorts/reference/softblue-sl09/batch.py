@@ -633,12 +633,14 @@ class Short:
         self.wm = (np.asarray(o), (60, 1796, W - 60, 1850))
         # captions: one RGBA state per cue, at the caption top of the shot it starts in
         os.makedirs(f"{d}/cap", exist_ok=True); self.caps = []
+        words_ = json.load(open(f"{d}/words.json")) if os.path.exists(f"{d}/words.json") else []
         for i, c in enumerate(self.cues):
+            last_e = max([w["e"] for w in words_ if c["a"] - 0.05 <= w["t"] < c["b"]] or [0.0])      # its last word's end
             sh = self.shot_at(min(fr(c["a"]), self.N - 1)); top = sh.get("cap", 1412)
             im = cap_png(c["lines"], top); p = f"{d}/cap/cue{i:03d}.png"; im.save(p); bb = im.getbbox()
             f0_, f1_ = fr(c["a"]), fr(c["b"])
             for s2 in self.shots[1:]:                        # a cut inside the cue's last 10 frames: the cue ends on the cut (reviewers 10-13: captions trailed 2 to 4 frames past cuts)
-                if f0_ + 8 < s2["f0"] < f1_ <= s2["f0"] + 10: f1_ = s2["f0"]      # a cue lingers at most 0.30 s (9 frames) after its last word
+                if f0_ + 8 < s2["f0"] < f1_ <= s2["f0"] + 10 and s2["f0"] >= fr(last_e): f1_ = s2["f0"]      # a cue lingers at most 0.30 s (9 frames) after its last word; never before that word ends (reviewer H R2: three cues vanished mid-word at cuts)
             self.caps.append(dict(f0=f0_, f1=f1_, arr=np.asarray(im), box=bb, png=p, top=top))
         man = f"{d}/hf/manifest.json"; self.man = json.load(open(man)) if os.path.exists(man) else []
         self.ph = None
@@ -655,7 +657,7 @@ class Short:
             if sh["kind"] not in ("talk", "phone"): continue
             trk = self.track.get(self.key(sh)) or [r for r in roll_track(self.d, sh["roll"]) if sh["raw0"] - 0.5 <= r["t"] <= sh["raw1"] + 0.5]
             if sh["kind"] == "phone": ch = sh.get("dh", 1080); cw = round(ch * DAN_BOX[2] / DAN_BOX[3]); sh.setdefault("y0", 0); sh.setdefault("cap", 1640)
-            else: cw, ch = WIN[sh.get("win", "full")]; sh.setdefault("y0", P.Y0[sh.get("win", "full")])
+            else: cw, ch = tuple(sh["wh"]) if sh.get("wh") else WIN[sh.get("win", "full")]; sh.setdefault("y0", P.Y0[sh.get("win", "full")])      # wh: a per-shot window (R3: a tracked hold trimmed at the top for headroom)
             sh["cw"], sh["ch"] = cw, ch; sh["path"] = window_path(sh, trk, cw)
             xs += [float(sh["path"].min()) - cw / 2, float(sh["path"].max()) + cw / 2]
         if xs: self.strip = (max(0, int(min(xs)) // 2 * 2 - 2), min(1920, (int(max(xs)) + 3) // 2 * 2))
@@ -673,6 +675,7 @@ class Short:
             if roll not in self.cams: self.cams[roll] = cam(roll, *self.strip)
             src = self.cams[roll].get(sh["n"][j]); cw, ch = sh["cw"], sh["ch"]
             x = int(round(sh["path"][j] - cw / 2 - self.strip[0])); y = sh["y0"]
+            if sh.get("y0k"): y = int(round(np.interp(raw, [k_[0] for k_ in sh["y0k"]], [k_[1] for k_ in sh["y0k"]])))      # R3: the top edge glides inside an editor's animated zoom (keys: master time, row)
             frame[DROP:] = cv2.resize(src[y:y + ch, x:x + cw], (W, PIC_H), interpolation=cv2.INTER_LANCZOS4)
         elif sh["kind"] == "clip":
             c = sh["cover"]
@@ -719,36 +722,50 @@ class Short:
             c = sh["cover"]                                 # approved phone shell, centred on the field, whole screen dark, the recording filling it. Shell at 1.0x
             k = PS_K; sw, shh = round(624 * k), round(1290 * k)      # (520 x 1075) so it ends 21 px above the caption line (captions keep their place)
             if "pshell" not in self.__dict__: self.pshell = np.asarray(Image.fromarray(np.asarray(phone_shell())).resize((sw, shh), Image.LANCZOS))
-            px, py = (W - sw) // 2, PS_Y; full = np.zeros((H, W, 4), np.uint8); full[py:py + shh, px:px + sw] = self.pshell; over_box(frame, full, (px, py, px + sw, py + shh))
-            CW_, CH_ = round(518 * k), round(1150 * k); cx_, cy_ = px + round(48 * k), py + round(50 * k)
-            if "psmask" not in self.__dict__:
-                mm = Image.new("L", (W, H), 0); ImageDraw.Draw(mm).rounded_rectangle((px + 38 * k, py + 36 * k, px + (38 + 538) * k, py + (36 + 1200) * k), 65 * k, fill=255); self.psmask = np.asarray(mm) > 127
-                m2 = Image.new("L", (CW_, CH_), 0); ImageDraw.Draw(m2).rounded_rectangle((0, 0, CW_ - 1, CH_ - 1), 52 * k, fill=255); self.pcmask = np.asarray(m2)[..., None].astype(np.float32) / 255
-            frame[self.psmask] = c.get("fill", (6, 10, 16))
+            rise = c.get("rise", 0); dy = round(-rise * (i - sh["f0"]) / max(1, sh["f1"] - sh["f0"] - 1)) if rise else 0      # R3: the phone rises `rise` px at a constant speed over its time on screen, so it never sits still (reviewer J R3b: a frozen phone for 3.7 s)
+            px, py = (W - sw) // 2, PS_Y + dy; full = np.zeros((H, W, 4), np.uint8); full[py:py + shh, px:px + sw] = self.pshell; over_box(frame, full, (px, py, px + sw, py + shh))
+            CW_, CH_ = round(538 * k), round(1200 * k); cx_, cy_ = px + round(38 * k), py + round(36 * k)      # R3: the recording fills the whole rounded screen (reviewer J R3c: a black strip under it, 518 x 1150 inside a 538 x 1200 screen)
+            if "psmasks" not in self.__dict__: self.psmasks = {}
+            if py not in self.psmasks:
+                mm = Image.new("L", (W, H), 0); ImageDraw.Draw(mm).rounded_rectangle((px + 38 * k, py + 36 * k, px + (38 + 538) * k, py + (36 + 1200) * k), 65 * k, fill=255); self.psmasks[py] = np.asarray(mm) > 127
+            if "pcmask" not in self.__dict__:
+                m2 = Image.new("L", (CW_, CH_), 0); ImageDraw.Draw(m2).rounded_rectangle((0, 0, CW_ - 1, CH_ - 1), 65 * k, fill=255); self.pcmask = np.asarray(m2)[..., None].astype(np.float32) / 255
+            frame[self.psmasks[py]] = c.get("fill", (6, 10, 16))
             if c["id"] not in self.clips:
                 x0_, y0_, w_, h_ = c["rect"]
                 self.clips[c["id"]] = Seq(c["src"], f"crop={w_}:{h_}:{x0_}:{y0_},{lib.DEC},scale={CW_}:{CH_}:flags=lanczos", (CW_, CH_), FPS)
             scr = self.clips[c["id"]].get(int(np.floor(raw * FPS + 0.25))).astype(np.float32); reg = frame[cy_:cy_ + CH_, cx_:cx_ + CW_].astype(np.float32)
             frame[cy_:cy_ + CH_, cx_:cx_ + CW_] = (reg * (1 - self.pcmask) + scr * self.pcmask + 0.5).astype(np.uint8)
-            hl = c.get("hl")                                # a pulsing cyan outline on one row of the screenshot (K: "Restfulness: Fair" on "the problem")
+            hl = c.get("hl")                                # a call-out on one row of the screenshot (K: "Restfulness: Fair" on "the problem")
             if hl and graphics and i / FPS >= hl["on"]:
                 sx, sy = CW_ / c["rect"][2], CH_ / c["rect"][3]; bx0, by0, bx1, by1 = hl["box"]
                 X0, Y0, X1, Y1 = cx_ + round(bx0 * sx), cy_ + round(by0 * sy), cx_ + round(bx1 * sx), cy_ + round(by1 * sy)
-                u = i / FPS - hl["on"]; a_in = min(1.0, u / 0.3); pulse = 0.72 + 0.28 * np.cos(2 * np.pi * u / 1.2)
-                al = a_in * pulse; g = 6 + round(3 * (1 - a_in))
+                u = i / FPS - hl["on"]; a_in = min(1.0, u / 0.35); e_ = a_in * a_in * (3 - 2 * a_in); pulse = 0.80 + 0.20 * np.cos(2 * np.pi * u / 1.2)
+                if hl.get("dim"):                           # the rest of the screen drops to `dim` brightness (reviewer K R2 D1: "90 Optimal" stayed the biggest thing on a "problem" line)
+                    k_ = 1 - (1 - hl["dim"]) * e_; m_ = self.pcmask.copy(); m_[max(0, Y0 - cy_ - 3):Y1 - cy_ + 3, :] = 0
+                    reg = frame[cy_:cy_ + CH_, cx_:cx_ + CW_].astype(np.float32); frame[cy_:cy_ + CH_, cx_:cx_ + CW_] = (reg * (1 - m_ * (1 - k_)) + 0.5).astype(np.uint8)
+                col = tuple(hl.get("color", (104, 197, 255))); al = e_ * pulse; g = 6 + round(3 * (1 - a_in)); wd = 6 if hl.get("dim") else 4
                 ov = Image.new("RGBA", (X1 - X0 + 2 * g + 24, Y1 - Y0 + 2 * g + 24), (0, 0, 0, 0)); dd = ImageDraw.Draw(ov)
-                dd.rounded_rectangle((12, 12, ov.width - 13, ov.height - 13), 18, outline=(104, 197, 255, int(110 * al)), width=10)
-                ov = ov.filter(ImageFilter.GaussianBlur(5)); dd = ImageDraw.Draw(ov)
-                dd.rounded_rectangle((12 + 3, 12 + 3, ov.width - 16, ov.height - 16), 16, outline=(104, 197, 255, int(255 * al)), width=4)
+                dd.rounded_rectangle((12, 12, ov.width - 13, ov.height - 13), 18, outline=col + (int(130 * al),), width=12)
+                ov = ov.filter(ImageFilter.GaussianBlur(6)); dd = ImageDraw.Draw(ov)
+                dd.rounded_rectangle((12 + 3, 12 + 3, ov.width - 16, ov.height - 16), 16, outline=col + (int(255 * e_),), width=wd)
                 rgba = np.zeros((H, W, 4), np.uint8); ox, oy = X0 - g - 12, Y0 - g - 12; rgba[oy:oy + ov.height, ox:ox + ov.width] = np.asarray(ov)
                 over_box(frame, rgba, (ox, oy, ox + ov.width, oy + ov.height))
+                if hl.get("arrow"):                         # a warm arrow beside the phone points at the row, bobbing for its whole screen time (moving-graphics rule)
+                    yc = (Y0 + Y1) // 2; bob = 10 * np.sin(2 * np.pi * u / 0.9); tip = px + sw + 16 + round(bob * e_) + round(40 * (1 - e_))
+                    ar = Image.new("RGBA", (W, 140), (0, 0, 0, 0)); da = ImageDraw.Draw(ar); cy2 = 70
+                    shape = [(tip, cy2), (tip + 58, cy2 - 46), (tip + 58, cy2 - 18), (tip + 170, cy2 - 18), (tip + 170, cy2 + 18), (tip + 58, cy2 + 18), (tip + 58, cy2 + 46)]
+                    sh_ = Image.new("RGBA", ar.size, (0, 0, 0, 0)); ImageDraw.Draw(sh_).polygon([(x + 4, y + 5) for x, y in shape], fill=(0, 0, 0, int(150 * e_))); sh_ = sh_.filter(ImageFilter.GaussianBlur(5))
+                    ar = Image.alpha_composite(sh_, ar); da = ImageDraw.Draw(ar); da.polygon(shape, fill=col + (int(255 * e_),))
+                    rgba = np.zeros((H, W, 4), np.uint8); rgba[yc - 70:yc + 70] = np.asarray(ar); over_box(frame, rgba, (0, yc - 70, W, yc + 70))
         else:                                               # a rebuilt film graphic that fills the picture area
             im = self.scenes.SCENES[sh["cover"]["scene"]](raw, sh["cover"], i / FPS)
             frame[DROP:] = np.asarray(im) if graphics else frame[DROP:]
         return frame, sh
     def finish(self, frame, sh, i, C=None):
         if C is not None: frame = np.ascontiguousarray(C.apply(frame, i))
-        wm, box = self.wm; over_box(frame, wm, box)
+        wm, box = self.wm
+        if sh.get("kind") != "psolo": over_box(frame, wm, box)      # R3: no wordmark while the phone is alone on screen: its two-line captions (from y 1600) would touch it (gate captions:graphic_clearance, short 4)
         if self.ph is not None and i < self.ph[2]: frame[330:420, self.ph[1] - 4:W - 36] = self.ph[0][6:96, self.ph[1] - 4:W - 36]      # only while the placeholder pickup plays
         for c in self.caps:
             if c["f0"] <= i < c["f1"]: over_box(frame, c["arr"], c["box"])

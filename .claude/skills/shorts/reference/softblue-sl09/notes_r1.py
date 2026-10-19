@@ -1,4 +1,4 @@
-"""SL-09 round 1 page copy (Oura Ring Review SFL R2). Plain language for Dan; no em dashes."""
+"""SL-09 round 1 page copy (Oura Ring Review SFL R3). Plain language for Dan; no em dashes."""
 import json, os
 import plans as P
 W9 = "/Volumes/Extreme/_edit_work/sl09/round2"
@@ -6,10 +6,11 @@ ORDER = ["A", "I", "H", "K", "J"]
 NUM = P.ORDER
 NAMES = {"A": "Train Harder After A Bad Night's Sleep", "I": "Your Sleep Score Shows Who's Toxic In Your Life", "H": "Cut The Adrenaline Before Bed",
          "K": "You're Not Sleeping As Well As You Think", "J": "Oura Ring Or WHOOP? Which One To Buy"}
-TASK = "Oura Ring Review SFL R2"
+TASK = "Oura Ring Review SFL R3"
 def _share(S):
     sh = json.load(open(f"{W9}/build/{S}/shots.json")); T = json.load(open(f"{W9}/build/{S}/timeline.json"))
     return sum(s["f1"] - s["f0"] for s in sh if s["kind"] != "talk") / T["frames"], T["frames"] / (30000 / 1001)
+LONG = {S: _share(S)[1] >= 45 for S in ORDER}      # 45 s or more gets a Videos to Review copy (VIDEO-RULES 2026-10-08)
 LEN = {S: "{1:.0f} seconds; {0:.0%} of it is clips or graphics, the rest is you on camera".format(*_share(S)) for S in ORDER}
 REVIEW = {S: f"shorts/{P.NAME[S]} - REVIEW 540p.mp4" for S in ORDER}
 AB = {S: f"shorts/AB_film-vs-short_{P.NAME[S]}.mp4" for S in ORDER}
@@ -25,16 +26,19 @@ DECISIONS = [
  "Recommended: yes, it shows the product he is asking about. If yes, the motion is made on your Google subscription ($0) and checked before you see it.",
  "<b>You're Not Sleeping As Well As You Think opener:</b> use the AI \"thumbs-up, then nods off into his coffee\" gag (frames below) in place of "
  "the stock clip of a man rubbing his eyes? Recommended: yes, it acts out \"you are in denial\" in one look.",
+ "<b>Oura Ring Or WHOOP? middle (0:14 to 0:21):</b> show one hand wearing a plain ring and a plain screenless band (frames below) while you say "
+ "\"Oura Ring and WHOOP are my top two options... wrist-based or a finger-based\"? Recommended: yes; the short names both and showed neither. No real "
+ "footage of either exists (Pexels has only wedding bands), so this is AI.",
  "<b>Anything to change</b> on the five shorts (a clip, a key point, a cut). Write it in the reply box with the short and the time.",
 ]
 SHORTS_INTRO = ("In release order (training and food rules first; you can reorder at setup). Only short 1 has a slot on the shorts "
                 "calendar so far (Fri Nov 13, 9 AM Chicago, two days after the long-form goes public on Wed Nov 11); the setup task puts the "
                 "other four in the next free slots. The players here and the VLC copies are the same files.")
 CHECK = {
- "A": "Check: the opener (a man jolted awake by his alarm while you say \"when you get a bad night of sleep\"), the key point at 0:09, the deadlift and power clean on \"high risk moves\", and your own curls and lateral raises on \"low risk\".",
+ "A": "Check: the opener (a man jolted awake by his alarm while you say \"when you get a bad night of sleep\", running on until he takes a hammer to the clock), the key point at 0:09, a tired man rubbing his eyes on \"less rested\", the punch-in at 0:30, the deadlift and power clean on \"high risk moves\", and your own curls and lateral raises on \"low risk\".",
  "I": "Check: the arguing couple opener, the sleep-score scene with your real Oura chart at 0:19, the key point at 0:39, and the step to the closer crop at 0:46 where the cut middle part was.",
- "H": "Check: the opener (your own last line moved to the front, over night driving and a man throwing his pillow at 4:28 AM), the empty highway and the light-streak drive that replace Zeeshan's AI Tesla, the key point at 0:36, and his real Tesla self-driving footage from \"press a button\".",
- "K": "Check: the yawning opener, the scale on \"weighing yourself every day\", your real Oura sleep screen at 0:20 with its one flagged row (Restfulness: Fair) lit up on \"the problem\", the drink / late snack / stress clips under the key point, and the ending on you.",
+ "H": "Check: the opener (your own last line moved to the front, over night driving and a man throwing his pillow at 4:28 AM), the night-highway drive that replaces Zeeshan's AI Tesla where you say 120, his AI Tesla back at 0:36 cropped off its speed display (AI-GENERATED chip), the key point at 0:36, and his real Tesla self-driving footage from \"press a button\".",
+ "K": "Check: the yawning opener, the scale on \"weighing yourself every day\", your real Oura sleep screen at 0:20: on \"the problem\" the rest of the screen dims and its one flagged row (Restfulness: Fair) gets a warm outline and a moving arrow, then the drink / eating at night / stress clips under the key point, and the ending on you.",
  "J": "Check: the opener on your real Oura app screens, the Apple Watch on \"not recommended\", the moving Oura vs WHOOP comparison from 0:21 (each row lands on your words), and the ending.",
 }
 ABOUT = {
@@ -45,10 +49,10 @@ ABOUT = {
  "J": "46 seconds. Yes to the Oura for most people; Apple Watch and Fitbit not recommended; the Oura's and WHOOP's advantages side by side.",
 }
 ABOUT_AI = {
- "J": "The opener is now your real Oura app on screen. This idea would replace it with the product itself on a hand.",
+ "J": "Two ideas. The opener is now your real Oura app on screen; J1 would replace it with the ring itself on a hand. From 0:14 to 0:21 it is now you on camera; J2 would show the ring and a band on one hand while you name them.",
  "K": "The opener is now a stock clip of a man yawning. This idea makes the \"denial\" line funny.",
 }
-AI_INTRO = ("Made on the ChatGPT subscription ($0). Both pairs passed the frame check and a separate reviewer before this page. Motion is only "
+AI_INTRO = ("Made on the ChatGPT subscription ($0). Every pair passed the frame check and a separate reviewer before this page. Motion is only "
             "made for the ones you approve, on the Google subscription ($0), then checked again before you see it moving. Each short works "
             "without its AI clip: \"If you say no\" is what plays there now.")
 # id, short, name, when, before, under, after, what you see, if no, note
@@ -58,6 +62,11 @@ AI_ITEMS = [
   "Cut to you on camera: \"Now, should you buy a sleep tracker? Absolutely, everybody needs a sleep tracker.\"",
   "A man's hand resting on white sheets in morning light with a matte black smart ring on the index finger; the hand lifts a little and turns so the ring catches the light. No logo on the ring.",
   "Your real Oura app screen in a phone frame (what the short has now).", "AI-GENERATED chip on it. The model drew a left hand; nobody can tell in a close-up, and the ring is worn on either hand."),
+ ("J2", "J", "Ring and band on one hand", "0:13.8 to 0:20.6, in the middle of the short.", "The Apple Watch clip on \"Apple Watch, Fitbit, not recommended.\"",
+  "Oura Ring and WHOOP are my top two options. Just more depends whether you prefer a wrist-based or a finger-based sleep tracker.",
+  "The moving Oura vs WHOOP comparison starts: \"Advantages of Oura Ring over WHOOP...\"",
+  "A man's forearm and hand on a light wooden desk in daylight: a plain black fabric band with no screen on his wrist and a matte black smart ring on his index finger; he turns his hand palm-up. No logos.",
+  "You on camera (what the short has now).", "AI-GENERATED chip on it. The band and ring stand in for the WHOOP and the Oura without their logos."),
  ("K1", "K", "Thumbs-up, then nods off", "The very first picture, 0:00 to 0:05.", "Nothing. This opens the short.",
   "You watching this video right now are probably where I was at a few years ago, which is to say you are in denial.",
   "Cut to you on camera: \"You think you're sleeping okay. You think you're getting enough sleep...\"",
@@ -66,7 +75,7 @@ AI_ITEMS = [
 ]
 DECIDED = []          # filled by page build (decided.py) with the gate and review results
 ITEM = {}
-REPLY = ("Oura Ring Review SFL R2, my notes:\n\n1. Smart-ring opener (Oura Ring Or WHOOP?): \n2. Thumbs-up nods-off opener (You're Not Sleeping): \n"
-         "3. Changes:\n   Short 1 Train Harder: \n   Short 2 Sleep Score: \n   Short 3 Adrenaline: \n   Short 4 Not Sleeping: \n   Short 5 Oura Or WHOOP: \n")
+REPLY = ("Oura Ring Review SFL R3, my notes:\n\n1. Smart-ring opener (Oura Ring Or WHOOP?): \n2. Thumbs-up nods-off opener (You're Not Sleeping): \n"
+         "3. Ring and band on one hand (Oura Ring Or WHOOP?, 0:14): \n4. Changes:\n   Short 1 Train Harder: \n   Short 2 Sleep Score: \n   Short 3 Adrenaline: \n   Short 4 Not Sleeping: \n   Short 5 Oura Or WHOOP: \n")
 if os.path.exists(f"{W9}/decided.json"):
     _d = json.load(open(f"{W9}/decided.json")); DECIDED = _d["decided"]; ITEM = _d.get("item", {})

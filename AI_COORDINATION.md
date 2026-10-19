@@ -67,7 +67,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Calories Not Losing Weight SFL R2 - REVIEW 2026-10-17, Codex.** Five selections preserved; 19 narrated asset excerpts independently checked. Dan reviews clips/graphics: http://127.0.0.1:8998/. Next: apply approval or revisions, then complete five Shorts and final gates. No covers/publishing. Receipt: `Handoffs/results-20261017-sl08-r2-asset-review.md`.
 
-**SL-09:R3-HANDOFF:2026-10-18:Claude.** Five shorts built; reviewers sent back fixes. Next: fire `Handoffs/handoff-20261018-sl09-oura-shorts-r3-fix-review-findings.md` (on GitHub, ea16897). ⚠ Main-folder safe-push needs a hand merge: 9 conflicting files, ahead 107/behind 60.
+**SL-09:R3-REVIEW:8989:2026-10-18:Claude.** Five Oura shorts delivered: every independent review SHIP, every delivery gate PASS. Page :8989; VLC copies of shorts 1, 2, 3, 5. Next: Dan's notes and his call on three AI frame ideas (J1, J2, K1). Short 3 carries Zeeshan's cropped AI Tesla clip: AI flag at setup.
 
 
 
@@ -127,7 +127,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-12:R2-HANDOFF:2026-10-17:Claude.** Card `First Step Abs AD R2`; commit e2dffdc local.
 
-**RO-17 setup PICK 2026-10-18, Claude.** 3 Healthy Foods LFC Setup: five thumbnails on the sheet, waiting for Dan's pick; backups, platform copies, article and copy prepared. Next: upload media, Blotato queue on next free Sunday. Handoff: `Handoffs/handoff-20261018-ro17-thumbnails-and-video-setup.md`.
+**RO-17 - HOLD 2026-10-18, Claude.** On the waitlist (Blotato 197/200); routine queues YouTube Sun Dec 13, socials Mon Dec 14 noon. `Docs/RO17_SETUP_RECEIPT_20261018.md`.
 
 **DS-31:R2-REVIEW:8931:2026-10-18:Claude.** AI Homework SFC R2 on the page: colour C (warm vivid) in the film, options A-E for Dan's pick; A1 opener moving. Audit SHIP. Next: Dan's colour pick and A1 approval.
 
@@ -151,7 +151,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **RO-07 - HOLD 2026-10-11, Claude.** Blotato full. `Docs/RO07_SETUP_RECEIPT_20261011.md`
 
 
-**SL-06:R4-FRAMES:8821:2026-10-18:Claude.** Top 5 Zepbound Tips SFL R4: regenerating six flex-intro pairs (shirtless, real gym, designed poster) and new front-thigh clips for C. Next: gate + reviewer, refresh :8821 for Dan; then Flow motion, rebuild six. Work: `/Volumes/Extreme/_edit_work/sl06/round3/`.
+**SL-06:R4-REVIEW:8821:2026-10-18:Claude.** Top 5 Zepbound Tips SFL R4: six shirtless gym intro pairs (gate + reviewer PASS) and three new front-thigh clips for C on :8821, awaiting Dan. Next: on his yes, Flow motion (flow-veo, prompt "points at the poster"), rebuild six, gates, review. Work: `/Volumes/Extreme/_edit_work/sl06/round3/`.
 
 **SL-07 HOLD 2026-10-18, Claude.** Covers picked, media and configs ready; Blotato full, five shorts on the waitlist for Dec 21-29. Next: the daily top-up routine queues them as slots free. `Docs/SL07_SETUP_RECEIPT_20261018.md`
 
