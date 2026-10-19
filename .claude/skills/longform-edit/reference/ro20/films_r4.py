@@ -148,6 +148,11 @@ for _s in Bd._SEGS:
 for _i, _s in enumerate(Bd._SEGS):
     if _s["key"] == "ther2.0r0" and _s["o0"] == 40876:
         Bd._SEGS[_i - 1]["o1"] += 4; _s.update(o0=_s["o0"] + 4, src0=_s["src0"] + 4)
+# 10. Video 3 delivery gate (style:static_run, 35.8 s at 7:44): removing Ce19 (item 6) left matt5.0r0..r3 as one tight hold, 464.0 to 499.8.
+#    matt5.0r1 goes to the wide size (no lower third on screen there), its seam moved 7 frames earlier to the sentence end "...other mattresses." (471.75).
+for _i, _s in enumerate(Bd._SEGS):
+    if _s["key"] == "matt5.0r1" and _s["o0"] == 56202:
+        Bd._SEGS[_i - 1]["o1"] -= 7; _s.update(o0=_s["o0"] - 7, src0=_s["src0"] - 7, framing="W", crop=(1920, 1080, 0, 0), zoom=1.0)
 _GB20 = dict(next(m for m in MAN if m["id"] == "Gb20"), b=14681/FPS, mov=f"{W}/round4/hf_fix/Gb20_trim.mov", mask=f"{W}/round4/hf_fix/Gb20_mask_trim.mov")
 PART_MAN = {("v1", 0): {"Gb20": _GB20}, ("v1", 1): {"Gb20": None}}
 def part_manifest(v, k):

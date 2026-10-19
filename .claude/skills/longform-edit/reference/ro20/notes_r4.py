@@ -24,7 +24,10 @@ KNOWN = {"audio:stamp": "the audio gate fails only its tone row (and on video 2 
          "style:coverage": "cutaway share of the approved plan (rounds 1 to 3b); four standing/posing cutaways came out this round under the 2026-10-14 rule.",
          "cut:splice_visibility": "the strongest zoom cuts of the approved cut (several inside the approved first minute); every join was inspected frame by frame by the judges and reviewers.",
          "audio:stream_integrity": "the last seconds are the silent tail under P3's closing card, kept on purpose for YouTube's end screen (approved with the round 3b ending screens); the music bed fades out there.",
-         "junk:repeated_take": "the flagged repeat is in Dan's approved sign-off or summary wording (\"go to absbyai.com. On absbyai.com\")."}
+         "junk:repeated_take": "the flagged repeat is in Dan's approved sign-off or summary wording (\"go to absbyai.com. On absbyai.com\" / \"When you go to absbyai.com\"). On video 3 the other two flags sit inside one unbroken take with no cut: a drawn-out \"there's\" (8:07.6) and the tail of his stressed \"$120.\" (21:54.1).",
+         "cut:black_frames": "the planned stock shot of a red heartbeat line on a black screen (5:20.9 to 5:24.8, item Ce12, in the plan since round 1); the black is the shot's own background.",
+         "compliance:banned_screen": "a false match: the one frame it hit (7:28.5) is the stock shot of a hand pressing on a striped mattress cover; no app or phone screen is in it.",
+         "style:static_run": "longest hold without a picture change, over the 30 s limit."}
 rows = dg["rows"] if dg else {}
 fails = [k for k, r in rows.items() if not r.get("ok")]
 lines = [f"# {TITLE} ({JOB}): round 4 notes (Claude Opus 5.5, 2026-10-18)", "",
