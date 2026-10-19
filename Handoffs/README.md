@@ -15,7 +15,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 - [3 Healthy Foods LFC Setup](handoff-20261018-ro17-thumbnails-and-video-setup.md): RO-17 **finalized 2026-10-18** (Dan: "final"). **Ready now.** One-click card shown 10-18. Five Codex thumbnails, stop for his pick, then `/video-setup` on the Sunday long-form queue. Opus 5.5 high.
 - [Oura Ring Review SFL R3](handoff-20261018-sl09-oura-shorts-r3-fix-review-findings.md): SL-09, the R2 task built all five Shorts (A, H, I, J, K) and handed off at 84% context; independent reviewers sent back fixes on A, H, K and J (I's review pending). Fix, re-review, gate, page, deliver. Opus 5.5 high. Supersedes the R2 build handoff (executed).
 - [Fire Your Trainer AD Setup](handoff-20261018-ra07-setup.md): RA-07 "Fire Your Trainer!" 9:16 approved 2026-10-18 (Dan: "do the setup in the next round"); five Codex thumbnails, stop for Dan's pick, Unlisted upload, trial campaign group. One-click card shown 10-18. Opus 5.5 high.
-- [Invest In Your Health LFC R4](handoff-20261017-ro20-round4-three-films.md): RO-20/B/C, Dan approved everything on the round 3b page 10-17 (studio pickups A, sign-off kept); build the three full films, gates, a review each, deliver. One-click card shown 10-17. Opus 5.5 high.
 - [I'm 41 Wasted Life LFC Setup](handoff-20261017-ro25-approved-thumbnail-and-video-setup.md): **Film approved and finalized 2026-10-17; existing setup handoff ready.** Thumbnail C approved and finalized, red age and white regret text. Use the exact final JPEG; skip new thumbnail choices. Target Oct 18 YouTube / Oct 19 socials, verify live slots. Claude Opus 5.5 / High.
 
 
@@ -179,6 +178,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Date | Document | Subject |
 |---|---|---|
+| 2026-10-17 | [handoff-20261017-ro20-round4-three-films.md](handoff-20261017-ro20-round4-three-films.md) | EXECUTED 2026-10-19: RO-20/B/C round 4, three full films delivered for Dan's review on :8868 |
 | 2026-09-22 | [handoff-20260922-install-approved-breakfast-short-thumbnail.md](handoff-20260922-install-approved-breakfast-short-thumbnail.md) | EXECUTED: approved revised B2 installed on `UFga137pseM`; backup and verification in [installation report](../output/thumbnails/breakfast-short-20260922/INSTALLATION.md) |
 | 2026-09-15 | [handoff-20260914-coordination-board-diet.md](handoff-20260914-coordination-board-diet.md) | EXECUTED — board cut 11,722 → ~2,000 words; verbatim snapshot + inventory in the archive |
 | 2026-09-15 | [handoff-20260915-ad3-square-steadier-wide-framing.md](handoff-20260915-ad3-square-steadier-wide-framing.md) | Ad 3 full square: steadier wider shots; short square finished and optional |
