@@ -3717,6 +3717,25 @@
       "must_pass": [],
       "measured": "Existing key check is not implemented. R2 independent audit found improvement but did not clear all fine-hair temporal flicker. No gate or threshold changed.",
       "notes": "Partial hair-only rejection. Audio B Balanced explicitly approved and warm grade remains locked. Request is another 10-second wide calibration sample, not a full edit."
+    },
+    {
+      "id": "ds40-codex-r3-key-approved-20261020",
+      "verdict": "approved",
+      "date": "2026-10-20",
+      "root": "ssd",
+      "path": "DS-40-codex/round3/review/media/sample.mp4",
+      "sha256": "1c07c3d3c585fe05a7a2f1274d4a62bec46de1e6be7bdbfb4214f44af2b7ace1",
+      "excerpt": [
+        0,
+        10.01
+      ],
+      "dan": "The hair looks good enough now. Keep the Balanced audio and warmer color and go ahead with the full edit.  This is a significant improvement for the hair. Let's lock this as our chroma key style. I want all the videos keyed out like this. This is a very clean key.",
+      "must_trigger": [],
+      "must_pass": [
+        "key:hair_temporal_edges"
+      ],
+      "measured": "Human-approved key. Exact sample gate 37 PASS, 1 FAIL accepted Balanced audio comb/tone, 1 NOT MEASURED zero-boundary watch, 18 N/A. Automated temporal hair row unimplemented.",
+      "notes": "Approval scope is chroma key, Balanced audio and warm grade, not the unbuilt full Short. Global future key standard stored in _shared/chroma-key. No thresholds changed."
     }
   ]
 }

@@ -1,3 +1,7 @@
+## Approved chroma key for all green-screen videos (Dan, 2026-10-20)
+
+Use the approved Bill Maher Fat 90-Year-Old R3 key for every future green-screen video and requested key revision, Claude and Codex alike. Dan: "Let's lock this as our chroma key style. I want all the videos keyed out like this. This is a very clean key." The shared reference, exact hashes and method are in `.claude/skills/_shared/chroma-key/README.md`. Preserve the clean body/arm matte and motion-stable fine hair with natural strands. Calibrate screen and hair geometry to the actual source; never blindly copy sample coordinates or smooth across cuts. Do not reopen the accepted style. This locks keying, not every video's audio or grade, and does not request changes to already approved exports. Bill Maher's Balanced audio and warmer color stay selected.
+
 ## AI video clips: Google Flow subscription first, paid API only on "rush" (Dan, 2026-10-17)
 
 Dan: *"Default to the subscription; switch to the paid API only when I say rush, accelerate, or as fast as possible. If the subscription credits run out, ask me before paying."* Binds Claude and Codex, every skill that makes Veo motion.

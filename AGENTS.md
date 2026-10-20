@@ -27,6 +27,10 @@ I am a non-technical user. Explain all tasks in simple terms that a non-technica
 **Video, photo, thumbnail, cover, audio and publishing work: read `.claude/skills/_shared/VIDEO-RULES.md` in full before
 doing anything.** It holds Dan's standing production rules. Not having read it is not an excuse.
 
+## Approved chroma key for all green-screen videos (Dan, 2026-10-20)
+
+Use the approved Bill Maher Fat 90-Year-Old R3 key for every future green-screen video and requested key revision, Claude and Codex alike. Dan: "Let's lock this as our chroma key style. I want all the videos keyed out like this. This is a very clean key." The shared reference, exact hashes and method are in `.claude/skills/_shared/chroma-key/README.md`. Preserve the clean body/arm matte and motion-stable fine hair with natural strands. Calibrate screen and hair geometry to the actual source; never blindly copy sample coordinates or smooth across cuts. Do not reopen the accepted style. This locks keying, not every video's audio or grade, and does not request changes to already approved exports. Bill Maher's Balanced audio and warmer color stay selected.
+
 ## Real-photo disclosure wording (Dan, 2026-10-17)
 
 Real photographs remain labelled “Real photo(s) of me, not AI-generated” even if retouched or touched up. Do not label them “retouched photos.” Fundamentally AI-generated imagery still receives the AI label. Preserve internal provenance and existing thumbnail/real-moving-footage exceptions. Full rule: `.claude/skills/_shared/VIDEO-RULES.md`.

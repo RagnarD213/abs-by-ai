@@ -6,7 +6,6 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 
 ---
 
-- **Bill Maher Fat 90-Year-Old SFC R3 hair (Updated: 2026-10-20; Decision since: 2026-10-20):** Review the new 10-second wide sample at http://127.0.0.1:9031/. Check 1-3s, 4-6s and 7.9-9.1s, then accept the hair or identify remaining distraction. Balanced audio and warmer color stay selected. Full edit waits. Recipe and audit: `Handoffs/video-editing/ds40-codex-r3/`.
 
 - **Calories Not Losing Weight SFL R3 frames (Updated: 2026-10-19; Decision since: 2026-10-19):** Approve the checked desk-fasting/salad pair for Why I fast until 2 pm every day. and stacked sardines/chips pair for Snack on Protein, Not Carbs. Review: http://127.0.0.1:9008/. New Flow motion waits for this frame decision. All five selections and approved sound stay. No covers or publishing.
 
