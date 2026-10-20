@@ -41,12 +41,12 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [RA-04](RA-04-top-3-tips-for-getting-abs.md) | Top 3 Tips For Getting Abs | C1664 | UPLOADED | S |
 | [RA-05](RA-05-how-ai-can-get-you-real-six-pack-abs.md) | How AI Can Get You REAL Six Pack Abs | C1664 | UPLOADED | S |
 | [RA-06](RA-06-whats-the-best-ab-exercise.md) | What's The Best Ab Exercise? | C1664 | UPLOADED | S |
-| [RA-07](RA-07-fire-your-trainer.md) | Fire Your Trainer! | C1664 | FINALIZED | S |
+| [RA-07](RA-07-fire-your-trainer.md) | Fire Your Trainer! | C1664 | UPLOADED | S |
 | [RA-08](RA-08-why-are-trainers-going-out-of-business.md) | Why Are Trainers Going Out Of Business? | C1665 | **NEEDS DAN** | S |
 | [RA-09](RA-09-do-you-think-ai-is-changing-the-world.md) | Do You Think AI Is Changing The World? | C1666 | READY | S |
 | [RA-10](RA-10-ai-is-changing-the-world.md) | AI Is Changing The World | C1667 | READY | S |
 | [RA-11](RA-11-what-would-you-look-like-with-abs.md) | What Would You Look Like With Abs? | C1667 | READY | S |
-| [RA-12](RA-12-first-step-to-getting-abs-isnt-a-workout.md) | The First Step To Getting Abs Isn't A Workout | C1667 | DELIVERED: awaiting Dan | S |
+| [RA-12](RA-12-first-step-to-getting-abs-isnt-a-workout.md) | The First Step To Getting Abs Isn't A Workout | C1667 | IN PROGRESS | S |
 | [RA-13](RA-13-why-do-most-guys-never-get-abs.md) | Why Do Most Guys Never Get Abs? | C1667 | UPLOADED | S |
 | [RA-14](RA-14-cheat-code-for-six-pack-abs.md) | The Cheat Code For Six Pack Abs | C1667 | UPLOADED | S |
 | [RA-15](RA-15-never-pay-a-nutritionist-again.md) | Never Pay A Nutritionist Again | C1668 | UPLOADED | S |
@@ -112,7 +112,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [DS-28](DS-28-meal-prep-short.md) | Meal Prep | 9/23 C1720 | UPLOADED | S |
 | [DS-29](DS-29-robot-lawn-mower-short.md) | Robot Lawn Mower | 9/23 C1720 | BLOCKED: Robot mower b-roll not filmed | S |
 | [DS-30](DS-30-self-driving-car-short.md) | Self-Driving Car | 9/23 C1720 | READY | S |
-| [DS-31](DS-31-ai-homework-short.md) | AI Homework | 9/23 C1720 | FINALIZED | S |
+| [DS-31](DS-31-ai-homework-short.md) | AI Homework | 9/23 C1720 | UPLOADED | S |
 | [DS-32](DS-32-ai-job-short.md) | AI Job | 9/23 C1720 | READY | S |
 
 ### 1C2 · Organic long-form, 9/23 shoot (9)
@@ -251,9 +251,11 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 | [SL-15](SL-15-my-first-spray-tan-shorts.md) | My First Spray Tan (RO-19, YouTube Wed Oct 21; 3 Shorts, Short 1 airs Fri Oct 30) | IN PROGRESS | S |
 | [SL-16](SL-16-intermittent-fasting-shorts.md) | Intermittent Fasting: The Best Way To Get Abs (RO-08, finalized 10-14; release date set at setup) | READY; hold release until parent is public | S |
 
-| [SL-17](SL-17-top-1-percent-shorts.md) | Top 1 Percent (RO-26, finalized; release on hold) | READY; hold release until parent is public | S |
+| [SL-17](SL-17-top-1-percent-shorts.md) | Top 1 Percent (RO-26, finalized; release on hold) | IN PROGRESS | S |
 | [SL-18](SL-18-wasted-my-life-shorts.md) | I'm 41. I Wasted My Life. (RO-25, YouTube Sun Oct 18; 3 Shorts, Short 1 airs Mon Oct 26) | IN PROGRESS | S |
 | [SL-19](SL-19-3-healthy-foods-shorts.md) | 3 Healthy Foods That Made Me Fat (RO-17, YouTube Sun Dec 13; 3 Shorts, Short 1 airs Mon Dec 14) | READY: approved parent filed; due Dec 13 | S |
+| [SL-20](SL-20-invest-in-your-health-shorts.md) | Why You Should Invest More In Your Health (RO-20, YouTube Sun Nov 22; 3 Shorts, Short 1 airs Mon Nov 23) | READY: approved parent filed; due Nov 22 | S |
+| [SL-21](SL-21-what-to-cut-shorts.md) | What To Cut To Afford Getting In Shape (RO-20B, YouTube Sun Nov 29; 3 Shorts, Short 1 airs Mon Nov 30) | READY: approved parent filed; due Nov 29 | S |
 
 **Will need shorts once final (no handoff yet; add one when the long-form is approved):**
 * Your Belly Fat Is An Emergency (Codex, revision in progress)

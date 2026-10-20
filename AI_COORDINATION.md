@@ -124,22 +124,18 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Muhammad-Shorts QUEUED 2026-10-13.** DS-05 waitlisted 10-16; queued: set Edit Queue uploaded. `Docs/MUHAMMAD_SHORTS_SETUP_RECEIPT_20261013.md`
 
-**RA-07:SETUP-HANDOFF:2026-10-18:Claude.** Dan approved the R6 9:16; finalized. Card `Fire Your Trainer AD Setup` (`Handoffs/handoff-20261018-ra07-setup.md`). Commits local until safe-push clears.
+**RA-07 POLICY-RECHECK 2026-10-20, Claude.** 10-21: `node scripts/ads/api/client.js policy 24316364155`; clean, delete.
 
 **Invest In Your Health 2026-10-20, Claude.** Videos 1, 2 (RO-20, RO-20B) finalized; setup handoff written. Video 3 (RO-20C) R5 handed off (new intro split, two lip-synced excuse clips). Both in `Handoffs/README.md` OPEN. Queue commit ff69bf1 local (safe-push stopped on a live file); next safe-push carries it. C1722 sidecar mark-used pending (Seagate unplugged).
-
-**RO-20/B:SETUP-NEEDS-DAN:2026-10-20:Claude.**
 
 
 **RA-05:POLICY-RECHECK:2026-10-16:Claude.** Live: `0DswKDBFW2E`, ad `828398569805` in review. Next 10-17: `node scripts/ads/api/client.js policy 24316364155`; clean, delete this.
 
 **RA-14 POLICY-RECHECK 2026-10-15,Claude.**
 
-**RA-12:R2-HANDOFF:2026-10-17:Claude.** Card `First Step Abs AD R2`; commit e2dffdc local.
+**First Step Abs AD R2 ACTIVE 2026-10-20, Claude.** RA-12 building; page :8842.
 
 **RO-17 - HOLD 2026-10-18, Claude.** On the waitlist (Blotato 197/200); routine queues YouTube Sun Dec 13, socials Mon Dec 14 noon. `Docs/RO17_SETUP_RECEIPT_20261018.md`.
-
-**DS-31:SETUP-HANDOFF:2026-10-20:Claude.** AI Homework R2 finalized (colour C, A1 opener). Next: fire `Handoffs/handoff-20261020-ds31-ai-homework-setup.md` (covers, then Blotato).
 
 **RA-04 POLICY-RECHECK 2026-10-16,Claude.**
 
@@ -151,7 +147,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-20C:R5-ACTIVE:2026-10-20:Claude.** Page :8868.
 
-**Zepbound Even If Ripped LFC R1 - ACTIVE 2026-10-20, Claude.** RO-28 from C1771: take map, look/voice options, first-minute draft, all assets in context, AI frames. Next: R1 review page. Work: `/Volumes/Extreme/_edit_work/ro28/round1/`.
+**Zepbound Even If Ripped LFC R1 - ACTIVE 2026-10-20, Claude.** `/Volumes/Extreme/_edit_work/ro28/`.
 
 **Make Time Exercise LFC R2 - ACTIVE 2026-10-20, Claude.** RO-18 round 2: camera opener, Flow motion for A2/A6/A7/A8/A9 (background agent), new college-age C36/C37, then full film, gates, review, delivery. Work: `/Volumes/Expansion/_edit_work/RO-18/round2/`.
 
