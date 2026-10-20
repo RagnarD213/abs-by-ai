@@ -141,7 +141,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-06:POLICY-RECHECK:2026-10-16:Claude.** Ads `828274063389`, `828320387740` in review. Next 10-17: `node scripts/ads/api/client.js policy 24316364155`; clean, delete this.
 
-**RO-14-R1-REVIEW:8964:2026-10-14.**
+**RO-14:R2-HANDOFF:2026-10-20.**
 
 **Make Time Exercise LFC R2 - ACTIVE 2026-10-20, Claude.** RO-18 round 2: camera opener, Flow motion for A2/A6/A7/A8/A9 (background agent), new college-age C36/C37, then full film, gates, review, delivery. Work: `/Volumes/Expansion/_edit_work/RO-18/round2/`.
 
@@ -241,4 +241,4 @@ Memory `google-ads-ui-automation`.
 
 List: `Handoffs/README.md` (OPEN section). Add new handoffs there, never here.
 
-**Arms Shoulders Workout LFC R3 - REVIEW 2026-10-20, Codex.** Complete 2:05.86 film checked and delivered: http://127.0.0.1:8974/. Next: Dan reviews and approves or requests revisions. Decision and receipt: `Docs/DAN_DECISIONS.md`, `Handoffs/video-editing/ro04-round3-plan/review-receipt.json`.
+**Arms Shoulders Workout LFC R3 - REVIEW 2026-10-20, Codex.** Full film checked: http://127.0.0.1:8974/. Next: Dan reviews. Records pushed (`a65ebf7`); local merge awaits another session's live `jobs.json` edit.
