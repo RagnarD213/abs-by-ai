@@ -11,6 +11,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Bill Maher Fat 90-Year-Old SFC R3](handoff-20261020-ds40-round3-hair-flicker.md): **Start now (2026-10-20). GPT-6 Sol, high.** CONTENT SFC. Balanced voice B and warm color locked. Refine translucent moving-hair flicker, independent audit, another 10-second wide sample. Full edit waits.
+
 
 - [Top 5 Zepbound Tips SFL R4](handoff-20261018-sl06-round4-shirtless-gym-intros-and-better-thigh-clips.md): **Ready now (2026-10-18). Claude Opus 5.5 / High.** CONTENT. Dan rejected the R3 stage 1 look: regenerate all six flex-intro frame pairs shirtless in a real gym with a real-looking poster, find better front-thigh injection clips for C, refresh page 8821, then Flow motion and rebuild. One-click card shown 10-18.
 - [Fire Your Trainer AD Setup](handoff-20261018-ra07-setup.md): RA-07 "Fire Your Trainer!" 9:16 approved 2026-10-18 (Dan: "do the setup in the next round"); five Codex thumbnails, stop for Dan's pick, Unlisted upload, trial campaign group. One-click card shown 10-18. Opus 5.5 high.
