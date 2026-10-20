@@ -237,3 +237,4 @@
 - [Execute Dan's picks](execute-dans-explicit-picks.md): build exactly what he names
 - [Allegations not facts](allegations-not-fact.md): never mentioned unless Dan asks
 - [Assessment symmetry](assessment-symmetry.md): one standard, swap test, results
+- [Driving clips](fast-driving-clips-praised.md): fast POV drives held attention

@@ -10,7 +10,8 @@ OUT/manifest.json (what the vertical's renderer needs). --snap also writes OUT/s
 
   sheet template        9:16 layout (the standard it follows)
   lower-third           strip x 68..1012, bottom at 68 % of the height, above the caption band (SOFTBLUE.md); a long
-                        point WRAPS and the strip grows upward; each part still rises on the word Dan says it
+                        point WRAPS and the strip grows upward; each part still rises on the word Dan says it.
+                        config "top_y" (lower third and cta): place it by its top edge instead, e.g. under the captions
   before-card           photo on top, glass fact card beneath (softblue.scene_fact's stacked layout), chip under the photo
   side-list             the 3A card full width, 36 px margins, bottom at 87 % of the height, type 1.25x (locked 2026-09-28)
   cycle                 the same 740 x 488 card scaled to the full width, bottom at 87 %
@@ -85,6 +86,8 @@ def lt_scenes(c):
         lines = cand
     assert all(H.text_w(" ".join(x for x, _ in ln), 28 * U) <= wrap_w for ln in lines), f"{c['id']}: one word is wider than the strip"
     _, ytop, _, bh = B.lower_third_default_box(W, Hh, len(lines))
+    if c.get("top_y") is not None:      # placed by its TOP edge (e.g. just under the captions, RA-12 R2): the strip grows downward
+        ytop = float(c["top_y"])
     parts, times = [], []
     for li, ln in enumerate(lines):
         j = 0
@@ -270,10 +273,12 @@ def media_card_scene(gid, dur, media_ar, label=None, kicker=None, spans=None, ma
 
 
 # ------------------------------------------------------------------ CTA button over footage
-def cta_scenes(gid, dur, top, big, hold_out=False, full=False):
+def cta_scenes(gid, dur, top, big, hold_out=False, full=False, top_y=None):
+    """top_y: place the button by its top edge (default: bottom at 68 % of the height). RA-12 R2 (Dan, 2026-10-17): "immediately
+    below the subtitles ... so they don't block my abs" = caption ink bottom + 24 px."""
     x0, _, x1, _ = B.lower_third_default_box(W, Hh)
     bw, bh = x1 - x0, 110 * U
-    by = Hh * .68 - bh if not full else (Hh - bh) / 2
+    by = (Hh * .68 - bh if top_y is None else float(top_y)) if not full else (Hh - bh) / 2
     big_px = 64
     while big_px > 44 and H.text_w(big, big_px) > bw - 200: big_px -= 2
     top_px = 30
@@ -325,7 +330,7 @@ def scenes_for(g):
     if t == "softblue:title_card": return title_scenes(g["id"], g["t0"], g["t1"], c.get("eyebrow"), c["headline"])
     if t == "softblue:recap": return title_scenes(g["id"], g["t0"], g["t1"], c.get("eyebrow"), c.get("headline") or "", c["items"])
     if t == "tally": return tally_scenes(g["id"], g["t1"] - g["t0"], c["label"], c["value"], c.get("frm", 0), c.get("prefix", "$"), c.get("unit", "/ month"))
-    if t == "cta": return cta_scenes(g["id"], g["t1"] - g["t0"], c["top"], c["big"], hold_out=c.get("hold_out", False))
+    if t == "cta": return cta_scenes(g["id"], g["t1"] - g["t0"], c["top"], c["big"], hold_out=c.get("hold_out", False), top_y=c.get("top_y"))
     if t == "analysis-card": return analysis_scenes(dict(c, id=g["id"], a=c.get("a", g["t0"]), b=c.get("b", g["t1"])))
     raise SystemExit(f"{g['id']}: template {t!r} has no 9:16 layout (vertical.py). Add one; a graphic is never dropped.")
 

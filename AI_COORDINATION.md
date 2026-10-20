@@ -26,6 +26,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**SL-18:ACTIVE:2026-10-20:Claude.** Wasted Life SFL R1; awaiting picks.
+
 **Boring Abs At 40 LFC R2 - ACTIVE 2026-10-20, Codex.** Executing R2 handoff. Colour C and voice B locked; R1 preserved. Next: calibrated headroom proof, corrected opening/contexts, complete existing-AI gallery, revised A01–A04 still pairs and independent checks. No new motion or full-film render before approval. Work: `/Volumes/Extreme/_edit_work/ro27/round2/`.
 
 **Calories Not Losing Weight SFL R5 - REVIEW 2026-10-20, Codex.** Standing-counter Snack on Protein, Not Carbs pair passed measured and independent checks. Narrated review: http://127.0.0.1:9042/. Next: Dan approves this pair before Flow. Fasting R4 frames approved; R2/R3/R4 untouched. No covers or publishing.
@@ -73,7 +75,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **COVERS:MOBILE:2026-10-15:Docs/COVER_AUDIT_20261015.md**
 
 
-**SL-09:R3-REVIEW:8989:2026-10-18:Claude.** Five Oura shorts delivered: every independent review SHIP, every delivery gate PASS. Page :8989; VLC copies of shorts 1, 2, 3, 5. Next: Dan's notes and his call on three AI frame ideas (J1, J2, K1). Short 3 carries Zeeshan's cropped AI Tesla clip: AI flag at setup.
+**Oura Ring Review SFL R4 - ACTIVE 2026-10-20, Claude.** SL-09: WHOOP J2 frames, Flow motion K1/J1/J2, rebuild shorts 4-5, review, gate, page :8989. Shorts 1-3 finalized, untouched. Work: `/Volumes/Extreme/_edit_work/sl09/round2/`.
 
 
 
@@ -133,7 +135,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-14 POLICY-RECHECK 2026-10-15,Claude.**
 
-**RA-12:R2-HANDOFF:2026-10-17:Claude.** Card `First Step Abs AD R2`; commit e2dffdc local.
+**First Step Abs AD R2 ACTIVE 2026-10-20, Claude.** RA-12 building; page :8842.
 
 **RO-17 - HOLD 2026-10-18, Claude.** On the waitlist (Blotato 197/200); routine queues YouTube Sun Dec 13, socials Mon Dec 14 noon. `Docs/RO17_SETUP_RECEIPT_20261018.md`.
 
@@ -143,11 +145,13 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-06:POLICY-RECHECK:2026-10-16:Claude.** Ads `828274063389`, `828320387740` in review. Next 10-17: `node scripts/ads/api/client.js policy 24316364155`; clean, delete this.
 
-**RO-14:R2-HANDOFF:2026-10-20.**
+**RO-14 R2 ACTIVE 2026-10-20, Claude.** Flow clips, pickup, full film. `RO-14/round2/`.
 
 **DS-33:ACTIVE:2026-10-20:Claude.**
 
 **RO-20C:R5-ACTIVE:2026-10-20:Claude.** Page :8868.
+
+**Zepbound Even If Ripped LFC R1 - ACTIVE 2026-10-20, Claude.** `/Volumes/Extreme/_edit_work/ro28/`.
 
 **Make Time Exercise LFC R2 - ACTIVE 2026-10-20, Claude.** RO-18 round 2: camera opener, Flow motion for A2/A6/A7/A8/A9 (background agent), new college-age C36/C37, then full film, gates, review, delivery. Work: `/Volumes/Expansion/_edit_work/RO-18/round2/`.
 

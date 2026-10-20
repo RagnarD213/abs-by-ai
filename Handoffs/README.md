@@ -29,8 +29,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 
 - [AI Homework SFC Setup](handoff-20261020-ds31-ai-homework-setup.md): DS-31 finalized R2 Short (colour C, A1 opener): five Codex covers, stop for Dan's pick, then Blotato on all four platforms; one-click card shown 10-20. Opus 5.5 high.
-- [First Step Abs AD R2](handoff-20261017-ra12-round2-prospect-and-graphics.md): RA-12 round 2 from Dan's answers (AI prospect instead of Dan, graphics under captions, new opening clips); one-click card shown 10-17. Opus 5.5 high.
-- [Render scheduler, 10 to 30 jobs at once](handoff-20261020-render-scheduler-10-to-30-jobs.md): **Ready now (2026-10-20). Claude Opus 5.5 / High.** Tooling. Real first-come render queue enforced in the shared render, QC, encode and transcription entry points so Dan can start 10, 20 or 30 jobs and they run as efficiently as 2 at a time. Supersedes the 10-14 gatekeeper handoff.
 - [Upwork profile and portfolio](handoff-20261007-upwork-profile-and-portfolio.md): interview Dan, verify experience and assets, build and publish the approved profile. Opus 5.5 high.
 - [Upwork jobs and proposals](handoff-20261007-upwork-job-applications.md): interview for criteria and budgets, decide promotion, prepare custom proposals/samples, submit approved batches, assess Grok Bot scouting. GPT-6.1 Sol high.
 
