@@ -417,6 +417,13 @@
       ],
       "addedAt": "2026-08-09",
       "boardRank": 13
+    },
+    {
+      "text": "Change robot mop water/refill",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-10-20",
+      "addedBy": "assistant"
     }
   ],
   "handoffs": [
