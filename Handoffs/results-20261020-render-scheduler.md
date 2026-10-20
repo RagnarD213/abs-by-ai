@@ -133,7 +133,9 @@ builds: by then the queue was live and they would have held up four sessions' re
   pipe on one slot, pipe partners queued together take one slot, light beside heavy, extra slot only when idle,
   `GATE_OFF`, continuation ordering, command-line classification).
 - `buildcap.py --selftest`: 20 of 20 pass.
-- Codex in `workspace-write` (the overnight queue's sandbox) took and released a slot: see the last section.
+- Codex (`codex exec -s workspace-write`, gpt-6.1-sol, the overnight queue's sandbox) joined the live line, waited
+  11 min behind real jobs, was granted heavy slot 1 with `GATE_HELD` set inside its command, and released it
+  (`events.log`, `history.jsonl`). The first two attempts exposed the home-folder and `ps` limits, both fixed.
 - Live: within minutes of the wrapper going in, DS-33, DS-40, SL-06, SL-15 and RO-20 jobs were queuing and running in
   order (`/tmp/absbyai-renderq/events.log`).
 
