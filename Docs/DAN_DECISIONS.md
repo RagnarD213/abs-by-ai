@@ -6,6 +6,8 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 
 ---
 
+- **Arms Shoulders Workout LFC R3 (2026-10-20; Decision since: 2026-10-20):** Approve the complete 2:05.86 workout or give timestamped changes. Approved color B, framing, original stereo audio and timers retained. Full review: http://127.0.0.1:8974/. Checks and backup: `Handoffs/video-editing/ro04-round3-plan/review-receipt.json`.
+
 
 
 - **I'm 41 Wasted Life LFC R6 — medication motion allowance (Updated: 2026-10-17; Decision since: 2026-10-17):** R5 feedback is recorded for the R6 handoff. Motion spend is estimated $14.70 of $15; a ten-second retry at the prior rate costs $0.70, reaching $15.40. Approve a new bounded allowance before paid regeneration; independent free revisions may proceed. Detail: `Handoffs/handoff-20261017-ro25-r6-point-intros-physical-clock-and-trims.md`.

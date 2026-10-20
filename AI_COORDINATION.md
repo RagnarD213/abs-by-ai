@@ -241,4 +241,4 @@ Memory `google-ads-ui-automation`.
 
 List: `Handoffs/README.md` (OPEN section). Add new handoffs there, never here.
 
-**Arms Shoulders Workout LFC R3, ACTIVE 2026-10-20, Codex.** Building full film with approved color B and crop. Next: full picture/audio QA, independent review, delivery on 8974.
+**Arms Shoulders Workout LFC R3 - REVIEW 2026-10-20, Codex.** Complete 2:05.86 film checked and delivered: http://127.0.0.1:8974/. Next: Dan reviews and approves or requests revisions. Decision and receipt: `Docs/DAN_DECISIONS.md`, `Handoffs/video-editing/ro04-round3-plan/review-receipt.json`.
