@@ -1,3 +1,4 @@
+- [AI clips: ask before paying](ai-clips-subscription-ask-before-paying.md): 10-20: subscription default; paid only on his yes, rush counts
 - [Audio joins smooth](audio-joins-smooth-before-ship.md): 10-20: seamscan every join, listen twice, fix; never carry a failing audio row
 - [AI pool photo correction](ro26-ai-pool-photo-correction.md): dan by pool.png is AI-generated; never label real (Dan 2026-10-16)
 - [Auto push](auto-commit-push.md): safe-push.sh only, no rebase
