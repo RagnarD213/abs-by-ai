@@ -157,7 +157,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **RO-07 - HOLD 2026-10-11, Claude.** Blotato full. `Docs/RO07_SETUP_RECEIPT_20261011.md`
 
 
-**SL-06:R5-ACTIVE:2026-10-20:Claude.** Top 5 Zepbound Tips SFL R5: Dan approved B/C/E/F frames; A (shorts) and D (leaner) redone, in review; C opening now Seattle Children's only. Flow motion for B/C/E/F running (silent-video retry). Next: A/D to Dan on :8821, motion gate, rebuild six. Work: `/Volumes/Extreme/_edit_work/sl06/round5/`.
+**SL-06:R5-REVIEW:8821:2026-10-20:Claude.** Top 5 Zepbound Tips SFL R5: new A and D pairs (gate + reviewer PASS) and Seattle-only C opening on :8821, awaiting Dan. Flow failed 8/8 on audio; needs Dan to allow 'Return silent videos'. Next: motion for six, gates, rebuild. Work: `/Volumes/Extreme/_edit_work/sl06/round5/`.
 
 **SL-07 HOLD 2026-10-18, Claude.** Covers picked, media and configs ready; Blotato full, five shorts on the waitlist for Dec 21-29. Next: the daily top-up routine queues them as slots free. `Docs/SL07_SETUP_RECEIPT_20261018.md`
 
