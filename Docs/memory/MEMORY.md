@@ -238,3 +238,4 @@
 - [Allegations not facts](allegations-not-fact.md): never mentioned unless Dan asks
 - [Assessment symmetry](assessment-symmetry.md): one standard, swap test, results
 - [Driving clips](fast-driving-clips-praised.md): fast POV drives held attention
+- [IG what works](instagram-what-works-oct2026.md): exercise fix Reels win; photos don't grow
