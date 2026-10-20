@@ -70,7 +70,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **COVERS:MOBILE:2026-10-15:Docs/COVER_AUDIT_20261015.md**
 
-**Calories Not Losing Weight SFL R3 - REVIEW 2026-10-19, Codex.** Checked desk-fasting/salad and stacked protein frame pairs await Dan on http://127.0.0.1:9008/. Next: frame approval, Flow motion, full fasting/protein assembly and checks. Three complete Shorts are on the page. R2 and its panel untouched. No covers or publishing.
 
 **SL-09:R3-REVIEW:8989:2026-10-18:Claude.** Five Oura shorts delivered: every independent review SHIP, every delivery gate PASS. Page :8989; VLC copies of shorts 1, 2, 3, 5. Next: Dan's notes and his call on three AI frame ideas (J1, J2, K1). Short 3 carries Zeeshan's cropped AI Tesla clip: AI flag at setup.
 
