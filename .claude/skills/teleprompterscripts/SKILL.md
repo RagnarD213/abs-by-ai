@@ -266,6 +266,23 @@ titles followed by a "1587 spoken words, about 11 minutes. Read by the pool..." 
 section between them is not filming material. Build details and the document list:
 `Handoffs/handoff-20261020-pool-shoot-1023-filming-documents.md`.
 
+**Built 2026-10-20 with `reference/tp_from_1023_doc.py`** (one call writes all four HTML files and `built_seq.json`).
+Result: Teleprompter 1 Long Form (7 long-forms, then the 4 follow-alongs) 11,270 words, 20 pages; Short Form Part 1
+(shorts 1 to 15) 3,167 words, 15 pages; Part 2 (16 to 29) 2,947 words, 14 pages; Filming Document 23,712 words, 69
+pages. Every line matched after download (484, 149, 140, 1,311). What the handoff did not foresee:
+- **Hook takes.** 20 shorts end with a bold "HOOK TAKES (alternate openers):" line and two bulleted alternate first
+  lines. Dan films all three openers, so the two lines go on the prompter after the Subscribe line, label dropped (same
+  as the 10/17 build). The Filming document keeps the label and the bullets.
+- **A round gap is two empty paragraphs in this source.** The prompter gets one blank line per gap (42 in all); the
+  Filming document shows each gap as extra blank lines on top of its usual spacing.
+- **Several cues in one paragraph** (`[ON SCREEN TEXT: ...] [B-ROLL: ...]`): split with a regex for the B-roll list. A
+  B-roll cue that only says "ALL FOUR" or "EACH MACHINE" carries the on-screen text of its line in the list.
+- **Page breaks survived the rclone import this time** (one short per page: 15 shorts, 15 pages), unlike 10-11.
+- The source's word-count note lines are older than Dan's last edits (e.g. 1077 noted, 1059 actual): the teleprompter
+  count is the real one. The doc was renamed "The 10/23 Shoot Scripts"; the id is unchanged.
+- PromptSmart cards: "10-23 Pool Shoot - Teleprompter 1 - Long Form" (script 1502125), "... 2 - Short Form (Part 1 of
+  2)" (1502123), "... 3 - Short Form (Part 2 of 2)" (1502124). Page word counts ran about 60 to 70 over the document's.
+
 ### Upload into PromptSmart (Dan, 2026-10-11): the last step, every time
 
 Dan reads from PromptSmart Pro. Every teleprompter document goes in as its own script; the B-roll list does not.
