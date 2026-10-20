@@ -1,0 +1,28 @@
+{
+  "md5Checksum": "8507a17b64a945710d42296565483e3d",
+  "webViewLink": "https://drive.google.com/file/d/1vxIuMOkuBNxFIaFFN40ZSyI1d5TSNSYg/view?usp=drivesdk",
+  "size": "32326197",
+  "permissions": [
+    {
+      "id": "anyoneWithLink",
+      "type": "anyone",
+      "role": "reader"
+    },
+    {
+      "id": "03052560820113078019",
+      "type": "user",
+      "role": "owner"
+    }
+  ],
+  "id": "1vxIuMOkuBNxFIaFFN40ZSyI1d5TSNSYg",
+  "name": "Calories Not Losing Weight SFL R5 - checked standing-counter frames.zip",
+  "sha256Checksum": "748052a0da67f5f0377529f97687ed80982c0ff4e9844aee9a98350a4b1d9295",
+  "checks": {
+    "size": true,
+    "md5": true,
+    "sha256": true,
+    "public_reader": true,
+    "zip_crc": true,
+    "files": 108
+  }
+}
