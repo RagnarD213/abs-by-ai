@@ -1,0 +1,49 @@
+{
+  "fps": 29.97002997002997,
+  "source": "/Volumes/Extreme/10:15 dan rose fitness shoot - green screen, outdoor shorts, outdoor b roll, studio backdrop/C1730.MP4",
+  "key_pieces": [
+    {
+      "id": "watching",
+      "source_start": 1354.4866,
+      "frames": 540,
+      "kind": "watching"
+    },
+    {
+      "id": "response",
+      "source_start": 1400.2322,
+      "frames": 686,
+      "kind": "presenter"
+    },
+    {
+      "id": "ending",
+      "source_start": 1444.7099667,
+      "frames": 126,
+      "kind": "presenter"
+    }
+  ],
+  "dialogue_ranges": [
+    [
+      1400.2322,
+      1436.36
+    ],
+    [
+      1439.8,
+      1448.9148
+    ]
+  ],
+  "bmi_source_range": [
+    1423.122,
+    1444.71
+  ],
+  "locks": {
+    "key": "R2 native body plus R3 five-frame hair",
+    "voice": "Balanced R2 final audio_refine",
+    "grade": "warm exact R3 grade.py"
+  },
+  "status": "source-preparation",
+  "opening_frames": 588,
+  "opening_seconds": 19.619600000000002,
+  "bill_source_start": 134.0,
+  "bill_source_end": 153.6196,
+  "endpoint_reason": "Original document times cut the opening and final word. Use complete specified sentences from 134.000 through 153.620, confirmed by original audio review."
+}

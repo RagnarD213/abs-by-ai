@@ -1,0 +1,493 @@
+{
+  "source": "https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html",
+  "formula": "kg / metres squared",
+  "note": "Cells classified by unrounded BMI, numbers rounded to nearest whole BMI. Underweight cells in slate.",
+  "cells": [
+    {
+      "height_inches": 62,
+      "weight_lb": 120,
+      "bmi": 21.9481,
+      "category": "Normal"
+    },
+    {
+      "height_inches": 62,
+      "weight_lb": 140,
+      "bmi": 25.6061,
+      "category": "Overweight"
+    },
+    {
+      "height_inches": 62,
+      "weight_lb": 160,
+      "bmi": 29.2641,
+      "category": "Overweight"
+    },
+    {
+      "height_inches": 62,
+      "weight_lb": 180,
+      "bmi": 32.9221,
+      "category": "Obese"
+    },
+    {
+      "height_inches": 62,
+      "weight_lb": 200,
+      "bmi": 36.5801,
+      "category": "Obese"
+    },
+    {
+      "height_inches": 62,
+      "weight_lb": 220,
+      "bmi": 40.2381,
+      "category": "Obese"
+    },
+    {
+      "height_inches": 62,
+      "weight_lb": 240,
+      "bmi": 43.8961,
+      "category": "Obese"
+    },
+    {
+      "height_inches": 62,
+      "weight_lb": 260,
+      "bmi": 47.5541,
+      "category": "Obese"
+    },
+    {
+      "height_inches": 62,
+      "weight_lb": 280,
+      "bmi": 51.2121,
+      "category": "Obese"
+    },
+    {
+      "height_inches": 64,
+      "weight_lb": 120,
+      "bmi": 20.5977,
+      "category": "Normal"
+    },
+    {
+      "height_inches": 64,
+      "weight_lb": 140,
+      "bmi": 24.0307,
+      "category": "Normal"
+    },
+    {
+      "height_inches": 64,
+      "weight_lb": 160,
+      "bmi": 27.4637,
+      "category": "Overweight"
+    },
+    {
+      "height_inches": 64,
+      "weight_lb": 180,
+      "bmi": 30.8966,
+      "category": "Obese"
+    },
+    {
+      "height_inches": 64,
+      "weight_lb": 200,
+      "bmi": 34.3296,
+      "category": "Obese"
+    },
+    {
+      "height_inches": 64,
+      "weight_lb": 220,
+      "bmi": 37.7625,
+      "category": "Obese"
+    },
+    {
+      "height_inches": 64,
+      "weight_lb": 240,
+      "bmi": 41.1955,
+      "category": "Obese"
+    },
+    {
+      "height_inches": 64,
+      "weight_lb": 260,
+      "bmi": 44.6284,
+      "category": "Obese"
+    },
+    {
+      "height_inches": 64,
+      "weight_lb": 280,
+      "bmi": 48.0614,
+      "category": "Obese"
+    },
+    {
+      "height_inches": 66,
+      "weight_lb": 120,
+      "bmi": 19.3683,
+      "category": "Normal"
+    },
+    {
+      "height_inches": 66,
+      "weight_lb": 140,
+      "bmi": 22.5964,
+      "category": "Normal"
+    },
+    {
+      "height_inches": 66,
+      "weight_lb": 160,
+      "bmi": 25.8244,
+      "category": "Overweight"
+    },
+    {
+      "height_inches": 66,
+      "weight_lb": 180,
+      "bmi": 29.0525,
+      "category": "Overweight"
+    },
+    {
+      "height_inches": 66,
+      "weight_lb": 200,
+      "bmi": 32.2805,
+      "category": "Obese"
+    },
+    {
+      "height_inches": 66,
+      "weight_lb": 220,
+      "bmi": 35.5086,
+      "category": "Obese"
+    },
+    {
+      "height_inches": 66,
+      "weight_lb": 240,
+      "bmi": 38.7366,
+      "category": "Obese"
+    },
+    {
+      "height_inches": 66,
+      "weight_lb": 260,
+      "bmi": 41.9647,
+      "category": "Obese"
+    },
+    {
+      "height_inches": 66,
+      "weight_lb": 280,
+      "bmi": 45.1927,
+      "category": "Obese"
+    },
+    {
+      "height_inches": 68,
+      "weight_lb": 120,
+      "bmi": 18.2458,
+      "category": "Underweight"
+    },
+    {
+      "height_inches": 68,
+      "weight_lb": 140,
+      "bmi": 21.2867,
+      "category": "Normal"
+    },
+    {
+      "height_inches": 68,
+      "weight_lb": 160,
+      "bmi": 24.3277,
+      "category": "Normal"
+    },
+    {
+      "height_inches": 68,
+      "weight_lb": 180,
+      "bmi": 27.3686,
+      "category": "Overweight"
+    },
+    {
+      "height_inches": 68,
+      "weight_lb": 200,
+      "bmi": 30.4096,
+      "category": "Obese"
+    },
+    {
+      "height_inches": 68,
+      "weight_lb": 220,
+      "bmi": 33.4505,
+      "category": "Obese"
+    },
+    {
+      "height_inches": 68,
+      "weight_lb": 240,
+      "bmi": 36.4915,
+      "category": "Obese"
+    },
+    {
+      "height_inches": 68,
+      "weight_lb": 260,
+      "bmi": 39.5325,
+      "category": "Obese"
+    },
+    {
+      "height_inches": 68,
+      "weight_lb": 280,
+      "bmi": 42.5734,
+      "category": "Obese"
+    },
+    {
+      "height_inches": 70,
+      "weight_lb": 120,
+      "bmi": 17.218,
+      "category": "Underweight"
+    },
+    {
+      "height_inches": 70,
+      "weight_lb": 140,
+      "bmi": 20.0877,
+      "category": "Normal"
+    },
+    {
+      "height_inches": 70,
+      "weight_lb": 160,
+      "bmi": 22.9574,
+      "category": "Normal"
+    },
+    {
+      "height_inches": 70,
+      "weight_lb": 180,
+      "bmi": 25.827,
+      "category": "Overweight"
+    },
+    {
+      "height_inches": 70,
+      "weight_lb": 200,
+      "bmi": 28.6967,
+      "category": "Overweight"
+    },
+    {
+      "height_inches": 70,
+      "weight_lb": 220,
+      "bmi": 31.5664,
+      "category": "Obese"
+    },
+    {
+      "height_inches": 70,
+      "weight_lb": 240,
+      "bmi": 34.4361,
+      "category": "Obese"
+    },
+    {
+      "height_inches": 70,
+      "weight_lb": 260,
+      "bmi": 37.3057,
+      "category": "Obese"
+    },
+    {
+      "height_inches": 70,
+      "weight_lb": 280,
+      "bmi": 40.1754,
+      "category": "Obese"
+    },
+    {
+      "height_inches": 72,
+      "weight_lb": 120,
+      "bmi": 16.2748,
+      "category": "Underweight"
+    },
+    {
+      "height_inches": 72,
+      "weight_lb": 140,
+      "bmi": 18.9872,
+      "category": "Normal"
+    },
+    {
+      "height_inches": 72,
+      "weight_lb": 160,
+      "bmi": 21.6997,
+      "category": "Normal"
+    },
+    {
+      "height_inches": 72,
+      "weight_lb": 180,
+      "bmi": 24.4121,
+      "category": "Normal"
+    },
+    {
+      "height_inches": 72,
+      "weight_lb": 200,
+      "bmi": 27.1246,
+      "category": "Overweight"
+    },
+    {
+      "height_inches": 72,
+      "weight_lb": 220,
+      "bmi": 29.8371,
+      "category": "Overweight"
+    },
+    {
+      "height_inches": 72,
+      "weight_lb": 240,
+      "bmi": 32.5495,
+      "category": "Obese"
+    },
+    {
+      "height_inches": 72,
+      "weight_lb": 260,
+      "bmi": 35.262,
+      "category": "Obese"
+    },
+    {
+      "height_inches": 72,
+      "weight_lb": 280,
+      "bmi": 37.9744,
+      "category": "Obese"
+    },
+    {
+      "height_inches": 74,
+      "weight_lb": 120,
+      "bmi": 15.4069,
+      "category": "Underweight"
+    },
+    {
+      "height_inches": 74,
+      "weight_lb": 140,
+      "bmi": 17.9748,
+      "category": "Underweight"
+    },
+    {
+      "height_inches": 74,
+      "weight_lb": 160,
+      "bmi": 20.5426,
+      "category": "Normal"
+    },
+    {
+      "height_inches": 74,
+      "weight_lb": 180,
+      "bmi": 23.1104,
+      "category": "Normal"
+    },
+    {
+      "height_inches": 74,
+      "weight_lb": 200,
+      "bmi": 25.6782,
+      "category": "Overweight"
+    },
+    {
+      "height_inches": 74,
+      "weight_lb": 220,
+      "bmi": 28.246,
+      "category": "Overweight"
+    },
+    {
+      "height_inches": 74,
+      "weight_lb": 240,
+      "bmi": 30.8139,
+      "category": "Obese"
+    },
+    {
+      "height_inches": 74,
+      "weight_lb": 260,
+      "bmi": 33.3817,
+      "category": "Obese"
+    },
+    {
+      "height_inches": 74,
+      "weight_lb": 280,
+      "bmi": 35.9495,
+      "category": "Obese"
+    },
+    {
+      "height_inches": 76,
+      "weight_lb": 120,
+      "bmi": 14.6067,
+      "category": "Underweight"
+    },
+    {
+      "height_inches": 76,
+      "weight_lb": 140,
+      "bmi": 17.0412,
+      "category": "Underweight"
+    },
+    {
+      "height_inches": 76,
+      "weight_lb": 160,
+      "bmi": 19.4756,
+      "category": "Normal"
+    },
+    {
+      "height_inches": 76,
+      "weight_lb": 180,
+      "bmi": 21.9101,
+      "category": "Normal"
+    },
+    {
+      "height_inches": 76,
+      "weight_lb": 200,
+      "bmi": 24.3445,
+      "category": "Normal"
+    },
+    {
+      "height_inches": 76,
+      "weight_lb": 220,
+      "bmi": 26.779,
+      "category": "Overweight"
+    },
+    {
+      "height_inches": 76,
+      "weight_lb": 240,
+      "bmi": 29.2134,
+      "category": "Overweight"
+    },
+    {
+      "height_inches": 76,
+      "weight_lb": 260,
+      "bmi": 31.6479,
+      "category": "Obese"
+    },
+    {
+      "height_inches": 76,
+      "weight_lb": 280,
+      "bmi": 34.0823,
+      "category": "Obese"
+    },
+    {
+      "height_inches": 78,
+      "weight_lb": 120,
+      "bmi": 13.8673,
+      "category": "Underweight"
+    },
+    {
+      "height_inches": 78,
+      "weight_lb": 140,
+      "bmi": 16.1785,
+      "category": "Underweight"
+    },
+    {
+      "height_inches": 78,
+      "weight_lb": 160,
+      "bmi": 18.4897,
+      "category": "Underweight"
+    },
+    {
+      "height_inches": 78,
+      "weight_lb": 180,
+      "bmi": 20.8009,
+      "category": "Normal"
+    },
+    {
+      "height_inches": 78,
+      "weight_lb": 200,
+      "bmi": 23.1121,
+      "category": "Normal"
+    },
+    {
+      "height_inches": 78,
+      "weight_lb": 220,
+      "bmi": 25.4233,
+      "category": "Overweight"
+    },
+    {
+      "height_inches": 78,
+      "weight_lb": 240,
+      "bmi": 27.7345,
+      "category": "Overweight"
+    },
+    {
+      "height_inches": 78,
+      "weight_lb": 260,
+      "bmi": 30.0457,
+      "category": "Obese"
+    },
+    {
+      "height_inches": 78,
+      "weight_lb": 280,
+      "bmi": 32.3569,
+      "category": "Obese"
+    }
+  ]
+}

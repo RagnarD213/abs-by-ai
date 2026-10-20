@@ -1,0 +1,26 @@
+{
+  "phrases": [
+    {
+      "text": "let me ask you this",
+      "start": 2.09,
+      "end": 3.36
+    },
+    {
+      "text": "Have you ever seen a fat 90-year-old",
+      "start": 3.79,
+      "end": 5.99
+    },
+    {
+      "text": "Scary, isn't it",
+      "start": 10.99,
+      "end": 11.89
+    },
+    {
+      "text": "Healthy at any weight is an unchallenged lie",
+      "start": 17.4,
+      "end": 21.4
+    }
+  ],
+  "clip_start": 2.09,
+  "clip_end": 21.4
+}
