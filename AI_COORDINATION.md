@@ -73,7 +73,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **COVERS:MOBILE:2026-10-15:Docs/COVER_AUDIT_20261015.md**
 
 
-**SL-09:R4-HANDOFF:2026-10-20:Claude.** Dan finalized Oura shorts 1-3; approved AI clips K1, J1 and J2 (band must be a WHOOP) for shorts 4 and 5. Card `Oura Ring Review SFL R4` (`Handoffs/handoff-20261020-sl09-oura-shorts-r4-ai-clips.md`). Page :8989 stays up.
+**Oura Ring Review SFL R4 - ACTIVE 2026-10-20, Claude.** SL-09: WHOOP J2 frames, Flow motion K1/J1/J2, rebuild shorts 4-5, review, gate, page :8989. Shorts 1-3 finalized, untouched. Work: `/Volumes/Extreme/_edit_work/sl09/round2/`.
 
 
 
