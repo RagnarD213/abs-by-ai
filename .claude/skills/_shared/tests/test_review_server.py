@@ -32,6 +32,12 @@ class Playback(unittest.TestCase):
    thread=threading.Thread(target=app.serve_forever,daemon=True);thread.start()
    base=f'http://127.0.0.1:{app.server_port}'
    try:
+    with urllib.request.urlopen(base+'/') as r:
+     page=r.read();self.assertEqual(page.count(b'/__review_player.js'),1)
+    with urllib.request.urlopen(base+'/__review_player.js') as r:
+     self.assertIn(b'Reload video',r.read());self.assertEqual(r.headers['Content-Type'],'text/javascript; charset=utf-8')
+    with urllib.request.urlopen(urllib.request.Request(base+'/',method='HEAD')) as r:
+     self.assertEqual(int(r.headers['Content-Length']),len(page));self.assertEqual(r.read(),b'')
     for header,start,end in [('bytes=10000-10099',10000,10100),('bytes=10-19',10,20),('bytes=-8',len(data)-8,len(data)),('bytes=25000-',25000,len(data))]:
      with urllib.request.urlopen(urllib.request.Request(base+'/clip.mp4',headers={'Range':header})) as r:
       self.assertEqual(r.status,206);self.assertEqual(r.read(),data[start:end]);self.assertEqual(r.headers['Content-Range'],f'bytes {start}-{end-1}/{len(data)}')

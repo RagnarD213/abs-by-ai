@@ -8,6 +8,7 @@ The same URL survives chat completion, process crashes and the next Mac login.
 Published page assets are cached locally. No media is uploaded.
 """
 import argparse
+import io
 import functools
 import html
 from html.parser import HTMLParser
@@ -43,10 +44,21 @@ class Handler(http.server.SimpleHTTPRequestHandler):
 
     def send_head(self):
         self._left = None
+        if urlsplit(self.path).path == '/__review_player.js':
+            return self.memory_response(Path(__file__).with_name('review_player.js').read_bytes(),
+                                        'text/javascript; charset=utf-8')
         if not Path(self.directory).is_dir():
             self.send_error(503, 'Review drive unavailable. Reconnect it and reload this page.')
             return None
         path = self.translate_path(self.path)
+        page = Path(path) / 'index.html' if Path(path).is_dir() else Path(path)
+        if page.is_file() and page.suffix.lower() in ('.html', '.htm'):
+            data = page.read_bytes()
+            if b'/__review_player.js' not in data:
+                script = b'<script defer src="/__review_player.js"></script>'
+                at = data.lower().rfind(b'</body>')
+                data = data[:at] + script + data[at:] if at >= 0 else data + script
+            return self.memory_response(data, 'text/html; charset=utf-8')
         m = re.fullmatch(r'bytes=(\d*)-(\d*)', self.headers.get('Range', ''))
         if not m or not os.path.isfile(path):
             return super().send_head()
@@ -72,6 +84,13 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         self.send_header('Last-Modified', self.date_time_string(os.path.getmtime(path)))
         self.end_headers()
         return f
+
+    def memory_response(self, data, content_type):
+        self.send_response(200)
+        self.send_header('Content-Type', content_type)
+        self.send_header('Content-Length', str(len(data)))
+        self.end_headers()
+        return io.BytesIO(data)
 
     def end_headers(self):
         self.send_header('Accept-Ranges', 'bytes')
@@ -198,6 +217,8 @@ def managed(port, root, remove=False):
         temporary = runtime / 'review_server.py.tmp'
         temporary.write_bytes(content)
         temporary.replace(worker)
+    # Keep the playback helper local alongside the worker, independent of the repo/drive.
+    shutil.copy2(Path(__file__).with_name('review_player.js'), runtime / 'review_player.js')
     cache = runtime / 'page'
     records = snapshot(root, cache)
     (runtime / 'manifest.json').write_text(json.dumps({'source': str(root), 'files': records}, indent=2))
