@@ -1,0 +1,25 @@
+{
+  "old_pid": 38140,
+  "new_pid": 38185,
+  "range_status": 206,
+  "bytes": 64,
+  "served_root": "/Users/danielrose/Library/Application Support/AbsByAI Reviews/9021/page",
+  "date": "2026-10-20",
+  "finding": "Server and cached media were healthy. Source reload restored the stale browser video picture; exact cause of browser decoder suspension cannot be proved.",
+  "media_changed": false,
+  "browser_checks": [
+    "Reload retained B at 5 seconds, 0.5x, muted, paused, readyState 4",
+    "Silent normal-speed playback reached 10.01 seconds",
+    "Stopped at 5 seconds for Dan"
+  ],
+  "tests": [
+    "Python HTTP range, page helper injection, HEAD and disconnected-source tests pass",
+    "Node deterministic idle, sleep, state preservation, stalled player, bounded retries and source-switch cancellation tests pass"
+  ],
+  "shared_commits": [
+    "e38ccb2",
+    "a180222"
+  ],
+  "selected_voice": "B Balanced",
+  "next_hair_sample_rendered": false
+}

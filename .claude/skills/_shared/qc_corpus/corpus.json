@@ -1,7 +1,7 @@
 {
   "_README": "THE STANDARD IS DAN'S WORDS, NOT OUR PARAPHRASE. Every entry quotes him verbatim. See README.md.",
   "version": 2,
-  "updated": "2026-10-19",
+  "updated": "2026-10-20",
   "roots": {
     "repo": ".",
     "ssd": "/Volumes/Extreme/_edit_work"
@@ -3698,6 +3698,25 @@
       "must_pass": [],
       "measured": "The prior independent review did not catch the hair-motion defect Dan identified. Existing watch scan does not measure temporal matte quality.",
       "notes": "Partial rejection of moving hair edges only. Body key decent. Warmer grade selected. Existing audio fairly decent, not rejected; retain as baseline alongside gentle alternatives. R2 requested wider sample, not full edit."
+    },
+    {
+      "id": "ds40-codex-r2-hair-flicker-20261020",
+      "verdict": "rejected",
+      "date": "2026-10-20",
+      "root": "ssd",
+      "path": "DS-40-codex/round2/review/media/balanced.mp4",
+      "sha256": "622ec8a71b344a13496277ce3e7c3de17a8229d6d7d71bcea1084256273d0100",
+      "excerpt": [
+        0,
+        10.01
+      ],
+      "dan": "Okay let's go with the balance voice. The chroma key here is not bad but is there anything else you can do to make that hair cleaner? I just feel like there's a little flickering as my hair moves around, in the parts where you can kind of see through my hair. I want you to see: is there anything you can do to make the chroma key on my hair cleaner? I feel like as it is this would be a little distracting, looking at the flicker in my hair. How can you reduce that flicker in my hair?",
+      "must_trigger": [
+        "key:hair_temporal_edges"
+      ],
+      "must_pass": [],
+      "measured": "Existing key check is not implemented. R2 independent audit found improvement but did not clear all fine-hair temporal flicker. No gate or threshold changed.",
+      "notes": "Partial hair-only rejection. Audio B Balanced explicitly approved and warm grade remains locked. Request is another 10-second wide calibration sample, not a full edit."
     }
   ]
 }
