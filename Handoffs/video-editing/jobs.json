@@ -2607,13 +2607,15 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/RO-28-why-zepbound-improves-your-health-even-if-youre-ripped.md`: cut \"Why Zepbound Improves Your Health Even If You're Ripped\" from 10/15 roll C1771 with /longform-edit. Best take of every line, every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Sol, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-28-why-zepbound-improves-your-health-even-if-youre-ripped.md` with `$long-form-content-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "ready",
-   "note": "RELEASE ASAP (shoot doc note: the script says \"this year\").",
+   "state": "in_progress",
+   "note": "R1 started 10-20 (Opus 5.5)",
    "needs": "",
    "order": 112,
-   "updated": "2026-10-16",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-10-20",
+   "rev": 2,
+   "syncedRev": 2,
+   "editor": "Claude",
+   "by": "Claude"
   },
   {
    "id": "DS-33",
