@@ -1,0 +1,35 @@
+{
+  "title": "Bill Maher Asks If You've Ever Seen A Fat 90-Year-Old. He's Right.",
+  "category": "CONTENT SFC",
+  "round": 3,
+  "requested_changes": [
+    "Reduce flicker in semitransparent moving hair",
+    "Deliver another 10-second wide sample before the full edit",
+    "Include matched enlarged moving comparison and phone copy"
+  ],
+  "approved_elements": [
+    "Balanced voice B, exact AAC from approved R2 movie",
+    "Warmer grade, exact grade.py hash",
+    "Full native framing with laptop, same continuous source interval",
+    "Body, arms and glasses retained from R2 outside hair correction region"
+  ],
+  "source": {
+    "path": "/Volumes/Extreme/10:15 dan rose fitness shoot - green screen, outdoor shorts, outdoor b roll, studio backdrop/C1730.MP4",
+    "sidecar_content_key": "47044440897:6b4f1f49e23dc4b0cd72f229cc7100f0867736ac44bccc1a523231887200a5e1",
+    "start_seconds": 1413.0116,
+    "frames": 300,
+    "fps": "30000/1001",
+    "native_dimensions": [
+      2160,
+      3840
+    ],
+    "read_only": true
+  },
+  "build": "/Volumes/Extreme/_edit_work/DS-40-codex/round3",
+  "audio_sha256": "089264175840f8aa4956d98a7e8bd82d93bd8c1dcee73493d4733ae224df2a6f",
+  "grade_sha256": "d6d2c4cd854088f4383649f4b9929631a7f2c3d409c8dd08d1db41a916f600ce",
+  "scope_limit": "No full Short, captions, graphics, covers, publishing or scheduling. Await Dan hair review.",
+  "generation_spend": 0,
+  "source_mark_used": false,
+  "private_diagnostic_not_finalized": true
+}

@@ -1,0 +1,21 @@
+{
+  "video_sha256": "1c07c3d3c585fe05a7a2f1274d4a62bec46de1e6be7bdbfb4214f44af2b7ace1",
+  "source": "C1730 same 1413.0116s continuous start",
+  "frames": 300,
+  "approved_audio_packets": "Identical AAC ADTS hash across R2 Balanced and sample/dark/hair/phone, audio-identity.json",
+  "visual_evidence": [
+    "audit/scan-24.jpg",
+    "audit/native-motion-57.jpg",
+    "audit/native-motion-147.jpg",
+    "audit/native-motion-237.jpg"
+  ],
+  "observations": "Natural fine loops above hair are retained, less green/purple fringe, slight soft grey halo remains enlarged. No visible held poses or missing glasses/arms in sampled frames. Consecutive frames show progressing natural motion. These frame observations do not substitute for moving-video review.",
+  "measurement": {
+    "r2_motion_compensated_alpha_residual": 0.02952864011041332,
+    "r3_motion_compensated_alpha_residual": 0.01545413036715476,
+    "relative_reduction": 0.47663927937863837,
+    "limit": "Comparative diagnostic, same current-frame mask and alignment. R2 alpha inferred from light/dark exports, includes codec error. Not implemented hair_temporal_edges quality gate."
+  },
+  "full_edit_started": false,
+  "final_background_check": "24-frame final grid has continuous matching field, no rectangular tint seam visible. Accurate BT709 RGB decode used."
+}

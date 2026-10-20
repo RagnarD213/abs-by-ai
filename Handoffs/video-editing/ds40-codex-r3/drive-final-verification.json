@@ -1,0 +1,210 @@
+[
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "sample",
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Action completed."
+          }
+        ],
+        "structuredContent": {
+          "id": "17TO-EYOAOmTu5i1Ivhu7ChOQSu-u3Q09",
+          "title": "Bill Maher R3 - Wide hair sample.mp4",
+          "mime_type": null,
+          "size": "9881039",
+          "url": "https://drive.google.com/file/d/17TO-EYOAOmTu5i1Ivhu7ChOQSu-u3Q09/view?usp=drivesdk",
+          "display_url": "https://drive.google.com/file/d/17TO-EYOAOmTu5i1Ivhu7ChOQSu-u3Q09/view?usp=drivesdk",
+          "file_or_folder": null,
+          "created_time": null,
+          "modified_time": null,
+          "parent_ids": [
+            "1B162kFjEdHizvnL3-HU-bJY3zJNNwSS2"
+          ],
+          "drive_id": null,
+          "current_user_can_share": null,
+          "has_augmented_permissions": null,
+          "shared": null,
+          "permissions": [
+            {
+              "type": "anyone",
+              "role": "reader",
+              "emailAddress": null,
+              "domain": null,
+              "displayName": null,
+              "allowFileDiscovery": false
+            },
+            {
+              "type": "user",
+              "role": "owner",
+              "emailAddress": "danroseconsulting@gmail.com",
+              "domain": null,
+              "displayName": "Daniel Rose",
+              "allowFileDiscovery": null
+            }
+          ],
+          "source_visibility_status": "permission_metadata_available"
+        },
+        "isError": false
+      }
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "phone",
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Action completed."
+          }
+        ],
+        "structuredContent": {
+          "id": "12Wv7OzL74ylTWcBCvyfR5ZV2BJFmtpLi",
+          "title": "Bill Maher R3 - Phone preview.mp4",
+          "mime_type": null,
+          "size": "1541634",
+          "url": "https://drive.google.com/file/d/12Wv7OzL74ylTWcBCvyfR5ZV2BJFmtpLi/view?usp=drivesdk",
+          "display_url": "https://drive.google.com/file/d/12Wv7OzL74ylTWcBCvyfR5ZV2BJFmtpLi/view?usp=drivesdk",
+          "file_or_folder": null,
+          "created_time": null,
+          "modified_time": null,
+          "parent_ids": [
+            "1B162kFjEdHizvnL3-HU-bJY3zJNNwSS2"
+          ],
+          "drive_id": null,
+          "current_user_can_share": null,
+          "has_augmented_permissions": null,
+          "shared": null,
+          "permissions": [
+            {
+              "type": "anyone",
+              "role": "reader",
+              "emailAddress": null,
+              "domain": null,
+              "displayName": null,
+              "allowFileDiscovery": false
+            },
+            {
+              "type": "user",
+              "role": "owner",
+              "emailAddress": "danroseconsulting@gmail.com",
+              "domain": null,
+              "displayName": "Daniel Rose",
+              "allowFileDiscovery": null
+            }
+          ],
+          "source_visibility_status": "permission_metadata_available"
+        },
+        "isError": false
+      }
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "hair",
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Action completed."
+          }
+        ],
+        "structuredContent": {
+          "id": "1y8iLUcm6fayaZxI2doF50xqJD-x0R0OE",
+          "title": "Bill Maher R3 - Moving hair comparison.mp4",
+          "mime_type": null,
+          "size": "7941650",
+          "url": "https://drive.google.com/file/d/1y8iLUcm6fayaZxI2doF50xqJD-x0R0OE/view?usp=drivesdk",
+          "display_url": "https://drive.google.com/file/d/1y8iLUcm6fayaZxI2doF50xqJD-x0R0OE/view?usp=drivesdk",
+          "file_or_folder": null,
+          "created_time": null,
+          "modified_time": null,
+          "parent_ids": [
+            "1B162kFjEdHizvnL3-HU-bJY3zJNNwSS2"
+          ],
+          "drive_id": null,
+          "current_user_can_share": null,
+          "has_augmented_permissions": null,
+          "shared": null,
+          "permissions": [
+            {
+              "type": "anyone",
+              "role": "reader",
+              "emailAddress": null,
+              "domain": null,
+              "displayName": null,
+              "allowFileDiscovery": false
+            },
+            {
+              "type": "user",
+              "role": "owner",
+              "emailAddress": "danroseconsulting@gmail.com",
+              "domain": null,
+              "displayName": "Daniel Rose",
+              "allowFileDiscovery": null
+            }
+          ],
+          "source_visibility_status": "permission_metadata_available"
+        },
+        "isError": false
+      }
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "dark",
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Action completed."
+          }
+        ],
+        "structuredContent": {
+          "id": "1cuXvNJnGh3h5hCcVKc1BFlc4_xLUMpgB",
+          "title": "Bill Maher R3 - Dark background check.mp4",
+          "mime_type": null,
+          "size": "9685062",
+          "url": "https://drive.google.com/file/d/1cuXvNJnGh3h5hCcVKc1BFlc4_xLUMpgB/view?usp=drivesdk",
+          "display_url": "https://drive.google.com/file/d/1cuXvNJnGh3h5hCcVKc1BFlc4_xLUMpgB/view?usp=drivesdk",
+          "file_or_folder": null,
+          "created_time": null,
+          "modified_time": null,
+          "parent_ids": [
+            "1B162kFjEdHizvnL3-HU-bJY3zJNNwSS2"
+          ],
+          "drive_id": null,
+          "current_user_can_share": null,
+          "has_augmented_permissions": null,
+          "shared": null,
+          "permissions": [
+            {
+              "type": "anyone",
+              "role": "reader",
+              "emailAddress": null,
+              "domain": null,
+              "displayName": null,
+              "allowFileDiscovery": false
+            },
+            {
+              "type": "user",
+              "role": "owner",
+              "emailAddress": "danroseconsulting@gmail.com",
+              "domain": null,
+              "displayName": "Daniel Rose",
+              "allowFileDiscovery": null
+            }
+          ],
+          "source_visibility_status": "permission_metadata_available"
+        },
+        "isError": false
+      }
+    }
+  }
+]

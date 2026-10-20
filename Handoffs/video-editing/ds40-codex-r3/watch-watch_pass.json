@@ -1,0 +1,83 @@
+{
+ "watch_version": "1.2.0",
+ "tool": "_shared/deliver/watch.py",
+ "video": "sample.mp4",
+ "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round3/review/media/sample.mp4",
+ "sha256": "1c07c3d3c585fe05a7a2f1274d4a62bec46de1e6be7bdbfb4214f44af2b7ace1",
+ "bytes": 9881039,
+ "size": "1080x1920",
+ "fps": 29.97,
+ "duration": 10.01,
+ "when": "2026-10-20T10:02:50-0500",
+ "plan": "/Volumes/Extreme/_edit_work/DS-40-codex/round3/plan.json",
+ "out": "/Volumes/Extreme/_edit_work/DS-40-codex/round3/watch",
+ "boundaries": 0,
+ "boundary_list": [],
+ "reviewed": 0,
+ "inspected": true,
+ "judged": [
+  {
+   "image": "sheet_00_00-00.00_to_00-09.01.jpg",
+   "verdict": "clean",
+   "t": 0.0,
+   "note": "Reviewed every tile from 0 to 9.01 seconds. Hair remains below the top edge, speech gestures continue, and no visible card, label, black frame, freeze, or placeholder appears. The full native-width calibration framing and lack of graphics are declared in the plan."
+  }
+ ],
+ "judged_by": "Codex Sol independent motion auditor",
+ "open_defects": 0,
+ "scan": {
+  "frames": 300,
+  "fps": 29.97,
+  "median_diff": 2.392,
+  "mad": 0.705,
+  "p99": 5.282,
+  "threshold": 6.625,
+  "frozen": [],
+  "black": [],
+  "jumps": [],
+  "explained_jumps": 0
+ },
+ "naked_splices": {
+  "count": 0,
+  "per_min": 0.0,
+  "candidates": 0,
+  "naked": [],
+  "settings": {
+   "grid": "90x160",
+   "blocks": "9x16",
+   "peak": 20.0,
+   "sharp": 2.0,
+   "still": 0.25,
+   "hot_min": 8,
+   "subject_rows": 0.7,
+   "tex_min": 6.0,
+   "palette": 0.1,
+   "align_explains": 0.4,
+   "align_margin_blocks": 1
+  }
+ },
+ "graphic_presence": [],
+ "sheets": [
+  "sheet_00_00-00.00_to_00-09.01.jpg"
+ ],
+ "sheet_interval_s": 1.0,
+ "strips": [],
+ "pairs": [],
+ "clips": [],
+ "checklist": [
+  "hair_top",
+  "out_of_frame",
+  "junk_card",
+  "naked_splice",
+  "label_over_face",
+  "black_or_frozen",
+  "wide_level",
+  "visual_junk",
+  "graphic_missing",
+  "ai_giveaway",
+  "placeholder"
+ ],
+ "seconds": 0.7,
+ "judged_at": "2026-10-20T10:06:01-0500",
+ "judge_problems": []
+}

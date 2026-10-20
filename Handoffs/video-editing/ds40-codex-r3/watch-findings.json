@@ -1,0 +1,10 @@
+{
+  "entries": [
+    {
+      "image": "sheet_00_00-00.00_to_00-09.01.jpg",
+      "verdict": "clean",
+      "t": 0.0,
+      "note": "Reviewed every tile from 0 to 9.01 seconds. Hair remains below the top edge, speech gestures continue, and no visible card, label, black frame, freeze, or placeholder appears. The full native-width calibration framing and lack of graphics are declared in the plan."
+    }
+  ]
+}
