@@ -10,8 +10,9 @@ function unwrap(r) {
 }
 function check(ok, message) { if (!ok) throw new Error(message); }
 function catalogFromDescription(description) {
-  return [...description.matchAll(/\b(gpt-\d+(?:\.\d+)*-(?:sol|astra|luna|terra))\s*\([^)]*supported reasoning efforts: ([^)]*)\)/g)]
+  const models = [...description.matchAll(/\b(gpt-\d+(?:\.\d+)*-(?:sol|astra|luna|terra))\s*\([^)]*supported reasoning efforts: ([^)]*)\)/g)]
     .map(m => ({id:m[1], efforts:m[2].split(',').map(x=>x.trim())}));
+  return models.length ? models : null;
 }
 function plan(input, catalog) {
   check(input.jobId && input.oldThreadId && input.oldHostId && input.projectId, 'Missing exact job/thread/host/project identity');
@@ -19,7 +20,7 @@ function plan(input, catalog) {
   check(input.title && input.type && input.revisionId && input.revisions && input.handoffPath && input.journalPath, 'Missing round packet');
   check(Array.isArray(input.approvedFiles) && input.decisionsPath, 'Missing approval manifest or decisions file');
   check(input.approvedFiles.some(x => x.path === input.decisionsPath) && input.approvedFiles.every(x => x.path && /^[a-f0-9]{64}$/.test(x.sha256)), 'Manifest must include decisions and exact SHA256s');
-  const available = Array.isArray(catalog) && catalog.length > 0;
+  const available = Array.isArray(catalog);
   let model = input.override?.model;
   if (!model) {
     const sol = (catalog || []).filter(x => /^gpt-\d+(?:\.\d+)*-sol$/.test(x.id) && x.efforts.includes('high'));
@@ -94,6 +95,8 @@ async function run(p, {call, store, verifyLocks}, options = {}) {
     `Round controller journal: ${p.journalPath}; key: ${p.key}. Before production, verify productionOwner is ` +
     `your exact task ID and the round is complete (or continuation_queued for same-task next turn). ` +
     `If transfer is still pending, prepare read-only, then stop. Do not render or generate until ownership is recorded.\n` +
+    `Process revision ${p.revisionId} only once for ${p.key}. If already in progress, resume its checkpoint; ` +
+    `if delivered, do not execute it again. Record that disposition in the round decisions.\n` +
     `Previous task: ${p.oldThreadId}. Revisions:\n${p.revisions}\n` +
     `No publishing, spending, new credentials, archive/delete, or unrelated changes authorized by this handoff.`;
   if (p.mode === 'same') {
@@ -140,7 +143,7 @@ async function run(p, {call, store, verifyLocks}, options = {}) {
   // This is a continuation of the created task, never a second task.
   check(options.capabilities.includes(prefix+'send_message_to_thread'), 'Transfer complete; child wake capability missing');
   await mutate('send_message_to_thread',{threadId:child.threadId,hostId:child.hostId,
-    prompt:`Ownership transferred for ${p.key}. Re-read ${p.journalPath}, verify your ID is productionOwner, then execute ${p.handoffPath}.`,
+    prompt:`Ownership transferred for ${p.key}, revision ${p.revisionId}. Re-read ${p.journalPath}, verify your ID is productionOwner, then execute ${p.handoffPath}. If this revision is already in progress, resume its checkpoint; if delivered, acknowledge without reapplying any edit.`,
     model:p.model,thinking:p.thinking},{phase:'complete',wakeSent:true});
   return s;
 }
