@@ -317,60 +317,67 @@
   ],
   "assistant": [
     {
-      "text": "Empty Dishwasher",
+      "text": "Take Tesla to car wash. Wash interior, vaccum interior, and clean surfaces using sprays in frunk",
       "priority": "key",
       "recurring": false,
       "addedAt": "2026-10-20",
       "boardRank": 0
     },
     {
-      "text": "Cut up all boxes in spare room in small pieces",
-      "priority": "high",
+      "text": "Empty Dishwasher",
+      "priority": "key",
       "recurring": false,
-      "addedAt": "2026-10-06",
+      "addedAt": "2026-10-20",
       "boardRank": 1
     },
     {
-      "text": "Put all non-cardboard trash items in junk room into trash bags. Leave in spare room, do not put in trash yet",
+      "text": "Cut up all boxes in spare room in small pieces",
       "priority": "high",
       "recurring": false,
       "addedAt": "2026-10-06",
       "boardRank": 2
     },
     {
-      "text": "Cut up boxes for hedge panels behind artificial hedge, move to recycling or spare room",
+      "text": "Put all non-cardboard trash items in junk room into trash bags. Leave in spare room, do not put in trash yet",
       "priority": "high",
       "recurring": false,
       "addedAt": "2026-10-06",
       "boardRank": 3
     },
     {
-      "text": "Robot vaccuum bedroom 3x. Remove mop pads first and put back after",
+      "text": "Cut up boxes for hedge panels behind artificial hedge, move to recycling or spare room",
       "priority": "high",
       "recurring": false,
       "addedAt": "2026-10-06",
       "boardRank": 4
     },
     {
+      "text": "Robot vaccuum bedroom 3x. Remove mop pads first and put back after",
+      "priority": "high",
+      "recurring": false,
+      "addedAt": "2026-10-06",
+      "boardRank": 5
+    },
+    {
       "text": "Spray weeds with roundup",
       "priority": "med",
       "recurring": false,
       "addedAt": "2026-08-03",
-      "boardRank": 5
+      "boardRank": 6
     },
     {
       "text": "Hire contractor to powerwash deck, driveway, and house. Discuss with Dan first",
       "priority": "med",
       "recurring": false,
       "addedAt": "2026-09-01",
-      "boardRank": 6
+      "boardRank": 7
     },
     {
       "text": "Clean exterior of all windows",
       "priority": "low",
       "recurring": false,
       "addedAt": "2026-08-08",
-      "boardRank": 7
+      "boardRank": 8
     },
     {
       "text": "Load dishwasher",
@@ -381,13 +388,6 @@
         4
       ],
       "addedAt": "2026-08-09",
-      "boardRank": 8
-    },
-    {
-      "text": "Take Tesla to car wash. Wash interior, vaccum interior, and clean surfaces using sprays in frunk",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-10-20",
       "boardRank": 9
     }
   ],
