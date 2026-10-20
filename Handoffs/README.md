@@ -184,6 +184,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Date | Document | Subject |
 |---|---|---|
+| 2026-10-20 | [Arms Shoulders Workout LFC R3](handoff-20261020-ro04-round3-color-b-full-film.md) | EXECUTED: complete workout delivered for Dan review at http://127.0.0.1:8974/. [Receipt](video-editing/ro04-round3-plan/review-receipt.json). |
 | 2026-10-17 | [handoff-20261017-ro20-round4-three-films.md](handoff-20261017-ro20-round4-three-films.md) | EXECUTED 2026-10-19: RO-20/B/C round 4, three full films delivered for Dan's review on :8868 |
 | 2026-09-22 | [handoff-20260922-install-approved-breakfast-short-thumbnail.md](handoff-20260922-install-approved-breakfast-short-thumbnail.md) | EXECUTED: approved revised B2 installed on `UFga137pseM`; backup and verification in [installation report](../output/thumbnails/breakfast-short-20260922/INSTALLATION.md) |
 | 2026-09-15 | [handoff-20260914-coordination-board-diet.md](handoff-20260914-coordination-board-diet.md) | EXECUTED — board cut 11,722 → ~2,000 words; verbatim snapshot + inventory in the archive |
