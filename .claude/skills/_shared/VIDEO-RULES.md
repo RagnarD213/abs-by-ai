@@ -103,6 +103,18 @@ Dan: "The system that I want is one where I give my revisions and then the new t
   that only exists as between-takes footage, leave him on camera and put the shot on the next shoot's B-roll list. Library
   clip `B0479` (the green bottle) is rejected; reviewers flag any clip of this kind in an editor's cut as a removal item.
 
+## Stumbles inside a kept take get fixed (Dan, 2026-10-20, RO-20)
+
+- **A stumbled, drawn-out or half-restarted word inside an otherwise kept take is junk footage: cut to a clean take of the line or trim
+  the stumble out.** Dan, finalizing "Why You Should Invest More In Your Health" (RO-20) R4, about 0:33 ("if money is your most
+  important priority", where "priority" ran 0.66 s with a half start): *"there was a small amount of junk footage included around 32
+  seconds, where I said 'priority' and kind of started a little bit. In future videos, I'd like things like that to be fixed."* He
+  shipped that one as is; the rule binds every edit from now on.
+- How to apply: the delivery gate's `junk:repeated_take` row did not flag it (its stretch threshold is longer), and Whisper prints the
+  word clean. Listen-check, or measure, every word over about 0.5 s inside a kept phrase and every intra-phrase gap over about 0.4 s
+  in the first minute and at each take join; transcribe those windows with a disfluency prompt (for example `initial_prompt="Um, uh,
+  pri- priority"`, `condition_on_previous_text=False`). Fix what is a stumble; leave his deliberate emphasis.
+
 ## Never a shot of Dan just standing around (Dan, 2026-10-14)
 
 - **A cutaway of Dan standing, posing or waiting, doing nothing that illustrates the line, is never used.** Dan, removing
