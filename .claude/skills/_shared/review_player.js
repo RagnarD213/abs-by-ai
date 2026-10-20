@@ -18,7 +18,7 @@
     status.setAttribute('role', 'status'); status.setAttribute('aria-live', 'polite');
     status.style.color = '#516676';
     box.append(button, status); v.insertAdjacentElement('afterend', box);
-    const s = {lastProgress:Date.now(), lastTime:v.currentTime, retries:0, pending:null, source:source(v), status};
+    const s = {lastProgress:Date.now(), lastTime:v.currentTime, retries:0, lastAttempt:0, pending:null, source:source(v), status};
     players.set(v, s);
     function cancel() {
       if (s.pending) {
@@ -27,9 +27,10 @@
       }
     }
     function recover(manual = false) {
+      if (Date.now() - s.lastAttempt > IDLE) s.retries = 0;
       if (!source(v) || s.pending || (!manual && s.retries >= LIMIT)) return;
       if (manual) s.retries = 0;
-      s.retries++;
+      s.retries++; s.lastAttempt = Date.now();
       const state = {src:source(v), time:v.currentTime || 0, rate:v.playbackRate,
         muted:v.muted, volume:v.volume, playing:!v.paused && !v.ended, restored:false};
       s.pending = state;
@@ -68,6 +69,7 @@
       cancel(); s.lastProgress = Date.now(); s.lastTime = v.currentTime;
       status.textContent = 'Video ready.';
       if (state.playing) v.play().catch(() => { status.textContent = 'Video ready. Press play to continue.'; });
+      else v.pause();
     }
     v.addEventListener('loadeddata', finish);
     v.addEventListener('canplay', finish);
