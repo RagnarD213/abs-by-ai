@@ -69,7 +69,7 @@ continues to guide organic videos and other formats.
 - Every packet opens with a short "what I decided" list (one line each) so he can overrule while watching, never item-by-item forms.
 - Dan still sees the first minute and the finished film; his notes there are the check on Claude's calls.
 
-**Organic path (Dan, 2026-09-29):** use `$long-form-content-edit` with GPT-6 Sol throughout. Reuse the approved studio
+**Organic path (Dan, 2026-09-29):** use `$long-form-content-edit` with the newest available stable Sol at high effort (VIDEO-RULES.md, automatic video rounds); explicit Dan overrides win. Reuse the approved studio
 framing and graphic family after a source-specific check; include first-round colour and audio choices even for studio footage. Build still and motion checks internally for
 every new graphic and clip. Include the first-minute draft, colour/audio options and narrated contextual asset previews together in the first round, then the complete film after all assets are locked. Keep the AI start/end-frame approval
 gate before new motion. Revisions reuse locked work and need only the affected previews.
@@ -154,7 +154,7 @@ Each step is its own round unless the items are ready together. Nothing later st
 
 Use the current [video editing task naming rule](VIDEO-RULES.md#video-editing-task-names-dan-2026-10-16) for the chat and every handoff starter: recognizable video title, content type (LFC/SFC/SFL as applicable), then R1/R2/etc. Keep job IDs inside the handoff, not in its proposed chat title.
 
-- **One round is one session by default** (a small follow-up may continue in the same session under the continue-or-handoff rule in VIDEO-RULES.md, first section). A new session starts from the previous round's handoff, reads the decisions file, and re-hashes every locked file
+- **The editor chooses same task versus fresh task automatically** under VIDEO-RULES.md, automatic video rounds. A new round advances the round/title even when it stays in the same task; small follow-ups do not require a fresh session. A new session starts from the previous round's handoff, reads the decisions file, and re-hashes every locked file
   (record expected vs actual) before touching anything. It builds in a new `roundN/` folder and never overwrites a reviewed round.
 - **Show only what changed or is still pending.** Locked items appear as a record list, never as a question. Stay inside the decision
   budget above (10 to 15 per video in total); items Claude checked are listed as decided, not asked. A one-variable question (a crop, a transparency) gets its own tiny page so it can be
@@ -171,7 +171,7 @@ Use the current [video editing task naming rule](VIDEO-RULES.md#video-editing-ta
 - **Close every round that moves to a new session with a handoff, and start that session yourself** (VIDEO-RULES.md, first section) (`Handoffs/handoff-YYYYMMDD-<job>-roundN-<topic>.md`): scope; files to read; locks with hashes
   and Dan's words; each requested change anchored to heard words and output times; exact authorizations per AI item; cuts already
   applied (so none is applied twice); gate status stated honestly; a cost ledger (known, unknown, cap); the recommended model and effort;
-  the exact next action; a ready-to-paste starter prompt. Then stop. No session stays alive polling for Dan's answer.
+  the exact next action; a ready-to-paste starter prompt; stable round/revision IDs and production-owner/superseded pointers. Use `video-rounds/README.md` to create/start, pin and verify the child before unpinning only its predecessor. Same-task continuations advance the round, retain the pin and use the supported next-turn Sol/high override when necessary. Never ask Dan to fire the card or manage pins after a successful automatic transfer. On unavailable or uncertain operations retain the old pin and reconcile, never duplicate. Then stop the old editor. No session stays alive polling for Dan's answer.
 
 ## Forbidden
 
