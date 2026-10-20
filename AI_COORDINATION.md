@@ -135,7 +135,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-14 POLICY-RECHECK 2026-10-15,Claude.**
 
-**First Step Abs AD R2 - ACTIVE 2026-10-20, Claude.** RA-12 round 2: AI prospect everywhere, buttons/KEY POINT under captions, W1 = B0427 ab wheel, D1 = C1546 salad hold. Next: build, gates, review, page :8842. Work: `/Volumes/Expansion/_edit_work/ra12/round2/`.
+**First Step Abs AD R2 ACTIVE 2026-10-20, Claude.** RA-12 building; page :8842.
 
 **RO-17 - HOLD 2026-10-18, Claude.** On the waitlist (Blotato 197/200); routine queues YouTube Sun Dec 13, socials Mon Dec 14 noon. `Docs/RO17_SETUP_RECEIPT_20261018.md`.
 
