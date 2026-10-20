@@ -124,7 +124,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-07:SETUP-HANDOFF:2026-10-18:Claude.** Dan approved the R6 9:16; finalized. Card `Fire Your Trainer AD Setup` (`Handoffs/handoff-20261018-ra07-setup.md`). Commits local until safe-push clears.
 
-**Invest In Your Health 2026-10-20, Claude.** Videos 1, 2 (RO-20, RO-20B) finalized; setup handoff written. Video 3 (RO-20C) R5 handed off (new intro split, two lip-synced excuse clips). Both in `Handoffs/README.md` OPEN. C1722 sidecar mark-used pending (Seagate unplugged).
+**Invest In Your Health 2026-10-20, Claude.** Videos 1, 2 (RO-20, RO-20B) finalized; setup handoff written. Video 3 (RO-20C) R5 handed off (new intro split, two lip-synced excuse clips). Both in `Handoffs/README.md` OPEN. Queue commit ff69bf1 local (safe-push stopped on a live file); next safe-push carries it. C1722 sidecar mark-used pending (Seagate unplugged).
 
 
 **RA-05:POLICY-RECHECK:2026-10-16:Claude.** Live: `0DswKDBFW2E`, ad `828398569805` in review. Next 10-17: `node scripts/ads/api/client.js policy 24316364155`; clean, delete this.
