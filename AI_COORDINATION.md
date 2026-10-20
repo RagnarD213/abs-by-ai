@@ -26,6 +26,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**Boring Abs At 40 LFC R2 - ACTIVE 2026-10-20, Codex.** Executing R2 handoff. Colour C and voice B locked; R1 preserved. Next: calibrated headroom proof, corrected opening/contexts, complete existing-AI gallery, revised A01–A04 still pairs and independent checks. No new motion or full-film render before approval. Work: `/Volumes/Extreme/_edit_work/ro27/round2/`.
+
 **Calories Not Losing Weight SFL R5 - ACTIVE 2026-10-20, Codex.** Fasting R4 frames approved. Replacing protein opener with both shirtless Dans standing beside a side counter, lean abs/heavier stomach visible. Next: new pair, independent checks and narrated approval on a new port. R2/R3/R4 untouched; no covers or publishing.
 
 **Bill Maher Fat 90-Year-Old SFC R4 - ACTIVE 2026-10-20, Codex.** Full edit authorized with approved R3 key, Balanced audio and warm color. Separate build: `/Volumes/Extreme/_edit_work/DS-40-codex/round4/`. Next: scripted take, clip-first assembly, BMI graphic, captions and full QA. Claude competition remains separate.
@@ -36,7 +38,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-25 Git sync BLOCKED 2026-10-18, Codex.** Public video, article post 886, and manually uploaded 257-cue English SRT are verified. Caption uploader and receipt are committed locally as `340ed22`. Safe-push aborted on nine merge conflicts across other sessions' files; no merge is in progress. Next: hand-merge shared main with owners or push these records from a clean checkout, without discarding their work.
 
-**DS-40:R1-REVIEW:8940:2026-10-20:Claude.** Green screen key/colour/voice sample on :8940; Codex bake-off. Next: Dan's picks.
+**DS-40:R2-HANDOFF:2026-10-20:Claude.** Dan locked colour B, voice +1.5 bass; key polish next. Card `Fat 90 Year Old SFC R2`.
 
 **SL-15:R2-ACTIVE:2026-10-18:Claude.** My First Spray Tan SFL R2 building Shorts A and C from RO-19 (Dan's two picks). Next: gates, audit, review page. Work: `/Volumes/Extreme/_edit_work/SL-15/`.
 

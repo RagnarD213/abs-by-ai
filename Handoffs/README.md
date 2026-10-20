@@ -11,6 +11,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Fat 90 Year Old SFC R2](handoff-20261020-ds40-round2-key-polish.md): **Start now (2026-10-20). Claude Opus 5.5, high.** CONTENT SFC, green screen bake-off with Codex. Dan locked colour B and house voice + half bass; make the key beat R1 (hair flicker, dark rim, watch glass), independent review, R1 vs R2 page on 8940.
 - [Boring Abs At 40 LFC R2](handoff-20261020-ro27-round2-headroom-and-ai-revisions.md): **Start now (2026-10-20). GPT-6.1 Sol, high.** Fix and verify headroom in every wide/tight shot; apply selected richer colour C and warm-bass voice B; show all existing AI clips for the fasting opener choice; revise A01–A04 frames and remove A05–A06. R2 review before new motion or full film.
 
 
