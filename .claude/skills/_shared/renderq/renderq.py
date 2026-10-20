@@ -617,7 +617,7 @@ def acquire(label, pool="heavy", group=None, priority=None, quiet=False, pipe=Fa
                     ", about {} to go".format(_fmt(eta)) if eta is not None else "", Path(__file__)))
                 told, said = time.time(), True
             head = got == 0
-            time.sleep(POLL_HEAD_S if head else POLL_S)
+            time.sleep(POLL_HEAD_S if head else (POLL_S if got < 3 else 3 * POLL_S))
     except BaseException:
         ticket.close()
         raise
