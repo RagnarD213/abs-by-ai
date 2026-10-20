@@ -1173,20 +1173,43 @@ something that we can publish."* Every point below is a standing rule for every 
   missing. If a check genuinely does not apply, declare it explicitly, with a reason a reader can
   audit. Full reasoning: `.claude/skills/_shared/qc_corpus/README.md`.
 
-## Video builds: never run more than two at once
+## Video builds: the render queue (formerly "never run more than two at once")
 
-- **Cap concurrent video builds at two across all sessions.** Before starting a render, transcription, QC or watch pass, check whether other sessions are already building (`ps -Ao command | grep -E 'ffmpeg|qc_style|render\.py|whisper'`). If two builds are already running, wait — do not start a third.
-- **Count builds, not processes (2026-10-13): `python3 .claude/skills/_shared/buildcap.py`.** It lists the builds running now, one line per launched command (a render's Python, decoder and encoder are one build), and leaves out the caller's own. The `ps` line above shows processes, so one render reads as two or three. Shared tools wait through `buildcap.wait()`; a script that waits should call it instead of counting `ps` lines, which is how the delivery gate came to wait on its own launching shell for 74 minutes (RO-19 round 4).
-- **Measured 2026-08-27, not assumed.** Four concurrent builds drove the Mac mini (10 cores) to a load average of **242 with 0% idle**, and made `finish_audio.py` take **126 seconds against 13.6 seconds on a quiet machine — a 9.3x latency penalty.**
-- **It buys nothing.** x264 already threads across all 10 cores, so extra concurrent builds do not raise throughput; they only timeslice. The sole headroom is the ~19% of a build that is single-threaded Python (PIL graphics, Whisper), which is why **two** builds overlap usefully — one build's Python runs under another's encoding — and a third is pure loss.
-- This is the largest available speedup in the video pipeline: worth more than the three candidate software optimizations and a new Mac combined, and it costs nothing. Full numbers: `.claude/skills/_shared/timing/REPORT_20260827_build_timings.md`.
-- **Exception: upload and setup encodes run anyway, on the hardware encoder at lowest priority (Dan, 2026-09-30).** When a
-  `/video-setup` or `/ad-setup` task needs a platform copy (Blotato's 400 MB cap, a TikTok cover-first copy) and two or
-  more builds are already running, do not wait for a slot: run it as `nice -n 20 ffmpeg -hwaccel videotoolbox ...
-  -c:v h264_videotoolbox ... -c:a copy`. The Mac's media engine does the work, so it barely touches the CPU the cap
-  protects. Dan approved this on RO-05 (load ~300, four builds running). It covers setup/upload copies only; editing
-  renders, QC, transcription and x264 encodes still obey the two-build cap.
-- **Never run a pipeline script inside another session's live build directory** — it will overwrite intermediates that session is reading. Work in a scratch copy.
+- **Since 2026-10-20 the cap is enforced in code by the render queue, `.claude/skills/_shared/renderq/`.** Dan can start
+  10, 20 or 30 editing jobs at once; every heavy step waits its turn in a real first-come line and starts when a slot
+  frees. Do not count builds with `ps`, do not write a wait loop, do not hold a job back "because two are running":
+  **just start it.** Claude and Codex alike. README: `.claude/skills/_shared/renderq/README.md`.
+- **See the line:** `python3 .claude/skills/_shared/renderq/renderq.py status` (who holds each slot, every waiter in
+  order, estimated start times, builds running outside the queue). Reading it is covered by the standing render-queue
+  authorization (AGENTS.md, 2026-10-20).
+- **What is gated, with no change to any script:** the wrapper at `Media/video_edit/bin/ffmpeg` (real binary
+  `ffmpeg.real`) queues every heavy ffmpeg call; Whisper (`whisper_chunked.py`, `cut/speech.py`), HyperFrames renders
+  (`hfbuild.render`), `deliver/gate.py`, `watch.py`, `framecheck/gate.py` and `clipcheck.py` take their own slot.
+  `buildcap.wait()` now gets in line in the queue. Never waits: ffprobe, frame grabs, stills, audio-only ffmpeg,
+  stream copies, anything 5 s or shorter, review servers.
+- **Slots: heavy 2 always open, up to 4 while the Mac has spare CPU; light (Whisper, checks) 2, up to 3.** Extra slots
+  open only when at least 40% of the CPU sat idle for 4 s and nothing started in that pool in the last 15 s, so
+  single-core Python renders no longer leave most of the Mac idle, and x264-bound renders still run two at a time.
+  Work inside a slot runs at nice 10. Measurements: `Handoffs/results-20261020-render-scheduler.md`.
+- **Run builds in the background** (`run_in_background`, `nohup`, a chain script): a queued step can wait past the
+  10-minute Bash timeout, and a killed waiter loses its place.
+- **New per-round scripts: wrap the whole script as one step** so its steps do not re-queue:
+  `python3 .claude/skills/_shared/renderq/renderq.py run --group <VIDEO> -- bash render_r2.sh` (`--light` for checks).
+  Name the video with `--group` or `export GATE_GROUP=<VIDEO>` (running from `/Volumes/*/_edit_work/<job>/` names it
+  automatically): a video already running goes ahead of videos not yet started. `--priority` only when Dan is waiting
+  on that exact output. Drop old `wait_slot`/`pipeline_slot` loops; they double-wait behind the queue.
+- `GATE_OFF=1` skips the queue for debugging only, never for a real build.
+- **Why, measured 2026-08-27:** four ungated builds drove the Mac mini (10 cores) to load 242 at 0% idle and made
+  `finish_audio.py` take 126 s against 13.6 s quiet (9.3x), with no throughput gain. Load average misleads on macOS
+  (130 at 15% idle on 2026-10-20); the queue reads real CPU idle from the kernel. Full 08-27 numbers:
+  `.claude/skills/_shared/timing/REPORT_20260827_build_timings.md`.
+- **Exception: upload and setup encodes run at once on the hardware encoder (Dan, 2026-09-30):**
+  `nice -n 20 ffmpeg -hwaccel videotoolbox ... -c:v h264_videotoolbox ... -c:a copy`. The queue exempts
+  `h264_videotoolbox` automatically. Setup/upload copies only; editing renders, QC, transcription and x264 encodes queue.
+- **Never run a pipeline script inside another session's live build directory.** It will overwrite intermediates that
+  session is reading. Work in a scratch copy.
+- **Keep build intermediates off the iCloud-synced project folder** (use `/Volumes/*/_edit_work/` or a scratch folder):
+  files written under the project folder's `tmp/` keep iCloud's `fileproviderd` at 50-160% CPU while it syncs them.
 
 ## Video review refinements — C1652 R3 (Dan, 2026-09-17)
 

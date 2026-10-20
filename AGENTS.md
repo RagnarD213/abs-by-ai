@@ -101,7 +101,8 @@ sessions (and any other assistant, if one is in use).
 
 ## Standing authorization for render-queue checks (Dan, 2026-10-20)
 
-- Always check active render jobs and the render queue without asking Dan for permission, in every task. This includes reading queue state and running the shared build-cap/process checks before rendering or quality checks.
+- Always check active render jobs and the render queue without asking Dan for permission, in every task. This includes reading queue state (`python3 .claude/skills/_shared/renderq/renderq.py status`) and running the shared build-cap/process checks before rendering or quality checks.
+- **The render queue enforces the build cap in code (2026-10-20).** Start any number of video jobs; heavy steps (encodes, renders, Whisper, checks) wait their turn in one first-come line shared by Claude and Codex. Never hold a job back or write a wait loop because other builds are running. Rule and commands: `.claude/skills/_shared/VIDEO-RULES.md`, "Video builds: the render queue".
 - Dan: "Going forward you are always authorized to check the queue for active render jobs. Do not ask me for permission to do this again in any task."
 - This is a standing read-only authorization across tasks, not permission to cancel or modify another session's jobs.
 
