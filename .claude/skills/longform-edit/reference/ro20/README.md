@@ -237,3 +237,24 @@ film voice sliced at the part frames + the pickup voices as they are + treated r
   Expect three loops on a long film; move a reviewed file aside (`r4a/`, `r4b/`) and symlink it while its reviewer is still reading.
 - **Session restarts kill subagents** (an expired login) and orphan background waits; a `pkill -f "chain ... v3"` missed a lane waiting in
   `buildcap.wait`, which then rendered in parallel. Check `ps` after every lane change.
+
+## Round 5 (2026-10-20): video 3's split-screen intro and two excuse clips, frames first
+
+Dan asked for a big title over a three-way split of AI clips of him (Skid Row deadlift, salmon at home, mansion gym with a fit
+woman) and lip-synced excuse clips at 1:47 and 4:12. Record, prompts, specs, hashes: `round5/` (`ROUND5_STATE.json`); the page
+is `page7_r5.py` (refuses any pair without gate + reviewer PASS); the intro is the new shared template
+`_shared/hyperframes/levels-split/` (config `round5/LS-ro20c.json`).
+
+- **Frame the subject for the tile, not the 16:9.** A square tile shows the middle 56 % of a 16:9 frame: put both people in the
+  middle half (the first gym frame had the woman in the outer quarter), and leave room above a person who will stand up (the
+  first Skid Row frame had his head at the top while hinged). A wide frame with the subject small is fine: the tile crops in
+  (`crop` in the config) and the 1080p Veo take has the pixels.
+- **Shoot a lift in true side profile.** A front-on and a 45-degree hinge both foreshorten torso and thigh, so the gate's bone
+  rows cannot compare bent and standing (front: torso +101 %). Profile with the head turned to camera reads as a deadlift and
+  measures cleanly.
+- **Straightening lengthens legs; bending does not.** Three edits from the hinged START to standing all grew the thigh 9 to 11 %.
+  Generating the hinged START *from* the standing END ("thighs and shins keep exactly the same length; he only bends") passed on
+  the third of five variants. Make several variants in one go and keep the one that passes; never loosen the bound.
+- **Seated talkers behind a table:** declare `person.legs_hidden` (framecheck README). Without it MediaPipe measures invented legs.
+- **A raised hand can poke out of the person mask** and fail the static row (fingertip beside the hoodie). Keep a gesture in front
+  of the body ("open palm at the middle of his chest") rather than declaring a `may_change` box.

@@ -1,0 +1,45 @@
+{
+ "job": "RO-20C",
+ "round": 5,
+ "recorded": "2026-10-20",
+ "status": "frames + intro mockup on the review page http://127.0.0.1:8868/, awaiting Dan",
+ "dan_words": "see Handoffs/handoff-20261020-ro20c-round5-intro-split-and-excuse-clips.md",
+ "frames_sha256": {
+  "E1-end.png": "90c384f48c59a99d7ed96f474ba1b3c0c1f52ee23dd0db753a7110cf24417a33",
+  "E1-start.png": "3752c8e2a6a0b126a4d99b8298690bbe8638f6962ccbb86a4072cbd75cd38237",
+  "E2-end.png": "91a2fa558114dabe9d180137eb2289120dd3f9c5ddc0b8fe4144266e15a4b355",
+  "E2-start.png": "86b7bb06b78cbe48807ad2b807f53308953ac7aa7c6879298b75f1ee6f560849",
+  "I1-end.anchor.png": "4c2a31346d661042bd8ca3f92ebe43b0a2d96b973a909745deb13bfd468ea84b",
+  "I1-end.png": "4c2a31346d661042bd8ca3f92ebe43b0a2d96b973a909745deb13bfd468ea84b",
+  "I1-start.png": "e621402647e1f87c227acb4603004499a23ae63cf587c7453f1244f615061c22",
+  "I1-start.rc.png": "e621402647e1f87c227acb4603004499a23ae63cf587c7453f1244f615061c22",
+  "I2-end.png": "0bdbbe11d7c9d720303afea2d4d721fb6677957c31c4564f6f680bb0b8a05907",
+  "I2-start.png": "a52ed717def6761e9b546396ded69b8dc53f603ede878c7eb9be5fc8dbe2f914",
+  "I3-end.png": "b9bfc80de74f3eae94cb7521efae39e366380bd4749ffb2169f4ceb83fe341f3",
+  "I3-start.png": "602a926dae7ce2f5738f7be6b58af9d0e5d59c9a50fd4455515706ab0eadcf5a"
+ },
+ "pairs": {
+  "I1": "Skid Row deadlift (Dead Broke tile); START made from END by reverse edit (variant c of 5)",
+  "I2": "Salmon dinner at home (Middle Class tile)",
+  "I3": "Mansion home gym (Over $10,000 A Month tile)",
+  "E1": "Hot dog excuse guy, 1:47.4-1:53.5 (107.4-113.9 s on R4 master)",
+  "E2": "Pizza couch excuse guy, 4:12.3-4:16.0 (252.3-256.6 s)"
+ },
+ "tile_crops": {
+  "I1": [
+   380,
+   150,
+   700,
+   700
+  ],
+  "I1_final_note": "widen to about [370,140,730,730] in the real build so his feet clear the tile (reviewer note)",
+  "I2": "centre",
+  "I3": "centre"
+ },
+ "graphic": "_shared/hyperframes/levels-split (new template, not yet approved); config LS-ro20c.json; lands P4 2.99 / 3.49 / 4.67, dur 6.87",
+ "spend": {
+  "codex_images": 27,
+  "usd": 0
+ },
+ "next_after_approval": "Flow motion for I1-I3, E1, E2 (flow-veo agent); lip sync E1/E2 (lipsync20.py, ~$0.90); clipcheck + reviewer per take; P4 picture with the levels-split plate over the three clips (voice locked); splice E1/E2 with splice_r4.py; full post chain, gates, watch judge, negscan record, revision list with timestamps, VLC copy"
+}

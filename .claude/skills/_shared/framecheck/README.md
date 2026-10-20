@@ -183,3 +183,7 @@ found by a reviewer, not by this); anything a tracker follows smoothly while it 
 6. **The independent reviewer gets only the pictures, the overlays and the checklist**, never the editor's reasoning, and must
    measure: angles, lengths, displacements, diffs. A fresh agent each time. Expect several rounds; each fail cost minutes, a fail
    reaching Dan costs his trust.
+7. **A limb the model straightens grows; one it bends does not (RO-20C R5, 2026-10-20).** If the edit from START to END
+   keeps lengthening the legs, generate START from END instead (the bent pose from the straight one) and make several
+   variants at once; keep one that passes every row. Lifts are measured in true side profile: a front or 45-degree hinge
+   foreshortens torso and thigh so the bone rows compare nothing.

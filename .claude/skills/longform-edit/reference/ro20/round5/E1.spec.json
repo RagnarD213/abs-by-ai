@@ -1,0 +1,83 @@
+{
+ "shot": "RO-20C R5 E1, excuse voice at 1:47.4-1:53.5: 'I can't afford healthy food, Dan. If I only had money like you, I could afford to eat healthy, but I can't, so there's nothing I can do.' Lip-synced to Dan's recording.",
+ "intent": "An overweight man in a middle-class living room sits at a dining table piled with hot dogs, fries, chips, donuts and a soda. START: he holds a half-eaten hot dog in his right hand, pleading whiny face, mouth closed. END: same hot dog in the same hand lowered a little, his other hand raised palm up in a helpless shrug, mouth open mid-whine. Locked camera; table, food and room unchanged.",
+ "person": {
+  "anchored": [
+   "shoulder",
+   "nose"
+  ],
+  "legs_hidden": {
+   "below_y": 690
+  },
+  "reach": false
+ },
+ "still": {
+  "picture_frame": [
+   995,
+   90,
+   1060,
+   150
+  ],
+  "blinds": [
+   1240,
+   90,
+   1300,
+   150
+  ],
+  "lamp": [
+   10,
+   255,
+   80,
+   320
+  ],
+  "donut_box": [
+   1270,
+   620,
+   1350,
+   690
+  ],
+  "chips_bag": [
+   340,
+   700,
+   430,
+   780
+  ],
+  "hotdog_tray": [
+   560,
+   645,
+   640,
+   705
+  ],
+  "soda_cup": [
+   50,
+   520,
+   120,
+   590
+  ]
+ },
+ "props": [
+  {
+   "name": "hot_dog",
+   "box": [
+    575,
+    355,
+    730,
+    435
+   ],
+   "held_by": "right"
+  }
+ ],
+ "hands": {
+  "right": "holds the half-eaten hot dog in both frames",
+  "left": "START: resting below the table edge, out of view; END: raised palm up beside his shoulder"
+ },
+ "may_change": {
+  "tv_screen": [
+   300,
+   200,
+   455,
+   365
+  ]
+ },
+ "bounds": {}
+}
