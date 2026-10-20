@@ -9,7 +9,8 @@
     "assistant::Take Audi to car wash. Wash interior, vaccum interior, and clean surfaces using sprays in Tesla frunk",
     "assistant::Post ads on eBay and Facebook marketplace to sell watches where I sent you the images",
     "assistant::Take Tesla to car wash. Wash interior, vaccum interior, and clean surfaces using sprays in frunk",
-    "assistant::Empty Dishwasher"
+    "assistant::Empty Dishwasher",
+    "assistant::Wash, dry, and fold all dirty laundry"
   ],
   "log": {
     "health::Shower": [
@@ -244,6 +245,7 @@
     "assistant::Take Audi to car wash. Wash interior, vaccum interior, and clean surfaces using sprays in Tesla frunk": "2026-10-20",
     "assistant::Post ads on eBay and Facebook marketplace to sell watches where I sent you the images": "2026-10-20",
     "assistant::Take Tesla to car wash. Wash interior, vaccum interior, and clean surfaces using sprays in frunk": "2026-10-20",
-    "assistant::Empty Dishwasher": "2026-10-20"
+    "assistant::Empty Dishwasher": "2026-10-20",
+    "assistant::Wash, dry, and fold all dirty laundry": "2026-10-20"
   }
 }
