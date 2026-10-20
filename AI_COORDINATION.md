@@ -143,7 +143,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-06:POLICY-RECHECK:2026-10-16:Claude.** Ads `828274063389`, `828320387740` in review. Next 10-17: `node scripts/ads/api/client.js policy 24316364155`; clean, delete this.
 
-**Not Losing Weight LFC R2 - ACTIVE 2026-10-20, Claude.** RO-14 round 2: seven AI clips generating in Flow (background agent), then motion checks, pickup under G02, full film, gates, independent review. Work: `/Volumes/Extreme/_edit_work/RO-14/round2/`.
+**RO-14 R2 ACTIVE 2026-10-20, Claude.** Flow clips, pickup, full film. `RO-14/round2/`.
 
 **DS-33:ACTIVE:2026-10-20:Claude.**
 
