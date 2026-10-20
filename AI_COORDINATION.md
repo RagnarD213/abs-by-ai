@@ -26,6 +26,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**Bill Maher Fat 90-Year-Old SFC R4 - ACTIVE 2026-10-20, Codex.** Full edit authorized with approved R3 key, Balanced audio and warm color. Separate build: `/Volumes/Extreme/_edit_work/DS-40-codex/round4/`. Next: scripted take, clip-first assembly, BMI graphic, captions and full QA. Claude competition remains separate.
+
 
 
 **It's Boring, But It Got Me Abs At 40 (RO-27) - R1 REVIEW 2026-10-17, Codex.** Sole editor. Playable R1 at http://127.0.0.1:8932/ with opening, choices and all contextual asset previews. Next: Dan picks colour, voice and AI frame pairs; full film waits on approvals.

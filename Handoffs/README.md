@@ -13,7 +13,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 - [Arms Shoulders Workout LFC R3](handoff-20261020-ro04-round3-color-b-full-film.md): **Start now (2026-10-20). GPT-6 Sol, high.** CONTENT LFC. Dan selected Round 2 B and authorized the full workout. Preserve framing, original stereo audio and approved graphics; assemble, check and deliver the complete film.
 
-- [Bill Maher Fat 90-Year-Old SFC R4](handoff-20261020-ds40-round4-full-edit.md): **Start now (2026-10-20). GPT-6 Sol, high.** CONTENT SFC. R3 key approved as the global standard, Balanced audio and warm color locked. Build the complete reaction Short and run full QA.
 
 
 
