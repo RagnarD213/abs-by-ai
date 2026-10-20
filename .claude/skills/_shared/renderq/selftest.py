@@ -169,6 +169,18 @@ def main():
         check("a decoder | encoder pipe runs on one slot, no deadlock", r.returncode == 0 and time.time() - t < 8,
               round(time.time() - t, 2))
 
+        # 6b. ... even when both ends were waiting in line at the same moment (seen live on DS-33, 2026-10-20)
+        d = root / "pipe2"
+        e = env_for(d, heavy=2)
+        spawn([PY, RQ, "run", "--", "sleep", "2"], e)
+        spawn([PY, RQ, "run", "--", "sleep", "2"], e)
+        time.sleep(0.5)
+        r = subprocess.run(["/bin/sh", "-c", sh], env=e, timeout=30)
+        ev = [json.loads(l) for l in (d / "events.log").read_text().splitlines()]
+        grants = [x for x in ev if x["event"] == "granted" and x["label"].startswith("ffmpeg")]
+        check("two ends of a pipe that queued together take one slot, not two", r.returncode == 0 and len(grants) == 1,
+              [g["label"] for g in grants])
+
         # 7. the light pool does not wait behind the heavy pool
         d = root / "pools"
         e = env_for(d)

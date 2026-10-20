@@ -173,9 +173,12 @@ def default_group():
 
 
 def _ps():
-    """{pid: (ppid, pgid)} from one ps call."""
+    """{pid: (ppid, pgid)} from one ps call; {} where ps is not allowed (Codex's workspace-write sandbox)."""
     out = {}
-    r = subprocess.run(["ps", "-Ao", "pid=,ppid=,pgid="], capture_output=True, text=True)
+    try:
+        r = subprocess.run(["ps", "-Ao", "pid=,ppid=,pgid="], capture_output=True, text=True)
+    except OSError:
+        return out
     for line in r.stdout.splitlines():
         f = line.split()
         if len(f) == 3 and f[0].isdigit():
@@ -349,7 +352,8 @@ def covered_by_holder(states=None, table=None, pipe=False):
     if pipe and pipe_partner_holds(states):
         return True
     table = _ps() if table is None else table
-    return any(a in holders for a in _ancestors(os.getpid(), table))
+    up = _ancestors(os.getpid(), table) if table else [os.getppid()]    # no ps: the parent at least
+    return any(a in holders for a in up)
 
 
 # ------------------------------------------------------------------------------------------------ unmanaged
@@ -399,8 +403,9 @@ def _unmanaged(states):
             use = sum(cpu.get(p, 0.0) for p in pids)
             if use >= UNMANAGED_CPU:
                 builds.append(dict(pids=b["pids"], cpu=round(use), cmd=b["cmd"][:160]))
-    except Exception as e:                                  # never let the census stop a build
-        _log("unmanaged_error", error=repr(e))
+    except Exception as e:                                  # never let the census stop a build; where ps is not
+        _log("unmanaged_error", error=repr(e))              # allowed (Codex sandbox), keep the last census
+        return c.get("builds", [])
     try:
         _write(cache, dict(t=time.time(), builds=builds))
     except OSError:
@@ -498,7 +503,7 @@ def estimate(states=None, tickets=None):
                 continue
             if s["held"]:
                 el = now - s["info"].get("start", now)
-                free.append(max(med - el, 0.1 * med))
+                free.append(med - el if el < med else max(0.5 * el, 0.1 * med))
             elif s["i"] < base:
                 free.append(0.0)
         free = free or [0.0]
@@ -516,10 +521,16 @@ def estimate(states=None, tickets=None):
     return out
 
 
-def _admit(ticket, pool, group, idle=None):
-    """One look at the line. Returns (fd, slot) when this waiter takes a slot, else (None, position)."""
+RIDE = "ride"
+
+
+def _admit(ticket, pool, group, idle=None, pipe=False):
+    """One look at the line. Returns (fd, slot) when this waiter takes a slot, (RIDE, None) when the other end of
+    its pipe now holds one, else (None, position). Under the mutex, so two ends of a pipe never both take slots."""
     with _mutex():
         states = slot_states()
+        if pipe and pipe_partner_holds(states):
+            return RIDE, None
         line = _rank(_tickets(pool), states)
         pos = next((k for k, t in enumerate(line) if t["path"] == ticket.path), len(line))
         if pos:
@@ -600,15 +611,16 @@ def acquire(label, pool="heavy", group=None, priority=None, quiet=False, pipe=Fa
     t0, told, said, head = time.time(), 0.0, False, False
     try:
         while True:
-            fd, got = _admit(ticket, pool, group, idle=cpu_idle() if head else None)
+            fd, got = _admit(ticket, pool, group, idle=cpu_idle() if head else None, pipe=pipe)
+            if fd == RIDE:
+                ticket.close()
+                return None
             if fd is not None:
                 ticket.close()
                 hold = Hold(fd, got, pool, label, group, time.time() - t0)
                 if said:
                     _say(quiet, "{} slot granted to {} after {}".format(pool, label, _fmt(time.time() - t0)))
                 return hold
-            if passthrough and passthrough():
-                return None
             if time.time() - told >= REMIND_S:
                 with _mutex():
                     eta = estimate().get(str(ticket.path))
@@ -617,7 +629,7 @@ def acquire(label, pool="heavy", group=None, priority=None, quiet=False, pipe=Fa
                     ", about {} to go".format(_fmt(eta)) if eta is not None else "", Path(__file__)))
                 told, said = time.time(), True
             head = got == 0
-            time.sleep(POLL_HEAD_S if head else (POLL_S if got < 3 else 3 * POLL_S))
+            time.sleep(POLL_HEAD_S if head or pipe else (POLL_S if got < 3 else 3 * POLL_S))
     except BaseException:
         ticket.close()
         raise
