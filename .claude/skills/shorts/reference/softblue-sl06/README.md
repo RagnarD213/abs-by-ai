@@ -156,3 +156,26 @@ page_r4a.py, preview_c_open.py, dl_hd4.sh   the R4 page, C's opening with three 
   passed END above the ribs plus START below (feathered) is physically right; tell the reviewer exactly how it was made.
 - **Flow "Audio generation failed":** 8 of 8 Veo 3.1 Fast frames-mode takes failed on 2026-10-20 (two prompt styles, credits refunded).
   Flow's fix is its "Return silent videos" project setting; the agent's permission guard blocks changing it, so it needs Dan.
+
+### Round 5 motion (2026-10-20): Veo intros, what it took (`round5/`)
+
+```
+fix_take.py    repair a locked-camera Veo take: static boxes (D's calendar) copied from the approved frame where no person
+               covers them; vial labels found by template match each frame and replaced by the approved frame's label
+mouth_hold.py  hold one smile: from frame N the mouth of a clean frame is pasted, tracked by nose (+ chin with --anchor2) and
+               clipped to the face outline (--skinclip); kills Veo's talking mouth under the voiceover
+batch.py       COVERS fit="full" (intro over the title band), ai=(x, y, u, anchor), credit="Video: ... / YouTube" chip lower right
+```
+
+- **Veo frames mode stretches the move over 8 s** and wanders between: with START and END, Veo pointed the hand at his own
+  chest for 7 s and reached END in the last 0.5 s. We use 2.5 to 4.6 s, so START+END takes were useless for these intros.
+- **A hand pointing up near the body reads to Veo as "pointing at himself"** in every wording (6 tries). Starting from the END
+  frame (fingertip already on the poster) holds it. The arm reaching back (E) worked from START too.
+- **Veo moves the lips as if talking**, even with "does not talk" (mentioning speech may trigger it). Positive wording ("lips
+  pressed together, same closed-mouth smile") helped once (F); mouth_hold.py fixes the rest. The paid API's negative prompt
+  ("talking, lip movement, pointing at his own chest, looking down") gave clean A and B takes first time ($0.60 each, 6 s).
+- **Veo garbles small text** (vial labels every take, a backwards R in "FRI"): repair from the approved frame, never ship.
+- **Flow traps:** the aspect selector resets to 16:9 after a page reload (100 credits lost); "Return silent videos" is a project
+  setting only Dan can switch (audio-step failures 8/8 without it); Flow refused one B take as "prominent people".
+- **The shared render queue gates every ffmpeg call** (the bin/ffmpeg shim): even a reviewer's stamp write waited 69 min at
+  load 150. Budget hours, not minutes, on a busy day.
