@@ -11,6 +11,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Skip List Carousel R2](handoff-20261020-skip-list-carousel-redesign.md): **Ready now (2026-10-20). Claude Opus 5.5, high; images by Codex subscription.** Redo the unposted "7 things I'd skip" Instagram carousel: five cover designs each with a real photo of Dan, an image on every slide, review page, stop for Dan's pick, then schedule on @danrosefit.
 - [Pool Long-Form Scripts Copy Polish](handoff-20261020-pool-longforms-fable-copy-polish.md): final /copy-edit on the seven 10/23 pool long-form scripts (sure edits direct, uncertain tracked), then filming docs after Dan rules. For Friday 10/23. Fable 5.1, high.
 - [Oura Ring Review SFL R4](handoff-20261020-sl09-oura-shorts-r4-ai-clips.md): SL-09, Dan finalized shorts 1-3 on 2026-10-20 and approved three AI clips (K1, J1, J2 with the band made a WHOOP); make them on the Flow subscription, rebuild shorts 4 and 5, review, gate, page. Opus 5.5 high.
 - [What To Buy For Your Health LFC R5](handoff-20261020-ro20c-round5-intro-split-and-excuse-clips.md): RO-20C round 5, new intro split screen (three AI clips of Dan) and two lip-synced excuse clips at 1:47 and 4:12; frames and mockup first, then stop. Codex gpt-6.1-sol high.
