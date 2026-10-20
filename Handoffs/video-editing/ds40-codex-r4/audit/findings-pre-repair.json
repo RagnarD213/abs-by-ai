@@ -1,0 +1,85 @@
+{
+  "video_sha256": "01959f235d097b412677a5ffdb3f602d1f2729dcbc56c6f7b4d59871562283aa",
+  "by": "independent reviewer",
+  "entries": [
+    {
+      "image": "sheet_00_00-00.00_to_00-23.99.jpg",
+      "verdict": "defect",
+      "item": "caption_sync",
+      "t": 0.0,
+      "note": "Opening chunk 'But let me ask' appears at 0.000. Direct final CTC puts 'But' at 0.260 to 0.360; decoded audio RMS is near -50 dBFS from 0.18 to 0.28 then jumps to -24.1 dBFS at 0.30 and -15.5 at 0.32. Caption is about 0.26 to 0.30 seconds early."
+    },
+    {
+      "image": "sheet_01_00-24.99_to_00-49.02.jpg",
+      "verdict": "clean",
+      "t": 24.99,
+      "note": "Dan response, closer punch, emergency card and BMI entry present. No face or caption collision."
+    },
+    {
+      "image": "sheet_02_00-50.02_to_01-04.00.jpg",
+      "verdict": "clean",
+      "t": 50.02,
+      "note": "BMI table through its remaining spoken lines, return to Dan and subscribe end are present."
+    },
+    {
+      "image": "strip_000_00-17.95_join.jpg",
+      "verdict": "clean",
+      "t": 17.9513,
+      "note": "Internal watching-key to continuous tail at frame 538. Bill and Dan remain continuous; no uncovered pose reset. Hair is visibly below the panel top."
+    },
+    {
+      "image": "strip_001_00-19.62_G01_out___covered_out___join___punch_NEA.jpg",
+      "verdict": "expected",
+      "t": 19.6196,
+      "note": "Declared end of Bill excerpt and scene change to Dan at frame 588. Complete final word lie; title card clears before Dan fills frame."
+    },
+    {
+      "image": "strip_002_00-32.40_join___punch_TIGHT.jpg",
+      "verdict": "expected",
+      "t": 32.399,
+      "note": "Declared fixed tighter punch at frame 971 on one continuous source performance. No take jump or clipped hair."
+    },
+    {
+      "image": "strip_003_00-32.65_G02_in.jpg",
+      "verdict": "expected",
+      "t": 32.6474,
+      "note": "Declared emergency lower third enters over chest with moving accent. Face and captions clear."
+    },
+    {
+      "image": "strip_004_00-37.85_G02_out.jpg",
+      "verdict": "expected",
+      "t": 37.8474,
+      "note": "Declared emergency lower third exits while the presenter continues moving."
+    },
+    {
+      "image": "strip_005_00-42.41_join.jpg",
+      "verdict": "clean",
+      "t": 42.409,
+      "note": "Approved R3 sample to three continuous key-tail frames at frame 1271. Pose, hands and face remain continuous."
+    },
+    {
+      "image": "strip_006_00-42.51_G03_in___covered_in___graphic_regions_in.jpg",
+      "verdict": "expected",
+      "t": 42.5091,
+      "note": "Declared full BMI card enters at frame 1274. Table matches independent BMI still and is below the caption."
+    },
+    {
+      "image": "strip_007_00-55.75_join.jpg",
+      "verdict": "clean",
+      "t": 55.7474,
+      "note": "Covered audio removal at 55.7474. The watch strip contains random-seek decoder corruption of some table digits after the boundary; sequential master frames are clean. The picture stays on the same table, and final ASR has healthy weight followed by If you are on the obese category."
+    },
+    {
+      "image": "strip_008_01-00.66_G03_out___covered_out___graphic_regions_.jpg",
+      "verdict": "expected",
+      "t": 60.6606,
+      "note": "Declared BMI card exit and return to Dan at frame 1818. The watch pair and strip contain random-seek decoder corruption of table digits just before the cut; sequential full-master frame 1817 is clean (SHA256 81f5d3a07bdf22cb93cd94ab88bc0bde3e0d367706072338cdb0c8b36427d550)."
+    },
+    {
+      "image": "strip_009_01-01.01_G04_in.jpg",
+      "verdict": "expected",
+      "t": 61.0074,
+      "note": "Declared subscribe lower third enters over chest, clear of face and captions."
+    }
+  ]
+}

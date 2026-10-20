@@ -1,0 +1,100 @@
+[
+  {
+    "Path": "Bill Maher Fat 90-Year-Old SFC R4 - approved Balanced reference.wav",
+    "Name": "Bill Maher Fat 90-Year-Old SFC R4 - approved Balanced reference.wav",
+    "Size": 1921998,
+    "MimeType": "audio/wav",
+    "ModTime": "2026-10-20T19:09:57.455Z",
+    "IsDir": false,
+    "Hashes": {
+      "md5": "ab313c47b306ca023359493b45fe2c04",
+      "sha1": "c8e1dfe68398777b66d23a2ca680716802ea5cac",
+      "sha256": "089264175840f8aa4956d98a7e8bd82d93bd8c1dcee73493d4733ae224df2a6f"
+    },
+    "ID": "1tJCpPl8ZAlrj8POM_DdToyNyDnXIu2B2"
+  },
+  {
+    "Path": "Bill Maher Fat 90-Year-Old SFC R4 - captions.srt",
+    "Name": "Bill Maher Fat 90-Year-Old SFC R4 - captions.srt",
+    "Size": 2798,
+    "MimeType": "application/x-subrip",
+    "ModTime": "2026-10-20T19:07:52.630Z",
+    "IsDir": false,
+    "Hashes": {
+      "md5": "a7ac138dd5cd2d356051eae677e0cd22",
+      "sha1": "1d0a92007f3251a091f861912574da4d635e4861",
+      "sha256": "f89f55ebcc5abf94b471d631a18ad9ae8a2ff1728d4a9f88940e53eafc1b9ad0"
+    },
+    "ID": "1wrbFyQAQYSuqKVqyTkkhEPn8or_plHIZ"
+  },
+  {
+    "Path": "Bill Maher Fat 90-Year-Old SFC R4 - complete Short.mp4",
+    "Name": "Bill Maher Fat 90-Year-Old SFC R4 - complete Short.mp4",
+    "Size": 52173235,
+    "MimeType": "video/mp4",
+    "ModTime": "2026-10-20T19:07:42.633Z",
+    "IsDir": false,
+    "Hashes": {
+      "md5": "338b45dab4c7b233d82cf509045547d5",
+      "sha1": "f20e7084ecdb7f46659c241907031e1beaae1cb6",
+      "sha256": "200c7b2b84cfba2aa0539b8d7078973b902c635d4447ffabb9e207b3307c609b"
+    },
+    "ID": "1GDtQH1ZvNSVckvr8Yxwb1dhIAIN9_ZX2"
+  },
+  {
+    "Path": "Bill Maher Fat 90-Year-Old SFC R4 - locked voice spot check.wav",
+    "Name": "Bill Maher Fat 90-Year-Old SFC R4 - locked voice spot check.wav",
+    "Size": 2882982,
+    "MimeType": "audio/wav",
+    "ModTime": "2026-10-20T19:10:01.529Z",
+    "IsDir": false,
+    "Hashes": {
+      "md5": "e7dc79723c53b840e745edfbd2ad13d1",
+      "sha1": "6c0d728d33b4f77b39a6b3fe866455016866917c",
+      "sha256": "4ae4597b2254aff0f02ecbdba52158f54be2fc74b498aba50240459e2bd3350d"
+    },
+    "ID": "14GB24ck7f0vhq0vTBI9E7gh2SNqzqS6H"
+  },
+  {
+    "Path": "Bill Maher Fat 90-Year-Old SFC R4 - moving hair check.mp4",
+    "Name": "Bill Maher Fat 90-Year-Old SFC R4 - moving hair check.mp4",
+    "Size": 15496536,
+    "MimeType": "video/mp4",
+    "ModTime": "2026-10-20T18:45:56.372Z",
+    "IsDir": false,
+    "Hashes": {
+      "md5": "586270e9750dab535b89bb7e72dcceb9",
+      "sha1": "6326ce99d1da71e288f2b54932c126fb08ec85be",
+      "sha256": "83ed75f049fea85afdc7f85d1119bfacae1e35b2d96410fa8b8d72a2a6581a94"
+    },
+    "ID": "1yhReilEkqOw5HVYBSVoibJDIHW6dZWjU"
+  },
+  {
+    "Path": "Bill Maher Fat 90-Year-Old SFC R4 - phone preview.mp4",
+    "Name": "Bill Maher Fat 90-Year-Old SFC R4 - phone preview.mp4",
+    "Size": 8604771,
+    "MimeType": "video/mp4",
+    "ModTime": "2026-10-20T19:07:50.252Z",
+    "IsDir": false,
+    "Hashes": {
+      "md5": "f9861e807f7873f56d1f49c1dc6e6280",
+      "sha1": "b5adb84111e6dffafaea39088000193a16c88b8f",
+      "sha256": "a2e78f1f81fc13fc90b498458d1a04d5a70073e2e2dfee483354de388ecd4e12"
+    },
+    "ID": "1IVh8TRp87RhM8kMphCIfw-yOGLuORPx3"
+  },
+  {
+    "Path": "Bill Maher Fat 90-Year-Old SFC R4 - spontaneous source alternative.mp4",
+    "Name": "Bill Maher Fat 90-Year-Old SFC R4 - spontaneous source alternative.mp4",
+    "Size": 27631866,
+    "MimeType": "video/mp4",
+    "ModTime": "2026-10-20T18:45:36.783Z",
+    "IsDir": false,
+    "Hashes": {
+      "md5": "0b3ac0ca2d801aed237f1ceeb98ebd65",
+      "sha1": "4041bd4b4c4d6a04327760bc0dd5c1171126f790",
+      "sha256": "fdaf742c17dc7230bb345e3d00eb496b2532957e1c9b8bbd8392c8525f9a5bfb"
+    },
+    "ID": "1B7tVd8M1Cu5N_63dnx8JbYduGMY-Uz3H"
+  }
+]
