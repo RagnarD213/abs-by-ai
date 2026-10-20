@@ -6,7 +6,7 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 
 ---
 
-- **Review skill, two small questions (2026-10-20; Decision since: 2026-10-20):** (a) the small label line printed above a graphic's main point (the "eyebrow", e.g. "KEY POINT", "REASON 2 OF 3"): title case like all other graphic copy, or may it stay in capitals? (b) When a human editor sends AI start/end frames for a go-ahead, should Claude run our frame gate and a fresh frame-reviewer on them first (our own pipeline does since 2026-10-14)? Rec: yes to both.
+- **Review skill, two small questions (2026-10-20; Decision since: 2026-10-20):** (a) answered 2026-10-20: the eyebrow stays in capitals. (b) When a human editor sends AI start/end frames for a go-ahead, should Claude run our frame gate and a fresh frame-reviewer on them first (our own pipeline does since 2026-10-14)? Rec: yes to both.
 
 - **Arms Shoulders Workout LFC R3 (2026-10-20; Decision since: 2026-10-20):** Approve the complete 2:05.86 workout or give timestamped changes. Approved color B, framing, original stereo audio and timers retained. Full review: http://127.0.0.1:8974/. Checks and backup: `Handoffs/video-editing/ro04-round3-plan/review-receipt.json`.
 

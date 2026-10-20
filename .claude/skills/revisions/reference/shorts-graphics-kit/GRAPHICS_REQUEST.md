@@ -12,7 +12,7 @@ Write `/Volumes/Extreme/_edit_work/revisions-20261001/muhammad/out/<NAME>.graphi
   {"id": "g01",                       # g01, g02 ...
    "kind": "title" | "section" | "keypoint" | "chip" | "label_ai" | "label_real" | "mark",
    "t0": 0.0, "t1": 3.2,              # seconds in the CURRENT cut where it should be on screen (full precision you have)
-   "eyebrow": "REASON 1 OF 3",        # small line above the text (capitals pending Dan, revisions SKILL rule 78). title: a 1-3 word category; section: e.g. "REASON 1 OF 3", "WAY 2 OF 3",
+   "eyebrow": "REASON 1 OF 3",        # small line above the text (capitals, Dan's standard 2026-10-20). title: a 1-3 word category; section: e.g. "REASON 1 OF 3", "WAY 2 OF 3",
                                       # "NUMBER 3"; keypoint: always "KEY POINT"; chip: a short category or ""
    "text": "It's Rarer",              # main line, title capitalization; FULL CAPS on a word only where it truly carries the emphasis (rare, 2026-10-09). For a title, the
                                       # video's real title. Keep under about 45 characters where possible (2 lines max at

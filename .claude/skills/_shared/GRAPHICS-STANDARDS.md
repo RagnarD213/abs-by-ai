@@ -4,7 +4,7 @@ Dan locked these treatments while reviewing WV-01 round 3. On 2026-09-26 he expa
 
 ## Capitalization (Dan, reaffirmed 2026-10-16)
 
-Use title capitalization for all new or revised graphic text, including the small topic line. Preserve acronyms such as AI, ADHD and JAMA. Rare full-capital emphasis requires a specific reason; do not use an automatic uppercase transform. Historical screenshots and sample strings below are layout references, not instructions to reproduce their all-capital copy. See VIDEO-RULES.md for the current shared rule.
+Use title capitalization for all new or revised graphic text. **Eyebrow exception (Dan, 2026-10-20, from a side-by-side sample): the small label line above a graphic's main point (the eyebrow: "KEY POINT", "MOTIVATION", "REASON 2 OF 3", "THE LESSON") stays in CAPITALS; that is the standard.** The main point, headings, cards and list items stay in title capitalization. Preserve acronyms such as AI, ADHD and JAMA. Rare full-capital emphasis requires a specific reason; do not use an automatic uppercase transform. Historical screenshots and sample strings below are layout references, not instructions to reproduce their all-capital copy. See VIDEO-RULES.md for the current shared rule.
 
 ## Soft Blue Light: all videos
 
@@ -55,7 +55,7 @@ Dan approved the whole SL-03 round 1 page: *"Everything is approved. Excellent j
 
 - **Title band:** the Soft Blue field from y 0 to 310 with a 2 px glass line under it. Cyan letter-spaced topic line (Poppins 34, slim cyan accent at x 64) over a white two-line headline (Poppins Bold, 88 px, shrunk until the longest line fits inside 64 px margins). On screen for the whole short. The picture sits under it (1080 x 1610 from y 310) and never behind it.
 - **Picture windows:** from the 1920 x 1080 source, full 724 x 1080 and closer 604 x 900, steady per shot, both from the top row the source has. A same-framing join gets a real size step between the two.
-- **Key-point bar:** the HyperFrames `lower-third/` template at 9:16, strip box 68,1130 to 1012,1378 (the kit's 68 % position moved down 72 px because the picture starts 310 px lower), `Key Point` topic in title capitalization (the uppercase `KEY POINT` of the SL-03 build was replaced on 2026-10-09 and 2026-10-16), two lines only, each line landing on its word. Dan's face bottom stays above y 1130 for the bar's whole span: use the full window while a bar is up.
+- **Key-point bar:** the HyperFrames `lower-third/` template at 9:16, strip box 68,1130 to 1012,1378 (the kit's 68 % position moved down 72 px because the picture starts 310 px lower), `KEY POINT` topic (the eyebrow stays in capitals, Dan 2026-10-20), two lines only, each line landing on its word. Dan's face bottom stays above y 1130 for the bar's whole span: use the full window while a bar is up.
 - **Captions:** Arial Bold 86, white, 7 px black outline, top line at y 1412 (under the bar); y 1500 where a shot's face runs low.
 - **B-roll (food, product close-ups):** fills the picture area. A box only with a written reason (VIDEO-RULES, "fill the frame").
 - **Phone demo:** phone beside Dan on the Soft Blue field: the approved iPhone shell at 1.2x on the left (x 14, y 322), Dan in a 440 x 1190 rounded window on the right (x 612, y 345), captions on the field under both from y 1600. The phone is never shrunk; the stacked layout (phone over a wide strip of Dan) was shown and dropped.

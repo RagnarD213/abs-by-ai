@@ -177,7 +177,7 @@ Use the current [video editing task naming rule](VIDEO-RULES.md#video-editing-ta
 A full film, or a full placeholder film, before every graphic and clip is locked. Re-asking about locked items. Motion before frame
 approval. Changing a locked file in place. Applying a pause cut twice. Stretching or holding a clip to fill a slot. Relaxing a gate or
 claiming a gate PASS from creative approval. Graphics that only echo the speech (VIDEO-RULES "KEY POINTS"). One useful point belongs in
-a compact Motivation lower third in title capitalization (VIDEO-RULES, 2026-10-09 and 2026-10-16: no automatic `KEY POINT` caps), moving for its whole screen time (2026-10-17), not a large empty card; larger layouts need a real list, study, comparison or diagram.
+a compact Motivation lower third (capitals eyebrow such as `KEY POINT`, the point itself in title capitalization; VIDEO-RULES 2026-10-09, 2026-10-16 and the 2026-10-20 eyebrow decision), moving for its whole screen time (2026-10-17), not a large empty card; larger layouts need a real list, study, comparison or diagram.
 
 ## Editing checks before any packet
 
