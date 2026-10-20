@@ -960,9 +960,8 @@ For evidence receipts and blind benchmark freezes, use [REVIEW_EVIDENCE.md](refe
    or raised so its bottom clears Dan's hair by 28 px), eyebrow + one or two lines, on a denser tint (rgba 14,40,70 at
    0.86) because an editor's overlay cannot blur the footage under it; one transparent Apple Animation `.mov` per
    graphic at its true duration, named `g04_0m10_3s_keypoint.mov`, plus a settled PNG. `labels.py` makes the
-   AI-GENERATED and real-photo chips (top, below-top-graphic, chip-only). Its real chip still prints "Real picture of me,
-   not AI-generated": the wording must be "Real photo(s) of me, not AI-generated" (2026-10-17), so do not send that chip
-   until the script is updated. Verify before sending that each kit graphic keeps moving for its whole duration, not only
+   AI-GENERATED and real-photo chips (top, below-top-graphic, chip-only). Its real chip prints "Real Photo Of Me, Not
+   AI-Generated" (the 2026-10-17 wording; the script was updated 2026-10-20, so re-run it before sending an older chip). Verify before sending that each kit graphic keeps moving for its whole duration, not only
    its entrance (VIDEO-RULES 2026-10-17). Rules that bit:
    - Text: title capitalization; FULL CAPS on a word only where it truly carries the emphasis (VIDEO-RULES "Capital
      letters in graphics", 2026-10-09, and 2026-10-16). Eyebrow capitals pending Dan (rule 78). A numbered

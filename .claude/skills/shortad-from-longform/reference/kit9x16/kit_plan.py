@@ -152,7 +152,7 @@ def main():
                         fl = vlib.font(30, "SemiBold")
                         from PIL import ImageDraw
                         from motionlib import text_size
-                        txt = b.get("label") or ("AI-GENERATED" if kind == "ai" else "Real picture of me - not AI-generated")
+                        txt = b.get("label") or ("AI-GENERATED" if kind == "ai" else "Real Photo Of Me, Not AI-Generated")
                         lw, lh_ = text_size(txt, fl)
                         lay = Image.new("RGBA", (1080, 1920), (0, 0, 0, 0))
                         bx = (1080 - (lw + 34)) // 2
