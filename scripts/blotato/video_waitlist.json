@@ -225,5 +225,19 @@
   "job": "RO-17",
   "label": "3 Healthy Foods That Made Me Fat",
   "added": "2026-10-18"
+ },
+ {
+  "config": "scripts/blotato/configs/ro20-invest-in-your-health.json",
+  "kind": "longform",
+  "job": "RO-20",
+  "label": "Why You Should Invest More In Your Health",
+  "added": "2026-10-20"
+ },
+ {
+  "config": "scripts/blotato/configs/ro20b-what-to-cut.json",
+  "kind": "longform",
+  "job": "RO-20B",
+  "label": "What To Cut To Afford Getting In Shape",
+  "added": "2026-10-20"
  }
 ]
