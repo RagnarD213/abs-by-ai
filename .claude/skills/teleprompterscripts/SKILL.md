@@ -253,6 +253,19 @@ outside by the pool, plus a separate B-roll list. Result: 21, 18 and 4 scripts, 
   --drive-export-formats pdf`) and read the largest `/Count` in each file. 10-11: 22, 18 and 6 pages. The page break
   before each script does not survive this upload, so the docs run on continuously.
 
+### 10/23 pool shoot: split by form and length, iPad app limit (Dan, 2026-10-20)
+
+One set (the pool), so the split is not by set. Dan: three teleprompter documents, "long form, short form part one,
+and short form part two. We need to limit the length of these documents in order to not crash the iPad teleprompter
+app." Plus one Filming document with all filming and editing notes together, and the task that builds them also
+uploads them into PromptSmart. The 10/23 shoot doc (`11nUmri621xbb7K44Wxan7IAljK2mJeizDFCRgK752AA`) is not in the
+10/17 format `tp_from_shoot_doc.py` parses: shorts are numbered Heading 3 titles ("1. HOW TO DO PULL-UPS...") followed
+by a "186 spoken words, about 50 to 56 seconds." line; the four follow-along cue tracks sit under a Heading 2 with an
+"RO-33." id line and blank paragraphs where the round cues stood; the seven long-forms are "SCRIPT: ..." Heading 3
+titles followed by a "1587 spoken words, about 11 minutes. Read by the pool..." line and "-" separators; the outlines
+section between them is not filming material. Build details and the document list:
+`Handoffs/handoff-20261020-pool-shoot-1023-filming-documents.md`.
+
 ### Upload into PromptSmart (Dan, 2026-10-11): the last step, every time
 
 Dan reads from PromptSmart Pro. Every teleprompter document goes in as its own script; the B-roll list does not.

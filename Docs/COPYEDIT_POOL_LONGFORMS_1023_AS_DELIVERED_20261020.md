@@ -64,7 +64,15 @@ doc before it, accept-all view differs by exactly the five suggestions. Em dashe
 - The 29 shorts above the long-form section, and their four pending suggestions from the 10/18 and 10/19 passes.
 - His three soft line breaks (shift+enter) in the "train your mind" paragraph and after "and you go home."
 
+## Dan's rulings (read back 2026-10-20, same evening)
+
+- Tracked: 1, 3, 4 and 5 accepted as written. 2 rejected: the posture mechanism sentence stays inside the "So why does
+  this work?" recap (copy-edit DON'T 13 note). No pending suggestions left in the doc.
+- All 29 direct edits stood. Nothing else in the long-form section changed.
+- The four older shorts suggestions (10/18, 10/19) were all accepted too; the 48 direct edits from those passes stood.
+- Dan: "Generally, these edits were all pretty good, and I accepted almost all of them."
+
 ## Next
 
-Dan rules on the five suggestions (Tools > Review suggested edits, or the cards in the right margin). Then the filming
-documents per `/copy-edit`, "When the scripts are final: make the filming documents", in time for Friday 10/23.
+The filming documents: `Handoffs/handoff-20261020-pool-shoot-1023-filming-documents.md` (three teleprompter documents, one
+Filming document, PromptSmart upload), in time for Friday 10/23.
