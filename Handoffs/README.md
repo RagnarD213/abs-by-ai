@@ -11,7 +11,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
-- [Calories Not Losing Weight SFL R4](handoff-20261020-sl08-round4-daylight-clock-shirtless.md): **Ready now (2026-10-20). GPT-6.1 Sol, high.** CONTENT SFL. Revise fasting dawn/8 am to afternoon/2 pm and advancing clock; make both protein-panel versions shirtless in both frames. Show checked revised pairs before Flow motion.
 
 - [Arms Shoulders Workout LFC R3](handoff-20261020-ro04-round3-color-b-full-film.md): **Start now (2026-10-20). GPT-6.1 Sol, high.** CONTENT LFC. Dan selected Round 2 B and authorized the full workout. Preserve framing, original stereo audio and approved graphics; assemble, check and deliver the complete film.
 
