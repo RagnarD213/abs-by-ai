@@ -183,12 +183,23 @@ def run(start, end, spec, outdir):
                              f"{nm} hip-to-ankle line {p['leg_deg']:.1f} deg vs guide {line_deg(g['line'], p['A'], p['H']):.1f}: "
                              f"{d:+.1f} deg (max {g.get('max_deg', D['guide_max_deg'])})", deg=round(d, 1))
                 draw["lines"].append(g["line"])
-            ch = {b: pE[b] / pS[b] - 1 for b in ("torso", "thigh", "shin")}
+            hidden = per.get("legs_hidden")             # {"below_y": Y}: a table or desk top at START row Y hides hips and legs
+            if hidden:
+                # Neither pose landmarks (they invent hidden legs, even above the table) nor the person mask (it swallows
+                # the food on the table) can prove the legs are hidden, so this row records the declaration with its numbers
+                # and the frame-reviewer confirms it on the pictures (frame-reviewer brief: "no leg or lap shows").
+                y0 = hidden["below_y"]
+                band = [float(p["mask"][y0 + 40:].sum()) / max(1.0, float(p["mask"].sum())) for p in (pS, pE)]
+                rows.add("person:legs_hidden", True, f"legs declared hidden below row {y0} (reviewer confirms no leg or lap "
+                         f"shows); person mask below it {band[0]:.0%} / {band[1]:.0%} (table clutter counts)", below=[round(b, 3) for b in band])
+                sw = lambda p: math.dist(p["pts"]["left_shoulder"][:2], p["pts"]["right_shoulder"][:2])
+                pS["shoulders"], pE["shoulders"] = sw(pS), sw(pE)
+            ch = {b: pE[b] / pS[b] - 1 for b in (("shoulders",) if hidden else ("torso", "thigh", "shin"))}
             worst = max(ch, key=lambda b: abs(ch[b]))
             rows.add("person:bones", all(abs(v) <= D["bone_tol"] for v in ch.values()),
                      "bone length change START->END " + ", ".join(f"{b} {pS[b]:.0f}->{pE[b]:.0f} ({ch[b]:+.1%})" for b in ch)
                      + f"; worst {worst} (max {D['bone_tol']:.0%})", **{b: round(v, 3) for b, v in ch.items()})
-            if per.get("reach", True):
+            if per.get("reach", True) and not hidden:
                 pred = math.sqrt(pS["thigh"] ** 2 + pS["shin"] ** 2 - 2 * pS["thigh"] * pS["shin"] * math.cos(math.radians(pE["knee"])))
                 full = pS["thigh"] + pS["shin"]; err = pE["reach"] / pred - 1
                 rows.add("person:reach", abs(err) <= D["reach_tol"] and pE["reach"] <= full * (1 + D["reach_tol"] / 2),
