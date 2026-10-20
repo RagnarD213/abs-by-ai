@@ -20,8 +20,8 @@ Working rules:
   and `.claude/skills/_shared/deliver/README.md`.
 - Raw footage is read-only. Work only in the work directory the plan names. Never run a script inside another
   session's build directory.
-- Before every render, transcription or gate run, check the machine cap (the `ps` line in the plan). Two builds
-  already running → wait, never start a third.
+- Builds, transcription and gate runs queue themselves in the render queue (`_shared/renderq/`, 2026-10-20): just start them, in the background, wrapped as `renderq.py run --group <VIDEO> -- bash chain.sh`. Never count builds with `ps` and never write a wait loop; `renderq.py status` shows the line.
+- Every audio join is checked and listened to before delivery (VIDEO-RULES, "Audio joins are smooth before anything ships", 2026-10-20); a chopped word, a hard start, a click or a stumble inside a kept take is fixed, never delivered as a known failure.
 - Gates run on the DELIVERED file. A missing input is a failure. Never edit `formats.py`, any check, threshold, or
   corpus file. If you think a gate row is wrong, leave it failing and say so in your round file.
 - Spend $0 on AI generation unless the plan states a budget. Never upload anything. Never add a dashboard row.

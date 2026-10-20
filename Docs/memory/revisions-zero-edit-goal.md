@@ -26,3 +26,5 @@ Dan's three format asks — bold `STANDING RULE:` sub-bullets in canonical wordi
 item (Muhammad edits with an AI tool, so identical wording gets learned), bold the key change in each
 item, and `APPROVED - FINALIZED - READY FOR HIGH QUALITY EXPORT` for a finished ad — plus his biggest
 correction: on round ≥ 2, audio that measures in the window is never re-itemised for tone/NR/−0.8 dBTP.
+
+**Note 2026-10-20:** the status line "APPROVED - FINALIZED - READY FOR HIGH QUALITY EXPORT" quoted above is retired wording; the current finalization line is the one in `.claude/skills/revisions/SKILL.md` (finalize section). The zero-edit goal itself is unchanged.

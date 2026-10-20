@@ -4,7 +4,7 @@ Dan does not like Muhammad's graphic style (blue glass title bar, black chips wi
 every graphic for him ourselves in our Soft Blue Light style, as transparent 1080x1920 overlays he drops on top of his
 cut, and link them in the doc. I need from you, for YOUR video only, the complete list of graphics the FINISHED video
 should carry AFTER the revisions in your section are applied (so: his existing titles / numbered chips / info chips
-that stay, with corrected wording; the key points your section adds or rewrites; labels; the AbsByAI.com mark).
+that stay, with corrected wording; the key points your section adds or rewrites; labels. No AbsByAI.com mark: retired 2026-10-01).
 Do not include captions.
 
 Write `/Volumes/Extreme/_edit_work/revisions-20261001/muhammad/out/<NAME>.graphics.json`: a JSON list, play order, of
@@ -12,9 +12,9 @@ Write `/Volumes/Extreme/_edit_work/revisions-20261001/muhammad/out/<NAME>.graphi
   {"id": "g01",                       # g01, g02 ...
    "kind": "title" | "section" | "keypoint" | "chip" | "label_ai" | "label_real" | "mark",
    "t0": 0.0, "t1": 3.2,              # seconds in the CURRENT cut where it should be on screen (full precision you have)
-   "eyebrow": "REASON 1 OF 3",        # small caps line. title: a 1-3 word category; section: e.g. "REASON 1 OF 3", "WAY 2 OF 3",
+   "eyebrow": "REASON 1 OF 3",        # small line above the text (capitals pending Dan, revisions SKILL rule 78). title: a 1-3 word category; section: e.g. "REASON 1 OF 3", "WAY 2 OF 3",
                                       # "NUMBER 3"; keypoint: always "KEY POINT"; chip: a short category or ""
-   "text": "It's RARER",              # main line, Title Capitalization, the 1-2 punch words in FULL CAPS. For a title, the
+   "text": "It's Rarer",              # main line, title capitalization; FULL CAPS on a word only where it truly carries the emphasis (rare, 2026-10-09). For a title, the
                                       # video's real title. Keep under about 45 characters where possible (2 lines max at
                                       # roughly 24 characters per line). Fix his typos / wrong words here.
    "his_text": "IT IS RARER",         # what his graphic says now, verbatim ("" if this graphic is new)

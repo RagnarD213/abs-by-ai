@@ -22,7 +22,7 @@ I think that we could have saved some time here."* What failed: one grade was ch
 at beside an approved video; the voice went through the automatic tone match on an echoey room, the audio gate passed it
 12 of 12, and nobody listened. So, before the first minute is rendered for him, on every video:
 
-**All new videos (Dan, 2026-10-16): show colour and level-matched voice options in round 1, including studio sets. Use the approved studio treatment as a starting candidate, not as a reason to omit options. Outdoor crop options remain required. Preserve approvals already locked for the exact film. Full rule: VIDEO-RULES.md, first section.**
+**All new videos (Dan, 2026-10-16): show colour and level-matched voice options in round 1, including studio sets. Use the approved studio treatment as a starting candidate, not as a reason to omit options. Outdoor crop options remain required. Preserve approvals already locked for the exact film. Full rule: VIDEO-RULES.md, "First-round options and AI ideas" (2026-10-16).**
 
 1. **Is this set already approved?** Check the footage itself (contact-sheet the reference; do not trust a job note). A set
    with a locked look and sound uses them as the first-round baseline; only an approval for this exact film removes the need to show options. A NEW set, or one that measures differently (skin more
@@ -64,19 +64,18 @@ continues to guide organic videos and other formats.
 - Claude still builds and checks everything in steps (stills, moving previews, first minute), but **Claude approves what it checked**:
   sync, face/hair clearance, copy against the speech, the standing rules. Those are not questions for Dan.
 - Ask Dan only what Claude genuinely cannot call: taste choices between close options he has strong views on (grade, the opening,
-  a new look), facts only he knows, and anything that changes something he already locked. **At most 10 to 15 decisions per video, in
-  total, not per round.** Fewer is better; zero is fine.
+  a new look), facts only he knows, and anything that changes something he already locked. **Budget: at most 20 decisions in the first round, 10 or fewer in each later round** (VIDEO-RULES.md, "Organic content approval budget", 2026-09-29, which replaced the "10 to 15 per video" figure recorded the same day; Dan to confirm which he means). Fewer is better; zero is fine.
 - Every packet opens with a short "what I decided" list (one line each) so he can overrule while watching, never item-by-item forms.
 - Dan still sees the first minute and the finished film; his notes there are the check on Claude's calls.
 
-**Organic path (Dan, 2026-09-29):** use `$long-form-content-edit` with the newest available stable Sol at high effort (VIDEO-RULES.md, automatic video rounds); explicit Dan overrides win. Reuse the approved studio
+**Organic path (Dan, 2026-09-29):** use `$long-form-content-edit` (Codex) or `/longform-edit` (Claude) with the newest available stable Sol at high effort (VIDEO-RULES.md, automatic video rounds); explicit Dan overrides win. Reuse the approved studio
 framing and graphic family after a source-specific check; include first-round colour and audio choices even for studio footage. Build still and motion checks internally for
 every new graphic and clip. Include the first-minute draft, colour/audio options and narrated contextual asset previews together in the first round, then the complete film after all assets are locked. Keep the AI start/end-frame approval
 gate before new motion. Revisions reuse locked work and need only the affected previews.
 
 ## The review page: one layout, and a "What I decided" list on every packet (Dan, 2026-09-30)
 
-**Also copy every review video of 45 seconds or longer to the project folder `Videos to Review/` for VLC, and delete the copies when Dan finalizes the video (Dan, 2026-10-08): VIDEO-RULES.md, first section.**
+**Also copy every review video of 45 seconds or longer to the project folder `Videos to Review/` for VLC, and delete the copies when Dan finalizes the video (Dan, 2026-10-08): VIDEO-RULES.md, "Review videos also go in `Videos to Review/`".**
 
 Dan, on the RO-16 round 1 page: *"I like this 'What I Decided' section. Let's make this the standard way to do things going
 forward... so I can look over your decisions just in case I need to revise any of them"* and *"the first minute is right on
@@ -127,13 +126,13 @@ Dan reviews it in Chrome, so every media link must resolve over a local server (
 Each step is its own round unless the items are ready together. Nothing later starts rendering before the items it depends on are locked.
 
 1. **Look.** Colour, crop/framing and audio, on one page. Colour: 2-3 grades on the same source moments (stills and a short moving
-   sample), measured numbers beside each. Crop: numbered wide/tight stills at one moment with their crop values. Audio: natural vs one
-   subtle, level-matched alternative. Each is locked separately. A revision reuses the locked look unless Dan asks to change it.
+   sample), measured numbers beside each. Crop: numbered wide/tight stills at one moment with their crop values. Audio: at least four
+   level-matched candidates on one speech-first window, the untreated lav and the bass-lift default among them (the bake-off above; VIDEO-RULES "A subtle bass lift", 2026-10-12, and "Audio comparison clips start on speech", 2026-10-11). Each is locked separately. A revision reuses the locked look unless Dan asks to change it.
 2. **Graphic style.** Soft Blue Light is locked for all videos ([GRAPHICS-STANDARDS.md](GRAPHICS-STANDARDS.md), [SOFTBLUE.md](SOFTBLUE.md)).
    Do not invent another style. Only if Dan asks for a new style: 3 directions, each built from the same 5-6 real components.
 3. **Every graphic, as a still screenshot first.** One screenshot per graphic, in timeline order, rendered on the real graded frame it
-   will sit on, with: its ID (G01, G02...), output time range, the exact copy, and the speech before, under and after it. Claude checks and
-   locks each one. Dan sees material new VSL graphics and the selected organic graphics that need his judgment. Only locked stills become moving previews (entrance, reveal, exit), shown in context with
+   will sit on, with: its ID (G01, G02...), output time range, the exact copy, and the speech before, under and after it. Claude checks each one.
+   Round 1 shows Dan every graphic, stock item and clip on its real frame (VIDEO-RULES "Round 1 always reviews every graphic", 2026-10-08); only real questions count against the budget. Only locked stills become moving previews (entrance, reveal, exit), shown in context with
    about 5 s of narration either side. A style approval never approves an individual graphic.
 4. **Every clip.** Stock, existing B-roll, photos and app demos: the exact moving trim and crop, in context (about 5 s either side),
    plus the isolated source when useful. AI clips have three gates: the concept (text only when Dan asks for ideas; offer 2-3 opener
@@ -146,7 +145,7 @@ Each step is its own round unless the items are ready together. Nothing later st
 5. **The first minute.** Export the first 60 seconds finished (approved look, intro, graphics and clips in place; anything still pending
    is a clearly labelled placeholder). This is what Dan is pickiest about. For a video under two minutes, the first 30 seconds.
    **Short-form and ads (Dan, 2026-10-14): when most assets are approved and the rest holds nothing new or likely to be turned down,
-   build and show the WHOLE video in this round instead of the first 30 seconds** (VIDEO-RULES.md, first section).
+   build and show the WHOLE video in this round instead of the first 30 seconds** (VIDEO-RULES.md, "Short-form and ads: build the whole video", 2026-10-14).
 6. **The full video**, only when nothing is pending. Build from the locked components, rebuild only affected joins, then the exact-file
    gates, the watch pass and one independent complete-candidate review, then deliver.
 
@@ -157,7 +156,7 @@ Use the current [video editing task naming rule](VIDEO-RULES.md#video-editing-ta
 - **The editor chooses same task versus fresh task automatically** under VIDEO-RULES.md, automatic video rounds. A new round advances the round/title even when it stays in the same task; small follow-ups do not require a fresh session. A new session starts from the previous round's handoff, reads the decisions file, and re-hashes every locked file
   (record expected vs actual) before touching anything. It builds in a new `roundN/` folder and never overwrites a reviewed round.
 - **Show only what changed or is still pending.** Locked items appear as a record list, never as a question. Stay inside the decision
-  budget above (10 to 15 per video in total); items Claude checked are listed as decided, not asked. A one-variable question (a crop, a transparency) gets its own tiny page so it can be
+  budget above (20 in round 1, then 10 or fewer a round); items Claude checked are listed as decided, not asked. A one-variable question (a crop, a transparency) gets its own tiny page so it can be
   answered the same day. Send a small frame page early and keep working on everything that does not depend on it.
 - **Choices are 2-3 options at most**, on the same frame or the same narration.
 - **Present it on the standard review page** (layout and order: "The review page" section above, Dan 2026-09-30; older references: `wv01-edit/round11/index.html`, `ro01/revision4/index.html`), a header stating what
@@ -168,7 +167,7 @@ Use the current [video editing task naming rule](VIDEO-RULES.md#video-editing-ta
 - **Record every decision** when Dan replies, in `round(N+1)-plan/decisions.json`: per item its ID, path, sha256, verdict (approved /
   approved-with-notes / rejected), Dan's exact words, scope (for example "frames only", "text approved, timing pending") and next action,
   plus `motion_authorized` and `new_frames_before_motion` lists. A locked item is never reopened unless Dan reopens it.
-- **Close every round that moves to a new session with a handoff, and start that session yourself** (VIDEO-RULES.md, first section) (`Handoffs/handoff-YYYYMMDD-<job>-roundN-<topic>.md`): scope; files to read; locks with hashes
+- **Close every round that moves to a new session with a handoff, and start that session yourself** (VIDEO-RULES.md, "Video rounds start automatically", 2026-10-20) (`Handoffs/handoff-YYYYMMDD-<job>-roundN-<topic>.md`): scope; files to read; locks with hashes
   and Dan's words; each requested change anchored to heard words and output times; exact authorizations per AI item; cuts already
   applied (so none is applied twice); gate status stated honestly; a cost ledger (known, unknown, cap); the recommended model and effort;
   the exact next action; a ready-to-paste starter prompt; stable round/revision IDs and production-owner/superseded pointers. Use `video-rounds/README.md` to create/start, pin and verify the child before unpinning only its predecessor. Same-task continuations advance the round, retain the pin and use the supported next-turn Sol/high override when necessary. Never ask Dan to fire the card or manage pins after a successful automatic transfer. On unavailable or uncertain operations retain the old pin and reconcile, never duplicate. Then stop the old editor. No session stays alive polling for Dan's answer.
@@ -178,7 +177,7 @@ Use the current [video editing task naming rule](VIDEO-RULES.md#video-editing-ta
 A full film, or a full placeholder film, before every graphic and clip is locked. Re-asking about locked items. Motion before frame
 approval. Changing a locked file in place. Applying a pause cut twice. Stretching or holding a clip to fill a slot. Relaxing a gate or
 claiming a gate PASS from creative approval. Graphics that only echo the speech (VIDEO-RULES "KEY POINTS"). One useful point belongs in
-a compact `KEY POINT:` lower third, not a large empty card; larger layouts need a real list, study, comparison or diagram.
+a compact Motivation lower third in title capitalization (VIDEO-RULES, 2026-10-09 and 2026-10-16: no automatic `KEY POINT` caps), moving for its whole screen time (2026-10-17), not a large empty card; larger layouts need a real list, study, comparison or diagram.
 
 ## Editing checks before any packet
 
