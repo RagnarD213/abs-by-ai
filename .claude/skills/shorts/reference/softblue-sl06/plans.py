@@ -34,26 +34,28 @@ TITLE = {"A": ("GLP-1 Tips", ["Start At 1 mg,", "Not 2.5 mg"]), "B": ("GLP-1 Tip
          "C": ("GLP-1 Tips", ["How To Inject", "In 10 Seconds"]), "D": ("GLP-1 Tips", ["Inject On", "Thursday Evening"]),
          "E": ("GLP-1 Tips", ["How To Come Off", "Without Regaining It"]), "F": ("GLP-1 Tips", ["How Much Protein", "You Need On A GLP-1"])}
 COVERS = {
- "A": [dict(id="vials", a="o0.0", b="head", src=STOCK + "cand/px6824057.mp4", t=6.0, fy=0.45),      # r2: drawing a measured dose with an insulin syringe (B0329 read "COVID-19 vaccine"; the green-background syringes have long needles)
+ "A": [dict(id="ai_intro", a="o0.0", b="head", src=STOCK + "intro_A.mp4", t=0.0, fit="full", ai=(1046, 200, 1.6, "rt")),      # r5: AI flex intro (Flow Veo), band off
        dict(id="tray", a=80.95, b=87.19, src=STOCK + "px8413544.mp4", t=0.2, fx=0.34),
        dict(id="ramp", a=90.58, b=101.97, scene="ramp", steps=[["1 mg", 2.42], ["2 mg", 4.12], ["2.5 mg", 5.52]]),     # r2: in 0.41 s earlier, over his look up (judge A 20.9)
        dict(id="nausea", a=101.97, b=104.29, src=STOCK + "A0137.mp4", t=0.0, fx=0.66, ai=(40, 340, 1.6))],              # r2: ends before the clip's smeared hand (judge A 34.1)
- "B": [dict(id="vialhand", a="o0.0", b="head", src=STOCK + "px6824226.mp4", t=1.0, fx=0.69),
+ "B": [dict(id="ai_intro", a="o0.0", b="head", src=STOCK + "intro_B.mp4", t=0.0, fit="full", ai=(1046, 200, 1.6, "rt")),      # r5: AI flex intro (Flow Veo), band off
        dict(id="tray", a=67.65, b=72.08, src=STOCK + "px8413544.mp4", t=0.2, fx=0.34),
        dict(id="supplies", a="o34.27", b="o38.10", src=STOCK + "cand/px8670956.mp4", t=0.0, fy=0.5),      # r2: vial and insulin syringes on a table (reviewer B: the long needle contradicted "tiny ones")
        dict(id="barrel", a="o38.10", b="o41.47", src=STOCK + "B0352.mp4", t=6.0, fx=0.75, eq="eq=gamma=1.7:brightness=0.04:saturation=1.1"),      # r2: the printed unit scale on an insulin syringe, "units on the side of the barrel" (the held-up syringe had a long needle, judge B)
        dict(id="pharmacy", a=149.75, b=156.12, src=STOCK + "px8657614.mp4", t=2.0, fx=0.52)],
- "C": [dict(id="draw", a="o0.0", b=167.63, src=STOCK + "cand/px6824057.mp4", t=1.0, fy=0.45),      # r2: drawing a dose with an insulin syringe through "This takes about 10 seconds" (reviewer C: dark opener, staring man)
+ "C": [dict(id="ai_intro", a="o0.0", b="head", src=STOCK + "intro_C.mp4", t=0.0, fit="full", ai=(1046, 200, 1.6, "rt")),      # r5: AI flex intro (Flow Veo), band off
+       dict(id="yt_seattle", a="head", b=167.63, src=STOCK + "yt_seattle_src.mp4", t=4.5, fx=0.53, eq="eq=gamma=1.08", credit="Video: Seattle Children's / YouTube"),      # r5: Dan's pick (R4 note) for "This takes about 10 seconds"; 7TP0rTlQVao 6:59.5
+       dict(id="yt_synergenx", a=167.63, b="o9.56", src=STOCK + "yt_synergenx_src.mp4", t=5.5, fx=0.45, eq="eq=saturation=0.85:brightness=-0.02", credit="Video: SynergenX / YouTube"),      # r5: pinch and inject, front of the mid thigh; FeweDb3Xfxg 1:39.5
        dict(id="needle", a="o23.89", b="o26.40", src=STOCK + "px6824121.mp4", t=1.0, fx=0.5),      # r2: an insulin syringe with its short needle, being flicked (the held-up syringe had a long needle, judge B)
        dict(id="blood", a="o26.40", b="o29.80", src=STOCK + "B0536.mp4", t=1.0, fx=0.5),      # r2: "draw blood out of your arm"
        dict(id="plunger", a="o29.80", b="o38.15", src=STOCK + "B0352.mp4", t=2.0, fx=0.75, eq="eq=gamma=1.7:brightness=0.04:saturation=1.1")],      # r2: a thumb pressing an insulin plunger, "Inject the Zepbound slowly"; the arm-injection stock is out (reviewer C)
- "E": [dict(id="scale", a="o0.0", b="head", src=STOCK + "B0376.mp4", t=1.0, fx=0.85),      # r2: opens on the step, not the empty scale (reviewer E)
+ "E": [dict(id="ai_intro", a="o0.0", b="head", src=STOCK + "intro_E.mp4", t=0.0, fit="full", ai=(1046, 190, 1.6, "rt")),      # r5: AI flex intro (Flow Veo), band off
        dict(id="regain", a=347.83, b=350.95, src=STOCK + "px8045155.mp4", t=4.0, fx=0.45),           # r2: "go off it again, and then regain..."
        dict(id="week", a=372.80, b=375.68, src=STOCK + "px9057559.mp4", t=4.0, fx=0.40, rot=180),     # r2: covers a weak size step at 0:23.5 (judge E), "Keep lowering... per week"
        dict(id="scale2", a=392.02, b=396.13, src=STOCK + "px6719385.mp4", t=0.3, fx=0.58),
        dict(id="jumprope", a=396.13, b=402.03, src=STOCK + "B0448.mp4", t=0.9, fx=0.5),             # r2: "Done this way... hold your new body"
        dict(id="stairs", a=404.47, b=407.30, src=STOCK + "px9154824.mp4", t=2.0, fx=0.85)],
- "F": [dict(id="chicken", a="o0.0", b="o2.5", src=STOCK + "px6107302.mp4", t=3.0, fx=0.42),
+ "F": [dict(id="ai_intro", a="o0.0", b="o2.5", src=STOCK + "intro_F.mp4", t=0.0, fit="full", ai=(1046, 215, 1.6, "rt")),      # r5: AI flex intro (Flow Veo), band off; replaces the chicken clip
        # r2: the film's AI split screen (A0058) is out: the body changes inside one take (VIDEO-RULES 2026-10-13, time jumps need a cut), judge F 4.3
        dict(id="curls", a=423.76, b=426.19, src=STOCK + "B0031.mp4", t=0.5, fx=0.5, eq="eq=gamma=1.25:brightness=0.02:saturation=1.05"),      # r2: real alternating dumbbell curls, lifted; B0458 is him holding the ab roller (two reviewers; the library called it curls)
        dict(id="abwheel", a=426.19, b=429.76, src=STOCK + "B0030.mp4", t=0.5, fit="span", span=(250, 1670)),      # r2: the rollout travels x 330-1620 of 1920; the square cut his head off (judge F 17.4)
@@ -63,7 +65,7 @@ COVERS = {
        dict(id="rotisserie", a=457.76, b=458.89, src=STOCK + "B0047.mp4", t=1.0, fx=1.0),
        dict(id="sardines", a=458.89, b=460.73, src=STOCK + "px6398611.mp4", t=4.5, fx=0.42),
        dict(id="egg", a=460.73, b=462.96, src=STOCK + "B0046.mp4", t=30.0, fx=0.45)],
- "D": [dict(id="calendar", a="o0.0", b="head", src=STOCK + "px9057559.mp4", t=0.6, fx=0.40, rot=180),
+ "D": [dict(id="ai_intro", a="o0.0", b="head", src=STOCK + "intro_D.mp4", t=0.0, fit="full", ai=(540, 96, 1.6, "mt")),      # r5: AI flex intro (Flow Veo), band off
        dict(id="week", a=261.24, b=267.02, scene="week"),
        dict(id="cheers", a=275.11, b=279.85, src=STOCK + "px7039913.mp4", t=0.5, fx=0.66),
        dict(id="dinner", a=279.85, b=281.88, src=STOCK + "px8922355.mp4", t=3.0, fx=0.28, eq="eq=gamma=1.75:brightness=0.03:saturation=1.08"),      # r2: lifted (reviewer D: luma 0.16 against his 0.39)
