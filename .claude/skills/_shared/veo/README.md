@@ -1,7 +1,7 @@
 # Veo motion: subscription first (Dan, 2026-10-17)
 
-Every AI video clip (Veo motion from approved START/END frames) is generated in **Google Flow on Dan's Google AI Pro
-credits**, by a background sub-agent driving his Chrome, while the main agent keeps editing. The paid Replicate API is
+Every AI video clip (Veo motion from approved START/END frames) is generated in **Google Flow on Dan's Google AI Ultra
+credits** (upgraded from Pro to Ultra 5x, $99.99/mo, on 2026-10-20: 10,000 credits a month plus 50 a day), by a background sub-agent driving his Chrome, while the main agent keeps editing. The paid Replicate API is
 used only when Dan says **rush**, **accelerate** or **as fast as possible**, or when the credits have run out AND Dan
 has approved paying. Claude and Codex both.
 
@@ -25,7 +25,9 @@ the subscription credits run out, ask me before paying."*
    `veo.py api JOBDIR A1 --paid-ok "<his words>"`. Rush: `veo.py api JOBDIR A1 --rush "<his words>"`.
    Paid takes still count against the per-video generation budget (VIDEO-RULES, "Video clip generation budget").
 
-## What the subscription gives (measured 2026-10-17, the 5-clip test)
+## What the subscription gives (measured 2026-10-17 on Pro, the 5-clip test)
+
+**Ultra since 2026-10-20:** 10,000 credits a month + 50 a day. Published rates say Veo 3.1 Fast and Lite cost half on Ultra (Fast 10 credits, so about 1,000 Fast clips a month); confirm on the first Ultra generation from the balance drop and fix this line. Gemini Omni Flash 1.1 (rank 4 in Artificial Analysis blind image-to-video votes vs Veo 3.1 Fast rank 16) is in Flow with first/last frame; a blind bake-off against Veo Fast is proposed before switching the default.
 
 | | Flow on Google AI Pro | Replicate API (paid) |
 |---|---|---|
