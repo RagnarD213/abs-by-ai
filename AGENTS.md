@@ -291,21 +291,11 @@ Full rule: read `.claude/skills/_shared/VIDEO-RULES.md`.
 - **When `safe-push.sh` stops on another session's files (exit 2), clear it instead of walking away (Dan, 2026-10-05),** if every blocking file was last modified more than 2 hours ago. The script prints each file's age. Run the same command again with `--adopt-stale`: it backs the files up to `tmp/`, commits them as they are with the message "Commit pending edits from earlier sessions so main can merge", and pushes. If a blocking file was modified inside the last 2 hours, its owner is live: put up the board note as before and retry at the end of the task. This replaces "Do not commit more on top" for the stale case only.
 - Why: from 10-02 to 10-05 nothing from the main folder reached GitHub (41 commits stuck) because unsaved edits to shared files blocked the merge and every session left them for someone else.
 
-## Never use an em dash, in anything (Dan, 2026-09-18)
+## No em dashes in outward-facing writing (Dan, 2026-09-18, narrowed 2026-10-20)
 
-- **No em dash (—) ever appears in any writing produced for this project.** Not in revision docs, editor messages,
-  scripts, video captions, on-screen graphics, email, website copy, ad copy, handoffs, board entries, commit messages,
-  or chat replies to Dan. Dan's words: *"Em dashes are a major giveaway of Claude output. I want you to have a standing
-  rule for all of our writing that we never, ever, ever use an em dash in any writing. No em dashes ever."*
-- Do not swap in an en dash (–) to fake it either. Rewrite the sentence: use a comma, a colon, parentheses, or split it
-  into two sentences. A hyphen inside a compound word (lower-third, side-by-side) is fine, and so is a numeric range
-  written with a hyphen (8:19 - 9:55).
-- Dan does not use em dashes when he writes, so anything that carries his name and contains one reads as pasted AI
-  output to the person receiving it. That is the whole reason for the rule.
-- **Check before delivering.** `grep -c '—' <file>` on any document, message, or script before it goes out. It must be 0.
-- **This is forward-looking only. Do not retrofit existing copy** (Dan, 2026-09-18: *"we don't need to edit the existing
-  copy. I just want to make sure that going forward, new copy doesn't use em dashes in any writing."*). The live site,
-  published descriptions, ad copy, already-sent revision docs, handoffs, skills, `Docs/`, memory and the board keep the
-  ones they have. Never propose or run a cleanup sweep of them. The rule binds what gets WRITTEN from 2026-09-18 on,
-  including any paragraph you happen to be rewriting in an old file for some other reason: the version you leave behind
-  has none.
+- **No em dash (—) in anything a customer, viewer, editor or business contact will read or hear:** teleprompter scripts, on-screen graphics and captions, website, ad, email and social copy, video titles and descriptions, revision docs and messages written in Dan's name, and emails or messages to business contacts. Dan, 2026-10-20: *"no em dashes in customer-facing text writing only."* Reason: em dashes read as AI output, and Dan does not use them himself.
+- **Em dashes are fine in internal writing:** chat replies to Dan, handoffs, the status board, commit messages, memory, skills and other project notes. Dan: they can actually improve readability there.
+- Do not swap in an en dash (–) to fake it in outward-facing text. Rewrite with a comma, a colon, parentheses, or two sentences. Hyphens in compound words and numeric ranges are fine.
+- **Check before delivering outward-facing text.** `grep -c '—' <file>` must be 0.
+- **Forward-looking only (Dan, 2026-09-18).** Do not retrofit existing copy or run a cleanup sweep.
+
