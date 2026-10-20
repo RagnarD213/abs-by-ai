@@ -1,0 +1,185 @@
+{
+  "video": "Arms & Shoulders Workout Only",
+  "category": "CONTENT",
+  "type": "LFC",
+  "job": "RO-04",
+  "round": 3,
+  "date": "2026-10-20",
+  "dan_exact_words": "Let's go with color B. Finish the full video.",
+  "items": [
+    {
+      "id": "round2-color-B",
+      "verdict": "approved",
+      "scope": "Round 2 Warm Rich Vivid B, not rejected Round 1 warm B",
+      "assets": [
+        {
+          "path": "Media/video-edits/RO-04/round2/stills/colour-B-12.jpg",
+          "sha256": "929bcedc90da3d14afd2968975c56030bd78a80da8a04c343cca2a88028278ae",
+          "bytes": 762800,
+          "scope": "approved color B, curls"
+        },
+        {
+          "path": "Media/video-edits/RO-04/round2/stills/colour-B-78.jpg",
+          "sha256": "93e84ebede20cf700a37b88ae12ff2d67d613f06beeee6656ebd323587cfa7cc",
+          "bytes": 766159,
+          "scope": "approved color B, triceps"
+        },
+        {
+          "path": "Media/video-edits/RO-04/round2/context/color-B.mp4",
+          "sha256": "3348e3df788f8c4defb022a6b9b533bdffe030491087246878272db4aea21e8f",
+          "bytes": 12807474,
+          "scope": "approved color B, native moving comparison"
+        }
+      ],
+      "dan_exact_words": "Let's go with color B. Finish the full video.",
+      "next_action": "Use this exact grade throughout the complete camera footage."
+    },
+    {
+      "id": "full-film-render",
+      "verdict": "approved",
+      "scope": "Authorization to finish and render the full workout using the reviewed R2 treatment; this is not approval of an unseen full-film export.",
+      "assets": [
+        {
+          "path": "Media/video-edits/RO-04/round2/Arms Shoulders Workout LFC R2 - first minute.mp4",
+          "sha256": "3c905347a0b51e3468dc78b19f9fd2dde058026d1c71fe4fdc3e985971c29a8f",
+          "bytes": 93323817,
+          "scope": "previewed first minute using selected B; complete film render authorized"
+        }
+      ],
+      "dan_exact_words": "Let's go with color B. Finish the full video.",
+      "next_action": "Build the complete 16:9 workout and rest in round3, run full QA and independent review, deliver for Dan to watch."
+    },
+    {
+      "id": "G01-G05-and-audio",
+      "verdict": "approved",
+      "scope": "All other reviewed elements, including timer designs, rest treatment and original audio",
+      "assets": [
+        {
+          "path": "Media/video-edits/RO-04/round1/stills/G01.jpg",
+          "sha256": "08d9f0da4d71d9e877d0b1a3b21a92df7fab463b1de50cb428167cfb2120de1f"
+        },
+        {
+          "path": "Media/video-edits/RO-04/round1/stills/G02.jpg",
+          "sha256": "2896fa5b3062f70e83d881a985f4012e018b4ae2aa52a0d867a87018d7f85523"
+        },
+        {
+          "path": "Media/video-edits/RO-04/round1/stills/G03.jpg",
+          "sha256": "91541b0d63fca13bbd07baff4f95ea9d19dcdbaeb3df525f5fe2d5a30530e7ce"
+        },
+        {
+          "path": "Media/video-edits/RO-04/round1/stills/G04.jpg",
+          "sha256": "aee1ab1a877d91c7c5d69f5da28b2762ede90bbf890834406acd827b986904d1"
+        },
+        {
+          "path": "Media/video-edits/RO-04/round1/stills/G05.jpg",
+          "sha256": "d85de09a44926062f92aa52889018b4cdd11b5561786d3cbe10d92b7d561118c"
+        },
+        {
+          "path": "Media/video-edits/RO-04/round1/context/G04-context.mp4",
+          "sha256": "f38b1bc4f93b59412ce0fc05515b6fb69f29a3c83ade56b0ebeaeeee1c719211"
+        },
+        {
+          "path": "Media/video-edits/RO-04/round1/context/G05-context.mp4",
+          "sha256": "5157f5bb69352f3fb04bfcda8572c274b6aabea38f9b3b06a75d2c50256ff9e0"
+        },
+        {
+          "path": "Media/video-edits/RO-04/round1/audio/audio-AB.mp4",
+          "sha256": "be074defa1fe37e199057e450d115ac2f370f4bdac559a508ffc2396c53e0205"
+        }
+      ],
+      "next_action": "Reuse without redesign or a new approval question",
+      "dan_exact_words": "The first minute and everything is looking good except the color correction. I think slightly warm was the best but I don't like any of these options. I feel like they're all a little washed out and the colors aren't saturated or vivid enough. Give me a few more options with more saturated and vivid colors.\n\nFor the frame the closer with headroom is almost there but reduce that headroom by about 20%. Everything else looks good. Give me the handoff for the next round of edits"
+    }
+  ],
+  "locked_build_inputs": [
+    {
+      "path": "Media/video-edits/RO-04/round2/context/overhead-crop-check.mp4",
+      "sha256": "05a61fdafa85a17ed1e5c0110e5601367b7f8c220629507e92cffd35a5c8f3a2",
+      "bytes": 25332584,
+      "scope": "previewed revised crop, carry into authorized full-film assembly"
+    },
+    {
+      "path": "Media/video-edits/RO-04/round2/recipe/build.py",
+      "sha256": "80aeebade09aa8a9239b5a88c9baeafc98d28ff60d6e0942826d882f65af8a12",
+      "bytes": 5270,
+      "scope": "reproduction recipe for approved color and existing graphics"
+    },
+    {
+      "path": "Media/video-edits/RO-04/round2/qa/calibration.json",
+      "sha256": "3578ff5a2fc0fc41629e5be573cdd3782ba74d4b6b361f19f1b3e687fc14ca12",
+      "bytes": 1554,
+      "scope": "color calibration"
+    },
+    {
+      "path": "Media/video-edits/RO-04/round2/recipe/page.py",
+      "sha256": "a5e7698b07f05eebf778fdcf73d94e49c048efddefb108f41d991501962d6971",
+      "bytes": 10455,
+      "scope": "repaired player, October 19"
+    }
+  ],
+  "inherited_hash_verification": [
+    {
+      "path": "Media/video-edits/RO-04/round1/stills/G01.jpg",
+      "expected": "08d9f0da4d71d9e877d0b1a3b21a92df7fab463b1de50cb428167cfb2120de1f",
+      "actual": "08d9f0da4d71d9e877d0b1a3b21a92df7fab463b1de50cb428167cfb2120de1f",
+      "match": true
+    },
+    {
+      "path": "Media/video-edits/RO-04/round1/stills/G02.jpg",
+      "expected": "2896fa5b3062f70e83d881a985f4012e018b4ae2aa52a0d867a87018d7f85523",
+      "actual": "2896fa5b3062f70e83d881a985f4012e018b4ae2aa52a0d867a87018d7f85523",
+      "match": true
+    },
+    {
+      "path": "Media/video-edits/RO-04/round1/stills/G03.jpg",
+      "expected": "91541b0d63fca13bbd07baff4f95ea9d19dcdbaeb3df525f5fe2d5a30530e7ce",
+      "actual": "91541b0d63fca13bbd07baff4f95ea9d19dcdbaeb3df525f5fe2d5a30530e7ce",
+      "match": true
+    },
+    {
+      "path": "Media/video-edits/RO-04/round1/stills/G04.jpg",
+      "expected": "aee1ab1a877d91c7c5d69f5da28b2762ede90bbf890834406acd827b986904d1",
+      "actual": "aee1ab1a877d91c7c5d69f5da28b2762ede90bbf890834406acd827b986904d1",
+      "match": true
+    },
+    {
+      "path": "Media/video-edits/RO-04/round1/stills/G05.jpg",
+      "expected": "d85de09a44926062f92aa52889018b4cdd11b5561786d3cbe10d92b7d561118c",
+      "actual": "d85de09a44926062f92aa52889018b4cdd11b5561786d3cbe10d92b7d561118c",
+      "match": true
+    },
+    {
+      "path": "Media/video-edits/RO-04/round1/context/G04-context.mp4",
+      "expected": "f38b1bc4f93b59412ce0fc05515b6fb69f29a3c83ade56b0ebeaeeee1c719211",
+      "actual": "f38b1bc4f93b59412ce0fc05515b6fb69f29a3c83ade56b0ebeaeeee1c719211",
+      "match": true
+    },
+    {
+      "path": "Media/video-edits/RO-04/round1/context/G05-context.mp4",
+      "expected": "5157f5bb69352f3fb04bfcda8572c274b6aabea38f9b3b06a75d2c50256ff9e0",
+      "actual": "5157f5bb69352f3fb04bfcda8572c274b6aabea38f9b3b06a75d2c50256ff9e0",
+      "match": true
+    },
+    {
+      "path": "Media/video-edits/RO-04/round1/audio/audio-AB.mp4",
+      "expected": "be074defa1fe37e199057e450d115ac2f370f4bdac559a508ffc2396c53e0205",
+      "actual": "be074defa1fe37e199057e450d115ac2f370f4bdac559a508ffc2396c53e0205",
+      "match": true
+    }
+  ],
+  "crop": {
+    "xywh": [
+      100,
+      18,
+      1776,
+      1000
+    ],
+    "scope": "Carry reviewed R2 crop into the expressly authorized full film. Dan named color B and requested completion, with no crop changes."
+  },
+  "motion_authorized": [],
+  "new_frames_before_motion": [],
+  "full_film_render_authorized": true,
+  "full_film_built": false,
+  "full_film_approved": false,
+  "next_deliverable": "Complete checked 16:9 workout review film, original stereo audio, 30-second rest, SRT, phone copy and native VLC copy."
+}

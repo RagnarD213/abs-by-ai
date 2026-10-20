@@ -1,0 +1,41 @@
+[
+  {
+    "id": "ro04-r2-color-b-approved-20261020-1",
+    "verdict": "approved",
+    "date": "2026-10-20",
+    "root": "repo",
+    "path": "Media/video-edits/RO-04/round2/stills/colour-B-12.jpg",
+    "sha256": "929bcedc90da3d14afd2968975c56030bd78a80da8a04c343cca2a88028278ae",
+    "bytes": 762800,
+    "dan": "Let's go with color B. Finish the full video.",
+    "must_pass": [],
+    "must_trigger": [],
+    "notes": "Creative color approval only: Round 2 Warm Rich Vivid B. Full-film rendering is authorized, but the unseen complete export is not approved. Existing graphics/audio locks are inherited. This entry does not claim new automated color coverage."
+  },
+  {
+    "id": "ro04-r2-color-b-approved-20261020-2",
+    "verdict": "approved",
+    "date": "2026-10-20",
+    "root": "repo",
+    "path": "Media/video-edits/RO-04/round2/stills/colour-B-78.jpg",
+    "sha256": "93e84ebede20cf700a37b88ae12ff2d67d613f06beeee6656ebd323587cfa7cc",
+    "bytes": 766159,
+    "dan": "Let's go with color B. Finish the full video.",
+    "must_pass": [],
+    "must_trigger": [],
+    "notes": "Creative color approval only: Round 2 Warm Rich Vivid B. Full-film rendering is authorized, but the unseen complete export is not approved. Existing graphics/audio locks are inherited. This entry does not claim new automated color coverage."
+  },
+  {
+    "id": "ro04-r2-color-b-approved-20261020-3",
+    "verdict": "approved",
+    "date": "2026-10-20",
+    "root": "repo",
+    "path": "Media/video-edits/RO-04/round2/context/color-B.mp4",
+    "sha256": "3348e3df788f8c4defb022a6b9b533bdffe030491087246878272db4aea21e8f",
+    "bytes": 12807474,
+    "dan": "Let's go with color B. Finish the full video.",
+    "must_pass": [],
+    "must_trigger": [],
+    "notes": "Creative color approval only: Round 2 Warm Rich Vivid B. Full-film rendering is authorized, but the unseen complete export is not approved. Existing graphics/audio locks are inherited. This entry does not claim new automated color coverage."
+  }
+]

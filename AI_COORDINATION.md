@@ -66,7 +66,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Voice P2C commits UNPUSHED 2026-10-16, Claude.** Two local commits (bench fix, pilot results) wait on main; safe-push stopped on live edits to the board, DAN_DECISIONS, 00-MASTER, jobs.json. Next: any safe-push from the main folder carries them; then delete this.
 
-**Arms & Shoulders Workout Only (RO-04) - R2 REVIEW 2026-10-19, Codex.** Review panel on port 8974 repaired. Playback, clip switches, timeline and 4x speed checked silently. Three vivid colors, headroom, first minute and overhead check await Dan. Next: choose A/B/C; no full film yet. Records: `Handoffs/video-editing/ro04-round2-plan/panel-repair-20261019.json`.
 **COVERS:MOBILE:2026-10-15:Docs/COVER_AUDIT_20261015.md**
 
 **Calories Not Losing Weight SFL R3 - REVIEW 2026-10-19, Codex.** Checked desk-fasting/salad and stacked protein frame pairs await Dan on http://127.0.0.1:9008/. Next: frame approval, Flow motion, full fasting/protein assembly and checks. Three complete Shorts are on the page. R2 and its panel untouched. No covers or publishing.
