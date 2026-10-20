@@ -11,6 +11,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Boring Abs At 40 LFC R2](handoff-20261020-ro27-round2-headroom-and-ai-revisions.md): **Start now (2026-10-20). GPT-6.1 Sol, high.** Fix and verify headroom in every wide/tight shot; apply selected richer colour C and warm-bass voice B; show all existing AI clips for the fasting opener choice; revise A01–A04 frames and remove A05–A06. R2 review before new motion or full film.
+
 
 - [Arms Shoulders Workout LFC R3](handoff-20261020-ro04-round3-color-b-full-film.md): **Start now (2026-10-20). GPT-6.1 Sol, high.** CONTENT LFC. Dan selected Round 2 B and authorized the full workout. Preserve framing, original stereo audio and approved graphics; assemble, check and deliver the complete film.
 
