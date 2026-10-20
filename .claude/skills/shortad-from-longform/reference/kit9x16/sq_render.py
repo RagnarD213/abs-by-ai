@@ -41,7 +41,7 @@ FF, FPS = CP.FF, CP.FPS
 S = 1080
 WIN = S / 1920                                   # the 1:1 window of a 16:9 clip, as a fraction of its width
 CAP_Y, LIFT_GAP, LIFT_MIN = 880, 150, 560
-REAL, AI = "Real picture of me - not AI-generated", "AI-GENERATED"
+REAL, AI = "Real Photo Of Me, Not AI-Generated", "AI-GENERATED"
 PUSH_UP = 85.0                                   # render.py: his punch recentres 85 px up in the 1080 source
 
 

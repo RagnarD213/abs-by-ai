@@ -1,0 +1,31 @@
+{
+  "master_sha256": "200c7b2b84cfba2aa0539b8d7078973b902c635d4447ffabb9e207b3307c609b",
+  "media": [
+    {
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/phone.mp4",
+      "sha256": "a2e78f1f81fc13fc90b498458d1a04d5a70073e2e2dfee483354de388ecd4e12",
+      "fps_requested": 24
+    },
+    {
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/audit/hair-review-24.mp4",
+      "sha256": "0506888ca1a3fd1e5812dd5706f011c6c9840b5ada0d2747618ad0b500473286",
+      "fps_requested": 24
+    }
+  ],
+  "answer": {
+    "verdict": "clean",
+    "observed_defects": [],
+    "opening_caption": {
+      "first_appearance_seconds": 0.26,
+      "spoken_But_onset_seconds": 0.26,
+      "assessment": "clean"
+    },
+    "hair": {
+      "light": "clean",
+      "dark": "clean",
+      "limits": "No specific defects observed in hair against pale and dark fields in the diagnostic video."
+    },
+    "sound_join_55_75": "clean",
+    "limits": "All requested checks passed. No unexpected freezes, clipping, or graphic collisions were observed. All captions appeared correctly and matched the spoken words. Dan's silent reaction and the BMI table were present as expected. The transition between the healthy weight and obese categories was smooth. The 'subscribe' end was also present."
+  }
+}

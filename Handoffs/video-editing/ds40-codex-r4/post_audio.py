@@ -15,7 +15,7 @@ bw,src=S.transcribe(str(W/'bill-original.wav'),'small',quiet=False)
 sw=json.loads((W/'source-words.json').read_text());P=json.loads((W/'plan.json').read_text())
 # The source document defines these exact sentences. Endpoint listening confirmed every word.
 # Acoustic CTC will locate them on the actual mix, including quiet opening and closing words.
-verified_bill=[('Let me ask you this.',.09,1.36),('Have you ever seen a fat 90-year-old?',1.79,3.99),("Scary, isn't it?",8.99,9.89),('Healthy at any weight is an unchallenged lie.',15.4,19.4)]
+verified_bill=[('But let me ask you this.',0,1.36),('Have you ever seen a fat 90-year-old?',1.79,3.99),("Scary, isn't it?",8.99,9.89),('Healthy at any weight is an unchallenged lie.',15.4,19.4)]
 words=[]
 for text,a,b in verified_bill:
  toks=text.split()
@@ -37,4 +37,5 @@ code=code.replace('w["w"].upper()', 'w["w"].upper().replace("90","NINETY")')
 (W/'align.py').write_text(code)
 subprocess.run([sys.executable,str(W/'align.py'),str(W/'mix.wav'),str(W/'words-aligned.json')],check=True)
 subprocess.run([sys.executable,str(R/'.claude/skills/_shared/cut/junk.py'),P['source'],'--ranges',str(W/'dialogue-edl.json'),'--af','pan=mono|c0=c0','--out',str(W/'prerender-junk.json')],check=True)
+subprocess.run([sys.executable,str(W/'bounded_alignment.py'),str(W/'mix.wav'),str(W/'words-aligned.json'),'premix'],check=True)
 print('AUDIO AND ALIGNMENT COMPLETE',flush=True)

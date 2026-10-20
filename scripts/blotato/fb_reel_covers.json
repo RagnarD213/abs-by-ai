@@ -613,5 +613,30 @@
   "h": 720,
   "job": "RO-17",
   "when": "2026-12-14T18:00:00.000Z"
+ },
+ {
+  "match": "Money does you no good if you're dead.",
+  "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/Invest In Your Health/Invest In Your Health - thumbnail FINAL.jpg",
+  "w": 1280,
+  "h": 720,
+  "job": "RO-20",
+  "when": "2026-11-23T18:00:00.000Z"
+ },
+ {
+  "match": "You're not broke. You're spending your money on the wrong things.",
+  "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/What To Cut To Afford Getting In Shape/What To Cut To Afford Getting In Shape - thumbnail FINAL.jpg",
+  "w": 1280,
+  "h": 720,
+  "job": "RO-20B",
+  "when": "2026-11-30T18:00:00.000Z"
+ },
+ {
+  "match": "If you're in college and you have no time to work out, I'm about to solve that problem for you.",
+  "w": 1080,
+  "h": 1920,
+  "job": "DS-31",
+  "when": "2026-12-03T15:00:00.000Z",
+  "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds31-ai-homework-approved.jpg",
+  "schedule": "5822390"
  }
 ]

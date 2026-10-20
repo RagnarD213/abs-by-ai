@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=__W__, height=__H__" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      /* Soft Blue Light LEVELS SPLIT: a big title on top of the moving field and three rounded HOLES (transparent) that
+         open on their words, each with a frame, a travelling specular line, a glass label under it and an AI chip inside it.
+         The video build lays three clips under the plate. With CFG.mockup the template draws stills in the holes itself. */
+      @font-face { font-family: "Poppins"; src: url("assets/Poppins-Bold.ttf") format("truetype"); font-weight: 700; }
+      @font-face { font-family: "Poppins"; src: url("assets/Poppins-Regular.ttf") format("truetype"); font-weight: 400; }
+      :root {
+        --tint: rgba(22, 51, 81, 0.498);
+        --line: rgb(64, 112, 153);
+        --cyan: rgb(104, 197, 255);
+        --white: rgb(244, 250, 255);
+        --spec: rgb(135, 210, 248);
+        --chip: rgb(6, 17, 30);
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: __W__px; height: __H__px; overflow: hidden; background: transparent; }
+      #root { position: relative; width: 100%; height: 100%; font-family: "Poppins", sans-serif; font-weight: 700; }
+      #media, #field, #over { position: absolute; left: 0; top: 0; width: __W__px; height: __H__px; }
+      .m { position: absolute; overflow: hidden; }
+      .m img { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; }
+      .t { position: absolute; white-space: nowrap; line-height: 1.4; }
+      .t span { display: inline-block; white-space: pre; }
+      .frame { position: absolute; border: 2px solid rgba(118, 183, 222, 0.59); }
+      .spec { position: absolute; width: 150px; height: 3px; border-radius: 2px; background: var(--spec); }
+      .lab { position: absolute; border-radius: 26px; background: var(--tint); border: 1px solid var(--line); }
+      .lab .a { position: absolute; color: var(--white); line-height: 1.4; white-space: nowrap; }
+      .lab .b { position: absolute; color: var(--cyan); font-weight: 400; line-height: 1.4; white-space: nowrap; }
+      .chip { position: absolute; border-radius: 16px; background: var(--chip); }
+      .chip div { position: absolute; font-weight: 400; line-height: 1.4; color: var(--white); white-space: nowrap; }
+      #accent { position: absolute; height: 8px; border-radius: 3px; background: var(--cyan); transform-origin: 50% 50%; }
+      #l1 { color: var(--white); }
+      #l2 { color: var(--cyan); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="__ID__" data-start="0" data-duration="__DUR__" data-width="__W__" data-height="__H__">
+      <div id="media"></div>
+      <canvas id="field" width="__W__" height="__H__"></canvas>
+      <div id="over">
+        <div id="l1" class="t"></div>
+        <div id="l2" class="t"></div>
+        <div id="accent"></div>
+      </div>
+    </div>
+    <script>
+      const CFG = __CFG__;
+      const D = CFG.dur;
+      const px = v => v + "px";
+      const place = (e, x, y, w, h) => Object.assign(e.style, { left: px(x), top: px(y), width: w == null ? "" : px(w), height: h == null ? "" : px(h) });
+      const $ = id => document.getElementById(id);
+      const mk = (cls, parent) => { const e = document.createElement("div"); if (cls) e.className = cls; (parent || $("over")).appendChild(e); return e; };
+      const words = (e, s) => s.split(" ").map((w, i, a) => { const sp = document.createElement("span"); sp.textContent = w + (i < a.length - 1 ? " " : ""); e.appendChild(sp); return sp; });
+      // per-tile hole state, animated by the timeline and read by the field on every frame
+      const HOLE = CFG.tiles.map(() => ({ s: 0 }));
+      const R = CFG.radius;
+      function afterField(c) {
+        CFG.tiles.forEach((tile, i) => {
+          const s = HOLE[i].s; if (s <= 0.001) return;
+          const [x, y, w, h] = tile.box, cx = x + w / 2, cy = y + h / 2, ww = w * (0.86 + 0.14 * s), hh = h * (0.86 + 0.14 * s);
+          c.save(); c.globalAlpha = s; c.shadowColor = "rgba(0, 2, 12, 0.55)"; c.shadowBlur = 28; c.shadowOffsetY = 10; c.fillStyle = "rgb(42, 80, 113)";
+          c.beginPath(); c.roundRect(cx - ww / 2 - 10, cy - hh / 2 - 10, ww + 20, hh + 20, R + 8); c.fill(); c.restore();
+          c.save(); c.globalCompositeOperation = "destination-out"; c.globalAlpha = s; c.fillStyle = "#000";
+          c.beginPath(); c.roundRect(cx - ww / 2, cy - hh / 2, ww, hh, R); c.fill(); c.restore();
+        });
+      }
+      // ---------- the moving Soft Blue field (softblue.field, same formula as every template) ----------
+      const CW = __W__, CH = __H__, GW = Math.round(CW / 4), GH = Math.round(CH / 4), cv = $("field"), ctx = cv.getContext("2d");
+      const off = document.createElement("canvas"); off.width = GW; off.height = GH;
+      const octx = off.getContext("2d"), img = octx.createImageData(GW, GH);
+      let seed = 8; const rnd = () => { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; };
+      const noise = new Float32Array(GW * GH);
+      for (let i = 0; i < noise.length; i++) { const u = Math.max(1e-9, rnd()), v = rnd(); noise[i] = 0.42 * Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v); }
+      const FS = Math.min(CW, CH) / 1080, SX = CW / (1920 * FS), SY = CH / (1080 * FS);
+      function drawField(t) {
+        const gx = .14 + .13 * Math.sin(t * .65), gy = .2 + .13 * Math.cos(t * .4), hx = .83 + .12 * Math.cos(t * .6), hy = .88;
+        const d = img.data;
+        for (let y = 0; y < GH; y++) {
+          const yy = y / GH, gyv = (yy - gy) * SY * (yy - gy) * SY / .35, kyv = (yy - hy) * SY * (yy - hy) * SY / .18;
+          for (let x = 0; x < GW; x++) {
+            const xx = x / GW, i = y * GW + x;
+            const g = Math.exp(-((xx - gx) * SX * (xx - gx) * SX / .18 + gyv)), k = Math.exp(-((xx - hx) * SX * (xx - hx) * SX / .12 + kyv));
+            const n = noise[i], o = i * 4;
+            d[o] = Math.min(255, Math.max(0, 5 + g * 5 + k * 3 + n)) | 0;
+            d[o + 1] = Math.min(255, Math.max(0, 13 + g * 53 + k * 26 + n)) | 0;
+            d[o + 2] = Math.min(255, Math.max(0, 28 + g * 94 + k * 62 + n)) | 0;
+            d[o + 3] = 255;
+          }
+        }
+        octx.putImageData(img, 0, 0);
+        ctx.globalCompositeOperation = "source-over";
+        ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = "low";
+        ctx.drawImage(off, 0, 0, CW, CH);
+        afterField(ctx);
+      }
+
+      const tl = gsap.timeline({ paused: true });
+      const clock = { t: 0 };
+      const redraw = () => drawField(clock.t);
+      tl.fromTo(clock, { t: 0 }, { t: D, duration: D, ease: "none", onUpdate: redraw }, 0);
+
+      // ---------- title: two centred lines rise word by word, then breathe; the accent bar keeps sweeping ----------
+      const T = CFG.title;
+      [["l1", T.l1], ["l2", T.l2]].forEach(([id, L], j) => {
+        const e = $(id); place(e, L.x, L.y); e.style.fontSize = px(L.px); e.style.fontWeight = L.bold ? 700 : 700;
+        const sp = words(e, L.s);
+        tl.fromTo(sp, { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: 0.42, ease: "expo.out", stagger: 0.06 }, L.at);
+      });
+      const ac = $("accent"); place(ac, T.accent.x, T.accent.y, T.accent.w, 8);
+      tl.fromTo(ac, { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "expo.out" }, T.accent.at);
+      const accN = Math.max(1, Math.round((D - T.accent.at - 0.5) / 2.2));
+      tl.fromTo(ac, { scaleX: 1 }, { scaleX: 0.55, duration: (D - T.accent.at - 0.5) / accN, ease: "sine.inOut", yoyo: true, repeat: accN - 1 }, T.accent.at + 0.5);
+      tl.fromTo($("l1"), { y: 0 }, { y: -6, duration: D, ease: "sine.inOut" }, 0);
+
+      // ---------- tiles ----------
+      CFG.tiles.forEach((tile, i) => {
+        const [x, y, w, h] = tile.box, at = tile.at;
+        // mockup stills (or placeholder motion) under the holes
+        if (CFG.mockup && tile.media) {
+          const m = mk("m", $("media")); place(m, x, y, w, h); m.style.borderRadius = px(R);
+          tile.media.forEach((src, k) => {
+            const im = document.createElement("img"); im.src = src; im.style.objectPosition = tile.pos || "50% 50%"; m.appendChild(im);
+            if (tile.crop) {   // [x, y, w, h] in source pixels: the tile shows exactly that window (what the video build crops)
+              const [cx, cy, cw2] = tile.crop, k2 = w / cw2;
+              Object.assign(im.style, { objectFit: "fill", width: px(tile.src[0] * k2), height: px(tile.src[1] * k2), left: px(-cx * k2), top: px(-cy * k2),
+                                        transformOrigin: px(cx * k2 + w / 2) + " " + px(cy * k2 + h / 2) });
+            }
+            if (k === 0) tl.fromTo(im, { scale: 1.0 }, { scale: 1.06, duration: D, ease: "none" }, 0);
+            else { tl.set(im, { opacity: 0 }, 0); tl.fromTo(im, { opacity: 0, scale: 1.0 }, { opacity: 1, scale: 1.04, duration: 0.6, ease: "sine.inOut" }, Math.min(D - 0.7, at + (tile.swap || 1.2))); }
+          });
+        }
+        tl.fromTo(HOLE[i], { s: 0 }, { s: 1, duration: 0.55, ease: "expo.out", onUpdate: redraw }, at);
+        const fr = mk("frame"); place(fr, x - 2, y - 2, w + 4, h + 4); fr.style.borderRadius = px(R + 2);
+        tl.fromTo(fr, { opacity: 0, scale: 0.86 }, { opacity: 1, scale: 1, duration: 0.55, ease: "expo.out", immediateRender: true }, at);
+        const sp = mk("spec"); place(sp, x + 26, y - 12);
+        tl.fromTo(sp, { opacity: 0 }, { opacity: 1, duration: 0.3, immediateRender: true }, at + 0.3);
+        const n = Math.max(1, Math.round((D - at) / 2.2));
+        tl.fromTo(sp, { x: 0 }, { x: w - 52 - 150, duration: (D - at) / n, ease: "sine.inOut", yoyo: true, repeat: n - 1 }, at);
+        // glass label under the tile
+        const L = tile.label, lab = mk("lab"); place(lab, x, L.y, w, L.h);
+        const a = mk("a", lab); place(a, L.ax, L.ay); a.style.fontSize = px(L.apx); a.textContent = L.a;
+        if (L.b) { const b = mk("b", lab); place(b, L.bx, L.by); b.style.fontSize = px(L.bpx); b.textContent = L.b; }
+        tl.fromTo(lab, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.45, ease: "expo.out", immediateRender: true }, at + 0.15);
+        // AI disclosure chip inside the tile, placed by the build on measured clear space
+        if (tile.chip) {
+          const C = tile.chip, ch = mk("chip"); place(ch, C.x, C.y, C.w, C.h);
+          const tx = mk(null, ch); place(tx, C.tx, C.ty); tx.style.fontSize = px(C.px); tx.textContent = C.s;
+          tl.fromTo(ch, { opacity: 0 }, { opacity: 1, duration: 0.15, immediateRender: true }, at + 0.25);
+        }
+      });
+
+      window.__timelines["__ID__"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

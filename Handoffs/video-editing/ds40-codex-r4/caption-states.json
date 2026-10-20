@@ -1,0 +1,1274 @@
+[
+  {
+    "id": 0,
+    "beat": [
+      0.26,
+      0.852
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-000.png",
+    "image_sha256": "ce452873e8b34a8a265b721c92e833d3d2d6c02f08bf23de1e8b2366867e3c63",
+    "pos": [
+      40,
+      850
+    ],
+    "word": "But let me ask",
+    "word_indices": [
+      0,
+      3
+    ],
+    "rect": [
+      40,
+      850,
+      1040,
+      992
+    ]
+  },
+  {
+    "id": 1,
+    "beat": [
+      0.86,
+      1.26
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-001.png",
+    "image_sha256": "06ace235c82bd5292b1e7c64ec9ee182dc5af9b23405270f5e122a4b876939ed",
+    "pos": [
+      40,
+      850
+    ],
+    "word": "you this.",
+    "word_indices": [
+      4,
+      5
+    ],
+    "rect": [
+      40,
+      850,
+      1040,
+      992
+    ]
+  },
+  {
+    "id": 2,
+    "beat": [
+      1.801,
+      2.753
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-002.png",
+    "image_sha256": "b347ad66a30e7fd338ab777b0fabafe70517b3d1e296e7746b167a2a6c904af3",
+    "pos": [
+      40,
+      850
+    ],
+    "word": "Have you ever seen",
+    "word_indices": [
+      6,
+      9
+    ],
+    "rect": [
+      40,
+      850,
+      1040,
+      992
+    ]
+  },
+  {
+    "id": 3,
+    "beat": [
+      2.761,
+      3.981
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-003.png",
+    "image_sha256": "ab0891c2f879fd213945bfa993ec033eb46c827f75bf55d49fed510962ef2b1f",
+    "pos": [
+      40,
+      850
+    ],
+    "word": "a fat 90-year-old?",
+    "word_indices": [
+      10,
+      12
+    ],
+    "rect": [
+      40,
+      850,
+      1040,
+      992
+    ]
+  },
+  {
+    "id": 4,
+    "beat": [
+      8.944,
+      9.928
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-004.png",
+    "image_sha256": "5e3baa4386acce79a517a5a2202d5daed28d2a447b280a643a8a11178de3e0f3",
+    "pos": [
+      40,
+      850
+    ],
+    "word": "Scary, isn't it?",
+    "word_indices": [
+      13,
+      15
+    ],
+    "rect": [
+      40,
+      850,
+      1040,
+      992
+    ]
+  },
+  {
+    "id": 5,
+    "beat": [
+      15.546,
+      17.026
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-005.png",
+    "image_sha256": "9debb1cbe7fca4fbfe3f493f0a3b927d551a6958c9f647125d764b0f199b9170",
+    "pos": [
+      40,
+      850
+    ],
+    "word": "Healthy at any weight",
+    "word_indices": [
+      16,
+      19
+    ],
+    "rect": [
+      40,
+      850,
+      1040,
+      992
+    ]
+  },
+  {
+    "id": 6,
+    "beat": [
+      17.966,
+      19.147
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-006.png",
+    "image_sha256": "f78a434cce51077e51b9461a45e0acbcf64190426a0a734363700bb00bfe47b5",
+    "pos": [
+      40,
+      850
+    ],
+    "word": "is an unchallenged",
+    "word_indices": [
+      20,
+      22
+    ],
+    "rect": [
+      40,
+      850,
+      1040,
+      992
+    ]
+  },
+  {
+    "id": 7,
+    "beat": [
+      19.287,
+      19.619
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-007.png",
+    "image_sha256": "338049950abca04d98959466e70fab91c60de3923960693a23a70e8d76966cf6",
+    "pos": [
+      40,
+      850
+    ],
+    "word": "lie.",
+    "word_indices": [
+      23,
+      23
+    ],
+    "rect": [
+      40,
+      850,
+      1040,
+      992
+    ]
+  },
+  {
+    "id": 8,
+    "beat": [
+      19.947,
+      21.107
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-008.png",
+    "image_sha256": "d87f9f0304632b877969bc6c668b5074df8e9bf8040fedbb9013cb82c7d2a776",
+    "pos": [
+      40,
+      1440
+    ],
+    "word": "Bill Maher is right.",
+    "word_indices": [
+      24,
+      27
+    ],
+    "rect": [
+      40,
+      1440,
+      1040,
+      1582
+    ]
+  },
+  {
+    "id": 9,
+    "beat": [
+      21.408,
+      22.22
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-009.png",
+    "image_sha256": "67926721f129ede1734ec5ac44050a2bd8cb15012a1b25e5c979309415f0f851",
+    "pos": [
+      40,
+      1440
+    ],
+    "word": "There is no such",
+    "word_indices": [
+      28,
+      31
+    ],
+    "rect": [
+      40,
+      1440,
+      1040,
+      1582
+    ]
+  },
+  {
+    "id": 10,
+    "beat": [
+      22.228,
+      23.04
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-010.png",
+    "image_sha256": "bf7f41c26c3c4bd143f1dd59f542a229c7979f1fd43d5f8385b523e3d7502502",
+    "pos": [
+      40,
+      1440
+    ],
+    "word": "thing as being healthy",
+    "word_indices": [
+      32,
+      35
+    ],
+    "rect": [
+      40,
+      1440,
+      1040,
+      1694
+    ]
+  },
+  {
+    "id": 11,
+    "beat": [
+      23.048,
+      23.748
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-011.png",
+    "image_sha256": "5576f7ea6ca332310b9d5d63e5144846d02ccb87e764c209339f91d5a6afaae8",
+    "pos": [
+      40,
+      1440
+    ],
+    "word": "at any size.",
+    "word_indices": [
+      36,
+      38
+    ],
+    "rect": [
+      40,
+      1440,
+      1040,
+      1582
+    ]
+  },
+  {
+    "id": 12,
+    "beat": [
+      24.149,
+      25.201
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-012.png",
+    "image_sha256": "61d5b52e6d51e35b27f7e97ad40c8ce33d1f26ae3ad869ae3e193f8b0277f604",
+    "pos": [
+      40,
+      1440
+    ],
+    "word": "And if you're overfat",
+    "word_indices": [
+      39,
+      42
+    ],
+    "rect": [
+      40,
+      1440,
+      1040,
+      1582
+    ]
+  },
+  {
+    "id": 13,
+    "beat": [
+      25.209,
+      26.481
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-013.png",
+    "image_sha256": "3063fd2cc536a5c9a1f11be9d7663a01c6d8d6ec77e21524d8e08a9eaad9cf25",
+    "pos": [
+      40,
+      1440
+    ],
+    "word": "right now, it's comforting",
+    "word_indices": [
+      43,
+      46
+    ],
+    "rect": [
+      40,
+      1440,
+      1040,
+      1694
+    ]
+  },
+  {
+    "id": 14,
+    "beat": [
+      26.489,
+      27.302
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-014.png",
+    "image_sha256": "36454dddbb561fb1d4b7efd5ab8799e1a27081db73744c16a083d739a7ae17e4",
+    "pos": [
+      40,
+      1440
+    ],
+    "word": "to tell yourself that",
+    "word_indices": [
+      47,
+      50
+    ],
+    "rect": [
+      40,
+      1440,
+      1040,
+      1582
+    ]
+  },
+  {
+    "id": 15,
+    "beat": [
+      27.31,
+      28.002
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-015.png",
+    "image_sha256": "4d227706b212a29187106e8f9768eab71824be9aed61c9f00cf7fb74d48b63f2",
+    "pos": [
+      40,
+      1440
+    ],
+    "word": "you can be healthy",
+    "word_indices": [
+      51,
+      54
+    ],
+    "rect": [
+      40,
+      1440,
+      1040,
+      1582
+    ]
+  },
+  {
+    "id": 16,
+    "beat": [
+      28.01,
+      28.65
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-016.png",
+    "image_sha256": "5576f7ea6ca332310b9d5d63e5144846d02ccb87e764c209339f91d5a6afaae8",
+    "pos": [
+      40,
+      1440
+    ],
+    "word": "at any size.",
+    "word_indices": [
+      55,
+      57
+    ],
+    "rect": [
+      40,
+      1440,
+      1040,
+      1582
+    ]
+  },
+  {
+    "id": 17,
+    "beat": [
+      29.07,
+      29.823
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-017.png",
+    "image_sha256": "a51d05ecf474bf5bb93566efadecf4cc09865c2c4b46720f535f735623d008a1",
+    "pos": [
+      40,
+      1440
+    ],
+    "word": "But that is a",
+    "word_indices": [
+      58,
+      61
+    ],
+    "rect": [
+      40,
+      1440,
+      1040,
+      1582
+    ]
+  },
+  {
+    "id": 18,
+    "beat": [
+      29.831,
+      31.091
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-018.png",
+    "image_sha256": "ae3c54efedad13b55a32f6433c09029ae0cc78b172b0ee97ce20e20bed033585",
+    "pos": [
+      40,
+      1440
+    ],
+    "word": "lie and that lie",
+    "word_indices": [
+      62,
+      65
+    ],
+    "rect": [
+      40,
+      1440,
+      1040,
+      1582
+    ]
+  },
+  {
+    "id": 19,
+    "beat": [
+      31.171,
+      32.271
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-019.png",
+    "image_sha256": "326a9caa1832275e773b9e089a97fae59b5202e0c286d08b7b42f000a2bf5f40",
+    "pos": [
+      40,
+      1440
+    ],
+    "word": "is literally killing you.",
+    "word_indices": [
+      66,
+      69
+    ],
+    "rect": [
+      40,
+      1440,
+      1040,
+      1582
+    ]
+  },
+  {
+    "id": 20,
+    "beat": [
+      32.792,
+      33.524
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-020.png",
+    "image_sha256": "244b5d17b83eb8fbc4c54ba0856adb95ebf0b22204efd53d56442e54cfd312f9",
+    "pos": [
+      40,
+      1440
+    ],
+    "word": "That's why you need",
+    "word_indices": [
+      70,
+      73
+    ],
+    "rect": [
+      40,
+      1440,
+      1040,
+      1582
+    ]
+  },
+  {
+    "id": 21,
+    "beat": [
+      33.532,
+      34.184
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-021.png",
+    "image_sha256": "c1ee6a9729296c77e600f657e44988f009cbde4482e23fd9f7c960bffeb52e95",
+    "pos": [
+      40,
+      1440
+    ],
+    "word": "to treat your belly",
+    "word_indices": [
+      74,
+      77
+    ],
+    "rect": [
+      40,
+      1440,
+      1040,
+      1582
+    ]
+  },
+  {
+    "id": 22,
+    "beat": [
+      34.192,
+      35.493
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-022.png",
+    "image_sha256": "06ab47b06ccbfc8e234067d2c52765f7c4be2e42a884a841df278c67bccfa2d2",
+    "pos": [
+      40,
+      1440
+    ],
+    "word": "fat as an emergency",
+    "word_indices": [
+      78,
+      81
+    ],
+    "rect": [
+      40,
+      1440,
+      1040,
+      1582
+    ]
+  },
+  {
+    "id": 23,
+    "beat": [
+      35.773,
+      36.805
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-023.png",
+    "image_sha256": "cc3241e980af8ccbc06b765f609e8cb43abe342bf3183a5da144b3685519cb47",
+    "pos": [
+      40,
+      1440
+    ],
+    "word": "because the future is",
+    "word_indices": [
+      82,
+      85
+    ],
+    "rect": [
+      40,
+      1440,
+      1040,
+      1582
+    ]
+  },
+  {
+    "id": 24,
+    "beat": [
+      36.813,
+      38.093
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-024.png",
+    "image_sha256": "cb47d8b2f06dd0024eb4af99454cc3873b14e701d7c079f8bbf8dcaf53789880",
+    "pos": [
+      40,
+      1440
+    ],
+    "word": "going to be amazing",
+    "word_indices": [
+      86,
+      89
+    ],
+    "rect": [
+      40,
+      1440,
+      1040,
+      1582
+    ]
+  },
+  {
+    "id": 25,
+    "beat": [
+      38.314,
+      38.826
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-025.png",
+    "image_sha256": "ea2164a4d149538a940fc0b992cfaac3380492b5b118d69da34493900ab9ac81",
+    "pos": [
+      40,
+      1440
+    ],
+    "word": "and if you don't",
+    "word_indices": [
+      90,
+      93
+    ],
+    "rect": [
+      40,
+      1440,
+      1040,
+      1582
+    ]
+  },
+  {
+    "id": 26,
+    "beat": [
+      38.834,
+      39.734
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-026.png",
+    "image_sha256": "b2e302b953b011a6ea361d97a87160b3fcc538f850e0635951393b0dd743cc65",
+    "pos": [
+      40,
+      1440
+    ],
+    "word": "lose the weight you",
+    "word_indices": [
+      94,
+      97
+    ],
+    "rect": [
+      40,
+      1440,
+      1040,
+      1582
+    ]
+  },
+  {
+    "id": 27,
+    "beat": [
+      39.814,
+      40.346
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-027.png",
+    "image_sha256": "da5ddcd48bb5eaf125196744a92f80af304647be700adc1f6a30a3f5af60154b",
+    "pos": [
+      40,
+      1440
+    ],
+    "word": "aren't going to be",
+    "word_indices": [
+      98,
+      101
+    ],
+    "rect": [
+      40,
+      1440,
+      1040,
+      1582
+    ]
+  },
+  {
+    "id": 28,
+    "beat": [
+      40.354,
+      41.095
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-028.png",
+    "image_sha256": "092eee7df764ffbfb1b4777c79bc5b474a1b519f89c2f02b98ca0c6ba4f37aa5",
+    "pos": [
+      40,
+      1440
+    ],
+    "word": "around to see how",
+    "word_indices": [
+      102,
+      105
+    ],
+    "rect": [
+      40,
+      1440,
+      1040,
+      1582
+    ]
+  },
+  {
+    "id": 29,
+    "beat": [
+      41.255,
+      41.995
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-029.png",
+    "image_sha256": "f41ba26e6881b1e3fd5c6eb156be75f29b353732fbab80bea5bbd7c34d051343",
+    "pos": [
+      40,
+      1440
+    ],
+    "word": "awesome it will be.",
+    "word_indices": [
+      106,
+      109
+    ],
+    "rect": [
+      40,
+      1440,
+      1040,
+      1582
+    ]
+  },
+  {
+    "id": 30,
+    "beat": [
+      42.475,
+      43.427
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-030.png",
+    "image_sha256": "d22fa77df0c5402012835e78314e6ddc20896f2e92b179499e416d128c770a5b",
+    "pos": [
+      40,
+      1440
+    ],
+    "word": "So, on screen right",
+    "word_indices": [
+      110,
+      113
+    ],
+    "rect": [
+      40,
+      1440,
+      1040,
+      1582
+    ]
+  },
+  {
+    "id": 31,
+    "beat": [
+      43.435,
+      44.208
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-031.png",
+    "image_sha256": "065721889082e122eb72d3dd682b358315dcb576b56e2f8fbe03569b9d136dde",
+    "pos": [
+      40,
+      1440
+    ],
+    "word": "now you can see",
+    "word_indices": [
+      114,
+      117
+    ],
+    "rect": [
+      40,
+      1440,
+      1040,
+      1582
+    ]
+  },
+  {
+    "id": 32,
+    "beat": [
+      44.216,
+      45.188
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-032.png",
+    "image_sha256": "f3adde7a7d98502059e44dd6be06ce37175ad0c6a959428e759fca3d51a9d9b6",
+    "pos": [
+      40,
+      1440
+    ],
+    "word": "a BMI table to",
+    "word_indices": [
+      118,
+      121
+    ],
+    "rect": [
+      40,
+      1440,
+      1040,
+      1582
+    ]
+  },
+  {
+    "id": 33,
+    "beat": [
+      45.196,
+      46.196
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-033.png",
+    "image_sha256": "69aee9baa4c06038062b7aa4c123665f56b01c1fd5fd104a0dd4102caa47372c",
+    "pos": [
+      40,
+      1440
+    ],
+    "word": "tell if you're overweight.",
+    "word_indices": [
+      122,
+      125
+    ],
+    "rect": [
+      40,
+      1440,
+      1040,
+      1694
+    ]
+  },
+  {
+    "id": 34,
+    "beat": [
+      46.597,
+      47.209
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-034.png",
+    "image_sha256": "5eb8df2a22fa8a957ad8dbd28cad1707a4a13cd07c35e258dee741c1ddf7e6b4",
+    "pos": [
+      40,
+      1440
+    ],
+    "word": "So look at your",
+    "word_indices": [
+      126,
+      129
+    ],
+    "rect": [
+      40,
+      1440,
+      1040,
+      1582
+    ]
+  },
+  {
+    "id": 35,
+    "beat": [
+      47.217,
+      47.969
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-035.png",
+    "image_sha256": "d03da8528e638ea38219f9818fa9dab84a454619c8af9918e0e548f668dd6c11",
+    "pos": [
+      40,
+      1440
+    ],
+    "word": "weight, look at your",
+    "word_indices": [
+      130,
+      133
+    ],
+    "rect": [
+      40,
+      1440,
+      1040,
+      1582
+    ]
+  },
+  {
+    "id": 36,
+    "beat": [
+      47.977,
+      49.39
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-036.png",
+    "image_sha256": "73a4709eedfa59281a1b2d18266aa0ae79127ca5c138d1a30279b1caa29398af",
+    "pos": [
+      40,
+      1440
+    ],
+    "word": "height and then see",
+    "word_indices": [
+      134,
+      137
+    ],
+    "rect": [
+      40,
+      1440,
+      1040,
+      1582
+    ]
+  },
+  {
+    "id": 37,
+    "beat": [
+      49.398,
+      50.29
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-037.png",
+    "image_sha256": "4643a20374615bcf499ba74af52ec00d2e685206a750aec006ca725ba08b0a57",
+    "pos": [
+      40,
+      1440
+    ],
+    "word": "if you're overweight or",
+    "word_indices": [
+      138,
+      141
+    ],
+    "rect": [
+      40,
+      1440,
+      1040,
+      1694
+    ]
+  },
+  {
+    "id": 38,
+    "beat": [
+      50.298,
+      50.618
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-038.png",
+    "image_sha256": "edda7bbb87287e2ae8f32499a028014c002322218a8679df8d516022cb87a84e",
+    "pos": [
+      40,
+      1440
+    ],
+    "word": "obese.",
+    "word_indices": [
+      142,
+      142
+    ],
+    "rect": [
+      40,
+      1440,
+      1040,
+      1582
+    ]
+  },
+  {
+    "id": 39,
+    "beat": [
+      51.038,
+      51.59
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-039.png",
+    "image_sha256": "e5b75148e555dcce3540ef025ca129327d30fe0b236e66a361a9c58eba30e2ba",
+    "pos": [
+      40,
+      1440
+    ],
+    "word": "If you're in the",
+    "word_indices": [
+      143,
+      146
+    ],
+    "rect": [
+      40,
+      1440,
+      1040,
+      1582
+    ]
+  },
+  {
+    "id": 40,
+    "beat": [
+      51.598,
+      53.211
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-040.png",
+    "image_sha256": "10c6d6c3166ea3a9033179edd5b231168dff1cbd2f73cb7436acc3d13bef2078",
+    "pos": [
+      40,
+      1440
+    ],
+    "word": "overweight category, your health",
+    "word_indices": [
+      147,
+      150
+    ],
+    "rect": [
+      40,
+      1440,
+      1040,
+      1694
+    ]
+  },
+  {
+    "id": 41,
+    "beat": [
+      53.219,
+      54.691
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-041.png",
+    "image_sha256": "986df74e23e8c2718960e5e7104d77e982888cd88699a58a60877abfd6f7c097",
+    "pos": [
+      40,
+      1440
+    ],
+    "word": "will tremendously improve if",
+    "word_indices": [
+      151,
+      154
+    ],
+    "rect": [
+      40,
+      1440,
+      1040,
+      1694
+    ]
+  },
+  {
+    "id": 42,
+    "beat": [
+      54.699,
+      55.212
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-042.png",
+    "image_sha256": "395618c5968ef0dc20e998fb962a06ed280b79745cad2731c3d1fc2b00b89a36",
+    "pos": [
+      40,
+      1440
+    ],
+    "word": "you get to a",
+    "word_indices": [
+      155,
+      158
+    ],
+    "rect": [
+      40,
+      1440,
+      1040,
+      1582
+    ]
+  },
+  {
+    "id": 43,
+    "beat": [
+      55.22,
+      55.8
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-043.png",
+    "image_sha256": "b61351025d27e5c80846b9374817fb55ee7720dd930c7486df2b90f92c98a6a2",
+    "pos": [
+      40,
+      1440
+    ],
+    "word": "healthy weight.",
+    "word_indices": [
+      159,
+      160
+    ],
+    "rect": [
+      40,
+      1440,
+      1040,
+      1582
+    ]
+  },
+  {
+    "id": 44,
+    "beat": [
+      56.02,
+      56.572
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-044.png",
+    "image_sha256": "197f546576435f791fcd4aec2f101bb785f916317ad32ab0892a88ad5d51b93c",
+    "pos": [
+      40,
+      1440
+    ],
+    "word": "If you're on the",
+    "word_indices": [
+      161,
+      164
+    ],
+    "rect": [
+      40,
+      1440,
+      1040,
+      1582
+    ]
+  },
+  {
+    "id": 45,
+    "beat": [
+      56.58,
+      58.501
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-045.png",
+    "image_sha256": "8ce9119a52d488b9a4507e9ebdf0fcec3c8b5e41926410c6c78ca569e5627b39",
+    "pos": [
+      40,
+      1440
+    ],
+    "word": "obese category, losing fat",
+    "word_indices": [
+      165,
+      168
+    ],
+    "rect": [
+      40,
+      1440,
+      1040,
+      1694
+    ]
+  },
+  {
+    "id": 46,
+    "beat": [
+      58.541,
+      59.593
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-046.png",
+    "image_sha256": "fdd4846d943d063fd630832efba9ef5ea41ad4deedf16e3a153f482aa3206c26",
+    "pos": [
+      40,
+      1440
+    ],
+    "word": "is literally the most",
+    "word_indices": [
+      169,
+      172
+    ],
+    "rect": [
+      40,
+      1440,
+      1040,
+      1582
+    ]
+  },
+  {
+    "id": 47,
+    "beat": [
+      59.601,
+      60.393
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-047.png",
+    "image_sha256": "e5540562c9ee0e55025cd7fb5c475a5239f0133eeab467d7cb9b9efa6667af5f",
+    "pos": [
+      40,
+      1440
+    ],
+    "word": "important thing you can",
+    "word_indices": [
+      173,
+      176
+    ],
+    "rect": [
+      40,
+      1440,
+      1040,
+      1694
+    ]
+  },
+  {
+    "id": 48,
+    "beat": [
+      60.401,
+      60.681
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-048.png",
+    "image_sha256": "ff8b07181700fe1d6e011d6c9754b9c4227ba81527143be15e15aa71a2bd0ecf",
+    "pos": [
+      40,
+      1440
+    ],
+    "word": "do.",
+    "word_indices": [
+      177,
+      177
+    ],
+    "rect": [
+      40,
+      1440,
+      1040,
+      1582
+    ]
+  },
+  {
+    "id": 49,
+    "beat": [
+      61.102,
+      62.134
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-049.png",
+    "image_sha256": "3f5c6a7841c97bae3f0a58fde7f3777865288050629d2d00975f7fa08092a347",
+    "pos": [
+      40,
+      1440
+    ],
+    "word": "Subscribe to my channel",
+    "word_indices": [
+      178,
+      181
+    ],
+    "rect": [
+      40,
+      1440,
+      1040,
+      1694
+    ]
+  },
+  {
+    "id": 50,
+    "beat": [
+      62.142,
+      63.014
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-050.png",
+    "image_sha256": "95753c8d34aa975452c3d89d1091e223b8130c5e8d66a272125b956fd5723644",
+    "pos": [
+      40,
+      1440
+    ],
+    "word": "and learn exactly how",
+    "word_indices": [
+      182,
+      185
+    ],
+    "rect": [
+      40,
+      1440,
+      1040,
+      1582
+    ]
+  },
+  {
+    "id": 51,
+    "beat": [
+      63.022,
+      63.635
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-051.png",
+    "image_sha256": "b13e8ed0ca10b11abd8616785187f725e536c8465b55ea50c4798f671a60924a",
+    "pos": [
+      40,
+      1440
+    ],
+    "word": "to lose your belly",
+    "word_indices": [
+      186,
+      189
+    ],
+    "rect": [
+      40,
+      1440,
+      1040,
+      1582
+    ]
+  },
+  {
+    "id": 52,
+    "beat": [
+      63.643,
+      64.723
+    ],
+    "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-052.png",
+    "image_sha256": "7376e88f933dbc905d60b80531cd69df76696a82aeb14330d4c941170bd51c0c",
+    "pos": [
+      40,
+      1440
+    ],
+    "word": "fat and get abs.",
+    "word_indices": [
+      190,
+      193
+    ],
+    "rect": [
+      40,
+      1440,
+      1040,
+      1582
+    ]
+  }
+]

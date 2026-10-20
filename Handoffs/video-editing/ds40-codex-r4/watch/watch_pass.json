@@ -1,0 +1,400 @@
+{
+ "watch_version": "1.2.0",
+ "tool": "_shared/deliver/watch.py",
+ "video": "bill-maher-fat-90-year-old-r4.mp4",
+ "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/bill-maher-fat-90-year-old-r4.mp4",
+ "sha256": "200c7b2b84cfba2aa0539b8d7078973b902c635d4447ffabb9e207b3307c609b",
+ "bytes": 52173235,
+ "size": "1080x1920",
+ "fps": 29.97,
+ "duration": 64.865,
+ "when": "2026-10-20T14:07:45-0500",
+ "plan": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/watch-plan.json",
+ "out": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/watch",
+ "boundaries": 11,
+ "boundary_list": [
+  {
+   "t": 8.34,
+   "label": "join",
+   "strip": "strip_000_00-08.34_join.jpg"
+  },
+  {
+   "t": 17.95,
+   "label": "join",
+   "strip": "strip_001_00-17.95_join.jpg"
+  },
+  {
+   "t": 19.62,
+   "label": "G01 out / covered out / join / punch:NEAR / talking_head_windows in / talking_head_windows out",
+   "strip": "strip_002_00-19.62_G01_out___covered_out___join___punch_NEA.jpg"
+  },
+  {
+   "t": 32.4,
+   "label": "join / punch:TIGHT",
+   "strip": "strip_003_00-32.40_join___punch_TIGHT.jpg"
+  },
+  {
+   "t": 32.65,
+   "label": "G02 in",
+   "strip": "strip_004_00-32.65_G02_in.jpg"
+  },
+  {
+   "t": 37.85,
+   "label": "G02 out",
+   "strip": "strip_005_00-37.85_G02_out.jpg"
+  },
+  {
+   "t": 42.41,
+   "label": "join",
+   "strip": "strip_006_00-42.41_join.jpg"
+  },
+  {
+   "t": 42.51,
+   "label": "G03 in / covered in / graphic_regions in / join / punch:BMI / talking_head_windows out",
+   "strip": "strip_007_00-42.51_G03_in___covered_in___graphic_regions_in.jpg"
+  },
+  {
+   "t": 55.75,
+   "label": "join",
+   "strip": "strip_008_00-55.75_join.jpg"
+  },
+  {
+   "t": 60.66,
+   "label": "G03 out / covered out / graphic_regions out / join / punch:NEAR / talking_head_windows in",
+   "strip": "strip_009_01-00.66_G03_out___covered_out___graphic_regions_.jpg"
+  },
+  {
+   "t": 61.01,
+   "label": "G04 in",
+   "strip": "strip_010_01-01.01_G04_in.jpg"
+  }
+ ],
+ "reviewed": 11,
+ "inspected": true,
+ "judged": [
+  {
+   "image": "sheet_00_00-00.00_to_00-23.99.jpg",
+   "verdict": "clean",
+   "t": 0.0,
+   "note": "Opening caption is absent at frame 7 (0.2336 s) and first appears at frame 8 (0.2669 s), matching direct delivered AAC CTC But onset 0.260 s. Bill excerpt and silent Dan reaction remain present."
+  },
+  {
+   "image": "sheet_01_00-24.99_to_00-49.02.jpg",
+   "verdict": "clean",
+   "t": 24.99,
+   "note": "Dan response, closer punch, emergency card and BMI entry present. No face or caption collision."
+  },
+  {
+   "image": "sheet_02_00-50.02_to_01-04.00.jpg",
+   "verdict": "clean",
+   "t": 50.02,
+   "note": "BMI table through its remaining spoken lines, return to Dan and subscribe end are present."
+  },
+  {
+   "image": "strip_000_00-08.34_join.jpg",
+   "verdict": "clean",
+   "t": 8.34,
+   "note": "New reencoded opening prefix joins the byte-identical original picture tail at frame 250. Native consecutive frame pair and two-second moving context show continuous Bill and Dan picture, with no exposed seam."
+  },
+  {
+   "image": "strip_001_00-17.95_join.jpg",
+   "verdict": "clean",
+   "t": 17.9513,
+   "note": "Internal watching-key to continuous tail at frame 538. Bill and Dan remain continuous; no uncovered pose reset. Hair is visibly below the panel top."
+  },
+  {
+   "image": "strip_002_00-19.62_G01_out___covered_out___join___punch_NEA.jpg",
+   "verdict": "expected",
+   "t": 19.6196,
+   "note": "Declared end of Bill excerpt and scene change to Dan at frame 588. Complete final word lie; title card clears before Dan fills frame."
+  },
+  {
+   "image": "strip_003_00-32.40_join___punch_TIGHT.jpg",
+   "verdict": "expected",
+   "t": 32.399,
+   "note": "Declared fixed tighter punch at frame 971 on one continuous source performance. No take jump or clipped hair."
+  },
+  {
+   "image": "strip_004_00-32.65_G02_in.jpg",
+   "verdict": "expected",
+   "t": 32.6474,
+   "note": "Declared emergency lower third enters over chest with moving accent. Face and captions clear."
+  },
+  {
+   "image": "strip_005_00-37.85_G02_out.jpg",
+   "verdict": "expected",
+   "t": 37.8474,
+   "note": "Declared emergency lower third exits while the presenter continues moving."
+  },
+  {
+   "image": "strip_006_00-42.41_join.jpg",
+   "verdict": "clean",
+   "t": 42.409,
+   "note": "Approved R3 sample to three continuous key-tail frames at frame 1271. Pose, hands and face remain continuous."
+  },
+  {
+   "image": "strip_007_00-42.51_G03_in___covered_in___graphic_regions_in.jpg",
+   "verdict": "expected",
+   "t": 42.5091,
+   "note": "Declared full BMI card enters at frame 1274. Table matches independent BMI still and is below the caption."
+  },
+  {
+   "image": "strip_008_00-55.75_join.jpg",
+   "verdict": "clean",
+   "t": 55.7474,
+   "note": "Covered audio removal remains clean. Random-seek watch extraction garbles some table digits; sequential native master counter-evidence is clean, and all E tail frames are MD5-identical to D. Final ASR retains healthy weight into If you are on the obese category."
+  },
+  {
+   "image": "strip_009_01-00.66_G03_out___covered_out___graphic_regions_.jpg",
+   "verdict": "expected",
+   "t": 60.6606,
+   "note": "Expected BMI table exit to Dan. Random-seek strip/pair garbles a few digits before the cut, but sequential native frame 1817 is clean (SHA256 81f5d3a07bdf22cb93cd94ab88bc0bde3e0d367706072338cdb0c8b36427d550); E frame is MD5-identical to D."
+  },
+  {
+   "image": "strip_010_01-01.01_G04_in.jpg",
+   "verdict": "expected",
+   "t": 61.0074,
+   "note": "Declared subscribe lower third enters over chest, clear of face and captions."
+  },
+  {
+   "image": "pair_000_00-08.34.jpg",
+   "verdict": "clean",
+   "t": 8.34,
+   "note": "New reencoded opening prefix joins the byte-identical original picture tail at frame 250. Native consecutive frame pair and two-second moving context show continuous Bill and Dan picture, with no exposed seam."
+  },
+  {
+   "image": "pair_001_00-17.95.jpg",
+   "verdict": "clean",
+   "t": 17.9513,
+   "note": "Internal watching-key to continuous tail at frame 538. Bill and Dan remain continuous; no uncovered pose reset. Hair is visibly below the panel top."
+  },
+  {
+   "image": "pair_002_00-19.62.jpg",
+   "verdict": "expected",
+   "t": 19.6196,
+   "note": "Declared end of Bill excerpt and scene change to Dan at frame 588. Complete final word lie; title card clears before Dan fills frame."
+  },
+  {
+   "image": "pair_003_00-32.40.jpg",
+   "verdict": "expected",
+   "t": 32.399,
+   "note": "Declared fixed tighter punch at frame 971 on one continuous source performance. No take jump or clipped hair."
+  },
+  {
+   "image": "pair_004_00-32.65.jpg",
+   "verdict": "expected",
+   "t": 32.6474,
+   "note": "Declared emergency lower third enters over chest with moving accent. Face and captions clear."
+  },
+  {
+   "image": "pair_005_00-37.85.jpg",
+   "verdict": "expected",
+   "t": 37.8474,
+   "note": "Declared emergency lower third exits while the presenter continues moving."
+  },
+  {
+   "image": "pair_006_00-42.41.jpg",
+   "verdict": "clean",
+   "t": 42.409,
+   "note": "Approved R3 sample to three continuous key-tail frames at frame 1271. Pose, hands and face remain continuous."
+  },
+  {
+   "image": "pair_007_00-42.51.jpg",
+   "verdict": "expected",
+   "t": 42.5091,
+   "note": "Declared full BMI card enters at frame 1274. Table matches independent BMI still and is below the caption."
+  },
+  {
+   "image": "pair_008_00-55.75.jpg",
+   "verdict": "clean",
+   "t": 55.7474,
+   "note": "The covered audio removal is clean. This pair is a random-seek extraction and shows malformed BMI digits after the join. Sequential native full-master frames show clean digits; E tail pixels exactly match D. Preserve the pair as an extraction artifact, not a master defect."
+  },
+  {
+   "image": "pair_009_01-00.66.jpg",
+   "verdict": "expected",
+   "t": 60.6606,
+   "note": "The declared BMI exit to Dan is clean. This pair garbles some BMI digits just before the cut from random seeking, while sequential full-master frame 1817 is clean (SHA256 81f5d3a07bdf22cb93cd94ab88bc0bde3e0d367706072338cdb0c8b36427d550). E tail pixels are MD5-identical."
+  },
+  {
+   "image": "pair_010_01-01.01.jpg",
+   "verdict": "expected",
+   "t": 61.0074,
+   "note": "Declared subscribe lower third enters over chest, clear of face and captions."
+  }
+ ],
+ "judged_by": "Independent GPT-6 Sol high, all 25 images and native repair review",
+ "open_defects": 0,
+ "scan": {
+  "frames": 1944,
+  "fps": 29.97,
+  "median_diff": 1.324,
+  "mad": 1.273,
+  "p99": 7.105,
+  "threshold": 8.961,
+  "frozen": [
+   {
+    "t": 42.84,
+    "seconds": 0.5,
+    "inside_declared": true
+   },
+   {
+    "t": 46.71,
+    "seconds": 0.5,
+    "inside_declared": true
+   },
+   {
+    "t": 47.28,
+    "seconds": 0.7,
+    "inside_declared": true
+   },
+   {
+    "t": 48.01,
+    "seconds": 1.4,
+    "inside_declared": true
+   },
+   {
+    "t": 49.45,
+    "seconds": 0.87,
+    "inside_declared": true
+   },
+   {
+    "t": 51.08,
+    "seconds": 0.53,
+    "inside_declared": true
+   },
+   {
+    "t": 51.65,
+    "seconds": 1.57,
+    "inside_declared": true
+   },
+   {
+    "t": 57.52,
+    "seconds": 1.0,
+    "inside_declared": true
+   },
+   {
+    "t": 58.59,
+    "seconds": 0.6,
+    "inside_declared": true
+   }
+  ],
+  "black": [],
+  "jumps": [],
+  "explained_jumps": 4
+ },
+ "naked_splices": {
+  "count": 0,
+  "per_min": 0.0,
+  "candidates": 5,
+  "naked": [],
+  "settings": {
+   "grid": "90x160",
+   "blocks": "9x16",
+   "peak": 20.0,
+   "sharp": 2.0,
+   "still": 0.25,
+   "hot_min": 8,
+   "subject_rows": 0.7,
+   "tex_min": 6.0,
+   "palette": 0.1,
+   "align_explains": 0.4,
+   "align_margin_blocks": 1
+  }
+ },
+ "graphic_presence": [
+  {
+   "name": "G01",
+   "t": 12.16,
+   "method": "mov_alpha_corr",
+   "corr": 0.993,
+   "opaque_px": 166311,
+   "present": true
+  },
+  {
+   "name": "G02",
+   "t": 35.87,
+   "method": "mov_alpha_corr",
+   "corr": 0.929,
+   "opaque_px": 234351,
+   "present": true
+  },
+  {
+   "name": "G03",
+   "t": 53.76,
+   "method": "mov_alpha_corr",
+   "corr": 0.443,
+   "opaque_px": 945252,
+   "present": false
+  },
+  {
+   "name": "G04",
+   "t": 63.4,
+   "method": "mov_alpha_corr",
+   "corr": 0.97,
+   "opaque_px": 166311,
+   "present": true
+  }
+ ],
+ "sheets": [
+  "sheet_00_00-00.00_to_00-23.99.jpg",
+  "sheet_01_00-24.99_to_00-49.02.jpg",
+  "sheet_02_00-50.02_to_01-04.00.jpg"
+ ],
+ "sheet_interval_s": 1.0,
+ "strips": [
+  "strip_000_00-08.34_join.jpg",
+  "strip_001_00-17.95_join.jpg",
+  "strip_002_00-19.62_G01_out___covered_out___join___punch_NEA.jpg",
+  "strip_003_00-32.40_join___punch_TIGHT.jpg",
+  "strip_004_00-32.65_G02_in.jpg",
+  "strip_005_00-37.85_G02_out.jpg",
+  "strip_006_00-42.41_join.jpg",
+  "strip_007_00-42.51_G03_in___covered_in___graphic_regions_in.jpg",
+  "strip_008_00-55.75_join.jpg",
+  "strip_009_01-00.66_G03_out___covered_out___graphic_regions_.jpg",
+  "strip_010_01-01.01_G04_in.jpg"
+ ],
+ "pairs": [
+  "pair_000_00-08.34.jpg",
+  "pair_001_00-17.95.jpg",
+  "pair_002_00-19.62.jpg",
+  "pair_003_00-32.40.jpg",
+  "pair_004_00-32.65.jpg",
+  "pair_005_00-37.85.jpg",
+  "pair_006_00-42.41.jpg",
+  "pair_007_00-42.51.jpg",
+  "pair_008_00-55.75.jpg",
+  "pair_009_01-00.66.jpg",
+  "pair_010_01-01.01.jpg"
+ ],
+ "clips": [
+  "clip_000_00-08.34.mp4",
+  "clip_001_00-17.95.mp4",
+  "clip_002_00-19.62.mp4",
+  "clip_003_00-32.40.mp4",
+  "clip_004_00-32.65.mp4",
+  "clip_005_00-37.85.mp4",
+  "clip_006_00-42.41.mp4",
+  "clip_007_00-42.51.mp4",
+  "clip_008_00-55.75.mp4",
+  "clip_009_01-00.66.mp4",
+  "clip_010_01-01.01.mp4"
+ ],
+ "checklist": [
+  "hair_top",
+  "out_of_frame",
+  "junk_card",
+  "naked_splice",
+  "label_over_face",
+  "black_or_frozen",
+  "wide_level",
+  "visual_junk",
+  "graphic_missing",
+  "ai_giveaway",
+  "placeholder"
+ ],
+ "seconds": 63.7,
+ "judged_at": "2026-10-20T14:12:02-0500",
+ "judge_problems": []
+}

@@ -12,4 +12,4 @@ When a /video-setup or /ad-setup task needs a platform copy (Blotato 400 MB copy
 
 **Why:** On RO-05 (2026-09-30) other sessions held 3 to 4 builds at load ~300 for over half an hour; waiting could have taken hours. The hardware media engine barely touches the CPU the two-build cap protects. Dan: agreed, make it the standard for upload and setup tasks.
 
-**How to apply:** Setup/upload copies only. Editing renders, QC, transcription and x264 encodes still obey the two-build cap. Written into `_shared/VIDEO-RULES.md` and `video-setup/SKILL.md`. Related: [[blotato-false-failure-large-video]].
+**How to apply:** Setup/upload copies only. Editing renders, QC, transcription and x264 encodes wait in the render queue (`_shared/renderq`, since 2026-10-20), which exempts `h264_videotoolbox` encodes automatically. Written into `_shared/VIDEO-RULES.md` and `video-setup/SKILL.md`. Related: [[blotato-false-failure-large-video]].

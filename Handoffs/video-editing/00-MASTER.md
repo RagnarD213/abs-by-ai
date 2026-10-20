@@ -41,12 +41,12 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [RA-04](RA-04-top-3-tips-for-getting-abs.md) | Top 3 Tips For Getting Abs | C1664 | UPLOADED | S |
 | [RA-05](RA-05-how-ai-can-get-you-real-six-pack-abs.md) | How AI Can Get You REAL Six Pack Abs | C1664 | UPLOADED | S |
 | [RA-06](RA-06-whats-the-best-ab-exercise.md) | What's The Best Ab Exercise? | C1664 | UPLOADED | S |
-| [RA-07](RA-07-fire-your-trainer.md) | Fire Your Trainer! | C1664 | FINALIZED | S |
+| [RA-07](RA-07-fire-your-trainer.md) | Fire Your Trainer! | C1664 | UPLOADED | S |
 | [RA-08](RA-08-why-are-trainers-going-out-of-business.md) | Why Are Trainers Going Out Of Business? | C1665 | **NEEDS DAN** | S |
 | [RA-09](RA-09-do-you-think-ai-is-changing-the-world.md) | Do You Think AI Is Changing The World? | C1666 | READY | S |
 | [RA-10](RA-10-ai-is-changing-the-world.md) | AI Is Changing The World | C1667 | READY | S |
 | [RA-11](RA-11-what-would-you-look-like-with-abs.md) | What Would You Look Like With Abs? | C1667 | READY | S |
-| [RA-12](RA-12-first-step-to-getting-abs-isnt-a-workout.md) | The First Step To Getting Abs Isn't A Workout | C1667 | DELIVERED: awaiting Dan | S |
+| [RA-12](RA-12-first-step-to-getting-abs-isnt-a-workout.md) | The First Step To Getting Abs Isn't A Workout | C1667 | IN PROGRESS | S |
 | [RA-13](RA-13-why-do-most-guys-never-get-abs.md) | Why Do Most Guys Never Get Abs? | C1667 | UPLOADED | S |
 | [RA-14](RA-14-cheat-code-for-six-pack-abs.md) | The Cheat Code For Six Pack Abs | C1667 | UPLOADED | S |
 | [RA-15](RA-15-never-pay-a-nutritionist-again.md) | Never Pay A Nutritionist Again | C1668 | UPLOADED | S |
@@ -112,7 +112,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [DS-28](DS-28-meal-prep-short.md) | Meal Prep | 9/23 C1720 | UPLOADED | S |
 | [DS-29](DS-29-robot-lawn-mower-short.md) | Robot Lawn Mower | 9/23 C1720 | BLOCKED: Robot mower b-roll not filmed | S |
 | [DS-30](DS-30-self-driving-car-short.md) | Self-Driving Car | 9/23 C1720 | READY | S |
-| [DS-31](DS-31-ai-homework-short.md) | AI Homework | 9/23 C1720 | FINALIZED | S |
+| [DS-31](DS-31-ai-homework-short.md) | AI Homework | 9/23 C1720 | UPLOADED | S |
 | [DS-32](DS-32-ai-job-short.md) | AI Job | 9/23 C1720 | READY | S |
 
 ### 1C2 · Organic long-form, 9/23 shoot (9)
@@ -129,9 +129,9 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [RO-17](RO-17-3-healthy-foods-that-made-me-fat.md) | 3 Healthy Foods That Made Me Fat | 9/23 C1713 | FINALIZED | L |
 | [RO-18](RO-18-how-to-make-time-for-exercise-nutrition.md) | How To Make Time For Exercise & Nutrition | 9/23 C1714-C1715 | IN PROGRESS | L |
 | [RO-19](RO-19-my-first-spray-tan.md) | My First Spray Tan (old edit scrapped 10-02, redo from scratch) | 8/3 C1512 (31 min) | FINALIZED | L |
-| [RO-20](RO-20-invest-more-in-your-health.md) | Why You Should Invest More In Your Health (part 1 of 3 since 10-11; old edit scrapped 10-02) | 8/3 C1511 (69 min) | DELIVERED: awaiting Dan | L |
-| [RO-20B](RO-20-invest-more-in-your-health.md) | What To Cut To Afford Getting In Shape (part 2 of 3, split from RO-20 on 10-11) | 8/3 C1511 (69 min) | DELIVERED: awaiting Dan | L |
-| [RO-20C](RO-20-invest-more-in-your-health.md) | What To Buy For Your Health At Every Income Level (part 3 of 3, split from RO-20 on 10-11) | 8/3 C1511 (69 min) | DELIVERED: awaiting Dan | L |
+| [RO-20](RO-20-invest-more-in-your-health.md) | Why You Should Invest More In Your Health (part 1 of 3 since 10-11; old edit scrapped 10-02) | 8/3 C1511 (69 min) | FINALIZED | L |
+| [RO-20B](RO-20-invest-more-in-your-health.md) | What To Cut To Afford Getting In Shape (part 2 of 3, split from RO-20 on 10-11) | 8/3 C1511 (69 min) | FINALIZED | L |
+| [RO-20C](RO-20-invest-more-in-your-health.md) | What To Buy For Your Health At Every Income Level (part 3 of 3, split from RO-20 on 10-11) | 8/3 C1511 (69 min) | IN PROGRESS | L |
 
 ### 1C3 · 10/15 shoot (59 jobs, added 2026-10-16): release-ASAP first, then shorts, then long-forms
 
@@ -142,7 +142,7 @@ Roll map and editor warnings: `Docs/SHOOT_1015_FOOTAGE_REPORT.md`. BLOCKED rows 
 | job | video | rolls | status | size |
 |---|---|---|---|---|
 | [RO-25](RO-25-im-41-i-wasted-my-life.md) | I'm 41. I Wasted My Life. | 10/15 C1767 | UPLOADED | L |
-| [RO-28](RO-28-why-zepbound-improves-your-health-even-if-youre-ripped.md) | Why Zepbound Improves Your Health Even If You're Ripped | 10/15 C1771 | READY | L |
+| [RO-28](RO-28-why-zepbound-improves-your-health-even-if-youre-ripped.md) | Why Zepbound Improves Your Health Even If You're Ripped | 10/15 C1771 | IN PROGRESS | L |
 
 RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled for Sunday October 18 at 9 AM Chicago time, with Facebook and Instagram Monday at noon. The setup receipt is `Docs/RO25_SETUP_RECEIPT_20261017.md`. The separate SL-18 Shorts job can start from this approved master.
 
@@ -150,7 +150,7 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 
 | job | video | rolls | status | size |
 |---|---|---|---|---|
-| [DS-33](DS-33-cristiano-ronaldo-sells-an-ab-belt-its-harder-than-a-workout.md) | Cristiano Ronaldo Sells An Ab Belt. It's Harder Than A Workout. | 10/15 C1729-C1730 | READY | S |
+| [DS-33](DS-33-cristiano-ronaldo-sells-an-ab-belt-its-harder-than-a-workout.md) | Cristiano Ronaldo Sells An Ab Belt. It's Harder Than A Workout. | 10/15 C1729-C1730 | IN PROGRESS | S |
 | [DS-34](DS-34-surgeons-now-carve-fake-abs-into-belly-fat-dont-do-it.md) | Surgeons Now Carve Fake Abs Into Belly Fat. Don't Do It. | 10/15 C1729-C1730 | READY | S |
 | [DS-35](DS-35-women-say-they-love-the-dad-bod-they-dont.md) | Women Say They Love The Dad Bod. They Don't. | 10/15 C1729-C1730 | READY | S |
 | [DS-36](DS-36-bill-maher-says-fat-shaming-should-come-back-hes-right.md) | Bill Maher Says Fat Shaming Should Come Back. He's Right. | 10/15 C1730 | READY | S |
@@ -242,7 +242,7 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 | [SL-06](SL-06-top-5-zepbound-tips-shorts.md) | Top 5 Zepbound Tips (RO-12, public Oct 25) | READY | S |
 | [SL-07](SL-07-if-i-had-belly-fat-shorts.md) | If I Had Belly Fat, Here's How I'd Lose It In 90 Days (RO-16, public Nov 1) | UPLOADED | S |
 | [SL-08](SL-08-calories-not-losing-weight-shorts.md) | Calories: The Reason You're Not Losing Weight (RO-10 replacement pending; old YouTube copy Private) | DELIVERED: awaiting Dan | S |
-| [SL-09](SL-09-oura-ring-review-shorts.md) | My Honest Oura Ring Review (Zeeshan Video 4, public Nov 8) | DELIVERED: awaiting Dan | S |
+| [SL-09](SL-09-oura-ring-review-shorts.md) | My Honest Oura Ring Review (Zeeshan Video 4, public Nov 8) | IN PROGRESS | S |
 | [SL-10](SL-10-alcohol-and-abs-shorts.md) | Can You Drink Alcohol And Still Have Abs? (RO-13, Dec 30 target, waitlisted after Dan authorized queue displacement Oct 17) | READY | S |
 | [SL-11](SL-11-the-vacuum-shorts.md) | The Stomach Vacuum: The Best Ab Exercise For Belly Fat (RO-02, public Nov 22) | READY | S |
 | [SL-12](SL-12-keep-your-muscle-shorts.md) | How To Keep Your Muscle While You Lose Fat (RO-01, YouTube Dec 6) | READY; hold release until parent is public | S |
@@ -251,9 +251,11 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 | [SL-15](SL-15-my-first-spray-tan-shorts.md) | My First Spray Tan (RO-19, YouTube Wed Oct 21; 3 Shorts, Short 1 airs Fri Oct 30) | IN PROGRESS | S |
 | [SL-16](SL-16-intermittent-fasting-shorts.md) | Intermittent Fasting: The Best Way To Get Abs (RO-08, finalized 10-14; release date set at setup) | READY; hold release until parent is public | S |
 
-| [SL-17](SL-17-top-1-percent-shorts.md) | Top 1 Percent (RO-26, finalized; release on hold) | READY; hold release until parent is public | S |
-| [SL-18](SL-18-wasted-my-life-shorts.md) | I'm 41. I Wasted My Life. (RO-25, YouTube Sun Oct 18; 3 Shorts, Short 1 airs Mon Oct 26) | READY: approved parent filed; due Oct 24 | S |
+| [SL-17](SL-17-top-1-percent-shorts.md) | Top 1 Percent (RO-26, finalized; release on hold) | IN PROGRESS | S |
+| [SL-18](SL-18-wasted-my-life-shorts.md) | I'm 41. I Wasted My Life. (RO-25, YouTube Sun Oct 18; 3 Shorts, Short 1 airs Mon Oct 26) | IN PROGRESS | S |
 | [SL-19](SL-19-3-healthy-foods-shorts.md) | 3 Healthy Foods That Made Me Fat (RO-17, YouTube Sun Dec 13; 3 Shorts, Short 1 airs Mon Dec 14) | READY: approved parent filed; due Dec 13 | S |
+| [SL-20](SL-20-invest-in-your-health-shorts.md) | Why You Should Invest More In Your Health (RO-20, YouTube Sun Nov 22; 3 Shorts, Short 1 airs Mon Nov 23) | READY: approved parent filed; due Nov 22 | S |
+| [SL-21](SL-21-what-to-cut-shorts.md) | What To Cut To Afford Getting In Shape (RO-20B, YouTube Sun Nov 29; 3 Shorts, Short 1 airs Mon Nov 30) | READY: approved parent filed; due Nov 29 | S |
 
 **Will need shorts once final (no handoff yet; add one when the long-form is approved):**
 * Your Belly Fat Is An Emergency (Codex, revision in progress)

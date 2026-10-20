@@ -11,4 +11,6 @@ Dan, 2026-10-09, reviewing RO-07 "Why You MUST Work Out Every Day" round 1 (he l
 
 **Why:** emphasis on every graphic is no emphasis, and it reads as machine output. Labels (exercise names, round names, "Gymboss", "Morning", "Night") never need capitals.
 
+**Eyebrow (Dan, 2026-10-20):** the small label above the point ("KEY POINT", "REASON 2 OF 3") stays in capitals as the standard; the rule below is about the point itself.
+
 **How to apply:** write every point in title case first. Then ask of the whole film: which few graphics hold a real contrast or punch word? My reading: about one in six at most. Exercise names, section labels, times of day, app names and list items stay normal. This narrows the 2026-09-18 KEY POINT format ("the one or two words that carry the punch in FULL CAPS"), which I had been applying to every graphic. See [[no-em-dashes]] for the other "reads as AI" rule.

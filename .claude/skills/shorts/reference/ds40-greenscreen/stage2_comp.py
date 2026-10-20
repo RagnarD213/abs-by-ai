@@ -25,9 +25,10 @@ def card_layer(card_img):
     ImageDraw.Draw(lay).rounded_rectangle((x0, y0, x1 - 1, y1 - 1), 22, outline=(150, 200, 255, 120), width=2)
     return lay
 
-def background(t, card):
-    if card is None:   # key-check backdrop: flat pale grey-blue, no card
-        return np.ones((H, W, 3), np.float32) * np.array([0.86, 0.89, 0.93], np.float32)
+PLAIN = {"pale": [0.86, 0.89, 0.93], "pink": [0.95, 0.25, 0.62]}   # key-check backdrops, no card
+def background(t, card, plain="pale"):
+    if card is None:
+        return np.ones((H, W, 3), np.float32) * np.array(PLAIN[plain], np.float32)
     f = B.field(t, W, H).convert("RGBA")
     f.alpha_composite(card)
     return np.asarray(f.convert("RGB")).astype(np.float32) / 255
@@ -72,7 +73,7 @@ if __name__ == "__main__":
     look = None if look == "none" else look
     files = sorted(glob.glob(f"{cache}/f*.npy"))
     assert len(files) > 200, f"cache {cache} has {len(files)} frames: refusing to write an empty or partial sample"
-    card = None if card_png == "pale" else card_layer(Image.open(card_png))
+    card = None if card_png in PLAIN else card_layer(Image.open(card_png))
     cmd = [FF, "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", "30000/1001", "-i", "-"]
     if audio: cmd += ["-i", audio]
     cmd += ["-vf", "scale=out_color_matrix=bt709:out_range=tv,format=yuv420p", "-c:v", "libx264", "-preset", "slow", "-crf", "14",
@@ -81,7 +82,7 @@ if __name__ == "__main__":
     cmd += ["-movflags", "+faststart", outmp4]
     p = subprocess.Popen(cmd, stdin=subprocess.PIPE)
     for i, f in enumerate(files):
-        bg = background(i / 29.97, card)
+        bg = background(i / 29.97, card, card_png if card is None else "pale")
         fr = comp_frame(f, bg, look)
         p.stdin.write((fr * 255 + 0.5).astype(np.uint8).tobytes())
     p.stdin.close(); p.wait(); print("wrote", outmp4, len(files), "frames")

@@ -4,8 +4,9 @@
     python3 buildcap.py              the other builds this process would wait behind, right now
     python3 buildcap.py --selftest   the cases below, on made-up process tables
 
-`wait(label)` is the one way a shared tool waits for a slot (`cut/speech.py` before Whisper, which is where the
-delivery gate waits; `rolls/roll_sidecar.py` before its lav pick, Whisper and contact sheet).
+SINCE 2026-10-20 THE CAP IS ENFORCED BY THE RENDER QUEUE, `renderq/renderq.py` (`python3 renderq/renderq.py status`).
+`wait(label)` now gets in line there. This file still does the counting the queue uses to see builds that bypass
+it (`builds()`), and `python3 buildcap.py` still lists every build by its processes.
 
 WHY THIS FILE EXISTS (2026-10-13). The counter this replaces matched command lines, one process at a time:
 
@@ -176,9 +177,29 @@ def describe(found):
         for b in found) or "    none"
 
 
-def wait(label, cap=CAP, quiet=False, poll=POLL_S):
-    """Return when fewer than `cap` other builds hold a slot. Says what it is waiting behind, and says it again
-    every ten minutes, so a tool sitting at 0 % CPU can be told from one that is stuck."""
+def _renderq():
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("absbyai_renderq", os.path.join(
+        os.path.dirname(os.path.abspath(__file__)), "renderq", "renderq.py"))
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
+def wait(label, cap=CAP, quiet=False, poll=POLL_S, pool="heavy"):
+    """Since 2026-10-20 a thin wrapper over the render queue (`renderq/renderq.py`): get in line, return at this
+    caller's turn. The steps that follow are gated again at their own heavy work (the ffmpeg wrapper, Whisper,
+    HyperFrames) and rank as a continuation of this video. `cap` and `poll` are kept for old callers only.
+    If the queue cannot load, falls back to the old process count so a build is never stopped by it."""
+    try:
+        rq = _renderq()
+    except Exception:
+        return _wait_counting(label, cap, quiet, poll)
+    rq.wait_turn(label, pool=pool, quiet=quiet)
+
+
+def _wait_counting(label, cap=CAP, quiet=False, poll=POLL_S):
+    """The pre-queue wait: return when fewer than `cap` other builds hold a slot."""
     since, told = time.time(), 0.0
     while True:
         found = builds(since=since)

@@ -1,0 +1,17 @@
+{
+  "sha256": "200c7b2b84cfba2aa0539b8d7078973b902c635d4447ffabb9e207b3307c609b",
+  "type": "Review candidate only, no publication approval",
+  "raw_gate_failures_retained": {
+    "audio:stamp": "Standalone audio gate retains lr_corr, tone, artifacts and dryness failures. Exact approved Balanced EQ and no-expander chain retained. Full mix intentionally contains original Bill stereo. Aligned approved passage correlation 0.998555; AAC unchanged by final repair. Do-no-harm baseline passes at flux1.02x and swirl1.00x untreated.",
+    "audio:stream_integrity": "One original audience-pause second below -50 dBFS at4s, not a digitally silent/dropout second. Complete specified source excerpt kept.",
+    "style:change_rate": "Four real visual scene/punch changes, 3.7/min against4.0/min bound. Continuous graphic motion does not fabricate an extra cut. Exact required opening is19.6196s.",
+    "framing:hair_top": "Detector flags looking-down reaction-panel samples; native image and independent top-edge test show the hair remains inside the picture. Raw row remains FAIL.",
+    "framing:push_coverage": "Measured head-height spread1.069x against1.1x. Actual fixed crop803-to720 is1.115x; posture affects the detector. Independent review found no framing defect.",
+    "cut:splice_visibility": "One deliberate closer crop at32.399s on continuous source, not an uncovered take reset. Native strip, source mapping and independent review retained."
+  },
+  "unknowns": [
+    "Numerical temporal hair test is unimplemented. No PASS claimed.",
+    "Two generic delivery scan rows are NOT MEASURED; preserved verbatim in gate receipt."
+  ],
+  "evidence_artifacts": "Some random-seek watch BMI strips garble digits. Sequential native frame1817 and continuous master are clean. Original artifact and independent counter-evidence retained in audit."
+}

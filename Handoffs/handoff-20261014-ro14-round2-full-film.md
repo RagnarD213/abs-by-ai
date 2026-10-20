@@ -3,8 +3,8 @@
 > **2026-10-16: the studio pickups for this job are recorded** (Dan, 10/15 shoot, shoot lav, roll C1722, green screen set): `/Volumes/Extreme/10:15 dan rose fitness shoot - green screen, outdoor shorts, outdoor b roll, studio backdrop/C1722.MP4`. Lav on the LEFT channel only (`-map 0:a:0 -af pan=mono|c0=c0`); it flat-tops at -0.49 dBFS on loud words, so check each take. Takes to use (Whisper small times, set exactly on the lav envelope, confirm by ear): the opening line (pickup 12) 342.4 to 350.5 s, the last full take; fallback 319.0 to 327.3 s. Whisper hears "the four ways you were eating" in the last take (script: "you are eating"), so listen to both. He says "four hidden reasons why you're eating them", his wording. Full take map: `Docs/PICKUPS_1017_SHOOT.md`, section "Recorded 2026-10-15: where every take is (roll C1722)". Same mic as the film: run the pickup through the film's own voice chain settings and level-match it to the film line it joins, rather than the desk-mic matching; the desk takes in this job's `pickups/` folder are timing placeholders only and do not ship.
 
 
-**LFC (long-form content, 16:9).** Sidebar name: `Not Losing Weight LFC R2`.
-Written 2026-10-14 by Claude (Opus 5.5) at the end of round 1. Recommended: **Claude Opus 5.5, high effort.**
+**LFC (long-form content, 16:9).** Sidebar name: `Not Losing Weight LFC R2`. **READY 2026-10-20: Dan approved round 1 (see below).**
+Written 2026-10-14 by Claude (Opus 5.5) at the end of round 1. Recommended: **GPT-6.1 Sol, high** (Dan's 2026-10-20 rule: video edits and continuations default to the newest stable Sol at high).
 
 Read first: `Handoffs/video-editing/00-RULES.md`, `.claude/skills/_shared/VIDEO-RULES.md` (top sections: AI clip sense QC, budget),
 `.claude/skills/_shared/PRE-RENDER-APPROVAL.md`, `.claude/skills/longform-edit/SKILL.md`, `.claude/skills/longform-edit/reference/ro14/README.md`
@@ -36,7 +36,32 @@ Look C + W2/T2 (C1708 measures 0.294 vs 0.296 on C1713; per-shot crop lifts in `
 roll's assembled voice + 0.9 dB at 150 Hz) + the standard +3 dB at 120 Hz (`fit/eq_B_bass3.txt`; tone row fails as the known mismatch);
 no music; no SFX; all graphics Soft Blue HyperFrames / softblue; W4S side-card framing; the study card (Lichtman, NEJM 1992); the week card.
 
-## Dan's decisions on the round 1 page (record his words in `round2-plan/decisions.json`, then act)
+## Dan's round 1 decisions (2026-10-20, recorded in `/Volumes/Extreme/_edit_work/RO-14/round2-plan/decisions.json`, sha256 879f0648189dde0a3bb405ae3e652aa16bc814f065ac8b4fd6b25bd8fccd3e8c)
+
+Dan's words: *"Okay, the first minute is looking good. All AI start and end frames are good, and it is good to generate all of
+them. You did an exceptionally good job with these start and end frames. I think this is the first time I've accepted everything
+you made without any revisions. I really like everything you chose for start and end frames and the AI ideas that you picked for
+this. Go ahead and proceed to the next step."*
+
+1. **Opener:** A1 The broken scale (approved with the frames and the first minute).
+2. **AI clips:** generate all 7 (A1 to A7); none dropped. Frame hashes in decisions.json; re-hash before motion.
+3. **"Five hidden reasons":** the pickup is already recorded (2026-10-15, roll C1722 on the 10/15 shoot, green-screen set, lav on the
+   LEFT channel only, `pan=mono|c0=c0`; last full take 342.4 to 350.5 s, fallback 319.0 to 327.3; he says "four hidden reasons why
+   you're eating them"; Whisper heard "were eating", so listen). Details: `Docs/PICKUPS_1017_SHOOT.md` table row 12. Lay it in under
+   G02 (film 17.46 to 29.46) per step 4 below, matched to the film voice; the first minute was approved with the filmed line.
+
+## Rules added since round 1 that bind round 2
+
+- **Veo in Google Flow on Dan's AI Pro credits first** (2026-10-17): Claude runs the `flow-veo` background agent; Codex follows
+  `.claude/skills/_shared/veo/FLOW-RUNBOOK.md` (`_shared/veo/README.md`). Paid Replicate only if Dan says rush. This replaces the
+  Replicate script in step 1 below.
+- **Real-photo label wording** (2026-10-17): "Real photo of me, not AI-generated" (P01, P03); change the chip text in `plan.py` (`REAL`).
+- **Graphics keep real Soft Blue motion through their screen time** (2026-10-17). The round 1 graphics are approved and locked; check the
+  full-screen cards keep their moving field in the full film, and change nothing else about them.
+- **Automatic rounds** (2026-10-20): `.claude/skills/_shared/video-rounds/README.md`. **Board, queue and render checks**: render-queue checks
+  are standing-authorized.
+
+## (Superseded) the questions the round 1 page asked
 
 1. **Opener** (0:00 to 0:05): A1 "The broken scale" (recommended) / stock scale (Pexels 7555158, which also plays at 1:45: swap that one
    for p7801722's sibling or camera) / camera.
@@ -85,6 +110,6 @@ Veo: $0 so far. Cap: $15 for this long-form (Dan 2026-10-13). Unknown: none.
 ## Starter prompt
 
 > CONTENT (LFC). Name this task `Not Losing Weight LFC R2`. Read and execute
-> `Handoffs/handoff-20261014-ro14-round2-full-film.md`. My answers to the round 1 page: [paste the reply box].
-> Make the AI clips I approved, check them before I see them, then build the full film, every gate, independent review, and send me
-> the review copy.
+> `Handoffs/handoff-20261014-ro14-round2-full-film.md` (Dan's round 1 approvals are recorded in it). Make all seven approved AI
+> clips in Flow, check them before I see them, lay in the 10/15 pickup, then build the full film, every gate, independent review,
+> and send me the review copy.

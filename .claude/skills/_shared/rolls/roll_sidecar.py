@@ -154,7 +154,8 @@ def active_builds():
 
 
 def wait_for_build_slot(label):
-    _buildcap().wait(label)
+    """Get in line in the render queue's light pool; the Whisper runner takes its own light slot."""
+    _buildcap().wait(label, pool="light")
 
 
 def content_identity(path):

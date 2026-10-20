@@ -6,7 +6,7 @@ titles={'G01':'Bill Maher And Dan Watching','G02':'Treat Your Belly Fat As An Em
 cards=[]
 for m in M:
  t=min((m['a']+m['b'])/2,m['a']+2.5);pic=D/'media'/f"{m['id']}-final.jpg"
- subprocess.run([F,'-v','error','-y','-ss',str(t),'-i',A['master'],'-frames:v','1','-update','1',str(pic)],check=True)
+ if not pic.exists():subprocess.run([F,'-v','error','-y','-ss',str(t),'-i',A['master'],'-frames:v','1','-update','1',str(pic)],check=True)
  cards.append(f'''<article><img src="media/{pic.name}" alt="{html.escape(titles[m['id']])}"><div class="body"><small>{m['a']:.1f} - {m['b']:.1f}s</small><h3>{html.escape(titles[m['id']])}</h3><p>{html.escape(m['words'])}</p><button data-start="{max(0,m['a']-3):.3f}" data-end="{min(A['duration'],m['b']+3):.3f}">Play In Context</button></div></article>''')
 cost=0
 for line in (W/'costs.jsonl').read_text().splitlines():

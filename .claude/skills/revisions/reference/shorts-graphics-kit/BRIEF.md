@@ -23,8 +23,8 @@ footage. They are NOT ads, so:
 - Drug names: organic videos MAY say and caption "Zepbound". Never write an item about the spoken or captioned word.
   If an on-screen GRAPHIC (chip, title bar) shows the brand name, do not write a doc item; put one line in the
   summary under "For Dan's call".
-- Labels still apply: AI-GENERATED on every AI image or AI clip for its full duration; "Real picture of me, not
-  AI-generated" on real physique photos of Dan (never on moving footage). No label over a face or abs.
+- Labels still apply: AI-GENERATED on every AI image or AI clip for its full duration; "Real Photo Of Me, Not
+  AI-Generated" (plural "Real Photos Of Me, Not AI-Generated") on real physique photos of Dan (never on moving footage). No label over a face or abs.
 
 ## Where this editor stands (read before writing)
 - Dan's live doc for the previous shorts round, exactly as he sent it (he edited ours):

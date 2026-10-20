@@ -51,6 +51,15 @@ at that time. Re-run the command to re-check.
 **Dan's copy rule (2026-09-10):** no claim that reads unbelievable without the video's context. *"This
 picture got me abs"* is too much; *"How I get abs at 40"* / *"How AI got me abs"* are the shapes to reuse.
 
+## 2026-10-20: RA-07 "Fire Your Trainer!" added to the trial campaign, 9:16, thumbnail A/B
+
+- **Campaign** `24316364155` (ENABLED, budget `15911255930` read **$30/day** before and after, not changed; now shared by one more ad group).
+- **Ad group** `204215057191` "RA-07 Fire Your Trainer": ENABLED, $40 target CPA (checked live against RA-14 `199824307366`), US + CA, English, Audience `359952376` (from `206348100928`).
+- **Thumbnail A/B (Dan 10-20: "Let's go with 2B and 3B. Install an A/B test with 2B and 3B."):** YouTube Test & Compare does not run on Shorts or unlisted videos, so, as on RA-14, the approved R6 9:16 is uploaded twice, Unlisted, one thumbnail each. Ad `828608015181` = `bpv5HSRqzDo`, thumb A = 2b, real studio-blue-28 smirk, TRAINERS DESPISE HIM on a level yellow banner (asset `431801701184`, utm_content `claude-9x16-thumbA-vsl`). Ad `828655819900` = `AWh8cOd80Ic`, thumb B = 3b, AI Dan fist-bumping a robot coach, FIRE / YOUR / TRAINER (asset `431991144405`, `claude-9x16-thumbB-vsl`). Compare CTR and cost per trial by ad once both have spent; Google weights delivery, so judge on rates, not volume.
+- **Copy (linted):** headlines Fire Your Trainer / Fire Your Personal Trainer / How AI Got Me Abs / An AI Workout Coach That Adapts / Workout Plans Built Around Your Goal. Long: Here's why thousands of guys are replacing their personal trainer with AI. / Daniel Rose explains three things an AI workout coach can do that a trainer cannot. / AI designs a workout plan for your goal and adjusts it when life gets in the way. Descriptions: Daniel Rose shows why guys are using AI as their workout coach. / See how AI builds a personalized workout program around your goal. / AI coaching explained by a guy who did it at 40 years old.
+- Logo `400941168572`, CTA `401407635767`, business name Abs by AI. Final URL `https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ra07&utm_content=claude-9x16-thumb{A|B}-vsl` (HTTP 200; every campaign ad on absbyai.com, checked by the builder).
+- Built by `scripts/ads/api/dgen-trial-group.js ra07` (config `dgen-ads/ra07.json`, result `ra07.result.json`). Policy 10-20: both REVIEW_IN_PROGRESS, nothing in the campaign disapproved or limited (`.claude/skills/ad-setup/reference/ra07-setup-20261020/policy-20261020.txt`); recheck 10-21.
+
 ## 2026-10-17: RA-15 "Never Pay A Nutritionist Again" added to the trial campaign, 16:9 + 9:16
 
 - **Campaign** `24316364155` (ENABLED, budget `15911255930` read **$30/day** before and after, not changed; now shared by one more ad group).

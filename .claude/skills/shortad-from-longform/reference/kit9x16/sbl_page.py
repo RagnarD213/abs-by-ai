@@ -57,7 +57,7 @@ def main():
             from assets import MEDIA
             m = MEDIA[b["media"]]
             np_ = sum(1 for r in items if r.get("pic")) + 1
-            lab = b.get("label") or {"ai": "AI-GENERATED", "real": "Real picture of me - not AI-generated"}.get(b.get("label_kind"))
+            lab = b.get("label") or {"ai": "AI-GENERATED", "real": "Real Photo Of Me, Not AI-Generated"}.get(b.get("label_kind"))
             items.append(dict(id=f"P{np_:02d}", pic=True, kind="phone" if b.get("phone") else ("photo" if m[0] == "img" else "clip"), t0=b["t0"], t1=b["t1"],
                               still_at=(b["t0"] + b["t1"]) / 2, copy=[x for x in [lab] if x], src=os.path.basename(m[1]), media=b["media"],
                               note="The whole picture in a card (never cropped shorter)." if b["kind"] == "card" else "Fills the frame."))

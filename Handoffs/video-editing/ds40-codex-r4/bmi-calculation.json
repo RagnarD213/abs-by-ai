@@ -1,7 +1,7 @@
 {
   "source": "https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html",
   "formula": "kg / metres squared",
-  "note": "Cells classified by unrounded BMI, numbers rounded to nearest whole BMI. Underweight cells in slate.",
+  "note": "Cells classified by unrounded BMI, numbers rounded to one decimal. Underweight cells in slate.",
   "cells": [
     {
       "height_inches": 62,

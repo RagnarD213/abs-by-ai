@@ -1,0 +1,102 @@
+[
+  {
+    "number": 1,
+    "fmt": "16x9",
+    "name": "pool-photo-221-pink-slip",
+    "label": "Real pool photo: you smiling by a bright pool, TRAINER on a hot-pink pink slip",
+    "file": "fire-your-trainer_1-pool-photo-221-pink-slip | 16x9.jpg",
+    "clearance_px": 47,
+    "headroom_px": 20,
+    "ok": true
+  },
+  {
+    "number": 1,
+    "fmt": "9x16",
+    "name": "pool-photo-221-pink-slip",
+    "label": "Real pool photo: you smiling by a bright pool, TRAINER on a hot-pink pink slip",
+    "file": "fire-your-trainer_1-pool-photo-221-pink-slip | 9x16.jpg",
+    "clearance_px": 66,
+    "headroom_px": 640,
+    "ok": true
+  },
+  {
+    "number": 2,
+    "fmt": "16x9",
+    "name": "studio-blue-28-trainers-despise-him",
+    "label": "Real studio photo: your smirk, angry trainers pointing at you, TRAINERS DESPISE HIM",
+    "file": "fire-your-trainer_2-studio-blue-28-trainers-despise-him | 16x9.jpg",
+    "clearance_px": 66,
+    "headroom_px": 20,
+    "ok": true
+  },
+  {
+    "number": 2,
+    "fmt": "9x16",
+    "name": "studio-blue-28-trainers-despise-him",
+    "label": "Real studio photo: your smirk, angry trainers pointing at you, TRAINERS DESPISE HIM",
+    "file": "fire-your-trainer_2-studio-blue-28-trainers-despise-him | 9x16.jpg",
+    "clearance_px": 107,
+    "headroom_px": 660,
+    "ok": true
+  },
+  {
+    "number": 3,
+    "fmt": "16x9",
+    "name": "ai-dan-robot-fist-bump-rockwell",
+    "label": "AI picture of you: fist bump with a robot coach while your trainer walks out",
+    "file": "fire-your-trainer_3-ai-dan-robot-fist-bump-rockwell | 16x9.jpg",
+    "clearance_px": 40,
+    "headroom_px": 60,
+    "ok": true
+  },
+  {
+    "number": 3,
+    "fmt": "9x16",
+    "name": "ai-dan-robot-fist-bump-rockwell",
+    "label": "AI picture of you: fist bump with a robot coach while your trainer walks out",
+    "file": "fire-your-trainer_3-ai-dan-robot-fist-bump-rockwell | 9x16.jpg",
+    "clearance_px": 72,
+    "headroom_px": 107,
+    "ok": true
+  },
+  {
+    "number": 4,
+    "fmt": "16x9",
+    "name": "ai-orange-robot-coach-rounded",
+    "label": "AI: a cocky orange robot coach giving two thumbs up, headline on its shirt",
+    "file": "fire-your-trainer_4-ai-orange-robot-coach-rounded | 16x9.jpg",
+    "clearance_px": 9999,
+    "headroom_px": 9999,
+    "ok": true
+  },
+  {
+    "number": 4,
+    "fmt": "9x16",
+    "name": "ai-orange-robot-coach-rounded",
+    "label": "AI: a cocky orange robot coach giving two thumbs up, headline on its shirt",
+    "file": "fire-your-trainer_4-ai-orange-robot-coach-rounded | 9x16.jpg",
+    "clearance_px": 9999,
+    "headroom_px": 9999,
+    "ok": true
+  },
+  {
+    "number": 5,
+    "fmt": "16x9",
+    "name": "ai-robot-hands-tear-plan-scarlet",
+    "label": "AI: robot hands tearing the trainer's workout sheet in half, scarlet",
+    "file": "fire-your-trainer_5-ai-robot-hands-tear-plan-scarlet | 16x9.jpg",
+    "clearance_px": 9999,
+    "headroom_px": 9999,
+    "ok": true
+  },
+  {
+    "number": 5,
+    "fmt": "9x16",
+    "name": "ai-robot-hands-tear-plan-scarlet",
+    "label": "AI: robot hands tearing the trainer's workout sheet in half, scarlet",
+    "file": "fire-your-trainer_5-ai-robot-hands-tear-plan-scarlet | 9x16.jpg",
+    "clearance_px": 9999,
+    "headroom_px": 9999,
+    "ok": true
+  }
+]

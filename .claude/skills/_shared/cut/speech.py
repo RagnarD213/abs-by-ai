@@ -208,6 +208,19 @@ def wait_for_build_slot(label, quiet=False):
     _buildcap().wait(label, quiet=quiet)
 
 
+def _queue_slot(label, quiet=False):
+    """A light slot in the render queue (`_shared/renderq`), or nothing if the queue cannot load."""
+    try:
+        here = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "renderq")
+        if here not in sys.path:
+            sys.path.append(here)
+        from renderq import slot
+        return slot(label, pool="light", quiet=quiet)
+    except Exception:
+        import contextlib
+        return contextlib.nullcontext()
+
+
 # ---------------------------------------------------------------------------- transcription
 def sha256(path, cap=None):
     h = hashlib.sha256()
@@ -236,9 +249,10 @@ def transcribe(media, model="small", amap=None, af=None, force=False, quiet=Fals
     cp = cached_words_path(media, model, amap, af)
     if os.path.exists(cp) and not force:
         return load_words(cp), f"cache:{cp}"
-    wait_for_build_slot(f"Whisper {model} on {os.path.basename(media)}", quiet)
     os.makedirs(CACHE, exist_ok=True)
-    with tempfile.TemporaryDirectory(prefix="cut-asr-") as tmp:
+    # one light slot in the render queue for the extract and the Whisper run (the runner inside it runs through)
+    with _queue_slot(f"Whisper {model} on {os.path.basename(media)}", quiet), \
+            tempfile.TemporaryDirectory(prefix="cut-asr-") as tmp:
         wav = wav16k(media, os.path.join(tmp, "a.wav"), amap, af)
         out = os.path.join(tmp, "whisper.json")
         env = os.environ.copy()

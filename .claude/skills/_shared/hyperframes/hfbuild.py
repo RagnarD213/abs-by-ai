@@ -70,12 +70,24 @@ def snapshot(d, times):
     return sorted((d / "snapshots").glob("*.png"))
 
 
+def _queue(label):
+    """A heavy slot in the render queue (VIDEO-RULES, "Video builds"), or nothing if the queue cannot load."""
+    try:
+        sys.path.append(str(pathlib.Path(__file__).resolve().parents[1] / "renderq"))
+        from renderq import slot
+        return slot(label)
+    except Exception:
+        from contextlib import nullcontext
+        return nullcontext()
+
+
 def render(d, out_mov):
     """Transparent ProRes 4444 at 29.97 (opaque scenes render the same way; their alpha is simply full)."""
     out_mov = pathlib.Path(out_mov).resolve()
     out_mov.parent.mkdir(parents=True, exist_ok=True)
-    subprocess.run(NPX + ["render", "--format", "mov", "--fps", "30000/1001", "-o", str(out_mov)], cwd=d, env=ENV,
-                   check=True)
+    with _queue("HyperFrames render " + out_mov.name):    # headless Chrome plus an encoder: one heavy slot
+        subprocess.run(NPX + ["render", "--format", "mov", "--fps", "30000/1001", "-o", str(out_mov)], cwd=d,
+                       env=dict(ENV, **{k: v for k, v in os.environ.items() if k == "GATE_HELD"}), check=True)
     print(d.name, "rendered", out_mov, flush=True)
     return out_mov
 

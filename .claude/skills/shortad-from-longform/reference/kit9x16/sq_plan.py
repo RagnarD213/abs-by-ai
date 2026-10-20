@@ -62,7 +62,8 @@ def main():
     # ---- labels: one track per labelled picture, at its square position
     real, ai, tracks, chips, pos = [], [], [], {}, {}
     for i, c in sorted(fit.items(), key=lambda kv: kv[1]["t0"]):
-        kind = {"Real picture of me - not AI-generated": "real", "AI-GENERATED": "ai"}.get(c.get("label"))
+        _lab = str(c.get("label") or "")
+        kind = "ai" if _lab == "AI-GENERATED" else ("real" if _lab.lower().startswith("real p") else None)   # current or legacy real wording
         name = c["media"]; beat = [q2(c["t0"]), q2(c["t1"])]
         if c.get("his_chip") or (c["fit"] == "fill" and kind is None and "ai" in str(c.get("label_kind", ""))):
             pass
