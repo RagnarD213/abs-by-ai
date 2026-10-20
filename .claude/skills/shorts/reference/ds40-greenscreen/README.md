@@ -14,6 +14,7 @@ not in git): `/Volumes/Extreme/_edit_work/ds40/r1/`. Code here is the recipe; ru
 | `stage1_key.py T0 DUR OUT` | keys every frame at 4K (4 workers, about 1 s a frame), garbage-mattes the screen's top edge, crops above the laptop, then downsamples the PREMULTIPLIED foreground and alpha 2x2 to output scale and caches them (`fNNNN.npy`, float16 RGBA) |
 | `grade.py` | foreground grade in BT.709 Y'CbCr: tone curve with a highlight shoulder (forehead shine), chroma gain, hue turn, warmth. `LOOKS` holds the three round 1 options |
 | `stage2_comp.py CACHE LOOK OUT.mp4 CARD.png|pale AUDIO` | despeckle, unpremultiply, grade, composite over the Soft Blue field + clip card (or a pale key-check backdrop), light wrap, encode |
+| `stage15_temporal.py IN_CACHE SRC_U8.npy OUT_CACHE [watch.json]` | R2 finishing pass on the cache (section below) |
 | `page_r1.py` | the round 1 page from the rendered files (stills and 2x edge close-ups are cut from the delivered pixels) |
 | `listen_trials.py` | blind voice ranking, repeated with fresh letters and order |
 
@@ -65,3 +66,34 @@ strap, and the fastest hand frame (largest frame-to-frame alpha change). A dark 
   rows (they fail even on the untreated mic). Gate the 30 s window, cut the sample from it.
 - YouTube clip download: `~/.cache/absbyai/ytdlp/yt-dlp_macos --js-runtimes node` (the python 3.9 yt-dlp gets "The page
   needs to be reloaded"). The Maher clip is 720p max.
+
+## Round 2 finishing pass (2026-10-20): steadier than the camera, no dark rim, solid watch
+
+Dan on R1: "about even with Codex... work on that chroma key a little bit more". R2 kept the R1 4K key and added
+`stage15_temporal.py` between stage 1 and stage 2, on the output-scale cache (about 1 s a frame with 4 workers).
+Source frames at output scale for it: `srcprep.py T0 N src_u8.npy`; plate at output scale: `plate_out.npy` (plate_q.npy zoomed x2 with order 1, rows [:1745]; it sits beside src_u8.npy).
+Full chain as run: `run_final.sh` (waits for a build slot). Work folder: `/Volumes/Extreme/_edit_work/ds40/r2/`.
+
+1. **Motion-compensated temporal matte.** Each frame's alpha averaged with 3 neighbours each side (weights .85/.6/.35),
+   warped with DIS optical flow on the source picture. A neighbour counts only where the warped picture matches
+   (sigma 10 grey levels), the flow round-trips (sigma 1 px) and its alpha agrees (sigma 0.2). Only pixels within 10 px
+   of a partly transparent pixel change, and alpha above 0.92 is kept as is. Fast blurred hands keep their blur.
+   Premultiplied colour is averaged with the same weights in the band.
+2. **Edge colour from deeper in.** The dark rim was the positivity floor rating the outermost mixed pixels opaque while
+   they still held screen-subtraction error; decontaminating toward "alpha > 0.95" pixels just copied that dark edge.
+   Take the colour from solid pixels eroded 3 px (normalised convolution, scales 1.5/4/12/36 px) and replace fully within
+   2 px of the outline, fading by 4 px, plus more as alpha falls. Rim 14.9% to 2.7% (source 8%). RIM=3 gave 1.3% on test
+   frames; 2 kept the natural edge shading.
+3. **Speck rule.** A pixel 2 px or more from anything over 0.9 cannot exceed the 5x5 max of both warped neighbours + 0.1
+   (picture match only; flow is loose on flat screen beside a fast hand). Removed the 0:04.74 grain clump.
+4. **Watch glass edge-on** (`watch_r2.json`: frame range + box, output px). In the box: pixels under 0.65 of the plate's
+   brightness that join the black case (ratio < 0.25), holes filled, grown 2 px into anything under 0.85; plus slits
+   under ~6 px between solid (> 0.95) pieces closed (glass at grazing angle mirrors the screen at FULL brightness, frame
+   236). Forced solid, colour = despilled source, 0.8 px feather. Real strap/hand gaps (screen brightness, wide) stay open.
+
+**Measure flicker with motion removed (`mcflicker.py`).** The R1 reviewer's edge-flicker ratio is dominated by real
+head movement (mean band change ~0.2 a frame), so any key that follows Dan reads ~1.0 and smoothing barely moves it
+(R1 1.018, R2 1.003). Warp the previous frame onto the current one with flow on the source, drop pixels whose flow does
+not round-trip within 0.5 px, then compare: R1 0.87 overall / 0.91 hair, R2 0.69 / 0.68 (source = 1.0).
+`measure_r2.py` reproduces the R1 reviewer's numbers in one decode pass (pass2 flicker, outline rim, seethru4, islands).
+Check the watch over saturated pink (`stage2_comp.py CACHE LOOK OUT.mp4 pink`).
