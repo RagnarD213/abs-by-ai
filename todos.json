@@ -431,6 +431,13 @@
       "recurring": false,
       "addedAt": "2026-10-20",
       "addedBy": "assistant"
+    },
+    {
+      "text": "Make bed",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-10-20",
+      "addedBy": "assistant"
     }
   ],
   "handoffs": [
