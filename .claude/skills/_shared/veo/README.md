@@ -25,6 +25,13 @@ the subscription credits run out, ask me before paying."*
    `veo.py api JOBDIR A1 --paid-ok "<his words>"`. Rush: `veo.py api JOBDIR A1 --rush "<his words>"`.
    Paid takes still count against the per-video generation budget (VIDEO-RULES, "Video clip generation budget").
 
+## Subscription upgraded (Dan, 2026-10-20)
+
+Dan: *"We've upgraded our Google Video Generation subscription. Try it again, and do it on subscription."* The Flow balance read
+9,830 credits right after the upgrade (it had been 10 that afternoon, when four editing sessions drained the Pro allowance). At
+20 credits a Fast clip that is about 490 clips, so plan retakes on the subscription; the paid API stays for "rush" only. The
+Pro figures in the table below are history; read the live balance (`veo.py credits`) before a big batch.
+
 ## What the subscription gives (measured 2026-10-17, the 5-clip test)
 
 | | Flow on Google AI Pro | Replicate API (paid) |
