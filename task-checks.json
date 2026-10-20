@@ -10,7 +10,8 @@
     "assistant::Post ads on eBay and Facebook marketplace to sell watches where I sent you the images",
     "assistant::Take Tesla to car wash. Wash interior, vaccum interior, and clean surfaces using sprays in frunk",
     "assistant::Empty Dishwasher",
-    "assistant::Wash, dry, and fold all dirty laundry"
+    "assistant::Wash, dry, and fold all dirty laundry",
+    "assistant::Clean & organize bedroom closet. Remove all junk, throw away trash and move other items to junk room for Dan to review before throwing away. Vaccum carpet with manual vaccum thoroughly"
   ],
   "log": {
     "health::Shower": [
@@ -246,6 +247,7 @@
     "assistant::Post ads on eBay and Facebook marketplace to sell watches where I sent you the images": "2026-10-20",
     "assistant::Take Tesla to car wash. Wash interior, vaccum interior, and clean surfaces using sprays in frunk": "2026-10-20",
     "assistant::Empty Dishwasher": "2026-10-20",
-    "assistant::Wash, dry, and fold all dirty laundry": "2026-10-20"
+    "assistant::Wash, dry, and fold all dirty laundry": "2026-10-20",
+    "assistant::Clean & organize bedroom closet. Remove all junk, throw away trash and move other items to junk room for Dan to review before throwing away. Vaccum carpet with manual vaccum thoroughly": "2026-10-20"
   }
 }
