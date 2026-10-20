@@ -22,6 +22,12 @@ _REPO = os.path.abspath(os.path.join(_HERE, "..", "..", "..", ".."))
 FF = next((p for p in (os.environ.get("FF"), os.path.join(_REPO, "Media/video_edit/bin/ffmpeg"),
                        "/Volumes/Extreme/_edit_work/bin/ffmpeg", "ffmpeg") if p and (os.path.exists(p) or p == "ffmpeg")), "ffmpeg")
 src, out = sys.argv[1], sys.argv[2]
+try:   # one light slot in the render queue for the whole run (VIDEO-RULES, "Video builds"); never stops the run
+    sys.path.append(os.path.join(_HERE, "..", "..", "_shared", "renderq"))
+    import renderq
+    renderq.hold_until_exit("Whisper " + os.path.basename(src), pool="light")
+except Exception:
+    pass
 model = sys.argv[3] if len(sys.argv) > 3 else "small"
 WIN = float(sys.argv[4]) if len(sys.argv) > 4 else 70.0
 STEP = float(sys.argv[5]) if len(sys.argv) > 5 else 60.0
@@ -30,7 +36,7 @@ m = whisper.load_model(model)
 t0 = time.time(); segs = []
 start = 0.0
 while start < dur:
-    tmp = "/tmp/_chunk.wav"
+    tmp = "/tmp/_chunk.%d.wav" % os.getpid()   # per process: two runs at once once shared one file
     subprocess.run([FF, "-nostdin", "-v", "error", "-y", "-ss", str(start), "-t", str(WIN),
                     "-i", src, tmp], check=True)
     r = m.transcribe(tmp, word_timestamps=True, language="en", verbose=False,
