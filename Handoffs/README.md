@@ -11,7 +11,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
-- [Arms Shoulders Workout LFC R3](handoff-20261020-ro04-round3-color-b-full-film.md): **Start now (2026-10-20). GPT-6 Sol, high.** CONTENT LFC. Dan selected Round 2 B and authorized the full workout. Preserve framing, original stereo audio and approved graphics; assemble, check and deliver the complete film.
+- [Arms Shoulders Workout LFC R3](handoff-20261020-ro04-round3-color-b-full-film.md): **Start now (2026-10-20). GPT-6.1 Sol, high.** CONTENT LFC. Dan selected Round 2 B and authorized the full workout. Preserve framing, original stereo audio and approved graphics; assemble, check and deliver the complete film.
 
 
 

@@ -1,6 +1,6 @@
 # CONTENT (LFC): Arms & Shoulders Workout Only, Round 3
 
-Start now in **Arms Shoulders Workout LFC R3**. Recommended model: **GPT-6 Sol, high effort**, the existing organic editing executor. All creative choices needed for this workout are settled; the work is full assembly and careful verification.
+Start now in **Arms Shoulders Workout LFC R3**. Recommended model: **GPT-6.1 Sol, high effort**, applying Dan's October 20 newest-GPT preference. All creative choices needed for this workout are settled; the work is full assembly and careful verification.
 
 ## Dan's authorization, October 20, 2026
 
@@ -55,4 +55,4 @@ First action: verify locks and source availability, check build capacity/storage
 
 ## Starter prompt
 
-CONTENT (LFC). Name this chat Arms Shoulders Workout LFC R3. Execute Handoffs/handoff-20261020-ro04-round3-color-b-full-film.md. Dan said: "Let's go with color B. Finish the full video." Use Round2 Warm Rich Vivid B and the reviewed crop. Preserve the approved opening, original stereo audio, real-time sets, timers and rest design. Build the complete workout and30-second rest in a new round3 folder, check the audio seam, run exact-file gates and one independent full-film review, then deliver the full video on the repaired review panel and in Videos to Review. Do not ask for color approval again. No thumbnails, publishing or ad-format versions. Recommended model: GPT-6 Sol, high effort.
+CONTENT (LFC). Name this chat Arms Shoulders Workout LFC R3. Execute Handoffs/handoff-20261020-ro04-round3-color-b-full-film.md. Dan said: "Let's go with color B. Finish the full video." Use Round2 Warm Rich Vivid B and the reviewed crop. Preserve the approved opening, original stereo audio, real-time sets, timers and rest design. Build the complete workout and30-second rest in a new round3 folder, check the audio seam, run exact-file gates and one independent full-film review, then deliver the full video on the repaired review panel and in Videos to Review. Do not ask for color approval again. No thumbnails, publishing or ad-format versions. Recommended model: GPT-6.1 Sol, high effort.

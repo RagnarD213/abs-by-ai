@@ -86,16 +86,7 @@ Python 3.9 process names, zsh word-splitting, `pgrep` self-matching, delivered n
 `Media/codex-video-trial/` (`templates/`, `05-recipes/`). **Git:** commit docs/scripts only, never media (the repo is public).
 Follow the Codex branch rule in `Handoffs/codex-video-trial/00-start-here.md`.
 
-**Model recommendation:** Choose the Codex model for the actual work, not for the fact that the output is a video.
-For organic long-form, use **GPT-6 Sol throughout**, including the independent complete-candidate review and revisions;
-raise Sol's effort for harder sections. This current organic rule supersedes older model suggestions in organic job docs.
-Use **GPT-6 Luna, low or medium** for a tightly scoped, recipe-backed edit when the affected layer is separable and
-verification is routine. Use **GPT-6 Sol, medium** for a bounded revision that needs timeline, render and gate work,
-including DS-18's final corner-title removal. Raise Sol's effort for ambiguous joins or several interacting changes.
-Reserve **GPT-6 Astra** for an original edit or revision with unresolved creative and technical choices that
-materially benefit from deeper reasoning. State why a stronger model is needed in the job or handoff. Claude model
-recommendations also follow task complexity rather than a blanket high-effort default. Dan set this routing on
-2026-09-25 after the DS-18 handoff overrecommended Astra.
+**GPT model recommendation (Dan, 2026-10-20):** Use the newest GPT model available to Dan by default, including organic editing, full-candidate review and revisions. Verify current availability when recommending; GPT-6.1 Sol is the current default as of October 20, not a permanent version pin. Older GPT recommendations require a strong, current, task-specific reason backed by evidence, stated plainly. An older skill, recipe, saved handoff or untested belief is not enough. This supersedes the earlier fixed GPT-6 Sol/Luna/Astra routing and the installed organic skill's older model pin. Use the effort appropriate to the task; full-film assembly and verification use high effort. Claude recommendations retain their existing routing. The standing rule is in AGENTS.md and memory `model-routing-plan`.
 
 ## 4. Delivery conventions
 

@@ -6,6 +6,13 @@ You are an app developer and designer helping me to build my Abs By AI app. Your
 
 I am a non-technical user. Explain all tasks in simple terms that a non-technical user who is not a coder can easily understand.
 
+## GPT model recommendations (Dan, 2026-10-20)
+
+- Dan: "Let's change these recommendations to always use the newest GPT model unless there is some very strong reason not to".
+- For every GPT recommendation, handoff and newly requested GPT task, default to the newest GPT model available to Dan in the relevant client. Verify current availability when making the recommendation; do not freeze the rule to a model number. As of October 20, 2026, the default is GPT-6.1 Sol.
+- Recommend an older GPT model only for a strong, current, task-specific reason supported by evidence, such as a required capability the newest model lacks or a confirmed regression on that task. State the reason plainly with the recommendation. An old skill, saved handoff, existing recipe, habit or untested performance assumption is not such a reason.
+- This overrides older GPT version pins and automatic Astra/Sol/Luna assignments in project instructions, skills, memory and unexecuted handoffs. Match reasoning effort to the work. Keep Claude routing and unrelated runtime configuration as recorded unless Dan changes them.
+
 ## Model routing (Dan, 2026-10-02, replaces 2026-09-30)
 
 - Opus 5.5 (high effort, never max) is the Claude default for everything editorial: writing, scripts including ship-critical copy (VSL, /start page, ad scripts), edit plans, reviews, photo work, design including design-system locks, and routine first cuts (RO long-forms, DS shorts). Sonnet 5 runs mechanical checklist work. Fable 5.1 is escalation only: an edit or review Opus has failed twice, or a one-off second opinion on copy where a rewrite costs a filming day; never a category default. Codex Astra owns flagship first cuts (VSL, website video), image and thumbnail generation, and GUI-driven work; Codex Sol is the cheap fallback for routine cuts and owns all ops. Every handoff recommends model + effort from memory `model-routing-plan`.

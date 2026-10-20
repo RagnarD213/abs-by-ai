@@ -1,14 +1,25 @@
 ---
 name: model-routing-plan
-description: "Dan's 2026-10-02 model routing (Opus default incl. first cuts and ship copy; Fable escalation only) plus the 2026-10-08 effort-level table; use it for every model + effort recommendation, in handoffs and when Dan asks"
+description: "Newest available GPT by default (Dan, 2026-10-20); older GPT needs a strong task-specific reason. Preserve Claude routing and the effort-level table. Use for every model recommendation and handoff."
 metadata:
   node_type: memory
   type: feedback
   originSessionId: e872385e-a790-4974-8aca-fbd16df0d64a
-  modified: 2026-10-08T18:42:05.094Z
+  modified: 2026-10-20
 ---
 
-Dan revised this routing on 2026-10-02 (it replaces the 09-30 plan, which kept Fable for ship-critical copy and design locks). Basis: [[opus-5-5-release]], Opus ahead of Fable on every published benchmark, no measured category where Fable wins, and Fable costs 2.5x more per token. "Sol" is GPT-6 Sol (Codex default); "Astra" is GPT-6 Astra (Codex top). Fable shares the weekly allowance, capped at half.
+## Current GPT rule, October 20, 2026
+
+Dan: "Let's change these recommendations to always use the newest GPT model unless there is some very strong reason not to".
+
+Default to the newest GPT model available to Dan for every GPT recommendation, handoff and newly requested GPT task. Verify official guidance and actual client availability at recommendation time. Current default: GPT-6.1 Sol, verified October 20, 2026. Select effort using the task table below; the Arms & Shoulders full-film assembly uses high effort.
+
+An older GPT model needs strong current evidence of a task-specific advantage or required capability, or a confirmed regression in the newest model. Explain the reason directly. An old skill, saved model number, established recipe, habit or untested claim is not sufficient. This rule supersedes all older GPT version pins and automatic Astra/Sol/Luna category assignments below or in other project guidance. Claude routing remains as recorded.
+
+Official source checked: https://developers.openai.com/codex/models . Recheck when recommending; this dated example does not pin future tasks to GPT-6.1.
+
+
+Dan revised this routing on 2026-10-02 (it replaces the 09-30 plan, which kept Fable for ship-critical copy and design locks). Basis: [[opus-5-5-release]], Opus ahead of Fable on every published benchmark, no measured category where Fable wins, and Fable costs 2.5x more per token. The GPT names and category assignments in this older routing are historical; the October 20 newest-GPT rule above controls current recommendations. Fable shares the weekly allowance, capped at half.
 
 **Opus 5.5 (the Claude default, high effort, never max):**
 - All writing, including ship-critical copy: VSL scripts, /start page copy, ad scripts, outlines, shorts scripts, descriptions, editor messages, revision docs, handoffs.
@@ -36,9 +47,9 @@ Rules of thumb: High when the output will be watched, read or paid for; Medium f
 
 Audit findings that set these rules: Sonnet setup tasks had been run at High (7 sessions; should be Medium); Muhammad/Zeeshan revisions, Git Unjam and the iCloud move had been run at Medium (should be High); the Social Queue daily refresh ran on Opus medium (now Sonnet medium); Engagement ad headlines ran on Sonnet medium (customer-read copy, so Opus high).
 
-**Astra (Codex top, high):** flagship first cuts (VSL, website video) until Opus has a track record on them; image and thumbnail generation; anything that must drive a GUI app (Final Cut, Affinity, Ads UI clicks). RA raw-ad first cuts stay codex in the queue for now.
+**Codex work:** use the newest available GPT by default for video work, image/thumbnail work, GUI tasks, ops and reviews. A recommendation for an older Astra, Sol or Luna must satisfy the strong-reason rule above. Preserve the existing Claude/Codex executor assignments; they do not pin a GPT version.
 
-**Sol (Codex default):** cheap fallback for routine first cuts; all ops and routines ([[codex-owns-non-core-work]]); Codex-side cross-reviews of Claude edits (`scripts/edit-queue/config.json`).
+**Effort:** choose the effort for the task from the table above. Full-film assembly and verification use high effort; simple filing or routine checks can use less. Do not select an older GPT merely because a task is routine.
 
 **Open tests, not opinions:** (1) thumbnails: Opus and Astra each build three from one locked spec, Dan picks blind; a tie or Opus win moves thumbnails to Opus. (2) Treat the first few Opus RO/DS cuts as the test against comparable Codex cuts; revert the queue routing only if Opus is clearly worse.
 
