@@ -40,7 +40,7 @@ ffmpeg's stderr) and passes the exit code through untouched. `GATE_VERBOSE=1` ma
   waiter's ticket is deleted at the next look. Only the head of the line may take a slot. Order: `--priority`,
   then continuations (a video holding a slot or that let one go in the last 2 minutes), then first come.
 - A slot let go by a build that is still running is kept for it for 0.6 s, so its next step does not lose its turn.
-- Extra slots (heavy 3-4, light 3) open only when at least 40% of the CPU sat idle over the last 4 s and nothing
+- Extra slots (heavy 3-4, light 3) open only when at least 30% of the CPU sat idle over the last 4 s and nothing
   started in that pool in the last 15 s. CPU is read from the kernel (`host_statistics`), not load average, which
   on macOS counts threads waiting on disk and read 130 at 15% idle during the build of this tool.
 - Builds outside the queue (old scripts, another ffmpeg) using 30%+ CPU count against the heavy pool (`buildcap.builds()`).

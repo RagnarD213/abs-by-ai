@@ -1188,7 +1188,7 @@ something that we can publish."* Every point below is a standing rule for every 
   `buildcap.wait()` now gets in line in the queue. Never waits: ffprobe, frame grabs, stills, audio-only ffmpeg,
   stream copies, anything 5 s or shorter, review servers.
 - **Slots: heavy 2 always open, up to 4 while the Mac has spare CPU; light (Whisper, checks) 2, up to 3.** Extra slots
-  open only when at least 40% of the CPU sat idle for 4 s and nothing started in that pool in the last 15 s, so
+  open only when at least 30% of the CPU sat idle for 4 s and nothing started in that pool in the last 15 s, so
   single-core Python renders no longer leave most of the Mac idle, and x264-bound renders still run two at a time.
   Work inside a slot runs at nice 10. Measurements: `Handoffs/results-20261020-render-scheduler.md`.
 - **Run builds in the background** (`run_in_background`, `nohup`, a chain script): a queued step can wait past the
