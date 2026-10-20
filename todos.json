@@ -345,46 +345,53 @@
       "boardRank": 3
     },
     {
-      "text": "Put all non-cardboard trash items in junk room into trash bags. Leave in spare room, do not put in trash yet",
+      "text": "Wash, dry, and fold all dirty laundry",
       "priority": "high",
       "recurring": false,
-      "addedAt": "2026-10-06",
+      "addedAt": "2026-10-20",
       "boardRank": 4
     },
     {
-      "text": "Cut up boxes for hedge panels behind artificial hedge, move to recycling or spare room",
+      "text": "Put all non-cardboard trash items in junk room into trash bags. Leave in spare room, do not put in trash yet",
       "priority": "high",
       "recurring": false,
       "addedAt": "2026-10-06",
       "boardRank": 5
     },
     {
-      "text": "Robot vaccuum bedroom 3x. Remove mop pads first and put back after",
+      "text": "Cut up boxes for hedge panels behind artificial hedge, move to recycling or spare room",
       "priority": "high",
       "recurring": false,
       "addedAt": "2026-10-06",
       "boardRank": 6
     },
     {
+      "text": "Robot vaccuum bedroom 3x. Remove mop pads first and put back after",
+      "priority": "high",
+      "recurring": false,
+      "addedAt": "2026-10-06",
+      "boardRank": 7
+    },
+    {
       "text": "Spray weeds with roundup",
       "priority": "med",
       "recurring": false,
       "addedAt": "2026-08-03",
-      "boardRank": 7
+      "boardRank": 8
     },
     {
       "text": "Hire contractor to powerwash deck, driveway, and house. Discuss with Dan first",
       "priority": "med",
       "recurring": false,
       "addedAt": "2026-09-01",
-      "boardRank": 8
+      "boardRank": 9
     },
     {
       "text": "Clean exterior of all windows",
       "priority": "low",
       "recurring": false,
       "addedAt": "2026-08-08",
-      "boardRank": 9
+      "boardRank": 10
     },
     {
       "text": "Load dishwasher",
@@ -395,13 +402,6 @@
         4
       ],
       "addedAt": "2026-08-09",
-      "boardRank": 10
-    },
-    {
-      "text": "Wash, dry, and fold all dirty laundry",
-      "priority": "high",
-      "recurring": false,
-      "addedAt": "2026-10-20",
       "boardRank": 11
     }
   ],
