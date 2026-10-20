@@ -14,7 +14,7 @@ description: >
 
 # Script From Outline: Content Outline → Teleprompter Script
 
-**STATUS: v2, updated 2026-09-21 from Dan's line edits to the four 9/23 shoot scripts (start at
+**STATUS: v3, updated 2026-10-20 from Dan's notes and edits to the seven 10/23 pool long-forms (start at THE 10/23 POOL LONG-FORMS). v2, updated 2026-09-21 from Dan's line edits to the four 9/23 shoot scripts (start at
 WHAT DAN CHANGED). v1 — created 2026-08-23. First test: "Your Belly Fat Is An Emergency"
 (outline doc `1yZjcG5pkbw0kPsfTvc7OOr2bX6v0bVYMqquUiRENQ4k`). Update this file
 after Dan reviews the first scripted videos — his line edits ARE the style
@@ -27,7 +27,69 @@ lands in the first 5 seconds, names what the viewer gets, and is never a topic a
 an outline point read aloud. Write three opening lines, use the strongest, list the other two
 as HOOK TAKES under the script. Section A below is how he writes the rest of the first 30 seconds.
 
-## WHAT DAN CHANGED (his line edits to the four 9/23 shoot scripts, read 2026-09-21). READ FIRST.
+## THE 10/23 POOL LONG-FORMS (Dan's notes and line edits, 2026-10-20). READ FIRST.
+
+Seven long-forms read by the pool. His finished text: `Docs/SCRIPTS_1023_POOL_LONGFORM_DAN_EDITED_20261020.md`;
+the before/after diff: `references/dan-edits-2026-10-20.md`. After the warm-up cuts, about 94% of lines survived his
+line edits. What he changed, biggest first:
+
+**P. The warm-up between the hook and the first point. His biggest complaint, and "becoming a pattern."** Five of seven
+scripts spent 200 to 330 words (1.5 to 2 minutes) after the hook on: the agenda ("In this video I'm going to show you...
+then... and finally"), "Stick with me", "So let's get into it", "Now, I know that sounds crazy" followed by a paragraph of
+what everyone else says, "if you're a guy who wants to lose your belly fat, this video is for you", restating the hook
+("Let me say that again"), and reasons the body gives again later as numbered points. Cut to 20 to 85 words, every script
+lost 1.5 to 2.5 minutes and nothing of value. His test: a viewer with ADD and ten other videos one click away; never
+assume he is locked in for ten minutes. The rule: hook, at most one credibility or stakes line, at most two sentences of
+context the viewer needs, then point one. "What not to do" and "why most people fail" go after the first useful
+instruction, condensed. Full rule: `../_shared/HOOKS.md`, "Long-form: no warm-up".
+- Before: "Rule 1: build the habit before you build the workout" after 90 seconds of what beginners get wrong.
+  After: "Rule number one: only work out for 15 minutes," straight after the credibility line, then four concrete reasons
+  (won't get sore, won't dread it, you can actually do 15 minutes, it builds the habit), each with an on-screen card.
+
+**Q. Every claim gets its why, tied to his own system.** "I went to a 95% machine and cable routine, and I didn't lose any
+muscle" became "...In fact, I GAINED a lot of muscle and strength after making this change. Why did I gain muscle after
+quitting high risk lifts? Because that's what made it possible for me to start training 7 days a week. There's no way I'd
+survive 7 days a week of deadlifts and power cleans." He linked machines to daily total-body training ("Total body
+workouts aren't possible if you're doing high risk lifts"). Filler became the reason: "It takes a few seconds. And it's a
+big part of why machines are so much safer" became "It's important to have the machine set optimally, because that's
+what makes it safe and effective." End the section on the payoff: "you'll get injured far less, and you'll gain MORE
+muscle in the long term."
+
+**R. His story with the unflattering specifics.** A generic "I went through that cycle a few times" got: "I started
+bulking, and forcing myself to eat huge amounts of food. It was a struggle at first. But after a few months doing this, I
+actually started to ENJOY eating like this... when it was time to cut, I procrastinated far too long because I didn't want
+to cut back on my calories." When the script needs his experience and the facts file lacks the detail, leave a
+`[DAN: ...]` prompt; never paper over it with a vague line.
+
+**S. Accurate on mechanisms, blunt on verdicts.** He softened cause-and-effect lines that overstated: "you're going to skip
+tomorrow's workout" became "you're more likely to skip the next workout"; "If I'm sore, I miss tomorrow's workout" became
+"tomorrow's workout is less effective"; "barbells can build more muscle" became "more muscle than machines and cables"
+(name the comparison). And he sharpened the verdicts: "If you're bulking and you're not ripped, you are fucking up."
+"95% of men should spend their entire life focusing on fat loss only, and NEVER go into a bulking phase."
+
+**T. Push an authority's point down to the viewer, and studies into the real world.** "Firas trains some of the most elite
+MMA athletes in the world. If he's recommending THEY never get sore, YOU should definitely never get sore from a workout."
+After the soreness study: "And in the real world, most of the people who jumped right in and got sore would have quit."
+
+**U. Three proofs at most, each introduced in one clause, no recap.** He deleted the fourth source (Jeremy Ethier) and the
+"So the research is pretty clear..." summary after the studies. "Brad Schoenfeld. Brad Schoenfeld is one of the top..."
+became "by Brad Schoenfeld, one of the top muscle growth researchers in the world."
+
+**V. A number wherever the viewer has to act.** Bulking got the cut target ("Move to a 10% caloric deficit, about a net
+cut of 500 calories") and "your diet should be 90% the same regardless of what you're doing." "A small surplus" became "a
+very small calorie surplus".
+
+**W. A recognizable side-by-side for a comparison claim.** "Even a guy without that much muscle looks great if he's lean"
+got the cue `[SHOW CLIP OF BRAD PITT IN FIGHT CLUB SHIRTLESS, AND CLIP OF FAT BUT MUSCULAR SLOPPY LOOKING GUY SIDE BY
+SIDE IN SPLIT SCREEN]`, then "But if you're fat and strong, you just look sloppy." Suggest one when a script compares two
+bodies or outcomes.
+
+**X. One CAPS word for spoken emphasis:** GAINED, MORE, ENJOY, THEY / YOU, NEVER. One per sentence at most.
+
+**Y. Check exercise lists against his routine.** "Instead of deadlifts... hamstring curls and the glute bridge machine"
+was missing the leg press; he added it in both places.
+
+## WHAT DAN CHANGED (his line edits to the four 9/23 shoot scripts, read 2026-09-21). READ SECOND.
 
 About 90 percent of the lines survived untouched, so the body voice (lessons 26 to 35 at the
 bottom) is close. Every edit he made falls into one of the patterns below. The raw before/after
@@ -136,7 +198,7 @@ exact numbers rather than inventing a plausible version.
 - "I'll link it right here" became "I'll link it in the description". Do not assume a card.
 - He works out at EIGHT in the morning, not six.
 
-## THE CALORIES PAIR (2026-09-21): outline stage, proof, studies, and what Dan changed. READ SECOND.
+## THE CALORIES PAIR (2026-09-21): outline stage, proof, studies, and what Dan changed. READ THIRD.
 
 Two scripts ("Calories: THE Reason You're Not Losing Weight", "When Calories DON'T Matter For Fat
 Loss") went outline, fleshed outline, script, Dan's edits, study swaps in one day. Dan called the
@@ -206,7 +268,7 @@ title card cue. Update the production notes' study list.
 - Small: "So let me wrap this up" became "OK, let's wrap this up"; "Calories decide" became
   "Calories are the most important factor in" (he restored the hedge that matches video 1).
 
-## THE 10/17 SHOOT REWRITE PASS (Dan's feedback on 40 scripts, 2026-10-07). READ THIRD.
+## THE 10/17 SHOOT REWRITE PASS (Dan's feedback on 40 scripts, 2026-10-07). READ FOURTH.
 
 Dan called the batch good overall and the workout videos the weakest. As delivered:
 `Docs/SCRIPTS_1017_SHOOT_REWRITE_PASS_AS_DELIVERED_20261007.md`. His edits after it were diffed on 2026-10-10: section U.

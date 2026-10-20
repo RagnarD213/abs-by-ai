@@ -104,3 +104,5 @@ without them"). Context the viewer needs (what bad posture looks like, what bulk
 "Why most people fail" and "what not to do" material moves after the first useful instruction, condensed.
 Before and after: "I'm 41... First Time" went from about 90 seconds of what-not-to-do to "Rule number one: only work
 out for 15 minutes" right after the credibility line; the four-exercise posture video went from 330 words of warm-up to 70.
+The rest of what Dan changed in those scripts (a why for every claim, his own specifics, three proofs at most):
+`/scriptfromoutline`, section THE 10/23 POOL LONG-FORMS.
