@@ -1,7 +1,7 @@
 """DS-40 R2 review page: R1 vs R2 green screen key on the same 9.3 s sample (colour B, voice E locked).
 Everything shown is cut from the RENDERED files. Writes r2/review/index.html."""
 from pathlib import Path
-import json, subprocess, html, shutil
+import json, subprocess, html, shutil, tempfile
 import numpy as np
 from PIL import Image
 W = Path('/Volumes/Extreme/_edit_work/ds40/r2'); Q = W/'review'; M = Q/'media'; R1 = W.parent/'r1'
@@ -10,10 +10,17 @@ NAME = 'Fat 90 Year Old SFC R2'
 E = html.escape
 M.mkdir(parents=True, exist_ok=True)
 def ff(a): subprocess.run([F, '-nostdin', '-v', 'error', '-y'] + list(map(str, a)), check=True)
+_dec = {}
 def frames(path, f0, n):
-    p = subprocess.run([F, '-v', 'error', '-i', str(path), '-vf', f"select=between(n\\,{f0}\\,{f0 + n - 1}),scale=in_color_matrix=bt709:in_range=tv",
-                        '-vsync', '0', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], capture_output=True, check=True).stdout
-    a = np.frombuffer(p, np.uint8).reshape(-1, 1920, 1080, 3); assert len(a) == n, (path, f0, len(a)); return a
+    """Frames f0..f0+n-1 of a delivered file; each file is decoded once for every loop that needs it."""
+    if path not in _dec:
+        want = sorted({f for _, bg, a, _, _, _ in LOOPS for f in range(a, a + 5) if FILES['r1'][bg] == path or FILES['r2'][bg] == path})
+        sel = '+'.join(f'eq(n\\,{f})' for f in want)
+        p = subprocess.run([F, '-v', 'error', '-i', str(path), '-vf', f"select={sel},scale=in_color_matrix=bt709:in_range=tv",
+                            '-vsync', '0', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], capture_output=True, check=True).stdout
+        a = np.frombuffer(p, np.uint8).reshape(-1, 1920, 1080, 3); assert len(a) == len(want), (path, len(a), len(want))
+        _dec[path] = dict(zip(want, a))
+    return np.stack([_dec[path][f] for f in range(f0, f0 + n)])
 
 FILES = {
     'r1': {'navy': R1/'review/DS40 R1 sample - Warm Vivid colour, house voice.mp4', 'pale': R1/'review/colour/key check on pale backdrop.mp4', 'pink': W/'renders/r1 pink.mp4'},
@@ -23,6 +30,7 @@ SAMPLE = f'{NAME} - sample, Warm Vivid colour, house voice plus half bass.mp4'
 shutil.copy(FILES['r2']['navy'], M/SAMPLE)
 # side by side, R1 left, R2 right, R2 audio (voice E)
 for bg in ['navy', 'pale', 'pink']:
+    if (M/f'R1 vs R2 - {bg}.mp4').exists(): continue
     ff(['-i', FILES['r1'][bg], '-i', FILES['r2'][bg], '-filter_complex',
         '[0:v]scale=720:1280:flags=area[a];[1:v]scale=720:1280:flags=area[b];[a][b]hstack=2,format=yuv420p[v]',
         '-map', '[v]'] + (['-map', '1:a', '-c:a', 'aac', '-b:a', '192k'] if bg == 'navy' else ['-an']) +
@@ -44,7 +52,7 @@ for nm, bg, f0, (x0, y0, x1, y1), z, cap in LOOPS:
     gap = np.full((5, y1 - y0, 4, 3), 255, np.uint8)
     seq = np.concatenate([a, gap, b], 2)
     seq = np.concatenate([seq, seq[-2:0:-1]], 0)        # ping-pong
-    d = Q/'tmp_loop'; shutil.rmtree(d, ignore_errors=True); d.mkdir()
+    d = Path(tempfile.mkdtemp())          # local disk: exFAT's ._ files break rmtree on the work drive
     for k, fr in enumerate(np.tile(seq, (4, 1, 1, 1))):
         im = Image.fromarray(fr); im.resize((im.width * z // 2 * 2, im.height * z // 2 * 2), Image.Resampling.NEAREST).save(d/f'{k:03d}.png')
     ff(['-framerate', 5, '-i', d/'%03d.png', '-c:v', 'libx264', '-crf', '12', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', M/f'loop-{nm}.mp4'])
