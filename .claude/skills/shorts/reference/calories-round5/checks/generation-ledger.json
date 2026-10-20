@@ -1,0 +1,28 @@
+{
+  "provider": "Codex ChatGPT subscription",
+  "planned_images": 2,
+  "paid_generation_dollars": 0,
+  "images": [
+    {
+      "file": "D01-start.png",
+      "codex_tokens": 23306
+    },
+    {
+      "file": "D01-end.png",
+      "codex_tokens": 37763
+    },
+    {
+      "file": "D01-end.no-necklace.png",
+      "codex_tokens": 42093,
+      "reason": "remove broken necklace, no scene/action revision"
+    },
+    {
+      "file": "D01-start.no-necklace.png",
+      "codex_tokens": 19040,
+      "reason": "remove broken necklace, no scene/action revision"
+    }
+  ],
+  "motion_generated": false,
+  "actual_images": 4,
+  "total_codex_generation_tokens": 122202
+}

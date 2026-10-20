@@ -1,0 +1,24 @@
+{
+  "caption_alpha_bounding_boxes": {
+    "Snack on protein,": [
+      170.5,
+      1763,
+      909.5,
+      1857
+    ],
+    "not on carbs.": [
+      261.5,
+      1764,
+      818.5,
+      1841
+    ]
+  },
+  "lower_abdomen_max_y": 1720,
+  "caption_clearance_min_px": 43,
+  "heads_and_abdomens_unobstructed": true,
+  "ai_label_and_preview_label_clear": true,
+  "reviewed_files": [
+    "review/frames/D01-start-composed.jpg",
+    "review/frames/D01-end-composed.jpg"
+  ]
+}

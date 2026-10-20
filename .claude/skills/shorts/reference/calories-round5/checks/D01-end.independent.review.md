@@ -1,0 +1,26 @@
+# D01 R5 independent START/END review
+
+Inspected both 1024 × 1536 inputs at native resolution before reading the gate rows, then made 3× crops of all four hands, the two bites, the neck boundaries and supporting counter contacts. Coordinates below are native-image pixels; scratch evidence is under `/private/tmp/claude-501/framereview/D01-end.png/`. No prompts, earlier reviews or editor history were read.
+
+**A. Object realism: PASS.** Top has one four-tine fork, one approximately 23 × 55 px sardine portion and one approximately 100 × 61 px open tin; bottom has one approximately 37 px chip, one bowl and one cracker plate. The tin has a continuous rim and visible fish; the bowl and plate sit on the right counter at approximately (925,1221) and (970,1266), with no floating food containers.
+
+**B. Contact: PASS.** Four hands and four arms are present across the two panels in each frame; feet and shoes are outside this head-to-mid-thigh crop, so zero visible feet/shoes is appropriate. The top left forearm/hand contacts the side counter around (769,480), and the bottom left hand rests across approximately x778–870, y1228–1290; its texture tracks at (0,0) px with correlation 0.987. The fork and chip grips remain intact.
+
+**C. Body line: PASS.** Both figures are standing beside the right-side counter, with upright exposed torsos and hips above visible thighs rather than seated behind a frontal countertop. The lean abdomen occupies approximately x400–623, y397–548 and the heavier stomach approximately x380–680, y1155–1337; no arm, food or counter crosses either central stomach area. Waist silhouette widths near their lower abdomen are approximately 226 px top versus 291 px bottom, so the comparison is immediately distinct in both frames.
+
+**D. Anatomy: PASS.** Each figure has two shoulders, elbows and wrists, with no added limb or reversed bend; overlapping flexed arms are physically plausible in this camera projection. Manual projected upper-arm/forearm traces are approximately 156/157 px top and 154/177 px bottom, with uncertainty around 5–10 px from joint occlusion; matched elbow/chest/body features move at most 1.4 px, well below an 8% length-change failure. No arm straightening or additional reach is required.
+
+**E. Continuity START to END: PASS.** Independent local template measurements give top fork hand (+2,0), lower fish (+2,+1), tin rim (0,-1), left hand (+1,-1), abs (+1,0), bottom chip hand (+1,-1), bottom resting hand (0,0), bowl (0,0), and both counter corners (0,0) px; reliable correlations range 0.898–0.995. Outside the allowed head/contact masks, mean RGB absolute difference is 4.11/255 and 95th percentile is 11/255, consistent with light regeneration texture rather than visible scene movement; the gate likewise passes all declared still anchors. My raw fork-shaft correlation was only 0.819 and is not independently reliable, but the gate's 0.93 shaft track agrees with the high-confidence hand and lower-fish tracks.
+
+**F. Hands and props: PASS.** At 3×, the fork hand shows four curled fingers plus its thumb; the tin grip shows four front/under-tin fingers plus its rear thumb; the chip grip shows four finger contours plus the partly occluded pinching thumb; the resting hand shows one thumb plus four curled fingers. Counts and grips persist between frames, and there remains exactly one fork, forked fish portion, tin and held chip per intended location. The lower fish track changes only 2.24 px and the chip remains beside the same fingertips rather than following the mouth.
+
+**G. Expression and intent: PASS.** Both versions preserve the same short dark hair and blue rectangular glasses; the top eye line rotates from roughly -13° to +20° and the lower from roughly -13° to +28°, bringing each mouth to its stationary food. Top mouth contact is around (473,211), bottom around (477,984); both read as natural impending bites, and the different exposed physiques remain clear without audio.
+
+**H. AI slop: FAIL.** The lean figure has an obviously incomplete necklace in BOTH images: the two exposed chain ends terminate on bare skin near (496,270) and (554,270), leaving an approximately 58 px gap where its front joining segment should be. This is visible at native size and confirmed in `start-necklace-gap.png` and `end-necklace-gap.png`; no clothing, hand or food occludes that gap. Other inspected hand/food/neck edges show no additional shipping-level fault; the geometry gate cannot detect this undeclared static object defect.
+
+**I. Animate test: PASS.** Over the specified 2.300467 s, the required motion is a modest head/neck pitch toward food approximately 25–40 px from the initial mouth, while measured hands and food remain within 0–2.24 px. Neither body needs to slide, no utensil crosses the face, and no food has to teleport; a plausible head-driven bite can connect these endpoints. This is an endpoint feasibility check, not a claim that a rendered motion take has been checked.
+
+Required repair:
+1. Repair or remove the lean figure’s broken necklace in BOTH frames, preserving the accepted food, hands, body, counter and kitchen positions; ensure no exposed chain ends terminate on bare chest skin. Re-run the frame gate and a fresh independent review after the repair.
+
+VERDICT: FAIL

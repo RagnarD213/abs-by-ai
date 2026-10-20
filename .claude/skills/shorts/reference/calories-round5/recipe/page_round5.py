@@ -1,0 +1,27 @@
+from pathlib import Path
+import sys,json,html,shutil,hashlib
+P=Path(__file__).parent;W=P.parent;R=Path('/Users/danielrose/Documents/Claude/Projects/Abs By AI');O=W/'review';F=W/'frames'
+sys.path.insert(0,str(R/'.claude/skills/_shared/framecheck'));from gate import require_pass
+require_pass(str(F/'D01-start.png'),str(F/'D01-end.png'))
+base=(W.parent/'round4/review/index.html').read_text();style=base.split('<style>',1)[1].split('</style>',1)[0];aside='<aside'+base.split('<aside',1)[1].split('</aside>',1)[0]+'</aside>'
+aside=aside.replace('A01','D01').replace('Why I fast until 2 pm every day.','Snack on Protein, Not Carbs').replace('Fasting start still placeholder','Protein start still placeholder').replace('Each clip includes narration and surrounding edit. Nothing has been published.','Opening narration with synchronized still placeholders. Nothing has been published.')
+for q in ['start','end']:shutil.copy2(F/f'D01-{q}.png',O/'frames'/f'D01-{q}-full.png')
+item={'id':'D01','title':'Snack on Protein, Not Carbs','scope':'R5 standing-counter start/end frames only; motion not generated','start_sha256':hashlib.sha256((F/'D01-start.png').read_bytes()).hexdigest(),'end_sha256':hashlib.sha256((F/'D01-end.png').read_bytes()).hexdigest()}
+pair=''.join(f'<article><a href="frames/D01-{q}-full.png"><img src="frames/D01-{q}-composed.jpg" alt="{q.capitalize()} standing-counter protein frame"></a><p><b>{q.upper()}</b> · <a href="frames/D01-{q}-full.png">Full-size Image</a></p></article>' for q in ['start','end'])
+text='''<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Calories Not Losing Weight SFL R5</title><style>STYLE</style><link rel="stylesheet" href="panel.css"></head><body>ASIDE<main><h1>Calories Not Losing Weight SFL R5</h1><div class="notice">CONTENT (SFL). “Why I fast until 2 pm every day.” R4 frames are approved and unchanged. This round asks only for the new protein scene. No Flow motion has been generated.</div><h2>Snack on Protein, Not Carbs</h2><p><b>Both shirtless versions now stand beside and lean against the kitchen counter at the side. The lean abs and heavier stomach remain fully visible, with the counter and props out of the way.</b></p><div class="pair">PAIR</div><p><button onclick='play("D01-narration.wav","Snack on Protein, Not Carbs: Narrated Still Placeholders")'>Hear The Opening With These Frames</button> <a href="D01-narration.wav">Open Audio Only</a></p><p><b>Review:</b> 0:00 to 0:02.30. These are still-frame placeholders, not generated motion.</p><p><b>During:</b> “Snack on protein, not on carbs.”</p><p><b>Next line:</b> “Protein keeps you full for hours and carb snacks do the opposite.”</p><p><b>Intended motion:</b> Both versions remain leaning against the side counter. Their heads lean naturally toward the stationary sardine or chip for a bite. Same food comparison, blue glasses and physiques. Captions are placed clear of the body comparison.</p><p class="note">These exact images passed the measured frame gate and a fresh independent review. Approve this pair or name what you want changed before Flow motion.</p><label>Frame decision <select class="decision" data-id="D01"><option value="pending">Pending</option><option value="approved">Approve Frames</option><option value="changes-requested">Changes Requested</option></select></label><h2>Preserved</h2><p>The fasting pair is approved. All five selected Shorts remain. The approved sound, grade, titles, narration and timing stay as recorded. R2/R3/R4 work and review services were not modified. No covers or publishing.</p><h2>Reply</h2><textarea id="reply">Calories Shorts R5 frame decision:
+Snack on Protein, Not Carbs: Frames approved / Changes:
+</textarea><p><button onclick="navigator.clipboard.writeText(document.getElementById('reply').value)">Copy Reply</button> <button onclick="saveDecisions()">Save Decisions As JSON</button></p><p class="note">Images made on the Codex subscription. Awaiting Dan's review before new motion.</p></main><script>const ITEMS=ITEMSJSON;</script><script src="panel.js"></script></body></html>'''
+config=json.loads((W/'records/narrated-still-config.json').read_text())
+text=text.replace('STYLE',style).replace('ASIDE',aside).replace('PAIR',pair).replace('ITEMSJSON',json.dumps([item]));preloads=''.join('<link rel="preload" as="image" href="'+v['src']+'">' for c in config.values() for v in c['slides']);text=text.replace('</head>',preloads+'</head>');(O/'index.html').write_text(text)
+shutil.copy2(P/'panel.css',O/'panel.css');js=(P/'panel.js').read_text();js+='\nconst FRAME_CONFIG='+json.dumps(config)+''';
+const frameImage = document.getElementById('placeholder-frame');
+function syncStill() {
+ const id=(preview.currentSrc||preview.src).split('/').pop().split('-')[0];const cfg=FRAME_CONFIG[id];if(!cfg)return;
+ const t=preview.currentTime||0;const slide=cfg.slides.filter(s=>s.at<=t+0.0001).pop()||cfg.slides[0];
+ if(!frameImage.src.endsWith(slide.src))frameImage.src=slide.src;
+ frameImage.alt=id+' still placeholder at '+t.toFixed(2)+' seconds; motion not generated';
+}
+['loadedmetadata','timeupdate','seeked','play','pause'].forEach(n=>preview.addEventListener(n,syncStill));
+function animateStill(){syncStill();if(!preview.paused)requestAnimationFrame(animateStill);}
+preview.addEventListener('play',()=>requestAnimationFrame(animateStill));syncStill();
+''';(O/'panel.js').write_text(js);(W/'records/review-items.json').write_text(json.dumps([item],indent=2));print('R5 page ready')
