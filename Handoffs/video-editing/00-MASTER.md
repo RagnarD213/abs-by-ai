@@ -251,7 +251,7 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 | [SL-15](SL-15-my-first-spray-tan-shorts.md) | My First Spray Tan (RO-19, YouTube Wed Oct 21; 3 Shorts, Short 1 airs Fri Oct 30) | IN PROGRESS | S |
 | [SL-16](SL-16-intermittent-fasting-shorts.md) | Intermittent Fasting: The Best Way To Get Abs (RO-08, finalized 10-14; release date set at setup) | READY; hold release until parent is public | S |
 
-| [SL-17](SL-17-top-1-percent-shorts.md) | Top 1 Percent (RO-26, finalized; release on hold) | READY; hold release until parent is public | S |
+| [SL-17](SL-17-top-1-percent-shorts.md) | Top 1 Percent (RO-26, finalized; release on hold) | IN PROGRESS | S |
 | [SL-18](SL-18-wasted-my-life-shorts.md) | I'm 41. I Wasted My Life. (RO-25, YouTube Sun Oct 18; 3 Shorts, Short 1 airs Mon Oct 26) | IN PROGRESS | S |
 | [SL-19](SL-19-3-healthy-foods-shorts.md) | 3 Healthy Foods That Made Me Fat (RO-17, YouTube Sun Dec 13; 3 Shorts, Short 1 airs Mon Dec 14) | READY: approved parent filed; due Dec 13 | S |
 
