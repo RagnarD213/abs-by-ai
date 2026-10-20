@@ -30,6 +30,9 @@ Residual lag then collapses to a constant −20…−42 ms — inside one AAC fr
 
 ## 2. `syncgate.py` is a HARD GATE and `qc.js` will not pass without it
 
+*(2026-10-20: `syncgate.py` and `qc.js` were deleted 2026-09-16; the delivery gate
+`_shared/deliver/gate.py` now does this check. The lesson below still applies.)*
+
 It transcribes each DELIVERED short and matches every caption's first word against the heard
 audio. It is the only check that measures what a viewer experiences. `qc.js` refuses to pass a
 file the gate has not seen, keyed on mtime so a re-render invalidates the stamp.
