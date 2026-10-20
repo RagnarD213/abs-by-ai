@@ -104,3 +104,20 @@ LIFT TOO. | Facebook Abs by AI | 2027-02-26 17:00 CT (planned) | 2027-02-26T23:0
 
 Per placement, in `scripts/blotato/studio27_verified.json` (slide order preserved).
 
+
+## 2026-10-20 update: studio batch is now the next photo content on both platforms (Dan's call)
+
+- Dan, 2026-10-20: make the whole Codex studio batch the next image posts released, and stop releasing the old pool-photo
+  posts ("just making new stuff like the Codex Studio batch").
+- **Instagram @danrosefit:** all 27 studio posts reordered into the Mon/Wed/Fri 5 PM CT photo slots Oct 21 to Dec 21:
+  the 15 designed posts first (S07-A, S08-B, S09-A, S06-C, S05-B, S08-C, S06-A, S07-B, S09-C, S05-A, S08-A, S06-B, S07-C,
+  S09-B, S05-C), then the 12 plain photo singles (S01-A, S03-A, S02-A, S04-A, S03-B, S02-B, S04-B, S01-B, S04-C, S01-C,
+  S02-C, S03-C). The last 2 old pool-photo posts were deleted (Dan approved).
+- **Facebook Abs by AI:** all 32 old pool-photo posts deleted (Dan approved the batch). The 19 studio posts that were not
+  queued (14 never queued at the cap, 5 later removed: S09-A, S03-B, S08-B, S02-B, S05-B) were created, and all 27 now sit
+  on the same dates and order as Instagram. `studio27_state.json` records every Facebook post, so `studio27_queue.py create`
+  will not duplicate them. **Nothing from this batch is left to queue.**
+- Verified by re-reading the full Blotato queue: 27 studio photo posts per platform at the planned slots, 0 old photo posts
+  left, no other queued post changed. Queue went 184 to 171, freeing 13 spots for waiting videos.
+- Backups (git-ignored, local): `scripts/blotato/swap_backup/ig_fb_photo_queue_before_reorder_20261020.json`,
+  `fb_photo_queue_before_reorder_20261020.json`, `queue_before_fb_studio_swap_20261020.json`.
