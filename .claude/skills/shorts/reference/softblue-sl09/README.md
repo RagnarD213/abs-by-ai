@@ -96,3 +96,21 @@ r3/brief.py S                R3: the independent reviewer's brief for one short 
 - **A long pause inside one piece trips `junk:dead_air` (max 1.0 s):** `TRIM` takes the middle out (audio cut only).
 - **Reviewer word disputes:** score the candidates with forced alignment (WAV2VEC2 path log-probability) before changing a
   caption; "near bedtime" beat "in your bedtime" (-32 / -69), "your behavior" beat "their behavior" (-95 / -116).
+
+## What round 4 taught (SFL R4, 2026-10-20: Dan's three approved AI clips into shorts 4 and 5)
+
+- **A WHOOP reads as a WHOOP only by its pod.** Dan sent J2 back because a plain knit band "is just like a bracelet". Codex
+  fixed it in one edit of the approved START (`aiframes/J2w_start.txt`: replace only the band; a slim black knit strap and a
+  rectangular matte charcoal pod about 3.6 x 2.5 cm, long side across the wrist, on TOP of the wrist, no screen, no logo).
+- **A pod on top of the wrist cannot survive a palm-up turn.** The approved action (turn the hand palm-up) would hide the
+  pod in the END frame Dan asked to fix. A partial roll came back with the forearm sliding and a confused thumb; the hand
+  closing into a relaxed loose fist kept ring, pod and forearm in place and passed gate and reviewer first time. Say so on
+  the page ("What I decided"): it is a change of action forced by the fix.
+- **Flow credits are shared by every editing session.** On 2026-10-20 four sessions took the balance from 920 to 10 by
+  mid-afternoon; K1 got the last 20 and J1/J2 hit `CREDITS_OUT`. Read `~/.absbyai-veo-ledger.jsonl` (the last `balance`
+  rows) before promising same-day motion, and queue the clip that matters most first.
+- **Veo frames mode snaps to the END frame in the last second or two.** K1 played cleanly to about 6.6 s, then the hand
+  popped back up and the table jumped to match END. Plan the edit on the early part (K1 uses 0-4.3 s) and check the tail
+  before using it.
+- **A bright AI kitchen sits above Dan's studio picture.** K1 measured median 0.49 / saturation 0.19 against Dan's
+  picture area 0.34 / 0.26; `curves=all='0/0 0.5/0.44 1/0.96',eq=saturation=1.25` took it to 0.43 / 0.26.
