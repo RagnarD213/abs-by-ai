@@ -695,8 +695,8 @@ final rounds of revisions, but for things like this, which are significant, I wo
 78. **The last top graphic is the takeaway, not the title again.** Both times the editor repeated the title as the closing
     graphic; Dan replaced it with eyebrow `THE LESSON` and a one-line takeaway in his words ("Focus On Getting Abs First,
     Then Money Later", "AI Is The Ultimate Tool For Getting Six-Pack Abs"). When a round is already open, write that item
-    (and build the graphic, step 6b) wherever the closing graphic repeats the title. (Dan to confirm: does the small
-    eyebrow count as graphic copy under the 2026-10-16 title-capitalization rule?)
+    (and build the graphic, step 6b) wherever the closing graphic repeats the title. (Dan, 2026-10-20: the eyebrow stays in
+    CAPITALS; that is the standard. The point line stays title case.)
 
 **Dan's vocabulary — use his words:** "camera scene" (the talking head), "motion effect" (the
 Ken Burns move on stills), "accelerate footage to fit duration", "clip", "bro", "douchey". A simple
