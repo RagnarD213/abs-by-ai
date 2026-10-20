@@ -11,6 +11,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Oura Ring Review SFL R4](handoff-20261020-sl09-oura-shorts-r4-ai-clips.md): SL-09, Dan finalized shorts 1-3 on 2026-10-20 and approved three AI clips (K1, J1, J2 with the band made a WHOOP); make them on the Flow subscription, rebuild shorts 4 and 5, review, gate, page. Opus 5.5 high.
 - [What To Buy For Your Health LFC R5](handoff-20261020-ro20c-round5-intro-split-and-excuse-clips.md): RO-20C round 5, new intro split screen (three AI clips of Dan) and two lip-synced excuse clips at 1:47 and 4:12; frames and mockup first, then stop. Codex gpt-6.1-sol high.
 - [Invest In Your Health LFC Setup](handoff-20261020-ro20-ro20b-thumbnails-and-video-setup.md): RO-20 and RO-20B finalized 10-20; five thumbnails each, stop for picks, then set up in order (video 1 then 2). Claude Opus 5.5 high.
 - [Fat 90 Year Old SFC R2](handoff-20261020-ds40-round2-key-polish.md): **Start now (2026-10-20). Claude Opus 5.5, high.** CONTENT SFC, green screen bake-off with Codex. Dan locked colour B and house voice + half bass; make the key beat R1 (hair flicker, dark rim, watch glass), independent review, R1 vs R2 page on 8940.
