@@ -345,53 +345,60 @@
       "boardRank": 3
     },
     {
-      "text": "Wash, dry, and fold all dirty laundry",
+      "text": "Clean & organize bedroom closet. Remove all junk, throw away trash and move other items to junk room for Dan to review before throwing away. Vaccum carpet with manual vaccum thoroughly",
       "priority": "high",
       "recurring": false,
       "addedAt": "2026-10-20",
       "boardRank": 4
     },
     {
-      "text": "Put all non-cardboard trash items in junk room into trash bags. Leave in spare room, do not put in trash yet",
+      "text": "Wash, dry, and fold all dirty laundry",
       "priority": "high",
       "recurring": false,
-      "addedAt": "2026-10-06",
+      "addedAt": "2026-10-20",
       "boardRank": 5
     },
     {
-      "text": "Cut up boxes for hedge panels behind artificial hedge, move to recycling or spare room",
+      "text": "Put all non-cardboard trash items in junk room into trash bags. Leave in spare room, do not put in trash yet",
       "priority": "high",
       "recurring": false,
       "addedAt": "2026-10-06",
       "boardRank": 6
     },
     {
-      "text": "Robot vaccuum bedroom 3x. Remove mop pads first and put back after",
+      "text": "Cut up boxes for hedge panels behind artificial hedge, move to recycling or spare room",
       "priority": "high",
       "recurring": false,
       "addedAt": "2026-10-06",
       "boardRank": 7
     },
     {
+      "text": "Robot vaccuum bedroom 3x. Remove mop pads first and put back after",
+      "priority": "high",
+      "recurring": false,
+      "addedAt": "2026-10-06",
+      "boardRank": 8
+    },
+    {
       "text": "Spray weeds with roundup",
       "priority": "med",
       "recurring": false,
       "addedAt": "2026-08-03",
-      "boardRank": 8
+      "boardRank": 9
     },
     {
       "text": "Hire contractor to powerwash deck, driveway, and house. Discuss with Dan first",
       "priority": "med",
       "recurring": false,
       "addedAt": "2026-09-01",
-      "boardRank": 9
+      "boardRank": 10
     },
     {
       "text": "Clean exterior of all windows",
       "priority": "low",
       "recurring": false,
       "addedAt": "2026-08-08",
-      "boardRank": 10
+      "boardRank": 11
     },
     {
       "text": "Load dishwasher",
@@ -402,13 +409,6 @@
         4
       ],
       "addedAt": "2026-08-09",
-      "boardRank": 11
-    },
-    {
-      "text": "Clean & organize bedroom closet. Remove all junk, throw away trash and move other items to junk room for Dan to review before throwing away. Vaccum carpet with manual vaccum thoroughly",
-      "priority": "high",
-      "recurring": false,
-      "addedAt": "2026-10-20",
       "boardRank": 12
     }
   ],
