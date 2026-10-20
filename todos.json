@@ -424,6 +424,13 @@
       "recurring": false,
       "addedAt": "2026-10-20",
       "addedBy": "assistant"
+    },
+    {
+      "text": "Take out garbage & bring bins back from driveway",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-10-20",
+      "addedBy": "assistant"
     }
   ],
   "handoffs": [
