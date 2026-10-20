@@ -51,3 +51,11 @@ Other models in Flow, if a job asks: Veo 3.1 Lite 10 credits, Veo 3.1 Quality 10
 
 The background agent itself is not free: the 5-clip test used about 205,000 Sonnet tokens of Claude allowance (about
 40,000 a clip, mostly screenshots). Batch clips into one agent run per job rather than one agent per clip.
+
+## Traps (RO-14 round 2, 2026-10-20)
+
+- **Never run two `veo.py api` calls on one job at once.** Each rewrites `job.json` whole, so parallel runs overwrote each other
+  (a finished take's record and a just-added clip both vanished). Run paid takes one after another, or in separate job folders.
+- **Replicate refuses some frames with E005 ("input or output was flagged as sensitive"), at $0.** Flow accepted the same frames.
+  RO-14: a restaurant frame with a low-cut dress failed even START-only, so it went back to Flow; a sports-bar pair passed only
+  START-only (the END frame tripped it). Try START-only once, then Flow.
