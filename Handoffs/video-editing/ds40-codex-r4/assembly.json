@@ -1,0 +1,424 @@
+{
+  "master": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/bill-maher-fat-90-year-old-r4.mp4",
+  "sha256": "200c7b2b84cfba2aa0539b8d7078973b902c635d4447ffabb9e207b3307c609b",
+  "frames": 1944,
+  "fps": 29.97002997002997,
+  "duration": 64.8648,
+  "proof": [
+    {
+      "frame": 0,
+      "time": 0.0,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-0000.jpg"
+    },
+    {
+      "frame": 30,
+      "time": 1.0010000000000001,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-0030.jpg"
+    },
+    {
+      "frame": 60,
+      "time": 2.0020000000000002,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-0060.jpg"
+    },
+    {
+      "frame": 90,
+      "time": 3.003,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-0090.jpg"
+    },
+    {
+      "frame": 120,
+      "time": 4.0040000000000004,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-0120.jpg"
+    },
+    {
+      "frame": 150,
+      "time": 5.005,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-0150.jpg"
+    },
+    {
+      "frame": 180,
+      "time": 6.006,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-0180.jpg"
+    },
+    {
+      "frame": 210,
+      "time": 7.007000000000001,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-0210.jpg"
+    },
+    {
+      "frame": 240,
+      "time": 8.008000000000001,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-0240.jpg"
+    },
+    {
+      "frame": 270,
+      "time": 9.009,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-0270.jpg"
+    },
+    {
+      "frame": 300,
+      "time": 10.01,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-0300.jpg"
+    },
+    {
+      "frame": 330,
+      "time": 11.011000000000001,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-0330.jpg"
+    },
+    {
+      "frame": 360,
+      "time": 12.012,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-0360.jpg"
+    },
+    {
+      "frame": 390,
+      "time": 13.013,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-0390.jpg"
+    },
+    {
+      "frame": 420,
+      "time": 14.014000000000001,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-0420.jpg"
+    },
+    {
+      "frame": 450,
+      "time": 15.015,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-0450.jpg"
+    },
+    {
+      "frame": 480,
+      "time": 16.016000000000002,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-0480.jpg"
+    },
+    {
+      "frame": 510,
+      "time": 17.017,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-0510.jpg"
+    },
+    {
+      "frame": 540,
+      "time": 18.018,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-0540.jpg"
+    },
+    {
+      "frame": 570,
+      "time": 19.019000000000002,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-0570.jpg"
+    },
+    {
+      "frame": 587,
+      "time": 19.586233333333332,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-0587.jpg"
+    },
+    {
+      "frame": 588,
+      "time": 19.619600000000002,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-0588.jpg"
+    },
+    {
+      "frame": 600,
+      "time": 20.02,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-0600.jpg"
+    },
+    {
+      "frame": 630,
+      "time": 21.021,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-0630.jpg"
+    },
+    {
+      "frame": 660,
+      "time": 22.022000000000002,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-0660.jpg"
+    },
+    {
+      "frame": 690,
+      "time": 23.023,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-0690.jpg"
+    },
+    {
+      "frame": 720,
+      "time": 24.024,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-0720.jpg"
+    },
+    {
+      "frame": 750,
+      "time": 25.025000000000002,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-0750.jpg"
+    },
+    {
+      "frame": 780,
+      "time": 26.026,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-0780.jpg"
+    },
+    {
+      "frame": 810,
+      "time": 27.027,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-0810.jpg"
+    },
+    {
+      "frame": 840,
+      "time": 28.028000000000002,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-0840.jpg"
+    },
+    {
+      "frame": 870,
+      "time": 29.029,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-0870.jpg"
+    },
+    {
+      "frame": 900,
+      "time": 30.03,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-0900.jpg"
+    },
+    {
+      "frame": 930,
+      "time": 31.031,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-0930.jpg"
+    },
+    {
+      "frame": 960,
+      "time": 32.032000000000004,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-0960.jpg"
+    },
+    {
+      "frame": 990,
+      "time": 33.033,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-0990.jpg"
+    },
+    {
+      "frame": 1020,
+      "time": 34.034,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-1020.jpg"
+    },
+    {
+      "frame": 1050,
+      "time": 35.035000000000004,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-1050.jpg"
+    },
+    {
+      "frame": 1080,
+      "time": 36.036,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-1080.jpg"
+    },
+    {
+      "frame": 1110,
+      "time": 37.037,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-1110.jpg"
+    },
+    {
+      "frame": 1140,
+      "time": 38.038000000000004,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-1140.jpg"
+    },
+    {
+      "frame": 1170,
+      "time": 39.039,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-1170.jpg"
+    },
+    {
+      "frame": 1200,
+      "time": 40.04,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-1200.jpg"
+    },
+    {
+      "frame": 1230,
+      "time": 41.041000000000004,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-1230.jpg"
+    },
+    {
+      "frame": 1260,
+      "time": 42.042,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-1260.jpg"
+    },
+    {
+      "frame": 1273,
+      "time": 42.475766666666665,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-1273.jpg"
+    },
+    {
+      "frame": 1274,
+      "time": 42.50913333333333,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-1274.jpg"
+    },
+    {
+      "frame": 1290,
+      "time": 43.043,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-1290.jpg"
+    },
+    {
+      "frame": 1320,
+      "time": 44.044000000000004,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-1320.jpg"
+    },
+    {
+      "frame": 1350,
+      "time": 45.045,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-1350.jpg"
+    },
+    {
+      "frame": 1380,
+      "time": 46.046,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-1380.jpg"
+    },
+    {
+      "frame": 1410,
+      "time": 47.047000000000004,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-1410.jpg"
+    },
+    {
+      "frame": 1440,
+      "time": 48.048,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-1440.jpg"
+    },
+    {
+      "frame": 1470,
+      "time": 49.049,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-1470.jpg"
+    },
+    {
+      "frame": 1500,
+      "time": 50.050000000000004,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-1500.jpg"
+    },
+    {
+      "frame": 1530,
+      "time": 51.051,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-1530.jpg"
+    },
+    {
+      "frame": 1560,
+      "time": 52.052,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-1560.jpg"
+    },
+    {
+      "frame": 1590,
+      "time": 53.053000000000004,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-1590.jpg"
+    },
+    {
+      "frame": 1620,
+      "time": 54.054,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-1620.jpg"
+    },
+    {
+      "frame": 1650,
+      "time": 55.055,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-1650.jpg"
+    },
+    {
+      "frame": 1680,
+      "time": 56.056000000000004,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-1680.jpg"
+    },
+    {
+      "frame": 1710,
+      "time": 57.057,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-1710.jpg"
+    },
+    {
+      "frame": 1740,
+      "time": 58.058,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-1740.jpg"
+    },
+    {
+      "frame": 1770,
+      "time": 59.059000000000005,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-1770.jpg"
+    },
+    {
+      "frame": 1800,
+      "time": 60.06,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-1800.jpg"
+    },
+    {
+      "frame": 1817,
+      "time": 60.627233333333336,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-1817.jpg"
+    },
+    {
+      "frame": 1818,
+      "time": 60.6606,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-1818.jpg"
+    },
+    {
+      "frame": 1830,
+      "time": 61.061,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-1830.jpg"
+    },
+    {
+      "frame": 1860,
+      "time": 62.062,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-1860.jpg"
+    },
+    {
+      "frame": 1890,
+      "time": 63.063,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-1890.jpg"
+    },
+    {
+      "frame": 1920,
+      "time": 64.06400000000001,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-1920.jpg"
+    },
+    {
+      "frame": 1943,
+      "time": 64.83143333333334,
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/frame-1943.jpg"
+    }
+  ],
+  "boundaries": [
+    8.341666666666667,
+    17.951266666666665,
+    19.619600000000002,
+    32.399033333333335,
+    42.40903333333333,
+    42.50913333333333,
+    55.74739999999997,
+    60.6606
+  ],
+  "audio_joins": [
+    19.619600000000002,
+    55.74739999999997
+  ],
+  "caption_states": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states.json",
+  "framing": [
+    "response-framing.json",
+    "ending-framing.json"
+  ],
+  "component_joins": [
+    {
+      "frame": 250,
+      "kind": "caption-onset repair prefix to unchanged decoded original tail"
+    },
+    {
+      "frame": 538,
+      "kind": "continuous watching key to temporal-tail key"
+    },
+    {
+      "frame": 971,
+      "kind": "prefix key to approved R3 sample, deliberate picture punch"
+    },
+    {
+      "frame": 1271,
+      "kind": "approved R3 sample to three continuous native-key tail frames"
+    }
+  ],
+  "caption_repair": {
+    "prior_sha256": "01959f235d097b412677a5ffdb3f602d1f2729dcbc56c6f7b4d59871562283aa",
+    "first_caption_onset": 0.26,
+    "reason": "Independent final AAC CTC and native audio RMS show speech starts 0.26-0.30, while caption was at 0.000.",
+    "reencoded_picture_frames": [
+      0,
+      249
+    ],
+    "unchanged_decoded_tail_frames": 1694,
+    "all_native_tail_frame_md5_equal": true,
+    "unchanged_AAC_sha256": "0a10a6bcdeb138ea40def34e2e5a319d6bde3739541c05fac5259dcfa62d4972"
+  },
+  "visible_boundaries": [
+    19.619600000000002,
+    32.399033333333335,
+    42.50913333333333,
+    60.6606
+  ]
+}

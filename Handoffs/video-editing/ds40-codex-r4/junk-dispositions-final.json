@@ -1,0 +1,115 @@
+[
+  {
+    "candidate": 0,
+    "class": "REPEAT",
+    "source_time": 1403.26,
+    "context": "no such thing as being healthy at any size. And",
+    "reported_measure": {
+      "gram": "healthy at any size",
+      "first": 3.03,
+      "second": 8.03,
+      "gap_s": 5.0,
+      "kind": "ANAPHORA",
+      "hesitation": false,
+      "continuation_similarity": 0.12,
+      "whole_similarity": 0.35,
+      "item_similarity": 0.0,
+      "words_between": 16
+    },
+    "planned_disposition": "Keep intended repetition or natural breath; use actual acoustic caption timing. No pause is removed on detector score alone.",
+    "final_moving_verification": "Retained: complete original performance and final 24fps AV review found no restart or audible defect. Native source and output word context, direct AAC CTC, and identical unexpanded audio preserve the intended repetition, conjunction or natural breath.",
+    "final_sha256": "200c7b2b84cfba2aa0539b8d7078973b902c635d4447ffabb9e207b3307c609b"
+  },
+  {
+    "candidate": 1,
+    "class": "SWALLOWED",
+    "source_time": 1409.232,
+    "context": "healthy at any size. But that is a lie and",
+    "reported_measure": {
+      "seconds": 0.46,
+      "word": "But",
+      "word_span": [
+        8.908,
+        9.508
+      ]
+    },
+    "planned_disposition": "Keep intended repetition or natural breath; use actual acoustic caption timing. No pause is removed on detector score alone.",
+    "final_moving_verification": "Retained: complete original performance and final 24fps AV review found no restart or audible defect. Native source and output word context, direct AAC CTC, and identical unexpanded audio preserve the intended repetition, conjunction or natural breath.",
+    "final_sha256": "200c7b2b84cfba2aa0539b8d7078973b902c635d4447ffabb9e207b3307c609b"
+  },
+  {
+    "candidate": 2,
+    "class": "PAUSE",
+    "source_time": 1412.752,
+    "context": "literally killing you. That's why you need to treat",
+    "reported_measure": {
+      "seconds": 0.58
+    },
+    "planned_disposition": "Keep intended repetition or natural breath; use actual acoustic caption timing. No pause is removed on detector score alone.",
+    "final_moving_verification": "Retained: complete original performance and final 24fps AV review found no restart or audible defect. Native source and output word context, direct AAC CTC, and identical unexpanded audio preserve the intended repetition, conjunction or natural breath.",
+    "final_sha256": "200c7b2b84cfba2aa0539b8d7078973b902c635d4447ffabb9e207b3307c609b"
+  },
+  {
+    "candidate": 3,
+    "class": "SWALLOWED",
+    "source_time": 1418.552,
+    "context": "be amazing and if you don't lose the weight you",
+    "reported_measure": {
+      "seconds": 0.38,
+      "word": "and",
+      "word_span": [
+        18.228,
+        18.748
+      ]
+    },
+    "planned_disposition": "Keep intended repetition or natural breath; use actual acoustic caption timing. No pause is removed on detector score alone.",
+    "final_moving_verification": "Retained: complete original performance and final 24fps AV review found no restart or audible defect. Native source and output word context, direct AAC CTC, and identical unexpanded audio preserve the intended repetition, conjunction or natural breath.",
+    "final_sha256": "200c7b2b84cfba2aa0539b8d7078973b902c635d4447ffabb9e207b3307c609b"
+  },
+  {
+    "candidate": 4,
+    "class": "SWALLOWED",
+    "source_time": 1428.772,
+    "context": "look at your height and then see if you're overweight",
+    "reported_measure": {
+      "seconds": 0.36,
+      "word": "and",
+      "word_span": [
+        28.508,
+        29.008
+      ]
+    },
+    "planned_disposition": "Keep intended repetition or natural breath; use actual acoustic caption timing. No pause is removed on detector score alone.",
+    "final_moving_verification": "Retained: complete original performance and final 24fps AV review found no restart or audible defect. Native source and output word context, direct AAC CTC, and identical unexpanded audio preserve the intended repetition, conjunction or natural breath.",
+    "final_sha256": "200c7b2b84cfba2aa0539b8d7078973b902c635d4447ffabb9e207b3307c609b"
+  },
+  {
+    "candidate": 5,
+    "class": "PAUSE",
+    "source_time": 1444.532,
+    "context": "important thing you can do. Subscribe to my channel",
+    "reported_measure": {
+      "seconds": 0.56
+    },
+    "planned_disposition": "Keep intended repetition or natural breath; use actual acoustic caption timing. No pause is removed on detector score alone.",
+    "final_moving_verification": "Retained: complete original performance and final 24fps AV review found no restart or audible defect. Native source and output word context, direct AAC CTC, and identical unexpanded audio preserve the intended repetition, conjunction or natural breath.",
+    "final_sha256": "200c7b2b84cfba2aa0539b8d7078973b902c635d4447ffabb9e207b3307c609b"
+  },
+  {
+    "candidate": 6,
+    "class": "SWALLOWED",
+    "source_time": 1447.872,
+    "context": "to lose your belly fat and get abs.",
+    "reported_measure": {
+      "seconds": 0.3,
+      "word": "and",
+      "word_span": [
+        44.168,
+        44.568
+      ]
+    },
+    "planned_disposition": "Keep intended repetition or natural breath; use actual acoustic caption timing. No pause is removed on detector score alone.",
+    "final_moving_verification": "Retained: complete original performance and final 24fps AV review found no restart or audible defect. Native source and output word context, direct AAC CTC, and identical unexpanded audio preserve the intended repetition, conjunction or natural breath.",
+    "final_sha256": "200c7b2b84cfba2aa0539b8d7078973b902c635d4447ffabb9e207b3307c609b"
+  }
+]

@@ -28,7 +28,8 @@ im.save(W/'bmi-table.png');(W/'bmi-calculation.json').write_text(json.dumps({'so
 # Actual phrase timing from the source word map, on the 18.018-second clip-first timeline.
 start=1400.2322;opening=588/(30000/1001);shift=opening-18.018
 to=lambda t:round(opening+t-start,6)
-cuts=[('G01',0,opening,'Source','Bill Maher | Real Time (HBO)',0),('G02',to(1413.26),to(1418.46),'Health','Treat Your Belly Fat As An Emergency',to(1414.18)),('G04',59.1+shift,63.2604+shift,'More Fitness Tips','Subscribe To The Channel',59.1+shift)]
+subscribe=opening+(1436.36-1400.2322)+(1445.06-1439.8)
+cuts=[('G01',0,opening,'Source','Bill Maher | Real Time (HBO)',0),('G02',to(1413.26),to(1418.46),'Health','Treat Your Belly Fat As An Emergency',to(1414.18)),('G04',subscribe,opening+(1436.36-1400.2322)+(1448.9148-1439.8),'More Fitness Tips','Subscribe To The Channel',subscribe)]
 out=W/'hf';allmeta=[]
 import time
 while not (W/'bill-original.wav').exists(): time.sleep(3)

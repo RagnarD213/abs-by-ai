@@ -1,0 +1,168 @@
+{
+ "version": 1,
+ "gate_version": "2.0.0",
+ "file": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/bill-maher-fat-90-year-old-r4.mp4",
+ "sha256": "200c7b2b84cfba2aa0539b8d7078973b902c635d4447ffabb9e207b3307c609b",
+ "size": 52173235,
+ "gated_at": "2026-10-20 14:06:05",
+ "reference": {
+  "name": "this picture got me abs | muhammad | 16x9.mp4",
+  "sha256": "3b4641dbcb40e9851e7f9c9a144c39e854af500504f42211b890f6b85309f391"
+ },
+ "synthetic": false,
+ "profile": null,
+ "window": [
+  1.0,
+  62.8648
+ ],
+ "limits": {
+  "corr": 0.97,
+  "comb_margin": 0.35,
+  "edt": 80.0,
+  "tone_mean": 1.2,
+  "tone_max": 2.5,
+  "floor": 3.0,
+  "dry": 1.5,
+  "artifact_x": 1.1,
+  "harm_x": 1.35,
+  "lufs": -14.0,
+  "lufs_tol": 1.0,
+  "spread": 3.0,
+  "tp": -1.0,
+  "silent": 0,
+  "length": 0.1,
+  "vb_med": 0.1,
+  "vb_sec": 0.5,
+  "vb_image": 0.01,
+  "vb_lufs": 0.3,
+  "vb_lra": 0.3
+ },
+ "rows": [
+  {
+   "key": "lr_corr",
+   "ok": false,
+   "text": "one voice: L/R correlation +0.8917 (>= +0.97)",
+   "value": 0.8917
+  },
+  {
+   "key": "comb",
+   "ok": true,
+   "text": "no comb: spectral ripple 0.53 dB vs his 0.54 (<= his + 0.35)",
+   "value": 0.533
+  },
+  {
+   "key": "edt",
+   "ok": true,
+   "text": "dry room: early decay 56 ms (<= 80; his 40)",
+   "value": 56.0
+  },
+  {
+   "key": "tone",
+   "ok": false,
+   "text": "tone: mean |err| 2.89 dB (<= 1.2), max 7.35 (<= 2.5)",
+   "value": {
+    "mean": 2.887,
+    "max": 7.349,
+    "bands": [
+     6.43,
+     8.91,
+     10.23,
+     8.16,
+     8.32,
+     3.12,
+     -2.17,
+     -10.06,
+     -15.27,
+     -17.66
+    ]
+   }
+  },
+  {
+   "key": "floor",
+   "ok": true,
+   "text": "clean between words: voice-over-floor [32.2, 41.8, 39.9] vs his [27.6, 34.7, 28.0] (diff [4.6, 7.1, 11.9], >= -3.0)",
+   "value": [
+    32.17,
+    41.84,
+    39.87
+   ]
+  },
+  {
+   "key": "artifacts",
+   "ok": false,
+   "text": "no processing damage: flux 0.085 (his 0.072; untreated 0.084, so processing ADDED it), HF swirl 0.801 (his 0.835); each <= his x1.1 unless the untreated recording already carried it",
+   "value": {
+    "flux": 0.0855,
+    "sfm": 0.3045,
+    "swirl": 0.8011,
+    "gap": 42.3102
+   }
+  },
+  {
+   "key": "do_no_harm",
+   "ok": true,
+   "text": "no worse than untreated: flux 0.085 vs untreated 0.084 (x1.02), swirl 0.801 vs untreated 0.801 (x1.00), both <= x1.35 (untreated EDT 56.0 ms)   [reported, not gated: gap x1.06, sfm x0.79]",
+   "value": {
+    "ratios": {
+     "flux": 1.016,
+     "sfm": 0.795,
+     "swirl": 1.0,
+     "gap": 1.061
+    },
+    "untreated": {
+     "flux": 0.0841,
+     "sfm": 0.3831,
+     "swirl": 0.8013,
+     "gap": 39.8846
+    }
+   }
+  },
+  {
+   "key": "dryness",
+   "ok": false,
+   "text": "words stop cleanly: drop 4.7 dB 64 ms after a word vs his 7.4 (>= his - 1.5)",
+   "value": 4.7
+  },
+  {
+   "key": "lufs",
+   "ok": true,
+   "text": "loudness: -14.20 LUFS (-14.0 +/-1.0)",
+   "value": -14.2
+  },
+  {
+   "key": "spread",
+   "ok": true,
+   "text": "not crushed: speech spread p90-p10 7.3 dB vs his 8.2 (>= his - 3.0); LRA 6.6 LU (his 3.5)",
+   "value": {
+    "spread": 7.32,
+    "lra": 6.6
+   }
+  },
+  {
+   "key": "tp",
+   "ok": true,
+   "text": "no clipping: true peak -1.40 dBTP (<= -1.0)",
+   "value": -1.4
+  },
+  {
+   "key": "silence",
+   "ok": true,
+   "text": "nothing missing: 0 digitally silent second(s) (< -60 dBFS); 1 below -50 dBFS",
+   "value": {
+    "dead": 0,
+    "quiet": 1
+   }
+  },
+  {
+   "key": "length",
+   "ok": true,
+   "text": "audio 64.863 s vs picture 64.865 s (within 0.1 s)",
+   "value": {
+    "audio": 64.863,
+    "video": 64.865
+   }
+  }
+ ],
+ "verdict": "FAIL",
+ "ab": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/reference-ab.mp4"
+}

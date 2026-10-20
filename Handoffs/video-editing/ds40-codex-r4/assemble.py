@@ -14,7 +14,7 @@ M=json.loads((W/'graphics-manifest.json').read_text());M=[dict(m,kind=m.get('kin
 def sample_crop(piece,n):
  fm=FT._facemesh();fd=FT._facefinder();samples=[];hair=[]
  for i,frame in enumerate(reader(str(W/(piece+'-light.mp4')),wh=(1080,1920))):
-  if i%8 and i!=n-1:continue
+  if i%8 and i!=n-1 and not (piece=='response' and i==383):continue
   sm=cv2.resize(frame,(540,960),interpolation=cv2.INTER_AREA);L=FT._find_face(fm,fd,sm,540,960)
   if L is None:
    samples.append((i,float('nan')));continue
@@ -24,16 +24,21 @@ def sample_crop(piece,n):
   hit=(np.linalg.norm(region-field,axis=2)>18).mean(1)>.2;ys=np.where(hit)[0]
   if len(ys):hair.append((i,y0+int(ys[0])))
  fm.close();fd.close();nn=np.array([x[0] for x in samples]);xx=np.array([x[1] for x in samples]);assert np.isfinite(xx[0]),'Need actual first-frame head centre'
- seg=[{'n0':0,'n1':n}];dn,centres,heads,info=landing.vertical_dense(nn,xx,seg,803,FPS)
- assert centres.min()-401.5>=0 and centres.max()+401.5<=1080,'Crop exceeds source'
- y=min(250,int(min(x[1] for x in hair))-45);assert y>=0
- report={'piece':piece,'pixel_space':'1080x1920 keyed source','crop_width':803,'crop_height':1426,'crop_y':y,'head_samples':[[i,float(v) if np.isfinite(v) else None] for i,v in samples],'hair_samples':hair,'tracking':info,'statistics':landing.motion_stats(dn,heads,centres,seg,803,FPS)}
- (W/(piece+'-framing.json')).write_text(json.dumps(report,indent=2));return centres,y
-centres={};ys={}
-for name,n in [('response',686),('ending',126)]:centres[name],ys[name]=sample_crop(name,n)
+ holds=[(0,383,803,1426),(383,n,720,1280)] if piece=='response' else [(0,n,803,1426)]
+ crops=np.zeros((n,4),float);reports=[]
+ for n0,n1,width,height in holds:
+  seg=[{'n0':n0,'n1':n1}];dn,centres,heads,info=landing.vertical_dense(nn,xx,seg,width,FPS)
+  assert centres.min()-width/2>=0 and centres.max()+width/2<=1080,'Crop exceeds source'
+  hh=[top for k,top in hair if n0<=k<n1];y=min(280,int(min(hh))-45);assert y>=0
+  for k,cx in zip(dn,centres):crops[int(k)]=[round(cx-width/2),y,width,height]
+  reports.append({'n0':n0,'n1':n1,'crop_width':width,'crop_height':height,'crop_y':y,'tracking':info,'statistics':landing.motion_stats(dn,heads,centres,seg,width,FPS)})
+ report={'piece':piece,'pixel_space':'1080x1920 keyed source','head_samples':[[i,float(v) if np.isfinite(v) else None] for i,v in samples],'hair_samples':hair,'segments':reports}
+ (W/(piece+'-framing.json')).write_text(json.dumps(report,indent=2));return crops
+layouts={}
+for name,n in [('response',686),('ending',126)]:layouts[name]=sample_crop(name,n)
 # Captions are emitted as the actual PNG alpha states used by this compositor.
 font=ImageFont.truetype('/System/Library/Fonts/Supplemental/Arial Bold.ttf',86)
-words=json.loads((W/'words-aligned.json').read_text())['words'];chunks=[];cur=[]
+words=json.loads((W/'words-aligned.json').read_text())['words'];words[0]=dict(words[0],t=.260,src='direct_final_AAC_CTC_and_native_RMS_onset');chunks=[];cur=[]
 def clean(ws):
  s=' '.join(x['w'].strip() for x in ws);s=re.sub(r'\s+([.,!?%])',r'\1',s);s=re.sub(r'\bABS\b','abs',s);return s
 def wrap(s):
@@ -45,21 +50,21 @@ def wrap(s):
  if line:out.append(line)
  return out
 for i,w in enumerate(words):
- if cur and (len(cur)>=4 or len(wrap(clean(cur+[w])))>2 or w['t']-cur[-1]['e']>.6):chunks.append(cur);cur=[]
+ if cur and (len(cur)>=4 or (cur[0]['t']<P['opening_seconds'] and font.getlength(clean(cur+[w]))>910) or len(wrap(clean(cur+[w])))>2 or w['t']-cur[-1]['e']>.6):chunks.append(cur);cur=[]
  cur.append(w)
  if re.search(r'[.!?]$',w['w']):chunks.append(cur);cur=[]
 if cur:chunks.append(cur)
 cd=W/'caption-states';cd.mkdir(exist_ok=True);caps=[]
 for i,ch in enumerate(chunks):
  a=ch[0]['t'];nexta=chunks[i+1][0]['t'] if i+1<len(chunks) else N/FPS
- b=min(max(ch[-1]['e']+.10,a+.28),nexta-.008,N/FPS);lines=wrap(clean(ch));height=112*len(lines)+30
+ b=min(max(ch[-1]['e']+.10,a+.28),nexta-.008,P['opening_seconds'] if a<P['opening_seconds'] else N/FPS);lines=wrap(clean(ch));height=112*len(lines)+30
  im=Image.new('RGBA',(1000,height));dr=ImageDraw.Draw(im)
  for j,s in enumerate(lines):
   x=(1000-font.getlength(s))/2;y=4+j*112
   dr.text((x+3,y+3),s,font=font,fill=(0,0,0,180),stroke_width=7,stroke_fill=(0,0,0,180))
   dr.text((x,y),s,font=font,fill='white',stroke_width=7,stroke_fill='black')
  path=cd/f'caption-{i:03}.png';im.save(path);pos=[40,850 if a<P['opening_seconds'] else 1440]
- caps.append({'id':i,'beat':[round(a,3),round(b,3)],'image':str(path),'image_sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'pos':pos,'word':clean(ch),'word_indices':[words.index(ch[0]),words.index(ch[-1])],'rect':[pos[0],pos[1],pos[0]+1000,pos[1]+height]})
+ caps.append({'id':i,'beat':[round(a,3),min(round(b,3),int(P['opening_seconds']*1000)/1000) if a<P['opening_seconds'] else round(b,3)],'image':str(path),'image_sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'pos':pos,'word':clean(ch),'word_indices':[words.index(ch[0]),words.index(ch[-1])],'rect':[pos[0],pos[1],pos[0]+1000,pos[1]+height]})
 (W/'caption-states.json').write_text(json.dumps(caps,indent=2))
 def srt_time(t):
  z=round(t*1000);return f'{z//3600000:02}:{z//60000%60:02}:{z//1000%60:02},{z%1000:03}'
@@ -73,16 +78,16 @@ for g in range(N):
  if g<OPEN:
   raw=bill.stdout.read(1080*884*3);assert len(raw)==1080*884*3
   frame=np.empty((1920,1080,3),np.uint8);frame[:]=np.array([.84,.87,.89])*255;frame[:884]=np.frombuffer(raw,'uint8').reshape(884,1080,3)
-  wf=next(watch) if g<538 else next(tail);small=cv2.resize(wf[260:1700],(714,952),interpolation=cv2.INTER_AREA);frame[968:1920,183:897]=small
+  wf=next(watch) if g<538 else next(tail);field=np.median(wf[20:100,20:100].reshape(-1,3),axis=0);frame[884:]=field;frame[930:1920]=wf[260:1250]
  elif g<BMIA:
-  j=g-OPEN;src=next(resp);x=int(round(centres['response'][j]-401.5));y=ys['response'];frame=cv2.resize(src[y:y+1426,x:x+803],(1080,1920),interpolation=cv2.INTER_CUBIC)
+  j=g-OPEN;src=next(resp);x,y,w,h=map(int,layouts['response'][j]);frame=cv2.resize(src[y:y+h,x:x+w],(1080,1920),interpolation=cv2.INTER_CUBIC)
  elif g<BMIB:
   frame=np.zeros((1920,1080,3),np.uint8);frame[240:1360,36:1044]=table
  else:
-  j=g-BMIB;src=next(end);x=int(round(centres['ending'][j]-401.5));y=ys['ending'];frame=cv2.resize(src[y:y+1426,x:x+803],(1080,1920),interpolation=cv2.INTER_CUBIC)
+  j=g-BMIB;src=next(end);x,y,w,h=map(int,layouts['ending'][j]);frame=cv2.resize(src[y:y+h,x:x+w],(1080,1920),interpolation=cv2.INTER_CUBIC)
  frame=C.apply(frame,g)
  ci=bisect.bisect_right(capstarts,g/FPS)-1
- if ci>=0 and g/FPS<caps[ci]['beat'][1]:
+ if ci>=0 and g/FPS<caps[ci]['beat'][1] and (g<OPEN or caps[ci]['beat'][0]>=P['opening_seconds']):
   if active!=ci:capimg=np.asarray(Image.open(caps[ci]['image']).convert('RGBA'));active=ci
   x,y=caps[ci]['pos'];h,w=capimg.shape[:2];frame[y:y+h,x:x+w]=over(frame[y:y+h,x:x+w],capimg)
  enc.stdin.write(np.ascontiguousarray(frame).tobytes())
@@ -92,5 +97,5 @@ for g in range(N):
 enc.stdin.close();assert enc.wait()==0;assert bill.wait()==0
 master=D/'bill-maher-fat-90-year-old-r4.mp4'
 subprocess.run([F,'-y','-v','error','-i',str(picture),'-i',str(W/'mix.wav'),'-map','0:v','-map','1:a','-c:v','copy','-c:a','aac','-b:a','320k','-ar','48000','-movflags','+faststart',str(master)],check=True)
-(W/'assembly.json').write_text(json.dumps({'master':str(master),'sha256':hashlib.sha256(master.read_bytes()).hexdigest(),'frames':N,'fps':FPS,'duration':N/FPS,'proof':proof,'boundaries':[OPEN/FPS,BMIA/FPS,BMIB/FPS],'audio_joins':[P['opening_seconds'],P['opening_seconds']+1436.36-1400.2322],'caption_states':str(W/'caption-states.json'),'framing':['response-framing.json','ending-framing.json']},indent=2))
+(W/'assembly.json').write_text(json.dumps({'master':str(master),'sha256':hashlib.sha256(master.read_bytes()).hexdigest(),'frames':N,'fps':FPS,'duration':N/FPS,'proof':proof,'boundaries':[OPEN/FPS,(OPEN+383)/FPS,BMIA/FPS,BMIB/FPS],'audio_joins':[P['opening_seconds'],P['opening_seconds']+1436.36-1400.2322],'caption_states':str(W/'caption-states.json'),'framing':['response-framing.json','ending-framing.json']},indent=2))
 print('FULL EDIT ASSEMBLED',flush=True)

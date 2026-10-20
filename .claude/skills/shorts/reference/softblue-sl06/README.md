@@ -143,3 +143,16 @@ page_r4a.py, preview_c_open.py, dl_hd4.sh   the R4 page, C's opening with three 
 - **Thigh clips that exist:** University of Iowa Health Care `e0wDPZ0D9Wk` 6:00.9 (gloved nurse, front thigh), Seattle Children's
   `7TP0rTlQVao` 6:59.5 (self, pinch, front thigh, logo bug bottom right), SynergenX `FeweDb3Xfxg` 1:39.5 (pinch and inject,
   front thigh, 4K). All three fill a 9:16 frame on the needle. Search notes and rejects: `round3/yt/sheets4/`.
+
+## Round 5 (2026-10-20): A shorts, leaner D, Seattle-only C opening, Flow audio failures (`round5/`)
+
+- **"Slightly less muscular" needs strong words.** A plain "slightly leaner" edit changed nothing measurable; "15 to 20 % less muscle,
+  narrower lats, no V-taper wings" cut chest width 23 %. Measure with a person mask (width at chest and waist rows) against the
+  approved bodies before review. The END edit then has to say "arms must NOT get bigger": a "squeeze harder" END re-added 8 %.
+- **Shorts height:** "pull the shorts up" overshoots to the navel; ask for "two to three finger-widths below the navel" and compare
+  the navel-to-band gap / nipple-to-navel ratio with the approved frames (B to F: 0.21 to 0.56).
+- **Gate phantom legs:** on waist-up frames MediaPipe guesses the legs, and one START's guess (thigh 313, shin 518 px) failed every
+  END on `person:bones`. A different START candidate guessed sanely. Where the lower body does not move, building END as the
+  passed END above the ribs plus START below (feathered) is physically right; tell the reviewer exactly how it was made.
+- **Flow "Audio generation failed":** 8 of 8 Veo 3.1 Fast frames-mode takes failed on 2026-10-20 (two prompt styles, credits refunded).
+  Flow's fix is its "Return silent videos" project setting; the agent's permission guard blocks changing it, so it needs Dan.

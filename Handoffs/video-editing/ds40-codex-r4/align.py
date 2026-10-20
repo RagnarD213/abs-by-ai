@@ -42,7 +42,7 @@ with torch.inference_mode():
 d = {c: i for i, c in enumerate(labels)}
 toks, spans = [], []
 for i, w in enumerate(words):
-    k = re.sub(r"[^A-Z']", "", w["w"].upper())
+    k = re.sub(r"[^A-Z']", "", w["w"].upper().replace("90","NINETY"))
     if not k: spans.append(None); continue
     spans.append((len(toks), len(toks)+len(k)))
     toks.extend(d[c] for c in k if c in d)

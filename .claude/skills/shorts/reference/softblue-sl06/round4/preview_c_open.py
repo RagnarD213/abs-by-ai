@@ -1,22 +1,16 @@
 #!/usr/bin/env python3
 """SL-06 R4 stage 1: short C's new opening as a playable preview (0 to 13 s): the AI flex intro as stills (no motion yet,
-title band off), then the title band back with two real YouTube front-thigh injections (montage: a nurse, then a self-injection),
-then SynergenX's pinch and inject, all three filling the frame, each with its credit chip lower right; captions are C's own
-caption images; audio is round 2's C. Also writes each trimmed, colour-corrected clip to clips/ and clips/youtube_sources.json."""Card reasons: the clinical clip fills only as a square (a fill crop loses the thigh and shows only gown and glove); Karli Sine is a vertical video whose injection sits low in her frame, under our captions, with her own captions on her chest and her midriff above the thigh, so it is a card on the thigh and hands.
-SL-06 R3 stage 1: short C's new opening as a playable preview (0 to 13 s): the AI flex intro as stills (no motion yet,
-title band off), then the title band back with two real YouTube thigh injections (montage), then Karli Sine's pinch and
-inject as a card, each with its credit chip lower right; captions are C's own caption images; audio is round 2's C.
-Also writes each trimmed, colour-corrected clip to clips/ and the sources to clips/youtube_sources.json."""
+title band off), then the title band back with the Seattle Children's front-thigh self-injection (Dan's R4 pick for the opening),
+then SynergenX's pinch and inject, both filling the frame, each with its credit chip lower right; captions are C's own
+caption images; audio is round 2's C. Also writes each trimmed, colour-corrected clip to clips/ and clips/youtube_sources.json."""
 import json, subprocess, sys, numpy as np
 sys.path.insert(0, "/Volumes/Extreme/_edit_work/sl06"); import batch as Bt, lib
 from PIL import Image
 R = "/Volumes/Extreme/_edit_work/sl06/round3"; FF = lib.FF; W, H, DROP = 1080, 1920, 310; FPS = 30000 / 1001
 HD = R + "/yt/hd/"
 CL = [  # id, file, in (file seconds), output a, b, fill crop position fx, eq, credit, source
- dict(id="yt_uiowa", f="e0wDPZ0D9Wk_uiowa.mp4", i=5.9, a=2.84, b=4.305, fx=0.53, eq="eq=brightness=-0.06:gamma=0.92:saturation=1.08", credit="Video: University of Iowa Health Care / YouTube",
-      src=dict(url="https://www.youtube.com/watch?v=e0wDPZ0D9Wk", channel="University of Iowa Health Care", title="How to do a testosterone or estrogen injection", t0="6:00.9", t1="6:02.4", what="a gloved nurse injects the front of a patient's thigh")),
- dict(id="yt_seattle", f="7TP0rTlQVao_seattle.mp4", i=4.5, a=4.305, b=5.77, fx=0.53, eq="eq=gamma=1.08", credit="Video: Seattle Children's / YouTube",
-      src=dict(url="https://www.youtube.com/watch?v=7TP0rTlQVao", channel="Seattle Children's", title="Giving Yourself Subcutaneous Hormone Shots", t0="6:59.5", t1="7:01.0", what="a man pinches the front of his own thigh and brings an insulin syringe in")),
+ dict(id="yt_seattle", f="7TP0rTlQVao_seattle.mp4", i=4.5, a=2.84, b=5.77, fx=0.53, eq="eq=gamma=1.08", credit="Video: Seattle Children's / YouTube",
+      src=dict(url="https://www.youtube.com/watch?v=7TP0rTlQVao", channel="Seattle Children's", title="Giving Yourself Subcutaneous Hormone Shots", t0="6:59.5", t1="7:02.4", what="a man pinches the front of his own thigh and puts an insulin syringe in")),
  dict(id="yt_synergenx", f="FeweDb3Xfxg_synergenx.mp4", i=5.5, a=5.77, b=9.56, fx=0.45, eq="eq=saturation=0.85:brightness=-0.02", credit="Video: SynergenX / YouTube",
       src=dict(url="https://www.youtube.com/watch?v=FeweDb3Xfxg", channel="SynergenX - Testosterone & Weight Loss", title="How to Self Inject Testosterone in the Thigh", t0="1:39.5", t1="1:43.3", what="he pinches the front of his mid thigh and puts the insulin syringe in")),
 ]
