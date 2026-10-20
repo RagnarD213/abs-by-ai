@@ -1,0 +1,28 @@
+---
+name: instagram-what-works-oct2026
+description: "Measured 2026-10-20 on @danrosefit (65 posts, Meta API): exercise mistake-and-fix Reels are the only growth format; talk-only Reels and physique photo posts don't reach strangers"
+metadata:
+  node_type: memory
+  type: project
+  originSessionId: e3206ffd-38e1-4f64-9e38-64498f514113
+  modified: 2026-10-20T21:03:39.033Z
+---
+
+**Deep dive 2026-10-20** (Meta Graph API, every @danrosefit post Aug 20 to Oct 17; organic numbers only, ads excluded).
+Plan page: see the session's published "@danrosefit Growth Plan" artifact.
+
+- **Exercise mistake-and-fix Reels win.** Dan moving in second one, names a mistake ("most people jump rope with both
+  feet"), shows the fix, 35-52 s. All top 7 Reels (868-2,243 reached, 12-16 s average watch). Median 589.
+- **Talk-only Reels** (food, AI tools, habits said to camera): median 394, none above 538, viewers leave at 4-7 s.
+- **Physique photo posts** with the tip only in the caption: median 336, mostly followers. In 30 days Reels reached
+  9,565 non-followers vs 1,847 for photo posts. Same topic as photo vs demo Reel: jump rope 314 vs 2,243; towel back 261 vs 1,430.
+- **Full long-form films posted as Reels**: 2-13% watched; deadlift film (1,374) the exception.
+- **Shares** median 0 per Reel; comments 1-3. Followers ~5/day without ads, ~11/day during the $40/day test.
+- Engaged audience 84% men, 25-44 (25-34 largest), US/CA/AU/UK. Follower list has an Austin cluster.
+- Volume was not the problem (~10 posts/week). From mid-Nov the queue is mostly photos and generic "Saveable Series"
+  checklist carousels (studio27 batch); exercise Reels drop to 1-2/week.
+- **Trial Reels via Blotato need 1,000 followers** (`trial.graduationStrategy`); Blotato also supports `collaborators`.
+- Reading the data: `GET /17841401601139982/media` + `/{media}/insights` with `META_ADS_TOKEN` + appsecret_proof
+  (v21.0); account `insights` windows max 30 days. `profile_links_taps` is contact buttons, not the bio link.
+
+Related: [[instagram-account-state]], [[shorts-organic-research]], [[shorts-reason-to-watch]], [[meta-ads-instagram-identity]].

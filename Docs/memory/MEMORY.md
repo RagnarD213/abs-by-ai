@@ -75,6 +75,7 @@
 - [Before/after](before-after-same-person.md): same person
 - [App recording pair](app-recording-before-after-pair.md): man is not Dan
 - [Astra vs Fable](astra-vs-fable-verdict.md): FCPXML bridge
+- [IG what works](instagram-what-works-oct2026.md): exercise fix Reels win; photos don't grow
 - [Social profiles](social-profile-graphics-done.md): FB, TikTok done
 - [ManyChat](manychat-comment-abs.md): six keywords, Pro gate
 - [Meta ads IG](meta-ads-instagram-identity.md): use the API script
@@ -234,7 +235,7 @@
 - [Video titles](video-title-not-code.md): title first, code optional
 - [Engagement ads](engagement-ads-all-campaigns.md): all 3 campaigns, 4 ads
 - [Hooks get most effort](hooks-need-most-effort.md): rank it, attack the alternative, name the look; never 'This is the X'
+- [Driving clips](fast-driving-clips-praised.md): fast POV drives held attention
 - [Execute Dan's picks](execute-dans-explicit-picks.md): build exactly what he names
 - [Allegations not facts](allegations-not-fact.md): never mentioned unless Dan asks
 - [Assessment symmetry](assessment-symmetry.md): one standard, swap test, results
-- [Driving clips](fast-driving-clips-praised.md): fast POV drives held attention
