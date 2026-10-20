@@ -97,6 +97,12 @@ sessions (and any other assistant, if one is in use).
   in Git, unexecuted work in `Handoffs/` + `Handoffs/README.md`, Dan's open decisions in
   `Docs/DAN_DECISIONS.md`, lasting facts in memory, standing rules here.
 
+## Standing authorization for render-queue checks (Dan, 2026-10-20)
+
+- Always check active render jobs and the render queue without asking Dan for permission, in every task. This includes reading queue state and running the shared build-cap/process checks before rendering or quality checks.
+- Dan: "Going forward you are always authorized to check the queue for active render jobs. Do not ask me for permission to do this again in any task."
+- This is a standing read-only authorization across tasks, not permission to cancel or modify another session's jobs.
+
 ## Standing authorization for routine provider configuration
 
 - You are authorized to make routine, non-destructive external-account changes needed to configure, repair, verify, or maintain Abs By AI's email delivery and closely related production-provider setup without asking for confirmation each time.
