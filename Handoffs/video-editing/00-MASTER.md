@@ -96,7 +96,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [RO-01](RO-01-keep-your-muscle-on-zepbound.md) | How To Keep Your Muscle On Zepbound | 8/14 C1605–08 (27 min) | UPLOADED | L |
 | [RO-02](RO-02-the-vacuum-explainer.md) | The Vacuum: Best Ab Exercise For Belly Fat | 8/14 C1614–29 (26 min) | UPLOADED | L |
 | [RO-03](RO-03-the-vacuum-workout-only.md) | The Vacuum — Workout Only | 8/14 C1625 | UPLOADED | S |
-| [RO-04](RO-04-arms-shoulders-workout-only.md) | Arms & Shoulders — Workout Only | 8/3 C1586 | IN PROGRESS | S |
+| [RO-04](RO-04-arms-shoulders-workout-only.md) | Arms & Shoulders — Workout Only | 8/3 C1586 | DELIVERED: awaiting Dan | S |
 | [RO-05](RO-05-how-i-make-my-daily-salad.md) | How I Make My Daily Salad | 8/3 C1533–56 (50 min) | UPLOADED | L |
 | [RO-06](RO-06-work-out-at-home-on-a-budget.md) | How To Work Out At Home On A Budget | 8/3 C1557–81 (31 min) | UPLOADED | L |
 | [RO-07](RO-07-why-you-must-work-out-every-day.md) | Why You MUST Work Out Every Day | 7/8 C1484–85 (30 min) | FINALIZED | L |
@@ -112,7 +112,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [DS-28](DS-28-meal-prep-short.md) | Meal Prep | 9/23 C1720 | UPLOADED | S |
 | [DS-29](DS-29-robot-lawn-mower-short.md) | Robot Lawn Mower | 9/23 C1720 | BLOCKED: Robot mower b-roll not filmed | S |
 | [DS-30](DS-30-self-driving-car-short.md) | Self-Driving Car | 9/23 C1720 | READY | S |
-| [DS-31](DS-31-ai-homework-short.md) | AI Homework | 9/23 C1720 | DELIVERED: awaiting Dan | S |
+| [DS-31](DS-31-ai-homework-short.md) | AI Homework | 9/23 C1720 | FINALIZED | S |
 | [DS-32](DS-32-ai-job-short.md) | AI Job | 9/23 C1720 | READY | S |
 
 ### 1C2 · Organic long-form, 9/23 shoot (9)
@@ -129,9 +129,9 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [RO-17](RO-17-3-healthy-foods-that-made-me-fat.md) | 3 Healthy Foods That Made Me Fat | 9/23 C1713 | FINALIZED | L |
 | [RO-18](RO-18-how-to-make-time-for-exercise-nutrition.md) | How To Make Time For Exercise & Nutrition | 9/23 C1714-C1715 | IN PROGRESS | L |
 | [RO-19](RO-19-my-first-spray-tan.md) | My First Spray Tan (old edit scrapped 10-02, redo from scratch) | 8/3 C1512 (31 min) | FINALIZED | L |
-| [RO-20](RO-20-invest-more-in-your-health.md) | Why You Should Invest More In Your Health (part 1 of 3 since 10-11; old edit scrapped 10-02) | 8/3 C1511 (69 min) | DELIVERED: awaiting Dan | L |
-| [RO-20B](RO-20-invest-more-in-your-health.md) | What To Cut To Afford Getting In Shape (part 2 of 3, split from RO-20 on 10-11) | 8/3 C1511 (69 min) | DELIVERED: awaiting Dan | L |
-| [RO-20C](RO-20-invest-more-in-your-health.md) | What To Buy For Your Health At Every Income Level (part 3 of 3, split from RO-20 on 10-11) | 8/3 C1511 (69 min) | DELIVERED: awaiting Dan | L |
+| [RO-20](RO-20-invest-more-in-your-health.md) | Why You Should Invest More In Your Health (part 1 of 3 since 10-11; old edit scrapped 10-02) | 8/3 C1511 (69 min) | FINALIZED | L |
+| [RO-20B](RO-20-invest-more-in-your-health.md) | What To Cut To Afford Getting In Shape (part 2 of 3, split from RO-20 on 10-11) | 8/3 C1511 (69 min) | FINALIZED | L |
+| [RO-20C](RO-20-invest-more-in-your-health.md) | What To Buy For Your Health At Every Income Level (part 3 of 3, split from RO-20 on 10-11) | 8/3 C1511 (69 min) | IN PROGRESS | L |
 
 ### 1C3 · 10/15 shoot (59 jobs, added 2026-10-16): release-ASAP first, then shorts, then long-forms
 
@@ -150,7 +150,7 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 
 | job | video | rolls | status | size |
 |---|---|---|---|---|
-| [DS-33](DS-33-cristiano-ronaldo-sells-an-ab-belt-its-harder-than-a-workout.md) | Cristiano Ronaldo Sells An Ab Belt. It's Harder Than A Workout. | 10/15 C1729-C1730 | READY | S |
+| [DS-33](DS-33-cristiano-ronaldo-sells-an-ab-belt-its-harder-than-a-workout.md) | Cristiano Ronaldo Sells An Ab Belt. It's Harder Than A Workout. | 10/15 C1729-C1730 | IN PROGRESS | S |
 | [DS-34](DS-34-surgeons-now-carve-fake-abs-into-belly-fat-dont-do-it.md) | Surgeons Now Carve Fake Abs Into Belly Fat. Don't Do It. | 10/15 C1729-C1730 | READY | S |
 | [DS-35](DS-35-women-say-they-love-the-dad-bod-they-dont.md) | Women Say They Love The Dad Bod. They Don't. | 10/15 C1729-C1730 | READY | S |
 | [DS-36](DS-36-bill-maher-says-fat-shaming-should-come-back-hes-right.md) | Bill Maher Says Fat Shaming Should Come Back. He's Right. | 10/15 C1730 | READY | S |
