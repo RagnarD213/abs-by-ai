@@ -37,6 +37,8 @@ Older text further down that disagrees with these loses. Section titles are in `
 - Covers: "Thumbnails: the five, each its own design, always made by Codex" (2026-10-13), made in `/video-setup`.
 - Stumbles: "Stumbles inside a kept take get fixed" (2026-10-20).
 - Victory Dashboard: paused (CLAUDE.md, 2026-10-05).
+- Look and voice: a Short cut from an approved film reuses that film's look and voice, no options round (Dan, 2026-10-20).
+- Model: a video stays with the AI it started on, Opus high for Claude, Sol high for Codex (AGENTS.md, 2026-10-20).
 
 ## Three Shorts per new long-form, released Mon/Tue/Fri/Sat (Dan, 2026-10-17)
 
@@ -1386,7 +1388,7 @@ native-scale proof sheet of the tallest frames before rendering. Full rule: /ad-
 108–109; the 9:16 centering rules here still apply on top of it.
 Current rule: VIDEO-RULES.md, "Head and hair clearance blocks review delivery" (2026-10-20): at least 20 px verified on the
 rendered picture before any review preview; tools also `longform-edit/reference/ro10/hair_first.py` and `haircheck.py`.
-(SL-03 note on camera-framed hair: Dan to confirm whether it still applies.)
+(Dan, 2026-10-20: 20 px whenever the footage allows; where the camera already framed his hair at the top edge, crop as high as the source allows and say so.)
 
 ## Dedicated-short finishing lessons — DS-17 (2026-09-17)
 

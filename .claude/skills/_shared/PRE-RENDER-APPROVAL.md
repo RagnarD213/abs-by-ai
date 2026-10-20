@@ -64,7 +64,7 @@ continues to guide organic videos and other formats.
 - Claude still builds and checks everything in steps (stills, moving previews, first minute), but **Claude approves what it checked**:
   sync, face/hair clearance, copy against the speech, the standing rules. Those are not questions for Dan.
 - Ask Dan only what Claude genuinely cannot call: taste choices between close options he has strong views on (grade, the opening,
-  a new look), facts only he knows, and anything that changes something he already locked. **Budget: at most 20 decisions in the first round, 10 or fewer in each later round** (VIDEO-RULES.md, "Organic content approval budget", 2026-09-29, which replaced the "10 to 15 per video" figure recorded the same day; Dan to confirm which he means). Fewer is better; zero is fine.
+  a new look), facts only he knows, and anything that changes something he already locked. **Budget: at most 20 decisions in the first round, 10 or fewer in each later round** (VIDEO-RULES.md, "Organic content approval budget"). Dan, 2026-10-20: keep the page as it is, the major decisions up top (first minute, colour, audio, chroma key when it applies) and every graphic and small item below for a quick scan, fifty of them if need be; the numbers cap the questions, never what is shown. Fewer questions is better; zero is fine.
 - Every packet opens with a short "what I decided" list (one line each) so he can overrule while watching, never item-by-item forms.
 - Dan still sees the first minute and the finished film; his notes there are the check on Claude's calls.
 
