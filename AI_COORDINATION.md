@@ -135,7 +135,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-17 - HOLD 2026-10-18, Claude.** On the waitlist (Blotato 197/200); routine queues YouTube Sun Dec 13, socials Mon Dec 14 noon. `Docs/RO17_SETUP_RECEIPT_20261018.md`.
 
-**DS-31:R2-REVIEW:8931:2026-10-18:Claude.** AI Homework SFC R2 on the page: colour C (warm vivid) in the film, options A-E for Dan's pick; A1 opener moving. Audit SHIP. Next: Dan's colour pick and A1 approval.
+**DS-31:SETUP-HANDOFF:2026-10-20:Claude.** AI Homework R2 finalized (colour C, A1 opener). Next: fire `Handoffs/handoff-20261020-ds31-ai-homework-setup.md` (covers, then Blotato).
 
 **RA-04 POLICY-RECHECK 2026-10-16,Claude.**
 
@@ -157,7 +157,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **RO-07 - HOLD 2026-10-11, Claude.** Blotato full. `Docs/RO07_SETUP_RECEIPT_20261011.md`
 
 
-**SL-06:R4-REVIEW:8821:2026-10-18:Claude.** Top 5 Zepbound Tips SFL R4: six shirtless gym intro pairs (gate + reviewer PASS) and three new front-thigh clips for C on :8821, awaiting Dan. Next: on his yes, Flow motion (flow-veo, prompt "points at the poster"), rebuild six, gates, review. Work: `/Volumes/Extreme/_edit_work/sl06/round3/`.
+**SL-06:R5-ACTIVE:2026-10-20:Claude.** Top 5 Zepbound Tips SFL R5: Dan approved B/C/E/F frames; A (shorts) and D (leaner) redone, in review; C opening now Seattle Children's only. Flow motion for B/C/E/F running (silent-video retry). Next: A/D to Dan on :8821, motion gate, rebuild six. Work: `/Volumes/Extreme/_edit_work/sl06/round5/`.
 
 **SL-07 HOLD 2026-10-18, Claude.** Covers picked, media and configs ready; Blotato full, five shorts on the waitlist for Dec 21-29. Next: the daily top-up routine queues them as slots free. `Docs/SL07_SETUP_RECEIPT_20261018.md`
 
