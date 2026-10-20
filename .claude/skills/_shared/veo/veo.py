@@ -21,7 +21,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.abspath(os.path.join(HERE, "..", "..", ".."))
 LEDGER = os.path.expanduser("~/.absbyai-veo-ledger.jsonl")     # account-wide: Claude and Codex on this Mac share it
 RUSH = re.compile(r"\b(rush|rushed|rushing|accelerate|accelerated|as fast as possible|asap)\b", re.I)
-CREDITS = {"lite": 10, "fast": 20, "quality": 100}           # Flow, Google AI Pro, per generation (2026-10-17)
+CREDITS = {"lite": 10, "fast": 20, "quality": 100, "omni": 12}  # Flow per generation, Pro rates 2026-10-17 (Ultra since 10-20 may be lower; the live popover wins)
 API_MODEL, API_USD_S = "google/veo-3.1-fast", 0.10            # Replicate, 1080p, no audio
 
 

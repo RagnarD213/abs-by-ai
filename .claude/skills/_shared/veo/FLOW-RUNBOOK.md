@@ -20,7 +20,7 @@ the `prompt`, `aspect` and `model`. Only clips with `"status": "queued"` and `"r
 Open `https://flow.google.com/`, click the round avatar (top right). The menu shows **"N Google Flow credits"** and the
 **Visible watermarking** switch. Record the balance: `python3 veo.py credits --set N`. Check the switch is OFF
 (`aria-checked="false"` on the button labelled "Visible watermarking"); if it is ON, turn it off (it is Dan's display
-preference for this purpose, set 2026-10-17). Press Escape.
+preference for this purpose, set 2026-10-17). Press Escape. Inside the project, the gear icon (top right) holds **Return silent videos**: it must be ON (Dan, 2026-10-20; without it a clip whose audio fails comes back as a "No audio generated" error tile instead of a usable silent video). If it is off, turn it on.
 
 Cost per generation (shown live as "Generating will use N credits" in the settings popover, trust that over this table):
 Veo 3.1 Lite 10, **Veo 3.1 Fast 20 (default)**, Veo 3.1 Quality 100, Omni 1.1 Flash 12. Pro gets 1,000 a month plus 50 a
@@ -40,7 +40,7 @@ through Flow's agent. Click the settings chip at the right of the prompt box (it
 
 - **Video** (not Image), then **Frames** (not Ingredients).
 - Orientation from the clip's `aspect`: 16:9 or 9:16.
-- Model dropdown: **Veo 3.1 - Fast** unless the clip says `lite` or `quality`.
+- Model dropdown: **Veo 3.1 - Fast** unless the clip says `lite`, `quality` or `omni` (`omni` = **Omni 1.1 Flash**, added 2026-10-20 for the Omni-vs-Veo bake-off). If Omni offers a length choice in Frames mode, pick 8 s to match Veo.
 - Count **x1**.
 - Read the "Generating will use N credits" line. Press Escape.
 
