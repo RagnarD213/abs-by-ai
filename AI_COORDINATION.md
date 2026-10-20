@@ -239,3 +239,5 @@ Memory `google-ads-ui-automation`.
 # HANDOFFS WRITTEN, NOT EXECUTED
 
 List: `Handoffs/README.md` (OPEN section). Add new handoffs there, never here.
+
+**Arms Shoulders Workout LFC R3, ACTIVE 2026-10-20, Codex.** Building full film with approved color B and crop. Next: full picture/audio QA, independent review, delivery on 8974.
