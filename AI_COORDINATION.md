@@ -135,7 +135,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-17 - HOLD 2026-10-18, Claude.** On the waitlist (Blotato 197/200); routine queues YouTube Sun Dec 13, socials Mon Dec 14 noon. `Docs/RO17_SETUP_RECEIPT_20261018.md`.
 
-**DS-31:R2-REVIEW:8931:2026-10-18:Claude.** AI Homework SFC R2 on the page: colour C (warm vivid) in the film, options A-E for Dan's pick; A1 opener moving. Audit SHIP. Next: Dan's colour pick and A1 approval.
+**DS-31:SETUP-HANDOFF:2026-10-20:Claude.** AI Homework R2 finalized (colour C, A1 opener). Next: fire `Handoffs/handoff-20261020-ds31-ai-homework-setup.md` (covers, then Blotato).
 
 **RA-04 POLICY-RECHECK 2026-10-16,Claude.**
 

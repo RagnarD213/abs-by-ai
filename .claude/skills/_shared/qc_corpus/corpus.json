@@ -3389,6 +3389,25 @@
       "notes": "Approval identity: Handoffs/video-editing/RA-13-R3-approval.json. This records Dan approval; it does not alter or bypass any numerical gate."
     },
     {
+      "id": "ds31-r2-approved-20261020",
+      "date": "2026-10-20",
+      "root": "repo",
+      "path": "Short-form video content/AI Homework - DS-31/AI Homework SFC R2 - complete Short.mp4",
+      "sha256": "69213798dd2c34fe88eace189c869d5169ca990f67e877aafde3c15d7777c2ba",
+      "bytes": 94943517,
+      "verdict": "approved",
+      "dan": "Okay, everything looks good. We'll keep the warm, vivid color, and the intro clip looks good. Let's proceed to set up.",
+      "scope": "Complete R2 Short (colour C Warm vivid, A1 Homework tower AI opener) finalized in this chat; setup handed off.",
+      "excerpt": [
+        0,
+        61.6616
+      ],
+      "must_pass": [],
+      "must_trigger": [],
+      "measured": "Gate 2.6.1: 35 PASS, 4 FAIL (approved bass-lift tone, two Pair B wide head-size rows, legacy caption-sync), 3 N/A, 0 NOT MEASURED. Independent audit SHIP; two watch judges 0 defects; A1 clipcheck + frame-reviewer PASS.",
+      "notes": "Exact approval: Handoffs/video-editing/DS-31-R2-approval.json. Records human approval without changing gates, thresholds or stamps."
+    },
+    {
       "id": "ds28-r5-approved-20261017",
       "date": "2026-10-17",
       "root": "repo",
