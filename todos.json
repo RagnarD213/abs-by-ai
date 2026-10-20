@@ -375,6 +375,13 @@
       ],
       "addedAt": "2026-08-09",
       "boardRank": 7
+    },
+    {
+      "text": "Empty Dishwasher",
+      "priority": "key",
+      "recurring": false,
+      "addedAt": "2026-10-20",
+      "boardRank": 8
     }
   ],
   "handoffs": [
