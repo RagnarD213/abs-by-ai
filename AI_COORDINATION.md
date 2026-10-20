@@ -26,7 +26,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**Calories Not Losing Weight SFL R4 - ACTIVE 2026-10-20, Codex.** Revising fasting dawn/8am to afternoon/2pm and both protein-panel Dans shirtless. Isolated `/Volumes/Extreme/_edit_work/sl08/round4/`; R2/R3 read-only. Next: four frames, gate and independent review, narrated R4 approval page before Flow. No covers or publishing.
+**Calories Not Losing Weight SFL R4 - REVIEW 2026-10-20, Codex.** Four revised frames passed gates and fresh independent checks. Narrated still review: http://127.0.0.1:9041/. Next: Dan approves fasting daylight/clock and shirtless protein pairs before Flow. R2/R3 untouched; no covers or publishing.
 
 **Bill Maher Fat 90-Year-Old SFC R4 - ACTIVE 2026-10-20, Codex.** Full edit authorized with approved R3 key, Balanced audio and warm color. Separate build: `/Volumes/Extreme/_edit_work/DS-40-codex/round4/`. Next: scripted take, clip-first assembly, BMI graphic, captions and full QA. Claude competition remains separate.
 

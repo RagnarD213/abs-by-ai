@@ -1,0 +1,26 @@
+{
+  "A": {
+    "audio_source": "/Volumes/Extreme/_edit_work/sl08/round3/build/A/audio.wav",
+    "audio_preview": "/Volumes/Extreme/_edit_work/sl08/round4/review/A01-narration.wav",
+    "frames_trimmed_to": 299499,
+    "sample_rate": 48000,
+    "duration": 6.2395625,
+    "pcm_exact_prefix": true,
+    "pcm_sha256": "dce1572bf24e01d73b30ad68bf64cbfea1cef9305d4040565253a1de526c78b2",
+    "frame_switch": 2.86,
+    "status": "synchronized still placeholders only; Flow motion not generated",
+    "title_source": "same approved R3 title still for placeholder display"
+  },
+  "D": {
+    "audio_source": "/Volumes/Extreme/_edit_work/sl08/round3/build/D/audio.wav",
+    "audio_preview": "/Volumes/Extreme/_edit_work/sl08/round4/review/D01-narration.wav",
+    "frames_trimmed_to": 110510,
+    "sample_rate": 48000,
+    "duration": 2.3022916666666666,
+    "pcm_exact_prefix": true,
+    "pcm_sha256": "4e751e5bf34cd3b5ce7fa47e1b18c247b12e0bc577d57bdfbe311cfadf101cf0",
+    "frame_switch": 1.15,
+    "status": "synchronized still placeholders only; Flow motion not generated",
+    "title_source": "same approved R3 title still for placeholder display"
+  }
+}

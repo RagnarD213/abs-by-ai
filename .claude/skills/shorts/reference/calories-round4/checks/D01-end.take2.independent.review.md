@@ -1,0 +1,27 @@
+# D01 independent START–END frame review, take 2
+
+Inspected both native 1024 × 1536 images before reading the gate evidence; then inspected 2×–5× crops. Inputs were only the two frames, spec and gate evidence. All coordinates below are native-image pixels. Independent measurements and crops: `/private/tmp/claude-501/framereview/D01-end/`.
+
+**A. Object realism: PASS.** Each frame has one fork, one sardine tin, one held chip, one chip bowl and one cracker plate; the tin at approximately (521,450)–(649,521) and supported dishes around y1260–1370 have coherent rims, volume and support. The top fish and bottom chip look like food, with no extra utensils or floating crockery; their cross-frame movement is assessed separately in E/F.
+
+**B. Contact: PASS.** Four visible hands and zero visible feet in both frames; the top right hand grips the fork around (354,272), top left supports the tin near (615,516), bottom right pinches the chip near (436,1009), and bottom left rests on the table around (805,1320). Independent textured-patch matches put the two food-holding hands at (0,0) displacement, scores 0.975/0.984, and the resting hand at (0,-1), score 0.984; all required hand contacts remain.
+
+**C. Body line: PASS.** Both figures remain shirtless: the lean top chest and heavier lower chest/belly occupy the same outlines in both frames, with no added clothing or change of physique. Top and bottom mouths move approximately (-28,+79) and (-31,+62), respectively, while raised elbows remain around (241,500)/(245,1226); this is a feasible seated head/neck lean toward food, without a torso slide or a machine/rail constraint.
+
+**D. Anatomy: PASS.** Two arms per figure remain anatomically coherent, with no extra/missing limbs; manual projected raised-arm shoulder/elbow/wrist estimates are top (365,359)/(241,500)/(306,352), bottom (340,1060)/(245,1226)/(362,1086), giving upper-arm/forearm lengths about 188/162 px and 191/182 px in both frames (landmark uncertainty approximately 6 px, change under 3%). Torso outlines and nipple levels remain within approximately 3 px at y480 and y1215; legs are outside the image, so thigh/shin length and a full-body reach calculation cannot be assessed.
+
+**E. Continuity START to END: FAIL.** The declared fixed hand/tin/bowl/plate/background patches agree with the gate: my matches show tin (-1,0), bowl (0,0), plate (-1,0), window (0,0), all scores 0.941–0.994, and outside the two head/neck masks only 0.834% of pixels differ by more than 20/255 (RGB MAE 3.12). However, the sardine eye patch (452,289)–(479,318) moves (-8,+13), 15.3 px, score 0.917, while the hand stays at (0,0); the chip lower-edge patch (448,1020)–(472,1035) moves (-3,+8), 8.5 px, score 0.927. These props lie inside the gate's broad allowed head rectangles and were not directly anchored, so its all-pass static result does not certify their required stillness; see `measurements.json`, `start/end-fork-fish-grid.png` and `start/end-chip-grid.png` in the scratch directory.
+
+**F. Hands and props: FAIL.** At 3× the four hands each have an anatomically plausible five-digit arrangement (some portions naturally hidden by grip), with no sixth digit or leftover hand; inventories remain one fork/tin/held fish/held chip, plus the unchanged dish food. But the fork handle remains around y271 while its curved lower head edge drops approximately y287→294 (7 px), the sardine eye moves 15.3 px, and the chip's lower contour drops approximately y1033→1042 (9 px) despite stationary grips: they do not remain the SAME fixed rigid props as required. The sardine's lower end shifts around (478,318)→(470,335), so this cannot be explained by teeth merely occluding the upper bite edge; `start/end-top_food.png` and the two grid pairs show the fault.
+
+**G. Expression and intent: PASS.** START shows two smiles and END shows two open mouths approaching the held foods: top mouth changes around (506,217)→(478,296), bottom around (503,960)→(472,1022). Hair, glasses and recognizable facial identity remain consistent across the head rotations, and a viewer can read the paired sardine-versus-chip eating action without sound.
+
+**H. AI slop: PASS.** Inspected hair/glasses/neck boundaries and vacated head regions at 2×, hands/tin at 3× and food contours at 5×; no shipping-level halo, seam, doubled limb, warped kitchen or garbled text was found. Four-digit curled silhouettes plus the occluded/visible thumbs remain plausible across the four grips, the panel boundary stays at y739, and background control motion is 0 px; the visible prop deformation is already a required failure in E/F rather than an additional invented artifact.
+
+**I. Animate test: FAIL.** Across the specified 2.30 seconds the measured head motion is feasible, but interpolation would also have to bend the fixed fork head about 7 px and move the sardine 15.3 px/chip 8.5 px relative to stationary fingers. This contradicts the requested head-only action and introduces visible prop creep/morphing; the food must stay fixed until an actual bitten piece is removed at mouth contact.
+
+Must change:
+1. Preserve the START fork geometry and sardine position, including its eye, lower cut edge and trailing tail; bring the top head/mouth to that fixed food instead.
+2. Preserve the START chip contour, texture and position relative to the unchanged bottom fingers; bring the bottom mouth to it. Only a bite actually removed at the mouth may change.
+
+VERDICT: FAIL

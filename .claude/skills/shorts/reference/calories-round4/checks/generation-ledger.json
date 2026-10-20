@@ -1,0 +1,36 @@
+{
+  "provider": "Codex ChatGPT subscription via project codex-image.sh",
+  "paid_generation_dollars": 0,
+  "planned_images": 4,
+  "images": [
+    {
+      "file": "A01-start.png",
+      "codex_tokens": 21360
+    },
+    {
+      "file": "D01-start.png",
+      "codex_tokens": 19971
+    },
+    {
+      "file": "D01-end.png",
+      "codex_tokens": 19847
+    },
+    {
+      "file": "A01-end.png",
+      "codex_tokens": 24032
+    },
+    {
+      "file": "D01-end.take2.png",
+      "codex_tokens": 28084,
+      "reason": "independent reviewer rejected fork/sardine and chip movement in first END"
+    },
+    {
+      "file": "D01-end.take3.png",
+      "codex_tokens": 20640,
+      "reason": "stationary food correction, generated from START alone"
+    }
+  ],
+  "motion": "not generated; awaiting revised frame approval",
+  "total_codex_generation_tokens": 133934,
+  "actual_images": 6
+}

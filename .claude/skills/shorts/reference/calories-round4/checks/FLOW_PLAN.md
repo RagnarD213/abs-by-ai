@@ -1,0 +1,7 @@
+CONTENT (SFL). Future motion only, blocked on Dan's approval of the R4 exact frame pairs.
+
+Why I fast until 2 pm every day.: Opening 0:00–0:06.236833. Working without eating first. Clock hour hand advances clockwise from 8 to 2; minute hand completes six clockwise revolutions. Dawn progresses to full afternoon sunlight. Reach 2:00 pm by the beginning of the salad reach around 2.86 s, then hold the clock at 2:00 while he eats. Keep clock face, rim and tick marks fixed. Do not fake progression with only an endpoint cut: Dan explicitly requested actual advancing clock motion. Actual hand direction, complete turns, time at bite, gradual daylight, natural fork pickup and no early eating need take-level checks. If Flow cannot keep clock geometry reliable, use a deterministic animated clock overlay in the same face area over the approved take, preserve natural lighting/body movement, then recheck the complete composite. This is a production fallback, not a paid motion authorization.
+
+Snack on Protein, Not Carbs: Opening 0:00–0:02.300467. Both versions stay shirtless. Arms, hands, fork, sardine, tin, chip and bowls remain fixed. Only heads/neck/mouth lean forward toward the food for bites. Preserve lean/heavier contrast and split.
+
+Route: Google Flow subscription only after frame approval. No covers, uploading, scheduling or publishing. No complete placeholder films. Use exact approved hashes; run measured motion gate and fresh independent sense/anatomy review before Dan sees any take moving. Keep unchanged R3 finished Shorts untouched.
