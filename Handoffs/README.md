@@ -15,7 +15,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 - [Boring Abs At 40 LFC R2](handoff-20261020-ro27-round2-headroom-and-ai-revisions.md): **Start now (2026-10-20). GPT-6.1 Sol, high.** Fix and verify headroom in every wide/tight shot; apply selected richer colour C and warm-bass voice B; show all existing AI clips for the fasting opener choice; revise A01–A04 frames and remove A05–A06. R2 review before new motion or full film.
 
 
-- [Arms Shoulders Workout LFC R3](handoff-20261020-ro04-round3-color-b-full-film.md): **Start now (2026-10-20). GPT-6.1 Sol, high.** CONTENT LFC. Dan selected Round 2 B and authorized the full workout. Preserve framing, original stereo audio and approved graphics; assemble, check and deliver the complete film.
 
 
 
@@ -27,7 +26,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 
 
-- [AI Homework SFC R2](handoff-20261017-ds31-round2-color-options-and-a1-motion.md): DS-31 round 2: warmer, more vivid colour options (Dan reopened Color A) and the approved A1 homework-tower opener made on the Flow subscription, whole Short rebuilt; one-click card shown 10-17. Opus 5.5 high.
+- [AI Homework SFC Setup](handoff-20261020-ds31-ai-homework-setup.md): DS-31 finalized R2 Short (colour C, A1 opener): five Codex covers, stop for Dan's pick, then Blotato on all four platforms; one-click card shown 10-20. Opus 5.5 high.
 - [First Step Abs AD R2](handoff-20261017-ra12-round2-prospect-and-graphics.md): RA-12 round 2 from Dan's answers (AI prospect instead of Dan, graphics under captions, new opening clips); one-click card shown 10-17. Opus 5.5 high.
 - [Render gatekeeper](handoff-20261014-render-gatekeeper.md): enforce two builds at a time with file-lock slots; brainstorm risks first. Opus 5.5 high.
 - [Upwork profile and portfolio](handoff-20261007-upwork-profile-and-portfolio.md): interview Dan, verify experience and assets, build and publish the approved profile. Opus 5.5 high.
@@ -185,6 +184,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Date | Document | Subject |
 |---|---|---|
+| 2026-10-20 | [Arms Shoulders Workout LFC R3](handoff-20261020-ro04-round3-color-b-full-film.md) | EXECUTED: complete workout delivered for Dan review at http://127.0.0.1:8974/. [Receipt](video-editing/ro04-round3-plan/review-receipt.json). |
 | 2026-10-17 | [handoff-20261017-ro20-round4-three-films.md](handoff-20261017-ro20-round4-three-films.md) | EXECUTED 2026-10-19: RO-20/B/C round 4, three full films delivered for Dan's review on :8868 |
 | 2026-09-22 | [handoff-20260922-install-approved-breakfast-short-thumbnail.md](handoff-20260922-install-approved-breakfast-short-thumbnail.md) | EXECUTED: approved revised B2 installed on `UFga137pseM`; backup and verification in [installation report](../output/thumbnails/breakfast-short-20260922/INSTALLATION.md) |
 | 2026-09-15 | [handoff-20260914-coordination-board-diet.md](handoff-20260914-coordination-board-diet.md) | EXECUTED — board cut 11,722 → ~2,000 words; verbatim snapshot + inventory in the archive |

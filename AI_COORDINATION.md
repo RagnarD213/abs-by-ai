@@ -135,7 +135,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-17 - HOLD 2026-10-18, Claude.** On the waitlist (Blotato 197/200); routine queues YouTube Sun Dec 13, socials Mon Dec 14 noon. `Docs/RO17_SETUP_RECEIPT_20261018.md`.
 
-**DS-31:R2-REVIEW:8931:2026-10-18:Claude.** AI Homework SFC R2 on the page: colour C (warm vivid) in the film, options A-E for Dan's pick; A1 opener moving. Audit SHIP. Next: Dan's colour pick and A1 approval.
+**DS-31:SETUP-HANDOFF:2026-10-20:Claude.** AI Homework R2 finalized (colour C, A1 opener). Next: fire `Handoffs/handoff-20261020-ds31-ai-homework-setup.md` (covers, then Blotato).
 
 **RA-04 POLICY-RECHECK 2026-10-16,Claude.**
 
@@ -241,4 +241,4 @@ Memory `google-ads-ui-automation`.
 
 List: `Handoffs/README.md` (OPEN section). Add new handoffs there, never here.
 
-**Arms Shoulders Workout LFC R3, ACTIVE 2026-10-20, Codex.** Building full film with approved color B and crop. Next: full picture/audio QA, independent review, delivery on 8974.
+**Arms Shoulders Workout LFC R3 - REVIEW 2026-10-20, Codex.** Full film checked: http://127.0.0.1:8974/. Next: Dan reviews. Records pushed (`a65ebf7`); local merge awaits another session's live `jobs.json` edit.
