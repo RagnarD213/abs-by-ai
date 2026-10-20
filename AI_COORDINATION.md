@@ -241,4 +241,4 @@ Memory `google-ads-ui-automation`.
 
 List: `Handoffs/README.md` (OPEN section). Add new handoffs there, never here.
 
-**Arms Shoulders Workout LFC R3 - REVIEW 2026-10-20, Codex.** Complete film checked: http://127.0.0.1:8974/. Next: Dan approves or requests revisions. Records pushed as `a65ebf7` from clean checkout; shared-folder merge awaits another session's live `jobs.json` date edit.
+**Arms Shoulders Workout LFC R3 - REVIEW 2026-10-20, Codex.** Full film checked: http://127.0.0.1:8974/. Next: Dan reviews. Records pushed (`a65ebf7`); local merge awaits another session's live `jobs.json` edit.
