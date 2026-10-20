@@ -1,0 +1,234 @@
+{
+  "job": "DS-31",
+  "category": "CONTENT",
+  "status": "awaiting-dan-pick",
+  "round": 2,
+  "dan": "I don't like any of these. ... a college student looking ripped, exercising in the gym, while a robot is doing their homework on a laptop ... New top text: \"Make time to work out.\" Bottom text: \"Let AI do your homework.\" Give me three unique, exact designs ... Make one of these a younger version of me, and two of them somebody else.",
+  "top_text": "Make Time To Work Out",
+  "bottom_text": "Let AI Do Your Homework",
+  "film_untouched": true,
+  "generation": "Codex subscription, gpt-6.1-sol high: 3 images + 1 age-down edit on A",
+  "designs": {
+    "A": "Younger AI Dan curls a dumbbell beside a white robot typing on a laptop with textbooks; blue campus gym; tall DIN Condensed, white top, sky-blue bottom, centred",
+    "B": "A different student does pull-ups while a black robot types on a laptop on a stack of textbooks; dark amber gym; Impact on full-width banners, amber top, black bottom",
+    "C": "A different student swings a kettlebell while a white robot works at a study desk with laptop, textbook and backpack; bright daylight gym; Futura Condensed ExtraBold left-aligned, red top with rule, navy bottom"
+  },
+  "outputs": [
+    {
+      "option": "A",
+      "layout": "youtube",
+      "design": "Younger AI Dan curls a dumbbell beside a white robot typing on a laptop with textbooks; blue campus gym; tall DIN Condensed, white top, sky-blue bottom, centred",
+      "plate": "generated-A2.png",
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/AI Homework - DS-31/covers/round2/youtube/A-ai-homework-cover.jpg",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "bytes": 577276,
+      "sha256": "8514537939a46ccd69eef4fa51c2d6274eacb2a0425167f6c2637c7e82720653",
+      "text_boxes": [
+        [
+          47,
+          120,
+          1034,
+          219
+        ],
+        [
+          322,
+          1566,
+          759,
+          1681
+        ],
+        [
+          143,
+          1693,
+          938,
+          1808
+        ]
+      ],
+      "face_box": [
+        648,
+        346,
+        821,
+        595
+      ]
+    },
+    {
+      "option": "A",
+      "layout": "instagram",
+      "design": "Younger AI Dan curls a dumbbell beside a white robot typing on a laptop with textbooks; blue campus gym; tall DIN Condensed, white top, sky-blue bottom, centred",
+      "plate": "generated-A2.png",
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/AI Homework - DS-31/covers/round2/instagram/A-ai-homework-cover.jpg",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "bytes": 440836,
+      "sha256": "f36d9beaf361c0c8cbb88c4c3331a36f0ef9044897c9734c0085e65b0ddec943",
+      "text_boxes": [
+        [
+          47,
+          286,
+          1034,
+          385
+        ],
+        [
+          47,
+          1532,
+          1033,
+          1623
+        ]
+      ],
+      "face_box": [
+        639,
+        456,
+        799,
+        688
+      ]
+    },
+    {
+      "option": "B",
+      "layout": "youtube",
+      "design": "A different student does pull-ups while a black robot types on a laptop on a stack of textbooks; dark amber gym; Impact on full-width banners, amber top, black bottom",
+      "plate": "generated-B.png",
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/AI Homework - DS-31/covers/round2/youtube/B-ai-homework-cover.jpg",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "bytes": 589572,
+      "sha256": "953482443c2fa754cffbfa7ffa6a31ab7b9f609e9672095f1967797cf78e6853",
+      "text_boxes": [
+        [
+          0,
+          94,
+          1080,
+          227
+        ],
+        [
+          0,
+          1614,
+          1080,
+          1743
+        ]
+      ],
+      "face_box": [
+        248,
+        346,
+        389,
+        538
+      ]
+    },
+    {
+      "option": "B",
+      "layout": "instagram",
+      "design": "A different student does pull-ups while a black robot types on a laptop on a stack of textbooks; dark amber gym; Impact on full-width banners, amber top, black bottom",
+      "plate": "generated-B.png",
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/AI Homework - DS-31/covers/round2/instagram/B-ai-homework-cover.jpg",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "bytes": 498794,
+      "sha256": "69f6cf79a0395387f9f7440f6ee549d5096d5ad0870dee23736108f8bd1cc3f0",
+      "text_boxes": [
+        [
+          0,
+          264,
+          1080,
+          397
+        ],
+        [
+          0,
+          1502,
+          1080,
+          1631
+        ]
+      ],
+      "face_box": [
+        287,
+        461,
+        409,
+        627
+      ]
+    },
+    {
+      "option": "C",
+      "layout": "youtube",
+      "design": "A different student swings a kettlebell while a white robot works at a study desk with laptop, textbook and backpack; bright daylight gym; Futura Condensed ExtraBold left-aligned, red top with rule, navy bottom",
+      "plate": "generated-C.png",
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/AI Homework - DS-31/covers/round2/youtube/C-ai-homework-cover.jpg",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "bytes": 587175,
+      "sha256": "ec34a17ef8accf7e01f6979fd0c5673b7ed65b5f594adcde1b7485aff4755b83",
+      "text_boxes": [
+        [
+          64,
+          96,
+          893,
+          237
+        ],
+        [
+          64,
+          255,
+          961,
+          393
+        ],
+        [
+          64,
+          1560,
+          660,
+          1676
+        ],
+        [
+          64,
+          1692,
+          997,
+          1800
+        ]
+      ],
+      "face_box": [
+        691,
+        470,
+        853,
+        691
+      ]
+    },
+    {
+      "option": "C",
+      "layout": "instagram",
+      "design": "A different student swings a kettlebell while a white robot works at a study desk with laptop, textbook and backpack; bright daylight gym; Futura Condensed ExtraBold left-aligned, red top with rule, navy bottom",
+      "plate": "generated-C.png",
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/AI Homework - DS-31/covers/round2/instagram/C-ai-homework-cover.jpg",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "bytes": 462716,
+      "sha256": "82534e07fe407aa7866e6f48cd96ca1022a3a0f2ea019afed33b02cd324540b1",
+      "text_boxes": [
+        [
+          64,
+          290,
+          1009,
+          364
+        ],
+        [
+          64,
+          1500,
+          996,
+          1568
+        ]
+      ],
+      "face_box": [
+        688,
+        498,
+        848,
+        715
+      ]
+    }
+  ]
+}

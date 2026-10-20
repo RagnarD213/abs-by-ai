@@ -27,7 +27,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 
 
-- [AI Homework SFC Setup](handoff-20261020-ds31-ai-homework-setup.md): DS-31 finalized R2 Short (colour C, A1 opener): five Codex covers, stop for Dan's pick, then Blotato on all four platforms; one-click card shown 10-20. Opus 5.5 high.
 - [Upwork profile and portfolio](handoff-20261007-upwork-profile-and-portfolio.md): interview Dan, verify experience and assets, build and publish the approved profile. Opus 5.5 high.
 - [Upwork jobs and proposals](handoff-20261007-upwork-job-applications.md): interview for criteria and budgets, decide promotion, prepare custom proposals/samples, submit approved batches, assess Grok Bot scouting. GPT-6.1 Sol high.
 

@@ -629,5 +629,14 @@
   "h": 720,
   "job": "RO-20B",
   "when": "2026-11-30T18:00:00.000Z"
+ },
+ {
+  "match": "If you're in college and you have no time to work out, I'm about to solve that problem for you.",
+  "w": 1080,
+  "h": 1920,
+  "job": "DS-31",
+  "when": "2026-12-03T15:00:00.000Z",
+  "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/AI Homework - DS-31/setup/ai-homework-instagram-approved.jpg",
+  "schedule": "5822390"
  }
 ]

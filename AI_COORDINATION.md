@@ -137,8 +137,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-17 - HOLD 2026-10-18, Claude.** On the waitlist (Blotato 197/200); routine queues YouTube Sun Dec 13, socials Mon Dec 14 noon. `Docs/RO17_SETUP_RECEIPT_20261018.md`.
 
-**DS-31:SETUP-HANDOFF:2026-10-20:Claude.** AI Homework R2 finalized (colour C, A1 opener). Next: fire `Handoffs/handoff-20261020-ds31-ai-homework-setup.md` (covers, then Blotato).
-
 **RA-04 POLICY-RECHECK 2026-10-16,Claude.**
 
 **RA-06:POLICY-RECHECK:2026-10-16:Claude.** Ads `828274063389`, `828320387740` in review. Next 10-17: `node scripts/ads/api/client.js policy 24316364155`; clean, delete this.
