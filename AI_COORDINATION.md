@@ -124,7 +124,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-07:SETUP-HANDOFF:2026-10-18:Claude.** Dan approved the R6 9:16; finalized. Card `Fire Your Trainer AD Setup` (`Handoffs/handoff-20261018-ra07-setup.md`). Commits local until safe-push clears.
 
-**Invest In Your Health LFC R4:REVIEW:8868:2026-10-19:Claude.** Three full films (RO-20/B/C) gated, judged, delivered; VLC copies in Videos to Review. Next: Dan's notes or finalize; 2 decisions on the page. C1722 sidecar mark-used pending (Seagate unplugged). Work: `/Volumes/Extreme/_edit_work/ro20/round4/`.
+**Invest In Your Health 2026-10-20, Claude.** Videos 1, 2 (RO-20, RO-20B) finalized; setup handoff written. Video 3 (RO-20C) R5 handed off (new intro split, two lip-synced excuse clips). Both in `Handoffs/README.md` OPEN. Queue commit ff69bf1 local (safe-push stopped on a live file); next safe-push carries it. C1722 sidecar mark-used pending (Seagate unplugged).
 
 
 **RA-05:POLICY-RECHECK:2026-10-16:Claude.** Live: `0DswKDBFW2E`, ad `828398569805` in review. Next 10-17: `node scripts/ads/api/client.js policy 24316364155`; clean, delete this.
@@ -157,7 +157,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **RO-07 - HOLD 2026-10-11, Claude.** Blotato full. `Docs/RO07_SETUP_RECEIPT_20261011.md`
 
 
-**SL-06:R5-ACTIVE:2026-10-20:Claude.** Top 5 Zepbound Tips SFL R5: Dan approved B/C/E/F frames; A (shorts) and D (leaner) redone, in review; C opening now Seattle Children's only. Flow motion for B/C/E/F running (silent-video retry). Next: A/D to Dan on :8821, motion gate, rebuild six. Work: `/Volumes/Extreme/_edit_work/sl06/round5/`.
+**SL-06:R5-REVIEW:8821:2026-10-20:Claude.** Top 5 Zepbound Tips SFL R5: new A and D pairs (gate + reviewer PASS) and Seattle-only C opening on :8821, awaiting Dan. Flow failed 8/8 on audio; needs Dan to allow 'Return silent videos'. Next: motion for six, gates, rebuild. Work: `/Volumes/Extreme/_edit_work/sl06/round5/`.
 
 **SL-07 HOLD 2026-10-18, Claude.** Covers picked, media and configs ready; Blotato full, five shorts on the waitlist for Dec 21-29. Next: the daily top-up routine queues them as slots free. `Docs/SL07_SETUP_RECEIPT_20261018.md`
 
@@ -241,4 +241,4 @@ Memory `google-ads-ui-automation`.
 
 List: `Handoffs/README.md` (OPEN section). Add new handoffs there, never here.
 
-**Arms Shoulders Workout LFC R3 - REVIEW 2026-10-20, Codex.** Complete 2:05.86 film checked and delivered: http://127.0.0.1:8974/. Next: Dan reviews and approves or requests revisions. Decision and receipt: `Docs/DAN_DECISIONS.md`, `Handoffs/video-editing/ro04-round3-plan/review-receipt.json`.
+**Arms Shoulders Workout LFC R3 - REVIEW 2026-10-20, Codex.** Full film checked: http://127.0.0.1:8974/. Next: Dan reviews. Records pushed (`a65ebf7`); local merge awaits another session's live `jobs.json` edit.
