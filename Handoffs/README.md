@@ -11,6 +11,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Skip List Carousel R2](handoff-20261020-skip-list-carousel-redesign.md): **Ready now (2026-10-20). Claude Opus 5.5, high; images by Codex subscription.** Redo the unposted "7 things I'd skip" Instagram carousel: five cover designs each with a real photo of Dan, an image on every slide, review page, stop for Dan's pick, then schedule on @danrosefit.
 - [What To Buy For Your Health LFC R5](handoff-20261020-ro20c-round5-intro-split-and-excuse-clips.md): RO-20C round 5, new intro split screen (three AI clips of Dan) and two lip-synced excuse clips at 1:47 and 4:12; frames and mockup first, then stop. Codex gpt-6.1-sol high.
 - [Fat 90 Year Old SFC R2](handoff-20261020-ds40-round2-key-polish.md): **Start now (2026-10-20). Claude Opus 5.5, high.** CONTENT SFC, green screen bake-off with Codex. Dan locked colour B and house voice + half bass; make the key beat R1 (hair flicker, dark rim, watch glass), independent review, R1 vs R2 page on 8940.
 - [Boring Abs At 40 LFC R2](handoff-20261020-ro27-round2-headroom-and-ai-revisions.md): **Start now (2026-10-20). GPT-6.1 Sol, high.** Fix and verify headroom in every wide/tight shot; apply selected richer colour C and warm-bass voice B; show all existing AI clips for the fasting opener choice; revise A01–A04 frames and remove A05–A06. R2 review before new motion or full film.
