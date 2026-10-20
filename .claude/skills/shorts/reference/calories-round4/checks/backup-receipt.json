@@ -1,0 +1,28 @@
+{
+  "id": "1T3xaKcLYzL-Sp-D4ak-Busm9QmvzXAjy",
+  "name": "Calories Not Losing Weight SFL R4 - checked frame review.zip",
+  "webViewLink": "https://drive.google.com/file/d/1T3xaKcLYzL-Sp-D4ak-Busm9QmvzXAjy/view?usp=drivesdk",
+  "permissions": [
+    {
+      "id": "anyoneWithLink",
+      "type": "anyone",
+      "role": "reader"
+    },
+    {
+      "id": "03052560820113078019",
+      "type": "user",
+      "role": "owner"
+    }
+  ],
+  "md5Checksum": "c64d2488bd6c29bd9fc0c9eaad8842a4",
+  "sha256Checksum": "e2344a64e924d271c9e0da8487b29efbf3a48b8779e4c36d2159137f39c4bba1",
+  "size": "61726009",
+  "checks": {
+    "size": true,
+    "md5": true,
+    "sha256": true,
+    "anyone_reader": true,
+    "zip_crc": true,
+    "archive_file_count": 164
+  }
+}
