@@ -6,6 +6,8 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 
 ---
 
+- **Video skills audit questions (2026-10-20; Decision since: 2026-10-20):** (1) Does the 10-20 "every video edit defaults to Sol high" rule cover Claude-run edits too, or only Codex rounds (routing memory and the queue still send RO/DS first cuts to Claude)? (2) Decision budget: 10 to 15 per video (your 09-29 words) or 20 in round 1 then 10 a round (VIDEO-RULES)? (3) AI clip budget: $15 per long-form video or per clip? (4) Shorts cut from an approved film: reuse its look and voice with no options? (5) Does the 20 px hair rule override SL-03's "camera-framed hair at row 0 is accepted" for shorts? Detail: chat report of the audit session.
+
 - **Arms Shoulders Workout LFC R3 (2026-10-20; Decision since: 2026-10-20):** Approve the complete 2:05.86 workout or give timestamped changes. Approved color B, framing, original stereo audio and timers retained. Full review: http://127.0.0.1:8974/. Checks and backup: `Handoffs/video-editing/ro04-round3-plan/review-receipt.json`.
 
 

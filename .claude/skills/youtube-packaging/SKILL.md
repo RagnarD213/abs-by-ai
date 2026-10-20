@@ -18,9 +18,8 @@ Working example output: `YouTube Content/channel-intro/` (PACKAGING.md, thumbnai
 
 - Never upload any video as Public and never use YouTube native scheduling or `publishAt`.
 - Ad video → upload **Unlisted**, always. Never make a separate Public YouTube copy.
-- Organic video → upload **Private**, always. Blotato owns the scheduled release, including YouTube.
-- Read the saved visibility back before calling the upload complete: `unlisted` for an ad, `private` for organic.
-  Missing or wrong visibility fails the workflow and must be corrected. If classification is unclear, keep it Private.
+- Organic video → never uploaded by us at all (Dan, 2026-10-01): Blotato creates the public YouTube video at release time. No Private holding copy.
+- Read the saved visibility back before calling an ad upload complete: `unlisted`. Missing or wrong visibility fails the workflow and must be corrected. If classification is unclear, upload nothing until it is resolved; never Public.
 
 ## sixpackabs.com article (2026-10-10)
 
@@ -39,14 +38,12 @@ handles them after release). Ads never get an article.
 > The voice rules below remain as background for the content plan and for the final read. Format, length, cue and
 > offer rules in this skill still apply in full.
 
-1. **Transcribe** the video with the ad-factory Whisper pipeline (word timestamps —
-   `bakeoff/.env` has `REPLICATE_API_TOKEN`; model + call shape in
-   `ad-factory/the-upload/assembly/transcribe.js`). The transcript drives titles,
+1. **Transcribe** the video with word timestamps: reuse the delivered build's own word map when it exists, else the shared local Whisper (`_shared/cut/speech.py`, queued by the render queue); the Replicate path in `ad-factory/the-upload/assembly/transcribe.js` is the fallback. The transcript drives titles,
    chapters, and Shorts.
 2. **Titles:** give Dan 5 options targeting real search queries (the "get abs with
    AI / ChatGPT fitness / abs at 40" families), with a recommendation.
 3. **Description:** written in Dan's voice (`.claude/skills/_shared/DAN-VOICE.md`; no em dashes). Hook line, absbyai.com link with
-   `utm_source=youtube&utm_medium=video&utm_campaign=<video-slug>`, chapters built
+   `utm_source=youtube&utm_medium=video&utm_campaign=longform&utm_content=<slug>` (the same convention as `/video-setup` Step 3), chapters built
    from the real transcript timestamps, AI-imagery disclosure line, subscribe CTA.
 4. **Tags + pinned comment.** Since 2026-10-11 the pinned comment is a question that gets viewers to reply, with no link
    (rules and the post-and-pin procedure: `Docs/PINNED_COMMENTS.md`; `/video-setup` Step 6c).
@@ -129,9 +126,9 @@ The type treatment stays; the **layout** changed:
   waistband.
 - **Source photos: `photos/finalized social media photos/`.** (The path this file
   used to give, `photos/finalized photos/`, **does not exist** — corrected 2026-08-08.)
-  Never AI-generated bodies or video stills unless Dan says so.
-- **Never AI-repaint Dan's real photos** for thumbnails. Composite programmatically
-  over the untouched photo. AI generation was tried 2026-08-04 and rejected.
+  (Since 2026-10-13 one of the five options is an AI-enhanced or AI-generated image of Dan and two more are AI images of Codex's choice; the pool and studio options stay real photos.)
+- **Never AI-repaint Dan's real photos** for the pool and studio options. Composite programmatically
+  over the untouched photo. Option 3 is the only place a picture of him may be AI-made (VIDEO-RULES, "Thumbnails: the five").
 - **Five review choices per video use distinct images or designs and the SAME text, unless Dan requests copy alternatives.**
 - **Dan's hard rule: abs visible in every variation, and text must NEVER overlap them.**
 - **The 7-31-26 pool shoot is 2747×4096 portrait, so a straight 16:9 crop cannot hold
@@ -194,8 +191,7 @@ it with a real photographic extension. Working build in
    and do NOT mirror: a blurred stretch carries the correct vertical banding (sky,
    tree line, fence, grass) with no recognisable structure for the model to duplicate.
    Real photo ends up 43–52% of the frame; the model paints the rest.
-2. **Generate** with `gemini-3-pro-image` at `--tier draft` (2K → 2752×1536, $0.134).
-   4K is wasted here — the deliverable is 1280×720.
+2. **Generate** the background with `_shared/codex-image.sh` (Codex only since 2026-10-01; the 2026-08-30 build used `gemini-3-pro-image`, $0.134, now locked behind `ALLOW_API_IMAGE=1`). Upscale locally if the deliverable needs it.
 3. **Composite the REAL subject back** over the generated background (below).
 4. Cover-crop to 1280×720, scrim, type.
 
@@ -261,7 +257,7 @@ embers, rim glow, zigzag/curved arrows, brush, red ring) lives in
 - ⚠ **The composition lock can still fail: check `comp.py`'s IoU.** One of six fills slid Dan 0.11 W to the
   right while keeping his size; the registration hit its ±40 px search limit at IoU 0.29 and a widened search
   still left the generated head peeking out above the real one. **IoU < 0.9 or a search-limit hit = regenerate
-  ($0.134), never widen the search and ship.** Frames where he touches the strip edge are the ones at risk.
+  (with Codex), never widen the search and ship.** Frames where he touches the strip edge are the ones at risk.
 - ⚠ **`personmask` is `personmask OUTDIR IN...`** — the `mask IN` form in the 3-min `comp.py` exits 0 and writes
   nothing.
 - **Fit type to the mask with a 45 px margin, assert 25 px on the finished file** — the mask re-measured after
@@ -312,9 +308,8 @@ working code in `.claude/skills/shorts/reference/`. The rules below are the summ
   16:9 frame scaled into the vertical frame, never a centre crop.
 - **If the subject fills the frame, give graphics their own band** rather than hunting
   for a gap — measure region clearance first. See `/shorts` Step 6.
-- Captions: ONLY from Whisper word timestamps. Arial 86 bold, MarginV 690, uppercase
-  ABS/AI. 1080×1920, 24fps, crf 18.
-- Post cadence: one Short every 2–3 days after the longform, not all at once.
+- Captions: ONLY from Whisper word timestamps; placement and type per the Soft Blue shorts standard in `GRAPHICS-STANDARDS.md` (the older Arial/MarginV 690 spec is the J2 layout). Source frame rate.
+- Post cadence: the Shorts calendar, `Docs/SHORTS_RELEASE_CALENDAR.md` (Dan, 2026-10-17: Mon, Tue, Fri, Sat for Shorts cut from long-forms, Thursday for dedicated Shorts, never before the parent is public).
 
 ## Configuring YouTube Studio directly (learned 2026-08-08 — do not re-derive)
 
@@ -346,8 +341,7 @@ which is why the file drag used to be Dan's.
 1. ❌ **localhost `fetch` → DataTransfer** (the technique that works on Play Console):
    **blocked by studio.youtube.com's CSP.** The request never leaves Chrome; the fetch
    just hangs until aborted and the local server logs nothing.
-2. ❌ **`file_upload` MCP tool** — its `paths` param is broken (validation error
-   "expected array, received undefined"). Still broken as of 2026-08-08.
+2. ✅ **`file_upload` MCP tool** works now (`/video-setup` Step 6 and `/coverimage` Step 8 use it; the 2026-08-08 "paths" validation error is gone). Prefer it over the clipboard method below.
 3. ✅ **Clipboard image + a `paste` event.** Put the JPEG on the macOS clipboard
    (`osascript -e 'set the clipboard to (read (POSIX file "…") as «class JPEG»)'`),
    register a capture-phase `document` `paste` listener that takes
@@ -384,5 +378,4 @@ em-dashes arrive as `,Äî`. Export `LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8` before
 
 - `YouTube Content/` and `photos/` are git-ignored — keep all media out of the
   public repo.
-- Zero AI generations against the production app; thumbnails/transcription cost
-  cents via Replicate.
+- Zero AI generations against the production app; images only through Codex on the subscription (`IMAGE-GENERATION.md`), transcription local.
