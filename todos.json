@@ -438,6 +438,13 @@
       "recurring": false,
       "addedAt": "2026-10-20",
       "addedBy": "assistant"
+    },
+    {
+      "text": "Find coffee table for living room and have Daniel review it",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-10-20",
+      "addedBy": "assistant"
     }
   ],
   "handoffs": [
