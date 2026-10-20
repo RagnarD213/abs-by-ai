@@ -365,7 +365,7 @@ always the one making these thumbnails."*
      enough when what is left reads as a dedicated opening.
   2. Write the pickup lines (three options each, through `dan-voice-writer`) and **put them in the shortlist message
      itself**, with the line that follows each, so Dan can record them when he picks.
-  3. Dan records into his mic in the editing session. Take every line two or three times and keep the best take.
+  3. **Superseded 2026-10-13 (section "Pickups are recorded on the studio set"):** the pickup is recorded on the studio set at the next shoot; a desk recording is only a labelled timing placeholder. The desk method, kept for placeholders: Dan records into his mic in the editing session. Take every line two or three times and keep the best take.
      **Record with `_shared/audio/rec_mic.swift`, never `ffmpeg -f avfoundation`** (2026-10-12): ffmpeg dropped 11 % of the
      Yeti's audio on a busy Mac (a 512-sample block missing about every 90 ms; 26.6 s of samples per 30 s) in three takes
      out of three, and Whisper still transcribed them. Build once: `swiftc -O rec_mic.swift -o ~/.cache/absbyai/rec_mic`.
@@ -869,8 +869,8 @@ no content-style edits of ads ("such as making 5 shorts out of an ad").
   - **AD:** a definite direct-response call to action telling the viewer to act on the ad itself, e.g. *"tap the
     button below"*, *"click the button below"*. Ads go through `/ad-setup` only: Unlisted YouTube + Google Ads.
   - **ORGANIC:** a softer end call to action (*"go to AbsByAI.com"*, *"leave me a comment"*, *"follow for more"*)
-    with no "tap/click the button below". Organic goes through `/video-setup` only: Private YouTube holding copy +
-    Blotato release on every platform.
+    with no "tap/click the button below". Organic goes through `/video-setup` only: Blotato releases it on every platform, YouTube included
+    (no YouTube holding upload since 2026-10-01; see "YouTube visibility" below).
 - **If the request, handoff or queue label disagrees with the video, STOP before uploading anything and ask Dan**,
   quoting the closing line: *"This handoff sets it up as an ad, but the video ends with 'leave me a comment' and has no
   tap-the-button CTA, so it reads as organic. Set it up as organic instead?"* The same applies in reverse. Do the
@@ -934,6 +934,8 @@ no content-style edits of ads ("such as making 5 shorts out of an ad").
 
 ## Video clip generation budget and frame approval (Dan, 2026-09-15)
 
+*Since 2026-10-17 every Veo clip is generated on the Google Flow subscription first (section near the top of this file); the dollar caps below apply only to paid takes (rush, or credits out with Dan's yes). Frame approval before motion is unchanged.*
+
 - **Updated by Dan, 2026-10-09:** Replicate image and motion generation is standing-authorized up to **$50 total per website video**, **$15 total per long-form content video (Dan, 2026-10-13, raised from $5; he said "$15 per clip", recorded as per video until he confirms) and $5 total per other content video posted on YouTube or Instagram**, and **$10 total per ad uploaded unlisted and advertised**. Dan: "You're always authorized to generate whatever you need with Replicate" within those limits. Use existing project Replicate keys and send the necessary project image inputs to Replicate for that generation without asking again. This replaces the earlier $5 Replicate limit. The existing Gemini authorization is unchanged.
 - Count supporting start/end-frame generation and paid retries in the video's total across all revisions; a new task or revision does not reset it. Preserve unknown charges honestly and track provider receipts. Ask for spend authorization only before exceeding the applicable cap, stating the specific clips and estimated new total.
 - Show Dan the **start and end frames plus the intended action** for approval before generating motion. Budget authorization does not replace frame approval. Materially different replacement frames require approval again.
@@ -949,6 +951,8 @@ no content-style edits of ads ("such as making 5 shorts out of an ad").
   recorded with hashes and Dan's words, a handoff at the end of each round. This supersedes the 30-second and 60-90 s sample rules below.
 
 ## Approve the opening, all graphics and clips before a full render (Dan, 2026-09-26)
+
+*Read with the newer rules: the round order and the first-minute draft are set by [PRE-RENDER-APPROVAL.md](PRE-RENDER-APPROVAL.md) (long-form round 1 carries the first-minute draft, 2026-10-16; a nearly approved Short or ad shows the whole video, 2026-10-14); "first 30 seconds" below is the 2026-09-26 wording. Lower thirds use title capitalization (2026-10-09, 2026-10-16), so the `KEY POINT:` prefix is not a default any more, and every new graphic moves in HyperFrames (2026-10-17).*
 
 - Read [PRE-RENDER-APPROVAL.md](PRE-RENDER-APPROVAL.md). Every video editing workflow uses the VSL round-4 approach: first 30 seconds to lock source-specific color/audio and opening treatment, all planned graphics with before/during/after speech, every clip in context, and proposed AI start/end frames. Finished AI clips are approved before full assembly unless their exact use was already explicitly authorized.
 - Render the complete film only after the opening treatment, graphics and clips are locked. While waiting, prepare sources, edit maps and isolated/contextual previews, not a complete placeholder film. Reuse unchanged approvals and honor an explicit sample waiver. For RO-01 revision 4, color/audio are approved and no new opening calibration sample is needed.
@@ -1051,7 +1055,7 @@ something that we can publish."* Every point below is a standing rule for every 
 ## Label Dan's real pictures (Dan, 2026-09-11)
 
 - **Thumbnail exception (Dan, 2026-09-16):** Do not put “Real picture of me — not AI-generated” on thumbnail or cover images; it is too small to read on a phone. Keep that label on real physique photographs when they appear inside videos. Thumbnail/cover designs also omit `AbsByAI.com` unless Dan explicitly requests it. This overrides the broader real-photo label rule below for thumbnails and covers; it does not remove AI-image disclosures inside videos.
-- **Dan's REAL after pictures carry a burned label: "Real picture of me — not AI-generated"** (Dan, 2026-09-11: viewers were taking his real photos for AI). Every real photo-shoot or studio picture of Dan shown as a result gets it for its full duration, in the same chip style as the AI label. AI images of Dan keep "AI-GENERATED". The two labels are mutually exclusive: every picture of Dan's physique carries exactly one of them.
+- **Dan's REAL after pictures carry a burned label** (wording since 2026-10-17: "Real Photo Of Me, Not AI-Generated", plural "Real Photos Of Me, Not AI-Generated", no em dash; the section above). Original note, 2026-09-11, with the old wording "Real picture of me — not AI-generated": viewers were taking his real photos for AI). Every real photo-shoot or studio picture of Dan shown as a result gets it for its full duration, in the same chip style as the AI label. AI images of Dan keep "AI-GENERATED". The two labels are mutually exclusive: every picture of Dan's physique carries exactly one of them.
 - ⚠ **LABEL PLACEMENT — NEVER OVER HIS FACE AND NEVER OVER HIS ABS** (Dan, 2026-09-12, on the Ad 2 square: *"the label will not block my face or my abs… put it above my head, to the side, or somewhere that it doesn't block my face and my abs in all of these after pictures"*). This REPLACES the old "low on the frame, at the shorts/waistline" rule, which is what put the chip across his lower abs. Put it **above his head, off to one side, or anywhere in the frame his body does not occupy** — still inside the safe area, still large enough to read, still clear of the caption band. **The picture exists to show the physique; a label over the abs defeats the picture.** Choose the position by MEASURING him on the RENDERED frame (person mask → the bounding box of head + torso, then place the chip in the largest clear band), never at a fixed y — every photo frames him differently. If nothing is clear enough, shrink the chip or move it to a corner before you put it on him. Applies to BOTH labels on any picture of Dan.
 
 ## Don't default to frowning photos (Dan, 2026-09-13)
@@ -1106,20 +1110,16 @@ something that we can publish."* Every point below is a standing rule for every 
   "upload it to YouTube and set it up on all other platforms in the Blotato queue" and the session did
   exactly that. `/ad-setup` positively permitted it at the time. Nothing malfunctioned — the rule did not exist.
 
-## One new long-form release each Sunday (Dan, 2026-10-07)
+## Long-form release cadence (Dan, 2026-10-17; replaces the 2026-10-07 Sunday-only rule)
 
-- New organic long-form videos release on YouTube only on Sundays at 9 AM America/Chicago through Blotato, at most one per week. A revised replacement upload uses one Sunday slot. Shorts and unlisted ads have separate schedules.
-- Read the live Blotato YouTube queue and recent releases before selecting a slot. If the next Sunday already holds a long-form, append the new video after the last queued long-form on the next free Sunday. Never add a Wednesday or other midweek long-form to make room.
-- YouTube releases first. Schedule the long-form's Facebook, Instagram and TikTok copies no earlier than Monday at 9 AM America/Chicago, 24 hours after the Sunday YouTube slot. Do not release all platforms together. Verify the YouTube video is actually public before the other posts go out. If the YouTube release fails or is delayed, postpone the other posts until after it is public.
-- If a long-form is queued midweek, move YouTube to the end of the Sunday queue and its other platform schedules to the following Monday. Verify every saved time from a fresh pull.
-- This binds Claude and Codex, including handoffs and direct Blotato scheduling. `scripts/blotato/longform_queue.py` must refuse an off-Sunday or occupied Sunday YouTube slot.
+- Two long-forms a week: Sunday and Wednesday at 9 AM America/Chicago through Blotato, one per day, never another weekday. YouTube first; Facebook, Instagram and TikTok the next day at noon once YouTube reads public. Dated calendar: `Docs/LONGFORM_RELEASE_CALENDAR.md`; Shorts: `Docs/SHORTS_RELEASE_CALENDAR.md`. The full rule lives in `AGENTS.md`, "Long-form YouTube release cadence"; `scripts/blotato/longform_queue.py` and `video_topup.py` enforce it. The 2026-10-07 "one per week, Sundays only, socials Monday 9 AM" text that stood here is superseded.
 
 ## YouTube visibility — never upload Public (Dan, 2026-09-16)
 
 - **Never upload any video to YouTube as Public, and never use YouTube's native scheduling/publish-at path.** This applies to API uploads, Studio uploads, scripts and manual work. The upload-time visibility must always be non-public.
 - **Ad videos are always uploaded Unlisted.** No ad gets a separate Public YouTube copy, even if it will also be used on other platforms.
 - **Organic videos: Blotato only (Dan, 2026-10-01).** No Private holding upload. Blotato creates and releases the public YouTube video at the scheduled time; we never upload organic content to YouTube ourselves and never use YouTube native scheduling or publishAt. Ads stay Unlisted via `/ad-setup`.
-- Before reporting an upload complete, read back the saved visibility. It must be `unlisted` for an ad or `private` for organic content. A missing or different value is a failure; correct it before continuing. If the video type is unclear, use Private while resolving it—never Public.
+- Before reporting an upload complete, read back the saved visibility. It must be `unlisted` for an ad. Organic content is never uploaded by us (Blotato creates the public video at release), so an organic file sitting on YouTube as our own upload is itself the mistake: make it Private and report it. If the video type is unclear, nothing is uploaded until it is resolved; never Public.
 
 ## Audio: one standard, enforced by a stamp (2026-09-02)
 
@@ -1217,8 +1217,8 @@ something that we can publish."* Every point below is a standing rule for every 
 - **Exercise illustrations must vary the exercise.** For Dan demonstrating daily exercise, use ab wheel plus toe touches or kettlebell deadlifts, not repeated ab-wheel footage. This includes similar excerpts from one source video. Dan remains the same person; the exercise action must differ. Necessary repetitions inside an actual exercise teaching demonstration are a different purpose.
 - **No added camera movement in horizontal16:9 presenter footage.** Do not pan, drift, track or recenter just because Dan shifts slightly. Keep a fixed composition within the shot; preserve approved framing sizes and deliberate cuts unless separately rejected. Check rendered footage, not just a fixed-center setting.
 - **Requested AI narrative clips require actual motion.** A static frame, start/end montage, slow image pan or brief motion fragment followed by a held endpoint is not a completed clip. Generate and validate the intended motion from approved assets; do not ask again for unchanged approved frames. This does not prohibit real photo displays or specifically approved scientific still illustrations.
-- **Three-photo screen template:** use three vertical real studio portraits with distinct poses and consistent presentation proportions; plural disclosure “Real pictures of me — not AI-generated,” clear of faces/abs. Save the tested layout for reuse.
-- **Organic graphics:** Soft Blue Light (GRAPHICS-STANDARDS.md, 2026-09-26) replaced the Muhammad graphics rebuild; lower thirds and full-screen treatments come from `softblue.py`. Use self-contained titles that name the topic. Specific approvals with limited requested edits take precedence over a general redesign; for C1652's Zepbound/stakes lists, enlarge text as requested and preserve the otherwise approved panel design.
+- **Three-photo screen template:** use three vertical real studio portraits with distinct poses and consistent presentation proportions; plural disclosure, now worded “Real Photos Of Me, Not AI-Generated” (2026-10-17), clear of faces/abs. Save the tested layout for reuse.
+- **Organic graphics:** Soft Blue Light (GRAPHICS-STANDARDS.md, 2026-09-26) replaced the Muhammad graphics rebuild; lower thirds and full-screen treatments came from `softblue.py` at the time; since 2026-10-17 every new or revised graphic is built from the HyperFrames templates and moves for its whole screen time (section near the top of this file). Use self-contained titles that name the topic. Specific approvals with limited requested edits take precedence over a general redesign; for C1652's Zepbound/stakes lists, enlarge text as requested and preserve the otherwise approved panel design.
 
 ## Horizontal footage stays completely static — Dan, 2026-09-17
 
@@ -1228,6 +1228,8 @@ something that we can publish."* Every point below is a standing rule for every 
 - C1652’s Zepbound text size is approved. Dan would prefer a third benefit, “Makes you serious about fat loss,” in a future relevant treatment; he accepted the existing two-row graphic in this final film. Do not expand its content without speech/timing context in future work.
 
 ## On-screen text graphics are KEY POINTS, not a second set of subtitles (Dan, 2026-09-18)
+
+*The distil-not-echo rule stands. The FORMAT was narrowed on 2026-10-09 and 2026-10-16: title capitalization everywhere ("Key Point:" if the prefix is used), FULL CAPS on a word only where it truly carries the punch, about one graphic in six at most, never automatic.*
 
 - **A text graphic exists to DISTILL the point, never to repeat the words being spoken under it.** Dan, on Zeeshan's
   deadlift video: *"I don't think there's much value if, let's say, I say 'lower risk' and repeat that 'lower risk.'
@@ -1246,7 +1248,7 @@ something that we can publish."* Every point below is a standing rule for every 
 
 ## Approved graphics and layout standards (Dan, updated 2026-09-26)
 
-Read [GRAPHICS-STANDARDS.md](GRAPHICS-STANDARDS.md) before designing or revising graphics. Soft Blue Light is now the standard graphic family for all videos, including website VSLs, ads, organic videos, Shorts and newly revised square/vertical graphics; the approved Motivation lower-third format is locked for lower thirds in all videos. This 2026-09-26 expansion supersedes older Muhammad graphic palettes and website-only scope. Preserve already approved exports unless their graphics are explicitly being revised. Muhammad sound, camera color and transition references retain their separate scopes. That reference also defines three-portrait screens, sequential horizontal photos, credible iPhone framing, single rounded blue cards behind side text lists, with no secondary full-height field and fixed presenter positioning with intact arms. These specific approvals supersede conflicting older graphic examples. Keep source-specific crop, color and audio settings scoped to their recordings.
+Read [GRAPHICS-STANDARDS.md](GRAPHICS-STANDARDS.md) before designing or revising graphics. Soft Blue Light is now the standard graphic family for all videos, including website VSLs, ads, organic videos, Shorts and newly revised square/vertical graphics; the approved Motivation lower-third format is locked for lower thirds in all videos (built from the HyperFrames templates and moving for its whole screen time since 2026-10-17). This 2026-09-26 expansion supersedes older Muhammad graphic palettes and website-only scope. Preserve already approved exports unless their graphics are explicitly being revised. Muhammad sound, camera color and transition references retain their separate scopes. That reference also defines three-portrait screens, sequential horizontal photos, credible iPhone framing, single rounded blue cards behind side text lists, with no secondary full-height field and fixed presenter positioning with intact arms. These specific approvals supersede conflicting older graphic examples. Keep source-specific crop, color and audio settings scoped to their recordings.
 
 ## Exercise demonstration timing and visual cues (Dan, 2026-09-25)
 
@@ -1261,16 +1263,3 @@ Every editing skill also follows section 5 of [CUT-CONTINUITY-QC.md](CUT-CONTINU
 ## Default jump-cut and junk-footage pass (Dan, 2026-09-29)
 
 Every new video edit and revision runs [CUT-CONTINUITY-QC.md](CUT-CONTINUITY-QC.md) by default, starting with selected source footage before the first approval preview and repeated on the exact final candidate. Inspect every source/picture join, including composite internals and cutaway entrances/exits. Remove uncovered presenter jumps using distinct fixed wide/tight cuts or complete approved clip cover; pose matching alone does not clear a same-framing jump. Detect confirmed unscripted sounds, empty lead-ins, unnecessary pauses and looking away while resetting, then remove them without clipping words, stripping normal breaths or removing purposeful teaching pauses. Review native consecutive frames and moving/audio context, record each repair, and inspect every new boundary. Detector/ASR flags require actual source verification. This supplements existing gates and preserves still/frame, motion and full-render approval requirements. Do not retrofit already approved masters without scoped revision authorization.
-
-## Verticals: the camera lands on Dan, then holds (the standard centering, Dan, 2026-10-03)
-
-**Locked by Dan, 2026-10-05:** The right-hand `after.mp4` in the Codex before/after review is the approved framing reference for all future 9:16 videos. Use this land-then-hold method through shared `cut/landing.py`. Exact clip hash, measurements and Dan's approval are recorded in `Docs/VERTICAL_CENTERING_CODEX_20261003.json`. This locks the framing method; approved exports stay untouched.
-
-- **In every vertical the crop that follows Dan lands centred on him after each cut, then stays still until he has moved
-  3.3 % of the crop's width off centre, and only then follows.** Dan, choosing the calmer of two RO-10 first minutes:
-  *"I like the calmest one, the two-thirds calmer. That looks the best to me... Let's make this our standard way of
-  centering for verticals going forward. I feel like this is better than what we were doing."*
-- It replaces the track that chased every small movement (his 2026-10-01 note: "excessive and distracting"). Never go
-  back to a crop that does not move at all: he left the frame.
-- Claude and Codex both build verticals this way. Method, numbers and code: `_shared/framing-motion.md`, "Vertical
-  talking head: land on him, then hold". Use shared `cut/landing.py` via its scaled vertical preset; `kit_track.py` defaults to 20 px for a 608 px crop. Report travel, p90 pan speed, time moving and median/maximum head offset. Approved exports stay untouched.
