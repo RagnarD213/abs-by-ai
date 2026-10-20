@@ -149,6 +149,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-20C:R5-ACTIVE:2026-10-20:Claude.** Page :8868.
 
+**Zepbound Even If Ripped LFC R1 - ACTIVE 2026-10-20, Claude.** RO-28 from C1771: take map, look/voice options, first-minute draft, all assets in context, AI frames. Next: R1 review page. Work: `/Volumes/Extreme/_edit_work/ro28/round1/`.
+
 **Make Time Exercise LFC R2 - ACTIVE 2026-10-20, Claude.** RO-18 round 2: camera opener, Flow motion for A2/A6/A7/A8/A9 (background agent), new college-age C36/C37, then full film, gates, review, delivery. Work: `/Volumes/Expansion/_edit_work/RO-18/round2/`.
 
 **Ad 6 remarketing 2026-10-04:** Awaiting Dan: copy to enabled campaign 24305381214?
