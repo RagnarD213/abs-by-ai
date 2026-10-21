@@ -11,9 +11,9 @@ Dan rejected the RO-27 opening's clipped hair, including at about 0:22 and 0:29:
 
 RO-27 R1 used fixed `3440:1935:200:112` and `3000:1688:420:236` source crops without a verified rendered hair-clearance report. Its earlier join/graphic checks did not establish headroom. Preserve R1 as rejected framing evidence and fix all affected previews in R2.
 
-## Approved chroma key for all green-screen videos (Dan, 2026-10-20)
+## Approved chroma key for all green-screen videos (Dan, 2026-10-21, replaces 2026-10-20)
 
-Use the approved Bill Maher Fat 90-Year-Old R3 key for every future green-screen video and requested key revision, Claude and Codex alike. Dan: "Let's lock this as our chroma key style. I want all the videos keyed out like this. This is a very clean key." The shared reference, exact hashes and method are in `.claude/skills/_shared/chroma-key/README.md`. Preserve the clean body/arm matte and motion-stable fine hair with natural strands. Calibrate screen and hair geometry to the actual source; never blindly copy sample coordinates or smooth across cuts. Do not reopen the accepted style. This locks keying, not every video's audio or grade, and does not request changes to already approved exports. Bill Maher's Balanced audio and warmer color stay selected.
+Every green-screen video is keyed with Claude's Bill Maher Fat 90-Year-Old R2 key, Claude and Codex alike. Dan: "let's lock this chroma key as our default way to chroma key things. I want all green screen videos keyed out like this" and "Let's make all our future chroma keys this clean and make this a standard." It replaces the Codex R3 key locked the day before. The bar: edges steadier than the camera's own picture with motion removed, dark rim no worse than the source, nothing see-through over saturated pink (watch, glasses), no specks, strands and motion blur kept, measured with the shared scripts before Dan sees it. Method, exact code and hashes: `.claude/skills/_shared/chroma-key/README.md`. Calibrate plate, crop and hold-out boxes to each source; never average across a cut. Do not reopen the accepted style. This locks keying only; grade and audio stay per video, and already approved exports stay as they are.
 
 ## AI video clips: Google Flow subscription first, paid API only on "rush" (Dan, 2026-10-17)
 
@@ -271,6 +271,10 @@ always the one making these thumbnails."*
   look at every region left, enlarged, frame by frame. Two independent reviewers each found a leftover of the rejected effect that the
   editor's eye had passed on a contact sheet: a wisp on the desk, then an orange smear in the box. A cut out of a rejected take starts where
   the whole picture has settled, not where the subject has. Tool: the self-change map in `longform-edit/reference/ro08/a5_cut.py`.
+- **A body cut off unnaturally never reaches Dan (Dan, 2026-10-21, RO-28 barbecue frames):** four men stood behind a grill with their lower
+  bodies cut off and it passed two checks. Dan: *"the lower bodies are cut off. This looks very unnatural. That never should have made it
+  to my review."* Every frame reviewer brief asks whether each person is whole where the shot implies it (feet in a standing group shot,
+  nobody sliced by the frame edge or hidden behind a prop placed to crop them); a frame that fails is redrawn before any page.
 - **START/END frames get the same treatment before motion is even generated (2026-10-14, after RA-04's leg press):** a frame spec, the
   frame gate and a fresh `frame-reviewer` agent; no page shows the pair until `.claude/skills/_shared/framecheck/gate.py START END
   --verify` exits 0. Routine and proof: `_shared/framecheck/README.md`.
@@ -1187,11 +1191,31 @@ something that we can publish."* Every point below is a standing rule for every 
   `ffmpeg.real`) queues every heavy ffmpeg call; Whisper (`whisper_chunked.py`, `cut/speech.py`), HyperFrames renders
   (`hfbuild.render`), `deliver/gate.py`, `watch.py`, `framecheck/gate.py` and `clipcheck.py` take their own slot.
   `buildcap.wait()` now gets in line in the queue. Never waits: ffprobe, frame grabs, stills, audio-only ffmpeg,
-  stream copies, anything 5 s or shorter, review servers.
+  stream copies, anything 5 s or shorter, review servers. Audit of what still gets past it (2026-10-20 evening):
+  `Handoffs/results-20261020-renderq-drives.md`.
 - **Slots: heavy 2 always open, up to 4 while the Mac has spare CPU; light (Whisper, checks) 2, up to 3.** Extra slots
   open only when at least 30% of the CPU sat idle for 4 s and nothing started in that pool in the last 15 s, so
   single-core Python renders no longer leave most of the Mac idle, and x264-bound renders still run two at a time.
   Work inside a slot runs at nice 10. Measurements: `Handoffs/results-20261020-render-scheduler.md`.
+- **Quick lane (2026-10-20 evening): short clips never wait behind long renders.** Heavy work on short media takes one
+  of two quick slots, first come first served: ffmpeg calls whose inputs total 20 s or less (or `-t` up to 20 s, up to
+  600 frames), `clipcheck.py` on clips of 15 s or less, HyperFrames graphics of 10 s or less. An 8 s AI clip's frame
+  dump, trim or clip check starts at once. Why: earlier that day 1-second frame dumps waited up to 21 min and
+  21-second clip checks up to 73 min behind 10-minute renders.
+- **Per-drive caps:** each drive runs at most its cap of heavy steps at once, Extreme 2, Expansion 3, internal 6,
+  Seagate 2 until measured (`renderq/drives.json`, measured with `renderq/drivebench.py`). A waiter whose drive is full
+  steps aside and the next job on another drive goes first. `renderq.py drives` shows each drive's load and free space.
+- **Every new job's work folder comes from the queue:** `python3 .claude/skills/_shared/renderq/renderq.py workdir
+  <JOB> --need <GB>` prints and creates it: the job's existing `/Volumes/<drive>/_edit_work/<JOB>/` on any drive (a job
+  never splits across drives), else one on the least busy plugged-in work drive with room (Extreme keeps 30 GB free,
+  the hard disks 100 GB). Do not type a drive for a new job. `--source <footage>` steers away from the hard disk the
+  footage is on; `--why` prints the scores. Rounds of an existing video stay in its folder.
+- **Throwaway files go in scratch on the internal SSD:** `renderq.py scratch <JOB>` prints `/tmp/absbyai-scratch/<JOB>`
+  while the internal SSD keeps 50 GB free (else `_scratch` in the job folder). Frame dumps, test renders, temporary
+  intermediates that nothing reads after the step that made them. Never review images, anything Dan sees, or caches a
+  later round reuses (`clips_graded/`): scratch untouched for 48 h is deleted. HyperFrames graphics render there and
+  move into place. Why: the Extreme SSD runs 99% full, slows down when shared by more than two jobs, and stores
+  frames in 45% more space than the internal SSD (measured 2026-10-20).
 - **Run builds in the background** (`run_in_background`, `nohup`, a chain script): a queued step can wait past the
   10-minute Bash timeout, and a killed waiter loses its place.
 - **New per-round scripts: wrap the whole script as one step** so its steps do not re-queue:
@@ -1209,7 +1233,7 @@ something that we can publish."* Every point below is a standing rule for every 
   `h264_videotoolbox` automatically. Setup/upload copies only; editing renders, QC, transcription and x264 encodes queue.
 - **Never run a pipeline script inside another session's live build directory.** It will overwrite intermediates that
   session is reading. Work in a scratch copy.
-- **Keep build intermediates off the iCloud-synced project folder** (use `/Volumes/*/_edit_work/` or a scratch folder):
+- **Keep build intermediates off the iCloud-synced project folder** (use the `renderq.py workdir` folder or `renderq.py scratch`):
   files written under the project folder's `tmp/` keep iCloud's `fileproviderd` at 50-160% CPU while it syncs them.
 
 ## Video review refinements — C1652 R3 (Dan, 2026-09-17)

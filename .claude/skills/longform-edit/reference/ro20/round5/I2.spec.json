@@ -1,0 +1,7 @@
+{"shot": "RO-20C R5 I2, intro tile 'Middle Class' (lands on 'middle class', P4 3.49 s)",
+ "intent": "A bright suburban family kitchen: shirtless ripped Dan stands behind the island over a premium pan-seared salmon plate with asparagus and quinoa. START: hands resting on the counter either side of the plate, smiling down at it; fork and knife on the napkin. END: he has picked up the fork and knife and cuts a small bite from the corner of the fillet, smiling at the camera; the napkin is empty. Locked camera.",
+ "person": {"anchored": ["nose"], "legs_hidden": {"below_y": 770}, "reach": false},
+ "still": {"hood": [60, 180, 140, 240], "window": [1030, 120, 1090, 180], "flowers": [1380, 440, 1460, 500], "fruit_bowl": [1480, 555, 1560, 600], "stove": [160, 660, 240, 700], "glass": [1120, 730, 1190, 790], "lemons": [140, 760, 220, 820]},
+ "props": [],
+ "hands": {"right": "START flat on the counter; END holds the knife over the plate", "left": "START flat on the counter; END holds the fork in the salmon"},
+ "may_change": {"plate": [650, 760, 1040, 885], "napkin": [460, 780, 660, 905]}, "bounds": {}}

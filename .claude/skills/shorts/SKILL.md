@@ -28,7 +28,7 @@ Older text further down that disagrees with these loses. Section titles are in `
 - Rounds: PRE-RENDER-APPROVAL.md; "Round 1 always reviews every graphic, stock item and clip" (2026-10-08); "Organic content approval budget" (2026-09-29); "Short-form and ads: build the whole video" (2026-10-14); "Video rounds start automatically" (2026-10-20).
 - Independent review: `ra-reviewer` on Opus 5.5, Fable only as escalation (AGENTS.md, "Model routing", 2026-10-02).
 - Claims and drug names: "Scripted claim lines are already approved" (2026-10-14); "Organic videos may name the drug" (2026-09-30).
-- Builds and transcription: "Video builds: the render queue" (2026-10-20). Work in `/Volumes/<drive>/_edit_work/`, not the iCloud project folder.
+- Builds and transcription: "Video builds: the render queue" (2026-10-20). Work in the folder `renderq.py workdir <job>` prints (`/Volumes/<drive>/_edit_work/<job>/`), not the iCloud project folder; frame dumps in `renderq.py scratch <job>`.
 - Framing: "Verticals: the camera lands on Dan, then holds" (2026-10-03); "Head and hair clearance blocks review delivery" (2026-10-20).
 - Audio: "A subtle bass lift on his voice is the standard" (2026-10-12).
 - Captions: "Soft Blue shorts standard" in GRAPHICS-STANDARDS.md (2026-10-02); `abs` lower case (2026-08-28).
@@ -208,7 +208,7 @@ graphics as cards). `reference/band/` is the V4 short1 rebuild (dedicated graphi
 `reference/scored-source/` is the ab-wheel batch (somebody else's finished, scored 16:9 cut).
 **`reference/clean-master/` is the supplements batch — our own long-form, cut from its
 `CUT_*_NO-GRAPHICS.mp4`. Legacy J2 re-cuts only.**
-Paths inside them are relative to `YouTube Long Form Video Content/<video folder>/working files/`; fix those first. Build in `/Volumes/<drive>/_edit_work/<job>/`, never the iCloud-synced project folder (VIDEO-RULES.md, "Video builds: the render queue", 2026-10-20).
+Paths inside them are relative to `YouTube Long Form Video Content/<video folder>/working files/`; fix those first. Build in the folder `renderq.py workdir <job>` prints (`/Volumes/<drive>/_edit_work/<job>/`), never the iCloud-synced project folder (VIDEO-RULES.md, "Video builds: the render queue", 2026-10-20).
 
 > **Why the scripts live in the skill folder:** `YouTube Long Form Video Content/` and
 > `Short-form video content/` are both git-ignored. The original V4 shorts pipeline lived
@@ -1333,7 +1333,7 @@ of a bound is exactly how the 2026-09-09 dereverb fix reached one pipeline and m
 
 ## Delivery
 
-- Work folder: `/Volumes/<drive>/_edit_work/<job>/` (VIDEO-RULES.md, "Video builds: the render queue", 2026-10-20). The older `YouTube Long Form Video Content/<video folder>/working files/` is iCloud-synced; legacy batches only.
+- Work folder: `python3 .claude/skills/_shared/renderq/renderq.py workdir <JOB> --need <GB>` (its existing `/Volumes/<drive>/_edit_work/<job>/`, else the least busy drive with room; VIDEO-RULES.md, "Video builds: the render queue", 2026-10-20). Frame dumps and test renders: `renderq.py scratch <JOB>`. The older `YouTube Long Form Video Content/<video folder>/working files/` is iCloud-synced; legacy batches only.
 - Output: `Short-form video content/`, prefixed by source video (`v2-short1_…`) so batches
   from different longforms don't collide.
 - Write a `SHORTS.md` in the work folder: posting order, per-short title, description with
@@ -1404,3 +1404,14 @@ When a line says the app analyses the picture and builds the plan, use the share
 build it from `_shared/hyperframes/analysis-card/` (VIDEO-RULES.md, "The analysis card is Soft Blue Light, built with
 HyperFrames, in every video", 2026-10-14). `_shared/adkit/analysis_card.py` (the J2 version) is only for re-exports of RA-01. Dan: "Let's make this something that we reuse in future videos… it
 illustrated it better than we did in past videos." Geometry, chips and card rules: `_shared/adkit/README.md`.
+
+## Green-screen reaction shorts: what DS-33 (Ronaldo Ab Belt) cost (2026-10-21)
+
+Recipe: `/Volumes/Expansion/_edit_work/DS-33/r1/recipe/` (copy in `Short-form video content/Ronaldo Ab Belt - DS-33/recipe-r1/`). Four builds and five independent reviews; these traps would have saved three of them.
+- **Key time:** the approved DS-40 R3 key runs 2.6-5.7 s a frame at native 4K (about 1.5-3 h for a 60 s short on a loaded Mac). Key each piece once at 0.75 scale (1620x2880) on the light field and crop W/T windows from that; caption, graphic, audio and cut-point changes then never re-key. Re-place the hair ROI and handover rows from each piece's measured hair top (rows 0-7 of these rolls are the lens's dark edge: skip them when measuring).
+- **Opening layout:** the reaction under the clip needs the whole gesture (the fist sat 2400-2560 px down in the keyed frame). Measure it first; the ad went in as its full 16:9 frame (944x531 card) so Dan's window could run face to fist above the laptop.
+- **The clip's sound runs continuous.** Cutting the ad's music with its picture shots skipped and jumped even with 60 ms crossfades; one continuous stretch, plain gain to -1.5 dBFS peak (a limiter to -14 LUFS failed the audio gate's artifacts row), fold to mono (the "one voice" row), a 0.65 s fade under room tone into the first word.
+- **No full-screen HyperFrames media-card plate under burned ASS captions:** its alpha covers the frame, so `captions:graphic_clearance` reads every cue as a collision. Put clips as rounded cards on the light field instead (assemble.py `card()`), or use the caption_states path.
+- **style:coverage >= 30 % off the presenter:** the clip plus one B-roll was 25 %. A cutaway of the clip itself on the line that names it (here "shocks your abs") covers a take join and the coverage at once; it also beat two quick W/T punches inside one second (`cut:splice_visibility`).
+- **Lav joins:** a fade-out that lands right after a breath leaves a near-silent hole under room tone that a listener hears; crossfade the two takes over 40 ms (extend the outgoing piece by the overlap so picture sync holds). Check each piece head for mouth clicks (10 ms peak scan) before choosing the in point.
+- **Gate known mismatches on this pipeline (also on the finalized AI Homework short):** `audio:stamp` (tone row) and `captions:sync` (-450 ms on 5 cues while the full word-level measurement is about +35 ms). Report them; never tune them. Keep a clip's genuine speech (an ad tagline) in `speech_words`, or `junk:repeated_take` calls it an ORPHAN.

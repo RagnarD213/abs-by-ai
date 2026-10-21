@@ -12,8 +12,8 @@ PH = "/Volumes/Extreme/_edit_work/ro19/photos"
 REAL1 = "Real Photo Of Me, Not AI-Generated"
 REAL2 = "Real Photos Of Me, Not AI-Generated"
 CHIP_U = 1.6
-PHOTO1_BOX = (66, DROP + 90, 947, 1184)                        # 4:5, the film's own crop of the photo; canvas y 400 to 1584, the chip above it (inside the card it touched his hair)
-PAIR_W, PAIR_H, PAIR_Y = 500, 900, DROP + 100                  # two tall cards side by side, canvas y 410 to 1310
+PHOTO1_Y = DROP + 90                                           # round 2 review: the photo FILLS the picture under a 90 px band for the chip (a boxed card on an empty field, captions across its border, was a defect)
+PAIR_W, PAIR_H, PAIR_Y = 500, 980, DROP + 100                  # two tall cards side by side, canvas y 410 to 1390 (round 2: taller, less empty field)
 PAIR_X = (27, 553)
 def chip_xy(c, default):
     return tuple(c.get("chip", default))
@@ -26,10 +26,16 @@ def tab(im, cx, y, s, t, delay):
     S.glass(im, box, t, 2.0, radius=16)
     ImageDraw.Draw(im).text((cx - tw / 2, y + 9), s, font=f, fill=S.WHITE)
 def photo1(tt, c, t):
-    """the film's P02: one real photo, as large as the picture area allows with the chip above it (chip box y 322-386, his hair from y 409)."""
-    im = S.field(t, W, H)
-    S.photo_card(im, f"{PH}/{c['photo']}.jpg", PHOTO1_BOX, tt, 0.0, fit=True, u=2.0)
-    if tt > 0.25: S.disclosure(im, REAL1, chip_xy(c, (W / 2, DROP + 12)), CHIP_U, anchor="mt")
+    """the film's P02: one real photo filling the picture width from y 400 to the bottom (cover crop of the film's own 4:5 crop, a slow
+    1.4 %/s push anchored at the top so his hair stays put), the chip on the field above it (chip y 322-386, his hair from y 461)."""
+    from PIL import ImageOps
+    im = S.field(t, W, H); h = H - PHOTO1_Y; z = 1 + .014 * max(0.0, tt)
+    src = S._src(f"{PH}/{c['photo']}.jpg"); sw, sh = round(W * z), round(h * z)
+    p = ImageOps.fit(src, (sw, sh), Image.LANCZOS, centering=(.5, 0)).crop(((sw - W) // 2, 0, (sw - W) // 2 + W, h))
+    q = S.ease(tt, .35)
+    if q < 1: p = Image.blend(Image.new("RGB", p.size, S.BASE), p, q)
+    im.paste(p, (0, PHOTO1_Y))
+    S.disclosure(im, REAL1, chip_xy(c, (W / 2, DROP + 12)), CHIP_U, anchor="mt")
     return im.crop((0, DROP, W, H))
 def pair(tt, c, t):
     """the film's P05: before and after, the same side pose, two tall cards; the after card comes up on c['reveal'] (s)."""
@@ -38,6 +44,6 @@ def pair(tt, c, t):
         x = PAIR_X[i]
         S.photo_card(im, f"{PH}/{p}.jpg", (x, PAIR_Y, PAIR_W, PAIR_H), tt, d, fit=True, u=2.0)
         tab(im, x + PAIR_W / 2, PAIR_Y + PAIR_H - 92, cap, tt, d + 0.15)
-    if tt > 0.25: S.disclosure(im, REAL2, chip_xy(c, (W / 2, DROP + 12)), CHIP_U, anchor="mt")
+    S.disclosure(im, REAL2 if tt >= c.get("reveal", 0.6) else REAL1, chip_xy(c, (W / 2, DROP + 12)), CHIP_U, anchor="mt")      # singular while only the before photo shows
     return im.crop((0, DROP, W, H))
 SCENES = {"photo1": photo1, "pair": pair}

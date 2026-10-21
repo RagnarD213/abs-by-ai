@@ -6,15 +6,16 @@
     "postSubmissionId": "1bedd27b-ea5a-4cdc-abe9-809b062c88b0",
     "scheduledTime": "2027-01-04T23:00:00.000Z"
    },
-   "scheduledTime": "2027-01-04T23:00:00.000Z"
+   "scheduledTime": "2026-11-25T23:00:00.000Z"
   },
   "47105|S01-B": {
-   "local": "2027-02-12 17:00 America/Chicago",
    "response": {
-    "postSubmissionId": "5aea05f1-a819-4cb3-b9ad-1381bf17ab10",
-    "scheduledTime": "2027-02-12T23:00:00.000Z"
+    "postSubmissionId": "60625f37-197c-4e30-80c9-00ec15a751f4",
+    "scheduledTime": "2026-12-11T23:00:00.000Z"
    },
-   "scheduledTime": "2027-02-12T23:00:00.000Z"
+   "scheduledTime": "2026-12-11T23:00:00.000Z",
+   "local": "2026-10-20 swap, 5:00 PM America/Chicago",
+   "note": "re-created/created 2026-10-20 replacing old FB pool photos"
   },
   "47105|S02-A": {
    "local": "2027-01-13 17:00 America/Chicago",
@@ -22,15 +23,16 @@
     "postSubmissionId": "21c20aa0-d314-4a7b-88d2-35948c6d6e9e",
     "scheduledTime": "2027-01-13T23:00:00.000Z"
    },
-   "scheduledTime": "2027-01-13T23:00:00.000Z"
+   "scheduledTime": "2026-11-30T23:00:00.000Z"
   },
   "47105|S02-B": {
-   "local": "2027-01-29 17:00 America/Chicago",
    "response": {
-    "postSubmissionId": "650e1128-c94f-4921-9e6b-2d35fc815688",
-    "scheduledTime": "2027-01-29T23:00:00.000Z"
+    "postSubmissionId": "29c21585-4dcc-45ac-839c-985a1811c573",
+    "scheduledTime": "2026-12-07T23:00:00.000Z"
    },
-   "scheduledTime": "2027-01-29T23:00:00.000Z"
+   "scheduledTime": "2026-12-07T23:00:00.000Z",
+   "local": "2026-10-20 swap, 5:00 PM America/Chicago",
+   "note": "re-created/created 2026-10-20 replacing old FB pool photos"
   },
   "47105|S03-A": {
    "local": "2027-01-08 17:00 America/Chicago",
@@ -38,15 +40,16 @@
     "postSubmissionId": "895a2f65-9993-4f68-92f1-84b6849c96bf",
     "scheduledTime": "2027-01-08T23:00:00.000Z"
    },
-   "scheduledTime": "2027-01-08T23:00:00.000Z"
+   "scheduledTime": "2026-11-27T23:00:00.000Z"
   },
   "47105|S03-B": {
-   "local": "2027-01-25 17:00 America/Chicago",
    "response": {
-    "postSubmissionId": "227354c2-e25f-4bc4-96bc-cc6ca1a52c8f",
-    "scheduledTime": "2027-01-25T23:00:00.000Z"
+    "postSubmissionId": "b0080eba-e41b-41e5-8ba0-fc9e84fbec6a",
+    "scheduledTime": "2026-12-04T23:00:00.000Z"
    },
-   "scheduledTime": "2027-01-25T23:00:00.000Z"
+   "scheduledTime": "2026-12-04T23:00:00.000Z",
+   "local": "2026-10-20 swap, 5:00 PM America/Chicago",
+   "note": "re-created/created 2026-10-20 replacing old FB pool photos"
   },
   "47105|S04-A": {
    "local": "2027-01-18 17:00 America/Chicago",
@@ -54,15 +57,16 @@
     "postSubmissionId": "3129a5d4-eba9-4700-903a-b561099bbdb5",
     "scheduledTime": "2027-01-18T23:00:00.000Z"
    },
-   "scheduledTime": "2027-01-18T23:00:00.000Z"
+   "scheduledTime": "2026-12-02T23:00:00.000Z"
   },
   "47105|S04-B": {
-   "local": "2027-02-05 17:00 America/Chicago",
    "response": {
-    "postSubmissionId": "04201ad1-0921-4d3a-9dd0-a87329a90f8d",
-    "scheduledTime": "2027-02-05T23:00:00.000Z"
+    "postSubmissionId": "19d4caf8-4a5c-42af-b0be-73cd1f2efe38",
+    "scheduledTime": "2026-12-09T23:00:00.000Z"
    },
-   "scheduledTime": "2027-02-05T23:00:00.000Z"
+   "scheduledTime": "2026-12-09T23:00:00.000Z",
+   "local": "2026-10-20 swap, 5:00 PM America/Chicago",
+   "note": "re-created/created 2026-10-20 replacing old FB pool photos"
   },
   "47105|S05-A": {
    "local": "2027-01-20 17:00 America/Chicago",
@@ -70,15 +74,16 @@
     "postSubmissionId": "7eb221f6-b13e-4836-9d45-a9f5f8cdb05c",
     "scheduledTime": "2027-01-20T23:00:00.000Z"
    },
-   "scheduledTime": "2027-01-20T23:00:00.000Z"
+   "scheduledTime": "2026-11-11T23:00:00.000Z"
   },
   "47105|S05-B": {
-   "local": "2027-02-01 17:00 America/Chicago",
    "response": {
-    "postSubmissionId": "84c5fd06-1096-49eb-9a8c-9d706065c6b1",
-    "scheduledTime": "2027-02-01T23:00:00.000Z"
+    "postSubmissionId": "2f88f752-5d3c-4c00-97aa-78c888446726",
+    "scheduledTime": "2026-10-30T22:00:00.000Z"
    },
-   "scheduledTime": "2027-02-01T23:00:00.000Z"
+   "scheduledTime": "2026-10-30T22:00:00.000Z",
+   "local": "2026-10-20 swap, 5:00 PM America/Chicago",
+   "note": "re-created/created 2026-10-20 replacing old FB pool photos"
   },
   "47105|S06-A": {
    "local": "2027-01-11 17:00 America/Chicago",
@@ -86,23 +91,25 @@
     "postSubmissionId": "5493afc2-bfa5-4e1b-aeaa-d9657f20c23c",
     "scheduledTime": "2027-01-11T23:00:00.000Z"
    },
-   "scheduledTime": "2027-01-11T23:00:00.000Z"
+   "scheduledTime": "2026-11-04T23:00:00.000Z"
   },
   "47105|S06-B": {
-   "local": "2027-02-08 17:00 America/Chicago",
    "response": {
-    "postSubmissionId": "63e500ea-0b5b-4cd5-b861-7e7a0ec8bc2c",
-    "scheduledTime": "2027-02-08T23:00:00.000Z"
+    "postSubmissionId": "3326b0ac-d504-418c-84bb-f530da5bf4c5",
+    "scheduledTime": "2026-11-16T23:00:00.000Z"
    },
-   "scheduledTime": "2027-02-08T23:00:00.000Z"
+   "scheduledTime": "2026-11-16T23:00:00.000Z",
+   "local": "2026-10-20 swap, 5:00 PM America/Chicago",
+   "note": "re-created/created 2026-10-20 replacing old FB pool photos"
   },
   "47105|S06-C": {
-   "local": "2027-02-15 17:00 America/Chicago",
    "response": {
-    "postSubmissionId": "c270d66a-de38-40d0-973e-f58c53e84140",
-    "scheduledTime": "2027-02-15T23:00:00.000Z"
+    "postSubmissionId": "32b5d320-13a7-480f-80dd-f85902e142a3",
+    "scheduledTime": "2026-10-28T22:00:00.000Z"
    },
-   "scheduledTime": "2027-02-15T23:00:00.000Z"
+   "scheduledTime": "2026-10-28T22:00:00.000Z",
+   "local": "2026-10-20 swap, 5:00 PM America/Chicago",
+   "note": "re-created/created 2026-10-20 replacing old FB pool photos"
   },
   "47105|S07-A": {
    "local": "2027-01-06 17:00 America/Chicago",
@@ -113,12 +120,13 @@
    "scheduledTime": "2027-01-06T23:00:00.000Z"
   },
   "47105|S07-B": {
-   "local": "2027-02-03 17:00 America/Chicago",
    "response": {
-    "postSubmissionId": "431b0197-d904-4fd9-9760-51da6fd59f79",
-    "scheduledTime": "2027-02-03T23:00:00.000Z"
+    "postSubmissionId": "28ffa984-12a4-4c0e-9dc5-47682816db8a",
+    "scheduledTime": "2026-11-06T23:00:00.000Z"
    },
-   "scheduledTime": "2027-02-03T23:00:00.000Z"
+   "scheduledTime": "2026-11-06T23:00:00.000Z",
+   "local": "2026-10-20 swap, 5:00 PM America/Chicago",
+   "note": "re-created/created 2026-10-20 replacing old FB pool photos"
   },
   "47105|S08-A": {
    "local": "2027-01-15 17:00 America/Chicago",
@@ -126,31 +134,34 @@
     "postSubmissionId": "a0fa5dc9-47ab-4774-a5d3-7a803e809371",
     "scheduledTime": "2027-01-15T23:00:00.000Z"
    },
-   "scheduledTime": "2027-01-15T23:00:00.000Z"
+   "scheduledTime": "2026-11-13T23:00:00.000Z"
   },
   "47105|S08-B": {
-   "local": "2027-01-27 17:00 America/Chicago",
    "response": {
-    "postSubmissionId": "d8fe6d33-5743-40eb-a525-5ec86fc73372",
-    "scheduledTime": "2027-01-27T23:00:00.000Z"
+    "postSubmissionId": "19d3b7f7-af82-46b4-afb2-06e8df390c5a",
+    "scheduledTime": "2026-10-23T22:00:00.000Z"
    },
-   "scheduledTime": "2027-01-27T23:00:00.000Z"
+   "scheduledTime": "2026-10-23T22:00:00.000Z",
+   "local": "2026-10-20 swap, 5:00 PM America/Chicago",
+   "note": "re-created/created 2026-10-20 replacing old FB pool photos"
   },
   "47105|S09-A": {
-   "local": "2027-01-22 17:00 America/Chicago",
    "response": {
-    "postSubmissionId": "fc6b0d55-761e-430c-85a3-219b7fec1574",
-    "scheduledTime": "2027-01-22T23:00:00.000Z"
+    "postSubmissionId": "928779b1-2ecc-4cc4-9e88-dc23c6ca21ef",
+    "scheduledTime": "2026-10-26T22:00:00.000Z"
    },
-   "scheduledTime": "2027-01-22T23:00:00.000Z"
+   "scheduledTime": "2026-10-26T22:00:00.000Z",
+   "local": "2026-10-20 swap, 5:00 PM America/Chicago",
+   "note": "re-created/created 2026-10-20 replacing old FB pool photos"
   },
   "47105|S09-B": {
-   "local": "2027-02-10 17:00 America/Chicago",
    "response": {
-    "postSubmissionId": "bb2518cf-1d6b-4de1-accb-a37dbe9dcdbb",
-    "scheduledTime": "2027-02-10T23:00:00.000Z"
+    "postSubmissionId": "ed7bee1a-db3b-4a51-9cf0-255b7ebbfe40",
+    "scheduledTime": "2026-11-20T23:00:00.000Z"
    },
-   "scheduledTime": "2027-02-10T23:00:00.000Z"
+   "scheduledTime": "2026-11-20T23:00:00.000Z",
+   "local": "2026-10-20 swap, 5:00 PM America/Chicago",
+   "note": "re-created/created 2026-10-20 replacing old FB pool photos"
   },
   "67203|S01-A": {
    "local": "2026-10-26 17:00 America/Chicago",
@@ -367,6 +378,78 @@
     "scheduledTime": "2026-12-18T23:00:00.000Z"
    },
    "scheduledTime": "2026-12-18T23:00:00.000Z"
+  },
+  "47105|S08-C": {
+   "response": {
+    "postSubmissionId": "f8eb6e0f-8711-474b-89df-8b26f26f335a",
+    "scheduledTime": "2026-11-02T23:00:00.000Z"
+   },
+   "scheduledTime": "2026-11-02T23:00:00.000Z",
+   "local": "2026-10-20 swap, 5:00 PM America/Chicago",
+   "note": "re-created/created 2026-10-20 replacing old FB pool photos"
+  },
+  "47105|S09-C": {
+   "response": {
+    "postSubmissionId": "844f2b38-4731-4de9-8f22-0381616ce6e5",
+    "scheduledTime": "2026-11-09T23:00:00.000Z"
+   },
+   "scheduledTime": "2026-11-09T23:00:00.000Z",
+   "local": "2026-10-20 swap, 5:00 PM America/Chicago",
+   "note": "re-created/created 2026-10-20 replacing old FB pool photos"
+  },
+  "47105|S07-C": {
+   "response": {
+    "postSubmissionId": "5d858223-0e3e-4510-8e96-4d501ff2ebe7",
+    "scheduledTime": "2026-11-18T23:00:00.000Z"
+   },
+   "scheduledTime": "2026-11-18T23:00:00.000Z",
+   "local": "2026-10-20 swap, 5:00 PM America/Chicago",
+   "note": "re-created/created 2026-10-20 replacing old FB pool photos"
+  },
+  "47105|S05-C": {
+   "response": {
+    "postSubmissionId": "ef051e77-a0c2-49e6-96b5-4fed9e50700e",
+    "scheduledTime": "2026-11-23T23:00:00.000Z"
+   },
+   "scheduledTime": "2026-11-23T23:00:00.000Z",
+   "local": "2026-10-20 swap, 5:00 PM America/Chicago",
+   "note": "re-created/created 2026-10-20 replacing old FB pool photos"
+  },
+  "47105|S04-C": {
+   "response": {
+    "postSubmissionId": "cb1df815-e9c6-420f-8ad0-6bc01e84376a",
+    "scheduledTime": "2026-12-14T23:00:00.000Z"
+   },
+   "scheduledTime": "2026-12-14T23:00:00.000Z",
+   "local": "2026-10-20 swap, 5:00 PM America/Chicago",
+   "note": "re-created/created 2026-10-20 replacing old FB pool photos"
+  },
+  "47105|S01-C": {
+   "response": {
+    "postSubmissionId": "33091622-1744-4511-9f28-66c7d18b4ee9",
+    "scheduledTime": "2026-12-16T23:00:00.000Z"
+   },
+   "scheduledTime": "2026-12-16T23:00:00.000Z",
+   "local": "2026-10-20 swap, 5:00 PM America/Chicago",
+   "note": "re-created/created 2026-10-20 replacing old FB pool photos"
+  },
+  "47105|S02-C": {
+   "response": {
+    "postSubmissionId": "8c4994d4-0981-4df0-b00a-41c5aa301595",
+    "scheduledTime": "2026-12-18T23:00:00.000Z"
+   },
+   "scheduledTime": "2026-12-18T23:00:00.000Z",
+   "local": "2026-10-20 swap, 5:00 PM America/Chicago",
+   "note": "re-created/created 2026-10-20 replacing old FB pool photos"
+  },
+  "47105|S03-C": {
+   "response": {
+    "postSubmissionId": "939a5c7a-49bf-4256-9ef2-9ce06c9c6940",
+    "scheduledTime": "2026-12-21T23:00:00.000Z"
+   },
+   "scheduledTime": "2026-12-21T23:00:00.000Z",
+   "local": "2026-10-20 swap, 5:00 PM America/Chicago",
+   "note": "re-created/created 2026-10-20 replacing old FB pool photos"
   }
  },
  "uploads": {

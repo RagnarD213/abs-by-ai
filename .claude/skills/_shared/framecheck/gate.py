@@ -194,12 +194,29 @@ def run(start, end, spec, outdir):
                          f"shows); person mask below it {band[0]:.0%} / {band[1]:.0%} (table clutter counts)", below=[round(b, 3) for b in band])
                 sw = lambda p: math.dist(p["pts"]["left_shoulder"][:2], p["pts"]["right_shoulder"][:2])
                 pS["shoulders"], pE["shoulders"] = sw(pS), sw(pE)
-            ch = {b: pE[b] / pS[b] - 1 for b in (("shoulders",) if hidden else ("torso", "thigh", "shin"))}
+            front = per.get("front_view")             # camera faces him and he bends toward it (a deadlift from the front):
+            if front:                                   # torso and thighs foreshorten, so compare what stays square to the lens
+                seg = lambda p, a, b: (math.dist(p["pts"][f"left_{a}"][:2], p["pts"][f"left_{b}"][:2])
+                                       + math.dist(p["pts"][f"right_{a}"][:2], p["pts"][f"right_{b}"][:2])) / 2
+                for p in (pS, pE):
+                    p["shoulders"] = math.dist(p["pts"]["left_shoulder"][:2], p["pts"]["right_shoulder"][:2])
+                    p["shins"], p["upper_arms"], p["forearms"] = seg(p, "knee", "ankle"), seg(p, "shoulder", "elbow"), seg(p, "elbow", "wrist")
+                rows.add("person:front_view", True, "front view declared: torso and thigh foreshorten toward the camera and are not "
+                         "compared; the frame-reviewer confirms they read as the same body")
+            pick = per.get("compare")                   # the spec names the measures that apply, with a reason (both recorded)
+            if pick:
+                assert per.get("compare_why"), "person.compare needs person.compare_why"
+                for p in (pS, pE):
+                    p["hip_width"] = math.dist(p["pts"]["left_hip"][:2], p["pts"]["right_hip"][:2])
+                    p.setdefault("shoulders", math.dist(p["pts"]["left_shoulder"][:2], p["pts"]["right_shoulder"][:2]))
+                rows.add("person:compare", True, f"measures chosen by the spec: {', '.join(pick)} ({per['compare_why']})")
+            ch = {b: pE[b] / pS[b] - 1 for b in (tuple(pick) if pick else ("shoulders",) if hidden else
+                                                 ("shoulders", "shins", "upper_arms", "forearms") if front else ("torso", "thigh", "shin"))}
             worst = max(ch, key=lambda b: abs(ch[b]))
             rows.add("person:bones", all(abs(v) <= D["bone_tol"] for v in ch.values()),
                      "bone length change START->END " + ", ".join(f"{b} {pS[b]:.0f}->{pE[b]:.0f} ({ch[b]:+.1%})" for b in ch)
                      + f"; worst {worst} (max {D['bone_tol']:.0%})", **{b: round(v, 3) for b, v in ch.items()})
-            if per.get("reach", True) and not hidden:
+            if per.get("reach", True) and not hidden and not front:
                 pred = math.sqrt(pS["thigh"] ** 2 + pS["shin"] ** 2 - 2 * pS["thigh"] * pS["shin"] * math.cos(math.radians(pE["knee"])))
                 full = pS["thigh"] + pS["shin"]; err = pE["reach"] / pred - 1
                 rows.add("person:reach", abs(err) <= D["reach_tol"] and pE["reach"] <= full * (1 + D["reach_tol"] / 2),

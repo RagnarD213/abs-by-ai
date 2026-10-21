@@ -16,6 +16,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 WORK = "/Volumes/Extreme/_edit_work/SL-15"
 sys.path.insert(0, WORK); sys.path.insert(0, HERE)
 import lib, plans as P
+sys.path.insert(0, "/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared/cut")
 B = lib.B
 FPS = 30000 / 1001; FPSS = "30000/1001"; SR = 48000
 LF = "/Volumes/Extreme/_edit_work/ro19/"      # read only: RO-19 round 4 master build (shots.json = the recipe copy, cmp-identical)
@@ -233,8 +234,18 @@ def cmd_cues(S):
         if res and res[-1]["b"] > a: res[-1]["b"] = round(a, 3)
         if i + 1 < len(out): e = min(e, out[i + 1][0]["t"] - 0.03)
         txt = " ".join(x["w"] for x in c)
-        if i == 0 or out[i - 1][-1]["p"] != c[0]["p"] or re.search(r"[.!?]$", out[i - 1][-1]["w"]): txt = txt[0].upper() + txt[1:]
+        if i == 0 or re.search(r"[.!?]$", out[i - 1][-1]["w"]): txt = txt[0].upper() + txt[1:]      # a piece join mid-sentence keeps lower case ("why he | takes", round 2b review)
         res.append(dict(a=round(a, 3), b=round(max(e, a + 0.2), 3), text=txt, lines=cap_lines(txt)))
+    if os.path.exists(f"{d}/shots.json"):                         # round 2e gate: captions lowered onto his shorts over the real photo (cap 1650):
+        low = [(s_["f0"] / FPS, s_["f1"] / FPS) for s_ in json.load(open(f"{d}/shots.json")) if s_.get("cap", 1412) >= 1600]
+        res2 = []                                                    # a two-line cue there reached the AbsByAI.com mark (-34 px): one line each
+        for r in res:
+            if len(r["lines"]) == 2 and any(a_ <= r["a"] < b_ for a_, b_ in low):
+                n1 = len(r["lines"][0].split()); ws = [w for w in words if r["a"] - 0.05 <= w["t"] < r["b"] + 0.05]
+                tm = ws[n1]["t"] - 0.03 if len(ws) > n1 else (r["a"] + r["b"]) / 2
+                res2.append(dict(a=r["a"], b=round(tm, 3), text=r["lines"][0], lines=[r["lines"][0]])); res2.append(dict(a=round(tm, 3), b=r["b"], text=r["lines"][1], lines=[r["lines"][1]]))
+            else: res2.append(r)
+        res = res2
     json.dump(res, open(f"{d}/cues.json", "w"), indent=0)
     print(S, len(res), "cues;", sum(len(r["lines"]) == 2 for r in res), "two-line")
 
@@ -389,6 +400,35 @@ def window_path(sh, track, cw):
         rows = [r for r in track if "fx" in r]
         assert len(rows) >= 2, f"shot {sh['idx']}: no face track; give it cx or keys"
         inside = [r for r in rows if raw[0] - 0.2 <= r["t"] <= raw[-1] + 0.2] or rows
+        if not sh.get("follow") and sh.get("lead") is None:         # SL-15 round 2 review: Dan's land-then-hold standard (cut/landing.vertical_track):
+            import landing                                             # land on his head centre at the cut, hold inside 3.3 % of the crop width, then follow
+            ts = [r["t"] for r in rows]                                # (a fixed per-shot crop let him sway 15-20 % off centre)
+            hc = [r["fx"] for r in rows]                              # the face box centre (round 2b review: the mask's head outline moved 40-45 % less than his face, so the crop barely followed)
+            x = np.interp(raw, ts, hc); nn = np.arange(n)
+            # round 2c review: the shared preset (3.3 % band, 28 %/s) panned at up to 300 px/s and reversed inside shots on this roll,
+            # where he sways a lot. Calmer: land on him, hold inside 8 % of the crop width, follow at <= 120 px/s on the delivered frame,
+            # eased; a shot that still reverses direction gets a wider band (10 %, then 12 %)
+            # round 2d gate: the delivery gate wants his head within 6 % of the window centre per hold (framing:centering), so a band
+            # is accepted only if the hold's median offset stays within 4.5 %; among those, the first with no reversal wins, else the
+            # calmest that keeps the median
+            best = None
+            for tol in (0.08, 0.06, 0.05, 0.04, 0.033):
+                tn, tx, _ = landing.track(nn, x, [dict(n0=0, n1=n)], slope_px_s=120 * cw / 1080, k=3, fixed_under=None, tolerance=tol * cw)
+                c_ = np.interp(nn, tn, tx); dc = np.round(np.diff(c_), 2); mv = np.sign(dc[dc != 0])
+                med = abs(float(np.median(x - c_))) / cw; rev = bool(len(mv) and np.any(np.diff(mv) != 0))
+                if med > 0.045: continue
+                if not rev: best = (tol, c_); break
+                if best is None: best = (tol, c_)
+            for sl in (160, 200):                                      # he moves faster than a 120 px/s follow can keep up: a quicker follow
+                if best is not None: break                             # on the standard 3.3 % band (C 0:30.7: median 4.3 %, worst 8.6 %, 160 px/s)
+                tn, tx, _ = landing.track(nn, x, [dict(n0=0, n1=n)], slope_px_s=sl * cw / 1080, k=3, fixed_under=None, tolerance=0.033 * cw)
+                c_ = np.interp(nn, tn, tx)
+                if abs(float(np.median(x - c_))) / cw <= 0.045: best = (f"0.033@{sl}", c_)
+            if best is None:                                           # last resort: one steady crop on his median position (no pan; median 0)
+                best = ("steady", np.full(n, float(np.median(x))))
+            tol, c = best
+            sh["follow_tol"] = tol
+            return np.clip(c, cw / 2, 1920 - cw / 2)
         lo = min(r["fx"] - r["fw"] / 2 for r in inside); hi = max(r["fx"] + r["fw"] / 2 for r in inside)
         if hi - lo <= cw - 20 and not sh.get("follow"):      # his whole face fits one window: a steady crop (Dan: steady per shot)
             med = float(np.median([r["fx"] for r in inside])); m_ = 45                    # centre on his median position, as long as his whole face (+45 px) stays inside
@@ -507,7 +547,7 @@ def cmd_gfx(S, snap_only=False):
     V.B.lower_third_default_box = lt._shifted
     d = D(S); man = []
     for c in bar_times(S):
-        scenes, meta = V.lt_scenes(dict(c, drift=-4)); assert meta["lines"] <= 2, (S, c["id"], "wraps to", meta["lines"], "lines")
+        scenes, meta = V.lt_scenes(dict(c, drift=-4, topic_case="preserve")); assert meta["lines"] <= 2, (S, c["id"], "wraps to", meta["lines"], "lines")
         assert meta["box"][1] >= 1128 and meta["box"][3] <= 1380, meta
         movs = []
         for tpl, cfg, assets in scenes:
@@ -597,10 +637,11 @@ def cap_png(lines, top, size=86):
 def over_box(frame, rgba, box):
     x0, y0, x1, y1 = box; a = rgba[y0:y1, x0:x1, 3:4].astype(np.float32) / 255
     frame[y0:y1, x0:x1] = (frame[y0:y1, x0:x1].astype(np.float32) * (1 - a) + rgba[y0:y1, x0:x1, :3].astype(np.float32) * a + 0.5).astype(np.uint8)
-def chip_png(text, xy, size=23, u=2):
-    """the AI-GENERATED chip (softblue.disclosure: the same solid rounded chip the film uses), as an RGBA layer + its box."""
+def chip_png(text, xy, size=23, u=2, anchor="lt"):
+    """the AI-GENERATED chip (softblue.disclosure: the same solid rounded chip the film uses), as an RGBA layer + its box.
+    anchor as drawn on the frame (scenes.py draws the real-photo chips "mt"), so the reference is pixel-aligned with the delivered chip."""
     base = Image.new("RGB", (W, H), (0, 0, 0)); a = Image.new("RGB", (W, H), (255, 255, 255))
-    B.disclosure(base, text, xy, u, anchor="lt", size=size); B.disclosure(a, text, xy, u, anchor="lt", size=size)
+    B.disclosure(base, text, xy, u, anchor=anchor, size=size); B.disclosure(a, text, xy, u, anchor=anchor, size=size)
     x = np.asarray(base).astype(np.int32); y = np.asarray(a).astype(np.int32)      # int32: x * 255 overflowed int16 and turned the white letters dark in the gate's reference image
     al = 255 - (y - x).max(2).clip(0, 255); rgba = np.dstack([np.where(al[..., None] > 0, (x * 255 // np.maximum(al[..., None], 1)).clip(0, 255), 0), al]).astype(np.uint8)
     ys, xs = np.where(al > 0); return rgba, (int(xs.min()), int(ys.min()), int(xs.max()) + 1, int(ys.max()) + 1)
@@ -758,6 +799,15 @@ if __name__ == "__main__":
     import cv2
     sys.path.insert(0, "/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared/hyperframes")
     cmd = sys.argv[1]
-    if cmd in ("track", "gfx", "proof", "render"):                  # the two-build cap (VIDEO-RULES): wait for a slot, counted in builds
+    if cmd in ("track", "proof", "render"):                          # the two-build cap (VIDEO-RULES): wait for a slot, counted in builds (gfx: HyperFrames waits in its own queue)
         sys.path.insert(0, "/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared"); import buildcap; buildcap.wait(f"SL-15 {cmd} {' '.join(sys.argv[2:])}")
     for S in sys.argv[2:] or list(P.SEG): globals()["cmd_" + cmd](S)
+    if cmd == "render":                                              # same slot, same build: deliver (audio gate, review copy, transcript, gate plan) and the watch pass
+        import importlib.util as _iu
+        _sp = _iu.spec_from_file_location("sl15_deliver", os.path.join(HERE, "deliver.py")); Dl = _iu.module_from_spec(_sp); _sp.loader.exec_module(Dl)
+        R_ = "/Users/danielrose/Documents/Claude/Projects/Abs By AI"
+        for S in sys.argv[2:] or list(P.SEG):
+            Dl.copy(S); V = Dl.dname(S); G = f"{D(S)}/gate"
+            r = subprocess.run([sys.executable, f"{R_}/.claude/skills/_shared/deliver/watch.py", V, "--plan", f"{G}/plan.json", "--out", f"{G}/watch", "--log", f"{G}/logs/watch_pass.json"], capture_output=True, text=True)
+            open(f"{G}/watch_run.log", "w").write(r.stdout + r.stderr + f"WATCH_EXIT {r.returncode}\n")
+            open(f"{D(S)}/delivered.sha", "w").write(Dl.sha(V)); print(S, "delivered + watched", flush=True)

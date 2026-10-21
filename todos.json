@@ -417,6 +417,62 @@
       ],
       "addedAt": "2026-08-09",
       "boardRank": 13
+    },
+    {
+      "text": "Change robot mop water/refill",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-10-20",
+      "addedBy": "assistant"
+    },
+    {
+      "text": "Take out garbage & bring bins back from driveway",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-10-20",
+      "addedBy": "assistant"
+    },
+    {
+      "text": "Make bed",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-10-20",
+      "addedBy": "assistant"
+    },
+    {
+      "text": "Find coffee table for living room and have Daniel review it",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-10-20",
+      "addedBy": "assistant"
+    },
+    {
+      "text": "Tidy up kitchen",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-10-20",
+      "addedBy": "assistant"
+    },
+    {
+      "text": "Tidy bathrooms",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-10-21",
+      "addedBy": "assistant"
+    },
+    {
+      "text": "Tidy living room",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-10-21",
+      "addedBy": "assistant"
+    },
+    {
+      "text": "Tidy garage",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-10-21",
+      "addedBy": "assistant"
     }
   ],
   "handoffs": [

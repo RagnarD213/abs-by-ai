@@ -26,6 +26,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**SL-17:NEEDS-DAN:2026-10-20:Claude.**
 **SL-18:ACTIVE:2026-10-20:Claude.** Wasted Life SFL R1; awaiting picks.
 
 **Boring Abs At 40 LFC R2 - ACTIVE 2026-10-20, Codex.** Executing R2 handoff. Colour C and voice B locked; R1 preserved. Next: calibrated headroom proof, corrected opening/contexts, complete existing-AI gallery, revised A01–A04 still pairs and independent checks. No new motion or full-film render before approval. Work: `/Volumes/Extreme/_edit_work/ro27/round2/`.
@@ -40,9 +41,13 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-25 Git sync BLOCKED 2026-10-18, Codex.** Public video, article post 886, and manually uploaded 257-cue English SRT are verified. Caption uploader and receipt are committed locally as `340ed22`. Safe-push aborted on nine merge conflicts across other sessions' files; no merge is in progress. Next: hand-merge shared main with owners or push these records from a clean checkout, without discarding their work.
 
-**Fat 90 Year Old SFC R2 - ACTIVE 2026-10-20, Claude.** Key polish, sample only. Next: reviewer, page :8940. Work: `ds40/r2/`.
+**RA-09:ACTIVE:2026-10-21:Claude.** AI Changing World AD R1. `/Volumes/Expansion/_edit_work/RA-09/`.
 
-**SL-15:R2-ACTIVE:2026-10-18:Claude.** My First Spray Tan SFL R2 building Shorts A and C from RO-19 (Dan's two picks). Next: gates, audit, review page. Work: `/Volumes/Extreme/_edit_work/SL-15/`.
+**Fat 90 Year Old SFC R3 - ACTIVE 2026-10-21, Claude.** R2 key locked as house standard (AGENTS). Building opening: clip full screen, Dan small, then large. Work: `ds40/r3/`.
+
+**DS-44:ACTIVE:2026-10-21:Claude.**
+
+**SL-15:R2-REVIEW:9015:2026-10-21:Claude.** Shorts delivered; reviewers SHIP; gate fails only camera hair. Next: Dan.
 
 **I'm 41. I Wasted My Life. LFC Setup QUEUED 2026-10-17, Codex.** Dan approved exact R7 film and thumbnail C. Blotato readback: YouTube Sun Oct 18 9 AM, Facebook/Instagram Mon Oct 19 noon. Direct TikTok Monday after public YouTube check. To free capacity, Dan authorized removal of the last queued video, RO-13; its four schedules are backed up and RO-13 is on the waitlist for Dec 30. Receipt: Docs/RO25_SETUP_RECEIPT_20261017.md. Next: verify public release, covers, TikTok, RO-26 link.
 
@@ -75,7 +80,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **COVERS:MOBILE:2026-10-15:Docs/COVER_AUDIT_20261015.md**
 
 
-**Oura Ring Review SFL R4 - ACTIVE 2026-10-20, Claude.** SL-09: WHOOP J2 frames, Flow motion K1/J1/J2, rebuild shorts 4-5, review, gate, page :8989. Shorts 1-3 finalized, untouched. Work: `/Volumes/Extreme/_edit_work/sl09/round2/`.
+**Oura Ring Review SFL R5 - ACTIVE 2026-10-21, Claude.** SL-09: Dan approved short 5's clips; short 4 opener trimmed to 2.8 s per his note. Next: render, review, gate, page :8989. Work: `/Volumes/Extreme/_edit_work/sl09/round2/`.
 
 
 
@@ -133,7 +138,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-14 POLICY-RECHECK 2026-10-15,Claude.**
 
-**First Step Abs AD R2 ACTIVE 2026-10-20, Claude.** RA-12 building; page :8842.
+**First Step Abs AD Setup PICK 2026-10-21, Claude.** RA-12 five thumbnails on sheet; awaiting Dan. Then upload, trial campaign.
 
 **RO-17 - HOLD 2026-10-18, Claude.** On the waitlist (Blotato 197/200); routine queues YouTube Sun Dec 13, socials Mon Dec 14 noon. `Docs/RO17_SETUP_RECEIPT_20261018.md`.
 
@@ -141,15 +146,17 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-06:POLICY-RECHECK:2026-10-16:Claude.** Ads `828274063389`, `828320387740` in review. Next 10-17: `node scripts/ads/api/client.js policy 24316364155`; clean, delete this.
 
-**RO-14 R2 ACTIVE 2026-10-20, Claude.** Flow clips, pickup, full film. `RO-14/round2/`.
+**RO-24:R1-REVIEW:9124:2026-10-21:Claude.**
 
-**DS-33:ACTIVE:2026-10-20:Claude.**
+**RO-14 R2 REVIEW 2026-10-21, Claude.** Page :8965. bad60e5 unpushed.
 
-**RO-20C:R5-ACTIVE:2026-10-20:Claude.** Page :8868.
+**DS-33:REVIEW:9033:2026-10-21:Claude.** 875d823 unpushed.
 
-**Zepbound Even If Ripped LFC R1 - ACTIVE 2026-10-20, Claude.** `/Volumes/Extreme/_edit_work/ro28/`.
+**RO-20C setup:PICK:2026-10-21:Claude.** Dec 6.
 
-**Make Time Exercise LFC R2 - ACTIVE 2026-10-20, Claude.** RO-18 round 2: camera opener, Flow motion for A2/A6/A7/A8/A9 (background agent), new college-age C36/C37, then full film, gates, review, delivery. Work: `/Volumes/Expansion/_edit_work/RO-18/round2/`.
+**Zepbound Even If Ripped LFC R2 - ACTIVE 2026-10-21, Claude.** Motion A1/A5 on Flow, A2/A3 frames redrawn. `/Volumes/Expansion/_edit_work/ro28/round2/`.
+
+**Make Time Exercise LFC R2 - REVIEW :8982 2026-10-21, Claude.** RO-18 full film delivered; VLC copy in Videos to Review. Next: Dan's notes.
 
 **Ad 6 remarketing 2026-10-04:** Awaiting Dan: copy to enabled campaign 24305381214?
 
@@ -175,7 +182,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-16 - QUEUED 2026-10-02, Claude.** Blotato Nov 1 9AM CST. Owes: RO-12 link in description after Oct 25; captions, article after Nov 1. `Docs/RO16_SETUP_RECEIPT_20261002.md`.
 
-**Studio posts - PARTIAL 2026-10-03, Claude.** 40 of 54 live; plan cap blocked 14 FB. Next: as slots free, `studio27_queue.py plan`, `create`. `Docs/STUDIO27_BLOTATO_QUEUE_RECEIPT_20261003.md`
 
 **Stashed edits - NEEDS OWNER 2026-09-29, Claude.** Upstream kept: softblue.py, SOFTBLUE.md, GRAPHICS-STANDARDS.md, deliver/gate.py, coverimage SKILL.md, 00-MASTER.md, jobs.json. Edits: `stash@{0}` (5d8284a). Next: re-apply.
 
@@ -229,6 +235,12 @@ tab; stop rather than click into spinners. `Handoffs/handoff-20260908-google-ads
 **Engagement-ads rule UNPUSHED 2026-10-18, Claude.** Commit 3f10579 (AGENTS, YTADS, memory: new engagement ads go in tier1, tier2 and both rmktg ad groups) local; safe-push stopped on live corpus.json and ra16 prompt edits. Next: any later safe-push carries it; then delete this.
 
 **Video-title rule UNPUSHED 2026-10-17, Claude.** Commit bd14929 (AGENTS rule, README) local; safe-push stopped on live edits. Next: any later safe-push carries it; then delete this.
+
+**VEO-ULTRA:UNPUSHED-f034bc5..fc78746:2026-10-20:Claude.**
+
+**10-23 TP docs UNPUSHED 2026-10-20, Claude.** Commit 65f8c43 local. Next: any safe-push carries it; delete this.
+
+**IG-MEMORY:UNPUSHED-f597b51:2026-10-20:Claude.**
 
 # BLOCKED — external
 

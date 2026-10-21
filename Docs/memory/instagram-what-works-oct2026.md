@@ -25,4 +25,14 @@ Plan page: see the session's published "@danrosefit Growth Plan" artifact.
 - Reading the data: `GET /17841401601139982/media` + `/{media}/insights` with `META_ADS_TOKEN` + appsecret_proof
   (v21.0); account `insights` windows max 30 days. `profile_links_taps` is contact buttons, not the bio link.
 
+**Dan's call, 2026-10-20:** the old pool-photo posts (shirtless photo, tip only in the caption) are retired; he called them
+pointless "unless you're a personal friend". All of them were deleted from the queue on Instagram and Facebook. The Codex
+studio batch (designed posts with the point on the image, carousels first) is the photo content now, and new photo posts
+should be made like it. Receipt: `Docs/STUDIO27_BLOTATO_QUEUE_RECEIPT_20261003.md`, 2026-10-20 section.
+
 Related: [[instagram-account-state]], [[shorts-organic-research]], [[shorts-reason-to-watch]], [[meta-ads-instagram-identity]].
+
+**Template R1 (2026-10-20, Claude Opus):** Design canvas "Instagram Template R1", https://claude.ai/artifact/VxoxLtBBYkWLuKixTCSk3m :
+5 carousels + 5 singles + a template sheet. Six series (The Fix, Receipts, Steal My, Swaps/The Math, Proof, Straight Talk),
+ink/bone/red/yellow, Anton + Manrope, real footage stills first. Proposed 4-week test vs the studio batch in the M/W/F 5 PM
+slots, judged on non-follower reach and saves at day 7. Awaiting Dan's picks; nothing queued.

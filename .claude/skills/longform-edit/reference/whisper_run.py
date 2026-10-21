@@ -12,8 +12,25 @@ needed on Apple silicon CPU.
 """
 import sys, json, time, whisper
 
+def _queue(label):
+    """One light slot in the render queue for the whole run (VIDEO-RULES, "Video builds"); never stops the run.
+    Found beside this file's skill folder, or at the project's absolute path when this file was copied elsewhere."""
+    import os
+    here = os.path.dirname(os.path.abspath(__file__))
+    for d in (os.path.join(here, "..", "..", "_shared", "renderq"), '/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared/renderq'):
+        if os.path.exists(os.path.join(d, "renderq.py")):
+            try:
+                sys.path.append(d)
+                import renderq
+                renderq.hold_until_exit(label, pool="light")
+            except Exception:
+                pass
+            return
+
+
 def main():
     src, out = sys.argv[1], sys.argv[2]
+    _queue("Whisper " + src.rsplit("/", 1)[-1])
     model = sys.argv[3] if len(sys.argv) > 3 else "small"
     t0 = time.time()
     m = whisper.load_model(model)

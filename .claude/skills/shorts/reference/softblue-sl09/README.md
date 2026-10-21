@@ -19,6 +19,9 @@ rungate.sh S                 the delivery gate (never from a shell line that say
 export_stills.py S.., decided.py, page_r1.py (+ notes_r1.py)   the round-1 page: stills, context clips, one floating player
 chain_r3.sh S..              R3: render_all + fix_tp + clear stale watch images + post, per short (queue several with a wait-for-done shell)
 r3/brief.py S                R3: the independent reviewer's brief for one short (file sha, sources, what changed, standing rules, judge + audit jobs)
+page_r4.py + r4/r4_page.json R4: the later-round page (what changed with times and watch ranges, the two shorts, each AI clip alone/in context, decisions)
+r4/brief.py, r4/*.spec.json  R4: reviewer brief; the motion-gate specs of the three takes; r4/prompts/ every Veo and Codex prompt, kept and rejected
+r4/page_assets.sh            R4: review copies, A/B, each new clip alone and in context, a full-quality still (run as one renderq step)
 ```
 
 ## What is different from SL-07
@@ -114,3 +117,20 @@ r3/brief.py S                R3: the independent reviewer's brief for one short 
   before using it.
 - **A bright AI kitchen sits above Dan's studio picture.** K1 measured median 0.49 / saturation 0.19 against Dan's
   picture area 0.34 / 0.26; `curves=all='0/0 0.5/0.44 1/0.96',eq=saturation=1.25` took it to 0.43 / 0.26.
+- **Veo hand clips: START frame only beats START + END.** With both frames Veo improvised in the middle every time: two J1
+  takes clenched the hand into a fist, four J2 takes flicked a finger up on the way to the approved fist. From the START frame
+  alone, with "fingers stay open, move together with the hand" in the prompt (and a negative prompt on the paid route), J2's
+  lift-and-tilt and J1's Flow take came back clean first time. Keep the approved END frame as the intent, say so on the page.
+- **A take's spec must not mark most of the picture `may_change`.** J1's pair spec covered the top 81 %; the camera fit then
+  had only the bottom strip, a sub-pixel wobble there extrapolated to 10 px at the top corners, and `camera` plus
+  `still:sheet_top_left` failed while template matching, Farneback flow and phase correlation all measured that corner under
+  1.1 px. Narrowing `may_change` to the hand and forearm (stricter, more background points) passed; the reviewer confirmed the
+  narrowing was legitimate. Narrow, never widen.
+- **`chipplace.py` cannot place a label on a hand close-up:** Vision's person mask marked the whole bed sheet (J1) or bled into
+  the desk (J2). Place by measuring the hand on about ten frames of the used range, with the chip's REAL size from
+  `B.disclosure` (at 1.6 it is x 40-365, 64 px tall; the 408 x 81 box the tool prints is larger).
+- **When Dan is waiting, run the chain as one prioritized queue step:** `renderq.py run --priority --group sl09 -- zsh
+  ./chain_r3.sh S`. Started plainly, its three piped ffmpeg calls queued separately and slid back behind other videos'
+  continuations for 40 minutes.
+- **Two paid `veo.py api` runs at once lost a take record** (each saved the job file it loaded minutes earlier). Fixed in
+  `veo.py` 2026-10-20 (locked update, unique take names); in a session started before that, run paid takes one at a time.

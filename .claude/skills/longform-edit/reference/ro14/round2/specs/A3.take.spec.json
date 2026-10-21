@@ -1,0 +1,52 @@
+{
+ "shot": "RO-14 A3 Smashing the piggy bank (motion take, 1920x1080)",
+ "intent": "Friday night kitchen table. START: a man in a tropical party shirt, grinning, holds a claw hammer raised over a large pink ceramic piggy bank on the table; an open pizza box with a whole pepperoni pizza and three beer bottles beside it. END: the hammer has come down: the piggy bank lies smashed in pink shards with coins spilled across the table; his right hand still grips the hammer, resting on the table among the shards; his left arm is thrown up in a triumphant fist and he laughs. The pizza and the bottles are untouched.",
+ "camera": "locked",
+ "may_change": {
+  "table_smash_coins_pizza": [
+   264,
+   792,
+   1401,
+   1080
+  ],
+  "opened_bottle_neck": [
+   276,
+   482,
+   390,
+   643
+  ],
+  "hammer_arm_START": [
+   505,
+   459,
+   919,
+   803
+  ],
+  "the_man_and_his_arms": [
+   367,
+   23,
+   1688,
+   953
+  ],
+  "arm_START": [
+   195,
+   0,
+   919,
+   803
+  ]
+ },
+ "still": {
+  "pizza": [
+   1275,
+   803,
+   1895,
+   918
+  ],
+  "bottles": [
+   11,
+   505,
+   379,
+   987
+  ]
+ },
+ "note": "frame spec boxes scaled 1672x941 -> 1920x1080; people are may_change boxes (legs out of frame); props added for the take"
+}

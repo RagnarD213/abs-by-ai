@@ -84,11 +84,13 @@ Full chain as run: `run_final.sh` (waits for a build slot). Work folder: `/Volum
    Take the colour from solid pixels eroded 3 px (normalised convolution, scales 1.5/4/12/36 px) and replace fully within
    2 px of the outline, fading by 4 px, plus more as alpha falls. Rim 14.9% to 2.7% (source 8%). RIM=3 gave 1.3% on test
    frames; 2 kept the natural edge shading.
-3. **Speck rule.** A pixel 2 px or more from anything over 0.9 cannot exceed the 5x5 max of both warped neighbours + 0.1
-   (picture match only; flow is loose on flat screen beside a fast hand). Removed the 0:04.74 grain clump.
+3. **Speck rule.** A pixel 2 px or more from anything over 0.9, in an alpha > 0.1 island NOT joined to the body, cannot
+   exceed the 5x5 max of both warped neighbours + 0.1 (picture match only; flow is loose on flat screen beside a fast
+   hand). Removed the 0:04.74 grain clump. Without the island test it notched a blurred thumb (frame 234): the reviewer
+   caught it.
 4. **Watch glass edge-on** (`watch_r2.json`: frame range + box, output px). In the box: pixels under 0.65 of the plate's
    brightness that join the black case (ratio < 0.25), holes filled, grown 2 px into anything under 0.85; plus slits
-   under ~6 px between solid (> 0.95) pieces closed (glass at grazing angle mirrors the screen at FULL brightness, frame
+   under ~8 px (disk radius 4) between solid (> 0.95) pieces closed (glass at grazing angle mirrors the screen at FULL brightness, frame
    236). Forced solid, colour = despilled source, 0.8 px feather. Real strap/hand gaps (screen brightness, wide) stay open.
 
 **Measure flicker with motion removed (`mcflicker.py`).** The R1 reviewer's edge-flicker ratio is dominated by real
@@ -97,3 +99,9 @@ head movement (mean band change ~0.2 a frame), so any key that follows Dan reads
 not round-trip within 0.5 px, then compare: R1 0.87 overall / 0.91 hair, R2 0.69 / 0.68 (source = 1.0).
 `measure_r2.py` reproduces the R1 reviewer's numbers in one decode pass (pass2 flicker, outline rim, seethru4, islands).
 Check the watch over saturated pink (`stage2_comp.py CACHE LOOK OUT.mp4 pink`).
+
+**Render queue (2026-10-20).** `Media/video_edit/bin/ffmpeg` is now a shim onto `_shared/renderq/`: every heavy call waits
+its turn, and a rawvideo decode for measurement is filed as heavy. Run measurement scripts with
+`renderq.py run --light --group ds40 -- python3 metrics.py ...` (analysis is the light lane) and renders with
+`renderq.py run --group ds40 -- ...`. On a busy evening the heavy lane was 40 deep and a 9 s render waited over an hour.
+Independent review: `/Volumes/Extreme/_edit_work/ds40/r2/audit/R2-REVIEW.md` (SHIP, then SHIP on re-check).
