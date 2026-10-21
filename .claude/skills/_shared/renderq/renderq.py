@@ -80,6 +80,10 @@ SCRATCH_PRUNE_H = 48                    # a scratch folder nobody touched for th
 WORK_RESERVE_GB = {"Extreme": 30.0}     # a work drive keeps this much free (default below)
 WORK_RESERVE_DEFAULT_GB = 100.0
 WORK_DRIVES = ("Extreme", "Expansion", "Seagate")
+# Job folders live in <drive>/_edit_work/<job>; Codex rounds also used <drive>/Abs By AI Edit Work/<job> (Expansion).
+# Both are found and counted; new folders go in _edit_work.
+WORK_FOLDERS = ("_edit_work", "Abs By AI Edit Work")
+_JOB_IN_PATH = re.compile(r"/(?:_edit_work|Abs By AI Edit Work)/([^/]+)")
 IDLE_MIN = 0.30                         # an extra slot opens only if at least this share of the CPU sat idle ...
 IDLE_WINDOW_S = 4.0                     # ... over this long ...
 SETTLE_S = 15.0                         # ... and nothing started in that pool this recently (let it ramp up)
@@ -191,7 +195,7 @@ def default_group():
     g = os.environ.get("GATE_GROUP")
     if g:
         return g
-    m = re.search(r"/_edit_work/([^/]+)", os.getcwd())
+    m = _JOB_IN_PATH.search(os.getcwd())
     if m:
         return "work:" + m.group(1)
     return "pg:{}".format(os.getpgid(0))
@@ -1235,10 +1239,12 @@ def _free_gb(path):
 def _recent_jobs(root, hours=3.0):
     """Job folders on a drive touched in the last few hours (the folder or one of its round folders)."""
     n, cut = 0, time.time() - hours * 3600
-    try:
-        jobs = list(os.scandir(str(root / "_edit_work")))
-    except OSError:
-        return 0
+    jobs = []
+    for folder in WORK_FOLDERS:
+        try:
+            jobs += list(os.scandir(str(root / folder)))
+        except OSError:
+            pass
     for j in jobs:
         try:
             if not j.is_dir() or j.name.startswith(("_", ".")):
@@ -1257,14 +1263,15 @@ def find_workdir(job):
     """The job's existing work folder on a plugged-in drive, or None (newest if it is on more than one)."""
     hits = []
     for _name, root in mounted_work_drives():
-        try:
-            names = os.listdir(str(root / "_edit_work"))
-        except OSError:
-            continue
-        for n in names:                                     # exFAT is case-insensitive: return the real spelling
-            p = root / "_edit_work" / n
-            if n.lower() == job.lower() and p.is_dir():
-                hits.append((p.stat().st_mtime, str(p)))
+        for folder in WORK_FOLDERS:
+            try:
+                names = os.listdir(str(root / folder))
+            except OSError:
+                continue
+            for n in names:                                 # exFAT is case-insensitive: return the real spelling
+                p = root / folder / n
+                if n.lower() == job.lower() and p.is_dir():
+                    hits.append((p.stat().st_mtime, str(p)))
     return Path(max(hits)[1]) if hits else None
 
 
@@ -1332,7 +1339,7 @@ def _job_name(job=None):
     g = os.environ.get("GATE_GROUP")
     if g:
         return g
-    m = re.search(r"/_edit_work/([^/]+)", os.getcwd())
+    m = _JOB_IN_PATH.search(os.getcwd())
     return m.group(1) if m else "misc"
 
 

@@ -315,6 +315,10 @@ def main():
         r = subprocess.run([PY, RQ, "workdir", "job-old", "--need", "0"], env=e, capture_output=True, text=True)
         check("a job that has a work folder keeps it (any drive, any case)",
               r.stdout.strip() == str(db / "_edit_work" / "JOB-OLD"), r.stdout + r.stderr[-200:])
+        (da / "Abs By AI Edit Work" / "ra99").mkdir(parents=True)
+        r = subprocess.run([PY, RQ, "workdir", "RA99", "--need", "0"], env=e, capture_output=True, text=True)
+        check("... including a Codex job folder under 'Abs By AI Edit Work'",
+              r.stdout.strip() == str(da / "Abs By AI Edit Work" / "ra99"), r.stdout + r.stderr[-200:])
         holder = spawn([PY, RQ, "run", "--", "sleep", "3"], e, cwd=str(da))
         time.sleep(0.6)
         r = subprocess.run([PY, RQ, "workdir", "JOB-NEW", "--need", "0"], env=e, capture_output=True, text=True)
