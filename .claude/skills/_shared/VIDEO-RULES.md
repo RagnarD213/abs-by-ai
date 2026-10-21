@@ -1,3 +1,22 @@
+## AI clips of Dan look natural, or they never reach review; regenerate slop on the subscription (Dan, 2026-10-21, SL-06)
+
+Dan rejected all six SL-06 AI flex intros, every one gate- and reviewer-passed: *"the smile is weird. We need just a regular,
+relaxed, closed-mouth smile. He's also shaking and flexing too hard... Make it look natural and not like I'm shaking and flexing
+and artificially smiling. This looks like AI slop. This is not something which should make it to my review in the future.
+Especially given that we can now generate these on subscriptions, I want you to be a little more picky about what you bring to
+me for review and regenerate if you get some slop like this."*
+
+- **The bar for any AI clip of Dan: would it pass as a real camera clip of a calm man?** A relaxed, closed-mouth smile (no held
+  toothy grin, no grin that grows, no mouth that moves); no trembling, shaking or jitter in arms, hands or head; no straining
+  "flex harder" action; small natural motion only (breathing, a slight weight shift). If the frames themselves carry a big
+  grin or a straining pose, fix the frames first.
+- **Repairs do not rescue slop.** A pasted "held smile", a frozen mouth or other patching that keeps a bad take alive reads as
+  artificial at speed: regenerate instead. Label and text restores (a vial label, a calendar) remain fine.
+- **Be picky; the subscription makes retakes cheap.** Expect several takes per clip and keep only the most natural one. A
+  take that merely "passes" (no vanishing objects, no talking) is not enough: the editor and the reviewer each answer one more
+  question, *"does this look like real footage of a relaxed person, or like AI?"*, at playback speed, and any "AI" answer is a
+  FAIL. Put that question in every frame-reviewer brief for motion.
+
 ## Head and hair clearance blocks review delivery (Dan, 2026-10-20, RO-27)
 
 Dan rejected the RO-27 opening's clipped hair, including at about 0:22 and 0:29: "we need to always make sure that we don't cut off my head or my hair in these shots." Both the wider and tighter presenter shots must leave slight visible headroom. This applies before any review preview, not only final delivery.

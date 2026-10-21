@@ -134,3 +134,16 @@ r4/page_assets.sh            R4: review copies, A/B, each new clip alone and in 
   continuations for 40 minutes.
 - **Two paid `veo.py api` runs at once lost a take record** (each saved the job file it loaded minutes earlier). Fixed in
   `veo.py` 2026-10-20 (locked update, unique take names); in a session started before that, run paid takes one at a time.
+
+## What round 5 taught (SFL R5, 2026-10-21: Dan trimmed short 4's AI opener to about 3 s)
+
+- **Shortening a cover lengthens the talking shot behind it, and its steady crop is recomputed.** K1 now ends at 2.80, where Dan
+  is leaning in (face x 844, width 444 against 974 upright). The one steady crop for 2.80-13.78 became a compromise (cx 939) and
+  left him 46 px off centre for nine seconds of approved picture; the reviewer failed it as an undeclared reframe. Fix in
+  `SHOTS_AT` with `keys`: land on the lean, glide with him as he straightens, arrive on the old crop and hold it
+  (`(197.80, 850), (199.40, 974), (208.80, 974)`); measured against R4 every frame from 0:04.77 matches. A `follow` deadband
+  would have left him one deadband (about 48 output px) off centre. Before moving any cover edge, list the talk shot it opens up
+  and compare the new crop with the approved one.
+- **Moving a cut regroups the captions** ("where I was at a / few years ago,"); check the cue break, not only the words.
+- **Dan could not find the clips on the R4 page:** in his Chrome the Play buttons rendered as plain text (likely a dark-mode
+  restyle). `page_r5.py` puts every clip (muted loop, start-frame poster) and both whole shorts on the page as players.

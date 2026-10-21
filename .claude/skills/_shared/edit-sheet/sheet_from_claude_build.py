@@ -169,6 +169,11 @@ def from_round(B, a, facts):
     F = load_py(os.path.join(B, "recipe", "frames.py"), "frames_recipe")
     multi = not hasattr(F, "SRC")          # a multi-roll build (RO-06: 20 rolls on one global source timeline, frames.ROLLS)
     if multi:
+        # RO-18 (2026-10-20): a build whose segments do not name their roll (two rolls on one virtual timeline, frames.ROLLS with
+        # each roll's first virtual frame): the roll is the one whose f0 is the largest at or below the segment's source frame
+        for s in build["segments"]:
+            if "roll" not in s:
+                s["roll"] = max((r for r in F.ROLLS if F.ROLLS[r]["f0"] <= s["src0"]), key=lambda r: F.ROLLS[r]["f0"])
         used = sorted({s["roll"] for s in build["segments"]})
         rolls = {r: F.ROLLS[r]["path"] for r in used}
     else:
@@ -200,7 +205,11 @@ def from_round(B, a, facts):
         fr_rows.append(dict(name=s["framing"], crop=c, head=h, wall_stretch=bool(s.get("shifted") and s["framing"] == "W2"),
                             measured="mediapipe face box + Apple Vision person mask on the raw roll (headmeasure.py)"
                                      + ("; hair top also from the build's dense haircheck.json on the master" if hc else "")))
-    if multi:
+    if multi and not hasattr(F, "GR"):         # RO-18: several rolls, one LUT for all of them
+        grade = dict(filter="scale=in_color_matrix=bt709:in_range=tv:flags=accurate_rnd+full_chroma_int,format=gbrpf32le,"
+                            f"lut3d=file='{F.LUT}':interp=tetrahedral", lut=F.LUT, decode="bt709", order="after_scale_1080",
+                     note="the build's recipe/frames.py vf(): crop, scale to 1920x1080 with a BT.709 decode, then one LUT in float RGB for every roll")
+    elif multi:
         grade = dict(filter="scale=1920:1080:flags=lanczos+accurate_rnd+full_chroma_int:in_color_matrix=bt709:in_range=tv,format=gbrp,<per_roll curve>",
                      per_roll={r: F.GR[r][F.LOOK] for r in used}, look=F.LOOK, decode="bt709", order="after_scale_1080",
                      note="the build's recipe/frames.py vf(): crop, scale to 1920x1080 with a BT.709 decode, then that roll's own curve (grades.json, per-roll skin-anchored)")

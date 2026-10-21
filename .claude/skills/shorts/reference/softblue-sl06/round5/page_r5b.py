@@ -17,7 +17,7 @@ def cp(src, dst):
     if not os.path.exists(f"{R}/{dst}") or os.path.getsize(f"{R}/{dst}") != os.path.getsize(src): shutil.copyfile(src, f"{R}/{dst}")
     return dst
 ORDER = ["D", "A", "B", "C", "E", "F"]
-HEAD = {"A": 4.14, "B": 4.61, "C": 2.84, "D": 3.28, "E": 3.15, "F": 2.50}
+HEAD = {"A": 4.14, "B": 4.61, "C": 2.84, "D": 3.28, "E": 3.15, "F": 1.94}
 LINE = {"A": "Here's why you should start Zepbound at 1 milligram to avoid the side effects.",
         "B": "Here's why you should stop using the pen to inject Zepbound, and why you should use a needle instead.",
         "C": "Here's how to inject Zepbound with a needle, step by step.",
@@ -29,7 +29,7 @@ HOW = {"A": "Your fingertip stays on the poster's corner while you hold the flex
        "C": "Your fingertip stays on the poster's corner, a quick glance at it, smile held.",
        "D": "Double biceps: you squeeze a little harder and the grin grows.",
        "E": "Flexed arm in front, the other hand on the poster's corner, smile held.",
-       "F": "Flexed arm in front, the other hand points up at the poster, smile held."}
+       "F": "Flexed arm in front, the other hand points up at the poster, smile held. It ends in the pause after \"appetite,\" so the captions break cleanly."}
 cards, revs = [], []
 for S in ORDER:
     require_pass(f"{FIX}/{S}_intro.mp4")
@@ -41,7 +41,7 @@ for S in ORDER:
     pl = lambda t, lab: f"<button onclick=\"play('{rv}',{E(json.dumps('Short ' + S + ': ' + lab))},{t:.2f})\">{E(lab)}</button>"
     ch = [f"<li><b>0:00 to {mmss(h)}</b>: the moving AI flex intro (was a stock clip). {E(HOW[S])} Title band off, back on the first frame of you on camera at {mmss(h)}. Watch 0:00 to {mmss(h + 4)}. {pl(0, 'Play from 0:00')}</li>"]
     if S == "C":
-        ch.append(f"<li><b>0:02.8 to 0:05.8</b>: Seattle Children's self-injection into the front of the thigh (your pick), credited. <b>0:05.8 to 0:09.6</b>: SynergenX pinch and inject, credited, with the Step 1 bar over it. Watch 0:02 to 0:12. {pl(2.0, 'Play from 0:02')}</li>")
+        ch.append(f"<li><b>0:02.8 to 0:05.8</b>: Seattle Children's self-injection into the front of the thigh (your pick), credited. <b>0:05.8 to 0:09.6</b>: SynergenX pinch and inject, credited, framed so the needle stays visible above the Step 1 bar. Watch 0:02 to 0:12. {pl(2.0, 'Play from 0:02')}</li>")
     cards.append(f"""<article id="f{S}"><h3>{S}: {E(name)} <span class="small">{mmss(T['total'])}</span></h3>
 <a href="{rv}" target="_blank"><img loading="lazy" src="{poster}"></a>{pl(0, 'Play it')}
 <div class="copy">Opening line under the intro: "{E(LINE[S])}"<ul>{''.join(ch)}</ul><a href="{full}">1080 x 1920 file</a></div></article>""")
@@ -51,6 +51,7 @@ DECIDED = [
  "Where Veo still moved the lips (C, E, F), the smile is held: the mouth from a clean frame early in the take is kept steady, tracked to the face, so nothing reads as lip sync under your voice.",
  "Veo scribbles small text: the vial labels are restored from your approved frames on every frame, and D's calendar too (Veo wrote FRI with a backwards R).",
  "The title band is off during every intro and returns on the first frame of you on camera. The AI-GENERATED label sits top right (D: top centre); captions, the disclaimer and AbsByAI.com stay on.",
+ "The independent review caught two things, both fixed and re-checked: on C the Step 1 bar covered the needle going in (the SynergenX clip is now framed a little tighter and lower, so the needle shows above the bar), and on F the word \"less\" flashed alone as a caption at the cut (the intro now ends in the pause after \"appetite,\").",
  "Everything after each intro is the round-2 short you approved, unchanged (same cut, audio, graphics, captions); C's 2.8 to 9.6 s uses the clips you approved last round.",
 ]
 CHECKS = [
