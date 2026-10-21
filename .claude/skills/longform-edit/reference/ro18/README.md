@@ -80,3 +80,22 @@ port: see the round's handoff. Never commit media.
 removed), `resolve.py`, `page.py`, `page_extra.py`, `titles.py`, `hair_pre.py`, `patch_words.py`, `grid.py` (the 3 x 3 grid of this film's own graphics for P02), `chain_r1.sh`,
 `chain_r1b.sh` (stills to page), `chain_r1d.sh` (re-render only the blocks holding changed items). AI frame prompts and
 specs: `ai-frame-prompts/`, `frame-specs/`.
+
+## Round 2 (2026-10-20): Flow motion, what the reviewers caught, and fixes that worked
+19. **An END frame whose object looks different drags Veo into a morph.** A7's approved END showed the laptop closed and silver; the
+    START lid was dark bronze. All four START+END takes turned the lid silver and grew an Apple logo as it closed (reviewers caught
+    a faint logo-shaped square the clip gate cannot see). START-only takes (`veo.py add` without `--end`) kept the bronze lid; 1 of 6
+    had no logo at all. When the END frame changes an object's look, try START-only before repairing pixels.
+20. **Repairs that failed review:** a chroma-keyed tint hold (`lidtint.py`) also greyed her hands and face (skin and a copper lid
+    share chroma); a geometric lid mask (`lidtint2.py`) left blocky patches. Inpainting a small mark (`lidpatch.py`, `dotfill2.py` with a
+    hand-read track) was clean.
+21. **Flow takes drift 10 to 21 px although the prompt says static.** `recipe/stablock2.py TAKE SPEC OUT N [zoom] homog` matches every
+    frame to frame 0 (SIFT on the background outside `may_change`, RANSAC) and passes the gate; the chained LK version
+    (`stablock.py`) drifted 36 px on an 8 s take. A real dolly-in (parallax between desk and blackboard) cannot be removed in 2D: retake.
+22. **A pen set down by a Veo hand changed ends in all four takes** (twirl, the tip melts and regrows). The fix was editorial: a wide shot
+    of the writing, a cut to a 1.33x closer shot that starts with the pen already down (A8, two takes).
+23. **Give a slow AI action room instead of speeding it:** A7 needed 4.4 s; starting it on the previous line's last words ("do all of
+    your homework") made the gasp a reaction to that line and cost C36 1.2 s.
+24. **Approved assets on Extreme get cleaned:** `ro06/round5/phone/P01-softblue.mp4` (the self-generation demo) was gone; its exact frames
+    came back from round 1's 1080p render block. Copy every borrowed asset into the job's own `assets/` when a round first uses it.
+25. **zsh: `rm -f x*` with no match aborts an `&&` chain** (the first master render never started). Use `setopt null_glob` or no glob.
