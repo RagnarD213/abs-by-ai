@@ -5,7 +5,8 @@ L = lambda p: json.load(open(p)) if os.path.exists(p) else None
 opt = L(f'{OUT}/look/options.json'); kn = {k: L(f'{C}/keynum-{k}.json') for k in ('K1', 'K2', 'K3')}
 h1, h5 = L(f'{C}/hair-1080.json'), L(f'{C}/hair-540.json'); hf = L(f'{C}/hf/checks.json')
 t1, t2 = L(f'{W}/audio/opts/trials_100.json'), L(f'{W}/audio/opts/trials_200.json')
-rev = open(f'{OUT}/INDEPENDENT-CHECK.md').read() if os.path.exists(f'{OUT}/INDEPENDENT-CHECK.md') else ''
+import glob   # the newest independent report decides the status line (re-check 4 P2: it read the first report)
+_revs = sorted(glob.glob(f'{OUT}/INDEPENDENT-*.md'), key=os.path.getmtime); rev = open(_revs[-1]).read() if _revs else ''
 verdict = (re.findall(r'VERDICT:\s*([A-Z ]+)', rev) or ['not run yet'])[-1].strip()
 ag = open(f'{C}/audio_gate.log').read() if os.path.exists(f'{C}/audio_gate.log') else ''
 agv = 'PASS' if re.search(r'\bPASS\b', ag.splitlines()[-1] if ag else '') else ('see log' if ag else 'not run')
@@ -22,7 +23,7 @@ X = dict(
  intro="Cut from 10/15 roll C1726, the Ozempic part (7:25 to the end of the roll). For this round you asked me to dial in the chroma key, the audio, the colour and the first minute before anything else, so that is all this page is: the key, three colours, three backgrounds, three voices, and the first minute built with my picks. The celebrity photos, the other graphics and the full film (about 7 minutes) come next round, once these are locked.",
  locked="The Bill Maher green-screen key you locked on 10/20 (its body and arm matte plus the steady fine hair), recalibrated for this 16:9 roll. Soft Blue Light lower thirds.",
  decisions=[
-  "<b>Key:</b> A) <b>Refined edges</b> (recommended): the approved Bill Maher key, improved where it slipped on this roll. Your hair and forehead no longer let the background show through (20 % of those pixels before, under 0.5 % now) and the green fringe on your arms and ears is mostly gone. Moving hands are only partly fixed: about half the green between your fingers is gone (clean at 0:51.0, mostly clean at 0:44.1), but green strips remain at 0:04.8, 0:43.9 to 0:44.1, 0:47.9 to 0:48.0 and 0:51.1 to 0:51.6, and your thumb at 0:40 keeps a thin brown outline. It also adds two small flaws the approved key does not have: a pale streak on your shorts for a tenth of a second at 0:25.0 (smaller specks at 0:01 and 0:40.3), and the rim of your watch goes slightly see-through at 0:08.5 and 0:08.9. B) The Bill Maher key exactly as approved: solid shorts and watch, but more green around moving hands and see-through spots in the hair. Look at 0:08, 0:25 and 0:48 in the first minute, and the hand clips below.",
+  "<b>Key:</b> A) <b>Refined edges</b> (recommended): the approved Bill Maher key, improved where it slipped on this roll. Your hair and forehead no longer let the background show through (20 % of those pixels before, under 0.5 % now) and the green fringe on your arms and ears is mostly gone. Moving hands are only partly fixed: about half the green between your fingers is gone (clean at 0:51.0, mostly clean at 0:44.1), but small green or khaki patches remain between your fingers at 0:04.8, 0:39.6, 0:43.9 to 0:44.1, 0:47.9 to 0:48.0 and 0:51.1 to 0:51.6, and your thumb at 0:40 keeps a thin brown outline. It also adds two small flaws the approved key does not have: a pale streak on your shorts for a tenth of a second at 0:25.0 (smaller specks at 0:01 and 0:40.3), and the rim of your watch goes slightly see-through at 0:08.5 and 0:08.9. B) The Bill Maher key exactly as approved: solid shorts and watch, but more green around moving hands and see-through spots in the hair. Look at 0:08, 0:25 and 0:48 in the first minute, and the hand clips below.",
   "<b>Colour:</b> A) <b>Warm</b> (recommended, Bill Maher's approved grade). B) Rich (more colour and contrast). C) Natural (cooler, softer).",
   "<b>What is behind you:</b> A) <b>Light studio with depth</b> (recommended): light grey-blue, a little brighter behind you, deeper at the edges. B) Bill Maher's flat light grey. C) Soft Blue navy (dark, with the brand's blue glow behind you).",
   "<b>Voice:</b> A) <b>Bill Maher's voice plus the bass lift</b> (recommended). B) Bill Maher's voice exactly. C) Open (a gentler warm shape).",
@@ -99,7 +100,7 @@ hc = lambda r: (f"{r['frames_checked']} frames checked, closest hair {r['min_top
 X['checks'] = [f"Hair clearance on the 1080p first minute (every 0.25 s plus both sides of every cut): {hc(h1)}.", f"Same on the 540p review copy: {hc(h5)}.",
                "Sound checks on the first minute: 12 of 13 pass. The tone check fails, as it always does with a fixed tone shape like the bass lift (same as Bill Maher).",
                f"Lower thirds, face clear of the strip: {('PASS' if hf and not hf.get('failures') else 'see checks/hf') if hf else 'not run'}.",
-               f"Independent reviewer on the packet: {verdict}."]
+               f"Independent reviewer on the packet: {verdict} (check {len(_revs)} of {len(_revs)}; the earlier ones found the problems fixed or listed above)."]
 for g in X['graphics']:
     g['check'] = 'face clear of the strip' if hf else ''
 json.dump(X, open(f'{OUT}/page_extra.json', 'w'), indent=1); print('extra ok')
