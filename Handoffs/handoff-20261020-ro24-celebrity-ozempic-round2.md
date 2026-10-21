@@ -40,6 +40,12 @@ Recipe of round 1 (copied into the repo): `.claude/skills/longform-edit/referenc
    "Zebbound/zetbound" = Zepbound, "Monjaro" = Mounjaro, "six pack abs .com" = sixpackabs.com, "old zempic" = Ozempic).
 
 ## Watch for
+- Round 1 key state (5 independent checks; last two: key better on balance, page accurate, READY FOR DAN): the refined key keeps
+  about half the finger-gap green open, leaves a 0.1 s pale streak on the shorts at film 0:25.0 and a watch-bezel ring at alpha
+  ~0.8 (0:08.5). If Dan picks refined and wants those gone, the untested next idea (motion-compensated 'does the screen show here
+  when the hand is not') is in `.claude/skills/longform-edit/reference/ro24/README.md` Traps; prove it on the flagged frames with
+  `handtest2.py` before re-keying. Reports: `review/INDEPENDENT-RECHECK3.md`, `INDEPENDENT-RECHECK4.md` in the round 1 folder.
+- After every page rebuild re-run `review_server.py <port> <dir>`: the server serves a cached copy.
 - A Claude session (DS-40 R2, `/Volumes/Extreme/_edit_work/ds40/r2/`) is polishing the same key on Bill Maher (hair flicker, dark rim, watch glass). Before keying the full film, check whether Dan approved a newer key there and fold it in.
 - On the light background the Soft Blue Light lower third's glass strip reads lighter (slate) than on studio films. If Dan or the reviewer flags it, make the strip's fill more opaque over light backgrounds rather than changing the template's look elsewhere.
 
