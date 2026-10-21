@@ -258,3 +258,24 @@ is `page7_r5.py` (refuses any pair without gate + reviewer PASS); the intro is t
 - **Seated talkers behind a table:** declare `person.legs_hidden` (framecheck README). Without it MediaPipe measures invented legs.
 - **A raised hand can poke out of the person mask** and fail the static row (fingertip beside the hoodie). Keep a gesture in front
   of the body ("open palm at the middle of his chest") rather than declaring a `may_change` box.
+
+## Round 6 (2026-10-20/21): the intro split and the excuse clips built, 15 takes for 5 clips
+
+Recipe: `films_r6.py` (round 4's build plus the two clip items, round 4 untouched; unchanged parts are links), `splice_r6.py`,
+`p4_r6.py` (levels-split plate over the tiles, multi-shot tiles, 2 % shot zoom), `finish_r6.py`, `chain_r6_post.sh`,
+`deliver_r6.sh`, `page8_r6.py`. Helpers: `lipsync_r6.py`, `beardfix_r6.py`, `stab_r6.py`. Notes: `round6/v3/notes-RO20C-round6.md`.
+
+- **Never prompt a clip that will be lip-synced to "talk"** (already in round 3's notes; missed here): both syncs then read weak
+  (0.19) or kept Veo's mouth. And mouth-closed retakes from Veo still groan or open the mouth for ~1 s in an 8 s take: use the
+  reviewed closed-mouth stretch and cut back to Dan at a phrase boundary rather than paying for a third retake.
+- **sync/lipsync-2-pro smears a beard.** `beardfix_r6.py` keeps the synced pixels only inside the lip outline (dilated 10 px,
+  feathered 6) and the take's own beard elsewhere: sync r unchanged (0.40 to 0.54), beard 1.00 of the take outside the patch.
+  Its first frame and an unmouthed first word still failed; the shipped stretch starts on the second word.
+- **A face that looks down for long gets redrawn by Veo** (hair spikes, a thinner face; four 8 s takes failed on it). 4 s takes
+  (`--seconds 4`, $0.40) drift far less; a take starting from the END frame avoids "props from nowhere" (a second fork appeared
+  when the hand never went to the napkin).
+- **Camera creep:** if the motion gate fails only `camera` and every still prop holds under 1 px against the camera, it is a pan/zoom:
+  `stab_r6.py` fixes it. If props move against the camera (glass 8 px), it is a dolly with parallax: steadying cannot fix it.
+- **The `fps` filter drops a 24 fps clip's last frame** when it is conformed to 29.97: a tile whose clip is exactly as long as the
+  slot shows one black frame. `tpad=stop_mode=clone:stop_duration=1/24` before `fps` covers it.
+- **Parallel `veo.py api` runs overwrite each other's job.json entries**: count spend from the logs, or run them one after another.
