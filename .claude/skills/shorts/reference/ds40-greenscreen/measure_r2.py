@@ -8,7 +8,7 @@ rim      = outline.py dark-rim fraction on skin edges (pale)
 seethru  = seethru4.py blue-cast pixels inside Dan at the wrist (navy + pale)
 islands  = islands.py floating specks (pale)
 """
-import numpy as np, subprocess, json, sys
+import numpy as np, subprocess, json, sys, os
 from scipy import ndimage as ndi
 FF = "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video_edit/bin/ffmpeg"
 SRC = "/Volumes/Extreme/10:15 dan rose fitness shoot - green screen, outdoor shorts, outdoor b roll, studio backdrop/C1730.MP4"
@@ -25,7 +25,7 @@ def reader(args):
 
 def main(pale, navy, out):
     po = reader(["-i", pale, "-vf", VF]); pn = reader(["-i", navy, "-vf", VF])
-    ps = reader(["-ss", "1400.25", "-i", SRC, "-t", "9.35", "-vf", VF + ":w=1080:h=1920:flags=area"])
+    ps = reader(["-ss", os.environ.get("T0", "1400.25"), "-i", SRC, "-t", os.environ.get("DUR", "9.35"), "-vf", VF + ":w=1080:h=1920:flags=area"])
     BG = np.array([216, 225, 235], np.int16); BGf = BG.astype(np.float32)
     bgl = 0.2126 * 216 + 0.7152 * 225 + 0.0722 * 235
     st = np.ones((3, 3), bool)
@@ -96,7 +96,7 @@ def main(pale, navy, out):
         rows.append(rec)
         if i % 60 == 0: print(i, {k_: rec[k_] for k_ in rec if k_ not in ('speck_list',)}, flush=True)
     fl = [r for r in rows if 'flick_out' in r]
-    ratio = [r['flick_out'] / r['flick_src'] for r in fl]
+    ratio = [r['flick_out'] / r['flick_src'] for r in fl if r['flick_src'] > 0]
     hratio = [r['hair_out'] / r['hair_src'] for r in fl if r['hair_src'] > 0]
     summ = dict(frames=len(rows),
                 flicker_ratio_mean=round(float(np.mean(ratio)), 3), flicker_ratio_worst=round(float(np.max(ratio)), 3),
