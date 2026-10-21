@@ -28,7 +28,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Edit cap LIVE 2026-10-21, Claude.** Pushed; main folder mid-merge (not mine), so its skills lack it until merged. Next: delete after that merge.
 
-**Oura Ring Review SFL - QUEUED 2026-10-21, Claude.** SL-09 five shorts in Blotato Nov 13-27, 9 AM, all platforms. Short 4 cover F by default (Dan gave no letter). Next: release check; delete once posted. `Docs/SL09_SETUP_RECEIPT_20261021.md`.
 **SL-17:NEEDS-DAN:2026-10-20:Claude.**
 **SL-18:ACTIVE:2026-10-20:Claude.** Wasted Life SFL R1; awaiting picks.
 
