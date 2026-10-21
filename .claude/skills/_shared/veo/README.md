@@ -46,6 +46,12 @@ and there aren't per-clip generation costs."*
   ("reputational risk"); do not spend a run on it.
 - Every take of either model goes through the same motion gate and reviewer before Dan sees it. On the review page,
   label which model made each take only after Dan picks, unless he asks.
+- **Log every pick (Dan, 2026-10-21).** Whenever Dan chooses between takes of the SAME shot made by different models,
+  record it right after his answer: `veo.py pick --video "<title (code)>" --shot "<id short name>"
+  --compared veo-3.1-fast,omni-1.1-flash --winner <model|same> --words "<his reason>"`. Two takes of one model are not
+  logged. `veo.py picks` prints the running scorecard; the monthly model watch reads it.
+- **New models from any company** are tracked by the monthly watch: `Docs/VIDEO_MODEL_WATCH.md` (baseline, test rules,
+  standard frame pairs, `bakeoff.py` blind-page builder, verdicts).
 
 ## Subscription upgraded (Dan, 2026-10-20)
 
@@ -72,8 +78,9 @@ Other models in Flow, if a job asks: Veo 3.1 Lite 10 credits, Veo 3.1 Quality 10
 
 ## Files
 
-- `veo.py`: route, add, status, mark, collect (with the opens-on-START check), credits, api. Job state: `JOBDIR/veo/job.json`.
+- `veo.py`: route, add, status, mark, collect (with the opens-on-START check), credits, api, pick, picks. Job state: `JOBDIR/veo/job.json`.
   Account-wide credit and spend log: `~/.absbyai-veo-ledger.jsonl` (Claude and Codex share it on this Mac).
+- `bakeoff.py`: blind page for a candidate model against Veo on the standard pairs (see `Docs/VIDEO_MODEL_WATCH.md`).
 - `FLOW-RUNBOOK.md`: the click-by-click Flow procedure. Flow changes its interface often; whoever finds a step that no
   longer matches fixes the runbook in the same session.
 - `TEST-20261017.md`: the timed 5-clip test and the watermark check.

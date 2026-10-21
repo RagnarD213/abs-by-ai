@@ -20,6 +20,7 @@ import argparse, base64, hashlib, io, json, os, re, shutil, subprocess, sys, tim
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.abspath(os.path.join(HERE, "..", "..", ".."))
 LEDGER = os.path.expanduser("~/.absbyai-veo-ledger.jsonl")     # account-wide: Claude and Codex on this Mac share it
+PICKS = os.path.expanduser("~/.absbyai-video-model-picks.jsonl")  # Dan's picks between models, read by the monthly model watch
 RUSH = re.compile(r"\b(rush|rushed|rushing|accelerate|accelerated|as fast as possible|asap)\b", re.I)
 CREDITS = {"lite": 10, "fast": 20, "quality": 100, "omni": 12}  # Flow per generation, Pro rates 2026-10-17 (Ultra since 10-20 may be lower; the live popover wins)
 API_MODEL, API_USD_S = "google/veo-3.1-fast", 0.10            # Replicate, 1080p, no audio
@@ -277,13 +278,41 @@ def cmd_api(a):
     print(f"{a.id}: {out} (${usd:.2f}, {int(time.time() - t0)}s)")
 
 
+def cmd_pick(a):
+    """Record which model's take Dan chose when he compared takes of the SAME shot made by different models."""
+    models = [m.strip() for m in a.compared.split(",") if m.strip()]
+    if a.winner != "same" and a.winner not in models:
+        raise SystemExit(f"--winner must be one of {models} or 'same'")
+    e = {"when": now(), "video": a.video, "shot": a.shot, "compared": models, "winner": a.winner,
+         "blind": not a.not_blind, "dan_words": a.words, "kind": a.kind}
+    with open(PICKS, "a") as f:
+        f.write(json.dumps(e) + "\n")
+    print(f"recorded: {a.shot} -> {a.winner}")
+
+
+def cmd_picks(a):
+    """Running scorecard of Dan's model picks."""
+    rows = [json.loads(l) for l in open(PICKS)] if os.path.exists(PICKS) else []
+    if a.since: rows = [r for r in rows if r["when"][:10] >= a.since]
+    score = {}
+    for r in rows:
+        for m in r["compared"]:
+            s = score.setdefault(m, {"compared": 0, "won": 0, "tied": 0})
+            s["compared"] += 1
+            if r["winner"] == m: s["won"] += 1
+            elif r["winner"] == "same": s["tied"] += 1
+    print(f"{len(rows)} picks{' since ' + a.since if a.since else ''} ({PICKS})")
+    for m, s in sorted(score.items(), key=lambda kv: -kv[1]["won"]):
+        print(f"  {m:24s} won {s['won']:3d}  tied {s['tied']:3d}  of {s['compared']:3d} compared")
+
+
 if __name__ == "__main__":
     P = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     S = P.add_subparsers(dest="cmd", required=True)
     s = S.add_parser("route"); s.add_argument("--said")
     s = S.add_parser("add"); s.add_argument("jobdir"); s.add_argument("id"); s.add_argument("--start", required=True)
     s.add_argument("--end"); s.add_argument("--prompt-file", required=True); s.add_argument("--negative-file")
-    s.add_argument("--seconds", type=int, default=8, choices=(4, 6, 8)); s.add_argument("--aspect", default="16:9", choices=("16:9", "9:16"))
+    s.add_argument("--seconds", type=int, default=8, choices=(4, 6, 8, 10)); s.add_argument("--aspect", default="16:9", choices=("16:9", "9:16"))
     s.add_argument("--model", default="fast", choices=tuple(CREDITS)); s.add_argument("--takes", type=int, default=1)
     s.add_argument("--skip-gate")
     s = S.add_parser("status"); s.add_argument("jobdir")
@@ -294,5 +323,10 @@ if __name__ == "__main__":
     s = S.add_parser("credits"); s.add_argument("--set", type=int)
     s = S.add_parser("api"); s.add_argument("jobdir"); s.add_argument("id"); g = s.add_mutually_exclusive_group(required=True)
     g.add_argument("--rush"); g.add_argument("--paid-ok")
+    s = S.add_parser("pick"); s.add_argument("--video", required=True, help="recognizable title, e.g. 'Make Time Exercise (RO-18)'")
+    s.add_argument("--shot", required=True); s.add_argument("--compared", required=True, help="comma list, e.g. veo-3.1-fast,omni-1.1-flash")
+    s.add_argument("--winner", required=True, help="one of --compared, or same"); s.add_argument("--words", help="Dan's reason, verbatim")
+    s.add_argument("--kind", default="work", choices=("work", "bakeoff")); s.add_argument("--not-blind", action="store_true")
+    s = S.add_parser("picks"); s.add_argument("--since")
     a = P.parse_args()
     globals()["cmd_" + a.cmd](a)
