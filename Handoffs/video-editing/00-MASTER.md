@@ -123,7 +123,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [RO-11](RO-11-when-calories-don-t-matter-for-fat-loss.md) | When Calories Don't Matter For Fat Loss | 9/23 C1705 | UPLOADED | L |
 | [RO-12](RO-12-top-5-zepbound-tips.md) | Top 5 Zepbound Tips | 9/23 C1706 | UPLOADED | L |
 | [RO-13](RO-13-can-you-drink-alcohol-and-still-have-abs.md) | Can You Drink Alcohol And Still Have Abs? | 9/23 C1707 | FINALIZED | L |
-| [RO-14](RO-14-why-you-re-not-losing-weight.md) | Why You're Not Losing Weight | 9/23 C1708 | IN PROGRESS | L |
+| [RO-14](RO-14-why-you-re-not-losing-weight.md) | Why You're Not Losing Weight | 9/23 C1708 | DELIVERED: awaiting Dan | L |
 | [RO-15](RO-15-sleep-better-with-glycine.md) | Sleep Better With Glycine | 9/23 C1709 | READY | L |
 | [RO-16](RO-16-if-i-had-belly-fat-here-s-how-i-d-lose-it-in-90-da.md) | If I Had Belly Fat, Here's How I'd Lose It In 90 Days | 9/23 C1710 | UPLOADED | L |
 | [RO-17](RO-17-3-healthy-foods-that-made-me-fat.md) | 3 Healthy Foods That Made Me Fat | 9/23 C1713 | FINALIZED | L |
@@ -131,7 +131,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [RO-19](RO-19-my-first-spray-tan.md) | My First Spray Tan (old edit scrapped 10-02, redo from scratch) | 8/3 C1512 (31 min) | FINALIZED | L |
 | [RO-20](RO-20-invest-more-in-your-health.md) | Why You Should Invest More In Your Health (part 1 of 3 since 10-11; old edit scrapped 10-02) | 8/3 C1511 (69 min) | FINALIZED | L |
 | [RO-20B](RO-20-invest-more-in-your-health.md) | What To Cut To Afford Getting In Shape (part 2 of 3, split from RO-20 on 10-11) | 8/3 C1511 (69 min) | FINALIZED | L |
-| [RO-20C](RO-20-invest-more-in-your-health.md) | What To Buy For Your Health At Every Income Level (part 3 of 3, split from RO-20 on 10-11) | 8/3 C1511 (69 min) | IN PROGRESS | L |
+| [RO-20C](RO-20-invest-more-in-your-health.md) | What To Buy For Your Health At Every Income Level (part 3 of 3, split from RO-20 on 10-11) | 8/3 C1511 (69 min) | DELIVERED: awaiting Dan | L |
 
 ### 1C3 · 10/15 shoot (59 jobs, added 2026-10-16): release-ASAP first, then shorts, then long-forms
 
@@ -248,7 +248,7 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 | [SL-12](SL-12-keep-your-muscle-shorts.md) | How To Keep Your Muscle While You Lose Fat (RO-01, YouTube Dec 6) | READY; hold release until parent is public | S |
 | [SL-13](SL-13-calories-dont-matter-shorts.md) | When Calories Don't Matter For Fat Loss (RO-11, YouTube Dec 13) | READY; hold release until parent is public | S |
 | [SL-14](SL-14-abs-at-40-vs-25-shorts.md) | Getting Abs At 40 vs 25 (Zeeshan Video 5, YouTube Jan 3 2027) | READY; hold release until parent is public | S |
-| [SL-15](SL-15-my-first-spray-tan-shorts.md) | My First Spray Tan (RO-19, YouTube Wed Oct 21; 3 Shorts, Short 1 airs Fri Oct 30) | IN PROGRESS | S |
+| [SL-15](SL-15-my-first-spray-tan-shorts.md) | My First Spray Tan (RO-19; 2 Shorts, Dan picked A and C; Short 1 airs Fri Oct 30) | DELIVERED: awaiting Dan (R2 page :9015; hair-at-top-edge decision) | S |
 | [SL-16](SL-16-intermittent-fasting-shorts.md) | Intermittent Fasting: The Best Way To Get Abs (RO-08, finalized 10-14; release date set at setup) | READY; hold release until parent is public | S |
 
 | [SL-17](SL-17-top-1-percent-shorts.md) | Top 1 Percent (RO-26, finalized; release on hold) | IN PROGRESS | S |

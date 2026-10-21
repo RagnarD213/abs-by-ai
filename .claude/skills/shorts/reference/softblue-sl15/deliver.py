@@ -131,13 +131,15 @@ def plan(S):
     from PIL import Image
     real = []
     for sh in shots:
-        if sh["kind"] == "scene":
-            txt = Sc.REAL1 if sh["cover"]["scene"] == "photo1" else Sc.REAL2
-            rg, cb = Bt.chip_png(txt, (0, 0), u=Sc.CHIP_U); cw_ = cb[2] - cb[0]; p_ = f"{G}/real_chip_{sh['cover']['id']}.png"
-            Image.fromarray(rg[cb[1]:cb[3], cb[0]:cb[2]]).save(p_); x_ = int(round(Bt.W / 2 - cw_ / 2)); y_ = Bt.DROP + 12
-            real.append(dict(name=sh["cover"]["id"], beat=[round(sh["f0"] / Bt.FPS + 0.3, 4), round(sh["f1"] / Bt.FPS, 4)], chip=p_, pos=[x_, y_]))      # the chip appears 0.25 s into the scene
-            regions.append(dict(name=f"chip_{sh['cover']['id']}", beat=beat(sh), rect=[x_, y_, cw_, cb[3] - cb[1]]))
-            if sh["cover"]["scene"] == "pair": regions.append(dict(name="pair_tabs", beat=beat(sh), rect=[27, Sc.PAIR_Y + Sc.PAIR_H - 92, 1026, 62]))
+        if sh["kind"] != "scene": continue
+        c = sh["cover"]; t0, t1 = round(sh["f0"] / Bt.FPS, 4), round(sh["f1"] / Bt.FPS, 4)
+        parts = [(Sc.REAL1, t0, t1)] if c["scene"] == "photo1" else [(Sc.REAL1, t0, round(t0 + c.get("reveal", 0.6), 4)), (Sc.REAL2, round(t0 + c.get("reveal", 0.6), 4), t1)]
+        for k, (txt, a_, b_) in enumerate(parts):          # the chip is on from the scene's first frame; the pair's label turns plural when the after card arrives
+            rg, cb = Bt.chip_png(txt, (Bt.W / 2, Bt.DROP + 12), u=Sc.CHIP_U, anchor="mt"); cw_ = cb[2] - cb[0]; p_ = f"{G}/real_chip_{c['id']}_{k}.png"
+            Image.fromarray(rg[cb[1]:cb[3], cb[0]:cb[2]]).save(p_); x_, y_ = cb[0], cb[1]          # drawn exactly as scenes.py draws it (anchor "mt"): pixel-aligned
+            real.append(dict(name=f"{c['id']}{k}", beat=[a_, b_], chip=p_, pos=[x_, y_]))
+            regions.append(dict(name=f"chip_{c['id']}{k}", beat=[a_, b_], rect=[x_, y_, cw_, cb[3] - cb[1]]))
+        if c["scene"] == "pair": regions.append(dict(name="pair_tabs", beat=[t0, t1], rect=[27, Sc.PAIR_Y + Sc.PAIR_H - 92, 1026, 62]))
     pl["real_photos"] = real
     rgba, cb = Bt.chip_png("AI-GENERATED", (0, 0), u=1.6); Image.fromarray(rgba[cb[1]:cb[3], cb[0]:cb[2]]).save(f"{G}/ai_chip.png")
     rg2, c2 = Bt.chip_png(Sc.REAL1, (0, 0), u=Sc.CHIP_U); Image.fromarray(rg2[c2[1]:c2[3], c2[0]:c2[2]]).save(f"{G}/real_chip.png")
@@ -146,13 +148,16 @@ def plan(S):
     import datetime                                          # the negative-events look, bound to THIS render
     pl["negative_events_scan"] = dict(sha256=h, when=datetime.datetime.now().isoformat(timespec="seconds"), frames_checked=int(dur) + 1,
         method="one frame per second (watch-pass contact sheets; " + (lambda w: f"judged image by image by {w['judged_by']}, {w.get('open_defects')} open defect(s)" if w.get("judged_by") and w.get("sha256") == h else "scanned by the builder only, the independent judge has not run on this file yet")(json.load(open(f"{G}/logs/watch_pass.json")) if os.path.exists(f"{G}/logs/watch_pass.json") else {}) + ") plus every shot's first, "
-               "middle and last frame on the build's proof sheets; the footage is Dan in a tank top talking in his kitchen, stock and library B-roll, "
-               "two of the film's approved AI clips with the AI-GENERATED chip, and Dan's real shirtless photos (short 1) with the real-photo chip",
+               "middle and last frame on the build's proof sheets; the footage is Dan in a tank top talking in his kitchen, stock and library B-roll, " +
+               ("Dan's real shirtless photos with the real-photo chip; no AI clips" if S == "A" else "two of the film's approved AI clips with the AI-GENERATED chip; no photos of Dan"),
         findings=[])
     json.dump(pl, open(f"{G}/plan.json", "w"), indent=1)
     print(S, "plan", f"{G}/plan.json", "joins", len(joins), "covered", len(covered), "cues", len(states))
 
 if __name__ == "__main__":
-    sys.path.insert(0, ROOT + "/.claude/skills/_shared"); import buildcap; buildcap.wait("SL-15 deliver " + " ".join(sys.argv[1:]))
     fn = {"copy": copy, "plan": plan}[sys.argv[1]]
+    if sys.argv[1] == "copy" and all(os.path.exists(f"{Bt.D(S)}/delivered.sha") and os.path.getmtime(f"{Bt.D(S)}/delivered.sha") > os.path.getmtime(f"{Bt.D(S)}/{P.NAME[S]}.mp4") for S in sys.argv[2:]):
+        print("already delivered by batch.py render in the same build slot"); sys.exit()
+    if sys.argv[1] == "copy":                                       # plan only writes a JSON file: no slot needed
+        sys.path.insert(0, ROOT + "/.claude/skills/_shared"); import buildcap; buildcap.wait("SL-15 deliver " + " ".join(sys.argv[1:]))
     for S in sys.argv[2:] or list(P.SEG): fn(S)

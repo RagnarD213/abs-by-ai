@@ -6,6 +6,8 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 
 ---
 
+- **My First Spray Tan SFL R2, hair at the top edge (2026-10-21; Decision since: 2026-10-21):** the 8/3 camera framed your hair at the top row on every shot, so the two spray tan Shorts cannot meet the 2026-10-20 headroom rule (gate fails only `framing:hair_top`/`headroom`; the approved RO-19 film has the same framing). OK as is, drop them, or cover more talking with clips? Review page http://127.0.0.1:9015/.
+
 - **Review skill, two small questions (2026-10-20; Decision since: 2026-10-20):** (a) answered 2026-10-20: the eyebrow stays in capitals. (b) When a human editor sends AI start/end frames for a go-ahead, should Claude run our frame gate and a fresh frame-reviewer on them first (our own pipeline does since 2026-10-14)? Rec: yes to both.
 
 - **Arms Shoulders Workout LFC R3 (2026-10-20; Decision since: 2026-10-20):** Approve the complete 2:05.86 workout or give timestamped changes. Approved color B, framing, original stereo audio and timers retained. Full review: http://127.0.0.1:8974/. Checks and backup: `Handoffs/video-editing/ro04-round3-plan/review-receipt.json`.
