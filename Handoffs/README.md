@@ -11,6 +11,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Extreme Drive Cleanup](handoff-20261021-extreme-drive-cleanup.md): **Start now (2026-10-21): Extreme had 13 GB free. Codex GPT-6.1 Sol, high.** Ops. Move job folders untouched for 14+ days (about 94 folders, 681 GB) from `/Volumes/Extreme/_edit_work/` to `/Volumes/Expansion/_edit_work/`, verified before each removal; nothing outside `_edit_work`, nothing deleted without a verified copy.
 - [First Step Abs AD Setup](handoff-20261021-ra12-setup.md): RA-12 approved 9:16 (2026-10-21): five Codex thumbnails, stop for Dan's pick, Unlisted upload, trial campaign. Opus 5.5 high.
 - [Celebrity Ozempic LFC R2](handoff-20261020-ro24-celebrity-ozempic-round2.md): **Waits for Dan's reply to the round 1 page (http://127.0.0.1:9124/). Claude Opus 5.5, high.** RO-24: apply his key, colour, background and voice picks, photos only after his yes, then graphics, B-roll, AI frames and the full film from the take list already made.
 - [Zepbound Even If Ripped LFC R2](handoff-20261021-ro28-zepbound-even-if-ripped-round2.md): **After Dan replies to the round-1 page (http://127.0.0.1:8928/). Claude Opus 5.5, high.** CONTENT LFC RO-28: record his 5 picks, AI motion on Flow for the approved pairs, then the full film with every gate and the independent review. Release ASAP.
