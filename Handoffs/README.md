@@ -23,7 +23,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 
 
-- [Top 5 Zepbound Tips SFL R4](handoff-20261018-sl06-round4-shirtless-gym-intros-and-better-thigh-clips.md): **Ready now (2026-10-18). Claude Opus 5.5 / High.** CONTENT. Dan rejected the R3 stage 1 look: regenerate all six flex-intro frame pairs shirtless in a real gym with a real-looking poster, find better front-thigh injection clips for C, refresh page 8821, then Flow motion and rebuild. One-click card shown 10-18.
+- [Top 5 Zepbound Tips SFL R6](handoff-20261021-sl06-round6-natural-ai-intros.md): **Ready now (2026-10-21). Claude Opus 5.5 / High.** CONTENT. Dan rejected all six R5 AI intro clips as AI slop (weird smile, shaking, straining flex): closed-mouth relaxed-smile frames, calm natural motion on Flow, several takes, no mouth patching, stricter QC, rebuild six, gates, review, page 8821.
 - [I'm 41 Wasted Life LFC Setup](handoff-20261017-ro25-approved-thumbnail-and-video-setup.md): **Film approved and finalized 2026-10-17; existing setup handoff ready.** Thumbnail C approved and finalized, red age and white regret text. Use the exact final JPEG; skip new thumbnail choices. Target Oct 18 YouTube / Oct 19 socials, verify live slots. Claude Opus 5.5 / High.
 
 
