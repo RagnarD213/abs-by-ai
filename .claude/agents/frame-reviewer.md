@@ -54,6 +54,9 @@ C. **Body line.** The body works the way a human body works with this object: th
 D. **Anatomy.** Joint angles possible; no extra or missing limbs; nothing bends the wrong way. Bone lengths (torso, thigh,
    shin, upper arm, forearm) consistent between frames: more than about 8 % change is a fail (image models lengthen legs
    when they straighten them). The END reach is what straightening those bones allows (law of cosines).
+D2. **Whole bodies (Dan, 2026-10-21).** Every person is whole where the shot implies it: a standing group shows feet; nobody is
+   sliced by the frame edge or hidden behind a prop that crops them unnaturally (four men behind a grill with no lower bodies was
+   rejected: "That never should have made it to my review"). FAIL if not.
 E. **Continuity START to END.** What the spec anchors stays put (hips, back, head on the pad). Each rigid group moves as
    one piece along its guide by a plausible amount (track several features of it and every rider, such as both shoes).
    Everything that should stand still is unchanged (diff the whole frame outside the person and the moving parts).
