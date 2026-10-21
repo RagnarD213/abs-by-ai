@@ -41,7 +41,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-25 Git sync BLOCKED 2026-10-18, Codex.** Public video, article post 886, and manually uploaded 257-cue English SRT are verified. Caption uploader and receipt are committed locally as `340ed22`. Safe-push aborted on nine merge conflicts across other sessions' files; no merge is in progress. Next: hand-merge shared main with owners or push these records from a clean checkout, without discarding their work.
 
-**Fat 90 Year Old SFC R2 - REVIEW 2026-10-20, Claude.** Key polish delivered, reviewer SHIP; page :8940. Next: Dan's call on the key. Work: `ds40/r2/`.
+**Fat 90 Year Old SFC R3 - ACTIVE 2026-10-21, Claude.** R2 key locked as house standard (AGENTS). Building opening: clip full screen, Dan small, then large. Work: `ds40/r3/`.
 
 **SL-15:R2-REVIEW:9015:2026-10-21:Claude.** Shorts delivered; reviewers SHIP; gate fails only camera hair. Next: Dan.
 
