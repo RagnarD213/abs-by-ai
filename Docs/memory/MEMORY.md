@@ -27,7 +27,7 @@
 - [Credentials](autonomy-credentials-framing.md): Claude's limit, one line
 - [Takeovers](computer-takeover-frustration.md): warn first
 - [Browser fallback](browser-task-fallback.md): use in-app pane
-- [Longform finals](longform-delivery-location.md): folder; work on Seagate
+- [Longform finals](longform-delivery-location.md): finals in folder; work in `renderq.py workdir` folder
 - [Audio strip](audio-never-over-strip.md): never past reference
 - [Editor audio](editor-audio-untouched.md): untouched, --verbatim
 - [Gate the harm](gate-the-harm-not-just-the-fix.md): bound a fix's damage
