@@ -10,7 +10,9 @@ Dan's rules for this calendar:
 - Sundays take the strongest available film, Wednesdays the weakest.
 - A film still in editing (RO-17, RO-14, RO-18) that finishes before December takes the 2026 Sunday of the newest
   not-yet-edited studio film: RO-22 (Dec 13) gives way first, then RO-30 (Nov 29).
-- RO-20, RO-20B, RO-20C ("Invest In Your Health") are off the schedule until Dan says otherwise.
+- RO-20, RO-20B, RO-20C ("Invest In Your Health", a 3 part series) came back on 2026-10-20 at their setup: parts 1 and 2
+  took the Sundays of RO-21 and RO-30 (not started), Sun Dec 6 is held for part 3 (RO-28, not started, moves to 2027 unless it
+  finishes first; its script says "this year").
 - RO-04 (Arms & Shoulders) sits late to give its edit time.
 
 Status: **Live** = scheduled in Blotato (re-read 2026-10-17). **Waitlist** = finished, on `scripts/blotato/video_waitlist.json`
@@ -29,11 +31,11 @@ date at setup.
 | Wed Nov 11 | Video 4: My Honest Oura Ring Review | Live |
 | Sun Nov 15 | RO-27 It's Boring, But It Got Me Abs At 40 | Not finished |
 | Wed Nov 18 | RO-08 Intermittent Fasting | Waitlist (TikTok uploaded by hand Thu Nov 19) |
-| Sun Nov 22 | RO-21 What Every Body Fat Percentage Looks Like | Not finished |
+| Sun Nov 22 | RO-20 Why You Should Invest More In Your Health (part 1 of 3) | Waitlist (set up 2026-10-20; TikTok uploaded by hand Mon Nov 23). Receipt `Docs/RO20_RO20B_SETUP_RECEIPT_20261020.md` |
 | Wed Nov 25 | RO-06 How To Work Out At Home On A Budget | Live |
-| Sun Nov 29 | RO-30 The Fastest Way To Lose Stubborn Love Handles | Not finished |
+| Sun Nov 29 | RO-20B What To Cut To Afford Getting In Shape (part 2 of 3) | Waitlist (set up 2026-10-20). Receipt `Docs/RO20_RO20B_SETUP_RECEIPT_20261020.md` |
 | Wed Dec 2 | Video 5: Getting Abs At 40 vs 25 | Waitlist |
-| Sun Dec 6 | RO-28 Why Zepbound Improves Your Health Even If You're Ripped | Not finished (script says "this year") |
+| Sun Dec 6 | Held for RO-20C What To Buy For Your Health At Every Income Level (part 3 of 3) | Not finished (in editing, round 5) |
 | Wed Dec 9 | RO-02 The Stomach Vacuum | Live |
 | Sun Dec 13 | RO-17 3 Healthy Foods That Made Me Fat | Set up 2026-10-18 (took RO-22's Sunday by the rule above); Facebook/Instagram/TikTok Mon Dec 14 noon. Receipt `Docs/RO17_SETUP_RECEIPT_20261018.md` |
 | Wed Dec 16 | RO-03 The Vacuum Workout | Live |
@@ -42,5 +44,5 @@ date at setup.
 | Sun Dec 27 | RO-10 Calories: The Reason You're Not Losing Weight | Live (YouTube only; socials went out Oct 8) |
 | Wed Dec 30 | RO-13 Can You Drink Alcohol And Still Have Abs? | Waitlist, four schedules removed Oct 17 to secure RO-25; original date retained |
 
-**2027, tentative:** Sundays RO-22 (gave Dec 13 to RO-17), RO-24, RO-29, RO-31, RO-23; Wednesdays RO-04, RO-09, RO-15, RO-18, RO-14 (weakest
+**2027, tentative:** Sundays RO-22 (gave Dec 13 to RO-17), RO-21, RO-30, RO-28 (gave Nov 22, Nov 29, Dec 6 to the Invest In Your Health series), RO-24, RO-29, RO-31, RO-23; Wednesdays RO-04, RO-09, RO-15, RO-18, RO-14 (weakest
 first by the ranking). RO-32 waits for gym B-roll; RO-33 to RO-36 are not filmed.

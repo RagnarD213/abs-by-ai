@@ -12,9 +12,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 ## OPEN — not yet executed
 
 - [Celebrity Ozempic LFC R2](handoff-20261020-ro24-celebrity-ozempic-round2.md): **Waits for Dan's reply to the round 1 page (http://127.0.0.1:9124/). Claude Opus 5.5, high.** RO-24: apply his key, colour, background and voice picks, photos only after his yes, then graphics, B-roll, AI frames and the full film from the take list already made.
-- [Skip List Carousel R2](handoff-20261020-skip-list-carousel-redesign.md): **Ready now (2026-10-20). Claude Opus 5.5, high; images by Codex subscription.** Redo the unposted "7 things I'd skip" Instagram carousel: five cover designs each with a real photo of Dan, an image on every slide, review page, stop for Dan's pick, then schedule on @danrosefit.
-- [Oura Ring Review SFL R4](handoff-20261020-sl09-oura-shorts-r4-ai-clips.md): SL-09, Dan finalized shorts 1-3 on 2026-10-20 and approved three AI clips (K1, J1, J2 with the band made a WHOOP); make them on the Flow subscription, rebuild shorts 4 and 5, review, gate, page. Opus 5.5 high.
-- [Invest In Your Health LFC Setup](handoff-20261020-ro20-ro20b-thumbnails-and-video-setup.md): RO-20 and RO-20B finalized 10-20; five thumbnails each, stop for picks, then set up in order (video 1 then 2). Claude Opus 5.5 high.
+- [Zepbound Even If Ripped LFC R2](handoff-20261021-ro28-zepbound-even-if-ripped-round2.md): **After Dan replies to the round-1 page (http://127.0.0.1:8928/). Claude Opus 5.5, high.** CONTENT LFC RO-28: record his 5 picks, AI motion on Flow for the approved pairs, then the full film with every gate and the independent review. Release ASAP.
 - [Fat 90 Year Old SFC R2](handoff-20261020-ds40-round2-key-polish.md): **Start now (2026-10-20). Claude Opus 5.5, high.** CONTENT SFC, green screen bake-off with Codex. Dan locked colour B and house voice + half bass; make the key beat R1 (hair flicker, dark rim, watch glass), independent review, R1 vs R2 page on 8940.
 - [Boring Abs At 40 LFC R2](handoff-20261020-ro27-round2-headroom-and-ai-revisions.md): **Start now (2026-10-20). GPT-6.1 Sol, high.** Fix and verify headroom in every wide/tight shot; apply selected richer colour C and warm-bass voice B; show all existing AI clips for the fasting opener choice; revise A01–A04 frames and remove A05–A06. R2 review before new motion or full film.
 
@@ -24,14 +22,11 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 
 - [Top 5 Zepbound Tips SFL R4](handoff-20261018-sl06-round4-shirtless-gym-intros-and-better-thigh-clips.md): **Ready now (2026-10-18). Claude Opus 5.5 / High.** CONTENT. Dan rejected the R3 stage 1 look: regenerate all six flex-intro frame pairs shirtless in a real gym with a real-looking poster, find better front-thigh injection clips for C, refresh page 8821, then Flow motion and rebuild. One-click card shown 10-18.
-- [Fire Your Trainer AD Setup](handoff-20261018-ra07-setup.md): RA-07 "Fire Your Trainer!" 9:16 approved 2026-10-18 (Dan: "do the setup in the next round"); five Codex thumbnails, stop for Dan's pick, Unlisted upload, trial campaign group. One-click card shown 10-18. Opus 5.5 high.
 - [I'm 41 Wasted Life LFC Setup](handoff-20261017-ro25-approved-thumbnail-and-video-setup.md): **Film approved and finalized 2026-10-17; existing setup handoff ready.** Thumbnail C approved and finalized, red age and white regret text. Use the exact final JPEG; skip new thumbnail choices. Target Oct 18 YouTube / Oct 19 socials, verify live slots. Claude Opus 5.5 / High.
 
 
 
 
-- [AI Homework SFC Setup](handoff-20261020-ds31-ai-homework-setup.md): DS-31 finalized R2 Short (colour C, A1 opener): five Codex covers, stop for Dan's pick, then Blotato on all four platforms; one-click card shown 10-20. Opus 5.5 high.
-- [First Step Abs AD R2](handoff-20261017-ra12-round2-prospect-and-graphics.md): RA-12 round 2 from Dan's answers (AI prospect instead of Dan, graphics under captions, new opening clips); one-click card shown 10-17. Opus 5.5 high.
 - [Upwork profile and portfolio](handoff-20261007-upwork-profile-and-portfolio.md): interview Dan, verify experience and assets, build and publish the approved profile. Opus 5.5 high.
 - [Upwork jobs and proposals](handoff-20261007-upwork-job-applications.md): interview for criteria and budgets, decide promotion, prepare custom proposals/samples, submit approved batches, assess Grok Bot scouting. GPT-6.1 Sol high.
 
@@ -188,6 +183,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Date | Document | Subject |
 |---|---|---|
+| 2026-10-20 | [Skip List Carousel R2](handoff-20261020-skip-list-carousel-redesign.md) | EXECUTED 2026-10-20: Dan picked cover A (navy gym stack), kept "at 40". 9 slides queued once on Instagram @danrosefit for Sat Oct 24 noon CT (Blotato schedule 5826205, verified by hash); finals in `Short-form video content/instagram-danrosefit/carousel-skip-list-r2/`, public Drive folder `1ORREG5GbagpW7lRkXfYf7AdFOgUkoMRu`. Script: `scripts/blotato/skiplist_r2_queue.py`. |
+| 2026-10-20 | [Invest In Your Health LFC Setup](handoff-20261020-ro20-ro20b-thumbnails-and-video-setup.md) | EXECUTED 2026-10-20: RO-20/RO-20B thumbnails picked (A7 piggy bank, B7 Skid Row T3), configs, media, FB covers, waitlist for Sun Nov 22 / Sun Nov 29. [Receipt](../Docs/RO20_RO20B_SETUP_RECEIPT_20261020.md) |
 | 2026-10-20 | [Arms Shoulders Workout LFC R3](handoff-20261020-ro04-round3-color-b-full-film.md) | EXECUTED: complete workout delivered for Dan review at http://127.0.0.1:8974/. [Receipt](video-editing/ro04-round3-plan/review-receipt.json). |
 | 2026-10-17 | [handoff-20261017-ro20-round4-three-films.md](handoff-20261017-ro20-round4-three-films.md) | EXECUTED 2026-10-19: RO-20/B/C round 4, three full films delivered for Dan's review on :8868 |
 | 2026-09-22 | [handoff-20260922-install-approved-breakfast-short-thumbnail.md](handoff-20260922-install-approved-breakfast-short-thumbnail.md) | EXECUTED: approved revised B2 installed on `UFga137pseM`; backup and verification in [installation report](../output/thumbnails/breakfast-short-20260922/INSTALLATION.md) |

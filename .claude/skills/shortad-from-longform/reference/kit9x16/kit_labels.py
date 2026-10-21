@@ -34,7 +34,8 @@ from motionlib import font, text_size  # noqa: E402
 
 FPS = 30000 / 1001
 VW, VH = 1080, 1920
-REAL_LABEL = "Real picture of me - not AI-generated"
+REAL_LABEL = "Real Photo Of Me, Not AI-Generated"          # VIDEO-RULES "Real-photo labels include touched-up photographs" (Dan 2026-10-17):
+REAL_LABEL_PLURAL = "Real Photos Of Me, Not AI-Generated"  # title case, comma, no em dash, never "Retouched"; plural for a group of photos in one beat (`sheet_label`)
 AI_LABEL = "AI-GENERATED"
 CLEAR = 16                    # px of clearance between the chip and any pixel of him (sqlabelplace)
 VERIFY_PX = 8                 # the delivered-file bound (sqlabelplace --verify)
@@ -57,14 +58,26 @@ def _font(size):
     return font(size, "SemiBold")
 
 
+def is_real(label):
+    """The real-photo chip, current wording ("Real Photo(s) Of Me, Not AI-Generated") or a legacy one still carried
+    by an older label_place.json / sheet_label ("Real picture of me - not AI-generated", "Real picture of me. Not
+    AI-generated."). The AI chip never starts this way."""
+    return str(label or "").lower().startswith("real p")
+
+
 def chip_parts(label, lines):
-    if lines == 1 or not label.lower().startswith("real picture"):
+    """Line breaks for the real-photo chip: 2 lines break after the first punctuated word ("Real Photo Of Me," /
+    "Not AI-Generated"; a legacy hyphen copy breaks before the "-"), 3 lines keep "AI-Generated" alone on the last
+    ("Real Photo" / "Of Me, Not" / "AI-Generated"). Same split for the Soft Blue Light and the olive chip."""
+    if lines == 1 or not is_real(label):
         return [label]
-    if SBL:                                           # "Real picture of me. Not AI-generated."
-        return ["Real picture of me.", "Not AI-generated."] if lines == 2 else ["Real picture", "of me. Not", "AI-generated."]
+    w = label.split()
     if lines == 2:
-        return ["Real picture of me", "- not AI-generated"]
-    return ["Real picture", "of me - not", "AI-generated"]
+        cut = next((i + 1 for i, t in enumerate(w[:-1]) if t[-1] in ",.:"), None)
+        if cut is None:
+            cut = next((i for i, t in enumerate(w) if t in ("-", "\u2014")), len(w) // 2)
+        return [" ".join(w[:cut]), " ".join(w[cut:])]
+    return [" ".join(w[:2]), " ".join(w[2:-1]), w[-1]]
 
 
 def chip_dims(label, lines, size):
@@ -132,7 +145,7 @@ def candidates(label, union, hbox):
 
     def clear(x, y, w, h):
         return ii[y + h, x + w] - ii[y, x + w] - ii[y + h, x] + ii[y, x] == 0
-    lines_opts = (1, 2, 3) if label.lower().startswith("real picture") else (1,)
+    lines_opts = (1, 2, 3) if is_real(label) else (1,)
     out = []
     for cls in ("A", "B", "C"):
         for size in (44, 40, 36, 34, 32, 30, 28, 26, 24):      # 26, 24: a person who fills the frame leaves only a corner (Ad 6 round 2, Dan: fill before boxing)
@@ -372,15 +385,19 @@ def redraw_existing(build):
     """Redraw chip text at already measured placements without rerunning masks.
 
     This is for copy-only changes that make a chip no larger than the measured
-    one. The hyphenated real-photo disclosure is narrower than the former em-dash
-    copy, so its existing clear boxes remain conservative. A delivered-file
-    `--verify` is still mandatory after rendering.
+    one: it refuses (rerun placement) when the redrawn chip is wider or taller than
+    the measured box. The title-case copy of 2026-10-17 ("Real Photo Of Me, Not
+    AI-Generated") is narrower than the hyphen copy it replaced in one and two lines
+    (measured 2026-10-20: 611 vs 631 px at 34/1L), but the olive THREE-line chip is
+    2-5 px wider (252 vs 248 at 34), so a 3-line olive placement is refused here and
+    needs `--only <key>` placement. A delivered-file `--verify` is still mandatory
+    after rendering.
     """
     os.chdir(build)
     J = json.load(open("beats.json"))
     res = json.load(open("label_place.json"))
     for key, c in res.items():
-        label = REAL_LABEL if str(c.get("label", "")).startswith("Real picture") else AI_LABEL
+        label = REAL_LABEL if is_real(c.get("label")) else AI_LABEL
         old_w, old_h = int(c["w"]), int(c["h"])
         w, h = chip_dims(label, int(c["lines"]), int(c["size"]))
         if w > old_w or h > old_h:

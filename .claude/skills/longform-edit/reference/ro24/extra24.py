@@ -5,7 +5,8 @@ L = lambda p: json.load(open(p)) if os.path.exists(p) else None
 opt = L(f'{OUT}/look/options.json'); kn = {k: L(f'{C}/keynum-{k}.json') for k in ('K1', 'K2', 'K3')}
 h1, h5 = L(f'{C}/hair-1080.json'), L(f'{C}/hair-540.json'); hf = L(f'{C}/hf/checks.json')
 t1, t2 = L(f'{W}/audio/opts/trials_100.json'), L(f'{W}/audio/opts/trials_200.json')
-rev = open(f'{OUT}/INDEPENDENT-CHECK.md').read() if os.path.exists(f'{OUT}/INDEPENDENT-CHECK.md') else ''
+import glob   # the newest independent report decides the status line (re-check 4 P2: it read the first report)
+_revs = sorted(glob.glob(f'{OUT}/INDEPENDENT-*.md'), key=os.path.getmtime); rev = open(_revs[-1]).read() if _revs else ''
 verdict = (re.findall(r'VERDICT:\s*([A-Z ]+)', rev) or ['not run yet'])[-1].strip()
 ag = open(f'{C}/audio_gate.log').read() if os.path.exists(f'{C}/audio_gate.log') else ''
 agv = 'PASS' if re.search(r'\bPASS\b', ag.splitlines()[-1] if ag else '') else ('see log' if ag else 'not run')
@@ -22,7 +23,7 @@ X = dict(
  intro="Cut from 10/15 roll C1726, the Ozempic part (7:25 to the end of the roll). For this round you asked me to dial in the chroma key, the audio, the colour and the first minute before anything else, so that is all this page is: the key, three colours, three backgrounds, three voices, and the first minute built with my picks. The celebrity photos, the other graphics and the full film (about 7 minutes) come next round, once these are locked.",
  locked="The Bill Maher green-screen key you locked on 10/20 (its body and arm matte plus the steady fine hair), recalibrated for this 16:9 roll. Soft Blue Light lower thirds.",
  decisions=[
-  "<b>Key:</b> A) <b>Refined edges</b> (recommended): the approved Bill Maher key with three things improved on this roll: solid hair and forehead no longer let the background show through, the thin olive line on arms and ears is mostly gone, and on fast hand moves the olive outline and the grey left between your fingers are much reduced (not perfect: a faint rim can remain on the fastest moves). B) The Bill Maher key exactly as approved. Compare your hands at 0:40, 0:44 and 0:51 in the clips below.",
+  "<b>Key:</b> A) <b>Refined edges</b> (recommended): the approved Bill Maher key, improved where it slipped on this roll. Your hair and forehead no longer let the background show through (20 % of those pixels before, under 0.5 % now) and the green fringe on your arms and ears is mostly gone. Moving hands are only partly fixed: about half the green between your fingers is gone (clean at 0:51.0, mostly clean at 0:44.1), but small green or khaki patches remain between your fingers at 0:04.8, 0:39.6, 0:43.9 to 0:44.1, 0:47.9 to 0:48.0 and 0:51.1 to 0:51.6, and your thumb at 0:40 keeps a thin brown outline. It also adds two small flaws the approved key does not have: a pale streak on your shorts for a tenth of a second at 0:25.0 (smaller specks at 0:01 and 0:40.3), and the rim of your watch goes slightly see-through at 0:08.5 and 0:08.9. B) The Bill Maher key exactly as approved: solid shorts and watch, but more green around moving hands and see-through spots in the hair. Look at 0:08, 0:25 and 0:48 in the first minute, and the hand clips below.",
   "<b>Colour:</b> A) <b>Warm</b> (recommended, Bill Maher's approved grade). B) Rich (more colour and contrast). C) Natural (cooler, softer).",
   "<b>What is behind you:</b> A) <b>Light studio with depth</b> (recommended): light grey-blue, a little brighter behind you, deeper at the edges. B) Bill Maher's flat light grey. C) Soft Blue navy (dark, with the brand's blue glow behind you).",
   "<b>Voice:</b> A) <b>Bill Maher's voice plus the bass lift</b> (recommended). B) Bill Maher's voice exactly. C) Open (a gentler warm shape).",
@@ -41,9 +42,9 @@ X = dict(
   dict(title='Approved vs refined (Sharon lines, hands moving)', mp4='key/key-side-sharon.mp4', jpg='key/key-side-sharon.jpg', note='A stretch with gestures, to check hands and motion blur.'),
   dict(title='Hair and edges close up (Sharon lines)', mp4='key/key-hair-sharon.mp4', jpg='key/key-hair-sharon.jpg', note='Light field on top, dark below.'),
   dict(title='Raw vs keyed (Sharon lines)', mp4='key/key-raw-sharon.mp4', jpg='key/key-raw-sharon.jpg', note=''),
-  dict(title='Fast hands at 0:40: approved vs refined', mp4='key/key-side-hands1.mp4', jpg='key/key-side-hands1.jpg', note='The moment the independent check flagged: olive outline and cut-out blur on the left, refined on the right.'),
-  dict(title='Fast hands at 0:51: approved vs refined', mp4='key/key-side-hands2.mp4', jpg='key/key-side-hands2.jpg', note='Second flagged moment.'),
-  dict(title='Finger gaps at 0:44: approved vs refined', mp4='key/key-side-gaps.mp4', jpg='key/key-side-gaps.jpg', note='Grey screen between fingers and arm on the left; refined on the right.'),
+  dict(title='Fast hands at 0:40: approved vs refined', mp4='key/key-side-hands1.mp4', jpg='key/key-side-hands1.jpg', note='Left: the approved key (olive outline, cut-out blur). Right: refined, cleaner, but your thumb keeps a thin brown outline.'),
+  dict(title='Fast hands at 0:51: approved vs refined', mp4='key/key-side-hands2.mp4', jpg='key/key-side-hands2.jpg', note='Left: approved, with green between the fingers. Right: refined, less green, but a green patch is still there for a moment.'),
+  dict(title='Finger gaps at 0:44: approved vs refined', mp4='key/key-side-gaps.mp4', jpg='key/key-side-gaps.jpg', note='Left: approved, olive screen between your fingers and arm. Right: refined, most of it gone, a thin green strip left.'),
  ],
  key_numbers=[('Measured on all three first-minute takes', 'Approved key', 'Refined edges'),
   ('Pixels inside the head and hair that let the background through', f"{kavg('approved','interior_below_099_pct'):.1f} %", f"{kavg('refined','interior_below_099_pct'):.1f} %"),
@@ -72,8 +73,9 @@ X = dict(
   "The key subtracts this green screen as it really is (I measured its folds and creases from 40 frames), not a smooth guess of it. That keeps the edges tight next to your head and arms.",
   "Two lower thirds in the first minute: \"SHARON OSBOURNE / Lost 42 Pounds In 4 Months. Under 100 Pounds.\" and \"KEY POINT / Lower Your Dose When You Lose Too Fast.\" The small label line is in capitals (your 10/20 rule). No drug names on screen.",
   "The script's Elon Musk section was not filmed. The film goes from the protein rule straight to Oprah and Tracy Morgan, which reads fine, so no pickup.",
-  "Fast hand moves: the approved key reads a blur of skin and green as solid, so fast-moving hands get an olive outline and the screen stays grey between your fingers. The refined key separates skin from screen on fast moves only, and never touches your shorts, the watch, shaded skin or your face (an earlier version did; an independent check caught it and it is fixed). Comparison clips at 0:40, 0:44 and 0:51.",
+  "Moving hands: the approved key reads a blur of skin and green as solid, so moving hands get an olive outline and the screen stays olive between your fingers. The refined key separates skin from screen where your hands move. It removes about half of that green. What is left, and the two small flaws it adds (shorts at 0:25, watch rim at 0:08.5), are listed under Key. Five versions of this step went through independent checks; each one that opened more of the finger gaps also opened your shorts or watch, so this is the balance point. Comparison clips at 0:40, 0:44 and 0:51.",
   "Both lower thirds now end just before the next cut, so nothing changes size under them as they leave.",
+  "The clear arm of your glasses and the watch glass show a little green, because they really do show or reflect the screen (raw footage too). Next round can tint just those neutral.",
   "At 0:46 you lean right while finishing \"instead of younger\". You are still talking, so it stays.",
   "One word (\"That's\", 0:35) touched the mic's clipping ceiling for about a thousandth of a second. Inaudible, left as is.",
   "On the light background the lower thirds' glass strip reads lighter (slate blue) than on your studio films, because the background shows through it. The text stays clear. If you want it darker, say so and next round makes the strip more solid.",
@@ -98,7 +100,7 @@ hc = lambda r: (f"{r['frames_checked']} frames checked, closest hair {r['min_top
 X['checks'] = [f"Hair clearance on the 1080p first minute (every 0.25 s plus both sides of every cut): {hc(h1)}.", f"Same on the 540p review copy: {hc(h5)}.",
                "Sound checks on the first minute: 12 of 13 pass. The tone check fails, as it always does with a fixed tone shape like the bass lift (same as Bill Maher).",
                f"Lower thirds, face clear of the strip: {('PASS' if hf and not hf.get('failures') else 'see checks/hf') if hf else 'not run'}.",
-               f"Independent reviewer on the packet: {verdict}."]
+               f"Independent reviewer on the packet: {verdict} (check {len(_revs)} of {len(_revs)}; the earlier ones found the problems fixed or listed above)."]
 for g in X['graphics']:
     g['check'] = 'face clear of the strip' if hf else ''
 json.dump(X, open(f'{OUT}/page_extra.json', 'w'), indent=1); print('extra ok')

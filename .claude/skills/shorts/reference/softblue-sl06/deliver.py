@@ -103,8 +103,8 @@ def plan(S):
     ai = []                                                 # AI clips (not of Dan): the AI-GENERATED chip is drawn on the frame at cover['ai']
     for sh in shots:
         if sh["kind"] == "clip" and sh["cover"].get("ai"):
-            x0, y0 = sh["cover"]["ai"][:2]; cb = Bt.chip_png("AI-GENERATED", (x0, y0), u=sh["cover"]["ai"][2] if len(sh["cover"]["ai"]) > 2 else 2)[1]      # the chip's REAL box (it was declared 280 x 60 and drawn 505 x 80)
-            ai.append(dict(name=sh["cover"]["id"], beat=beat(sh), pos=[x0, y0]))
+            ca = sh["cover"]["ai"]; x0, y0 = ca[:2]; cb = Bt.chip_png("AI-GENERATED", (x0, y0), u=ca[2] if len(ca) > 2 else 2, anchor=ca[3] if len(ca) > 3 else "lt")[1]      # the chip's REAL box (it was declared 280 x 60 and drawn 505 x 80); r5: anchor rt/mt for the intros
+            ai.append(dict(name=sh["cover"]["id"], beat=beat(sh), pos=[cb[0], cb[1]]))
             regions.append(dict(name=f"chip{sh['idx']}", beat=beat(sh), rect=[cb[0], cb[1], cb[2] - cb[0], cb[3] - cb[1]]))
     # captions:sync gets ONE delivered word per caption chunk, its first word (DS-17 method): matching chunk-first words
     # alone against every spoken word lands on the wrong repeat

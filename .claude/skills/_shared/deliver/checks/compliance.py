@@ -504,7 +504,8 @@ def labels(key, pr, cfg, plan, video, work):
     """compliance:labels -- every picture of Dan's physique carries EXACTLY ONE label.
 
     ⚠ DAN'S RULE, 2026-09-11, now standing in AGENTS.md: his REAL photographs carry
-    "Real picture of me -- not AI-generated"; AI images of him carry "AI-GENERATED". The two are
+    "Real Photo Of Me, Not AI-Generated" (wording since 2026-10-17; plural "Real Photos Of Me, Not
+    AI-Generated"; it was "Real picture of me -- not AI-generated"); AI images of him carry "AI-GENERATED". The two are
     mutually exclusive and every picture of his physique carries exactly one of them. Viewers were
     taking his real photos for AI, which is the reason the first label exists at all.
 

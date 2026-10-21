@@ -1,7 +1,7 @@
 # Skip List Carousel R2: five cover designs, an image on every slide
 
 Date: 2026-10-20
-Status: Ready now.
+Status: **EXECUTED 2026-10-20.** Dan picked cover A (navy gym stack) and kept "at 40". The 9 slides (cover A + navy interior) are queued once on Instagram @danrosefit for Saturday 2026-10-24 12:00 America/Chicago (Blotato schedule 5826205; all 9 images hash-verified in order; the other 171 queued posts untouched). Finals: `Short-form video content/instagram-danrosefit/carousel-skip-list-r2/` (build code in `_build/`); Drive: https://drive.google.com/drive/folders/1ORREG5GbagpW7lRkXfYf7AdFOgUkoMRu (anyone with the link). Work folder: `/Volumes/Extreme/_edit_work/skiplist-carousel-r2/`. 8 Codex images, none regenerated.
 Recommended model and effort: **Claude Opus 5.5, high** (design work, per `model-routing-plan`). Every generated image is made by
 **Codex on Dan's subscription** through `.claude/skills/_shared/codex-image.sh --model gpt-6.1-sol --effort high`.
 Suggested task name: `Skip List Carousel R2`.

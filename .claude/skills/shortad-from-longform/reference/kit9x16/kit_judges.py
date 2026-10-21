@@ -76,7 +76,7 @@ def declarations(B, audit):
     lab = [(t["name"], t["beat"], t["kind"]) for t in plan.get("label_tracks") or []]
     if lab:
         out.append("Pictures that must carry a label chip for their whole time on screen: "
-                   + "; ".join(f"{n.split('-', 2)[-1]} {mmss(b[0])} to {mmss(b[1])} ({'AI-GENERATED' if k == 'ai' else 'Real picture of me'})"
+                   + "; ".join(f"{n.split('-', 2)[-1]} {mmss(b[0])} to {mmss(b[1])} ({'AI-GENERATED' if k == 'ai' else 'Real Photo Of Me'})"
                                for n, b, k in lab)
                    + ". The chip must be readable and clear of any face and any abs. A missing or wrong chip is a defect.")
     return out

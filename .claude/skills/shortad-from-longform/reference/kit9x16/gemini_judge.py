@@ -31,7 +31,7 @@ DESIGN_FACTS = """DESIGN FACTS OF THIS FORMAT (the kit9x16 vertical). These are 
 - A light-leak / white flash on the return from an inserted picture to the talking head is his design.
 - Word-timed captions sit in a band over the lower frame; they are suppressed under text plates and under
   labelled pictures of Dan.
-- Real photos of Dan carry one chip "Real picture of me - not AI-generated"; AI pictures carry "AI-GENERATED".
+- Real photos of Dan carry one chip "Real Photo Of Me, Not AI-Generated" (plural "Real Photos Of Me, Not AI-Generated"); AI pictures carry "AI-GENERATED".
   Exactly one label per picture of his physique, never over his face or abs.
 A DEFECT is anything on the checklist that is not one of the above: a jump cut where the subject moves between
 -1 and 0 with the same framing and the same scene, hair cut by the top edge, a label or caption over his face or

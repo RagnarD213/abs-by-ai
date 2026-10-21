@@ -25,6 +25,13 @@ the subscription credits run out, ask me before paying."*
    `veo.py api JOBDIR A1 --paid-ok "<his words>"`. Rush: `veo.py api JOBDIR A1 --rush "<his words>"`.
    Paid takes still count against the per-video generation budget (VIDEO-RULES, "Video clip generation budget").
 
+## Subscription upgraded (Dan, 2026-10-20)
+
+Dan: *"We've upgraded our Google Video Generation subscription. Try it again, and do it on subscription."* The Flow balance read
+9,830 credits right after the upgrade (it had been 10 that afternoon, when four editing sessions drained the Pro allowance). At
+20 credits a Fast clip that is about 490 clips, so plan retakes on the subscription; the paid API stays for "rush" only. The
+Pro figures in the table below are history; read the live balance (`veo.py credits`) before a big batch.
+
 ## What the subscription gives (measured 2026-10-17 on Pro, the 5-clip test)
 
 **Ultra since 2026-10-20:** 10,000 credits a month + 50 a day. Live Flow rates on Ultra (read 2026-10-20): **Veo 3.1 Fast 10, Lite 5, Omni 1.1 Flash 12** per 8 s clip, so about 1,000 Fast clips a month. Omni bake-off (`/Volumes/Extreme/_edit_work/omni-bakeoff-20261020/`, blind page on :9071, key in `blind-key.json`): Omni refused the Top 5 Zepbound Tips shirtless 9:16 pair twice ("reputational risk"), Veo made it. Default stays Veo 3.1 Fast unless Dan's blind picks say otherwise.

@@ -110,6 +110,11 @@ def work(i):
         (w1, c1), (w2, c2) = nb
         tracked = (c1 > 0.6) & (c2 > 0.6)
         detached = ndi.distance_transform_edt(a_new <= 0.9) >= 2
+        # only islands: a blurred fingertip is one piece with its hand (alpha > 0.1 all the way); a grain clump is not
+        lab, n = ndi.label(a_new > 0.1)
+        if n:
+            body = np.unique(lab[ndi.binary_dilation(a_new > 0.9)]); body = body[body > 0]
+            detached &= ~np.isin(lab, body)
         cap = np.maximum(w1, w2) + 0.1
         a_new = np.where(tracked & detached & (a_new > cap), cap, a_new).astype(np.float32)
     # colour: unpremultiply, then decontaminate toward nearby solid colour as alpha falls
@@ -141,10 +146,10 @@ def work(i):
         # the glass's outermost sliver blends with the screen (up to ~0.85): grow into it, 2 px at most
         for _ in range(2):
             m |= ndi.binary_dilation(m) & (r < GROW)
-        # glass at a grazing angle mirrors the screen at full brightness: close slits narrower than ~6 px between
+        # glass at a grazing angle mirrors the screen at full brightness: close slits narrower than ~8 px between
         # solid pieces (case and forearm); real gaps between strap and hand are far wider
         sol = a_new[y0:y1, x0:x1] > 0.95
-        disk = np.hypot(*np.mgrid[-3:4, -3:4]) <= 3
+        disk = np.hypot(*np.mgrid[-4:5, -4:5]) <= 4
         m |= ndi.binary_closing(sol, structure=disk) & ~sol
         wm = np.clip(cv2.GaussianBlur(m.astype(np.float32), (0, 0), 0.8) * 1.5, 0, 1)
         Pd, _ = despill(P)

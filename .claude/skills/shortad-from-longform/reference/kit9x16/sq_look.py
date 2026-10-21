@@ -27,7 +27,7 @@ SQ = SQM.SQ
 FF = CP.FF; FPS = CP.FPS
 S = 1080
 CAP_Y, LIFT_GAP, LIFT_MIN = 880, 150, 560
-REAL = "Real picture of me - not AI-generated"; AI = "AI-GENERATED"
+REAL = "Real Photo Of Me, Not AI-Generated"; AI = "AI-GENERATED"
 
 
 def run(c): subprocess.run(c, check=True)

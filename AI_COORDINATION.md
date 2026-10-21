@@ -27,6 +27,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 # ACTIVE
 
 **SL-17:NEEDS-DAN:2026-10-20:Claude.**
+**SL-18:ACTIVE:2026-10-20:Claude.** Wasted Life SFL R1; awaiting picks.
 
 **Boring Abs At 40 LFC R2 - ACTIVE 2026-10-20, Codex.** Executing R2 handoff. Colour C and voice B locked; R1 preserved. Next: calibrated headroom proof, corrected opening/contexts, complete existing-AI gallery, revised A01–A04 still pairs and independent checks. No new motion or full-film render before approval. Work: `/Volumes/Extreme/_edit_work/ro27/round2/`.
 
@@ -40,9 +41,9 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-25 Git sync BLOCKED 2026-10-18, Codex.** Public video, article post 886, and manually uploaded 257-cue English SRT are verified. Caption uploader and receipt are committed locally as `340ed22`. Safe-push aborted on nine merge conflicts across other sessions' files; no merge is in progress. Next: hand-merge shared main with owners or push these records from a clean checkout, without discarding their work.
 
-**Fat 90 Year Old SFC R2 - ACTIVE 2026-10-20, Claude.** Key polish, sample only. Next: reviewer, page :8940. Work: `ds40/r2/`.
+**Fat 90 Year Old SFC R2 - REVIEW 2026-10-20, Claude.** Key polish delivered, reviewer SHIP; page :8940. Next: Dan's call on the key. Work: `ds40/r2/`.
 
-**SL-15:R2-REVIEW:9015:2026-10-21:Claude.** Shorts delivered; reviewers SHIP; gate fails only camera hair. Next: Dan. ⚠ b06556e local: push needs hand merge (10 files).
+**SL-15:R2-REVIEW:9015:2026-10-21:Claude.** Shorts delivered; reviewers SHIP; gate fails only camera hair. Next: Dan.
 
 **I'm 41. I Wasted My Life. LFC Setup QUEUED 2026-10-17, Codex.** Dan approved exact R7 film and thumbnail C. Blotato readback: YouTube Sun Oct 18 9 AM, Facebook/Instagram Mon Oct 19 noon. Direct TikTok Monday after public YouTube check. To free capacity, Dan authorized removal of the last queued video, RO-13; its four schedules are backed up and RO-13 is on the waitlist for Dec 30. Receipt: Docs/RO25_SETUP_RECEIPT_20261017.md. Next: verify public release, covers, TikTok, RO-26 link.
 
@@ -75,7 +76,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **COVERS:MOBILE:2026-10-15:Docs/COVER_AUDIT_20261015.md**
 
 
-**SL-09:R4-HANDOFF:2026-10-20:Claude.** Dan finalized Oura shorts 1-3; approved AI clips K1, J1 and J2 (band must be a WHOOP) for shorts 4 and 5. Card `Oura Ring Review SFL R4` (`Handoffs/handoff-20261020-sl09-oura-shorts-r4-ai-clips.md`). Page :8989 stays up.
+**Oura Ring Review SFL R5 - ACTIVE 2026-10-21, Claude.** SL-09: Dan approved short 5's clips; short 4 opener trimmed to 2.8 s per his note. Next: render, review, gate, page :8989. Work: `/Volumes/Extreme/_edit_work/sl09/round2/`.
 
 
 
@@ -124,22 +125,18 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Muhammad-Shorts QUEUED 2026-10-13.** DS-05 waitlisted 10-16; queued: set Edit Queue uploaded. `Docs/MUHAMMAD_SHORTS_SETUP_RECEIPT_20261013.md`
 
-**RA-07:SETUP-HANDOFF:2026-10-18:Claude.** Dan approved the R6 9:16; finalized. Card `Fire Your Trainer AD Setup` (`Handoffs/handoff-20261018-ra07-setup.md`). Commits local until safe-push clears.
+**RA-07 POLICY-RECHECK 2026-10-20, Claude.** 10-21: `node scripts/ads/api/client.js policy 24316364155`; clean, delete.
 
 **Invest In Your Health 2026-10-20, Claude.** Videos 1, 2 (RO-20, RO-20B) finalized; setup handoff written. Video 3 (RO-20C) R5 handed off (new intro split, two lip-synced excuse clips). Both in `Handoffs/README.md` OPEN. Queue commit ff69bf1 local (safe-push stopped on a live file); next safe-push carries it. C1722 sidecar mark-used pending (Seagate unplugged).
-
-**RO-20/B:SETUP-NEEDS-DAN:2026-10-20:Claude.**
 
 
 **RA-05:POLICY-RECHECK:2026-10-16:Claude.** Live: `0DswKDBFW2E`, ad `828398569805` in review. Next 10-17: `node scripts/ads/api/client.js policy 24316364155`; clean, delete this.
 
 **RA-14 POLICY-RECHECK 2026-10-15,Claude.**
 
-**RA-12:R2-HANDOFF:2026-10-17:Claude.** Card `First Step Abs AD R2`; commit e2dffdc local.
+**First Step Abs AD R2 REVIEW 2026-10-20, Claude.** RA-12 page :8843; awaiting Dan.
 
 **RO-17 - HOLD 2026-10-18, Claude.** On the waitlist (Blotato 197/200); routine queues YouTube Sun Dec 13, socials Mon Dec 14 noon. `Docs/RO17_SETUP_RECEIPT_20261018.md`.
-
-**DS-31:SETUP-HANDOFF:2026-10-20:Claude.** AI Homework R2 finalized (colour C, A1 opener). Next: fire `Handoffs/handoff-20261020-ds31-ai-homework-setup.md` (covers, then Blotato).
 
 **RA-04 POLICY-RECHECK 2026-10-16,Claude.**
 
@@ -152,6 +149,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **DS-33:REVIEW:9033:2026-10-21:Claude.** 875d823 unpushed.
 
 **RO-20C:R6-REVIEW:8868:2026-10-21:Claude.** Delivered; awaiting Dan. Commits local (live files).
+
+**Zepbound Even If Ripped LFC R1 - REVIEW 2026-10-21, Claude.** Page :8928. Next: Dan's 5 picks, then `Handoffs/handoff-20261021-ro28-zepbound-even-if-ripped-round2.md`.
 
 **Make Time Exercise LFC R2 - ACTIVE 2026-10-20, Claude.** RO-18 round 2: camera opener, Flow motion for A2/A6/A7/A8/A9 (background agent), new college-age C36/C37, then full film, gates, review, delivery. Work: `/Volumes/Expansion/_edit_work/RO-18/round2/`.
 

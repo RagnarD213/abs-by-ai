@@ -117,3 +117,14 @@ Both exact native masters uploaded unchanged and verified Unlisted, processed an
 | RA-16 AI Took My Job | Codex R4 | 16:9 | 0:59 | https://youtu.be/g8GWwOYzelM | yes, exact R4 finalized 10-17 | R2 option 3, FINAL-16x9.jpg, installed/read back |
 
 Trial group 202854620044, ads 828352448280 / 828398913310. Receipt: `Docs/RA16_SETUP_RECEIPT_20261017.md`. No organic publishing.
+
+## 2026-10-20: RA-07 Fire Your Trainer R6 (thumbnail A/B)
+
+The exact approved R6 9:16 (sha256 `ca75555c…cfae`) uploaded unchanged twice, both verified Unlisted, processed and embeddable on channel UC236gjadarHAhEhOMYNGJ9g, synthetic=true. One thumbnail per copy for Dan's A/B (YouTube Test & Compare does not run on Shorts or unlisted videos).
+
+| Ad | Version | Aspect | Length | YouTube | Approved | Thumbnail |
+|---|---|---|---|---|---|---|
+| RA-07 Fire Your Trainer | Claude R6, thumb A | 9:16 | 0:53 | https://youtu.be/bpv5HSRqzDo | yes, R6 approved 10-18 | 2b, studio-blue-28 smirk, TRAINERS DESPISE HIM, installed/read back |
+| RA-07 Fire Your Trainer | Claude R6, thumb B | 9:16 | 0:53 | https://youtu.be/AWh8cOd80Ic | yes, R6 approved 10-18 | 3b, AI Dan + robot coach, FIRE / YOUR / TRAINER, installed/read back |
+
+Trial group 204215057191, ads 828608015181 (A) / 828655819900 (B). Receipt: `Docs/RA07_SETUP_RECEIPT_20261020.md`. No organic publishing.
