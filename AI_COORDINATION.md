@@ -26,8 +26,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**RO-24 UNPUSHED 2026-10-20, Claude.** 4345313.
-
 **SL-17:NEEDS-DAN:2026-10-20:Claude.**
 
 **Boring Abs At 40 LFC R2 - ACTIVE 2026-10-20, Codex.** Executing R2 handoff. Colour C and voice B locked; R1 preserved. Next: calibrated headroom proof, corrected opening/contexts, complete existing-AI gallery, revised A01–A04 still pairs and independent checks. No new motion or full-film render before approval. Work: `/Volumes/Extreme/_edit_work/ro27/round2/`.
@@ -149,7 +147,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-14 R2 REVIEW 2026-10-21, Claude.** Page :8965. bad60e5 unpushed.
 
-**DS-33:ACTIVE:2026-10-20:Claude.**
+**DS-33:REVIEW:9033:2026-10-21:Claude.**
 
 **RO-20C:R6-REVIEW:8868:2026-10-21:Claude.** Delivered; awaiting Dan. Commits local (live files).
 
