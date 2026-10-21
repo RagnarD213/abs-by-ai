@@ -5,6 +5,7 @@
 - [Audio joins smooth](audio-joins-smooth-before-ship.md): 10-20: seamscan every join, listen twice, fix; never carry a failing audio row
 - [AI pool photo correction](ro26-ai-pool-photo-correction.md): dan by pool.png is AI-generated; never label real (Dan 2026-10-16)
 - [Auto push](auto-commit-push.md): safe-push.sh only, no rebase
+- [Downloads allowed](downloads-always-allowed.md): never ask to download photos, videos, files (10-21)
 - [Bias to action](bias-toward-action.md): act if reversible
 - [Fable in Max](fable-included-in-max.md): costs allowance, not dollars
 - [Security warnings](security-warning-calibration.md): keep brief
