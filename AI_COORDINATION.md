@@ -170,7 +170,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **RO-07 - HOLD 2026-10-11, Claude.** Blotato full. `Docs/RO07_SETUP_RECEIPT_20261011.md`
 
 
-**SL-06:R6-HANDOFF:2026-10-21:Claude.** Top 5 Zepbound Tips SFL R6: Dan rejected all six R5 intro clips (smile, shaking, flex). Next: run `Handoffs/handoff-20261021-sl06-round6-natural-ai-intros.md` (card shown). Work: `/Volumes/Extreme/_edit_work/sl06/round6/`.
+**SL-06:R6-ACTIVE:2026-10-21:Claude.** Top 5 Zepbound Tips SFL R6: closed-mouth frames on Codex, then Flow takes, rebuild six, review. Work: `/Volumes/Extreme/_edit_work/sl06/round6/`.
 
 **SL-07 HOLD 2026-10-18, Claude.** Covers picked, media and configs ready; Blotato full, five shorts on the waitlist for Dec 21-29. Next: the daily top-up routine queues them as slots free. `Docs/SL07_SETUP_RECEIPT_20261018.md`
 
