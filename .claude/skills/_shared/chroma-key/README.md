@@ -19,3 +19,7 @@ Compare moving hair on light and dark fields at native resolution, including int
 The global approval is for keying. Balanced audio and warmer color remain locked specifically for Bill Maher Fat 90-Year-Old. Other videos retain their own approved sound and grade. `round2-audio_refine.py` is the final Balanced recipe, not the earlier `audio_build.py`; the selected WAV and MP4 hashes are in the R3 delivery receipt. Full-length new source audio needs that same treatment, not a repeated ten-second file.
 
 The approved sample's gate remains 37 PASS, 1 FAIL (accepted Balanced comb/tone), 1 NOT MEASURED (continuous shot has zero boundaries), 18 N/A. Preserve those historical findings. This folder promotes an unchanged, human-approved visual reference and method; it changes no executable production gate or numeric setting.
+
+## 16:9 rolls (RO-24, 2026-10-20)
+
+The first 16:9 adaptation (10/15 green screen, C1726) is `.claude/skills/longform-edit/reference/ro24/` (`key16.py`, README there): the same R2/R3 maths with the head-size scale, per-frame hair geometry, a clean plate of the screen and a garbage matte. It also carries a "refined" variant offered to Dan on 2026-10-20 (solid hair interior, edge colour, edge-band spill, and moving hands: the approved body key reads a skin/screen blur as solid because skin is red-heavy). Not yet approved; the approved key above stays the standard until Dan picks.

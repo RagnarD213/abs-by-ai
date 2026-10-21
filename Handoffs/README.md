@@ -11,6 +11,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Celebrity Ozempic LFC R2](handoff-20261020-ro24-celebrity-ozempic-round2.md): **Waits for Dan's reply to the round 1 page (http://127.0.0.1:9124/). Claude Opus 5.5, high.** RO-24: apply his key, colour, background and voice picks, photos only after his yes, then graphics, B-roll, AI frames and the full film from the take list already made.
 - [Zepbound Even If Ripped LFC R2](handoff-20261021-ro28-zepbound-even-if-ripped-round2.md): **After Dan replies to the round-1 page (http://127.0.0.1:8928/). Claude Opus 5.5, high.** CONTENT LFC RO-28: record his 5 picks, AI motion on Flow for the approved pairs, then the full film with every gate and the independent review. Release ASAP.
 - [What To Buy For Your Health LFC R5](handoff-20261020-ro20c-round5-intro-split-and-excuse-clips.md): RO-20C round 5, new intro split screen (three AI clips of Dan) and two lip-synced excuse clips at 1:47 and 4:12; frames and mockup first, then stop. Codex gpt-6.1-sol high.
 - [Fat 90 Year Old SFC R2](handoff-20261020-ds40-round2-key-polish.md): **Start now (2026-10-20). Claude Opus 5.5, high.** CONTENT SFC, green screen bake-off with Codex. Dan locked colour B and house voice + half bass; make the key beat R1 (hair flicker, dark rim, watch glass), independent review, R1 vs R2 page on 8940.
