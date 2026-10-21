@@ -164,7 +164,7 @@ if __name__ == "__main__":
     only = [int(x) for x in os.environ.get("ONLY", "").split(",") if x]
     idx = only or list(range(N))
     t0 = time.time(); n = 0
-    with Pool(int(os.environ.get("WORKERS", "4"))) as pool:
+    with Pool(int(os.environ.get("WORKERS") or os.environ.get("RENDERQ_CORES") or 4)) as pool:   # queue allowance
         for i, dch in pool.imap_unordered(work, idx):
             n += 1
             if n % 40 == 0: print(n, "frames", round(time.time() - t0), "s; mean band change", round(dch, 4), flush=True)

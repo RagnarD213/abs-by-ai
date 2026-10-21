@@ -557,7 +557,9 @@ always the one making these thumbnails."*
 - The folder is git-ignored (the repo is public). Claude and Codex both do this, in every video skill.
 - **Review pages must survive the editing session and Mac restarts (Dan, 2026-10-08).** Start them with
   `python3 .claude/skills/_shared/review_server.py PORT DIR`. On this Mac the command installs a per-port login service,
-  verifies it is running, and returns. macOS restarts it after a crash and at the next login. Do not use a temporary
+  verifies it is running, and returns. Since 2026-10-21 the service starts ON DEMAND: launchd holds the port and starts
+  the server when the page is opened (also after a crash or a restart), and the server exits after 24 h with no
+  request, so old reviews cost nothing while nobody looks and the link keeps working. Do not use a temporary
   terminal server, `nohup`, or `python3 -m http.server` for a delivered review. `--serve` is for the managed worker/tests.
 - Reuse the same port and review folder when repairing an existing link. Never replace another review on that port.
   The service code and web-linked review assets are copied to local Application Support. Published pages therefore
@@ -575,6 +577,10 @@ always the one making these thumbnails."*
 - After Dan has reviewed and finalized a video, remove only its review copies and stop its now-unused page service
   with `python3 .claude/skills/_shared/review_server.py PORT --remove`. This also removes that page's local cache.
   Retain original delivery files and approvals.
+- **Housekeeping (2026-10-21):** `python3 .claude/skills/_shared/renderq/renderq.py prune` switches review services
+  that still run all the time (made before 10-21) to start on demand, same link, and stops hand-started servers
+  (`--serve`, `http.server`) running over 48 h, printing the command that brings each back. `--dry-run` lists first.
+  On 10-21 there were 59 review servers, some 19 days old.
   Time passing or watching a preview alone is not finalization.
 
 ## Round 1 always reviews every graphic, stock item and clip; later rounds are lighter (Dan, 2026-10-08)
@@ -1193,10 +1199,19 @@ something that we can publish."* Every point below is a standing rule for every 
   `buildcap.wait()` now gets in line in the queue. Never waits: ffprobe, frame grabs, stills, audio-only ffmpeg,
   stream copies, anything 5 s or shorter, review servers. Audit of what still gets past it (2026-10-20 evening):
   `Handoffs/results-20261020-renderq-drives.md`.
-- **Slots: heavy 2 always open, up to 4 while the Mac has spare CPU; light (Whisper, checks) 2, up to 3.** Extra slots
-  open only when at least 30% of the CPU sat idle for 4 s and nothing started in that pool in the last 15 s, so
-  single-core Python renders no longer leave most of the Mac idle, and x264-bound renders still run two at a time.
-  Work inside a slot runs at nice 10. Measurements: `Handoffs/results-20261020-render-scheduler.md`.
+- **Budgets, not slot counts (v3, 2026-10-21).** Every step gets a core allowance: heavy 4, light 2, quick 2. Past the
+  floor (2 heavy, 1 light and 2 quick always run, so the line never stalls) a step starts only while (a) the cores in
+  use plus its own fit in the Mac's 10 minus 2 kept for sessions and the UI, and (b) memory has had room for 30 s: at
+  least 8 GB free or inactive, swap not growing, no macOS memory-pressure warning. `renderq.py status` shows cores and
+  GB per holder and why the line is closed; `renderq.py why [VIDEO]` explains one waiter. Why: on 10-21 two "slots"
+  held two chroma keys with 11 one-GB workers, swap filled and 27% of all CPU went to paging, so every job ran slower
+  than two alone. Results: `Handoffs/results-20261021-renderq-v3.md`. Work inside a slot runs at nice 10.
+- **Size every worker pool from the allowance:** `Pool(int(os.environ.get("RENDERQ_CORES", 4)))` (also
+  `ProcessPoolExecutor`). Every slot holder exports `RENDERQ_CORES` to what it runs. Never `cpu_count()` or a fixed 6
+  in a pipeline step. The ffmpeg wrapper can also add `-threads <allowance>` to calls that set none, but that is OFF
+  (measured 10-21: a capped encode loses its CPU share to everything uncapped and ran 2.5-3x slower); it goes on once
+  the chroma key and the other big thread users size from `RENDERQ_CORES`. When it is on, x264 output bytes change
+  with the thread count: compare pictures and audio, not file hashes, for re-renders.
 - **Quick lane (2026-10-20 evening): short clips never wait behind long renders.** Heavy work on short media takes one
   of two quick slots, first come first served: ffmpeg calls whose inputs total 20 s or less (or `-t` up to 20 s, up to
   600 frames), `clipcheck.py` on clips of 15 s or less, HyperFrames graphics of 10 s or less. An 8 s AI clip's frame

@@ -160,6 +160,33 @@ def main():
         out = subprocess.run(shim + ["-i", "a.mp4", "-frames:v", "1", "x.png"], env=e, capture_output=True)
         check("the wrapper prints nothing of its own", out.stdout == b"" and out.stderr == b"", out.stderr[:200])
 
+        # 5b. (v3) the wrapper makes the allowance real: -threads before every input and output, unless set already
+        def last_line(tag):
+            lines = [l for l in flog.read_text().splitlines() if tag in l]
+            return lines[-1] if lines else ""
+        e = env_for(d)
+        subprocess.run(shim + ["-y", "-i", "a.mp4", "-c:v", "libx264", "T0.mp4"], env=e, timeout=15)
+        check("by default (THREADS_DEFAULT off) the wrapper passes the command through unchanged",
+              renderq.THREADS_DEFAULT or "-threads" not in last_line("T0.mp4"), last_line("T0.mp4"))
+        e = env_for(d, GATE_THREADS=1)
+        subprocess.run(shim + ["-y", "-i", "a.mp4", "-c:v", "libx264", "T1.mp4"], env=e, timeout=15)
+        ln = last_line("T1.mp4")
+        check("an admitted heavy encode gets -threads 4 on its input and its output",
+              "-threads 4 -i a.mp4" in ln and "-threads 4 T1.mp4" in ln, ln)
+        subprocess.run(shim + ["-y", "-i", "a.mp4", "-threads", "2", "-c:v", "libx264", "T2.mp4"], env=e, timeout=15)
+        ln = last_line("T2.mp4")
+        check("... a command that sets its own -threads is left exactly as it is", ln.count("-threads") == 1, ln)
+        subprocess.run(shim + ["-i", "a.mp4", "-frames:v", "1", "T3.jpg"], env=e, timeout=15)
+        check("... an exempt frame grab outside a slot is left alone", "-threads" not in last_line("T3.jpg"),
+              last_line("T3.jpg"))
+        subprocess.run([PY, RQ, "run", "--light", "--"] + shim + ["-y", "-i", "a.mp4", "-c:v", "libx264", "T4.mp4"],
+                       env=e, timeout=15)
+        check("... a step inside a light holder's slot gets that holder's 2 cores", "-threads 2 T4.mp4" in
+              last_line("T4.mp4"), last_line("T4.mp4"))
+        subprocess.run(shim + ["-y", "-i", "a.mp4", "-c:v", "libx264", "T5.mp4"], env=dict(e, GATE_THREADS="0"),
+                       timeout=15)
+        check("... and GATE_THREADS=0 turns it off", "-threads" not in last_line("T5.mp4"), last_line("T5.mp4"))
+
         # 6. the two ends of a pipe share one slot (a one-slot pool would deadlock otherwise)
         d = root / "pipe"
         e = env_for(d)
@@ -192,21 +219,72 @@ def main():
         check("a light job runs beside a heavy one", r.returncode == 0 and time.time() - t < 1.5,
               round(time.time() - t, 2))
 
-        # 7b. an extra slot opens only while the CPU is idle
-        d = root / "burst"
-        spawn([PY, RQ, "run", "--", "sleep", "3"], env_for(d, heavy="1:2", GATE_IDLE=0.1, GATE_SETTLE=0))
-        time.sleep(0.5)
-        t = time.time()
-        r = subprocess.run([PY, RQ, "run", "--", "true"], env=env_for(d, heavy="1:2", GATE_IDLE=0.1, GATE_SETTLE=0),
-                           timeout=10)
-        check("a busy Mac opens no extra slot", time.time() - t > 2.0, round(time.time() - t, 2))
-        d = root / "burst2"
-        spawn([PY, RQ, "run", "--", "sleep", "3"], env_for(d, heavy="1:2", GATE_IDLE=0.9, GATE_SETTLE=0))
-        time.sleep(0.5)
-        t = time.time()
-        r = subprocess.run([PY, RQ, "run", "--", "true"], env=env_for(d, heavy="1:2", GATE_IDLE=0.9, GATE_SETTLE=0),
-                           timeout=10)
-        check("an idle Mac opens an extra slot", time.time() - t < 1.5, round(time.time() - t, 2))
+        # 7b. (v3) past the floor, a step starts only while the core budget has room: 4 + 4 fit in 8, a third waits
+        d = root / "budget"
+        log = root / "budget.log"
+        e = env_for(d, heavy="1:4", GATE_BUDGET=8, GATE_MEM="20,0", GATE_HEADROOM_S=0, GATE_SETTLE=0)
+        for n in "ABC":
+            spawn([PY, RQ, "run", "--group", n, "--"] + stamp_cmd(log, n, 2.5), e)
+            time.sleep(0.3)
+        wait_for(lambda: tickets(d), 5)                     # the third is in line (slow to start on a loaded Mac)
+        w = subprocess.run([PY, RQ, "why"], env=e, capture_output=True, text=True).stdout
+        wait_for(lambda: len(starts(log)) == 3, 15)
+        ts = sorted(t for _n, t in starts(log)) + [99e9] * 3    # by start time: on a loaded Mac B and C can swap
+        check("two heavy steps (4 cores each) run side by side in an 8-core budget", ts[1] - ts[0] < 1.5,
+              [round(t - ts[0], 2) for t in ts[:3]])
+        check("... and a third waits for cores", ts[2] - ts[0] >= 2.2, [round(t - ts[0], 2) for t in ts[:3]])
+        check("`why` names the core budget", "cores: 8 of 8 in use" in w, w)
+
+        # 7c. memory short: the floor (one heavy) still runs, nothing past it until the first ends
+        d = root / "mem"
+        log = root / "mem.log"
+        e = env_for(d, heavy="1:4", GATE_BUDGET=8, GATE_MEM="4,0", GATE_HEADROOM_S=0, GATE_SETTLE=0)
+        spawn([PY, RQ, "run", "--group", "A", "--"] + stamp_cmd(log, "A", 2.0), e)
+        wait_for(lambda: starts(log), 10)                   # A holds the floor before B gets in line
+        spawn([PY, RQ, "run", "--group", "B", "--"] + stamp_cmd(log, "B", 0), e)
+        time.sleep(0.6)
+        st = subprocess.run([PY, RQ, "status"], env=e, capture_output=True, text=True).stdout
+        wait_for(lambda: len(starts(log)) == 2, 15)
+        s = dict((n, t) for n, t in starts(log))
+        check("with too little memory the first heavy step still runs (the line never stalls)", "A" in s, s)
+        check("... and the next waits although cores are free", s.get("B", 0) - s.get("A", 0) >= 1.7, s)
+        check("`status` says the line is closed for memory", "closed, memory: 4.00 GB free or inactive" in st, st[-600:])
+        d = root / "swap"
+        e = env_for(d, heavy="1:4", GATE_BUDGET=8, GATE_MEM="20,500", GATE_HEADROOM_S=0, GATE_SETTLE=0)
+        spawn([PY, RQ, "run", "--", "sleep", "2"], e)
+        time.sleep(0.3)
+        spawn([PY, RQ, "run", "--label", "second", "--", "true"], e)
+        time.sleep(0.6)
+        w = subprocess.run([PY, RQ, "why", "second"], env=e, capture_output=True, text=True).stdout
+        check("while the Mac is swapping nothing past the floor starts, and `why` says so", "swapping" in w, w)
+
+        # 7d. memory must have had room for the whole headroom window, not a snapshot
+        d = root / "headroom"
+        log = root / "headroom.log"
+        e = env_for(d, heavy="1:4", GATE_BUDGET=8, GATE_MEM="20,0", GATE_HEADROOM_S=3, GATE_SETTLE=0)
+        spawn([PY, RQ, "run", "--group", "A", "--"] + stamp_cmd(log, "A", 6), e)
+        wait_for(lambda: starts(log), 10)                   # A holds the floor before B gets in line
+        spawn([PY, RQ, "run", "--group", "B", "--"] + stamp_cmd(log, "B", 0), e)
+        wait_for(lambda: len(starts(log)) == 2, 15)
+        s = dict((n, t) for n, t in starts(log))
+        gap = s.get("B", 0) - s.get("A", 0)
+        check("an extra step waits until memory has had room for the headroom window (3 s here)", 2.6 <= gap < 5.5,
+              round(gap, 2))
+
+        # 7e. RENDERQ_CORES: every holder exports its allowance; Pool( sizes from it
+        d = root / "cores"
+        e = env_for(d, heavy="1:4", GATE_MEM="20,0", GATE_HEADROOM_S=0)
+        show = [PY, "-c", "import os; print(os.environ.get('RENDERQ_CORES'))"]
+        got = [subprocess.run([PY, RQ, "run"] + extra + ["--"] + show, env=e, capture_output=True, text=True)
+               .stdout.strip() for extra in ([], ["--light"])]
+        got.append(subprocess.run([PY, RQ, "run", "--"] + show, env=dict(e, GATE_ALLOW="heavy=3"), capture_output=True,
+                                  text=True).stdout.strip())
+        code = ("import os,sys; sys.path.insert(0,%r); import renderq\n"
+                "with renderq.slot('q', pool='quick'):\n    print(os.environ.get('RENDERQ_CORES'))\n"
+                "print(os.environ.get('RENDERQ_CORES'))" % str(HERE))
+        got += subprocess.run([PY, "-c", code], env=e, capture_output=True, text=True).stdout.split()
+        check("holders export RENDERQ_CORES: heavy 4, light 2, tunable, quick 2 inside slot() and gone after",
+              got == ["4", "2", "3", "2", "None"], got)
 
         # 8. GATE_OFF skips the queue
         t = time.time()
@@ -308,6 +386,26 @@ def main():
         bad = [(" ".join(a)[-60:], renderq.classify(a)[0], w) for a, w in cls if renderq.classify(a)[0] != w]
         check("short media goes in the quick lane, long media stays heavy", not bad, bad)
 
+        # 12b. (v3) the real ffmpeg accepts every injected form: encode, filter graph, two outputs, a pipe
+        d = root / "realthreads"
+        e = env_for(d, heavy=2, GATE_THREADS=1)
+        rshim = [PY, str(HERE / "ffshim.py"), real]
+        c = str(clips["long"])
+        cmds = [["-v", "error", "-y", "-i", c, "-t", "8", "-c:v", "libx264", "-preset", "ultrafast", str(root / "r1.mp4")],
+                ["-v", "error", "-y", "-i", c, "-i", str(clips["short"]), "-t", "8", "-filter_complex",
+                 "[0:v][1:v]overlay=8:8[v]", "-map", "[v]", "-c:v", "libx264", "-preset", "ultrafast", str(root / "r2.mp4")],
+                ["-v", "error", "-y", "-i", c, "-t", "8", "-c:v", "libx264", "-preset", "ultrafast", str(root / "r3.mp4"),
+                 "-c", "copy", str(root / "r4.mkv")]]
+        res = [subprocess.run(rshim + a, env=e, capture_output=True, text=True, timeout=60) for a in cmds]
+        sh = "{} -v error -i '{}' -t 8 -f rawvideo -pix_fmt rgb24 - | {} -v error -y -f rawvideo -pix_fmt rgb24 " \
+             "-s 64x64 -r 10 -i - -c:v libx264 -preset ultrafast '{}'".format(
+                 " ".join("'{}'".format(x) for x in rshim), c, " ".join("'{}'".format(x) for x in rshim), root / "r5.mp4")
+        res.append(subprocess.run(["/bin/sh", "-c", sh], env=e, capture_output=True, text=True, timeout=60))
+        outs = [root / n for n in ("r1.mp4", "r2.mp4", "r3.mp4", "r4.mkv", "r5.mp4")]
+        check("the real ffmpeg runs every command the wrapper gave -threads (encode, graph, two outputs, pipe)",
+              all(r.returncode == 0 and not r.stderr.strip() for r in res) and all(o.exists() for o in outs),
+              [(r.returncode, r.stderr[-160:]) for r in res])
+
         # 13. work folders: a job keeps its folder; a new job goes to the least busy drive with room
         (db / "_edit_work" / "JOB-OLD").mkdir()
         d = root / "workdir"
@@ -349,6 +447,37 @@ def main():
                            capture_output=True, text=True)
         check("... and inside the job's own folder when the internal SSD is short of space",
               r.stdout.strip() == str(db / "_edit_work" / "JOB-OLD" / "_scratch"), r.stdout + r.stderr[-200:])
+
+        # 16. (v3) status shows each holder's cores and memory
+        d = root / "statusrss"
+        e = env_for(d)
+        spawn([PY, RQ, "run", "--label", "memhog", "--", PY, "-c", "x = bytearray(300 * 2**20); import time; "
+               "x[::4096] = b'1' * len(x[::4096]); time.sleep(4)"], e)
+        time.sleep(2.0)
+        st = subprocess.run([PY, RQ, "status"], env=e, capture_output=True, text=True).stdout
+        row = next((l for l in st.splitlines() if "memhog" in l), "")
+        check("status shows a holder's cores and resident memory (its whole process tree)",
+              "4 cores" in row and " GB (peak " in row and "0.0 GB" not in row, row or st[-400:])
+        check("... and the two budgets", "Cores: 4 of " in st and "Memory: " in st, st[:500])
+
+        # 17. (v3) prune: a hand-started review server running past the limit is stopped and listed
+        import socket
+        with socket.socket() as so:
+            so.bind(("127.0.0.1", 0))
+            port = so.getsockname()[1]
+        page = root / "review-marker-{}".format(os.getpid())
+        page.mkdir()
+        (page / "index.html").write_text("x")
+        srv = spawn([PY, str(HERE.parent / "review_server.py"), str(port), str(page), "--serve"], dict(os.environ))
+        time.sleep(1.0)
+        e = dict(os.environ, GATE_DIR=str(root / "prune"), GATE_PRUNE_MATCH=page.name)
+        dry = subprocess.run([PY, RQ, "prune", "--dry-run", "--hours", "0"], env=e, capture_output=True, text=True)
+        check("prune --dry-run lists a hand-started review server and leaves it running",
+              "would be stopped" in dry.stdout and srv.poll() is None, dry.stdout + dry.stderr[-200:])
+        r = subprocess.run([PY, RQ, "prune", "--hours", "0"], env=e, capture_output=True, text=True)
+        wait_for(lambda: srv.poll() is not None, 5)
+        check("prune stops it and prints how to bring it back", srv.poll() is not None and "Bring it back" in r.stdout,
+              r.stdout + r.stderr[-200:])
 
         # 15. the census of work outside the queue: a busy Python counts; one waiting in line for its encode does not
         d = root / "census"

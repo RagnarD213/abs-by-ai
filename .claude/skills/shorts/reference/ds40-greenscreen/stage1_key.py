@@ -26,7 +26,7 @@ def work(args):
     return i
 if __name__ == "__main__":
     t = time.time()
-    with Pool(4) as pool:
+    with Pool(int(os.environ.get("RENDERQ_CORES", 4))) as pool:     # the render queue's core allowance
         n = 0
         for r in pool.imap(work, enumerate(frames(T0, dur=DUR)), chunksize=1):
             n += 1
