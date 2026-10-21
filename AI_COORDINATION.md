@@ -156,7 +156,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Zepbound Even If Ripped LFC R2 - ACTIVE 2026-10-21, Claude.** Motion A1/A5 on Flow, A2/A3 frames redrawn. `/Volumes/Expansion/_edit_work/ro28/round2/`.
 
-**Make Time Exercise LFC R2 - REVIEW :8982 2026-10-21, Claude.** RO-18 R2 full film delivered (folder 21); VLC copy in Videos to Review. Gate 36 pass + 3 known rows. Next: Dan's notes or finalize. Lessons commit e39157e local (safe-push blocked by others' conflicts). Work: `/Volumes/Expansion/_edit_work/RO-18/round2/`.
+**Make Time Exercise LFC R2 - REVIEW :8982 2026-10-21, Claude.** RO-18 full film delivered (folder 21), VLC copy in Videos to Review. Next: Dan's notes or finalize.
 
 **Ad 6 remarketing 2026-10-04:** Awaiting Dan: copy to enabled campaign 24305381214?
 
