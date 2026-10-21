@@ -3946,6 +3946,28 @@
    "updated": "2026-10-20",
    "rev": 1,
    "syncedRev": 1
+  },
+  {
+   "id": "SL-22",
+   "list": "2",
+   "group": "Shorts from long-forms",
+   "sub": "",
+   "title": "What To Buy For Your Health At Every Income Level (RO-20C, YouTube Sun Dec 6; 3 Shorts, Short 1 airs Mon Dec 7)",
+   "roll": "8/3 C1511",
+   "size": "S",
+   "file": "SL-22-what-to-buy-shorts.md",
+   "claudeModel": "Opus 5.5, high",
+   "claude": "CONTENT (SFL). Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/SL-22-what-to-buy-shorts.md`: confirm the approved RO-20C master, propose the Shorts segments and wait for my picks, then cut three Shorts with /shorts in Soft Blue Light, with gates and an independent audit (no covers, no upload). Short 1 airs Mon Dec 7. Name this session \"What To Buy SFL R1\".",
+   "codexModel": "GPT-6.1 Sol, high",
+   "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/SL-22-what-to-buy-shorts.md` using `.claude/skills/shorts/SKILL.md` as the method: confirm the approved RO-20C master, propose segments, wait for Dan's picks, cut three Shorts, gate, deliver, update `00-MASTER.md`. Name this task \"What To Buy SFL R1\".",
+   "state": "ready",
+   "note": "Approved RO-20C parent filed Oct 21. Propose segments and wait for Dan picks; Short 1 airs Mon Dec 7, due Dec 6.",
+   "unattended": false,
+   "unattended_why": "Dan selects standalone Shorts segments before rendering.",
+   "order": 175,
+   "updated": "2026-10-21",
+   "rev": 1,
+   "syncedRev": 1
   }
  ]
 }

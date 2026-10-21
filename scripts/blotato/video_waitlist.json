@@ -239,5 +239,12 @@
   "job": "RO-20B",
   "label": "What To Cut To Afford Getting In Shape",
   "added": "2026-10-20"
+ },
+ {
+  "config": "scripts/blotato/configs/ro20c-what-to-buy.json",
+  "kind": "longform",
+  "job": "RO-20C",
+  "label": "What To Buy For Your Health At Every Income Level",
+  "added": "2026-10-21"
  }
 ]

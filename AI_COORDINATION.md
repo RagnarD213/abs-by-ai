@@ -151,7 +151,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-33:REVIEW:9033:2026-10-21:Claude.** 875d823 unpushed.
 
-**RO-20C setup:PICK:2026-10-21:Claude.** Dec 6.
+**RO-20C HOLD 2026-10-21, Claude.** Waitlist, Dec 6. `Docs/RO20C_SETUP_RECEIPT_20261021.md`
 
 **Zepbound Even If Ripped LFC R2 - PAUSED 2026-10-21, Claude.** Render-line triage (2027 release). Clips A1/A5 regenerated, graphics done; nothing queued. On "resume": re-review A5 retime, requeue `recipe/chain_r2.sh` (no --priority), page :8929. `/Volumes/Expansion/_edit_work/ro28/round2/`.
 

@@ -256,6 +256,7 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 | [SL-19](SL-19-3-healthy-foods-shorts.md) | 3 Healthy Foods That Made Me Fat (RO-17, YouTube Sun Dec 13; 3 Shorts, Short 1 airs Mon Dec 14) | DELIVERED: awaiting Dan | S |
 | [SL-20](SL-20-invest-in-your-health-shorts.md) | Why You Should Invest More In Your Health (RO-20, YouTube Sun Nov 22; 3 Shorts, Short 1 airs Mon Nov 23) | READY: approved parent filed; due Nov 22 | S |
 | [SL-21](SL-21-what-to-cut-shorts.md) | What To Cut To Afford Getting In Shape (RO-20B, YouTube Sun Nov 29; 3 Shorts, Short 1 airs Mon Nov 30) | READY: approved parent filed; due Nov 29 | S |
+| [SL-22](SL-22-what-to-buy-shorts.md) | What To Buy For Your Health At Every Income Level (RO-20C, YouTube Sun Dec 6; 3 Shorts, Short 1 airs Mon Dec 7) | READY: approved parent filed; due Dec 6 | S |
 
 **Will need shorts once final (no handoff yet; add one when the long-form is approved):**
 * Your Belly Fat Is An Emergency (Codex, revision in progress)
