@@ -26,7 +26,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**Oura Ring Review SFL Setup - PICK 2026-10-21, Claude.** SL-09: 25 covers on http://127.0.0.1:8909/ (50/50 checks pass). Next: Dan's picks, then Blotato Nov 13, 16, 20, 23, 27.
+**Oura Ring Review SFL - QUEUED 2026-10-21, Claude.** SL-09 five shorts in Blotato Nov 13-27, 9 AM, all platforms. Short 4 cover F by default (Dan gave no letter). Next: release check; delete once posted. `Docs/SL09_SETUP_RECEIPT_20261021.md`.
 **SL-17:NEEDS-DAN:2026-10-20:Claude.**
 **SL-18:ACTIVE:2026-10-20:Claude.** Wasted Life SFL R1; awaiting picks.
 
@@ -44,7 +44,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-09:ACTIVE:2026-10-21:Claude.** AI Changing World AD R1. `/Volumes/Expansion/_edit_work/RA-09/`.
 
-**Fat 90 Year Old SFC R3 - ACTIVE 2026-10-21, Claude.** R2 key locked as house standard (AGENTS). Building opening: clip full screen, Dan small, then large. Work: `ds40/r3/`.
+**Fat 90 Year Old SFC R3 - PAUSED 2026-10-21, Claude.** Render line triage: held until Dan says resume. Next: render opening (render2.sh), reviewer re-check, page :8940. Work: `ds40/r3/` (Expansion).
 
 **DS-44:ACTIVE:2026-10-21:Claude.**
 
@@ -138,8 +138,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-14 POLICY-RECHECK 2026-10-15,Claude.**
 
-**RA-12 POLICY-RECHECK 2026-10-21, Claude.** Ad 828687867099 in review. 10-22: `node scripts/ads/api/client.js policy 24316364155`; clean, delete.
-
 **RO-17 - HOLD 2026-10-18, Claude.** On the waitlist (Blotato 197/200); routine queues YouTube Sun Dec 13, socials Mon Dec 14 noon. `Docs/RO17_SETUP_RECEIPT_20261018.md`.
 
 **RA-04 POLICY-RECHECK 2026-10-16,Claude.**
@@ -154,7 +152,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-20C setup:PICK:2026-10-21:Claude.** Dec 6.
 
-**Zepbound Even If Ripped LFC R2 - ACTIVE 2026-10-21, Claude.** Motion A1/A5 on Flow, A2/A3 frames redrawn. `/Volumes/Expansion/_edit_work/ro28/round2/`.
+**Zepbound Even If Ripped LFC R2 - PAUSED 2026-10-21, Claude.** Render-line triage (2027 release). Clips A1/A5 regenerated, graphics done; nothing queued. On "resume": re-review A5 retime, requeue `recipe/chain_r2.sh`, page :8929. `/Volumes/Expansion/_edit_work/ro28/round2/`.
 
 **Make Time Exercise LFC R2 - REVIEW :8982 2026-10-21, Claude.** RO-18 full film delivered; VLC copy in Videos to Review. Next: Dan's notes.
 

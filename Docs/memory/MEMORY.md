@@ -1,9 +1,11 @@
+- [Cover picks](cover-picks-ai-dan-acting-topic.md): 10-21: AI Dan acting the title out, yellow band; expressive when the topic needs it
 - [AI clips natural or regenerate](ai-clips-natural-or-regenerate.md): 10-21: calm real-looking, closed-mouth smile, no shake; regenerate slop, never patch
 - [Chroma key standard](chroma-key-standard.md): 10-21: Claude DS-40 R2 key is the house key (replaces Codex R3)
 - [AI clips: ask before paying](ai-clips-subscription-ask-before-paying.md): 10-20: subscription default; paid only on his yes, rush counts
 - [Audio joins smooth](audio-joins-smooth-before-ship.md): 10-20: seamscan every join, listen twice, fix; never carry a failing audio row
 - [AI pool photo correction](ro26-ai-pool-photo-correction.md): dan by pool.png is AI-generated; never label real (Dan 2026-10-16)
 - [Auto push](auto-commit-push.md): safe-push.sh only, no rebase
+- [Downloads allowed](downloads-always-allowed.md): never ask to download photos, videos, files (10-21)
 - [Bias to action](bias-toward-action.md): act if reversible
 - [Fable in Max](fable-included-in-max.md): costs allowance, not dollars
 - [Security warnings](security-warning-calibration.md): keep brief

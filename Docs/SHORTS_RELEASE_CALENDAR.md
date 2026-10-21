@@ -17,14 +17,16 @@ Key: plain = edited (in Blotato or on the waiting list). **\*** = still to be ed
 | Oct 19 | Stop Deadlifting (sl05-short1) | Stop Swinging Your Curls (sl04-short4) | I Was 200 Pounds At 38 (DS-08) | How To Make Time To Work Out (DS-09) | Stop Deadlifting (sl05-short4) |
 | Oct 26 | Wasted My Life 1\* | Stop Deadlifting (sl05-short2) | Use A Meal Prep Service (DS-28) | Spray Tan 1\* | Stop Deadlifting (sl05-short5) |
 | Nov 2 | Salad (sl03-short1) | Stop Deadlifting (sl05-short3) | How To Use The Ab Wheel (DS-22) | Work Out Every Day 1\* | Salad (sl03-short4) |
-| Nov 9 | Zepbound Tips 1 (SL-06, needs Dan's OK) | Salad (sl03-short5) | 3 Ways To Reduce Alcohol (DS-14) | Oura 1\* (SL-09) | Salad (sl03-short2) |
-| Nov 16 | Boring Abs At 40 1\* | Salad (sl03-short3) | How To Do Rear Delt Flys (DS-24) | Fasting 1\* (SL-16) | Zepbound Tips 2 |
-| Nov 23 | Invest In Your Health 1\* (SL-20) | Salad (sl03-short6) | How To Do Hammer Curls (DS-21) | Home Budget 1\* | Zepbound Tips 3 |
+| Nov 9 | Zepbound Tips 1 (SL-06, needs Dan's OK) | Salad (sl03-short5) | 3 Ways To Reduce Alcohol (DS-14) | Oura 1 (SL-09) | Salad (sl03-short2) |
+| Nov 16 | Oura 2 (SL-09) | Salad (sl03-short3) | How To Do Rear Delt Flys (DS-24) | Oura 3 (SL-09) | Zepbound Tips 2 |
+| Nov 23 | Oura 4 (SL-09) | Salad (sl03-short6) | How To Do Hammer Curls (DS-21) | Oura 5 (SL-09) | Zepbound Tips 3 |
 | Nov 30 | What To Cut 1\* (SL-21) | Zepbound Tips 4 | AI Homework (DS-31, needs Dan's OK) | 40 vs 25 1\* (SL-14) | Zepbound Tips 5 |
 | Dec 7 | What To Buy 1\* (RO-20C) | Zepbound Tips 6 | Fat Millionaire (DS-05, corrections) | Vacuum 1\* (SL-11) | Wasted My Life 2\* |
 | Dec 14 | 3 Healthy Foods 1\* (SL-19) | Wasted My Life 3\* | #1 Change For Abs At 40\* (DS-13) | Keep Your Muscle 1\* (SL-12) | Top 1% 1\* |
 | Dec 21 | Belly Fat 1 (SL-07, needs Dan's OK) | Belly Fat 2 | Lose The Last 10 Pounds\* (DS-16) | Calories Don't Matter 1\* (SL-13) | Belly Fat 3 |
 | Dec 28 | Belly Fat 4 | Belly Fat 5 | Top 5 Ab Exercises\* (DS-01) | | |
+
+**Moved 2026-10-21 (SL-09 setup):** all five Oura shorts are edited, so they took Nov 13, 16, 20, 23 and 27 (edited Shorts release first). The four not-yet-edited Shorts that held Nov 16, 20, 23 and 27 (Boring Abs At 40 1, Fasting 1 (SL-16), Invest In Your Health 1 (SL-20), Home Budget 1) take the next free Mon/Tue/Fri/Sat when they are edited. The Zepbound Tips Saturdays are kept.
 
 **2027:** about 40 long-form Shorts carry over (the 2nd and 3rd Short of most films, plus Vacuum Workout, Ab Wheel
 Workout, Calories and Alcohol), and the dedicated Thursdays continue from the ~40 dedicated Shorts filmed but not edited.

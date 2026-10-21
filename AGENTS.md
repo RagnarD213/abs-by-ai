@@ -99,6 +99,11 @@ sessions (and any other assistant, if one is in use).
   in Git, unexecuted work in `Handoffs/` + `Handoffs/README.md`, Dan's open decisions in
   `Docs/DAN_DECISIONS.md`, lasting facts in memory, standing rules here.
 
+## Standing authorization for downloads (Dan, 2026-10-21)
+
+- Download any photos, videos or other files a task needs (news photos, clips, references, assets) without asking. Dan: "You always have permission to download any photos or whatever you need in the future. Never ask me for permission to download photos or videos or anything again."
+- Name what was downloaded and where it came from in the delivery report. This covers fetching media and files for the work, not running downloaded programs.
+
 ## Standing authorization for render-queue checks (Dan, 2026-10-20)
 
 - Always check active render jobs and the render queue without asking Dan for permission, in every task. This includes reading queue state (`python3 .claude/skills/_shared/renderq/renderq.py status`) and running the shared build-cap/process checks before rendering or quality checks.

@@ -1,0 +1,27 @@
+{
+  "content_type": "organic",
+  "source": "Short-form video content/oura-short4_youre-not-sleeping-as-well-as-you-think.mp4",
+  "slug": "sl09-short4",
+  "campaign": "oura-ring-review",
+  "title": "You're Not Sleeping As Well As You Think",
+  "video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/53cac4da-7ad8-497c-84ff-e7a031a56ec6.mp4",
+  "tiktok_video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/c584305e-bb04-46a4-872c-2d6ae034bd02.mp4",
+  "instagram_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/8d6e7a01-de78-4af8-90fa-79b683250bb3.png",
+  "youtube_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/2d32b3d1-5a66-44a5-8230-5b5466a16f19.jpg",
+  "main": "2026-11-23T15:00:00.000Z",
+  "keyword": "SLEEP",
+  "ai_generated": true,
+  "hook": "You're probably not sleeping as well as you think. You've got to buy a sleep tracker, even if it's not the Oura Ring.",
+  "body": "Most of you are where I was a few years ago: in denial. You think you're sleeping okay and getting enough, but if you're like the average person you probably aren't. Getting a sleep tracker is like going from never weighing yourself to weighing yourself every day, you see the problem, and you see the specific things triggering it, like how your REM sleep changes when you drink alcohol, eat late at night or get stressed out. You'll be surprised, and you can adjust based on the data.",
+  "close": "Share this with a friend who swears he sleeps fine.",
+  "tags": "#SleepTracker #OuraRing #SleepBetter #Sleep #AbsByAI",
+  "youtube_description": "You're probably not sleeping as well as you think. You've got to buy a sleep tracker, even if it's not the Oura Ring.\n\nTry your free Abs By AI preview: https://absbyai.com/?utm_source=youtube&utm_medium=short&utm_campaign=oura-ring-review&utm_content=sl09-short4\n\nMost of you are where I was a few years ago: in denial. You think you're sleeping okay and getting enough, but if you're like the average person you probably aren't. Getting a sleep tracker is like going from never weighing yourself to weighing yourself every day, you see the problem, and you see the specific things triggering it, like how your REM sleep changes when you drink alcohol, eat late at night or get stressed out. You'll be surprised, and you can adjust based on the data.\n\nFull video on my channel: My Honest Oura Ring Review After 1.5 Years (The Good, Bad & Ugly)\n\nSome clips in this video are AI-generated, and they're labeled on screen.\n\n#SleepTracker #OuraRing #SleepBetter #Sleep #Shorts",
+  "pinned_comment": "How many hours of sleep do you think you get on a normal night?",
+  "media_sha256": {
+    "master": "6f532ebae708490db3eb72081b297cdc154a97b9ffc0c53719283cf42b21b886",
+    "tiktok": "b79e3de816184bc052dd9640fa105aab052f1dc6c0676e68fcbfcf2ae517e492",
+    "ig": "a2227d3f1aa4cd50dabb78ec1c7642f505807c735bc21286146734c59f076814",
+    "yt": "ff0b00804b127bb1dbfb8668cf5e8deb1c9d38392d1148715884ffcbd90235c3"
+  },
+  "cover_pick": "F"
+}

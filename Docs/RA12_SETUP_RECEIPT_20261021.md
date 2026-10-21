@@ -10,6 +10,8 @@ Round 1: five designs by Codex (gpt-6.1-sol, high) through `codex-image.sh`, hea
 
 Round 2, planned and plated by Codex: (A) real studio-blue-11 in front of an open vault with a gold key, Arial Black white and gold; (B) real studio-blue-222 inside a glowing cyan frame, Impact on two yellow bands; (C) real studio-blue-145 beside a hanging chrome key in an orange room, Rockwell Bold. Dan: "Let's go with design A, but in the horizontal, I want to move the text up and make the key fully visible beneath the text." His body hid the key's toothed end in the 16:9, so Codex re-made that plate with the key moved left onto open floor (`r2/A2_16x9.png`) and the headline went above it.
 
+Dan approved the revised 16:9 the same day ("Approved. Go ahead and set this up."); it is kept with the finals, since the 9:16 film uses the 9:16 thumbnail.
+
 Files: `social media graphics/youtube/thumbnails/RA-12 The First Step To Getting Abs/FINAL-APPROVED/` (9:16 installed, 16:9 kept). Every file passed text clearance (face, hair, abs) and the 2 MB limit. No paid image API; Replicate only for the photo-125 cutout and the transcript, cents each.
 
 ## YouTube
@@ -22,7 +24,7 @@ Channel `UC236gjadarHAhEhOMYNGJ9g` (Dan Rose Fitness). Title "The First Step To 
 
 ## Google Ads
 
-Trial campaign `24316364155`, ad group `202084443740` "RA-12 The First Step To Getting Abs", ENABLED, $40 target CPA (RA-14 reference), Audience `359952376`, US + CA, English. Ad `828687867099`, ENABLED, REVIEW_IN_PROGRESS. Final URL on absbyai.com/start with `utm_content=claude-9x16-vsl`, HTTP 200. validateOnly passed before apply. Budget `15911255930` read $30/day before and after; campaign status untouched. Policy report 10-21: nothing in the campaign disapproved or limited. Recheck 10-22.
+Trial campaign `24316364155`, ad group `202084443740` "RA-12 The First Step To Getting Abs", ENABLED, $40 target CPA (RA-14 reference), Audience `359952376`, US + CA, English. Ad `828687867099`, ENABLED, REVIEW_IN_PROGRESS. Final URL on absbyai.com/start with `utm_content=claude-9x16-vsl`, HTTP 200. validateOnly passed before apply. Budget `15911255930` read $30/day before and after; campaign status untouched. Policy report 10-21: nothing in the campaign disapproved or limited. Later on 10-21 the ad read APPROVED / REVIEWED; no recheck needed.
 
 A trial (tap-the-button) ad, so not one of the engagement "AT ·" ads that go in all three engagement campaigns.
 

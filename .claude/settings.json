@@ -111,7 +111,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python3 \"$CLAUDE_PROJECT_DIR\"/scripts/blotato/hook_ad_guard.py",
+            "command": "f=\"$CLAUDE_PROJECT_DIR/scripts/blotato/hook_ad_guard.py\"; [ -f \"$f\" ] || f=\"$(git -C \"$CLAUDE_PROJECT_DIR\" rev-parse --path-format=absolute --git-common-dir 2>/dev/null)/../scripts/blotato/hook_ad_guard.py\"; [ -f \"$f\" ] || exit 0; exec python3 \"$f\"",
             "timeout": 15
           }
         ]
@@ -121,7 +121,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python3 \"$CLAUDE_PROJECT_DIR\"/scripts/voice/hook_hard_rules.py",
+            "command": "f=\"$CLAUDE_PROJECT_DIR/scripts/voice/hook_hard_rules.py\"; [ -f \"$f\" ] || f=\"$(git -C \"$CLAUDE_PROJECT_DIR\" rev-parse --path-format=absolute --git-common-dir 2>/dev/null)/../scripts/voice/hook_hard_rules.py\"; [ -f \"$f\" ] || exit 0; exec python3 \"$f\"",
             "timeout": 10
           }
         ]
@@ -131,7 +131,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python3 \"$CLAUDE_PROJECT_DIR\"/scripts/review/hook_no_plain_http_server.py",
+            "command": "f=\"$CLAUDE_PROJECT_DIR/scripts/review/hook_no_plain_http_server.py\"; [ -f \"$f\" ] || f=\"$(git -C \"$CLAUDE_PROJECT_DIR\" rev-parse --path-format=absolute --git-common-dir 2>/dev/null)/../scripts/review/hook_no_plain_http_server.py\"; [ -f \"$f\" ] || exit 0; exec python3 \"$f\"",
             "timeout": 5
           }
         ]
