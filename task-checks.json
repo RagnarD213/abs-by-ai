@@ -16,7 +16,8 @@
     "assistant::Robot vaccuum bedroom 3x. Remove mop pads first and put back after",
     "assistant::Make bed",
     "assistant::Take out garbage & bring bins back from driveway",
-    "assistant::Change robot mop water/refill"
+    "assistant::Change robot mop water/refill",
+    "assistant::Tidy up kitchen"
   ],
   "log": {
     "health::Shower": [
@@ -258,6 +259,7 @@
     "assistant::Robot vaccuum bedroom 3x. Remove mop pads first and put back after": "2026-10-20",
     "assistant::Make bed": "2026-10-20",
     "assistant::Take out garbage & bring bins back from driveway": "2026-10-20",
-    "assistant::Change robot mop water/refill": "2026-10-20"
+    "assistant::Change robot mop water/refill": "2026-10-20",
+    "assistant::Tidy up kitchen": "2026-10-20"
   }
 }
