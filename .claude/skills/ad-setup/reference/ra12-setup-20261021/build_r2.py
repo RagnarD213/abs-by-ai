@@ -67,7 +67,9 @@ def vault(fmt):
     """A: real studio-blue-11 in front of an open steel vault with an oversized gold key, deep navy; Arial Black stack
     THE KEY / TO GETTING / ABS, KEY and ABS gold, the rest white, navy outline and a hard black drop."""
     W, H = FMT[fmt]
-    c = cover(Image.open(f"{HERE}/A_{fmt}.png").convert("RGB"), W, H)
+    # 16:9 uses A2 (Dan, round 3: "move the text up and make the key fully visible beneath the text"): Codex moved the
+    # key left onto open floor (x 215-1000, y 655-960) so his body no longer hides its toothed end.
+    c = cover(Image.open(f"{HERE}/{'A' if fmt == '9x16' else 'A2'}_{fmt}.png").convert("RGB"), W, H)
     c, am = cutout("blue-11", 0.86, c, fmt, "c" if fmt == "9x16" else "r", 1250 if fmt == "9x16" else 1030)
     gold, navy = hexc("#FFD348"), hexc("#06172D")
     def fill(d, x, y, t, col, f):
@@ -79,7 +81,7 @@ def vault(fmt):
         return (bx[0] - sw, bx[1] - sw, bx[2] + sw + off, bx[3] + sw + off)
     rows = [([("THE ", WHITE), ("KEY", gold)], arialblack, 0.80), ([("TO GETTING", WHITE)], arialblack, 0.62), ([("ABS", gold)], arialblack, 1.0)]
     box = area("A", fmt)
-    if fmt == "9x16": box = (box[0], 0.025, box[2], 0.33)
+    box = (box[0], 0.025, box[2], 0.33) if fmt == "9x16" else (0.04, 0.04, 0.58, 0.565)  # 16:9: text above the key
     boxes = stack(c, box, rows, "c" if fmt == "9x16" else "l", draw, gapk=0.13)
     return c, clearance(am, boxes), headroom(am)
 

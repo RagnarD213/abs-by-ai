@@ -1,0 +1,38 @@
+{
+  "campaignId": "24316364155",
+  "label": "RA-12 The First Step To Getting Abs",
+  "key": "ra12",
+  "targetCpa": 40.0,
+  "copyTargetCpaFromAdGroup": "199824307366",
+  "audienceFromAdGroup": "206348100928",
+  "logoAsset": "400941168572",
+  "ctaAsset": "401407635767",
+  "businessName": "Abs by AI",
+  "videos": [
+    {
+      "youtubeId": "7bsTcr0vu6Y",
+      "version": "Claude R2 9:16",
+      "utm": "claude-9x16"
+    }
+  ],
+  "copy": {
+    "headlines": [
+      "The First Step To Getting Abs",
+      "The First Step Isn't A Workout",
+      "How AI Got Me Abs",
+      "How I Got Abs At 40",
+      "Start With Your Goal Picture"
+    ],
+    "longHeadlines": [
+      "Here is why the first step to abs is not a workout or a diet. It is a picture.",
+      "Daniel Rose explains why guys with a goal picture stay motivated when others quit.",
+      "AI turns your goal picture into a personalized workout and nutrition plan."
+    ],
+    "descriptions": [
+      "Daniel Rose shows why the first step is seeing your goal.",
+      "Upload one photo and see your AI goal picture in seconds, free.",
+      "AI goal pictures explained by a guy who did it at 40 years old."
+    ]
+  },
+  "thumbnail": "Dan's pick 2026-10-21 after two rounds: round 2 design A, real studio-blue-11 in front of an open vault with a gold key, THE KEY TO GETTING ABS in white and gold Arial Black (9:16 installed; 16:9 revised so the text sits higher and the whole key shows beneath it)."
+}
