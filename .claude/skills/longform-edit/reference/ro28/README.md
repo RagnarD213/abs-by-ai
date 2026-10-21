@@ -43,7 +43,9 @@ cut to 6:26. Starts from RO-18's round 1 recipe (`../ro18/`); only the files tha
     wave) failed; tighter prompts (A1b, A5b: "never looks at the camera", "smug from the first frame") passed first time.
 12. **from_plan's lower-third fit check missed a too-long point** ("...Even If You're Already Ripped", 1759 px of 1632) and the render died.
     Count before rendering; shorten or shrink.
-13. **Grade change re-renders every before-card** (their background frames change); lower thirds are kept. Budget ~1.5 min per scene card.
+13. **Copying a round folder and sed-ing `round1` -> `round2` makes from_plan re-render every before-card** (the photo path is in the
+    config, so its hash changes) though nothing visible changed. Before queueing hours of scene cards, diff the configs with the folder
+    name masked; if identical, reuse the previous round's renders (`round2/logs/hf_r2.log`).
 14. **Expansion's 3-slot drive cap sat full for hours** with other editors' long jobs. A graphics pass can run with `--out` on the internal
     scratch (`renderq.py scratch`) and rsync back (`recipe/hf_r2_int.sh`); unchanged renders are recognized there too. Use `GATE_PRIORITY=1`
     only while Dan waits on the result.
