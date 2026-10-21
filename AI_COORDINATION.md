@@ -26,7 +26,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**Edit cap LIVE 2026-10-21, Claude.** 5-edit cap pushed (GitHub 10430f3); tool copy runs in main folder. Main folder mid hand-merge since 17:16 (MERGE_HEAD fcc2af6, not mine), so its skills/VIDEO-RULES lack the "Edit slot first" text until merged. Next: the merging session finishes; then delete this. `editcap.py status`.
+**Edit cap LIVE 2026-10-21, Claude.** Pushed; main folder mid-merge (not mine), so its skills lack it until merged. Next: delete after that merge.
 
 **Oura Ring Review SFL - QUEUED 2026-10-21, Claude.** SL-09 five shorts in Blotato Nov 13-27, 9 AM, all platforms. Short 4 cover F by default (Dan gave no letter). Next: release check; delete once posted. `Docs/SL09_SETUP_RECEIPT_20261021.md`.
 **SL-17:NEEDS-DAN:2026-10-20:Claude.**
