@@ -61,6 +61,13 @@ def main() -> None:
     ffmpeg_path = Path(args.ffmpeg).resolve()
     os.environ["PATH"] = f"{ffmpeg_path.parent}:{os.environ.get('PATH', '')}"
     args.ffmpeg = str(ffmpeg_path)
+    try:  # one light slot in the render queue for the whole run (VIDEO-RULES, "Video builds"); never stops the run
+        import sys
+        sys.path.append(str(Path(__file__).resolve().parents[2] / ".claude/skills/_shared/renderq"))
+        import renderq
+        renderq.hold_until_exit("Whisper rolls", pool="light")
+    except Exception:
+        pass
     model = whisper.load_model(args.model)
     for source in args.sources:
         if not source.is_file():

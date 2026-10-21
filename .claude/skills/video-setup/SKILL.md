@@ -102,8 +102,9 @@ Switch it in Studio (`studio.youtube.com/video/<id>/edit` → Visibility → Pri
 ## Step 1 — download, verify, file
 
 - Drive folder: `~/bin/rclone lsl gdrive: --drive-root-folder-id <FOLDER_ID>` then
-  `rclone copy gdrive: <workdir> --drive-root-folder-id <FOLDER_ID>`. Workdir:
-  `/Volumes/Extreme/_edit_work/<slug>-publish/`. (The rclone "shared client_id" NOTICE is harmless.)
+  `rclone copy gdrive: <workdir> --drive-root-folder-id <FOLDER_ID>`. Workdir: the folder
+  `python3 .claude/skills/_shared/renderq/renderq.py workdir <slug>-publish --need 20` prints (an existing
+  `/Volumes/*/_edit_work/<slug>-publish/`, else the least busy drive with room). (The rclone "shared client_id" NOTICE is harmless.)
 - Editors' folders hold several files — pick the newest `Rev` by name and modified date; a `.srt` beside it may
   belong to an earlier cut (check its last cue against the video's duration).
 - **Even when Dan sends a single-file link, list its parent folder (`search_files` `parentId = '<parent>'`) and read

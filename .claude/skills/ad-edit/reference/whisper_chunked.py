@@ -23,7 +23,9 @@ FF = next((p for p in (os.environ.get("FF"), os.path.join(_REPO, "Media/video_ed
                        "/Volumes/Extreme/_edit_work/bin/ffmpeg", "ffmpeg") if p and (os.path.exists(p) or p == "ffmpeg")), "ffmpeg")
 src, out = sys.argv[1], sys.argv[2]
 try:   # one light slot in the render queue for the whole run (VIDEO-RULES, "Video builds"); never stops the run
+    # beside the skill, or at the project's absolute path when this file was copied into a job folder
     sys.path.append(os.path.join(_HERE, "..", "..", "_shared", "renderq"))
+    sys.path.append('/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared/renderq')
     import renderq
     renderq.hold_until_exit("Whisper " + os.path.basename(src), pool="light")
 except Exception:

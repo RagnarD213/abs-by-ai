@@ -70,24 +70,55 @@ def snapshot(d, times):
     return sorted((d / "snapshots").glob("*.png"))
 
 
-def _queue(label):
-    """A heavy slot in the render queue (VIDEO-RULES, "Video builds"), or nothing if the queue cannot load."""
+def _rq():
+    sys.path.append(str(pathlib.Path(__file__).resolve().parents[1] / "renderq"))
+    import renderq
+    return renderq
+
+
+def _queue(label, d=None, out=None):
+    """A slot in the render queue (VIDEO-RULES, "Video builds"), or nothing if the queue cannot load. Heavy; a
+    graphic of 10 s or less goes in the quick lane so it never waits behind long renders."""
     try:
-        sys.path.append(str(pathlib.Path(__file__).resolve().parents[1] / "renderq"))
-        from renderq import slot
-        return slot(label)
+        rq = _rq()
+        pool = getattr(rq, "pool_for_hyperframes", lambda *a, **k: "heavy")(d) if d else "heavy"
+        kw = dict(drives=[str(d), str(out)]) if d and out and hasattr(rq, "drive_of") else {}
+        return rq.slot(label, pool=pool, **kw)
     except Exception:
         from contextlib import nullcontext
         return nullcontext()
 
 
+def _scratch_for(out_mov):
+    """Where Chrome's frames and the encoder's chunks go while rendering: the internal SSD scratch folder when the
+    queue offers one (renderq.scratch_dir), else beside the output as before."""
+    try:
+        rq = _rq()
+        if hasattr(rq, "scratch_dir"):
+            return rq.scratch_dir(need_gb=3) / "hf-render"
+    except Exception:
+        pass
+    return None
+
+
 def render(d, out_mov):
-    """Transparent ProRes 4444 at 29.97 (opaque scenes render the same way; their alpha is simply full)."""
+    """Transparent ProRes 4444 at 29.97 (opaque scenes render the same way; their alpha is simply full).
+    Renders in scratch on the internal SSD and moves the finished .mov into place."""
     out_mov = pathlib.Path(out_mov).resolve()
     out_mov.parent.mkdir(parents=True, exist_ok=True)
-    with _queue("HyperFrames render " + out_mov.name):    # headless Chrome plus an encoder: one heavy slot
-        subprocess.run(NPX + ["render", "--format", "mov", "--fps", "30000/1001", "-o", str(out_mov)], cwd=d,
+    tmp_dir = _scratch_for(out_mov)
+    target = out_mov
+    if tmp_dir is not None:
+        tmp_dir = tmp_dir / "{}-{}".format(os.getpid(), out_mov.stem)
+        tmp_dir.mkdir(parents=True, exist_ok=True)
+        target = tmp_dir / out_mov.name
+    with _queue("HyperFrames render " + out_mov.name, d, out_mov):    # headless Chrome plus an encoder
+        subprocess.run(NPX + ["render", "--format", "mov", "--fps", "30000/1001", "-o", str(target)], cwd=d,
                        env=dict(ENV, **{k: v for k, v in os.environ.items() if k == "GATE_HELD"}), check=True)
+    if target != out_mov:
+        import shutil
+        shutil.move(str(target), str(out_mov))
+        shutil.rmtree(str(tmp_dir), ignore_errors=True)
     print(d.name, "rendered", out_mov, flush=True)
     return out_mov
 
