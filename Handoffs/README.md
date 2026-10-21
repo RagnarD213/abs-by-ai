@@ -11,6 +11,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [First Step Abs AD Setup](handoff-20261021-ra12-setup.md): RA-12 approved 9:16 (2026-10-21): five Codex thumbnails, stop for Dan's pick, Unlisted upload, trial campaign. Opus 5.5 high.
 - [Celebrity Ozempic LFC R2](handoff-20261020-ro24-celebrity-ozempic-round2.md): **Waits for Dan's reply to the round 1 page (http://127.0.0.1:9124/). Claude Opus 5.5, high.** RO-24: apply his key, colour, background and voice picks, photos only after his yes, then graphics, B-roll, AI frames and the full film from the take list already made.
 - [Zepbound Even If Ripped LFC R2](handoff-20261021-ro28-zepbound-even-if-ripped-round2.md): **After Dan replies to the round-1 page (http://127.0.0.1:8928/). Claude Opus 5.5, high.** CONTENT LFC RO-28: record his 5 picks, AI motion on Flow for the approved pairs, then the full film with every gate and the independent review. Release ASAP.
 - [What To Buy For Your Health LFC Setup](handoff-20261021-ro20c-thumbnails-and-video-setup.md): RO-20C finalized 10-21; five thumbnails, stop for the pick, then set up in the long-form slot right after part 2. Claude Opus 5.5 high.

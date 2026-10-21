@@ -46,7 +46,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [RA-09](RA-09-do-you-think-ai-is-changing-the-world.md) | Do You Think AI Is Changing The World? | C1666 | IN PROGRESS | S |
 | [RA-10](RA-10-ai-is-changing-the-world.md) | AI Is Changing The World | C1667 | READY | S |
 | [RA-11](RA-11-what-would-you-look-like-with-abs.md) | What Would You Look Like With Abs? | C1667 | READY | S |
-| [RA-12](RA-12-first-step-to-getting-abs-isnt-a-workout.md) | The First Step To Getting Abs Isn't A Workout | C1667 | DELIVERED: awaiting Dan | S |
+| [RA-12](RA-12-first-step-to-getting-abs-isnt-a-workout.md) | The First Step To Getting Abs Isn't A Workout | C1667 | FINALIZED | S |
 | [RA-13](RA-13-why-do-most-guys-never-get-abs.md) | Why Do Most Guys Never Get Abs? | C1667 | UPLOADED | S |
 | [RA-14](RA-14-cheat-code-for-six-pack-abs.md) | The Cheat Code For Six Pack Abs | C1667 | UPLOADED | S |
 | [RA-15](RA-15-never-pay-a-nutritionist-again.md) | Never Pay A Nutritionist Again | C1668 | UPLOADED | S |
@@ -142,7 +142,7 @@ Roll map and editor warnings: `Docs/SHOOT_1015_FOOTAGE_REPORT.md`. BLOCKED rows 
 | job | video | rolls | status | size |
 |---|---|---|---|---|
 | [RO-25](RO-25-im-41-i-wasted-my-life.md) | I'm 41. I Wasted My Life. | 10/15 C1767 | UPLOADED | L |
-| [RO-28](RO-28-why-zepbound-improves-your-health-even-if-youre-ripped.md) | Why Zepbound Improves Your Health Even If You're Ripped | 10/15 C1771 | DELIVERED: awaiting Dan | L |
+| [RO-28](RO-28-why-zepbound-improves-your-health-even-if-youre-ripped.md) | Why Zepbound Improves Your Health Even If You're Ripped | 10/15 C1771 | IN PROGRESS | L |
 
 RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled for Sunday October 18 at 9 AM Chicago time, with Facebook and Instagram Monday at noon. The setup receipt is `Docs/RO25_SETUP_RECEIPT_20261017.md`. The separate SL-18 Shorts job can start from this approved master.
 
