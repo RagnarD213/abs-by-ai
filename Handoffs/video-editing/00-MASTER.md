@@ -43,7 +43,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [RA-06](RA-06-whats-the-best-ab-exercise.md) | What's The Best Ab Exercise? | C1664 | UPLOADED | S |
 | [RA-07](RA-07-fire-your-trainer.md) | Fire Your Trainer! | C1664 | UPLOADED | S |
 | [RA-08](RA-08-why-are-trainers-going-out-of-business.md) | Why Are Trainers Going Out Of Business? | C1665 | **NEEDS DAN** | S |
-| [RA-09](RA-09-do-you-think-ai-is-changing-the-world.md) | Do You Think AI Is Changing The World? | C1666 | READY | S |
+| [RA-09](RA-09-do-you-think-ai-is-changing-the-world.md) | Do You Think AI Is Changing The World? | C1666 | IN PROGRESS | S |
 | [RA-10](RA-10-ai-is-changing-the-world.md) | AI Is Changing The World | C1667 | READY | S |
 | [RA-11](RA-11-what-would-you-look-like-with-abs.md) | What Would You Look Like With Abs? | C1667 | READY | S |
 | [RA-12](RA-12-first-step-to-getting-abs-isnt-a-workout.md) | The First Step To Getting Abs Isn't A Workout | C1667 | DELIVERED: awaiting Dan | S |
@@ -131,7 +131,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [RO-19](RO-19-my-first-spray-tan.md) | My First Spray Tan (old edit scrapped 10-02, redo from scratch) | 8/3 C1512 (31 min) | FINALIZED | L |
 | [RO-20](RO-20-invest-more-in-your-health.md) | Why You Should Invest More In Your Health (part 1 of 3 since 10-11; old edit scrapped 10-02) | 8/3 C1511 (69 min) | FINALIZED | L |
 | [RO-20B](RO-20-invest-more-in-your-health.md) | What To Cut To Afford Getting In Shape (part 2 of 3, split from RO-20 on 10-11) | 8/3 C1511 (69 min) | FINALIZED | L |
-| [RO-20C](RO-20-invest-more-in-your-health.md) | What To Buy For Your Health At Every Income Level (part 3 of 3, split from RO-20 on 10-11) | 8/3 C1511 (69 min) | DELIVERED: awaiting Dan | L |
+| [RO-20C](RO-20-invest-more-in-your-health.md) | What To Buy For Your Health At Every Income Level (part 3 of 3, split from RO-20 on 10-11) | 8/3 C1511 (69 min) | FINALIZED | L |
 
 ### 1C3 · 10/15 shoot (59 jobs, added 2026-10-16): release-ASAP first, then shorts, then long-forms
 
@@ -161,7 +161,7 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 | [DS-41](DS-41-kevin-james-tried-one-cheat-day-a-week-it-wrecked-his-diet.md) | Kevin James Tried One Cheat Day A Week. It Wrecked His Diet. | 10/15 C1730 | READY | S |
 | [DS-42](DS-42-post-malone-lost-55-pounds-by-cutting-out-one-drink-hes-righ.md) | Post Malone Lost 55 Pounds By Cutting Out One Drink. He's Right. | 10/15 C1730 | READY | S |
 | [DS-43](DS-43-terry-crews-doesnt-eat-until-2-pm-hes-right.md) | Terry Crews Doesn't Eat Until 2 PM. He's Right. | 10/15 C1730 | READY | S |
-| [DS-44](DS-44-alex-hormozi-asks-a-fat-guy-why-he-isnt-200-pounds-heavier-h.md) | Alex Hormozi Asks A Fat Guy Why He Isn't 200 Pounds Heavier. He's Right. | 10/15 C1730 | READY | S |
+| [DS-44](DS-44-alex-hormozi-asks-a-fat-guy-why-he-isnt-200-pounds-heavier-h.md) | Alex Hormozi Asks A Fat Guy Why He Isn't 200 Pounds Heavier. He's Right. | 10/15 C1730 | IN PROGRESS | S |
 | [DS-45](DS-45-mr-olympia-shows-the-vacuum-heres-how-to-do-it-at-home.md) | Mr. Olympia Shows The Vacuum. Here's How To Do It At Home. | 10/15 C1730 | READY | S |
 | [DS-46](DS-46-the-only-2-exercises-you-need-for-lower-abs.md) | The Only 2 Exercises You Need For Lower Abs | 10/15 C1755-C1756 | READY | S |
 | [DS-47](DS-47-the-only-2-exercises-you-need-for-a-v-taper.md) | The Only 2 Exercises You Need For A V-Taper | 10/15 C1756 | READY | S |

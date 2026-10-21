@@ -41,7 +41,11 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-25 Git sync BLOCKED 2026-10-18, Codex.** Public video, article post 886, and manually uploaded 257-cue English SRT are verified. Caption uploader and receipt are committed locally as `340ed22`. Safe-push aborted on nine merge conflicts across other sessions' files; no merge is in progress. Next: hand-merge shared main with owners or push these records from a clean checkout, without discarding their work.
 
+**RA-09:ACTIVE:2026-10-21:Claude.** AI Changing World AD R1. `/Volumes/Expansion/_edit_work/RA-09/`.
+
 **Fat 90 Year Old SFC R3 - ACTIVE 2026-10-21, Claude.** R2 key locked as house standard (AGENTS). Building opening: clip full screen, Dan small, then large. Work: `ds40/r3/`.
+
+**Hormozi Fat Guy SFC R1 - ACTIVE 2026-10-21, Claude.** DS-44 from C1730 (scripted 37:31), DS-33 recipe, house key. Next: full R1 build, gates, audit, review page. Work: `/Volumes/Expansion/_edit_work/DS-44/r1/`.
 
 **SL-15:R2-REVIEW:9015:2026-10-21:Claude.** Shorts delivered; reviewers SHIP; gate fails only camera hair. Next: Dan.
 
