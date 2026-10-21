@@ -127,6 +127,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-07 POLICY-RECHECK 2026-10-20, Claude.** 10-21: `node scripts/ads/api/client.js policy 24316364155`; clean, delete.
 
+**What To Buy For Your Health LFC Setup - AWAITING PICK 2026-10-21, Claude.** RO-20C five thumbnails on sheet; next: Dan's pick, then Blotato for Sun Dec 6 (held). Notes: `social media graphics/youtube/thumbnails/What To Buy For Your Health/THUMBNAIL-REVIEW.md`.
+
 **Invest In Your Health 2026-10-20, Claude.** Videos 1, 2 (RO-20, RO-20B) finalized; setup handoff written. Video 3 (RO-20C) R5 handed off (new intro split, two lip-synced excuse clips). Both in `Handoffs/README.md` OPEN. Queue commit ff69bf1 local (safe-push stopped on a live file); next safe-push carries it. C1722 sidecar mark-used pending (Seagate unplugged).
 
 
