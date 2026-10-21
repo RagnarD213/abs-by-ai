@@ -2314,7 +2314,7 @@
    "unattended": false,
    "unattended_why": "Job doc says show Dan the segment list and wait for picks.",
    "order": 100,
-   "syncedRev": 9,
+   "syncedRev": 10,
    "updated": "2026-10-21",
    "rev": 10,
    "by": "Claude",
