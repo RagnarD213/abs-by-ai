@@ -55,3 +55,5 @@ shoot) with the per-roll grade curve "look F" instead of a 4K roll and a LUT. Wo
   median head offset within 6 %: `window_path` keeps it within 4.5 % (a quicker 160 px/s follow where he leans fast).
 - **Real-photo chip references must be drawn with the same anchor as the frame** (`chip_png(..., anchor="mt")`): a half-pixel offset
   read 0.833 against the gate's 0.85.
+- **A prompted disfluency sweep after every cut change** (`initial_prompt="Um, uh, mm."`, 10 s windows): a late reviewer found an "um" before
+  "He's trying to avoid cancer" that two sweeps missed; the first cut left 55 ms of its "m" (cut where the pitch rises into the next word).

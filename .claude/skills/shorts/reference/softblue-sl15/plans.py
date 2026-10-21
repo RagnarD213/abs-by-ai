@@ -20,7 +20,9 @@ SEG = {
  # guys" is cut (the beach clip covers that join; 0.46 s pause kept); "cancer." ends 641.80, silence to 642.38
  # Round 2 review (VIDEO-RULES 2026-10-20, stumbles): "why he, uh, takes an umbrella": "he" ends 625.56 (dip to -36 dB), the "uh" is
  # 625.62-625.96, silence 626.04-626.26, "takes" from 626.30. Cut 625.58-626.08: "why he takes", 0.22 s between them; the join is a size step.
- "C": [[594.36, 604.70], [605.22, 625.58], [626.08, 642.30]],
+ # Round 2 late review: a short "um" at 615.16-615.30 before "He's trying to avoid cancer" (Whisper with a disfluency prompt; levels -15 dB, then a
+ # dip to -29 at 615.32-615.36 before "He's"). Cut 615.10-615.385 (round 2g review: at 615.34 a 55 ms tail of the "m" stayed): "why." then a pause, "He's"; the join is a size step.
+ "C": [[594.36, 604.70], [605.22, 615.10], [615.385, 625.58], [626.08, 642.30]],
 }
 PICKUP = {}
 WORDFIX = {}      # round 1 pinned "takes" onto the "uh" before it (Whisper with a disfluency prompt: "he, uh, takes"); the "uh" is now cut, so CTC stands
@@ -52,7 +54,7 @@ SPLIT = {
  "C": [["If you ever notice", 0.0], ["he only goes out", 0.0]]      # the "uh" cut (a join) is the size step before "takes",
 }
 SHOTS = {"A": {2: dict(win="mid"), 3: dict(win="full"), 7: dict(cap=1650), 11: dict(win="mid"), 12: dict(win="full"), 13: dict(win="mid"), 14: dict(win="full")},      # bars G1 (#3) and G2 (#12) on the wide window; #7 the real photo: captions at y 1650 over his shorts, not across his abs (round 2b review)
-         "C": {}}
+         "C": {6: dict(win="mid"), 7: dict(win="full")}}      # the "um" cut at 0:20.2 is a size step; bar G2 lands on the wide shot after it
 BARS = {
  "A": [dict(id="G1", topic="KEY POINT", parts=[["Cameras Flatten", "cameras tend"], ["Your Definition", "to flatten"]], a=-0.2, b=1.6),
        dict(id="G3", topic="THE MAIN REASON", parts=[["I Was Too Pale", "the main reason"]], a=-0.2, b=3.0),      # round 2d review: the film's Ga04 (its "For A Fitness Shoot" half was cut with its words); lands on "the main reason", leaves at the join
@@ -62,5 +64,5 @@ BARS = {
 }
 TEXT = {
  "A": "If you guys want to look good in photos, especially if you want some good photos for Instagram or for your dating profile, then spray tanning can be especially important. The reason for that is that cameras tend to flatten your definition. Now I had this experience the first couple of photo shoots I did, but after I started getting in shape this most recent time, I was looking at myself in the mirror and I'm like, man, I'm looking good. But then I take a picture of myself in the photo shoot and I'm like, oh, I don't look anywhere near as defined. | But the main reason why is that I was too pale. | And this is the reason why if you look at all fitness models and bodybuilders, they're spray tanning to such a huge extent, they're going very dark because a darker spray tan can tremendously increase your definition. Definition on camera is all about contrast. If you're just super pale and pasty and white, then there's not going to be that much contrast. Even if you're muscular, you're not going to look that defined. Take that same physique and put a spray tan on it and you'll look much more defined.",
- "C": "The most important pro of spray tanning, in my opinion, is that it enables you to get tan while avoiding sun damage. And the sun is a lot more damaging than people think. | For those of you guys who don't believe this, go and watch some of Bryan Johnson's videos on this topic. If you ever notice why the world's healthiest man looks like an ultra pale vampire, this is the reason why. He's trying to avoid cancer, he's trying to avoid skin damage, and that's the reason why he only goes out in the sun during off-peak hours, not in the bright sun in the noontime, and why he | takes an umbrella out with him when he goes out in the sun. Sun exposure is one of the most common causes of cancer. Skin cancer is one of the most common cancers and if you go out in the sun a lot getting that healthy looking tan, you're a lot more likely to get that kind of cancer.",
+ "C": "The most important pro of spray tanning, in my opinion, is that it enables you to get tan while avoiding sun damage. And the sun is a lot more damaging than people think. | For those of you guys who don't believe this, go and watch some of Bryan Johnson's videos on this topic. If you ever notice why the world's healthiest man looks like an ultra pale vampire, this is the reason why. | He's trying to avoid cancer, he's trying to avoid skin damage, and that's the reason why he only goes out in the sun during off-peak hours, not in the bright sun in the noontime, and why he | takes an umbrella out with him when he goes out in the sun. Sun exposure is one of the most common causes of cancer. Skin cancer is one of the most common cancers and if you go out in the sun a lot getting that healthy looking tan, you're a lot more likely to get that kind of cancer.",
 }
