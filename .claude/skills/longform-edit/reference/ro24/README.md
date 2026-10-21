@@ -41,10 +41,20 @@ Measured residual flaws of the approved key on this roll, fixed after the merge,
    fully, or a khaki rim stays. Test harness: `handtest2.py <out> <frames...>` (real motion from the neighbouring frames, counts
    lowered solid pixels that are dark or deep, saves raw | approved | refined | lowered tiles). Frames that need nothing must
    come back with 0 lowered pixels.
-Result (`keynum.py`): interior holes 19 % -> 0.2 %, edge green halved, edge change frame to frame equal on the same pixels,
-head interior steadier; the hand fix verified on the three flagged moments (`handdbg.py` for one native frame).
+Result (`keynum.py`, final r5 keys, re-check 3): see-through head/hair 20.1 % -> 0.4 % of interior pixels, edge green 0.0143 ->
+0.0058, edge change frame to frame equal on the same pixels. Moving hands: about half the finger-gap green is opened (49-52 % of
+what the ungated version opened); costs a 0.1 s pale streak on the shorts at film 25.0 s and a watch-bezel ring at alpha ~0.8.
+Verdict: refined is better on balance for this roll; the remaining flaws are listed with times on the round 1 page.
 
 ## Traps
+- `review_server.py` serves a CACHED copy of the page (`~/Library/Application Support/AbsByAI Reviews/<port>/page`). Rebuilding
+  `review/index.html` changes nothing Dan sees: re-run `review_server.py <port> <review dir>` after every rebuild, then compare the
+  served video's sha256 with the file (re-check 3 found the page still serving a version two rebuilds old).
+- Moving-hands balance point (five versions, four independent checks): each version that opened more finger gaps also opened
+  the olive shorts or the watch. Speed gate 40-60 px kept the shorts solid but opened ~40 % of gaps; 12-24 px opens ~50 % and
+  brings back a short streak where a moving hand meets the shorts. Requiring screen-coloured seeds to be screen-bright changed
+  nothing (those openings are not seed-driven). Untested next idea: a motion-compensated test of whether the screen shows at that
+  pixel when the hand is not there (true for finger gaps, false for hand-over-shorts).
 - `ffmpeg` in `Media/video_edit/bin` is the render-queue wrapper: a script outside a queued step that decodes a whole file waits in
   line (an inspection read sat 7 min at 0 % CPU). Few-frame inspection reads use `ffmpeg.real` with `-frames:v`.
 - Whisper's own audio loader calls `ffmpeg` on PATH: put `Media/video_edit/bin` on PATH or `whisper_chunked.py` dies at once.
