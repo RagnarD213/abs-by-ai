@@ -84,18 +84,15 @@ no scheduler makes that finish as fast as two videos on this machine. What Phase
 Making 50 at once feel like 2 at once needs about 25x the compute: that is Phase 3 (cloud render workers or a second
 machine), and it only pays once Phases 1-2 have removed the waste.
 
-## 2. Phase 0: Dan, five minutes (today)
+## 2. Phase 0: done 2026-10-21, with a follow-up
 
-1. **Turn off iCloud sync for the project folder.** Recommended: System Settings > [Dan's name] > iCloud > iCloud Drive
-   > turn off "Desktop & Documents Folders" (choose Keep a Copy). The files stay on the Mac; the repo is on GitHub and
-   media is backed up nightly to Seagate and Drive. Alternative if Dan wants other Documents to keep syncing: a Claude
-   session moves the project to `~/Projects/Abs By AI` and leaves a symlink at the old path, at a quiet moment with no
-   jobs running (hundreds of scripts hard-code the old path; the symlink keeps them working). Claude cannot change a
-   system setting itself.
-2. **Stop Spotlight indexing the work drives** (needs Dan's password):
-   ```bash
-   sudo mdutil -i off /Volumes/Extreme /Volumes/Expansion
-   ```
+1. **iCloud:** Dan turned "Desktop & Documents Folders" off at 14:49. macOS 26 did not copy the files back; it emptied
+   `~/Documents` and left everything in the iCloud container. Paths were restored at 14:53 with symlinks (every entry
+   of `~/Documents` now links into `~/Library/Mobile Documents/com~apple~CloudDocs/Documents/`). The project therefore
+   still syncs until it is moved out: `Handoffs/handoff-20261021-move-project-out-of-icloud.md` (git objects first, free
+   150 GB on the internal disk, materialize 40 GB of cloud-only files, rename out at a quiet moment). Never turn the
+   setting back on.
+2. **Spotlight** is off on Extreme and Expansion (`mdutil -i off`, 14:40, verified).
 
 ## 3. Phase 1: render queue v3, budget cores and memory (Claude Opus 5.5, high; one tooling session, about half a day)
 
