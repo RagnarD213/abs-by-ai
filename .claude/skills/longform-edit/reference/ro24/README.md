@@ -32,9 +32,15 @@ Measured residual flaws of the approved key on this roll, fixed after the merge,
    each pixel's chromaticity (colour / its sum: brightness and the shadow between fingers drop out) onto the line from the local
    skin colour to the screen colour; pixels ON that line (residual < 0.03, so not the watch, tank or a highlight) and greener
    than skin get LOWER alpha only (min with the approved alpha), and the colour of the NEAREST opaque skin (keeps its shading).
-   **Gated by motion** (DIS flow speed above ~5 native px a frame): green light bouncing onto a STILL arm next to the screen reads
-   exactly like partial transparency and the ungated version ate the inner arm into a light rim. Motion blur only exists where
-   something moves, so the gate is physical, not a tuning trick.
+   **Four limits, each from a defect an independent check found:** (a) motion: only from 40 native px a frame (full at 60);
+   green light bouncing onto a still or slowly drifting arm reads exactly like partial transparency (light rim on the inner arm);
+   the flagged fast hands move 100-170; (b) brightness: a blend cannot be much darker than both the skin and the screen beside it,
+   floor max(0.20, 0.72 x the darker of the two), or olive shorts, the watch glass reflecting the screen, shaded skin and the
+   mouth go see-through (they sit on the same skin-screen colour line); (c) reach: only within 6 px + 0.6 x speed of a screen
+   pixel (blur cannot reach deeper than the hand travelled); (d) colour: every clear blend pixel takes the nearest skin's colour
+   fully, or a khaki rim stays. Test harness: `handtest2.py <out> <frames...>` (real motion from the neighbouring frames, counts
+   lowered solid pixels that are dark or deep, saves raw | approved | refined | lowered tiles). Frames that need nothing must
+   come back with 0 lowered pixels.
 Result (`keynum.py`): interior holes 19 % -> 0.2 %, edge green halved, edge change frame to frame equal on the same pixels,
 head interior steadier; the hand fix verified on the three flagged moments (`handdbg.py` for one native frame).
 

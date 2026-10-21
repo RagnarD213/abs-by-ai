@@ -28,6 +28,9 @@ FPS = 30000 / 1001
 H, WD = 2160, 3840
 OUT_W, OUT_H = 2880, 1620
 S = 0.75                        # C1726 head size / DS-40 portrait head size (native px), measured 2026-10-20
+# moving-hands step engages from MOTION_LO to MOTION_HI native px a frame (re-check 2026-10-21: the flagged fast hands move 100-170,
+# a drifting arm 20-36; below ~40 the blur is under ~10 output px and green bounce on shaded skin is what the step would catch)
+MOTION_LO, MOTION_HI = 40.0, 60.0
 DEC = 'scale=in_color_matrix=bt709:in_range=tv:out_range=pc:flags=accurate_rnd+full_chroma_int,format=rgb48le'
 
 # ---------------------------------------------------------------- screen fields
@@ -150,7 +153,7 @@ def hair_premult(cur, a, bg):
     return fg
 
 # ---------------------------------------------------------------- refinement (RO-24 'refined' variant, on top of the approved maths)
-def refine(im, a, f, near_fallback, bg=None, hairband=None, motion=None):
+def refine(im, a, f, near_fallback, bg=None, hairband=None, motion=None, speed=None):
     """Two residual flaws of the approved key, measured on C1726 (2026-10-20): (1) solid hair and forehead sit at alpha
     0.83-0.99 inside the head (19 % of interior head pixels below 0.99), so the background tints them (the grey halo Dan
     accepted on DS-40); (2) body and hand edges keep an olive outline where the despilled screen residue sits in the edge
@@ -177,19 +180,26 @@ def refine(im, a, f, near_fallback, bg=None, hairband=None, motion=None):
     g_lim = np.minimum(F2[:, :, 1], .5 * (F2[:, :, 0] + F2[:, :, 2]) + .01)
     F2[:, :, 1] = F2[:, :, 1] * (1 - wb) + g_lim * wb
     if bg is not None:                                      # (4) moving hands
-        a2, F2 = hands(im, a2, np.clip(F2, 0, 1), bg, hairband if hairband is not None else np.zeros_like(a2), motion)
+        a2, F2 = hands(im, a2, np.clip(F2, 0, 1), bg, hairband if hairband is not None else np.zeros_like(a2), motion, speed)
     return a2, np.clip(F2, 0, 1) * a2[:, :, None]
 
 # ---------------------------------------------------------------- moving hands (RO-24 refined, independent review F1/F2, 2026-10-20)
-def hands(im, a, F, bg, hairband, motion=None):
-    """Fast hand moves (independent review F1/F2, 2026-10-20, frames K2 423, 626-633, K3 168). The approved body key measures green
-    as G - max(R, B); skin is red-heavy, so a 50/50 blur of skin and screen (R .52, G .50, B .32) still reads 0 green and counts
-    as SOLID: the blurred hand edge and the screen seen through the gaps between fingers come out opaque and olive. Here, next
-    to skin, each pixel's chromaticity (colour / its sum, so brightness and the screen's shadow between fingers drop out) is
-    projected onto the line from the local skin colour to the screen colour: t = 0 skin, t = 1 screen. Only pixels that lie on
-    that line (residual < 0.03: a real skin/screen mix, not the watch, the tank or a highlight) and read greener than the skin
-    are changed, and alpha only goes DOWN (min with the approved alpha): a = (1-t)S_b / ((1-t)S_b + t S_f) with S the colour sums.
-    Their colour becomes the local skin colour. Opaque skin, the tank, the watch and the hair band are untouched."""
+def hands(im, a, F, bg, hairband, motion=None, speed=None):
+    """Fast hand moves (independent review F1/F2 and re-check R1-R7, 2026-10-20/21). The approved body key measures green as
+    G - max(R, B); skin is red-heavy, so a 50/50 blur of skin and screen (R .52, G .50, B .32) reads ZERO green and counts as
+    SOLID: blurred hand edges and the screen between fingers come out opaque and olive. Each pixel's chromaticity (colour / its
+    sum, so brightness and the shadow between fingers drop out) is projected onto the line from the local skin colour to the
+    screen colour (t = 0 skin, 1 screen), and alpha follows the measured mix. A pixel is only touched when ALL of these hold:
+      * it lies on that line (residual < 0.03) and reads greener than skin (t > 0.06);
+      * it is bright enough to be a skin/screen blend (luma >= ~0.2): dark olive shorts, the watch glass reflecting the screen,
+        shaded skin and the mouth sit on the same colour line but are too dark to be a blend (re-check R1, R2, R3, R7);
+      * it is within the motion-blur reach of the screen: the distance to the nearest screen pixel (approved alpha <= .05, or a
+        clear screen-coloured pixel, which also marks gaps between fingers) is at most 6 px + 0.6 x the pixel's speed (DIS flow,
+        native px a frame): blur cannot reach further into the body than the hand travelled;
+      * something moved there (speed above ~5 native px a frame): green light bouncing on a still arm reads the same.
+    Alpha only goes DOWN (min with the approved alpha). Every touched blend pixel takes the colour of the NEAREST opaque skin
+    (keeps its shading), fully where it is a clear blend, so no khaki rim is left (re-check R5). Opaque skin, the tank, the watch,
+    the shorts, the face and the hair band are untouched."""
     lum = lambda x: .2126 * x[..., 0] + .7152 * x[..., 1] + .0722 * x[..., 2]
     r, g, b = F[..., 0], F[..., 1], F[..., 2]
     opaque = a > .98
@@ -207,18 +217,27 @@ def hands(im, a, F, bg, hairband, motion=None):
     t = ((ci - cf) * dv).sum(-1) / dd
     res = np.linalg.norm(ci - cf - t[..., None] * dv, axis=-1)
     t = np.clip(t, 0, 1)
+    lumI = lum(ims)
     Sf, Sb = Fs.sum(-1), bg.sum(-1)
     ac = (1 - t) * Sb / np.maximum((1 - t) * Sb + t * Sf, 1e-4)
     ac = np.clip(cv2.ximgproc.guidedFilter(np.clip(im, 0, 1), ac.astype(np.float32), 3, .0002), 0, 1)
-    zone = (d_sk < 40) & (d_sk <= d_dk) & (den > .02) & (hairband <= 0) & (res < .03) & (t > .06)
-    wz = (np.clip((40 - d_sk) / 12, 0, 1) * np.clip((.03 - res) / .01, 0, 1) * np.clip((t - .06) / .06, 0, 1) * zone).astype(np.float32)
-    wz = cv2.GaussianBlur(wz, (0, 0), 2.0)
+    seed = (a <= .05) | ((t > .75) & (res < .03) & (lumI > .2))
+    d_bg = distance_transform_edt(~seed)
+    sp = speed if speed is not None else np.zeros(a.shape, np.float32)
+    reach = 6 + .6 * sp
+    # a skin/screen blend cannot be much darker than BOTH the skin and the screen beside it: the floor is 72 % of the darker one
+    # (the shadow between fingers stays above it; the watch glass, shorts, shaded skin and the mouth fall below it)
+    lo = np.maximum(.20, .72 * np.minimum(lum(bg), lum(Fs)))         # never below a fixed 0.20 either (shaded skin, shorts)
+    zone = (d_sk < 60) & (d_sk <= d_dk) & (den > .005) & (hairband <= 0) & (res < .03) & (t > .06) & (lumI > lo - .03) & (d_bg <= reach + 4)
+    wz = (np.clip((60 - d_sk) / 15, 0, 1) * np.clip((.03 - res) / .01, 0, 1) * np.clip((t - .06) / .06, 0, 1)
+          * np.clip((lumI - (lo - .03)) / .03, 0, 1) * np.clip((reach + 4 - d_bg) / 4, 0, 1) * zone).astype(np.float32)
+    wz = cv2.GaussianBlur(wz, (0, 0), 1.5)
     if motion is not None:          # only where something moved: green light bouncing onto a STILL arm reads like transparency too
         wz = wz * motion
     a3 = np.minimum(a, a * (1 - wz) + ac * wz)
     a3 = np.minimum(a, cv2.GaussianBlur(a3.astype(np.float32), (0, 0), .8))
-    wF = np.clip((a - a3) / .25, 0, 1)[..., None]
-    # colour from the NEAREST opaque skin (keeps its shading: a shaded inner arm stays shaded, no light rim), lightly smoothed
+    blend = wz * np.clip((t - .06) / .10, 0, 1)                         # how clearly this pixel is a skin/screen mix
+    wF = np.maximum(np.clip((a - a3) / .25, 0, 1), blend)[..., None]
     _, ix = distance_transform_edt(~skin, return_indices=True)
     Fn = cv2.GaussianBlur(np.ascontiguousarray(F[ix[0], ix[1]]), (0, 0), 2.0)
     Fn[..., 1] = np.minimum(Fn[..., 1], .5 * (Fn[..., 0] + Fn[..., 2]) + .01)
@@ -341,9 +360,10 @@ def render(start, frames, out, screen='plate', box=None, roi=None, handles=2, lo
         # motion blur is only wide enough to matter above ~2.5 half-res px a frame (~5 native px); a sway of a pixel or two is not
         mv = speed.pop('m', np.zeros(cur['gray'].shape, np.float32))
         mv = cv2.dilate(cv2.GaussianBlur(mv, (0, 0), 3), np.ones((15, 15), np.uint8))
-        motion = cv2.resize(np.clip((mv - 2.5) / 3, 0, 1), (bw, bh), interpolation=cv2.INTER_LINEAR)
-        if _refine_only: variants = [(enc,) + refine(cur['im'], a, f, nf, bg, cur['hair'], motion)]
-        else: variants = [(enc, a, f)] + ([(enc2,) + refine(cur['im'], a, f, nf, bg, cur['hair'], motion)] if enc2 is not None else [])
+        motion = cv2.resize(np.clip((mv * 2 - MOTION_LO) / (MOTION_HI - MOTION_LO), 0, 1), (bw, bh), interpolation=cv2.INTER_LINEAR)
+        speed_n = cv2.resize(mv * 2, (bw, bh), interpolation=cv2.INTER_LINEAR)          # native px a frame
+        if _refine_only: variants = [(enc,) + refine(cur['im'], a, f, nf, bg, cur['hair'], motion, speed_n)]
+        else: variants = [(enc, a, f)] + ([(enc2,) + refine(cur['im'], a, f, nf, bg, cur['hair'], motion, speed_n)] if enc2 is not None else [])
         for e, av, fv in variants:
             fs = cv2.resize(fv, (X1 - X0, Y1 - Y0), interpolation=cv2.INTER_AREA)
             as_ = np.clip(cv2.resize(av, (X1 - X0, Y1 - Y0), interpolation=cv2.INTER_AREA), 0, 1)

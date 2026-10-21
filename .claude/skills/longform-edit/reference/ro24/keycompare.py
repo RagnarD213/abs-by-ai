@@ -28,7 +28,10 @@ W = {n: C.writer(f'{A.out}/key-{n}{tag}.mp4', crf=16) for n in ('side', 'hair', 
 bg = C.background(A.bg); light = np.full((540, 960, 3), [.84, .87, .89], np.float32); dark = np.full((540, 960, 3), [.08, .10, .13], np.float32)
 x0 = int(np.clip(cx - 720, 0, C.IW - 1440)); hx = int(np.clip(cx - 480, 0, C.IW - 960)); hy = int(max(0, top - 70))
 def label(img, text, x, y):
-    cv2.putText(img, text, (x, y), cv2.FONT_HERSHEY_DUPLEX, .9, (0, 0, 0), 4, cv2.LINE_AA); cv2.putText(img, text, (x, y), cv2.FONT_HERSHEY_DUPLEX, .9, (255, 255, 255), 1, cv2.LINE_AA)
+    # one clean white text pass on a dark tab (a black outline drawn at a different thickness misaligned: re-check R8)
+    (tw, th), base = cv2.getTextSize(text, cv2.FONT_HERSHEY_DUPLEX, .85, 2)
+    cv2.rectangle(img, (x - 10, y - th - 10), (x + tw + 10, y + base + 6), (20, 28, 40), -1)
+    cv2.putText(img, text, (x, y), cv2.FONT_HERSHEY_DUPLEX, .85, (255, 255, 255), 2, cv2.LINE_AA)
 for i in range(A.k1 - A.k0):
     Fa, Aa = C.read_frame(pa); Fr, Ar = C.read_frame(pr)
     R = np.frombuffer(raw.stdout.read(C.IW * C.IH * 3), np.uint8).reshape(C.IH, C.IW, 3).astype(np.float32) / 255
