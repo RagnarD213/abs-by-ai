@@ -150,7 +150,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-20C setup:PICK:2026-10-21:Claude.** Dec 6.
 
-**Zepbound Even If Ripped LFC R1 - REVIEW 2026-10-21, Claude.** Page :8928. Next: Dan's 5 picks, then `Handoffs/handoff-20261021-ro28-zepbound-even-if-ripped-round2.md`.
+**Zepbound Even If Ripped LFC R2 - ACTIVE 2026-10-21, Claude.** Motion A1/A5 on Flow, A2/A3 frames redrawn. `/Volumes/Expansion/_edit_work/ro28/round2/`.
 
 **Make Time Exercise LFC R2 - ACTIVE 2026-10-20, Claude.** RO-18 round 2: camera opener, Flow motion for A2/A6/A7/A8/A9 (background agent), new college-age C36/C37, then full film, gates, review, delivery. Work: `/Volumes/Expansion/_edit_work/RO-18/round2/`.
 
