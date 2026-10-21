@@ -31,6 +31,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 - [Upwork profile and portfolio](handoff-20261007-upwork-profile-and-portfolio.md): interview Dan, verify experience and assets, build and publish the approved profile. Opus 5.5 high.
 - [Upwork jobs and proposals](handoff-20261007-upwork-job-applications.md): interview for criteria and budgets, decide promotion, prepare custom proposals/samples, submit approved batches, assess Grok Bot scouting. GPT-6.1 Sol high.
+- [Supliful Account And Samples](handoff-20261021-supliful-account-and-samples.md): **Start now (2026-10-21). Claude Opus 5.5, high.** Business. Dan opens a free Supliful account; Claude recommends 10 more products to sample and stops for Dan's picks; then one sample order: Creatine Hydration Powder x3 plus his picks (no plain creatine). Dan confirms the total and pays.
 
 | Document | Fire when |
 |---|---|
