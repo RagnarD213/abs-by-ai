@@ -208,6 +208,7 @@ def cut_plan(a, B, Q, V):
     P["graphics"] = []
     P["watch_log"] = os.path.join(out, "logs", "watch_pass.json")
     P.pop("negative_events_scan", None)
+    P.pop("label_clearance", None)               # the vertical cutdown's evidence is bound to ITS file: the gate measures the square itself
     old = os.path.join(out, "plan.json")
     if os.path.exists(old):
         o = json.load(open(old))

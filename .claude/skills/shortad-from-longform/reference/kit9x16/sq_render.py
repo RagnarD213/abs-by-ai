@@ -64,6 +64,12 @@ class Build:
         self.N = n
         cp = os.path.join(self.Q, "sq_copy.json")
         self.copy = (json.load(open(cp)) if os.path.exists(cp) else {}).get("pictures", {})
+        self.copy_gfx = (json.load(open(cp)) if os.path.exists(cp) else {}).get("graphics", {})
+        # sq_copy "media": {"key": ["vid", path, start, ...]}: a square-only source for one picture. The vertical's
+        # renderer multiplies the editor's soft vignette onto full-frame clips, so a clip pre-compensated for it there
+        # (Ad 6's plank) must be the plain graded file here, where no vignette is applied
+        for k_, v_ in ((json.load(open(cp)) if os.path.exists(cp) else {}).get("media", {})).items():
+            R.MEDIA[k_] = tuple(v_)
         fp = os.path.join(self.Q, "sq_fit.json")
         self.fit = json.load(open(fp)) if os.path.exists(fp) else {}
 
@@ -159,8 +165,14 @@ def cmd_fit(X):
             else:
                 hb = L.head_box(union)
                 allc = [q for q in L.candidates(c["label"], union, hb) if q["x"] + q["w"] <= S - 60]
+                # sq_copy "prefer": [[x, y, lines, size], ...]: placements measured on an earlier build are tried first,
+                # under the same validation (the segmenter's verdict on one spot flips between near-identical renders)
+                pref = []
+                for x_, y_, ln_, sz_ in c.get("prefer") or []:
+                    w_, h_ = L.chip_dims(c["label"], ln_, sz_)
+                    pref.append(dict(cls="P", lines=ln_, size=sz_, x=x_, y=y_, w=w_, h=h_))
                 # one line for the AI chip, up to three for the real-picture chip; bigger type first within a class
-                for q in [q for q in allc if q["cls"] == "A"][:6] + [q for q in allc if q["cls"] == "B"][:12] + [q for q in allc if q["cls"] == "C"][:12]:
+                for q in pref + [q for q in allc if q["cls"] == "A"][:6] + [q for q in allc if q["cls"] == "B"][:12] + [q for q in allc if q["cls"] == "C"][:12]:
                     contact = L.validate(c["label"], q, list(fs), f"sq{i:03d}")
                     tried.append([q["cls"], q["size"], q["x"], q["y"], contact])
                     if contact == 0: got = q; break
@@ -194,7 +206,14 @@ def cmd_graphics(X):
     man = []
     for g in sheet["graphics"]:
         ta, tb = kt.get(g["id"], (g["t0"], g["t1"]))
+        # sq_copy "graphics": {"L12": {"a": 130.915}}: a square-only start or end for one graphic. A lower third sits
+        # at the BOTTOM of a square, so one that arrives over a tall card (the phone held up, Ad 6 2:08) would force
+        # the card small; starting it with the next picture keeps the card large
+        ov = X.copy_gfx.get(g["id"], {})
+        ta, tb = float(ov.get("a", ta)), float(ov.get("b", tb))
         g = dict(g, t0=ta, t1=tb, config=dict(g["config"], a=ta, b=tb))
+        if ov and g["config"].get("parts"):               # a part whose word is before the new start rises as the graphic lands
+            g["config"]["parts"] = [[p_[0], max(float(p_[1]), ta + 0.35)] if len(p_) > 1 else p_ for p_ in g["config"]["parts"]]
         if g["template"] == "before-card" or g["template"].startswith("softblue:"):
             g["config"]["a"], g["config"]["b"] = CP.fr(ta) / FPS, CP.fr(tb) / FPS
         scenes, meta = SQ.scenes_for(g)

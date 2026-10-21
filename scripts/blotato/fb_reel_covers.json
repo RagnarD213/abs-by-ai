@@ -613,5 +613,14 @@
   "h": 720,
   "job": "RO-17",
   "when": "2026-12-14T18:00:00.000Z"
+ },
+ {
+  "schedule": "5822390",
+  "when": "2026-12-03T15:00:00.000Z",
+  "match": "If you're in college and you have no time to work out, I'm about to solve that problem for you.",
+  "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds31-ai-homework-approved.jpg",
+  "w": 1080,
+  "h": 1920,
+  "job": "DS-31"
  }
 ]
