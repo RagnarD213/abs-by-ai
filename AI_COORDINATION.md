@@ -26,6 +26,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**RO-24 UNPUSHED 2026-10-20, Claude.** 4345313.
+
 **SL-17:NEEDS-DAN:2026-10-20:Claude.**
 
 **Boring Abs At 40 LFC R2 - ACTIVE 2026-10-20, Codex.** Executing R2 handoff. Colour C and voice B locked; R1 preserved. Next: calibrated headroom proof, corrected opening/contexts, complete existing-AI gallery, revised A01–A04 still pairs and independent checks. No new motion or full-film render before approval. Work: `/Volumes/Extreme/_edit_work/ro27/round2/`.
@@ -145,7 +147,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-06:POLICY-RECHECK:2026-10-16:Claude.** Ads `828274063389`, `828320387740` in review. Next 10-17: `node scripts/ads/api/client.js policy 24316364155`; clean, delete this.
 
-**RO-14 R2 ACTIVE 2026-10-20, Claude.** Flow clips, pickup, full film. `RO-14/round2/`.
+**RO-14 R2 ACTIVE 2026-10-20, Claude.** Final render, gates, review.
 
 **DS-33:ACTIVE:2026-10-20:Claude.**
 
@@ -231,9 +233,11 @@ tab; stop rather than click into spinners. `Handoffs/handoff-20260908-google-ads
 
 **Video-title rule UNPUSHED 2026-10-17, Claude.** Commit bd14929 (AGENTS rule, README) local; safe-push stopped on live edits. Next: any later safe-push carries it; then delete this.
 
-**VEO-ULTRA:UNPUSHED-f034bc5:2026-10-20:Claude.**
+**VEO-ULTRA:UNPUSHED-f034bc5..fc78746:2026-10-20:Claude.**
 
 **10-23 TP docs UNPUSHED 2026-10-20, Claude.** Commit 65f8c43 local. Next: any safe-push carries it; delete this.
+
+**IG-MEMORY:UNPUSHED-f597b51:2026-10-20:Claude.**
 
 # BLOCKED — external
 
