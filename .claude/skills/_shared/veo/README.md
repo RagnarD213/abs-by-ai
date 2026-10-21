@@ -75,3 +75,14 @@ The background agent itself is not free: the 5-clip test used about 205,000 Sonn
   food/prop gags; no full take passed (nuggets merge, a knife becomes a fork, a donut box refills, a straw slides, a lifted
   scale doubles its display). START/END frames whose prop geometry cannot connect (a display on the near corner on the floor,
   on top when held) make it worse. Plan clean 2 to 3 s windows from the start, or frames that need no object to change.
+
+## Traps (SL-06 R6, 2026-10-21): natural holds of a person
+
+- **Never write "smile" in a Veo prompt for a calm face:** it grows into a toothy grin. Say "his face stays exactly as in the first
+  frame: same calm, pleasant expression, lips closed and resting, jaw still". Avoid "breath" (mouth breathing) and any speech word.
+- **Veo 3.1 Quality holds faces much better than Fast** (mouth stayed closed in most Quality takes, few Fast ones). For a person
+  holding still, run 1 Quality + 2 Fast per clip.
+- **Raised fists tremble and pointing hands drift to the chest.** Prefer relaxed poses (hand at chest height, elbow down).
+- **Downloads:** after about five downloads from one Flow page load Chrome silently stops saving. Navigate freshly to each tile's URL
+  and download once per page load; never click Chrome's multiple-downloads prompt.
+- Measure tremor and mouth before review: `shorts/reference/softblue-sl06/round6/qc_take.py` and `tremor.py`.
