@@ -38,7 +38,7 @@ Posts and pins automatically after release (routine youtube-pinned-comment-daily
 
 ## Copies
 - Extreme: `/Volumes/Extreme/Short-form video content/oura SL-09/` (five masters md5-matched, ten covers, picks.json).
-- Google Drive: `Short-form video content/oura SL-09/`, anyone with the link: DRIVE_LINK
+- Google Drive: `Short-form video content/oura SL-09/`, anyone with the link: https://drive.google.com/open?id=1lcXYeAeeCAsY4bIYYn5f5ah-WLJN4dGv (five masters md5-matched, ten covers, picks.json)
 
 ## After release
 - Captions are burned in; no SRT. Articles: written by the routine after release.
