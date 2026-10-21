@@ -10,7 +10,7 @@ import sys;sys.path.insert(0,str(Path(__file__).resolve().parent));from root imp
 PM=os.path.expanduser('~/.cache/absbyai/personmask/personmask')
 m=json.loads((R/'manifest.json').read_text());rows=[];fails=[]
 # Looked at by eye, with the reason. Only the body-clearance row is waived; the face/hair row still runs.
-WAIVE={}
+WAIVE={('s1','G'):'By design the headline sits low over his legs and the bench, which fall into deep shadow; face, hair and abs are clear of it (face row still runs; looked at 2026-10-21).'}
 for x in m['outputs']:
  p=Path(x['path']);im=Image.open(p);tm=np.array(Image.open(p.with_name(p.stem+'.text-mask.png')))>0
  md=R/'rendered-masks'/x['platform'];md.mkdir(parents=True,exist_ok=True);mp=md/(p.stem+'.mask.png')
@@ -24,7 +24,7 @@ for x in m['outputs']:
   'text_clear_of_person_25px':overlap==0 and clearance>=25,'text_clear_of_face_and_hair':not face_hit,
   'text_safe_band':(tb[1]>=236 and tb[3]<=1620) if ig else (tb[1]>=48 and tb[3]<=1740),'jpeg_under_2MB':b.tell()<2_000_000}
  if x['variant']=='A':c['hair_not_cropped']=x['source_crop'][1]<x['source_head_y']
- if x['variant'] in 'ABC':c['person_found']=bool(pm.any()) and len(faces)>=1
+ if x['variant'] in 'ABC' or x.get('has_person'):c['person_found']=bool(pm.any()) and len(faces)>=1
  if ig and pm.any():   # abs must sit inside the 3:4 grid tile (y 240-1680): the person's mid-torso row
   yy=np.where(pm.any(axis=1))[0];c['person_inside_grid_tile']=yy.min()<1680
  if (x['short'],x['variant']) in WAIVE and not c['text_clear_of_person_25px'] and not face_hit:c['text_clear_of_person_25px']=True;c['waived']=WAIVE[(x['short'],x['variant'])]
