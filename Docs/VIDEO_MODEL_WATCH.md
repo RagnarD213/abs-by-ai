@@ -46,7 +46,7 @@ better quality, even if they're more expensive, and which could generate the sam
 |---|---|---|
 | 2026-10-21 | Gemini Omni 1.1 Flash (Flow) | Blind, 5 pairs: 2 ties, Veo preferred 3, Omni 0. Refused the shirtless P6 pair. 12 credits vs 10. Used only alongside Veo for >8 s, 4/6 s, one-detail fixes and multi-reference shots (`_shared/veo/README.md`). |
 | 2026-10-20 | Kling 3.0 | Not blind-tested. Below Veo Fast on the blind board; already used pay-per-clip on Replicate for planted-feet exercise moves where Veo shifts the feet. Subscription not worth it at our Kling volume. |
-| 2026-10-20 | Seedance 2.5 (Dreamina) | Not tested yet. 3rd on the blind board, start/end frames, about $0.32 per 8 s on Dreamina Standard; US output 720p; may block realistic faces. **Next candidate.** |
+| 2026-10-21 | Seedance 2.5 (Replicate `bytedance/seedance-2.5`) | **Disqualified.** Refused 5 of 6 standard pairs as "sensitive" (E005) within seconds, twice; only P3 (dark gym, small face) rendered. Its filter blocks realistic people in the input frames, which is nearly all our clips. Also 720p max on Replicate. Cost: one 8 s take. Re-test only if ByteDance or Replicate changes the face policy. |
 | 2026-10-20 | MiniMax H3 | 1st on the blind board; pay per second only, no confirmed start/end frame support. Re-check each month. |
 | 2026-10-20 | Sora | Consumer app reportedly closed April 2026; no start/end frames; blocks real-person photos. Skip unless it returns. |
 
@@ -54,4 +54,5 @@ better quality, even if they're more expensive, and which could generate the sam
 
 Newest first, one short entry per run: what changed, what was tested or recommended, and why.
 
-- 2026-10-21: watch set up. Baseline Veo 3.1 Fast on Ultra. Next candidate: Seedance 2.5.
+- 2026-10-21: Seedance 2.5 tested on Replicate: refuses realistic people (5 of 6 pairs, retried), disqualified. No other candidate pending; MiniMax H3 re-checked monthly for start/end frames.
+- 2026-10-21: watch set up. Baseline Veo 3.1 Fast on Ultra.
