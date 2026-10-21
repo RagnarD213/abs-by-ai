@@ -26,7 +26,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**Oura Ring Review SFL Setup - COVERS 2026-10-21, Claude.** SL-09: 25 cover choices (Codex) then Dan's picks, then Blotato. Next: review sheet.
+**Oura Ring Review SFL Setup - PICK 2026-10-21, Claude.** SL-09: 25 covers on http://127.0.0.1:8909/ (50/50 checks pass). Next: Dan's picks, then Blotato Nov 13, 16, 20, 23, 27.
 **SL-17:NEEDS-DAN:2026-10-20:Claude.**
 **SL-18:ACTIVE:2026-10-20:Claude.** Wasted Life SFL R1; awaiting picks.
 
