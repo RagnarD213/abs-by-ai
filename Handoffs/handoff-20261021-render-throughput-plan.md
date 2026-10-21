@@ -4,7 +4,8 @@ Tooling, not a video task. Written 2026-10-21 (Claude Fable 5.1) after measuring
 34 Claude Code sessions were running. Dan: "diagnose what the problem is and make a plan to fix this so that I can
 fire 20, 30, 50 video editing tasks at a time, and they don't run slower than if I only did 2 at a time."
 
-Three execution sessions come out of this plan (starter prompts at the bottom): **Phase 1** render queue v3 (budget
+Phases 1 and 2 can run at the same time in two sessions: Phase 2 owns everything under `.claude/skills/_shared/chroma-key/`
+(including sizing its pools from `RENDERQ_CORES`); Phase 1 never edits that folder. Three execution sessions come out of this plan (starter prompts at the bottom): **Phase 1** render queue v3 (budget
 cores and memory, not step count), **Phase 2** cheap chroma key (the step that eats half of all render time), **Phase 3**
 extra compute (only if Dan still wants 50 at once to feel like 2 after Phases 1-2). Phase 0 is two things only Dan can do.
 
@@ -154,10 +155,16 @@ measured in dollars per keyed clip. Not before Phases 1-2: today about 40% of th
 > (`.claude/skills/_shared/renderq/`) admit by a core budget and a memory budget instead of slot count, inject
 > `-threads` from the allowance in the ffmpeg wrapper, export `RENDERQ_CORES` and size every `Pool(` in the pipeline
 > from it, add memory-aware status, prune orphan review servers, extend selftest, run bench10 old vs new, roll out by
-> atomic rename, and record results in `Handoffs/results-<date>-renderq-v3.md`. Do not touch running jobs.
+> atomic rename, and record results in `Handoffs/results-<date>-renderq-v3.md`. Do not touch running jobs. Do not
+> edit anything under `.claude/skills/_shared/chroma-key/`: a parallel Phase 2 session owns that folder and sizes its
+> own pools from `RENDERQ_CORES`.
 
-**Phase 2 (fire after Phase 1 is live; Claude Opus 5.5, high; title `Cheap house chroma key`):**
+**Phase 2 (fire now, alongside Phase 1; Claude Opus 5.5, high; title `Cheap house chroma key`):**
 > Execute Phase 2 of `Handoffs/handoff-20261021-render-throughput-plan.md`: make the house chroma key
 > (`.claude/skills/_shared/chroma-key/reference/ds40-claude-r2/`) at least 3x cheaper with identical gated output,
 > calibrate on 2-3 s excerpts in the quick lane and key each clip once, make the `.done` cache the rule for every
-> recipe, and record minutes per clip and GB per worker before and after in `Handoffs/results-<date>-cheap-key.md`.
+> recipe, size the key's worker pools from `RENDERQ_CORES` (default 4) since a parallel Phase 1 session owns the render
+> queue and will not edit this folder, and record minutes per clip and GB per worker before and after in
+> `Handoffs/results-<date>-cheap-key.md`. Quality rule: a speed-up is kept only if the existing exact-file gates and edge
+> metrics match the approved R2 output on the same clip; calibration samples are taken at the hardest moments (motion
+> peaks, the tracked hold-out), the one full run is gated, and only a failing piece is re-keyed.
