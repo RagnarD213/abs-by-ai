@@ -65,6 +65,10 @@ running there plus half the waiting ones, over its cap, plus 0.15 per job folder
 tie; a hard disk that holds the job's source footage counts 0.5 busier. A drive needs `--need` (default 20 GB) plus its
 reserve free (Extreme 30 GB, others 100 GB). Today Extreme has about 30 GB free, so new jobs go to Expansion.
 Skills updated: longform-edit, ad-edit, shorts, video-setup; VIDEO-RULES carries the rule for everyone else.
+Codex rounds also used `/Volumes/Expansion/Abs By AI Edit Work/<job>/` (RA-13 round 3, RA-16 R4 scripts); the picker
+finds and counts folders under both names, and new folders go in `_edit_work`. RA-13 is split across Extreme
+(`_edit_work/ra13`) and Expansion (`Abs By AI Edit Work/ra13/round3`) by its own scripts; the picker returns the most
+recently used one. Not moved.
 
 ## 4. Scratch
 
