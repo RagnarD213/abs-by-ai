@@ -44,7 +44,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Fat 90 Year Old SFC R2 - ACTIVE 2026-10-20, Claude.** Key polish, sample only. Next: reviewer, page :8940. Work: `ds40/r2/`.
 
-**SL-15:R2-REVIEW:9015:2026-10-21:Claude.** Spray tan Shorts A and C delivered; reviewers SHIP, gate fails only camera hair rows. Next: Dan's decision. `Short-form video content/spraytan-SHORTS.md`.
+**SL-15:R2-REVIEW:9015:2026-10-21:Claude.** Shorts delivered; reviewers SHIP; gate fails only camera hair. Next: Dan. ⚠ b06556e local: push needs hand merge (10 files).
 
 **I'm 41. I Wasted My Life. LFC Setup QUEUED 2026-10-17, Codex.** Dan approved exact R7 film and thumbnail C. Blotato readback: YouTube Sun Oct 18 9 AM, Facebook/Instagram Mon Oct 19 noon. Direct TikTok Monday after public YouTube check. To free capacity, Dan authorized removal of the last queued video, RO-13; its four schedules are backed up and RO-13 is on the waitlist for Dec 30. Receipt: Docs/RO25_SETUP_RECEIPT_20261017.md. Next: verify public release, covers, TikTok, RO-26 link.
 
