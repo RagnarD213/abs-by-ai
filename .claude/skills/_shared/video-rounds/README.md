@@ -38,6 +38,10 @@ text(result);
 
 This example requires the editor to construct `input`; it must never execute merely because this runbook was opened. Workflow installation/testing is not an edit request. Inspect the dry-run result in a separate tool call before executing. Do not print the whole decisions/manifest if it contains private material.
 
+## Edit slot
+
+The 5-edit cap (`../editcap/README.md`) applies to every round. A round that stops for Dan runs `editcap.py release <JOB> --review`; the continuing task (same or fresh) runs `editcap.py acquire <JOB>` before production and waits on exit 3. The controller's starter prompt says so.
+
 ## What it enforces
 
 - Small, recent revisions with known/estimated context under 40% keep the same task. Heavy stages, stale replies, repeated failures or context pressure choose a fresh task. State context estimates honestly; account usage percentages are not context usage. Do not fabricate `get_usage` availability.
