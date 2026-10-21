@@ -151,8 +151,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-33:REVIEW:9033:2026-10-21:Claude.** 875d823 unpushed.
 
-**RO-20C:R6-REVIEW:8868:2026-10-21:Claude.** Delivered; awaiting Dan. Commits local (live files).
-
 **Make Time Exercise LFC R2 - ACTIVE 2026-10-20, Claude.** RO-18 round 2: camera opener, Flow motion for A2/A6/A7/A8/A9 (background agent), new college-age C36/C37, then full film, gates, review, delivery. Work: `/Volumes/Expansion/_edit_work/RO-18/round2/`.
 
 **Ad 6 remarketing 2026-10-04:** Awaiting Dan: copy to enabled campaign 24305381214?
