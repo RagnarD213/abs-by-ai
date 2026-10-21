@@ -1,0 +1,49 @@
+{
+ "job": "RA-12",
+ "round_reviewed": 1,
+ "received": "2026-10-17",
+ "page": "http://127.0.0.1:8842/",
+ "dan_words_verbatim": "Okay, revision. Throughout the ad, I want to switch this to using one of the AI-generated after pictures and generation clips that we've made of the prospect. Use one of the white guys that we made instead of me for the generation, for the after picture initially shown, and for the generation clip throughout the video. Use it for everything. I'm realizing now that using my own picture makes it seem like I don't really have abs and that my abs are AI-generated. I want you to move the bottom graphics to immediately below the subtitles on my shorts, just right below the subtitles, so they don't block my abs. For the initial clips, I want a clip of me working out, looking ripped, from our B-roll library. Use that ab wheel rollout, or whatever clip you can find with me looking the most ripped. For the second clip, use a B-roll clip of me eating the salad, or showing the salad, or holding the salad. If you can't find a good one that fits in this frame, then use an AI-generated clip that we've already made of me eating the salad.",
+ "items": [
+  {
+   "id": "GOAL_PERSON",
+   "verdict": "changes requested",
+   "scope": "G1, K1, P1 (phone demo + result), A1",
+   "words": "Use one of the white guys that we made instead of me for the generation, for the after picture initially shown, and for the generation clip throughout the video. Use it for everything.",
+   "next": "use RA-04 round 5's lake-dock prospect everywhere: B0550 generation recording (loader crop x50 y715 1220x1432, result from 36.2 s crop x0 y560 1320x1550), his AI after picture as G1 and in A1, A0180 lock screen (or the K1 code card with his picture); before photo is AI-generated: AI-GENERATED label, never the real-picture label"
+  },
+  {
+   "id": "C1 L1 C2",
+   "verdict": "changes requested",
+   "words": "move the bottom graphics to immediately below the subtitles on my shorts, just right below the subtitles, so they don't block my abs.",
+   "next": "place the two buttons and the KEY POINT directly under the caption line, over his shorts, on every hold they sit on; measure his abs/waistband per hold with the person mask; check clearance from the captions and YouTube's bottom UI"
+  },
+  {
+   "id": "W1",
+   "verdict": "replace",
+   "words": "For the initial clips, I want a clip of me working out, looking ripped, from our B-roll library. Use that ab wheel rollout, or whatever clip you can find with me looking the most ripped.",
+   "next": "B0030 / B0427 / B0436 (Dan ab wheel by the pool), pick where he looks most ripped and starts on the rep; colour-correct to the film"
+  },
+  {
+   "id": "D1",
+   "verdict": "replace",
+   "words": "For the second clip, use a B-roll clip of me eating the salad, or showing the salad, or holding the salad. If you can't find a good one that fits in this frame, then use an AI-generated clip that we've already made of me eating the salad.",
+   "next": "search the salad shoot (RO-05 / SL-03 rolls, library B0441, B0525, B0526 ...) for Dan eating, showing or holding the salad; else an existing AI clip of Dan eating the salad"
+  },
+  {
+   "id": "OPENER",
+   "verdict": "montage kept",
+   "words": "For the initial clips ... For the second clip ...",
+   "next": "no AI opener"
+  }
+ ],
+ "not_answered": [
+  "whole-ad approval beyond these notes"
+ ],
+ "motion_authorized": [],
+ "new_frames_before_motion": [],
+ "budget": {
+  "cap_usd": 10,
+  "spent_usd": 0
+ }
+}

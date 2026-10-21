@@ -45,3 +45,23 @@ Round 1 is the WHOLE 46 s ad (every item reused or from the clip library, VIDEO-
     find it with a pure-red content pass), a 4 % push, the chip drawn after the push so the gate's chip reference still matches.
 11. **Graphics over his midsection.** The Soft Blue lower third and CTA sit at 57-68 % of the height, across his lower chest and abs
    in a full-frame 9:16 hold. RA-14 shipped it; the watch judge calls it a defect each time. It is Dan's decision 3 on the round 1 page.
+
+## Round 2 (2026-10-20): prospect everywhere, graphics under the captions, Dan's own opening clips
+
+Scripts: `round2/` (copies of the work-dir `r2_*.py`; the work dir is `/Volumes/Expansion/_edit_work/ra12/`, outputs in `round2/`,
+master in `deliver_r2/`). Chain: `r2_chain.sh`, then `r2_gate_seq.sh`, `s20_neg.py`, `r2_s93_gateplan.py`, `watch.py` + a fresh judge, `gate.py`.
+
+12. **Graphics "immediately below the subtitles" need the WIDE level under them.** Shorts start at y 1400-1470 on FAR holds and
+    about y 1720 on NEAR holds (green-shorts row scan, `round2/measure/shorts_top.py`), so a graphic at y 1530 sits on his abs on a
+    NEAR hold. Swap levels so every hold carrying a graphic is FAR, keep levels alternating at uncovered splices, and end a lower
+    third where a NEAR hold starts. `vertical.py` now takes `top_y` for the lower third and the CTA.
+13. **24 px under the caption INK is not enough for the gate**: `captions:graphic_clearance` counts the shadow and measured 14-15 px
+    at y 1520 (min 20). y 1530 passes.
+14. **B0550 (the prospect's live generation) at 60 fps**: his before photo appears at frame 41; the chip must be on from there
+    (a fresh judge caught one unlabelled frame). The real scan takes 35 s, so the phone shows the tap and the first second of it,
+    then hard-cuts to the result.
+15. **B0427 (golden-hour ab wheel) reads orange** beside the overcast presenter at saturation 1.05; 0.78 matches skin saturation.
+16. **No library or AI clip of Dan eating salad exists.** Real holds of the bowl are on the 8/3 salad shoot roll C1546 (24, 46, 57,
+    74 s). 24 s and 46 s clip his hair at the frame top; 74 s has 54-66 px of headroom (used, window x 560).
+17. **Captions over the full photo cards (G1, P1 result) fail `watch:pass` as label_over_face** until Dan accepts them; R2 puts it
+    to him as a decision rather than shrinking the pictures.
