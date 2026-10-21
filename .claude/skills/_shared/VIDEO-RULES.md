@@ -271,6 +271,10 @@ always the one making these thumbnails."*
   look at every region left, enlarged, frame by frame. Two independent reviewers each found a leftover of the rejected effect that the
   editor's eye had passed on a contact sheet: a wisp on the desk, then an orange smear in the box. A cut out of a rejected take starts where
   the whole picture has settled, not where the subject has. Tool: the self-change map in `longform-edit/reference/ro08/a5_cut.py`.
+- **A body cut off unnaturally never reaches Dan (Dan, 2026-10-21, RO-28 barbecue frames):** four men stood behind a grill with their lower
+  bodies cut off and it passed two checks. Dan: *"the lower bodies are cut off. This looks very unnatural. That never should have made it
+  to my review."* Every frame reviewer brief asks whether each person is whole where the shot implies it (feet in a standing group shot,
+  nobody sliced by the frame edge or hidden behind a prop placed to crop them); a frame that fails is redrawn before any page.
 - **START/END frames get the same treatment before motion is even generated (2026-10-14, after RA-04's leg press):** a frame spec, the
   frame gate and a fresh `frame-reviewer` agent; no page shows the pair until `.claude/skills/_shared/framecheck/gate.py START END
   --verify` exits 0. Routine and proof: `_shared/framecheck/README.md`.
