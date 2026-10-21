@@ -23,8 +23,7 @@ Open `https://flow.google.com/`, click the round avatar (top right). The menu sh
 preference for this purpose, set 2026-10-17). Press Escape. Inside the project, the gear icon (top right) holds **Return silent videos**: it must be ON (Dan, 2026-10-20; without it a clip whose audio fails comes back as a "No audio generated" error tile instead of a usable silent video). If it is off, turn it on.
 
 Cost per generation (shown live as "Generating will use N credits" in the settings popover, trust that over this table):
-Veo 3.1 Lite 10, **Veo 3.1 Fast 20 (default)**, Veo 3.1 Quality 100, Omni 1.1 Flash 12. Pro gets 1,000 a month plus 50 a
-day. **If the balance is below what the remaining queued clips need, submit only what fits, then stop and report
+Pro: Veo 3.1 Lite 10, **Veo 3.1 Fast 20 (default)**, Veo 3.1 Quality 100, Omni 1.1 Flash 12 (Pro gets 1,000 a month plus 50 a day). Measured on Ultra 2026-10-20 (badge ULTRA, balance about 10,000): Lite 5, **Fast 10**, Omni 1.1 Flash 12 (Omni offers 360p/720p and 4/6/8/10 s; pick 720p, 8 s). The Download menu on Ultra shows 4K for 50 credits: never click it. **If the balance is below what the remaining queued clips need, submit only what fits, then stop and report
 `CREDITS_OUT` with the clip ids left.** Never switch to the paid API yourself; the main agent asks Dan.
 
 ## 2. Open a project for the job
@@ -72,7 +71,7 @@ its X. After a page reload the hook is gone: run it again before the next upload
 
 For each queued clip, in job order:
 
-1. Click **Start** → type the clip's exact start file name (`A1-start`) in "Search assets" so only that file is listed
+1. **Fill END first, then START (measured 2026-10-20: with START filled first, the End picker's Add landed the START image in both slots).** Clicking a filled slot empties it. In each picker type the file name, wait for the preview to show the right frame, then click **Add to prompt** (never the result row). Slot thumbnails are square center crops, so hands at the edges vanish: compare faces/poses, not edges. Old order, for reference: Click **Start** → type the clip's exact start file name (`A1-start`) in "Search assets" so only that file is listed
    (it is highlighted already) → click **Add to prompt** directly. Do not click the result row: on the test that sometimes
    closed the picker and added the frame on its own. The End picker is wider, so its Add to prompt button sits further right.
 2. If the clip has an end frame: click **End** → search `A1-end` → click it → confirm the name → **Add to prompt**. Zoom on
@@ -90,7 +89,7 @@ Measured 2026-10-17: one Veo 3.1 Fast frames-to-video clip took about 70 s from 
 ## 6. Wait, then collect each finished clip
 
 Poll every 30 to 60 s with a small screenshot (scale 0.4) or `get_page_text`. A finished tile shows the first frame and a
-play icon instead of a percentage. A failed tile shows an error or a "violates policy" note: record it with
+play icon instead of a percentage. A failed tile (narrow, with Retry / Reuse prompt / Delete buttons) shows an error or a "violates policy" note: record it with
 `veo.py mark JOBDIR A1 failed --note "<the message>"` and move on (do not resubmit more than once; a policy refusal on
 the same frames is reported, not retried with a changed prompt).
 
@@ -100,7 +99,7 @@ Typing too early appends to the old title. Tiles start newest first, but the gri
 find tiles by name, or click **Videos** in the left sidebar to hide the uploaded frames.
 
 To get the file: ⋮ **More options** → **Download** → **1080p Upscaled** (720p "Original size" only if 1080p is missing;
-4K needs Ultra, never click its Upgrade). Upscaling takes about 50 s and Flow asks you not to run several at once: start
+4K needs Ultra, never click its Upgrade). Upscaling took 50 s on 2026-10-17 but 1.5 to 6 minutes on 2026-10-20 (other Flow tabs queue behind each other); Flow asks you not to run several at once. Rename the tile first (it names the file `P1_1080p_<timestamp>.mp4`), then poll `~/Downloads/<id>_*.mp4`: start
 one, wait until the file is in `~/Downloads` (usually `<tile title>_1080p_<YYYYMMDDHHMMSS>.mp4`; once it came without
 "1080p" in the name and was still 1920x1080), then the next. Watch `~/Downloads`, not the "Upscaling" toast, which lingers
 for minutes. The submenu is translucent for a moment after it opens: 1080p Upscaled is its third entry. Then:
