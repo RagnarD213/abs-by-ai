@@ -9,7 +9,10 @@ const { loadShots, TALK_X } = require('./plan.js');
 const { buildAss } = require('./captions.js');
 const { BLEEPS } = require('./bleeps.js');
 
-const FF = path.join(__dirname, '../../ad-factory/the-upload/node_modules/ffmpeg-static/ffmpeg');
+// The render queue's ffmpeg wrapper (VIDEO-RULES, "Video builds"); ffmpeg-static is the same binary without the queue.
+const FF_QUEUED = '/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video_edit/bin/ffmpeg';
+const FF = fs.existsSync(FF_QUEUED) ? FF_QUEUED
+  : path.join(__dirname, '../../ad-factory/the-upload/node_modules/ffmpeg-static/ffmpeg');
 const SRC = path.join(__dirname, '../<SOURCE VIDEO>.mp4');  // set per video
 // ⚠ DO NOT USE THIS PIPELINE FOR AUDIO (2026-09-02): it pulled the source's default stream with no
 // channel selection and no chain. It stays for its picture code only. The pull below now takes the

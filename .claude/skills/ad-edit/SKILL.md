@@ -121,7 +121,7 @@ transcription, all six cut-placement rules (word boundaries PLACE, silence
 VALIDATES), the video-use render chain + segment cache, per-roll color grading
 (camera side only, never a WB correction on a skin-tone-subject video), loudness
 via `_shared/audio/voice_chain.py` (Step 0.4, never `loudnorm`), the QC assertion suite, all ffmpeg traps, `git
-check-ignore` before staging, and working on the external drive `/Volumes/Extreme/`. Read that SKILL.md
+check-ignore` before staging, and working on an external drive (`renderq.py workdir <job>` picks it). Read that SKILL.md
 first if you haven't this session.
 
 ## Step 0 — inputs
@@ -616,7 +616,9 @@ Take selection: Step 2. Revisions re-render off the segment cache. Other formats
 includes revisions and review timestamps", 2026-10-10). Cutaways: no between-take junk, standing around or phone clips
 (2026-10-11, 2026-10-14, 2026-10-16); all B-roll colour corrected (2026-10-11).
 
-**Delivery layout:** build on `/Volumes/*/_edit_work/<job>/` (media stays out of git); approved finals go to
+**Delivery layout:** build in the folder `python3 .claude/skills/_shared/renderq/renderq.py workdir <JOB> --need <GB>` prints (the job's existing
+`/Volumes/*/_edit_work/<job>/`, else the least busy drive with room; frame dumps and test renders in `renderq.py
+scratch <job>`; media stays out of git); approved finals go to
 `Claude Ad Videos/<title> - <ID>/` as `<title> | claude | <aspect> | <ID>.mp4` per `/editor-deliveries` (memory
 `ad2-vertical-approved`), with the recipe (EDL, ranges, plan, notes) kept beside the build.
 

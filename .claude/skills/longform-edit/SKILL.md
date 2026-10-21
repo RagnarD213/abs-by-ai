@@ -1635,7 +1635,9 @@ anything.** Copy any new script into this skill's `reference/`.
 **Intermediates on the external drive; FINISHED VIDEOS in the project folder.**
 Dan's standing instruction (2026-08-21): *"Going forward, save your final videos in the
 project folder rather than on the hard drive."* So:
-- **Working dirs → an external drive's `/Volumes/*/_edit_work/`.** Raw rolls, extracted audio, `clips_graded/` and the pre-loudnorm
+- **Working dirs → an external drive's `/Volumes/*/_edit_work/`, chosen by `python3 .claude/skills/_shared/renderq/renderq.py workdir <JOB> --need <GB>`** (the job's existing
+  folder, else the least busy drive with room; VIDEO-RULES "Video builds: the render queue", 2026-10-20). Frame dumps
+  and test renders go in `renderq.py scratch <JOB>` (internal SSD). Raw rolls, extracted audio, `clips_graded/` and the pre-loudnorm
   intermediates are tens of GB. The 8/3 shoot alone is 118 GB and the boot disk sits near
   99 % full — never point a working directory at it.
 - **`FINAL_*.mp4` + `.srt` + chapters + the recipe files → the project folder**, in

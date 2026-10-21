@@ -28,7 +28,7 @@ Older text further down that disagrees with these loses. Section titles are in `
 - Rounds: PRE-RENDER-APPROVAL.md; "Round 1 always reviews every graphic, stock item and clip" (2026-10-08); "Organic content approval budget" (2026-09-29); "Short-form and ads: build the whole video" (2026-10-14); "Video rounds start automatically" (2026-10-20).
 - Independent review: `ra-reviewer` on Opus 5.5, Fable only as escalation (AGENTS.md, "Model routing", 2026-10-02).
 - Claims and drug names: "Scripted claim lines are already approved" (2026-10-14); "Organic videos may name the drug" (2026-09-30).
-- Builds and transcription: "Video builds: the render queue" (2026-10-20). Work in `/Volumes/<drive>/_edit_work/`, not the iCloud project folder.
+- Builds and transcription: "Video builds: the render queue" (2026-10-20). Work in the folder `renderq.py workdir <job>` prints (`/Volumes/<drive>/_edit_work/<job>/`), not the iCloud project folder; frame dumps in `renderq.py scratch <job>`.
 - Framing: "Verticals: the camera lands on Dan, then holds" (2026-10-03); "Head and hair clearance blocks review delivery" (2026-10-20).
 - Audio: "A subtle bass lift on his voice is the standard" (2026-10-12).
 - Captions: "Soft Blue shorts standard" in GRAPHICS-STANDARDS.md (2026-10-02); `abs` lower case (2026-08-28).
@@ -208,7 +208,7 @@ graphics as cards). `reference/band/` is the V4 short1 rebuild (dedicated graphi
 `reference/scored-source/` is the ab-wheel batch (somebody else's finished, scored 16:9 cut).
 **`reference/clean-master/` is the supplements batch — our own long-form, cut from its
 `CUT_*_NO-GRAPHICS.mp4`. Legacy J2 re-cuts only.**
-Paths inside them are relative to `YouTube Long Form Video Content/<video folder>/working files/`; fix those first. Build in `/Volumes/<drive>/_edit_work/<job>/`, never the iCloud-synced project folder (VIDEO-RULES.md, "Video builds: the render queue", 2026-10-20).
+Paths inside them are relative to `YouTube Long Form Video Content/<video folder>/working files/`; fix those first. Build in the folder `renderq.py workdir <job>` prints (`/Volumes/<drive>/_edit_work/<job>/`), never the iCloud-synced project folder (VIDEO-RULES.md, "Video builds: the render queue", 2026-10-20).
 
 > **Why the scripts live in the skill folder:** `YouTube Long Form Video Content/` and
 > `Short-form video content/` are both git-ignored. The original V4 shorts pipeline lived
@@ -1333,7 +1333,7 @@ of a bound is exactly how the 2026-09-09 dereverb fix reached one pipeline and m
 
 ## Delivery
 
-- Work folder: `/Volumes/<drive>/_edit_work/<job>/` (VIDEO-RULES.md, "Video builds: the render queue", 2026-10-20). The older `YouTube Long Form Video Content/<video folder>/working files/` is iCloud-synced; legacy batches only.
+- Work folder: `python3 .claude/skills/_shared/renderq/renderq.py workdir <JOB> --need <GB>` (its existing `/Volumes/<drive>/_edit_work/<job>/`, else the least busy drive with room; VIDEO-RULES.md, "Video builds: the render queue", 2026-10-20). Frame dumps and test renders: `renderq.py scratch <JOB>`. The older `YouTube Long Form Video Content/<video folder>/working files/` is iCloud-synced; legacy batches only.
 - Output: `Short-form video content/`, prefixed by source video (`v2-short1_…`) so batches
   from different longforms don't collide.
 - Write a `SHORTS.md` in the work folder: posting order, per-short title, description with
