@@ -59,3 +59,12 @@ The background agent itself is not free: the 5-clip test used about 205,000 Sonn
 - **Replicate refuses some frames with E005 ("input or output was flagged as sensitive"), at $0.** Flow accepted the same frames.
   RO-14: a restaurant frame with a low-cut dress failed even START-only, so it went back to Flow; a sports-bar pair passed only
   START-only (the END frame tripped it). Try START-only once, then Flow.
+- **Chrome can stop saving Flow downloads mid-job (2026-10-20, about 19:00).** Flow said "downloaded" but nothing reached
+  ~/Downloads after a dozen downloads in a row (likely Chrome's "automatic downloads" block for flow.google.com). The agent
+  cannot fix it: the media URL is signed, the browser tools hide signed URLs, and a local POST waits on Chrome's local-network
+  prompt. Dan has to allow automatic downloads for flow.google.com (address-bar icon), then a fresh agent collects the tiles.
+  Download right after each clip finishes rather than batching ten at the end.
+- **Veo still fails hand-and-object continuity often.** RO-14 (2026-10-20): about 20 takes (Fast, paid, Quality) for five
+  food/prop gags; no full take passed (nuggets merge, a knife becomes a fork, a donut box refills, a straw slides, a lifted
+  scale doubles its display). START/END frames whose prop geometry cannot connect (a display on the near corner on the floor,
+  on top when held) make it worse. Plan clean 2 to 3 s windows from the start, or frames that need no object to change.
