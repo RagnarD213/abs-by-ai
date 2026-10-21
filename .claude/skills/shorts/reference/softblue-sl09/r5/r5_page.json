@@ -1,0 +1,76 @@
+{
+ "intro": "Round 5 of the five shorts from Zeeshan's \"My Honest Oura Ring Review After 1.5 Years\". You approved short 5's ring close-up and its ring-and-WHOOP clip, so short 5 is unchanged. In short 4 the thumbs-up opener now ends at about 3 seconds, as you asked, before the part that looked unnatural. Shorts 1, 2 and 3 are finalized and untouched.",
+ "locked": "<b>Approved, not touched:</b> short 5 Oura Ring Or WHOOP? Which One To Buy (same file as round 4). <b>Finalized, not touched:</b> shorts 1, 2 and 3. <b>Unchanged in short 4:</b> everything after 0:04.3.",
+ "changes": [
+  {
+   "short": "Short 4, You're Not Sleeping As Well As You Think",
+   "what": "thumbs-up opener ends sooner (K1)",
+   "a": 0.0,
+   "b": 2.8,
+   "wa": 0.0,
+   "wb": 6.0,
+   "detail": "Before: the clip ran to 0:04.3, and after about 2.8 seconds his drooped head swung back upright. Now it ends at 0:02.8, while he is still slumped asleep, and you come in on \"I was at a few years ago, which is to say you are in denial\". Because you are leaning in at 0:02.8, the crop starts centred on you and glides with you as you straighten up, reaching round 4's framing by 0:04.8; from there it is the round-4 cut, frame for frame.",
+   "ctx": "context/R5_K_k1-context - REVIEW 540p.mp4"
+  }
+ ],
+ "unchanged": "Everything else in short 4 is the round-4 cut. Short 4 is 42.5 seconds.",
+ "shorts": [
+  {
+   "name": "Short 4: You're Not Sleeping As Well As You Think",
+   "len": "42.5 seconds",
+   "review": "shorts/R5 oura-short4_youre-not-sleeping-as-well-as-you-think - REVIEW 540p.mp4",
+   "ab": "shorts/R5 AB_film-vs-short_oura-short4_youre-not-sleeping-as-well-as-you-think.mp4",
+   "check": "Check: the thumbs-up opener now ends at 0:02.8, then the cut to you mid-sentence. Independent review: SHIP (only the opener and the crop to 0:04.8 changed; from 0:04.8 to the end it matches round 4 frame for frame; sound untouched). Delivery gate: PASS.",
+   "vlc": "No VLC copy (under 45 seconds): play it here.",
+   "poster": "stills/R5_K_k1.jpg"
+  },
+  {
+   "name": "Short 5: Oura Ring Or WHOOP? Which One To Buy",
+   "len": "45.6 seconds",
+   "review": "shorts/R4 oura-short5_oura-ring-or-whoop-which-one-to-buy - REVIEW 540p.mp4",
+   "ab": "shorts/R4 AB_film-vs-short_oura-short5_oura-ring-or-whoop-which-one-to-buy.mp4",
+   "check": "Approved by you in round 4 (\"Smart ring close-up looks good. Ring and whoop, on one hand, look good.\"). Same file as round 4: independent review SHIP, delivery gate PASS.",
+   "vlc": "VLC copy: <b>Videos to Review / Oura Ring Review SFL R4 - short 5 - Oura Ring Or WHOOP Which One To Buy.mp4</b>",
+   "poster": "stills/R4_J_j2.jpg"
+  }
+ ],
+ "clips_intro": "Each clip plays here on a loop with no sound; the second player under it plays it in the short with your voice. Each passed the automatic motion check and a fresh independent reviewer before it went in.",
+ "clips": [
+  {
+   "id": "K1",
+   "name": "Thumbs-up, then nods off (short 4)",
+   "start": "ai/K1_start.jpg",
+   "end": "ai/K1_end.jpg",
+   "alone": "context/R5_K_k1-alone - REVIEW 540p.mp4",
+   "ctx": "context/R5_K_k1-context - REVIEW 540p.mp4",
+   "about": "Made on your Google subscription. The short now uses its first 2.8 seconds (was 4.3): after that his head swings back upright. Slightly darker mids and a bit more colour to sit beside your footage."
+  },
+  {
+   "id": "J1",
+   "name": "Smart ring close-up (short 5 opener)",
+   "start": "ai/J1_start.jpg",
+   "end": "ai/J1_end.jpg",
+   "alone": "context/R4_J_j1-alone - REVIEW 540p.mp4",
+   "ctx": "context/R4_J_j1-context - REVIEW 540p.mp4",
+   "about": "Made on your upgraded Google subscription, from the approved start frame. Two earlier paid takes made from the start and end frames clenched the hand into a fist and failed review, so they were thrown out. The hand lifts with its fingers open and the ring catches the light, then it settles. Seconds 0.6 to 4.3 of the take."
+  },
+  {
+   "id": "J2",
+   "name": "Ring and WHOOP on one hand (short 5)",
+   "start": "ai/J2w_start.jpg",
+   "end": "ai/J2w_end.jpg",
+   "alone": "context/R4_J_j2-alone - REVIEW 540p.mp4",
+   "ctx": "context/R4_J_j2-context - REVIEW 540p.mp4",
+   "about": "The band is now a WHOOP: knit strap, square screenless sensor on top of the wrist, in every frame. The end frame shown here (a loose fist) passed its checks, but Veo could not close the hand into it without a finger flicking up (four paid takes), so the clip uses the WHOOP start frame with the open hand lifting slightly, the same motion as the ring opener. Made on the paid service before your upgrade."
+  }
+ ],
+ "decided": [
+  "<b>Where the opener now ends:</b> 0:02.8, just before \"I was at a few years ago\", the nearest pause to the 3 seconds you named. Just after it his head is already swinging back up.",
+  "<b>The crop glides for 2 seconds (0:02.8 to 0:04.8):</b> you are leaning in where you now first appear, so a fixed crop either cut into the side of your head or left you off centre for the next 9 seconds (an independent reviewer failed that version). The crop starts centred on you, follows you as you sit back, and lands exactly on the framing you approved in round 4.",
+  "<b>Caption line break (left as is):</b> the first caption now reads \"where I was at a\" then \"few years ago,\" (it was \"where I was at\" then \"a few years ago,\"). Words and timing are correct; changing the break means another full render and review, so say if you want it.",
+  "<b>Short 5 is unchanged</b> since you approved both clips: the round-4 file stays delivered, with its review and gate results.",
+  "<b>This page now plays every clip and both whole shorts in place</b> (your screenshot showed the Play buttons coming through as plain text in your browser).",
+  "<b>Checks on the delivered files:</b> short 4: audio PASS (Zeeshan's mix, cut only), delivery gate PASS, independent review SHIP; the first render of this round failed its review (one fixed crop left you off centre) and was rebuilt with the glide. Short 5: the round-4 file, review SHIP, gate PASS."
+ ],
+ "reply": "Oura Ring Review SFL R5, my notes:\n\n1. Short 4 opener (ends at 0:02.8): \n2. Shorts 4 and 5 finalized? \n"
+}
