@@ -34,7 +34,7 @@ Pro figures in the table below are history; read the live balance (`veo.py credi
 
 ## What the subscription gives (measured 2026-10-17 on Pro, the 5-clip test)
 
-**Ultra since 2026-10-20:** 10,000 credits a month + 50 a day. Live Flow rates on Ultra (read 2026-10-20): **Veo 3.1 Fast 10, Lite 5, Omni 1.1 Flash 12** per 8 s clip, so about 1,000 Fast clips a month. Omni bake-off (`/Volumes/Extreme/_edit_work/omni-bakeoff-20261020/`, blind page on :9071, key in `blind-key.json`): Omni refused the Top 5 Zepbound Tips shirtless 9:16 pair twice ("reputational risk"), Veo made it. Default stays Veo 3.1 Fast unless Dan's blind picks say otherwise.
+**Ultra since 2026-10-20:** 10,000 credits a month + 50 a day. Live Flow rates on Ultra (read 2026-10-20): **Veo 3.1 Fast 10, Lite 5, Omni 1.1 Flash 12** per 8 s clip, so about 1,000 Fast clips a month. Omni bake-off (`/Volumes/Extreme/_edit_work/omni-bakeoff-20261020/`, blind page on :9071, key in `blind-key.json`): Omni refused the Top 5 Zepbound Tips shirtless 9:16 pair twice ("reputational risk"), Veo made it. **Result (Dan, 2026-10-21, blind):** 2 ties, Veo preferred on the other 3, Omni preferred on none ("very close for all of them"). Decision: **Veo 3.1 Fast stays the default; Omni is not used** (no quality gain, costs 12 vs 10 credits on Ultra, refuses shirtless shots of Dan).
 
 | | Flow on Google AI Pro | Replicate API (paid) |
 |---|---|---|
