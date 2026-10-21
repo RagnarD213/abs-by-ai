@@ -150,7 +150,7 @@ def hair_premult(cur, a, bg):
     return fg
 
 # ---------------------------------------------------------------- refinement (RO-24 'refined' variant, on top of the approved maths)
-def refine(im, a, f, near_fallback, bg=None, hairband=None):
+def refine(im, a, f, near_fallback, bg=None, hairband=None, motion=None):
     """Two residual flaws of the approved key, measured on C1726 (2026-10-20): (1) solid hair and forehead sit at alpha
     0.83-0.99 inside the head (19 % of interior head pixels below 0.99), so the background tints them (the grey halo Dan
     accepted on DS-40); (2) body and hand edges keep an olive outline where the despilled screen residue sits in the edge
@@ -177,11 +177,11 @@ def refine(im, a, f, near_fallback, bg=None, hairband=None):
     g_lim = np.minimum(F2[:, :, 1], .5 * (F2[:, :, 0] + F2[:, :, 2]) + .01)
     F2[:, :, 1] = F2[:, :, 1] * (1 - wb) + g_lim * wb
     if bg is not None:                                      # (4) moving hands
-        a2, F2 = hands(im, a2, np.clip(F2, 0, 1), bg, hairband if hairband is not None else np.zeros_like(a2))
+        a2, F2 = hands(im, a2, np.clip(F2, 0, 1), bg, hairband if hairband is not None else np.zeros_like(a2), motion)
     return a2, np.clip(F2, 0, 1) * a2[:, :, None]
 
 # ---------------------------------------------------------------- moving hands (RO-24 refined, independent review F1/F2, 2026-10-20)
-def hands(im, a, F, bg, hairband):
+def hands(im, a, F, bg, hairband, motion=None):
     """Fast hand moves (independent review F1/F2, 2026-10-20, frames K2 423, 626-633, K3 168). The approved body key measures green
     as G - max(R, B); skin is red-heavy, so a 50/50 blur of skin and screen (R .52, G .50, B .32) still reads 0 green and counts
     as SOLID: the blurred hand edge and the screen seen through the gaps between fingers come out opaque and olive. Here, next
@@ -213,11 +213,16 @@ def hands(im, a, F, bg, hairband):
     zone = (d_sk < 40) & (d_sk <= d_dk) & (den > .02) & (hairband <= 0) & (res < .03) & (t > .06)
     wz = (np.clip((40 - d_sk) / 12, 0, 1) * np.clip((.03 - res) / .01, 0, 1) * np.clip((t - .06) / .06, 0, 1) * zone).astype(np.float32)
     wz = cv2.GaussianBlur(wz, (0, 0), 2.0)
+    if motion is not None:          # only where something moved: green light bouncing onto a STILL arm reads like transparency too
+        wz = wz * motion
     a3 = np.minimum(a, a * (1 - wz) + ac * wz)
     a3 = np.minimum(a, cv2.GaussianBlur(a3.astype(np.float32), (0, 0), .8))
     wF = np.clip((a - a3) / .25, 0, 1)[..., None]
-    Fs2 = Fs.copy(); Fs2[..., 1] = np.minimum(Fs2[..., 1], .5 * (Fs2[..., 0] + Fs2[..., 2]) + .01)
-    F3 = F * (1 - wF) + Fs2 * wF
+    # colour from the NEAREST opaque skin (keeps its shading: a shaded inner arm stays shaded, no light rim), lightly smoothed
+    _, ix = distance_transform_edt(~skin, return_indices=True)
+    Fn = cv2.GaussianBlur(np.ascontiguousarray(F[ix[0], ix[1]]), (0, 0), 2.0)
+    Fn[..., 1] = np.minimum(Fn[..., 1], .5 * (Fn[..., 0] + Fn[..., 2]) + .01)
+    F3 = F * (1 - wF) + Fn * wF
     return a3.astype(np.float32), np.clip(F3, 0, 1).astype(np.float32)
 
 # ---------------------------------------------------------------- piece renderer
@@ -281,8 +286,10 @@ def render(start, frames, out, screen='plate', box=None, roi=None, handles=2, lo
         gray = cv2.cvtColor((cv2.resize(np.clip(im, 0, 1), (sw, sh), interpolation=cv2.INTER_AREA) * 255).astype('uint8'), cv2.COLOR_RGB2GRAY)
         hh = hair_key(np.ascontiguousarray(im[ry0 - y0:ry1 - y0, rx0 - x0:rx1 - x0]), bgr); hh['n'] = j
         return dict(im=im, a=a, hair=hair, top=top, near=near, gray=gray, hh=hh)
+    speed = {}
     def body_align(other, cur):
         flow = flowbody.calc(cur['gray'], other['gray'], None)
+        m = np.linalg.norm(flow, axis=2); speed['m'] = m if 'm' not in speed else np.maximum(speed['m'], m)
         sa = cv2.resize(other['a'], (sw, sh), interpolation=cv2.INTER_AREA)
         wa = cv2.remap(sa, Xs + flow[:, :, 0], Ys + flow[:, :, 1], cv2.INTER_LINEAR, borderMode=cv2.BORDER_REPLICATE)
         wg = cv2.remap(other['gray'], Xs + flow[:, :, 0], Ys + flow[:, :, 1], cv2.INTER_LINEAR, borderMode=cv2.BORDER_REPLICATE)
@@ -330,8 +337,13 @@ def render(start, frames, out, screen='plate', box=None, roi=None, handles=2, lo
         sc = OUT_W / WD
         X0, Y0 = int(round(x0 * sc)), int(round(y0 * sc)); X1, Y1 = int(round(x1 * sc)), int(round(y1 * sc))
         nf = np.where(cur['hair'][:, :, None] > 0, np.array([.105, .105, .095], np.float32), cur['near'])
-        if _refine_only: variants = [(enc,) + refine(cur['im'], a, f, nf, bg, cur['hair'])]
-        else: variants = [(enc, a, f)] + ([(enc2,) + refine(cur['im'], a, f, nf, bg, cur['hair'])] if enc2 is not None else [])
+        # how fast each pixel moved to the neighbouring frames (DIS flow at half res, from the body smoothing above; same take only):
+        # motion blur is only wide enough to matter above ~2.5 half-res px a frame (~5 native px); a sway of a pixel or two is not
+        mv = speed.pop('m', np.zeros(cur['gray'].shape, np.float32))
+        mv = cv2.dilate(cv2.GaussianBlur(mv, (0, 0), 3), np.ones((15, 15), np.uint8))
+        motion = cv2.resize(np.clip((mv - 2.5) / 3, 0, 1), (bw, bh), interpolation=cv2.INTER_LINEAR)
+        if _refine_only: variants = [(enc,) + refine(cur['im'], a, f, nf, bg, cur['hair'], motion)]
+        else: variants = [(enc, a, f)] + ([(enc2,) + refine(cur['im'], a, f, nf, bg, cur['hair'], motion)] if enc2 is not None else [])
         for e, av, fv in variants:
             fs = cv2.resize(fv, (X1 - X0, Y1 - Y0), interpolation=cv2.INTER_AREA)
             as_ = np.clip(cv2.resize(av, (X1 - X0, Y1 - Y0), interpolation=cv2.INTER_AREA), 0, 1)

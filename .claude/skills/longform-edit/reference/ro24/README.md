@@ -26,8 +26,17 @@ Measured residual flaws of the approved key on this roll, fixed after the merge,
 2. Olive outline on semitransparent edges: continuous local foreground colour (opaque core, Gaussian-normalised, sigma 6) weighted
    by transparency.
 3. Green light wrapping onto opaque skin at the silhouette: inside a 14 px edge band, G may not exceed (R+B)/2 + 0.01.
+4. Moving hands (independent review, 2026-10-20): the approved body key measures green as G - max(R, B). Skin is red-heavy, so a
+   50/50 blur of skin and screen (R .52, G .50, B .32) reads ZERO green and counts as solid: fast-moving hands came out with a
+   3-6 px olive outline and a cut-out look, and the screen seen between fingers stayed as a grey-olive patch. `hands()` projects
+   each pixel's chromaticity (colour / its sum: brightness and the shadow between fingers drop out) onto the line from the local
+   skin colour to the screen colour; pixels ON that line (residual < 0.03, so not the watch, tank or a highlight) and greener
+   than skin get LOWER alpha only (min with the approved alpha), and the colour of the NEAREST opaque skin (keeps its shading).
+   **Gated by motion** (DIS flow speed above ~5 native px a frame): green light bouncing onto a STILL arm next to the screen reads
+   exactly like partial transparency and the ungated version ate the inner arm into a light rim. Motion blur only exists where
+   something moves, so the gate is physical, not a tuning trick.
 Result (`keynum.py`): interior holes 19 % -> 0.2 %, edge green halved, edge change frame to frame equal on the same pixels,
-head interior steadier.
+head interior steadier; the hand fix verified on the three flagged moments (`handdbg.py` for one native frame).
 
 ## Traps
 - `ffmpeg` in `Media/video_edit/bin` is the render-queue wrapper: a script outside a queued step that decodes a whole file waits in
