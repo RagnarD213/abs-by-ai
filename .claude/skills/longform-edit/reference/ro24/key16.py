@@ -28,9 +28,10 @@ FPS = 30000 / 1001
 H, WD = 2160, 3840
 OUT_W, OUT_H = 2880, 1620
 S = 0.75                        # C1726 head size / DS-40 portrait head size (native px), measured 2026-10-20
-# moving-hands step engages from MOTION_LO to MOTION_HI native px a frame (re-check 2026-10-21: the flagged fast hands move 100-170,
-# a drifting arm 20-36; below ~40 the blur is under ~10 output px and green bounce on shaded skin is what the step would catch)
-MOTION_LO, MOTION_HI = 40.0, 60.0
+# moving-hands step engages from MOTION_LO to MOTION_HI native px a frame (re-check 2 2026-10-21: the finger gaps it must open move
+# 23-58; at 40-60 the step stopped acting on them; the brightness floor, not the speed, is what keeps shorts/watch/shaded skin solid)
+MOTION_LO, MOTION_HI = 12.0, 24.0
+HDBG = None                     # handtest: a dict here receives the hands() intermediates
 DEC = 'scale=in_color_matrix=bt709:in_range=tv:out_range=pc:flags=accurate_rnd+full_chroma_int,format=rgb48le'
 
 # ---------------------------------------------------------------- screen fields
@@ -194,9 +195,9 @@ def hands(im, a, F, bg, hairband, motion=None, speed=None):
       * it is bright enough to be a skin/screen blend (luma >= ~0.2): dark olive shorts, the watch glass reflecting the screen,
         shaded skin and the mouth sit on the same colour line but are too dark to be a blend (re-check R1, R2, R3, R7);
       * it is within the motion-blur reach of the screen: the distance to the nearest screen pixel (approved alpha <= .05, or a
-        clear screen-coloured pixel, which also marks gaps between fingers) is at most 6 px + 0.6 x the pixel's speed (DIS flow,
+        clear screen-coloured pixel, which also marks gaps between fingers) is at most 10 px + 0.8 x the pixel's speed (DIS flow,
         native px a frame): blur cannot reach further into the body than the hand travelled;
-      * something moved there (speed above ~5 native px a frame): green light bouncing on a still arm reads the same.
+      * something moved there (12-24 native px a frame and up): green light bouncing on a still arm reads the same.
     Alpha only goes DOWN (min with the approved alpha). Every touched blend pixel takes the colour of the NEAREST opaque skin
     (keeps its shading), fully where it is a clear blend, so no khaki rim is left (re-check R5). Opaque skin, the tank, the watch,
     the shorts, the face and the hair band are untouched."""
@@ -224,7 +225,7 @@ def hands(im, a, F, bg, hairband, motion=None, speed=None):
     seed = (a <= .05) | ((t > .75) & (res < .03) & (lumI > .2))
     d_bg = distance_transform_edt(~seed)
     sp = speed if speed is not None else np.zeros(a.shape, np.float32)
-    reach = 6 + .6 * sp
+    reach = 10 + .8 * sp
     # a skin/screen blend cannot be much darker than BOTH the skin and the screen beside it: the floor is 72 % of the darker one
     # (the shadow between fingers stays above it; the watch glass, shorts, shaded skin and the mouth fall below it)
     lo = np.maximum(.20, .72 * np.minimum(lum(bg), lum(Fs)))         # never below a fixed 0.20 either (shaded skin, shorts)
@@ -234,6 +235,8 @@ def hands(im, a, F, bg, hairband, motion=None, speed=None):
     wz = cv2.GaussianBlur(wz, (0, 0), 1.5)
     if motion is not None:          # only where something moved: green light bouncing onto a STILL arm reads like transparency too
         wz = wz * motion
+    if HDBG is not None:
+        HDBG.update(dict(t=t, res=res, lumI=lumI, lo=lo, d_bg=d_bg, reach=reach, d_sk=d_sk, d_dk=d_dk, den=den, motion=motion, wz=wz.copy(), ac=ac))
     a3 = np.minimum(a, a * (1 - wz) + ac * wz)
     a3 = np.minimum(a, cv2.GaussianBlur(a3.astype(np.float32), (0, 0), .8))
     blend = wz * np.clip((t - .06) / .10, 0, 1)                         # how clearly this pixel is a skin/screen mix
