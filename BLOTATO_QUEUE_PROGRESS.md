@@ -501,3 +501,6 @@ To make room at the 200-post cap, Dan authorized removing the last queued video.
 
 ## SL-07 If I Had Belly Fat shorts (2026-10-18)
 Five shorts set up and waiting for room (queue 198/200): on `scripts/blotato/video_waitlist.json`, slots Mon Dec 21, Tue Dec 22, Sat Dec 26, Mon Dec 28, Tue Dec 29, 9 AM Central, after RO-16 (YouTube Dec 20). Configs `scripts/blotato/configs/sl07-short{1..5}-*.json`. Receipt `Docs/SL07_SETUP_RECEIPT_20261018.md`.
+
+## DONE: SL-09 Oura Ring Review shorts (2026-10-21)
+Five shorts from "My Honest Oura Ring Review After 1.5 Years" (parent YouTube `5095442`, Wed Nov 11) queued on YouTube 46963, Facebook 47105, Instagram 67203 and TikTok 58181 at 9 AM Central: short 1 Fri Nov 13 (5867678/79/80/82), short 2 Mon Nov 16 (5867684/85/87/88), short 3 Fri Nov 20 (5867691/94/98, 5867701), short 4 Mon Nov 23 (5867702/03/04/06), short 5 Fri Nov 27 (5867711/13/15/16). Covers 1F 2C 3E 4F 5D; keyword SLEEP; `utm_content=sl09-short<N>`. Every hosted video hash-matched. Configs `scripts/blotato/configs/sl09-short{1..5}-*.json`. Receipt `Docs/SL09_SETUP_RECEIPT_20261021.md`.

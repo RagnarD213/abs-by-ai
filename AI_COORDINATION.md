@@ -26,7 +26,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**Oura Ring Review SFL Setup - PICK R2 2026-10-21, Claude.** SL-09: shorts 2 C, 5 D locked; round 2 for 1, 3, 4 on http://127.0.0.1:8909/ (62/62 pass). Next: Dan's picks, then Blotato Nov 13, 16, 20, 23, 27.
+**Oura Ring Review SFL - QUEUED 2026-10-21, Claude.** SL-09 five shorts in Blotato Nov 13-27, 9 AM, all platforms. Short 4 cover F by default (Dan gave no letter). Next: release check; delete once posted. `Docs/SL09_SETUP_RECEIPT_20261021.md`.
 **SL-17:NEEDS-DAN:2026-10-20:Claude.**
 **SL-18:ACTIVE:2026-10-20:Claude.** Wasted Life SFL R1; awaiting picks.
 
