@@ -37,6 +37,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
+| [handoff-20261021-ro14-round3-scale-and-caregiver-clip.md](handoff-20261021-ro14-round3-scale-and-caregiver-clip.md) | **READY 2026-10-21, Dan's R2 notes recorded. GPT-6.1 Sol / High.** Not Losing Weight LFC R3 (RO-14): longer broken-scale opener so the scale reads as broken (new Flow takes, START-only); replace the 4:06 caregiver clip with a man caring for a woman (or camera); rebuild, gates, review, deliver. |
 | [My First Spray Tan SFL R1](video-editing/SL-15-my-first-spray-tan-shorts.md) | **Ready now (2026-10-17). Claude Opus 5.5 / High.** Three Shorts from RO-19 (public Wed Oct 21); Short 1 airs Fri Oct 30, review copies by Oct 26. |
 | [I'm 41 Wasted Life SFL R1](video-editing/SL-18-wasted-my-life-shorts.md) | **Fire once Dan approves the full RO-25 film. Claude Opus 5.5 / High.** Three Shorts from the six regrets; Short 1 airs Mon Oct 26, review copies by Oct 21. |
 | [Fat Millionaire SFC R4](handoff-20261016-ds05-correct-version.md) | **Exact-file owner decision pending (2026-10-16), Codex. GPT-6 Sol / Medium.** Corrected review copy and F3 TikTok preparation verified. Full checks: 30 pass, 2 retained-source failures, 0 missing, 7 N/A; 43 independent images clear. No active worker. Posting held; no upload or booking. |

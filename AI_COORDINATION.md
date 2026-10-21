@@ -146,9 +146,9 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-06:POLICY-RECHECK:2026-10-16:Claude.** Ads `828274063389`, `828320387740` in review. Next 10-17: `node scripts/ads/api/client.js policy 24316364155`; clean, delete this.
 
-**RO-24:R1-REVIEW:9124:2026-10-21:Claude.**
+**RO-24:R2-ACTIVE:2026-10-21:Claude.** Full film.
 
-**RO-14 R2 REVIEW 2026-10-21, Claude.** Page :8965. bad60e5 unpushed.
+**RO-14 R3 HANDOFF 2026-10-21, Claude.** Dan noted 2 fixes. bad60e5 unpushed.
 
 **DS-33:REVIEW:9033:2026-10-21:Claude.** 875d823 unpushed.
 
@@ -236,7 +236,7 @@ tab; stop rather than click into spinners. `Handoffs/handoff-20260908-google-ads
 
 **Video-title rule UNPUSHED 2026-10-17, Claude.** Commit bd14929 (AGENTS rule, README) local; safe-push stopped on live edits. Next: any later safe-push carries it; then delete this.
 
-**VEO-ULTRA:UNPUSHED-f034bc5..fc78746:2026-10-20:Claude.**
+**VEO-ULTRA:UNPUSHED-c6e4e97:2026-10-21:Claude.**
 
 **10-23 TP docs UNPUSHED 2026-10-20, Claude.** Commit 65f8c43 local. Next: any safe-push carries it; delete this.
 
