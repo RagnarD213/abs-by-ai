@@ -18,7 +18,8 @@
     "assistant::Take out garbage & bring bins back from driveway",
     "assistant::Change robot mop water/refill",
     "assistant::Tidy up kitchen",
-    "assistant::Tidy living room"
+    "assistant::Tidy living room",
+    "assistant::Tidy garage"
   ],
   "log": {
     "health::Shower": [
@@ -262,6 +263,7 @@
     "assistant::Take out garbage & bring bins back from driveway": "2026-10-20",
     "assistant::Change robot mop water/refill": "2026-10-20",
     "assistant::Tidy up kitchen": "2026-10-20",
-    "assistant::Tidy living room": "2026-10-20"
+    "assistant::Tidy living room": "2026-10-20",
+    "assistant::Tidy garage": "2026-10-20"
   }
 }
