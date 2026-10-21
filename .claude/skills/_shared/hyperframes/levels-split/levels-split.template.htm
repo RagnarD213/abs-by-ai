@@ -150,7 +150,7 @@
         if (tile.chip) {
           const C = tile.chip, ch = mk("chip"); place(ch, C.x, C.y, C.w, C.h);
           const tx = mk(null, ch); place(tx, C.tx, C.ty); tx.style.fontSize = px(C.px); tx.textContent = C.s;
-          tl.fromTo(ch, { opacity: 0 }, { opacity: 1, duration: 0.15, immediateRender: true }, at + 0.25);
+          tl.fromTo(ch, { opacity: 0 }, { opacity: 1, duration: 0.1, immediateRender: true }, at + 0.02);   // up as soon as the picture shows (RO-20C R6 review: 0.13 s unlabelled at +0.25)
         }
       });
 
