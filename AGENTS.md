@@ -106,6 +106,10 @@ sessions (and any other assistant, if one is in use).
 - Dan: "Going forward you are always authorized to check the queue for active render jobs. Do not ask me for permission to do this again in any task."
 - This is a standing read-only authorization across tasks, not permission to cancel or modify another session's jobs.
 
+## Active edit cap: 5 edits at once (Dan, 2026-10-21)
+
+- At most 5 video edits (Claude and Codex together) do production work at once. Every edit runs `python3 .claude/skills/_shared/editcap/editcap.py acquire <JOB>` before its first render, generation or build; exit 3 means wait (arm the auto-start, tell Dan, stop). Stopping for Dan's review releases the slot (`release <JOB> --review`); waiters start by release date, automatically. Setup and thumbnail tasks are exempt. `editcap.py status` shows the line. Rule: `.claude/skills/_shared/VIDEO-RULES.md`, "Active edit cap".
+
 ## Standing authorization for routine provider configuration
 
 - You are authorized to make routine, non-destructive external-account changes needed to configure, repair, verify, or maintain Abs By AI's email delivery and closely related production-provider setup without asking for confirmation each time.
