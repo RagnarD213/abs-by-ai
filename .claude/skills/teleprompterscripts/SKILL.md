@@ -250,7 +250,7 @@ outside by the pool, plus a separate B-roll list. Result: 21, 18 and 4 scripts, 
   script... If there's more than 50 pages on a single set, break it into two." The build script splits a set over
   25,000 words (about 45 pages) at a script boundary and names the parts "(Part 1 of 2)". Count the real pages after
   upload: export as PDF (`rclone copy gdrive: pdf --max-depth 1 --files-only --include "<prefix> - Teleprompter*"
-  --drive-export-formats pdf`) and read the largest `/Count` in each file. 10-11: 22, 18 and 6 pages. The page break
+  --drive-export-formats pdf`) and count the page objects (`len(re.findall(rb'/Type\s*/Page[^s]', pdf))`). Not the largest `/Count`: a document with headings has an outline whose `/Count` is the number of headings (10-22 trap: 15 and 14 reported for 6-page documents). 10-11: 22, 18 and 6 pages. The page break
   before each script does not survive this upload, so the docs run on continuously.
 
 ### 10/23 pool shoot: split by form and length, iPad app limit (Dan, 2026-10-20)
@@ -268,7 +268,7 @@ section between them is not filming material. Build details and the document lis
 
 **Built 2026-10-20 with `reference/tp_from_1023_doc.py`** (one call writes all four HTML files and `built_seq.json`).
 Result: Teleprompter 1 Long Form (7 long-forms, then the 4 follow-alongs) 11,270 words, 20 pages; Short Form Part 1
-(shorts 1 to 15) 3,167 words, 15 pages; Part 2 (16 to 29) 2,947 words, 14 pages; Filming Document 23,712 words, 69
+(shorts 1 to 15) 3,167 words, 6 pages; Part 2 (16 to 29) 2,947 words, 6 pages; Filming Document 23,712 words, 69
 pages. Every line matched after download (484, 149, 140, 1,311). What the handoff did not foresee:
 - **Hook takes.** 20 shorts end with a bold "HOOK TAKES (alternate openers):" line and two bulleted alternate first
   lines. Dan films all three openers, so the two lines go on the prompter after the Subscribe line, label dropped (same
@@ -277,9 +277,17 @@ pages. Every line matched after download (484, 149, 140, 1,311). What the handof
   Filming document shows each gap as extra blank lines on top of its usual spacing.
 - **Several cues in one paragraph** (`[ON SCREEN TEXT: ...] [B-ROLL: ...]`): split with a regex for the B-roll list. A
   B-roll cue that only says "ALL FOUR" or "EACH MACHINE" carries the on-screen text of its line in the list.
-- **Page breaks survived the rclone import this time** (one short per page: 15 shorts, 15 pages), unlike 10-11.
 - The source's word-count note lines are older than Dan's last edits (e.g. 1077 noted, 1059 actual): the teleprompter
   count is the real one. The doc was renamed "The 10/23 Shoot Scripts"; the id is unchanged.
+- **B-roll, 2026-10-22 (Dan):** "split the B-roll list into a separate document and bold the shots to get. Leave the
+  video the shots go into unbolded. Keep it in the main Filming Document", then: "in the new document, I just want a list
+  of the shots only. Don't put what video they go to, and no redundant shots... grouped by body part." So: the Filming
+  Document keeps the per-video list (shots bold, titles and "For:" lines plain, `**...**` markup in the builder) and links
+  to a separate "B-Roll Shot List" (`BROLL_DOC` in the builder: one merged bullet per shot, bold shot name, groups Around
+  the gym, Cardio, Abs, Legs, Back, Shoulders, Chest, Arms, Talking at the gym). Before building it, check the shoot's
+  older shot-list doc and the Edit Queue's blocked jobs for B-roll owed to earlier videos: on 10-22 the 10/18 "Chosen
+  Videos And Full B-Roll List" added 27 shots the scripts never asked for (RO-32, DS-01, DS-53, DS-72, rankings,
+  V-Taper). Then check in code that every shot piece in the Filming list has its words in the merged list.
 - PromptSmart cards: "10-23 Pool Shoot - Teleprompter 1 - Long Form" (script 1502125), "... 2 - Short Form (Part 1 of
   2)" (1502123), "... 3 - Short Form (Part 2 of 2)" (1502124). Page word counts ran about 60 to 70 over the document's.
 
