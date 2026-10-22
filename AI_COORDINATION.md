@@ -49,7 +49,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-44:ACTIVE:2026-10-21:Claude.**
 
-**SL-15 Setup PICKS 2026-10-22, Claude.** Short 2 C; short 1 H/I/K at :9151. Next: Blotato after RO-19.
+**SL-15 Setup PICKS 2026-10-22, Claude.** Short 2 C; short 1 K revised at :9151. Next: Blotato after RO-19.
 
 **I'm 41. I Wasted My Life. LFC Setup QUEUED 2026-10-17, Codex.** Dan approved exact R7 film and thumbnail C. Blotato readback: YouTube Sun Oct 18 9 AM, Facebook/Instagram Mon Oct 19 noon. Direct TikTok Monday after public YouTube check. To free capacity, Dan authorized removal of the last queued video, RO-13; its four schedules are backed up and RO-13 is on the waitlist for Dec 30. Receipt: Docs/RO25_SETUP_RECEIPT_20261017.md. Next: verify public release, covers, TikTok, RO-26 link.
 

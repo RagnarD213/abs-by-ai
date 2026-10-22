@@ -1,0 +1,37 @@
+#!/usr/bin/env python3
+"""SL-15 covers round 4 review: REVIEW_r4.jpg and index.html (round 2 page kept as round2.html). Short 1 H/I/K (F's photos, new copy), short 2 C locked."""
+from pathlib import Path
+import json,sys,html,shutil
+from PIL import Image,ImageDraw,ImageFont
+sys.path.insert(0,str(Path(__file__).parent));from build import COPY,R,BADGES
+F='/System/Library/Fonts/Supplemental/Arial Bold.ttf';font=lambda s:ImageFont.truetype(F,s)
+ROWS=[('s1',['K'],'Your pick K, revised: confirm'),('s2',['C'],'Locked: your pick C')]
+LAB={('s1','H'):'H: diagonal split, headline on top',('s1','I'):'I: diagonal split, headline at the bottom',('s1','K'):'K revised: you moved right and up, smaller photo bottom left',('s2','C'):'C: yellow band on top'}
+SUB={('s1','H'):'Cut-outs of you with a white outline: pale on cool slate, tanned on warm bronze',('s1','I'):'The same idea the other way round, headline on black below',
+ ('s1','K'):'The pale photo no longer touches your body (measured: 0 pixels overlap, 12 px gap)',('s2','C'):'AI you, tanned, in the shade of a beach umbrella'}
+CUR={'s1':'SPRAY TANNING / How A Spray Tan Makes You Look More Ripped'}
+get=lambda k,v,pl:Image.open(R/pl/f'{COPY[k][1]}_cover-{v}.png')
+cw,ch=236,420;colw=2*cw+14+28;rowh=ch+86
+im=Image.new('RGB',(3*colw+40,150+len(ROWS)*rowh),(18,23,31));d=ImageDraw.Draw(im)
+d.text((24,16),'MY FIRST SPRAY TAN SHORTS: COVERS ROUND 4',font=font(40),fill='white')
+d.text((24,70),'Each choice twice: Instagram / TikTok / Facebook layout (left), YouTube layout (right).',font=font(26),fill=(185,198,209))
+web=R/'web';web.mkdir(exist_ok=True)
+for r,(k,vs,note) in enumerate(ROWS):
+ y=130+r*rowh;n=int(k[1]);d.text((24,y),f'Short {n}: {COPY[k][2]}   ({note})',font=font(30),fill=(255,214,0))
+ for c,v in enumerate(vs):
+  x=24+c*colw;d.text((x,y+44),LAB[(k,v)],font=font(23),fill=(213,228,238))
+  for j,pl in enumerate(['instagram','youtube']):
+   g=get(k,v,pl);im.paste(g.resize((cw,ch),Image.Resampling.LANCZOS),(x+j*(cw+14),y+78))
+   g.resize((540,960),Image.Resampling.LANCZOS).save(web/f'{COPY[k][1]}_{v}_{pl}.jpg',quality=88)
+im.save(R/'REVIEW_r4.jpg',quality=90)
+if (R/'index.html').exists() and not (R/'round3.html').exists():shutil.copy(R/'index.html',R/'round3.html')
+h=['<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Spray Tan Shorts Covers R4</title>',
+'<style>body{background:#12171f;color:#e8eef4;font:16px/1.45 -apple-system,Helvetica,Arial,sans-serif;margin:0;padding:24px}h1{font-size:26px;margin:0 0 6px}h2{color:#ffd600;font-size:21px;margin:34px 0 4px}p{margin:4px 0 10px;color:#b9c6d1;max-width:1100px}.row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.c{background:#1b232e;border-radius:10px;padding:10px}.c b{display:block;margin-bottom:2px}.c small{display:block;color:#9fb0bf;min-height:38px;margin-bottom:6px}.pair{display:flex;gap:6px}.pair figure{margin:0;flex:1}.pair img{width:100%;border-radius:6px;display:block}figcaption{font-size:11px;color:#8fa1b1;text-align:center;margin-top:2px}a{color:#8fd3ff}@media(max-width:900px){.row{grid-template-columns:1fr}}</style>',
+'<h1>My First Spray Tan Shorts: covers round 4</h1>',
+'<p>Short 1: your pick K with your changes: your body moved right and up, the pale photo smaller and moved left and down so it no longer covers you. Short 2 is locked on C. Reply OK (or changes). Click any picture to open it larger. <a href="round3.html">Round 3 page</a></p>']
+for k,vs,note in ROWS:
+ h.append(f'<h2>Short {k[1]}: {html.escape(COPY[k][2])} <span style="color:#8fa1b1;font-size:15px">({html.escape(note)})</span></h2><p>Cover copy: {html.escape(CUR.get(k,BADGES[k]+" / "+" ".join(COPY[k][0])))}</p><div class="row">')
+ for v in vs:
+  h.append(f'<div class="c"><b>{html.escape(LAB[(k,v)])}</b><small>{html.escape(SUB[(k,v)])}</small><div class="pair">'+''.join(f'<figure><a href="web/{COPY[k][1]}_{v}_{pl}.jpg" target="_blank"><img loading="lazy" src="web/{COPY[k][1]}_{v}_{pl}.jpg"></a><figcaption>{"Instagram" if pl=="instagram" else "YouTube"}</figcaption></figure>' for pl in ['instagram','youtube'])+'</div></div>')
+ h.append('</div>')
+(R/'index.html').write_text('\n'.join(h));print('round 2 review built')

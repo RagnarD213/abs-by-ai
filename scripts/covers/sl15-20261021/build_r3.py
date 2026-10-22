@@ -143,20 +143,45 @@ def make_J(ig):
  for j,side in enumerate(['pale','tan']):
   col,info,y,hh=halves[j];chip(im,tm,j*w+w//2,min(B-90,yb+y+hh+10),side)
  return im,tm,pic,dict(pale=halves[0][1],tan=halves[1][1])
+def hero_tan(s):
+ """The whole tan_125 frame at scale s, with its person mask (Apple Vision)."""
+ if ('hero',s) in _cache:return _cache[('hero',s)]
+ src=Image.open(PH/SRC['tan'][0]).convert('RGB');im=src.resize((round(src.width*s),round(src.height*s)),Image.Resampling.LANCZOS)
+ _cache[('hero',s)]=(im,pmask(im));return _cache[('hero',s)]
+def inset(w):
+ pi,ppm,ip=sharp('pale',w);fr=Image.new('RGBA',(pi.width+24,pi.height+80),WHITE+(255,));fr.alpha_composite(pi.convert('RGBA'),(12,12))
+ fc=font(ARIAL,27);ImageDraw.Draw(fr).text((fr.width//2,pi.height+26),'Before The Tan',font=fc,fill=INK,anchor='ma')
+ return fr.rotate(7,expand=True,resample=Image.Resampling.BICUBIC),ip
 def make_K(ig):
+ """Round 4 (Dan, 2026-10-22): "move my body slightly to the right and up, the picture slightly to the left and down, and make the
+ picture slightly smaller... so that the photo isn't blocking my body." The hero is the whole tan_125 frame, scaled so his right
+ fist stays inside the frame with his centre further right, raised 40 px; the inset is smaller, in the bottom-left corner. The
+ inset's position is searched until it does not touch his person mask (overlap reported in the manifest)."""
  tm=Image.new('L',(W,H));top=250 if ig else 64;f1=b.fit(LINES[0],FUTURA,118,980,5);f2=b.fit(LINES[1],FUTURA,118,920)
- y2=top+56+f1.size+22;b2=f2.getbbox(LINES[1],anchor='ma');hb=y2+b2[3]+40;B=1680 if ig else H
- im_,pm,ia=sharp('tan',W);im=backdrop('tan',(W,H)).convert('RGBA');ff=feather(im_.size,60);ff[:,:60]=1;ff[:,-60:]=1;ff[-60:]=1
- s=im_.convert('RGBA');s.putalpha(Image.fromarray((ff*255).astype(np.uint8)));ty=hb-10;im.alpha_composite(s,(0,ty))
+ y2=top+56+f1.size+22;b2=f2.getbbox(LINES[1],anchor='ma');hb=y2+b2[3]+40;B=1700 if ig else H-6
+ CX,FIST,MID,RIGHT=(610 if ig else 585),1070,1492,2685   # target body centre; his right fist's outer edge and his centre in the source (measured)
+ sc=round(min(0.40 if ig else 0.43,(FIST-CX)/(RIGHT-MID)),4)   # YouTube's taller frame keeps him larger so the photo reaches the bottom
+ hi,hm=hero_tan(sc);hx=round(CX-MID*sc);ty=hb-50
+ im=backdrop('tan',(W,H)).convert('RGBA');ff=feather(hi.size,60);ff[:,-60:]=1;ff[-60:]=1;ff[:60]=1
+ s_=hi.convert('RGBA');s_.putalpha(Image.fromarray((ff*255).astype(np.uint8)));im.alpha_composite(s_,(hx,ty))
+ cm=np.zeros((H,W),bool);x0,y0=max(0,hx),max(0,ty);x1,y1=min(W,hx+hi.width),min(H,ty+hi.height);cm[y0:y1,x0:x1]=hm[y0-ty:y1-ty,x0-hx:x1-hx]
+ from scipy.ndimage import binary_dilation
+ cmd=binary_dilation(cm,iterations=12);best=None
+ for w in (290,280,270,260,250,240,230):
+  fr,ip=inset(w)
+  for ix in (8,0,-8,-16):
+   iy=B-fr.height;a=np.zeros((H,W),bool);ys,xs=np.where(np.asarray(fr.getchannel('A'))>20)
+   ys=ys+iy;xs=xs+ix;k=(xs>=0)&(xs<W)&(ys>=0)&(ys<H);a[ys[k],xs[k]]=True;ov=int((a&cmd).sum())
+   if best is None or ov<best[0]:best=(ov,w,ix,iy,fr,ip)
+   if ov==0:break
+  if best[0]==0:break
+ ov,w,ix,iy,fr,ip=best
  b.ramp(im,0,hb+120,240)
- pi,ppm,ip=sharp('pale',330);fr=Image.new('RGBA',(pi.width+28,pi.height+92),WHITE+(255,));fr.alpha_composite(pi.convert('RGBA'),(14,14))
- cap=ImageDraw.Draw(fr);fc=font(ARIAL,30);cap.text((fr.width//2,pi.height+30),'Before The Tan',font=fc,fill=INK,anchor='ma')
- fr=fr.rotate(7,expand=True,resample=Image.Resampling.BICUBIC);sh=Image.new('RGBA',fr.size,(0,0,0,0));sh.putalpha(fr.getchannel('A').point(lambda v:int(v*0.55)))
- ix,iy=18,B-fr.height-24;im.alpha_composite(sh.filter(ImageFilter.GaussianBlur(14)),(ix+10,iy+14));im.alpha_composite(fr,(ix,iy))
+ sh=Image.new('RGBA',fr.size,(0,0,0,0));sh.putalpha(fr.getchannel('A').point(lambda v:int(v*0.55)))
+ im.alpha_composite(sh.filter(ImageFilter.GaussianBlur(14)),(ix+10,iy+12));im.alpha_composite(fr,(ix,iy))
  pic=im.copy()
  fb=font(ARIAL,38);text(im,tm,(W//2,top),BADGE,fb,YEL,3,anchor='ma');text(im,tm,(W//2,top+56),LINES[0],f1,WHITE,5,anchor='ma')
  box(im,tm,(W//2+b2[0]-20,y2+b2[1]-14,W//2+b2[2]+20,y2+b2[3]+14),AMBER,8);text(im,tm,(W//2,y2),LINES[1],f2,INK,anchor='ma')
- # place the "After The Tan" chip where it clears him by 40 px: measured on the picture layer, first fit from the bottom right
  from scipy.ndimage import distance_transform_edt
  dist=distance_transform_edt(~pmask(pic));cw=270;chh=60;spot=None
  for y in range(1540 if ig else 1660,hb+20,-20):
@@ -164,7 +189,9 @@ def make_K(ig):
    if dist[y:y+chh,cx-cw//2:cx+cw//2].min()>=40:spot=(cx,y);break
   if spot:break
  chip(im,tm,spot[0],spot[1],'tan')
- return im,tm,pic,dict(hero=ia,inset=ip,inset_box=[ix,iy,ix+fr.width,iy+fr.height])
+ name=PH/SRC['tan'][0]
+ return im,tm,pic,dict(hero=dict(source=str(name),source_sha256=b.sha(name),scale=sc,xy=[hx,ty]),inset=ip,inset_width=w,
+  inset_box=[ix,iy,ix+fr.width,iy+fr.height],inset_overlap_px=ov)
 ROUND3=['H','I','K']   # J (two halves with blurred fill bands) dropped before review: the fill read as empty
 KIND3={'H':'Pale vs tan cutouts on a diagonal two-tone split, headline on top','I':'Pale vs tan cutouts on a diagonal two-tone split, headline at the bottom',
  'J':'Pale vs tan pair, two halves under a yellow band','K':'Tan photo full bleed, pale photo as a tilted inset'}
@@ -176,5 +203,5 @@ if __name__=='__main__':
    im.convert('RGB').save(p);tm.save(p.with_name(p.stem+'.text-mask.png'));pic.convert('RGB').save(p.with_name(p.stem+'.picture.png'))
    ph=R/'phone'/platform;Image.open(p).resize((270,480),Image.Resampling.LANCZOS).save(ph/(slug+'.jpg'),quality=95)
    rec.append(dict(short='s1',variant=v,platform=platform,path=str(p),sha256=b.sha(p),kind=KIND3[v],round=3,has_person=True,
-    copy={'badge':BADGE,'headline':LINES,'chips':['Before The Tan','After The Tan']},**info));print(v,platform,{k:info[k] for k in info if k in('line','width')})
+    copy={'badge':BADGE,'headline':LINES,'chips':['Before The Tan','After The Tan']},**info));print(v,platform,{k:info[k] for k in info if k in('line','width','inset_overlap_px','inset_width','inset_box')})
  m['outputs']=rec;m['status']='round 3: short 1 H/I/K awaiting Dan pick; short 2 C picked';mp.write_text(json.dumps(m,indent=1)+'\n')
