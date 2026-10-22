@@ -64,3 +64,18 @@ Round 2 (2026-10-20):
 11. **A blind Gemini A/B cannot judge a splice that sits at a script break.** With the SAME original clip on both sides it still
    "found" a different-day splice at the line break, 100 % confident. Judge pickup joins on measurement (pickup vs film distance
    against film vs film) and by ear; never by that listen alone.
+
+Round 3 (2026-10-22, `round3/`):
+12. **Veo/Omni cannot lift a scale off the floor cleanly.** About 30 takes across Veo Fast, Quality, Omni and paid failed the same beat:
+   the foot sits inside the scale corner and the scale is lifted out through it, or the display doubles. A START-only prompt with "both
+   feet a full foot behind the scale" did not help. Fix: two shots joined by a cut, the lift off screen (shot 1 ends on the grip,
+   shot 2 cuts in on him already holding it). Plan any pick-up-from-the-floor gag this way from round 1.
+13. **The approved START and END frames can show different-looking men.** Shot 2 generated from the END frame failed review at the cut
+   (different face, hair, build). Make every shot of a multi-shot AI clip from the SAME frame (here the START frame), and use a later
+   window of a take for the second shot.
+14. **Veo 3.1 Fast creeps the camera 2-5 % over 8 s even with "locked off on a tripod"; Omni 1.1 Flash held it to 0-1 px.** For a
+   locked-camera shot prefer Omni windows, or lock a Veo take with `round3/stabilize.py` (background similarity fit; align to the
+   frame with the most head room; extend edge pixels only where the edge is plain wall, else an anchored zoom). Measure hair after it.
+15. **A 1.35x cut-in on a 720p-upscaled AI take reads soft next to the wide shot**; 1.2x passed the reviewer.
+16. **`build.py` writes the graphics-free base to `W/tmp_base.mp4`; `finish.py` declares `final/base.mp4` as the watch pass's
+   `source_picture`.** Move it beside the master before the watch pass, or graphic presence reads NOT MEASURED (0/43).
