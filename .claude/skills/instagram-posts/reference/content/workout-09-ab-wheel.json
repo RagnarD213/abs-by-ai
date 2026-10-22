@@ -19,7 +19,7 @@
    "dose": "3 sets",
    "dose_icon": "none",
    "image": {
-    "src": "Short-form video content/instagram-danrosefit/assets/workout-09-ab-wheel/level1-enh.jpg",
+    "src": "Short-form video content/instagram-danrosefit/assets/workout-09-ab-wheel/level1-graded.jpg",
     "pos": "45% 50%",
     "zoom": 1.4,
     "label": "real",
@@ -36,7 +36,7 @@
    "dose": "3 sets",
    "dose_icon": "none",
    "image": {
-    "src": "Short-form video content/instagram-danrosefit/assets/workout-09-ab-wheel/level2-enh.jpg",
+    "src": "Short-form video content/instagram-danrosefit/assets/workout-09-ab-wheel/level2-graded.jpg",
     "pos": "45% 50%",
     "zoom": 1.4,
     "label": "real",
@@ -53,7 +53,7 @@
    "dose": "3 sets",
    "dose_icon": "none",
    "image": {
-    "src": "Short-form video content/instagram-danrosefit/assets/workout-09-ab-wheel/level3-enh.jpg",
+    "src": "Short-form video content/instagram-danrosefit/assets/workout-09-ab-wheel/level3-graded.jpg",
     "pos": "35% 50%",
     "zoom": 1.4,
     "label": "real",
@@ -72,5 +72,6 @@
   "text": "Every day, end of your workout. Which level are you on? Comment 1, 2 or 3.",
   "follow": "Workouts I actually do.",
   "cutout": "Short-form video content/instagram-danrosefit/assets/_cutouts/studio-gray-87.webp"
- }
+ },
+ "status": "R3 2026-10-22: colour audit (reference/color-audit-r3.md): all three B0427 stills re-finished (orange sun glare on his back pulled back)"
 }

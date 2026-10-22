@@ -2,7 +2,7 @@
  "format": "receipts",
  "id": "receipts-06-sleep",
  "tag": "Receipts · 06",
- "status": "R2 2026-10-22 (Dan's notes, page rank 1): AI bed cover, tired-man study image, tips slide, shirtless verdict + save",
+ "status": "R2 2026-10-22 (Dan's notes, page rank 1): AI bed cover, tired-man study image, tips slide, shirtless verdict + save | R3 2026-10-22: tips slide is text only (Dan: photo and frame removed), bigger title and list",
  "slides": [
   {
    "type": "cover",
@@ -67,16 +67,8 @@
    "type": "tips",
    "stamp": "How to fix it",
    "title": "Sleep like\n[hl]it counts.[/hl]",
-   "size": 56,
-   "image": {
-    "src": "photos/finalized social media photos/studio-white-23_FINAL_PRIMARY-IG-4x5.jpg",
-    "pos": "50% 22%",
-    "label": "real",
-    "alt": "Dan now, smiling"
-   },
-   "image_w": 150,
-   "image_h": 160,
-   "text_size": 30,
+   "size": 76,
+   "text_size": 36,
    "items": [
     "8.5 hours in bed. Same as the group that lost more fat.",
     "Same bedtime every night. Weekends too.",
@@ -84,8 +76,8 @@
     "3 g of glycine about an hour before bed. My best sleep supplement.",
     "Phone out of the bedroom."
    ],
-   "items_top": 296,
-   "gap": 20
+   "gap": 26,
+   "title_h": 170
   },
   {
    "type": "verdict",

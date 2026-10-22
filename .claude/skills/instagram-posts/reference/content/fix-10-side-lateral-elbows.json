@@ -2,11 +2,11 @@
  "format": "the-fix",
  "id": "fix-10-side-lateral-elbows",
  "tag": "The Fix · 10",
- "status": "draft R1 2026-10-21; wording source: raw roll C1584 (8/3 shoot, 142-253 s) = Zeeshan arms master 3:28-4:52, short arms-shoulders-short3_raise-your-elbows-not-your-hands, 8/28 roll C1672 (DS-23 how to do side laterals script) | APPROVED by Dan 2026-10-22 as is; last slide now has the large cutout (Dan rule 2026-10-22).",
+ "status": "draft R1 2026-10-21; wording source: raw roll C1584 (8/3 shoot, 142-253 s) = Zeeshan arms master 3:28-4:52, short arms-shoulders-short3_raise-your-elbows-not-your-hands, 8/28 roll C1672 (DS-23 how to do side laterals script) | APPROVED by Dan 2026-10-22 as is; last slide now has the large cutout (Dan rule 2026-10-22). | R3 2026-10-22: colour audit (reference/color-audit-r3.md): cover/mistake re-finished from the arms master (orange skin); fix/cues regraded from C1676 (S-Log3 LUT 1.15 + finish, were flat grey)",
  "cover": {
   "headline": "Stop doing side laterals\n[y]like this.[/y]",
   "image": {
-   "src": "Short-form video content/instagram-danrosefit/assets/fix-10-side-lateral-elbows/cover.jpg",
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-10-side-lateral-elbows/cover-graded.jpg",
    "pos": "50% 50%",
    "zoom": 1.0,
    "label": "real",
@@ -27,7 +27,7 @@
  },
  "mistake": {
   "image": {
-   "src": "Short-form video content/instagram-danrosefit/assets/fix-10-side-lateral-elbows/mistake.jpg",
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-10-side-lateral-elbows/mistake-graded.jpg",
    "pos": "50% 50%",
    "zoom": 1.0,
    "label": "real",
@@ -38,7 +38,7 @@
  },
  "fix": {
   "image": {
-   "src": "Short-form video content/instagram-danrosefit/assets/fix-10-side-lateral-elbows/fix.jpg",
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-10-side-lateral-elbows/fix-graded.jpg",
    "pos": "50% 50%",
    "zoom": 1.0,
    "label": "real",
@@ -49,7 +49,7 @@
  },
  "cues": {
   "image": {
-   "src": "Short-form video content/instagram-danrosefit/assets/fix-10-side-lateral-elbows/cues.jpg",
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-10-side-lateral-elbows/cues-graded.jpg",
    "pos": "50% 50%",
    "zoom": 1.0,
    "label": "real",

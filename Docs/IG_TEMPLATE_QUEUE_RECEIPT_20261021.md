@@ -49,3 +49,19 @@ Script `scripts/blotato/igtemplate_phase3.py` (backup, retire, swap, place, veri
 - Verified by re-reading the queue: 16 of 16 placements exact (byte-identical slides, in order), 0 studio posts left,
   no other item changed, no duplicate image slots. Queue 192 to 150. Backup: `swap_backup/queue_before_igtemplate_phase3.json`.
 - Next: round 2 revisions (Fix 5, Workout 6, Receipts 5) go after Nov 9 once Dan approves them.
+
+## Round 2 picks queued and colour pass (2026-10-22, evening)
+
+Dan's round 2 picks, 5 PM CT, IG + FB: Wed Nov 11 fix-09 curl swing, Fri Nov 13 receipts-02 metabolism, Mon Nov 16
+workout-02 five minutes, Wed Nov 18 fix-04 kettlebell, Fri Nov 20 receipts-11 carbs at night, Mon Nov 23 workout-09 ab
+wheel, Wed Nov 25 cheat-01 protein per 100 calories (P2, Dan: yes), Fri Nov 27 workout-04 home arms, Mon Nov 30 workout-07
+lower abs (revised per Dan's notes, then queued). **Pending (Blotato at 200/200; videos go first):** workout-07 on FB
+(Nov 30) and workout-08 V-taper on both (Dec 2). Finish with `python3 scripts/blotato/igtemplate_phase3.py place` when
+there is room, then `verify`.
+- Colour audit (Dan: every screenshot colour corrected, never raw): `grade_still.py` applies the approved Oct 1 LUT grade
+  to raw S-Log3 frames plus a finishing pass; audit table `.claude/skills/instagram-posts/reference/color-audit-r3.md`.
+  Queued fix-10 (Nov 6) and fix-06 (Nov 9) regraded and swapped in with `igtemplate_phase3.py refresh <id>`
+  (create new, delete old; same slot and caption).
+- Captions: `dan-voice-writer` (CLI login expired, in-session fallback); 0 long dashes, 5 hashtags.
+- Verified: 33 of 33 placements exact, no duplicate image slots, 0 studio posts. Round 3 review (7 unqueued posts):
+  https://claude.ai/artifact/KoNaPVWbjLn9C2FUZhhqK2

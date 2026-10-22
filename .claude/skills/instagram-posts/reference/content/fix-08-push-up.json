@@ -2,11 +2,11 @@
  "format": "the-fix",
  "id": "fix-08-push-up",
  "tag": "The Fix · 08",
- "status": "draft R1 2026-10-21; wording source: 10/15 shoot roll C1765 (5-minute workout script: 'Keep your body in a straight line. Bring your chest all the way down.'), raw roll C0229-008 (24-97 s), 8/28 B-roll mistake labels (GoPro GOPR0044 'push-up mistake, sagging with your back'); R2 2026-10-22: fix still = 8/28 main camera C1680 64.00 s (top of a correct push-up, straight line; labelled 'regular push-ups done correctly' on GoPro GOPR0044 60-95 s), cues photo = studio-white-13 (real studio photo), footage stills brightened, cta cutout",
+ "status": "draft R1 2026-10-21; wording source: 10/15 shoot roll C1765 (5-minute workout script: 'Keep your body in a straight line. Bring your chest all the way down.'), raw roll C0229-008 (24-97 s), 8/28 B-roll mistake labels (GoPro GOPR0044 'push-up mistake, sagging with your back'); R2 2026-10-22: fix still = 8/28 main camera C1680 64.00 s (top of a correct push-up, straight line; labelled 'regular push-ups done correctly' on GoPro GOPR0044 60-95 s), cues photo = studio-white-13 (real studio photo), footage stills brightened, cta cutout | R3 2026-10-22: colour audit (reference/color-audit-r3.md): cover/mistake/fix regraded from C1680 (fix had been raw S-Log3, washed out)",
  "cover": {
   "headline": "Stop doing push-ups\n[y]like this.[/y]",
   "image": {
-   "src": "Short-form video content/instagram-danrosefit/assets/fix-08-push-up/cover-enh.jpg",
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-08-push-up/cover-graded.jpg",
    "pos": "50% 50%",
    "zoom": 1.0,
    "label": "real",
@@ -27,7 +27,7 @@
  },
  "mistake": {
   "image": {
-   "src": "Short-form video content/instagram-danrosefit/assets/fix-08-push-up/mistake-enh.jpg",
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-08-push-up/mistake-graded.jpg",
    "pos": "50% 50%",
    "zoom": 1.0,
    "label": "real",
@@ -38,7 +38,7 @@
  },
  "fix": {
   "image": {
-   "src": "Short-form video content/instagram-danrosefit/assets/fix-08-push-up/fix-r2-enh.jpg",
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-08-push-up/fix-r3-graded.jpg",
    "pos": "50% 50%",
    "zoom": 1.0,
    "label": "real",

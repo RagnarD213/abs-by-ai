@@ -2,7 +2,7 @@
  "format": "receipts",
  "id": "receipts-04-light-weights",
  "tag": "Receipts · 04",
- "status": "R2 2026-10-22 (Dan's notes, page rank 6): real curl still on cover (B0432 @ 7.2 s, brightened), tips slide with small lateral-raise photo, save on verdict",
+ "status": "R2 2026-10-22 (Dan's notes, page rank 6): real curl still on cover (B0432 @ 7.2 s, brightened), tips slide with small lateral-raise photo, save on verdict | R3 2026-10-22: colour audit (reference/color-audit-r3.md): cover = side lateral raise (Dan), 8/28 roll C1676 @ 25.1 s, S-Log3 LUT 1.15 + finish; tips photo = another rep, C1676 @ 6.6 s, graded",
  "slides": [
   {
    "type": "cover",
@@ -12,11 +12,11 @@
    "headline": "You don't need\nheavy weights to\nbuild [hl]muscle.[/hl]",
    "sub": "49 trained men. 12 weeks. Light vs heavy.",
    "image": {
-    "src": "Short-form video content/instagram-danrosefit/assets/receipts-04-light-weights/dan-curl-enh.jpg",
-    "pos": "50% 0%",
-    "zoom": 1.6,
+    "src": "Short-form video content/instagram-danrosefit/assets/receipts-04-light-weights/cover-lateral-r3-graded.jpg",
+    "pos": "50% 50%",
+    "zoom": 1.0,
     "label": "real",
-    "alt": "Dan doing dumbbell curls by his pool"
+    "alt": "Dan at the top of a dumbbell lateral raise by his pool, smiling"
    }
   },
   {
@@ -56,11 +56,11 @@
    "title": "Effort counts,\n[hl]not the plate.[/hl]",
    "size": 54,
    "image": {
-    "src": "Short-form video content/instagram-danrosefit/assets/receipts-04-light-weights/dan-lateral-raise-enh.jpg",
+    "src": "Short-form video content/instagram-danrosefit/assets/receipts-04-light-weights/tips-lateral-r3-graded.jpg",
     "pos": "50% 30%",
-    "zoom": 1.6,
+    "zoom": 1.0,
     "label": "real",
-    "alt": "Dan doing dumbbell lateral raises by his pool"
+    "alt": "Dan holding light dumbbells out at shoulder height"
    },
    "image_w": 150,
    "image_h": 160,

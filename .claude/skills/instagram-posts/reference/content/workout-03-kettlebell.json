@@ -7,10 +7,10 @@
   "headline": "1 kettlebell.\n[y]3 moves.[/y]\nFull body.",
   "swipe": "Swipe to steal it",
   "photo": {
-   "src": "Short-form video content/instagram-danrosefit/assets/workout-03-kettlebell/cover-kb-deadlift-enh.jpg",
+   "src": "Short-form video content/instagram-danrosefit/assets/workout-03-kettlebell/cover-kb-deadlift-r3-graded.jpg",
    "pos": "50% 50%",
    "zoom": 1.0,
-   "alt": "Dan standing tall at the top of a kettlebell deadlift"
+   "alt": "Dan at the bottom of a kettlebell deadlift, back flat, chest up"
   }
  },
  "moves": [
@@ -18,7 +18,7 @@
    "name": "Kettlebell deadlift",
    "dose": "0:30",
    "image": {
-    "src": "Short-form video content/instagram-danrosefit/assets/workout-03-kettlebell/kb-deadlift-enh-crop.jpg",
+    "src": "Short-form video content/instagram-danrosefit/assets/workout-03-kettlebell/kb-deadlift-graded-crop.jpg",
     "pos": "50% 50%",
     "zoom": 1.0,
     "label": "real",
@@ -69,5 +69,6 @@
   "text": "I use a 50 lb bell. Most guys should start at 30 or 40 lb. Comment your kettlebell weight.",
   "follow": "Workouts I actually do.",
   "cutout": "Short-form video content/instagram-danrosefit/assets/_cutouts/studio-blue-38.webp"
- }
+ },
+ "status": "R3 2026-10-22: colour audit (reference/color-audit-r3.md): cover = real kettlebell deadlift rep, 10/15 roll C1743 @ 19.0 s (side view, bell low, flat back), graded (Dan); move 1 still (B0431) re-finished; goblet and push-up kept"
 }

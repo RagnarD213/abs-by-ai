@@ -2,11 +2,11 @@
  "format": "the-fix",
  "id": "fix-07-plank-butt-up",
  "tag": "The Fix · 07",
- "status": "R2 2026-10-22 (retitled from fix-07-spiderman-plank at Dan's request: regular plank, butt up). Wording source: raw roll C0223-007 (7/8 welcome shoot, 377-400 s: 'for a plank I want to avoid putting my butt way up in the air or sagging. Like the name implies, I am a plank. I am perfectly straight'). Cover = 8/28 main camera C1683 105.60 s, mistake = C1683 115.25 s (labelled 'butt up in the air' reps on GoPro GP010044 289-319 s); fix and cues stills kept from R1; all brightened with enhance.py",
+ "status": "R2 2026-10-22 (retitled from fix-07-spiderman-plank at Dan's request: regular plank, butt up). Wording source: raw roll C0223-007 (7/8 welcome shoot, 377-400 s: 'for a plank I want to avoid putting my butt way up in the air or sagging. Like the name implies, I am a plank. I am perfectly straight'). Cover = 8/28 main camera C1683 105.60 s, mistake = C1683 115.25 s (labelled 'butt up in the air' reps on GoPro GP010044 289-319 s); fix and cues stills kept from R1; all brightened with enhance.py | R3 2026-10-22: colour audit (reference/color-audit-r3.md): all four stills regraded from C1683 (cover/mistake had been raw S-Log3); last slide cutout studio-blue-202 (most ripped, Dan)",
  "cover": {
   "headline": "Stop doing planks\n[y]like this.[/y]",
   "image": {
-   "src": "Short-form video content/instagram-danrosefit/assets/fix-07-plank-butt-up/cover-enh.jpg",
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-07-plank-butt-up/cover-graded.jpg",
    "pos": "50% 50%",
    "zoom": 1.0,
    "label": "real",
@@ -31,7 +31,7 @@
  },
  "mistake": {
   "image": {
-   "src": "Short-form video content/instagram-danrosefit/assets/fix-07-plank-butt-up/mistake-enh.jpg",
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-07-plank-butt-up/mistake-graded.jpg",
    "pos": "50% 50%",
    "zoom": 1.0,
    "label": "real",
@@ -42,7 +42,7 @@
  },
  "fix": {
   "image": {
-   "src": "Short-form video content/instagram-danrosefit/assets/fix-07-plank-butt-up/fix-enh.jpg",
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-07-plank-butt-up/fix-graded.jpg",
    "pos": "50% 50%",
    "zoom": 1.0,
    "label": "real",
@@ -53,7 +53,7 @@
  },
  "cues": {
   "image": {
-   "src": "Short-form video content/instagram-danrosefit/assets/fix-07-plank-butt-up/cues-enh.jpg",
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-07-plank-butt-up/cues-graded.jpg",
    "pos": "50% 50%",
    "zoom": 1.0,
    "label": "real",
@@ -81,6 +81,6 @@
    }
   ],
   "follow": "One fix a week, filmed on me.",
-  "cutout": "Short-form video content/instagram-danrosefit/assets/_cutouts/studio-blue-38.webp"
+  "cutout": "Short-form video content/instagram-danrosefit/assets/_cutouts/studio-blue-202.webp"
  }
 }

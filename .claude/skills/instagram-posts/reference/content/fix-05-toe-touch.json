@@ -2,11 +2,11 @@
  "format": "the-fix",
  "id": "fix-05-toe-touch",
  "tag": "The Fix · 05",
- "status": "draft R1 2026-10-21; wording source: raw roll C0229-008 (7/8 welcome shoot, 310-405 s), raw roll C0223-007 (222-311 s), short v6-short2_knee-yourself-in-the-face (transcribed); R2 2026-10-22: cover/mistake/fix callouts per Dan, cues photo = studio-blue-53 (real studio photo), footage stills brightened, cta cutout",
+ "status": "draft R1 2026-10-21; wording source: raw roll C0229-008 (7/8 welcome shoot, 310-405 s), raw roll C0223-007 (222-311 s), short v6-short2_knee-yourself-in-the-face (transcribed); R2 2026-10-22: cover/mistake/fix callouts per Dan, cues photo = studio-blue-53 (real studio photo), footage stills brightened, cta cutout | R3 2026-10-22: colour audit (reference/color-audit-r3.md): cover/mistake/fix regraded from C1682 (S-Log3 LUT 1.30 + cool + grade_still finish); mistake pill now 'Head barely off the ground' (Dan)",
  "cover": {
   "headline": "Stop doing toe touches\n[y]like this.[/y]",
   "image": {
-   "src": "Short-form video content/instagram-danrosefit/assets/fix-05-toe-touch/cover-enh.jpg",
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-05-toe-touch/cover-graded.jpg",
    "pos": "50% 50%",
    "zoom": 1.0,
    "label": "real",
@@ -31,7 +31,7 @@
  },
  "mistake": {
   "image": {
-   "src": "Short-form video content/instagram-danrosefit/assets/fix-05-toe-touch/mistake-enh.jpg",
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-05-toe-touch/mistake-graded.jpg",
    "pos": "50% 50%",
    "zoom": 1.0,
    "label": "real",
@@ -49,8 +49,8 @@
     ],
     "pill": "Butt on the ground",
     "at": [
-     150,
-     132
+     118,
+     146
     ]
    },
    {
@@ -60,17 +60,27 @@
      80,
      90
     ],
-    "pill": "Head on the ground",
+    "pill": "Head barely off the ground",
     "at": [
-     300,
-     268
+     290,
+     80
+    ],
+    "arrow": [
+     [
+      420,
+      136
+     ],
+     [
+      424,
+      164
+     ]
     ]
    }
   ]
  },
  "fix": {
   "image": {
-   "src": "Short-form video content/instagram-danrosefit/assets/fix-05-toe-touch/fix-enh.jpg",
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-05-toe-touch/fix-graded.jpg",
    "pos": "50% 50%",
    "zoom": 1.0,
    "label": "real",
