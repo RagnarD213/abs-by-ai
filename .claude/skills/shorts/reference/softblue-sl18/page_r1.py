@@ -11,6 +11,7 @@ E = html.escape; R = "/Volumes/Expansion/_edit_work/SL-18/r1/review"; FF = Bt.li
 def mmss(t): return f"{int(t // 60)}:{t % 60:04.1f}"
 os.makedirs(f"{R}/media", exist_ok=True)
 X = json.load(open(f"{R}/extra.json"))
+VLC = {"B": "<b>Approved by you (round 1).</b>", "D": "Full size in VLC: <code>Videos to Review/I'm 41 Wasted Life SFL R2 - short 2 - Build Your Value Before You Date.mp4</code>"}
 TT = {"B": "short 1 - Why ADHD Meds Backfire Long Term", "D": "short 2 - Build Your Value Before You Date"}
 cards = []
 for S in P.SEG:
@@ -25,8 +26,8 @@ for S in P.SEG:
     bars = "".join(f"<li>{mmss(m['a'])} to {mmss(m['b'])}: <b>{E(m['topic'])}</b>: {E(' / '.join(p[0] for p in m['parts']))}</li>" for m in man) or "<li>none</li>"
     cards.append(f"""<article id="{S}"><h3>{E(name)} <span class="small">{mmss(T['total'])}</span></h3>
 <a href="media/{base} - REVIEW 540p.mp4"><img loading="lazy" src="{poster}"></a><button onclick="play('media/{base} - REVIEW 540p.mp4',{json.dumps(name)!r})">Play it</button>
-<div class="copy"><b>{E(eb)}</b> / {E(' '.join(hl))}<br>Key points:<ul>{bars}</ul>{X['notes'].get(S, '')}<br>Full size in VLC: <code>Videos to Review/I'm 41 Wasted Life SFL R1 - {E(TT[S])}.mp4</code> · <a href="media/AB {base}.mp4">sound check (the film's cut, then the short)</a></div></article>""")
-page = f"""<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>I'm 41 Wasted Life SFL R1</title>
+<div class="copy"><b>{E(eb)}</b> / {E(' '.join(hl))}<br>Key points:<ul>{bars}</ul>{X['notes'].get(S, '')}<br>{VLC[S]} · <a href="media/AB {base}.mp4">sound check (the film's cut, then the short)</a></div></article>""")
+page = f"""<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>I'm 41 Wasted Life SFL R2</title>
 <style>body{{margin:0;background:#071221;color:#edf5ff;font:17px system-ui;line-height:1.55}}main{{max-width:1280px;margin:auto;padding:28px 16px}}h1{{font-size:38px;letter-spacing:-1px;margin:0 0 8px}}h2{{font-size:26px}}p,li{{color:#bdd0e4}}li b{{color:#edf5ff}}section{{margin:32px 0;padding:22px;background:#101f32;border:1px solid #29425b;border-radius:18px}}
 .grid{{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}}article{{min-width:0;background:#081626;padding:14px;border-radius:14px}}img,video{{width:100%;border-radius:10px;background:black}}a{{color:#8cd6ff}}.small{{font-size:14px;color:#9fb7cf}}
 .copy{{font-size:14px;margin-top:8px;color:#d7e6f5}}.copy li{{color:#d7e6f5}}.notice{{border-left:4px solid #67c5ff;padding:10px 18px;background:#172e46}}textarea{{width:100%;box-sizing:border-box;min-height:200px;background:#071221;color:white;padding:14px;font:16px system-ui;border:1px solid #47607b;border-radius:10px}}
@@ -34,7 +35,7 @@ page = f"""<!doctype html><html lang="en"><meta charset="utf-8"><meta name="view
 @media(min-width:1500px){{body{{padding-right:min(30vw,520px)}}#dock{{position:fixed;top:16px;right:16px;width:calc(min(30vw,520px) - 40px);max-height:calc(100vh - 32px);box-sizing:border-box;margin:0;box-shadow:0 8px 40px #000a}}#dock video{{max-height:calc(100vh - 110px)}}}}
 @media(max-width:1499px){{#dock video{{max-height:42vh}}}}
 button{{background:#1b4b72;color:white;border:1px solid #66acd9;border-radius:9px;padding:8px 12px;cursor:pointer;font-size:14px;margin-top:8px}}nav{{display:flex;gap:14px;flex-wrap:wrap}}@media(max-width:800px){{.grid{{grid-template-columns:1fr}}h1{{font-size:30px}}}}</style>
-<main><h1>I'm 41. I Wasted My Life. Shorts / Round 1: both finished</h1><p>{X['intro']}</p>
+<main><h1>I'm 41. I Wasted My Life. Shorts / Round 2: the dinner clip, now horizontal</h1><p>{X['intro']}</p>
 <p class="notice"><b>Already locked, reused as is:</b> {X['locked']}</p>
 <nav><a href="#decide">Your {len(X['decisions'])} decision{'s' if len(X['decisions']) != 1 else ''}</a><a href="#shorts">The two shorts</a><a href="#coverage">Every graphic and clip</a><a href="#decided">What I decided</a><a href="#checks">Checks</a><a href="#reply">Reply</a></nav>
 <section id="decide"><h2>Your decisions ({len(X['decisions'])})</h2><ol>{''.join('<li>' + x + '</li>' for x in X['decisions'])}</ol></section>
