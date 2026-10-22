@@ -138,7 +138,7 @@
     <h2 class="hd" data-fit="{{ s.size or 52 }},35" style="font-size:{{ s.size or 52 }}px;color:var(--ink)">{{ s.title|mk }}</h2>
   </div>
   {%- endif %}
-  <div data-fit-col style="position:absolute;left:36px;right:36px;top:{{ s.items_top or (282 if s.image else (116 + (s.title_h or 128) + 16 if s.title else 124)) }}px;bottom:{{ 120 if s.save else 50 }}px;display:flex;flex-direction:column;gap:{{ s.gap or 14 }}px;overflow:hidden">
+  <div data-fit-col style="position:absolute;left:36px;right:36px;top:{{ s.items_top or (298 if s.image else (116 + (s.title_h or 128) + 16 if s.title else 124)) }}px;bottom:{{ 120 if s.save else 50 }}px;display:flex;flex-direction:column;gap:{{ s.gap or 14 }}px;overflow:hidden">
     {%- for it in s['items'] %}
     <div style="display:flex;gap:12px;align-items:flex-start">
       <div class="hd" data-fit="{{ s.num_size or 34 }},26" style="font-size:{{ s.num_size or 34 }}px;color:var(--red);width:42px;flex:none">{{ '%02d'|format(loop.index) }}</div>

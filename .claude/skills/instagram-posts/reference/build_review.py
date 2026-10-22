@@ -43,7 +43,8 @@ def headline(c):
     f = c["format"]
     if f == "cheat-sheet":
         return plain(c["title"])
-    return plain(c["cover"]["headline"])
+    cover = c.get("cover") or next(s for s in c["slides"] if s["type"] == "cover")
+    return plain(cover["headline"])
 
 
 def slides(pid, dest):
@@ -122,8 +123,8 @@ def main(spec_path, out_dir):
 
     shoot = "".join(f"<li>{inline_md(i)}</li>" for f in spec.get("shootlist", []) for i in md_list(f))
     decided = "".join(f"<li>{i}</li>" for i in spec.get("decided", []))
-    page = TEMPLATE.format(title=html.escape(spec["title"]), lede=spec["lede"], total=total,
-                           decisions="".join(body), sections="".join(secs), shoot=shoot, decided=decided)
+    page = TEMPLATE.format(title=html.escape(spec["title"]), eyebrow=html.escape(spec.get("eyebrow", "Carousels")), lede=spec["lede"], total=total,
+                           decisions=("<section><h2>" + html.escape(spec.get("decisions_heading", "Quick calls")) + "</h2>" + "".join(body) + "</section>") if body else "", sections="".join(secs), shoot=shoot, decided=decided)
     (dest / "index.html").write_text(page)
     print("wrote", dest / "index.html", "with", total, "carousels and", len(list((dest / "slides").glob("*.jpg"))), "images")
 
@@ -186,11 +187,11 @@ a {{ color: var(--accent); }}
 
 <div class="wrap">
   <header style="display:flex;flex-direction:column;gap:12px">
-    <div class="eyebrow">@danrosefit · Carousels batch 1</div>
+    <div class="eyebrow">@danrosefit · {eyebrow}</div>
     <h1>{title}</h1>
     <p class="lede">{lede}</p>
   </header>
-  <section><h2>Two quick calls</h2>{decisions}</section>
+  {decisions}
   {sections}
   <section><h2>Film at the next shoot</h2><p class="lede">Each line is one marked placeholder slide. Until it is filmed, that post stays off the queue.</p><ul>{shoot}</ul></section>
   <section><h2>What I decided</h2><ul>{decided}</ul></section>
@@ -203,7 +204,7 @@ a {{ color: var(--accent); }}
 <script>
 (function () {{
   const boxes = [...document.querySelectorAll('.pick input')];
-  const KEY = 'ig-batch1-picks';
+  const KEY = 'ig-picks-' + document.title;
   try {{ const saved = JSON.parse(localStorage.getItem(KEY) || 'null');
     if (saved) {{ boxes.forEach(b => {{ if (b.dataset.id in saved.p) b.checked = saved.p[b.dataset.id]; }});
       Object.entries(saved.r || {{}}).forEach(([k, v]) => {{ const el = document.getElementById(k + '-' + v); if (el) el.checked = true; }}); }}

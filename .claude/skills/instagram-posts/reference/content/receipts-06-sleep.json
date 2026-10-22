@@ -2,77 +2,105 @@
  "format": "receipts",
  "id": "receipts-06-sleep",
  "tag": "Receipts · 06",
- "cover": {
-  "headline": "Same diet.\nLess sleep.\n[hl]Less than half[/hl]\nthe fat lost.",
-  "sub": "The dieters averaged 41 years old.",
-  "polaroid": {
+ "status": "R2 2026-10-22 (Dan's notes, page rank 1): AI bed cover, tired-man study image, tips slide, shirtless verdict + save",
+ "slides": [
+  {
+   "type": "cover",
+   "mode": "photo",
+   "dark": true,
+   "size": 66,
+   "head_h": 176,
+   "headline": "How to burn more fat\n[y]without eating\nfewer calories.[/y]",
+   "sub": "Same diet. Less sleep. Less than half the fat lost.",
    "image": {
-    "src": "Short-form video content/instagram-danrosefit/assets/receipts-06-sleep/clock.jpg",
-    "pos": "40% 50%",
+    "src": "Short-form video content/instagram-danrosefit/assets/receipts-06-sleep/ai-dan-bed.jpg",
+    "pos": "45% 40%",
     "label": "ai",
-    "alt": "Bedside table at night with an alarm clock and a glass of water"
+    "alt": "AI-generated image of Dan in bed, shirtless, abs visible"
    },
-   "caption": "Bedtime is part of the diet."
-  }
- },
- "study": {
-  "headline": "Overweight adults dieted for 2 weeks, twice. Once with 8.5 hours in bed, once with 5.5.",
-  "stats": [
-   {
-    "n": "10",
-    "label": "adults, average age 41"
-   },
-   {
-    "n": "14",
-    "label": "days per diet"
-   },
-   {
-    "n": "5.5",
-    "label": "hours in bed, short sleep"
-   }
-  ],
-  "rows": [
-   {
-    "label": "Fat lost, short sleep",
-    "result": "Lost less",
-    "tone": "bad"
-   },
-   {
-    "label": "Lean mass lost, short sleep",
-    "result": "Lost more",
-    "tone": "bad"
-   }
-  ],
-  "note": "Fat lost: 1.4 kg with 8.5 hours, 0.6 kg with 5.5. Lean mass lost: 1.5 kg vs 2.4 kg.",
-  "source": "Nedeltcheva et al., Annals of Internal Medicine, 2010"
- },
- "exhibit_b": {
-  "stamp": "Exhibit B: the bedroom",
-  "image": {
-   "src": "Short-form video content/instagram-danrosefit/assets/receipts-06-sleep/bedroom.jpg",
-   "pos": "50% 60%",
-   "label": "ai",
-   "alt": "Dark, cool bedroom with a made bed"
+   "swipe": "Swipe for the study"
   },
-  "caption": "Cool, dark, phone away.",
-  "headline": "Sleep is part of the diet."
- },
- "verdict": {
-  "headline": "Cut sleep and\nyou cut the\n[y]fat you lose.[/y]",
-  "body": "They were hungrier too. More of the weight they lost was lean mass, not fat.",
-  "image": {
-   "src": "Short-form video content/instagram-danrosefit/assets/receipts-06-sleep/cut-studio-gray-30.webp",
-   "label": "real",
-   "alt": "Dan now in a white tank top, smiling"
+  {
+   "type": "study",
+   "headline": "Overweight adults dieted 2 weeks, twice. 8.5 hours in bed vs 5.5.",
+   "stats": [
+    {
+     "n": "10",
+     "label": "adults, average age 41",
+     "size": 38
+    },
+    {
+     "n": "14",
+     "label": "days per diet",
+     "size": 38
+    },
+    {
+     "n": "5.5",
+     "label": "hours in bed, short sleep",
+     "size": 38
+    }
+   ],
+   "rows": [
+    {
+     "label": "Fat lost, short sleep",
+     "result": "Lost less",
+     "tone": "bad"
+    },
+    {
+     "label": "Lean mass lost, short sleep",
+     "result": "Lost more",
+     "tone": "bad"
+    }
+   ],
+   "note": "Fat lost: 1.4 kg with 8.5 hours, 0.6 kg with 5.5. Lean mass lost: 1.5 kg vs 2.4 kg.",
+   "source": "Nedeltcheva et al., Annals of Internal Medicine, 2010",
+   "image": {
+    "src": "Short-form video content/instagram-danrosefit/assets/receipts-06-sleep/ai-tired-man.jpg",
+    "pos": "50% 30%",
+    "label": "ai",
+    "alt": "Tired, overweight man awake in bed at night, lit by his phone"
+   },
+   "image_w": 176,
+   "image_h": 172
+  },
+  {
+   "type": "tips",
+   "stamp": "How to fix it",
+   "title": "Sleep like\n[hl]it counts.[/hl]",
+   "size": 56,
+   "image": {
+    "src": "photos/finalized social media photos/studio-white-23_FINAL_PRIMARY-IG-4x5.jpg",
+    "pos": "50% 22%",
+    "label": "real",
+    "alt": "Dan now, smiling"
+   },
+   "image_w": 150,
+   "image_h": 160,
+   "text_size": 30,
+   "items": [
+    "8.5 hours in bed. Same as the group that lost more fat.",
+    "Same bedtime every night. Weekends too.",
+    "Cool, dark room. I sleep best around 63 degrees.",
+    "3 g of glycine about an hour before bed. My best sleep supplement.",
+    "Phone out of the bedroom."
+   ],
+   "items_top": 296,
+   "gap": 20
+  },
+  {
+   "type": "verdict",
+   "headline": "Cut sleep and\nyou cut the\n[y]fat you lose.[/y]",
+   "body": "They were hungrier too. More of the weight they lost was lean mass, not fat.",
+   "image": {
+    "src": "Short-form video content/instagram-danrosefit/assets/_cutouts/studio-blue-6.webp",
+    "label": "real",
+    "alt": "Dan now, shirtless, smiling",
+    "height": 450,
+    "maxw": 290
+   },
+   "save": "Save this for the next time someone tells you sleep is for the weak.",
+   "text_size": 27,
+   "body_w": 240
   }
- },
- "works": {
-  "items": [
-   "Give yourself 8.5 hours in bed when you diet.",
-   "Keep the room cool. I sleep best around 63 degrees.",
-   "Phone out of the bedroom."
-  ],
-  "headline": "Dieting?\n[hl]Sleep like it counts.[/hl]",
-  "save": "Save this for the next time someone tells you sleep is for the weak."
- }
+ ]
 }

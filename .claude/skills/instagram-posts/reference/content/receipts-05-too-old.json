@@ -2,77 +2,106 @@
  "format": "receipts",
  "id": "receipts-05-too-old",
  "tag": "Receipts · 05",
- "cover": {
-  "headline": "\"Too old to\nbuild muscle?\"\nThey were\n[hl]90.[/hl]",
-  "sub": "8 weeks of lifting in a nursing home.",
-  "polaroid": {
+ "status": "R2 2026-10-22 (Dan's notes, page rank 4): shirtless glasses cutout cover, AI fit 90-year-old, tips slide, new verdict photo + save",
+ "slides": [
+  {
+   "type": "cover",
+   "mode": "cutout",
+   "size": 68,
+   "headline": "Think you're\ntoo old to\nbuild\n[hl]muscle?[/hl]",
+   "sub": "[r]Then you have to see this study.[/r]\nDone on 90-year-olds lifting in a nursing home.",
    "image": {
-    "src": "Short-form video content/instagram-danrosefit/assets/receipts-05-too-old/machine.jpg",
-    "pos": "50% 60%",
-    "label": "ai",
-    "alt": "Empty leg extension machine in a bright gym"
+    "src": "Short-form video content/instagram-danrosefit/assets/_cutouts/studio-blue-100.webp",
+    "label": "real",
+    "alt": "Dan now, shirtless in glasses, smiling",
+    "height": 450,
+    "maxw": 310,
+    "right": -10
    },
-   "caption": "Their average age: 90."
-  }
- },
- "study": {
-  "headline": "Ten frail nursing home residents, average age 90, did hard strength training for 8 weeks.",
-  "stats": [
-   {
-    "n": "10",
-    "label": "residents"
-   },
-   {
-    "n": "90",
-    "label": "average age"
-   },
-   {
-    "n": "8",
-    "label": "weeks"
-   }
-  ],
-  "rows": [
-   {
-    "label": "Strength",
-    "result": "Up 174%",
-    "tone": "good"
-   },
-   {
-    "label": "Thigh muscle size",
-    "result": "Up 9%",
-    "tone": "good"
-   }
-  ],
-  "note": "9 of 10 finished. Their walking speed improved 48%.",
-  "source": "Fiatarone et al., JAMA, 1990"
- },
- "exhibit_b": {
-  "stamp": "Exhibit B: me now",
-  "image": {
-   "src": "Short-form video content/instagram-danrosefit/assets/receipts-05-too-old/dan-flex.jpg",
-   "pos": "50% 30%",
-   "label": "real",
-   "alt": "Dan flexing both biceps, abs visible"
+   "head_h": 232,
+   "swipe": "Swipe for the study"
   },
-  "caption": "Over 40. I lift 7 days a week.",
-  "headline": "If 90 can grow, so can 40."
- },
- "verdict": {
-  "headline": "Muscle grows\n[y]at any age.[/y]\nYou have to load it.",
-  "body": "The oldest one in the study was 96. Your excuse is weaker than theirs.",
-  "image": {
-   "src": "Short-form video content/instagram-danrosefit/assets/receipts-05-too-old/cut-studio-white-2.webp",
-   "label": "real",
-   "alt": "Dan now, shirtless in green shorts, hands on hips"
+  {
+   "type": "study",
+   "headline": "Frail nursing home residents, average age 90, lifted hard for 8 weeks.",
+   "stats": [
+    {
+     "n": "10",
+     "label": "residents",
+     "size": 42
+    },
+    {
+     "n": "90",
+     "label": "average age",
+     "size": 42
+    },
+    {
+     "n": "8",
+     "label": "weeks",
+     "size": 42
+    }
+   ],
+   "rows": [
+    {
+     "label": "Strength",
+     "result": "Up 174%",
+     "tone": "good"
+    },
+    {
+     "label": "Thigh muscle size",
+     "result": "Up 9%",
+     "tone": "good"
+    }
+   ],
+   "note": "9 of 10 finished. Their walking speed improved 48%.",
+   "source": "Fiatarone et al., JAMA, 1990",
+   "image": {
+    "src": "Short-form video content/instagram-danrosefit/assets/receipts-05-too-old/ai-90-lifter.jpg",
+    "pos": "50% 25%",
+    "label": "ai",
+    "alt": "Very fit 90-year-old man curling a dumbbell"
+   },
+   "image_w": 190,
+   "image_h": 230
+  },
+  {
+   "type": "tips",
+   "stamp": "Over 40? Do this",
+   "title": "It's not\n[hl]too late.[/hl]",
+   "size": 50,
+   "image": {
+    "src": "Short-form video content/instagram-danrosefit/assets/receipts-05-too-old/dan-flex-enh.jpg",
+    "pos": "50% 30%",
+    "label": "real",
+    "alt": "Dan flexing both biceps, abs visible"
+   },
+   "image_w": 150,
+   "image_h": 160,
+   "text_size": 30,
+   "items": [
+    "Train in the morning, before work. Since I switched, I eat less junk and stress less.",
+    "Lift 3 days a week. Add a little weight each week.",
+    "Track calories with AI. Snap a photo of every plate.",
+    "Take Zepbound to make hitting your calories easy.",
+    "Get your testosterone checked. If it's low, ask your doctor about TRT."
+   ],
+   "items_top": 296,
+   "gap": 20
+  },
+  {
+   "type": "verdict",
+   "headline": "Muscle grows\n[y]at any age.[/y]\nYou have to load it.",
+   "body": "The oldest one in the study was 96. Your excuse is weaker than theirs.",
+   "image": {
+    "src": "Short-form video content/instagram-danrosefit/assets/_cutouts/studio-blue-110.webp",
+    "label": "real",
+    "alt": "Dan now, shirtless, smiling",
+    "height": 410,
+    "maxw": 290
+   },
+   "save": "Save this for the next time someone tells you you're too old to build muscle.",
+   "text_size": 27,
+   "body_w": 240
   }
- },
- "works": {
-  "items": [
-   "Lift 3 days a week. Hit every big muscle.",
-   "Add a rep or a little weight each week.",
-   "Free weights feel shaky? Start on machines."
-  ],
-  "headline": "It's not too late.\n[hl]You're right on time.[/hl]",
-  "save": "Save this for the next time someone tells you you're too old to build muscle."
- }
+ ]
 }

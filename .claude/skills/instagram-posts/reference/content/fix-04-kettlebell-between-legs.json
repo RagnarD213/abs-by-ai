@@ -2,32 +2,59 @@
  "format": "the-fix",
  "id": "fix-04-kettlebell-between-legs",
  "tag": "The Fix · 04",
- "status": "draft R1 2026-10-21; wording source: raw roll C0228-005 (7/8 welcome shoot, 38-90 s), DS-18 delivered words, scripts/blotato/configs/ds18-kettlebell-deadlift.json",
+ "status": "draft R1 2026-10-21; wording source: raw roll C0228-005 (7/8 welcome shoot, 38-90 s), DS-18 delivered words, scripts/blotato/configs/ds18-kettlebell-deadlift.json; R2 2026-10-22: rounded-back ring + pill added on cover, footage stills brightened, cta cutout",
  "cover": {
   "headline": "Stop kettlebell deadlifting\n[y]like this.[/y]",
   "image": {
-   "src": "Short-form video content/instagram-danrosefit/assets/fix-04-kettlebell-between-legs/cover.jpg",
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-04-kettlebell-between-legs/cover-enh.jpg",
    "pos": "50% 50%",
    "zoom": 1.0,
    "label": "real",
    "alt": "Dan bending over to reach a kettlebell out in front of his feet"
   },
-  "ring": [
-   262,
-   330,
-   95,
-   82
-  ],
-  "callout": "Bell in front",
-  "callout_at": [
-   80,
-   300
-  ],
-  "swipe": "Swipe for the fix"
+  "swipe": "Swipe for the fix",
+  "marks": [
+   {
+    "ring": [
+     262,
+     330,
+     95,
+     82
+    ],
+    "pill": "Bell in front",
+    "at": [
+     80,
+     300
+    ]
+   },
+   {
+    "ring": [
+     250,
+     38,
+     170,
+     100
+    ],
+    "pill": "Rounded back",
+    "at": [
+     40,
+     70
+    ],
+    "arrow": [
+     [
+      200,
+      88
+     ],
+     [
+      248,
+      88
+     ]
+    ]
+   }
+  ]
  },
  "mistake": {
   "image": {
-   "src": "Short-form video content/instagram-danrosefit/assets/fix-04-kettlebell-between-legs/mistake.jpg",
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-04-kettlebell-between-legs/mistake-enh.jpg",
    "pos": "50% 50%",
    "zoom": 1.0,
    "label": "real",
@@ -38,7 +65,7 @@
  },
  "fix": {
   "image": {
-   "src": "Short-form video content/instagram-danrosefit/assets/fix-04-kettlebell-between-legs/fix.jpg",
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-04-kettlebell-between-legs/fix-enh.jpg",
    "pos": "50% 50%",
    "zoom": 1.0,
    "label": "real",
@@ -49,7 +76,7 @@
  },
  "cues": {
   "image": {
-   "src": "Short-form video content/instagram-danrosefit/assets/fix-04-kettlebell-between-legs/cues.jpg",
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-04-kettlebell-between-legs/cues-enh.jpg",
    "pos": "50% 50%",
    "zoom": 1.0,
    "label": "real",
@@ -76,6 +103,7 @@
     "text": "to the guy who picks up a kettlebell like a dropped phone."
    }
   ],
-  "follow": "One fix a week, filmed on me."
+  "follow": "One fix a week, filmed on me.",
+  "cutout": "Short-form video content/instagram-danrosefit/assets/_cutouts/studio-white-57.webp"
  }
 }

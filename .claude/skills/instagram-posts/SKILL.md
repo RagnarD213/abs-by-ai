@@ -25,6 +25,19 @@ anyone sees the post. Queue picks with `scripts/blotato/igtemplate_queue.py` (ad
   appears only where it proves the viewer's takeaway.**
 - The old green Codex "studio" posts and the pool-photo posts are retired. Never make posts like them.
 
+## Dan's round 1 review rules (2026-10-22)
+
+- **Last slide: never just Dan's face.** Always a larger shirtless studio cutout with the background removed
+  (`assets/_cutouts/<name>.webp`, set `cta.cutout` / `recap.cutout`; vary the pose; narrow poses come out biggest).
+  Dan: "never just include the image of my face, always include the image of me shirtless with the background removed."
+- **Slide 1 must stop the scroll:** a relevant, attention-getting image of Dan (touched-up thumbnail photo, front double
+  biceps for arms, the exercise itself) or an AI image of Dan for a concept (in bed, with a giant bowl of pasta).
+- **Brighten every footage still** with `reference/enhance.py`; centre the subject, little headroom, nothing cut off.
+- **Receipts was the weakest format** ("visually boring"): big images on the cover, an image on the study slide, a tips
+  slide with Dan's photo small upper right, 4 slides when that is enough, text that fills the space. Copy was fine.
+- **The Fix:** circle every fault and name it in a pill; on the fix slide, arrows to each thing done right.
+- **Put the most useful tips on their own slide** ("make slide 3 the tip slide"), not as a recap at the end.
+
 ## The look (locked)
 
 Ink `#0E1013`, bone `#F2EEE6`, red `#D33A2C` (mistakes, "old", the series square), yellow `#FFD23F` (fixes,
@@ -89,7 +102,7 @@ post), never a Design canvas (it rendered black in his side panel on 2026-10-21)
 `reference/review-batch1.json`; rankings `ranking-*.md`, shoot lists `shootlist-*.md`) and publish `OUT_DIR/index.html`
 with every `slides/*` file. Dan ticks posts and pastes back the "Copy my picks" text.
 
-**Batch 1 (2026-10-21):** 30 carousels, page https://claude.ai/artifact/QWz3Mg5SMoAD19nBDxJY4i. Sources and checks:
+**Batch 1 (2026-10-21):** 30 carousels, page https://claude.ai/artifact/QWz3Mg5SMoAD19nBDxJY4i; round 2 (Dan's revisions, 16 posts) https://claude.ai/artifact/7ykj2HXD1bpuFp9RGh7UzY. Queue state: `Docs/IG_TEMPLATE_QUEUE_RECEIPT_20261021.md`; retired studio posts: `scripts/blotato/photo_reserve.json`. Sources and checks:
 `receipts-sources.md` (every study verified), `workout-sources.md` (where Dan states each routine, which clip and second
 each still came from). The Fix wording comes from the raw rolls named in each content file's `status`.
 
