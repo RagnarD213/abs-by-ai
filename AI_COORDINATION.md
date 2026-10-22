@@ -43,7 +43,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-25 Git sync BLOCKED 2026-10-18, Codex.** Public video, article post 886, and manually uploaded 257-cue English SRT are verified. Caption uploader and receipt are committed locally as `340ed22`. Safe-push aborted on nine merge conflicts across other sessions' files; no merge is in progress. Next: hand-merge shared main with owners or push these records from a clean checkout, without discarding their work.
 
-**RA-09:ACTIVE:2026-10-21:Claude.** AI Changing World AD R1. `/Volumes/Expansion/_edit_work/RA-09/`.
+
+**RA-09:POLICY-RECHECK:2026-10-22:Claude.** 10-23.
 
 **Fat 90 Year Old SFC R4 - ACTIVE 2026-10-22, Claude.** Intro clip two ways (box upper left; lower left larger with laptop). Next: renders, review, page :8940. Work: `ds40/r4/` (Expansion).
 

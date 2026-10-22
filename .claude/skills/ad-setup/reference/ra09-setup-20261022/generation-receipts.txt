@@ -1,0 +1,10 @@
+ai4_9x16 {"ok":true,"out":"ai4_9x16.png","width":1080,"height":1920,"codex_tokens":18155}
+pool_9x16 {"ok":true,"out":"pool_9x16.png","width":1080,"height":1920,"codex_tokens":15586}
+globe_9x16 {"ok":true,"out":"globe_9x16.png","width":1080,"height":1920,"codex_tokens":14862}
+ai3_9x16 {"ok":true,"out":"ai3_9x16.png","width":1080,"height":1920,"codex_tokens":32479}
+ai5_9x16 {"ok":true,"out":"ai5_9x16.png","width":1080,"height":1920,"codex_tokens":33961}
+globe_16x9 {"ok":true,"out":"globe_16x9.png","width":1920,"height":1080,"codex_tokens":14401}
+pool_16x9 {"ok":true,"out":"pool_16x9.png","width":1920,"height":1080,"codex_tokens":15575}
+ai4_16x9 {"ok":true,"out":"ai4_16x9.png","width":1920,"height":1080,"codex_tokens":43105}
+ai5_16x9 {"ok":true,"out":"ai5_16x9.png","width":1920,"height":1080,"codex_tokens":34922}
+ai3_16x9 {"ok":true,"out":"ai3_16x9.png","width":1920,"height":1080,"codex_tokens":44978}

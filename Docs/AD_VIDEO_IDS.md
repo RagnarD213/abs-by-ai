@@ -138,3 +138,13 @@ The exact approved R2 9:16 (sha256 `18728d49…b539`) uploaded unchanged, verifi
 | RA-12 The First Step To Getting Abs | Claude R2 | 9:16 | 0:46 | https://youtu.be/7bsTcr0vu6Y | yes, R2 approved 10-21 | Round 2 design A, real studio-blue-11 in front of an open vault with a gold key, THE KEY TO GETTING ABS, installed/read back |
 
 Trial group 202084443740, ad 828687867099. Receipt: `Docs/RA12_SETUP_RECEIPT_20261021.md`. No organic publishing.
+
+## 2026-10-22: RA-09 Do You Think AI Is Changing The World R1
+
+The exact approved R1 9:16 (sha256 `22501825…c2d2`) uploaded unchanged, verified Unlisted, processed and embeddable on channel UC236gjadarHAhEhOMYNGJ9g, synthetic=true (AI robot opener, goal pictures, app generation, analysis card, AI trainer demo, AI sling/closed gym/home workout clips).
+
+| Ad | Version | Aspect | Length | YouTube | Approved | Thumbnail |
+|---|---|---|---|---|---|---|
+| RA-09 Do You Think AI Is Changing The World | Claude R1 | 9:16 | 0:59 | https://youtu.be/RToVv-Xgfj8 | yes, R1 approved 10-22 | Round 3 design C, real pool photo-13 with natural background, USE AI TO GET REAL ABS + REAL PHOTO OF ME, NOT AI-GENERATED, installed/read back |
+
+Trial group 200913806626, ad 829196685786. Receipt: `Docs/RA09_SETUP_RECEIPT_20261022.md`. No organic publishing.

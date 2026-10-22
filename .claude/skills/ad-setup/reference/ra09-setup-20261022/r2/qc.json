@@ -1,0 +1,50 @@
+[
+  {
+    "design": "A",
+    "fmt": "16x9",
+    "file": "ai-changing-world-r2_A-midnight-city-cyan | 16x9.jpg",
+    "clearance_px": 69,
+    "headroom_px": 70,
+    "ok": true
+  },
+  {
+    "design": "A",
+    "fmt": "9x16",
+    "file": "ai-changing-world-r2_A-midnight-city-cyan | 9x16.jpg",
+    "clearance_px": 170,
+    "headroom_px": 660,
+    "ok": true
+  },
+  {
+    "design": "B",
+    "fmt": "16x9",
+    "file": "ai-changing-world-r2_B-circuit-mountains-lime | 16x9.jpg",
+    "clearance_px": 86,
+    "headroom_px": 70,
+    "ok": true
+  },
+  {
+    "design": "B",
+    "fmt": "9x16",
+    "file": "ai-changing-world-r2_B-circuit-mountains-lime | 9x16.jpg",
+    "clearance_px": 141,
+    "headroom_px": 660,
+    "ok": true
+  },
+  {
+    "design": "C",
+    "fmt": "16x9",
+    "file": "ai-changing-world-r2_C-data-center-crimson-gold | 16x9.jpg",
+    "clearance_px": 81,
+    "headroom_px": 70,
+    "ok": true
+  },
+  {
+    "design": "C",
+    "fmt": "9x16",
+    "file": "ai-changing-world-r2_C-data-center-crimson-gold | 9x16.jpg",
+    "clearance_px": 144,
+    "headroom_px": 660,
+    "ok": true
+  }
+]
