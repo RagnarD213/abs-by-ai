@@ -54,9 +54,9 @@ track, plan, words` -> `gfx, proof, render` -> `deliver.py copy` -> `runwatch.sh
 - **A blended lead-in word has no clean cut.** The film's "So if you're on Adderall" is one run: from 149.32 the file opened inside the
   vowel of "So", and the "if" was a fragment 10-20 dB down. Whisper with a leading-silence pad prints "If" on any of those starts (a
   guess), so judge the first 150 ms on its own and the levels. The Short opens on "you're" (149.475); a pickup is the clean fix.
-- **The gate's  (30 s) counts a long full-screen graph as one static scene** even though it animates: a 1.4x zoom
-  CUT inside the graph (, ,  on a second cover of the same mov) breaks it and emphasises the beat. Keep the zoom window
+- **The gate's `style:static_run` (30 s) counts a long full-screen graph as one static scene** even though it animates: a 1.4x zoom
+  CUT inside the graph (`zoom`, `fx`, `fy` on a second cover of the same mov) breaks it and emphasises the beat. Keep the zoom window
   clear of the header text (fy so the crop starts below the footnote).
-- ** must use only the shot's own track samples:** the track runs 0.1-0.15 s past each end, across a film cut into
+- **`deliver.face_out` must use only the shot's own track samples:** the track runs 0.1-0.15 s past each end, across a film cut into
   the other camera, and blended a 1.37x size change into 1.14x, so the gate called a real size step a jump cut.
-- **An audio-only fix is a remux** (, frame count asserted): the picture's watch-pass verdicts carry over to the new file.
+- **An audio-only fix is a remux** (`remux.sh`, frame count asserted): the picture's watch-pass verdicts carry over to the new file.
