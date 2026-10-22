@@ -1,0 +1,23 @@
+{
+ "format": "cheat-sheet",
+ "id": "cheat-01-protein-per-100-calories",
+ "tag": "Steal my cheat sheet",
+ "status": "R1 P2 approved by Dan 2026-10-21 pending the small photo of Dan; this version adds it",
+ "hero": {"src": "Short-form video content/instagram-danrosefit/template-r1-mockups/source/protein.jpg", "pos": "50% 62%", "label": "ai", "alt": "Chicken breast, Greek yogurt, cottage cheese, tuna, shrimp and egg whites on a dark slate"},
+ "dan": {"image": {"src": "photos/finalized social media photos/studio-blue-53_FINAL_PRIMARY.jpg", "pos": "50% 44%", "label": "real", "alt": "Dan, shirtless, hands behind his head, abs visible"}, "caption": "Real photo of me, not AI-generated"},
+ "title": "Protein per\n100 calories",
+ "subtitle": "Grams of protein you get for every 100 calories you eat",
+ "unit": "g",
+ "rows": [
+  {"name": "Shrimp", "value": 24},
+  {"name": "Tuna, in water", "value": 22},
+  {"name": "Egg whites", "value": 21},
+  {"name": "Chicken breast", "value": 19},
+  {"name": "Greek yogurt, 0%", "value": 17},
+  {"name": "Cottage cheese, 1%", "value": 17},
+  {"name": "Whole eggs", "value": 9, "bad": true},
+  {"name": "Peanut butter", "value": 4, "bad": true}
+ ],
+ "note": "Peanut butter is a fat with a little protein, not a protein food.",
+ "source": "Approximate, from USDA data"
+}

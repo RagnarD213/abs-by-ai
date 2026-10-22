@@ -1,0 +1,59 @@
+{#- Macros shared by every format template: import with `{% import "_macros.html.j2" as m with context %}`. -#}
+{%- macro label(img, style) -%}
+{%- if img and not img.placeholder and img.label in ('real','ai','screenshot') -%}
+<div class="lbl" style="{{ style }}">{{ {'real':'Real photo of me, not AI-generated','ai':'AI-generated image','screenshot':'Real screenshot'}[img.label] }}</div>
+{%- endif -%}
+{%- endmacro -%}
+
+{#- An image filling its positioned box: cover crop, focal point `pos`, optional `zoom` around that point.
+    A placeholder shows the exact shot still to be filmed. -#}
+{%- macro pic(img, box, extra='') -%}
+<div class="frame" style="{{ box }}">
+{%- if img.placeholder %}
+  <div class="ph"><b>Film at next shoot</b><span>{{ img.placeholder }}</span></div>
+{%- else %}
+  <img src="{{ img.src|uri }}" alt="{{ img.alt or '' }}" style="object-position:{{ img.pos or '50% 50%' }};transform:scale({{ img.zoom or 1 }});transform-origin:{{ img.pos or '50% 50%' }}">
+{%- endif %}
+{{ extra|safe }}
+</div>
+{%- endmacro -%}
+
+{%- macro foot(n, total, dark=True, left=36, right=36) -%}
+<div style="position:absolute;left:{{ left }}px;right:{{ right }}px;bottom:20px;display:flex;justify-content:space-between">
+  <span class="handle" style="color:{{ 'var(--mute-d)' if dark else 'var(--mute-l)' }}">@danrosefit</span><span class="handle" style="color:{{ 'var(--mute-d)' if dark else 'var(--mute-l)' }}">{{ n }} / {{ total }}</span>
+</div>
+{%- endmacro -%}
+
+{%- macro head(tagtext, n, total, dark=True) -%}
+<div style="position:absolute;left:36px;right:36px;top:28px;display:flex;justify-content:space-between;align-items:center">
+  <div class="tag" style="color:{{ 'var(--bone)' if dark else 'var(--ink)' }}"><span class="sq"></span>{{ tagtext }}</div>
+  <div class="handle" style="color:{{ 'var(--mute-d)' if dark else 'var(--mute-l)' }}">{{ n }} / {{ total }}</div>
+</div>
+{%- endmacro -%}
+
+{%- macro overtag(tagtext) -%}
+<div class="tag" style="position:absolute;left:20px;top:20px;color:var(--bone);background:rgba(14,16,19,.74);padding:6px 10px;border-radius:4px;z-index:3"><span class="sq"></span>{{ tagtext }}</div>
+{%- endmacro -%}
+
+{%- set ICON = {
+  'save': '<svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-4.5L6 21z"></path></svg>',
+  'send': '<svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 3L10 14"></path><path d="M21 3l-7 18-4-7-7-4z"></path></svg>',
+  'comment': '<svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"></path></svg>',
+  'shot': '<svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2"></rect><path d="M10 18h4"></path></svg>',
+  'arrow': '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>',
+  'arrow40': '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>',
+  'x': '<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" role="img" aria-label="Wrong"><path d="M6 6l12 12M18 6L6 18"></path></svg>',
+  'check': '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Right"><path d="M5 12.5l4.5 4.5L19 7"></path></svg>',
+  'clock': '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>'
+} -%}
+
+{#- Last-slide follow row with Dan's avatar -#}
+{%- macro follow(line, avatar, bottom=30) -%}
+<div style="position:absolute;left:36px;right:36px;bottom:{{ bottom }}px;display:flex;align-items:center;gap:16px">
+  <img src="{{ avatar|uri }}" alt="Dan Rose" style="width:64px;height:64px;border-radius:50%;border:3px solid var(--ink);object-fit:cover;flex:none">
+  <div class="tx" style="color:var(--ink)">
+    <div style="font-weight:800;font-size:22px">Follow @danrosefit</div>
+    <div style="font-weight:600;font-size:17px">{{ line }}</div>
+  </div>
+</div>
+{%- endmacro -%}
