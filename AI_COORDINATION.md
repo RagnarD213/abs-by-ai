@@ -168,7 +168,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **RO-07 - HOLD 2026-10-11, Claude.** Blotato full. `Docs/RO07_SETUP_RECEIPT_20261011.md`
 
 
-**SL-06:R7-REVIEW:8821:2026-10-22:Claude.** Top 5 Zepbound Tips SFL R7: A, B, C, E, F rebuilt with no-face intros; gates PASS, independent review SHIP. D approved. Next: Dan's notes on :8821. Work: `/Volumes/Extreme/_edit_work/sl06/round7/`.
 
 **SL-07 HOLD 2026-10-18, Claude.** Covers picked, media and configs ready; Blotato full, five shorts on the waitlist for Dec 21-29. Next: the daily top-up routine queues them as slots free. `Docs/SL07_SETUP_RECEIPT_20261018.md`
 

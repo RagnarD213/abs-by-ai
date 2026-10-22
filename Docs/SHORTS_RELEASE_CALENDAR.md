@@ -17,7 +17,7 @@ Key: plain = edited (in Blotato or on the waiting list). **\*** = still to be ed
 | Oct 19 | Stop Deadlifting (sl05-short1) | Stop Swinging Your Curls (sl04-short4) | I Was 200 Pounds At 38 (DS-08) | How To Make Time To Work Out (DS-09) | Stop Deadlifting (sl05-short4) |
 | Oct 26 | Wasted My Life 1\* | Stop Deadlifting (sl05-short2) | Use A Meal Prep Service (DS-28) | Spray Tan 1\* | Stop Deadlifting (sl05-short5) |
 | Nov 2 | Salad (sl03-short1) | Stop Deadlifting (sl05-short3) | How To Use The Ab Wheel (DS-22) | Work Out Every Day 1\* | Salad (sl03-short4) |
-| Nov 9 | Zepbound Tips 1 (SL-06, needs Dan's OK) | Salad (sl03-short5) | 3 Ways To Reduce Alcohol (DS-14) | Oura 1 (SL-09) | Salad (sl03-short2) |
+| Nov 9 | Zepbound Tips 1 (SL-06, approved) | Salad (sl03-short5) | 3 Ways To Reduce Alcohol (DS-14) | Oura 1 (SL-09) | Salad (sl03-short2) |
 | Nov 16 | Oura 2 (SL-09) | Salad (sl03-short3) | How To Do Rear Delt Flys (DS-24) | Oura 3 (SL-09) | Zepbound Tips 2 |
 | Nov 23 | Oura 4 (SL-09) | Salad (sl03-short6) | How To Do Hammer Curls (DS-21) | Oura 5 (SL-09) | Zepbound Tips 3 |
 | Nov 30 | What To Cut 1\* (SL-21) | Zepbound Tips 4 | AI Homework (DS-31, needs Dan's OK) | 40 vs 25 1\* (SL-14) | Zepbound Tips 5 |
