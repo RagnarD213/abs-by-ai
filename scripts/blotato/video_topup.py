@@ -19,6 +19,8 @@ For each waiting entry, in order, while the queue has room for its 4 posts:
     takes the next free such day at 9 AM America/Chicago with no other YouTube post that day. A dedicated
     Short (job DS-...) goes on Thursday, one a week; a Short cut from a long-form goes on Monday, Tuesday,
     Friday or Saturday (Dan, 2026-10-17; was Tue/Thu/Sat). Dated plan: Docs/SHORTS_RELEASE_CALENDAR.md.
+    A Short whose entry names "after": "<parent config>" waits until that parent is queued and is always
+    slotted after the parent's YouTube release day (no Short before its parent is public; added 2026-10-22).
 Then it runs the normal helper (longform_queue.py or organic_short_queue.py) with --apply, which
 verifies on a fresh pull. Entries never jump the line: if the first waiting one does not fit, nothing
 behind it is queued. Never touches, moves or deletes existing Blotato posts. Photo posts
@@ -114,7 +116,7 @@ def main() -> int:
             if "utm_campaign=longform" in text:
                 longform_days.add(local_day(when))
 
-    queued_now, problem = [], None
+    queued_now, problem, queued_slugs = [], None, set()
     print(f"queue {len(items)}/{CAP}, free {free}, videos waiting {len(pending(entries))}")
     for e in pending(entries):
         path = os.path.join(ROOT, e["config"]); v = json.load(open(path))
@@ -151,9 +153,17 @@ def main() -> int:
             main = v["main"]
             clash = any((a, main[:16]) in minutes for a in ACCOUNTS)
             days = short_days(e)
+            # "after": the parent long-form's config (Dan's rule: no Short before its parent is public). The Short waits
+            # until the parent is on Blotato, then always lands after the parent's YouTube release day.
+            earliest = today
+            if e.get("after"):
+                pv = json.load(open(os.path.join(ROOT, e["after"])))
+                if not any(f"utm_content={pv['slug']}" in b for b in blob) and pv["slug"] not in queued_slugs:
+                    print(f"  waiting parent  {e['job']} {e['label']}: {pv['slug']} is not queued yet"); continue
+                earliest = local_day(pv["main"]) + timedelta(days=1)
             if (datetime.fromisoformat(main.replace("Z", "+00:00")) < now + timedelta(hours=2) or clash
-                    or want.weekday() not in days):
-                want = max(want, today) + timedelta(days=1)
+                    or want.weekday() not in days or want < earliest):
+                want = max(want, today, earliest - timedelta(days=1)) + timedelta(days=1)
                 while (want.weekday() not in days or want in yt_days
                        or any((a, utc(want)[:16]) in minutes for a in ACCOUNTS)):
                     want += timedelta(days=1)
@@ -171,7 +181,7 @@ def main() -> int:
                 problem = f"{e['job']}: {HELPER[e['kind']]} failed: {(run.stderr or run.stdout).strip()[-300:]}"; break
             e["queued"] = {"date": str(today), "main": main}
             json.dump(entries, open(WAITLIST, "w"), indent=1)
-        queued_now.append(e["job"])
+        queued_now.append(e["job"]); queued_slugs.add(v["slug"])
         free -= need
         day = local_day(main); yt_days.add(day)
         if e["kind"] == "longform":
