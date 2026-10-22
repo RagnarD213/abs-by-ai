@@ -212,3 +212,10 @@ run_fix.sh     fix_take.py on the corrected frame: vial label + background stati
   queued; when its turn came it wrote an empty mp4 over the good file (`-y`). Kill the ffmpeg waiter too, and ffprobe every output.
   A piped encode with no `-frames:v` is HEAVY (2-hour wait on a busy day); with `-frames:v N` (N <= 600) it runs in the QUICK lane.
 - **Chrome stops saving Flow downloads after ~5 in one page load;** a fresh navigation to each tile URL lets one download through.
+- **Window scan and reviewer variance (late R6).** `scan.py` scores every 0.125 s window of an 8 s take (start >= 0.5 s to skip the
+  still-to-render sharpness pop): lips, mouth width, blinks (runs >= 2 frames; none over 6), waist silhouette sway (selfie
+  segmentation; optical flow on smooth abs reads ~0), head range and HEAD PATH SPEED. Head speed was the one number that matched
+  every final verdict: D 15 px/s shipped; C at 46 px/s passed a frame-reviewer but the independent ra-reviewer failed it (the rejected
+  R5 C was 62). Per-take frame-reviewers disagree on borderline takes; always finish with the ra-reviewer before Dan sees it.
+- **Start frame = end frame (Flow frames mode, Quality)** gave the steadiest bodies (waist 9-20 px). Yield was still about 1 in 50
+  takes on Quality for a calm 3-4 s hold of AI Dan. About 7,500 Flow credits for one shippable intro; budget before trying again.

@@ -82,6 +82,8 @@ def main():
         if sr > 3.2: fails.append(f"sharpness x{sr:.2f}")
         if tr > 30: fails.append(f"torso sway {tr:.0f}px")
         if hr > 30: fails.append(f"head travel {hr:.0f}px")
+        hs = float(np.linalg.norm(np.diff(head[sl], axis=0), axis=1).sum() / ((n - 1) / 24))   # head path speed, px/s
+        if hs > 20: fails.append(f"head speed {hs:.0f}px/s")   # D (passed every reviewer) 15; C (failed final review) 46-59
         cl = np.nan_to_num(closed[sl]).astype(int)                 # a blink = a run of >= 2 closed frames (one-frame dips are noise)
         runs, k = [], 0
         for i, v in enumerate(list(cl) + [0]):

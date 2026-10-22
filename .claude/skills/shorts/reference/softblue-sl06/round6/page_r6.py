@@ -16,7 +16,7 @@ def mmss(t): return f"{int(t // 60)}:{t % 60:04.1f}"
 def cp(src, dst):
     if not os.path.exists(f"{R}/{dst}") or os.path.getsize(f"{R}/{dst}") != os.path.getsize(src): shutil.copyfile(src, f"{R}/{dst}")
     return dst
-ORDER = ["C", "D"]          # the two shorts whose new intro passed every check; A, B, E, F are pending (see PENDING)
+ORDER = ["D"]          # the two shorts whose new intro passed every check; A, B, E, F are pending (see PENDING)
 HEAD = {"A": 4.14, "B": 4.61, "C": 2.84, "D": 3.28, "E": 3.15, "F": 1.94}
 LINE = {"A": "Here's why you should start Zepbound at 1 milligram to avoid the side effects.",
         "B": "Here's why you should stop using the pen to inject Zepbound, and why you should use a needle instead.",
@@ -44,21 +44,22 @@ DECIDED = [
  "No flexing at all: the new intros show you relaxed, holding the vial at chest height with the other arm at your side. Veo made every raised fist tremble and kept swinging the pointing hand to your chest, in every wording and both models. The poster behind you still names the tip.",
  "A regular closed-mouth smile on every frame. The start frames were redrawn on the Codex subscription with lips together (no teeth), and the motion prompt never says \"smile\": that word alone made Veo grow a toothy grin in nearly every take.",
  "Nothing on your face or mouth is patched. The only repairs are the tiny vial label (and D's calendar), copied from the approved frame because Veo scrambles small text.",
- "Picky, as you asked: about 110 takes on your Google Flow subscription (the Quality model for most, which holds a face far better), every take measured for mouth, tremor, sway, head nods, blinks and sharpness, then a fresh independent reviewer per finalist asked one question: real footage of a relaxed person, or AI? Only C and D passed. A, B, E and F are not on this page because every take still nodded, rocked, squinted or went soft, and you said slop should never reach you.",
+ "Picky, as you asked: about 110 takes on your Google Flow subscription (the Quality model for most, which holds a face far better), every take measured for mouth, tremor, sway, head nods, blinks and sharpness, then a fresh independent reviewer per finalist asked one question: real footage of a relaxed person, or AI? Only D passed every reviewer (its head moves 15 px a second; the failed takes 45 to 60). C passed one reviewer but the final independent review failed it, so it is held back with A, B, E and F: every take still nodded, rocked, squinted or went soft, and you said slop should never reach you.",
  "Everything after each intro is the short you already approved, unchanged.",
 ]
 CHECKS = [
- "C and D intros: lips closed every frame, one blink, body sway 9 to 18 px (rejected takes rocked 88 to 138 px), hand tremor 0.12 to 0.7 (your rejected R5 clips 0.9 to 2.2), the motion gate and an independent reviewer PASS (verdict: real footage of a relaxed person).",
- "C and D shorts: audio gate PASS (your approved mix, untouched), captions against the transcript, the watch scan (no frozen or black frames, no jump cuts), a watch judge on every boundary and the delivery gate.",
- "VLC copies of C and D are in Videos to Review as \"Top 5 Zepbound Tips SFL R6\"; the six rejected R5 copies were moved out of that folder.",
+ "D intro: lips closed every frame, one blink, body sway 9 px (rejected takes rocked 88 to 138 px), hand tremor 0.12 (your rejected R5 clips 0.9 to 2.2), head 15 px a second, the motion gate, a frame reviewer and the final independent reviewer all PASS (verdict: real footage of a relaxed person).",
+ "D short: audio gate PASS (your approved mix, untouched), captions against the transcript, the watch scan (no frozen or black frames, no jump cuts), a watch judge on every boundary (0 defects), the delivery gate (39 passed, 0 failed) and an independent reviewer: SHIP. Everything after the intro is pixel and sample identical to the version you approved.",
+ "A VLC copy of D is in Videos to Review as \"Top 5 Zepbound Tips SFL R6\"; the six rejected R5 copies were moved out of that folder.",
 ]
 PENDING = [
+ ("C", "How To Inject In 10 Seconds", "passed one reviewer, but the final independent review caught a head bob, a face snapping into focus on the first frame and a squinting nod; its head moves 3 times as much as D's"),
  ("A", "Start At 1 mg Not 2.5 mg", "closest take nodded three times and squinted"),
  ("B", "Use A Needle And Vial Not The Pen", "closest take snapped its head at the start and closed its eyes at the end"),
  ("E", "How To Come Off Without Regaining It", "closest take dipped its head 63 px and went soft in the first second"),
  ("F", "How Much Protein You Need On A GLP-1", "closest take did a quick chuckle-nod and its sharpness pulsed"),
 ]
-REPLY = "C: approved / changes:\nD: approved / changes:\nA, B, E, F intros: paid Veo up to $16 / spend the last Flow credits / keep R2 openings / other:\n\nOther notes:\n"
+REPLY = "D: approved / changes:\nA, B, C, E, F intros: paid Veo up to $20 / spend the last Flow credits / keep R2 openings / other:\n\nOther notes:\n"
 page = f"""<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Top 5 Zepbound Tips SFL R6</title>
 <style>:root{{--bg:#071221;--panel:#101f32;--line:#29425b;--text:#edf5ff;--muted:#bdd0e4}}
 body{{margin:0;background:var(--bg);color:var(--text);font:17px system-ui,-apple-system,sans-serif;line-height:1.55}}main{{max-width:1280px;margin:auto;padding:28px 16px}}
@@ -73,11 +74,11 @@ textarea{{width:100%;box-sizing:border-box;min-height:260px;background:#071221;c
 button{{background:#1b4b72;color:white;border:1px solid #66acd9;border-radius:9px;padding:7px 11px;cursor:pointer;font-size:14px;margin:6px 4px 0 0}}nav{{display:flex;gap:14px;flex-wrap:wrap}}
 @media(max-width:900px){{.grid{{grid-template-columns:1fr 1fr}}}}@media(max-width:560px){{.grid{{grid-template-columns:1fr}}h1{{font-size:27px}}}}</style>
 <main><h1>Top 5 Zepbound Tips shorts / Round 6: natural AI intros</h1>
-<p>You rejected all six R5 intros (weird smile, shaking, flexing too hard). Two of six are finished and passed every check: C and D. The other four are not on this page because no take was good enough yet; one decision for you below. Only the intro changed; everything after it is the short you already approved.</p>
-<nav><a href="#shorts">C and D, finished</a><a href="#pending">A, B, E, F: your call</a><a href="#decided">What I decided</a><a href="#checks">Checks</a><a href="#reply">Reply</a></nav>
+<p>You rejected all six R5 intros (weird smile, shaking, flexing too hard). One of six is finished and passed every check: D. The other five are not here because no take was good enough yet; one decision for you below. Only the intro changed; everything after it is the short you already approved.</p>
+<nav><a href="#shorts">D, finished</a><a href="#pending">A, B, C, E, F: your call</a><a href="#decided">What I decided</a><a href="#checks">Checks</a><a href="#reply">Reply</a></nav>
 <div id="dock"><div class="small" id="nowp">Pick any Play button: it plays here (at the right on a wide screen). Every player can be scrubbed.</div><video id="pv" controls preload="none" playsinline></video></div>
-<section id="shorts"><h2>C and D: finished, with the new intro</h2><div class="grid">{''.join(cards)}</div></section>
-<section id="pending"><h2>A, B, E, F: not ready, one decision for you</h2><p>About 110 takes on the subscription produced no take for these four that an independent reviewer would call real footage. Their new relaxed start frames passed review (right column below); the motion is the problem. Your Flow balance is down to about 1,000 credits, which other editing jobs share this month, so I stopped spending.</p><div class="grid">{''.join(f'<article><h3>{S}: {E(n)}</h3><img loading="lazy" src="{cp(f"{FR}/{S}_r6h.jpg", f"media/{S}_frame.jpg")}"><div class="copy">Start frame: passed review. Best take: {E(w)}.</div></article>' for S, n, w in PENDING)}</div><p><b>My recommendation:</b> let me try the paid Veo service for these four, about $16 (4 shorts, about 5 takes each at $0.80). It accepts a "do not" list (nodding, squinting, swaying, grinning, talking) that Flow does not, and that is exactly what keeps failing. Other options: spend your last Flow credits, or keep these four on their round-2 openings for now.</p></section>
+<section id="shorts"><h2>D: finished, with the new intro</h2><div class="grid">{''.join(cards)}</div></section>
+<section id="pending"><h2>A, B, C, E, F: not ready, one decision for you</h2><p>About 110 takes on the subscription produced no take for these five that independent reviewers would call real footage. Their new relaxed start frames passed review (right column below); the motion is the problem. Your Flow balance is down to about 1,000 credits, which other editing jobs share this month, so I stopped spending.</p><div class="grid">{''.join(f'<article><h3>{S}: {E(n)}</h3><img loading="lazy" src="{cp(f"{FR}/{S}_r6h.jpg", f"media/{S}_frame.jpg")}"><div class="copy">Start frame: passed review. Best take: {E(w)}.</div></article>' for S, n, w in PENDING)}</div><p><b>My recommendation:</b> let me try the paid Veo service for these five, about $20 (5 shorts, about 5 takes each at $0.80). It accepts a "do not" list (nodding, squinting, swaying, grinning, talking) that Flow does not, and that is exactly what keeps failing. Other options: spend your last Flow credits, or keep these five on their round-2 openings for now.</p></section>
 <section id="decided"><h2>What I decided (overrule anything)</h2><ul>{''.join(f'<li>{E(x)}</li>' for x in DECIDED)}</ul></section>
 <section id="checks"><h2>Checks</h2><ul>{''.join(f'<li>{E(x)}</li>' for x in CHECKS)}</ul></section>
 <section id="reply"><h2>One reply</h2><textarea id="r">{E(REPLY)}</textarea><p><button onclick="navigator.clipboard.writeText(document.getElementById('r').value);this.textContent='Copied'">Copy reply</button></p></section></main>
