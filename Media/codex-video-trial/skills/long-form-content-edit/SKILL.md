@@ -7,6 +7,17 @@ description: Edit or revise organic Abs By AI long-form instructional and story 
 
 At the start of a video editing/review task, name the chat `<Recognizable Video Title> <Type> R<round>` under the [shared naming rule](../../../../.claude/skills/_shared/VIDEO-RULES.md#video-editing-task-names-dan-2026-10-16). Use LFC for long-form, SFC for dedicated shorts, and SFL for shorts extracted from long-form; retain existing paid-ad type labels. Put the recognizable video title first, omit internal job codes and generic action prefixes, and use the same name in handoff prompts. Asset/brief work supporting an existing editing task keeps that task's name and round.
 
+## Edit slot first (Dan, 2026-10-21)
+
+At most 5 edits (Claude and Codex together) do production at once. Before this edit's first production step
+(render-queue job, AI generation, build) and on every resume, run `python3 .claude/skills/_shared/editcap/editcap.py
+acquire <JOB> --title "<title>" --type <LFC|SFC|SFL|AD>` from the project folder. Exit 3 = waiting: no rendering,
+generating, building or spending (read-only prep is fine). Create a heartbeat automation on this thread, every 10
+minutes, whose prompt runs that same `acquire` command, ends the turn silently on exit 3, and on exit 0 pauses itself and
+continues the edit from its handoff. Tell Dan the place in line in one line, then stop. Review page up or stopping for
+Dan: `editcap.py release <JOB> --review`. Edit finished: `editcap.py release <JOB>`. Rule: [VIDEO-RULES.md](../../../../.claude/skills/_shared/VIDEO-RULES.md),
+"Active edit cap"; tool: `.claude/skills/_shared/editcap/README.md`.
+
 ## Current shared editorial rules (Dan, 2026-10-16)
 
 Read the live project [VIDEO-RULES.md](../../../../.claude/skills/_shared/VIDEO-RULES.md) before the historical recipes. In every new first round, including studio footage, show colour and level-matched voice options; offer the broad, entertaining AI clip selection described there; use title capitalization for new graphic copy with rare all-capital emphasis. An internal audio ranking is not a substitute for Dan's audition options. If he requests text ideas before frames, keep that order. Preserve source-specific locks and the existing frame/motion approval gates.

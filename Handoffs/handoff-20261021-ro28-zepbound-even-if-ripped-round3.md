@@ -11,14 +11,15 @@ Dan's reply to the round-2 page.
   sed `ro28/round2` -> `ro28/round3`; never overwrite round 2).
 - Round-2 page: http://127.0.0.1:8929/ (`review/index.html`, `review_server.py 8929`). Dan's round-1 picks: `round2-plan/decisions.json`.
 - Locked: colour C (`RO28_GRADE=C`), warm bass voice (`fit/eq.txt`), all round-1 graphics and clips he did not comment on, A1 pharmacist
-  double take (`motion/veo/A1b-flow-t1.mp4@0.917`) with G18 lower third over it ("CONTROVERSIAL TAKE" / "Why You Should Take Zepbound Even
-  If You're Ripped"; "Already" dropped for width, offered back), A5 skeptic (`A5b-flow-t1.mp4@0.25`), C17/C18/C19 fallbacks for the cut
+  quiet double take (`motion/veo/veo/A1d-flow-t3.mp4@0.0`, frames 0-93 only; she turns to camera from 96) with G18 lower third over it ("CONTROVERSIAL TAKE" / "Why You Should Take Zepbound Even
+  If You're Ripped"; "Already" dropped for width, offered back), C17/C18/C19 fallbacks for the cut
   A6/A7/A8, stock vial.
 - Motion job: `motion/veo/job.json` (veo.py), take specs in take pixels `motion/*.take.spec.json`, prompts `motion/prompts/`.
 
 ## Dan was asked (round 2)
+0. The A5 skeptic failed every real-or-AI review (11 takes A5/A5b/A5c/A5d; retimes of A5c failed for stutter, frozen hold, 1.25x rush). Dan picks (a) two more Quality takes (200 Flow credits; 700 left on 10-22) or (b) drop it, presenter on camera. plan.py A5 still points at the failed `A5c-t1-f72-127-retime3.mp4`: change it per his pick before any full film.
 1. Approve the redrawn A2 frames (doctor says no; ripped patient). 2. Approve the redrawn A3 frames (barbecue, no grill, whole bodies,
-white tank tops, skinny-fat middle guy). 3. Lip sync the A5 skeptic, about $0.50 paid Replicate: yes or no. Also: "Already" back or not.
+white tank tops, skinny-fat middle guy). (The lip-sync question moved into item 0.) Also: "Already" back or not.
 
 ## Next actions (round 3)
 1. Record his words in `round3-plan/decisions.json`.

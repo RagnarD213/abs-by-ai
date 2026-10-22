@@ -35,7 +35,7 @@ date at setup.
 | Wed Nov 25 | RO-06 How To Work Out At Home On A Budget | Live |
 | Sun Nov 29 | RO-20B What To Cut To Afford Getting In Shape (part 2 of 3) | Waitlist (set up 2026-10-20). Receipt `Docs/RO20_RO20B_SETUP_RECEIPT_20261020.md` |
 | Wed Dec 2 | Video 5: Getting Abs At 40 vs 25 | Waitlist |
-| Sun Dec 6 | Held for RO-20C What To Buy For Your Health At Every Income Level (part 3 of 3) | Not finished (in editing, round 5) |
+| Sun Dec 6 | RO-20C What To Buy For Your Health At Every Income Level (part 3 of 3) | Waitlist (set up 2026-10-21; TikTok uploaded by hand Mon Dec 7). Receipt `Docs/RO20C_SETUP_RECEIPT_20261021.md` |
 | Wed Dec 9 | RO-02 The Stomach Vacuum | Live |
 | Sun Dec 13 | RO-17 3 Healthy Foods That Made Me Fat | Set up 2026-10-18 (took RO-22's Sunday by the rule above); Facebook/Instagram/TikTok Mon Dec 14 noon. Receipt `Docs/RO17_SETUP_RECEIPT_20261018.md` |
 | Wed Dec 16 | RO-03 The Vacuum Workout | Live |

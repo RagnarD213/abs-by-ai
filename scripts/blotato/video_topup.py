@@ -21,6 +21,7 @@ For each waiting entry, in order, while the queue has room for its 4 posts:
     Friday or Saturday (Dan, 2026-10-17; was Tue/Thu/Sat). Dated plan: Docs/SHORTS_RELEASE_CALENDAR.md.
     A Short whose entry names "after": "<parent config>" waits until that parent is queued and is always
     slotted after the parent's YouTube release day (no Short before its parent is public; added 2026-10-22).
+    An entry with "parent_config" (the long-form's config) is never slotted on or before the parent's day.
 Then it runs the normal helper (longform_queue.py or organic_short_queue.py) with --apply, which
 verifies on a fresh pull. Entries never jump the line: if the first waiting one does not fit, nothing
 behind it is queued. Never touches, moves or deletes existing Blotato posts. Photo posts
@@ -153,14 +154,15 @@ def main() -> int:
             main = v["main"]
             clash = any((a, main[:16]) in minutes for a in ACCOUNTS)
             days = short_days(e)
-            # "after": the parent long-form's config (Dan's rule: no Short before its parent is public). The Short waits
-            # until the parent is on Blotato, then always lands after the parent's YouTube release day.
+            # A Short never airs before its parent long-form (Dan, 2026-10-17). "after" (2026-10-22) also waits
+            # until the parent is on Blotato; "parent_config" (2026-10-17) only keeps it after the parent's day.
             earliest = today
-            if e.get("after"):
-                pv = json.load(open(os.path.join(ROOT, e["after"])))
-                if not any(f"utm_content={pv['slug']}" in b for b in blob) and pv["slug"] not in queued_slugs:
+            parent = e.get("after") or e.get("parent_config")
+            if parent:
+                pv = json.load(open(os.path.join(ROOT, parent)))
+                if e.get("after") and not any(f"utm_content={pv['slug']}" in b for b in blob) and pv["slug"] not in queued_slugs:
                     print(f"  waiting parent  {e['job']} {e['label']}: {pv['slug']} is not queued yet"); continue
-                earliest = local_day(pv["main"]) + timedelta(days=1)
+                earliest = max(today, local_day(pv["main"]) + timedelta(days=1))
             if (datetime.fromisoformat(main.replace("Z", "+00:00")) < now + timedelta(hours=2) or clash
                     or want.weekday() not in days or want < earliest):
                 want = max(want, today, earliest - timedelta(days=1)) + timedelta(days=1)

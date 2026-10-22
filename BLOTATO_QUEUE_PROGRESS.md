@@ -505,3 +505,9 @@ Five shorts set up and waiting for room (queue 198/200): on `scripts/blotato/vid
 ## SL-15 My First Spray Tan shorts (2026-10-22)
 - Waiting list, parent first: short 1 "Why You Look Less Ripped In Photos" Fri Jan 1 2027 and short 2 "Get A Tan Without Sun Damage" Sat Jan 2 2027, 9 AM Central, after RO-19 (Wed Dec 30). Entries carry `after` (RO-19 config), so they wait until RO-19 is queued and always land after its release day.
 - Configs `scripts/blotato/configs/sl15-short1-why-you-look-less-ripped-in-photos.json`, `sl15-short2-get-a-tan-without-sun-damage.json`; media hash-checked; FB covers registered. Receipt `Docs/SL15_SETUP_RECEIPT_20261022.md`.
+
+## DONE: SL-09 Oura Ring Review shorts (2026-10-21)
+Five shorts from "My Honest Oura Ring Review After 1.5 Years" (parent YouTube `5095442`, Wed Nov 11) queued on YouTube 46963, Facebook 47105, Instagram 67203 and TikTok 58181 at 9 AM Central: short 1 Fri Nov 13 (5867678/79/80/82), short 2 Mon Nov 16 (5867684/85/87/88), short 3 Fri Nov 20 (5867691/94/98, 5867701), short 4 Mon Nov 23 (5867702/03/04/06), short 5 Fri Nov 27 (5867711/13/15/16). Covers 1F 2C 3E 4F 5D; keyword SLEEP; `utm_content=sl09-short<N>`. Every hosted video hash-matched. Configs `scripts/blotato/configs/sl09-short{1..5}-*.json`. Receipt `Docs/SL09_SETUP_RECEIPT_20261021.md`.
+
+## SL-19 3 Healthy Foods That Made Me Fat shorts (2026-10-21)
+Three shorts set up and waiting behind RO-17 (YouTube Dec 13) on `scripts/blotato/video_waitlist.json` (with `parent_config`): Mon Dec 14, Fri Dec 18, Fri Dec 25, 9 AM Central. Covers C, C, C; keyword FOOD; `utm_content=sl19-short<N>`. Configs `scripts/blotato/configs/sl19-short{1..3}-*.json`. Receipt `Docs/SL19_SETUP_RECEIPT_20261021.md`.

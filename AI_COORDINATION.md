@@ -26,9 +26,11 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**Oura Ring Review SFL Setup - PICK R2 2026-10-21, Claude.** SL-09: shorts 2 C, 5 D locked; round 2 for 1, 3, 4 on http://127.0.0.1:8909/ (62/62 pass). Next: Dan's picks, then Blotato Nov 13, 16, 20, 23, 27.
-**SL-17:NEEDS-DAN:2026-10-20:Claude.**
-**SL-18:ACTIVE:2026-10-20:Claude.** Wasted Life SFL R1; awaiting picks.
+**Edit cap LIVE 2026-10-21, Claude.** Pushed; main folder mid-merge (not mine), so its skills lack it until merged. Next: delete after that merge.
+
+**SL-17:R2-WAIT:2026-10-22:Claude.**
+**SL-18:COVER-OK?:2026-10-22:Claude.**
+**SL-16:PICKS+SLOT-WAIT:2026-10-22:Claude.** Fasting shorts; queue status unset (jobs.json mid-merge).
 
 **Boring Abs At 40 LFC R2 - ACTIVE 2026-10-20, Codex.** Executing R2 handoff. Colour C and voice B locked; R1 preserved. Next: calibrated headroom proof, corrected opening/contexts, complete existing-AI gallery, revised A01–A04 still pairs and independent checks. No new motion or full-film render before approval. Work: `/Volumes/Extreme/_edit_work/ro27/round2/`.
 
@@ -42,12 +44,14 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-25 Git sync BLOCKED 2026-10-18, Codex.** Public video, article post 886, and manually uploaded 257-cue English SRT are verified. Caption uploader and receipt are committed locally as `340ed22`. Safe-push aborted on nine merge conflicts across other sessions' files; no merge is in progress. Next: hand-merge shared main with owners or push these records from a clean checkout, without discarding their work.
 
+
 **RA-09:POLICY-RECHECK:2026-10-22:Claude.** 10-23.
 
-**Fat 90 Year Old SFC R3 - ACTIVE 2026-10-21, Claude.** R2 key locked as house standard (AGENTS). Building opening: clip full screen, Dan small, then large. Work: `ds40/r3/`.
+**Fat 90 Year Old SFC R4 - ACTIVE 2026-10-22, Claude.** Intro clip two ways (box upper left; lower left larger with laptop). Next: renders, review, page :8940. Work: `ds40/r4/` (Expansion).
 
-**DS-44:ACTIVE:2026-10-22:Claude.** Resumed.
+**DS-44:R2-WAIT-SLOT:2026-10-22:Claude.** Option B + card; code ready.
 
+**SL-15 HOLD 2026-10-22.** `Docs/SL15_SETUP_RECEIPT_20261022.md`
 
 **I'm 41. I Wasted My Life. LFC Setup QUEUED 2026-10-17, Codex.** Dan approved exact R7 film and thumbnail C. Blotato readback: YouTube Sun Oct 18 9 AM, Facebook/Instagram Mon Oct 19 noon. Direct TikTok Monday after public YouTube check. To free capacity, Dan authorized removal of the last queued video, RO-13; its four schedules are backed up and RO-13 is on the waitlist for Dec 30. Receipt: Docs/RO25_SETUP_RECEIPT_20261017.md. Next: verify public release, covers, TikTok, RO-26 link.
 
@@ -143,17 +147,17 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-06:POLICY-RECHECK:2026-10-16:Claude.** Ads `828274063389`, `828320387740` in review. Next 10-17: `node scripts/ads/api/client.js policy 24316364155`; clean, delete this.
 
-**RO-24:R2-HOLD:2026-10-22:Claude.** Stopped for Dan.
+**RO-24:R2-ACTIVE:2026-10-22:Claude.** Keying resumed.
 
-**RO-14 R3 ACTIVE 2026-10-22, Claude.** `RO-14/round3/`.
+**RO-14:SETUP-PICKS:2026-10-22:Claude.**
 
-**DS-33:R3-ACTIVE:2026-10-22:Claude.** Commits local.
+**DS-33:R3-REVIEW:2026-10-22:Claude.** 9035; commits local.
 
 **RO-20C HOLD 2026-10-21, Claude.** Waitlist, Dec 6. `Docs/RO20C_SETUP_RECEIPT_20261021.md`
 
-**Zepbound Even If Ripped LFC R2 - ACTIVE 2026-10-21, Claude.** Motion A1/A5 on Flow, A2/A3 frames redrawn. `/Volumes/Expansion/_edit_work/ro28/round2/`.
+**Zepbound R3 WAIT 2026-10-22, Claude.**
 
-**Make Time Exercise LFC R3 - HANDOFF 2026-10-22, Claude.** Waits on Dan's mower footage. Commit 0155161 unpushed (iCloud ref).
+**Make Time Exercise LFC R3 - READY 2026-10-22, Claude.** Mower clips in; fire handoff. 0155161 waits on merge.
 
 **Ad 6 remarketing 2026-10-04:** Awaiting Dan: copy to enabled campaign 24305381214?
 
@@ -167,7 +171,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **RO-07 - HOLD 2026-10-11, Claude.** Blotato full. `Docs/RO07_SETUP_RECEIPT_20261011.md`
 
 
-**SL-06:R6-ACTIVE:2026-10-21:Claude.** Top 5 Zepbound Tips SFL R6: closed-mouth frames on Codex, then Flow takes, rebuild six, review. Work: `/Volumes/Extreme/_edit_work/sl06/round6/`.
+**SL-06:R7-REVIEW:8821:2026-10-22:Claude.** Top 5 Zepbound Tips SFL R7: D approved; five no-face intro stills (A, B, C, E, F) reviewed, awaiting Dan's picks before motion. Work: `/Volumes/Extreme/_edit_work/sl06/round7/`.
 
 **SL-15 HOLD 2026-10-22.** b97bd79-unpushed
 
@@ -243,7 +247,7 @@ tab; stop rather than click into spinners. `Handoffs/handoff-20260908-google-ads
 
 **CHEAPKEY:UNPUSHED-6a81f04,b9fdd79,bae79d9:2026-10-21:Claude.**
 
-**IG Carousels B1 - NEEDS DAN 2026-10-21, Claude.** Picks on artifact QWz3Mg5SMoAD19nBDxJY4i. Next: Phase 3.
+**IG Carousels B1 R2 - NEEDS DAN 2026-10-22, Claude.** Picks on artifact 7ykj2HXD1bpuFp9RGh7UzY; queued to Nov 9.
 
 **SPA:UNPUSHED-5f43cb0:2026-10-22:Claude.**
 

@@ -9,6 +9,16 @@ description: >
   "/make-ad". Also use when reviewing or revising a previously produced ad.
 ---
 
+## Edit slot first (Dan, 2026-10-21)
+
+At most 5 edits do production at once. Before this edit's first production step (render-queue job, AI generation,
+build) and on every resume, run `python3 .claude/skills/_shared/editcap/editcap.py acquire <JOB> --title "<title>"
+--type <LFC|SFC|SFL|AD>`. Exit 3 = waiting: no rendering, generating, building or spending (read-only prep is fine);
+run `python3 .claude/skills/_shared/editcap/editcap.py wait <JOB>` with `run_in_background`, tell Dan the place in line
+in one line, end the turn, and continue when it exits. Review page up or stopping for Dan: `editcap.py release <JOB>
+--review`. Edit finished: `editcap.py release <JOB>` (if it prints `WAKE claude <id>`, send that session the message).
+Rule: `_shared/VIDEO-RULES.md`, "Active edit cap"; tool: `_shared/editcap/README.md`.
+
 ## Video editing task names (Dan, 2026-10-16)
 
 At the start of a video editing/review task, name the chat `<Recognizable Video Title> <Type> R<round>` under the [shared naming rule](../_shared/VIDEO-RULES.md#video-editing-task-names-dan-2026-10-16). Use LFC for long-form, SFC for dedicated shorts, and SFL for shorts extracted from long-form; retain existing paid-ad type labels. Put the recognizable video title first, omit internal job codes and generic action prefixes, and use the same name in handoff prompts. Asset/brief work supporting an existing editing task keeps that task's name and round.

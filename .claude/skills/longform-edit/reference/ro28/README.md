@@ -49,3 +49,8 @@ cut to 6:26. Starts from RO-18's round 1 recipe (`../ro18/`); only the files tha
 14. **Expansion's 3-slot drive cap sat full for hours** with other editors' long jobs. A graphics pass can run with `--out` on the internal
     scratch (`renderq.py scratch`) and rsync back (`recipe/hf_r2_int.sh`); unchanged renders are recognized there too. Use `GATE_PRIORITY=1`
     only while Dan waits on the result.
+15. **Never stretch a short AI take to fit a line.** Repeats during motion stutter, a slowed still stretch reads frozen, 1.25x reads rushed;
+    four retimes of A5c failed review. Generate takes whose usable natural stretch is at least the slot length (Quality model was calmer than
+    Fast here), and check the background objects too: A5d t1 failed only on a lamp drifting 5.5 px during the gesture.
+16. **Start-frame-only generation avoids an end frame's baked-in expression** (A1's approved END had an open-mouth gasp the reviewer
+    called cartoonish); the takes then drift toward the camera late, so pick the range before that.
