@@ -248,3 +248,4 @@
 - [Execute Dan's picks](execute-dans-explicit-picks.md): build exactly what he names
 - [Allegations not facts](allegations-not-fact.md): never mentioned unless Dan asks
 - [Assessment symmetry](assessment-symmetry.md): one standard, swap test, results
+- [Shorts shortlist: full transcripts](shorts-shortlist-full-transcripts.md) — every proposed Short shows its title and full word-for-word transcript

@@ -1,3 +1,12 @@
+## Shorts shortlists show each Short's full transcript under its title (Dan, 2026-10-22)
+
+- **Every proposed Short on a shortlist (extracted from a long-form, or a recut) is shown with its title and the complete
+  word-for-word transcript of what it will say, pickup line included, in cut order.** Dan, on SL-16: *"Show me the full
+  transcripts for all your proposed shorts with the title. Let's always do this as a standard process for making shorts going
+  forward. Doing things this way is too confusing for me to tell what short is going to have which content."*
+- A table of timecodes with an opening and closing quote is not enough. Use the film's corrected subtitles trimmed to the
+  planned cut points; mark skipped passages. Claude and Codex, every Shorts batch. Detail: `/shorts` Step 2.
+
 ## AI clips of Dan look natural, or they never reach review; regenerate slop on the subscription (Dan, 2026-10-21, SL-06)
 
 Dan rejected all six SL-06 AI flex intros, every one gate- and reviewer-passed: *"the smile is weird. We need just a regular,
@@ -16,6 +25,21 @@ me for review and regenerate if you get some slop like this."*
   take that merely "passes" (no vanishing objects, no talking) is not enough: the editor and the reviewer each answer one more
   question, *"does this look like real footage of a relaxed person, or like AI?"*, at playback speed, and any "AI" answer is a
   FAIL. Put that question in every frame-reviewer brief for motion.
+
+## Reaction Shorts: the standard opening layout (Dan, 2026-10-22, DS-44 Hormozi Fat Guy R1)
+
+- **Every green-screen reaction Short opens in the "Bill Maher option B" layout: the reaction clip fills the phone screen,
+  and Dan, keyed, sits in the lower left, slightly larger than before, with the laptop visible.** Dan, pointing at DS-40 R4
+  option B: *"I want to change this to our new standard shorts format, like you see in the Bill Maher one here. We just lock
+  this in as a standard shorts format. Let's change that to slightly larger, with a laptop visible."*
+- Geometry (from `ds40/r4/key/comp_r4.py` frame_B): Dan's full-height keyed frame, laptop lid kept (key without the laptop
+  crop), at 0.40 of full size (432 x 768 on a 1080 x 1920 Short), flush on the left and bottom screen edges, a narrow soft
+  fade on his right edge (wider only where a hand leaves the camera). His real reaction footage, synced to the clip.
+- **After the clip (DS-44, same day):** the interview keeps playing SILENTLY in a horizontal frame at the top, behind Dan's
+  head, his hair slightly overlapping the frame's bottom edge (head in the foreground), for about the first 30 seconds of
+  the Short. *"I want my head to be in the foreground, and this to be playing in the background. There'll be a slight overlap
+  between my head and my hair, and the bottom of the horizontal frame at the top."* Use footage of the speaker (no webcam
+  banners), full height of the 16:9 frame.
 
 ## Head and hair clearance blocks review delivery (Dan, 2026-10-20, RO-27)
 

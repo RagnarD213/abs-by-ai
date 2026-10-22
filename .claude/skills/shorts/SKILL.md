@@ -50,6 +50,15 @@ Older text further down that disagrees with these loses. Section titles are in `
 - Look and voice: a Short cut from an approved film reuses that film's look and voice, no options round (Dan, 2026-10-20).
 - Model: a video stays with the AI it started on, Opus high for Claude, Sol high for Codex (AGENTS.md, 2026-10-20).
 
+## The shortlist shows every proposed Short's full transcript under its title (Dan, 2026-10-22)
+
+Every Step 2 shortlist, picked Shorts included, gives each candidate its title, kind and length, then the **complete
+word-for-word transcript of exactly what that Short will say**, in order, pickup line first, with a marker where a piece of
+the film is skipped. Timecode tables and opening/closing quotes alone are not enough. Dan, on SL-16: *"Show me the full
+transcripts for all your proposed shorts with the title. Let's always do this as a standard process for making shorts going
+forward. Doing things this way is too confusing for me to tell what short is going to have which content."* Take the text
+from the film's corrected `.srt` (not raw Whisper), trimmed to the planned cut points. Claude and Codex both.
+
 ## Three Shorts per new long-form, released Mon/Tue/Fri/Sat (Dan, 2026-10-17)
 
 - Cut **3 Shorts** from each new long-form: its three best moments. Sets already cut before 2026-10-17 keep their count.
@@ -528,6 +537,8 @@ builds: the render queue", 2026-10-20). The paid Replicate Whisper path is retir
 Shape is `{ chunks: [{ text, timestamp: [start, end] }] }`.
 
 ## Step 2 — Dan picks the segments
+
+**Each candidate on the shortlist carries its full transcript under its title** (Dan, 2026-10-22, rule at the top of this file).
 
 **This is his call, not yours** (standing rule since 2026-08-04). Give him a shortlist
 with, for each candidate: a title, the timecodes, and the **verbatim spoken text**. He
@@ -1428,3 +1439,17 @@ Recipe: `/Volumes/Expansion/_edit_work/DS-33/r1/recipe/` (copy in `Short-form vi
 - **Lower thirds in a split panel:** Dan's face sits lower than in a full shot. Measure his lowest face point on every frame of the panel (FaceMesh, `chin_measure.py` in that recipe) and set the lower-third box top at that + 25 px; move only the captions under it down to stay 30 px clear.
 - **HD clip search pays:** the 720p ad had a true-1080p 30-second cut on YouTube (measured detail above 720p: 1.1 vs 0.0). Test a candidate by downscaling to 720 and back: an upscale leaves almost nothing.
 - **Gate known mismatches on this pipeline (also on the finalized AI Homework short):** `audio:stamp` (tone row) and `captions:sync` (-450 ms on 5 cues while the full word-level measurement is about +35 ms). Report them; never tune them. Keep a clip's genuine speech (an ad tagline) in `speech_words`, or `junk:repeated_take` calls it an ORPHAN.
+
+## Green-screen reaction shorts: what DS-44 (Hormozi Fat Guy) added (2026-10-22)
+
+**Standard layout since 2026-10-22: VIDEO-RULES.md, "Reaction Shorts: the standard opening layout" (Dan locked DS-40 R4 option B: Dan lower left at 0.40, laptop visible; then the interview plays silently in a horizontal frame behind his head).** The corner geometry in the bullets below (0.22, laptop cropped) is R1 history.
+
+Recipe: `/Volumes/Expansion/_edit_work/DS-44/r1/recipe/` (copy in `Short-form video content/Hormozi Fat Guy - DS-44/recipe-r1/`). House key (DS-40 Claude R2) end to end; four builds, two independent passes.
+- **Key at 0.75 scale for W/T framing:** keep the R2 maths, scale stage 1.5's pixel distances x1.5 (band 15, rim 3, colour scales, speck 3 px). Stage 1 ~2 s/frame. Stage 1.5 on a 34 MB/frame hard-disk cache: hand each worker a contiguous run with an lru cache of loaded frames (7x fewer reads), skip finished frames (resume), and expect pool workers to be killed under memory pressure (the pool then hangs: kill it and resume). Measure the key with the R2 scripts on a 9 s render in the R2 geometry (Dan 1080 wide, row 0 at y 175).
+- **Measure Dan from the key cache's own matte**, not a source decode: a 20 s decode is a heavy queue step and waited 90 min.
+- **Opening layout (Dan's DS-40 R3 ask):** clip full screen with a fixed window per camera shot, Dan keyed small bottom-left (0.22 of the 0.75 cache), clip-phase captions at MarginV 630 to clear him. The person-mask hair check can read the clip's own people behind the corner; check by eye.
+- **Name tag only on the named person's own shot**, placed by measuring faces (top band over a cap worked); over the clip it named the wrong man and covered mouths (review 1).
+- **Look at the eyes of every read of the first line:** read 2 had Dan looking down at the laptop through "This is a"; read 1 looked at the lens and joined read 2 cleanly in the dip before "from".
+- **Room tone under a transition must be measured quiet first** (one choice carried a hiss/exhale); the gate's dead_air counts the clip's silences and the clip-to-Dan handover (keep each under 1 s, trim at camera changes and from the clip's energy end, not Whisper's word end).
+- **HyperFrames graphics can render one frame short of their slot:** ffprobe every mov/mask against its slot before assembling.
+- Known gate mismatches on this pipeline: audio tone (the untouched third-party clip fails it; the voice alone passes), artifacts HF swirl when the raw lav already reads near the bound (chain x1.01), captions:sync's energy onset (breaths). Report them; never tune them.
