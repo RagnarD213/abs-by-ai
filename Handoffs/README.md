@@ -11,6 +11,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [I'm 41 Wasted Life SFL Setup](handoff-20261022-sl18-wasted-my-life-shorts-covers-and-setup.md): **Start now: Short 1 airs Mon Oct 26 (covers picked by Fri Oct 23). Claude Opus 5.5, high.** Two Shorts from "I'm 41. I Wasted My Life." (SL-18), finalized 10-22: five covers each on the Codex subscription, stop for the picks, then Blotato (Oct 26, Dec 12). No third Short.
 - [Not Losing Weight LFC Setup](handoff-20261022-ro14-thumbnails-and-video-setup.md): **Ready now: Dan approved round 3 on 2026-10-22. Claude Opus 5.5, high.** "Why You're Not Losing Weight" (RO-14): five thumbnails on the Codex subscription, stop for the pick, then Blotato in its 2026 long-form slot.
 - [Extreme Drive Cleanup](handoff-20261021-extreme-drive-cleanup.md): **Start now (2026-10-21): Extreme had 13 GB free. Codex GPT-6.1 Sol, high.** Ops. Move job folders untouched for 14+ days (about 94 folders, 681 GB) from `/Volumes/Extreme/_edit_work/` to `/Volumes/Expansion/_edit_work/`, verified before each removal; nothing outside `_edit_work`, nothing deleted without a verified copy.
 - [Celebrity Ozempic LFC R2](handoff-20261020-ro24-celebrity-ozempic-round2.md): **Waits for Dan's reply to the round 1 page (http://127.0.0.1:9124/). Claude Opus 5.5, high.** RO-24: apply his key, colour, background and voice picks, photos only after his yes, then graphics, B-roll, AI frames and the full film from the take list already made.
