@@ -28,8 +28,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Edit cap LIVE 2026-10-21, Claude.** Pushed; main folder mid-merge (not mine), so its skills lack it until merged. Next: delete after that merge.
 
-**3 Healthy Foods SFL Setup - PICKS 2026-10-21, Claude.** SL-19: 15 cover choices at http://127.0.0.1:9219/. Next: Dan's picks, then export, copies, Blotato waitlist (parent RO-17 waitlisted; Short 1 Mon Dec 14).
-
 **SL-17:NEEDS-DAN:2026-10-20:Claude.**
 **SL-18:ACTIVE:2026-10-20:Claude.** Wasted Life SFL R1; awaiting picks.
 
