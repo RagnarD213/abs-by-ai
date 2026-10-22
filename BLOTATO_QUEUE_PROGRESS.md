@@ -501,3 +501,7 @@ To make room at the 200-post cap, Dan authorized removing the last queued video.
 
 ## SL-07 If I Had Belly Fat shorts (2026-10-18)
 Five shorts set up and waiting for room (queue 198/200): on `scripts/blotato/video_waitlist.json`, slots Mon Dec 21, Tue Dec 22, Sat Dec 26, Mon Dec 28, Tue Dec 29, 9 AM Central, after RO-16 (YouTube Dec 20). Configs `scripts/blotato/configs/sl07-short{1..5}-*.json`. Receipt `Docs/SL07_SETUP_RECEIPT_20261018.md`.
+
+## SL-15 My First Spray Tan shorts (2026-10-22)
+- Waiting list, parent first: short 1 "Why You Look Less Ripped In Photos" Fri Jan 1 2027 and short 2 "Get A Tan Without Sun Damage" Sat Jan 2 2027, 9 AM Central, after RO-19 (Wed Dec 30). Entries carry `after` (RO-19 config), so they wait until RO-19 is queued and always land after its release day.
+- Configs `scripts/blotato/configs/sl15-short1-why-you-look-less-ripped-in-photos.json`, `sl15-short2-get-a-tan-without-sun-damage.json`; media hash-checked; FB covers registered. Receipt `Docs/SL15_SETUP_RECEIPT_20261022.md`.

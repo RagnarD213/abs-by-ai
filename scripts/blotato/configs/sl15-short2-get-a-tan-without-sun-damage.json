@@ -1,0 +1,27 @@
+{
+  "content_type": "organic",
+  "source": "Short-form video content/spraytan-short2_get-a-tan-without-sun-damage.mp4",
+  "slug": "sl15-short2",
+  "campaign": "spray-tanning-guide",
+  "title": "Get A Tan Without Sun Damage",
+  "video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/93389d15-7960-4765-b803-8f6d2310d184.mp4",
+  "tiktok_video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/e09c8a6e-7fbb-430d-b43c-12e8bcfe37c6.mp4",
+  "instagram_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/8de825c1-c478-4505-8cc0-a82c00c3377c.png",
+  "youtube_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/97e7c3fd-9532-43dc-adaa-befaf482fa6e.jpg",
+  "main": "2027-01-02T15:00:00.000Z",
+  "keyword": "TRACK",
+  "ai_generated": true,
+  "hook": "The most important pro of spray tanning, in my opinion, is that you get tan while avoiding sun damage.",
+  "body": "The sun is a lot more damaging than people think. It's the reason why Bryan Johnson, the world's healthiest man, looks like an ultra pale vampire: he only goes out in the sun during off-peak hours and takes an umbrella with him. Skin cancer is one of the most common cancers.",
+  "close": "Save this, and watch my full spray tanning guide on my channel.",
+  "tags": "#SprayTan #SprayTanning #SunDamage #SkinCare #AbsByAI",
+  "youtube_description": "The most important pro of spray tanning, in my opinion, is that you get tan while avoiding sun damage.\n\nTry your free Abs By AI preview: https://absbyai.com/?utm_source=youtube&utm_medium=short&utm_campaign=spray-tanning-guide&utm_content=sl15-short2\n\nThe sun is a lot more damaging than people think. It's the reason why Bryan Johnson, the world's healthiest man, looks like an ultra pale vampire: he only goes out in the sun during off-peak hours and takes an umbrella with him. Skin cancer is one of the most common cancers.\n\nFull video on my channel: Spray Tanning Guide: How To Looksmax With A Spray Tan\n\nThis video contains AI-generated footage.\n\n#SprayTan #SprayTanning #SunDamage #SkinCare #Shorts",
+  "pinned_comment": "How do you usually get your tan, from the sun or a spray tan? Let me know below.",
+  "parent": "scripts/blotato/configs/ro19-my-first-spray-tan.json",
+  "media_sha256": {
+    "master": "476b5a6f432027497d17ecf70beceb1401e9143d8d8c0e2e77c17d128a7ec434",
+    "tiktok": "0971e70b59e5d26a06b4dd9a3ba6942567c6c029b58ee225bab9ffadd35bd612",
+    "ig": "83e73141d2c9230ab74d5619b882cb92b99d1350788ea6bcb60c7242f5e3bdde",
+    "yt": "16ee750c1b45fc17d3442ebd08fc46d5db15eb6576aecdd20b9f9adab669f85b"
+  }
+}

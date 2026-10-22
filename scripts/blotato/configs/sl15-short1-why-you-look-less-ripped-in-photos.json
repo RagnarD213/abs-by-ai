@@ -1,0 +1,27 @@
+{
+  "content_type": "organic",
+  "source": "Short-form video content/spraytan-short1_why-you-look-less-ripped-in-photos.mp4",
+  "slug": "sl15-short1",
+  "campaign": "spray-tanning-guide",
+  "title": "Why You Look Less Ripped In Photos",
+  "video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/36ca4b70-4bd8-43d9-b211-417a5d5adb6f.mp4",
+  "tiktok_video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/3b2a5c3f-796a-4e6c-bc0b-8857558202ab.mp4",
+  "instagram_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/ed022eb9-6042-4468-89e7-9646c6346e47.png",
+  "youtube_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/644f2888-af44-47ff-b1c2-06da27ac2e90.jpg",
+  "main": "2027-01-01T15:00:00.000Z",
+  "keyword": "TRACK",
+  "ai_generated": false,
+  "hook": "If you guys want good photos for Instagram or for your dating profile, spray tanning can be especially important.",
+  "body": "Cameras tend to flatten your definition. I looked good in the mirror but nowhere near as defined in my photo shoot pictures, mainly because I was too pale. Definition on camera is all about contrast, which is why fitness models and bodybuilders go very dark.",
+  "close": "Save this for your next photo shoot, and watch my full spray tanning guide on my channel.",
+  "tags": "#SprayTan #SprayTanning #FitnessPhotos #Abs #AbsByAI",
+  "youtube_description": "If you guys want good photos for Instagram or for your dating profile, spray tanning can be especially important.\n\nTry your free Abs By AI preview: https://absbyai.com/?utm_source=youtube&utm_medium=short&utm_campaign=spray-tanning-guide&utm_content=sl15-short1\n\nCameras tend to flatten your definition. I looked good in the mirror but nowhere near as defined in my photo shoot pictures, mainly because I was too pale. Definition on camera is all about contrast, which is why fitness models and bodybuilders go very dark.\n\nFull video on my channel: Spray Tanning Guide: How To Looksmax With A Spray Tan\n\nThe photos of me in this video are real.\n\n#SprayTan #SprayTanning #FitnessPhotos #Abs #Shorts",
+  "pinned_comment": "Have you ever looked great in the mirror and then way less defined in a photo? Let me know in the comments.",
+  "parent": "scripts/blotato/configs/ro19-my-first-spray-tan.json",
+  "media_sha256": {
+    "master": "ec87695a67769440467809385a95b92c1543a055f82a2e2e8e010a363282168c",
+    "tiktok": "1315e0c4a0dc739c2df2efc477655275913770ec28ea33e0af0495051d54ae21",
+    "ig": "3ff5f5629a23f3186dbe4087d7ae18593369cbebf5d74b3970d95fda2cdc38e3",
+    "yt": "9b99aabcfc378f0703401f53b9034fc196f538fff7734cd70d10329fd6dea099"
+  }
+}

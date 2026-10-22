@@ -15,7 +15,7 @@ Key: plain = edited (in Blotato or on the waiting list). **\*** = still to be ed
 | Week of | Mon | Tue | Thu (dedicated) | Fri | Sat |
 |---|---|---|---|---|---|
 | Oct 19 | Stop Deadlifting (sl05-short1) | Stop Swinging Your Curls (sl04-short4) | I Was 200 Pounds At 38 (DS-08) | How To Make Time To Work Out (DS-09) | Stop Deadlifting (sl05-short4) |
-| Oct 26 | Wasted My Life 1\* | Stop Deadlifting (sl05-short2) | Use A Meal Prep Service (DS-28) | Spray Tan 1\* | Stop Deadlifting (sl05-short5) |
+| Oct 26 | Wasted My Life 1\* | Stop Deadlifting (sl05-short2) | Use A Meal Prep Service (DS-28) | (open: Spray Tan 1 follows RO-19 to Jan 1 2027) | Stop Deadlifting (sl05-short5) |
 | Nov 2 | Salad (sl03-short1) | Stop Deadlifting (sl05-short3) | How To Use The Ab Wheel (DS-22) | Work Out Every Day 1\* | Salad (sl03-short4) |
 | Nov 9 | Zepbound Tips 1 (SL-06, needs Dan's OK) | Salad (sl03-short5) | 3 Ways To Reduce Alcohol (DS-14) | Oura 1\* (SL-09) | Salad (sl03-short2) |
 | Nov 16 | Boring Abs At 40 1\* | Salad (sl03-short3) | How To Do Rear Delt Flys (DS-24) | Fasting 1\* (SL-16) | Zepbound Tips 2 |
@@ -25,6 +25,8 @@ Key: plain = edited (in Blotato or on the waiting list). **\*** = still to be ed
 | Dec 14 | 3 Healthy Foods 1\* (SL-19) | Wasted My Life 3\* | #1 Change For Abs At 40\* (DS-13) | Keep Your Muscle 1\* (SL-12) | Top 1% 1\* |
 | Dec 21 | Belly Fat 1 (SL-07, needs Dan's OK) | Belly Fat 2 | Lose The Last 10 Pounds\* (DS-16) | Calories Don't Matter 1\* (SL-13) | Belly Fat 3 |
 | Dec 28 | Belly Fat 4 | Belly Fat 5 | Top 5 Ab Exercises\* (DS-01) | | |
+
+**2027 dated:** Spray Tan 1 (SL-15) Fri Jan 1 and Spray Tan 2 Sat Jan 2, after their parent RO-19 releases Wed Dec 30 (on the waiting list, 2026-10-22).
 
 **2027:** about 40 long-form Shorts carry over (the 2nd and 3rd Short of most films, plus Vacuum Workout, Ab Wheel
 Workout, Calories and Alcohol), and the dedicated Thursdays continue from the ~40 dedicated Shorts filmed but not edited.
