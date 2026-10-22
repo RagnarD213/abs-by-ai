@@ -45,7 +45,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-09:ACTIVE:2026-10-21:Claude.** AI Changing World AD R1. `/Volumes/Expansion/_edit_work/RA-09/`.
 
-**Fat 90 Year Old SFC R3 - REVIEW :8940 2026-10-21, Claude.** Opening delivered, reviewer SHIP (re-check 4). Next: Dan's notes. Work: `ds40/r3/` (Expansion).
+**Fat 90 Year Old SFC R4 - ACTIVE 2026-10-22, Claude.** Intro clip two ways (box upper left; lower left larger with laptop). Next: renders, review, page :8940. Work: `ds40/r4/` (Expansion).
 
 **DS-44:ACTIVE:2026-10-21:Claude.**
 
