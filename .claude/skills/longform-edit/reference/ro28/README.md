@@ -54,3 +54,17 @@ cut to 6:26. Starts from RO-18's round 1 recipe (`../ro18/`); only the files tha
     Fast here), and check the background objects too: A5d t1 failed only on a lamp drifting 5.5 px during the gesture.
 16. **Start-frame-only generation avoids an end frame's baked-in expression** (A1's approved END had an open-mouth gasp the reviewer
     called cartoonish); the takes then drift toward the camera late, so pick the range before that.
+
+## Round 3 traps (2026-10-22)
+17. **A film with Dan on camera under half its runtime (47% here) leaves every framing row NOT MEASURED** ("palette never settles"):
+    the programme-median palette is not his scene. Declare `talking_head_windows` (uncovered punch pieces, full-frame rect) with
+    `evidence_contract` {version 2, video_sha256 of the exact master} in `finish.py`.
+18. **A take join under a side card is a jump cut when the card forces one framing.** With the card on the left and Dan right of
+    centre, a T2-size crop slid left in 4K (`T2R` = 2704x1521 @ x145) keeps him ~300 px clear; `allow_t2=True` on that card lets the
+    framing solver use it (`build.all_segments`).
+19. **A side card ending one frame before a clip leaves a 1-frame presenter flash** (`cut:min_segment`); resolve.py now starts the
+    clip on the card's end when the gap is under 0.2 s.
+20. **Full-film true peak read -0.7 dBTP** though the first minute read -1.9: finish with a 4x-oversampled limiter
+    (`declick.py`). The tone row fails on the approved warm bass (known; RO-14 and RA-15 shipped the same way).
+21. Flow takes on this set: start+end frames on Fast worked for A2/A3 (people talk less when the END pose is fixed); the trims that
+    passed are A2 t1 f36-187, A3 t3 f90-187 (t3 smears at 188).
