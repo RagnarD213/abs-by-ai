@@ -42,7 +42,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-25 Git sync BLOCKED 2026-10-18, Codex.** Public video, article post 886, and manually uploaded 257-cue English SRT are verified. Caption uploader and receipt are committed locally as `340ed22`. Safe-push aborted on nine merge conflicts across other sessions' files; no merge is in progress. Next: hand-merge shared main with owners or push these records from a clean checkout, without discarding their work.
 
-**RA-09:R1-REVIEW:9109:2026-10-21:Claude.**
+**RA-09:R1-REVIEW:9109:2026-10-21:Claude.** e1a5798 unpushed.
 
 **Fat 90 Year Old SFC R3 - ACTIVE 2026-10-21, Claude.** R2 key locked as house standard (AGENTS). Building opening: clip full screen, Dan small, then large. Work: `ds40/r3/`.
 
@@ -147,7 +147,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-14 R3 HANDOFF 2026-10-21, Claude.** 2 fixes; commits unpushed.
 
-**DS-33:R2-ACTIVE:2026-10-21:Claude.**
+**DS-33:R2-REVIEW:2026-10-22:Claude.** http://127.0.0.1:9034/
 
 **RO-20C HOLD 2026-10-21, Claude.** Waitlist, Dec 6. `Docs/RO20C_SETUP_RECEIPT_20261021.md`
 
@@ -238,6 +238,8 @@ tab; stop rather than click into spinners. `Handoffs/handoff-20260908-google-ads
 **10-23 TP docs UNPUSHED 2026-10-20, Claude.** Commit 65f8c43 local. Next: any safe-push carries it; delete this.
 
 **Renderq v3 UNPUSHED 2026-10-21, Claude.** Commit 8499d79 (render queue v3, live on disk since 16:48) local; safe-push stopped on live edits and a merge in progress. Next: any later safe-push carries it; delete this. Detail: Handoffs/results-20261021-renderq-v3.md.
+
+**CHEAPKEY:UNPUSHED-6a81f04,b9fdd79,bae79d9:2026-10-21:Claude.**
 
 **IG Carousels B1 - NEEDS DAN 2026-10-21, Claude.** Picks on artifact QWz3Mg5SMoAD19nBDxJY4i. Next: Phase 3.
 
