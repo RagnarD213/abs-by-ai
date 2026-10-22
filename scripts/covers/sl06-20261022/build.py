@@ -20,12 +20,13 @@ IMPACT=(SUP+'Impact.ttf',0);ARIAL=(SUP+'Arial Bold.ttf',0);ABLACK=(SUP+'Arial Bl
 FUTURA=(SUP+'Futura.ttc',4);AVENIR=('/System/Library/Fonts/Avenir Next Condensed.ttc',8)
 # The eyebrow is each short's own on-screen eyebrow, in capitals (VIDEO-RULES 2026-10-20: eyebrows stay in CAPITALS).
 BADGES={k:'GLP-1 TIPS' for k in ['s1','s2','s3','s4','s5','s6']}
-# key: ([headline line 1, line 2], file slug, post title): the short's own on-screen title band
-COPY={'s1':(['Start At 1 mg,','Not 2.5 mg'],'zepbound-tips-short1_start-at-1-mg-not-2-5','Start At 1 mg, Not 2.5 mg'),
- 's2':(['Use A Needle And Vial,','Not The Pen'],'zepbound-tips-short2_use-a-needle-and-vial-not-the-pen','Use A Needle And Vial, Not The Pen'),
- 's3':(['How To Inject','In 10 Seconds'],'zepbound-tips-short3_how-to-inject-in-10-seconds','How To Inject In 10 Seconds'),
- 's4':(['Inject On','Thursday Evening'],'zepbound-tips-short4_inject-on-thursday-evening','Inject On Thursday Evening'),
- 's5':(['How To Come Off','Without Regaining It'],'zepbound-tips-short5_how-to-come-off-without-regaining-it','How To Come Off Without Regaining It'),
+# key: ([headline line 1, line 2], file slug, post title). Round 2 (2026-10-22): Dan's own cover text for shorts 1-5 (his words);
+# short 6 keeps the on-screen title. Short 3 names Zepbound because Dan asked for it.
+COPY={'s1':(['Reduce GLP-1','Side Effects'],'zepbound-tips-short1_start-at-1-mg-not-2-5','Reduce GLP-1 Side Effects'),
+ 's2':(['Why I Don\'t Use','The KwikPen'],'zepbound-tips-short2_use-a-needle-and-vial-not-the-pen','Why I Don\'t Use The KwikPen'),
+ 's3':(['How To Inject','Zepbound'],'zepbound-tips-short3_how-to-inject-in-10-seconds','How To Inject Zepbound'),
+ 's4':(['Take Weight Loss Meds','Thursday Evening'],'zepbound-tips-short4_inject-on-thursday-evening','Take Weight Loss Meds Thursday Evening'),
+ 's5':(['How To Avoid','Rebound Weight Gain'],'zepbound-tips-short5_how-to-come-off-without-regaining-it','How To Avoid Rebound Weight Gain'),
  's6':(['How Much Protein','You Need On A GLP-1'],'zepbound-tips-short6_how-much-protein-you-need','How Much Protein You Need On A GLP-1')}
 ORDER=list(COPY)
 POOL={'s1':'photo-97','s2':'photo-113','s3':'photo-189','s4':'photo-154','s5':'photo-201','s6':'photo-196'}

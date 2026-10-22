@@ -726,5 +726,53 @@
   "h": 1920,
   "job": "SL-18 short 2",
   "when": "2026-12-12T15:00:00.000Z"
+ },
+ {
+  "match": "Here's why you should start Zepbound at 1 milligram to avoid the side effects.",
+  "w": 1080,
+  "h": 1920,
+  "job": "SL-06",
+  "when": "2026-11-09T15:00:00.000Z",
+  "cover": "/Users/danielrose/Library/Mobile Documents/com~apple~CloudDocs/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/approved-sl06/YouTube_zepbound-tips-short1_start-at-1-mg-not-2-5_cover-C.jpg"
+ },
+ {
+  "match": "Here's why I stopped using the pen to inject Zepbound and use a needle and vial instead.",
+  "w": 1080,
+  "h": 1920,
+  "job": "SL-06",
+  "when": "2026-11-21T15:00:00.000Z",
+  "cover": "/Users/danielrose/Library/Mobile Documents/com~apple~CloudDocs/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/approved-sl06/YouTube_zepbound-tips-short2_use-a-needle-and-vial-not-the-pen_cover-C.jpg"
+ },
+ {
+  "match": "Here's how to inject Zepbound with a needle, step by step. It takes about 10 seconds once you know what you're doing.",
+  "w": 1080,
+  "h": 1920,
+  "job": "SL-06",
+  "when": "2026-11-28T15:00:00.000Z",
+  "cover": "/Users/danielrose/Library/Mobile Documents/com~apple~CloudDocs/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/approved-sl06/YouTube_zepbound-tips-short3_how-to-inject-in-10-seconds_cover-A.jpg"
+ },
+ {
+  "match": "Here's why Thursday evening is the best time to inject Zepbound.",
+  "w": 1080,
+  "h": 1920,
+  "job": "SL-06",
+  "when": "2026-12-01T15:00:00.000Z",
+  "cover": "/Users/danielrose/Library/Mobile Documents/com~apple~CloudDocs/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/approved-sl06/YouTube_zepbound-tips-short4_inject-on-thursday-evening_cover-C.jpg"
+ },
+ {
+  "match": "Here's how to come off Zepbound without gaining the fat back.",
+  "w": 1080,
+  "h": 1920,
+  "job": "SL-06",
+  "when": "2026-12-05T15:00:00.000Z",
+  "cover": "/Users/danielrose/Library/Mobile Documents/com~apple~CloudDocs/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/approved-sl06/YouTube_zepbound-tips-short5_how-to-come-off-without-regaining-it_cover-C.jpg"
+ },
+ {
+  "match": "Here's how much protein you need on a GLP-1 so you lose fat and not muscle.",
+  "w": 1080,
+  "h": 1920,
+  "job": "SL-06",
+  "when": "2026-12-08T15:00:00.000Z",
+  "cover": "/Users/danielrose/Library/Mobile Documents/com~apple~CloudDocs/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/approved-sl06/YouTube_zepbound-tips-short6_how-much-protein-you-need_cover-C.jpg"
  }
 ]

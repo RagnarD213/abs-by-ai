@@ -510,3 +510,6 @@ Three shorts set up and waiting behind RO-17 (YouTube Dec 13) on `scripts/blotat
 
 ## SL-18 I'm 41. I Wasted My Life. shorts (2026-10-22)
 Two shorts queued on all four platforms: Mon Oct 26 and Sat Dec 12, 9 AM Central (ids 5909596-5909600, 5909603-5909607). Covers C and revised D; keyword ABS; `utm_content=sl18-short<N>`. Configs `scripts/blotato/configs/sl18-short{1,2}-*.json`. Receipt `Docs/SL18_SETUP_RECEIPT_20261022.md`.
+
+## DONE: SL-06 Top 5 Zepbound Tips shorts (2026-10-22)
+Six shorts, four posts each (FB, IG @danrosefit, TikTok, YouTube), 9 AM Central: Mon Nov 9, Sat Nov 21, Sat Nov 28, Tue Dec 1, Sat Dec 5, Tue Dec 8 (parent RO-12 YouTube Sun Nov 8). Schedule ids 5909999, 5910000, 5910001, 5910003, 5910004, 5910006, 5910007, 5910008, 5910010, 5910011, 5910012, 5910013, 5910016, 5910017, 5910018, 5910019, 5910021, 5910022, 5910023, 5910024, 5910026, 5910027, 5910028, 5910029. Keyword FOOD, campaign zepbound-tips. Receipt: `Docs/SL06_SETUP_RECEIPT_20261022.md`.
