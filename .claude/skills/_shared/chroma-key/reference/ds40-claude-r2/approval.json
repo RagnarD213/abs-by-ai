@@ -45,18 +45,19 @@
   "common.py": "1ce1b03dc147f583f2ea4d8b759e3759743cafb4da0bfec82713f7ce7cb70ee8",
   "grade.py": "bd1ac55ebdc3ae41d87662b1636f5bccc74beb13726affbdf097fa5ff5781def",
   "keylib.py": "80751b25d7c8b23acfc7eca37998bdb13820f9b3a67456a2dc783551da9204bc",
-  "mcflicker.py": "25d626784e1fd9d945c867b3f18810d488c98962e917ba76e8437d9fbdf66f66",
-  "measure_r2.py": "6f5bc6d252938a6894c977303ff67117c9eb9edb0516de39a4101321d0d9f1c3",
+  "mcflicker.py": "e8d122c119b6d564cfa3df8bce88151b2fb950de401bc5a87aa4e812155453fd",
+  "measure_r2.py": "9a40c547f34ff80b36e95e34b7cd472d9b55e854d45f8dcc6b7cc61249874ab9",
   "plate.py": "d0b8c2911ae21aeb4e1c4790f59e524ce65fc430d8b8d66285326f9b754c15fb",
   "run_final.sh": "50014fa85069f211f73889a8205151fd2b64b1925ede6a435559d4f027404290",
   "srcprep.py": "fb0dc02b22ec02ae5601c50a6ca410adb7cc729ca89a5b78b2819608705fc25a",
   "stage15_temporal.py": "484caddafa84c969d229d290e5176486a174fff71cee408908a23b72119499fa",
-  "stage1_key.py": "3468136eacce905cf8554a1f69eba0f899d898dd9a434f3cbe5d86e4b70c1d76",
+  "stage1_key.py": "6700d5636fd3377bead4fcc16ae3ca1ca9958eadd4ab86d5bba243994492d2eb",
   "stage2_comp.py": "49c2a8a087b626d65d70531ae5baf11692e10f6e2cfc6cc0db2cbec0753c39a5",
   "watch_r2.json": "8dd3c01c5ffda0767bbbbb8774d8db12a3de5ef7fd38015cc2a8ddb491531fb8"
  },
  "per_video_only": [
   "DS-40 colour B Warm Vivid",
   "DS-40 voice: house chain +1.5 dB at 120 Hz"
- ]
+ ],
+ "code_note": "2026-10-21: measure scripts take T0/DUR env for any source window and skip zero-change source frames; stage1 resumes an interrupted run. Keying maths unchanged."
 }

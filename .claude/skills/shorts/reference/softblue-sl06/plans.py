@@ -45,7 +45,7 @@ COVERS = {
        dict(id="pharmacy", a=149.75, b=156.12, src=STOCK + "px8657614.mp4", t=2.0, fx=0.52)],
  "C": [dict(id="ai_intro", a="o0.0", b="head", src=STOCK + "intro_C.mp4", t=0.0, fit="full", ai=(1046, 200, 1.6, "rt")),      # r5: AI flex intro (Flow Veo), band off
        dict(id="yt_seattle", a="head", b=167.63, src=STOCK + "yt_seattle_src.mp4", t=4.5, fx=0.53, eq="eq=gamma=1.08", credit="Video: Seattle Children's / YouTube"),      # r5: Dan's pick (R4 note) for "This takes about 10 seconds"; 7TP0rTlQVao 6:59.5
-       dict(id="yt_synergenx", a=167.63, b="o9.56", src=STOCK + "yt_synergenx_src.mp4", t=5.5, fx=0.45, eq="eq=saturation=0.85:brightness=-0.02", credit="Video: SynergenX / YouTube"),      # r5: pinch and inject, front of the mid thigh; FeweDb3Xfxg 1:39.5
+       dict(id="yt_synergenx", a=167.63, b="o9.56", src=STOCK + "yt_synergenx_src.mp4", t=5.5, fx=0.466, fy=1.0, zoom=1.2, eq="eq=saturation=0.85:brightness=-0.02", credit="Video: SynergenX / YouTube"),      # r5: pinch and inject, front of the mid thigh; FeweDb3Xfxg 1:39.5; zoom 1.2 framed low so the needle sits above the Step 1 bar (reviewer: the bar hid the needle 6.2-8.0 s)
        dict(id="needle", a="o23.89", b="o26.40", src=STOCK + "px6824121.mp4", t=1.0, fx=0.5),      # r2: an insulin syringe with its short needle, being flicked (the held-up syringe had a long needle, judge B)
        dict(id="blood", a="o26.40", b="o29.80", src=STOCK + "B0536.mp4", t=1.0, fx=0.5),      # r2: "draw blood out of your arm"
        dict(id="plunger", a="o29.80", b="o38.15", src=STOCK + "B0352.mp4", t=2.0, fx=0.75, eq="eq=gamma=1.7:brightness=0.04:saturation=1.1")],      # r2: a thumb pressing an insulin plunger, "Inject the Zepbound slowly"; the arm-injection stock is out (reviewer C)
@@ -55,7 +55,7 @@ COVERS = {
        dict(id="scale2", a=392.02, b=396.13, src=STOCK + "px6719385.mp4", t=0.3, fx=0.58),
        dict(id="jumprope", a=396.13, b=402.03, src=STOCK + "B0448.mp4", t=0.9, fx=0.5),             # r2: "Done this way... hold your new body"
        dict(id="stairs", a=404.47, b=407.30, src=STOCK + "px9154824.mp4", t=2.0, fx=0.85)],
- "F": [dict(id="ai_intro", a="o0.0", b="o2.5", src=STOCK + "intro_F.mp4", t=0.0, fit="full", ai=(1046, 215, 1.6, "rt")),      # r5: AI flex intro (Flow Veo), band off; replaces the chicken clip
+ "F": [dict(id="ai_intro", a="o0.0", b="o1.93", src=STOCK + "intro_F.mp4", t=0.0, fit="full", ai=(1046, 215, 1.6, "rt")),      # r5: AI flex intro (Flow Veo), band off; replaces the chicken clip
        # r2: the film's AI split screen (A0058) is out: the body changes inside one take (VIDEO-RULES 2026-10-13, time jumps need a cut), judge F 4.3
        dict(id="curls", a=423.76, b=426.19, src=STOCK + "B0031.mp4", t=0.5, fx=0.5, eq="eq=gamma=1.25:brightness=0.02:saturation=1.05"),      # r2: real alternating dumbbell curls, lifted; B0458 is him holding the ab roller (two reviewers; the library called it curls)
        dict(id="abwheel", a=426.19, b=429.76, src=STOCK + "B0030.mp4", t=0.5, fit="span", span=(250, 1670)),      # r2: the rollout travels x 330-1620 of 1920; the square cut his head off (judge F 17.4)

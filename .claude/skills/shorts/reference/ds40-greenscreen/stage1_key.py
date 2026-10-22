@@ -11,6 +11,8 @@ Y_BOTTOM = 3490        # laptop line (tilted, 3515 right .. 3660 left); crop abo
 S = 0.5                # source -> output scale (2160 -> 1080)
 def work(args):
     i, P = args
+    if os.path.exists(f"{OUT}/f{i:04d}.npy"):   # already keyed (resume after an interrupted run)
+        return i
     a, Sc = key(P)
     a[:Y_GARBAGE] = 0
     A = a[..., None]

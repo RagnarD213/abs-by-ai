@@ -179,3 +179,8 @@ batch.py       COVERS fit="full" (intro over the title band), ai=(x, y, u, ancho
   setting only Dan can switch (audio-step failures 8/8 without it); Flow refused one B take as "prominent people".
 - **The shared render queue gates every ffmpeg call** (the bin/ffmpeg shim): even a reviewer's stamp write waited 69 min at
   load 150. Budget hours, not minutes, on a busy day.
+- **Review catches (2026-10-21):** a key-point bar that sat fine over Dan covered the needle going into the skin once a
+  YouTube clip replaced him (C, fixed with `zoom=1.2, fy=1.0` on that cover); and a picture cut 0.06 s inside a word
+  left "less" as a 7-frame orphan caption (F, fixed by ending the intro in the pause after "appetite,").
+- **Render under ONE queue slot:** `renderq.py run --label ... -- python3 batch.py render S`. Without it every decoder the
+  render opens queues separately and a 47 s short sat at frame 900 for an hour.

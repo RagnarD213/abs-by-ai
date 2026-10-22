@@ -26,6 +26,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**Oura Ring Review SFL Setup - PICK R2 2026-10-21, Claude.** SL-09: shorts 2 C, 5 D locked; round 2 for 1, 3, 4 on http://127.0.0.1:8909/ (62/62 pass). Next: Dan's picks, then Blotato Nov 13, 16, 20, 23, 27.
 **SL-17:NEEDS-DAN:2026-10-20:Claude.**
 **SL-18:ACTIVE:2026-10-20:Claude.** Wasted Life SFL R1; awaiting picks.
 
@@ -80,7 +81,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **COVERS:MOBILE:2026-10-15:Docs/COVER_AUDIT_20261015.md**
 
 
-**Oura Ring Review SFL R5 - ACTIVE 2026-10-21, Claude.** SL-09: Dan approved short 5's clips; short 4 opener trimmed to 2.8 s per his note. Next: render, review, gate, page :8989. Work: `/Volumes/Extreme/_edit_work/sl09/round2/`.
 
 
 
@@ -138,8 +138,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-14 POLICY-RECHECK 2026-10-15,Claude.**
 
-**First Step Abs AD Setup PICK 2026-10-21, Claude.** RA-12 five thumbnails on sheet; awaiting Dan. Then upload, trial campaign.
-
 **RO-17 - HOLD 2026-10-18, Claude.** On the waitlist (Blotato 197/200); routine queues YouTube Sun Dec 13, socials Mon Dec 14 noon. `Docs/RO17_SETUP_RECEIPT_20261018.md`.
 
 **RA-04 POLICY-RECHECK 2026-10-16,Claude.**
@@ -170,7 +168,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **RO-07 - HOLD 2026-10-11, Claude.** Blotato full. `Docs/RO07_SETUP_RECEIPT_20261011.md`
 
 
-**SL-06:R5-REVIEW:8821:2026-10-20:Claude.** Top 5 Zepbound Tips SFL R5: new A and D pairs (gate + reviewer PASS) and Seattle-only C opening on :8821, awaiting Dan. Flow failed 8/8 on audio; needs Dan to allow 'Return silent videos'. Next: motion for six, gates, rebuild. Work: `/Volumes/Extreme/_edit_work/sl06/round5/`.
+**SL-06:R6-ACTIVE:2026-10-21:Claude.** Top 5 Zepbound Tips SFL R6: closed-mouth frames on Codex, then Flow takes, rebuild six, review. Work: `/Volumes/Extreme/_edit_work/sl06/round6/`.
 
 **SL-07 HOLD 2026-10-18, Claude.** Covers picked, media and configs ready; Blotato full, five shorts on the waitlist for Dec 21-29. Next: the daily top-up routine queues them as slots free. `Docs/SL07_SETUP_RECEIPT_20261018.md`
 

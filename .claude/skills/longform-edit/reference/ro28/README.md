@@ -33,3 +33,19 @@ cut to 6:26. Starts from RO-18's round 1 recipe (`../ro18/`); only the files tha
    `gfx.clip_vf`), keeping headroom above his hair (person-mask box per roll in `framing/broll/`). Jump rope and squats need the whole body.
 8. **A Gemini whole-cut junk listen called a natural 0.6 s pause inside "72% ... of American adults" an unnatural join.** It was one
    continuous take (level strip); check the EDL before cutting on a listener's word.
+
+## Round 2 traps (2026-10-21)
+9. **Motion spec boxes must be in the TAKE's pixels.** Codex frames are 1672x941, Flow takes 1920x1080; clipcheck failed every take until the
+   boxes were scaled (x1920/1672, y1080/941) into `motion/*.take.spec.json`.
+10. **A prop resting on a moving body (laptop on a lap) is not "still".** It rides his breathing and fails a still box by 5-9 px; drop it from
+    `still`, note why, and have the reviewer check it by eye.
+11. **Regenerate after a reviewer FAIL, never argue it.** A1 t1/t2 (both people looked into the lens, plastic face) and A5 t2 (startled, late
+    wave) failed; tighter prompts (A1b, A5b: "never looks at the camera", "smug from the first frame") passed first time.
+12. **from_plan's lower-third fit check missed a too-long point** ("...Even If You're Already Ripped", 1759 px of 1632) and the render died.
+    Count before rendering; shorten or shrink.
+13. **Copying a round folder and sed-ing `round1` -> `round2` makes from_plan re-render every before-card** (the photo path is in the
+    config, so its hash changes) though nothing visible changed. Before queueing hours of scene cards, diff the configs with the folder
+    name masked; if identical, reuse the previous round's renders (`round2/logs/hf_r2.log`).
+14. **Expansion's 3-slot drive cap sat full for hours** with other editors' long jobs. A graphics pass can run with `--out` on the internal
+    scratch (`renderq.py scratch`) and rsync back (`recipe/hf_r2_int.sh`); unchanged renders are recognized there too. Use `GATE_PRIORITY=1`
+    only while Dan waits on the result.

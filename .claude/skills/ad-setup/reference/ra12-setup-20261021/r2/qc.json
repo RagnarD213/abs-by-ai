@@ -1,0 +1,62 @@
+[
+  {
+    "letter": "A",
+    "fmt": "16x9",
+    "name": "vault-gold-key-studio-blue-11",
+    "label": "A: you in front of an open vault with a gold key, gold and white block type",
+    "file": "key-to-abs_r2-A-vault-gold-key-studio-blue-11 | 16x9.jpg",
+    "clearance_px": 150,
+    "headroom_px": 50,
+    "ok": true
+  },
+  {
+    "letter": "A",
+    "fmt": "9x16",
+    "name": "vault-gold-key-studio-blue-11",
+    "label": "A: you in front of an open vault with a gold key, gold and white block type",
+    "file": "key-to-abs_r2-A-vault-gold-key-studio-blue-11 | 9x16.jpg",
+    "clearance_px": 94,
+    "headroom_px": 670,
+    "ok": true
+  },
+  {
+    "letter": "B",
+    "fmt": "16x9",
+    "name": "glow-frame-yellow-bands-studio-blue-222",
+    "label": "B: you inside a glowing picture frame on cobalt, black type on two yellow bands",
+    "file": "key-to-abs_r2-B-glow-frame-yellow-bands-studio-blue-222 | 16x9.jpg",
+    "clearance_px": 328,
+    "headroom_px": 80,
+    "ok": true
+  },
+  {
+    "letter": "B",
+    "fmt": "9x16",
+    "name": "glow-frame-yellow-bands-studio-blue-222",
+    "label": "B: you inside a glowing picture frame on cobalt, black type on two yellow bands",
+    "file": "key-to-abs_r2-B-glow-frame-yellow-bands-studio-blue-222 | 9x16.jpg",
+    "clearance_px": 147,
+    "headroom_px": 690,
+    "ok": true
+  },
+  {
+    "letter": "C",
+    "fmt": "16x9",
+    "name": "chrome-key-orange-room-studio-blue-145",
+    "label": "C: you beside a giant chrome key in an orange-lit room, slab-serif type, ABS in orange",
+    "file": "key-to-abs_r2-C-chrome-key-orange-room-studio-blue-145 | 16x9.jpg",
+    "clearance_px": 344,
+    "headroom_px": 50,
+    "ok": true
+  },
+  {
+    "letter": "C",
+    "fmt": "9x16",
+    "name": "chrome-key-orange-room-studio-blue-145",
+    "label": "C: you beside a giant chrome key in an orange-lit room, slab-serif type, ABS in orange",
+    "file": "key-to-abs_r2-C-chrome-key-orange-room-studio-blue-145 | 9x16.jpg",
+    "clearance_px": 185,
+    "headroom_px": 720,
+    "ok": true
+  }
+]
