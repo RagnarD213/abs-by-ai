@@ -1659,6 +1659,12 @@ crossfade and measure every delivered piece against the lav. (2) A pause cut can
 silence starts inside it): `TAIL_EXTRA` in `s03_edl.py`. (3) A look carries across one roll, its fitted EQ does not: refit per cut.
 Library traps: A0138 has a burned KEY POINT banner; A0069 is pizza and cuts to push-ups at 1.9 s; A0074's phone photo moves.
 
+## RA-09: a restart hidden by the transcript, and fixed-length reused clips (2026-10-21)
+
+Recipe and seven lessons: `reference/ra09/README.md`. The three that would have shipped a defect: Replicate large-v3 merged a restarted
+sentence into one 2.5 s word (isolate every long word); a card starting under a frame after an audio join showed a one-frame jump (start it
+on the join's frame); moving a range edge into a word's span silently dropped that word from the captions (re-time it in the patch).
+
 ## Decisions locked vs pending
 
 | decision | status |

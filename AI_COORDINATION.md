@@ -42,7 +42,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-25 Git sync BLOCKED 2026-10-18, Codex.** Public video, article post 886, and manually uploaded 257-cue English SRT are verified. Caption uploader and receipt are committed locally as `340ed22`. Safe-push aborted on nine merge conflicts across other sessions' files; no merge is in progress. Next: hand-merge shared main with owners or push these records from a clean checkout, without discarding their work.
 
-**RA-09:ACTIVE:2026-10-21:Claude.** AI Changing World AD R1. `/Volumes/Expansion/_edit_work/RA-09/`.
+**RA-09:R1-REVIEW:9109:2026-10-21:Claude.**
 
 **Fat 90 Year Old SFC R3 - ACTIVE 2026-10-21, Claude.** R2 key locked as house standard (AGENTS). Building opening: clip full screen, Dan small, then large. Work: `ds40/r3/`.
 
@@ -239,7 +239,7 @@ tab; stop rather than click into spinners. `Handoffs/handoff-20260908-google-ads
 
 **Renderq v3 UNPUSHED 2026-10-21, Claude.** Commit 8499d79 (render queue v3, live on disk since 16:48) local; safe-push stopped on live edits and a merge in progress. Next: any later safe-push carries it; delete this. Detail: Handoffs/results-20261021-renderq-v3.md.
 
-**IG-CAROUSELS:UNPUSHED:2026-10-21:Claude.** f597b51 plus uncommitted IG handoff, README line, memory; merge in progress.
+**IG Carousels B1 - NEEDS DAN 2026-10-21, Claude.** Picks on artifact QWz3Mg5SMoAD19nBDxJY4i. Next: Phase 3.
 
 # BLOCKED — external
 
