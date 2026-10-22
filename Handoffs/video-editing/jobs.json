@@ -2565,13 +2565,15 @@
    "codexModel": "GPT-6 Sol, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/SL-16-intermittent-fasting-shorts.md` using `.claude/skills/shorts/SKILL.md` as the method: propose segments from the RO-08 master, wait for Dan's picks, cut, gate, deliver, update `00-MASTER.md`. Name this task \"Intermittent Fasting SFC R1\".",
    "state": "ready",
-   "note": "Added 10-14 when Dan finalized RO-08; hold release until the parent is public",
+   "note": "Dan picked Short 1 on 2026-10-22: Just Skip Breakfast (9:04-11:08), airs Tue Dec 15 9 AM; deliver by Mon Dec 14. Parent RO-08 public Wed Nov 18. Other segments: propose, Dan picks.",
    "unattended": false,
    "unattended_why": "Job doc says show Dan the segment list and wait for picks.",
    "order": 110,
-   "updated": "2026-10-14",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-10-22",
+   "rev": 2,
+   "syncedRev": 2,
+   "needs": "",
+   "by": "Claude"
   },
   {
    "id": "RO-25",
