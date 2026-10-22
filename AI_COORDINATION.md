@@ -46,7 +46,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Fat 90 Year Old SFC R3 - ACTIVE 2026-10-21, Claude.** R2 key locked as house standard (AGENTS). Building opening: clip full screen, Dan small, then large. Work: `ds40/r3/`.
 
-**DS-44:PAUSED:2026-10-21:Claude.** Dan: until "resume".
+**DS-44:ACTIVE:2026-10-22:Claude.** Resumed.
 
 
 **I'm 41. I Wasted My Life. LFC Setup QUEUED 2026-10-17, Codex.** Dan approved exact R7 film and thumbnail C. Blotato readback: YouTube Sun Oct 18 9 AM, Facebook/Instagram Mon Oct 19 noon. Direct TikTok Monday after public YouTube check. To free capacity, Dan authorized removal of the last queued video, RO-13; its four schedules are backed up and RO-13 is on the waitlist for Dec 30. Receipt: Docs/RO25_SETUP_RECEIPT_20261017.md. Next: verify public release, covers, TikTok, RO-26 link.
@@ -143,7 +143,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-06:POLICY-RECHECK:2026-10-16:Claude.** Ads `828274063389`, `828320387740` in review. Next 10-17: `node scripts/ads/api/client.js policy 24316364155`; clean, delete this.
 
-**RO-24:R2-HOLD:2026-10-21:Claude.** Renders held.
+**RO-24:R2-ACTIVE:2026-10-22:Claude.** Keying resumed.
 
 **RO-14 R3 HANDOFF 2026-10-21, Claude.** 2 fixes; commits unpushed.
 
@@ -153,7 +153,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Zepbound Even If Ripped LFC R2 - ACTIVE 2026-10-21, Claude.** Motion A1/A5 on Flow, A2/A3 frames redrawn. `/Volumes/Expansion/_edit_work/ro28/round2/`.
 
-**Make Time Exercise LFC R3 - HANDOFF 2026-10-21, Claude.** Waits on Dan's mower footage. `Handoffs/handoff-20261021-ro18-round3-mower-wispr.md` unpushed (merge in progress).
+**Make Time Exercise LFC R3 - HANDOFF 2026-10-22, Claude.** Waits on Dan's mower footage. Commit 0155161 unpushed (iCloud ref).
 
 **Ad 6 remarketing 2026-10-04:** Awaiting Dan: copy to enabled campaign 24305381214?
 
