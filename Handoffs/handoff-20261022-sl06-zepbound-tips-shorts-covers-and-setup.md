@@ -23,6 +23,8 @@ approved"*, round 7). Queue: SL-06 `finalized`. Edit history and recipe: `.claud
 
 ## 1. The six files (final; never re-render or re-edit)
 
+> ⚠ **Clipped title letters (2026-10-22):** Shorts 1, 4 and 5 ("Not 2.5 mg", "Thursday Evening", "Without Regaining It") have the tails of g/y cut off at the bottom of the title band. Dan decides whether to re-render them first (`Docs/SHORTS_TITLE_BAND_AUDIT_20261022.md`). Covers may go ahead; do not upload these files until that decision is recorded, then use the hashes of whichever files he approves.
+
 Folder `Short-form video content/`, 1080x1920, 29.97 fps, captions burned in (no `.srt`), Dan's approved mix, with
 `.audio_gate.json` and `.deliver_gate.json` (PASS 39/39, gate 2.6.1) beside each. Re-hash (sha256) before any upload; a
 mismatch means the file changed after approval: stop and tell Dan. **iCloud trap (2026-10-22):** stale copies named

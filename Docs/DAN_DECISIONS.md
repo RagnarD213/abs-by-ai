@@ -6,6 +6,8 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 
 ---
 
+- **Clipped title letters on 11 Shorts (2026-10-22; Decision since: 2026-10-22):** the Soft Blue title band cut the tails of g/y/p on 11 finished Shorts (first: I'm 41 Wasted Life 1, Mon Oct 26; Oura 1 and 5 already in Blotato for Nov 13 and 27). Fixed for all future renders. Re-render the 11 (title area only) and swap them in before release? Rec: yes, starting with Wasted Life 1. List: `Docs/SHORTS_TITLE_BAND_AUDIT_20261022.md`.
+
 - **My First Spray Tan SFL R2, hair at the top edge (2026-10-21; Decision since: 2026-10-21):** the 8/3 camera framed your hair at the top row on every shot, so the two spray tan Shorts cannot meet the 2026-10-20 headroom rule (gate fails only `framing:hair_top`/`headroom`; the approved RO-19 film has the same framing). OK as is, drop them, or cover more talking with clips? Review page http://127.0.0.1:9015/.
 
 - **Review skill, two small questions (2026-10-20; Decision since: 2026-10-20):** (a) answered 2026-10-20: the eyebrow stays in capitals. (b) When a human editor sends AI start/end frames for a go-ahead, should Claude run our frame gate and a fresh frame-reviewer on them first (our own pipeline does since 2026-10-14)? Rec: yes to both.

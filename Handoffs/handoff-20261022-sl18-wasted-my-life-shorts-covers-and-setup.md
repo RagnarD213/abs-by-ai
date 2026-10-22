@@ -25,6 +25,8 @@ Approvals: `/Volumes/Expansion/_edit_work/SL-18/approval_B.json`, `approval_D.js
 
 ## 1. The two files (final; never re-render or re-edit)
 
+> ⚠ **Clipped title letters (2026-10-22):** Short 1 ("Backfire Long Term") have the tails of g/y cut off at the bottom of the title band. Dan decides whether to re-render them first (`Docs/SHORTS_TITLE_BAND_AUDIT_20261022.md`). Covers may go ahead; do not upload these files until that decision is recorded, then use the hashes of whichever files he approves.
+
 Folder `Short-form video content/`, 1080x1920, 29.97 fps, captions burned in (no `.srt`), the film's approved mix cut only (plus the
 declared audio repairs), with `.audio_gate.json` and `.deliver_gate.json` (gate 2.6.1, 39/39 PASS) beside each. Re-hash before
 any upload; a mismatch means the file changed after approval: stop and tell Dan. The project folder sits in iCloud (memory
