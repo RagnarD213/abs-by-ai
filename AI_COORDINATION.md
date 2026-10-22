@@ -147,7 +147,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-14 R3 HANDOFF 2026-10-21, Claude.** 2 fixes; commits unpushed.
 
-**DS-33:R2-REVIEW:2026-10-22:Claude.** http://127.0.0.1:9034/
+**DS-33:R2-REVIEW:2026-10-22:Claude.** 9034; commits local.
 
 **RO-20C HOLD 2026-10-21, Claude.** Waitlist, Dec 6. `Docs/RO20C_SETUP_RECEIPT_20261021.md`
 
