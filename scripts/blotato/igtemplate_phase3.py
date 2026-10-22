@@ -135,27 +135,46 @@ def swap():
             time.sleep(1.0)
 
 
-def place():
+def next_free(acct, day, items):
+    """The planned day if it is still ahead and free on this account, else the next free Mon/Wed/Fri 5 PM."""
+    from datetime import timedelta
+    today = datetime.now(q.CT).date()
+    busy = {q.local(i["scheduledAt"]).date() for i in items if i["draft"]["accountId"] == acct
+            and q.is_image(i) and q.local(i["scheduledAt"]).hour == 17}
+    while day <= today or day.weekday() not in (0, 2, 4) or day in busy:
+        day += timedelta(days=1)
+    return day
+
+
+def place(cap=200):
+    """Create every batch post that has a "slot" and is not yet queued. Waits politely at Blotato's cap: run again
+    later (queue_topup.py does, once no video is waiting). A slot that has passed or filled rolls to the next free one."""
     s = q.load_state()
     items = items_now()
+    left = 0
     for p in q.batch["posts"]:
         if not p.get("slot"):
             continue
         q.checks(p)
         assert all(f"{p['id']}/{f}" in s["uploads"] for f in p["files"]), "upload first: " + p["id"]
-        when = q.slot(datetime.fromisoformat(p["slot"]).date())
         for acct in (IG, FB):
             k = f"{acct}|{p['id']}"
             if k in s["created"]:
                 continue
-            clash = [i["id"] for i in items if i["draft"]["accountId"] == acct and i["scheduledAt"] == when and q.is_image(i)]
-            assert not clash, f"{acct} already has an image post at {p['slot']}: {clash}"
+            if len(items) >= cap:
+                left += 1
+                continue
+            day = next_free(acct, datetime.fromisoformat(p["slot"]).date(), items)
+            when = q.slot(day)
             r = call("POST", "/posts", KEY, post_body(p, acct, when, s))
-            s["created"][k] = {"response": r, "scheduledTime": when, "local": p["slot"] + " 17:00 CT",
+            s["created"][k] = {"response": r, "scheduledTime": when, "local": f"{day} 17:00 CT",
                                "caption_sha256": sha(p["caption"].encode())}
             q.save_state(s)
-            print("placed", acct, p["id"], p["slot"], flush=True)
+            items.append({"draft": {"accountId": acct, "target": {}, "content": {"text": p["caption"]}}, "scheduledAt": when, "id": "new"})
+            print("placed", acct, p["id"], day, flush=True)
             time.sleep(1.0)
+    print("template image placements still waiting for room:", left)
+    return left
 
 
 def verify():

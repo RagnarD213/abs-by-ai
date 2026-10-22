@@ -598,6 +598,26 @@
    "sha256": "09f42180285118a327fe2251c216c43661ecaef9997b551921b76853065ed3cd",
    "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/4debbe34-0339-401c-964c-4a6c4cc68017.jpg"
   },
+  "fix-05-toe-touch/fix-05-toe-touch-01.jpg": {
+   "sha256": "915a15ad40b52bc1760133f2f1d03bce4a4190fb1c0818472492460ef45602a8",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/39211801-b2ed-41e9-9757-268403f3f455.jpg"
+  },
+  "fix-05-toe-touch/fix-05-toe-touch-02.jpg": {
+   "sha256": "fbc497a41c9b19a1c7bf56ceee6f2a85a9725c3941d7b74e8357f016e52eca08",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/390a6ea0-2e2b-48ca-b8bb-f1b2d821b818.jpg"
+  },
+  "fix-05-toe-touch/fix-05-toe-touch-03.jpg": {
+   "sha256": "75c0645cab0e8c64b8d1f9641e7f737e037b7e9915ba0e4e349d9442d3adde29",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/92badb45-d85b-44d4-9e1e-4aaeac6621bb.jpg"
+  },
+  "fix-05-toe-touch/fix-05-toe-touch-04.jpg": {
+   "sha256": "7ea25ef13700c9c7d81ae007faaff6ecf22cc8ddddabaf81837e157bef8c5dd7",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/3937bf75-5b9b-42da-b803-257a5add1aa8.jpg"
+  },
+  "fix-05-toe-touch/fix-05-toe-touch-05.jpg": {
+   "sha256": "68986cac1abdd71f3930037d95d9ed49d671a3a4b6b1dcd10bdb2d48e6a1adac",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/83cffbe4-9269-4088-b843-3c622e2e91d8.jpg"
+  },
   "fix-06-v-sit-twist/fix-06-v-sit-twist-01.jpg": {
    "sha256": "91bda3c90480368a9e4a10d805735cd37b2645767840d74865024ed2bd213280",
    "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/fb93f4ea-dba0-4e0a-97b0-6bf9e6d23fd3.jpg"
@@ -617,6 +637,26 @@
   "fix-06-v-sit-twist/fix-06-v-sit-twist-05.jpg": {
    "sha256": "1ebce0332bbd427d1196ed99628262959bdf78500e9112d8e54d59eee63a2c06",
    "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/dda5f5b9-d173-4bb2-ae0a-0b1102ce405a.jpg"
+  },
+  "fix-08-push-up/fix-08-push-up-01.jpg": {
+   "sha256": "977457f926a583f6f894f35d89272fb3a1e0805b0a953d028485e5a00beb5cab",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/044eb999-811c-4f53-b463-b472e2e2498d.jpg"
+  },
+  "fix-08-push-up/fix-08-push-up-02.jpg": {
+   "sha256": "ee3c42aa0abb2375235cc8887e9df9ded301edcbf6e5dc791d59ada2e696a2f0",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/b7faf9c8-dbc0-47d7-9900-06a05354721f.jpg"
+  },
+  "fix-08-push-up/fix-08-push-up-03.jpg": {
+   "sha256": "3fb10988b8098db691a13f99ba068b6a5ab1eccc43d6767850a368bcd4db28b3",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/d013271f-b1e2-478c-bbf9-a853bd6dac1b.jpg"
+  },
+  "fix-08-push-up/fix-08-push-up-04.jpg": {
+   "sha256": "c25248b37942192da4524a1a01e2f388b244cf75fd6381eb84bae973c4dec8f8",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/db7215db-dbde-4588-968b-33da796cb2c6.jpg"
+  },
+  "fix-08-push-up/fix-08-push-up-05.jpg": {
+   "sha256": "64391a5aa2a528854a476237aee80709ff5dfef2c1bcd06b0694f250ca333e65",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/cb0f4867-d0cc-4c9f-ad9c-fa81fd8a0de1.jpg"
   },
   "fix-09-bicep-curl-swing/fix-09-bicep-curl-swing-01.jpg": {
    "sha256": "e7edbbe0a7f8d3ddb4bf27ce42fa3738a4ba9ba57c3a7d2d1c295411c504410d",
@@ -678,6 +718,38 @@
    "sha256": "3b2b7ab55e63cb8bf219e7d49b8bcd2f03d6c38c5d26d031cb91267a447a0c5a",
    "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/669ed8a2-b84e-41eb-8573-4bc3e73f3cf2.jpg"
   },
+  "receipts-04-light-weights/receipts-04-light-weights-01.jpg": {
+   "sha256": "9da85bec5a74ccd51203f6263a0d3dfb5aa372d2db446be14bb042bbaeab4c6e",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/1e1fde74-d8ba-4a49-a55b-cf67e7182f83.jpg"
+  },
+  "receipts-04-light-weights/receipts-04-light-weights-02.jpg": {
+   "sha256": "7eaf70eaeafd23c46265cca8ee050c50e2d6503c90ba5e8aa978894e89506c20",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/c928105a-6c9c-4778-948d-a9714a164afa.jpg"
+  },
+  "receipts-04-light-weights/receipts-04-light-weights-03.jpg": {
+   "sha256": "09a16a254666b6ddda565c607025e2dd2aeb4bddc3fbbfb1c10f6b469107e101",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/a52e9590-f55e-46f6-b073-8f5a5a8dff50.jpg"
+  },
+  "receipts-04-light-weights/receipts-04-light-weights-04.jpg": {
+   "sha256": "fb8244279552fd1c46da75412bb9b662dabc0198d3f766a9b3a74a2a74fca071",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/14129208-ab79-4599-bc07-13d6992bac0a.jpg"
+  },
+  "receipts-06-sleep/receipts-06-sleep-01.jpg": {
+   "sha256": "347f058438443e02b3cf43ef28d1a51b986783ebb5261a7030c11b2da985e9b7",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/34e51325-8437-4ac2-bb86-9423967af074.jpg"
+  },
+  "receipts-06-sleep/receipts-06-sleep-02.jpg": {
+   "sha256": "b5ebfbd077008f4c45f183637f5f56076204cec10b274998453c81b988de03c1",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/5925dcf2-c367-4798-a707-09686ff3589b.jpg"
+  },
+  "receipts-06-sleep/receipts-06-sleep-03.jpg": {
+   "sha256": "e4e834807e0f65c40b6378e7244e729b15e4354d7f0b5387e69c50783de3c64e",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/068abe0a-602d-44ef-8bb5-b6e6a16664bf.jpg"
+  },
+  "receipts-06-sleep/receipts-06-sleep-04.jpg": {
+   "sha256": "74c36dc62acb101a127576da1e52dbac2c109f3eaa251526fecf6965ff58c25d",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/36b2f2a6-ccf8-4fb6-bf23-9c4508dc351b.jpg"
+  },
   "receipts-11-carbs-at-night/receipts-11-carbs-at-night-01.jpg": {
    "sha256": "45e3c513ac5f089edbd3190fd67308771e209eb0f3953bf34cbe642e956790f3",
    "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/523f607d-c7d5-4683-86da-758581e3232d.jpg"
@@ -713,6 +785,26 @@
   "workout-02-five-minutes/workout-02-five-minutes-05.jpg": {
    "sha256": "8a1dd9924c83216d8cd052e24446cff27b74c1277675973cb22771235606acbb",
    "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/3889b9a7-60f7-4908-add0-54137c74171d.jpg"
+  },
+  "workout-03-kettlebell/workout-03-kettlebell-01.jpg": {
+   "sha256": "c268ef5276dc57cd4e1f35e820178b69d860c35a84623a001994391d85c97341",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/57d46bec-be22-4303-b568-9082e1da5faf.jpg"
+  },
+  "workout-03-kettlebell/workout-03-kettlebell-02.jpg": {
+   "sha256": "9551f2fe05065853cf04cd49b227eb090d0f6c722a39a5aa123ec8623c675753",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/89b02b96-23cc-4a9f-bf75-7e1edc4bf6e7.jpg"
+  },
+  "workout-03-kettlebell/workout-03-kettlebell-03.jpg": {
+   "sha256": "9891515b8b60d398e48be3e54957b92f966062b205910e3d3e2505e77c5c167f",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/49a715e6-f609-4a5b-afc7-b6436d918ca2.jpg"
+  },
+  "workout-03-kettlebell/workout-03-kettlebell-04.jpg": {
+   "sha256": "e08a17b5041d8fee42ce78ef7f98f99746b173f09b67d160f0cccb89c76104d9",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/c5586b2e-01c3-4cb1-bd1e-728423d05f6b.jpg"
+  },
+  "workout-03-kettlebell/workout-03-kettlebell-05.jpg": {
+   "sha256": "991cf6fe4498a5976d423aa95a585c2eac2c41aeb853dfc63d78f0786fa40760",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/8fd658ad-79ad-4060-98c8-e8e7f75dbc25.jpg"
   },
   "workout-04-home-arms/workout-04-home-arms-01.jpg": {
    "sha256": "1ce24a3fe876a09b1ce3ac2ed423eb2c1468a5008b73b05b32bb952074d96915",

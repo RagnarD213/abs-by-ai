@@ -2,7 +2,7 @@
  "format": "receipts",
  "id": "receipts-05-too-old",
  "tag": "Receipts · 05",
- "status": "R2 2026-10-22 (Dan's notes, page rank 4): shirtless glasses cutout cover, AI fit 90-year-old, tips slide, new verdict photo + save | R3 2026-10-22: cover = Codex (gpt-6.1-sol, high) aged version of the same studio-blue-100 photo, late 50s/early 60s, cut out (BiRefNet); 'AI-generated image' label baked into the cutout because the cutout cover has no label slot",
+ "status": "R2 2026-10-22 (Dan's notes, page rank 4): shirtless glasses cutout cover, AI fit 90-year-old, tips slide, new verdict photo + save | R3 2026-10-22: cover = Codex (gpt-6.1-sol, high) aged version of the same studio-blue-100 photo, late 50s/early 60s, cut out (BiRefNet); 'AI-generated image' label baked into the cutout because the cutout cover has no label slot | R4 2026-10-22: aging redone more conservatively (early 50s, salt-and-pepper) per Dan; AI label now from the template.",
  "slides": [
   {
    "type": "cover",
@@ -11,9 +11,9 @@
    "headline": "Think you're\ntoo old to\nbuild\n[hl]muscle?[/hl]",
    "sub": "[r]Then you have to see this study.[/r]\nDone on 90-year-olds lifting in a nursing home.",
    "image": {
-    "src": "Short-form video content/instagram-danrosefit/assets/receipts-05-too-old/ai-dan-aged-60-cutout-labelled.png",
+    "src": "Short-form video content/instagram-danrosefit/assets/receipts-05-too-old/ai-dan-aged-50s-cutout.png",
     "label": "ai",
-    "alt": "AI-generated image of Dan aged to about 60, shirtless in glasses, smiling",
+    "alt": "AI-generated image of Dan aged to his early 50s, salt-and-pepper hair, shirtless in glasses, smiling",
     "height": 450,
     "maxw": 310,
     "right": -10

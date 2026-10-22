@@ -37,6 +37,13 @@ anyone sees the post. Queue picks with `scripts/blotato/igtemplate_queue.py` (ad
   recipe in `_shared/cliplib/README.md`, "Grades Dan approved for filmed B-roll"); `enhance.py` alone cannot fix log
   footage. Dan: "anytime you use a screenshot in these carousels, it's properly color corrected and looking optimal."
   Centre the subject, little headroom, nothing cut off.
+- **Never a photo of Dan sitting or slumped between sets (Dan, round 3, 2026-10-22):** "avoid using these screenshots where
+  I'm just sitting and slumped. There's no reason ever to use a picture like that." Cues and tips slides use a photo where
+  he looks ripped (studio photos in `photos/finalized social media photos/`) or a clean frame of the move itself.
+- **Aging Dan with AI:** conservative and realistic (early 50s, salt-and-pepper hair, same face and smile); a heavy
+  "60-year-old" edit looked fake. Label it AI-generated even on slide 1 (`image.label: "ai"` on a cutout cover).
+- **Blotato full:** batch posts with a `slot` wait; the daily routine's `queue_topup.py` runs `igtemplate_phase3.place`
+  once no video is waiting (videos first). A passed or taken slot rolls to the next free Mon/Wed/Fri 5 PM.
 - **Receipts was the weakest format** ("visually boring"): big images on the cover, an image on the study slide, a tips
   slide with Dan's photo small upper right, 4 slides when that is enough, text that fills the space. Copy was fine.
 - **The Fix:** circle every fault and name it in a pill; on the fix slide, arrows to each thing done right.

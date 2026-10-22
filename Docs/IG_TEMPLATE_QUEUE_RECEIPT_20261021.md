@@ -65,3 +65,12 @@ there is room, then `verify`.
 - Captions: `dan-voice-writer` (CLI login expired, in-session fallback); 0 long dashes, 5 hashtags.
 - Verified: 33 of 33 placements exact, no duplicate image slots, 0 studio posts. Round 3 review (7 unqueued posts):
   https://claude.ai/artifact/KoNaPVWbjLn9C2FUZhhqK2
+
+## Round 3 picks waiting for room (2026-10-22, night)
+
+Dan's round 3 picks, planned 5 PM CT IG + FB: Fri Dec 4 fix-05 toe touch, Mon Dec 7 receipts-06 sleep, Wed Dec 9
+workout-03 kettlebell, Fri Dec 11 fix-08 push-up, Mon Dec 14 receipts-04 light weights. Blotato is at 200/200 and
+videos go first, so 13 placements wait (these 10, workout-07 FB, workout-08 both). `queue_topup.py --apply` (run by the
+daily `social-queue-daily-refresh` routine) now calls `igtemplate_phase3.place` once no video is waiting; a passed or
+taken day rolls to the next free Mon/Wed/Fri 5 PM. Captions via `dan-voice-writer` (in-session fallback). Round 4
+review (plank, too old): https://claude.ai/artifact/4Bxwguv9cNTAnksoFLSpT7

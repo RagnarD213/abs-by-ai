@@ -25,6 +25,7 @@
   {%- elif mode == 'cutout' %}
   <div aria-hidden="true" style="position:absolute;right:{{ c.disc_right or 10 }}px;bottom:{{ c.disc_bottom or 40 }}px;width:{{ c.disc or 300 }}px;height:{{ c.disc or 300 }}px;border-radius:50%;background:var(--yellow)"></div>
   <img src="{{ c.image.src|uri }}" alt="{{ c.image.alt or 'Dan Rose' }}" style="position:absolute;right:{{ c.image.right or 0 }}px;bottom:0;height:{{ c.image.height or 420 }}px;width:auto;max-width:{{ c.image.maxw or 320 }}px;object-fit:contain;object-position:bottom right">
+  {%- if c.image.label == 'ai' %}<div class="lbl" style="right:20px;bottom:16px">AI-generated image</div>{% endif %}
   <div data-fit-col style="position:absolute;left:36px;right:36px;top:62px;height:{{ c.head_h or 212 }}px;overflow:hidden">
     <h1 class="hd" data-fit="{{ c.size or 72 }},40" style="font-size:{{ c.size or 72 }}px;color:var(--ink)">{{ c.headline|mk }}</h1>
   </div>
