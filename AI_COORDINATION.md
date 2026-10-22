@@ -45,7 +45,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-09:POLICY-RECHECK:2026-10-22:Claude.** 10-23.
 
-**Fat 90 Year Old SFC R4 - REVIEW :8940 2026-10-22, Claude.** Intro A (box upper left) and B (lower left, laptop) both reviewer SHIP. Next: Dan's pick. Work: `ds40/r4/` (Expansion).
+**Fat 90 Year Old SFC R6 - HANDOFF 2026-10-22, Claude.** B opening locked as reaction format; graphics and full Short handed off (`Handoffs/README.md`).
 
 **DS-44:ACTIVE:2026-10-21:Claude.**
 
