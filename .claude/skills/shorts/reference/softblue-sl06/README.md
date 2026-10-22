@@ -219,3 +219,16 @@ run_fix.sh     fix_take.py on the corrected frame: vial label + background stati
   R5 C was 62). Per-take frame-reviewers disagree on borderline takes; always finish with the ra-reviewer before Dan sees it.
 - **Start frame = end frame (Flow frames mode, Quality)** gave the steadiest bodies (waist 9-20 px). Yield was still about 1 in 50
   takes on Quality for a calm 3-4 s hold of AI Dan. About 7,500 Flow credits for one shippable intro; budget before trying again.
+
+## Round 7 (2026-10-22): no-face AI intro stills (`round7/`)
+
+Dan chose no-face concepts after the AI-Dan intros: object scenes the video model only lights, dusts or steams, with the camera
+push added in editing. Stills first (`preview_r7.py`: the still + AI chip + 1.07x push-in over the real opening line; `page_r7.py`).
+- **frame gate on a still:** set `"person": null` in the spec, or gate.py fails `person:found`; the gate then checks nothing
+  useful on START = END, so the fresh frame-reviewer is the real check. Ask it "real photo? reads at a glance?" plus the chip and
+  caption zones (top right, lower 30 %).
+- **What image models cannot draw convincingly:** a correctly ticked syringe scale (lay the syringe scale-down), a sharps bin
+  (drop it), true relative sizes in a flat lay (state real centimetres), a terry towel close up (use a plain rubber mat), and worn
+  leather around belt holes (five attempts, always radiating "starburst" texture; the belt idea was replaced). Belt physics too:
+  the holes sit at the tail end, and the tightest hole is the one FURTHEST from the tip.
+- What passed first time: a lighting-contrast shelf (pen dark, vial lit) and a food plate with steam.
