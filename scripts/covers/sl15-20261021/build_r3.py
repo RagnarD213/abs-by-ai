@@ -158,23 +158,34 @@ def make_K(ig):
  fist stays inside the frame with his centre further right, raised 40 px; the inset is smaller, in the bottom-left corner. The
  inset's position is searched until it does not touch his person mask (overlap reported in the manifest)."""
  tm=Image.new('L',(W,H));top=250 if ig else 64;f1=b.fit(LINES[0],FUTURA,118,980,5);f2=b.fit(LINES[1],FUTURA,118,920)
- y2=top+56+f1.size+22;b2=f2.getbbox(LINES[1],anchor='ma');hb=y2+b2[3]+40;B=1700 if ig else H-6
- CX,FIST,MID,RIGHT=(610 if ig else 585),1070,1492,2685   # target body centre; his right fist's outer edge and his centre in the source (measured)
- sc=round(min(0.40 if ig else 0.43,(FIST-CX)/(RIGHT-MID)),4)   # YouTube's taller frame keeps him larger so the photo reaches the bottom
- hi,hm=hero_tan(sc);hx=round(CX-MID*sc);ty=hb-50
+ y2=top+56+f1.size+22;b2=f2.getbbox(LINES[1],anchor='ma');hb=y2+b2[3]+40;B=1700 if ig else H+26   # YouTube: the print may run just past the bottom edge (its caption stays inside)
+ # Round 5 (Dan, 2026-10-22): "For the Instagram crop, make the photo slightly larger. For the YouTube crop, make my photo extend to the
+ # bottom and also make the photo slightly larger... make the YouTube one look a little bit more like the Instagram and move the photo
+ # down." YouTube: the hero is larger and stands on the bottom edge, its top just under the headline; the fist limit sets its centre.
+ FIST,MID,RIGHT=1070,1492,2685   # his right fist's outer edge and his centre in the source (measured)
+ from scipy.ndimage import binary_dilation
+ def try_scale(sc,CX,ty_fn):
+  hi,hm=hero_tan(sc);hx=round(CX-MID*sc);ty=ty_fn(hi)
+  cm=np.zeros((H,W),bool);x0,y0=max(0,hx),max(0,ty);x1,y1=min(W,hx+hi.width),min(H,ty+hi.height);cm[y0:y1,x0:x1]=hm[y0-ty:y1-ty,x0-hx:x1-hx]
+  cmd=binary_dilation(cm,iterations=10);best=None
+  for w in (330,320,310,300,290):   # round 5: larger than round 4's 290 where it still clears him
+   fr,ip=inset(w)
+   for ix in (8,0,-8,-16):
+    iy=B-fr.height;a=np.zeros((H,W),bool);ys,xs=np.where(np.asarray(fr.getchannel('A'))>20)
+    ys=ys+iy;xs=xs+ix;k=(xs>=0)&(xs<W)&(ys>=0)&(ys<H);a[ys[k],xs[k]]=True;ov=int((a&cmd).sum())
+    if best is None or (ov,-w)<(best[0],-best[1]):best=(ov,w,ix,iy,fr,ip)
+    if ov==0:break
+   if best[0]==0:break
+  return hi,hx,ty,best
+ if ig:sc=0.40;hi,hx,ty,best=try_scale(sc,610,lambda h:hb-50)
+ else:   # largest hero standing on the bottom edge that still leaves a 300 px+ photo clear of him
+  for sc in (0.44,0.435,0.43,0.425,0.42,0.415,0.41,0.405,0.40):
+   hi,hx,ty,best=try_scale(sc,min(585,FIST-round((RIGHT-MID)*sc)),lambda h:H-h.height)
+   if best[0]==0 and best[1]>=300:break
+ if not ig:   # YouTube: the headline block moves down to sit on the hero's top edge, as on Instagram (no blurred band between)
+  sh_=ty+50-hb;top+=sh_;y2+=sh_;hb+=sh_
  im=backdrop('tan',(W,H)).convert('RGBA');ff=feather(hi.size,60);ff[:,-60:]=1;ff[-60:]=1;ff[:60]=1
  s_=hi.convert('RGBA');s_.putalpha(Image.fromarray((ff*255).astype(np.uint8)));im.alpha_composite(s_,(hx,ty))
- cm=np.zeros((H,W),bool);x0,y0=max(0,hx),max(0,ty);x1,y1=min(W,hx+hi.width),min(H,ty+hi.height);cm[y0:y1,x0:x1]=hm[y0-ty:y1-ty,x0-hx:x1-hx]
- from scipy.ndimage import binary_dilation
- cmd=binary_dilation(cm,iterations=12);best=None
- for w in (290,280,270,260,250,240,230):
-  fr,ip=inset(w)
-  for ix in (8,0,-8,-16):
-   iy=B-fr.height;a=np.zeros((H,W),bool);ys,xs=np.where(np.asarray(fr.getchannel('A'))>20)
-   ys=ys+iy;xs=xs+ix;k=(xs>=0)&(xs<W)&(ys>=0)&(ys<H);a[ys[k],xs[k]]=True;ov=int((a&cmd).sum())
-   if best is None or ov<best[0]:best=(ov,w,ix,iy,fr,ip)
-   if ov==0:break
-  if best[0]==0:break
  ov,w,ix,iy,fr,ip=best
  b.ramp(im,0,hb+120,240)
  sh=Image.new('RGBA',fr.size,(0,0,0,0));sh.putalpha(fr.getchannel('A').point(lambda v:int(v*0.55)))
