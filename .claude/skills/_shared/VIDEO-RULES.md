@@ -214,6 +214,19 @@ Dan: "The system that I want is one where I give my revisions and then the new t
   approves the replacement; then swap it everywhere it is used (Instagram, YouTube, the TikTok cover-first copy, the Facebook cover
   registry and the live installer) and read each back.
 
+## Revised covers and thumbnails: show Dan before installing (Dan, 2026-10-22)
+
+- **When Dan asks for any change to a cover or thumbnail he picked (new text, new image, any revision), build it, show him the
+  finished file in every layout, and stop. Install, upload or schedule it only after he approves that exact file.** Dan, on the
+  SL-06 Top 5 Zepbound Tips covers (text changes on five picks, queued without his look): *"Show me the covers that I gave
+  revisions to review. I didn't approve them yet... Let's make this a standard rule going forward. If there are revisions, you
+  show them to me to review before we install."* The same day, on SL-18: *"I want you to have me approve the final short before
+  you install in the future."*
+- A pick from the review sheet with no change still goes straight to setup. A pick with a revision is a stop point: everything
+  else in the setup (media backups, TikTok copies, captions, configs) may be prepared meanwhile, but nothing carrying the revised
+  cover is queued or installed until his OK. If he named no letter for a short, that is a question, not a default.
+- Binds Claude and Codex, `/video-setup`, `/ad-setup`, `/coverimage`, `/youtube-packaging`, and any cover swap on a live queue.
+
 ## Thumbnails: the five, each its own design, always made by Codex (Dan, 2026-10-13)
 
 Dan, finalizing RO-19: *"Let's make this a standard way of making thumbnails going forward. We always have one pool, one
