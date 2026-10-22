@@ -153,7 +153,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-20C HOLD 2026-10-21, Claude.** Waitlist, Dec 6. `Docs/RO20C_SETUP_RECEIPT_20261021.md`
 
-**Zepbound Even If Ripped LFC R2 - PAUSED 2026-10-21, Claude.** Render-line triage (2027 release). Clips A1/A5 regenerated, graphics done; nothing queued. On "resume": re-review A5 retime, requeue `recipe/chain_r2.sh` (no --priority), page :8929. `/Volumes/Expansion/_edit_work/ro28/round2/`.
+**Zepbound Even If Ripped LFC R2 - ACTIVE 2026-10-22, Claude.** Resumed. A5 retime review and first-minute chain running (no priority). Next: page :8929. `/Volumes/Expansion/_edit_work/ro28/round2/`.
 
 **Make Time Exercise LFC R2 - REVIEW :8982 2026-10-21, Claude.** RO-18 full film delivered; VLC copy in Videos to Review. Next: Dan's notes.
 
