@@ -232,3 +232,14 @@ push added in editing. Stills first (`preview_r7.py`: the still + AI chip + 1.07
   leather around belt holes (five attempts, always radiating "starburst" texture; the belt idea was replaced). Belt physics too:
   the holes sit at the tail end, and the tightest hole is the one FURTHEST from the tip.
 - What passed first time: a lighting-contrast shelf (pen dark, vial lit) and a food plate with steam.
+- **Motion stage (R7):** 14 Veo Fast takes for five object scenes; only A's (dust in a light beam, slight camera creep) passed
+  review. Veo still fails "simple" ambient motion: a light going out became a hard-edged black mask (B), small labels came out
+  misspelled with dust bursting from nowhere (E), steam formed floating ghost ovals (F), a flat mat's texture shimmered (C). What
+  shipped instead: the approved still + a smooth push-in (`push.py`: cv2.warpAffine cubic, sub-pixel; ffmpeg zoompan steps 1 px
+  and a reviewer caught it), B's lamp dimmed in code (soft Gaussian pool fading to 30 %, ambient kept), C's step badges
+  (`_shared/hyperframes/step-badges/`) composited before the push. Independent review: SHIP all five.
+- **Gate a still-based intro on the file that ships:** re-pushing an intro changes its sha256 and voids the clipcheck stamp.
+- **Run the delivery gate only after the watch judge records `inspected`** for THIS delivery: a helper that polled the flag
+  fired on the previous round's file and gated B and C too early (both re-run PASS).
+- **iCloud now syncs Documents:** stale "name 2.mp4 / name 3.mp4" copies of older renders reappear beside delivered files;
+  compare dates and checksums, move the stale ones out.
