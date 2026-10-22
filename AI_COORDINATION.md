@@ -47,7 +47,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-09:POLICY-RECHECK:2026-10-22:Claude.** 10-23.
 
-**Fat 90 Year Old SFC R6 - HANDOFF 2026-10-22, Claude.** B opening locked as reaction format; graphics and full Short handed off (`Handoffs/README.md`).
+**Fat 90 Year Old SFC R6 - ACTIVE 2026-10-22, Claude.** Graphics (new BMI table template), edit plan and full Short draft in build; page :8940 next. Work: `/Volumes/Expansion/_edit_work/ds40/r6/`.
 
 **DS-44:ACTIVE:2026-10-21:Claude.**
 
