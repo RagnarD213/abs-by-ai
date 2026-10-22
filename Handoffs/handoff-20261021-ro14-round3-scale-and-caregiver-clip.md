@@ -48,8 +48,8 @@ Nothing else was noted: every other part of the round 2 film stays exactly as de
 
 ## Then, in order
 
-1. **A1, try for a longer clean take.** (a) If Dan has allowed automatic downloads for flow.google.com, collect the two A1s takes
-   from the Flow project. (b) Generate new takes in Flow (the account showed Ultra, about 8,500 credits; Fast costs 10, Quality 100):
+1. **A1, try for a longer clean take.** (a) Dan allowed automatic downloads for flow.google.com on 2026-10-22 (Chrome site
+   settings), so collect the two A1s takes from the Flow project first. (b) Generate new takes in Flow (the account showed Ultra, about 8,500 credits; Fast costs 10, Quality 100):
    START frame only (`round1/aiframes/A1-start.png`; the approved END frame's display position cannot connect to the floor scale's,
    which is why every START+END take doubled the display), Veo 3.1 Quality, 2-4 takes, prompt from
    `round2/motion_prompts/A1q.txt` plus the payoff: after lifting it he **taps the display and shakes the scale, frowning, as if it
