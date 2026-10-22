@@ -57,3 +57,29 @@ Hey Muhammad, got all three, thank you! The exercise clips on Top 5 look so much
 All three are FINALIZED. Please send me the high quality exports of Top 5 Ab Exercises, 3 Most Important Supplements and Getting Abs, and those are done: https://docs.google.com/document/d/1auwgYESNLCSCT50ubR7Plf3L5gnQbdIWvpamHpX7muk/edit
 
 Really appreciate the work on these!
+
+## Dan's decision (2026-10-22)
+All three accepted from Muhammad. Top 5 Ab Exercises is NOT finished on our side: we swap in Dan's own cable crunch B-roll
+(`Handoffs/handoff-20261022-top5-ab-exercises-cable-crunch-broll.md`, edit queue DS-01 blocked). Getting Abs and Supplements are
+finalized; setup waits on the HQ exports (`Handoffs/handoff-20261022-getting-abs-and-supplements-sfc-setup.md`).
+
+## Second paste-ready message: what is left in the batch
+
+Hey Muhammad, thanks again for these three! Here's everything left in the batch so nothing slips through:
+
+High quality exports (these are all FINALIZED, I just need the HQ files):
+1. Top 5 Ab Exercises (V4)
+2. The 3 Most Important Supplements For Men (V3)
+3. How Getting Abs Looksmaxxes Your Face (V3)
+4. Why You Must Weigh Yourself Daily (V4)
+5. Why Having Abs Beats Being A Fat Millionaire (V4)
+6. Top 3 Ways To Use AI To Get Abs (V5)
+
+Next versions from my October 5 notes:
+7. Jiu Jitsu
+8. Last Ten Pounds
+9. Battle Ropes
+10. Five Levels Of Pushups
+Notes here: https://docs.google.com/document/d/1FUg4oPmdlyiRqG_jUWOvyaNTC0AQq9JUSL2-_qcjTxg/edit
+
+That's the whole list. Once those are in, the batch is done. If you've already sent any of these and I missed it, just point me to the link. Thanks!
