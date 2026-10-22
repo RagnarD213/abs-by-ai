@@ -79,5 +79,5 @@ review (plank, too old): https://claude.ai/artifact/4Bxwguv9cNTAnksoFLSpT7
 
 Dan approved the last two after two fixes (plank slide 4: different, centred pose; aged cover label "Real image of me,
 modified with AI to show my natural hair color."). Planned Wed Dec 16 fix-07 plank, Fri Dec 18 receipts-05 too old;
-both wait for Blotato room with the others (15 placements waiting). Batch 1 is fully picked: 27 carousels plus the cheat
+both wait for Blotato room with the others (17 placements waiting). Batch 1 is fully picked: 27 carousels plus the cheat
 sheet; ab wheel fix, gym arms and the deadlift-swap workout wait for footage.
