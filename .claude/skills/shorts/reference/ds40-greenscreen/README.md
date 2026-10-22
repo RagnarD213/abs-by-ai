@@ -105,3 +105,17 @@ its turn, and a rawvideo decode for measurement is filed as heavy. Run measureme
 `renderq.py run --light --group ds40 -- python3 metrics.py ...` (analysis is the light lane) and renders with
 `renderq.py run --group ds40 -- ...`. On a busy evening the heavy lane was 40 deep and a 9 s render waited over an hour.
 Independent review: `/Volumes/Extreme/_edit_work/ds40/r2/audit/R2-REVIEW.md` (SHIP, then SHIP on re-check).
+
+## Round 3 (2026-10-21): reaction opening, clip full screen with small Dan in the corner
+
+`comp_opening_r3.py`: the clip full screen (fixed vertical crop on the speaker), Dan keyed small (0.33) bottom-left over it
+using his REAL reaction (the roll where the clip played on his laptop: find it by the clip audio in the roll's words.json),
+then a 0.5 s move (clip shrinks into its card, Dan grows) into the R2 layout. Lessons from four independent re-checks:
+- Cut the clip on word boundaries measured in the clip's own transcript: 0.1 s early let a stray "But" in; ending at the word's
+  start clipped "lie" into "law". Check both ends with Whisper.
+- At small size Dan's body fills the camera width: his footage must sit FLUSH on the screen edge on one side (an arm 14 px in
+  from the edge ends in a straight line); on the other side use a narrow fade (12 px on screen), widened (40 px) only on the
+  frames where a hand leaves the camera. A wide fade all the time makes the shoulder see-through.
+- A seek's first decoded frame repeats the next one (ffmpeg -ss): never trust frame 0 of a resumed decode; seek a few frames early.
+- Dissolve between two takes during the grow: 3 frames, while he is still small (8 frames showed a double image).
+- 10 ms fades are too short for a voice that starts on a breath: 25 ms.
