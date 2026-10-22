@@ -123,7 +123,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [RO-11](RO-11-when-calories-don-t-matter-for-fat-loss.md) | When Calories Don't Matter For Fat Loss | 9/23 C1705 | UPLOADED | L |
 | [RO-12](RO-12-top-5-zepbound-tips.md) | Top 5 Zepbound Tips | 9/23 C1706 | UPLOADED | L |
 | [RO-13](RO-13-can-you-drink-alcohol-and-still-have-abs.md) | Can You Drink Alcohol And Still Have Abs? | 9/23 C1707 | FINALIZED | L |
-| [RO-14](RO-14-why-you-re-not-losing-weight.md) | Why You're Not Losing Weight | 9/23 C1708 | FINALIZED | L |
+| [RO-14](RO-14-why-you-re-not-losing-weight.md) | Why You're Not Losing Weight | 9/23 C1708 | UPLOADED | L |
 | [RO-15](RO-15-sleep-better-with-glycine.md) | Sleep Better With Glycine | 9/23 C1709 | READY | L |
 | [RO-16](RO-16-if-i-had-belly-fat-here-s-how-i-d-lose-it-in-90-da.md) | If I Had Belly Fat, Here's How I'd Lose It In 90 Days | 9/23 C1710 | UPLOADED | L |
 | [RO-17](RO-17-3-healthy-foods-that-made-me-fat.md) | 3 Healthy Foods That Made Me Fat | 9/23 C1713 | FINALIZED | L |
@@ -257,6 +257,7 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 | [SL-20](SL-20-invest-in-your-health-shorts.md) | Why You Should Invest More In Your Health (RO-20, YouTube Sun Nov 22; 3 Shorts, Short 1 airs Mon Nov 23) | READY: approved parent filed; due Nov 22 | S |
 | [SL-21](SL-21-what-to-cut-shorts.md) | What To Cut To Afford Getting In Shape (RO-20B, YouTube Sun Nov 29; 3 Shorts, Short 1 airs Mon Nov 30) | READY: approved parent filed; due Nov 29 | S |
 | [SL-22](SL-22-what-to-buy-shorts.md) | What To Buy For Your Health At Every Income Level (RO-20C, YouTube Sun Dec 6; 3 Shorts, Short 1 airs Mon Dec 7) | READY: approved parent filed; due Dec 6 | S |
+| [SL-23](SL-23-not-losing-weight-shorts.md) | Why You're Not Losing Weight (RO-14, YouTube Sun Jan 3 2027; 3 Shorts, Short 1 airs Mon Jan 4) | READY: approved parent filed; due Jan 3 | S |
 
 **Will need shorts once final (no handoff yet; add one when the long-form is approved):**
 * Your Belly Fat Is An Emergency (Codex, revision in progress)
