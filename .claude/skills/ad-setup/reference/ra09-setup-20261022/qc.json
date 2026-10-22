@@ -1,0 +1,102 @@
+[
+  {
+    "number": 1,
+    "fmt": "16x9",
+    "name": "pool-photo-247-cyan-din",
+    "label": "Real pool photo: you smiling in the pool at blue hour, cyan headline on top",
+    "file": "ai-changing-world_1-pool-photo-247-cyan-din | 16x9.jpg",
+    "clearance_px": 325,
+    "headroom_px": 80,
+    "ok": true
+  },
+  {
+    "number": 1,
+    "fmt": "9x16",
+    "name": "pool-photo-247-cyan-din",
+    "label": "Real pool photo: you smiling in the pool at blue hour, cyan headline on top",
+    "file": "ai-changing-world_1-pool-photo-247-cyan-din | 9x16.jpg",
+    "clearance_px": 60,
+    "headroom_px": 590,
+    "ok": true
+  },
+  {
+    "number": 2,
+    "fmt": "16x9",
+    "name": "studio-gray-67-orange-globe",
+    "label": "Real studio photo: you in front of a wired-up globe, orange block headline",
+    "file": "ai-changing-world_2-studio-gray-67-orange-globe | 16x9.jpg",
+    "clearance_px": 104,
+    "headroom_px": 70,
+    "ok": true
+  },
+  {
+    "number": 2,
+    "fmt": "9x16",
+    "name": "studio-gray-67-orange-globe",
+    "label": "Real studio photo: you in front of a wired-up globe, orange block headline",
+    "file": "ai-changing-world_2-studio-gray-67-orange-globe | 9x16.jpg",
+    "clearance_px": 118,
+    "headroom_px": 620,
+    "ok": true
+  },
+  {
+    "number": 3,
+    "fmt": "16x9",
+    "name": "ai-dan-smart-cable-red",
+    "label": "AI picture of you: a smart cable machine adjusts itself for you, racing red",
+    "file": "ai-changing-world_3-ai-dan-smart-cable-red | 16x9.jpg",
+    "clearance_px": 159,
+    "headroom_px": 23,
+    "ok": true
+  },
+  {
+    "number": 3,
+    "fmt": "9x16",
+    "name": "ai-dan-smart-cable-red",
+    "label": "AI picture of you: a smart cable machine adjusts itself for you, racing red",
+    "file": "ai-changing-world_3-ai-dan-smart-cable-red | 9x16.jpg",
+    "clearance_px": 186,
+    "headroom_px": 858,
+    "ok": true
+  },
+  {
+    "number": 4,
+    "fmt": "16x9",
+    "name": "ai-robot-supervises-curl-green",
+    "label": "AI: a giant robot very seriously supervises one dumbbell curl",
+    "file": "ai-changing-world_4-ai-robot-supervises-curl-green | 16x9.jpg",
+    "clearance_px": 61,
+    "headroom_px": 9999,
+    "ok": true
+  },
+  {
+    "number": 4,
+    "fmt": "9x16",
+    "name": "ai-robot-supervises-curl-green",
+    "label": "AI: a giant robot very seriously supervises one dumbbell curl",
+    "file": "ai-changing-world_4-ai-robot-supervises-curl-green | 9x16.jpg",
+    "clearance_px": 99,
+    "headroom_px": 9999,
+    "ok": true
+  },
+  {
+    "number": 5,
+    "fmt": "16x9",
+    "name": "ai-laptop-home-gym-blue",
+    "label": "AI: a giant laptop that turns into a mini home gym, royal blue",
+    "file": "ai-changing-world_5-ai-laptop-home-gym-blue | 16x9.jpg",
+    "clearance_px": 158,
+    "headroom_px": 9999,
+    "ok": true
+  },
+  {
+    "number": 5,
+    "fmt": "9x16",
+    "name": "ai-laptop-home-gym-blue",
+    "label": "AI: a giant laptop that turns into a mini home gym, royal blue",
+    "file": "ai-changing-world_5-ai-laptop-home-gym-blue | 9x16.jpg",
+    "clearance_px": 242,
+    "headroom_px": 9999,
+    "ok": true
+  }
+]

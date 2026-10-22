@@ -1,0 +1,38 @@
+{
+  "campaignId": "24316364155",
+  "label": "RA-09 Do You Think AI Is Changing The World",
+  "key": "ra09",
+  "targetCpa": 40.0,
+  "copyTargetCpaFromAdGroup": "199824307366",
+  "audienceFromAdGroup": "206348100928",
+  "logoAsset": "400941168572",
+  "ctaAsset": "401407635767",
+  "businessName": "Abs by AI",
+  "videos": [
+    {
+      "youtubeId": "PENDING",
+      "version": "Claude R1 9:16",
+      "utm": "claude-9x16"
+    }
+  ],
+  "copy": {
+    "headlines": [
+      "AI Is Changing The World",
+      "Use AI As Your Abs Coach",
+      "How AI Got Me Abs",
+      "How I Got Abs At 40",
+      "AI Coaching For Your Workouts"
+    ],
+    "longHeadlines": [
+      "Here is how AI can plan your workouts and meals and coach you every day.",
+      "Daniel Rose explains how he uses AI as a personal coach for his training.",
+      "AI builds a personalized workout and nutrition plan around your goal picture."
+    ],
+    "descriptions": [
+      "Daniel Rose shows how AI plans, coaches and adjusts your training.",
+      "Upload one photo and see your AI goal picture in seconds, free.",
+      "AI coaching explained by a guy who did it at 40 years old."
+    ]
+  },
+  "thumbnail": "PENDING Dan's pick"
+}
