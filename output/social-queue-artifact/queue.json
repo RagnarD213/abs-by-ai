@@ -1,25 +1,7 @@
 {
-"generated": "2026-10-21T11:26:00+00:00",
+"generated": "2026-10-22T11:25:55+00:00",
 "cap": 200,
 "scheduled": [
-{
-"id": "5119958",
-"platform": "facebook",
-"when": "2026-10-21T22:00:00.000Z",
-"kind": "Carousel",
-"slides": 5,
-"text": "Save this for your next weekly reset. Choose your training times, make a simple food plan and write down what ",
-"batch": "Studio S07-A"
-},
-{
-"id": "5119909",
-"platform": "instagram",
-"when": "2026-10-21T22:00:00.000Z",
-"kind": "Carousel",
-"slides": 5,
-"text": "Save this for your next weekly reset. Choose your training times, make a simple food plan and write down what ",
-"batch": "Studio S07-A"
-},
 {
 "id": "5620997",
 "platform": "facebook",
@@ -120,22 +102,22 @@
 "batch": ""
 },
 {
-"id": "5825755",
+"id": "5870970",
 "platform": "facebook",
 "when": "2026-10-23T22:00:00.000Z",
 "kind": "Carousel",
 "slides": 5,
-"text": "Repeating a lunch you enjoy is a planning choice. You can still rotate meals and ingredients across the week. ",
-"batch": "Studio S08-B"
+"text": "Stop jumping rope like this. Both feet, big jump, pause on every landing.",
+"batch": ""
 },
 {
-"id": "5119927",
+"id": "5870966",
 "platform": "instagram",
 "when": "2026-10-23T22:00:00.000Z",
 "kind": "Carousel",
 "slides": 5,
-"text": "Repeating a lunch you enjoy is a planning choice. You can still rotate meals and ingredients across the week. ",
-"batch": "Studio S08-B"
+"text": "Stop jumping rope like this. Both feet, big jump, pause on every landing.",
+"batch": ""
 },
 {
 "id": "5053515",
@@ -246,22 +228,22 @@
 "batch": ""
 },
 {
-"id": "5825756",
+"id": "5870971",
 "platform": "facebook",
 "when": "2026-10-26T22:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Make strength training an appointment you can keep. Choose the time, save the workout and get your space ready",
-"batch": "Studio S09-A"
+"kind": "Carousel",
+"slides": 5,
+"text": "6 weeks of crunches. Zero belly fat lost. 7 ab exercises, 5 days a week.",
+"batch": ""
 },
 {
-"id": "5119924",
+"id": "5870968",
 "platform": "instagram",
 "when": "2026-10-26T22:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Make strength training an appointment you can keep. Choose the time, save the workout and get your space ready",
-"batch": "Studio S09-A"
+"kind": "Carousel",
+"slides": 5,
+"text": "6 weeks of crunches. Zero belly fat lost. 7 ab exercises, 5 days a week.",
+"batch": ""
 },
 {
 "id": "5053520",
@@ -336,22 +318,22 @@
 "batch": ""
 },
 {
-"id": "5825757",
+"id": "5870972",
 "platform": "facebook",
 "when": "2026-10-28T22:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Missed a day? Decide what happens next. Open the calendar, choose a realistic time and set out what you need. ",
-"batch": "Studio S06-C"
+"kind": "Carousel",
+"slides": 5,
+"text": "3 moves. 3 minutes. No gym. 1 minute on each move.",
+"batch": ""
 },
 {
-"id": "5119944",
+"id": "5870969",
 "platform": "instagram",
 "when": "2026-10-28T22:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Missed a day? Decide what happens next. Open the calendar, choose a realistic time and set out what you need. ",
-"batch": "Studio S06-C"
+"kind": "Carousel",
+"slides": 5,
+"text": "3 moves. 3 minutes. No gym. 1 minute on each move.",
+"batch": ""
 },
 {
 "id": "5694638",
@@ -912,6 +894,42 @@
 "batch": ""
 },
 {
+"id": "5867678",
+"platform": "facebook",
+"when": "2026-11-13T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "After a bad night of sleep, your Oura Ring tells you to take it easy. Don't listen to that shit.",
+"batch": ""
+},
+{
+"id": "5867679",
+"platform": "instagram",
+"when": "2026-11-13T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "After a bad night of sleep, your Oura Ring tells you to take it easy. Don't listen to that shit.",
+"batch": ""
+},
+{
+"id": "5867680",
+"platform": "tiktok",
+"when": "2026-11-13T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "After a bad night of sleep, your Oura Ring tells you to take it easy. Don't listen to that shit.",
+"batch": ""
+},
+{
+"id": "5867682",
+"platform": "youtube",
+"when": "2026-11-13T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "After a bad night of sleep, your Oura Ring tells you to take it easy. Don't listen to that shit.",
+"batch": ""
+},
+{
 "id": "5119963",
 "platform": "facebook",
 "when": "2026-11-13T23:00:00.000Z",
@@ -963,6 +981,42 @@
 "kind": "Video",
 "slides": 1,
 "text": "I used to pay about $20 for a salad bar salad every day. Now each one costs me about $4.",
+"batch": ""
+},
+{
+"id": "5867684",
+"platform": "facebook",
+"when": "2026-11-16T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "The most valuable thing my Oura Ring did for me was the one I never expected. It showed me which people in my ",
+"batch": ""
+},
+{
+"id": "5867685",
+"platform": "instagram",
+"when": "2026-11-16T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "The most valuable thing my Oura Ring did for me was the one I never expected. It showed me which people in my ",
+"batch": ""
+},
+{
+"id": "5867687",
+"platform": "tiktok",
+"when": "2026-11-16T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "The most valuable thing my Oura Ring did for me was the one I never expected. It showed me which people in my ",
+"batch": ""
+},
+{
+"id": "5867688",
+"platform": "youtube",
+"when": "2026-11-16T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "The most valuable thing my Oura Ring did for me was the one I never expected. It showed me which people in my ",
 "batch": ""
 },
 {
@@ -1038,6 +1092,42 @@
 "batch": "Studio S07-C"
 },
 {
+"id": "5867691",
+"platform": "facebook",
+"when": "2026-11-20T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Something you do near bedtime might be spiking your heart rate and adrenaline and hurting your sleep without y",
+"batch": ""
+},
+{
+"id": "5867694",
+"platform": "instagram",
+"when": "2026-11-20T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Something you do near bedtime might be spiking your heart rate and adrenaline and hurting your sleep without y",
+"batch": ""
+},
+{
+"id": "5867698",
+"platform": "tiktok",
+"when": "2026-11-20T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Something you do near bedtime might be spiking your heart rate and adrenaline and hurting your sleep without y",
+"batch": ""
+},
+{
+"id": "5867701",
+"platform": "youtube",
+"when": "2026-11-20T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Something you do near bedtime might be spiking your heart rate and adrenaline and hurting your sleep without y",
+"batch": ""
+},
+{
 "id": "5825766",
 "platform": "facebook",
 "when": "2026-11-20T23:00:00.000Z",
@@ -1054,6 +1144,42 @@
 "slides": 1,
 "text": "Lunch gets easier when the decision is already made. Choose a meal you enjoy, get the ingredients or order in ",
 "batch": "Studio S09-B"
+},
+{
+"id": "5867702",
+"platform": "facebook",
+"when": "2026-11-23T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "You're probably not sleeping as well as you think. You've got to buy a sleep tracker, even if it's not the Our",
+"batch": ""
+},
+{
+"id": "5867703",
+"platform": "instagram",
+"when": "2026-11-23T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "You're probably not sleeping as well as you think. You've got to buy a sleep tracker, even if it's not the Our",
+"batch": ""
+},
+{
+"id": "5867704",
+"platform": "tiktok",
+"when": "2026-11-23T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "You're probably not sleeping as well as you think. You've got to buy a sleep tracker, even if it's not the Our",
+"batch": ""
+},
+{
+"id": "5867706",
+"platform": "youtube",
+"when": "2026-11-23T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "You're probably not sleeping as well as you think. You've got to buy a sleep tracker, even if it's not the Our",
+"batch": ""
 },
 {
 "id": "5825767",
@@ -1161,6 +1287,42 @@
 "kind": "Video",
 "slides": 1,
 "text": "You don't need a gym membership to get in shape. A full home gym costs $58.",
+"batch": ""
+},
+{
+"id": "5867711",
+"platform": "facebook",
+"when": "2026-11-27T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Should you buy the Oura Ring? In my opinion yes, for most people, and absolutely everybody needs a sleep track",
+"batch": ""
+},
+{
+"id": "5867713",
+"platform": "instagram",
+"when": "2026-11-27T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Should you buy the Oura Ring? In my opinion yes, for most people, and absolutely everybody needs a sleep track",
+"batch": ""
+},
+{
+"id": "5867715",
+"platform": "tiktok",
+"when": "2026-11-27T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Should you buy the Oura Ring? In my opinion yes, for most people, and absolutely everybody needs a sleep track",
+"batch": ""
+},
+{
+"id": "5867716",
+"platform": "youtube",
+"when": "2026-11-27T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Should you buy the Oura Ring? In my opinion yes, for most people, and absolutely everybody needs a sleep track",
 "batch": ""
 },
 {
@@ -1515,6 +1677,24 @@
 "batch": ""
 },
 {
+"id": "5825755",
+"platform": "facebook",
+"when": "2026-12-23T23:00:00.000Z",
+"kind": "Carousel",
+"slides": 5,
+"text": "Repeating a lunch you enjoy is a planning choice. You can still rotate meals and ingredients across the week. ",
+"batch": "Studio S08-B"
+},
+{
+"id": "5119927",
+"platform": "instagram",
+"when": "2026-12-23T23:00:00.000Z",
+"kind": "Carousel",
+"slides": 5,
+"text": "Repeating a lunch you enjoy is a planning choice. You can still rotate meals and ingredients across the week. ",
+"batch": "Studio S08-B"
+},
+{
 "id": "5365807",
 "platform": "facebook",
 "when": "2026-12-24T18:00:00.000Z",
@@ -1542,6 +1722,24 @@
 "batch": ""
 },
 {
+"id": "5825756",
+"platform": "facebook",
+"when": "2026-12-25T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Make strength training an appointment you can keep. Choose the time, save the workout and get your space ready",
+"batch": "Studio S09-A"
+},
+{
+"id": "5119924",
+"platform": "instagram",
+"when": "2026-12-25T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Make strength training an appointment you can keep. Choose the time, save the workout and get your space ready",
+"batch": "Studio S09-A"
+},
+{
 "id": "5287937",
 "platform": "youtube",
 "when": "2026-12-27T15:00:00.000Z",
@@ -1549,6 +1747,24 @@
 "slides": 1,
 "text": "If you're struggling to lose weight, there's usually one reason: you're eating too many calories. Here is the ",
 "batch": ""
+},
+{
+"id": "5825757",
+"platform": "facebook",
+"when": "2026-12-28T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Missed a day? Decide what happens next. Open the calendar, choose a realistic time and set out what you need. ",
+"batch": "Studio S06-C"
+},
+{
+"id": "5119944",
+"platform": "instagram",
+"when": "2026-12-28T23:00:00.000Z",
+"kind": "Photo",
+"slides": 1,
+"text": "Missed a day? Decide what happens next. Open the calendar, choose a realistic time and set out what you need. ",
+"batch": "Studio S06-C"
 }
 ],
 "waiting": [],
