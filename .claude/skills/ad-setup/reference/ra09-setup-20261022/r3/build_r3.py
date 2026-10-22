@@ -26,7 +26,7 @@ avenir = lambda z: ImageFont.truetype(SYS + "Avenir Next Condensed.ttc", z, inde
 hncb = lambda z: ImageFont.truetype(SYS + "HelveticaNeue.ttc", z, index=9)            # Condensed Black
 PLACE = json.load(open(f"{HERE}/place.json"))
 # headline lines as (word, accent?) segments; 9:16 runs two wide lines on top, 16:9 three lines on the left
-HEAD = {"9x16": [[("USE AI TO GET", 0)], [("REAL ABS", 1)]], "16x9": [[("USE ", 0), ("AI", 1)], [("TO GET", 0)], [("REAL ABS", 1)]]}
+HEAD = {"9x16": [[("USE AI TO GET", 0)], [("REAL ABS", 1)]], "16x9": [[("USE ", 0), ("AI", 1)], [("TO GET", 0)], [("REAL", 1)], [("ABS", 1)]]}  # Dan, pick C: left text about double
 LABEL = {"9x16": ["REAL PHOTO OF ME,", "NOT AI-GENERATED"], "16x9": ["REAL PHOTO", "OF ME, NOT", "AI-GENERATED"]}
 DESIGNS = {
     "p247": dict(name="pool-247-yellow", lab="Pool photo 247: standing in the pool, white and yellow Futura, white pill label",
@@ -121,7 +121,7 @@ def build(key, fmt):
         upper = am & (np.arange(H)[:, None] < top + 0.45 * (H - top))  # face, chest and abs; the label may sit over his legs
         return c, min(clearance(am, boxes), clearance(upper, lab)), headroom(am)
     band = am[: int(top + 0.6 * (H - top))]; cols = np.where(band.any(0))[0]
-    hb = (50, 90, int(cols.min()) - 50, H - 90); lb = (int(cols.max()) + 50, 90, W - 50, H - 90)
+    hb = (50, 46, int(cols.min()) - 50, H - 46); lb = (int(cols.max()) + 40, 90, W - 40, H - 90)
     c = shade(shade(c, hb, "left"), lb, "right", 0.5)
     boxes = headline(c, hb, HEAD[fmt], D, "l") + label(c, lb, LABEL[fmt], D)
     return c, clearance(am, boxes), headroom(am)

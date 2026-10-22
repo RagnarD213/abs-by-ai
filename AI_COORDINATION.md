@@ -42,7 +42,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-25 Git sync BLOCKED 2026-10-18, Codex.** Public video, article post 886, and manually uploaded 257-cue English SRT are verified. Caption uploader and receipt are committed locally as `340ed22`. Safe-push aborted on nine merge conflicts across other sessions' files; no merge is in progress. Next: hand-merge shared main with owners or push these records from a clean checkout, without discarding their work.
 
-**RA-09:SETUP-HANDOFF:2026-10-22:Claude.** Approved; `handoff-20261022-ra09-setup.md`.
+**RA-09:POLICY-RECHECK:2026-10-22:Claude.** 10-23.
 
 **Fat 90 Year Old SFC R3 - ACTIVE 2026-10-21, Claude.** R2 key locked as house standard (AGENTS). Building opening: clip full screen, Dan small, then large. Work: `ds40/r3/`.
 
@@ -143,11 +143,11 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-06:POLICY-RECHECK:2026-10-16:Claude.** Ads `828274063389`, `828320387740` in review. Next 10-17: `node scripts/ads/api/client.js policy 24316364155`; clean, delete this.
 
-**RO-24:R2-ACTIVE:2026-10-22:Claude.** Keying resumed.
+**RO-24:R2-HOLD:2026-10-22:Claude.** Stopped for Dan.
 
-**RO-14 R3 HANDOFF 2026-10-21, Claude.** 2 fixes; commits unpushed.
+**RO-14 R3 ACTIVE 2026-10-22, Claude.** `RO-14/round3/`.
 
-**DS-33:R2-REVIEW:2026-10-22:Claude.** 9034; commits local.
+**DS-33:R3-ACTIVE:2026-10-22:Claude.** Commits local.
 
 **RO-20C HOLD 2026-10-21, Claude.** Waitlist, Dec 6. `Docs/RO20C_SETUP_RECEIPT_20261021.md`
 
@@ -168,6 +168,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 
 **SL-06:R6-ACTIVE:2026-10-21:Claude.** Top 5 Zepbound Tips SFL R6: closed-mouth frames on Codex, then Flow takes, rebuild six, review. Work: `/Volumes/Extreme/_edit_work/sl06/round6/`.
+
+**SL-15 HOLD 2026-10-22.** b97bd79-unpushed
 
 **SL-07 HOLD 2026-10-18, Claude.** Covers picked, media and configs ready; Blotato full, five shorts on the waitlist for Dec 21-29. Next: the daily top-up routine queues them as slots free. `Docs/SL07_SETUP_RECEIPT_20261018.md`
 
@@ -242,6 +244,8 @@ tab; stop rather than click into spinners. `Handoffs/handoff-20260908-google-ads
 **CHEAPKEY:UNPUSHED-6a81f04,b9fdd79,bae79d9:2026-10-21:Claude.**
 
 **IG Carousels B1 - NEEDS DAN 2026-10-21, Claude.** Picks on artifact QWz3Mg5SMoAD19nBDxJY4i. Next: Phase 3.
+
+**SPA:UNPUSHED-5f43cb0:2026-10-22:Claude.**
 
 # BLOCKED — external
 
