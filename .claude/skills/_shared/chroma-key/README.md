@@ -11,7 +11,9 @@ dark rim on skin edges at or below the source's (R2: 2.7%, source 8%; `measure_r
 the subject over saturated pink (watch, glasses), no floating specks, fine strands and motion blur kept. Measure every
 new key against its own source with these two scripts before Dan sees it.
 
-**The method and exact code:** `reference/ds40-claude-r2/` (hashes and Dan's words in `approval.json`; recipe notes in
+**The method and exact code:** `reference/ds40-claude-r2/` (hashes and Dan's words in `approval.json`; since the
+2026-10-21 speed update the stage scripts there are faster code with bit-identical output, the approved originals are
+in `approved-original/`, evidence in `approval.json` `speed_update_20261021`; recipe notes in
 `.claude/skills/shorts/reference/ds40-greenscreen/README.md`). In order: clean plate (`plate.py`), 4K clean-plate
 colour-difference key with positivity floor, local plate, hole fill and tracked watch hold-out (`keylib.py`,
 `stage1_key.py`); then the finishing pass at output scale (`stage15_temporal.py`): motion-compensated temporal matte
@@ -19,6 +21,43 @@ in the edge band only, edge colour from solid pixels 3 px inside, island-only sp
 reflective glass seen edge-on; then composite (`stage2_comp.py`). Recalibrate per source: plate, garbage/crop rows,
 watch or glasses boxes, hair box for the measure. Reset temporal neighbours at every cut (never average across a cut).
 Grade and audio stay per video.
+
+## Run it cheaply: calibrate on excerpts, key each piece once (2026-10-21, every recipe, Claude and Codex)
+
+The key was half of all render time on 10-21, and two thirds of that was re-keying whole clips to try a setting
+(RO-24 keyed each clip three times, 40-75 minutes a run). The rule, in order:
+
+1. **Calibrate on excerpts, never on the full clip.** Copy `reference/ds40-claude-r2/` into the job, set the plate,
+   crop rows and hold-out boxes for this source, then run `calibrate.py` (quick lane, minutes): it finds the piece's
+   hardest moments (the motion peaks and the tracked hold-out), keys 2-3 s excerpts there with the recipe's own
+   stage 1 and 1.5, and writes a contact sheet (pale, pink, matte) plus `calibration.json`. Each excerpt is keyed with
+   3 extra frames each side, so its frames are bit-for-bit what the full key gives at those frames. Adjust and re-run
+   until the sheet is right. `--at SECONDS` adds a moment you know is hard; `--pick-only` just lists the picks.
+2. **Key each piece exactly once, through `keyonce.py`.** It writes a `.done` stamp holding a fingerprint of the
+   recipe code, plate, boxes and piece times; a matching stamp is skipped, so no round re-keys an approved piece.
+   Change one piece's inputs and only that piece is keyed again. Pass the piece's cache folders with `--clear`
+   (stage 1 resumes by skipping frames already on disk, so a re-key would otherwise keep old frames).
+3. **Gate the one full run** with `mcflicker.py` and `measure_r2.py` (adapted to the source, as before). **Re-key only
+   a failing piece** (or only its failing frames: `ONLY=f1,f2,... stage15_temporal.py ...`).
+
+```
+python3 .claude/skills/_shared/chroma-key/calibrate.py --code $JOB/recipe --src CLIP.MP4 --t0 T0 --dur D \
+    --out $JOB/key/cal_A --watch $JOB/key/watch_A.json --plate $JOB/key/plate_out.npy
+python3 .claude/skills/_shared/chroma-key/keyonce.py $JOB/key/A.done \
+    --inputs recipe/stage1_key.py recipe/keylib.py recipe/stage15_temporal.py $JOB/key/plate_out.npy $JOB/key/watch_A.json \
+    --params "T0 D" --clear $JOB/key/c1_A $JOB/key/c2_A -- zsh -c "python3 stage1_key.py T0 D c1_A && python3 srcprep.py T0 N src_A.npy && python3 stage15_temporal.py c1_A src_A.npy c2_A watch_A.json"
+```
+
+Recipes whose stage scripts take other arguments (RO-24's `stage1_16.py F0 N ... X0 X1 PLATE`) pass their own command
+templates to `calibrate.py` (`--stage1 "python3 stage1_16.py {f0} {nf} {out} 752 3136 plateB"`; fields `{t0} {dur}
+{f0} {nf} {n} {out} {c1} {src} {watch}`).
+
+**Cost (measured 2026-10-21, `Handoffs/results-20261021-cheap-key.md`):** about 6.5 CPU-seconds a frame at output
+scale (stage 1 at 4K about 3.5 s, stage 1.5 about 3 s), down from 9.9 s, with bit-identical output. A 30 s piece (900
+frames) is about 24 minutes of a 4-core heavy slot (37 before); a calibration pass (three 2.5 s excerpts) about 10-13 minutes of a
+2-core quick slot. Stage 1.5 workers hold about 0.6 GB of working memory (approved code: about 2 GB resident per
+worker); `FLOW_CACHE=1` trades two more optical flows a frame for 0.1 GB less. Pools are `RENDERQ_CORES` workers with
+one thread each.
 
 ---
 

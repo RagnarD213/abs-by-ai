@@ -1,6 +1,6 @@
 """Key a piece exactly once: skip it when its .done stamp matches, re-key only a piece whose inputs changed.
 
-    python3 keyonce.py DONE_FILE --inputs FILE [FILE ...] [--params "T0 DUR ..."] -- COMMAND ...
+    python3 keyonce.py DONE_FILE --inputs FILE [FILE ...] [--params "T0 DUR ..."] [--clear DIR ...] -- COMMAND ...
 
 The rule (Dan's house key, 2026-10-21, every recipe, Claude and Codex): each keyed piece of a green-screen video has a
 .done stamp beside its cache. A round never re-keys a piece whose stamp matches. The stamp holds a fingerprint of
@@ -11,9 +11,13 @@ the piece's times. Change one of them for one piece and only that piece is keyed
     exit 0, "keyed"     no stamp (or a stale one): COMMAND ran and succeeded, the stamp is written
     exit != 0           COMMAND failed: no stamp is written, the next run tries again
 
+--clear: the piece's cache folders (stage 1 and 1.5). They are emptied before the piece is keyed (never when it is
+skipped). Always pass them: stage 1 resumes by skipping frames already on disk, so a re-key after a calibration
+change would otherwise keep the old frames.
+
 Calibrate first (calibrate.py, 2-3 s excerpts in the quick lane), then run the full key through this once.
 """
-import hashlib, json, os, subprocess, sys, time
+import hashlib, json, os, shutil, subprocess, sys, time
 from pathlib import Path
 
 
@@ -32,12 +36,16 @@ def main(argv):
     if "--" not in argv or len(argv) < 2:
         sys.exit(__doc__)
     cut = argv.index("--"); head, cmd = argv[:cut], argv[cut + 1:]
-    done = Path(head[0]); inputs, params, k = [], "", 1
+    done = Path(head[0]); inputs, params, clear, k = [], "", [], 1
     while k < len(head):
         if head[k] == "--inputs":
             k += 1
             while k < len(head) and not head[k].startswith("--"):
                 inputs.append(head[k]); k += 1
+        elif head[k] == "--clear":
+            k += 1
+            while k < len(head) and not head[k].startswith("--"):
+                clear.append(head[k]); k += 1
         elif head[k] == "--params":
             params = head[k + 1]; k += 2
         else:
@@ -52,6 +60,8 @@ def main(argv):
             print(f"keyonce: {done.stem} skipped: already keyed with these inputs ({old.get('keyed', '?')})")
             return 0
         print(f"keyonce: {done.stem}: inputs changed since {old.get('keyed', 'an older stamp')}: keying this piece again", flush=True)
+    for d in clear:
+        shutil.rmtree(d, ignore_errors=True)
     t = time.time()
     rc = subprocess.call(cmd)
     if rc:

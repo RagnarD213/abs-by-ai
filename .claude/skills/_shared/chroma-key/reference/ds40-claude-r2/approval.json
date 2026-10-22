@@ -59,5 +59,15 @@
   "DS-40 colour B Warm Vivid",
   "DS-40 voice: house chain +1.5 dB at 120 Hz"
  ],
- "code_note": "2026-10-21: measure scripts take T0/DUR env for any source window and skip zero-change source frames; stage1 resumes an interrupted run. Keying maths unchanged."
+ "code_note": "2026-10-21: measure scripts take T0/DUR env for any source window and skip zero-change source frames; stage1 resumes an interrupted run. Keying maths unchanged.",
+ "speed_update_20261021": {
+  "what": "keylib.py, stage1_key.py, stage15_temporal.py replaced by faster code with bit-identical output (Phase 2 of Handoffs/handoff-20261021-render-throughput-plan.md); the code Dan approved is kept unchanged in approved-original/ (its hashes are code_sha256 above, stage1_key.py as amended by the resume note).",
+  "evidence": "Approved sample, 279 frames: the approved code re-run gives r2 pale.mp4 byte-identical to sample_pale above; the new code gives stage-1 and stage-1.5 caches identical to that run on 279 of 279 frames, and pale, navy and pink renders with exactly the sha256 values in media above. Detail: Handoffs/results-20261021-cheap-key.md.",
+  "cost": "CPU per frame: stage 1 1.7x less, stage 1.5 1.5x less (about 9.9 s to 6.2 s a frame); pools sized from RENDERQ_CORES, one thread per worker.",
+  "code_sha256": {
+   "keylib.py": "293b4dcade5992cbae882d3e54e58752671eec861561e770035ed55c5b0fdef5",
+   "stage1_key.py": "9068aaa64a84d198b55c5d3ad805d22131a67e0f461073f5ab5a857435b8583e",
+   "stage15_temporal.py": "028aa9937aa1d595c3068753017a0da92b73d5b3ebe8304357539f153c3f3a80"
+  }
+ }
 }
