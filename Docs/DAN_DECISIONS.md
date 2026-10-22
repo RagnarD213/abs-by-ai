@@ -7,7 +7,7 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 ---
 
 
-- **Facebook Page followers ad set (2026-10-22; Decision since: 2026-10-22):** Page `1380236418500031` (Daniel Rose Fitness) has 0 followers, so the requested follower audience is empty and the ad set cannot deliver. Nothing built, nothing spent. Options: drop it (rec), or target people who watched videos on the Abs by AI Page instead. Either way no ads before Oct 30 (follower test OFF week). Detail: `Docs/AUTO_BOOST.md`.
+- **Facebook followers ad set (2026-10-22; Decision since: 2026-10-22):** Dan wants to target followers of his personal profile facebook.com/danroseninja (2.8K followers). Meta builds ad audiences only from Pages and Instagram business accounts, never a personal profile, so it cannot be built. Nothing built or spent. Rec: drop it; a free profile post asking friends to follow @danrosefit reaches the same people. No ads before Oct 30 (follower test).
 
 
 - **Review skill, two small questions (2026-10-20; Decision since: 2026-10-20):** (a) answered 2026-10-20: the eyebrow stays in capitals. (b) When a human editor sends AI start/end frames for a go-ahead, should Claude run our frame gate and a fresh frame-reviewer on them first (our own pipeline does since 2026-10-14)? Rec: yes to both.
