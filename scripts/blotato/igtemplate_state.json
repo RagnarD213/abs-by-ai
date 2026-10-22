@@ -2,12 +2,24 @@
  "created": {
   "47105|C1-the-fix-01": {
    "caption_sha256": "ca3b254e684a51e9ac509553257e3ed1bb4146539688544c2b2a1c64da951890",
+   "deleted": "2026-10-22T18:09:07.344344+00:00",
    "local": "Fri 2026-10-23 17:00 CT",
    "response": {
     "postSubmissionId": "2b7b9dd6-b798-4225-b1da-bb5152dc452e",
     "scheduledTime": "2026-10-23T22:00:00.000Z"
    },
    "scheduleId": "5870970",
+   "scheduledTime": "2026-10-23T22:00:00.000Z"
+  },
+  "47105|C1-the-fix-01-v2": {
+   "caption_sha256": "ca3b254e684a51e9ac509553257e3ed1bb4146539688544c2b2a1c64da951890",
+   "local": "Fri 2026-10-23 17:00 CT",
+   "replaces": "5870970",
+   "response": {
+    "postSubmissionId": "20daf384-01f9-4611-9ef6-5df6a54667e6",
+    "scheduledTime": "2026-10-23T22:00:00.000Z"
+   },
+   "scheduleId": "5903792",
    "scheduledTime": "2026-10-23T22:00:00.000Z"
   },
   "47105|C2-receipts-01": {
@@ -22,6 +34,7 @@
   },
   "47105|C3-steal-my-workout-01": {
    "caption_sha256": "8c1156a6f2285134db2d2557a6dfcef94722790173a30c650566d19ecd2425b7",
+   "deleted": "2026-10-22T18:09:09.909296+00:00",
    "local": "Wed 2026-10-28 17:00 CT",
    "response": {
     "postSubmissionId": "20c6482a-63d4-4522-a9e0-57a976ac6c5a",
@@ -30,14 +43,86 @@
    "scheduleId": "5870972",
    "scheduledTime": "2026-10-28T22:00:00.000Z"
   },
+  "47105|fix-02-towel-row": {
+   "caption_sha256": "e3eb7d4832f23507567a172fe57e5e8e74d83ffd98731c84d8c73c6af47cb71a",
+   "local": "2026-10-30 17:00 CT",
+   "response": {
+    "postSubmissionId": "2d2a64b5-8c15-4efb-9733-2636a82d4b6c",
+    "scheduledTime": "2026-10-30T22:00:00.000Z"
+   },
+   "scheduleId": "5903174",
+   "scheduledTime": "2026-10-30T22:00:00.000Z"
+  },
+  "47105|fix-03-deadlift-look-up": {
+   "caption_sha256": "b2c4cf10d9b3697d3c79d217bde5a8794c64afd80cc6fc378c7975128a6dd0bc",
+   "local": "2026-11-04 17:00 CT",
+   "response": {
+    "postSubmissionId": "d6e651dc-79f2-44da-bafb-8e34f8e76a63",
+    "scheduledTime": "2026-11-04T23:00:00.000Z"
+   },
+   "scheduleId": "5903177",
+   "scheduledTime": "2026-11-04T23:00:00.000Z"
+  },
+  "47105|fix-06-v-sit-twist": {
+   "caption_sha256": "42d59eeb53d66e1d104bf3f6c04da59754cdd3a08f65f547ca5dca3ef74b319b",
+   "local": "2026-11-09 17:00 CT",
+   "response": {
+    "postSubmissionId": "02b91dcf-4245-4bb6-aaf9-e4fc171409cc",
+    "scheduledTime": "2026-11-09T23:00:00.000Z"
+   },
+   "scheduleId": "5903181",
+   "scheduledTime": "2026-11-09T23:00:00.000Z"
+  },
+  "47105|fix-10-side-lateral-elbows": {
+   "caption_sha256": "b1a9a55f1b4f7c4ce93f5d20fdab308afcbddc1856e40063147a770e5a8c97b8",
+   "local": "2026-11-06 17:00 CT",
+   "response": {
+    "postSubmissionId": "37f41903-bcba-411d-a0e8-80ff3ce67314",
+    "scheduledTime": "2026-11-06T23:00:00.000Z"
+   },
+   "scheduleId": "5903179",
+   "scheduledTime": "2026-11-06T23:00:00.000Z"
+  },
+  "47105|workout-05-commercial-break": {
+   "caption_sha256": "9c0cecd9914cb29af2ae9d8894cc4f63ad37ed1d04d7f8c0a9ffca825403b94a",
+   "local": "2026-11-02 17:00 CT",
+   "response": {
+    "postSubmissionId": "0d136ddb-d0df-4af0-84ac-86251dbe1e66",
+    "scheduledTime": "2026-11-02T23:00:00.000Z"
+   },
+   "scheduleId": "5903805",
+   "scheduledTime": "2026-11-02T23:00:00.000Z"
+  },
+  "47105|workout-06-ab-rounds": {
+   "caption_sha256": "2bfc95f1edfff8255d004e136f2f77a58a88b8eb7a5fec668cbc581373170ebe",
+   "local": "Wed 2026-10-28 17:00 CT",
+   "response": {
+    "postSubmissionId": "c7e58d38-bb8b-4f64-b13a-c7e7cc891423",
+    "scheduledTime": "2026-10-28T22:00:00.000Z"
+   },
+   "scheduleId": "5903799",
+   "scheduledTime": "2026-10-28T22:00:00.000Z"
+  },
   "67203|C1-the-fix-01": {
    "caption_sha256": "ca3b254e684a51e9ac509553257e3ed1bb4146539688544c2b2a1c64da951890",
+   "deleted": "2026-10-22T18:09:05.096638+00:00",
    "local": "Fri 2026-10-23 17:00 CT",
    "response": {
     "postSubmissionId": "aa4286f1-7e8d-4de1-b4de-86e1a6ef6c1a",
     "scheduledTime": "2026-10-23T22:00:00.000Z"
    },
    "scheduleId": "5870966",
+   "scheduledTime": "2026-10-23T22:00:00.000Z"
+  },
+  "67203|C1-the-fix-01-v2": {
+   "caption_sha256": "ca3b254e684a51e9ac509553257e3ed1bb4146539688544c2b2a1c64da951890",
+   "local": "Fri 2026-10-23 17:00 CT",
+   "replaces": "5870966",
+   "response": {
+    "postSubmissionId": "824c9e05-042b-4676-82b6-9fbc47999ae8",
+    "scheduledTime": "2026-10-23T22:00:00.000Z"
+   },
+   "scheduleId": "5903790",
    "scheduledTime": "2026-10-23T22:00:00.000Z"
   },
   "67203|C2-receipts-01": {
@@ -52,12 +137,73 @@
   },
   "67203|C3-steal-my-workout-01": {
    "caption_sha256": "8c1156a6f2285134db2d2557a6dfcef94722790173a30c650566d19ecd2425b7",
+   "deleted": "2026-10-22T18:09:07.739864+00:00",
    "local": "Wed 2026-10-28 17:00 CT",
    "response": {
     "postSubmissionId": "ebcce8cb-3b20-438c-8a45-5b88f61ca2cb",
     "scheduledTime": "2026-10-28T22:00:00.000Z"
    },
    "scheduleId": "5870969",
+   "scheduledTime": "2026-10-28T22:00:00.000Z"
+  },
+  "67203|fix-02-towel-row": {
+   "caption_sha256": "e3eb7d4832f23507567a172fe57e5e8e74d83ffd98731c84d8c73c6af47cb71a",
+   "local": "2026-10-30 17:00 CT",
+   "response": {
+    "postSubmissionId": "65ed77c3-aafc-4ede-8a76-7803232b7e37",
+    "scheduledTime": "2026-10-30T22:00:00.000Z"
+   },
+   "scheduleId": "5903172",
+   "scheduledTime": "2026-10-30T22:00:00.000Z"
+  },
+  "67203|fix-03-deadlift-look-up": {
+   "caption_sha256": "b2c4cf10d9b3697d3c79d217bde5a8794c64afd80cc6fc378c7975128a6dd0bc",
+   "local": "2026-11-04 17:00 CT",
+   "response": {
+    "postSubmissionId": "e4190c22-ecd5-4599-93d2-421fa6ec749c",
+    "scheduledTime": "2026-11-04T23:00:00.000Z"
+   },
+   "scheduleId": "5903176",
+   "scheduledTime": "2026-11-04T23:00:00.000Z"
+  },
+  "67203|fix-06-v-sit-twist": {
+   "caption_sha256": "42d59eeb53d66e1d104bf3f6c04da59754cdd3a08f65f547ca5dca3ef74b319b",
+   "local": "2026-11-09 17:00 CT",
+   "response": {
+    "postSubmissionId": "ba3b11a6-56fa-4bd0-a0a7-646adae2703b",
+    "scheduledTime": "2026-11-09T23:00:00.000Z"
+   },
+   "scheduleId": "5903180",
+   "scheduledTime": "2026-11-09T23:00:00.000Z"
+  },
+  "67203|fix-10-side-lateral-elbows": {
+   "caption_sha256": "b1a9a55f1b4f7c4ce93f5d20fdab308afcbddc1856e40063147a770e5a8c97b8",
+   "local": "2026-11-06 17:00 CT",
+   "response": {
+    "postSubmissionId": "e199b313-519b-406a-88f1-041dd5755ca1",
+    "scheduledTime": "2026-11-06T23:00:00.000Z"
+   },
+   "scheduleId": "5903178",
+   "scheduledTime": "2026-11-06T23:00:00.000Z"
+  },
+  "67203|workout-05-commercial-break": {
+   "caption_sha256": "9c0cecd9914cb29af2ae9d8894cc4f63ad37ed1d04d7f8c0a9ffca825403b94a",
+   "local": "2026-11-02 17:00 CT",
+   "response": {
+    "postSubmissionId": "04083e8e-42f3-40f2-bca3-abc0a60b0f9b",
+    "scheduledTime": "2026-11-02T23:00:00.000Z"
+   },
+   "scheduleId": "5903803",
+   "scheduledTime": "2026-11-02T23:00:00.000Z"
+  },
+  "67203|workout-06-ab-rounds": {
+   "caption_sha256": "2bfc95f1edfff8255d004e136f2f77a58a88b8eb7a5fec668cbc581373170ebe",
+   "local": "Wed 2026-10-28 17:00 CT",
+   "response": {
+    "postSubmissionId": "5ee65602-3845-4650-a339-b406eeeb116a",
+    "scheduledTime": "2026-10-28T22:00:00.000Z"
+   },
+   "scheduleId": "5903798",
    "scheduledTime": "2026-10-28T22:00:00.000Z"
   }
  },
@@ -112,6 +258,26 @@
   }
  },
  "uploads": {
+  "C1-the-fix-01-v2/C1-the-fix-01.jpg": {
+   "sha256": "84a576f848997711fb2de28b71714457f96f634573b414e95cc5d81a92402388",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/080f6a08-e65e-4b95-b16a-e3e219270cbd.jpg"
+  },
+  "C1-the-fix-01-v2/C1-the-fix-02.jpg": {
+   "sha256": "db7ba6af7e5351a8896caedda2ba975120869d348cddf2bc5e1c62db7039a903",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/6dd8c1e7-49aa-4cc3-9b7a-01a7b6c4475a.jpg"
+  },
+  "C1-the-fix-01-v2/C1-the-fix-03.jpg": {
+   "sha256": "d9484128d949ae03293f9ca1f30f09f96a2069ea35465fd39ea343bb1b578d3c",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/f7399fa6-de30-4e06-8e6f-05e99da4f010.jpg"
+  },
+  "C1-the-fix-01-v2/C1-the-fix-04.jpg": {
+   "sha256": "eb80dfff6de55bde37291de55383481360c7334105a297c8a9f5449e4c615fc2",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/229c8917-b1d4-4b04-b8e7-1650fdaf0b30.jpg"
+  },
+  "C1-the-fix-01-v2/C1-the-fix-05-v2.jpg": {
+   "sha256": "54a92dab23be37c78c781f20a9a96640a3ffa4909e3e3a8f9417307fa9cc99a9",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/8e41bcb4-df0f-4664-8dcb-20329267103f.jpg"
+  },
   "C1-the-fix-01/C1-the-fix-01.jpg": {
    "sha256": "84a576f848997711fb2de28b71714457f96f634573b414e95cc5d81a92402388",
    "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/ee1d17aa-2f09-4863-92d3-c35f71822ef6.jpg"
@@ -171,6 +337,126 @@
   "C3-steal-my-workout-01/C3-steal-my-workout-05.jpg": {
    "sha256": "e3733822013560cda67d618d7070ea2f15b582f886241917dd284d0cbb108e18",
    "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/af09efd3-0bec-460d-a101-b3e7b59d412a.jpg"
+  },
+  "fix-02-towel-row/fix-02-towel-row-01.jpg": {
+   "sha256": "c2020a5304312639200e06dc9d9b5a0e5bf1d7b7fcf6733dc4fbafe4c3386a52",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/05ea9b58-8dca-4d1c-a363-ee2d65933439.jpg"
+  },
+  "fix-02-towel-row/fix-02-towel-row-02.jpg": {
+   "sha256": "856bd02c6df9364b0380adefe813edab7a1564516c1cc05f3762ce426e7a1538",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/47a40297-e146-437e-9c36-30f6c2533d62.jpg"
+  },
+  "fix-02-towel-row/fix-02-towel-row-03.jpg": {
+   "sha256": "d662ac7c2cbd3f5da6d3c15e5133b83f63637d85676922c3b24a4af37a2f06e2",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/3daa0a8d-2d9a-44ee-9062-e8590a0efd62.jpg"
+  },
+  "fix-02-towel-row/fix-02-towel-row-04.jpg": {
+   "sha256": "5ac4c74456c3d2ff502986ab1ec0dfdd314f778782cc9bdb83c45ecc3a269e67",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/546861c1-a6f4-4bed-8911-459587d745dc.jpg"
+  },
+  "fix-02-towel-row/fix-02-towel-row-05.jpg": {
+   "sha256": "e7646a1223bdfe1e773214834f7f8e7a77e5a5b8b9d952f204e645e22d3730e7",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/a6ad5e6a-b6b4-4971-ad73-455272e94ab6.jpg"
+  },
+  "fix-03-deadlift-look-up/fix-03-deadlift-look-up-01.jpg": {
+   "sha256": "a56665c9fd654673c761d6e74743ce16ca03d3748a0b8729e5ef3aa471bc7eee",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/96255db5-6e89-4b4b-bc12-fe624fe168a4.jpg"
+  },
+  "fix-03-deadlift-look-up/fix-03-deadlift-look-up-02.jpg": {
+   "sha256": "8cc2743bd7b88f238314567423d53b8c3806b8b264d72667b1769e83c5a1b701",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/6ea76fd3-66fe-4097-b37b-3ab120928d16.jpg"
+  },
+  "fix-03-deadlift-look-up/fix-03-deadlift-look-up-03.jpg": {
+   "sha256": "02739f4bad4a0ce0c2a690809703700d177677a45096df5a11f699474078fad7",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/d270f17a-15f2-48c2-9775-e61be973d006.jpg"
+  },
+  "fix-03-deadlift-look-up/fix-03-deadlift-look-up-04.jpg": {
+   "sha256": "2155f94221150d5f1a7f7380df5f289d62412103bc588fc0a4d41e5beeae0d58",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/42bf0a7d-c3b2-4e81-abe4-5375503da5f4.jpg"
+  },
+  "fix-03-deadlift-look-up/fix-03-deadlift-look-up-05.jpg": {
+   "sha256": "7682d7abc0c9e67c0f47c1c67cf4d701f6f1ea5333f755496422170d41cc33d8",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/06d2b4d6-a6b1-426a-935c-4986455a17af.jpg"
+  },
+  "fix-06-v-sit-twist/fix-06-v-sit-twist-01.jpg": {
+   "sha256": "787062c77c7726c17278e1e86f2ee2baf7994ba7a5ecd9f14482c2152d87eb84",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/980788d4-b8b4-4ada-bfed-1e2800c1ac7f.jpg"
+  },
+  "fix-06-v-sit-twist/fix-06-v-sit-twist-02.jpg": {
+   "sha256": "f6375b476b5888b4642300f4d8139c8b42e3af42a2339f3c3eeb377dfb41fb24",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/966934d9-33b0-4dec-9ae5-1a43ebce347e.jpg"
+  },
+  "fix-06-v-sit-twist/fix-06-v-sit-twist-03.jpg": {
+   "sha256": "ac9e8b65aea4fbce776361378ca7f458dc4c5f76a9bde7024f3da2283da5030e",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/bd957ec4-4d9f-47a0-bcbf-074ddd93d4f7.jpg"
+  },
+  "fix-06-v-sit-twist/fix-06-v-sit-twist-04.jpg": {
+   "sha256": "3de92ace72de4798c2337bf220ed2cd7367f63c512f052fd1bceb71daa4dee7e",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/20e377e7-4460-43fd-94aa-78ae40cadcef.jpg"
+  },
+  "fix-06-v-sit-twist/fix-06-v-sit-twist-05.jpg": {
+   "sha256": "1ebce0332bbd427d1196ed99628262959bdf78500e9112d8e54d59eee63a2c06",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/dda5f5b9-d173-4bb2-ae0a-0b1102ce405a.jpg"
+  },
+  "fix-10-side-lateral-elbows/fix-10-side-lateral-elbows-01.jpg": {
+   "sha256": "81b16fd8067eaa7187e7ae16b9c4782e371411ac40eac6a156f15759b7d74596",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/985568e3-094c-4144-80ce-230c482e1dcf.jpg"
+  },
+  "fix-10-side-lateral-elbows/fix-10-side-lateral-elbows-02.jpg": {
+   "sha256": "895c660b79674f03af6f24d10edac12aaef3e3c01bb8051c4af5272cf34eb774",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/603f896f-162d-475b-be8d-70ced41e6965.jpg"
+  },
+  "fix-10-side-lateral-elbows/fix-10-side-lateral-elbows-03.jpg": {
+   "sha256": "10c5c142a0c0da154925dd4f62b0c3665dfde374b6d9d567fccc936b846ab407",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/316fd212-82b4-47fa-be6c-7d3cbb62e4c8.jpg"
+  },
+  "fix-10-side-lateral-elbows/fix-10-side-lateral-elbows-04.jpg": {
+   "sha256": "dcc102df64a1fc3bfd1b0e565d3a442ca6a25502b2edf78d5511cf1603b65a64",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/afbaf7c3-6929-4b23-8d6f-c27a15781c7d.jpg"
+  },
+  "fix-10-side-lateral-elbows/fix-10-side-lateral-elbows-05.jpg": {
+   "sha256": "9f56364c3d0f2f50faa88acf4a1ccf4b7ff75bea20dd1b38cfbb0b7b1ee25aec",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/1919e485-537a-4f58-a05c-513452ed9cc7.jpg"
+  },
+  "workout-05-commercial-break/workout-05-commercial-break-01.jpg": {
+   "sha256": "ba6c8ca4a99328a287baaeeca20481ae5ebd9ec5933b51717a8a4b7b1d8f045b",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/c3c9b111-00dc-4ae8-bd1b-e58801db8ae5.jpg"
+  },
+  "workout-05-commercial-break/workout-05-commercial-break-02.jpg": {
+   "sha256": "9b44fdb3d56d6dc312acd0c82d5c2934d70b2d3781742df86d802d63ada18fff",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/93e64b40-d3e6-45e1-84fb-31d8e214bcff.jpg"
+  },
+  "workout-05-commercial-break/workout-05-commercial-break-03.jpg": {
+   "sha256": "eaf0f002afd89c080b276f9a92c9534e5104264cd827c564d8f1b296667f96cd",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/9fd8dcee-36c0-4bcf-8ff7-dbd7d32a280a.jpg"
+  },
+  "workout-05-commercial-break/workout-05-commercial-break-04.jpg": {
+   "sha256": "b35fbb0ba25bd7ba7b48d2a23aa5dcfb88928571f1e4d6fadcbc66c3ab9f5eaa",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/71986c5b-10d1-4465-a334-5dd37d4b462e.jpg"
+  },
+  "workout-05-commercial-break/workout-05-commercial-break-05.jpg": {
+   "sha256": "f60ce0e6f7d78c654f078e1709480cf34d5f56865720110d9ac1117beb9d6845",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/61a42982-f1dc-4c47-a2a1-f8ad61d5c5c0.jpg"
+  },
+  "workout-06-ab-rounds/workout-06-ab-rounds-01.jpg": {
+   "sha256": "4e46ac885dc385ee2ba123e28ed7a74e9738f7feca4c676587d28c0c2ca6fb8b",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/40175215-4802-4a98-8454-7f1fb0d9f59d.jpg"
+  },
+  "workout-06-ab-rounds/workout-06-ab-rounds-02.jpg": {
+   "sha256": "162d137c36544a79820e37105ae8169709be878f92cac2313ec050beb33ece27",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/4efd0323-ca00-4dfe-a22f-575e9183f5d2.jpg"
+  },
+  "workout-06-ab-rounds/workout-06-ab-rounds-03.jpg": {
+   "sha256": "e27c29bbcb56dd4c7cd6b8d7c8f065b3d384008093bea8390dab87b973c88ddf",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/13493e10-1700-4088-8630-34418fbe61bd.jpg"
+  },
+  "workout-06-ab-rounds/workout-06-ab-rounds-04.jpg": {
+   "sha256": "fbb24451ff3f8bf6c1888b8a52f891614b01a8a4e23d4a278e316eae60016a9e",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/7bcc712d-afa0-44a1-9b59-77c263ad253a.jpg"
+  },
+  "workout-06-ab-rounds/workout-06-ab-rounds-05.jpg": {
+   "sha256": "7a7dd067055adc516f8b96a3059d614c305800c35a58ec60a02c1ea6a01e49bd",
+   "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/cc6967d3-ed30-4aeb-a2b3-5e777deeec9b.jpg"
   }
  }
 }

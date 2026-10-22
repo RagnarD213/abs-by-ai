@@ -2,7 +2,7 @@
  "format": "the-fix",
  "id": "fix-10-side-lateral-elbows",
  "tag": "The Fix · 10",
- "status": "draft R1 2026-10-21; wording source: raw roll C1584 (8/3 shoot, 142-253 s) = Zeeshan arms master 3:28-4:52, short arms-shoulders-short3_raise-your-elbows-not-your-hands, 8/28 roll C1672 (DS-23 how to do side laterals script)",
+ "status": "draft R1 2026-10-21; wording source: raw roll C1584 (8/3 shoot, 142-253 s) = Zeeshan arms master 3:28-4:52, short arms-shoulders-short3_raise-your-elbows-not-your-hands, 8/28 roll C1672 (DS-23 how to do side laterals script) | APPROVED by Dan 2026-10-22 as is; last slide now has the large cutout (Dan rule 2026-10-22).",
  "cover": {
   "headline": "Stop doing side laterals\n[y]like this.[/y]",
   "image": {
@@ -76,6 +76,7 @@
     "text": "to the guy whose side laterals look like a chicken dance."
    }
   ],
-  "follow": "One fix a week, filmed on me."
+  "follow": "One fix a week, filmed on me.",
+  "cutout": "Short-form video content/instagram-danrosefit/assets/_cutouts/studio-blue-38.webp"
  }
 }

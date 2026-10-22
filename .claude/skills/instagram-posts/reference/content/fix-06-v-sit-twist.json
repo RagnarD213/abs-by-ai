@@ -2,7 +2,7 @@
  "format": "the-fix",
  "id": "fix-06-v-sit-twist",
  "tag": "The Fix · 06",
- "status": "draft R1 2026-10-21; wording source: raw roll C0223-007 (7/8 welcome shoot, 316-373 s), short short3_v-sit-twists",
+ "status": "draft R1 2026-10-21; wording source: raw roll C0223-007 (7/8 welcome shoot, 316-373 s), short short3_v-sit-twists | APPROVED by Dan 2026-10-22 as is; last slide now has the large cutout (Dan rule 2026-10-22).",
  "cover": {
   "headline": "Stop doing V-sit twists\n[y]like this.[/y]",
   "image": {
@@ -76,6 +76,7 @@
     "text": "to the guy who does V-sit twists like he's passing the salt."
    }
   ],
-  "follow": "One fix a week, filmed on me."
+  "follow": "One fix a week, filmed on me.",
+  "cutout": "Short-form video content/instagram-danrosefit/assets/_cutouts/studio-gray-87.webp"
  }
 }

@@ -2,7 +2,7 @@
  "format": "the-fix",
  "id": "fix-03-deadlift-look-up",
  "tag": "The Fix · 03",
- "status": "draft R1 2026-10-21; wording source: raw roll C0228-005 (7/8 welcome shoot, 38-144 s), DS-18 delivered words (ds18 work folder delivered-words.json), short v6-short3_look-at-the-sky-deadlift",
+ "status": "draft R1 2026-10-21; wording source: raw roll C0228-005 (7/8 welcome shoot, 38-144 s), DS-18 delivered words (ds18 work folder delivered-words.json), short v6-short3_look-at-the-sky-deadlift | APPROVED by Dan 2026-10-22 as is; last slide now has the large cutout (Dan rule 2026-10-22).",
  "cover": {
   "headline": "Stop deadlifting\n[y]like this.[/y]",
   "image": {
@@ -76,6 +76,7 @@
     "text": "to the guy who deadlifts staring at his shoes."
    }
   ],
-  "follow": "One fix a week, filmed on me."
+  "follow": "One fix a week, filmed on me.",
+  "cutout": "Short-form video content/instagram-danrosefit/assets/_cutouts/studio-white-57.webp"
  }
 }

@@ -25,3 +25,27 @@ S09-A to Fri Dec 25, S06-C to Mon Dec 28 (5 PM). Skip List carousel (IG Sat Oct 
   no duplicate image slots. Queue 190 to 196.
 - Backup before writes (git-ignored): `scripts/blotato/swap_backup/queue_before_igtemplate_20261021.json` and
   `queue_before_igtemplate_apply.json`.
+
+## Phase 3 (2026-10-22): Dan's round 1 picks queued, studio batch retired
+
+Script `scripts/blotato/igtemplate_phase3.py` (backup, retire, swap, place, verify); same batch and state files.
+
+| Slot (5 PM CT, IG + FB) | Post |
+|---|---|
+| Fri Oct 23 | C1 The Fix 01 jump rope, last slide re-rendered to Dan's new rule (large shirtless cutout, no face avatar) |
+| Mon Oct 26 | C2 Receipts 01 crunches (unchanged) |
+| Wed Oct 28 | workout-06 "3 ab moves, 10 reps each, 3 rounds", Dan's real 1-minute ab workout, replacing C3 (C3 called a knee-to-elbow move his "Spiderman plank"; Dan's Spiderman plank is elbows to push-up and back). Default "swap" on the review page; Dan approved workout-06 "as is". |
+| Fri Oct 30 | fix-02 towel row |
+| Mon Nov 2 | workout-05 commercial break |
+| Wed Nov 4 | fix-03 deadlift, look up |
+| Fri Nov 6 | fix-10 side laterals, lead with the elbows |
+| Mon Nov 9 | fix-06 V-sit twist |
+
+- **Studio batch retired:** all 26 unreleased Codex studio posts (52 placements) taken off both platforms and recorded in
+  `scripts/blotato/photo_reserve.json` (caption, image hashes, Blotato media URLs, old schedule ids). C3 is recorded there
+  too. Image files and `studio27_state.json` untouched. Use the reserve only if the image queue would run dry.
+- Captions via `dan-voice-writer` (its clean CLI login has expired, so it used the in-session fallback); 0 long dashes,
+  5 hashtags each. Workout stills brightened with `enhance.py`.
+- Verified by re-reading the queue: 16 of 16 placements exact (byte-identical slides, in order), 0 studio posts left,
+  no other item changed, no duplicate image slots. Queue 192 to 150. Backup: `swap_backup/queue_before_igtemplate_phase3.json`.
+- Next: round 2 revisions (Fix 5, Workout 6, Receipts 5) go after Nov 9 once Dan approves them.
