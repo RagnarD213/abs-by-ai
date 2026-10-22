@@ -204,6 +204,16 @@ Dan: "The system that I want is one where I give my revisions and then the new t
   HyperFrames templates and point `_shared/adkit/analysis_card.py` users at it. The J2 version stays only for re-exports
   of films already approved with it (RA-01).
 
+## A revised thumbnail or cover is shown to Dan before it is installed (Dan, 2026-10-22, SL-18)
+
+- **When Dan asks for changes to a picked thumbnail or cover, build the revision, show him the finished file (every layout), and
+  install, upload or schedule it only after he approves that exact file.** Dan, after his Short 2 cover D revision was installed
+  straight into Blotato: *"I want you to have me approve the final short before you install in the future."* (Editor's reading:
+  "short" means the short's cover, the thing that was installed without his look.)
+- An unrevised pick from the review sheet still goes straight to setup. Already scheduled posts keep their current cover until he
+  approves the replacement; then swap it everywhere it is used (Instagram, YouTube, the TikTok cover-first copy, the Facebook cover
+  registry and the live installer) and read each back.
+
 ## Thumbnails: the five, each its own design, always made by Codex (Dan, 2026-10-13)
 
 Dan, finalizing RO-19: *"Let's make this a standard way of making thumbnails going forward. We always have one pool, one

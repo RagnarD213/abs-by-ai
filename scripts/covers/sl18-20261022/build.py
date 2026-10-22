@@ -24,7 +24,7 @@ BADGES={'s1':'ADHD MEDICATION','s2':'DATING IN YOUR 20S'}
 COPY={'s1':(['Why ADHD Meds','Backfire Long Term'],'wastedlife-short1_why-adhd-meds-backfire-long-term','Why ADHD Meds Backfire Long Term'),
  's2':(['Build Your Value','Before You Date'],'wastedlife-short2_build-your-value-before-you-date','Build Your Value Before You Date')}
 ORDER=list(COPY)
-DCOPY={'s2':['Stop Dating Until','You Are Ripped','And Rich']}   # Dan's cover-D title for Short 2 (2026-10-22)
+DCOPY={'s2':['STOP DATING','Until You Are','Ripped And Rich']}   # Dan's cover-D title for Short 2 (2026-10-22, R2: no eyebrow, STOP DATING huge red caps full width, rest white)
 XOUT={'s2'}   # red X over the woman on D (Dan, 2026-10-22)
 POOL={'s1':'photo-71','s2':'photo-289'}
 TIGHT={}
@@ -90,7 +90,18 @@ def lay_C(canvas,mask,k,ig):   # solid yellow band on top, DIN black and red
  box(canvas,mask,(0,top,W,top+bh),YEL);ImageDraw.Draw(canvas).rectangle((54,top+24,54+bw+40,top+82),fill=INK);text(canvas,mask,(74,top+33),BADGES[k],fb,YEL)
  for i,ln in enumerate(lines):text(canvas,mask,(54,top+100+i*step),ln,f,INK if i==0 else (196,24,24))
  return top+bh
-def lay_D(canvas,mask,k,ig):   # centred stack low in the frame on a dark ramp, Avenir Heavy white / cyan, white pill badge
+def lay_D_r2(canvas,mask,k,ig):   # Dan R2: no eyebrow; STOP DATING in huge red Impact caps across the full width; the rest white title case below
+ lines=DCOPY[k];limit=1608 if ig else 1728;ramp(canvas,980,1300,245,top_dark=False)
+ f1=fit(lines[0],IMPACT,400,1040,8);f2=common(lines[1:],AVENIR,240,1000,5);step=round(f2.size*0.98)
+ b1=f1.getbbox(lines[0],stroke_width=8,anchor='ma')
+ y3=limit-f2.getbbox(lines[2],stroke_width=5,anchor='ma')[3];y2=y3-step;y1=y2-18-(b1[3])
+ text(canvas,mask,(W//2,y1),lines[0],f1,RED,8,sf=(8,8,10),anchor='ma')
+ for ln,y in zip(lines[1:],(y2,y3)):text(canvas,mask,(W//2,y),ln,f2,WHITE,5,anchor='ma')
+ return y1+b1[1]
+def lay_D(canvas,mask,k,ig):
+ if k in DCOPY:return lay_D_r2(canvas,mask,k,ig)
+ return lay_D_r1(canvas,mask,k,ig)
+def lay_D_r1(canvas,mask,k,ig):   # centred stack low in the frame on a dark ramp, Avenir Heavy white / cyan, white pill badge
  lines=DCOPY.get(k,COPY[k][0]);limit=1608 if ig else 1728;big=k in DCOPY;ramp(canvas,1000 if big else 1020,1340 if big else 1380,240,top_dark=False)
  f=common(lines,AVENIR,200 if big else 160,1000 if big else 990,5);step=round(f.size*(0.98 if big else 1.0))
  yl=limit-f.getbbox(lines[-1],stroke_width=5,anchor='ma')[3];ys=[yl-(len(lines)-1-i)*step for i in range(len(lines))]
