@@ -6,7 +6,7 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 
 ---
 
-- **Top 5 Zepbound Tips SFL R6, intros for A, B, C, E, F (2026-10-21; Decision since: 2026-10-21):** D is finished with a natural intro (every reviewer passed it). About 110 Flow takes gave nothing reviewers would call real footage for the other five (nods, squints, softening); Flow is down to about 1,000 credits shared with other jobs. Rec: paid Veo with a negative prompt, about $20. Or: last Flow credits, or keep R2 openings. Page http://127.0.0.1:8821/.
+- **Top 5 Zepbound Tips SFL R6, intros for A, B, C, E, F (2026-10-21; Decision since: 2026-10-21):** D approved 2026-10-22. For the other five, Claude recommends the approved still frames with a slow camera push-in now (no AI motion, $0), then real intros filmed at the next shoot. Other options: paid Veo (about $20, uncertain), a no-face AI scene. Page http://127.0.0.1:8821/.
 
 - **My First Spray Tan SFL R2, hair at the top edge (2026-10-21; Decision since: 2026-10-21):** the 8/3 camera framed your hair at the top row on every shot, so the two spray tan Shorts cannot meet the 2026-10-20 headroom rule (gate fails only `framing:hair_top`/`headroom`; the approved RO-19 film has the same framing). OK as is, drop them, or cover more talking with clips? Review page http://127.0.0.1:9015/.
 
