@@ -1,0 +1,78 @@
+{
+ "format": "receipts",
+ "id": "receipts-05-too-old",
+ "tag": "Receipts · 05",
+ "cover": {
+  "headline": "\"Too old to\nbuild muscle?\"\nThey were\n[hl]90.[/hl]",
+  "sub": "8 weeks of lifting in a nursing home.",
+  "polaroid": {
+   "image": {
+    "src": "Short-form video content/instagram-danrosefit/assets/receipts-05-too-old/machine.jpg",
+    "pos": "50% 60%",
+    "label": "ai",
+    "alt": "Empty leg extension machine in a bright gym"
+   },
+   "caption": "Their average age: 90."
+  }
+ },
+ "study": {
+  "headline": "Ten frail nursing home residents, average age 90, did hard strength training for 8 weeks.",
+  "stats": [
+   {
+    "n": "10",
+    "label": "residents"
+   },
+   {
+    "n": "90",
+    "label": "average age"
+   },
+   {
+    "n": "8",
+    "label": "weeks"
+   }
+  ],
+  "rows": [
+   {
+    "label": "Strength",
+    "result": "Up 174%",
+    "tone": "good"
+   },
+   {
+    "label": "Thigh muscle size",
+    "result": "Up 9%",
+    "tone": "good"
+   }
+  ],
+  "note": "9 of 10 finished. Their walking speed improved 48%.",
+  "source": "Fiatarone et al., JAMA, 1990"
+ },
+ "exhibit_b": {
+  "stamp": "Exhibit B: me now",
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/receipts-05-too-old/dan-flex.jpg",
+   "pos": "50% 30%",
+   "label": "real",
+   "alt": "Dan flexing both biceps, abs visible"
+  },
+  "caption": "Over 40. I lift 7 days a week.",
+  "headline": "If 90 can grow, so can 40."
+ },
+ "verdict": {
+  "headline": "Muscle grows\n[y]at any age.[/y]\nYou have to load it.",
+  "body": "The oldest one in the study was 96. Your excuse is weaker than theirs.",
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/receipts-05-too-old/cut-studio-white-2.webp",
+   "label": "real",
+   "alt": "Dan now, shirtless in green shorts, hands on hips"
+  }
+ },
+ "works": {
+  "items": [
+   "Lift 3 days a week. Hit every big muscle.",
+   "Add a rep or a little weight each week.",
+   "Free weights feel shaky? Start on machines."
+  ],
+  "headline": "It's not too late.\n[hl]You're right on time.[/hl]",
+  "save": "Save this for the next time someone tells you you're too old to build muscle."
+ }
+}

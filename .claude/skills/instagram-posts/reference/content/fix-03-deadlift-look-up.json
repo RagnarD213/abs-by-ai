@@ -1,0 +1,81 @@
+{
+ "format": "the-fix",
+ "id": "fix-03-deadlift-look-up",
+ "tag": "The Fix · 03",
+ "status": "draft R1 2026-10-21; wording source: raw roll C0228-005 (7/8 welcome shoot, 38-144 s), DS-18 delivered words (ds18 work folder delivered-words.json), short v6-short3_look-at-the-sky-deadlift",
+ "cover": {
+  "headline": "Stop deadlifting\n[y]like this.[/y]",
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-03-deadlift-look-up/cover.jpg",
+   "pos": "50% 50%",
+   "zoom": 1.0,
+   "label": "real",
+   "alt": "Dan bent over a kettlebell, head down, back rounded"
+  },
+  "ring": [
+   210,
+   70,
+   190,
+   120
+  ],
+  "callout": "Rounded back",
+  "callout_at": [
+   30,
+   150
+  ],
+  "swipe": "Swipe for the fix"
+ },
+ "mistake": {
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-03-deadlift-look-up/mistake.jpg",
+   "pos": "50% 50%",
+   "zoom": 1.0,
+   "label": "real",
+   "alt": "Dan bent over the kettlebell looking at the ground, back rounded"
+  },
+  "headline": "Eyes on the floor.\nBack rounds over.",
+  "body": "Look at the ground and you're naturally in bad posture. A rounded back is the biggest reason I see guys get hurt deadlifting."
+ },
+ "fix": {
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-03-deadlift-look-up/fix.jpg",
+   "pos": "50% 50%",
+   "zoom": 1.0,
+   "label": "real",
+   "alt": "Dan at the bottom of a kettlebell deadlift, looking up at the sky, back flat"
+  },
+  "headline": "Look at\nthe sky.",
+  "body": "Look at the ceiling, or the sky if you're outside. When you're looking up, [em]you can't really have bad posture.[/em]"
+ },
+ "cues": {
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-03-deadlift-look-up/cues.jpg",
+   "pos": "50% 50%",
+   "zoom": 1.0,
+   "label": "real",
+   "alt": "Dan standing tall with the kettlebell, eyes up"
+  },
+  "title": "3 cues",
+  "subtitle": "for a safer deadlift",
+  "items": [
+   "Eyes on the ceiling or the sky the whole rep.",
+   "Bend your legs, not your back.",
+   "Use it most when you're tired. That's when posture slips."
+  ]
+ },
+ "cta": {
+  "blocks": [
+   {
+    "icon": "save",
+    "title": "Save this",
+    "text": "for your next leg day."
+   },
+   {
+    "icon": "send",
+    "title": "Send it",
+    "text": "to the guy who deadlifts staring at his shoes."
+   }
+  ],
+  "follow": "One fix a week, filmed on me."
+ }
+}

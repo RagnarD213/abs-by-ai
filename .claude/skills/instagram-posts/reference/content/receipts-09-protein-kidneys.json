@@ -1,0 +1,78 @@
+{
+ "format": "receipts",
+ "id": "receipts-09-protein-kidneys",
+ "tag": "Receipts · 09",
+ "cover": {
+  "headline": "Protein\nwrecks your\nkidneys?\n[hl]A year says no.[/hl]",
+  "sub": "Healthy lifters on a very high protein diet.",
+  "polaroid": {
+   "image": {
+    "src": "Short-form video content/instagram-danrosefit/assets/receipts-09-protein-kidneys/steak.jpg",
+    "pos": "50% 50%",
+    "label": "ai",
+    "alt": "Sliced steak, boiled eggs and cottage cheese"
+   },
+   "caption": "Big protein, every day."
+  }
+ },
+ "study": {
+  "headline": "Healthy lifters swapped between their normal diet and a very high protein diet for a year.",
+  "stats": [
+   {
+    "n": "14",
+    "label": "trained men"
+   },
+   {
+    "n": "1",
+    "label": "year"
+   },
+   {
+    "n": "3.3 g",
+    "label": "protein per kg a day"
+   }
+  ],
+  "rows": [
+   {
+    "label": "Kidney function",
+    "result": "No harm",
+    "tone": "good"
+   },
+   {
+    "label": "Liver and blood fats",
+    "result": "No harm",
+    "tone": "good"
+   }
+  ],
+  "note": "Blood tested 5 times. No significant differences.",
+  "source": "Antonio et al., Journal of Nutrition and Metabolism, 2016"
+ },
+ "exhibit_b": {
+  "stamp": "Exhibit B: the blood work",
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/receipts-09-protein-kidneys/tubes.jpg",
+   "pos": "45% 60%",
+   "label": "ai",
+   "alt": "Rack of blood sample tubes in a lab"
+  },
+  "caption": "5 blood draws in a year.",
+  "headline": "Kidney markers: no difference."
+ },
+ "verdict": {
+  "headline": "Healthy kidneys\n[y]handle high protein.[/y]",
+  "body": "These were healthy men. Kidney disease is a different story. Ask your doctor.",
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/receipts-09-protein-kidneys/cut-studio-blue-221.webp",
+   "label": "real",
+   "alt": "Dan now, shirtless in green shorts, abs visible"
+  }
+ },
+ "works": {
+  "items": [
+   "Build every meal around a palm or two of protein.",
+   "Get yearly blood work. Look at creatinine and eGFR.",
+   "Pick protein you like so you actually hit it."
+  ],
+  "headline": "Protein builds the abs.\n[hl]Don't fear it.[/hl]",
+  "save": "Save this for the next time someone tells you protein wrecks your kidneys."
+ }
+}

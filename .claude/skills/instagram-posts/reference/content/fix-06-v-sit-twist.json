@@ -1,0 +1,81 @@
+{
+ "format": "the-fix",
+ "id": "fix-06-v-sit-twist",
+ "tag": "The Fix · 06",
+ "status": "draft R1 2026-10-21; wording source: raw roll C0223-007 (7/8 welcome shoot, 316-373 s), short short3_v-sit-twists",
+ "cover": {
+  "headline": "Stop doing V-sit twists\n[y]like this.[/y]",
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-06-v-sit-twist/cover.jpg",
+   "pos": "50% 50%",
+   "zoom": 1.0,
+   "label": "real",
+   "alt": "Dan in a V-sit moving the medicine ball to the side while his legs stay still"
+  },
+  "ring": [
+   195,
+   225,
+   160,
+   160
+  ],
+  "callout": "Legs still",
+  "callout_at": [
+   370,
+   300
+  ],
+  "swipe": "Swipe for the fix"
+ },
+ "mistake": {
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-06-v-sit-twist/mistake.jpg",
+   "pos": "50% 50%",
+   "zoom": 1.0,
+   "label": "real",
+   "alt": "Dan in a V-sit with his legs held still in the middle, ball out to one side"
+  },
+  "headline": "Legs stay still.\nOnly the ball moves.",
+  "body": "If you just stay there and move the ball, you're not really working as much. Moving your legs is what makes this work."
+ },
+ "fix": {
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-06-v-sit-twist/fix.jpg",
+   "pos": "50% 50%",
+   "zoom": 1.0,
+   "label": "real",
+   "alt": "Dan in a V-sit with his knees swung to one side and the ball on the other"
+  },
+  "headline": "Swing your legs\nside to side.",
+  "body": "Balance on your butt, knees up. Move your legs to one side and bounce the ball there, then switch. The ball is [em]just a counterweight.[/em]"
+ },
+ "cues": {
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-06-v-sit-twist/cues.jpg",
+   "pos": "50% 50%",
+   "zoom": 1.0,
+   "label": "real",
+   "alt": "Dan balanced in a V-sit with his feet off the ground"
+  },
+  "title": "3 cues",
+  "subtitle": "for the V-sit twist",
+  "items": [
+   "Balance on your butt, knees in the air.",
+   "Legs go side to side on every rep.",
+   "Do them after toe touches so your obliques take over."
+  ]
+ },
+ "cta": {
+  "blocks": [
+   {
+    "icon": "save",
+    "title": "Save this",
+    "text": "for your next ab day."
+   },
+   {
+    "icon": "send",
+    "title": "Send it",
+    "text": "to the guy who does V-sit twists like he's passing the salt."
+   }
+  ],
+  "follow": "One fix a week, filmed on me."
+ }
+}

@@ -1,0 +1,74 @@
+{
+ "format": "receipts",
+ "id": "receipts-10-diet-soda",
+ "tag": "Receipts · 10",
+ "cover": {
+  "headline": "Diet soda\nmakes you fat?\nThe diet soda group\n[hl]lost more.[/hl]",
+  "sub": "303 dieters. Water vs diet drinks.",
+  "polaroid": {
+   "image": {
+    "src": "Short-form video content/instagram-danrosefit/assets/receipts-10-diet-soda/canwater.jpg",
+    "pos": "50% 55%",
+    "label": "ai",
+    "alt": "Silver soda can next to a glass of ice water"
+   },
+   "caption": "Water or diet. Both work."
+  }
+ },
+ "study": {
+  "headline": "Adults on the same 12-week weight loss program drank either water or diet drinks.",
+  "stats": [
+   {
+    "n": "303",
+    "label": "adults"
+   },
+   {
+    "n": "12",
+    "label": "weeks"
+   }
+  ],
+  "rows": [
+   {
+    "label": "Weight lost, diet drinks",
+    "result": "5.95 kg",
+    "tone": "good"
+   },
+   {
+    "label": "Weight lost, water",
+    "result": "4.09 kg",
+    "tone": "neutral"
+   }
+  ],
+  "note": "The diet drink group also felt less hungry. Funded by the American Beverage Association.",
+  "source": "Peters et al., Obesity, 2014"
+ },
+ "exhibit_b": {
+  "stamp": "Exhibit B: the can",
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/receipts-10-diet-soda/can.jpg",
+   "pos": "50% 50%",
+   "label": "ai",
+   "alt": "Plain silver soda can with condensation"
+  },
+  "caption": "Cold, sweet, no sugar.",
+  "headline": "Swap the sugar soda first."
+ },
+ "verdict": {
+  "headline": "Diet soda\n[y]didn't stop[/y]\nthe fat loss.",
+  "body": "If a diet soda keeps you away from sugar, it's doing its job. Water works too.",
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/template-r1-mockups/source/cut-white-90.webp",
+   "label": "real",
+   "alt": "Dan now, shirtless in yellow shorts"
+  }
+ },
+ "works": {
+  "items": [
+   "Swap every sugar soda for diet or water.",
+   "Craving sweet? Try a cold diet soda first.",
+   "Track your food. That's where the calories are."
+  ],
+  "headline": "Drink what keeps\n[hl]you on the plan.[/hl]",
+  "save": "Save this for the next time someone tells you diet soda makes you fat."
+ }
+}

@@ -1,0 +1,107 @@
+{
+ "title": "Carousel Picks Batch 1",
+ "lede": "30 new carousels in the three formats you liked, ten each, plus the cheat sheet with your photo. Each format is in my ranked order, best first. Ticked means I queue it. Untick anything you don't want, answer the two calls, then tap <b>Copy my picks</b> at the bottom and paste it in chat.",
+ "decisions": [
+  {
+   "key": "C3",
+   "question": "C3 (queued for Wed Oct 28) names your Spiderman plank wrong. Swap it?",
+   "detail_html": "<p class='why'>In your videos and on SixPackAbs.com, a Spiderman plank is elbows up to a push-up position and back down. C3 calls that move a \"plank up-down\" and puts the Spiderman plank name on a knee-to-elbow move instead. C3 also uses 1:00 a move, which was a placeholder. Your real ab routine (toe touch, V-sit twist, Spiderman plank, 10 reps each, 3 rounds) is built below as <b>3 ab moves, 10 reps each</b>. Here is C3 as queued:</p>",
+   "images": [
+    "workout-01-home-abs"
+   ],
+   "options": [
+    [
+     "swap",
+     "Swap: post the real 1-minute ab workout on Oct 28 instead of C3 (recommended)"
+    ],
+    [
+     "keep",
+     "Keep C3 as it is"
+    ]
+   ],
+   "default": "swap"
+  }
+ ],
+ "singles": [
+  {
+   "id": "cheat-01-protein-per-100-calories",
+   "note": "<h3>The protein cheat sheet, now with a small photo of you</h3><p class='why'>Same chart you liked, plus a real studio photo of you as a labelled polaroid. It sits clear of the bars and numbers.</p><div class='opts' data-key='P2'><label class='opt'><input type='radio' name='P2' id='P2-yes' value='yes' checked> <span>Queue it</span></label><label class='opt'><input type='radio' name='P2' id='P2-no' value='no'> <span>Not yet</span></label></div>"
+  }
+ ],
+ "sections": [
+  {
+   "heading": "The Fix",
+   "intro": "One mistake and its fix per post, both shown with real footage of you, in your own words from the videos.",
+   "ranking": "ranking-the-fix.md",
+   "ids": [
+    "fix-02-towel-row",
+    "fix-03-deadlift-look-up",
+    "fix-04-kettlebell-between-legs",
+    "fix-05-toe-touch",
+    "fix-06-v-sit-twist",
+    "fix-07-spiderman-plank",
+    "fix-08-push-up",
+    "fix-09-bicep-curl-swing",
+    "fix-10-side-lateral-elbows",
+    "fix-11-ab-wheel"
+   ]
+  },
+  {
+   "heading": "Receipts",
+   "intro": "One belief, one real study (checked: authors, journal, year and the result as the paper states it), the verdict, and what to do instead.",
+   "ranking": "ranking-receipts.md",
+   "ids": [
+    "receipts-02-metabolism",
+    "receipts-03-protein-per-meal",
+    "receipts-04-light-weights",
+    "receipts-05-too-old",
+    "receipts-06-sleep",
+    "receipts-07-six-meals",
+    "receipts-08-breakfast",
+    "receipts-09-protein-kidneys",
+    "receipts-10-diet-soda",
+    "receipts-11-carbs-at-night"
+   ]
+  },
+  {
+   "heading": "Steal My Workout",
+   "intro": "Only routines you actually do, with the times and reps you say in your videos. Real footage of every home move.",
+   "ranking": "ranking-workout.md",
+   "ids": [
+    "workout-02-five-minutes",
+    "workout-03-kettlebell",
+    "workout-04-home-arms",
+    "workout-05-commercial-break",
+    "workout-06-ab-rounds",
+    "workout-07-lower-abs",
+    "workout-08-v-taper",
+    "workout-09-ab-wheel",
+    "workout-10-gym-arms",
+    "workout-11-instead-of-deadlifts"
+   ]
+  }
+ ],
+ "unticked": [
+  "fix-11-ab-wheel",
+  "workout-10-gym-arms",
+  "workout-11-instead-of-deadlifts"
+ ],
+ "notes": {
+  "fix-04-kettlebell-between-legs": "Shot in the same session as #2 (look at the sky), so the two look alike. I'd space them a few weeks apart, or untick one.",
+  "workout-06-ab-rounds": "This is the C3 replacement. If you choose the swap, it takes the Oct 28 slot.",
+  "receipts-10-diet-soda": "The study was funded by the American Beverage Association. Slide 2 says so.",
+  "fix-09-bicep-curl-swing": "The mistake still comes from Zeeshan's arms edit, cropped to keep his text out."
+ },
+ "shootlist": [
+  "shootlist-the-fix.md",
+  "shootlist-workout.md"
+ ],
+ "decided": [
+  "Every post gives the viewer something to use. Your own story only appears where it proves the point.",
+  "No mistake is faked. Where no footage of you doing it wrong exists, the slide is marked 'film at next shoot' and the post stays unticked until it is filmed (the ab wheel, gym arms and the deadlift swap).",
+  "Stomach vacuum was skipped for The Fix: you never filmed it done wrong, and your only 'mistake' line about it is about choosing crunches over vacuums.",
+  "One study was dropped (fasted cardio): only 20 young women for 4 weeks, and the raw numbers point the wrong way on a slide. 'Too old to build muscle' replaced it.",
+  "Receipts use 13 new AI images of food and objects only, all labelled. Every photo of you is real.",
+  "Your picks go into the Monday, Wednesday and Friday 5 PM image slots right after the first three (Oct 23, 26 and 28), alternating the three formats, best first. Then the old green studio posts come off the schedule into a reserve list."
+ ]
+}

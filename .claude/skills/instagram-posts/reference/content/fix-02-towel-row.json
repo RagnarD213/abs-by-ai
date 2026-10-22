@@ -1,0 +1,81 @@
+{
+ "format": "the-fix",
+ "id": "fix-02-towel-row",
+ "tag": "The Fix · 02",
+ "status": "draft R1 2026-10-21; wording source: raw roll C0229-008 (7/8 welcome shoot, 180-290 s), short v6-short4_towel-row-karate-chop",
+ "cover": {
+  "headline": "Stop doing towel rows\n[y]like this.[/y]",
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-02-towel-row/cover.jpg",
+   "pos": "50% 50%",
+   "zoom": 1.0,
+   "label": "real",
+   "alt": "Dan holding a towel loosely at chest height, towel sagging"
+  },
+  "ring": [
+   150,
+   150,
+   150,
+   80
+  ],
+  "callout": "Limp towel",
+  "callout_at": [
+   300,
+   170
+  ],
+  "swipe": "Swipe for the fix"
+ },
+ "mistake": {
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-02-towel-row/mistake.jpg",
+   "pos": "50% 50%",
+   "zoom": 1.0,
+   "label": "real",
+   "alt": "Dan holding a limp, sagging towel in front of his chest"
+  },
+  "headline": "Limp towel.\nJust waving your arms.",
+  "body": "Hold the towel loose and you're not doing anything. That's why so many guys think towel rows are a scam."
+ },
+ "fix": {
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-02-towel-row/fix.jpg",
+   "pos": "50% 50%",
+   "zoom": 1.0,
+   "label": "real",
+   "alt": "Dan pulling a towel tight in front of his chest, straining"
+  },
+  "headline": "Pull it tight.\nStay tense.",
+  "body": "Pull hard on the towel before you even move it. My boy Mike Chang used to [em]karate chop people's towels.[/em] If yours collapses, you don't have enough tension."
+ },
+ "cues": {
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-02-towel-row/cues.jpg",
+   "pos": "50% 50%",
+   "zoom": 1.0,
+   "label": "real",
+   "alt": "Dan rowing a tight towel toward his chest"
+  },
+  "title": "3 cues",
+  "subtitle": "for the towel row",
+  "items": [
+   "Pull the towel apart hard before you row.",
+   "Stay tense the entire set, even on the way back.",
+   "Karate chop test: if it collapses, pull harder."
+  ]
+ },
+ "cta": {
+  "blocks": [
+   {
+    "icon": "save",
+    "title": "Save this",
+    "text": "for your next home workout."
+   },
+   {
+    "icon": "send",
+    "title": "Send it",
+    "text": "to the guy who says towel rows are a scam."
+   }
+  ],
+  "follow": "One fix a week, filmed on me."
+ }
+}
