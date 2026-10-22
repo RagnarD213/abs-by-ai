@@ -177,11 +177,13 @@ def make_K(ig):
     if ov==0:break
    if best[0]==0:break
   return hi,hx,ty,best
- if ig:sc=0.40;hi,hx,ty,best=try_scale(sc,610,lambda h:hb-50)
- else:   # largest hero standing on the bottom edge that still leaves a 300 px+ photo clear of him
-  for sc in (0.44,0.435,0.43,0.425,0.42,0.415,0.41,0.405,0.40):
-   hi,hx,ty,best=try_scale(sc,min(585,FIST-round((RIGHT-MID)*sc)),lambda h:H-h.height)
-   if best[0]==0 and best[1]>=300:break
+ # Round 6 (Dan, 2026-10-22): "Move the photo up in the YouTube one to the same position as the Instagram... and move the 'after the
+ # tan' to the upper right, the same as the Instagram." YouTube is now the Instagram composition (same hero size and centre, same
+ # print size and place relative to him, same chip place) moved down by SHIFT so his photo stands on the bottom edge.
+ IG_TY=571-50;IG_B=1700;sc=0.40
+ if ig:SHIFT=0;hi,hx,ty,best=try_scale(sc,610,lambda h:hb-50)
+ else:
+  SHIFT=(H-hero_tan(sc)[0].height)-IG_TY;B=IG_B+SHIFT;hi,hx,ty,best=try_scale(sc,610,lambda h:H-h.height)
  if not ig:   # YouTube: the headline block moves down to sit on the hero's top edge, as on Instagram (no blurred band between)
   sh_=ty+50-hb;top+=sh_;y2+=sh_;hb+=sh_
  im=backdrop('tan',(W,H)).convert('RGBA');ff=feather(hi.size,60);ff[:,-60:]=1;ff[-60:]=1;ff[:60]=1
@@ -195,7 +197,7 @@ def make_K(ig):
  box(im,tm,(W//2+b2[0]-20,y2+b2[1]-14,W//2+b2[2]+20,y2+b2[3]+14),AMBER,8);text(im,tm,(W//2,y2),LINES[1],f2,INK,anchor='ma')
  from scipy.ndimage import distance_transform_edt
  dist=distance_transform_edt(~pmask(pic));cw=270;chh=60;spot=None
- for y in range(1540 if ig else 1660,hb+20,-20):
+ for y in range(1540+SHIFT,hb+20,-20):
   for cx in (W-150,W-170):   # right side only: the pale inset holds the bottom left
    if dist[y:y+chh,cx-cw//2:cx+cw//2].min()>=40:spot=(cx,y);break
   if spot:break
