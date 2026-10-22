@@ -1,71 +1,44 @@
+- [Reaction format](greenscreen-reaction-format.md): 10-22: clip full screen, Dan 0.40 lower left, laptop visible
+- [Cover picks](cover-picks-ai-dan-acting-topic.md): 10-21: AI Dan acting the title out, yellow band; expressive when the topic needs it
+- [AI clips natural or regenerate](ai-clips-natural-or-regenerate.md): 10-21: calm real-looking, closed-mouth smile, no shake; regenerate slop, never patch
+- [Chroma key standard](chroma-key-standard.md): 10-21: Claude DS-40 R2 key is the house key (replaces Codex R3)
+- [AI clips: ask before paying](ai-clips-subscription-ask-before-paying.md): 10-20: subscription default; paid only on his yes, rush counts
+- [Audio joins smooth](audio-joins-smooth-before-ship.md): 10-20: seamscan every join, listen twice, fix; never carry a failing audio row
 - [AI pool photo correction](ro26-ai-pool-photo-correction.md): dan by pool.png is AI-generated; never label real (Dan 2026-10-16)
-- [Member profile](member-profile.md): users.profile JSONB + quiz
-- [Android TWA build](android-twa-build-setup.md): keystore, build command
-- [iOS Capacitor app](ios-capacitor-app.md): status, build command
-- [Load time](load-time-optimizations.md): local Anthropic key invalid
-- [Printify](printify-print-flow.md): print flow, no-crop caveat
-- [Inbound email](absbyai-inbound-email.md): dan@absbyai.com to Gmail
 - [Auto push](auto-commit-push.md): safe-push.sh only, no rebase
+- [Downloads allowed](downloads-always-allowed.md): never ask to download photos, videos, files (10-21)
 - [Bias to action](bias-toward-action.md): act if reversible
 - [Fable in Max](fable-included-in-max.md): costs allowance, not dollars
 - [Security warnings](security-warning-calibration.md): keep brief
-- [AI trainer](ai-trainer-membership.md): architecture, endpoints
-- [Trainer v3](trainer-v3-ladder.md): 7 stages, tracks, tiers
-- [AI Nutritionist](ai-nutritionist.md): meal prep, GLP-1 mode
 - [Explain simply](explain-simply.md): plain language, stepwise
-- [Sleep Coach](sleep-coach.md): Go Hard briefing endpoints
-- [Supplement Audit](supplement-audit.md): photo stack audit, evals
-- [Supplement Audit plan](supplement-audit-plan.md): old plan, superseded
-- [Progress Log](progress-log.md): shipped; Resend key unset
-- [My Transformations](my-transformations.md): gallery, slider, share
-- [Next-phase plan](next-phase-plan.md): Phase 3 roadmap
-- [Coach Brief](daily-coach-brief.md): /api/coach/brief, caching
-- [Native retest](cross-platform-retest-rule.md): flag after web deploys
-- [Store fixes](platform-scoped-compliance.md): that platform only
-- [Native IAP](native-app-iap-gating.md): purchases hidden in apps
-- [Female generation](female-generation-fix.md): sex detect, prompts
-- [Member unlimited](member-unlimited-fix.md): fixed, no cap
-- [Proof banner](proof-banner-image-gen-process.md): male marketing images
-- [Store policy](app-store-policy-verify-first.md): read docs before advising
-- [iOS App Store](ios-appstore-prep.md): rejection, ASC gotchas
-- [Bake-off look](bakeoff-round1-aesthetic.md): shredded, no tan
 - [Repo is public](repo-is-public.md): ask before personal data
-- [YT ad research](youtube-ad-competitor-research.md): MadMuscles model
-- [MadMuscles](madmuscles-deep-dive.md): funnel teardown
-- [AI ad research](ai-ad-creation-research.md): toolchain, 10 concepts
 - [Outline style](video-outline-style.md): real specifics, no listicles
 - [Relationship](dan-relationship-status.md): girlfriend, not wife
-- [Play billing](google-play-billing-us-change.md): optional in US
-- [Female routing](female-seedream-routing.md): Gemini + Seedream; men FLUX
-- [Shorts style](shorts-production-style.md): J2 type, benefit titles
+- [Shorts style](shorts-production-style.md): SUPERSEDED 10-01 for new batches; Soft Blue now
 - [Shorts tactic](shorts-reason-to-watch.md): never brag-only
 - [Shorts organic](shorts-organic-research.md): 45-60s, no "over 40"
 - [Shorts ads](shorts-ads-research.md): ad research
 - [Cover photos](cover-photo-selection.md): shoot photos, sharp abs
 - [Thumbnail claims](thumbnail-no-claims.md): none; waist crop
-- [Thumbnail system](thumbnail-design-system.md): Manrope, red bar
+- [Thumbnail system](thumbnail-design-system.md): Manrope/red bar look; five unique designs since 10-13
 - [Smirk + DESPISE HIM](ad-thumbnail-arrogant-controversial.md): RA-15 ad thumb pick, controversial
 - [Before photos](dan-before-photo-search.md): 2022-24 candidates
 - [Standard before](standard-before-picture.md): deck-chair shot
 - [Frowning photos](frowning-photos-standing-rule.md): never default
 - [Meal tasks](daily-meal-tasks.md): one recurring entry each
-- [Suspension prevention](ad-suspension-prevention.md): prevention rules
-- [Docs bullets](google-docs-nested-bullets.md): nesting from HTML export
 - [Script blank lines](scripts-blank-line-between-paragraphs.md): in the shoot doc; not teleprompter docs
 - [Teleprompter spacing](teleprompter-no-blank-lines.md): no blank lines; edit in Filming doc
 - [Reactions clip first](reaction-shorts-clip-first.md): clip plays first, no line before it, never repeat the clip
 - [Credentials](autonomy-credentials-framing.md): Claude's limit, one line
 - [Takeovers](computer-takeover-frustration.md): warn first
 - [Browser fallback](browser-task-fallback.md): use in-app pane
-- [Longform finals](longform-delivery-location.md): folder; work on Seagate
+- [Longform finals](longform-delivery-location.md): finals in folder; work in `renderq.py workdir` folder
 - [Audio strip](audio-never-over-strip.md): never past reference
 - [Editor audio](editor-audio-untouched.md): untouched, --verbatim
 - [Gate the harm](gate-the-harm-not-just-the-fix.md): bound a fix's damage
 - [Shared fixes](shared-fix-may-not-reach-the-pipeline.md): check forks
 - [Jump cuts](muhammad-trial-edit-analysis.md): punch-in or insert hides
 - [Framing](framing-standard-hair-anchored.md): hair anchor, NEAR/FAR
-- [8/28 shoot](shoot-828-slog3-format.md): three roll families
-- [9/23 shoot](shoot-923-format.md): FX30, roll map
 - [10/15 shoot](shoot-1015-format.md): lav left only, clips; roll map
 - [Ad finals](ad2-vertical-approved.md): folder + naming
 - [Revision voice](revision-docs-in-dans-voice.md): always as Dan
@@ -74,10 +47,8 @@
 - [Editor messages](editor-message-voice.md): Dan's voice, praise first
 - [Before/after](before-after-same-person.md): same person
 - [App recording pair](app-recording-before-after-pair.md): man is not Dan
-- [Astra vs Fable](astra-vs-fable-verdict.md): FCPXML bridge
+- [IG what works](instagram-what-works-oct2026.md): exercise fix Reels win; photos don't grow
 - [Social profiles](social-profile-graphics-done.md): FB, TikTok done
-- [ManyChat](manychat-comment-abs.md): six keywords, Pro gate
-- [Meta ads IG](meta-ads-instagram-identity.md): use the API script
 - [Ads UI](google-ads-ui-automation.md): Chrome traps
 - [Ad retry](ad-retry-rule-and-no-trick.md): never "trick"; tamer
 - [Blotato fails](blotato-false-failure-large-video.md): may be live; 400 MB
@@ -85,30 +56,16 @@
 - [Ads not organic](ads-never-organic.md): ad_guard.py
 - [Ad or organic](ad-vs-organic-classification.md): closing CTA decides
 - [YouTube upload](youtube-upload-capability.md): upload.js
-- [Stripe](stripe-trial-end-active-before-charge.md): paid = invoice.paid
-- [/start VSL](vsl-landing-page.md): A/B live, page frozen
-- [VSL B intro](vsl-version-b-intro.md): "fired them all"
 - [No agency](no-ad-agency-mention.md): never call Dan a marketer
-- [Deploy holds](deploy-drops-locked-holds.md): push wipes held images
-- [index.html](index-html-screen-nesting.md): count div depth
-- [Railway API](railway-graphql-and-cron.md): cron, cache traps
-- [Local funnel test](local-funnel-test-recipe.md): live-key config, seeded pair
-- [Push rejects](github-push-false-failure.md): fetch before retry
 - [Handoff prompt](handoff-starter-prompt-rule.md): starter + model
 - [Handoff rows](handoffs-not-auto-added-to-dashboard.md): only if asked
 - [New skills](skill-creation-no-auto-execute.md): build, then stop
 - [iPhone Mirroring](iphone-mirroring-control.md): Claude can drive
-- [Ads API](google-ads-api-client.md): client.js
-- [GA4 link](google-ads-ga4-link.md): G-1M1SY7GGKF
-- [Ads accounts](google-ads-account-creation-blocked.md): Dan creates
-- [Ads Scripts](google-ads-scripts-mutate-traps.md): mutate traps
 - [Ad claims](ad-copy-no-unbelievable-claims.md): believable only
 - [Evening plan](evening-planning-process.md): /prioritize for tomorrow
-- [SPA site](sixpackabs-site-stack.md): WP.com Atomic, SFTP
 - [Edit cost](video-editing-cost-quality-feedback.md): too costly, 09-14
 - [Cutdown seams](cutdown-seams-single-source.md): check vs master
 - [Caption overprint](caption-trailing-entry-overprint.md): on CTA pill
-- [Session cleanup](claude-session-cleanup-job.md): never by age
 - [Drive backup](drive-backup-capability.md): rclone, quota trap
 - [BT.601 trap](untagged-video-bt601-trap.md): decode as BT.709
 - [AI giveaways](ai-clip-artifact-giveaways.md): visible at speed
@@ -208,8 +165,6 @@
 - [Self bake-off](self-bakeoff-before-dan-reviews.md): judge first
 - [Thumbnail designs](thumbnail-unique-designs.md): all five unique
 - [Funny AI clips](funny-ai-clips-for-abstract-lines.md): abstract lines
-- [PostHog API](posthog-api-access.md): query-only keys
-- [Amazon](amazon-associates-account.md): danrosefit-20
 - [B-roll grade](broll-always-colour-corrected.md): grade before Dan sees it
 - [Phone clip](never-use-dan-phone-clip.md): B0437 never
 - [Copy polish](copy-polish-direct-edits.md): spelling fixes direct, never tracked
@@ -234,6 +189,63 @@
 - [Video titles](video-title-not-code.md): title first, code optional
 - [Engagement ads](engagement-ads-all-campaigns.md): all 3 campaigns, 4 ads
 - [Hooks get most effort](hooks-need-most-effort.md): rank it, attack the alternative, name the look; never 'This is the X'
+- [Driving clips](fast-driving-clips-praised.md): fast POV drives held attention
+
+## Archive: app internals, research and personal reference (below the auto-load cut; read on demand)
+- [Member profile](member-profile.md): users.profile JSONB + quiz
+- [Android TWA build](android-twa-build-setup.md): keystore, build command
+- [iOS Capacitor app](ios-capacitor-app.md): status, build command
+- [Load time](load-time-optimizations.md): local Anthropic key invalid
+- [Printify](printify-print-flow.md): print flow, no-crop caveat
+- [Inbound email](absbyai-inbound-email.md): dan@absbyai.com to Gmail
+- [AI trainer](ai-trainer-membership.md): architecture, endpoints
+- [Trainer v3](trainer-v3-ladder.md): 7 stages, tracks, tiers
+- [AI Nutritionist](ai-nutritionist.md): meal prep, GLP-1 mode
+- [Sleep Coach](sleep-coach.md): Go Hard briefing endpoints
+- [Supplement Audit](supplement-audit.md): photo stack audit, evals
+- [Supplement Audit plan](supplement-audit-plan.md): old plan, superseded
+- [Progress Log](progress-log.md): shipped; Resend key unset
+- [My Transformations](my-transformations.md): gallery, slider, share
+- [Next-phase plan](next-phase-plan.md): Phase 3 roadmap
+- [Coach Brief](daily-coach-brief.md): /api/coach/brief, caching
+- [Native retest](cross-platform-retest-rule.md): flag after web deploys
+- [Store fixes](platform-scoped-compliance.md): that platform only
+- [Native IAP](native-app-iap-gating.md): purchases hidden in apps
+- [Female generation](female-generation-fix.md): sex detect, prompts
+- [Member unlimited](member-unlimited-fix.md): fixed, no cap
+- [Proof banner](proof-banner-image-gen-process.md): male marketing images
+- [Store policy](app-store-policy-verify-first.md): read docs before advising
+- [iOS App Store](ios-appstore-prep.md): rejection, ASC gotchas
+- [Bake-off look](bakeoff-round1-aesthetic.md): shredded, no tan
+- [YT ad research](youtube-ad-competitor-research.md): MadMuscles model
+- [MadMuscles](madmuscles-deep-dive.md): funnel teardown
+- [AI ad research](ai-ad-creation-research.md): toolchain, 10 concepts
+- [Play billing](google-play-billing-us-change.md): optional in US
+- [Female routing](female-seedream-routing.md): Gemini + Seedream; men FLUX
+- [Suspension prevention](ad-suspension-prevention.md): prevention rules
+- [Docs bullets](google-docs-nested-bullets.md): nesting from HTML export
+- [8/28 shoot](shoot-828-slog3-format.md): three roll families
+- [9/23 shoot](shoot-923-format.md): FX30, roll map
+- [Astra vs Fable](astra-vs-fable-verdict.md): FCPXML bridge
+- [ManyChat](manychat-comment-abs.md): six keywords, Pro gate
+- [Meta ads IG](meta-ads-instagram-identity.md): use the API script
+- [Stripe](stripe-trial-end-active-before-charge.md): paid = invoice.paid
+- [/start VSL](vsl-landing-page.md): A/B live, page frozen
+- [VSL B intro](vsl-version-b-intro.md): "fired them all"
+- [Deploy holds](deploy-drops-locked-holds.md): push wipes held images
+- [index.html](index-html-screen-nesting.md): count div depth
+- [Railway API](railway-graphql-and-cron.md): cron, cache traps
+- [Local funnel test](local-funnel-test-recipe.md): live-key config, seeded pair
+- [Push rejects](github-push-false-failure.md): fetch before retry
+- [Ads API](google-ads-api-client.md): client.js
+- [GA4 link](google-ads-ga4-link.md): G-1M1SY7GGKF
+- [Ads accounts](google-ads-account-creation-blocked.md): Dan creates
+- [Ads Scripts](google-ads-scripts-mutate-traps.md): mutate traps
+- [SPA site](sixpackabs-site-stack.md): WP.com Atomic, SFTP
+- [Session cleanup](claude-session-cleanup-job.md): never by age
+- [PostHog API](posthog-api-access.md): query-only keys
+- [Amazon](amazon-associates-account.md): danrosefit-20
 - [Execute Dan's picks](execute-dans-explicit-picks.md): build exactly what he names
 - [Allegations not facts](allegations-not-fact.md): never mentioned unless Dan asks
 - [Assessment symmetry](assessment-symmetry.md): one standard, swap test, results
+- [Approve revised cover before install](approve-revised-cover-before-install.md) — a revised thumbnail/cover waits for Dan's OK on the final file

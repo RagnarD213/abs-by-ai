@@ -1,0 +1,65 @@
+{
+ "shot": "SL-09 short 4 (You're Not Sleeping As Well As You Think) opener idea K1: 'in denial' gag, 9:16, about 4.6 s",
+ "start_frame": "K1_start.png (1080x1920; boxes in START pixels)",
+ "intent": "A tired man at a kitchen table in morning light. START: he smiles and gives a confident thumbs-up with his right hand, his left hand holding a white coffee mug on the table. END: he has dozed off, eyes closed, head drooped forward toward the mug, his thumbs-up sunk a little lower, his left hand still on the mug, which has not moved. The kitchen does not change.",
+ "still": {
+  "window": [
+   0,
+   140,
+   216,
+   790
+  ],
+  "plant_shelf": [
+   240,
+   120,
+   320,
+   520
+  ],
+  "cabinets": [
+   888,
+   0,
+   1080,
+   432
+  ],
+  "table_left": [
+   0,
+   1680,
+   432,
+   1920
+  ]
+ },
+ "props": [
+  {
+   "name": "mug",
+   "box": [
+    672,
+    1320,
+    912,
+    1608
+   ],
+   "held_by": "left"
+  }
+ ],
+ "hands": {
+  "right": "thumbs-up in both frames, lower in END",
+  "left": "holds the coffee mug on the table in both frames"
+ },
+ "may_change": {
+  "the_man": [
+   0,
+   200,
+   1080,
+   1480
+  ],
+  "his_right_elbow_on_the_table": [
+   0,
+   1480,
+   200,
+   1640
+  ]
+ },
+ "bounds": {},
+ "note": "Waist-up and seated behind the table: his legs are hidden, so the pose rows (leg bones, reach, knee joints) do not apply (MediaPipe guessed the legs at visibility 0.16/0.05). The man moves inside may_change; the kitchen outside his mask was copied from START with lockstill.py (grow 24, plus the mug box); the reviewer judges his anatomy.",
+ "camera": "locked",
+ "take_note": "Spec of the approved frame pair, reused for the Veo take (frame 0 = START, take scaled to the START size if needed)."
+}

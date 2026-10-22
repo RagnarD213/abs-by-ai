@@ -11,8 +11,11 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
-- [What To Buy For Your Health LFC R5](handoff-20261020-ro20c-round5-intro-split-and-excuse-clips.md): RO-20C round 5, new intro split screen (three AI clips of Dan) and two lip-synced excuse clips at 1:47 and 4:12; frames and mockup first, then stop. Codex gpt-6.1-sol high.
-- [Invest In Your Health LFC Setup](handoff-20261020-ro20-ro20b-thumbnails-and-video-setup.md): RO-20 and RO-20B finalized 10-20; five thumbnails each, stop for picks, then set up in order (video 1 then 2). Claude Opus 5.5 high.
+- [Fat 90 Year Old SFC R6](handoff-20261022-ds40-r6-graphics-and-full-short.md): **Start now (Dan approved the R4 B opening 10-22). Claude Opus 5.5, high.** "Bill Maher Asks If You've Ever Seen A Fat 90-Year-Old. He's Right." (DS-40): four Soft Blue HyperFrames graphics incl. a new BMI table, edit plan with silent Maher footage in the card, approval on :8940, then the full Short.
+- [Extreme Drive Cleanup](handoff-20261021-extreme-drive-cleanup.md): **Start now (2026-10-21): Extreme had 13 GB free. Codex GPT-6.1 Sol, high.** Ops. Move job folders untouched for 14+ days (about 94 folders, 681 GB) from `/Volumes/Extreme/_edit_work/` to `/Volumes/Expansion/_edit_work/`, verified before each removal; nothing outside `_edit_work`, nothing deleted without a verified copy.
+- [Celebrity Ozempic LFC R2](handoff-20261020-ro24-celebrity-ozempic-round2.md): **Waits for Dan's reply to the round 1 page (http://127.0.0.1:9124/). Claude Opus 5.5, high.** RO-24: apply his key, colour, background and voice picks, photos only after his yes, then graphics, B-roll, AI frames and the full film from the take list already made.
+- [Zepbound Even If Ripped LFC R3](handoff-20261021-ro28-zepbound-even-if-ripped-round3.md): **After Dan replies to the round-2 page (http://127.0.0.1:8929/). Claude Opus 5.5, high.** CONTENT LFC RO-28: motion for the approved doctor and barbecue frames, lip sync only on his yes, then the full film with every gate and the independent review. Release ASAP.
+- [What To Buy For Your Health LFC Setup](handoff-20261021-ro20c-thumbnails-and-video-setup.md): RO-20C finalized 10-21; five thumbnails, stop for the pick, then set up in the long-form slot right after part 2. Claude Opus 5.5 high.
 - [Fat 90 Year Old SFC R2](handoff-20261020-ds40-round2-key-polish.md): **Start now (2026-10-20). Claude Opus 5.5, high.** CONTENT SFC, green screen bake-off with Codex. Dan locked colour B and house voice + half bass; make the key beat R1 (hair flicker, dark rim, watch glass), independent review, R1 vs R2 page on 8940.
 - [Boring Abs At 40 LFC R2](handoff-20261020-ro27-round2-headroom-and-ai-revisions.md): **Start now (2026-10-20). GPT-6.1 Sol, high.** Fix and verify headroom in every wide/tight shot; apply selected richer colour C and warm-bass voice B; show all existing AI clips for the fasting opener choice; revise A01–A04 frames and remove A05–A06. R2 review before new motion or full film.
 
@@ -21,27 +24,20 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 
 
-- [Top 5 Zepbound Tips SFL R4](handoff-20261018-sl06-round4-shirtless-gym-intros-and-better-thigh-clips.md): **Ready now (2026-10-18). Claude Opus 5.5 / High.** CONTENT. Dan rejected the R3 stage 1 look: regenerate all six flex-intro frame pairs shirtless in a real gym with a real-looking poster, find better front-thigh injection clips for C, refresh page 8821, then Flow motion and rebuild. One-click card shown 10-18.
-- [Fire Your Trainer AD Setup](handoff-20261018-ra07-setup.md): RA-07 "Fire Your Trainer!" 9:16 approved 2026-10-18 (Dan: "do the setup in the next round"); five Codex thumbnails, stop for Dan's pick, Unlisted upload, trial campaign group. One-click card shown 10-18. Opus 5.5 high.
 - [I'm 41 Wasted Life LFC Setup](handoff-20261017-ro25-approved-thumbnail-and-video-setup.md): **Film approved and finalized 2026-10-17; existing setup handoff ready.** Thumbnail C approved and finalized, red age and white regret text. Use the exact final JPEG; skip new thumbnail choices. Target Oct 18 YouTube / Oct 19 socials, verify live slots. Claude Opus 5.5 / High.
 
 
 
 
-- [AI Homework SFC Setup](handoff-20261020-ds31-ai-homework-setup.md): DS-31 finalized R2 Short (colour C, A1 opener): five Codex covers, stop for Dan's pick, then Blotato on all four platforms; one-click card shown 10-20. Opus 5.5 high.
-- [First Step Abs AD R2](handoff-20261017-ra12-round2-prospect-and-graphics.md): RA-12 round 2 from Dan's answers (AI prospect instead of Dan, graphics under captions, new opening clips); one-click card shown 10-17. Opus 5.5 high.
-- [Render gatekeeper](handoff-20261014-render-gatekeeper.md): enforce two builds at a time with file-lock slots; brainstorm risks first. Opus 5.5 high.
 - [Upwork profile and portfolio](handoff-20261007-upwork-profile-and-portfolio.md): interview Dan, verify experience and assets, build and publish the approved profile. Opus 5.5 high.
 - [Upwork jobs and proposals](handoff-20261007-upwork-job-applications.md): interview for criteria and budgets, decide promotion, prepare custom proposals/samples, submit approved batches, assess Grok Bot scouting. GPT-6.1 Sol high.
 
 | Document | Fire when |
 |---|---|
 | [My First Spray Tan SFL R1](video-editing/SL-15-my-first-spray-tan-shorts.md) | **Ready now (2026-10-17). Claude Opus 5.5 / High.** Three Shorts from RO-19 (public Wed Oct 21); Short 1 airs Fri Oct 30, review copies by Oct 26. |
-| [I'm 41 Wasted Life SFL R1](video-editing/SL-18-wasted-my-life-shorts.md) | **Fire once Dan approves the full RO-25 film. Claude Opus 5.5 / High.** Three Shorts from the six regrets; Short 1 airs Mon Oct 26, review copies by Oct 21. |
 | [Fat Millionaire SFC R4](handoff-20261016-ds05-correct-version.md) | **Exact-file owner decision pending (2026-10-16), Codex. GPT-6 Sol / Medium.** Corrected review copy and F3 TikTok preparation verified. Full checks: 30 pass, 2 retained-source failures, 0 missing, 7 N/A; 43 independent images clear. No active worker. Posting held; no upload or booking. |
 | [Top 1 Percent LFC R5](handoff-20261017-ro26-round5-every-man-cut-hyperframes-recap.md) | **COMPLETE, approved and finalized 2026-10-17.** Exact approved film, subtitles and complete QA filed in Codex Content Videos/Top 1 Percent - RO-26 with verified Extreme backup. Historical gate FAIL remains 31 PASS/8 FAIL; whole-film approval recorded separately. Setup continues in the handoff above. |
 | [handoff-20261015-ro18-round2-full-film.md](handoff-20261015-ro18-round2-full-film.md) | **Ready 2026-10-18: Dan answered the round 1 page. Claude Opus 5.5 / High. Card `Make Time Exercise LFC R2`.** How To Make Time For Exercise & Nutrition (RO-18, LFC), round 2: camera opener (A1 dropped), Flow motion for A2, A6, A7, A8, A9 and their checks, new college-age clips for C36 and C37, then the full film, every gate, independent review, deliver with a timestamped revision list. |
-| [handoff-20261014-ro14-round2-full-film.md](handoff-20261014-ro14-round2-full-film.md) | **Waits on Dan's round 1 page (http://127.0.0.1:8964/) and, if he keeps it, the 10/17 pickup 12. Claude Opus 5.5 / High.** RO-14 Why You're Not Losing Weight (LFC), round 2: record his opener, AI clip and 'five hidden reasons' picks, make the approved motion (all seven frame pairs already passed the frame gate and a reviewer) and check it before he sees it, lay in the pickup, then the full film, every gate, independent review, deliver. Pickups recorded 10-15: roll C1722, takes in `Docs/PICKUPS_1017_SHOOT.md`. |
 | [handoff-20261017-ro17-round5-a5-brief-raisin-pour-final.md](handoff-20261017-ro17-round5-a5-brief-raisin-pour-final.md) | **Executed 2026-10-18** (round 5 final delivered: A5 a 1 s raisin pour at 2:58.4, independent review SHIP, page port 8880; notes in the delivery folder 17). Setup continues in the OPEN handoff above. |
 | [handoff-20261015-ro17-round4-a10-motion-and-full-film.md](handoff-20261015-ro17-round4-a10-motion-and-full-film.md) | **Executed 2026-10-15** (round 4 full film delivered for Dan's review, page port 8880, independent review SHIP; notes in the delivery folder 17). |
 | [handoff-20261014-ro17-round3-ai-motion-and-full-film.md](handoff-20261014-ro17-round3-ai-motion-and-full-film.md) | **Executed 2026-10-15** (round 3: seven AI clips locked, frames page port 8879). Continue in the round 4 handoff above. |
@@ -184,8 +180,13 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## All dated handoffs (newest first) — executed / superseded unless listed as Open above
 
+- [handoff-20261022-ro14-thumbnails-and-video-setup.md](handoff-20261022-ro14-thumbnails-and-video-setup.md): executed 2026-10-22 (Claude). RO-14 queued in Blotato for Sun Jan 3, 2027; receipt `Docs/RO14_SETUP_RECEIPT_20261022.md`. Shorts job SL-23 added.
+- [handoff-20261014-ro14-round2-full-film.md](handoff-20261014-ro14-round2-full-film.md): executed 2026-10-21 (Claude). RO-14 R2 full film delivered for review, folder `claude edited long form content/22 - Why You're Not Losing Weight`, page :8965.
+
 | Date | Document | Subject |
 |---|---|---|
+| 2026-10-20 | [Skip List Carousel R2](handoff-20261020-skip-list-carousel-redesign.md) | EXECUTED 2026-10-20: Dan picked cover A (navy gym stack), kept "at 40". 9 slides queued once on Instagram @danrosefit for Sat Oct 24 noon CT (Blotato schedule 5826205, verified by hash); finals in `Short-form video content/instagram-danrosefit/carousel-skip-list-r2/`, public Drive folder `1ORREG5GbagpW7lRkXfYf7AdFOgUkoMRu`. Script: `scripts/blotato/skiplist_r2_queue.py`. |
+| 2026-10-20 | [Invest In Your Health LFC Setup](handoff-20261020-ro20-ro20b-thumbnails-and-video-setup.md) | EXECUTED 2026-10-20: RO-20/RO-20B thumbnails picked (A7 piggy bank, B7 Skid Row T3), configs, media, FB covers, waitlist for Sun Nov 22 / Sun Nov 29. [Receipt](../Docs/RO20_RO20B_SETUP_RECEIPT_20261020.md) |
 | 2026-10-20 | [Arms Shoulders Workout LFC R3](handoff-20261020-ro04-round3-color-b-full-film.md) | EXECUTED: complete workout delivered for Dan review at http://127.0.0.1:8974/. [Receipt](video-editing/ro04-round3-plan/review-receipt.json). |
 | 2026-10-17 | [handoff-20261017-ro20-round4-three-films.md](handoff-20261017-ro20-round4-three-films.md) | EXECUTED 2026-10-19: RO-20/B/C round 4, three full films delivered for Dan's review on :8868 |
 | 2026-09-22 | [handoff-20260922-install-approved-breakfast-short-thumbnail.md](handoff-20260922-install-approved-breakfast-short-thumbnail.md) | EXECUTED: approved revised B2 installed on `UFga137pseM`; backup and verification in [installation report](../output/thumbnails/breakfast-short-20260922/INSTALLATION.md) |

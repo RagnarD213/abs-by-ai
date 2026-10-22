@@ -1,0 +1,103 @@
+{
+ "format": "the-fix",
+ "id": "fix-09-bicep-curl-swing",
+ "tag": "The Fix · 09",
+ "status": "draft R1 2026-10-21; wording source: raw roll C1584 (8/3 shoot, 43-114 s) = Zeeshan arms master 2:59-3:28, short arms-shoulders-short4_stop-swinging-your-curls, 10/15 roll C1783 (three rules: 'If you have to swing your body to move the weight, it's too heavy'); R2 2026-10-22: front-view cover from C1584 87.10 s (8/3 main camera), marks, footage stills brightened (enhance.py), cta cutout",
+ "cover": {
+  "headline": "Stop curling\n[y]like this.[/y]",
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-09-bicep-curl-swing/cover-r2-enh.jpg",
+   "pos": "50% 50%",
+   "zoom": 1.0,
+   "label": "real",
+   "alt": "Dan, front view, head thrown back and leaning back as he swings a heavy dumbbell up"
+  },
+  "swipe": "Swipe for the fix",
+  "marks": [
+   {
+    "ring": [
+     272,
+     72,
+     140,
+     152
+    ],
+    "pill": "Swinging",
+    "at": [
+     408,
+     214
+    ]
+   },
+   {
+    "pill": "Leaning back",
+    "at": [
+     24,
+     56
+    ],
+    "arrow": [
+     [
+      178,
+      74
+     ],
+     [
+      226,
+      66
+     ]
+    ]
+   }
+  ]
+ },
+ "mistake": {
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-09-bicep-curl-swing/mistake-enh.jpg",
+   "pos": "50% 50%",
+   "zoom": 1.0,
+   "label": "real",
+   "alt": "Dan leaning back with his hips forward, swinging a dumbbell up"
+  },
+  "headline": "Too heavy.\nSwinging it up.",
+  "body": "The most common curl mistake I see. If you're swinging like this, you're not really working your biceps."
+ },
+ "fix": {
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-09-bicep-curl-swing/fix-enh.jpg",
+   "pos": "50% 50%",
+   "zoom": 1.0,
+   "label": "real",
+   "alt": "Dan standing straight doing a strict dumbbell curl"
+  },
+  "headline": "Strict.\nBicep only.",
+  "body": "Stand straight up and down. Curl with the bicep only, then go right back. [em]No swinging, no rocking, no momentum.[/em]"
+ },
+ "cues": {
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-09-bicep-curl-swing/cues-enh.jpg",
+   "pos": "50% 50%",
+   "zoom": 1.0,
+   "label": "real",
+   "alt": "Dan mid-curl, standing straight by the pool"
+  },
+  "title": "3 cues",
+  "subtitle": "for the bicep curl",
+  "items": [
+   "Stand straight up and down.",
+   "Curl with the bicep only, then go right back.",
+   "Have to swing it? It's too heavy. Go lighter."
+  ]
+ },
+ "cta": {
+  "blocks": [
+   {
+    "icon": "save",
+    "title": "Save this",
+    "text": "for your next arm day."
+   },
+   {
+    "icon": "send",
+    "title": "Send it",
+    "text": "to the guy who curls with his whole body."
+   }
+  ],
+  "follow": "One fix a week, filmed on me.",
+  "cutout": "Short-form video content/instagram-danrosefit/assets/_cutouts/studio-blue-210.webp"
+ }
+}

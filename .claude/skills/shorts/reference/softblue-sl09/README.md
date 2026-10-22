@@ -19,6 +19,9 @@ rungate.sh S                 the delivery gate (never from a shell line that say
 export_stills.py S.., decided.py, page_r1.py (+ notes_r1.py)   the round-1 page: stills, context clips, one floating player
 chain_r3.sh S..              R3: render_all + fix_tp + clear stale watch images + post, per short (queue several with a wait-for-done shell)
 r3/brief.py S                R3: the independent reviewer's brief for one short (file sha, sources, what changed, standing rules, judge + audit jobs)
+page_r4.py + r4/r4_page.json R4: the later-round page (what changed with times and watch ranges, the two shorts, each AI clip alone/in context, decisions)
+r4/brief.py, r4/*.spec.json  R4: reviewer brief; the motion-gate specs of the three takes; r4/prompts/ every Veo and Codex prompt, kept and rejected
+r4/page_assets.sh            R4: review copies, A/B, each new clip alone and in context, a full-quality still (run as one renderq step)
 ```
 
 ## What is different from SL-07
@@ -96,3 +99,55 @@ r3/brief.py S                R3: the independent reviewer's brief for one short 
 - **A long pause inside one piece trips `junk:dead_air` (max 1.0 s):** `TRIM` takes the middle out (audio cut only).
 - **Reviewer word disputes:** score the candidates with forced alignment (WAV2VEC2 path log-probability) before changing a
   caption; "near bedtime" beat "in your bedtime" (-32 / -69), "your behavior" beat "their behavior" (-95 / -116).
+
+## What round 4 taught (SFL R4, 2026-10-20: Dan's three approved AI clips into shorts 4 and 5)
+
+- **A WHOOP reads as a WHOOP only by its pod.** Dan sent J2 back because a plain knit band "is just like a bracelet". Codex
+  fixed it in one edit of the approved START (`aiframes/J2w_start.txt`: replace only the band; a slim black knit strap and a
+  rectangular matte charcoal pod about 3.6 x 2.5 cm, long side across the wrist, on TOP of the wrist, no screen, no logo).
+- **A pod on top of the wrist cannot survive a palm-up turn.** The approved action (turn the hand palm-up) would hide the
+  pod in the END frame Dan asked to fix. A partial roll came back with the forearm sliding and a confused thumb; the hand
+  closing into a relaxed loose fist kept ring, pod and forearm in place and passed gate and reviewer first time. Say so on
+  the page ("What I decided"): it is a change of action forced by the fix.
+- **Flow credits are shared by every editing session.** On 2026-10-20 four sessions took the balance from 920 to 10 by
+  mid-afternoon; K1 got the last 20 and J1/J2 hit `CREDITS_OUT`. Read `~/.absbyai-veo-ledger.jsonl` (the last `balance`
+  rows) before promising same-day motion, and queue the clip that matters most first.
+- **Veo frames mode snaps to the END frame in the last second or two.** K1 played cleanly to about 6.6 s, then the hand
+  popped back up and the table jumped to match END. Plan the edit on the early part (K1 uses 0-4.3 s) and check the tail
+  before using it.
+- **A bright AI kitchen sits above Dan's studio picture.** K1 measured median 0.49 / saturation 0.19 against Dan's
+  picture area 0.34 / 0.26; `curves=all='0/0 0.5/0.44 1/0.96',eq=saturation=1.25` took it to 0.43 / 0.26.
+- **Veo hand clips: START frame only beats START + END.** With both frames Veo improvised in the middle every time: two J1
+  takes clenched the hand into a fist, four J2 takes flicked a finger up on the way to the approved fist. From the START frame
+  alone, with "fingers stay open, move together with the hand" in the prompt (and a negative prompt on the paid route), J2's
+  lift-and-tilt and J1's Flow take came back clean first time. Keep the approved END frame as the intent, say so on the page.
+- **A take's spec must not mark most of the picture `may_change`.** J1's pair spec covered the top 81 %; the camera fit then
+  had only the bottom strip, a sub-pixel wobble there extrapolated to 10 px at the top corners, and `camera` plus
+  `still:sheet_top_left` failed while template matching, Farneback flow and phase correlation all measured that corner under
+  1.1 px. Narrowing `may_change` to the hand and forearm (stricter, more background points) passed; the reviewer confirmed the
+  narrowing was legitimate. Narrow, never widen.
+- **`chipplace.py` cannot place a label on a hand close-up:** Vision's person mask marked the whole bed sheet (J1) or bled into
+  the desk (J2). Place by measuring the hand on about ten frames of the used range, with the chip's REAL size from
+  `B.disclosure` (at 1.6 it is x 40-365, 64 px tall; the 408 x 81 box the tool prints is larger).
+- **When Dan is waiting, run the chain as one prioritized queue step:** `renderq.py run --priority --group sl09 -- zsh
+  ./chain_r3.sh S`. Started plainly, its three piped ffmpeg calls queued separately and slid back behind other videos'
+  continuations for 40 minutes.
+- **Two paid `veo.py api` runs at once lost a take record** (each saved the job file it loaded minutes earlier). Fixed in
+  `veo.py` 2026-10-20 (locked update, unique take names); in a session started before that, run paid takes one at a time.
+
+## What round 5 taught (SFL R5, 2026-10-21: Dan trimmed short 4's AI opener to about 3 s)
+
+- **Shortening a cover lengthens the talking shot behind it, and its steady crop is recomputed.** K1 now ends at 2.80, where Dan
+  is leaning in (face x 844, width 444 against 974 upright). The one steady crop for 2.80-13.78 became a compromise (cx 939) and
+  left him 46 px off centre for nine seconds of approved picture; the reviewer failed it as an undeclared reframe. Fix in
+  `SHOTS_AT` with `keys`: land on the lean, glide with him as he straightens, arrive on the old crop and hold it
+  (`(197.80, 850), (199.40, 974), (208.80, 974)`); measured against R4 every frame from 0:04.77 matches. A `follow` deadband
+  would have left him one deadband (about 48 output px) off centre. Before moving any cover edge, list the talk shot it opens up
+  and compare the new crop with the approved one.
+- **Moving a cut regroups the captions** ("where I was at a / few years ago,"); check the cue break, not only the words.
+- **Dan could not find the clips on the R4 page:** in his Chrome the Play buttons rendered as plain text (likely a dark-mode
+  restyle). `page_r5.py` puts every clip (muted loop, start-frame poster) and both whole shorts on the page as players.
+
+## Title band descender fix (2026-10-22)
+
+`lib.band()` now draws the title at y 86 with a 96 px line step (was 96 / 100). With title-case titles, a second line with g, j, p, q or y at 88 px ran its descenders to row 312, cut by the glass line at 309 and the picture at 310 (SL-17 reviewer B5; 11 delivered Shorts were affected, `Docs/SHORTS_TITLE_BAND_AUDIT_20261022.md`). The lowest glyph row is now 298. `batch.py gfx|proof|render` runs `_shared/softblue_titlecheck.py` on every TITLE first and stops if any lowest white row is 299 or lower down. Check a batch by hand: `python3 .claude/skills/_shared/softblue_titlecheck.py titles <batch dir>`.

@@ -1,0 +1,88 @@
+{#- Macros shared by every format template: import with `{% import "_macros.html.j2" as m with context %}`. -#}
+{%- macro label(img, style) -%}
+{%- if img and not img.placeholder and img.label in ('real','ai','screenshot') -%}
+<div class="lbl" style="{{ style }}">{{ {'real':'Real photo of me, not AI-generated','ai':'AI-generated image','screenshot':'Real screenshot'}[img.label] }}</div>
+{%- endif -%}
+{%- endmacro -%}
+
+{#- An image filling its positioned box: cover crop, focal point `pos`, optional `zoom` around that point.
+    A placeholder shows the exact shot still to be filmed. -#}
+{%- macro pic(img, box, extra='') -%}
+<div class="frame" style="{{ box }}">
+{%- if img.placeholder %}
+  <div class="ph"><b>Film at next shoot</b><span>{{ img.placeholder }}</span></div>
+{%- else %}
+  <img src="{{ img.src|uri }}" alt="{{ img.alt or '' }}" style="object-position:{{ img.pos or '50% 50%' }};transform:scale({{ img.zoom or 1 }});transform-origin:{{ img.pos or '50% 50%' }}">
+{%- endif %}
+{{ extra|safe }}
+</div>
+{%- endmacro -%}
+
+{%- macro foot(n, total, dark=True, left=36, right=36) -%}
+<div style="position:absolute;left:{{ left }}px;right:{{ right }}px;bottom:20px;display:flex;justify-content:space-between">
+  <span class="handle" style="color:{{ 'var(--mute-d)' if dark else 'var(--mute-l)' }}">@danrosefit</span><span class="handle" style="color:{{ 'var(--mute-d)' if dark else 'var(--mute-l)' }}">{{ n }} / {{ total }}</span>
+</div>
+{%- endmacro -%}
+
+{%- macro head(tagtext, n, total, dark=True) -%}
+<div style="position:absolute;left:36px;right:36px;top:28px;display:flex;justify-content:space-between;align-items:center">
+  <div class="tag" style="color:{{ 'var(--bone)' if dark else 'var(--ink)' }}"><span class="sq"></span>{{ tagtext }}</div>
+  <div class="handle" style="color:{{ 'var(--mute-d)' if dark else 'var(--mute-l)' }}">{{ n }} / {{ total }}</div>
+</div>
+{%- endmacro -%}
+
+{%- macro overtag(tagtext) -%}
+<div class="tag" style="position:absolute;left:20px;top:20px;color:var(--bone);background:rgba(14,16,19,.74);padding:6px 10px;border-radius:4px;z-index:3"><span class="sq"></span>{{ tagtext }}</div>
+{%- endmacro -%}
+
+{%- set ICON = {
+  'save': '<svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-4.5L6 21z"></path></svg>',
+  'send': '<svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 3L10 14"></path><path d="M21 3l-7 18-4-7-7-4z"></path></svg>',
+  'comment': '<svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"></path></svg>',
+  'shot': '<svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2"></rect><path d="M10 18h4"></path></svg>',
+  'arrow': '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>',
+  'arrow40': '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>',
+  'x': '<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" role="img" aria-label="Wrong"><path d="M6 6l12 12M18 6L6 18"></path></svg>',
+  'check': '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Right"><path d="M5 12.5l4.5 4.5L19 7"></path></svg>',
+  'clock': '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>'
+} -%}
+
+{#- Last-slide follow row with Dan's avatar -#}
+{%- macro follow(line, avatar, bottom=30) -%}
+<div style="position:absolute;left:36px;right:36px;bottom:{{ bottom }}px;display:flex;align-items:center;gap:16px">
+  <img src="{{ avatar|uri }}" alt="Dan Rose" style="width:64px;height:64px;border-radius:50%;border:3px solid var(--ink);object-fit:cover;flex:none">
+  <div class="tx" style="color:var(--ink)">
+    <div style="font-weight:800;font-size:22px">Follow @danrosefit</div>
+    <div style="font-weight:600;font-size:17px">{{ line }}</div>
+  </div>
+</div>
+{%- endmacro -%}
+
+{#- Circles, callout pills and arrows drawn on a photo. Coordinates are css px inside the photo's box.
+    mark = {"ring": [x, y, w, h]?, "pill": "text"?, "at": [x, y]?, "tone": "red"|"yellow"?, "arrow": [[x1, y1], [x2, y2]]?} -#}
+{%- macro marks(list, tone='red') -%}
+{%- for k in list or [] %}
+{%- set t = k.tone or tone %}
+{%- set col = 'var(--red)' if t == 'red' else 'var(--yellow)' %}
+{%- if k.ring %}<div style="position:absolute;left:{{ k.ring[0] }}px;top:{{ k.ring[1] }}px;width:{{ k.ring[2] }}px;height:{{ k.ring[3] }}px;border:4px solid {{ col }};border-radius:50%;z-index:2;box-shadow:0 0 0 2px rgba(14,16,19,.25)"></div>{% endif %}
+{%- if k.arrow %}<svg style="position:absolute;left:0;top:0;width:100%;height:100%;overflow:visible;z-index:2" aria-hidden="true"><defs><marker id="ah{{ loop.index }}{{ t }}" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="{{ '#D33A2C' if t == 'red' else '#FFD23F' }}"/></marker></defs><line x1="{{ k.arrow[0][0] }}" y1="{{ k.arrow[0][1] }}" x2="{{ k.arrow[1][0] }}" y2="{{ k.arrow[1][1] }}" stroke="{{ '#D33A2C' if t == 'red' else '#FFD23F' }}" stroke-width="4" stroke-linecap="round" marker-end="url(#ah{{ loop.index }}{{ t }})"/></svg>{% endif %}
+{%- if k.pill %}<div class="pill" style="position:absolute;left:{{ k.at[0] }}px;top:{{ k.at[1] }}px;background:{{ col }};color:{{ '#fff' if t == 'red' else 'var(--ink)' }};z-index:3;box-shadow:0 2px 8px rgba(14,16,19,.35)">{{ k.pill }}</div>{% endif %}
+{%- endfor %}
+{%- endmacro -%}
+
+{#- Dan Rose's default last-slide cutout (Dan, 2026-10-22: never the face avatar, always a larger shirtless studio cutout). -#}
+{%- set DEFAULT_CUTOUT = 'Short-form video content/instagram-danrosefit/assets/_cutouts/studio-blue-111.webp' -%}
+
+{#- Large shirtless cutout standing in the bottom-right corner, labelled over the legs. -#}
+{%- macro dan_cutout(src, height=560, maxw=250, right=0, label='Real photo of me, not AI-generated') -%}
+<img src="{{ (src or DEFAULT_CUTOUT)|uri }}" alt="Dan Rose, shirtless" data-nolabel="1" style="position:absolute;right:{{ right }}px;bottom:0;height:{{ height }}px;width:auto;max-width:{{ maxw }}px;object-fit:contain;object-position:bottom right;z-index:1">
+<div class="lbl" style="right:20px;bottom:16px;width:150px;line-height:1.25;text-align:center">{{ label }}</div>
+{%- endmacro -%}
+
+{#- Follow line without the face avatar (sits bottom-left beside the cutout). -#}
+{%- macro follow_text(line, bottom=30, width=270) -%}
+<div class="tx" style="position:absolute;left:36px;width:{{ width }}px;bottom:{{ bottom }}px;color:var(--ink);z-index:2">
+  <div style="font-weight:800;font-size:22px">Follow @danrosefit</div>
+  <div style="font-weight:600;font-size:17px">{{ line }}</div>
+</div>
+{%- endmacro -%}

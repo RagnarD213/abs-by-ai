@@ -2,8 +2,8 @@
 name: coverimage
 description: >
   Build the cover image (grid thumbnail) for an Abs By AI Short/Reel — pick the
-  most ripped source image, crop it grid-safe, set the locked J2 tactical type,
-  and deliver five visual options. Use whenever Dan asks for a cover, a cover photo, a
+  most ripped source image, crop it grid-safe, and deliver five unique designs
+  made with Codex on the subscription (pool, studio, AI Dan, two of Codex's choice). Use whenever Dan asks for a cover, a cover photo, a
   thumbnail for a short, or says a short's cover looks wrong — even if he doesn't
   say "/coverimage". For cutting the short itself use /shorts. For long-form
   YouTube thumbnails use /youtube-packaging. For retouching Dan's personal photos
@@ -16,7 +16,7 @@ Read `_shared/VIDEO-RULES.md` first.
 
 # Cover images for Shorts
 
-**Run this as its own task, never inside a shorts editing task (Dan, 2026-09-25).** Codex runs most cover work; an editing session only lists the shorts that still need covers.
+**Run this as its own task, never inside a shorts editing task (Dan, 2026-09-25).** Since 2026-10-01 the covers are made inside the one Claude setup task (`/video-setup`) with Codex on the subscription (`_shared/codex-image.sh --model gpt-6.1-sol --effort high`); an editing session only lists the shorts that still need covers.
 
 Instagram defaults a Reel's cover to frame 0, which on our shorts is the black
 opening frame — an empty tile in the profile grid. Every short needs a built cover.
@@ -41,8 +41,7 @@ Follow `_shared/VIDEO-RULES.md`, "Thumbnails: the five, each its own design, alw
 3. **Never hunched, folded or soft.** No frame where the torso compresses at the
    waist or the posture reads heavy. Dan rejected a V4 frame for exactly this on
    2026-08-13 — it was on-topic, eyes to camera, hands clear, and still a fail.
-4. **The required screenshot option** uses an authentic frame from this video.
-   Pick on abs, sharp face and exercise readability first; enhance it as useful (below).
+4. **A screenshot option is optional since 2026-10-13** (the five are pool, studio, AI Dan, two of Codex's choice). If one is used, it is an authentic frame from this video: pick on abs, sharp face and exercise readability first.
 
 ## Preferred topic-backdrop studio-cutout template (Dan, 2026-09-18)
 
@@ -105,7 +104,7 @@ sheet.save('sheet.png')
 Colour-signature searches do **not** work — a greenness scan for the grass-and-mat
 toe-touch photo scored it below threshold and missed it entirely. Read the sheet.
 
-### 3. Pull the required screenshot option
+### 3. Pull a screenshot option (optional since 2026-10-13; the mix above no longer requires it)
 Frames come from the **original longform, never the finished short** — the short has
 burned-in word captions across the abs and there is no caption-free frame to steal.
 
@@ -118,9 +117,8 @@ best few. Two things that cost time on V4:
 - Some frames carry the video's own **teal overlay pill**. Either crop right of it
   (`x > 693` on the V4 source) or pick a frame that has none.
 
-Then retouch it — see `_retouch-prompt.txt` in the covers folder for the exact
-wording. `nano-banana-pro`, ~25c, in-place edit: deepen ab shadows, keep skin tone,
-moles, clothing and identity, **add no size**. This is standing-authorised spend.
+Then retouch it with `_shared/codex-image.sh` (Codex only, 2026-10-01; see `_retouch-prompt.txt` in the covers folder for the
+wording): deepen ab shadows, keep skin tone, moles, clothing and identity, **add no size**. Codex redraws people, so check the face reads as him.
 
 ### 4. Set the crop
 Panel aspect is `1080 / (1920 - PANEL_Y)`. Overlay a coordinate grid on the source
@@ -155,7 +153,7 @@ Do not rewrite either; adapt the config.
   `TILE_TOP → panel_y`. Parking the text at the bottom of a tall black band was the
   single thing Dan rejected most.
 
-**Locked type hierarchy (Dan shipped this as cover D, 2026-08-13):**
+**J2 type hierarchy (Dan shipped this as cover D, 2026-08-13). Historical: since 2026-10-13 all five covers are unique designs, so this is one possible design, not the house layout; J2/olive was retired for new shorts graphics on 2026-10-01.**
 
 | slot | example | font |
 |---|---|---|

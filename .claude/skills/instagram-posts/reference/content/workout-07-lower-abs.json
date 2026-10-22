@@ -1,0 +1,58 @@
+{
+ "format": "steal-my-workout",
+ "id": "workout-07-lower-abs",
+ "tag": "Steal my workout",
+ "source": "DS-46 short, roll C1756 (10/15 shoot)",
+ "cover": {
+  "headline": "Lower abs\n[y]won't show?[/y]\nDo these 2.",
+  "cutout": {
+   "src": "Short-form video content/instagram-danrosefit/assets/_cutouts/studio-white-13.webp",
+   "alt": "Dan with hands behind his head, abs flexed",
+   "height": 395
+  },
+  "swipe": "Swipe to steal it"
+ },
+ "moves": [
+  {
+   "name": "Reverse crunch",
+   "dose": "Every day",
+   "dose_icon": "none",
+   "image": {
+    "src": "Short-form video content/instagram-danrosefit/assets/workout-07-lower-abs/reverse-crunch-enh.jpg",
+    "pos": "55% 50%",
+    "zoom": 1.5,
+    "label": "real",
+    "alt": "Dan curling his hips off the mat"
+   },
+   "cues": [
+    "Lie on your back, knees bent.",
+    "Curl your hips off the floor toward your chest.",
+    "Lower slowly. Don't swing your legs."
+   ]
+  },
+  {
+   "name": "Toe touch",
+   "dose": "Every day",
+   "dose_icon": "none",
+   "image": {
+    "src": "Short-form video content/instagram-danrosefit/assets/workout-07-lower-abs/toetouch-enh.jpg",
+    "pos": "55% 35%",
+    "zoom": 1.5,
+    "label": "real",
+    "alt": "Dan reaching for his toes, legs up"
+   },
+   "cues": [
+    "Legs straight up in the air.",
+    "Reach for your toes. Shoulder blades off the floor.",
+    "Squeeze at the top, then come down slowly."
+   ]
+  }
+ ],
+ "recap": {
+  "title": "Screenshot this.",
+  "note": "Both, every day, at the end of your workout.",
+  "text": "These build the muscle. Your diet burns the fat on top of it. Send this to a friend whose lower abs won't show.",
+  "follow": "Workouts I actually do.",
+  "cutout": "Short-form video content/instagram-danrosefit/assets/_cutouts/studio-blue-192.webp"
+ }
+}

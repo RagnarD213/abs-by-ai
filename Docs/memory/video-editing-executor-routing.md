@@ -14,3 +14,7 @@ Dan's assignment (2026-09-17): **Codex edits every first cut from raw footage** 
 **Models (Dan, 2026-09-17):** queue EDITS run Claude **Opus / high** and Codex **Sol / high**. Reviews have their own settings in `scripts/edit-queue/config.json` (`review_model` / `review_effort`): Claude reviewer Opus 5.5 / high since 09-24 (was Fable), Codex reviewer Sol / medium. Don't lower the edit settings without Dan. Full routing across all five models: [[model-routing-plan]] (09-30).
 
 **Update 2026-10-02:** Dan made Opus 5.5 the default for routine first cuts, so the queue now routes RO and DS to claude for NEW jobs (in-flight stay with their owner; Sol is the fallback). RA raw ads stay codex and flagship cuts (VSL, website video) stay Astra until Opus has a track record. Supersedes the "Codex edits every first cut" line above. See [[model-routing-plan]].
+
+**Update 2026-10-20:** the automatic-rounds rule (VIDEO-RULES, 2026-10-20) sets the newest stable Sol at high as the default model for every video edit and new round, over older routing. Whether that re-routes RO/DS first cuts away from Claude is an open question in `Docs/DAN_DECISIONS.md`; the queue config still says RO/DS claude.
+
+**Dan answered, 2026-10-20 evening:** a video stays with the AI it started on (Opus high on Claude, Sol high on Codex) unless he explicitly asks to move it. The queue routing above decides where a new job starts; it is not re-routed by the automatic-rounds rule.

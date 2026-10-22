@@ -408,4 +408,11 @@ def main():
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    try:                                                     # the render queue (VIDEO-RULES, "Video builds")
+        sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "renderq"))
+        from renderq import slot as _queue
+    except Exception:
+        from contextlib import nullcontext
+        _queue = lambda *a, **k: nullcontext()               # noqa: E731
+    with _queue("delivery gate " + os.path.basename(sys.argv[1] if len(sys.argv) > 1 else ""), pool="light"):
+        sys.exit(main())

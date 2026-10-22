@@ -1,0 +1,49 @@
+{
+ "format": "steal-my-workout",
+ "id": "workout-10-gym-arms",
+ "tag": "Steal my workout",
+ "source": "DS-53 short, roll C1761; 10 exercises long-form, roll C1776 (10/15 shoot)",
+ "cover": {
+  "headline": "Bigger arms.\n[y]2 cable moves.[/y]\nThat's it.",
+  "cutout": {
+   "src": "Short-form video content/instagram-danrosefit/assets/workout-10-gym-arms/cutout.webp",
+   "alt": "Dan in red Muay Thai shorts"
+  },
+  "swipe": "Swipe to steal it"
+ },
+ "moves": [
+  {
+   "name": "Cable curl",
+   "dose": "2 x 6-10",
+   "dose_icon": "none",
+   "image": {
+    "placeholder": "Gym, side angle: Dan doing straight-bar cable curls, elbows pinned to his sides, frozen at the top squeeze, full body and the cable stack in frame"
+   },
+   "cues": [
+    "Pin your elbows to your sides.",
+    "Curl up and squeeze at the top.",
+    "Lower slowly until your arms are all the way straight."
+   ]
+  },
+  {
+   "name": "Tricep pushdown",
+   "dose": "2 x 6-10",
+   "dose_icon": "none",
+   "image": {
+    "placeholder": "Gym, side angle: Dan doing cable tricep pushdowns, elbows pinned, arms locked out at the bottom, standing tall (not leaning over the bar)"
+   },
+   "cues": [
+    "Pin your elbows to your sides.",
+    "Push down to a full lockout.",
+    "Don't lean over the bar."
+   ]
+  }
+ ],
+ "recap": {
+  "title": "Screenshot this.",
+  "note": "1 warm-up set of 12 to 15, then 2 hard sets of 6 to 10.",
+  "text": "Add these two and you'll be shocked how fast your arms grow. Save this for your next gym day.",
+  "follow": "Workouts I actually do."
+ },
+ "status": "ON HOLD (Dan 2026-10-22): needs the footage on the shoot list before it can post."
+}

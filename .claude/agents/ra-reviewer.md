@@ -16,8 +16,7 @@ How to review:
 - Read `AGENTS.md`, `Handoffs/video-editing/00-RULES.md` and the plan file in full first.
 - Verify the delivered files themselves, not the stamps: probe container facts, decode frames at full resolution at
   every cut point, every card in/out, every chip, and the first and last frame; read the burned captions against the
-  audio for the first 30 s word for word; listen to the audio (measure loudness, true peak, check for a jump at every
-  seam); confirm every stamp's sha256 matches the delivered file and its `GATE_VERSION` is current.
+  audio for the first 30 s word for word; listen to the audio (measure loudness, true peak; at EVERY audio join from the assembly map, not only the gate's list, look for a chopped word, a hard start, a click or a room jump, and listen to a 5 s clip around the worst ones; VIDEO-RULES "Audio joins are smooth before anything ships", 2026-10-20); confirm every stamp's sha256 matches the delivered file and its `GATE_VERSION` is current.
 - Check every table and rule in the plan and every standing rule in `00-RULES.md` §2 (same-person before/after, no
   side-by-side, labels off face and abs, no banned screens, no printed claims, hair-anchored framing, ≤ 0:59).
 - Write findings only from evidence you produced (a frame, a measurement, a transcript). Say what you could not verify.

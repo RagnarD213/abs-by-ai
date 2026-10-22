@@ -21,7 +21,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.abspath(os.path.join(HERE, "..", "..", ".."))
 LEDGER = os.path.expanduser("~/.absbyai-veo-ledger.jsonl")     # account-wide: Claude and Codex on this Mac share it
 RUSH = re.compile(r"\b(rush|rushed|rushing|accelerate|accelerated|as fast as possible|asap)\b", re.I)
-CREDITS = {"lite": 10, "fast": 20, "quality": 100}           # Flow, Google AI Pro, per generation (2026-10-17)
+CREDITS = {"lite": 10, "fast": 20, "quality": 100, "omni": 12}  # Flow per generation, Pro rates 2026-10-17 (Ultra since 10-20 may be lower; the live popover wins)
 API_MODEL, API_USD_S = "google/veo-3.1-fast", 0.10            # Replicate, 1080p, no audio
 
 
@@ -52,6 +52,16 @@ def load(jobdir):
 def save(jobdir, J):
     p = jpath(jobdir); os.makedirs(os.path.dirname(p), exist_ok=True)
     tmp = p + ".tmp"; json.dump(J, open(tmp, "w"), indent=1); os.replace(tmp, p)
+
+
+def update(jobdir, fn):
+    """re-read job.json under a lock, apply fn(J), save: two `api` runs at once each wrote back the copy they loaded
+    minutes earlier, and the second dropped the first one's take (SL-09 R4, 2026-10-20)."""
+    import fcntl
+    os.makedirs(os.path.dirname(jpath(jobdir)), exist_ok=True)
+    with open(jpath(jobdir) + ".lock", "w") as lk:
+        fcntl.flock(lk, fcntl.LOCK_EX); J = load(jobdir); r = fn(J); save(jobdir, J)
+    return r
 
 
 def clip(J, cid):
@@ -214,7 +224,10 @@ def cmd_api(a):
     if a.rush and not RUSH.search(a.rush):
         raise SystemExit("--rush needs Dan's words containing rush / accelerate / as fast as possible")
     J = load(a.jobdir); c = clip(J, a.id)
-    d = os.path.dirname(jpath(a.jobdir)); n = len(c["outputs"]) + 1; out = f"{d}/{a.id}-api-t{n}.mp4"
+    d = os.path.dirname(jpath(a.jobdir)); n = len(c["outputs"]) + 1
+    while os.path.exists(f"{d}/{a.id}-api-t{n}.mp4") or os.path.exists(f"{d}/{a.id}-api-t{n}.mp4.part"):
+        n += 1                                       # never overwrite a take another run is writing or already wrote
+    out = f"{d}/{a.id}-api-t{n}.mp4"; open(out + ".part", "w").close()
     from PIL import Image
 
     def uri(p):
@@ -252,11 +265,15 @@ def cmd_api(a):
     usd = c["seconds"] * API_USD_S if p["status"] == "succeeded" else 0.0
     log({"job": J["job"], "clip": c["id"], "event": "api-generation", "usd": usd, "why": words, "id": p["id"], "status": p["status"]})
     if p["status"] != "succeeded":
+        if os.path.exists(out + ".part"): os.remove(out + ".part")
         raise SystemExit(f"{a.id}: {p['status']} {p.get('error')}")
     o = p.get("output"); urllib.request.urlretrieve(o[0] if isinstance(o, list) else o, out)
-    c["route"] = "api"; c["outputs"].append({"file": out, "sha256": sha(out), "collected": now(), "usd": usd,
-                                             "why": words, "wall_s": int(time.time() - t0), **probe(out)})
-    c["status"] = "done"; save(a.jobdir, J)
+    rec = {"file": out, "sha256": sha(out), "collected": now(), "usd": usd, "why": words, "wall_s": int(time.time() - t0), **probe(out)}
+
+    def add(J2):
+        c2 = clip(J2, a.id); c2["route"] = "api"; c2["outputs"].append(rec); c2["status"] = "done"
+    update(a.jobdir, add)
+    if os.path.exists(out + ".part"): os.remove(out + ".part")
     print(f"{a.id}: {out} (${usd:.2f}, {int(time.time() - t0)}s)")
 
 

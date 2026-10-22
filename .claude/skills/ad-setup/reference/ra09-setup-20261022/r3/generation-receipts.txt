@@ -1,0 +1,6 @@
+p247_16x9 {"ok":true,"out":"p247_16x9_fill.png","width":1920,"height":1080,"codex_tokens":30295}
+p230_9x16 {"ok":true,"out":"p230_9x16_fill.png","width":1080,"height":1920,"codex_tokens":19952}
+p13_9x16 {"ok":true,"out":"p13_9x16_fill.png","width":1080,"height":1920,"codex_tokens":22356}
+p247_9x16 {"ok":true,"out":"p247_9x16_fill.png","width":1080,"height":1920,"codex_tokens":21217}
+p13_16x9 {"ok":true,"out":"p13_16x9_fill.png","width":1920,"height":1080,"codex_tokens":26289}
+{"ok":true,"out":"p13_16x9_fill.png","width":1920,"height":1080,"codex_tokens":23863}

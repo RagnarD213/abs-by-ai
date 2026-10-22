@@ -54,3 +54,28 @@ Traps this round paid for:
    move a place to come from in START (the fork on the plate).
 9. **`checks.py` side-card clearance can fail on a mask speck**: a 47 px blob at the frame's bottom edge (the light tube's base)
    read as the person's left edge, 440 px under the card. Open the flagged mask before acting; the person component was 226 px clear.
+
+Round 2 (2026-10-20):
+10. **The 10/15 pickup on the 9/23 film (`round2/recipe/pickup.py`, `round2/pickup/match.py`).** Same lav, different set: the 9/23
+   voice measured about 20 dB darker above 5 kHz. Fix: an iterated 1/3-octave linear-phase match on active speech (threshold
+   relative to each file's 95th percentile; an absolute -40 dB threshold biased the fit by 10 dB), level-matched, then the film's own
+   chain. The window [16.62, 26.06) keeps the film's pauses, so the film length and every later item are unchanged; G02 starts on the
+   pickup (`start_t`) and G01's render is simply cut at the card (manifest `b` only, no re-render).
+11. **A blind Gemini A/B cannot judge a splice that sits at a script break.** With the SAME original clip on both sides it still
+   "found" a different-day splice at the line break, 100 % confident. Judge pickup joins on measurement (pickup vs film distance
+   against film vs film) and by ear; never by that listen alone.
+
+Round 3 (2026-10-22, `round3/`):
+12. **Veo/Omni cannot lift a scale off the floor cleanly.** About 30 takes across Veo Fast, Quality, Omni and paid failed the same beat:
+   the foot sits inside the scale corner and the scale is lifted out through it, or the display doubles. A START-only prompt with "both
+   feet a full foot behind the scale" did not help. Fix: two shots joined by a cut, the lift off screen (shot 1 ends on the grip,
+   shot 2 cuts in on him already holding it). Plan any pick-up-from-the-floor gag this way from round 1.
+13. **The approved START and END frames can show different-looking men.** Shot 2 generated from the END frame failed review at the cut
+   (different face, hair, build). Make every shot of a multi-shot AI clip from the SAME frame (here the START frame), and use a later
+   window of a take for the second shot.
+14. **Veo 3.1 Fast creeps the camera 2-5 % over 8 s even with "locked off on a tripod"; Omni 1.1 Flash held it to 0-1 px.** For a
+   locked-camera shot prefer Omni windows, or lock a Veo take with `round3/stabilize.py` (background similarity fit; align to the
+   frame with the most head room; extend edge pixels only where the edge is plain wall, else an anchored zoom). Measure hair after it.
+15. **A 1.35x cut-in on a 720p-upscaled AI take reads soft next to the wide shot**; 1.2x passed the reviewer.
+16. **`build.py` writes the graphics-free base to `W/tmp_base.mp4`; `finish.py` declares `final/base.mp4` as the watch pass's
+   `source_picture`.** Move it beside the master before the watch pass, or graphic presence reads NOT MEASURED (0/43).

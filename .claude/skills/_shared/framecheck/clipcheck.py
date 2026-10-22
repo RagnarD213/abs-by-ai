@@ -626,4 +626,16 @@ def main():
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    _clip = sys.argv[1] if len(sys.argv) > 1 else ""
+    _pool = "heavy"
+    try:                                                     # the render queue (VIDEO-RULES, "Video builds")
+        sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "renderq"))
+        import renderq as _rq
+        _queue = _rq.slot
+        # an 8 s AI clip goes in the quick lane, not behind long renders
+        _pool = getattr(_rq, "pool_for_media", lambda *a, **k: "heavy")(_clip)
+    except Exception:
+        from contextlib import nullcontext
+        _queue = lambda *a, **k: nullcontext()               # noqa: E731
+    with _queue("clip check " + os.path.basename(_clip), pool=_pool):
+        sys.exit(main())

@@ -1,3 +1,22 @@
+## AI clips of Dan look natural, or they never reach review; regenerate slop on the subscription (Dan, 2026-10-21, SL-06)
+
+Dan rejected all six SL-06 AI flex intros, every one gate- and reviewer-passed: *"the smile is weird. We need just a regular,
+relaxed, closed-mouth smile. He's also shaking and flexing too hard... Make it look natural and not like I'm shaking and flexing
+and artificially smiling. This looks like AI slop. This is not something which should make it to my review in the future.
+Especially given that we can now generate these on subscriptions, I want you to be a little more picky about what you bring to
+me for review and regenerate if you get some slop like this."*
+
+- **The bar for any AI clip of Dan: would it pass as a real camera clip of a calm man?** A relaxed, closed-mouth smile (no held
+  toothy grin, no grin that grows, no mouth that moves); no trembling, shaking or jitter in arms, hands or head; no straining
+  "flex harder" action; small natural motion only (breathing, a slight weight shift). If the frames themselves carry a big
+  grin or a straining pose, fix the frames first.
+- **Repairs do not rescue slop.** A pasted "held smile", a frozen mouth or other patching that keeps a bad take alive reads as
+  artificial at speed: regenerate instead. Label and text restores (a vial label, a calendar) remain fine.
+- **Be picky; the subscription makes retakes cheap.** Expect several takes per clip and keep only the most natural one. A
+  take that merely "passes" (no vanishing objects, no talking) is not enough: the editor and the reviewer each answer one more
+  question, *"does this look like real footage of a relaxed person, or like AI?"*, at playback speed, and any "AI" answer is a
+  FAIL. Put that question in every frame-reviewer brief for motion.
+
 ## Head and hair clearance blocks review delivery (Dan, 2026-10-20, RO-27)
 
 Dan rejected the RO-27 opening's clipped hair, including at about 0:22 and 0:29: "we need to always make sure that we don't cut off my head or my hair in these shots." Both the wider and tighter presenter shots must leave slight visible headroom. This applies before any review preview, not only final delivery.
@@ -6,13 +25,23 @@ Dan rejected the RO-27 opening's clipped hair, including at about 0:22 and 0:29:
 - Use the maintained Claude methods: `longform-edit/reference/ro10/hair_first.py` and `haircheck.py` for dense rendered-picture sampling, and `website-video/reference/recipe/hairdet.py` / `hairgate.py` for the hair-top proof and independent every-frame top-edge check. The older `ad-edit/reference/website-video/` path in historical prose is stale. Do not copy the website video's door-background thresholds or coordinates to a different set.
 - Calibrate against native-resolution raw and rendered proof frames on this set. Check the exact review export, including its lower-resolution copy: at least every 0.25 seconds of presenter picture, every join's adjacent native frames, and an independently calibrated every-frame edge check. Inspect native-scale proof images of the tightest margins and watch the affected shots in motion.
 - Require at least 20 pixels of verified clearance at 1080p scale on every valid measurement, with slight visible room in both sizes. A missed/invalid detection is unresolved, never an automatic pass. If the source itself lacks hair, flag it and choose a complete alternative; moving a crop cannot restore missing hair.
+- **Defective source (Dan, 2026-10-20, evening):** where the camera already framed his hair at or past the top edge and no complete alternative take exists, crop as high as the source allows (window from row 0, the SL-03 shorts note), say so on the review page, and do not block the preview on the 20 px figure. The 20 px rule binds whenever the footage gives the option.
 - A clipped head/hair frame or unresolved check blocks presenting the candidate. Record the exact export hash, measurements, coverage, worst timestamps and visual verdict. Link/media checks, graphic face-clearance checks and sparse contact sheets do not establish safe presenter framing.
 
 RO-27 R1 used fixed `3440:1935:200:112` and `3000:1688:420:236` source crops without a verified rendered hair-clearance report. Its earlier join/graphic checks did not establish headroom. Preserve R1 as rejected framing evidence and fix all affected previews in R2.
 
-## Approved chroma key for all green-screen videos (Dan, 2026-10-20)
+## Approved chroma key for all green-screen videos (Dan, 2026-10-21, replaces 2026-10-20)
 
-Use the approved Bill Maher Fat 90-Year-Old R3 key for every future green-screen video and requested key revision, Claude and Codex alike. Dan: "Let's lock this as our chroma key style. I want all the videos keyed out like this. This is a very clean key." The shared reference, exact hashes and method are in `.claude/skills/_shared/chroma-key/README.md`. Preserve the clean body/arm matte and motion-stable fine hair with natural strands. Calibrate screen and hair geometry to the actual source; never blindly copy sample coordinates or smooth across cuts. Do not reopen the accepted style. This locks keying, not every video's audio or grade, and does not request changes to already approved exports. Bill Maher's Balanced audio and warmer color stay selected.
+Every green-screen video is keyed with Claude's Bill Maher Fat 90-Year-Old R2 key, Claude and Codex alike. Dan: "let's lock this chroma key as our default way to chroma key things. I want all green screen videos keyed out like this" and "Let's make all our future chroma keys this clean and make this a standard." It replaces the Codex R3 key locked the day before. The bar: edges steadier than the camera's own picture with motion removed, dark rim no worse than the source, nothing see-through over saturated pink (watch, glasses), no specks, strands and motion blur kept, measured with the shared scripts before Dan sees it. Method, exact code and hashes: `.claude/skills/_shared/chroma-key/README.md`. Calibrate plate, crop and hold-out boxes to each source; never average across a cut. Do not reopen the accepted style. This locks keying only; grade and audio stay per video, and already approved exports stay as they are.
+
+## Green screen reaction opening: the locked format (Dan, 2026-10-22)
+
+Every green screen reaction Short opens the same way. Dan, picking version B of Bill Maher Fat 90-Year-Old (DS-40) R4: "Let's go with B. Let's lock this as our format, this size, and the laptop visible for all of these green screen reactions."
+- The reaction clip plays first, full screen, as a fixed vertical crop on the speaker (one steady crop per shot), with its own sound; nothing plays before it.
+- Dan is keyed small in the LOWER LEFT at 0.40 of full size, flush against the left and bottom screen edges, with the laptop visible along the bottom of his footage (key the full camera height; do not crop above the laptop).
+- The small Dan is his REAL reaction: the stretch of his roll where the clip played on his laptop (find it by matching the clip audio in the roll transcript), in sync with the clip. His mic is off while the clip plays.
+- His footage's right edge gets a narrow soft fade (12 px on screen), widened only on frames where a hand leaves the camera picture, so nothing ends on a hard line; keep his head clear of the speaker's face.
+- Key with the house chroma key standard above. The recipe and code: `.claude/skills/shorts/reference/ds40-greenscreen/comp_r4.py` (version B) and its README.
 
 ## AI video clips: Google Flow subscription first, paid API only on "rush" (Dan, 2026-10-17)
 
@@ -20,7 +49,7 @@ Dan: *"Default to the subscription; switch to the paid API only when I say rush,
 
 - **Default:** every Veo clip is generated in Google Flow on Dan's Google AI Pro credits (Veo 3.1 Fast, 20 credits a clip), by a background sub-agent driving his Chrome while the main agent keeps editing. Claude spawns the `flow-veo` agent with `run_in_background`; Codex runs `_shared/veo/FLOW-RUNBOOK.md` in its own browser. Queue clips with `_shared/veo/veo.py add`; procedure and measurements: `_shared/veo/README.md`.
 - **Every AI clip in an editing task, any model (Kling jobs included), goes through the Google Veo subscription (Dan, 2026-10-17, RA-07 R6):** *"I want to use subscription for all editing tasks for AI clips going forward, unless I specifically tell you not to... I mean my Google VO AI subscription."* A per-job Kling or Replicate script is not a default path any more; a take already submitted when he said it may finish.
-- **Paid Replicate API only when** Dan's own words say rush, accelerate or as fast as possible (`veo.py route --said` checks), for that video. A per-job `gen_motion*.py` that calls Replicate directly is the paid path and falls under this rule.
+- **Paid Replicate API only with Dan's authorization, asked for every time (Dan, 2026-10-20):** his own words saying rush, accelerate or as fast as possible for that video count as the authorization (`veo.py route --said` checks); otherwise ask, with the clip count and the dollar estimate, and wait. A per-job `gen_motion*.py` that calls Replicate directly is the paid path and falls under this rule.
 - **Credits run out:** stop and ask Dan once, with the clip count and the dollar estimate ($0.80 per 8 s Veo 3.1 Fast take). Never pay without his yes. Never buy credits or upgrade the plan.
 - **Watermark:** Flow's "Visible watermarking" switch (avatar menu) stays OFF; the 2026-10-17 test downloads carry no visible mark. Downloads are the 1080p upscale.
 - Unchanged: frames approved and gated before motion, the motion gate and frame-reviewer on every take, the per-video budget for any paid take, the AI label.
@@ -29,14 +58,14 @@ Dan: *"Default to the subscription; switch to the paid API only when I say rush,
 
 Dan: "The system that I want is one where I give my revisions and then the new task automatically starts, is pinned, and the old task is unpinned." The editor chooses whether a fresh task is useful. Dan does not manage handoffs, fire suggested cards or transfer pins. This replaces the 2026-10-18 manual-card/pin rule for authorized video continuations. It does not authorize starting an unrelated film or interrupting a different active editor.
 
-**Model default for every video edit and new round:** newest available stable Sol, high effort, currently `gpt-6.1-sol`. Resolve the exact ID and high support through the supported model catalog on the destination/client when available. Never guess a future ID or inherit Astra merely because the previous round used it. If no catalog is accessible, disclose the known baseline; if the available catalog has no compatible Sol, report that exact blocker. Dan's explicit model or effort instruction for this round or all future rounds overrides the default. Older recipe/handoff defaults and general routing do not. An active turn cannot change model mid-inference: use an actually supported next-turn override and end the current turn before production resumes, or choose a fresh task if that control is unavailable.
+**Model default for every video edit and new round (Dan, 2026-10-20, evening; replaces the Sol-for-everything default of that morning):** a video stays with the AI it started on. A video started on Claude: Opus 5.5, high effort, every round. A video started on Codex: the newest available stable Sol, high effort, currently `gpt-6.1-sol`, resolved through the supported model catalog on the destination/client when available (never guess a future ID, never inherit Astra because the previous round used it; if no catalog is accessible, disclose the known baseline; if the catalog has no compatible Sol, report that blocker). Only Dan's explicit request for this round or all future rounds moves a video to the other AI; older recipe/handoff defaults and general routing do not. Dan: *"default to Opus High for things that we started on Claude and Sol High for things that we started on Codex, unless I explicitly request different... My limit was almost burned up."* An active turn cannot change model mid-inference: use an actually supported next-turn override and end the current turn before production resumes, or choose a fresh task if that control is unavailable.
 
 **Choose and explain in one line.** Quality outranks token savings. Continue here for small contained notes, a recent reply (about an hour) and task context below about 40%. Prefer a fresh task for a substantial new round, a heavy remaining stage (new motion/retakes, full rebuild, gate/reviewer chain), context pressure, stale conversation or repeated wrong turns. Never hand off simply by habit. Use actual context telemetry if exposed; otherwise record a conservative estimate and its basis. Account-wide usage limits are not context usage. No exact percentage should be invented.
 
-**Same task:** save Dan's exact words and scope, advance to `<Title> <Type> R<n+1>` for a new round, create a new round folder, preserve reviewed outputs and locked media/approval hashes, retain the pin. Resume under Sol/high unless explicitly overridden. A simple status answer is not a new editing round. A model/effort continuation queued in the same task is one next turn, never a duplicate child.
+**Same task:** save Dan's exact words and scope, advance to `<Title> <Type> R<n+1>` for a new round, create a new round folder, preserve reviewed outputs and locked media/approval hashes, retain the pin. Resume on the video's own default (Opus high if it started on Claude, Sol high if it started on Codex) unless Dan explicitly overrides. A simple status answer is not a new editing round. A model/effort continuation queued in the same task is one next turn, never a duplicate child.
 
 **Fresh task, in the same turn:** use the controller and runbook at [video-rounds/README.md](video-rounds/README.md).
-1. Save the decisions and self-contained handoff, expected hashes, applied edits, costs, gate status and exact next action. Reserve the stable per-video next-round journal once, with revision/submission ID and old task identity. Suspend old production and release its queue claim if any. A child begins read-only until the journal names it production owner; the existing queue claim and build cap still apply.
+1. Save the decisions and self-contained handoff, expected hashes, applied edits, costs, gate status and exact next action. Reserve the stable per-video next-round journal once, with revision/submission ID and old task identity. Suspend old production and release its queue claim if any; the edit slot moves with the video (the child runs `editcap.py acquire <JOB>` before production; see "Active edit cap"). A child begins read-only until the journal names it production owner; the existing queue claim and build cap still apply.
 2. Call the actually available supported task creation tool with the existing project's verified ID/path, local environment, next-round title, complete starter prompt and explicit resolved Sol/high (or Dan's override). Record the exact returned task ID/host before further action. Never retry an uncertain create. A pending client ID is not a ready task ID.
 3. Pin the new task using supported sidebar controls. Read its exact task and verify a started turn, then verify it appears in the supported pinned-task listing. Recheck approval hashes. Only then unpin the recorded predecessor, and read back that new is pinned and old is unpinned. Never toggle by guess, reorder other pins, archive or delete.
 4. Record the new sole production owner and superseded pointers, then wake that same child once to perform the handoff. Stop the old editor. Report the next round, model/effort and verified result. Keep a starter prompt as recovery information; it is not a chore Dan must perform after successful automatic transfer.
@@ -72,10 +101,10 @@ Dan: "The system that I want is one where I give my revisions and then the new t
 ## First-round options and AI ideas: Claude and Codex use the same standard (Dan, 2026-10-16)
 
 - Match AI clip concepts to the film's emotional tone. Entertaining means visually engaging and clear, not automatically comic: a somber personal-regret story may need restrained, credible scenes. Preserve Dan's explicitly chosen actions when developing frames, and do not add slapstick to a serious selection. This qualifies the funny-ideas defaults below; RO-25 uses the serious treatment Dan requested on 2026-10-16.
-- Every new video's first review round includes visible colour-correction choices and playable, level-matched voice choices, including studio videos. Start from the approved source-specific look/sound, but show meaningful alternatives and recommend one. This replaces the 2026-10-14 studio exemption from options; an internal blind comparison does not replace Dan's audition controls. Preserve choices already approved for that exact film unless Dan reopens them.
+- Every new video's first review round includes visible colour-correction choices and playable, level-matched voice choices, including studio videos. Start from the approved source-specific look/sound, but show meaningful alternatives and recommend one. This replaces the 2026-10-14 studio exemption from options; an internal blind comparison does not replace Dan's audition controls. Preserve choices already approved for that exact film unless Dan reopens them. **A Short cut from an approved film reuses that film's look and voice with no options (Dan, 2026-10-20: "let's reuse that film's look").**
 - Offer a broad range of funny, entertaining AI clip ideas tied to the actual spoken lines, following the 2026-10-11 ideation rule below. Literal illustrations are still useful where they fit. Give each idea a clear visual setup and payoff, with a short name and the surrounding speech; keep the action understandable in one viewing. Read the current Claude longform reference before adapting an older Codex recipe. Codex must not silently reduce the selection to one cautious idea.
 - If Dan asks to choose text concepts first, deliver the ideas before generating their start/end frames. Frame selection and motion approval remain separate. A requested count applies to that job: RO-25 asks for ten ideas per each of six points and one selected AI clip per point; that does not impose sixty ideas on every video. His explicit six-point plan overrides the older approximate five-clip preference for RO-25 only. Generation spending limits still apply.
-- All new or revised graphic copy uses title capitalization, including lower-third main points and topic lines, headings, cards, and recap rows. Do not uppercase text automatically in code or CSS. Preserve genuine acronyms and proper names; ALL CAPS emphasis is rare and deliberate, never a default on every card. This reaffirms the 2026-10-09 rule and replaces older uppercase topic/KEY POINT defaults.
+- All new or revised graphic copy uses title capitalization, including lower-third main points, headings, cards, and recap rows. **Eyebrow exception (Dan, 2026-10-20, from a side-by-side sample): the small label line above a graphic's main point (the eyebrow: "KEY POINT", "MOTIVATION", "REASON 2 OF 3", "THE LESSON") stays in CAPITALS; that is the standard.** The main point, headings, cards and list items stay in title capitalization. Do not uppercase text automatically in code or CSS. Preserve genuine acronyms and proper names; ALL CAPS emphasis is rare and deliberate, never a default on every card. This reaffirms the 2026-10-09 rule and replaces older uppercase topic/KEY POINT defaults.
 - Offer colour options that vary a useful property on matching frames, and voice options on the same continuous spoken passage with matched loudness. If Dan asks for more saturation at the existing brightness or more bass, vary that requested property rather than substituting an unrelated adjustment. Keep source-specific quality checks and report actual gate outcomes.
 
 ## Scripted claim lines are already approved; never ask about them (Dan, 2026-10-14)
@@ -175,6 +204,29 @@ Dan: "The system that I want is one where I give my revisions and then the new t
   HyperFrames templates and point `_shared/adkit/analysis_card.py` users at it. The J2 version stays only for re-exports
   of films already approved with it (RA-01).
 
+## A revised thumbnail or cover is shown to Dan before it is installed (Dan, 2026-10-22, SL-18)
+
+- **When Dan asks for changes to a picked thumbnail or cover, build the revision, show him the finished file (every layout), and
+  install, upload or schedule it only after he approves that exact file.** Dan, after his Short 2 cover D revision was installed
+  straight into Blotato: *"I want you to have me approve the final short before you install in the future."* (Editor's reading:
+  "short" means the short's cover, the thing that was installed without his look.)
+- An unrevised pick from the review sheet still goes straight to setup. Already scheduled posts keep their current cover until he
+  approves the replacement; then swap it everywhere it is used (Instagram, YouTube, the TikTok cover-first copy, the Facebook cover
+  registry and the live installer) and read each back.
+
+## Revised covers and thumbnails: show Dan before installing (Dan, 2026-10-22)
+
+- **When Dan asks for any change to a cover or thumbnail he picked (new text, new image, any revision), build it, show him the
+  finished file in every layout, and stop. Install, upload or schedule it only after he approves that exact file.** Dan, on the
+  SL-06 Top 5 Zepbound Tips covers (text changes on five picks, queued without his look): *"Show me the covers that I gave
+  revisions to review. I didn't approve them yet... Let's make this a standard rule going forward. If there are revisions, you
+  show them to me to review before we install."* The same day, on SL-18: *"I want you to have me approve the final short before
+  you install in the future."*
+- A pick from the review sheet with no change still goes straight to setup. A pick with a revision is a stop point: everything
+  else in the setup (media backups, TikTok copies, captions, configs) may be prepared meanwhile, but nothing carrying the revised
+  cover is queued or installed until his OK. If he named no letter for a short, that is a question, not a default.
+- Binds Claude and Codex, `/video-setup`, `/ad-setup`, `/coverimage`, `/youtube-packaging`, and any cover swap on a live queue.
+
 ## Thumbnails: the five, each its own design, always made by Codex (Dan, 2026-10-13)
 
 Dan, finalizing RO-19: *"Let's make this a standard way of making thumbnails going forward. We always have one pool, one
@@ -270,6 +322,10 @@ always the one making these thumbnails."*
   look at every region left, enlarged, frame by frame. Two independent reviewers each found a leftover of the rejected effect that the
   editor's eye had passed on a contact sheet: a wisp on the desk, then an orange smear in the box. A cut out of a rejected take starts where
   the whole picture has settled, not where the subject has. Tool: the self-change map in `longform-edit/reference/ro08/a5_cut.py`.
+- **A body cut off unnaturally never reaches Dan (Dan, 2026-10-21, RO-28 barbecue frames):** four men stood behind a grill with their lower
+  bodies cut off and it passed two checks. Dan: *"the lower bodies are cut off. This looks very unnatural. That never should have made it
+  to my review."* Every frame reviewer brief asks whether each person is whole where the shot implies it (feet in a standing group shot,
+  nobody sliced by the frame edge or hidden behind a prop placed to crop them); a frame that fails is redrawn before any page.
 - **START/END frames get the same treatment before motion is even generated (2026-10-14, after RA-04's leg press):** a frame spec, the
   frame gate and a fresh `frame-reviewer` agent; no page shows the pair until `.claude/skills/_shared/framecheck/gate.py START END
   --verify` exits 0. Routine and proof: `_shared/framecheck/README.md`.
@@ -365,7 +421,7 @@ always the one making these thumbnails."*
      enough when what is left reads as a dedicated opening.
   2. Write the pickup lines (three options each, through `dan-voice-writer`) and **put them in the shortlist message
      itself**, with the line that follows each, so Dan can record them when he picks.
-  3. Dan records into his mic in the editing session. Take every line two or three times and keep the best take.
+  3. **Superseded 2026-10-13 (section "Pickups are recorded on the studio set"):** the pickup is recorded on the studio set at the next shoot; a desk recording is only a labelled timing placeholder. The desk method, kept for placeholders: Dan records into his mic in the editing session. Take every line two or three times and keep the best take.
      **Record with `_shared/audio/rec_mic.swift`, never `ffmpeg -f avfoundation`** (2026-10-12): ffmpeg dropped 11 % of the
      Yeti's audio on a busy Mac (a 512-sample block missing about every 90 ms; 26.6 s of samples per 30 s) in three takes
      out of three, and Whisper still transcribed them. Build once: `swiftc -O rec_mic.swift -o ~/.cache/absbyai/rec_mic`.
@@ -827,7 +883,7 @@ rule and spell out all five slots. Reference:
 
 ## Organic content approval budget (Dan, 2026-09-29)
 
-**Round 1 now always shows Dan every graphic, stock item and clip (Dan, 2026-10-08; section near the top of this file).** For organic content videos, the newer approval budget below replaces older requirements for Dan to approve every graphic and clip separately and the shared 10 to 15 decisions per video guidance. Keep the stepwise internal checks and the real approval gates. The **first approval round has at most 20 decisions**. In later rounds, **aim for 10 or fewer decisions per round**. These are ceilings, not targets. Ask Dan only about materially uncertain choices that require his judgment. Choose and check routine assets yourself, summarize what you chose, and let him overrule while reviewing the first minute and the finished film. Never reopen unchanged approved items or infer approval from silence. New AI motion still needs approved start/end frames first; show materially uncertain finished motion in context before locking it. The website VSL approval cadence remains separate and more detailed.
+**Round 1 now always shows Dan every graphic, stock item and clip (Dan, 2026-10-08; section near the top of this file).** For organic content videos, the newer approval budget below replaces older requirements for Dan to approve every graphic and clip separately and the shared 10 to 15 decisions per video guidance. Keep the stepwise internal checks and the real approval gates. **Dan, 2026-10-20, settling the 20-versus-15 question: keep the current page as it is.** The major decisions go up top (first-minute draft, colour correction, audio, and the chroma key when it is a green-screen video); below them every graphic and every small thing, even fifty of them, laid out so he can scan through quickly. There is no cap on the scanned list; the numbers below were ceilings on QUESTIONS, not on what is shown. The **first approval round has at most 20 decisions**. In later rounds, **aim for 10 or fewer decisions per round**. These are ceilings, not targets. Ask Dan only about materially uncertain choices that require his judgment. Choose and check routine assets yourself, summarize what you chose, and let him overrule while reviewing the first minute and the finished film. Never reopen unchanged approved items or infer approval from silence. New AI motion still needs approved start/end frames first; show materially uncertain finished motion in context before locking it. The website VSL approval cadence remains separate and more detailed.
 
 ## Categorize every video before editing it: content gets Shorts, ads get formats (Dan, 2026-10-04)
 
@@ -869,8 +925,8 @@ no content-style edits of ads ("such as making 5 shorts out of an ad").
   - **AD:** a definite direct-response call to action telling the viewer to act on the ad itself, e.g. *"tap the
     button below"*, *"click the button below"*. Ads go through `/ad-setup` only: Unlisted YouTube + Google Ads.
   - **ORGANIC:** a softer end call to action (*"go to AbsByAI.com"*, *"leave me a comment"*, *"follow for more"*)
-    with no "tap/click the button below". Organic goes through `/video-setup` only: Private YouTube holding copy +
-    Blotato release on every platform.
+    with no "tap/click the button below". Organic goes through `/video-setup` only: Blotato releases it on every platform, YouTube included
+    (no YouTube holding upload since 2026-10-01; see "YouTube visibility" below).
 - **If the request, handoff or queue label disagrees with the video, STOP before uploading anything and ask Dan**,
   quoting the closing line: *"This handoff sets it up as an ad, but the video ends with 'leave me a comment' and has no
   tap-the-button CTA, so it reads as organic. Set it up as organic instead?"* The same applies in reverse. Do the
@@ -934,6 +990,8 @@ no content-style edits of ads ("such as making 5 shorts out of an ad").
 
 ## Video clip generation budget and frame approval (Dan, 2026-09-15)
 
+*Since 2026-10-17 every Veo clip is generated on the Google Flow subscription first (section near the top of this file). **Dan, 2026-10-20: every AI clip is generated on the subscription by default, and any generation outside the subscription is asked for first, every time**, with the clip count and the dollar estimate; when he says rush, that is his authorization to pay for that video. The dollar caps below bound a paid run he has authorized; they never pre-authorize one. Frame approval before motion is unchanged.*
+
 - **Updated by Dan, 2026-10-09:** Replicate image and motion generation is standing-authorized up to **$50 total per website video**, **$15 total per long-form content video (Dan, 2026-10-13, raised from $5; he said "$15 per clip", recorded as per video until he confirms) and $5 total per other content video posted on YouTube or Instagram**, and **$10 total per ad uploaded unlisted and advertised**. Dan: "You're always authorized to generate whatever you need with Replicate" within those limits. Use existing project Replicate keys and send the necessary project image inputs to Replicate for that generation without asking again. This replaces the earlier $5 Replicate limit. The existing Gemini authorization is unchanged.
 - Count supporting start/end-frame generation and paid retries in the video's total across all revisions; a new task or revision does not reset it. Preserve unknown charges honestly and track provider receipts. Ask for spend authorization only before exceeding the applicable cap, stating the specific clips and estimated new total.
 - Show Dan the **start and end frames plus the intended action** for approval before generating motion. Budget authorization does not replace frame approval. Materially different replacement frames require approval again.
@@ -949,6 +1007,8 @@ no content-style edits of ads ("such as making 5 shorts out of an ad").
   recorded with hashes and Dan's words, a handoff at the end of each round. This supersedes the 30-second and 60-90 s sample rules below.
 
 ## Approve the opening, all graphics and clips before a full render (Dan, 2026-09-26)
+
+*Read with the newer rules: the round order and the first-minute draft are set by [PRE-RENDER-APPROVAL.md](PRE-RENDER-APPROVAL.md) (long-form round 1 carries the first-minute draft, 2026-10-16; a nearly approved Short or ad shows the whole video, 2026-10-14); "first 30 seconds" below is the 2026-09-26 wording. Lower thirds use title capitalization (2026-10-09, 2026-10-16), so the `KEY POINT:` prefix is not a default any more, and every new graphic moves in HyperFrames (2026-10-17).*
 
 - Read [PRE-RENDER-APPROVAL.md](PRE-RENDER-APPROVAL.md). Every video editing workflow uses the VSL round-4 approach: first 30 seconds to lock source-specific color/audio and opening treatment, all planned graphics with before/during/after speech, every clip in context, and proposed AI start/end frames. Finished AI clips are approved before full assembly unless their exact use was already explicitly authorized.
 - Render the complete film only after the opening treatment, graphics and clips are locked. While waiting, prepare sources, edit maps and isolated/contextual previews, not a complete placeholder film. Reuse unchanged approvals and honor an explicit sample waiver. For RO-01 revision 4, color/audio are approved and no new opening calibration sample is needed.
@@ -1051,7 +1111,7 @@ something that we can publish."* Every point below is a standing rule for every 
 ## Label Dan's real pictures (Dan, 2026-09-11)
 
 - **Thumbnail exception (Dan, 2026-09-16):** Do not put “Real picture of me — not AI-generated” on thumbnail or cover images; it is too small to read on a phone. Keep that label on real physique photographs when they appear inside videos. Thumbnail/cover designs also omit `AbsByAI.com` unless Dan explicitly requests it. This overrides the broader real-photo label rule below for thumbnails and covers; it does not remove AI-image disclosures inside videos.
-- **Dan's REAL after pictures carry a burned label: "Real picture of me — not AI-generated"** (Dan, 2026-09-11: viewers were taking his real photos for AI). Every real photo-shoot or studio picture of Dan shown as a result gets it for its full duration, in the same chip style as the AI label. AI images of Dan keep "AI-GENERATED". The two labels are mutually exclusive: every picture of Dan's physique carries exactly one of them.
+- **Dan's REAL after pictures carry a burned label** (wording since 2026-10-17: "Real Photo Of Me, Not AI-Generated", plural "Real Photos Of Me, Not AI-Generated", no em dash; the section above). Original note, 2026-09-11, with the old wording "Real picture of me — not AI-generated": viewers were taking his real photos for AI). Every real photo-shoot or studio picture of Dan shown as a result gets it for its full duration, in the same chip style as the AI label. AI images of Dan keep "AI-GENERATED". The two labels are mutually exclusive: every picture of Dan's physique carries exactly one of them.
 - ⚠ **LABEL PLACEMENT — NEVER OVER HIS FACE AND NEVER OVER HIS ABS** (Dan, 2026-09-12, on the Ad 2 square: *"the label will not block my face or my abs… put it above my head, to the side, or somewhere that it doesn't block my face and my abs in all of these after pictures"*). This REPLACES the old "low on the frame, at the shorts/waistline" rule, which is what put the chip across his lower abs. Put it **above his head, off to one side, or anywhere in the frame his body does not occupy** — still inside the safe area, still large enough to read, still clear of the caption band. **The picture exists to show the physique; a label over the abs defeats the picture.** Choose the position by MEASURING him on the RENDERED frame (person mask → the bounding box of head + torso, then place the chip in the largest clear band), never at a fixed y — every photo frames him differently. If nothing is clear enough, shrink the chip or move it to a corner before you put it on him. Applies to BOTH labels on any picture of Dan.
 
 ## Don't default to frowning photos (Dan, 2026-09-13)
@@ -1106,20 +1166,16 @@ something that we can publish."* Every point below is a standing rule for every 
   "upload it to YouTube and set it up on all other platforms in the Blotato queue" and the session did
   exactly that. `/ad-setup` positively permitted it at the time. Nothing malfunctioned — the rule did not exist.
 
-## One new long-form release each Sunday (Dan, 2026-10-07)
+## Long-form release cadence (Dan, 2026-10-17; replaces the 2026-10-07 Sunday-only rule)
 
-- New organic long-form videos release on YouTube only on Sundays at 9 AM America/Chicago through Blotato, at most one per week. A revised replacement upload uses one Sunday slot. Shorts and unlisted ads have separate schedules.
-- Read the live Blotato YouTube queue and recent releases before selecting a slot. If the next Sunday already holds a long-form, append the new video after the last queued long-form on the next free Sunday. Never add a Wednesday or other midweek long-form to make room.
-- YouTube releases first. Schedule the long-form's Facebook, Instagram and TikTok copies no earlier than Monday at 9 AM America/Chicago, 24 hours after the Sunday YouTube slot. Do not release all platforms together. Verify the YouTube video is actually public before the other posts go out. If the YouTube release fails or is delayed, postpone the other posts until after it is public.
-- If a long-form is queued midweek, move YouTube to the end of the Sunday queue and its other platform schedules to the following Monday. Verify every saved time from a fresh pull.
-- This binds Claude and Codex, including handoffs and direct Blotato scheduling. `scripts/blotato/longform_queue.py` must refuse an off-Sunday or occupied Sunday YouTube slot.
+- Two long-forms a week: Sunday and Wednesday at 9 AM America/Chicago through Blotato, one per day, never another weekday. YouTube first; Facebook, Instagram and TikTok the next day at noon once YouTube reads public. Dated calendar: `Docs/LONGFORM_RELEASE_CALENDAR.md`; Shorts: `Docs/SHORTS_RELEASE_CALENDAR.md`. The full rule lives in `AGENTS.md`, "Long-form YouTube release cadence"; `scripts/blotato/longform_queue.py` and `video_topup.py` enforce it. The 2026-10-07 "one per week, Sundays only, socials Monday 9 AM" text that stood here is superseded.
 
 ## YouTube visibility — never upload Public (Dan, 2026-09-16)
 
 - **Never upload any video to YouTube as Public, and never use YouTube's native scheduling/publish-at path.** This applies to API uploads, Studio uploads, scripts and manual work. The upload-time visibility must always be non-public.
 - **Ad videos are always uploaded Unlisted.** No ad gets a separate Public YouTube copy, even if it will also be used on other platforms.
 - **Organic videos: Blotato only (Dan, 2026-10-01).** No Private holding upload. Blotato creates and releases the public YouTube video at the scheduled time; we never upload organic content to YouTube ourselves and never use YouTube native scheduling or publishAt. Ads stay Unlisted via `/ad-setup`.
-- Before reporting an upload complete, read back the saved visibility. It must be `unlisted` for an ad or `private` for organic content. A missing or different value is a failure; correct it before continuing. If the video type is unclear, use Private while resolving it—never Public.
+- Before reporting an upload complete, read back the saved visibility. It must be `unlisted` for an ad. Organic content is never uploaded by us (Blotato creates the public video at release), so an organic file sitting on YouTube as our own upload is itself the mistake: make it Private and report it. If the video type is unclear, nothing is uploaded until it is resolved; never Public.
 
 ## Audio: one standard, enforced by a stamp (2026-09-02)
 
@@ -1173,20 +1229,86 @@ something that we can publish."* Every point below is a standing rule for every 
   missing. If a check genuinely does not apply, declare it explicitly, with a reason a reader can
   audit. Full reasoning: `.claude/skills/_shared/qc_corpus/README.md`.
 
-## Video builds: never run more than two at once
+## Active edit cap: at most 5 edits doing production at once (Dan, 2026-10-21)
 
-- **Cap concurrent video builds at two across all sessions.** Before starting a render, transcription, QC or watch pass, check whether other sessions are already building (`ps -Ao command | grep -E 'ffmpeg|qc_style|render\.py|whisper'`). If two builds are already running, wait — do not start a third.
-- **Count builds, not processes (2026-10-13): `python3 .claude/skills/_shared/buildcap.py`.** It lists the builds running now, one line per launched command (a render's Python, decoder and encoder are one build), and leaves out the caller's own. The `ps` line above shows processes, so one render reads as two or three. Shared tools wait through `buildcap.wait()`; a script that waits should call it instead of counting `ps` lines, which is how the delivery gate came to wait on its own launching shell for 74 minutes (RO-19 round 4).
-- **Measured 2026-08-27, not assumed.** Four concurrent builds drove the Mac mini (10 cores) to a load average of **242 with 0% idle**, and made `finish_audio.py` take **126 seconds against 13.6 seconds on a quiet machine — a 9.3x latency penalty.**
-- **It buys nothing.** x264 already threads across all 10 cores, so extra concurrent builds do not raise throughput; they only timeslice. The sole headroom is the ~19% of a build that is single-threaded Python (PIL graphics, Whisper), which is why **two** builds overlap usefully — one build's Python runs under another's encoding — and a third is pure loss.
-- This is the largest available speedup in the video pipeline: worth more than the three candidate software optimizations and a new Mac combined, and it costs nothing. Full numbers: `.claude/skills/_shared/timing/REPORT_20260827_build_timings.md`.
-- **Exception: upload and setup encodes run anyway, on the hardware encoder at lowest priority (Dan, 2026-09-30).** When a
-  `/video-setup` or `/ad-setup` task needs a platform copy (Blotato's 400 MB cap, a TikTok cover-first copy) and two or
-  more builds are already running, do not wait for a slot: run it as `nice -n 20 ffmpeg -hwaccel videotoolbox ...
-  -c:v h264_videotoolbox ... -c:a copy`. The Mac's media engine does the work, so it barely touches the CPU the cap
-  protects. Dan approved this on RO-05 (load ~300, four builds running). It covers setup/upload copies only; editing
-  renders, QC, transcription and x264 encodes still obey the two-build cap.
-- **Never run a pipeline script inside another session's live build directory** — it will overwrite intermediates that session is reading. Work in a scratch copy.
+- **At most 5 video edits do production work at once, Claude and Codex together.** Production = render-queue jobs,
+  AI generation, builds. On 2026-10-21 about 12 edits ran at once, the render queue was overbooked (16-18 cores of work
+  on 8, ~7.8 GB swap), heavy steps waited 3-5 hours and no video finished all day. The render queue caps steps; this
+  caps edits. Tool and details: `.claude/skills/_shared/editcap/README.md`.
+- **Every edit acquires a slot before its first production step and on every resume:**
+  `python3 .claude/skills/_shared/editcap/editcap.py acquire <JOB> --title "<title>" --type <LFC|SFC|SFL|AD>`.
+  Exit 0: go. Exit 3: waiting. Do no rendering, generation, building or spending; read-only prep is fine. Arm the
+  auto-start (Claude: `editcap.py wait <JOB>` with `run_in_background`; Codex: a 10-minute heartbeat automation on
+  the thread that runs `acquire` and continues on exit 0), tell Dan the place in line in one line, end the turn.
+- **Waiting on Dan holds no slot.** Review page up, awaiting picks, NEEDS-DAN: `editcap.py release <JOB> --review`.
+  When his notes arrive, `acquire` again. Finished: `editcap.py release <JOB>`. The next waiting edit starts by itself.
+  If `release` prints `WAKE claude ...`, send that session the message.
+- **Waiters start in release-date order, not firing order** (both release calendars; a Shorts batch takes the day after
+  its long-form; ads rank with the nearest release; 2027 and undated work last). A returning edit goes to the front
+  only if its release is soonest. Dan can reorder with `--release YYYY-MM-DD`.
+- **Exempt:** setup/upload tasks, thumbnail and cover picks, scripts and docs. They never call it.
+- Anything already running in the render queue counts toward the 5 even if it never registered, and is never
+  stopped. An edit silent for 3 hours loses its slot. The tool fails open: if it breaks, it warns and allows.
+- **See it:** `python3 .claude/skills/_shared/editcap/editcap.py status` (read-only, covered by the standing
+  render-queue authorization in AGENTS.md).
+
+## Video builds: the render queue (formerly "never run more than two at once")
+
+- **Since 2026-10-20 the cap is enforced in code by the render queue, `.claude/skills/_shared/renderq/`.** Dan can start
+  10, 20 or 30 editing jobs at once; every heavy step waits its turn in a real first-come line and starts when a slot
+  frees. Do not count builds with `ps`, do not write a wait loop, do not hold a job back "because two are running":
+  **just start it.** Claude and Codex alike. README: `.claude/skills/_shared/renderq/README.md`.
+- **See the line:** `python3 .claude/skills/_shared/renderq/renderq.py status` (who holds each slot, every waiter in
+  order, estimated start times, builds running outside the queue). Reading it is covered by the standing render-queue
+  authorization (AGENTS.md, 2026-10-20).
+- **What is gated, with no change to any script:** the wrapper at `Media/video_edit/bin/ffmpeg` (real binary
+  `ffmpeg.real`) queues every heavy ffmpeg call; Whisper (`whisper_chunked.py`, `cut/speech.py`), HyperFrames renders
+  (`hfbuild.render`), `deliver/gate.py`, `watch.py`, `framecheck/gate.py` and `clipcheck.py` take their own slot.
+  `buildcap.wait()` now gets in line in the queue. Never waits: ffprobe, frame grabs, stills, audio-only ffmpeg,
+  stream copies, anything 5 s or shorter, review servers. Audit of what still gets past it (2026-10-20 evening):
+  `Handoffs/results-20261020-renderq-drives.md`.
+- **Slots: heavy 2 always open, up to 4 while the Mac has spare CPU; light (Whisper, checks) 2, up to 3.** Extra slots
+  open only when at least 30% of the CPU sat idle for 4 s and nothing started in that pool in the last 15 s, so
+  single-core Python renders no longer leave most of the Mac idle, and x264-bound renders still run two at a time.
+  Work inside a slot runs at nice 10. Measurements: `Handoffs/results-20261020-render-scheduler.md`.
+- **Quick lane (2026-10-20 evening): short clips never wait behind long renders.** Heavy work on short media takes one
+  of two quick slots, first come first served: ffmpeg calls whose inputs total 20 s or less (or `-t` up to 20 s, up to
+  600 frames), `clipcheck.py` on clips of 15 s or less, HyperFrames graphics of 10 s or less. An 8 s AI clip's frame
+  dump, trim or clip check starts at once. Why: earlier that day 1-second frame dumps waited up to 21 min and
+  21-second clip checks up to 73 min behind 10-minute renders.
+- **Per-drive caps:** each drive runs at most its cap of heavy steps at once, Extreme 2, Expansion 3, internal 6,
+  Seagate 2 until measured (`renderq/drives.json`, measured with `renderq/drivebench.py`). A waiter whose drive is full
+  steps aside and the next job on another drive goes first. `renderq.py drives` shows each drive's load and free space.
+- **Every new job's work folder comes from the queue:** `python3 .claude/skills/_shared/renderq/renderq.py workdir
+  <JOB> --need <GB>` prints and creates it: the job's existing `/Volumes/<drive>/_edit_work/<JOB>/` on any drive (a job
+  never splits across drives), else one on the least busy plugged-in work drive with room (Extreme keeps 30 GB free,
+  the hard disks 100 GB). Do not type a drive for a new job. `--source <footage>` steers away from the hard disk the
+  footage is on; `--why` prints the scores. Rounds of an existing video stay in its folder.
+- **Throwaway files go in scratch on the internal SSD:** `renderq.py scratch <JOB>` prints `/tmp/absbyai-scratch/<JOB>`
+  while the internal SSD keeps 50 GB free (else `_scratch` in the job folder). Frame dumps, test renders, temporary
+  intermediates that nothing reads after the step that made them. Never review images, anything Dan sees, or caches a
+  later round reuses (`clips_graded/`): scratch untouched for 48 h is deleted. HyperFrames graphics render there and
+  move into place. Why: the Extreme SSD runs 99% full, slows down when shared by more than two jobs, and stores
+  frames in 45% more space than the internal SSD (measured 2026-10-20).
+- **Run builds in the background** (`run_in_background`, `nohup`, a chain script): a queued step can wait past the
+  10-minute Bash timeout, and a killed waiter loses its place.
+- **New per-round scripts: wrap the whole script as one step** so its steps do not re-queue:
+  `python3 .claude/skills/_shared/renderq/renderq.py run --group <VIDEO> -- bash render_r2.sh` (`--light` for checks).
+  Name the video with `--group` or `export GATE_GROUP=<VIDEO>` (running from `/Volumes/*/_edit_work/<job>/` names it
+  automatically): a video already running goes ahead of videos not yet started. `--priority` only when Dan is waiting
+  on that exact output. Drop old `wait_slot`/`pipeline_slot` loops; they double-wait behind the queue.
+- `GATE_OFF=1` skips the queue for debugging only, never for a real build.
+- **Why, measured 2026-08-27:** four ungated builds drove the Mac mini (10 cores) to load 242 at 0% idle and made
+  `finish_audio.py` take 126 s against 13.6 s quiet (9.3x), with no throughput gain. Load average misleads on macOS
+  (130 at 15% idle on 2026-10-20); the queue reads real CPU idle from the kernel. Full 08-27 numbers:
+  `.claude/skills/_shared/timing/REPORT_20260827_build_timings.md`.
+- **Exception: upload and setup encodes run at once on the hardware encoder (Dan, 2026-09-30):**
+  `nice -n 20 ffmpeg -hwaccel videotoolbox ... -c:v h264_videotoolbox ... -c:a copy`. The queue exempts
+  `h264_videotoolbox` automatically. Setup/upload copies only; editing renders, QC, transcription and x264 encodes queue.
+- **Never run a pipeline script inside another session's live build directory.** It will overwrite intermediates that
+  session is reading. Work in a scratch copy.
+- **Keep build intermediates off the iCloud-synced project folder** (use the `renderq.py workdir` folder or `renderq.py scratch`):
+  files written under the project folder's `tmp/` keep iCloud's `fileproviderd` at 50-160% CPU while it syncs them.
 
 ## Video review refinements — C1652 R3 (Dan, 2026-09-17)
 
@@ -1194,8 +1316,8 @@ something that we can publish."* Every point below is a standing rule for every 
 - **Exercise illustrations must vary the exercise.** For Dan demonstrating daily exercise, use ab wheel plus toe touches or kettlebell deadlifts, not repeated ab-wheel footage. This includes similar excerpts from one source video. Dan remains the same person; the exercise action must differ. Necessary repetitions inside an actual exercise teaching demonstration are a different purpose.
 - **No added camera movement in horizontal16:9 presenter footage.** Do not pan, drift, track or recenter just because Dan shifts slightly. Keep a fixed composition within the shot; preserve approved framing sizes and deliberate cuts unless separately rejected. Check rendered footage, not just a fixed-center setting.
 - **Requested AI narrative clips require actual motion.** A static frame, start/end montage, slow image pan or brief motion fragment followed by a held endpoint is not a completed clip. Generate and validate the intended motion from approved assets; do not ask again for unchanged approved frames. This does not prohibit real photo displays or specifically approved scientific still illustrations.
-- **Three-photo screen template:** use three vertical real studio portraits with distinct poses and consistent presentation proportions; plural disclosure “Real pictures of me — not AI-generated,” clear of faces/abs. Save the tested layout for reuse.
-- **Organic graphics:** Soft Blue Light (GRAPHICS-STANDARDS.md, 2026-09-26) replaced the Muhammad graphics rebuild; lower thirds and full-screen treatments come from `softblue.py`. Use self-contained titles that name the topic. Specific approvals with limited requested edits take precedence over a general redesign; for C1652's Zepbound/stakes lists, enlarge text as requested and preserve the otherwise approved panel design.
+- **Three-photo screen template:** use three vertical real studio portraits with distinct poses and consistent presentation proportions; plural disclosure, now worded “Real Photos Of Me, Not AI-Generated” (2026-10-17), clear of faces/abs. Save the tested layout for reuse.
+- **Organic graphics:** Soft Blue Light (GRAPHICS-STANDARDS.md, 2026-09-26) replaced the Muhammad graphics rebuild; lower thirds and full-screen treatments came from `softblue.py` at the time; since 2026-10-17 every new or revised graphic is built from the HyperFrames templates and moves for its whole screen time (section near the top of this file). Use self-contained titles that name the topic. Specific approvals with limited requested edits take precedence over a general redesign; for C1652's Zepbound/stakes lists, enlarge text as requested and preserve the otherwise approved panel design.
 
 ## Horizontal footage stays completely static — Dan, 2026-09-17
 
@@ -1205,6 +1327,8 @@ something that we can publish."* Every point below is a standing rule for every 
 - C1652’s Zepbound text size is approved. Dan would prefer a third benefit, “Makes you serious about fat loss,” in a future relevant treatment; he accepted the existing two-row graphic in this final film. Do not expand its content without speech/timing context in future work.
 
 ## On-screen text graphics are KEY POINTS, not a second set of subtitles (Dan, 2026-09-18)
+
+*The distil-not-echo rule stands. The FORMAT was narrowed on 2026-10-09 and 2026-10-16: title capitalization everywhere ("Key Point:" if the prefix is used), FULL CAPS on a word only where it truly carries the punch, about one graphic in six at most, never automatic.*
 
 - **A text graphic exists to DISTILL the point, never to repeat the words being spoken under it.** Dan, on Zeeshan's
   deadlift video: *"I don't think there's much value if, let's say, I say 'lower risk' and repeat that 'lower risk.'
@@ -1223,7 +1347,7 @@ something that we can publish."* Every point below is a standing rule for every 
 
 ## Approved graphics and layout standards (Dan, updated 2026-09-26)
 
-Read [GRAPHICS-STANDARDS.md](GRAPHICS-STANDARDS.md) before designing or revising graphics. Soft Blue Light is now the standard graphic family for all videos, including website VSLs, ads, organic videos, Shorts and newly revised square/vertical graphics; the approved Motivation lower-third format is locked for lower thirds in all videos. This 2026-09-26 expansion supersedes older Muhammad graphic palettes and website-only scope. Preserve already approved exports unless their graphics are explicitly being revised. Muhammad sound, camera color and transition references retain their separate scopes. That reference also defines three-portrait screens, sequential horizontal photos, credible iPhone framing, single rounded blue cards behind side text lists, with no secondary full-height field and fixed presenter positioning with intact arms. These specific approvals supersede conflicting older graphic examples. Keep source-specific crop, color and audio settings scoped to their recordings.
+Read [GRAPHICS-STANDARDS.md](GRAPHICS-STANDARDS.md) before designing or revising graphics. Soft Blue Light is now the standard graphic family for all videos, including website VSLs, ads, organic videos, Shorts and newly revised square/vertical graphics; the approved Motivation lower-third format is locked for lower thirds in all videos (built from the HyperFrames templates and moving for its whole screen time since 2026-10-17). This 2026-09-26 expansion supersedes older Muhammad graphic palettes and website-only scope. Preserve already approved exports unless their graphics are explicitly being revised. Muhammad sound, camera color and transition references retain their separate scopes. That reference also defines three-portrait screens, sequential horizontal photos, credible iPhone framing, single rounded blue cards behind side text lists, with no secondary full-height field and fixed presenter positioning with intact arms. These specific approvals supersede conflicting older graphic examples. Keep source-specific crop, color and audio settings scoped to their recordings.
 
 ## Exercise demonstration timing and visual cues (Dan, 2026-09-25)
 
@@ -1238,16 +1362,3 @@ Every editing skill also follows section 5 of [CUT-CONTINUITY-QC.md](CUT-CONTINU
 ## Default jump-cut and junk-footage pass (Dan, 2026-09-29)
 
 Every new video edit and revision runs [CUT-CONTINUITY-QC.md](CUT-CONTINUITY-QC.md) by default, starting with selected source footage before the first approval preview and repeated on the exact final candidate. Inspect every source/picture join, including composite internals and cutaway entrances/exits. Remove uncovered presenter jumps using distinct fixed wide/tight cuts or complete approved clip cover; pose matching alone does not clear a same-framing jump. Detect confirmed unscripted sounds, empty lead-ins, unnecessary pauses and looking away while resetting, then remove them without clipping words, stripping normal breaths or removing purposeful teaching pauses. Review native consecutive frames and moving/audio context, record each repair, and inspect every new boundary. Detector/ASR flags require actual source verification. This supplements existing gates and preserves still/frame, motion and full-render approval requirements. Do not retrofit already approved masters without scoped revision authorization.
-
-## Verticals: the camera lands on Dan, then holds (the standard centering, Dan, 2026-10-03)
-
-**Locked by Dan, 2026-10-05:** The right-hand `after.mp4` in the Codex before/after review is the approved framing reference for all future 9:16 videos. Use this land-then-hold method through shared `cut/landing.py`. Exact clip hash, measurements and Dan's approval are recorded in `Docs/VERTICAL_CENTERING_CODEX_20261003.json`. This locks the framing method; approved exports stay untouched.
-
-- **In every vertical the crop that follows Dan lands centred on him after each cut, then stays still until he has moved
-  3.3 % of the crop's width off centre, and only then follows.** Dan, choosing the calmer of two RO-10 first minutes:
-  *"I like the calmest one, the two-thirds calmer. That looks the best to me... Let's make this our standard way of
-  centering for verticals going forward. I feel like this is better than what we were doing."*
-- It replaces the track that chased every small movement (his 2026-10-01 note: "excessive and distracting"). Never go
-  back to a crop that does not move at all: he left the frame.
-- Claude and Codex both build verticals this way. Method, numbers and code: `_shared/framing-motion.md`, "Vertical
-  talking head: land on him, then hold". Use shared `cut/landing.py` via its scaled vertical preset; `kit_track.py` defaults to 20 px for a 608 px crop. Report travel, p90 pan speed, time moving and median/maximum head offset. Approved exports stay untouched.

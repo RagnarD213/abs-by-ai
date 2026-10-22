@@ -118,3 +118,7 @@ renders and four review passes, and every block came from the NEW material. What
   shot is a fixed window per shot.
 - **Phone demo in 9:16:** phone beside Dan (shell 1.2x, Dan in a 440 x 1190 window, captions on the field under both)
   read better than phone stacked over a wide strip of Dan. Dan's pick is recorded in the round-2 handoff.
+
+## Title band descender fix (2026-10-22)
+
+`lib.band()` now draws the title at y 86 with a 96 px line step (was 96 / 100). With title-case titles, a second line with g, j, p, q or y at 88 px ran its descenders to row 312, cut by the glass line at 309 and the picture at 310 (SL-17 reviewer B5; 11 delivered Shorts were affected, `Docs/SHORTS_TITLE_BAND_AUDIT_20261022.md`). The lowest glyph row is now 298. `batch.py gfx|proof|render` runs `_shared/softblue_titlecheck.py` on every TITLE first and stops if any lowest white row is 299 or lower down. Check a batch by hand: `python3 .claude/skills/_shared/softblue_titlecheck.py titles <batch dir>`.

@@ -85,3 +85,24 @@ Before and after (mine, then his): "This is the hamstring curl, and here's how t
 "Hamstring curls are the key to building well-balanced aesthetic legs." "I don't do flat bench press, and here's
 why." became "Stop doing flat bench press. It's one of the stupidest exercises in the gym."
 Full list: `Docs/COPYEDIT_GYM_SHORTS_1023_AS_DELIVERED_20261019.md`.
+
+## Long-form: no warm-up between the hook and the first point (Dan, 2026-10-20)
+
+On the seven 10/23 pool long-forms Dan highlighted the same block in script after script and called it "a pattern":
+the 200 to 330 words between the hook and the first real point. Write for "a YouTube viewer with ADD" who has ten
+other videos one click away; never assume he is locked in for ten minutes. After the hook, at most 2 to 4 sentences
+(about 20 seconds) before point one. Cut, every time:
+
+- the agenda: "In this video I'm going to show you... then... and finally...", "Here's what I'm going to cover";
+- "Stick with me", "So let's get into it", "All right, let's get into it";
+- "Now, I know that sounds crazy" plus a paragraph of what everyone else says before he disagrees;
+- "So if you're a guy who wants to lose your belly fat... this video is for you";
+- restating the hook ("Let me say that again"), and any reason the body gives again later as a numbered point.
+
+Keep one line of credibility or stakes if it earns the claim ("I've been lifting for 20 years, and I got abs at 40
+without them"). Context the viewer needs (what bad posture looks like, what bulking is) goes in one or two sentences.
+"Why most people fail" and "what not to do" material moves after the first useful instruction, condensed.
+Before and after: "I'm 41... First Time" went from about 90 seconds of what-not-to-do to "Rule number one: only work
+out for 15 minutes" right after the credibility line; the four-exercise posture video went from 330 words of warm-up to 70.
+The rest of what Dan changed in those scripts (a why for every claim, his own specifics, three proofs at most):
+`/scriptfromoutline`, section THE 10/23 POOL LONG-FORMS.

@@ -1,6 +1,6 @@
 ---
 name: thumbnail-design-system
-description: "Abs By AI YouTube thumbnail/graphic style — banner-derived black + white Manrope + red bar, and the shoot's 16:9 crop limitation"
+description: "Manrope + red bar look and the shoot's 16:9 crop limitation (2026-08-07); SUPERSEDED in part 10-13: five unique Codex designs per video, no fixed A/B pair"
 metadata: 
   node_type: memory
   type: project
@@ -32,3 +32,5 @@ Working build scripts: `YouTube Long Form Video Content/v4-1min-ab-workout/build
 Standing instruction from the same session: **installing fonts needs no permission.**
 
 Related: [[repo-is-public]] — `social media graphics/` and `photos/` are gitignored because they hold shirtless photos of Dan.
+
+**SUPERSEDED in part (recorded 2026-10-20):** since 2026-10-13 every video gets FIVE thumbnail choices, each its own design, made by Codex on the subscription (VIDEO-RULES "Thumbnails: the five"); the "two thumbnails as an A/B" standing rule above is replaced (Dan picks an A/B pair from the five when he wants a test). `logos/03-symbol-left-text.png` no longer exists; the white wordmark is `Media/video_edit/work/logo_white.png`. The Manrope/red-bar look is one possible design, no longer the house layout for all five.

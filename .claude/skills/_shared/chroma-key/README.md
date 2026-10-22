@@ -1,4 +1,28 @@
-# Approved green-screen key
+# Approved green-screen key: the house standard
+
+**Current standard (Dan, 2026-10-21): Claude's Bill Maher Fat 90-Year-Old R2 key.** Dan: *"let's lock this chroma key
+as our default way to chroma key things. I want all green screen videos keyed out like this."* and *"This key looks very
+clean... Let's make all our future chroma keys this clean and make this a standard."* It replaces the Codex R3 key
+(locked 2026-10-20, kept below as history). Claude and Codex both key every future green-screen video this way.
+
+**The bar every key must meet** (measured on the approved sample, every frame, independent review SHIP):
+edge flicker with motion removed below the camera's own picture (R2: 0.69 overall, 0.68 hair; `mcflicker.py`),
+dark rim on skin edges at or below the source's (R2: 2.7%, source 8%; `measure_r2.py`), nothing see-through inside
+the subject over saturated pink (watch, glasses), no floating specks, fine strands and motion blur kept. Measure every
+new key against its own source with these two scripts before Dan sees it.
+
+**The method and exact code:** `reference/ds40-claude-r2/` (hashes and Dan's words in `approval.json`; recipe notes in
+`.claude/skills/shorts/reference/ds40-greenscreen/README.md`). In order: clean plate (`plate.py`), 4K clean-plate
+colour-difference key with positivity floor, local plate, hole fill and tracked watch hold-out (`keylib.py`,
+`stage1_key.py`); then the finishing pass at output scale (`stage15_temporal.py`): motion-compensated temporal matte
+in the edge band only, edge colour from solid pixels 3 px inside, island-only speck rule, hand-placed boxes for
+reflective glass seen edge-on; then composite (`stage2_comp.py`). Recalibrate per source: plate, garbage/crop rows,
+watch or glasses boxes, hair box for the measure. Reset temporal neighbours at every cut (never average across a cut).
+Grade and audio stay per video.
+
+---
+
+## History: Codex R3 key (Dan, 2026-10-20, superseded 2026-10-21)
 
 Dan locked the Bill Maher Fat 90-Year-Old R3 key on 2026-10-20 as the chroma-key style for all videos, for both Claude and Codex. Use this result for all future green-screen edits and requested key revisions. Existing approved exports stay untouched unless Dan asks to revise them. Do not ask him to select this style again.
 
@@ -19,3 +43,7 @@ Compare moving hair on light and dark fields at native resolution, including int
 The global approval is for keying. Balanced audio and warmer color remain locked specifically for Bill Maher Fat 90-Year-Old. Other videos retain their own approved sound and grade. `round2-audio_refine.py` is the final Balanced recipe, not the earlier `audio_build.py`; the selected WAV and MP4 hashes are in the R3 delivery receipt. Full-length new source audio needs that same treatment, not a repeated ten-second file.
 
 The approved sample's gate remains 37 PASS, 1 FAIL (accepted Balanced comb/tone), 1 NOT MEASURED (continuous shot has zero boundaries), 18 N/A. Preserve those historical findings. This folder promotes an unchanged, human-approved visual reference and method; it changes no executable production gate or numeric setting.
+
+## 16:9 rolls (RO-24, 2026-10-20)
+
+The first 16:9 adaptation (10/15 green screen, C1726) is `.claude/skills/longform-edit/reference/ro24/` (`key16.py`, README there): the same R2/R3 maths with the head-size scale, per-frame hair geometry, a clean plate of the screen and a garbage matte. It also carries a "refined" variant offered to Dan on 2026-10-20 (solid hair interior, edge colour, edge-band spill, and moving hands: the approved body key reads a skin/screen blur as solid because skin is red-heavy). Not yet approved; the approved key above stays the standard until Dan picks.

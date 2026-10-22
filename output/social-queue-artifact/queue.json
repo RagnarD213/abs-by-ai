@@ -1,87 +1,24 @@
 {
-"generated": "2026-10-20T11:26:08+00:00",
+"generated": "2026-10-21T11:26:00+00:00",
 "cap": 200,
 "scheduled": [
 {
-"id": "5019247",
-"platform": "facebook",
-"when": "2026-10-20T14:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "If you're swinging your curls, you're not really working your biceps.",
-"batch": ""
-},
-{
-"id": "5019250",
-"platform": "instagram",
-"when": "2026-10-20T14:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "If you're swinging your curls, you're not really working your biceps.",
-"batch": ""
-},
-{
-"id": "5019251",
-"platform": "tiktok",
-"when": "2026-10-20T14:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "If you're swinging your curls, you're not really working your biceps.",
-"batch": ""
-},
-{
-"id": "5019252",
-"platform": "youtube",
-"when": "2026-10-20T14:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Swinging your bicep curls takes the work off your biceps. Keep your form strict.",
-"batch": ""
-},
-{
-"id": "3563159",
-"platform": "facebook",
-"when": "2026-10-20T22:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "The toe touch \u2014 a killer six-pack move you can do at home.",
-"batch": ""
-},
-{
-"id": "3793995",
-"platform": "instagram",
-"when": "2026-10-20T22:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "The toe touch \u2014 a killer six-pack move you can do at home.",
-"batch": ""
-},
-{
-"id": "4553215",
-"platform": "tiktok",
-"when": "2026-10-20T22:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "The toe touch \u2014 a killer six-pack move you can do at home.",
-"batch": ""
-},
-{
-"id": "3584655",
+"id": "5119958",
 "platform": "facebook",
 "when": "2026-10-21T22:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Cool the room before you cool yourself.",
-"batch": ""
+"kind": "Carousel",
+"slides": 5,
+"text": "Save this for your next weekly reset. Choose your training times, make a simple food plan and write down what ",
+"batch": "Studio S07-A"
 },
 {
-"id": "4890088",
+"id": "5119909",
 "platform": "instagram",
 "when": "2026-10-21T22:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Bad sleep makes you hungrier. That's measurable.",
-"batch": ""
+"kind": "Carousel",
+"slides": 5,
+"text": "Save this for your next weekly reset. Choose your training times, make a simple food plan and write down what ",
+"batch": "Studio S07-A"
 },
 {
 "id": "5620997",
@@ -183,22 +120,22 @@
 "batch": ""
 },
 {
-"id": "3584657",
+"id": "5825755",
 "platform": "facebook",
 "when": "2026-10-23T22:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Slam it. Don't place it.",
-"batch": ""
+"kind": "Carousel",
+"slides": 5,
+"text": "Repeating a lunch you enjoy is a planning choice. You can still rotate meals and ingredients across the week. ",
+"batch": "Studio S08-B"
 },
 {
-"id": "3841945",
+"id": "5119927",
 "platform": "instagram",
 "when": "2026-10-23T22:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Take a progress photo, not a progress weight.",
-"batch": ""
+"kind": "Carousel",
+"slides": 5,
+"text": "Repeating a lunch you enjoy is a planning choice. You can still rotate meals and ingredients across the week. ",
+"batch": "Studio S08-B"
 },
 {
 "id": "5053515",
@@ -234,6 +171,15 @@
 "kind": "Video",
 "slides": 1,
 "text": "The 2 back exercises I do instead of deadlifts: wide-grip T-bar or barbell rows, then wide-grip lat pulldowns.",
+"batch": ""
+},
+{
+"id": "5826205",
+"platform": "instagram",
+"when": "2026-10-24T17:00:00.000Z",
+"kind": "Carousel",
+"slides": 9,
+"text": "7 things I'd skip if I started over at 40.",
 "batch": ""
 },
 {
@@ -300,22 +246,22 @@
 "batch": ""
 },
 {
-"id": "3584661",
+"id": "5825756",
 "platform": "facebook",
 "when": "2026-10-26T22:00:00.000Z",
 "kind": "Photo",
 "slides": 1,
-"text": "See the result before you have it.",
-"batch": ""
+"text": "Make strength training an appointment you can keep. Choose the time, save the workout and get your space ready",
+"batch": "Studio S09-A"
 },
 {
-"id": "5119908",
+"id": "5119924",
 "platform": "instagram",
 "when": "2026-10-26T22:00:00.000Z",
 "kind": "Photo",
 "slides": 1,
-"text": "Put your next workout on the calendar before the week fills up. Pick the time, the place and what you plan to ",
-"batch": "Studio S01-A"
+"text": "Make strength training an appointment you can keep. Choose the time, save the workout and get your space ready",
+"batch": "Studio S09-A"
 },
 {
 "id": "5053520",
@@ -390,22 +336,22 @@
 "batch": ""
 },
 {
-"id": "4934272",
+"id": "5825757",
 "platform": "facebook",
 "when": "2026-10-28T22:00:00.000Z",
 "kind": "Photo",
 "slides": 1,
-"text": "Alcohol doesn't just add calories.",
-"batch": ""
+"text": "Missed a day? Decide what happens next. Open the calendar, choose a realistic time and set out what you need. ",
+"batch": "Studio S06-C"
 },
 {
-"id": "5119909",
+"id": "5119944",
 "platform": "instagram",
 "when": "2026-10-28T22:00:00.000Z",
-"kind": "Carousel",
-"slides": 5,
-"text": "Save this for your next weekly reset. Choose your training times, make a simple food plan and write down what ",
-"batch": "Studio S07-A"
+"kind": "Photo",
+"slides": 1,
+"text": "Missed a day? Decide what happens next. Open the calendar, choose a realistic time and set out what you need. ",
+"batch": "Studio S06-C"
 },
 {
 "id": "5694638",
@@ -489,22 +435,22 @@
 "batch": ""
 },
 {
-"id": "3584672",
+"id": "5825759",
 "platform": "facebook",
 "when": "2026-10-30T22:00:00.000Z",
 "kind": "Photo",
 "slides": 1,
-"text": "Cook once, portion four.",
-"batch": ""
+"text": "Meal prep is one way I make food simpler. You don't need to invent a different lunch every day. Pick a few mea",
+"batch": "Studio S05-B"
 },
 {
-"id": "5119910",
+"id": "5119930",
 "platform": "instagram",
 "when": "2026-10-30T22:00:00.000Z",
 "kind": "Photo",
 "slides": 1,
-"text": "Choose your workout before you arrive. Save the plan, get your clothes ready and decide when you need to leave",
-"batch": "Studio S03-A"
+"text": "Meal prep is one way I make food simpler. You don't need to invent a different lunch every day. Pick a few mea",
+"batch": "Studio S05-B"
 },
 {
 "id": "5053527",
@@ -642,22 +588,22 @@
 "batch": ""
 },
 {
-"id": "3584675",
+"id": "5825760",
 "platform": "facebook",
 "when": "2026-11-02T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "The muscle that makes your waist look smaller isn't your abs.",
-"batch": ""
+"kind": "Carousel",
+"slides": 5,
+"text": "Missing Monday doesn't make Tuesday disappear. Name what got in the way, choose your next opening and make one",
+"batch": "Studio S08-C"
 },
 {
-"id": "5119911",
+"id": "5119953",
 "platform": "instagram",
 "when": "2026-11-02T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Too busy to train? Look at the whole appointment, including packing and travel. If the commute is the obstacle",
-"batch": "Studio S06-A"
+"kind": "Carousel",
+"slides": 5,
+"text": "Missing Monday doesn't make Tuesday disappear. Name what got in the way, choose your next opening and make one",
+"batch": "Studio S08-C"
 },
 {
 "id": "5053535",
@@ -723,22 +669,22 @@
 "batch": ""
 },
 {
-"id": "4934277",
+"id": "5119961",
 "platform": "facebook",
 "when": "2026-11-04T23:00:00.000Z",
 "kind": "Photo",
 "slides": 1,
-"text": "Weigh yourself every single day.",
-"batch": ""
+"text": "Too busy to train? Look at the whole appointment, including packing and travel. If the commute is the obstacle",
+"batch": "Studio S06-A"
 },
 {
-"id": "5119914",
+"id": "5119911",
 "platform": "instagram",
 "when": "2026-11-04T23:00:00.000Z",
 "kind": "Photo",
 "slides": 1,
-"text": "Give lunch a place in your training plan. Decide what you'll eat and where it will come from before you head o",
-"batch": "Studio S02-A"
+"text": "Too busy to train? Look at the whole appointment, including packing and travel. If the commute is the obstacle",
+"batch": "Studio S06-A"
 },
 {
 "id": "4315902",
@@ -768,22 +714,22 @@
 "batch": ""
 },
 {
-"id": "3584680",
+"id": "5825761",
 "platform": "facebook",
 "when": "2026-11-06T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "No weights? Fight the towel.",
-"batch": ""
+"kind": "Carousel",
+"slides": 5,
+"text": "Make lunch easier before the week starts. Pick two familiar meals, check what you need and decide how they wil",
+"batch": "Studio S07-B"
 },
 {
-"id": "5119916",
+"id": "5119932",
 "platform": "instagram",
 "when": "2026-11-06T23:00:00.000Z",
 "kind": "Carousel",
 "slides": 5,
-"text": "You don't have to wait for a perfect free hour to put a workout in your calendar. Start by finding the time yo",
-"batch": "Studio S08-A"
+"text": "Make lunch easier before the week starts. Pick two familiar meals, check what you need and decide how they wil",
+"batch": "Studio S07-B"
 },
 {
 "id": "5329625",
@@ -858,22 +804,22 @@
 "batch": ""
 },
 {
-"id": "4890092",
+"id": "5825762",
 "platform": "facebook",
 "when": "2026-11-09T23:00:00.000Z",
 "kind": "Photo",
 "slides": 1,
-"text": "Bad sleep makes you hungrier. That's measurable.",
-"batch": ""
+"text": "Martial arts can challenge your cardio and help you burn calories. Weight training builds and maintains muscle",
+"batch": "Studio S09-C"
 },
 {
-"id": "5119919",
+"id": "5119950",
 "platform": "instagram",
 "when": "2026-11-09T23:00:00.000Z",
 "kind": "Photo",
 "slides": 1,
-"text": "Choose a training setting you want to come back to. Then make the practical part clear: when you're going, wha",
-"batch": "Studio S04-A"
+"text": "Martial arts can challenge your cardio and help you burn calories. Weight training builds and maintains muscle",
+"batch": "Studio S09-C"
 },
 {
 "id": "5329631",
@@ -921,13 +867,13 @@
 "batch": ""
 },
 {
-"id": "3584693",
+"id": "5119965",
 "platform": "facebook",
 "when": "2026-11-11T23:00:00.000Z",
 "kind": "Photo",
 "slides": 1,
-"text": "Take a progress photo, not a progress weight.",
-"batch": ""
+"text": "I built a home gym and still use a gym membership. I like having options. If the drive is the reason your work",
+"batch": "Studio S05-A"
 },
 {
 "id": "5119921",
@@ -966,22 +912,22 @@
 "batch": ""
 },
 {
-"id": "3584697",
+"id": "5119963",
 "platform": "facebook",
 "when": "2026-11-13T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "The training happens in the gym. The building happens after.",
-"batch": ""
+"kind": "Carousel",
+"slides": 5,
+"text": "You don't have to wait for a perfect free hour to put a workout in your calendar. Start by finding the time yo",
+"batch": "Studio S08-A"
 },
 {
-"id": "5119924",
+"id": "5119916",
 "platform": "instagram",
 "when": "2026-11-13T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Make strength training an appointment you can keep. Choose the time, save the workout and get your space ready",
-"batch": "Studio S09-A"
+"kind": "Carousel",
+"slides": 5,
+"text": "You don't have to wait for a perfect free hour to put a workout in your calendar. Start by finding the time yo",
+"batch": "Studio S08-A"
 },
 {
 "id": "5361331",
@@ -1020,22 +966,22 @@
 "batch": ""
 },
 {
-"id": "3584699",
+"id": "5825763",
 "platform": "facebook",
 "when": "2026-11-16T23:00:00.000Z",
 "kind": "Photo",
 "slides": 1,
-"text": "Fat burners are the worst dollar in fitness.",
-"batch": ""
+"text": "Lunch sorted means fewer decisions in the middle of the day. Choose two lunches you enjoy, check the ingredien",
+"batch": "Studio S06-B"
 },
 {
-"id": "5119926",
+"id": "5119940",
 "platform": "instagram",
 "when": "2026-11-16T23:00:00.000Z",
 "kind": "Photo",
 "slides": 1,
-"text": "I have a home gym and I still pay for a gym membership. The point is having an option that works with your lif",
-"batch": "Studio S03-B"
+"text": "Lunch sorted means fewer decisions in the middle of the day. Choose two lunches you enjoy, check the ingredien",
+"batch": "Studio S06-B"
 },
 {
 "id": "5443391",
@@ -1074,58 +1020,58 @@
 "batch": ""
 },
 {
-"id": "3584706",
+"id": "5825764",
 "platform": "facebook",
 "when": "2026-11-18T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Land quiet.",
-"batch": ""
+"kind": "Carousel",
+"slides": 5,
+"text": "Your backup plan should be specific enough to use on a busy day. Name the obstacle, choose an alternative and ",
+"batch": "Studio S07-C"
 },
 {
-"id": "5119927",
+"id": "5119946",
 "platform": "instagram",
 "when": "2026-11-18T23:00:00.000Z",
 "kind": "Carousel",
 "slides": 5,
-"text": "Repeating a lunch you enjoy is a planning choice. You can still rotate meals and ingredients across the week. ",
-"batch": "Studio S08-B"
+"text": "Your backup plan should be specific enough to use on a busy day. Name the obstacle, choose an alternative and ",
+"batch": "Studio S07-C"
 },
 {
-"id": "3584708",
+"id": "5825766",
 "platform": "facebook",
 "when": "2026-11-20T23:00:00.000Z",
 "kind": "Photo",
 "slides": 1,
-"text": "The kitchen closes at 9pm.",
-"batch": ""
+"text": "Lunch gets easier when the decision is already made. Choose a meal you enjoy, get the ingredients or order in ",
+"batch": "Studio S09-B"
 },
 {
-"id": "5119929",
+"id": "5119942",
 "platform": "instagram",
 "when": "2026-11-20T23:00:00.000Z",
 "kind": "Photo",
 "slides": 1,
-"text": "I use a meal prep service. Having food ready removes one more decision from a busy day. You can do the same ki",
-"batch": "Studio S02-B"
+"text": "Lunch gets easier when the decision is already made. Choose a meal you enjoy, get the ingredients or order in ",
+"batch": "Studio S09-B"
 },
 {
-"id": "3584711",
+"id": "5825767",
 "platform": "facebook",
 "when": "2026-11-23T23:00:00.000Z",
 "kind": "Photo",
 "slides": 1,
-"text": "Fix your posture before you fix your diet.",
-"batch": ""
+"text": "A missed day needs a next step, not a speech about starting your whole life over. Pick the next available time",
+"batch": "Studio S05-C"
 },
 {
-"id": "5119930",
+"id": "5119948",
 "platform": "instagram",
 "when": "2026-11-23T23:00:00.000Z",
 "kind": "Photo",
 "slides": 1,
-"text": "Meal prep is one way I make food simpler. You don't need to invent a different lunch every day. Pick a few mea",
-"batch": "Studio S05-B"
+"text": "A missed day needs a next step, not a speech about starting your whole life over. Pick the next available time",
+"batch": "Studio S05-C"
 },
 {
 "id": "5524573",
@@ -1173,22 +1119,22 @@
 "batch": ""
 },
 {
-"id": "3584713",
+"id": "5119956",
 "platform": "facebook",
 "when": "2026-11-25T23:00:00.000Z",
 "kind": "Photo",
 "slides": 1,
-"text": "Ordering off a menu is a solvable problem.",
-"batch": ""
+"text": "Put your next workout on the calendar before the week fills up. Pick the time, the place and what you plan to ",
+"batch": "Studio S01-A"
 },
 {
-"id": "5119932",
+"id": "5119908",
 "platform": "instagram",
 "when": "2026-11-25T23:00:00.000Z",
-"kind": "Carousel",
-"slides": 5,
-"text": "Make lunch easier before the week starts. Pick two familiar meals, check what you need and decide how they wil",
-"batch": "Studio S07-B"
+"kind": "Photo",
+"slides": 1,
+"text": "Put your next workout on the calendar before the week fills up. Pick the time, the place and what you plan to ",
+"batch": "Studio S01-A"
 },
 {
 "id": "5524584",
@@ -1218,94 +1164,130 @@
 "batch": ""
 },
 {
-"id": "3584715",
+"id": "5119960",
 "platform": "facebook",
 "when": "2026-11-27T23:00:00.000Z",
 "kind": "Photo",
 "slides": 1,
-"text": "Rest is not the reward for finishing. It's part of the work.",
-"batch": ""
+"text": "Choose your workout before you arrive. Save the plan, get your clothes ready and decide when you need to leave",
+"batch": "Studio S03-A"
 },
 {
-"id": "5119935",
+"id": "5119910",
 "platform": "instagram",
 "when": "2026-11-27T23:00:00.000Z",
 "kind": "Photo",
 "slides": 1,
-"text": "Before you head out, decide what you'll eat when you get home. Put a meal in place or choose your order ahead ",
-"batch": "Studio S04-B"
+"text": "Choose your workout before you arrive. Save the plan, get your clothes ready and decide when you need to leave",
+"batch": "Studio S03-A"
 },
 {
-"id": "3584718",
+"id": "5119962",
 "platform": "facebook",
 "when": "2026-11-30T23:00:00.000Z",
 "kind": "Photo",
 "slides": 1,
-"text": "Do something you'd do for free.",
-"batch": ""
+"text": "Give lunch a place in your training plan. Decide what you'll eat and where it will come from before you head o",
+"batch": "Studio S02-A"
 },
 {
-"id": "5119940",
+"id": "5119914",
 "platform": "instagram",
 "when": "2026-11-30T23:00:00.000Z",
 "kind": "Photo",
 "slides": 1,
-"text": "Lunch sorted means fewer decisions in the middle of the day. Choose two lunches you enjoy, check the ingredien",
-"batch": "Studio S06-B"
+"text": "Give lunch a place in your training plan. Decide what you'll eat and where it will come from before you head o",
+"batch": "Studio S02-A"
 },
 {
-"id": "3584735",
+"id": "5119964",
 "platform": "facebook",
 "when": "2026-12-02T23:00:00.000Z",
 "kind": "Photo",
 "slides": 1,
-"text": "Hunger is often thirst.",
-"batch": ""
+"text": "Choose a training setting you want to come back to. Then make the practical part clear: when you're going, wha",
+"batch": "Studio S04-A"
 },
 {
-"id": "5119942",
+"id": "5119919",
 "platform": "instagram",
 "when": "2026-12-02T23:00:00.000Z",
 "kind": "Photo",
 "slides": 1,
-"text": "Lunch gets easier when the decision is already made. Choose a meal you enjoy, get the ingredients or order in ",
-"batch": "Studio S09-B"
+"text": "Choose a training setting you want to come back to. Then make the practical part clear: when you're going, wha",
+"batch": "Studio S04-A"
 },
 {
-"id": "3584737",
+"id": "5822390",
+"platform": "facebook",
+"when": "2026-12-03T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "If you're in college and you have no time to work out, I'm about to solve that problem for you.",
+"batch": ""
+},
+{
+"id": "5822391",
+"platform": "instagram",
+"when": "2026-12-03T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "If you're in college and you have no time to work out, I'm about to solve that problem for you.",
+"batch": ""
+},
+{
+"id": "5822392",
+"platform": "tiktok",
+"when": "2026-12-03T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "If you're in college and you have no time to work out, I'm about to solve that problem for you.",
+"batch": ""
+},
+{
+"id": "5822394",
+"platform": "youtube",
+"when": "2026-12-03T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "If you're in college and you have no time to work out, I'm about to solve that problem for you. You're wasting",
+"batch": ""
+},
+{
+"id": "5825768",
 "platform": "facebook",
 "when": "2026-12-04T23:00:00.000Z",
 "kind": "Photo",
 "slides": 1,
-"text": "You can't out-train the food.",
-"batch": ""
+"text": "I have a home gym and I still pay for a gym membership. The point is having an option that works with your lif",
+"batch": "Studio S03-B"
 },
 {
-"id": "5119943",
+"id": "5119926",
 "platform": "instagram",
 "when": "2026-12-04T23:00:00.000Z",
 "kind": "Photo",
 "slides": 1,
-"text": "Make tomorrow's lunch a decision you handle today. Pick something you already like, check what you have and ge",
-"batch": "Studio S01-B"
+"text": "I have a home gym and I still pay for a gym membership. The point is having an option that works with your lif",
+"batch": "Studio S03-B"
 },
 {
-"id": "3584739",
+"id": "5825769",
 "platform": "facebook",
 "when": "2026-12-07T23:00:00.000Z",
 "kind": "Photo",
 "slides": 1,
-"text": "Three minutes is not a real excuse.",
-"batch": ""
+"text": "I use a meal prep service. Having food ready removes one more decision from a busy day. You can do the same ki",
+"batch": "Studio S02-B"
 },
 {
-"id": "5119944",
+"id": "5119929",
 "platform": "instagram",
 "when": "2026-12-07T23:00:00.000Z",
 "kind": "Photo",
 "slides": 1,
-"text": "Missed a day? Decide what happens next. Open the calendar, choose a realistic time and set out what you need. ",
-"batch": "Studio S06-C"
+"text": "I use a meal prep service. Having food ready removes one more decision from a busy day. You can do the same ki",
+"batch": "Studio S02-B"
 },
 {
 "id": "5211312",
@@ -1317,22 +1299,22 @@
 "batch": ""
 },
 {
-"id": "3584741",
+"id": "5825770",
 "platform": "facebook",
 "when": "2026-12-09T23:00:00.000Z",
 "kind": "Photo",
 "slides": 1,
-"text": "Consistency of bedtime beats total hours.",
-"batch": ""
+"text": "Before you head out, decide what you'll eat when you get home. Put a meal in place or choose your order ahead ",
+"batch": "Studio S04-B"
 },
 {
-"id": "5119945",
+"id": "5119935",
 "platform": "instagram",
 "when": "2026-12-09T23:00:00.000Z",
 "kind": "Photo",
 "slides": 1,
-"text": "Martial arts can burn calories, challenge your cardio and give you a reason to keep showing up. It is a great ",
-"batch": "Studio S04-C"
+"text": "Before you head out, decide what you'll eat when you get home. Put a meal in place or choose your order ahead ",
+"batch": "Studio S04-B"
 },
 {
 "id": "5211308",
@@ -1362,40 +1344,40 @@
 "batch": ""
 },
 {
-"id": "4890094",
+"id": "5825774",
 "platform": "facebook",
 "when": "2026-12-11T23:00:00.000Z",
 "kind": "Photo",
 "slides": 1,
-"text": "Control the way down.",
-"batch": ""
+"text": "Make tomorrow's lunch a decision you handle today. Pick something you already like, check what you have and ge",
+"batch": "Studio S01-B"
 },
 {
-"id": "5119946",
+"id": "5119943",
 "platform": "instagram",
 "when": "2026-12-11T23:00:00.000Z",
-"kind": "Carousel",
-"slides": 5,
-"text": "Your backup plan should be specific enough to use on a busy day. Name the obstacle, choose an alternative and ",
-"batch": "Studio S07-C"
+"kind": "Photo",
+"slides": 1,
+"text": "Make tomorrow's lunch a decision you handle today. Pick something you already like, check what you have and ge",
+"batch": "Studio S01-B"
 },
 {
-"id": "4890095",
+"id": "5825776",
 "platform": "facebook",
 "when": "2026-12-14T23:00:00.000Z",
 "kind": "Photo",
 "slides": 1,
-"text": "Protein target: one gram per pound of your goal weight.",
-"batch": ""
+"text": "Martial arts can burn calories, challenge your cardio and give you a reason to keep showing up. It is a great ",
+"batch": "Studio S04-C"
 },
 {
-"id": "5119947",
+"id": "5119945",
 "platform": "instagram",
 "when": "2026-12-14T23:00:00.000Z",
 "kind": "Photo",
 "slides": 1,
-"text": "Missed a workout? Leave that day where it is. Look at the next opening in your calendar and choose a session y",
-"batch": "Studio S01-C"
+"text": "Martial arts can burn calories, challenge your cardio and give you a reason to keep showing up. It is a great ",
+"batch": "Studio S04-C"
 },
 {
 "id": "5415566",
@@ -1407,22 +1389,22 @@
 "batch": ""
 },
 {
-"id": "3584749",
+"id": "5825777",
 "platform": "facebook",
 "when": "2026-12-16T23:00:00.000Z",
 "kind": "Photo",
 "slides": 1,
-"text": "Train your back if you want your abs to show.",
-"batch": ""
+"text": "Missed a workout? Leave that day where it is. Look at the next opening in your calendar and choose a session y",
+"batch": "Studio S01-C"
 },
 {
-"id": "5119948",
+"id": "5119947",
 "platform": "instagram",
 "when": "2026-12-16T23:00:00.000Z",
 "kind": "Photo",
 "slides": 1,
-"text": "A missed day needs a next step, not a speech about starting your whole life over. Pick the next available time",
-"batch": "Studio S05-C"
+"text": "Missed a workout? Leave that day where it is. Look at the next opening in your calendar and choose a session y",
+"batch": "Studio S01-C"
 },
 {
 "id": "5415562",
@@ -1452,22 +1434,22 @@
 "batch": ""
 },
 {
-"id": "3584754",
+"id": "5825778",
 "platform": "facebook",
 "when": "2026-12-18T23:00:00.000Z",
 "kind": "Photo",
 "slides": 1,
-"text": "Get the phone out of the bedroom.",
-"batch": ""
+"text": "You don't have to throw away the whole week because the plan changed. Look at the days you still have. Choose ",
+"batch": "Studio S02-C"
 },
 {
-"id": "5119950",
+"id": "5119952",
 "platform": "instagram",
 "when": "2026-12-18T23:00:00.000Z",
 "kind": "Photo",
 "slides": 1,
-"text": "Martial arts can challenge your cardio and help you burn calories. Weight training builds and maintains muscle",
-"batch": "Studio S09-C"
+"text": "You don't have to throw away the whole week because the plan changed. Look at the days you still have. Choose ",
+"batch": "Studio S02-C"
 },
 {
 "id": "5090110",
@@ -1506,22 +1488,22 @@
 "batch": ""
 },
 {
-"id": "3584760",
+"id": "5825779",
 "platform": "facebook",
 "when": "2026-12-21T23:00:00.000Z",
 "kind": "Photo",
 "slides": 1,
-"text": "Every kick is a core exercise.",
-"batch": ""
+"text": "The last session is already done, or it didn't happen. Either way, the next one still needs a plan. Pick the t",
+"batch": "Studio S03-C"
 },
 {
-"id": "5119952",
+"id": "5119955",
 "platform": "instagram",
 "when": "2026-12-21T23:00:00.000Z",
 "kind": "Photo",
 "slides": 1,
-"text": "You don't have to throw away the whole week because the plan changed. Look at the days you still have. Choose ",
-"batch": "Studio S02-C"
+"text": "The last session is already done, or it didn't happen. Either way, the next one still needs a plan. Pick the t",
+"batch": "Studio S03-C"
 },
 {
 "id": "5365814",
@@ -1531,24 +1513,6 @@
 "slides": 1,
 "text": "You can still hold onto belly fat in a calorie deficit. Here are the 7 factors outside of calories that decide",
 "batch": ""
-},
-{
-"id": "3584762",
-"platform": "facebook",
-"when": "2026-12-23T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Everyone has a side that's behind.",
-"batch": ""
-},
-{
-"id": "5119953",
-"platform": "instagram",
-"when": "2026-12-23T23:00:00.000Z",
-"kind": "Carousel",
-"slides": 5,
-"text": "Missing Monday doesn't make Tuesday disappear. Name what got in the way, choose your next opening and make one",
-"batch": "Studio S08-C"
 },
 {
 "id": "5365807",
@@ -1578,24 +1542,6 @@
 "batch": ""
 },
 {
-"id": "3584764",
-"platform": "facebook",
-"when": "2026-12-25T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Two years, not two months.",
-"batch": ""
-},
-{
-"id": "5119955",
-"platform": "instagram",
-"when": "2026-12-25T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "The last session is already done, or it didn't happen. Either way, the next one still needs a plan. Pick the t",
-"batch": "Studio S03-C"
-},
-{
 "id": "5287937",
 "platform": "youtube",
 "when": "2026-12-27T15:00:00.000Z",
@@ -1603,181 +1549,9 @@
 "slides": 1,
 "text": "If you're struggling to lose weight, there's usually one reason: you're eating too many calories. Here is the ",
 "batch": ""
-},
-{
-"id": "3584766",
-"platform": "facebook",
-"when": "2026-12-28T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Compare yourself to your own photo from March.",
-"batch": ""
-},
-{
-"id": "3584768",
-"platform": "facebook",
-"when": "2026-12-30T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "A nap doesn't repay a bad night.",
-"batch": ""
-},
-{
-"id": "3584770",
-"platform": "facebook",
-"when": "2027-01-01T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Five minutes of hips after every session.",
-"batch": ""
-},
-{
-"id": "5119956",
-"platform": "facebook",
-"when": "2027-01-04T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Put your next workout on the calendar before the week fills up. Pick the time, the place and what you plan to ",
-"batch": "Studio S01-A"
-},
-{
-"id": "5119958",
-"platform": "facebook",
-"when": "2027-01-06T23:00:00.000Z",
-"kind": "Carousel",
-"slides": 5,
-"text": "Save this for your next weekly reset. Choose your training times, make a simple food plan and write down what ",
-"batch": "Studio S07-A"
-},
-{
-"id": "5119960",
-"platform": "facebook",
-"when": "2027-01-08T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Choose your workout before you arrive. Save the plan, get your clothes ready and decide when you need to leave",
-"batch": "Studio S03-A"
-},
-{
-"id": "5119961",
-"platform": "facebook",
-"when": "2027-01-11T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Too busy to train? Look at the whole appointment, including packing and travel. If the commute is the obstacle",
-"batch": "Studio S06-A"
-},
-{
-"id": "5119962",
-"platform": "facebook",
-"when": "2027-01-13T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Give lunch a place in your training plan. Decide what you'll eat and where it will come from before you head o",
-"batch": "Studio S02-A"
-},
-{
-"id": "5119963",
-"platform": "facebook",
-"when": "2027-01-15T23:00:00.000Z",
-"kind": "Carousel",
-"slides": 5,
-"text": "You don't have to wait for a perfect free hour to put a workout in your calendar. Start by finding the time yo",
-"batch": "Studio S08-A"
-},
-{
-"id": "5119964",
-"platform": "facebook",
-"when": "2027-01-18T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Choose a training setting you want to come back to. Then make the practical part clear: when you're going, wha",
-"batch": "Studio S04-A"
-},
-{
-"id": "5119965",
-"platform": "facebook",
-"when": "2027-01-20T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "I built a home gym and still use a gym membership. I like having options. If the drive is the reason your work",
-"batch": "Studio S05-A"
 }
 ],
-"waiting": [
-{
-"batch": "Studio posts",
-"platform": "facebook",
-"post": "S04-C",
-"title": "Train martial arts. Lift weights too.",
-"planned": "2027-02-17T23:00:00.000Z",
-"slides": 1,
-"kind": "Photo"
-},
-{
-"batch": "Studio posts",
-"platform": "facebook",
-"post": "S07-C",
-"title": "YOUR\nPLAN B.",
-"planned": "2027-02-19T23:00:00.000Z",
-"slides": 5,
-"kind": "Carousel"
-},
-{
-"batch": "Studio posts",
-"platform": "facebook",
-"post": "S01-C",
-"title": "Missed a day? Keep going",
-"planned": "2027-02-22T23:00:00.000Z",
-"slides": 1,
-"kind": "Photo"
-},
-{
-"batch": "Studio posts",
-"platform": "facebook",
-"post": "S05-C",
-"title": "START AGAIN",
-"planned": "2027-02-24T23:00:00.000Z",
-"slides": 1,
-"kind": "Photo"
-},
-{
-"batch": "Studio posts",
-"platform": "facebook",
-"post": "S09-C",
-"title": "TRAIN HARD.\nLIFT TOO.",
-"planned": "2027-02-26T23:00:00.000Z",
-"slides": 1,
-"kind": "Photo"
-},
-{
-"batch": "Studio posts",
-"platform": "facebook",
-"post": "S02-C",
-"title": "Give the week a second chance",
-"planned": "2027-03-01T23:00:00.000Z",
-"slides": 1,
-"kind": "Photo"
-},
-{
-"batch": "Studio posts",
-"platform": "facebook",
-"post": "S08-C",
-"title": "I missed Monday.",
-"planned": "2027-03-03T23:00:00.000Z",
-"slides": 5,
-"kind": "Carousel"
-},
-{
-"batch": "Studio posts",
-"platform": "facebook",
-"post": "S03-C",
-"title": "Your next session still counts",
-"planned": "2027-03-05T23:00:00.000Z",
-"slides": 1,
-"kind": "Photo"
-}
-],
+"waiting": [],
 "pipeline": [
 {
 "name": "RO-11 long-form",

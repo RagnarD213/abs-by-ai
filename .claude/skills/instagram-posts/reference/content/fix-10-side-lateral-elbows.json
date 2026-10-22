@@ -1,0 +1,82 @@
+{
+ "format": "the-fix",
+ "id": "fix-10-side-lateral-elbows",
+ "tag": "The Fix · 10",
+ "status": "draft R1 2026-10-21; wording source: raw roll C1584 (8/3 shoot, 142-253 s) = Zeeshan arms master 3:28-4:52, short arms-shoulders-short3_raise-your-elbows-not-your-hands, 8/28 roll C1672 (DS-23 how to do side laterals script) | APPROVED by Dan 2026-10-22 as is; last slide now has the large cutout (Dan rule 2026-10-22).",
+ "cover": {
+  "headline": "Stop doing side laterals\n[y]like this.[/y]",
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-10-side-lateral-elbows/cover.jpg",
+   "pos": "50% 50%",
+   "zoom": 1.0,
+   "label": "real",
+   "alt": "Dan showing the side-lateral mistake without weights: hands up, elbows low"
+  },
+  "ring": [
+   70,
+   95,
+   110,
+   110
+  ],
+  "callout": "Elbows low",
+  "callout_at": [
+   30,
+   230
+  ],
+  "swipe": "Swipe for the fix"
+ },
+ "mistake": {
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-10-side-lateral-elbows/mistake.jpg",
+   "pos": "50% 50%",
+   "zoom": 1.0,
+   "label": "real",
+   "alt": "Dan demonstrating the mistake without weights, fists raised but elbows low at his sides"
+  },
+  "headline": "Hands up.\nElbows down.",
+  "body": "The weights are in the right spot, but your elbows aren't. If your elbow isn't high, your delt isn't really being worked."
+ },
+ "fix": {
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-10-side-lateral-elbows/fix.jpg",
+   "pos": "50% 50%",
+   "zoom": 1.0,
+   "label": "real",
+   "alt": "Dan at the top of a side lateral raise, dumbbells and elbows at shoulder height"
+  },
+  "headline": "Lead with\nyour elbows.",
+  "body": "Raise them to shoulder height with your elbows high. Tilt the dumbbells like you're [em]dumping out two jugs of water.[/em] Then lower slow."
+ },
+ "cues": {
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-10-side-lateral-elbows/cues.jpg",
+   "pos": "50% 50%",
+   "zoom": 1.0,
+   "label": "real",
+   "alt": "Dan standing with light dumbbells at his sides"
+  },
+  "title": "3 cues",
+  "subtitle": "for side laterals",
+  "items": [
+   "Lead with your elbows, not your hands.",
+   "Stop at shoulder height.",
+   "Go light: 5 or 10 pounds. No rocking."
+  ]
+ },
+ "cta": {
+  "blocks": [
+   {
+    "icon": "save",
+    "title": "Save this",
+    "text": "for your next shoulder day."
+   },
+   {
+    "icon": "send",
+    "title": "Send it",
+    "text": "to the guy whose side laterals look like a chicken dance."
+   }
+  ],
+  "follow": "One fix a week, filmed on me.",
+  "cutout": "Short-form video content/instagram-danrosefit/assets/_cutouts/studio-blue-38.webp"
+ }
+}

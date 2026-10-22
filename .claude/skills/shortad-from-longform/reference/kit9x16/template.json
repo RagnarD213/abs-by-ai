@@ -131,7 +131,8 @@
   "timing": "words force-aligned to the delivered mix (a2/align_ctc.py); Whisper's own timings are ~130 ms early"
  },
  "labels": {
-  "real": "Real picture of me - not AI-generated",
+  "real": "Real Photo Of Me, Not AI-Generated",
+  "real_plural": "Real Photos Of Me, Not AI-Generated",
   "ai": "AI-GENERATED",
   "mutually_exclusive": true,
   "placement": "MEASURED per beat, never a fixed y: person mask over every 3rd rendered frame + the last (stills push), union, dilate 16 px; above his head in one line first, then beside the head in 1-3 lines, then anywhere clear above the caption band; never over his face or his abs (AGENTS.md, Dan 2026-09-12). Card media keeps the card's own chip under the hole (not on his body)",

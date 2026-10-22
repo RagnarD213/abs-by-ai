@@ -1,0 +1,223 @@
+{#- RECEIPTS: a popular belief tested by a real study. Approved 2026-10-21 (C2 crunches); made more visual 2026-10-22
+    (Dan: "a lot of these were a little visually boring ... especially on the first slide, catch attention with images of
+    me that are relevant or AI-generated images").
+
+    A post lists its slides in order: "slides": [{"type": "cover" | "study" | "exhibit" | "tips" | "verdict" | "works", ...}].
+    Old posts with fixed keys (cover, study, exhibit_b, verdict, works) still render as the original five. -#}
+{% extends "_base.html.j2" %}
+{% import "_macros.html.j2" as m with context %}
+
+{%- macro cover(c, n, T) -%}
+{%- set mode = c.mode or ('polaroid' if c.polaroid else 'cutout') %}
+<div class="slide" style="background:{{ 'var(--ink)' if c.dark else 'var(--bone)' }}">
+  {{ m.head(post.tag, n, T, dark=c.dark) }}
+  {%- if mode == 'photo' %}
+  <div data-fit-col style="position:absolute;left:36px;right:36px;top:62px;height:{{ c.head_h or 196 }}px;overflow:hidden">
+    <h1 class="hd" data-fit="{{ c.size or 64 }},40" style="font-size:{{ c.size or 64 }}px;color:{{ 'var(--bone)' if c.dark else 'var(--ink)' }}">{{ c.headline|mk }}</h1>
+  </div>
+  {%- set extra -%}
+    {{ m.marks(c.marks) }}
+    {%- if c.sub %}<div class="tx" style="position:absolute;left:20px;right:20px;top:16px;font-weight:800;font-size:18px;color:var(--bone);text-shadow:0 1px 8px rgba(0,0,0,.7)">{{ c.sub|mk }}</div>{% endif %}
+    <div class="handle" style="position:absolute;left:20px;bottom:20px;color:var(--bone);background:rgba(14,16,19,.74);padding:6px 10px;border-radius:4px">@danrosefit</div>
+    <div class="tx" style="position:absolute;right:20px;bottom:18px;display:flex;align-items:center;gap:8px;background:var(--yellow);color:var(--ink);font-weight:800;font-size:17px;padding:8px 14px;border-radius:4px">{{ c.swipe or 'Swipe for the receipts' }} {{ m.ICON.arrow|safe }}</div>
+  {%- endset -%}
+  {{ m.pic(c.image, 'left:0;right:0;top:' ~ (62 + (c.head_h or 196) + 10) ~ 'px;bottom:0', extra) }}
+  {%- elif mode == 'cutout' %}
+  <div aria-hidden="true" style="position:absolute;right:{{ c.disc_right or 10 }}px;bottom:{{ c.disc_bottom or 40 }}px;width:{{ c.disc or 300 }}px;height:{{ c.disc or 300 }}px;border-radius:50%;background:var(--yellow)"></div>
+  <img src="{{ c.image.src|uri }}" alt="{{ c.image.alt or 'Dan Rose' }}" style="position:absolute;right:{{ c.image.right or 0 }}px;bottom:0;height:{{ c.image.height or 420 }}px;width:auto;max-width:{{ c.image.maxw or 320 }}px;object-fit:contain;object-position:bottom right">
+  <div data-fit-col style="position:absolute;left:36px;right:36px;top:62px;height:{{ c.head_h or 212 }}px;overflow:hidden">
+    <h1 class="hd" data-fit="{{ c.size or 72 }},40" style="font-size:{{ c.size or 72 }}px;color:var(--ink)">{{ c.headline|mk }}</h1>
+  </div>
+  <div data-fit-col style="position:absolute;left:36px;width:{{ c.sub_w or 220 }}px;top:{{ 62 + (c.head_h or 212) + 16 }}px;bottom:62px;display:flex;flex-direction:column;gap:16px;overflow:hidden">
+    {%- if c.sub %}<p class="tx" data-fit="{{ c.sub_size or 24 }},18" style="margin:0;font-size:{{ c.sub_size or 24 }}px;line-height:1.3;font-weight:800;color:var(--ink)">{{ c.sub|mk }}</p>{% endif %}
+    <div class="tx" style="display:flex;align-items:center;gap:8px;font-weight:800;font-size:19px;color:var(--red)">{{ c.swipe or 'Swipe for the receipts' }} {{ m.ICON.arrow|safe }}</div>
+  </div>
+  <div class="handle" style="position:absolute;left:36px;bottom:20px;color:var(--mute-l)">@danrosefit</div>
+  {%- else %}
+  <div data-fit-col style="position:absolute;left:36px;right:36px;top:66px;height:282px;overflow:hidden">
+    <h1 class="hd" data-fit="{{ c.size or 72 }},44" style="font-size:{{ c.size or 72 }}px;color:var(--ink)">{{ c.headline|mk }}</h1>
+  </div>
+  <div data-fit-col style="position:absolute;left:36px;right:36px;top:356px;height:30px;overflow:hidden">
+    <p class="tx" data-fit="19,16" style="margin:0;font-size:19px;font-weight:700;color:var(--body-l)">{{ c.sub|mk }}</p>
+  </div>
+  <div style="position:absolute;right:34px;top:404px;width:280px;height:230px;box-sizing:border-box;background:#fff;padding:10px 10px 0;transform:rotate(-3deg);box-shadow:0 6px 18px rgba(14,16,19,.18)">
+    {{ m.pic(c.polaroid.image, 'position:relative;width:260px;height:175px') }}
+    <div class="tx" style="font-size:16px;font-weight:800;color:var(--ink);padding-top:9px;white-space:nowrap;overflow:hidden">{{ c.polaroid.caption }}</div>
+  </div>
+  <div class="tx" style="position:absolute;left:36px;top:440px;width:170px;display:flex;flex-direction:column;gap:10px;color:var(--ink)">
+    <div style="font-weight:800;font-size:19px;line-height:1.3">{{ c.swipe or 'Swipe for the receipts' }}</div>
+    {{ m.ICON.arrow40|safe }}
+  </div>
+  <div class="handle" style="position:absolute;left:36px;bottom:20px;color:var(--mute-l)">@danrosefit</div>
+  {%- endif %}
+</div>
+{%- endmacro -%}
+
+{%- macro study(s, n, T) -%}
+<div class="slide" style="background:var(--bone)">
+  {{ m.head(post.tag, n, T, dark=False) }}
+  <div data-fit-col style="position:absolute;left:36px;right:36px;top:74px;height:{{ 500 }}px;display:flex;flex-direction:column;gap:14px;overflow:hidden">
+    <div style="display:flex;gap:16px;align-items:flex-start">
+      <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:14px">
+        <div><span class="stamp" style="transform:rotate(-1deg)">{{ s.stamp or 'Exhibit A: the study' }}</span></div>
+        <h2 class="hd" data-fit="{{ s.size or (38 if s.image else 40) }},35" style="font-size:{{ s.size or (38 if s.image else 40) }}px;color:var(--ink)">{{ s.headline|mk }}</h2>
+      </div>
+      {%- if s.image %}
+      <div style="flex:none;width:{{ s.image_w or 168 }}px;background:#fff;padding:7px 7px 0;box-sizing:border-box;transform:rotate(2deg);box-shadow:0 6px 18px rgba(14,16,19,.18);position:relative">
+        {{ m.pic(s.image, 'position:relative;width:100%;height:' ~ (s.image_h or 196) ~ 'px', m.label(s.image, 'left:6px;right:6px;bottom:6px;font-size:16px;line-height:1.15;padding:3px 6px')) }}
+        <div style="height:7px"></div>
+      </div>
+      {%- endif %}
+    </div>
+    {%- if s.stats %}
+    <div style="display:grid;grid-template-columns:repeat({{ s.stats|length }},minmax(0,1fr));gap:10px">
+      {%- for st in s.stats %}
+      <div style="border:2px solid var(--ink);padding:8px 12px">
+        <div class="hd" style="font-size:{{ st.size or 48 }}px;color:var(--red);white-space:nowrap">{{ st.n }}</div>
+        <div class="tx" style="font-size:16px;font-weight:700;color:var(--ink)">{{ st.label }}</div>
+      </div>
+      {%- endfor %}
+    </div>
+    {%- endif %}
+    <div style="display:flex;flex-direction:column">
+      {%- for r in s.rows %}
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;border-top:2px solid var(--ink);{{ 'border-bottom:2px solid var(--ink);' if loop.last }}padding:10px 0">
+        <span class="tx" style="font-size:20px;font-weight:800;color:var(--ink)">{{ r.label|mk }}</span>
+        <span class="pill" style="flex:none;background:{{ 'var(--yellow)' if r.tone == 'good' else ('var(--red)' if r.tone == 'bad' else 'var(--ink)') }};color:{{ 'var(--ink)' if r.tone == 'good' else '#fff' }}">{{ r.result }}</span>
+      </div>
+      {%- endfor %}
+      {%- if s.note %}<div class="tx" data-fit="17,16" style="font-size:17px;font-weight:600;color:var(--body-l);margin-top:8px">{{ s.note|mk }}</div>{% endif %}
+    </div>
+  </div>
+  <div class="tx" style="position:absolute;left:36px;right:36px;bottom:46px;font-size:16px;font-style:italic;font-weight:600;color:var(--mute-l)">{{ s.source }}</div>
+  <div class="handle" style="position:absolute;left:36px;bottom:20px;color:var(--mute-l)">@danrosefit</div>
+</div>
+{%- endmacro -%}
+
+{%- macro exhibit(s, n, T) -%}
+<div class="slide" style="background:var(--bone)">
+  {{ m.head(post.tag, n, T, dark=False) }}
+  <div style="position:absolute;left:36px;top:70px"><span class="stamp" style="transform:rotate(-1deg)">{{ s.stamp }}</span></div>
+  {%- if s.images %}
+  {%- set k = s.images|length %}
+  {%- for im in s.images %}
+  {%- set w = 196 if k == 3 else 230 %}
+  {%- set x = [24, 172, 316][loop.index0] if k == 3 else [40, 270][loop.index0] %}
+  {%- set y = [128, 168, 120][loop.index0] if k == 3 else [128, 150][loop.index0] %}
+  <div style="position:absolute;left:{{ x }}px;top:{{ y }}px;width:{{ w }}px;box-sizing:border-box;background:#fff;padding:9px 9px 0;transform:rotate({{ [-4, 2, 5][loop.index0] }}deg);box-shadow:0 6px 18px rgba(14,16,19,.22);z-index:{{ loop.index }}">
+    {{ m.pic(im.image, 'position:relative;width:100%;height:' ~ (im.h or 250) ~ 'px') }}
+    <div class="tx" style="font-size:16px;font-weight:800;color:var(--ink);padding:7px 0 8px;white-space:nowrap;overflow:hidden">{{ im.caption }}</div>
+  </div>
+  {%- endfor %}
+  <div class="tx" data-label style="position:absolute;left:36px;right:36px;top:{{ s.label_top or 474 }}px;font-size:16px;font-weight:700;color:var(--mute-l)">{{ s.label or 'Real photos of me, not AI-generated' }}</div>
+  {%- else %}
+  <div style="position:absolute;left:80px;top:118px;width:380px;height:432px;box-sizing:border-box;background:#fff;padding:12px 12px 0;transform:rotate(1.5deg);box-shadow:0 6px 18px rgba(14,16,19,.18)">
+    {{ m.pic(s.image, 'position:relative;width:356px;height:370px', m.label(s.image, 'left:8px;bottom:8px')) }}
+    <div class="tx" style="font-size:20px;font-weight:800;color:var(--ink);padding-top:10px;white-space:nowrap;overflow:hidden">{{ s.caption }}</div>
+  </div>
+  {%- endif %}
+  <div data-fit-col style="position:absolute;left:36px;right:36px;top:{{ s.headline_top or (510 if s.images else 574) }}px;bottom:44px;overflow:hidden">
+    <h2 class="hd" data-fit="{{ s.size or (48 if s.images else 38) }},35" style="font-size:{{ s.size or (48 if s.images else 38) }}px;color:var(--ink)">{{ s.headline|mk }}</h2>
+  </div>
+  <div class="handle" style="position:absolute;left:36px;bottom:20px;color:var(--mute-l)">@danrosefit</div>
+</div>
+{%- endmacro -%}
+
+{%- macro tips(s, n, T) -%}
+<div class="slide" style="background:var(--bone)">
+  {{ m.head(post.tag, n, T, dark=False) }}
+  <div style="position:absolute;left:36px;top:70px"><span class="stamp" style="transform:rotate(-1deg)">{{ s.stamp or 'How to fix it' }}</span></div>
+  {%- if s.image %}
+  <div style="position:absolute;right:30px;top:62px;width:{{ s.image_w or 160 }}px;box-sizing:border-box;background:#fff;padding:8px 8px 7px;transform:rotate(3deg);box-shadow:0 6px 18px rgba(14,16,19,.2);z-index:2">
+    {{ m.pic(s.image, 'position:relative;width:100%;height:' ~ (s.image_h or 176) ~ 'px') }}
+    <div class="tx" data-label style="font-size:16px;font-weight:700;line-height:1.15;color:var(--ink);padding-top:6px">{{ s.caption or {'real':'Real photo of me, not AI-generated','ai':'AI-generated image'}[s.image.label] }}</div>
+  </div>
+  {%- endif %}
+  {%- if s.title %}
+  <div data-fit-col style="position:absolute;left:36px;right:{{ 220 if s.image else 36 }}px;top:116px;height:{{ s.title_h or 128 }}px;overflow:hidden">
+    <h2 class="hd" data-fit="{{ s.size or 52 }},35" style="font-size:{{ s.size or 52 }}px;color:var(--ink)">{{ s.title|mk }}</h2>
+  </div>
+  {%- endif %}
+  <div data-fit-col style="position:absolute;left:36px;right:36px;top:{{ s.items_top or (298 if s.image else (116 + (s.title_h or 128) + 16 if s.title else 124)) }}px;bottom:{{ 120 if s.save else 50 }}px;display:flex;flex-direction:column;gap:{{ s.gap or 14 }}px;overflow:hidden">
+    {%- for it in s['items'] %}
+    <div style="display:flex;gap:12px;align-items:flex-start">
+      <div class="hd" data-fit="{{ s.num_size or 34 }},26" style="font-size:{{ s.num_size or 34 }}px;color:var(--red);width:42px;flex:none">{{ '%02d'|format(loop.index) }}</div>
+      <p class="tx" data-fit="{{ s.text_size or 25 }},18" style="margin:0;font-size:{{ s.text_size or 25 }}px;line-height:1.3;font-weight:700;color:var(--ink)">{{ it|mk }}</p>
+    </div>
+    {%- endfor %}
+  </div>
+  {%- if s.save %}{{ save_bar(s.save) }}{% endif %}
+  <div class="handle" style="position:absolute;left:36px;bottom:20px;color:var(--mute-l)">@danrosefit</div>
+</div>
+{%- endmacro -%}
+
+{%- macro save_bar(text, right=36) -%}
+<div style="position:absolute;left:36px;right:{{ right }}px;bottom:52px;background:var(--ink);border-radius:6px;padding:12px 16px;display:flex;align-items:center;gap:14px;z-index:2">
+  <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#FFD23F" stroke-width="2.6" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M6 3h12v18l-6-4.5L6 21z"></path></svg>
+  <span class="tx" style="font-size:18px;font-weight:700;line-height:1.32;color:var(--bone)">{{ text|mk }}</span>
+</div>
+{%- endmacro -%}
+
+{%- macro verdict(s, n, T) -%}
+<div class="slide" style="background:var(--ink)">
+  {{ m.head(post.tag, n, T) }}
+  <div style="position:absolute;left:36px;top:70px"><span class="stamp" style="border-color:var(--bone);color:var(--bone)">{{ s.stamp or 'The verdict' }}</span></div>
+  <img src="{{ s.image.src|uri }}" alt="{{ s.image.alt or 'Dan Rose' }}" data-nolabel="1" style="position:absolute;right:{{ s.image.right or 20 }}px;bottom:0;height:{{ s.image.height or 430 }}px;width:auto;max-width:{{ s.image.maxw or 270 }}px;object-fit:contain;object-position:bottom right">
+  <div class="lbl" style="right:24px;bottom:16px;width:150px;line-height:1.25;text-align:center">{{ {'real':'Real photo of me, not AI-generated','ai':'AI-generated image'}[s.image.label or 'real'] }}</div>
+  <div data-fit-col style="position:absolute;left:36px;right:36px;top:118px;height:{{ s.head_h or 190 }}px;overflow:hidden">
+    <h2 class="hd" data-fit="{{ s.size or 56 }},36" style="font-size:{{ s.size or 56 }}px;color:var(--bone)">{{ s.headline|mk }}</h2>
+  </div>
+  <div data-fit-col style="position:absolute;left:36px;width:{{ s.body_w or 230 }}px;top:{{ 118 + (s.head_h or 190) + 12 }}px;bottom:{{ 150 if s.save else 56 }}px;display:flex;flex-direction:column;gap:14px;overflow:hidden">
+    <p class="tx" data-fit="{{ s.text_size or 23 }},18" style="margin:0;font-size:{{ s.text_size or 23 }}px;line-height:1.38;font-weight:600;color:var(--body-d)">{{ s.body|mk }}</p>
+    {%- if s.teaser %}<div class="tx" data-fit="21,18" style="display:flex;align-items:flex-start;gap:8px;font-size:21px;line-height:1.3;font-weight:800;color:var(--yellow)">{{ s.teaser|mk }}</div>{% endif %}
+  </div>
+  {%- if s.save %}
+  <div style="position:absolute;left:36px;width:{{ s.save_w or 250 }}px;bottom:52px;background:var(--yellow);border-radius:6px;padding:10px 14px;display:flex;align-items:center;gap:12px;z-index:2">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#0E1013" stroke-width="2.6" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M6 3h12v18l-6-4.5L6 21z"></path></svg>
+    <span class="tx" style="font-size:17px;font-weight:800;line-height:1.28;color:var(--ink)">{{ s.save|mk }}</span>
+  </div>
+  {%- endif %}
+  <div class="handle" style="position:absolute;left:36px;bottom:20px;color:var(--mute-d)">@danrosefit</div>
+</div>
+{%- endmacro -%}
+
+{%- macro works(s, n, T) -%}
+<div class="slide" style="background:var(--bone)">
+  {{ m.head(post.tag, n, T, dark=False) }}
+  <div style="position:absolute;left:36px;top:70px"><span class="stamp" style="transform:rotate(-1deg)">{{ s.stamp or 'What actually works' }}</span></div>
+  <div data-fit-col style="position:absolute;left:36px;top:124px;width:{{ 284 if s.side else 468 }}px;height:{{ s.items_h or 318 }}px;display:flex;flex-direction:column;gap:16px;overflow:hidden">
+    {%- for it in s['items'] %}
+    <div style="display:flex;gap:12px;align-items:flex-start">
+      <div class="hd" style="font-size:34px;color:var(--red);width:38px;flex:none">{{ '%02d'|format(loop.index) }}</div>
+      <p class="tx" data-fit="{{ s.text_size or (20 if s.side else 26) }},18" style="margin:0;font-size:{{ s.text_size or (20 if s.side else 26) }}px;line-height:1.32;font-weight:700;color:var(--ink)">{{ it|mk }}</p>
+    </div>
+    {%- endfor %}
+  </div>
+  {%- if s.side %}
+  <div style="position:absolute;right:36px;top:112px;width:160px;display:flex;flex-direction:column;align-items:center;gap:8px">
+    {{ m.pic(s.side.image, 'position:relative;width:160px;height:301px;border-radius:18px;border:4px solid var(--ink);box-sizing:border-box') }}
+    <div class="tx" data-label style="font-size:16px;font-weight:700;color:var(--mute-l);text-align:center">{{ s.side.caption or {'real':'Real photo of me, not AI-generated','ai':'AI-generated image','screenshot':'Real screenshot'}[s.side.image.label] }}</div>
+  </div>
+  {%- endif %}
+  <div data-fit-col style="position:absolute;left:36px;right:36px;top:{{ 124 + (s.items_h or 318) + 10 }}px;bottom:126px;overflow:hidden">
+    <h2 class="hd" data-fit="{{ s.size or 46 }},35" style="font-size:{{ s.size or 46 }}px;color:var(--ink)">{{ s.headline|mk }}</h2>
+  </div>
+  {{ save_bar(s.save) }}
+  <div class="handle" style="position:absolute;left:36px;bottom:20px;color:var(--mute-l)">@danrosefit</div>
+</div>
+{%- endmacro -%}
+
+{% block slides %}
+{%- set S = post.slides -%}
+{%- set T = S|length -%}
+{%- for s in S -%}
+<!-- {{ loop.index }} {{ s.type|upper }} -->
+{%- if s.type == 'cover' %}{{ cover(s, loop.index, T) }}
+{%- elif s.type == 'study' %}{{ study(s, loop.index, T) }}
+{%- elif s.type == 'exhibit' %}{{ exhibit(s, loop.index, T) }}
+{%- elif s.type == 'tips' %}{{ tips(s, loop.index, T) }}
+{%- elif s.type == 'verdict' %}{{ verdict(s, loop.index, T) }}
+{%- elif s.type == 'works' %}{{ works(s, loop.index, T) }}
+{%- endif %}
+{%- endfor %}
+{% endblock %}

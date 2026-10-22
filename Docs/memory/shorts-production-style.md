@@ -1,6 +1,6 @@
 ---
 name: shorts-production-style
-description: "Locked design system + title formula for Abs By AI short-form video (Shorts/Reels/TikTok), decided 2026-08-06"
+description: "SUPERSEDED for new batches 10-01: J2/olive short-form system (2026-08-06); new Shorts are Soft Blue Light HyperFrames. Title formula still holds."
 metadata: 
   node_type: memory
   type: feedback
@@ -23,3 +23,5 @@ Dan locked the short-form content system on 2026-08-06 after ~4 rounds of mockup
 - Captions: burned word-timed captions from Whisper (Arial 86 bold white, MarginV 690), reuse the ad pipeline spec.
 - Pipeline + reusable scripts (overlay gen, caption gen, render): scratchpad `shorts/` dir of session a202433e (gen_j2.py, render_j2.sh); outputs live in git-ignored `ad-factory/shorts-1min-ab-workout/`.
 - Clip selection approach approved: soundbite-driven cuts on word timestamps, one idea per short, the "weird cue" / mistake-callout moments as hooks. Related: [[proof-banner-image-gen-process]], [[video-outline-style]].
+
+**SUPERSEDED for new batches (Dan, 2026-10-01; recorded 2026-10-20):** SL-05 was the last J2/olive batch. Every new Shorts batch is Soft Blue Light built from the HyperFrames templates ([[shorts-soft-blue-hyperframes-from-now]], GRAPHICS-STANDARDS "Soft Blue shorts standard"), title capitalization (2026-10-16), land-then-hold centering (2026-10-03), the Shorts release calendar (2026-10-17), and five unique cover designs made by Codex (2026-10-13). The title formula (sell the click to a stranger, one idea per short) still holds. Keep this entry for re-exports of J2 shorts only.

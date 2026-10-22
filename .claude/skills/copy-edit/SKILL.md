@@ -261,6 +261,11 @@ good, or has asked for the filming documents. Then do all of this in the same se
 
 1. **One teleprompter document per filming set**, words only, built with `/teleprompterscripts` (section v3). The
    sets so far: dark green backdrop, green screen, outside. Ask which set a script is on only if it is not clear.
+   **10/23 pool shoot (Dan, 2026-10-20): split by form and length, not by set.** One shoot, one set, so he asked for
+   three documents: long form, short form part one, short form part two, "to limit the length of these documents in
+   order to not crash the iPad teleprompter app". Keep each teleprompter document short; split a long group in two.
+   Plus one Filming document with every filming and editing note together (cues, B-roll list, notes), and the new
+   task uploads the teleprompter documents into PromptSmart itself. Handoff: `Handoffs/handoff-20261020-pool-shoot-1023-filming-documents.md`.
 2. **No teleprompter script over 50 pages.** A set longer than that is split in two (the build script does it at a
    script boundary). Count the real pages after upload.
 3. **Upload each teleprompter document into PromptSmart** (`my.promptsmart.com/scripts`, his Chrome, he is logged
@@ -325,6 +330,12 @@ DON'T, from his 6 rejections and 3 rewrites (numbering continues the list above)
 12. **Don't fold a short tag sentence into the one before it.** "...and 1 ab exercise. 3 sets of each." and "At 25%,
     your belly still sticks out in a shirt. You don't have muscle definition anywhere." stayed as two sentences.
     Other merges were accepted, which is why a merge is always tracked and never typed in.
+
+13. **A sentence repeated inside a recap or "why this works" block stays (note, two data points).** 10-14: the tricep
+    closer that repeats the opener, cut rejected. 10-20: "Your back muscles are the muscles that pull your shoulders
+    back", said in the opening and again under "So why does this work?", cut rejected; the two back-to-back repeats in
+    the same beat (5 Muscles abs, Posture stretch) were accepted. He restates the mechanism on purpose when he sums
+    up. Cut a repeat that sits next to its twin; leave one that opens a recap.
 
 ## Cutting a script to length (first run 2026-10-13: 22 of 29 cuts accepted)
 
@@ -411,7 +422,8 @@ Dan does not see the tool calls. The report is what he reads before opening the 
 | 2026-10-11 | Same doc, "10 Exercises" script rewrite (first run under straight in or tracked) | 46 direct, 5 tracked | pending | pending | `Docs/SCRIPT_10_EXERCISES_REWRITE_AS_DELIVERED_20261011.md`. Next session: read the doc, see what he changed back, fill this row |
 | 2026-10-13 | Teleprompter 2, 19 reaction shorts (`1KvL0_IilRCxlofnY5luTfRvjiseGGpGGXU4sAsjbgzQ`): cut to 66 s with the clip | 0 direct, 34 tracked (29 whole-sentence cuts, 5 one-word fixes) | 22 cuts and all 5 fixes | 5 cuts rejected, 2 cuts replaced by a shorter line of his own | "Cutting a script to length" below; simple fixes are never tracked, whatever else is. `Docs/COPYEDIT_1017_REACTION_SHORTS_66S_AS_DELIVERED_20261013.md` |
 | 2026-10-14 | Teleprompter 3, 11 outdoor shorts (`1yc2xg1sG4lTncvcAmkA17SN-JZnQSsbB9Q-fpEbXotg`), all still Claude's draft | 7 direct (hyphens, "every single"), 9 tracked (4 merges, 5 repeat-sentence cuts) | 7 as written, plus 1 rewritten in his words ("sit down with good posture") | 1 rejected: cutting the tricep closer that repeats the opener | `Docs/COPYEDIT_1017_OUTDOOR_SHORTS_AS_DELIVERED_20261014.md`. Next session: read his rulings, fill this row |
-| 2026-10-18 and 10-19 | Gym Shorts Scripts, 27 shorts for the 10/23 pool shoot (`11nUmri621xbb7K44Wxan7IAljK2mJeizDFCRgK752AA`), after Dan's own edit pass | 48 direct (typos, hyphens, word counts, filming lines matched to his rewrites), 4 tracked (2 repeat-sentence cuts, 1 more cut, 1 "First," fix) | pending | pending | Opener lessons went to `_shared/HOOKS.md` (he rewrote 23 of 26 openers). Two soft line breaks of his looked like missing spaces: left alone. `Docs/COPYEDIT_GYM_SHORTS_1023_AS_DELIVERED_20261018.md`, `..._20261019.md`. Next session: read his rulings, fill this row |
+| 2026-10-18 and 10-19 | Gym Shorts Scripts, 27 shorts for the 10/23 pool shoot (`11nUmri621xbb7K44Wxan7IAljK2mJeizDFCRgK752AA`), after Dan's own edit pass | 48 direct (typos, hyphens, word counts, filming lines matched to his rewrites), 4 tracked (2 repeat-sentence cuts, 1 more cut, 1 "First," fix) | all 4 tracked accepted, all 48 direct stood (read 2026-10-20) | 0 | Opener lessons went to `_shared/HOOKS.md` (he rewrote 23 of 26 openers). Two soft line breaks of his looked like missing spaces: left alone. `Docs/COPYEDIT_GYM_SHORTS_1023_AS_DELIVERED_20261018.md`, `..._20261019.md`. Next session: read his rulings, fill this row |
+| 2026-10-20 | Same doc, the seven 10/23 pool long-forms, after Dan's 10/20 line edits (Fable 5.1) | 29 direct (13 "every single", 5 hyphens, 1 period, the leg-press count and two cues matched to his edits, 7 word counts), 5 tracked (3 repeat-sentence cuts, 2 double-introduction fixes) | 4 of 5 tracked, all 29 direct stood. Dan: "these edits were all pretty good" | 1: cutting the posture mechanism sentence repeated inside the "So why does this work?" recap (DON'T 13 note) | "I've got" left alone: his own 10/20 line uses "you've still got", so the tell is his here too; count his lines before swapping. `Docs/COPYEDIT_POOL_LONGFORMS_1023_AS_DELIVERED_20261020.md`. Next session: read his rulings, fill this row |
 
 After every run: add a row, and if a rejection reveals a new category, add it to DON'T with
 the before and after text. Three rejections of the same kind become a rule; one is a note.

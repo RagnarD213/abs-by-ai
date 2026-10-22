@@ -1,0 +1,45 @@
+{
+ "shot": "SL-09 short 5 (Oura Ring Or WHOOP?) opener idea J1: a smart ring close-up, 9:16, about 3.7 s",
+ "start_frame": "J1_start.png (1080x1920; boxes in START pixels)",
+ "intent": "Close-up of a man's right hand resting relaxed on white bed sheets in morning light, a matte black smart ring on the index finger. The hand lifts a little off the sheet at the wrist and tilts so the ring turns toward the camera and catches a soft highlight, then lowers back onto the sheet. The fingers stay open and relaxed the whole time (no curl, no grip, no fist); the ring stays on the index finger; nothing else moves except the sheet folds right under the hand. This take was made on the Flow subscription from the approved START frame only (no END frame), after two paid START+END takes curled the hand into a grip.",
+ "still": {
+  "sheet_top_left": [
+   20,
+   40,
+   260,
+   260
+  ],
+  "sheet_bottom_left": [
+   20,
+   1650,
+   260,
+   1900
+  ],
+  "sheet_bottom_right": [
+   800,
+   1650,
+   1060,
+   1900
+  ]
+ },
+ "may_change": {
+  "forearm": [
+   560,
+   0,
+   1080,
+   620
+  ],
+  "hand_and_sheet_under_it": [
+   40,
+   440,
+   1080,
+   1560
+  ]
+ },
+ "hands": {
+  "right": "rests on the sheet in START, lifted slightly in END; the black ring on its index finger in both frames"
+ },
+ "bounds": {},
+ "camera": "locked",
+ "take_note": "Spec of the approved J1 pair, reused for the take, with may_change NARROWED to the hand and forearm (union of START and END plus margin for the lift). The pair's spec marked [0,0,1080,1560] as may_change, leaving the camera fit only the bottom 360 rows: a sub-pixel wobble there extrapolated to 10 px at the top corners and failed camera and still:sheet_top_left, while template matching, Farneback flow and phase correlation all measured that corner within 1.1 px across frames 6-94. Narrowing makes every other check stricter (more background points). Reused for J1F-flow-t2.mp4 (START only), edit range seconds 0.6-4.3 (frames 14-103)."
+}

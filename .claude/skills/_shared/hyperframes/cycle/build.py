@@ -53,6 +53,20 @@ def package_json(name):
                            scripts=dict(dev=cmd("preview"), check=cmd("check"), render=cmd("render"))), indent=2)
 
 
+def _queue(label, d, out):
+    """A render-queue slot (VIDEO-RULES, "Video builds"): heavy, quick for a graphic of 10 s or less. Nothing if the
+    queue cannot load."""
+    try:
+        sys.path.append(str(HERE.parents[1] / "renderq"))
+        import renderq
+        pool = getattr(renderq, "pool_for_hyperframes", lambda *a, **k: "heavy")(d)
+        kw = dict(drives=[str(d), str(out)]) if hasattr(renderq, "drive_of") else {}
+        return renderq.slot(label, pool=pool, **kw)
+    except Exception:
+        from contextlib import nullcontext
+        return nullcontext()
+
+
 def main():
     cfg_path, out = sys.argv[1], pathlib.Path(sys.argv[2])
     render = "--render" in sys.argv
@@ -75,8 +89,10 @@ def main():
             print(c["id"], step[0], "ok" if ok else "FAILED");
             if not ok: print(r.stdout[-3000:], r.stderr[-2000:]); sys.exit(1)
         if render:
-            subprocess.run(npx + ["render", "--format", "mov", "--fps", "30000/1001", "-o", str((out / f"{c['id']}.mov").resolve())],
-                           cwd=d, env=env, check=True)
+            mov = (out / f"{c['id']}.mov").resolve()
+            with _queue("HyperFrames render " + mov.name, d, mov):   # headless Chrome plus an encoder
+                subprocess.run(npx + ["render", "--format", "mov", "--fps", "30000/1001", "-o", str(mov)], cwd=d,
+                               env=dict(env, **{k: v for k, v in os.environ.items() if k == "GATE_HELD"}), check=True)
             print(c["id"], "rendered", out / f"{c['id']}.mov")
 
 

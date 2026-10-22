@@ -1,0 +1,39 @@
+{#- CHEAT SHEET single: one ranked table worth saving. Approved 2026-10-21 (P2 protein per 100 calories) with a
+    small real photo of Dan added (Dan, 2026-10-21). One 1080 x 1350 image. -#}
+{% extends "_base.html.j2" %}
+{% import "_macros.html.j2" as m with context %}
+{% block slides %}
+{%- set top = post.rows|map(attribute='value')|max -%}
+{%- set d = post.dan -%}
+<div class="slide" style="background:var(--bone)">
+  {%- set extra -%}
+    <div class="tag" style="position:absolute;left:20px;top:18px;color:var(--bone);background:rgba(14,16,19,.78);padding:6px 10px;border-radius:4px;z-index:3"><span class="sq"></span>{{ post.tag or 'Steal my cheat sheet' }}</div>
+    {{ m.label(post.hero, 'left:18px;bottom:12px') }}
+  {%- endset -%}
+  {{ m.pic(post.hero, 'left:0;right:0;top:0;height:' ~ (post.hero_h or 170) ~ 'px;background:var(--ink)', extra) }}
+  {%- if d %}
+  <div style="position:absolute;right:30px;top:{{ d.top or 92 }}px;width:{{ d.w or 172 }}px;box-sizing:border-box;background:#fff;padding:9px 9px 8px;transform:rotate(3deg);box-shadow:0 6px 18px rgba(14,16,19,.22);z-index:4">
+    {{ m.pic(d.image, 'position:relative;width:100%;height:' ~ (d.h or 150) ~ 'px') }}
+    <div class="tx" data-label style="font-size:16px;font-weight:700;line-height:1.2;color:var(--ink);padding-top:7px">{{ d.caption or 'Real photo of me, not AI-generated' }}</div>
+  </div>
+  {%- endif %}
+  <div data-fit-col style="position:absolute;left:36px;right:{{ 224 if d else 36 }}px;top:{{ (post.hero_h or 170) + 12 }}px;height:{{ 128 if d else 80 }}px;display:flex;flex-direction:column;gap:6px;overflow:hidden">
+    <h1 class="hd" data-fit="{{ post.size or 42 }},35" style="font-size:{{ post.size or 42 }}px;color:var(--ink)">{{ post.title|mk }}</h1>
+    <div class="tx" data-fit="16,16" style="font-size:16px;font-weight:600;color:var(--mute-l)">{{ post.subtitle|mk }}</div>
+  </div>
+  <div style="position:absolute;left:36px;right:36px;top:{{ post.rows_top or ((post.hero_h or 170) + (146 if d else 104)) }}px;display:flex;flex-direction:column">
+    {%- for r in post.rows %}
+    <div style="display:grid;grid-template-columns:186px minmax(0,1fr) 58px;align-items:center;gap:12px;height:{{ post.row_h or 30 }}px">
+      <span class="tx" style="font-size:17px;font-weight:700;color:var(--ink);white-space:nowrap">{{ r.name }}</span>
+      <div style="height:14px;background:#E2DCCF"><div style="width:{{ (r.value / top * 100)|round(1) }}%;height:100%;background:{{ 'var(--red)' if r.bad else 'var(--ink)' }}"></div></div>
+      <span class="hd" style="font-size:22px;text-transform:none;text-align:right;color:{{ 'var(--red)' if r.bad else 'var(--ink)' }}">{{ r.value }} {{ post.unit or 'g' }}</span>
+    </div>
+    {%- endfor %}
+  </div>
+  <p class="tx" style="position:absolute;left:36px;right:36px;bottom:52px;margin:0;font-size:17px;line-height:1.4;font-weight:700;color:var(--ink)">{{ post.note|mk }}</p>
+  <div style="position:absolute;left:36px;right:36px;bottom:20px;display:flex;justify-content:space-between;align-items:center">
+    <span class="tx" style="font-size:16px;font-weight:600;color:var(--mute-l)">{{ post.source }}</span>
+    <span class="handle" style="color:var(--ink)">@danrosefit</span>
+  </div>
+</div>
+{% endblock %}

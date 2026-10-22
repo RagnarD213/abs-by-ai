@@ -1,0 +1,79 @@
+{
+ "format": "receipts",
+ "id": "receipts-03-protein-per-meal",
+ "tag": "Receipts · 03",
+ "cover": {
+  "headline": "\"You can only\nuse 30 g of\nprotein a meal.\"\n[hl]Wrong.[/hl]",
+  "sub": "They tested 100 g in one sitting.",
+  "polaroid": {
+   "image": {
+    "src": "Short-form video content/instagram-danrosefit/assets/receipts-03-protein-per-meal/chicken.jpg",
+    "pos": "50% 50%",
+    "label": "ai",
+    "alt": "Plate of sliced grilled chicken breasts, rice and broccoli"
+   },
+   "caption": "One big protein meal."
+  }
+ },
+ "study": {
+  "headline": "Men lifted for an hour, then drank 0 g, 25 g or 100 g of protein. Researchers tracked it for 12 hours.",
+  "stats": [
+   {
+    "n": "36",
+    "label": "healthy young men"
+   },
+   {
+    "n": "100 g",
+    "label": "in one drink"
+   },
+   {
+    "n": "12",
+    "label": "hours tracked"
+   }
+  ],
+  "rows": [
+   {
+    "label": "Muscle building, 100 g vs 25 g",
+    "result": "Went up more",
+    "tone": "good"
+   },
+   {
+    "label": "Protein burned off as fuel",
+    "result": "Barely changed",
+    "tone": "neutral"
+   }
+  ],
+  "note": "The 100 g response was still going at 12 hours.",
+  "source": "Trommelen et al., Cell Reports Medicine, 2023"
+ },
+ "exhibit_b": {
+  "stamp": "Exhibit B: the plate",
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/template-r1-mockups/source/protein.jpg",
+   "pos": "50% 50%",
+   "label": "ai",
+   "alt": "Chicken, shrimp, tuna, yogurt and cottage cheese on a dark slate"
+  },
+  "caption": "Chicken, shrimp, yogurt, tuna.",
+  "headline": "A bigger meal isn't wasted."
+ },
+ "verdict": {
+  "headline": "Hit your\n[y]daily total.[/y]\nMeal size matters less.",
+  "body": "A big dose just takes longer to digest. Your body still puts it to work.",
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/receipts-03-protein-per-meal/cut-studio-blue-247.webp",
+   "label": "real",
+   "alt": "Dan now, shirtless in olive shorts, abs visible"
+  }
+ },
+ "works": {
+  "items": [
+   "Pick a daily protein target and hit it.",
+   "2 big meals or 5 small ones. Both count.",
+   "Can't eat often? Eat more at once."
+  ],
+  "headline": "Stop splitting\n[hl]your chicken in half.[/hl]",
+  "save": "Save this for the next time someone tells you 30 g is the max."
+ },
+ "status": "Cut by Dan 2026-10-22 (batch 1 round 1 review). Kept for reference; do not queue."
+}

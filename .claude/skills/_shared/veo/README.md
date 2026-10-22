@@ -1,7 +1,7 @@
 # Veo motion: subscription first (Dan, 2026-10-17)
 
-Every AI video clip (Veo motion from approved START/END frames) is generated in **Google Flow on Dan's Google AI Pro
-credits**, by a background sub-agent driving his Chrome, while the main agent keeps editing. The paid Replicate API is
+Every AI video clip (Veo motion from approved START/END frames) is generated in **Google Flow on Dan's Google AI Ultra
+credits** (upgraded from Pro to Ultra 5x, $99.99/mo, on 2026-10-20: 10,000 credits a month plus 50 a day), by a background sub-agent driving his Chrome, while the main agent keeps editing. The paid Replicate API is
 used only when Dan says **rush**, **accelerate** or **as fast as possible**, or when the credits have run out AND Dan
 has approved paying. Claude and Codex both.
 
@@ -25,7 +25,16 @@ the subscription credits run out, ask me before paying."*
    `veo.py api JOBDIR A1 --paid-ok "<his words>"`. Rush: `veo.py api JOBDIR A1 --rush "<his words>"`.
    Paid takes still count against the per-video generation budget (VIDEO-RULES, "Video clip generation budget").
 
-## What the subscription gives (measured 2026-10-17, the 5-clip test)
+## Subscription upgraded (Dan, 2026-10-20)
+
+Dan: *"We've upgraded our Google Video Generation subscription. Try it again, and do it on subscription."* The Flow balance read
+9,830 credits right after the upgrade (it had been 10 that afternoon, when four editing sessions drained the Pro allowance). At
+20 credits a Fast clip that is about 490 clips, so plan retakes on the subscription; the paid API stays for "rush" only. The
+Pro figures in the table below are history; read the live balance (`veo.py credits`) before a big batch.
+
+## What the subscription gives (measured 2026-10-17 on Pro, the 5-clip test)
+
+**Ultra since 2026-10-20:** 10,000 credits a month + 50 a day. Live Flow rates on Ultra (read 2026-10-20): **Veo 3.1 Fast 10, Lite 5, Omni 1.1 Flash 12** per 8 s clip, so about 1,000 Fast clips a month. Omni bake-off (`/Volumes/Extreme/_edit_work/omni-bakeoff-20261020/`, blind page on :9071, key in `blind-key.json`): Omni refused the Top 5 Zepbound Tips shirtless 9:16 pair twice ("reputational risk"), Veo made it. Default stays Veo 3.1 Fast unless Dan's blind picks say otherwise.
 
 | | Flow on Google AI Pro | Replicate API (paid) |
 |---|---|---|
@@ -49,3 +58,31 @@ Other models in Flow, if a job asks: Veo 3.1 Lite 10 credits, Veo 3.1 Quality 10
 
 The background agent itself is not free: the 5-clip test used about 205,000 Sonnet tokens of Claude allowance (about
 40,000 a clip, mostly screenshots). Batch clips into one agent run per job rather than one agent per clip.
+
+## Traps (RO-14 round 2, 2026-10-20)
+
+- **Never run two `veo.py api` calls on one job at once.** Each rewrites `job.json` whole, so parallel runs overwrote each other
+  (a finished take's record and a just-added clip both vanished). Run paid takes one after another, or in separate job folders.
+- **Replicate refuses some frames with E005 ("input or output was flagged as sensitive"), at $0.** Flow accepted the same frames.
+  RO-14: a restaurant frame with a low-cut dress failed even START-only, so it went back to Flow; a sports-bar pair passed only
+  START-only (the END frame tripped it). Try START-only once, then Flow.
+- **Chrome can stop saving Flow downloads mid-job (2026-10-20, about 19:00).** Flow said "downloaded" but nothing reached
+  ~/Downloads after a dozen downloads in a row (likely Chrome's "automatic downloads" block for flow.google.com). The agent
+  cannot fix it: the media URL is signed, the browser tools hide signed URLs, and a local POST waits on Chrome's local-network
+  prompt. Dan has to allow automatic downloads for flow.google.com (address-bar icon), then a fresh agent collects the tiles.
+  Download right after each clip finishes rather than batching ten at the end.
+- **Veo still fails hand-and-object continuity often.** RO-14 (2026-10-20): about 20 takes (Fast, paid, Quality) for five
+  food/prop gags; no full take passed (nuggets merge, a knife becomes a fork, a donut box refills, a straw slides, a lifted
+  scale doubles its display). START/END frames whose prop geometry cannot connect (a display on the near corner on the floor,
+  on top when held) make it worse. Plan clean 2 to 3 s windows from the start, or frames that need no object to change.
+
+## Traps (SL-06 R6, 2026-10-21): natural holds of a person
+
+- **Never write "smile" in a Veo prompt for a calm face:** it grows into a toothy grin. Say "his face stays exactly as in the first
+  frame: same calm, pleasant expression, lips closed and resting, jaw still". Avoid "breath" (mouth breathing) and any speech word.
+- **Veo 3.1 Quality holds faces much better than Fast** (mouth stayed closed in most Quality takes, few Fast ones). For a person
+  holding still, run 1 Quality + 2 Fast per clip.
+- **Raised fists tremble and pointing hands drift to the chest.** Prefer relaxed poses (hand at chest height, elbow down).
+- **Downloads:** after about five downloads from one Flow page load Chrome silently stops saving. Navigate freshly to each tile's URL
+  and download once per page load; never click Chrome's multiple-downloads prompt.
+- Measure tremor and mouth before review: `shorts/reference/softblue-sl06/round6/qc_take.py` and `tremor.py`.

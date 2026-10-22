@@ -38,10 +38,14 @@ text(result);
 
 This example requires the editor to construct `input`; it must never execute merely because this runbook was opened. Workflow installation/testing is not an edit request. Inspect the dry-run result in a separate tool call before executing. Do not print the whole decisions/manifest if it contains private material.
 
+## Edit slot
+
+The 5-edit cap (`../editcap/README.md`) applies to every round. A round that stops for Dan runs `editcap.py release <JOB> --review`; the continuing task (same or fresh) runs `editcap.py acquire <JOB>` before production and waits on exit 3. The controller's starter prompt says so.
+
 ## What it enforces
 
 - Small, recent revisions with known/estimated context under 40% keep the same task. Heavy stages, stale replies, repeated failures or context pressure choose a fresh task. State context estimates honestly; account usage percentages are not context usage. Do not fabricate `get_usage` availability.
-- Resolve the highest numeric stable Sol ID supporting high from the current destination/client catalog. Native `create_thread` metadata is the supported catalog available here. No speculative future IDs. If unavailable, disclose the known `gpt-6.1-sol` baseline. If a catalog exists but has no compatible Sol, stop rather than downgrade. Explicit model/effort overrides win.
+- A video stays with the AI it started on (Dan, 2026-10-20): Claude-started videos continue on Opus 5.5 high; Codex-started videos continue on Sol high. For a Codex video, resolve the highest numeric stable Sol ID supporting high from the current destination/client catalog. Native `create_thread` metadata is the supported catalog available here. No speculative future IDs. If unavailable, disclose the known `gpt-6.1-sol` baseline. If a catalog exists but has no compatible Sol, stop rather than downgrade. Only Dan's explicit request moves a video to the other AI; explicit model/effort overrides win.
 - Same task: next round/title, preserve pin, keep the production owner. If the active model/effort differs, enqueue exactly one native follow-up with Sol/high, then stop the old turn. The change applies to the queued turn, never the active inference. A supported immediate model setter can be used instead if actually exposed later.
 - Fresh task: suspend parent production, create once in the existing local project, save exact ready ID, pin child, read started turn, verify pin from `pinnedThreads`, recheck hashes, unpin only the recorded old task, verify both pins, record superseded pointers and one production owner, wake the child once. Child bootstrap is read-only until ownership transfer. Old task ends after transfer.
 - Durable CAS before external mutations prevents racing controllers. A timeout/crash/ambiguous result leaves `pending` and blocks blind retries. `clientThreadId` is never treated as `threadId`. The old task remains pinned until child start and pin are verified. Unrelated pins and task data are never changed; no archive/delete operation exists here.

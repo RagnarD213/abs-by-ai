@@ -6,11 +6,14 @@ from common import frames
 from keylib import key, despill
 T0, DUR = float(sys.argv[1]), float(sys.argv[2])
 OUT = sys.argv[3]; os.makedirs(OUT, exist_ok=True)
+IDX0 = int(sys.argv[4]) if len(sys.argv) > 4 else 0   # first frame index (to key only the frames a run is missing)
 Y_GARBAGE = 480        # source rows above this are never Dan (screen top edge); hair top >= 628 in this take
 Y_BOTTOM = 3490        # laptop line (tilted, 3515 right .. 3660 left); crop above it
 S = 0.5                # source -> output scale (2160 -> 1080)
 def work(args):
     i, P = args
+    if os.path.exists(f"{OUT}/f{i:04d}.npy"):   # already keyed (resume after an interrupted run)
+        return i
     a, Sc = key(P)
     a[:Y_GARBAGE] = 0
     A = a[..., None]
@@ -28,7 +31,7 @@ if __name__ == "__main__":
     t = time.time()
     with Pool(4) as pool:
         n = 0
-        for r in pool.imap(work, enumerate(frames(T0, dur=DUR)), chunksize=1):
+        for r in pool.imap(work, enumerate(frames(T0, dur=DUR), start=IDX0), chunksize=1):
             n += 1
             if n % 30 == 0: print(n, "frames", round(time.time() - t), "s", flush=True)
     print("done", n, round(time.time() - t), "s")

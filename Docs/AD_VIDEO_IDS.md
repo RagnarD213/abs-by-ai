@@ -117,3 +117,34 @@ Both exact native masters uploaded unchanged and verified Unlisted, processed an
 | RA-16 AI Took My Job | Codex R4 | 16:9 | 0:59 | https://youtu.be/g8GWwOYzelM | yes, exact R4 finalized 10-17 | R2 option 3, FINAL-16x9.jpg, installed/read back |
 
 Trial group 202854620044, ads 828352448280 / 828398913310. Receipt: `Docs/RA16_SETUP_RECEIPT_20261017.md`. No organic publishing.
+
+## 2026-10-20: RA-07 Fire Your Trainer R6 (thumbnail A/B)
+
+The exact approved R6 9:16 (sha256 `ca75555c…cfae`) uploaded unchanged twice, both verified Unlisted, processed and embeddable on channel UC236gjadarHAhEhOMYNGJ9g, synthetic=true. One thumbnail per copy for Dan's A/B (YouTube Test & Compare does not run on Shorts or unlisted videos).
+
+| Ad | Version | Aspect | Length | YouTube | Approved | Thumbnail |
+|---|---|---|---|---|---|---|
+| RA-07 Fire Your Trainer | Claude R6, thumb A | 9:16 | 0:53 | https://youtu.be/bpv5HSRqzDo | yes, R6 approved 10-18 | 2b, studio-blue-28 smirk, TRAINERS DESPISE HIM, installed/read back |
+| RA-07 Fire Your Trainer | Claude R6, thumb B | 9:16 | 0:53 | https://youtu.be/AWh8cOd80Ic | yes, R6 approved 10-18 | 3b, AI Dan + robot coach, FIRE / YOUR / TRAINER, installed/read back |
+
+Trial group 204215057191, ads 828608015181 (A) / 828655819900 (B). Receipt: `Docs/RA07_SETUP_RECEIPT_20261020.md`. No organic publishing.
+
+## 2026-10-21: RA-12 The First Step To Getting Abs R2
+
+The exact approved R2 9:16 (sha256 `18728d49…b539`) uploaded unchanged, verified Unlisted, processed and embeddable on channel UC236gjadarHAhEhOMYNGJ9g, synthetic=true (AI lock screen, beginner, app generation, AI trainer demo).
+
+| Ad | Version | Aspect | Length | YouTube | Approved | Thumbnail |
+|---|---|---|---|---|---|---|
+| RA-12 The First Step To Getting Abs | Claude R2 | 9:16 | 0:46 | https://youtu.be/7bsTcr0vu6Y | yes, R2 approved 10-21 | Round 2 design A, real studio-blue-11 in front of an open vault with a gold key, THE KEY TO GETTING ABS, installed/read back |
+
+Trial group 202084443740, ad 828687867099. Receipt: `Docs/RA12_SETUP_RECEIPT_20261021.md`. No organic publishing.
+
+## 2026-10-22: RA-09 Do You Think AI Is Changing The World R1
+
+The exact approved R1 9:16 (sha256 `22501825…c2d2`) uploaded unchanged, verified Unlisted, processed and embeddable on channel UC236gjadarHAhEhOMYNGJ9g, synthetic=true (AI robot opener, goal pictures, app generation, analysis card, AI trainer demo, AI sling/closed gym/home workout clips).
+
+| Ad | Version | Aspect | Length | YouTube | Approved | Thumbnail |
+|---|---|---|---|---|---|---|
+| RA-09 Do You Think AI Is Changing The World | Claude R1 | 9:16 | 0:59 | https://youtu.be/RToVv-Xgfj8 | yes, R1 approved 10-22 | Round 3 design C, real pool photo-13 with natural background, USE AI TO GET REAL ABS + REAL PHOTO OF ME, NOT AI-GENERATED, installed/read back |
+
+Trial group 200913806626, ad 829196685786. Receipt: `Docs/RA09_SETUP_RECEIPT_20261022.md`. No organic publishing.

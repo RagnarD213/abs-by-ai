@@ -1,0 +1,82 @@
+{
+ "format": "the-fix",
+ "id": "fix-08-push-up",
+ "tag": "The Fix · 08",
+ "status": "draft R1 2026-10-21; wording source: 10/15 shoot roll C1765 (5-minute workout script: 'Keep your body in a straight line. Bring your chest all the way down.'), raw roll C0229-008 (24-97 s), 8/28 B-roll mistake labels (GoPro GOPR0044 'push-up mistake, sagging with your back'); R2 2026-10-22: fix still = 8/28 main camera C1680 64.00 s (top of a correct push-up, straight line; labelled 'regular push-ups done correctly' on GoPro GOPR0044 60-95 s), cues photo = studio-white-13 (real studio photo), footage stills brightened, cta cutout",
+ "cover": {
+  "headline": "Stop doing push-ups\n[y]like this.[/y]",
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-08-push-up/cover-enh.jpg",
+   "pos": "50% 50%",
+   "zoom": 1.0,
+   "label": "real",
+   "alt": "Dan in a push-up with his hips sagging toward the mat"
+  },
+  "ring": [
+   255,
+   230,
+   170,
+   135
+  ],
+  "callout": "Hips sagging",
+  "callout_at": [
+   290,
+   160
+  ],
+  "swipe": "Swipe for the fix"
+ },
+ "mistake": {
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-08-push-up/mistake-enh.jpg",
+   "pos": "50% 50%",
+   "zoom": 1.0,
+   "label": "real",
+   "alt": "Dan in a push-up with his hips dropped and back sagging"
+  },
+  "headline": "Hips sagging\ntoward the floor.",
+  "body": "Your hips drop, your back sags and your body isn't a straight line anymore. Your chest never gets all the way down."
+ },
+ "fix": {
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-08-push-up/fix-r2-enh.jpg",
+   "pos": "50% 50%",
+   "zoom": 1.0,
+   "label": "real",
+   "alt": "Dan at the top of a push-up, body in a straight line from head to heels"
+  },
+  "headline": "Straight line.\nChest all the way down.",
+  "body": "Keep your body in a straight line and bring your chest all the way down, slow and controlled. Too hard? [em]Do them from your knees.[/em]"
+ },
+ "cues": {
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-08-push-up/cues-r2.jpg",
+   "pos": "50% 50%",
+   "zoom": 1.0,
+   "label": "real",
+   "alt": "Dan shirtless in the studio, hands behind his head"
+  },
+  "title": "3 cues",
+  "subtitle": "for the push-up",
+  "items": [
+   "Body straight from your head to your heels.",
+   "Chest all the way down. Touch your nose to the ground.",
+   "Too hard? Do them from your knees, same rules."
+  ]
+ },
+ "cta": {
+  "blocks": [
+   {
+    "icon": "save",
+    "title": "Save this",
+    "text": "for your next home workout."
+   },
+   {
+    "icon": "send",
+    "title": "Send it",
+    "text": "to the guy whose hips hit the floor before his chest does."
+   }
+  ],
+  "follow": "One fix a week, filmed on me.",
+  "cutout": "Short-form video content/instagram-danrosefit/assets/_cutouts/studio-blue-5.webp"
+ }
+}

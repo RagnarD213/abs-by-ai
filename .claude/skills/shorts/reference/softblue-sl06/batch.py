@@ -546,6 +546,7 @@ def clip_box(c):
     'fill the frame'); square / whole = a card on the field, with the reason written in plans.py."""
     fit = c.get("fit", "fill")
     if fit == "fill": return (0, DROP, W, PIC_H)
+    if fit == "full": return (0, 0, W, H)      # r5: the AI flex intro covers the whole frame, title band off (Dan R3 note for D, applied to all six)
     if fit == "square": return (0, c.get("y", DROP + 40), W, W)
     if fit == "whole": return (0, c.get("y", DROP + 200), W, 608)
     if fit == "span": x0, x1 = c["span"]; return (0, c.get("y", DROP + 80), W, round(W * 1080 / (x1 - x0)))      # r2: a card as tall as the subject's sideways travel allows (full source height; SL-07 fit="span")
@@ -593,10 +594,10 @@ def cap_png(lines, top, size=86):
 def over_box(frame, rgba, box):
     x0, y0, x1, y1 = box; a = rgba[y0:y1, x0:x1, 3:4].astype(np.float32) / 255
     frame[y0:y1, x0:x1] = (frame[y0:y1, x0:x1].astype(np.float32) * (1 - a) + rgba[y0:y1, x0:x1, :3].astype(np.float32) * a + 0.5).astype(np.uint8)
-def chip_png(text, xy, size=23, u=2):
+def chip_png(text, xy, size=23, u=2, anchor="lt"):
     """the AI-GENERATED chip (softblue.disclosure: the same solid rounded chip the film uses), as an RGBA layer + its box."""
     base = Image.new("RGB", (W, H), (0, 0, 0)); a = Image.new("RGB", (W, H), (255, 255, 255))
-    B.disclosure(base, text, xy, u, anchor="lt", size=size); B.disclosure(a, text, xy, u, anchor="lt", size=size)
+    B.disclosure(base, text, xy, u, anchor=anchor, size=size); B.disclosure(a, text, xy, u, anchor=anchor, size=size)
     x = np.asarray(base).astype(np.int32); y = np.asarray(a).astype(np.int32)      # int32: x * 255 overflowed int16 and turned the white letters dark (SL-07, 2026-10-13)
     al = 255 - (y - x).max(2).clip(0, 255); rgba = np.dstack([np.where(al[..., None] > 0, (x * 255 // np.maximum(al[..., None], 1)).clip(0, 255), 0), al]).astype(np.uint8)
     ys, xs = np.where(al > 0); return rgba, (int(xs.min()), int(ys.min()), int(xs.max()) + 1, int(ys.max()) + 1)
@@ -672,7 +673,13 @@ class Short:
             bx, by, bw, bh = clip_box(c); frame[by:by + bh, bx:bx + bw] = self.clips[c["id"]].get(int(np.floor(raw * FPS + 0.25)))
             if graphics and c.get("ai"):
                 x0_, y0_ = c["ai"][:2]; reg = Image.fromarray(frame[y0_ - 10:y0_ + 90, 0:W])            # the film's own chip (softblue.disclosure), drawn on the frame
-                B.disclosure(reg, "AI-GENERATED", (x0_, 10), c["ai"][2] if len(c["ai"]) > 2 else 2, anchor="lt"); frame[y0_ - 10:y0_ + 90, 0:W] = np.asarray(reg)      # default size: size 30 sat on its bottom edge (SL-07 reviewers 10-13)
+                B.disclosure(reg, "AI-GENERATED", (x0_, 10), c["ai"][2] if len(c["ai"]) > 2 else 2, anchor=c["ai"][3] if len(c["ai"]) > 3 else "lt"); frame[y0_ - 10:y0_ + 90, 0:W] = np.asarray(reg)      # default size: size 30 sat on its bottom edge (SL-07 reviewers 10-13)
+            if graphics and c.get("credit"):                 # r5: a borrowed YouTube clip carries "Video: <channel> / YouTube" lower right for its whole time
+                if c["id"] not in self.chips:
+                    rgba, bb = chip_png(c["credit"], (0, 0), size=20, u=1.5); ch_ = rgba[bb[1]:bb[3], bb[0]:bb[2]]
+                    full = np.zeros((H, W, 4), np.uint8); x_ = W - 34 - ch_.shape[1]; full[1716:1716 + ch_.shape[0], x_:x_ + ch_.shape[1]] = ch_
+                    self.chips[c["id"]] = (full, (x_, 1716, x_ + ch_.shape[1], 1716 + ch_.shape[0]))
+                over_box(frame, *self.chips[c["id"]])
         elif sh["kind"] == "phone":                         # the approved shorts phone demo: phone beside Dan on the field (GRAPHICS-STANDARDS)
             c = sh["cover"]
             if "shell" not in self.__dict__:
@@ -737,4 +744,7 @@ if __name__ == "__main__":
     import cv2
     sys.path.insert(0, "/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared/hyperframes")
     cmd = sys.argv[1]
+    if cmd in ("gfx", "proof", "render"):                            # title band descender clearance (2026-10-22, SL-17 B5): stop before any build time is spent
+        sys.path.insert(0, "/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared"); import softblue_titlecheck as TC
+        for S_ in sys.argv[2:] or list(P.SEG): TC.check(lib.band, P.TITLE[S_], S_)
     for S in sys.argv[2:] or list(P.SEG): globals()["cmd_" + cmd](S)

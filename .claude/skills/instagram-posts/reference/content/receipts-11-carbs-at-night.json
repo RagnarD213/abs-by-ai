@@ -1,0 +1,88 @@
+{
+ "format": "receipts",
+ "id": "receipts-11-carbs-at-night",
+ "tag": "Receipts · 11",
+ "status": "R2 2026-10-22 (Dan's notes, page rank 10): AI pasta cover, AI officer on study, exhibit cut, bigger works text",
+ "slides": [
+  {
+   "type": "cover",
+   "mode": "photo",
+   "dark": true,
+   "size": 66,
+   "head_h": 176,
+   "headline": "Carbs at night\nmake you fat?\nThis group [y]lost more.[/y]",
+   "sub": "Most of their carbs at dinner. 6 months.",
+   "image": {
+    "src": "Short-form video content/instagram-danrosefit/assets/receipts-11-carbs-at-night/ai-dan-pasta.jpg",
+    "pos": "50% 35%",
+    "label": "ai",
+    "alt": "AI-generated image of Dan, ripped, behind a giant bowl of spaghetti"
+   }
+  },
+  {
+   "type": "study",
+   "headline": "Obese police officers dieted 6 months. One group ate most of its carbs at dinner.",
+   "stats": [
+    {
+     "n": "78",
+     "label": "police officers",
+     "size": 42
+    },
+    {
+     "n": "6",
+     "label": "months",
+     "size": 42
+    }
+   ],
+   "rows": [
+    {
+     "label": "Weight lost",
+     "result": "Lost more",
+     "tone": "good"
+    },
+    {
+     "label": "Waist and body fat",
+     "result": "Dropped more",
+     "tone": "good"
+    }
+   ],
+   "note": "compared with a standard weight loss diet. The dinner carb group was less hungry too.",
+   "source": "Sofer et al., Obesity, 2011",
+   "image": {
+    "src": "Short-form video content/instagram-danrosefit/assets/receipts-11-carbs-at-night/ai-police-dinner.jpg",
+    "pos": "50% 40%",
+    "label": "ai",
+    "alt": "Fit police officer eating a bowl of pasta late at night"
+   },
+   "image_w": 184,
+   "image_h": 190
+  },
+  {
+   "headline": "Timing\n[y]isn't the problem.[/y]\nThe total is.",
+   "body": "The dinner carb group was less hungry. If night is when you want carbs, eat them then.",
+   "image": {
+    "src": "Short-form video content/instagram-danrosefit/assets/receipts-11-carbs-at-night/cut-studio-white-57.webp",
+    "label": "real",
+    "alt": "Dan now, shirtless in black shorts, abs visible",
+    "height": 430,
+    "maxw": 290
+   },
+   "type": "verdict",
+   "text_size": 27,
+   "body_w": 205
+  },
+  {
+   "items": [
+    "Snack at night? Move your carbs to dinner.",
+    "Keep breakfast and lunch to protein and veg.",
+    "Hit the day's calorie total. That's the rule."
+   ],
+   "headline": "Eat dinner.\n[hl]Carbs included.[/hl]",
+   "save": "Save this for the next time someone tells you no carbs after 6 PM.",
+   "type": "works",
+   "text_size": 32,
+   "items_h": 320,
+   "size": 50
+  }
+ ]
+}

@@ -1,0 +1,73 @@
+{
+ "format": "steal-my-workout",
+ "id": "workout-03-kettlebell",
+ "tag": "Steal my workout",
+ "source": "DS-54 short, rolls C1761 to C1765 (10/15 shoot)",
+ "cover": {
+  "headline": "1 kettlebell.\n[y]3 moves.[/y]\nFull body.",
+  "swipe": "Swipe to steal it",
+  "photo": {
+   "src": "Short-form video content/instagram-danrosefit/assets/workout-03-kettlebell/cover-kb-deadlift-enh.jpg",
+   "pos": "50% 50%",
+   "zoom": 1.0,
+   "alt": "Dan standing tall at the top of a kettlebell deadlift"
+  }
+ },
+ "moves": [
+  {
+   "name": "Kettlebell deadlift",
+   "dose": "0:30",
+   "image": {
+    "src": "Short-form video content/instagram-danrosefit/assets/workout-03-kettlebell/kb-deadlift-enh-crop.jpg",
+    "pos": "50% 50%",
+    "zoom": 1.0,
+    "label": "real",
+    "alt": "Dan squatting down to the kettlebell"
+   },
+   "cues": [
+    "Feet wider than your shoulders, bell between your feet.",
+    "Squat down with a straight back. Grab the handle.",
+    "Stand tall. Squeeze your glutes at the top."
+   ]
+  },
+  {
+   "name": "Goblet squat",
+   "dose": "0:30",
+   "image": {
+    "src": "Short-form video content/instagram-danrosefit/assets/workout-03-kettlebell/goblet-enh-crop.jpg",
+    "pos": "50% 50%",
+    "zoom": 1.0,
+    "label": "real",
+    "alt": "Dan at the bottom of a goblet squat"
+   },
+   "cues": [
+    "Hold the bell at your chest by the horns.",
+    "Sit down between your knees. Chest up.",
+    "Go as deep as you can with a flat back."
+   ]
+  },
+  {
+   "name": "Push-up",
+   "dose": "0:30",
+   "image": {
+    "src": "Short-form video content/instagram-danrosefit/assets/workout-03-kettlebell/pushup-enh-crop.jpg",
+    "pos": "50% 50%",
+    "zoom": 1.0,
+    "label": "real",
+    "alt": "Dan doing push-ups on handles"
+   },
+   "cues": [
+    "Bring your chest all the way down.",
+    "Handles take the pressure off your wrists.",
+    "Keep your body in a straight line."
+   ]
+  }
+ ],
+ "recap": {
+  "title": "Screenshot this.",
+  "note": "30 s rest after each move. Go through it 3 times.",
+  "text": "I use a 50 lb bell. Most guys should start at 30 or 40 lb. Comment your kettlebell weight.",
+  "follow": "Workouts I actually do.",
+  "cutout": "Short-form video content/instagram-danrosefit/assets/_cutouts/studio-blue-38.webp"
+ }
+}

@@ -180,7 +180,7 @@ def photo_card(im, path, box, t, delay=0, fit=False, u=None):
 
 
 def disclosure(im, s, xy=None, u=None, anchor="lt", size=23):
-    """Dark chip for 'Real picture of me. Not AI-generated.' / 'AI-GENERATED'. The caller places
+    """Dark chip for 'Real Photo Of Me, Not AI-Generated' / 'AI-GENERATED'. The caller places
     it clear of face and abs (VIDEO-RULES: measure the rendered frame). Returns the chip box."""
     u = u or unit(*im.size)
     f = font(size * u, False)

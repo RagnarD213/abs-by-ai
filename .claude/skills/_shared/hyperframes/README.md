@@ -13,6 +13,7 @@ Research and decision: `Docs/HYPERFRAMES_RESEARCH.md`. Style lock: [../SOFTBLUE.
 | [`side-list/`](side-list/) | **Approved by Dan 2026-09-30** (RO-16 G20 sample) | the 3A left card; items land on their words |
 | [`analysis-card/`](analysis-card/) | **Approved by Dan 2026-10-14 (RA-14 round 3) as the standard analysis card for every video** | "AI reads your picture": the subject picture + scan line, BODY FAT / FAT TO LOSE / MUSCLE TO GAIN bars, the plan band; no numbers, one chip under the picture. 16:9 (`build.py`), 9:16 (`vertical.py`), 1:1 (`square.py`), `from_plan.py` kind `analysis`. Replaces `adkit/analysis_card.py` for new films |
 | [`compare-card/`](compare-card/) | **New 2026-10-18 (SL-09 short 5), NOT yet approved by Dan** | two options side by side as two stacked glass panels (header + rows landing on the words that name them), opaque, built at a short's 1080 x 1610 picture area; `build.py` docstring has the config. First use: SL-09 "Oura Ring Or WHOOP?" (the Oura vs WHOOP advantages) |
+| [`step-badges/`](step-badges/) | **New 2026-10-22 (SL-06 R7 short C), NOT yet approved by Dan as a template** | round glass number badges (1, 2, 3 ...) that land one by one beside items in a picture, drift, ring breathes, highlight sweeps; transparent overlay, `build.py` docstring has the config |
 
 Round-2 samples, beat sheet, bases, compositor and review page: `Media/hyperframes/round2-templates/`
 (`BEATS.md`, `bases.py`, `composite.py`, `clearance.py`, `page.py`); heavy media in `/Volumes/Extreme/_edit_work/hyperframes-r2/`.

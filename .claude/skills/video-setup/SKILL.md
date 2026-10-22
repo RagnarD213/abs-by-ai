@@ -25,11 +25,7 @@ gpt-6.1-sol --effort high` on Dan's subscription, shown on one sheet, then STOP 
 "Thumbnails: the five, each its own design, always made by Codex". The split
 described next and "CODEX's task" in Step 2 are superseded; Step 2 stays as the build spec with the new mix.
 
-**Superseded 2026-10-02.** Thumbnail split (Dan, 2026-09-30, every organic content video from now on): Codex makes the thumbnail, Claude does the
-upload and setup.** A Claude /video-setup session never designs thumbnails. It starts from the finalized thumbnail file Dan
-hands it. If none was given: write the Codex thumbnail handoff (copy `Handoffs/handoff-20260930-ro05-thumbnails-codex.md`;
-Step 2 below is its spec), give Dan its starter prompt, and stop, or ask Dan for the path if Codex already made it. The setup
-session then has no Dan stop; everything is reversible and runs without asking.
+(The 2026-09-30 split, where Codex made the thumbnail in its own task and Claude only uploaded, was retired on 2026-10-02: this task makes the five itself and stops once for Dan's pick.)
 **Blotato-only YouTube (Dan, 2026-10-01): there is NO Private holding upload any more. Blotato creates the one public
 YouTube video at release time (title, description, thumbnail, AI flag all travel in its YouTube target). Never upload to
 YouTube ourselves and never use YouTube native scheduling.** Anything that needs the YouTube id (thumbnail A/B test,
@@ -83,16 +79,14 @@ saved slot or the next free Shorts day (dedicated DS Shorts Thursday; Shorts cut
   before and after the Blotato write.
 - `git status`; add an entry to `AI_COORDINATION.md` → ACTIVE TASK.
 - ffmpeg is NOT on PATH. Use `Media/video_edit/bin/ffmpeg` / `ffprobe` (absolute path from the project root).
-- Video builds cap is two across sessions — a frame extraction is trivial, but check
-  `ps -Ao command | grep -E 'ffmpeg|render\.py|whisper'` before a contact sheet of a long video.
-- **Machine busy? Do not wait for a build slot (Dan, 2026-09-30).** The Blotato copy and the TikTok cover-first copy
-  run even when two or more builds are going: `nice -n 20`, `-hwaccel videotoolbox`, `-c:v h264_videotoolbox`, audio
-  stream-copied. Rule and reasoning: `_shared/VIDEO-RULES.md`, "Video builds: never run more than two at once".
+- Heavy ffmpeg steps queue themselves in the render queue (`_shared/renderq/`, 2026-10-20): just start them, no `ps` check, no wait loop.
+- **The Blotato copy and the TikTok cover-first copy never wait (Dan, 2026-09-30):** `nice -n 20`, `-hwaccel videotoolbox`, `-c:v h264_videotoolbox`, audio
+  stream-copied; the queue exempts `h264_videotoolbox`. Rule: `_shared/VIDEO-RULES.md`, "Video builds: the render queue".
 
 ## Shorts (DS-/SL- jobs): the same flow, the Shorts helper
 
 A dedicated Short is already filed in `Short-form video content/` and its cover is already approved, so skip Steps 1-2.
-Worked examples: DS-04, DS-17, DS-18 (`Docs/DS*_SETUP_RECEIPT_*.md`). no holding upload, then:
+Worked examples: DS-04, DS-17, DS-18 (`Docs/DS*_SETUP_RECEIPT_*.md`). There is no YouTube holding upload (Blotato releases YouTube too). Then:
 build the TikTok cover-first copy with `tiktok_cover.build()` (absolute paths: relative ones break its concat list),
 upload master + TikTok copy + cover PNG with `blotato_create_presigned_upload_url` and hash-check each download,
 write `scripts/blotato/configs/<slug>.json` (copy `ds18-kettlebell-deadlift.json`), then
@@ -108,8 +102,9 @@ Switch it in Studio (`studio.youtube.com/video/<id>/edit` → Visibility → Pri
 ## Step 1 — download, verify, file
 
 - Drive folder: `~/bin/rclone lsl gdrive: --drive-root-folder-id <FOLDER_ID>` then
-  `rclone copy gdrive: <workdir> --drive-root-folder-id <FOLDER_ID>`. Workdir:
-  `/Volumes/Extreme/_edit_work/<slug>-publish/`. (The rclone "shared client_id" NOTICE is harmless.)
+  `rclone copy gdrive: <workdir> --drive-root-folder-id <FOLDER_ID>`. Workdir: the folder
+  `python3 .claude/skills/_shared/renderq/renderq.py workdir <slug>-publish --need 20` prints (an existing
+  `/Volumes/*/_edit_work/<slug>-publish/`, else the least busy drive with room). (The rclone "shared client_id" NOTICE is harmless.)
 - Editors' folders hold several files — pick the newest `Rev` by name and modified date; a `.srt` beside it may
   belong to an earlier cut (check its last cue against the video's duration).
 - **Even when Dan sends a single-file link, list its parent folder (`search_files` `parentId = '<parent>'`) and read
@@ -131,12 +126,10 @@ Switch it in Studio (`studio.youtube.com/video/<id>/edit` → Visibility → Pri
      (memory `drive-always-public`), then `rclone lsl` to confirm the byte count. Give Dan the folder link.
   - A dedicated Short gets the same two copies under `Short-form video content/` on each drive.
 
-## Step 2: five thumbnail variations, then STOP for Dan's pick (CODEX's task since 2026-09-30)
+## Step 2: five thumbnail variations, then STOP for Dan's pick (made here, with Codex on the subscription)
 
-This step is done by Codex in its own task, never by the Claude setup session (split above). It stays here as Codex's
-spec. Codex delivers `<title> - thumbnail FINAL.jpg` (1280x720 JPEG, under 2 MB) in
-`social media graphics/youtube/thumbnails/<title>/` and Dan pastes the path into the Claude setup task, which only checks the
-file conforms (size, format, under 2 MB) and uses it for the YouTube upload and Blotato's `youtube_cover_url`.
+This task makes the five itself with `_shared/codex-image.sh --model gpt-6.1-sol --effort high` (Dan, 2026-10-02; one Claude handoff, no separate Codex task). The pick is saved as `<title> - thumbnail FINAL.jpg` (1280x720 JPEG, under 2 MB) in
+`social media graphics/youtube/thumbnails/<title>/` and used for Blotato's `youtube_cover_url`.
 
 Dan's standing mix (updated 2026-10-13): **one pool photo, one studio photo, one AI-enhanced or AI-generated image of Dan, and two more AI-generated images of Codex's choice (Dan or not). Five unique designs, all made by Codex.** Same copy on all five. Every setup handoff must list these five slots and link `_shared/VIDEO-RULES.md`, "Thumbnails: the five, each its own design, always made by Codex". (The 2026-09-30 mix of one pool, two studio, a screenshot and a designer choice is retired.) Read `/youtube-packaging` for the photo, crop and text-clearance rules. The older recipe below is an asset reference; adapt its source count and studio backgrounds to this mix.
 

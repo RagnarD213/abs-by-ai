@@ -1,0 +1,71 @@
+{
+ "format": "steal-my-workout",
+ "id": "workout-02-five-minutes",
+ "tag": "Steal my workout",
+ "source": "DS-55 short, roll C1765 (10/15 shoot); see reference/workout-sources.md",
+ "cover": {
+  "headline": "3 moves.\n[y]5 minutes.[/y]\nNo gym.",
+  "cutout": {
+   "src": "Short-form video content/instagram-danrosefit/assets/workout-02-five-minutes/cutout.webp",
+   "alt": "Dan in yellow shorts, glasses, hands on hips"
+  },
+  "swipe": "Swipe to steal it"
+ },
+ "moves": [
+  {
+   "name": "Bodyweight squat",
+   "dose": "0:30",
+   "image": {
+    "src": "Short-form video content/instagram-danrosefit/assets/workout-02-five-minutes/squat-enh-crop.jpg",
+    "pos": "50% 50%",
+    "zoom": 1.0,
+    "label": "real",
+    "alt": "Dan at the bottom of a squat"
+   },
+   "cues": [
+    "Feet shoulder width, weight on your heels.",
+    "Sit back like there's a chair behind you.",
+    "Then stand up tall."
+   ]
+  },
+  {
+   "name": "Push-up",
+   "dose": "0:30",
+   "image": {
+    "src": "Short-form video content/instagram-danrosefit/assets/workout-02-five-minutes/pushup-enh-crop.jpg",
+    "pos": "50% 50%",
+    "zoom": 1.0,
+    "label": "real",
+    "alt": "Dan at the bottom of a push-up on handles"
+   },
+   "cues": [
+    "Body in a straight line.",
+    "Bring your chest all the way down.",
+    "Too hard? Do them from your knees."
+   ]
+  },
+  {
+   "name": "Spiderman plank",
+   "dose": "0:30",
+   "image": {
+    "src": "Short-form video content/instagram-danrosefit/assets/workout-02-five-minutes/spiderman-enh-crop.jpg",
+    "pos": "50% 50%",
+    "zoom": 1.0,
+    "label": "real",
+    "alt": "Dan pushing up from his elbows"
+   },
+   "cues": [
+    "Start in a plank on your elbows.",
+    "Push up to a push-up position, one side, then the other.",
+    "Stay perfectly straight. No butt in the air."
+   ]
+  }
+ ],
+ "recap": {
+  "title": "Screenshot this.",
+  "note": "30 s each, 30 s rest. Repeat until 5 minutes are up.",
+  "text": "5 minutes every day beats an hour once a week. Save this and do it tomorrow morning.",
+  "follow": "Workouts I actually do.",
+  "cutout": "Short-form video content/instagram-danrosefit/assets/_cutouts/studio-blue-210.webp"
+ }
+}

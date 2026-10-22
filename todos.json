@@ -317,10 +317,95 @@
   ],
   "assistant": [
     {
+      "text": "Take Audi to car wash. Wash interior, vaccum interior, and clean surfaces using sprays in Tesla frunk",
+      "priority": "key",
+      "recurring": false,
+      "addedAt": "2026-10-20",
+      "boardRank": 0
+    },
+    {
+      "text": "Take Tesla to car wash. Wash interior, vaccum interior, and clean surfaces using sprays in frunk",
+      "priority": "key",
+      "recurring": false,
+      "addedAt": "2026-10-20",
+      "boardRank": 1
+    },
+    {
+      "text": "Post ads on eBay and Facebook marketplace to sell watches where I sent you the images",
+      "priority": "key",
+      "recurring": false,
+      "addedAt": "2026-10-20",
+      "boardRank": 2
+    },
+    {
+      "text": "Empty Dishwasher",
+      "priority": "key",
+      "recurring": false,
+      "addedAt": "2026-10-20",
+      "boardRank": 3
+    },
+    {
+      "text": "Cut up all boxes in spare room in small pieces",
+      "priority": "high",
+      "recurring": false,
+      "addedAt": "2026-10-06",
+      "boardRank": 4
+    },
+    {
+      "text": "Clean & organize bedroom closet. Remove all junk, throw away trash and move other items to junk room for Dan to review before throwing away. Vaccum carpet with manual vaccum thoroughly",
+      "priority": "high",
+      "recurring": false,
+      "addedAt": "2026-10-20",
+      "boardRank": 5
+    },
+    {
+      "text": "Wash, dry, and fold all dirty laundry",
+      "priority": "high",
+      "recurring": false,
+      "addedAt": "2026-10-20",
+      "boardRank": 6
+    },
+    {
+      "text": "Put all non-cardboard trash items in junk room into trash bags. Leave in spare room, do not put in trash yet",
+      "priority": "high",
+      "recurring": false,
+      "addedAt": "2026-10-06",
+      "boardRank": 7
+    },
+    {
+      "text": "Cut up boxes for hedge panels behind artificial hedge, move to recycling or spare room",
+      "priority": "high",
+      "recurring": false,
+      "addedAt": "2026-10-06",
+      "boardRank": 8
+    },
+    {
+      "text": "Robot vaccuum bedroom 3x. Remove mop pads first and put back after",
+      "priority": "high",
+      "recurring": false,
+      "addedAt": "2026-10-06",
+      "boardRank": 9
+    },
+    {
+      "text": "Spray weeds with roundup",
+      "priority": "med",
+      "recurring": false,
+      "addedAt": "2026-08-03",
+      "boardRank": 10
+    },
+    {
+      "text": "Hire contractor to powerwash deck, driveway, and house. Discuss with Dan first",
+      "priority": "med",
+      "recurring": false,
+      "addedAt": "2026-09-01",
+      "boardRank": 11
+    },
+    {
       "text": "Clean exterior of all windows",
       "priority": "low",
       "recurring": false,
-      "addedAt": "2026-08-08"
+      "addedAt": "2026-08-08",
+      "boardRank": 12
     },
     {
       "text": "Load dishwasher",
@@ -330,43 +415,64 @@
         0,
         4
       ],
-      "addedAt": "2026-08-09"
+      "addedAt": "2026-08-09",
+      "boardRank": 13
     },
     {
-      "text": "Spray weeds with roundup",
-      "priority": "med",
+      "text": "Change robot mop water/refill",
+      "priority": "unassigned",
       "recurring": false,
-      "addedAt": "2026-08-03"
+      "addedAt": "2026-10-20",
+      "addedBy": "assistant"
     },
     {
-      "text": "Hire contractor to powerwash deck, driveway, and house. Discuss with Dan first",
-      "priority": "med",
+      "text": "Take out garbage & bring bins back from driveway",
+      "priority": "unassigned",
       "recurring": false,
-      "addedAt": "2026-09-01"
+      "addedAt": "2026-10-20",
+      "addedBy": "assistant"
     },
     {
-      "text": "Cut up all boxes in spare room in small pieces",
-      "priority": "high",
+      "text": "Make bed",
+      "priority": "unassigned",
       "recurring": false,
-      "addedAt": "2026-10-06"
+      "addedAt": "2026-10-20",
+      "addedBy": "assistant"
     },
     {
-      "text": "Put all non-cardboard trash items in junk room into trash bags. Leave in spare room, do not put in trash yet",
-      "priority": "high",
+      "text": "Find coffee table for living room and have Daniel review it",
+      "priority": "unassigned",
       "recurring": false,
-      "addedAt": "2026-10-06"
+      "addedAt": "2026-10-20",
+      "addedBy": "assistant"
     },
     {
-      "text": "Cut up boxes for hedge panels behind artificial hedge, move to recycling or spare room",
-      "priority": "high",
+      "text": "Tidy up kitchen",
+      "priority": "unassigned",
       "recurring": false,
-      "addedAt": "2026-10-06"
+      "addedAt": "2026-10-20",
+      "addedBy": "assistant"
     },
     {
-      "text": "Robot vaccuum bedroom 3x. Remove mop pads first and put back after",
-      "priority": "high",
+      "text": "Tidy bathrooms",
+      "priority": "unassigned",
       "recurring": false,
-      "addedAt": "2026-10-06"
+      "addedAt": "2026-10-21",
+      "addedBy": "assistant"
+    },
+    {
+      "text": "Tidy living room",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-10-21",
+      "addedBy": "assistant"
+    },
+    {
+      "text": "Tidy garage",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-10-21",
+      "addedBy": "assistant"
     }
   ],
   "handoffs": [
