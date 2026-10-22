@@ -46,9 +46,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Fat 90 Year Old SFC R3 - ACTIVE 2026-10-21, Claude.** R2 key locked as house standard (AGENTS). Building opening: clip full screen, Dan small, then large. Work: `ds40/r3/`.
 
-**DS-44:ACTIVE:2026-10-21:Claude.**
+**DS-44:PAUSED:2026-10-21:Claude.** Dan: until "resume".
 
-**SL-15:R2-REVIEW:9015:2026-10-21:Claude.** Shorts delivered; reviewers SHIP; gate fails only camera hair. Next: Dan.
 
 **I'm 41. I Wasted My Life. LFC Setup QUEUED 2026-10-17, Codex.** Dan approved exact R7 film and thumbnail C. Blotato readback: YouTube Sun Oct 18 9 AM, Facebook/Instagram Mon Oct 19 noon. Direct TikTok Monday after public YouTube check. To free capacity, Dan authorized removal of the last queued video, RO-13; its four schedules are backed up and RO-13 is on the waitlist for Dec 30. Receipt: Docs/RO25_SETUP_RECEIPT_20261017.md. Next: verify public release, covers, TikTok, RO-26 link.
 
@@ -144,17 +143,17 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-06:POLICY-RECHECK:2026-10-16:Claude.** Ads `828274063389`, `828320387740` in review. Next 10-17: `node scripts/ads/api/client.js policy 24316364155`; clean, delete this.
 
-**RO-24:R2-ACTIVE:2026-10-21:Claude.** Full film.
+**RO-24:R2-HOLD:2026-10-21:Claude.** Renders held.
 
 **RO-14 R3 HANDOFF 2026-10-21, Claude.** 2 fixes; commits unpushed.
 
-**DS-33:REVIEW:9033:2026-10-21:Claude.** 875d823 unpushed.
+**DS-33:R2-HANDOFF:2026-10-21:Claude.** `handoff-20261021-ds33-ronaldo-ab-belt-r2.md` uncommitted.
 
-**RO-20C setup:PICK:2026-10-21:Claude.** Dec 6.
+**RO-20C HOLD 2026-10-21, Claude.** Waitlist, Dec 6. `Docs/RO20C_SETUP_RECEIPT_20261021.md`
 
 **Zepbound Even If Ripped LFC R2 - ACTIVE 2026-10-21, Claude.** Motion A1/A5 on Flow, A2/A3 frames redrawn. `/Volumes/Expansion/_edit_work/ro28/round2/`.
 
-**Make Time Exercise LFC R2 - REVIEW :8982 2026-10-21, Claude.** RO-18 full film delivered; VLC copy in Videos to Review. Next: Dan's notes.
+**Make Time Exercise LFC R3 - HANDOFF 2026-10-21, Claude.** Waits on Dan's mower footage. `Handoffs/handoff-20261021-ro18-round3-mower-wispr.md` unpushed (merge in progress).
 
 **Ad 6 remarketing 2026-10-04:** Awaiting Dan: copy to enabled campaign 24305381214?
 
@@ -238,7 +237,9 @@ tab; stop rather than click into spinners. `Handoffs/handoff-20260908-google-ads
 
 **10-23 TP docs UNPUSHED 2026-10-20, Claude.** Commit 65f8c43 local. Next: any safe-push carries it; delete this.
 
-**IG-MEMORY:UNPUSHED-f597b51:2026-10-20:Claude.**
+**Renderq v3 UNPUSHED 2026-10-21, Claude.** Commit 8499d79 (render queue v3, live on disk since 16:48) local; safe-push stopped on live edits and a merge in progress. Next: any later safe-push carries it; delete this. Detail: Handoffs/results-20261021-renderq-v3.md.
+
+**IG-CAROUSELS:UNPUSHED:2026-10-21:Claude.** f597b51 plus uncommitted IG handoff, README line, memory; merge in progress.
 
 # BLOCKED — external
 
