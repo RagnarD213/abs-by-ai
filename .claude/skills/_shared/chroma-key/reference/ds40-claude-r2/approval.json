@@ -1,0 +1,63 @@
+{
+ "id": "ds40-claude-r2-approved-20261021",
+ "date": "2026-10-21",
+ "dan": [
+  "Okay, let's go with R2, and let's lock this chroma key as our default way to chroma key things. I want all green screen videos keyed out like this.",
+  "This key looks very clean. You did an excellent job with this. Let's make all our future chroma keys this clean and make this a standard."
+ ],
+ "supersedes": "ds40-r3-approved-20261020 (Codex R3) as the house keying standard; that reference stays for history",
+ "scope": "All future green-screen keying, Claude and Codex; geometry, plate, watch/glasses hold-outs calibrated per source",
+ "source": "C1730 of the 10/15 shoot, 1400.25 s, 279 frames, portrait 2160x3840 BT.709 S-Cinetone",
+ "review_page": "http://127.0.0.1:8940/",
+ "independent_review": "/Volumes/Extreme/_edit_work/ds40/r2/audit/R2-REVIEW.md (SHIP, re-check SHIP)",
+ "measured": {
+  "motion_free_flicker_vs_camera": {
+   "all_edges": 0.69,
+   "hair": 0.68,
+   "R1": [
+    0.87,
+    0.91
+   ]
+  },
+  "dark_rim_skin_edges": "2.7% (R1 14.9%, camera 8%)",
+  "watch_seethru_frames": "0 (R1 19)",
+  "floating_specks": "0 (R1 3)"
+ },
+ "media": {
+  "sample_navy": {
+   "path": "/Volumes/Extreme/_edit_work/ds40/r2/renders/r2 navy.mp4",
+   "sha256": "c8bbc948dc238895593071c2123b2f36346365d42f0449d8f51a19aff131804e"
+  },
+  "sample_pale": {
+   "path": "/Volumes/Extreme/_edit_work/ds40/r2/renders/r2 pale.mp4",
+   "sha256": "2091ddc4bfca6735544ce0a5507c34559bf8fb4484e2eafece97868cd83dc4db"
+  },
+  "sample_pink": {
+   "path": "/Volumes/Extreme/_edit_work/ds40/r2/renders/r2 pink.mp4",
+   "sha256": "8a3e1299cf8710bdb4e5bff09c6f05622d6dc7897d53b51af2c8e0e758436183"
+  },
+  "review_sample": {
+   "path": "/Volumes/Extreme/_edit_work/ds40/r2/review/media/Fat 90 Year Old SFC R2 - sample, Warm Vivid colour, house voice plus half bass.mp4",
+   "sha256": "c8bbc948dc238895593071c2123b2f36346365d42f0449d8f51a19aff131804e"
+  }
+ },
+ "code_sha256": {
+  "common.py": "1ce1b03dc147f583f2ea4d8b759e3759743cafb4da0bfec82713f7ce7cb70ee8",
+  "grade.py": "bd1ac55ebdc3ae41d87662b1636f5bccc74beb13726affbdf097fa5ff5781def",
+  "keylib.py": "80751b25d7c8b23acfc7eca37998bdb13820f9b3a67456a2dc783551da9204bc",
+  "mcflicker.py": "e8d122c119b6d564cfa3df8bce88151b2fb950de401bc5a87aa4e812155453fd",
+  "measure_r2.py": "9a40c547f34ff80b36e95e34b7cd472d9b55e854d45f8dcc6b7cc61249874ab9",
+  "plate.py": "d0b8c2911ae21aeb4e1c4790f59e524ce65fc430d8b8d66285326f9b754c15fb",
+  "run_final.sh": "50014fa85069f211f73889a8205151fd2b64b1925ede6a435559d4f027404290",
+  "srcprep.py": "fb0dc02b22ec02ae5601c50a6ca410adb7cc729ca89a5b78b2819608705fc25a",
+  "stage15_temporal.py": "484caddafa84c969d229d290e5176486a174fff71cee408908a23b72119499fa",
+  "stage1_key.py": "6700d5636fd3377bead4fcc16ae3ca1ca9958eadd4ab86d5bba243994492d2eb",
+  "stage2_comp.py": "49c2a8a087b626d65d70531ae5baf11692e10f6e2cfc6cc0db2cbec0753c39a5",
+  "watch_r2.json": "8dd3c01c5ffda0767bbbbb8774d8db12a3de5ef7fd38015cc2a8ddb491531fb8"
+ },
+ "per_video_only": [
+  "DS-40 colour B Warm Vivid",
+  "DS-40 voice: house chain +1.5 dB at 120 Hz"
+ ],
+ "code_note": "2026-10-21: measure scripts take T0/DUR env for any source window and skip zero-change source frames; stage1 resumes an interrupted run. Keying maths unchanged."
+}

@@ -1489,6 +1489,12 @@ def status(as_json=False):
                 ", starts in about {}".format(_fmt(e)) if e is not None and not full else "",
                 "  PRIORITY" if t.get("priority") else "",
                 "  (its drive {} is full; later jobs on other drives go first)".format("/".join(full)) if full else ""))
+    try:                                                    # the edit cap (editcap/): how many EDITS may feed this queue
+        sys.path.insert(0, str(SHARED / "editcap"))
+        import editcap
+        lines += ["", editcap.summary_line()]
+    except Exception:
+        pass
     return "\n".join(lines)
 
 

@@ -31,3 +31,8 @@ studio batch (designed posts with the point on the image, carousels first) is th
 should be made like it. Receipt: `Docs/STUDIO27_BLOTATO_QUEUE_RECEIPT_20261003.md`, 2026-10-20 section.
 
 Related: [[instagram-account-state]], [[shorts-organic-research]], [[shorts-reason-to-watch]], [[meta-ads-instagram-identity]].
+
+**Template R1 (2026-10-20, Claude Opus):** Design canvas "Instagram Template R1", https://claude.ai/artifact/VxoxLtBBYkWLuKixTCSk3m :
+5 carousels + 5 singles + a template sheet. Six series (The Fix, Receipts, Steal My, Swaps/The Math, Proof, Straight Talk),
+ink/bone/red/yellow, Anton + Manrope, real footage stills first. Proposed 4-week test vs the studio batch in the M/W/F 5 PM
+slots, judged on non-follower reach and saves at day 7. Awaiting Dan's picks; nothing queued.

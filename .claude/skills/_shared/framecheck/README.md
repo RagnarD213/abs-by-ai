@@ -35,6 +35,8 @@ override per shot under `"bounds"`.
 | `person.anchored` | joints that stay put (`hip`, `shoulder` = camera-near side, `nose`) | drift under 15 % of the torso |
 | `person.reach` | true for a push or a straightening limb | bone lengths START vs END within 8 %; END hip-to-ankle equals what START's bones allow at END's knee angle |
 | `person.legs_hidden` | `{"below_y": Y}`: a table or desk top at START row Y hides the hips and legs in both frames (a seated talker; added 2026-10-20, RO-20C R5: MediaPipe invents hidden legs, at visibility up to 0.64, and failed the bone rows on legs and a hip nobody can see) | recorded, not measured: landmarks invent hidden legs (even above the table) and the person mask swallows table clutter, so the `frame-reviewer` confirms that no leg or lap shows; the bone row then compares shoulder width (within 8 %) and the reach row is skipped |
+| `person.front_view` | true when the camera faces him and he bends toward it (a deadlift from the front; added 2026-10-20, RO-20C R6: a front-on hinge measured torso +80 % and thigh +64 % between bent and standing, all foreshortening) | bone row compares shoulder width, shins, upper arms and forearms (within 8 %); torso, thigh and the reach row are skipped and the `frame-reviewer` confirms them by eye |
+| `person.compare` + `person.compare_why` | a list of the size measures that are valid for this pair (`torso`, `thigh`, `shin`, `shoulders`, `hip_width`, and with `front_view` `shins`, `upper_arms`, `forearms`) and why the defaults are not (added 2026-10-20, RO-20C R6: dumbbells curled in front of his deltoids pulled the shoulder landmarks 17 % inward while torso and hip width changed 1 to 3 %) | the bone row compares only those, within 8 %; the reason is printed in the row and stamped; the `frame-reviewer` checks the left-out measures by eye |
 | `rigid[]` | a group that moves as one piece: `parts` (small high-texture boxes ON the part: bolts, a plate rim, a horn tip, a crisp corner), `guide`, `move_px` [min, max], `extent` (a box around the whole group) | 2+ parts found (score 0.85); the group's move is their median; strong parts agree within 10 px; travel within 5 degrees of the guide; every part matches and stays sharp (0.72) where that move puts it |
 | `contacts[]` | a part that rides a group (`box`, `rides`): a shoe on a footplate, a hand on a handle | moves with the group within 12 px |
 | `still{}` | named boxes that must not move: machine frame, base, a background rack | moved under 3 px |
@@ -183,3 +185,7 @@ found by a reviewer, not by this); anything a tracker follows smoothly while it 
 6. **The independent reviewer gets only the pictures, the overlays and the checklist**, never the editor's reasoning, and must
    measure: angles, lengths, displacements, diffs. A fresh agent each time. Expect several rounds; each fail cost minutes, a fail
    reaching Dan costs his trust.
+7. **A limb the model straightens grows; one it bends does not (RO-20C R5, 2026-10-20).** If the edit from START to END
+   keeps lengthening the legs, generate START from END instead (the bent pose from the straight one) and make several
+   variants at once; keep one that passes every row. Lifts are measured in true side profile: a front or 45-degree hinge
+   foreshortens torso and thigh so the bone rows compare nothing.

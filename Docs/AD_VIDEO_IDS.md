@@ -128,3 +128,13 @@ The exact approved R6 9:16 (sha256 `ca75555c…cfae`) uploaded unchanged twice, 
 | RA-07 Fire Your Trainer | Claude R6, thumb B | 9:16 | 0:53 | https://youtu.be/AWh8cOd80Ic | yes, R6 approved 10-18 | 3b, AI Dan + robot coach, FIRE / YOUR / TRAINER, installed/read back |
 
 Trial group 204215057191, ads 828608015181 (A) / 828655819900 (B). Receipt: `Docs/RA07_SETUP_RECEIPT_20261020.md`. No organic publishing.
+
+## 2026-10-21: RA-12 The First Step To Getting Abs R2
+
+The exact approved R2 9:16 (sha256 `18728d49…b539`) uploaded unchanged, verified Unlisted, processed and embeddable on channel UC236gjadarHAhEhOMYNGJ9g, synthetic=true (AI lock screen, beginner, app generation, AI trainer demo).
+
+| Ad | Version | Aspect | Length | YouTube | Approved | Thumbnail |
+|---|---|---|---|---|---|---|
+| RA-12 The First Step To Getting Abs | Claude R2 | 9:16 | 0:46 | https://youtu.be/7bsTcr0vu6Y | yes, R2 approved 10-21 | Round 2 design A, real studio-blue-11 in front of an open vault with a gold key, THE KEY TO GETTING ABS, installed/read back |
+
+Trial group 202084443740, ad 828687867099. Receipt: `Docs/RA12_SETUP_RECEIPT_20261021.md`. No organic publishing.

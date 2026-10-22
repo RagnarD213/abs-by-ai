@@ -1,3 +1,22 @@
+## AI clips of Dan look natural, or they never reach review; regenerate slop on the subscription (Dan, 2026-10-21, SL-06)
+
+Dan rejected all six SL-06 AI flex intros, every one gate- and reviewer-passed: *"the smile is weird. We need just a regular,
+relaxed, closed-mouth smile. He's also shaking and flexing too hard... Make it look natural and not like I'm shaking and flexing
+and artificially smiling. This looks like AI slop. This is not something which should make it to my review in the future.
+Especially given that we can now generate these on subscriptions, I want you to be a little more picky about what you bring to
+me for review and regenerate if you get some slop like this."*
+
+- **The bar for any AI clip of Dan: would it pass as a real camera clip of a calm man?** A relaxed, closed-mouth smile (no held
+  toothy grin, no grin that grows, no mouth that moves); no trembling, shaking or jitter in arms, hands or head; no straining
+  "flex harder" action; small natural motion only (breathing, a slight weight shift). If the frames themselves carry a big
+  grin or a straining pose, fix the frames first.
+- **Repairs do not rescue slop.** A pasted "held smile", a frozen mouth or other patching that keeps a bad take alive reads as
+  artificial at speed: regenerate instead. Label and text restores (a vial label, a calendar) remain fine.
+- **Be picky; the subscription makes retakes cheap.** Expect several takes per clip and keep only the most natural one. A
+  take that merely "passes" (no vanishing objects, no talking) is not enough: the editor and the reviewer each answer one more
+  question, *"does this look like real footage of a relaxed person, or like AI?"*, at playback speed, and any "AI" answer is a
+  FAIL. Put that question in every frame-reviewer brief for motion.
+
 ## Head and hair clearance blocks review delivery (Dan, 2026-10-20, RO-27)
 
 Dan rejected the RO-27 opening's clipped hair, including at about 0:22 and 0:29: "we need to always make sure that we don't cut off my head or my hair in these shots." Both the wider and tighter presenter shots must leave slight visible headroom. This applies before any review preview, not only final delivery.
@@ -11,9 +30,9 @@ Dan rejected the RO-27 opening's clipped hair, including at about 0:22 and 0:29:
 
 RO-27 R1 used fixed `3440:1935:200:112` and `3000:1688:420:236` source crops without a verified rendered hair-clearance report. Its earlier join/graphic checks did not establish headroom. Preserve R1 as rejected framing evidence and fix all affected previews in R2.
 
-## Approved chroma key for all green-screen videos (Dan, 2026-10-20)
+## Approved chroma key for all green-screen videos (Dan, 2026-10-21, replaces 2026-10-20)
 
-Use the approved Bill Maher Fat 90-Year-Old R3 key for every future green-screen video and requested key revision, Claude and Codex alike. Dan: "Let's lock this as our chroma key style. I want all the videos keyed out like this. This is a very clean key." The shared reference, exact hashes and method are in `.claude/skills/_shared/chroma-key/README.md`. Preserve the clean body/arm matte and motion-stable fine hair with natural strands. Calibrate screen and hair geometry to the actual source; never blindly copy sample coordinates or smooth across cuts. Do not reopen the accepted style. This locks keying, not every video's audio or grade, and does not request changes to already approved exports. Bill Maher's Balanced audio and warmer color stay selected.
+Every green-screen video is keyed with Claude's Bill Maher Fat 90-Year-Old R2 key, Claude and Codex alike. Dan: "let's lock this chroma key as our default way to chroma key things. I want all green screen videos keyed out like this" and "Let's make all our future chroma keys this clean and make this a standard." It replaces the Codex R3 key locked the day before. The bar: edges steadier than the camera's own picture with motion removed, dark rim no worse than the source, nothing see-through over saturated pink (watch, glasses), no specks, strands and motion blur kept, measured with the shared scripts before Dan sees it. Method, exact code and hashes: `.claude/skills/_shared/chroma-key/README.md`. Calibrate plate, crop and hold-out boxes to each source; never average across a cut. Do not reopen the accepted style. This locks keying only; grade and audio stay per video, and already approved exports stay as they are.
 
 ## AI video clips: Google Flow subscription first, paid API only on "rush" (Dan, 2026-10-17)
 
@@ -37,7 +56,7 @@ Dan: "The system that I want is one where I give my revisions and then the new t
 **Same task:** save Dan's exact words and scope, advance to `<Title> <Type> R<n+1>` for a new round, create a new round folder, preserve reviewed outputs and locked media/approval hashes, retain the pin. Resume on the video's own default (Opus high if it started on Claude, Sol high if it started on Codex) unless Dan explicitly overrides. A simple status answer is not a new editing round. A model/effort continuation queued in the same task is one next turn, never a duplicate child.
 
 **Fresh task, in the same turn:** use the controller and runbook at [video-rounds/README.md](video-rounds/README.md).
-1. Save the decisions and self-contained handoff, expected hashes, applied edits, costs, gate status and exact next action. Reserve the stable per-video next-round journal once, with revision/submission ID and old task identity. Suspend old production and release its queue claim if any. A child begins read-only until the journal names it production owner; the existing queue claim and build cap still apply.
+1. Save the decisions and self-contained handoff, expected hashes, applied edits, costs, gate status and exact next action. Reserve the stable per-video next-round journal once, with revision/submission ID and old task identity. Suspend old production and release its queue claim if any; the edit slot moves with the video (the child runs `editcap.py acquire <JOB>` before production; see "Active edit cap"). A child begins read-only until the journal names it production owner; the existing queue claim and build cap still apply.
 2. Call the actually available supported task creation tool with the existing project's verified ID/path, local environment, next-round title, complete starter prompt and explicit resolved Sol/high (or Dan's override). Record the exact returned task ID/host before further action. Never retry an uncertain create. A pending client ID is not a ready task ID.
 3. Pin the new task using supported sidebar controls. Read its exact task and verify a started turn, then verify it appears in the supported pinned-task listing. Recheck approval hashes. Only then unpin the recorded predecessor, and read back that new is pinned and old is unpinned. Never toggle by guess, reorder other pins, archive or delete.
 4. Record the new sole production owner and superseded pointers, then wake that same child once to perform the handoff. Stop the old editor. Report the next round, model/effort and verified result. Keep a starter prompt as recovery information; it is not a chore Dan must perform after successful automatic transfer.
@@ -271,6 +290,10 @@ always the one making these thumbnails."*
   look at every region left, enlarged, frame by frame. Two independent reviewers each found a leftover of the rejected effect that the
   editor's eye had passed on a contact sheet: a wisp on the desk, then an orange smear in the box. A cut out of a rejected take starts where
   the whole picture has settled, not where the subject has. Tool: the self-change map in `longform-edit/reference/ro08/a5_cut.py`.
+- **A body cut off unnaturally never reaches Dan (Dan, 2026-10-21, RO-28 barbecue frames):** four men stood behind a grill with their lower
+  bodies cut off and it passed two checks. Dan: *"the lower bodies are cut off. This looks very unnatural. That never should have made it
+  to my review."* Every frame reviewer brief asks whether each person is whole where the shot implies it (feet in a standing group shot,
+  nobody sliced by the frame edge or hidden behind a prop placed to crop them); a frame that fails is redrawn before any page.
 - **START/END frames get the same treatment before motion is even generated (2026-10-14, after RA-04's leg press):** a frame spec, the
   frame gate and a fresh `frame-reviewer` agent; no page shows the pair until `.claude/skills/_shared/framecheck/gate.py START END
   --verify` exits 0. Routine and proof: `_shared/framecheck/README.md`.
@@ -1173,6 +1196,29 @@ something that we can publish."* Every point below is a standing rule for every 
   missing baseline, a missing plan, a script that is not on disk — each one fails and says what is
   missing. If a check genuinely does not apply, declare it explicitly, with a reason a reader can
   audit. Full reasoning: `.claude/skills/_shared/qc_corpus/README.md`.
+
+## Active edit cap: at most 5 edits doing production at once (Dan, 2026-10-21)
+
+- **At most 5 video edits do production work at once, Claude and Codex together.** Production = render-queue jobs,
+  AI generation, builds. On 2026-10-21 about 12 edits ran at once, the render queue was overbooked (16-18 cores of work
+  on 8, ~7.8 GB swap), heavy steps waited 3-5 hours and no video finished all day. The render queue caps steps; this
+  caps edits. Tool and details: `.claude/skills/_shared/editcap/README.md`.
+- **Every edit acquires a slot before its first production step and on every resume:**
+  `python3 .claude/skills/_shared/editcap/editcap.py acquire <JOB> --title "<title>" --type <LFC|SFC|SFL|AD>`.
+  Exit 0: go. Exit 3: waiting. Do no rendering, generation, building or spending; read-only prep is fine. Arm the
+  auto-start (Claude: `editcap.py wait <JOB>` with `run_in_background`; Codex: a 10-minute heartbeat automation on
+  the thread that runs `acquire` and continues on exit 0), tell Dan the place in line in one line, end the turn.
+- **Waiting on Dan holds no slot.** Review page up, awaiting picks, NEEDS-DAN: `editcap.py release <JOB> --review`.
+  When his notes arrive, `acquire` again. Finished: `editcap.py release <JOB>`. The next waiting edit starts by itself.
+  If `release` prints `WAKE claude ...`, send that session the message.
+- **Waiters start in release-date order, not firing order** (both release calendars; a Shorts batch takes the day after
+  its long-form; ads rank with the nearest release; 2027 and undated work last). A returning edit goes to the front
+  only if its release is soonest. Dan can reorder with `--release YYYY-MM-DD`.
+- **Exempt:** setup/upload tasks, thumbnail and cover picks, scripts and docs. They never call it.
+- Anything already running in the render queue counts toward the 5 even if it never registered, and is never
+  stopped. An edit silent for 3 hours loses its slot. The tool fails open: if it breaks, it warns and allows.
+- **See it:** `python3 .claude/skills/_shared/editcap/editcap.py status` (read-only, covered by the standing
+  render-queue authorization in AGENTS.md).
 
 ## Video builds: the render queue (formerly "never run more than two at once")
 

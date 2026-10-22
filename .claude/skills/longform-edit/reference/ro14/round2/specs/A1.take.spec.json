@@ -1,0 +1,31 @@
+{
+ "shot": "RO-14 A1 The broken scale (motion take, 1920x1080)",
+ "intent": "Bright bathroom. START: a man in a grey tee and black gym shorts, towel on his left shoulder, stands on a white digital bathroom scale and looks down at it. END: he has stepped one step back and to his right, off the scale; he holds the same scale up in both hands in front of his chest, peering at it, frowning, as if it is broken. The floor where the scale stood is empty.",
+ "camera": "locked",
+ "may_change": {
+  "scale_held_END": [
+   712,
+   161,
+   930,
+   344
+  ],
+  "scale_floor_START": [
+   804,
+   930,
+   1079,
+   1080
+  ]
+ },
+ "props": [
+  {
+   "name": "scale",
+   "box": [
+    804,
+    930,
+    1079,
+    1080
+   ]
+  }
+ ],
+ "note": "frame spec boxes scaled 1672x941 -> 1920x1080; people are may_change boxes (legs out of frame); props added for the take"
+}

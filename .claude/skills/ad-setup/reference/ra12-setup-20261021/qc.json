@@ -1,0 +1,102 @@
+[
+  {
+    "number": 1,
+    "fmt": "16x9",
+    "name": "pool-photo-125-white-band",
+    "label": "Real pool photo: you flexing and smiling at golden hour, headline on a white band",
+    "file": "first-step-abs_1-pool-photo-125-white-band | 16x9.jpg",
+    "clearance_px": 121,
+    "headroom_px": 40,
+    "ok": true
+  },
+  {
+    "number": 1,
+    "fmt": "9x16",
+    "name": "pool-photo-125-white-band",
+    "label": "Real pool photo: you flexing and smiling at golden hour, headline on a white band",
+    "file": "first-step-abs_1-pool-photo-125-white-band | 9x16.jpg",
+    "clearance_px": 203,
+    "headroom_px": 110,
+    "ok": true
+  },
+  {
+    "number": 2,
+    "fmt": "16x9",
+    "name": "studio-blue-11-vision-board-card",
+    "label": "Real studio photo: you in front of a vision board, headline handwritten on a pinned card",
+    "file": "first-step-abs_2-studio-blue-11-vision-board-card | 16x9.jpg",
+    "clearance_px": 94,
+    "headroom_px": 50,
+    "ok": true
+  },
+  {
+    "number": 2,
+    "fmt": "9x16",
+    "name": "studio-blue-11-vision-board-card",
+    "label": "Real studio photo: you in front of a vision board, headline handwritten on a pinned card",
+    "file": "first-step-abs_2-studio-blue-11-vision-board-card | 9x16.jpg",
+    "clearance_px": 248,
+    "headroom_px": 680,
+    "ok": true
+  },
+  {
+    "number": 3,
+    "fmt": "16x9",
+    "name": "ai-dan-print-cobalt-impact",
+    "label": "AI picture of you: holding up your goal print (its back to us), cobalt spotlight",
+    "file": "first-step-abs_3-ai-dan-print-cobalt-impact | 16x9.jpg",
+    "clearance_px": 77,
+    "headroom_px": 366,
+    "ok": true
+  },
+  {
+    "number": 3,
+    "fmt": "9x16",
+    "name": "ai-dan-print-cobalt-impact",
+    "label": "AI picture of you: holding up your goal print (its back to us), cobalt spotlight",
+    "file": "first-step-abs_3-ai-dan-print-cobalt-impact | 9x16.jpg",
+    "clearance_px": 195,
+    "headroom_px": 641,
+    "ok": true
+  },
+  {
+    "number": 4,
+    "fmt": "16x9",
+    "name": "ai-phone-trophy-acid-yellow",
+    "label": "AI: a guy presents his phone like a trophy, giant dumbbell abandoned, acid yellow",
+    "file": "first-step-abs_4-ai-phone-trophy-acid-yellow | 16x9.jpg",
+    "clearance_px": 166,
+    "headroom_px": 31,
+    "ok": true
+  },
+  {
+    "number": 4,
+    "fmt": "9x16",
+    "name": "ai-phone-trophy-acid-yellow",
+    "label": "AI: a guy presents his phone like a trophy, giant dumbbell abandoned, acid yellow",
+    "file": "first-step-abs_4-ai-phone-trophy-acid-yellow | 9x16.jpg",
+    "clearance_px": 149,
+    "headroom_px": 726,
+    "ok": true
+  },
+  {
+    "number": 5,
+    "fmt": "16x9",
+    "name": "ai-phone-starting-blocks-teal",
+    "label": "AI: a giant phone with a goal picture set in sprint starting blocks, petrol teal",
+    "file": "first-step-abs_5-ai-phone-starting-blocks-teal | 16x9.jpg",
+    "clearance_px": 278,
+    "headroom_px": 9999,
+    "ok": true
+  },
+  {
+    "number": 5,
+    "fmt": "9x16",
+    "name": "ai-phone-starting-blocks-teal",
+    "label": "AI: a giant phone with a goal picture set in sprint starting blocks, petrol teal",
+    "file": "first-step-abs_5-ai-phone-starting-blocks-teal | 9x16.jpg",
+    "clearance_px": 154,
+    "headroom_px": 9999,
+    "ok": true
+  }
+]

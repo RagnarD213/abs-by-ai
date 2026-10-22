@@ -1,13 +1,13 @@
 ---
 name: longform-delivery-location
-description: Finished long-form videos go in the project folder "claude edited long form content/"; working files stay on the Seagate
+description: Finished long-form videos go in the project folder "claude edited long form content/"; working files go in the job folder `renderq.py workdir` picks on an external drive
 metadata:
   type: feedback
 ---
 
 Dan's instruction, 2026-08-21: **"Going forward, save your final videos in the project folder rather than on the hard drive."** He renamed the first delivery folder to `claude edited long form content/` and moved it to the project root, then asked for every earlier Claude-edited long-form video to be consolidated there too (invest-health v3 and the meal-prep split-screen demo became `04 -` and `05 -`).
 
-The split is: **finished `FINAL_*.mp4` + `.srt` + chapters + the recipe files (`edl.json`, `ranges.py`, `chips.py`) go in the project folder**; raw rolls, extracted audio and `clips_graded/` stay on the Seagate at `_edit_work/`.
+The split is: **finished `FINAL_*.mp4` + `.srt` + chapters + the recipe files (`edl.json`, `ranges.py`, `chips.py`) go in the project folder**; raw rolls, extracted audio and `clips_graded/` stay in the job's `/Volumes/<drive>/_edit_work/<job>/` folder. Since 2026-10-20 a new job's folder comes from `python3 .claude/skills/_shared/renderq/renderq.py workdir <JOB>` (its existing folder, else the least busy drive with room); throwaway frames and test renders go in `renderq.py scratch <JOB>` on the internal SSD (VIDEO-RULES, "Video builds: the render queue").
 
 **Why:** he wants deliverables where he actually looks for them, not on an external drive he has to go find. Working files are tens of GB and the boot disk runs ~98% full, so those must not follow.
 

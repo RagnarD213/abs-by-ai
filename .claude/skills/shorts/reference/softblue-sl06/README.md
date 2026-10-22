@@ -179,3 +179,36 @@ batch.py       COVERS fit="full" (intro over the title band), ai=(x, y, u, ancho
   setting only Dan can switch (audio-step failures 8/8 without it); Flow refused one B take as "prominent people".
 - **The shared render queue gates every ffmpeg call** (the bin/ffmpeg shim): even a reviewer's stamp write waited 69 min at
   load 150. Budget hours, not minutes, on a busy day.
+- **Review catches (2026-10-21):** a key-point bar that sat fine over Dan covered the needle going into the skin once a
+  YouTube clip replaced him (C, fixed with `zoom=1.2, fy=1.0` on that cover); and a picture cut 0.06 s inside a word
+  left "less" as a 7-frame orphan caption (F, fixed by ending the intro in the pause after "appetite,").
+- **Render under ONE queue slot:** `renderq.py run --label ... -- python3 batch.py render S`. Without it every decoder the
+  render opens queues separately and a 47 s short sat at frame 900 for an hour.
+
+## Round 6 (2026-10-21): natural AI intros after Dan rejected R5 (`round6/`)
+
+Dan: "the smile is weird... shaking and flexing too hard... This looks like AI slop." About 60 Veo takes to get five clean ones.
+
+```
+qc_take.py     per take: lip gap and mouth width (face mesh), hand/head TREMOR (tremor.py), hand drift, object lost; strips
+tremor.py      tremor = RMS of x[t] - (x[t-1]+x[t+1])/2 of the median optical flow in a box (fast back-and-forth only)
+autoqc.sh      runs qc_take.py on every take as the flow-veo agent collects it
+run_fix.sh     fix_take.py on the corrected frame: vial label + background statics only (no face patching); -frames:v added
+```
+
+- **Calibrate on what Dan rejected.** The six R5 intros: hand tremor 0.89-2.18, lip gap/eye 0.11-0.19. Real footage of Dan's head:
+  tremor 0.41-0.65. Template-match "jitter" and face-mesh nose tracks are useless as tremor measures (talking footage scored 5-7 px);
+  use flow-based second differences. Bars: hand <= 0.75, head <= 0.70, lip gap <= 0.04, width growth <= 6 %.
+- **The word "smile" makes Veo grin with teeth.** Even a closed-mouth start frame grew a toothy grin in nearly every Fast take with
+  "relaxed closed-mouth smile" in the prompt. What held: "his face stays exactly as in the first frame: same calm, pleasant expression,
+  lips closed and resting, jaw still", no "smile", no "posing", no "breath" (reads as mouth breathing), no speech words.
+- **Veo 3.1 Quality (100 credits on Ultra) holds the face far better than Fast;** Fast still won some. Mix 1 Quality + 2 Fast per clip.
+- **Raised fists tremble in Veo, and a pointing hand drifts to the chest** in every model and wording. Dan's "no flexing" plus that:
+  the relaxed pose (one hand holding the vial at chest height, elbow down, other arm hanging) fixed both. "Loosely" made Veo drop the arm.
+- **Frame edits for the relaxed pose:** Codex edit, then lockstill back to the R6 frame with `--box` over the OLD fist/vial/fingertip
+  spots (otherwise lockstill copies the old vial back onto the wall: two reviewers caught a floating half-vial and a fleck). A short
+  hanging arm needed a second Codex pass ("let it hang at its full length"); paste the approved face back after any re-edit.
+- **Orphaned render-queue waiters overwrite outputs.** Killing a fix_take.py that piped into the queued ffmpeg left the ffmpeg waiter
+  queued; when its turn came it wrote an empty mp4 over the good file (`-y`). Kill the ffmpeg waiter too, and ffprobe every output.
+  A piped encode with no `-frames:v` is HEAVY (2-hour wait on a busy day); with `-frames:v N` (N <= 600) it runs in the QUICK lane.
+- **Chrome stops saving Flow downloads after ~5 in one page load;** a fresh navigation to each tile URL lets one download through.

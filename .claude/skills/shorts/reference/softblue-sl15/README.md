@@ -28,3 +28,30 @@ shoot) with the per-roll grade curve "look F" instead of a 4K roll and a LUT. Wo
 - **Read a word's levels before trusting the word list.** The "But" thought to sit at 59.18 was the end of "did"; the real "But" was
   kept in piece 2 and only the delivered transcript showed the captions lacked it. Diff caption text against `delivered_asr.json`.
 - **An "Um" Whisper misses with no prompt**: transcribing with `initial_prompt="Um, uh, so, like."` found it (10:04.84).
+
+## Round 2 reviews (2026-10-20): what four independent reviews caught
+
+- **Hair: a camera limit is Dan's call, not a crop fix.** C1512 framed his hair at the top row (`hairtop.py`: 72 % / 47 % of talking
+  samples). The 2026-10-20 headroom rule cannot be met by any crop; the Short never crops further than the film. Put it to Dan first.
+- **Land-then-hold, calmer on a swaying presenter.** Fixed per-shot crops let him sit 15-20 % off centre; the shared preset (3.3 % band,
+  28 %/s) then panned at up to 300 px/s and reversed inside shots. `batch.window_path` now uses `landing.track` on the FACE-BOX centre
+  (the mask's head outline moved 40-45 % less than his face), an 8 % band (10 %, 12 % if a shot still reverses) and 120 px/s on the
+  delivered frame. Where he leans 600 px on one line, cover it (library B0223 over "the mirror") rather than pan.
+- **Captions over a real photo of his physique go below the navel** (`SHOTS[...]["cap"] = 1650`), and the photo fills the picture with
+  the label above it; a boxed card on an empty field was a defect.
+- **An AI payoff can contradict the line.** The vampire's spray-tan payoff under "this is the reason why" (he stays pale) failed; only
+  the pale opening (f5-26) is used. The chip touched his raised hand at f0-3: check chip clearance on every used frame.
+- **Disfluency pass**: transcribe kept windows with `initial_prompt="Um, uh, ..."`; it found "he, uh, takes" that CTC had hidden, and
+  round 1's `WORDFIX` had pinned "takes" onto the "uh".
+- **Eyebrows in CAPITALS** (Dan, 2026-10-20): the small label line (title band eyebrow, bar topic) is typed in capitals; main lines
+  title case; `topic_case="preserve"` so code never uppercases.
+- **The render queue routes every ffmpeg separately** (`renderq/ffshim.py`): a chain of six commands waited hours. `batch.py render`
+  now delivers (audio gate, review copy, transcript, gate plan) and runs the watch pass in the same process; `deliver.py copy` and
+  `runwatch.sh` skip when `build/<S>/delivered.sha` is newer than the render.
+- **Run the whole build step through the queue as ONE step:** `renderq.py run --group SL-15 -- bash chain_r2.sh A C` (render, deliver,
+  watch in one slot, about 5 minutes for both Shorts) instead of a chain of queued commands; checks go `--light` (`rungate.sh`).
+- **Delivery gate 2.6.1 result on R2:** 37 of 39 pass on each Short; `framing:hair_top` and `framing:headroom` fail on the camera's
+  own framing (hair at the raw roll's top row), which is Dan's decision, never a threshold change. `framing:centering` wants each hold's
+  median head offset within 6 %: `window_path` keeps it within 4.5 % (a quicker 160 px/s follow where he leans fast).
+- **Real-photo chip references must be drawn with the same anchor as the frame** (`chip_png(..., anchor="mt")`): a half-pixel offset
+  read 0.833 against the gate's 0.85.

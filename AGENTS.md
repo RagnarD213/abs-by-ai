@@ -34,9 +34,9 @@ I am a non-technical user. Explain all tasks in simple terms that a non-technica
 **Video, photo, thumbnail, cover, audio and publishing work: read `.claude/skills/_shared/VIDEO-RULES.md` in full before
 doing anything.** It holds Dan's standing production rules. Not having read it is not an excuse.
 
-## Approved chroma key for all green-screen videos (Dan, 2026-10-20)
+## Approved chroma key for all green-screen videos (Dan, 2026-10-21, replaces 2026-10-20)
 
-Use the approved Bill Maher Fat 90-Year-Old R3 key for every future green-screen video and requested key revision, Claude and Codex alike. Dan: "Let's lock this as our chroma key style. I want all the videos keyed out like this. This is a very clean key." The shared reference, exact hashes and method are in `.claude/skills/_shared/chroma-key/README.md`. Preserve the clean body/arm matte and motion-stable fine hair with natural strands. Calibrate screen and hair geometry to the actual source; never blindly copy sample coordinates or smooth across cuts. Do not reopen the accepted style. This locks keying, not every video's audio or grade, and does not request changes to already approved exports. Bill Maher's Balanced audio and warmer color stay selected.
+Every green-screen video is keyed with Claude's Bill Maher Fat 90-Year-Old R2 key, Claude and Codex alike. Dan: "let's lock this chroma key as our default way to chroma key things. I want all green screen videos keyed out like this" and "Let's make all our future chroma keys this clean and make this a standard." It replaces the Codex R3 key locked the day before. The bar: edges steadier than the camera's own picture with motion removed, dark rim no worse than the source, nothing see-through over saturated pink (watch, glasses), no specks, strands and motion blur kept, measured with the shared scripts before Dan sees it. Method, exact code and hashes: `.claude/skills/_shared/chroma-key/README.md`. Calibrate plate, crop and hold-out boxes to each source; never average across a cut. Do not reopen the accepted style. This locks keying only; grade and audio stay per video, and already approved exports stay as they are.
 
 ## Real-photo disclosure wording (Dan, 2026-10-17)
 
@@ -99,12 +99,21 @@ sessions (and any other assistant, if one is in use).
   in Git, unexecuted work in `Handoffs/` + `Handoffs/README.md`, Dan's open decisions in
   `Docs/DAN_DECISIONS.md`, lasting facts in memory, standing rules here.
 
+## Standing authorization for downloads (Dan, 2026-10-21)
+
+- Download any photos, videos or other files a task needs (news photos, clips, references, assets) without asking. Dan: "You always have permission to download any photos or whatever you need in the future. Never ask me for permission to download photos or videos or anything again."
+- Name what was downloaded and where it came from in the delivery report. This covers fetching media and files for the work, not running downloaded programs.
+
 ## Standing authorization for render-queue checks (Dan, 2026-10-20)
 
 - Always check active render jobs and the render queue without asking Dan for permission, in every task. This includes reading queue state (`python3 .claude/skills/_shared/renderq/renderq.py status`) and running the shared build-cap/process checks before rendering or quality checks.
 - **The render queue enforces the build cap in code (2026-10-20).** Start any number of video jobs; heavy steps (encodes, renders, Whisper, checks) wait their turn in one first-come line shared by Claude and Codex. Never hold a job back or write a wait loop because other builds are running. Rule and commands: `.claude/skills/_shared/VIDEO-RULES.md`, "Video builds: the render queue".
 - Dan: "Going forward you are always authorized to check the queue for active render jobs. Do not ask me for permission to do this again in any task."
 - This is a standing read-only authorization across tasks, not permission to cancel or modify another session's jobs.
+
+## Active edit cap: 5 edits at once (Dan, 2026-10-21)
+
+- At most 5 video edits (Claude and Codex together) do production work at once. Every edit runs `python3 .claude/skills/_shared/editcap/editcap.py acquire <JOB>` before its first render, generation or build; exit 3 means wait (arm the auto-start, tell Dan, stop). Stopping for Dan's review releases the slot (`release <JOB> --review`); waiters start by release date, automatically. Setup and thumbnail tasks are exempt. `editcap.py status` shows the line. Rule: `.claude/skills/_shared/VIDEO-RULES.md`, "Active edit cap".
 
 ## Standing authorization for routine provider configuration
 

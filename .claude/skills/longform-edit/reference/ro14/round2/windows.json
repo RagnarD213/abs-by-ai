@@ -1,0 +1,82 @@
+{
+ "_note": "24 fps takes; frames A:B inclusive; seconds = film slot length. Why each window: README in motion/WINDOWS.md",
+ "A1": {
+  "frames": [
+   31,
+   92
+  ],
+  "slot": 4.97,
+  "why": "on the scale looking down, frowning, steps off, bends and grips it; ends before the lift (frames 98-112 morph); rug frozen in code; ends on frame 92 (reviewer FB-A1: the scale deforms from frame 93)",
+  "t1_status": "FAIL review: scale doubles its display and melts during the lift (f98-112); rug redraws. Retake A1r2 queued",
+  "take": "A1-flow-t1-rugfix.mp4",
+  "start_t": 0.0005,
+  "partial": true
+ },
+ "A2": {
+  "frames": [
+   87,
+   127
+  ],
+  "slot": 6.06,
+  "why": "picks one nugget off the kid's plate over the bin and eats it (the honest pick-up the reviewer named); on 'chicken nuggets you eat standing over the trash can'",
+  "t1_status": "FAIL review: one nugget eaten, a second merges and vanishes, bite before the bite. Retake A2r2 queued",
+  "take": "A2r3-flow-t1.mp4",
+  "start_t": 158.59,
+  "partial": true
+ },
+ "A3": {
+  "frames": [
+   38,
+   137
+  ],
+  "slot": 4.13,
+  "why": "hammer raised, one smash, coins spill, big laugh, fist pump (reviewer: 38-137 holds the fist-pump laugh 2 frames longer)",
+  "take": "A3-flow-t1.mp4"
+ },
+ "A4": {
+  "frames": [
+   138,
+   188
+  ],
+  "slot": 6.68,
+  "why": "she holds the bite out to his mouth, he is tempted (reviewer: one fork, cake unchanged); on 'She orders a dessert, she wants the pizza'",
+  "t1_status": "FAIL review: table knife turns into a second fork (f84-137), bite never leaves the cake. Retake A4r2 queued",
+  "take": "A4-flow-t1.mp4",
+  "start_t": 213.38,
+  "partial": true
+ },
+ "A5": {
+  "frames": [
+   78,
+   191
+  ],
+  "slot": 5.82,
+  "why": "Veo 3.1 Quality take: one salad, laughter stops, all stare, the far-left man picks up one wing; starts after the raised-hands beat (reviewer PASS); R2 review: starts at take frame 78 (film 288.45), after the man in blue emerges from behind the waiter's arm as a different man (take frames ~58-72)",
+  "t1_status": "FAIL review: wing doubles and changes hands (f69-85), TVs melt (f38-48), fingerless hand at the end. Retake A5r2 queued",
+  "take": "A5q-flow-t1.mp4",
+  "start_t": 288.45,
+  "partial": true
+ },
+ "A6": {
+  "frames": [
+   84,
+   135
+  ],
+  "slot": 5.16,
+  "why": "he bites the donut, eyes closed in defeat; nothing in the box changes inside the window; ends on 'eventually you lose'",
+  "take": "A6-flow-t1.mp4",
+  "start_t": 375.9,
+  "partial": true
+ },
+ "A7": {
+  "frames": [
+   102,
+   151
+  ],
+  "slot": 6.45,
+  "why": "lips on the straw, sipping in bliss, cup in both hands (between the straw slide at 95-101 and the level rise at 152-160); on 'They're just drinking a thousand calories per day'",
+  "take": "A7-flow-t1.mp4",
+  "start_t": 139.0,
+  "partial": true
+ }
+}

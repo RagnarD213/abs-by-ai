@@ -7,7 +7,7 @@ Difference: the previous frame is first warped onto the current one with optical
 (DIS, forward/backward checked; pixels whose flow does not round-trip within 0.5 px are left out). What is left is
 noise and flicker, not motion. Ratio below 1.0 = the key's edges are steadier than the camera's own picture.
 """
-import numpy as np, subprocess, json, sys, cv2
+import numpy as np, subprocess, json, sys, os, cv2
 from scipy import ndimage as ndi
 FF = "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video_edit/bin/ffmpeg"
 SRC = "/Volumes/Extreme/10:15 dan rose fitness shoot - green screen, outdoor shorts, outdoor b roll, studio backdrop/C1730.MP4"
@@ -22,7 +22,7 @@ def reader(args):
         yield np.frombuffer(b, np.uint8).reshape(H, W, 3)
 def main(pale, out):
     po = reader(["-i", pale, "-vf", VF])
-    ps = reader(["-ss", "1400.25", "-i", SRC, "-t", "9.35", "-vf", VF + ":w=1080:h=1920:flags=area"])
+    ps = reader(["-ss", os.environ.get("T0", "1400.25"), "-i", SRC, "-t", os.environ.get("DUR", "9.35"), "-vf", VF + ":w=1080:h=1920:flags=area"])
     BG = np.array([216, 225, 235], np.int16); st = np.ones((3, 3), bool)
     dis = cv2.DISOpticalFlow_create(cv2.DISOPTICAL_FLOW_PRESET_MEDIUM)
     yy, xx = np.mgrid[:H, :W].astype(np.float32)
@@ -50,7 +50,7 @@ def main(pale, out):
         prev = (ao, as_, g)
     o_ = np.array([r['out'] for r in rows]); s_ = np.array([r['src'] for r in rows])
     ho = np.array([r['hout'] for r in rows]); hs = np.array([r['hsrc'] for r in rows])
-    summ = dict(mc_ratio=round(float(o_.mean() / s_.mean()), 3), mc_ratio_worst=round(float((o_ / s_).max()), 3),
+    summ = dict(mc_ratio=round(float(o_.mean() / s_.mean()), 3), mc_ratio_worst=round(float((o_ / np.maximum(s_, 1e-6)).max()), 3),
                 mc_hair_ratio=round(float(ho.mean() / hs.mean()), 3), mc_hair_ratio_worst=round(float((ho / np.maximum(hs, 1e-6)).max()), 3),
                 mc_out=round(float(o_.mean()), 4), mc_src=round(float(s_.mean()), 4), mc_hair_out=round(float(ho.mean()), 4), mc_hair_src=round(float(hs.mean()), 4))
     json.dump(dict(summary=summ, frames=rows), open(out, "w"), indent=0); print(json.dumps(summ))

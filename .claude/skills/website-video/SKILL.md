@@ -3,6 +3,16 @@ name: website-video
 description: Build a WEBSITE conversion video for absbyai.com — the trust video a visitor watches on the post-lock-in analysis page or the /start landing page right before they buy — from Dan's teleprompter shoot footage into a finished, gated 16:9 master, in small approval rounds (Codex's WV-01 method). Use this whenever Dan asks for a website video, a conversion video, a "video for the analysis page", a VSL / landing-page video, the "post-generation video", a re-cut or revision of the website video, or any video whose home is a page on absbyai.com rather than YouTube or an ad platform — even if he doesn't say "/website-video". It locks in the audio that sounds like Muhammad's, the hair-anchored framing, the slow trustworthy pacing, real app screens beside Dan, and AI clips re-rendered until perfect, and it QCs harder than any other video skill. For paid ads use /ad-edit; for YouTube content use /longform-edit; for Shorts use /shorts.
 ---
 
+## Edit slot first (Dan, 2026-10-21)
+
+At most 5 edits do production at once. Before this edit's first production step (render-queue job, AI generation,
+build) and on every resume, run `python3 .claude/skills/_shared/editcap/editcap.py acquire <JOB> --title "<title>"
+--type <LFC|SFC|SFL|AD>`. Exit 3 = waiting: no rendering, generating, building or spending (read-only prep is fine);
+run `python3 .claude/skills/_shared/editcap/editcap.py wait <JOB>` with `run_in_background`, tell Dan the place in line
+in one line, end the turn, and continue when it exits. Review page up or stopping for Dan: `editcap.py release <JOB>
+--review`. Edit finished: `editcap.py release <JOB>` (if it prints `WAKE claude <id>`, send that session the message).
+Rule: `_shared/VIDEO-RULES.md`, "Active edit cap"; tool: `_shared/editcap/README.md`.
+
 ## Video editing task names (Dan, 2026-10-16)
 
 At the start of a video editing/review task, name the chat `<Recognizable Video Title> <Type> R<round>` under the [shared naming rule](../_shared/VIDEO-RULES.md#video-editing-task-names-dan-2026-10-16). Use LFC for long-form, SFC for dedicated shorts, and SFL for shorts extracted from long-form; retain existing paid-ad type labels. Put the recognizable video title first, omit internal job codes and generic action prefixes, and use the same name in handoff prompts. Asset/brief work supporting an existing editing task keeps that task's name and round.

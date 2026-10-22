@@ -1,0 +1,20 @@
+ai4_9x16 {"ok":true,"out":"ai4_9x16.png","width":1080,"height":1920,"codex_tokens":22464}
+pool_9x16 {"ok":true,"out":"pool_9x16.png","width":1080,"height":1920,"codex_tokens":29479}
+ai5_9x16 {"ok":true,"out":"ai5_9x16.png","width":1080,"height":1920,"codex_tokens":30296}
+board_9x16 {"ok":true,"out":"board_9x16.png","width":1080,"height":1920,"codex_tokens":21275}
+pool_16x9 {"ok":true,"out":"pool_16x9.png","width":1920,"height":1080,"codex_tokens":30035}
+board_16x9 {"ok":true,"out":"board_16x9.png","width":1920,"height":1080,"codex_tokens":15163}
+ai4_16x9 {"ok":true,"out":"ai4_16x9.png","width":1920,"height":1080,"codex_tokens":27920}
+ai3_9x16 {"ok":true,"out":"ai3_9x16.png","width":1080,"height":1920,"codex_tokens":111673}
+ai3_16x9 {"ok":true,"out":"ai3_16x9.png","width":1920,"height":1080,"codex_tokens":21687}
+ai5_16x9 {"ok":true,"out":"ai5_16x9.png","width":1920,"height":1080,"codex_tokens":14258}
+22760210f376adb4a634ff4c74c526b5ab9d116231323c5afa7ce33f95bfadba  first-step-abs_1-pool-photo-125-white-band | 16x9.jpg
+b99170149fd67f0ed142185b5d0f1e59b6f5bcdd1662d8f22459988a32c1443b  first-step-abs_1-pool-photo-125-white-band | 9x16.jpg
+417b41ec77a442b146c104e94186e210303e06a365e3d4718a423ef10ab3aa83  first-step-abs_2-studio-blue-11-vision-board-card | 16x9.jpg
+02d5520c07237422efd1c6883dacd06364caa465fc8d61ab8edab13d62508205  first-step-abs_2-studio-blue-11-vision-board-card | 9x16.jpg
+194def3b77ae916867ad24626a1342bcc25240e1c5053e895f49d2203602c20e  first-step-abs_3-ai-dan-print-cobalt-impact | 16x9.jpg
+fd4ea87c8fa98367979455880052931e5b60db8af9412e12b1e1d2a673628ff4  first-step-abs_3-ai-dan-print-cobalt-impact | 9x16.jpg
+38918e62625353ca17c925b53ba6ce32ca38c63c9e3c95a2c51e9a438e560f7b  first-step-abs_4-ai-phone-trophy-acid-yellow | 16x9.jpg
+3a220a08491f1f00cc278ff84627e014f776c705af282f49a41cdaf3c6ff5b9b  first-step-abs_4-ai-phone-trophy-acid-yellow | 9x16.jpg
+3b5e8ed778675e9a1dee1199b4684acffb9ff21c0c6703ead6426b04ff99e40a  first-step-abs_5-ai-phone-starting-blocks-teal | 16x9.jpg
+eefd65cc792eb9f0fb03ebae2e260dd9706834952b0c0d0d9e15d17704edabfc  first-step-abs_5-ai-phone-starting-blocks-teal | 9x16.jpg

@@ -1,0 +1,26 @@
+{
+ "shot": "RO-14 A5 The salad guy (motion take, 1920x1080)",
+ "intent": "Sports bar table loaded with wings, nachos, burgers and pitchers of beer, five heavy-set men and one fit man in the centre. START: everyone laughing; a waiter in black at the right edge sets a plain salad in front of the fit man. END: the waiter has walked out of frame right; the salad sits in front of the fit man; every other man has stopped laughing and stares at the salad; one, at the left, holds a chicken wing halfway to his mouth; the fit man looks down at his salad.",
+ "camera": "locked",
+ "may_change": {
+  "people_and_table": [
+   0,
+   184,
+   1920,
+   1080
+  ],
+  "waiter_right": [
+   1435,
+   0,
+   1920,
+   1080
+  ],
+  "tv_screen_top_centre_live_game": [
+   500,
+   20,
+   740,
+   140
+  ]
+ },
+ "note": "frame spec boxes scaled 1672x941 -> 1920x1080; people are may_change boxes (legs out of frame); props added for the take; 2026-10-20: the top-centre bar TV declared may_change: it shows a live game whose picture cuts (clipcheck flagged 7 points there at f91-100 of A5q-flow-t1; crop motion/A5q-vanish.jpg shows the TV picture, number-75 player; reviewer judged TV programme changes fine)"
+}

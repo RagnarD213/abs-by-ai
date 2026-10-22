@@ -95,6 +95,7 @@ async function run(p, {call, store, verifyLocks}, options = {}) {
     `Round controller journal: ${p.journalPath}; key: ${p.key}. Before production, verify productionOwner is ` +
     `your exact task ID and the round is complete (or continuation_queued for same-task next turn). ` +
     `If transfer is still pending, prepare read-only, then stop. Do not render or generate until ownership is recorded.\n` +
+    `Then hold an edit slot before production: python3 .claude/skills/_shared/editcap/editcap.py acquire ${p.jobId}; exit 3 means wait (see _shared/editcap/README.md).\n` +
     `Process revision ${p.revisionId} only once for ${p.key}. If already in progress, resume its checkpoint; ` +
     `if delivered, do not execute it again. Record that disposition in the round decisions.\n` +
     `Previous task: ${p.oldThreadId}. Revisions:\n${p.revisions}\n` +

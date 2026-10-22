@@ -54,3 +54,13 @@ Traps this round paid for:
    move a place to come from in START (the fork on the plate).
 9. **`checks.py` side-card clearance can fail on a mask speck**: a 47 px blob at the frame's bottom edge (the light tube's base)
    read as the person's left edge, 440 px under the card. Open the flagged mask before acting; the person component was 226 px clear.
+
+Round 2 (2026-10-20):
+10. **The 10/15 pickup on the 9/23 film (`round2/recipe/pickup.py`, `round2/pickup/match.py`).** Same lav, different set: the 9/23
+   voice measured about 20 dB darker above 5 kHz. Fix: an iterated 1/3-octave linear-phase match on active speech (threshold
+   relative to each file's 95th percentile; an absolute -40 dB threshold biased the fit by 10 dB), level-matched, then the film's own
+   chain. The window [16.62, 26.06) keeps the film's pauses, so the film length and every later item are unchanged; G02 starts on the
+   pickup (`start_t`) and G01's render is simply cut at the card (manifest `b` only, no re-render).
+11. **A blind Gemini A/B cannot judge a splice that sits at a script break.** With the SAME original clip on both sides it still
+   "found" a different-day splice at the line break, 100 % confident. Judge pickup joins on measurement (pickup vs film distance
+   against film vs film) and by ear; never by that listen alone.
