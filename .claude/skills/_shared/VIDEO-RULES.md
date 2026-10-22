@@ -34,6 +34,15 @@ RO-27 R1 used fixed `3440:1935:200:112` and `3000:1688:420:236` source crops wit
 
 Every green-screen video is keyed with Claude's Bill Maher Fat 90-Year-Old R2 key, Claude and Codex alike. Dan: "let's lock this chroma key as our default way to chroma key things. I want all green screen videos keyed out like this" and "Let's make all our future chroma keys this clean and make this a standard." It replaces the Codex R3 key locked the day before. The bar: edges steadier than the camera's own picture with motion removed, dark rim no worse than the source, nothing see-through over saturated pink (watch, glasses), no specks, strands and motion blur kept, measured with the shared scripts before Dan sees it. Method, exact code and hashes: `.claude/skills/_shared/chroma-key/README.md`. Calibrate plate, crop and hold-out boxes to each source; never average across a cut. Do not reopen the accepted style. This locks keying only; grade and audio stay per video, and already approved exports stay as they are.
 
+## Green screen reaction opening: the locked format (Dan, 2026-10-22)
+
+Every green screen reaction Short opens the same way. Dan, picking version B of Bill Maher Fat 90-Year-Old (DS-40) R4: "Let's go with B. Let's lock this as our format, this size, and the laptop visible for all of these green screen reactions."
+- The reaction clip plays first, full screen, as a fixed vertical crop on the speaker (one steady crop per shot), with its own sound; nothing plays before it.
+- Dan is keyed small in the LOWER LEFT at 0.40 of full size, flush against the left and bottom screen edges, with the laptop visible along the bottom of his footage (key the full camera height; do not crop above the laptop).
+- The small Dan is his REAL reaction: the stretch of his roll where the clip played on his laptop (find it by matching the clip audio in the roll transcript), in sync with the clip. His mic is off while the clip plays.
+- His footage's right edge gets a narrow soft fade (12 px on screen), widened only on frames where a hand leaves the camera picture, so nothing ends on a hard line; keep his head clear of the speaker's face.
+- Key with the house chroma key standard above. The recipe and code: `.claude/skills/shorts/reference/ds40-greenscreen/comp_r4.py` (version B) and its README.
+
 ## AI video clips: Google Flow subscription first, paid API only on "rush" (Dan, 2026-10-17)
 
 Dan: *"Default to the subscription; switch to the paid API only when I say rush, accelerate, or as fast as possible. If the subscription credits run out, ask me before paying."* Binds Claude and Codex, every skill that makes Veo motion.
