@@ -507,3 +507,6 @@ Five shorts from "My Honest Oura Ring Review After 1.5 Years" (parent YouTube `5
 
 ## SL-19 3 Healthy Foods That Made Me Fat shorts (2026-10-21)
 Three shorts set up and waiting behind RO-17 (YouTube Dec 13) on `scripts/blotato/video_waitlist.json` (with `parent_config`): Mon Dec 14, Fri Dec 18, Fri Dec 25, 9 AM Central. Covers C, C, C; keyword FOOD; `utm_content=sl19-short<N>`. Configs `scripts/blotato/configs/sl19-short{1..3}-*.json`. Receipt `Docs/SL19_SETUP_RECEIPT_20261021.md`.
+
+## SL-18 I'm 41. I Wasted My Life. shorts (2026-10-22)
+Two shorts queued on all four platforms: Mon Oct 26 and Sat Dec 12, 9 AM Central (ids 5909596-5909600, 5909603-5909607). Covers C and revised D; keyword ABS; `utm_content=sl18-short<N>`. Configs `scripts/blotato/configs/sl18-short{1,2}-*.json`. Receipt `Docs/SL18_SETUP_RECEIPT_20261022.md`.
