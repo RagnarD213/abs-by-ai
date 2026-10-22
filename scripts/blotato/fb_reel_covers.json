@@ -686,5 +686,29 @@
   "h": 720,
   "job": "RO-20C",
   "when": "2026-12-07T18:00:00.000Z"
+ },
+ {
+  "match": "Coconut water is sold as a natural, healthy way to hydrate. But really, it's sugar water.",
+  "w": 1080,
+  "h": 1920,
+  "job": "SL-19",
+  "when": "2026-12-14T15:00:00.000Z",
+  "cover": "/Users/danielrose/Library/Mobile Documents/com~apple~CloudDocs/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/approved-sl19/YouTube_healthyfoods-short1_coconut-water-is-just-sugar-water_cover-C.jpg"
+ },
+ {
+  "match": "Trail mix has a great reputation because it's nuts and fruit. But one cup of trail mix has more calories than a Big Mac.",
+  "w": 1080,
+  "h": 1920,
+  "job": "SL-19",
+  "when": "2026-12-18T15:00:00.000Z",
+  "cover": "/Users/danielrose/Library/Mobile Documents/com~apple~CloudDocs/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/approved-sl19/YouTube_healthyfoods-short2_trail-mix-more-calories-than-a-big-mac_cover-C.jpg"
+ },
+ {
+  "match": "If I do snack, I snack on something that's high in protein and low in carbs. Here are my four go-to snacks.",
+  "w": 1080,
+  "h": 1920,
+  "job": "SL-19",
+  "when": "2026-12-25T15:00:00.000Z",
+  "cover": "/Users/danielrose/Library/Mobile Documents/com~apple~CloudDocs/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/approved-sl19/YouTube_healthyfoods-short3_my-4-high-protein-snacks_cover-C.jpg"
  }
 ]

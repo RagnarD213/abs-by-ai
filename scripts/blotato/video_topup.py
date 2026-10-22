@@ -19,6 +19,7 @@ For each waiting entry, in order, while the queue has room for its 4 posts:
     takes the next free such day at 9 AM America/Chicago with no other YouTube post that day. A dedicated
     Short (job DS-...) goes on Thursday, one a week; a Short cut from a long-form goes on Monday, Tuesday,
     Friday or Saturday (Dan, 2026-10-17; was Tue/Thu/Sat). Dated plan: Docs/SHORTS_RELEASE_CALENDAR.md.
+    An entry with "parent_config" (the long-form's config) is never slotted on or before the parent's day.
 Then it runs the normal helper (longform_queue.py or organic_short_queue.py) with --apply, which
 verifies on a fresh pull. Entries never jump the line: if the first waiting one does not fit, nothing
 behind it is queued. Never touches, moves or deletes existing Blotato posts. Photo posts
@@ -151,9 +152,14 @@ def main() -> int:
             main = v["main"]
             clash = any((a, main[:16]) in minutes for a in ACCOUNTS)
             days = short_days(e)
+            # A Short cut from a long-form never airs before its parent (Dan, 2026-10-17): the entry's
+            # "parent_config" names the long-form config, whose "main" this routine updates when it re-slots it.
+            floor = today
+            if e.get("parent_config"):
+                floor = max(floor, local_day(json.load(open(os.path.join(ROOT, e["parent_config"])))["main"]))
             if (datetime.fromisoformat(main.replace("Z", "+00:00")) < now + timedelta(hours=2) or clash
-                    or want.weekday() not in days):
-                want = max(want, today) + timedelta(days=1)
+                    or want.weekday() not in days or want <= floor):
+                want = max(want, floor) + timedelta(days=1)
                 while (want.weekday() not in days or want in yt_days
                        or any((a, utc(want)[:16]) in minutes for a in ACCOUNTS)):
                     want += timedelta(days=1)

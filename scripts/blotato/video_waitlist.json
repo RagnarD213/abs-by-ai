@@ -246,5 +246,29 @@
   "job": "RO-20C",
   "label": "What To Buy For Your Health At Every Income Level",
   "added": "2026-10-21"
+ },
+ {
+  "config": "scripts/blotato/configs/sl19-short1-coconut-water-is-just-sugar-water.json",
+  "kind": "short",
+  "job": "SL-19",
+  "label": "3 Healthy Foods 1: Coconut Water Is Just Sugar Water",
+  "added": "2026-10-21",
+  "parent_config": "scripts/blotato/configs/ro17-3-healthy-foods.json"
+ },
+ {
+  "config": "scripts/blotato/configs/sl19-short2-trail-mix-more-calories-than-a-big-mac.json",
+  "kind": "short",
+  "job": "SL-19",
+  "label": "3 Healthy Foods 2: Trail Mix Has More Calories Than A Big Mac",
+  "added": "2026-10-21",
+  "parent_config": "scripts/blotato/configs/ro17-3-healthy-foods.json"
+ },
+ {
+  "config": "scripts/blotato/configs/sl19-short3-my-4-high-protein-snacks.json",
+  "kind": "short",
+  "job": "SL-19",
+  "label": "3 Healthy Foods 3: My 4 Go-To High-Protein Snacks",
+  "added": "2026-10-21",
+  "parent_config": "scripts/blotato/configs/ro17-3-healthy-foods.json"
  }
 ]
