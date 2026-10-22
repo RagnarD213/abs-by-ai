@@ -3,6 +3,10 @@ name: vsl-edit
 description: Edit or revise Abs By AI website video sales letters from filmed footage using detailed asset approval rounds before a full render. Use for website VSLs with a sales story, proof, product demonstration, offer and CTA. Organic teaching videos, paid ads and speed or aspect changes to an approved master use their own workflows.
 ---
 
+## Video editing task names (Dan, 2026-10-16)
+
+At the start of a video editing/review task, name the chat `<Recognizable Video Title> <Type> R<round>` under the [shared naming rule](../../../../.claude/skills/_shared/VIDEO-RULES.md#video-editing-task-names-dan-2026-10-16). Use LFC for long-form, SFC for dedicated shorts, and SFL for shorts extracted from long-form; retain existing paid-ad type labels. Put the recognizable video title first, omit internal job codes and generic action prefixes, and use the same name in handoff prompts. Asset/brief work supporting an existing editing task keeps that task's name and round.
+
 ## Current shared editorial rules (Dan, 2026-10-16)
 
 Read the live project [VIDEO-RULES.md](../../../../.claude/skills/_shared/VIDEO-RULES.md) before the historical recipes. In every new first round, including studio footage, show colour and level-matched voice options; offer the broad, entertaining AI clip selection described there; use title capitalization for new graphic copy with rare all-capital emphasis. An internal audio ranking is not a substitute for Dan's audition options. If he requests text ideas before frames, keep that order. Preserve source-specific locks and the existing frame/motion approval gates.
