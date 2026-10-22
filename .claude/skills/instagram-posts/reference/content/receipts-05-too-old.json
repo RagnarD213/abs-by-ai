@@ -16,7 +16,8 @@
     "alt": "AI-generated image of Dan aged to his early 50s, salt-and-pepper hair, shirtless in glasses, smiling",
     "height": 450,
     "maxw": 310,
-    "right": -10
+    "right": -10,
+    "label_text": "Real image of me, modified with AI to show my natural hair color."
    },
    "head_h": 232,
    "swipe": "Swipe for the study"

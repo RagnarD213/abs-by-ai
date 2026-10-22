@@ -74,3 +74,10 @@ videos go first, so 13 placements wait (these 10, workout-07 FB, workout-08 both
 daily `social-queue-daily-refresh` routine) now calls `igtemplate_phase3.place` once no video is waiting; a passed or
 taken day rolls to the next free Mon/Wed/Fri 5 PM. Captions via `dan-voice-writer` (in-session fallback). Round 4
 review (plank, too old): https://claude.ai/artifact/4Bxwguv9cNTAnksoFLSpT7
+
+## Round 4 approved (2026-10-22, late)
+
+Dan approved the last two after two fixes (plank slide 4: different, centred pose; aged cover label "Real image of me,
+modified with AI to show my natural hair color."). Planned Wed Dec 16 fix-07 plank, Fri Dec 18 receipts-05 too old;
+both wait for Blotato room with the others (15 placements waiting). Batch 1 is fully picked: 27 carousels plus the cheat
+sheet; ab wheel fix, gym arms and the deadlift-swap workout wait for footage.
