@@ -1,5 +1,7 @@
 # Soft Blue Shorts title band: clipped descenders audit (2026-10-22)
 
+**Dan's ruling (2026-10-22): close enough, fix going forward only.** The 11 delivered Shorts below release as they are; do not re-render or swap them. The fix and the check apply to every new render.
+
 **Problem.** `lib.band()` drew the two-line title at y 96 with a 100 px step and a font up to 88 px. With title-case
 titles (rule of 2026-10-16/20), a second line with g, j, p, q or y at full size ran its descenders to row 312. The
 band's glass line sits at 309 and the picture is pasted from 310, so the tails of those letters were sliced off flat.
@@ -52,7 +54,7 @@ identical copies).
 All six Salad Shorts (SL-03), Belly Fat 1/3/5, Oura 2/3/4, Zepbound Tips 3/6, 3 Healthy Foods 2, Wasted Life 2 and
 all three Top 1% Shorts (SL-17, already on the fixed geometry).
 
-## Re-render path (only on Dan's go-ahead)
+## Re-render path (not used: Dan ruled no; kept in case he changes his mind)
 
 Per batch: copy the fixed `band()` into the Extreme work folder's `lib.py`, run `batch.py render <S>` (picture only
 changes in rows 86 to 310; audio, captions and cut are untouched), re-run the delivery gate, then compare to the
