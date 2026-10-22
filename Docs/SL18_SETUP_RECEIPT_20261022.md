@@ -33,3 +33,9 @@ Five choices per short (A pool photo-71 / photo-289, B studio-white-32 / studio-
 - Captions are burned in; no SRT. Articles: written by sixpackabs-article-gap-daily after release.
 - After each YouTube release, check the public Shorts tile shows the approved cover (`/video-setup`, "YouTube Shorts cover verification").
 - Edit Queue: SL-18 `uploaded` (rev 6), mirrored to the page (version 5), synced. No third Short: the Tue Dec 15 "Wasted My Life 3" slot goes to another video Dan picks.
+
+## Short 2 cover revision R2 (2026-10-22, later)
+Dan revised cover D: drop the DATING IN YOUR 20S eyebrow; "STOP DATING" huge, red, all caps across the full width; "Until You Are / Ripped And Rich" white, larger. Shown to him first (new rule: a revised cover waits for his approval, VIDEO-RULES and memory `approve-revised-cover-before-install`); he replied "Approved, install it".
+- New files: Instagram PNG `a278e3bd`, YouTube JPEG `90c945ce`, TikTok cover-first copy `336241ce` (frame-0 PSNR 36.1 dB, audio packets identical). R1 files kept in `approved-sl18/superseded-r1/`.
+- Swapped on Instagram 5909604 (coverImageUrl), YouTube 5909607 (thumbnailUrl) and TikTok 5909605 (media), read back: captions, title, flags and time unchanged; all hashes match. Facebook 5909603: live installer cover file replaced in place (same path).
+- Extreme and Drive copies refreshed (md5 / rclone matched). `cover_audit.py`: 182 posts, 0 issues; `ad_guard.py --scan` CLEAN.

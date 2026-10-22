@@ -5,9 +5,9 @@
   "campaign": "wasted-my-life",
   "title": "Build Your Value Before You Date",
   "video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/065cc1b7-6785-4aa1-882c-2dc429ff701b.mp4",
-  "tiktok_video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/aed1e8ee-abaa-4ee2-91cb-44b548af7adb.mp4",
-  "instagram_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/c44eaa2d-7b2d-497e-b9d9-b17b206f1e4c.png",
-  "youtube_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/ec05ac29-e306-40e7-b8e9-5abaeb72d113.jpg",
+  "tiktok_video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/02dfdaec-49a7-4f64-b895-de4e16136946.mp4",
+  "instagram_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/9a7eddf0-b8b7-448f-8b03-96fdf75f9cd8.png",
+  "youtube_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/57012de8-91ae-453a-ac89-d6bfea195d30.jpg",
   "main": "2026-12-12T15:00:00.000Z",
   "keyword": "ABS",
   "ai_generated": true,
@@ -20,8 +20,9 @@
   "parent_config": "ro25-wasted-my-life.json",
   "media_sha256": {
     "master": "bbd9d0cb240419602efaee62834f841cbf4392e85bd63d6f10533785b18f95d6",
-    "tiktok": "f31fc16e281c9c6089d310440c7a014a11cce52b525c1c98f4f64a71b24078a9",
-    "ig": "c0f40f60c69410bcf34af17d87d63e9612856be2c19c1a086aea86f8f59bee04",
-    "yt": "84b90464cda6524bf3cfa1e0ce39c8ac4204cdb83da6240292608d74e08f4969"
-  }
+    "tiktok": "336241ce850686135211b7ea37fab2711278bc710353948b68b844b44b7576ad",
+    "ig": "a278e3bde1c7d99068c6c0ccc3467458d1b38ec6c8249a5553a7a4e563d05b0d",
+    "yt": "90c945ce4eb016c99db9bad32e2e84ce248f3785995fbe5c5197f6d47bbc5f1b"
+  },
+  "cover_note": "Cover D R2 approved by Dan 2026-10-22 ('Approved, install it'): STOP DATING full width red caps, Until You Are / Ripped And Rich white; swapped into 5909604/5909605/5909607 and the FB registry."
 }
