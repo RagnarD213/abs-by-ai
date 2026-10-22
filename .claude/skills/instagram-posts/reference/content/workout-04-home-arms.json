@@ -1,0 +1,70 @@
+{
+ "format": "steal-my-workout",
+ "id": "workout-04-home-arms",
+ "tag": "Steal my workout",
+ "source": "Arms and shoulders home workout, YouTube ZxsFnsv7mLo (SRT)",
+ "cover": {
+  "headline": "2 dumbbells.\n[y]6 minutes.[/y]\nBigger arms.",
+  "cutout": {
+   "src": "Short-form video content/instagram-danrosefit/template-r1-mockups/source/cut-blue-123.webp",
+   "alt": "Dan flexing both biceps"
+  },
+  "swipe": "Swipe to steal it"
+ },
+ "moves": [
+  {
+   "name": "Bicep curl",
+   "dose": "0:30",
+   "image": {
+    "src": "Short-form video content/instagram-danrosefit/assets/workout-04-home-arms/curl.jpg",
+    "pos": "50% 22%",
+    "zoom": 1.3,
+    "label": "real",
+    "alt": "Dan curling two dumbbells"
+   },
+   "cues": [
+    "Stand straight up and down.",
+    "Curl with the bicep only. No swinging.",
+    "One arm at a time or both. Both work."
+   ]
+  },
+  {
+   "name": "Side lateral raise",
+   "dose": "0:30",
+   "image": {
+    "src": "Short-form video content/instagram-danrosefit/assets/workout-04-home-arms/lateral.jpg",
+    "pos": "50% 8%",
+    "zoom": 1.12,
+    "label": "real",
+    "alt": "Dan at the top of a lateral raise"
+   },
+   "cues": [
+    "Go light. Most guys need 5 or 10 lb.",
+    "Get your elbows high at the top.",
+    "No rocking. No momentum."
+   ]
+  },
+  {
+   "name": "Overhead tricep extension",
+   "dose": "0:30",
+   "image": {
+    "src": "Short-form video content/instagram-danrosefit/assets/workout-04-home-arms/tricep.jpg",
+    "pos": "45% 30%",
+    "zoom": 1.4,
+    "label": "real",
+    "alt": "Dan lowering a dumbbell behind his head"
+   },
+   "cues": [
+    "Elbows tucked in tight.",
+    "Keep the dumbbell a few inches back from your neck.",
+    "Full lockout on top. Learn it with a light weight."
+   ]
+  }
+ ],
+ "recap": {
+  "title": "Screenshot this.",
+  "note": "Gymboss: 30 s rest, then go again. I do 3 rounds.",
+  "text": "One round before the pool. Three for a full workout. Tag the friend who never trains triceps.",
+  "follow": "Workouts I actually do."
+ }
+}

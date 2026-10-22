@@ -1,0 +1,81 @@
+{
+ "format": "the-fix",
+ "id": "fix-04-kettlebell-between-legs",
+ "tag": "The Fix · 04",
+ "status": "draft R1 2026-10-21; wording source: raw roll C0228-005 (7/8 welcome shoot, 38-90 s), DS-18 delivered words, scripts/blotato/configs/ds18-kettlebell-deadlift.json",
+ "cover": {
+  "headline": "Stop kettlebell deadlifting\n[y]like this.[/y]",
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-04-kettlebell-between-legs/cover.jpg",
+   "pos": "50% 50%",
+   "zoom": 1.0,
+   "label": "real",
+   "alt": "Dan bending over to reach a kettlebell out in front of his feet"
+  },
+  "ring": [
+   262,
+   330,
+   95,
+   82
+  ],
+  "callout": "Bell in front",
+  "callout_at": [
+   80,
+   300
+  ],
+  "swipe": "Swipe for the fix"
+ },
+ "mistake": {
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-04-kettlebell-between-legs/mistake.jpg",
+   "pos": "50% 50%",
+   "zoom": 1.0,
+   "label": "real",
+   "alt": "Dan bent over a kettlebell set out in front of him"
+  },
+  "headline": "Bell out in front.\nBending over for it.",
+  "body": "Most guys are doing these wrong. If the weight is ahead of you, you end up bending over to reach it."
+ },
+ "fix": {
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-04-kettlebell-between-legs/fix.jpg",
+   "pos": "50% 50%",
+   "zoom": 1.0,
+   "label": "real",
+   "alt": "Dan squatting down to a kettlebell between his legs, chest up"
+  },
+  "headline": "Bell between\nyour legs.",
+  "body": "Feet slightly wider than your shoulders, toes forward. Squat down with a straight back, grab it, stand up. [em]Squeeze your glutes at the top.[/em]"
+ },
+ "cues": {
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-04-kettlebell-between-legs/cues.jpg",
+   "pos": "50% 50%",
+   "zoom": 1.0,
+   "label": "real",
+   "alt": "Dan in a squat over a kettlebell between his feet"
+  },
+  "title": "3 cues",
+  "subtitle": "for the kettlebell deadlift",
+  "items": [
+   "Bell between your feet, not in front of them.",
+   "Toes facing forward, not out.",
+   "Squeeze your glutes at the top. No hip thrust."
+  ]
+ },
+ "cta": {
+  "blocks": [
+   {
+    "icon": "save",
+    "title": "Save this",
+    "text": "for your next home workout."
+   },
+   {
+    "icon": "send",
+    "title": "Send it",
+    "text": "to the guy who picks up a kettlebell like a dropped phone."
+   }
+  ],
+  "follow": "One fix a week, filmed on me."
+ }
+}

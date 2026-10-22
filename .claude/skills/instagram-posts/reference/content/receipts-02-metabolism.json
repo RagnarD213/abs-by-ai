@@ -1,0 +1,78 @@
+{
+ "format": "receipts",
+ "id": "receipts-02-metabolism",
+ "tag": "Receipts · 02",
+ "cover": {
+  "headline": "Your metabolism\ndidn't crash\nat 30.\n[hl]Or at 40.[/hl]",
+  "sub": "6,421 people measured. Here's what happened.",
+  "polaroid": {
+   "image": {
+    "src": "Short-form video content/instagram-danrosefit/assets/receipts-02-metabolism/dan-now.jpg",
+    "pos": "50% 22%",
+    "label": "real",
+    "alt": "Dan now, shirtless in yellow shorts, smiling"
+   },
+   "caption": "Me now. Past 40."
+  }
+ },
+ "study": {
+  "headline": "Researchers measured the calories burned by 6,421 people, from newborns to age 95.",
+  "stats": [
+   {
+    "n": "6,421",
+    "label": "people"
+   },
+   {
+    "n": "29",
+    "label": "countries"
+   },
+   {
+    "n": "95",
+    "label": "oldest age"
+   }
+  ],
+  "rows": [
+   {
+    "label": "Ages 20 to 60",
+    "result": "No change",
+    "tone": "good"
+   },
+   {
+    "label": "After 60",
+    "result": "Down 0.7% a year",
+    "tone": "neutral"
+   }
+  ],
+  "note": "calories burned, adjusted for body size and muscle",
+  "source": "Pontzer et al., Science, 2021"
+ },
+ "exhibit_b": {
+  "stamp": "Exhibit B: me at 38",
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/template-r1-mockups/source/before.jpg",
+   "pos": "50% 55%",
+   "label": "real",
+   "alt": "Dan at 38 and about 200 pounds, shirtless in a deck chair by a pool"
+  },
+  "caption": "38 years old. About 200 lb.",
+  "headline": "Same metabolism. Abs at 40."
+ },
+ "verdict": {
+  "headline": "Age isn't\nthe problem.\n[y]Lost muscle is.[/y]",
+  "body": "Calories burned track how much muscle you carry. Keep the muscle and you keep the burn.",
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/template-r1-mockups/source/cut-blue-43.webp",
+   "label": "real",
+   "alt": "Dan now, shirtless, hands on hips, abs visible"
+  }
+ },
+ "works": {
+  "items": [
+   "Lift weights 3 days a week. Muscle is your engine.",
+   "Get protein in every meal so you keep it.",
+   "Track your calories. Your age won't do it for you."
+  ],
+  "headline": "Same engine at 40.\n[hl]Feed it better.[/hl]",
+  "save": "Save this for the next time someone tells you your metabolism is shot."
+ }
+}

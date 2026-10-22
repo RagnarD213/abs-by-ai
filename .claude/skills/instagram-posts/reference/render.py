@@ -152,7 +152,9 @@ def render(content_path: Path, out_root: Path, page):
     page_file.write_text(html_text)
     page.goto(page_file.as_uri())
     page.wait_for_load_state("networkidle")
-    page.evaluate("document.fonts.ready")
+    # Google Fonts can land after networkidle; measuring before Anton and Manrope are in gives false overlaps
+    page.wait_for_function("document.fonts.status === 'loaded' && document.fonts.check('40px Anton') && document.fonts.check('700 20px Manrope')", timeout=20000)
+    page.wait_for_function("[...document.images].every(i => i.complete)", timeout=20000)
     page.evaluate(FIT_JS)
     problems = page.evaluate(QA_JS)
     files = []

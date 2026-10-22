@@ -84,4 +84,19 @@ Optional `size` on a headline sets its starting font size (it still auto-shrinks
 
 Render every post, read `qa.json`, look at each `contact.jpg` at phone size, rank the posts in each format and fix the
 weak ones first (memory `self-bakeoff-before-dan-reviews`). Show Dan a plain image review page (one swipeable row per
-post), never a Design canvas (it rendered black in his side panel on 2026-10-21).
+post), never a Design canvas (it rendered black in his side panel on 2026-10-21). Build it with
+`python3 .claude/skills/instagram-posts/reference/build_review.py SPEC.json OUT_DIR` (spec example:
+`reference/review-batch1.json`; rankings `ranking-*.md`, shoot lists `shootlist-*.md`) and publish `OUT_DIR/index.html`
+with every `slides/*` file. Dan ticks posts and pastes back the "Copy my picks" text.
+
+**Batch 1 (2026-10-21):** 30 carousels, page https://claude.ai/artifact/QWz3Mg5SMoAD19nBDxJY4i. Sources and checks:
+`receipts-sources.md` (every study verified), `workout-sources.md` (where Dan states each routine, which clip and second
+each still came from). The Fix wording comes from the raw rolls named in each content file's `status`.
+
+## Traps
+
+- **"Spiderman plank" is Dan's name for elbows-to-push-up-and-back** (his articles and videos). It is not knee to
+  elbow. The R1 C3 mockup got this wrong.
+- Clip B0423 has a burned-in "Spiderman Planks" chip after about 3 s; B0454 is not a V-sit twist; B0464 is jump squats.
+- The 8/28 main camera has no spoken labels; the GoPro labels identify which reps are the deliberate mistakes.
+- Gym exercises have no footage yet: their posts stay unqueued until the shoot list is filmed.

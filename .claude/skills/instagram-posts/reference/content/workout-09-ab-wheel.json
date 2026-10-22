@@ -1,0 +1,73 @@
+{
+ "format": "steal-my-workout",
+ "id": "workout-09-ab-wheel",
+ "tag": "Steal my workout",
+ "source": "$17 ab wheel video bkzT-3ENpoU (SRT), ab wheel workout b_bS9NdmL-g, DS-56 roll C1766",
+ "cover": {
+  "headline": "$17 ab wheel.\n[y]3 levels.[/y]\nPick yours.",
+  "cutout": {
+   "src": "Short-form video content/instagram-danrosefit/assets/workout-09-ab-wheel/cutout.webp",
+   "alt": "Dan in green trunks, hands on hips"
+  },
+  "swipe": "Swipe to steal it"
+ },
+ "moves": [
+  {
+   "name": "Short rollout",
+   "dose": "3 sets",
+   "dose_icon": "none",
+   "image": {
+    "src": "Short-form video content/instagram-danrosefit/assets/workout-09-ab-wheel/level1.jpg",
+    "pos": "45% 50%",
+    "zoom": 1.4,
+    "label": "real",
+    "alt": "Dan rolling the ab wheel out a few inches"
+   },
+   "cues": [
+    "Kneel with the wheel under your shoulders.",
+    "Arms locked, back flat.",
+    "Roll out a few inches, then come back."
+   ]
+  },
+  {
+   "name": "Halfway rollout",
+   "dose": "3 sets",
+   "dose_icon": "none",
+   "image": {
+    "src": "Short-form video content/instagram-danrosefit/assets/workout-09-ab-wheel/level2.jpg",
+    "pos": "45% 50%",
+    "zoom": 1.4,
+    "label": "real",
+    "alt": "Dan halfway through an ab wheel rollout"
+   },
+   "cues": [
+    "Same locked arms, same flat back.",
+    "Roll out slowly, about halfway.",
+    "Pull back with your abs, not your arms."
+   ]
+  },
+  {
+   "name": "Full rollout",
+   "dose": "3 sets",
+   "dose_icon": "none",
+   "image": {
+    "src": "Short-form video content/instagram-danrosefit/assets/workout-09-ab-wheel/level3.jpg",
+    "pos": "35% 50%",
+    "zoom": 1.4,
+    "label": "real",
+    "alt": "Dan at full extension on the ab wheel"
+   },
+   "cues": [
+    "Get your nose as close to the ground as you can.",
+    "Don't let your lower back sag.",
+    "Come all the way back, slow."
+   ]
+  }
+ ],
+ "recap": {
+  "title": "Screenshot this.",
+  "note": "Pick your level. 3 sets, 1 rep left in the tank. Add an inch or two each workout.",
+  "text": "Every day, end of your workout. Which level are you on? Comment 1, 2 or 3.",
+  "follow": "Workouts I actually do."
+ }
+}

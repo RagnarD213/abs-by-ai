@@ -1,0 +1,78 @@
+{
+ "format": "receipts",
+ "id": "receipts-06-sleep",
+ "tag": "Receipts · 06",
+ "cover": {
+  "headline": "Same diet.\nLess sleep.\n[hl]Less than half[/hl]\nthe fat lost.",
+  "sub": "The dieters averaged 41 years old.",
+  "polaroid": {
+   "image": {
+    "src": "Short-form video content/instagram-danrosefit/assets/receipts-06-sleep/clock.jpg",
+    "pos": "40% 50%",
+    "label": "ai",
+    "alt": "Bedside table at night with an alarm clock and a glass of water"
+   },
+   "caption": "Bedtime is part of the diet."
+  }
+ },
+ "study": {
+  "headline": "Overweight adults dieted for 2 weeks, twice. Once with 8.5 hours in bed, once with 5.5.",
+  "stats": [
+   {
+    "n": "10",
+    "label": "adults, average age 41"
+   },
+   {
+    "n": "14",
+    "label": "days per diet"
+   },
+   {
+    "n": "5.5",
+    "label": "hours in bed, short sleep"
+   }
+  ],
+  "rows": [
+   {
+    "label": "Fat lost, short sleep",
+    "result": "Lost less",
+    "tone": "bad"
+   },
+   {
+    "label": "Lean mass lost, short sleep",
+    "result": "Lost more",
+    "tone": "bad"
+   }
+  ],
+  "note": "Fat lost: 1.4 kg with 8.5 hours, 0.6 kg with 5.5. Lean mass lost: 1.5 kg vs 2.4 kg.",
+  "source": "Nedeltcheva et al., Annals of Internal Medicine, 2010"
+ },
+ "exhibit_b": {
+  "stamp": "Exhibit B: the bedroom",
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/receipts-06-sleep/bedroom.jpg",
+   "pos": "50% 60%",
+   "label": "ai",
+   "alt": "Dark, cool bedroom with a made bed"
+  },
+  "caption": "Cool, dark, phone away.",
+  "headline": "Sleep is part of the diet."
+ },
+ "verdict": {
+  "headline": "Cut sleep and\nyou cut the\n[y]fat you lose.[/y]",
+  "body": "They were hungrier too. More of the weight they lost was lean mass, not fat.",
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/receipts-06-sleep/cut-studio-gray-30.webp",
+   "label": "real",
+   "alt": "Dan now in a white tank top, smiling"
+  }
+ },
+ "works": {
+  "items": [
+   "Give yourself 8.5 hours in bed when you diet.",
+   "Keep the room cool. I sleep best around 63 degrees.",
+   "Phone out of the bedroom."
+  ],
+  "headline": "Dieting?\n[hl]Sleep like it counts.[/hl]",
+  "save": "Save this for the next time someone tells you sleep is for the weak."
+ }
+}

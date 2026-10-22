@@ -1,0 +1,73 @@
+{
+ "format": "steal-my-workout",
+ "id": "workout-06-ab-rounds",
+ "tag": "Steal my workout",
+ "source": "1 minute ab workout, YouTube Sv5wZha_a8c and follow-along 8BaCYcGhRPY",
+ "cover": {
+  "headline": "3 ab moves.\n[y]10 reps each.[/y]\n3 rounds.",
+  "cutout": {
+   "src": "Short-form video content/instagram-danrosefit/assets/workout-06-ab-rounds/cutout.webp",
+   "alt": "Dan in black trunks"
+  },
+  "swipe": "Swipe to steal it"
+ },
+ "moves": [
+  {
+   "name": "Toe touch",
+   "dose": "10 reps",
+   "dose_icon": "none",
+   "image": {
+    "src": "Short-form video content/instagram-danrosefit/assets/workout-06-ab-rounds/toetouch.jpg",
+    "pos": "55% 35%",
+    "zoom": 1.4,
+    "label": "real",
+    "alt": "Dan jackknifing up to touch his toes"
+   },
+   "cues": [
+    "Lie flat, arms overhead.",
+    "Jackknife up. Head and butt off the ground.",
+    "Picture kneeing yourself in the face."
+   ]
+  },
+  {
+   "name": "V-sit twist",
+   "dose": "10 reps",
+   "dose_icon": "none",
+   "image": {
+    "src": "Short-form video content/instagram-danrosefit/assets/workout-06-ab-rounds/vsit.jpg",
+    "pos": "50% 50%",
+    "zoom": 1.6,
+    "label": "real",
+    "alt": "Dan in a V-sit with a medicine ball"
+   },
+   "cues": [
+    "Balance on your butt, knees up.",
+    "Legs to one side, bounce the ball on the other.",
+    "Your legs do the work, not the ball."
+   ]
+  },
+  {
+   "name": "Spiderman plank",
+   "dose": "10 reps",
+   "dose_icon": "none",
+   "image": {
+    "src": "Short-form video content/instagram-danrosefit/assets/workout-06-ab-rounds/spiderman.jpg",
+    "pos": "45% 50%",
+    "zoom": 1.4,
+    "label": "real",
+    "alt": "Dan pushing up from a forearm plank"
+   },
+   "cues": [
+    "Start in a plank on your elbows.",
+    "Push up to a push-up position, then back down.",
+    "Stay perfectly straight the whole time."
+   ]
+  }
+ ],
+ "recap": {
+  "title": "Screenshot this.",
+  "note": "Jog in place 30 s between rounds. New? Do 1 round.",
+  "text": "Start with no weight. I use a 4 lb ball. Save this for your next ab day.",
+  "follow": "Workouts I actually do."
+ }
+}

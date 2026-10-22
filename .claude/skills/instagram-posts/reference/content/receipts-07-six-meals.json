@@ -1,0 +1,74 @@
+{
+ "format": "receipts",
+ "id": "receipts-07-six-meals",
+ "tag": "Receipts · 07",
+ "cover": {
+  "headline": "6 small meals\ndon't \"stoke\"\nyour metabolism.\n[hl]Same fat loss.[/hl]",
+  "sub": "Same calories. 3 meals vs 6.",
+  "polaroid": {
+   "image": {
+    "src": "Short-form video content/instagram-danrosefit/assets/receipts-07-six-meals/containers.jpg",
+    "pos": "50% 50%",
+    "label": "ai",
+    "alt": "Six small meal prep containers of chicken, rice and green beans"
+   },
+   "caption": "6 tiny meals. Same result."
+  }
+ },
+ "study": {
+  "headline": "Obese adults ate the same cut in calories for 8 weeks: 3 meals a day, or 3 meals plus 3 snacks.",
+  "stats": [
+   {
+    "n": "16",
+    "label": "adults finished"
+   },
+   {
+    "n": "8",
+    "label": "weeks"
+   }
+  ],
+  "rows": [
+   {
+    "label": "Weight and fat lost",
+    "result": "No difference",
+    "tone": "good"
+   },
+   {
+    "label": "Hunger and gut hormones",
+    "result": "No difference",
+    "tone": "good"
+   }
+  ],
+  "note": "Both groups lost weight. Eating more often didn't add to it.",
+  "source": "Cameron et al., British Journal of Nutrition, 2010"
+ },
+ "exhibit_b": {
+  "stamp": "Exhibit B: my meal prep",
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/receipts-07-six-meals/dan-meal-prep.jpg",
+   "pos": "45% 50%",
+   "label": "real",
+   "alt": "Dan sealing glass meal prep containers of salad in his kitchen"
+  },
+  "caption": "My salads, prepped in a batch.",
+  "headline": "Eat when it suits you."
+ },
+ "verdict": {
+  "headline": "Calories decide.\n[y]Meal count[/y]\ndoesn't.",
+  "body": "Eat 3 times or 6. Pick the schedule you can stick to and keep the total the same.",
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/receipts-07-six-meals/cut-studio-blue-175.webp",
+   "label": "real",
+   "alt": "Dan now, shirtless in jeans, abs visible"
+  }
+ },
+ "works": {
+  "items": [
+   "Set your daily calories first.",
+   "Eat as often as keeps you full.",
+   "Hate snacking? Skip it. 3 meals works."
+  ],
+  "headline": "Stop setting\n[hl]snack alarms.[/hl]",
+  "save": "Save this for the next time someone tells you to eat every 3 hours."
+ }
+}

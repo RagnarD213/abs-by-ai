@@ -1,0 +1,70 @@
+{
+ "format": "steal-my-workout",
+ "id": "workout-05-commercial-break",
+ "tag": "Steal my workout",
+ "source": "DS-58 short, roll C1778 (10/15 shoot)",
+ "cover": {
+  "headline": "3 moves.\n[y]90 seconds.[/y]\nEvery break.",
+  "cutout": {
+   "src": "Short-form video content/instagram-danrosefit/assets/workout-05-commercial-break/cutout.webp",
+   "alt": "Dan in green shorts, smiling"
+  },
+  "swipe": "Swipe to steal it"
+ },
+ "moves": [
+  {
+   "name": "Push-up",
+   "dose": "0:30",
+   "image": {
+    "src": "Short-form video content/instagram-danrosefit/assets/workout-05-commercial-break/pushup.jpg",
+    "pos": "30% 50%",
+    "zoom": 1.3,
+    "label": "real",
+    "alt": "Dan at the bottom of a push-up"
+   },
+   "cues": [
+    "Bring your chest all the way down.",
+    "Body in a straight line.",
+    "Too hard? Do them from your knees."
+   ]
+  },
+  {
+   "name": "Squat",
+   "dose": "0:30",
+   "image": {
+    "src": "Short-form video content/instagram-danrosefit/assets/workout-05-commercial-break/squat.jpg",
+    "pos": "50% 55%",
+    "zoom": 1.2,
+    "label": "real",
+    "alt": "Dan at the bottom of a squat, low angle"
+   },
+   "cues": [
+    "Sit back like there's a chair behind you.",
+    "Then stand up tall.",
+    "Slow on the way down."
+   ]
+  },
+  {
+   "name": "Plank",
+   "dose": "0:30",
+   "image": {
+    "src": "Short-form video content/instagram-danrosefit/assets/workout-05-commercial-break/plank.jpg",
+    "pos": "40% 55%",
+    "zoom": 1.4,
+    "label": "real",
+    "alt": "Dan holding a forearm plank"
+   },
+   "cues": [
+    "Keep your body straight.",
+    "Squeeze your abs.",
+    "No butt in the air. No sagging."
+   ]
+  }
+ ],
+ "recap": {
+  "title": "Screenshot this.",
+  "note": "Every commercial break. Back before the game comes back.",
+  "text": "That's 30 minutes by the end of the game. Comment how many breaks you made.",
+  "follow": "Workouts I actually do."
+ }
+}

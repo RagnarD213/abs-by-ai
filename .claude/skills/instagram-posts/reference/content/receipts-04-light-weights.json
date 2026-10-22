@@ -1,0 +1,76 @@
+{
+ "format": "receipts",
+ "id": "receipts-04-light-weights",
+ "tag": "Receipts · 04",
+ "cover": {
+  "headline": "You don't need\nheavy weights\nto build\n[hl]muscle.[/hl]",
+  "sub": "49 trained men. 12 weeks. Light vs heavy.",
+  "polaroid": {
+   "image": {
+    "src": "Short-form video content/instagram-danrosefit/assets/receipts-04-light-weights/dumbbells.jpg",
+    "pos": "50% 45%",
+    "label": "ai",
+    "alt": "Rack of small and medium hex dumbbells"
+   },
+   "caption": "Light weights count."
+  }
+ },
+ "study": {
+  "headline": "Trained men lifted for 12 weeks. One group went light for 20 to 25 reps. One went heavy for 8 to 12. Every set to failure.",
+  "stats": [
+   {
+    "n": "49",
+    "label": "trained men"
+   },
+   {
+    "n": "12",
+    "label": "weeks"
+   }
+  ],
+  "rows": [
+   {
+    "label": "Muscle growth",
+    "result": "No difference",
+    "tone": "good"
+   },
+   {
+    "label": "Strength, most lifts",
+    "result": "No difference",
+    "tone": "good"
+   }
+  ],
+  "note": "The heavy group gained more on bench press: 14 kg vs 9 kg.",
+  "source": "Morton et al., Journal of Applied Physiology, 2016"
+ },
+ "exhibit_b": {
+  "stamp": "Exhibit B: my backyard",
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/receipts-04-light-weights/dan-lateral-raise.jpg",
+   "pos": "50% 30%",
+   "label": "real",
+   "alt": "Dan doing dumbbell lateral raises by his pool",
+   "zoom": 1.3
+  },
+  "caption": "Home workout, on a timer.",
+  "headline": "Effort counts, not the plate."
+ },
+ "verdict": {
+  "headline": "Take every set\n[y]close to failure.[/y]\nThe weight is your call.",
+  "body": "Light or heavy, the men who pushed every set to failure grew the same.",
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/receipts-04-light-weights/cut-studio-blue-252.webp",
+   "label": "real",
+   "alt": "Dan now, shirtless, hands behind his head, abs visible",
+   "height": 360
+  }
+ },
+ "works": {
+  "items": [
+   "Pick a weight you can lift 8 to 25 times.",
+   "Stop when you can't do one more clean rep.",
+   "Want a bigger bench? Go heavier there."
+  ],
+  "headline": "Sore joints?\n[hl]Go lighter. Keep growing.[/hl]",
+  "save": "Save this for the next time someone tells you to go heavy or go home."
+ }
+}

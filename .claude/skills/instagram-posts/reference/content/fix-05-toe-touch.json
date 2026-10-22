@@ -1,0 +1,81 @@
+{
+ "format": "the-fix",
+ "id": "fix-05-toe-touch",
+ "tag": "The Fix · 05",
+ "status": "draft R1 2026-10-21; wording source: raw roll C0229-008 (7/8 welcome shoot, 310-405 s), raw roll C0223-007 (222-311 s), short v6-short2_knee-yourself-in-the-face (transcribed)",
+ "cover": {
+  "headline": "Stop doing toe touches\n[y]like this.[/y]",
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-05-toe-touch/cover.jpg",
+   "pos": "50% 50%",
+   "zoom": 1.0,
+   "label": "real",
+   "alt": "Dan on his back doing a toe touch with his head and butt still on the mat"
+  },
+  "ring": [
+   392,
+   232,
+   130,
+   100
+  ],
+  "callout": "Head down",
+  "callout_at": [
+   392,
+   180
+  ],
+  "swipe": "Swipe for the fix"
+ },
+ "mistake": {
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-05-toe-touch/mistake.jpg",
+   "pos": "50% 50%",
+   "zoom": 1.0,
+   "label": "real",
+   "alt": "Dan reaching for his feet while his head and hips stay on the mat"
+  },
+  "headline": "Head and butt\nstill on the ground.",
+  "body": "You're just waving your arms and legs around. You're not really activating your abs."
+ },
+ "fix": {
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-05-toe-touch/fix.jpg",
+   "pos": "50% 50%",
+   "zoom": 1.0,
+   "label": "real",
+   "alt": "Dan crunched up, knees driving toward his face, head and butt off the mat"
+  },
+  "headline": "Knee yourself\nin the face.",
+  "body": "Sounds weird, but it works. Try to knee yourself in the face on every rep. [em]Your head and butt come off the ground.[/em] Don't worry, you can't actually break your nose."
+ },
+ "cues": {
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-05-toe-touch/cues.jpg",
+   "pos": "50% 50%",
+   "zoom": 1.0,
+   "label": "real",
+   "alt": "Dan sitting on the mat between sets"
+  },
+  "title": "3 cues",
+  "subtitle": "for the toe touch",
+  "items": [
+   "Get your head and butt as far off the ground as you can.",
+   "Picture kneeing yourself in the face, every rep.",
+   "Slow and controlled. No weight to start."
+  ]
+ },
+ "cta": {
+  "blocks": [
+   {
+    "icon": "save",
+    "title": "Save this",
+    "text": "for your next ab day."
+   },
+   {
+    "icon": "send",
+    "title": "Send it",
+    "text": "to the guy whose toe touches look like he's waving down a cab."
+   }
+  ],
+  "follow": "One fix a week, filmed on me."
+ }
+}
