@@ -3847,17 +3847,17 @@
    "claude": "Read Handoffs/video-editing/00-RULES.md, then execute Handoffs/video-editing/SL-17-top-1-percent-shorts.md: propose standalone segments and wait for Dan picks before rendering. Use current /shorts. Name the task \"Top 1 Percent SFL R1\".",
    "codexModel": "GPT-6 Sol, high",
    "codex": "Read Handoffs/video-editing/00-RULES.md and Handoffs/video-editing/SL-17-top-1-percent-shorts.md. Follow .claude/skills/shorts/SKILL.md: propose segments, wait for Dan picks, build and review selected Shorts. Name the task \"Top 1 Percent SFL R1\".",
-   "state": "delivered",
+   "state": "finalized",
    "note": "Top 1 Percent SFL R1 delivered 2026-10-22: 3 Shorts (Nutrition Matters More Than Your Workouts; Start With 5 Minutes Every Morning; Every Man Should Train A Martial Art), gates PASS, independent reviews SHIP; review page http://127.0.0.1:9117/. Release held until RO-26 is public.",
    "unattended": false,
    "unattended_why": "Dan selects standalone Shorts segments before rendering.",
    "order": 170,
-   "updated": "2026-10-22",
-   "rev": 3,
-   "syncedRev": 2,
+   "updated": "2026-10-23",
+   "rev": 4,
+   "syncedRev": 4,
    "editor": "Claude",
    "needs": "",
-   "by": "Claude"
+   "by": ""
   },
   {
    "id": "SL-18",
@@ -3996,6 +3996,27 @@
    "updated": "2026-10-22",
    "rev": 1,
    "syncedRev": 1
+  },
+  {
+   "id": "DS-44B",
+   "list": "1",
+   "group": "Dedicated shorts",
+   "sub": "10/15 shoot",
+   "title": "Alex Hormozi Asks A Fat Guy Why He Isn't 200 Pounds Heavier (off-the-cuff take)",
+   "roll": "10/15 C1730 2325-2391",
+   "size": "S",
+   "file": "../handoff-20261023-ds44-hormozi-off-the-cuff-take.md",
+   "claudeModel": "Opus 5.5, high",
+   "claude": "Execute Handoffs/handoff-20261023-ds44-hormozi-off-the-cuff-take.md",
+   "state": "in_progress",
+   "note": "Off-the-cuff take in the locked reaction format, to compare with the approved scripted R2; Dan picks one.",
+   "needs": "",
+   "order": 125,
+   "editor": "Claude",
+   "by": "Claude",
+   "updated": "2026-10-23",
+   "rev": 2,
+   "syncedRev": 0
   }
  ]
 }

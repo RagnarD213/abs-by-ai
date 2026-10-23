@@ -30,14 +30,12 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Edit cap LIVE 2026-10-21, Claude.** Pushed; main folder mid-merge (not mine), so its skills lack it until merged. Next: delete after that merge.
 
-**SL-17:R2-WAIT:2026-10-22:Claude.**
 **SL-16:PICKS+SLOT-WAIT:2026-10-22:Claude.** Fasting shorts.
 
 **Boring Abs At 40 LFC R2 - ACTIVE 2026-10-20, Codex.** Executing R2 handoff. Colour C and voice B locked; R1 preserved. Next: calibrated headroom proof, corrected opening/contexts, complete existing-AI gallery, revised A01–A04 still pairs and independent checks. No new motion or full-film render before approval. Work: `/Volumes/Extreme/_edit_work/ro27/round2/`.
 
 **Calories Not Losing Weight SFL R5 - REVIEW 2026-10-20, Codex.** Standing-counter Snack on Protein, Not Carbs pair passed measured and independent checks. Narrated review: http://127.0.0.1:9042/. Next: Dan approves this pair before Flow. Fasting R4 frames approved; R2/R3/R4 untouched. No covers or publishing.
 
-**Bill Maher Fat 90-Year-Old SFC R5 - REVIEW 2026-10-23, Codex.** Complete Short: http://127.0.0.1:9067/. Independent visual review cleared repaired BMI; locked voice/warm color preserved. Raw delivery gate FAIL and unmeasured rows retained with explanations. Full master/SRT in Videos to Review. Next: Dan reviews laptop, foreground hair, presenter cuts and BMI. Work: `/Volumes/Extreme/_edit_work/DS-40-codex/round5/`. Claude untouched.
 
 
 **RA-09:POLICY-RECHECK:2026-10-22:Claude.** 10-23.
