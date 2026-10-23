@@ -44,7 +44,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Fat 90 Year Old SFC R6 - REVIEW :8940 2026-10-23, Claude.** Four graphics (new BMI table template) and edit plan shown inside a full draft. Next: Dan approves, then delivery gate, independent reviewer, delivery. Work: `/Volumes/Expansion/_edit_work/ds40/r6/`.
 
-**DS-44:R2-WAIT-SLOT:2026-10-22:Claude.** Option B + card; code ready.
+**DS-44:R2-REVIEW:9044:2026-10-23:Claude.**
 
 **SL-15 HOLD 2026-10-22.** `Docs/SL15_SETUP_RECEIPT_20261022.md`
 
@@ -120,7 +120,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-14:QUEUED-JAN3-2027:2026-10-22:Claude.** `Docs/RO14_SETUP_RECEIPT_20261022.md`
 
-**DS-33:R5-HANDOFF:2026-10-23:Claude.** Ready; Handoffs/README.
+**Ronaldo Ab Belt SFC R5 - ACTIVE 2026-10-23, Claude.** Dan in front of the split clip; rendering. Work: `/Volumes/Expansion/_edit_work/DS-33/r5/`.
 
 **RO-20C HOLD 2026-10-21, Claude.** Waitlist, Dec 6. `Docs/RO20C_SETUP_RECEIPT_20261021.md`
 
