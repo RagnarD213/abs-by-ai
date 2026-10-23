@@ -157,7 +157,7 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 | [DS-37](DS-37-dr-mike-says-tirzepatide-is-a-dial-for-your-body-weight-hes.md) | Dr. Mike Says Tirzepatide Is A Dial For Your Body Weight. He's Right. | 10/15 C1730 | READY | S |
 | [DS-38](DS-38-tiktok-says-blended-oats-work-like-ozempic-they-dont.md) | TikTok Says Blended Oats Work Like Ozempic. They Don't. | 10/15 C1730 | READY | S |
 | [DS-39](DS-39-he-hired-chatgpt-as-his-coach-for-a-year-hes-right.md) | He Hired ChatGPT As His Coach For A Year. He's Right. | 10/15 C1730 | READY | S |
-| [DS-40](DS-40-bill-maher-asks-if-youve-ever-seen-a-fat-90-year-old-hes-rig.md) | Bill Maher Asks If You've Ever Seen A Fat 90-Year-Old. He's Right. | 10/15 C1730 | IN PROGRESS | S |
+| [DS-40](DS-40-bill-maher-asks-if-youve-ever-seen-a-fat-90-year-old-hes-rig.md) | Bill Maher Asks If You've Ever Seen A Fat 90-Year-Old. He's Right. | 10/15 C1730 | FINALIZED | S |
 | [DS-41](DS-41-kevin-james-tried-one-cheat-day-a-week-it-wrecked-his-diet.md) | Kevin James Tried One Cheat Day A Week. It Wrecked His Diet. | 10/15 C1730 | READY | S |
 | [DS-42](DS-42-post-malone-lost-55-pounds-by-cutting-out-one-drink-hes-righ.md) | Post Malone Lost 55 Pounds By Cutting Out One Drink. He's Right. | 10/15 C1730 | READY | S |
 | [DS-43](DS-43-terry-crews-doesnt-eat-until-2-pm-hes-right.md) | Terry Crews Doesn't Eat Until 2 PM. He's Right. | 10/15 C1730 | READY | S |
