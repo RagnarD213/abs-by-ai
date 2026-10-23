@@ -23,7 +23,7 @@ MASKS = json.load(open(sys.argv[4])) if len(sys.argv) > 4 else {}
 os.makedirs(OUT, exist_ok=True)
 FILES = sorted(glob.glob(f"{IN}/f*.npy"))
 N = len(FILES)
-assert N > 200, f"{IN} has {N} frames"
+assert N > int(os.environ.get("MINF", "200")), f"{IN} has {N} frames"
 R = int(os.environ.get("R", "3"))        # neighbours each side
 TW = {1: 0.85, 2: 0.6, 3: 0.35}          # temporal weights
 SIG_G, SIG_FB, SIG_A = 10.0, 1.0, 0.20   # confidence widths: grey levels, flow px, alpha
@@ -164,7 +164,7 @@ if __name__ == "__main__":
     only = [int(x) for x in os.environ.get("ONLY", "").split(",") if x]
     idx = only or list(range(N))
     t0 = time.time(); n = 0
-    with Pool(int(os.environ.get("WORKERS") or os.environ.get("RENDERQ_CORES") or 4)) as pool:   # queue allowance
+    with Pool(int(os.environ.get("WORKERS", "4"))) as pool:
         for i, dch in pool.imap_unordered(work, idx):
             n += 1
             if n % 40 == 0: print(n, "frames", round(time.time() - t0), "s; mean band change", round(dch, 4), flush=True)
