@@ -13,6 +13,7 @@ import numpy as np
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 from build import (W,H,R,COPY,BADGES,WHITE,INK,RED,YEL,IMPACT,ARIAL,font,fit,common,text,box,ramp,plate,lay_B,lay_C,
                    person_mask,sha)
+FCOPY=['Why Every Man Should','Train In Martial Arts']   # Dan, 2026-10-23: "Let's go with F. Change the text to 'Why Every Man Should Train In Martial Arts.'"
 K='s3';SRC=R/'sources/blackbelt'
 PHOTO={'F':SRC/'promotion-with-instructor_2024-12-14.jpg','G':SRC/'seated-mat_2024-12-21.jpg','H':SRC/'over-shoulder_2024-12-21.jpg'}
 KIND={'F':'Real black-belt photo (promotion day, with his instructor)','G':'Real black-belt photo cut out on an AI dojo scene',
@@ -21,6 +22,7 @@ def blur_bg(im):
  bg=ImageOps.fit(im,(W,H),method=Image.Resampling.LANCZOS).filter(ImageFilter.GaussianBlur(40)).convert('RGBA')
  bg.alpha_composite(Image.new('RGBA',(W,H),(6,9,14,190)));return bg
 def build_F(ig):
+ import build as _b;_b.COPY[K]=(FCOPY,)+_b.COPY[K][1:]   # Dan's revised cover text (round 3)
  raw=Image.open(PHOTO['F']).convert('RGB');canvas=blur_bg(raw);tm=Image.new('L',(W,H))
  bb=lay_C(Image.new('RGBA',(W,H)),Image.new('L',(W,H)),K,ig)
  m,_=person_mask(raw);top=np.where(m.any(axis=1))[0].min()            # hair top of the taller person, source rows
@@ -57,12 +59,12 @@ def build_H(ig):
  return canvas,tm,pic_only,dict(source_crop=[x,y,x+cw,y+ch],photo_panel=[p0,p1])
 def main():
  mp=R/'manifest.json';man=json.loads(mp.read_text());recs=[r for r in man['outputs'] if not (r['short']==K and r['variant'] in 'FGH')]
- for v,fn in [('F',build_F),('G',build_G),('H',build_H)]:
+ for v,fn in [('G',build_G),('H',build_H),('F',build_F)]:   # F last: it swaps in Dan's revised text
   for platform in ['instagram','youtube']:
    ig=platform=='instagram';canvas,tm,pic,info=fn(ig);slug=f'{COPY[K][1]}_cover-{v}';p=R/platform/(slug+'.png')
    canvas.convert('RGB').save(p);tm.save(p.with_name(p.stem+'.text-mask.png'));pic.convert('RGB').save(p.with_name(p.stem+'.picture.png'))
    ph=R/'phone'/platform;ph.mkdir(parents=True,exist_ok=True);Image.open(p).resize((270,480),Image.Resampling.LANCZOS).save(ph/(slug+'.jpg'),quality=95)
-   recs.append(dict(short=K,variant=v,platform=platform,path=str(p),sha256=sha(p),kind=KIND[v],has_person=True,round=2,
-     source=str(PHOTO[v]),source_sha256=sha(PHOTO[v]),copy={'badge':BADGES[K],'headline':COPY[K][0]},**info))
+   recs.append(dict(short=K,variant=v,platform=platform,path=str(p),sha256=sha(p),kind=KIND[v],has_person=True,round=3 if v=='F' else 2,
+     source=str(PHOTO[v]),source_sha256=sha(PHOTO[v]),copy={'badge':BADGES[K],'headline':FCOPY if v=='F' else COPY[K][0]},**info))
  man['outputs']=recs;mp.write_text(json.dumps(man,indent=1)+'\n');print('built s3 F G H')
 if __name__=='__main__':main()
