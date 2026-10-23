@@ -16,7 +16,7 @@ Deliverable: 1080x1920, 45 to 66 s, J2 captions, Soft Blue Light HyperFrames gra
 
 - B-roll on this shoot: the pool demos and equipment (C1732 to C1754, listed in the report). Clip library first for anything else.
 - B-roll not filmed yet: none on the list.
-- Two takes of the reaction exist: the teleprompter script and an off-the-cuff take. Build from the scripted take; put the off-the-cuff take on the round 1 page as the alternative. The clip plays first, with nothing before it (memory `reaction-shorts-clip-first`); clip and times: `10-17 Shoot - Reaction Clips` doc `1BcRpzDQYNCssROEvg10Z9cOL2AtdvBdyqHwvxxwHtQA`.
+- Only the scripted take exists (checked 2026-10-23: C1729/C1730 have no off-the-cuff take for this video; the off-the-cuff run starts later on C1730, at 7:28 with the dad bod video). Build from the scripted take. The clip plays first, with nothing before it (memory `reaction-shorts-clip-first`); clip and times: `10-17 Shoot - Reaction Clips` doc `1BcRpzDQYNCssROEvg10Z9cOL2AtdvBdyqHwvxxwHtQA`.
 
 ## Starter prompts
 **Claude (Opus 5.5, high):**

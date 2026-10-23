@@ -26,6 +26,14 @@ me for review and regenerate if you get some slop like this."*
   question, *"does this look like real footage of a relaxed person, or like AI?"*, at playback speed, and any "AI" answer is a
   FAIL. Put that question in every frame-reviewer brief for motion.
 
+## Reaction videos with an off-the-cuff take: edit both versions in one task (Dan, 2026-10-23)
+
+- Dan: *"We'll do both the off-the-cuff and the scripted video at the same time for everything that we have scripted and
+  off-the-cuff."* Where a reaction has both a scripted and an off-the-cuff take, the edit task builds both finished Shorts,
+  shares the opening, card, key, colour, voice and graphics family, gates and independently reviews each, and shows them side
+  by side so Dan picks which ships. Takes and ranges are in each job doc (DS-35 to DS-45, 10/15 roll C1730). DS-33, DS-34 and
+  RO-22 have no off-the-cuff take.
+
 ## Reaction videos: the locked format, start to finish (Dan, 2026-10-23, DS-44 Hormozi Fat Guy R2 approved)
 
 Dan approved Hormozi Fat Guy (DS-44) round 2 and locked it as THE format for green-screen reaction videos: *"Okay, looks good.

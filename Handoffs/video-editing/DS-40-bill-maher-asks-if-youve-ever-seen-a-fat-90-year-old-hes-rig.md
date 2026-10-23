@@ -18,6 +18,11 @@ Deliverable: 1080x1920, 45 to 66 s, J2 captions, Soft Blue Light HyperFrames gra
 - B-roll not filmed yet: none on the list.
 - Two takes of the reaction exist: the teleprompter script and an off-the-cuff take. Build from the scripted take; put the off-the-cuff take on the round 1 page as the alternative. The clip plays first, with nothing before it (memory `reaction-shorts-clip-first`); clip and times: `10-17 Shoot - Reaction Clips` doc `1BcRpzDQYNCssROEvg10Z9cOL2AtdvBdyqHwvxxwHtQA`.
 
+## Off-the-cuff version (Dan, 2026-10-23): build once the scripted Short is finalized
+- Dan wants both versions of every reaction that has an off-the-cuff take. This video's scripted edit was already in rounds (Claude R6, a separate Codex R5) when that was decided, so the off-the-cuff version is built right after Dan finalizes the scripted one, in the same task if context allows, reusing its approved opening, handover, card, key plate, colour, voice and graphics family.
+- **Take:** roll C1730, slate "Okay, spontaneous reaction." at 1453.28 s (24:13.3); use 1460.78-1502.98 s (24:20.8-25:03.0) and 1504.22-1535.60 s (25:04.2-25:35.6, the "line that up... overweight or obese" part). Re-transcribe with medium.en, cut on energy, remove restarts and pauses. The take is about 74 s plus the 15 s clip: get as close to 66 s as possible by cutting only restarts, repeats and pauses; if still over, deliver the shortest clean cut and state its length.
+- Every gate and an independent reviewer on it; review page with both versions side by side; Dan picks which ships.
+
 ## Starter prompts
 **Claude (Opus 5.5, high):**
 > Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/DS-40-bill-maher-asks-if-youve-ever-seen-a-fat-90-year-old-hes-rig.md`: cut "Bill Maher Asks If You've Ever Seen A Fat 90-Year-Old. He's Right." from 10/15 roll C1730 with /shorts. Best take of every line, every gate, independent audit, deliver, send me the review copy, update the master list.

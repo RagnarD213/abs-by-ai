@@ -17,6 +17,7 @@ Deliverable: 1080x1920, 45 to 66 s, J2 captions, Soft Blue Light HyperFrames gra
 - B-roll on this shoot: the pool demos and equipment (C1732 to C1754, listed in the report). Clip library first for anything else.
 - B-roll not filmed yet: stepping on the scale.
 - Two takes of the reaction exist: the teleprompter script and an off-the-cuff take. Build from the scripted take; put the off-the-cuff take on the round 1 page as the alternative. The clip plays first, with nothing before it (memory `reaction-shorts-clip-first`); clip and times: `10-17 Shoot - Reaction Clips` doc `1BcRpzDQYNCssROEvg10Z9cOL2AtdvBdyqHwvxxwHtQA`.
+- **Off-the-cuff version: its own handoff** `Handoffs/handoff-20261023-ds44-hormozi-off-the-cuff-take.md` (DS-44B, C1730 2325.0-2391.0), written before the both-versions rule; the scripted R2 is finalized.
 
 ## Starter prompts
 **Claude (Opus 5.5, high):**
