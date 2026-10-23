@@ -150,7 +150,7 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 
 | job | video | rolls | status | size |
 |---|---|---|---|---|
-| [DS-33](DS-33-cristiano-ronaldo-sells-an-ab-belt-its-harder-than-a-workout.md) | Cristiano Ronaldo Sells An Ab Belt. It's Harder Than A Workout. | 10/15 C1729-C1730 | DELIVERED: awaiting Dan | S |
+| [DS-33](DS-33-cristiano-ronaldo-sells-an-ab-belt-its-harder-than-a-workout.md) | Cristiano Ronaldo Sells An Ab Belt. It's Harder Than A Workout. | 10/15 C1729-C1730 | IN PROGRESS | S |
 | [DS-34](DS-34-surgeons-now-carve-fake-abs-into-belly-fat-dont-do-it.md) | Surgeons Now Carve Fake Abs Into Belly Fat. Don't Do It. | 10/15 C1729-C1730 | READY | S |
 | [DS-35](DS-35-women-say-they-love-the-dad-bod-they-dont.md) | Women Say They Love The Dad Bod. They Don't. | 10/15 C1729-C1730 | READY | S |
 | [DS-36](DS-36-bill-maher-says-fat-shaming-should-come-back-hes-right.md) | Bill Maher Says Fat Shaming Should Come Back. He's Right. | 10/15 C1730 | READY | S |
@@ -161,7 +161,7 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 | [DS-41](DS-41-kevin-james-tried-one-cheat-day-a-week-it-wrecked-his-diet.md) | Kevin James Tried One Cheat Day A Week. It Wrecked His Diet. | 10/15 C1730 | READY | S |
 | [DS-42](DS-42-post-malone-lost-55-pounds-by-cutting-out-one-drink-hes-righ.md) | Post Malone Lost 55 Pounds By Cutting Out One Drink. He's Right. | 10/15 C1730 | READY | S |
 | [DS-43](DS-43-terry-crews-doesnt-eat-until-2-pm-hes-right.md) | Terry Crews Doesn't Eat Until 2 PM. He's Right. | 10/15 C1730 | READY | S |
-| [DS-44](DS-44-alex-hormozi-asks-a-fat-guy-why-he-isnt-200-pounds-heavier-h.md) | Alex Hormozi Asks A Fat Guy Why He Isn't 200 Pounds Heavier. He's Right. | 10/15 C1730 | IN PROGRESS | S |
+| [DS-44](DS-44-alex-hormozi-asks-a-fat-guy-why-he-isnt-200-pounds-heavier-h.md) | Alex Hormozi Asks A Fat Guy Why He Isn't 200 Pounds Heavier. He's Right. | 10/15 C1730 | FINALIZED | S |
 | [DS-45](DS-45-mr-olympia-shows-the-vacuum-heres-how-to-do-it-at-home.md) | Mr. Olympia Shows The Vacuum. Here's How To Do It At Home. | 10/15 C1730 | READY | S |
 | [DS-46](DS-46-the-only-2-exercises-you-need-for-lower-abs.md) | The Only 2 Exercises You Need For Lower Abs | 10/15 C1755-C1756 | READY | S |
 | [DS-47](DS-47-the-only-2-exercises-you-need-for-a-v-taper.md) | The Only 2 Exercises You Need For A V-Taper | 10/15 C1756 | READY | S |

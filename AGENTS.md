@@ -40,7 +40,7 @@ Every green-screen video is keyed with Claude's Bill Maher Fat 90-Year-Old R2 ke
 
 ## Green screen reaction opening: locked format (Dan, 2026-10-22)
 
-Every green screen reaction opens with the clip full screen (fixed vertical crop on the speaker) and Dan keyed small in the lower left at 0.40 of full size, flush on the left and bottom edges, laptop visible, showing his real reaction while the clip played. Dan: "Let's lock this as our format, this size, and the laptop visible for all of these green screen reactions." Full rule: `.claude/skills/_shared/VIDEO-RULES.md`.
+Every green screen reaction opens with the clip full screen (fixed vertical crop on the speaker) and Dan keyed small in the lower left at 0.40 of full size, flush on the left and bottom edges, laptop visible, showing his real reaction while the clip played. Dan: "Let's lock this as our format, this size, and the laptop visible for all of these green screen reactions." **Whole format locked 2026-10-23 (Dan approved Hormozi Fat Guy R2: "I want to lock this as our format for reaction videos"):** after the clip it shrinks into a 16:9 frame at the top that keeps playing the interview silently behind Dan's head (hair slightly overlapping its bottom edge) for about the first 30 seconds, then his take on the Soft Blue field. Full rule: `.claude/skills/_shared/VIDEO-RULES.md`.
 
 ## Real-photo disclosure wording (Dan, 2026-10-17)
 

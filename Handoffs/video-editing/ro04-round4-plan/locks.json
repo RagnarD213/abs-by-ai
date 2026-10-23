@@ -1,0 +1,38 @@
+{
+  "revision_id": "01a16918-0e30-7af1-90a7-267206829cad",
+  "scope": "Immutable reviewed source and approved components; does not mark the whole R3 film finalized.",
+  "files": [
+    {
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Handoffs/video-editing/ro04-round4-plan/decisions.json",
+      "sha256": "8dbdf2f8942d7198020a2fb432717eb6d01d15eb026f35e13cbfb1460a74421f"
+    },
+    {
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video-edits/RO-04/round3/Arms Shoulders Workout LFC R3 - full workout.mp4",
+      "sha256": "2a37855812c91260004ed53e56c84d4a0545dd92e5513c8bcc97446f911f318d"
+    },
+    {
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video-edits/RO-04/round3/approvals.json",
+      "sha256": "7482287c1f48ef13dd0d18930a3990f63eba5564bb160c72a4041f284e8daddf"
+    },
+    {
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video-edits/RO-04/round3/qa/calibration.json",
+      "sha256": "3578ff5a2fc0fc41629e5be573cdd3782ba74d4b6b361f19f1b3e687fc14ca12"
+    },
+    {
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video-edits/RO-04/round3/recipe/build.py",
+      "sha256": "0b22bfa39c72c4f3160dc6705025f2d19a211b38d4683bfd04a3f57d01cf4b88"
+    },
+    {
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video-edits/RO-04/round3/recipe/render_full.py",
+      "sha256": "be4dfd7d5e9075e2709f57591404a8a456f0252e7aa6c221b6953c344c8932a0"
+    },
+    {
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video-edits/RO-04/round3/recipe/assemble_exact.py",
+      "sha256": "9b16faa496863d2515e95edaf63f3697427f2056d5be3127a5e5c27470325cf1"
+    },
+    {
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Handoffs/handoff-20261023-ro04-round4-zoom-completion-preview.md",
+      "sha256": "f34323408a6c7099a6d4c3b132be65df56f4f0f61b640c0772ed3f2cdb22344c"
+    }
+  ]
+}
