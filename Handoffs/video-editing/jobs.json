@@ -2685,11 +2685,11 @@
    "codexModel": "GPT-6.1 Sol, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-35-women-say-they-love-the-dad-bod-they-dont.md` with `$long-form-content-edit` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Edit BOTH versions (scripted and off the cuff) in the locked reaction format, every gate and an independent review on each, deliver both side by side, send Dan the review page, update `00-MASTER.md`.",
    "state": "in_progress",
-   "note": "Dad Bod SFC R1: waiting first in edit-slot line; automatic 10-minute resume armed. No render or review copy yet. Both versions: scripted + off the cuff (Dan, 10-23).",
+   "note": "Dad Bod SFC R1: both scripted and off-cuff. Slot acquired, source downloaded/synced, take transcript complete. Key calibration, four voice options and source caches running; automatic continuation active. Runs over 66 s by Dan's choice. No review copy delivered yet.",
    "needs": "",
    "order": 115,
    "updated": "2026-10-23",
-   "rev": 3,
+   "rev": 4,
    "syncedRev": 3,
    "editor": "Codex",
    "by": "Codex"
