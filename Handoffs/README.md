@@ -28,7 +28,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 - [Make Time Exercise LFC R3](handoff-20261021-ro18-round3-mower-wispr.md): **Ready to fire (mower footage received 10-22). Claude Opus 5.5, high.** CONTENT LFC RO-18: A0063 kitchen-coffee AI clip at 0:12, the Wispr Flow screen recording in the phone card at 2:05, real mower footage at 4:21 (plus 4:31 and 4:43), remove the office clip at 9:39; full film, gates, independent review.
 - [What To Buy For Your Health LFC Setup](handoff-20261021-ro20c-thumbnails-and-video-setup.md): RO-20C finalized 10-21; five thumbnails, stop for the pick, then set up in the long-form slot right after part 2. Claude Opus 5.5 high.
 - [Fat 90 Year Old SFC R2](handoff-20261020-ds40-round2-key-polish.md): **Start now (2026-10-20). Claude Opus 5.5, high.** CONTENT SFC, green screen bake-off with Codex. Dan locked colour B and house voice + half bass; make the key beat R1 (hair flicker, dark rim, watch glass), independent review, R1 vs R2 page on 8940.
-- [Boring Abs At 40 LFC R2](handoff-20261020-ro27-round2-headroom-and-ai-revisions.md): **Start now (2026-10-20). GPT-6.1 Sol, high.** Fix and verify headroom in every wide/tight shot; apply selected richer colour C and warm-bass voice B; show all existing AI clips for the fasting opener choice; revise A01–A04 frames and remove A05–A06. R2 review before new motion or full film.
 
 
 
