@@ -84,7 +84,8 @@ decided = [
  'The first minute ends after "overdosing.", like round 1.',
  'Your olive shorts read a little browner than the real colour: the approved key strips green spill from everything, and the shorts are greenish. Next round I can keep the shorts\' own colour if you want.',
  'The Fat Joe, His Rule and Amy Schumer lower thirds stay up across one camera cut each, because their second fact is said after the cut.',
- 'The ab-wheel B-roll shows the roll-out only; the return does not fit in the line it covers.']
+ 'The ab-wheel B-roll shows the roll-out only; the return does not fit in the line it covers.',
+ 'Polish queued for round 3 (from the independent re-check): the step-down card\'s last row comes in on "keep losing" so it stays up about 3 s instead of 0.8 s, and the end screen\'s two small top lines go to CAPITALS like every other eyebrow.']
 checks = [f"Hair clearance ({lab}): {h['frames_checked']} frames where you are on screen, closest hair {h['min_top']} px from the top (needs 20), {h['verdict']}" for lab, h in zip(('1080p', '540p review copy'), hair) if h]
 if ag:
     rr = ag.get('rows', []); bad = [r['key'] for r in rr if not r.get('ok')]
