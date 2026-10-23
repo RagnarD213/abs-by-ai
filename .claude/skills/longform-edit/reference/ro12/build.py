@@ -391,7 +391,10 @@ def picture(fa=None, fb=None, name="PICTURE"):
     n = max(1, (fb - fa)//1800); step = (fb - fa + n - 1)//n
     jobs = [(a, min(fb, a + step), f"{OD}/chunks/{name}_{a:06d}_{min(fb, a+step):06d}.mp4") for a in range(fa, fb, step)]
     from concurrent.futures import ProcessPoolExecutor
-    with ProcessPoolExecutor(2) as ex: outs = list(ex.map(_job, jobs))
+    cores = int(os.environ.get("RENDERQ_CORES", 4))       # the render queue's allowance, shared by the chunk encodes
+    workers = max(1, min(2, cores // 2)); os.environ["RENDERQ_CORES"] = str(max(1, cores // workers))
+    with ProcessPoolExecutor(workers) as ex: outs = list(ex.map(_job, jobs))
+    os.environ["RENDERQ_CORES"] = str(cores)
     lst = f"{OD}/{name}.txt"; open(lst, "w").write("".join(f"file '{p}'\n" for p in outs))
     run([FF, "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", lst, "-c", "copy", f"{OD}/{name}.mp4"])
     print("picture", name, fb - fa, "frames", flush=True)

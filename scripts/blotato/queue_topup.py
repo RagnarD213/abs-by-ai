@@ -24,6 +24,11 @@ import video_topup  # noqa: E402
 if video_topup.pending(video_topup.load()):
     print(f"photo top-up on hold: {len(video_topup.pending(video_topup.load()))} videos are waiting for room (video_topup.py)")
     sys.exit(0)
+# Template carousels (instagram-posts skill) go before any leftover studio posts. Their placements wait here, behind
+# the videos above, whenever Blotato is full (igtemplate_phase3.py; added 2026-10-22).
+import igtemplate_phase3  # noqa: E402
+if apply:
+    igtemplate_phase3.place(CAP)
 items = fetch_schedules(s27.KEY)
 free = CAP - len(items)
 state = s27.load_state()

@@ -1,88 +1,7 @@
 {
-"generated": "2026-10-21T11:26:00+00:00",
+"generated": "2026-10-23T11:25:28+00:00",
 "cap": 200,
 "scheduled": [
-{
-"id": "5119958",
-"platform": "facebook",
-"when": "2026-10-21T22:00:00.000Z",
-"kind": "Carousel",
-"slides": 5,
-"text": "Save this for your next weekly reset. Choose your training times, make a simple food plan and write down what ",
-"batch": "Studio S07-A"
-},
-{
-"id": "5119909",
-"platform": "instagram",
-"when": "2026-10-21T22:00:00.000Z",
-"kind": "Carousel",
-"slides": 5,
-"text": "Save this for your next weekly reset. Choose your training times, make a simple food plan and write down what ",
-"batch": "Studio S07-A"
-},
-{
-"id": "5620997",
-"platform": "facebook",
-"when": "2026-10-22T14:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "This was me at 38 years old, 200 pounds, and the thing that finally fixed it was not a workout.",
-"batch": ""
-},
-{
-"id": "5620998",
-"platform": "instagram",
-"when": "2026-10-22T14:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "This was me at 38 years old, 200 pounds, and the thing that finally fixed it was not a workout.",
-"batch": ""
-},
-{
-"id": "5621000",
-"platform": "tiktok",
-"when": "2026-10-22T14:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "This was me at 38 years old, 200 pounds, and the thing that finally fixed it was not a workout.",
-"batch": ""
-},
-{
-"id": "5621001",
-"platform": "youtube",
-"when": "2026-10-22T14:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "This was me at 38 years old, 200 pounds, and the thing that finally fixed it was not a workout.",
-"batch": ""
-},
-{
-"id": "3563168",
-"platform": "facebook",
-"when": "2026-10-22T22:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "Work your obliques with V-sit twists.",
-"batch": ""
-},
-{
-"id": "3793997",
-"platform": "instagram",
-"when": "2026-10-22T22:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "Work your obliques with V-sit twists.",
-"batch": ""
-},
-{
-"id": "4553221",
-"platform": "tiktok",
-"when": "2026-10-22T22:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Work your obliques with V-sit twists.",
-"batch": ""
-},
 {
 "id": "5682356",
 "platform": "facebook",
@@ -120,22 +39,22 @@
 "batch": ""
 },
 {
-"id": "5825755",
+"id": "5903792",
 "platform": "facebook",
 "when": "2026-10-23T22:00:00.000Z",
 "kind": "Carousel",
 "slides": 5,
-"text": "Repeating a lunch you enjoy is a planning choice. You can still rotate meals and ingredients across the week. ",
-"batch": "Studio S08-B"
+"text": "Stop jumping rope like this. Both feet, big jump, pause on every landing.",
+"batch": ""
 },
 {
-"id": "5119927",
+"id": "5903790",
 "platform": "instagram",
 "when": "2026-10-23T22:00:00.000Z",
 "kind": "Carousel",
 "slides": 5,
-"text": "Repeating a lunch you enjoy is a planning choice. You can still rotate meals and ingredients across the week. ",
-"batch": "Studio S08-B"
+"text": "Stop jumping rope like this. Both feet, big jump, pause on every landing.",
+"batch": ""
 },
 {
 "id": "5053515",
@@ -219,6 +138,42 @@
 "batch": ""
 },
 {
+"id": "5909596",
+"platform": "facebook",
+"when": "2026-10-26T14:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "If you're on Adderall or any ADHD drug, quit today, because in the long term it backfires.",
+"batch": ""
+},
+{
+"id": "5909597",
+"platform": "instagram",
+"when": "2026-10-26T14:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "If you're on Adderall or any ADHD drug, quit today, because in the long term it backfires.",
+"batch": ""
+},
+{
+"id": "5909598",
+"platform": "tiktok",
+"when": "2026-10-26T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "If you're on Adderall or any ADHD drug, quit today, because in the long term it backfires.",
+"batch": ""
+},
+{
+"id": "5909600",
+"platform": "youtube",
+"when": "2026-10-26T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "If you're on Adderall or any ADHD drug, quit today, because in the long term it backfires.",
+"batch": ""
+},
+{
 "id": "5723691",
 "platform": "facebook",
 "when": "2026-10-26T17:00:00.000Z",
@@ -246,22 +201,22 @@
 "batch": ""
 },
 {
-"id": "5825756",
+"id": "5870971",
 "platform": "facebook",
 "when": "2026-10-26T22:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Make strength training an appointment you can keep. Choose the time, save the workout and get your space ready",
-"batch": "Studio S09-A"
+"kind": "Carousel",
+"slides": 5,
+"text": "6 weeks of crunches. Zero belly fat lost. 7 ab exercises, 5 days a week.",
+"batch": ""
 },
 {
-"id": "5119924",
+"id": "5870968",
 "platform": "instagram",
 "when": "2026-10-26T22:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Make strength training an appointment you can keep. Choose the time, save the workout and get your space ready",
-"batch": "Studio S09-A"
+"kind": "Carousel",
+"slides": 5,
+"text": "6 weeks of crunches. Zero belly fat lost. 7 ab exercises, 5 days a week.",
+"batch": ""
 },
 {
 "id": "5053520",
@@ -336,22 +291,22 @@
 "batch": ""
 },
 {
-"id": "5825757",
+"id": "5903799",
 "platform": "facebook",
 "when": "2026-10-28T22:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Missed a day? Decide what happens next. Open the calendar, choose a realistic time and set out what you need. ",
-"batch": "Studio S06-C"
+"kind": "Carousel",
+"slides": 5,
+"text": "3 ab moves. 10 reps each. 3 rounds. Jog in place 30 seconds between rounds.",
+"batch": ""
 },
 {
-"id": "5119944",
+"id": "5903798",
 "platform": "instagram",
 "when": "2026-10-28T22:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Missed a day? Decide what happens next. Open the calendar, choose a realistic time and set out what you need. ",
-"batch": "Studio S06-C"
+"kind": "Carousel",
+"slides": 5,
+"text": "3 ab moves. 10 reps each. 3 rounds. Jog in place 30 seconds between rounds.",
+"batch": ""
 },
 {
 "id": "5694638",
@@ -435,22 +390,22 @@
 "batch": ""
 },
 {
-"id": "5825759",
+"id": "5903174",
 "platform": "facebook",
 "when": "2026-10-30T22:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Meal prep is one way I make food simpler. You don't need to invent a different lunch every day. Pick a few mea",
-"batch": "Studio S05-B"
+"kind": "Carousel",
+"slides": 5,
+"text": "Stop doing towel rows like this. Hold the towel loose and you're just waving your arms.",
+"batch": ""
 },
 {
-"id": "5119930",
+"id": "5903172",
 "platform": "instagram",
 "when": "2026-10-30T22:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Meal prep is one way I make food simpler. You don't need to invent a different lunch every day. Pick a few mea",
-"batch": "Studio S05-B"
+"kind": "Carousel",
+"slides": 5,
+"text": "Stop doing towel rows like this. Hold the towel loose and you're just waving your arms.",
+"batch": ""
 },
 {
 "id": "5053527",
@@ -588,22 +543,22 @@
 "batch": ""
 },
 {
-"id": "5825760",
+"id": "5903805",
 "platform": "facebook",
 "when": "2026-11-02T23:00:00.000Z",
 "kind": "Carousel",
 "slides": 5,
-"text": "Missing Monday doesn't make Tuesday disappear. Name what got in the way, choose your next opening and make one",
-"batch": "Studio S08-C"
+"text": "3 moves. 90 seconds. Every commercial break, and you're back before the game comes back.",
+"batch": ""
 },
 {
-"id": "5119953",
+"id": "5903803",
 "platform": "instagram",
 "when": "2026-11-02T23:00:00.000Z",
 "kind": "Carousel",
 "slides": 5,
-"text": "Missing Monday doesn't make Tuesday disappear. Name what got in the way, choose your next opening and make one",
-"batch": "Studio S08-C"
+"text": "3 moves. 90 seconds. Every commercial break, and you're back before the game comes back.",
+"batch": ""
 },
 {
 "id": "5053535",
@@ -669,22 +624,22 @@
 "batch": ""
 },
 {
-"id": "5119961",
+"id": "5903177",
 "platform": "facebook",
 "when": "2026-11-04T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Too busy to train? Look at the whole appointment, including packing and travel. If the commute is the obstacle",
-"batch": "Studio S06-A"
+"kind": "Carousel",
+"slides": 5,
+"text": "Stop deadlifting like this. A rounded back is the biggest reason I see guys get hurt.",
+"batch": ""
 },
 {
-"id": "5119911",
+"id": "5903176",
 "platform": "instagram",
 "when": "2026-11-04T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Too busy to train? Look at the whole appointment, including packing and travel. If the commute is the obstacle",
-"batch": "Studio S06-A"
+"kind": "Carousel",
+"slides": 5,
+"text": "Stop deadlifting like this. A rounded back is the biggest reason I see guys get hurt.",
+"batch": ""
 },
 {
 "id": "4315902",
@@ -714,22 +669,22 @@
 "batch": ""
 },
 {
-"id": "5825761",
+"id": "5912306",
 "platform": "facebook",
 "when": "2026-11-06T23:00:00.000Z",
 "kind": "Carousel",
 "slides": 5,
-"text": "Make lunch easier before the week starts. Pick two familiar meals, check what you need and decide how they wil",
-"batch": "Studio S07-B"
+"text": "Stop doing side laterals like this. If your elbow isn't high, your delt isn't really being worked.",
+"batch": ""
 },
 {
-"id": "5119932",
+"id": "5912304",
 "platform": "instagram",
 "when": "2026-11-06T23:00:00.000Z",
 "kind": "Carousel",
 "slides": 5,
-"text": "Make lunch easier before the week starts. Pick two familiar meals, check what you need and decide how they wil",
-"batch": "Studio S07-B"
+"text": "Stop doing side laterals like this. If your elbow isn't high, your delt isn't really being worked.",
+"batch": ""
 },
 {
 "id": "5329625",
@@ -777,6 +732,42 @@
 "batch": ""
 },
 {
+"id": "5909999",
+"platform": "facebook",
+"when": "2026-11-09T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Here's why you should start Zepbound at 1 milligram to avoid the side effects.",
+"batch": ""
+},
+{
+"id": "5910000",
+"platform": "instagram",
+"when": "2026-11-09T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Here's why you should start Zepbound at 1 milligram to avoid the side effects.",
+"batch": ""
+},
+{
+"id": "5910001",
+"platform": "tiktok",
+"when": "2026-11-09T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Here's why you should start Zepbound at 1 milligram to avoid the side effects.",
+"batch": ""
+},
+{
+"id": "5910003",
+"platform": "youtube",
+"when": "2026-11-09T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Here's why you should start Zepbound at 1 milligram to avoid the side effects.",
+"batch": ""
+},
+{
 "id": "5046547",
 "platform": "facebook",
 "when": "2026-11-09T18:00:00.000Z",
@@ -804,22 +795,22 @@
 "batch": ""
 },
 {
-"id": "5825762",
+"id": "5912310",
 "platform": "facebook",
 "when": "2026-11-09T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Martial arts can challenge your cardio and help you burn calories. Weight training builds and maintains muscle",
-"batch": "Studio S09-C"
+"kind": "Carousel",
+"slides": 5,
+"text": "Stop doing V-sit twists like this. If you just move the ball, you're not really working as much.",
+"batch": ""
 },
 {
-"id": "5119950",
+"id": "5912308",
 "platform": "instagram",
 "when": "2026-11-09T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Martial arts can challenge your cardio and help you burn calories. Weight training builds and maintains muscle",
-"batch": "Studio S09-C"
+"kind": "Carousel",
+"slides": 5,
+"text": "Stop doing V-sit twists like this. If you just move the ball, you're not really working as much.",
+"batch": ""
 },
 {
 "id": "5329631",
@@ -867,22 +858,22 @@
 "batch": ""
 },
 {
-"id": "5119965",
+"id": "5912314",
 "platform": "facebook",
 "when": "2026-11-11T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "I built a home gym and still use a gym membership. I like having options. If the drive is the reason your work",
-"batch": "Studio S05-A"
+"kind": "Carousel",
+"slides": 5,
+"text": "Stop curling like this. If you have to swing your body to move the weight, it's too heavy.",
+"batch": ""
 },
 {
-"id": "5119921",
+"id": "5912313",
 "platform": "instagram",
 "when": "2026-11-11T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "I built a home gym and still use a gym membership. I like having options. If the drive is the reason your work",
-"batch": "Studio S05-A"
+"kind": "Carousel",
+"slides": 5,
+"text": "Stop curling like this. If you have to swing your body to move the weight, it's too heavy.",
+"batch": ""
 },
 {
 "id": "5095439",
@@ -912,22 +903,58 @@
 "batch": ""
 },
 {
-"id": "5119963",
+"id": "5867678",
+"platform": "facebook",
+"when": "2026-11-13T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "After a bad night of sleep, your Oura Ring tells you to take it easy. Don't listen to that shit.",
+"batch": ""
+},
+{
+"id": "5867679",
+"platform": "instagram",
+"when": "2026-11-13T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "After a bad night of sleep, your Oura Ring tells you to take it easy. Don't listen to that shit.",
+"batch": ""
+},
+{
+"id": "5867680",
+"platform": "tiktok",
+"when": "2026-11-13T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "After a bad night of sleep, your Oura Ring tells you to take it easy. Don't listen to that shit.",
+"batch": ""
+},
+{
+"id": "5867682",
+"platform": "youtube",
+"when": "2026-11-13T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "After a bad night of sleep, your Oura Ring tells you to take it easy. Don't listen to that shit.",
+"batch": ""
+},
+{
+"id": "5912317",
 "platform": "facebook",
 "when": "2026-11-13T23:00:00.000Z",
 "kind": "Carousel",
 "slides": 5,
-"text": "You don't have to wait for a perfect free hour to put a workout in your calendar. Start by finding the time yo",
-"batch": "Studio S08-A"
+"text": "Your metabolism didn't crash at 30. Or at 40. 6,421 people measured. From 20 to 60, no change.",
+"batch": ""
 },
 {
-"id": "5119916",
+"id": "5912315",
 "platform": "instagram",
 "when": "2026-11-13T23:00:00.000Z",
 "kind": "Carousel",
 "slides": 5,
-"text": "You don't have to wait for a perfect free hour to put a workout in your calendar. Start by finding the time yo",
-"batch": "Studio S08-A"
+"text": "Your metabolism didn't crash at 30. Or at 40. 6,421 people measured. From 20 to 60, no change.",
+"batch": ""
 },
 {
 "id": "5361331",
@@ -966,22 +993,58 @@
 "batch": ""
 },
 {
-"id": "5825763",
+"id": "5867684",
 "platform": "facebook",
-"when": "2026-11-16T23:00:00.000Z",
-"kind": "Photo",
+"when": "2026-11-16T15:00:00.000Z",
+"kind": "Reel",
 "slides": 1,
-"text": "Lunch sorted means fewer decisions in the middle of the day. Choose two lunches you enjoy, check the ingredien",
-"batch": "Studio S06-B"
+"text": "The most valuable thing my Oura Ring did for me was the one I never expected. It showed me which people in my ",
+"batch": ""
 },
 {
-"id": "5119940",
+"id": "5867685",
+"platform": "instagram",
+"when": "2026-11-16T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "The most valuable thing my Oura Ring did for me was the one I never expected. It showed me which people in my ",
+"batch": ""
+},
+{
+"id": "5867687",
+"platform": "tiktok",
+"when": "2026-11-16T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "The most valuable thing my Oura Ring did for me was the one I never expected. It showed me which people in my ",
+"batch": ""
+},
+{
+"id": "5867688",
+"platform": "youtube",
+"when": "2026-11-16T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "The most valuable thing my Oura Ring did for me was the one I never expected. It showed me which people in my ",
+"batch": ""
+},
+{
+"id": "5912319",
+"platform": "facebook",
+"when": "2026-11-16T23:00:00.000Z",
+"kind": "Carousel",
+"slides": 5,
+"text": "3 moves. 5 minutes. No gym. 30 seconds on, 30 seconds rest, until 5 minutes are up.",
+"batch": ""
+},
+{
+"id": "5912318",
 "platform": "instagram",
 "when": "2026-11-16T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Lunch sorted means fewer decisions in the middle of the day. Choose two lunches you enjoy, check the ingredien",
-"batch": "Studio S06-B"
+"kind": "Carousel",
+"slides": 5,
+"text": "3 moves. 5 minutes. No gym. 30 seconds on, 30 seconds rest, until 5 minutes are up.",
+"batch": ""
 },
 {
 "id": "5443391",
@@ -1020,58 +1083,166 @@
 "batch": ""
 },
 {
-"id": "5825764",
+"id": "5912322",
 "platform": "facebook",
 "when": "2026-11-18T23:00:00.000Z",
 "kind": "Carousel",
 "slides": 5,
-"text": "Your backup plan should be specific enough to use on a busy day. Name the obstacle, choose an alternative and ",
-"batch": "Studio S07-C"
+"text": "Stop kettlebell deadlifting like this. Bell out in front, you end up bending over to reach it.",
+"batch": ""
 },
 {
-"id": "5119946",
+"id": "5912320",
 "platform": "instagram",
 "when": "2026-11-18T23:00:00.000Z",
 "kind": "Carousel",
 "slides": 5,
-"text": "Your backup plan should be specific enough to use on a busy day. Name the obstacle, choose an alternative and ",
-"batch": "Studio S07-C"
+"text": "Stop kettlebell deadlifting like this. Bell out in front, you end up bending over to reach it.",
+"batch": ""
 },
 {
-"id": "5825766",
+"id": "5867691",
+"platform": "facebook",
+"when": "2026-11-20T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Something you do near bedtime might be spiking your heart rate and adrenaline and hurting your sleep without y",
+"batch": ""
+},
+{
+"id": "5867694",
+"platform": "instagram",
+"when": "2026-11-20T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Something you do near bedtime might be spiking your heart rate and adrenaline and hurting your sleep without y",
+"batch": ""
+},
+{
+"id": "5867698",
+"platform": "tiktok",
+"when": "2026-11-20T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Something you do near bedtime might be spiking your heart rate and adrenaline and hurting your sleep without y",
+"batch": ""
+},
+{
+"id": "5867701",
+"platform": "youtube",
+"when": "2026-11-20T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Something you do near bedtime might be spiking your heart rate and adrenaline and hurting your sleep without y",
+"batch": ""
+},
+{
+"id": "5912326",
 "platform": "facebook",
 "when": "2026-11-20T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Lunch gets easier when the decision is already made. Choose a meal you enjoy, get the ingredients or order in ",
-"batch": "Studio S09-B"
+"kind": "Carousel",
+"slides": 4,
+"text": "Carbs at night make you fat? This group lost more. Most of their carbs at dinner, 6 months.",
+"batch": ""
 },
 {
-"id": "5119942",
+"id": "5912324",
 "platform": "instagram",
 "when": "2026-11-20T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Lunch gets easier when the decision is already made. Choose a meal you enjoy, get the ingredients or order in ",
-"batch": "Studio S09-B"
+"kind": "Carousel",
+"slides": 4,
+"text": "Carbs at night make you fat? This group lost more. Most of their carbs at dinner, 6 months.",
+"batch": ""
 },
 {
-"id": "5825767",
+"id": "5910004",
+"platform": "facebook",
+"when": "2026-11-21T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Here's why I stopped using the pen to inject Zepbound and use a needle and vial instead.",
+"batch": ""
+},
+{
+"id": "5910006",
+"platform": "instagram",
+"when": "2026-11-21T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Here's why I stopped using the pen to inject Zepbound and use a needle and vial instead.",
+"batch": ""
+},
+{
+"id": "5910007",
+"platform": "tiktok",
+"when": "2026-11-21T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Here's why I stopped using the pen to inject Zepbound and use a needle and vial instead.",
+"batch": ""
+},
+{
+"id": "5910008",
+"platform": "youtube",
+"when": "2026-11-21T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Here's why I stopped using the pen to inject Zepbound and use a needle and vial instead.",
+"batch": ""
+},
+{
+"id": "5867702",
+"platform": "facebook",
+"when": "2026-11-23T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "You're probably not sleeping as well as you think. You've got to buy a sleep tracker, even if it's not the Our",
+"batch": ""
+},
+{
+"id": "5867703",
+"platform": "instagram",
+"when": "2026-11-23T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "You're probably not sleeping as well as you think. You've got to buy a sleep tracker, even if it's not the Our",
+"batch": ""
+},
+{
+"id": "5867704",
+"platform": "tiktok",
+"when": "2026-11-23T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "You're probably not sleeping as well as you think. You've got to buy a sleep tracker, even if it's not the Our",
+"batch": ""
+},
+{
+"id": "5867706",
+"platform": "youtube",
+"when": "2026-11-23T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "You're probably not sleeping as well as you think. You've got to buy a sleep tracker, even if it's not the Our",
+"batch": ""
+},
+{
+"id": "5912330",
 "platform": "facebook",
 "when": "2026-11-23T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "A missed day needs a next step, not a speech about starting your whole life over. Pick the next available time",
-"batch": "Studio S05-C"
+"kind": "Carousel",
+"slides": 5,
+"text": "$17 ab wheel. 3 levels. Pick yours. 3 sets, 1 rep left in the tank.",
+"batch": ""
 },
 {
-"id": "5119948",
+"id": "5912329",
 "platform": "instagram",
 "when": "2026-11-23T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "A missed day needs a next step, not a speech about starting your whole life over. Pick the next available time",
-"batch": "Studio S05-C"
+"kind": "Carousel",
+"slides": 5,
+"text": "$17 ab wheel. 3 levels. Pick yours. 3 sets, 1 rep left in the tank.",
+"batch": ""
 },
 {
 "id": "5524573",
@@ -1119,22 +1290,22 @@
 "batch": ""
 },
 {
-"id": "5119956",
+"id": "5912334",
 "platform": "facebook",
 "when": "2026-11-25T23:00:00.000Z",
 "kind": "Photo",
 "slides": 1,
-"text": "Put your next workout on the calendar before the week fills up. Pick the time, the place and what you plan to ",
-"batch": "Studio S01-A"
+"text": "Protein per 100 calories. Shrimp gives you 24 grams for every 100 calories you eat.",
+"batch": ""
 },
 {
-"id": "5119908",
+"id": "5912332",
 "platform": "instagram",
 "when": "2026-11-25T23:00:00.000Z",
 "kind": "Photo",
 "slides": 1,
-"text": "Put your next workout on the calendar before the week fills up. Pick the time, the place and what you plan to ",
-"batch": "Studio S01-A"
+"text": "Protein per 100 calories. Shrimp gives you 24 grams for every 100 calories you eat.",
+"batch": ""
 },
 {
 "id": "5524584",
@@ -1164,58 +1335,139 @@
 "batch": ""
 },
 {
-"id": "5119960",
+"id": "5867711",
+"platform": "facebook",
+"when": "2026-11-27T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Should you buy the Oura Ring? In my opinion yes, for most people, and absolutely everybody needs a sleep track",
+"batch": ""
+},
+{
+"id": "5867713",
+"platform": "instagram",
+"when": "2026-11-27T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Should you buy the Oura Ring? In my opinion yes, for most people, and absolutely everybody needs a sleep track",
+"batch": ""
+},
+{
+"id": "5867715",
+"platform": "tiktok",
+"when": "2026-11-27T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Should you buy the Oura Ring? In my opinion yes, for most people, and absolutely everybody needs a sleep track",
+"batch": ""
+},
+{
+"id": "5867716",
+"platform": "youtube",
+"when": "2026-11-27T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Should you buy the Oura Ring? In my opinion yes, for most people, and absolutely everybody needs a sleep track",
+"batch": ""
+},
+{
+"id": "5912339",
 "platform": "facebook",
 "when": "2026-11-27T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Choose your workout before you arrive. Save the plan, get your clothes ready and decide when you need to leave",
-"batch": "Studio S03-A"
+"kind": "Carousel",
+"slides": 5,
+"text": "2 dumbbells. 6 minutes. Bigger arms. 30 seconds a move, 30 seconds rest. I do 3 rounds.",
+"batch": ""
 },
 {
-"id": "5119910",
+"id": "5912337",
 "platform": "instagram",
 "when": "2026-11-27T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Choose your workout before you arrive. Save the plan, get your clothes ready and decide when you need to leave",
-"batch": "Studio S03-A"
+"kind": "Carousel",
+"slides": 5,
+"text": "2 dumbbells. 6 minutes. Bigger arms. 30 seconds a move, 30 seconds rest. I do 3 rounds.",
+"batch": ""
 },
 {
-"id": "5119962",
+"id": "5910010",
 "platform": "facebook",
-"when": "2026-11-30T23:00:00.000Z",
-"kind": "Photo",
+"when": "2026-11-28T15:00:00.000Z",
+"kind": "Reel",
 "slides": 1,
-"text": "Give lunch a place in your training plan. Decide what you'll eat and where it will come from before you head o",
-"batch": "Studio S02-A"
+"text": "Here's how to inject Zepbound with a needle, step by step. It takes about 10 seconds once you know what you're",
+"batch": ""
 },
 {
-"id": "5119914",
+"id": "5910011",
+"platform": "instagram",
+"when": "2026-11-28T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Here's how to inject Zepbound with a needle, step by step. It takes about 10 seconds once you know what you're",
+"batch": ""
+},
+{
+"id": "5910012",
+"platform": "tiktok",
+"when": "2026-11-28T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Here's how to inject Zepbound with a needle, step by step. It takes about 10 seconds once you know what you're",
+"batch": ""
+},
+{
+"id": "5910013",
+"platform": "youtube",
+"when": "2026-11-28T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Here's how to inject Zepbound with a needle, step by step. It takes about 10 seconds once you know what you're",
+"batch": ""
+},
+{
+"id": "5912341",
 "platform": "instagram",
 "when": "2026-11-30T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Give lunch a place in your training plan. Decide what you'll eat and where it will come from before you head o",
-"batch": "Studio S02-A"
+"kind": "Carousel",
+"slides": 4,
+"text": "Lower abs won't show? Do these 2, every day, at the end of your workout.",
+"batch": ""
 },
 {
-"id": "5119964",
+"id": "5910016",
 "platform": "facebook",
-"when": "2026-12-02T23:00:00.000Z",
-"kind": "Photo",
+"when": "2026-12-01T15:00:00.000Z",
+"kind": "Reel",
 "slides": 1,
-"text": "Choose a training setting you want to come back to. Then make the practical part clear: when you're going, wha",
-"batch": "Studio S04-A"
+"text": "Here's why Thursday evening is the best time to inject Zepbound.",
+"batch": ""
 },
 {
-"id": "5119919",
+"id": "5910017",
 "platform": "instagram",
-"when": "2026-12-02T23:00:00.000Z",
-"kind": "Photo",
+"when": "2026-12-01T15:00:00.000Z",
+"kind": "Reel",
 "slides": 1,
-"text": "Choose a training setting you want to come back to. Then make the practical part clear: when you're going, wha",
-"batch": "Studio S04-A"
+"text": "Here's why Thursday evening is the best time to inject Zepbound.",
+"batch": ""
+},
+{
+"id": "5910018",
+"platform": "tiktok",
+"when": "2026-12-01T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Here's why Thursday evening is the best time to inject Zepbound.",
+"batch": ""
+},
+{
+"id": "5910019",
+"platform": "youtube",
+"when": "2026-12-01T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Here's why Thursday evening is the best time to inject Zepbound.",
+"batch": ""
 },
 {
 "id": "5822390",
@@ -1254,40 +1506,76 @@
 "batch": ""
 },
 {
-"id": "5825768",
+"id": "5910021",
 "platform": "facebook",
-"when": "2026-12-04T23:00:00.000Z",
-"kind": "Photo",
+"when": "2026-12-05T15:00:00.000Z",
+"kind": "Reel",
 "slides": 1,
-"text": "I have a home gym and I still pay for a gym membership. The point is having an option that works with your lif",
-"batch": "Studio S03-B"
+"text": "Here's how to come off Zepbound without gaining the fat back.",
+"batch": ""
 },
 {
-"id": "5119926",
+"id": "5910022",
 "platform": "instagram",
-"when": "2026-12-04T23:00:00.000Z",
-"kind": "Photo",
+"when": "2026-12-05T15:00:00.000Z",
+"kind": "Reel",
 "slides": 1,
-"text": "I have a home gym and I still pay for a gym membership. The point is having an option that works with your lif",
-"batch": "Studio S03-B"
+"text": "Here's how to come off Zepbound without gaining the fat back.",
+"batch": ""
 },
 {
-"id": "5825769",
+"id": "5910023",
+"platform": "tiktok",
+"when": "2026-12-05T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Here's how to come off Zepbound without gaining the fat back.",
+"batch": ""
+},
+{
+"id": "5910024",
+"platform": "youtube",
+"when": "2026-12-05T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Here's how to come off Zepbound without gaining the fat back.",
+"batch": ""
+},
+{
+"id": "5910026",
 "platform": "facebook",
-"when": "2026-12-07T23:00:00.000Z",
-"kind": "Photo",
+"when": "2026-12-08T15:00:00.000Z",
+"kind": "Reel",
 "slides": 1,
-"text": "I use a meal prep service. Having food ready removes one more decision from a busy day. You can do the same ki",
-"batch": "Studio S02-B"
+"text": "Here's how much protein you need on a GLP-1 so you lose fat and not muscle.",
+"batch": ""
 },
 {
-"id": "5119929",
+"id": "5910027",
 "platform": "instagram",
-"when": "2026-12-07T23:00:00.000Z",
-"kind": "Photo",
+"when": "2026-12-08T15:00:00.000Z",
+"kind": "Reel",
 "slides": 1,
-"text": "I use a meal prep service. Having food ready removes one more decision from a busy day. You can do the same ki",
-"batch": "Studio S02-B"
+"text": "Here's how much protein you need on a GLP-1 so you lose fat and not muscle.",
+"batch": ""
+},
+{
+"id": "5910028",
+"platform": "tiktok",
+"when": "2026-12-08T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Here's how much protein you need on a GLP-1 so you lose fat and not muscle.",
+"batch": ""
+},
+{
+"id": "5910029",
+"platform": "youtube",
+"when": "2026-12-08T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Here's how much protein you need on a GLP-1 so you lose fat and not muscle.",
+"batch": ""
 },
 {
 "id": "5211312",
@@ -1297,24 +1585,6 @@
 "slides": 1,
 "text": "If you have belly fat, stop doing crunches. The one ab exercise that works on your waist is the standing stoma",
 "batch": ""
-},
-{
-"id": "5825770",
-"platform": "facebook",
-"when": "2026-12-09T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Before you head out, decide what you'll eat when you get home. Put a meal in place or choose your order ahead ",
-"batch": "Studio S04-B"
-},
-{
-"id": "5119935",
-"platform": "instagram",
-"when": "2026-12-09T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Before you head out, decide what you'll eat when you get home. Put a meal in place or choose your order ahead ",
-"batch": "Studio S04-B"
 },
 {
 "id": "5211308",
@@ -1344,40 +1614,40 @@
 "batch": ""
 },
 {
-"id": "5825774",
+"id": "5909603",
 "platform": "facebook",
-"when": "2026-12-11T23:00:00.000Z",
-"kind": "Photo",
+"when": "2026-12-12T15:00:00.000Z",
+"kind": "Reel",
 "slides": 1,
-"text": "Make tomorrow's lunch a decision you handle today. Pick something you already like, check what you have and ge",
-"batch": "Studio S01-B"
+"text": "If you're in your 20s, stop chasing women and build your value.",
+"batch": ""
 },
 {
-"id": "5119943",
+"id": "5909604",
 "platform": "instagram",
-"when": "2026-12-11T23:00:00.000Z",
-"kind": "Photo",
+"when": "2026-12-12T15:00:00.000Z",
+"kind": "Reel",
 "slides": 1,
-"text": "Make tomorrow's lunch a decision you handle today. Pick something you already like, check what you have and ge",
-"batch": "Studio S01-B"
+"text": "If you're in your 20s, stop chasing women and build your value.",
+"batch": ""
 },
 {
-"id": "5825776",
-"platform": "facebook",
-"when": "2026-12-14T23:00:00.000Z",
-"kind": "Photo",
+"id": "5909605",
+"platform": "tiktok",
+"when": "2026-12-12T15:00:00.000Z",
+"kind": "Video",
 "slides": 1,
-"text": "Martial arts can burn calories, challenge your cardio and give you a reason to keep showing up. It is a great ",
-"batch": "Studio S04-C"
+"text": "If you're in your 20s, stop chasing women and build your value.",
+"batch": ""
 },
 {
-"id": "5119945",
-"platform": "instagram",
-"when": "2026-12-14T23:00:00.000Z",
-"kind": "Photo",
+"id": "5909607",
+"platform": "youtube",
+"when": "2026-12-12T15:00:00.000Z",
+"kind": "Video",
 "slides": 1,
-"text": "Martial arts can burn calories, challenge your cardio and give you a reason to keep showing up. It is a great ",
-"batch": "Studio S04-C"
+"text": "If you're in your 20s, stop chasing women and build your value.",
+"batch": ""
 },
 {
 "id": "5415566",
@@ -1387,24 +1657,6 @@
 "slides": 1,
 "text": "Follow along with me: three standing stomach vacuums, 20 seconds each, with 30 seconds of rest in between. I s",
 "batch": ""
-},
-{
-"id": "5825777",
-"platform": "facebook",
-"when": "2026-12-16T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Missed a workout? Leave that day where it is. Look at the next opening in your calendar and choose a session y",
-"batch": "Studio S01-C"
-},
-{
-"id": "5119947",
-"platform": "instagram",
-"when": "2026-12-16T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Missed a workout? Leave that day where it is. Look at the next opening in your calendar and choose a session y",
-"batch": "Studio S01-C"
 },
 {
 "id": "5415562",
@@ -1432,24 +1684,6 @@
 "slides": 1,
 "text": "Do the stomach vacuum with me: three sets of 20 seconds.",
 "batch": ""
-},
-{
-"id": "5825778",
-"platform": "facebook",
-"when": "2026-12-18T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "You don't have to throw away the whole week because the plan changed. Look at the days you still have. Choose ",
-"batch": "Studio S02-C"
-},
-{
-"id": "5119952",
-"platform": "instagram",
-"when": "2026-12-18T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "You don't have to throw away the whole week because the plan changed. Look at the days you still have. Choose ",
-"batch": "Studio S02-C"
 },
 {
 "id": "5090110",
@@ -1486,24 +1720,6 @@
 "slides": 1,
 "text": "If I woke up 30 pounds heavier tomorrow, I'm confident I could lose it all and get my abs back in 3 months. He",
 "batch": ""
-},
-{
-"id": "5825779",
-"platform": "facebook",
-"when": "2026-12-21T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "The last session is already done, or it didn't happen. Either way, the next one still needs a plan. Pick the t",
-"batch": "Studio S03-C"
-},
-{
-"id": "5119955",
-"platform": "instagram",
-"when": "2026-12-21T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "The last session is already done, or it didn't happen. Either way, the next one still needs a plan. Pick the t",
-"batch": "Studio S03-C"
 },
 {
 "id": "5365814",
@@ -1548,6 +1764,42 @@
 "kind": "Video",
 "slides": 1,
 "text": "If you're struggling to lose weight, there's usually one reason: you're eating too many calories. Here is the ",
+"batch": ""
+},
+{
+"id": "5910479",
+"platform": "youtube",
+"when": "2027-01-03T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "You're eating healthy and you're working out, but the scale will not move. It's almost certainly not your meta",
+"batch": ""
+},
+{
+"id": "5910475",
+"platform": "facebook",
+"when": "2027-01-04T18:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "You eat healthy. You work out. The scale won't move. And it's not your metabolism.",
+"batch": ""
+},
+{
+"id": "5910476",
+"platform": "instagram",
+"when": "2027-01-04T18:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "You eat healthy. You work out. The scale won't move. And it's not your metabolism.",
+"batch": ""
+},
+{
+"id": "5910478",
+"platform": "tiktok",
+"when": "2027-01-04T18:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "You eat healthy. You work out. The scale won't move. And it's not your metabolism.",
 "batch": ""
 }
 ],

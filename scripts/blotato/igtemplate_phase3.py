@@ -9,6 +9,7 @@ duplicates. Steps, each resumable:
     python3 scripts/blotato/igtemplate_phase3.py retire     # every unreleased Codex studio post -> photo_reserve.json, off the schedule
     python3 scripts/blotato/igtemplate_phase3.py swap       # C1: new last slide (create new, then delete old); C3 -> workout-06 on Oct 28
     python3 scripts/blotato/igtemplate_phase3.py place      # batch posts with a "slot" go into that slot on both accounts
+    python3 scripts/blotato/igtemplate_phase3.py refresh ID # slides of a queued post changed: re-upload, create new, delete old
     python3 scripts/blotato/igtemplate_phase3.py verify     # re-read: ours exact, studio gone, nothing else changed
 
 Studio image files and studio27_state.json are never deleted. The reserve is used only if the image queue would run dry.
@@ -134,27 +135,46 @@ def swap():
             time.sleep(1.0)
 
 
-def place():
+def next_free(acct, day, items):
+    """The planned day if it is still ahead and free on this account, else the next free Mon/Wed/Fri 5 PM."""
+    from datetime import timedelta
+    today = datetime.now(q.CT).date()
+    busy = {q.local(i["scheduledAt"]).date() for i in items if i["draft"]["accountId"] == acct
+            and q.is_image(i) and q.local(i["scheduledAt"]).hour == 17}
+    while day <= today or day.weekday() not in (0, 2, 4) or day in busy:
+        day += timedelta(days=1)
+    return day
+
+
+def place(cap=200):
+    """Create every batch post that has a "slot" and is not yet queued. Waits politely at Blotato's cap: run again
+    later (queue_topup.py does, once no video is waiting). A slot that has passed or filled rolls to the next free one."""
     s = q.load_state()
     items = items_now()
+    left = 0
     for p in q.batch["posts"]:
         if not p.get("slot"):
             continue
         q.checks(p)
         assert all(f"{p['id']}/{f}" in s["uploads"] for f in p["files"]), "upload first: " + p["id"]
-        when = q.slot(datetime.fromisoformat(p["slot"]).date())
         for acct in (IG, FB):
             k = f"{acct}|{p['id']}"
             if k in s["created"]:
                 continue
-            clash = [i["id"] for i in items if i["draft"]["accountId"] == acct and i["scheduledAt"] == when and q.is_image(i)]
-            assert not clash, f"{acct} already has an image post at {p['slot']}: {clash}"
+            if len(items) >= cap:
+                left += 1
+                continue
+            day = next_free(acct, datetime.fromisoformat(p["slot"]).date(), items)
+            when = q.slot(day)
             r = call("POST", "/posts", KEY, post_body(p, acct, when, s))
-            s["created"][k] = {"response": r, "scheduledTime": when, "local": p["slot"] + " 17:00 CT",
+            s["created"][k] = {"response": r, "scheduledTime": when, "local": f"{day} 17:00 CT",
                                "caption_sha256": sha(p["caption"].encode())}
             q.save_state(s)
-            print("placed", acct, p["id"], p["slot"], flush=True)
+            items.append({"draft": {"accountId": acct, "target": {}, "content": {"text": p["caption"]}}, "scheduledAt": when, "id": "new"})
+            print("placed", acct, p["id"], day, flush=True)
             time.sleep(1.0)
+    print("template image placements still waiting for room:", left)
+    return left
 
 
 def verify():
@@ -166,6 +186,7 @@ def verify():
     removed = {e["scheduleId"] for r in json.load(open(RESERVE))["posts"].values() for e in r["removed"].values()}
     removed |= {e["scheduleId"] for e in json.load(open(RESERVE)).get("c3", {}).get("removed", {}).values()}
     removed |= {v.get("scheduleId") for k, v in s["created"].items() if v.get("deleted")}
+    removed |= {r["deleted"] for r in s.get("refreshed", [])}
     ok = True
     for b in before:
         a = after.get(b["id"])
@@ -212,5 +233,32 @@ def verify():
     print("RESULT", "OK" if ok and not dup else "PROBLEMS")
 
 
+def refresh(pid):
+    """A queued post's slides were re-rendered (e.g. colour correction). Same slot and caption; create, then delete."""
+    q.upload()  # re-uploads any file whose bytes changed
+    s = q.load_state()
+    p = {x["id"]: x for x in q.batch["posts"]}[pid]
+    items = items_now()
+    for acct in (IG, FB):
+        k = f"{acct}|{pid}"
+        old = s["created"][k]
+        hit = [i for i in items if i["draft"]["accountId"] == acct and i["scheduledAt"] == old["scheduledTime"]
+               and i["draft"]["content"]["text"] == p["caption"]]
+        assert len(hit) == 1, f"{k}: expected one queued post, found {len(hit)}"
+        if q.same_slides(hit[0]["draft"]["content"]["mediaUrls"], p, s):
+            print("already current", k)
+            continue
+        r = call("POST", "/posts", KEY, post_body(p, acct, old["scheduledTime"], s))
+        call("DELETE", f"/schedules/{hit[0]['id']}", KEY)
+        s.setdefault("refreshed", []).append({"key": k, "deleted": hit[0]["id"], "at": datetime.now(timezone.utc).isoformat()})
+        s["created"][k] = dict(old, response=r, scheduleId=None, refreshed=True)
+        q.save_state(s)
+        print("refreshed", k, "old", hit[0]["id"], flush=True)
+        time.sleep(1.0)
+
+
 if __name__ == "__main__":
-    {"backup": backup, "retire": retire, "swap": swap, "place": place, "verify": verify}[sys.argv[1]]()
+    if sys.argv[1] == "refresh":
+        refresh(sys.argv[2])
+    else:
+        {"backup": backup, "retire": retire, "swap": swap, "place": place, "verify": verify}[sys.argv[1]]()

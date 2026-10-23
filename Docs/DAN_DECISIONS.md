@@ -6,7 +6,9 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 
 ---
 
-- **My First Spray Tan SFL R2, hair at the top edge (2026-10-21; Decision since: 2026-10-21):** the 8/3 camera framed your hair at the top row on every shot, so the two spray tan Shorts cannot meet the 2026-10-20 headroom rule (gate fails only `framing:hair_top`/`headroom`; the approved RO-19 film has the same framing). OK as is, drop them, or cover more talking with clips? Review page http://127.0.0.1:9015/.
+
+- **Facebook followers ad set (2026-10-22; Decision since: 2026-10-22):** Dan wants to target followers of his personal profile facebook.com/danroseninja (2.8K followers). Meta builds ad audiences only from Pages and Instagram business accounts, never a personal profile, so it cannot be built. Nothing built or spent. Rec: drop it; a free profile post asking friends to follow @danrosefit reaches the same people. No ads before Oct 30 (follower test).
+
 
 - **Review skill, two small questions (2026-10-20; Decision since: 2026-10-20):** (a) answered 2026-10-20: the eyebrow stays in capitals. (b) When a human editor sends AI start/end frames for a go-ahead, should Claude run our frame gate and a fresh frame-reviewer on them first (our own pipeline does since 2026-10-14)? Rec: yes to both.
 

@@ -55,3 +55,9 @@ shoot) with the per-roll grade curve "look F" instead of a 4K roll and a LUT. Wo
   median head offset within 6 %: `window_path` keeps it within 4.5 % (a quicker 160 px/s follow where he leans fast).
 - **Real-photo chip references must be drawn with the same anchor as the frame** (`chip_png(..., anchor="mt")`): a half-pixel offset
   read 0.833 against the gate's 0.85.
+- **A prompted disfluency sweep after every cut change** (`initial_prompt="Um, uh, mm."`, 10 s windows): a late reviewer found an "um" before
+  "He's trying to avoid cancer" that two sweeps missed; the first cut left 55 ms of its "m" (cut where the pitch rises into the next word).
+
+## Title band descender fix (2026-10-22)
+
+`lib.band()` now draws the title at y 86 with a 96 px line step (was 96 / 100). With title-case titles, a second line with g, j, p, q or y at 88 px ran its descenders to row 312, cut by the glass line at 309 and the picture at 310 (SL-17 reviewer B5; 11 delivered Shorts were affected, `Docs/SHORTS_TITLE_BAND_AUDIT_20261022.md`). The lowest glyph row is now 298. `batch.py gfx|proof|render` runs `_shared/softblue_titlecheck.py` on every TITLE first and stops if any lowest white row is 299 or lower down. Check a batch by hand: `python3 .claude/skills/_shared/softblue_titlecheck.py titles <batch dir>`.

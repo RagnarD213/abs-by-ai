@@ -3,9 +3,15 @@
 review_server.py PORT [DIR]           macOS: install/start a login service
 review_server.py PORT DIR --serve     foreground worker (tests/launchd)
 review_server.py PORT --remove        stop/remove this managed review service
+review_server.py PORT --on-demand     switch an older always-running service to start on demand (same link)
 
 The same URL survives chat completion, process crashes and the next Mac login.
 Published page assets are cached locally. No media is uploaded.
+
+Since 2026-10-21 a managed review STARTS ON DEMAND: launchd holds the port and starts the worker when the page is
+opened; the worker exits after ABS_REVIEW_IDLE_H hours (24) without a request and the next visit starts it again in
+a fraction of a second. Before this, every review ever made kept a Python process running (70 on 10-21, some 20 days
+old). `renderq.py prune` switches older always-running services over and stops hand-started servers older than 48 h.
 """
 import argparse
 import io
@@ -23,12 +29,21 @@ import re
 import socketserver
 import subprocess
 import sys
+import threading
 import time
 import urllib.request
 
+IDLE_EXIT_H = float(os.environ.get('ABS_REVIEW_IDLE_H') or 24)
+LAST_REQUEST = [time.time()]
+
 
 class Handler(http.server.SimpleHTTPRequestHandler):
+    def do_HEAD(self):
+        LAST_REQUEST[0] = time.time()
+        super().do_HEAD()
+
     def do_GET(self):
+        LAST_REQUEST[0] = time.time()
         if self.path == '/__review_health':
             body = json.dumps({'root': os.environ.get('ABS_REVIEW_SOURCE_ROOT', str(Path(self.directory).resolve())),
                                'served_root': str(Path(self.directory).resolve()),
@@ -119,6 +134,102 @@ class Handler(http.server.SimpleHTTPRequestHandler):
 class Server(socketserver.ThreadingMixIn, http.server.HTTPServer):
     daemon_threads = True
     allow_reuse_address = True
+
+
+def launchd_socket():
+    """The listening socket launchd holds for this job (plist Sockets/Listeners), so the worker can exit when idle
+    and launchd starts it again on the next visit."""
+    import ctypes
+    import socket
+    lib = ctypes.CDLL('/usr/lib/libSystem.dylib')
+    fds, count = ctypes.POINTER(ctypes.c_int)(), ctypes.c_size_t(0)
+    err = lib.launch_activate_socket(b'Listeners', ctypes.byref(fds), ctypes.byref(count))
+    if err or not count.value:
+        raise OSError(err, 'launchd gave this worker no socket (is it running from an on-demand plist?)')
+    fd = fds[0]
+    lib.free(fds)
+    sock = socket.socket(fileno=fd)
+    sock.setblocking(True)
+    return sock
+
+
+def serve(port, root, from_launchd=False, idle_hours=IDLE_EXIT_H):
+    """Serve `root` until `idle_hours` pass with no request (0: forever)."""
+    handler = functools.partial(Handler, directory=str(root))
+    if from_launchd:
+        app = Server(('127.0.0.1', port), handler, bind_and_activate=False)
+        app.socket.close()
+        app.socket = launchd_socket()
+        app.server_address = app.socket.getsockname()
+        app.server_name, app.server_port = '127.0.0.1', app.server_address[1]
+    else:
+        app = Server(('127.0.0.1', port), handler)
+    if idle_hours > 0:
+        def watch():
+            while True:
+                time.sleep(min(60.0, idle_hours * 900))
+                if time.time() - LAST_REQUEST[0] > idle_hours * 3600:
+                    app.shutdown()
+                    return
+        threading.Thread(target=watch, daemon=True).start()
+    LAST_REQUEST[0] = time.time()
+    app.serve_forever()
+    app.server_close()
+
+
+def on_demand_plist(label, python, worker, port, cache, root, log):
+    return {'Label': label, 'ProgramArguments': [python, str(worker), str(port), str(cache), '--serve', '--launchd'],
+            'Sockets': {'Listeners': {'SockNodeName': '127.0.0.1', 'SockServiceName': str(port),
+                                      'SockFamily': 'IPv4', 'SockType': 'stream'}},
+            'ThrottleInterval': 3, 'EnvironmentVariables': {'ABS_REVIEW_SOURCE_ROOT': str(root)},
+            'StandardOutPath': str(log), 'StandardErrorPath': str(log)}
+
+
+def make_on_demand(port):
+    """Switch an existing always-running managed review on `port` to start on demand. Same link, same cached
+    page; the old plist is kept beside the cache as launchd.plist.bak and put back if the switch fails."""
+    label = f'com.absbyai.review.{port}'
+    domain = f'gui/{os.getuid()}'
+    plist = Path.home() / 'Library/LaunchAgents' / f'{label}.plist'
+    runtime = Path.home() / 'Library/Application Support/AbsByAI Reviews' / str(port)
+    if not plist.exists():
+        raise RuntimeError(f'no managed review on {port}')
+    old_bytes = plist.read_bytes()
+    old = plistlib.loads(old_bytes)
+    if 'Sockets' in old:
+        print(f'{port}: already starts on demand')
+        return False
+    args = old['ProgramArguments']
+    root = old.get('EnvironmentVariables', {}).get('ABS_REVIEW_SOURCE_ROOT', args[3] if len(args) > 3 else '')
+    cache = Path(args[3]) if len(args) > 3 else runtime / 'page'
+    worker = runtime / 'review_server.py'
+    (runtime / 'launchd.plist.bak').write_bytes(old_bytes)
+    tmp = runtime / 'review_server.py.tmp'
+    tmp.write_bytes(Path(__file__).read_bytes())
+    tmp.replace(worker)
+    shutil.copy2(Path(__file__).with_name('review_player.js'), runtime / 'review_player.js')
+    plist.write_bytes(plistlib.dumps(on_demand_plist(label, args[0], worker, port, cache, root,
+                                                     old.get('StandardOutPath', runtime / 'server.log'))))
+    subprocess.run(['launchctl', 'bootout', f'{domain}/{label}'], capture_output=True)
+    ok = False
+    for _ in range(20):                                    # bootout finishes asynchronously
+        r = subprocess.run(['launchctl', 'bootstrap', domain, str(plist)], capture_output=True, text=True)
+        if r.returncode == 0:
+            break
+        time.sleep(0.25)
+    for _ in range(40):
+        state = health(port)
+        if state and state.get('served_root') == str(cache):
+            ok = True
+            break
+        time.sleep(0.25)
+    if not ok:                                              # put the old always-running service back
+        plist.write_bytes(old_bytes)
+        subprocess.run(['launchctl', 'bootout', f'{domain}/{label}'], capture_output=True)
+        subprocess.run(['launchctl', 'bootstrap', domain, str(plist)], capture_output=True)
+        raise RuntimeError(f'{port}: on-demand start failed; the always-running service is back')
+    print(f'{port}: now starts on demand (same link http://127.0.0.1:{port}/)')
+    return True
 
 
 def health(port):
@@ -223,11 +334,7 @@ def managed(port, root, remove=False):
     records = snapshot(root, cache)
     (runtime / 'manifest.json').write_text(json.dumps({'source': str(root), 'files': records}, indent=2))
     log = runtime / 'server.log'
-    args = [sys.executable, str(worker), str(port), str(cache), '--serve']
-    config = {'Label': label, 'ProgramArguments': args, 'RunAtLoad': True,
-              'KeepAlive': True, 'ThrottleInterval': 3,
-              'EnvironmentVariables': {'ABS_REVIEW_SOURCE_ROOT': str(root)},
-              'StandardOutPath': str(log), 'StandardErrorPath': str(log)}
+    config = on_demand_plist(label, sys.executable, worker, port, cache, root, log)
     plist.parent.mkdir(parents=True, exist_ok=True)
     plist.write_bytes(plistlib.dumps(config))
     subprocess.run(['launchctl', 'bootout', target], capture_output=True)
@@ -241,7 +348,7 @@ def managed(port, root, remove=False):
                 if response.status != 200:
                     raise RuntimeError('Cached review page did not load')
             print(f'Managed review ready: http://127.0.0.1:{port}/')
-            print(f'Automatic restart and login startup enabled. {len(records)} linked files cached locally.')
+            print(f'Starts on demand, also after a crash or the next login. {len(records)} linked files cached locally.')
             return
         time.sleep(.25)
     raise RuntimeError(f'Review did not start. Read {log}')
@@ -253,7 +360,12 @@ def main():
     p.add_argument('directory', nargs='?', default='.')
     p.add_argument('--serve', action='store_true', help='Foreground worker; does not install a service')
     p.add_argument('--remove', action='store_true')
+    p.add_argument('--launchd', action='store_true', help='Worker: take the listening socket from launchd')
+    p.add_argument('--on-demand', action='store_true', help='Switch a managed review to start on demand')
     a = p.parse_args()
+    if a.on_demand:
+        make_on_demand(a.port)
+        return
     root = Path(a.directory).resolve()
     if not 1024 <= a.port <= 65535:
         p.error('Use a local port between 1024 and 65535')
@@ -264,8 +376,7 @@ def main():
     elif a.remove:
         p.error('--remove requires macOS launchd')
     else:
-        handler = functools.partial(Handler, directory=str(root))
-        Server(('127.0.0.1', a.port), handler).serve_forever()
+        serve(a.port, root, from_launchd=a.launchd)
 
 
 if __name__ == '__main__':

@@ -151,6 +151,8 @@ def render(content_path: Path, out_root: Path, page):
     html_text = env.get_template(f"{post['format']}.html.j2").render(post=post)
     out = out_root / post["id"]
     out.mkdir(parents=True, exist_ok=True)
+    for stale in out.glob(f"{post['id']}-[0-9][0-9].jpg"):  # a post that lost slides must not keep old ones
+        stale.unlink()
     page_file = out / f"{post['id']}.html"
     page_file.write_text(html_text)
     page.goto(page_file.as_uri())

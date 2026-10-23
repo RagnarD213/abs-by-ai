@@ -29,3 +29,7 @@ and audit SHIP on the second pass.
   the crop), then the frame-reviewer failed 0-59 (the tin swings across his chin); 0-46 passed both.
 - **A card clip in the picture area must clear the captions** (A3 at y 750 met them; y 480 is clear).
 - **The Extreme drive filled to 0 bytes mid-render** (other sessions). Delete your own `trk/` frame dumps after tracking; keep `build/` on Expansion.
+
+## Title band descender fix (2026-10-22)
+
+`lib.band()` now draws the title at y 86 with a 96 px line step (was 96 / 100). With title-case titles, a second line with g, j, p, q or y at 88 px ran its descenders to row 312, cut by the glass line at 309 and the picture at 310 (SL-17 reviewer B5; 11 delivered Shorts were affected, `Docs/SHORTS_TITLE_BAND_AUDIT_20261022.md`). The lowest glyph row is now 298. `batch.py gfx|proof|render` runs `_shared/softblue_titlecheck.py` on every TITLE first and stops if any lowest white row is 299 or lower down. Check a batch by hand: `python3 .claude/skills/_shared/softblue_titlecheck.py titles <batch dir>`.

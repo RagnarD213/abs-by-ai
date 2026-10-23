@@ -635,4 +635,7 @@ if __name__ == "__main__":
     import cv2
     sys.path.insert(0, "/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared/hyperframes")
     cmd = sys.argv[1]
+    if cmd in ("gfx", "proof", "render"):                            # title band descender clearance (2026-10-22, SL-17 B5): stop before any build time is spent
+        sys.path.insert(0, "/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared"); import softblue_titlecheck as TC
+        for S_ in sys.argv[2:] or list(P.SEG): TC.check(lib.band, P.TITLE[S_], S_)
     for S in sys.argv[2:] or list(P.SEG): globals()["cmd_" + cmd](S)

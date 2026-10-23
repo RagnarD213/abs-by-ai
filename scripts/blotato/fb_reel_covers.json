@@ -50,7 +50,7 @@
  {
   "schedule": "3563151",
   "when": "2026-10-17T22:00:00.000Z",
-  "match": "You have 4 ab muscles — not just a six-pack.",
+  "match": "You have 4 ab muscles \u2014 not just a six-pack.",
   "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/07-A-youtube.jpg",
   "w": 1080,
   "h": 1920
@@ -58,7 +58,7 @@
  {
   "schedule": "3563159",
   "when": "2026-10-20T22:00:00.000Z",
-  "match": "The toe touch — a killer six-pack move you can do at home.",
+  "match": "The toe touch \u2014 a killer six-pack move you can do at home.",
   "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/08-A-youtube.jpg",
   "w": 1080,
   "h": 1920
@@ -390,7 +390,7 @@
   "h": 1920
  },
  {
-  "match": "Most people jump rope with both feet — and that's why they keep tripping.",
+  "match": "Most people jump rope with both feet \u2014 and that's why they keep tripping.",
   "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds-17-approved.jpg",
   "w": 1080,
   "h": 1920
@@ -522,14 +522,6 @@
   "h": 1920
  },
  {
-  "schedule": "3563151",
-  "when": "2026-10-17T22:00:00.000Z",
-  "match": "Did you know you need to train FOUR ab muscle groups to build six pack abs?",
-  "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/07-A-youtube.jpg",
-  "w": 1080,
-  "h": 1920
- },
- {
   "match": "This $17 infomercial gimmick beats every crunch.",
   "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/abwheel-approved.jpg",
   "w": 1280,
@@ -640,6 +632,75 @@
   "schedule": "5822390"
  },
  {
+  "match": "Here's exactly what to buy for your health, whether you're dead broke, middle class or making over $10,000 a month.",
+  "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/What To Buy For Your Health/What To Buy For Your Health At Every Income Level - thumbnail FINAL.jpg",
+  "w": 1280,
+  "h": 720,
+  "job": "RO-20C",
+  "when": "2026-12-07T18:00:00.000Z"
+ },
+ {
+  "schedule": "5867678",
+  "when": "2026-11-13T15:00:00.000Z",
+  "match": "After a bad night of sleep, your Oura Ring tells you to take it easy. Don't listen to that shit.",
+  "cover": "/Users/danielrose/Library/Mobile Documents/com~apple~CloudDocs/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/sl09-short1-approved.jpg",
+  "w": 1080,
+  "h": 1920,
+  "job": "SL-09 short 1"
+ },
+ {
+  "schedule": "5867684",
+  "when": "2026-11-16T15:00:00.000Z",
+  "match": "The most valuable thing my Oura Ring did for me was the one I never expected. It showed me which people in my life are toxic and need to be cut out.",
+  "cover": "/Users/danielrose/Library/Mobile Documents/com~apple~CloudDocs/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/sl09-short2-approved.jpg",
+  "w": 1080,
+  "h": 1920,
+  "job": "SL-09 short 2"
+ },
+ {
+  "schedule": "5867691",
+  "when": "2026-11-20T15:00:00.000Z",
+  "match": "Something you do near bedtime might be spiking your heart rate and adrenaline and hurting your sleep without you realizing it.",
+  "cover": "/Users/danielrose/Library/Mobile Documents/com~apple~CloudDocs/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/sl09-short3-approved.jpg",
+  "w": 1080,
+  "h": 1920,
+  "job": "SL-09 short 3"
+ },
+ {
+  "schedule": "5867702",
+  "when": "2026-11-23T15:00:00.000Z",
+  "match": "You're probably not sleeping as well as you think. You've got to buy a sleep tracker, even if it's not the Oura Ring.",
+  "cover": "/Users/danielrose/Library/Mobile Documents/com~apple~CloudDocs/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/sl09-short4-approved.jpg",
+  "w": 1080,
+  "h": 1920,
+  "job": "SL-09 short 4"
+ },
+ {
+  "schedule": "5867711",
+  "when": "2026-11-27T15:00:00.000Z",
+  "match": "Should you buy the Oura Ring? In my opinion yes, for most people, and absolutely everybody needs a sleep tracker.",
+  "cover": "/Users/danielrose/Library/Mobile Documents/com~apple~CloudDocs/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/sl09-short5-approved.jpg",
+  "w": 1080,
+  "h": 1920,
+  "job": "SL-09 short 5"
+ },
+ {
+  "match": "If you guys want good photos for Instagram or for your dating profile, spray tanning can be especially important.",
+  "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/approved-sl15/YouTube_spraytan-short1_why-you-look-less-ripped-in-photos_cover-K.jpg",
+  "w": 1080,
+  "h": 1920,
+  "job": "SL-15 short 1",
+  "when": "2027-01-01T15:00:00.000Z"
+ },
+ {
+  "match": "The most important pro of spray tanning, in my opinion, is that you get tan while avoiding sun damage.",
+  "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/approved-sl15/YouTube_spraytan-short2_get-a-tan-without-sun-damage_cover-C.jpg",
+  "w": 1080,
+  "h": 1920,
+  "job": "SL-15 short 2",
+  "when": "2027-01-02T15:00:00.000Z"
+ },
+ {
   "match": "After a bad night of sleep, your Oura Ring tells you to take it easy. Don't listen to that shit.",
   "cover": "/Users/danielrose/Library/Mobile Documents/com~apple~CloudDocs/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/sl09-short1-approved.jpg",
   "w": 1080,
@@ -680,14 +741,6 @@
   "when": "2026-11-27T15:00:00.000Z"
  },
  {
-  "match": "Here's exactly what to buy for your health, whether you're dead broke, middle class or making over $10,000 a month.",
-  "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/What To Buy For Your Health/What To Buy For Your Health At Every Income Level - thumbnail FINAL.jpg",
-  "w": 1280,
-  "h": 720,
-  "job": "RO-20C",
-  "when": "2026-12-07T18:00:00.000Z"
- },
- {
   "match": "Coconut water is sold as a natural, healthy way to hydrate. But really, it's sugar water.",
   "w": 1080,
   "h": 1920,
@@ -710,5 +763,77 @@
   "job": "SL-19",
   "when": "2026-12-25T15:00:00.000Z",
   "cover": "/Users/danielrose/Library/Mobile Documents/com~apple~CloudDocs/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/approved-sl19/YouTube_healthyfoods-short3_my-4-high-protein-snacks_cover-C.jpg"
+ },
+ {
+  "match": "If you're on Adderall or any ADHD drug, quit today, because in the long term it backfires.",
+  "cover": "/Users/danielrose/.absbyai/fb-reel-covers/covers/sl18-short1-YouTube_wastedlife-short1_why-adhd-meds-backfire-long-term_cover-C.jpg",
+  "w": 1080,
+  "h": 1920,
+  "job": "SL-18 short 1",
+  "when": "2026-10-26T14:00:00.000Z"
+ },
+ {
+  "match": "If you're in your 20s, stop chasing women and build your value.",
+  "cover": "/Users/danielrose/.absbyai/fb-reel-covers/covers/sl18-short2-YouTube_wastedlife-short2_build-your-value-before-you-date_cover-D.jpg",
+  "w": 1080,
+  "h": 1920,
+  "job": "SL-18 short 2",
+  "when": "2026-12-12T15:00:00.000Z"
+ },
+ {
+  "match": "You eat healthy. You work out. The scale won't move. And it's not your metabolism.",
+  "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/Why You're Not Losing Weight/Why You're Not Losing Weight - thumbnail FINAL.jpg",
+  "w": 1280,
+  "h": 720,
+  "job": "RO-14",
+  "when": "2027-01-04T18:00:00.000Z"
+ },
+ {
+  "match": "Here's why you should start Zepbound at 1 milligram to avoid the side effects.",
+  "w": 1080,
+  "h": 1920,
+  "job": "SL-06",
+  "when": "2026-11-09T15:00:00.000Z",
+  "cover": "/Users/danielrose/.absbyai/fb-reel-covers/covers/sl06-short1-YouTube_zepbound-tips-short1_start-at-1-mg-not-2-5_cover-C.jpg"
+ },
+ {
+  "match": "Here's why I stopped using the pen to inject Zepbound and use a needle and vial instead.",
+  "w": 1080,
+  "h": 1920,
+  "job": "SL-06",
+  "when": "2026-11-21T15:00:00.000Z",
+  "cover": "/Users/danielrose/.absbyai/fb-reel-covers/covers/sl06-short2-YouTube_zepbound-tips-short2_use-a-needle-and-vial-not-the-pen_cover-C.jpg"
+ },
+ {
+  "match": "Here's how to inject Zepbound with a needle, step by step. It takes about 10 seconds once you know what you're doing.",
+  "w": 1080,
+  "h": 1920,
+  "job": "SL-06",
+  "when": "2026-11-28T15:00:00.000Z",
+  "cover": "/Users/danielrose/.absbyai/fb-reel-covers/covers/sl06-short3-YouTube_zepbound-tips-short3_how-to-inject-in-10-seconds_cover-A.jpg"
+ },
+ {
+  "match": "Here's why Thursday evening is the best time to inject Zepbound.",
+  "w": 1080,
+  "h": 1920,
+  "job": "SL-06",
+  "when": "2026-12-01T15:00:00.000Z",
+  "cover": "/Users/danielrose/.absbyai/fb-reel-covers/covers/sl06-short4-YouTube_zepbound-tips-short4_inject-on-thursday-evening_cover-C.jpg"
+ },
+ {
+  "match": "Here's how to come off Zepbound without gaining the fat back.",
+  "w": 1080,
+  "h": 1920,
+  "job": "SL-06",
+  "when": "2026-12-05T15:00:00.000Z",
+  "cover": "/Users/danielrose/.absbyai/fb-reel-covers/covers/sl06-short5-YouTube_zepbound-tips-short5_how-to-come-off-without-regaining-it_cover-C.jpg"
+ },
+ {
+  "match": "Here's how much protein you need on a GLP-1 so you lose fat and not muscle.",
+  "w": 1080,
+  "h": 1920,
+  "job": "SL-06",
+  "when": "2026-12-08T15:00:00.000Z",
+  "cover": "/Users/danielrose/.absbyai/fb-reel-covers/covers/sl06-short6-YouTube_zepbound-tips-short6_how-much-protein-you-need_cover-C.jpg"
  }
 ]

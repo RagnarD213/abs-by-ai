@@ -23,7 +23,7 @@ MASKS = json.load(open(sys.argv[4])) if len(sys.argv) > 4 else {}
 os.makedirs(OUT, exist_ok=True)
 FILES = sorted(glob.glob(f"{IN}/f*.npy"))
 N = len(FILES)
-assert N > 200, f"{IN} has {N} frames"
+assert N > int(os.environ.get("MINF", "200")), f"{IN} has {N} frames"
 R = int(os.environ.get("R", "3"))        # neighbours each side
 TW = {1: 0.85, 2: 0.6, 3: 0.35}          # temporal weights
 SIG_G, SIG_FB, SIG_A = 10.0, 1.0, 0.20   # confidence widths: grey levels, flow px, alpha

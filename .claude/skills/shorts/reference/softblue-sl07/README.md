@@ -138,3 +138,7 @@ Five first reviews all said DOES NOT SHIP. Every item below was a finding; the t
   writing to the deleted one (wait on a PID instead: `r3_post.py ... pid=N`). `pgrep -f "text"` inside `sh -c '...text...'`
   matches itself.
 - **The Extreme drive filled (0 bytes free) mid-round.** Put frame dumps in the session scratchpad on the internal disk.
+
+## Title band descender fix (2026-10-22)
+
+`lib.band()` now draws the title at y 86 with a 96 px line step (was 96 / 100). With title-case titles, a second line with g, j, p, q or y at 88 px ran its descenders to row 312, cut by the glass line at 309 and the picture at 310 (SL-17 reviewer B5; 11 delivered Shorts were affected, `Docs/SHORTS_TITLE_BAND_AUDIT_20261022.md`). The lowest glyph row is now 298. `batch.py gfx|proof|render` runs `_shared/softblue_titlecheck.py` on every TITLE first and stops if any lowest white row is 299 or lower down. Check a batch by hand: `python3 .claude/skills/_shared/softblue_titlecheck.py titles <batch dir>`.

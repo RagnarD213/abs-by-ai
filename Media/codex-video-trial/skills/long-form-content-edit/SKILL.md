@@ -3,6 +3,10 @@ name: long-form-content-edit
 description: Edit or revise organic Abs By AI long-form instructional and story videos from raw footage, with teaching demonstrations, graphics and subtitle sidecars. Use for original long-form content editing; website VSLs, paid ads, extracting Shorts and reframing approved masters use their own workflows.
 ---
 
+## Video editing task names (Dan, 2026-10-16)
+
+At the start of a video editing/review task, name the chat `<Recognizable Video Title> <Type> R<round>` under the [shared naming rule](../../../../.claude/skills/_shared/VIDEO-RULES.md#video-editing-task-names-dan-2026-10-16). Use LFC for long-form, SFC for dedicated shorts, and SFL for shorts extracted from long-form; retain existing paid-ad type labels. Put the recognizable video title first, omit internal job codes and generic action prefixes, and use the same name in handoff prompts. Asset/brief work supporting an existing editing task keeps that task's name and round.
+
 ## Edit slot first (Dan, 2026-10-21)
 
 At most 5 edits (Claude and Codex together) do production at once. Before this edit's first production step
@@ -24,15 +28,21 @@ Every new long-form first round, including studio footage, includes a playable d
 
 Show every proposed graphic and existing clip in its intended edit with actual narration and about 3–5 seconds before and after, including entrances/exits. A silent four-second animation, isolated B-roll or still is not enough. Use the shared review-page pattern: first minute at top, one floating scrubbable context player, timeline-ordered cards with “Play in context”, and selectable colour/audio comparisons on the same source passage. Test playback, seeking and audible narration. Read the maintained shared review-page instructions, not an old simplified Codex page.
 
+Real-photo label rule (Dan, 2026-10-17): use “Real photo(s) of me, not AI-generated” for verified real photographs, including retouched/touched-up photos; do not substitute “Retouched photo(s) of me.” Fundamentally AI-generated images keep the AI label. Preserve existing thumbnail and moving-footage exceptions.
+
+Real-photo label rule (Dan, 2026-10-17): use “Real photo(s) of me, not AI-generated” for verified real photographs, including retouched/touched-up photos; do not substitute “Retouched photo(s) of me.” Fundamentally AI-generated images keep the AI label. Preserve existing thumbnail and moving-footage exceptions.
+
 Verify photo provenance before applying a real-picture disclosure. Read `Docs/memory/ro26-ai-pool-photo-correction.md`; Dan explicitly identified RO-26 O01 as AI-generated. Never infer authenticity from a photo folder, realistic appearance or old label.
 
-## Shared HyperFrames graphics (2026-10-03)
+## Shared HyperFrames graphics (2026-10-03; motion rule updated 2026-10-17)
+
+Every new or revised video graphic must use Soft Blue Light HyperFrames motion across its on-screen span. A full-screen card keeps its blue field and suitable accent or bar moving, beyond its entrance and word reveals. Preserve approved copy and layout when only motion is requested. This prospectively supersedes static-image and `softblue.py` fallback paths for new or revised graphics. Read the live VIDEO-RULES motion section and inspect an approved moving reference before building.
 
 For every new build or graphics revision, read the project's [shared HyperFrames method](../../../../.claude/skills/_shared/hyperframes/README.md). Lower thirds, before/fact cards, 3A side lists and cycles use that folder through `from_plan.py`, the shared `composite.py` and `checks.py`, pinned to **hyperframes 0.8.97**. Do not copy or fork its templates. `orglib` and `modern_graphics` panels are superseded for those four kinds; historical recipes remain reproduction records.
 
 Cut first, map the finished words, and store graphics as data in `plan_resolved.json`. Resolve graphic in/out and every part from spoken phrases, never hand-picked whole seconds. Use the maintained Codex integration `scripts/video/hyperframes_graphics.py` for build, per-frame composition and verification. The RO-10 recipe in `.claude/skills/longform-edit/reference/ro10/` is the framing/build reference. New-video adapters copied from older recipes must replace their old panel path with this integration before rendering.
 
-Record each graphic's template, generated config, text and `driven_by` words in the edit sheet, then run the shared sheet validator. Vertical and square adaptations redraw the same configs with shared `vertical.py` / `square.py`. Kinds without an approved template stay on `softblue.py`; new templates need their own graphic-lock approval. Preserve approved videos, source-specific picture/audio, captions and delivery gates. Check actual composite frames for arms, face and colour before presenting them.
+Record each graphic's template, generated config, text and `driven_by` words in the edit sheet, then run the shared sheet validator. Vertical and square adaptations redraw the same configs with shared `vertical.py` / `square.py`. If no approved HyperFrames template fits a new or revised graphic, add or adapt a shared HyperFrames template and obtain the required moving graphic approval. Do not use a static `softblue.py` fallback. Preserve approved videos, source-specific picture/audio, captions and delivery gates. Check actual composite frames for arms, face and colour before presenting them.
 
 
 ## Default jump-cut and junk-footage QC (Dan, 2026-09-29)
@@ -49,7 +59,7 @@ Follow section 5 of the Abs By AI project's `.claude/skills/_shared/CUT-CONTINUI
 
 Use **GPT-6 Sol for the entire organic edit**, including planning, previews, rendering, QA, independent review and revisions. Raise its effort for a difficult section instead of switching models. Use the accepted organic editing/audio components and separately accepted color sample. This Codex adapter reuses existing production modules and private trial recipes; it does not promote a partial color result to a finished full-film master.
 
-Use **Soft Blue Light for all new or revised graphics** and the approved **Motivation format for all lower thirds**. Read the [current graphics standard](references/shared/standards.md#approved-graphics-and-layout-standards-updated-2026-09-26) before choosing graphic components. This overrides older ad palettes and olive/white graphic recipes; preserve source-specific audio, camera color and caption rules.
+Use **Soft Blue Light HyperFrames motion for all new or revised graphics** and the approved **Motivation format for all lower thirds**. Read the [current graphics standard](references/shared/standards.md#approved-graphics-and-layout-standards-updated-2026-09-26) before choosing graphic components. This overrides older ad palettes and olive/white graphic recipes; preserve source-specific audio, camera color and caption rules.
 
 1. Read [shared standards](references/shared/standards.md) and [organic workflow](references/workflow.md). Verify the brief, raw rolls, assets and ownership. One editor owns planning through self-QA; one independent reviewer enters only after a complete candidate exists. Do not add recurring planner/supervisor loops. In the trial, routine edit choices are delegated.
 2. Find the accepted components in [the recipe registry](references/recipes/recipe-registry-v1/recipe.json). Preserve historical sample v1, proposed v1.1 and color addendum as separate records. Measure microphone, posture, framing and color on the actual footage.

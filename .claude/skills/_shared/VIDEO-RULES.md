@@ -1,3 +1,12 @@
+## Shorts shortlists show each Short's full transcript under its title (Dan, 2026-10-22)
+
+- **Every proposed Short on a shortlist (extracted from a long-form, or a recut) is shown with its title and the complete
+  word-for-word transcript of what it will say, pickup line included, in cut order.** Dan, on SL-16: *"Show me the full
+  transcripts for all your proposed shorts with the title. Let's always do this as a standard process for making shorts going
+  forward. Doing things this way is too confusing for me to tell what short is going to have which content."*
+- A table of timecodes with an opening and closing quote is not enough. Use the film's corrected subtitles trimmed to the
+  planned cut points; mark skipped passages. Claude and Codex, every Shorts batch. Detail: `/shorts` Step 2.
+
 ## AI clips of Dan look natural, or they never reach review; regenerate slop on the subscription (Dan, 2026-10-21, SL-06)
 
 Dan rejected all six SL-06 AI flex intros, every one gate- and reviewer-passed: *"the smile is weird. We need just a regular,
@@ -17,6 +26,30 @@ me for review and regenerate if you get some slop like this."*
   question, *"does this look like real footage of a relaxed person, or like AI?"*, at playback speed, and any "AI" answer is a
   FAIL. Put that question in every frame-reviewer brief for motion.
 
+## Reaction videos: the locked format, start to finish (Dan, 2026-10-23, DS-44 Hormozi Fat Guy R2 approved)
+
+Dan approved Hormozi Fat Guy (DS-44) round 2 and locked it as THE format for green-screen reaction videos: *"Okay, looks good.
+This is approved... I want to lock this as our format for reaction videos."* Every reaction Short, Claude and Codex:
+1. **Opening:** the reaction clip plays first, full screen (fixed vertical window on whoever is talking, per camera shot), with
+   its own sound and nothing before it; Dan keyed small in the lower left with the laptop visible, his real reaction synced to
+   the clip. Exact geometry: "Green screen reaction opening: the locked format" below (0.40 of full size, flush left and
+   bottom, full-height key, soft right edge widened wherever a hand or elbow reaches the camera's edge).
+2. **The handover (about 0.5 s):** the clip shrinks into a 16:9 frame at the top of the screen (about 1000 x 562 at y 30)
+   while Dan grows from the corner to full width in front of it. Keep the silence between the clip's last word and Dan's first
+   under 1 s.
+3. **The interview keeps playing silently behind Dan's head** in that top frame for about the first 30 seconds of the Short,
+   ending at a natural section break. Dan's hair overlaps the frame's bottom edge slightly (about 40-50 px), his head in front.
+   Use a continuous shot of the speaker from the same interview (no webcam banners), full 16:9 height; it pauses behind any
+   full-screen cutaway. Dan's own words: *"I want my head to be in the foreground, and this to be playing in the background.
+   There'll be a slight overlap between my head and my hair, and the bottom of the horizontal frame at the top."*
+4. **Then Dan's take on the moving Soft Blue field**, wide/tight zoom cuts, Soft Blue Light HyperFrames lower thirds placed
+   clear of his face (they sit lower while the interview frame is up, because he sits lower), B-roll and clip cutaways as usual.
+- Both takes were filmed for every reaction: the teleprompter script and an off-the-cuff take right after it on the roll.
+  The scripted take is built first; Dan may ask for the off-the-cuff take in the same format to compare (DS-44, 10-23).
+- Reference build (code, every step): `.claude/skills/shorts/reference/ds44-reaction-format/` (README there). Known gate
+  mismatches with this format: framing:hair_top / headroom read the speaker in the top frame or behind the corner as Dan's
+  hair; confirm by eye, never tune.
+
 ## Head and hair clearance blocks review delivery (Dan, 2026-10-20, RO-27)
 
 Dan rejected the RO-27 opening's clipped hair, including at about 0:22 and 0:29: "we need to always make sure that we don't cut off my head or my hair in these shots." Both the wider and tighter presenter shots must leave slight visible headroom. This applies before any review preview, not only final delivery.
@@ -32,7 +65,16 @@ RO-27 R1 used fixed `3440:1935:200:112` and `3000:1688:420:236` source crops wit
 
 ## Approved chroma key for all green-screen videos (Dan, 2026-10-21, replaces 2026-10-20)
 
-Every green-screen video is keyed with Claude's Bill Maher Fat 90-Year-Old R2 key, Claude and Codex alike. Dan: "let's lock this chroma key as our default way to chroma key things. I want all green screen videos keyed out like this" and "Let's make all our future chroma keys this clean and make this a standard." It replaces the Codex R3 key locked the day before. The bar: edges steadier than the camera's own picture with motion removed, dark rim no worse than the source, nothing see-through over saturated pink (watch, glasses), no specks, strands and motion blur kept, measured with the shared scripts before Dan sees it. Method, exact code and hashes: `.claude/skills/_shared/chroma-key/README.md`. Calibrate plate, crop and hold-out boxes to each source; never average across a cut. Do not reopen the accepted style. This locks keying only; grade and audio stay per video, and already approved exports stay as they are.
+Every green-screen video is keyed with Claude's Bill Maher Fat 90-Year-Old R2 key, Claude and Codex alike. Dan: "let's lock this chroma key as our default way to chroma key things. I want all green screen videos keyed out like this" and "Let's make all our future chroma keys this clean and make this a standard." It replaces the Codex R3 key locked the day before. The bar: edges steadier than the camera's own picture with motion removed, dark rim no worse than the source, nothing see-through over saturated pink (watch, glasses), no specks, strands and motion blur kept, measured with the shared scripts before Dan sees it. Method, exact code and hashes: `.claude/skills/_shared/chroma-key/README.md`. Calibrate plate, crop and hold-out boxes to each source on 2-3 s excerpts with `chroma-key/calibrate.py` (quick lane, minutes; it picks the motion peaks and the tracked hold-out and makes a contact sheet), never by re-keying a full clip; then key each piece exactly once through `chroma-key/keyonce.py`, whose `.done` stamp makes every later round skip an approved piece (every recipe, Claude and Codex), gate that one full run, and re-key only a failing piece. Why: on 10-21 re-keying whole clips to try settings was about 6 of the day's 8.5 key hours. Never average across a cut. Do not reopen the accepted style. This locks keying only; grade and audio stay per video, and already approved exports stay as they are.
+
+## Green screen reaction opening: the locked format (Dan, 2026-10-22)
+
+Every green screen reaction Short opens the same way. Dan, picking version B of Bill Maher Fat 90-Year-Old (DS-40) R4: "Let's go with B. Let's lock this as our format, this size, and the laptop visible for all of these green screen reactions."
+- The reaction clip plays first, full screen, as a fixed vertical crop on the speaker (one steady crop per shot), with its own sound; nothing plays before it.
+- Dan is keyed small in the LOWER LEFT at 0.40 of full size, flush against the left and bottom screen edges, with the laptop visible along the bottom of his footage (key the full camera height; do not crop above the laptop).
+- The small Dan is his REAL reaction: the stretch of his roll where the clip played on his laptop (find it by matching the clip audio in the roll transcript), in sync with the clip. His mic is off while the clip plays.
+- His footage's right edge gets a narrow soft fade (12 px on screen), widened only on frames where a hand leaves the camera picture, so nothing ends on a hard line; keep his head clear of the speaker's face.
+- Key with the house chroma key standard above. The recipe and code: `.claude/skills/shorts/reference/ds40-greenscreen/comp_r4.py` (version B) and its README.
 
 ## AI video clips: Google Flow subscription first, paid API only on "rush" (Dan, 2026-10-17)
 
@@ -194,6 +236,29 @@ Dan: "The system that I want is one where I give my revisions and then the new t
   label chip placed by person mask); change only the look. Build it once as a shared template beside the other
   HyperFrames templates and point `_shared/adkit/analysis_card.py` users at it. The J2 version stays only for re-exports
   of films already approved with it (RA-01).
+
+## A revised thumbnail or cover is shown to Dan before it is installed (Dan, 2026-10-22, SL-18)
+
+- **When Dan asks for changes to a picked thumbnail or cover, build the revision, show him the finished file (every layout), and
+  install, upload or schedule it only after he approves that exact file.** Dan, after his Short 2 cover D revision was installed
+  straight into Blotato: *"I want you to have me approve the final short before you install in the future."* (Editor's reading:
+  "short" means the short's cover, the thing that was installed without his look.)
+- An unrevised pick from the review sheet still goes straight to setup. Already scheduled posts keep their current cover until he
+  approves the replacement; then swap it everywhere it is used (Instagram, YouTube, the TikTok cover-first copy, the Facebook cover
+  registry and the live installer) and read each back.
+
+## Revised covers and thumbnails: show Dan before installing (Dan, 2026-10-22)
+
+- **When Dan asks for any change to a cover or thumbnail he picked (new text, new image, any revision), build it, show him the
+  finished file in every layout, and stop. Install, upload or schedule it only after he approves that exact file.** Dan, on the
+  SL-06 Top 5 Zepbound Tips covers (text changes on five picks, queued without his look): *"Show me the covers that I gave
+  revisions to review. I didn't approve them yet... Let's make this a standard rule going forward. If there are revisions, you
+  show them to me to review before we install."* The same day, on SL-18: *"I want you to have me approve the final short before
+  you install in the future."*
+- A pick from the review sheet with no change still goes straight to setup. A pick with a revision is a stop point: everything
+  else in the setup (media backups, TikTok copies, captions, configs) may be prepared meanwhile, but nothing carrying the revised
+  cover is queued or installed until his OK. If he named no letter for a short, that is a question, not a default.
+- Binds Claude and Codex, `/video-setup`, `/ad-setup`, `/coverimage`, `/youtube-packaging`, and any cover swap on a live queue.
 
 ## Thumbnails: the five, each its own design, always made by Codex (Dan, 2026-10-13)
 
@@ -417,6 +482,13 @@ always the one making these thumbnails."*
   (low sun, shade). Where a grade cannot rescue a clip, pick one that is already bright ("or just use the ab wheel or
   something already color-corrected"). A B-roll still visibly darker than the presenter frames around it is a defect the
   editor fixes before the review page goes out.
+- **Never raw footage, ever (Dan, 2026-10-23, RO-28 round 3).** Dan on the jump-rope pool clip at 2:22: *"This is raw footage.
+  I want you to color correct this footage. Let's make this a standing rule: never, ever use raw footage. B-roll only:
+  color-corrected footage in these videos."* That clip had a grade: a gamma lift that brightened the shade but greyed the
+  blacks and flattened it, so it still read as raw. A correction is a real grade: real blacks, contrast, warm skin, colour
+  matched to the approved pool clips (RO-28 `POOL_RICH`: curves 0/0 0.12/0.08 0.4/0.48 0.75/0.85 1/1, contrast 1.08, sat 1.20,
+  slight warm balance), never a brightness or gamma lift alone. Check every clip of Dan's own rolls side by side with the
+  film's best-graded B-roll before a page goes out; a flat, grey or washed-out clip is raw and is a defect.
 - This binds Claude and Codex, every video skill, and every editor brief and revision doc.
 
 ## A person looking at a phone is not a picture; never use the clip of Dan on his phone (Dan, 2026-10-11)
@@ -576,7 +648,9 @@ always the one making these thumbnails."*
 - The folder is git-ignored (the repo is public). Claude and Codex both do this, in every video skill.
 - **Review pages must survive the editing session and Mac restarts (Dan, 2026-10-08).** Start them with
   `python3 .claude/skills/_shared/review_server.py PORT DIR`. On this Mac the command installs a per-port login service,
-  verifies it is running, and returns. macOS restarts it after a crash and at the next login. Do not use a temporary
+  verifies it is running, and returns. Since 2026-10-21 the service starts ON DEMAND: launchd holds the port and starts
+  the server when the page is opened (also after a crash or a restart), and the server exits after 24 h with no
+  request, so old reviews cost nothing while nobody looks and the link keeps working. Do not use a temporary
   terminal server, `nohup`, or `python3 -m http.server` for a delivered review. `--serve` is for the managed worker/tests.
 - Reuse the same port and review folder when repairing an existing link. Never replace another review on that port.
   The service code and web-linked review assets are copied to local Application Support. Published pages therefore
@@ -594,6 +668,10 @@ always the one making these thumbnails."*
 - After Dan has reviewed and finalized a video, remove only its review copies and stop its now-unused page service
   with `python3 .claude/skills/_shared/review_server.py PORT --remove`. This also removes that page's local cache.
   Retain original delivery files and approvals.
+- **Housekeeping (2026-10-21):** `python3 .claude/skills/_shared/renderq/renderq.py prune` switches review services
+  that still run all the time (made before 10-21) to start on demand, same link, and stops hand-started servers
+  (`--serve`, `http.server`) running over 48 h, printing the command that brings each back. `--dry-run` lists first.
+  On 10-21 there were 59 review servers, some 19 days old.
   Time passing or watching a preview alone is not finalization.
 
 ## Round 1 always reviews every graphic, stock item and clip; later rounds are lighter (Dan, 2026-10-08)
@@ -1235,10 +1313,19 @@ something that we can publish."* Every point below is a standing rule for every 
   `buildcap.wait()` now gets in line in the queue. Never waits: ffprobe, frame grabs, stills, audio-only ffmpeg,
   stream copies, anything 5 s or shorter, review servers. Audit of what still gets past it (2026-10-20 evening):
   `Handoffs/results-20261020-renderq-drives.md`.
-- **Slots: heavy 2 always open, up to 4 while the Mac has spare CPU; light (Whisper, checks) 2, up to 3.** Extra slots
-  open only when at least 30% of the CPU sat idle for 4 s and nothing started in that pool in the last 15 s, so
-  single-core Python renders no longer leave most of the Mac idle, and x264-bound renders still run two at a time.
-  Work inside a slot runs at nice 10. Measurements: `Handoffs/results-20261020-render-scheduler.md`.
+- **Budgets, not slot counts (v3, 2026-10-21).** Every step gets a core allowance: heavy 4, light 2, quick 2. Past the
+  floor (2 heavy, 1 light and 2 quick always run, so the line never stalls) a step starts only while (a) the cores in
+  use plus its own fit in the Mac's 10 minus 2 kept for sessions and the UI, and (b) memory has had room for 30 s: at
+  least 8 GB free or inactive, swap not growing, no macOS memory-pressure warning. `renderq.py status` shows cores and
+  GB per holder and why the line is closed; `renderq.py why [VIDEO]` explains one waiter. Why: on 10-21 two "slots"
+  held two chroma keys with 11 one-GB workers, swap filled and 27% of all CPU went to paging, so every job ran slower
+  than two alone. Results: `Handoffs/results-20261021-renderq-v3.md`. Work inside a slot runs at nice 10.
+- **Size every worker pool from the allowance:** `Pool(int(os.environ.get("RENDERQ_CORES", 4)))` (also
+  `ProcessPoolExecutor`). Every slot holder exports `RENDERQ_CORES` to what it runs. Never `cpu_count()` or a fixed 6
+  in a pipeline step. The ffmpeg wrapper can also add `-threads <allowance>` to calls that set none, but that is OFF
+  (measured 10-21: a capped encode loses its CPU share to everything uncapped and ran 2.5-3x slower); it goes on once
+  the chroma key and the other big thread users size from `RENDERQ_CORES`. When it is on, x264 output bytes change
+  with the thread count: compare pictures and audio, not file hashes, for re-renders.
 - **Quick lane (2026-10-20 evening): short clips never wait behind long renders.** Heavy work on short media takes one
   of two quick slots, first come first served: ffmpeg calls whose inputs total 20 s or less (or `-t` up to 20 s, up to
   600 frames), `clipcheck.py` on clips of 15 s or less, HyperFrames graphics of 10 s or less. An 8 s AI clip's frame

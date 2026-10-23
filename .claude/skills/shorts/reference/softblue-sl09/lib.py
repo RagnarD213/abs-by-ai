@@ -27,8 +27,8 @@ def band(bg, eyebrow, lines, t=0):
     d.rounded_rectangle((64, 50, 71, 86), 3, fill=B.CYAN); x = 88
     for ch in eyebrow: d.text((x, 44), ch, font=fe, fill=B.CYAN); x += B.text_w(ch, fe) + 4
     assert x < 1040, eyebrow
-    y = 96
-    for line in lines: d.text((64, y), line, font=fh, fill=B.WHITE); y += 100
+    y = 86      # 2026-10-22 (SL-17 reviewer B5): 96/100 let a second line's descenders (g, j, p, q, y) at 88 px run to row 312, cut by the glass line at 309; 86/96 ends them at 298 (softblue_titlecheck.py enforces < 299)
+    for line in lines: d.text((64, y), line, font=fh, fill=B.WHITE); y += 96
     assert y <= DROP + 2, (lines, y)
     d.line((0, DROP - 1, W, DROP - 1), fill=B.GLASS_LINE, width=2)
     return size

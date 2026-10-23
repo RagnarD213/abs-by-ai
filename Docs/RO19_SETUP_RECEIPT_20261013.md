@@ -31,3 +31,5 @@
 2. `curl -sI` the four media URLs above; if any is gone, re-upload from `/Volumes/Extreme/_edit_work/ro19/publish/` and edit the `.build.py`.
 3. `python3 scripts/blotato/longform_queue.py scripts/blotato/configs/ro19-my-first-spray-tan.json`, then `--apply`. If Jan 17 has been taken, move `main` to the next free Sunday in the `.build.py` first.
 4. Read back all three schedules (no TikTok in Blotato; see the TikTok line above).
+
+- **2026-10-22 TikTok run: not posted.** RO-19 did not release Wed Oct 21: it is still on the waitlist (no "queued" field) and the config's main is now Wed Dec 30 2026 9 AM Central. The task tried to re-arm itself for Thu Dec 31 2026 12:05 PM Central, but the scheduler refused the change without a person's approval, so the task needs re-arming by hand (fireAt 2026-12-31T12:05:00-06:00, or the day after main if main moves again).

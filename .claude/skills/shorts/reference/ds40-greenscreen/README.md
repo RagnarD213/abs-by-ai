@@ -119,3 +119,25 @@ then a 0.5 s move (clip shrinks into its card, Dan grows) into the R2 layout. Le
 - A seek's first decoded frame repeats the next one (ffmpeg -ss): never trust frame 0 of a resumed decode; seek a few frames early.
 - Dissolve between two takes during the grow: 3 frames, while he is still small (8 frames showed a double image).
 - 10 ms fades are too short for a voice that starts on a breath: 25 ms.
+
+## Round 6 (2026-10-22/23): the whole Short in the locked B format, approved by Dan
+
+Code: `r6/` (plan, renderer `comp_r6.py`, captions, graphics build, audio mix, gate plan, QA chain). Work folder (media):
+`/Volumes/Expansion/_edit_work/ds40/r6/`. Delivered: `Short-form video content/Fat 90 Year Old - DS-40/`.
+- **One plan file drives everything** (`r6/plan.py`): film frames, the cuts as whole-frame lengths (picture and sound stay
+  locked after a cut), the BMI-table span that hides them, the card shots, every graphic time (word starts mapped to the film).
+- **Roll frame grid:** C1730 frames sit on n*1001/30000 s and `-ss T` lands on frame ceil(T*30000/1001). Compute cache
+  offsets from that, not from typed seconds (an earlier guess was one frame off).
+- **The move from B (0.40, flush left and bottom) to full size** needs a FULL-HEIGHT key of the scripted take for those
+  15 frames (`Y_BOTTOM=3840`, `ROWS=1920`): with the 3490 crop his footage would end 70 px above the screen bottom while
+  small. Top goes linearly from B's position to OY 175 while the scale grows, so the bottom edge never rises above the screen.
+- **Silent card footage:** download the whole episode (720p, AV1 decodes fine), locate the reaction clip in it by matching a
+  frame (it was episode time + 130 s), and measure every candidate shot frame to frame for camera cuts AND for a graphic
+  still sliding out at its start (the first R6 draft opened on a leaving quote card; text clears 0.4 s after the slide).
+- **Watch hold-out for the B corner footage** (`r6/track_watch.py`): box per frame from the grey band, 60 px each side and
+  100 px below it (the face hangs below the band); stage15's boxes are in layout px, so add 175 for a full-height cache.
+  Worst frame 596 -> 17 see-through px over pink.
+- **Captions during the clip** sit at top 1040 (under Maher's face, lowest y 1014, above the small Dan's head, about 1290);
+  the name lower third goes right of the small Dan (x 452..1000, top 1318).
+- **BMI table** = new HyperFrames template `_shared/hyperframes/bmi-table/` (dark numbers on amber: white reads 2.6:1).
+- A rawvideo-decoding check over every cache frame is very slow in a 2-core light slot (44 min and not done): sample.

@@ -15,6 +15,13 @@ folder is `/Volumes/Extreme/_edit_work/ro08/round3/`. Our own mix: voice 1a with
 * A short never opens on a list number ("Reason 3", "Mistake 2") or a line that points back at the long-form. Where one does, write the pickup line into the shortlist; pickups are recorded on the studio set at a shoot (VIDEO-RULES, 2026-10-13), so a short that needs one waits for the shoot.
 * No covers in this job: covers are made in the setup task. **Don't upload or queue.** A short never posts before its parent is public.
 
+## Dan's pick for Short 1 (2026-10-22): "Just Skip Breakfast", airs Tue Dec 15 2026, 9 AM Chicago
+Dan chose the how-to-start section (9:04 - 11:08: just skip breakfast, and what the first month is like) for the Tue Dec 15
+Shorts slot (`Docs/SHORTS_RELEASE_CALENDAR.md`, it took I'm 41. I Wasted My Life.'s unused third slot). Cut this one first and
+deliver it by **Mon Dec 14** (allow time for its setup: covers and Blotato). Check its first sentence stands alone (no list
+number, no pointer back to the film); if it needs a pickup, say so at once, since pickups wait for a shoot. Propose the other
+segments in the same list as usual; Dan picks those, and they take the next free Mon/Tue/Fri/Sat slots after Dec 15.
+
 ## This video's specifics
 * Natural shorts by chapter: what intermittent fasting is and the daily fast he does (0:37 - 2:31), the simplest way to eat less (2:31 - 4:12), it saves your mornings and you get more done (5:02 - 6:59), how to start: just skip breakfast, and the first month (9:04 - 11:08), break your fast with a salad (11:08 - 11:43), the three mistakes (11:43 - 14:04, binge eating at night, eating right before bed, alcohol). Expect 4-5 shorts; most open on a list number, so expect pickups.
 * AI clips in the film carry the AI-GENERATED chip (0:00 opener, 3:23 boxing glove, 4:55 cell cartoon, 6:07 donut, 7:24 and 7:45 excuse voices, 12:11 fridge raid, 13:35 beer); `ai_generated: true` at setup for any short that uses one. A short that keeps one keeps it as it is in the film: every one passed the three AI clip questions (VIDEO-RULES top section). Do not extend any of them past their cut in the film (the library notes say why: clip library A0169 to A0175).
@@ -26,7 +33,7 @@ folder is `/Volumes/Extreme/_edit_work/ro08/round3/`. Our own mix: voice 1a with
 
 ## Starter prompts
 **Claude (Opus 5.5, high):**
-> Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/SL-16-intermittent-fasting-shorts.md`: propose the shorts segments from the RO-08 Intermittent Fasting master and wait for my picks, then cut them with /shorts in Soft Blue Light, with gates and an independent audit (no covers). Deliver, send me the review copies, update the master list. Name this session "Intermittent Fasting SFC R1".
+> Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/SL-16-intermittent-fasting-shorts.md`: propose the shorts segments from the RO-08 Intermittent Fasting master ("Just Skip Breakfast" is already picked as Short 1 for Tue Dec 15) and wait for my other picks, then cut them with /shorts in Soft Blue Light, with gates and an independent audit (no covers). Deliver, send me the review copies, update the master list. Name this session "Intermittent Fasting SFC R1".
 
 **Codex (GPT-6 Sol, high):**
-> Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/SL-16-intermittent-fasting-shorts.md` using `.claude/skills/shorts/SKILL.md` as the method: propose segments from the RO-08 master, wait for Dan's picks, cut, gate, deliver, update `00-MASTER.md`. Name this task "Intermittent Fasting SFC R1".
+> Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/SL-16-intermittent-fasting-shorts.md` using `.claude/skills/shorts/SKILL.md` as the method: propose segments from the RO-08 master ("Just Skip Breakfast" is already picked as Short 1 for Tue Dec 15), wait for Dan's other picks, cut, gate, deliver, update `00-MASTER.md`. Name this task "Intermittent Fasting SFC R1".

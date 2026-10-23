@@ -243,3 +243,7 @@ push added in editing. Stills first (`preview_r7.py`: the still + AI chip + 1.07
   fired on the previous round's file and gated B and C too early (both re-run PASS).
 - **iCloud now syncs Documents:** stale "name 2.mp4 / name 3.mp4" copies of older renders reappear beside delivered files;
   compare dates and checksums, move the stale ones out.
+
+## Title band descender fix (2026-10-22)
+
+`lib.band()` now draws the title at y 86 with a 96 px line step (was 96 / 100). With title-case titles, a second line with g, j, p, q or y at 88 px ran its descenders to row 312, cut by the glass line at 309 and the picture at 310 (SL-17 reviewer B5; 11 delivered Shorts were affected, `Docs/SHORTS_TITLE_BAND_AUDIT_20261022.md`). The lowest glyph row is now 298. `batch.py gfx|proof|render` runs `_shared/softblue_titlecheck.py` on every TITLE first and stops if any lowest white row is 299 or lower down. Check a batch by hand: `python3 .claude/skills/_shared/softblue_titlecheck.py titles <batch dir>`.

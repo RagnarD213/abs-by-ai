@@ -3,6 +3,10 @@ name: abs-edit-ad
 description: Edit or revise filmed Abs By AI ads from raw camera footage and a spoken script, using the accepted ad treatment and shared video standards. Use for original ad editing; an approved master needing new dimensions or a shorter cut uses the existing adaptation workflow.
 ---
 
+## Video editing task names (Dan, 2026-10-16)
+
+At the start of a video editing/review task, name the chat `<Recognizable Video Title> <Type> R<round>` under the [shared naming rule](../../../../.claude/skills/_shared/VIDEO-RULES.md#video-editing-task-names-dan-2026-10-16). Use LFC for long-form, SFC for dedicated shorts, and SFL for shorts extracted from long-form; retain existing paid-ad type labels. Put the recognizable video title first, omit internal job codes and generic action prefixes, and use the same name in handoff prompts. Asset/brief work supporting an existing editing task keeps that task's name and round.
+
 ## Edit slot first (Dan, 2026-10-21)
 
 At most 5 edits (Claude and Codex together) do production at once. Before this edit's first production step

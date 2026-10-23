@@ -8,7 +8,7 @@ T0, DUR = float(sys.argv[1]), float(sys.argv[2])
 OUT = sys.argv[3]; os.makedirs(OUT, exist_ok=True)
 IDX0 = int(sys.argv[4]) if len(sys.argv) > 4 else 0   # first frame index (to key only the frames a run is missing)
 Y_GARBAGE = 480        # source rows above this are never Dan (screen top edge); hair top >= 628 in this take
-Y_BOTTOM = 3490        # laptop line (tilted, 3515 right .. 3660 left); crop above it
+Y_BOTTOM = int(os.environ.get("Y_BOTTOM", "3490"))   # 3490 = above the laptop; 3840 = keep the laptop (R4)
 S = 0.5                # source -> output scale (2160 -> 1080)
 def work(args):
     i, P = args

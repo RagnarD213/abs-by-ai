@@ -10,9 +10,14 @@
     python3 renderq.py scratch JOB [--need GB]  a scratch folder for throwaway frames and test renders: the internal
                                               SSD while it has room, else the job's own drive
     python3 renderq.py drives                 each drive: heavy steps running and waiting on it, its cap, free space
+    python3 renderq.py why [TICKET]           why a waiting step has not started (all waiters, or one by its line
+                                              number, pid, label or video)
+    python3 renderq.py prune [--dry-run]      review servers older than 48 h: launchd-managed ones switch to start
+                                              on demand (same link), hand-started ones are stopped and listed
     python3 renderq.py install-shim           put the ffmpeg wrapper in front of Media/video_edit/bin/ffmpeg
     python3 renderq.py uninstall-shim         put the real ffmpeg back
-    python3 renderq.py selftest               queue order, priority, kill -9, nesting, exempt calls, drives, quick lane
+    python3 renderq.py selftest               queue order, priority, kill -9, nesting, exempt calls, drives, quick lane,
+                                              core and memory budgets, -threads, RENDERQ_CORES
 
 In Python:  `with renderq.slot("RO-27 picture pass"):` (heavy) or `renderq.slot(label, pool="light")`.
             `renderq.workdir("RO-27")`, `renderq.scratch_dir("RO-27")` return Paths.
@@ -37,14 +42,24 @@ HOW.
 * DRIVES. Each heavy step records the drives it reads and writes (Extreme, Expansion, Seagate, internal). A drive
   takes at most its cap of heavy steps at once (drives.json, measured by drivebench.py). A waiter whose drive is
   full steps aside: the next waiter on another drive goes past it, so a busy hard disk never idles the SSD.
-* Builds that bypass the queue (an old script, another ffmpeg) and are using CPU count against the heavy pool,
-  so the cap holds even before every tool is wired in.
+* BUDGETS (v3, 2026-10-21, Handoffs/handoff-20261021-render-throughput-plan.md). A slot used to stand for "one
+  encode", but a chroma key held one slot with six 1 GB workers: two slots meant 11 processes and 10.5 GB, swap
+  filled and 27% of the CPU went to paging. Now every step carries a CORE ALLOWANCE (heavy 4, light 2, quick 2) and
+  the line admits by two budgets: the cores in use plus the new step's must fit in the Mac's cores minus 2 (kept
+  for the sessions, Chrome and the UI), and MEMORY must have had room for the last 30 s (at least 8 GB free or
+  inactive, swap not growing, no memory-pressure warning). The FLOOR (two heavy, one light, two quick) always
+  runs whatever the budgets say, so the line never stalls. The allowance is enforced: the holder exports
+  RENDERQ_CORES (every Pool( sizes from it); the ffmpeg wrapper can add -threads/-filter_threads to any call that
+  sets none (GATE_THREADS=1; off by default since the 10-21 bench, see THREADS_DEFAULT). `status` shows cores and GB per holder and why the line is closed; `why` explains one waiter.
+* Builds that bypass the queue (an old script, another ffmpeg) and are using CPU count against the core budget
+  (their CPU in whole cores), so the budget holds even before every tool is wired in.
 * NESTING: a slot holder exports GATE_HELD; anything gated beneath it (a render's own encoder, a gate's own
   Whisper) runs straight through. A process whose parent or ancestor holds a slot also runs through, and so
   do the two ends of a pipe (decoder | encoder) once either end holds the slot.
 * Work inside a slot runs at nice 10, so Chrome, review pages and the sessions themselves stay responsive.
 * GATE_OFF=1 skips everything (debugging only).
 """
+import ctypes
 import fcntl
 import json
 import os
@@ -65,9 +80,25 @@ REPO = SHARED.parents[2]
 # ~ (tested 2026-10-20). Every session must use the same folder or the line splits in two.
 DIR = Path(os.environ.get("GATE_DIR") or "/tmp/absbyai-renderq")
 
-# (always open, most at once). Slots past the first number open only while the Mac has spare CPU (see _burst_ok).
-# Measured 2026-10-20, Handoffs/results-20261020-render-scheduler.md. GATE_POOLS="heavy=2:4,light=2:3" overrides.
-POOLS = {"heavy": (2, 4), "light": (2, 3), "quick": (2, 2)}
+# (floor: always open whatever the budgets say, most at once). Slots past the floor open only while the core and
+# memory budgets have room (see _budget_ok). GATE_POOLS="heavy=1:4,light=1:3" overrides (tests: "heavy=1").
+# Heavy floor 2, not the plan's 1: with each heavy step held to 4 cores, two fill the 8-core budget exactly, and on
+# 10-21 a floor of 1 ran the ten-step bench 2.1x slower than two at a time while swap still grew from work outside
+# the queue (Handoffs/results-20261021-renderq-v3.md).
+POOLS = {"heavy": (2, 4), "light": (1, 3), "quick": (2, 2)}
+# Cores each step may use (the one table to tune). GATE_ALLOW="heavy=4,light=2,quick=2" overrides. Quick 2, not 1:
+# one thread made an 8 s clip's PNG frame dump 3-4x slower (bench10, 10-21).
+ALLOW = {"heavy": 4, "light": 2, "quick": 2}
+CORES_RESERVED = 2                      # kept for the Claude/Codex sessions, Chrome, review pages and the UI
+MEM_AVAIL_MIN_GB = 8.0                  # free + inactive + speculative + purgeable memory needed to start more
+SWAP_GROW_MAX_MB = 64.0                 # swapped out more than this in the last 30 s: the Mac is paging; start nothing more
+HEADROOM_S = 30.0                       # memory must have had room this long (not a 4 s snapshot: a key runs an hour)
+RSS_EVERY_S = 10.0                      # how often holders' memory is measured (one ps for all)
+# The wrapper's -threads injection is OFF by default (GATE_THREADS=1 turns it on for a process tree). Measured 10-21
+# at load 70-200: capped to 4 threads, an x264 picture pass ran 2.5-3x slower than uncapped, because the rest of the
+# Mac (chroma-key pools whose cv2/numpy start their own threads, work outside the queue) is not capped and takes the
+# share. Turn it on once Phase 2's key and the other big thread users size themselves from RENDERQ_CORES.
+THREADS_DEFAULT = False
 QUICK_S = 20.0                          # heavy ffmpeg work on media this short (or capped this short) is QUICK
 QUICK_FRAMES = 600                      # ... or this few frames
 QUICK_CLIP_S = 15.0                     # clipcheck.py on a clip this short is QUICK
@@ -84,9 +115,8 @@ WORK_DRIVES = ("Extreme", "Expansion", "Seagate")
 # Both are found and counted; new folders go in _edit_work.
 WORK_FOLDERS = ("_edit_work", "Abs By AI Edit Work")
 _JOB_IN_PATH = re.compile(r"/(?:_edit_work|Abs By AI Edit Work)/([^/]+)")
-IDLE_MIN = 0.30                         # an extra slot opens only if at least this share of the CPU sat idle ...
-IDLE_WINDOW_S = 4.0                     # ... over this long ...
-SETTLE_S = 15.0                         # ... and nothing started in that pool this recently (let it ramp up)
+IDLE_WINDOW_S = 4.0                     # cpu_idle()'s window (status only since v3; admission reads the budgets)
+SETTLE_S = 15.0                         # past the floor: nothing started in this pool (or heavy) this recently
 RESERVE_S = 0.6                         # a slot just let go stays with its build this long (its next step)
 GRACE_S = 120                           # a video that let a slot go this recently is a continuation
 POLL_HEAD_S = 0.2
@@ -229,14 +259,17 @@ _LIB = []
 _SAMPLES = []
 
 
-def _ticks():
-    """Cumulative CPU ticks for the whole Mac: [user, system, idle, nice] (host_statistics, no subprocess)."""
-    import ctypes
+def _libsystem():
     if not _LIB:
         lib = ctypes.CDLL("/usr/lib/libSystem.dylib")
         lib.mach_host_self.restype = ctypes.c_uint
         _LIB.append(lib)
-    lib = _LIB[0]
+    return _LIB[0]
+
+
+def _ticks():
+    """Cumulative CPU ticks for the whole Mac: [user, system, idle, nice] (host_statistics, no subprocess)."""
+    lib = _libsystem()
     arr, cnt = (ctypes.c_uint * 4)(), ctypes.c_uint(4)
     if lib.host_statistics(lib.mach_host_self(), 3, arr, ctypes.byref(cnt)) != 0:
         raise OSError("host_statistics failed")
@@ -263,12 +296,182 @@ def cpu_idle(window=IDLE_WINDOW_S):
     return d[2] / float(tot) if tot > 0 else None
 
 
-def _burst_ok(pool, idle):
-    """May a slot past the always-open ones start now? Only while the Mac has spare CPU, and only once the
-    last job started in this pool has had time to show its real load."""
-    last = _read(DIR / "admits.json").get(pool, 0)
+# ------------------------------------------------------------------------------------------------ budgets
+def _kv_env(name, cast=float):
+    out = {}
+    for part in filter(None, (os.environ.get(name) or "").split(",")):
+        k, _, v = part.partition("=")
+        try:
+            out[k.strip()] = cast(v)
+        except ValueError:
+            pass
+    return out
+
+
+def allowance(pool):
+    """Cores a step in `pool` may use (exported to it as RENDERQ_CORES)."""
+    return max(1, int(_kv_env("GATE_ALLOW", int).get(pool, ALLOW.get(pool, 1))))
+
+
+def core_budget():
+    """Cores the queue may hand out: the Mac's cores minus those kept for sessions and the UI."""
+    if os.environ.get("GATE_BUDGET"):
+        return int(os.environ["GATE_BUDGET"])
+    return max(2, (os.cpu_count() or 10) - CORES_RESERVED)
+
+
+def held_cores(info, pool):
+    """Cores a slot holder was given (older holders did not say: their pool's allowance)."""
+    try:
+        return int(info.get("cores") or allowance(pool))
+    except (TypeError, ValueError):
+        return allowance(pool)
+
+
+def unmanaged_cores(builds):
+    """Builds outside the queue count by the cores they burn: 250% CPU is 3 cores."""
+    return sum(max(1, int(-(-float(b.get("cpu", 100)) // 100))) for b in builds)
+
+
+def cores_in_use(states, unmanaged=()):
+    return (sum(held_cores(s["info"], s["pool"]) for s in states if s["held"])
+            + unmanaged_cores(unmanaged))
+
+
+_c = ctypes
+
+
+class _VM64(ctypes.Structure):
+    """vm_statistics64 (mach/vm_statistics.h): what vm_stat prints."""
+    _fields_ = [("free", _c.c_uint32), ("active", _c.c_uint32), ("inactive", _c.c_uint32), ("wire", _c.c_uint32),
+                ("zero_fill", _c.c_uint64), ("reactivations", _c.c_uint64), ("pageins", _c.c_uint64),
+                ("pageouts", _c.c_uint64), ("faults", _c.c_uint64), ("cow_faults", _c.c_uint64),
+                ("lookups", _c.c_uint64), ("hits", _c.c_uint64), ("purges", _c.c_uint64),
+                ("purgeable", _c.c_uint32), ("speculative", _c.c_uint32), ("decompressions", _c.c_uint64),
+                ("compressions", _c.c_uint64), ("swapins", _c.c_uint64), ("swapouts", _c.c_uint64),
+                ("compressor_pages", _c.c_uint32), ("throttled", _c.c_uint32), ("external", _c.c_uint32),
+                ("internal", _c.c_uint32), ("uncompressed_in_compressor", _c.c_uint64)]
+
+
+def _sysctl(name, ctype):
+    lib = _libsystem()
+    val, size = ctype(), ctypes.c_size_t(ctypes.sizeof(ctype))
+    if lib.sysctlbyname(name.encode(), ctypes.byref(val), ctypes.byref(size), None, ctypes.c_size_t(0)) != 0:
+        raise OSError("sysctl " + name)
+    return val
+
+
+def mem_now():
+    """dict(avail_gb, swap_used_mb, swapouts (pages, cumulative), pressure (1 normal, 2 warn, 4 critical)) from
+    the kernel (host_statistics64 and sysctl: no subprocess). GATE_MEM="avail_gb,swap_grow_mb[,swap_used_mb]" fakes
+    it for tests."""
+    if os.environ.get("GATE_MEM"):
+        f = [float(x) for x in os.environ["GATE_MEM"].split(",")]
+        return dict(avail_gb=f[0], fake_grow_mb=f[1], swap_used_mb=f[2] if len(f) > 2 else 0.0, swapouts=0,
+                    pressure=1, page=16384)
+    lib = _libsystem()
+    vm = _VM64()
+    cnt = ctypes.c_uint(ctypes.sizeof(_VM64) // 4)
+    if lib.host_statistics64(lib.mach_host_self(), 4, ctypes.byref(vm), ctypes.byref(cnt)) != 0:
+        raise OSError("host_statistics64 failed")
+    page = os.sysconf("SC_PAGESIZE")
+
+    class XSW(ctypes.Structure):
+        _fields_ = [("total", ctypes.c_uint64), ("avail", ctypes.c_uint64), ("used", ctypes.c_uint64),
+                    ("pagesize", ctypes.c_uint32), ("encrypted", ctypes.c_uint32)]
+    try:
+        swap_used = _sysctl("vm.swapusage", XSW).used / 1048576.0
+    except OSError:
+        swap_used = 0.0
+    try:
+        pressure = _sysctl("kern.memorystatus_vm_pressure_level", ctypes.c_int).value
+    except OSError:
+        pressure = 1
+    avail = (vm.free + vm.inactive + vm.speculative + vm.purgeable) * page / 1e9
+    return dict(avail_gb=round(avail, 2), swap_used_mb=round(swap_used), swapouts=int(vm.swapouts),
+                pressure=int(pressure), page=page)
+
+
+def mem_state():
+    """Memory now, swap growth over the last 30 s, and how long memory has had room without a break. Samples are
+    shared in the queue folder (taken at most once a second by whoever looks), so a new waiter inherits the
+    history instead of starting its own clock. A gap of over a minute with nobody looking restarts the clock."""
+    p = DIR / "mem.json"
+    st = _read(p)
+    now = time.time()
+    samples = st.get("samples", [])
+    if samples and now - samples[-1][0] < 1.0 and st.get("last"):
+        return st["last"]
+    try:
+        m = mem_now()
+    except Exception as e:
+        _log("mem_error", error=repr(e))
+        return dict(ok=True, ok_for=1e9, avail_gb=None, reason="memory unreadable ({})".format(e))
+    gap = now - samples[-1][0] if samples else 1e9
+    samples = [s for s in samples if now - s[0] <= 45.0] if gap <= 60 else []
+    samples.append([now, m["swapouts"]])
+    old = [s for s in samples if now - s[0] >= 25.0] or samples[:1]
+    grow_mb = m.get("fake_grow_mb", (m["swapouts"] - old[-1][1]) * m["page"] / 1048576.0)
+    min_gb = float(os.environ.get("GATE_MEM_MIN_GB") or MEM_AVAIL_MIN_GB)
+    if m["avail_gb"] < min_gb:
+        reason = "memory: {:.2f} GB free or inactive (needs {:g})".format(m["avail_gb"], min_gb)
+    elif grow_mb > SWAP_GROW_MAX_MB:
+        reason = "memory: swapping ({:.0f} MB written to swap in the last 30 s; {:.1f} GB swap in use)".format(
+            grow_mb, m["swap_used_mb"] / 1024.0)
+    elif m["pressure"] >= 2:
+        reason = "memory: macOS reports memory pressure ({})".format("critical" if m["pressure"] >= 4 else "warning")
+    else:
+        reason = ""
+    ok_since = st.get("ok_since")
+    if reason:
+        ok_since = None
+    elif ok_since is None or gap > 60:
+        ok_since = now
+    out = dict(ok=not reason, ok_for=round(now - ok_since, 1) if ok_since else 0.0, reason=reason,
+               avail_gb=m["avail_gb"], swap_used_mb=m["swap_used_mb"], swap_grow_mb=round(grow_mb, 1),
+               pressure=m["pressure"], t=now)
+    try:
+        _write(p, dict(samples=samples, ok_since=ok_since, last=out))
+    except OSError:
+        pass
+    return out
+
+
+def _settled(pool):
+    """Past the floor, wait until the last step started in this pool (and the last heavy one) has had time to show
+    its real CPU and memory."""
+    a = _read(DIR / "admits.json")
     settle = float(os.environ.get("GATE_SETTLE", SETTLE_S))
-    return idle is not None and idle >= IDLE_MIN and time.time() - last >= settle
+    last = max(a.get(pool, 0), a.get("heavy", 0) if pool != "quick" else 0)
+    return time.time() - last >= settle
+
+
+def budget_check(pool, states, unmanaged=()):
+    """May one more step start in `pool` now? '' when yes, else the reason in plain words. The floor always may."""
+    base, most = pool_sizes()[pool]
+    occupied = sum(1 for s in states if s["pool"] == pool and s["held"])
+    if occupied >= most:
+        return "{} slots all in use ({} of {})".format(pool, occupied, most)
+    if occupied < base:
+        return ""
+    need, used, budget = allowance(pool), cores_in_use(states, unmanaged), core_budget()
+    if used + need > budget:
+        return "cores: {} of {} in use{}, this step needs {}".format(
+            used, budget, " ({} by work outside the queue)".format(unmanaged_cores(unmanaged)) if unmanaged else "",
+            need)
+    if pool == "light" and used + need + allowance("heavy") > budget and _tickets("heavy"):
+        return "cores: the last {} free cores are kept for a heavy step waiting in line".format(budget - used)
+    m = mem_state()
+    if not m["ok"]:
+        return m["reason"]
+    hold = float(os.environ.get("GATE_HEADROOM_S", HEADROOM_S))
+    if m["ok_for"] < hold:
+        return "memory: room for {:.0f} s of the {:g} s needed ({:.1f} GB free or inactive)".format(
+            m["ok_for"], hold, m["avail_gb"] or 0)
+    if not _settled(pool):
+        return "settling: a step started under {:g} s ago; its load shows first".format(
+            float(os.environ.get("GATE_SETTLE", SETTLE_S)))
+    return ""
 
 
 def _admitted(pool):
@@ -490,16 +693,60 @@ def _history(pool):
     return sorted(durs)[len(durs) // 2] if durs else DEFAULT_DUR.get(pool, 300.0)
 
 
+def holder_rss(states, force=False):
+    """{slot name: dict(pid, mb, peak_mb)}: each holder's resident memory summed over its whole process tree. One ps
+    for every holder, at most every RSS_EVERY_S by whoever looks (waiters at the head of a line, `run` holders,
+    status), kept with the peak in the queue folder."""
+    p = DIR / "rss.json"
+    c = _read(p)
+    now = time.time()
+    held = {"{}.{}".format(s["pool"], s["i"]): s["info"]["pid"] for s in states if s["held"] and s["info"].get("pid")}
+    same = {k: v.get("pid") for k, v in c.get("slots", {}).items()} == held
+    if not force and same and now - c.get("t", 0) < RSS_EVERY_S:
+        return c.get("slots", {})
+    try:
+        r = subprocess.run(["ps", "-Ao", "pid=,ppid=,rss="], capture_output=True, text=True, timeout=10)
+    except Exception:
+        return c.get("slots", {})
+    kids, rss = {}, {}
+    for line in r.stdout.splitlines():
+        f = line.split()
+        if len(f) == 3 and f[0].isdigit() and f[2].isdigit():
+            kids.setdefault(int(f[1]), []).append(int(f[0]))
+            rss[int(f[0])] = int(f[2])
+    old, out = c.get("slots", {}), {}
+    for name, pid in held.items():
+        seen, stack, kb = set(), [pid], 0
+        while stack:
+            q = stack.pop()
+            if q not in seen:
+                seen.add(q)
+                kb += rss.get(q, 0)
+                stack += kids.get(q, [])
+        mb = int(round(kb / 1024.0))
+        prev = old.get(name, {})
+        out[name] = dict(pid=pid, mb=mb, peak_mb=max(mb, prev.get("peak_mb", 0)) if prev.get("pid") == pid else mb)
+    try:
+        _write(p, dict(t=now, slots=out))
+    except OSError:
+        pass
+    return out
+
+
 def _finish(info, info_path, end):
-    """Record that a slot was let go (once)."""
+    """Record that a slot was let go (once), with the cores it had and the most memory it was seen using."""
     if not info.get("start") or info.get("ended"):
         return
     info["ended"] = end
     _write(info_path, info)
+    rec = dict(pool=info.get("pool"), label=info.get("label"), group=info.get("group"), start=info["start"], end=end,
+               dur=round(end - info["start"], 2), cores=info.get("cores"))
+    r = _read(DIR / "rss.json").get("slots", {}).get("{}.{}".format(info.get("pool"), info.get("i")), {})
+    if r and r.get("pid") == info.get("pid"):
+        rec["peak_mb"] = r.get("peak_mb")
     try:
         with open(DIR / "history.jsonl", "a") as f:
-            f.write(json.dumps(dict(pool=info.get("pool"), label=info.get("label"), group=info.get("group"),
-                                    start=info["start"], end=end, dur=round(end - info["start"], 2))) + "\n")
+            f.write(json.dumps(rec) + "\n")
     except OSError:
         pass
 
@@ -732,8 +979,9 @@ def estimate(states=None, tickets=None):
     """{ticket path: seconds until it should start}, simulated from recent durations."""
     states = slot_states() if states is None else states
     out, now = {}, time.time()
-    for pool, (base, _most) in pool_sizes().items():
+    for pool, (base, most) in pool_sizes().items():
         med = _history(pool)
+        base = max(base, min(most, core_budget() // allowance(pool)))   # steps the core budget runs side by side
         free = []
         for s in states:
             if s["pool"] != pool:
@@ -762,7 +1010,7 @@ def estimate(states=None, tickets=None):
 RIDE = "ride"
 
 
-def _admit(ticket, pool, group, idle=None, pipe=False):
+def _admit(ticket, pool, group, idle=None, pipe=False):          # idle: unused since v3 (budgets decide)
     """One look at the line. Returns (fd, slot) when this waiter takes a slot, (RIDE, None) when the other end of
     its pipe now holds one, else (None, position). Under the mutex, so two ends of a pipe never both take slots.
     Heavy pool: a waiter whose drive already runs its cap does not count as ahead of anyone (it steps aside), and
@@ -782,16 +1030,10 @@ def _admit(ticket, pool, group, idle=None, pipe=False):
             return None, pos
         if full:
             return None, 0
-        base, most = pool_sizes()[pool]
         mine = [s for s in states if s["pool"] == pool]
-        occupied = sum(s["held"] for s in mine)
-        if occupied >= most:
-            return None, 0
-        if pool == "heavy":
-            occupied += len(_unmanaged(states))
-            if occupied >= most:
-                return None, 0
-        if occupied >= base and not _burst_ok(pool, idle):
+        base = pool_sizes()[pool][0]
+        unmanaged = _unmanaged(states) if sum(s["held"] for s in mine) >= base else []
+        if budget_check(pool, states, unmanaged):           # past the floor: cores and memory must have room
             return None, 0
         now = time.time()
         for s in mine:
@@ -809,7 +1051,8 @@ def _admit(ticket, pool, group, idle=None, pipe=False):
             # moment later must see this holder, not the last one (two pipe ends took two slots, 2026-10-20).
             _write(s["path"], dict(pid=os.getpid(), ppid=os.getppid(), pgid=os.getpgid(0), pool=pool, i=s["i"],
                                    label=ticket.info["label"], group=group, start=now, cwd=ticket.info["cwd"],
-                                   session=ticket.info["session"], drives=ticket.drives, pipe=pipe, kind="starting"))
+                                   session=ticket.info["session"], drives=ticket.drives, pipe=pipe, kind="starting",
+                                   cores=allowance(pool)))
             _admitted(pool)
             return fd, s
         return None, 0
@@ -821,7 +1064,8 @@ class Hold(object):
         self.name = "{}.{}".format(pool, slot["i"])
         self.info = dict(pid=os.getpid(), ppid=os.getppid(), pgid=os.getpgid(0), pool=pool, i=slot["i"],
                          label=label[:200], group=group, start=time.time(), waited=round(waited, 1),
-                         cwd=os.getcwd()[:200], session=_session(), drives=list(drives or []))
+                         cwd=os.getcwd()[:200], session=_session(), drives=list(drives or []),
+                         cores=allowance(pool))
 
     def publish(self, **extra):
         self.info.update(extra)
@@ -864,7 +1108,7 @@ def acquire(label, pool="heavy", group=None, priority=None, quiet=False, pipe=Fa
     t0, told, said, head = time.time(), 0.0, False, False
     try:
         while True:
-            fd, got = _admit(ticket, pool, group, idle=cpu_idle() if head else None, pipe=pipe)
+            fd, got = _admit(ticket, pool, group, pipe=pipe)
             if fd == RIDE:
                 ticket.close()
                 return None
@@ -882,6 +1126,12 @@ def acquire(label, pool="heavy", group=None, priority=None, quiet=False, pipe=Fa
                     ", about {} to go".format(_fmt(eta)) if eta is not None else "", Path(__file__)))
                 told, said = time.time(), True
             head = got == 0
+            if head and pool != "quick":                        # outside the lock: ps is slow on a loaded Mac
+                try:
+                    mem_state()                                 # cached 1 s: keeps the shared 30 s memory clock fed
+                    holder_rss(slot_states())                   # cached: one ps per RSS_EVERY_S for everyone
+                except Exception:
+                    pass
             time.sleep(POLL_HEAD_S if head or pipe else (POLL_S if got < 3 else 3 * POLL_S))
     except BaseException:
         ticket.close()
@@ -918,9 +1168,10 @@ def slot(label, pool="heavy", group=None, priority=None, quiet=False, drives=Non
     if hold is None:
         yield None
         return
-    prev = os.environ.get("GATE_HELD")
+    prev, prev_cores = os.environ.get("GATE_HELD"), os.environ.get("RENDERQ_CORES")
     hold.publish(kind="python", cmd=" ".join(sys.argv)[:300])
     os.environ["GATE_HELD"] = "{}:{}".format(os.getpid(), hold.name)
+    os.environ["RENDERQ_CORES"] = str(hold.info["cores"])
     try:
         if os.getpriority(os.PRIO_PROCESS, 0) < NICE:
             os.setpriority(os.PRIO_PROCESS, 0, NICE)
@@ -930,10 +1181,11 @@ def slot(label, pool="heavy", group=None, priority=None, quiet=False, drives=Non
         yield hold
     finally:
         hold.release()
-        if prev is None:
-            os.environ.pop("GATE_HELD", None)
-        else:
-            os.environ["GATE_HELD"] = prev
+        for k, v in (("GATE_HELD", prev), ("RENDERQ_CORES", prev_cores)):
+            if v is None:
+                os.environ.pop(k, None)
+            else:
+                os.environ[k] = v
 
 
 _KEEP = []
@@ -953,6 +1205,7 @@ def hold_until_exit(label, pool="heavy", group=None, priority=None, quiet=False,
         return None
     hold.publish(kind="script", cmd=" ".join(sys.argv)[:300])
     os.environ["GATE_HELD"] = "{}:{}".format(os.getpid(), hold.name)
+    os.environ["RENDERQ_CORES"] = str(hold.info["cores"])
     try:
         if os.getpriority(os.PRIO_PROCESS, 0) < NICE:
             os.setpriority(os.PRIO_PROCESS, 0, NICE)
@@ -999,6 +1252,7 @@ def run(cmd, label=None, pool="heavy", group=None, priority=None, quiet=False, d
     if hold is not None:
         hold.publish(kind="run", cmd=" ".join(cmd)[:300])
         env["GATE_HELD"] = "{}:{}".format(os.getpid(), hold.name)
+        env["RENDERQ_CORES"] = str(hold.info["cores"])
 
     def lower():
         try:
@@ -1022,7 +1276,16 @@ def run(cmd, label=None, pool="heavy", group=None, priority=None, quiet=False, d
     for sig in (signal.SIGINT, signal.SIGTERM, signal.SIGHUP):
         signal.signal(sig, forward)
     try:
-        rc = child.wait()
+        while True:
+            try:
+                rc = child.wait(timeout=RSS_EVERY_S if hold else None)
+                break
+            except subprocess.TimeoutExpired:
+                try:
+                    holder_rss(slot_states())                   # this holder's memory, for status and history
+                    mem_state()                                 # and the memory clock, while anything runs
+                except Exception:
+                    pass
     finally:
         if hold:
             hold.release()
@@ -1106,10 +1369,11 @@ def _short_work(inputs, opts, seq, cwd=None):
     return bool(inputs)
 
 
-def classify(args, cwd=None):
+def classify(args, cwd=None, lengths=True):
     """What an ffmpeg command line costs: ("exempt", why) | ("light", why) | ("quick", why) | ("heavy", why), and
     whether it is one end of a pipe. Exempt calls never wait (VIDEO-RULES: probes, frame grabs, stills, audio,
-    stream copies, the hardware setup encode, anything a few seconds long). Quick: heavy work on short media."""
+    stream copies, the hardware setup encode, anything a few seconds long). Quick: heavy work on short media.
+    lengths=False skips reading clip lengths (exempt or not is all a step inside a holder's slot needs)."""
     a = list(args)
     if "-i" not in a:
         return "exempt", "no input (version, help, filter list)", False
@@ -1141,7 +1405,7 @@ def classify(args, cwd=None):
     if "null" in fmts or any(o in ("/dev/null", "NUL") for o in outputs):
         return "light", "analysis pass", pipe
     try:
-        if _short_work(ins, opts, seq, cwd):
+        if lengths and _short_work(ins, opts, seq, cwd):
             return "quick", "short media (under {:g} s)".format(QUICK_S), pipe
     except Exception:
         pass
@@ -1161,6 +1425,69 @@ def ffmpeg_drives(args, cwd=None):
     return out or [drive_of(cwd or os.getcwd())]
 
 
+_OPTISH = re.compile(r"-[^\d.]")
+
+
+def _ff_options(real):
+    """The options this ffmpeg build lists in `-h full` (-filter_threads moved between versions). Asked once per
+    binary and remembered in the queue folder."""
+    try:
+        st = os.stat(str(real))
+    except OSError:
+        return set()
+    key = "{}:{}:{}".format(real, st.st_size, int(st.st_mtime))
+    p = DIR / "ffcaps.json"
+    c = _read(p)
+    if c.get("key") != key:
+        try:
+            r = subprocess.run([str(real), "-hide_banner", "-h", "full"], capture_output=True, text=True, timeout=15,
+                               env=dict(os.environ, GATE_OFF="1"))
+            opts = sorted(set(re.findall(r"^\s*(-[a-z_]+)\s", r.stdout, re.M)))
+        except Exception:
+            opts = []
+        c = dict(key=key, opts=opts)
+        try:
+            _ensure()
+            _write(p, c)
+        except OSError:
+            pass
+    return set(c.get("opts", []))
+
+
+def with_threads(args, n, real=None):
+    """`args` with the step's core allowance made real: `-threads n` before every input (decoder) and every output
+    (encoder), plus `-filter_threads n` (and `-filter_complex_threads n` for a filter graph) when this ffmpeg knows
+    them. A command that sets any thread count of its own is left exactly as it is. Tested on ffmpeg 6.0: same
+    output streams, no new warnings on stderr (x264's info line reports threads=n instead of 7)."""
+    a = [str(x) for x in args]
+    if n <= 0 or "-i" not in a or any(x.startswith(("-threads", "-filter_threads", "-filter_complex_threads"))
+                                      for x in a):
+        return a
+    at, k = [], 0
+    while k < len(a):
+        x = a[k]
+        if x == "-i" and k + 1 < len(a):
+            at.append(k)
+            k += 2
+        elif x.startswith("-") and x != "-" and _OPTISH.match(x):
+            nxt = a[k + 1] if k + 1 < len(a) else None
+            # a flag, unless its value follows; a value never looks like an option ("-1", "-0:a" and "-" do not)
+            k += 1 if (x in _FLAGS or nxt is None or (nxt != "-" and _OPTISH.match(nxt))) else 2
+        else:
+            at.append(k)                                    # an output file
+            k += 1
+    for pos in sorted(at, reverse=True):
+        a[pos:pos] = ["-threads", str(n)]
+    head = []
+    known = _ff_options(real) if real else set()
+    if "-filter_threads" in known:
+        head += ["-filter_threads", str(n)]
+    if "-filter_complex_threads" in known and any(x in ("-filter_complex", "-lavfi", "-filter_complex_script")
+                                                  for x in a):
+        head += ["-filter_complex_threads", str(n)]
+    return head + a
+
+
 def _rider(fd_keep):
     """Register this process as running on a partner's slot; the lock goes with it through exec."""
     _ensure()
@@ -1177,8 +1504,15 @@ def ffmpeg_main(real, args):
     (voice_chain parses ffmpeg's stderr) unless GATE_VERBOSE=1."""
     keep = []
     env = os.environ
+    args = list(args)
     try:
-        if env.get("GATE_OFF") != "1" and not held_by_me():
+        cores = 0
+        if env.get("GATE_OFF") == "1":
+            pass
+        elif held_by_me():                                  # inside a holder's slot: its allowance (RENDERQ_CORES)
+            if classify(args, lengths=False)[0] != "exempt":
+                cores = int(env.get("RENDERQ_CORES") or 0)
+        else:
             pool, why, pipe = classify(args)
             if pool != "exempt":
                 label = "ffmpeg {} -> {}".format(
@@ -1189,16 +1523,22 @@ def ffmpeg_main(real, args):
                                passthrough=pipe_partner_holds if pipe else None, drives=ffmpeg_drives(args))
                 if hold is None:
                     _rider(keep)
+                    # one end of a pipe (or a step under a holder that dropped GATE_HELD): half the pair's allowance
+                    cores = int(env.get("RENDERQ_CORES") or 0) or max(1, allowance(pool) // (2 if pipe else 1))
                 else:
+                    cores = hold.info["cores"]
                     hold.publish(kind="ffmpeg", cmd=("ffmpeg " + " ".join(args))[:300], pipe=pipe, why=why,
                                  parent_alive_pid=os.getppid())
                     os.set_inheritable(hold.fd, True)
                     env["GATE_HELD"] = "{}:{}".format(os.getpid(), hold.name)
+                    env["RENDERQ_CORES"] = str(cores)
                     try:
                         if os.getpriority(os.PRIO_PROCESS, 0) < NICE:
                             os.setpriority(os.PRIO_PROCESS, 0, NICE)
                     except OSError:
                         pass
+        if cores and (env.get("GATE_THREADS") == "1" or (THREADS_DEFAULT and env.get("GATE_THREADS") != "0")):
+            args = with_threads(args, cores, real)
     except Exception as e:                                  # the queue must never break a build
         _log("shim_error", error=repr(e), args=" ".join(args)[:200])
     os.execv(str(real), [str(real)] + list(args))
@@ -1394,6 +1734,126 @@ def scratch_dir(job=None, need_gb=2.0):
     return p
 
 
+# ------------------------------------------------------------------------------------------------ review servers
+PRUNE_REVIEW_H = 48.0                   # `prune`: review servers running longer than this
+REVIEW_SERVER = SHARED / "review_server.py"
+_REVIEW_CMD = re.compile(r"review_server\.py\s+(\d+)(?:\s+(\S+))?|-m http\.server\s+(\d+)")
+
+
+def _etime_s(v):
+    """ps etime ([[dd-]hh:]mm:ss) in seconds."""
+    days, _, rest = v.strip().rpartition("-")
+    secs = 0
+    for part in rest.split(":"):
+        secs = secs * 60 + int(part)
+    return secs + int(days or 0) * 86400
+
+
+def review_servers():
+    """Every running review page server: dict(pid, port, age_h, cmd, folder, kind) where kind is "on-demand" or
+    "always" (a com.absbyai.review.PORT launch agent), "agent:<label>" (another launch agent restarts it) or "hand"
+    (started by hand: nothing restarts it). GATE_PRUNE_MATCH (tests) limits it to commands containing that text."""
+    import plistlib
+    agents_dir = Path.home() / "Library" / "LaunchAgents"
+    other = {}
+    for pl in agents_dir.glob("*.plist") if agents_dir.is_dir() else []:
+        if pl.name.startswith("com.absbyai.review."):
+            continue
+        try:
+            d = plistlib.loads(pl.read_bytes())
+        except Exception:
+            continue
+        args = " ".join(str(x) for x in d.get("ProgramArguments", []))
+        m = _REVIEW_CMD.search(args)
+        if m:
+            other[m.group(1) or m.group(3)] = d.get("Label", pl.stem)
+    r = subprocess.run(["ps", "-ww", "-Ao", "pid=,etime=,command="], capture_output=True, text=True)
+    match = os.environ.get("GATE_PRUNE_MATCH")
+    out = []
+    for line in r.stdout.splitlines():
+        f = line.split(None, 2)
+        if len(f) < 3 or not f[0].isdigit():
+            continue
+        cmd = f[2]
+        m = _REVIEW_CMD.search(cmd)
+        if not m or "--remove" in cmd or "--on-demand" in cmd or (match and match not in cmd):
+            continue
+        port = m.group(1) or m.group(3)
+        if not cmd.split()[0].lower().endswith(("python", "python3")) and "python" not in cmd.split()[0].lower():
+            continue
+        folder = m.group(2) if m.group(1) else None
+        dm = re.search(r"--directory\s+(.+?)(?:\s+--|$)", cmd)
+        if dm:
+            folder = dm.group(1)
+        plist = agents_dir / "com.absbyai.review.{}.plist".format(port)
+        if plist.exists() and "AbsByAI Reviews/{}/".format(port) in cmd:
+            try:
+                kind = "on-demand" if "Sockets" in plistlib.loads(plist.read_bytes()) else "always"
+            except Exception:
+                kind = "always"
+        elif port in other:
+            kind = "agent:" + other[port]
+        else:
+            kind = "hand"
+        out.append(dict(pid=int(f[0]), port=int(port), age_h=round(_etime_s(f[1]) / 3600.0, 1), cmd=cmd[:300],
+                        folder=folder, kind=kind))
+    return out
+
+
+def prune(dry_run=False, hours=PRUNE_REVIEW_H):
+    """Review servers running longer than `hours`: an always-running managed one switches to start on demand (same
+    link, no process until the page is opened); one started by hand is stopped, and its restart command printed.
+    One another launch agent restarts is only listed."""
+    rows = [r for r in review_servers() if r["age_h"] >= hours]
+    if not rows:
+        print("no review server has run longer than {:g} h".format(hours))
+        return 0
+    verb = "would " if dry_run else ""
+    done = 0
+    for r in sorted(rows, key=lambda x: -x["age_h"]):
+        head = "port {} (pid {}, running {:.0f} h)".format(r["port"], r["pid"], r["age_h"])
+        if r["kind"] == "always":
+            if dry_run:
+                print("{}: {}switch to start on demand (same link)".format(head, verb))
+                continue
+            p = subprocess.run(["/usr/bin/python3", str(REVIEW_SERVER), str(r["port"]), "--on-demand"],
+                               capture_output=True, text=True)
+            print("{}: {}".format(head, (p.stdout.strip() or p.stderr.strip()[-200:]).splitlines()[-1]))
+            done += p.returncode == 0
+        elif r["kind"] == "hand":
+            folder = r["folder"] or "."                     # no folder given: it serves the folder it started in
+            if not folder.startswith("/"):
+                try:
+                    cwd = subprocess.run(["lsof", "-a", "-p", str(r["pid"]), "-d", "cwd", "-Fn"], capture_output=True,
+                                         text=True).stdout
+                    base = next((x[1:] for x in cwd.splitlines() if x.startswith("n")), "")
+                    folder = os.path.normpath(os.path.join(base, folder)) if base else folder
+                except OSError:
+                    pass
+            if not dry_run:
+                try:
+                    os.kill(r["pid"], signal.SIGTERM)
+                    for _ in range(20):
+                        time.sleep(0.1)
+                        if not _alive(r["pid"]):
+                            break
+                    else:
+                        os.kill(r["pid"], signal.SIGKILL)
+                    done += 1
+                    _log("review_pruned", port=r["port"], pid=r["pid"], folder=folder, age_h=r["age_h"])
+                except OSError as e:
+                    print("{}: could not stop it ({})".format(head, e))
+                    continue
+            print("{}: {} (started by hand, nothing restarts it). Folder: {}. Bring it back (it then starts on "
+                  "demand) from the project folder with: python3 .claude/skills/_shared/review_server.py {} '{}'"
+                  .format(head, "would be stopped" if dry_run else "stopped", folder, r["port"], folder))
+        elif r["kind"].startswith("agent:"):
+            print("{}: kept (launch agent {} restarts it)".format(head, r["kind"][6:]))
+    if not dry_run:
+        print("{} review server{} switched or stopped".format(done, "" if done == 1 else "s"))
+    return 0
+
+
 # ------------------------------------------------------------------------------------------------ shim install
 SHIM = """#!/bin/sh
 # Render queue wrapper (.claude/skills/_shared/renderq/README.md). The real ffmpeg is ffmpeg.real beside this file.
@@ -1441,20 +1901,43 @@ def status(as_json=False):
         tickets = _tickets()
     unmanaged = _unmanaged(states)
     eta = estimate(states, tickets)
+    rss = holder_rss(states)
+    mem = mem_state()
+    closed = {pool: budget_check(pool, states, unmanaged) for pool in pools()}
+    budget = dict(cores_budget=core_budget(), cores_in_use=cores_in_use(states, unmanaged),
+                  allowance={pool: allowance(pool) for pool in pools()}, memory=mem,
+                  closed={k: v for k, v in closed.items() if v})
     if as_json:
         return json.dumps(dict(slots=[dict(pool=s["pool"], i=s["i"], held=s["held"],
-                                           info=s["info"] if s["held"] else {}) for s in states],
-                               unmanaged=unmanaged,
+                                           info=s["info"] if s["held"] else {},
+                                           rss=rss.get("{}.{}".format(s["pool"], s["i"])) if s["held"] else None)
+                                      for s in states],
+                               budget=budget, unmanaged=unmanaged,
                                waiting=[dict({k: v for k, v in t.items() if k != "path"},
                                              eta_s=eta.get(str(t["path"]))) for t in _rank(tickets, states)],
                                drives=drive_report(states, tickets)),
                           indent=1)
     lines, p = [], pools()
     z = pool_sizes()
-    lines.append("Render queue. Heavy (renders, encodes): {} slots always open, up to {} while the Mac has spare CPU."
-                 .format(*z["heavy"]))
-    lines.append("Light (Whisper, checks): {} always open, up to {}. Quick (short clips: frame dumps, clip checks, "
-                 "short graphics): {}.".format(*(z["light"] + z["quick"][1:])))
+    held_mb = sum(r.get("mb", 0) for r in rss.values())
+    lines.append("Render queue v3: steps start by CORES and MEMORY. Each step gets cores: heavy {}, light {}, quick {} "
+                 "(exported as RENDERQ_CORES; ffmpeg -threads cap {}).".format(allowance("heavy"), allowance("light"),
+                                                                  allowance("quick"),
+                                                                  "on" if THREADS_DEFAULT else "off"))
+    lines.append("Cores: {} of {} in use ({} of the Mac's {} kept for sessions and the UI){}.".format(
+        budget["cores_in_use"], budget["cores_budget"], max(0, (os.cpu_count() or 10) - budget["cores_budget"]),
+        os.cpu_count() or 10,
+        "; {} of them by work outside the queue".format(unmanaged_cores(unmanaged)) if unmanaged else ""))
+    if mem.get("avail_gb") is not None:
+        lines.append("Memory: {:.1f} GB free or inactive (extra steps need {:g}), swap {:.1f} GB used, {:.0f} MB "
+                     "swapped out in the last 30 s; room for {}. Slot holders use {:.1f} GB.".format(
+                         mem["avail_gb"], float(os.environ.get("GATE_MEM_MIN_GB") or MEM_AVAIL_MIN_GB),
+                         mem["swap_used_mb"] / 1024.0, mem.get("swap_grow_mb", 0),
+                         _fmt(mem["ok_for"]) if mem["ok"] else "0 s ({})".format(mem["reason"]), held_mb / 1024.0))
+    lines.append("Always open whatever the budgets say: {} heavy, {} light, {} quick. Past that: {}.".format(
+        z["heavy"][0], z["light"][0], z["quick"][0],
+        "; ".join("{} {}".format(k, "open" if not closed[k] else "closed, " + closed[k]) for k in p
+                  if z[k][0] < z[k][1]) or "nothing more"))
     drows = drive_report(states, tickets)
     lines.append("Drives (heavy steps running/cap, waiting): " + "; ".join(
         "{} {}/{}{}, {} GB free".format(r["drive"], r["running"], r["cap"],
@@ -1466,16 +1949,21 @@ def status(as_json=False):
         for s in [x for x in states if x["pool"] == pool]:
             if s["held"]:
                 i = s["info"]
-                lines.append("  slot {}: {}  [{}]  running {}{}{}".format(
+                r = rss.get("{}.{}".format(s["pool"], s["i"]), {})
+                lines.append("  slot {}: {}  [{}]  running {}, {} cores{}{}{}".format(
                     s["i"] + 1, i.get("label", "?"), i.get("group", ""), _ago(i.get("start")),
+                    held_cores(i, s["pool"]),
+                    ", {:.1f} GB (peak {:.1f})".format(r["mb"] / 1024.0, r["peak_mb"] / 1024.0)
+                    if r.get("pid") == i.get("pid") else "",
                     ", waited {} first".format(_fmt(i["waited"])) if i.get("waited", 0) >= 1 else "",
                     ", " + i["session"] if i.get("session") else ""))
             else:
                 lines.append("  slot {}: free".format(s["i"] + 1))
         if pool == "heavy":
             for b in unmanaged:
-                lines.append("  outside the queue (counts as a heavy slot): {}% CPU, pid {}: {}".format(
-                    b["cpu"], b["pids"][0], b["cmd"][:110]))
+                n = unmanaged_cores([b])
+                lines.append("  outside the queue (counts as {} core{}): {}% CPU, pid {}: {}".format(
+                    n, "" if n == 1 else "s", b["cpu"], b["pids"][0], b["cmd"][:110]))
         line = _rank([t for t in tickets if t["pool"] == pool], states, pool)
         if pool == "heavy":
             load, caps = drive_load(states), drive_caps()
@@ -1498,6 +1986,44 @@ def status(as_json=False):
     return "\n".join(lines)
 
 
+def explain(query=None):
+    """Why each waiting step (or the ones matching `query`: line number, pid, seq, label or video) has not started."""
+    _ensure()
+    with _mutex():
+        states = slot_states()
+        tickets = _tickets()
+        unmanaged = _unmanaged(states)
+        load, caps = drive_load(states), drive_caps()
+        out = []
+        for pool in pools():
+            line = _rank([t for t in tickets if t["pool"] == pool], states, pool)
+            gate = None
+            for n, t in enumerate(line, 1):
+                q = str(query or "")
+                if q and q not in (str(n), str(t.get("pid")), str(t.get("seq"))) \
+                        and q.lower() not in "{} {}".format(t.get("label", ""), t.get("group", "")).lower():
+                    continue
+                stepped = lambda u: pool == "heavy" and drive_full(info_drives(u), load, caps)   # noqa: E731
+                full = drive_full(info_drives(t), load, caps) if pool == "heavy" else []
+                ahead = [u for u in line[:n - 1] if not stepped(u)]
+                if gate is None:
+                    gate = budget_check(pool, states, unmanaged)
+                if full:
+                    r = ("its drive {} already runs its cap of heavy steps ({}); later steps on other drives go "
+                         "first".format("/".join(full), "/".join(str(drive_cap(d, caps)) for d in full)))
+                elif ahead:
+                    r = "{} step{} ahead of it in the {} line{}".format(
+                        len(ahead), "" if len(ahead) == 1 else "s", pool,
+                        "; the line itself waits for: " + gate if gate else "")
+                else:
+                    r = gate or "nothing: it starts at its next look (under a second)"
+                out.append("{} #{} {} [{}], waiting {}: {}".format(pool, n, t.get("label", "?"), t.get("group", ""),
+                                                                   _ago(t.get("created")), r))
+    if not out:
+        return "nothing waiting{}".format(" matches " + repr(query) if query else "")
+    return "\n".join(out)
+
+
 # ------------------------------------------------------------------------------------------------ CLI
 def main(argv):
     if not argv or argv[0] in ("-h", "--help", "help"):
@@ -1507,6 +2033,12 @@ def main(argv):
     if cmd == "status":
         print(status(as_json="--json" in rest))
         return 0
+    if cmd == "why":
+        print(explain(rest[0] if rest else None))
+        return 0
+    if cmd == "prune":
+        return prune(dry_run="--dry-run" in rest,
+                     hours=float(rest[rest.index("--hours") + 1]) if "--hours" in rest else PRUNE_REVIEW_H)
     if cmd in ("run", "wait"):
         opts = dict(pool="heavy", group=None, priority=None, label=None, quiet=False)
         k = 0
@@ -1530,7 +2062,7 @@ def main(argv):
             wait_turn(opts["label"] or "wait", pool=opts["pool"], quiet=opts["quiet"])
             return 0
         command = rest[k + 1:] if k < len(rest) and rest[k] == "--" else rest[k:]
-        if not command:
+        if not command or command[0] in ("-h", "--help", "help"):      # `run --help` once queued 70 min for "--help"
             sys.exit("usage: renderq.py run [--light] [--priority] [--group G] [--label L] -- command ...")
         return run(command, label=opts["label"], pool=opts["pool"], group=opts["group"], priority=opts["priority"],
                    quiet=opts["quiet"])
@@ -1580,7 +2112,8 @@ def main(argv):
         sys.path.insert(0, str(HERE))
         import selftest
         return selftest.main()
-    sys.exit("unknown command {}; try: status, run, wait, workdir, scratch, drives, install-shim, selftest".format(cmd))
+    sys.exit("unknown command {}; try: status, why, run, wait, workdir, scratch, drives, prune, install-shim, "
+             "selftest".format(cmd))
 
 
 if __name__ == "__main__":

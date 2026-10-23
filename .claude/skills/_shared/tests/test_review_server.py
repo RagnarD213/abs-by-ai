@@ -52,4 +52,14 @@ class Playback(unittest.TestCase):
     moved.rename(root)
     with urllib.request.urlopen(base+'/') as r:self.assertEqual(r.status,200)
    finally:app.shutdown();app.server_close();thread.join()
+ def test_idle_worker_exits(self):
+  # 2026-10-21: a worker with no request for ABS_REVIEW_IDLE_H hours exits (launchd starts it again on the next visit)
+  import socket,time
+  with tempfile.TemporaryDirectory() as tmp:
+   (Path(tmp)/'index.html').write_text('x')
+   with socket.socket() as s:s.bind(('127.0.0.1',0));port=s.getsockname()[1]
+   t=threading.Thread(target=server.serve,args=(port,Path(tmp)),kwargs={'idle_hours':0.0005},daemon=True);t.start()
+   time.sleep(0.5)
+   with urllib.request.urlopen(f'http://127.0.0.1:{port}/') as r:self.assertEqual(r.status,200)
+   t.join(10);self.assertFalse(t.is_alive())
 if __name__=='__main__':unittest.main()

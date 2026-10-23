@@ -2,32 +2,53 @@
  "format": "the-fix",
  "id": "fix-09-bicep-curl-swing",
  "tag": "The Fix · 09",
- "status": "draft R1 2026-10-21; wording source: raw roll C1584 (8/3 shoot, 43-114 s) = Zeeshan arms master 2:59-3:28, short arms-shoulders-short4_stop-swinging-your-curls, 10/15 roll C1783 (three rules: 'If you have to swing your body to move the weight, it's too heavy')",
+ "status": "draft R1 2026-10-21; wording source: raw roll C1584 (8/3 shoot, 43-114 s) = Zeeshan arms master 2:59-3:28, short arms-shoulders-short4_stop-swinging-your-curls, 10/15 roll C1783 (three rules: 'If you have to swing your body to move the weight, it's too heavy'); R2 2026-10-22: front-view cover from C1584 87.10 s (8/3 main camera), marks, footage stills brightened (enhance.py), cta cutout | R3 2026-10-22: colour audit (reference/color-audit-r3.md): cover re-finished from C1584 @87.1 (8/3, Rec.709, was dark); mistake/fix/cues re-finished from the arms master (orange skin pulled back)",
  "cover": {
   "headline": "Stop curling\n[y]like this.[/y]",
   "image": {
-   "src": "Short-form video content/instagram-danrosefit/assets/fix-09-bicep-curl-swing/cover.jpg",
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-09-bicep-curl-swing/cover-r2-graded.jpg",
    "pos": "50% 50%",
    "zoom": 1.0,
    "label": "real",
-   "alt": "Dan leaning back and swinging a heavy dumbbell up to his shoulder"
+   "alt": "Dan, front view, head thrown back and leaning back as he swings a heavy dumbbell up"
   },
-  "ring": [
-   35,
-   100,
-   160,
-   150
-  ],
-  "callout": "Leaning back",
-  "callout_at": [
-   200,
-   260
-  ],
-  "swipe": "Swipe for the fix"
+  "swipe": "Swipe for the fix",
+  "marks": [
+   {
+    "ring": [
+     272,
+     72,
+     140,
+     152
+    ],
+    "pill": "Swinging",
+    "at": [
+     408,
+     214
+    ]
+   },
+   {
+    "pill": "Leaning back",
+    "at": [
+     24,
+     56
+    ],
+    "arrow": [
+     [
+      178,
+      74
+     ],
+     [
+      226,
+      66
+     ]
+    ]
+   }
+  ]
  },
  "mistake": {
   "image": {
-   "src": "Short-form video content/instagram-danrosefit/assets/fix-09-bicep-curl-swing/mistake.jpg",
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-09-bicep-curl-swing/mistake-graded.jpg",
    "pos": "50% 50%",
    "zoom": 1.0,
    "label": "real",
@@ -38,7 +59,7 @@
  },
  "fix": {
   "image": {
-   "src": "Short-form video content/instagram-danrosefit/assets/fix-09-bicep-curl-swing/fix.jpg",
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-09-bicep-curl-swing/fix-graded.jpg",
    "pos": "50% 50%",
    "zoom": 1.0,
    "label": "real",
@@ -49,7 +70,7 @@
  },
  "cues": {
   "image": {
-   "src": "Short-form video content/instagram-danrosefit/assets/fix-09-bicep-curl-swing/cues.jpg",
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-09-bicep-curl-swing/cues-graded.jpg",
    "pos": "50% 50%",
    "zoom": 1.0,
    "label": "real",
@@ -76,6 +97,7 @@
     "text": "to the guy who curls with his whole body."
    }
   ],
-  "follow": "One fix a week, filmed on me."
+  "follow": "One fix a week, filmed on me.",
+  "cutout": "Short-form video content/instagram-danrosefit/assets/_cutouts/studio-blue-210.webp"
  }
 }

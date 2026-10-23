@@ -241,6 +241,22 @@
   "added": "2026-10-20"
  },
  {
+  "config": "scripts/blotato/configs/sl15-short1-why-you-look-less-ripped-in-photos.json",
+  "kind": "short",
+  "job": "SL-15 short 1",
+  "label": "Spray Tan 1: Why You Look Less Ripped In Photos",
+  "added": "2026-10-22",
+  "after": "scripts/blotato/configs/ro19-my-first-spray-tan.json"
+ },
+ {
+  "config": "scripts/blotato/configs/sl15-short2-get-a-tan-without-sun-damage.json",
+  "kind": "short",
+  "job": "SL-15 short 2",
+  "label": "Spray Tan 2: Get A Tan Without Sun Damage",
+  "added": "2026-10-22",
+  "after": "scripts/blotato/configs/ro19-my-first-spray-tan.json"
+ },
+ {
   "config": "scripts/blotato/configs/ro20c-what-to-buy.json",
   "kind": "longform",
   "job": "RO-20C",

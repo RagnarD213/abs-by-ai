@@ -25,6 +25,34 @@ the subscription credits run out, ask me before paying."*
    `veo.py api JOBDIR A1 --paid-ok "<his words>"`. Rush: `veo.py api JOBDIR A1 --rush "<his words>"`.
    Paid takes still count against the per-video generation budget (VIDEO-RULES, "Video clip generation budget").
 
+## Which model and how many takes (Dan, 2026-10-21)
+
+Credits are not the limit on Ultra (about 1,000 Veo Fast clips a month), so when in doubt, generate more, not less. Dan:
+*"If you're in doubt as to which one is better, I prefer you generate with both, given that we have the subscription now
+and there aren't per-clip generation costs."*
+
+- **Default:** Veo 3.1 Fast (`--model fast`), one take. Won or tied every pair of the 2026-10-21 blind bake-off.
+- **Important clips** (a hook, an ad opener, the first few seconds of any video): **two Veo takes** (`--takes 2`); show
+  Dan the better one, or both if they are close.
+- **Generate with BOTH Veo and Omni** (queue the Omni twin as `<ID>o`, e.g. `A3` fast + `A3o` omni, same frames and
+  prompt) when the clip needs any of:
+  1. one continuous shot longer than 8 s (Omni goes to 10 s; Veo Frames mode is fixed at 8 s);
+  2. a short 4 or 6 s clip where the action must fill the length;
+  3. a fix to one detail of an existing clip Dan otherwise likes (Omni can edit a clip from an instruction; still
+     generate a fresh Veo take of the same shot alongside it);
+  4. a shot built from several reference images (a specific product plus a specific setting).
+- **In doubt whether a clip falls in one of these, or which model suits it: generate both.**
+- **Exception:** any shot showing Dan's body shirtless or in swimwear is Veo only. Omni refused one twice
+  ("reputational risk"); do not spend a run on it.
+- Every take of either model goes through the same motion gate and reviewer before Dan sees it. On the review page,
+  label which model made each take only after Dan picks, unless he asks.
+- **Log every pick (Dan, 2026-10-21).** Whenever Dan chooses between takes of the SAME shot made by different models,
+  record it right after his answer: `veo.py pick --video "<title (code)>" --shot "<id short name>"
+  --compared veo-3.1-fast,omni-1.1-flash --winner <model|same> --words "<his reason>"`. Two takes of one model are not
+  logged. `veo.py picks` prints the running scorecard; the monthly model watch reads it.
+- **New models from any company** are tracked by the monthly watch: `Docs/VIDEO_MODEL_WATCH.md` (baseline, test rules,
+  standard frame pairs, `bakeoff.py` blind-page builder, verdicts).
+
 ## Subscription upgraded (Dan, 2026-10-20)
 
 Dan: *"We've upgraded our Google Video Generation subscription. Try it again, and do it on subscription."* The Flow balance read
@@ -34,7 +62,7 @@ Pro figures in the table below are history; read the live balance (`veo.py credi
 
 ## What the subscription gives (measured 2026-10-17 on Pro, the 5-clip test)
 
-**Ultra since 2026-10-20:** 10,000 credits a month + 50 a day. Live Flow rates on Ultra (read 2026-10-20): **Veo 3.1 Fast 10, Lite 5, Omni 1.1 Flash 12** per 8 s clip, so about 1,000 Fast clips a month. Omni bake-off (`/Volumes/Extreme/_edit_work/omni-bakeoff-20261020/`, blind page on :9071, key in `blind-key.json`): Omni refused the Top 5 Zepbound Tips shirtless 9:16 pair twice ("reputational risk"), Veo made it. Default stays Veo 3.1 Fast unless Dan's blind picks say otherwise.
+**Ultra since 2026-10-20:** 10,000 credits a month + 50 a day. Live Flow rates on Ultra (read 2026-10-20): **Veo 3.1 Fast 10, Lite 5, Omni 1.1 Flash 12** per 8 s clip, so about 1,000 Fast clips a month. Omni bake-off (`/Volumes/Extreme/_edit_work/omni-bakeoff-20261020/`, blind page on :9071, key in `blind-key.json`): Omni refused the Top 5 Zepbound Tips shirtless 9:16 pair twice ("reputational risk"), Veo made it. **Result (Dan, 2026-10-21, blind):** 2 ties, Veo preferred on the other 3, Omni preferred on none ("very close for all of them"). Decision: **Veo 3.1 Fast stays the default**; Omni only alongside Veo in the cases under "Which model and how many takes".
 
 | | Flow on Google AI Pro | Replicate API (paid) |
 |---|---|---|
@@ -50,8 +78,9 @@ Other models in Flow, if a job asks: Veo 3.1 Lite 10 credits, Veo 3.1 Quality 10
 
 ## Files
 
-- `veo.py`: route, add, status, mark, collect (with the opens-on-START check), credits, api. Job state: `JOBDIR/veo/job.json`.
+- `veo.py`: route, add, status, mark, collect (with the opens-on-START check), credits, api, pick, picks. Job state: `JOBDIR/veo/job.json`.
   Account-wide credit and spend log: `~/.absbyai-veo-ledger.jsonl` (Claude and Codex share it on this Mac).
+- `bakeoff.py`: blind page for a candidate model against Veo on the standard pairs (see `Docs/VIDEO_MODEL_WATCH.md`).
 - `FLOW-RUNBOOK.md`: the click-by-click Flow procedure. Flow changes its interface often; whoever finds a step that no
   longer matches fixes the runbook in the same session.
 - `TEST-20261017.md`: the timed 5-clip test and the watermark check.
