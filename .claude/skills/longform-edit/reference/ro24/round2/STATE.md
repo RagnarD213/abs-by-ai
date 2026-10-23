@@ -11,8 +11,8 @@ Resume: renderq.py run --group RO-24 -- bash recipe/ds40key/resume2_laneA.sh   (
 Lane A peaked at 28.9 GB (stage 1 at 4K, 5 workers): consider WORKERS=3 if the Mac is busy.
 
 ## Graphics and photo scenes (hf/)
-Rendered: G01-G05, G07, G09, G10, G11, G14. Not rendered: G06, G08, G12, G13 (render_long.sh) and photo scenes P0-P7
-(hf/build_photos.py --render; P2 was killed 5 s into its render). The agent records the exact remaining commands at the top of
+Rendered and checked (17 of 22): G01-G05, G07, G09, G10, G11, G14 and photo scenes P0, P1, P3-P7. Not rendered: G06, G08,
+G12, G13 (render_long.sh) and P2 (hf/build_photos.py --render --only P2; killed 5 s into its render). The agent records the exact remaining commands at the top of
 hf/GRAPHICS-REPORT.md. manifest.json lists items whose .mov does not exist yet: do not assemble before they render.
 
 ## Ready, not run

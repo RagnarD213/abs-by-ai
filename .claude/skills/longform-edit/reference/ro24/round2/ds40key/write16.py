@@ -6,6 +6,8 @@ import numpy as np, sys, glob, json, subprocess, time
 from scipy import ndimage as ndi
 from common16 import FF, OW, OH, SRC
 MIN_FRAG = 400
+import os
+ISL_T = float(os.environ.get('ISL_T', '0.12')); ISL_MAX = int(os.environ.get('ISL_MAX', '600'))   # px at 2880 scale
 CACHE, F0, OUT = sys.argv[1], int(sys.argv[2]), sys.argv[3]
 OX = int(sys.argv[4]) * 3 // 4 if len(sys.argv) > 4 else 0
 edge_hits = []
@@ -24,6 +26,17 @@ for k, fn in enumerate(files):
         sizes = ndi.sum(np.ones_like(a), lab, index=np.arange(1, n + 1))
         keep = np.zeros(n + 1, bool); keep[1:] = sizes >= MIN_FRAG
         m = ndi.binary_dilation(keep[lab], iterations=3); a = np.where(m, a, 0); Fp = np.where(m[..., None], Fp, 0)
+    # round 2 (RO-24, fast hands): the approved island rule extended to the faint band. A small component of alpha > ISL_T that does not
+    # reach Dan's solid body (alpha > 0.5) is a speck: the edge-colour fill paints it skin-pink, so it reads as a floating dot beside a
+    # fast arm (checks/keys/specks_R04a.jpg). Every real part of Dan (blurred fingers, glasses arm, hair) is one piece with his body above
+    # ISL_T; a small piece apart from that biggest piece is a speck, even with a solid core (the arm's moving shadow on the screen).
+    if ISL_T:
+        lab2, n2 = ndi.label(a > ISL_T)
+        if n2:
+            sz = ndi.sum(np.ones_like(a), lab2, index=np.arange(1, n2 + 1))
+            kill = np.zeros(n2 + 1, bool); kill[1:] = sz < ISL_MAX; kill[1 + int(np.argmax(sz))] = False   # Dan is the one big piece
+            km = kill[lab2]
+            if km.any(): a = np.where(km, 0, a); Fp = np.where(km[..., None], 0, Fp)
     far = ndi.distance_transform_edt(a < 0.25) > 3
     a_new = np.where(far, np.clip((a - 0.15) / 0.85, 0, 1), a)
     Fp = Fp * np.where(a > 1e-4, a_new / np.maximum(a, 1e-4), 0)[..., None]; a = a_new

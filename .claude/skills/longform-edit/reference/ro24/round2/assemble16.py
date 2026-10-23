@@ -17,8 +17,8 @@ def keymeta(path):
     """key16 writes one info file per run (<base>.mkv.json); the refined variant shares it."""
     q = path + '.json'
     return json.load(open(q if os.path.exists(q) else path.replace('_refined.mkv', '.mkv') + '.json'))
-FPS = 30000 / 1001; IW, IH = 2880, 1620; SHIFT = 519;   # S framing: +346 px at 1080p, measured clear of the 3A card on the widest gesture (graphics report)
- TW = int(round(IW * 0.74)) // 2 * 2; TH = int(round(TW * 9 / 16))
+FPS = 30000 / 1001; IW, IH = 2880, 1620; TW = int(round(IW * 0.74)) // 2 * 2; TH = int(round(TW * 9 / 16))
+SHIFT = 519   # S framing: +346 px at 1080p, measured clear of the 3A card on the widest gesture (graphics report)
 
 def shot_crops(piece):
     meta = keymeta(piece['key']); geo = {g[0]: g for g in meta['geo']}; kf0 = meta['f0']   # key frame k = source frame kf0 + k
