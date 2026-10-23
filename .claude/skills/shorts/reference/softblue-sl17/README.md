@@ -60,3 +60,14 @@ Heavy steps queue in the render queue; run analysis steps with `renderq.py run -
 ## Title band descender fix (2026-10-22)
 
 `lib.band()` now draws the title at y 86 with a 96 px line step (was 96 / 100). With title-case titles, a second line with g, j, p, q or y at 88 px ran its descenders to row 312, cut by the glass line at 309 and the picture at 310 (SL-17 reviewer B5; 11 delivered Shorts were affected, `Docs/SHORTS_TITLE_BAND_AUDIT_20261022.md`). The lowest glyph row is now 298. `batch.py gfx|proof|render` runs `_shared/softblue_titlecheck.py` on every TITLE first and stops if any lowest white row is 299 or lower down. Check a batch by hand: `python3 .claude/skills/_shared/softblue_titlecheck.py titles <batch dir>`.
+## Round 2 (Dan, 2026-10-22): centre on the whole body, not the face
+
+- **A wide-armed move (jump rope) is centred on the ARM SPAN, not the face.** B0448 at `fx` 0.5 had his face centred, but his
+  hands' midpoint sat at x 0.45: the left hand touched the edge and Dan saw "a lot of space near my right hand". `fx` 0.4725
+  (49 px) balanced the hands; his head then sits about 40 px right of centre, which a fixed crop cannot avoid when the span is
+  nearly the full 1080 px.
+- **A `span` card is measured from the person mask's extremes over the whole clip**: the wheel at full extension (min x 0.174)
+  on the LEFT edge, the shoes (max x 0.84) at or just past the RIGHT edge. B0030 R1 `span` 0.30-0.98 cut the wheel and his head
+  off the left with empty space past the shoes; R2 uses 0.17-0.83.
+- Check a cover crop on the rendered frames across the clip, not one still: show Dan a before/after side-by-side of the changed
+  seconds on a later-round page.
