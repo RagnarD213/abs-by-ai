@@ -35,7 +35,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Calories Not Losing Weight SFL R5 - REVIEW 2026-10-20, Codex.** Standing-counter Snack on Protein, Not Carbs pair passed measured and independent checks. Narrated review: http://127.0.0.1:9042/. Next: Dan approves this pair before Flow. Fasting R4 frames approved; R2/R3/R4 untouched. No covers or publishing.
 
-**Bill Maher Fat 90-Year-Old SFC R5 - WAITING 2026-10-22, Codex.** Fourth in edit-slot line as BILL-MAHER-CODEX; ten-minute auto-resume verified. Ownership and approved hashes checked. Next: slot, inspect Claude intro B, full R5. No production yet. Handoff: `Handoffs/handoff-20261022-bill-maher-sfc-r5.md`. Checkpoint: `round5/execution-state.json` on Extreme. Claude untouched.
+**Bill Maher Fat 90-Year-Old SFC R5 - REVIEW 2026-10-23, Codex.** Complete Short: http://127.0.0.1:9067/. Independent visual review cleared repaired BMI; locked voice/warm color preserved. Raw delivery gate FAIL and unmeasured rows retained with explanations. Full master/SRT in Videos to Review. Next: Dan reviews laptop, foreground hair, presenter cuts and BMI. Work: `/Volumes/Extreme/_edit_work/DS-40-codex/round5/`. Claude untouched.
 
 
 
@@ -249,6 +249,8 @@ tab; stop rather than click into spinners. `Handoffs/handoff-20260908-google-ads
 
 **SPA:UNPUSHED-5f43cb0:2026-10-22:Claude.**
 **MERGE-FIXED:UNPUSHED-0bdebee:2026-10-22:Claude.**
+
+**ICLOUD-MOVE:DONE-UNPUSHED-7154743:2026-10-23:Claude.** Next safe-push carries it; delete.
 
 # BLOCKED — external
 
