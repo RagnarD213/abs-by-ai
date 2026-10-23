@@ -38,6 +38,14 @@
   "parent_config": "scripts/blotato/configs/ro26-top-1-percent.json"
  },
  {
+  "config": "scripts/blotato/configs/sl17-short3-every-man-should-train-a-martial-art.json",
+  "kind": "short",
+  "job": "SL-17",
+  "label": "Top 1% 3: Every Man Should Train A Martial Art",
+  "added": "2026-10-23",
+  "parent_config": "scripts/blotato/configs/ro26-top-1-percent.json"
+ },
+ {
   "config": "scripts/blotato/configs/ro19-my-first-spray-tan.json",
   "kind": "longform",
   "job": "RO-19",

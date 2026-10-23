@@ -524,3 +524,6 @@ Source `claude edited long form content/22 - Why You're Not Losing Weight/... | 
 
 ## DONE — Alex Hormozi Asks A Fat Guy Why He Isn't 200 Pounds Heavier (DS-44), 2026-10-23
 Scripted R2 master (sha256 9d8deb8da3d5eb2b...), Thu 2026-12-17 9 AM CT on FB 5948215 / IG 5948216 / TikTok 5948217 / YouTube 5948218. Cover: split-screen A with Dan in the corner (round 4 option 1). Keyword TRACK, UTM hormozi-fat-guy. Off-the-cuff take (DS-44B) may replace the media if Dan picks it. Receipt: Docs/DS44_SETUP_RECEIPT_20261023.md.
+
+## SL-17 I'm 41. I'm Top 1%. How I Did It. shorts (2026-10-23)
+Three shorts set up and waiting behind RO-26 (YouTube Sun Oct 25) on `scripts/blotato/video_waitlist.json` (with `parent_config`): Fri Oct 30, Fri Nov 6, Mon Nov 30, 9 AM Central. Covers C, C, F (revised); keyword ABS; `utm_content=sl17-short<N>`. Configs `scripts/blotato/configs/sl17-short{1..3}-*.json`. Receipt `Docs/SL17_SETUP_RECEIPT_20261023.md`.

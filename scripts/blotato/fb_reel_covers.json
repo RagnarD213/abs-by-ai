@@ -859,5 +859,13 @@
     "h": 1920,
     "job": "DS-44",
     "when": "2026-12-17T15:00:00.000Z"
+  },
+  {
+    "match": "I strongly believe that every man should train in some kind of martial art.",
+    "cover": "/Users/danielrose/.absbyai/fb-reel-covers/covers/sl17-short3-YouTube_top1-short3_every-man-should-train-a-martial-art_cover-F.jpg",
+    "w": 1080,
+    "h": 1920,
+    "job": "SL-17 short 3",
+    "when": "2026-11-30T15:00:00.000Z"
   }
 ]

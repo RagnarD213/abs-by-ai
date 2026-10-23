@@ -172,7 +172,7 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 | [DS-52](DS-52-why-zepbound-is-actually-free.md) | Why Zepbound Is Actually Free | 10/15 C1760-C1761 | READY | S |
 | [DS-53](DS-53-the-only-2-exercises-you-need-for-bigger-arms.md) | The Only 2 Exercises You Need For Bigger Arms | 10/15 C1761 | BLOCKED: cable curl and cable tricep pushdown B-roll (next gym shoot) | S |
 | [DS-54](DS-54-the-only-2-kettlebell-exercises-you-need.md) | The Only 2 Kettlebell Exercises You Need | 10/15 C1761-C1765 | READY | S |
-| [DS-55](DS-55-the-3-exercises-id-do-if-i-only-had-5-minutes.md) | The 3 Exercises I'd Do If I Only Had 5 Minutes | 10/15 C1765 | READY | S |
+| [DS-55](DS-55-the-3-exercises-id-do-if-i-only-had-5-minutes.md) | The 3 Exercises I'd Do If I Only Had 5 Minutes | 10/15 C1765 | DRAFT: asset choices waiting for Dan | S |
 | [DS-56](DS-56-the-only-ab-exercise-that-hits-all-4-ab-muscles.md) | The Only Ab Exercise That Hits All 4 Ab Muscles | 10/15 C1765-C1766 | READY | S |
 | [DS-57](DS-57-why-i-train-with-a-timer-instead-of-counting-reps.md) | Why I Train With A Timer Instead Of Counting Reps | 10/15 C1777 | READY | S |
 | [DS-58](DS-58-3-exercises-you-can-do-in-one-commercial-break.md) | 3 Exercises You Can Do In One Commercial Break | 10/15 C1777-C1778 | BLOCKED: home B-roll: the couch when the game cuts to a commercial, then the exercises in front of the projector | S |
@@ -251,7 +251,7 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 | [SL-15](SL-15-my-first-spray-tan-shorts.md) | My First Spray Tan (RO-19; 2 Shorts, Dan picked A and C; Short 1 airs Fri Oct 30) | UPLOADED | S |
 | [SL-16](SL-16-intermittent-fasting-shorts.md) | Intermittent Fasting: The Best Way To Get Abs (RO-08, finalized 10-14; release date set at setup) | IN PROGRESS | S |
 
-| [SL-17](SL-17-top-1-percent-shorts.md) | Top 1 Percent (RO-26, finalized; release on hold) | FINALIZED | S |
+| [SL-17](SL-17-top-1-percent-shorts.md) | Top 1 Percent (RO-26, finalized; release on hold) | UPLOADED | S |
 | [SL-18](SL-18-wasted-my-life-shorts.md) | I'm 41. I Wasted My Life. (RO-25, YouTube Sun Oct 18; 3 Shorts, Short 1 airs Mon Oct 26) | UPLOADED | S |
 | [SL-19](SL-19-3-healthy-foods-shorts.md) | 3 Healthy Foods That Made Me Fat (RO-17, YouTube Sun Dec 13; 3 Shorts, Short 1 airs Mon Dec 14) | UPLOADED | S |
 | [SL-20](SL-20-invest-in-your-health-shorts.md) | Why You Should Invest More In Your Health (RO-20, YouTube Sun Nov 22; 3 Shorts, Short 1 airs Mon Nov 23) | READY: approved parent filed; due Nov 22 | S |
