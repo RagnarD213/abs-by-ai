@@ -26,6 +26,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**ChatGPT Ads account - NEEDS DAN 2026-10-23, Codex.** Final creation prepared for Rose Digital Holdings LLC (US, USD, Chicago); awaiting action-time approval of OpenAI advertising/promo terms. Research complete: BetterMe and Fitbod observed. No campaign or spend. Evidence: `Research/ChatGPT Ads 2026-10-23/research-evidence.json`. Next: submit once approved, verify account.
+
 **SL-06 QUEUED 2026-10-22, Claude.** Six shorts Nov 9-Dec 8, nothing blocked; delete after Dec 8. `Docs/SL06_SETUP_RECEIPT_20261022.md`
 
 **Edit cap LIVE 2026-10-21, Claude.** Pushed; main folder mid-merge (not mine), so its skills lack it until merged. Next: delete after that merge.
@@ -116,11 +118,11 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-06:POLICY-RECHECK:2026-10-16:Claude.** Ads `828274063389`, `828320387740` in review. Next 10-17: `node scripts/ads/api/client.js policy 24316364155`; clean, delete this.
 
-**RO-24:R2-ACTIVE:2026-10-22:Claude.** Keying resumed.
+**RO-24:R2-REVIEW:9125:2026-10-23:Claude.**
 
 **RO-14:QUEUED-JAN3-2027:2026-10-22:Claude.** `Docs/RO14_SETUP_RECEIPT_20261022.md`
 
-**Ronaldo Ab Belt SFC R5 - ACTIVE 2026-10-23, Claude.** Dan in front of the split clip; rendering. Work: `/Volumes/Expansion/_edit_work/DS-33/r5/`.
+**Ronaldo Ab Belt SFC R5 - REVIEW :9037 2026-10-23, Claude.** Dan in front of the split clip; review SHIP, gates as R4. Next: Dan; on final, setup handoff (DS-33 handoff "When Dan says final"). Work: `/Volumes/Expansion/_edit_work/DS-33/r5/`.
 
 **RO-20C HOLD 2026-10-21, Claude.** Waitlist, Dec 6. `Docs/RO20C_SETUP_RECEIPT_20261021.md`
 
