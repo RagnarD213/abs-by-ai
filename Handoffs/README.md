@@ -11,6 +11,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Ronaldo Ab Belt SFC R5](handoff-20261023-ds33-ronaldo-ab-belt-r5.md): **Ready now (2026-10-23). Claude Opus 5.5, high.** CONTENT SFC DS-33: in the split after the intro, Dan's head and hair in front of the full-width ad, the ad's bottom ~10% behind his head; split re-rendered only, joined to the R4 opening and R3 rest; gates, review, deliver. Setup title waits for final.
 - [Top 5 Ab Exercises SFC R4](handoff-20261022-top5-ab-exercises-cable-crunch-broll.md): **Fire after Dan films the cable crunch B-roll (planned 2026-10-23). Claude Opus 5.5, high.** CONTENT SFC DS-01: Muhammad's V4 accepted; swap the stock cable crunch clip (0:18.79 - 0:25.99) for Dan's footage on our side, everything else untouched; review page, stop.
 - [Getting Abs + Supplements SFC Setup](handoff-20261022-getting-abs-and-supplements-sfc-setup.md): **Fire when Muhammad's HQ exports of both arrive. Claude Opus 5.5, high.** DS-02 and DS-03 finalized 2026-10-22; light-check HQ, five Codex covers each, stop for picks, Blotato.
 - [Mac mini M6 Render Node](handoff-20261021-mac-mini-m6-render-node.md): **Fire after the Mac mini arrives (Nov 11-18) and the Thunderbolt cable is connected. Claude Opus 5.5, high.** Tooling. Thunderbolt Bridge link, SSH, toolchain parity, second pool in the render queue with identical-output proof, benchmark for the keep-or-sell call.
