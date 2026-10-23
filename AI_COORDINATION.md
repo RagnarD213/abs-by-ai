@@ -48,7 +48,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-09:POLICY-RECHECK:2026-10-22:Claude.** 10-23.
 
-**Fat 90 Year Old SFC R6 - REVIEW :8940 2026-10-23, Claude.** Four graphics (new BMI table template) and edit plan shown inside a full draft. Next: Dan approves, then delivery gate, independent reviewer, delivery. Work: `/Volumes/Expansion/_edit_work/ds40/r6/`.
 
 **Top 1 Percent SFL Setup (SL-17) - NEEDS DAN 2026-10-23, Claude.** Shorts 1-2 (cover C) on waitlist Oct 30 / Nov 6, tied to RO-26. Short 3 cover round 2 (F/G/H, :8961/round2.html) awaits his pick; then config, waitlist Nov 30, receipt.
 

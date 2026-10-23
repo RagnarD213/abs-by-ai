@@ -7,7 +7,8 @@
 ## What Dan decided
 - 2026-10-23, on the R6 page (http://127.0.0.1:8940/, now removed): "approved, handoff for setup". The film is final; do not re-edit.
 - Final file: `Short-form video content/Fat 90 Year Old - DS-40/Fat 90 Year Old SFC R6 - complete Short.mp4`
-  (1080x1920, 29.97, 1:00.3, -14 LUFS, SHA-256 starts `44a3ed13fe6f869bd487`). Beside it: the burned captions as
+  (1080x1920, 29.97, 1:00.3, -14 LUFS, SHA-256 starts `1cc5a8ce8b9e437b`; the approved draft plus the
+  independent reviewer's three fixes: watch face solid, captions on the spoken word, BMI cell 35.2. `ROUND-6-REVIEW.md`: SHIP). Beside it: the burned captions as
   `Fat 90 Year Old SFC R6.srt`, the 540p review copy, audio A/B, gate stamps, `ROUND-6-REVIEW.md`, notes and recipe.
 - Contents, for the title and description: Bill Maher (Real Time, HBO, "New Rule: Fat Acceptance", YouTube `yfiWjnStE3w`,
   2:14 to 2:34) asks "Have you ever seen a fat 90-year-old?" and calls healthy at any weight "an unchallenged lie". Dan: he
