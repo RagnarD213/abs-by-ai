@@ -2682,13 +2682,15 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/DS-35-women-say-they-love-the-dad-bod-they-dont.md`: cut \"Women Say They Love The Dad Bod. They Don't.\" from 10/15 roll C1729-C1730 with /shorts. Best take of every line, every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Sol, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-35-women-say-they-love-the-dad-bod-they-dont.md` with `$long-form-content-edit` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "ready",
-   "note": "Runs over 66 s by Dan's choice.",
+   "state": "in_progress",
+   "note": "Dad Bod SFC R1: waiting first in edit-slot line; automatic 10-minute resume armed. No render or review copy yet.",
    "needs": "",
    "order": 115,
-   "updated": "2026-10-16",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-10-23",
+   "rev": 2,
+   "syncedRev": 1,
+   "editor": "Codex",
+   "by": "Codex"
   },
   {
    "id": "DS-36",
