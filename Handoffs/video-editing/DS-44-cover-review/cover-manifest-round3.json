@@ -1,0 +1,89 @@
+{
+  "job": "DS-44",
+  "round": 3,
+  "status": "awaiting-dan-approval (revised pick: show before install)",
+  "dan_words": "I like design A, but I want you to add me back into the corner like I appear in the video. Shift the fat guy on the bottom to the right slightly to accommodate this.",
+  "corner_source": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Hormozi Fat Guy - DS-44/covers/assets/corner-dan-film-frame12.png",
+  "outputs": [
+    {
+      "layout": "youtube",
+      "file": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Hormozi Fat Guy - DS-44/covers/round3/youtube/A2-hormozi-mental-shift-corner-cover.jpg",
+      "bytes": 467495,
+      "sha256": "e88fd1f822efd27109adfffcdd8430a658155eafa1513bb0d4cce9c000cca2bb",
+      "text_boxes": [
+        [
+          196,
+          866,
+          885,
+          957
+        ],
+        [
+          42,
+          979,
+          1038,
+          1054
+        ]
+      ],
+      "faces": [
+        [
+          389,
+          39,
+          732,
+          499
+        ],
+        [
+          491,
+          1126,
+          950,
+          1570
+        ],
+        [
+          110,
+          1302,
+          300,
+          1522
+        ]
+      ]
+    },
+    {
+      "layout": "instagram",
+      "file": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Hormozi Fat Guy - DS-44/covers/round3/instagram/A2-hormozi-mental-shift-corner-cover.jpg",
+      "bytes": 445509,
+      "sha256": "cf4e031212fe9a05821e840671d83e3ae772eb9f22abf641c7100aa593e4ab9e",
+      "text_boxes": [
+        [
+          196,
+          899,
+          885,
+          990
+        ],
+        [
+          42,
+          1012,
+          1038,
+          1087
+        ]
+      ],
+      "faces": [
+        [
+          496,
+          269,
+          753,
+          614
+        ],
+        [
+          491,
+          1159,
+          950,
+          1603
+        ],
+        [
+          110,
+          1302,
+          300,
+          1522
+        ]
+      ]
+    }
+  ]
+}

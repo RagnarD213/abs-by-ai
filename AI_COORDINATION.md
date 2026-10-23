@@ -44,7 +44,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Top 1 Percent SFL Setup (SL-17) - NEEDS DAN 2026-10-23, Claude.** 15 covers on sheet (http://127.0.0.1:8961/); waiting for picks, then upload. Parent RO-26 queued Sun Oct 25.
 
-**DS-44 Hormozi Setup - NEEDS DAN 2026-10-23, Claude.** Round 2: three split-screen covers (`Short-form video content/Hormozi Fat Guy - DS-44/covers/round2/`); waiting for his pick. Then prepare only; upload/Blotato HOLD until he picks scripted or off-cuff (DS-44B).
+**DS-44 Hormozi Setup - NEEDS DAN 2026-10-23, Claude.** Cover A revised with Dan in the corner (`Short-form video content/Hormozi Fat Guy - DS-44/covers/round3/`); waiting for his OK. Then prepare only; upload/Blotato HOLD until he picks scripted or off-cuff (DS-44B).
 
 **SL-15 HOLD 2026-10-22.** `Docs/SL15_SETUP_RECEIPT_20261022.md`
 
