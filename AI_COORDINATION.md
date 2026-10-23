@@ -47,7 +47,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-09:POLICY-RECHECK:2026-10-22:Claude.** 10-23.
 
-**Fat 90 Year Old SFC R6 - ACTIVE 2026-10-22, Claude.** Graphics (new BMI table template), edit plan and full Short draft in build; page :8940 next. Work: `/Volumes/Expansion/_edit_work/ds40/r6/`.
+**Fat 90 Year Old SFC R6 - REVIEW :8940 2026-10-23, Claude.** Four graphics (new BMI table template) and edit plan shown inside a full draft. Next: Dan approves, then delivery gate, independent reviewer, delivery. Work: `/Volumes/Expansion/_edit_work/ds40/r6/`.
 
 **DS-44:ACTIVE:2026-10-21:Claude.**
 
