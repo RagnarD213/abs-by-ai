@@ -1,5 +1,5 @@
-"""Soft Blue Light BMI TABLE (HyperFrames), full screen on the moving field. New 2026-10-22 (DS-40 R6), NOT yet approved
-by Dan as a template.
+"""Soft Blue Light BMI TABLE (HyperFrames), full screen on the moving field. New 2026-10-22, approved by Dan 2026-10-23
+(DS-40 R6, Bill Maher Fat 90-Year-Old).
 
     python3 build.py config.json OUT_DIR [--render] [--snap T]
 
@@ -40,7 +40,6 @@ def layout(c):
     m = 36                                            # side margin
     top = 182                                         # under the platform's top strip (150)
     eb_y, hl_y, hl_px = top, top + 46, 78
-    px_ = 0.0
     panel_y = hl_y + round(hl_px * 1.4) + 30
     legend_h, gap = 150, 22
     panel_h = c.get("bottom", 1380) - legend_h - gap - panel_y

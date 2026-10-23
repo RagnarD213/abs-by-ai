@@ -482,6 +482,13 @@ always the one making these thumbnails."*
   (low sun, shade). Where a grade cannot rescue a clip, pick one that is already bright ("or just use the ab wheel or
   something already color-corrected"). A B-roll still visibly darker than the presenter frames around it is a defect the
   editor fixes before the review page goes out.
+- **Never raw footage, ever (Dan, 2026-10-23, RO-28 round 3).** Dan on the jump-rope pool clip at 2:22: *"This is raw footage.
+  I want you to color correct this footage. Let's make this a standing rule: never, ever use raw footage. B-roll only:
+  color-corrected footage in these videos."* That clip had a grade: a gamma lift that brightened the shade but greyed the
+  blacks and flattened it, so it still read as raw. A correction is a real grade: real blacks, contrast, warm skin, colour
+  matched to the approved pool clips (RO-28 `POOL_RICH`: curves 0/0 0.12/0.08 0.4/0.48 0.75/0.85 1/1, contrast 1.08, sat 1.20,
+  slight warm balance), never a brightness or gamma lift alone. Check every clip of Dan's own rolls side by side with the
+  film's best-graded B-roll before a page goes out; a flat, grey or washed-out clip is raw and is a defect.
 - This binds Claude and Codex, every video skill, and every editor brief and revision doc.
 
 ## A person looking at a phone is not a picture; never use the clip of Dan on his phone (Dan, 2026-10-11)
