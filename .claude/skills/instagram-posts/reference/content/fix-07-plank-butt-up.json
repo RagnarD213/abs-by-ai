@@ -1,0 +1,86 @@
+{
+ "format": "the-fix",
+ "id": "fix-07-plank-butt-up",
+ "tag": "The Fix · 07",
+ "status": "R2 2026-10-22 (retitled from fix-07-spiderman-plank at Dan's request: regular plank, butt up). Wording source: raw roll C0223-007 (7/8 welcome shoot, 377-400 s: 'for a plank I want to avoid putting my butt way up in the air or sagging. Like the name implies, I am a plank. I am perfectly straight'). Cover = 8/28 main camera C1683 105.60 s, mistake = C1683 115.25 s (labelled 'butt up in the air' reps on GoPro GP010044 289-319 s); fix and cues stills kept from R1; all brightened with enhance.py | R3 2026-10-22: colour audit (reference/color-audit-r3.md): all four stills regraded from C1683 (cover/mistake had been raw S-Log3); last slide cutout studio-blue-202 (most ripped, Dan)",
+ "cover": {
+  "headline": "Stop doing planks\n[y]like this.[/y]",
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-07-plank-butt-up/cover-graded.jpg",
+   "pos": "50% 50%",
+   "zoom": 1.0,
+   "label": "real",
+   "alt": "Dan in a forearm plank with his butt pushed high in the air"
+  },
+  "marks": [
+   {
+    "ring": [
+     200,
+     138,
+     150,
+     135
+    ],
+    "pill": "Butt up",
+    "at": [
+     372,
+     118
+    ]
+   }
+  ],
+  "swipe": "Swipe for the fix"
+ },
+ "mistake": {
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-07-plank-butt-up/mistake-graded.jpg",
+   "pos": "50% 50%",
+   "zoom": 1.0,
+   "label": "real",
+   "alt": "Dan on his elbows with his hips piked high above his shoulders"
+  },
+  "headline": "Butt way up\nin the air.",
+  "body": "Butt up in the air or back sagging, either way it's not a plank. Like the name says, you're a plank."
+ },
+ "fix": {
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-07-plank-butt-up/fix-graded.jpg",
+   "pos": "50% 50%",
+   "zoom": 1.0,
+   "label": "real",
+   "alt": "Dan in a forearm plank, body straight from head to heels"
+  },
+  "headline": "Be a plank.\nPerfectly straight.",
+  "body": "On your elbows, body perfectly straight. Butt not up in the air, back not sagging. [em]Hold the tension in your abs.[/em]"
+ },
+ "cues": {
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-07-plank-butt-up/cues-graded.jpg",
+   "pos": "50% 50%",
+   "zoom": 1.0,
+   "label": "real",
+   "alt": "Dan kneeling on the mat between sets"
+  },
+  "title": "3 cues",
+  "subtitle": "for the plank",
+  "items": [
+   "On your elbows, head to heels in one straight line.",
+   "Butt not up in the air. No sagging either.",
+   "Advanced: keep your stomach sucked in the whole time."
+  ]
+ },
+ "cta": {
+  "blocks": [
+   {
+    "icon": "save",
+    "title": "Save this",
+    "text": "for your next ab day."
+   },
+   {
+    "icon": "send",
+    "title": "Send it",
+    "text": "to the guy whose plank looks like a pup tent."
+   }
+  ],
+  "follow": "One fix a week, filmed on me.",
+  "cutout": "Short-form video content/instagram-danrosefit/assets/_cutouts/studio-blue-202.webp"
+ }
+}
