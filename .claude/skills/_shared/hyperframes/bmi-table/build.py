@@ -19,14 +19,14 @@ config.json (one scene; times are seconds from the scene's start, i.e. the word'
 bottom: the lowest pixel the legend may reach (a 9:16 short keeps its captions running from y 1412 under it).
 Bands: underweight < 18.5 (muted, not lit), normal 18.5 to 24.9, overweight 25 to 29.9, obese 30 and over.
 """
-import json, pathlib, sys
+import json, math, pathlib, sys
 HERE = pathlib.Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent))
 import hfbuild as H
 TPL = HERE / "bmi-table.template.htm"
 
 
-def band(b):
+def band(b):          # the colour from the exact BMI; the printed value rounds half up (35.15 -> 35.2, R6 review)
     return "under" if b < 18.5 else "normal" if b < 25 else "over" if b < 30 else "obese"
 
 
@@ -54,7 +54,7 @@ def layout(c):
         for k, w in enumerate(ws):
             b = 703.0 * w / (h * h)
             cells.append(dict(x=round(gx + k * cw + 3, 1), y=round(gy + r * ch + 3, 1), w=round(cw - 6, 1), h=round(ch - 6, 1),
-                              v=f"{b:.1f}", b=band(b), d=r + k))
+                              v=f"{math.floor(b * 10 + 0.5 + 1e-9) / 10:.1f}", b=band(b), d=r + k))
     cols = [dict(x=round(gx + k * cw, 1), w=round(cw, 1), s=str(w)) for k, w in enumerate(ws)]
     rows = [dict(y=round(gy + r * ch, 1), h=round(ch, 1), s=ft(h)) for r, h in enumerate(hs)]
     ly = panel_y + panel_h + gap

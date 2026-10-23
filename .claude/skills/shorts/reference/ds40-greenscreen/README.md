@@ -141,3 +141,8 @@ Code: `r6/` (plan, renderer `comp_r6.py`, captions, graphics build, audio mix, g
   the name lower third goes right of the small Dan (x 452..1000, top 1318).
 - **BMI table** = new HyperFrames template `_shared/hyperframes/bmi-table/` (dark numbers on amber: white reads 2.6:1).
 - A rawvideo-decoding check over every cache frame is very slow in a 2-core light slot (44 min and not done): sample.
+- **R6 independent review (DOES NOT SHIP, fixed):** (1) the watch face in the LARGE layout was see-through too (185 frames):
+  run `r6/wfix_track.py` (box 140 px below the band) + stage15 boxes on every scripted segment, not only the corner footage;
+  (2) captions came up 0.44-0.55 s early after pauses: Whisper's roll word starts swallow the pause, so `r6/captions.py`
+  takes each cue start from the delivered-file transcript (medium.en) where it agrees with the audio onset; (3) a BMI cell
+  printed 35.1 for 35.15 (Python rounds the float down): round half up from the exact value.

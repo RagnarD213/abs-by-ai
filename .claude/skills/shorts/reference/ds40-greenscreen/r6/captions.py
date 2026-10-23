@@ -72,11 +72,37 @@ for c in cues:   # a one-word cue that does not end a sentence leads into the ne
     if out and len(out[-1]) == 1 and not re.search(r"[.!?,]$", out[-1][0]["w"]) and out[-1][0]["p"] == c[0]["p"] and len(c) <= 4:
         out[-1] = out[-1] + c
     else: out.append(c)
+# Whisper stretches a word that follows a pause back over the pause ("But" at 1409.14 for speech at ~1409.6), so a cue
+# starting on it came up ~0.5 s early (R6 independent review). Start each cue on the first 10 ms of real sound inside its
+# first word (RMS above -36 dBFS in the film mix), never later than that word's end.
+import subprocess, numpy as np
+_b = subprocess.run(["/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video_edit/bin/ffmpeg.real", "-v", "error", "-i",
+                     "audio/film.wav", "-ac", "1", "-ar", "16000", "-f", "f32le", "-"], capture_output=True, check=True).stdout
+_x = np.frombuffer(_b, np.float32)
+def onset(a, e):
+    """The word's real start: where the level rises above -30 dBFS after the pause (below -40) that Whisper folded into
+    the word; the previous word's decay tail is skipped. No pause inside the word's span: keep a."""
+    lv = lambda t: 20 * np.log10(np.sqrt((_x[int(t * 16000):int((t + 0.01) * 16000)] ** 2).mean()) + 1e-9)
+    quiet = False
+    for t in np.arange(a, max(a, e - 0.02), 0.01):
+        v = lv(t)
+        if v < -40: quiet = True
+        elif quiet and v > -30: return round(float(t), 3)
+    return a
+# the delivered-audio transcript (medium.en on the finished file, finished-asr.json) times word starts well; use it where it
+# agrees with the onset, except right at an ASR window start (the audio joins), where it clamps to the window
+_A = json.load(open("finished-asr.json"))["words"]
+_JOINS = (19.386, 45.98, 50.889)
+_nz = lambda w: re.sub(r"[^a-z0-9]", "", w.lower())
+def start(c):
+    a0, on = c[0]["t"], onset(c[0]["t"], c[0]["e"])
+    m = [w["t"] for w in _A if _nz(w["w"]) == _nz(c[0]["w"]) and abs(w["t"] - on) < 0.3 and min(abs(w["t"] - j) for j in _JOINS) > 0.05]
+    return round(min(m, key=lambda t: abs(t - on)), 3) if m else on
 res = []
 clip_end = PL.N_CLIP / FPS
 for i, c in enumerate(out):
-    a = c[0]["t"]; e = c[-1]["e"] + 0.30
-    if i + 1 < len(out): e = min(e, out[i + 1][0]["t"])
+    a = start(c); e = c[-1]["e"] + 0.30
+    if i + 1 < len(out): e = min(e, start(out[i + 1]))
     if a < clip_end <= e: e = clip_end
     text = " ".join(x["w"] for x in c)
     res.append(dict(a=round(a, 3), b=round(e, 3), text=text, lines=cap_lines(text), top=1040 if c[0]["p"] == 0 else 1412))
