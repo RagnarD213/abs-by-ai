@@ -22,9 +22,11 @@ Key: plain = edited (in Blotato or on the waiting list). **\*** = still to be ed
 | Nov 23 | Oura 4 (SL-09) | Salad (sl03-short6) | How To Do Hammer Curls (DS-21) | Oura 5 (SL-09) | Zepbound Tips 3 (sl06-short3, queued) |
 | Nov 30 | What To Cut 1\* (SL-21) | Zepbound Tips 4 (sl06-short4, queued) | AI Homework (DS-31, needs Dan's OK) | 40 vs 25 1\* (SL-14) | Zepbound Tips 5 (sl06-short5, queued) |
 | Dec 7 | What To Buy 1\* (RO-20C) | Zepbound Tips 6 (sl06-short6, queued) | Fat Millionaire (DS-05, corrections) | Vacuum 1\* (SL-11) | Wasted My Life 2 (SL-18) |
-| Dec 14 | 3 Healthy Foods 1 (SL-19) | Fasting 1\* (SL-16, "Just Skip Breakfast") | #1 Change For Abs At 40\* (DS-13) | 3 Healthy Foods 2 (SL-19) | Top 1% 1\* |
-| Dec 21 | Belly Fat 1 (SL-07, needs Dan's OK) | Belly Fat 2 | Lose The Last 10 Pounds\* (DS-16) | 3 Healthy Foods 3 (SL-19) | Belly Fat 3 |
-| Dec 28 | Belly Fat 4 | Belly Fat 5 | Top 5 Ab Exercises\* (DS-01) | | |
+| Dec 14 | 3 Healthy Foods 1 (SL-19) | Fasting 1\* (SL-16, "Just Skip Breakfast") | Hormozi Fat Guy (DS-44, queued) | 3 Healthy Foods 2 (SL-19) | Top 1% 1\* |
+| Dec 21 | Belly Fat 1 (SL-07, needs Dan's OK) | Belly Fat 2 | #1 Change For Abs At 40\* (DS-13) | 3 Healthy Foods 3 (SL-19) | Belly Fat 3 |
+| Dec 28 | Belly Fat 4 | Belly Fat 5 | Lose The Last 10 Pounds\* (DS-16) | | |
+
+**Moved 2026-10-23 (DS-44 setup):** Alex Hormozi Asks A Fat Guy Why He Isn't 200 Pounds Heavier (DS-44) is edited, so it takes Thu Dec 17 (queued in Blotato, scripted version). The not-yet-edited DS-13 and DS-16 each move one Thursday later (Dec 24, Dec 31); Top 5 Ab Exercises (DS-01) moves to the first 2027 Thursday, Jan 7.
 
 **2027 dated:** Spray Tan 1 (SL-15) Fri Jan 1 and Spray Tan 2 Sat Jan 2, after their parent RO-19 releases Wed Dec 30 (on the waiting list, 2026-10-22).
 

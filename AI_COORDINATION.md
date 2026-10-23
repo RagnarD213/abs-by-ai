@@ -26,7 +26,9 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**Pushup Masterclass LFC R1 - SLOT WAIT 2026-10-23, Codex.** RO-09 owned by chat 01a16a4e-fac9-7db3-89e7-08dba554908b; acquire returned first in line. C1732 incline pickup located; level 5 slated, commentary still unlocated. No media rendered. Automatic 10-minute resume armed. Next: acquire, pause heartbeat, source-check and prepare first-minute/asset review. Checkpoint: `Media/video-edits/RO-09/round1/checkpoint.json`.
+**Ronaldo Ab Belt SFC Setup - COVER REVIEW 2026-10-23, Codex.** Five unique covers, Instagram/YouTube pairs, checked at http://127.0.0.1:9173/. Awaiting Dan's number; recommend 3. Approved R5 hash preserved, no uploads/schedules. Next: pick, backups and four-platform Thursday setup or shared waitlist. State: `Short-form video content/covers/review/ds33-ronaldo-20261023/SETUP-STATE.json`.
+
+**Pushup Masterclass LFC R1 - ACTIVE 2026-10-23, Codex.** RO-09 owned by chat 01a16a4e-fac9-7db3-89e7-08dba554908b; edit slot acquired, heartbeat paused. C1732 incline pickup located; close-grip slated, commentary still unlocated. Next: source-check and prepare first-minute/look/asset review using the handoff-permitted demonstration treatment. Work: `/Volumes/Extreme/_edit_work/RO-09`; checkpoint: `Media/video-edits/RO-09/round1/checkpoint.json`.
 
 **Dad Bod SFC R1 - SLOT WAIT 2026-10-23, Codex.** Women Say They Love The Dad Bod. They Don't. (DS-35), first in the edit-slot line; no media produced. Automatic 10-minute resume armed in chat 01a16a4f-cff7-7b92-b373-eb45723ea3b1. Next: acquire slot, read full current production rules/skills, execute the DS-35 handoff and deliver checked review.
 
@@ -38,7 +40,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **SL-16:PICKS+SLOT-WAIT:2026-10-22:Claude.** Fasting shorts.
 
-**Boring Abs At 40 LFC R2 - ACTIVE 2026-10-23, Codex.** Complete speech restored; exact headroom and four frame pairs checked. Page packaging queued. Native evidence resolves the final listener’s visual false flags; raw verdict retained. Browser QA pending because CUA tools are unavailable. Next: finish packaging, then actual browser QA and checked-page delivery when tools return. Colour C, voice B and R1 preserved. No new motion/full film. State: `/Volumes/Extreme/_edit_work/ro27/round2/RESUME-20261023.md`.
+**Boring Abs At 40 LFC R2 - REVIEW 2026-10-23, Codex.** Checked opening,30contexts, four revised still pairs and216existing AI sources: http://127.0.0.1:9050/. Speech/headroom repaired; colour C, voice B and R1 preserved. Browser controls checked and test choices removed. Next: Dan chooses an existing opener and decides four pairs. No new motion/full film/upload/scheduling. Receipt: `Docs/RO27_R2_RECEIPT_20261023.md`.
 
 **Calories Not Losing Weight SFL R6 - ACTIVE 2026-10-23, Codex.** Approved pairs verified; edit slot admitted. Production transferred to started/pinned chat `01a169a7-fab3-7330-b0f6-148b8984cffe`; predecessor unpinned, heartbeat paused. Background controls only, no screen takeover. Next: subscription Flow, take checks, narrated motion review. Handoff: `Handoffs/handoff-20261023-sl08-round6-approved-background-motion.md`. Old rounds/panels intact; no covers or publishing.
 
@@ -50,7 +52,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Top 1 Percent SFL Setup (SL-17) - NEEDS DAN 2026-10-23, Claude.** Shorts 1-2 (cover C) on waitlist Oct 30 / Nov 6, tied to RO-26. Short 3 cover round 2 (F/G/H, :8961/round2.html) awaits his pick; then config, waitlist Nov 30, receipt.
 
-**DS-44 Hormozi Setup - NEEDS DAN 2026-10-23, Claude.** Cover A, two corner variants with Dan facing camera (`Short-form video content/Hormozi Fat Guy - DS-44/covers/round4/`); waiting for his pick. Then prepare only; upload/Blotato HOLD until he picks scripted or off-cuff (DS-44B).
+**DS-44 Hormozi QUEUED 2026-10-23, Claude.** Scripted R2 queued Thu Dec 17, all four; if Dan picks off-cuff (DS-44B), swap media. `Docs/DS44_SETUP_RECEIPT_20261023.md`
 
 **SL-15 HOLD 2026-10-22.** `Docs/SL15_SETUP_RECEIPT_20261022.md`
 

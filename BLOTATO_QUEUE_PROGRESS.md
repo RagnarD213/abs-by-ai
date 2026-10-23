@@ -521,3 +521,6 @@ Six shorts, four posts each (FB, IG @danrosefit, TikTok, YouTube), 9 AM Central:
 ## DONE: RO-14 Why You're Not Losing Weight (4 Hidden Calorie Leaks) (2026-10-22)
 
 Source `claude edited long form content/22 - Why You're Not Losing Weight/... | claude round 3 | 16x9 | RO-14.mp4`, SHA-256 `14f2a85d...e07e3c`. Blotato schedules: YouTube `5910479` Sun Jan 3, 2027, 9 AM CT (thumbnail B2 level blocks, AI flag on); Facebook `5910475`, Instagram `5910476`, TikTok `5910478` Mon Jan 4, 2027, noon CT. Keyword TRACK, UTM `utm_content=ro14-not-losing-weight`. First 2027 slot because 2026 was full. Receipt `Docs/RO14_SETUP_RECEIPT_20261022.md`.
+
+## DONE — Alex Hormozi Asks A Fat Guy Why He Isn't 200 Pounds Heavier (DS-44), 2026-10-23
+Scripted R2 master (sha256 9d8deb8da3d5eb2b...), Thu 2026-12-17 9 AM CT on FB 5948215 / IG 5948216 / TikTok 5948217 / YouTube 5948218. Cover: split-screen A with Dan in the corner (round 4 option 1). Keyword TRACK, UTM hormozi-fat-guy. Off-the-cuff take (DS-44B) may replace the media if Dan picks it. Receipt: Docs/DS44_SETUP_RECEIPT_20261023.md.
