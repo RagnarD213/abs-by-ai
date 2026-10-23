@@ -44,7 +44,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Fat 90 Year Old SFC R6 - REVIEW :8940 2026-10-23, Claude.** Four graphics (new BMI table template) and edit plan shown inside a full draft. Next: Dan approves, then delivery gate, independent reviewer, delivery. Work: `/Volumes/Expansion/_edit_work/ds40/r6/`.
 
-**Top 1 Percent SFL Setup (SL-17) - NEEDS DAN 2026-10-23, Claude.** 15 covers on sheet (http://127.0.0.1:8961/); waiting for picks, then upload. Parent RO-26 queued Sun Oct 25.
+**Top 1 Percent SFL Setup (SL-17) - NEEDS DAN 2026-10-23, Claude.** Shorts 1-2 (cover C) on waitlist Oct 30 / Nov 6, tied to RO-26. Short 3 cover round 2 (F/G/H, :8961/round2.html) awaits his pick; then config, waitlist Nov 30, receipt.
 
 **DS-44 Hormozi Setup - NEEDS DAN 2026-10-23, Claude.** Cover A, two corner variants with Dan facing camera (`Short-form video content/Hormozi Fat Guy - DS-44/covers/round4/`); waiting for his pick. Then prepare only; upload/Blotato HOLD until he picks scripted or off-cuff (DS-44B).
 
