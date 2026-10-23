@@ -11,6 +11,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Hormozi Fat Guy Off-Cuff SFC R1](handoff-20261023-ds44-hormozi-off-the-cuff-take.md): **Fire now. Claude Opus 5.5, high.** CONTENT SFC DS-44B: edit Dan's off-the-cuff Hormozi take (C1730 2325-2391) in the locked reaction format, reusing the approved scripted Short's opening, card and key; page with both versions side by side so Dan picks one.
+- [Hormozi Fat Guy SFC Setup](handoff-20261023-ds44-hormozi-setup-hold.md): **Fire now for covers. Claude Opus 5.5, high.** DS-44 R2 (scripted) approved 2026-10-23; five Codex covers usable for either version, stop for Dan's pick; HOLD upload, cover install and Blotato until Dan picks scripted or off-the-cuff.
 - [Top 5 Ab Exercises SFC R4](handoff-20261022-top5-ab-exercises-cable-crunch-broll.md): **Fire after Dan films the cable crunch B-roll (planned 2026-10-23). Claude Opus 5.5, high.** CONTENT SFC DS-01: Muhammad's V4 accepted; swap the stock cable crunch clip (0:18.79 - 0:25.99) for Dan's footage on our side, everything else untouched; review page, stop.
 - [Fat 90 Year Old SFC Setup](handoff-20261023-ds40-fat-90-year-old-sfc-setup.md): **Fire now. Claude Opus 5.5, high.** DS-40 R6 approved 2026-10-23 (Bill Maher green screen reaction); five Codex covers, stop for Dan's pick, then Blotato on the next Thursday dedicated slot.
 - [Getting Abs + Supplements SFC Setup](handoff-20261022-getting-abs-and-supplements-sfc-setup.md): **Fire when Muhammad's HQ exports of both arrive. Claude Opus 5.5, high.** DS-02 and DS-03 finalized 2026-10-22; light-check HQ, five Codex covers each, stop for picks, Blotato.
