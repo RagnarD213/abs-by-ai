@@ -36,3 +36,8 @@ Related: [[instagram-account-state]], [[shorts-organic-research]], [[shorts-reas
 5 carousels + 5 singles + a template sheet. Six series (The Fix, Receipts, Steal My, Swaps/The Math, Proof, Straight Talk),
 ink/bone/red/yellow, Anton + Manrope, real footage stills first. Proposed 4-week test vs the studio batch in the M/W/F 5 PM
 slots, judged on non-follower reach and saves at day 7. Awaiting Dan's picks; nothing queued.
+
+**Template batch 1 (2026-10-21/22):** Dan approved The Fix, Receipts and Steal My Workout carousels plus the cheat sheet;
+rejected Swaps, Timeline and the photo singles. C1-C3 queued, then his round 1 picks (4 Fix, 2 workouts) Oct 23-Nov 9;
+all 26 Codex studio posts retired to `scripts/blotato/photo_reserve.json`. Generator: `/instagram-posts` skill. Receipts
+needed more visuals; last slides always show a big shirtless cutout. Receipt: `Docs/IG_TEMPLATE_QUEUE_RECEIPT_20261021.md`.

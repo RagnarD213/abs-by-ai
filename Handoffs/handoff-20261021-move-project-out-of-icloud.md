@@ -69,3 +69,38 @@ rename only (no running render jobs); everything before that is safe while jobs 
 > least 150 GB on the internal disk (ask Dan before deleting any real footage), materialize the remaining cloud-only
 > files, then at a quiet moment rename the project out of the iCloud container to `~/Projects/Claude` and point
 > `~/Documents/Claude` at it. Verify old paths, git and the render queue afterwards and record results in the handoff.
+
+## Results (executed 2026-10-21 18:48 to 2026-10-23 07:30, Claude Opus 5.5)
+
+**Done. The Claude folder (all projects) is at `~/Projects/Claude`, fully local, out of iCloud Drive.**
+`~/Documents/Claude -> ~/Projects/Claude`; the old container path
+`~/Library/Mobile Documents/com~apple~CloudDocs/Documents/Claude -> ~/Projects/Claude` (35 sessions and 4 git worktrees
+had recorded it). No script paths changed.
+
+1. **`.git` local.** The 15:05 `find ... -exec cat` had hung for 4 h on its first file (`.git/index 19`, an iCloud
+   conflict copy); reads from a Claude Bash shell do not trigger downloads. `brctl download` in batches worked but
+   stalled; `killall bird` (it relaunches) cleared the stall. 41 main-history objects were rebuilt byte-exact from a
+   clean clone (`/private/tmp/abs-ra16-setup-20261017`); 12 iCloud conflict copies (`index N`, `AUTO_MERGE N`) removed;
+   3 stock hook samples recopied from git's templates. `git fsck --connectivity-only` clean. Board entry "Main Git cloud
+   read BLOCKED" (object `29f0dd02…`) is resolved: that object is local now.
+2. **Space.** 48 GB free at start, 99 GB after the move (117 GB at peak before other sessions' renders). Moved to
+   `/Volumes/Expansion/_internal-offload-20261021/` and checksum-verified (log `OFFLOAD-LOG.txt`, pointer file left at
+   each old place): iMazing iPhone backup 49 GB (Dan approved), project `tmp/ro17_r4`, `tmp/ro06`,
+   `tmp/deadlift-launch-20261011`, `~/.cache/absbyai/ro02-*` and `ro03`. Steam Civilization VI removed, 25 GB (Dan
+   approved). 13 idle `node_modules` folders (11 worktrees, `ios-app`, `ad-factory/the-upload`) removed: `npm install`
+   restores them. ExFAT note: `rsync -a -c -n -i` itemizes permission noise; verify with `rsync -rlc -n -i | grep '^[<>c*]'`.
+3. **Cloud-only files.** 8,655 → 0. Not downloaded: raw `C1511 2.MP4` (27.5 GB) and `C1541.MP4` (2.35 GB), replaced
+   with symlinks to the identical-size Extreme copies (Dan approved; also on Expansion); Android/iOS build output.
+   iCloud then made " 2"/" 3" conflict placeholders of everything replaced; 86 of those duplicates were dropped (list:
+   `Expansion/_internal-offload-20261021/DROPPED-ICLOUD-DUPLICATES-20261022.txt`, recoverable 30 days in iCloud's
+   Recently Deleted). Conflict copies of other sessions' Short renders were downloaded and kept.
+4. **Move.** A single rename out of iCloud is not instant: macOS asks iCloud first (≈0.2 ms per item, 728k items) and
+   fails with ETIMEDOUT if the tree changes meanwhile (clean failure, nothing moves). So `scripts/icloud-move/evacuate.py`
+   moved it piece by piece (busy folders split down to files, a symlink at each old path, a final sweep for files that
+   an atomic save re-created). `rename.sh` waited for a quiet render queue (first at 2026-10-23 07:08) and ran it:
+   7.5 min, `RESULT OK`, no retries. Log: `Expansion/_internal-offload-20261021/icloud-move-20261023.log`.
+5. **Verified.** Old path lists 92 entries; container path the same; nothing under `~/Projects/Claude` resolves into
+   Mobile Documents; 0 cloud-only items; no file-provider attributes; `git status` works in the main folder and all 72
+   worktrees; `renderq.py status` works; fileproviderd 85% CPU before, 3% after; bird 0%. Stray stub
+   `~/Documents/.stray-Claude-20261021-1449` deleted (its image was identical in the project, its log empty).
+6. **Not done (Dan's choice):** the other 59 `~/Documents` entries still link into the iCloud container.

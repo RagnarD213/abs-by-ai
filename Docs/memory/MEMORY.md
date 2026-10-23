@@ -1,4 +1,5 @@
-- [Documents symlinked into iCloud](documents-symlinked-into-icloud.md): 10-21: ~/Documents entries are links into the iCloud container; never re-enable Desktop & Documents; move-out handoff open
+- [Reaction format](greenscreen-reaction-format.md): 10-22: clip full screen, Dan 0.40 lower left, laptop visible; then interview behind his head ~30 s
+- [Project out of iCloud](documents-symlinked-into-icloud.md) — 10-23: Claude folder lives at ~/Projects/Claude; ~/Documents/Claude and the iCloud path are links to it; never re-enable Desktop & Documents
 - [Cover picks](cover-picks-ai-dan-acting-topic.md): 10-21: AI Dan acting the title out, yellow band; expressive when the topic needs it
 - [AI clips natural or regenerate](ai-clips-natural-or-regenerate.md): 10-21: calm real-looking, closed-mouth smile, no shake; regenerate slop, never patch
 - [Chroma key standard](chroma-key-standard.md): 10-21: Claude DS-40 R2 key is the house key (replaces Codex R3)
@@ -48,6 +49,7 @@
 - [Before/after](before-after-same-person.md): same person
 - [App recording pair](app-recording-before-after-pair.md): man is not Dan
 - [IG what works](instagram-what-works-oct2026.md): exercise fix Reels win; photos don't grow
+- [IG post formats](instagram-post-formats.md): Fix, Receipts, Steal My Workout carousels + cheat sheets; no Swaps or Timeline
 - [Social profiles](social-profile-graphics-done.md): FB, TikTok done
 - [Ads UI](google-ads-ui-automation.md): Chrome traps
 - [Ad retry](ad-retry-rule-and-no-trick.md): never "trick"; tamer
@@ -245,7 +247,10 @@
 - [Session cleanup](claude-session-cleanup-job.md): never by age
 - [PostHog API](posthog-api-access.md): query-only keys
 - [Amazon](amazon-associates-account.md): danrosefit-20
+- [Thread cap off](renderq-thread-cap-off-until-keys-capped.md): renderq v3 -threads cap OFF until keys capped
+
+- [Approve revised cover before install](approve-revised-cover-before-install.md) — a revised thumbnail/cover waits for Dan's OK on the final file
+- [Shorts shortlist: full transcripts](shorts-shortlist-full-transcripts.md) — every proposed Short shows its title and full word-for-word transcript
 - [Execute Dan's picks](execute-dans-explicit-picks.md): build exactly what he names
 - [Allegations not facts](allegations-not-fact.md): never mentioned unless Dan asks
 - [Assessment symmetry](assessment-symmetry.md): one standard, swap test, results
-- [Shorts shortlist: full transcripts](shorts-shortlist-full-transcripts.md) — every proposed Short shows its title and full word-for-word transcript
