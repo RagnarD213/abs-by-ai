@@ -26,20 +26,29 @@ me for review and regenerate if you get some slop like this."*
   question, *"does this look like real footage of a relaxed person, or like AI?"*, at playback speed, and any "AI" answer is a
   FAIL. Put that question in every frame-reviewer brief for motion.
 
-## Reaction Shorts: the standard opening layout (Dan, 2026-10-22, DS-44 Hormozi Fat Guy R1)
+## Reaction videos: the locked format, start to finish (Dan, 2026-10-23, DS-44 Hormozi Fat Guy R2 approved)
 
-- **Every green-screen reaction Short opens in the "Bill Maher option B" layout: the reaction clip fills the phone screen,
-  and Dan, keyed, sits in the lower left, slightly larger than before, with the laptop visible.** Dan, pointing at DS-40 R4
-  option B: *"I want to change this to our new standard shorts format, like you see in the Bill Maher one here. We just lock
-  this in as a standard shorts format. Let's change that to slightly larger, with a laptop visible."*
-- Geometry (from `ds40/r4/key/comp_r4.py` frame_B): Dan's full-height keyed frame, laptop lid kept (key without the laptop
-  crop), at 0.40 of full size (432 x 768 on a 1080 x 1920 Short), flush on the left and bottom screen edges, a narrow soft
-  fade on his right edge (wider only where a hand leaves the camera). His real reaction footage, synced to the clip.
-- **After the clip (DS-44, same day):** the interview keeps playing SILENTLY in a horizontal frame at the top, behind Dan's
-  head, his hair slightly overlapping the frame's bottom edge (head in the foreground), for about the first 30 seconds of
-  the Short. *"I want my head to be in the foreground, and this to be playing in the background. There'll be a slight overlap
-  between my head and my hair, and the bottom of the horizontal frame at the top."* Use footage of the speaker (no webcam
-  banners), full height of the 16:9 frame.
+Dan approved Hormozi Fat Guy (DS-44) round 2 and locked it as THE format for green-screen reaction videos: *"Okay, looks good.
+This is approved... I want to lock this as our format for reaction videos."* Every reaction Short, Claude and Codex:
+1. **Opening:** the reaction clip plays first, full screen (fixed vertical window on whoever is talking, per camera shot), with
+   its own sound and nothing before it; Dan keyed small in the lower left with the laptop visible, his real reaction synced to
+   the clip. Exact geometry: "Green screen reaction opening: the locked format" below (0.40 of full size, flush left and
+   bottom, full-height key, soft right edge widened wherever a hand or elbow reaches the camera's edge).
+2. **The handover (about 0.5 s):** the clip shrinks into a 16:9 frame at the top of the screen (about 1000 x 562 at y 30)
+   while Dan grows from the corner to full width in front of it. Keep the silence between the clip's last word and Dan's first
+   under 1 s.
+3. **The interview keeps playing silently behind Dan's head** in that top frame for about the first 30 seconds of the Short,
+   ending at a natural section break. Dan's hair overlaps the frame's bottom edge slightly (about 40-50 px), his head in front.
+   Use a continuous shot of the speaker from the same interview (no webcam banners), full 16:9 height; it pauses behind any
+   full-screen cutaway. Dan's own words: *"I want my head to be in the foreground, and this to be playing in the background.
+   There'll be a slight overlap between my head and my hair, and the bottom of the horizontal frame at the top."*
+4. **Then Dan's take on the moving Soft Blue field**, wide/tight zoom cuts, Soft Blue Light HyperFrames lower thirds placed
+   clear of his face (they sit lower while the interview frame is up, because he sits lower), B-roll and clip cutaways as usual.
+- Both takes were filmed for every reaction: the teleprompter script and an off-the-cuff take right after it on the roll.
+  The scripted take is built first; Dan may ask for the off-the-cuff take in the same format to compare (DS-44, 10-23).
+- Reference build (code, every step): `.claude/skills/shorts/reference/ds44-reaction-format/` (README there). Known gate
+  mismatches with this format: framing:hair_top / headroom read the speaker in the top frame or behind the corner as Dan's
+  hair; confirm by eye, never tune.
 
 ## Head and hair clearance blocks review delivery (Dan, 2026-10-20, RO-27)
 

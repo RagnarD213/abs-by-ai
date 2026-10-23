@@ -11,5 +11,7 @@ The clip plays first, full screen, fixed vertical crop on the speaker; Dan keyed
 
 Dan confirmed it the same day on Hormozi Fat Guy (DS-44) R1 ("We just lock this in as a standard shorts format... slightly larger, with a laptop visible") and added what follows the clip: the interview keeps playing SILENTLY in a horizontal frame at the top behind his head, his hair slightly overlapping the frame's bottom edge, head in the foreground, for about the first 30 seconds of the Short.
 
+**Whole format locked 2026-10-23** (Dan approved Hormozi Fat Guy DS-44 R2: "This is approved... I want to lock this as our format for reaction videos"): opening as above, the clip shrinks into a 16:9 frame at the top that keeps playing silently behind his head for ~30 s, then his take on the Soft Blue field. Reference build: `shorts/reference/ds44-reaction-format/`. Both takes (scripted, off-the-cuff) exist for every reaction.
+
 **Why:** a consistent, recognizable reaction format; the laptop explains why he is looking down.
-**How to apply:** rules in `_shared/VIDEO-RULES.md` ("Green screen reaction opening" and "Reaction Shorts: the standard opening layout"); code `shorts/reference/ds40-greenscreen/comp_r4.py` (B). Related: [[chroma-key-standard]], [[reaction-shorts-clip-first]].
+**How to apply:** rule in `_shared/VIDEO-RULES.md` ("Reaction Shorts: the standard opening layout"); code `shorts/reference/ds40-greenscreen/comp_r4.py` (B). Related: [[chroma-key-standard]], [[reaction-shorts-clip-first]].

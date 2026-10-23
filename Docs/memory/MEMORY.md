@@ -1,4 +1,4 @@
-- [Reaction format](greenscreen-reaction-format.md): 10-22: clip full screen, Dan 0.40 lower left, laptop visible; then interview behind his head ~30 s
+- [Reaction format](greenscreen-reaction-format.md): LOCKED 10-23: clip full screen + Dan 0.40 lower left w/ laptop; then interview silently behind his head ~30 s
 - [Project out of iCloud](documents-symlinked-into-icloud.md) — 10-23: Claude folder lives at ~/Projects/Claude; ~/Documents/Claude and the iCloud path are links to it; never re-enable Desktop & Documents
 - [Cover picks](cover-picks-ai-dan-acting-topic.md): 10-21: AI Dan acting the title out, yellow band; expressive when the topic needs it
 - [AI clips natural or regenerate](ai-clips-natural-or-regenerate.md): 10-21: calm real-looking, closed-mouth smile, no shake; regenerate slop, never patch
@@ -167,7 +167,7 @@
 - [Self bake-off](self-bakeoff-before-dan-reviews.md): judge first
 - [Thumbnail designs](thumbnail-unique-designs.md): all five unique
 - [Funny AI clips](funny-ai-clips-for-abstract-lines.md): abstract lines
-- [B-roll grade](broll-always-colour-corrected.md): grade before Dan sees it
+- [B-roll grade](broll-always-colour-corrected.md): never raw footage, ever; real grade, not a gamma lift (10-23)
 - [Phone clip](never-use-dan-phone-clip.md): B0437 never
 - [Copy polish](copy-polish-direct-edits.md): spelling fixes direct, never tracked
 - [Filming docs](filming-docs-after-final-polish.md): after polish
@@ -254,4 +254,3 @@
 - [Execute Dan's picks](execute-dans-explicit-picks.md): build exactly what he names
 - [Allegations not facts](allegations-not-fact.md): never mentioned unless Dan asks
 - [Assessment symmetry](assessment-symmetry.md): one standard, swap test, results
-- [Approve revised cover before install](approve-revised-cover-before-install.md) — a revised thumbnail/cover waits for Dan's OK on the final file
