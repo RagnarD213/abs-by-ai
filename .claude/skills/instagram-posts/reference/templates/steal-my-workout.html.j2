@@ -13,10 +13,12 @@
   </div>
   <div aria-hidden="true" style="position:absolute;left:236px;top:272px;width:300px;height:300px;box-sizing:border-box;border:10px solid var(--yellow);border-radius:50%"></div>
   <div aria-hidden="true" style="position:absolute;left:380px;top:258px;width:12px;height:34px;background:var(--yellow)"></div>
-  {%- if c.cutout.placeholder %}
+  {%- if c.photo %}
+  <div style="position:absolute;left:246px;top:282px;width:280px;height:280px;border-radius:50%;overflow:hidden"><img src="{{ c.photo.src|uri }}" alt="{{ c.photo.alt or '' }}" style="width:100%;height:100%;object-fit:cover;object-position:{{ c.photo.pos or '50% 50%' }};transform:scale({{ c.photo.zoom or 1 }});transform-origin:{{ c.photo.pos or '50% 50%' }}"></div>
+  {%- elif c.cutout.placeholder %}
   {{ m.pic(c.cutout, 'right:40px;bottom:0;width:250px;height:400px') }}
   {%- else %}
-  <img src="{{ c.cutout.src|uri }}" alt="{{ c.cutout.alt or 'Dan Rose' }}" style="position:absolute;right:{{ c.cutout.right or 64 }}px;bottom:0;height:{{ c.cutout.height or 430 }}px;width:auto">
+  <img src="{{ c.cutout.src|uri }}" alt="{{ c.cutout.alt or 'Dan Rose' }}" style="position:absolute;right:{{ c.cutout.right if c.cutout.right is not none and c.cutout.right is defined else 64 }}px;bottom:0;height:{{ c.cutout.height or 430 }}px;width:auto">
   {%- endif %}
   <div style="position:absolute;left:36px;top:318px;width:200px;display:flex;flex-direction:column;gap:12px">
     {%- for mv in post.moves %}
@@ -49,29 +51,32 @@
 {%- endfor %}
 
 {%- set r = post.recap %}
-<!-- {{ T }} RECAP -->
+{%- set many = post.moves|length > 3 %}
+<!-- {{ T }} RECAP: screenshot card on the left, Dan's cutout large on the right -->
 <div class="slide" style="background:var(--yellow);padding:30px 36px">
-  <div style="display:flex;justify-content:space-between;align-items:center">
+  <div style="display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2">
     <div class="tag" style="color:var(--ink)"><span class="sq" style="background:var(--ink)"></span>{{ post.tag or 'Steal my workout' }}</div>
     <div class="handle" style="color:var(--ink)">{{ T }} / {{ T }}</div>
   </div>
-  <h2 class="hd" style="font-size:{{ r.size or 60 }}px;color:var(--ink);margin-top:{{ 24 if post.moves|length > 3 else 30 }}px">{{ r.title or 'Screenshot this.' }}</h2>
-  <div style="margin-top:16px;background:var(--ink);border-radius:8px;padding:{{ 12 if post.moves|length > 3 else 16 }}px 16px;display:flex;flex-direction:column;gap:{{ 9 if post.moves|length > 3 else 12 }}px">
-    {%- for mv in post.moves %}
-    <div style="display:flex;align-items:center;gap:14px">
-      {%- if mv.image.placeholder %}
-      <div style="width:84px;height:{{ 52 if post.moves|length > 3 else 64 }}px;border-radius:4px;flex:none;background:repeating-linear-gradient(135deg,#2A2E35 0 8px,#23272D 8px 16px)"></div>
-      {%- else %}
-      <img src="{{ mv.image.src|uri }}" alt="" data-nolabel="1" style="width:84px;height:{{ 52 if post.moves|length > 3 else 64 }}px;object-fit:cover;object-position:{{ mv.thumb_pos or mv.image.pos or '50% 50%' }};border-radius:4px;flex:none">
-      {%- endif %}
-      <span class="tx" style="flex:1;font-size:20px;font-weight:800;color:var(--bone)">{{ mv.name }}</span>
-      <span class="hd" style="font-size:{{ mv.recap_size or 28 }}px;color:var(--yellow);white-space:nowrap">{{ mv.dose }}</span>
+  <h2 class="hd" style="font-size:{{ r.size or 58 }}px;color:var(--ink);margin-top:22px;position:relative;z-index:2">{{ r.title or 'Screenshot this.' }}</h2>
+  {{ m.dan_cutout(r.cutout or post.follow_cutout, height=r.cutout_h or 480, maxw=210, label='Real photos of me, not AI-generated') }}
+  <div data-fit-col style="position:absolute;left:36px;width:300px;top:{{ 150 if not r.size else 140 }}px;height:{{ 430 }}px;display:flex;flex-direction:column;gap:14px;overflow:hidden;z-index:2">
+    <div style="background:var(--ink);border-radius:8px;padding:12px 12px;display:flex;flex-direction:column;gap:{{ 8 if many else 10 }}px">
+      {%- for mv in post.moves %}
+      <div style="display:flex;align-items:center;gap:10px">
+        {%- if mv.image.placeholder %}
+        <div style="width:64px;height:{{ 46 if many else 54 }}px;border-radius:4px;flex:none;background:repeating-linear-gradient(135deg,#2A2E35 0 8px,#23272D 8px 16px)"></div>
+        {%- else %}
+        <img src="{{ (mv.thumb or mv.image.src)|uri }}" alt="" data-nolabel="1" style="width:64px;height:{{ 46 if many else 54 }}px;object-fit:cover;object-position:{{ mv.thumb_pos or mv.image.pos or '50% 50%' }};border-radius:4px;flex:none">
+        {%- endif %}
+        <span class="tx" style="flex:1;min-width:0;font-size:17px;line-height:1.2;font-weight:800;color:var(--bone)">{{ mv.name }}</span>
+        <span class="hd" style="font-size:{{ mv.recap_size or 24 }}px;color:var(--yellow);white-space:nowrap">{{ mv.dose }}</span>
+      </div>
+      {%- endfor %}
+      {%- if r.note %}<div class="tx" data-fit="17,16" style="font-size:17px;font-weight:700;color:var(--yellow);border-top:1px solid #3A3F46;padding-top:8px">{{ r.note|mk }}</div>{% endif %}
     </div>
-    {%- endfor %}
-    {%- if r.note %}<div class="tx" style="font-size:17px;font-weight:700;color:var(--yellow);border-top:1px solid #3A3F46;padding-top:8px">{{ r.note|mk }}</div>{% endif %}
+    <p class="tx" data-fit="{{ r.text_size or 22 }},18" style="margin:0;font-size:{{ r.text_size or 22 }}px;line-height:1.32;font-weight:700;color:var(--ink)">{{ r.text|mk }}</p>
   </div>
-  <p class="tx" style="margin:16px 0 0;font-size:{{ r.text_size or 21 }}px;line-height:1.36;font-weight:700;color:var(--ink)">{{ r.text|mk }}</p>
-  <div class="tx" data-label style="position:absolute;right:36px;bottom:112px;font-size:16px;font-weight:600;color:var(--ink);opacity:.8">{{ r.label or 'Real photos of me, not AI-generated' }}</div>
-  {{ m.follow(r.follow or 'Workouts I actually do.', post.avatar) }}
+  {{ m.follow_text(r.follow or 'Workouts I actually do.') }}
 </div>
 {% endblock %}

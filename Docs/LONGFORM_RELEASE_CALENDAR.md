@@ -44,5 +44,7 @@ date at setup.
 | Sun Dec 27 | RO-10 Calories: The Reason You're Not Losing Weight | Live (YouTube only; socials went out Oct 8) |
 | Wed Dec 30 | RO-13 Can You Drink Alcohol And Still Have Abs? | Waitlist, four schedules removed Oct 17 to secure RO-25; original date retained |
 
-**2027, tentative:** Sundays RO-22 (gave Dec 13 to RO-17), RO-21, RO-30, RO-28 (gave Nov 22, Nov 29, Dec 6 to the Invest In Your Health series), RO-24, RO-29, RO-31, RO-23; Wednesdays RO-04, RO-09, RO-15, RO-18, RO-14 (weakest
+**2027:** Sun Jan 3: RO-14 Why You're Not Losing Weight (4 Hidden Calorie Leaks), set up 2026-10-22 (no 2026 slot was left; Dan approved the setup after being told; socials Mon Jan 4 noon). Receipt `Docs/RO14_SETUP_RECEIPT_20261022.md`.
+
+**2027, tentative:** Sundays RO-22 (gave Dec 13 to RO-17), RO-21, RO-30, RO-28 (gave Nov 22, Nov 29, Dec 6 to the Invest In Your Health series), RO-24, RO-29, RO-31, RO-23; Wednesdays RO-04, RO-09, RO-15, RO-18 (weakest
 first by the ranking). RO-32 waits for gym B-roll; RO-33 to RO-36 are not filmed.

@@ -142,7 +142,7 @@ Roll map and editor warnings: `Docs/SHOOT_1015_FOOTAGE_REPORT.md`. BLOCKED rows 
 | job | video | rolls | status | size |
 |---|---|---|---|---|
 | [RO-25](RO-25-im-41-i-wasted-my-life.md) | I'm 41. I Wasted My Life. | 10/15 C1767 | UPLOADED | L |
-| [RO-28](RO-28-why-zepbound-improves-your-health-even-if-youre-ripped.md) | Why Zepbound Improves Your Health Even If You're Ripped | 10/15 C1771 | IN PROGRESS | L |
+| [RO-28](RO-28-why-zepbound-improves-your-health-even-if-youre-ripped.md) | Why Zepbound Improves Your Health Even If You're Ripped | 10/15 C1771 | DELIVERED: awaiting Dan | L |
 
 RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled for Sunday October 18 at 9 AM Chicago time, with Facebook and Instagram Monday at noon. The setup receipt is `Docs/RO25_SETUP_RECEIPT_20261017.md`. The separate SL-18 Shorts job can start from this approved master.
 
@@ -239,7 +239,7 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 | [SL-03](SL-03-meal-prep-app-demo-shorts.md) | How I Make My Daily Salad (RO-05, public Oct 18) | FINALIZED | S |
 | [SL-04](SL-04-arms-shoulders-shorts.md) | Arms & Shoulders Home Workout (Zeeshan, 11:00) | UPLOADED | S |
 | [SL-05](SL-05-stop-deadlifting-shorts.md) | Stop Deadlifting (Zeeshan, 9:16, public Oct 11) | UPLOADED | S |
-| [SL-06](SL-06-top-5-zepbound-tips-shorts.md) | Top 5 Zepbound Tips (RO-12, public Oct 25) | READY | S |
+| [SL-06](SL-06-top-5-zepbound-tips-shorts.md) | Top 5 Zepbound Tips (RO-12, public Oct 25) | UPLOADED | S |
 | [SL-07](SL-07-if-i-had-belly-fat-shorts.md) | If I Had Belly Fat, Here's How I'd Lose It In 90 Days (RO-16, public Nov 1) | UPLOADED | S |
 | [SL-08](SL-08-calories-not-losing-weight-shorts.md) | Calories: The Reason You're Not Losing Weight (RO-10 replacement pending; old YouTube copy Private) | DELIVERED: awaiting Dan | S |
 | [SL-09](SL-09-oura-ring-review-shorts.md) | My Honest Oura Ring Review (Zeeshan Video 4, public Nov 8) | UPLOADED | S |
@@ -251,12 +251,13 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 | [SL-15](SL-15-my-first-spray-tan-shorts.md) | My First Spray Tan (RO-19; 2 Shorts, Dan picked A and C; Short 1 airs Fri Oct 30) | UPLOADED | S |
 | [SL-16](SL-16-intermittent-fasting-shorts.md) | Intermittent Fasting: The Best Way To Get Abs (RO-08, finalized 10-14; release date set at setup) | IN PROGRESS | S |
 
-| [SL-17](SL-17-top-1-percent-shorts.md) | Top 1 Percent (RO-26, finalized; release on hold) | IN PROGRESS | S |
-| [SL-18](SL-18-wasted-my-life-shorts.md) | I'm 41. I Wasted My Life. (RO-25, YouTube Sun Oct 18; 3 Shorts, Short 1 airs Mon Oct 26) | IN PROGRESS | S |
+| [SL-17](SL-17-top-1-percent-shorts.md) | Top 1 Percent (RO-26, finalized; release on hold) | DELIVERED (review page :9117; release held until RO-26 public) | S |
+| [SL-18](SL-18-wasted-my-life-shorts.md) | I'm 41. I Wasted My Life. (RO-25, YouTube Sun Oct 18; 3 Shorts, Short 1 airs Mon Oct 26) | UPLOADED | S |
 | [SL-19](SL-19-3-healthy-foods-shorts.md) | 3 Healthy Foods That Made Me Fat (RO-17, YouTube Sun Dec 13; 3 Shorts, Short 1 airs Mon Dec 14) | UPLOADED | S |
 | [SL-20](SL-20-invest-in-your-health-shorts.md) | Why You Should Invest More In Your Health (RO-20, YouTube Sun Nov 22; 3 Shorts, Short 1 airs Mon Nov 23) | READY: approved parent filed; due Nov 22 | S |
 | [SL-21](SL-21-what-to-cut-shorts.md) | What To Cut To Afford Getting In Shape (RO-20B, YouTube Sun Nov 29; 3 Shorts, Short 1 airs Mon Nov 30) | READY: approved parent filed; due Nov 29 | S |
 | [SL-22](SL-22-what-to-buy-shorts.md) | What To Buy For Your Health At Every Income Level (RO-20C, YouTube Sun Dec 6; 3 Shorts, Short 1 airs Mon Dec 7) | READY: approved parent filed; due Dec 6 | S |
+| [SL-23](SL-23-not-losing-weight-shorts.md) | Why You're Not Losing Weight (RO-14, YouTube Sun Jan 3 2027; 3 Shorts, Short 1 airs Mon Jan 4) | READY: approved parent filed; due Jan 3 | S |
 
 **Will need shorts once final (no handoff yet; add one when the long-form is approved):**
 * Your Belly Fat Is An Emergency (Codex, revision in progress)

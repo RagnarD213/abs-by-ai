@@ -5,20 +5,22 @@
  "source": "DS-54 short, rolls C1761 to C1765 (10/15 shoot)",
  "cover": {
   "headline": "1 kettlebell.\n[y]3 moves.[/y]\nFull body.",
-  "cutout": {
-   "src": "Short-form video content/instagram-danrosefit/assets/workout-03-kettlebell/cutout.webp",
-   "alt": "Dan in olive shorts"
-  },
-  "swipe": "Swipe to steal it"
+  "swipe": "Swipe to steal it",
+  "photo": {
+   "src": "Short-form video content/instagram-danrosefit/assets/workout-03-kettlebell/cover-kb-deadlift-r3-graded.jpg",
+   "pos": "50% 50%",
+   "zoom": 1.0,
+   "alt": "Dan at the bottom of a kettlebell deadlift, back flat, chest up"
+  }
  },
  "moves": [
   {
    "name": "Kettlebell deadlift",
    "dose": "0:30",
    "image": {
-    "src": "Short-form video content/instagram-danrosefit/assets/workout-03-kettlebell/kb-deadlift.jpg",
-    "pos": "50% 60%",
-    "zoom": 1.15,
+    "src": "Short-form video content/instagram-danrosefit/assets/workout-03-kettlebell/kb-deadlift-graded-crop.jpg",
+    "pos": "50% 50%",
+    "zoom": 1.0,
     "label": "real",
     "alt": "Dan squatting down to the kettlebell"
    },
@@ -32,9 +34,9 @@
    "name": "Goblet squat",
    "dose": "0:30",
    "image": {
-    "src": "Short-form video content/instagram-danrosefit/assets/workout-03-kettlebell/goblet.jpg",
-    "pos": "40% 45%",
-    "zoom": 1.5,
+    "src": "Short-form video content/instagram-danrosefit/assets/workout-03-kettlebell/goblet-enh-crop.jpg",
+    "pos": "50% 50%",
+    "zoom": 1.0,
     "label": "real",
     "alt": "Dan at the bottom of a goblet squat"
    },
@@ -48,9 +50,9 @@
    "name": "Push-up",
    "dose": "0:30",
    "image": {
-    "src": "Short-form video content/instagram-danrosefit/assets/workout-03-kettlebell/pushup.jpg",
-    "pos": "50% 45%",
-    "zoom": 1.5,
+    "src": "Short-form video content/instagram-danrosefit/assets/workout-03-kettlebell/pushup-enh-crop.jpg",
+    "pos": "50% 50%",
+    "zoom": 1.0,
     "label": "real",
     "alt": "Dan doing push-ups on handles"
    },
@@ -65,6 +67,8 @@
   "title": "Screenshot this.",
   "note": "30 s rest after each move. Go through it 3 times.",
   "text": "I use a 50 lb bell. Most guys should start at 30 or 40 lb. Comment your kettlebell weight.",
-  "follow": "Workouts I actually do."
- }
+  "follow": "Workouts I actually do.",
+  "cutout": "Short-form video content/instagram-danrosefit/assets/_cutouts/studio-blue-38.webp"
+ },
+ "status": "R3 2026-10-22: colour audit (reference/color-audit-r3.md): cover = real kettlebell deadlift rep, 10/15 roll C1743 @ 19.0 s (side view, bell low, flat back), graded (Dan); move 1 still (B0431) re-finished; goblet and push-up kept"
 }

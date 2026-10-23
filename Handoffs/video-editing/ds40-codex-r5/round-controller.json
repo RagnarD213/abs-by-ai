@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "revision": 10,
+  "key": "BILL-MAHER-CODEX:R5",
+  "plan": {
+    "jobId": "BILL-MAHER-CODEX",
+    "oldThreadId": "01a15a5f-0aab-7721-bd6b-0eda047d8b08",
+    "oldHostId": "local",
+    "projectId": "local-d32fa4613afb87fa9eb3325ebb31595c",
+    "repoPath": "/Users/danielrose/Documents/Claude/Projects/Abs By AI",
+    "title": "Bill Maher Fat 90-Year-Old",
+    "type": "SFC",
+    "round": 4,
+    "revisionId": "01a165ca-9b68-7a61-9ed7-a93bdc65008c",
+    "revisions": "Okay revision. Claude has not finished its cut. It's still working on it but so far I think the draft is looking significantly better than yours. In terms of the key it's about the same. Claude might be very slightly ahead but I want you to essentially implement this format that Claude used with me: laptop visible in the left corner to start. The clip of the Bill Maher interview, or different clips of the Bill Maher interview, should be playing horizontally behind my head.\n\nOne revision I gave to Claude on this was to have my head and my hair in the foreground and the clip in the background. There's a slight overlap: my head and my hair are in the foreground, above the clip. What I want you to do is try to implement all of the format that Claude did here and I want you to try to beat Claude's edit.\n\nI know for sure I want the format in this video in the intro. I want the format of the horizontal clip playing behind my head. After that everything else is up to you though. Try to beat Claude's performance. If you can beat Claude's performance you have all the green screen jobs.",
+    "handoffPath": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Handoffs/handoff-20261022-bill-maher-sfc-r5.md",
+    "journalPath": "/Volumes/Extreme/_edit_work/DS-40-codex/round5/round-controller.json",
+    "decisionsPath": "/Volumes/Extreme/_edit_work/DS-40-codex/round5/dan-decisions.json",
+    "approvedFiles": [
+      {
+        "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round5/dan-decisions.json",
+        "sha256": "716fa91ee22a5ef6a101d1bf76da5f3f79512aae020e41e8a2c646128cdb759d"
+      },
+      {
+        "path": "/Volumes/Expansion/_edit_work/ds40/r4/renders/DS40 R4 intro B.mp4",
+        "sha256": "4495f056184ea1b3426e059033009030d349dde9aab8e4fd9bd1e68efbb713b2"
+      },
+      {
+        "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared/chroma-key/reference/ds40-claude-r2/approval.json",
+        "sha256": "fde9bdc155d155304831dc3d857e1ca620fd17417891ec94db26a2a03aacc0f0"
+      },
+      {
+        "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round2/voice-balanced.wav",
+        "sha256": "089264175840f8aa4956d98a7e8bd82d93bd8c1dcee73493d4733ae224df2a6f"
+      },
+      {
+        "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round3/grade.py",
+        "sha256": "d6d2c4cd854088f4383649f4b9929631a7f2c3d409c8dd08d1db41a916f600ce"
+      },
+      {
+        "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round3/review/media/sample.mp4",
+        "sha256": "1c07c3d3c585fe05a7a2f1274d4a62bec46de1e6be7bdbfb4214f44af2b7ace1"
+      }
+    ],
+    "work": "heavy",
+    "contextFraction": null,
+    "replyMinutes": null,
+    "model": "gpt-6.1-sol",
+    "thinking": "high",
+    "mode": "fresh",
+    "catalogSource": "supported runtime catalog",
+    "key": "BILL-MAHER-CODEX:R5",
+    "nextRound": 5,
+    "nextTitle": "Bill Maher Fat 90-Year-Old SFC R5",
+    "reason": "Stage/context warrants a fresh task; preserve prior round",
+    "queueContinuation": false
+  },
+  "phase": "complete",
+  "productionOwner": "01a165d0-fd99-7893-b3ea-f6bb5b9f5644",
+  "previousOwner": "01a15a5f-0aab-7721-bd6b-0eda047d8b08",
+  "child": {
+    "threadId": "01a165d0-fd99-7893-b3ea-f6bb5b9f5644",
+    "hostId": "local"
+  },
+  "pending": null,
+  "supersededBy": "01a165d0-fd99-7893-b3ea-f6bb5b9f5644",
+  "startedTurn": "01a165d1-01f9-7ac3-8d78-59f2422d5802",
+  "pinVerified": true,
+  "supersedes": "01a15a5f-0aab-7721-bd6b-0eda047d8b08",
+  "modelVerification": "Explicit model/effort accepted by create_thread; read_thread does not expose active model",
+  "wakeSent": true
+}

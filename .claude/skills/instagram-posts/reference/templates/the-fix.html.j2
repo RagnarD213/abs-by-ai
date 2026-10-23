@@ -11,9 +11,9 @@
   <div data-fit-col style="position:absolute;left:36px;right:36px;top:66px;height:124px">
     <h1 class="hd" data-fit="{{ c.size or 66 }},40" style="font-size:{{ c.size or 66 }}px;color:var(--bone)">{{ c.headline|mk }}</h1>
   </div>
+  {%- set legacy = [{'ring': c.ring, 'pill': c.callout, 'at': c.callout_at}] if c.ring or c.callout else [] -%}
   {%- set extra -%}
-    {%- if c.ring %}<div style="position:absolute;left:{{ c.ring[0] }}px;top:{{ c.ring[1] }}px;width:{{ c.ring[2] }}px;height:{{ c.ring[3] }}px;border:4px solid var(--red);border-radius:50%"></div>{% endif -%}
-    {%- if c.callout %}<div class="pill" style="position:absolute;left:{{ c.callout_at[0] }}px;top:{{ c.callout_at[1] }}px;background:var(--red);color:#fff">{{ c.callout }}</div>{% endif -%}
+    {{ m.marks(legacy + (c.marks or [])) }}
     <div class="handle" style="position:absolute;left:20px;bottom:20px;color:var(--bone);background:rgba(14,16,19,.74);padding:6px 10px;border-radius:4px">@danrosefit</div>
     <div class="tx" style="position:absolute;right:20px;bottom:18px;display:flex;align-items:center;gap:8px;background:var(--yellow);color:var(--ink);font-weight:800;font-size:17px;padding:8px 14px;border-radius:4px">{{ c.swipe or 'Swipe for the fix' }} {{ m.ICON.arrow|safe }}</div>
   {%- endset -%}
@@ -28,6 +28,7 @@
     {{ m.overtag(post.tag) }}
     <div style="position:absolute;right:22px;top:18px;width:58px;height:58px;border-radius:50%;background:{{ 'var(--red)' if tone == 'bad' else 'var(--yellow)' }};color:{{ '#fff' if tone == 'bad' else 'var(--ink)' }};display:flex;align-items:center;justify-content:center;z-index:3">{{ (m.ICON.x if tone == 'bad' else m.ICON.check)|safe }}</div>
     {{ m.label(s.image, 'left:18px;bottom:14px') }}
+    {{ m.marks(s.marks, 'red' if tone == 'bad' else 'yellow') }}
   {%- endset -%}
   {{ m.pic(s.image, 'left:0;right:0;top:0;height:330px', extra) }}
   <div data-fit-col style="position:absolute;left:36px;right:36px;top:354px;height:268px;display:flex;flex-direction:column;gap:12px;overflow:hidden">
@@ -60,19 +61,22 @@
 </div>
 
 {%- set s = post.cta %}
-<!-- 5 CTA -->
+<!-- 5 CTA: save + send, Dan's cutout large on the right -->
 <div class="slide" style="background:var(--yellow);padding:30px 36px">
-  <div style="display:flex;justify-content:space-between;align-items:center">
+  <div style="display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2">
     <div class="tag" style="color:var(--ink)"><span class="sq" style="background:var(--ink)"></span>{{ post.tag }}</div>
     <div class="handle" style="color:var(--ink)">5 / 5</div>
   </div>
+  {{ m.dan_cutout(s.cutout or post.follow_cutout, height=s.cutout_h or 560) }}
+  <div data-fit-col style="position:absolute;left:36px;width:262px;top:86px;height:{{ 470 }}px;display:flex;flex-direction:column;gap:22px;overflow:hidden;z-index:2">
   {%- for b in s.blocks %}
-  {%- if not loop.first %}<div style="height:3px;background:var(--ink);margin:28px 0"></div>{% else %}<div style="height:40px"></div>{% endif %}
-  <div style="display:flex;flex-direction:column;gap:6px">
-    <div style="display:flex;align-items:center;gap:14px;color:var(--ink)">{{ m.ICON[b.icon]|safe }}<h2 class="hd" style="font-size:{{ b.size or 88 }}px;color:var(--ink)">{{ b.title }}</h2></div>
-    <p class="tx" style="margin:0;font-size:22px;font-weight:700;line-height:1.35;color:var(--ink)">{{ b.text|mk }}</p>
-  </div>
+    {%- if not loop.first %}<div style="height:3px;background:var(--ink);flex:none"></div>{% endif %}
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <div style="display:flex;align-items:center;gap:10px;color:var(--ink)">{{ m.ICON[b.icon]|replace('width="54" height="54"', 'width="44" height="44" style="flex:none"')|safe }}<h2 class="hd" data-fit="{{ b.size or 64 }},40" style="font-size:{{ b.size or 64 }}px;color:var(--ink);white-space:nowrap">{{ b.title }}</h2></div>
+      <p class="tx" data-fit="23,18" style="margin:0;font-size:23px;font-weight:700;line-height:1.3;color:var(--ink)">{{ b.text|mk }}</p>
+    </div>
   {%- endfor %}
-  {{ m.follow(s.follow or 'One fix a week, filmed on me.', post.avatar) }}
+  </div>
+  {{ m.follow_text(s.follow or 'One fix a week, filmed on me.') }}
 </div>
 {% endblock %}

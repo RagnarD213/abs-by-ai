@@ -11,7 +11,7 @@ R = f"{HERE}/r1/review"; os.makedirs(f"{R}/media/ctx", exist_ok=True)
 def mmss(t): return f"{int(t // 60)}:{t % 60:04.1f}"
 NAMES = {"desk": "AI clip: the film's pill-and-water desk clip (frames 0-111 only)", "graph": "Graph: the film's productivity sketch, rebuilt in motion for vertical",
          "curls": "Your real curls by the pool", "money": "Stock: hands counting money", "pool": "AI clip: a fit couple at a resort pool (shown as a wide card so both fit)",
-         "app2": "AI screen mock: the lean dating profile", "app3": "AI screen mock: the full Matches list", "date": "AI clip: the film's dinner date, stacked (you on top, her below)",
+         "app2": "AI screen mock: the lean dating profile", "app3": "AI screen mock: the full Matches list", "date": "AI clip: the film's dinner date, now shown whole and horizontal (round 2)",
          "squats": "Your real bodyweight squats on the lawn", "abwheel": "Your real ab wheel rollouts (the card approved in SL-07)"}
 items = []
 for S in ("B", "D"):

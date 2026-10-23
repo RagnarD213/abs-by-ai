@@ -80,7 +80,8 @@ def place(out, G, a, s, x0, y0, wrap=0.12, wrap_sig=10, feather=0.0, fw=FEATHER)
         a = cv2.resize(a, (sw, sh), interpolation=cv2.INTER_AREA)
         G = np.where(a[..., None] > 1e-3, P / np.maximum(a[..., None], 1e-3), 0)
     h, w = a.shape
-    X0, Y0, X1, Y1 = max(0, x0), max(0, y0), min(W, x0 + w), min(H, y0 + h)
+    OH, OW = out.shape[:2]                  # the canvas (the full screen, or a box)
+    X0, Y0, X1, Y1 = max(0, x0), max(0, y0), min(OW, x0 + w), min(OH, y0 + h)
     if X1 <= X0 or Y1 <= Y0: return out
     ga = G[Y0 - y0:Y1 - y0, X0 - x0:X1 - x0]; aa = a[Y0 - y0:Y1 - y0, X0 - x0:X1 - x0]
     reg = out[Y0:Y1, X0:X1]

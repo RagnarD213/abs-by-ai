@@ -511,3 +511,13 @@ Five shorts from "My Honest Oura Ring Review After 1.5 Years" (parent YouTube `5
 
 ## SL-19 3 Healthy Foods That Made Me Fat shorts (2026-10-21)
 Three shorts set up and waiting behind RO-17 (YouTube Dec 13) on `scripts/blotato/video_waitlist.json` (with `parent_config`): Mon Dec 14, Fri Dec 18, Fri Dec 25, 9 AM Central. Covers C, C, C; keyword FOOD; `utm_content=sl19-short<N>`. Configs `scripts/blotato/configs/sl19-short{1..3}-*.json`. Receipt `Docs/SL19_SETUP_RECEIPT_20261021.md`.
+
+## SL-18 I'm 41. I Wasted My Life. shorts (2026-10-22)
+Two shorts queued on all four platforms: Mon Oct 26 and Sat Dec 12, 9 AM Central (ids 5909596-5909600, 5909603-5909607). Covers C and revised D; keyword ABS; `utm_content=sl18-short<N>`. Configs `scripts/blotato/configs/sl18-short{1,2}-*.json`. Receipt `Docs/SL18_SETUP_RECEIPT_20261022.md`.
+
+## DONE: SL-06 Top 5 Zepbound Tips shorts (2026-10-22)
+Six shorts, four posts each (FB, IG @danrosefit, TikTok, YouTube), 9 AM Central: Mon Nov 9, Sat Nov 21, Sat Nov 28, Tue Dec 1, Sat Dec 5, Tue Dec 8 (parent RO-12 YouTube Sun Nov 8). Schedule ids 5909999, 5910000, 5910001, 5910003, 5910004, 5910006, 5910007, 5910008, 5910010, 5910011, 5910012, 5910013, 5910016, 5910017, 5910018, 5910019, 5910021, 5910022, 5910023, 5910024, 5910026, 5910027, 5910028, 5910029. Keyword FOOD, campaign zepbound-tips. Receipt: `Docs/SL06_SETUP_RECEIPT_20261022.md`.
+
+## DONE: RO-14 Why You're Not Losing Weight (4 Hidden Calorie Leaks) (2026-10-22)
+
+Source `claude edited long form content/22 - Why You're Not Losing Weight/... | claude round 3 | 16x9 | RO-14.mp4`, SHA-256 `14f2a85d...e07e3c`. Blotato schedules: YouTube `5910479` Sun Jan 3, 2027, 9 AM CT (thumbnail B2 level blocks, AI flag on); Facebook `5910475`, Instagram `5910476`, TikTok `5910478` Mon Jan 4, 2027, noon CT. Keyword TRACK, UTM `utm_content=ro14-not-losing-weight`. First 2027 slot because 2026 was full. Receipt `Docs/RO14_SETUP_RECEIPT_20261022.md`.

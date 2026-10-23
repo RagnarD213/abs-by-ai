@@ -17,7 +17,7 @@
    "dose": "10 reps",
    "dose_icon": "none",
    "image": {
-    "src": "Short-form video content/instagram-danrosefit/assets/workout-06-ab-rounds/toetouch.jpg",
+    "src": "Short-form video content/instagram-danrosefit/assets/workout-06-ab-rounds/toetouch-enh.jpg",
     "pos": "55% 35%",
     "zoom": 1.4,
     "label": "real",
@@ -34,7 +34,7 @@
    "dose": "10 reps",
    "dose_icon": "none",
    "image": {
-    "src": "Short-form video content/instagram-danrosefit/assets/workout-06-ab-rounds/vsit.jpg",
+    "src": "Short-form video content/instagram-danrosefit/assets/workout-06-ab-rounds/vsit-enh.jpg",
     "pos": "50% 50%",
     "zoom": 1.6,
     "label": "real",
@@ -51,7 +51,7 @@
    "dose": "10 reps",
    "dose_icon": "none",
    "image": {
-    "src": "Short-form video content/instagram-danrosefit/assets/workout-06-ab-rounds/spiderman.jpg",
+    "src": "Short-form video content/instagram-danrosefit/assets/workout-06-ab-rounds/spiderman-enh.jpg",
     "pos": "45% 50%",
     "zoom": 1.4,
     "label": "real",
@@ -68,6 +68,7 @@
   "title": "Screenshot this.",
   "note": "Jog in place 30 s between rounds. New? Do 1 round.",
   "text": "Start with no weight. I use a 4 lb ball. Save this for your next ab day.",
-  "follow": "Workouts I actually do."
+  "follow": "Workouts I actually do.",
+  "cutout": "Short-form video content/instagram-danrosefit/assets/_cutouts/studio-white-23.webp"
  }
 }

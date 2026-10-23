@@ -6,8 +6,9 @@
  "cover": {
   "headline": "Lower abs\n[y]won't show?[/y]\nDo these 2.",
   "cutout": {
-   "src": "Short-form video content/instagram-danrosefit/template-r1-mockups/source/cut-blue-43.webp",
-   "alt": "Dan in black trunks, hands on hips"
+   "src": "Short-form video content/instagram-danrosefit/assets/_cutouts/studio-white-62.webp",
+   "alt": "Dan with hands behind his head, lower abs showing",
+   "height": 395
   },
   "swipe": "Swipe to steal it"
  },
@@ -17,7 +18,7 @@
    "dose": "Every day",
    "dose_icon": "none",
    "image": {
-    "src": "Short-form video content/instagram-danrosefit/assets/workout-07-lower-abs/reverse-crunch.jpg",
+    "src": "Short-form video content/instagram-danrosefit/assets/workout-07-lower-abs/reverse-crunch-enh.jpg",
     "pos": "55% 50%",
     "zoom": 1.5,
     "label": "real",
@@ -34,11 +35,11 @@
    "dose": "Every day",
    "dose_icon": "none",
    "image": {
-    "src": "Short-form video content/instagram-danrosefit/assets/workout-07-lower-abs/toetouch.jpg",
-    "pos": "55% 35%",
+    "src": "Short-form video content/instagram-danrosefit/assets/workout-07-lower-abs/toetouch-r3-graded.jpg",
+    "pos": "49% 40%",
     "zoom": 1.5,
     "label": "real",
-    "alt": "Dan reaching for his toes, legs up"
+    "alt": "Dan on his back, legs straight up, reaching for his toes"
    },
    "cues": [
     "Legs straight up in the air.",
@@ -51,6 +52,8 @@
   "title": "Screenshot this.",
   "note": "Both, every day, at the end of your workout.",
   "text": "These build the muscle. Your diet burns the fat on top of it. Send this to a friend whose lower abs won't show.",
-  "follow": "Workouts I actually do."
- }
+  "follow": "Workouts I actually do.",
+  "cutout": "Short-form video content/instagram-danrosefit/assets/_cutouts/studio-blue-192.webp"
+ },
+ "status": "R3 2026-10-22: colour audit (reference/color-audit-r3.md): cover cutout studio-white-62 (most defined lower abs, Dan); toe-touch still = 10/15 roll C1741 @ 33.0 s (legs straight up, arms reaching, shoulders off the mat), graded; reverse crunch kept"
 }

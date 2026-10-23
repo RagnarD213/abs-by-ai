@@ -2,7 +2,7 @@
  "format": "the-fix",
  "id": "fix-02-towel-row",
  "tag": "The Fix · 02",
- "status": "draft R1 2026-10-21; wording source: raw roll C0229-008 (7/8 welcome shoot, 180-290 s), short v6-short4_towel-row-karate-chop",
+ "status": "draft R1 2026-10-21; wording source: raw roll C0229-008 (7/8 welcome shoot, 180-290 s), short v6-short4_towel-row-karate-chop | APPROVED by Dan 2026-10-22 as is; last slide now has the large cutout (Dan rule 2026-10-22).",
  "cover": {
   "headline": "Stop doing towel rows\n[y]like this.[/y]",
   "image": {
@@ -76,6 +76,7 @@
     "text": "to the guy who says towel rows are a scam."
    }
   ],
-  "follow": "One fix a week, filmed on me."
+  "follow": "One fix a week, filmed on me.",
+  "cutout": "Short-form video content/instagram-danrosefit/assets/_cutouts/studio-blue-111.webp"
  }
 }

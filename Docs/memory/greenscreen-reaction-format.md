@@ -12,4 +12,4 @@ The clip plays first, full screen, fixed vertical crop on the speaker; Dan keyed
 Dan confirmed it the same day on Hormozi Fat Guy (DS-44) R1 ("We just lock this in as a standard shorts format... slightly larger, with a laptop visible") and added what follows the clip: the interview keeps playing SILENTLY in a horizontal frame at the top behind his head, his hair slightly overlapping the frame's bottom edge, head in the foreground, for about the first 30 seconds of the Short.
 
 **Why:** a consistent, recognizable reaction format; the laptop explains why he is looking down.
-**How to apply:** rule in `_shared/VIDEO-RULES.md` ("Reaction Shorts: the standard opening layout"); code `shorts/reference/ds40-greenscreen/comp_r4.py` (B). Related: [[chroma-key-standard]], [[reaction-shorts-clip-first]].
+**How to apply:** rules in `_shared/VIDEO-RULES.md` ("Green screen reaction opening" and "Reaction Shorts: the standard opening layout"); code `shorts/reference/ds40-greenscreen/comp_r4.py` (B). Related: [[chroma-key-standard]], [[reaction-shorts-clip-first]].

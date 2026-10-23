@@ -142,12 +142,17 @@ QA_JS = r"""
 def render(content_path: Path, out_root: Path, page):
     post = json.load(open(content_path))
     post.setdefault("avatar", DEFAULT_AVATAR)
+    if post["format"] == "receipts" and "slides" not in post:  # the original fixed five-slide layout
+        post["slides"] = [dict(post[k], type=t) for k, t in (("cover", "cover"), ("study", "study"),
+                          ("exhibit_b", "exhibit"), ("verdict", "verdict"), ("works", "works"))]
     env = Environment(loader=FileSystemLoader(HERE / "templates"), undefined=ChainableUndefined, autoescape=True)
     env.filters["mk"] = mk
     env.filters["uri"] = uri
     html_text = env.get_template(f"{post['format']}.html.j2").render(post=post)
     out = out_root / post["id"]
     out.mkdir(parents=True, exist_ok=True)
+    for stale in out.glob(f"{post['id']}-[0-9][0-9].jpg"):  # a post that lost slides must not keep old ones
+        stale.unlink()
     page_file = out / f"{post['id']}.html"
     page_file.write_text(html_text)
     page.goto(page_file.as_uri())

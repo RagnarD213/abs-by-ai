@@ -2,11 +2,11 @@
  "format": "the-fix",
  "id": "fix-06-v-sit-twist",
  "tag": "The Fix · 06",
- "status": "draft R1 2026-10-21; wording source: raw roll C0223-007 (7/8 welcome shoot, 316-373 s), short short3_v-sit-twists",
+ "status": "draft R1 2026-10-21; wording source: raw roll C0223-007 (7/8 welcome shoot, 316-373 s), short short3_v-sit-twists | APPROVED by Dan 2026-10-22 as is; last slide now has the large cutout (Dan rule 2026-10-22). | R3 2026-10-22: colour audit (reference/color-audit-r3.md): all four stills regraded from C0223-007 (welcome S-Log3, LUT 0.70 + finish); they read dark",
  "cover": {
   "headline": "Stop doing V-sit twists\n[y]like this.[/y]",
   "image": {
-   "src": "Short-form video content/instagram-danrosefit/assets/fix-06-v-sit-twist/cover.jpg",
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-06-v-sit-twist/cover-graded.jpg",
    "pos": "50% 50%",
    "zoom": 1.0,
    "label": "real",
@@ -27,7 +27,7 @@
  },
  "mistake": {
   "image": {
-   "src": "Short-form video content/instagram-danrosefit/assets/fix-06-v-sit-twist/mistake.jpg",
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-06-v-sit-twist/mistake-graded.jpg",
    "pos": "50% 50%",
    "zoom": 1.0,
    "label": "real",
@@ -38,7 +38,7 @@
  },
  "fix": {
   "image": {
-   "src": "Short-form video content/instagram-danrosefit/assets/fix-06-v-sit-twist/fix.jpg",
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-06-v-sit-twist/fix-graded.jpg",
    "pos": "50% 50%",
    "zoom": 1.0,
    "label": "real",
@@ -49,7 +49,7 @@
  },
  "cues": {
   "image": {
-   "src": "Short-form video content/instagram-danrosefit/assets/fix-06-v-sit-twist/cues.jpg",
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-06-v-sit-twist/cues-graded.jpg",
    "pos": "50% 50%",
    "zoom": 1.0,
    "label": "real",
@@ -76,6 +76,7 @@
     "text": "to the guy who does V-sit twists like he's passing the salt."
    }
   ],
-  "follow": "One fix a week, filmed on me."
+  "follow": "One fix a week, filmed on me.",
+  "cutout": "Short-form video content/instagram-danrosefit/assets/_cutouts/studio-gray-87.webp"
  }
 }

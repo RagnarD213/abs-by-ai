@@ -2,58 +2,169 @@
  "format": "the-fix",
  "id": "fix-05-toe-touch",
  "tag": "The Fix · 05",
- "status": "draft R1 2026-10-21; wording source: raw roll C0229-008 (7/8 welcome shoot, 310-405 s), raw roll C0223-007 (222-311 s), short v6-short2_knee-yourself-in-the-face (transcribed)",
+ "status": "draft R1 2026-10-21; wording source: raw roll C0229-008 (7/8 welcome shoot, 310-405 s), raw roll C0223-007 (222-311 s), short v6-short2_knee-yourself-in-the-face (transcribed); R2 2026-10-22: cover/mistake/fix callouts per Dan, cues photo = studio-blue-53 (real studio photo), footage stills brightened, cta cutout | R3 2026-10-22: colour audit (reference/color-audit-r3.md): cover/mistake/fix regraded from C1682 (S-Log3 LUT 1.30 + cool + grade_still finish); mistake pill now 'Head barely off the ground' (Dan)",
  "cover": {
   "headline": "Stop doing toe touches\n[y]like this.[/y]",
   "image": {
-   "src": "Short-form video content/instagram-danrosefit/assets/fix-05-toe-touch/cover.jpg",
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-05-toe-touch/cover-graded.jpg",
    "pos": "50% 50%",
    "zoom": 1.0,
    "label": "real",
    "alt": "Dan on his back doing a toe touch with his head and butt still on the mat"
   },
-  "ring": [
-   392,
-   232,
-   130,
-   100
-  ],
-  "callout": "Head down",
-  "callout_at": [
-   392,
-   180
-  ],
-  "swipe": "Swipe for the fix"
+  "swipe": "Swipe for the fix",
+  "marks": [
+   {
+    "ring": [
+     158,
+     286,
+     124,
+     104
+    ],
+    "pill": "Butt on the ground",
+    "at": [
+     40,
+     236
+    ]
+   }
+  ]
  },
  "mistake": {
   "image": {
-   "src": "Short-form video content/instagram-danrosefit/assets/fix-05-toe-touch/mistake.jpg",
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-05-toe-touch/mistake-graded.jpg",
    "pos": "50% 50%",
    "zoom": 1.0,
    "label": "real",
    "alt": "Dan reaching for his feet while his head and hips stay on the mat"
   },
   "headline": "Head and butt\nstill on the ground.",
-  "body": "You're just waving your arms and legs around. You're not really activating your abs."
+  "body": "You're just waving your arms and legs around. You're not really activating your abs.",
+  "marks": [
+   {
+    "ring": [
+     140,
+     178,
+     118,
+     112
+    ],
+    "pill": "Butt on the ground",
+    "at": [
+     118,
+     146
+    ]
+   },
+   {
+    "ring": [
+     388,
+     166,
+     80,
+     90
+    ],
+    "pill": "Head barely off the ground",
+    "at": [
+     290,
+     80
+    ],
+    "arrow": [
+     [
+      420,
+      136
+     ],
+     [
+      424,
+      164
+     ]
+    ]
+   }
+  ]
  },
  "fix": {
   "image": {
-   "src": "Short-form video content/instagram-danrosefit/assets/fix-05-toe-touch/fix.jpg",
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-05-toe-touch/fix-graded.jpg",
    "pos": "50% 50%",
    "zoom": 1.0,
    "label": "real",
    "alt": "Dan crunched up, knees driving toward his face, head and butt off the mat"
   },
   "headline": "Knee yourself\nin the face.",
-  "body": "Sounds weird, but it works. Try to knee yourself in the face on every rep. [em]Your head and butt come off the ground.[/em] Don't worry, you can't actually break your nose."
+  "body": "Sounds weird, but it works. Try to knee yourself in the face on every rep. [em]Your head and butt come off the ground.[/em] Don't worry, you can't actually break your nose.",
+  "marks": [
+   {
+    "pill": "Butt off the ground",
+    "at": [
+     24,
+     150
+    ],
+    "arrow": [
+     [
+      120,
+      186
+     ],
+     [
+      212,
+      238
+     ]
+    ],
+    "tone": "yellow"
+   },
+   {
+    "pill": "Head off the ground",
+    "at": [
+     358,
+     88
+    ],
+    "arrow": [
+     [
+      440,
+      146
+     ],
+     [
+      420,
+      170
+     ]
+    ],
+    "tone": "yellow"
+   },
+   {
+    "pill": "Trying to knee myself in the face",
+    "at": [
+     308,
+     262
+    ],
+    "arrow": [
+     [
+      330,
+      262
+     ],
+     [
+      316,
+      162
+     ]
+    ],
+    "tone": "yellow"
+   },
+   {
+    "arrow": [
+     [
+      432,
+      262
+     ],
+     [
+      402,
+      212
+     ]
+    ],
+    "tone": "yellow"
+   }
+  ]
  },
  "cues": {
   "image": {
-   "src": "Short-form video content/instagram-danrosefit/assets/fix-05-toe-touch/cues.jpg",
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-05-toe-touch/cues-r2.jpg",
    "pos": "50% 50%",
    "zoom": 1.0,
    "label": "real",
-   "alt": "Dan sitting on the mat between sets"
+   "alt": "Dan shirtless in the studio, hands behind his head, abs flexed"
   },
   "title": "3 cues",
   "subtitle": "for the toe touch",
@@ -76,6 +187,7 @@
     "text": "to the guy whose toe touches look like he's waving down a cab."
    }
   ],
-  "follow": "One fix a week, filmed on me."
+  "follow": "One fix a week, filmed on me.",
+  "cutout": "Short-form video content/instagram-danrosefit/assets/_cutouts/studio-gray-87.webp"
  }
 }

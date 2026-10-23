@@ -17,7 +17,7 @@
    "dose": "3 sets",
    "dose_icon": "none",
    "image": {
-    "src": "Short-form video content/instagram-danrosefit/assets/workout-08-v-taper/lateral.jpg",
+    "src": "Short-form video content/instagram-danrosefit/assets/workout-08-v-taper/lateral-enh.jpg",
     "pos": "50% 5%",
     "zoom": 1.12,
     "label": "real",
@@ -33,23 +33,25 @@
    "name": "Stomach vacuum",
    "dose": "0:20",
    "image": {
-    "src": "Short-form video content/instagram-danrosefit/assets/workout-08-v-taper/vacuum.jpg",
-    "pos": "50% 22%",
-    "zoom": 1.4,
+    "src": "Short-form video content/instagram-danrosefit/assets/workout-08-v-taper/vacuum-thumbnail-photo.jpg",
+    "pos": "50% 50%",
+    "zoom": 1.0,
     "label": "real",
-    "alt": "Dan holding a stomach vacuum"
+    "alt": "Dan smiling by the pool, pulling his stomach in"
    },
    "cues": [
     "Breathe all the way out.",
     "Pull your belly button in toward your spine.",
     "Hold 20 seconds. Short breaths through your nose."
-   ]
+   ],
+   "thumb": "Short-form video content/instagram-danrosefit/assets/workout-08-v-taper/vacuum-thumbnail-photo-thumb.jpg"
   }
  ],
  "recap": {
   "title": "Screenshot this.",
   "note": "Laterals: 1 warm-up set of 12 to 15, then 2 of 6 to 10. Vacuum: every morning.",
   "text": "Shoulders get wider while your waist gets smaller. Comment: which one do you skip?",
-  "follow": "Workouts I actually do."
+  "follow": "Workouts I actually do.",
+  "cutout": "Short-form video content/instagram-danrosefit/assets/_cutouts/studio-blue-213.webp"
  }
 }

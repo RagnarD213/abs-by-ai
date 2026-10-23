@@ -25,3 +25,59 @@ S09-A to Fri Dec 25, S06-C to Mon Dec 28 (5 PM). Skip List carousel (IG Sat Oct 
   no duplicate image slots. Queue 190 to 196.
 - Backup before writes (git-ignored): `scripts/blotato/swap_backup/queue_before_igtemplate_20261021.json` and
   `queue_before_igtemplate_apply.json`.
+
+## Phase 3 (2026-10-22): Dan's round 1 picks queued, studio batch retired
+
+Script `scripts/blotato/igtemplate_phase3.py` (backup, retire, swap, place, verify); same batch and state files.
+
+| Slot (5 PM CT, IG + FB) | Post |
+|---|---|
+| Fri Oct 23 | C1 The Fix 01 jump rope, last slide re-rendered to Dan's new rule (large shirtless cutout, no face avatar) |
+| Mon Oct 26 | C2 Receipts 01 crunches (unchanged) |
+| Wed Oct 28 | workout-06 "3 ab moves, 10 reps each, 3 rounds", Dan's real 1-minute ab workout, replacing C3 (C3 called a knee-to-elbow move his "Spiderman plank"; Dan's Spiderman plank is elbows to push-up and back). Default "swap" on the review page; Dan approved workout-06 "as is". |
+| Fri Oct 30 | fix-02 towel row |
+| Mon Nov 2 | workout-05 commercial break |
+| Wed Nov 4 | fix-03 deadlift, look up |
+| Fri Nov 6 | fix-10 side laterals, lead with the elbows |
+| Mon Nov 9 | fix-06 V-sit twist |
+
+- **Studio batch retired:** all 26 unreleased Codex studio posts (52 placements) taken off both platforms and recorded in
+  `scripts/blotato/photo_reserve.json` (caption, image hashes, Blotato media URLs, old schedule ids). C3 is recorded there
+  too. Image files and `studio27_state.json` untouched. Use the reserve only if the image queue would run dry.
+- Captions via `dan-voice-writer` (its clean CLI login has expired, so it used the in-session fallback); 0 long dashes,
+  5 hashtags each. Workout stills brightened with `enhance.py`.
+- Verified by re-reading the queue: 16 of 16 placements exact (byte-identical slides, in order), 0 studio posts left,
+  no other item changed, no duplicate image slots. Queue 192 to 150. Backup: `swap_backup/queue_before_igtemplate_phase3.json`.
+- Next: round 2 revisions (Fix 5, Workout 6, Receipts 5) go after Nov 9 once Dan approves them.
+
+## Round 2 picks queued and colour pass (2026-10-22, evening)
+
+Dan's round 2 picks, 5 PM CT, IG + FB: Wed Nov 11 fix-09 curl swing, Fri Nov 13 receipts-02 metabolism, Mon Nov 16
+workout-02 five minutes, Wed Nov 18 fix-04 kettlebell, Fri Nov 20 receipts-11 carbs at night, Mon Nov 23 workout-09 ab
+wheel, Wed Nov 25 cheat-01 protein per 100 calories (P2, Dan: yes), Fri Nov 27 workout-04 home arms, Mon Nov 30 workout-07
+lower abs (revised per Dan's notes, then queued). **Pending (Blotato at 200/200; videos go first):** workout-07 on FB
+(Nov 30) and workout-08 V-taper on both (Dec 2). Finish with `python3 scripts/blotato/igtemplate_phase3.py place` when
+there is room, then `verify`.
+- Colour audit (Dan: every screenshot colour corrected, never raw): `grade_still.py` applies the approved Oct 1 LUT grade
+  to raw S-Log3 frames plus a finishing pass; audit table `.claude/skills/instagram-posts/reference/color-audit-r3.md`.
+  Queued fix-10 (Nov 6) and fix-06 (Nov 9) regraded and swapped in with `igtemplate_phase3.py refresh <id>`
+  (create new, delete old; same slot and caption).
+- Captions: `dan-voice-writer` (CLI login expired, in-session fallback); 0 long dashes, 5 hashtags.
+- Verified: 33 of 33 placements exact, no duplicate image slots, 0 studio posts. Round 3 review (7 unqueued posts):
+  https://claude.ai/artifact/KoNaPVWbjLn9C2FUZhhqK2
+
+## Round 3 picks waiting for room (2026-10-22, night)
+
+Dan's round 3 picks, planned 5 PM CT IG + FB: Fri Dec 4 fix-05 toe touch, Mon Dec 7 receipts-06 sleep, Wed Dec 9
+workout-03 kettlebell, Fri Dec 11 fix-08 push-up, Mon Dec 14 receipts-04 light weights. Blotato is at 200/200 and
+videos go first, so 13 placements wait (these 10, workout-07 FB, workout-08 both). `queue_topup.py --apply` (run by the
+daily `social-queue-daily-refresh` routine) now calls `igtemplate_phase3.place` once no video is waiting; a passed or
+taken day rolls to the next free Mon/Wed/Fri 5 PM. Captions via `dan-voice-writer` (in-session fallback). Round 4
+review (plank, too old): https://claude.ai/artifact/4Bxwguv9cNTAnksoFLSpT7
+
+## Round 4 approved (2026-10-22, late)
+
+Dan approved the last two after two fixes (plank slide 4: different, centred pose; aged cover label "Real image of me,
+modified with AI to show my natural hair color."). Planned Wed Dec 16 fix-07 plank, Fri Dec 18 receipts-05 too old;
+both wait for Blotato room with the others (17 placements waiting). Batch 1 is fully picked: 27 carousels plus the cheat
+sheet; ab wheel fix, gym arms and the deadlift-swap workout wait for footage.

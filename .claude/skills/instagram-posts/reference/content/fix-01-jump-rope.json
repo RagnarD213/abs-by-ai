@@ -5,30 +5,80 @@
  "status": "posted 2026-10-23 (approved R1 C1); kept as the reference example",
  "cover": {
   "headline": "Stop jumping\n[y]rope like this.[/y]",
-  "image": {"src": "Short-form video content/instagram-danrosefit/template-r1-mockups/source/rope-wrong.jpg", "pos": "50% 55%", "zoom": 1.2, "label": "real", "alt": "Dan jumping rope with both feet together, high off the ground"},
-  "ring": [192, 398, 156, 62], "callout": "Both feet", "callout_at": [340, 352],
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/template-r1-mockups/source/rope-wrong.jpg",
+   "pos": "50% 55%",
+   "zoom": 1.2,
+   "label": "real",
+   "alt": "Dan jumping rope with both feet together, high off the ground"
+  },
+  "ring": [
+   192,
+   398,
+   156,
+   62
+  ],
+  "callout": "Both feet",
+  "callout_at": [
+   340,
+   352
+  ],
   "swipe": "Swipe for the fix"
  },
  "mistake": {
-  "image": {"src": "Short-form video content/instagram-danrosefit/template-r1-mockups/source/rope-wrong2.jpg", "pos": "50% 40%", "zoom": 1.0, "label": "real", "alt": "Dan mid-jump with both feet off the ground together"},
-  "headline": "Both feet. Big jump.\nPause on every landing.", "size": 42,
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/template-r1-mockups/source/rope-wrong2.jpg",
+   "pos": "50% 40%",
+   "zoom": 1.0,
+   "label": "real",
+   "alt": "Dan mid-jump with both feet off the ground together"
+  },
+  "headline": "Both feet. Big jump.\nPause on every landing.",
+  "size": 42,
   "body": "You end up jumping over the rope instead of letting it pass under you. More pounding on your knees, less speed, and you gas out fast."
  },
  "fix": {
-  "image": {"src": "Short-form video content/instagram-danrosefit/template-r1-mockups/source/rope-right.jpg", "pos": "50% 40%", "zoom": 1.0, "label": "real", "alt": "Dan skipping rope one foot at a time with a high knee"},
-  "headline": "Skip it like\na boxer.", "size": 50,
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/template-r1-mockups/source/rope-right.jpg",
+   "pos": "50% 40%",
+   "zoom": 1.0,
+   "label": "real",
+   "alt": "Dan skipping rope one foot at a time with a high knee"
+  },
+  "headline": "Skip it like\na boxer.",
+  "size": 50,
   "body": "One foot at a time, low and quick, like you're running in place. In this clip I'm at about [em]155 steps a minute.[/em]"
  },
  "cues": {
-  "image": {"src": "Short-form video content/instagram-danrosefit/template-r1-mockups/source/rope-right2.jpg", "pos": "50% 45%", "zoom": 1.0, "label": "real", "alt": "Dan skipping rope, knee raised, light on the balls of his feet"},
-  "title": "3 cues", "subtitle": "for the boxer skip",
-  "items": ["Feet an inch off the ground. Not a foot.", "Turn the rope with your wrists, not your shoulders.", "Stay on the balls of your feet. Heels never touch down."]
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/template-r1-mockups/source/rope-right2.jpg",
+   "pos": "50% 45%",
+   "zoom": 1.0,
+   "label": "real",
+   "alt": "Dan skipping rope, knee raised, light on the balls of his feet"
+  },
+  "title": "3 cues",
+  "subtitle": "for the boxer skip",
+  "items": [
+   "Feet an inch off the ground. Not a foot.",
+   "Turn the rope with your wrists, not your shoulders.",
+   "Stay on the balls of your feet. Heels never touch down."
+  ]
  },
  "cta": {
   "blocks": [
-   {"icon": "save", "title": "Save this", "text": "for your next cardio day."},
-   {"icon": "send", "title": "Send it", "text": "to the guy at your gym who jumps like a kangaroo."}
+   {
+    "icon": "save",
+    "title": "Save this",
+    "text": "for your next cardio day."
+   },
+   {
+    "icon": "send",
+    "title": "Send it",
+    "text": "to the guy at your gym who jumps like a kangaroo."
+   }
   ],
-  "follow": "One fix a week, filmed on me."
+  "follow": "One fix a week, filmed on me.",
+  "cutout": "Short-form video content/instagram-danrosefit/assets/_cutouts/studio-blue-210.webp"
  }
 }

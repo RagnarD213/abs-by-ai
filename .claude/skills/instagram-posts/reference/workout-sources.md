@@ -42,6 +42,7 @@ candidates for batch 2.
 | workout-02-five-minutes | squat.jpg | B0464 @ 6.57 |
 | workout-02-five-minutes | pushup.jpg | B0546 @ 3.55 |
 | workout-02-five-minutes | spiderman.jpg | B0455 @ 2.82 |
+| workout-03-kettlebell | cover-kb-deadlift-r3-graded.jpg (cover) | C1743 @ 19.0 (R3) |
 | workout-03-kettlebell | kb-deadlift.jpg | B0431 @ 1.7 |
 | workout-03-kettlebell | goblet.jpg | C1750 @ 11.47 |
 | workout-03-kettlebell | pushup.jpg | C1744 @ 13.72 |
@@ -55,7 +56,7 @@ candidates for batch 2.
 | workout-06-ab-rounds | vsit.jpg | C1748 @ 12.95 |
 | workout-06-ab-rounds | spiderman.jpg | B0468 @ 3.94 |
 | workout-07-lower-abs | reverse-crunch.jpg | C1747 @ 4.0 (gamma 1.15) |
-| workout-07-lower-abs | toetouch.jpg | B0466 @ 6.54 |
+| workout-07-lower-abs | toetouch-r3-graded.jpg | C1741 @ 33.0 (R3; was B0466 @ 6.54) |
 | workout-08-v-taper | lateral.jpg | B0450 @ 5.53 |
 | workout-08-v-taper | vacuum.jpg | B0429 @ 4.15 |
 | workout-09-ab-wheel | level1.jpg | B0427 @ 2.75 |
@@ -64,3 +65,5 @@ candidates for batch 2.
 | workout-11-instead-of-deadlifts | rear-delt.jpg | B0451 @ 6.53 (brightened) |
 
 B-numbers are clip-library clips; C17xx are 10/15 raw rolls (4K, scaled to 2560 wide). Cover cutouts: studio cutouts from `photos/finalized social media photos/_cutouts/` (blue-187, blue-240, white-23, blue-33, gray-79, blue-269, white-4) saved as `cutout.webp`; 04, 07, 08 use `template-r1-mockups/source/cut-blue-123/43/53.webp`.
+
+Round 3 (2026-10-22): stills marked `-graded` were re-made with `grade_still.py`; per-still verdicts in `color-audit-r3.md`.

@@ -28,7 +28,7 @@ white tank tops, skinny-fat middle guy). (The lip-sync question moved into item 
    AI fails; regenerate, never patch). A redraw he rejects: redraw, gate, show only that pair.
 3. Lip sync only on his yes (`longform-edit/reference/ro20/lipmeasure20.py`; one failure means mouth closed). If he said "Already" back,
    shrink the G18 point to fit (count before rendering).
-4. If nothing is pending: the FULL film. Delivery gate (`_shared/deliver/gate.py --format longform`), watch pass, edit sheet, hair check on
+4. If nothing is pending: the FULL film. De-click the mouth click at 0:44.18 film time (10 ms spike about 32 dB over the pause, after "net benefit"). Delivery gate (`_shared/deliver/gate.py --format longform`), watch pass, edit sheet, hair check on
    the exact export (20 px at 1080 and 540), independent `ra-reviewer`, SRT (fix "Zeban/Zetbound", "R.I.P." -> ripped, "GOP" -> GLP-1),
    chapters, delivery folder `claude edited long form content/21 - Why Zepbound Improves Your Health Even If You're Ripped/`, review page
    with a timestamped revision list, VLC copy in `Videos to Review/`.

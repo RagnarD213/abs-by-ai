@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=__W__, height=__H__" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      /* Soft Blue Light STEP BADGES (SL-06 R7, 2026-10-22): small round glass badges with step numbers that land one by
+         one beside items in a flat lay (or any picture), drift gently, a cyan ring breathes, a highlight sweeps.
+         Transparent overlay; positions are picture pixels. Config: badges [[cx, cy, "1", at], ...], r, dur. */
+      @font-face { font-family: "Poppins"; src: url("assets/Poppins-Bold.ttf") format("truetype"); font-weight: 700; }
+      :root { --glass: rgba(10, 38, 72, 0.88); --line: rgb(104, 197, 255); --white: rgb(244, 250, 255); --spec: rgba(135, 210, 248, 0.9); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: __W__px; height: __H__px; overflow: hidden; background: transparent; }
+      #root { position: relative; width: 100%; height: 100%; font-family: "Poppins", sans-serif; font-weight: 700; }
+      .b { position: absolute; border-radius: 50%; }
+      .disc { position: absolute; inset: 0; border-radius: 50%; background: var(--glass); border: 3px solid var(--line); overflow: hidden;
+              box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45); }
+      .ring { position: absolute; inset: -8px; border-radius: 50%; border: 2px solid rgba(104, 197, 255, 0.55); }
+      .spec { position: absolute; top: 10%; left: -60%; width: 40%; height: 80%; background: linear-gradient(90deg, transparent, var(--spec), transparent);
+              opacity: 0.35; transform: skewX(-18deg); }
+      .num { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: var(--white); line-height: 1; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="__ID__" data-start="0" data-duration="__DUR__" data-width="__W__" data-height="__H__"></div>
+    <script>
+      const CFG = __CFG__;
+      const D = CFG.dur, R = CFG.r;
+      const root = document.getElementById("root");
+      const tl = gsap.timeline({ paused: true });
+      CFG.badges.forEach(([cx, cy, label, at], i) => {
+        const b = document.createElement("div"); b.className = "b"; b.id = "b" + i;
+        Object.assign(b.style, { left: (cx - R) + "px", top: (cy - R) + "px", width: 2 * R + "px", height: 2 * R + "px" });
+        b.innerHTML = `<div class="ring"></div><div class="disc"><div class="spec"></div><div class="num" style="font-size:${Math.round(R * 1.15)}px">${label}</div></div>`;
+        root.appendChild(b);
+        // land: pop in with a small overshoot on its beat
+        tl.fromTo(b, { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.42, ease: "back.out(2.2)" }, at);
+        // keep moving for its whole time on screen: a slow drift, the ring breathes, the highlight sweeps
+        tl.fromTo(b, { y: 0 }, { y: -6, duration: Math.max(0.5, D - at), ease: "sine.inOut" }, at);
+        const ring = b.querySelector(".ring"), spec = b.querySelector(".spec");
+        const n = Math.max(1, Math.round((D - at) / 0.9));
+        tl.fromTo(ring, { scale: 1, opacity: 0.55 }, { scale: 1.12, opacity: 0.15, duration: (D - at) / n, ease: "sine.inOut", yoyo: true, repeat: n - 1 }, at + 0.1);
+        tl.fromTo(spec, { x: 0 }, { x: 2.0 * 2 * R, duration: 0.9, ease: "power1.inOut" }, at + 0.25);
+        // exit with the intro
+        tl.fromTo(b, { opacity: 1 }, { opacity: 0, duration: 0.2, ease: "power2.in", immediateRender: false }, D - 0.2);
+      });
+      window.__timelines["__ID__"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

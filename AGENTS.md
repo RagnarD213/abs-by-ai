@@ -38,6 +38,10 @@ doing anything.** It holds Dan's standing production rules. Not having read it i
 
 Every green-screen video is keyed with Claude's Bill Maher Fat 90-Year-Old R2 key, Claude and Codex alike. Dan: "let's lock this chroma key as our default way to chroma key things. I want all green screen videos keyed out like this" and "Let's make all our future chroma keys this clean and make this a standard." It replaces the Codex R3 key locked the day before. The bar: edges steadier than the camera's own picture with motion removed, dark rim no worse than the source, nothing see-through over saturated pink (watch, glasses), no specks, strands and motion blur kept, measured with the shared scripts before Dan sees it. Method, exact code and hashes: `.claude/skills/_shared/chroma-key/README.md`. Calibrate plate, crop and hold-out boxes to each source; never average across a cut. Do not reopen the accepted style. This locks keying only; grade and audio stay per video, and already approved exports stay as they are.
 
+## Green screen reaction opening: locked format (Dan, 2026-10-22)
+
+Every green screen reaction opens with the clip full screen (fixed vertical crop on the speaker) and Dan keyed small in the lower left at 0.40 of full size, flush on the left and bottom edges, laptop visible, showing his real reaction while the clip played. Dan: "Let's lock this as our format, this size, and the laptop visible for all of these green screen reactions." Full rule: `.claude/skills/_shared/VIDEO-RULES.md`.
+
 ## Real-photo disclosure wording (Dan, 2026-10-17)
 
 Real photographs remain labelled “Real photo(s) of me, not AI-generated” even if retouched or touched up. Do not label them “retouched photos.” Fundamentally AI-generated imagery still receives the AI label. Preserve internal provenance and existing thumbnail/real-moving-footage exceptions. Full rule: `.claude/skills/_shared/VIDEO-RULES.md`.

@@ -26,6 +26,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**SL-06 QUEUED 2026-10-22, Claude.** Six shorts Nov 9-Dec 8, nothing blocked; delete after Dec 8. `Docs/SL06_SETUP_RECEIPT_20261022.md`
+
 **Edit cap LIVE 2026-10-21, Claude.** Pushed; main folder mid-merge (not mine), so its skills lack it until merged. Next: delete after that merge.
 
 **SL-17:R2-WAIT:2026-10-22:Claude.**
@@ -46,7 +48,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-09:POLICY-RECHECK:2026-10-22:Claude.** 10-23.
 
-**Fat 90 Year Old SFC R4 - ACTIVE 2026-10-22, Claude.** Intro clip two ways (box upper left; lower left larger with laptop). Next: renders, review, page :8940. Work: `ds40/r4/` (Expansion).
+**Fat 90 Year Old SFC R6 - REVIEW :8940 2026-10-23, Claude.** Four graphics (new BMI table template) and edit plan shown inside a full draft. Next: Dan approves, then delivery gate, independent reviewer, delivery. Work: `/Volumes/Expansion/_edit_work/ds40/r6/`.
 
 **DS-44:R2-WAIT-SLOT:2026-10-22:Claude.** Option B + card; code ready.
 
@@ -154,7 +156,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-20C HOLD 2026-10-21, Claude.** Waitlist, Dec 6. `Docs/RO20C_SETUP_RECEIPT_20261021.md`
 
-**Zepbound R3 REVIEW 2026-10-22, Claude.** Page :8930.
+**Zepbound Even If Ripped LFC R3 - REVIEW 2026-10-22, Claude.** Full film, page :8930. Next: Dan; then setup handoff.
 
 **Make Time Exercise LFC R3 - ACTIVE 2026-10-22, Claude.** Full film rendering. `RO-18/round3/`.
 
@@ -170,7 +172,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **RO-07 - HOLD 2026-10-11, Claude.** Blotato full. `Docs/RO07_SETUP_RECEIPT_20261011.md`
 
 
-**SL-06:R7-REVIEW:8821:2026-10-22:Claude.** Top 5 Zepbound Tips SFL R7: D approved; five no-face intro stills (A, B, C, E, F) reviewed, awaiting Dan's picks before motion. Work: `/Volumes/Extreme/_edit_work/sl06/round7/`.
 
 **SL-15 HOLD 2026-10-22.** b97bd79-unpushed
 

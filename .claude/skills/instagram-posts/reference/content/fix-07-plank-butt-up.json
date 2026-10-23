@@ -2,7 +2,7 @@
  "format": "the-fix",
  "id": "fix-07-plank-butt-up",
  "tag": "The Fix · 07",
- "status": "R2 2026-10-22 (retitled from fix-07-spiderman-plank at Dan's request: regular plank, butt up). Wording source: raw roll C0223-007 (7/8 welcome shoot, 377-400 s: 'for a plank I want to avoid putting my butt way up in the air or sagging. Like the name implies, I am a plank. I am perfectly straight'). Cover = 8/28 main camera C1683 105.60 s, mistake = C1683 115.25 s (labelled 'butt up in the air' reps on GoPro GP010044 289-319 s); fix and cues stills kept from R1; all brightened with enhance.py | R3 2026-10-22: colour audit (reference/color-audit-r3.md): all four stills regraded from C1683 (cover/mistake had been raw S-Log3); last slide cutout studio-blue-202 (most ripped, Dan)",
+ "status": "R2 2026-10-22 (retitled from fix-07-spiderman-plank at Dan's request: regular plank, butt up). Wording source: raw roll C0223-007 (7/8 welcome shoot, 377-400 s: 'for a plank I want to avoid putting my butt way up in the air or sagging. Like the name implies, I am a plank. I am perfectly straight'). Cover = 8/28 main camera C1683 105.60 s, mistake = C1683 115.25 s (labelled 'butt up in the air' reps on GoPro GP010044 289-319 s); fix and cues stills kept from R1; all brightened with enhance.py | R3 2026-10-22: colour audit (reference/color-audit-r3.md): all four stills regraded from C1683 (cover/mistake had been raw S-Log3); last slide cutout studio-blue-202 (most ripped, Dan) | R4 2026-10-22: cues photo replaced (Dan: no sitting or slumped screenshots) with studio-blue-80.",
  "cover": {
   "headline": "Stop doing planks\n[y]like this.[/y]",
   "image": {
@@ -53,11 +53,11 @@
  },
  "cues": {
   "image": {
-   "src": "Short-form video content/instagram-danrosefit/assets/fix-07-plank-butt-up/cues-graded.jpg",
-   "pos": "50% 50%",
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-07-plank-butt-up/cues-studio-blue-213.jpg",
+   "pos": "52% 50%",
    "zoom": 1.0,
    "label": "real",
-   "alt": "Dan kneeling on the mat between sets"
+   "alt": "Dan in the studio, hands on hips, abs visible"
   },
   "title": "3 cues",
   "subtitle": "for the plank",
