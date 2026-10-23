@@ -42,7 +42,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Fat 90 Year Old SFC R6 - REVIEW :8940 2026-10-23, Claude.** Four graphics (new BMI table template) and edit plan shown inside a full draft. Next: Dan approves, then delivery gate, independent reviewer, delivery. Work: `/Volumes/Expansion/_edit_work/ds40/r6/`.
 
-**DS-44:APPROVED-HOLD:2026-10-23:Claude.** Setup + off-cuff (DS-44B) handoffs in Handoffs/README; no upload until Dan picks a version.
+**DS-44 Hormozi Setup - COVERS 2026-10-23, Claude.** Setup session making five Codex covers, then stops for Dan's pick; upload/Blotato HOLD until he picks scripted or off-cuff (DS-44B handoff OPEN).
 
 **SL-15 HOLD 2026-10-22.** `Docs/SL15_SETUP_RECEIPT_20261022.md`
 
