@@ -101,7 +101,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [RO-06](RO-06-work-out-at-home-on-a-budget.md) | How To Work Out At Home On A Budget | 8/3 C1557–81 (31 min) | UPLOADED | L |
 | [RO-07](RO-07-why-you-must-work-out-every-day.md) | Why You MUST Work Out Every Day | 7/8 C1484–85 (30 min) | FINALIZED | L |
 | [RO-08](RO-08-intermittent-fasting.md) | Intermittent Fasting: Best Way To Get Abs | 7/8 C1486 (23 min) | FINALIZED | L |
-| [RO-09](RO-09-pushup-masterclass.md) | Pushup Masterclass: 6 Levels From Beginner To Advanced | 8/28 C1680, C1681 (+C1684) | READY | M |
+| [RO-09](RO-09-pushup-masterclass.md) | Pushup Masterclass: 6 Levels From Beginner To Advanced | 8/28 C1680, C1681 (+C1684) | IN PROGRESS | M |
 
 **9/23 shoot shorts (portrait, C1719-C1720)**
 
@@ -150,7 +150,7 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 
 | job | video | rolls | status | size |
 |---|---|---|---|---|
-| [DS-33](DS-33-cristiano-ronaldo-sells-an-ab-belt-its-harder-than-a-workout.md) | Cristiano Ronaldo Sells An Ab Belt. It's Harder Than A Workout. | 10/15 C1729-C1730 | DELIVERED: awaiting Dan | S |
+| [DS-33](DS-33-cristiano-ronaldo-sells-an-ab-belt-its-harder-than-a-workout.md) | Cristiano Ronaldo Sells An Ab Belt. It's Harder Than A Workout. | 10/15 C1729-C1730 | FINALIZED | S |
 | [DS-34](DS-34-surgeons-now-carve-fake-abs-into-belly-fat-dont-do-it.md) | Surgeons Now Carve Fake Abs Into Belly Fat. Don't Do It. | 10/15 C1729-C1730 | READY | S |
 | [DS-35](DS-35-women-say-they-love-the-dad-bod-they-dont.md) | Women Say They Love The Dad Bod. They Don't. | 10/15 C1729-C1730 | IN PROGRESS | S |
 | [DS-36](DS-36-bill-maher-says-fat-shaming-should-come-back-hes-right.md) | Bill Maher Says Fat Shaming Should Come Back. He's Right. | 10/15 C1730 | READY | S |
@@ -345,4 +345,4 @@ the remaining vertical, square and ≤0:59 variants. Also every RA-01 … RA-16 
 | Muhammad | Ad 7 typo fix + HD · Ads 8, 9, 13, 15 HDs delivered 09-16 for your check · Ad 3 round-6 re-export only if you send it |
 | Zeeshan | nothing: all five batch videos finalized and filed 10-10 |
 | Waleed | nothing: contract ended 09-15; his Ad 1 cut stays unfinished |
-| not filmed yet | /start VSL (`handoff-20260910-start-vsl-edit-and-install.md`) · Shoot 5 long-form outlines (Zepbound tips, Future Body, Alcohol, Not Losing Weight, Lockscreen Trick, What I Eat) · Pushup Masterclass · M100s long-form · Members' Area intro |
+| not filmed yet | /start VSL (`handoff-20260910-start-vsl-edit-and-install.md`) · Shoot 5 long-form outlines (Zepbound tips, Future Body, Alcohol, Not Losing Weight, Lockscreen Trick, What I Eat) · M100s long-form · Members' Area intro |

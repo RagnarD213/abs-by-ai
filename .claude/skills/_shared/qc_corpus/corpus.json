@@ -3389,6 +3389,25 @@
       "notes": "Approval identity: Handoffs/video-editing/RA-13-R3-approval.json. This records Dan approval; it does not alter or bypass any numerical gate."
     },
     {
+      "id": "ds33-r5-approved-20261023",
+      "date": "2026-10-23",
+      "root": "repo",
+      "path": "Short-form video content/Ronaldo Ab Belt - DS-33/Ronaldo Ab Belt SFC R5 - complete Short.mp4",
+      "sha256": "b78674a331cd51c6003614ea149dc89095fc1e2539406a0826a5a100f65e80d0",
+      "bytes": 62004027,
+      "verdict": "approved",
+      "dan": "Okay, looks good. This is approved. Give me the handoff or setup.",
+      "scope": "Complete R5 Short: R4 opening, split with Dan in front of the silent ad card (~10% overlap), R3 rest. Finalized in this chat; setup handed off.",
+      "excerpt": [
+        0,
+        62.2956
+      ],
+      "must_pass": [],
+      "must_trigger": [],
+      "measured": "Gate 2.6.1: 35 PASS, 4 FAIL; FAIL rows = audio tone (locked Balanced voice), captions:sync (legacy energy onset), framing:hair_top + framing:headroom (gate's person mask reads the ad's people inside the card above Dan; real hair top >= y 524). Independent review SHIP; watch pass 0 defects over 12/12 boundaries.",
+      "notes": "Exact approval: Handoffs/video-editing/DS-33-R5-approval.json. Records human approval without changing gates, thresholds or stamps."
+    },
+    {
       "id": "ds31-r2-approved-20261020",
       "date": "2026-10-20",
       "root": "repo",
@@ -3794,6 +3813,22 @@
       "must_pass": [],
       "must_trigger": [],
       "notes": "Creative color approval only: Round 2 Warm Rich Vivid B. Full-film rendering is authorized, but the unseen complete export is not approved. Existing graphics/audio locks are inherited. This entry does not claim new automated color coverage."
+    },
+    {
+      "id": "ro04-r3-triceps-and-completion-rejected-20261023",
+      "verdict": "rejected",
+      "date": "2026-10-23",
+      "root": "repo",
+      "path": "Media/video-edits/RO-04/round3/Arms Shoulders Workout LFC R3 - full workout.mp4",
+      "sha256": "2a37855812c91260004ed53e56c84d4a0545dd92e5513c8bcc97446f911f318d",
+      "excerpt": [
+        65.8658,
+        59.9932667
+      ],
+      "dan": "Revisions around 1:14 when I go into the overhead tricep extensions, I want a slightly closer crop. Make sure the dumbbell doesn't go out of the top of the frame but I feel like you can crop in about 20% without losing anything here. This crop is a little bit too wide right now for the end screen. Rather than saying \"I feel like this is kind of weird to end on,\" I want a better end screen: &#x20;\n\n- At the top a large title graphic: \"Congratulations you completed the round.\"\n- Some clips of me doing each exercise, a few seconds long for each one, playing on the left side.\n- Text on the right side telling them how to make it complete: \"For beginners replay 2 more rounds. For advanced guys replay 4 more rounds.\"\n- Display that for 30 seconds with the 30-second rest timer.\n\n&#x20; Show me that end graphic and, for the tricep extensions, zoom to approve first before rendering the full film again",
+      "must_trigger": [],
+      "must_pass": [],
+      "notes": "Scoped creative revision: closer safe overhead crop and exact new completion screen; not an audio/color rejection. Automated creative-layout coverage is pending; no threshold changes."
     }
   ]
 }

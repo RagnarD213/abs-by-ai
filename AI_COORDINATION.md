@@ -26,6 +26,10 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**Pushup Masterclass LFC R1 - SLOT WAIT 2026-10-23, Codex.** RO-09 owned by chat 01a16a4e-fac9-7db3-89e7-08dba554908b; acquire returned first in line. C1732 incline pickup located; level 5 slated, commentary still unlocated. No media rendered. Automatic 10-minute resume armed. Next: acquire, pause heartbeat, source-check and prepare first-minute/asset review. Checkpoint: `Media/video-edits/RO-09/round1/checkpoint.json`.
+
+**Dad Bod SFC R1 - SLOT WAIT 2026-10-23, Codex.** Women Say They Love The Dad Bod. They Don't. (DS-35), first in the edit-slot line; no media produced. Automatic 10-minute resume armed in chat 01a16a4f-cff7-7b92-b373-eb45723ea3b1. Next: acquire slot, read full current production rules/skills, execute the DS-35 handoff and deliver checked review.
+
 **ChatGPT Ads account - NEEDS DAN 2026-10-23, Codex.** Final creation prepared for Rose Digital Holdings LLC (US, USD, Chicago); awaiting action-time approval of OpenAI advertising/promo terms. Research complete: BetterMe and Fitbod observed. No campaign or spend. Evidence: `Research/ChatGPT Ads 2026-10-23/research-evidence.json`. Next: submit once approved, verify account.
 
 **SL-06 QUEUED 2026-10-22, Claude.** Six shorts Nov 9-Dec 8, nothing blocked; delete after Dec 8. `Docs/SL06_SETUP_RECEIPT_20261022.md`
@@ -34,9 +38,9 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **SL-16:PICKS+SLOT-WAIT:2026-10-22:Claude.** Fasting shorts.
 
-**Boring Abs At 40 LFC R2 - SLOT WAIT 2026-10-23, Codex.** First in edit-cap line; automatic resume armed. Local project path verified; R2 scripts updated. Previews rendered, final checks pending. Next: rerun calibrated hair check, sound review, checked review page. No new motion/full film. Resume: `/Volumes/Extreme/_edit_work/ro27/round2/RESUME-20261023.md`.
+**Boring Abs At 40 LFC R2 - ACTIVE 2026-10-23, Codex.** Complete speech restored; exact headroom and four frame pairs checked. Page packaging queued. Native evidence resolves the final listener’s visual false flags; raw verdict retained. Browser QA pending because CUA tools are unavailable. Next: finish packaging, then actual browser QA and checked-page delivery when tools return. Colour C, voice B and R1 preserved. No new motion/full film. State: `/Volumes/Extreme/_edit_work/ro27/round2/RESUME-20261023.md`.
 
-**Calories Not Losing Weight SFL R5 - SLOT WAIT 2026-10-23, Codex.** Both revised pairs approved; R6 motion next. Second in edit-cap line; automatic background resume armed. Dan forbids screen takeover. Exact decisions/hashes and resume: `/Volumes/Extreme/_edit_work/sl08/round6/RESUME-20261023.md`. Next: admit slot, advance R6, subscription Flow with background controls only. Old rounds/panels intact; no covers or publishing.
+**Calories Not Losing Weight SFL R6 - ACTIVE 2026-10-23, Codex.** Approved pairs verified; edit slot admitted. Production transferred to started/pinned chat `01a169a7-fab3-7330-b0f6-148b8984cffe`; predecessor unpinned, heartbeat paused. Background controls only, no screen takeover. Next: subscription Flow, take checks, narrated motion review. Handoff: `Handoffs/handoff-20261023-sl08-round6-approved-background-motion.md`. Old rounds/panels intact; no covers or publishing.
 
 
 
@@ -122,7 +126,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-14:QUEUED-JAN3-2027:2026-10-22:Claude.** `Docs/RO14_SETUP_RECEIPT_20261022.md`
 
-**Ronaldo Ab Belt SFC R5 - REVIEW :9037 2026-10-23, Claude.** Dan in front of the split clip; review SHIP, gates as R4. Next: Dan; on final, setup handoff (DS-33 handoff "When Dan says final"). Work: `/Volumes/Expansion/_edit_work/DS-33/r5/`.
 
 **RO-20C HOLD 2026-10-21, Claude.** Waitlist, Dec 6. `Docs/RO20C_SETUP_RECEIPT_20261021.md`
 
@@ -217,4 +220,4 @@ Memory `google-ads-ui-automation`.
 
 List: `Handoffs/README.md` (OPEN section). Add new handoffs there, never here.
 
-**Arms Shoulders Workout LFC R4 - SLOT WAIT 2026-10-23, Codex.** Second in edit-cap line; automatic resume armed. Ownership and all eight locked hashes verified. Next: checked closer triceps crop and moving completion-screen previews for Dan before full-film rebuild. R3 reference: http://127.0.0.1:8974/. Checkpoint: `Media/video-edits/RO-04/round4/decisions.json`.
+**Arms Shoulders Workout LFC R4 - SLOT HELD 2026-10-23, Codex.** Queue diagnosis complete; slot acquired after idle SL-08 claim expired. Automatic continuation remains armed. Next: checked closer triceps crop and moving completion-screen previews for Dan before full-film rebuild. R3 reference: http://127.0.0.1:8974/. Checkpoint: `Media/video-edits/RO-04/round4/decisions.json`.
