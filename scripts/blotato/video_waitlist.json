@@ -22,6 +22,22 @@
   }
  },
  {
+  "config": "scripts/blotato/configs/sl17-short1-nutrition-matters-more-than-your-workouts.json",
+  "kind": "short",
+  "job": "SL-17",
+  "label": "Top 1% 1: Nutrition Matters More Than Your Workouts",
+  "added": "2026-10-23",
+  "parent_config": "scripts/blotato/configs/ro26-top-1-percent.json"
+ },
+ {
+  "config": "scripts/blotato/configs/sl17-short2-start-with-5-minutes-every-morning.json",
+  "kind": "short",
+  "job": "SL-17",
+  "label": "Top 1% 2: Start With 5 Minutes Every Morning",
+  "added": "2026-10-23",
+  "parent_config": "scripts/blotato/configs/ro26-top-1-percent.json"
+ },
+ {
   "config": "scripts/blotato/configs/ro19-my-first-spray-tan.json",
   "kind": "longform",
   "job": "RO-19",

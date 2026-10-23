@@ -1,0 +1,27 @@
+{
+  "content_type": "organic",
+  "source": "Short-form video content/top1-short1_nutrition-matters-more-than-your-workouts.mp4",
+  "slug": "sl17-short1",
+  "campaign": "top-1-percent",
+  "title": "Nutrition Matters More Than Your Workouts",
+  "video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/4d7ead3a-248d-4579-808e-d6e3e63e2ac9.mp4",
+  "tiktok_video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/94e66580-e724-4714-b25e-04c60fc375c5.mp4",
+  "instagram_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/4958b138-e29e-4c28-ac10-15790a76f7f5.png",
+  "youtube_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/1ee1e002-58f4-420a-a499-4d2069b95803.jpg",
+  "main": "2026-10-30T14:00:00.000Z",
+  "keyword": "ABS",
+  "ai_generated": true,
+  "hook": "Believe it or not, nutrition made an even bigger impact than working out.",
+  "body": "Taking my nutrition seriously made me look better and feel better, made me more productive, and made me more money. Today I don't eat anything until about 2 PM, then I start with a big salad, and every meal has a large serving of meat, fish, or eggs. I meal prep for about $8 or $9 a meal, which is less than ordering Chipotle. If you're in your 20s or 30s, start taking your nutrition seriously right now, because it's the biggest single factor in losing your belly fat.",
+  "close": "Leave a comment to let me know if you meal prep, and about what it costs you a meal.",
+  "tags": "#Nutrition #MealPrep #BellyFat #HealthyEating #AbsByAI",
+  "youtube_description": "Believe it or not, nutrition made an even bigger impact than working out.\n\nTry your free Abs By AI preview: https://absbyai.com/?utm_source=youtube&utm_medium=short&utm_campaign=top-1-percent&utm_content=sl17-short1\n\nTaking my nutrition seriously made me look better and feel better, made me more productive, and made me more money. Today I don't eat anything until about 2 PM, then I start with a big salad, and every meal has a large serving of meat, fish, or eggs. I meal prep for about $8 or $9 a meal, which is less than ordering Chipotle. If you're in your 20s or 30s, start taking your nutrition seriously right now, because it's the biggest single factor in losing your belly fat.\n\nFull video on my channel: I'm 41. I'm Top 1%. How I Did It.\n\nSome clips in this video are AI-generated.\n\n#Nutrition #MealPrep #BellyFat #HealthyEating #Shorts",
+  "pinned_comment": "I don't eat until about 2 PM, then I start with a big salad. What's the first thing you eat each day?",
+  "parent_config": "ro26-top-1-percent.json",
+  "media_sha256": {
+    "master": "3dd0eb49b83e70707ca51a563657f2dc4cef962b4a8140a3f5c65d8d473a0d4b",
+    "tiktok": "6fa9f6bc49e15149af415dd476589db28535036f7f9e675cc83c988b952cec1e",
+    "ig": "64d95dba856eb8b6f2216c47e2cd21459f0cb64ce7c0f70cb18ef41dd1b57bfa",
+    "yt": "6a11ff408911a2514b7670a5db83b97037f92369171f88c98e4569b77dd94b78"
+  }
+}
