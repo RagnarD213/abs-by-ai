@@ -5,7 +5,7 @@ set -uo pipefail
 W=/Volumes/Expansion/_edit_work/RO-24/round2; R="$W/recipe"; D="$R/ds40key"; A="/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared"
 FF="/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video_edit/bin/ffmpeg"; FM="$W/review/first-minute"; C="$W/checks"
 mkdir -p "$FM" "$W/review/key" "$W/review/context" "$C"
-NAME="DRAFT - RO-24 round 2 - first minute"; G1=1889
+NAME="DRAFT - RO-24 round 2 - first minute"; G1=1884   # ends after "overdosing." (source 18424, as round 1)
 python3 "$R/pic_edl.py"
 python3 -c "import json; M=json.load(open('$W/hf/manifest.json'))+json.load(open('$W/broll/broll_manifest.json')); json.dump(M,open('$W/film_manifest.json','w'),indent=1)"
 HF="--hf $W/film_manifest.json"
@@ -22,8 +22,8 @@ python3 "$R/compare_r2.py" 38.5 45.0 "$W/review/key/compare-hands-0m40.mp4" --zo
 python3 "$R/compare_r2.py" 47.2 53.0 "$W/review/key/compare-hands-0m51.mp4" --zoom
 python3 "$R/compare_r2.py" 24.0 27.0 "$W/review/key/compare-shorts-0m25.mp4" --zoom
 for f in "$W"/review/key/compare-*.mp4; do "$FF" -v error -y -ss 1.0 -i "$f" -frames:v 1 -q:v 3 "${f%.mp4}.jpg"; done
-echo "== hair clearance"; python3 "$R/hairclear16.py" "$FM/$NAME.mp4" "$FM/$NAME.mp4.build.json" --out "$C/hair-1080.json" --proof "$C/hair-1080-worst.jpg" | grep -E "verdict|min_top"
-python3 "$R/hairclear16.py" "$FM/$NAME - REVIEW 540p.mp4" "$FM/$NAME.mp4.build.json" --upscale --out "$C/hair-540.json" --proof "$C/hair-540-worst.jpg" | grep -E "verdict|min_top"
+echo "== hair clearance"; python3 "$R/hairclear16.py" "$FM/$NAME.mp4" "$FM/$NAME.mp4.build.json" --skip-opaque "$W/film_manifest.json" --out "$C/hair-1080.json" --proof "$C/hair-1080-worst.jpg" | grep -E "verdict|min_top"
+python3 "$R/hairclear16.py" "$FM/$NAME - REVIEW 540p.mp4" "$FM/$NAME.mp4.build.json" --upscale --skip-opaque "$W/film_manifest.json" --out "$C/hair-540.json" --proof "$C/hair-540-worst.jpg" | grep -E "verdict|min_top"
 echo "== audio gate"; python3 "$A/audio/audio_gate.py" "$FM/$NAME.mp4" --ab "$FM/$NAME - audio AB.mp4" > "$C/audio_gate.log" 2>&1; tail -16 "$C/audio_gate.log"
 if [ -n "$HF" ]; then echo "== graphics checks"; python3 "$A/hyperframes/checks.py" "$W/film_manifest.json" --film "$FM/$NAME.mp4" --film-t0 0 --out "$C/hf" > "$C/hf.log" 2>&1; tail -6 "$C/hf.log"; fi
 echo "== measures on the four first-minute keys (pale, navy renders; rim, see-through, specks, motion-free flicker)"

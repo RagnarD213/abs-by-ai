@@ -485,10 +485,12 @@ always the one making these thumbnails."*
 - **Never raw footage, ever (Dan, 2026-10-23, RO-28 round 3).** Dan on the jump-rope pool clip at 2:22: *"This is raw footage.
   I want you to color correct this footage. Let's make this a standing rule: never, ever use raw footage. B-roll only:
   color-corrected footage in these videos."* That clip had a grade: a gamma lift that brightened the shade but greyed the
-  blacks and flattened it, so it still read as raw. A correction is a real grade: real blacks, contrast, warm skin, colour
-  matched to the approved pool clips (RO-28 `POOL_RICH`: curves 0/0 0.12/0.08 0.4/0.48 0.75/0.85 1/1, contrast 1.08, sat 1.20,
-  slight warm balance), never a brightness or gamma lift alone. Check every clip of Dan's own rolls side by side with the
-  film's best-graded B-roll before a page goes out; a flat, grey or washed-out clip is raw and is a defect.
+  blacks and flattened it, so it still read as raw. The first fix overshot the other way (25% of the frame crushed to black,
+  twice the saturation, neon greens) and the independent review failed it. **Match by measurement:** grade the clip until its
+  black share (luma < 16), median saturation and median brightness sit inside the range of the film's approved B-roll from the
+  same shoot, then look at the stills side by side. RO-28: references 10-17% black, saturation .27-.38, median 54-70; the shade
+  clip passed with a midtone curve and saturation 0.90 (`POOL_SHADE`), never a gamma lift alone and never crushed blacks.
+  A flat, grey, washed-out, crushed or neon clip is a defect before any page goes out.
 - This binds Claude and Codex, every video skill, and every editor brief and revision doc.
 
 ## A person looking at a phone is not a picture; never use the clip of Dan on his phone (Dan, 2026-10-11)
