@@ -29,14 +29,13 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **Edit cap LIVE 2026-10-21, Claude.** Pushed; main folder mid-merge (not mine), so its skills lack it until merged. Next: delete after that merge.
 
 **SL-17:R2-WAIT:2026-10-22:Claude.**
-**SL-18:COVER-OK?:2026-10-22:Claude.**
-**SL-16:PICKS+SLOT-WAIT:2026-10-22:Claude.** Fasting shorts; queue status unset (jobs.json mid-merge).
+**SL-16:PICKS+SLOT-WAIT:2026-10-22:Claude.** Fasting shorts. Transcript-shortlist rule a5a6efa unpushed (merge jam).
 
 **Boring Abs At 40 LFC R2 - ACTIVE 2026-10-20, Codex.** Executing R2 handoff. Colour C and voice B locked; R1 preserved. Next: calibrated headroom proof, corrected opening/contexts, complete existing-AI gallery, revised A01–A04 still pairs and independent checks. No new motion or full-film render before approval. Work: `/Volumes/Extreme/_edit_work/ro27/round2/`.
 
 **Calories Not Losing Weight SFL R5 - REVIEW 2026-10-20, Codex.** Standing-counter Snack on Protein, Not Carbs pair passed measured and independent checks. Narrated review: http://127.0.0.1:9042/. Next: Dan approves this pair before Flow. Fasting R4 frames approved; R2/R3/R4 untouched. No covers or publishing.
 
-**Bill Maher Fat 90-Year-Old SFC R4 - ACTIVE 2026-10-20, Codex.** Full edit authorized with approved R3 key, Balanced audio and warm color. Separate build: `/Volumes/Extreme/_edit_work/DS-40-codex/round4/`. Next: scripted take, clip-first assembly, BMI graphic, captions and full QA. Claude competition remains separate.
+**Bill Maher Fat 90-Year-Old SFC R5 - WAITING 2026-10-22, Codex.** Fourth in edit-slot line as BILL-MAHER-CODEX; ten-minute auto-resume verified. Ownership and approved hashes checked. Next: slot, inspect Claude intro B, full R5. No production yet. Handoff: `Handoffs/handoff-20261022-bill-maher-sfc-r5.md`. Checkpoint: `round5/execution-state.json` on Extreme. Claude untouched.
 
 
 
@@ -149,15 +148,15 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-24:R2-ACTIVE:2026-10-22:Claude.** Keying resumed.
 
-**RO-14:SETUP-PICKS:2026-10-22:Claude.**
+**RO-14:QUEUED-JAN3-2027:2026-10-22:Claude.** `Docs/RO14_SETUP_RECEIPT_20261022.md`
 
-**DS-33:R3-REVIEW:2026-10-22:Claude.** 9035; commits local.
+**DS-33:R4-REVIEW:2026-10-23:Claude.** 9036; commits local.
 
 **RO-20C HOLD 2026-10-21, Claude.** Waitlist, Dec 6. `Docs/RO20C_SETUP_RECEIPT_20261021.md`
 
-**Zepbound R3 WAIT 2026-10-22, Claude.**
+**Zepbound R3 REVIEW 2026-10-22, Claude.** Page :8930.
 
-**Make Time Exercise LFC R3 - READY 2026-10-22, Claude.** Mower clips in; fire handoff. 0155161 waits on merge.
+**Make Time Exercise LFC R3 - ACTIVE 2026-10-22, Claude.** Full film rendering. `RO-18/round3/`.
 
 **Ad 6 remarketing 2026-10-04:** Awaiting Dan: copy to enabled campaign 24305381214?
 
@@ -241,15 +240,15 @@ tab; stop rather than click into spinners. `Handoffs/handoff-20260908-google-ads
 
 **VEO-ULTRA:UNPUSHED-c6e4e97:2026-10-21:Claude.**
 
-**10-23 TP docs UNPUSHED 2026-10-20, Claude.** Commit 65f8c43 local. Next: any safe-push carries it; delete this.
+**10-23 TP docs UNPUSHED 2026-10-22, Claude.** Commits 65f8c43, bb3a09c local. Next: any safe-push carries them; delete this.
 
 **Renderq v3 UNPUSHED 2026-10-21, Claude.** Commit 8499d79 (render queue v3, live on disk since 16:48) local; safe-push stopped on live edits and a merge in progress. Next: any later safe-push carries it; delete this. Detail: Handoffs/results-20261021-renderq-v3.md.
 
 **CHEAPKEY:UNPUSHED-6a81f04,b9fdd79,bae79d9:2026-10-21:Claude.**
 
-**IG Carousels B1 R2 - NEEDS DAN 2026-10-22, Claude.** Picks on artifact 7ykj2HXD1bpuFp9RGh7UzY; queued to Nov 9.
 
 **SPA:UNPUSHED-5f43cb0:2026-10-22:Claude.**
+**MERGE-FIXED:UNPUSHED-0bdebee:2026-10-22:Claude.**
 
 # BLOCKED — external
 
