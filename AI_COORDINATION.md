@@ -32,9 +32,9 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **SL-16:PICKS+SLOT-WAIT:2026-10-22:Claude.** Fasting shorts.
 
-**Boring Abs At 40 LFC R2 - ACTIVE 2026-10-20, Codex.** Executing R2 handoff. Colour C and voice B locked; R1 preserved. Next: calibrated headroom proof, corrected opening/contexts, complete existing-AI gallery, revised A01–A04 still pairs and independent checks. No new motion or full-film render before approval. Work: `/Volumes/Extreme/_edit_work/ro27/round2/`.
+**Boring Abs At 40 LFC R2 - SLOT WAIT 2026-10-23, Codex.** First in edit-cap line; automatic resume armed. Local project path verified; R2 scripts updated. Previews rendered, final checks pending. Next: rerun calibrated hair check, sound review, checked review page. No new motion/full film. Resume: `/Volumes/Extreme/_edit_work/ro27/round2/RESUME-20261023.md`.
 
-**Calories Not Losing Weight SFL R5 - REVIEW 2026-10-20, Codex.** Standing-counter Snack on Protein, Not Carbs pair passed measured and independent checks. Narrated review: http://127.0.0.1:9042/. Next: Dan approves this pair before Flow. Fasting R4 frames approved; R2/R3/R4 untouched. No covers or publishing.
+**Calories Not Losing Weight SFL R5 - SLOT WAIT 2026-10-23, Codex.** Both revised pairs approved; R6 motion next. Second in edit-cap line; automatic background resume armed. Dan forbids screen takeover. Exact decisions/hashes and resume: `/Volumes/Extreme/_edit_work/sl08/round6/RESUME-20261023.md`. Next: admit slot, advance R6, subscription Flow with background controls only. Old rounds/panels intact; no covers or publishing.
 
 
 
@@ -42,7 +42,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Fat 90 Year Old SFC R6 - REVIEW :8940 2026-10-23, Claude.** Four graphics (new BMI table template) and edit plan shown inside a full draft. Next: Dan approves, then delivery gate, independent reviewer, delivery. Work: `/Volumes/Expansion/_edit_work/ds40/r6/`.
 
-**DS-44 Hormozi Setup - NEEDS DAN 2026-10-23, Claude.** Five covers on the sheet (`Short-form video content/Hormozi Fat Guy - DS-44/covers/`); waiting for his pick. Then prepare only; upload/Blotato HOLD until he picks scripted or off-cuff (DS-44B).
+**DS-44 Hormozi Setup - NEEDS DAN 2026-10-23, Claude.** Round 2: three split-screen covers (`Short-form video content/Hormozi Fat Guy - DS-44/covers/round2/`); waiting for his pick. Then prepare only; upload/Blotato HOLD until he picks scripted or off-cuff (DS-44B).
 
 **SL-15 HOLD 2026-10-22.** `Docs/SL15_SETUP_RECEIPT_20261022.md`
 
@@ -213,4 +213,4 @@ Memory `google-ads-ui-automation`.
 
 List: `Handoffs/README.md` (OPEN section). Add new handoffs there, never here.
 
-**Arms Shoulders Workout LFC R3 - REVIEW 2026-10-20, Codex.** Full film checked: http://127.0.0.1:8974/. Next: Dan reviews.
+**Arms Shoulders Workout LFC R4 - SLOT WAIT 2026-10-23, Codex.** Second in edit-cap line; automatic resume armed. Ownership and all eight locked hashes verified. Next: checked closer triceps crop and moving completion-screen previews for Dan before full-film rebuild. R3 reference: http://127.0.0.1:8974/. Checkpoint: `Media/video-edits/RO-04/round4/decisions.json`.
