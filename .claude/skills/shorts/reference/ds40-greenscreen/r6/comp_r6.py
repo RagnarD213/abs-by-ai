@@ -38,8 +38,8 @@ ROLLF0 = P["rollf0"]
 CACHES = [  # (first scripted j, last j, cache dir, cache index of j=0)
     (0, 14, f"{R6}/cache_S1F", ROLLF0 - 41963),               # full height, for the move (-ss 1400.15 lands on 41963)
     (15, 278, "/Volumes/Expansion/_edit_work/ds40/r2/cache_r2", 0),  # the approved R2 sample
-    (279, 690, f"{R6}/cache_S2", ROLLF0 - 42240),             # -ss 1409.40 lands on 42240
-    (1325, 1500, f"{R6}/cache_S3", ROLLF0 - 43286),           # -ss 1444.30 lands on 43286
+    (279, 690, f"{R6}/cache_S2w", ROLLF0 - 42240),           # w: re-finished with watch hold-out boxes (R6 review)             # -ss 1409.40 lands on 42240
+    (1325, 1500, f"{R6}/cache_S3w", ROLLF0 - 43286),           # -ss 1444.30 lands on 43286
 ]
 
 
