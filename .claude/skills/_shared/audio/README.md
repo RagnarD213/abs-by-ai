@@ -86,6 +86,8 @@ let comb-filtered and roomy audio ship four times.
 | `common.py` | the measurement functions, verbatim from the approved gates, so today's numbers are yesterday's numbers |
 | `selftest.sh` | **`zsh selftest.sh`** before any batch: identity on the reference, PASS on the Ad 1 vertical and the approved website rev 2, FAIL on rev 1 and on a synthetic both-mics render, `pick_lav` on all four roll types plus the C1484 window trap, stacked-pan refusal, the DEFAULT chain end-to-end on the DS-17 roll (C1670, no dereverb, gate PASS incl. artifacts), **step 6b: no dereverb by default on the wet C1650, none without a reason, none on a dry room**, **step 7: the dereverb Dan rejected must FAIL `do_no_harm` while still passing the dry-room row, and a file with no baseline must FAIL**, and **step 8: a `--synthetic` stamp must not satisfy the default `require_stamp`** |
 
+The optional compressor supports `--comp --comp-ratio 1.35` for gentler transient control. The default remains 1.5:1 when `--comp` is used, and the maximum remains 1.5. Select it by actual listening and the unchanged spread/artifact rows, not to excuse a failed output.
+
 ## The standard, measured (20–140 s window)
 
 | what a listener hears | metric | Muhammad | Ad 2 rev 2 | gate |

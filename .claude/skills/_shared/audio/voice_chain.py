@@ -142,7 +142,10 @@ def main():
     ap.add_argument("--video", help="picture to mux onto (-c:v copy); default: --in when it has video")
     ap.add_argument("--bed"); ap.add_argument("--bed-db", type=float, default=-30.0)
     ap.add_argument("--extra", help="a pre-rendered SFX/extra track mixed at 0 dB")
-    ap.add_argument("--comp", action="store_true"); ap.add_argument("--target", type=float, default=-14.0)
+    ap.add_argument("--comp", action="store_true")
+    ap.add_argument("--comp-ratio", type=float, default=1.5,
+                    help="with --comp: gentler compression from 1.0 to the approved maximum 1.5; default unchanged")
+    ap.add_argument("--target", type=float, default=-14.0)
     ap.add_argument("--tp", type=float, default=-2.5); ap.add_argument("--no-fit", action="store_true")
     ap.add_argument("--eq", help="use this EQ chain instead of fitting")
     ap.add_argument("--no-dereverb", action="store_true",
@@ -168,6 +171,11 @@ def main():
                     help="finish-only: sum a near-mono stereo mix to centred mono (L/R >= ~0.95 at lag 0 only)")
     ap.add_argument("--work", help="work dir (default beside --out)")
     A = ap.parse_args()
+    if not 1.0 <= A.comp_ratio <= 1.5:
+        raise SystemExit("--comp-ratio must be between 1.0 and the approved maximum 1.5")
+    if A.comp_ratio != 1.5 and not A.comp:
+        raise SystemExit("--comp-ratio requires --comp")
+    compress = COMPRESS.replace("ratio=1.5", f"ratio={A.comp_ratio:g}") if A.comp else ""
     if A.dereverb and not A.dereverb_because:
         raise SystemExit("--dereverb PARAMS needs --dereverb-because: the dereverb is opt-in (2026-09-29)")
     if A.dereverb_because is not None and len(A.dereverb_because.strip()) < 12:
@@ -231,7 +239,7 @@ def main():
         elif A.no_fit: eq, gains, fstep = "highpass=f=70", None, None
         else: eq, gains, fstep = fit_eq(lav, ref, work)
         log["eq"] = eq; log["eq_gains"] = gains
-        voice = ",".join(v for v in [eq, expand, (COMPRESS if A.comp else ""), "pan=stereo|c0=c0|c1=c0"] if v)
+        voice = ",".join(v for v in [eq, expand, compress, "pan=stereo|c0=c0|c1=c0"] if v)
         log["voice"] = voice; log["expander"] = bool(expand)
         if not expand:
             log["no_expander_because"] = A.no_expander_because.strip()
@@ -324,7 +332,7 @@ def main():
             prev = err
             g = np.clip(g - step * err, -10, 10); g[1:-1] = 0.15 * g[:-2] + 0.70 * g[1:-1] + 0.15 * g[2:]
             eq = eq_chain(g); log["eq"] = eq; log["eq_gains"] = [round(float(v), 2) for v in g]
-            render(",".join(v for v in [eq, expand, (COMPRESS if A.comp else ""), "pan=stereo|c0=c0|c1=c0"] if v))
+            render(",".join(v for v in [eq, expand, compress, "pan=stereo|c0=c0|c1=c0"] if v))
             err = out_err(); sc = max(np.abs(err).mean() / 1.2, np.abs(err).max() / 2.5)
             step[np.sign(err) != np.sign(prev)] *= 0.5
             print(f"  verify {k}: delivered tone mean {np.abs(err).mean():.2f} max {np.abs(err).max():.2f}  err {np.round(err,1).tolist()}")
