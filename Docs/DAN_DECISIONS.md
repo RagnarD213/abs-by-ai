@@ -6,7 +6,12 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 
 ---
 
+- **October 23 Footage Processing (2026-10-24; Decision since: 2026-10-24):** [Review identification gallery and six color/trim samples](http://127.0.0.1:9205/). Confirm exercise names and teaching intent, adjust 25 suggested favorites among 99 selections, and choose colors/trim. Recommend B and complete reps with short handles. Export Review, then tell Codex. All 115 originals preserved. Bulk finishing, shared library and Claude Edit Queue registration await these choices.
+
 - **Dad Bod SFC R1 (2026-10-24; Decision since: 2026-10-24):** [Review both opening drafts and all assets](http://127.0.0.1:9185/). Choose colour, voice for each take and optional AI frames or presenter only. Recommend Natural colour; compare scripted Natural Clear against Untreated/Warm Bass at audition 14–16s. Both full Shorts follow the shared choices. Complete bounded checks and independent review passed; no finished full films or Dan approval yet.
+
+- **Pushup Masterclass LFC R1 (2026-10-23; Decision since: 2026-10-23):** [Review first minute and all assets](http://127.0.0.1:9180/). Choose music-led demonstration or filmed spoken lesson, colour A/B/C, and keep/change framing. Recommendation: music-led, A balanced, recommended full-body crops. Full-quality VLC copy is in Videos to Review. Full film and its independent audit follow these choices; automated master-gate failures remain recorded.
+
 
 
 - **Facebook followers ad set (2026-10-22; Decision since: 2026-10-22):** Dan wants to target followers of his personal profile facebook.com/danroseninja (2.8K followers). Meta builds ad audiences only from Pages and Instagram business accounts, never a personal profile, so it cannot be built. Nothing built or spent. Rec: drop it; a free profile post asking friends to follow @danrosefit reaches the same people. No ads before Oct 30 (follower test).
@@ -14,7 +19,7 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 
 - **Review skill, two small questions (2026-10-20; Decision since: 2026-10-20):** (a) answered 2026-10-20: the eyebrow stays in capitals. (b) When a human editor sends AI start/end frames for a go-ahead, should Claude run our frame gate and a fresh frame-reviewer on them first (our own pipeline does since 2026-10-14)? Rec: yes to both.
 
-- **Arms Shoulders Workout LFC R3 (2026-10-20; Decision since: 2026-10-20):** Approve the complete 2:05.86 workout or give timestamped changes. Approved color B, framing, original stereo audio and timers retained. Full review: http://127.0.0.1:8974/. Checks and backup: `Handoffs/video-editing/ro04-round3-plan/review-receipt.json`.
+- **Arms Shoulders Workout LFC R4 (Updated: 2026-10-23; Decision since: 2026-10-20):** Approve the 20% closer overhead-triceps crop and 30-second moving completion card at http://127.0.0.1:9064/. Watch crop 0:04-0:31 and completion 0:00-0:34. Both checked; full-film rebuild waits for both approvals. R3 color B, original stereo mix and all approved hashes preserved. Receipt: `Media/video-edits/RO-04/round4/review-receipt.json`.
 
 
 
@@ -78,3 +83,6 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 - **Voice corpus, two questions (2026-10-16, Dan Voice P2B):** (1) Did Claude write the "Five Levels Of Pushups" short script? You thought so on Round 2 pair 8; if yes it leaves the corpus and the test set. (2) Settle the 13 numbers that differ between your videos (Zepbound start dose 2.5 or 1.5 mg, weight 192 to 181 or to 175, height 5'7" or 5'6", and 10 more): each is marked "conflict" inside its entry in `.claude/skills/_shared/voice/POSITIONS.md`.
 
 - **Fat Millionaire SFC R4 (2026-10-16), Decision since: 2026-10-16:** Approve the exact corrected review copy with the original camera framing and caption timing retained, or request a broader pass on those parts. The strict preset still flags both; no exception or approval is assumed. F3 stays selected and posting stays held. `Handoffs/handoff-20261016-ds05-correct-version.md`
+
+
+- **Calories: The Reason You’re Not Losing Weight Shorts SFL R6 (2026-10-23; Decision since: 2026-10-23):** [Review fasting opening](http://127.0.0.1:9058/), 0:00–0:06.24 and return 0:05.8–0:08.2. Flow refused both approved protein-scene attempts; choose existing filmed opening (recommended) or new clothed comparison scene in the pending chat question. Original approved frames preserved. No full-film assembly, covers, uploads or publishing.

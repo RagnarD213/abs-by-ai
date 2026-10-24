@@ -25,16 +25,18 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**Morning brief recovery - MOVE WATCH 2026-10-24, Codex.** October 24 brief published and stored document verified; planning paths repaired, 30 tests pass. Codex mover running; cloud-only files decreased 3,162 to 3,070 at 10:56 Central. Hourly heartbeat `verify-codex-icloud-move` waits for Codex DONE, then verifies local files, Git and trust config. Detail: recovery handoff.
+
 **Codex folder iCloud move WATCHING 2026-10-24, Claude.** `rename.sh Codex` downloads 3,162 cloud-only files, then moves `~/Documents/Codex` to `~/Projects/Codex`. Next: `DONE` in `~/Projects/.icloud-move.log`; Codex verifies per `Handoffs/handoff-20261024-codex-icloud-repair-followup.md`.
 
-**October 23 Footage Processing - ACTIVE 2026-10-24, Codex.** Owns SHOOT-20261023; verified Expansion receipt and all 230 file sizes. Inventory, identification gallery and six look/trim samples first; bulk finishing waits for Dan. Originals preserved. Next: source probes and script matching. Checkpoint: `Media/footage-index/shoot-20261023/checkpoint.json`.
+**October 23 Footage Processing - REVIEW 2026-10-24, Codex.** Owns SHOOT-20261023. Gallery: http://127.0.0.1:9205/ (99 selections, 25 suggested favorites, six color/trim samples). All 115 sources indexed; 30 Shorts and two long-forms mapped privately. Slot released. Next: import Dan export, then finish all usable takes, shared library and queue registration. Originals preserved; no final library masters or queue writes yet. Checkpoint: `Media/footage-index/shoot-20261023/checkpoint.json`.
 
 
-**Five Minute Exercises SFC R1 - REVIEW 2026-10-23, Codex.** The 3 Exercises I'd Do If I Only Had 5 Minutes (DS-55): checked colour/voice/crop comparisons at http://127.0.0.1:9175/, recommend A/C/1; awaiting Dan. Slot released; heartbeat paused. No full Short, final gates or independent audit yet. Next: picks, then finish edit. Receipt: `/Volumes/Extreme/_edit_work/DS-55/round1/records/review-receipt.json`.
+**Five Minute Exercises SFC R2 - SLOT WAIT 2026-10-24, Codex.** The 3 Exercises I'd Do If I Only Had 5 Minutes (DS-55): Dan approved colour B, voice B, crop 1; exact scopes/hashes saved. Second in line; no production started. Same-chat auto-resume continues once admitted, then shared round controller advances the edit. Resume: `/Volumes/Extreme/_edit_work/DS-55/round2/RESUME.md`.
 
-**Arms Shoulders Workout LFC R5 - BUILD 2026-10-24, Codex.** Owner01a16ad1-c23f-7342-b38d-72b5ecf64445 verified, slot held, heartbeat paused. Completion celebration preview only; exact R4closer remains pending. Next: render centered larger headings/replay copy and continuous confetti, exact-file QC and one independent review. Checkpoint: `Media/video-edits/RO-04/round5/decisions.json`.
+**Arms Shoulders Workout LFC R5 - RENDER QUEUED 2026-10-23, Codex.** Owner01a16ad1-c23f-7342-b38d-72b5ecf64445 verified; slot held. Scoped celebration preview and initial QA queued as one chain; no new review export yet. Heartbeat resumes this owner automatically for self-review, independent review and delivery. Exact R4closer remains pending. Checkpoint: `Media/video-edits/RO-04/round5/decisions.json`.
 
-**Ronaldo Ab Belt SFC Setup - REVISED COVER REVIEW 2026-10-23, Codex.** Dan picked 3 with laughing-expression revision. Both revised layouts checked at http://127.0.0.1:9173/, awaiting exact-file approval. Approved R5 preserved; no uploads/schedules. Next: approval, backups and four-platform Thursday setup or shared waitlist. State: `Short-form video content/covers/review/ds33-ronaldo-20261023/SETUP-STATE.json`.
+**Ronaldo Ab Belt SFC Setup - REVISED COVER REVIEW 2026-10-24, Codex.** Cover 3 expression R3: eyes slightly open, head tilted back, harder laugh. Both layouts checked at http://127.0.0.1:9173/, awaiting Dan's approval. Approved R5 film preserved; no uploads/schedules. Next: approval, backups and four-platform Thursday setup or shared waitlist. State: `Short-form video content/covers/review/ds33-ronaldo-20261023/SETUP-STATE.json`.
 
 **Pushup Masterclass LFC R1 - REVIEW 2026-10-23, Codex.** RO-09 first-minute, all asset contexts and look/framing choices checked for creative review at http://127.0.0.1:9180/; full-quality VLC copy present. Full-master gates remain failed, recorded explicitly. Next: Dan’s three choices in `Docs/DAN_DECISIONS.md`, then full film and independent audit. Heartbeat paused; slot released for review. Resume: `Media/video-edits/RO-09/round1/checkpoint.json`.
 
