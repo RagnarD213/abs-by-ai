@@ -1,3 +1,5 @@
+**SUPERSEDED 2026-10-24 by `handoff-20261024-ro24-celebrity-ozempic-round3.md` (Dan's round 2 reply). Do not execute.**
+
 **LFC.** Task name: `Celebrity Ozempic LFC R3`.
 
 # RO-24 "Reacting To Celebrity Ozempic Transformations": round 3 handoff (written 2026-10-23 at the end of round 2)
