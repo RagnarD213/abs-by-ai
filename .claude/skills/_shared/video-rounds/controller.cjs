@@ -84,7 +84,7 @@ async function run(p, {call, store, verifyLocks, verifyRepoPath}, options = {}) 
   const projects = await read('list_projects', {});
   const project = projects.projects?.find(x => x.projectId === p.projectId);
   check(project?.hostId === p.oldHostId && await sameRepo(project.path, p.repoPath), 'Project path/host mismatch; do not create elsewhere');
-  let listing = await read('list_threads', {limit: 100});
+  let listing = await read('list_threads', {limit: 50});
   const find = (l, id, host) => [...(l.pinnedThreads || []), ...(l.threads || [])].find(x => x.id === id && x.hostId === host && x.kind === 'codex');
   const isPinned = (l, id, host) => (l.pinnedThreads || []).some(x => x.id === id && x.hostId === host && x.kind === 'codex');
   let old = find(listing, p.oldThreadId, p.oldHostId);
@@ -108,7 +108,7 @@ async function run(p, {call, store, verifyLocks, verifyRepoPath}, options = {}) 
   if (p.mode === 'same') {
     if (s.phase === 'prepared') await mutate('set_thread_title', {threadId: p.oldThreadId, source: 'codex', title: p.nextTitle}, {phase: 'renamed'});
     if (s.phase === 'renamed') await mutate('move_thread_to_sidebar_section', {...threadArgs(p.oldThreadId, p.oldHostId), sectionId: 'pinned'}, {phase: 'pinned'});
-    listing = await read('list_threads', {limit: 100});
+    listing = await read('list_threads', {limit: 50});
     check(isPinned(listing, p.oldThreadId, p.oldHostId) && find(listing,p.oldThreadId,p.oldHostId)?.title === p.nextTitle, 'Same-task name/pin not verified');
     if (p.queueContinuation) {
       await mutate('send_message_to_thread', {threadId:p.oldThreadId, hostId:p.oldHostId, prompt:starter, model:p.model, thinking:p.thinking},
@@ -131,7 +131,7 @@ async function run(p, {call, store, verifyLocks, verifyRepoPath}, options = {}) 
   check(observation.thread?.id === child.threadId && observation.thread?.hostId === child.hostId && await sameRepo(observation.thread?.cwd, p.repoPath),
     'New task identity/repo not verified');
   check(observation.turns?.some(t => t.startedAt != null && t.status !== 'failed' && !t.error), 'New task has no verified started turn');
-  listing = await read('list_threads', {limit:100});
+  listing = await read('list_threads', {limit:50});
   check(isPinned(listing,child.threadId,child.hostId) && find(listing,child.threadId,child.hostId)?.title === p.nextTitle,
     'New task title/pin not verified; old task stays pinned');
   // Re-check immutable approvals immediately before transferring production ownership.
@@ -141,7 +141,7 @@ async function run(p, {call, store, verifyLocks, verifyRepoPath}, options = {}) 
     // Only this packet's old task is eligible; no reorder or bulk/sidebar operations.
     await mutate('move_thread_to_sidebar_section', {...threadArgs(p.oldThreadId,p.oldHostId),sectionId:null}, {phase:'unpinned'});
   }
-  listing = await read('list_threads',{limit:100});
+  listing = await read('list_threads',{limit:50});
   check(!isPinned(listing,p.oldThreadId,p.oldHostId) && isPinned(listing,child.threadId,child.hostId), 'Final pin transfer not verified');
   await save({phase:'complete',productionOwner:child.threadId,supersededBy:child.threadId,supersedes:p.oldThreadId,
     modelVerification:'Explicit model/effort accepted by create_thread; read_thread does not expose active model'});

@@ -14,6 +14,7 @@ function fixture(opts={}) {
       store:{load:async()=>state,cas:async(expected,next)=>{assert.equal(state?.revision??null,expected);state=structuredClone(next)}},
       call:async(name,args)=>{
         name=name.replace('mcp__codex_app__','');calls.push([name,args]);
+        if(name==='list_threads')assert(args.limit<=50,'Supported app limit is 50; pinned threads are always included');
         if(opts.fail===name)throw Error('network lost');
         if(name==='list_projects')return{projects:[{projectId:'project',path:opts.projectPath||'/test',hostId:'local'}]};
         if(name==='list_threads')return{pinnedThreads:[...pins].map(id=>({id,kind:'codex',hostId:'local',cwd:opts.oldCwd||'/test',title:id==='old'?title:'Sample LFC R3'})),threads:[{id:'old',kind:'codex',hostId:'local',cwd:opts.oldCwd||'/test',title}]};
