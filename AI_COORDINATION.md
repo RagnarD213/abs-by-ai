@@ -25,15 +25,14 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**10/23 raw shoot import - COPYING 2026-10-23, Codex.** Copying 115 videos and camera sidecars from Untitled CLIP to Seagate `Abs By AI Raw Footage/10:23 dan rose fitness shoot - pool shorts and long form content`. SHA256 check on every file; SD originals retained. Next: verify completion and deliver folder. State: `~/Library/Logs/absbyai-footage-import/20261023/status.json`.
 
-**Five Minute Exercises SFC R1 - CHECKS 2026-10-23, Codex.** The 3 Exercises I'd Do If I Only Had 5 Minutes (DS-55): outdoor comparisons rendered; 58s cut mapped. Shared audio selftest running, framing check queued. Same-chat heartbeat `finish-five-minute-exercises-review` finishes and sends review once clear; no full Short delivered. Next: inspect hair proof, release slot, send colour/voice/crop choices. Resume: `/Volumes/Extreme/_edit_work/DS-55/round1/RESUME.md`.
+**Five Minute Exercises SFC R1 - REVIEW 2026-10-23, Codex.** The 3 Exercises I'd Do If I Only Had 5 Minutes (DS-55): checked colour/voice/crop comparisons at http://127.0.0.1:9175/, recommend A/C/1; awaiting Dan. Slot released; heartbeat paused. No full Short, final gates or independent audit yet. Next: picks, then finish edit. Receipt: `/Volumes/Extreme/_edit_work/DS-55/round1/records/review-receipt.json`.
 
 **Arms Shoulders Workout LFC R5 - APP PROMPT + SLOT WAIT 2026-10-23, Codex.** Started/pinned owner01a16ad1-c23f-7342-b38d-72b5ecf64445 reports waitingOnApproval before first tool call. Heartbeat active on owner; RO-04second in slot line. No R5media. Next: Dan clears app prompt, then automatic preview-only continuation. Handoff: `Handoffs/handoff-20261023-ro04-round5-celebration-preview.md`.
 
 **Ronaldo Ab Belt SFC Setup - REVISED COVER REVIEW 2026-10-23, Codex.** Dan picked 3 with laughing-expression revision. Both revised layouts checked at http://127.0.0.1:9173/, awaiting exact-file approval. Approved R5 preserved; no uploads/schedules. Next: approval, backups and four-platform Thursday setup or shared waitlist. State: `Short-form video content/covers/review/ds33-ronaldo-20261023/SETUP-STATE.json`.
 
-**Pushup Masterclass LFC R1 - FINAL PREVIEW QA 2026-10-23, Codex.** RO-09 owned by chat 01a16a4e-fac9-7db3-89e7-08dba554908b; slot held. Music-tail truncation repaired; one supervisor runs final checks and repair listener. Same heartbeat waits silently for ROOT_FINAL_QA_READY. Page :9180 not delivered. Next: inspect exact-file reports, refresh/test page, copy opening, deliver choices and release. Resume: `Media/video-edits/RO-09/round1/checkpoint.json`.
+**Pushup Masterclass LFC R1 - REVIEW 2026-10-23, Codex.** RO-09 first-minute, all asset contexts and look/framing choices checked for creative review at http://127.0.0.1:9180/; full-quality VLC copy present. Full-master gates remain failed, recorded explicitly. Next: Dan’s three choices in `Docs/DAN_DECISIONS.md`, then full film and independent audit. Heartbeat paused; slot released for review. Resume: `Media/video-edits/RO-09/round1/checkpoint.json`.
 
 **Dad Bod SFC R1 - REVIEW 2026-10-24, Codex.** Women Say They Love The Dad Bod. They Don't. (DS-35): checked both openings/all asset contexts, with exact gates and complete independent review. Shared choices: http://127.0.0.1:9185/. Awaiting Dan; voice concern recorded beside auditions. Slot released, heartbeat paused. No full films/approval/uploads. Next: picks in `Docs/DAN_DECISIONS.md`, then both Shorts. Receipt: `/Volumes/Expansion/_edit_work/DS-35/round1/review/shared-choices-receipt.json`.
 
@@ -47,7 +46,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Boring Abs At 40 LFC R2 - REVIEW 2026-10-23, Codex.** Checked opening,30contexts, four revised still pairs and216existing AI sources: http://127.0.0.1:9050/. Speech/headroom repaired; colour C, voice B and R1 preserved. Browser controls checked and test choices removed. Next: Dan chooses an existing opener and decides four pairs. No new motion/full film/upload/scheduling. Receipt: `Docs/RO27_R2_RECEIPT_20261023.md`.
 
-**Calories Not Losing Weight SFL R6 (SL-08) - SLOT WAIT 2026-10-23, Codex.** Folder/runtime access restored; hidden IAB Flow signed in on Ultra, no foreground UI. All ten approved hashes verified. First in edit-cap line, automatic resume every 10 minutes armed on owner chat 01a169a7-fab3-7330-b0f6-148b8984cffe. No generation or spend. Next: acquire slot, pause heartbeat, generate/check approved A/D opening motion. Checkpoint: `/Volumes/Extreme/_edit_work/sl08/round6/records/execution-state.json`.
+**Calories Not Losing Weight SFL R6 (SL-08) - REVIEW 2026-10-23, Codex.** Checked fasting opening and narrated context: http://127.0.0.1:9058/. Protein approved pair provider-refused twice; replacement direction pending in Docs/DAN_DECISIONS.md. R3 and B/C/E hashes preserved. Slot released; heartbeat paused. Resume same owner/revision after feedback, no duplicate round/task. State: `/Volumes/Extreme/_edit_work/sl08/round6/records/execution-state.json`.
 
 **RA-09:POLICY-RECHECK:2026-10-22:Claude.** 10-23.
 
@@ -120,7 +119,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Zepbound Even If Ripped LFC R3 - REVIEW 2026-10-22, Claude.** Full film, page :8930. Next: Dan; then setup handoff.
 
-**Make Time Exercise LFC R3 - ACTIVE 2026-10-22, Claude.** Full film rendering. `RO-18/round3/`.
+**Make Time Exercise LFC R3 - REVIEW :8983 2026-10-24, Claude.** Delivered; gate 36 pass + 3 known rows. Next: Dan reviews; on approval register mower/Wispr clips in library. `RO-18/round3/NOTES-R3.md`.
 
 **Ad 6 remarketing 2026-10-04:** Awaiting Dan: copy to enabled campaign 24305381214?
 
