@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import os
 import re
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -78,10 +79,30 @@ def extract_priorities(text, at, now, max_age_hours=36, defer_day_scope=False):
     return sorted(by_rank.values(), key=lambda p: p["rank"])
 
 
+def same_project(path, project_root: Path) -> bool:
+    """True when path is the project under any of its addresses (symlinked old locations included)."""
+    if not isinstance(path, str) or not path:
+        return False
+    return path == str(project_root) or os.path.realpath(path) == os.path.realpath(project_root)
+
+
+def transcript_for(transcript_root: Path, cli_id: str, meta: dict) -> Path:
+    """Claude stores transcripts under a folder named after the session's cwd, so a moved project has several."""
+    roots = [transcript_root]
+    for cwd in (meta.get("cwd"), meta.get("originCwd")):
+        if isinstance(cwd, str) and cwd:
+            roots.append(transcript_root.parent / ("-" + cwd.strip("/").replace("/", "-").replace(" ", "-")))
+    for root in roots:
+        candidate = root / (cli_id + ".jsonl")
+        if candidate.is_file():
+            return candidate
+    return transcript_root / (cli_id + ".jsonl")
+
+
 def read_planning(metadata_root: Path, transcript_root: Path, project_root: Path,
                   state: dict, now: datetime, max_age_hours=36, session_ids=()):
     """State contains offsets, UUID ancestry and extracted priorities, never transcripts."""
-    if not metadata_root.is_dir() or not transcript_root.is_dir():
+    if not metadata_root.is_dir() or not transcript_root.parent.is_dir():
         return {"status": "missing", "reason": "Claude desktop session directories unavailable", "priorities": []}, state
     if state.get("parserVersion") != STATE_VERSION:
         state = {"parserVersion": STATE_VERSION, "files": {}}
@@ -97,7 +118,7 @@ def read_planning(metadata_root: Path, transcript_root: Path, project_root: Path
                 if not isinstance(meta, dict):
                     raise ValueError()
                 # Exact project match before considering title or transcript contents.
-                if str(project_root) not in (meta.get("cwd"), meta.get("originCwd")):
+                if not (same_project(meta.get("cwd"), project_root) or same_project(meta.get("originCwd"), project_root)):
                     continue
                 if not PLANNING_TITLE.search(meta.get("title", "")) and meta.get("sessionId") not in session_ids:
                     continue
@@ -107,7 +128,7 @@ def read_planning(metadata_root: Path, transcript_root: Path, project_root: Path
                 cli_id = meta.get("cliSessionId", "")
                 if not UUID.fullmatch(cli_id):
                     raise ValueError()
-                transcript = transcript_root / (cli_id + ".jsonl")
+                transcript = transcript_for(transcript_root, cli_id, meta)
                 if not transcript.is_file() or transcript.is_symlink():
                     warnings.append("Planning transcript unavailable")
                     continue
@@ -153,7 +174,7 @@ def read_planning(metadata_root: Path, transcript_root: Path, project_root: Path
                             entry["leaf"] = uid
                         if row.get("type") != "user" or (row.get("origin") or {}).get("kind") != "human" or row.get("entrypoint") != "claude-desktop":
                             continue
-                        if row.get("cwd") != str(project_root):
+                        if not same_project(row.get("cwd"), project_root):
                             continue
                         content = row.get("message", {}).get("content", "")
                         if isinstance(content, list):

@@ -81,6 +81,21 @@ class InputsTest(unittest.TestCase):
         result, _ = self.read()
         self.assertIn('finish VSL', result['priorities'][0]['task'])
 
+    def test_session_recorded_under_old_symlinked_project_path(self):
+        # 2026-10-23: the project moved; sessions still record the old address, a symlink to the new one,
+        # and Claude keeps their transcripts in a folder named after that old address.
+        old = self.root / 'old-project'
+        old.symlink_to(self.project)
+        meta = json.loads(self.metadata.read_text())
+        meta.update(cwd=str(old), originCwd=str(old))
+        self.metadata.write_text(json.dumps(meta))
+        old_dir = self.root / ('-' + str(old).strip('/').replace('/', '-').replace(' ', '-'))
+        old_dir.mkdir()
+        self.file = old_dir / (CID + '.jsonl')
+        self.write_rows(self.row('a', 'Today my top priority is ship the page.', cwd=str(old)))
+        result, _ = read_planning(self.meta, self.root / 'new-transcripts', self.project, {}, NOW)
+        self.assertEqual(result['priorities'][0]['task'], 'ship the page.')
+
     def test_abandoned_branch_and_sidechain_excluded(self):
         self.write_rows(self.row('a', 'Today my top priority is old branch.'),
                         self.row('b', 'Today my top priority is active branch.', timestamp='2026-09-30T14:00:00Z'),
