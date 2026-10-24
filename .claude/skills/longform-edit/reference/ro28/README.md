@@ -68,3 +68,11 @@ cut to 6:26. Starts from RO-18's round 1 recipe (`../ro18/`); only the files tha
     (`declick.py`). The tone row fails on the approved warm bass (known; RO-14 and RA-15 shipped the same way).
 21. Flow takes on this set: start+end frames on Fast worked for A2/A3 (people talk less when the END pose is fixed); the trims that
     passed are A2 t1 f36-187, A3 t3 f90-187 (t3 smears at 188).
+
+## Round 4 traps (2026-10-23/24)
+22. **Measure a B-roll grade through the build path (`gfx.clip_frame`), never on a hand-built test chain.** The build applies the grade
+    to the decoded YUV frame before `format=rgb24`; my test chain converted to RGB first, so a grade that measured 9% black / median 69
+    rendered at 5.5% / 75 (washed out), and the one before it crushed to 25% black. Target the film's own approved pool clips
+    (C01/C05/C12: 10-17% black, saturation .27-.38, median 55-71); C07 passed at 11% / .39 / 61 (`POOL_SHADE`).
+23. **A "click" on an audio join can be a 0.2 s breath, not the next word's onset** (6:17.5: burst 377.51-377.71, "Thank" at 377.87).
+    Read 5 ms levels across 0.5 s before deciding; fill a breath with room tone (`roomfill.py`), blend only a ~10 ms tick (`declick.py`).
