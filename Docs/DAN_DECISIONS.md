@@ -6,6 +6,8 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 
 ---
 
+- **Dad Bod SFC R1 (2026-10-24; Decision since: 2026-10-24):** [Review both opening drafts and all assets](http://127.0.0.1:9185/). Choose colour, voice for each take and optional AI frames or presenter only. Recommend Natural colour; compare scripted Natural Clear against Untreated/Warm Bass at audition 14–16s. Both full Shorts follow the shared choices. Complete bounded checks and independent review passed; no finished full films or Dan approval yet.
+
 
 - **Facebook followers ad set (2026-10-22; Decision since: 2026-10-22):** Dan wants to target followers of his personal profile facebook.com/danroseninja (2.8K followers). Meta builds ad audiences only from Pages and Instagram business accounts, never a personal profile, so it cannot be built. Nothing built or spent. Rec: drop it; a free profile post asking friends to follow @danrosefit reaches the same people. No ads before Oct 30 (follower test).
 
