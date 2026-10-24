@@ -25,6 +25,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**October 23 Footage Processing - ACTIVE 2026-10-24, Codex.** Owns SHOOT-20261023; verified Expansion receipt and all 230 file sizes. Inventory, identification gallery and six look/trim samples first; bulk finishing waits for Dan. Originals preserved. Next: source probes and script matching. Checkpoint: `Media/footage-index/shoot-20261023/checkpoint.json`.
+
 
 **Five Minute Exercises SFC R1 - REVIEW 2026-10-23, Codex.** The 3 Exercises I'd Do If I Only Had 5 Minutes (DS-55): checked colour/voice/crop comparisons at http://127.0.0.1:9175/, recommend A/C/1; awaiting Dan. Slot released; heartbeat paused. No full Short, final gates or independent audit yet. Next: picks, then finish edit. Receipt: `/Volumes/Extreme/_edit_work/DS-55/round1/records/review-receipt.json`.
 
