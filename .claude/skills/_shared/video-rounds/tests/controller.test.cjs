@@ -15,10 +15,10 @@ function fixture(opts={}) {
       call:async(name,args)=>{
         name=name.replace('mcp__codex_app__','');calls.push([name,args]);
         if(opts.fail===name)throw Error('network lost');
-        if(name==='list_projects')return{projects:[{projectId:'project',path:'/test',hostId:'local'}]};
-        if(name==='list_threads')return{pinnedThreads:[...pins].map(id=>({id,kind:'codex',hostId:'local',cwd:'/test',title:id==='old'?title:'Sample LFC R3'})),threads:[{id:'old',kind:'codex',hostId:'local',cwd:'/test',title}]};
+        if(name==='list_projects')return{projects:[{projectId:'project',path:opts.projectPath||'/test',hostId:'local'}]};
+        if(name==='list_threads')return{pinnedThreads:[...pins].map(id=>({id,kind:'codex',hostId:'local',cwd:opts.oldCwd||'/test',title:id==='old'?title:'Sample LFC R3'})),threads:[{id:'old',kind:'codex',hostId:'local',cwd:opts.oldCwd||'/test',title}]};
         if(name==='create_thread')return opts.pendingCreate?{clientThreadId:'pending'}:{threadId:'child',hostId:'local'};
-        if(name==='read_thread')return{thread:{id:'child',hostId:'local',cwd:'/test'},turns:opts.notStarted?[]:[{id:'turn',status:'inProgress',startedAt:123}]};
+        if(name==='read_thread')return{thread:{id:'child',hostId:'local',cwd:opts.childCwd||'/test'},turns:opts.notStarted?[]:[{id:'turn',status:'inProgress',startedAt:123}]};
         if(name==='set_thread_title')title=args.title;
         if(name==='move_thread_to_sidebar_section') {
           if(args.sectionId==='pinned'){if(!opts.pinNotApplied)pins.add(args.threadId)}else pins.delete(args.threadId);
@@ -50,3 +50,15 @@ test('same Sol/high task continues inline without messaging or new task',async()
 test('changed revision packet cannot create second child for reserved round',async()=>{const f=fixture();await run(plan(input,catalog),f.deps,exec);await assert.rejects(run(plan({...input,revisions:'different'},catalog),f.deps,exec),/different packet/);assert.equal(f.calls.filter(x=>x[0]==='create_thread').length,1)});
 test('child wake uncertainty blocks resend despite completed pin transfer',async()=>{const f=fixture({fail:'send_message_to_thread'}),p=plan(input,catalog);await assert.rejects(run(p,f.deps,exec),/network/);await assert.rejects(run(p,f.deps,exec),/Uncertain/);assert.equal(f.calls.filter(x=>x[0]==='send_message_to_thread').length,1);assert.equal(f.state.productionOwner,'child')});
 test('unrelated predecessor title blocks creation and unpin',async()=>{const f=fixture({oldTitle:'Other Video LFC R2'});await assert.rejects(run(plan(input,catalog),f.deps,exec),/unrelated task/);assert(f.pins.has('old'));assert(!f.calls.some(x=>x[0]==='create_thread'))});
+
+test('filesystem-verified symlink aliases retain task and host checks',async()=>{
+ const f=fixture({projectPath:'/old-alias',oldCwd:'/canonical',childCwd:'/canonical'});
+ const pairs=[];f.deps.verifyRepoPath=async(a,b)=>{pairs.push([a,b]);return ['/old-alias','/canonical','/test'].includes(a)&&b==='/test'};
+ const s=await run(plan(input,catalog),f.deps,exec);assert.equal(s.productionOwner,'child');assert(pairs.some(x=>x[0]==='/old-alias'));assert(pairs.some(x=>x[0]==='/canonical'));
+});
+test('unverified or unrelated repository aliases never create a task',async()=>{
+ for(const resolver of [undefined,async()=>false]){
+  const f=fixture({projectPath:'/unrelated'});f.deps.verifyRepoPath=resolver;
+  await assert.rejects(run(plan(input,catalog),f.deps,exec),/Project path/);assert(!f.calls.some(x=>x[0]==='create_thread'));assert(f.pins.has('old'));
+ }
+});

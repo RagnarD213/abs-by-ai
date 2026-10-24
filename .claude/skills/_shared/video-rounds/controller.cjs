@@ -44,7 +44,7 @@ function plan(input, catalog) {
     reason: same ? 'Small contained work, recent reply, context below 40%' : 'Stage/context warrants a fresh task; preserve prior round',
     queueContinuation: same && (input.currentModel !== model || input.currentThinking !== thinking)};
 }
-async function run(p, {call, store, verifyLocks}, options = {}) {
+async function run(p, {call, store, verifyLocks, verifyRepoPath}, options = {}) {
   // dryRun performs zero reads/writes or task calls, so it can be safely used on production inputs.
   if (options.dryRun) return {dryRun: true, plan: p};
   check(options.authorized === true, 'Execution requires the actual revision trigger, not a workflow implementation test');
@@ -76,15 +76,20 @@ async function run(p, {call, store, verifyLocks}, options = {}) {
     await save({...delta, pending: null});
     return r;
   }
+  async function sameRepo(a, b) {
+    if (a === b && typeof a === 'string' && a.length) return true;
+    if (!a || !b || !verifyRepoPath) return false;
+    return (await verifyRepoPath(a, b)) === true;
+  }
   const projects = await read('list_projects', {});
   const project = projects.projects?.find(x => x.projectId === p.projectId);
-  check(project?.path === p.repoPath && project?.hostId === p.oldHostId, 'Project path/host mismatch; do not create elsewhere');
+  check(project?.hostId === p.oldHostId && await sameRepo(project.path, p.repoPath), 'Project path/host mismatch; do not create elsewhere');
   let listing = await read('list_threads', {limit: 100});
   const find = (l, id, host) => [...(l.pinnedThreads || []), ...(l.threads || [])].find(x => x.id === id && x.hostId === host && x.kind === 'codex');
   const isPinned = (l, id, host) => (l.pinnedThreads || []).some(x => x.id === id && x.hostId === host && x.kind === 'codex');
   let old = find(listing, p.oldThreadId, p.oldHostId);
   if (!old) old = (await read('read_thread',{threadId:p.oldThreadId,hostId:p.oldHostId,turnLimit:1,includeOutputs:false})).thread;
-  check(old && old.cwd === p.repoPath, 'Old task identity or repo cannot be verified');
+  check(old && await sameRepo(old.cwd, p.repoPath), 'Old task identity or repo cannot be verified');
   check(old.id === p.oldThreadId && old.hostId === p.oldHostId &&
     (old.title === `${p.title} ${p.type} R${p.round}` || (p.mode === 'same' && s.phase !== 'prepared' && old.title === p.nextTitle)),
     'Old task title/round does not match this video; never unpin an unrelated task');
@@ -123,7 +128,7 @@ async function run(p, {call, store, verifyLocks}, options = {}) {
   const child = s.child;
   if (s.phase === 'created') await mutate('move_thread_to_sidebar_section', {...threadArgs(child.threadId,child.hostId), sectionId:'pinned'}, {phase:'pinned'});
   const observation = await read('read_thread', {threadId:child.threadId,hostId:child.hostId,turnLimit:1,includeOutputs:false});
-  check(observation.thread?.id === child.threadId && observation.thread?.hostId === child.hostId && observation.thread?.cwd === p.repoPath,
+  check(observation.thread?.id === child.threadId && observation.thread?.hostId === child.hostId && await sameRepo(observation.thread?.cwd, p.repoPath),
     'New task identity/repo not verified');
   check(observation.turns?.some(t => t.startedAt != null && t.status !== 'failed' && !t.error), 'New task has no verified started turn');
   listing = await read('list_threads', {limit:100});

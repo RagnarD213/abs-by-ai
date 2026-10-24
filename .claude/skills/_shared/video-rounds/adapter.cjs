@@ -17,6 +17,12 @@ module.exports = function adapter(tools, repoPath, journalPath) {
       return tools[name](args);
     },
     store:{load:() => journal('read'),cas:(expected,state) => journal('cas',{expected,state})},
-    verifyLocks:(files,decisions) => journal('verify',{files,decisions})
+    verifyLocks:(files,decisions) => journal('verify',{files,decisions}),
+    verifyRepoPath:async(a,b) => {
+      const code = 'import os,sys,json; print(json.dumps(os.path.samefile(sys.argv[1],sys.argv[2])))';
+      const r = await tools.exec_command({cmd:'python3 -c ' + quote(code) + ' ' + quote(a) + ' ' + quote(b), workdir:repoPath, max_output_tokens:1000});
+      if (r.exit_code !== 0 || r.session_id) return false;
+      return r.output.trim() === 'true';
+    }
   };
 };
