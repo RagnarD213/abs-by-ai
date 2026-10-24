@@ -48,9 +48,9 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Edit cap LIVE 2026-10-21, Claude.** Pushed; main folder mid-merge (not mine), so its skills lack it until merged. Next: delete after that merge.
 
-**SL-16:PICKS+SLOT-WAIT:2026-10-22:Claude.** Fasting shorts.
+**SL-16:R1-REVIEW:9016:2026-10-24:Claude.** Fasting shorts x4 delivered.
 
-**Boring Abs At 40 LFC R3 - SLOT WAIT 2026-10-24, Codex.** First in line; automatic resume armed. R3 decisions and33locks saved. A02-A04 approved; chest-level A01, routine quadrant opener, closer horizontal overweight Dan, plentiful contextual cutaways and new real gym footage requested. R2 stays pinned until verified R3 transfer. Next: admit slot, advance round, rebuild contextual review. Resume: `/Volumes/Extreme/_edit_work/ro27/round3/RESUME-R3.md`.
+**Boring Abs At 40 LFC R3 - APP HOLD 2026-10-24, Codex.** Started/pinned owner `01a16eb1-8a47-70e1-b86c-87dd9d5a12f5`; R2 unpinned after verification. Slot held,33locks preserved. App reports waitingOnApproval; tools do not expose requested action. Media production not verified. Next: inspect pending approval in R3, then execute contextual routine-clip revision. Handoff: `/Volumes/Extreme/_edit_work/ro27/round3/RESUME-R3.md`.
 
 **Calories Not Losing Weight SFL R6 (SL-08) - REVIEW 2026-10-23, Codex.** Checked fasting opening and narrated context: http://127.0.0.1:9058/. Protein approved pair provider-refused twice; replacement direction pending in Docs/DAN_DECISIONS.md. R3 and B/C/E hashes preserved. Slot released; heartbeat paused. Resume same owner/revision after feedback, no duplicate round/task. State: `/Volumes/Extreme/_edit_work/sl08/round6/records/execution-state.json`.
 
