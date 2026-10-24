@@ -11,6 +11,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Codex after the iCloud move](handoff-20261024-codex-icloud-repair-followup.md): **Fire now. Codex, GPT-6.1 Sol, high.** Tooling. Brief collector fixed (ef5d7a3); Codex finishes the morning brief run from the main project and checks the background move of its own folder out of iCloud (`rename.sh Codex`).
 - [Ronaldo Ab Belt SFC Setup](handoff-20261023-ds33-ronaldo-ab-belt-setup-codex.md): **Ready now (2026-10-23). Codex, GPT-6.1 Sol, high.** CONTENT SFC DS-33 approved R5: five Codex covers, stop for Dan's pick, then Blotato on the next free Thursday; ai_generated false.
 - [Hormozi Fat Guy Off-Cuff SFC R1](handoff-20261023-ds44-hormozi-off-the-cuff-take.md): **Fire now. Claude Opus 5.5, high.** CONTENT SFC DS-44B: edit Dan's off-the-cuff Hormozi take (C1730 2325-2391) in the locked reaction format, reusing the approved scripted Short's opening, card and key; page with both versions side by side so Dan picks one.
 - [Top 5 Ab Exercises SFC R4](handoff-20261022-top5-ab-exercises-cable-crunch-broll.md): **Fire after Dan films the cable crunch B-roll (planned 2026-10-23). Claude Opus 5.5, high.** CONTENT SFC DS-01: Muhammad's V4 accepted; swap the stock cable crunch clip (0:18.79 - 0:25.99) for Dan's footage on our side, everything else untouched; review page, stop.

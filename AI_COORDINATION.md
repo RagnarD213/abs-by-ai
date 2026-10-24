@@ -25,12 +25,14 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**Codex folder iCloud move WATCHING 2026-10-24, Claude.** `rename.sh Codex` downloads 3,162 cloud-only files, then moves `~/Documents/Codex` to `~/Projects/Codex`. Next: `DONE` in `~/Projects/.icloud-move.log`; Codex verifies per `Handoffs/handoff-20261024-codex-icloud-repair-followup.md`.
+
 **October 23 Footage Processing - ACTIVE 2026-10-24, Codex.** Owns SHOOT-20261023; verified Expansion receipt and all 230 file sizes. Inventory, identification gallery and six look/trim samples first; bulk finishing waits for Dan. Originals preserved. Next: source probes and script matching. Checkpoint: `Media/footage-index/shoot-20261023/checkpoint.json`.
 
 
 **Five Minute Exercises SFC R1 - REVIEW 2026-10-23, Codex.** The 3 Exercises I'd Do If I Only Had 5 Minutes (DS-55): checked colour/voice/crop comparisons at http://127.0.0.1:9175/, recommend A/C/1; awaiting Dan. Slot released; heartbeat paused. No full Short, final gates or independent audit yet. Next: picks, then finish edit. Receipt: `/Volumes/Extreme/_edit_work/DS-55/round1/records/review-receipt.json`.
 
-**Arms Shoulders Workout LFC R5 - APP PROMPT + SLOT WAIT 2026-10-23, Codex.** Started/pinned owner01a16ad1-c23f-7342-b38d-72b5ecf64445 reports waitingOnApproval before first tool call. Heartbeat active on owner; RO-04second in slot line. No R5media. Next: Dan clears app prompt, then automatic preview-only continuation. Handoff: `Handoffs/handoff-20261023-ro04-round5-celebration-preview.md`.
+**Arms Shoulders Workout LFC R5 - BUILD 2026-10-24, Codex.** Owner01a16ad1-c23f-7342-b38d-72b5ecf64445 verified, slot held, heartbeat paused. Completion celebration preview only; exact R4closer remains pending. Next: render centered larger headings/replay copy and continuous confetti, exact-file QC and one independent review. Checkpoint: `Media/video-edits/RO-04/round5/decisions.json`.
 
 **Ronaldo Ab Belt SFC Setup - REVISED COVER REVIEW 2026-10-23, Codex.** Dan picked 3 with laughing-expression revision. Both revised layouts checked at http://127.0.0.1:9173/, awaiting exact-file approval. Approved R5 preserved; no uploads/schedules. Next: approval, backups and four-platform Thursday setup or shared waitlist. State: `Short-form video content/covers/review/ds33-ronaldo-20261023/SETUP-STATE.json`.
 
@@ -46,7 +48,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **SL-16:PICKS+SLOT-WAIT:2026-10-22:Claude.** Fasting shorts.
 
-**Boring Abs At 40 LFC R2 - REVIEW 2026-10-23, Codex.** Checked opening,30contexts, four revised still pairs and216existing AI sources: http://127.0.0.1:9050/. Speech/headroom repaired; colour C, voice B and R1 preserved. Browser controls checked and test choices removed. Next: Dan chooses an existing opener and decides four pairs. No new motion/full film/upload/scheduling. Receipt: `Docs/RO27_R2_RECEIPT_20261023.md`.
+**Boring Abs At 40 LFC R3 - SLOT WAIT 2026-10-24, Codex.** First in line; automatic resume armed. R3 decisions and33locks saved. A02-A04 approved; chest-level A01, routine quadrant opener, closer horizontal overweight Dan, plentiful contextual cutaways and new real gym footage requested. R2 stays pinned until verified R3 transfer. Next: admit slot, advance round, rebuild contextual review. Resume: `/Volumes/Extreme/_edit_work/ro27/round3/RESUME-R3.md`.
 
 **Calories Not Losing Weight SFL R6 (SL-08) - REVIEW 2026-10-23, Codex.** Checked fasting opening and narrated context: http://127.0.0.1:9058/. Protein approved pair provider-refused twice; replacement direction pending in Docs/DAN_DECISIONS.md. R3 and B/C/E hashes preserved. Slot released; heartbeat paused. Resume same owner/revision after feedback, no duplicate round/task. State: `/Volumes/Extreme/_edit_work/sl08/round6/records/execution-state.json`.
 
@@ -113,7 +115,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-06:POLICY-RECHECK:2026-10-16:Claude.** Ads `828274063389`, `828320387740` in review. Next 10-17: `node scripts/ads/api/client.js policy 24316364155`; clean, delete this.
 
-**RO-24:R2-REVIEW:9125:2026-10-23:Claude.**
+**RO-24:R3-HANDOFF:2026-10-24:Claude.** Card `Celebrity Ozempic LFC R3`.
 
 **RO-14:QUEUED-JAN3-2027:2026-10-22:Claude.** `Docs/RO14_SETUP_RECEIPT_20261022.md`
 
