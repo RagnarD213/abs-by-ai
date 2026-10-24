@@ -25,14 +25,14 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**Morning brief recovery - MOVE WATCH 2026-10-24, Codex.** October 24 brief published and stored document verified; planning paths repaired, 30 tests pass. Codex mover running; cloud-only files decreased 3,162 to 3,070 at 10:56 Central. Hourly heartbeat `verify-codex-icloud-move` waits for Codex DONE, then verifies local files, Git and trust config. Detail: recovery handoff.
+**Morning brief recovery - MOVE WATCH 2026-10-24, Codex.** October 24 brief published and stored document verified; planning paths repaired, 30 tests pass. Codex mover running; cloud-only files decreased 3,162 to 2,432 at 13:57 Central. Hourly heartbeat `verify-codex-icloud-move` waits for Codex DONE, then verifies local files, Git and trust config. Detail: recovery handoff.
 
 **Codex folder iCloud move WATCHING 2026-10-24, Claude.** `rename.sh Codex` downloads 3,162 cloud-only files, then moves `~/Documents/Codex` to `~/Projects/Codex`. Next: `DONE` in `~/Projects/.icloud-move.log`; Codex verifies per `Handoffs/handoff-20261024-codex-icloud-repair-followup.md`.
 
 **October 23 Footage Processing - REVIEW 2026-10-24, Codex.** Owns SHOOT-20261023. Gallery: http://127.0.0.1:9205/ (99 selections, 25 suggested favorites, six color/trim samples). All 115 sources indexed; 30 Shorts and two long-forms mapped privately. Slot released. Next: import Dan export, then finish all usable takes, shared library and queue registration. Originals preserved; no final library masters or queue writes yet. Checkpoint: `Media/footage-index/shoot-20261023/checkpoint.json`.
 
 
-**Five Minute Exercises SFC R2 - SLOT WAIT 2026-10-24, Codex.** The 3 Exercises I'd Do If I Only Had 5 Minutes (DS-55): Dan approved colour B, voice B, crop 1; exact scopes/hashes saved. Second in line; no production started. Same-chat auto-resume continues once admitted, then shared round controller advances the edit. Resume: `/Volumes/Extreme/_edit_work/DS-55/round2/RESUME.md`.
+**Five Minute Exercises SFC R2 - APP HOLD 2026-10-24, Codex.** The 3 Exercises I'd Do If I Only Had 5 Minutes (DS-55): B/B/1 locked. Owner `01a16ec1-c45d-7330-b5dc-a3fefc7b1ddd` started/pinned on Sol high; R1 unpinned after verification. App reports waitingOnApproval; tools hide requested action. Production not verified. Next: inspect R2 app approval, then narrated opening/asset packet. Receipt: `/Volumes/Extreme/_edit_work/DS-55/round2/transfer-receipt.json`.
 
 **Arms Shoulders Workout LFC R5 - RENDER QUEUED 2026-10-23, Codex.** Owner01a16ad1-c23f-7342-b38d-72b5ecf64445 verified; slot held. Scoped celebration preview and initial QA queued as one chain; no new review export yet. Heartbeat resumes this owner automatically for self-review, independent review and delivery. Exact R4closer remains pending. Checkpoint: `Media/video-edits/RO-04/round5/decisions.json`.
 
@@ -56,6 +56,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-09:POLICY-RECHECK:2026-10-22:Claude.** 10-23.
 
+
+**Hormozi Fat Guy Off-Cuff SFC R1 - REVIEW 2026-10-24, Claude.** DS-44B independent review SHIP; side-by-side page http://127.0.0.1:9045/ (scripted A vs off-cuff B, 73.6 s). Slot released. Next: Dan picks; if B, DS-44 setup swaps media to `Short-form video content/Hormozi Fat Guy - DS-44/Hormozi Fat Guy Off-Cuff SFC R1 - complete Short.mp4` (sha 15cd84a8, no AI flag).
 
 **DS-44 Hormozi QUEUED 2026-10-23, Claude.** Scripted R2 queued Thu Dec 17, all four; if Dan picks off-cuff (DS-44B), swap media. `Docs/DS44_SETUP_RECEIPT_20261023.md`
 
