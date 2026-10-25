@@ -17,6 +17,8 @@ const {wallpaperStatus}=require('../web/favorites'),{choose,INTERVAL}=require('.
  const independent={a:{sha256:'0',nextChangeAt:100},b:{sha256:'1',nextChangeAt:200},c:{sha256:'2',nextChangeAt:300}};
  assert.deepEqual(choose(['0','1','2','3'],['a','b','c'],independent,150).map(d=>d.id),['a']);
  assert.deepEqual(choose([],['a','b','c'],independent,999),[]);
+ const staggered=choose(['0','1','2'],['a','b','c'],independent,150);
+ assert.equal(staggered.length,1);assert.notEqual(staggered[0].sha256,'0','A due screen must change even when the other two keep their independent deadlines');
  const pg=newDb({noAstCoverageCheck:true}).adapters.createPg(),pool=new pg.Pool(),store=createStore(pool),now=Date.now();
  const pair=crypto.generateKeyPairSync('ed25519'),other=crypto.generateKeyPairSync('ed25519');
  const env={BRIEF_OWNER_EMAIL:'synthetic@gmail.com',BRIEF_GOOGLE_CLIENT_ID:'123456-test.apps.googleusercontent.com',BRIEF_WALLPAPER_PUBLIC_KEY:pair.publicKey.export({type:'spki',format:'der'}).toString('base64')};

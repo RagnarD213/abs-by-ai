@@ -9,7 +9,7 @@ function choose(images,displays,previous,now,random) {
  if(!ids.length)return [];
  const due=displays.filter(d=>!ids.includes(previous[d]?.sha256)||!(previous[d]?.nextChangeAt>now));
  const fixed=Object.fromEntries(displays.filter(d=>!due.includes(d)).map(d=>[d,previous[d].sha256]));
- for(const [noRepeat,distinct] of [[true,true],[false,true],[true,false],[false,false]]) {
+ for(const [noRepeat,distinct] of [[true,true],[true,false],[false,true],[false,false]]) {
   function search(index,choices) {
    if(index===due.length)return !distinct||new Set(Object.values(choices)).size>=target ? choices : null;
    const display=due[index];

@@ -25,7 +25,11 @@ func publicDER(_ key:Curve25519.Signing.PrivateKey)->Data {
 }
 func screenID(_ screen:NSScreen)->String { String((screen.deviceDescription[NSDeviceDescriptionKey("NSScreenNumber")] as? UInt32) ?? 0) }
 func screens()->[[String:Any]] {
- NSScreen.screens.map{["id":screenID($0),"name":$0.localizedName,"path":NSWorkspace.shared.desktopImageURL(for:$0)?.path ?? ""]}
+ NSScreen.screens.map { screen in
+ let id=UInt32(screenID(screen)) ?? 0
+ let uuid=CGDisplayCreateUUIDFromDisplayID(id).takeRetainedValue()
+ return ["id":screenID(screen),"uuid":CFUUIDCreateString(nil,uuid) as String,"name":screen.localizedName,"path":NSWorkspace.shared.desktopImageURL(for:screen)?.path ?? ""]
+ }
 }
 do {
  guard CommandLine.arguments.count==2 else { fail("Choose --inspect, --apply, --sign, --public, or --enroll") }

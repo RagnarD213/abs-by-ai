@@ -22,7 +22,8 @@ and grant. The implementation alone does not enroll a Mac or grant access.
 After approval, from this trusted checkout:
 
 1. `python3 scripts/brief/wallpaper/install.py install` compiles and installs the
-   helper, enrolls the Keychain key, backs up current wallpaper paths and prepares
+   helper, enrolls the Keychain key, backs up current wallpaper paths (with physical display UUIDs), preserves the
+   existing system shuffle/Space configuration, and prepares
    the LaunchAgent without starting it. Capture only the public-key output.
 2. Configure that public key on the existing site service using Railway.
 3. `python3 scripts/brief/wallpaper/install.py start` starts the reader.
@@ -31,7 +32,22 @@ After approval, from this trusted checkout:
    signed status. Observe the next 30-minute transition on each screen before
    reporting complete end-to-end rotation.
 
-Stop with `python3 scripts/brief/wallpaper/install.py stop`, revoke the Railway
-public-key variable, and use `wallpapers-before.json` to restore prior settings if
-requested. Keep originals and archived provenance. Do not remove the Keychain
-entry, cache or backups without an explicit deletion request.
+Disable with `python3 scripts/brief/wallpaper/install.py stop`. It writes an
+offline-disable marker, disables future launchd starts, unloads the exact reader
+job, renames only its plist, and verifies the reader/helper are no longer running.
+A failed verification is reported as incomplete. Revoke the Railway public-key
+variable separately: revocation prevents network access but cannot stop an
+already-cached offline rotator. Local disable stops that rotation.
+
+Restore with `python3 scripts/brief/wallpaper/install.py restore`. It first performs
+the verified disable above, then restores the prior image paths by physical
+display UUID and checks Mac readback. Missing displays or originals are reported
+as incomplete restoration, never silently skipped.
+
+Restore limit: the supported AppKit API restores image paths, not Apple's prior
+Photos shuffle or per-Space timing. The original system Index.plist is preserved
+as private `wallpaper-store-before.plist` for reference/recovery. Those prior
+shuffle/timing choices must be reselected in System Settings; the installer does
+not overwrite undocumented live Apple configuration. Keep originals and archived
+provenance. Do not remove the Keychain entry, cache or backups without an explicit
+deletion request.

@@ -20,6 +20,7 @@ async function request(route,method='GET',body=Buffer.alloc(0)) {
  return response;
 }
 async function main() {
+ if(fs.existsSync(path.join(root,'disabled')))return;
  fs.mkdirSync(root,{recursive:true,mode:0o700});fs.chmodSync(root,0o700);
  const lock=path.join(root,'run.lock');let fd;
  try {fd=fs.openSync(lock,'wx',0o600);}catch(e){
